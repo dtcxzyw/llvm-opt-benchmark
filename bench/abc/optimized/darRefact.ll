@@ -93,8 +93,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %20 = icmp slt i32 %19, 6
   %21 = add nsw i32 %19, -5
   %22 = shl nuw i32 1, %21
-  %.fr43.i = freeze i32 %22
-  %23 = select i1 %20, i32 1, i32 %.fr43.i
+  %.fr.i = freeze i32 %22
+  %23 = select i1 %20, i32 1, i32 %.fr.i
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 2
   %26 = add nsw i64 %25, 8
@@ -185,7 +185,7 @@ Vec_PtrAllocTruthTables.exit.loopexit:            ; preds = %..loopexit27_crit_e
   br label %Vec_PtrAllocTruthTables.exit
 
 Vec_PtrAllocTruthTables.exit:                     ; preds = %Vec_PtrAllocTruthTables.exit.loopexit, %Vec_PtrAllocSimInfo.exit.i
-  %.pre-phi31 = phi i32 [ %.pre30, %Vec_PtrAllocTruthTables.exit.loopexit ], [ %.fr43.i, %Vec_PtrAllocSimInfo.exit.i ]
+  %.pre-phi31 = phi i32 [ %.pre30, %Vec_PtrAllocTruthTables.exit.loopexit ], [ %.fr.i, %Vec_PtrAllocSimInfo.exit.i ]
   %53 = phi i32 [ %.pre, %Vec_PtrAllocTruthTables.exit.loopexit ], [ %19, %Vec_PtrAllocSimInfo.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %35, ptr %54, align 8, !tbaa !40

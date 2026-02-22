@@ -4132,7 +4132,7 @@ _ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i: ; p
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke310, %.invoke, %238, %38, %.split2.i.i, %.split189.us, %.split193.us, %156
+.loopexit.split-lp:                               ; preds = %.invoke311, %.invoke, %238, %38, %.split2.i.i, %.split189.us, %.split193.us, %156
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4461,17 +4461,17 @@ common.resume:                                    ; preds = %.body, %108
 
 158:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !971
-  br label %.invoke310
+  br label %.invoke311
 
-.invoke310:                                       ; preds = %201, %196, %191, %186, %158
+.invoke311:                                       ; preds = %201, %196, %191, %186, %158
   %.sink = phi ptr [ %9, %201 ], [ %11, %196 ], [ %13, %191 ], [ %15, %186 ], [ %17, %158 ]
   %159 = phi ptr [ %10, %201 ], [ %12, %196 ], [ %14, %191 ], [ %16, %186 ], [ %18, %158 ]
   %160 = phi ptr [ @anon.8fb3e9176293a06dcba80ef82613c36f.66, %201 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.67, %196 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.68, %191 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.69, %186 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.70, %158 ]
   store ptr null, ptr %.sink, align 8, !noalias !971
   invoke void @_ZN4core9panicking13assert_failed17h98c62476ebb0b3f7E(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %159, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.8fb3e9176293a06dcba80ef82613c36f.65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) %160) #32
-          to label %.cont311 unwind label %.loopexit.split-lp
+          to label %.cont312 unwind label %.loopexit.split-lp
 
-.cont311:                                         ; preds = %.invoke310
+.cont312:                                         ; preds = %.invoke311
   unreachable
 
 161:                                              ; preds = %157
@@ -4537,7 +4537,7 @@ _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i: ; preds = %1
 
 186:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !971
-  br label %.invoke310
+  br label %.invoke311
 
 187:                                              ; preds = %182
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !971
@@ -4550,7 +4550,7 @@ _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i: ; preds = %1
 
 191:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !971
-  br label %.invoke310
+  br label %.invoke311
 
 192:                                              ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !971
@@ -4563,7 +4563,7 @@ _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i: ; preds = %1
 
 196:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !971
-  br label %.invoke310
+  br label %.invoke311
 
 197:                                              ; preds = %192
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !971
@@ -4574,7 +4574,7 @@ _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i: ; preds = %1
 
 201:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !971
-  br label %.invoke310
+  br label %.invoke311
 
 202:                                              ; preds = %197
   %203 = atomicrmw add ptr %199, i64 1 monotonic, align 8, !noalias !1003

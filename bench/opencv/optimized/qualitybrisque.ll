@@ -2512,25 +2512,25 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit140:        ; preds = %_ZNSt6vectorIfSaIfE
   %251 = zext nneg i32 %247 to i64
   %252 = shl nuw nsw i64 %251, 2
   %wide.trip.count329 = zext nneg i32 %245 to i64
-  %.fr = freeze i32 %250
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %253 = trunc nuw nsw i64 %indvars.iv326 to i32
-  %254 = add i32 %.fr, %253
-  %255 = icmp sgt i32 %254, -1
+  %253 = trunc i64 %indvars.iv326 to i32
+  %254 = add i32 %250, %253
+  %.fr = freeze i32 %254
+  %255 = icmp sgt i32 %.fr, -1
   %256 = load ptr, ptr %113, align 8
   %257 = load ptr, ptr %114, align 8
   %258 = load ptr, ptr %115, align 8
   %259 = load ptr, ptr %116, align 8
-  %260 = zext nneg i32 %254 to i64
+  %260 = zext nneg i32 %.fr to i64
   br i1 %255, label %.lr.ph.split.us228, label %.lr.ph.split.us.us
 
 .lr.ph.split.us228:                               ; preds = %.preheader.us, %274
   %indvars.iv = phi i64 [ %indvars.iv.next, %274 ], [ 0, %.preheader.us ]
   %261 = load i32, ptr %111, align 8
-  %262 = icmp slt i32 %254, %261
+  %262 = icmp slt i32 %.fr, %261
   br i1 %262, label %263, label %.lr.ph.split.us228._crit_edge
 
 .lr.ph.split.us228._crit_edge:                    ; preds = %.lr.ph.split.us228

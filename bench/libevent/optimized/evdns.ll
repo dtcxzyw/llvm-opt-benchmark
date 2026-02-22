@@ -7951,11 +7951,11 @@ define range(i32 -9, 1) i32 @evdns_cache_lookup(ptr noundef captures(none) %0, p
   %6 = alloca %struct.evdns_cache, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr %2, align 8
-  %.fr123 = freeze i32 %7
-  %8 = and i32 %.fr123, 2
+  %.fr124 = freeze i32 %7
+  %8 = and i32 %.fr124, 2
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
-  %.fr124 = freeze i32 %10
+  %.fr125 = freeze i32 %10
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.29, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %12 = load ptr, ptr %11, align 8
@@ -7993,8 +7993,8 @@ evdns_tree_SPLAY_FIND.exit:                       ; preds = %21
 
 .lr.ph:                                           ; preds = %evdns_tree_SPLAY_FIND.exit
   %.not58 = icmp eq i32 %8, 0
-  %28 = icmp eq i32 %.fr124, 10
-  %29 = icmp eq i32 %.fr124, 2
+  %28 = icmp eq i32 %.fr125, 10
+  %29 = icmp eq i32 %.fr125, 2
   %rev.i5.i = tail call i16 @llvm.bswap.i16(i16 %3)
   br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
 

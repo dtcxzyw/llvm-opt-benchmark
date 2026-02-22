@@ -8488,10 +8488,10 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
   %70 = and i8 %69, 1
   store i8 %70, ptr %67, align 1, !tbaa !14
   %71 = call { i32, i32, i32, i32 } asm "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #56, !srcloc !213
-  %.fr = freeze { i32, i32, i32, i32 } %71
-  %72 = extractvalue { i32, i32, i32, i32 } %.fr, 1
-  %73 = extractvalue { i32, i32, i32, i32 } %.fr, 2
-  %74 = extractvalue { i32, i32, i32, i32 } %.fr, 3
+  %.fr89 = freeze { i32, i32, i32, i32 } %71
+  %72 = extractvalue { i32, i32, i32, i32 } %.fr89, 1
+  %73 = extractvalue { i32, i32, i32, i32 } %.fr89, 2
+  %74 = extractvalue { i32, i32, i32, i32 } %.fr89, 3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %76 = trunc i32 %72 to i8
   %77 = lshr i8 %76, 5

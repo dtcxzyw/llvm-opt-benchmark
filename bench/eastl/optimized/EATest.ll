@@ -389,15 +389,15 @@ declare void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull
 define dso_local noundef i32 @_ZN2EA8UnitTest17ThreadSleepRandomEjjb(i32 noundef %nMinSleepMS, i32 noundef %nMaxSleepMS, i1 noundef zeroext %bVerboseOutput) local_unnamed_addr #0 {
 entry:
   %nThreadSleepDuration = alloca %"struct.EA::Thread::ThreadTime", align 8
-  %sub = sub i32 %nMaxSleepMS, %nMinSleepMS
+  %sub = sub nsw i32 %nMaxSleepMS, %nMinSleepMS
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @rand() #33
-  %call.fr = freeze i32 %call
-  %rem = urem i32 %call.fr, %sub
-  %add = add i32 %rem, %nMinSleepMS
+  %rem = urem i32 %call, %sub
+  %rem.fr = freeze i32 %rem
+  %add = add i32 %rem.fr, %nMinSleepMS
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

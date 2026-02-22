@@ -52,9 +52,9 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
 25:                                               ; preds = %5
   %26 = and i32 %13, 24
   %or.cond.not = icmp eq i32 %26, 0
-  br i1 %or.cond.not, label %._crit_edge531, label %.lr.ph.i
+  br i1 %or.cond.not, label %._crit_edge530, label %.lr.ph.i
 
-._crit_edge531:                                   ; preds = %25
+._crit_edge530:                                   ; preds = %25
   %.pre = load i8, ptr %1, align 1, !tbaa !15
   br label %41
 
@@ -97,9 +97,9 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit: ; preds = %33
   %40 = load double, ptr %39, align 8, !tbaa !19
   br label %.thread
 
-41:                                               ; preds = %._crit_edge531, %37
-  %42 = phi i8 [ %28, %37 ], [ %.pre, %._crit_edge531 ]
-  %43 = phi ptr [ %27, %37 ], [ %1, %._crit_edge531 ]
+41:                                               ; preds = %._crit_edge530, %37
+  %42 = phi i8 [ %28, %37 ], [ %.pre, %._crit_edge530 ]
+  %43 = phi ptr [ %27, %37 ], [ %1, %._crit_edge530 ]
   switch i8 %42, label %58 [
     i8 43, label %44
     i8 45, label %44
@@ -216,7 +216,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit: ; preds 
   br i1 %82, label %83, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
-  %.pre533.pre = load ptr, ptr %6, align 8, !tbaa !3
+  %.pre532.pre = load ptr, ptr %6, align 8, !tbaa !3
   br label %112
 
 83:                                               ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
@@ -286,14 +286,14 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread: ; preds 
   br label %.thread
 
 112:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge, %58
-  %.pre533 = phi ptr [ %.pre533.pre, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %59, %58 ]
+  %.pre532 = phi ptr [ %.pre532.pre, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %59, %58 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !26
   %.not216 = icmp eq ptr %114, null
   br i1 %.not216, label %165, label %115
 
 115:                                              ; preds = %112
-  %116 = load i8, ptr %.pre533, align 1, !tbaa !15
+  %116 = load i8, ptr %.pre532, align 1, !tbaa !15
   br i1 %20, label %117, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260
 
 117:                                              ; preds = %115
@@ -339,7 +339,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260: ; pre
   br i1 %135, label %136, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260
-  %.pre532 = load ptr, ptr %6, align 8, !tbaa !3
+  %.pre531 = load ptr, ptr %6, align 8, !tbaa !3
   br label %165
 
 136:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260
@@ -409,7 +409,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread: ; preds 
   br label %.thread
 
 165:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge, %112
-  %166 = phi ptr [ %.pre532, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge ], [ %.pre533, %112 ]
+  %166 = phi ptr [ %.pre531, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge ], [ %.pre532, %112 ]
   %167 = load i8, ptr %166, align 1, !tbaa !15
   %168 = icmp eq i8 %167, 48
   br i1 %168, label %169, label %.critedge227
@@ -461,21 +461,21 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360: ; preds = %_ZN17
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split: ; preds = %176, %177, %_ZN17double_conversionL7isDigitEii.exit30.thread.i, %184
   %.promoted443.ph = phi ptr [ %174, %176 ], [ %174, %177 ], [ %178, %_ZN17double_conversionL7isDigitEii.exit30.thread.i ], [ %174, %184 ]
-  %.pre534.pr = load i8, ptr %.promoted443.ph, align 1, !tbaa !15
+  %.pre533.pr = load i8, ptr %.promoted443.ph, align 1, !tbaa !15
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split, %180
-  %.pre534 = phi i8 [ %.pre534.pr, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %181, %180 ]
+  %.pre533 = phi i8 [ %.pre533.pr, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %181, %180 ]
   %.promoted443 = phi ptr [ %.promoted443.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %174, %180 ]
   %190 = load i32, ptr %0, align 8, !tbaa !10
   %191 = and i32 %190, 128
   %.not218 = icmp eq i32 %191, 0
   %192 = and i32 %190, 129
   %or.cond225 = icmp eq i32 %192, 0
-  br i1 %or.cond225, label %232, label %193
+  br i1 %or.cond225, label %233, label %193
 
 193:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
-  switch i8 %.pre534, label %._crit_edge [
+  switch i8 %.pre533, label %._crit_edge [
     i8 120, label %194
     i8 88, label %194
     i8 48, label %.lr.ph
@@ -501,22 +501,22 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17dou
 
 .thread362:                                       ; preds = %200, %201
   %203 = load i8, ptr %195, align 1, !tbaa !15
-  %.fr = freeze i8 %203
-  %204 = sext i8 %.fr to i32
+  %204 = sext i8 %203 to i32
   %205 = add nsw i32 %204, -48
   %or.cond.i = icmp ult i32 %205, 10
-  %206 = icmp ult i8 %.fr, 64
+  %206 = icmp ult i8 %203, 64
   %or.cond19.i = and i1 %206, %or.cond.i
-  br i1 %or.cond19.i, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %switch.early.test
+  %207 = freeze i1 %or.cond19.i
+  br i1 %207, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %.thread362
-  %switch.tableidx = add i8 %.fr, -65
-  %207 = icmp ult i8 %switch.tableidx, 38
-  br i1 %207, label %switch.hole_check, label %_ZN17double_conversionL7isDigitEii.exit.thread363
+  %switch.tableidx = add i8 %203, -65
+  %208 = icmp ult i8 %switch.tableidx, 38
+  br i1 %208, label %switch.hole_check, label %_ZN17double_conversionL7isDigitEii.exit.thread363
 
 _ZN17double_conversionL7isDigitEii.exit.thread363: ; preds = %switch.hole_check, %switch.early.test
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %209 = load double, ptr %208, align 8, !tbaa !19
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %210 = load double, ptr %209, align 8, !tbaa !19
   br label %.thread
 
 switch.hole_check:                                ; preds = %switch.early.test
@@ -526,412 +526,412 @@ switch.hole_check:                                ; preds = %switch.early.test
   br i1 %switch.lobit, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %_ZN17double_conversionL7isDigitEii.exit.thread363
 
 _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.hole_check, %.thread362, %201
-  %210 = phi i1 [ false, %.thread362 ], [ true, %201 ], [ false, %switch.hole_check ]
+  %211 = phi i1 [ false, %.thread362 ], [ true, %201 ], [ false, %switch.hole_check ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %211 = load i16, ptr %170, align 8, !tbaa !27
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %213 = load double, ptr %212, align 8, !tbaa !19
-  %214 = call fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi4EPKcEEdPT0_S3_btbbdbPb(ptr noundef %6, ptr noundef nonnull %12, i1 noundef zeroext %.0180, i16 noundef zeroext %211, i1 noundef zeroext %210, i1 noundef zeroext %15, double noundef %213, i1 noundef zeroext %3, ptr noundef %7)
-  %215 = load i8, ptr %7, align 1, !tbaa !28, !range !30, !noundef !31
-  %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %231, label %217
+  %212 = load i16, ptr %170, align 8, !tbaa !27
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %214 = load double, ptr %213, align 8, !tbaa !19
+  %215 = call fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi4EPKcEEdPT0_S3_btbbdbPb(ptr noundef %6, ptr noundef nonnull %12, i1 noundef zeroext %.0180, i16 noundef zeroext %212, i1 noundef zeroext %211, i1 noundef zeroext %15, double noundef %214, i1 noundef zeroext %3, ptr noundef %7)
+  %216 = load i8, ptr %7, align 1, !tbaa !28, !range !30, !noundef !31
+  %217 = trunc nuw i8 %216 to i1
+  br i1 %217, label %232, label %218
 
-217:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread
+218:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread
   %.promoted.i271 = load ptr, ptr %6, align 8
   %.not10.not.i272 = icmp eq ptr %.promoted.i271, %12
   %or.cond400 = select i1 %.not223, i1 true, i1 %.not10.not.i272
   br i1 %or.cond400, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280, label %.lr.ph.i273
 
-.lr.ph.i273:                                      ; preds = %217, %224
-  %218 = phi ptr [ %225, %224 ], [ %.promoted.i271, %217 ]
-  %219 = load i8, ptr %218, align 1, !tbaa !15
+.lr.ph.i273:                                      ; preds = %218, %225
+  %219 = phi ptr [ %226, %225 ], [ %.promoted.i271, %218 ]
+  %220 = load i8, ptr %219, align 1, !tbaa !15
   br label %.preheader.i.i274
 
-220:                                              ; preds = %.preheader.i.i274
+221:                                              ; preds = %.preheader.i.i274
   %indvars.iv.next30.i.i276 = add nuw nsw i64 %indvars.iv29.i.i275, 1
   %exitcond32.not.i.i277 = icmp eq i64 %indvars.iv.next30.i.i276, 6
   br i1 %exitcond32.not.i.i277, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280, label %.preheader.i.i274, !llvm.loop !16
 
-.preheader.i.i274:                                ; preds = %220, %.lr.ph.i273
-  %indvars.iv29.i.i275 = phi i64 [ %indvars.iv.next30.i.i276, %220 ], [ 0, %.lr.ph.i273 ]
-  %221 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i275
-  %222 = load i8, ptr %221, align 1, !tbaa !15
-  %223 = icmp eq i8 %219, %222
-  br i1 %223, label %224, label %220
+.preheader.i.i274:                                ; preds = %221, %.lr.ph.i273
+  %indvars.iv29.i.i275 = phi i64 [ %indvars.iv.next30.i.i276, %221 ], [ 0, %.lr.ph.i273 ]
+  %222 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i275
+  %223 = load i8, ptr %222, align 1, !tbaa !15
+  %224 = icmp eq i8 %220, %223
+  br i1 %224, label %225, label %221
 
-224:                                              ; preds = %.preheader.i.i274
-  %225 = getelementptr inbounds nuw i8, ptr %218, i64 1
-  %.not.not.i279 = icmp eq ptr %225, %12
+225:                                              ; preds = %.preheader.i.i274
+  %226 = getelementptr inbounds nuw i8, ptr %219, i64 1
+  %.not.not.i279 = icmp eq ptr %226, %12
   br i1 %.not.not.i279, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280, label %.lr.ph.i273, !llvm.loop !18
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280: ; preds = %224, %220, %217
-  %226 = phi ptr [ %218, %220 ], [ %.promoted.i271, %217 ], [ %12, %224 ]
-  %227 = ptrtoint ptr %226 to i64
-  %228 = ptrtoint ptr %1 to i64
-  %229 = sub i64 %227, %228
-  %230 = trunc i64 %229 to i32
-  store i32 %230, ptr %4, align 4, !tbaa !8
-  br label %231
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280: ; preds = %225, %221, %218
+  %227 = phi ptr [ %219, %221 ], [ %.promoted.i271, %218 ], [ %12, %225 ]
+  %228 = ptrtoint ptr %227 to i64
+  %229 = ptrtoint ptr %1 to i64
+  %230 = sub i64 %228, %229
+  %231 = trunc i64 %230 to i32
+  store i32 %231, ptr %4, align 4, !tbaa !8
+  br label %232
 
-231:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280, %_ZN17double_conversionL7isDigitEii.exit.thread
+232:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit280, %_ZN17double_conversionL7isDigitEii.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-232:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
-  %233 = icmp eq i8 %.pre534, 48
-  br i1 %233, label %.lr.ph, label %._crit_edge
+233:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
+  %234 = icmp eq i8 %.pre533, 48
+  br i1 %234, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %193, %232
+.lr.ph:                                           ; preds = %193, %233
   br i1 %173, label %.lr.ph.split.us, label %_ZN17double_conversionL7isDigitEii.exit.thread.i285
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge413.us
-  %234 = phi ptr [ %235, %.backedge413.us ], [ %.promoted443, %.lr.ph ]
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1
-  %236 = icmp eq ptr %235, %12
-  br i1 %236, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, label %.backedge413.us
+  %235 = phi ptr [ %236, %.backedge413.us ], [ %.promoted443, %.lr.ph ]
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 1
+  %237 = icmp eq ptr %236, %12
+  br i1 %237, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, label %.backedge413.us
 
 .backedge413.us:                                  ; preds = %.lr.ph.split.us
-  %237 = load i8, ptr %235, align 1, !tbaa !15
-  %238 = icmp eq i8 %237, 48
-  br i1 %238, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !32
+  %238 = load i8, ptr %236, align 1, !tbaa !15
+  %239 = icmp eq i8 %238, 48
+  br i1 %239, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !32
 
 _ZN17double_conversionL7isDigitEii.exit.thread.i285: ; preds = %.lr.ph, %.backedge413
-  %239 = phi ptr [ %243, %.backedge413 ], [ %.promoted443, %.lr.ph ]
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 1
-  %241 = icmp eq ptr %240, %12
-  br i1 %241, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, label %245
+  %240 = phi ptr [ %244, %.backedge413 ], [ %.promoted443, %.lr.ph ]
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 1
+  %242 = icmp eq ptr %241, %12
+  br i1 %242, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, label %246
 
-.backedge413:                                     ; preds = %250, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289
-  %242 = phi i8 [ %.pre535.pre, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289 ], [ %251, %250 ]
-  %243 = phi ptr [ %240, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289 ], [ %246, %250 ]
-  %244 = icmp eq i8 %242, 48
-  br i1 %244, label %_ZN17double_conversionL7isDigitEii.exit.thread.i285, label %._crit_edge, !llvm.loop !32
+.backedge413:                                     ; preds = %251, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289
+  %243 = phi i8 [ %.pre534.pre, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289 ], [ %252, %251 ]
+  %244 = phi ptr [ %241, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289 ], [ %247, %251 ]
+  %245 = icmp eq i8 %243, 48
+  br i1 %245, label %_ZN17double_conversionL7isDigitEii.exit.thread.i285, label %._crit_edge, !llvm.loop !32
 
-245:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i285
-  %246 = getelementptr inbounds nuw i8, ptr %239, i64 2
-  %247 = icmp ne ptr %246, %12
-  %.pre535.pre = load i8, ptr %240, align 1, !tbaa !15
-  %248 = sext i8 %.pre535.pre to i32
-  %249 = icmp eq i32 %248, %172
-  %or.cond636 = select i1 %247, i1 %249, i1 false
-  br i1 %or.cond636, label %250, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289
+246:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i285
+  %247 = getelementptr inbounds nuw i8, ptr %240, i64 2
+  %248 = icmp ne ptr %247, %12
+  %.pre534.pre = load i8, ptr %241, align 1, !tbaa !15
+  %249 = sext i8 %.pre534.pre to i32
+  %250 = icmp eq i32 %249, %172
+  %or.cond635 = select i1 %248, i1 %250, i1 false
+  br i1 %or.cond635, label %251, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289
 
-250:                                              ; preds = %245
-  %251 = load i8, ptr %246, align 1, !tbaa !15
-  %252 = sext i8 %251 to i32
-  %253 = add nsw i32 %252, -48
-  %or.cond.i25.i286 = icmp ult i32 %253, 10
-  %254 = icmp ult i8 %251, 58
-  %or.cond19.i26.i287 = and i1 %254, %or.cond.i25.i286
+251:                                              ; preds = %246
+  %252 = load i8, ptr %247, align 1, !tbaa !15
+  %253 = sext i8 %252 to i32
+  %254 = add nsw i32 %253, -48
+  %or.cond.i25.i286 = icmp ult i32 %254, 10
+  %255 = icmp ult i8 %252, 58
+  %or.cond19.i26.i287 = and i1 %255, %or.cond.i25.i286
   br i1 %or.cond19.i26.i287, label %.backedge413, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289: ; preds = %250, %245
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289: ; preds = %251, %246
   br label %.backedge413
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i285, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %235, %.lr.ph.split.us ], [ %240, %_ZN17double_conversionL7isDigitEii.exit.thread.i285 ]
-  %255 = ptrtoint ptr %.us-phi to i64
-  %256 = ptrtoint ptr %1 to i64
-  %257 = sub i64 %255, %256
-  %258 = trunc i64 %257 to i32
-  store i32 %258, ptr %4, align 4, !tbaa !8
-  %259 = select i1 %.0180, double -0.000000e+00, double 0.000000e+00
+  %.us-phi = phi ptr [ %236, %.lr.ph.split.us ], [ %241, %_ZN17double_conversionL7isDigitEii.exit.thread.i285 ]
+  %256 = ptrtoint ptr %.us-phi to i64
+  %257 = ptrtoint ptr %1 to i64
+  %258 = sub i64 %256, %257
+  %259 = trunc i64 %258 to i32
+  store i32 %259, ptr %4, align 4, !tbaa !8
+  %260 = select i1 %.0180, double -0.000000e+00, double 0.000000e+00
   br label %.thread
 
-._crit_edge:                                      ; preds = %.backedge413, %.backedge413.us, %193, %232
-  %.lcssa444 = phi ptr [ %.promoted443, %232 ], [ %.promoted443, %193 ], [ %235, %.backedge413.us ], [ %243, %.backedge413 ]
+._crit_edge:                                      ; preds = %.backedge413, %.backedge413.us, %193, %233
+  %.lcssa444 = phi ptr [ %.promoted443, %233 ], [ %.promoted443, %193 ], [ %236, %.backedge413.us ], [ %244, %.backedge413 ]
   store ptr %.lcssa444, ptr %6, align 8
-  %260 = trunc i32 %190 to i8
-  %261 = lshr i8 %260, 1
-  %.pre537 = load i8, ptr %.lcssa444, align 1, !tbaa !15
+  %261 = trunc i32 %190 to i8
+  %262 = lshr i8 %261, 1
+  %.pre536 = load i8, ptr %.lcssa444, align 1, !tbaa !15
   br label %.critedge227
 
 .critedge227:                                     ; preds = %165, %._crit_edge
-  %262 = phi i8 [ %167, %165 ], [ %.pre537, %._crit_edge ]
+  %263 = phi i8 [ %167, %165 ], [ %.pre536, %._crit_edge ]
   %.promoted448 = phi ptr [ %166, %165 ], [ %.lcssa444, %._crit_edge ]
-  %263 = phi i8 [ 0, %165 ], [ %261, %._crit_edge ]
+  %264 = phi i8 [ 0, %165 ], [ %262, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %264 = add i8 %262, -48
-  %or.cond228450 = icmp ult i8 %264, 10
+  %265 = add i8 %263, -48
+  %or.cond228450 = icmp ult i8 %265, 10
   br i1 %or.cond228450, label %.lr.ph456, label %.critedge
 
 .lr.ph456:                                        ; preds = %.critedge227
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %266 = load i16, ptr %265, align 8, !tbaa !27
-  %267 = zext i16 %266 to i32
-  %268 = icmp eq i16 %266, 0
-  br label %269
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %267 = load i16, ptr %266, align 8, !tbaa !27
+  %268 = zext i16 %267 to i32
+  %269 = icmp eq i16 %267, 0
+  br label %270
 
-269:                                              ; preds = %.lr.ph456, %.backedge412
-  %270 = phi i8 [ %262, %.lr.ph456 ], [ %295, %.backedge412 ]
+270:                                              ; preds = %.lr.ph456, %.backedge412
+  %271 = phi i8 [ %263, %.lr.ph456 ], [ %296, %.backedge412 ]
   %.0165455 = phi i32 [ 0, %.lr.ph456 ], [ %.1166, %.backedge412 ]
   %.0170454 = phi i32 [ 0, %.lr.ph456 ], [ %.1171, %.backedge412 ]
   %.0173453 = phi i8 [ 0, %.lr.ph456 ], [ %.1174, %.backedge412 ]
-  %.0182452 = phi i8 [ %263, %.lr.ph456 ], [ %290, %.backedge412 ]
+  %.0182452 = phi i8 [ %264, %.lr.ph456 ], [ %291, %.backedge412 ]
   %.0185451 = phi i32 [ 0, %.lr.ph456 ], [ %.1186, %.backedge412 ]
-  %271 = phi ptr [ %.promoted448, %.lr.ph456 ], [ %294, %.backedge412 ]
-  %272 = icmp slt i32 %.0165455, 772
-  br i1 %272, label %273, label %278
+  %272 = phi ptr [ %.promoted448, %.lr.ph456 ], [ %295, %.backedge412 ]
+  %273 = icmp slt i32 %.0165455, 772
+  br i1 %273, label %274, label %279
 
-273:                                              ; preds = %269
-  %274 = add nsw i32 %.0185451, 1
-  %275 = sext i32 %.0185451 to i64
-  %276 = getelementptr inbounds i8, ptr %8, i64 %275
-  store i8 %270, ptr %276, align 1, !tbaa !15
-  %277 = add nsw i32 %.0165455, 1
-  br label %283
+274:                                              ; preds = %270
+  %275 = add nsw i32 %.0185451, 1
+  %276 = sext i32 %.0185451 to i64
+  %277 = getelementptr inbounds i8, ptr %8, i64 %276
+  store i8 %271, ptr %277, align 1, !tbaa !15
+  %278 = add nsw i32 %.0165455, 1
+  br label %284
 
-278:                                              ; preds = %269
-  %279 = add nsw i32 %.0170454, 1
-  %280 = trunc nuw i8 %.0173453 to i1
-  %281 = icmp ne i8 %270, 48
-  %narrow405 = or i1 %281, %280
-  %282 = zext i1 %narrow405 to i8
-  br label %283
+279:                                              ; preds = %270
+  %280 = add nsw i32 %.0170454, 1
+  %281 = trunc nuw i8 %.0173453 to i1
+  %282 = icmp ne i8 %271, 48
+  %narrow405 = or i1 %282, %281
+  %283 = zext i1 %narrow405 to i8
+  br label %284
 
-283:                                              ; preds = %278, %273
-  %.1186 = phi i32 [ %274, %273 ], [ %.0185451, %278 ]
-  %.1174 = phi i8 [ %.0173453, %273 ], [ %282, %278 ]
-  %.1171 = phi i32 [ %.0170454, %273 ], [ %279, %278 ]
-  %.1166 = phi i32 [ %277, %273 ], [ %.0165455, %278 ]
-  %284 = trunc i8 %.0182452 to i1
-  br i1 %284, label %285, label %289
+284:                                              ; preds = %279, %274
+  %.1186 = phi i32 [ %275, %274 ], [ %.0185451, %279 ]
+  %.1174 = phi i8 [ %.0173453, %274 ], [ %283, %279 ]
+  %.1171 = phi i32 [ %.0170454, %274 ], [ %280, %279 ]
+  %.1166 = phi i32 [ %278, %274 ], [ %.0165455, %279 ]
+  %285 = trunc i8 %.0182452 to i1
+  br i1 %285, label %286, label %290
 
-285:                                              ; preds = %283
-  %286 = load i8, ptr %271, align 1, !tbaa !15
-  %287 = icmp slt i8 %286, 56
-  %288 = zext i1 %287 to i8
-  br label %289
+286:                                              ; preds = %284
+  %287 = load i8, ptr %272, align 1, !tbaa !15
+  %288 = icmp slt i8 %287, 56
+  %289 = zext i1 %288 to i8
+  br label %290
 
-289:                                              ; preds = %285, %283
-  %290 = phi i8 [ 0, %283 ], [ %288, %285 ]
-  br i1 %268, label %291, label %297
+290:                                              ; preds = %286, %284
+  %291 = phi i8 [ 0, %284 ], [ %289, %286 ]
+  br i1 %269, label %292, label %298
 
-291:                                              ; preds = %289
-  %292 = getelementptr inbounds nuw i8, ptr %271, i64 1
-  %293 = icmp eq ptr %292, %12
-  br i1 %293, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %.backedge412
+292:                                              ; preds = %290
+  %293 = getelementptr inbounds nuw i8, ptr %272, i64 1
+  %294 = icmp eq ptr %293, %12
+  br i1 %294, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %.backedge412
 
-.backedge412:                                     ; preds = %312, %291, %304, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298
-  %294 = phi ptr [ %292, %291 ], [ %302, %304 ], [ %302, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298 ], [ %306, %312 ]
-  %295 = load i8, ptr %294, align 1, !tbaa !15
-  %296 = add i8 %295, -48
-  %or.cond228 = icmp ult i8 %296, 10
-  br i1 %or.cond228, label %269, label %.critedge, !llvm.loop !33
+.backedge412:                                     ; preds = %313, %292, %305, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298
+  %295 = phi ptr [ %293, %292 ], [ %303, %305 ], [ %303, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298 ], [ %307, %313 ]
+  %296 = load i8, ptr %295, align 1, !tbaa !15
+  %297 = add i8 %296, -48
+  %or.cond228 = icmp ult i8 %297, 10
+  br i1 %or.cond228, label %270, label %.critedge, !llvm.loop !33
 
-297:                                              ; preds = %289
-  %298 = load i8, ptr %271, align 1, !tbaa !15
-  %299 = sext i8 %298 to i32
-  %300 = add nsw i32 %299, -48
-  %or.cond.i.i290 = icmp ult i32 %300, 10
-  %301 = icmp ult i8 %298, 58
-  %or.cond19.i.i291 = and i1 %301, %or.cond.i.i290
-  %302 = getelementptr inbounds nuw i8, ptr %271, i64 1
-  %303 = icmp eq ptr %302, %12
-  br i1 %or.cond19.i.i291, label %_ZN17double_conversionL7isDigitEii.exit.thread.i294, label %304
+298:                                              ; preds = %290
+  %299 = load i8, ptr %272, align 1, !tbaa !15
+  %300 = sext i8 %299 to i32
+  %301 = add nsw i32 %300, -48
+  %or.cond.i.i290 = icmp ult i32 %301, 10
+  %302 = icmp ult i8 %299, 58
+  %or.cond19.i.i291 = and i1 %302, %or.cond.i.i290
+  %303 = getelementptr inbounds nuw i8, ptr %272, i64 1
+  %304 = icmp eq ptr %303, %12
+  br i1 %or.cond19.i.i291, label %_ZN17double_conversionL7isDigitEii.exit.thread.i294, label %305
 
-304:                                              ; preds = %297
-  br i1 %303, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %.backedge412
+305:                                              ; preds = %298
+  br i1 %304, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %.backedge412
 
-_ZN17double_conversionL7isDigitEii.exit.thread.i294: ; preds = %297
-  br i1 %303, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %305
+_ZN17double_conversionL7isDigitEii.exit.thread.i294: ; preds = %298
+  br i1 %304, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %306
 
-305:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i294
-  %306 = getelementptr inbounds nuw i8, ptr %271, i64 2
-  %307 = icmp eq ptr %306, %12
-  br i1 %307, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298, label %308
+306:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i294
+  %307 = getelementptr inbounds nuw i8, ptr %272, i64 2
+  %308 = icmp eq ptr %307, %12
+  br i1 %308, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298, label %309
 
-308:                                              ; preds = %305
-  %309 = load i8, ptr %302, align 1, !tbaa !15
-  %310 = sext i8 %309 to i32
-  %311 = icmp eq i32 %310, %267
-  br i1 %311, label %312, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298
+309:                                              ; preds = %306
+  %310 = load i8, ptr %303, align 1, !tbaa !15
+  %311 = sext i8 %310 to i32
+  %312 = icmp eq i32 %311, %268
+  br i1 %312, label %313, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298
 
-312:                                              ; preds = %308
-  %313 = load i8, ptr %306, align 1, !tbaa !15
-  %314 = sext i8 %313 to i32
-  %315 = add nsw i32 %314, -48
-  %or.cond.i25.i295 = icmp ult i32 %315, 10
-  %316 = icmp ult i8 %313, 58
-  %or.cond19.i26.i296 = and i1 %316, %or.cond.i25.i295
+313:                                              ; preds = %309
+  %314 = load i8, ptr %307, align 1, !tbaa !15
+  %315 = sext i8 %314 to i32
+  %316 = add nsw i32 %315, -48
+  %or.cond.i25.i295 = icmp ult i32 %316, 10
+  %317 = icmp ult i8 %314, 58
+  %or.cond19.i26.i296 = and i1 %317, %or.cond.i25.i295
   br i1 %or.cond19.i26.i296, label %.backedge412, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298: ; preds = %312, %305, %308
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit298: ; preds = %313, %306, %309
   br label %.backedge412
 
 .critedge:                                        ; preds = %.backedge412, %.critedge227
-  %.lcssa449 = phi ptr [ %.promoted448, %.critedge227 ], [ %294, %.backedge412 ]
+  %.lcssa449 = phi ptr [ %.promoted448, %.critedge227 ], [ %295, %.backedge412 ]
   %.0185.lcssa = phi i32 [ 0, %.critedge227 ], [ %.1186, %.backedge412 ]
-  %.0182.lcssa = phi i8 [ %263, %.critedge227 ], [ %290, %.backedge412 ]
+  %.0182.lcssa = phi i8 [ %264, %.critedge227 ], [ %291, %.backedge412 ]
   %.0173.lcssa = phi i8 [ 0, %.critedge227 ], [ %.1174, %.backedge412 ]
   %.0170.lcssa = phi i32 [ 0, %.critedge227 ], [ %.1171, %.backedge412 ]
   %.0165.lcssa = phi i32 [ 0, %.critedge227 ], [ %.1166, %.backedge412 ]
-  %.lcssa = phi i8 [ %262, %.critedge227 ], [ %295, %.backedge412 ]
+  %.lcssa = phi i8 [ %263, %.critedge227 ], [ %296, %.backedge412 ]
   store ptr %.lcssa449, ptr %6, align 8
-  %317 = icmp eq i32 %.0165.lcssa, 0
-  %spec.select = select i1 %317, i8 0, i8 %.0182.lcssa
-  %318 = icmp eq i8 %.lcssa, 46
-  br i1 %318, label %319, label %.critedge11
+  %318 = icmp eq i32 %.0165.lcssa, 0
+  %spec.select = select i1 %318, i8 0, i8 %.0182.lcssa
+  %319 = icmp eq i8 %.lcssa, 46
+  br i1 %319, label %320, label %.critedge11
 
-319:                                              ; preds = %.critedge
-  %320 = trunc i8 %spec.select to i1
-  %.not = xor i1 %320, true
+320:                                              ; preds = %.critedge
+  %321 = trunc i8 %spec.select to i1
+  %.not = xor i1 %321, true
   %or.cond7 = select i1 %.not, i1 true, i1 %15
-  br i1 %or.cond7, label %324, label %321
+  br i1 %or.cond7, label %325, label %322
 
-321:                                              ; preds = %319
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %323 = load double, ptr %322, align 8, !tbaa !19
+322:                                              ; preds = %320
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %324 = load double, ptr %323, align 8, !tbaa !19
   br label %.thread368
 
-324:                                              ; preds = %319
-  br i1 %320, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, label %325
+325:                                              ; preds = %320
+  br i1 %321, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, label %326
 
-325:                                              ; preds = %324
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %327 = load i16, ptr %326, align 8, !tbaa !27
-  %328 = call fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef %6, i16 noundef zeroext %327, i32 noundef 10, ptr nonnull %12)
-  br i1 %328, label %329, label %334
+326:                                              ; preds = %325
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %328 = load i16, ptr %327, align 8, !tbaa !27
+  %329 = call fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef %6, i16 noundef zeroext %328, i32 noundef 10, ptr nonnull %12)
+  br i1 %329, label %330, label %335
 
-329:                                              ; preds = %325
-  %330 = icmp ne i32 %.0165.lcssa, 0
-  %or.cond9 = or i1 %168, %330
-  br i1 %or.cond9, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386, label %331
+330:                                              ; preds = %326
+  %331 = icmp ne i32 %.0165.lcssa, 0
+  %or.cond9 = or i1 %168, %331
+  br i1 %or.cond9, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386, label %332
 
-331:                                              ; preds = %329
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %333 = load double, ptr %332, align 8, !tbaa !19
+332:                                              ; preds = %330
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %334 = load double, ptr %333, align 8, !tbaa !19
   br label %.thread368
 
-334:                                              ; preds = %325
+335:                                              ; preds = %326
   %.promoted467.pre = load ptr, ptr %6, align 8, !tbaa !3
-  %335 = load i8, ptr %.promoted467.pre, align 1, !tbaa !15
-  %336 = icmp eq i8 %335, 48
-  %or.cond637 = select i1 %317, i1 %336, i1 false
-  br i1 %or.cond637, label %.lr.ph465, label %.loopexit
+  %336 = load i8, ptr %.promoted467.pre, align 1, !tbaa !15
+  %337 = icmp eq i8 %336, 48
+  %or.cond636 = select i1 %318, i1 %337, i1 false
+  br i1 %or.cond636, label %.lr.ph465, label %.loopexit
 
-.lr.ph465:                                        ; preds = %334, %345
-  %.3159464 = phi i32 [ %346, %345 ], [ 0, %334 ]
-  %337 = call fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef %6, i16 noundef zeroext %327, i32 noundef 10, ptr nonnull %12)
-  br i1 %337, label %338, label %345
+.lr.ph465:                                        ; preds = %335, %346
+  %.3159464 = phi i32 [ %347, %346 ], [ 0, %335 ]
+  %338 = call fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef %6, i16 noundef zeroext %328, i32 noundef 10, ptr nonnull %12)
+  br i1 %338, label %339, label %346
 
-338:                                              ; preds = %.lr.ph465
-  %339 = load ptr, ptr %6, align 8, !tbaa !3
-  %340 = ptrtoint ptr %339 to i64
-  %341 = ptrtoint ptr %1 to i64
-  %342 = sub i64 %340, %341
-  %343 = trunc i64 %342 to i32
-  store i32 %343, ptr %4, align 4, !tbaa !8
-  %344 = select i1 %.0180, double -0.000000e+00, double 0.000000e+00
+339:                                              ; preds = %.lr.ph465
+  %340 = load ptr, ptr %6, align 8, !tbaa !3
+  %341 = ptrtoint ptr %340 to i64
+  %342 = ptrtoint ptr %1 to i64
+  %343 = sub i64 %341, %342
+  %344 = trunc i64 %343 to i32
+  store i32 %344, ptr %4, align 4, !tbaa !8
+  %345 = select i1 %.0180, double -0.000000e+00, double 0.000000e+00
   br label %.thread368
 
-345:                                              ; preds = %.lr.ph465
-  %346 = add nsw i32 %.3159464, -1
-  %347 = load ptr, ptr %6, align 8, !tbaa !3
-  %348 = load i8, ptr %347, align 1, !tbaa !15
-  %349 = icmp eq i8 %348, 48
-  br i1 %349, label %.lr.ph465, label %.loopexit, !llvm.loop !34
+346:                                              ; preds = %.lr.ph465
+  %347 = add nsw i32 %.3159464, -1
+  %348 = load ptr, ptr %6, align 8, !tbaa !3
+  %349 = load i8, ptr %348, align 1, !tbaa !15
+  %350 = icmp eq i8 %349, 48
+  br i1 %350, label %.lr.ph465, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %345, %334
-  %350 = phi i8 [ %335, %334 ], [ %348, %345 ]
-  %.promoted467 = phi ptr [ %.promoted467.pre, %334 ], [ %347, %345 ]
-  %.2158 = phi i32 [ 0, %334 ], [ %346, %345 ]
-  %351 = add i8 %350, -48
-  %or.cond229469 = icmp ult i8 %351, 10
+.loopexit:                                        ; preds = %346, %335
+  %351 = phi i8 [ %336, %335 ], [ %349, %346 ]
+  %.promoted467 = phi ptr [ %.promoted467.pre, %335 ], [ %348, %346 ]
+  %.2158 = phi i32 [ 0, %335 ], [ %347, %346 ]
+  %352 = add i8 %351, -48
+  %or.cond229469 = icmp ult i8 %352, 10
   br i1 %or.cond229469, label %.lr.ph475, label %.critedge11.loopexit
 
 .lr.ph475:                                        ; preds = %.loopexit
-  %352 = zext i16 %327 to i32
-  %353 = icmp eq i16 %327, 0
-  br label %354
+  %353 = zext i16 %328 to i32
+  %354 = icmp eq i16 %328, 0
+  br label %355
 
-354:                                              ; preds = %.lr.ph475, %.backedge
-  %355 = phi i8 [ %350, %.lr.ph475 ], [ %373, %.backedge ]
+355:                                              ; preds = %.lr.ph475, %.backedge
+  %356 = phi i8 [ %351, %.lr.ph475 ], [ %374, %.backedge ]
   %.4160473 = phi i32 [ %.2158, %.lr.ph475 ], [ %.5161, %.backedge ]
   %.3168472 = phi i32 [ %.0165.lcssa, %.lr.ph475 ], [ %.4169, %.backedge ]
   %.4177471 = phi i8 [ %.0173.lcssa, %.lr.ph475 ], [ %.5178, %.backedge ]
   %.4189470 = phi i32 [ %.0185.lcssa, %.lr.ph475 ], [ %.5190, %.backedge ]
-  %356 = phi ptr [ %.promoted467, %.lr.ph475 ], [ %372, %.backedge ]
-  %357 = icmp slt i32 %.3168472, 772
-  br i1 %357, label %358, label %364
+  %357 = phi ptr [ %.promoted467, %.lr.ph475 ], [ %373, %.backedge ]
+  %358 = icmp slt i32 %.3168472, 772
+  br i1 %358, label %359, label %365
 
-358:                                              ; preds = %354
-  %359 = add nsw i32 %.4189470, 1
-  %360 = sext i32 %.4189470 to i64
-  %361 = getelementptr inbounds i8, ptr %8, i64 %360
-  store i8 %355, ptr %361, align 1, !tbaa !15
-  %362 = add nsw i32 %.3168472, 1
-  %363 = add nsw i32 %.4160473, -1
-  br label %368
+359:                                              ; preds = %355
+  %360 = add nsw i32 %.4189470, 1
+  %361 = sext i32 %.4189470 to i64
+  %362 = getelementptr inbounds i8, ptr %8, i64 %361
+  store i8 %356, ptr %362, align 1, !tbaa !15
+  %363 = add nsw i32 %.3168472, 1
+  %364 = add nsw i32 %.4160473, -1
+  br label %369
 
-364:                                              ; preds = %354
-  %365 = trunc nuw i8 %.4177471 to i1
-  %366 = icmp ne i8 %355, 48
-  %narrow = or i1 %366, %365
-  %367 = zext i1 %narrow to i8
-  br label %368
+365:                                              ; preds = %355
+  %366 = trunc nuw i8 %.4177471 to i1
+  %367 = icmp ne i8 %356, 48
+  %narrow = or i1 %367, %366
+  %368 = zext i1 %narrow to i8
+  br label %369
 
-368:                                              ; preds = %364, %358
-  %.5190 = phi i32 [ %359, %358 ], [ %.4189470, %364 ]
-  %.5178 = phi i8 [ %.4177471, %358 ], [ %367, %364 ]
-  %.4169 = phi i32 [ %362, %358 ], [ %.3168472, %364 ]
-  %.5161 = phi i32 [ %363, %358 ], [ %.4160473, %364 ]
-  br i1 %353, label %369, label %375
+369:                                              ; preds = %365, %359
+  %.5190 = phi i32 [ %360, %359 ], [ %.4189470, %365 ]
+  %.5178 = phi i8 [ %.4177471, %359 ], [ %368, %365 ]
+  %.4169 = phi i32 [ %363, %359 ], [ %.3168472, %365 ]
+  %.5161 = phi i32 [ %364, %359 ], [ %.4160473, %365 ]
+  br i1 %354, label %370, label %376
 
-369:                                              ; preds = %368
-  %370 = getelementptr inbounds nuw i8, ptr %356, i64 1
-  %371 = icmp eq ptr %370, %12
-  br i1 %371, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592, label %.backedge
+370:                                              ; preds = %369
+  %371 = getelementptr inbounds nuw i8, ptr %357, i64 1
+  %372 = icmp eq ptr %371, %12
+  br i1 %372, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591, label %.backedge
 
-.backedge:                                        ; preds = %390, %369, %382, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307
-  %372 = phi ptr [ %370, %369 ], [ %380, %382 ], [ %380, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307 ], [ %384, %390 ]
-  %373 = load i8, ptr %372, align 1, !tbaa !15
-  %374 = add i8 %373, -48
-  %or.cond229 = icmp ult i8 %374, 10
-  br i1 %or.cond229, label %354, label %.critedge11.loopexit, !llvm.loop !35
+.backedge:                                        ; preds = %391, %370, %383, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307
+  %373 = phi ptr [ %371, %370 ], [ %381, %383 ], [ %381, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307 ], [ %385, %391 ]
+  %374 = load i8, ptr %373, align 1, !tbaa !15
+  %375 = add i8 %374, -48
+  %or.cond229 = icmp ult i8 %375, 10
+  br i1 %or.cond229, label %355, label %.critedge11.loopexit, !llvm.loop !35
 
-375:                                              ; preds = %368
-  %376 = load i8, ptr %356, align 1, !tbaa !15
-  %377 = sext i8 %376 to i32
-  %378 = add nsw i32 %377, -48
-  %or.cond.i.i299 = icmp ult i32 %378, 10
-  %379 = icmp ult i8 %376, 58
-  %or.cond19.i.i300 = and i1 %379, %or.cond.i.i299
-  %380 = getelementptr inbounds nuw i8, ptr %356, i64 1
-  %381 = icmp eq ptr %380, %12
-  br i1 %or.cond19.i.i300, label %_ZN17double_conversionL7isDigitEii.exit.thread.i303, label %382
+376:                                              ; preds = %369
+  %377 = load i8, ptr %357, align 1, !tbaa !15
+  %378 = sext i8 %377 to i32
+  %379 = add nsw i32 %378, -48
+  %or.cond.i.i299 = icmp ult i32 %379, 10
+  %380 = icmp ult i8 %377, 58
+  %or.cond19.i.i300 = and i1 %380, %or.cond.i.i299
+  %381 = getelementptr inbounds nuw i8, ptr %357, i64 1
+  %382 = icmp eq ptr %381, %12
+  br i1 %or.cond19.i.i300, label %_ZN17double_conversionL7isDigitEii.exit.thread.i303, label %383
 
-382:                                              ; preds = %375
-  br i1 %381, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592, label %.backedge
+383:                                              ; preds = %376
+  br i1 %382, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591, label %.backedge
 
-_ZN17double_conversionL7isDigitEii.exit.thread.i303: ; preds = %375
-  br i1 %381, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592, label %383
+_ZN17double_conversionL7isDigitEii.exit.thread.i303: ; preds = %376
+  br i1 %382, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591, label %384
 
-383:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i303
-  %384 = getelementptr inbounds nuw i8, ptr %356, i64 2
-  %385 = icmp eq ptr %384, %12
-  br i1 %385, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307, label %386
+384:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i303
+  %385 = getelementptr inbounds nuw i8, ptr %357, i64 2
+  %386 = icmp eq ptr %385, %12
+  br i1 %386, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307, label %387
 
-386:                                              ; preds = %383
-  %387 = load i8, ptr %380, align 1, !tbaa !15
-  %388 = sext i8 %387 to i32
-  %389 = icmp eq i32 %388, %352
-  br i1 %389, label %390, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307
+387:                                              ; preds = %384
+  %388 = load i8, ptr %381, align 1, !tbaa !15
+  %389 = sext i8 %388 to i32
+  %390 = icmp eq i32 %389, %353
+  br i1 %390, label %391, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307
 
-390:                                              ; preds = %386
-  %391 = load i8, ptr %384, align 1, !tbaa !15
-  %392 = sext i8 %391 to i32
-  %393 = add nsw i32 %392, -48
-  %or.cond.i25.i304 = icmp ult i32 %393, 10
-  %394 = icmp ult i8 %391, 58
-  %or.cond19.i26.i305 = and i1 %394, %or.cond.i25.i304
+391:                                              ; preds = %387
+  %392 = load i8, ptr %385, align 1, !tbaa !15
+  %393 = sext i8 %392 to i32
+  %394 = add nsw i32 %393, -48
+  %or.cond.i25.i304 = icmp ult i32 %394, 10
+  %395 = icmp ult i8 %392, 58
+  %or.cond19.i26.i305 = and i1 %395, %or.cond.i25.i304
   br i1 %or.cond19.i26.i305, label %.backedge, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307: ; preds = %390, %383, %386
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307: ; preds = %391, %384, %387
   br label %.backedge
 
 .critedge11.loopexit:                             ; preds = %.backedge, %.loopexit
-  %.lcssa468 = phi ptr [ %.promoted467, %.loopexit ], [ %372, %.backedge ]
+  %.lcssa468 = phi ptr [ %.promoted467, %.loopexit ], [ %373, %.backedge ]
   %.4189.lcssa = phi i32 [ %.0185.lcssa, %.loopexit ], [ %.5190, %.backedge ]
   %.4177.lcssa = phi i8 [ %.0173.lcssa, %.loopexit ], [ %.5178, %.backedge ]
   %.3168.lcssa = phi i32 [ %.0165.lcssa, %.loopexit ], [ %.4169, %.backedge ]
@@ -940,348 +940,348 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit307: ; preds = %390, %383, %
   br label %.critedge11
 
 .critedge11:                                      ; preds = %.critedge11.loopexit, %.critedge
-  %395 = phi ptr [ %.lcssa449, %.critedge ], [ %.lcssa468, %.critedge11.loopexit ]
+  %396 = phi ptr [ %.lcssa449, %.critedge ], [ %.lcssa468, %.critedge11.loopexit ]
   %.3188 = phi i32 [ %.0185.lcssa, %.critedge ], [ %.4189.lcssa, %.critedge11.loopexit ]
   %.3176 = phi i8 [ %.0173.lcssa, %.critedge ], [ %.4177.lcssa, %.critedge11.loopexit ]
   %.2167 = phi i32 [ %.0165.lcssa, %.critedge ], [ %.3168.lcssa, %.critedge11.loopexit ]
   %.1157 = phi i32 [ 0, %.critedge ], [ %.4160.lcssa, %.critedge11.loopexit ]
   %.not12 = xor i1 %168, true
-  %396 = icmp eq i32 %.1157, 0
-  %or.cond14 = select i1 %.not12, i1 %396, i1 false
-  %397 = icmp eq i32 %.2167, 0
-  %or.cond16 = select i1 %or.cond14, i1 %397, i1 false
-  br i1 %or.cond16, label %398, label %401
+  %397 = icmp eq i32 %.1157, 0
+  %or.cond14 = select i1 %.not12, i1 %397, i1 false
+  %398 = icmp eq i32 %.2167, 0
+  %or.cond16 = select i1 %or.cond14, i1 %398, i1 false
+  br i1 %or.cond16, label %399, label %402
 
-398:                                              ; preds = %.critedge11
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %400 = load double, ptr %399, align 8, !tbaa !19
+399:                                              ; preds = %.critedge11
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %401 = load double, ptr %400, align 8, !tbaa !19
   br label %.thread368
 
-401:                                              ; preds = %.critedge11
-  %402 = load i8, ptr %395, align 1, !tbaa !15
-  switch i8 %402, label %455 [
-    i8 101, label %403
-    i8 69, label %403
+402:                                              ; preds = %.critedge11
+  %403 = load i8, ptr %396, align 1, !tbaa !15
+  switch i8 %403, label %456 [
+    i8 101, label %404
+    i8 69, label %404
   ]
 
-403:                                              ; preds = %401, %401
-  %404 = trunc i8 %spec.select to i1
-  %.not17 = xor i1 %404, true
+404:                                              ; preds = %402, %402
+  %405 = trunc i8 %spec.select to i1
+  %.not17 = xor i1 %405, true
   %or.cond19 = select i1 %.not17, i1 true, i1 %15
-  br i1 %or.cond19, label %408, label %405
+  br i1 %or.cond19, label %409, label %406
 
-405:                                              ; preds = %403
-  %406 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %407 = load double, ptr %406, align 8, !tbaa !19
+406:                                              ; preds = %404
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %408 = load double, ptr %407, align 8, !tbaa !19
   br label %.thread368
 
-408:                                              ; preds = %403
-  br i1 %404, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, label %409
+409:                                              ; preds = %404
+  br i1 %405, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, label %410
 
-409:                                              ; preds = %408
-  %410 = getelementptr inbounds nuw i8, ptr %395, i64 1
-  store ptr %410, ptr %6, align 8, !tbaa !3
-  %411 = icmp eq ptr %410, %12
-  br i1 %411, label %412, label %416
+410:                                              ; preds = %409
+  %411 = getelementptr inbounds nuw i8, ptr %396, i64 1
+  store ptr %411, ptr %6, align 8, !tbaa !3
+  %412 = icmp eq ptr %411, %12
+  br i1 %412, label %413, label %417
 
-412:                                              ; preds = %409
-  br i1 %15, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, label %413
+413:                                              ; preds = %410
+  br i1 %15, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, label %414
 
-413:                                              ; preds = %412
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %415 = load double, ptr %414, align 8, !tbaa !19
+414:                                              ; preds = %413
+  %415 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %416 = load double, ptr %415, align 8, !tbaa !19
   br label %.thread368
 
-416:                                              ; preds = %409
-  %417 = load i8, ptr %410, align 1, !tbaa !15
-  switch i8 %417, label %425 [
-    i8 43, label %418
-    i8 45, label %418
+417:                                              ; preds = %410
+  %418 = load i8, ptr %411, align 1, !tbaa !15
+  switch i8 %418, label %426 [
+    i8 43, label %419
+    i8 45, label %419
   ]
 
-418:                                              ; preds = %416, %416
-  %419 = getelementptr inbounds nuw i8, ptr %395, i64 2
-  store ptr %419, ptr %6, align 8, !tbaa !3
-  %420 = icmp eq ptr %419, %12
-  br i1 %420, label %421, label %425
+419:                                              ; preds = %417, %417
+  %420 = getelementptr inbounds nuw i8, ptr %396, i64 2
+  store ptr %420, ptr %6, align 8, !tbaa !3
+  %421 = icmp eq ptr %420, %12
+  br i1 %421, label %422, label %426
 
-421:                                              ; preds = %418
-  br i1 %15, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, label %422
+422:                                              ; preds = %419
+  br i1 %15, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, label %423
 
-422:                                              ; preds = %421
-  %423 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %424 = load double, ptr %423, align 8, !tbaa !19
+423:                                              ; preds = %422
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %425 = load double, ptr %424, align 8, !tbaa !19
   br label %.thread368
 
-425:                                              ; preds = %416, %418
-  %.promoted481 = phi ptr [ %419, %418 ], [ %410, %416 ]
-  %.0192 = phi i8 [ %417, %418 ], [ 43, %416 ]
-  %426 = icmp eq ptr %.promoted481, %12
-  br i1 %426, label %430, label %427
+426:                                              ; preds = %417, %419
+  %.promoted481 = phi ptr [ %420, %419 ], [ %411, %417 ]
+  %.0192 = phi i8 [ %418, %419 ], [ 43, %417 ]
+  %427 = icmp eq ptr %.promoted481, %12
+  br i1 %427, label %431, label %428
 
-427:                                              ; preds = %425
-  %428 = load i8, ptr %.promoted481, align 1, !tbaa !15
-  %429 = add i8 %428, -58
-  %or.cond230 = icmp ult i8 %429, -10
-  br i1 %or.cond230, label %430, label %.preheader
+428:                                              ; preds = %426
+  %429 = load i8, ptr %.promoted481, align 1, !tbaa !15
+  %430 = add i8 %429, -58
+  %or.cond230 = icmp ult i8 %430, -10
+  br i1 %or.cond230, label %431, label %.preheader
 
-430:                                              ; preds = %427, %425
-  br i1 %15, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, label %431
+431:                                              ; preds = %428, %426
+  br i1 %15, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, label %432
 
-431:                                              ; preds = %430
-  %432 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %433 = load double, ptr %432, align 8, !tbaa !19
+432:                                              ; preds = %431
+  %433 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %434 = load double, ptr %433, align 8, !tbaa !19
   br label %.thread368
 
-.preheader:                                       ; preds = %427, %447
-  %434 = phi i8 [ %448, %447 ], [ %428, %427 ]
-  %435 = phi ptr [ %446, %447 ], [ %.promoted481, %427 ]
-  %.0193 = phi i32 [ %.1194, %447 ], [ 0, %427 ]
-  %436 = zext nneg i8 %434 to i32
-  %437 = icmp sgt i32 %.0193, 107374181
-  br i1 %437, label %438, label %441
+.preheader:                                       ; preds = %428, %448
+  %435 = phi i8 [ %449, %448 ], [ %429, %428 ]
+  %436 = phi ptr [ %447, %448 ], [ %.promoted481, %428 ]
+  %.0193 = phi i32 [ %.1194, %448 ], [ 0, %428 ]
+  %437 = zext nneg i8 %435 to i32
+  %438 = icmp sgt i32 %.0193, 107374181
+  br i1 %438, label %439, label %442
 
-438:                                              ; preds = %.preheader
-  %439 = icmp eq i32 %.0193, 107374182
-  %440 = icmp samesign ult i8 %434, 52
-  %or.cond21 = and i1 %439, %440
-  br i1 %or.cond21, label %441, label %445
+439:                                              ; preds = %.preheader
+  %440 = icmp eq i32 %.0193, 107374182
+  %441 = icmp samesign ult i8 %435, 52
+  %or.cond21 = and i1 %440, %441
+  br i1 %or.cond21, label %442, label %446
 
-441:                                              ; preds = %438, %.preheader
-  %442 = mul nsw i32 %.0193, 10
-  %443 = add i32 %442, -48
-  %444 = add i32 %443, %436
-  br label %445
+442:                                              ; preds = %439, %.preheader
+  %443 = mul nsw i32 %.0193, 10
+  %444 = add i32 %443, -48
+  %445 = add i32 %444, %437
+  br label %446
 
-445:                                              ; preds = %438, %441
-  %.1194 = phi i32 [ %444, %441 ], [ 1073741823, %438 ]
-  %446 = getelementptr inbounds nuw i8, ptr %435, i64 1
-  %.not219 = icmp eq ptr %446, %12
-  br i1 %.not219, label %450, label %447
+446:                                              ; preds = %439, %442
+  %.1194 = phi i32 [ %445, %442 ], [ 1073741823, %439 ]
+  %447 = getelementptr inbounds nuw i8, ptr %436, i64 1
+  %.not219 = icmp eq ptr %447, %12
+  br i1 %.not219, label %451, label %448
 
-447:                                              ; preds = %445
-  %448 = load i8, ptr %446, align 1, !tbaa !15
-  %449 = add i8 %448, -48
-  %or.cond231 = icmp ult i8 %449, 10
-  br i1 %or.cond231, label %.preheader, label %450, !llvm.loop !36
+448:                                              ; preds = %446
+  %449 = load i8, ptr %447, align 1, !tbaa !15
+  %450 = add i8 %449, -48
+  %or.cond231 = icmp ult i8 %450, 10
+  br i1 %or.cond231, label %.preheader, label %451, !llvm.loop !36
 
-450:                                              ; preds = %445, %447
-  store ptr %446, ptr %6, align 8, !tbaa !3
-  %451 = icmp eq i8 %.0192, 45
-  %452 = sub nsw i32 0, %.1194
-  %453 = select i1 %451, i32 %452, i32 %.1194
-  %454 = add nsw i32 %453, %.1157
-  br label %455
+451:                                              ; preds = %446, %448
+  store ptr %447, ptr %6, align 8, !tbaa !3
+  %452 = icmp eq i8 %.0192, 45
+  %453 = sub nsw i32 0, %.1194
+  %454 = select i1 %452, i32 %453, i32 %.1194
+  %455 = add nsw i32 %454, %.1157
+  br label %456
 
-455:                                              ; preds = %450, %401
-  %.promoted483 = phi ptr [ %446, %450 ], [ %395, %401 ]
-  %.6162 = phi i32 [ %454, %450 ], [ %.1157, %401 ]
-  %456 = and i32 %13, 20
-  %or.cond25.not = icmp ne i32 %456, 0
+456:                                              ; preds = %451, %402
+  %.promoted483 = phi ptr [ %447, %451 ], [ %396, %402 ]
+  %.6162 = phi i32 [ %455, %451 ], [ %.1157, %402 ]
+  %457 = and i32 %13, 20
+  %or.cond25.not = icmp ne i32 %457, 0
   %.not220 = icmp eq ptr %.promoted483, %12
   %or.cond401 = or i1 %or.cond25.not, %.not220
-  br i1 %or.cond401, label %460, label %457
+  br i1 %or.cond401, label %461, label %458
 
-457:                                              ; preds = %455
-  %458 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %459 = load double, ptr %458, align 8, !tbaa !19
+458:                                              ; preds = %456
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %460 = load double, ptr %459, align 8, !tbaa !19
   br label %.thread368
 
-460:                                              ; preds = %455
+461:                                              ; preds = %456
   %or.cond402 = or i1 %15, %.not220
   br i1 %or.cond402, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread, label %.lr.ph.i310
 
-.lr.ph.i310:                                      ; preds = %460, %467
-  %461 = phi ptr [ %468, %467 ], [ %.promoted483, %460 ]
-  %462 = load i8, ptr %461, align 1, !tbaa !15
+.lr.ph.i310:                                      ; preds = %461, %468
+  %462 = phi ptr [ %469, %468 ], [ %.promoted483, %461 ]
+  %463 = load i8, ptr %462, align 1, !tbaa !15
   br label %.preheader.i.i311
 
-463:                                              ; preds = %.preheader.i.i311
+464:                                              ; preds = %.preheader.i.i311
   %indvars.iv.next30.i.i313 = add nuw nsw i64 %indvars.iv29.i.i312, 1
   %exitcond32.not.i.i314 = icmp eq i64 %indvars.iv.next30.i.i313, 6
   br i1 %exitcond32.not.i.i314, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317, label %.preheader.i.i311, !llvm.loop !16
 
-.preheader.i.i311:                                ; preds = %463, %.lr.ph.i310
-  %indvars.iv29.i.i312 = phi i64 [ %indvars.iv.next30.i.i313, %463 ], [ 0, %.lr.ph.i310 ]
-  %464 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i312
-  %465 = load i8, ptr %464, align 1, !tbaa !15
-  %466 = icmp eq i8 %462, %465
-  br i1 %466, label %467, label %463
+.preheader.i.i311:                                ; preds = %464, %.lr.ph.i310
+  %indvars.iv29.i.i312 = phi i64 [ %indvars.iv.next30.i.i313, %464 ], [ 0, %.lr.ph.i310 ]
+  %465 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i312
+  %466 = load i8, ptr %465, align 1, !tbaa !15
+  %467 = icmp eq i8 %463, %466
+  br i1 %467, label %468, label %464
 
-467:                                              ; preds = %.preheader.i.i311
-  %468 = getelementptr inbounds nuw i8, ptr %461, i64 1
-  %.not.not.i316 = icmp eq ptr %468, %12
+468:                                              ; preds = %.preheader.i.i311
+  %469 = getelementptr inbounds nuw i8, ptr %462, i64 1
+  %.not.not.i316 = icmp eq ptr %469, %12
   br i1 %.not.not.i316, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit, label %.lr.ph.i310, !llvm.loop !18
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317: ; preds = %463
-  %469 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %470 = load double, ptr %469, align 8, !tbaa !19
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317: ; preds = %464
+  %470 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %471 = load double, ptr %470, align 8, !tbaa !19
   br label %.thread368
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit: ; preds = %467
-  store ptr %468, ptr %6, align 8
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit: ; preds = %468
+  store ptr %469, ptr %6, align 8
   br label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread: ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit, %460
-  %.promoted486 = phi ptr [ %468, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit ], [ %.promoted483, %460 ]
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread: ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit, %461
+  %.promoted486 = phi ptr [ %469, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread.loopexit ], [ %.promoted483, %461 ]
   %.not10.not.i319 = icmp eq ptr %.promoted486, %12
   %or.cond403 = or i1 %.not223, %.not10.not.i319
   br i1 %or.cond403, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327, label %.lr.ph.i320
 
-.lr.ph.i320:                                      ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread, %477
-  %471 = phi ptr [ %478, %477 ], [ %.promoted486, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ]
-  %472 = load i8, ptr %471, align 1, !tbaa !15
+.lr.ph.i320:                                      ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread, %478
+  %472 = phi ptr [ %479, %478 ], [ %.promoted486, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ]
+  %473 = load i8, ptr %472, align 1, !tbaa !15
   br label %.preheader.i.i321
 
-473:                                              ; preds = %.preheader.i.i321
+474:                                              ; preds = %.preheader.i.i321
   %indvars.iv.next30.i.i323 = add nuw nsw i64 %indvars.iv29.i.i322, 1
   %exitcond32.not.i.i324 = icmp eq i64 %indvars.iv.next30.i.i323, 6
   br i1 %exitcond32.not.i.i324, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %.preheader.i.i321, !llvm.loop !16
 
-.preheader.i.i321:                                ; preds = %473, %.lr.ph.i320
-  %indvars.iv29.i.i322 = phi i64 [ %indvars.iv.next30.i.i323, %473 ], [ 0, %.lr.ph.i320 ]
-  %474 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i322
-  %475 = load i8, ptr %474, align 1, !tbaa !15
-  %476 = icmp eq i8 %472, %475
-  br i1 %476, label %477, label %473
+.preheader.i.i321:                                ; preds = %474, %.lr.ph.i320
+  %indvars.iv29.i.i322 = phi i64 [ %indvars.iv.next30.i.i323, %474 ], [ 0, %.lr.ph.i320 ]
+  %475 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i322
+  %476 = load i8, ptr %475, align 1, !tbaa !15
+  %477 = icmp eq i8 %473, %476
+  br i1 %477, label %478, label %474
 
-477:                                              ; preds = %.preheader.i.i321
-  %478 = getelementptr inbounds nuw i8, ptr %471, i64 1
-  %.not.not.i326 = icmp eq ptr %478, %12
+478:                                              ; preds = %.preheader.i.i321
+  %479 = getelementptr inbounds nuw i8, ptr %472, i64 1
+  %.not.not.i326 = icmp eq ptr %479, %12
   br i1 %.not.not.i326, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, label %.lr.ph.i320, !llvm.loop !18
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split: ; preds = %430, %421, %412
-  store ptr %395, ptr %6, align 8, !tbaa !3
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split: ; preds = %431, %422, %413
+  store ptr %396, ptr %6, align 8, !tbaa !3
   br label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386: ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, %329
-  %.2187.ph385 = phi i32 [ %.0185.lcssa, %329 ], [ %.3188, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split ]
-  %.2175.ph = phi i8 [ %.0173.lcssa, %329 ], [ %.3176, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split ]
-  %.0156.ph = phi i32 [ 0, %329 ], [ %.1157, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split ]
-  %479 = add nsw i32 %.0156.ph, %.0170.lcssa
-  br label %497
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386: ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split, %330
+  %.2187.ph385 = phi i32 [ %.0185.lcssa, %330 ], [ %.3188, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split ]
+  %.2175.ph = phi i8 [ %.0173.lcssa, %330 ], [ %.3176, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split ]
+  %.0156.ph = phi i32 [ 0, %330 ], [ %.1157, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386.sink.split ]
+  %480 = add nsw i32 %.0156.ph, %.0170.lcssa
+  br label %498
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i303, %382, %369
-  %480 = phi ptr [ %370, %369 ], [ %380, %382 ], [ %380, %_ZN17double_conversionL7isDigitEii.exit.thread.i303 ]
-  store ptr %480, ptr %6, align 8
-  %481 = add nsw i32 %.5161, %.0170.lcssa
-  br label %497
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i303, %383, %370
+  %481 = phi ptr [ %371, %370 ], [ %381, %383 ], [ %381, %_ZN17double_conversionL7isDigitEii.exit.thread.i303 ]
+  store ptr %481, ptr %6, align 8
+  %482 = add nsw i32 %.5161, %.0170.lcssa
+  br label %498
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i294, %304, %291, %477, %473
-  %.sink = phi ptr [ %478, %477 ], [ %471, %473 ], [ %302, %304 ], [ %292, %291 ], [ %302, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
-  %.ph = phi ptr [ %12, %477 ], [ %471, %473 ], [ %302, %304 ], [ %292, %291 ], [ %302, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
-  %.2187.ph = phi i32 [ %.3188, %477 ], [ %.3188, %473 ], [ %.1186, %291 ], [ %.1186, %304 ], [ %.1186, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
-  %.1183.ph = phi i8 [ %spec.select, %477 ], [ %spec.select, %473 ], [ %290, %291 ], [ %290, %304 ], [ %290, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
-  %.2175.ph674 = phi i8 [ %.3176, %477 ], [ %.3176, %473 ], [ %.1174, %291 ], [ %.1174, %304 ], [ %.1174, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
-  %.2172.ph = phi i32 [ %.0170.lcssa, %477 ], [ %.0170.lcssa, %473 ], [ %.1171, %291 ], [ %.1171, %304 ], [ %.1171, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
-  %.0156.ph675 = phi i32 [ %.6162, %477 ], [ %.6162, %473 ], [ 0, %291 ], [ 0, %304 ], [ 0, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i294, %305, %292, %478, %474
+  %.sink = phi ptr [ %479, %478 ], [ %472, %474 ], [ %303, %305 ], [ %293, %292 ], [ %303, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+  %.ph = phi ptr [ %12, %478 ], [ %472, %474 ], [ %303, %305 ], [ %293, %292 ], [ %303, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+  %.2187.ph = phi i32 [ %.3188, %478 ], [ %.3188, %474 ], [ %.1186, %292 ], [ %.1186, %305 ], [ %.1186, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+  %.1183.ph = phi i8 [ %spec.select, %478 ], [ %spec.select, %474 ], [ %291, %292 ], [ %291, %305 ], [ %291, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+  %.2175.ph673 = phi i8 [ %.3176, %478 ], [ %.3176, %474 ], [ %.1174, %292 ], [ %.1174, %305 ], [ %.1174, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+  %.2172.ph = phi i32 [ %.0170.lcssa, %478 ], [ %.0170.lcssa, %474 ], [ %.1171, %292 ], [ %.1171, %305 ], [ %.1171, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
+  %.0156.ph674 = phi i32 [ %.6162, %478 ], [ %.6162, %474 ], [ 0, %292 ], [ 0, %305 ], [ 0, %_ZN17double_conversionL7isDigitEii.exit.thread.i294 ]
   store ptr %.sink, ptr %6, align 8
   br label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
 
 _ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327: ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread
-  %482 = phi ptr [ %.promoted486, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
+  %483 = phi ptr [ %.promoted486, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
   %.2187 = phi i32 [ %.3188, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.2187.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
   %.1183 = phi i8 [ %spec.select, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.1183.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
-  %.2175 = phi i8 [ %.3176, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.2175.ph674, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
+  %.2175 = phi i8 [ %.3176, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.2175.ph673, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
   %.2172 = phi i32 [ %.0170.lcssa, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.2172.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
-  %.0156 = phi i32 [ %.6162, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.0156.ph675, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
-  %483 = add nsw i32 %.0156, %.2172
-  %484 = trunc i8 %.1183 to i1
-  br i1 %484, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, label %497
+  %.0156 = phi i32 [ %.6162, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317.thread ], [ %.0156.ph674, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.sink.split ]
+  %484 = add nsw i32 %.0156, %.2172
+  %485 = trunc i8 %.1183 to i1
+  br i1 %485, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, label %498
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread: ; preds = %408, %324, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
-  %485 = phi ptr [ %482, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %395, %408 ], [ %.lcssa449, %324 ]
-  %.2187383 = phi i32 [ %.2187, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.3188, %408 ], [ %.0185.lcssa, %324 ]
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread: ; preds = %409, %325, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
+  %486 = phi ptr [ %483, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %396, %409 ], [ %.lcssa449, %325 ]
+  %.2187383 = phi i32 [ %.2187, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.3188, %409 ], [ %.0185.lcssa, %325 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %8, ptr %10, align 8, !tbaa !3
-  %486 = sext i32 %.2187383 to i64
-  %487 = getelementptr inbounds i8, ptr %8, i64 %486
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %489 = load i16, ptr %488, align 8, !tbaa !27
-  %490 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %491 = load double, ptr %490, align 8, !tbaa !19
-  %492 = call fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S2_btbbdbPb(ptr noundef %10, ptr noundef %487, i1 noundef zeroext %.0180, i16 noundef zeroext %489, i1 noundef zeroext %15, double noundef %491, i1 noundef zeroext %3, ptr noundef %9)
-  %493 = ptrtoint ptr %485 to i64
-  %494 = ptrtoint ptr %1 to i64
-  %495 = sub i64 %493, %494
-  %496 = trunc i64 %495 to i32
-  store i32 %496, ptr %4, align 4, !tbaa !8
+  %487 = sext i32 %.2187383 to i64
+  %488 = getelementptr inbounds i8, ptr %8, i64 %487
+  %489 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %490 = load i16, ptr %489, align 8, !tbaa !27
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %492 = load double, ptr %491, align 8, !tbaa !19
+  %493 = call fastcc noundef double @_ZN17double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S2_btbbdbPb(ptr noundef %10, ptr noundef %488, i1 noundef zeroext %.0180, i16 noundef zeroext %490, i1 noundef zeroext %15, double noundef %492, i1 noundef zeroext %3, ptr noundef %9)
+  %494 = ptrtoint ptr %486 to i64
+  %495 = ptrtoint ptr %1 to i64
+  %496 = sub i64 %494, %495
+  %497 = trunc i64 %496 to i32
+  store i32 %497, ptr %4, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread368
 
-497:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
-  %498 = phi i32 [ %479, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386 ], [ %483, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %481, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592 ]
-  %.2175393 = phi i8 [ %.2175.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386 ], [ %.2175, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.5178, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592 ]
-  %.2187392 = phi i32 [ %.2187.ph385, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386 ], [ %.2187, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.5190, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread592 ]
-  %499 = trunc nuw i8 %.2175393 to i1
-  br i1 %499, label %500, label %505
+498:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327
+  %499 = phi i32 [ %480, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386 ], [ %484, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %482, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591 ]
+  %.2175393 = phi i8 [ %.2175.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386 ], [ %.2175, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.5178, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591 ]
+  %.2187392 = phi i32 [ %.2187.ph385, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread386 ], [ %.2187, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327 ], [ %.5190, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread591 ]
+  %500 = trunc nuw i8 %.2175393 to i1
+  br i1 %500, label %501, label %506
 
-500:                                              ; preds = %497
-  %501 = add nsw i32 %.2187392, 1
-  %502 = sext i32 %.2187392 to i64
-  %503 = getelementptr inbounds i8, ptr %8, i64 %502
-  store i8 49, ptr %503, align 1, !tbaa !15
-  %504 = add nsw i32 %498, -1
-  br label %505
+501:                                              ; preds = %498
+  %502 = add nsw i32 %.2187392, 1
+  %503 = sext i32 %.2187392 to i64
+  %504 = getelementptr inbounds i8, ptr %8, i64 %503
+  store i8 49, ptr %504, align 1, !tbaa !15
+  %505 = add nsw i32 %499, -1
+  br label %506
 
-505:                                              ; preds = %500, %497
-  %.6191 = phi i32 [ %501, %500 ], [ %.2187392, %497 ]
-  %.9 = phi i32 [ %504, %500 ], [ %498, %497 ]
-  %506 = sext i32 %.6191 to i64
-  %507 = getelementptr inbounds i8, ptr %8, i64 %506
-  store i8 0, ptr %507, align 1, !tbaa !15
-  %508 = zext i32 %.6191 to i64
-  br label %509
+506:                                              ; preds = %501, %498
+  %.6191 = phi i32 [ %502, %501 ], [ %.2187392, %498 ]
+  %.9 = phi i32 [ %505, %501 ], [ %499, %498 ]
+  %507 = sext i32 %.6191 to i64
+  %508 = getelementptr inbounds i8, ptr %8, i64 %507
+  store i8 0, ptr %508, align 1, !tbaa !15
+  %509 = zext i32 %.6191 to i64
+  br label %510
 
-509:                                              ; preds = %512, %505
-  %indvars.iv.i = phi i64 [ %513, %512 ], [ %508, %505 ]
-  %510 = trunc nuw i64 %indvars.iv.i to i32
-  %511 = icmp sgt i32 %510, 0
-  br i1 %511, label %512, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit
+510:                                              ; preds = %513, %506
+  %indvars.iv.i = phi i64 [ %514, %513 ], [ %509, %506 ]
+  %511 = trunc nuw i64 %indvars.iv.i to i32
+  %512 = icmp sgt i32 %511, 0
+  br i1 %512, label %513, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit
 
-512:                                              ; preds = %509
-  %513 = add nsw i64 %indvars.iv.i, -1
-  %514 = getelementptr inbounds nuw i8, ptr %8, i64 %513
-  %515 = load i8, ptr %514, align 1, !tbaa !15
-  %.not.i = icmp eq i8 %515, 48
-  br i1 %.not.i, label %509, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit, !llvm.loop !37
+513:                                              ; preds = %510
+  %514 = add nsw i64 %indvars.iv.i, -1
+  %515 = getelementptr inbounds nuw i8, ptr %8, i64 %514
+  %516 = load i8, ptr %515, align 1, !tbaa !15
+  %.not.i = icmp eq i8 %516, 48
+  br i1 %.not.i, label %510, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit, !llvm.loop !37
 
-_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit: ; preds = %509, %512
-  %.sroa.3.1.i = phi i32 [ 0, %509 ], [ %510, %512 ]
-  %516 = sub nsw i32 %.6191, %.sroa.3.1.i
-  %517 = add nsw i32 %516, %.9
-  br i1 %3, label %518, label %520
+_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit: ; preds = %510, %513
+  %.sroa.3.1.i = phi i32 [ 0, %510 ], [ %511, %513 ]
+  %517 = sub nsw i32 %.6191, %.sroa.3.1.i
+  %518 = add nsw i32 %517, %.9
+  br i1 %3, label %519, label %521
 
-518:                                              ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit
-  %519 = call noundef double @_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.1.i, i32 noundef %517)
-  br label %523
+519:                                              ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit
+  %520 = call noundef double @_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.1.i, i32 noundef %518)
+  br label %524
 
-520:                                              ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit
-  %521 = call noundef float @_ZN17double_conversion13StrtofTrimmedENS_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.1.i, i32 noundef %517)
-  %522 = fpext float %521 to double
-  br label %523
+521:                                              ; preds = %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit
+  %522 = call noundef float @_ZN17double_conversion13StrtofTrimmedENS_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.1.i, i32 noundef %518)
+  %523 = fpext float %522 to double
+  br label %524
 
-523:                                              ; preds = %520, %518
-  %.0179 = phi double [ %519, %518 ], [ %522, %520 ]
-  %524 = load ptr, ptr %6, align 8, !tbaa !3
-  %525 = ptrtoint ptr %524 to i64
-  %526 = ptrtoint ptr %1 to i64
-  %527 = sub i64 %525, %526
-  %528 = trunc i64 %527 to i32
-  store i32 %528, ptr %4, align 4, !tbaa !8
-  %529 = fneg double %.0179
-  %530 = select i1 %.0180, double %529, double %.0179
+524:                                              ; preds = %521, %519
+  %.0179 = phi double [ %520, %519 ], [ %523, %521 ]
+  %525 = load ptr, ptr %6, align 8, !tbaa !3
+  %526 = ptrtoint ptr %525 to i64
+  %527 = ptrtoint ptr %1 to i64
+  %528 = sub i64 %526, %527
+  %529 = trunc i64 %528 to i32
+  store i32 %529, ptr %4, align 4, !tbaa !8
+  %530 = fneg double %.0179
+  %531 = select i1 %.0180, double %530, double %.0179
   br label %.thread368
 
-.thread368:                                       ; preds = %431, %422, %413, %523, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317, %457, %405, %398, %338, %331, %321
-  %.6 = phi double [ %492, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread ], [ %530, %523 ], [ %333, %331 ], [ %344, %338 ], [ %400, %398 ], [ %323, %321 ], [ %470, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317 ], [ %459, %457 ], [ %407, %405 ], [ %433, %431 ], [ %424, %422 ], [ %415, %413 ]
+.thread368:                                       ; preds = %432, %423, %414, %524, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317, %458, %406, %399, %339, %332, %322
+  %.6 = phi double [ %493, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit327.thread ], [ %531, %524 ], [ %334, %332 ], [ %345, %339 ], [ %401, %399 ], [ %324, %322 ], [ %471, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit317 ], [ %460, %458 ], [ %408, %406 ], [ %434, %432 ], [ %425, %423 ], [ %416, %414 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit415, %54, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread, %86, %92, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256, %139, %145, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270, %111, %164, %_ZN17double_conversionL7isDigitEii.exit.thread363, %231, %.thread368, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, %197, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360, %38, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit, %22
-  %.0 = phi double [ %24, %22 ], [ %36, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit ], [ %40, %38 ], [ 0xFFF8000000000000, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread ], [ %105, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256 ], [ %94, %92 ], [ %88, %86 ], [ 0x7FF0000000000000, %111 ], [ %158, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270 ], [ %147, %145 ], [ %141, %139 ], [ 0x7FF8000000000000, %164 ], [ %209, %_ZN17double_conversionL7isDigitEii.exit.thread363 ], [ 0xFFF0000000000000, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread ], [ %189, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360 ], [ %199, %197 ], [ %.6, %.thread368 ], [ %259, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread ], [ %214, %231 ], [ %53, %.loopexit415 ], [ %56, %54 ]
+.thread:                                          ; preds = %.loopexit415, %54, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread, %86, %92, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256, %139, %145, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270, %111, %164, %_ZN17double_conversionL7isDigitEii.exit.thread363, %232, %.thread368, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread, %197, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360, %38, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit, %22
+  %.0 = phi double [ %24, %22 ], [ %36, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit ], [ %40, %38 ], [ 0xFFF8000000000000, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270.thread ], [ %105, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256 ], [ %94, %92 ], [ %88, %86 ], [ 0x7FF0000000000000, %111 ], [ %158, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit270 ], [ %147, %145 ], [ %141, %139 ], [ 0x7FF8000000000000, %164 ], [ %210, %_ZN17double_conversionL7isDigitEii.exit.thread363 ], [ 0xFFF0000000000000, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit256.thread ], [ %189, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360 ], [ %199, %197 ], [ %.6, %.thread368 ], [ %260, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread ], [ %215, %232 ], [ %53, %.loopexit415 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }
@@ -1327,9 +1327,9 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
 25:                                               ; preds = %5
   %26 = and i32 %13, 24
   %or.cond.not = icmp eq i32 %26, 0
-  br i1 %or.cond.not, label %._crit_edge464, label %.lr.ph.i
+  br i1 %or.cond.not, label %._crit_edge465, label %.lr.ph.i
 
-._crit_edge464:                                   ; preds = %25
+._crit_edge465:                                   ; preds = %25
   %.pre = load i16, ptr %1, align 2, !tbaa !40
   br label %46
 
@@ -1387,9 +1387,9 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit: ; preds = %.loopex
   %45 = load double, ptr %44, align 8, !tbaa !19
   br label %.thread
 
-46:                                               ; preds = %._crit_edge464, %.loopexit365
-  %47 = phi i16 [ %28, %.loopexit365 ], [ %.pre, %._crit_edge464 ]
-  %48 = phi ptr [ %27, %.loopexit365 ], [ %1, %._crit_edge464 ]
+46:                                               ; preds = %._crit_edge465, %.loopexit365
+  %47 = phi i16 [ %28, %.loopexit365 ], [ %.pre, %._crit_edge465 ]
+  %48 = phi ptr [ %27, %.loopexit365 ], [ %1, %._crit_edge465 ]
   switch i16 %47, label %69 [
     i16 43, label %49
     i16 45, label %49
@@ -1456,13 +1456,13 @@ _ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit251: ; preds = %.loo
   br label %.thread
 
 68:                                               ; preds = %.loopexit362
-  %.0305.ptr.le568 = getelementptr inbounds nuw i8, ptr %48, i64 %.0305.idx
-  store ptr %.0305.ptr.le568, ptr %6, align 8, !tbaa !38
+  %.0305.ptr.le569 = getelementptr inbounds nuw i8, ptr %48, i64 %.0305.idx
+  store ptr %.0305.ptr.le569, ptr %6, align 8, !tbaa !38
   br label %69
 
 69:                                               ; preds = %68, %46
   %70 = phi i16 [ %51, %68 ], [ %47, %46 ]
-  %71 = phi ptr [ %.0305.ptr.le568, %68 ], [ %48, %46 ]
+  %71 = phi ptr [ %.0305.ptr.le569, %68 ], [ %48, %46 ]
   %.0180 = phi i1 [ %50, %68 ], [ false, %46 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !20
@@ -1521,7 +1521,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit: ; preds 
   br i1 %94, label %95, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
-  %.pre470.pre = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre471.pre = load ptr, ptr %6, align 8, !tbaa !38
   br label %121
 
 95:                                               ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
@@ -1552,10 +1552,10 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edg
 
 108:                                              ; preds = %107
   %109 = call fastcc noundef zeroext i1 @_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_(ptr noundef %6, ptr noundef nonnull %12)
-  br i1 %109, label %110, label %._crit_edge465
+  br i1 %109, label %110, label %._crit_edge466
 
-._crit_edge465:                                   ; preds = %108
-  %.pre466 = load ptr, ptr %6, align 8, !tbaa !38
+._crit_edge466:                                   ; preds = %108
+  %.pre467 = load ptr, ptr %6, align 8, !tbaa !38
   br label %113
 
 110:                                              ; preds = %108
@@ -1563,8 +1563,8 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edg
   %112 = load double, ptr %111, align 8, !tbaa !19
   br label %.thread
 
-113:                                              ; preds = %._crit_edge465, %107
-  %114 = phi ptr [ %.pre466, %._crit_edge465 ], [ %103, %107 ]
+113:                                              ; preds = %._crit_edge466, %107
+  %114 = phi ptr [ %.pre467, %._crit_edge466 ], [ %103, %107 ]
   %115 = ptrtoint ptr %114 to i64
   %116 = ptrtoint ptr %1 to i64
   %117 = sub i64 %115, %116
@@ -1577,14 +1577,14 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edg
   br label %.thread
 
 121:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge, %69
-  %.pre470 = phi ptr [ %.pre470.pre, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %71, %69 ]
+  %.pre471 = phi ptr [ %.pre471.pre, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %71, %69 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %123 = load ptr, ptr %122, align 8, !tbaa !26
   %.not216 = icmp eq ptr %123, null
   br i1 %.not216, label %172, label %124
 
 124:                                              ; preds = %121
-  %125 = load i16, ptr %.pre470, align 2, !tbaa !40
+  %125 = load i16, ptr %.pre471, align 2, !tbaa !40
   %126 = trunc i16 %125 to i8
   br i1 %20, label %127, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255
 
@@ -1631,7 +1631,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255: ; pre
   br i1 %145, label %146, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255
-  %.pre469 = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre470 = load ptr, ptr %6, align 8, !tbaa !38
   br label %172
 
 146:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255
@@ -1662,10 +1662,10 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_
 
 159:                                              ; preds = %158
   %160 = call fastcc noundef zeroext i1 @_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_(ptr noundef %6, ptr noundef nonnull %12)
-  br i1 %160, label %161, label %._crit_edge467
+  br i1 %160, label %161, label %._crit_edge468
 
-._crit_edge467:                                   ; preds = %159
-  %.pre468 = load ptr, ptr %6, align 8, !tbaa !38
+._crit_edge468:                                   ; preds = %159
+  %.pre469 = load ptr, ptr %6, align 8, !tbaa !38
   br label %164
 
 161:                                              ; preds = %159
@@ -1673,8 +1673,8 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_
   %163 = load double, ptr %162, align 8, !tbaa !19
   br label %.thread
 
-164:                                              ; preds = %._crit_edge467, %158
-  %165 = phi ptr [ %.pre468, %._crit_edge467 ], [ %154, %158 ]
+164:                                              ; preds = %._crit_edge468, %158
+  %165 = phi ptr [ %.pre469, %._crit_edge468 ], [ %154, %158 ]
   %166 = ptrtoint ptr %165 to i64
   %167 = ptrtoint ptr %1 to i64
   %168 = sub i64 %166, %167
@@ -1687,7 +1687,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_
   br label %.thread
 
 172:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge, %121
-  %173 = phi ptr [ %.pre469, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge ], [ %.pre470, %121 ]
+  %173 = phi ptr [ %.pre470, %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge ], [ %.pre471, %121 ]
   %174 = load i16, ptr %173, align 2, !tbaa !40
   %175 = icmp eq i16 %174, 48
   br i1 %175, label %176, label %.critedge227
@@ -1728,11 +1728,11 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread314: ; preds = %_ZN17
   br label %.thread
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split: ; preds = %182, %183, %189
-  %.pre471.pr = load i16, ptr %180, align 2, !tbaa !40
+  %.pre472.pr = load i16, ptr %180, align 2, !tbaa !40
   br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread: ; preds = %189, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split, %186
-  %.pre471 = phi i16 [ %.pre471.pr, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %187, %186 ], [ %190, %189 ]
+  %.pre472 = phi i16 [ %.pre472.pr, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %187, %186 ], [ %190, %189 ]
   %.promoted393 = phi ptr [ %180, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %180, %186 ], [ %184, %189 ]
   %193 = load i32, ptr %0, align 8, !tbaa !10
   %194 = and i32 %193, 128
@@ -1742,7 +1742,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread: ; preds = %189, %_Z
   br i1 %or.cond225, label %229, label %196
 
 196:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread
-  switch i16 %.pre471, label %._crit_edge [
+  switch i16 %.pre472, label %._crit_edge [
     i16 120, label %197
     i16 88, label %197
     i16 48, label %.lr.ph
@@ -1768,13 +1768,13 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread: ; preds = %189, %_Z
 
 .thread316:                                       ; preds = %203, %204
   %206 = load i16, ptr %198, align 2, !tbaa !40
-  %.fr = freeze i16 %206
-  %207 = add i16 %.fr, -48
+  %.fr433 = freeze i16 %206
+  %207 = add i16 %.fr433, -48
   %or.cond19.i = icmp ult i16 %207, 10
   br i1 %or.cond19.i, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %.thread316
-  %switch.tableidx = add i16 %.fr, -65
+  %switch.tableidx = add i16 %.fr433, -65
   %208 = icmp ult i16 %switch.tableidx, 38
   br i1 %208, label %switch.hole_check, label %_ZN17double_conversionL7isDigitEii.exit.thread317
 
@@ -1822,7 +1822,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.hole_check, 
   br label %.thread
 
 229:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread
-  %230 = icmp eq i16 %.pre471, 48
+  %230 = icmp eq i16 %.pre472, 48
   br i1 %230, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %196, %229
@@ -1846,7 +1846,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i260: ; preds = %.lr.ph, %.backed
   br i1 %238, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264.thread, label %242
 
 .backedge361:                                     ; preds = %246, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264
-  %239 = phi i16 [ %.pre472.pre, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264 ], [ %247, %246 ]
+  %239 = phi i16 [ %.pre473.pre, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264 ], [ %247, %246 ]
   %240 = phi ptr [ %237, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264 ], [ %243, %246 ]
   %241 = icmp eq i16 %239, 48
   br i1 %241, label %_ZN17double_conversionL7isDigitEii.exit.thread.i260, label %._crit_edge, !llvm.loop !43
@@ -1854,10 +1854,10 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i260: ; preds = %.lr.ph, %.backed
 242:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i260
   %243 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %244 = icmp ne ptr %243, %12
-  %.pre472.pre = load i16, ptr %237, align 2, !tbaa !40
-  %245 = icmp eq i16 %.pre472.pre, %178
-  %or.cond570 = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond570, label %246, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264
+  %.pre473.pre = load i16, ptr %237, align 2, !tbaa !40
+  %245 = icmp eq i16 %.pre473.pre, %178
+  %or.cond571 = select i1 %244, i1 %245, i1 false
+  br i1 %or.cond571, label %246, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264
 
 246:                                              ; preds = %242
   %247 = load i16, ptr %243, align 2, !tbaa !40
@@ -1884,11 +1884,11 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264.thread: ; preds = %_ZN17
   store ptr %.lcssa394, ptr %6, align 8
   %255 = trunc i32 %193 to i8
   %256 = lshr i8 %255, 1
-  %.pre474 = load i16, ptr %.lcssa394, align 2, !tbaa !40
+  %.pre475 = load i16, ptr %.lcssa394, align 2, !tbaa !40
   br label %.critedge227
 
 .critedge227:                                     ; preds = %172, %._crit_edge
-  %257 = phi i16 [ %174, %172 ], [ %.pre474, %._crit_edge ]
+  %257 = phi i16 [ %174, %172 ], [ %.pre475, %._crit_edge ]
   %.promoted398 = phi ptr [ %173, %172 ], [ %.lcssa394, %._crit_edge ]
   %258 = phi i8 [ 0, %172 ], [ %256, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2041,8 +2041,8 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273: ; preds = %304, %298, %
   %.promoted417.pre = load ptr, ptr %6, align 8, !tbaa !38
   %325 = load i16, ptr %.promoted417.pre, align 2, !tbaa !40
   %326 = icmp eq i16 %325, 48
-  %or.cond571 = select i1 %307, i1 %326, i1 false
-  br i1 %or.cond571, label %.lr.ph415, label %.loopexit
+  %or.cond572 = select i1 %307, i1 %326, i1 false
+  br i1 %or.cond572, label %.lr.ph415, label %.loopexit
 
 .lr.ph415:                                        ; preds = %324, %336
   %.3159414 = phi i32 [ %337, %336 ], [ 0, %324 ]
@@ -2367,11 +2367,11 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread: ; preds = %_ZN17
   br i1 %462, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge, label %476
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge: ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread
-  %.pre477 = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre478 = load ptr, ptr %6, align 8, !tbaa !38
   br label %.thread332
 
 .thread332:                                       ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge, %394, %314
-  %463 = phi ptr [ %.pre477, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge ], [ %381, %394 ], [ %.lcssa399, %314 ]
+  %463 = phi ptr [ %.pre478, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge ], [ %381, %394 ], [ %.lcssa399, %314 ]
   %.2187338 = phi i32 [ %.2187, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge ], [ %.3188, %394 ], [ %.0185.lcssa, %314 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2752,20 +2752,20 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %.thread, %_ZN17doub
 
 29:                                               ; preds = %25
   %30 = load i8, ptr %23, align 1, !tbaa !15
-  %.fr165 = freeze i8 %30
-  %31 = sext i8 %.fr165 to i32
+  %31 = sext i8 %30 to i32
   %32 = add nsw i32 %31, -48
   %or.cond.i25.i = icmp ult i32 %32, 10
-  %33 = icmp ult i8 %.fr165, 64
+  %33 = icmp ult i8 %30, 64
   %or.cond19.i26.i = and i1 %33, %or.cond.i25.i
-  br i1 %or.cond19.i26.i, label %.backedge138.backedge, label %switch.early.test
+  %34 = freeze i1 %or.cond19.i26.i
+  br i1 %34, label %.backedge138.backedge, label %switch.early.test
 
 .backedge138.backedge:                            ; preds = %29, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %17, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit
   %.be262 = phi ptr [ %18, %17 ], [ %23, %29 ], [ %20, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ], [ %23, %switch.early.test ]
   br label %.backedge138, !llvm.loop !49
 
 switch.early.test:                                ; preds = %29
-  switch i8 %.fr165, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit [
+  switch i8 %30, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit [
     i8 102, label %.backedge138.backedge
     i8 101, label %.backedge138.backedge
     i8 100, label %.backedge138.backedge
@@ -2785,89 +2785,89 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit: ; preds = %switch.early.te
 
 _ZN17double_conversionL7isDigitEii.exit.thread101: ; preds = %15
   store ptr %8, ptr %5, align 8
-  %34 = icmp eq i8 %9, 46
-  br i1 %34, label %35, label %65
+  %35 = icmp eq i8 %9, 46
+  br i1 %35, label %36, label %67
 
-35:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread101
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %36, ptr %5, align 8, !tbaa !3
-  %37 = icmp eq ptr %36, %1
-  br i1 %37, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader134
+36:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread101
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store ptr %37, ptr %5, align 8, !tbaa !3
+  %38 = icmp eq ptr %37, %1
+  br i1 %38, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader134
 
-.preheader134:                                    ; preds = %35, %.preheader134.backedge
-  %38 = phi ptr [ %.be, %.preheader134.backedge ], [ %36, %35 ]
-  %.2 = phi i1 [ true, %.preheader134.backedge ], [ %.0, %35 ]
-  %39 = load i8, ptr %38, align 1, !tbaa !15
-  %40 = sext i8 %39 to i32
-  %41 = add nsw i32 %40, -48
-  %or.cond.i34 = icmp ult i32 %41, 10
-  %42 = icmp ult i8 %39, 64
-  %or.cond19.i35 = and i1 %42, %or.cond.i34
-  br i1 %or.cond19.i35, label %_ZN17double_conversionL7isDigitEii.exit38.thread, label %43
+.preheader134:                                    ; preds = %36, %.preheader134.backedge
+  %39 = phi ptr [ %.be, %.preheader134.backedge ], [ %37, %36 ]
+  %.2 = phi i1 [ true, %.preheader134.backedge ], [ %.0, %36 ]
+  %40 = load i8, ptr %39, align 1, !tbaa !15
+  %41 = sext i8 %40 to i32
+  %42 = add nsw i32 %41, -48
+  %or.cond.i34 = icmp ult i32 %42, 10
+  %43 = icmp ult i8 %40, 64
+  %or.cond19.i35 = and i1 %43, %or.cond.i34
+  br i1 %or.cond19.i35, label %_ZN17double_conversionL7isDigitEii.exit38.thread, label %44
 
-43:                                               ; preds = %.preheader134
-  %44 = add i8 %39, -97
-  %or.cond21.i36 = icmp ult i8 %44, 6
-  br i1 %or.cond21.i36, label %_ZN17double_conversionL7isDigitEii.exit38.thread.thread, label %45
+44:                                               ; preds = %.preheader134
+  %45 = add i8 %40, -97
+  %or.cond21.i36 = icmp ult i8 %45, 6
+  br i1 %or.cond21.i36, label %_ZN17double_conversionL7isDigitEii.exit38.thread.thread, label %46
 
-45:                                               ; preds = %43
-  %46 = icmp sgt i8 %39, 64
-  br i1 %46, label %_ZN17double_conversionL7isDigitEii.exit38, label %_ZN17double_conversionL7isDigitEii.exit38.thread104
+46:                                               ; preds = %44
+  %47 = icmp sgt i8 %40, 64
+  br i1 %47, label %_ZN17double_conversionL7isDigitEii.exit38, label %_ZN17double_conversionL7isDigitEii.exit38.thread104
 
-_ZN17double_conversionL7isDigitEii.exit38.thread104: ; preds = %45
-  store ptr %38, ptr %5, align 8
-  br i1 %.2, label %66, label %_ZN17double_conversionL7isDigitEii.exit82
+_ZN17double_conversionL7isDigitEii.exit38.thread104: ; preds = %46
+  store ptr %39, ptr %5, align 8
+  br i1 %.2, label %68, label %_ZN17double_conversionL7isDigitEii.exit82
 
-_ZN17double_conversionL7isDigitEii.exit38:        ; preds = %45
-  %47 = icmp samesign ult i8 %39, 71
-  br i1 %47, label %.thread105, label %.loopexit
+_ZN17double_conversionL7isDigitEii.exit38:        ; preds = %46
+  %48 = icmp samesign ult i8 %40, 71
+  br i1 %48, label %.thread105, label %.loopexit
 
 _ZN17double_conversionL7isDigitEii.exit38.thread: ; preds = %.preheader134
-  br i1 %6, label %48, label %_ZN17double_conversionL7isDigitEii.exit.thread.i45
+  br i1 %6, label %49, label %_ZN17double_conversionL7isDigitEii.exit.thread.i45
 
-_ZN17double_conversionL7isDigitEii.exit38.thread.thread: ; preds = %43
-  br i1 %6, label %48, label %_ZN17double_conversionL7isDigitEii.exit.thread.i45
+_ZN17double_conversionL7isDigitEii.exit38.thread.thread: ; preds = %44
+  br i1 %6, label %49, label %_ZN17double_conversionL7isDigitEii.exit.thread.i45
 
 .thread105:                                       ; preds = %_ZN17double_conversionL7isDigitEii.exit38
-  br i1 %6, label %48, label %_ZN17double_conversionL7isDigitEii.exit.thread.i45
+  br i1 %6, label %49, label %_ZN17double_conversionL7isDigitEii.exit.thread.i45
 
-48:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit38.thread.thread, %.thread105, %_ZN17double_conversionL7isDigitEii.exit38.thread
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %50 = icmp eq ptr %49, %1
-  br i1 %50, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader134.backedge
+49:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit38.thread.thread, %.thread105, %_ZN17double_conversionL7isDigitEii.exit38.thread
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %51 = icmp eq ptr %50, %1
+  br i1 %51, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader134.backedge
 
 _ZN17double_conversionL7isDigitEii.exit.thread.i45: ; preds = %.thread105, %_ZN17double_conversionL7isDigitEii.exit38.thread.thread, %_ZN17double_conversionL7isDigitEii.exit38.thread
-  %51 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %52 = icmp eq ptr %51, %1
-  br i1 %52, label %_ZN17double_conversionL7isDigitEii.exit82, label %53
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %53 = icmp eq ptr %52, %1
+  br i1 %53, label %_ZN17double_conversionL7isDigitEii.exit82, label %54
 
-53:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i45
-  %54 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %55 = icmp eq ptr %54, %1
-  br i1 %55, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51, label %56
+54:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i45
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  %56 = icmp eq ptr %55, %1
+  br i1 %56, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51, label %57
 
-56:                                               ; preds = %53
-  %57 = load i8, ptr %51, align 1, !tbaa !15
-  %58 = sext i8 %57 to i32
-  %59 = icmp eq i32 %58, %7
-  br i1 %59, label %60, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51
+57:                                               ; preds = %54
+  %58 = load i8, ptr %52, align 1, !tbaa !15
+  %59 = sext i8 %58 to i32
+  %60 = icmp eq i32 %59, %7
+  br i1 %60, label %61, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51
 
-60:                                               ; preds = %56
-  %61 = load i8, ptr %54, align 1, !tbaa !15
-  %.fr163 = freeze i8 %61
-  %62 = sext i8 %.fr163 to i32
-  %63 = add nsw i32 %62, -48
-  %or.cond.i25.i46 = icmp ult i32 %63, 10
-  %64 = icmp ult i8 %.fr163, 64
-  %or.cond19.i26.i47 = and i1 %64, %or.cond.i25.i46
-  br i1 %or.cond19.i26.i47, label %.preheader134.backedge, label %switch.early.test128
+61:                                               ; preds = %57
+  %62 = load i8, ptr %55, align 1, !tbaa !15
+  %63 = sext i8 %62 to i32
+  %64 = add nsw i32 %63, -48
+  %or.cond.i25.i46 = icmp ult i32 %64, 10
+  %65 = icmp ult i8 %62, 64
+  %or.cond19.i26.i47 = and i1 %65, %or.cond.i25.i46
+  %66 = freeze i1 %or.cond19.i26.i47
+  br i1 %66, label %.preheader134.backedge, label %switch.early.test128
 
-.preheader134.backedge:                           ; preds = %60, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %48, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51
-  %.be = phi ptr [ %54, %switch.early.test128 ], [ %49, %48 ], [ %54, %60 ], [ %51, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ], [ %54, %switch.early.test128 ]
+.preheader134.backedge:                           ; preds = %61, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %switch.early.test128, %49, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51
+  %.be = phi ptr [ %55, %switch.early.test128 ], [ %50, %49 ], [ %55, %61 ], [ %52, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ], [ %55, %switch.early.test128 ]
   br label %.preheader134, !llvm.loop !50
 
-switch.early.test128:                             ; preds = %60
-  switch i8 %.fr163, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51 [
+switch.early.test128:                             ; preds = %61
+  switch i8 %62, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51 [
     i8 102, label %.preheader134.backedge
     i8 101, label %.preheader134.backedge
     i8 100, label %.preheader134.backedge
@@ -2882,67 +2882,67 @@ switch.early.test128:                             ; preds = %60
     i8 65, label %.preheader134.backedge
   ]
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51: ; preds = %switch.early.test128, %53, %56
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit51: ; preds = %switch.early.test128, %54, %57
   br label %.preheader134.backedge
 
 .loopexit:                                        ; preds = %_ZN17double_conversionL7isDigitEii.exit38
-  store ptr %38, ptr %5, align 8
-  br i1 %.2, label %66, label %_ZN17double_conversionL7isDigitEii.exit82
+  store ptr %39, ptr %5, align 8
+  br i1 %.2, label %68, label %_ZN17double_conversionL7isDigitEii.exit82
 
-65:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread101
-  br i1 %.0, label %66, label %_ZN17double_conversionL7isDigitEii.exit82
+67:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread101
+  br i1 %.0, label %68, label %_ZN17double_conversionL7isDigitEii.exit82
 
-66:                                               ; preds = %.loopexit, %_ZN17double_conversionL7isDigitEii.exit38.thread104, %65
-  %67 = phi ptr [ %38, %_ZN17double_conversionL7isDigitEii.exit38.thread104 ], [ %8, %65 ], [ %38, %.loopexit ]
-  %68 = load i8, ptr %67, align 1, !tbaa !15
-  switch i8 %68, label %_ZN17double_conversionL7isDigitEii.exit82 [
-    i8 112, label %69
-    i8 80, label %69
+68:                                               ; preds = %.loopexit, %_ZN17double_conversionL7isDigitEii.exit38.thread104, %67
+  %69 = phi ptr [ %39, %_ZN17double_conversionL7isDigitEii.exit38.thread104 ], [ %8, %67 ], [ %39, %.loopexit ]
+  %70 = load i8, ptr %69, align 1, !tbaa !15
+  switch i8 %70, label %_ZN17double_conversionL7isDigitEii.exit82 [
+    i8 112, label %71
+    i8 80, label %71
   ]
 
-69:                                               ; preds = %66, %66
-  br i1 %6, label %70, label %73
+71:                                               ; preds = %68, %68
+  br i1 %6, label %72, label %75
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store ptr %71, ptr %5, align 8, !tbaa !3
-  %72 = icmp eq ptr %71, %1
-  br i1 %72, label %_ZN17double_conversionL7isDigitEii.exit82, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store ptr %73, ptr %5, align 8, !tbaa !3
+  %74 = icmp eq ptr %73, %1
+  br i1 %74, label %_ZN17double_conversionL7isDigitEii.exit82, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split
 
-73:                                               ; preds = %69
-  %74 = add nsw i8 %68, -97
-  %or.cond21.i.i54 = icmp ult i8 %74, 6
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store ptr %75, ptr %5, align 8, !tbaa !3
-  %76 = icmp eq ptr %75, %1
+75:                                               ; preds = %71
+  %76 = add nsw i8 %70, -97
+  %or.cond21.i.i54 = icmp ult i8 %76, 6
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store ptr %77, ptr %5, align 8, !tbaa !3
+  %78 = icmp eq ptr %77, %1
   br i1 %or.cond21.i.i54, label %_ZN17double_conversionL7isDigitEii.exit.thread.i58, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64
 
-_ZN17double_conversionL7isDigitEii.exit.thread.i58: ; preds = %73
-  br i1 %76, label %_ZN17double_conversionL7isDigitEii.exit82, label %77
+_ZN17double_conversionL7isDigitEii.exit.thread.i58: ; preds = %75
+  br i1 %78, label %_ZN17double_conversionL7isDigitEii.exit82, label %79
 
-77:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i58
-  %78 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  %79 = icmp eq ptr %78, %1
-  br i1 %79, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split, label %80
+79:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i58
+  %80 = getelementptr inbounds nuw i8, ptr %69, i64 2
+  %81 = icmp eq ptr %80, %1
+  br i1 %81, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split, label %82
 
-80:                                               ; preds = %77
-  %81 = load i8, ptr %75, align 1, !tbaa !15
-  %82 = sext i8 %81 to i32
-  %83 = icmp eq i32 %82, %7
-  br i1 %83, label %84, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
+82:                                               ; preds = %79
+  %83 = load i8, ptr %77, align 1, !tbaa !15
+  %84 = sext i8 %83 to i32
+  %85 = icmp eq i32 %84, %7
+  br i1 %85, label %86, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
 
-84:                                               ; preds = %80
-  %85 = load i8, ptr %78, align 1, !tbaa !15
-  %.fr = freeze i8 %85
-  %86 = sext i8 %.fr to i32
-  %87 = add nsw i32 %86, -48
-  %or.cond.i25.i59 = icmp ult i32 %87, 10
-  %88 = icmp ult i8 %.fr, 64
-  %or.cond19.i26.i60 = and i1 %88, %or.cond.i25.i59
-  br i1 %or.cond19.i26.i60, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63, label %switch.early.test129
+86:                                               ; preds = %82
+  %87 = load i8, ptr %80, align 1, !tbaa !15
+  %88 = sext i8 %87 to i32
+  %89 = add nsw i32 %88, -48
+  %or.cond.i25.i59 = icmp ult i32 %89, 10
+  %90 = icmp ult i8 %87, 64
+  %or.cond19.i26.i60 = and i1 %90, %or.cond.i25.i59
+  %91 = freeze i1 %or.cond19.i26.i60
+  br i1 %91, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63, label %switch.early.test129
 
-switch.early.test129:                             ; preds = %84
-  switch i8 %.fr, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split [
+switch.early.test129:                             ; preds = %86
+  switch i8 %87, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
@@ -2957,111 +2957,110 @@ switch.early.test129:                             ; preds = %84
     i8 65, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
   ]
 
-_ZN17double_conversionL7isDigitEii.exit30.thread.i63: ; preds = %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %84
-  store ptr %78, ptr %5, align 8, !tbaa !3
+_ZN17double_conversionL7isDigitEii.exit30.thread.i63: ; preds = %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %switch.early.test129, %86
+  store ptr %80, ptr %5, align 8, !tbaa !3
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64: ; preds = %73
-  br i1 %76, label %_ZN17double_conversionL7isDigitEii.exit82, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64: ; preds = %75
+  br i1 %78, label %_ZN17double_conversionL7isDigitEii.exit82, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64, %70, %77, %_ZN17double_conversionL7isDigitEii.exit30.thread.i63, %switch.early.test129
-  %.ph = phi ptr [ %75, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64 ], [ %71, %70 ], [ %75, %77 ], [ %78, %_ZN17double_conversionL7isDigitEii.exit30.thread.i63 ], [ %75, %switch.early.test129 ]
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64, %72, %79, %_ZN17double_conversionL7isDigitEii.exit30.thread.i63, %switch.early.test129
+  %.ph = phi ptr [ %77, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64 ], [ %73, %72 ], [ %77, %79 ], [ %80, %_ZN17double_conversionL7isDigitEii.exit30.thread.i63 ], [ %77, %switch.early.test129 ]
   %.pr = load i8, ptr %.ph, align 1, !tbaa !15
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split, %80
-  %89 = phi i8 [ %.pr, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split ], [ %81, %80 ]
-  %90 = phi ptr [ %.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split ], [ %75, %80 ]
-  switch i8 %89, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread [
-    i8 43, label %91
-    i8 45, label %91
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split, %82
+  %92 = phi i8 [ %.pr, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split ], [ %83, %82 ]
+  %93 = phi ptr [ %.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.threadthread-pre-split ], [ %77, %82 ]
+  switch i8 %92, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread [
+    i8 43, label %94
+    i8 45, label %94
   ]
 
-91:                                               ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  store ptr %92, ptr %5, align 8, !tbaa !3
-  %93 = icmp eq ptr %92, %1
-  br i1 %93, label %_ZN17double_conversionL7isDigitEii.exit82, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread
+94:                                               ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %95, ptr %5, align 8, !tbaa !3
+  %96 = icmp eq ptr %95, %1
+  br i1 %96, label %_ZN17double_conversionL7isDigitEii.exit82, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread: ; preds = %91, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
-  %94 = phi ptr [ %92, %91 ], [ %90, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread ]
-  %95 = load i8, ptr %94, align 1, !tbaa !15
-  %96 = sext i8 %95 to i32
-  %97 = add nsw i32 %96, -48
-  %or.cond.i78 = icmp ult i32 %97, 10
-  %98 = icmp ult i8 %95, 58
-  %or.cond19.i79 = and i1 %98, %or.cond.i78
-  br i1 %or.cond19.i79, label %99, label %_ZN17double_conversionL7isDigitEii.exit82
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread: ; preds = %94, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread
+  %97 = phi ptr [ %95, %94 ], [ %93, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64.thread ]
+  %98 = load i8, ptr %97, align 1, !tbaa !15
+  %99 = sext i8 %98 to i32
+  %100 = add nsw i32 %99, -48
+  %or.cond.i78 = icmp ult i32 %100, 10
+  %101 = icmp ult i8 %98, 58
+  %or.cond19.i79 = and i1 %101, %or.cond.i78
+  br i1 %or.cond19.i79, label %102, label %_ZN17double_conversionL7isDigitEii.exit82
 
-99:                                               ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread
-  %100 = call fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef %5, i16 noundef zeroext %2, i32 noundef 16, ptr %1)
-  br i1 %100, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader
+102:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread
+  %103 = call fastcc noundef zeroext i1 @_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_(ptr noundef %5, i16 noundef zeroext %2, i32 noundef 16, ptr %1)
+  br i1 %103, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader
 
-.preheader:                                       ; preds = %99
+.preheader:                                       ; preds = %102
   %.promoted151 = load ptr, ptr %5, align 8, !tbaa !3
-  %101 = load i8, ptr %.promoted151, align 1, !tbaa !15
-  %102 = sext i8 %101 to i32
-  %103 = add nsw i32 %102, -48
-  %or.cond.i83153 = icmp ult i32 %103, 10
-  %104 = icmp ult i8 %101, 58
-  %or.cond19.i84154 = and i1 %104, %or.cond.i83153
+  %104 = load i8, ptr %.promoted151, align 1, !tbaa !15
+  %105 = sext i8 %104 to i32
+  %106 = add nsw i32 %105, -48
+  %or.cond.i83153 = icmp ult i32 %106, 10
+  %107 = icmp ult i8 %104, 58
+  %or.cond19.i84154 = and i1 %107, %or.cond.i83153
   br i1 %or.cond19.i84154, label %.lr.ph, label %_ZN17double_conversionL7isDigitEii.exit87
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %6, label %.lr.ph.split.us, label %_ZN17double_conversionL7isDigitEii.exit.thread.i94
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %105 = phi ptr [ %106, %.backedge.us ], [ %.promoted151, %.lr.ph ]
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
-  %107 = icmp eq ptr %106, %1
-  br i1 %107, label %_ZN17double_conversionL7isDigitEii.exit82, label %.backedge.us
+  %108 = phi ptr [ %109, %.backedge.us ], [ %.promoted151, %.lr.ph ]
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
+  %110 = icmp eq ptr %109, %1
+  br i1 %110, label %_ZN17double_conversionL7isDigitEii.exit82, label %.backedge.us
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us
-  %108 = load i8, ptr %106, align 1, !tbaa !15
-  %109 = sext i8 %108 to i32
-  %110 = add nsw i32 %109, -48
-  %or.cond.i83.us = icmp ult i32 %110, 10
-  %111 = icmp ult i8 %108, 58
-  %or.cond19.i84.us = and i1 %111, %or.cond.i83.us
+  %111 = load i8, ptr %109, align 1, !tbaa !15
+  %112 = sext i8 %111 to i32
+  %113 = add nsw i32 %112, -48
+  %or.cond.i83.us = icmp ult i32 %113, 10
+  %114 = icmp ult i8 %111, 58
+  %or.cond19.i84.us = and i1 %114, %or.cond.i83.us
   br i1 %or.cond19.i84.us, label %.lr.ph.split.us, label %_ZN17double_conversionL7isDigitEii.exit87, !llvm.loop !51
 
 _ZN17double_conversionL7isDigitEii.exit.thread.i94: ; preds = %.lr.ph, %.backedge
-  %112 = phi ptr [ %116, %.backedge ], [ %.promoted151, %.lr.ph ]
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
-  %114 = icmp eq ptr %113, %1
-  br i1 %114, label %_ZN17double_conversionL7isDigitEii.exit82, label %120
+  %115 = phi ptr [ %119, %.backedge ], [ %.promoted151, %.lr.ph ]
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
+  %117 = icmp eq ptr %116, %1
+  br i1 %117, label %_ZN17double_conversionL7isDigitEii.exit82, label %121
 
-.backedge:                                        ; preds = %120, %switch.early.test130, %125
-  %115 = phi i8 [ %.fr161, %125 ], [ %.pre.pre, %switch.early.test130 ], [ %.pre.pre, %120 ]
-  %116 = phi ptr [ %121, %125 ], [ %113, %switch.early.test130 ], [ %113, %120 ]
-  %117 = sext i8 %115 to i32
-  %118 = add nsw i32 %117, -48
-  %or.cond.i83 = icmp ult i32 %118, 10
-  %119 = icmp ult i8 %115, 58
-  %or.cond19.i84 = and i1 %119, %or.cond.i83
+.backedge:                                        ; preds = %125, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100
+  %.pre-phi180 = phi i32 [ %128, %125 ], [ %.pre179, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100 ]
+  %118 = phi i8 [ %126, %125 ], [ %.pre.pre, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100 ]
+  %119 = phi ptr [ %122, %125 ], [ %116, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100 ]
+  %or.cond.i83 = icmp ult i32 %.pre-phi180, 10
+  %120 = icmp ult i8 %118, 58
+  %or.cond19.i84 = and i1 %120, %or.cond.i83
   br i1 %or.cond19.i84, label %_ZN17double_conversionL7isDigitEii.exit.thread.i94, label %_ZN17double_conversionL7isDigitEii.exit87, !llvm.loop !51
 
-120:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i94
-  %121 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  %122 = icmp ne ptr %121, %1
-  %.pre.pre = load i8, ptr %113, align 1, !tbaa !15
-  %123 = sext i8 %.pre.pre to i32
-  %124 = icmp eq i32 %123, %7
-  %or.cond234 = select i1 %122, i1 %124, i1 false
-  br i1 %or.cond234, label %125, label %.backedge
+121:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i94
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 2
+  %123 = icmp ne ptr %122, %1
+  %.pre.pre = load i8, ptr %116, align 1, !tbaa !15
+  %.pre183 = sext i8 %.pre.pre to i32
+  %124 = icmp eq i32 %.pre183, %7
+  %or.cond234 = select i1 %123, i1 %124, i1 false
+  br i1 %or.cond234, label %125, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100
 
-125:                                              ; preds = %120
-  %126 = load i8, ptr %121, align 1, !tbaa !15
-  %.fr161 = freeze i8 %126
-  %127 = sext i8 %.fr161 to i32
+125:                                              ; preds = %121
+  %126 = load i8, ptr %122, align 1, !tbaa !15
+  %127 = sext i8 %126 to i32
   %128 = add nsw i32 %127, -48
   %or.cond.i25.i95 = icmp ult i32 %128, 10
-  %129 = icmp ult i8 %.fr161, 64
+  %129 = icmp ult i8 %126, 64
   %or.cond19.i26.i96 = and i1 %129, %or.cond.i25.i95
-  br i1 %or.cond19.i26.i96, label %.backedge, label %switch.early.test130
+  %130 = freeze i1 %or.cond19.i26.i96
+  br i1 %130, label %.backedge, label %switch.early.test130
 
 switch.early.test130:                             ; preds = %125
-  switch i8 %.fr161, label %.backedge [
+  switch i8 %126, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100 [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit87
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit87
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit87
@@ -3076,38 +3075,42 @@ switch.early.test130:                             ; preds = %125
     i8 65, label %_ZN17double_conversionL7isDigitEii.exit87
   ]
 
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit100: ; preds = %121, %switch.early.test130
+  %.pre179 = add nsw i32 %.pre183, -48
+  br label %.backedge
+
 _ZN17double_conversionL7isDigitEii.exit87:        ; preds = %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %switch.early.test130, %.backedge, %.backedge.us, %.preheader
-  %.lcssa152 = phi ptr [ %.promoted151, %.preheader ], [ %106, %.backedge.us ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %121, %switch.early.test130 ], [ %116, %.backedge ], [ %121, %switch.early.test130 ]
+  %.lcssa152 = phi ptr [ %.promoted151, %.preheader ], [ %109, %.backedge.us ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %122, %switch.early.test130 ], [ %119, %.backedge ], [ %122, %switch.early.test130 ]
   store ptr %.lcssa152, ptr %5, align 8
   %.not10.not.i = icmp eq ptr %.lcssa152, %1
   %or.cond131 = or i1 %3, %.not10.not.i
   br i1 %or.cond131, label %_ZN17double_conversionL7isDigitEii.exit82, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN17double_conversionL7isDigitEii.exit87, %136
-  %130 = phi ptr [ %137, %136 ], [ %.lcssa152, %_ZN17double_conversionL7isDigitEii.exit87 ]
-  %131 = load i8, ptr %130, align 1, !tbaa !15
+.lr.ph.i:                                         ; preds = %_ZN17double_conversionL7isDigitEii.exit87, %137
+  %131 = phi ptr [ %138, %137 ], [ %.lcssa152, %_ZN17double_conversionL7isDigitEii.exit87 ]
+  %132 = load i8, ptr %131, align 1, !tbaa !15
   br label %.preheader.i.i
 
-132:                                              ; preds = %.preheader.i.i
+133:                                              ; preds = %.preheader.i.i
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, 6
   br i1 %exitcond32.not.i.i, label %_ZN17double_conversionL7isDigitEii.exit82, label %.preheader.i.i, !llvm.loop !16
 
-.preheader.i.i:                                   ; preds = %132, %.lr.ph.i
-  %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %132 ], [ 0, %.lr.ph.i ]
-  %133 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i
-  %134 = load i8, ptr %133, align 1, !tbaa !15
-  %135 = icmp eq i8 %131, %134
-  br i1 %135, label %136, label %132
+.preheader.i.i:                                   ; preds = %133, %.lr.ph.i
+  %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %133 ], [ 0, %.lr.ph.i ]
+  %134 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i
+  %135 = load i8, ptr %134, align 1, !tbaa !15
+  %136 = icmp eq i8 %132, %135
+  br i1 %136, label %137, label %133
 
-136:                                              ; preds = %.preheader.i.i
-  %137 = getelementptr inbounds nuw i8, ptr %130, i64 1
-  store ptr %137, ptr %5, align 8, !tbaa !3
-  %.not.not.i = icmp eq ptr %137, %1
+137:                                              ; preds = %.preheader.i.i
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 1
+  store ptr %138, ptr %5, align 8, !tbaa !3
+  %.not.not.i = icmp eq ptr %138, %1
   br i1 %.not.not.i, label %_ZN17double_conversionL7isDigitEii.exit82, label %.lr.ph.i, !llvm.loop !18
 
-_ZN17double_conversionL7isDigitEii.exit82:        ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i, %17, %_ZN17double_conversionL7isDigitEii.exit.thread.i45, %48, %_ZN17double_conversionL7isDigitEii.exit.thread.i94, %.lr.ph.split.us, %136, %132, %91, %35, %.loopexit, %_ZN17double_conversionL7isDigitEii.exit.thread.i58, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread, %70, %_ZN17double_conversionL7isDigitEii.exit38.thread104, %_ZN17double_conversionL7isDigitEii.exit87, %99, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64, %66, %65
-  %.010 = phi i1 [ false, %_ZN17double_conversionL7isDigitEii.exit38.thread104 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i58 ], [ true, %.lr.ph.split.us ], [ false, %65 ], [ false, %66 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64 ], [ false, %91 ], [ true, %99 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread ], [ false, %132 ], [ true, %_ZN17double_conversionL7isDigitEii.exit87 ], [ false, %70 ], [ true, %136 ], [ false, %.loopexit ], [ true, %_ZN17double_conversionL7isDigitEii.exit.thread.i94 ], [ false, %35 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i45 ], [ false, %48 ], [ false, %17 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i ]
+_ZN17double_conversionL7isDigitEii.exit82:        ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i, %17, %_ZN17double_conversionL7isDigitEii.exit.thread.i45, %49, %_ZN17double_conversionL7isDigitEii.exit.thread.i94, %.lr.ph.split.us, %137, %133, %94, %36, %.loopexit, %_ZN17double_conversionL7isDigitEii.exit.thread.i58, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread, %72, %_ZN17double_conversionL7isDigitEii.exit38.thread104, %_ZN17double_conversionL7isDigitEii.exit87, %102, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64, %68, %67
+  %.010 = phi i1 [ false, %_ZN17double_conversionL7isDigitEii.exit38.thread104 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i58 ], [ true, %.lr.ph.split.us ], [ false, %67 ], [ false, %68 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit64 ], [ false, %94 ], [ true, %102 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit77.thread ], [ false, %133 ], [ true, %_ZN17double_conversionL7isDigitEii.exit87 ], [ false, %72 ], [ true, %137 ], [ false, %.loopexit ], [ true, %_ZN17double_conversionL7isDigitEii.exit.thread.i94 ], [ false, %36 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i45 ], [ false, %49 ], [ false, %17 ], [ false, %_ZN17double_conversionL7isDigitEii.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.010
 }
@@ -3142,7 +3145,7 @@ define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIee
   %.promoted381 = phi ptr [ %15, %.backedge356.us ], [ %.promoted, %9 ], [ %26, %.backedge356 ]
   %20 = icmp eq i16 %3, 0
   %21 = select i1 %7, i64 53, i64 24
-  br label %41
+  br label %42
 
 _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %.lr.ph, %.backedge356
   %22 = phi ptr [ %26, %.backedge356 ], [ %.promoted, %.lr.ph ]
@@ -3175,16 +3178,16 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %.lr.ph, %.backedge3
 
 35:                                               ; preds = %31
   %36 = load i8, ptr %29, align 1, !tbaa !15
-  %.fr = freeze i8 %36
-  %37 = sext i8 %.fr to i32
+  %37 = sext i8 %36 to i32
   %38 = add nsw i32 %37, -48
   %or.cond.i25.i = icmp ult i32 %38, 10
-  %39 = icmp ult i8 %.fr, 64
+  %39 = icmp ult i8 %36, 64
   %or.cond19.i26.i = and i1 %39, %or.cond.i25.i
-  br i1 %or.cond19.i26.i, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i, label %switch.early.test
+  %40 = freeze i1 %or.cond19.i26.i
+  br i1 %40, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i, label %switch.early.test
 
 switch.early.test:                                ; preds = %35
-  switch i8 %.fr, label %.backedge356thread-pre-split [
+  switch i8 %36, label %.backedge356thread-pre-split [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i
@@ -3205,16 +3208,15 @@ _ZN17double_conversionL7isDigitEii.exit30.thread.i: ; preds = %switch.early.test
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i, %.lr.ph.split.us
   store i8 0, ptr %8, align 1, !tbaa !28
-  %40 = select i1 %2, double -0.000000e+00, double 0.000000e+00
+  %41 = select i1 %2, double -0.000000e+00, double 0.000000e+00
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308
 
-41:                                               ; preds = %.preheader354, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
-  %42 = phi i8 [ %.pre, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ %19, %.preheader354 ]
-  %.promoted385 = phi ptr [ %190, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ %.promoted381, %.preheader354 ]
+42:                                               ; preds = %.preheader354, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
+  %43 = phi i8 [ %.pre, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ %19, %.preheader354 ]
+  %.promoted385 = phi ptr [ %196, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ %.promoted381, %.preheader354 ]
   %.0129 = phi i8 [ %.1130, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ 0, %.preheader354 ]
   %.0122 = phi i32 [ %.2124, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ 0, %.preheader354 ]
   %.0116 = phi i64 [ %.1117, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 ], [ 0, %.preheader354 ]
-  %43 = freeze i8 %42
   %44 = sext i8 %43 to i32
   %45 = add nsw i32 %44, -48
   %or.cond.i160 = icmp ult i32 %45, 10
@@ -3222,12 +3224,12 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17dou
   %47 = and i1 %46, %or.cond.i160
   br i1 %47, label %48, label %51
 
-48:                                               ; preds = %41
+48:                                               ; preds = %42
   %49 = sext i8 %43 to i64
   %50 = add nsw i64 %49, -48
-  br label %86
+  br label %87
 
-51:                                               ; preds = %41
+51:                                               ; preds = %42
   %.not.i = icmp slt i8 %43, 97
   br i1 %.not.i, label %56, label %_ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit
 
@@ -3238,7 +3240,7 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit: ; preds = %51
 53:                                               ; preds = %_ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit
   %54 = zext nneg i8 %43 to i64
   %55 = add nsw i64 %54, -87
-  br label %86
+  br label %87
 
 56:                                               ; preds = %51
   %57 = add i8 %43, -65
@@ -3248,7 +3250,7 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit: ; preds = %51
 58:                                               ; preds = %56
   %59 = zext nneg i8 %43 to i64
   %60 = add nsw i64 %59, -55
-  br label %86
+  br label %87
 
 _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit162.thread285: ; preds = %56, %_ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit
   br i1 %4, label %61, label %.critedge
@@ -3267,8 +3269,8 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit162.thread285: ; preds
 64:                                               ; preds = %62
   store ptr %63, ptr %0, align 8, !tbaa !3
   %65 = icmp ne ptr %63, %1
-  %or.cond525.not = select i1 %or.cond.i160, i1 %65, i1 false
-  br i1 %or.cond525.not, label %66, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175, !llvm.loop !53
+  %or.cond508.not = select i1 %or.cond.i160, i1 %65, i1 false
+  br i1 %or.cond508.not, label %66, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175, !llvm.loop !53
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.promoted385, i64 2
@@ -3283,16 +3285,16 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit162.thread285: ; preds
 
 73:                                               ; preds = %69
   %74 = load i8, ptr %67, align 1, !tbaa !15
-  %.fr395 = freeze i8 %74
-  %75 = sext i8 %.fr395 to i32
+  %75 = sext i8 %74 to i32
   %76 = add nsw i32 %75, -48
   %or.cond.i25.i170 = icmp ult i32 %76, 10
-  %77 = icmp ult i8 %.fr395, 64
+  %77 = icmp ult i8 %74, 64
   %or.cond19.i26.i171 = and i1 %77, %or.cond.i25.i170
-  br i1 %or.cond19.i26.i171, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split, label %switch.early.test345, !llvm.loop !53
+  %78 = freeze i1 %or.cond19.i26.i171
+  br i1 %78, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split, label %switch.early.test345, !llvm.loop !53
 
 switch.early.test345:                             ; preds = %73
-  switch i8 %.fr395, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 [
+  switch i8 %74, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 [
     i8 102, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
     i8 101, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
     i8 100, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
@@ -3312,88 +3314,89 @@ switch.early.test345:                             ; preds = %73
   %or.cond322 = or i1 %5, %.not10.not.i
   br i1 %or.cond322, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.critedge, %84
-  %78 = phi ptr [ %85, %84 ], [ %.promoted385, %.critedge ]
-  %79 = load i8, ptr %78, align 1, !tbaa !15
+.lr.ph.i:                                         ; preds = %.critedge, %85
+  %79 = phi ptr [ %86, %85 ], [ %.promoted385, %.critedge ]
+  %80 = load i8, ptr %79, align 1, !tbaa !15
   br label %.preheader.i.i
 
-80:                                               ; preds = %.preheader.i.i
+81:                                               ; preds = %.preheader.i.i
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, 6
   br i1 %exitcond32.not.i.i, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308, label %.preheader.i.i, !llvm.loop !16
 
-.preheader.i.i:                                   ; preds = %80, %.lr.ph.i
-  %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %80 ], [ 0, %.lr.ph.i ]
-  %81 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i
-  %82 = load i8, ptr %81, align 1, !tbaa !15
-  %83 = icmp eq i8 %79, %82
-  br i1 %83, label %84, label %80
+.preheader.i.i:                                   ; preds = %81, %.lr.ph.i
+  %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %81 ], [ 0, %.lr.ph.i ]
+  %82 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i
+  %83 = load i8, ptr %82, align 1, !tbaa !15
+  %84 = icmp eq i8 %80, %83
+  br i1 %84, label %85, label %81
 
-84:                                               ; preds = %.preheader.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  store ptr %85, ptr %0, align 8, !tbaa !3
-  %.not.not.i = icmp eq ptr %85, %1
+85:                                               ; preds = %.preheader.i.i
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  store ptr %86, ptr %0, align 8, !tbaa !3
+  %.not.not.i = icmp eq ptr %86, %1
   br i1 %.not.not.i, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
-86:                                               ; preds = %58, %53, %48
+87:                                               ; preds = %58, %53, %48
   %.0137 = phi i64 [ %55, %53 ], [ %60, %58 ], [ %50, %48 ]
-  %87 = trunc nuw i8 %.0129 to i1
-  %88 = add nsw i32 %.0122, -4
-  %spec.select148 = select i1 %87, i32 %88, i32 %.0122
-  %89 = shl nsw i64 %.0116, 4
-  %90 = add nsw i64 %.0137, %89
-  %91 = ashr i64 %90, %21
-  %92 = trunc i64 %91 to i32
-  %.not = icmp eq i32 %92, 0
-  br i1 %.not, label %168, label %.preheader
+  %88 = trunc nuw i8 %.0129 to i1
+  %89 = add nsw i32 %.0122, -4
+  %spec.select148 = select i1 %88, i32 %89, i32 %.0122
+  %90 = shl nsw i64 %.0116, 4
+  %91 = add nsw i64 %.0137, %90
+  %92 = ashr i64 %91, %21
+  %93 = trunc i64 %92 to i32
+  %.not = icmp eq i32 %93, 0
+  br i1 %.not, label %173, label %.preheader
 
-.preheader:                                       ; preds = %86
-  %93 = icmp sgt i32 %92, 1
-  br i1 %93, label %.lr.ph384, label %._crit_edge
+.preheader:                                       ; preds = %87
+  %94 = icmp sgt i32 %93, 1
+  br i1 %94, label %.lr.ph384, label %._crit_edge
 
 .lr.ph384:                                        ; preds = %.preheader, %.lr.ph384
-  %.0135383 = phi i32 [ %94, %.lr.ph384 ], [ 1, %.preheader ]
-  %.0136382 = phi i32 [ %95, %.lr.ph384 ], [ %92, %.preheader ]
-  %94 = add nuw nsw i32 %.0135383, 1
-  %95 = lshr i32 %.0136382, 1
-  %96 = icmp samesign ugt i32 %.0136382, 3
-  br i1 %96, label %.lr.ph384, label %._crit_edge, !llvm.loop !54
+  %.0135383 = phi i32 [ %95, %.lr.ph384 ], [ 1, %.preheader ]
+  %.0136382 = phi i32 [ %96, %.lr.ph384 ], [ %93, %.preheader ]
+  %95 = add nuw nsw i32 %.0135383, 1
+  %96 = lshr i32 %.0136382, 1
+  %97 = icmp samesign ugt i32 %.0136382, 3
+  br i1 %97, label %.lr.ph384, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph384, %.preheader
-  %.0135.lcssa = phi i32 [ 1, %.preheader ], [ %94, %.lr.ph384 ]
+  %.0135.lcssa = phi i32 [ 1, %.preheader ], [ %95, %.lr.ph384 ]
   %notmask = shl nsw i32 -1, %.0135.lcssa
-  %97 = xor i32 %notmask, -1
-  %98 = trunc i64 %90 to i32
-  %99 = and i32 %97, %98
-  %100 = zext nneg i32 %.0135.lcssa to i64
-  %101 = ashr i64 %90, %100
-  %102 = add nsw i32 %.0135.lcssa, %spec.select148
-  br label %103
+  %98 = xor i32 %notmask, -1
+  %99 = trunc i64 %91 to i32
+  %100 = and i32 %98, %99
+  %101 = zext nneg i32 %.0135.lcssa to i64
+  %102 = ashr i64 %91, %101
+  %103 = add nsw i32 %.0135.lcssa, %spec.select148
+  br label %104
 
-103:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread, %._crit_edge
-  %.fr397 = phi i8 [ %43, %._crit_edge ], [ %.fr401, %_ZN17double_conversionL7isDigitEii.exit.thread ]
-  %104 = phi ptr [ %.promoted385, %._crit_edge ], [ %135, %_ZN17double_conversionL7isDigitEii.exit.thread ]
+104:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread, %._crit_edge
+  %105 = phi i8 [ %43, %._crit_edge ], [ %138, %_ZN17double_conversionL7isDigitEii.exit.thread ]
+  %106 = phi ptr [ %.promoted385, %._crit_edge ], [ %139, %_ZN17double_conversionL7isDigitEii.exit.thread ]
   %.2131 = phi i8 [ %.0129, %._crit_edge ], [ %.4133, %_ZN17double_conversionL7isDigitEii.exit.thread ]
-  %.3125 = phi i32 [ %102, %._crit_edge ], [ %spec.select149, %_ZN17double_conversionL7isDigitEii.exit.thread ]
+  %.3125 = phi i32 [ %103, %._crit_edge ], [ %spec.select149, %_ZN17double_conversionL7isDigitEii.exit.thread ]
   %.0121 = phi i1 [ true, %._crit_edge ], [ %spec.select324, %_ZN17double_conversionL7isDigitEii.exit.thread ]
-  br i1 %20, label %105, label %108
+  br i1 %20, label %107, label %110
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %106, ptr %0, align 8, !tbaa !3
-  %107 = icmp eq ptr %106, %1
-  br i1 %107, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %108, ptr %0, align 8, !tbaa !3
+  %109 = icmp eq ptr %108, %1
+  br i1 %109, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
 
-108:                                              ; preds = %103
-  %109 = sext i8 %.fr397 to i32
-  %110 = add nsw i32 %109, -48
-  %or.cond.i.i176 = icmp ult i32 %110, 10
-  %111 = icmp ult i8 %.fr397, 64
-  %or.cond19.i.i177 = and i1 %111, %or.cond.i.i176
-  br i1 %or.cond19.i.i177, label %_ZN17double_conversionL7isDigitEii.exit.thread.i182, label %switch.early.test346
+110:                                              ; preds = %104
+  %111 = sext i8 %105 to i32
+  %112 = add nsw i32 %111, -48
+  %or.cond.i.i176 = icmp ult i32 %112, 10
+  %113 = icmp ult i8 %105, 64
+  %or.cond19.i.i177 = and i1 %113, %or.cond.i.i176
+  %114 = freeze i1 %or.cond19.i.i177
+  br i1 %114, label %_ZN17double_conversionL7isDigitEii.exit.thread.i182, label %switch.early.test346
 
-switch.early.test346:                             ; preds = %108
-  switch i8 %.fr397, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188 [
+switch.early.test346:                             ; preds = %110
+  switch i8 %105, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188 [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit.thread.i182
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit.thread.i182
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit.thread.i182
@@ -3408,35 +3411,35 @@ switch.early.test346:                             ; preds = %108
     i8 65, label %_ZN17double_conversionL7isDigitEii.exit.thread.i182
   ]
 
-_ZN17double_conversionL7isDigitEii.exit.thread.i182: ; preds = %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %108
-  %112 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %112, ptr %0, align 8, !tbaa !3
-  %113 = icmp eq ptr %112, %1
-  br i1 %113, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, label %114
-
-114:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i182
-  %115 = getelementptr inbounds nuw i8, ptr %104, i64 2
+_ZN17double_conversionL7isDigitEii.exit.thread.i182: ; preds = %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %switch.early.test346, %110
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %115, ptr %0, align 8, !tbaa !3
   %116 = icmp eq ptr %115, %1
-  br i1 %116, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread, label %117
+  br i1 %116, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, label %117
 
-117:                                              ; preds = %114
-  %118 = load i8, ptr %112, align 1, !tbaa !15
-  %119 = sext i8 %118 to i32
-  %120 = icmp eq i32 %12, %119
-  br i1 %120, label %121, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
+117:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i182
+  %118 = getelementptr inbounds nuw i8, ptr %106, i64 2
+  %119 = icmp eq ptr %118, %1
+  br i1 %119, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread, label %120
 
-121:                                              ; preds = %117
-  %122 = load i8, ptr %115, align 1, !tbaa !15
-  %.fr399 = freeze i8 %122
-  %123 = sext i8 %.fr399 to i32
-  %124 = add nsw i32 %123, -48
-  %or.cond.i25.i183 = icmp ult i32 %124, 10
-  %125 = icmp ult i8 %.fr399, 64
-  %or.cond19.i26.i184 = and i1 %125, %or.cond.i25.i183
-  br i1 %or.cond19.i26.i184, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i187, label %switch.early.test347
+120:                                              ; preds = %117
+  %121 = load i8, ptr %115, align 1, !tbaa !15
+  %122 = sext i8 %121 to i32
+  %123 = icmp eq i32 %12, %122
+  br i1 %123, label %124, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
 
-switch.early.test347:                             ; preds = %121
-  switch i8 %.fr399, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread [
+124:                                              ; preds = %120
+  %125 = load i8, ptr %118, align 1, !tbaa !15
+  %126 = sext i8 %125 to i32
+  %127 = add nsw i32 %126, -48
+  %or.cond.i25.i183 = icmp ult i32 %127, 10
+  %128 = icmp ult i8 %125, 64
+  %or.cond19.i26.i184 = and i1 %128, %or.cond.i25.i183
+  %129 = freeze i1 %or.cond19.i26.i184
+  br i1 %129, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i187, label %switch.early.test347
+
+switch.early.test347:                             ; preds = %124
+  switch i8 %125, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i187
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i187
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i187
@@ -3451,50 +3454,50 @@ switch.early.test347:                             ; preds = %121
     i8 65, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i187
   ]
 
-_ZN17double_conversionL7isDigitEii.exit30.thread.i187: ; preds = %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %121
-  store ptr %115, ptr %0, align 8, !tbaa !3
+_ZN17double_conversionL7isDigitEii.exit30.thread.i187: ; preds = %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %switch.early.test347, %124
+  store ptr %118, ptr %0, align 8, !tbaa !3
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188: ; preds = %switch.early.test346
-  %126 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %126, ptr %0, align 8, !tbaa !3
-  %127 = icmp eq ptr %126, %1
-  br i1 %127, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
+  %130 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %130, ptr %0, align 8, !tbaa !3
+  %131 = icmp eq ptr %130, %1
+  br i1 %131, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread: ; preds = %switch.early.test347, %117, %_ZN17double_conversionL7isDigitEii.exit30.thread.i187, %114, %105, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188
-  %128 = phi ptr [ %112, %switch.early.test347 ], [ %112, %117 ], [ %115, %_ZN17double_conversionL7isDigitEii.exit30.thread.i187 ], [ %112, %114 ], [ %106, %105 ], [ %126, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188 ]
-  br i1 %4, label %129, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread: ; preds = %switch.early.test347, %120, %_ZN17double_conversionL7isDigitEii.exit30.thread.i187, %117, %107, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188
+  %132 = phi ptr [ %115, %switch.early.test347 ], [ %115, %120 ], [ %118, %_ZN17double_conversionL7isDigitEii.exit30.thread.i187 ], [ %115, %117 ], [ %108, %107 ], [ %130, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188 ]
+  br i1 %4, label %133, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split
 
-129:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
-  %130 = load i8, ptr %128, align 1, !tbaa !15
-  %131 = icmp eq i8 %130, 46
-  br i1 %131, label %132, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201
+133:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
+  %134 = load i8, ptr %132, align 1, !tbaa !15
+  %135 = icmp eq i8 %134, 46
+  br i1 %135, label %136, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 1
-  store ptr %133, ptr %0, align 8, !tbaa !3
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %132, i64 1
+  store ptr %137, ptr %0, align 8, !tbaa !3
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split: ; preds = %132, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
-  %.ph483 = phi ptr [ %128, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread ], [ %133, %132 ]
-  %.4133.ph = phi i8 [ %.2131, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread ], [ 1, %132 ]
-  %.pr484 = load i8, ptr %.ph483, align 1, !tbaa !15
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split: ; preds = %136, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread
+  %.ph466 = phi ptr [ %132, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread ], [ %137, %136 ]
+  %.4133.ph = phi i8 [ %.2131, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread ], [ 1, %136 ]
+  %.pr467 = load i8, ptr %.ph466, align 1, !tbaa !15
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split, %129
-  %134 = phi i8 [ %.pr484, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split ], [ %130, %129 ]
-  %135 = phi ptr [ %.ph483, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split ], [ %128, %129 ]
-  %.4133 = phi i8 [ %.4133.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split ], [ %.2131, %129 ]
-  %.fr401 = freeze i8 %134
-  %136 = sext i8 %.fr401 to i32
-  %137 = add nsw i32 %136, -48
-  %or.cond.i202 = icmp ult i32 %137, 10
-  %138 = icmp ult i8 %.fr401, 64
-  %or.cond19.i = and i1 %138, %or.cond.i202
-  br i1 %or.cond19.i, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %switch.early.test348
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split, %133
+  %138 = phi i8 [ %.pr467, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split ], [ %134, %133 ]
+  %139 = phi ptr [ %.ph466, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split ], [ %132, %133 ]
+  %.4133 = phi i8 [ %.4133.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201thread-pre-split ], [ %.2131, %133 ]
+  %140 = sext i8 %138 to i32
+  %141 = add nsw i32 %140, -48
+  %or.cond.i202 = icmp ult i32 %141, 10
+  %142 = icmp ult i8 %138, 64
+  %or.cond19.i = and i1 %142, %or.cond.i202
+  %143 = freeze i1 %or.cond19.i
+  br i1 %143, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %switch.early.test348
 
 switch.early.test348:                             ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201
-  switch i8 %.fr401, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288 [
+  switch i8 %138, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288 [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit.thread
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit.thread
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit.thread
@@ -3510,126 +3513,126 @@ switch.early.test348:                             ; preds = %_ZN17double_convers
   ]
 
 _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %switch.early.test348, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit201
-  %139 = icmp eq i8 %.fr401, 48
-  %spec.select324 = and i1 %.0121, %139
-  %140 = trunc nuw i8 %.4133 to i1
-  %141 = add nsw i32 %.3125, 4
-  %spec.select149 = select i1 %140, i32 %.3125, i32 %141
-  br label %103, !llvm.loop !55
+  %144 = icmp eq i8 %138, 48
+  %spec.select324 = and i1 %.0121, %144
+  %145 = trunc nuw i8 %.4133 to i1
+  %146 = add nsw i32 %.3125, 4
+  %spec.select149 = select i1 %145, i32 %.3125, i32 %146
+  br label %104, !llvm.loop !55
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288: ; preds = %switch.early.test348, %_ZN17double_conversionL7isDigitEii.exit.thread.i182, %105, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188
-  %.promoted.i204 = phi ptr [ %135, %switch.early.test348 ], [ %112, %_ZN17double_conversionL7isDigitEii.exit.thread.i182 ], [ %106, %105 ], [ %126, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188 ]
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288: ; preds = %switch.early.test348, %_ZN17double_conversionL7isDigitEii.exit.thread.i182, %107, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188
+  %.promoted.i204 = phi ptr [ %139, %switch.early.test348 ], [ %115, %_ZN17double_conversionL7isDigitEii.exit.thread.i182 ], [ %108, %107 ], [ %130, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188 ]
   %.not10.not.i205 = icmp eq ptr %.promoted.i204, %1
-  %142 = or i1 %5, %.not10.not.i205
-  %or.cond527 = or i1 %142, %4
-  br i1 %or.cond527, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread, label %.lr.ph.i206
+  %147 = or i1 %5, %.not10.not.i205
+  %or.cond510 = or i1 %147, %4
+  br i1 %or.cond510, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread, label %.lr.ph.i206
 
-.lr.ph.i206:                                      ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, %149
-  %143 = phi ptr [ %150, %149 ], [ %.promoted.i204, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288 ]
-  %144 = load i8, ptr %143, align 1, !tbaa !15
+.lr.ph.i206:                                      ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288, %154
+  %148 = phi ptr [ %155, %154 ], [ %.promoted.i204, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288 ]
+  %149 = load i8, ptr %148, align 1, !tbaa !15
   br label %.preheader.i.i207
 
-145:                                              ; preds = %.preheader.i.i207
+150:                                              ; preds = %.preheader.i.i207
   %indvars.iv.next30.i.i209 = add nuw nsw i64 %indvars.iv29.i.i208, 1
   %exitcond32.not.i.i210 = icmp eq i64 %indvars.iv.next30.i.i209, 6
   br i1 %exitcond32.not.i.i210, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308, label %.preheader.i.i207, !llvm.loop !16
 
-.preheader.i.i207:                                ; preds = %145, %.lr.ph.i206
-  %indvars.iv29.i.i208 = phi i64 [ %indvars.iv.next30.i.i209, %145 ], [ 0, %.lr.ph.i206 ]
-  %146 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i208
-  %147 = load i8, ptr %146, align 1, !tbaa !15
-  %148 = icmp eq i8 %144, %147
-  br i1 %148, label %149, label %145
+.preheader.i.i207:                                ; preds = %150, %.lr.ph.i206
+  %indvars.iv29.i.i208 = phi i64 [ %indvars.iv.next30.i.i209, %150 ], [ 0, %.lr.ph.i206 ]
+  %151 = getelementptr inbounds nuw i8, ptr @_ZN17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv29.i.i208
+  %152 = load i8, ptr %151, align 1, !tbaa !15
+  %153 = icmp eq i8 %149, %152
+  br i1 %153, label %154, label %150
 
-149:                                              ; preds = %.preheader.i.i207
-  %150 = getelementptr inbounds nuw i8, ptr %143, i64 1
-  store ptr %150, ptr %0, align 8, !tbaa !3
-  %.not.not.i212 = icmp eq ptr %150, %1
+154:                                              ; preds = %.preheader.i.i207
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 1
+  store ptr %155, ptr %0, align 8, !tbaa !3
+  %.not.not.i212 = icmp eq ptr %155, %1
   br i1 %.not.not.i212, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread, label %.lr.ph.i206, !llvm.loop !18
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread: ; preds = %149, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288
-  %151 = phi ptr [ %.promoted.i204, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288 ], [ %150, %149 ]
-  %152 = add nsw i32 %.0135.lcssa, -1
-  %153 = shl nuw i32 1, %152
-  %154 = icmp sgt i32 %99, %153
-  br i1 %154, label %155, label %157
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread: ; preds = %154, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288
+  %156 = phi ptr [ %.promoted.i204, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit188.thread288 ], [ %155, %154 ]
+  %157 = add nsw i32 %.0135.lcssa, -1
+  %158 = shl nuw i32 1, %157
+  %159 = icmp sgt i32 %100, %158
+  br i1 %159, label %160, label %162
 
-155:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread
-  %156 = add nsw i64 %101, 1
-  br label %163
+160:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread
+  %161 = add nsw i64 %102, 1
+  br label %168
 
-157:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread
-  %158 = icmp eq i32 %99, %153
-  br i1 %158, label %159, label %163
+162:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit213.thread
+  %163 = icmp eq i32 %100, %158
+  br i1 %163, label %164, label %168
 
-159:                                              ; preds = %157
-  %160 = and i64 %101, 1
-  %161 = icmp eq i64 %160, 0
-  %or.cond3 = select i1 %161, i1 %.0121, i1 false
+164:                                              ; preds = %162
+  %165 = and i64 %102, 1
+  %166 = icmp eq i64 %165, 0
+  %or.cond3 = select i1 %166, i1 %.0121, i1 false
   %not.or.cond3 = xor i1 %or.cond3, true
-  %162 = zext i1 %not.or.cond3 to i64
-  %spec.select150 = add nsw i64 %101, %162
-  br label %163
+  %167 = zext i1 %not.or.cond3 to i64
+  %spec.select150 = add nsw i64 %102, %167
+  br label %168
 
-163:                                              ; preds = %159, %157, %155
-  %.3119 = phi i64 [ %156, %155 ], [ %spec.select150, %159 ], [ %101, %157 ]
-  %164 = shl nuw nsw i64 1, %21
-  %165 = and i64 %.3119, %164
-  %.not146 = icmp ne i64 %165, 0
-  %166 = zext i1 %.not146 to i32
-  %.6128 = add nsw i32 %.3125, %166
-  %167 = zext i1 %.not146 to i64
-  %.4120 = ashr i64 %.3119, %167
+168:                                              ; preds = %164, %162, %160
+  %.3119 = phi i64 [ %161, %160 ], [ %spec.select150, %164 ], [ %102, %162 ]
+  %169 = shl nuw nsw i64 1, %21
+  %170 = and i64 %.3119, %169
+  %.not146 = icmp ne i64 %170, 0
+  %171 = zext i1 %.not146 to i32
+  %.6128 = add nsw i32 %.3125, %171
+  %172 = zext i1 %.not146 to i64
+  %.4120 = ashr i64 %.3119, %172
   br label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread
 
-168:                                              ; preds = %86
-  br i1 %20, label %169, label %172
+173:                                              ; preds = %87
+  br i1 %20, label %174, label %177
 
-169:                                              ; preds = %168
-  %170 = getelementptr i8, ptr %.promoted385, i64 1
-  store ptr %170, ptr %0, align 8, !tbaa !3
-  %171 = icmp eq ptr %170, %1
-  br i1 %171, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
+174:                                              ; preds = %173
+  %175 = getelementptr i8, ptr %.promoted385, i64 1
+  store ptr %175, ptr %0, align 8, !tbaa !3
+  %176 = icmp eq ptr %175, %1
+  br i1 %176, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
 
-172:                                              ; preds = %168
-  %173 = icmp ult i8 %43, 64
-  %or.cond19.i.i215 = and i1 %173, %or.cond.i160
-  %174 = icmp sgt i8 %43, 96
-  %or.cond325 = or i1 %174, %or.cond19.i.i215
-  %175 = add i8 %43, -65
-  %or.cond.i217 = icmp ult i8 %175, 6
+177:                                              ; preds = %173
+  %178 = icmp ult i8 %43, 64
+  %or.cond19.i.i215 = and i1 %178, %or.cond.i160
+  %179 = icmp sgt i8 %43, 96
+  %or.cond325 = or i1 %179, %or.cond19.i.i215
+  %180 = add i8 %43, -65
+  %or.cond.i217 = icmp ult i8 %180, 6
   %or.cond336 = or i1 %or.cond.i217, %or.cond325
-  %176 = getelementptr i8, ptr %.promoted385, i64 1
-  store ptr %176, ptr %0, align 8, !tbaa !3
-  %177 = icmp eq ptr %176, %1
+  %181 = getelementptr i8, ptr %.promoted385, i64 1
+  store ptr %181, ptr %0, align 8, !tbaa !3
+  %182 = icmp eq ptr %181, %1
   br i1 %or.cond336, label %_ZN17double_conversionL7isDigitEii.exit.thread.i220, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226
 
-_ZN17double_conversionL7isDigitEii.exit.thread.i220: ; preds = %172
-  br i1 %177, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %178
+_ZN17double_conversionL7isDigitEii.exit.thread.i220: ; preds = %177
+  br i1 %182, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %183
 
-178:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i220
-  %179 = getelementptr inbounds nuw i8, ptr %.promoted385, i64 2
-  %180 = icmp eq ptr %179, %1
-  br i1 %180, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175, label %181
+183:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i220
+  %184 = getelementptr inbounds nuw i8, ptr %.promoted385, i64 2
+  %185 = icmp eq ptr %184, %1
+  br i1 %185, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175, label %186
 
-181:                                              ; preds = %178
-  %182 = load i8, ptr %176, align 1, !tbaa !15
-  %183 = sext i8 %182 to i32
-  %184 = icmp eq i32 %12, %183
-  br i1 %184, label %185, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
+186:                                              ; preds = %183
+  %187 = load i8, ptr %181, align 1, !tbaa !15
+  %188 = sext i8 %187 to i32
+  %189 = icmp eq i32 %12, %188
+  br i1 %189, label %190, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
 
-185:                                              ; preds = %181
-  %186 = load i8, ptr %179, align 1, !tbaa !15
-  %.fr403 = freeze i8 %186
-  %187 = sext i8 %.fr403 to i32
-  %188 = add nsw i32 %187, -48
-  %or.cond.i25.i221 = icmp ult i32 %188, 10
-  %189 = icmp ult i8 %.fr403, 64
-  %or.cond19.i26.i222 = and i1 %189, %or.cond.i25.i221
-  br i1 %or.cond19.i26.i222, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split, label %switch.early.test349
+190:                                              ; preds = %186
+  %191 = load i8, ptr %184, align 1, !tbaa !15
+  %192 = sext i8 %191 to i32
+  %193 = add nsw i32 %192, -48
+  %or.cond.i25.i221 = icmp ult i32 %193, 10
+  %194 = icmp ult i8 %191, 64
+  %or.cond19.i26.i222 = and i1 %194, %or.cond.i25.i221
+  %195 = freeze i1 %or.cond19.i26.i222
+  br i1 %195, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split, label %switch.early.test349
 
-switch.early.test349:                             ; preds = %185
-  switch i8 %.fr403, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 [
+switch.early.test349:                             ; preds = %190
+  switch i8 %191, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175 [
     i8 102, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
     i8 101, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
     i8 100, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
@@ -3644,58 +3647,58 @@ switch.early.test349:                             ; preds = %185
     i8 65, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split
   ]
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226: ; preds = %172
-  br i1 %177, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226: ; preds = %177
+  br i1 %182, label %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split: ; preds = %185, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %73, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %62
-  %.sink = phi ptr [ %67, %73 ], [ %63, %62 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %switch.early.test349 ], [ %179, %185 ]
-  %.1130.ph = phi i8 [ 1, %73 ], [ 1, %62 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %185 ]
-  %.2124.ph529 = phi i32 [ %.0122, %73 ], [ %.0122, %62 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %185 ]
-  %.1117.ph530 = phi i64 [ %.0116, %73 ], [ %.0116, %62 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %switch.early.test349 ], [ %90, %185 ]
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split: ; preds = %190, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %switch.early.test349, %73, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %62
+  %.sink = phi ptr [ %67, %73 ], [ %63, %62 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %67, %switch.early.test345 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %switch.early.test349 ], [ %184, %190 ]
+  %.1130.ph = phi i8 [ 1, %73 ], [ 1, %62 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ 1, %switch.early.test345 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %switch.early.test349 ], [ %.0129, %190 ]
+  %.2124.ph512 = phi i32 [ %.0122, %73 ], [ %.0122, %62 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %.0122, %switch.early.test345 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %switch.early.test349 ], [ %spec.select148, %190 ]
+  %.1117.ph513 = phi i64 [ %.0116, %73 ], [ %.0116, %62 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %.0116, %switch.early.test345 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %switch.early.test349 ], [ %91, %190 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !3
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split, %64, %switch.early.test349, %switch.early.test345, %181, %178, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226, %169, %69, %66
-  %190 = phi ptr [ %63, %69 ], [ %63, %64 ], [ %176, %178 ], [ %63, %switch.early.test345 ], [ %170, %169 ], [ %176, %181 ], [ %176, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %63, %66 ], [ %176, %switch.early.test349 ], [ %.sink, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
-  %.1130 = phi i8 [ 1, %69 ], [ 1, %64 ], [ %.0129, %178 ], [ 1, %switch.early.test345 ], [ %.0129, %169 ], [ %.0129, %181 ], [ %.0129, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ 1, %66 ], [ %.0129, %switch.early.test349 ], [ %.1130.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
-  %.2124 = phi i32 [ %.0122, %69 ], [ %.0122, %64 ], [ %spec.select148, %178 ], [ %.0122, %switch.early.test345 ], [ %spec.select148, %169 ], [ %spec.select148, %181 ], [ %spec.select148, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %.0122, %66 ], [ %spec.select148, %switch.early.test349 ], [ %.2124.ph529, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
-  %.1117 = phi i64 [ %.0116, %69 ], [ %.0116, %64 ], [ %90, %178 ], [ %.0116, %switch.early.test345 ], [ %90, %169 ], [ %90, %181 ], [ %90, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %.0116, %66 ], [ %90, %switch.early.test349 ], [ %.1117.ph530, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
-  %.pre = load i8, ptr %190, align 1, !tbaa !15
-  br label %41
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split, %64, %switch.early.test349, %switch.early.test345, %186, %183, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226, %174, %69, %66
+  %196 = phi ptr [ %63, %69 ], [ %63, %64 ], [ %181, %183 ], [ %63, %switch.early.test345 ], [ %175, %174 ], [ %181, %186 ], [ %181, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %63, %66 ], [ %181, %switch.early.test349 ], [ %.sink, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
+  %.1130 = phi i8 [ 1, %69 ], [ 1, %64 ], [ %.0129, %183 ], [ 1, %switch.early.test345 ], [ %.0129, %174 ], [ %.0129, %186 ], [ %.0129, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ 1, %66 ], [ %.0129, %switch.early.test349 ], [ %.1130.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
+  %.2124 = phi i32 [ %.0122, %69 ], [ %.0122, %64 ], [ %spec.select148, %183 ], [ %.0122, %switch.early.test345 ], [ %spec.select148, %174 ], [ %spec.select148, %186 ], [ %spec.select148, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %.0122, %66 ], [ %spec.select148, %switch.early.test349 ], [ %.2124.ph512, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
+  %.1117 = phi i64 [ %.0116, %69 ], [ %.0116, %64 ], [ %91, %183 ], [ %.0116, %switch.early.test345 ], [ %91, %174 ], [ %91, %186 ], [ %91, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %.0116, %66 ], [ %91, %switch.early.test349 ], [ %.1117.ph513, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
+  %.pre = load i8, ptr %196, align 1, !tbaa !15
+  br label %42
 
 .thread314:                                       ; preds = %61, %61
   store i8 0, ptr %8, align 1, !tbaa !28
-  br label %192
+  br label %198
 
-_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226, %169, %_ZN17double_conversionL7isDigitEii.exit.thread.i220, %84, %.critedge, %163
-  %191 = phi ptr [ %85, %84 ], [ %.promoted385, %.critedge ], [ %151, %163 ], [ %170, %169 ], [ %176, %_ZN17double_conversionL7isDigitEii.exit.thread.i220 ], [ %176, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ]
-  %.2124.ph = phi i32 [ %.0122, %84 ], [ %.0122, %.critedge ], [ %.6128, %163 ], [ %spec.select148, %_ZN17double_conversionL7isDigitEii.exit.thread.i220 ], [ %spec.select148, %169 ], [ %spec.select148, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ]
-  %.1117.ph = phi i64 [ %.0116, %84 ], [ %.0116, %.critedge ], [ %.4120, %163 ], [ %90, %_ZN17double_conversionL7isDigitEii.exit.thread.i220 ], [ %90, %169 ], [ %90, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ]
+_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226, %174, %_ZN17double_conversionL7isDigitEii.exit.thread.i220, %85, %.critedge, %168
+  %197 = phi ptr [ %86, %85 ], [ %.promoted385, %.critedge ], [ %156, %168 ], [ %175, %174 ], [ %181, %_ZN17double_conversionL7isDigitEii.exit.thread.i220 ], [ %181, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ]
+  %.2124.ph = phi i32 [ %.0122, %85 ], [ %.0122, %.critedge ], [ %.6128, %168 ], [ %spec.select148, %_ZN17double_conversionL7isDigitEii.exit.thread.i220 ], [ %spec.select148, %174 ], [ %spec.select148, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ]
+  %.1117.ph = phi i64 [ %.0116, %85 ], [ %.0116, %.critedge ], [ %.4120, %168 ], [ %91, %_ZN17double_conversionL7isDigitEii.exit.thread.i220 ], [ %91, %174 ], [ %91, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ]
   store i8 0, ptr %8, align 1, !tbaa !28
-  br i1 %4, label %192, label %251
+  br i1 %4, label %198, label %260
 
-192:                                              ; preds = %.thread314, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread
-  %193 = phi ptr [ %.promoted385, %.thread314 ], [ %191, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
+198:                                              ; preds = %.thread314, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread
+  %199 = phi ptr [ %.promoted385, %.thread314 ], [ %197, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
   %.1117.ph319 = phi i64 [ %.0116, %.thread314 ], [ %.1117.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
   %.2124.ph317 = phi i32 [ %.0122, %.thread314 ], [ %.2124.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
-  br i1 %20, label %194, label %196
+  br i1 %20, label %200, label %202
 
-194:                                              ; preds = %192
-  %195 = getelementptr inbounds nuw i8, ptr %193, i64 1
+200:                                              ; preds = %198
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 1
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split
 
-196:                                              ; preds = %192
-  %197 = load i8, ptr %193, align 1, !tbaa !15
-  %.fr405 = freeze i8 %197
-  %198 = sext i8 %.fr405 to i32
-  %199 = add nsw i32 %198, -48
-  %or.cond.i.i227 = icmp ult i32 %199, 10
-  %200 = icmp ult i8 %.fr405, 64
-  %or.cond19.i.i228 = and i1 %200, %or.cond.i.i227
-  br i1 %or.cond19.i.i228, label %_ZN17double_conversionL7isDigitEii.exit.thread.i233, label %switch.early.test350
+202:                                              ; preds = %198
+  %203 = load i8, ptr %199, align 1, !tbaa !15
+  %204 = sext i8 %203 to i32
+  %205 = add nsw i32 %204, -48
+  %or.cond.i.i227 = icmp ult i32 %205, 10
+  %206 = icmp ult i8 %203, 64
+  %or.cond19.i.i228 = and i1 %206, %or.cond.i.i227
+  %207 = freeze i1 %or.cond19.i.i228
+  br i1 %207, label %_ZN17double_conversionL7isDigitEii.exit.thread.i233, label %switch.early.test350
 
-switch.early.test350:                             ; preds = %196
-  switch i8 %.fr405, label %_ZN17double_conversionL7isDigitEii.exit.thread1.i231 [
+switch.early.test350:                             ; preds = %202
+  switch i8 %203, label %_ZN17double_conversionL7isDigitEii.exit.thread1.i231 [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit.thread.i233
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit.thread.i233
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit.thread.i233
@@ -3711,38 +3714,38 @@ switch.early.test350:                             ; preds = %196
   ]
 
 _ZN17double_conversionL7isDigitEii.exit.thread1.i231: ; preds = %switch.early.test350
-  %201 = getelementptr inbounds nuw i8, ptr %193, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %199, i64 1
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split
 
-_ZN17double_conversionL7isDigitEii.exit.thread.i233: ; preds = %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %196
-  %202 = getelementptr inbounds nuw i8, ptr %193, i64 1
-  store ptr %202, ptr %0, align 8, !tbaa !3
-  %203 = icmp eq ptr %202, %1
-  br i1 %203, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split, label %204
+_ZN17double_conversionL7isDigitEii.exit.thread.i233: ; preds = %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %switch.early.test350, %202
+  %209 = getelementptr inbounds nuw i8, ptr %199, i64 1
+  store ptr %209, ptr %0, align 8, !tbaa !3
+  %210 = icmp eq ptr %209, %1
+  br i1 %210, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split, label %211
 
-204:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i233
-  %205 = getelementptr inbounds nuw i8, ptr %193, i64 2
-  %206 = icmp eq ptr %205, %1
-  br i1 %206, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split, label %207
+211:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i233
+  %212 = getelementptr inbounds nuw i8, ptr %199, i64 2
+  %213 = icmp eq ptr %212, %1
+  br i1 %213, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split, label %214
 
-207:                                              ; preds = %204
-  %208 = load i8, ptr %202, align 1, !tbaa !15
-  %209 = sext i8 %208 to i32
-  %210 = icmp eq i32 %12, %209
-  br i1 %210, label %211, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239
+214:                                              ; preds = %211
+  %215 = load i8, ptr %209, align 1, !tbaa !15
+  %216 = sext i8 %215 to i32
+  %217 = icmp eq i32 %12, %216
+  br i1 %217, label %218, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239
 
-211:                                              ; preds = %207
-  %212 = load i8, ptr %205, align 1, !tbaa !15
-  %.fr407 = freeze i8 %212
-  %213 = sext i8 %.fr407 to i32
-  %214 = add nsw i32 %213, -48
-  %or.cond.i25.i234 = icmp ult i32 %214, 10
-  %215 = icmp ult i8 %.fr407, 64
-  %or.cond19.i26.i235 = and i1 %215, %or.cond.i25.i234
-  br i1 %or.cond19.i26.i235, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split, label %switch.early.test351
+218:                                              ; preds = %214
+  %219 = load i8, ptr %212, align 1, !tbaa !15
+  %220 = sext i8 %219 to i32
+  %221 = add nsw i32 %220, -48
+  %or.cond.i25.i234 = icmp ult i32 %221, 10
+  %222 = icmp ult i8 %219, 64
+  %or.cond19.i26.i235 = and i1 %222, %or.cond.i25.i234
+  %223 = freeze i1 %or.cond19.i26.i235
+  br i1 %223, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split, label %switch.early.test351
 
-switch.early.test351:                             ; preds = %211
-  switch i8 %.fr407, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split [
+switch.early.test351:                             ; preds = %218
+  switch i8 %219, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split [
     i8 102, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split
     i8 101, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split
     i8 100, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split
@@ -3757,94 +3760,94 @@ switch.early.test351:                             ; preds = %211
     i8 65, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split
   ]
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split: ; preds = %211, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %194, %_ZN17double_conversionL7isDigitEii.exit.thread1.i231
-  %.sink531 = phi ptr [ %195, %194 ], [ %201, %_ZN17double_conversionL7isDigitEii.exit.thread1.i231 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %switch.early.test351 ], [ %205, %211 ]
-  store ptr %.sink531, ptr %0, align 8, !tbaa !3
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split: ; preds = %218, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %switch.early.test351, %200, %_ZN17double_conversionL7isDigitEii.exit.thread1.i231
+  %.sink514 = phi ptr [ %201, %200 ], [ %208, %_ZN17double_conversionL7isDigitEii.exit.thread1.i231 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %switch.early.test351 ], [ %212, %218 ]
+  store ptr %.sink514, ptr %0, align 8, !tbaa !3
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split, %204, %_ZN17double_conversionL7isDigitEii.exit.thread.i233, %switch.early.test351
-  %.ph485 = phi ptr [ %202, %switch.early.test351 ], [ %202, %204 ], [ %202, %_ZN17double_conversionL7isDigitEii.exit.thread.i233 ], [ %.sink531, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split ]
-  %.pr486 = load i8, ptr %.ph485, align 1, !tbaa !15
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split, %211, %_ZN17double_conversionL7isDigitEii.exit.thread.i233, %switch.early.test351
+  %.ph468 = phi ptr [ %209, %switch.early.test351 ], [ %209, %211 ], [ %209, %_ZN17double_conversionL7isDigitEii.exit.thread.i233 ], [ %.sink514, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split.sink.split ]
+  %.pr469 = load i8, ptr %.ph468, align 1, !tbaa !15
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split, %207
-  %216 = phi i8 [ %.pr486, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split ], [ %208, %207 ]
-  %217 = phi ptr [ %.ph485, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split ], [ %202, %207 ]
-  switch i8 %216, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 [
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split, %214
+  %224 = phi i8 [ %.pr469, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split ], [ %215, %214 ]
+  %225 = phi ptr [ %.ph468, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239thread-pre-split ], [ %209, %214 ]
+  switch i8 %224, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 [
     i8 43, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split
-    i8 45, label %218
+    i8 45, label %226
   ]
 
-218:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239
+226:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239, %218
-  %.0115.ph = phi i1 [ true, %218 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239 ]
-  %219 = getelementptr inbounds nuw i8, ptr %217, i64 1
-  store ptr %219, ptr %0, align 8, !tbaa !3
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239, %226
+  %.0115.ph = phi i1 [ true, %226 ], [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239 ]
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 1
+  store ptr %227, ptr %0, align 8, !tbaa !3
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239
-  %.promoted386 = phi ptr [ %217, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239 ], [ %219, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split ]
+  %.promoted386 = phi ptr [ %225, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239 ], [ %227, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split ]
   %.0115 = phi i1 [ false, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit239 ], [ %.0115.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252.sink.split ]
-  %220 = load i8, ptr %.promoted386, align 1, !tbaa !15
-  %221 = sext i8 %220 to i32
-  %222 = add nsw i32 %221, -48
-  %or.cond.i266387 = icmp ult i32 %222, 10
+  %228 = load i8, ptr %.promoted386, align 1, !tbaa !15
+  %229 = sext i8 %228 to i32
+  %230 = add nsw i32 %229, -48
+  %or.cond.i266387 = icmp ult i32 %230, 10
   br i1 %or.cond.i266387, label %.lr.ph389, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread
 
 .lr.ph389:                                        ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252, %.backedge
-  %223 = phi i32 [ %235, %.backedge ], [ %221, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
+  %231 = phi i32 [ %243, %.backedge ], [ %229, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
   %.0111388 = phi i32 [ %.2113, %.backedge ], [ 0, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
-  %224 = phi ptr [ %233, %.backedge ], [ %.promoted386, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
-  %225 = add i32 %.0111388, 97200
-  %226 = icmp ult i32 %225, 194401
-  %227 = mul nsw i32 %.0111388, 10
-  %228 = add i32 %227, -48
-  %229 = add i32 %228, %223
-  %.2113 = select i1 %226, i32 %229, i32 %.0111388
-  %230 = getelementptr inbounds nuw i8, ptr %224, i64 1
-  store ptr %230, ptr %0, align 8, !tbaa !3
-  %231 = icmp eq ptr %230, %1
-  br i1 %20, label %232, label %_ZN17double_conversionL7isDigitEii.exit.thread.i273
+  %232 = phi ptr [ %241, %.backedge ], [ %.promoted386, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ]
+  %233 = add i32 %.0111388, 97200
+  %234 = icmp ult i32 %233, 194401
+  %235 = mul nsw i32 %.0111388, 10
+  %236 = add i32 %235, -48
+  %237 = add i32 %236, %231
+  %.2113 = select i1 %234, i32 %237, i32 %.0111388
+  %238 = getelementptr inbounds nuw i8, ptr %232, i64 1
+  store ptr %238, ptr %0, align 8, !tbaa !3
+  %239 = icmp eq ptr %238, %1
+  br i1 %20, label %240, label %_ZN17double_conversionL7isDigitEii.exit.thread.i273
 
-232:                                              ; preds = %.lr.ph389
-  br i1 %231, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, label %.backedge
+240:                                              ; preds = %.lr.ph389
+  br i1 %239, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, label %.backedge
 
-.backedge:                                        ; preds = %240, %237, %switch.early.test352, %232, %_ZN17double_conversionL7isDigitEii.exit30.thread.i278
-  %233 = phi ptr [ %230, %232 ], [ %238, %_ZN17double_conversionL7isDigitEii.exit30.thread.i278 ], [ %230, %switch.early.test352 ], [ %230, %237 ], [ %230, %240 ]
-  %234 = load i8, ptr %233, align 1, !tbaa !15
-  %235 = sext i8 %234 to i32
-  %236 = add nsw i32 %235, -48
-  %or.cond.i266 = icmp ult i32 %236, 10
+.backedge:                                        ; preds = %248, %245, %switch.early.test352, %240, %_ZN17double_conversionL7isDigitEii.exit30.thread.i278
+  %241 = phi ptr [ %238, %240 ], [ %246, %_ZN17double_conversionL7isDigitEii.exit30.thread.i278 ], [ %238, %switch.early.test352 ], [ %238, %245 ], [ %238, %248 ]
+  %242 = load i8, ptr %241, align 1, !tbaa !15
+  %243 = sext i8 %242 to i32
+  %244 = add nsw i32 %243, -48
+  %or.cond.i266 = icmp ult i32 %244, 10
   br i1 %or.cond.i266, label %.lr.ph389, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, !llvm.loop !56
 
 _ZN17double_conversionL7isDigitEii.exit.thread.i273: ; preds = %.lr.ph389
-  br i1 %231, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, label %237
+  br i1 %239, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, label %245
 
-237:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i273
-  %238 = getelementptr inbounds nuw i8, ptr %224, i64 2
-  %239 = icmp eq ptr %238, %1
-  br i1 %239, label %.backedge, label %240
+245:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i273
+  %246 = getelementptr inbounds nuw i8, ptr %232, i64 2
+  %247 = icmp eq ptr %246, %1
+  br i1 %247, label %.backedge, label %248
 
-240:                                              ; preds = %237
-  %241 = load i8, ptr %230, align 1, !tbaa !15
-  %242 = sext i8 %241 to i32
-  %243 = icmp eq i32 %12, %242
-  br i1 %243, label %244, label %.backedge
+248:                                              ; preds = %245
+  %249 = load i8, ptr %238, align 1, !tbaa !15
+  %250 = sext i8 %249 to i32
+  %251 = icmp eq i32 %12, %250
+  br i1 %251, label %252, label %.backedge
 
-244:                                              ; preds = %240
-  %245 = load i8, ptr %238, align 1, !tbaa !15
-  %.fr409 = freeze i8 %245
-  %246 = sext i8 %.fr409 to i32
-  %247 = add nsw i32 %246, -48
-  %or.cond.i25.i274 = icmp ult i32 %247, 10
-  %248 = icmp ult i8 %.fr409, 64
-  %or.cond19.i26.i275 = and i1 %248, %or.cond.i25.i274
-  br i1 %or.cond19.i26.i275, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i278, label %switch.early.test352
+252:                                              ; preds = %248
+  %253 = load i8, ptr %246, align 1, !tbaa !15
+  %254 = sext i8 %253 to i32
+  %255 = add nsw i32 %254, -48
+  %or.cond.i25.i274 = icmp ult i32 %255, 10
+  %256 = icmp ult i8 %253, 64
+  %or.cond19.i26.i275 = and i1 %256, %or.cond.i25.i274
+  %257 = freeze i1 %or.cond19.i26.i275
+  br i1 %257, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i278, label %switch.early.test352
 
-switch.early.test352:                             ; preds = %244
-  switch i8 %.fr409, label %.backedge [
+switch.early.test352:                             ; preds = %252
+  switch i8 %253, label %.backedge [
     i8 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i278
     i8 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i278
     i8 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i278
@@ -3859,103 +3862,103 @@ switch.early.test352:                             ; preds = %244
     i8 65, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i278
   ]
 
-_ZN17double_conversionL7isDigitEii.exit30.thread.i278: ; preds = %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %244
-  store ptr %238, ptr %0, align 8, !tbaa !3
+_ZN17double_conversionL7isDigitEii.exit30.thread.i278: ; preds = %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %switch.early.test352, %252
+  store ptr %246, ptr %0, align 8, !tbaa !3
   br label %.backedge
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread: ; preds = %.backedge, %232, %_ZN17double_conversionL7isDigitEii.exit.thread.i273, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252
-  %.1112 = phi i32 [ 0, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ], [ %.2113, %_ZN17double_conversionL7isDigitEii.exit.thread.i273 ], [ %.2113, %232 ], [ %.2113, %.backedge ]
-  %249 = sub nsw i32 0, %.1112
-  %spec.select151 = select i1 %.0115, i32 %249, i32 %.1112
-  %250 = add nsw i32 %spec.select151, %.2124.ph317
-  br label %251
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread: ; preds = %.backedge, %240, %_ZN17double_conversionL7isDigitEii.exit.thread.i273, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252
+  %.1112 = phi i32 [ 0, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit252 ], [ %.2113, %_ZN17double_conversionL7isDigitEii.exit.thread.i273 ], [ %.2113, %240 ], [ %.2113, %.backedge ]
+  %258 = sub nsw i32 0, %.1112
+  %spec.select151 = select i1 %.0115, i32 %258, i32 %.1112
+  %259 = add nsw i32 %spec.select151, %.2124.ph317
+  br label %260
 
-251:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread
+260:                                              ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread
   %.1117.ph318 = phi i64 [ %.1117.ph319, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread ], [ %.1117.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
-  %.8 = phi i32 [ %250, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread ], [ %.2124.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
-  %252 = icmp eq i32 %.8, 0
-  %253 = icmp eq i64 %.1117.ph318, 0
-  %or.cond5 = select i1 %252, i1 true, i1 %253
-  br i1 %or.cond5, label %254, label %260
+  %.8 = phi i32 [ %259, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit279.thread ], [ %.2124.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S3_.exit.thread ]
+  %261 = icmp eq i32 %.8, 0
+  %262 = icmp eq i64 %.1117.ph318, 0
+  %or.cond5 = select i1 %261, i1 true, i1 %262
+  br i1 %or.cond5, label %263, label %269
 
-254:                                              ; preds = %251
-  br i1 %2, label %255, label %258
+263:                                              ; preds = %260
+  br i1 %2, label %264, label %267
 
-255:                                              ; preds = %254
-  br i1 %253, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308, label %256
+264:                                              ; preds = %263
+  br i1 %262, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308, label %265
 
-256:                                              ; preds = %255
-  %257 = sub nsw i64 0, %.1117.ph318
-  br label %258
+265:                                              ; preds = %264
+  %266 = sub nsw i64 0, %.1117.ph318
+  br label %267
 
-258:                                              ; preds = %256, %254
-  %.6 = phi i64 [ %257, %256 ], [ %.1117.ph318, %254 ]
-  %259 = sitofp i64 %.6 to double
+267:                                              ; preds = %265, %263
+  %.6 = phi i64 [ %266, %265 ], [ %.1117.ph318, %263 ]
+  %268 = sitofp i64 %.6 to double
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308
 
-260:                                              ; preds = %251
-  %261 = icmp ugt i64 %.1117.ph318, 9007199254740991
-  br i1 %261, label %.lr.ph.i.i, label %._crit_edge.i.i
+269:                                              ; preds = %260
+  %270 = icmp ugt i64 %.1117.ph318, 9007199254740991
+  br i1 %270, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %260, %.lr.ph.i.i
-  %.01521.i.i = phi i32 [ %263, %.lr.ph.i.i ], [ %.8, %260 ]
-  %.01620.i.i = phi i64 [ %262, %.lr.ph.i.i ], [ %.1117.ph318, %260 ]
-  %262 = lshr i64 %.01620.i.i, 1
-  %263 = add nsw i32 %.01521.i.i, 1
-  %264 = icmp ugt i64 %.01620.i.i, 18014398509481983
-  br i1 %264, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !57
+.lr.ph.i.i:                                       ; preds = %269, %.lr.ph.i.i
+  %.01521.i.i = phi i32 [ %272, %.lr.ph.i.i ], [ %.8, %269 ]
+  %.01620.i.i = phi i64 [ %271, %.lr.ph.i.i ], [ %.1117.ph318, %269 ]
+  %271 = lshr i64 %.01620.i.i, 1
+  %272 = add nsw i32 %.01521.i.i, 1
+  %273 = icmp ugt i64 %.01620.i.i, 18014398509481983
+  br i1 %273, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !57
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %260
-  %.016.lcssa.i.i = phi i64 [ %.1117.ph318, %260 ], [ %262, %.lr.ph.i.i ]
-  %.015.lcssa.i.i = phi i32 [ %.8, %260 ], [ %263, %.lr.ph.i.i ]
-  %265 = icmp sgt i32 %.015.lcssa.i.i, 971
-  br i1 %265, label %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit, label %266
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %269
+  %.016.lcssa.i.i = phi i64 [ %.1117.ph318, %269 ], [ %271, %.lr.ph.i.i ]
+  %.015.lcssa.i.i = phi i32 [ %.8, %269 ], [ %272, %.lr.ph.i.i ]
+  %274 = icmp sgt i32 %.015.lcssa.i.i, 971
+  br i1 %274, label %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit, label %275
 
-266:                                              ; preds = %._crit_edge.i.i
-  %267 = icmp slt i32 %.015.lcssa.i.i, -1074
-  br i1 %267, label %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit, label %.preheader.i.i280
+275:                                              ; preds = %._crit_edge.i.i
+  %276 = icmp slt i32 %.015.lcssa.i.i, -1074
+  br i1 %276, label %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit, label %.preheader.i.i280
 
-.preheader.i.i280:                                ; preds = %266
-  %268 = icmp ne i32 %.015.lcssa.i.i, -1074
-  %269 = and i64 %.016.lcssa.i.i, 4503599627370496
-  %270 = icmp eq i64 %269, 0
-  %271 = and i1 %268, %270
-  br i1 %271, label %.lr.ph25.i.i, label %._crit_edge26.i.i
+.preheader.i.i280:                                ; preds = %275
+  %277 = icmp ne i32 %.015.lcssa.i.i, -1074
+  %278 = and i64 %.016.lcssa.i.i, 4503599627370496
+  %279 = icmp eq i64 %278, 0
+  %280 = and i1 %277, %279
+  br i1 %280, label %.lr.ph25.i.i, label %._crit_edge26.i.i
 
 .lr.ph25.i.i:                                     ; preds = %.preheader.i.i280, %.lr.ph25.i.i
-  %.124.i.i = phi i32 [ %273, %.lr.ph25.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i280 ]
-  %.11723.i.i = phi i64 [ %272, %.lr.ph25.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i280 ]
-  %272 = shl i64 %.11723.i.i, 1
-  %273 = add nsw i32 %.124.i.i, -1
-  %274 = icmp sgt i32 %.124.i.i, -1073
-  %275 = and i64 %.11723.i.i, 2251799813685248
-  %276 = icmp eq i64 %275, 0
-  %277 = select i1 %274, i1 %276, i1 false
-  br i1 %277, label %.lr.ph25.i.i, label %._crit_edge26.i.i, !llvm.loop !58
+  %.124.i.i = phi i32 [ %282, %.lr.ph25.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i280 ]
+  %.11723.i.i = phi i64 [ %281, %.lr.ph25.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i280 ]
+  %281 = shl i64 %.11723.i.i, 1
+  %282 = add nsw i32 %.124.i.i, -1
+  %283 = icmp sgt i32 %.124.i.i, -1073
+  %284 = and i64 %.11723.i.i, 2251799813685248
+  %285 = icmp eq i64 %284, 0
+  %286 = select i1 %283, i1 %285, i1 false
+  br i1 %286, label %.lr.ph25.i.i, label %._crit_edge26.i.i, !llvm.loop !58
 
 ._crit_edge26.i.i:                                ; preds = %.lr.ph25.i.i, %.preheader.i.i280
-  %.117.lcssa.i.i = phi i64 [ %.016.lcssa.i.i, %.preheader.i.i280 ], [ %272, %.lr.ph25.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.015.lcssa.i.i, %.preheader.i.i280 ], [ %273, %.lr.ph25.i.i ]
-  %.lcssa.i.i = phi i1 [ %270, %.preheader.i.i280 ], [ %276, %.lr.ph25.i.i ]
-  %278 = icmp eq i32 %.1.lcssa.i.i, -1074
-  %brmerge.not.i.i = select i1 %278, i1 %.lcssa.i.i, i1 false
-  %279 = add nsw i32 %.1.lcssa.i.i, 1075
-  %280 = zext nneg i32 %279 to i64
-  %281 = shl nuw nsw i64 %280, 52
-  %.0.i.i = select i1 %brmerge.not.i.i, i64 0, i64 %281
-  %282 = and i64 %.117.lcssa.i.i, 4503599627370495
-  %283 = or disjoint i64 %.0.i.i, %282
-  %284 = bitcast i64 %283 to double
+  %.117.lcssa.i.i = phi i64 [ %.016.lcssa.i.i, %.preheader.i.i280 ], [ %281, %.lr.ph25.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.015.lcssa.i.i, %.preheader.i.i280 ], [ %282, %.lr.ph25.i.i ]
+  %.lcssa.i.i = phi i1 [ %279, %.preheader.i.i280 ], [ %285, %.lr.ph25.i.i ]
+  %287 = icmp eq i32 %.1.lcssa.i.i, -1074
+  %brmerge.not.i.i = select i1 %287, i1 %.lcssa.i.i, i1 false
+  %288 = add nsw i32 %.1.lcssa.i.i, 1075
+  %289 = zext nneg i32 %288 to i64
+  %290 = shl nuw nsw i64 %289, 52
+  %.0.i.i = select i1 %brmerge.not.i.i, i64 0, i64 %290
+  %291 = and i64 %.117.lcssa.i.i, 4503599627370495
+  %292 = or disjoint i64 %.0.i.i, %291
+  %293 = bitcast i64 %292 to double
   br label %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit
 
-_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit:  ; preds = %._crit_edge.i.i, %266, %._crit_edge26.i.i
-  %.018.i.i = phi double [ %284, %._crit_edge26.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i ], [ 0.000000e+00, %266 ]
-  %285 = fneg double %.018.i.i
-  %286 = select i1 %2, double %285, double %.018.i.i
+_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit:  ; preds = %._crit_edge.i.i, %275, %._crit_edge26.i.i
+  %.018.i.i = phi double [ %293, %._crit_edge26.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i ], [ 0.000000e+00, %275 ]
+  %294 = fneg double %.018.i.i
+  %295 = select i1 %2, double %294, double %.018.i.i
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308
 
-_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308: ; preds = %80, %145, %255, %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit, %258, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
-  %.0 = phi double [ %40, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread ], [ -0.000000e+00, %255 ], [ %286, %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit ], [ %259, %258 ], [ %6, %145 ], [ %6, %80 ]
+_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.thread308: ; preds = %81, %150, %264, %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit, %267, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
+  %.0 = phi double [ %41, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread ], [ -0.000000e+00, %264 ], [ %295, %_ZN17double_conversion6DoubleC2ENS_5DiyFpE.exit ], [ %268, %267 ], [ %6, %150 ], [ %6, %81 ]
   ret double %.0
 }
 
@@ -3987,15 +3990,14 @@ define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIee
 .preheader205:                                    ; preds = %.backedge, %.backedge.us, %8
   %18 = phi i8 [ %16, %.backedge.us ], [ %9, %8 ], [ %29, %.backedge ]
   %.promoted222 = phi ptr [ %14, %.backedge.us ], [ %.promoted, %8 ], [ %30, %.backedge ]
-  %.fr223 = freeze i8 %18
-  %19 = sext i8 %.fr223 to i32
+  %19 = sext i8 %18 to i32
   %20 = add nsw i32 %19, -48
-  %or.cond.i224 = icmp ult i32 %20, 10
-  %21 = icmp slt i8 %.fr223, 56
-  %22 = and i1 %21, %or.cond.i224
-  br i1 %22, label %.lr.ph227, label %._crit_edge
+  %or.cond.i223 = icmp ult i32 %20, 10
+  %21 = icmp slt i8 %18, 56
+  %22 = and i1 %21, %or.cond.i223
+  br i1 %22, label %.lr.ph225, label %._crit_edge
 
-.lr.ph227:                                        ; preds = %.preheader205
+.lr.ph225:                                        ; preds = %.preheader205
   %23 = select i1 %6, i64 53, i64 24
   %24 = zext i16 %3 to i32
   %25 = icmp eq i16 %3, 0
@@ -4078,12 +4080,12 @@ _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit: ; preds = %.lr.ph.split, %.
   %.not.not.i = icmp eq ptr %53, %1
   br i1 %.not.not.i, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread, label %.lr.ph.i, !llvm.loop !60
 
-54:                                               ; preds = %.lr.ph227, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit
-  %55 = phi i8 [ %.fr223, %.lr.ph227 ], [ %.fr, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit ]
-  %.0116225 = phi i64 [ 0, %.lr.ph227 ], [ %59, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit ]
-  %.promoted234 = phi ptr [ %.promoted222, %.lr.ph227 ], [ %149, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit ]
+54:                                               ; preds = %.lr.ph225, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit
+  %55 = phi i8 [ %18, %.lr.ph225 ], [ %150, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit ]
+  %.0116224 = phi i64 [ 0, %.lr.ph225 ], [ %59, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit ]
+  %.promoted232 = phi ptr [ %.promoted222, %.lr.ph225 ], [ %149, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit ]
   %56 = sext i8 %55 to i64
-  %57 = shl nsw i64 %.0116225, 3
+  %57 = shl nsw i64 %.0116224, 3
   %58 = add i64 %57, -48
   %59 = add i64 %58, %56
   %60 = ashr i64 %59, %23
@@ -4093,18 +4095,18 @@ _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit: ; preds = %.lr.ph.split, %.
 
 .preheader:                                       ; preds = %54
   %62 = icmp sgt i32 %61, 1
-  br i1 %62, label %.lr.ph231, label %._crit_edge232
+  br i1 %62, label %.lr.ph229, label %._crit_edge230
 
-.lr.ph231:                                        ; preds = %.preheader, %.lr.ph231
-  %.0135230 = phi i32 [ %63, %.lr.ph231 ], [ 1, %.preheader ]
-  %.0136229 = phi i32 [ %64, %.lr.ph231 ], [ %61, %.preheader ]
-  %63 = add nuw nsw i32 %.0135230, 1
-  %64 = lshr i32 %.0136229, 1
-  %65 = icmp samesign ugt i32 %.0136229, 3
-  br i1 %65, label %.lr.ph231, label %._crit_edge232, !llvm.loop !61
+.lr.ph229:                                        ; preds = %.preheader, %.lr.ph229
+  %.0135228 = phi i32 [ %63, %.lr.ph229 ], [ 1, %.preheader ]
+  %.0136227 = phi i32 [ %64, %.lr.ph229 ], [ %61, %.preheader ]
+  %63 = add nuw nsw i32 %.0135228, 1
+  %64 = lshr i32 %.0136227, 1
+  %65 = icmp samesign ugt i32 %.0136227, 3
+  br i1 %65, label %.lr.ph229, label %._crit_edge230, !llvm.loop !61
 
-._crit_edge232:                                   ; preds = %.lr.ph231, %.preheader
-  %.0135.lcssa = phi i32 [ 1, %.preheader ], [ %63, %.lr.ph231 ]
+._crit_edge230:                                   ; preds = %.lr.ph229, %.preheader
+  %.0135.lcssa = phi i32 [ 1, %.preheader ], [ %63, %.lr.ph229 ]
   %notmask = shl nsw i32 -1, %.0135.lcssa
   %66 = xor i32 %notmask, -1
   %67 = trunc i64 %59 to i32
@@ -4113,16 +4115,16 @@ _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit: ; preds = %.lr.ph.split, %.
   %70 = ashr i64 %59, %69
   br i1 %25, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %._crit_edge232
-  %71 = getelementptr inbounds nuw i8, ptr %.promoted234, i64 1
+.split.us:                                        ; preds = %._crit_edge230
+  %71 = getelementptr inbounds nuw i8, ptr %.promoted232, i64 1
   store ptr %71, ptr %0, align 8, !tbaa !3
   %72 = icmp eq ptr %71, %1
   br i1 %72, label %_ZN17double_conversionL7isDigitEii.exit, label %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us
 
 _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us: ; preds = %.split.us, %78
   %73 = phi ptr [ %81, %78 ], [ %71, %.split.us ]
-  %.0121.us237 = phi i1 [ %spec.select203.us, %78 ], [ true, %.split.us ]
-  %.3125.us236 = phi i32 [ %80, %78 ], [ %.0135.lcssa, %.split.us ]
+  %.0121.us235 = phi i1 [ %spec.select203.us, %78 ], [ true, %.split.us ]
+  %.3125.us234 = phi i32 [ %80, %78 ], [ %.0135.lcssa, %.split.us ]
   %74 = load i8, ptr %73, align 1, !tbaa !15
   %75 = sext i8 %74 to i32
   %76 = add nsw i32 %75, -48
@@ -4133,18 +4135,18 @@ _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us: ; preds = %.sp
 
 78:                                               ; preds = %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us
   %79 = icmp eq i8 %74, 48
-  %spec.select203.us = and i1 %.0121.us237, %79
-  %80 = add nuw nsw i32 %.3125.us236, 3
+  %spec.select203.us = and i1 %.0121.us235, %79
+  %80 = add nuw nsw i32 %.3125.us234, 3
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %81, ptr %0, align 8, !tbaa !3
   %82 = icmp eq ptr %81, %1
   br i1 %82, label %_ZN17double_conversionL7isDigitEii.exit, label %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us, !llvm.loop !62
 
-.split:                                           ; preds = %._crit_edge232, %106
-  %83 = phi i8 [ %102, %106 ], [ %55, %._crit_edge232 ]
-  %84 = phi ptr [ %101, %106 ], [ %.promoted234, %._crit_edge232 ]
-  %.3125 = phi i32 [ %108, %106 ], [ %.0135.lcssa, %._crit_edge232 ]
-  %.0121 = phi i1 [ %spec.select203, %106 ], [ true, %._crit_edge232 ]
+.split:                                           ; preds = %._crit_edge230, %106
+  %83 = phi i8 [ %102, %106 ], [ %55, %._crit_edge230 ]
+  %84 = phi ptr [ %101, %106 ], [ %.promoted232, %._crit_edge230 ]
+  %.3125 = phi i32 [ %108, %106 ], [ %.0135.lcssa, %._crit_edge230 ]
+  %.0121 = phi i1 [ %spec.select203, %106 ], [ true, %._crit_edge230 ]
   %85 = add i8 %83, -56
   %or.cond19.i.not3.i150 = icmp ult i8 %85, -8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 1
@@ -4200,11 +4202,11 @@ _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread: ; preds = %100, %
 
 _ZN17double_conversionL7isDigitEii.exit:          ; preds = %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us, %78, %.split.us
   %.promoted.i159 = phi ptr [ %81, %78 ], [ %71, %.split.us ], [ %73, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us ], [ %86, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157 ], [ %101, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread ]
-  %.us-phi = phi i32 [ %80, %78 ], [ %.0135.lcssa, %.split.us ], [ %.3125.us236, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us ], [ %.3125, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread ], [ %.3125, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157 ]
-  %.us-phi235 = phi i1 [ %spec.select203.us, %78 ], [ true, %.split.us ], [ %.0121.us237, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us ], [ %.0121, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread ], [ %.0121, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157 ]
+  %.us-phi = phi i32 [ %80, %78 ], [ %.0135.lcssa, %.split.us ], [ %.3125.us234, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us ], [ %.3125, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread ], [ %.3125, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157 ]
+  %.us-phi233 = phi i1 [ %spec.select203.us, %78 ], [ true, %.split.us ], [ %.0121.us235, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread.us ], [ %.0121, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157.thread ], [ %.0121, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit157 ]
   %.not10.not.i160 = icmp eq ptr %.promoted.i159, %1
-  %or.cond320 = select i1 %4, i1 true, i1 %.not10.not.i160
-  br i1 %or.cond320, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread, label %.lr.ph.i161
+  %or.cond319 = select i1 %4, i1 true, i1 %.not10.not.i160
+  br i1 %or.cond319, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread, label %.lr.ph.i161
 
 .lr.ph.i161:                                      ; preds = %_ZN17double_conversionL7isDigitEii.exit, %115
   %109 = phi ptr [ %116, %115 ], [ %.promoted.i159, %_ZN17double_conversionL7isDigitEii.exit ]
@@ -4246,7 +4248,7 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread: ; preds =
 124:                                              ; preds = %122
   %125 = and i64 %70, 1
   %126 = icmp eq i64 %125, 0
-  %or.cond3 = select i1 %126, i1 %.us-phi235, i1 false
+  %or.cond3 = select i1 %126, i1 %.us-phi233, i1 false
   %not.or.cond3 = xor i1 %or.cond3, true
   %127 = zext i1 %not.or.cond3 to i64
   %spec.select = add nsw i64 %70, %127
@@ -4256,21 +4258,21 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread: ; preds =
   br i1 %25, label %129, label %132
 
 129:                                              ; preds = %128
-  %130 = getelementptr i8, ptr %.promoted234, i64 1
+  %130 = getelementptr i8, ptr %.promoted232, i64 1
   store ptr %130, ptr %0, align 8, !tbaa !3
   %131 = icmp eq ptr %130, %1
   br i1 %131, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit
 
 132:                                              ; preds = %128
   %133 = icmp ugt i8 %55, 55
-  %134 = getelementptr i8, ptr %.promoted234, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %.promoted232, i64 1
   store ptr %134, ptr %0, align 8, !tbaa !3
   %135 = icmp eq ptr %134, %1
-  %brmerge.i171 = or i1 %133, %135
+  %brmerge.i171 = select i1 %133, i1 true, i1 %135
   br i1 %brmerge.i171, label %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit177, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw i8, ptr %.promoted234, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %.promoted232, i64 2
   %138 = icmp eq ptr %137, %1
   br i1 %138, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit, label %139
 
@@ -4295,17 +4297,17 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit168.thread: ; preds =
 
 _ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit177: ; preds = %132
   %not.or.cond19.i.not3.i172 = xor i1 %133, true
-  %.mux.i173 = or i1 %135, %not.or.cond19.i.not3.i172
-  br i1 %.mux.i173, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit
+  %.mux.i173 = select i1 %not.or.cond19.i.not3.i172, i1 true, i1 %135
+  %cond.fr = freeze i1 %.mux.i173
+  br i1 %cond.fr, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit
 
 _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit: ; preds = %148, %143, %136, %139, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit177, %129
   %149 = phi ptr [ %137, %148 ], [ %134, %143 ], [ %134, %136 ], [ %134, %139 ], [ %134, %_ZN17double_conversionL7AdvanceIPcEEbPT_tiRS2_.exit177 ], [ %130, %129 ]
   %150 = load i8, ptr %149, align 1, !tbaa !15
-  %.fr = freeze i8 %150
-  %151 = sext i8 %.fr to i32
+  %151 = sext i8 %150 to i32
   %152 = add nsw i32 %151, -48
   %or.cond.i = icmp ult i32 %152, 10
-  %153 = icmp slt i8 %.fr, 56
+  %153 = icmp slt i8 %150, 56
   %154 = and i1 %153, %or.cond.i
   br i1 %154, label %54, label %._crit_edge
 
@@ -4332,18 +4334,18 @@ _ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread: ; preds = %1
 
 162:                                              ; preds = %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread
   %163 = phi i1 [ %155, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread ], [ %161, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread ]
-  %.1117.ph291 = phi i64 [ %.1117.ph.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread ], [ %.4120, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread ]
+  %.1117.ph290 = phi i64 [ %.1117.ph.ph, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread.thread ], [ %.4120, %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread ]
   br i1 %2, label %164, label %167
 
 164:                                              ; preds = %162
   br i1 %163, label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread198, label %165
 
 165:                                              ; preds = %164
-  %166 = sub nsw i64 0, %.1117.ph291
+  %166 = sub nsw i64 0, %.1117.ph290
   br label %167
 
 167:                                              ; preds = %165, %162
-  %.6 = phi i64 [ %166, %165 ], [ %.1117.ph291, %162 ]
+  %.6 = phi i64 [ %166, %165 ], [ %.1117.ph290, %162 ]
   %168 = sitofp i64 %.6 to double
   br label %_ZN17double_conversionL17AdvanceToNonspaceIPcEEbPT_S2_.exit.thread198
 
@@ -4673,13 +4675,13 @@ define internal fastcc noundef zeroext i1 @_ZN17double_conversionL16IsHexFloatSt
   %7 = phi ptr [ %10, %_ZN17double_conversionL7isDigitEii.exit.thread.us ], [ %0, %4 ]
   %.0.us = phi i1 [ true, %_ZN17double_conversionL7isDigitEii.exit.thread.us ], [ false, %4 ]
   %8 = load i16, ptr %7, align 2, !tbaa !40
-  %.fr165 = freeze i16 %8
-  %9 = add i16 %.fr165, -48
+  %.fr166 = freeze i16 %8
+  %9 = add i16 %.fr166, -48
   %or.cond19.i.us = icmp ult i16 %9, 10
   br i1 %or.cond19.i.us, label %_ZN17double_conversionL7isDigitEii.exit.thread.us, label %switch.early.test.us
 
 switch.early.test.us:                             ; preds = %.split.us
-  switch i16 %.fr165, label %.loopexit [
+  switch i16 %.fr166, label %.loopexit [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit.thread.us
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit.thread.us
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit.thread.us
@@ -4701,16 +4703,16 @@ _ZN17double_conversionL7isDigitEii.exit.thread.us: ; preds = %switch.early.test.
   br i1 %11, label %_ZN17double_conversionL7isDigitEii.exit82, label %.split.us, !llvm.loop !64
 
 .split:                                           ; preds = %4, %.split.backedge
-  %12 = phi ptr [ %.be337, %.split.backedge ], [ %0, %4 ]
+  %12 = phi ptr [ %.be338, %.split.backedge ], [ %0, %4 ]
   %.0 = phi i1 [ true, %.split.backedge ], [ false, %4 ]
   %13 = load i16, ptr %12, align 2, !tbaa !40
-  %.fr = freeze i16 %13
-  %14 = add i16 %.fr, -48
+  %.fr164 = freeze i16 %13
+  %14 = add i16 %.fr164, -48
   %or.cond19.i = icmp ult i16 %14, 10
   br i1 %or.cond19.i, label %_ZN17double_conversionL7isDigitEii.exit.thread.i, label %switch.early.test
 
 switch.early.test:                                ; preds = %.split
-  switch i16 %.fr, label %.loopexit [
+  switch i16 %.fr164, label %.loopexit [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit.thread
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit.thread
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit.thread
@@ -4727,7 +4729,7 @@ switch.early.test:                                ; preds = %.split
   ]
 
 _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
-  %15 = add i16 %.fr, -97
+  %15 = add i16 %.fr164, -97
   %or.cond116 = icmp ult i16 %15, -26
   br i1 %or.cond116, label %_ZN17double_conversionL7isDigitEii.exit.thread.i, label %_ZN17double_conversionL7isDigitEii.exit.thread1.i
 
@@ -4753,17 +4755,17 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %.split, %_ZN17doubl
 
 26:                                               ; preds = %23
   %27 = load i16, ptr %21, align 2, !tbaa !40
-  %.fr164 = freeze i16 %27
-  %28 = add i16 %.fr164, -48
+  %.fr165 = freeze i16 %27
+  %28 = add i16 %.fr165, -48
   %or.cond19.i26.i = icmp ult i16 %28, 10
   br i1 %or.cond19.i26.i, label %.split.backedge, label %switch.early.test127
 
 .split.backedge:                                  ; preds = %26, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %switch.early.test127, %_ZN17double_conversionL7isDigitEii.exit.thread1.i, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit
-  %.be337 = phi ptr [ %21, %26 ], [ %18, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit ], [ %16, %_ZN17double_conversionL7isDigitEii.exit.thread1.i ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ]
+  %.be338 = phi ptr [ %21, %26 ], [ %18, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit ], [ %16, %_ZN17double_conversionL7isDigitEii.exit.thread1.i ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ], [ %21, %switch.early.test127 ]
   br label %.split, !llvm.loop !64
 
 switch.early.test127:                             ; preds = %26
-  switch i16 %.fr164, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit [
+  switch i16 %.fr165, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit [
     i16 102, label %.split.backedge
     i16 101, label %.split.backedge
     i16 100, label %.split.backedge
@@ -4874,8 +4876,8 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i45: ; preds = %_ZN17double_conve
 
 60:                                               ; preds = %57
   %61 = load i16, ptr %55, align 2, !tbaa !40
-  %.fr166 = freeze i16 %61
-  %62 = add i16 %.fr166, -48
+  %.fr167 = freeze i16 %61
+  %62 = add i16 %.fr167, -48
   %or.cond19.i26.i47 = icmp ult i16 %62, 10
   br i1 %or.cond19.i26.i47, label %.preheader131.split.backedge, label %switch.early.test128
 
@@ -4884,7 +4886,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i45: ; preds = %_ZN17double_conve
   br label %.preheader131.split, !llvm.loop !65
 
 switch.early.test128:                             ; preds = %60
-  switch i16 %.fr166, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit51 [
+  switch i16 %.fr167, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit51 [
     i16 102, label %.preheader131.split.backedge
     i16 101, label %.preheader131.split.backedge
     i16 100, label %.preheader131.split.backedge
@@ -4948,13 +4950,13 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i58: ; preds = %70
 
 80:                                               ; preds = %77
   %81 = load i16, ptr %75, align 2, !tbaa !40
-  %.fr167 = freeze i16 %81
-  %82 = add i16 %.fr167, -48
+  %.fr168 = freeze i16 %81
+  %82 = add i16 %.fr168, -48
   %or.cond19.i26.i60 = icmp ult i16 %82, 10
   br i1 %or.cond19.i26.i60, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63, label %switch.early.test129
 
 switch.early.test129:                             ; preds = %80
-  switch i16 %.fr167, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit64.threadthread-pre-split [
+  switch i16 %.fr168, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit64.threadthread-pre-split [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i63
@@ -5053,13 +5055,13 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit64.thread: ; preds = %_ZN17d
 
 113:                                              ; preds = %110
   %114 = load i16, ptr %108, align 2, !tbaa !40
-  %.fr168 = freeze i16 %114
-  %115 = add i16 %.fr168, -48
+  %.fr169 = freeze i16 %114
+  %115 = add i16 %.fr169, -48
   %or.cond19.i26.i96 = icmp ult i16 %115, 10
   br i1 %or.cond19.i26.i96, label %.backedge, label %switch.early.test130
 
 switch.early.test130:                             ; preds = %113
-  switch i16 %.fr168, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit100 [
+  switch i16 %.fr169, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit100 [
     i16 102, label %.backedge
     i16 101, label %.backedge
     i16 100, label %.backedge
@@ -5118,12 +5120,12 @@ define internal fastcc noundef double @_ZN17double_conversionL17RadixStringToIee
 
 .preheader364.sink.split:                         ; preds = %.backedge366, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.backedge366.us
   %.sink = phi ptr [ %14, %.backedge366.us ], [ %25, %.backedge366 ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ], [ %28, %switch.early.test ]
-  %.ph544 = phi i16 [ %16, %.backedge366.us ], [ %24, %.backedge366 ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ]
+  %.ph545 = phi i16 [ %16, %.backedge366.us ], [ %24, %.backedge366 ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ], [ %.fr409, %switch.early.test ]
   store ptr %.sink, ptr %0, align 8, !tbaa !38
   br label %.preheader364
 
 .preheader364:                                    ; preds = %.preheader364.sink.split, %9
-  %18 = phi i16 [ %10, %9 ], [ %.ph544, %.preheader364.sink.split ]
+  %18 = phi i16 [ %10, %9 ], [ %.ph545, %.preheader364.sink.split ]
   %.promoted395 = phi ptr [ %.promoted, %9 ], [ %.sink, %.preheader364.sink.split ]
   %19 = icmp eq i16 %3, 0
   %20 = select i1 %7, i64 53, i64 24
@@ -5136,7 +5138,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %.lr.ph, %.backedge3
   br i1 %23, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread, label %27
 
 .backedge366:                                     ; preds = %27, %switch.early.test, %31
-  %24 = phi i16 [ %.fr, %31 ], [ %.pre.pre, %switch.early.test ], [ %.pre.pre, %27 ]
+  %24 = phi i16 [ %.fr409, %31 ], [ %.pre.pre, %switch.early.test ], [ %.pre.pre, %27 ]
   %25 = phi ptr [ %28, %31 ], [ %22, %switch.early.test ], [ %22, %27 ]
   %26 = icmp eq i16 %24, 48
   br i1 %26, label %_ZN17double_conversionL7isDigitEii.exit.thread.i, label %.preheader364.sink.split, !llvm.loop !67
@@ -5146,18 +5148,18 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %.lr.ph, %.backedge3
   %29 = icmp ne ptr %28, %1
   %.pre.pre = load i16, ptr %22, align 2, !tbaa !40
   %30 = icmp eq i16 %.pre.pre, %3
-  %or.cond545 = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond545, label %31, label %.backedge366
+  %or.cond546 = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond546, label %31, label %.backedge366
 
 31:                                               ; preds = %27
   %32 = load i16, ptr %28, align 2, !tbaa !40
-  %.fr = freeze i16 %32
-  %33 = add i16 %.fr, -48
+  %.fr409 = freeze i16 %32
+  %33 = add i16 %.fr409, -48
   %or.cond19.i26.i = icmp ult i16 %33, 10
   br i1 %or.cond19.i26.i, label %.backedge366, label %switch.early.test
 
 switch.early.test:                                ; preds = %31
-  switch i16 %.fr, label %.backedge366 [
+  switch i16 %.fr409, label %.backedge366 [
     i16 102, label %.preheader364.sink.split
     i16 101, label %.preheader364.sink.split
     i16 100, label %.preheader364.sink.split
@@ -5180,7 +5182,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17dou
   br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.thread315
 
 35:                                               ; preds = %.preheader364, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177
-  %36 = phi i16 [ %.pre451, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 ], [ %18, %.preheader364 ]
+  %36 = phi i16 [ %.pre452, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 ], [ %18, %.preheader364 ]
   %.promoted399 = phi ptr [ %163, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 ], [ %.promoted395, %.preheader364 ]
   %.0129 = phi i8 [ %.1130, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 ], [ 0, %.preheader364 ]
   %.0122 = phi i32 [ %.2124, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 ], [ 0, %.preheader364 ]
@@ -5262,8 +5264,8 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit164.thread292: ; preds
   br i1 %.not.not.i, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233.thread301, label %.lr.ph.i, !llvm.loop !42
 
 62:                                               ; preds = %43, %_ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit, %35
-  %.sink548 = phi i64 [ 4294967209, %_ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit ], [ 4294967248, %35 ], [ 4294967241, %43 ]
-  %63 = add nuw nsw i64 %.sink548, %38
+  %.sink549 = phi i64 [ 4294967209, %_ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit ], [ 4294967248, %35 ], [ 4294967241, %43 ]
+  %63 = add nuw nsw i64 %.sink549, %38
   %64 = trunc nuw i8 %.0129 to i1
   %65 = add nsw i32 %.0122, -4
   %spec.select150 = select i1 %64, i32 %65, i32 %.0122
@@ -5299,7 +5301,7 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit164.thread292: ; preds
   br label %81
 
 81:                                               ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread, %._crit_edge
-  %.fr409 = phi i16 [ %37, %._crit_edge ], [ %.fr411, %_ZN17double_conversionL7isDigitEii.exit.thread ]
+  %.fr410 = phi i16 [ %37, %._crit_edge ], [ %.fr412, %_ZN17double_conversionL7isDigitEii.exit.thread ]
   %82 = phi ptr [ %.promoted399, %._crit_edge ], [ %108, %_ZN17double_conversionL7isDigitEii.exit.thread ]
   %.2131 = phi i8 [ %.0129, %._crit_edge ], [ %.4133, %_ZN17double_conversionL7isDigitEii.exit.thread ]
   %.3125 = phi i32 [ %80, %._crit_edge ], [ %spec.select151, %_ZN17double_conversionL7isDigitEii.exit.thread ]
@@ -5313,12 +5315,12 @@ _ZN17double_conversionL24IsCharacterDigitForRadixEiic.exit164.thread292: ; preds
   br i1 %85, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread295, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread
 
 86:                                               ; preds = %81
-  %87 = add i16 %.fr409, -48
+  %87 = add i16 %.fr410, -48
   %or.cond19.i.i179 = icmp ult i16 %87, 10
   br i1 %or.cond19.i.i179, label %_ZN17double_conversionL7isDigitEii.exit.thread.i184, label %switch.early.test352
 
 switch.early.test352:                             ; preds = %86
-  switch i16 %.fr409, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190 [
+  switch i16 %.fr410, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190 [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit.thread.i184
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit.thread.i184
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit.thread.i184
@@ -5351,13 +5353,13 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i184: ; preds = %switch.early.tes
 
 96:                                               ; preds = %93
   %97 = load i16, ptr %91, align 2, !tbaa !40
-  %.fr410 = freeze i16 %97
-  %98 = add i16 %.fr410, -48
+  %.fr411 = freeze i16 %97
+  %98 = add i16 %.fr411, -48
   %or.cond19.i26.i186 = icmp ult i16 %98, 10
   br i1 %or.cond19.i26.i186, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i189, label %switch.early.test353
 
 switch.early.test353:                             ; preds = %96
-  switch i16 %.fr410, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread [
+  switch i16 %.fr411, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i189
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i189
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i189
@@ -5406,13 +5408,13 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit203: ; preds = %_ZN17double_
   %107 = phi i16 [ %.pr, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit203thread-pre-split ], [ %103, %102 ]
   %108 = phi ptr [ %.ph, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit203thread-pre-split ], [ %101, %102 ]
   %.4133 = phi i8 [ %.4133.ph, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit203thread-pre-split ], [ %.2131, %102 ]
-  %.fr411 = freeze i16 %107
-  %109 = add i16 %.fr411, -48
+  %.fr412 = freeze i16 %107
+  %109 = add i16 %.fr412, -48
   %or.cond19.i = icmp ult i16 %109, 10
   br i1 %or.cond19.i, label %_ZN17double_conversionL7isDigitEii.exit.thread, label %switch.early.test354
 
 switch.early.test354:                             ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit203
-  switch i16 %.fr411, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread295 [
+  switch i16 %.fr412, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread295 [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit.thread
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit.thread
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit.thread
@@ -5428,7 +5430,7 @@ switch.early.test354:                             ; preds = %_ZN17double_convers
   ]
 
 _ZN17double_conversionL7isDigitEii.exit.thread:   ; preds = %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %switch.early.test354, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit203
-  %110 = icmp eq i16 %.fr411, 48
+  %110 = icmp eq i16 %.fr412, 48
   %spec.select331 = and i1 %.0121, %110
   %111 = trunc nuw i8 %.4133 to i1
   %112 = add nsw i32 %.3125, 4
@@ -5439,8 +5441,8 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread295: ; preds = %sw
   %.promoted.i206 = phi ptr [ %108, %switch.early.test354 ], [ %88, %_ZN17double_conversionL7isDigitEii.exit.thread.i184 ], [ %84, %83 ], [ %99, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190 ]
   %.not13.not.i207 = icmp eq ptr %.promoted.i206, %1
   %113 = or i1 %5, %.not13.not.i207
-  %or.cond549 = or i1 %113, %4
-  br i1 %or.cond549, label %_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit220, label %.lr.ph.i208
+  %or.cond550 = or i1 %113, %4
+  br i1 %or.cond550, label %_ZN17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S3_.exit220, label %.lr.ph.i208
 
 .lr.ph.i208:                                      ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread295, %.loopexit.i214
   %114 = phi ptr [ %127, %.loopexit.i214 ], [ %.promoted.i206, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit190.thread295 ]
@@ -5550,13 +5552,13 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i227: ; preds = %149
 
 160:                                              ; preds = %157
   %161 = load i16, ptr %155, align 2, !tbaa !40
-  %.fr412 = freeze i16 %161
-  %162 = add i16 %.fr412, -48
+  %.fr413 = freeze i16 %161
+  %162 = add i16 %.fr413, -48
   %or.cond19.i26.i229 = icmp ult i16 %162, 10
   br i1 %or.cond19.i26.i229, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split, label %switch.early.test355
 
 switch.early.test355:                             ; preds = %160
-  switch i16 %.fr412, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 [
+  switch i16 %.fr413, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177 [
     i16 102, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split
     i16 101, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split
     i16 100, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split
@@ -5575,19 +5577,19 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233: ; preds = %149
   br i1 %153, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233.thread301, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split: ; preds = %160, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %switch.early.test355, %46
-  %.sink553 = phi ptr [ %47, %46 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %160 ]
+  %.sink554 = phi ptr [ %47, %46 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %switch.early.test355 ], [ %155, %160 ]
   %.1130.ph = phi i8 [ 1, %46 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %switch.early.test355 ], [ %.0129, %160 ]
-  %.2124.ph551 = phi i32 [ %.0122, %46 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %160 ]
-  %.1117.ph552 = phi i64 [ %.0116, %46 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %160 ]
-  store ptr %.sink553, ptr %0, align 8, !tbaa !38
+  %.2124.ph552 = phi i32 [ %.0122, %46 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %160 ]
+  %.1117.ph553 = phi i64 [ %.0116, %46 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %switch.early.test355 ], [ %68, %160 ]
+  store ptr %.sink554, ptr %0, align 8, !tbaa !38
   br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177: ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split, %switch.early.test355, %157, %154, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233, %146
-  %163 = phi ptr [ %152, %switch.early.test355 ], [ %152, %157 ], [ %152, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %147, %146 ], [ %152, %154 ], [ %.sink553, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
+  %163 = phi ptr [ %152, %switch.early.test355 ], [ %152, %157 ], [ %152, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %147, %146 ], [ %152, %154 ], [ %.sink554, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
   %.1130 = phi i8 [ %.0129, %switch.early.test355 ], [ %.0129, %157 ], [ %.0129, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %.0129, %146 ], [ %.0129, %154 ], [ %.1130.ph, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
-  %.2124 = phi i32 [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %157 ], [ %spec.select150, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %spec.select150, %146 ], [ %spec.select150, %154 ], [ %.2124.ph551, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
-  %.1117 = phi i64 [ %68, %switch.early.test355 ], [ %68, %157 ], [ %68, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %68, %146 ], [ %68, %154 ], [ %.1117.ph552, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
-  %.pre451 = load i16, ptr %163, align 2, !tbaa !40
+  %.2124 = phi i32 [ %spec.select150, %switch.early.test355 ], [ %spec.select150, %157 ], [ %spec.select150, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %spec.select150, %146 ], [ %spec.select150, %154 ], [ %.2124.ph552, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
+  %.1117 = phi i64 [ %68, %switch.early.test355 ], [ %68, %157 ], [ %68, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %68, %146 ], [ %68, %154 ], [ %.1117.ph553, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
+  %.pre452 = load i16, ptr %163, align 2, !tbaa !40
   br label %35
 
 .thread321:                                       ; preds = %45, %45
@@ -5613,13 +5615,13 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233.thread301: ; preds = %_Z
 
 169:                                              ; preds = %165
   %170 = load i16, ptr %166, align 2, !tbaa !40
-  %.fr413 = freeze i16 %170
-  %171 = add i16 %.fr413, -48
+  %.fr414 = freeze i16 %170
+  %171 = add i16 %.fr414, -48
   %or.cond19.i.i235 = icmp ult i16 %171, 10
   br i1 %or.cond19.i.i235, label %_ZN17double_conversionL7isDigitEii.exit.thread.i240, label %switch.early.test356
 
 switch.early.test356:                             ; preds = %169
-  switch i16 %.fr413, label %_ZN17double_conversionL7isDigitEii.exit.thread1.i238 [
+  switch i16 %.fr414, label %_ZN17double_conversionL7isDigitEii.exit.thread1.i238 [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit.thread.i240
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit.thread.i240
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit.thread.i240
@@ -5656,13 +5658,13 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i240: ; preds = %switch.early.tes
 
 181:                                              ; preds = %178
   %182 = load i16, ptr %176, align 2, !tbaa !40
-  %.fr414 = freeze i16 %182
-  %183 = add i16 %.fr414, -48
+  %.fr415 = freeze i16 %182
+  %183 = add i16 %.fr415, -48
   %or.cond19.i26.i242 = icmp ult i16 %183, 10
   br i1 %or.cond19.i26.i242, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split, label %switch.early.test357
 
 switch.early.test357:                             ; preds = %181
-  switch i16 %.fr414, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split [
+  switch i16 %.fr415, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split [
     i16 102, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split
     i16 101, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split
     i16 100, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split
@@ -5678,18 +5680,18 @@ switch.early.test357:                             ; preds = %181
   ]
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split: ; preds = %181, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %switch.early.test357, %167, %_ZN17double_conversionL7isDigitEii.exit.thread1.i238
-  %.sink554 = phi ptr [ %168, %167 ], [ %172, %_ZN17double_conversionL7isDigitEii.exit.thread1.i238 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %181 ]
-  store ptr %.sink554, ptr %0, align 8, !tbaa !38
+  %.sink555 = phi ptr [ %168, %167 ], [ %172, %_ZN17double_conversionL7isDigitEii.exit.thread1.i238 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %switch.early.test357 ], [ %176, %181 ]
+  store ptr %.sink555, ptr %0, align 8, !tbaa !38
   br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split: ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split, %175, %_ZN17double_conversionL7isDigitEii.exit.thread.i240, %switch.early.test357
-  %.ph501 = phi ptr [ %173, %switch.early.test357 ], [ %173, %175 ], [ %173, %_ZN17double_conversionL7isDigitEii.exit.thread.i240 ], [ %.sink554, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split ]
-  %.pr502 = load i16, ptr %.ph501, align 2, !tbaa !40
+  %.ph502 = phi ptr [ %173, %switch.early.test357 ], [ %173, %175 ], [ %173, %_ZN17double_conversionL7isDigitEii.exit.thread.i240 ], [ %.sink555, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split.sink.split ]
+  %.pr503 = load i16, ptr %.ph502, align 2, !tbaa !40
   br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246: ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split, %178
-  %184 = phi i16 [ %.pr502, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split ], [ %179, %178 ]
-  %185 = phi ptr [ %.ph501, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split ], [ %173, %178 ]
+  %184 = phi i16 [ %.pr503, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split ], [ %179, %178 ]
+  %185 = phi ptr [ %.ph502, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit246thread-pre-split ], [ %173, %178 ]
   switch i16 %184, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit259 [
     i16 43, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit259.sink.split
     i16 45, label %186
@@ -5752,13 +5754,13 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i280: ; preds = %.lr.ph403
 
 210:                                              ; preds = %207
   %211 = load i16, ptr %205, align 2, !tbaa !40
-  %.fr415 = freeze i16 %211
-  %212 = add i16 %.fr415, -48
+  %.fr416 = freeze i16 %211
+  %212 = add i16 %.fr416, -48
   %or.cond19.i26.i282 = icmp ult i16 %212, 10
   br i1 %or.cond19.i26.i282, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i285, label %switch.early.test358
 
 switch.early.test358:                             ; preds = %210
-  switch i16 %.fr415, label %.backedge [
+  switch i16 %.fr416, label %.backedge [
     i16 102, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i285
     i16 101, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i285
     i16 100, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i285

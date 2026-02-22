@@ -133,8 +133,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i16, ptr %18, align 4, !tbaa !24
-  %.fr = freeze i16 %19
-  %20 = icmp eq i16 %.fr, -8531
+  %20 = icmp eq i16 %19, -8531
   %21 = load ptr, ptr %2, align 8, !tbaa !22, !nonnull !26, !noundef !26
   %22 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %22)
@@ -164,20 +163,20 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit26:         ; preds = %_ZN8rawspeed10ByteS
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 %28
   %.0.copyload.i.i.i.i.i.i24 = load i16, ptr %33, align 1
-  %.0.copyload.i.i.i.i.i.i24.fr = freeze i16 %.0.copyload.i.i.i.i.i.i24
-  %34 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i24.fr)
-  %spec.select.i.i.i.i.i.i25 = select i1 %20, i16 %.0.copyload.i.i.i.i.i.i24.fr, i16 %34
+  %34 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i24)
+  %spec.select.i.i.i.i.i.i25 = select i1 %20, i16 %.0.copyload.i.i.i.i.i.i24, i16 %34
+  %spec.select.i.i.i.i.i.i25.fr = freeze i16 %spec.select.i.i.i.i.i.i25
   store i32 %31, ptr %9, align 8, !tbaa !25
-  %35 = icmp ugt i16 %spec.select.i.i.i.i.i.i25, 13
+  %35 = icmp ugt i16 %spec.select.i.i.i.i.i.i25.fr, 13
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit26
-  %37 = zext i16 %spec.select.i.i.i.i.i.i25 to i32
+  %37 = zext i16 %spec.select.i.i.i.i.i.i25.fr to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE, i32 noundef %37) #15
   unreachable
 
 38:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit26
-  %39 = trunc nuw nsw i16 %spec.select.i.i.i.i.i.i25 to i8
+  %39 = trunc nuw nsw i16 %spec.select.i.i.i.i.i.i25.fr to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %39, ptr %40, align 2, !tbaa !28
   %41 = zext nneg i32 %31 to i64
@@ -200,7 +199,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %38
   store i32 %44, ptr %9, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %spec.select.i.i.i.i.i.i29, ptr %48, align 4, !tbaa !29
-  %49 = zext nneg i16 %spec.select.i.i.i.i.i.i25 to i64
+  %49 = zext nneg i16 %spec.select.i.i.i.i.i.i25.fr to i64
   %50 = getelementptr inbounds nuw i32, ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = lshr i32 -1, %51
@@ -232,7 +231,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %59
   %64 = icmp samesign ule i32 %63, %14
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr inbounds nuw i8, ptr %21, i64 %58
-  %.sroa.4.8.insert.ext.i = zext i16 %.fr to i64
+  %.sroa.4.8.insert.ext.i = zext i16 %19 to i64
   %.sroa.4.8.insert.shift.i = shl nuw nsw i64 %.sroa.4.8.insert.ext.i, 32
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %60
   store ptr %65, ptr %5, align 8
@@ -279,7 +278,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit34:         ; preds = %76
   %82 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i32)
   %spec.select.i.i.i.i.i.i33 = select i1 %20, i32 %.0.copyload.i.i.i.i.i.i32, i32 %82
   store i32 %79, ptr %9, align 8, !tbaa !25
-  %83 = icmp eq i16 %spec.select.i.i.i.i.i.i25, 13
+  %83 = icmp eq i16 %spec.select.i.i.i.i.i.i25.fr, 13
   br i1 %83, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit34
@@ -347,7 +346,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42: ; preds = %_ZN8rawspeed4isInI
   %103 = icmp sgt i32 %56, -1
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds nuw i8, ptr %21, i64 %96
-  %.sroa.4.8.insert.ext.i38 = zext i16 %.fr to i64
+  %.sroa.4.8.insert.ext.i38 = zext i16 %19 to i64
   %.sroa.4.8.insert.shift.i39 = shl nuw nsw i64 %.sroa.4.8.insert.ext.i38, 32
   %.sroa.2.8.insert.insert.i40 = or disjoint i64 %.sroa.4.8.insert.shift.i39, %97
   store ptr %104, ptr %5, align 8

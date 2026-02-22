@@ -4984,9 +4984,9 @@ _ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %4, %24
 
 41:                                               ; preds = %39
   %42 = trunc i8 %.sroa.0.0.copyload to i1
-  br i1 %42, label %.thread57.thread73, label %_ZNK12Dependencies11DepArgument9is_methodEv.exit
+  br i1 %42, label %.thread57.thread74, label %_ZNK12Dependencies11DepArgument9is_methodEv.exit
 
-.thread57.thread73:                               ; preds = %41
+.thread57.thread74:                               ; preds = %41
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.41) #19
   br label %71
 
@@ -5022,13 +5022,13 @@ _ZNK12Dependencies11DepArgument8is_klassEv.exit:  ; preds = %_ZNK12Dependencies1
 .thread57:                                        ; preds = %39
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.634.0.copyload, i64 164
   %55 = load i32, ptr %54, align 4
-  %.fr = freeze i32 %55
-  %56 = and i32 %.fr, 1024
+  %.fr64 = freeze i32 %55
+  %56 = and i32 %.fr64, 1024
   %.not.i.not = icmp eq i32 %56, 0
   %spec.select = select i1 %.not.i.not, ptr @.str.41, ptr @.str.40
-  %.pre66 = trunc i8 %.sroa.0.0.copyload to i1
+  %.pre67 = trunc i8 %.sroa.0.0.copyload to i1
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.35, ptr noundef nonnull %spec.select) #19
-  br i1 %.pre66, label %71, label %_ZNK12Dependencies11DepArgument8is_klassEv.exit27
+  br i1 %.pre67, label %71, label %_ZNK12Dependencies11DepArgument8is_klassEv.exit27
 
 _ZNK12Dependencies11DepArgument8is_klassEv.exit27: ; preds = %.thread57.thread, %.thread57
   %57 = load ptr, ptr %.sroa.634.0.copyload, align 8
@@ -5056,7 +5056,7 @@ _ZNK12Dependencies11DepArgument9is_methodEv.exit28: ; preds = %_ZNK12Dependencie
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.634.0.copyload, ptr noundef nonnull %3) #19
   br label %74
 
-71:                                               ; preds = %.thread57.thread73, %.thread57
+71:                                               ; preds = %.thread57.thread74, %.thread57
   tail call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.634.0.copyload, ptr noundef nonnull %3) #19
   br label %74
 

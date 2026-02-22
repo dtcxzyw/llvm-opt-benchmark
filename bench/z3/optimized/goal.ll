@@ -9163,14 +9163,12 @@ define hidden noundef ptr @_ZNK4goal9translateER15ast_translation(ptr noundef no
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 712
   %13 = load i32, ptr %12, align 8, !tbaa !24
-  %.fr = freeze i32 %13
-  %14 = icmp ne i32 %.fr, 0
+  %14 = icmp ne i32 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8
-  %.fr78 = freeze i32 %16
-  %17 = and i32 %.fr78, 134217728
+  %17 = and i32 %16, 134217728
   %18 = icmp ne i32 %17, 0
-  %19 = and i1 %14, %18
+  %19 = select i1 %14, i1 %18, i1 false
   store ptr %9, ptr %10, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -9193,8 +9191,9 @@ define hidden noundef ptr @_ZNK4goal9translateER15ast_translation(ptr noundef no
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store i32 0, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %31 = select i1 %19, i32 134217728, i32 0
-  %32 = and i32 %.fr78, 335544320
+  %cond.fr = freeze i1 %19
+  %31 = select i1 %cond.fr, i32 134217728, i32 0
+  %32 = and i32 %16, 335544320
   %33 = or disjoint i32 %31, %32
   store i32 %33, ptr %30, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9243,8 +9242,8 @@ default.unreachable:                              ; preds = %75, %107, %142
 
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit: ; preds = %42, %46, %50
   %.07.i.i = phi i32 [ %52, %50 ], [ %45, %42 ], [ %49, %46 ]
-  %.not96 = icmp eq i32 %.07.i.i, 0
-  br i1 %.not96, label %._crit_edge, label %.lr.ph
+  %.not95 = icmp eq i32 %.07.i.i, 0
+  br i1 %.not95, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9254,13 +9253,13 @@ _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit: ;
 
 ._crit_edge.loopexit:                             ; preds = %164
   %.pre = load i32, ptr %15, align 8
-  %.pre110 = load i32, ptr %30, align 8
-  %55 = and i32 %.pre110, 469762048
+  %.pre109 = load i32, ptr %30, align 8
+  %55 = and i32 %.pre109, 469762048
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %._crit_edge.loopexit, %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit
   %56 = phi i32 [ %55, %._crit_edge.loopexit ], [ %33, %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit ], [ %33, %11 ]
-  %57 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %.fr78, %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit ], [ %.fr78, %11 ]
+  %57 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit ], [ %16, %11 ]
   %58 = and i32 %57, -469762049
   %59 = or disjoint i32 %56, %58
   store i32 %59, ptr %30, align 8
@@ -9431,8 +9430,8 @@ _ZN15ast_translationclI4exprEEPT_PKS2_.exit52:    ; preds = %122, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %131 = load i32, ptr %30, align 8
   %132 = and i32 %131, 268435456
-  %.not81 = icmp eq i32 %132, 0
-  br i1 %.not81, label %164, label %133
+  %.not80 = icmp eq i32 %132, 0
+  br i1 %.not80, label %164, label %133
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %10, align 8, !tbaa !102
@@ -9558,8 +9557,8 @@ _ZN11ast_manager9push_backERN14parray_managerINS_28expr_dependency_array_configE
   store ptr %175, ptr %176, align 8, !tbaa !96
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !99
-  %.not79 = icmp eq ptr %188, null
-  br i1 %.not79, label %.thread73, label %189
+  %.not78 = icmp eq ptr %188, null
+  br i1 %.not78, label %.thread73, label %189
 
 189:                                              ; preds = %186
   %190 = load ptr, ptr %188, align 8, !tbaa !94
@@ -9604,8 +9603,8 @@ _ZN11ast_manager9push_backERN14parray_managerINS_28expr_dependency_array_configE
   store ptr %199, ptr %20, align 8, !tbaa !99
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !89
-  %.not80 = icmp eq ptr %211, null
-  br i1 %.not80, label %.thread75, label %212
+  %.not79 = icmp eq ptr %211, null
+  br i1 %.not79, label %.thread75, label %212
 
 212:                                              ; preds = %209
   %213 = load ptr, ptr %211, align 8, !tbaa !94

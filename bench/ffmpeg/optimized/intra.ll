@@ -1763,14 +1763,11 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
   %932 = load ptr, ptr %10, align 8, !tbaa !4
   %933 = load ptr, ptr %28, align 8, !tbaa !77
   %934 = load i8, ptr %279, align 1, !tbaa !78
-  %.fr57.i.i.i = freeze i8 %934
-  %.not.i98.i.i = icmp eq i8 %.fr57.i.i.i, 0
+  %.not.i98.i.i = icmp eq i8 %934, 0
   %935 = getelementptr inbounds nuw i8, ptr %278, i64 12
   %936 = load i32, ptr %935, align 4, !tbaa !117
-  %.fr59.i.i.i = freeze i32 %936
   %937 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %938 = load i32, ptr %937, align 8, !tbaa !118
-  %.fr.i.i.i = freeze i32 %938
   br i1 %.not.i98.i.i, label %lmcs_scale_chroma.exit.i.i, label %939
 
 939:                                              ; preds = %itx_2d.exit.i.i
@@ -1791,23 +1788,24 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
   br i1 %.not46.i100.i.i, label %953, label %950
 
 950:                                              ; preds = %945
-  %951 = mul i32 %.fr.i.i.i, %.fr59.i.i.i
-  %952 = icmp sgt i32 %951, 4
+  %951 = mul nsw i32 %938, %936
+  %.fr57.i.i.i = freeze i32 %951
+  %952 = icmp sgt i32 %.fr57.i.i.i, 4
   br label %953
 
 953:                                              ; preds = %950, %945, %939
   %.fr56.i.i.i = phi i1 [ false, %945 ], [ false, %939 ], [ %952, %950 ]
   %954 = load i8, ptr %271, align 2, !tbaa !81
-  %.fr58.i.i.i = freeze i8 %954
-  %.not74.i.i.i = icmp eq i8 %.fr58.i.i.i, 0
-  %955 = select i1 %.not74.i.i.i, i32 1, i32 2
+  %.fr72.i.i.i = freeze i8 %954
+  %.not73.i.i.i = icmp eq i8 %.fr72.i.i.i, 0
+  %955 = select i1 %.not73.i.i.i, i32 1, i32 2
   %956 = getelementptr inbounds nuw i8, ptr %932, i64 1944
   %957 = getelementptr inbounds nuw i8, ptr %932, i64 20848
   %958 = getelementptr inbounds nuw i8, ptr %278, i64 64
   %959 = getelementptr inbounds nuw i8, ptr %932, i64 20768
   %960 = getelementptr inbounds nuw i8, ptr %933, i64 4
   %961 = getelementptr inbounds nuw i8, ptr %933, i64 8
-  br i1 %.not74.i.i.i, label %.split.us.i.i.i, label %.split.i.i.i
+  br i1 %.not73.i.i.i, label %.split.us.i.i.i, label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %953
   br i1 %.fr56.i.i.i, label %.split.us.split.us.i.preheader.i.i, label %lmcs_scale_chroma.exit.i.i
@@ -1817,7 +1815,7 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
   %963 = load ptr, ptr %959, align 8, !tbaa !195
   %964 = load i32, ptr %960, align 4, !tbaa !122
   %965 = load i32, ptr %961, align 8, !tbaa !121
-  call void %963(ptr noundef nonnull %0, ptr noundef %962, i32 noundef %.fr59.i.i.i, i32 noundef %.fr.i.i.i, i32 noundef %964, i32 noundef %965) #8
+  call void %963(ptr noundef nonnull %0, ptr noundef %962, i32 noundef %936, i32 noundef %938, i32 noundef %964, i32 noundef %965) #8
   br label %lmcs_scale_chroma.exit.i.i
 
 .split.i.i.i:                                     ; preds = %953
@@ -1852,17 +1850,17 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
   %985 = getelementptr inbounds nuw i8, ptr %972, i64 64
   %986 = load ptr, ptr %985, align 8, !tbaa !123
   %987 = load ptr, ptr %958, align 8, !tbaa !123
-  call void %984(ptr noundef %986, ptr noundef %987, i32 noundef %.fr59.i.i.i, i32 noundef %.fr.i.i.i, i32 noundef %980, i32 noundef %983) #8
+  call void %984(ptr noundef %986, ptr noundef %987, i32 noundef %936, i32 noundef %938, i32 noundef %980, i32 noundef %983) #8
   br label %988
 
 988:                                              ; preds = %974, %.split.split.us.i.i.i
   %989 = load ptr, ptr %959, align 8, !tbaa !195
   %990 = load i32, ptr %960, align 4, !tbaa !122
   %991 = load i32, ptr %961, align 8, !tbaa !121
-  call void %989(ptr noundef %0, ptr noundef %973, i32 noundef %.fr59.i.i.i, i32 noundef %.fr.i.i.i, i32 noundef %990, i32 noundef %991) #8
+  call void %989(ptr noundef %0, ptr noundef %973, i32 noundef %936, i32 noundef %938, i32 noundef %990, i32 noundef %991) #8
   %992 = add nuw nsw i32 %.048.us51.i.i.i, 1
-  %exitcond66.not.i.i.i = icmp eq i32 %992, %955
-  br i1 %exitcond66.not.i.i.i, label %lmcs_scale_chroma.exit.i.i, label %.split.split.us.i.i.i, !llvm.loop !198
+  %exitcond64.not.i.i.i = icmp eq i32 %992, %955
+  br i1 %exitcond64.not.i.i.i, label %lmcs_scale_chroma.exit.i.i, label %.split.split.us.i.i.i, !llvm.loop !198
 
 .split.split.i.i.i:                               ; preds = %.split.i.i.i, %1014
   %.048.i.i.i = phi i32 [ %1015, %1014 ], [ 0, %.split.i.i.i ]
@@ -1890,13 +1888,13 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
   %1011 = getelementptr inbounds nuw i8, ptr %1000, i64 64
   %1012 = load ptr, ptr %1011, align 8, !tbaa !123
   %1013 = load ptr, ptr %958, align 8, !tbaa !123
-  call void %1010(ptr noundef %1012, ptr noundef %1013, i32 noundef %.fr59.i.i.i, i32 noundef %.fr.i.i.i, i32 noundef %1006, i32 noundef %1009) #8
+  call void %1010(ptr noundef %1012, ptr noundef %1013, i32 noundef %936, i32 noundef %938, i32 noundef %1006, i32 noundef %1009) #8
   br label %1014
 
 1014:                                             ; preds = %993, %.split.split.i.i.i
   %1015 = add nuw nsw i32 %.048.i.i.i, 1
-  %exitcond64.not.i.i.i = icmp eq i32 %1015, %955
-  br i1 %exitcond64.not.i.i.i, label %lmcs_scale_chroma.exit.i.i, label %.split.split.i.i.i, !llvm.loop !198
+  %exitcond62.not.i.i.i = icmp eq i32 %1015, %955
+  br i1 %exitcond62.not.i.i.i, label %lmcs_scale_chroma.exit.i.i, label %.split.split.i.i.i, !llvm.loop !198
 
 lmcs_scale_chroma.exit.i.i:                       ; preds = %1014, %988, %.split.us.split.us.i.preheader.i.i, %.split.us.i.i.i, %itx_2d.exit.i.i, %287
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

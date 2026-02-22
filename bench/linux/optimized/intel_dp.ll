@@ -9852,15 +9852,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   %20 = icmp eq i8 %19, 0
   %.pre = load ptr, ptr %16, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 2632
-  %.pre32 = load i16, ptr %.phi.trans.insert, align 8
+  %.pre30 = load i16, ptr %.phi.trans.insert, align 8
   br i1 %20, label %._crit_edge, label %21
 
 21:                                               ; preds = %15
-  %22 = icmp ugt i16 %.pre32, 11
+  %22 = icmp ugt i16 %.pre30, 11
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp eq i16 %.pre32, 11
+  %24 = icmp eq i16 %.pre30, 11
   br i1 %24, label %25, label %259
 
 25:                                               ; preds = %23
@@ -9881,11 +9881,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   %35 = load i16, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %37 = load i32, ptr %36, align 4
-  %38 = icmp ugt i16 %.pre32, 11
+  %38 = icmp ugt i16 %.pre30, 11
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %._crit_edge
-  %40 = icmp eq i16 %.pre32, 11
+  %40 = icmp eq i16 %.pre30, 11
   br i1 %40, label %41, label %62
 
 41:                                               ; preds = %39
@@ -9985,10 +9985,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   %108 = load i32, ptr %5, align 4
   %109 = load i32, ptr %105, align 4
   %110 = load i32, ptr %106, align 4
-  %.fr23 = freeze i32 %110
   %111 = load i32, ptr %107, align 4
-  %.fr24 = freeze i32 %111
-  %112 = icmp sgt i32 %.fr23, %.fr24
+  %112 = icmp sgt i32 %110, %111
+  %.fr = freeze i1 %112
   %113 = load i32, ptr %103, align 4
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %.split, label %.loopexit17
@@ -10005,7 +10004,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   %123 = add i32 %122, 7
   %124 = sdiv i32 %123, 8
   %125 = icmp slt i32 %116, 1
-  %brmerge = or i1 %125, %112
+  %brmerge = or i1 %125, %.fr
   br i1 %brmerge, label %.loopexit16, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.split, %.loopexit
@@ -10024,7 +10023,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   br label %136
 
 136:                                              ; preds = %146, %133
-  %137 = phi i32 [ %.fr23, %133 ], [ %147, %146 ]
+  %137 = phi i32 [ %110, %133 ], [ %147, %146 ]
   %138 = tail call i32 @drm_dp_bw_channel_coding_efficiency(i1 noundef zeroext %134) #16
   %139 = mul i32 %135, %137
   %140 = zext i32 %139 to i64
@@ -10037,15 +10036,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
 
 146:                                              ; preds = %136
   %147 = shl i32 %137, 1
-  %148 = icmp sgt i32 %147, %.fr24
+  %148 = icmp sgt i32 %147, %111
   br i1 %148, label %.loopexit.loopexit, label %136, !llvm.loop !202
 
 .loopexit.loopexit:                               ; preds = %146
-  %.pre33 = load i32, ptr %103, align 4
+  %.pre31 = load i32, ptr %103, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader.split
-  %149 = phi i32 [ %.pre33, %.loopexit.loopexit ], [ %126, %.preheader.split ]
+  %149 = phi i32 [ %.pre31, %.loopexit.loopexit ], [ %126, %.preheader.split ]
   %150 = add nuw nsw i64 %127, 1
   %151 = sext i32 %149 to i64
   %152 = icmp slt i64 %150, %151

@@ -11433,13 +11433,13 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -13070,13 +13070,13 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -14712,13 +14712,13 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -16472,13 +16472,13 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -18245,13 +18245,13 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -19882,13 +19882,13 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -21525,13 +21525,13 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -23278,13 +23278,13 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -25051,13 +25051,13 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -26694,13 +26694,13 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -28331,13 +28331,13 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -30103,13 +30103,13 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -31863,13 +31863,13 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -33506,13 +33506,13 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend(ptr noundef captures(none
   br i1 %.not195, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %1
-  %.fr203 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr203, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr203, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp eq i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -35137,13 +35137,13 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
@@ -36904,13 +36904,13 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend(ptr noundef captures(none
   br i1 %.not216, label %._crit_edge219, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %1
-  %.fr224 = freeze i32 %3
+  %.fr = freeze i32 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = and i32 %.fr224, 80
+  %10 = and i32 %.fr, 80
   %11 = icmp ne i32 %10, 0
-  %12 = and i32 %.fr224, 1008
+  %12 = and i32 %.fr, 1008
   %13 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %12)
   %14 = icmp ne i32 %13, 1
   %15 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)

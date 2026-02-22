@@ -1768,8 +1768,8 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !263
-  %.fr = freeze i64 %134
-  %135 = and i64 %.fr, 2
+  %.fr212 = freeze i64 %134
+  %135 = and i64 %.fr212, 2
   %.not211 = icmp eq i64 %135, 0
   %spec.select = select i1 %.not211, i32 33554432, i32 0
   br label %.thread187

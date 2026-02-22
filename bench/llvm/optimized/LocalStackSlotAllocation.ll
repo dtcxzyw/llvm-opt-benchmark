@@ -2730,10 +2730,9 @@ _ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit: ; preds = %18
 _ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4: ; preds = %27
   %29 = load i32, ptr %8, align 4, !tbaa !193
   %30 = load i32, ptr %5, align 4, !tbaa !193
-  %.fr = freeze i32 %29
-  %.fr11 = freeze i32 %30
-  %31 = icmp ult i32 %.fr, %.fr11
-  br i1 %31, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread
+  %31 = icmp ult i32 %29, %30
+  %cond.fr = freeze i1 %31
+  br i1 %cond.fr, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread
 
 _ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread: ; preds = %12, %23, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4
   br label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread

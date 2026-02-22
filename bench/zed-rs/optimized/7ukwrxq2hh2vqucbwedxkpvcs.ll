@@ -33894,7 +33894,7 @@ switch.early.test:                                ; preds = %"_ZN4core3ptr50drop
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit461": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i460", %401, %399, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit457"
   %397 = icmp ne i64 %152, -9223372036854775807
   %398 = trunc nuw i8 %.sroa.0185.3 to i1
-  %or.cond81 = and i1 %397, %398
+  %or.cond81 = select i1 %397, i1 %398, i1 false
   br i1 %or.cond81, label %switch.early.test806, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit417"
 
 switch.early.test806:                             ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit461"

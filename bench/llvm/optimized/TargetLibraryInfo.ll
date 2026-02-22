@@ -4102,26 +4102,25 @@ _ZN4llvm8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFuncENS_9StringRefERNS_7LibFuncE(ptr nonnull readnone align 8 captures(none) %0, ptr %1, i64 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
-  %.fr44 = freeze ptr %1
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %_ZL20sanitizeFunctionNameN4llvm9StringRefE.exit.thread, label %_ZNK4llvm9StringRef8containsEc.exit.i
 
 _ZNK4llvm9StringRef8containsEc.exit.i:            ; preds = %4
-  %6 = tail call ptr @memchr(ptr noundef %.fr44, i32 noundef 0, i64 noundef %2) #24
+  %6 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %2) #24
   %.not.i.i.i.i.i = icmp ne ptr %6, null
   %7 = ptrtoint ptr %6 to i64
-  %8 = ptrtoint ptr %.fr44 to i64
+  %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %7, %8
   %10 = icmp ne i64 %9, -1
-  %11 = and i1 %.not.i.i.i.i.i, %10
+  %11 = select i1 %.not.i.i.i.i.i, i1 %10, i1 false
   br i1 %11, label %_ZL20sanitizeFunctionNameN4llvm9StringRefE.exit.thread, label %_ZL20sanitizeFunctionNameN4llvm9StringRefE.exit
 
 _ZL20sanitizeFunctionNameN4llvm9StringRefE.exit:  ; preds = %_ZNK4llvm9StringRef8containsEc.exit.i
-  %lhsc.i.i = load i8, ptr %.fr44, align 1
-  %lhsc.i.i.fr = freeze i8 %lhsc.i.i
-  %12 = icmp eq i8 %lhsc.i.i.fr, 1
+  %lhsc.i.i = load i8, ptr %1, align 1
+  %12 = icmp eq i8 %lhsc.i.i, 1
   %.sroa.01.0.i.idx.i = zext i1 %12 to i64
-  %.sroa.01.0.i.i = getelementptr i8, ptr %.fr44, i64 %.sroa.01.0.i.idx.i
+  %.sroa.01.0.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.01.0.i.idx.i
+  %.sroa.01.0.i.i.fr = freeze ptr %.sroa.01.0.i.i
   %13 = sext i1 %12 to i64
   %.sroa.4.0.i.i = add i64 %2, %13
   %14 = icmp eq i64 %.sroa.4.0.i.i, 0
@@ -4150,10 +4149,10 @@ _ZL20sanitizeFunctionNameN4llvm9StringRefE.exit:  ; preds = %_ZNK4llvm9StringRef
   br i1 %25, label %_ZL20sanitizeFunctionNameN4llvm9StringRefE.exit.thread, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr nonnull %.sroa.01.0.i.i, i64 %.sroa.4.0.i.i) #24
+  %27 = tail call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr nonnull %.sroa.01.0.i.i.fr, i64 %.sroa.4.0.i.i) #24
   %28 = add i32 %24, -1
-  %magicptr67 = ptrtoint ptr %.sroa.01.0.i.i to i64
-  switch i64 %magicptr67, label %.split.split [
+  %magicptr66 = ptrtoint ptr %.sroa.01.0.i.i.fr to i64
+  switch i64 %magicptr66, label %.split.split [
     i64 -2, label %.split.us.split
     i64 -1, label %.split.split.us
   ], !prof !160
@@ -4241,7 +4240,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us31: ; p
   br i1 %.not.i.i.i, label %50, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i, !prof !162
 
 50:                                               ; preds = %49
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.sroa.01.0.i.i, ptr %.sroa.03.0.copyload.i, i64 %.sroa.4.0.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.sroa.01.0.i.i.fr, ptr %.sroa.03.0.copyload.i, i64 %.sroa.4.0.i.i)
   %51 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_7LibFuncENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6doFindIS2_EEPS8_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i, !prof !163
 
@@ -7074,11 +7073,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_21TargetLibrar
   %11 = load ptr, ptr %10, align 8, !tbaa !320
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !322
-  %.fr15 = freeze i64 %13
-  %.not23.i = icmp eq i64 %.fr15, 0
-  %.fr16 = freeze i64 %3
-  %.fr17 = freeze i64 %5
-  %spec.select.i = select i1 %.not23.i, i64 %.fr16, i64 %.fr17
+  %.not23.i = icmp eq i64 %13, 0
+  %spec.select.i = select i1 %.not23.i, i64 %3, i64 %5
+  %spec.select.i.fr = freeze i64 %spec.select.i
   %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
@@ -7089,7 +7086,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_21TargetLibrar
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select.i, 0
+  %19 = icmp eq i64 %spec.select.i.fr, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
@@ -7110,12 +7107,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
   %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::TargetLibraryInfoImpl::VectorLibrary>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !50
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !49
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i.fr)
   %23 = icmp eq i32 %bcmp.i.i, 0
   br i1 %23, label %_ZN4llvm2cl6parserINS_21TargetLibraryInfoImpl13VectorLibraryEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
@@ -7143,7 +7140,7 @@ _ZN4llvm2cl6parserINS_21TargetLibraryInfoImpl13VectorLibraryEE5parseERNS0_6Optio
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select22.i, ptr %31, align 8, !tbaa !79, !alias.scope !324
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select.i, ptr %32, align 8, !tbaa !79, !alias.scope !324
+  store i64 %spec.select.i.fr, ptr %32, align 8, !tbaa !79, !alias.scope !324
   store ptr %8, ptr %7, align 8, !alias.scope !327
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.1366, ptr %33, align 8, !alias.scope !327

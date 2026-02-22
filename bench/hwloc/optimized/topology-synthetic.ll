@@ -2771,8 +2771,8 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   br i1 %21, label %.preheader, label %41
 
 .preheader:                                       ; preds = %19
-  %.not444 = icmp eq i64 %2, 0
-  br i1 %.not444, label %._crit_edge438, label %.lr.ph437
+  %.not443 = icmp eq i64 %2, 0
+  br i1 %.not443, label %._crit_edge438, label %.lr.ph437
 
 .lr.ph437:                                        ; preds = %.preheader
   %22 = add i64 %2, -1
@@ -2825,8 +2825,8 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %.1 = phi ptr [ %35, %34 ], [ %25, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = add nuw i64 %.0215435, 1
-  %exitcond472.not = icmp eq i64 %39, %2
-  br i1 %exitcond472.not, label %._crit_edge438, label %23, !llvm.loop !136
+  %exitcond471.not = icmp eq i64 %39, %2
+  br i1 %exitcond471.not, label %._crit_edge438, label %23, !llvm.loop !136
 
 ._crit_edge438:                                   ; preds = %38, %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3013,36 +3013,35 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %.2228398 = phi i32 [ 0, %.lr.ph401 ], [ %150, %148 ]
   %.3249397 = phi ptr [ %10, %.lr.ph401 ], [ %149, %148 ]
   %108 = load i32, ptr %8, align 4, !tbaa !58
-  %.fr = freeze i32 %108
-  %109 = and i32 %.fr, -4
+  %109 = and i32 %108, -4
   %110 = icmp eq i32 %109, 16
   br i1 %110, label %125, label %.preheader358
 
 .preheader358:                                    ; preds = %107
   %111 = load i32, ptr %103, align 8, !tbaa !94
   %.not279389 = icmp eq i32 %111, 0
-  br i1 %.not279389, label %.thread497, label %.lr.ph391
+  br i1 %.not279389, label %.thread496, label %.lr.ph391
 
 .lr.ph391:                                        ; preds = %.preheader358
-  %112 = icmp eq i32 %.fr, 13
+  %112 = icmp eq i32 %108, 13
   %113 = load i32, ptr %9, align 8
-  %.fr439 = freeze i32 %113
-  %114 = icmp ne i32 %.fr439, -1
-  %or.cond10 = and i1 %112, %114
-  br i1 %or.cond10, label %.lr.ph391.split.us, label %.lr.ph391.split
+  %114 = icmp ne i32 %113, -1
+  %or.cond10 = select i1 %112, i1 %114, i1 false
+  %or.cond10.fr = freeze i1 %or.cond10
+  br i1 %or.cond10.fr, label %.lr.ph391.split.us, label %.lr.ph391.split
 
 .lr.ph391.split.us:                               ; preds = %.lr.ph391, %121
   %.1216390.us = phi i64 [ %122, %121 ], [ 0, %.lr.ph391 ]
   %115 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %.1216390.us
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !tbaa !90
-  %.not280.us = icmp eq i32 %117, 13
+  %.not280.us = icmp eq i32 %108, %117
   br i1 %.not280.us, label %118, label %121
 
 118:                                              ; preds = %.lr.ph391.split.us
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 20
   %120 = load i32, ptr %119, align 4, !tbaa !101
-  %.not281.us = icmp eq i32 %.fr439, %120
+  %.not281.us = icmp eq i32 %113, %120
   br i1 %.not281.us, label %.loopexit, label %121
 
 121:                                              ; preds = %118, %.lr.ph391.split.us
@@ -3050,7 +3049,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %123 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %122
   %124 = load i32, ptr %123, align 8, !tbaa !94
   %.not279.us = icmp eq i32 %124, 0
-  br i1 %.not279.us, label %.thread497, label %.lr.ph391.split.us
+  br i1 %.not279.us, label %.thread496, label %.lr.ph391.split.us
 
 125:                                              ; preds = %107
   %.not287 = icmp eq i32 %3, 0
@@ -3066,7 +3065,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %129 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %.1216390
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load i32, ptr %130, align 8, !tbaa !90
-  %.not280 = icmp eq i32 %.fr, %131
+  %.not280 = icmp eq i32 %108, %131
   br i1 %.not280, label %.loopexit, label %132
 
 132:                                              ; preds = %.lr.ph391.split
@@ -3074,7 +3073,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %134 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %133
   %135 = load i32, ptr %134, align 8, !tbaa !94
   %.not279 = icmp eq i32 %135, 0
-  br i1 %.not279, label %.thread497, label %.lr.ph391.split
+  br i1 %.not279, label %.thread496, label %.lr.ph391.split
 
 .loopexit:                                        ; preds = %.lr.ph391.split, %118
   %.us-phi = phi i64 [ %.1216390.us, %118 ], [ %.1216390, %.lr.ph391.split ]
@@ -3084,13 +3083,13 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i32 %136, ptr %139, align 4, !tbaa !139
   %140 = icmp eq i32 %136, -1
-  br i1 %140, label %.thread497, label %144
+  br i1 %140, label %.thread496, label %144
 
-.thread497:                                       ; preds = %.loopexit, %.preheader358, %132, %121
+.thread496:                                       ; preds = %.loopexit, %.preheader358, %132, %121
   %.not286 = icmp eq i32 %3, 0
   br i1 %.not286, label %.thread347, label %141
 
-141:                                              ; preds = %.thread497
+141:                                              ; preds = %.thread496
   %142 = load ptr, ptr @stderr, align 8, !tbaa !37
   %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.55, ptr noundef nonnull %.3249397) #29
   br label %.thread347
@@ -3103,8 +3102,8 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   br i1 %or.cond312, label %.preheader357, label %148
 
 .preheader357:                                    ; preds = %144
-  %.not440 = icmp eq i32 %.0224.lcssa, 0
-  br i1 %.not440, label %._crit_edge410, label %.lr.ph409
+  %.not439 = icmp eq i32 %.0224.lcssa, 0
+  br i1 %.not439, label %._crit_edge410, label %.lr.ph409
 
 .lr.ph409:                                        ; preds = %.preheader357
   %147 = zext i32 %.0224.lcssa to i64
@@ -3175,10 +3174,10 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %185 = and i64 %182, 4294967295
   %186 = mul i64 %185, %.6242406
   %187 = add nuw i32 %.3229408, 1
-  %exitcond470.not = icmp eq i32 %187, %.0224.lcssa
-  br i1 %exitcond470.not, label %._crit_edge410, label %153, !llvm.loop !142
+  %exitcond469.not = icmp eq i32 %187, %.0224.lcssa
+  br i1 %exitcond469.not, label %._crit_edge410, label %153, !llvm.loop !142
 
-.thread347:                                       ; preds = %164, %163, %.thread497, %141, %125, %126, %._crit_edge402, %104
+.thread347:                                       ; preds = %164, %163, %.thread496, %141, %125, %126, %._crit_edge402, %104
   call void @free(ptr noundef %52) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3195,9 +3194,9 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %.4240 = phi i64 [ %92, %.thread337 ], [ %.6242.lcssa, %._crit_edge410 ]
   %.5235 = phi i32 [ %spec.select, %.thread337 ], [ %.7.lcssa, %._crit_edge410 ]
   %.not300 = icmp eq i64 %.4240, %2
-  br i1 %.not300, label %._crit_edge473, label %189
+  br i1 %.not300, label %._crit_edge472, label %189
 
-._crit_edge473:                                   ; preds = %188
+._crit_edge472:                                   ; preds = %188
   %.pre = zext i32 %.0224.lcssa to i64
   br label %202
 
@@ -3228,15 +3227,15 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   call void @free(ptr noundef nonnull %52) #25
   br label %.thread353
 
-202:                                              ; preds = %._crit_edge473, %193
-  %.pre-phi474 = phi i64 [ %.pre, %._crit_edge473 ], [ %50, %193 ]
-  %.1225 = phi i32 [ %.0224.lcssa, %._crit_edge473 ], [ %49, %193 ]
-  %.not441 = icmp eq i32 %.1225, 0
-  br i1 %.not441, label %._crit_edge430, label %.lr.ph429
+202:                                              ; preds = %._crit_edge472, %193
+  %.pre-phi473 = phi i64 [ %.pre, %._crit_edge472 ], [ %50, %193 ]
+  %.1225 = phi i32 [ %.0224.lcssa, %._crit_edge472 ], [ %49, %193 ]
+  %.not440 = icmp eq i32 %.1225, 0
+  br i1 %.not440, label %._crit_edge430, label %.lr.ph429
 
 .lr.ph429:                                        ; preds = %202
-  %.not442 = icmp eq i64 %2, 0
-  br i1 %.not442, label %._crit_edge430.thread, label %.lr.ph424.us
+  %.not441 = icmp eq i64 %2, 0
+  br i1 %.not441, label %._crit_edge430.thread, label %.lr.ph424.us
 
 ._crit_edge430.thread:                            ; preds = %.lr.ph429
   call void @free(ptr noundef nonnull %52) #25
@@ -3269,13 +3268,13 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 ._crit_edge425.us:                                ; preds = %207
   %218 = mul i32 %206, %.0250426.us
   %219 = add nuw nsw i64 %.3427.us, 1
-  %exitcond471.not = icmp eq i64 %219, %.pre-phi474
-  br i1 %exitcond471.not, label %._crit_edge430, label %.lr.ph424.us, !llvm.loop !144
+  %exitcond470.not = icmp eq i64 %219, %.pre-phi473
+  br i1 %exitcond470.not, label %._crit_edge430, label %.lr.ph424.us, !llvm.loop !144
 
 ._crit_edge430:                                   ; preds = %._crit_edge425.us, %202
   call void @free(ptr noundef nonnull %52) #25
-  %.not443 = icmp eq i64 %2, 0
-  br i1 %.not443, label %._crit_edge434, label %.lr.ph433
+  %.not442 = icmp eq i64 %2, 0
+  br i1 %.not442, label %._crit_edge434, label %.lr.ph433
 
 220:                                              ; preds = %232
   %221 = add i32 %.1245431, 1

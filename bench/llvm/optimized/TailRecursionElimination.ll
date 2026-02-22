@@ -3712,7 +3712,7 @@ _ZN4llvm11SmallVectorIPNS_3UseELj32EED2Ev.exit:   ; preds = %_ZN4llvm19SmallPtrS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8CallBase26hasOperandBundlesOtherThanENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr %1, i64 %2) local_unnamed_addr #0 comdat align 2 {
-  %.fr = freeze i64 %2
+  %.fr35 = freeze i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
@@ -3744,13 +3744,13 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %3, %_ZNK4llvm8CallB
 
 .lr.ph:                                           ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit
   %19 = lshr exact i64 %17, 4
-  %.idx4.i = shl nuw nsw i64 %.fr, 2
+  %.idx4.i = shl nuw nsw i64 %.fr35, 2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx4.i
-  %21 = lshr i64 %.fr, 2
+  %21 = lshr i64 %.fr35, 2
   %.not.i = icmp eq i64 %21, 0
   %22 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %1, i64 %22
-  %23 = and i64 %.fr, 3
+  %23 = and i64 %.fr35, 3
   %24 = and i64 %19, 4294967295
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -3759,22 +3759,22 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %3, %_ZNK4llvm8CallB
   br label %._crit_edge.i.i.i.i.us
 
 ._crit_edge.i.i.i.i.us:                           ; preds = %32, %.lr.ph.split.us
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %32 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %32 ], [ 0, %.lr.ph.split.us ]
   %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18, !noalias !303
   %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %27, i64 %indvars.iv42
+  %28 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %27, i64 %indvars.iv43
   %29 = load ptr, ptr %28, align 8, !tbaa !306, !noalias !309
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !152
-  switch i64 %.fr, label %.thread [
+  switch i64 %.fr35, label %.thread [
     i64 3, label %33
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.us
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.us
   ]
 
 32:                                               ; preds = %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.us
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %.not.us.not = icmp eq i64 %indvars.iv.next43, %24
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %.not.us.not = icmp eq i64 %indvars.iv.next44, %24
   br i1 %.not.us.not, label %.thread, label %._crit_edge.i.i.i.i.us, !llvm.loop !312
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.us
@@ -3839,13 +3839,13 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.us: ; preds = %._crit_
   %58 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !152
   %60 = icmp eq i32 %59, %49
-  br i1 %60, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit49, label %61
+  br i1 %60, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit50, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 12
   %63 = load i32, ptr %62, align 4, !tbaa !152
   %64 = icmp eq i32 %63, %49
-  br i1 %64, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit51, label %65
+  br i1 %64, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit52, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
@@ -3886,16 +3886,16 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.ex
   %78 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit49: ; preds = %57
+_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit50: ; preds = %57
   %79 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit51: ; preds = %61
+_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit52: ; preds = %61
   %80 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 12
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit: ; preds = %50, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit49, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit51, %69, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %scevgep.i.i.i.i, %69 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %80, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit51 ], [ %79, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit49 ], [ %78, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %50 ]
+_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit: ; preds = %50, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit50, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit52, %69, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %scevgep.i.i.i.i, %69 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %80, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit52 ], [ %79, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit50 ], [ %78, %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %50 ]
   %.not17 = icmp eq ptr %.028.i.i.i.i, %20
   br i1 %.not17, label %.thread, label %43
 

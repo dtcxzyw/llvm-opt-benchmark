@@ -573,10 +573,8 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !35
-  %.fr78 = freeze i32 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !10
-  %.fr77 = freeze i32 %6
   %7 = icmp ugt i32 %2, 12
   br i1 %7, label %.thread, label %8
 
@@ -586,129 +584,116 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   br i1 %9, label %11, label %86
 
 11:                                               ; preds = %8
-  %12 = add i32 %.fr78, 1
+  %12 = add nsw i32 %4, 1
   %13 = sdiv i32 %12, 2
-  %14 = add i32 %.fr77, 1
+  %14 = add nsw i32 %6, 1
   %15 = sdiv i32 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !16
-  %.fr84 = freeze i32 %17
-  %18 = tail call i32 @llvm.abs.i32(i32 %.fr84, i1 false)
+  %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !19
-  %.fr86 = freeze i32 %20
-  %21 = tail call i32 @llvm.abs.i32(i32 %.fr86, i1 false)
+  %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8, !tbaa !21
-  %.fr88 = freeze i32 %23
-  %24 = tail call i32 @llvm.abs.i32(i32 %.fr88, i1 false)
-  %25 = zext i32 %18 to i64
-  %26 = add i32 %.fr77, -1
+  %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
+  %25 = zext nneg i32 %18 to i64
+  %26 = add nsw i32 %6, -1
   %27 = sext i32 %26 to i64
   %28 = mul nsw i64 %25, %27
-  %29 = sext i32 %.fr78 to i64
+  %29 = sext i32 %4 to i64
   %30 = add nsw i64 %28, %29
-  %31 = zext i32 %21 to i64
+  %31 = zext nneg i32 %21 to i64
   %32 = add nsw i32 %15, -1
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %31, %33
   %35 = sext i32 %13 to i64
   %36 = add nsw i64 %34, %35
-  %37 = zext i32 %24 to i64
+  %37 = zext nneg i32 %24 to i64
   %38 = mul nsw i64 %37, %33
   %39 = add nsw i64 %38, %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load i64, ptr %40, align 8, !tbaa !39
-  %.fr85 = freeze i64 %41
-  %42 = icmp ule i64 %30, %.fr85
+  %42 = icmp ule i64 %30, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !40
-  %.fr87 = freeze i64 %44
-  %45 = icmp ule i64 %36, %.fr87
+  %45 = icmp ule i64 %36, %44
   %46 = and i1 %42, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load i64, ptr %47, align 8, !tbaa !41
-  %.fr89 = freeze i64 %48
-  %49 = icmp ule i64 %39, %.fr89
+  %49 = icmp ule i64 %39, %48
   %50 = and i1 %46, %49
-  %51 = icmp sge i32 %18, %.fr78
+  %51 = icmp sge i32 %18, %4
   %52 = and i1 %51, %50
   %53 = icmp sge i32 %21, %13
   %54 = and i1 %53, %52
   %55 = icmp sge i32 %24, %13
   %56 = and i1 %55, %54
   %57 = load ptr, ptr %10, align 8, !tbaa !18
-  %.fr90 = freeze ptr %57
-  %58 = icmp ne ptr %.fr90, null
+  %58 = icmp ne ptr %57, null
   %59 = and i1 %58, %56
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !20
-  %.fr91 = freeze ptr %61
-  %62 = icmp ne ptr %.fr91, null
+  %62 = icmp ne ptr %61, null
   %63 = and i1 %62, %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !22
-  %.fr92 = freeze ptr %65
-  %66 = icmp ne ptr %.fr92, null
+  %66 = icmp ne ptr %65, null
   %67 = and i1 %66, %63
+  %cond.fr = freeze i1 %67
   %68 = icmp eq i32 %2, 12
   br i1 %68, label %69, label %111
 
 69:                                               ; preds = %11
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %71 = load i32, ptr %70, align 4, !tbaa !24
-  %.fr93 = freeze i32 %71
-  %72 = tail call i32 @llvm.abs.i32(i32 %.fr93, i1 false)
-  %73 = zext i32 %72 to i64
+  %72 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
+  %73 = zext nneg i32 %72 to i64
   %74 = mul nsw i64 %73, %27
   %75 = add nsw i64 %74, %29
-  %76 = icmp sge i32 %72, %.fr78
+  %76 = icmp sge i32 %72, %4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %78 = load i64, ptr %77, align 8, !tbaa !42
-  %.fr94 = freeze i64 %78
-  %79 = icmp ule i64 %75, %.fr94
+  %79 = icmp ule i64 %75, %78
   %80 = and i1 %76, %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !23
-  %.fr95 = freeze ptr %82
-  %83 = icmp ne ptr %.fr95, null
+  %83 = icmp ne ptr %82, null
   %84 = and i1 %83, %80
-  %85 = and i1 %67, %84
+  %.fr = freeze i1 %84
+  %85 = and i1 %cond.fr, %.fr
   br i1 %85, label %112, label %.thread
 
 86:                                               ; preds = %8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = load i32, ptr %87, align 8, !tbaa !12
-  %.fr = freeze i32 %88
-  %89 = tail call i32 @llvm.abs.i32(i32 %.fr, i1 false)
-  %90 = zext i32 %89 to i64
-  %91 = add i32 %.fr77, -1
+  %89 = tail call i32 @llvm.abs.i32(i32 %88, i1 true)
+  %90 = zext nneg i32 %89 to i64
+  %91 = add nsw i32 %6, -1
   %92 = sext i32 %91 to i64
   %93 = mul nsw i64 %90, %92
-  %94 = sext i32 %.fr78 to i64
+  %94 = sext i32 %4 to i64
   %95 = zext nneg i32 %2 to i64
   %96 = getelementptr inbounds nuw i8, ptr @kModeBpp, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !38
-  %.fr79 = freeze i8 %97
-  %98 = zext i8 %.fr79 to i64
+  %98 = zext i8 %97 to i64
   %99 = mul nsw i64 %98, %94
   %100 = add nsw i64 %93, %99
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load i64, ptr %101, align 8, !tbaa !43
-  %.fr80 = freeze i64 %102
-  %103 = icmp ule i64 %100, %.fr80
-  %104 = zext i8 %.fr79 to i32
-  %105 = mul i32 %.fr78, %104
+  %103 = icmp ule i64 %100, %102
+  %104 = zext i8 %97 to i32
+  %105 = mul nsw i32 %4, %104
   %106 = icmp sge i32 %89, %105
   %107 = and i1 %106, %103
   %108 = load ptr, ptr %10, align 8, !tbaa !15
-  %.fr83 = freeze ptr %108
-  %109 = icmp ne ptr %.fr83, null
+  %109 = icmp ne ptr %108, null
   %110 = and i1 %109, %107
-  br i1 %110, label %112, label %.thread
+  %cond.fr75 = freeze i1 %110
+  br i1 %cond.fr75, label %112, label %.thread
 
 111:                                              ; preds = %11
-  br i1 %67, label %112, label %.thread
+  br i1 %cond.fr, label %112, label %.thread
 
 112:                                              ; preds = %69, %86, %111
   br label %.thread

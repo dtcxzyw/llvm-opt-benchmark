@@ -8237,18 +8237,16 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %2, %5, %7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -8257,9 +8255,9 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %2, %5, %7
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -9477,18 +9475,16 @@ _ZN4entt7type_idINS_9type_listIJicEEEEERKNS_9type_infoEv.exit: ; preds = %2, %5,
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idINS_9type_listIJicEEEEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idINS_9type_listIJicEEEEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -9497,9 +9493,9 @@ _ZN4entt7type_idINS_9type_listIJicEEEEERKNS_9type_infoEv.exit: ; preds = %2, %5,
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -9660,18 +9656,16 @@ _ZN4entt7type_idINS_23meta_class_template_tagINS_9type_listEEEEERKNS_9type_infoE
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idINS_23meta_class_template_tagINS_9type_listEEEEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idINS_23meta_class_template_tagINS_9type_listEEEEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -9680,9 +9674,9 @@ _ZN4entt7type_idINS_23meta_class_template_tagINS_9type_listEEEEERKNS_9type_infoE
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -10849,18 +10843,16 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %2, %5, %7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -10869,9 +10861,9 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %2, %5, %7
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -11567,18 +11559,16 @@ _ZN4entt7type_idI13function_typeIFviRKcEEEERKNS_9type_infoEv.exit: ; preds = %2,
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idI13function_typeIFviRKcEEEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idI13function_typeIFviRKcEEEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -11587,9 +11577,9 @@ _ZN4entt7type_idI13function_typeIFviRKcEEEERKNS_9type_infoEv.exit: ; preds = %2,
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -11750,18 +11740,16 @@ _ZN4entt7type_idINS_23meta_class_template_tagI13function_typeEEEERKNS_9type_info
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idINS_23meta_class_template_tagI13function_typeEEEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idINS_23meta_class_template_tagI13function_typeEEEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -11770,9 +11758,9 @@ _ZN4entt7type_idINS_23meta_class_template_tagI13function_typeEEEERKNS_9type_info
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -12941,18 +12929,16 @@ _ZN4entt7type_idIvEERKNS_9type_infoEv.exit:       ; preds = %2, %5, %7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !272
   %22 = getelementptr inbounds nuw i64, ptr %13, i64 %19
-  %.fr.i = freeze ptr %21
   br label %23
 
 23:                                               ; preds = %24, %_ZN4entt7type_idIvEERKNS_9type_infoEv.exit
   %.sroa.5.0.in.i.i.i = phi ptr [ %22, %_ZN4entt7type_idIvEERKNS_9type_infoEv.exit ], [ %25, %24 ]
   %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !tbaa !105
-  %.sroa.5.0.i.i.fr.i = freeze i64 %.sroa.5.0.i.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.fr.i, -1
+  %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, -1
   br i1 %.not.i.i.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr %"struct.entt::internal::dense_map_node", ptr %.fr.i, i64 %.sroa.5.0.i.i.fr.i
+  %25 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %21, i64 %.sroa.5.0.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !86
   %28 = icmp eq i32 %27, %9
@@ -12961,9 +12947,9 @@ _ZN4entt7type_idIvEERKNS_9type_infoEv.exit:       ; preds = %2, %5, %7
 _ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i: ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !272
-  %.pre.fr.i = freeze ptr %.pre.i
-  %29 = icmp eq ptr %25, %.pre.fr.i
-  br i1 %29, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
+  %29 = icmp eq ptr %25, %.pre.i
+  %cond.fr.i = freeze i1 %29
+  br i1 %cond.fr.i, label %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit, label %30
 
 30:                                               ; preds = %_ZNK4entt9dense_mapIjNS_8internal14meta_type_nodeENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE4findERS7_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16

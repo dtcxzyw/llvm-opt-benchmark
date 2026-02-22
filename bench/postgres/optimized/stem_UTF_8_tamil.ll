@@ -1026,13 +1026,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_question_suffixes
   br label %25
 
 25:                                               ; preds = %30, %23
-  %.013.i = phi i32 [ 0, %23 ], [ %.114.i, %30 ]
+  %.013.i = phi i32 [ undef, %23 ], [ %.114.i.fr, %30 ]
   %26 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
-  %.fr = freeze i32 %26
-  %27 = icmp eq i32 %.fr, 0
-  %.lobit.i = lshr i32 %.fr, 31
-  %28 = icmp slt i32 %.fr, 0
-  %.114.i = select i1 %28, i32 %.fr, i32 %.013.i
+  %27 = icmp eq i32 %26, 0
+  %.lobit.i = lshr i32 %26, 31
+  %28 = icmp slt i32 %26, 0
+  %.114.i = select i1 %28, i32 %26, i32 %.013.i
+  %.114.i.fr = freeze i32 %.114.i
   %.0.i = select i1 %27, i32 4, i32 %.lobit.i
   switch i32 %.0.i, label %30 [
     i32 0, label %29
@@ -1054,14 +1054,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_question_suffixes
   ]
 
 r_fix_endings.exit:                               ; preds = %30
-  %31 = icmp sgt i32 %.114.i, -1
+  %31 = icmp sgt i32 %.114.i.fr, -1
   br i1 %31, label %r_fix_endings.exit.thread, label %32
 
 r_fix_endings.exit.thread:                        ; preds = %30, %.thread.i, %r_fix_endings.exit
   br label %32
 
 32:                                               ; preds = %r_fix_endings.exit.thread, %r_fix_endings.exit, %15, %1
-  %.1 = phi i32 [ 0, %1 ], [ %18, %15 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
+  %.1 = phi i32 [ 0, %1 ], [ %18, %15 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i.fr, %r_fix_endings.exit ]
   ret i32 %.1
 }
 
@@ -1280,13 +1280,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_common_word_endin
   br label %77
 
 77:                                               ; preds = %82, %73
-  %.013.i = phi i32 [ 0, %73 ], [ %.114.i, %82 ]
+  %.013.i = phi i32 [ undef, %73 ], [ %.114.i.fr, %82 ]
   %78 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
-  %.fr = freeze i32 %78
-  %79 = icmp eq i32 %.fr, 0
-  %.lobit.i = lshr i32 %.fr, 31
-  %80 = icmp slt i32 %.fr, 0
-  %.114.i = select i1 %80, i32 %.fr, i32 %.013.i
+  %79 = icmp eq i32 %78, 0
+  %.lobit.i = lshr i32 %78, 31
+  %80 = icmp slt i32 %78, 0
+  %.114.i = select i1 %80, i32 %78, i32 %.013.i
+  %.114.i.fr = freeze i32 %.114.i
   %.0.i = select i1 %79, i32 4, i32 %.lobit.i
   switch i32 %.0.i, label %82 [
     i32 0, label %81
@@ -1308,14 +1308,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_common_word_endin
   ]
 
 r_fix_endings.exit:                               ; preds = %82
-  %83 = icmp sgt i32 %.114.i, -1
+  %83 = icmp sgt i32 %.114.i.fr, -1
   br i1 %83, label %r_fix_endings.exit.thread, label %.thread165
 
 r_fix_endings.exit.thread:                        ; preds = %82, %.thread.i, %r_fix_endings.exit
   br label %.thread165
 
 .thread165:                                       ; preds = %r_fix_endings.exit.thread, %r_fix_endings.exit, %60, %65, %68, %1
-  %.1 = phi i32 [ %63, %60 ], [ 0, %1 ], [ 0, %65 ], [ %71, %68 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
+  %.1 = phi i32 [ %63, %60 ], [ 0, %1 ], [ 0, %65 ], [ %71, %68 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i.fr, %r_fix_endings.exit ]
   ret i32 %.1
 }
 
@@ -1669,13 +1669,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   br label %159
 
 159:                                              ; preds = %164, %157
-  %.013.i = phi i32 [ 0, %157 ], [ %.114.i, %164 ]
+  %.013.i = phi i32 [ undef, %157 ], [ %.114.i.fr, %164 ]
   %160 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
-  %.fr = freeze i32 %160
-  %161 = icmp eq i32 %.fr, 0
-  %.lobit.i = lshr i32 %.fr, 31
-  %162 = icmp slt i32 %.fr, 0
-  %.114.i = select i1 %162, i32 %.fr, i32 %.013.i
+  %161 = icmp eq i32 %160, 0
+  %.lobit.i = lshr i32 %160, 31
+  %162 = icmp slt i32 %160, 0
+  %.114.i = select i1 %162, i32 %160, i32 %.013.i
+  %.114.i.fr = freeze i32 %.114.i
   %.0.i = select i1 %161, i32 4, i32 %.lobit.i
   switch i32 %.0.i, label %164 [
     i32 0, label %163
@@ -1697,14 +1697,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   ]
 
 r_fix_endings.exit:                               ; preds = %164
-  %165 = icmp sgt i32 %.114.i, -1
+  %165 = icmp sgt i32 %.114.i.fr, -1
   br i1 %165, label %r_fix_endings.exit.thread, label %.thread430
 
 r_fix_endings.exit.thread:                        ; preds = %164, %.thread.i, %r_fix_endings.exit
   br label %.thread430
 
 .thread430:                                       ; preds = %r_fix_endings.exit.thread, %r_fix_endings.exit, %.thread411, %140, %.thread409, %101, %40, %16, %152, %1
-  %.1 = phi i32 [ %155, %152 ], [ 0, %1 ], [ %143, %140 ], [ %136, %.thread409 ], [ %104, %101 ], [ %44, %40 ], [ %19, %16 ], [ 0, %.thread411 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
+  %.1 = phi i32 [ %155, %152 ], [ 0, %1 ], [ %143, %140 ], [ %136, %.thread409 ], [ %104, %101 ], [ %44, %40 ], [ %19, %16 ], [ 0, %.thread411 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i.fr, %r_fix_endings.exit ]
   ret i32 %.1
 }
 
@@ -2436,13 +2436,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
   br label %250
 
 250:                                              ; preds = %255, %248
-  %.013.i.i = phi i32 [ 0, %248 ], [ %.114.i.i, %255 ]
+  %.013.i.i = phi i32 [ undef, %248 ], [ %.114.i.fr.i, %255 ]
   %251 = tail call fastcc i32 @r_fix_ending(ptr noundef nonnull %0)
-  %.fr.i = freeze i32 %251
-  %252 = icmp eq i32 %.fr.i, 0
-  %.lobit.i.i = lshr i32 %.fr.i, 31
-  %253 = icmp slt i32 %.fr.i, 0
-  %.114.i.i = select i1 %253, i32 %.fr.i, i32 %.013.i.i
+  %252 = icmp eq i32 %251, 0
+  %.lobit.i.i = lshr i32 %251, 31
+  %253 = icmp slt i32 %251, 0
+  %.114.i.i = select i1 %253, i32 %251, i32 %.013.i.i
+  %.114.i.fr.i = freeze i32 %.114.i.i
   %.0.i.i = select i1 %252, i32 4, i32 %.lobit.i.i
   switch i32 %.0.i.i, label %255 [
     i32 0, label %254
@@ -2460,7 +2460,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
   ]
 
 r_fix_endings.exit.i:                             ; preds = %255
-  %256 = icmp sgt i32 %.114.i.i, -1
+  %256 = icmp sgt i32 %.114.i.fr.i, -1
   br i1 %256, label %r_fix_endings.exit.thread.i, label %.thread
 
 r_fix_endings.exit.thread.i:                      ; preds = %255, %250, %r_fix_endings.exit.i, %13
@@ -2472,7 +2472,7 @@ r_fix_endings.exit.thread.i:                      ; preds = %255, %250, %r_fix_e
   br i1 %.not, label %.thread, label %13
 
 .thread:                                          ; preds = %r_fix_endings.exit.thread.i, %r_fix_endings.exit.i, %29, %146, %210, %241, %224, %1
-  %.3 = phi i32 [ 1, %1 ], [ %.114.i.i, %r_fix_endings.exit.i ], [ %31, %29 ], [ %148, %146 ], [ %212, %210 ], [ %243, %241 ], [ %226, %224 ], [ 1, %r_fix_endings.exit.thread.i ]
+  %.3 = phi i32 [ 1, %1 ], [ %.114.i.fr.i, %r_fix_endings.exit.i ], [ %31, %29 ], [ %148, %146 ], [ %212, %210 ], [ %243, %241 ], [ %226, %224 ], [ 1, %r_fix_endings.exit.thread.i ]
   ret i32 %.3
 }
 

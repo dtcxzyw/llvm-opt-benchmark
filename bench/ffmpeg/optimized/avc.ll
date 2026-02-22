@@ -309,8 +309,8 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   store i8 %14, ptr %15, align 1, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !13
-  %.not662 = icmp eq i32 %9, 0
-  %spec.select.i = select i1 %.not662, i32 8, i32 9
+  %.not663 = icmp eq i32 %9, 0
+  %spec.select.i = select i1 %.not663, i32 8, i32 9
   %18 = lshr i8 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %18, ptr %19, align 1, !tbaa !20
@@ -444,26 +444,26 @@ get_ue_golomb.exit:                               ; preds = %.critedge.i, %.crit
   %113 = trunc i32 %112 to i8
   store i8 %113, ptr %0, align 4, !tbaa !24
   switch i8 %14, label %272 [
-    i8 100, label %.preheader771
-    i8 110, label %.preheader771
-    i8 122, label %.preheader771
-    i8 -12, label %.preheader771
-    i8 44, label %.preheader771
-    i8 83, label %.preheader771
-    i8 86, label %.preheader771
-    i8 118, label %.preheader771
-    i8 -128, label %.preheader771
-    i8 -118, label %.preheader771
-    i8 -117, label %.preheader771
-    i8 -122, label %.preheader771
+    i8 100, label %.preheader772
+    i8 110, label %.preheader772
+    i8 122, label %.preheader772
+    i8 -12, label %.preheader772
+    i8 44, label %.preheader772
+    i8 83, label %.preheader772
+    i8 86, label %.preheader772
+    i8 118, label %.preheader772
+    i8 -128, label %.preheader772
+    i8 -118, label %.preheader772
+    i8 -117, label %.preheader772
+    i8 -122, label %.preheader772
   ]
 
-.preheader771:                                    ; preds = %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit
+.preheader772:                                    ; preds = %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit
   br label %114
 
-114:                                              ; preds = %.preheader771, %125
-  %.011.i96 = phi i32 [ %126, %125 ], [ 0, %.preheader771 ]
-  %spec.select.i910.i97 = phi i32 [ %spec.select.i.i98, %125 ], [ %.sroa.40.10, %.preheader771 ]
+114:                                              ; preds = %.preheader772, %125
+  %.011.i96 = phi i32 [ %126, %125 ], [ 0, %.preheader772 ]
+  %spec.select.i910.i97 = phi i32 [ %spec.select.i.i98, %125 ], [ %.sroa.40.10, %.preheader772 ]
   %115 = lshr i32 %spec.select.i910.i97, 3
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
@@ -639,46 +639,46 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   %217 = lshr exact i32 128, %216
   %218 = and i32 %217, %215
   %.not81 = icmp eq i32 %218, 0
-  br i1 %.not81, label %.loopexit453.preheader, label %.preheader452
+  br i1 %.not81, label %.loopexit454.preheader, label %.preheader453
 
-.preheader452:                                    ; preds = %get_ue_golomb.exit133
+.preheader453:                                    ; preds = %get_ue_golomb.exit133
   %.not82 = icmp eq i8 %141, 3
   %219 = select i1 %.not82, i32 12, i32 8
   br label %220
 
-220:                                              ; preds = %.preheader452, %.loopexit
-  %.065516 = phi i32 [ 0, %.preheader452 ], [ %271, %.loopexit ]
-  %.sroa.40.1515 = phi i32 [ %spec.select.i134, %.preheader452 ], [ %.sroa.40.2, %.loopexit ]
-  %221 = lshr i32 %.sroa.40.1515, 3
+220:                                              ; preds = %.preheader453, %.loopexit
+  %.065517 = phi i32 [ 0, %.preheader453 ], [ %271, %.loopexit ]
+  %.sroa.40.1516 = phi i32 [ %spec.select.i134, %.preheader453 ], [ %.sroa.40.2, %.loopexit ]
+  %221 = lshr i32 %.sroa.40.1516, 3
   %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds nuw i8, ptr %5, i64 %222
   %224 = load i8, ptr %223, align 1, !tbaa !13
-  %225 = icmp slt i32 %.sroa.40.1515, %11
+  %225 = icmp slt i32 %.sroa.40.1516, %11
   %226 = zext i1 %225 to i32
-  %spec.select.i135 = add i32 %.sroa.40.1515, %226
+  %spec.select.i135 = add i32 %.sroa.40.1516, %226
   %227 = zext i8 %224 to i32
-  %228 = and i32 %.sroa.40.1515, 7
+  %228 = and i32 %.sroa.40.1516, 7
   %229 = lshr exact i32 128, %228
   %230 = and i32 %229, %227
   %.not88 = icmp eq i32 %230, 0
   br i1 %.not88, label %.loopexit, label %231
 
 231:                                              ; preds = %220
-  %232 = icmp samesign ult i32 %.065516, 6
+  %232 = icmp samesign ult i32 %.065517, 6
   %233 = select i1 %232, i32 16, i32 64
   br label %234
 
 234:                                              ; preds = %231, %.thread
-  %.066514 = phi i32 [ 8, %231 ], [ %.167447, %.thread ]
-  %.068513 = phi i32 [ 8, %231 ], [ %269, %.thread ]
-  %.069512 = phi i32 [ 0, %231 ], [ %270, %.thread ]
-  %.sroa.40.3511 = phi i32 [ %spec.select.i135, %231 ], [ %.sroa.40.4445, %.thread ]
-  %.not89 = icmp eq i32 %.066514, 0
-  br i1 %.not89, label %.thread, label %.preheader451
+  %.066515 = phi i32 [ 8, %231 ], [ %.167447, %.thread ]
+  %.068514 = phi i32 [ 8, %231 ], [ %269, %.thread ]
+  %.069513 = phi i32 [ 0, %231 ], [ %270, %.thread ]
+  %.sroa.40.3512 = phi i32 [ %spec.select.i135, %231 ], [ %.sroa.40.4445, %.thread ]
+  %.not89 = icmp eq i32 %.066515, 0
+  br i1 %.not89, label %.thread, label %.preheader452
 
-.preheader451:                                    ; preds = %234, %245
+.preheader452:                                    ; preds = %234, %245
   %.011.i.i = phi i32 [ %246, %245 ], [ 0, %234 ]
-  %spec.select.i910.i.i = phi i32 [ %spec.select.i.i.i, %245 ], [ %.sroa.40.3511, %234 ]
+  %spec.select.i910.i.i = phi i32 [ %spec.select.i.i.i, %245 ], [ %.sroa.40.3512, %234 ]
   %235 = lshr i32 %spec.select.i910.i.i, 3
   %236 = zext nneg i32 %235 to i64
   %237 = getelementptr inbounds nuw i8, ptr %5, i64 %236
@@ -693,14 +693,14 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   %.not.i.i136 = icmp eq i32 %244, 0
   br i1 %.not.i.i136, label %245, label %.critedge.i.i
 
-245:                                              ; preds = %.preheader451
+245:                                              ; preds = %.preheader452
   %246 = add nuw nsw i32 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %246, 32
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.preheader451, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.preheader452, !llvm.loop !22
 
-.critedge.i.i:                                    ; preds = %.preheader451
+.critedge.i.i:                                    ; preds = %.preheader452
   %.not.i.i.i = icmp eq i32 %.011.i.i, 0
-  br i1 %.not.i.i.i, label %259, label %.critedge.thread.i.i
+  br i1 %.not.i.i.i, label %258, label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %245, %.critedge.i.i
   %.07.i.i = phi i32 [ %.011.i.i, %.critedge.i.i ], [ 32, %245 ]
@@ -715,40 +715,39 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   %255 = lshr i32 %253, %254
   %256 = add i32 %.07.i.i, %spec.select.i.i.i
   %257 = call i32 @llvm.umin.i32(i32 %11, i32 %256)
-  %258 = freeze i32 %255
-  br label %259
+  br label %258
 
-259:                                              ; preds = %.critedge.thread.i.i, %.critedge.i.i
+258:                                              ; preds = %.critedge.thread.i.i, %.critedge.i.i
   %.sroa.40.14 = phi i32 [ %257, %.critedge.thread.i.i ], [ %spec.select.i.i.i, %.critedge.i.i ]
   %.08.i.i = phi i32 [ %.07.i.i, %.critedge.thread.i.i ], [ 0, %.critedge.i.i ]
-  %.fr = phi i32 [ %258, %.critedge.thread.i.i ], [ 0, %.critedge.i.i ]
+  %259 = phi i32 [ %255, %.critedge.thread.i.i ], [ 0, %.critedge.i.i ]
   %notmask.i.neg.i = shl nuw i32 1, %.08.i.i
-  %notmask.i.neg.i.fr = freeze i32 %notmask.i.neg.i
-  %260 = add i32 %notmask.i.neg.i.fr, %.fr
+  %260 = add i32 %notmask.i.neg.i, %259
   %261 = and i32 %260, 1
   %262 = sub nsw i32 0, %261
   %263 = lshr i32 %260, 1
   %264 = xor i32 %263, %262
-  %265 = add i32 %261, %.068513
+  %265 = add nuw nsw i32 %261, %.068514
   %266 = add i32 %265, %264
-  %267 = and i32 %266, 255
+  %.fr449 = freeze i32 %266
+  %267 = and i32 %.fr449, 255
   %268 = icmp eq i32 %267, 0
-  %spec.select = select i1 %268, i32 %.068513, i32 %267
+  %spec.select = select i1 %268, i32 %.068514, i32 %267
   br label %.thread
 
-.thread:                                          ; preds = %259, %234
-  %.167447 = phi i32 [ %267, %259 ], [ 0, %234 ]
-  %.sroa.40.4445 = phi i32 [ %.sroa.40.14, %259 ], [ %.sroa.40.3511, %234 ]
-  %269 = phi i32 [ %spec.select, %259 ], [ %.068513, %234 ]
-  %270 = add nuw nsw i32 %.069512, 1
+.thread:                                          ; preds = %258, %234
+  %.167447 = phi i32 [ %267, %258 ], [ 0, %234 ]
+  %.sroa.40.4445 = phi i32 [ %.sroa.40.14, %258 ], [ %.sroa.40.3512, %234 ]
+  %269 = phi i32 [ %spec.select, %258 ], [ %.068514, %234 ]
+  %270 = add nuw nsw i32 %.069513, 1
   %exitcond.not = icmp eq i32 %270, %233
   br i1 %exitcond.not, label %.loopexit, label %234, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread, %220
   %.sroa.40.2 = phi i32 [ %spec.select.i135, %220 ], [ %.sroa.40.4445, %.thread ]
-  %271 = add nuw nsw i32 %.065516, 1
-  %exitcond576.not = icmp eq i32 %271, %219
-  br i1 %exitcond576.not, label %.loopexit453.preheader, label %220, !llvm.loop !26
+  %271 = add nuw nsw i32 %.065517, 1
+  %exitcond577.not = icmp eq i32 %271, %219
+  br i1 %exitcond577.not, label %.loopexit454.preheader, label %220, !llvm.loop !26
 
 272:                                              ; preds = %get_ue_golomb.exit
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -757,15 +756,15 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   store i8 8, ptr %274, align 1, !tbaa !17
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 8, ptr %275, align 2, !tbaa !18
-  br label %.loopexit453.preheader
+  br label %.loopexit454.preheader
 
-.loopexit453.preheader:                           ; preds = %.loopexit, %get_ue_golomb.exit133, %272
+.loopexit454.preheader:                           ; preds = %.loopexit, %get_ue_golomb.exit133, %272
   %spec.select.i910.i139.ph = phi i32 [ %.sroa.40.10, %272 ], [ %spec.select.i134, %get_ue_golomb.exit133 ], [ %.sroa.40.2, %.loopexit ]
-  br label %.loopexit453
+  br label %.loopexit454
 
-.loopexit453:                                     ; preds = %.loopexit453.preheader, %286
-  %.011.i138 = phi i32 [ %287, %286 ], [ 0, %.loopexit453.preheader ]
-  %spec.select.i910.i139 = phi i32 [ %spec.select.i.i140, %286 ], [ %spec.select.i910.i139.ph, %.loopexit453.preheader ]
+.loopexit454:                                     ; preds = %.loopexit454.preheader, %286
+  %.011.i138 = phi i32 [ %287, %286 ], [ 0, %.loopexit454.preheader ]
+  %spec.select.i910.i139 = phi i32 [ %spec.select.i.i140, %286 ], [ %spec.select.i910.i139.ph, %.loopexit454.preheader ]
   %276 = lshr i32 %spec.select.i910.i139, 3
   %277 = zext nneg i32 %276 to i64
   %278 = getelementptr inbounds nuw i8, ptr %5, i64 %277
@@ -780,12 +779,12 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   %.not.i141 = icmp eq i32 %285, 0
   br i1 %.not.i141, label %286, label %.critedge.i142
 
-286:                                              ; preds = %.loopexit453
+286:                                              ; preds = %.loopexit454
   %287 = add nuw nsw i32 %.011.i138, 1
   %exitcond.not.i148 = icmp eq i32 %287, 32
-  br i1 %exitcond.not.i148, label %.critedge.thread.i144, label %.loopexit453, !llvm.loop !22
+  br i1 %exitcond.not.i148, label %.critedge.thread.i144, label %.loopexit454, !llvm.loop !22
 
-.critedge.i142:                                   ; preds = %.loopexit453
+.critedge.i142:                                   ; preds = %.loopexit454
   %.not.i.i143 = icmp eq i32 %.011.i138, 0
   br i1 %.not.i.i143, label %get_ue_golomb.exit149.preheader, label %.critedge.thread.i144
 
@@ -848,11 +847,11 @@ get_ue_golomb.exit162:                            ; preds = %.critedge.i155, %.c
   %314 = xor i32 %notmask.i160, -1
   %315 = add i32 %313, %314
   switch i32 %315, label %get_ue_golomb.exit175.preheader [
-    i32 0, label %.preheader449
+    i32 0, label %.preheader450
     i32 1, label %330
   ]
 
-.preheader449:                                    ; preds = %get_ue_golomb.exit162, %326
+.preheader450:                                    ; preds = %get_ue_golomb.exit162, %326
   %.011.i164 = phi i32 [ %327, %326 ], [ %315, %get_ue_golomb.exit162 ]
   %spec.select.i910.i165 = phi i32 [ %spec.select.i.i166, %326 ], [ %.sroa.40.16, %get_ue_golomb.exit162 ]
   %316 = lshr i32 %spec.select.i910.i165, 3
@@ -869,12 +868,12 @@ get_ue_golomb.exit162:                            ; preds = %.critedge.i155, %.c
   %.not.i167 = icmp eq i32 %325, 0
   br i1 %.not.i167, label %326, label %.critedge.i168
 
-326:                                              ; preds = %.preheader449
+326:                                              ; preds = %.preheader450
   %327 = add nuw nsw i32 %.011.i164, 1
   %exitcond.not.i174 = icmp eq i32 %327, 32
-  br i1 %exitcond.not.i174, label %.critedge.thread.i170, label %.preheader449, !llvm.loop !22
+  br i1 %exitcond.not.i174, label %.critedge.thread.i170, label %.preheader450, !llvm.loop !22
 
-.critedge.i168:                                   ; preds = %.preheader449
+.critedge.i168:                                   ; preds = %.preheader450
   %.not.i.i169 = icmp eq i32 %.011.i164, 0
   br i1 %.not.i.i169, label %get_ue_golomb.exit175.preheader, label %.critedge.thread.i170
 
@@ -1010,16 +1009,16 @@ get_ue_golomb.exit214:                            ; preds = %.critedge.i207, %.c
   %386 = xor i32 %notmask.i212, -1
   %387 = add i32 %385, %386
   %388 = icmp sgt i32 %387, 0
-  br i1 %388, label %.preheader450, label %get_ue_golomb.exit175.preheader
+  br i1 %388, label %.preheader451, label %get_ue_golomb.exit175.preheader
 
-.preheader450:                                    ; preds = %get_ue_golomb.exit214, %get_se_golomb.exit227
-  %.1518 = phi i32 [ %404, %get_se_golomb.exit227 ], [ 0, %get_ue_golomb.exit214 ]
-  %.sroa.40.7517 = phi i32 [ %.sroa.40.21, %get_se_golomb.exit227 ], [ %.sroa.40.20, %get_ue_golomb.exit214 ]
+.preheader451:                                    ; preds = %get_ue_golomb.exit214, %get_se_golomb.exit227
+  %.1519 = phi i32 [ %404, %get_se_golomb.exit227 ], [ 0, %get_ue_golomb.exit214 ]
+  %.sroa.40.7518 = phi i32 [ %.sroa.40.21, %get_se_golomb.exit227 ], [ %.sroa.40.20, %get_ue_golomb.exit214 ]
   br label %389
 
-389:                                              ; preds = %.preheader450, %400
-  %.011.i.i216 = phi i32 [ %401, %400 ], [ 0, %.preheader450 ]
-  %spec.select.i910.i.i217 = phi i32 [ %spec.select.i.i.i218, %400 ], [ %.sroa.40.7517, %.preheader450 ]
+389:                                              ; preds = %.preheader451, %400
+  %.011.i.i216 = phi i32 [ %401, %400 ], [ 0, %.preheader451 ]
+  %spec.select.i910.i.i217 = phi i32 [ %spec.select.i.i.i218, %400 ], [ %.sroa.40.7518, %.preheader451 ]
   %390 = lshr i32 %spec.select.i910.i.i217, 3
   %391 = zext nneg i32 %390 to i64
   %392 = getelementptr inbounds nuw i8, ptr %5, i64 %391
@@ -1051,9 +1050,9 @@ get_ue_golomb.exit214:                            ; preds = %.critedge.i207, %.c
 
 get_se_golomb.exit227:                            ; preds = %.critedge.i.i220, %.critedge.thread.i.i222
   %.sroa.40.21 = phi i32 [ %403, %.critedge.thread.i.i222 ], [ %spec.select.i.i.i218, %.critedge.i.i220 ]
-  %404 = add nuw nsw i32 %.1518, 1
-  %exitcond577.not = icmp eq i32 %404, %387
-  br i1 %exitcond577.not, label %get_ue_golomb.exit175.preheader, label %.preheader450, !llvm.loop !27
+  %404 = add nuw nsw i32 %.1519, 1
+  %exitcond578.not = icmp eq i32 %404, %387
+  br i1 %exitcond578.not, label %get_ue_golomb.exit175.preheader, label %.preheader451, !llvm.loop !27
 
 get_ue_golomb.exit175.preheader:                  ; preds = %get_se_golomb.exit227, %get_ue_golomb.exit214, %.critedge.thread.i170, %.critedge.i168, %get_ue_golomb.exit162
   %spec.select.i910.i230.ph = phi i32 [ %.sroa.40.16, %get_ue_golomb.exit162 ], [ %spec.select.i.i166, %.critedge.i168 ], [ %329, %.critedge.thread.i170 ], [ %.sroa.40.20, %get_ue_golomb.exit214 ], [ %.sroa.40.21, %get_se_golomb.exit227 ]
@@ -1353,7 +1352,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   %539 = lshr exact i32 128, %538
   %540 = and i32 %539, %537
   %.not85 = icmp eq i32 %540, 0
-  br i1 %.not85, label %.thread603, label %541
+  br i1 %.not85, label %.thread604, label %541
 
 541:                                              ; preds = %get_ue_golomb.exit320
   %542 = icmp slt i32 %.sroa.40.9, %11
@@ -1368,7 +1367,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   %550 = lshr exact i32 128, %549
   %551 = and i32 %550, %548
   %.not86 = icmp eq i32 %551, 0
-  br i1 %.not86, label %.thread603, label %552
+  br i1 %.not86, label %.thread604, label %552
 
 552:                                              ; preds = %541
   %553 = icmp slt i32 %spec.select.i321, %11
@@ -1414,7 +1413,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
 
 587:                                              ; preds = %552
   %588 = icmp ult i32 %561, 285212672
-  br i1 %588, label %589, label %.thread603
+  br i1 %588, label %589, label %.thread604
 
 589:                                              ; preds = %587
   %590 = zext nneg i32 %562 to i64
@@ -1429,17 +1428,17 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
 596:                                              ; preds = %589, %564
   %597 = phi i32 [ %595, %589 ], [ %585, %564 ]
   %.not87 = icmp eq i32 %597, 0
-  br i1 %.not87, label %.thread603, label %600
+  br i1 %.not87, label %.thread604, label %600
 
-.thread603:                                       ; preds = %get_ue_golomb.exit320, %587, %541, %596
+.thread604:                                       ; preds = %get_ue_golomb.exit320, %587, %541, %596
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %599, align 4, !tbaa !29
   store i32 1, ptr %598, align 4, !tbaa !30
   br label %600
 
-600:                                              ; preds = %596, %.thread603, %6
-  %.070 = phi i32 [ -1094995529, %6 ], [ 0, %.thread603 ], [ 0, %596 ]
+600:                                              ; preds = %596, %.thread604, %6
+  %.070 = phi i32 [ -1094995529, %6 ], [ 0, %.thread604 ], [ 0, %596 ]
   call void @av_free(ptr noundef nonnull %5) #6
   br label %601
 

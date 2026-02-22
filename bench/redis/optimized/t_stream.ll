@@ -10935,12 +10935,12 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !168
   %13 = tail call ptr @lookupKeyWriteOrReply(ptr noundef %0, ptr noundef %11, ptr noundef %12) #17
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %112, label %15
+  br i1 %14, label %113, label %15
 
 15:                                               ; preds = %1
   %16 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 6) #17
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %112
+  br i1 %.not, label %17, label %113
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -10974,9 +10974,9 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %31
   %35 = icmp sgt i32 %32, 2
-  br i1 %35, label %.lr.ph77, label %.critedge
+  br i1 %35, label %.lr.ph75, label %.critedge
 
-.lr.ph77:                                         ; preds = %.preheader
+.lr.ph75:                                         ; preds = %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -10995,16 +10995,16 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.not56 = icmp eq i32 %46, 0
   br i1 %.not56, label %31, label %.thread
 
-._crit_edge:                                      ; preds = %72
+._crit_edge:                                      ; preds = %73
   %47 = icmp eq i32 %.1, 0
   %.not57 = icmp eq i32 %.151, 0
-  br i1 %.not57, label %.critedge, label %76
+  br i1 %.not57, label %.critedge, label %77
 
-48:                                               ; preds = %.lr.ph77, %72
-  %indvars.iv80 = phi i64 [ 2, %.lr.ph77 ], [ %indvars.iv.next81, %72 ]
-  %.04975 = phi i32 [ 0, %.lr.ph77 ], [ %.1, %72 ]
-  %.05074 = phi i32 [ 0, %.lr.ph77 ], [ %.151, %72 ]
-  %49 = getelementptr %struct.streamID, ptr %.053, i64 %indvars.iv80
+48:                                               ; preds = %.lr.ph75, %73
+  %indvars.iv78 = phi i64 [ 2, %.lr.ph75 ], [ %indvars.iv.next79, %73 ]
+  %.04973 = phi i32 [ 0, %.lr.ph75 ], [ %.1, %73 ]
+  %.05072 = phi i32 [ 0, %.lr.ph75 ], [ %.151, %73 ]
+  %49 = getelementptr %struct.streamID, ptr %.053, i64 %indvars.iv78
   %50 = getelementptr i8, ptr %49, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @streamIteratorStart(ptr noundef nonnull %4, ptr noundef %19, ptr noundef readonly %50, ptr noundef readonly %50, i32 noundef 0)
@@ -11019,7 +11019,7 @@ streamDeleteItem.exit.thread:                     ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %72
+  br label %73
 
 52:                                               ; preds = %48
   call void @streamIteratorRemoveEntry(ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -11035,136 +11035,135 @@ streamDeleteItem.exit.thread:                     ; preds = %48
 55:                                               ; preds = %52
   %56 = getelementptr i8, ptr %49, i64 -24
   %57 = load i64, ptr %56, align 8, !tbaa !22
-  %.fr = freeze i64 %57
   %58 = load i64, ptr %38, align 8, !tbaa !22
-  %.fr71 = freeze i64 %58
-  %59 = icmp ugt i64 %.fr, %.fr71
+  %59 = icmp ugt i64 %57, %58
   br i1 %59, label %streamCompareID.exit.thread, label %streamCompareID.exit
 
 streamCompareID.exit:                             ; preds = %55
-  %.not72 = icmp ult i64 %.fr, %.fr71
-  %spec.select = select i1 %.not72, i32 %.04975, i32 1
+  %60 = icmp uge i64 %57, %58
+  %cond.fr = freeze i1 %60
+  %spec.select = select i1 %cond.fr, i32 1, i32 %.04973
   br label %streamCompareID.exit.thread
 
 streamCompareID.exit.thread:                      ; preds = %streamCompareID.exit, %52, %55
-  %60 = phi i32 [ %.04975, %52 ], [ %spec.select, %streamCompareID.exit ], [ %.04975, %55 ]
-  %61 = load i64, ptr %39, align 8, !tbaa !23
-  %62 = icmp ugt i64 %53, %61
-  br i1 %62, label %70, label %63
+  %61 = phi i32 [ %.04973, %52 ], [ %spec.select, %streamCompareID.exit ], [ %.04973, %55 ]
+  %62 = load i64, ptr %39, align 8, !tbaa !23
+  %63 = icmp ugt i64 %53, %62
+  br i1 %63, label %71, label %64
 
-63:                                               ; preds = %streamCompareID.exit.thread
-  %64 = icmp ult i64 %53, %61
-  br i1 %64, label %streamCompareID.exit64, label %65
+64:                                               ; preds = %streamCompareID.exit.thread
+  %65 = icmp ult i64 %53, %62
+  br i1 %65, label %streamCompareID.exit64, label %66
 
-65:                                               ; preds = %63
-  %66 = getelementptr i8, ptr %49, i64 -24
-  %67 = load i64, ptr %66, align 8, !tbaa !22
-  %68 = load i64, ptr %40, align 8, !tbaa !22
-  %69 = icmp ugt i64 %67, %68
-  br i1 %69, label %70, label %streamCompareID.exit64
+66:                                               ; preds = %64
+  %67 = getelementptr i8, ptr %49, i64 -24
+  %68 = load i64, ptr %67, align 8, !tbaa !22
+  %69 = load i64, ptr %40, align 8, !tbaa !22
+  %70 = icmp ugt i64 %68, %69
+  br i1 %70, label %71, label %streamCompareID.exit64
 
-70:                                               ; preds = %65, %streamCompareID.exit.thread
+71:                                               ; preds = %66, %streamCompareID.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !24
   br label %streamCompareID.exit64
 
-streamCompareID.exit64:                           ; preds = %65, %63, %70
-  %71 = add nsw i32 %.05074, 1
-  br label %72
+streamCompareID.exit64:                           ; preds = %66, %64, %71
+  %72 = add nsw i32 %.05072, 1
+  br label %73
 
-72:                                               ; preds = %streamDeleteItem.exit.thread, %streamCompareID.exit64
-  %.151 = phi i32 [ %71, %streamCompareID.exit64 ], [ %.05074, %streamDeleteItem.exit.thread ]
-  %.1 = phi i32 [ %60, %streamCompareID.exit64 ], [ %.04975, %streamDeleteItem.exit.thread ]
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %73 = load i32, ptr %20, align 8, !tbaa !157
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next81, %74
-  br i1 %75, label %48, label %._crit_edge, !llvm.loop !200
+73:                                               ; preds = %streamDeleteItem.exit.thread, %streamCompareID.exit64
+  %.151 = phi i32 [ %72, %streamCompareID.exit64 ], [ %.05072, %streamDeleteItem.exit.thread ]
+  %.1 = phi i32 [ %61, %streamCompareID.exit64 ], [ %.04973, %streamDeleteItem.exit.thread ]
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %74 = load i32, ptr %20, align 8, !tbaa !157
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next79, %75
+  br i1 %76, label %48, label %._crit_edge, !llvm.loop !200
 
-76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !21
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %80, label %82
+77:                                               ; preds = %._crit_edge
+  %78 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !21
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
-  br label %95
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
+  br label %96
 
-82:                                               ; preds = %76
-  br i1 %47, label %95, label %83
+83:                                               ; preds = %77
+  br i1 %47, label %96, label %84
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %19, i64 32
+84:                                               ; preds = %83
+  %85 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 -1, i64 16, i1 false)
-  %88 = load ptr, ptr %19, align 8, !tbaa !5
-  call void @raxStart(ptr noundef nonnull %87, ptr noundef %88) #17
-  %89 = call i32 @raxSeek(ptr noundef nonnull %87, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #17
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 -1, i64 16, i1 false)
+  %89 = load ptr, ptr %19, align 8, !tbaa !5
+  call void @raxStart(ptr noundef nonnull %88, ptr noundef %89) #17
+  %90 = call i32 @raxSeek(ptr noundef nonnull %88, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #17
   store ptr %19, ptr %2, align 8, !tbaa !87
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
-  store i32 0, ptr %91, align 4, !tbaa !90
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i32 1, ptr %92, align 8, !tbaa !91
-  %93 = call i32 @streamIteratorGetID(ptr noundef nonnull %2, ptr noundef nonnull %84, ptr noundef nonnull %3)
-  %.not6.i = icmp eq i32 %93, 0
-  br i1 %.not6.i, label %94, label %streamGetEdgeID.exit
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 576
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  store i32 0, ptr %92, align 4, !tbaa !90
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store i32 1, ptr %93, align 8, !tbaa !91
+  %94 = call i32 @streamIteratorGetID(ptr noundef nonnull %2, ptr noundef nonnull %85, ptr noundef nonnull %3)
+  %.not6.i = icmp eq i32 %94, 0
+  br i1 %.not6.i, label %95, label %streamGetEdgeID.exit
 
-94:                                               ; preds = %83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 -1, i64 16, i1 false)
+95:                                               ; preds = %84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 -1, i64 16, i1 false)
   br label %streamGetEdgeID.exit
 
-streamGetEdgeID.exit:                             ; preds = %83, %94
-  call void @raxStop(ptr noundef nonnull %87) #17
+streamGetEdgeID.exit:                             ; preds = %84, %95
+  call void @raxStop(ptr noundef nonnull %88) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %82, %streamGetEdgeID.exit, %80
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %97 = load ptr, ptr %96, align 8, !tbaa !134
-  %98 = load ptr, ptr %8, align 8, !tbaa !159
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !109
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %97, ptr noundef %100) #17
-  %101 = load ptr, ptr %8, align 8, !tbaa !159
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !109
-  %104 = load ptr, ptr %96, align 8, !tbaa !134
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
-  %106 = load i32, ptr %105, align 8, !tbaa !144
-  call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.101, ptr noundef %103, i32 noundef %106) #17
-  %107 = sext i32 %.151 to i64
-  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
-  %109 = add nsw i64 %108, %107
-  store i64 %109, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+96:                                               ; preds = %83, %streamGetEdgeID.exit, %81
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %98 = load ptr, ptr %97, align 8, !tbaa !134
+  %99 = load ptr, ptr %8, align 8, !tbaa !159
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !109
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %101) #17
+  %102 = load ptr, ptr %8, align 8, !tbaa !159
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !109
+  %105 = load ptr, ptr %97, align 8, !tbaa !134
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
+  %107 = load i32, ptr %106, align 8, !tbaa !144
+  call void @notifyKeyspaceEvent(i32 noundef 1024, ptr noundef nonnull @.str.101, ptr noundef %104, i32 noundef %107) #17
+  %108 = sext i32 %.151 to i64
+  %109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
+  %110 = add nsw i64 %109, %108
+  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !163
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %.preheader, %._crit_edge, %95
-  %.pre-phi = phi i64 [ %107, %95 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ 0, %28 ]
+.critedge:                                        ; preds = %28, %.preheader, %._crit_edge, %96
+  %.pre-phi = phi i64 [ %108, %96 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ 0, %28 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.pre-phi) #17
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.critedge
   %.not59 = icmp eq ptr %.053, %7
-  br i1 %.not59, label %111, label %110
+  br i1 %.not59, label %112, label %111
 
-110:                                              ; preds = %.thread
+111:                                              ; preds = %.thread
   call void @zfree(ptr noundef %.053) #17
-  br label %111
-
-111:                                              ; preds = %110, %.thread
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %112
 
-112:                                              ; preds = %1, %15, %111
+112:                                              ; preds = %111, %.thread
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %113
+
+113:                                              ; preds = %1, %15, %112
   ret void
 }
 

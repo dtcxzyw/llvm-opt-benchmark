@@ -12721,27 +12721,27 @@ _ZN5drjit12DynamicArrayIbED2Ev.exit13:            ; preds = %_ZN5drjit12DynamicA
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIjLb0ENS_12DynamicArrayIjEEE4add_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.197") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.47, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.47, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -12763,9 +12763,9 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -12781,7 +12781,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -12792,14 +12792,14 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i32, ptr %22, i64 %.049.us
   store i32 %35, ptr %36, align 4
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !173
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !173
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -12810,11 +12810,11 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i32, ptr %22, i64 %.049.us50
   store i32 %41, ptr %42, align 4
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !173
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !173
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -12829,28 +12829,28 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !173
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i32, ptr %25, align 4
   %52 = load i32, ptr %27, align 4
   %53 = add i32 %52, %51
   store i32 %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i32, ptr %25, align 4
   %55 = load i32, ptr %27, align 4
   %56 = add i32 %55, %54
   store i32 %56, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i32, ptr %25, align 4
   %58 = load i32, ptr %27, align 4
   %59 = add i32 %58, %57
   store i32 %59, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -12858,27 +12858,27 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIjLb0ENS_12DynamicArrayIjEEE4mod_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.197") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.48, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.48, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -12900,9 +12900,9 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -12918,7 +12918,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -12929,14 +12929,14 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i32, ptr %22, i64 %.049.us
   store i32 %35, ptr %36, align 4
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !174
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !174
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -12947,11 +12947,11 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i32, ptr %22, i64 %.049.us50
   store i32 %41, ptr %42, align 4
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !174
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !174
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -12966,28 +12966,28 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !174
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i32, ptr %25, align 4
   %52 = load i32, ptr %27, align 4
   %53 = urem i32 %51, %52
   store i32 %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i32, ptr %25, align 4
   %55 = load i32, ptr %27, align 4
   %56 = urem i32 %54, %55
   store i32 %56, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i32, ptr %25, align 4
   %58 = load i32, ptr %27, align 4
   %59 = urem i32 %57, %58
   store i32 %59, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -12995,27 +12995,27 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIjLb0ENS_12DynamicArrayIjEEE4mul_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.197") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.49, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.49, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -13037,9 +13037,9 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13055,7 +13055,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -13066,14 +13066,14 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i32, ptr %22, i64 %.049.us
   store i32 %35, ptr %36, align 4
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !175
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !175
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -13084,11 +13084,11 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i32, ptr %22, i64 %.049.us50
   store i32 %41, ptr %42, align 4
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !175
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !175
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -13103,28 +13103,28 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !175
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i32, ptr %25, align 4
   %52 = load i32, ptr %27, align 4
   %53 = mul i32 %52, %51
   store i32 %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i32, ptr %25, align 4
   %55 = load i32, ptr %27, align 4
   %56 = mul i32 %55, %54
   store i32 %56, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i32, ptr %25, align 4
   %58 = load i32, ptr %27, align 4
   %59 = mul i32 %58, %57
   store i32 %59, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -13132,27 +13132,27 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIjLb0ENS_12DynamicArrayIjEEE4div_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.197") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.50, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.50, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -13174,9 +13174,9 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13192,7 +13192,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -13203,14 +13203,14 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i32, ptr %22, i64 %.049.us
   store i32 %35, ptr %36, align 4
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !176
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !176
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -13221,11 +13221,11 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i32, ptr %22, i64 %.049.us50
   store i32 %41, ptr %42, align 4
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !176
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !176
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -13240,28 +13240,28 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !176
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i32, ptr %25, align 4
   %52 = load i32, ptr %27, align 4
   %53 = udiv i32 %51, %52
   store i32 %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i32, ptr %25, align 4
   %55 = load i32, ptr %27, align 4
   %56 = udiv i32 %54, %55
   store i32 %56, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i32, ptr %25, align 4
   %58 = load i32, ptr %27, align 4
   %59 = udiv i32 %57, %58
   store i32 %59, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIjED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -13272,24 +13272,24 @@ define linkonce_odr hidden void @_ZN5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr71 = freeze i64 %7
+  %.fr = freeze i64 %7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
-  %.fr72 = freeze i64 %9
-  %10 = tail call i64 @llvm.umax.i64(i64 %.fr71, i64 %.fr72)
-  %11 = icmp ult i64 %.fr71, %.fr72
-  %12 = icmp ne i64 %.fr71, 1
+  %.fr69 = freeze i64 %9
+  %10 = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.fr69)
+  %11 = icmp ult i64 %.fr, %.fr69
+  %12 = icmp ne i64 %.fr, 1
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %16, label %13
 
 13:                                               ; preds = %4
-  %14 = icmp ugt i64 %.fr71, %.fr72
-  %15 = icmp ne i64 %.fr72, 1
+  %14 = icmp ugt i64 %.fr, %.fr69
+  %15 = icmp ne i64 %.fr69, 1
   %or.cond3 = and i1 %14, %15
   br i1 %or.cond3, label %16, label %17
 
 16:                                               ; preds = %13, %4
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.51, i64 noundef %.fr71, i64 noundef %.fr72) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.51, i64 noundef %.fr, i64 noundef %.fr69) #33
   unreachable
 
 17:                                               ; preds = %13
@@ -13311,10 +13311,10 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit40.thread:     ; preds = %17
   store i8 1, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %24, align 8
-  %25 = icmp eq i64 %.fr72, 1
+  %25 = icmp eq i64 %.fr69, 1
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = icmp eq i64 %.fr71, 1
+  %28 = icmp eq i64 %.fr, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i64, ptr %29, align 8
   %.fr70 = freeze i64 %30
@@ -13345,8 +13345,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us: ; pred
   %43 = getelementptr inbounds float, ptr %23, i64 %spec.store.select4.us
   store float %42, ptr %43, align 4
   %44 = add nuw i64 %.043.us, 1
-  %exitcond88.not = icmp eq i64 %44, %10
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !177
+  %exitcond87.not = icmp eq i64 %44, %10
+  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !177
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %28, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -13360,11 +13360,11 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us: ; pred
 .lr.ph.split.split.us.split.us.split.us:          ; preds = %.lr.ph.split.split.us.split.us
   %45 = load i8, ptr %26, align 1
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %._crit_edge.loopexit73
+  br i1 %46, label %47, label %._crit_edge.loopexit72
 
 47:                                               ; preds = %.lr.ph.split.split.us.split.us.split.us
   %48 = load float, ptr %32, align 4
-  br label %._crit_edge.loopexit73
+  br label %._crit_edge.loopexit72
 
 .lr.ph.split.split.us.split.us.split:             ; preds = %.lr.ph.split.split.us.split.us, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45.us
   %.043.us44.us = phi i64 [ %56, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45.us ], [ 0, %.lr.ph.split.split.us.split.us ]
@@ -13382,8 +13382,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45.us: ;
   %55 = getelementptr inbounds float, ptr %23, i64 %.043.us44.us
   store float %54, ptr %55, align 4
   %56 = add nuw i64 %.043.us44.us, 1
-  %exitcond86.not = icmp eq i64 %56, %10
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split, !llvm.loop !177
+  %exitcond85.not = icmp eq i64 %56, %10
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split, !llvm.loop !177
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
   br i1 %33, label %.lr.ph.split.split.us.split.split.us, label %.lr.ph.split.split.us.split.split
@@ -13391,14 +13391,14 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45.us: ;
 .lr.ph.split.split.us.split.split.us:             ; preds = %.lr.ph.split.split.us.split
   %57 = load i8, ptr %26, align 1
   %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %._crit_edge.loopexit75
+  br i1 %58, label %59, label %._crit_edge.loopexit74
 
 59:                                               ; preds = %.lr.ph.split.split.us.split.split.us
   %60 = load i32, ptr %27, align 4
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw float, ptr %32, i64 %61
   %63 = load float, ptr %62, align 4
-  br label %._crit_edge.loopexit75
+  br label %._crit_edge.loopexit74
 
 .lr.ph.split.split.us.split.split:                ; preds = %.lr.ph.split.split.us.split, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45
   %.043.us44 = phi i64 [ %74, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45 ], [ 0, %.lr.ph.split.split.us.split ]
@@ -13419,8 +13419,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45: ; pr
   %73 = getelementptr inbounds float, ptr %23, i64 %.043.us44
   store float %72, ptr %73, align 4
   %74 = add nuw i64 %.043.us44, 1
-  %exitcond84.not = icmp eq i64 %74, %10
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.split.us.split.split, !llvm.loop !177
+  %exitcond83.not = icmp eq i64 %74, %10
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.us.split.split, !llvm.loop !177
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %31, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -13431,11 +13431,11 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45: ; pr
 .lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us
   %75 = load i8, ptr %26, align 1
   %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %._crit_edge.loopexit77
+  br i1 %76, label %77, label %._crit_edge.loopexit76
 
 77:                                               ; preds = %.lr.ph.split.split.split.us.split.us
   %78 = load float, ptr %32, align 4
-  br label %._crit_edge.loopexit77
+  br label %._crit_edge.loopexit76
 
 .lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us51
   %.043.us50 = phi i64 [ %86, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us51 ], [ 0, %.lr.ph.split.split.split.us ]
@@ -13453,8 +13453,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us51: ; pr
   %85 = getelementptr inbounds float, ptr %23, i64 %.043.us50
   store float %84, ptr %85, align 4
   %86 = add nuw i64 %.043.us50, 1
-  %exitcond82.not = icmp eq i64 %86, %10
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !177
+  %exitcond81.not = icmp eq i64 %86, %10
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !177
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %33, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -13462,14 +13462,14 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us51: ; pr
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split
   %87 = load i8, ptr %26, align 1
   %88 = trunc i8 %87 to i1
-  br i1 %88, label %89, label %._crit_edge.loopexit79
+  br i1 %88, label %89, label %._crit_edge.loopexit78
 
 89:                                               ; preds = %.lr.ph.split.split.split.split.us
   %90 = load i32, ptr %27, align 4
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw float, ptr %32, i64 %91
   %93 = load float, ptr %92, align 4
-  br label %._crit_edge.loopexit79
+  br label %._crit_edge.loopexit78
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit
   %.043 = phi i64 [ %105, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit ], [ 0, %.lr.ph.split.split.split ]
@@ -13494,27 +13494,27 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %exitcond.not = icmp eq i64 %105, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !177
 
-._crit_edge.loopexit73:                           ; preds = %.lr.ph.split.split.us.split.us.split.us, %47
+._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split.us.split.us.split.us, %47
   %106 = phi contract float [ %48, %47 ], [ 0.000000e+00, %.lr.ph.split.split.us.split.us.split.us ]
   store float %106, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit75:                           ; preds = %.lr.ph.split.split.us.split.split.us, %59
+._crit_edge.loopexit74:                           ; preds = %.lr.ph.split.split.us.split.split.us, %59
   %107 = phi contract float [ %63, %59 ], [ 0.000000e+00, %.lr.ph.split.split.us.split.split.us ]
   store float %107, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit77:                           ; preds = %.lr.ph.split.split.split.us.split.us, %77
+._crit_edge.loopexit76:                           ; preds = %.lr.ph.split.split.split.us.split.us, %77
   %108 = phi contract float [ %78, %77 ], [ 0.000000e+00, %.lr.ph.split.split.split.us.split.us ]
   store float %108, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit79:                           ; preds = %.lr.ph.split.split.split.split.us, %89
+._crit_edge.loopexit78:                           ; preds = %.lr.ph.split.split.split.split.us, %89
   %109 = phi contract float [ %93, %89 ], [ 0.000000e+00, %.lr.ph.split.split.split.split.us ]
   store float %109, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us51, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45.us, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit40.thread, %._crit_edge.loopexit79, %._crit_edge.loopexit77, %._crit_edge.loopexit75, %._crit_edge.loopexit73
+._crit_edge:                                      ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us51, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us45.us, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit40.thread, %._crit_edge.loopexit78, %._crit_edge.loopexit76, %._crit_edge.loopexit74, %._crit_edge.loopexit72
   ret void
 }
 
@@ -13522,27 +13522,27 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4mul_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.156") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.49, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.49, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -13564,9 +13564,9 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13582,7 +13582,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -13593,14 +13593,14 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds float, ptr %22, i64 %.049.us
   store float %35, ptr %36, align 4
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !178
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !178
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -13611,11 +13611,11 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds float, ptr %22, i64 %.049.us50
   store float %41, ptr %42, align 4
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !178
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !178
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -13630,28 +13630,28 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !178
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load float, ptr %25, align 4
   %52 = load float, ptr %27, align 4
   %53 = fmul contract float %51, %52
   store float %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load float, ptr %25, align 4
   %55 = load float, ptr %27, align 4
   %56 = fmul contract float %54, %55
   store float %56, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load float, ptr %25, align 4
   %58 = load float, ptr %27, align 4
   %59 = fmul contract float %57, %58
   store float %59, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -13668,27 +13668,27 @@ declare void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef 
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseImLb0ENS_12DynamicArrayImEEE4div_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.200") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.50, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.50, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -13710,9 +13710,9 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13728,7 +13728,7 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -13739,14 +13739,14 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i64, ptr %22, i64 %.049.us
   store i64 %35, ptr %36, align 8
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !179
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !179
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -13757,11 +13757,11 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i64, ptr %22, i64 %.049.us50
   store i64 %41, ptr %42, align 8
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !179
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !179
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -13776,28 +13776,28 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !179
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i64, ptr %25, align 8
   %52 = load i64, ptr %27, align 8
   %53 = udiv i64 %51, %52
   store i64 %53, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i64, ptr %25, align 8
   %55 = load i64, ptr %27, align 8
   %56 = udiv i64 %54, %55
   store i64 %56, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i64, ptr %25, align 8
   %58 = load i64, ptr %27, align 8
   %59 = udiv i64 %57, %58
   store i64 %59, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayImED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayImED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -13805,27 +13805,27 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseImLb0ENS_12DynamicArrayImEEE4add_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.200") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.47, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.47, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -13847,9 +13847,9 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13865,7 +13865,7 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -13876,14 +13876,14 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i64, ptr %22, i64 %.049.us
   store i64 %35, ptr %36, align 8
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !180
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !180
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -13894,11 +13894,11 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i64, ptr %22, i64 %.049.us50
   store i64 %41, ptr %42, align 8
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !180
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !180
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -13913,28 +13913,28 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !180
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i64, ptr %25, align 8
   %52 = load i64, ptr %27, align 8
   %53 = add i64 %52, %51
   store i64 %53, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i64, ptr %25, align 8
   %55 = load i64, ptr %27, align 8
   %56 = add i64 %55, %54
   store i64 %56, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i64, ptr %25, align 8
   %58 = load i64, ptr %27, align 8
   %59 = add i64 %58, %57
   store i64 %59, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayImED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayImED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -13942,27 +13942,27 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseImLb0ENS_12DynamicArrayImEEE4mul_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray.200") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr65 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr66 = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr65, i64 %.fr66)
+  %.fr = freeze i64 %7
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr65, %.fr66
-  %11 = icmp ne i64 %.fr65, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr65, %.fr66
-  %14 = icmp ne i64 %.fr66, 1
+  %13 = icmp ugt i64 %.fr64, %.fr
+  %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.49, i64 noundef %.fr65, i64 noundef %.fr66) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.49, i64 noundef %.fr64, i64 noundef %.fr) #33
   unreachable
 
 16:                                               ; preds = %12
@@ -13984,9 +13984,9 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr65, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq i64 %.fr66, 1
+  %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
@@ -14002,7 +14002,7 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   br label %._crit_edge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %28, label %._crit_edge.loopexit68, label %.lr.ph.split.us.split.split
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
@@ -14013,14 +14013,14 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %36 = getelementptr inbounds i64, ptr %22, i64 %.049.us
   store i64 %35, ptr %36, align 8
   %37 = add nuw i64 %.049.us, 1
-  %exitcond75.not = icmp eq i64 %37, %8
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !181
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !181
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit70, label %.lr.ph.split.split.us.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
@@ -14031,11 +14031,11 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %42 = getelementptr inbounds i64, ptr %22, i64 %.049.us50
   store i64 %41, ptr %42, align 8
   %43 = add nuw i64 %.049.us50, 1
-  %exitcond74.not = icmp eq i64 %43, %8
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !181
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !181
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit72, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -14050,28 +14050,28 @@ _ZN5drjit12DynamicArrayImED2Ev.exit46.thread:     ; preds = %16
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !181
 
-._crit_edge.loopexit68:                           ; preds = %.lr.ph.split.us.split
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
   %51 = load i64, ptr %25, align 8
   %52 = load i64, ptr %27, align 8
   %53 = mul i64 %52, %51
   store i64 %53, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
   %54 = load i64, ptr %25, align 8
   %55 = load i64, ptr %27, align 8
   %56 = mul i64 %55, %54
   store i64 %56, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
   %57 = load i64, ptr %25, align 8
   %58 = load i64, ptr %27, align 8
   %59 = mul i64 %58, %57
   store i64 %59, ptr %22, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayImED2Ev.exit46.thread, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %._crit_edge.loopexit68
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayImED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -17106,24 +17106,24 @@ define linkonce_odr hidden void @_ZN5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %.fr71 = freeze i64 %7
+  %.fr = freeze i64 %7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
-  %.fr72 = freeze i64 %9
-  %10 = tail call i64 @llvm.umax.i64(i64 %.fr71, i64 %.fr72)
-  %11 = icmp ult i64 %.fr71, %.fr72
-  %12 = icmp ne i64 %.fr71, 1
+  %.fr69 = freeze i64 %9
+  %10 = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.fr69)
+  %11 = icmp ult i64 %.fr, %.fr69
+  %12 = icmp ne i64 %.fr, 1
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %16, label %13
 
 13:                                               ; preds = %4
-  %14 = icmp ugt i64 %.fr71, %.fr72
-  %15 = icmp ne i64 %.fr72, 1
+  %14 = icmp ugt i64 %.fr, %.fr69
+  %15 = icmp ne i64 %.fr69, 1
   %or.cond3 = and i1 %14, %15
   br i1 %or.cond3, label %16, label %17
 
 16:                                               ; preds = %13, %4
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.51, i64 noundef %.fr71, i64 noundef %.fr72) #33
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.51, i64 noundef %.fr, i64 noundef %.fr69) #33
   unreachable
 
 17:                                               ; preds = %13
@@ -17145,10 +17145,10 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit40.thread:     ; preds = %17
   store i8 1, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %24, align 8
-  %25 = icmp eq i64 %.fr72, 1
+  %25 = icmp eq i64 %.fr69, 1
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = icmp eq i64 %.fr71, 1
+  %28 = icmp eq i64 %.fr, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i64, ptr %29, align 8
   %.fr70 = freeze i64 %30
@@ -17178,8 +17178,8 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us: ; pre
   %42 = getelementptr inbounds float, ptr %23, i64 %spec.store.select4.us
   store float %41, ptr %42, align 4
   %43 = add nuw i64 %.043.us, 1
-  %exitcond88.not = icmp eq i64 %43, %10
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !214
+  %exitcond87.not = icmp eq i64 %43, %10
+  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !214
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %28, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -17193,11 +17193,11 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us: ; pre
 .lr.ph.split.split.us.split.us.split.us:          ; preds = %.lr.ph.split.split.us.split.us
   %44 = load i8, ptr %26, align 1
   %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %._crit_edge.loopexit73
+  br i1 %45, label %46, label %._crit_edge.loopexit72
 
 46:                                               ; preds = %.lr.ph.split.split.us.split.us.split.us
   %47 = load float, ptr %32, align 4
-  br label %._crit_edge.loopexit73
+  br label %._crit_edge.loopexit72
 
 .lr.ph.split.split.us.split.us.split:             ; preds = %.lr.ph.split.split.us.split.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45.us
   %.043.us44.us = phi i64 [ %55, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45.us ], [ 0, %.lr.ph.split.split.us.split.us ]
@@ -17215,8 +17215,8 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45.us: 
   %54 = getelementptr inbounds float, ptr %23, i64 %.043.us44.us
   store float %53, ptr %54, align 4
   %55 = add nuw i64 %.043.us44.us, 1
-  %exitcond86.not = icmp eq i64 %55, %10
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split, !llvm.loop !214
+  %exitcond85.not = icmp eq i64 %55, %10
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split, !llvm.loop !214
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
   br i1 %33, label %.lr.ph.split.split.us.split.split.us, label %.lr.ph.split.split.us.split.split
@@ -17224,13 +17224,13 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45.us: 
 .lr.ph.split.split.us.split.split.us:             ; preds = %.lr.ph.split.split.us.split
   %56 = load i8, ptr %26, align 1
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %._crit_edge.loopexit75
+  br i1 %57, label %58, label %._crit_edge.loopexit74
 
 58:                                               ; preds = %.lr.ph.split.split.us.split.split.us
   %59 = load i64, ptr %27, align 8
   %60 = getelementptr inbounds float, ptr %32, i64 %59
   %61 = load float, ptr %60, align 4
-  br label %._crit_edge.loopexit75
+  br label %._crit_edge.loopexit74
 
 .lr.ph.split.split.us.split.split:                ; preds = %.lr.ph.split.split.us.split, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45
   %.043.us44 = phi i64 [ %71, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45 ], [ 0, %.lr.ph.split.split.us.split ]
@@ -17250,8 +17250,8 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45: ; p
   %70 = getelementptr inbounds float, ptr %23, i64 %.043.us44
   store float %69, ptr %70, align 4
   %71 = add nuw i64 %.043.us44, 1
-  %exitcond84.not = icmp eq i64 %71, %10
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.split.us.split.split, !llvm.loop !214
+  %exitcond83.not = icmp eq i64 %71, %10
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.us.split.split, !llvm.loop !214
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %31, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -17262,11 +17262,11 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45: ; p
 .lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us
   %72 = load i8, ptr %26, align 1
   %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %._crit_edge.loopexit77
+  br i1 %73, label %74, label %._crit_edge.loopexit76
 
 74:                                               ; preds = %.lr.ph.split.split.split.us.split.us
   %75 = load float, ptr %32, align 4
-  br label %._crit_edge.loopexit77
+  br label %._crit_edge.loopexit76
 
 .lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us51
   %.043.us50 = phi i64 [ %83, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us51 ], [ 0, %.lr.ph.split.split.split.us ]
@@ -17284,8 +17284,8 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us51: ; p
   %82 = getelementptr inbounds float, ptr %23, i64 %.043.us50
   store float %81, ptr %82, align 4
   %83 = add nuw i64 %.043.us50, 1
-  %exitcond82.not = icmp eq i64 %83, %10
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !214
+  %exitcond81.not = icmp eq i64 %83, %10
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !214
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %33, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -17293,13 +17293,13 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us51: ; p
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split
   %84 = load i8, ptr %26, align 1
   %85 = trunc i8 %84 to i1
-  br i1 %85, label %86, label %._crit_edge.loopexit79
+  br i1 %85, label %86, label %._crit_edge.loopexit78
 
 86:                                               ; preds = %.lr.ph.split.split.split.split.us
   %87 = load i64, ptr %27, align 8
   %88 = getelementptr inbounds float, ptr %32, i64 %87
   %89 = load float, ptr %88, align 4
-  br label %._crit_edge.loopexit79
+  br label %._crit_edge.loopexit78
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit
   %.043 = phi i64 [ %100, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit ], [ 0, %.lr.ph.split.split.split ]
@@ -17323,27 +17323,27 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit: ; preds 
   %exitcond.not = icmp eq i64 %100, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !214
 
-._crit_edge.loopexit73:                           ; preds = %.lr.ph.split.split.us.split.us.split.us, %46
+._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split.us.split.us.split.us, %46
   %101 = phi contract float [ %47, %46 ], [ 0.000000e+00, %.lr.ph.split.split.us.split.us.split.us ]
   store float %101, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit75:                           ; preds = %.lr.ph.split.split.us.split.split.us, %58
+._crit_edge.loopexit74:                           ; preds = %.lr.ph.split.split.us.split.split.us, %58
   %102 = phi contract float [ %61, %58 ], [ 0.000000e+00, %.lr.ph.split.split.us.split.split.us ]
   store float %102, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit77:                           ; preds = %.lr.ph.split.split.split.us.split.us, %74
+._crit_edge.loopexit76:                           ; preds = %.lr.ph.split.split.split.us.split.us, %74
   %103 = phi contract float [ %75, %74 ], [ 0.000000e+00, %.lr.ph.split.split.split.us.split.us ]
   store float %103, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge.loopexit79:                           ; preds = %.lr.ph.split.split.split.split.us, %86
+._crit_edge.loopexit78:                           ; preds = %.lr.ph.split.split.split.split.us, %86
   %104 = phi contract float [ %89, %86 ], [ 0.000000e+00, %.lr.ph.split.split.split.split.us ]
   store float %104, ptr %23, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us51, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit40.thread, %._crit_edge.loopexit79, %._crit_edge.loopexit77, %._crit_edge.loopexit75, %._crit_edge.loopexit73
+._crit_edge:                                      ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us51, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us45.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit40.thread, %._crit_edge.loopexit78, %._crit_edge.loopexit76, %._crit_edge.loopexit74, %._crit_edge.loopexit72
   ret void
 }
 

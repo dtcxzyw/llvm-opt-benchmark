@@ -4173,8 +4173,8 @@ do.end:                                           ; preds = %do.body
   %conv = trunc i64 %call37 to i32
   %call39 = tail call noundef i64 @_ZNK8QuantLib8TimeGrid5indexEd(ptr noundef nonnull align 8 dereferenceable(72) %t_, double noundef %to)
   %conv40 = trunc i64 %call39 to i32
-  %cmp41.not.not92 = icmp sgt i32 %conv, %conv40
-  br i1 %cmp41.not.not92, label %for.body.lr.ph, label %cleanup
+  %cmp41.not.not91 = icmp sgt i32 %conv, %conv40
+  br i1 %cmp41.not.not91, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %do.end
   %tree_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4215,16 +4215,15 @@ _ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit: ; preds = %_ZNK5boost1
   %29 = load i32, ptr %jMax_.i.i.i, align 4, !tbaa !44
   %jMin_.i.i.i = getelementptr i8, ptr %28, i64 -12
   %30 = load i32, ptr %jMin_.i.i.i, align 4, !tbaa !55
-  %.fr90 = freeze i32 %30
-  %.fr = freeze i32 %29
-  %sub.i.i.i = add i32 %.fr, 1
-  %cmp.not.i = icmp eq i32 %sub.i.i.i, %.fr90
+  %sub.i.i.i = add i32 %29, 1
+  %cmp.not.i = icmp eq i32 %sub.i.i.i, %30
   br i1 %cmp.not.i, label %_ZN8QuantLib5ArrayC2Em.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit
-  %add.i.i.i50 = sub i32 %sub.i.i.i, %.fr90
-  %conv.i.i.i = sext i32 %add.i.i.i50 to i64
-  %31 = icmp slt i32 %add.i.i.i50, 0
+  %add.i.i.i50 = sub i32 %sub.i.i.i, %30
+  %add.i.i.i50.fr = freeze i32 %add.i.i.i50
+  %conv.i.i.i = sext i32 %add.i.i.i50.fr to i64
+  %31 = icmp slt i32 %add.i.i.i50.fr, 0
   %32 = shl nuw nsw i64 %conv.i.i.i, 3
   %spec.select = select i1 %31, i64 -1, i64 %32
   br label %cond.true.i.thread
@@ -4453,10 +4452,8 @@ _ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit: ; preds = %_ZNK5boost1
   %4 = load i32, ptr %jMax_.i.i.i, align 4, !tbaa !44
   %jMin_.i.i.i = getelementptr i8, ptr %3, i64 -12
   %5 = load i32, ptr %jMin_.i.i.i, align 4, !tbaa !55
-  %.fr22 = freeze i32 %5
-  %.fr = freeze i32 %4
-  %sub.i.i.i = add i32 %.fr, 1
-  %cmp.not.i = icmp eq i32 %sub.i.i.i, %.fr22
+  %sub.i.i.i = add i32 %4, 1
+  %cmp.not.i = icmp eq i32 %sub.i.i.i, %5
   br i1 %cmp.not.i, label %_ZN8QuantLib5ArrayC2Em.exit.thread, label %cond.true.i
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %_ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit
@@ -4464,9 +4461,10 @@ _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %_ZNK8QuantLib14OneF
   br label %nrvo.skipdtor
 
 cond.true.i:                                      ; preds = %_ZNK8QuantLib14OneFactorModel13ShortRateTree4sizeEm.exit
-  %add.i.i.i = sub i32 %sub.i.i.i, %.fr22
-  %conv.i.i.i = sext i32 %add.i.i.i to i64
-  %6 = icmp slt i32 %add.i.i.i, 0
+  %add.i.i.i = sub i32 %sub.i.i.i, %5
+  %add.i.i.i.fr = freeze i32 %add.i.i.i
+  %conv.i.i.i = sext i32 %add.i.i.i.fr to i64
+  %6 = icmp slt i32 %add.i.i.i.fr, 0
   %7 = shl nuw nsw i64 %conv.i.i.i, 3
   %spec.select = select i1 %6, i64 -1, i64 %7
   br label %_ZN8QuantLib5ArrayC2Em.exit
@@ -4486,20 +4484,20 @@ for.body.lr.ph.split.us:                          ; preds = %_ZN8QuantLib5ArrayC
 
 for.body.lr.ph.split.us.split.us:                 ; preds = %for.body.lr.ph.split.us
   %x0_.i.i.us.us = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre39 = load double, ptr %x0_.i.i.us.us, align 8, !tbaa !142
+  %.pre38 = load double, ptr %x0_.i.i.us.us, align 8, !tbaa !142
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us, %for.body.lr.ph.split.us.split.us
-  %j.024.us.us = phi i64 [ 0, %for.body.lr.ph.split.us.split.us ], [ %inc.us.us, %for.body.us.us ]
-  %arrayidx.i.us.us = getelementptr inbounds nuw double, ptr %call.i, i64 %j.024.us.us
-  store double %.pre39, ptr %arrayidx.i.us.us, align 8, !tbaa !79
-  %inc.us.us = add nuw i64 %j.024.us.us, 1
-  %exitcond37.not = icmp eq i64 %inc.us.us, %cond.i.i1721
-  br i1 %exitcond37.not, label %nrvo.skipdtor, label %for.body.us.us, !llvm.loop !148
+  %j.023.us.us = phi i64 [ 0, %for.body.lr.ph.split.us.split.us ], [ %inc.us.us, %for.body.us.us ]
+  %arrayidx.i.us.us = getelementptr inbounds nuw double, ptr %call.i, i64 %j.023.us.us
+  store double %.pre38, ptr %arrayidx.i.us.us, align 8, !tbaa !79
+  %inc.us.us = add nuw i64 %j.023.us.us, 1
+  %exitcond36.not = icmp eq i64 %inc.us.us, %cond.i.i1721
+  br i1 %exitcond36.not, label %nrvo.skipdtor, label %for.body.us.us, !llvm.loop !148
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us
   %10 = phi ptr [ %11, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us ], [ null, %for.body.lr.ph.split.us ]
-  %j.024.us = phi i64 [ %inc.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us ], [ 0, %for.body.lr.ph.split.us ]
+  %j.023.us = phi i64 [ %inc.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us ], [ 0, %for.body.lr.ph.split.us ]
   %cmp.not.i.i7.us = icmp eq ptr %10, null
   br i1 %cmp.not.i.i7.us, label %cond.false.i.i12.us, label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us, !prof !41
 
@@ -4515,11 +4513,11 @@ _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us: ; preds = %.n
   %11 = phi ptr [ %10, %for.body.us ], [ %.pre.i.i13.us, %.noexc.us ]
   %x0_.i.i.us = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load double, ptr %x0_.i.i.us, align 8, !tbaa !142
-  %arrayidx.i.us = getelementptr inbounds nuw double, ptr %call.i, i64 %j.024.us
+  %arrayidx.i.us = getelementptr inbounds nuw double, ptr %call.i, i64 %j.023.us
   store double %12, ptr %arrayidx.i.us, align 8, !tbaa !79
-  %inc.us = add nuw i64 %j.024.us, 1
-  %exitcond38.not = icmp eq i64 %inc.us, %cond.i.i1721
-  br i1 %exitcond38.not, label %nrvo.skipdtor, label %for.body.us, !llvm.loop !149
+  %inc.us = add nuw i64 %j.023.us, 1
+  %exitcond37.not = icmp eq i64 %inc.us, %cond.i.i1721
+  br i1 %exitcond37.not, label %nrvo.skipdtor, label %for.body.us, !llvm.loop !149
 
 lpad.split.us:                                    ; preds = %cond.false.i.i12.us
   %13 = landingpad { ptr, i32 }
@@ -4530,7 +4528,7 @@ for.body.lr.ph.split:                             ; preds = %_ZN8QuantLib5ArrayC
   br i1 %9, label %for.body, label %for.body.lr.ph.split.split.us, !prof !41
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
-  %x0_.i.i.us29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %x0_.i.i.us28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %branchings_.i.i10.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %branchings_.i.i10.us, align 8, !tbaa !42
   %15 = getelementptr %"class.QuantLib::TrinomialTree::Branching", ptr %14, i64 %call2
@@ -4540,24 +4538,24 @@ for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.spli
   %dx_.i.i.i.us = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %dx_.i.i.i.us, align 8, !tbaa !75
   %add.ptr.i.i.i.i.us = getelementptr inbounds nuw double, ptr %17, i64 %call2
-  %.pre = load double, ptr %x0_.i.i.us29, align 8, !tbaa !142
-  br label %for.body.us25
+  %.pre = load double, ptr %x0_.i.i.us28, align 8, !tbaa !142
+  br label %for.body.us24
 
-for.body.us25:                                    ; preds = %for.body.us25, %for.body.lr.ph.split.split.us
-  %j.024.us26 = phi i64 [ 0, %for.body.lr.ph.split.split.us ], [ %inc.us31, %for.body.us25 ]
-  %conv4.i.i.us = uitofp i64 %j.024.us26 to double
+for.body.us24:                                    ; preds = %for.body.us24, %for.body.lr.ph.split.split.us
+  %j.023.us25 = phi i64 [ 0, %for.body.lr.ph.split.split.us ], [ %inc.us30, %for.body.us24 ]
+  %conv4.i.i.us = uitofp i64 %j.023.us25 to double
   %add.i.i.us = fadd double %conv4.i.i.us, %conv.i.i.us
   %18 = load double, ptr %add.ptr.i.i.i.i.us, align 8, !tbaa !79
   %19 = tail call double @llvm.fmuladd.f64(double %add.i.i.us, double %18, double %.pre)
-  %arrayidx.i.us30 = getelementptr inbounds nuw double, ptr %call.i, i64 %j.024.us26
-  store double %19, ptr %arrayidx.i.us30, align 8, !tbaa !79
-  %inc.us31 = add nuw i64 %j.024.us26, 1
-  %exitcond.not = icmp eq i64 %inc.us31, %cond.i.i1721
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body.us25, !llvm.loop !148
+  %arrayidx.i.us29 = getelementptr inbounds nuw double, ptr %call.i, i64 %j.023.us25
+  store double %19, ptr %arrayidx.i.us29, align 8, !tbaa !79
+  %inc.us30 = add nuw i64 %j.023.us25, 1
+  %exitcond.not = icmp eq i64 %inc.us30, %cond.i.i1721
+  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body.us24, !llvm.loop !148
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8
   %20 = phi ptr [ %21, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8 ], [ null, %for.body.lr.ph.split ]
-  %j.024 = phi i64 [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8 ], [ 0, %for.body.lr.ph.split ]
+  %j.023 = phi i64 [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8 ], [ 0, %for.body.lr.ph.split ]
   %cmp.not.i.i7 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i7, label %cond.false.i.i12, label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8, !prof !41
 
@@ -4579,18 +4577,18 @@ _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8: ; preds = %.noex
   %jMin_.i.i.i11 = getelementptr i8, ptr %24, i64 -12
   %25 = load i32, ptr %jMin_.i.i.i11, align 4, !tbaa !55
   %conv.i.i = sitofp i32 %25 to double
-  %conv4.i.i = uitofp i64 %j.024 to double
+  %conv4.i.i = uitofp i64 %j.023 to double
   %add.i.i = fadd double %conv4.i.i, %conv.i.i
   %dx_.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 40
   %26 = load ptr, ptr %dx_.i.i.i, align 8, !tbaa !75
   %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %call2
   %27 = load double, ptr %add.ptr.i.i.i.i, align 8, !tbaa !79
   %28 = tail call double @llvm.fmuladd.f64(double %add.i.i, double %27, double %22)
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %j.024
+  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %j.023
   store double %28, ptr %arrayidx.i, align 8, !tbaa !79
-  %inc = add nuw i64 %j.024, 1
-  %exitcond36.not = icmp eq i64 %inc, %cond.i.i1721
-  br i1 %exitcond36.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !151
+  %inc = add nuw i64 %j.023, 1
+  %exitcond35.not = icmp eq i64 %inc, %cond.i.i1721
+  br i1 %exitcond35.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !151
 
 lpad.split:                                       ; preds = %cond.false.i.i12
   %29 = landingpad { ptr, i32 }
@@ -4603,7 +4601,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %lpad.split.us, %lpa
   store ptr null, ptr %agg.result, align 8, !tbaa !18
   resume { ptr, i32 } %.us-phi
 
-nrvo.skipdtor:                                    ; preds = %for.body.us25, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8, %for.body.us.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us, %_ZN8QuantLib5ArrayC2Em.exit.thread
+nrvo.skipdtor:                                    ; preds = %for.body.us24, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8, %for.body.us.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us, %_ZN8QuantLib5ArrayC2Em.exit.thread
   ret void
 }
 

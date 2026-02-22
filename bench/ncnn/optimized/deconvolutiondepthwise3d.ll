@@ -1176,10 +1176,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %110, %125, %126, %1
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %108, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %96
-  %.sink93 = phi i64 [ 16, %4 ], [ 16, %96 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %108 ]
+  %.sink92 = phi i64 [ 16, %4 ], [ 16, %96 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %108 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %148 = load i32, ptr %147, align 8, !tbaa !18
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink92
   %150 = load ptr, ptr %149, align 8, !tbaa !66
   invoke void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %51, i32 noundef %59, i32 noundef %67, i32 noundef %148, i64 noundef %22, ptr noundef %150)
           to label %151 unwind label %106
@@ -1391,11 +1391,10 @@ _ZNK4ncnn3Mat5emptyEv.exit65:                     ; preds = %227
   %231 = load i64, ptr %230, align 8, !tbaa !17
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %233 = load i32, ptr %232, align 8, !tbaa !65
-  %.fr69 = freeze i32 %233
-  %234 = sext i32 %.fr69 to i64
-  %.fr = freeze i64 %231
-  %235 = mul i64 %.fr, %234
-  %236 = icmp eq i64 %235, 0
+  %234 = sext i32 %233 to i64
+  %235 = mul i64 %231, %234
+  %.fr = freeze i64 %235
+  %236 = icmp eq i64 %.fr, 0
   br i1 %236, label %_ZNK4ncnn3Mat5emptyEv.exit65.thread, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit65.thread:              ; preds = %227, %_ZNK4ncnn3Mat5emptyEv.exit65

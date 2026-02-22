@@ -1582,7 +1582,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
 .preheader.us.preheader:                          ; preds = %30
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !36
-  %wide.trip.count48 = zext nneg i32 %5 to i64
+  %wide.trip.count49 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -1592,19 +1592,19 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   br label %10
 
 10:                                               ; preds = %.preheader.us, %10
-  %indvars.iv45 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next46, %10 ]
+  %indvars.iv46 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next47, %10 ]
   %.02131.us = phi i32 [ 0, %.preheader.us ], [ %.122.us, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv45
+  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv46
   %12 = load i32, ptr %11, align 4, !tbaa !26
   %13 = and i32 %12, %9
   %.not28.us = icmp eq i32 %13, 0
-  %14 = trunc nuw nsw i64 %indvars.iv45 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv46 to i32
   %15 = shl nuw nsw i32 1, %14
   %16 = select i1 %.not28.us, i32 0, i32 %15
   %.122.us = or i32 %16, %.02131.us
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %._crit_edge.us, label %10, !llvm.loop !48
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %._crit_edge.us, label %10, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %10
   %17 = lshr i32 %.122.us, 5
@@ -1618,15 +1618,15 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   %24 = select i1 %.not27.us, i32 0, i32 %9
   %.1.us = or i32 %24, %.034.us
   %25 = add nuw nsw i32 %.12533.us, 1
-  %exitcond50.not = icmp eq i32 %25, 32
-  br i1 %exitcond50.not, label %.split.us, label %.preheader.us, !llvm.loop !49
+  %exitcond51.not = icmp eq i32 %25, 32
+  br i1 %exitcond51.not, label %.split.us, label %.preheader.us, !llvm.loop !49
 
 .critedge.preheader.split:                        ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = load i32, ptr %27, align 4, !tbaa !26
-  %.fr = freeze i32 %28
-  %29 = and i32 %.fr, 1
+  %.fr42 = freeze i32 %28
+  %29 = and i32 %.fr42, 1
   %spec.select = sub nsw i32 0, %29
   br label %.split.us
 
@@ -1792,19 +1792,19 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   br label %43
 
 43:                                               ; preds = %43, %.preheader.us.i
-  %indvars.iv45.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next46.i, %43 ]
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next47.i, %43 ]
   %.02131.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.122.us.i, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv45.i
+  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv46.i
   %45 = load i32, ptr %44, align 4, !tbaa !26
   %46 = and i32 %45, %42
   %.not28.us.i = icmp eq i32 %46, 0
-  %47 = trunc nuw nsw i64 %indvars.iv45.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv46.i to i32
   %48 = shl nuw nsw i32 1, %47
   %49 = select i1 %.not28.us.i, i32 0, i32 %48
   %.122.us.i = or i32 %49, %.02131.us.i
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count.i
-  br i1 %exitcond49.not.i, label %._crit_edge.us.i, label %43, !llvm.loop !48
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count.i
+  br i1 %exitcond50.not.i, label %._crit_edge.us.i, label %43, !llvm.loop !48
 
 ._crit_edge.us.i:                                 ; preds = %43
   %50 = lshr i32 %.122.us.i, 5
@@ -1818,15 +1818,15 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   %57 = select i1 %.not27.us.i, i32 0, i32 %42
   %.1.us.i = or i32 %57, %.034.us.i
   %58 = add nuw nsw i32 %.12533.us.i, 1
-  %exitcond50.not.i = icmp eq i32 %58, 32
-  br i1 %exitcond50.not.i, label %Gli_ManSimulateSeqNode.exit, label %.preheader.us.i, !llvm.loop !49
+  %exitcond51.not.i = icmp eq i32 %58, 32
+  br i1 %exitcond51.not.i, label %Gli_ManSimulateSeqNode.exit, label %.preheader.us.i, !llvm.loop !49
 
 .critedge.preheader.split.i:                      ; preds = %36
   %59 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !36
   %61 = load i32, ptr %60, align 4, !tbaa !26
-  %.fr.i = freeze i32 %61
-  %62 = and i32 %.fr.i, 1
+  %.fr42.i = freeze i32 %61
+  %62 = and i32 %.fr42.i, 1
   %spec.select.i = sub nsw i32 0, %62
   br label %Gli_ManSimulateSeqNode.exit
 
@@ -2667,8 +2667,8 @@ Gli_NodeComputeValue.exit.i:                      ; preds = %46, %41
 Gli_ManSwitching.exit:                            ; preds = %.lr.ph.i27, %74, %.lr.ph
   call void @Gli_ManGlitching(ptr noundef %0)
   %82 = add nuw nsw i32 %.058, 1
-  %exitcond64.not = icmp eq i32 %82, %1
-  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
+  %exitcond65.not = icmp eq i32 %82, %1
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 83:                                               ; preds = %Gli_ManFinalize.exit
   %84 = ashr i32 %1, 5
@@ -2777,13 +2777,13 @@ Gli_NodeComputeValue.exit.i46.us:                 ; preds = %103, %98
 Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131, %90
   call void @Gli_ManGlitching(ptr noundef nonnull %0)
   %139 = add nuw nsw i32 %.02656.us, 1
-  %exitcond62.not = icmp eq i32 %139, %88
-  br i1 %exitcond62.not, label %._crit_edge.us, label %90, !llvm.loop !69
+  %exitcond63.not = icmp eq i32 %139, %88
+  br i1 %exitcond63.not, label %._crit_edge.us, label %90, !llvm.loop !69
 
 ._crit_edge.us:                                   ; preds = %Gli_ManSwitching.exit49.us
   %140 = add nuw nsw i32 %.157.us, 1
-  %exitcond63.not = icmp eq i32 %140, 32
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !70
+  %exitcond64.not = icmp eq i32 %140, 32
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !70
 
 .split:                                           ; preds = %83, %.split
   %.157 = phi i32 [ %141, %.split ], [ 0, %83 ]

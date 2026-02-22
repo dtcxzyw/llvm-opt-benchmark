@@ -2213,13 +2213,12 @@ switch.early.test:                                ; preds = %17
   %.sroa.062.0 = phi ptr [ @_ZN9Assembler6vminpsE11XMMRegisterS0_S0_i, %10 ], [ @_ZN9Assembler6vmaxpsE11XMMRegisterS0_S0_i, %switch.early.test ], [ @_ZN9Assembler6vmaxpdE11XMMRegisterS0_S0_i, %.thread ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %18 ]
   %.sroa.086.0 = phi ptr [ @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_, %10 ], [ @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_, %switch.early.test ], [ @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_, %.thread ], [ @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_, %18 ]
   %20 = load i8, ptr @EnableX86ECoreOpts, align 1
-  %.fr = freeze i8 %20
-  %21 = trunc i8 %.fr to i1
+  %21 = trunc i8 %20 to i1
   %22 = load i32, ptr @UseAVX, align 4
-  %.fr167 = freeze i32 %22
-  %23 = icmp sgt i32 %.fr167, 1
-  %24 = and i1 %23, %21
-  br i1 %24, label %switch.early.test165, label %.thread168
+  %23 = icmp sgt i32 %22, 1
+  %24 = select i1 %21, i1 %23, i1 false
+  %.fr = freeze i1 %24
+  br i1 %.fr, label %switch.early.test165, label %.thread167
 
 switch.early.test165:                             ; preds = %19
   switch i8 %2, label %25 [
@@ -2229,16 +2228,16 @@ switch.early.test165:                             ; preds = %19
 
 25:                                               ; preds = %switch.early.test165
   tail call void @_ZN9Assembler6vpsradE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %.sroa.0158.0, i32 noundef 32, i32 noundef %9) #12
-  br label %.thread168
+  br label %.thread167
 
 _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %switch.early.test165, %switch.early.test165
   tail call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %6, i32 noundef %9) #12
   tail call void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %.sroa.0158.0, i32 noundef %9) #12
-  br label %.thread168
+  br label %.thread167
 
-.thread168:                                       ; preds = %19, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %25
+.thread167:                                       ; preds = %19, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %25
   %.sroa.0158.1 = phi i32 [ %6, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %.sroa.0158.0, %19 ], [ %6, %25 ]
-  %.not6 = xor i1 %24, true
+  %.not6 = xor i1 %.fr, true
   %.not166 = icmp eq i32 %3, %8
   %.154 = select i1 %.not166, i32 %6, i32 %8
   %. = select i1 %.not166, i32 %8, i32 %6
@@ -6231,14 +6230,14 @@ define hidden void @_ZN17C2_MacroAssembler18reduceDoubleMinMaxEiib11XMMRegisterS
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit
-  %.sroa.034.073 = phi i32 [ %spec.select, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %5, %.lr.ph.preheader ]
-  %.sroa.030.072 = phi i32 [ %spec.select, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %9, %.lr.ph.preheader ]
-  %.071 = phi i32 [ 0, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %spec.store.select, %.lr.ph.preheader ]
-  %.05670 = phi i32 [ %38, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %15, %.lr.ph.preheader ]
-  %18 = icmp ne i32 %.05670, 0
+  %.sroa.034.072 = phi i32 [ %spec.select, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %5, %.lr.ph.preheader ]
+  %.sroa.030.071 = phi i32 [ %spec.select, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %9, %.lr.ph.preheader ]
+  %.070 = phi i32 [ 0, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %spec.store.select, %.lr.ph.preheader ]
+  %.05669 = phi i32 [ %38, %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit ], [ %15, %.lr.ph.preheader ]
+  %18 = icmp ne i32 %.05669, 0
   %or.cond = or i1 %3, %18
-  %spec.select = select i1 %or.cond, i32 %.sroa.030.072, i32 %4
-  switch i32 %.05670, label %31 [
+  %spec.select = select i1 %or.cond, i32 %.sroa.030.071, i32 %4
+  switch i32 %.05669, label %31 [
     i32 1, label %19
     i32 2, label %30
   ]
@@ -6255,7 +6254,7 @@ define hidden void @_ZN17C2_MacroAssembler18reduceDoubleMinMaxEiib11XMMRegisterS
   br i1 %25, label %26, label %.thread.i.i
 
 26:                                               ; preds = %22
-  tail call void @_ZN9Assembler13vextracti32x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.073, i8 noundef zeroext 1) #12
+  tail call void @_ZN9Assembler13vextracti32x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.072, i8 noundef zeroext 1) #12
   br label %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit
 
 27:                                               ; preds = %19
@@ -6263,19 +6262,19 @@ define hidden void @_ZN17C2_MacroAssembler18reduceDoubleMinMaxEiib11XMMRegisterS
   br i1 %28, label %.thread.i.i, label %29
 
 .thread.i.i:                                      ; preds = %27, %22
-  tail call void @_ZN9Assembler12vextracti128E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.073, i8 noundef zeroext 1) #12
+  tail call void @_ZN9Assembler12vextracti128E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.072, i8 noundef zeroext 1) #12
   br label %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit
 
 29:                                               ; preds = %27
-  tail call void @_ZN9Assembler12vextractf128E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.073, i8 noundef zeroext 1) #12
+  tail call void @_ZN9Assembler12vextractf128E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.072, i8 noundef zeroext 1) #12
   br label %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit
 
 30:                                               ; preds = %.lr.ph
-  tail call void @_ZN9Assembler13vextracti64x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.073, i8 noundef zeroext 1) #12
+  tail call void @_ZN9Assembler13vextracti64x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.072, i8 noundef zeroext 1) #12
   br label %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit
 
 31:                                               ; preds = %.lr.ph
-  tail call void @_ZN9Assembler9vpermilpdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.073, i32 noundef 1, i32 noundef %.071) #12
+  tail call void @_ZN9Assembler9vpermilpdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.072, i32 noundef 1, i32 noundef %.070) #12
   br label %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit
 
 _ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit: ; preds = %29, %.thread.i.i, %26, %30, %31
@@ -6288,35 +6287,34 @@ _ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit: ; preds = %29, %.t
   br label %32
 
 32:                                               ; preds = %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit, %.thread.i
-  %.sroa.0158.0.i = phi i32 [ %.sroa.034.073, %.thread.i ], [ %.sroa.026.0.copyload.sroa.speculated, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit ], [ %.sroa.026.0.copyload.sroa.speculated, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit ]
+  %.sroa.0158.0.i = phi i32 [ %.sroa.034.072, %.thread.i ], [ %.sroa.026.0.copyload.sroa.speculated, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit ], [ %.sroa.026.0.copyload.sroa.speculated, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit ]
   %.sroa.062.0.i = phi ptr [ @_ZN9Assembler6vmaxpdE11XMMRegisterS0_S0_i, %.thread.i ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %_ZN14MacroAssembler17vextracti128_highE11XMMRegisterS0_.exit ]
   %33 = load i8, ptr @EnableX86ECoreOpts, align 1
-  %.fr.i = freeze i8 %33
-  %34 = trunc i8 %.fr.i to i1
+  %34 = trunc i8 %33 to i1
   %35 = load i32, ptr @UseAVX, align 4
-  %.fr167.i = freeze i32 %35
-  %36 = icmp sgt i32 %.fr167.i, 1
-  %37 = and i1 %36, %34
-  br i1 %37, label %switch.early.test165.i, label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit
+  %36 = icmp sgt i32 %35, 1
+  %37 = select i1 %34, i1 %36, i1 false
+  %.fr.i = freeze i1 %37
+  br i1 %.fr.i, label %switch.early.test165.i, label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit
 
 switch.early.test165.i:                           ; preds = %32
-  tail call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %6, i32 noundef %.071) #12
-  tail call void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %.sroa.0158.0.i, i32 noundef %.071) #12
+  tail call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %6, i32 noundef %.070) #12
+  tail call void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %.sroa.0158.0.i, i32 noundef %.070) #12
   br label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit
 
 _ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit: ; preds = %32, %switch.early.test165.i
   %.sroa.0158.1.i = phi i32 [ %6, %switch.early.test165.i ], [ %.sroa.0158.0.i, %32 ]
-  %.not6.i = xor i1 %37, true
+  %.not6.i = xor i1 %.fr.i, true
   %.not166.i = icmp eq i32 %spec.select, %8
   %.154.i = select i1 %.not166.i, i32 %6, i32 %8
   %..i = select i1 %.not166.i, i32 %8, i32 %6
-  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.073, i32 %.sroa.0158.1.i, i32 noundef %.071, i1 noundef zeroext %.not6.i, i32 %8) #12
-  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %8, i32 %.sroa.034.073, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.0158.1.i, i32 noundef %.071, i1 noundef zeroext %.not6.i, i32 %6) #12
-  tail call void %.sroa.062.0.i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %..i, i32 %7, i32 %8, i32 noundef %.071) #12
-  tail call void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.154.i, i32 %7, i32 %7, i32 noundef 3, i32 noundef %.071) #12
-  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select, i32 %..i, i32 %7, i32 %.154.i, i32 noundef %.071, i1 noundef zeroext false, i32 %.154.i) #12
-  %38 = add nsw i32 %.05670, -1
-  %39 = icmp sgt i32 %.05670, 0
+  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.034.072, i32 %.sroa.0158.1.i, i32 noundef %.070, i1 noundef zeroext %.not6.i, i32 %8) #12
+  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %8, i32 %.sroa.034.072, i32 %.sroa.026.0.copyload.sroa.speculated, i32 %.sroa.0158.1.i, i32 noundef %.070, i1 noundef zeroext %.not6.i, i32 %6) #12
+  tail call void %.sroa.062.0.i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %..i, i32 %7, i32 %8, i32 noundef %.070) #12
+  tail call void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.154.i, i32 %7, i32 %7, i32 noundef 3, i32 noundef %.070) #12
+  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select, i32 %..i, i32 %7, i32 %.154.i, i32 noundef %.070, i1 noundef zeroext false, i32 %.154.i) #12
+  %38 = add nsw i32 %.05669, -1
+  %39 = icmp sgt i32 %.05669, 0
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit, %11
@@ -6336,33 +6334,32 @@ _ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit
   %.sroa.0158.0.i58 = phi i32 [ %4, %.thread.i57 ], [ %.sroa.030.0.lcssa, %40 ], [ %.sroa.030.0.lcssa, %40 ]
   %.sroa.062.0.i59 = phi ptr [ @_ZN9Assembler6vmaxpdE11XMMRegisterS0_S0_i, %.thread.i57 ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %40 ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %40 ]
   %42 = load i8, ptr @EnableX86ECoreOpts, align 1
-  %.fr.i60 = freeze i8 %42
-  %43 = trunc i8 %.fr.i60 to i1
+  %43 = trunc i8 %42 to i1
   %44 = load i32, ptr @UseAVX, align 4
-  %.fr167.i61 = freeze i32 %44
-  %45 = icmp sgt i32 %.fr167.i61, 1
-  %46 = and i1 %45, %43
-  br i1 %46, label %switch.early.test165.i67, label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit68
+  %45 = icmp sgt i32 %44, 1
+  %46 = select i1 %43, i1 %45, i1 false
+  %.fr.i60 = freeze i1 %46
+  br i1 %.fr.i60, label %switch.early.test165.i66, label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit67
 
-switch.early.test165.i67:                         ; preds = %41
+switch.early.test165.i66:                         ; preds = %41
   tail call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %6, i32 noundef 0) #12
   tail call void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %6, i32 %.sroa.0158.0.i58, i32 noundef 0) #12
-  br label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit68
+  br label %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit67
 
-_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit68: ; preds = %41, %switch.early.test165.i67
-  %.sroa.0158.1.i62 = phi i32 [ %6, %switch.early.test165.i67 ], [ %.sroa.0158.0.i58, %41 ]
-  %.not6.i63 = xor i1 %46, true
-  %.not166.i64 = icmp eq i32 %4, %8
-  %.154.i65 = select i1 %.not166.i64, i32 %6, i32 %8
-  %..i66 = select i1 %.not166.i64, i32 %8, i32 %6
-  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.030.0.lcssa, i32 %4, i32 %.sroa.0158.1.i62, i32 noundef 0, i1 noundef zeroext %.not6.i63, i32 %8) #12
-  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %8, i32 %4, i32 %.sroa.030.0.lcssa, i32 %.sroa.0158.1.i62, i32 noundef 0, i1 noundef zeroext %.not6.i63, i32 %6) #12
-  tail call void %.sroa.062.0.i59(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %..i66, i32 %7, i32 %8, i32 noundef 0) #12
-  tail call void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.154.i65, i32 %7, i32 %7, i32 noundef 3, i32 noundef 0) #12
-  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 %..i66, i32 %7, i32 %.154.i65, i32 noundef 0, i1 noundef zeroext false, i32 %.154.i65) #12
+_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit67: ; preds = %41, %switch.early.test165.i66
+  %.sroa.0158.1.i61 = phi i32 [ %6, %switch.early.test165.i66 ], [ %.sroa.0158.0.i58, %41 ]
+  %.not6.i62 = xor i1 %.fr.i60, true
+  %.not166.i63 = icmp eq i32 %4, %8
+  %.154.i64 = select i1 %.not166.i63, i32 %6, i32 %8
+  %..i65 = select i1 %.not166.i63, i32 %8, i32 %6
+  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.030.0.lcssa, i32 %4, i32 %.sroa.0158.1.i61, i32 noundef 0, i1 noundef zeroext %.not6.i62, i32 %8) #12
+  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %8, i32 %4, i32 %.sroa.030.0.lcssa, i32 %.sroa.0158.1.i61, i32 noundef 0, i1 noundef zeroext %.not6.i62, i32 %6) #12
+  tail call void %.sroa.062.0.i59(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %..i65, i32 %7, i32 %8, i32 noundef 0) #12
+  tail call void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.154.i64, i32 %7, i32 %7, i32 noundef 3, i32 noundef 0) #12
+  tail call void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 %..i65, i32 %7, i32 %.154.i64, i32 noundef 0, i1 noundef zeroext false, i32 %.154.i64) #12
   br label %47
 
-47:                                               ; preds = %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit68, %._crit_edge
+47:                                               ; preds = %_ZN17C2_MacroAssembler10vminmax_fpEi9BasicType11XMMRegisterS1_S1_S1_S1_S1_i.exit67, %._crit_edge
   ret void
 }
 

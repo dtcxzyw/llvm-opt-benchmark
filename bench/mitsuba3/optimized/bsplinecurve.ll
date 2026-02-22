@@ -4262,7 +4262,6 @@ define weak_odr <4 x float> @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8Spec
   %10 = sub nuw nsw i32 32, %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.pre = load i32, ptr %.phi.trans.insert, align 16
-  %.fr55.i = freeze i32 %.pre
   br i1 %.not, label %_ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEE24invert_silhouette_sampleERKNS1_16SilhouetteSampleIfS6_EEbEUljE_EET_NS_6detail6scalarISD_iE4typeESH_RKT0_.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %3
@@ -4273,14 +4272,14 @@ define weak_odr <4 x float> @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8Spec
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i: ; preds = %.lr.ph.split.us.i
   %14 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
-  %umax59.i = zext nneg i32 %14 to i64
+  %umax58.i = zext nneg i32 %14 to i64
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i
   %15 = load i32, ptr %13, align 4
-  %.fr.i = freeze i32 %15
-  %16 = icmp ugt i32 %.fr.i, %.fr55.i
-  %spec.select1072 = select i1 %16, float 0x41F0000000000000, float 0.000000e+00
+  %16 = icmp ugt i32 %15, %.pre
+  %.fr53.i = freeze i1 %16
+  %spec.select1072 = select i1 %.fr53.i, float 0x41F0000000000000, float 0.000000e+00
   br label %_ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEE24invert_silhouette_sampleERKNS1_16SilhouetteSampleIfS6_EEbEUljE_EET_NS_6detail6scalarISD_iE4typeESH_RKT0_.exit
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i: ; preds = %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
@@ -4292,14 +4291,14 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i: ; pr
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i32, ptr %13, i64 %19
   %21 = load i32, ptr %20, align 4
-  %22 = icmp ugt i32 %21, %.fr55.i
+  %22 = icmp ugt i32 %21, %.pre
   %23 = add nuw i32 %18, 1
   %..i.us.i = tail call noundef i32 @llvm.umin.i32(i32 %.04448.us.i, i32 %23)
   %.147.us.i = select i1 %22, i32 %.04349.us.i, i32 %..i.us.i
   %.145.us.i = select i1 %22, i32 %18, i32 %.04448.us.i
   %24 = add nuw nsw i64 %.050.us.i, 1
-  %exitcond60.not.i = icmp eq i64 %24, %umax59.i
-  br i1 %exitcond60.not.i, label %_ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEE24invert_silhouette_sampleERKNS1_16SilhouetteSampleIfS6_EEbEUljE_EET_NS_6detail6scalarISD_iE4typeESH_RKT0_.exit.loopexit1064, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, !llvm.loop !50
+  %exitcond59.not.i = icmp eq i64 %24, %umax58.i
+  br i1 %exitcond59.not.i, label %_ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEE24invert_silhouette_sampleERKNS1_16SilhouetteSampleIfS6_EEbEUljE_EET_NS_6detail6scalarISD_iE4typeESH_RKT0_.exit.loopexit1064, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, !llvm.loop !50
 
 _ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEE24invert_silhouette_sampleERKNS1_16SilhouetteSampleIfS6_EEbEUljE_EET_NS_6detail6scalarISD_iE4typeESH_RKT0_.exit.loopexit1064: ; preds = %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i
   %25 = add i32 %.147.us.i, -1
@@ -4315,10 +4314,10 @@ _ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfL
   %31 = load float, ptr %30, align 4
   %32 = uitofp i64 %28 to float
   %33 = fmul contract float %31, %32
-  %34 = uitofp i32 %.fr55.i to float
+  %34 = uitofp i32 %.pre to float
   %35 = fsub contract float %33, %34
   %36 = load float, ptr %29, align 16
-  call void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19cubic_interpolationEfjb(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple") align 16 %4, ptr noundef nonnull align 16 dereferenceable(528) %0, float noundef %35, i32 noundef %.fr55.i, i1 noundef zeroext true)
+  call void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19cubic_interpolationEfjb(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple") align 16 %4, ptr noundef nonnull align 16 dereferenceable(528) %0, float noundef %35, i32 noundef %.pre, i1 noundef zeroext true)
   %.sroa.01057.0.copyload = load <4 x float>, ptr %4, align 16
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.01055.0.copyload = load <4 x float>, ptr %37, align 16
@@ -4646,7 +4645,6 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   %.pre = load ptr, ptr %20, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 224
   %.pre1546 = load i32, ptr %.phi.trans.insert, align 16
-  %.fr55.i = freeze i32 %.pre1546
   br i1 %.not1535, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %19
@@ -4655,14 +4653,15 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i: ; preds = %.lr.ph.split.us.i
   %28 = tail call i32 @llvm.umax.i32(i32 %26, i32 1)
-  %umax59.i = zext nneg i32 %28 to i64
+  %umax58.i = zext nneg i32 %28 to i64
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i
   %29 = load i32, ptr %.pre, align 4
-  %.fr.i = freeze i32 %29
-  %30 = icmp ule i32 %.fr.i, %.fr55.i
-  %spec.select1549 = zext i1 %30 to i32
+  %30 = icmp ugt i32 %29, %.pre1546
+  %.fr53.i = freeze i1 %30
+  %not..fr53.i = xor i1 %.fr53.i, true
+  %spec.select1549 = zext i1 %not..fr53.i to i32
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i: ; preds = %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
@@ -4674,14 +4673,14 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i: ; pr
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw i32, ptr %.pre, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = icmp ugt i32 %35, %.fr55.i
+  %36 = icmp ugt i32 %35, %.pre1546
   %37 = add nuw i32 %32, 1
   %..i.us.i = tail call noundef i32 @llvm.umin.i32(i32 %.04448.us.i, i32 %37)
   %.147.us.i = select i1 %36, i32 %.04349.us.i, i32 %..i.us.i
   %.145.us.i = select i1 %36, i32 %32, i32 %.04448.us.i
   %38 = add nuw nsw i64 %.050.us.i, 1
-  %exitcond60.not.i = icmp eq i64 %38, %umax59.i
-  br i1 %exitcond60.not.i, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, !llvm.loop !51
+  %exitcond59.not.i = icmp eq i64 %38, %umax58.i
+  br i1 %exitcond59.not.i, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277, label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, !llvm.loop !51
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277: ; preds = %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i, %.lr.ph.split.us.split.us.i, %19
   %.043.lcssa.i = phi i32 [ 0, %19 ], [ %spec.select1549, %.lr.ph.split.us.split.us.i ], [ %.147.us.i, %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit.us.i ]
@@ -4703,7 +4702,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit1277: ; pre
   %52 = load float, ptr %51, align 4
   %53 = uitofp i64 %49 to float
   %54 = fmul contract float %52, %53
-  %55 = uitofp i32 %.fr55.i to float
+  %55 = uitofp i32 %.pre1546 to float
   %56 = fsub contract float %54, %55
   %57 = fadd contract float %56, %55
   %58 = uitofp i32 %43 to float

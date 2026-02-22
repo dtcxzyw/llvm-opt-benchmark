@@ -2284,7 +2284,7 @@ define internal fastcc void @xSAT_UtilSort(ptr noundef captures(none) %0, i32 no
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.tr.lcssa = phi ptr [ %0, %2 ], [ %.us-phi26, %tailrecurse ]
-  %.tr3.lcssa = phi i32 [ %1, %2 ], [ %158, %tailrecurse ]
+  %.tr3.lcssa = phi i32 [ %1, %2 ], [ %159, %tailrecurse ]
   %4 = icmp sgt i32 %.tr3.lcssa, 1
   br i1 %4, label %.lr.ph14.preheader.i, label %xSAT_UtilSelectSort.exit
 
@@ -2302,7 +2302,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .lr.ph.i:                                         ; preds = %xSAT_ClauseCompare.exit.thread5.i, %.lr.ph.preheader.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next17.i, %xSAT_ClauseCompare.exit.thread5.i ]
-  %.02211.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %42, %xSAT_ClauseCompare.exit.thread5.i ]
+  %.02211.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %43, %xSAT_ClauseCompare.exit.thread5.i ]
   %7 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv16.i
   %8 = load ptr, ptr %7, align 8, !tbaa !101
   %9 = sext i32 %.02211.i to i64
@@ -2353,277 +2353,276 @@ xSAT_ClauseCompare.exit.i:                        ; preds = %30
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds %union.anon, ptr %36, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !29
-  %.fr.i = freeze i32 %35
-  %.fr9.i = freeze i32 %41
-  %.not.i = icmp ult i32 %.fr.i, %.fr9.i
-  br i1 %.not.i, label %xSAT_ClauseCompare.exit.thread5.i, label %xSAT_ClauseCompare.exit.thread.i
+  %42 = icmp uge i32 %35, %41
+  %cond.fr.i = freeze i1 %42
+  br i1 %cond.fr.i, label %xSAT_ClauseCompare.exit.thread.i, label %xSAT_ClauseCompare.exit.thread5.i
 
 xSAT_ClauseCompare.exit.thread.i:                 ; preds = %xSAT_ClauseCompare.exit.i, %30, %22
   br label %xSAT_ClauseCompare.exit.thread5.i
 
 xSAT_ClauseCompare.exit.thread5.i:                ; preds = %xSAT_ClauseCompare.exit.thread.i, %xSAT_ClauseCompare.exit.i, %.thread19.i.i, %16
-  %42 = phi i32 [ %.02211.i, %xSAT_ClauseCompare.exit.thread.i ], [ %15, %xSAT_ClauseCompare.exit.i ], [ %15, %16 ], [ %15, %.thread19.i.i ]
+  %43 = phi i32 [ %.02211.i, %xSAT_ClauseCompare.exit.thread.i ], [ %15, %xSAT_ClauseCompare.exit.i ], [ %15, %16 ], [ %15, %.thread19.i.i ]
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !102
 
 ._crit_edge.i:                                    ; preds = %xSAT_ClauseCompare.exit.thread5.i
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv19.i
-  %44 = load ptr, ptr %43, align 8, !tbaa !101
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !101
-  store ptr %47, ptr %43, align 8, !tbaa !101
-  store ptr %44, ptr %46, align 8, !tbaa !101
+  %44 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv19.i
+  %45 = load ptr, ptr %44, align 8, !tbaa !101
+  %46 = sext i32 %43 to i64
+  %47 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !101
+  store ptr %48, ptr %44, align 8, !tbaa !101
+  store ptr %45, ptr %47, align 8, !tbaa !101
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count22.i
   br i1 %exitcond23.not.i, label %xSAT_UtilSelectSort.exit, label %.lr.ph.preheader.i, !llvm.loop !103
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr328 = phi i32 [ %158, %tailrecurse ], [ %1, %2 ]
+  %.tr328 = phi i32 [ %159, %tailrecurse ], [ %1, %2 ]
   %.tr27 = phi ptr [ %.us-phi26, %tailrecurse ], [ %0, %2 ]
-  %48 = lshr i32 %.tr328, 1
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %.tr27, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !101
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load i32, ptr %52, align 4, !tbaa !47
-  %55 = icmp sgt i32 %54, 2
-  %56 = icmp eq i32 %54, 2
-  %57 = sext i32 %54 to i64
-  %58 = getelementptr inbounds %union.anon, ptr %53, i64 %57
-  br i1 %55, label %.split.us, label %.split
+  %49 = lshr i32 %.tr328, 1
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw ptr, ptr %.tr27, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !101
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load i32, ptr %53, align 4, !tbaa !47
+  %56 = icmp sgt i32 %55, 2
+  %57 = icmp eq i32 %55, 2
+  %58 = sext i32 %55 to i64
+  %59 = getelementptr inbounds %union.anon, ptr %54, i64 %58
+  br i1 %56, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %.lr.ph, %79
-  %.035.us = phi i64 [ %indvars.iv.next62.lcssa, %79 ], [ -1, %.lr.ph ]
-  %.0.us = phi i32 [ %80, %79 ], [ %.tr328, %.lr.ph ]
+.split.us:                                        ; preds = %.lr.ph, %80
+  %.035.us = phi i64 [ %indvars.iv.next62.lcssa, %80 ], [ -1, %.lr.ph ]
+  %.0.us = phi i32 [ %81, %80 ], [ %.tr328, %.lr.ph ]
   %sext98 = shl i64 %.035.us, 32
-  %59 = ashr exact i64 %sext98, 32
-  %indvars.iv.next62126 = add nsw i64 %59, 1
-  %60 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next62126
-  %61 = load ptr, ptr %60, align 8, !tbaa !101
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !47
-  %64 = icmp eq i32 %63, 2
-  br i1 %64, label %.preheader.us, label %.thread19.i.us.preheader
+  %60 = ashr exact i64 %sext98, 32
+  %indvars.iv.next62126 = add nsw i64 %60, 1
+  %61 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next62126
+  %62 = load ptr, ptr %61, align 8, !tbaa !101
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %64 = load i32, ptr %63, align 4, !tbaa !47
+  %65 = icmp eq i32 %64, 2
+  br i1 %65, label %.preheader.us, label %.thread19.i.us.preheader
 
 .thread19.i.us.preheader:                         ; preds = %.split.us
-  %65 = load i32, ptr %51, align 4
-  %66 = lshr i32 %65, 4
+  %66 = load i32, ptr %52, align 4
+  %67 = lshr i32 %66, 4
   br label %.thread19.i.us
 
 .thread19.i.us:                                   ; preds = %.thread19.i.us.preheader, %.backedge6.us
-  %67 = phi i32 [ %87, %.backedge6.us ], [ %63, %.thread19.i.us.preheader ]
-  %68 = phi ptr [ %85, %.backedge6.us ], [ %61, %.thread19.i.us.preheader ]
+  %68 = phi i32 [ %88, %.backedge6.us ], [ %64, %.thread19.i.us.preheader ]
+  %69 = phi ptr [ %86, %.backedge6.us ], [ %62, %.thread19.i.us.preheader ]
   %indvars.iv.next62127 = phi i64 [ %indvars.iv.next62, %.backedge6.us ], [ %indvars.iv.next62126, %.thread19.i.us.preheader ]
-  %69 = load i32, ptr %68, align 4
-  %70 = lshr i32 %69, 4
-  %71 = icmp samesign ugt i32 %70, %66
-  br i1 %71, label %.backedge6.us, label %72
+  %70 = load i32, ptr %69, align 4
+  %71 = lshr i32 %70, 4
+  %72 = icmp samesign ugt i32 %71, %67
+  br i1 %72, label %.backedge6.us, label %73
 
-72:                                               ; preds = %.thread19.i.us
-  %73 = icmp samesign ult i32 %70, %66
-  br i1 %73, label %.preheader.us, label %xSAT_ClauseCompare.exit.us
+73:                                               ; preds = %.thread19.i.us
+  %74 = icmp samesign ult i32 %71, %67
+  br i1 %74, label %.preheader.us, label %xSAT_ClauseCompare.exit.us
 
-xSAT_ClauseCompare.exit.us:                       ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %75 = sext i32 %67 to i64
-  %76 = getelementptr inbounds %union.anon, ptr %74, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !29
-  %78 = load i32, ptr %58, align 4, !tbaa !29
-  %.not31 = icmp ult i32 %77, %78
+xSAT_ClauseCompare.exit.us:                       ; preds = %73
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %76 = sext i32 %68 to i64
+  %77 = getelementptr inbounds %union.anon, ptr %75, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !29
+  %79 = load i32, ptr %59, align 4, !tbaa !29
+  %.not31 = icmp ult i32 %78, %79
   br i1 %.not31, label %.backedge6.us, label %.preheader.us
 
-79:                                               ; preds = %xSAT_ClauseCompare.exit47.thread.split.us.us
-  %80 = trunc nsw i64 %indvars.iv.next65 to i32
-  %81 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next65
-  store ptr %90, ptr %82, align 8, !tbaa !101
-  store ptr %.lcssa122, ptr %81, align 8, !tbaa !101
+80:                                               ; preds = %xSAT_ClauseCompare.exit47.thread.split.us.us
+  %81 = trunc nsw i64 %indvars.iv.next65 to i32
+  %82 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next65
+  store ptr %91, ptr %83, align 8, !tbaa !101
+  store ptr %.lcssa122, ptr %82, align 8, !tbaa !101
   br label %.split.us
 
-.preheader.us:                                    ; preds = %72, %xSAT_ClauseCompare.exit.us, %.backedge6.us, %.split.us
-  %indvars.iv.next62.lcssa = phi i64 [ %indvars.iv.next62126, %.split.us ], [ %indvars.iv.next62127, %72 ], [ %indvars.iv.next62127, %xSAT_ClauseCompare.exit.us ], [ %indvars.iv.next62, %.backedge6.us ]
-  %.lcssa122 = phi ptr [ %61, %.split.us ], [ %68, %72 ], [ %68, %xSAT_ClauseCompare.exit.us ], [ %85, %.backedge6.us ]
-  %82 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next62.lcssa
-  %83 = sext i32 %.0.us to i64
+.preheader.us:                                    ; preds = %73, %xSAT_ClauseCompare.exit.us, %.backedge6.us, %.split.us
+  %indvars.iv.next62.lcssa = phi i64 [ %indvars.iv.next62126, %.split.us ], [ %indvars.iv.next62127, %73 ], [ %indvars.iv.next62127, %xSAT_ClauseCompare.exit.us ], [ %indvars.iv.next62, %.backedge6.us ]
+  %.lcssa122 = phi ptr [ %62, %.split.us ], [ %69, %73 ], [ %69, %xSAT_ClauseCompare.exit.us ], [ %86, %.backedge6.us ]
+  %83 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next62.lcssa
+  %84 = sext i32 %.0.us to i64
   br label %.backedge.us.us
 
 .backedge6.us:                                    ; preds = %.thread19.i.us, %xSAT_ClauseCompare.exit.us
   %indvars.iv.next62 = add nsw i64 %indvars.iv.next62127, 1
-  %84 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next62
-  %85 = load ptr, ptr %84, align 8, !tbaa !101
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !47
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %.preheader.us, label %.thread19.i.us, !llvm.loop !104
+  %85 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next62
+  %86 = load ptr, ptr %85, align 8, !tbaa !101
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %88 = load i32, ptr %87, align 4, !tbaa !47
+  %89 = icmp eq i32 %88, 2
+  br i1 %89, label %.preheader.us, label %.thread19.i.us, !llvm.loop !104
 
 .backedge.us.us:                                  ; preds = %.backedge.us.us.backedge, %.preheader.us
-  %indvars.iv64 = phi i64 [ %83, %.preheader.us ], [ %indvars.iv.next65, %.backedge.us.us.backedge ]
+  %indvars.iv64 = phi i64 [ %84, %.preheader.us ], [ %indvars.iv.next65, %.backedge.us.us.backedge ]
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
-  %89 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next65
-  %90 = load ptr, ptr %89, align 8, !tbaa !101
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !47
-  %93 = icmp eq i32 %92, 2
-  br i1 %93, label %.backedge.us.us.backedge, label %.thread19.i44.us.us
+  %90 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next65
+  %91 = load ptr, ptr %90, align 8, !tbaa !101
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i32, ptr %92, align 4, !tbaa !47
+  %94 = icmp eq i32 %93, 2
+  br i1 %94, label %.backedge.us.us.backedge, label %.thread19.i44.us.us
 
 .backedge.us.us.backedge:                         ; preds = %.backedge.us.us, %.thread19.i44.us.us, %xSAT_ClauseCompare.exit47.us.us
   br label %.backedge.us.us, !llvm.loop !105
 
 .thread19.i44.us.us:                              ; preds = %.backedge.us.us
-  %94 = load i32, ptr %51, align 4
-  %95 = lshr i32 %94, 4
-  %96 = load i32, ptr %90, align 4
-  %97 = lshr i32 %96, 4
-  %98 = icmp samesign ugt i32 %95, %97
-  br i1 %98, label %.backedge.us.us.backedge, label %99
+  %95 = load i32, ptr %52, align 4
+  %96 = lshr i32 %95, 4
+  %97 = load i32, ptr %91, align 4
+  %98 = lshr i32 %97, 4
+  %99 = icmp samesign ugt i32 %96, %98
+  br i1 %99, label %.backedge.us.us.backedge, label %100
 
-99:                                               ; preds = %.thread19.i44.us.us
-  %100 = icmp samesign ult i32 %95, %97
-  br i1 %100, label %xSAT_ClauseCompare.exit47.thread.split.us.us, label %xSAT_ClauseCompare.exit47.us.us
+100:                                              ; preds = %.thread19.i44.us.us
+  %101 = icmp samesign ult i32 %96, %98
+  br i1 %101, label %xSAT_ClauseCompare.exit47.thread.split.us.us, label %xSAT_ClauseCompare.exit47.us.us
 
-xSAT_ClauseCompare.exit47.us.us:                  ; preds = %99
-  %101 = load i32, ptr %58, align 4, !tbaa !29
-  %102 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %103 = sext i32 %92 to i64
-  %104 = getelementptr inbounds %union.anon, ptr %102, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !29
-  %.not32 = icmp ult i32 %101, %105
+xSAT_ClauseCompare.exit47.us.us:                  ; preds = %100
+  %102 = load i32, ptr %59, align 4, !tbaa !29
+  %103 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %104 = sext i32 %93 to i64
+  %105 = getelementptr inbounds %union.anon, ptr %103, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !29
+  %.not32 = icmp ult i32 %102, %106
   br i1 %.not32, label %.backedge.us.us.backedge, label %xSAT_ClauseCompare.exit47.thread.split.us.us
 
-xSAT_ClauseCompare.exit47.thread.split.us.us:     ; preds = %xSAT_ClauseCompare.exit47.us.us, %99
+xSAT_ClauseCompare.exit47.thread.split.us.us:     ; preds = %xSAT_ClauseCompare.exit47.us.us, %100
   %.not43.us = icmp slt i64 %indvars.iv.next62.lcssa, %indvars.iv.next65
-  br i1 %.not43.us, label %79, label %tailrecurse
+  br i1 %.not43.us, label %80, label %tailrecurse
 
-.split:                                           ; preds = %.lr.ph, %155
-  %106 = phi i32 [ %132, %155 ], [ %54, %.lr.ph ]
-  %107 = phi i32 [ %133, %155 ], [ %54, %.lr.ph ]
-  %.035 = phi i64 [ %indvars.iv.next, %155 ], [ -1, %.lr.ph ]
-  %.0 = phi i32 [ %156, %155 ], [ %.tr328, %.lr.ph ]
+.split:                                           ; preds = %.lr.ph, %156
+  %107 = phi i32 [ %133, %156 ], [ %55, %.lr.ph ]
+  %108 = phi i32 [ %134, %156 ], [ %55, %.lr.ph ]
+  %.035 = phi i64 [ %indvars.iv.next, %156 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ %157, %156 ], [ %.tr328, %.lr.ph ]
   %sext = shl i64 %.035, 32
-  %108 = ashr exact i64 %sext, 32
+  %109 = ashr exact i64 %sext, 32
   br label %.backedge6.outer
 
 .backedge6.outer:                                 ; preds = %.backedge6.outer.backedge, %.split
-  %.ph = phi i32 [ %106, %.split ], [ %.ph134.be, %.backedge6.outer.backedge ]
-  %.ph134 = phi i32 [ %107, %.split ], [ %.ph134.be, %.backedge6.outer.backedge ]
-  %indvars.iv.ph = phi i64 [ %108, %.split ], [ %indvars.iv.next, %.backedge6.outer.backedge ]
-  %109 = icmp eq i32 %.ph, 2
+  %.ph = phi i32 [ %107, %.split ], [ %.ph134.be, %.backedge6.outer.backedge ]
+  %.ph134 = phi i32 [ %108, %.split ], [ %.ph134.be, %.backedge6.outer.backedge ]
+  %indvars.iv.ph = phi i64 [ %109, %.split ], [ %indvars.iv.next, %.backedge6.outer.backedge ]
+  %110 = icmp eq i32 %.ph, 2
   br label %.backedge6
 
 .backedge6:                                       ; preds = %.backedge6.outer, %.thread19.i
-  %110 = phi i32 [ %119, %.thread19.i ], [ %.ph134, %.backedge6.outer ]
+  %111 = phi i32 [ %120, %.thread19.i ], [ %.ph134, %.backedge6.outer ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread19.i ], [ %indvars.iv.ph, %.backedge6.outer ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %111 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next
-  %112 = load ptr, ptr %111, align 8, !tbaa !101
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %114 = load i32, ptr %113, align 4, !tbaa !47
-  %115 = icmp sgt i32 %114, 2
-  br i1 %115, label %116, label %117
-
-116:                                              ; preds = %.backedge6
-  br i1 %109, label %.backedge6.outer.backedge, label %.thread19.i, !llvm.loop !104
+  %112 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next
+  %113 = load ptr, ptr %112, align 8, !tbaa !101
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  %115 = load i32, ptr %114, align 4, !tbaa !47
+  %116 = icmp sgt i32 %115, 2
+  br i1 %116, label %117, label %118
 
 117:                                              ; preds = %.backedge6
-  %118 = icmp eq i32 %114, 2
-  %or.cond.i = icmp sgt i32 %110, 1
-  %or.cond99 = select i1 %118, i1 %or.cond.i, i1 false
+  br i1 %110, label %.backedge6.outer.backedge, label %.thread19.i, !llvm.loop !104
+
+118:                                              ; preds = %.backedge6
+  %119 = icmp eq i32 %115, 2
+  %or.cond.i = icmp sgt i32 %111, 1
+  %or.cond99 = select i1 %119, i1 %or.cond.i, i1 false
   br i1 %or.cond99, label %.preheader, label %.thread19.i
 
-.thread19.i:                                      ; preds = %117, %116
-  %119 = phi i32 [ %.ph, %116 ], [ %110, %117 ]
-  %120 = load i32, ptr %112, align 4
-  %121 = lshr i32 %120, 4
-  %122 = load i32, ptr %51, align 4
-  %123 = lshr i32 %122, 4
-  %124 = icmp samesign ugt i32 %121, %123
-  br i1 %124, label %.backedge6, label %125, !llvm.loop !104
+.thread19.i:                                      ; preds = %118, %117
+  %120 = phi i32 [ %.ph, %117 ], [ %111, %118 ]
+  %121 = load i32, ptr %113, align 4
+  %122 = lshr i32 %121, 4
+  %123 = load i32, ptr %52, align 4
+  %124 = lshr i32 %123, 4
+  %125 = icmp samesign ugt i32 %122, %124
+  br i1 %125, label %.backedge6, label %126, !llvm.loop !104
 
-125:                                              ; preds = %.thread19.i
-  %126 = icmp samesign ult i32 %121, %123
-  br i1 %126, label %.preheader, label %xSAT_ClauseCompare.exit
+126:                                              ; preds = %.thread19.i
+  %127 = icmp samesign ult i32 %122, %124
+  br i1 %127, label %.preheader, label %xSAT_ClauseCompare.exit
 
-xSAT_ClauseCompare.exit:                          ; preds = %125
-  %127 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %128 = sext i32 %114 to i64
-  %129 = getelementptr inbounds %union.anon, ptr %127, i64 %128
-  %130 = load i32, ptr %129, align 4, !tbaa !29
-  %131 = load i32, ptr %58, align 4, !tbaa !29
-  %.not = icmp ult i32 %130, %131
+xSAT_ClauseCompare.exit:                          ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %129 = sext i32 %115 to i64
+  %130 = getelementptr inbounds %union.anon, ptr %128, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !29
+  %132 = load i32, ptr %59, align 4, !tbaa !29
+  %.not = icmp ult i32 %131, %132
   br i1 %.not, label %.backedge6.outer.backedge, label %.preheader
 
-.backedge6.outer.backedge:                        ; preds = %116, %xSAT_ClauseCompare.exit
-  %.ph134.be = phi i32 [ %54, %xSAT_ClauseCompare.exit ], [ 2, %116 ]
+.backedge6.outer.backedge:                        ; preds = %117, %xSAT_ClauseCompare.exit
+  %.ph134.be = phi i32 [ %55, %xSAT_ClauseCompare.exit ], [ 2, %117 ]
   br label %.backedge6.outer, !llvm.loop !104
 
-.preheader:                                       ; preds = %xSAT_ClauseCompare.exit, %125, %117
-  %132 = phi i32 [ %.ph, %117 ], [ %54, %xSAT_ClauseCompare.exit ], [ %.ph, %125 ]
-  %133 = phi i32 [ 2, %117 ], [ %54, %xSAT_ClauseCompare.exit ], [ %119, %125 ]
-  %134 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next
-  %135 = sext i32 %.0 to i64
+.preheader:                                       ; preds = %xSAT_ClauseCompare.exit, %126, %118
+  %133 = phi i32 [ %.ph, %118 ], [ %55, %xSAT_ClauseCompare.exit ], [ %.ph, %126 ]
+  %134 = phi i32 [ 2, %118 ], [ %55, %xSAT_ClauseCompare.exit ], [ %120, %126 ]
+  %135 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next
+  %136 = sext i32 %.0 to i64
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
-  %indvars.iv58 = phi i64 [ %135, %.preheader ], [ %indvars.iv.next59, %.backedge.backedge ]
+  %indvars.iv58 = phi i64 [ %136, %.preheader ], [ %indvars.iv.next59, %.backedge.backedge ]
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
-  %136 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next59
-  %137 = load ptr, ptr %136, align 8, !tbaa !101
-  br i1 %56, label %138, label %.thread19.i44
+  %137 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next59
+  %138 = load ptr, ptr %137, align 8, !tbaa !101
+  br i1 %57, label %139, label %.thread19.i44
 
-138:                                              ; preds = %.backedge
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !47
-  %or.cond.i46 = icmp sgt i32 %140, 1
+139:                                              ; preds = %.backedge
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %141 = load i32, ptr %140, align 4, !tbaa !47
+  %or.cond.i46 = icmp sgt i32 %141, 1
   br i1 %or.cond.i46, label %xSAT_ClauseCompare.exit47.thread.split, label %.thread19.i44
 
-.thread19.i44:                                    ; preds = %138, %.backedge
-  %141 = load i32, ptr %51, align 4
-  %142 = lshr i32 %141, 4
-  %143 = load i32, ptr %137, align 4
-  %144 = lshr i32 %143, 4
-  %145 = icmp samesign ugt i32 %142, %144
-  br i1 %145, label %.backedge.backedge, label %146
+.thread19.i44:                                    ; preds = %139, %.backedge
+  %142 = load i32, ptr %52, align 4
+  %143 = lshr i32 %142, 4
+  %144 = load i32, ptr %138, align 4
+  %145 = lshr i32 %144, 4
+  %146 = icmp samesign ugt i32 %143, %145
+  br i1 %146, label %.backedge.backedge, label %147
 
 .backedge.backedge:                               ; preds = %.thread19.i44, %xSAT_ClauseCompare.exit47
   br label %.backedge, !llvm.loop !105
 
-146:                                              ; preds = %.thread19.i44
-  %147 = icmp samesign ult i32 %142, %144
-  br i1 %147, label %xSAT_ClauseCompare.exit47.thread.split, label %xSAT_ClauseCompare.exit47
+147:                                              ; preds = %.thread19.i44
+  %148 = icmp samesign ult i32 %143, %145
+  br i1 %148, label %xSAT_ClauseCompare.exit47.thread.split, label %xSAT_ClauseCompare.exit47
 
-xSAT_ClauseCompare.exit47:                        ; preds = %146
-  %148 = load i32, ptr %58, align 4, !tbaa !29
-  %149 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %150 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %151 = load i32, ptr %150, align 4, !tbaa !47
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds %union.anon, ptr %149, i64 %152
-  %154 = load i32, ptr %153, align 4, !tbaa !29
-  %.not30 = icmp ult i32 %148, %154
+xSAT_ClauseCompare.exit47:                        ; preds = %147
+  %149 = load i32, ptr %59, align 4, !tbaa !29
+  %150 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %152 = load i32, ptr %151, align 4, !tbaa !47
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds %union.anon, ptr %150, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !29
+  %.not30 = icmp ult i32 %149, %155
   br i1 %.not30, label %.backedge.backedge, label %xSAT_ClauseCompare.exit47.thread.split
 
-xSAT_ClauseCompare.exit47.thread.split:           ; preds = %146, %138, %xSAT_ClauseCompare.exit47
+xSAT_ClauseCompare.exit47.thread.split:           ; preds = %147, %139, %xSAT_ClauseCompare.exit47
   %.not43 = icmp slt i64 %indvars.iv.next, %indvars.iv.next59
-  br i1 %.not43, label %155, label %tailrecurse
+  br i1 %.not43, label %156, label %tailrecurse
 
-155:                                              ; preds = %xSAT_ClauseCompare.exit47.thread.split
-  %156 = trunc nsw i64 %indvars.iv.next59 to i32
-  %157 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next59
-  store ptr %137, ptr %134, align 8, !tbaa !101
-  store ptr %112, ptr %157, align 8, !tbaa !101
+156:                                              ; preds = %xSAT_ClauseCompare.exit47.thread.split
+  %157 = trunc nsw i64 %indvars.iv.next59 to i32
+  %158 = getelementptr inbounds ptr, ptr %.tr27, i64 %indvars.iv.next59
+  store ptr %138, ptr %135, align 8, !tbaa !101
+  store ptr %113, ptr %158, align 8, !tbaa !101
   br label %.split
 
 tailrecurse:                                      ; preds = %xSAT_ClauseCompare.exit47.thread.split, %xSAT_ClauseCompare.exit47.thread.split.us.us
   %.us-phi25.in = phi i64 [ %indvars.iv.next62.lcssa, %xSAT_ClauseCompare.exit47.thread.split.us.us ], [ %indvars.iv.next, %xSAT_ClauseCompare.exit47.thread.split ]
-  %.us-phi26 = phi ptr [ %82, %xSAT_ClauseCompare.exit47.thread.split.us.us ], [ %134, %xSAT_ClauseCompare.exit47.thread.split ]
+  %.us-phi26 = phi ptr [ %83, %xSAT_ClauseCompare.exit47.thread.split.us.us ], [ %135, %xSAT_ClauseCompare.exit47.thread.split ]
   %.us-phi25 = trunc i64 %.us-phi25.in to i32
   tail call fastcc void @xSAT_UtilSort(ptr noundef nonnull %.tr27, i32 noundef %.us-phi25)
-  %158 = sub nsw i32 %.tr328, %.us-phi25
-  %159 = icmp slt i32 %158, 16
-  br i1 %159, label %tailrecurse._crit_edge, label %.lr.ph
+  %159 = sub nsw i32 %.tr328, %.us-phi25
+  %160 = icmp slt i32 %159, 16
+  br i1 %160, label %tailrecurse._crit_edge, label %.lr.ph
 
 xSAT_UtilSelectSort.exit:                         ; preds = %._crit_edge.i, %tailrecurse._crit_edge
   ret void

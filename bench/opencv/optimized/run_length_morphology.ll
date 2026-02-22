@@ -2197,26 +2197,25 @@ _ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EE9push_backEOS3_.exit72.i: ; preds =
   %.val.i = load ptr, ptr %0, align 8, !tbaa !28
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val37.i = load ptr, ptr %109, align 8, !tbaa !34
-  %.0.val.fr.i.i = freeze ptr %.val.i
-  %.8.val.fr.i.i = freeze ptr %.val37.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %110 = ptrtoint ptr %.8.val.fr.i.i to i64
-  %111 = ptrtoint ptr %.0.val.fr.i.i to i64
+  %110 = ptrtoint ptr %.val37.i to i64
+  %111 = ptrtoint ptr %.val.i to i64
   %112 = sub i64 %110, %111
+  %reass.sub.fr.i = freeze i64 %112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  %.not.i.i.i.i.i.i = icmp eq ptr %.val37.i, %.val.i
   br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %116
 
 .thread.i.i:                                      ; preds = %._crit_edge.i25
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr null, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %114, ptr %115, align 8, !tbaa !109
   br label %_ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EEC2ERKS5_.exit.i.i
 
 116:                                              ; preds = %._crit_edge.i25
-  %117 = sdiv exact i64 %112, 12
+  %117 = sdiv exact i64 %reass.sub.fr.i, 12
   %118 = icmp ugt i64 %117, 768614336404564650
   br i1 %118, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EEC2ERKS5_.exit.loopexit.i.i, !prof !110
 
@@ -2228,21 +2227,21 @@ _ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EE9push_backEOS3_.exit72.i: ; preds =
   unreachable
 
 _ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EEC2ERKS5_.exit.loopexit.i.i: ; preds = %116
-  %119 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %112) #21
+  %119 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #21
           to label %.noexc76.i unwind label %261
 
 .noexc76.i:                                       ; preds = %_ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EEC2ERKS5_.exit.loopexit.i.i
   store ptr %119, ptr %6, align 8, !tbaa !28
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %119, ptr %120, align 8, !tbaa !34
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 %112
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 %reass.sub.fr.i
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %121, ptr %122, align 8, !tbaa !109
-  %123 = add i64 %112, -12
+  %123 = add i64 %reass.sub.fr.i, -12
   %124 = urem i64 %123, 12
   %125 = sub nuw i64 %123, %124
   %126 = add i64 %125, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr align 4 %.0.val.fr.i.i, i64 %126, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr align 4 %.val.i, i64 %126, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %119, i64 %126
   br label %_ZNSt6vectorIN2cv8ximgproc2rl6rlTypeESaIS3_EEC2ERKS5_.exit.i.i
 

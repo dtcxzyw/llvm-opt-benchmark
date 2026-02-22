@@ -9276,17 +9276,16 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds
 64:                                               ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread, %.critedge
   %65 = phi ptr [ %58, %.critedge ], [ %63, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread ]
   %.pn43 = phi i64 [ %61, %.critedge ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread ]
-  %.pn45.fr = freeze ptr %65
-  %66 = getelementptr inbounds nuw i8, ptr %.pn45.fr, i64 56
-  %67 = getelementptr inbounds nuw i8, ptr %.pn45.fr, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !1030
   %69 = load ptr, ptr %66, align 8, !tbaa !1031
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 4
-  %.not54 = icmp eq i64 %.pn43, %73
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.split
+  %.not53 = icmp eq i64 %.pn43, %73
+  br i1 %.not53, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %86, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -9320,8 +9319,8 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %._crit_edge, %76
 
 86:                                               ; preds = %83, %.lr.ph.split
   %87 = add i64 %.sroa.5.047, 1
-  %.not49 = icmp eq i64 %87, %73
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.split
+  %.not48 = icmp eq i64 %87, %73
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.split
 
 88:                                               ; preds = %13, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit, %24
   ret void

@@ -2812,8 +2812,8 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %53, %Tas
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %73 = load ptr, ptr %72, align 8, !tbaa !67
   %74 = getelementptr i8, ptr %73, i64 4
-  %.val7385 = load i32, ptr %74, align 4, !tbaa !38
-  %75 = icmp sgt i32 %.val7385, 0
+  %.val7383 = load i32, ptr %74, align 4, !tbaa !38
+  %75 = icmp sgt i32 %.val7383, 0
   br i1 %75, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %70
@@ -2847,9 +2847,9 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %53, %Tas
   %89 = getelementptr i8, ptr %88, i64 4
   %.val74 = load i32, ptr %89, align 4, !tbaa !38
   %90 = icmp sgt i32 %.val74, 0
-  br i1 %90, label %.lr.ph89, label %.critedge2
+  br i1 %90, label %.lr.ph87, label %.critedge2
 
-.lr.ph89:                                         ; preds = %86
+.lr.ph87:                                         ; preds = %86
   %91 = getelementptr i8, ptr %88, i64 8
   %.val68 = load ptr, ptr %91, align 8, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -2857,24 +2857,23 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %53, %Tas
   %wide.trip.count = zext nneg i32 %.val74 to i64
   br label %94
 
-94:                                               ; preds = %.lr.ph89, %94
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %94 ]
-  %95 = getelementptr inbounds nuw i32, ptr %.val68, i64 %indvars.iv92
+94:                                               ; preds = %.lr.ph87, %94
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next91, %94 ]
+  %95 = getelementptr inbounds nuw i32, ptr %.val68, i64 %indvars.iv90
   %96 = load i32, ptr %95, align 4, !tbaa !75
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds float, ptr %93, i64 %97
   store float 0.000000e+00, ptr %98, align 4, !tbaa !94
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %94, !llvm.loop !114
 
 .critedge2:                                       ; preds = %94, %86
   store i32 0, ptr %89, align 4, !tbaa !38
   %99 = load i32, ptr %28, align 8, !tbaa !91
-  %.fr = freeze i32 %99
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %101 = load i32, ptr %100, align 4, !tbaa !115
-  %102 = add nsw i32 %101, %.fr
+  %102 = add nsw i32 %101, %99
   store i32 %102, ptr %100, align 4, !tbaa !115
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load i32, ptr %103, align 8, !tbaa !116
@@ -2888,9 +2887,9 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %53, %Tas
 
 Tas_ManCheckLimits.exit75:                        ; preds = %.critedge2
   %110 = load i32, ptr %0, align 8, !tbaa !29
-  %.fr81 = freeze i32 %110
-  %.not82 = icmp sgt i32 %.fr, %.fr81
-  %spec.select = select i1 %.not82, i32 -1, i32 %.0
+  %111 = icmp sle i32 %99, %110
+  %cond.fr = freeze i1 %111
+  %spec.select = select i1 %cond.fr, i32 %.0, i32 -1
   br label %Tas_ManCheckLimits.exit75.thread
 
 Tas_ManCheckLimits.exit75.thread:                 ; preds = %Tas_ManCheckLimits.exit75, %.critedge2, %22, %3, %12
@@ -3071,10 +3070,10 @@ define range(i32 -1, 2) i32 @Tas_ManSolveArray(ptr noundef %0, ptr noundef reado
   br label %25
 
 25:                                               ; preds = %.critedge, %39
-  %.val73114 = phi i32 [ %.val72, %.critedge ], [ %.val73, %39 ]
-  %indvars.iv103 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next104, %39 ]
+  %.val73112 = phi i32 [ %.val72, %.critedge ], [ %.val73, %39 ]
+  %indvars.iv101 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next102, %39 ]
   %.val75 = load ptr, ptr %23, align 8, !tbaa !47
-  %26 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv103
+  %26 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv101
   %27 = load ptr, ptr %26, align 8, !tbaa !119
   %28 = load ptr, ptr %24, align 8, !tbaa !17
   %29 = getelementptr i8, ptr %28, i64 32
@@ -3100,10 +3099,10 @@ define range(i32 -1, 2) i32 @Tas_ManSolveArray(ptr noundef %0, ptr noundef reado
   br label %39
 
 39:                                               ; preds = %25, %33, %38
-  %.val73 = phi i32 [ %.val73114, %25 ], [ %.val73114, %33 ], [ %.val73.pre, %38 ]
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %.val73 = phi i32 [ %.val73112, %25 ], [ %.val73112, %33 ], [ %.val73.pre, %38 ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %40 = sext i32 %.val73 to i64
-  %41 = icmp slt i64 %indvars.iv.next104, %40
+  %41 = icmp slt i64 %indvars.iv.next102, %40
   br i1 %41, label %25, label %.critedge2, !llvm.loop !120
 
 .critedge2:                                       ; preds = %39, %.critedge.thread
@@ -3186,28 +3185,28 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %62, %Tas
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %82 = load ptr, ptr %81, align 8, !tbaa !67
   %83 = getelementptr i8, ptr %82, i64 4
-  %.val7995 = load i32, ptr %83, align 4, !tbaa !38
-  %84 = icmp sgt i32 %.val7995, 0
-  br i1 %84, label %.lr.ph97, label %.critedge4
+  %.val7993 = load i32, ptr %83, align 4, !tbaa !38
+  %84 = icmp sgt i32 %.val7993, 0
+  br i1 %84, label %.lr.ph95, label %.critedge4
 
-.lr.ph97:                                         ; preds = %79
+.lr.ph95:                                         ; preds = %79
   %85 = getelementptr i8, ptr %82, i64 8
   %.val71 = load ptr, ptr %85, align 8, !tbaa !41
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %87 = load ptr, ptr %86, align 8, !tbaa !66
   br label %88
 
-88:                                               ; preds = %.lr.ph97, %88
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next107, %88 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.val71, i64 %indvars.iv106
+88:                                               ; preds = %.lr.ph95, %88
+  %indvars.iv104 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next105, %88 ]
+  %89 = getelementptr inbounds nuw i32, ptr %.val71, i64 %indvars.iv104
   %90 = load i32, ptr %89, align 4, !tbaa !75
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i32, ptr %87, i64 %91
   store i32 0, ptr %92, align 4, !tbaa !75
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %.val79 = load i32, ptr %83, align 4, !tbaa !38
   %93 = sext i32 %.val79 to i64
-  %94 = icmp slt i64 %indvars.iv.next107, %93
+  %94 = icmp slt i64 %indvars.iv.next105, %93
   br i1 %94, label %88, label %.critedge4, !llvm.loop !121
 
 .critedge4:                                       ; preds = %88, %79
@@ -3221,34 +3220,33 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %62, %Tas
   %98 = getelementptr i8, ptr %97, i64 4
   %.val78 = load i32, ptr %98, align 4, !tbaa !38
   %99 = icmp sgt i32 %.val78, 0
-  br i1 %99, label %.lr.ph100, label %.critedge6
+  br i1 %99, label %.lr.ph98, label %.critedge6
 
-.lr.ph100:                                        ; preds = %95
+.lr.ph98:                                         ; preds = %95
   %100 = getelementptr i8, ptr %97, i64 8
   %.val70 = load ptr, ptr %100, align 8, !tbaa !41
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %102 = load ptr, ptr %101, align 8, !tbaa !68
-  %wide.trip.count112 = zext nneg i32 %.val78 to i64
+  %wide.trip.count110 = zext nneg i32 %.val78 to i64
   br label %103
 
-103:                                              ; preds = %.lr.ph100, %103
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next110, %103 ]
-  %104 = getelementptr inbounds nuw i32, ptr %.val70, i64 %indvars.iv109
+103:                                              ; preds = %.lr.ph98, %103
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next108, %103 ]
+  %104 = getelementptr inbounds nuw i32, ptr %.val70, i64 %indvars.iv107
   %105 = load i32, ptr %104, align 4, !tbaa !75
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds float, ptr %102, i64 %106
   store float 0.000000e+00, ptr %107, align 4, !tbaa !94
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %.critedge6, label %103, !llvm.loop !122
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
+  br i1 %exitcond111.not, label %.critedge6, label %103, !llvm.loop !122
 
 .critedge6:                                       ; preds = %103, %95
   store i32 0, ptr %98, align 4, !tbaa !38
   %108 = load i32, ptr %42, align 8, !tbaa !91
-  %.fr = freeze i32 %108
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %110 = load i32, ptr %109, align 4, !tbaa !115
-  %111 = add nsw i32 %110, %.fr
+  %111 = add nsw i32 %110, %108
   store i32 %111, ptr %109, align 4, !tbaa !115
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load i32, ptr %112, align 8, !tbaa !116
@@ -3262,9 +3260,9 @@ Tas_ManCancelUntil.exit:                          ; preds = %.lr.ph.i, %62, %Tas
 
 Tas_ManCheckLimits.exit80:                        ; preds = %.critedge6
   %119 = load i32, ptr %0, align 8, !tbaa !29
-  %.fr85 = freeze i32 %119
-  %.not86 = icmp sgt i32 %.fr, %.fr85
-  %spec.select = select i1 %.not86, i32 -1, i32 %.0
+  %120 = icmp sle i32 %108, %119
+  %cond.fr = freeze i1 %120
+  %spec.select = select i1 %cond.fr, i32 %.0, i32 -1
   br label %Tas_ManCheckLimits.exit80.thread
 
 Tas_ManCheckLimits.exit80.thread:                 ; preds = %16, %Tas_ManCheckLimits.exit80, %.critedge6

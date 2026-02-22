@@ -33164,7 +33164,6 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
   %1335 = phi i1 [ true, %1328 ], [ false, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..splice..Splice$LT$core..option..IntoIter$LT$tree_sitter..Range$GT$$GT$$GT$17had76921ed9a29384E.exit.i" ]
   %.sroa.0.0182.i = phi i1 [ false, %1328 ], [ true, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..splice..Splice$LT$core..option..IntoIter$LT$tree_sitter..Range$GT$$GT$$GT$17had76921ed9a29384E.exit.i" ]
   %.sroa.019.0.i = phi i64 [ 0, %1328 ], [ %.us-phi, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..splice..Splice$LT$core..option..IntoIter$LT$tree_sitter..Range$GT$$GT$$GT$17had76921ed9a29384E.exit.i" ]
-  %.sroa.019.0.i.fr = freeze i64 %.sroa.019.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.sroa.0.i)
   %1336 = icmp eq i64 %1334, 2
   br i1 %1336, label %1337, label %1347
@@ -33277,7 +33276,7 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
   %.sroa.087.0.i = phi i64 [ %.lcssa224248313.i, %1356 ], [ %.lcssa224248313.i, %1362 ], [ %.sroa.087.0.ph.i, %.sink.split.i ]
   %.sroa.588.0.i = phi i64 [ %.sroa.5.0.i251312.i, %1356 ], [ %.sroa.5.0.i251312.i, %1362 ], [ %.sroa.588.0.ph.i, %.sink.split.i ]
   %1360 = load i64, ptr %488, align 8, !alias.scope !6153, !noalias !6200, !noundef !4
-  %1361 = icmp ugt i64 %.sroa.019.0.i.fr, %1360
+  %1361 = icmp ugt i64 %.sroa.019.0.i, %1360
   br i1 %1361, label %1395, label %1379
 
 1362:                                             ; preds = %1356
@@ -33322,8 +33321,8 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
 
 1379:                                             ; preds = %1358
   %1380 = load ptr, ptr %487, align 8, !alias.scope !6153, !noalias !6200, !nonnull !4, !noundef !4
-  %1381 = sub nuw i64 %1360, %.sroa.019.0.i.fr
-  %1382 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %1380, i64 %.sroa.019.0.i.fr
+  %1381 = sub nuw i64 %1360, %.sroa.019.0.i
+  %1382 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %1380, i64 %.sroa.019.0.i
   %.not.i.i.i = icmp eq i64 %1381, 0
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
@@ -33352,7 +33351,7 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
   br i1 %1394, label %.lr.ph.i.i.i, label %.loopexit192.i
 
 1395:                                             ; preds = %1358
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.019.0.i.fr, i64 noundef %1360, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48b71a7ec971fe2e2fe8e8e0aba19cc8.252) #48
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.019.0.i, i64 noundef %1360, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48b71a7ec971fe2e2fe8e8e0aba19cc8.252) #48
           to label %1357 unwind label %.loopexit.split-lp.i, !noalias !6200
 
 .loopexit192.i:                                   ; preds = %1389
@@ -33362,7 +33361,7 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
 
 .lr.ph.i.i137.preheader.i:                        ; preds = %.lr.ph.i.i.i, %.loopexit192.i
   %.sroa.3.0.i.i331.i = phi i64 [ %.sroa.013.0.i.i.i, %.loopexit192.i ], [ %1384, %.lr.ph.i.i.i ]
-  %1397 = add i64 %.sroa.3.0.i.i331.i, %.sroa.019.0.i.fr
+  %1397 = add i64 %.sroa.3.0.i.i331.i, %.sroa.019.0.i
   br label %.lr.ph.i.i137.i
 
 .lr.ph.i.i137.i:                                  ; preds = %1404, %.lr.ph.i.i137.preheader.i
@@ -33390,7 +33389,7 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
   br i1 %1409, label %.lr.ph.i.i137.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %1404, %1379
-  %1410 = phi i64 [ %.sroa.019.0.i.fr, %1379 ], [ %1397, %1404 ]
+  %1410 = phi i64 [ %.sroa.019.0.i, %1379 ], [ %1397, %1404 ]
   %.sroa.3.0.i.i332.i = phi i64 [ 0, %1379 ], [ %.sroa.3.0.i.i331.i, %1404 ]
   %.sroa.03.0.lcssa.i.i145.i = phi i64 [ 0, %1379 ], [ %.sroa.013.0.i.i143.i, %1404 ]
   %1411 = icmp ule i64 %.sroa.03.0.lcssa.i.i145.i, %1381
@@ -33405,11 +33404,11 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
   %1415 = phi i64 [ %1397, %1412 ], [ %1410, %.loopexit.i ]
   %.sroa.3.0.i.i330.i = phi i64 [ %.sroa.3.0.i.i331.i, %1412 ], [ %.sroa.3.0.i.i332.i, %.loopexit.i ]
   %1416 = phi i64 [ %1413, %1412 ], [ %.sroa.03.0.lcssa.i.i145.i, %.loopexit.i ]
-  %1417 = add i64 %1416, %.sroa.019.0.i.fr
-  %1418 = add i64 %.sroa.019.0.i.fr, -1
-  %.sroa.3.0.i.i330.i.fr = freeze i64 %.sroa.3.0.i.i330.i
-  %1419 = add i64 %1418, %.sroa.3.0.i.i330.i.fr
-  %.first_iter.i = icmp ult i64 %1419, %1360
+  %1417 = add i64 %1416, %.sroa.019.0.i
+  %1418 = add i64 %.sroa.019.0.i, -1
+  %1419 = add i64 %1418, %.sroa.3.0.i.i330.i
+  %.fr = freeze i64 %1419
+  %.first_iter.i = icmp ult i64 %.fr, %1360
   br i1 %.first_iter.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1414, %1420

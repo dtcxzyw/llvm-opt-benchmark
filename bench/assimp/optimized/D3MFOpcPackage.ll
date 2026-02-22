@@ -7125,7 +7125,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 64
   %.not97 = icmp eq i8 %18, 0
-  %.082.add = add i64 %.082.idx, 1
+  %.082.add = add nuw nsw i64 %.082.idx, 1
   br i1 %.not97, label %19, label %.preheader144, !llvm.loop !110
 
 19:                                               ; preds = %.preheader144
@@ -7155,12 +7155,12 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %34 = load i8, ptr %33, align 1
-  %.fr = freeze i8 %34
-  %35 = and i8 %.fr, -33
+  %35 = and i8 %34, -33
   %36 = icmp eq i8 %35, 76
   %37 = icmp eq i64 %.082.idx, 4
   %spec.select = and i1 %37, %36
-  %spec.select141 = select i1 %spec.select, i32 256, i32 1
+  %cond.fr = freeze i1 %spec.select
+  %spec.select141 = select i1 %cond.fr, i32 256, i32 1
   %38 = and i32 %spec.select141, %3
   %.not99 = icmp eq i32 %38, 0
   br i1 %.not99, label %.preheader, label %46
@@ -7199,7 +7199,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   br label %.preheader.split.us, !llvm.loop !111
 
 46:                                               ; preds = %32
-  br i1 %spec.select, label %47, label %.thread129
+  br i1 %cond.fr, label %47, label %.thread129
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 24

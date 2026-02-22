@@ -3709,12 +3709,12 @@ define dso_local i64 @XLogGetOldestSegno(i32 noundef %0) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.22) #26
   %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str.22) #26
-  %.not13 = icmp eq ptr %6, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %6, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %IsXLogFileName.exit.thread
-  %7 = phi ptr [ %27, %IsXLogFileName.exit.thread ], [ %6, %1 ]
-  %.014 = phi i64 [ %.1, %IsXLogFileName.exit.thread ], [ 0, %1 ]
+  %7 = phi ptr [ %28, %IsXLogFileName.exit.thread ], [ %6, %1 ]
+  %.012 = phi i64 [ %.1, %IsXLogFileName.exit.thread ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %9 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #28
@@ -3740,30 +3740,28 @@ IsXLogFileName.exit:                              ; preds = %.lr.ph
   br i1 %.not8, label %19, label %IsXLogFileName.exit.thread, !llvm.loop !54
 
 19:                                               ; preds = %13
-  %.fr = freeze i32 %14
-  %20 = sext i32 %.fr to i64
+  %20 = sext i32 %14 to i64
   %21 = udiv i64 4294967296, %20
-  %.fr11 = freeze i32 %16
-  %22 = zext i32 %.fr11 to i64
+  %22 = zext i32 %16 to i64
   %23 = mul nuw i64 %21, %22
-  %.fr12 = freeze i32 %17
-  %24 = zext i32 %.fr12 to i64
+  %24 = zext i32 %17 to i64
   %25 = add nuw i64 %23, %24
-  %26 = add i64 %.014, -1
-  %or.cond.not = icmp ult i64 %26, %25
-  %.2 = select i1 %or.cond.not, i64 %.014, i64 %25
+  %26 = freeze i64 %25
+  %27 = add i64 %.012, -1
+  %or.cond.not = icmp ult i64 %27, %26
+  %.2 = select i1 %or.cond.not, i64 %.012, i64 %26
   br label %IsXLogFileName.exit.thread
 
 IsXLogFileName.exit.thread:                       ; preds = %.lr.ph, %13, %IsXLogFileName.exit, %19
-  %.1 = phi i64 [ %.014, %IsXLogFileName.exit ], [ %.2, %19 ], [ %.014, %13 ], [ %.014, %.lr.ph ]
+  %.1 = phi i64 [ %.012, %IsXLogFileName.exit ], [ %.2, %19 ], [ %.012, %13 ], [ %.012, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %27 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str.22) #26
-  %.not = icmp eq ptr %27, null
+  %28 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str.22) #26
+  %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %IsXLogFileName.exit.thread, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %.1, %IsXLogFileName.exit.thread ]
-  %28 = call i32 @FreeDir(ptr noundef %5) #26
+  %29 = call i32 @FreeDir(ptr noundef %5) #26
   ret i64 %.0.lcssa
 }
 

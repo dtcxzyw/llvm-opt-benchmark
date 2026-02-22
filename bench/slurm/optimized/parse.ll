@@ -381,8 +381,8 @@ define dso_local ptr @cronspec_to_bitstring(ptr noundef %0) local_unnamed_addr #
   %188 = sext i8 %187 to i64
   %189 = getelementptr inbounds i16, ptr %186, i64 %188
   %190 = load i16, ptr %189, align 2
-  %.fr.i = freeze i16 %190
-  %191 = and i16 %.fr.i, 2048
+  %.fr20.i = freeze i16 %190
+  %191 = and i16 %.fr20.i, 2048
   %.not.i = icmp ne i16 %191, 0
   %192 = and i8 %187, -2
   %193 = icmp eq i8 %192, 44
@@ -911,8 +911,8 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr no
   %7 = sext i8 %6 to i64
   %8 = getelementptr inbounds i16, ptr %5, i64 %7
   %9 = load i16, ptr %8, align 2
-  %.fr = freeze i16 %9
-  %10 = and i16 %.fr, 2048
+  %.fr20 = freeze i16 %9
+  %10 = and i16 %.fr20, 2048
   %.not = icmp ne i16 %10, 0
   %11 = and i8 %6, -2
   %12 = icmp eq i8 %11, 44

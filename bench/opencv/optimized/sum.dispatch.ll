@@ -2911,8 +2911,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %53 = load i64, ptr %52, align 8, !tbaa !104
-  %.fr123 = freeze i64 %53
-  %54 = trunc i64 %.fr123 to i32
+  %.fr = freeze i64 %53
+  %54 = trunc i64 %.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %55, ptr %11, align 8, !tbaa !109

@@ -495,28 +495,28 @@ define dso_local { i64, i32 } @_ZNK5clang6format22BreakableStringLiteral8getSpli
   switch i8 %34, label %43 [
     i8 117, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i
     i8 85, label %35
-    i8 120, label %.preheader25.i.i
+    i8 120, label %.preheader26.i.i
   ]
 
-.preheader25.i.i:                                 ; preds = %32
+.preheader26.i.i:                                 ; preds = %32
   %.not.i.i = icmp eq i64 %.sroa.10.0.i, 2
   br i1 %.not.i.i, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i, label %.lr.ph.i.i
 
 35:                                               ; preds = %32
   br label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader25.i.i, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i
-  %36 = phi i64 [ %41, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ 2, %.preheader25.i.i ]
-  %.01327.i.i = phi i32 [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ 2, %.preheader25.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader26.i.i, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i
+  %36 = phi i64 [ %41, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ 2, %.preheader26.i.i ]
+  %.01328.i.i = phi i32 [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ 2, %.preheader26.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !128
-  %.fr.i.i = freeze i8 %38
-  %39 = add i8 %.fr.i.i, -48
+  %.fr25.i.i = freeze i8 %38
+  %39 = add i8 %.fr25.i.i, -48
   %or.cond.i.i.i = icmp ult i8 %39, 10
   br i1 %or.cond.i.i.i, label %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
-  switch i8 %.fr.i.i, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i [
+  switch i8 %.fr25.i.i, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i [
     i8 102, label %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i
     i8 101, label %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i
     i8 100, label %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i
@@ -532,7 +532,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
   ]
 
 _ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i: ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
-  %40 = add i32 %.01327.i.i, 1
+  %40 = add i32 %.01328.i.i, 1
   %41 = zext i32 %40 to i64
   %42 = icmp ugt i64 %.sroa.10.0.i, %41
   br i1 %42, label %.lr.ph.i.i, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i, !llvm.loop !129
@@ -540,35 +540,35 @@ _ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i: ; preds = %switch.early
 43:                                               ; preds = %32
   %44 = and i8 %34, -8
   %45 = icmp eq i8 %44, 48
-  br i1 %45, label %.lr.ph30.preheader.i.i, label %55
+  br i1 %45, label %.lr.ph31.preheader.i.i, label %55
 
-.lr.ph30.preheader.i.i:                           ; preds = %43
+.lr.ph31.preheader.i.i:                           ; preds = %43
   %46 = add i64 %.sroa.10.0.i, -2
   %umin.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 2)
   %47 = trunc nuw nsw i64 %umin.i.i to i32
   %48 = add nuw nsw i32 %47, 2
   %49 = add nuw nsw i64 %umin.i.i, 1
-  br label %.lr.ph30.i.i
+  br label %.lr.ph31.i.i
 
-.lr.ph30.i.i:                                     ; preds = %54, %.lr.ph30.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph30.preheader.i.i ], [ %indvars.iv.next.i.i, %54 ]
+.lr.ph31.i.i:                                     ; preds = %54, %.lr.ph31.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph31.preheader.i.i ], [ %indvars.iv.next.i.i, %54 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %indvars.iv.i.i
   %51 = load i8, ptr %50, align 1, !tbaa !128
   %52 = and i8 %51, -8
   %53 = icmp eq i8 %52, 48
   br i1 %53, label %54, label %.critedge.loopexit.split.loop.exit.i.i
 
-54:                                               ; preds = %.lr.ph30.i.i
+54:                                               ; preds = %.lr.ph31.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i, %49
-  br i1 %exitcond.not.i.i, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i, label %.lr.ph30.i.i, !llvm.loop !130
+  br i1 %exitcond.not.i.i, label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i, label %.lr.ph31.i.i, !llvm.loop !130
 
 55:                                               ; preds = %43
   %56 = tail call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %34) #25
   %57 = add i32 %56, 1
   br label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i
 
-.critedge.loopexit.split.loop.exit.i.i:           ; preds = %.lr.ph30.i.i
+.critedge.loopexit.split.loop.exit.i.i:           ; preds = %.lr.ph31.i.i
   %58 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i
 
@@ -587,9 +587,9 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i: ; preds 
   %64 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr nonnull %.sroa.0.0.i, i64 %.sroa.speculated.i.i, i32 noundef %63, i32 noundef %18, i32 noundef %20)
   br label %_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i
 
-_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i: ; preds = %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i, %switch.early.test.i.i, %54, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i, %.critedge.loopexit.split.loop.exit.i.i, %55, %35, %.preheader25.i.i, %32, %30
-  %.038.i = phi i32 [ %.0.i.i, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ 2, %.preheader25.i.i ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ %48, %54 ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01327.i.i, %switch.early.test.i.i ]
-  %.pn.i = phi i32 [ %64, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ 2, %.preheader25.i.i ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ %48, %54 ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01327.i.i, %switch.early.test.i.i ]
+_ZN5clang6format8encoding23getEscapeSequenceLengthEN4llvm9StringRefE.exit.i: ; preds = %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i, %switch.early.test.i.i, %54, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i, %.critedge.loopexit.split.loop.exit.i.i, %55, %35, %.preheader26.i.i, %32, %30
+  %.038.i = phi i32 [ %.0.i.i, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ 2, %.preheader26.i.i ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ %48, %54 ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01328.i.i, %switch.early.test.i.i ]
+  %.pn.i = phi i32 [ %64, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i ], [ 6, %32 ], [ 2, %.preheader26.i.i ], [ %57, %55 ], [ 1, %30 ], [ 10, %35 ], [ %48, %54 ], [ %58, %.critedge.loopexit.split.loop.exit.i.i ], [ %40, %_ZN5clang6format8encoding10isHexDigitEc.exit.thread.i.i ], [ %.01328.i.i, %switch.early.test.i.i ]
   %.137.i = add i32 %.pn.i, %.036.i
   %65 = icmp ugt i32 %.137.i, %26
   br i1 %65, label %83, label %66

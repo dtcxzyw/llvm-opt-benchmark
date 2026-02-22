@@ -1043,21 +1043,21 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %4, %_ZNK4llvm9Stri
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %.fr = freeze i32 %4
-  %5 = and i32 %.fr, 255
+  %.fr8 = freeze i32 %4
+  %5 = and i32 %.fr8, 255
   %6 = icmp eq i32 %5, 12
   br i1 %6, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %trunc.i.i = trunc i32 %.fr to i8
+  %trunc.i.i = trunc i32 %.fr8 to i8
   %8 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %8, i1 %switch.lobit, i1 false
-  %9 = and i32 %.fr, 253
+  %9 = and i32 %.fr8, 253
   %spec.select.i = icmp eq i32 %9, 4
-  %or.cond8 = or i1 %or.cond, %spec.select.i
-  br i1 %or.cond8, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %switch.early.test
+  %or.cond9 = or i1 %or.cond, %spec.select.i
+  br i1 %or.cond9, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %7
   switch i8 %trunc.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split [

@@ -1605,23 +1605,22 @@ find_tag.exit.thread121:                          ; preds = %next_tag.exit.i, %f
   %.095 = phi i64 [ %.196123, %153 ], [ %spec.store.select, %.loopexit ]
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %159 = load i32, ptr %158, align 4, !tbaa !92
-  %.fr = freeze i32 %159
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 156
   %163 = load i32, ptr %162, align 4, !tbaa !90
-  %.fr127 = freeze i32 %163
-  %164 = icmp sgt i32 %.fr127, 1
+  %164 = icmp sgt i32 %163, 1
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %157
-  %spec.select = call i32 @llvm.smax.i32(i32 %.fr, i32 %.fr127)
-  %166 = urem i32 %spec.select, %.fr127
-  %167 = sub nuw nsw i32 %spec.select, %166
+  %spec.select = call i32 @llvm.smax.i32(i32 %159, i32 %163)
+  %.194.fr = freeze i32 %spec.select
+  %166 = srem i32 %.194.fr, %163
+  %167 = sub nsw i32 %.194.fr, %166
   br label %168
 
 168:                                              ; preds = %165, %157
-  %.093 = phi i32 [ %167, %165 ], [ %.fr, %157 ]
+  %.093 = phi i32 [ %167, %165 ], [ %159, %157 ]
   %169 = sext i32 %.093 to i64
   %170 = call i64 @llvm.smin.i64(i64 %.095, i64 %169)
   %171 = trunc nsw i64 %170 to i32

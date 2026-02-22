@@ -5636,9 +5636,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph149, label %._crit_edge150
+  br i1 %93, label %.lr.ph150, label %._crit_edge151
 
-.lr.ph149:                                        ; preds = %._crit_edge
+.lr.ph150:                                        ; preds = %._crit_edge
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %92, %95
@@ -5650,10 +5650,10 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %102 = sext i32 %96 to i64
   br label %103
 
-103:                                              ; preds = %.lr.ph149, %216
-  %indvars.iv164 = phi i64 [ %101, %.lr.ph149 ], [ %indvars.iv.next165, %216 ]
+103:                                              ; preds = %.lr.ph150, %216
+  %indvars.iv165 = phi i64 [ %101, %.lr.ph150 ], [ %indvars.iv.next166, %216 ]
   %104 = load ptr, ptr %97, align 8
-  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv164
+  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv165
   %106 = load i32, ptr %105, align 4
   %107 = load ptr, ptr %98, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 432
@@ -5672,7 +5672,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %117 = load ptr, ptr %99, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 432
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %119, i64 %indvars.iv164
+  %120 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %119, i64 %indvars.iv165
   %121 = load i16, ptr %120, align 2
   %122 = and i16 %121, 32
   %.not94 = icmp eq i16 %122, 0
@@ -5697,7 +5697,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
 136:                                              ; preds = %125
   %137 = getelementptr inbounds nuw i8, ptr %117, i64 336
   %138 = load ptr, ptr %137, align 8
-  %.idx = shl i64 %indvars.iv164, 3
+  %.idx = shl i64 %indvars.iv165, 3
   %139 = getelementptr i8, ptr %138, i64 %.idx
   %140 = getelementptr i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4
@@ -5705,19 +5705,19 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %143 = getelementptr inbounds i32, ptr %129, i64 %142
   %144 = load i32, ptr %139, align 4
   %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph143, label %.loopexit.thread
+  br i1 %145, label %.lr.ph144, label %.loopexit.thread
 
-.lr.ph143:                                        ; preds = %136
+.lr.ph144:                                        ; preds = %136
   %146 = getelementptr inbounds nuw i8, ptr %117, i64 240
   %147 = load ptr, ptr %146, align 8
-  %wide.trip.count162 = zext nneg i32 %144 to i64
+  %wide.trip.count163 = zext nneg i32 %144 to i64
   br label %148
 
-148:                                              ; preds = %.lr.ph143, %148
-  %indvars.iv159 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next160, %148 ]
-  %.086141 = phi i32 [ 0, %.lr.ph143 ], [ %156, %148 ]
-  %.087140 = phi i32 [ 0, %.lr.ph143 ], [ %160, %148 ]
-  %149 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv159
+148:                                              ; preds = %.lr.ph144, %148
+  %indvars.iv160 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next161, %148 ]
+  %.086142 = phi i32 [ 0, %.lr.ph144 ], [ %156, %148 ]
+  %.087141 = phi i32 [ 0, %.lr.ph144 ], [ %160, %148 ]
+  %149 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv160
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %147, i64 %151
@@ -5725,14 +5725,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %153 = lshr i8 %.sroa.018.0.copyload, 2
   %154 = and i8 %153, 1
   %155 = zext nneg i8 %154 to i32
-  %156 = add nuw nsw i32 %.086141, %155
+  %156 = add nuw nsw i32 %.086142, %155
   %157 = lshr i8 %.sroa.018.0.copyload, 3
   %158 = and i8 %157, 1
   %159 = zext nneg i8 %158 to i32
-  %160 = add nuw nsw i32 %.087140, %159
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %.loopexit, label %148, !llvm.loop !84
+  %160 = add nuw nsw i32 %.087141, %159
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
+  br i1 %exitcond164.not, label %.loopexit, label %148, !llvm.loop !84
 
 161:                                              ; preds = %125
   %162 = getelementptr inbounds nuw i8, ptr %107, i64 360
@@ -5751,25 +5751,25 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds i16, ptr %175, i64 %171
   %177 = icmp sgt i32 %173, 0
-  br i1 %177, label %.lr.ph137, label %.loopexit.thread
+  br i1 %177, label %.lr.ph138, label %.loopexit.thread
 
-.lr.ph137:                                        ; preds = %161
+.lr.ph138:                                        ; preds = %161
   %178 = load ptr, ptr %100, align 8
   %179 = getelementptr inbounds nuw i8, ptr %117, i64 240
   %180 = load ptr, ptr %179, align 8
   %wide.trip.count = zext nneg i32 %173 to i64
   br label %181
 
-181:                                              ; preds = %.lr.ph137, %181
-  %indvars.iv156 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next157, %181 ]
-  %.2135 = phi i32 [ 0, %.lr.ph137 ], [ %197, %181 ]
-  %.289134 = phi i32 [ 0, %.lr.ph137 ], [ %201, %181 ]
-  %182 = getelementptr inbounds nuw i32, ptr %172, i64 %indvars.iv156
+181:                                              ; preds = %.lr.ph138, %181
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next158, %181 ]
+  %.2136 = phi i32 [ 0, %.lr.ph138 ], [ %197, %181 ]
+  %.289135 = phi i32 [ 0, %.lr.ph138 ], [ %201, %181 ]
+  %182 = getelementptr inbounds nuw i32, ptr %172, i64 %indvars.iv157
   %183 = load i32, ptr %182, align 4
   %184 = shl nsw i32 %183, 1
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i32, ptr %178, i64 %185
-  %187 = getelementptr inbounds nuw i16, ptr %176, i64 %indvars.iv156
+  %187 = getelementptr inbounds nuw i16, ptr %176, i64 %indvars.iv157
   %188 = load i16, ptr %187, align 2
   %189 = zext i16 %188 to i64
   %190 = getelementptr inbounds nuw i32, ptr %186, i64 %189
@@ -5780,13 +5780,13 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %194 = lshr i8 %.sroa.0.0.copyload, 2
   %195 = and i8 %194, 1
   %196 = zext nneg i8 %195 to i32
-  %197 = add nuw nsw i32 %.2135, %196
+  %197 = add nuw nsw i32 %.2136, %196
   %198 = lshr i8 %.sroa.0.0.copyload, 3
   %199 = and i8 %198, 1
   %200 = zext nneg i8 %199 to i32
-  %201 = add nuw nsw i32 %.289134, %200
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
+  %201 = add nuw nsw i32 %.289135, %200
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !85
 
 .loopexit:                                        ; preds = %181, %148
@@ -5794,13 +5794,13 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   %.1 = phi i32 [ %156, %148 ], [ %197, %181 ]
   %.188.fr = freeze i32 %.188
   %202 = icmp sgt i32 %.188.fr, 0
-  %spec.select179 = select i1 %202, i16 64, i16 0
+  %spec.select180 = select i1 %202, i16 64, i16 0
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %161, %136
-  %.1174 = phi i32 [ 0, %161 ], [ %.1, %.loopexit ], [ 0, %136 ]
-  %.188173 = phi i32 [ 0, %161 ], [ %.188.fr, %.loopexit ], [ 0, %136 ]
-  %203 = phi i16 [ 0, %161 ], [ %spec.select179, %.loopexit ], [ 0, %136 ]
+  %.1175 = phi i32 [ 0, %161 ], [ %.1, %.loopexit ], [ 0, %136 ]
+  %.188174 = phi i32 [ 0, %161 ], [ %.188.fr, %.loopexit ], [ 0, %136 ]
+  %203 = phi i16 [ 0, %161 ], [ %spec.select180, %.loopexit ], [ 0, %136 ]
   %204 = and i16 %121, -65
   %205 = or disjoint i16 %203, %204
   store i16 %205, ptr %120, align 2
@@ -5809,7 +5809,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   br i1 %or.cond103, label %207, label %216
 
 207:                                              ; preds = %.loopexit.thread
-  %208 = add nsw i32 %.1174, %.188173
+  %208 = add nsw i32 %.1175, %.188174
   %209 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfi(ptr noundef nonnull align 1 dereferenceable(4) %2, float noundef 0.000000e+00, i32 noundef %208)
   %210 = trunc i32 %209 to i16
   %211 = load i16, ptr %120, align 2
@@ -5821,11 +5821,11 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   br label %216
 
 216:                                              ; preds = %103, %114, %207, %.loopexit.thread
-  %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
-  %217 = icmp slt i64 %indvars.iv.next165, %102
-  br i1 %217, label %103, label %._crit_edge150, !llvm.loop !86
+  %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
+  %217 = icmp slt i64 %indvars.iv.next166, %102
+  br i1 %217, label %103, label %._crit_edge151, !llvm.loop !86
 
-._crit_edge150:                                   ; preds = %216, %._crit_edge
+._crit_edge151:                                   ; preds = %216, %._crit_edge
   ret void
 }
 

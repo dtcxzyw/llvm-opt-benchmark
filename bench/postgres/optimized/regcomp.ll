@@ -10066,8 +10066,7 @@ pushfwd.exit:                                     ; preds = %3185, %.critedge5.i
 
 3189:                                             ; preds = %pushfwd.exit
   %3190 = load ptr, ptr %0, align 8
-  %.fr24.i = freeze ptr %3190
-  %3191 = getelementptr inbounds nuw i8, ptr %.fr24.i, i64 24
+  %3191 = getelementptr inbounds nuw i8, ptr %3190, i64 24
   %3192 = load ptr, ptr %3191, align 8
   %3193 = icmp eq ptr %3192, null
   br i1 %3193, label %analyze.exit, label %3194
@@ -10091,22 +10090,22 @@ pushfwd.exit:                                     ; preds = %3185, %.critedge5.i
   br label %.preheader.i.i208
 
 .critedge.loopexit.i.i:                           ; preds = %3258, %3233, %.preheader.i.i208
-  %.074.in.i.i = getelementptr inbounds nuw i8, ptr %.074181.i.fr.i, i64 40
+  %.074.in.i.i = getelementptr inbounds nuw i8, ptr %.074181.i.i, i64 40
   %.074.i.i = load ptr, ptr %.074.in.i.i, align 8
   %.not.i.i216 = icmp eq ptr %.074.i.i, null
   br i1 %.not.i.i216, label %.critedge._crit_edge.i.i, label %.preheader.i.i208, !llvm.loop !66
 
 .preheader.i.i208:                                ; preds = %.critedge.loopexit.i.i, %.preheader.lr.ph.i.i
   %.074181.i.i = phi ptr [ %.074179.i.i, %.preheader.lr.ph.i.i ], [ %.074.i.i, %.critedge.loopexit.i.i ]
-  %.074181.i.fr.i = freeze ptr %.074181.i.i
-  %.071.in174.i.i = getelementptr inbounds nuw i8, ptr %.074181.i.fr.i, i64 24
+  %.071.in174.i.i = getelementptr inbounds nuw i8, ptr %.074181.i.i, i64 24
   %.071175.i.i = load ptr, ptr %.071.in174.i.i, align 8
   %.not81176.i.i = icmp eq ptr %.071175.i.i, null
   br i1 %.not81176.i.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.preheader.i.i208
-  %3202 = icmp eq ptr %.074181.i.fr.i, %.fr24.i
-  br i1 %3202, label %.lr.ph.i.us.i, label %.lr.ph.i.i209
+  %3202 = icmp eq ptr %.074181.i.i, %3190
+  %.fr.i = freeze i1 %3202
+  br i1 %.fr.i, label %.lr.ph.i.us.i, label %.lr.ph.i.i209
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.i.preheader.i, %3233
   %.071177.i.us.i = phi ptr [ %.071.i.us.i, %3233 ], [ %.071175.i.i, %.lr.ph.i.preheader.i ]

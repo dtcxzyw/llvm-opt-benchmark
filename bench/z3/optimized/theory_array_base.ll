@@ -7026,8 +7026,8 @@ define hidden void @_ZN3smt17theory_array_base10init_modelERNS_15model_generator
 _ZNK3smt6theory12get_num_varsEv.exit.i:           ; preds = %2
   %12 = getelementptr inbounds i8, ptr %10, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !560
-  %.not25.i = icmp slt i32 %13, 1
-  br i1 %.not25.i, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %.lr.ph.i
+  %.not23.i = icmp slt i32 %13, 1
+  br i1 %.not23.i, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3smt6theory12get_num_varsEv.exit.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7066,29 +7066,30 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i: ; preds = %_ZNK3smt7con
 
 _ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i: ; preds = %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i
   %34 = load i32, ptr %15, align 8, !tbaa !570
-  %.fr23.i = freeze i32 %34
   %35 = load i32, ptr %33, align 8, !tbaa !581
-  %.fr.i = freeze i32 %35
-  %36 = icmp eq i32 %.fr.i, %.fr23.i
+  %36 = icmp eq i32 %35, %34
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %38 = load i32, ptr %37, align 4
-  %.fr24.i = freeze i32 %38
-  %39 = and i32 %.fr24.i, -3
+  %39 = and i32 %38, -3
   %40 = icmp eq i32 %39, 0
-  %41 = icmp eq i32 %.fr24.i, 4
+  %41 = icmp eq i32 %38, 4
   %42 = or i1 %41, %40
-  %43 = icmp eq i32 %.fr24.i, 11
-  %44 = or i1 %43, %42
-  %or.cond = and i1 %36, %44
-  br i1 %or.cond, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i
+  %or.cond36.i = select i1 %36, i1 %42, i1 false
+  br i1 %or.cond36.i, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.i
 
-_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.i
+_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.i: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i
+  %43 = icmp eq i32 %38, 11
+  %44 = select i1 %36, i1 %43, i1 false
+  %cond.fr.i = freeze i1 %44
+  br i1 %cond.fr.i, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i
+
+_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i: ; preds = %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread.i, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit, label %16, !llvm.loop !739
 
-_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i, %2, %_ZNK3smt6theory12get_num_varsEv.exit.i
-  %.not.lcssa.i = phi i8 [ 1, %_ZNK3smt6theory12get_num_varsEv.exit.i ], [ 1, %2 ], [ 0, %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i ], [ 1, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i ]
+_ZNK3smt17theory_array_base25is_unspecified_default_okEv.exit: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.i, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i, %2, %_ZNK3smt6theory12get_num_varsEv.exit.i
+  %.not.lcssa.i = phi i8 [ 1, %_ZNK3smt6theory12get_num_varsEv.exit.i ], [ 1, %2 ], [ 0, %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit.i ], [ 0, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.i ], [ 1, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread.i ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 %.not.lcssa.i, ptr %45, align 8, !tbaa !740
   tail call void @_ZN3smt17theory_array_base16collect_defaultsEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
@@ -7121,8 +7122,8 @@ define hidden noundef zeroext i1 @_ZNK3smt17theory_array_base25is_unspecified_de
 _ZNK3smt6theory12get_num_varsEv.exit:             ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !560
-  %.not25 = icmp slt i32 %6, 1
-  br i1 %.not25, label %.critedge, label %.lr.ph
+  %.not23 = icmp slt i32 %6, 1
+  br i1 %.not23, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3smt6theory12get_num_varsEv.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7161,25 +7162,22 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %9, %_ZNK3smt7c
 
 _ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit: ; preds = %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread
   %27 = load i32, ptr %8, align 8, !tbaa !570
-  %.fr23 = freeze i32 %27
   %28 = load i32, ptr %26, align 8, !tbaa !581
-  %.fr = freeze i32 %28
-  %29 = icmp eq i32 %.fr, %.fr23
+  %29 = icmp eq i32 %28, %27
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = load i32, ptr %30, align 4
-  %.fr24 = freeze i32 %31
-  %32 = and i32 %.fr24, -3
+  %32 = and i32 %31, -3
   %33 = icmp eq i32 %32, 0
-  %34 = icmp eq i32 %.fr24, 4
+  %34 = icmp eq i32 %31, 4
   %35 = or i1 %33, %34
-  %or.cond38 = and i1 %29, %35
-  br i1 %or.cond38, label %.critedge, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit
+  %or.cond36 = select i1 %29, i1 %35, i1 false
+  br i1 %or.cond36, label %.critedge, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit
 
 _ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit
-  %36 = icmp eq i32 %.fr, %.fr23
-  %37 = icmp eq i32 %.fr24, 11
-  %38 = and i1 %36, %37
-  br i1 %38, label %.critedge, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread
+  %36 = icmp eq i32 %31, 11
+  %37 = select i1 %29, i1 %36, i1 false
+  %cond.fr = freeze i1 %37
+  br i1 %cond.fr, label %.critedge, label %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread
 
 _ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit.thread: ; preds = %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread, %_ZNK3smt7context11is_relevantEPNS_5enodeE.exit, %_ZNK3smt17theory_array_base15is_set_has_sizeEPKNS_5enodeE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

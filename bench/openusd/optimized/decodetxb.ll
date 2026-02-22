@@ -1389,11 +1389,11 @@ thread-pre-split:                                 ; preds = %.loopexit.i, %654, 
   %.not.i399 = icmp eq ptr %202, null
   br label %808
 
-808:                                              ; preds = %.lr.ph426, %903
-  %809 = phi i16 [ %803, %.lr.ph426 ], [ %904, %903 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph426 ], [ %indvars.iv.next, %903 ]
-  %.0255424 = phi i32 [ 0, %.lr.ph426 ], [ %.2, %903 ]
-  %.0406423 = phi i32 [ 0, %.lr.ph426 ], [ %.1407, %903 ]
+808:                                              ; preds = %.lr.ph426, %904
+  %809 = phi i16 [ %803, %.lr.ph426 ], [ %905, %904 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph426 ], [ %indvars.iv.next, %904 ]
+  %.0255424 = phi i32 [ 0, %.lr.ph426 ], [ %.2, %904 ]
+  %.0406423 = phi i32 [ 0, %.lr.ph426 ], [ %.1407, %904 ]
   %810 = getelementptr inbounds nuw i16, ptr %205, i64 %indvars.iv
   %811 = load i16, ptr %810, align 2
   %812 = sext i16 %811 to i32
@@ -1405,7 +1405,7 @@ thread-pre-split:                                 ; preds = %.loopexit.i, %654, 
   %818 = load i8, ptr %817, align 1
   %819 = zext i8 %818 to i32
   %.not273 = icmp eq i8 %818, 0
-  br i1 %.not273, label %903, label %820
+  br i1 %.not273, label %904, label %820
 
 820:                                              ; preds = %808
   %821 = load i16, ptr %109, align 2
@@ -1520,14 +1520,12 @@ read_golomb.exit:                                 ; preds = %.loopexit.i397, %._
 
 874:                                              ; preds = %read_golomb.exit, %aom_read_symbol_.exit394
   %.0251 = phi i32 [ %873, %read_golomb.exit ], [ %819, %aom_read_symbol_.exit394 ]
-  %.0251.fr = freeze i32 %.0251
-  %.0252.in.fr = freeze i32 %.0252.in
-  %875 = and i32 %.0252.in.fr, 255
+  %875 = and i32 %.0252.in, 255
   %.not274 = icmp eq i32 %875, 0
-  %876 = sub i32 0, %.0251.fr
-  %877 = select i1 %.not274, i32 %.0251.fr, i32 %876
+  %876 = sub nsw i32 0, %.0251
+  %877 = select i1 %.not274, i32 %.0251, i32 %876
   %.1 = select i1 %824, i32 %877, i32 %.0255424
-  %878 = and i32 %.0251.fr, 1048575
+  %878 = and i32 %.0251, 1048575
   %879 = add nsw i32 %878, %.0406423
   %880 = load i16, ptr %810, align 2
   %881 = icmp ne i16 %880, 0
@@ -1561,30 +1559,31 @@ get_dqv.exit:                                     ; preds = %874, %886
   %902 = getelementptr inbounds i32, ptr %48, i64 %901
   store i32 %900, ptr %902, align 4
   %.pre = load i16, ptr %108, align 2
-  br label %903
+  %903 = freeze i32 %.1
+  br label %904
 
-903:                                              ; preds = %808, %get_dqv.exit
-  %904 = phi i16 [ %809, %808 ], [ %.pre, %get_dqv.exit ]
+904:                                              ; preds = %808, %get_dqv.exit
+  %905 = phi i16 [ %809, %808 ], [ %.pre, %get_dqv.exit ]
   %.1407 = phi i32 [ %.0406423, %808 ], [ %879, %get_dqv.exit ]
-  %.2 = phi i32 [ %.0255424, %808 ], [ %.1, %get_dqv.exit ]
+  %.2 = phi i32 [ %.0255424, %808 ], [ %903, %get_dqv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %905 = zext i16 %904 to i64
-  %906 = icmp samesign ult i64 %indvars.iv.next, %905
-  br i1 %906, label %808, label %set_dc_sign.exit, !llvm.loop !12
+  %906 = zext i16 %905 to i64
+  %907 = icmp samesign ult i64 %indvars.iv.next, %906
+  br i1 %907, label %808, label %set_dc_sign.exit, !llvm.loop !12
 
-set_dc_sign.exit:                                 ; preds = %903
-  %907 = tail call i32 @llvm.smin.i32(i32 %.1407, i32 7)
-  %908 = icmp slt i32 %.2, 0
+set_dc_sign.exit:                                 ; preds = %904
+  %908 = tail call i32 @llvm.smin.i32(i32 %.1407, i32 7)
+  %909 = icmp slt i32 %.2, 0
   %.not.i401 = icmp eq i32 %.2, 0
-  %909 = add nsw i32 %907, 16
-  %910 = or i32 %907, 8
-  %.516 = select i1 %.not.i401, i32 %907, i32 %909
-  %spec.select517 = select i1 %908, i32 %910, i32 %.516
-  %911 = trunc i32 %spec.select517 to i8
+  %910 = add nsw i32 %908, 16
+  %911 = or i32 %908, 8
+  %.516 = select i1 %.not.i401, i32 %908, i32 %910
+  %spec.select517 = select i1 %909, i32 %911, i32 %.516
+  %912 = trunc i32 %spec.select517 to i8
   br label %.thread
 
 .thread:                                          ; preds = %802, %set_dc_sign.exit, %111, %112
-  %.0253 = phi i8 [ 0, %111 ], [ 0, %112 ], [ %911, %set_dc_sign.exit ], [ 0, %802 ]
+  %.0253 = phi i8 [ 0, %111 ], [ 0, %112 ], [ %912, %set_dc_sign.exit ], [ 0, %802 ]
   ret i8 %.0253
 }
 

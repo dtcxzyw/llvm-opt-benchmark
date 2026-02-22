@@ -3330,7 +3330,6 @@ update_frame_props.exit:                          ; preds = %.critedge.i, %115, 
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %141 = load i32, ptr %140, align 4, !tbaa !87
   %142 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %141) #10
-  %.fr34.i = freeze i32 %142
   %143 = load i32, ptr %140, align 4, !tbaa !87
   %144 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %143) #10
   %.not.i107 = icmp eq ptr %144, null
@@ -3339,21 +3338,22 @@ update_frame_props.exit:                          ; preds = %.critedge.i, %115, 
 145:                                              ; preds = %139
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %147 = load i64, ptr %146, align 8, !tbaa !151
-  %.fr.i = freeze i64 %147
-  %148 = and i64 %.fr.i, 2
+  %.fr30.i = freeze i64 %147
+  %148 = and i64 %.fr30.i, 2
   %149 = icmp eq i64 %148, 0
   %spec.select.i108 = select i1 %149, i32 1, i32 2
   br label %.thread.i
 
 .thread.i:                                        ; preds = %145, %139
   %150 = phi i32 [ %spec.select.i108, %145 ], [ 1, %139 ]
-  %151 = icmp eq i32 %.fr34.i, 1
-  %.020.i = select i1 %151, i32 %150, i32 %.fr34.i
-  %152 = icmp sgt i32 %.020.i, 0
+  %151 = icmp eq i32 %142, 1
+  %.020.i = select i1 %151, i32 %150, i32 %142
+  %.020.fr.i = freeze i32 %.020.i
+  %152 = icmp sgt i32 %.020.fr.i, 0
   br i1 %152, label %.lr.ph.preheader.i, label %validate_avframe_allocation.exit
 
 .lr.ph.preheader.i:                               ; preds = %.thread.i
-  %wide.trip.count.i = zext nneg i32 %.020.i to i64
+  %wide.trip.count.i = zext nneg i32 %.020.fr.i to i64
   br label %.lr.ph.i
 
 153:                                              ; preds = %.lr.ph.i
@@ -3362,8 +3362,8 @@ update_frame_props.exit:                          ; preds = %.critedge.i, %115, 
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !245
 
 .preheader.i:                                     ; preds = %153
-  %154 = icmp ult i32 %.020.i, 8
-  br i1 %154, label %.lr.ph32.split.i, label %validate_avframe_allocation.exit
+  %154 = icmp ult i32 %.020.fr.i, 8
+  br i1 %154, label %.lr.ph33.split.i, label %validate_avframe_allocation.exit
 
 .lr.ph.i:                                         ; preds = %153, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %153 ]
@@ -3377,23 +3377,23 @@ update_frame_props.exit:                          ; preds = %.critedge.i, %115, 
   tail call void @abort() #11
   unreachable
 
-.lr.ph32.split.i:                                 ; preds = %.preheader.i, %161
-  %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %161 ], [ %wide.trip.count.i, %.preheader.i ]
-  %158 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv37.i
+.lr.ph33.split.i:                                 ; preds = %.preheader.i, %161
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %161 ], [ %wide.trip.count.i, %.preheader.i ]
+  %158 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv35.i
   %159 = load ptr, ptr %158, align 8, !tbaa !116
   %.not26.i = icmp eq ptr %159, null
   br i1 %.not26.i, label %161, label %160
 
-160:                                              ; preds = %.lr.ph32.split.i
+160:                                              ; preds = %.lr.ph33.split.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.57) #10
   br label %161
 
-161:                                              ; preds = %160, %.lr.ph32.split.i
+161:                                              ; preds = %160, %.lr.ph33.split.i
   store ptr null, ptr %158, align 8, !tbaa !116
-  %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %162 = and i64 %indvars.iv.next38.i, 4294967295
-  %exitcond40.not.i = icmp eq i64 %162, 8
-  br i1 %exitcond40.not.i, label %validate_avframe_allocation.exit, label %.lr.ph32.split.i, !llvm.loop !246
+  %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
+  %162 = and i64 %indvars.iv.next36.i, 4294967295
+  %exitcond38.not.i = icmp eq i64 %162, 8
+  br i1 %exitcond38.not.i, label %validate_avframe_allocation.exit, label %.lr.ph33.split.i, !llvm.loop !246
 
 validate_avframe_allocation.exit:                 ; preds = %161, %136, %.thread.i, %.preheader.i
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 376

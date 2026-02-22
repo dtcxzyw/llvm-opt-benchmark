@@ -135,13 +135,13 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readnone captures(no
 
 70:                                               ; preds = %.preheader127, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
   %71 = load i64, ptr %31, align 8, !tbaa !4
-  %.fr165 = freeze i64 %71
-  %72 = and i64 %.fr165, 4294967295
+  %72 = and i64 %71, 4294967295
   %73 = mul nuw i64 %72, 4164903690
-  %74 = lshr i64 %.fr165, 32
+  %74 = lshr i64 %71, 32
   %75 = add nuw i64 %73, %74
-  store i64 %75, ptr %31, align 8, !tbaa !4
-  %76 = trunc i64 %75 to i32
+  %.fr165 = freeze i64 %75
+  store i64 %.fr165, ptr %31, align 8, !tbaa !4
+  %76 = trunc i64 %.fr165 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %77 = trunc nuw i64 %74 to i32
@@ -149,9 +149,9 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readnone captures(no
   %79 = urem i32 %76, 100
   %.neg = sub i32 %79, %76
   %80 = add i32 %.neg, %78
-  %81 = trunc i64 %.fr165 to i32
-  %.neg167 = mul i32 %81, -130063606
-  %82 = add i32 %.neg167, %80
+  %81 = trunc i64 %71 to i32
+  %.neg166 = mul i32 %81, -130063606
+  %82 = add i32 %.neg166, %80
   br label %83
 
 83:                                               ; preds = %70, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit

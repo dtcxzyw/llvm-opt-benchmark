@@ -6860,7 +6860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_19NinjaMain23ToolCompilationDatabaseEPKNS_7OptionsEiPPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = add i32 %2, 1
+  %6 = add nsw i32 %2, 1
   %7 = getelementptr inbounds i8, ptr %3, i64 -8
   store i32 1, ptr @optind, align 4, !tbaa !57
   br label %8
@@ -6879,10 +6879,9 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_19NinjaMain23ToolCo
 
 11:                                               ; preds = %8
   %12 = load i32, ptr @optind, align 4, !tbaa !57
-  %.fr57 = freeze i32 %12
-  %13 = sext i32 %.fr57 to i64
+  %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %7, i64 %13
-  %15 = sub nsw i32 %6, %.fr57
+  %15 = sub nsw i32 %6, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z19GetWorkingDirectoryB5cxx11v(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5)
   %16 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -6895,8 +6894,9 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_19NinjaMain23ToolCo
   br i1 %.not49, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %11
-  %22 = icmp eq i32 %6, %.fr57
-  br i1 %22, label %.lr.ph52.split.us, label %.lr.ph52.split.split.preheader
+  %22 = icmp eq i32 %6, %12
+  %.fr = freeze i1 %22
+  br i1 %.fr, label %.lr.ph52.split.us, label %.lr.ph52.split.split.preheader
 
 .lr.ph52.split.us:                                ; preds = %.lr.ph52, %35
   %.03051.us = phi i8 [ %.131.us, %35 ], [ 1, %.lr.ph52 ]

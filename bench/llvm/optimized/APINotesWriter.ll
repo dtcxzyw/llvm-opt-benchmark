@@ -32624,8 +32624,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34
-  %.038 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.038, 1
+  %.036 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.036, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.237", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.237", ptr %0, i64 %9
@@ -32633,27 +32633,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 184
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -32682,15 +32680,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11ContextInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.237", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.237", ptr %0, i64 %.038
+  %49 = getelementptr inbounds nuw %"struct.std::pair.237", ptr %0, i64 %.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %49, ptr noundef nonnull align 8 dereferenceable(176) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -32804,12 +32803,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %104, ptr %101, align 8, !tbaa !65
   %112 = load i64, ptr %105, align 8, !tbaa !47
   store i64 %112, ptr %103, align 8, !tbaa !47
-  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !68
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !68
   br label %_ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i
 
 _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i, %107
-  %113 = phi i64 [ %.pre40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %109, %107 ]
+  %113 = phi i64 [ %.pre38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %109, %107 ]
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %113, ptr %115, align 8, !tbaa !68
@@ -32846,12 +32845,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %124, ptr %116, align 8, !tbaa !65
   %132 = load i64, ptr %125, align 8, !tbaa !47
   store i64 %132, ptr %123, align 8, !tbaa !47
-  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !68
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !68
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i, %127
-  %133 = phi i64 [ %.pre42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %129, %127 ]
+  %133 = phi i64 [ %.pre40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %129, %127 ]
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %133, ptr %135, align 8, !tbaa !68
@@ -32892,12 +32891,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %144, ptr %136, align 8, !tbaa !65
   %152 = load i64, ptr %145, align 8, !tbaa !47
   store i64 %152, ptr %143, align 8, !tbaa !47
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !68
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !68
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i5.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i5.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i4.i.i.i, %147
-  %153 = phi i64 [ %.pre44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i4.i.i.i ], [ %149, %147 ]
+  %153 = phi i64 [ %.pre42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i4.i.i.i ], [ %149, %147 ]
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i64 %153, ptr %155, align 8, !tbaa !68
@@ -36428,8 +36427,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEaSEOS5_.exit
-  %.050 = phi i64 [ %47, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEaSEOS5_.exit ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.050, 1
+  %.048 = phi i64 [ %47, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEaSEOS5_.exit ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.048, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.255", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.255", ptr %0, i64 %9
@@ -36437,27 +36436,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 144
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -36486,15 +36483,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread46
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread46: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.255", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.255", ptr %0, i64 %.050
+  %49 = getelementptr inbounds nuw %"struct.std::pair.255", ptr %0, i64 %.048
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %49, ptr noundef nonnull align 8 dereferenceable(136) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -36524,7 +36522,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %66 = load i64, ptr %65, align 8, !tbaa !68
   %67 = icmp ult i64 %66, 16
   tail call void @llvm.assume(i1 %67)
-  %.not22.i.i.i.i = icmp samesign eq i64 %47, %.050
+  %.not22.i.i.i.i = icmp samesign eq i64 %47, %.048
   br i1 %.not22.i.i.i.i, label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEaSEOS5_.exit, label %68, !prof !63
 
 68:                                               ; preds = %64
@@ -36774,12 +36772,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %168, ptr %165, align 8, !tbaa !65
   %176 = load i64, ptr %169, align 8, !tbaa !47
   store i64 %176, ptr %167, align 8, !tbaa !47
-  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !68
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre50 = load i64, ptr %.phi.trans.insert49, align 8, !tbaa !68
   br label %_ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i
 
 _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i, %171
-  %177 = phi i64 [ %.pre52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %173, %171 ]
+  %177 = phi i64 [ %.pre50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %173, %171 ]
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %177, ptr %179, align 8, !tbaa !68
@@ -36812,12 +36810,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %186, ptr %183, align 8, !tbaa !65
   %194 = load i64, ptr %187, align 8, !tbaa !47
   store i64 %194, ptr %185, align 8, !tbaa !47
-  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %.pre54 = load i64, ptr %.phi.trans.insert53, align 8, !tbaa !68
+  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !68
   br label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEC2EOS5_.exit
 
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEC2EOS5_.exit: ; preds = %189, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40
-  %195 = phi i64 [ %191, %189 ], [ %.pre54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40 ]
+  %195 = phi i64 [ %191, %189 ], [ %.pre52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40 ]
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %197 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %195, ptr %197, align 8, !tbaa !68
@@ -40820,8 +40818,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33
-  %.037 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.037, 1
+  %.035 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.035, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.257", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.257", ptr %0, i64 %9
@@ -40829,27 +40827,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 336
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -40878,15 +40874,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.257", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.257", ptr %0, i64 %.037
+  %49 = getelementptr inbounds nuw %"struct.std::pair.257", ptr %0, i64 %.035
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %49, ptr noundef nonnull align 8 dereferenceable(328) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -44367,8 +44364,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33
-  %.037 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.037, 1
+  %.035 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.035, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.274", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.274", ptr %0, i64 %9
@@ -44376,27 +44373,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 328
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -44425,15 +44420,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.274", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.274", ptr %0, i64 %.037
+  %49 = getelementptr inbounds nuw %"struct.std::pair.274", ptr %0, i64 %.035
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %49, ptr noundef nonnull align 8 dereferenceable(320) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -46790,8 +46786,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEaSEOS5_.exit
-  %.050 = phi i64 [ %47, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEaSEOS5_.exit ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.050, 1
+  %.048 = phi i64 [ %47, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEaSEOS5_.exit ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.048, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.276", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.276", ptr %0, i64 %9
@@ -46799,27 +46795,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 136
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -46848,15 +46842,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread46
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread46: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.276", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.276", ptr %0, i64 %.050
+  %49 = getelementptr inbounds nuw %"struct.std::pair.276", ptr %0, i64 %.048
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef nonnull align 8 dereferenceable(128) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -46886,7 +46881,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %66 = load i64, ptr %65, align 8, !tbaa !68
   %67 = icmp ult i64 %66, 16
   tail call void @llvm.assume(i1 %67)
-  %.not22.i.i.i.i = icmp samesign eq i64 %47, %.050
+  %.not22.i.i.i.i = icmp samesign eq i64 %47, %.048
   br i1 %.not22.i.i.i.i, label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEaSEOS5_.exit, label %68, !prof !63
 
 68:                                               ; preds = %64
@@ -47128,12 +47123,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %162, ptr %159, align 8, !tbaa !65
   %170 = load i64, ptr %163, align 8, !tbaa !47
   store i64 %170, ptr %161, align 8, !tbaa !47
-  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !68
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre50 = load i64, ptr %.phi.trans.insert49, align 8, !tbaa !68
   br label %_ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i
 
 _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i, %165
-  %171 = phi i64 [ %.pre52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %167, %165 ]
+  %171 = phi i64 [ %.pre50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %167, %165 ]
   %172 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %171, ptr %173, align 8, !tbaa !68
@@ -47166,12 +47161,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %180, ptr %177, align 8, !tbaa !65
   %188 = load i64, ptr %181, align 8, !tbaa !47
   store i64 %188, ptr %179, align 8, !tbaa !47
-  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %.pre54 = load i64, ptr %.phi.trans.insert53, align 8, !tbaa !68
+  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !68
   br label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEC2EOS5_.exit
 
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEC2EOS5_.exit: ; preds = %183, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40
-  %189 = phi i64 [ %185, %183 ], [ %.pre54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40 ]
+  %189 = phi i64 [ %185, %183 ], [ %.pre52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40 ]
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %189, ptr %191, align 8, !tbaa !68
@@ -50275,8 +50270,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEaSEOS5_.exit
-  %.050 = phi i64 [ %47, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEaSEOS5_.exit ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.050, 1
+  %.048 = phi i64 [ %47, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEaSEOS5_.exit ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.048, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.286", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.286", ptr %0, i64 %9
@@ -50284,27 +50279,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 136
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -50333,15 +50326,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread46
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread46: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.286", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.286", ptr %0, i64 %.050
+  %49 = getelementptr inbounds nuw %"struct.std::pair.286", ptr %0, i64 %.048
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef nonnull align 8 dereferenceable(128) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -50371,7 +50365,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %66 = load i64, ptr %65, align 8, !tbaa !68
   %67 = icmp ult i64 %66, 16
   tail call void @llvm.assume(i1 %67)
-  %.not22.i.i.i.i = icmp samesign eq i64 %47, %.050
+  %.not22.i.i.i.i = icmp samesign eq i64 %47, %.048
   br i1 %.not22.i.i.i.i, label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEaSEOS5_.exit, label %68, !prof !63
 
 68:                                               ; preds = %64
@@ -50613,12 +50607,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %162, ptr %159, align 8, !tbaa !65
   %170 = load i64, ptr %163, align 8, !tbaa !47
   store i64 %170, ptr %161, align 8, !tbaa !47
-  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !68
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre50 = load i64, ptr %.phi.trans.insert49, align 8, !tbaa !68
   br label %_ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i
 
 _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i, %165
-  %171 = phi i64 [ %.pre52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %167, %165 ]
+  %171 = phi i64 [ %.pre50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %167, %165 ]
   %172 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %171, ptr %173, align 8, !tbaa !68
@@ -50651,12 +50645,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %180, ptr %177, align 8, !tbaa !65
   %188 = load i64, ptr %181, align 8, !tbaa !47
   store i64 %188, ptr %179, align 8, !tbaa !47
-  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %.pre54 = load i64, ptr %.phi.trans.insert53, align 8, !tbaa !68
+  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !68
   br label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEC2EOS5_.exit
 
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEC2EOS5_.exit: ; preds = %183, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40
-  %189 = phi i64 [ %185, %183 ], [ %.pre54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40 ]
+  %189 = phi i64 [ %185, %183 ], [ %.pre52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i40 ]
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %189, ptr %191, align 8, !tbaa !68
@@ -54079,8 +54073,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread35
-  %.039 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread35 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.039, 1
+  %.037 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread35 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.037, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %0, i64 %9
@@ -54088,27 +54082,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 200
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -54137,15 +54129,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread35: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %0, i64 %.039
+  %49 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %0, i64 %.037
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %49, ptr noundef nonnull align 8 dereferenceable(192) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -54239,12 +54232,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %90, ptr %87, align 8, !tbaa !65
   %98 = load i64, ptr %91, align 8, !tbaa !47
   store i64 %98, ptr %89, align 8, !tbaa !47
-  %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre41 = load i64, ptr %.phi.trans.insert40, align 8, !tbaa !68
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre39 = load i64, ptr %.phi.trans.insert38, align 8, !tbaa !68
   br label %_ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i
 
 _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i, %93
-  %99 = phi i64 [ %.pre41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %95, %93 ]
+  %99 = phi i64 [ %.pre39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %95, %93 ]
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %99, ptr %101, align 8, !tbaa !68
@@ -54276,12 +54269,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %107, ptr %104, align 8, !tbaa !65
   %115 = load i64, ptr %108, align 8, !tbaa !47
   store i64 %115, ptr %106, align 8, !tbaa !47
-  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.pre43 = load i64, ptr %.phi.trans.insert42, align 8, !tbaa !68
+  %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %.pre41 = load i64, ptr %.phi.trans.insert40, align 8, !tbaa !68
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %110
-  %116 = phi i64 [ %.pre43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %112, %110 ]
+  %116 = phi i64 [ %.pre41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %112, %110 ]
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i64 %116, ptr %118, align 8, !tbaa !68
@@ -54310,12 +54303,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i.
   store ptr %122, ptr %119, align 8, !tbaa !65
   %130 = load i64, ptr %123, align 8, !tbaa !47
   store i64 %130, ptr %121, align 8, !tbaa !47
-  %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %.pre45 = load i64, ptr %.phi.trans.insert44, align 8, !tbaa !68
+  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %.pre43 = load i64, ptr %.phi.trans.insert42, align 8, !tbaa !68
   br label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEC2EOS5_.exit
 
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEC2EOS5_.exit: ; preds = %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i.i.i
-  %131 = phi i64 [ %127, %125 ], [ %.pre45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i.i.i ]
+  %131 = phi i64 [ %127, %125 ], [ %.pre43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i6.i.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i64 %131, ptr %133, align 8, !tbaa !68
@@ -57676,8 +57669,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34
-  %.038 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.038, 1
+  %.036 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.036, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.290", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.290", ptr %0, i64 %9
@@ -57685,27 +57678,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 96
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -57734,15 +57725,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.290", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.290", ptr %0, i64 %.038
+  %49 = getelementptr inbounds nuw %"struct.std::pair.290", ptr %0, i64 %.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef nonnull align 8 dereferenceable(88) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -57836,12 +57828,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %90, ptr %87, align 8, !tbaa !65
   %98 = load i64, ptr %91, align 8, !tbaa !47
   store i64 %98, ptr %89, align 8, !tbaa !47
-  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !68
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !68
   br label %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEC2EOS5_.exit
 
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEC2EOS5_.exit: ; preds = %93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i
-  %99 = phi i64 [ %95, %93 ], [ %.pre40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i ]
+  %99 = phi i64 [ %95, %93 ], [ %.pre38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i ]
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %99, ptr %101, align 8, !tbaa !68
@@ -62974,8 +62966,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33
-  %.037 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.037, 1
+  %.035 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.035, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %0, i64 %9
@@ -62983,27 +62975,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 352
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -63032,15 +63022,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_7TagInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %0, i64 %.037
+  %49 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %0, i64 %.035
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %49, ptr noundef nonnull align 8 dereferenceable(344) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -65503,8 +65494,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34
-  %.038 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34 ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.038, 1
+  %.036 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34 ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.036, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %0, i64 %9
@@ -65512,27 +65503,25 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN
   %.val = load i64, ptr %11, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %14, align 4
-  %.val28.fr = freeze i64 %.val28
   %.val29 = load i64, ptr %13, align 4
   %15 = getelementptr i8, ptr %12, i64 184
   %.val30 = load i64, ptr %15, align 4
-  %.val30.fr = freeze i64 %.val30
   %16 = trunc i64 %.val to i32
   %17 = lshr i64 %.val, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  %20 = trunc i64 %.val28.fr to i32
+  %20 = trunc i64 %.val28 to i32
   %21 = and i32 %20, 2147483647
-  %22 = lshr i64 %.val28.fr, 32
+  %22 = lshr i64 %.val28, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 2147483647
   %25 = trunc i64 %.val29 to i32
   %26 = lshr i64 %.val29, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 2147483647
-  %29 = trunc i64 %.val30.fr to i32
+  %29 = trunc i64 %.val30 to i32
   %30 = and i32 %29, 2147483647
-  %31 = lshr i64 %.val30.fr, 32
+  %31 = lshr i64 %.val30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 2147483647
   %34 = icmp ult i32 %16, %25
@@ -65561,15 +65550,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit: ; preds = %41
   %44 = icmp samesign uge i32 %30, %21
   %45 = icmp samesign ult i32 %24, %33
-  %spec.select.i.i.i = and i1 %44, %45
+  %spec.select.i.i.i = select i1 %44, i1 %45, i1 false
   %46 = or disjoint i64 %9, 1
-  %spec.select = select i1 %spec.select.i.i.i, i64 %46, i64 %10
+  %cond.fr = freeze i1 %spec.select.i.i.i
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread34: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit, %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
   %47 = phi i64 [ %10, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_11TypedefInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread ], [ %10, %39 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %0, i64 %.038
+  %49 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %0, i64 %.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %49, ptr noundef nonnull align 8 dereferenceable(176) %48, i64 16, i1 false), !tbaa.struct !313
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -65683,12 +65673,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %104, ptr %101, align 8, !tbaa !65
   %112 = load i64, ptr %105, align 8, !tbaa !47
   store i64 %112, ptr %103, align 8, !tbaa !47
-  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !68
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !68
   br label %_ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i
 
 _ZN5clang9api_notes16CommonEntityInfoC2EOS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i, %107
-  %113 = phi i64 [ %.pre40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %109, %107 ]
+  %113 = phi i64 [ %.pre38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i ], [ %109, %107 ]
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %113, ptr %115, align 8, !tbaa !68
@@ -65725,12 +65715,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %124, ptr %116, align 8, !tbaa !65
   %132 = load i64, ptr %125, align 8, !tbaa !47
   store i64 %132, ptr %123, align 8, !tbaa !47
-  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !68
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !68
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i, %127
-  %133 = phi i64 [ %.pre42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %129, %127 ]
+  %133 = phi i64 [ %.pre40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %129, %127 ]
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %133, ptr %135, align 8, !tbaa !68
@@ -65771,12 +65761,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %144, ptr %136, align 8, !tbaa !65
   %152 = load i64, ptr %145, align 8, !tbaa !47
   store i64 %152, ptr %143, align 8, !tbaa !47
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !68
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !68
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i5.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i5.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i4.i.i.i, %147
-  %153 = phi i64 [ %.pre44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i4.i.i.i ], [ %149, %147 ]
+  %153 = phi i64 [ %.pre42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i4.i.i.i ], [ %149, %147 ]
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i64 %153, ptr %155, align 8, !tbaa !68

@@ -3981,8 +3981,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0178283.us, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
   %28 = load i32, ptr %20, align 4, !tbaa !25
-  %.fr296 = freeze i32 %28
-  %29 = sitofp i32 %.fr296 to float
+  %29 = sitofp i32 %28 to float
   %30 = fmul fast float %25, 5.000000e-01
   %31 = fadd fast float %30, 5.000000e-01
   %32 = fmul fast float %31, %29
@@ -4009,26 +4008,26 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store float %50, ptr %51, align 4, !tbaa !59
   %52 = sitofp i32 %44 to float
   %53 = fptosi float %52 to i32
-  %.fr = freeze i32 %53
   %54 = sitofp i32 %45 to float
   %55 = fptosi float %54 to i32
   %56 = sitofp i32 %46 to float
   %57 = fptosi float %56 to i32
   %58 = icmp sgt i32 %41, -1
-  %59 = icmp sgt i32 %.fr296, %41
+  %59 = icmp sgt i32 %28, %41
   %60 = and i1 %58, %59
-  %61 = icmp sgt i32 %.fr, -1
-  %62 = icmp sgt i32 %.fr296, %.fr
+  %61 = icmp sgt i32 %53, -1
+  %62 = icmp sgt i32 %28, %53
   %63 = and i1 %61, %62
   %64 = icmp sgt i32 %55, -1
-  %65 = icmp sgt i32 %.fr296, %55
+  %65 = icmp sgt i32 %28, %55
   %66 = and i1 %64, %65
   %67 = icmp sgt i32 %57, -1
-  %68 = icmp sgt i32 %.fr296, %57
+  %68 = icmp sgt i32 %28, %57
   %69 = and i1 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.1284.us, i64 8
   %71 = add i32 %43, -1
-  br i1 %63, label %.split278.us291, label %.split278.us.us
+  %.fr281.us = freeze i1 %63
+  br i1 %.fr281.us, label %.split278.us291, label %.split278.us.us
 
 .split278.us291:                                  ; preds = %24, %.split278.us291
   %.0182276.us289 = phi ptr [ %102, %.split278.us291 ], [ %70, %24 ]
@@ -4045,7 +4044,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %81 = and i1 %60, %80
   %82 = and i1 %66, %80
   %83 = and i1 %69, %80
-  %84 = add nsw i32 %76, %.fr
+  %84 = add nsw i32 %76, %53
   %85 = load i32, ptr %22, align 8
   %86 = mul nsw i32 %84, %85
   %spec.select = select i1 %80, i32 %86, i32 -1
@@ -4070,8 +4069,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %100, ptr %101, align 4, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %.0182276.us289, i64 16
   %103 = add nuw nsw i32 %.0183275.us290, 1
-  %exitcond305.not = icmp eq i32 %103, 4
-  br i1 %exitcond305.not, label %.split280.us288, label %.split278.us291, !llvm.loop !242
+  %exitcond300.not = icmp eq i32 %103, 4
+  br i1 %exitcond300.not, label %.split280.us288, label %.split278.us291, !llvm.loop !242
 
 .split280.us288:                                  ; preds = %.split278.us.us, %.split278.us291
   %104 = getelementptr inbounds nuw i8, ptr %.0178283.us, i64 8
@@ -4116,8 +4115,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %133, ptr %134, align 4, !tbaa !50
   %135 = getelementptr inbounds nuw i8, ptr %.0182276.us.us, i64 16
   %136 = add nuw nsw i32 %.0183275.us.us, 1
-  %exitcond304.not = icmp eq i32 %136, 4
-  br i1 %exitcond304.not, label %.split280.us288, label %.split278.us.us, !llvm.loop !242
+  %exitcond299.not = icmp eq i32 %136, 4
+  br i1 %exitcond299.not, label %.split280.us288, label %.split278.us.us, !llvm.loop !242
 
 ._crit_edge.us:                                   ; preds = %.split280.us288
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4151,8 +4150,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %152 = load float, ptr %.0184273, align 4, !tbaa !59
   %153 = load float, ptr %.0185272, align 4, !tbaa !59
   %154 = load i32, ptr %148, align 4, !tbaa !25
-  %.fr294 = freeze i32 %154
-  %155 = sitofp i32 %.fr294 to float
+  %155 = sitofp i32 %154 to float
   %156 = fmul fast float %152, 5.000000e-01
   %157 = fadd fast float %156, 5.000000e-01
   %158 = fmul fast float %157, %155
@@ -4179,26 +4177,26 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store float %176, ptr %177, align 4, !tbaa !59
   %178 = sitofp i32 %170 to float
   %179 = fptosi float %178 to i32
-  %.fr293 = freeze i32 %179
   %180 = sitofp i32 %171 to float
   %181 = fptosi float %180 to i32
   %182 = sitofp i32 %172 to float
   %183 = fptosi float %182 to i32
   %184 = icmp sgt i32 %167, -1
-  %185 = icmp sgt i32 %.fr294, %167
+  %185 = icmp sgt i32 %154, %167
   %186 = and i1 %184, %185
-  %187 = icmp sgt i32 %.fr293, -1
-  %188 = icmp sgt i32 %.fr294, %.fr293
+  %187 = icmp sgt i32 %179, -1
+  %188 = icmp sgt i32 %154, %179
   %189 = and i1 %187, %188
   %190 = icmp sgt i32 %181, -1
-  %191 = icmp sgt i32 %.fr294, %181
+  %191 = icmp sgt i32 %154, %181
   %192 = and i1 %190, %191
   %193 = icmp sgt i32 %183, -1
-  %194 = icmp sgt i32 %.fr294, %183
+  %194 = icmp sgt i32 %154, %183
   %195 = and i1 %193, %194
   %196 = getelementptr inbounds nuw i8, ptr %.2274, i64 8
   %197 = add i32 %169, -1
-  br i1 %189, label %.split, label %.split.us
+  %.fr = freeze i1 %189
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %151, %.split.us
   %.0180268.us = phi i32 [ %226, %.split.us ], [ 0, %151 ]
@@ -4244,8 +4242,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %228 = getelementptr inbounds nuw i8, ptr %.0185272, i64 4
   %229 = getelementptr inbounds nuw i8, ptr %.2274, i64 72
   %230 = add nuw nsw i32 %.0186271, 1
-  %exitcond303.not = icmp eq i32 %230, %8
-  br i1 %exitcond303.not, label %.loopexit, label %151, !llvm.loop !252
+  %exitcond298.not = icmp eq i32 %230, %8
+  br i1 %exitcond298.not, label %.loopexit, label %151, !llvm.loop !252
 
 .split:                                           ; preds = %151, %.split
   %.0180268 = phi i32 [ %262, %.split ], [ 0, %151 ]
@@ -4262,7 +4260,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %240 = and i1 %186, %239
   %241 = and i1 %192, %239
   %242 = and i1 %195, %239
-  %243 = add nsw i32 %235, %.fr293
+  %243 = add nsw i32 %235, %179
   %244 = load i32, ptr %150, align 8
   %245 = mul nsw i32 %243, %244
   %spec.select292 = select i1 %239, i32 %245, i32 -1
@@ -4287,8 +4285,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %259, ptr %260, align 4, !tbaa !50
   %261 = getelementptr inbounds nuw i8, ptr %.0181267, i64 16
   %262 = add nuw nsw i32 %.0180268, 1
-  %exitcond302.not = icmp eq i32 %262, 4
-  br i1 %exitcond302.not, label %.split270.us, label %.split, !llvm.loop !251
+  %exitcond297.not = icmp eq i32 %262, 4
+  br i1 %exitcond297.not, label %.split270.us, label %.split, !llvm.loop !251
 
 .loopexit:                                        ; preds = %.split270.us, %._crit_edge.us, %_ZN4ncnn3MatD2Ev.exit187.lr.ph, %_ZN4ncnn3MatD2Ev.exit188, %.preheader
   ret void
@@ -4340,10 +4338,9 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0178283.us, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
   %28 = load i32, ptr %20, align 4, !tbaa !25
-  %.fr296 = freeze i32 %28
   %29 = fmul fast float %25, 5.000000e-01
   %30 = fadd fast float %29, 5.000000e-01
-  %31 = add nsw i32 %.fr296, -1
+  %31 = add nsw i32 %28, -1
   %32 = sitofp i32 %31 to float
   %33 = fmul fast float %30, %32
   %34 = load i32, ptr %21, align 8, !tbaa !26
@@ -4368,26 +4365,26 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store float %50, ptr %51, align 4, !tbaa !59
   %52 = sitofp i32 %44 to float
   %53 = fptosi float %52 to i32
-  %.fr = freeze i32 %53
   %54 = sitofp i32 %45 to float
   %55 = fptosi float %54 to i32
   %56 = sitofp i32 %46 to float
   %57 = fptosi float %56 to i32
   %58 = icmp sgt i32 %41, -1
-  %59 = icmp sgt i32 %.fr296, %41
+  %59 = icmp sgt i32 %28, %41
   %60 = and i1 %58, %59
-  %61 = icmp sgt i32 %.fr, -1
-  %62 = icmp sgt i32 %.fr296, %.fr
+  %61 = icmp sgt i32 %53, -1
+  %62 = icmp sgt i32 %28, %53
   %63 = and i1 %61, %62
   %64 = icmp sgt i32 %55, -1
-  %65 = icmp sgt i32 %.fr296, %55
+  %65 = icmp sgt i32 %28, %55
   %66 = and i1 %64, %65
   %67 = icmp sgt i32 %57, -1
-  %68 = icmp sgt i32 %.fr296, %57
+  %68 = icmp sgt i32 %28, %57
   %69 = and i1 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.1284.us, i64 8
   %71 = add i32 %43, -1
-  br i1 %63, label %.split278.us291, label %.split278.us.us
+  %.fr281.us = freeze i1 %63
+  br i1 %.fr281.us, label %.split278.us291, label %.split278.us.us
 
 .split278.us291:                                  ; preds = %24, %.split278.us291
   %.0182276.us289 = phi ptr [ %102, %.split278.us291 ], [ %70, %24 ]
@@ -4404,7 +4401,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %81 = and i1 %60, %80
   %82 = and i1 %66, %80
   %83 = and i1 %69, %80
-  %84 = add nsw i32 %76, %.fr
+  %84 = add nsw i32 %76, %53
   %85 = load i32, ptr %22, align 8
   %86 = mul nsw i32 %84, %85
   %spec.select = select i1 %80, i32 %86, i32 -1
@@ -4429,8 +4426,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %100, ptr %101, align 4, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %.0182276.us289, i64 16
   %103 = add nuw nsw i32 %.0183275.us290, 1
-  %exitcond305.not = icmp eq i32 %103, 4
-  br i1 %exitcond305.not, label %.split280.us288, label %.split278.us291, !llvm.loop !259
+  %exitcond300.not = icmp eq i32 %103, 4
+  br i1 %exitcond300.not, label %.split280.us288, label %.split278.us291, !llvm.loop !259
 
 .split280.us288:                                  ; preds = %.split278.us.us, %.split278.us291
   %104 = getelementptr inbounds nuw i8, ptr %.0178283.us, i64 8
@@ -4475,8 +4472,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %133, ptr %134, align 4, !tbaa !50
   %135 = getelementptr inbounds nuw i8, ptr %.0182276.us.us, i64 16
   %136 = add nuw nsw i32 %.0183275.us.us, 1
-  %exitcond304.not = icmp eq i32 %136, 4
-  br i1 %exitcond304.not, label %.split280.us288, label %.split278.us.us, !llvm.loop !259
+  %exitcond299.not = icmp eq i32 %136, 4
+  br i1 %exitcond299.not, label %.split280.us288, label %.split278.us.us, !llvm.loop !259
 
 ._crit_edge.us:                                   ; preds = %.split280.us288
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4510,10 +4507,9 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %152 = load float, ptr %.0184273, align 4, !tbaa !59
   %153 = load float, ptr %.0185272, align 4, !tbaa !59
   %154 = load i32, ptr %148, align 4, !tbaa !25
-  %.fr294 = freeze i32 %154
   %155 = fmul fast float %152, 5.000000e-01
   %156 = fadd fast float %155, 5.000000e-01
-  %157 = add nsw i32 %.fr294, -1
+  %157 = add nsw i32 %154, -1
   %158 = sitofp i32 %157 to float
   %159 = fmul fast float %156, %158
   %160 = load i32, ptr %149, align 8, !tbaa !26
@@ -4538,26 +4534,26 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store float %176, ptr %177, align 4, !tbaa !59
   %178 = sitofp i32 %170 to float
   %179 = fptosi float %178 to i32
-  %.fr293 = freeze i32 %179
   %180 = sitofp i32 %171 to float
   %181 = fptosi float %180 to i32
   %182 = sitofp i32 %172 to float
   %183 = fptosi float %182 to i32
   %184 = icmp sgt i32 %167, -1
-  %185 = icmp sgt i32 %.fr294, %167
+  %185 = icmp sgt i32 %154, %167
   %186 = and i1 %184, %185
-  %187 = icmp sgt i32 %.fr293, -1
-  %188 = icmp sgt i32 %.fr294, %.fr293
+  %187 = icmp sgt i32 %179, -1
+  %188 = icmp sgt i32 %154, %179
   %189 = and i1 %187, %188
   %190 = icmp sgt i32 %181, -1
-  %191 = icmp sgt i32 %.fr294, %181
+  %191 = icmp sgt i32 %154, %181
   %192 = and i1 %190, %191
   %193 = icmp sgt i32 %183, -1
-  %194 = icmp sgt i32 %.fr294, %183
+  %194 = icmp sgt i32 %154, %183
   %195 = and i1 %193, %194
   %196 = getelementptr inbounds nuw i8, ptr %.2274, i64 8
   %197 = add i32 %169, -1
-  br i1 %189, label %.split, label %.split.us
+  %.fr = freeze i1 %189
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %151, %.split.us
   %.0180268.us = phi i32 [ %226, %.split.us ], [ 0, %151 ]
@@ -4603,8 +4599,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %228 = getelementptr inbounds nuw i8, ptr %.0185272, i64 4
   %229 = getelementptr inbounds nuw i8, ptr %.2274, i64 72
   %230 = add nuw nsw i32 %.0186271, 1
-  %exitcond303.not = icmp eq i32 %230, %8
-  br i1 %exitcond303.not, label %.loopexit, label %151, !llvm.loop !269
+  %exitcond298.not = icmp eq i32 %230, %8
+  br i1 %exitcond298.not, label %.loopexit, label %151, !llvm.loop !269
 
 .split:                                           ; preds = %151, %.split
   %.0180268 = phi i32 [ %262, %.split ], [ 0, %151 ]
@@ -4621,7 +4617,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %240 = and i1 %186, %239
   %241 = and i1 %192, %239
   %242 = and i1 %195, %239
-  %243 = add nsw i32 %235, %.fr293
+  %243 = add nsw i32 %235, %179
   %244 = load i32, ptr %150, align 8
   %245 = mul nsw i32 %243, %244
   %spec.select292 = select i1 %239, i32 %245, i32 -1
@@ -4646,8 +4642,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %259, ptr %260, align 4, !tbaa !50
   %261 = getelementptr inbounds nuw i8, ptr %.0181267, i64 16
   %262 = add nuw nsw i32 %.0180268, 1
-  %exitcond302.not = icmp eq i32 %262, 4
-  br i1 %exitcond302.not, label %.split270.us, label %.split, !llvm.loop !268
+  %exitcond297.not = icmp eq i32 %262, 4
+  br i1 %exitcond297.not, label %.split270.us, label %.split, !llvm.loop !268
 
 .loopexit:                                        ; preds = %.split270.us, %._crit_edge.us, %_ZN4ncnn3MatD2Ev.exit187.lr.ph, %_ZN4ncnn3MatD2Ev.exit188, %.preheader
   ret void
@@ -4699,8 +4695,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0178301.us, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
   %28 = load i32, ptr %20, align 4, !tbaa !25
-  %.fr316 = freeze i32 %28
-  %29 = sitofp i32 %.fr316 to float
+  %29 = sitofp i32 %28 to float
   %30 = fmul fast float %25, 5.000000e-01
   %31 = fadd fast float %30, 5.000000e-01
   %32 = fmul fast float %31, %29
@@ -4733,7 +4728,6 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated4.i211.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %54, float 0.000000e+00)
   %.sroa.speculated.i212.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i211.us, float %52)
   %55 = fptosi float %.sroa.speculated.i212.us to i32
-  %.fr = freeze i32 %55
   %56 = sitofp i32 %45 to float
   %.sroa.speculated4.i213.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %56, float 0.000000e+00)
   %.sroa.speculated.i214.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i213.us, float %52)
@@ -4743,20 +4737,21 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i216.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i215.us, float %52)
   %59 = fptosi float %.sroa.speculated.i216.us to i32
   %60 = icmp sgt i32 %53, -1
-  %61 = icmp sgt i32 %.fr316, %53
+  %61 = icmp sgt i32 %28, %53
   %62 = and i1 %60, %61
-  %63 = icmp sgt i32 %.fr, -1
-  %64 = icmp sgt i32 %.fr316, %.fr
+  %63 = icmp sgt i32 %55, -1
+  %64 = icmp sgt i32 %28, %55
   %65 = and i1 %63, %64
   %66 = icmp sgt i32 %57, -1
-  %67 = icmp sgt i32 %.fr316, %57
+  %67 = icmp sgt i32 %28, %57
   %68 = and i1 %66, %67
   %69 = icmp sgt i32 %59, -1
-  %70 = icmp sgt i32 %.fr316, %59
+  %70 = icmp sgt i32 %28, %59
   %71 = and i1 %69, %70
   %72 = getelementptr inbounds nuw i8, ptr %.1302.us, i64 8
   %73 = add i32 %43, -1
-  br i1 %65, label %.split296.us311, label %.split296.us.us
+  %.fr299.us = freeze i1 %65
+  br i1 %.fr299.us, label %.split296.us311, label %.split296.us.us
 
 .split296.us311:                                  ; preds = %24, %.split296.us311
   %.0182294.us307 = phi ptr [ %106, %.split296.us311 ], [ %72, %24 ]
@@ -4777,7 +4772,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %85 = and i1 %62, %84
   %86 = and i1 %68, %84
   %87 = and i1 %71, %84
-  %88 = add nsw i32 %81, %.fr
+  %88 = add nsw i32 %81, %55
   %89 = load i32, ptr %22, align 8
   %90 = mul nsw i32 %88, %89
   %spec.select = select i1 %84, i32 %90, i32 -1
@@ -4802,8 +4797,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %104, ptr %105, align 4, !tbaa !50
   %106 = getelementptr inbounds nuw i8, ptr %.0182294.us307, i64 16
   %107 = add nuw nsw i32 %.0183293.us308, 1
-  %exitcond325.not = icmp eq i32 %107, 4
-  br i1 %exitcond325.not, label %.split298.us306, label %.split296.us311, !llvm.loop !276
+  %exitcond320.not = icmp eq i32 %107, 4
+  br i1 %exitcond320.not, label %.split298.us306, label %.split296.us311, !llvm.loop !276
 
 .split298.us306:                                  ; preds = %.split296.us.us, %.split296.us311
   %108 = getelementptr inbounds nuw i8, ptr %.0178301.us, i64 8
@@ -4852,8 +4847,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %139, ptr %140, align 4, !tbaa !50
   %141 = getelementptr inbounds nuw i8, ptr %.0182294.us.us, i64 16
   %142 = add nuw nsw i32 %.0183293.us.us, 1
-  %exitcond324.not = icmp eq i32 %142, 4
-  br i1 %exitcond324.not, label %.split298.us306, label %.split296.us.us, !llvm.loop !276
+  %exitcond319.not = icmp eq i32 %142, 4
+  br i1 %exitcond319.not, label %.split298.us306, label %.split296.us.us, !llvm.loop !276
 
 ._crit_edge.us:                                   ; preds = %.split298.us306
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4887,8 +4882,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %158 = load float, ptr %.0184291, align 4, !tbaa !59
   %159 = load float, ptr %.0185290, align 4, !tbaa !59
   %160 = load i32, ptr %154, align 4, !tbaa !25
-  %.fr314 = freeze i32 %160
-  %161 = sitofp i32 %.fr314 to float
+  %161 = sitofp i32 %160 to float
   %162 = fmul fast float %158, 5.000000e-01
   %163 = fadd fast float %162, 5.000000e-01
   %164 = fmul fast float %163, %161
@@ -4921,7 +4915,6 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated4.i221 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %186, float 0.000000e+00)
   %.sroa.speculated.i222 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i221, float %184)
   %187 = fptosi float %.sroa.speculated.i222 to i32
-  %.fr313 = freeze i32 %187
   %188 = sitofp i32 %177 to float
   %.sroa.speculated4.i223 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %188, float 0.000000e+00)
   %.sroa.speculated.i224 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i223, float %184)
@@ -4931,20 +4924,21 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i226 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i225, float %184)
   %191 = fptosi float %.sroa.speculated.i226 to i32
   %192 = icmp sgt i32 %185, -1
-  %193 = icmp sgt i32 %.fr314, %185
+  %193 = icmp sgt i32 %160, %185
   %194 = and i1 %192, %193
-  %195 = icmp sgt i32 %.fr313, -1
-  %196 = icmp sgt i32 %.fr314, %.fr313
+  %195 = icmp sgt i32 %187, -1
+  %196 = icmp sgt i32 %160, %187
   %197 = and i1 %195, %196
   %198 = icmp sgt i32 %189, -1
-  %199 = icmp sgt i32 %.fr314, %189
+  %199 = icmp sgt i32 %160, %189
   %200 = and i1 %198, %199
   %201 = icmp sgt i32 %191, -1
-  %202 = icmp sgt i32 %.fr314, %191
+  %202 = icmp sgt i32 %160, %191
   %203 = and i1 %201, %202
   %204 = getelementptr inbounds nuw i8, ptr %.2292, i64 8
   %205 = add i32 %175, -1
-  br i1 %197, label %.split, label %.split.us
+  %.fr = freeze i1 %197
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %157, %.split.us
   %.0180286.us = phi i32 [ %236, %.split.us ], [ 0, %157 ]
@@ -4994,8 +4988,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %238 = getelementptr inbounds nuw i8, ptr %.0185290, i64 4
   %239 = getelementptr inbounds nuw i8, ptr %.2292, i64 72
   %240 = add nuw nsw i32 %.0186289, 1
-  %exitcond323.not = icmp eq i32 %240, %8
-  br i1 %exitcond323.not, label %.loopexit, label %157, !llvm.loop !286
+  %exitcond318.not = icmp eq i32 %240, %8
+  br i1 %exitcond318.not, label %.loopexit, label %157, !llvm.loop !286
 
 .split:                                           ; preds = %157, %.split
   %.0180286 = phi i32 [ %274, %.split ], [ 0, %157 ]
@@ -5016,7 +5010,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %252 = and i1 %194, %251
   %253 = and i1 %200, %251
   %254 = and i1 %203, %251
-  %255 = add nsw i32 %248, %.fr313
+  %255 = add nsw i32 %248, %187
   %256 = load i32, ptr %156, align 8
   %257 = mul nsw i32 %255, %256
   %spec.select312 = select i1 %251, i32 %257, i32 -1
@@ -5041,8 +5035,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %271, ptr %272, align 4, !tbaa !50
   %273 = getelementptr inbounds nuw i8, ptr %.0181285, i64 16
   %274 = add nuw nsw i32 %.0180286, 1
-  %exitcond322.not = icmp eq i32 %274, 4
-  br i1 %exitcond322.not, label %.split288.us, label %.split, !llvm.loop !285
+  %exitcond317.not = icmp eq i32 %274, 4
+  br i1 %exitcond317.not, label %.split288.us, label %.split, !llvm.loop !285
 
 .loopexit:                                        ; preds = %.split288.us, %._crit_edge.us, %_ZN4ncnn3MatD2Ev.exit187.lr.ph, %_ZN4ncnn3MatD2Ev.exit188, %.preheader
   ret void
@@ -5094,10 +5088,9 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0178301.us, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
   %28 = load i32, ptr %20, align 4, !tbaa !25
-  %.fr316 = freeze i32 %28
   %29 = fmul fast float %25, 5.000000e-01
   %30 = fadd fast float %29, 5.000000e-01
-  %31 = add nsw i32 %.fr316, -1
+  %31 = add nsw i32 %28, -1
   %32 = sitofp i32 %31 to float
   %33 = fmul fast float %30, %32
   %34 = load i32, ptr %21, align 8, !tbaa !26
@@ -5120,7 +5113,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %50 = fsub fast float %39, %49
   %51 = getelementptr inbounds nuw i8, ptr %.1302.us, i64 4
   store float %50, ptr %51, align 4, !tbaa !59
-  %52 = sitofp i32 %.fr316 to float
+  %52 = sitofp i32 %28 to float
   %53 = fadd fast float %52, -1.000000e+00
   %.sroa.speculated4.i.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %47, float 0.000000e+00)
   %.sroa.speculated.i.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i.us, float %53)
@@ -5129,7 +5122,6 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated4.i211.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %55, float 0.000000e+00)
   %.sroa.speculated.i212.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i211.us, float %53)
   %56 = fptosi float %.sroa.speculated.i212.us to i32
-  %.fr = freeze i32 %56
   %57 = sitofp i32 %45 to float
   %.sroa.speculated4.i213.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %57, float 0.000000e+00)
   %.sroa.speculated.i214.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i213.us, float %53)
@@ -5139,20 +5131,21 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i216.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i215.us, float %53)
   %60 = fptosi float %.sroa.speculated.i216.us to i32
   %61 = icmp sgt i32 %54, -1
-  %62 = icmp sgt i32 %.fr316, %54
+  %62 = icmp sgt i32 %28, %54
   %63 = and i1 %61, %62
-  %64 = icmp sgt i32 %.fr, -1
-  %65 = icmp sgt i32 %.fr316, %.fr
+  %64 = icmp sgt i32 %56, -1
+  %65 = icmp sgt i32 %28, %56
   %66 = and i1 %64, %65
   %67 = icmp sgt i32 %58, -1
-  %68 = icmp sgt i32 %.fr316, %58
+  %68 = icmp sgt i32 %28, %58
   %69 = and i1 %67, %68
   %70 = icmp sgt i32 %60, -1
-  %71 = icmp sgt i32 %.fr316, %60
+  %71 = icmp sgt i32 %28, %60
   %72 = and i1 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %.1302.us, i64 8
   %74 = add i32 %43, -1
-  br i1 %66, label %.split296.us311, label %.split296.us.us
+  %.fr299.us = freeze i1 %66
+  br i1 %.fr299.us, label %.split296.us311, label %.split296.us.us
 
 .split296.us311:                                  ; preds = %24, %.split296.us311
   %.0182294.us307 = phi ptr [ %107, %.split296.us311 ], [ %73, %24 ]
@@ -5173,7 +5166,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %86 = and i1 %63, %85
   %87 = and i1 %69, %85
   %88 = and i1 %72, %85
-  %89 = add nsw i32 %82, %.fr
+  %89 = add nsw i32 %82, %56
   %90 = load i32, ptr %22, align 8
   %91 = mul nsw i32 %89, %90
   %spec.select = select i1 %85, i32 %91, i32 -1
@@ -5198,8 +5191,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %105, ptr %106, align 4, !tbaa !50
   %107 = getelementptr inbounds nuw i8, ptr %.0182294.us307, i64 16
   %108 = add nuw nsw i32 %.0183293.us308, 1
-  %exitcond325.not = icmp eq i32 %108, 4
-  br i1 %exitcond325.not, label %.split298.us306, label %.split296.us311, !llvm.loop !293
+  %exitcond320.not = icmp eq i32 %108, 4
+  br i1 %exitcond320.not, label %.split298.us306, label %.split296.us311, !llvm.loop !293
 
 .split298.us306:                                  ; preds = %.split296.us.us, %.split296.us311
   %109 = getelementptr inbounds nuw i8, ptr %.0178301.us, i64 8
@@ -5248,8 +5241,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %140, ptr %141, align 4, !tbaa !50
   %142 = getelementptr inbounds nuw i8, ptr %.0182294.us.us, i64 16
   %143 = add nuw nsw i32 %.0183293.us.us, 1
-  %exitcond324.not = icmp eq i32 %143, 4
-  br i1 %exitcond324.not, label %.split298.us306, label %.split296.us.us, !llvm.loop !293
+  %exitcond319.not = icmp eq i32 %143, 4
+  br i1 %exitcond319.not, label %.split298.us306, label %.split296.us.us, !llvm.loop !293
 
 ._crit_edge.us:                                   ; preds = %.split298.us306
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5283,10 +5276,9 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %159 = load float, ptr %.0184291, align 4, !tbaa !59
   %160 = load float, ptr %.0185290, align 4, !tbaa !59
   %161 = load i32, ptr %155, align 4, !tbaa !25
-  %.fr314 = freeze i32 %161
   %162 = fmul fast float %159, 5.000000e-01
   %163 = fadd fast float %162, 5.000000e-01
-  %164 = add nsw i32 %.fr314, -1
+  %164 = add nsw i32 %161, -1
   %165 = sitofp i32 %164 to float
   %166 = fmul fast float %163, %165
   %167 = load i32, ptr %156, align 8, !tbaa !26
@@ -5309,7 +5301,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %183 = fsub fast float %172, %182
   %184 = getelementptr inbounds nuw i8, ptr %.2292, i64 4
   store float %183, ptr %184, align 4, !tbaa !59
-  %185 = sitofp i32 %.fr314 to float
+  %185 = sitofp i32 %161 to float
   %186 = fadd fast float %185, -1.000000e+00
   %.sroa.speculated4.i219 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %180, float 0.000000e+00)
   %.sroa.speculated.i220 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i219, float %186)
@@ -5318,7 +5310,6 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated4.i221 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %188, float 0.000000e+00)
   %.sroa.speculated.i222 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i221, float %186)
   %189 = fptosi float %.sroa.speculated.i222 to i32
-  %.fr313 = freeze i32 %189
   %190 = sitofp i32 %178 to float
   %.sroa.speculated4.i223 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %190, float 0.000000e+00)
   %.sroa.speculated.i224 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i223, float %186)
@@ -5328,20 +5319,21 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i226 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated4.i225, float %186)
   %193 = fptosi float %.sroa.speculated.i226 to i32
   %194 = icmp sgt i32 %187, -1
-  %195 = icmp sgt i32 %.fr314, %187
+  %195 = icmp sgt i32 %161, %187
   %196 = and i1 %194, %195
-  %197 = icmp sgt i32 %.fr313, -1
-  %198 = icmp sgt i32 %.fr314, %.fr313
+  %197 = icmp sgt i32 %189, -1
+  %198 = icmp sgt i32 %161, %189
   %199 = and i1 %197, %198
   %200 = icmp sgt i32 %191, -1
-  %201 = icmp sgt i32 %.fr314, %191
+  %201 = icmp sgt i32 %161, %191
   %202 = and i1 %200, %201
   %203 = icmp sgt i32 %193, -1
-  %204 = icmp sgt i32 %.fr314, %193
+  %204 = icmp sgt i32 %161, %193
   %205 = and i1 %203, %204
   %206 = getelementptr inbounds nuw i8, ptr %.2292, i64 8
   %207 = add i32 %176, -1
-  br i1 %199, label %.split, label %.split.us
+  %.fr = freeze i1 %199
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %158, %.split.us
   %.0180286.us = phi i32 [ %238, %.split.us ], [ 0, %158 ]
@@ -5391,8 +5383,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %240 = getelementptr inbounds nuw i8, ptr %.0185290, i64 4
   %241 = getelementptr inbounds nuw i8, ptr %.2292, i64 72
   %242 = add nuw nsw i32 %.0186289, 1
-  %exitcond323.not = icmp eq i32 %242, %8
-  br i1 %exitcond323.not, label %.loopexit, label %158, !llvm.loop !303
+  %exitcond318.not = icmp eq i32 %242, %8
+  br i1 %exitcond318.not, label %.loopexit, label %158, !llvm.loop !303
 
 .split:                                           ; preds = %158, %.split
   %.0180286 = phi i32 [ %276, %.split ], [ 0, %158 ]
@@ -5413,7 +5405,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %254 = and i1 %196, %253
   %255 = and i1 %202, %253
   %256 = and i1 %205, %253
-  %257 = add nsw i32 %250, %.fr313
+  %257 = add nsw i32 %250, %189
   %258 = load i32, ptr %157, align 8
   %259 = mul nsw i32 %257, %258
   %spec.select312 = select i1 %253, i32 %259, i32 -1
@@ -5438,8 +5430,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %273, ptr %274, align 4, !tbaa !50
   %275 = getelementptr inbounds nuw i8, ptr %.0181285, i64 16
   %276 = add nuw nsw i32 %.0180286, 1
-  %exitcond322.not = icmp eq i32 %276, 4
-  br i1 %exitcond322.not, label %.split288.us, label %.split, !llvm.loop !302
+  %exitcond317.not = icmp eq i32 %276, 4
+  br i1 %exitcond317.not, label %.split288.us, label %.split, !llvm.loop !302
 
 .loopexit:                                        ; preds = %.split288.us, %._crit_edge.us, %_ZN4ncnn3MatD2Ev.exit187.lr.ph, %_ZN4ncnn3MatD2Ev.exit188, %.preheader
   ret void
@@ -5491,8 +5483,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0178310.us, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
   %28 = load i32, ptr %20, align 4, !tbaa !25
-  %.fr326 = freeze i32 %28
-  %29 = sitofp i32 %.fr326 to float
+  %29 = sitofp i32 %28 to float
   %30 = fmul fast float %25, 5.000000e-01
   %31 = fadd fast float %30, 5.000000e-01
   %32 = fmul fast float %31, %29
@@ -5536,7 +5527,6 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated6.i211.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %65, float 0.000000e+00)
   %.sroa.speculated.i212.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i211.us, float %58)
   %66 = fptosi float %.sroa.speculated.i212.us to i32
-  %.fr = freeze i32 %66
   %67 = sitofp i32 %45 to float
   %68 = fadd fast float %67, 5.000000e-01
   %69 = tail call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %68)
@@ -5556,20 +5546,21 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i216.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i215.us, float %58)
   %80 = fptosi float %.sroa.speculated.i216.us to i32
   %81 = icmp sgt i32 %59, -1
-  %82 = icmp sgt i32 %.fr326, %59
+  %82 = icmp sgt i32 %28, %59
   %83 = and i1 %81, %82
-  %84 = icmp sgt i32 %.fr, -1
-  %85 = icmp sgt i32 %.fr326, %.fr
+  %84 = icmp sgt i32 %66, -1
+  %85 = icmp sgt i32 %28, %66
   %86 = and i1 %84, %85
   %87 = icmp sgt i32 %73, -1
-  %88 = icmp sgt i32 %.fr326, %73
+  %88 = icmp sgt i32 %28, %73
   %89 = and i1 %87, %88
   %90 = icmp sgt i32 %80, -1
-  %91 = icmp sgt i32 %.fr326, %80
+  %91 = icmp sgt i32 %28, %80
   %92 = and i1 %90, %91
   %93 = getelementptr inbounds nuw i8, ptr %.1311.us, i64 8
   %94 = add i32 %43, -1
-  br i1 %86, label %.split305.us321, label %.split305.us.us
+  %.fr308.us = freeze i1 %86
+  br i1 %.fr308.us, label %.split305.us321, label %.split305.us.us
 
 .split305.us321:                                  ; preds = %24, %.split305.us321
   %.0182303.us316 = phi ptr [ %133, %.split305.us321 ], [ %93, %24 ]
@@ -5596,7 +5587,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %112 = and i1 %83, %111
   %113 = and i1 %89, %111
   %114 = and i1 %92, %111
-  %115 = add nsw i32 %108, %.fr
+  %115 = add nsw i32 %108, %66
   %116 = load i32, ptr %22, align 8
   %117 = mul nsw i32 %115, %116
   %spec.select = select i1 %111, i32 %117, i32 -1
@@ -5621,8 +5612,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %131, ptr %132, align 4, !tbaa !50
   %133 = getelementptr inbounds nuw i8, ptr %.0182303.us316, i64 16
   %134 = add nuw nsw i32 %.0183302.us317, 1
-  %exitcond335.not = icmp eq i32 %134, 4
-  br i1 %exitcond335.not, label %.split307.us315, label %.split305.us321, !llvm.loop !310
+  %exitcond330.not = icmp eq i32 %134, 4
+  br i1 %exitcond330.not, label %.split307.us315, label %.split305.us321, !llvm.loop !310
 
 .split307.us315:                                  ; preds = %.split305.us.us, %.split305.us321
   %135 = getelementptr inbounds nuw i8, ptr %.0178310.us, i64 8
@@ -5677,8 +5668,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %172, ptr %173, align 4, !tbaa !50
   %174 = getelementptr inbounds nuw i8, ptr %.0182303.us.us, i64 16
   %175 = add nuw nsw i32 %.0183302.us.us, 1
-  %exitcond334.not = icmp eq i32 %175, 4
-  br i1 %exitcond334.not, label %.split307.us315, label %.split305.us.us, !llvm.loop !310
+  %exitcond329.not = icmp eq i32 %175, 4
+  br i1 %exitcond329.not, label %.split307.us315, label %.split305.us.us, !llvm.loop !310
 
 ._crit_edge.us:                                   ; preds = %.split307.us315
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5712,8 +5703,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %191 = load float, ptr %.0184300, align 4, !tbaa !59
   %192 = load float, ptr %.0185299, align 4, !tbaa !59
   %193 = load i32, ptr %187, align 4, !tbaa !25
-  %.fr324 = freeze i32 %193
-  %194 = sitofp i32 %.fr324 to float
+  %194 = sitofp i32 %193 to float
   %195 = fmul fast float %191, 5.000000e-01
   %196 = fadd fast float %195, 5.000000e-01
   %197 = fmul fast float %196, %194
@@ -5757,7 +5747,6 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated6.i221 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %230, float 0.000000e+00)
   %.sroa.speculated.i222 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i221, float %223)
   %231 = fptosi float %.sroa.speculated.i222 to i32
-  %.fr323 = freeze i32 %231
   %232 = sitofp i32 %210 to float
   %233 = fadd fast float %232, 5.000000e-01
   %234 = tail call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %233)
@@ -5777,20 +5766,21 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i226 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i225, float %223)
   %245 = fptosi float %.sroa.speculated.i226 to i32
   %246 = icmp sgt i32 %224, -1
-  %247 = icmp sgt i32 %.fr324, %224
+  %247 = icmp sgt i32 %193, %224
   %248 = and i1 %246, %247
-  %249 = icmp sgt i32 %.fr323, -1
-  %250 = icmp sgt i32 %.fr324, %.fr323
+  %249 = icmp sgt i32 %231, -1
+  %250 = icmp sgt i32 %193, %231
   %251 = and i1 %249, %250
   %252 = icmp sgt i32 %238, -1
-  %253 = icmp sgt i32 %.fr324, %238
+  %253 = icmp sgt i32 %193, %238
   %254 = and i1 %252, %253
   %255 = icmp sgt i32 %245, -1
-  %256 = icmp sgt i32 %.fr324, %245
+  %256 = icmp sgt i32 %193, %245
   %257 = and i1 %255, %256
   %258 = getelementptr inbounds nuw i8, ptr %.2301, i64 8
   %259 = add i32 %208, -1
-  br i1 %251, label %.split, label %.split.us
+  %.fr = freeze i1 %251
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %190, %.split.us
   %.0180295.us = phi i32 [ %296, %.split.us ], [ 0, %190 ]
@@ -5846,8 +5836,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %298 = getelementptr inbounds nuw i8, ptr %.0185299, i64 4
   %299 = getelementptr inbounds nuw i8, ptr %.2301, i64 72
   %300 = add nuw nsw i32 %.0186298, 1
-  %exitcond333.not = icmp eq i32 %300, %8
-  br i1 %exitcond333.not, label %.loopexit, label %190, !llvm.loop !320
+  %exitcond328.not = icmp eq i32 %300, %8
+  br i1 %exitcond328.not, label %.loopexit, label %190, !llvm.loop !320
 
 .split:                                           ; preds = %190, %.split
   %.0180295 = phi i32 [ %340, %.split ], [ 0, %190 ]
@@ -5874,7 +5864,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %318 = and i1 %248, %317
   %319 = and i1 %254, %317
   %320 = and i1 %257, %317
-  %321 = add nsw i32 %314, %.fr323
+  %321 = add nsw i32 %314, %231
   %322 = load i32, ptr %189, align 8
   %323 = mul nsw i32 %321, %322
   %spec.select322 = select i1 %317, i32 %323, i32 -1
@@ -5899,8 +5889,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %337, ptr %338, align 4, !tbaa !50
   %339 = getelementptr inbounds nuw i8, ptr %.0181294, i64 16
   %340 = add nuw nsw i32 %.0180295, 1
-  %exitcond332.not = icmp eq i32 %340, 4
-  br i1 %exitcond332.not, label %.split297.us, label %.split, !llvm.loop !319
+  %exitcond327.not = icmp eq i32 %340, 4
+  br i1 %exitcond327.not, label %.split297.us, label %.split, !llvm.loop !319
 
 .loopexit:                                        ; preds = %.split297.us, %._crit_edge.us, %_ZN4ncnn3MatD2Ev.exit187.lr.ph, %_ZN4ncnn3MatD2Ev.exit188, %.preheader
   ret void
@@ -5952,10 +5942,9 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0178301.us, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
   %28 = load i32, ptr %20, align 4, !tbaa !25
-  %.fr316 = freeze i32 %28
   %29 = fmul fast float %25, 5.000000e-01
   %30 = fadd fast float %29, 5.000000e-01
-  %31 = add nsw i32 %.fr316, -1
+  %31 = add nsw i32 %28, -1
   %32 = sitofp i32 %31 to float
   %33 = fmul fast float %30, %32
   %34 = load i32, ptr %21, align 8, !tbaa !26
@@ -5982,7 +5971,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %53 = fsub fast float %52, %32
   %54 = tail call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %53)
   %55 = fsub fast float %32, %54
-  %56 = sitofp i32 %.fr316 to float
+  %56 = sitofp i32 %28 to float
   %57 = fadd fast float %56, -1.000000e+00
   %.sroa.speculated6.i.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %55, float 0.000000e+00)
   %.sroa.speculated.i.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i.us, float %57)
@@ -5995,7 +5984,6 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated6.i211.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %63, float 0.000000e+00)
   %.sroa.speculated.i212.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i211.us, float %57)
   %64 = fptosi float %.sroa.speculated.i212.us to i32
-  %.fr = freeze i32 %64
   %65 = sitofp i32 %45 to float
   %66 = tail call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %65)
   %67 = fsub fast float %66, %32
@@ -6013,20 +6001,21 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i216.us = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i215.us, float %57)
   %76 = fptosi float %.sroa.speculated.i216.us to i32
   %77 = icmp sgt i32 %58, -1
-  %78 = icmp sgt i32 %.fr316, %58
+  %78 = icmp sgt i32 %28, %58
   %79 = and i1 %77, %78
-  %80 = icmp sgt i32 %.fr, -1
-  %81 = icmp sgt i32 %.fr316, %.fr
+  %80 = icmp sgt i32 %64, -1
+  %81 = icmp sgt i32 %28, %64
   %82 = and i1 %80, %81
   %83 = icmp sgt i32 %70, -1
-  %84 = icmp sgt i32 %.fr316, %70
+  %84 = icmp sgt i32 %28, %70
   %85 = and i1 %83, %84
   %86 = icmp sgt i32 %76, -1
-  %87 = icmp sgt i32 %.fr316, %76
+  %87 = icmp sgt i32 %28, %76
   %88 = and i1 %86, %87
   %89 = getelementptr inbounds nuw i8, ptr %.1302.us, i64 8
   %90 = add i32 %43, -1
-  br i1 %82, label %.split296.us311, label %.split296.us.us
+  %.fr299.us = freeze i1 %82
+  br i1 %.fr299.us, label %.split296.us311, label %.split296.us.us
 
 .split296.us311:                                  ; preds = %24, %.split296.us311
   %.0182294.us307 = phi ptr [ %129, %.split296.us311 ], [ %89, %24 ]
@@ -6053,7 +6042,7 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %108 = and i1 %79, %107
   %109 = and i1 %85, %107
   %110 = and i1 %88, %107
-  %111 = add nsw i32 %104, %.fr
+  %111 = add nsw i32 %104, %64
   %112 = load i32, ptr %22, align 8
   %113 = mul nsw i32 %111, %112
   %spec.select = select i1 %107, i32 %113, i32 -1
@@ -6078,8 +6067,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %127, ptr %128, align 4, !tbaa !50
   %129 = getelementptr inbounds nuw i8, ptr %.0182294.us307, i64 16
   %130 = add nuw nsw i32 %.0183293.us308, 1
-  %exitcond325.not = icmp eq i32 %130, 4
-  br i1 %exitcond325.not, label %.split298.us306, label %.split296.us311, !llvm.loop !327
+  %exitcond320.not = icmp eq i32 %130, 4
+  br i1 %exitcond320.not, label %.split298.us306, label %.split296.us311, !llvm.loop !327
 
 .split298.us306:                                  ; preds = %.split296.us.us, %.split296.us311
   %131 = getelementptr inbounds nuw i8, ptr %.0178301.us, i64 8
@@ -6134,8 +6123,8 @@ _ZN4ncnn3MatD2Ev.exit187.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %168, ptr %169, align 4, !tbaa !50
   %170 = getelementptr inbounds nuw i8, ptr %.0182294.us.us, i64 16
   %171 = add nuw nsw i32 %.0183293.us.us, 1
-  %exitcond324.not = icmp eq i32 %171, 4
-  br i1 %exitcond324.not, label %.split298.us306, label %.split296.us.us, !llvm.loop !327
+  %exitcond319.not = icmp eq i32 %171, 4
+  br i1 %exitcond319.not, label %.split298.us306, label %.split296.us.us, !llvm.loop !327
 
 ._crit_edge.us:                                   ; preds = %.split298.us306
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6169,10 +6158,9 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %187 = load float, ptr %.0184291, align 4, !tbaa !59
   %188 = load float, ptr %.0185290, align 4, !tbaa !59
   %189 = load i32, ptr %183, align 4, !tbaa !25
-  %.fr314 = freeze i32 %189
   %190 = fmul fast float %187, 5.000000e-01
   %191 = fadd fast float %190, 5.000000e-01
-  %192 = add nsw i32 %.fr314, -1
+  %192 = add nsw i32 %189, -1
   %193 = sitofp i32 %192 to float
   %194 = fmul fast float %191, %193
   %195 = load i32, ptr %184, align 8, !tbaa !26
@@ -6199,7 +6187,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %214 = fsub fast float %213, %193
   %215 = tail call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %214)
   %216 = fsub fast float %193, %215
-  %217 = sitofp i32 %.fr314 to float
+  %217 = sitofp i32 %189 to float
   %218 = fadd fast float %217, -1.000000e+00
   %.sroa.speculated6.i219 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %216, float 0.000000e+00)
   %.sroa.speculated.i220 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i219, float %218)
@@ -6212,7 +6200,6 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated6.i221 = tail call nnan ninf nsz float @llvm.maxnum.f32(float %224, float 0.000000e+00)
   %.sroa.speculated.i222 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i221, float %218)
   %225 = fptosi float %.sroa.speculated.i222 to i32
-  %.fr313 = freeze i32 %225
   %226 = sitofp i32 %206 to float
   %227 = tail call fast noundef nofpclass(nan inf) float @llvm.fabs.f32(float nofpclass(nan inf) %226)
   %228 = fsub fast float %227, %193
@@ -6230,20 +6217,21 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated.i226 = tail call nnan ninf nsz float @llvm.minnum.f32(float %.sroa.speculated6.i225, float %218)
   %237 = fptosi float %.sroa.speculated.i226 to i32
   %238 = icmp sgt i32 %219, -1
-  %239 = icmp sgt i32 %.fr314, %219
+  %239 = icmp sgt i32 %189, %219
   %240 = and i1 %238, %239
-  %241 = icmp sgt i32 %.fr313, -1
-  %242 = icmp sgt i32 %.fr314, %.fr313
+  %241 = icmp sgt i32 %225, -1
+  %242 = icmp sgt i32 %189, %225
   %243 = and i1 %241, %242
   %244 = icmp sgt i32 %231, -1
-  %245 = icmp sgt i32 %.fr314, %231
+  %245 = icmp sgt i32 %189, %231
   %246 = and i1 %244, %245
   %247 = icmp sgt i32 %237, -1
-  %248 = icmp sgt i32 %.fr314, %237
+  %248 = icmp sgt i32 %189, %237
   %249 = and i1 %247, %248
   %250 = getelementptr inbounds nuw i8, ptr %.2292, i64 8
   %251 = add i32 %204, -1
-  br i1 %243, label %.split, label %.split.us
+  %.fr = freeze i1 %243
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %186, %.split.us
   %.0180286.us = phi i32 [ %288, %.split.us ], [ 0, %186 ]
@@ -6299,8 +6287,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %290 = getelementptr inbounds nuw i8, ptr %.0185290, i64 4
   %291 = getelementptr inbounds nuw i8, ptr %.2292, i64 72
   %292 = add nuw nsw i32 %.0186289, 1
-  %exitcond323.not = icmp eq i32 %292, %8
-  br i1 %exitcond323.not, label %.loopexit, label %186, !llvm.loop !337
+  %exitcond318.not = icmp eq i32 %292, %8
+  br i1 %exitcond318.not, label %.loopexit, label %186, !llvm.loop !337
 
 .split:                                           ; preds = %186, %.split
   %.0180286 = phi i32 [ %332, %.split ], [ 0, %186 ]
@@ -6327,7 +6315,7 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %310 = and i1 %240, %309
   %311 = and i1 %246, %309
   %312 = and i1 %249, %309
-  %313 = add nsw i32 %306, %.fr313
+  %313 = add nsw i32 %306, %225
   %314 = load i32, ptr %185, align 8
   %315 = mul nsw i32 %313, %314
   %spec.select312 = select i1 %309, i32 %315, i32 -1
@@ -6352,8 +6340,8 @@ _ZN4ncnn3MatD2Ev.exit188:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i32 %329, ptr %330, align 4, !tbaa !50
   %331 = getelementptr inbounds nuw i8, ptr %.0181285, i64 16
   %332 = add nuw nsw i32 %.0180286, 1
-  %exitcond322.not = icmp eq i32 %332, 4
-  br i1 %exitcond322.not, label %.split288.us, label %.split, !llvm.loop !336
+  %exitcond317.not = icmp eq i32 %332, 4
+  br i1 %exitcond317.not, label %.split288.us, label %.split, !llvm.loop !336
 
 .loopexit:                                        ; preds = %.split288.us, %._crit_edge.us, %_ZN4ncnn3MatD2Ev.exit187.lr.ph, %_ZN4ncnn3MatD2Ev.exit188, %.preheader
   ret void

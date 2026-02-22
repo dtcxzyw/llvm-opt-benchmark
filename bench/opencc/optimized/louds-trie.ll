@@ -13295,8 +13295,8 @@ define linkonce_odr void @_ZSt11__sort_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter
   br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i.i
-  %.033.i.i = phi i64 [ %37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i.i ], [ 0, %9 ]
-  %20 = shl i64 %.033.i.i, 1
+  %.032.i.i = phi i64 [ %37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i.i ], [ 0, %9 ]
+  %20 = shl i64 %.032.i.i, 1
   %21 = add i64 %20, 2
   %22 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %21
   %23 = getelementptr %"struct.std::pair", ptr %0, i64 %20
@@ -13319,17 +13319,16 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i.i: ; pred
   %32 = load i32, ptr %31, align 4, !tbaa !67
   %33 = getelementptr i8, ptr %23, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !67
-  %.fr.i.i = freeze i32 %32
-  %.fr32.i.i = freeze i32 %34
-  %35 = icmp ult i32 %.fr.i.i, %.fr32.i.i
+  %35 = icmp ult i32 %32, %34
   %36 = or disjoint i64 %20, 1
-  %spec.select.i.i = select i1 %35, i64 %36, i64 %21
+  %cond.fr.i.i = freeze i1 %35
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %36, i64 %21
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i.i, %29, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i.i
   %37 = phi i64 [ %21, %29 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i.i ], [ %28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i.i ]
   %38 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.033.i.i
+  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.032.i.i
   %40 = load i32, ptr %38, align 4, !tbaa !63
   store i32 %40, ptr %39, align 4, !tbaa !65
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -13448,8 +13447,8 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %22, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i
-  %.033.i = phi i64 [ %42, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i ], [ %.013, %22 ]
-  %25 = shl i64 %.033.i, 1
+  %.032.i = phi i64 [ %42, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i ], [ %.013, %22 ]
+  %25 = shl i64 %.032.i, 1
   %26 = add i64 %25, 2
   %27 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %26
   %28 = getelementptr %"struct.std::pair", ptr %0, i64 %25
@@ -13472,17 +13471,16 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i: ; preds 
   %37 = load i32, ptr %36, align 4, !tbaa !67
   %38 = getelementptr i8, ptr %28, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !67
-  %.fr.i = freeze i32 %37
-  %.fr32.i = freeze i32 %39
-  %40 = icmp ult i32 %.fr.i, %.fr32.i
+  %40 = icmp ult i32 %37, %39
   %41 = or disjoint i64 %25, 1
-  %spec.select.i = select i1 %40, i64 %41, i64 %26
+  %cond.fr.i = freeze i1 %40
+  %spec.select.i = select i1 %cond.fr.i, i64 %41, i64 %26
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread30.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i
   %42 = phi i64 [ %26, %34 ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i ], [ %33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i ]
   %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.033.i
+  %44 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.032.i
   %45 = load i32, ptr %43, align 4, !tbaa !63
   store i32 %45, ptr %44, align 4, !tbaa !65
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4

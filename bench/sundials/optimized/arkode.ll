@@ -5586,8 +5586,8 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = load double, ptr %4, align 8, !tbaa !17
-  %.fr101 = freeze double %5
-  %6 = fsub double %1, %.fr101
+  %.fr = freeze double %5
+  %6 = fsub double %1, %.fr
   %7 = fcmp oeq double %6, 0.000000e+00
   br i1 %7, label %.loopexit, label %8
 
@@ -5596,7 +5596,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   %10 = tail call double @llvm.fabs.f64(double %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !23
-  %13 = tail call double @llvm.fabs.f64(double %.fr101)
+  %13 = tail call double @llvm.fabs.f64(double %.fr)
   %14 = tail call double @llvm.fabs.f64(double %1)
   %15 = fcmp ogt double %13, %14
   %. = select i1 %15, double %13, double %14

@@ -247,9 +247,9 @@ define hidden noundef zeroext i1 @_ZN3ue221bad_mixed_sensitivityERKNS_11ue2_lite
   %18 = select i1 %17, i1 true, i1 %14
   %not..i.i = xor i1 %18, true
   %.13.i.i = select i1 %not..i.i, i1 true, i1 %.0220.i.i
-  %not.27.i.i = xor i1 %17, true
-  %not.25.i.i = select i1 %not.27.i.i, i1 %14, i1 false
-  %.1.i.i = select i1 %not.25.i.i, i1 true, i1 %.021.i.i
+  %not.25.i.i = xor i1 %17, true
+  %not.23.i.i = select i1 %not.25.i.i, i1 %14, i1 false
+  %.1.i.i = select i1 %not.23.i.i, i1 true, i1 %.021.i.i
   %19 = add nuw i64 %.sroa.6.019.i.i, 1
   %.not.i.i = icmp eq i64 %19, %3
   br i1 %.not.i.i, label %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit, label %.lr.ph.split.i.i, !llvm.loop !5
@@ -5308,9 +5308,9 @@ define hidden noundef i64 @_ZN3ue227sanitizeAndCompressAndScoreERSt3setINS_11ue2
   %52 = select i1 %51, i1 true, i1 %48
   %not..i.i.i = xor i1 %52, true
   %.13.i.i.i = select i1 %not..i.i.i, i1 true, i1 %.0220.i.i.i
-  %not.27.i.i.i = xor i1 %51, true
-  %not.25.i.i.i = select i1 %not.27.i.i.i, i1 %48, i1 false
-  %.1.i.i.i = select i1 %not.25.i.i.i, i1 true, i1 %.021.i.i.i
+  %not.25.i.i.i = xor i1 %51, true
+  %not.23.i.i.i = select i1 %not.25.i.i.i, i1 %48, i1 false
+  %.1.i.i.i = select i1 %not.23.i.i.i, i1 true, i1 %.021.i.i.i
   %53 = add nuw i64 %.sroa.6.019.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %53, %37
   br i1 %.not.i.i.i, label %_ZN3ue221bad_mixed_sensitivityERKNS_11ue2_literalE.exit, label %.lr.ph.split.i.i.i, !llvm.loop !5
@@ -7823,9 +7823,9 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   %101 = select i1 %100, i1 true, i1 %97
   %not..i.i = xor i1 %101, true
   %.13.i.i = select i1 %not..i.i, i1 true, i1 %.0220.i.i
-  %not.27.i.i = xor i1 %100, true
-  %not.25.i.i = select i1 %not.27.i.i, i1 %97, i1 false
-  %.1.i.i = select i1 %not.25.i.i, i1 true, i1 %.021.i.i
+  %not.25.i.i = xor i1 %100, true
+  %not.23.i.i = select i1 %not.25.i.i, i1 %97, i1 false
+  %.1.i.i = select i1 %not.23.i.i, i1 true, i1 %.021.i.i
   %102 = add nuw i64 %.sroa.6.019.i.i, 1
   %.not.i.i = icmp eq i64 %102, %86
   br i1 %.not.i.i, label %103, label %.lr.ph.split.i.i, !llvm.loop !5
@@ -8267,9 +8267,9 @@ define hidden noundef zeroext i1 @_ZN3ue218getTrailingLiteralERKNS_8NGHolderEPNS
   %38 = select i1 %37, i1 true, i1 %34
   %not..i.i = xor i1 %38, true
   %.13.i.i = select i1 %not..i.i, i1 true, i1 %.0220.i.i
-  %not.27.i.i = xor i1 %37, true
-  %not.25.i.i = select i1 %not.27.i.i, i1 %34, i1 false
-  %.1.i.i = select i1 %not.25.i.i, i1 true, i1 %.021.i.i
+  %not.25.i.i = xor i1 %37, true
+  %not.23.i.i = select i1 %not.25.i.i, i1 %34, i1 false
+  %.1.i.i = select i1 %not.23.i.i, i1 true, i1 %.021.i.i
   %39 = add nuw i64 %.sroa.6.019.i.i, 1
   %.not.i.i = icmp eq i64 %39, %22
   br i1 %.not.i.i, label %40, label %.lr.ph.split.i.i, !llvm.loop !5

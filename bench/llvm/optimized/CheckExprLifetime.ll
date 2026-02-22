@@ -879,18 +879,17 @@ _ZN5clang4semaL35getDeclWithMergedLifetimeBoundAttrsEPKNS_13CXXMethodDeclE.exit.
 52:                                               ; preds = %45
   %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %48) #17
   %54 = load ptr, ptr %53, align 8, !tbaa !12
-  %.fr = freeze ptr %54
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !15
-  %.fr19 = freeze i32 %56
-  %57 = zext i32 %.fr19 to i64
+  %57 = zext i32 %56 to i64
   %.idx.i.i.i = shl nuw nsw i64 %57, 3
-  %58 = getelementptr i8, ptr %.fr, i64 %.idx.i.i.i
-  %.not.i.i5.i = icmp eq i32 %.fr19, 0
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i
+  %.fr = freeze ptr %58
+  %.not.i.i5.i = icmp eq i32 %56, 0
   br i1 %.not.i.i5.i, label %_ZN5clang4semaL33isAssignmentOperatorLifetimeBoundEPKNS_13CXXMethodDeclE.exit.thread15, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %52, %63
-  %.sroa.07.1.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.fr, %52 ]
+  %.sroa.07.1.i.i.i.i.i = phi ptr [ %64, %63 ], [ %54, %52 ]
   %59 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !16
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i16, ptr %60, align 8
@@ -899,12 +898,12 @@ _ZN5clang4semaL35getDeclWithMergedLifetimeBoundAttrsEPKNS_13CXXMethodDeclE.exit.
 
 63:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %64, %58
+  %.not.i.i.i.i.i.i = icmp eq ptr %64, %.fr
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clang4semaL33isAssignmentOperatorLifetimeBoundEPKNS_13CXXMethodDeclE.exit.thread15, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !778
 
 _ZN5clang4semaL33isAssignmentOperatorLifetimeBoundEPKNS_13CXXMethodDeclE.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not20 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %58
-  %spec.select = select i1 %.not20, i32 10, i32 4
+  %.not19 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %.fr
+  %spec.select = select i1 %.not19, i32 10, i32 4
   br label %_ZN5clang4semaL33isAssignmentOperatorLifetimeBoundEPKNS_13CXXMethodDeclE.exit.thread15
 
 _ZN5clang4semaL33isAssignmentOperatorLifetimeBoundEPKNS_13CXXMethodDeclE.exit.thread15: ; preds = %63, %_ZN5clang4semaL33isAssignmentOperatorLifetimeBoundEPKNS_13CXXMethodDeclE.exit, %32, %52, %45, %_ZN5clang4semaL35getDeclWithMergedLifetimeBoundAttrsEPKNS_13CXXMethodDeclE.exit.i, %40, %42
@@ -1039,9 +1038,9 @@ _ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.thread18: ; preds = %89, %
   %122 = load ptr, ptr %13, align 8, !tbaa !103
   %123 = load i24, ptr %122, align 8
   %124 = and i24 %123, 1536
-  %.not21 = icmp eq i24 %124, 0
+  %.not20 = icmp eq i24 %124, 0
   %125 = ptrtoint ptr %14 to i64
-  br i1 %.not21, label %127, label %126
+  br i1 %.not20, label %127, label %126
 
 126:                                              ; preds = %_ZN5clang4semaL17isPointerLikeTypeENS_8QualTypeE.exit.thread18
   call fastcc void @_ZN5clang4semaL37visitLocalsRetainedByReferenceBindingERN4llvm15SmallVectorImplINS0_12_GLOBAL__N_122IndirectLocalPathEntryEEEPNS_4ExprENS3_13ReferenceKindENS1_12function_refIFbS6_S8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %122, i32 noundef 0, ptr nonnull @"_ZN4llvm12function_refIFbRNS_15SmallVectorImplIN5clang4sema12_GLOBAL__N_122IndirectLocalPathEntryEEEPNS2_4ExprENS4_13ReferenceKindEEE11callback_fnIZNS3_L21checkExprLifetimeImplERNS2_4SemaEPKNS2_17InitializedEntityESI_NS4_12LifetimeKindEPKNS3_14AssignedEntityEPKNS3_15CapturingEntityES9_E3$_0EEblS7_S9_SA_", i64 %125)

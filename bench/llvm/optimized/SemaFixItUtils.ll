@@ -345,8 +345,8 @@ switch.early.test:                                ; preds = %14
 
 34:                                               ; preds = %switch.early.test
   %35 = load i16, ptr %1, align 8
-  %.fr209 = freeze i16 %35
-  %36 = and i16 %.fr209, 511
+  %.fr211 = freeze i16 %35
+  %36 = and i16 %.fr211, 511
   %37 = icmp eq i16 %36, 22
   br i1 %37, label %39, label %switch.early.test208
 
@@ -368,8 +368,8 @@ switch.lookup:                                    ; preds = %switch.early.test20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i8, ptr %43, align 16
   %45 = icmp ne i8 %44, 41
-  %.not90210 = icmp eq ptr %42, null
-  %.not90 = or i1 %.not90210, %45
+  %.not90212 = icmp eq ptr %42, null
+  %.not90 = or i1 %.not90212, %45
   br i1 %.not90, label %.thread, label %46
 
 46:                                               ; preds = %39
@@ -396,8 +396,8 @@ switch.lookup:                                    ; preds = %switch.early.test20
 61:                                               ; preds = %57
   %62 = load i16, ptr %30, align 8
   %63 = and i16 %62, 511
-  %.not212 = icmp eq i16 %63, 4
-  br i1 %.not212, label %64, label %97
+  %.not214 = icmp eq i16 %63, 4
+  br i1 %.not214, label %64, label %97
 
 64:                                               ; preds = %61
   %65 = load i32, ptr %30, align 8
@@ -468,14 +468,14 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %8
 
 _ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit: ; preds = %68
   call void @_ZNSt6vectorIN5clang9FixItHintESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %75, ptr noundef nonnull align 8 dereferenceable(57) %6)
-  %.pre216 = load ptr, ptr %70, align 8, !tbaa !702
-  %94 = icmp eq ptr %.pre216, %71
+  %.pre218 = load ptr, ptr %70, align 8, !tbaa !702
+  %94 = icmp eq ptr %.pre218, %71
   br i1 %94, label %_ZN5clang9FixItHintD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit
   %95 = load i64, ptr %71, align 8, !tbaa !681
   %96 = add i64 %95, 1
-  call void @_ZdlPvm(ptr noundef %.pre216, i64 noundef %96) #18
+  call void @_ZdlPvm(ptr noundef %.pre218, i64 noundef %96) #18
   br label %_ZN5clang9FixItHintD2Ev.exit
 
 _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -558,8 +558,8 @@ _ZN5clang9FixItHintD2Ev.exit110:                  ; preds = %111, %_ZNKSt7__cxx1
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load i8, ptr %126, align 16
   %128 = icmp ne i8 %127, 41
-  %.not93213 = icmp eq ptr %125, null
-  %.not93 = or i1 %.not93213, %128
+  %.not93215 = icmp eq ptr %125, null
+  %.not93 = or i1 %.not93215, %128
   br i1 %.not93, label %.thread183, label %129
 
 129:                                              ; preds = %.thread
@@ -590,8 +590,8 @@ _ZN5clang9FixItHintD2Ev.exit110:                  ; preds = %111, %_ZNKSt7__cxx1
 145:                                              ; preds = %139
   %146 = load i16, ptr %30, align 8
   %147 = and i16 %146, 511
-  %.not215 = icmp eq i16 %147, 4
-  br i1 %.not215, label %148, label %162
+  %.not217 = icmp eq i16 %147, 4
+  br i1 %.not217, label %148, label %162
 
 148:                                              ; preds = %145
   %149 = load i32, ptr %30, align 8

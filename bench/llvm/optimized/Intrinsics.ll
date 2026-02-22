@@ -10189,7 +10189,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic21getIntrinsicSignatureEj
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8
   %.fr = freeze i32 %17
-  %18 = icmp ugt i32 %.fr, 255
+  %18 = icmp ult i32 %.fr, 256
   %19 = load i64, ptr %11, align 8, !tbaa !135
   switch i64 %19, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread [
     i64 0, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit
@@ -10200,12 +10200,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic21getIntrinsicSignatureEj
   %21 = load ptr, ptr %5, align 8, !tbaa !132
   %.sroa.01.0.copyload.i = load i32, ptr %21, align 4, !tbaa !137
   %.sroa.01.0.copyload.i.fr = freeze i32 %.sroa.01.0.copyload.i
-  %22 = icmp eq i32 %.sroa.01.0.copyload.i.fr, 1
-  %.1.i.not = and i1 %18, %22
-  br i1 %.1.i.not, label %23, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread
+  %22 = icmp ne i32 %.sroa.01.0.copyload.i.fr, 1
+  %.1.i = or i1 %18, %22
+  br i1 %.1.i, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread, label %23
 
 _ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit: ; preds = %15
-  br i1 %18, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread, label %23
+  br i1 %18, label %23, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread
 
 _ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread: ; preds = %15, %20, %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit
   br label %23
@@ -10265,7 +10265,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic21getIntrinsicSignatureEP
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i32, ptr %19, align 8
   %.fr.i = freeze i32 %20
-  %21 = icmp ugt i32 %.fr.i, 255
+  %21 = icmp ult i32 %.fr.i, 256
   %22 = load i64, ptr %14, align 8, !tbaa !135
   switch i64 %22, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i [
     i64 0, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.i
@@ -10276,12 +10276,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic21getIntrinsicSignatureEP
   %24 = load ptr, ptr %4, align 8, !tbaa !132
   %.sroa.01.0.copyload.i.i = load i32, ptr %24, align 4, !tbaa !137
   %.sroa.01.0.copyload.i.fr.i = freeze i32 %.sroa.01.0.copyload.i.i
-  %25 = icmp eq i32 %.sroa.01.0.copyload.i.fr.i, 1
-  %.1.i.not.i = and i1 %21, %25
-  br i1 %.1.i.not.i, label %26, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i
+  %25 = icmp ne i32 %.sroa.01.0.copyload.i.fr.i, 1
+  %.1.i.i = or i1 %21, %25
+  br i1 %.1.i.i, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i, label %26
 
 _ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.i: ; preds = %18
-  br i1 %21, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i, label %26
+  br i1 %21, label %26, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i
 
 _ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i: ; preds = %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.i, %23, %18
   br label %26
@@ -10353,7 +10353,7 @@ define dso_local { ptr, i8 } @_ZN4llvm9Intrinsic25remangleIntrinsicFunctionEPNS_
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %27 = load i32, ptr %26, align 8
   %.fr.i.i = freeze i32 %27
-  %28 = icmp ugt i32 %.fr.i.i, 255
+  %28 = icmp ult i32 %.fr.i.i, 256
   %29 = load i64, ptr %21, align 8, !tbaa !135
   switch i64 %29, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i.i [
     i64 0, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.i.i
@@ -10364,12 +10364,12 @@ define dso_local { ptr, i8 } @_ZN4llvm9Intrinsic25remangleIntrinsicFunctionEPNS_
   %31 = load ptr, ptr %6, align 8, !tbaa !132
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %31, align 4, !tbaa !137
   %.sroa.01.0.copyload.i.fr.i.i = freeze i32 %.sroa.01.0.copyload.i.i.i
-  %32 = icmp eq i32 %.sroa.01.0.copyload.i.fr.i.i, 1
-  %.1.i.not.i.i = and i1 %28, %32
-  br i1 %.1.i.not.i.i, label %33, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i.i
+  %32 = icmp ne i32 %.sroa.01.0.copyload.i.fr.i.i, 1
+  %.1.i.i.i = or i1 %28, %32
+  br i1 %.1.i.i.i, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i.i, label %33
 
 _ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.i.i: ; preds = %25
-  br i1 %28, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i.i, label %33
+  br i1 %28, label %33, label %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i.i
 
 _ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.thread.i.i: ; preds = %_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbRNS_8ArrayRefINS0_13IITDescriptorEEE.exit.i.i, %30, %25
   br label %33

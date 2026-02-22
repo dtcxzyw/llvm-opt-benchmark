@@ -911,23 +911,23 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i: ; preds = %
   %44 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %.pre53
   %45 = load ptr, ptr %44, align 8, !tbaa !60
   %46 = load i8, ptr %45, align 4, !tbaa !63
-  %.fr5.i = freeze i8 %46
-  %47 = add i8 %.fr5.i, -5
-  %switch.i.i.i.i.i.i.i.i.i.i6.i = icmp ult i8 %47, 31
-  %spec.select7.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i6.i, i64 2, i64 0
+  %.fr46.i = freeze i8 %46
+  %47 = add i8 %.fr46.i, -5
+  %switch.i.i.i.i.i.i.i.i.i.i7.i = icmp ult i8 %47, 31
+  %spec.select8.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i7.i, i64 2, i64 0
   br label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i
   %48 = load ptr, ptr %.pre49, align 8, !tbaa !60
   %49 = load i8, ptr %48, align 4, !tbaa !63
-  %.fr.i = freeze i8 %49
-  %50 = add i8 %.fr.i, -5
+  %.fr4.i = freeze i8 %49
+  %50 = add i8 %.fr4.i, -5
   %switch.i.i.i.i.i.i.i.i.i.i.i19 = icmp ult i8 %50, 31
   %spec.select.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i19, i64 2, i64 0
   br label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i
-  %51 = phi i64 [ %spec.select7.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
+  %51 = phi i64 [ %spec.select8.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
   %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %.pre53
   br label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit
 
@@ -3905,11 +3905,11 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i: ; preds =
   %14 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !60
   %16 = load i8, ptr %15, align 4, !tbaa !63
-  %.fr16.i = freeze i8 %16
-  %17 = add i8 %.fr16.i, -5
-  %switch.i.i.i.i.i.i.i.i.i.i17.i = icmp ult i8 %17, 31
-  %spec.select18.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i17.i, i32 -3, i32 -1
-  %spec.select824.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i17.i, i32 3, i32 2
+  %.fr917.i = freeze i8 %16
+  %17 = add i8 %.fr917.i, -5
+  %switch.i.i.i.i.i.i.i.i.i.i18.i = icmp ult i8 %17, 31
+  %spec.select19.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i18.i, i32 -3, i32 -1
+  %spec.select825.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i18.i, i32 3, i32 2
   br label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12._ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.thread7_crit_edge.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i
@@ -3917,8 +3917,8 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12._ZNK12_GLOBAL__N_11
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   %21 = load i8, ptr %20, align 4, !tbaa !63
-  %.fr.i = freeze i8 %21
-  %22 = add i8 %.fr.i, -5
+  %.fr9.i = freeze i8 %21
+  %22 = add i8 %.fr9.i, -5
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %22, 31
   %spec.select.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i, i32 -3, i32 -1
   %spec.select8.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i, i32 3, i32 2
@@ -3933,8 +3933,8 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit: ; preds = %_ZNK4llv
   br i1 %.not26.not, label %.thread, label %.lr.ph.split
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i
-  %27 = phi i32 [ %spec.select824.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i ], [ 2, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
-  %28 = phi i32 [ %spec.select18.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
+  %27 = phi i32 [ %spec.select825.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i ], [ 2, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
+  %28 = phi i32 [ %spec.select19.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
   %29 = trunc i64 %4 to i32
   %30 = lshr i32 %29, 6
   %31 = and i32 %30, 15
@@ -3975,17 +3975,17 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us: ; preds = %.lr.ph.thread,
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.thread
   %48 = load ptr, ptr %37, align 8, !tbaa !60
   %49 = load i8, ptr %48, align 4, !tbaa !63
-  %.fr9.i20.us = freeze i8 %49
-  %50 = add i8 %.fr9.i20.us, -5
-  %switch.i.i.i.i.i.i.i.i.i.i14.i.us = icmp ult i8 %50, 31
-  %spec.select15.i.us = select i1 %switch.i.i.i.i.i.i.i.i.i.i14.i.us, i64 3, i64 1
-  %spec.select8.i21.us = select i1 %switch.i.i.i.i.i.i.i.i.i.i14.i.us, i64 3, i64 2
+  %.fr10.i20.us = freeze i8 %49
+  %50 = add i8 %.fr10.i20.us, -5
+  %switch.i.i.i.i.i.i.i.i.i.i15.i.us = icmp ult i8 %50, 31
+  %spec.select16.i.us = select i1 %switch.i.i.i.i.i.i.i.i.i.i15.i.us, i64 3, i64 1
+  %spec.select8.i21.us = select i1 %switch.i.i.i.i.i.i.i.i.i.i15.i.us, i64 3, i64 2
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us: ; preds = %57, %.lr.ph.split.us.split
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %57 ], [ 0, %.lr.ph.split.us.split ]
   %51 = mul i64 %spec.select8.i21.us, %indvars.iv60
-  %52 = add i64 %51, %spec.select15.i.us
+  %52 = add i64 %51, %spec.select16.i.us
   %53 = and i64 %52, 4294967295
   %54 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %37, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !60
@@ -4033,8 +4033,8 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us: ; preds = %.lr.ph.spl
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %72 = load ptr, ptr %63, align 8, !tbaa !60
   %73 = load i8, ptr %72, align 4, !tbaa !63
-  %.fr9.i20 = freeze i8 %73
-  %74 = add i8 %.fr9.i20, -5
+  %.fr10.i20 = freeze i8 %73
+  %74 = add i8 %.fr10.i20, -5
   %switch.i.i.i.i.i.i.i.i.i.i.i16 = icmp ult i8 %74, 31
   %spec.select.i17 = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i16, i64 3, i64 1
   %spec.select8.i21 = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i16, i64 3, i64 2

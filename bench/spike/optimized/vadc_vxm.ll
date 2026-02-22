@@ -257,11 +257,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vadc_vxmP1
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr132 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr132)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr132, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %114 = and i64 %109, 31
   %115 = getelementptr inbounds nuw i64, ptr %113, i64 %114
@@ -659,11 +659,11 @@ define noundef i64 @_Z19fast_rv64i_vadc_vxmP11processor_t6insn_tm(ptr noundef %0
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr132 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr132)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr132, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %114 = and i64 %109, 31
   %115 = getelementptr inbounds nuw i64, ptr %113, i64 %114
@@ -941,11 +941,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vadc_vxm
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr132 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr132)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr132, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %114 = and i64 %109, 31
   %115 = getelementptr inbounds nuw i64, ptr %113, i64 %114
@@ -1225,11 +1225,11 @@ define noundef i64 @_Z21logged_rv64i_vadc_vxmP11processor_t6insn_tm(ptr noundef 
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr132 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr132)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr132, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %114 = and i64 %109, 31
   %115 = getelementptr inbounds nuw i64, ptr %113, i64 %114
@@ -1507,11 +1507,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vadc_vxmP1
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr159 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr159)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr159, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = and i64 %109, 31
   %114 = icmp samesign ugt i64 %113, 15
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1852,11 +1852,11 @@ define noundef i64 @_Z19fast_rv64e_vadc_vxmP11processor_t6insn_tm(ptr noundef %0
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr159 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr159)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr159, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = and i64 %109, 31
   %114 = icmp samesign ugt i64 %113, 15
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2195,11 +2195,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vadc_vxm
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr159 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr159)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr159, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = and i64 %109, 31
   %114 = icmp samesign ugt i64 %113, 15
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2540,11 +2540,11 @@ define noundef i64 @_Z21logged_rv64e_vadc_vxmP11processor_t6insn_tm(ptr noundef 
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr159 = freeze i64 %97
+  %.fr = freeze i64 %97
   %109 = lshr i64 %1, 15
-  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr159)
+  %110 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %111 = icmp eq i64 %110, 1
-  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr159, i1 true)
+  %112 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %113 = and i64 %109, 31
   %114 = icmp samesign ugt i64 %113, 15
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 256

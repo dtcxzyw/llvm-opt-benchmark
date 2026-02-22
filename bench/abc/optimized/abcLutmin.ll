@@ -1111,12 +1111,12 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr noundef readonly captures(none)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr i8, ptr %2, i64 4
   %.val130 = load i32, ptr %12, align 4, !tbaa !3
-  %.val130.fr = freeze i32 %.val130
-  %13 = icmp ult i32 %.val130.fr, 2
-  %14 = add i32 %.val130.fr, -1
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 false)
+  %13 = icmp ult i32 %.val130, 2
+  %14 = add i32 %.val130, -1
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
   %16 = sub nuw nsw i32 32, %15
-  %.09.i = select i1 %13, i32 %.val130.fr, i32 %16
+  %.09.i = select i1 %13, i32 %.val130, i32 %16
+  %.09.i.fr = freeze i32 %.09.i
   %17 = getelementptr i8, ptr %3, i64 4
   %.val129 = load i32, ptr %17, align 4, !tbaa !3
   %18 = icmp ult i32 %.val129, 2
@@ -1136,7 +1136,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr noundef readonly captures(none)
   br label %.preheader135
 
 .preheader135:                                    ; preds = %.preheader135.loopexit, %4
-  %.val128143 = phi i32 [ %.val128143.pre, %.preheader135.loopexit ], [ %.val130.fr, %4 ]
+  %.val128143 = phi i32 [ %.val128143.pre, %.preheader135.loopexit ], [ %.val130, %4 ]
   %23 = icmp sgt i32 %.val128143, 0
   br i1 %23, label %.lr.ph145, label %.critedge.preheader
 
@@ -1144,8 +1144,8 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr noundef readonly captures(none)
   %24 = getelementptr i8, ptr %2, i64 8
   %25 = getelementptr i8, ptr %3, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %wide.trip.count178 = zext nneg i32 %.09.i134 to i64
-  br label %45
+  %wide.trip.count176 = zext nneg i32 %.09.i134 to i64
+  br label %46
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1161,245 +1161,245 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr noundef readonly captures(none)
   br i1 %22, label %.lr.ph151, label %.critedge._crit_edge
 
 .lr.ph151:                                        ; preds = %.critedge.preheader
-  %.not = icmp eq i32 %.09.i, 0
-  %29 = getelementptr i8, ptr %1, i64 32
-  %wide.trip.count186 = zext nneg i32 %.09.i134 to i64
-  br i1 %.not, label %.critedge, label %.lr.ph148.us.preheader
+  %29 = icmp sgt i32 %.09.i.fr, 0
+  %30 = getelementptr i8, ptr %1, i64 32
+  %wide.trip.count194 = zext nneg i32 %.09.i134 to i64
+  br i1 %29, label %.lr.ph148.us.preheader, label %.critedge
 
 .lr.ph148.us.preheader:                           ; preds = %.lr.ph151
-  %wide.trip.count191 = zext nneg i32 %.09.i to i64
+  %wide.trip.count189 = zext nneg i32 %.09.i.fr to i64
   br label %.lr.ph148.us
 
 .lr.ph148.us:                                     ; preds = %.lr.ph148.us.preheader, %._crit_edge149.us
-  %indvars.iv193 = phi i64 [ 0, %.lr.ph148.us.preheader ], [ %indvars.iv.next194, %._crit_edge149.us ]
-  %30 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
-  %31 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv193
-  store ptr %30, ptr %31, align 8, !tbaa !49
-  br label %32
+  %indvars.iv191 = phi i64 [ 0, %.lr.ph148.us.preheader ], [ %indvars.iv.next192, %._crit_edge149.us ]
+  %31 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
+  %32 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv191
+  store ptr %31, ptr %32, align 8, !tbaa !49
+  br label %33
 
-32:                                               ; preds = %.lr.ph148.us, %32
-  %indvars.iv188 = phi i64 [ 0, %.lr.ph148.us ], [ %indvars.iv.next189, %32 ]
+33:                                               ; preds = %.lr.ph148.us, %33
+  %indvars.iv186 = phi i64 [ 0, %.lr.ph148.us ], [ %indvars.iv.next187, %33 ]
   %.val124.us = load ptr, ptr %1, align 8, !tbaa !15
-  %.val125.us = load ptr, ptr %29, align 8, !tbaa !16
-  %33 = getelementptr i8, ptr %.val124.us, i64 32
-  %.val124.val.us = load ptr, ptr %33, align 8, !tbaa !17
-  %34 = getelementptr i8, ptr %.val124.val.us, i64 8
-  %.val124.val.val.us = load ptr, ptr %34, align 8, !tbaa !31
-  %35 = getelementptr inbounds nuw i32, ptr %.val125.us, i64 %indvars.iv188
-  %36 = load i32, ptr %35, align 4, !tbaa !32
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val124.val.val.us, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %41 = load ptr, ptr %40, align 8, !tbaa !50
-  tail call void @Abc_ObjAddFanin(ptr noundef %30, ptr noundef %41) #22
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %._crit_edge149.us, label %32, !llvm.loop !58
+  %.val125.us = load ptr, ptr %30, align 8, !tbaa !16
+  %34 = getelementptr i8, ptr %.val124.us, i64 32
+  %.val124.val.us = load ptr, ptr %34, align 8, !tbaa !17
+  %35 = getelementptr i8, ptr %.val124.val.us, i64 8
+  %.val124.val.val.us = load ptr, ptr %35, align 8, !tbaa !31
+  %36 = getelementptr inbounds nuw i32, ptr %.val125.us, i64 %indvars.iv186
+  %37 = load i32, ptr %36, align 4, !tbaa !32
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds ptr, ptr %.val124.val.val.us, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !33
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %42 = load ptr, ptr %41, align 8, !tbaa !50
+  tail call void @Abc_ObjAddFanin(ptr noundef %31, ptr noundef %42) #22
+  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
+  %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
+  br i1 %exitcond190.not, label %._crit_edge149.us, label %33, !llvm.loop !58
 
-._crit_edge149.us:                                ; preds = %32
-  %42 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv193
-  %43 = load ptr, ptr %42, align 8, !tbaa !56
-  %44 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store ptr %43, ptr %44, align 8, !tbaa !50
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count186
-  br i1 %exitcond197.not, label %.critedge._crit_edge, label %.lr.ph148.us, !llvm.loop !59
+._crit_edge149.us:                                ; preds = %33
+  %43 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv191
+  %44 = load ptr, ptr %43, align 8, !tbaa !56
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store ptr %44, ptr %45, align 8, !tbaa !50
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
+  br i1 %exitcond195.not, label %.critedge._crit_edge, label %.lr.ph148.us, !llvm.loop !59
 
-45:                                               ; preds = %.lr.ph145, %._crit_edge
-  %.val128210 = phi i32 [ %.val128143, %.lr.ph145 ], [ %.val128, %._crit_edge ]
-  %indvars.iv180 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next181, %._crit_edge ]
+46:                                               ; preds = %.lr.ph145, %._crit_edge
+  %.val128208 = phi i32 [ %.val128143, %.lr.ph145 ], [ %.val128, %._crit_edge ]
+  %indvars.iv178 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next179, %._crit_edge ]
   %.val131 = load ptr, ptr %24, align 8, !tbaa !31
-  %46 = getelementptr inbounds nuw ptr, ptr %.val131, i64 %indvars.iv180
-  %47 = load ptr, ptr %46, align 8, !tbaa !33
+  %47 = getelementptr inbounds nuw ptr, ptr %.val131, i64 %indvars.iv178
+  %48 = load ptr, ptr %47, align 8, !tbaa !33
   %.val127 = load i32, ptr %17, align 4, !tbaa !3
-  %48 = icmp sgt i32 %.val127, 0
-  br i1 %48, label %.lr.ph138, label %.critedge2
+  %49 = icmp sgt i32 %.val127, 0
+  br i1 %49, label %.lr.ph138, label %.critedge2
 
-.lr.ph138:                                        ; preds = %45
+.lr.ph138:                                        ; preds = %46
   %.val132 = load ptr, ptr %25, align 8, !tbaa !31
-  %wide.trip.count173 = zext nneg i32 %.val127 to i64
-  br label %49
+  %wide.trip.count171 = zext nneg i32 %.val127 to i64
+  br label %50
 
-49:                                               ; preds = %.lr.ph138, %53
-  %indvars.iv170 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next171, %53 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %.val132, i64 %indvars.iv170
-  %51 = load ptr, ptr %50, align 8, !tbaa !33
-  %52 = icmp eq ptr %51, %47
-  br i1 %52, label %.critedge2.loopexit.split.loop.exit213, label %53
+50:                                               ; preds = %.lr.ph138, %54
+  %indvars.iv168 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next169, %54 ]
+  %51 = getelementptr inbounds nuw ptr, ptr %.val132, i64 %indvars.iv168
+  %52 = load ptr, ptr %51, align 8, !tbaa !33
+  %53 = icmp eq ptr %52, %48
+  br i1 %53, label %.critedge2.loopexit.split.loop.exit211, label %54
 
-53:                                               ; preds = %49
-  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
-  br i1 %exitcond174.not, label %.critedge2, label %49, !llvm.loop !60
+54:                                               ; preds = %50
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
+  br i1 %exitcond172.not, label %.critedge2, label %50, !llvm.loop !60
 
-.critedge2.loopexit.split.loop.exit213:           ; preds = %49
-  %54 = trunc nuw nsw i64 %indvars.iv170 to i32
+.critedge2.loopexit.split.loop.exit211:           ; preds = %50
+  %55 = trunc nuw nsw i64 %indvars.iv168 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %53, %.critedge2.loopexit.split.loop.exit213, %45
-  %.0114.lcssa = phi i32 [ 0, %45 ], [ %54, %.critedge2.loopexit.split.loop.exit213 ], [ %.val127, %53 ]
+.critedge2:                                       ; preds = %54, %.critedge2.loopexit.split.loop.exit211, %46
+  %.0114.lcssa = phi i32 [ 0, %46 ], [ %55, %.critedge2.loopexit.split.loop.exit211 ], [ %.val127, %54 ]
   br i1 %22, label %.lr.ph142.preheader, label %._crit_edge
 
 .lr.ph142.preheader:                              ; preds = %.critedge2
-  %55 = trunc nuw nsw i64 %indvars.iv180 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv178 to i32
   br label %.lr.ph142
 
-.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %66
-  %indvars.iv175 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next176, %66 ]
-  %56 = trunc nuw nsw i64 %indvars.iv175 to i32
-  %57 = shl nuw i32 1, %56
-  %58 = and i32 %57, %.0114.lcssa
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %66, label %60
+.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %67
+  %indvars.iv173 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next174, %67 ]
+  %57 = trunc nuw nsw i64 %indvars.iv173 to i32
+  %58 = shl nuw i32 1, %57
+  %59 = and i32 %58, %.0114.lcssa
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %67, label %61
 
-60:                                               ; preds = %.lr.ph142
-  %61 = load ptr, ptr %26, align 8, !tbaa !61
-  %62 = tail call ptr @Extra_bddBitsToCube(ptr noundef %11, i32 noundef %55, i32 noundef %.09.i, ptr noundef %61, i32 noundef 1) #22
-  tail call void @Cudd_Ref(ptr noundef %62) #22
-  %63 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv175
-  %64 = load ptr, ptr %63, align 8, !tbaa !56
-  %65 = tail call ptr @Cudd_bddOr(ptr noundef %11, ptr noundef %64, ptr noundef %62) #22
-  store ptr %65, ptr %63, align 8, !tbaa !56
-  tail call void @Cudd_Ref(ptr noundef %65) #22
-  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %64) #22
-  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %62) #22
-  br label %66
+61:                                               ; preds = %.lr.ph142
+  %62 = load ptr, ptr %26, align 8, !tbaa !61
+  %63 = tail call ptr @Extra_bddBitsToCube(ptr noundef %11, i32 noundef %56, i32 noundef %.09.i.fr, ptr noundef %62, i32 noundef 1) #22
+  tail call void @Cudd_Ref(ptr noundef %63) #22
+  %64 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv173
+  %65 = load ptr, ptr %64, align 8, !tbaa !56
+  %66 = tail call ptr @Cudd_bddOr(ptr noundef %11, ptr noundef %65, ptr noundef %63) #22
+  store ptr %66, ptr %64, align 8, !tbaa !56
+  tail call void @Cudd_Ref(ptr noundef %66) #22
+  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %65) #22
+  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %63) #22
+  br label %67
 
-66:                                               ; preds = %.lr.ph142, %60
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge.loopexit, label %.lr.ph142, !llvm.loop !72
+67:                                               ; preds = %.lr.ph142, %61
+  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
+  br i1 %exitcond177.not, label %._crit_edge.loopexit, label %.lr.ph142, !llvm.loop !72
 
-._crit_edge.loopexit:                             ; preds = %66
+._crit_edge.loopexit:                             ; preds = %67
   %.val128.pre = load i32, ptr %12, align 4, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge2
-  %.val128 = phi i32 [ %.val128.pre, %._crit_edge.loopexit ], [ %.val128210, %.critedge2 ]
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %67 = sext i32 %.val128 to i64
-  %68 = icmp slt i64 %indvars.iv.next181, %67
-  br i1 %68, label %45, label %.critedge.preheader, !llvm.loop !73
+  %.val128 = phi i32 [ %.val128.pre, %._crit_edge.loopexit ], [ %.val128208, %.critedge2 ]
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %68 = sext i32 %.val128 to i64
+  %69 = icmp slt i64 %indvars.iv.next179, %68
+  br i1 %69, label %46, label %.critedge.preheader, !llvm.loop !73
 
 .critedge:                                        ; preds = %.lr.ph151, %.critedge
-  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.critedge ], [ 0, %.lr.ph151 ]
-  %69 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
-  %70 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv183
-  store ptr %69, ptr %70, align 8, !tbaa !49
-  %71 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv183
-  %72 = load ptr, ptr %71, align 8, !tbaa !56
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  store ptr %72, ptr %73, align 8, !tbaa !50
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %.critedge._crit_edge, label %.critedge, !llvm.loop !59
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.critedge ], [ 0, %.lr.ph151 ]
+  %70 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
+  %71 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv181
+  store ptr %70, ptr %71, align 8, !tbaa !49
+  %72 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv181
+  %73 = load ptr, ptr %72, align 8, !tbaa !56
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 56
+  store ptr %73, ptr %74, align 8, !tbaa !50
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count194
+  br i1 %exitcond185.not, label %.critedge._crit_edge, label %.critedge, !llvm.loop !59
 
-.critedge._crit_edge:                             ; preds = %._crit_edge149.us, %.critedge, %.critedge.preheader
-  %74 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
-  %75 = getelementptr i8, ptr %1, i64 28
-  %.val121152 = load i32, ptr %75, align 4, !tbaa !9
-  %76 = icmp slt i32 %.09.i, %.val121152
-  br i1 %76, label %.lr.ph155, label %.preheader
+.critedge._crit_edge:                             ; preds = %.critedge, %._crit_edge149.us, %.critedge.preheader
+  %75 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
+  %76 = getelementptr i8, ptr %1, i64 28
+  %.val121152 = load i32, ptr %76, align 4, !tbaa !9
+  %77 = icmp slt i32 %.09.i.fr, %.val121152
+  br i1 %77, label %.lr.ph155, label %.preheader
 
 .lr.ph155:                                        ; preds = %.critedge._crit_edge
-  %77 = getelementptr i8, ptr %1, i64 32
-  %78 = zext nneg i32 %.09.i to i64
-  br label %79
+  %78 = getelementptr i8, ptr %1, i64 32
+  %79 = sext i32 %.09.i.fr to i64
+  br label %80
 
-.preheader:                                       ; preds = %79, %.critedge._crit_edge
+.preheader:                                       ; preds = %80, %.critedge._crit_edge
   br i1 %22, label %.lr.ph157.preheader, label %._crit_edge158
 
 .lr.ph157.preheader:                              ; preds = %.preheader
-  %wide.trip.count204 = zext nneg i32 %.09.i134 to i64
+  %wide.trip.count202 = zext nneg i32 %.09.i134 to i64
   br label %.lr.ph157
 
-79:                                               ; preds = %.lr.ph155, %79
-  %indvars.iv198 = phi i64 [ %78, %.lr.ph155 ], [ %indvars.iv.next199, %79 ]
+80:                                               ; preds = %.lr.ph155, %80
+  %indvars.iv196 = phi i64 [ %79, %.lr.ph155 ], [ %indvars.iv.next197, %80 ]
   %.val122 = load ptr, ptr %1, align 8, !tbaa !15
-  %.val123 = load ptr, ptr %77, align 8, !tbaa !16
-  %80 = getelementptr i8, ptr %.val122, i64 32
-  %.val122.val = load ptr, ptr %80, align 8, !tbaa !17
-  %81 = getelementptr i8, ptr %.val122.val, i64 8
-  %.val122.val.val = load ptr, ptr %81, align 8, !tbaa !31
-  %82 = getelementptr inbounds nuw i32, ptr %.val123, i64 %indvars.iv198
-  %83 = load i32, ptr %82, align 4, !tbaa !32
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %.val122.val.val, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !33
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %88 = load ptr, ptr %87, align 8, !tbaa !50
-  tail call void @Abc_ObjAddFanin(ptr noundef %74, ptr noundef %88) #22
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %.val121 = load i32, ptr %75, align 4, !tbaa !9
-  %89 = trunc nuw i64 %indvars.iv.next199 to i32
-  %90 = icmp sgt i32 %.val121, %89
-  br i1 %90, label %79, label %.preheader, !llvm.loop !74
+  %.val123 = load ptr, ptr %78, align 8, !tbaa !16
+  %81 = getelementptr i8, ptr %.val122, i64 32
+  %.val122.val = load ptr, ptr %81, align 8, !tbaa !17
+  %82 = getelementptr i8, ptr %.val122.val, i64 8
+  %.val122.val.val = load ptr, ptr %82, align 8, !tbaa !31
+  %83 = getelementptr inbounds i32, ptr %.val123, i64 %indvars.iv196
+  %84 = load i32, ptr %83, align 4, !tbaa !32
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds ptr, ptr %.val122.val.val, i64 %85
+  %87 = load ptr, ptr %86, align 8, !tbaa !33
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  %89 = load ptr, ptr %88, align 8, !tbaa !50
+  tail call void @Abc_ObjAddFanin(ptr noundef %75, ptr noundef %89) #22
+  %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
+  %.val121 = load i32, ptr %76, align 4, !tbaa !9
+  %90 = sext i32 %.val121 to i64
+  %91 = icmp slt i64 %indvars.iv.next197, %90
+  br i1 %91, label %80, label %.preheader, !llvm.loop !74
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
-  %indvars.iv201 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next202, %.lr.ph157 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv201
-  %92 = load ptr, ptr %91, align 8, !tbaa !49
-  tail call void @Abc_ObjAddFanin(ptr noundef %74, ptr noundef %92) #22
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !75
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next200, %.lr.ph157 ]
+  %92 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv199
+  %93 = load ptr, ptr %92, align 8, !tbaa !49
+  tail call void @Abc_ObjAddFanin(ptr noundef %75, ptr noundef %93) #22
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
+  br i1 %exitcond203.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !75
 
 ._crit_edge158:                                   ; preds = %.lr.ph157, %.preheader
-  %93 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %11) #22
-  tail call void @Cudd_Ref(ptr noundef %93) #22
-  %94 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %95 = load ptr, ptr %94, align 8, !tbaa !61
-  %.val = load i32, ptr %75, align 4, !tbaa !9
-  %96 = sext i32 %.val to i64
-  %97 = getelementptr inbounds ptr, ptr %95, i64 %96
-  %98 = zext nneg i32 %.09.i to i64
-  %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds ptr, ptr %97, i64 %99
+  %94 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %11) #22
+  tail call void @Cudd_Ref(ptr noundef %94) #22
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 344
+  %96 = load ptr, ptr %95, align 8, !tbaa !61
+  %.val = load i32, ptr %76, align 4, !tbaa !9
+  %97 = sext i32 %.val to i64
+  %98 = getelementptr inbounds ptr, ptr %96, i64 %97
+  %99 = sext i32 %.09.i.fr to i64
+  %100 = sub nsw i64 0, %99
+  %101 = getelementptr inbounds ptr, ptr %98, i64 %100
   %.val126159 = load i32, ptr %17, align 4, !tbaa !3
-  %101 = icmp sgt i32 %.val126159, 0
-  br i1 %101, label %.lr.ph163, label %.critedge4
+  %102 = icmp sgt i32 %.val126159, 0
+  br i1 %102, label %.lr.ph163, label %.critedge4
 
 .lr.ph163:                                        ; preds = %._crit_edge158
-  %102 = getelementptr i8, ptr %3, i64 8
-  %103 = sub nsw i32 0, %.09.i
-  br label %104
+  %103 = getelementptr i8, ptr %3, i64 8
+  %104 = sub nsw i32 0, %.09.i.fr
+  br label %105
 
-104:                                              ; preds = %.lr.ph163, %104
-  %indvars.iv206 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next207, %104 ]
-  %.0119160 = phi ptr [ %93, %.lr.ph163 ], [ %112, %104 ]
-  %.val133 = load ptr, ptr %102, align 8, !tbaa !31
-  %105 = getelementptr inbounds nuw ptr, ptr %.val133, i64 %indvars.iv206
-  %106 = load ptr, ptr %105, align 8, !tbaa !33
-  %107 = tail call ptr @Extra_bddMove(ptr noundef %9, ptr noundef %106, i32 noundef %103) #22
-  tail call void @Cudd_Ref(ptr noundef %107) #22
-  %108 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %9, ptr noundef nonnull %11, ptr noundef %107) #22
+105:                                              ; preds = %.lr.ph163, %105
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next205, %105 ]
+  %.0119160 = phi ptr [ %94, %.lr.ph163 ], [ %113, %105 ]
+  %.val133 = load ptr, ptr %103, align 8, !tbaa !31
+  %106 = getelementptr inbounds nuw ptr, ptr %.val133, i64 %indvars.iv204
+  %107 = load ptr, ptr %106, align 8, !tbaa !33
+  %108 = tail call ptr @Extra_bddMove(ptr noundef %9, ptr noundef %107, i32 noundef %104) #22
   tail call void @Cudd_Ref(ptr noundef %108) #22
-  tail call void @Cudd_RecursiveDeref(ptr noundef %9, ptr noundef %107) #22
-  %109 = trunc nuw nsw i64 %indvars.iv206 to i32
-  %110 = tail call ptr @Extra_bddBitsToCube(ptr noundef nonnull %11, i32 noundef %109, i32 noundef %.09.i134, ptr noundef %100, i32 noundef 0) #22
-  tail call void @Cudd_Ref(ptr noundef %110) #22
-  %111 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %11, ptr noundef %110, ptr noundef %108) #22
+  %109 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %9, ptr noundef nonnull %11, ptr noundef %108) #22
+  tail call void @Cudd_Ref(ptr noundef %109) #22
+  tail call void @Cudd_RecursiveDeref(ptr noundef %9, ptr noundef %108) #22
+  %110 = trunc nuw nsw i64 %indvars.iv204 to i32
+  %111 = tail call ptr @Extra_bddBitsToCube(ptr noundef nonnull %11, i32 noundef %110, i32 noundef %.09.i134, ptr noundef %101, i32 noundef 0) #22
   tail call void @Cudd_Ref(ptr noundef %111) #22
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %110) #22
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %108) #22
-  %112 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %11, ptr noundef %.0119160, ptr noundef %111) #22
+  %112 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %11, ptr noundef %111, ptr noundef %109) #22
   tail call void @Cudd_Ref(ptr noundef %112) #22
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %.0119160) #22
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %111) #22
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %109) #22
+  %113 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %11, ptr noundef %.0119160, ptr noundef %112) #22
+  tail call void @Cudd_Ref(ptr noundef %113) #22
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %.0119160) #22
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %112) #22
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %.val126 = load i32, ptr %17, align 4, !tbaa !3
-  %113 = sext i32 %.val126 to i64
-  %114 = icmp slt i64 %indvars.iv.next207, %113
-  br i1 %114, label %104, label %.critedge4, !llvm.loop !76
+  %114 = sext i32 %.val126 to i64
+  %115 = icmp slt i64 %indvars.iv.next205, %114
+  br i1 %115, label %105, label %.critedge4, !llvm.loop !76
 
-.critedge4:                                       ; preds = %104, %._crit_edge158
-  %.0119.lcssa = phi ptr [ %93, %._crit_edge158 ], [ %112, %104 ]
-  %115 = getelementptr inbounds nuw i8, ptr %74, i64 56
-  store ptr %.0119.lcssa, ptr %115, align 8, !tbaa !50
+.critedge4:                                       ; preds = %105, %._crit_edge158
+  %.0119.lcssa = phi ptr [ %94, %._crit_edge158 ], [ %113, %105 ]
+  %116 = getelementptr inbounds nuw i8, ptr %75, i64 56
+  store ptr %.0119.lcssa, ptr %116, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %74
+  ret ptr %75
 }
 
 declare ptr @Cudd_ReadLogicZero(ptr noundef) local_unnamed_addr #3

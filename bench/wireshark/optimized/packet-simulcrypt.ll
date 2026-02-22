@@ -905,12 +905,11 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   %60 = load i32, ptr @hf_simulcrypt_ca_system_id, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
   %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %.fr165.i = freeze i16 %62
-  %63 = zext i16 %.fr165.i to i32
+  %63 = zext i16 %62 to i32
   %64 = load i32, ptr @tab_ecm_inter.0, align 16
-  %.fr164.i = freeze i32 %64
-  %65 = icmp eq i32 %.fr164.i, %63
-  br i1 %65, label %.split163.us.i, label %.loopexit.i, !llvm.loop !6
+  %65 = icmp eq i32 %64, %63
+  %.fr.i = freeze i1 %65
+  br i1 %.fr.i, label %.split163.us.i, label %.loopexit.i, !llvm.loop !6
 
 .split163.us.i:                                   ; preds = %55
   %66 = load i32, ptr %12, align 8
@@ -1216,12 +1215,11 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   %231 = load i32, ptr @hf_simulcrypt_ca_system_id, align 4
   %232 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
   %233 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %.fr8 = freeze i16 %233
-  %234 = zext i16 %.fr8 to i32
+  %234 = zext i16 %233 to i32
   %235 = load i32, ptr @tab_ecm_inter.0, align 16
-  %.fr7 = freeze i32 %235
-  %236 = icmp eq i32 %.fr7, %234
-  br i1 %236, label %.split.us, label %.loopexit.split, !llvm.loop !9
+  %236 = icmp eq i32 %235, %234
+  %.fr = freeze i1 %236
+  br i1 %.fr, label %.split.us, label %.loopexit.split, !llvm.loop !9
 
 .split.us:                                        ; preds = %226
   %237 = load i32, ptr %12, align 8

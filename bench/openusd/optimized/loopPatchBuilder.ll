@@ -4780,12 +4780,12 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE23a
   br label %161
 
 161:                                              ; preds = %141, %137
-  %.sink181 = phi i64 [ 16, %141 ], [ 8, %137 ]
+  %.sink182 = phi i64 [ 16, %141 ], [ 8, %137 ]
   %.sink.in = phi ptr [ %160, %141 ], [ %133, %137 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink181
+  %162 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink182
   store i32 %.sink, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink181
+  %163 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink182
   store float 0.000000e+00, ptr %163, align 4
   %164 = load i16, ptr %29, align 8
   %165 = and i16 %164, 128
@@ -4834,14 +4834,14 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE23a
   br label %190
 
 190:                                              ; preds = %166, %170, %38
-  %.sink187 = phi i64 [ 8, %166 ], [ 16, %170 ], [ 24, %38 ]
-  %.sink185.in = phi ptr [ %31, %166 ], [ %189, %170 ], [ %130, %38 ]
-  %.sink182 = phi float [ 0.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ 0x3FC1C71C80000000, %38 ]
-  %.sink185 = load i32, ptr %.sink185.in, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink187
-  store i32 %.sink185, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink187
-  store float %.sink182, ptr %192, align 4
+  %.sink188 = phi i64 [ 8, %166 ], [ 16, %170 ], [ 24, %38 ]
+  %.sink186.in = phi ptr [ %31, %166 ], [ %189, %170 ], [ %130, %38 ]
+  %.sink183 = phi float [ 0.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ 0x3FC1C71C80000000, %38 ]
+  %.sink186 = load i32, ptr %.sink186.in, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink188
+  store i32 %.sink186, ptr %191, align 4
+  %192 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink188
+  store float %.sink183, ptr %192, align 4
   ret void
 }
 
@@ -10380,13 +10380,13 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE23a
   br label %161
 
 161:                                              ; preds = %141, %137
-  %.sink181 = phi i64 [ 16, %141 ], [ 8, %137 ]
+  %.sink182 = phi i64 [ 16, %141 ], [ 8, %137 ]
   %.sink.in = phi ptr [ %160, %141 ], [ %133, %137 ]
-  %.sink179 = phi i64 [ 32, %141 ], [ 16, %137 ]
+  %.sink180 = phi i64 [ 32, %141 ], [ 16, %137 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink181
+  %162 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink182
   store i32 %.sink, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink179
+  %163 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink180
   store double 0.000000e+00, ptr %163, align 8
   %164 = load i16, ptr %29, align 8
   %165 = and i16 %164, 128
@@ -10435,15 +10435,15 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE23a
   br label %190
 
 190:                                              ; preds = %166, %170, %38
-  %.sink187 = phi i64 [ 8, %166 ], [ 16, %170 ], [ 24, %38 ]
-  %.sink185.in = phi ptr [ %31, %166 ], [ %189, %170 ], [ %130, %38 ]
-  %.sink184 = phi i64 [ 16, %166 ], [ 32, %170 ], [ 48, %38 ]
-  %.sink182 = phi double [ 0.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ 0x3FC1C71C71C71C72, %38 ]
-  %.sink185 = load i32, ptr %.sink185.in, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink187
-  store i32 %.sink185, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink184
-  store double %.sink182, ptr %192, align 8
+  %.sink188 = phi i64 [ 8, %166 ], [ 16, %170 ], [ 24, %38 ]
+  %.sink186.in = phi ptr [ %31, %166 ], [ %189, %170 ], [ %130, %38 ]
+  %.sink185 = phi i64 [ 16, %166 ], [ 32, %170 ], [ 48, %38 ]
+  %.sink183 = phi double [ 0.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ 0x3FC1C71C71C71C72, %38 ]
+  %.sink186 = load i32, ptr %.sink186.in, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink188
+  store i32 %.sink186, ptr %191, align 4
+  %192 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink185
+  store double %.sink183, ptr %192, align 8
   ret void
 }
 

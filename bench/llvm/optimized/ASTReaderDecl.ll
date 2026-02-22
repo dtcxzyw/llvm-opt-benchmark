@@ -1127,25 +1127,23 @@ define dso_local void @_ZN5clang13ASTDeclReader22ReadFunctionDefinitionEPNS_12Fu
   %65 = load ptr, ptr %60, align 8, !tbaa !111
   %66 = getelementptr inbounds nuw i64, ptr %65, i64 %64
   %67 = load i64, ptr %66, align 8, !tbaa !112
-  %.fr13 = freeze i64 %67
-  %.not.i.i = icmp eq i64 %.fr13, 0
+  %.not.i.i = icmp eq i64 %67, 0
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load i64, ptr %68, align 8
-  %.fr = freeze i64 %69
-  %.not2.i = icmp eq i64 %.fr, %.fr13
-  %.not.i = or i1 %.not.i.i, %.not2.i
+  %.not2.i = icmp eq i64 %69, %67
+  %.not.i = select i1 %.not.i.i, i1 true, i1 %.not2.i
   br i1 %.not.i, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit
 
 _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit: ; preds = %58
-  %70 = sub i64 %.fr, %.fr13
+  %70 = sub i64 %69, %67
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !884
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 432
   %74 = load i64, ptr %73, align 8, !tbaa !25
-  %.fr14 = freeze i64 %74
-  %75 = add i64 %.fr14, %70
-  %76 = icmp eq i64 %75, 0
-  %77 = shl i64 %75, 1
+  %75 = add i64 %70, %74
+  %.fr = freeze i64 %75
+  %76 = icmp eq i64 %.fr, 0
+  %77 = shl i64 %.fr, 1
   %78 = or disjoint i64 %77, 1
   %spec.select = select i1 %76, i64 0, i64 %78
   br label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread
@@ -12623,25 +12621,23 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit20: ; preds = %_ZNK5clang9AST
   %166 = zext i32 %157 to i64
   %167 = getelementptr inbounds nuw i64, ptr %159, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !112
-  %.fr23 = freeze i64 %168
-  %.not.i.i = icmp eq i64 %.fr23, 0
+  %.not.i.i = icmp eq i64 %168, 0
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %170 = load i64, ptr %169, align 8
-  %.fr = freeze i64 %170
-  %.not2.i = icmp eq i64 %.fr, %.fr23
-  %.not.i = or i1 %.not.i.i, %.not2.i
+  %.not2.i = icmp eq i64 %170, %168
+  %.not.i = select i1 %.not.i.i, i1 true, i1 %.not2.i
   br i1 %.not.i, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit
 
 _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit: ; preds = %164
-  %171 = sub i64 %.fr, %.fr23
+  %171 = sub i64 %170, %168
   %172 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !884
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 432
   %175 = load i64, ptr %174, align 8, !tbaa !25
-  %.fr24 = freeze i64 %175
-  %176 = add i64 %.fr24, %171
-  %177 = icmp eq i64 %176, 0
-  %178 = shl i64 %176, 1
+  %176 = add i64 %171, %175
+  %.fr = freeze i64 %176
+  %177 = icmp eq i64 %.fr, 0
+  %178 = shl i64 %.fr, 1
   %179 = or disjoint i64 %178, 1
   %spec.select = select i1 %177, i64 0, i64 %179
   br label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread
@@ -18433,11 +18429,11 @@ define dso_local void @_ZN5clang13ASTDeclReader21ReadCXXDefinitionDataERNS_13CXX
   %98 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclEbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEEEES5_bS7_SA_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %96, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store i8 %95, ptr %98, align 1, !tbaa !883
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre344 = load ptr, ptr %8, align 8, !tbaa !103
+  %.pre341 = load ptr, ptr %8, align 8, !tbaa !103
   br label %99
 
 99:                                               ; preds = %94, %5
-  %100 = phi ptr [ %.pre344, %94 ], [ %69, %5 ]
+  %100 = phi ptr [ %.pre341, %94 ], [ %69, %5 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @_ZN5clang15ASTRecordReader17readUnresolvedSetERNS_20LazyASTUnresolvedSetE(ptr noundef nonnull align 8 dereferenceable(560) %100, ptr noundef nonnull align 8 dereferenceable(24) %101) #27
   %102 = load ptr, ptr %8, align 8, !tbaa !103
@@ -18465,11 +18461,11 @@ define dso_local void @_ZN5clang13ASTDeclReader21ReadCXXDefinitionDataERNS_13CXX
   %119 = load ptr, ptr %8, align 8, !tbaa !103
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @_ZN5clang15ASTRecordReader17readUnresolvedSetERNS_20LazyASTUnresolvedSetE(ptr noundef nonnull align 8 dereferenceable(560) %119, ptr noundef nonnull align 8 dereferenceable(24) %120) #27
-  %.pre345 = load i32, ptr %51, align 8
+  %.pre342 = load i32, ptr %51, align 8
   br label %121
 
 121:                                              ; preds = %118, %99
-  %122 = phi i32 [ %.pre345, %118 ], [ %116, %99 ]
+  %122 = phi i32 [ %.pre342, %118 ], [ %116, %99 ]
   %123 = and i32 %122, 2097152
   %.not110 = icmp eq i32 %123, 0
   %124 = load ptr, ptr %8, align 8, !tbaa !103
@@ -18497,25 +18493,23 @@ define dso_local void @_ZN5clang13ASTDeclReader21ReadCXXDefinitionDataERNS_13CXX
   %138 = zext i32 %128 to i64
   %139 = getelementptr inbounds nuw i64, ptr %130, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !112
-  %.fr309 = freeze i64 %140
-  %.not.i.i = icmp eq i64 %.fr309, 0
+  %.not.i.i = icmp eq i64 %140, 0
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %142 = load i64, ptr %141, align 8
-  %.fr = freeze i64 %142
-  %.not2.i = icmp eq i64 %.fr, %.fr309
-  %.not.i = or i1 %.not.i.i, %.not2.i
+  %.not2.i = icmp eq i64 %142, %140
+  %.not.i = select i1 %.not.i.i, i1 true, i1 %.not2.i
   br i1 %.not.i, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit
 
 _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit: ; preds = %136
-  %143 = sub i64 %.fr, %.fr309
+  %143 = sub i64 %142, %140
   %144 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !884
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 432
   %147 = load i64, ptr %146, align 8, !tbaa !25
-  %.fr310 = freeze i64 %147
-  %148 = add i64 %.fr310, %143
-  %149 = icmp eq i64 %148, 0
-  %150 = shl i64 %148, 1
+  %148 = add i64 %143, %147
+  %.fr = freeze i64 %148
+  %149 = icmp eq i64 %.fr, 0
+  %150 = shl i64 %.fr, 1
   %151 = or disjoint i64 %150, 1
   %spec.select = select i1 %149, i64 0, i64 %151
   br label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread
@@ -18524,17 +18518,17 @@ _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread: ; preds = %136, %_ZN5c
   %152 = phi i64 [ %spec.select, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit ], [ 0, %136 ]
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %152, ptr %153, align 8, !tbaa !885
-  %.pre348 = load ptr, ptr %8, align 8, !tbaa !103
-  %.phi.trans.insert349 = getelementptr inbounds nuw i8, ptr %.pre348, i64 24
-  %.pre350 = load i32, ptr %.phi.trans.insert349, align 8, !tbaa !104
-  %.phi.trans.insert351 = getelementptr inbounds nuw i8, ptr %.pre348, i64 32
-  %.pre352 = load ptr, ptr %.phi.trans.insert351, align 8, !tbaa !111
+  %.pre345 = load ptr, ptr %8, align 8, !tbaa !103
+  %.phi.trans.insert346 = getelementptr inbounds nuw i8, ptr %.pre345, i64 24
+  %.pre347 = load i32, ptr %.phi.trans.insert346, align 8, !tbaa !104
+  %.phi.trans.insert348 = getelementptr inbounds nuw i8, ptr %.pre345, i64 32
+  %.pre349 = load ptr, ptr %.phi.trans.insert348, align 8, !tbaa !111
   br label %154
 
 154:                                              ; preds = %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread, %133
-  %155 = phi ptr [ %.pre352, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread ], [ %130, %133 ]
-  %156 = phi i32 [ %.pre350, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread ], [ %128, %133 ]
-  %157 = phi ptr [ %.pre348, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread ], [ %124, %133 ]
+  %155 = phi ptr [ %.pre349, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread ], [ %130, %133 ]
+  %156 = phi i32 [ %.pre347, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread ], [ %128, %133 ]
+  %157 = phi ptr [ %.pre345, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread ], [ %124, %133 ]
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = add i32 %156, 1
   store i32 %159, ptr %158, align 8, !tbaa !104
@@ -18553,25 +18547,23 @@ _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit.thread: ; preds = %136, %_ZN5c
   %167 = zext i32 %159 to i64
   %168 = getelementptr inbounds nuw i64, ptr %155, i64 %167
   %169 = load i64, ptr %168, align 8, !tbaa !112
-  %.fr312 = freeze i64 %169
-  %.not.i.i116 = icmp eq i64 %.fr312, 0
+  %.not.i.i116 = icmp eq i64 %169, 0
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %171 = load i64, ptr %170, align 8
-  %.fr311 = freeze i64 %171
-  %.not2.i117 = icmp eq i64 %.fr311, %.fr312
-  %.not.i118 = or i1 %.not.i.i116, %.not2.i117
+  %.not2.i117 = icmp eq i64 %171, %169
+  %.not.i118 = select i1 %.not.i.i116, i1 true, i1 %.not2.i117
   br i1 %.not.i118, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread, label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119
 
 _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119: ; preds = %165
-  %172 = sub i64 %.fr311, %.fr312
+  %172 = sub i64 %171, %169
   %173 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %174 = load ptr, ptr %173, align 8, !tbaa !884
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 432
   %176 = load i64, ptr %175, align 8, !tbaa !25
-  %.fr313 = freeze i64 %176
-  %177 = add i64 %.fr313, %172
-  %178 = icmp eq i64 %177, 0
-  %179 = shl i64 %177, 1
+  %177 = add i64 %172, %176
+  %.fr309 = freeze i64 %177
+  %178 = icmp eq i64 %.fr309, 0
+  %179 = shl i64 %.fr309, 1
   %180 = or disjoint i64 %179, 1
   %spec.select306 = select i1 %178, i64 0, i64 %180
   br label %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread
@@ -18580,11 +18572,11 @@ _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread: ; preds = %165, %_Z
   %181 = phi i64 [ %spec.select306, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119 ], [ 0, %165 ]
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %181, ptr %182, align 8, !tbaa !885
-  %.pre353 = load ptr, ptr %8, align 8, !tbaa !103
+  %.pre350 = load ptr, ptr %8, align 8, !tbaa !103
   br label %183
 
 183:                                              ; preds = %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread, %154
-  %184 = phi ptr [ %.pre353, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread ], [ %157, %154 ]
+  %184 = phi ptr [ %.pre350, %_ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread ], [ %157, %154 ]
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8, !tbaa !956
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 16
@@ -18706,13 +18698,13 @@ _ZN5clang13ASTDeclReader16ReadGlobalOffsetEv.exit119.thread: ; preds = %165, %_Z
 
 276:                                              ; preds = %253
   %277 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %259, i64 noundef %258, i64 noundef %258, i8 3)
-  %.pre346 = load ptr, ptr %0, align 8, !tbaa !114
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre346, i64 144
-  %.pre347 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !115
+  %.pre343 = load ptr, ptr %0, align 8, !tbaa !114
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre343, i64 144
+  %.pre344 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !115
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit
 
 _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %273, %276
-  %278 = phi ptr [ %256, %273 ], [ %.pre347, %276 ]
+  %278 = phi ptr [ %256, %273 ], [ %.pre344, %276 ]
   %.0.i.i.i = phi ptr [ %275, %273 ], [ %277, %276 ]
   call void @_ZN5clang13CXXRecordDecl20LambdaDefinitionData14AddCaptureListERNS_10ASTContextEPNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(23216) %278, ptr noundef %.0.i.i.i) #27
   br label %279
@@ -18727,12 +18719,12 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %273, %276
   %284 = trunc i64 %283 to i32
   %285 = lshr i32 %284, 5
   %286 = and i32 %285, 32767
-  %.not115314 = icmp eq i32 %286, 0
-  br i1 %.not115314, label %.loopexit, label %.lr.ph
+  %.not115311 = icmp eq i32 %286, 0
+  br i1 %.not115311, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %279, %376
-  %.1316 = phi ptr [ %.2, %376 ], [ %.0, %279 ]
-  %.0107315 = phi i32 [ %377, %376 ], [ 0, %279 ]
+  %.1313 = phi ptr [ %.2, %376 ], [ %.0, %279 ]
+  %.0107312 = phi i32 [ %377, %376 ], [ 0, %279 ]
   %287 = load ptr, ptr %8, align 8, !tbaa !103
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = load ptr, ptr %288, align 8, !tbaa !956
@@ -18803,8 +18795,8 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTRe
   ]
 
 333:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  call void @_ZN5clang13LambdaCaptureC1ENS_14SourceLocationEbNS_17LambdaCaptureKindEPNS_9ValueDeclES1_(ptr noundef nonnull align 8 dereferenceable(16) %.1316, i32 %spec.select.i, i1 noundef zeroext %330, i32 noundef %332, ptr noundef null, i32 0) #27
-  %334 = getelementptr inbounds nuw i8, ptr %.1316, i64 16
+  call void @_ZN5clang13LambdaCaptureC1ENS_14SourceLocationEbNS_17LambdaCaptureKindEPNS_9ValueDeclES1_(ptr noundef nonnull align 8 dereferenceable(16) %.1313, i32 %spec.select.i, i1 noundef zeroext %330, i32 noundef %332, ptr noundef null, i32 0) #27
+  %334 = getelementptr inbounds nuw i8, ptr %.1313, i64 16
   br label %376
 
 335:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
@@ -18861,13 +18853,13 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit125: ; preds = %_ZNK5clang9AS
   %373 = add i32 %369, -2
   %374 = add i32 %373, %372
   %spec.select.i124 = select i1 %370, i32 0, i32 %374
-  call void @_ZN5clang13LambdaCaptureC1ENS_14SourceLocationEbNS_17LambdaCaptureKindEPNS_9ValueDeclES1_(ptr noundef nonnull align 8 dereferenceable(16) %.1316, i32 %spec.select.i, i1 noundef zeroext %330, i32 noundef %332, ptr noundef %341, i32 %spec.select.i124) #27
-  %375 = getelementptr inbounds nuw i8, ptr %.1316, i64 16
+  call void @_ZN5clang13LambdaCaptureC1ENS_14SourceLocationEbNS_17LambdaCaptureKindEPNS_9ValueDeclES1_(ptr noundef nonnull align 8 dereferenceable(16) %.1313, i32 %spec.select.i, i1 noundef zeroext %330, i32 noundef %332, ptr noundef %341, i32 %spec.select.i124) #27
+  %375 = getelementptr inbounds nuw i8, ptr %.1313, i64 16
   br label %376
 
 376:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125, %333, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.2 = phi ptr [ %.1316, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit ], [ %334, %333 ], [ %375, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125 ]
-  %377 = add nuw nsw i32 %.0107315, 1
+  %.2 = phi ptr [ %.1313, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit ], [ %334, %333 ], [ %375, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125 ]
+  %377 = add nuw nsw i32 %.0107312, 1
   %.not115 = icmp eq i32 %377, %286
   br i1 %.not115, label %.loopexit, label %.lr.ph, !llvm.loop !1558
 

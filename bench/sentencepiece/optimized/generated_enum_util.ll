@@ -23,7 +23,6 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_9EnumEntryEmNS0_11StringPieceEPi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
-  %.fr = freeze i64 %3
   %6 = getelementptr inbounds nuw %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %1
   %.not20 = icmp eq i64 %1, 0
   br i1 %.not20, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, label %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
@@ -36,11 +35,9 @@ _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds 
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !8
-  %.sroa.22.0.copyload.i.fr = freeze i64 %.sroa.22.0.copyload.i
-  %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.22.0.copyload.i.fr, i64 %.fr)
+  %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.22.0.copyload.i, i64 %3)
   %9 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i, ptr noundef %2, i64 noundef %spec.select.i.i) #13
-  %.fr21 = freeze i32 %9
-  %10 = icmp slt i32 %.fr21, 0
+  %10 = icmp slt i32 %9, 0
   br i1 %10, label %.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
@@ -50,19 +47,20 @@ _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds 
   br label %19
 
 _ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
-  %14 = icmp slt i64 %.sroa.22.0.copyload.i.fr, %.fr
-  %15 = icmp eq i32 %.fr21, 0
+  %14 = icmp slt i64 %.sroa.22.0.copyload.i, %3
+  %15 = icmp eq i32 %9, 0
   %spec.select9.i.i = and i1 %14, %15
+  %cond.fr = freeze i1 %spec.select9.i.i
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = xor i64 %7, -1
   %18 = add nsw i64 %.01116.i.i, %17
-  %spec.select = select i1 %spec.select9.i.i, i64 %18, i64 %7
-  %spec.select22 = select i1 %spec.select9.i.i, ptr %16, ptr %.017.i.i
+  %spec.select = select i1 %cond.fr, i64 %18, i64 %7
+  %spec.select21 = select i1 %cond.fr, ptr %16, ptr %.017.i.i
   br label %19
 
 19:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit, %.thread
   %20 = phi i64 [ %spec.select, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %13, %.thread ]
-  %21 = phi ptr [ %spec.select22, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %11, %.thread ]
+  %21 = phi ptr [ %spec.select21, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %11, %.thread ]
   %22 = icmp sgt i64 %20, 0
   br i1 %22, label %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, !llvm.loop !10
 
@@ -75,17 +73,17 @@ _ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_
   %.sroa.01.0.copyload = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !8
-  %.not.i = icmp eq i64 %.sroa.22.0.copyload, %.fr
+  %.not.i = icmp eq i64 %.sroa.22.0.copyload, %3
   br i1 %.not.i, label %24, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
 
 24:                                               ; preds = %23
   %25 = icmp eq ptr %.sroa.01.0.copyload, %2
-  %26 = icmp slt i64 %.fr, 1
+  %26 = icmp slt i64 %3, 1
   %or.cond.i = or i1 %25, %26
   br i1 %or.cond.i, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit
 
 _ZN6google8protobufeqENS0_11StringPieceES1_.exit: ; preds = %24
-  %bcmp.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload, ptr %2, i64 %.fr)
+  %bcmp.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload, ptr %2, i64 %3)
   %27 = icmp eq i32 %bcmp.i, 0
   br i1 %27, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
 

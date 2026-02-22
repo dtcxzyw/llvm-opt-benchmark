@@ -4010,8 +4010,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 336
   store ptr @.str, ptr %18, align 8, !tbaa !31
   %19 = tail call i64 @H5Sget_select_hyper_nblocks(i64 noundef %0) #12
-  %.fr = freeze i64 %19
-  %20 = icmp slt i64 %.fr, 1
+  %20 = icmp slt i64 %19, 1
   br i1 %20, label %21, label %37
 
 21:                                               ; preds = %10
@@ -4085,7 +4084,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %64 = call ptr @h5tools_str_reset(ptr noundef %5) #12
   %65 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %5, ptr noundef nonnull @.str.65) #12
   %66 = zext nneg i32 %.fr262 to i64
-  %67 = shl i64 %.fr, 4
+  %67 = shl i64 %19, 4
   %68 = mul i64 %67, %66
   %69 = call noalias ptr @malloc(i64 noundef %68) #15
   %70 = icmp eq ptr %69, null
@@ -4118,7 +4117,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   br label %.thread
 
 87:                                               ; preds = %56
-  %88 = call i32 @H5Sget_select_hyper_blocklist(i64 noundef %0, i64 noundef 0, i64 noundef %.fr, ptr noundef nonnull %69) #12
+  %88 = call i32 @H5Sget_select_hyper_blocklist(i64 noundef %0, i64 noundef 0, i64 noundef %19, ptr noundef nonnull %69) #12
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %106, label %.preheader241
 
@@ -4142,7 +4141,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
 ._crit_edge.us:                                   ; preds = %97
   %95 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %5, ptr noundef nonnull @.str.19) #12
   %96 = add nuw i64 %.0176250.us, 1
-  %exitcond275.not = icmp eq i64 %96, %.fr
+  %exitcond275.not = icmp eq i64 %96, %19
   br i1 %exitcond275.not, label %.split.us, label %.lr.ph.us, !llvm.loop !98
 
 97:                                               ; preds = %.lr.ph246.us, %97
@@ -4205,7 +4204,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %124 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %5, ptr noundef %122, ptr noundef nonnull %123, i64 noundef %.0176250) #12
   %125 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %5, ptr noundef nonnull @.str.19) #12
   %126 = add nuw i64 %.0176250, 1
-  %exitcond280.not = icmp eq i64 %126, %.fr
+  %exitcond280.not = icmp eq i64 %126, %19
   br i1 %exitcond280.not, label %.split.us, label %.preheader, !llvm.loop !98
 
 .split.us:                                        ; preds = %._crit_edge.us, %.preheader
@@ -4646,7 +4645,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %386 = getelementptr inbounds nuw i8, ptr %13, i64 576
   %387 = getelementptr inbounds nuw i8, ptr %13, i64 832
   %388 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %389 = add nsw i64 %.fr, -1
+  %389 = add nsw i64 %19, -1
   %390 = getelementptr inbounds nuw i8, ptr %13, i64 280
   %391 = getelementptr inbounds nuw i8, ptr %13, i64 1088
   %392 = add nsw i32 %.fr262, -1
@@ -4713,8 +4712,9 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   br i1 %.not227.i, label %.loopexit.i, label %.lr.ph216.i.preheader
 
 .lr.ph216.i.preheader:                            ; preds = %._crit_edge212.i
-  %.not185280.i.not = icmp eq i64 %.0140218.i, %389
-  br i1 %.not185280.i.not, label %.lr.ph216.i, label %.lr.ph216.i.us
+  %.not185280.i = icmp ne i64 %.0140218.i, %389
+  %.not185280.i.fr = freeze i1 %.not185280.i
+  br i1 %.not185280.i.fr, label %.lr.ph216.i.us, label %.lr.ph216.i
 
 .lr.ph216.i.us:                                   ; preds = %.lr.ph216.i.preheader, %.lr.ph216.i.us
   %.0135214.i.us = phi i64 [ %423, %.lr.ph216.i.us ], [ 0, %.lr.ph216.i.preheader ]
@@ -4797,7 +4797,7 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   %fputc184.i = call i32 @fputc(i32 10, ptr %463)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph216.i.us, %442, %460, %456, %448, %._crit_edge212.i
+.loopexit.i:                                      ; preds = %442, %.lr.ph216.i.us, %460, %456, %448, %._crit_edge212.i
   %464 = load i32, ptr %378, align 8, !tbaa !34
   %465 = add i32 %464, -1
   store i32 %465, ptr %378, align 8, !tbaa !34
@@ -4856,8 +4856,8 @@ define zeroext i1 @h5tools_dump_region_data_blocks(i64 noundef %0, i64 noundef %
   br label %498
 
 498:                                              ; preds = %494, %490, %482, %478, %474, %466, %.loopexit.i
-  %499 = add i64 %.0140218.i, 1
-  %exitcond241.not.i = icmp eq i64 %499, %.fr
+  %499 = add nuw i64 %.0140218.i, 1
+  %exitcond241.not.i = icmp eq i64 %499, %19
   br i1 %exitcond241.not.i, label %.loopexit197.i, label %398, !llvm.loop !105
 
 .loopexit197.i:                                   ; preds = %498, %373, %369, %361, %354, %350, %342, %335, %331, %323, %315, %311, %303, %286, %282, %274, %266, %262, %254

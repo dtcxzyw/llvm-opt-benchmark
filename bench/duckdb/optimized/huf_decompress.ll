@@ -2011,9 +2011,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i: ; preds = %1
   br i1 %79, label %.lr.ph.i, label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i
 
 .lr.ph.i:                                         ; preds = %.thread.i, %72
-  %.sroa.20.574140.i = phi i32 [ %78, %.thread.i ], [ %70, %72 ]
-  %.sroa.0.575137.i = phi i64 [ %.sroa.0.4.i, %.thread.i ], [ %.val.i.i.i, %72 ]
-  %.sroa.5029.476.idx136.i = phi i64 [ 0, %.thread.i ], [ %.add.i, %72 ]
+  %.sroa.20.574141.i = phi i32 [ %78, %.thread.i ], [ %70, %72 ]
+  %.sroa.0.575138.i = phi i64 [ %.sroa.0.4.i, %.thread.i ], [ %.val.i.i.i, %72 ]
+  %.sroa.5029.476.idx137.i = phi i64 [ 0, %.thread.i ], [ %.add.i, %72 ]
   %80 = getelementptr inbounds i8, ptr %11, i64 -3
   %81 = sub nsw i32 0, %.sroa.3.0.extract.shift.i.i
   %82 = and i32 %81, 63
@@ -2022,9 +2022,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i: ; preds = %1
 
 84:                                               ; preds = %100, %.lr.ph.i
   %.0.i104.i = phi ptr [ %0, %.lr.ph.i ], [ %144, %100 ]
-  %.sroa.5029.2.idx103.i = phi i64 [ %.sroa.5029.476.idx136.i, %.lr.ph.i ], [ %.sroa.5029.3.idx.i, %100 ]
-  %.sroa.0.2102.i = phi i64 [ %.sroa.0.575137.i, %.lr.ph.i ], [ %.sroa.0.3.i, %100 ]
-  %.sroa.20.3101.i = phi i32 [ %.sroa.20.574140.i, %.lr.ph.i ], [ %143, %100 ]
+  %.sroa.5029.2.idx103.i = phi i64 [ %.sroa.5029.476.idx137.i, %.lr.ph.i ], [ %.sroa.5029.3.idx.i, %100 ]
+  %.sroa.0.2102.i = phi i64 [ %.sroa.0.575138.i, %.lr.ph.i ], [ %.sroa.0.3.i, %100 ]
+  %.sroa.20.3101.i = phi i32 [ %.sroa.20.574141.i, %.lr.ph.i ], [ %143, %100 ]
   %.not.i37.i.i = icmp slt i64 %.sroa.5029.2.idx103.i, 8
   br i1 %.not.i37.i.i, label %89, label %85
 
@@ -2172,8 +2172,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %1
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %174 = load i8, ptr %173, align 1, !tbaa !55
   %175 = load i8, ptr %172, align 1, !tbaa !57
-  %.fr.i = freeze i8 %175
-  %176 = zext i8 %.fr.i to i32
+  %.fr114.i = freeze i8 %175
+  %176 = zext i8 %.fr114.i to i32
   %177 = add i32 %.sroa.20.2.fr110.i, %176
   %178 = getelementptr inbounds nuw i8, ptr %.6.i109.i, i64 1
   store i8 %174, ptr %.6.i109.i, align 1, !tbaa !7
@@ -7429,9 +7429,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit: ; preds = %11
   br i1 %74, label %.lr.ph, label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i
 
 .lr.ph:                                           ; preds = %.thread, %67
-  %.sroa.20.574140 = phi i32 [ %73, %.thread ], [ %65, %67 ]
-  %.sroa.0.575137 = phi i64 [ %.sroa.0.4, %.thread ], [ %.val.i.i, %67 ]
-  %.sroa.5029.476.idx136 = phi i64 [ 0, %.thread ], [ %.add, %67 ]
+  %.sroa.20.574141 = phi i32 [ %73, %.thread ], [ %65, %67 ]
+  %.sroa.0.575138 = phi i64 [ %.sroa.0.4, %.thread ], [ %.val.i.i, %67 ]
+  %.sroa.5029.476.idx137 = phi i64 [ 0, %.thread ], [ %.add, %67 ]
   %75 = getelementptr inbounds i8, ptr %6, i64 -3
   %76 = sub nsw i32 0, %.sroa.3.0.extract.shift.i
   %77 = and i32 %76, 63
@@ -7440,9 +7440,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit: ; preds = %11
 
 79:                                               ; preds = %.lr.ph, %95
   %.0.i104 = phi ptr [ %0, %.lr.ph ], [ %139, %95 ]
-  %.sroa.5029.2.idx103 = phi i64 [ %.sroa.5029.476.idx136, %.lr.ph ], [ %.sroa.5029.3.idx, %95 ]
-  %.sroa.0.2102 = phi i64 [ %.sroa.0.575137, %.lr.ph ], [ %.sroa.0.3, %95 ]
-  %.sroa.20.3101 = phi i32 [ %.sroa.20.574140, %.lr.ph ], [ %138, %95 ]
+  %.sroa.5029.2.idx103 = phi i64 [ %.sroa.5029.476.idx137, %.lr.ph ], [ %.sroa.5029.3.idx, %95 ]
+  %.sroa.0.2102 = phi i64 [ %.sroa.0.575138, %.lr.ph ], [ %.sroa.0.3, %95 ]
+  %.sroa.20.3101 = phi i32 [ %.sroa.20.574141, %.lr.ph ], [ %138, %95 ]
   %.not.i37.i = icmp slt i64 %.sroa.5029.2.idx103, 8
   br i1 %.not.i37.i, label %84, label %80
 
@@ -7590,8 +7590,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %84,
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   %169 = load i8, ptr %168, align 1, !tbaa !55
   %170 = load i8, ptr %167, align 1, !tbaa !57
-  %.fr = freeze i8 %170
-  %171 = zext i8 %.fr to i32
+  %.fr114 = freeze i8 %170
+  %171 = zext i8 %.fr114 to i32
   %172 = add i32 %.sroa.20.2.fr110, %171
   %173 = getelementptr inbounds nuw i8, ptr %.6.i109, i64 1
   store i8 %169, ptr %.6.i109, align 1, !tbaa !7

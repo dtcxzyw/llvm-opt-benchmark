@@ -215,122 +215,110 @@ define range(i32 0, 2) i32 @pmix20_bfrop_value_cmp(ptr noundef readonly captures
   %6 = load i8, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !29
-  %.fr69 = freeze i8 %6
-  %.fr70 = freeze i8 %8
-  %9 = icmp eq i8 %.fr69, %.fr70
-  br i1 %9, label %91, label %92
+  %9 = icmp eq i8 %6, %8
+  %cond.fr46 = freeze i1 %9
+  br i1 %cond.fr46, label %91, label %92
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !29
-  %.fr67 = freeze i64 %12
-  %.fr68 = freeze i64 %14
-  %15 = icmp eq i64 %.fr67, %.fr68
-  br i1 %15, label %91, label %92
+  %15 = icmp eq i64 %12, %14
+  %cond.fr45 = freeze i1 %15
+  br i1 %cond.fr45, label %91, label %92
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !29
-  %.fr65 = freeze i32 %18
-  %.fr66 = freeze i32 %20
-  %21 = icmp eq i32 %.fr65, %.fr66
-  br i1 %21, label %91, label %92
+  %21 = icmp eq i32 %18, %20
+  %cond.fr44 = freeze i1 %21
+  br i1 %cond.fr44, label %91, label %92
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i8, ptr %23, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i8, ptr %25, align 8, !tbaa !29
-  %.fr63 = freeze i8 %24
-  %.fr64 = freeze i8 %26
-  %27 = icmp eq i8 %.fr63, %.fr64
-  br i1 %27, label %91, label %92
+  %27 = icmp eq i8 %24, %26
+  %cond.fr43 = freeze i1 %27
+  br i1 %cond.fr43, label %91, label %92
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i16, ptr %29, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i16, ptr %31, align 8, !tbaa !29
-  %.fr61 = freeze i16 %30
-  %.fr62 = freeze i16 %32
-  %33 = icmp eq i16 %.fr61, %.fr62
-  br i1 %33, label %91, label %92
+  %33 = icmp eq i16 %30, %32
+  %cond.fr42 = freeze i1 %33
+  br i1 %cond.fr42, label %91, label %92
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !29
-  %.fr59 = freeze i32 %36
-  %.fr60 = freeze i32 %38
-  %39 = icmp eq i32 %.fr59, %.fr60
-  br i1 %39, label %91, label %92
+  %39 = icmp eq i32 %36, %38
+  %cond.fr41 = freeze i1 %39
+  br i1 %cond.fr41, label %91, label %92
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !29
-  %.fr57 = freeze i64 %42
-  %.fr58 = freeze i64 %44
-  %45 = icmp eq i64 %.fr57, %.fr58
-  br i1 %45, label %91, label %92
+  %45 = icmp eq i64 %42, %44
+  %cond.fr40 = freeze i1 %45
+  br i1 %cond.fr40, label %91, label %92
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !29
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !29
-  %.fr55 = freeze i32 %48
-  %.fr56 = freeze i32 %50
-  %51 = icmp eq i32 %.fr55, %.fr56
-  br i1 %51, label %91, label %92
+  %51 = icmp eq i32 %48, %50
+  %cond.fr39 = freeze i1 %51
+  br i1 %cond.fr39, label %91, label %92
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !29
-  %.fr53 = freeze i8 %54
-  %55 = zext i8 %.fr53 to i32
+  %55 = zext i8 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load i8, ptr %56, align 8, !tbaa !29
-  %.fr54 = freeze i8 %57
-  %58 = sext i8 %.fr54 to i32
+  %58 = sext i8 %57 to i32
   %59 = icmp eq i32 %55, %58
-  br i1 %59, label %91, label %92
+  %cond.fr38 = freeze i1 %59
+  br i1 %cond.fr38, label %91, label %92
 
 60:                                               ; preds = %2
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i16, ptr %61, align 8, !tbaa !29
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i16, ptr %63, align 8, !tbaa !29
-  %.fr51 = freeze i16 %62
-  %.fr52 = freeze i16 %64
-  %65 = icmp eq i16 %.fr51, %.fr52
-  br i1 %65, label %91, label %92
+  %65 = icmp eq i16 %62, %64
+  %cond.fr37 = freeze i1 %65
+  br i1 %cond.fr37, label %91, label %92
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !29
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load i32, ptr %69, align 8, !tbaa !29
-  %.fr49 = freeze i32 %68
-  %.fr50 = freeze i32 %70
-  %71 = icmp eq i32 %.fr49, %.fr50
-  br i1 %71, label %91, label %92
+  %71 = icmp eq i32 %68, %70
+  %cond.fr36 = freeze i1 %71
+  br i1 %cond.fr36, label %91, label %92
 
 72:                                               ; preds = %2
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !29
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !29
-  %.fr47 = freeze i64 %74
-  %.fr48 = freeze i64 %76
-  %77 = icmp eq i64 %.fr47, %.fr48
-  br i1 %77, label %91, label %92
+  %77 = icmp eq i64 %74, %76
+  %cond.fr35 = freeze i1 %77
+  br i1 %cond.fr35, label %91, label %92
 
 78:                                               ; preds = %2
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8

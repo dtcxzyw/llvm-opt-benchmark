@@ -19367,11 +19367,9 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %27 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %24
   %28 = getelementptr i8, ptr %26, i64 24
   %.val28.i.i = load i64, ptr %28, align 8, !tbaa !353
-  %.val28.fr.i.i = freeze i64 %.val28.i.i
   %29 = getelementptr i8, ptr %27, i64 56
   %.val30.i.i = load i64, ptr %29, align 8, !tbaa !353
-  %.val30.fr.i.i = freeze i64 %.val30.i.i
-  %30 = icmp ugt i64 %.val28.fr.i.i, %.val30.fr.i.i
+  %30 = icmp ugt i64 %.val28.i.i, %.val30.i.i
   br i1 %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i": ; preds = %.lr.ph.i.i
@@ -19383,13 +19381,12 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %.val29.i.i = load i32, ptr %32, align 4
   %33 = getelementptr i8, ptr %26, i64 8
   %.val.i.i = load i32, ptr %33, align 4
-  %34 = icmp eq i64 %.val28.fr.i.i, %.val30.fr.i.i
-  %.val.fr.i.i = freeze i32 %.val.i.i
-  %.val29.fr.i.i = freeze i32 %.val29.i.i
-  %35 = icmp ult i32 %.val.fr.i.i, %.val29.fr.i.i
-  %spec.select.i.i.i.i = and i1 %34, %35
+  %34 = icmp eq i64 %.val28.i.i, %.val30.i.i
+  %35 = icmp ult i32 %.val.i.i, %.val29.i.i
+  %spec.select.i.i.i.i = select i1 %34, i1 %35, i1 false
   %36 = or disjoint i64 %24, 1
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i, i64 %36, i64 %25
+  %cond.fr.i.i = freeze i1 %spec.select.i.i.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %36, i64 %25
   br label %37
 
 37:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i"
@@ -19770,11 +19767,9 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %16 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %13
   %17 = getelementptr i8, ptr %15, i64 24
   %.val28.i = load i64, ptr %17, align 8, !tbaa !353
-  %.val28.fr.i = freeze i64 %.val28.i
   %18 = getelementptr i8, ptr %16, i64 56
   %.val30.i = load i64, ptr %18, align 8, !tbaa !353
-  %.val30.fr.i = freeze i64 %.val30.i
-  %19 = icmp ugt i64 %.val28.fr.i, %.val30.fr.i
+  %19 = icmp ugt i64 %.val28.i, %.val30.i
   br i1 %19, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i": ; preds = %.lr.ph.i
@@ -19786,13 +19781,12 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %.val29.i = load i32, ptr %21, align 4
   %22 = getelementptr i8, ptr %15, i64 8
   %.val.i = load i32, ptr %22, align 4
-  %23 = icmp eq i64 %.val28.fr.i, %.val30.fr.i
-  %.val.fr.i = freeze i32 %.val.i
-  %.val29.fr.i = freeze i32 %.val29.i
-  %24 = icmp ult i32 %.val.fr.i, %.val29.fr.i
-  %spec.select.i.i.i = and i1 %23, %24
+  %23 = icmp eq i64 %.val28.i, %.val30.i
+  %24 = icmp ult i32 %.val.i, %.val29.i
+  %spec.select.i.i.i = select i1 %23, i1 %24, i1 false
   %25 = or disjoint i64 %13, 1
-  %spec.select.i = select i1 %spec.select.i.i.i, i64 %25, i64 %14
+  %cond.fr.i = freeze i1 %spec.select.i.i.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %25, i64 %14
   br label %26
 
 26:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i"

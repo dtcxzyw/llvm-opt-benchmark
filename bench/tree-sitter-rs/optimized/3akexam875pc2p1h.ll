@@ -710,15 +710,13 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre2.i.i.i = load i64, ptr %4, align 8, !noalias !173
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre4.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i, align 8, !noalias !173
-  %.pre4.i.i.i.fr = freeze i64 %.pre4.i.i.i
-  %.pre.i.i.i.fr = freeze i64 %.pre.i.i.i
-  %9 = icmp eq i64 %.pre.i.i.i.fr, 0
-  %.pre2.i.i.i.fr = freeze i64 %.pre2.i.i.i
-  %10 = icmp ne i64 %.pre2.i.i.i.fr, %.pre4.i.i.i.fr
-  %.not33 = or i1 %9, %10
+  %9 = icmp eq i64 %.pre.i.i.i, 0
+  %10 = icmp ne i64 %.pre2.i.i.i, %.pre4.i.i.i
+  %.not33 = select i1 %9, i1 true, i1 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !173
-  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr, i64 43690)
-  %spec.select = select i1 %.not33, i64 0, i64 %11
+  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 43690)
+  %cond.fr = freeze i1 %.not33
+  %spec.select = select i1 %cond.fr, i64 0, i64 %11
   br label %12
 
 12:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17hfa8b9e51155128b0E.llvm.6082948530530484711.exit", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17hfa8b9e51155128b0E.llvm.6082948530530484711.exit.thread"

@@ -8850,52 +8850,51 @@ define internal fastcc double @dist_ppoly_internal(ptr noundef readonly captures
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %20, ptr %21, align 8
   %22 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
-  %23 = freeze double %22
-  %24 = load i32, ptr %4, align 4
-  %25 = add i32 %24, -1
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %.loopexit
+  %23 = load i32, ptr %4, align 4
+  %24 = add i32 %23, -1
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %float8_lt.exit.thread ], [ 0, %8 ]
-  %.02730 = phi double [ %41, %float8_lt.exit.thread ], [ %23, %8 ]
-  %27 = getelementptr inbounds nuw %struct.Point, ptr %6, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8
-  store double %28, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load double, ptr %29, align 8
-  store double %30, ptr %12, align 8
+  %.02729 = phi double [ %40, %float8_lt.exit.thread ], [ %22, %8 ]
+  %26 = getelementptr inbounds nuw %struct.Point, ptr %6, i64 %indvars.iv
+  %27 = load double, ptr %26, align 8
+  store double %27, ptr %3, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load double, ptr %28, align 8
+  store double %29, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw %struct.Point, ptr %6, i64 %indvars.iv.next
-  %32 = load double, ptr %31, align 8
-  store double %32, ptr %18, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = load double, ptr %33, align 8
-  store double %34, ptr %21, align 8
-  %35 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
-  %.fr = freeze double %35
-  %36 = fcmp uno double %.fr, 0.000000e+00
-  br i1 %36, label %float8_lt.exit.thread, label %float8_lt.exit
+  %30 = getelementptr inbounds nuw %struct.Point, ptr %6, i64 %indvars.iv.next
+  %31 = load double, ptr %30, align 8
+  store double %31, ptr %18, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = load double, ptr %32, align 8
+  store double %33, ptr %21, align 8
+  %34 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
+  %35 = fcmp uno double %34, 0.000000e+00
+  br i1 %35, label %float8_lt.exit.thread, label %float8_lt.exit
 
 float8_lt.exit:                                   ; preds = %.lr.ph
-  %37 = fcmp uno double %.02730, 0.000000e+00
-  %38 = fcmp olt double %.fr, %.02730
-  %39 = or i1 %37, %38
-  br i1 %39, label %40, label %float8_lt.exit.thread
+  %36 = fcmp uno double %.02729, 0.000000e+00
+  %37 = fcmp olt double %34, %.02729
+  %38 = or i1 %36, %37
+  %cond.fr = freeze i1 %38
+  br i1 %cond.fr, label %39, label %float8_lt.exit.thread
 
-40:                                               ; preds = %float8_lt.exit
+39:                                               ; preds = %float8_lt.exit
   br label %float8_lt.exit.thread
 
-float8_lt.exit.thread:                            ; preds = %.lr.ph, %float8_lt.exit, %40
-  %41 = phi double [ %.fr, %40 ], [ %.02730, %float8_lt.exit ], [ %.02730, %.lr.ph ]
-  %42 = load i32, ptr %4, align 4
-  %43 = add i32 %42, -1
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !38
+float8_lt.exit.thread:                            ; preds = %.lr.ph, %float8_lt.exit, %39
+  %40 = phi double [ %34, %39 ], [ %.02729, %float8_lt.exit ], [ %.02729, %.lr.ph ]
+  %41 = load i32, ptr %4, align 4
+  %42 = add i32 %41, -1
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %float8_lt.exit.thread, %8, %2
-  %.026 = phi double [ 0.000000e+00, %2 ], [ %23, %8 ], [ %41, %float8_lt.exit.thread ]
+  %.026 = phi double [ 0.000000e+00, %2 ], [ %22, %8 ], [ %40, %float8_lt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.026
 }

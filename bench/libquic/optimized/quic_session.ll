@@ -878,17 +878,17 @@ define linkonce_odr void @_ZN4base15STLDeleteValuesINS_8SmallMapISt13unordered_m
 
 2:                                                ; preds = %1
   %3 = load i32, ptr %0, align 8, !tbaa !79
-  %.fr = freeze i32 %3
-  %4 = icmp slt i32 %.fr, 0
-  %5 = getelementptr i8, ptr %0, i64 8
+  %4 = icmp sgt i32 %3, -1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %.sroa.01.0.i = select i1 %4, ptr null, ptr %5
-  %.sroa.3.0.i = select i1 %4, ptr %7, ptr null
-  %8 = zext i32 %.fr to i64
-  %9 = getelementptr %"class.base::ManualConstructor", ptr %5, i64 %8
-  %.not14.i16 = icmp eq ptr %9, null
-  %.not14.i = or i1 %4, %.not14.i16
+  %.sroa.01.0.i = select i1 %4, ptr %5, ptr null
+  %.sroa.3.0.i = select i1 %4, ptr null, ptr %7
+  %8 = zext nneg i32 %3 to i64
+  %9 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %5, i64 %8
+  %.sroa.01.0.i6 = select i1 %4, ptr %9, ptr null
+  %.fr13.i = freeze ptr %.sroa.01.0.i6
+  %.not14.i = icmp eq ptr %.fr13.i, null
   br i1 %.not14.i, label %.split.i, label %.split.us.i
 
 .split.us.i:                                      ; preds = %2, %.split.us.i.backedge
@@ -898,7 +898,7 @@ define linkonce_odr void @_ZN4base15STLDeleteValuesINS_8SmallMapISt13unordered_m
   br i1 %.not.i.i.us.i, label %.thread.us.i, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread7.us.i
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread7.us.i: ; preds = %.split.us.i
-  %.not.us.i = icmp eq ptr %.sroa.03.0.us.i, %9
+  %.not.us.i = icmp eq ptr %.sroa.03.0.us.i, %.fr13.i
   br i1 %.not.us.i, label %_ZN4base36STLDeleteContainerPairSecondPointersINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEE8iteratorEEEvT_SK_.exit, label %.thread9.us.i
 
 .thread9.us.i:                                    ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread7.us.i

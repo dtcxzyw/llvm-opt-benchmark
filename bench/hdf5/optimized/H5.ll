@@ -1591,17 +1591,17 @@ define internal fastcc void @H5__debug_mask(ptr noundef %0) unnamed_addr #2 {
   %4 = load ptr, ptr @stderr, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.not81 = icmp eq ptr %0, null
-  br i1 %.not81, label %.critedge, label %.lr.ph85
+  %.not82 = icmp eq ptr %0, null
+  br i1 %.not82, label %.critedge, label %.lr.ph86
 
-.lr.ph85:                                         ; preds = %1, %.loopexit
-  %.04583 = phi ptr [ %.3, %.loopexit ], [ %0, %1 ]
-  %.04682 = phi ptr [ %.147, %.loopexit ], [ %4, %1 ]
-  %5 = load i8, ptr %.04583, align 1, !tbaa !20
+.lr.ph86:                                         ; preds = %1, %.loopexit
+  %.04584 = phi ptr [ %.3, %.loopexit ], [ %0, %1 ]
+  %.04683 = phi ptr [ %.147, %.loopexit ], [ %4, %1 ]
+  %5 = load i8, ptr %.04584, align 1, !tbaa !20
   %.not56 = icmp eq i8 %5, 0
   br i1 %.not56, label %.critedge, label %6
 
-6:                                                ; preds = %.lr.ph85
+6:                                                ; preds = %.lr.ph86
   %7 = tail call ptr @__ctype_b_loc() #22
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = sext i8 %5 to i64
@@ -1625,33 +1625,33 @@ switch.early.test:                                ; preds = %6
   %17 = and i1 %15, %16
   %not. = xor i1 %17, true
   %.1.idx = zext i1 %not. to i64
-  %.1 = getelementptr inbounds nuw i8, ptr %.04583, i64 %.1.idx
+  %.1 = getelementptr inbounds nuw i8, ptr %.04584, i64 %.1.idx
   %18 = load i8, ptr %.1, align 1, !tbaa !20
   %19 = sext i8 %18 to i64
   %20 = getelementptr inbounds i16, ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !21
   %22 = and i16 %21, 1024
-  %.not6075 = icmp eq i16 %22, 0
-  br i1 %.not6075, label %._crit_edge, label %.lr.ph
+  %.not6076 = icmp eq i16 %22, 0
+  br i1 %.not6076, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %28
   %23 = phi ptr [ %29, %28 ], [ %8, %14 ]
   %24 = phi i8 [ %32, %28 ], [ %18, %14 ]
-  %.277 = phi ptr [ %31, %28 ], [ %.1, %14 ]
-  %.04976 = phi i64 [ %30, %28 ], [ 0, %14 ]
-  %25 = icmp ult i64 %.04976, 32
+  %.278 = phi ptr [ %31, %28 ], [ %.1, %14 ]
+  %.04977 = phi i64 [ %30, %28 ], [ 0, %14 ]
+  %25 = icmp ult i64 %.04977, 32
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.04976
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.04977
   store i8 %24, ptr %27, align 1, !tbaa !20
   %.pre = load ptr, ptr %7, align 8, !tbaa !18
   br label %28
 
 28:                                               ; preds = %.lr.ph, %26
   %29 = phi ptr [ %23, %.lr.ph ], [ %.pre, %26 ]
-  %30 = add i64 %.04976, 1
-  %31 = getelementptr inbounds nuw i8, ptr %.277, i64 1
+  %30 = add i64 %.04977, 1
+  %31 = getelementptr inbounds nuw i8, ptr %.278, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !20
   %33 = sext i8 %32 to i64
   %34 = getelementptr inbounds i16, ptr %29, i64 %33
@@ -1674,7 +1674,7 @@ switch.early.test:                                ; preds = %6
   br i1 %.not61, label %39, label %41
 
 39:                                               ; preds = %._crit_edge
-  %40 = select i1 %15, ptr %.04682, ptr null
+  %40 = select i1 %15, ptr %.04683, ptr null
   store ptr %40, ptr @H5_debug_g, align 8, !tbaa !43
   br label %.loopexit
 
@@ -1684,7 +1684,7 @@ switch.early.test:                                ; preds = %6
   br i1 %.not63, label %42, label %44
 
 42:                                               ; preds = %41
-  store ptr %.04682, ptr @H5_debug_g, align 8, !tbaa !43
+  store ptr %.04683, ptr @H5_debug_g, align 8, !tbaa !43
   %43 = zext i1 %15 to i8
   store i8 %43, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 8), align 8, !tbaa !44
   br label %.loopexit
@@ -1695,7 +1695,7 @@ switch.early.test:                                ; preds = %6
   br i1 %.not65, label %45, label %47
 
 45:                                               ; preds = %44
-  store ptr %.04682, ptr @H5_debug_g, align 8, !tbaa !43
+  store ptr %.04683, ptr @H5_debug_g, align 8, !tbaa !43
   %46 = zext i1 %15 to i8
   store i8 %46, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !45
   br label %.loopexit
@@ -1703,36 +1703,36 @@ switch.early.test:                                ; preds = %6
 47:                                               ; preds = %44
   %lhsv = load i32, ptr %2, align 16
   %.not67 = icmp eq i32 %lhsv, 7105633
-  br i1 %.not67, label %.preheader, label %.preheader73
+  br i1 %.not67, label %.preheader, label %.preheader74
 
 .preheader:                                       ; preds = %47
-  %48 = select i1 %15, ptr %.04682, ptr null
+  %48 = select i1 %15, ptr %.04683, ptr null
   br label %49
 
 49:                                               ; preds = %.preheader, %49
-  %.15080 = phi i64 [ 0, %.preheader ], [ %52, %49 ]
-  %50 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.15080
+  %.15081 = phi i64 [ 0, %.preheader ], [ %52, %49 ]
+  %50 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.15081
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %48, ptr %51, align 8, !tbaa !46
-  %52 = add nuw nsw i64 %.15080, 1
-  %exitcond91.not = icmp eq i64 %52, 20
-  br i1 %exitcond91.not, label %.loopexit, label %49, !llvm.loop !47
+  %52 = add nuw nsw i64 %.15081, 1
+  %exitcond92.not = icmp eq i64 %52, 20
+  br i1 %exitcond92.not, label %.loopexit, label %49, !llvm.loop !47
 
-53:                                               ; preds = %.preheader73
-  %54 = add nuw nsw i64 %.25179, 1
+53:                                               ; preds = %.preheader74
+  %54 = add nuw nsw i64 %.25180, 1
   %exitcond.not = icmp eq i64 %54, 20
-  br i1 %exitcond.not, label %61, label %.preheader73, !llvm.loop !48
+  br i1 %exitcond.not, label %61, label %.preheader74, !llvm.loop !48
 
-.preheader73:                                     ; preds = %47, %53
-  %.25179 = phi i64 [ %54, %53 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.25179
+.preheader74:                                     ; preds = %47, %53
+  %.25180 = phi i64 [ %54, %53 ], [ 0, %47 ]
+  %55 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.25180
   %56 = load ptr, ptr %55, align 8, !tbaa !13
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %2) #26
   %.not68 = icmp eq i32 %57, 0
   br i1 %.not68, label %58, label %53
 
-58:                                               ; preds = %.preheader73
-  %59 = select i1 %15, ptr %.04682, ptr null
+58:                                               ; preds = %.preheader74
+  %59 = select i1 %15, ptr %.04683, ptr null
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %59, ptr %60, align 8, !tbaa !46
   br label %.loopexit
@@ -1748,7 +1748,7 @@ switch.early.test:                                ; preds = %6
   br i1 %.not58, label %80, label %66
 
 66:                                               ; preds = %64
-  %67 = call i64 @strtol(ptr noundef nonnull %.04583, ptr noundef nonnull %3, i32 noundef 0) #21
+  %67 = call i64 @strtol(ptr noundef nonnull %.04584, ptr noundef nonnull %3, i32 noundef 0) #21
   %68 = trunc i64 %67 to i32
   %69 = call noalias ptr @fdopen(i32 noundef %68, ptr noundef nonnull @.str.82) #21
   %.not59 = icmp eq ptr %69, null
@@ -1777,16 +1777,16 @@ switch.early.test:                                ; preds = %6
   br label %.critedge
 
 80:                                               ; preds = %64
-  %81 = getelementptr inbounds nuw i8, ptr %.04583, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.04584, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.thread70, %58, %80, %39, %45, %61, %42
-  %.147 = phi ptr [ %.04682, %61 ], [ %.04682, %58 ], [ %.04682, %80 ], [ %.04682, %45 ], [ %.04682, %42 ], [ %.04682, %39 ], [ %69, %.thread70 ], [ %.04682, %49 ]
+  %.147 = phi ptr [ %.04683, %61 ], [ %.04683, %58 ], [ %.04683, %80 ], [ %.04683, %45 ], [ %.04683, %42 ], [ %.04683, %39 ], [ %69, %.thread70 ], [ %.04683, %49 ]
   %.3 = phi ptr [ %.2.lcssa, %61 ], [ %.2.lcssa, %58 ], [ %81, %80 ], [ %.2.lcssa, %45 ], [ %.2.lcssa, %42 ], [ %.2.lcssa, %39 ], [ %77, %.thread70 ], [ %.2.lcssa, %49 ]
   %.not = icmp eq ptr %.3, null
-  br i1 %.not, label %.critedge, label %.lr.ph85, !llvm.loop !50
+  br i1 %.not, label %.critedge, label %.lr.ph86, !llvm.loop !50
 
-.critedge:                                        ; preds = %.loopexit, %.lr.ph85, %1, %78
+.critedge:                                        ; preds = %.loopexit, %.lr.ph86, %1, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

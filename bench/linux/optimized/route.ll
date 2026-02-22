@@ -11045,8 +11045,8 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %25 = load i16, ptr %24, align 2
-  %.fr = freeze i16 %25
-  %26 = and i16 %.fr, 256
+  %.fr64 = freeze i16 %25
+  %26 = and i16 %.fr64, 256
   %27 = icmp ne i16 %26, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %6, ptr %6, align 8
@@ -11235,7 +11235,7 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
   store i32 %129, ptr %130, align 8
   %131 = load ptr, ptr %6, align 8
   %132 = icmp eq ptr %131, %6
-  br i1 %132, label %.loopexit66, label %133
+  br i1 %132, label %.loopexit67, label %133
 
 133:                                              ; preds = %125
   %134 = getelementptr inbounds nuw i8, ptr %94, i64 168
@@ -11269,25 +11269,25 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
   %156 = icmp eq i64 %151, %152
   %157 = icmp eq i64 %154, %155
   %158 = and i1 %156, %157
-  br i1 %158, label %.loopexit65, label %.critedge43
+  br i1 %158, label %.loopexit66, label %.critedge43
 
 .critedge43:                                      ; preds = %137, %149, %144
   %159 = load ptr, ptr %138, align 8
   %160 = icmp eq ptr %159, %6
-  br i1 %160, label %.loopexit66, label %137, !llvm.loop !110
+  br i1 %160, label %.loopexit67, label %137, !llvm.loop !110
 
-.loopexit66:                                      ; preds = %.critedge43, %125
+.loopexit67:                                      ; preds = %.critedge43, %125
   %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %162 = call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %161, i32 noundef 3520, i64 noundef 200) #28
   %163 = icmp eq ptr %162, null
-  br i1 %163, label %.loopexit65, label %174
+  br i1 %163, label %.loopexit66, label %174
 
-.loopexit65:                                      ; preds = %.loopexit66, %149
-  %.ph53 = phi i32 [ -17, %149 ], [ -12, %.loopexit66 ]
+.loopexit66:                                      ; preds = %.loopexit67, %149
+  %.ph53 = phi i32 [ -17, %149 ], [ -12, %.loopexit67 ]
   %164 = icmp eq ptr %94, null
   br i1 %164, label %.thread51, label %165
 
-165:                                              ; preds = %.loopexit65
+165:                                              ; preds = %.loopexit66
   %166 = getelementptr inbounds nuw i8, ptr %94, i64 44
   %167 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %166, i32 -1, ptr nonnull elementtype(i32) %166) #22, !srcloc !35
   %168 = icmp eq i32 %167, 1
@@ -11307,7 +11307,7 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
   call void @call_rcu(ptr noundef nonnull %173, ptr noundef nonnull @fib6_info_destroy_rcu) #22
   br label %.thread51
 
-174:                                              ; preds = %.loopexit66
+174:                                              ; preds = %.loopexit67
   store ptr %94, ptr %162, align 8
   %175 = getelementptr inbounds nuw i8, ptr %162, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %175, ptr noundef nonnull align 8 dereferenceable(176) %5, i64 176, i1 false)
@@ -11580,10 +11580,10 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
   %336 = getelementptr i8, ptr %334, i64 -184
   %337 = icmp eq ptr %316, %336
   %338 = or i1 %335, %337
-  br i1 %338, label %.thread51, label %.preheader64
+  br i1 %338, label %.thread51, label %.preheader65
 
-.preheader64:                                     ; preds = %333, %.preheader64
-  %339 = phi ptr [ %342, %.preheader64 ], [ %334, %333 ]
+.preheader65:                                     ; preds = %333, %.preheader65
+  %339 = phi ptr [ %342, %.preheader65 ], [ %334, %333 ]
   %340 = getelementptr i8, ptr %339, i64 -176
   %341 = call fastcc i32 @ip6_route_del(ptr noundef %340, ptr noundef %2)
   %342 = load ptr, ptr %339, align 8
@@ -11591,10 +11591,10 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
   %344 = getelementptr i8, ptr %342, i64 -184
   %345 = icmp eq ptr %316, %344
   %346 = or i1 %343, %345
-  br i1 %346, label %.thread51, label %.preheader64, !llvm.loop !113
+  br i1 %346, label %.thread51, label %.preheader65, !llvm.loop !113
 
-.thread51:                                        ; preds = %.preheader64, %169, %171, %120, %122, %73, %74, %333, %311, %308, %172, %.loopexit65, %123, %114, %96
-  %347 = phi i32 [ %98, %96 ], [ -22, %114 ], [ -22, %73 ], [ -22, %123 ], [ %.ph53, %.loopexit65 ], [ -22, %120 ], [ %.ph53, %172 ], [ 0, %308 ], [ 0, %311 ], [ %315, %333 ], [ %.ph53, %169 ], [ -22, %74 ], [ -22, %122 ], [ %.ph53, %171 ], [ %315, %.preheader64 ]
+.thread51:                                        ; preds = %.preheader65, %169, %171, %120, %122, %73, %74, %333, %311, %308, %172, %.loopexit66, %123, %114, %96
+  %347 = phi i32 [ %98, %96 ], [ -22, %114 ], [ -22, %73 ], [ -22, %123 ], [ %.ph53, %.loopexit66 ], [ -22, %120 ], [ %.ph53, %172 ], [ 0, %308 ], [ 0, %311 ], [ %315, %333 ], [ %.ph53, %169 ], [ -22, %74 ], [ -22, %122 ], [ %.ph53, %171 ], [ %315, %.preheader65 ]
   %348 = load ptr, ptr %6, align 8
   %349 = icmp eq ptr %348, %6
   br i1 %349, label %.loopexit, label %.preheader

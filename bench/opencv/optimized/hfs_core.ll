@@ -1015,12 +1015,11 @@ define hidden noundef i32 @_ZN2cv3hfs7HfsCore18getAvgGradientBdryERKNS_3MatERKSt
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !95
   %18 = load ptr, ptr %2, align 8, !tbaa !98
-  %.fr241 = freeze ptr %17
-  %19 = ptrtoint ptr %.fr241 to i64
-  %.fr242 = freeze ptr %18
-  %20 = ptrtoint ptr %.fr242 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %22 = sdiv i64 %21, 96
+  %.fr242 = freeze i64 %21
+  %22 = sdiv i64 %.fr242, 96
   %23 = trunc i64 %22 to i32
   %sext = shl i64 %22, 32
   %24 = ashr exact i64 %sext, 32

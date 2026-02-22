@@ -292,8 +292,8 @@ define internal range(i32 -2147483648, 2) i32 @opus_packet(ptr noundef %0, i32 n
 115:                                              ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %.096141, i64 1
   %117 = load i8, ptr %116, align 1, !tbaa !43
-  %.fr = freeze i8 %117
-  %118 = and i8 %.fr, 63
+  %.fr137 = freeze i8 %117
+  %118 = and i8 %.fr137, 63
   %119 = zext nneg i8 %118 to i32
   br label %opus_duration.exit127
 
@@ -302,8 +302,8 @@ define internal range(i32 -2147483648, 2) i32 @opus_packet(ptr noundef %0, i32 n
 
 opus_duration.exit127:                            ; preds = %111, %115, %120
   %.015.i125 = phi i32 [ %119, %115 ], [ 2, %120 ], [ 1, %111 ]
-  %.fr138 = freeze i32 %112
-  %121 = mul nuw nsw i32 %.015.i125, %.fr138
+  %.fr = freeze i32 %112
+  %121 = mul nuw nsw i32 %.015.i125, %.fr
   %spec.select = add nuw nsw i32 %121, %.098140
   br label %opus_duration.exit127.thread
 

@@ -44,8 +44,8 @@ define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr noundef r
 
 14:                                               ; preds = %6
   %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #18
-  %.fr = freeze i64 %15
-  %16 = trunc i64 %.fr to i32
+  %.fr33 = freeze i64 %15
+  %16 = trunc i64 %.fr33 to i32
   %17 = icmp slt i32 %16, 1
   %spec.select = select i1 %17, i32 2560, i32 %16
   br label %.thread

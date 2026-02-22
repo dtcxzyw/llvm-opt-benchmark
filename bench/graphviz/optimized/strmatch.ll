@@ -374,13 +374,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @onematch(ptr noundef nonnull
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.0280, i64 1
   %11 = load i8, ptr %.0280, align 1, !tbaa !15
-  %.fr469 = freeze i8 %11
-  %12 = sext i8 %.fr469 to i32
+  %.fr = freeze i8 %11
+  %12 = sext i8 %.fr to i32
   br label %13
 
 13:                                               ; preds = %8, %9
   %.1281 = phi ptr [ %.0280, %8 ], [ %10, %9 ]
-  %.fr = phi i32 [ 0, %8 ], [ %12, %9 ]
+  %.fr469 = phi i32 [ 0, %8 ], [ %12, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %.0287, i64 1
   %15 = load i8, ptr %.0287, align 1, !tbaa !15
   %16 = sext i8 %15 to i32
@@ -639,7 +639,7 @@ gobble.exit:                                      ; preds = %38, %66
   br i1 %.not389, label %100, label %gobble.exit.thread
 
 100:                                              ; preds = %98
-  %.not390 = icmp eq i32 %.fr, 0
+  %.not390 = icmp eq i32 %.fr469, 0
   %brmerge = or i1 %.not, %.not390
   br i1 %brmerge, label %104, label %101
 
@@ -841,7 +841,7 @@ gobble.exit:                                      ; preds = %38, %66
 
 .outer:                                           ; preds = %184, %.critedge7.thread
   %.0320.ph = phi ptr [ %.4284.ph, %184 ], [ %.0280, %.critedge7.thread ]
-  %.1302.ph = phi i32 [ %187, %184 ], [ %.fr, %.critedge7.thread ]
+  %.1302.ph = phi i32 [ %187, %184 ], [ %.fr469, %.critedge7.thread ]
   %.4284.ph = phi ptr [ %185, %184 ], [ %.1281, %.critedge7.thread ]
   %.not384 = icmp ult ptr %.4284.ph, %4
   br label %178
@@ -872,11 +872,11 @@ gobble.exit:                                      ; preds = %38, %66
   br label %.outer
 
 188:                                              ; preds = %143
-  %.not374 = icmp eq i32 %.fr, %16
+  %.not374 = icmp eq i32 %.fr469, %16
   br i1 %.not374, label %.loopexit, label %gobble.exit.thread
 
 189:                                              ; preds = %13, %13, %13, %13
-  %.not370 = icmp eq i32 %.fr, 0
+  %.not370 = icmp eq i32 %.fr469, 0
   br i1 %.not370, label %190, label %194
 
 190:                                              ; preds = %189
@@ -913,7 +913,7 @@ gobble.exit:                                      ; preds = %38, %66
   br label %gobble.exit.thread
 
 204:                                              ; preds = %13
-  %.not358 = icmp eq i32 %.fr, 0
+  %.not358 = icmp eq i32 %.fr469, 0
   br i1 %.not358, label %gobble.exit.thread, label %205
 
 205:                                              ; preds = %204
@@ -922,35 +922,35 @@ gobble.exit:                                      ; preds = %38, %66
   %208 = zext i1 %207 to i32
   %209 = getelementptr inbounds nuw i8, ptr %.0287, i64 2
   %spec.select = select i1 %207, ptr %209, ptr %14
-  %210 = add nsw i32 %.fr, -48
+  %210 = add nsw i32 %.fr469, -48
   %211 = icmp ult i32 %210, 10
-  %212 = add nsw i32 %.fr, -65
+  %212 = add nsw i32 %.fr469, -65
   %213 = icmp ult i32 %212, 26
   %spec.select411 = zext i1 %213 to i32
-  %214 = and i32 %.fr, -33
+  %214 = and i32 %.fr469, -33
   %215 = add nsw i32 %214, -91
   %216 = icmp ult i32 %215, -26
-  %217 = add nsw i32 %.fr, -58
+  %217 = add nsw i32 %.fr469, -58
   %218 = icmp ult i32 %217, -10
   %.not4.i = select i1 %216, i1 %218, i1 false
-  %219 = add nsw i32 %.fr, -33
+  %219 = add nsw i32 %.fr469, -33
   %220 = icmp ult i32 %219, 94
   %.0.i = select i1 %.not4.i, i1 %220, i1 false
   %spec.select409 = zext i1 %.0.i to i32
-  %221 = add nsw i32 %.fr, -32
+  %221 = add nsw i32 %.fr469, -32
   %222 = icmp ult i32 %221, 95
   %spec.select408 = zext i1 %222 to i32
-  %223 = add nsw i32 %.fr, -97
+  %223 = add nsw i32 %.fr469, -97
   %224 = icmp ult i32 %223, 26
   %spec.select407 = zext i1 %224 to i32
   %spec.select406 = zext i1 %220 to i32
   %spec.select405 = zext i1 %211 to i32
-  %or.cond.i = icmp ult i32 %.fr, 32
-  %225 = icmp eq i32 %.fr, 127
+  %or.cond.i = icmp ult i32 %.fr469, 32
+  %225 = icmp eq i32 %.fr469, 127
   %spec.select.i = or i1 %or.cond.i, %225
   %spec.select404 = zext i1 %spec.select.i to i32
-  %226 = icmp eq i32 %.fr, 32
-  %227 = icmp eq i32 %.fr, 9
+  %226 = icmp eq i32 %.fr469, 32
+  %227 = icmp eq i32 %.fr469, 9
   %228 = or i1 %226, %227
   %spec.select403 = zext i1 %228 to i32
   %229 = add nsw i32 %214, -65
@@ -991,8 +991,8 @@ gv_isspace.exit.thread448:                        ; preds = %gv_isspace.exit.thr
   %240 = icmp eq i8 %238, %235
   %.pre69 = load i8, ptr %239, align 1, !tbaa !15
   %241 = icmp eq i8 %.pre69, 93
-  %or.cond70270 = select i1 %240, i1 %241, i1 false
-  br i1 %or.cond70270, label %.lr.ph._crit_edge, label %.lr.ph73
+  %or.cond70370 = select i1 %240, i1 %241, i1 false
+  br i1 %or.cond70370, label %.lr.ph._crit_edge, label %.lr.ph73
 
 .lr.ph:                                           ; preds = %.lr.ph73
   %242 = add i64 %.sroa.15.054471, 1
@@ -1000,8 +1000,8 @@ gv_isspace.exit.thread448:                        ; preds = %gv_isspace.exit.thr
   %244 = icmp eq i8 %.pre72, %235
   %.pre = load i8, ptr %243, align 1, !tbaa !15
   %245 = icmp eq i8 %.pre, 93
-  %or.cond702 = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond702, label %.lr.ph._crit_edge, label %.lr.ph73
+  %or.cond703 = select i1 %244, i1 %245, i1 false
+  br i1 %or.cond703, label %.lr.ph._crit_edge, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.pre72 = phi i8 [ %.pre, %.lr.ph ], [ %.pre69, %.lr.ph.preheader ]
@@ -1073,7 +1073,7 @@ gv_isspace.exit.thread448:                        ; preds = %gv_isspace.exit.thr
   br i1 %272, label %273, label %275
 
 273:                                              ; preds = %271
-  switch i32 %.fr, label %gv_isspace.exit.thread448.backedge [
+  switch i32 %.fr469, label %gv_isspace.exit.thread448.backedge [
     i32 9, label %274
     i32 10, label %274
     i32 11, label %274
@@ -1104,7 +1104,7 @@ gv_isspace.exit.thread448.backedge:               ; preds = %275, %269, %267, %2
   br i1 %211, label %gv_isxdigit.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %279
-  switch i32 %.fr, label %gv_isspace.exit.thread448.backedge [
+  switch i32 %.fr469, label %gv_isspace.exit.thread448.backedge [
     i32 102, label %gv_isxdigit.exit.thread
     i32 101, label %gv_isxdigit.exit.thread
     i32 100, label %gv_isxdigit.exit.thread
@@ -1165,7 +1165,7 @@ gv_isxdigit.exit.thread:                          ; preds = %switch.early.test, 
   br i1 %307, label %gv_isspace.exit.thread448.backedge, label %308
 
 308:                                              ; preds = %298, %292, %287
-  %309 = icmp eq i32 %.fr, %288
+  %309 = icmp eq i32 %.fr469, %288
   %spec.select416 = zext i1 %309 to i32
   br label %gv_isspace.exit.thread448.backedge
 
@@ -1207,14 +1207,14 @@ gv_isspace.exit:                                  ; preds = %280, %319
   %.10 = phi ptr [ %.11, %319 ], [ %248, %280 ]
   %320 = load i8, ptr %.0303, align 1, !tbaa !15
   %321 = sext i8 %320 to i32
-  %322 = icmp eq i32 %.fr, %321
-  %323 = icmp eq i32 %.fr, %.3299
+  %322 = icmp eq i32 %.fr469, %321
+  %323 = icmp eq i32 %.fr469, %.3299
   %or.cond413 = or i1 %323, %322
   br i1 %or.cond413, label %327, label %324
 
 324:                                              ; preds = %gv_isspace.exit
-  %325 = icmp sgt i32 %.fr, %321
-  %326 = icmp slt i32 %.fr, %.3299
+  %325 = icmp sgt i32 %.fr469, %321
+  %326 = icmp slt i32 %.fr469, %.3299
   %or.cond414 = and i1 %326, %325
   br i1 %or.cond414, label %327, label %328
 
@@ -1248,7 +1248,7 @@ gv_isspace.exit:                                  ; preds = %280, %319
   br i1 %.not363, label %341, label %gv_isspace.exit.thread448.backedge
 
 341:                                              ; preds = %338, %335
-  %342 = icmp eq i32 %.fr, %.4300
+  %342 = icmp eq i32 %.fr469, %.4300
   %spec.select415 = zext i1 %342 to i32
   br label %gv_isspace.exit.thread448.backedge
 
@@ -1302,13 +1302,13 @@ gv_isspace.exit:                                  ; preds = %280, %319
 365:                                              ; preds = %13, %347, %351, %349
   %.0296 = phi i32 [ %16, %13 ], [ %346, %351 ], [ %346, %349 ], [ %346, %347 ]
   %.1288 = phi ptr [ %14, %13 ], [ %344, %351 ], [ %344, %349 ], [ %344, %347 ]
-  %.not396 = icmp eq i32 %.0296, %.fr
+  %.not396 = icmp eq i32 %.0296, %.fr469
   br i1 %.not396, label %.loopexit, label %gobble.exit.thread
 
 .loopexit:                                        ; preds = %357, %313, %143, %188, %365
   %.14 = phi ptr [ %.1288, %365 ], [ %14, %188 ], [ %14, %143 ], [ %232, %313 ], [ %344, %357 ]
   %.6286 = phi ptr [ %.1281, %365 ], [ %.1281, %188 ], [ %.1281, %143 ], [ %.1281, %313 ], [ %.1321, %357 ]
-  %.not397 = icmp eq i32 %.fr, 0
+  %.not397 = icmp eq i32 %.fr469, 0
   br i1 %.not397, label %gobble.exit.thread, label %8, !llvm.loop !31
 
 gobble.exit.thread:                               ; preds = %313, %204, %.loopexit, %365, %343, %188, %gv_isspace.exit.thread448, %316, %236, %359, %361, %.lr.ph73, %182, %180, %.split.us.i, %60, %93, %.split.split.us.i, %157, %163, %153, %161, %104, %.critedge, %98, %133, %136, %127, %202

@@ -1042,7 +1042,8 @@ define void @Abc_GenMesh(ptr noundef readonly captures(none) %0, i32 noundef %1)
   %.299.us = phi i32 [ 0, %.preheader.lr.ph ], [ %26, %._crit_edge98.us ]
   %25 = icmp eq i32 %.299.us, %24
   %26 = add nuw nsw i32 %.299.us, 1
-  br i1 %25, label %.lr.ph97.split.us.us, label %.lr.ph97.split.us105
+  %.fr.us = freeze i1 %25
+  br i1 %.fr.us, label %.lr.ph97.split.us.us, label %.lr.ph97.split.us105
 
 .lr.ph97.split.us105:                             ; preds = %.preheader.us, %38
   %.196.us102 = phi i32 [ %.pre-phi113, %38 ], [ 0, %.preheader.us ]
@@ -1080,20 +1081,20 @@ define void @Abc_GenMesh(ptr noundef readonly captures(none) %0, i32 noundef %1)
 .lr.ph97.split.us.us:                             ; preds = %.preheader.us, %53
   %.196.us.us = phi i32 [ %.pre-phi, %53 ], [ 0, %.preheader.us ]
   %42 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 12, i64 1, ptr %3)
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.92, i32 noundef %24, i32 noundef %.196.us.us) #22
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.93, i32 noundef %24, i32 noundef %.196.us.us) #22
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.94, i32 noundef %24, i32 noundef %.196.us.us) #22
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.95, i32 noundef %24, i32 noundef %.196.us.us) #22
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.92, i32 noundef %.299.us, i32 noundef %.196.us.us) #22
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.93, i32 noundef %.299.us, i32 noundef %.196.us.us) #22
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.94, i32 noundef %.299.us, i32 noundef %.196.us.us) #22
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.95, i32 noundef %.299.us, i32 noundef %.196.us.us) #22
   %47 = icmp eq i32 %.196.us.us, %24
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %.lr.ph97.split.us.us
   %49 = add nuw nsw i32 %.196.us.us, 1
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.97, i32 noundef %24, i32 noundef %49) #22
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.97, i32 noundef %.299.us, i32 noundef %49) #22
   br label %53
 
 51:                                               ; preds = %.lr.ph97.split.us.us
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.96, i32 noundef %24) #22
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.96, i32 noundef %.299.us) #22
   %.pre = add nuw nsw i32 %.196.us.us, 1
   br label %53
 
@@ -1101,8 +1102,8 @@ define void @Abc_GenMesh(ptr noundef readonly captures(none) %0, i32 noundef %1)
   %.pre-phi = phi i32 [ %.pre, %51 ], [ %49, %48 ]
   %54 = add nuw nsw i32 %.196.us.us, %1
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.98, i32 noundef %54) #22
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.100, i32 noundef %24, i32 noundef %.196.us.us) #22
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.101, i32 noundef %24, i32 noundef %.196.us.us) #22
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.100, i32 noundef %.299.us, i32 noundef %.196.us.us) #22
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.101, i32 noundef %.299.us, i32 noundef %.196.us.us) #22
   %fputc89.us.us = tail call i32 @fputc(i32 10, ptr %3)
   %exitcond110.not = icmp eq i32 %.pre-phi, %1
   br i1 %exitcond110.not, label %._crit_edge98.us, label %.lr.ph97.split.us.us, !llvm.loop !34
@@ -1202,17 +1203,18 @@ define void @Abc_WriteKLut(ptr noundef captures(none) %0, i32 noundef %1) local_
 ; Function Attrs: nounwind uwtable
 define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = shl nuw i32 1, %1
-  %6 = add i32 %3, %2
-  %7 = add i32 %6, -1
+  %6 = add nsw i32 %3, %2
+  %7 = add nsw i32 %6, -1
   %8 = icmp ult i32 %7, 2
   %9 = add i32 %6, -2
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 false)
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %11 = sub nuw nsw i32 32, %10
   %.09.i = select i1 %8, i32 %7, i32 %11
-  %12 = shl nuw i32 1, %.09.i
+  %.09.i.fr = freeze i32 %.09.i
+  %12 = shl nuw i32 1, %.09.i.fr
   %13 = shl i32 %2, %1
   %14 = mul i32 %2, %1
-  %15 = mul i32 %14, %.09.i
+  %15 = mul i32 %14, %.09.i.fr
   %16 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.38)
   %17 = tail call ptr (...) @Extra_TimeStamp() #22
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.111, i32 noundef %2, i32 noundef %1, i32 noundef %3, ptr noundef %17) #22
@@ -1310,11 +1312,11 @@ define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1,
 
 .preheader154.lr.ph:                              ; preds = %._crit_edge179
   %54 = icmp sgt i32 %1, 0
-  %.not212 = icmp eq i32 %.09.i, 0
+  %.not212 = icmp eq i32 %.09.i.fr, 0
   br i1 %54, label %.preheader154.lr.ph.split.us, label %._crit_edge201
 
 .preheader154.lr.ph.split.us:                     ; preds = %.preheader154.lr.ph
-  %.not211 = icmp eq i32 %.09.i, 31
+  %.not211 = icmp eq i32 %.09.i.fr, 31
   br i1 %.not211, label %.preheader154.us.us208, label %.preheader154.lr.ph.split.us.split.us
 
 .preheader154.lr.ph.split.us.split.us:            ; preds = %.preheader154.lr.ph.split.us
@@ -1330,15 +1332,15 @@ define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1,
 
 .lr.ph185.us.us.us.us:                            ; preds = %.preheader154.us.us, %._crit_edge188.us.us.us.us
   %.0134189.us.us.us.us = phi i32 [ %72, %._crit_edge188.us.us.us.us ], [ 0, %.preheader154.us.us ]
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.126, i32 noundef %.09.i) #22
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.126, i32 noundef %.09.i.fr) #22
   br label %62
 
 58:                                               ; preds = %..preheader_crit_edge.us.us.us.us, %58
   %.3186.us.us.us.us = phi i32 [ 0, %..preheader_crit_edge.us.us.us.us ], [ %61, %58 ]
-  %59 = add nuw nsw i32 %.3186.us.us.us.us, %70
+  %59 = add nsw i32 %.3186.us.us.us.us, %70
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.132, i32 noundef %.3186.us.us.us.us, i32 noundef %59) #22
-  %61 = add nuw nsw i32 %.3186.us.us.us.us, 1
-  %exitcond226.not = icmp eq i32 %61, %.09.i
+  %61 = add nuw i32 %.3186.us.us.us.us, 1
+  %exitcond226.not = icmp eq i32 %61, %.09.i.fr
   br i1 %exitcond226.not, label %._crit_edge188.us.us.us.us, label %58, !llvm.loop !44
 
 62:                                               ; preds = %67, %.lr.ph185.us.us.us.us
@@ -1361,7 +1363,7 @@ define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1,
 
 ..preheader_crit_edge.us.us.us.us:                ; preds = %67
   %69 = add nuw nsw i32 %.0134189.us.us.us.us, %56
-  %70 = mul nuw nsw i32 %69, %.09.i
+  %70 = mul nsw i32 %69, %.09.i.fr
   br label %58
 
 ._crit_edge188.us.us.us.us:                       ; preds = %58
@@ -1423,7 +1425,7 @@ define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1,
   %.3186.us196.us.us = phi i32 [ 0, %.preheader.us193.us.us ], [ %92, %89 ]
   %90 = add nuw nsw i32 %.3186.us196.us.us, %88
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.132, i32 noundef %.3186.us196.us.us, i32 noundef %90) #22
-  %92 = add nuw nsw i32 %.3186.us196.us.us, 1
+  %92 = add nuw i32 %.3186.us196.us.us, 1
   %exitcond231.not = icmp eq i32 %92, 31
   br i1 %exitcond231.not, label %._crit_edge188.us198.us.us, label %89, !llvm.loop !44
 
@@ -1483,11 +1485,11 @@ define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1,
   %111 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 5, i64 1, ptr %16)
   %fputc149 = tail call i32 @fputc(i32 10, ptr %16)
   tail call void @Abc_WriteKLut(ptr noundef %16, i32 noundef %1)
-  %.not = icmp eq i32 %.09.i, %1
+  %.not = icmp eq i32 %.09.i.fr, %1
   br i1 %.not, label %113, label %112
 
 112:                                              ; preds = %._crit_edge201
-  tail call void @Abc_WriteKLut(ptr noundef %16, i32 noundef %.09.i)
+  tail call void @Abc_WriteKLut(ptr noundef %16, i32 noundef %.09.i.fr)
   br label %113
 
 113:                                              ; preds = %112, %._crit_edge201

@@ -425,10 +425,8 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %8 = load i8, ptr %0, align 1, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !3
-  %.fr71 = freeze i8 %10
-  %11 = xor i8 %.fr71, 2
-  %.fr72 = freeze i8 %8
-  %12 = or i8 %11, %.fr72
+  %11 = xor i8 %10, 2
+  %12 = or i8 %11, %8
   %13 = icmp ugt i64 %1, 2
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -438,11 +436,10 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %.05763 = phi i64 [ %25, %.lr.ph ], [ 2, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.05763
   %15 = load i8, ptr %14, align 1, !tbaa !3
-  %.fr = freeze i8 %15
-  %16 = icmp eq i8 %.fr, 0
+  %16 = icmp eq i8 %15, 0
   %17 = zext i1 %16 to i8
   %18 = or i8 %.065, %17
-  %19 = add i8 %18, -1
+  %19 = add nsw i8 %18, -1
   %20 = xor i8 %.065, -1
   %21 = and i8 %19, %20
   %22 = lshr i8 %21, 7
@@ -482,7 +479,8 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %44 = lshr i64 %41, 63
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = or i32 %33, %45
-  %47 = icmp eq i32 %46, 0
+  %.fr71 = freeze i32 %46
+  %47 = icmp eq i32 %.fr71, 0
   br i1 %47, label %._crit_edge70, label %.lr.ph69.split.preheader
 
 .lr.ph69.split.preheader:                         ; preds = %.lr.ph69

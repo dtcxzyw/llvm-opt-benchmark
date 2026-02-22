@@ -667,13 +667,13 @@ is_octal.exit.thread.i:                           ; preds = %.preheader109.i, %.
   %.0817.i.i.i = phi ptr [ %36, %35 ], [ %42, %41 ]
   %38 = add nsw i64 %.in.i.i.i, -1
   %39 = load i8, ptr %.0817.i.i.i, align 1, !tbaa !30
-  %.fr.i.i.i = freeze i8 %39
-  %40 = add i8 %.fr.i.i.i, -48
+  %.fr18.i.i.i = freeze i8 %39
+  %40 = add i8 %.fr18.i.i.i, -48
   %or.cond.i.i.i = icmp ult i8 %40, 10
   br i1 %or.cond.i.i.i, label %41, label %switch.early.test.i.i.i
 
 switch.early.test.i.i.i:                          ; preds = %37
-  switch i8 %.fr.i.i.i, label %is_afio_large.exit.thread.i [
+  switch i8 %.fr18.i.i.i, label %is_afio_large.exit.thread.i [
     i8 102, label %41
     i8 101, label %41
     i8 100, label %41
@@ -702,13 +702,13 @@ is_hex.exit.i.i:                                  ; preds = %41
   %.0817.i17.i.i = phi ptr [ %43, %is_hex.exit.i.i ], [ %49, %48 ]
   %45 = add nsw i64 %.in.i16.i.i, -1
   %46 = load i8, ptr %.0817.i17.i.i, align 1, !tbaa !30
-  %.fr.i18.i.i = freeze i8 %46
-  %47 = add i8 %.fr.i18.i.i, -48
+  %.fr18.i18.i.i = freeze i8 %46
+  %47 = add i8 %.fr18.i18.i.i, -48
   %or.cond.i19.i.i = icmp ult i8 %47, 10
   br i1 %or.cond.i19.i.i, label %48, label %switch.early.test.i20.i.i
 
 switch.early.test.i20.i.i:                        ; preds = %44
-  switch i8 %.fr.i18.i.i, label %is_afio_large.exit.thread.i [
+  switch i8 %.fr18.i18.i.i, label %is_afio_large.exit.thread.i [
     i8 102, label %48
     i8 101, label %48
     i8 100, label %48
@@ -737,13 +737,13 @@ is_hex.exit23.i.i:                                ; preds = %48
   %.0817.i25.i.i = phi ptr [ %50, %is_hex.exit23.i.i ], [ %56, %55 ]
   %52 = add nsw i64 %.in.i24.i.i, -1
   %53 = load i8, ptr %.0817.i25.i.i, align 1, !tbaa !30
-  %.fr.i26.i.i = freeze i8 %53
-  %54 = add i8 %.fr.i26.i.i, -48
+  %.fr18.i26.i.i = freeze i8 %53
+  %54 = add i8 %.fr18.i26.i.i, -48
   %or.cond.i27.i.i = icmp ult i8 %54, 10
   br i1 %or.cond.i27.i.i, label %55, label %switch.early.test.i28.i.i
 
 switch.early.test.i28.i.i:                        ; preds = %51
-  switch i8 %.fr.i26.i.i, label %is_afio_large.exit.thread.i [
+  switch i8 %.fr18.i26.i.i, label %is_afio_large.exit.thread.i [
     i8 102, label %55
     i8 101, label %55
     i8 100, label %55
@@ -772,13 +772,13 @@ is_hex.exit31.i.i:                                ; preds = %55
   %.0817.i33.i.i = phi ptr [ %57, %is_hex.exit31.i.i ], [ %63, %62 ]
   %59 = add nsw i64 %.in.i32.i.i, -1
   %60 = load i8, ptr %.0817.i33.i.i, align 1, !tbaa !30
-  %.fr.i34.i.i = freeze i8 %60
-  %61 = add i8 %.fr.i34.i.i, -48
+  %.fr18.i34.i.i = freeze i8 %60
+  %61 = add i8 %.fr18.i34.i.i, -48
   %or.cond.i35.i.i = icmp ult i8 %61, 10
   br i1 %or.cond.i35.i.i, label %62, label %switch.early.test.i36.i.i
 
 switch.early.test.i36.i.i:                        ; preds = %58
-  switch i8 %.fr.i34.i.i, label %is_afio_large.exit.thread.i [
+  switch i8 %.fr18.i34.i.i, label %is_afio_large.exit.thread.i [
     i8 102, label %62
     i8 101, label %62
     i8 100, label %62
@@ -880,13 +880,13 @@ is_octal.exit56.thread.i:                         ; preds = %.preheader.i, %68
   %.0817.i.i63.i = phi ptr [ %93, %92 ], [ %99, %98 ]
   %95 = add nsw i64 %.in.i.i62.i, -1
   %96 = load i8, ptr %.0817.i.i63.i, align 1, !tbaa !30
-  %.fr.i.i64.i = freeze i8 %96
-  %97 = add i8 %.fr.i.i64.i, -48
+  %.fr18.i.i64.i = freeze i8 %96
+  %97 = add i8 %.fr18.i.i64.i, -48
   %or.cond.i.i65.i = icmp ult i8 %97, 10
   br i1 %or.cond.i.i65.i, label %98, label %switch.early.test.i.i66.i
 
 switch.early.test.i.i66.i:                        ; preds = %94
-  switch i8 %.fr.i.i64.i, label %is_afio_large.exit89.thread.i [
+  switch i8 %.fr18.i.i64.i, label %is_afio_large.exit89.thread.i [
     i8 102, label %98
     i8 101, label %98
     i8 100, label %98
@@ -915,13 +915,13 @@ is_hex.exit.i68.i:                                ; preds = %98
   %.0817.i17.i70.i = phi ptr [ %100, %is_hex.exit.i68.i ], [ %106, %105 ]
   %102 = add nsw i64 %.in.i16.i69.i, -1
   %103 = load i8, ptr %.0817.i17.i70.i, align 1, !tbaa !30
-  %.fr.i18.i71.i = freeze i8 %103
-  %104 = add i8 %.fr.i18.i71.i, -48
+  %.fr18.i18.i71.i = freeze i8 %103
+  %104 = add i8 %.fr18.i18.i71.i, -48
   %or.cond.i19.i72.i = icmp ult i8 %104, 10
   br i1 %or.cond.i19.i72.i, label %105, label %switch.early.test.i20.i73.i
 
 switch.early.test.i20.i73.i:                      ; preds = %101
-  switch i8 %.fr.i18.i71.i, label %is_afio_large.exit89.thread.i [
+  switch i8 %.fr18.i18.i71.i, label %is_afio_large.exit89.thread.i [
     i8 102, label %105
     i8 101, label %105
     i8 100, label %105
@@ -950,13 +950,13 @@ is_hex.exit23.i75.i:                              ; preds = %105
   %.0817.i25.i77.i = phi ptr [ %107, %is_hex.exit23.i75.i ], [ %113, %112 ]
   %109 = add nsw i64 %.in.i24.i76.i, -1
   %110 = load i8, ptr %.0817.i25.i77.i, align 1, !tbaa !30
-  %.fr.i26.i78.i = freeze i8 %110
-  %111 = add i8 %.fr.i26.i78.i, -48
+  %.fr18.i26.i78.i = freeze i8 %110
+  %111 = add i8 %.fr18.i26.i78.i, -48
   %or.cond.i27.i79.i = icmp ult i8 %111, 10
   br i1 %or.cond.i27.i79.i, label %112, label %switch.early.test.i28.i80.i
 
 switch.early.test.i28.i80.i:                      ; preds = %108
-  switch i8 %.fr.i26.i78.i, label %is_afio_large.exit89.thread.i [
+  switch i8 %.fr18.i26.i78.i, label %is_afio_large.exit89.thread.i [
     i8 102, label %112
     i8 101, label %112
     i8 100, label %112
@@ -985,13 +985,13 @@ is_hex.exit31.i82.i:                              ; preds = %112
   %.0817.i33.i84.i = phi ptr [ %114, %is_hex.exit31.i82.i ], [ %120, %119 ]
   %116 = add nsw i64 %.in.i32.i83.i, -1
   %117 = load i8, ptr %.0817.i33.i84.i, align 1, !tbaa !30
-  %.fr.i34.i85.i = freeze i8 %117
-  %118 = add i8 %.fr.i34.i85.i, -48
+  %.fr18.i34.i85.i = freeze i8 %117
+  %118 = add i8 %.fr18.i34.i85.i, -48
   %or.cond.i35.i86.i = icmp ult i8 %118, 10
   br i1 %or.cond.i35.i86.i, label %119, label %switch.early.test.i36.i87.i
 
 switch.early.test.i36.i87.i:                      ; preds = %115
-  switch i8 %.fr.i34.i85.i, label %is_afio_large.exit89.thread.i [
+  switch i8 %.fr18.i34.i85.i, label %is_afio_large.exit89.thread.i [
     i8 102, label %119
     i8 101, label %119
     i8 100, label %119
@@ -1867,13 +1867,13 @@ define internal range(i32 -30, 1) i32 @header_newc(ptr noundef %0, ptr noundef c
   %.0817.i.i = phi ptr [ %20, %19 ], [ %9, %13 ]
   %16 = add nsw i64 %.in.i.i, -1
   %17 = load i8, ptr %.0817.i.i, align 1, !tbaa !30
-  %.fr.i.i = freeze i8 %17
-  %18 = add i8 %.fr.i.i, -48
+  %.fr18.i.i = freeze i8 %17
+  %18 = add i8 %.fr18.i.i, -48
   %or.cond.i.i = icmp ult i8 %18, 10
   br i1 %or.cond.i.i, label %19, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %.preheader52.i
-  switch i8 %.fr.i.i, label %is_hex.exit.thread.i [
+  switch i8 %.fr18.i.i, label %is_hex.exit.thread.i [
     i8 102, label %19
     i8 101, label %19
     i8 100, label %19
@@ -1917,13 +1917,13 @@ is_hex.exit.thread.i:                             ; preds = %switch.early.test.i
   %.0817.i41.i = phi ptr [ %29, %28 ], [ %.03260.i, %23 ]
   %25 = add nsw i64 %.in.i40.i, -1
   %26 = load i8, ptr %.0817.i41.i, align 1, !tbaa !30
-  %.fr.i42.i = freeze i8 %26
-  %27 = add i8 %.fr.i42.i, -48
+  %.fr18.i42.i = freeze i8 %26
+  %27 = add i8 %.fr18.i42.i, -48
   %or.cond.i43.i = icmp ult i8 %27, 10
   br i1 %or.cond.i43.i, label %28, label %switch.early.test.i44.i
 
 switch.early.test.i44.i:                          ; preds = %.preheader.i
-  switch i8 %.fr.i42.i, label %is_hex.exit47.thread.i [
+  switch i8 %.fr18.i42.i, label %is_hex.exit47.thread.i [
     i8 102, label %28
     i8 101, label %28
     i8 100, label %28

@@ -2632,8 +2632,8 @@ define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 n
   %60 = inttoptr i64 %59 to ptr
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %62 = load i32, ptr %61, align 4
-  %.fr20 = freeze i32 %62
-  %63 = and i32 %.fr20, 268435456
+  %.fr = freeze i32 %62
+  %63 = and i32 %.fr, 268435456
   %64 = icmp eq i32 %63, 0
   %65 = sext i32 %56 to i64
   %66 = getelementptr %struct.list_head, ptr %19, i64 %65

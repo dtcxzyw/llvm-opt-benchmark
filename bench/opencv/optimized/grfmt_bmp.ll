@@ -2826,16 +2826,14 @@ define hidden noundef zeroext i1 @_ZN2cv10BmpEncoder5writeERKNS_3MatERKSt6vector
   %6 = alloca [256 x %"struct.cv::PaletteEntry"], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !134
-  %.fr53 = freeze i32 %8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !135
   %11 = load i32, ptr %1, align 8, !tbaa !96
-  %.fr52 = freeze i32 %11
-  %12 = lshr i32 %.fr52, 3
+  %12 = lshr i32 %11, 3
   %13 = and i32 %12, 511
   %14 = add nuw nsw i32 %13, 1
-  %15 = mul i32 %14, %.fr53
-  %16 = add i32 %15, 3
+  %15 = mul nsw i32 %14, %8
+  %16 = add nsw i32 %15, 3
   %17 = and i32 %16, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
@@ -2980,7 +2978,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %76, label %78, label %.loopexit
 
 78:                                               ; preds = %77
-  %79 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.fr53)
+  %79 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %8)
           to label %80 unwind label %60
 
 80:                                               ; preds = %78
@@ -3074,15 +3072,16 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %118 = icmp sgt i32 %17, %15
   %119 = sub nsw i32 %17, %15
+  %.fr = freeze i1 %118
   %120 = zext nneg i32 %.050 to i64
-  br i1 %118, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %131
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %131 ], [ %120, %.lr.ph ]
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %131 ], [ %120, %.lr.ph ]
   %121 = load ptr, ptr %116, align 8, !tbaa !94
   %122 = load ptr, ptr %117, align 8, !tbaa !140
   %123 = load i64, ptr %122, align 8, !tbaa !95
-  %124 = mul i64 %123, %indvars.iv57
+  %124 = mul i64 %123, %indvars.iv55
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 %124
   %126 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %125, i32 noundef %15)
           to label %127 unwind label %.split.us
@@ -3098,8 +3097,8 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %129, label %131, label %.loopexit
 
 131:                                              ; preds = %130
-  %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
-  %132 = icmp slt i64 %indvars.iv57, 1
+  %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
+  %132 = icmp slt i64 %indvars.iv55, 1
   br i1 %132, label %.critedge, label %.lr.ph.split.us, !llvm.loop !141
 
 .split.us:                                        ; preds = %128, %.lr.ph.split.us

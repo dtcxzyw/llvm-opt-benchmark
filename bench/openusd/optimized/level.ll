@@ -3370,13 +3370,12 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %12, i64 %18
   %20 = load i32, ptr %15, align 4
-  %.fr71 = freeze i32 %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i16, ptr %22, i64 %18
-  %.fr70 = freeze i32 %10
-  %24 = icmp sgt i32 %.fr70, %.fr71
-  %25 = icmp sgt i32 %.fr71, 0
+  %24 = icmp sgt i32 %10, %20
+  %.fr = freeze i1 %24
+  %25 = icmp sgt i32 %20, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -3385,25 +3384,25 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %28 = zext nneg i32 %3 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = add nsw i32 %.fr71, -1
+  %31 = add nsw i32 %20, -1
   br i1 %26, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph.split.us.split.preheader, label %.lr.ph.split.us.split.us.preheader
+  br i1 %.fr, label %.lr.ph.split.us.split.preheader, label %.lr.ph.split.us.split.us.preheader
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
-  %wide.trip.count93 = zext nneg i32 %.fr71 to i64
+  %wide.trip.count91 = zext nneg i32 %20 to i64
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
   %32 = zext nneg i32 %31 to i64
-  %wide.trip.count98 = zext nneg i32 %.fr71 to i64
+  %wide.trip.count96 = zext nneg i32 %20 to i64
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.lr.ph.split.us.split.us
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next89, %.lr.ph.split.us.split.us ]
   %indvars.iv86 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next87, %.lr.ph.split.us.split.us ]
-  %33 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv88
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next85, %.lr.ph.split.us.split.us ]
+  %33 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv86
   %34 = load i32, ptr %33, align 4
   %35 = shl nsw i32 %34, 1
   %36 = load ptr, ptr %30, align 8
@@ -3414,7 +3413,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %41 = sext i32 %40 to i64
   %42 = load ptr, ptr %29, align 8
   %43 = getelementptr inbounds i32, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv88
+  %44 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv86
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %46, 1
@@ -3422,24 +3421,24 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw i32, ptr %43, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv86
+  %52 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv84
   store i32 %51, ptr %52, align 4
   %53 = and i32 %46, 3
   %54 = xor i32 %53, 2
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i32, ptr %43, i64 %55
   %57 = load i32, ptr %56, align 4
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 2
   %58 = getelementptr i8, ptr %52, i64 4
   store i32 %57, ptr %58, align 4
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge.loopexit72, label %.lr.ph.split.us.split.us, !llvm.loop !47
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count91
+  br i1 %exitcond92.not, label %._crit_edge.loopexit70, label %.lr.ph.split.us.split.us, !llvm.loop !47
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %97
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next96, %97 ]
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next94, %97 ]
   %.061.us = phi i32 [ 0, %.lr.ph.split.us.split.preheader ], [ %.1.us, %97 ]
-  %59 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv95
+  %59 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv93
   %60 = load i32, ptr %59, align 4
   %61 = shl nsw i32 %60, 1
   %62 = load ptr, ptr %30, align 8
@@ -3450,7 +3449,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %29, align 8
   %69 = getelementptr inbounds i32, ptr %68, i64 %67
-  %70 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv95
+  %70 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv93
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i32
   %73 = add nuw nsw i32 %72, 1
@@ -3469,7 +3468,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %85 = add nsw i32 %.061.us, 2
   %86 = getelementptr i8, ptr %79, i64 4
   store i32 %84, ptr %86, align 4
-  %87 = icmp eq i64 %indvars.iv95, %32
+  %87 = icmp eq i64 %indvars.iv93, %32
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %.lr.ph.split.us.split
@@ -3486,26 +3485,26 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
 
 97:                                               ; preds = %88, %.lr.ph.split.us.split
   %.1.us = phi i32 [ %94, %88 ], [ %85, %.lr.ph.split.us.split ]
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !47
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
+  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %24, label %.lr.ph.split.split.preheader, label %.lr.ph.split.split.us.preheader
+  br i1 %.fr, label %.lr.ph.split.split.preheader, label %.lr.ph.split.split.us.preheader
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  %wide.trip.count = zext nneg i32 %.fr71 to i64
+  %wide.trip.count = zext nneg i32 %20 to i64
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
   %98 = zext nneg i32 %31 to i64
-  %wide.trip.count84 = zext nneg i32 %.fr71 to i64
+  %wide.trip.count82 = zext nneg i32 %20 to i64
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next77, %.lr.ph.split.split.us ]
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next75, %.lr.ph.split.split.us ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.split.us ]
-  %99 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv76
+  %99 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv74
   %100 = load i32, ptr %99, align 4
   %101 = load ptr, ptr %27, align 8
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %28
@@ -3522,7 +3521,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %113 = sext i32 %111 to i64
   %114 = load ptr, ptr %112, align 8
   %115 = getelementptr inbounds i32, ptr %114, i64 %113
-  %116 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv76
+  %116 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv74
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = add nuw nsw i32 %118, 1
@@ -3540,14 +3539,14 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %130 = getelementptr i8, ptr %124, i64 4
   store i32 %129, ptr %130, align 4
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit74, label %.lr.ph.split.split.us, !llvm.loop !47
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.loopexit72, label %.lr.ph.split.split.us, !llvm.loop !47
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %175
-  %indvars.iv81 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next82, %175 ]
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next80, %175 ]
   %.061 = phi i32 [ 0, %.lr.ph.split.split.preheader ], [ %.1, %175 ]
-  %131 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv81
+  %131 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv79
   %132 = load i32, ptr %131, align 4
   %133 = load ptr, ptr %27, align 8
   %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %28
@@ -3564,7 +3563,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %145 = sext i32 %143 to i64
   %146 = load ptr, ptr %144, align 8
   %147 = getelementptr inbounds i32, ptr %146, i64 %145
-  %148 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv81
+  %148 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv79
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i32
   %151 = add nuw nsw i32 %150, 1
@@ -3583,7 +3582,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
   %163 = add nsw i32 %.061, 2
   %164 = getelementptr i8, ptr %157, i64 4
   store i32 %162, ptr %164, align 4
-  %165 = icmp eq i64 %indvars.iv81, %98
+  %165 = icmp eq i64 %indvars.iv79, %98
   br i1 %165, label %166, label %175
 
 166:                                              ; preds = %.lr.ph.split.split
@@ -3600,20 +3599,20 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level33gatherQuadRegula
 
 175:                                              ; preds = %.lr.ph.split.split, %166
   %.1 = phi i32 [ %172, %166 ], [ %163, %.lr.ph.split.split ]
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !47
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !47
 
-._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.us.split.us
-  %176 = trunc nuw i64 %indvars.iv.next87 to i32
+._crit_edge.loopexit70:                           ; preds = %.lr.ph.split.us.split.us
+  %176 = trunc nuw i64 %indvars.iv.next85 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit74:                           ; preds = %.lr.ph.split.split.us
+._crit_edge.loopexit72:                           ; preds = %.lr.ph.split.split.us
   %177 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %175, %97, %._crit_edge.loopexit74, %._crit_edge.loopexit72, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %176, %._crit_edge.loopexit72 ], [ %177, %._crit_edge.loopexit74 ], [ %.1.us, %97 ], [ %.1, %175 ]
+._crit_edge:                                      ; preds = %175, %97, %._crit_edge.loopexit72, %._crit_edge.loopexit70, %4
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %176, %._crit_edge.loopexit70 ], [ %177, %._crit_edge.loopexit72 ], [ %.1.us, %97 ], [ %.1, %175 ]
   ret i32 %.0.lcssa
 }
 

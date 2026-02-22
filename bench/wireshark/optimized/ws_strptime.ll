@@ -186,11 +186,11 @@ define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, 
     i8 121, label %378
     i8 90, label %408
     i8 122, label %408
-    i8 110, label %.preheader1643
-    i8 116, label %.preheader1643
+    i8 110, label %.preheader1644
+    i8 116, label %.preheader1644
   ]
 
-.preheader1643:                                   ; preds = %.preheader613, %.preheader613
+.preheader1644:                                   ; preds = %.preheader613, %.preheader613
   br label %553
 
 .preheader.i389.preheader:                        ; preds = %.preheader613, %.preheader613, %.preheader613
@@ -874,16 +874,16 @@ conv_num.exit517:                                 ; preds = %293, %296
 
 303:                                              ; preds = %.preheader613
   %304 = load i8, ptr %.0277879, align 1
-  %.fr1421 = freeze i8 %304
-  %305 = add i8 %.fr1421, -58
+  %.fr1422 = freeze i8 %304
+  %305 = add i8 %.fr1422, -58
   %or.cond.i518 = icmp ult i8 %305, -10
   br i1 %or.cond.i518, label %conv_num.exit529, label %.preheader.i519
 
 .preheader.i519:                                  ; preds = %303
-  %306 = zext nneg i8 %.fr1421 to i32
+  %306 = zext nneg i8 %.fr1422 to i32
   %307 = add nsw i32 %306, -48
   %308 = icmp eq i32 %307, 0
-  %309 = icmp samesign ugt i8 %.fr1421, 55
+  %309 = icmp samesign ugt i8 %.fr1422, 55
   %or.cond36.i527 = or i1 %309, %308
   br i1 %or.cond36.i527, label %conv_num.exit529, label %310
 
@@ -1444,8 +1444,8 @@ thread-pre-split589:                              ; preds = %421, %432, %436, %.
   store ptr null, ptr %11, align 8
   br label %.backedge622
 
-553:                                              ; preds = %.preheader1643, %553
-  %.10 = phi ptr [ %559, %553 ], [ %.0277879, %.preheader1643 ]
+553:                                              ; preds = %.preheader1644, %553
+  %.10 = phi ptr [ %559, %553 ], [ %.0277879, %.preheader1644 ]
   %554 = load i8, ptr %.10, align 1
   %555 = zext i8 %554 to i64
   %556 = getelementptr i16, ptr %9, i64 %555

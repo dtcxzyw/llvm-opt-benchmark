@@ -3590,16 +3590,14 @@ select.unfold.i.i.i.loopexit:                     ; preds = %73
   %101 = getelementptr inbounds i8, ptr %84, i64 -24
   %102 = load ptr, ptr %101, align 8, !alias.scope !1326, !noalias !1329, !nonnull !4, !noundef !4
   %bcmp.i.i.i4.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %102, ptr nonnull readonly align 1 %100, i64 %98), !alias.scope !1334, !noalias !1338
-  %bcmp.i.i.i4.i.i.fr.i.i = freeze i32 %bcmp.i.i.i4.i.i.i.i
-  %103 = icmp eq i32 %bcmp.i.i.i4.i.i.fr.i.i, 0
+  %103 = icmp eq i32 %bcmp.i.i.i4.i.i.i.i, 0
   %104 = getelementptr inbounds i8, ptr %84, i64 -8
   %105 = load i8, ptr %104, align 8, !range !163, !alias.scope !1339, !noalias !1329
   %106 = load i8, ptr %32, align 8, !range !163, !alias.scope !1324, !noalias !1333
-  %.fr.i.i = freeze i8 %105
-  %.fr9.i.i = freeze i8 %106
-  %107 = icmp eq i8 %.fr.i.i, %.fr9.i.i
-  %.0.i.i.i3.i.i.i = and i1 %103, %107
-  br i1 %.0.i.i.i3.i.i.i, label %._crit_edge, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf3bc9c8a397bc76E.exit"
+  %107 = icmp eq i8 %105, %106
+  %.0.i.i.i3.i.i.i = select i1 %103, i1 %107, i1 false
+  %cond.fr5.i.i = freeze i1 %.0.i.i.i3.i.i.i
+  br i1 %cond.fr5.i.i, label %._crit_edge, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf3bc9c8a397bc76E.exit"
 
 "_ZN15tree_sitter_cli8generate6render9Generator4init28_$u7b$$u7b$closure$u7d$$u7d$17hfc50e49324e3efeaE.exit.i.i": ; preds = %"_ZN5alloc6string87_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$$RF$str$GT$2eq17h3e686b662887900cE.exit.i.i.i.i.i"
   %108 = load i8, ptr %32, align 8, !range !163, !alias.scope !1263, !noalias !1253, !noundef !4

@@ -3542,8 +3542,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %51 = fptosi double %50 to i32
   %52 = tail call double @llvm.ceil.f64(double %.sroa.245.0.copyload)
   %53 = fptosi double %52 to i32
-  %.fr149 = freeze i32 %53
-  %.not.i = icmp eq i32 %.fr149, %51
+  %.not.i = icmp eq i32 %51, %53
   %54 = fsub double %.sroa.042.0.copyload, %.sroa.044.0.copyload
   %55 = fsub double %.sroa.243.0.copyload, %.sroa.245.0.copyload
   %56 = fdiv double %54, %55
@@ -3565,7 +3564,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %.sroa.233.0.copyload = load double, ptr %.sroa.233.0..sroa_idx, align 8, !tbaa !90
   %66 = tail call double @llvm.ceil.f64(double %.sroa.233.0.copyload)
   %67 = fptosi double %66 to i32
-  %.not.i104 = icmp eq i32 %.fr149, %67
+  %.not.i104 = icmp eq i32 %67, %53
   %68 = fsub double %.sroa.032.0.copyload, %.sroa.044.0.copyload
   %69 = fsub double %.sroa.233.0.copyload, %.sroa.245.0.copyload
   %70 = fdiv double %68, %69
@@ -3575,7 +3574,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %73 = fsub double %.sroa.238.0.copyload, %.sroa.233.0.copyload
   %74 = fdiv double %72, %73
   %75 = select i1 %.not.i105, double 0.000000e+00, double %74
-  %.not139 = icmp sgt i32 %.fr149, %60
+  %.not139 = icmp sgt i32 %53, %60
   br i1 %.not139, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %48
@@ -3595,21 +3594,20 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %89 = load ptr, ptr %88, align 8
   %90 = load double, ptr %80, align 8
   %91 = load double, ptr %81, align 8
-  %.fr = freeze i32 %85
   br label %100
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv155 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next156, %.preheader ]
-  %92 = trunc i64 %indvars.iv155 to i32
+  %indvars.iv154 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next155, %.preheader ]
+  %92 = trunc i64 %indvars.iv154 to i32
   %93 = add i32 %spec.select, %92
   %94 = and i32 %93, 3
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %5, i64 %95
-  %97 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %6, i64 %indvars.iv155
+  %97 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %6, i64 %indvars.iv154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %97, ptr noundef nonnull align 16 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !187
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond158.not = icmp eq i64 %indvars.iv.next156, 4
-  br i1 %exitcond158.not, label %48, label %.preheader, !llvm.loop !188
+  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next155, 4
+  br i1 %exitcond157.not, label %48, label %.preheader, !llvm.loop !188
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   %.lcssa125138.lcssa = phi i32 [ 0, %48 ], [ %.lcssa125137, %.loopexit ]
@@ -3625,7 +3623,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   ret double %99
 
 100:                                              ; preds = %.lr.ph144, %.loopexit
-  %.087142 = phi i32 [ %.fr149, %.lr.ph144 ], [ %166, %.loopexit ]
+  %.087142 = phi i32 [ %53, %.lr.ph144 ], [ %166, %.loopexit ]
   %101 = phi i32 [ 0, %.lr.ph144 ], [ %165, %.loopexit ]
   %102 = phi i32 [ 0, %.lr.ph144 ], [ %164, %.loopexit ]
   %.lcssa123136141 = phi i32 [ 0, %.lr.ph144 ], [ %.lcssa123135, %.loopexit ]
@@ -3675,9 +3673,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   br i1 %.not97126, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %121
-  %.not28.i = icmp slt i32 %.087142, %.fr
+  %.not28.i = icmp slt i32 %.087142, %85
   %125 = zext nneg i32 %.087142 to i64
-  br i1 %.not28.i, label %.lr.ph.split, label %.lr.ph.split.us
+  %.not28.i.fr = freeze i1 %.not28.i
+  br i1 %.not28.i.fr, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.0127.us = phi i32 [ %130, %.lr.ph.split.us ], [ %123, %.lr.ph ]
@@ -3690,8 +3689,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   %spec.select147 = select i1 %or.cond102.us, i32 %129, i32 %127
   %spec.select148 = select i1 %or.cond102.us, i32 %129, i32 %126
   %130 = add i32 %.0127.us, 1
-  %exitcond159.not = icmp eq i32 %.0127.us, %124
-  br i1 %exitcond159.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !189
+  %exitcond158.not = icmp eq i32 %.0127.us, %124
+  br i1 %exitcond158.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !189
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
   %.0127 = phi i32 [ %163, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %123, %.lr.ph ]
@@ -3751,8 +3750,8 @@ _ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %138,
   %161 = phi i32 [ %137, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %137, %157 ], [ %132, %.lr.ph.split ], [ %137, %138 ], [ %137, %136 ]
   %162 = phi i32 [ %131, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %158, %157 ], [ %131, %.lr.ph.split ], [ %131, %138 ], [ %131, %136 ]
   %163 = add i32 %.0127, 1
-  %exitcond160.not = icmp eq i32 %.0127, %124
-  br i1 %exitcond160.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !189
+  %exitcond159.not = icmp eq i32 %.0127, %124
+  br i1 %exitcond159.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !189
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, %121, %100
   %.lcssa125137 = phi i32 [ %.lcssa125138140, %100 ], [ %.lcssa125138140, %121 ], [ %159, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa125138140, %.lr.ph.split.us ]
@@ -3760,8 +3759,8 @@ _ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %138,
   %164 = phi i32 [ %102, %100 ], [ %102, %121 ], [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %spec.select148, %.lr.ph.split.us ]
   %165 = phi i32 [ %101, %100 ], [ %101, %121 ], [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %101, %.lr.ph.split.us ]
   %166 = add i32 %.087142, 1
-  %.not = icmp sgt i32 %166, %60
-  br i1 %.not, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %100, !llvm.loop !190
+  %exitcond160.not = icmp eq i32 %.087142, %60
+  br i1 %exitcond160.not, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %100, !llvm.loop !190
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable

@@ -2702,28 +2702,27 @@ define noundef zeroext i1 @_ZN6icu_7715MeasureUnitImpl16appendSingleUnitERKNS_14
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 4
-  %.fr51 = freeze i32 %15
-  %16 = icmp sgt i32 %.fr51, 0
+  %.fr45 = freeze i32 %15
+  %16 = icmp sgt i32 %.fr45, 0
   %17 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
   %18 = sext i32 %7 to i64
   %19 = getelementptr inbounds i32, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
-  %.fr21 = freeze i32 %21
-  %22 = add i32 %.fr21, 59
+  %22 = add i32 %21, 59
   %or.cond.i36.i.i = icmp ult i32 %22, 8
-  %23 = mul nsw i32 %.fr21, 3
+  %23 = mul i32 %21, 3
   %24 = add i32 %23, 180
-  %.0.i47.i.i = add i32 %.fr21, -30
+  %.0.i47.i.i = add nsw i32 %21, -30
   %25 = select i1 %or.cond.i36.i.i, i32 %24, i32 %.0.i47.i.i
   br i1 %16, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %26 = icmp slt i32 %.fr51, 0
+  %26 = icmp slt i32 %.fr45, 0
   br i1 %26, label %.lr.ph.split.us.split.preheader, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %wide.trip.count62 = zext nneg i32 %10 to i64
+  %wide.trip.count56 = zext nneg i32 %10 to i64
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -2733,7 +2732,7 @@ define noundef zeroext i1 @_ZN6icu_7715MeasureUnitImpl16appendSingleUnitERKNS_14
 
 28:                                               ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us, %.lr.ph.split.us.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %.01526.us.us = phi ptr [ %43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ], [ null, %.lr.ph.split.us.split.us ]
+  %.01521.us.us = phi ptr [ %43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ], [ null, %.lr.ph.split.us.split.us ]
   %29 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = load i32, ptr %30, align 4, !tbaa !84
@@ -2748,32 +2747,32 @@ define noundef zeroext i1 @_ZN6icu_7715MeasureUnitImpl16appendSingleUnitERKNS_14
 _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us.us: ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !85
-  %.fr.us.us = freeze i32 %37
-  %38 = add i32 %.fr.us.us, 51
+  %38 = add i32 %37, 51
   %or.cond.i.i.i.us.us = icmp ult i32 %38, -8
-  %39 = mul nsw i32 %.fr.us.us, 3
+  %39 = mul i32 %37, 3
   %40 = add i32 %39, 180
-  %.0.i41.i.i.us.us = add i32 %.fr.us.us, -30
+  %.0.i41.i.i.us.us = add nsw i32 %37, -30
   %41 = select i1 %or.cond.i.i.i.us.us, i32 %.0.i41.i.i.us.us, i32 %40
   %or.cond4.i.us.us = icmp ne i32 %41, %25
   %42 = and i1 %or.cond.i.i.i.us.us, %or.cond.i36.i.i
   %or.cond5.i.us.us = or i1 %42, %or.cond4.i.us.us
   %.demorgan.i.i.us.us = or i1 %or.cond.i.i.i.us.us, %or.cond.i36.i.i
   %not.or.cond5.i.us.us = xor i1 %or.cond5.i.us.us, true
-  %spec.select.i.us.us = and i1 %.demorgan.i.i.us.us, %not.or.cond5.i.us.us
-  %spec.select.us.us = select i1 %spec.select.i.us.us, ptr %30, ptr %.01526.us.us
+  %spec.select.i.us.us = select i1 %not.or.cond5.i.us.us, i1 %.demorgan.i.i.us.us, i1 false
+  %cond.fr.us.us = freeze i1 %spec.select.i.us.us
+  %spec.select.us.us = select i1 %cond.fr.us.us, ptr %30, ptr %.01521.us.us
   br label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us
 
 _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us: ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us.us, %28
-  %43 = phi ptr [ %.01526.us.us, %28 ], [ %spec.select.us.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us.us ]
+  %43 = phi ptr [ %.01521.us.us, %28 ], [ %spec.select.us.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !92
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next60, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ]
-  %.01526.us = phi ptr [ null, %.lr.ph.split.us.split.preheader ], [ %63, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ]
-  %44 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv59
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next54, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ]
+  %.01521.us = phi ptr [ null, %.lr.ph.split.us.split.preheader ], [ %63, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ]
+  %44 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv53
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 4, !tbaa !36
@@ -2794,41 +2793,41 @@ _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us: ; preds =
 _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us: ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !85
-  %.fr.us = freeze i32 %57
-  %58 = add i32 %.fr.us, 51
+  %58 = add i32 %57, 51
   %or.cond.i.i.i.us = icmp ult i32 %58, -8
-  %59 = mul nsw i32 %.fr.us, 3
+  %59 = mul i32 %57, 3
   %60 = add i32 %59, 180
-  %.0.i41.i.i.us = add i32 %.fr.us, -30
+  %.0.i41.i.i.us = add nsw i32 %57, -30
   %61 = select i1 %or.cond.i.i.i.us, i32 %.0.i41.i.i.us, i32 %60
   %or.cond4.i.us = icmp ne i32 %61, %25
   %62 = and i1 %or.cond.i.i.i.us, %or.cond.i36.i.i
   %or.cond5.i.us = or i1 %62, %or.cond4.i.us
   %.demorgan.i.i.us = or i1 %or.cond.i.i.i.us, %or.cond.i36.i.i
   %not.or.cond5.i.us = xor i1 %or.cond5.i.us, true
-  %spec.select.i.us = and i1 %.demorgan.i.i.us, %not.or.cond5.i.us
-  %spec.select.us = select i1 %spec.select.i.us, ptr %45, ptr %.01526.us
+  %spec.select.i.us = select i1 %not.or.cond5.i.us, i1 %.demorgan.i.i.us, i1 false
+  %cond.fr.us = freeze i1 %spec.select.i.us
+  %spec.select.us = select i1 %cond.fr.us, ptr %45, ptr %.01521.us
   br label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us
 
 _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us: ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us, %49, %.lr.ph.split.us.split
-  %63 = phi ptr [ %.01526.us, %49 ], [ %spec.select.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us ], [ %.01526.us, %.lr.ph.split.us.split ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !92
+  %63 = phi ptr [ %.01521.us, %49 ], [ %spec.select.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us ], [ %.01521.us, %.lr.ph.split.us.split ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !92
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph
-  %wide.trip.count67 = zext nneg i32 %10 to i64
+  %wide.trip.count61 = zext nneg i32 %10 to i64
   br label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next65, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44 ]
-  %.01526.us30 = phi ptr [ null, %.lr.ph.split.split.us.preheader ], [ %83, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv64
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next59, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38 ]
+  %.01521.us24 = phi ptr [ null, %.lr.ph.split.split.us.preheader ], [ %83, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38 ]
+  %64 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv58
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !36
   %68 = icmp slt i32 %67, 0
-  br i1 %68, label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44, label %69
+  br i1 %68, label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38, label %69
 
 69:                                               ; preds = %.lr.ph.split.split.us
   %70 = load i32, ptr %65, align 4, !tbaa !84
@@ -2836,38 +2835,38 @@ _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us: ; preds = %_
   %72 = getelementptr inbounds i32, ptr %17, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !12
   %74 = load i32, ptr %19, align 4, !tbaa !12
-  %or.cond.i.us32 = icmp ne i32 %73, %74
+  %or.cond.i.us26 = icmp ne i32 %73, %74
   %75 = icmp ne i32 %70, %7
-  %or.cond3.i.us33 = or i1 %75, %or.cond.i.us32
-  br i1 %or.cond3.i.us33, label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44, label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34
+  %or.cond3.i.us27 = or i1 %75, %or.cond.i.us26
+  br i1 %or.cond3.i.us27, label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38, label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us28
 
-_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34: ; preds = %69
+_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us28: ; preds = %69
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !85
-  %.fr.us35 = freeze i32 %77
-  %78 = add i32 %.fr.us35, 51
-  %or.cond.i.i.i.us36 = icmp ult i32 %78, -8
-  %79 = mul nsw i32 %.fr.us35, 3
+  %78 = add i32 %77, 51
+  %or.cond.i.i.i.us29 = icmp ult i32 %78, -8
+  %79 = mul i32 %77, 3
   %80 = add i32 %79, 180
-  %.0.i41.i.i.us37 = add i32 %.fr.us35, -30
-  %81 = select i1 %or.cond.i.i.i.us36, i32 %.0.i41.i.i.us37, i32 %80
-  %or.cond4.i.us38 = icmp ne i32 %81, %25
-  %82 = and i1 %or.cond.i.i.i.us36, %or.cond.i36.i.i
-  %or.cond5.i.us39 = or i1 %82, %or.cond4.i.us38
-  %.demorgan.i.i.us40 = or i1 %or.cond.i.i.i.us36, %or.cond.i36.i.i
-  %not.or.cond5.i.us41 = xor i1 %or.cond5.i.us39, true
-  %spec.select.i.us42 = and i1 %.demorgan.i.i.us40, %not.or.cond5.i.us41
-  %spec.select.us43 = select i1 %spec.select.i.us42, ptr %65, ptr %.01526.us30
-  br label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44
+  %.0.i41.i.i.us30 = add nsw i32 %77, -30
+  %81 = select i1 %or.cond.i.i.i.us29, i32 %.0.i41.i.i.us30, i32 %80
+  %or.cond4.i.us31 = icmp ne i32 %81, %25
+  %82 = and i1 %or.cond.i.i.i.us29, %or.cond.i36.i.i
+  %or.cond5.i.us32 = or i1 %82, %or.cond4.i.us31
+  %.demorgan.i.i.us33 = or i1 %or.cond.i.i.i.us29, %or.cond.i36.i.i
+  %not.or.cond5.i.us34 = xor i1 %or.cond5.i.us32, true
+  %spec.select.i.us35 = select i1 %not.or.cond5.i.us34, i1 %.demorgan.i.i.us33, i1 false
+  %cond.fr.us36 = freeze i1 %spec.select.i.us35
+  %spec.select.us37 = select i1 %cond.fr.us36, ptr %65, ptr %.01521.us24
+  br label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38
 
-_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44: ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34, %69, %.lr.ph.split.split.us
-  %83 = phi ptr [ %.01526.us30, %69 ], [ %spec.select.us43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34 ], [ %.01526.us30, %.lr.ph.split.split.us ]
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !92
+_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38: ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us28, %69, %.lr.ph.split.split.us
+  %83 = phi ptr [ %.01521.us24, %69 ], [ %spec.select.us37, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us28 ], [ %.01521.us24, %.lr.ph.split.split.us ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44
-  %.015.lcssa = phi ptr [ %83, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44 ], [ %63, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ], [ %43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ]
+._crit_edge:                                      ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38
+  %.015.lcssa = phi ptr [ %83, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us38 ], [ %63, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us ], [ %43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us.us ]
   %.not = icmp eq ptr %.015.lcssa, null
   br i1 %.not, label %._crit_edge.thread, label %84
 

@@ -9025,8 +9025,7 @@ declare i32 @ff_mpv_encode_init(ptr noundef) local_unnamed_addr #4
 define internal fastcc range(i32 -1, 1) i32 @find_frame_rate_index(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i64, ptr %3, align 4
-  %.fr = freeze i64 %4
-  %.sroa.01.0.insert.insert.i = tail call i64 @llvm.fshl.i64(i64 %.fr, i64 %.fr, i64 32)
+  %.sroa.01.0.insert.insert.i = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 32)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8128
@@ -9035,60 +9034,59 @@ define internal fastcc range(i32 -1, 1) i32 @find_frame_rate_index(ptr noundef r
   br label %10
 
 10:                                               ; preds = %2, %40
-  %indvars.iv88 = phi i64 [ 1, %2 ], [ %indvars.iv.next89, %40 ]
-  %.sroa.028.0.fr80 = phi i32 [ 0, %2 ], [ %.sroa.028.3, %40 ]
-  %.sroa.8.078 = phi i32 [ 0, %2 ], [ %.sroa.8.3, %40 ]
+  %indvars.iv86 = phi i64 [ 1, %2 ], [ %indvars.iv.next87, %40 ]
+  %.sroa.028.078 = phi i32 [ 0, %2 ], [ %.sroa.028.3, %40 ]
+  %.sroa.8.077 = phi i32 [ 0, %2 ], [ %.sroa.8.3, %40 ]
   %11 = load i32, ptr %5, align 4, !tbaa !79
   %12 = icmp sgt i32 %11, -1
-  %13 = icmp samesign ugt i64 %indvars.iv88, 8
+  %13 = icmp samesign ugt i64 %indvars.iv86, 8
   %or.cond = select i1 %12, i1 %13, i1 false
-  br i1 %or.cond, label %41, label %.preheader71
+  br i1 %or.cond, label %41, label %.preheader70
 
-.preheader71:                                     ; preds = %10
-  %14 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv88
+.preheader70:                                     ; preds = %10
+  %14 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv86
   %15 = load i64, ptr %14, align 4
-  %16 = trunc nuw nsw i64 %indvars.iv88 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv86 to i32
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader71, %39
-  %indvars.iv84 = phi i64 [ 1, %.preheader71 ], [ %indvars.iv.next85, %39 ]
-  %.sroa.028.177 = phi i32 [ %.sroa.028.0.fr80, %.preheader71 ], [ %.sroa.028.3, %39 ]
-  %.sroa.8.175 = phi i32 [ %.sroa.8.078, %.preheader71 ], [ %.sroa.8.3, %39 ]
-  %17 = icmp ne i64 %indvars.iv84, 1
-  %18 = icmp eq i64 %indvars.iv84, 1
-  %19 = trunc nuw nsw i64 %indvars.iv84 to i32
+.preheader:                                       ; preds = %.preheader70, %39
+  %indvars.iv82 = phi i64 [ 1, %.preheader70 ], [ %indvars.iv.next83, %39 ]
+  %.sroa.028.176 = phi i32 [ %.sroa.028.078, %.preheader70 ], [ %.sroa.028.3, %39 ]
+  %.sroa.8.174 = phi i32 [ %.sroa.8.077, %.preheader70 ], [ %.sroa.8.3, %39 ]
+  %17 = icmp ne i64 %indvars.iv82, 1
+  %18 = icmp eq i64 %indvars.iv82, 1
+  %19 = trunc nuw nsw i64 %indvars.iv82 to i32
   br label %20
 
 20:                                               ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %38 ]
-  %.sroa.028.274 = phi i32 [ %.sroa.028.177, %.preheader ], [ %.sroa.028.3, %38 ]
-  %.sroa.8.272 = phi i32 [ %.sroa.8.175, %.preheader ], [ %.sroa.8.3, %38 ]
+  %.sroa.028.273 = phi i32 [ %.sroa.028.176, %.preheader ], [ %.sroa.028.3, %38 ]
+  %.sroa.8.271 = phi i32 [ %.sroa.8.174, %.preheader ], [ %.sroa.8.3, %38 ]
   %.sroa.11.0.insert.shift = shl nuw nsw i64 %indvars.iv, 32
-  %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.shift, %indvars.iv84
+  %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.shift, %indvars.iv82
   %21 = tail call i64 @av_mul_q(i64 %.sroa.016.0.insert.insert, i64 %15) #13
-  %.fr82 = freeze i64 %21
   %22 = load i32, ptr %6, align 8, !tbaa !70
   %.not = icmp ne i32 %22, 2
   %23 = icmp ne i64 %indvars.iv, 1
   %or.cond4 = or i1 %17, %23
-  %or.cond81 = and i1 %.not, %or.cond4
-  br i1 %or.cond81, label %38, label %24
+  %or.cond80 = and i1 %.not, %or.cond4
+  br i1 %or.cond80, label %38, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call i64 @av_gcd(i64 noundef %indvars.iv, i64 noundef %indvars.iv84) #13
+  %25 = tail call i64 @av_gcd(i64 noundef %indvars.iv, i64 noundef %indvars.iv82) #13
   %.not60 = icmp eq i64 %25, 1
   br i1 %.not60, label %26, label %38
 
 26:                                               ; preds = %24
-  %27 = icmp eq i32 %.sroa.028.274, 0
+  %27 = icmp eq i32 %.sroa.028.273, 0
   br i1 %27, label %36, label %28
 
 28:                                               ; preds = %26
-  %.sroa.8.0.insert.ext = zext i32 %.sroa.8.272 to i64
+  %.sroa.8.0.insert.ext = zext i32 %.sroa.8.271 to i64
   %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
-  %.sroa.028.0.insert.ext = zext i32 %.sroa.028.274 to i64
+  %.sroa.028.0.insert.ext = zext i32 %.sroa.028.273 to i64
   %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift, %.sroa.028.0.insert.ext
-  %29 = tail call i32 @av_nearer_q(i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.028.0.insert.insert, i64 %.fr82) #11
+  %29 = tail call i32 @av_nearer_q(i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.028.0.insert.insert, i64 %21) #11
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %36, label %31
 
@@ -9098,13 +9096,13 @@ define internal fastcc range(i32 -1, 1) i32 @find_frame_rate_index(ptr noundef r
   br i1 %or.cond7, label %33, label %38
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @av_nearer_q(i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.028.0.insert.insert, i64 %.fr82) #11
+  %34 = tail call i32 @av_nearer_q(i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.028.0.insert.insert, i64 %21) #11
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33, %28, %26
-  %.sroa.028.0.extract.trunc = trunc i64 %.fr82 to i32
-  %.sroa.8.0.extract.shift = lshr i64 %.fr82, 32
+  %.sroa.028.0.extract.trunc = trunc i64 %21 to i32
+  %.sroa.8.0.extract.shift = lshr i64 %21, 32
   %.sroa.8.0.extract.trunc = trunc nuw i64 %.sroa.8.0.extract.shift to i32
   store i32 %16, ptr %7, align 8, !tbaa !116
   store i32 %19, ptr %8, align 8, !tbaa !145
@@ -9113,31 +9111,31 @@ define internal fastcc range(i32 -1, 1) i32 @find_frame_rate_index(ptr noundef r
   br label %38
 
 38:                                               ; preds = %20, %31, %33, %36, %24
-  %.sroa.8.3 = phi i32 [ %.sroa.8.272, %24 ], [ %.sroa.8.272, %20 ], [ %.sroa.8.0.extract.trunc, %36 ], [ %.sroa.8.272, %33 ], [ %.sroa.8.272, %31 ]
-  %.sroa.028.3 = phi i32 [ %.sroa.028.274, %24 ], [ %.sroa.028.274, %20 ], [ %.sroa.028.0.extract.trunc, %36 ], [ %.sroa.028.274, %33 ], [ %.sroa.028.274, %31 ]
+  %.sroa.8.3 = phi i32 [ %.sroa.8.271, %24 ], [ %.sroa.8.271, %20 ], [ %.sroa.8.0.extract.trunc, %36 ], [ %.sroa.8.271, %33 ], [ %.sroa.8.271, %31 ]
+  %.sroa.028.3 = phi i32 [ %.sroa.028.273, %24 ], [ %.sroa.028.273, %20 ], [ %.sroa.028.0.extract.trunc, %36 ], [ %.sroa.028.273, %33 ], [ %.sroa.028.273, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 33
   br i1 %exitcond.not, label %39, label %20, !llvm.loop !203
 
 39:                                               ; preds = %38
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next85, 5
-  br i1 %exitcond87.not, label %40, label %.preheader, !llvm.loop !204
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next83, 5
+  br i1 %exitcond85.not, label %40, label %.preheader, !llvm.loop !204
 
 40:                                               ; preds = %39
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next89, 14
-  br i1 %exitcond91.not, label %41, label %10, !llvm.loop !205
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next87, 14
+  br i1 %exitcond89.not, label %41, label %10, !llvm.loop !205
 
 41:                                               ; preds = %10, %40
-  %.sroa.8.0.lcssa = phi i32 [ %.sroa.8.078, %10 ], [ %.sroa.8.3, %40 ]
-  %.sroa.028.0.fr.lcssa = phi i32 [ %.sroa.028.0.fr80, %10 ], [ %.sroa.028.3, %40 ]
+  %.sroa.8.0.lcssa = phi i32 [ %.sroa.8.077, %10 ], [ %.sroa.8.3, %40 ]
+  %.sroa.028.0.lcssa = phi i32 [ %.sroa.028.078, %10 ], [ %.sroa.028.3, %40 ]
   %.sroa.011.0.extract.trunc.i = trunc i64 %.sroa.01.0.insert.insert.i to i32
   %sext.i = shl i64 %.sroa.01.0.insert.insert.i, 32
   %42 = ashr exact i64 %sext.i, 32
   %43 = sext i32 %.sroa.8.0.lcssa to i64
   %44 = mul nsw i64 %42, %43
-  %45 = sext i32 %.sroa.028.0.fr.lcssa to i64
+  %45 = sext i32 %.sroa.028.0.lcssa to i64
   %46 = ashr i64 %.sroa.01.0.insert.insert.i, 32
   %47 = mul nsw i64 %46, %45
   %.not.i = icmp eq i64 %44, %47
@@ -9151,12 +9149,13 @@ define internal fastcc range(i32 -1, 1) i32 @find_frame_rate_index(ptr noundef r
 
 51:                                               ; preds = %48
   %52 = icmp ne i32 %.sroa.011.0.extract.trunc.i, 0
-  %53 = icmp ne i32 %.sroa.028.0.fr.lcssa, 0
+  %53 = icmp ne i32 %.sroa.028.0.lcssa, 0
   %or.cond5.i = and i1 %52, %53
-  %.not61.unshifted = xor i32 %.sroa.028.0.fr.lcssa, %.sroa.011.0.extract.trunc.i
-  %.not61 = icmp sgt i32 %.not61.unshifted, -1
-  %or.cond70 = and i1 %or.cond5.i, %.not61
-  br i1 %or.cond70, label %av_cmp_q.exit.thread65, label %av_cmp_q.exit.thread
+  %.not61.unshifted = xor i32 %.sroa.028.0.lcssa, %.sroa.011.0.extract.trunc.i
+  %.not61.unshifted.fr = freeze i32 %.not61.unshifted
+  %.not61 = icmp sgt i32 %.not61.unshifted.fr, -1
+  %or.cond69 = and i1 %or.cond5.i, %.not61
+  br i1 %or.cond69, label %av_cmp_q.exit.thread65, label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread65:                           ; preds = %51, %48
   br label %av_cmp_q.exit.thread

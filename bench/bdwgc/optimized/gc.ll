@@ -44203,10 +44203,10 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   store atomic i64 %41, ptr %39 monotonic, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %43 = load atomic volatile i64, ptr %42 monotonic, align 8
-  %.fr.i = freeze i64 %43
+  %.fr1.i = freeze i64 %43
   %44 = call i32 @sem_post(ptr noundef nonnull @GC_suspend_ack_sem) #47
   store atomic volatile i64 %12, ptr %28 release, align 8
-  %45 = and i64 %.fr.i, 1
+  %45 = and i64 %.fr1.i, 1
   %.not21.i = icmp eq i64 %45, 0
   br i1 %.not21.i, label %.critedge.us.i, label %.critedge.i
 
@@ -44224,7 +44224,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
 
 52:                                               ; preds = %.critedge.i
   %53 = load atomic volatile i64, ptr %42 monotonic, align 8
-  %54 = icmp eq i64 %53, %.fr.i
+  %54 = icmp eq i64 %53, %.fr1.i
   br i1 %54, label %.critedge.i.backedge, label %.critedge2.i
 
 .critedge.i.backedge:                             ; preds = %52, %.critedge.i

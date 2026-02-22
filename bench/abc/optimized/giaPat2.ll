@@ -8703,16 +8703,15 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   %.val87 = load ptr, ptr %16, align 8, !tbaa !43
   %17 = getelementptr i8, ptr %.val87, i64 4
   %.val87.val = load i32, ptr %17, align 4, !tbaa !30
-  %.val87.val.fr = freeze i32 %.val87.val
-  %.val90.fr = freeze i32 %.val90
-  %18 = sdiv i32 %.val90.fr, %.val87.val.fr
+  %18 = sdiv i32 %.val90, %.val87.val
+  %.fr173 = freeze i32 %18
   %19 = getelementptr i8, ptr %1, i64 32
-  %20 = icmp sgt i32 %.val87.val.fr, 0
+  %20 = icmp sgt i32 %.val87.val, 0
   br i1 %20, label %.lr.ph113, label %.critedge
 
 .lr.ph113:                                        ; preds = %9
   %.not76 = icmp eq i32 %3, 0
-  %21 = icmp sgt i32 %18, 0
+  %21 = icmp sgt i32 %.fr173, 0
   %22 = getelementptr i8, ptr %2, i64 8
   %.val84.us156 = load ptr, ptr %19, align 8, !tbaa !3
   %.not.us157 = icmp eq ptr %.val84.us156, null
@@ -8725,18 +8724,18 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %21, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %23 = zext nneg i32 %18 to i64
+  %23 = zext nneg i32 %.fr173 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %37
-  %indvars.iv198 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next199, %37 ]
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next200, %37 ]
   %.val84.us162.us = phi ptr [ %.val84.us156, %.lr.ph.split.us.preheader ], [ %.val84.us.us, %37 ]
   %.sroa.0.0108.us161.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.sroa.0.1.us.us, %37 ]
   %.sroa.7.0109.us160.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.sroa.7.1.us.us, %37 ]
   %24 = phi ptr [ %.val87, %.lr.ph.split.us.preheader ], [ %65, %37 ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val85.val.us.us = load ptr, ptr %25, align 8, !tbaa !32
-  %26 = getelementptr inbounds nuw i32, ptr %.val85.val.us.us, i64 %indvars.iv198
+  %26 = getelementptr inbounds nuw i32, ptr %.val85.val.us.us, i64 %indvars.iv199
   %27 = load i32, ptr %26, align 4, !tbaa !35
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val84.us162.us, i64 %28
@@ -8756,14 +8755,14 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not.us.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !176
 
 .preheader94.us.us:                               ; preds = %.lr.ph.split.us
-  %38 = mul nuw nsw i64 %indvars.iv198, %23
-  %39 = trunc nuw nsw i64 %indvars.iv198 to i32
+  %38 = mul nuw nsw i64 %indvars.iv199, %23
+  %39 = trunc nuw nsw i64 %indvars.iv199 to i32
   br label %40
 
 40:                                               ; preds = %.preheader94.us.us, %.critedge4.us.us
-  %indvars.iv193 = phi i64 [ 0, %.preheader94.us.us ], [ %indvars.iv.next194, %.critedge4.us.us ]
+  %indvars.iv194 = phi i64 [ 0, %.preheader94.us.us ], [ %indvars.iv.next195, %.critedge4.us.us ]
   %.val88.us.us = load ptr, ptr %22, align 8, !tbaa !94
-  %41 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val88.us.us, i64 %indvars.iv193
+  %41 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val88.us.us, i64 %indvars.iv194
   %42 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %41, i64 %38
   %.val91.us.us = load ptr, ptr %10, align 8, !tbaa !34
   %43 = getelementptr i8, ptr %.val91.us.us, i64 4
@@ -8777,14 +8776,14 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
 
 .critedge4.us.us:                                 ; preds = %48, %40
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.53, i32 noundef %39, ptr noundef %14) #29
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %exitcond197.not = icmp eq i64 %indvars.iv.next194, %23
-  br i1 %exitcond197.not, label %._crit_edge106.us.us, label %40, !llvm.loop !177
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %23
+  br i1 %exitcond198.not, label %._crit_edge106.us.us, label %40, !llvm.loop !177
 
 48:                                               ; preds = %.lr.ph103.us.us, %48
-  %indvars.iv190 = phi i64 [ 0, %.lr.ph103.us.us ], [ %indvars.iv.next191, %48 ]
+  %indvars.iv191 = phi i64 [ 0, %.lr.ph103.us.us ], [ %indvars.iv.next192, %48 ]
   %.val80.us.us = load ptr, ptr %69, align 8, !tbaa !32
-  %49 = getelementptr inbounds nuw i32, ptr %.val80.us.us, i64 %indvars.iv190
+  %49 = getelementptr inbounds nuw i32, ptr %.val80.us.us, i64 %indvars.iv191
   %50 = load i32, ptr %49, align 4, !tbaa !35
   %51 = trunc i32 %50 to i8
   %52 = and i8 %51, 1
@@ -8794,14 +8793,14 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   %56 = getelementptr i8, ptr %14, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -1
   store i8 %53, ptr %57, align 1, !tbaa !50
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %.val.us.us = load i32, ptr %45, align 4, !tbaa !30
   %58 = sext i32 %.val.us.us to i64
-  %59 = icmp slt i64 %indvars.iv.next191, %58
+  %59 = icmp slt i64 %indvars.iv.next192, %58
   br i1 %59, label %48, label %.critedge4.us.us, !llvm.loop !178
 
 60:                                               ; preds = %.lr.ph.split.us
-  %61 = trunc nuw nsw i64 %indvars.iv198 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv199 to i32
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.49, i32 noundef %61) #29
   %63 = add nsw i32 %.sroa.0.0108.us161.us, 1
   br label %64
@@ -8809,12 +8808,12 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
 64:                                               ; preds = %60, %._crit_edge106.us.us
   %.sroa.0.1.us.us = phi i32 [ %63, %60 ], [ %.sroa.0.0108.us161.us, %._crit_edge106.us.us ]
   %.sroa.7.1.us.us = phi i32 [ %.sroa.7.0109.us160.us, %60 ], [ %70, %._crit_edge106.us.us ]
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %65 = load ptr, ptr %16, align 8, !tbaa !43
   %66 = getelementptr i8, ptr %65, i64 4
   %.val79.us.us = load i32, ptr %66, align 4, !tbaa !30
   %67 = sext i32 %.val79.us.us to i64
-  %68 = icmp slt i64 %indvars.iv.next199, %67
+  %68 = icmp slt i64 %indvars.iv.next200, %67
   br i1 %68, label %37, label %.critedge, !llvm.loop !176
 
 .lr.ph103.us.us:                                  ; preds = %40
@@ -8832,13 +8831,13 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %72 = phi ptr [ %91, %71 ], [ %.val87, %.lr.ph ]
-  %indvars.iv187 = phi i64 [ %indvars.iv.next188, %71 ], [ 0, %.lr.ph ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %71 ], [ 0, %.lr.ph ]
   %.val84.us162 = phi ptr [ %.val84.us, %71 ], [ %.val84.us156, %.lr.ph ]
   %.sroa.0.0108.us161 = phi i32 [ %.sroa.0.1.us, %71 ], [ 0, %.lr.ph ]
   %.sroa.7.0109.us160 = phi i32 [ %.sroa.7.1.us, %71 ], [ 0, %.lr.ph ]
   %73 = getelementptr i8, ptr %72, i64 8
   %.val85.val.us = load ptr, ptr %73, align 8, !tbaa !32
-  %74 = getelementptr inbounds nuw i32, ptr %.val85.val.us, i64 %indvars.iv187
+  %74 = getelementptr inbounds nuw i32, ptr %.val85.val.us, i64 %indvars.iv188
   %75 = load i32, ptr %74, align 4, !tbaa !35
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val84.us162, i64 %76
@@ -8857,21 +8856,21 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br label %90
 
 86:                                               ; preds = %.lr.ph.split
-  %87 = trunc nuw nsw i64 %indvars.iv187 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv188 to i32
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.49, i32 noundef %87) #29
   %89 = add nsw i32 %.sroa.0.0108.us161, 1
-  %.pre201 = load ptr, ptr %16, align 8, !tbaa !43
+  %.pre202 = load ptr, ptr %16, align 8, !tbaa !43
   br label %90
 
 90:                                               ; preds = %86, %.preheader94.us
-  %91 = phi ptr [ %.pre201, %86 ], [ %72, %.preheader94.us ]
+  %91 = phi ptr [ %.pre202, %86 ], [ %72, %.preheader94.us ]
   %.sroa.0.1.us = phi i32 [ %89, %86 ], [ %.sroa.0.0108.us161, %.preheader94.us ]
   %.sroa.7.1.us = phi i32 [ %.sroa.7.0109.us160, %86 ], [ %85, %.preheader94.us ]
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %92 = getelementptr i8, ptr %91, i64 4
   %.val79.us = load i32, ptr %92, align 4, !tbaa !30
   %93 = sext i32 %.val79.us to i64
-  %94 = icmp slt i64 %indvars.iv.next188, %93
+  %94 = icmp slt i64 %indvars.iv.next189, %93
   br i1 %94, label %71, label %.critedge, !llvm.loop !176
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113
@@ -8881,18 +8880,18 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %21, label %.lr.ph132.split.us.preheader, label %.lr.ph132.split
 
 .lr.ph132.split.us.preheader:                     ; preds = %.lr.ph132
-  %95 = zext nneg i32 %18 to i64
+  %95 = zext nneg i32 %.fr173 to i64
   br label %.lr.ph132.split.us
 
 .lr.ph132.split.us:                               ; preds = %.lr.ph132.split.us.preheader, %109
-  %indvars.iv184 = phi i64 [ 0, %.lr.ph132.split.us.preheader ], [ %indvars.iv.next185, %109 ]
+  %indvars.iv185 = phi i64 [ 0, %.lr.ph132.split.us.preheader ], [ %indvars.iv.next186, %109 ]
   %.val84131.us = phi ptr [ %.val84.us156, %.lr.ph132.split.us.preheader ], [ %.val84.us142, %109 ]
   %.sroa.0.0108130.us = phi i32 [ 0, %.lr.ph132.split.us.preheader ], [ %.sroa.0.1.us144, %109 ]
   %.sroa.7.0109129.us = phi i32 [ 0, %.lr.ph132.split.us.preheader ], [ %.sroa.7.1.us145, %109 ]
   %96 = phi ptr [ %.val87, %.lr.ph132.split.us.preheader ], [ %131, %109 ]
   %97 = getelementptr i8, ptr %96, i64 8
   %.val85.val.us136 = load ptr, ptr %97, align 8, !tbaa !32
-  %98 = getelementptr inbounds nuw i32, ptr %.val85.val.us136, i64 %indvars.iv184
+  %98 = getelementptr inbounds nuw i32, ptr %.val85.val.us136, i64 %indvars.iv185
   %99 = load i32, ptr %98, align 4, !tbaa !35
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val84131.us, i64 %100
@@ -8912,14 +8911,14 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not.us143, label %.critedge, label %.lr.ph132.split.us, !llvm.loop !176
 
 .preheader95.us:                                  ; preds = %.lr.ph132.split.us
-  %110 = mul nuw nsw i64 %indvars.iv184, %95
-  %111 = trunc nuw nsw i64 %indvars.iv184 to i32
+  %110 = mul nuw nsw i64 %indvars.iv185, %95
+  %111 = trunc nuw nsw i64 %indvars.iv185 to i32
   br label %112
 
 112:                                              ; preds = %.preheader95.us, %.critedge2.us
-  %indvars.iv181 = phi i64 [ 0, %.preheader95.us ], [ %indvars.iv.next182, %.critedge2.us ]
+  %indvars.iv182 = phi i64 [ 0, %.preheader95.us ], [ %indvars.iv.next183, %.critedge2.us ]
   %.val89.us = load ptr, ptr %22, align 8, !tbaa !94
-  %113 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val89.us, i64 %indvars.iv181
+  %113 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val89.us, i64 %indvars.iv182
   %114 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %113, i64 %110
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.50, i32 noundef %111) #29
   %116 = getelementptr i8, ptr %114, i64 4
@@ -8928,15 +8927,15 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %117, label %124, label %.preheader.us
 
 118:                                              ; preds = %.lr.ph.us, %118
-  %indvars.iv178 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next179, %118 ]
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next180, %118 ]
   %.val81.us = load ptr, ptr %136, align 8, !tbaa !32
-  %119 = getelementptr inbounds nuw i32, ptr %.val81.us, i64 %indvars.iv178
+  %119 = getelementptr inbounds nuw i32, ptr %.val81.us, i64 %indvars.iv179
   %120 = load i32, ptr %119, align 4, !tbaa !35
   %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.52, i32 noundef %120) #29
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %.val77.us = load i32, ptr %116, align 4, !tbaa !30
   %122 = sext i32 %.val77.us to i64
-  %123 = icmp slt i64 %indvars.iv.next179, %122
+  %123 = icmp slt i64 %indvars.iv.next180, %122
   br i1 %123, label %118, label %.critedge2.us, !llvm.loop !179
 
 124:                                              ; preds = %112
@@ -8945,12 +8944,12 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
 
 .critedge2.us:                                    ; preds = %118, %.preheader.us, %124
   %fputc.us = tail call i32 @fputc(i32 10, ptr nonnull %5)
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next182, %95
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next183, %95
   br i1 %exitcond.not, label %._crit_edge.us, label %112, !llvm.loop !180
 
 126:                                              ; preds = %.lr.ph132.split.us
-  %127 = trunc nuw nsw i64 %indvars.iv184 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv185 to i32
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.49, i32 noundef %127) #29
   %129 = add nsw i32 %.sroa.0.0108130.us, 1
   br label %130
@@ -8958,12 +8957,12 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
 130:                                              ; preds = %126, %._crit_edge.us
   %.sroa.0.1.us144 = phi i32 [ %129, %126 ], [ %.sroa.0.0108130.us, %._crit_edge.us ]
   %.sroa.7.1.us145 = phi i32 [ %.sroa.7.0109129.us, %126 ], [ %137, %._crit_edge.us ]
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %131 = load ptr, ptr %16, align 8, !tbaa !43
   %132 = getelementptr i8, ptr %131, i64 4
   %.val79.us146 = load i32, ptr %132, align 4, !tbaa !30
   %133 = sext i32 %.val79.us146 to i64
-  %134 = icmp slt i64 %indvars.iv.next185, %133
+  %134 = icmp slt i64 %indvars.iv.next186, %133
   br i1 %134, label %109, label %.critedge, !llvm.loop !176
 
 .preheader.us:                                    ; preds = %112
@@ -9030,7 +9029,7 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
 .critedge:                                        ; preds = %138, %157, %109, %130, %71, %90, %37, %64, %.lr.ph113.split.us, %.lr.ph113.split, %9
   %.sroa.0.0.lcssa = phi i32 [ 0, %9 ], [ 0, %.lr.ph113.split.us ], [ 0, %.lr.ph113.split ], [ %.sroa.0.1.us144, %109 ], [ %.sroa.0.1.us, %71 ], [ %.sroa.0.1.us.us, %37 ], [ %.sroa.0.1.us.us, %64 ], [ %.sroa.0.1.us, %90 ], [ %.sroa.0.1.us144, %130 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %138 ]
   %.sroa.7.0.lcssa = phi i32 [ 0, %9 ], [ 0, %.lr.ph113.split.us ], [ 0, %.lr.ph113.split ], [ %.sroa.7.1.us145, %109 ], [ %.sroa.7.1.us, %71 ], [ %.sroa.7.1.us.us, %37 ], [ %.sroa.7.1.us.us, %64 ], [ %.sroa.7.1.us, %90 ], [ %.sroa.7.1.us145, %130 ], [ %.sroa.7.1, %157 ], [ %.sroa.7.1, %138 ]
-  %.val79.lcssa = phi i32 [ %.val87.val.fr, %9 ], [ %.val87.val.fr, %.lr.ph113.split.us ], [ %.val87.val.fr, %.lr.ph113.split ], [ %.val79.us146, %109 ], [ %.val79.us, %71 ], [ %.val79.us.us, %37 ], [ %.val79.us.us, %64 ], [ %.val79.us, %90 ], [ %.val79.us146, %130 ], [ %.val79, %157 ], [ %.val79, %138 ]
+  %.val79.lcssa = phi i32 [ %.val87.val, %9 ], [ %.val87.val, %.lr.ph113.split.us ], [ %.val87.val, %.lr.ph113.split ], [ %.val79.us146, %109 ], [ %.val79.us, %71 ], [ %.val79.us.us, %37 ], [ %.val79.us.us, %64 ], [ %.val79.us, %90 ], [ %.val79.us146, %130 ], [ %.val79, %157 ], [ %.val79, %138 ]
   %162 = add i32 %.sroa.7.0.lcssa, %.sroa.0.0.lcssa
   %163 = sub i32 %.val79.lcssa, %162
   %164 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %.sroa.7.0.lcssa, i32 noundef %.sroa.0.0.lcssa, i32 noundef %163, ptr noundef %0)

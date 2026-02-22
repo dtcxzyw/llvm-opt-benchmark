@@ -1794,26 +1794,26 @@ define void @dissect_q931_high_layer_compat_ie(ptr noundef %0, i32 noundef %1, i
 
 25:                                               ; preds = %23
   %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %17)
-  %.fr = freeze i8 %26
-  %27 = zext i8 %.fr to i32
+  %.fr80 = freeze i8 %26
+  %27 = zext i8 %.fr80 to i32
   %28 = load i32, ptr @hf_q931_extension_ind, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0)
   %30 = load i32, ptr @hf_q931_high_layer_characteristics, align 4
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef %27)
   %32 = add i32 %1, 2
-  %.not = icmp slt i8 %.fr, 0
+  %.not = icmp slt i8 %.fr80, 0
   %33 = icmp eq i32 %2, 2
   %or.cond = or i1 %33, %.not
   br i1 %or.cond, label %50, label %34
 
 34:                                               ; preds = %25
   %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %32)
-  %36 = and i8 %.fr, 126
+  %36 = and i8 %.fr80, 126
   %or.cond5 = icmp eq i8 %36, 96
   br i1 %or.cond5, label %37, label %switch.early.test
 
 switch.early.test:                                ; preds = %34
-  switch i8 %.fr, label %43 [
+  switch i8 %.fr80, label %43 [
     i8 98, label %37
     i8 104, label %37
   ]

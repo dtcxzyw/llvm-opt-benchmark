@@ -1845,10 +1845,10 @@ define dso_local noundef ptr @_ZN4llvm25RISCVVInversePseudosTable11getBaseInfoEj
   br i1 %.not, label %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i, label %42
 
 _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i: ; preds = %3, %.thread27.i.i
-  %.034.i.i = phi ptr [ %29, %.thread27.i.i ], [ @_ZN4llvm25RISCVVInversePseudosTableL25RISCVVInversePseudosTableE, %3 ]
-  %.01133.i.i = phi i64 [ %28, %.thread27.i.i ], [ 11193, %3 ]
-  %5 = lshr i64 %.01133.i.i, 1
-  %6 = getelementptr inbounds nuw %"struct.llvm::RISCVVInversePseudosTable::PseudoInfo", ptr %.034.i.i, i64 %5
+  %.033.i.i = phi ptr [ %29, %.thread27.i.i ], [ @_ZN4llvm25RISCVVInversePseudosTableL25RISCVVInversePseudosTableE, %3 ]
+  %.01132.i.i = phi i64 [ %28, %.thread27.i.i ], [ 11193, %3 ]
+  %5 = lshr i64 %.01132.i.i, 1
+  %6 = getelementptr inbounds nuw %"struct.llvm::RISCVVInversePseudosTable::PseudoInfo", ptr %.033.i.i, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !12
   %9 = zext i16 %8 to i32
@@ -1872,24 +1872,24 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
 .thread.i.i:                                      ; preds = %13, %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %20 = xor i64 %5, -1
-  %21 = add nsw i64 %.01133.i.i, %20
+  %21 = add nsw i64 %.01132.i.i, %20
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %23 = load i8, ptr %22, align 1, !tbaa !16
-  %.fr.i.i = freeze i8 %23
-  %24 = icmp ult i8 %.fr.i.i, %2
+  %.fr = freeze i8 %23
+  %24 = icmp ult i8 %.fr, %2
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %26 = xor i64 %5, -1
-  %27 = add nsw i64 %.01133.i.i, %26
+  %27 = add nsw i64 %.01132.i.i, %26
   %spec.select.i.i = select i1 %24, i64 %27, i64 %5
-  %spec.select32.i.i = select i1 %24, ptr %25, ptr %.034.i.i
+  %spec.select31.i.i = select i1 %24, ptr %25, ptr %.033.i.i
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %17, %11
   %28 = phi i64 [ %5, %11 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %5, %17 ], [ %21, %.thread.i.i ]
-  %29 = phi ptr [ %.034.i.i, %11 ], [ %spec.select32.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.034.i.i, %17 ], [ %19, %.thread.i.i ]
+  %29 = phi ptr [ %.033.i.i, %11 ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.033.i.i, %17 ], [ %19, %.thread.i.i ]
   %30 = icmp sgt i64 %28, 0
   br i1 %30, label %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !17
 

@@ -3266,76 +3266,75 @@ _ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i: ; preds = %2
   br i1 %10, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i
 
 _ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i: ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
-  %.pre11.i.i.i = load double, ptr %4, align 8
+  %.pre10.i.i.i = load double, ptr %4, align 8
   br label %_ZN4absl7debian27UniformIdRNS0_9BitGenRefEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit
 
 _ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i: ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
   %.pre.i.i.i = load double, ptr %5, align 8, !noalias !40
-  %.pre10.i.i.i = load double, ptr %3, align 8, !noalias !40
-  %11 = freeze double %.pre.i.i.i
-  %12 = freeze double %.pre10.i.i.i
-  %.pre.i = fsub double %12, %11
+  %.pre9.i.i.i = load double, ptr %3, align 8, !noalias !40
+  %.pre.i = fsub double %.pre9.i.i.i, %.pre.i.i.i
+  %11 = freeze double %.pre.i
   br label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i
 
 _ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i: ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i, %2
-  %.pre-phi.i = phi double [ %.pre.i, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ 1.000000e+00, %2 ]
-  %.fr5.i.i.i = phi double [ %12, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ 1.000000e+00, %2 ]
-  %.fr6.i.i.i = phi double [ %11, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ 0.000000e+00, %2 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = call i1 @llvm.is.fpclass.f64(double %.pre-phi.i, i32 384)
-  %15 = load ptr, ptr %13, align 8
-  %16 = load i64, ptr %1, align 8
-  br i1 %14, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i
+  %.pre-phi.i = phi double [ %11, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ 1.000000e+00, %2 ]
+  %12 = phi double [ %.pre9.i.i.i, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ 1.000000e+00, %2 ]
+  %13 = phi double [ %.pre.i.i.i, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ 0.000000e+00, %2 ]
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = call i1 @llvm.is.fpclass.f64(double %.pre-phi.i, i32 384)
+  %16 = load ptr, ptr %14, align 8
+  %17 = load i64, ptr %1, align 8
+  br i1 %15, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i
 
 _ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i: ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i
-  %17 = call noundef i64 %15(i64 noundef %16)
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i, label %19
+  %18 = call noundef i64 %16(i64 noundef %17)
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i, label %20
 
-19:                                               ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i
-  %20 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
-  %21 = shl i64 %17, %20
-  %22 = lshr i64 %21, 11
-  %23 = and i64 %22, 4503599627370495
-  %24 = shl nuw nsw i64 %20, 52
-  %reass.sub = sub nsw i64 %23, %24
-  %25 = add nsw i64 %reass.sub, 4602678819172646912
-  %26 = bitcast i64 %25 to double
+20:                                               ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i
+  %21 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
+  %22 = shl i64 %18, %21
+  %23 = lshr i64 %22, 11
+  %24 = and i64 %23, 4503599627370495
+  %25 = shl nuw nsw i64 %21, 52
+  %reass.sub = sub nsw i64 %24, %25
+  %26 = add nsw i64 %reass.sub, 4602678819172646912
+  %27 = bitcast i64 %26 to double
   br label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i
 
-_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i: ; preds = %19, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i
-  %.0.i.i.i.us.i.i.i = phi double [ %26, %19 ], [ 0.000000e+00, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i ]
-  %27 = call double @llvm.fmuladd.f64(double %.0.i.i.i.us.i.i.i, double %.pre-phi.i, double %.fr6.i.i.i)
+_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i: ; preds = %20, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i
+  %.0.i.i.i.us.i.i.i = phi double [ %27, %20 ], [ 0.000000e+00, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.us.i.i.i ]
+  %28 = call double @llvm.fmuladd.f64(double %.0.i.i.i.us.i.i.i, double %.pre-phi.i, double %13)
   br label %_ZN4absl7debian27UniformIdRNS0_9BitGenRefEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit
 
 _ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i: ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i, %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
-  %28 = call noundef i64 %15(i64 noundef %16)
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, label %30
+  %29 = call noundef i64 %16(i64 noundef %17)
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, label %31
 
-30:                                               ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i
-  %31 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 true)
-  %32 = shl i64 %28, %31
-  %33 = lshr i64 %32, 11
-  %34 = and i64 %33, 4503599627370495
-  %35 = shl nuw nsw i64 %31, 52
-  %reass.sub3 = sub nsw i64 %34, %35
-  %36 = add nsw i64 %reass.sub3, 4602678819172646912
-  %37 = bitcast i64 %36 to double
+31:                                               ; preds = %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i
+  %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %29, i1 true)
+  %33 = shl i64 %29, %32
+  %34 = lshr i64 %33, 11
+  %35 = and i64 %34, 4503599627370495
+  %36 = shl nuw nsw i64 %32, 52
+  %reass.sub3 = sub nsw i64 %35, %36
+  %37 = add nsw i64 %reass.sub3, 4602678819172646912
+  %38 = bitcast i64 %37 to double
   br label %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
 
-_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %30, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i
-  %.0.i.i.i.i.i.i = phi double [ %37, %30 ], [ 0.000000e+00, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i ]
-  %38 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i, double %.pre-phi.i, double %.fr6.i.i.i)
-  %39 = fcmp uge double %38, %.fr5.i.i.i
-  br i1 %39, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i, label %_ZN4absl7debian27UniformIdRNS0_9BitGenRefEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit, !llvm.loop !45
+_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %31, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i
+  %.0.i.i.i.i.i.i = phi double [ %38, %31 ], [ 0.000000e+00, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i ]
+  %39 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i, double %.pre-phi.i, double %13)
+  %40 = fcmp uge double %39, %12
+  br i1 %40, label %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit.thread.split.i.i.i, label %_ZN4absl7debian27UniformIdRNS0_9BitGenRefEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit, !llvm.loop !45
 
 _ZN4absl7debian27UniformIdRNS0_9BitGenRefEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit: ; preds = %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i, %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i
-  %40 = phi double [ %.pre11.i.i.i, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i ], [ %27, %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i ], [ %38, %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
+  %41 = phi double [ %.pre10.i.i.i, %_ZN4absl7debian29BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i ], [ %28, %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i.i ], [ %39, %_ZN4absl7debian215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %41 = call { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaIS2_EEd(ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %40)
-  ret { i64, double } %41
+  %42 = call { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaIS2_EEd(ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %41)
+  ret { i64, double } %42
 }
 
 ; Function Attrs: mustprogress uwtable

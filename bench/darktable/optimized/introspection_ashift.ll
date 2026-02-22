@@ -7177,12 +7177,12 @@ define range(i32 0, 2) i32 @scrolled(ptr noundef readonly captures(none) %0, flo
   %36 = load i32, ptr %26, align 8, !tbaa !409
   %37 = and i32 %36, -2
   %switch70 = icmp eq i32 %37, 2
-  %.str.12.sink118 = select i1 %switch70, ptr @.str.11, ptr @.str.12
-  call void @dt_conf_set_float(ptr noundef nonnull %.str.12.sink118, float noundef %35) #35
+  %.str.12.sink117 = select i1 %switch70, ptr @.str.11, ptr @.str.12
+  call void @dt_conf_set_float(ptr noundef nonnull %.str.12.sink117, float noundef %35) #35
   store float %35, ptr %13, align 8, !tbaa !414
   %38 = load i32, ptr %26, align 8, !tbaa !409
-  %.fr = freeze i32 %38
-  %39 = and i32 %.fr, -2
+  %.fr99 = freeze i32 %38
+  %39 = and i32 %.fr99, -2
   %switch68 = icmp eq i32 %39, 2
   br i1 %switch68, label %162, label %40
 
@@ -7297,25 +7297,24 @@ define range(i32 0, 2) i32 @scrolled(ptr noundef readonly captures(none) %0, flo
 _get_near.exit:                                   ; preds = %.thread.i, %40
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 172
   %102 = load i32, ptr %101, align 4, !tbaa !440
-  %.fr99 = freeze i32 %102
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 228
   %104 = load i32, ptr %103, align 4, !tbaa !388
-  %.fr100 = freeze i32 %104
-  %105 = icmp eq i32 %.fr99, %.fr100
+  %105 = icmp eq i32 %102, %104
+  %.fr = freeze i1 %105
   %106 = icmp sgt i32 %46, 0
-  %or.cond80 = and i1 %105, %106
+  %or.cond80 = and i1 %.fr, %106
   br i1 %or.cond80, label %.lr.ph.split, label %.critedge.thread
 
 .lr.ph.split:                                     ; preds = %_get_near.exit
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 156
-  %.not66 = icmp eq i32 %.fr, 3
-  %wide.trip.count106 = zext nneg i32 %46 to i64
+  %.not66 = icmp eq i32 %.fr99, 3
+  %wide.trip.count105 = zext nneg i32 %46 to i64
   br i1 %.not66, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %120
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %120 ], [ 0, %.lr.ph.split ]
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %120 ], [ 0, %.lr.ph.split ]
   %.05481.us88 = phi i32 [ %.155.us92, %120 ], [ 0, %.lr.ph.split ]
-  %108 = getelementptr inbounds nuw %struct.dt_iop_ashift_points_idx_t, ptr %44, i64 %indvars.iv103
+  %108 = getelementptr inbounds nuw %struct.dt_iop_ashift_points_idx_t, ptr %44, i64 %indvars.iv102
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %110 = load i32, ptr %109, align 4, !tbaa !397
   %111 = icmp eq i32 %110, 0
@@ -7328,7 +7327,7 @@ _get_near.exit:                                   ; preds = %.thread.i, %40
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr %10, align 8, !tbaa !383
-  %116 = getelementptr inbounds nuw %struct.dt_iop_ashift_line_t, ptr %115, i64 %indvars.iv103
+  %116 = getelementptr inbounds nuw %struct.dt_iop_ashift_line_t, ptr %115, i64 %indvars.iv102
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 36
   %118 = load i32, ptr %117, align 4, !tbaa !399
   %119 = and i32 %118, -5
@@ -7337,9 +7336,9 @@ _get_near.exit:                                   ; preds = %.thread.i, %40
 
 120:                                              ; preds = %112, %114, %.lr.ph.split.split.us
   %.155.us92 = phi i32 [ %.05481.us88, %.lr.ph.split.split.us ], [ 1, %114 ], [ 1, %112 ]
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %.critedge, label %.lr.ph.split.split.us
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
+  br i1 %exitcond106.not, label %.critedge, label %.lr.ph.split.split.us
 
 .critedge:                                        ; preds = %141, %120
   %.054.lcssa = phi i32 [ %.155.us92, %120 ], [ %.155, %141 ]
@@ -7386,7 +7385,7 @@ _get_near.exit:                                   ; preds = %.thread.i, %40
 141:                                              ; preds = %127, %135, %133, %.lr.ph.split.split
   %.155 = phi i32 [ %.05481, %.lr.ph.split.split ], [ 1, %133 ], [ 1, %127 ], [ 1, %135 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count106
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count105
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split
 
 142:                                              ; preds = %.critedge
@@ -7437,9 +7436,9 @@ _update_lines_count.exit:                         ; preds = %159, %142
   %.013.lcssa.i = phi i32 [ 0, %142 ], [ %.1.i, %159 ]
   store i32 %.014.lcssa.i, ptr %146, align 4, !tbaa !71
   store i32 %.013.lcssa.i, ptr %147, align 4, !tbaa !71
-  %160 = add nsw i32 %.fr100, 1
+  %160 = add nsw i32 %104, 1
   store i32 %160, ptr %103, align 4, !tbaa !388
-  %161 = add nsw i32 %.fr99, 1
+  %161 = add nsw i32 %102, 1
   store i32 %161, ptr %101, align 4, !tbaa !440
   br label %.critedge.thread
 
@@ -15450,7 +15449,6 @@ ri_ini.exit:                                      ; preds = %54
   %96 = add nsw i32 %.02249, 1
   %97 = load double, ptr %81, align 8, !tbaa !578
   %98 = load double, ptr %82, align 8, !tbaa !582
-  %.fr = freeze double %98
   %99 = load ptr, ptr %1, align 8, !tbaa !556
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %102
@@ -15461,7 +15459,7 @@ ri_ini.exit:                                      ; preds = %54
   unreachable
 
 102:                                              ; preds = %95
-  %103 = fcmp reassoc nsz arcp contract afn olt double %.fr, 0.000000e+00
+  %103 = fcmp reassoc nsz arcp contract afn olt double %98, 0.000000e+00
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %102
@@ -15497,10 +15495,10 @@ ri_ini.exit:                                      ; preds = %54
 
 isaligned.exit:                                   ; preds = %112, %117, %120
   %.1.i = phi nsz double [ %121, %120 ], [ %118, %117 ], [ %.025.i, %112 ]
-  %.1.i.fr = freeze double %.1.i
-  %122 = fcmp reassoc nsz arcp contract afn ugt double %.1.i.fr, %.fr
+  %122 = fcmp reassoc nsz arcp contract afn ugt double %.1.i, %98
   %123 = add nsw i32 %.050, 1
-  br i1 %122, label %isaligned.exit.thread, label %ri_end.exit
+  %cond.fr = freeze i1 %122
+  br i1 %cond.fr, label %isaligned.exit.thread, label %ri_end.exit
 
 isaligned.exit.thread:                            ; preds = %105, %isaligned.exit
   br label %ri_end.exit

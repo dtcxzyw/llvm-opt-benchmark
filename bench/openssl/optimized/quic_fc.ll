@@ -504,7 +504,6 @@ rxfc_cwm_bump_desired.exit.i:                     ; preds = %safe_mul_uint64_t.e
   br i1 %.not10.i, label %rxfc_update_cwm.exit, label %38
 
 38:                                               ; preds = %rxfc_cwm_bump_desired.exit.i
-  %.fr.i.i = freeze i64 %3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !30
   %41 = icmp eq i64 %19, %40
@@ -557,45 +556,45 @@ safe_muldiv_time.exit.thread17.i.i.i.i:           ; preds = %safe_mul_time.exit3
 
 rxfc_should_bump_window_size.exit.i.i:            ; preds = %safe_muldiv_time.exit.thread17.i.i.i.i, %safe_mul_time.exit35.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
   %.sroa.03.0.i.i.i.i = phi i64 [ 0, %safe_muldiv_time.exit.thread17.i.i.i.i ], [ %67, %safe_mul_time.exit35.i.i.i.i.i ], [ %54, %safe_muldiv_time.exit.thread.i.i.i.i ]
-  %69 = icmp ugt i64 %.fr.i.i, 4611686018427387903
-  %70 = shl nuw i64 %.fr.i.i, 2
+  %69 = icmp ugt i64 %3, 4611686018427387903
+  %70 = shl nuw i64 %3, 2
   %.sroa.02.0.i.i.i.i = select i1 %69, i64 -1, i64 %70
-  %.sroa.03.0.i.i.fr.i.i = freeze i64 %.sroa.03.0.i.i.i.i
-  %.not.i.i = icmp ult i64 %.sroa.03.0.i.i.fr.i.i, %.sroa.02.0.i.i.i.i
-  %71 = shl i64 %22, 1
-  br i1 %.not.i.i, label %rxfc_adjust_window_size.exit.i, label %rxfc_should_bump_window_size.exit.thread.i.i
+  %71 = icmp uge i64 %.sroa.03.0.i.i.i.i, %.sroa.02.0.i.i.i.i
+  %72 = shl i64 %22, 1
+  %cond.fr.i.i = freeze i1 %71
+  br i1 %cond.fr.i.i, label %rxfc_should_bump_window_size.exit.thread.i.i, label %rxfc_adjust_window_size.exit.i
 
 rxfc_should_bump_window_size.exit.thread.i.i:     ; preds = %rxfc_should_bump_window_size.exit.i.i, %38
   br label %rxfc_adjust_window_size.exit.i
 
 rxfc_adjust_window_size.exit.i:                   ; preds = %rxfc_should_bump_window_size.exit.thread.i.i, %rxfc_should_bump_window_size.exit.i.i
-  %72 = phi i64 [ %22, %rxfc_should_bump_window_size.exit.thread.i.i ], [ %71, %rxfc_should_bump_window_size.exit.i.i ]
-  %.1.i.i = tail call i64 @llvm.umax.i64(i64 %72, i64 %2)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i64, ptr %73, align 8, !tbaa !20
-  %.2.i.i = tail call i64 @llvm.umin.i64(i64 %.1.i.i, i64 %74)
+  %73 = phi i64 [ %22, %rxfc_should_bump_window_size.exit.thread.i.i ], [ %72, %rxfc_should_bump_window_size.exit.i.i ]
+  %.1.i.i = tail call i64 @llvm.umax.i64(i64 %73, i64 %2)
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i64, ptr %74, align 8, !tbaa !20
+  %.2.i.i = tail call i64 @llvm.umin.i64(i64 %.1.i.i, i64 %75)
   store i64 %.2.i.i, ptr %21, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %78 = load ptr, ptr %77, align 8, !tbaa !25
-  %79 = tail call i64 %76(ptr noundef %78) #9
-  store i64 %79, ptr %5, align 8, !tbaa !23
-  %80 = load i64, ptr %18, align 8, !tbaa !29
-  store i64 %80, ptr %39, align 8, !tbaa !30
-  %81 = load i64, ptr %21, align 8, !tbaa !19
-  %82 = add i64 %81, %80
-  %83 = load i64, ptr %0, align 8, !tbaa !18
-  %84 = icmp ugt i64 %82, %83
-  br i1 %84, label %85, label %rxfc_update_cwm.exit
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %79 = load ptr, ptr %78, align 8, !tbaa !25
+  %80 = tail call i64 %77(ptr noundef %79) #9
+  store i64 %80, ptr %5, align 8, !tbaa !23
+  %81 = load i64, ptr %18, align 8, !tbaa !29
+  store i64 %81, ptr %39, align 8, !tbaa !30
+  %82 = load i64, ptr %21, align 8, !tbaa !19
+  %83 = add i64 %82, %81
+  %84 = load i64, ptr %0, align 8, !tbaa !18
+  %85 = icmp ugt i64 %83, %84
+  br i1 %85, label %86, label %rxfc_update_cwm.exit
 
-85:                                               ; preds = %rxfc_adjust_window_size.exit.i
-  store i64 %82, ptr %0, align 8, !tbaa !18
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  store i8 1, ptr %86, align 1, !tbaa !22
+86:                                               ; preds = %rxfc_adjust_window_size.exit.i
+  store i64 %83, ptr %0, align 8, !tbaa !18
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  store i8 1, ptr %87, align 1, !tbaa !22
   br label %rxfc_update_cwm.exit
 
-rxfc_update_cwm.exit:                             ; preds = %rxfc_cwm_bump_desired.exit.i, %rxfc_adjust_window_size.exit.i, %85
+rxfc_update_cwm.exit:                             ; preds = %rxfc_cwm_bump_desired.exit.i, %rxfc_adjust_window_size.exit.i, %86
   ret void
 }
 

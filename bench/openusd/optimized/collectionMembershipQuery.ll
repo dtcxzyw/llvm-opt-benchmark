@@ -21892,8 +21892,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS1_NS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaIS_IKS1_S3_EEEE4RuleEaSEOSE_.exit
-  %.052 = phi i64 [ %33, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS1_NS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaIS_IKS1_S3_EEEE4RuleEaSEOSE_.exit ], [ %1, %4 ]
-  %9 = shl i64 %.052, 1
+  %.051 = phi i64 [ %33, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS1_NS0_7TfTokenENS1_4HashESt8equal_toIS1_ESaIS_IKS1_S3_EEEE4RuleEaSEOSE_.exit ], [ %1, %4 ]
+  %9 = shl i64 %.051, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.165", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -21953,10 +21953,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrIn
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %31 = load i32, ptr %30, align 4
-  %.fr = freeze i32 %29
-  %.fr50 = freeze i32 %31
-  %32 = icmp slt i32 %.fr, %.fr50
-  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread48
+  %32 = icmp slt i32 %29, %31
+  %cond.fr = freeze i1 %32
+  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread48
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread: ; preds = %19, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread48
@@ -21964,7 +21963,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrIn
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread48: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i, %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread
   %33 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS5_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS6_NS5_7TfTokenENS6_4HashESt8equal_toIS6_ESaIS4_IKS6_S8_EEEE4RuleESt6vectorISJ_SaISJ_EEEESO_EEbT_T0_.exit ], [ %10, %26 ], [ %10, %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPathltERKS0_.exit11.i.i ]
   %34 = getelementptr inbounds %"struct.std::pair.165", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"struct.std::pair.165", ptr %0, i64 %.052
+  %35 = getelementptr inbounds %"struct.std::pair.165", ptr %0, i64 %.051
   %36 = load i32, ptr %34, align 4
   store i32 0, ptr %34, align 4
   %37 = load i32, ptr %35, align 4

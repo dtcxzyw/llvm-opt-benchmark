@@ -591,8 +591,8 @@ define hidden void @_ZN20G1ParScanThreadStateC2EP15G1CollectedHeapP22G1RedirtyCa
   %85 = tail call noundef ptr @_ZN24G1EvacuationRootClosures20create_root_closuresEP15G1CollectedHeapP20G1ParScanThreadStateb(ptr noundef %79, ptr noundef nonnull %0, i1 noundef zeroext %84) #14
   store ptr %85, ptr %22, align 8
   %86 = load i64, ptr %55, align 8
-  %.fr22 = freeze i64 %86
-  %87 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr22, i64 40)
+  %.fr23 = freeze i64 %86
+  %87 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr23, i64 40)
   %88 = extractvalue { i64, i1 } %87, 1
   %89 = extractvalue { i64, i1 } %87, 0
   %90 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %89, i64 8)
@@ -601,9 +601,9 @@ define hidden void @_ZN20G1ParScanThreadStateC2EP15G1CollectedHeapP22G1RedirtyCa
   %93 = extractvalue { i64, i1 } %90, 0
   %94 = select i1 %92, i64 -1, i64 %93
   %95 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %94, i8 noundef zeroext 5, i32 noundef 0) #14
-  store i64 %.fr22, ptr %95, align 8
+  store i64 %.fr23, ptr %95, align 8
   %96 = getelementptr i8, ptr %95, i64 8
-  %97 = icmp eq i64 %.fr22, 0
+  %97 = icmp eq i64 %.fr23, 0
   br i1 %97, label %.loopexit, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %8

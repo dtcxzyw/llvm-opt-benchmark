@@ -139,56 +139,56 @@ define internal fastcc void @init_sample_table() unnamed_addr #1 section ".init.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) @sample_table, i8 -1, i64 100, i1 false)
   br label %2
 
-2:                                                ; preds = %29, %0
-  %3 = phi i64 [ 0, %0 ], [ %30, %29 ]
+2:                                                ; preds = %30, %0
+  %3 = phi i64 [ 0, %0 ], [ %31, %30 ]
   call void @get_random_bytes(ptr noundef nonnull %1, i64 noundef 10) #14
   %.split = getelementptr [10 x i8], ptr @sample_table, i64 %3
   br label %4
 
 4:                                                ; preds = %.loopexit, %2
-  %5 = phi i64 [ 0, %2 ], [ %27, %.loopexit ]
+  %5 = phi i64 [ 0, %2 ], [ %28, %.loopexit ]
   %6 = getelementptr i8, ptr %1, i64 %5
   %7 = load i8, ptr %6, align 1
-  %.fr2 = freeze i8 %7
-  %8 = zext i8 %.fr2 to i32
+  %8 = zext i8 %7 to i32
   %9 = trunc i64 %5 to i32
-  %10 = add i32 %8, %9
-  %11 = urem i32 %10, 10
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i8, ptr %.split, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = icmp eq i8 %14, -1
-  br i1 %15, label %.loopexit, label %.preheader
+  %10 = add nuw nsw i32 %8, %9
+  %11 = freeze i32 %10
+  %12 = urem i32 %11, 10
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr i8, ptr %.split, i64 %13
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, -1
+  br i1 %16, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4, %.preheader
-  %16 = phi i32 [ %19, %.preheader ], [ %11, %4 ]
-  %17 = add i32 %16, 1
-  %18 = icmp eq i32 %17, 10
-  %19 = select i1 %18, i32 0, i32 %17
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr i8, ptr %.split, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, -1
-  br i1 %23, label %.loopexit.loopexit, label %.preheader, !llvm.loop !6
+  %17 = phi i32 [ %20, %.preheader ], [ %12, %4 ]
+  %18 = add i32 %17, 1
+  %19 = icmp eq i32 %18, 10
+  %20 = select i1 %19, i32 0, i32 %18
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr i8, ptr %.split, i64 %21
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, -1
+  br i1 %24, label %.loopexit.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %24 = getelementptr i8, ptr %.split, i64 %20
+  %25 = getelementptr i8, ptr %.split, i64 %21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %25 = phi ptr [ %13, %4 ], [ %24, %.loopexit.loopexit ]
-  %26 = trunc i64 %5 to i8
-  store i8 %26, ptr %25, align 1
-  %27 = add nuw nsw i64 %5, 1
-  %28 = icmp eq i64 %27, 10
-  br i1 %28, label %29, label %4, !llvm.loop !9
+  %26 = phi ptr [ %14, %4 ], [ %25, %.loopexit.loopexit ]
+  %27 = trunc i64 %5 to i8
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %5, 1
+  %29 = icmp eq i64 %28, 10
+  br i1 %29, label %30, label %4, !llvm.loop !9
 
-29:                                               ; preds = %.loopexit
-  %30 = add nuw nsw i64 %3, 1
-  %31 = icmp eq i64 %30, 10
-  br i1 %31, label %32, label %2, !llvm.loop !10
+30:                                               ; preds = %.loopexit
+  %31 = add nuw nsw i64 %3, 1
+  %32 = icmp eq i64 %31, 10
+  br i1 %32, label %33, label %2, !llvm.loop !10
 
-32:                                               ; preds = %29
+33:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

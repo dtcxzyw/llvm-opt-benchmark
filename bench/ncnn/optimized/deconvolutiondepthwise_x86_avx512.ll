@@ -215,25 +215,21 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load i32, ptr %12, align 8, !tbaa !40
-  %.fr129 = freeze i32 %13
-  %.fr130 = freeze i32 %11
-  %14 = mul i32 %.fr129, %.fr130
+  %14 = mul nsw i32 %13, %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %18 = load i32, ptr %17, align 4, !tbaa !42
-  %.fr128 = freeze i32 %18
-  %.fr127 = freeze i32 %16
-  %19 = sdiv i32 %.fr127, %.fr128
+  %19 = sdiv i32 %16, %18
   %20 = sdiv i32 %19, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  %.fr131 = freeze i32 %22
-  %23 = sdiv i32 %.fr131, %.fr128
+  %23 = sdiv i32 %22, %18
   %24 = sdiv i32 %20, %23
-  %25 = mul i32 %24, %.fr128
-  %26 = icmp eq i32 %25, %.fr128
-  %27 = icmp eq i32 %.fr128, %.fr131
+  %25 = mul nsw i32 %24, %18
+  %.fr = freeze i32 %25
+  %26 = icmp eq i32 %.fr, %18
+  %27 = icmp eq i32 %18, %22
   %or.cond = and i1 %27, %26
   br i1 %or.cond, label %28, label %311
 
@@ -244,17 +240,17 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %28
-  %33 = and i32 %.fr128, 15
+  %33 = and i32 %18, 15
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = and i32 %.fr128, 7
+  %36 = and i32 %18, 7
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = and i32 %.fr128, 3
+  %39 = and i32 %18, 3
   %40 = icmp eq i32 %39, 0
   %41 = select i1 %40, i32 4, i32 1
   br label %42
@@ -282,8 +278,8 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %56 = load i32, ptr %17, align 4, !tbaa !42
   %57 = load i32, ptr %21, align 8, !tbaa !43
   %58 = sdiv i32 %57, %56
-  %59 = srem i32 %.fr128, %56
-  %60 = sub nsw i32 %.fr128, %59
+  %59 = srem i32 %18, %56
+  %60 = sub nsw i32 %18, %59
   %61 = mul i32 %60, %58
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.preheader.lr.ph, label %._crit_edge126
@@ -321,8 +317,8 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %73 = getelementptr inbounds nuw float, ptr %.038124.us, i64 %64
   %74 = getelementptr inbounds nuw float, ptr %.044123.us, i64 %64
   %75 = add nuw nsw i32 %.037125.us, 1
-  %exitcond136.not = icmp eq i32 %75, %61
-  br i1 %exitcond136.not, label %._crit_edge126, label %.preheader.us, !llvm.loop !53
+  %exitcond129.not = icmp eq i32 %75, %61
+  br i1 %exitcond129.not, label %._crit_edge126, label %.preheader.us, !llvm.loop !53
 
 ._crit_edge126:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %42
   %76 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.045, i1 true)
@@ -2214,18 +2210,18 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %114, %129, %130, %1
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %150 = load i64, ptr %149, align 8, !tbaa !17
   store i64 %150, ptr %90, align 8, !tbaa !17
-  %.pre313 = load i32, ptr %10, align 4, !tbaa !86
-  %.pre314 = load i32, ptr %11, align 4, !tbaa !86
+  %.pre312 = load i32, ptr %10, align 4, !tbaa !86
+  %.pre313 = load i32, ptr %11, align 4, !tbaa !86
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %112, %_ZN4ncnn3Mat7releaseEv.exit.i, %76, %103
-  %.sink363 = phi i64 [ 16, %76 ], [ 16, %103 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %112 ]
-  %151 = phi i32 [ %52, %76 ], [ %52, %103 ], [ %.pre313, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %52, %112 ]
-  %152 = phi i32 [ %60, %76 ], [ %60, %103 ], [ %.pre314, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %60, %112 ]
+  %.sink362 = phi i64 [ 16, %76 ], [ 16, %103 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %112 ]
+  %151 = phi i32 [ %52, %76 ], [ %52, %103 ], [ %.pre312, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %52, %112 ]
+  %152 = phi i32 [ %60, %76 ], [ %60, %103 ], [ %.pre313, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %60, %112 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %154 = load i32, ptr %153, align 8, !tbaa !43
   %155 = sdiv i32 %154, %.088
-  %156 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink363
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink362
   %157 = load ptr, ptr %156, align 8, !tbaa !87
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef %151, i32 noundef %152, i32 noundef %155, i64 noundef %80, i32 noundef %.088, ptr noundef %157)
           to label %158 unwind label %110
@@ -2512,8 +2508,8 @@ _ZNK4ncnn3Mat5emptyEv.exit215:                    ; preds = %300
 
 310:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit215, %_ZN4ncnn3Mat6addrefEv.exit
   %311 = load i32, ptr %172, align 4, !tbaa !42
-  %.not117307 = icmp sgt i32 %311, 0
-  br i1 %.not117307, label %.lr.ph, label %._crit_edge
+  %.not117306 = icmp sgt i32 %311, 0
+  br i1 %.not117306, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %310
   %312 = sdiv i32 %195, %.091
@@ -3090,11 +3086,10 @@ _ZNK4ncnn3Mat5emptyEv.exit217:                    ; preds = %572
   %576 = load i64, ptr %575, align 8, !tbaa !17
   %577 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %578 = load i32, ptr %577, align 8, !tbaa !60
-  %.fr224 = freeze i32 %578
-  %579 = sext i32 %.fr224 to i64
-  %.fr = freeze i64 %576
-  %580 = mul i64 %.fr, %579
-  %581 = icmp eq i64 %580, 0
+  %579 = sext i32 %578 to i64
+  %580 = mul i64 %576, %579
+  %.fr = freeze i64 %580
+  %581 = icmp eq i64 %.fr, 0
   br i1 %581, label %_ZNK4ncnn3Mat5emptyEv.exit217.thread, label %584
 
 _ZNK4ncnn3Mat5emptyEv.exit217.thread:             ; preds = %572, %_ZNK4ncnn3Mat5emptyEv.exit217

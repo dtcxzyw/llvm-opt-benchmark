@@ -174,8 +174,7 @@ define internal range(i32 -2147483648, 1) i32 @a64multi_encode_frame(ptr noundef
   %20 = shl nsw i32 %19, 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %22 = load i32, ptr %21, align 4, !tbaa !53
-  %.116.val.fr.i = freeze i32 %22
-  %23 = tail call i32 @llvm.smin.i32(i32 %.116.val.fr.i, i32 200)
+  %23 = tail call i32 @llvm.smin.i32(i32 %22, i32 200)
   %spec.select = ashr i32 %23, 3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load i32, ptr %24, align 8, !tbaa !54
@@ -233,7 +232,8 @@ define internal range(i32 -2147483648, 1) i32 @a64multi_encode_frame(ptr noundef
   %.210.us.us.i = phi ptr [ %.us-phi.us.us.i, %._crit_edge.us.us.i ], [ %.121.us.i, %.preheader.us.us.preheader.i ]
   %.0428.us.us.i = phi i32 [ %72, %._crit_edge.us.us.i ], [ %.04026.i, %.preheader.us.us.preheader.i ]
   %47 = icmp slt i32 %.0428.us.us.i, %23
-  br i1 %47, label %.lr.ph.split.us17.us.i, label %.lr.ph.split.us.us.us.preheader.i
+  %.fr6.us.us.i = freeze i1 %47
+  br i1 %.fr6.us.us.i, label %.lr.ph.split.us17.us.i, label %.lr.ph.split.us.us.us.preheader.i
 
 .lr.ph.split.us.us.us.preheader.i:                ; preds = %.preheader.us.us.i
   %scevgep.i = getelementptr i8, ptr %.210.us.us.i, i64 16

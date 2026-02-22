@@ -18511,37 +18511,35 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15bit_blaster_tplI11blaster_cf
 
 21:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.02872 = phi i32 [ 1, %.lr.ph ], [ %37, %36 ]
+  %.02869 = phi i32 [ 1, %.lr.ph ], [ %37, %36 ]
   %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !148
-  %.fr = freeze ptr %23
-  %24 = icmp eq ptr %.fr, %16
+  %24 = icmp eq ptr %23, %16
   br i1 %24, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit
 
 _ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit: ; preds = %21
   %25 = load ptr, ptr %17, align 8, !tbaa !309
-  %.fr69 = freeze ptr %25
-  %26 = icmp eq ptr %.fr, %.fr69
-  %27 = shl i32 %.02872, 1
-  br i1 %26, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread, label %28
+  %26 = icmp eq ptr %23, %25
+  %27 = shl i32 %.02869, 1
+  %cond.fr = freeze i1 %26
+  br i1 %cond.fr, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread, label %28
 
 _ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread: ; preds = %21, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit
   br label %28
 
 28:                                               ; preds = %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread
-  %29 = phi i32 [ %.02872, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread ], [ %27, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit ]
+  %29 = phi i32 [ %.02869, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit.thread ], [ %27, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit ]
   %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !148
-  %.fr70 = freeze ptr %31
-  %32 = icmp eq ptr %.fr70, %16
+  %32 = icmp eq ptr %31, %16
   br i1 %32, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31.thread, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31
 
 _ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31: ; preds = %28
   %33 = load ptr, ptr %17, align 8, !tbaa !309
-  %.fr71 = freeze ptr %33
-  %34 = icmp eq ptr %.fr70, %.fr71
+  %34 = icmp eq ptr %31, %33
   %35 = shl i32 %29, 1
-  br i1 %34, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31.thread, label %36
+  %cond.fr66 = freeze i1 %34
+  br i1 %cond.fr66, label %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31.thread, label %36
 
 _ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31.thread: ; preds = %28, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit31
   br label %36
@@ -18580,7 +18578,7 @@ _ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit.thread: ; preds = %41
   br label %48
 
 48:                                               ; preds = %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i, %.lr.ph.i
-  %.pre.i.i = phi ptr [ %42, %.lr.ph.i ], [ %.pre.i.i76, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
+  %.pre.i.i = phi ptr [ %42, %.lr.ph.i ], [ %.pre.i.i73, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
   %49 = phi i32 [ 128, %.lr.ph.i ], [ %64, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
   %50 = phi i32 [ 0, %.lr.ph.i ], [ %69, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
@@ -18636,11 +18634,11 @@ _ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i:   ; preds = %.noexc32, %._crit_e
   br label %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i
 
 _ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i: ; preds = %48, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i
-  %.pre.i.i76 = phi ptr [ %56, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i ], [ %.pre.i.i, %48 ]
+  %.pre.i.i73 = phi ptr [ %56, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i ], [ %.pre.i.i, %48 ]
   %64 = phi i32 [ %53, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i ], [ %49, %48 ]
   %65 = phi i32 [ %.pre2.i.i, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i ], [ %50, %48 ]
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %.pre.i.i76, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %.pre.i.i73, i64 %66
   %68 = load ptr, ptr %51, align 8, !tbaa !148
   store ptr %68, ptr %67, align 8, !tbaa !148
   %69 = add i32 %65, 1
@@ -18660,7 +18658,7 @@ _ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit: ; preds = %_ZN6bufferIP4exprLb
   br label %73
 
 73:                                               ; preds = %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit
-  %.pre.i.i57 = phi ptr [ %70, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %.pre.i.i5777, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53 ]
+  %.pre.i.i57 = phi ptr [ %70, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %.pre.i.i5774, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53 ]
   %74 = phi i32 [ 128, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %89, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53 ]
   %75 = phi i32 [ 0, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %94, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53 ]
   %indvars.iv.i38 = phi i64 [ 0, %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit ], [ %indvars.iv.next.i54, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53 ]
@@ -18716,11 +18714,11 @@ _ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i51: ; preds = %.noexc59, %._crit_e
   br label %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53
 
 _ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i53: ; preds = %73, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i51
-  %.pre.i.i5777 = phi ptr [ %81, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i51 ], [ %.pre.i.i57, %73 ]
+  %.pre.i.i5774 = phi ptr [ %81, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i51 ], [ %.pre.i.i57, %73 ]
   %89 = phi i32 [ %78, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i51 ], [ %74, %73 ]
   %90 = phi i32 [ %.pre2.i.i52, %_ZN6bufferIP4exprLb0ELj128EE6expandEv.exit.i.i51 ], [ %75, %73 ]
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %.pre.i.i5777, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %.pre.i.i5774, i64 %91
   %93 = load ptr, ptr %76, align 8, !tbaa !148
   store ptr %93, ptr %92, align 8, !tbaa !148
   %94 = add i32 %90, 1
@@ -18803,8 +18801,8 @@ _ZN6bufferIP4exprLb0ELj128EED2Ev.exit64:          ; preds = %_ZN6bufferIP4exprLb
   resume { ptr, i32 } %.pn
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge, %_ZN6bufferIP4exprLb0ELj128EED2Ev.exit64
-  %or.cond.not92 = phi i1 [ true, %_ZN6bufferIP4exprLb0ELj128EED2Ev.exit64 ], [ false, %._crit_edge ], [ false, %5 ]
-  ret i1 %or.cond.not92
+  %or.cond.not91 = phi i1 [ true, %_ZN6bufferIP4exprLb0ELj128EED2Ev.exit64 ], [ false, %._crit_edge ], [ false, %5 ]
+  ret i1 %or.cond.not91
 }
 
 ; Function Attrs: mustprogress uwtable

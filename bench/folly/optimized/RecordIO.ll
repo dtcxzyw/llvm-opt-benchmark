@@ -68,7 +68,7 @@ $_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev = comdat any
 @.str.11 = private unnamed_addr constant [16 x i8] c"invalid file id\00", align 1
 @_ZTISt16invalid_argument = external constant ptr
 @.str.12 = private unnamed_addr constant [34 x i8] c"Record length must fit in 32 bits\00", align 1
-@_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic = internal constant i32 -356314207, align 4
+@_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic = internal unnamed_addr constant i32 -356314207, align 4
 
 @_ZN5folly14RecordIOWriterC1ENS_4FileEj = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN5folly14RecordIOWriterC2ENS_4FileEj
 @_ZN5folly14RecordIOReaderC1ENS_4FileEj = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN5folly14RecordIOReaderC2ENS_4FileEj
@@ -871,74 +871,33 @@ define void @_ZN5folly14RecordIOReaderC2ENS_4FileEj(ptr noundef nonnull align 8 
 declare void @_ZN5folly13MemoryMappingC1ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%"struct.folly::MemoryMapping::Options") align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RecordIOReader8IteratorC2ENS_5RangeIPKhEEjl(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 20), (24, 48)) %0, ptr %1, ptr %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"struct.folly::recordio_helpers::RecordInfo", align 8
+define void @_ZN5folly14RecordIOReader8IteratorC2ENS_5RangeIPKhEEjl(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 20), (24, 48)) %0, ptr %1, ptr %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !63
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %3, ptr %7, align 8, !tbaa !99
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %10 = ptrtoint ptr %2 to i64
-  %11 = ptrtoint ptr %1 to i64
-  %12 = sub i64 %10, %11
-  %.not = icmp ult i64 %4, %12
-  br i1 %.not, label %_ZN5folly5RangeIPKhE7advanceEm.exit, label %13
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %3, ptr %6, align 8, !tbaa !99
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %9 = ptrtoint ptr %2 to i64
+  %10 = ptrtoint ptr %1 to i64
+  %11 = sub i64 %9, %10
+  %.not = icmp ult i64 %4, %11
+  br i1 %.not, label %_ZN5folly5RangeIPKhE7advanceEm.exit, label %12
 
-13:                                               ; preds = %5
-  store i64 -1, ptr %9, align 8, !tbaa !102
+12:                                               ; preds = %5
+  store i64 -1, ptr %8, align 8, !tbaa !102
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %_ZN5folly14RecordIOReader8Iterator14advanceToValidEv.exit
+  br label %14
 
 _ZN5folly5RangeIPKhE7advanceEm.exit:              ; preds = %5
-  store i64 %4, ptr %9, align 8, !tbaa !102
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %4
-  store ptr %14, ptr %0, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j(ptr dead_on_unwind nonnull writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %6, ptr %14, ptr %2, ptr poison, ptr %2, i32 noundef %3)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.03.0.copyload.i = load ptr, ptr %15, align 8, !tbaa !63
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %16 = icmp eq ptr %.sroa.03.0.copyload.i, %.sroa.6.0.copyload.i
-  br i1 %16, label %17, label %18
+  store i64 %4, ptr %8, align 8, !tbaa !102
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %4
+  store ptr %13, ptr %0, align 8, !tbaa !103
+  tail call void @_ZN5folly14RecordIOReader8Iterator14advanceToValidEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  br label %14
 
-17:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %9, align 8, !tbaa !104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 16, i1 false)
-  br label %_ZN5folly14RecordIOReader8Iterator14advanceToValidEv.exit
-
-18:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !103
-  %20 = ptrtoint ptr %.sroa.03.0.copyload.i to i64
-  %21 = ptrtoint ptr %19 to i64
-  %.neg8.i = add i64 %20, -28
-  %22 = sub i64 %.neg8.i, %21
-  %23 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !105
-  %24 = ptrtoint ptr %23 to i64
-  %25 = sub i64 %24, %21
-  %26 = icmp ugt i64 %22, %25
-  br i1 %26, label %27, label %_ZN5folly5RangeIPKhE7advanceEm.exit.i, !prof !24
-
-27:                                               ; preds = %18
-  tail call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.9) #3
-  unreachable
-
-_ZN5folly5RangeIPKhE7advanceEm.exit.i:            ; preds = %18
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 %22
-  store ptr %28, ptr %0, align 8, !tbaa !103
-  store ptr %.sroa.03.0.copyload.i, ptr %8, align 8, !tbaa !63
-  %.sroa.6.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.6.0.copyload.i, ptr %.sroa.6.0..sroa_idx6.i, align 8, !tbaa !63
-  %29 = load i64, ptr %9, align 8, !tbaa !102
-  %30 = add nsw i64 %29, %22
-  store i64 %30, ptr %9, align 8, !tbaa !102
-  br label %_ZN5folly14RecordIOReader8Iterator14advanceToValidEv.exit
-
-_ZN5folly14RecordIOReader8Iterator14advanceToValidEv.exit: ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit.i, %17, %13
+14:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit, %12
   ret void
 }
 
@@ -951,53 +910,120 @@ define void @_ZN5folly14RecordIOReader8Iterator14advanceToValidEv(ptr noundef no
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !63
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !99
-  call void @_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j(ptr dead_on_unwind nonnull writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %2, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload, ptr poison, ptr %.sroa.2.0.copyload, i32 noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.03.0.copyload = load ptr, ptr %5, align 8, !tbaa !63
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !63
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  %5 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 -28
+  %6 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 -24
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 -27
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %11
+
+11:                                               ; preds = %38, %1
+  %.010.i.i = phi ptr [ %.sroa.0.0.copyload, %1 ], [ %43, %38 ]
+  %12 = icmp ult ptr %.010.i.i, %5
+  br i1 %12, label %13, label %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread
+
+13:                                               ; preds = %11
+  %14 = ptrtoint ptr %.010.i.i to i64
+  %15 = sub i64 %7, %14
+  %16 = icmp ult i64 %15, 4
+  br i1 %16, label %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread, label %.preheader53.i.i.i.i
+
+.preheader53.i.i.i.i:                             ; preds = %13, %.loopexit.i.i.i.i
+  %.03562.i.i.i.i = phi ptr [ %30, %.loopexit.i.i.i.i ], [ %.010.i.i, %13 ]
+  %.03861.i.i.i.i = phi i64 [ %spec.select.i, %.loopexit.i.i.i.i ], [ 0, %13 ]
+  br label %17
+
+17:                                               ; preds = %21, %.preheader53.i.i.i.i
+  %.136.i.i.i.i = phi ptr [ %22, %21 ], [ %.03562.i.i.i.i, %.preheader53.i.i.i.i ]
+  %18 = getelementptr inbounds nuw i8, ptr %.136.i.i.i.i, i64 3
+  %19 = load i8, ptr %18, align 1, !tbaa !48, !noalias !110
+  %20 = icmp eq i8 %19, -22
+  br i1 %20, label %.preheader52.i.i.i.i, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %.136.i.i.i.i, i64 1
+  %23 = icmp eq ptr %.136.i.i.i.i, %5
+  br i1 %23, label %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread, label %17, !llvm.loop !111
+
+.preheader52.i.i.i.i:                             ; preds = %17, %32
+  %.0.i.i.i.i = phi i64 [ %33, %32 ], [ 0, %17 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.136.i.i.i.i, i64 %.0.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.i.i.i.i
+  %26 = load i8, ptr %24, align 1, !tbaa !48, !noalias !110
+  %27 = load i8, ptr %25, align 1, !tbaa !48, !noalias !110
+  %28 = icmp eq i8 %26, %27
+  br i1 %28, label %32, label %.loopexit.i.i.i.i
+
+.loopexit.i.i.i.i:                                ; preds = %.preheader52.i.i.i.i
+  %29 = icmp eq i64 %.03861.i.i.i.i, 0
+  %spec.select.i = select i1 %29, i64 4, i64 %.03861.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %.136.i.i.i.i, i64 %spec.select.i
+  %31 = icmp ult ptr %30, %8
+  br i1 %31, label %.preheader53.i.i.i.i, label %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread
+
+32:                                               ; preds = %.preheader52.i.i.i.i
+  %33 = add nuw nsw i64 %.0.i.i.i.i, 1
+  %34 = icmp eq i64 %33, 4
+  br i1 %34, label %_ZNK5folly5RangeIPKhE4findES3_.exit.i.i, label %.preheader52.i.i.i.i, !llvm.loop !113
+
+_ZNK5folly5RangeIPKhE4findES3_.exit.i.i:          ; preds = %32
+  %35 = ptrtoint ptr %.136.i.i.i.i to i64
+  %36 = sub i64 %35, %14
+  %37 = icmp eq i64 %36, -1
+  br i1 %37, label %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread, label %38
+
+38:                                               ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 %36
+  call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind nonnull writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %2, ptr %39, ptr %.sroa.2.0.copyload, i32 noundef %4)
+  %40 = load ptr, ptr %9, align 8, !tbaa !103, !alias.scope !110
+  %41 = load ptr, ptr %10, align 8, !tbaa !114, !alias.scope !110
+  %42 = icmp eq ptr %40, %41
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  br i1 %42, label %11, label %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit
+
+_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread: ; preds = %11, %13, %_ZNK5folly5RangeIPKhE4findES3_.exit.i.i, %.loopexit.i.i.i.i, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %6 = icmp eq ptr %.sroa.03.0.copyload, %.sroa.6.0.copyload
-  br i1 %6, label %7, label %10
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 -1, ptr %9, align 8, !tbaa !104
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 -1, ptr %45, align 8, !tbaa !115
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %25
+  br label %60
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %0, align 8, !tbaa !103
-  %12 = ptrtoint ptr %.sroa.03.0.copyload to i64
-  %13 = ptrtoint ptr %11 to i64
-  %.neg8 = add i64 %12, -28
-  %14 = sub i64 %.neg8, %13
-  %15 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !105
-  %16 = ptrtoint ptr %15 to i64
-  %17 = sub i64 %16, %13
-  %18 = icmp ugt i64 %14, %17
-  br i1 %18, label %19, label %_ZN5folly5RangeIPKhE7advanceEm.exit, !prof !24
+_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit: ; preds = %38
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %46 = load ptr, ptr %0, align 8, !tbaa !103
+  %47 = ptrtoint ptr %40 to i64
+  %48 = ptrtoint ptr %46 to i64
+  %.neg8 = add i64 %47, -28
+  %49 = sub i64 %.neg8, %48
+  %50 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !114
+  %51 = ptrtoint ptr %50 to i64
+  %52 = sub i64 %51, %48
+  %53 = icmp ugt i64 %49, %52
+  br i1 %53, label %54, label %_ZN5folly5RangeIPKhE7advanceEm.exit, !prof !24
 
-19:                                               ; preds = %10
+54:                                               ; preds = %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit
   tail call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.9) #3
   unreachable
 
-_ZN5folly5RangeIPKhE7advanceEm.exit:              ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 %14
-  store ptr %20, ptr %0, align 8, !tbaa !103
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.03.0.copyload, ptr %21, align 8, !tbaa !63
+_ZN5folly5RangeIPKhE7advanceEm.exit:              ; preds = %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 %49
+  store ptr %55, ptr %0, align 8, !tbaa !103
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %40, ptr %56, align 8, !tbaa !63
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx6, align 8, !tbaa !63
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load i64, ptr %22, align 8, !tbaa !102
-  %24 = add nsw i64 %23, %14
-  store i64 %24, ptr %22, align 8, !tbaa !102
-  br label %25
+  store ptr %41, ptr %.sroa.6.0..sroa_idx6, align 8, !tbaa !63
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %58 = load i64, ptr %57, align 8, !tbaa !102
+  %59 = add nsw i64 %58, %49
+  store i64 %59, ptr %57, align 8, !tbaa !102
+  br label %60
 
-25:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit, %7
+60:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit, %_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj.exit.thread
   ret void
 }
 
@@ -1049,196 +1075,82 @@ define void @_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j(ptr dea
   %8 = icmp ult ptr %7, %2
   %.sroa.speculated = select i1 %8, ptr %7, ptr %2
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.speculated, i64 4
-  %.fr.i.i = freeze ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 4)
-  %10 = ptrtoint ptr %.fr.i.i to i64
-  %11 = sub i64 %10, ptrtoint (ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic to i64)
-  %12 = ptrtoint ptr %9 to i64
-  %.not.i.i = icmp eq ptr %.fr.i.i, @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic
-  %13 = add i64 %11, -1
-  %14 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %13
-  %15 = sub i64 1, %11
-  %16 = getelementptr inbounds i8, ptr %9, i64 %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not.i.i, label %.split.us, label %.split
+  %10 = ptrtoint ptr %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.speculated, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %14
 
-.split.us:                                        ; preds = %6, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us
-  %.010.us = phi ptr [ %26, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us ], [ %1, %6 ]
-  %19 = icmp uge ptr %.010.us, %.sroa.speculated
-  %20 = ptrtoint ptr %.010.us to i64
-  %21 = sub i64 %12, %20
-  %22 = icmp ult i64 %21, %11
-  %or.cond = select i1 %19, i1 true, i1 %22
-  br i1 %or.cond, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us
+14:                                               ; preds = %41, %6
+  %.010 = phi ptr [ %1, %6 ], [ %46, %41 ]
+  %15 = icmp ult ptr %.010, %.sroa.speculated
+  br i1 %15, label %16, label %.thread
 
-_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us:  ; preds = %.split.us
-  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %.010.us, ptr %4, i32 noundef %5)
-  %23 = load ptr, ptr %17, align 8, !tbaa !103
-  %24 = load ptr, ptr %18, align 8, !tbaa !105
-  %25 = icmp eq ptr %23, %24
-  %26 = getelementptr inbounds nuw i8, ptr %.010.us, i64 4
-  br i1 %25, label %.split.us, label %.thread25
+16:                                               ; preds = %14
+  %17 = ptrtoint ptr %.010 to i64
+  %18 = sub i64 %10, %17
+  %19 = icmp ult i64 %18, 4
+  br i1 %19, label %.thread, label %.preheader53.i.i
 
-.split:                                           ; preds = %6
-  %.not4757.i.i = icmp eq i64 %13, 0
-  br i1 %.not4757.i.i, label %.split.split.us, label %.split.split
+.preheader53.i.i:                                 ; preds = %16, %.loopexit.i.i
+  %.03562.i.i = phi ptr [ %33, %.loopexit.i.i ], [ %.010, %16 ]
+  %.03861.i.i = phi i64 [ %.139.i.i, %.loopexit.i.i ], [ 0, %16 ]
+  br label %20
 
-.split.split.us:                                  ; preds = %.split, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38
-  %.010.us37 = phi ptr [ %54, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38 ], [ %1, %.split ]
-  %27 = icmp ult ptr %.010.us37, %.sroa.speculated
-  br i1 %27, label %28, label %.thread
+20:                                               ; preds = %24, %.preheader53.i.i
+  %.136.i.i = phi ptr [ %25, %24 ], [ %.03562.i.i, %.preheader53.i.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 3
+  %22 = load i8, ptr %21, align 1, !tbaa !48
+  %23 = icmp eq i8 %22, -22
+  br i1 %23, label %.preheader52.i.i, label %24
 
-28:                                               ; preds = %.split.split.us
-  %29 = ptrtoint ptr %.010.us37 to i64
-  %30 = sub i64 %12, %29
-  %31 = icmp ult i64 %30, %11
-  br i1 %31, label %.thread, label %32
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 1
+  %26 = icmp eq ptr %.136.i.i, %.sroa.speculated
+  br i1 %26, label %.thread, label %20, !llvm.loop !111
 
-32:                                               ; preds = %28
-  %33 = load i8, ptr %14, align 1, !tbaa !48
-  %34 = icmp ult ptr %.010.us37, %16
-  br i1 %34, label %.preheader53.us.i.i.us, label %.thread
+.preheader52.i.i:                                 ; preds = %20, %35
+  %.0.i.i = phi i64 [ %36, %35 ], [ 0, %20 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.0.i.i
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.i.i
+  %29 = load i8, ptr %27, align 1, !tbaa !48
+  %30 = load i8, ptr %28, align 1, !tbaa !48
+  %31 = icmp eq i8 %29, %30
+  br i1 %31, label %35, label %.loopexit.i.i
 
-.preheader53.us.i.i.us:                           ; preds = %32, %.preheader53.us.i.i.us.backedge
-  %.136.us.i.i.us = phi ptr [ %.136.us.i.i.us.be, %.preheader53.us.i.i.us.backedge ], [ %.010.us37, %32 ]
-  %35 = load i8, ptr %.136.us.i.i.us, align 1, !tbaa !48
-  %36 = icmp eq i8 %35, %33
-  br i1 %36, label %.preheader52.us.i.i.us, label %37
+.loopexit.i.i:                                    ; preds = %.preheader52.i.i
+  %32 = icmp eq i64 %.03861.i.i, 0
+  %.139.i.i = select i1 %32, i64 4, i64 %.03861.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.139.i.i
+  %34 = icmp ult ptr %33, %11
+  br i1 %34, label %.preheader53.i.i, label %.thread
 
-37:                                               ; preds = %.preheader53.us.i.i.us
-  %38 = getelementptr inbounds nuw i8, ptr %.136.us.i.i.us, i64 1
-  %39 = icmp eq ptr %38, %16
-  br i1 %39, label %.thread, label %.preheader53.us.i.i.us.backedge
+35:                                               ; preds = %.preheader52.i.i
+  %36 = add nuw nsw i64 %.0.i.i, 1
+  %37 = icmp eq i64 %36, 4
+  br i1 %37, label %_ZNK5folly5RangeIPKhE4findES3_.exit, label %.preheader52.i.i, !llvm.loop !113
 
-.preheader53.us.i.i.us.backedge:                  ; preds = %37, %.preheader.us.i.i.us
-  %.136.us.i.i.us.be = phi ptr [ %38, %37 ], [ %45, %.preheader.us.i.i.us ]
-  br label %.preheader53.us.i.i.us, !llvm.loop !106
+_ZNK5folly5RangeIPKhE4findES3_.exit:              ; preds = %35
+  %38 = ptrtoint ptr %.136.i.i to i64
+  %39 = sub i64 %38, %17
+  %40 = icmp eq i64 %39, -1
+  br i1 %40, label %.thread, label %41
 
-.preheader52.us.i.i.us:                           ; preds = %.preheader53.us.i.i.us, %47
-  %.0.us.i.i.us = phi i64 [ %48, %47 ], [ 0, %.preheader53.us.i.i.us ]
-  %40 = getelementptr inbounds nuw i8, ptr %.136.us.i.i.us, i64 %.0.us.i.i.us
-  %41 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.us.i.i.us
-  %42 = load i8, ptr %40, align 1, !tbaa !48
-  %43 = load i8, ptr %41, align 1, !tbaa !48
-  %44 = icmp eq i8 %42, %43
-  br i1 %44, label %47, label %.preheader.us.i.i.us
+41:                                               ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit
+  %42 = getelementptr inbounds nuw i8, ptr %.010, i64 %39
+  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %42, ptr %4, i32 noundef %5)
+  %43 = load ptr, ptr %12, align 8, !tbaa !103
+  %44 = load ptr, ptr %13, align 8, !tbaa !114
+  %45 = icmp eq ptr %43, %44
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  br i1 %45, label %14, label %.thread22
 
-.preheader.us.i.i.us:                             ; preds = %.preheader52.us.i.i.us
-  %45 = getelementptr inbounds nuw i8, ptr %.136.us.i.i.us, i64 1
-  %46 = icmp ult ptr %45, %16
-  br i1 %46, label %.preheader53.us.i.i.us.backedge, label %.thread
+.thread:                                          ; preds = %16, %_ZNK5folly5RangeIPKhE4findES3_.exit, %14, %.loopexit.i.i, %24
+  store i32 0, ptr %0, align 8, !tbaa !116
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  br label %.thread22
 
-47:                                               ; preds = %.preheader52.us.i.i.us
-  %48 = add nuw i64 %.0.us.i.i.us, 1
-  %49 = icmp eq i64 %48, %11
-  br i1 %49, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us, label %.preheader52.us.i.i.us, !llvm.loop !108
-
-_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38: ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us
-  %50 = getelementptr inbounds nuw i8, ptr %.010.us37, i64 %56
-  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %50, ptr %4, i32 noundef %5)
-  %51 = load ptr, ptr %17, align 8, !tbaa !103
-  %52 = load ptr, ptr %18, align 8, !tbaa !105
-  %53 = icmp eq ptr %51, %52
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  br i1 %53, label %.split.split.us, label %.thread25
-
-_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us:  ; preds = %47
-  %55 = ptrtoint ptr %.136.us.i.i.us to i64
-  %56 = sub i64 %55, %29
-  %57 = icmp eq i64 %56, -1
-  br i1 %57, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38
-
-.split.split:                                     ; preds = %.split, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20
-  %.010 = phi ptr [ %98, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20 ], [ %1, %.split ]
-  %58 = icmp ult ptr %.010, %.sroa.speculated
-  br i1 %58, label %59, label %.thread
-
-59:                                               ; preds = %.split.split
-  %60 = ptrtoint ptr %.010 to i64
-  %61 = sub i64 %12, %60
-  %62 = icmp ult i64 %61, %11
-  br i1 %62, label %.thread, label %63
-
-63:                                               ; preds = %59
-  %64 = load i8, ptr %14, align 1, !tbaa !48
-  %65 = icmp ult ptr %.010, %16
-  br i1 %65, label %.preheader53.i.i, label %.thread
-
-.preheader53.i.i:                                 ; preds = %63, %.loopexit.i.i
-  %.03562.i.i = phi ptr [ %89, %.loopexit.i.i ], [ %.010, %63 ]
-  %.03861.i.i = phi i64 [ %.139.i.i, %.loopexit.i.i ], [ 0, %63 ]
-  br label %66
-
-66:                                               ; preds = %70, %.preheader53.i.i
-  %.136.i.i = phi ptr [ %71, %70 ], [ %.03562.i.i, %.preheader53.i.i ]
-  %67 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %13
-  %68 = load i8, ptr %67, align 1, !tbaa !48
-  %69 = icmp eq i8 %68, %64
-  br i1 %69, label %.preheader52.i.i, label %70
-
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 1
-  %72 = icmp eq ptr %71, %16
-  br i1 %72, label %.thread, label %66, !llvm.loop !106
-
-.preheader52.i.i:                                 ; preds = %66, %86
-  %.0.i.i = phi i64 [ %87, %86 ], [ 0, %66 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.0.i.i
-  %74 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.i.i
-  %75 = load i8, ptr %73, align 1, !tbaa !48
-  %76 = load i8, ptr %74, align 1, !tbaa !48
-  %77 = icmp eq i8 %75, %76
-  br i1 %77, label %86, label %78
-
-78:                                               ; preds = %.preheader52.i.i
-  %79 = icmp eq i64 %.03861.i.i, 0
-  br i1 %79, label %.preheader.i.i, label %.loopexit.i.i
-
-.preheader.i.i:                                   ; preds = %78, %84
-  %.24058.i.i = phi i64 [ %85, %84 ], [ 1, %78 ]
-  %80 = sub nuw i64 %13, %.24058.i.i
-  %81 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !48
-  %83 = icmp eq i8 %82, %64
-  br i1 %83, label %.loopexit.i.i, label %84
-
-84:                                               ; preds = %.preheader.i.i
-  %85 = add i64 %.24058.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %85, %11
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !109
-
-86:                                               ; preds = %.preheader52.i.i
-  %87 = add nuw i64 %.0.i.i, 1
-  %88 = icmp eq i64 %87, %11
-  br i1 %88, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28, label %.preheader52.i.i, !llvm.loop !108
-
-.loopexit.i.i:                                    ; preds = %84, %.preheader.i.i, %78
-  %.139.i.i = phi i64 [ %.03861.i.i, %78 ], [ %.24058.i.i, %.preheader.i.i ], [ %11, %84 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.139.i.i
-  %90 = icmp ult ptr %89, %16
-  br i1 %90, label %.preheader53.i.i, label %.thread
-
-_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28:   ; preds = %86
-  %91 = ptrtoint ptr %.136.i.i to i64
-  %92 = sub i64 %91, %60
-  %93 = icmp eq i64 %92, -1
-  br i1 %93, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20
-
-_ZNK5folly5RangeIPKhE4findES3_.exit.thread20:     ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28
-  %94 = getelementptr inbounds nuw i8, ptr %.010, i64 %92
-  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %94, ptr %4, i32 noundef %5)
-  %95 = load ptr, ptr %17, align 8, !tbaa !103
-  %96 = load ptr, ptr %18, align 8, !tbaa !105
-  %97 = icmp eq ptr %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  br i1 %97, label %.split.split, label %.thread25
-
-.thread:                                          ; preds = %63, %59, %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28, %.split.split, %.loopexit.i.i, %70, %.split.split.us, %28, %32, %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us, %.preheader.us.i.i.us, %37, %.split.us
-  store i32 0, ptr %0, align 8, !tbaa !110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  br label %.thread25
-
-.thread25:                                        ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us, %.thread
+.thread22:                                        ; preds = %41, %.thread
   ret void
 }
 
@@ -1307,19 +1219,19 @@ define noundef zeroext i1 @_ZN5folly16recordio_helpers20validateRecordHeaderENS_
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i8, ptr %13, align 1, !tbaa !112
+  %14 = load i8, ptr %13, align 1, !tbaa !118
   %.not10 = icmp eq i8 %14, 0
   br i1 %.not10, label %15, label %30
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %17 = load i8, ptr %16, align 1, !tbaa !113
+  %17 = load i8, ptr %16, align 1, !tbaa !119
   %.not11 = icmp eq i8 %17, 0
   br i1 %.not11, label %18, label %30
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %20 = load i16, ptr %19, align 1, !tbaa !114
+  %20 = load i16, ptr %19, align 1, !tbaa !120
   %.not12 = icmp eq i16 %20, 0
   br i1 %.not12, label %21, label %30
 
@@ -1364,7 +1276,7 @@ define void @_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE(ptr
   br i1 %.not, label %_ZN5folly5RangeIPKhE7advanceEm.exit, label %9
 
 9:                                                ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !110
+  store i32 0, ptr %0, align 8, !tbaa !116
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   br label %31
@@ -1380,7 +1292,7 @@ _ZN5folly5RangeIPKhE7advanceEm.exit:              ; preds = %3
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit
-  store i32 0, ptr %0, align 8, !tbaa !110
+  store i32 0, ptr %0, align 8, !tbaa !116
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %31
@@ -1400,7 +1312,7 @@ _ZN5folly5RangeIPKhE7advanceEm.exit:              ; preds = %3
   br i1 %.not4, label %26, label %24
 
 24:                                               ; preds = %20
-  store i32 0, ptr %0, align 8, !tbaa !110
+  store i32 0, ptr %0, align 8, !tbaa !116
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %31
@@ -1409,7 +1321,7 @@ _ZN5folly5RangeIPKhE7advanceEm.exit:              ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 %14
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 1, !tbaa !83
-  store i32 %29, ptr %0, align 8, !tbaa !110
+  store i32 %29, ptr %0, align 8, !tbaa !116
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %30, align 8, !tbaa !63
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1439,19 +1351,19 @@ define void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr de
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %17 = load i8, ptr %16, align 1, !tbaa !112
+  %17 = load i8, ptr %16, align 1, !tbaa !118
   %.not10.i = icmp eq i8 %17, 0
   br i1 %.not10.i, label %18, label %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %20 = load i8, ptr %19, align 1, !tbaa !113
+  %20 = load i8, ptr %19, align 1, !tbaa !119
   %.not11.i = icmp eq i8 %20, 0
   br i1 %.not11.i, label %21, label %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %23 = load i16, ptr %22, align 1, !tbaa !114
+  %23 = load i16, ptr %22, align 1, !tbaa !120
   %.not12.i = icmp eq i16 %23, 0
   br i1 %.not12.i, label %24, label %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread
 
@@ -1481,26 +1393,26 @@ _ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit: ; preds
   br i1 %.not15.i, label %33, label %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread
 
 _ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread: ; preds = %15, %18, %21, %25, %13, %4, %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit
-  store i32 0, ptr %0, align 8, !tbaa !110
+  store i32 0, ptr %0, align 8, !tbaa !116
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   br label %_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE.exit
 
 33:                                               ; preds = %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %.not.i4.not = icmp eq i64 %11, 28
   br i1 %.not.i4.not, label %34, label %_ZN5folly5RangeIPKhE7advanceEm.exit.i
 
 34:                                               ; preds = %33
-  store i32 0, ptr %0, align 8, !tbaa !110, !alias.scope !115
+  store i32 0, ptr %0, align 8, !tbaa !116, !alias.scope !121
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !121
   br label %_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE.exit
 
 _ZN5folly5RangeIPKhE7advanceEm.exit.i:            ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %38 = load i32, ptr %37, align 1, !tbaa !84, !noalias !115
+  %38 = load i32, ptr %37, align 1, !tbaa !84, !noalias !121
   %39 = zext i32 %38 to i64
   %40 = ptrtoint ptr %36 to i64
   %41 = sub i64 %9, %40
@@ -1508,40 +1420,40 @@ _ZN5folly5RangeIPKhE7advanceEm.exit.i:            ; preds = %33
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit.i
-  store i32 0, ptr %0, align 8, !tbaa !110, !alias.scope !115
+  store i32 0, ptr %0, align 8, !tbaa !116, !alias.scope !121
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !alias.scope !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !alias.scope !121
   br label %_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE.exit
 
 45:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !115
-  store i64 3735928559, ptr %5, align 8, !tbaa !70, !noalias !115
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !115
-  store i64 3735928559, ptr %6, align 8, !tbaa !70, !noalias !115
-  call void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef nonnull %36, i64 noundef %39, ptr noundef nonnull %6, ptr noundef nonnull %5), !noalias !115
-  %46 = load i64, ptr %6, align 8, !tbaa !70, !noalias !115
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !115
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !115
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !121
+  store i64 3735928559, ptr %5, align 8, !tbaa !70, !noalias !121
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !121
+  store i64 3735928559, ptr %6, align 8, !tbaa !70, !noalias !121
+  call void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef nonnull %36, i64 noundef %39, ptr noundef nonnull %6, ptr noundef nonnull %5), !noalias !121
+  %46 = load i64, ptr %6, align 8, !tbaa !70, !noalias !121
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !121
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !121
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load i64, ptr %47, align 1, !tbaa !85, !noalias !115
+  %48 = load i64, ptr %47, align 1, !tbaa !85, !noalias !121
   %.not4.i = icmp eq i64 %46, %48
   br i1 %.not4.i, label %51, label %49
 
 49:                                               ; preds = %45
-  store i32 0, ptr %0, align 8, !tbaa !110, !alias.scope !115
+  store i32 0, ptr %0, align 8, !tbaa !116, !alias.scope !121
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false), !alias.scope !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false), !alias.scope !121
   br label %_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE.exit
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 %39
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load i32, ptr %53, align 1, !tbaa !83, !noalias !115
-  store i32 %54, ptr %0, align 8, !tbaa !110, !alias.scope !115
+  %54 = load i32, ptr %53, align 1, !tbaa !83, !noalias !121
+  store i32 %54, ptr %0, align 8, !tbaa !116, !alias.scope !121
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %36, ptr %55, align 8, !tbaa !63, !alias.scope !115
+  store ptr %36, ptr %55, align 8, !tbaa !63, !alias.scope !121
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %52, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !63, !alias.scope !115
+  store ptr %52, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !63, !alias.scope !121
   br label %_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE.exit
 
 _ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE.exit: ; preds = %51, %49, %43, %34, %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread
@@ -1692,17 +1604,23 @@ attributes #24 = { builtin nounwind }
 !101 = !{!"_ZTSSt4pairIN5folly5RangeIPKhEElE", !62, i64 0, !19, i64 16}
 !102 = !{!100, !19, i64 40}
 !103 = !{!62, !41, i64 0}
-!104 = !{!101, !19, i64 16}
-!105 = !{!62, !41, i64 8}
-!106 = distinct !{!106, !107}
-!107 = !{!"llvm.loop.mustprogress"}
-!108 = distinct !{!108, !107}
-!109 = distinct !{!109, !107}
-!110 = !{!111, !10, i64 0}
-!111 = !{!"_ZTSN5folly16recordio_helpers10RecordInfoE", !10, i64 0, !62, i64 8}
-!112 = !{!81, !11, i64 4}
-!113 = !{!81, !11, i64 5}
-!114 = !{!81, !82, i64 6}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE: argument 0"}
-!117 = distinct !{!117, !"_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj: argument 0"}
+!106 = distinct !{!106, !"_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEEj"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j: argument 0"}
+!109 = distinct !{!109, !"_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j"}
+!110 = !{!108, !105}
+!111 = distinct !{!111, !112}
+!112 = !{!"llvm.loop.mustprogress"}
+!113 = distinct !{!113, !112}
+!114 = !{!62, !41, i64 8}
+!115 = !{!101, !19, i64 16}
+!116 = !{!117, !10, i64 0}
+!117 = !{!"_ZTSN5folly16recordio_helpers10RecordInfoE", !10, i64 0, !62, i64 8}
+!118 = !{!81, !11, i64 4}
+!119 = !{!81, !11, i64 5}
+!120 = !{!81, !82, i64 6}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE: argument 0"}
+!123 = distinct !{!123, !"_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE"}

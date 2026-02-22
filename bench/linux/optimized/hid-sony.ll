@@ -2727,8 +2727,8 @@ define internal void @sony_led_set_brightness(ptr noundef readonly captures(addr
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %17 = load i64, ptr %16, align 8
-  %.fr7 = freeze i64 %17
-  %18 = and i64 %.fr7, 2
+  %.fr = freeze i64 %17
+  %18 = and i64 %.fr, 2
   %19 = icmp eq i64 %18, 0
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 264

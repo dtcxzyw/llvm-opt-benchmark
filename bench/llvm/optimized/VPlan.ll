@@ -14116,19 +14116,18 @@ _ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit: ; preds = %2
   %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(5) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = load i64, ptr %1, align 4
-  %.fr25 = freeze i64 %11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 4
-  %.fr26 = freeze i64 %13
-  %.tr = trunc i64 %.fr25 to i32
-  %.sroa.7.0.extract.shift = lshr i64 %.fr25, 32
+  %.tr = trunc i64 %11 to i32
+  %.sroa.7.0.extract.shift = lshr i64 %11, 32
   %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
-  %.sroa.0.0.extract.trunc = trunc i64 %.fr26 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %.fr26, 32
+  %.sroa.0.0.extract.trunc = trunc i64 %13 to i32
+  %.sroa.4.0.extract.shift = lshr i64 %13, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.not = icmp eq i8 %.sroa.7.0.extract.trunc, %.sroa.4.0.extract.trunc
-  %.sroa.7.0.insert.shift = and i64 %.fr25, 1095216660480
-  br i1 %.not, label %.critedge, label %.critedge.us
+  %14 = icmp ne i8 %.sroa.7.0.extract.trunc, %.sroa.4.0.extract.trunc
+  %.sroa.7.0.insert.shift = and i64 %11, 1095216660480
+  %.fr = freeze i1 %14
+  br i1 %.fr, label %.critedge.us, label %.critedge
 
 .critedge.us:                                     ; preds = %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us
   %.sroa.016.0.in.us = phi i32 [ %.sroa.016.0.us, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us ], [ %.tr, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit ]
@@ -14137,47 +14136,47 @@ _ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit: ; preds = %2
   %.sroa.016.0.insert.insert.us = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.016.0.insert.ext.us
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.016.0.insert.insert.us, ptr %3, align 8
-  %14 = load ptr, ptr %5, align 8, !tbaa !43
-  %.not.i.i14.us = icmp eq ptr %14, null
+  %15 = load ptr, ptr %5, align 8, !tbaa !43
+  %.not.i.i14.us = icmp eq ptr %15, null
   br i1 %.not.i.i14.us, label %.split.us, label %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us
 
 _ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us: ; preds = %.critedge.us
-  %15 = load ptr, ptr %8, align 8, !tbaa !798
-  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(5) %3) #25
+  %16 = load ptr, ptr %8, align 8, !tbaa !798
+  %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(5) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = xor i1 %10, %16
-  br i1 %17, label %.split24.us, label %.critedge.us
+  %18 = xor i1 %10, %17
+  br i1 %18, label %.split24.us, label %.critedge.us
 
 .critedge:                                        ; preds = %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15
   %.sroa.016.0.in = phi i32 [ %.sroa.016.0, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15 ], [ %.tr, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit ]
   %.sroa.016.0 = shl i32 %.sroa.016.0.in, 1
-  %.not27 = icmp eq i32 %.sroa.016.0, %.sroa.0.0.extract.trunc
-  br i1 %.not27, label %.loopexit, label %18
+  %.not = icmp eq i32 %.sroa.016.0, %.sroa.0.0.extract.trunc
+  br i1 %.not, label %.loopexit, label %19
 
-18:                                               ; preds = %.critedge
+19:                                               ; preds = %.critedge
   %.sroa.016.0.insert.ext = zext i32 %.sroa.016.0 to i64
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.016.0.insert.ext
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.016.0.insert.insert, ptr %3, align 8
-  %19 = load ptr, ptr %5, align 8, !tbaa !43
-  %.not.i.i14 = icmp eq ptr %19, null
+  %20 = load ptr, ptr %5, align 8, !tbaa !43
+  %.not.i.i14 = icmp eq ptr %20, null
   br i1 %.not.i.i14, label %.split.us, label %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15
 
-.split.us:                                        ; preds = %.critedge.us, %18
+.split.us:                                        ; preds = %19, %.critedge.us
   call void @_ZSt25__throw_bad_function_callv() #28
   unreachable
 
-_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15: ; preds = %18
-  %20 = load ptr, ptr %8, align 8, !tbaa !798
-  %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(5) %3) #25
+_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15: ; preds = %19
+  %21 = load ptr, ptr %8, align 8, !tbaa !798
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(5) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %22 = xor i1 %10, %21
-  br i1 %22, label %.split24.us, label %.critedge
+  %23 = xor i1 %10, %22
+  br i1 %23, label %.split24.us, label %.critedge
 
-.split24.us:                                      ; preds = %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15
-  %.us-phi = phi i64 [ %.sroa.016.0.insert.insert, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15 ], [ %.sroa.016.0.insert.insert.us, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us ]
-  %23 = trunc nuw i64 %.us-phi to i40
-  store i40 %23, ptr %12, align 4
+.split24.us:                                      ; preds = %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us
+  %.us-phi = phi i64 [ %.sroa.016.0.insert.insert.us, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15.us ], [ %.sroa.016.0.insert.insert, %_ZNKSt8functionIFbN4llvm12ElementCountEEEclES1_.exit15 ]
+  %24 = trunc nuw i64 %.us-phi to i40
+  store i40 %24, ptr %12, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.split24.us

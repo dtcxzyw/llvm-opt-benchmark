@@ -1153,6 +1153,7 @@ GetCombineCostFactor.exit:                        ; preds = %225, %227
 
 .preheader.i:                                     ; preds = %UpdateDominantCostRange.exit.i
   %.not.i.i.i = icmp eq i64 %.sroa.0.2.i, %.sroa.6.2.i
+  %.not.i.i.fr.i = freeze i1 %.not.i.i.i
   %237 = sub i64 %.sroa.0.2.i, %.sroa.6.2.i
   %238 = uitofp i64 %237 to double
   %.not.i.i = icmp eq i32 %4, 0
@@ -1172,7 +1173,7 @@ GetCombineCostFactor.exit:                        ; preds = %225, %227
   br i1 %245, label %277, label %246
 
 246:                                              ; preds = %.lr.ph21.split.us.i
-  br i1 %.not.i.i.i, label %GetBinIdForEntropy.exit.i.us.i, label %247
+  br i1 %.not.i.i.fr.i, label %GetBinIdForEntropy.exit.i.us.i, label %247
 
 247:                                              ; preds = %246
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 3256
@@ -1229,7 +1230,7 @@ GetBinIdForEntropy.exit17.i.us.i:                 ; preds = %266, %GetBinIdForEn
   br i1 %exitcond42.not.i, label %HistogramAnalyzeEntropyBin.exit, label %.lr.ph21.split.us.i, !llvm.loop !46
 
 .lr.ph21.split.i:                                 ; preds = %.preheader.i
-  br i1 %.not.i.i.i, label %.lr.ph21.split.split.us.i, label %.lr.ph21.split.split.i
+  br i1 %.not.i.i.fr.i, label %.lr.ph21.split.split.us.i, label %.lr.ph21.split.split.i
 
 .lr.ph21.split.split.us.i:                        ; preds = %.lr.ph21.split.i, %282
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %282 ], [ 0, %.lr.ph21.split.i ]
@@ -1264,9 +1265,8 @@ GetBinIdForEntropy.exit.i.us23.i:                 ; preds = %.lr.ph21.split.spli
 286:                                              ; preds = %.lr.ph.i97
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 3256
   %288 = load i64, ptr %287, align 8, !tbaa !42
-  %.fr.i = freeze i64 %288
-  %spec.select.i99 = call i64 @llvm.umax.i64(i64 %.sroa.0.013.i, i64 %.fr.i)
-  %.sroa.6.1.i = call i64 @llvm.umin.i64(i64 %.sroa.6.012.i, i64 %.fr.i)
+  %spec.select.i99 = call i64 @llvm.umax.i64(i64 %.sroa.0.013.i, i64 %288)
+  %.sroa.6.1.i = call i64 @llvm.umin.i64(i64 %.sroa.6.012.i, i64 %288)
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 3264
   %290 = load i64, ptr %289, align 8, !tbaa !43
   %.sroa.10.1.i = call i64 @llvm.umax.i64(i64 %.sroa.10.011.i, i64 %290)

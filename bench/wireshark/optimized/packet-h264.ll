@@ -1617,25 +1617,25 @@ define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h26
 
 77:                                               ; preds = %.thread.i, %76
   %indvars.iv.i = phi i64 [ 0, %76 ], [ %indvars.iv.next.i, %.thread.i ]
-  %.01522.i = phi i32 [ 8, %76 ], [ %.119.i, %.thread.i ]
-  %.01621.i = phi i32 [ 8, %76 ], [ %85, %.thread.i ]
-  %.not.i = icmp eq i32 %.01522.i, 0
+  %.01523.i = phi i32 [ 8, %76 ], [ %.119.i, %.thread.i ]
+  %.01622.i = phi i32 [ 8, %76 ], [ %85, %.thread.i ]
+  %.not.i = icmp eq i32 %.01523.i, 0
   br i1 %.not.i, label %.thread.i, label %78
 
 78:                                               ; preds = %77
   %79 = load i32, ptr @hf_h264_delta_scale, align 4
   %80 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noundef readonly %2, i32 noundef %79, ptr noundef %1, ptr noundef nonnull %7, i32 noundef 2)
-  %.fr.i = freeze i32 %80
-  %81 = add nsw i32 %.01621.i, 256
-  %82 = add i32 %81, %.fr.i
+  %81 = add i32 %80, %.01622.i
+  %.fr.i = freeze i32 %81
+  %82 = add i32 %.fr.i, 256
   %83 = srem i32 %82, 256
   %84 = icmp eq i32 %83, 0
-  %spec.select.i = select i1 %84, i32 %.01621.i, i32 %83
+  %spec.select.i = select i1 %84, i32 %.01622.i, i32 %83
   br label %.thread.i
 
 .thread.i:                                        ; preds = %78, %77
   %.119.i = phi i32 [ %83, %78 ], [ 0, %77 ]
-  %85 = phi i32 [ %spec.select.i, %78 ], [ %.01621.i, %77 ]
+  %85 = phi i32 [ %spec.select.i, %78 ], [ %.01622.i, %77 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %dissect_h264_scaling_list.exit, label %77, !llvm.loop !12
@@ -1652,25 +1652,25 @@ dissect_h264_scaling_list.exit:                   ; preds = %.thread.i
 
 88:                                               ; preds = %.thread.i202, %87
   %indvars.iv.i196 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i204, %.thread.i202 ]
-  %.01522.i197 = phi i32 [ 8, %87 ], [ %.119.i203, %.thread.i202 ]
-  %.01621.i198 = phi i32 [ 8, %87 ], [ %96, %.thread.i202 ]
-  %.not.i199 = icmp eq i32 %.01522.i197, 0
+  %.01523.i197 = phi i32 [ 8, %87 ], [ %.119.i203, %.thread.i202 ]
+  %.01622.i198 = phi i32 [ 8, %87 ], [ %96, %.thread.i202 ]
+  %.not.i199 = icmp eq i32 %.01523.i197, 0
   br i1 %.not.i199, label %.thread.i202, label %89
 
 89:                                               ; preds = %88
   %90 = load i32, ptr @hf_h264_delta_scale, align 4
   %91 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noundef readonly %2, i32 noundef %90, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2)
-  %.fr.i200 = freeze i32 %91
-  %92 = add nsw i32 %.01621.i198, 256
-  %93 = add i32 %92, %.fr.i200
+  %92 = add i32 %91, %.01622.i198
+  %.fr.i200 = freeze i32 %92
+  %93 = add i32 %.fr.i200, 256
   %94 = srem i32 %93, 256
   %95 = icmp eq i32 %94, 0
-  %spec.select.i201 = select i1 %95, i32 %.01621.i198, i32 %94
+  %spec.select.i201 = select i1 %95, i32 %.01622.i198, i32 %94
   br label %.thread.i202
 
 .thread.i202:                                     ; preds = %89, %88
   %.119.i203 = phi i32 [ %94, %89 ], [ 0, %88 ]
-  %96 = phi i32 [ %spec.select.i201, %89 ], [ %.01621.i198, %88 ]
+  %96 = phi i32 [ %spec.select.i201, %89 ], [ %.01622.i198, %88 ]
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i196, 1
   %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, 64
   br i1 %exitcond.not.i205, label %dissect_h264_scaling_list.exit206, label %88, !llvm.loop !12

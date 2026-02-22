@@ -183,7 +183,7 @@ calc_dequant.exit314:                             ; preds = %48
 ._crit_edge:                                      ; preds = %91
   %70 = trunc nuw i64 %indvars.iv.next to i32
   %.pre560 = load ptr, ptr %13, align 8, !tbaa !37
-  %or.cond.i = icmp samesign ugt i64 %indvars.iv, 268435454
+  %or.cond.i = icmp ugt i64 %indvars.iv, 268435454
   %71 = shl nuw nsw i32 %70, 3
   br i1 %or.cond.i, label %.loopexit, label %._crit_edge.thread
 

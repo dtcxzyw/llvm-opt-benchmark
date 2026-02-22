@@ -299,8 +299,7 @@ define internal void @nhmex_uncore_msr_disable_box(ptr noundef readonly captures
   %45 = and i64 %44, %35
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 52
   %47 = load i32, ptr %46, align 4
-  %.fr7 = freeze i32 %47
-  %48 = icmp eq i32 %.fr7, 0
+  %48 = icmp eq i32 %47, 0
   br i1 %48, label %.thread5, label %49
 
 49:                                               ; preds = %37
@@ -328,11 +327,11 @@ define internal void @nhmex_uncore_msr_disable_box(ptr noundef readonly captures
 
 66:                                               ; preds = %53, %60
   %67 = phi i32 [ %59, %53 ], [ %65, %60 ]
-  %68 = sub i32 0, %.fr7
-  %.fr = freeze i32 %67
-  %69 = icmp eq i32 %.fr, %68
+  %68 = sub i32 0, %47
+  %69 = icmp eq i32 %67, %68
   %70 = and i64 %45, -2147483649
-  br i1 %69, label %.thread5, label %71
+  %cond.fr = freeze i1 %69
+  br i1 %cond.fr, label %.thread5, label %71
 
 .thread5:                                         ; preds = %37, %66
   br label %71
@@ -419,8 +418,7 @@ define internal void @nhmex_uncore_msr_enable_box(ptr noundef readonly captures(
   %46 = or i64 %35, %45
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 52
   %48 = load i32, ptr %47, align 4
-  %.fr7 = freeze i32 %48
-  %49 = icmp eq i32 %.fr7, 0
+  %49 = icmp eq i32 %48, 0
   br i1 %49, label %.thread5, label %50
 
 50:                                               ; preds = %37
@@ -448,11 +446,11 @@ define internal void @nhmex_uncore_msr_enable_box(ptr noundef readonly captures(
 
 67:                                               ; preds = %54, %61
   %68 = phi i32 [ %60, %54 ], [ %66, %61 ]
-  %69 = sub i32 0, %.fr7
-  %.fr = freeze i32 %68
-  %70 = icmp eq i32 %.fr, %69
+  %69 = sub i32 0, %48
+  %70 = icmp eq i32 %68, %69
   %71 = or i64 %46, 2147483648
-  br i1 %70, label %.thread5, label %72
+  %cond.fr = freeze i1 %70
+  br i1 %cond.fr, label %.thread5, label %72
 
 .thread5:                                         ; preds = %37, %67
   br label %72

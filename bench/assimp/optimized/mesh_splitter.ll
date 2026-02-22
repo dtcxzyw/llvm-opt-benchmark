@@ -738,8 +738,8 @@ switch.lookup:                                    ; preds = %238
   br label %248
 
 248:                                              ; preds = %238, %switch.lookup
-  %.sink460 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %238 ]
-  %249 = or i32 %241, %.sink460
+  %.sink461 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %238 ]
+  %249 = or i32 %241, %.sink461
   store i32 %249, ptr %76, align 8
   br i1 %.not357, label %._crit_edge347, label %.lr.ph346
 
@@ -1811,8 +1811,8 @@ define hidden noalias noundef ptr @_Z28ComputeVertexBoneWeightTablePK6aiMesh(ptr
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.fr38 = freeze i32 %4
-  %.not19 = icmp eq i32 %.fr38, 0
+  %.fr39 = freeze i32 %4
+  %.not19 = icmp eq i32 %.fr39, 0
   br i1 %.not19, label %.loopexit, label %5
 
 5:                                                ; preds = %2
@@ -1822,7 +1822,7 @@ define hidden noalias noundef ptr @_Z28ComputeVertexBoneWeightTablePK6aiMesh(ptr
   br i1 %.not20, label %.loopexit, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %5
-  %8 = zext i32 %.fr38 to i64
+  %8 = zext i32 %.fr39 to i64
   %9 = mul nuw nsw i64 %8, 24
   %10 = add nuw nsw i64 %9, 8
   %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #15

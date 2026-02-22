@@ -2756,9 +2756,9 @@ declare void @_ZNK5clang26CXXRewrittenBinaryOperator17getDecomposedFormEv(ptr de
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZZN5clang16ParentMapContext9ParentMap33AscendIgnoreUnlessSpelledInSourceEPKNS_4ExprES4_ENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 comdat align 2 {
   %4 = load i16, ptr %1, align 8
-  %.fr = freeze i16 %4
-  %5 = and i16 %.fr, 511
-  %6 = and i16 %.fr, 510
+  %.fr64 = freeze i16 %4
+  %5 = and i16 %.fr64, 511
+  %6 = and i16 %.fr64, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i16 %6, 62
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %.critedge, label %switch.early.test
 
@@ -2804,8 +2804,8 @@ switch.early.test:                                ; preds = %3
 20:                                               ; preds = %15
   %21 = load i32, ptr %1, align 8
   %22 = and i32 %21, 524288
-  %.not66 = icmp eq i32 %22, 0
-  br i1 %.not66, label %.critedge31, label %.critedge
+  %.not67 = icmp eq i32 %22, 0
+  br i1 %.not67, label %.critedge31, label %.critedge
 
 .critedge31:                                      ; preds = %20, %.critedge29
   switch i16 %5, label %.critedge33 [

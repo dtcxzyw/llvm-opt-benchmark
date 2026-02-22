@@ -3405,8 +3405,8 @@ define internal void @uyvytoyuv420_c(ptr noundef writeonly captures(none) %0, pt
   %65 = getelementptr inbounds i8, ptr %.02531.us.us, i64 %19
   %66 = getelementptr inbounds i8, ptr %.035.us.us, i64 %28
   %67 = add nuw nsw i32 %.02134.us.us, 1
-  %exitcond56.not = icmp eq i32 %67, %5
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.preheader.i.us.us, !llvm.loop !95
+  %exitcond57.not = icmp eq i32 %67, %5
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.preheader.i.us.us, !llvm.loop !95
 
 extract_even2avg_c.exit.loopexit.us.us:           ; preds = %.lr.ph.i27.us.us
   %68 = getelementptr inbounds i8, ptr %.02233.us.us, i64 %27
@@ -3470,8 +3470,8 @@ extract_even_c.exit.us:                           ; preds = %.lr.ph.split.us, %9
   %.1.us = phi ptr [ %102, %extract_even2avg_c.exit.loopexit.us ], [ %.02233.us, %extract_even_c.exit.us ]
   %100 = getelementptr inbounds i8, ptr %.02531.us, i64 %19
   %101 = add nuw nsw i32 %.02134.us, 1
-  %exitcond55.not = icmp eq i32 %101, %5
-  br i1 %exitcond55.not, label %._crit_edge, label %extract_even_c.exit.us, !llvm.loop !95
+  %exitcond56.not = icmp eq i32 %101, %5
+  br i1 %exitcond56.not, label %._crit_edge, label %extract_even_c.exit.us, !llvm.loop !95
 
 extract_even2avg_c.exit.loopexit.us:              ; preds = %.lr.ph.i27.us
   %102 = getelementptr inbounds i8, ptr %.02233.us, i64 %27
@@ -3759,8 +3759,8 @@ define internal void @yuyvtoyuv420_c(ptr noundef writeonly captures(none) %0, pt
   %66 = getelementptr inbounds i8, ptr %.02531.us.us, i64 %19
   %67 = getelementptr inbounds i8, ptr %.035.us.us, i64 %28
   %68 = add nuw nsw i32 %.02134.us.us, 1
-  %exitcond56.not = icmp eq i32 %68, %5
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.preheader.i.us.us, !llvm.loop !99
+  %exitcond57.not = icmp eq i32 %68, %5
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.preheader.i.us.us, !llvm.loop !99
 
 extract_odd2avg_c.exit.loopexit.us.us:            ; preds = %.lr.ph.i27.us.us
   %69 = getelementptr inbounds i8, ptr %.02233.us.us, i64 %27
@@ -3826,8 +3826,8 @@ extract_even_c.exit.us:                           ; preds = %.lr.ph.split.us, %1
   %.1.us = phi ptr [ %105, %extract_odd2avg_c.exit.loopexit.us ], [ %.02233.us, %extract_even_c.exit.us ]
   %103 = getelementptr inbounds i8, ptr %.02531.us, i64 %19
   %104 = add nuw nsw i32 %.02134.us, 1
-  %exitcond55.not = icmp eq i32 %104, %5
-  br i1 %exitcond55.not, label %._crit_edge, label %extract_even_c.exit.us, !llvm.loop !99
+  %exitcond56.not = icmp eq i32 %104, %5
+  br i1 %exitcond56.not, label %._crit_edge, label %extract_even_c.exit.us, !llvm.loop !99
 
 extract_odd2avg_c.exit.loopexit.us:               ; preds = %.lr.ph.i27.us
   %105 = getelementptr inbounds i8, ptr %.02233.us, i64 %27

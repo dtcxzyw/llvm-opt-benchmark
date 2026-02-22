@@ -1205,19 +1205,17 @@ define hidden void @_ZN8C2Access16fixup_decoratorsEv(ptr noundef nonnull align 8
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %.fr19 = freeze i64 %4
-  %5 = and i64 %.fr19, 1984
+  %5 = and i64 %4, 1984
   %6 = icmp eq i64 %5, 0
-  %7 = and i64 %.fr19, 64
+  %7 = and i64 %4, 64
   %8 = icmp ne i64 %7, 0
   %9 = or i1 %8, %6
   %10 = load i8, ptr @AlwaysAtomicAccesses, align 1
-  %.fr = freeze i8 %10
-  %11 = trunc i8 %.fr to i1
-  %or.cond = and i1 %9, %11
-  %12 = and i64 %.fr19, -1985
+  %11 = trunc i8 %10 to i1
+  %or.cond = select i1 %11, i1 %9, i1 false
+  %12 = and i64 %4, -1985
   %13 = or disjoint i64 %12, 128
-  %14 = select i1 %or.cond, i64 %13, i64 %.fr19
+  %14 = select i1 %or.cond, i64 %13, i64 %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, -2
@@ -1230,87 +1228,89 @@ define hidden void @_ZN8C2Access16fixup_decoratorsEv(ptr noundef nonnull align 8
   %22 = icmp ne i64 %21, 0
   %23 = and i1 %20, %22
   %24 = select i1 %23, i64 16384, i64 0
-  %25 = icmp ne i64 %5, 0
-  %.not22 = or i1 %25, %11
-  %26 = select i1 %.not22, i64 0, i64 64
-  %27 = and i64 %14, 14336
-  %28 = icmp eq i64 %27, 0
-  %29 = select i1 %28, i64 8192, i64 0
-  %30 = or disjoint i64 %29, %26
-  %31 = or disjoint i64 %30, %24
-  %32 = or i64 %31, %18
-  store i64 %32, ptr %3, align 8
-  %33 = and i64 %.fr19, 481036337152
-  %or.cond5 = icmp eq i64 %33, 343597383680
-  br i1 %or.cond5, label %34, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+  %25 = icmp eq i64 %5, 0
+  %not.or.cond = xor i1 %or.cond, true
+  %26 = select i1 %not.or.cond, i1 %25, i1 false
+  %cond.fr = freeze i1 %26
+  %27 = select i1 %cond.fr, i64 64, i64 0
+  %28 = and i64 %14, 14336
+  %29 = icmp eq i64 %28, 0
+  %30 = select i1 %29, i64 8192, i64 0
+  %31 = or disjoint i64 %30, %27
+  %32 = or disjoint i64 %31, %24
+  %33 = or i64 %32, %18
+  store i64 %33, ptr %3, align 8
+  %34 = and i64 %4, 481036337152
+  %or.cond5 = icmp eq i64 %34, 343597383680
+  br i1 %or.cond5, label %35, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-34:                                               ; preds = %1
-  %35 = or i64 %32, 51539607552
-  store i64 %35, ptr %3, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %37, align 8
-  %41 = and i64 %32, 64
-  %42 = icmp ne i64 %41, 0
-  %43 = and i64 %14, 786432
-  %44 = icmp ne i64 %43, 0
-  %or.cond.i = and i1 %44, %42
-  br i1 %or.cond.i, label %45, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+35:                                               ; preds = %1
+  %36 = or i64 %33, 51539607552
+  store i64 %36, ptr %3, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %38, align 8
+  %42 = and i64 %33, 64
+  %43 = icmp ne i64 %42, 0
+  %44 = and i64 %14, 786432
+  %45 = icmp ne i64 %44, 0
+  %or.cond.i = and i1 %45, %43
+  br i1 %or.cond.i, label %46, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-45:                                               ; preds = %34
-  %46 = and i64 %14, 2147483648
-  %.not11.i = icmp eq i64 %46, 0
-  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %47
+46:                                               ; preds = %35
+  %47 = and i64 %14, 2147483648
+  %.not11.i = icmp eq i64 %47, 0
+  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %48
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp ne i32 %49, 22
-  %.not15.i = icmp eq ptr %39, null
-  %.not.i = or i1 %.not15.i, %50
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ne i32 %50, 22
+  %.not15.i = icmp eq ptr %40, null
+  %.not.i = or i1 %.not15.i, %51
   br i1 %.not.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %_ZNK8C2Access16needs_cpu_membarEv.exit
 
-_ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %47, %45
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp ne i32 %52, 21
-  %.not18 = icmp eq ptr %39, null
-  %.not = select i1 %53, i1 true, i1 %.not18
-  br i1 %.not, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %54
+_ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %48, %46
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ne i32 %53, 21
+  %.not18 = icmp eq ptr %40, null
+  %.not = select i1 %54, i1 true, i1 %.not18
+  br i1 %.not, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %55
 
-54:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit
+55:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit
   store i64 -2000000001, ptr %2, align 8
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef nonnull align 8 dereferenceable(2400) ptr %57(ptr noundef nonnull align 8 dereferenceable(49) %0) #14
-  %59 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %40, ptr noundef nonnull %58, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  %60 = load i64, ptr %2, align 8
-  %61 = icmp sgt i64 %60, -1
-  br i1 %61, label %62, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef nonnull align 8 dereferenceable(2400) ptr %58(ptr noundef nonnull align 8 dereferenceable(49) %0) #14
+  %60 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %41, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
+  %61 = load i64, ptr %2, align 8
+  %62 = icmp sgt i64 %61, -1
+  br i1 %62, label %63, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr %39, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 232
-  %65 = load ptr, ptr %64, align 8
-  %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(80) %39) #14
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %68 = load i32, ptr %67, align 8
-  %69 = and i32 %68, -2
-  %70 = load i64, ptr %2, align 8
-  %71 = sext i32 %69 to i64
-  %72 = icmp slt i64 %70, %71
-  br i1 %72, label %73, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %40, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 232
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(80) %40) #14
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %69 = load i32, ptr %68, align 8
+  %70 = and i32 %69, -2
+  %71 = load i64, ptr %2, align 8
+  %72 = sext i32 %70 to i64
+  %73 = icmp slt i64 %71, %72
+  br i1 %73, label %74, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-73:                                               ; preds = %62
-  %74 = load i64, ptr %3, align 8
-  %75 = xor i64 %74, 51539607552
-  store i64 %75, ptr %3, align 8
+74:                                               ; preds = %63
+  %75 = load i64, ptr %3, align 8
+  %76 = xor i64 %75, 51539607552
+  store i64 %76, ptr %3, align 8
   br label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-_ZNK8C2Access16needs_cpu_membarEv.exit.thread:    ; preds = %34, %47, %_ZNK8C2Access16needs_cpu_membarEv.exit, %62, %73, %54, %1
+_ZNK8C2Access16needs_cpu_membarEv.exit.thread:    ; preds = %35, %48, %_ZNK8C2Access16needs_cpu_membarEv.exit, %63, %74, %55, %1
   ret void
 }
 

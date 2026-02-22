@@ -21,8 +21,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   br i1 %5, label %.lr.ph91, label %._crit_edge92
 
 .loopexit75:                                      ; preds = %..loopexit_crit_edge.us, %.preheader74, %.loopexit77
-  %exitcond102.not = icmp eq i64 %8, %2
-  br i1 %exitcond102.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !14
+  %exitcond103.not = icmp eq i64 %8, %2
+  br i1 %exitcond103.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !14
 
 .lr.ph91:                                         ; preds = %4, %.loopexit75
   %.06889 = phi i64 [ %8, %.loopexit75 ], [ 0, %4 ]
@@ -71,8 +71,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   store double %28, ptr %25, align 8, !tbaa !17
   store double %26, ptr %27, align 8, !tbaa !17
   %29 = add nuw nsw i64 %.180, 1
-  %exitcond98.not = icmp eq i64 %29, %2
-  br i1 %exitcond98.not, label %.loopexit77, label %.lr.ph81, !llvm.loop !21
+  %exitcond99.not = icmp eq i64 %29, %2
+  br i1 %exitcond99.not, label %.loopexit77, label %.lr.ph81, !llvm.loop !21
 
 .loopexit77:                                      ; preds = %.lr.ph81, %22
   %30 = getelementptr inbounds nuw double, ptr %7, i64 %.06889
@@ -81,8 +81,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   br i1 %9, label %.lr.ph84, label %.loopexit75
 
 .preheader74:                                     ; preds = %.lr.ph84
-  %.not111 = icmp slt i64 %8, %2
-  br i1 %.not111, label %.lr.ph88.split.us, label %.loopexit75
+  %.not112 = icmp slt i64 %8, %2
+  br i1 %.not112, label %.lr.ph88.split.us, label %.loopexit75
 
 .lr.ph88.split.us:                                ; preds = %.preheader74, %..loopexit_crit_edge.us
   %.06787.us = phi i64 [ %38, %..loopexit_crit_edge.us ], [ %8, %.preheader74 ]
@@ -95,8 +95,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
 
 ..loopexit_crit_edge.us:                          ; preds = %39, %.lr.ph88.split.us
   %38 = add nuw nsw i64 %.06787.us, 1
-  %exitcond101.not = icmp eq i64 %38, %2
-  br i1 %exitcond101.not, label %.loopexit75, label %.lr.ph88.split.us, !llvm.loop !22
+  %exitcond102.not = icmp eq i64 %38, %2
+  br i1 %exitcond102.not, label %.loopexit75, label %.lr.ph88.split.us, !llvm.loop !22
 
 39:                                               ; preds = %.preheader.us, %39
   %.385.us = phi i64 [ %8, %.preheader.us ], [ %45, %39 ]
@@ -107,8 +107,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   %44 = tail call double @llvm.fmuladd.f64(double %46, double %41, double %43)
   store double %44, ptr %42, align 8, !tbaa !17
   %45 = add nuw nsw i64 %.385.us, 1
-  %exitcond100.not = icmp eq i64 %45, %1
-  br i1 %exitcond100.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !23
+  %exitcond101.not = icmp eq i64 %45, %1
+  br i1 %exitcond101.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !23
 
 .preheader.us:                                    ; preds = %.lr.ph88.split.us
   %46 = fneg double %36
@@ -121,8 +121,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   %49 = fmul double %32, %48
   store double %49, ptr %47, align 8, !tbaa !17
   %50 = add nuw nsw i64 %.282, 1
-  %exitcond99.not = icmp eq i64 %50, %1
-  br i1 %exitcond99.not, label %.preheader74, label %.lr.ph84, !llvm.loop !24
+  %exitcond100.not = icmp eq i64 %50, %1
+  br i1 %exitcond100.not, label %.preheader74, label %.lr.ph84, !llvm.loop !24
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %.loopexit75, %4
   %.0 = phi i64 [ 0, %4 ], [ 0, %.loopexit75 ], [ %8, %._crit_edge ]

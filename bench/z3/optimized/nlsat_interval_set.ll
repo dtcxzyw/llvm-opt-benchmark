@@ -371,23 +371,23 @@ define hidden noundef ptr @_ZN5nlsat20interval_set_manager8mk_unionEPKNS_12inter
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %1, %2
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %652, label %7
+  br i1 %or.cond, label %654, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %2, null
-  br i1 %8, label %652, label %9
+  br i1 %8, label %654, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %.not = icmp sgt i32 %11, -1
-  br i1 %.not, label %12, label %652
+  br i1 %.not, label %12, label %654
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %.not179 = icmp sgt i32 %14, -1
-  br i1 %.not179, label %15, label %652
+  br i1 %.not179, label %15, label %654
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -399,28 +399,28 @@ define hidden noundef ptr @_ZN5nlsat20interval_set_manager8mk_unionEPKNS_12inter
   store i32 128, ptr %18, align 4, !tbaa !35
   %19 = load i32, ptr %1, align 8, !tbaa !18
   %20 = load i32, ptr %2, align 8, !tbaa !18
-  %.not180530.not = icmp eq i32 %19, 0
-  br i1 %.not180530.not, label %.preheader516, label %.lr.ph
+  %.not180528.not = icmp eq i32 %19, 0
+  br i1 %.not180528.not, label %.preheader514, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %67
 
-.preheader516:                                    ; preds = %522, %15
+.preheader514:                                    ; preds = %522, %15
   %.0152.lcssa = phi i32 [ 0, %15 ], [ %.2154, %522 ]
   %23 = icmp ult i32 %.0152.lcssa, %20
-  br i1 %23, label %.lr.ph534, label %.loopexit
+  br i1 %23, label %.lr.ph532, label %.loopexit
 
-.lr.ph534:                                        ; preds = %.preheader516
+.lr.ph532:                                        ; preds = %.preheader514
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = zext i32 %.0152.lcssa to i64
   br label %26
 
-26:                                               ; preds = %.lr.ph534, %65
-  %indvars.iv566 = phi i64 [ %25, %.lr.ph534 ], [ %indvars.iv.next567, %65 ]
+26:                                               ; preds = %.lr.ph532, %65
+  %indvars.iv564 = phi i64 [ %25, %.lr.ph532 ], [ %indvars.iv.next565, %65 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %24, i64 %indvars.iv566
+  %28 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %24, i64 %indvars.iv564
   %29 = load i8, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -519,38 +519,38 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
 65:                                               ; preds = %.noexc336
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %.sroa.0.0.copyload.i, ptr %66, align 4, !tbaa !26
-  %indvars.iv.next567 = add nuw nsw i64 %indvars.iv566, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next567 to i32
-  %exitcond569.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond569.not, label %.loopexit, label %26, !llvm.loop !41
+  %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next565 to i32
+  %exitcond567.not = icmp eq i32 %20, %lftr.wideiv
+  br i1 %exitcond567.not, label %.loopexit, label %26, !llvm.loop !41
 
-.loopexit515:                                     ; preds = %79, %86, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353, %.noexc360
+.loopexit513:                                     ; preds = %79, %86, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353, %.noexc360
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
 .loopexit.split-lp:                               ; preds = %35, %42, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329, %.noexc336
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
 67:                                               ; preds = %.lr.ph, %522
-  %.0149532 = phi i32 [ 0, %.lr.ph ], [ %.3, %522 ]
-  %.0152531 = phi i32 [ 0, %.lr.ph ], [ %.2154, %522 ]
-  %.not181 = icmp ult i32 %.0152531, %20
+  %.0149530 = phi i32 [ 0, %.lr.ph ], [ %.3, %522 ]
+  %.0152529 = phi i32 [ 0, %.lr.ph ], [ %.2154, %522 ]
+  %.not181 = icmp ult i32 %.0152529, %20
   br i1 %.not181, label %111, label %.preheader
 
 .preheader:                                       ; preds = %67
-  %68 = icmp ult i32 %.0149532, %19
-  br i1 %68, label %.lr.ph536, label %.loopexit
+  %68 = icmp ult i32 %.0149530, %19
+  br i1 %68, label %.lr.ph534, label %.loopexit
 
-.lr.ph536:                                        ; preds = %.preheader
-  %69 = zext i32 %.0149532 to i64
+.lr.ph534:                                        ; preds = %.preheader
+  %69 = zext i32 %.0149530 to i64
   %wide.trip.count = zext i32 %19 to i64
   br label %70
 
-70:                                               ; preds = %.lr.ph536, %109
-  %indvars.iv = phi i64 [ %69, %.lr.ph536 ], [ %indvars.iv.next, %109 ]
+70:                                               ; preds = %.lr.ph534, %109
+  %indvars.iv = phi i64 [ %69, %.lr.ph534 ], [ %indvars.iv.next, %109 ]
   %71 = load ptr, ptr %0, align 8, !tbaa !23
   %72 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %indvars.iv
   %73 = load i8, ptr %72, align 8
@@ -572,7 +572,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
   %81 = zext i32 %80 to i64
   %82 = shl nuw nsw i64 %81, 5
   %83 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %82)
-          to label %.noexc358 unwind label %.loopexit515
+          to label %.noexc358 unwind label %.loopexit513
 
 .noexc358:                                        ; preds = %79
   %84 = load i32, ptr %17, align 8, !tbaa !34
@@ -592,7 +592,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i329: ; preds = %_ZN
 
 86:                                               ; preds = %._crit_edge.i.i.i347
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pre.i.i.i341)
-          to label %.noexc359 unwind label %.loopexit515
+          to label %.noexc359 unwind label %.loopexit513
 
 .noexc359:                                        ; preds = %86
   %.pre2.pre.i.i350 = load i32, ptr %17, align 8, !tbaa !34
@@ -636,7 +636,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   store i8 %102, ptr %98, align 8
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
   invoke void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %71, ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(8) %74)
-          to label %.noexc360 unwind label %.loopexit515
+          to label %.noexc360 unwind label %.loopexit513
 
 .noexc360:                                        ; preds = %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353
   %104 = load i8, ptr %98, align 8
@@ -646,7 +646,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   store i8 %107, ptr %98, align 8
   %108 = getelementptr inbounds nuw i8, ptr %98, i64 24
   invoke void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %71, ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %75)
-          to label %109 unwind label %.loopexit515
+          to label %109 unwind label %.loopexit513
 
 109:                                              ; preds = %.noexc360
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 4
@@ -656,9 +656,9 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !42
 
 111:                                              ; preds = %67
-  %112 = zext i32 %.0149532 to i64
+  %112 = zext i32 %.0149530 to i64
   %113 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %112
-  %114 = zext i32 %.0152531 to i64
+  %114 = zext i32 %.0152529 to i64
   %115 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %22, i64 %114
   %116 = load ptr, ptr %0, align 8, !tbaa !23
   %117 = load i8, ptr %113, align 8
@@ -688,12 +688,12 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
 .noexc:                                           ; preds = %125
   %129 = icmp eq i32 %128, 0
   %.pre = load i8, ptr %113, align 8
-  %.pre583 = load i8, ptr %115, align 8
+  %.pre581 = load i8, ptr %115, align 8
   br i1 %129, label %130, label %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
 
 130:                                              ; preds = %.noexc
   %131 = and i8 %.pre, 1
-  %132 = and i8 %.pre583, 1
+  %132 = and i8 %.pre581, 1
   %133 = icmp eq i8 %131, %132
   br i1 %133, label %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit, label %134
 
@@ -703,7 +703,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   br label %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
 
 _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; preds = %134, %130, %.noexc, %123, %120
-  %135 = phi i8 [ %119, %123 ], [ %119, %120 ], [ %.pre583, %130 ], [ %.pre583, %.noexc ], [ %.pre583, %134 ]
+  %135 = phi i8 [ %119, %123 ], [ %119, %120 ], [ %.pre581, %130 ], [ %.pre581, %.noexc ], [ %.pre581, %134 ]
   %136 = phi i8 [ %117, %123 ], [ %117, %120 ], [ %.pre, %130 ], [ %.pre, %.noexc ], [ %.pre, %134 ]
   %.0.i = phi i32 [ 1, %123 ], [ %spec.select.i, %120 ], [ 0, %130 ], [ %128, %.noexc ], [ %..i, %134 ]
   %137 = load ptr, ptr %0, align 8, !tbaa !23
@@ -738,7 +738,7 @@ _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
   %152 = lshr i8 %151, 1
   %153 = and i8 %152, 1
   %154 = icmp eq i8 %150, %153
-  br i1 %154, label %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread639, label %155
+  br i1 %154, label %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread637, label %155
 
 155:                                              ; preds = %147
   %.not16.i204 = icmp eq i8 %150, 0
@@ -751,9 +751,9 @@ _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.
   %157 = icmp eq i32 %.0.i203, 0
   br i1 %156, label %160, label %346
 
-_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread639: ; preds = %147
+_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread637: ; preds = %147
   %158 = icmp slt i32 %.0.i, 1
-  br i1 %158, label %.thread, label %.thread644
+  br i1 %158, label %.thread, label %.thread642
 
 _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread: ; preds = %141
   %159 = icmp slt i32 %.0.i, 1
@@ -762,7 +762,7 @@ _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.
 160:                                              ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
   br i1 %157, label %.thread, label %206
 
-.thread:                                          ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread639, %160
+.thread:                                          ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread637, %160
   %161 = load ptr, ptr %0, align 8, !tbaa !23
   %162 = load i8, ptr %113, align 8
   %163 = getelementptr inbounds nuw i8, ptr %113, i64 16
@@ -862,36 +862,36 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i377: ; preds = %_ZN
 198:                                              ; preds = %.noexc384
   %199 = getelementptr inbounds nuw i8, ptr %187, i64 4
   store i32 %.sroa.0.0.copyload.i207, ptr %199, align 4, !tbaa !26
-  %200 = add nuw i32 %.0149532, 1
-  %201 = add nuw i32 %.0152531, 1
+  %200 = add nuw i32 %.0149530, 1
+  %201 = add nuw i32 %.0152529, 1
   br label %522
 
 202:                                              ; preds = %125
   %203 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
 204:                                              ; preds = %.noexc432, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425, %361, %354, %.noexc384, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i377, %175, %168, %142
   %205 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
 206:                                              ; preds = %160
   %207 = icmp sgt i32 %.0.i203, 0
   br i1 %207, label %208, label %..thread464_crit_edge
 
 ..thread464_crit_edge:                            ; preds = %206
-  %.pre589 = load ptr, ptr %0, align 8, !tbaa !23
-  %.pre590 = load i8, ptr %113, align 8
+  %.pre587 = load ptr, ptr %0, align 8, !tbaa !23
+  %.pre588 = load i8, ptr %113, align 8
   br label %.thread464
 
 208:                                              ; preds = %206
-  %209 = add nuw i32 %.0152531, 1
+  %209 = add nuw i32 %.0152529, 1
   br label %522
 
 .thread464:                                       ; preds = %..thread464_crit_edge, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread
-  %210 = phi i8 [ %.pre590, %..thread464_crit_edge ], [ %136, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ]
-  %211 = phi ptr [ %.pre589, %..thread464_crit_edge ], [ %137, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ]
+  %210 = phi i8 [ %.pre588, %..thread464_crit_edge ], [ %136, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ]
+  %211 = phi ptr [ %.pre587, %..thread464_crit_edge ], [ %137, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ]
   %212 = and i8 %210, 8
   %.not.i210 = icmp eq i8 %212, 0
   br i1 %.not.i210, label %213, label %.thread470
@@ -929,11 +929,11 @@ _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
   br i1 %227, label %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit._ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468_crit_edge, label %.thread470
 
 _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit._ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468_crit_edge: ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
-  %.pre591 = load i8, ptr %113, align 8
+  %.pre589 = load i8, ptr %113, align 8
   br label %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468
 
 _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468: ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit._ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468_crit_edge, %224, %221
-  %228 = phi i8 [ %.pre591, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit._ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468_crit_edge ], [ %222, %224 ], [ %222, %221 ]
+  %228 = phi i8 [ %.pre589, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit._ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread468_crit_edge ], [ %222, %224 ], [ %222, %221 ]
   %229 = load ptr, ptr %0, align 8, !tbaa !23
   %230 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %231 = getelementptr inbounds nuw i8, ptr %113, i64 4
@@ -1031,7 +1031,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i401: ; preds = %_ZN
 264:                                              ; preds = %.noexc408, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i401, %241, %234, %.noexc241, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234, %319, %312, %.noexc218, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i, %280, %273, %216
   %265 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
 266:                                              ; preds = %224
   %.not184 = icmp eq i32 %.0.i, 0
@@ -1236,20 +1236,20 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234: ; preds = %_ZN
           to label %.sink.split unwind label %264
 
 .sink.split:                                      ; preds = %.noexc241, %.noexc218, %.noexc408
-  %.sink655 = phi ptr [ %292, %.noexc218 ], [ %253, %.noexc408 ], [ %331, %.noexc241 ]
+  %.sink653 = phi ptr [ %292, %.noexc218 ], [ %253, %.noexc408 ], [ %331, %.noexc241 ]
   %.sroa.054.0.copyload.sink = phi i32 [ %.sroa.055.0.copyload, %.noexc218 ], [ %.sroa.0.0.copyload.i213, %.noexc408 ], [ %.sroa.054.0.copyload, %.noexc241 ]
-  %344 = getelementptr inbounds nuw i8, ptr %.sink655, i64 4
+  %344 = getelementptr inbounds nuw i8, ptr %.sink653, i64 4
   store i32 %.sroa.054.0.copyload.sink, ptr %344, align 4, !tbaa !26
   br label %345
 
 345:                                              ; preds = %.sink.split, %.thread470, %266
-  %.2 = add nuw i32 %.0149532, 1
+  %.2 = add nuw i32 %.0149530, 1
   br label %522
 
 346:                                              ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
-  br i1 %157, label %.thread644, label %388
+  br i1 %157, label %.thread642, label %388
 
-.thread644:                                       ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread639, %346
+.thread642:                                       ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread637, %346
   %347 = load ptr, ptr %0, align 8, !tbaa !23
   %348 = load i8, ptr %115, align 8
   %349 = getelementptr inbounds nuw i8, ptr %115, i64 16
@@ -1261,11 +1261,11 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234: ; preds = %_ZN
   %.not.i.i411 = icmp ult i32 %352, %353
   br i1 %.not.i.i411, label %._crit_edge.i.i428, label %354
 
-._crit_edge.i.i428:                               ; preds = %.thread644
+._crit_edge.i.i428:                               ; preds = %.thread642
   %.pre.i.i429 = load ptr, ptr %4, align 8, !tbaa !31
   br label %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425
 
-354:                                              ; preds = %.thread644
+354:                                              ; preds = %.thread642
   %355 = shl i32 %353, 1
   %356 = zext i32 %355 to i64
   %357 = shl nuw nsw i64 %356, 5
@@ -1349,8 +1349,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425: ; preds = %_ZN
 384:                                              ; preds = %.noexc432
   %385 = getelementptr inbounds nuw i8, ptr %373, i64 4
   store i32 %.sroa.0.0.copyload.i244, ptr %385, align 4, !tbaa !26
-  %386 = add nuw i32 %.0149532, 1
-  %387 = add nuw i32 %.0152531, 1
+  %386 = add nuw i32 %.0149530, 1
+  %387 = add nuw i32 %.0152529, 1
   br label %522
 
 388:                                              ; preds = %346
@@ -1358,7 +1358,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425: ; preds = %_ZN
   br i1 %389, label %.thread477, label %391
 
 .thread477:                                       ; preds = %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread, %388
-  %390 = add nuw i32 %.0149532, 1
+  %390 = add nuw i32 %.0149530, 1
   br label %522
 
 391:                                              ; preds = %388
@@ -1366,11 +1366,11 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425: ; preds = %_ZN
   %393 = load i8, ptr %115, align 8
   %394 = and i8 %393, 8
   %.not.i247 = icmp eq i8 %394, 0
-  %.pre587 = load i8, ptr %113, align 8
-  %395 = and i8 %.pre587, 4
+  %.pre585 = load i8, ptr %113, align 8
+  %395 = and i8 %.pre585, 4
   %.not9.i249 = icmp eq i8 %395, 0
-  %or.cond656 = select i1 %.not.i247, i1 %.not9.i249, i1 false
-  br i1 %or.cond656, label %396, label %.thread483
+  %or.cond654 = select i1 %.not.i247, i1 %.not9.i249, i1 false
+  br i1 %or.cond654, label %396, label %.thread483
 
 396:                                              ; preds = %391
   %397 = getelementptr inbounds nuw i8, ptr %115, i64 24
@@ -1396,16 +1396,16 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i425: ; preds = %_ZN
 
 _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253: ; preds = %.noexc252
   %407 = icmp slt i32 %399, 0
-  %.pre588 = load i8, ptr %115, align 8
+  %.pre586 = load i8, ptr %115, align 8
   br i1 %407, label %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253.thread481, label %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge
 
 _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge: ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253
-  %.pre584 = load ptr, ptr %0, align 8, !tbaa !23
-  %.pre586 = load i8, ptr %113, align 8
+  %.pre582 = load ptr, ptr %0, align 8, !tbaa !23
+  %.pre584 = load i8, ptr %113, align 8
   br label %.thread483
 
 _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253.thread481: ; preds = %404, %401, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253
-  %408 = phi i8 [ %402, %404 ], [ %402, %401 ], [ %.pre588, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253 ]
+  %408 = phi i8 [ %402, %404 ], [ %402, %401 ], [ %.pre586, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253 ]
   %409 = load ptr, ptr %0, align 8, !tbaa !23
   %410 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %411 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -1503,7 +1503,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i449: ; preds = %_ZN
 444:                                              ; preds = %.noexc456, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i449, %421, %414, %.noexc302, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i295, %496, %489, %.noexc278, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i271, %459, %452, %396
   %445 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
 446:                                              ; preds = %404
   %447 = load ptr, ptr %0, align 8, !tbaa !23
@@ -1600,9 +1600,9 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i271: ; preds = %_ZN
           to label %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 unwind label %444
 
 .thread483:                                       ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge, %391
-  %481 = phi i8 [ %.pre586, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge ], [ %.pre587, %391 ]
-  %482 = phi i8 [ %.pre588, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge ], [ %393, %391 ]
-  %483 = phi ptr [ %.pre584, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge ], [ %392, %391 ]
+  %481 = phi i8 [ %.pre584, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge ], [ %.pre585, %391 ]
+  %482 = phi i8 [ %.pre586, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge ], [ %393, %391 ]
+  %483 = phi ptr [ %.pre582, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit253..thread483_crit_edge ], [ %392, %391 ]
   %484 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %485 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %486 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -1700,45 +1700,45 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i295: ; preds = %_ZN
           to label %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 unwind label %444
 
 _ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256: ; preds = %.noexc302, %.noexc278, %.noexc456
-  %.sink657 = phi ptr [ %471, %.noexc278 ], [ %433, %.noexc456 ], [ %508, %.noexc302 ]
+  %.sink655 = phi ptr [ %471, %.noexc278 ], [ %433, %.noexc456 ], [ %508, %.noexc302 ]
   %.sroa.0.0.copyload.sink = phi i32 [ %.sroa.051.0.copyload, %.noexc278 ], [ %.sroa.0.0.copyload.i254, %.noexc456 ], [ %.sroa.0.0.copyload, %.noexc302 ]
-  %521 = getelementptr inbounds nuw i8, ptr %.sink657, i64 4
+  %521 = getelementptr inbounds nuw i8, ptr %.sink655, i64 4
   store i32 %.sroa.0.0.copyload.sink, ptr %521, align 4, !tbaa !26
-  %.3155 = add nuw i32 %.0152531, 1
+  %.3155 = add nuw i32 %.0152529, 1
   br label %522
 
 522:                                              ; preds = %384, %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256, %.thread477, %198, %345, %208
-  %.2154 = phi i32 [ %201, %198 ], [ %209, %208 ], [ %.0152531, %345 ], [ %387, %384 ], [ %.0152531, %.thread477 ], [ %.3155, %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 ]
-  %.3 = phi i32 [ %200, %198 ], [ %.0149532, %208 ], [ %.2, %345 ], [ %386, %384 ], [ %390, %.thread477 ], [ %.0149532, %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 ]
+  %.2154 = phi i32 [ %201, %198 ], [ %209, %208 ], [ %.0152529, %345 ], [ %387, %384 ], [ %.0152529, %.thread477 ], [ %.3155, %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 ]
+  %.3 = phi i32 [ %200, %198 ], [ %.0149530, %208 ], [ %.2, %345 ], [ %386, %384 ], [ %390, %.thread477 ], [ %.0149530, %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 ]
   %.not180 = icmp ult i32 %.3, %19
-  br i1 %.not180, label %67, label %.preheader516, !llvm.loop !43
+  br i1 %.not180, label %67, label %.preheader514, !llvm.loop !43
 
-.loopexit:                                        ; preds = %109, %65, %.preheader516, %.preheader
+.loopexit:                                        ; preds = %109, %65, %.preheader514, %.preheader
   %523 = load i32, ptr %17, align 8, !tbaa !34
   %524 = icmp ugt i32 %523, 1
-  br i1 %524, label %.lr.ph539.preheader, label %._crit_edge
+  br i1 %524, label %.lr.ph537.preheader, label %._crit_edge
 
-.lr.ph539.preheader:                              ; preds = %.loopexit
-  %wide.trip.count573 = zext i32 %523 to i64
-  br label %.lr.ph539
+.lr.ph537.preheader:                              ; preds = %.loopexit
+  %wide.trip.count571 = zext i32 %523 to i64
+  br label %.lr.ph537
 
 ._crit_edge:                                      ; preds = %591, %.loopexit
   %.0166.lcssa = phi i32 [ 0, %.loopexit ], [ %.1167, %591 ]
   %525 = add i32 %.0166.lcssa, 1
   %526 = icmp ult i32 %525, %523
-  br i1 %526, label %.lr.ph543.preheader, label %._crit_edge544
+  br i1 %526, label %.lr.ph541.preheader, label %._crit_edge542
 
-.lr.ph543.preheader:                              ; preds = %._crit_edge
+.lr.ph541.preheader:                              ; preds = %._crit_edge
   %527 = zext i32 %525 to i64
-  br label %.lr.ph543
+  br label %.lr.ph541
 
-.lr.ph539:                                        ; preds = %.lr.ph539.preheader, %591
-  %indvars.iv570 = phi i64 [ 1, %.lr.ph539.preheader ], [ %indvars.iv.next571, %591 ]
-  %.0166537 = phi i32 [ 0, %.lr.ph539.preheader ], [ %.1167, %591 ]
+.lr.ph537:                                        ; preds = %.lr.ph537.preheader, %591
+  %indvars.iv568 = phi i64 [ 1, %.lr.ph537.preheader ], [ %indvars.iv.next569, %591 ]
+  %.0166535 = phi i32 [ 0, %.lr.ph537.preheader ], [ %.1167, %591 ]
   %528 = load ptr, ptr %4, align 8, !tbaa !31
-  %529 = zext i32 %.0166537 to i64
+  %529 = zext i32 %.0166535 to i64
   %530 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %528, i64 %529
-  %531 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %528, i64 %indvars.iv570
+  %531 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %528, i64 %indvars.iv568
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 4
   %533 = getelementptr inbounds nuw i8, ptr %531, i64 4
   %534 = load i32, ptr %532, align 4, !tbaa !3
@@ -1746,7 +1746,7 @@ _ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EE
   %536 = icmp eq i32 %534, %535
   br i1 %536, label %537, label %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread
 
-537:                                              ; preds = %.lr.ph539
+537:                                              ; preds = %.lr.ph537
   %538 = load ptr, ptr %0, align 8, !tbaa !23
   %539 = getelementptr inbounds nuw i8, ptr %530, i64 24
   %540 = getelementptr inbounds nuw i8, ptr %531, i64 16
@@ -1785,12 +1785,12 @@ _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; pred
 558:                                              ; preds = %537
   %559 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
-_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread: ; preds = %.noexc307, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit, %.lr.ph539
-  %560 = add i32 %.0166537, 1
+_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread: ; preds = %.noexc307, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit, %.lr.ph537
+  %560 = add i32 %.0166535, 1
   %561 = zext i32 %560 to i64
-  %.not195 = icmp eq i64 %indvars.iv570, %561
+  %.not195 = icmp eq i64 %indvars.iv568, %561
   br i1 %.not195, label %591, label %562
 
 562:                                              ; preds = %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread
@@ -1832,160 +1832,164 @@ _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread:
   br label %591
 
 591:                                              ; preds = %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread, %562, %548
-  %.1167 = phi i32 [ %.0166537, %548 ], [ %560, %562 ], [ %560, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ]
-  %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
-  %exitcond574.not = icmp eq i64 %indvars.iv.next571, %wide.trip.count573
-  br i1 %exitcond574.not, label %._crit_edge, label %.lr.ph539, !llvm.loop !44
+  %.1167 = phi i32 [ %.0166535, %548 ], [ %560, %562 ], [ %560, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ]
+  %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
+  %exitcond572.not = icmp eq i64 %indvars.iv.next569, %wide.trip.count571
+  br i1 %exitcond572.not, label %._crit_edge, label %.lr.ph537, !llvm.loop !44
 
-._crit_edge544:                                   ; preds = %601, %._crit_edge
+._crit_edge542:                                   ; preds = %601, %._crit_edge
   %592 = load i32, ptr %17, align 8, !tbaa !34
   %593 = icmp ult i32 %525, %592
   br i1 %593, label %.lr.ph.preheader.i, label %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge544
+.lr.ph.preheader.i:                               ; preds = %._crit_edge542
   store i32 %525, ptr %17, align 8, !tbaa !34
   br label %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit
 
-.lr.ph543:                                        ; preds = %.lr.ph543.preheader, %601
-  %indvars.iv575 = phi i64 [ %527, %.lr.ph543.preheader ], [ %indvars.iv.next576, %601 ]
+.lr.ph541:                                        ; preds = %.lr.ph541.preheader, %601
+  %indvars.iv573 = phi i64 [ %527, %.lr.ph541.preheader ], [ %indvars.iv.next574, %601 ]
   %594 = load ptr, ptr %4, align 8, !tbaa !31
-  %595 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %594, i64 %indvars.iv575
+  %595 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %594, i64 %indvars.iv573
   %596 = load ptr, ptr %0, align 8, !tbaa !23
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 16
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %596, ptr noundef nonnull align 8 dereferenceable(8) %597)
           to label %598 unwind label %602
 
-598:                                              ; preds = %.lr.ph543
+598:                                              ; preds = %.lr.ph541
   %599 = load ptr, ptr %0, align 8, !tbaa !23
   %600 = getelementptr inbounds nuw i8, ptr %595, i64 24
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %599, ptr noundef nonnull align 8 dereferenceable(8) %600)
           to label %601 unwind label %602
 
 601:                                              ; preds = %598
-  %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %lftr.wideiv578 = trunc i64 %indvars.iv.next576 to i32
-  %exitcond579.not = icmp eq i32 %523, %lftr.wideiv578
-  br i1 %exitcond579.not, label %._crit_edge544, label %.lr.ph543, !llvm.loop !45
+  %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
+  %lftr.wideiv576 = trunc i64 %indvars.iv.next574 to i32
+  %exitcond577.not = icmp eq i32 %523, %lftr.wideiv576
+  br i1 %exitcond577.not, label %._crit_edge542, label %.lr.ph541, !llvm.loop !45
 
-602:                                              ; preds = %598, %.lr.ph543
+602:                                              ; preds = %598, %.lr.ph541
   %603 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
-_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit: ; preds = %.lr.ph.preheader.i, %._crit_edge544
-  %604 = phi i32 [ %525, %.lr.ph.preheader.i ], [ %592, %._crit_edge544 ]
+_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit: ; preds = %.lr.ph.preheader.i, %._crit_edge542
+  %604 = phi i32 [ %525, %.lr.ph.preheader.i ], [ %592, %._crit_edge542 ]
   %605 = load ptr, ptr %4, align 8, !tbaa !31
   %606 = load i8, ptr %605, align 8
   %607 = and i8 %606, 4
   %.not187 = icmp eq i8 %607, 0
-  br i1 %.not187, label %._crit_edge549, label %608
+  br i1 %.not187, label %._crit_edge547, label %608
 
 608:                                              ; preds = %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit
   %609 = zext i32 %.0166.lcssa to i64
   %610 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %605, i64 %609
   %611 = load i8, ptr %610, align 8
   %612 = and i8 %611, 8
-  %.not551 = icmp eq i8 %612, 0
+  %.not549 = icmp eq i8 %612, 0
   %613 = icmp eq i32 %.0166.lcssa, 0
-  %.not190545 = select i1 %613, i1 true, i1 %.not551
-  br i1 %.not190545, label %._crit_edge549, label %.lr.ph548.preheader
+  %.not190543 = select i1 %613, i1 true, i1 %.not549
+  br i1 %.not190543, label %._crit_edge547, label %.lr.ph546.preheader
 
-.lr.ph548.preheader:                              ; preds = %608
+.lr.ph546.preheader:                              ; preds = %608
   %614 = zext i32 %.0166.lcssa to i64
-  br label %.lr.ph548
+  br label %.lr.ph546
 
-._crit_edge549.loopexit:                          ; preds = %.noexc312, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread
-  %615 = phi i1 [ %.not495, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread ], [ true, %.noexc312 ]
-  %.pre592 = load i32, ptr %17, align 8, !tbaa !34
-  br label %._crit_edge549
+._crit_edge547.loopexit.split.loop.exit674:       ; preds = %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread
+  %not.cond.fr.le = xor i1 %cond.fr, true
+  br label %._crit_edge547.loopexit
 
-._crit_edge549:                                   ; preds = %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit, %._crit_edge549.loopexit, %608
-  %616 = phi i32 [ %604, %608 ], [ %.pre592, %._crit_edge549.loopexit ], [ %604, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit ]
-  %.lcssa = phi i1 [ %.not551, %608 ], [ %615, %._crit_edge549.loopexit ], [ true, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit ]
+._crit_edge547.loopexit:                          ; preds = %.noexc312, %._crit_edge547.loopexit.split.loop.exit674
+  %615 = phi i1 [ %not.cond.fr.le, %._crit_edge547.loopexit.split.loop.exit674 ], [ true, %.noexc312 ]
+  %.pre590 = load i32, ptr %17, align 8, !tbaa !34
+  br label %._crit_edge547
+
+._crit_edge547:                                   ; preds = %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit, %._crit_edge547.loopexit, %608
+  %616 = phi i32 [ %604, %608 ], [ %.pre590, %._crit_edge547.loopexit ], [ %604, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit ]
+  %.lcssa = phi i1 [ %.not549, %608 ], [ %615, %._crit_edge547.loopexit ], [ true, %_ZN6bufferIN5nlsat8intervalELb0ELj128EE6shrinkEj.exit ]
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %618 = load ptr, ptr %617, align 8, !tbaa !20
   %619 = shl i32 %616, 5
   %620 = or disjoint i32 %619, 8
   %621 = zext i32 %620 to i64
   %622 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %618, i64 noundef %621)
-          to label %637 unwind label %649
+          to label %639 unwind label %651
 
-.lr.ph548:                                        ; preds = %.lr.ph548.preheader, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread
-  %indvars.iv580 = phi i64 [ 0, %.lr.ph548.preheader ], [ %indvars.iv.next581, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread ]
+.lr.ph546:                                        ; preds = %.lr.ph546.preheader, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread
+  %indvars.iv578 = phi i64 [ 0, %.lr.ph546.preheader ], [ %indvars.iv.next579, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread ]
   %623 = load ptr, ptr %0, align 8, !tbaa !23
   %624 = load ptr, ptr %4, align 8, !tbaa !31
-  %625 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %624, i64 %indvars.iv580
-  %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
-  %626 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %624, i64 %indvars.iv.next581
+  %625 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %624, i64 %indvars.iv578
+  %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
+  %626 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %624, i64 %indvars.iv.next579
   %627 = getelementptr inbounds nuw i8, ptr %625, i64 24
   %628 = getelementptr inbounds nuw i8, ptr %626, i64 16
   %629 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %623, ptr noundef nonnull align 8 dereferenceable(8) %627, ptr noundef nonnull align 8 dereferenceable(8) %628)
-          to label %.noexc312 unwind label %635
+          to label %.noexc312 unwind label %637
 
-.noexc312:                                        ; preds = %.lr.ph548
+.noexc312:                                        ; preds = %.lr.ph546
   %630 = icmp eq i32 %629, 0
-  br i1 %630, label %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread, label %._crit_edge549.loopexit
+  br i1 %630, label %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread, label %._crit_edge547.loopexit
 
 _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit313.thread: ; preds = %.noexc312
   %631 = load i8, ptr %625, align 8
-  %.fr = freeze i8 %631
-  %632 = and i8 %.fr, 2
-  %.not.i310 = icmp ne i8 %632, 0
+  %632 = and i8 %631, 2
+  %.not.i310 = icmp eq i8 %632, 0
   %633 = load i8, ptr %626, align 8
-  %.fr494 = freeze i8 %633
-  %.not6.i311 = trunc i8 %.fr494 to i1
-  %.not495 = and i1 %.not.i310, %.not6.i311
-  %634 = icmp samesign uge i64 %indvars.iv.next581, %614
-  %.not190 = or i1 %634, %.not495
-  br i1 %.not190, label %._crit_edge549.loopexit, label %.lr.ph548, !llvm.loop !46
+  %634 = and i8 %633, 1
+  %.not6.i311 = icmp eq i8 %634, 0
+  %635 = select i1 %.not.i310, i1 true, i1 %.not6.i311
+  %cond.fr = freeze i1 %635
+  %636 = icmp samesign ult i64 %indvars.iv.next579, %614
+  %.not190.not = and i1 %636, %cond.fr
+  br i1 %.not190.not, label %.lr.ph546, label %._crit_edge547.loopexit.split.loop.exit674, !llvm.loop !46
 
-635:                                              ; preds = %.lr.ph548
-  %636 = landingpad { ptr, i32 }
+637:                                              ; preds = %.lr.ph546
+  %638 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
-637:                                              ; preds = %._crit_edge549
-  %638 = getelementptr inbounds nuw i8, ptr %622, i64 4
-  %639 = select i1 %.lcssa, i32 0, i32 -2147483648
-  store i32 %639, ptr %638, align 4
+639:                                              ; preds = %._crit_edge547
+  %640 = getelementptr inbounds nuw i8, ptr %622, i64 4
+  %641 = select i1 %.lcssa, i32 0, i32 -2147483648
+  store i32 %641, ptr %640, align 4
   store i32 %616, ptr %622, align 8, !tbaa !18
-  %640 = getelementptr inbounds nuw i8, ptr %622, i64 8
-  %641 = load ptr, ptr %4, align 8, !tbaa !31
-  %642 = zext i32 %616 to i64
-  %643 = shl nuw nsw i64 %642, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %640, ptr align 8 %641, i64 %643, i1 false)
-  %.not.i.i.i314 = icmp eq ptr %641, %16
-  %644 = icmp eq ptr %641, null
-  %or.cond.i.i.i = or i1 %.not.i.i.i314, %644
-  br i1 %or.cond.i.i.i, label %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit, label %645
+  %642 = getelementptr inbounds nuw i8, ptr %622, i64 8
+  %643 = load ptr, ptr %4, align 8, !tbaa !31
+  %644 = zext i32 %616 to i64
+  %645 = shl nuw nsw i64 %644, 5
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %642, ptr align 8 %643, i64 %645, i1 false)
+  %.not.i.i.i314 = icmp eq ptr %643, %16
+  %646 = icmp eq ptr %643, null
+  %or.cond.i.i.i = or i1 %.not.i.i.i314, %646
+  br i1 %or.cond.i.i.i, label %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit, label %647
 
-645:                                              ; preds = %637
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %641)
-          to label %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit unwind label %646
+647:                                              ; preds = %639
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %643)
+          to label %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit unwind label %648
 
-646:                                              ; preds = %645
-  %647 = landingpad { ptr, i32 }
+648:                                              ; preds = %647
+  %649 = landingpad { ptr, i32 }
           catch ptr null
-  %648 = extractvalue { ptr, i32 } %647, 0
-  call void @__clang_call_terminate(ptr %648) #24
+  %650 = extractvalue { ptr, i32 } %649, 0
+  call void @__clang_call_terminate(ptr %650) #24
   unreachable
 
-_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit: ; preds = %637, %645
+_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit: ; preds = %639, %647
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %652
+  br label %654
 
-649:                                              ; preds = %._crit_edge549
-  %650 = landingpad { ptr, i32 }
+651:                                              ; preds = %._crit_edge547
+  %652 = landingpad { ptr, i32 }
           cleanup
-  br label %651
+  br label %653
 
-651:                                              ; preds = %.loopexit515, %.loopexit.split-lp, %558, %602, %649, %635, %202, %444, %264, %204
-  %.pn196 = phi { ptr, i32 } [ %636, %635 ], [ %445, %444 ], [ %203, %202 ], [ %205, %204 ], [ %265, %264 ], [ %559, %558 ], [ %603, %602 ], [ %650, %649 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+653:                                              ; preds = %.loopexit513, %.loopexit.split-lp, %558, %602, %651, %637, %202, %444, %264, %204
+  %.pn196 = phi { ptr, i32 } [ %638, %637 ], [ %445, %444 ], [ %203, %202 ], [ %205, %204 ], [ %265, %264 ], [ %559, %558 ], [ %603, %602 ], [ %652, %651 ], [ %lpad.loopexit, %.loopexit513 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(4112) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn196
 
-652:                                              ; preds = %12, %9, %7, %3, %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit
+654:                                              ; preds = %12, %9, %7, %3, %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit
   %.0 = phi ptr [ %622, %_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit ], [ %2, %3 ], [ %1, %7 ], [ %1, %9 ], [ %2, %12 ]
   ret ptr %.0
 }
@@ -2086,11 +2090,11 @@ define hidden noundef zeroext i1 @_ZN5nlsat20interval_set_manager6subsetEPKNS_12
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.thread106
-  %.047132 = phi i32 [ 0, %.lr.ph ], [ %.148, %.thread106 ]
-  %.052131 = phi i32 [ 0, %.lr.ph ], [ %.153, %.thread106 ]
-  %25 = zext i32 %.047132 to i64
+  %.047131 = phi i32 [ 0, %.lr.ph ], [ %.148, %.thread106 ]
+  %.052130 = phi i32 [ 0, %.lr.ph ], [ %.153, %.thread106 ]
+  %25 = zext i32 %.047131 to i64
   %26 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %20, i64 %25
-  %27 = zext i32 %.052131 to i64
+  %27 = zext i32 %.052130 to i64
   %28 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %21, i64 %27
   %29 = load ptr, ptr %0, align 8, !tbaa !23
   %30 = load i8, ptr %26, align 8
@@ -2124,8 +2128,8 @@ define hidden noundef zeroext i1 @_ZN5nlsat20interval_set_manager6subsetEPKNS_12
   %46 = load i8, ptr %28, align 8
   %.not16.i = icmp eq i8 %45, 0
   %47 = trunc i8 %46 to i1
-  %or.cond162 = and i1 %.not16.i, %47
-  br i1 %or.cond162, label %.thread113, label %.preheader
+  %or.cond161 = and i1 %.not16.i, %47
+  br i1 %or.cond161, label %.thread113, label %.preheader
 
 _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; preds = %33, %38
   %.0.i = phi i32 [ %41, %38 ], [ %spec.select.i, %33 ]
@@ -2135,7 +2139,7 @@ _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
 .preheader:                                       ; preds = %43, %36, %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %.052131, i32 %16)
+  %umax = tail call i32 @llvm.umax.i32(i32 %.052130, i32 %16)
   %wide.trip.count = zext i32 %umax to i64
   br label %51
 
@@ -2183,7 +2187,7 @@ _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81: ; preds = %64, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
   %73 = trunc nuw i64 %indvars.iv to i32
-  %74 = add i32 %.047132, 1
+  %74 = add i32 %.047131, 1
   %75 = add nuw i32 %73, 1
   br label %.thread106
 
@@ -2197,7 +2201,7 @@ _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 .thread85:                                        ; preds = %59, %72, %76
   %78 = trunc nuw i64 %indvars.iv to i32
-  %79 = add i32 %.047132, 1
+  %79 = add i32 %.047131, 1
   br label %.thread106
 
 .thread:                                          ; preds = %..thread_crit_edge, %72, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
@@ -2257,26 +2261,25 @@ _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; preds = %100
   %108 = load i8, ptr %53, align 8
-  %.fr = freeze i8 %108
-  %109 = and i8 %.fr, 2
+  %109 = and i8 %108, 2
   %.not.i77 = icmp eq i8 %109, 0
   %110 = load i8, ptr %102, align 8
-  %.fr123 = freeze i8 %110
-  %111 = and i8 %.fr123, 1
+  %111 = and i8 %110, 1
   %.not6.i = icmp eq i8 %111, 0
-  %112 = or i1 %.not.i77, %.not6.i
-  br i1 %112, label %51, label %.thread113
+  %112 = select i1 %.not.i77, i1 true, i1 %.not6.i
+  %cond.fr = freeze i1 %112
+  br i1 %cond.fr, label %51, label %.thread113
 
 .thread106:                                       ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90, %.thread85, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81
   %.153 = phi i32 [ %75, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ], [ %78, %.thread85 ], [ %98, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ]
-  %.148 = phi i32 [ %74, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ], [ %79, %.thread85 ], [ %.047132, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ]
+  %.148 = phi i32 [ %74, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ], [ %79, %.thread85 ], [ %.047131, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ]
   %113 = icmp ult i32 %.148, %15
   %114 = icmp ult i32 %.153, %16
   %115 = select i1 %113, i1 %114, i1 false
   br i1 %115, label %24, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.thread106, %51, %14
-  %.047.lcssa = phi i32 [ 0, %14 ], [ %.047132, %51 ], [ %.148, %.thread106 ]
+  %.047.lcssa = phi i32 [ 0, %14 ], [ %.047131, %51 ], [ %.148, %.thread106 ]
   %116 = icmp eq i32 %.047.lcssa, %15
   br label %.thread113
 

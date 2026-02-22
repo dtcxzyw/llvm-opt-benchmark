@@ -19714,14 +19714,13 @@ invoke.cont112:                                   ; preds = %_ZN5eastleqIcNS_9al
   %cond.i.i209.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.i.i209.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 -1
   store i8 0, ptr %cond.i.i209.sroa.sel.v.sroa.sel.v.sroa.sel, align 1
   %63 = load i8, ptr %mRemainingSizeField.i.i.i164, align 1
-  %.fr587 = freeze i8 %63
-  %tobool.i.i2.i = icmp slt i8 %.fr587, 0
+  %tobool.i.i2.i = icmp slt i8 %63, 0
   %64 = load i64, ptr %mnSize.i.i.i166, align 8
-  %.fr = freeze i64 %64
-  %conv.i.i.i210 = zext i8 %.fr587 to i64
+  %conv.i.i.i210 = zext nneg i8 %63 to i64
   %sub.i.i.i211 = sub nsw i64 23, %conv.i.i.i210
-  %cond.i4.i = select i1 %tobool.i.i2.i, i64 %.fr, i64 %sub.i.i.i211
-  %sub.i = add i64 %cond.i4.i, -1
+  %cond.i4.i = select i1 %tobool.i.i2.i, i64 %64, i64 %sub.i.i.i211
+  %cond.i4.i.fr = freeze i64 %cond.i4.i
+  %sub.i = add i64 %cond.i4.i.fr, -1
   br i1 %tobool.i.i2.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread, label %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread: ; preds = %invoke.cont112
@@ -19735,7 +19734,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit: ; preds = %invoke.cont
   %.pre = zext nneg i8 %conv.i.i7.i to i64
   %.pre573 = sub nsw i64 23, %.pre
   %66 = icmp slt i8 %conv.i.i7.i, 0
-  %spec.select = select i1 %66, i64 %.fr, i64 %.pre573
+  %spec.select = select i1 %66, i64 %64, i64 %.pre573
   br label %67
 
 67:                                               ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE8pop_backEv.exit.thread
@@ -32779,11 +32778,9 @@ entry:
   %stackTemp = alloca %"class.eastl::basic_string.92", align 8
   %mRemainingSizeField.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
-  %.fr242 = freeze i8 %0
-  %tobool.i.i = icmp slt i8 %.fr242, 0
+  %tobool.i.i = icmp slt i8 %0, 0
   %1 = load ptr, ptr %this, align 8
-  %.fr243 = freeze ptr %1
-  %spec.select.i = select i1 %tobool.i.i, ptr %.fr243, ptr %this
+  %spec.select.i = select i1 %tobool.i.i, ptr %1, ptr %this
   %sub.ptr.lhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -32797,15 +32794,14 @@ if.then:                                          ; preds = %entry
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %2, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.fr243, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %and.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %mRemainingSizeField.i.i
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %.fr244 = freeze i64 %3
-  %add.ptr.i.i3.i = getelementptr i8, ptr %.fr243, i64 %.fr244
-  %conv.i.i.i.i = zext i8 %.fr242 to i64
+  %add.ptr.i.i3.i = getelementptr inbounds i8, ptr %1, i64 %3
+  %conv.i.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr i8, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %this, i64 %sub.i.i.i.i
   %cond.i4.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i4.i to i64
@@ -32817,7 +32813,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond216, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %tobool.i.i51 = icmp sgt i8 %.fr242, -1
+  %tobool.i.i51 = icmp sgt i8 %0, -1
   br i1 %tobool.i.i51, label %if.then18, label %if.else76
 
 if.then18:                                        ; preds = %land.lhs.true
@@ -32906,7 +32902,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp.not, label %if.else76.thread, label %if.then27
 
 if.else76.thread:                                 ; preds = %if.end
-  %cond.i183238 = select i1 %tobool.i.i, i64 %.fr244, i64 %sub.i.i.i.i
+  %cond.i183238 = select i1 %tobool.i.i, i64 %3, i64 %sub.i.i.i.i
   br label %if.else83
 
 if.then27:                                        ; preds = %if.end
@@ -32915,7 +32911,7 @@ if.then27:                                        ; preds = %if.end
   br i1 %cmp33.not, label %if.else, label %if.then34
 
 if.then34:                                        ; preds = %if.then27
-  %cond.i84 = select i1 %tobool.i.i, i64 %.fr244, i64 %sub.i.i.i.i
+  %cond.i84 = select i1 %tobool.i.i, i64 %3, i64 %sub.i.i.i.i
   %16 = sub i64 1, %sub.ptr.sub5
   %add.ptr40 = getelementptr inbounds i8, ptr %cond.i4.i, i64 %16
   %add.ptr43 = getelementptr inbounds nuw i8, ptr %cond.i4.i, i64 1
@@ -32951,30 +32947,29 @@ if.else:                                          ; preds = %if.then27
   %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast.i133
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr58, ptr align 1 %add.ptr55, i64 %sub.ptr.sub.i134, i1 false)
   %20 = load i8, ptr %mRemainingSizeField.i.i, align 1
-  %.fr241 = freeze i8 %20
-  %tobool.i.i137 = icmp slt i8 %.fr241, 0
+  %tobool.i.i137 = icmp slt i8 %20, 0
   %21 = load i64, ptr %mnSize.i.i.i, align 8
-  %.fr = freeze i64 %21
-  %conv.i.i139 = zext i8 %.fr241 to i64
+  %conv.i.i139 = zext nneg i8 %20 to i64
   %sub.i.i140 = sub nsw i64 23, %conv.i.i139
-  %cond.i141 = select i1 %tobool.i.i137, i64 %.fr, i64 %sub.i.i140
+  %cond.i141 = select i1 %tobool.i.i137, i64 %21, i64 %sub.i.i140
   %sub63 = sub nuw i64 %sub.ptr.sub5, %sub.ptr.sub32
   %add64 = add i64 %cond.i141, %sub63
+  %add64.fr = freeze i64 %add64
   br i1 %tobool.i.i137, label %.thread, label %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148
 
 .thread:                                          ; preds = %if.else
-  store i64 %add64, ptr %mnSize.i.i.i, align 8
+  store i64 %add64.fr, ptr %mnSize.i.i.i, align 8
   %22 = load ptr, ptr %this, align 8
-  %add.ptr.i.i158231 = getelementptr inbounds i8, ptr %22, i64 %add64
+  %add.ptr.i.i158231 = getelementptr inbounds i8, ptr %22, i64 %add64.fr
   br label %27
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148: ; preds = %if.else
-  %23 = trunc i64 %add64 to i8
+  %23 = trunc i64 %add64.fr to i8
   %conv.i.i145 = sub i8 23, %23
   store i8 %conv.i.i145, ptr %mRemainingSizeField.i.i, align 1
   %24 = icmp slt i8 %conv.i.i145, 0
   %25 = load ptr, ptr %this, align 8
-  %add.ptr.i.i158235 = getelementptr inbounds i8, ptr %25, i64 %.fr
+  %add.ptr.i.i158235 = getelementptr inbounds i8, ptr %25, i64 %21
   br i1 %24, label %27, label %26
 
 26:                                               ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148
@@ -32984,7 +32979,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148: ; preds = %if
   br label %27
 
 27:                                               ; preds = %26, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148, %.thread
-  %28 = phi i64 [ %.pre217, %26 ], [ %add64, %.thread ], [ %.fr, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ]
+  %28 = phi i64 [ %.pre217, %26 ], [ %add64.fr, %.thread ], [ %21, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ]
   %29 = phi ptr [ %add.ptr.i1.i161, %26 ], [ %add.ptr.i.i158231, %.thread ], [ %add.ptr.i.i158235, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148 ]
   %sub.ptr.lhs.cast.i163 = ptrtoint ptr %add.ptr58 to i64
   %sub.ptr.sub.i165 = sub i64 %sub.ptr.lhs.cast.i163, %sub.ptr.lhs.cast
@@ -33013,11 +33008,11 @@ if.else76:                                        ; preds = %land.lhs.true
   br i1 %cmp.not, label %if.else83, label %if.then81
 
 if.then81:                                        ; preds = %if.else76
-  %add82 = add i64 %.fr244, %sub.ptr.sub5
+  %add82 = add i64 %3, %sub.ptr.sub5
   br label %if.end87
 
 if.else83:                                        ; preds = %if.else76.thread, %if.else76
-  %cond.i183239 = phi i64 [ %cond.i183238, %if.else76.thread ], [ %.fr244, %if.else76 ]
+  %cond.i183239 = phi i64 [ %cond.i183238, %if.else76.thread ], [ %3, %if.else76 ]
   %add84 = add i64 %cond.i183239, %sub.ptr.sub5
   %32 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %32, i64 46
@@ -33025,7 +33020,7 @@ if.else83:                                        ; preds = %if.else76.thread, %
   br label %if.end87
 
 if.end87:                                         ; preds = %if.else83, %if.then81
-  %cond.i183240 = phi i64 [ %.fr244, %if.then81 ], [ %cond.i183239, %if.else83 ]
+  %cond.i183240 = phi i64 [ %3, %if.then81 ], [ %cond.i183239, %if.else83 ]
   %nLength.0 = phi i64 [ %add82, %if.then81 ], [ %cond.i.i186, %if.else83 ]
   %add88 = add i64 %nLength.0, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add88, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -34419,11 +34414,9 @@ entry:
   %stackTemp = alloca %"class.eastl::basic_string.130", align 8
   %mRemainingSizeField.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
-  %.fr246 = freeze i8 %0
-  %tobool.i.i = icmp slt i8 %.fr246, 0
+  %tobool.i.i = icmp slt i8 %0, 0
   %1 = load ptr, ptr %this, align 8
-  %.fr247 = freeze ptr %1
-  %spec.select.i = select i1 %tobool.i.i, ptr %.fr247, ptr %this
+  %spec.select.i = select i1 %tobool.i.i, ptr %1, ptr %this
   %sub.ptr.lhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -34437,15 +34430,14 @@ if.then:                                          ; preds = %entry
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %2, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.fr247, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %and.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %mRemainingSizeField.i.i
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %.fr248 = freeze i64 %3
-  %add.ptr.i.i3.i = getelementptr i8, ptr %.fr247, i64 %.fr248
-  %conv.i.i.i.i = zext i8 %.fr246 to i64
+  %add.ptr.i.i3.i = getelementptr inbounds i8, ptr %1, i64 %3
+  %conv.i.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr i8, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %this, i64 %sub.i.i.i.i
   %cond.i4.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i4.i to i64
@@ -34457,7 +34449,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond220, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %tobool.i.i51 = icmp sgt i8 %.fr246, -1
+  %tobool.i.i51 = icmp sgt i8 %0, -1
   br i1 %tobool.i.i51, label %if.then18, label %if.else76
 
 if.then18:                                        ; preds = %land.lhs.true
@@ -34556,7 +34548,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp.not, label %if.else76.thread, label %if.then27
 
 if.else76.thread:                                 ; preds = %if.end
-  %cond.i187242 = select i1 %tobool.i.i, i64 %.fr248, i64 %sub.i.i.i.i
+  %cond.i187242 = select i1 %tobool.i.i, i64 %3, i64 %sub.i.i.i.i
   br label %if.else83
 
 if.then27:                                        ; preds = %if.end
@@ -34565,7 +34557,7 @@ if.then27:                                        ; preds = %if.end
   br i1 %cmp33.not, label %if.else, label %if.then34
 
 if.then34:                                        ; preds = %if.then27
-  %cond.i88 = select i1 %tobool.i.i, i64 %.fr248, i64 %sub.i.i.i.i
+  %cond.i88 = select i1 %tobool.i.i, i64 %3, i64 %sub.i.i.i.i
   %19 = sub i64 1, %sub.ptr.sub5
   %add.ptr40 = getelementptr inbounds i8, ptr %cond.i4.i, i64 %19
   %add.ptr43 = getelementptr inbounds nuw i8, ptr %cond.i4.i, i64 1
@@ -34601,30 +34593,29 @@ if.else:                                          ; preds = %if.then27
   %sub.ptr.sub.i138 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast.i137
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr58, ptr align 1 %add.ptr55, i64 %sub.ptr.sub.i138, i1 false)
   %23 = load i8, ptr %mRemainingSizeField.i.i, align 1
-  %.fr245 = freeze i8 %23
-  %tobool.i.i141 = icmp slt i8 %.fr245, 0
+  %tobool.i.i141 = icmp slt i8 %23, 0
   %24 = load i64, ptr %mnSize.i.i.i, align 8
-  %.fr = freeze i64 %24
-  %conv.i.i143 = zext i8 %.fr245 to i64
+  %conv.i.i143 = zext nneg i8 %23 to i64
   %sub.i.i144 = sub nsw i64 23, %conv.i.i143
-  %cond.i145 = select i1 %tobool.i.i141, i64 %.fr, i64 %sub.i.i144
+  %cond.i145 = select i1 %tobool.i.i141, i64 %24, i64 %sub.i.i144
   %sub63 = sub nuw i64 %sub.ptr.sub5, %sub.ptr.sub32
   %add64 = add i64 %cond.i145, %sub63
+  %add64.fr = freeze i64 %add64
   br i1 %tobool.i.i141, label %.thread, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152
 
 .thread:                                          ; preds = %if.else
-  store i64 %add64, ptr %mnSize.i.i.i, align 8
+  store i64 %add64.fr, ptr %mnSize.i.i.i, align 8
   %25 = load ptr, ptr %this, align 8
-  %add.ptr.i.i162235 = getelementptr inbounds i8, ptr %25, i64 %add64
+  %add.ptr.i.i162235 = getelementptr inbounds i8, ptr %25, i64 %add64.fr
   br label %30
 
 _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152: ; preds = %if.else
-  %26 = trunc i64 %add64 to i8
+  %26 = trunc i64 %add64.fr to i8
   %conv.i.i149 = sub i8 23, %26
   store i8 %conv.i.i149, ptr %mRemainingSizeField.i.i, align 1
   %27 = icmp slt i8 %conv.i.i149, 0
   %28 = load ptr, ptr %this, align 8
-  %add.ptr.i.i162239 = getelementptr inbounds i8, ptr %28, i64 %.fr
+  %add.ptr.i.i162239 = getelementptr inbounds i8, ptr %28, i64 %24
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152
@@ -34634,7 +34625,7 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   br label %30
 
 30:                                               ; preds = %29, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152, %.thread
-  %31 = phi i64 [ %.pre221, %29 ], [ %add64, %.thread ], [ %.fr, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ]
+  %31 = phi i64 [ %.pre221, %29 ], [ %add64.fr, %.thread ], [ %24, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ]
   %32 = phi ptr [ %add.ptr.i1.i165, %29 ], [ %add.ptr.i.i162235, %.thread ], [ %add.ptr.i.i162239, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152 ]
   %sub.ptr.lhs.cast.i167 = ptrtoint ptr %add.ptr58 to i64
   %sub.ptr.sub.i169 = sub i64 %sub.ptr.lhs.cast.i167, %sub.ptr.lhs.cast
@@ -34663,11 +34654,11 @@ if.else76:                                        ; preds = %land.lhs.true
   br i1 %cmp.not, label %if.else83, label %if.then81
 
 if.then81:                                        ; preds = %if.else76
-  %add82 = add i64 %.fr248, %sub.ptr.sub5
+  %add82 = add i64 %3, %sub.ptr.sub5
   br label %if.end87
 
 if.else83:                                        ; preds = %if.else76.thread, %if.else76
-  %cond.i187243 = phi i64 [ %cond.i187242, %if.else76.thread ], [ %.fr248, %if.else76 ]
+  %cond.i187243 = phi i64 [ %cond.i187242, %if.else76.thread ], [ %3, %if.else76 ]
   %add84 = add i64 %cond.i187243, %sub.ptr.sub5
   %35 = shl nuw i64 %and.i.i.i.i, 1
   %mul.i = select i1 %tobool.i.i, i64 %35, i64 46
@@ -34675,7 +34666,7 @@ if.else83:                                        ; preds = %if.else76.thread, %
   br label %if.end87
 
 if.end87:                                         ; preds = %if.else83, %if.then81
-  %cond.i187244 = phi i64 [ %.fr248, %if.then81 ], [ %cond.i187243, %if.else83 ]
+  %cond.i187244 = phi i64 [ %3, %if.then81 ], [ %cond.i187243, %if.else83 ]
   %nLength.0 = phi i64 [ %add82, %if.then81 ], [ %cond.i.i190, %if.else83 ]
   %add88 = add i64 %nLength.0, 1
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add88, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)

@@ -447,8 +447,7 @@ define dso_local void @_ZNK4llvm3opt8OptTable23suggestValueCompletionsB5cxx11ENS
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.013.0.copyload = load ptr, ptr %21, align 8
-  %.fr27.i = freeze i64 %3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.fr27.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread
@@ -508,7 +507,7 @@ _ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetE
   %50 = phi i64 [ %47, %44 ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.i.i ], [ 0, %_ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.sroa.speculated4.i.i.i.i
   %52 = sub i64 %50, %.sroa.speculated4.i.i.i.i
-  %.not.i.i.i = icmp ult i64 %.fr27.i, %52
+  %.not.i.i.i = icmp ult i64 %3, %52
   br i1 %.not.i.i.i, label %_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread, label %53
 
 53:                                               ; preds = %_ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEE.exit.i
@@ -523,8 +522,9 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i.i:       ; preds = %53
   br i1 %57, label %58, label %_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread
 
 58:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %53
-  %59 = sub i64 %.fr27.i, %52
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.fr27.i, i64 %59)
+  %59 = sub i64 %3, %52
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %59)
+  %.sroa.speculated.i.i.fr.i = freeze i64 %.sroa.speculated.i.i.i
   br i1 %29, label %_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread, label %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit.i
 
 _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit.i: ; preds = %58
@@ -542,7 +542,7 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6OffsetEEE.exit.i
   %.not.i.i29.i = icmp eq ptr %.val, null
-  %69 = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  %69 = icmp eq i64 %.sroa.speculated.i.i.fr.i, 0
   br i1 %69, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
@@ -571,11 +571,11 @@ _ZNK4llvm11StringTableixENS0_6OffsetE.exit.i:     ; preds = %.lr.ph.split.i, %_Z
   %73 = zext i32 %.sroa.05.0.copyload.i to i64
   %74 = getelementptr inbounds nuw i8, ptr %.val, i64 %73
   %75 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %74) #23
-  %.not.i.i = icmp eq i64 %.sroa.speculated.i.i.i, %75
+  %.not.i.i = icmp eq i64 %.sroa.speculated.i.i.fr.i, %75
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZNK4llvm11StringTableixENS0_6OffsetE.exit.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %2, ptr nonnull readonly %74, i64 %.sroa.speculated.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %2, ptr nonnull readonly %74, i64 %.sroa.speculated.i.i.fr.i)
   %76 = icmp eq i32 %bcmp.i.i, 0
   br i1 %76, label %_ZN4llvm9StringRefC2EPKc.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread8.i
 

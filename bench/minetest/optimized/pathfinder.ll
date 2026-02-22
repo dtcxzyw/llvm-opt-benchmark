@@ -620,22 +620,20 @@ if.end159:                                        ; preds = %invoke.cont144
           to label %invoke.cont164 unwind label %lpad163
 
 invoke.cont164:                                   ; preds = %if.end159
-  %call165.fr = freeze i48 %call165
-  store i48 %call165.fr, ptr %source, align 8, !tbaa.struct !24
+  store i48 %call165, ptr %source, align 8, !tbaa.struct !24
   call void @llvm.lifetime.start.p0(ptr nonnull %true_destination)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %true_destination, ptr noundef nonnull align 8 dereferenceable(6) %destination, i64 6, i1 false), !tbaa.struct !24
   %51 = load i32, ptr %m_maxjump, align 8, !tbaa !22
-  %52 = trunc i48 %call165.fr to i16
-  %53 = lshr i48 %call165.fr, 16
+  %52 = trunc i48 %call165 to i16
+  %53 = lshr i48 %call165, 16
   %54 = trunc i48 %53 to i16
-  %55 = lshr i48 %call165.fr, 32
+  %55 = lshr i48 %call165, 32
   %56 = trunc nuw i48 %55 to i16
   %call172 = invoke i48 @_ZN10Pathfinder13walkDownwardsEN3irr4core8vector3dIsEEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i48 %destination.coerce, i32 noundef %51)
           to label %invoke.cont181 unwind label %lpad170
 
 invoke.cont181:                                   ; preds = %invoke.cont164
-  %call172.fr = freeze i48 %call172
-  store i48 %call172.fr, ptr %destination, align 8, !tbaa.struct !24
+  store i48 %call172, ptr %destination, align 8, !tbaa.struct !24
   call void @llvm.lifetime.start.p0(ptr nonnull %StartIndex)
   %57 = load i16, ptr %m_limits, align 2, !tbaa !109
   %sub.i.i = sub i16 %52, %57
@@ -652,10 +650,10 @@ invoke.cont181:                                   ; preds = %invoke.cont164
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %StartIndex, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %EndIndex)
-  %pos.sroa.0.0.extract.trunc.i435 = trunc i48 %call172.fr to i16
-  %pos.sroa.2.0.extract.shift.i436 = lshr i48 %call172.fr, 16
+  %pos.sroa.0.0.extract.trunc.i435 = trunc i48 %call172 to i16
+  %pos.sroa.2.0.extract.shift.i436 = lshr i48 %call172, 16
   %pos.sroa.2.0.extract.trunc.i437 = trunc i48 %pos.sroa.2.0.extract.shift.i436 to i16
-  %pos.sroa.3.0.extract.shift.i438 = lshr i48 %call172.fr, 32
+  %pos.sroa.3.0.extract.shift.i438 = lshr i48 %call172, 32
   %pos.sroa.3.0.extract.trunc.i439 = trunc nuw i48 %pos.sroa.3.0.extract.shift.i438 to i16
   %sub.i.i441 = sub i16 %pos.sroa.0.0.extract.trunc.i435, %57
   %sub8.i.i443 = sub i16 %pos.sroa.2.0.extract.trunc.i437, %58
@@ -687,8 +685,8 @@ invoke.cont190:                                   ; preds = %invoke.cont186
   br i1 %tobool192.not, label %if.then193, label %if.end214
 
 if.then193:                                       ; preds = %invoke.cont190
-  %.not31 = icmp eq ptr @_ZTH13verbosestream, null
-  br i1 %.not31, label %_ZTW13verbosestream.exit461, label %65
+  %.not30 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not30, label %_ZTW13verbosestream.exit461, label %65
 
 65:                                               ; preds = %if.then193
   tail call void @_ZTH13verbosestream()
@@ -859,8 +857,8 @@ if.end214:                                        ; preds = %invoke.cont190
   br i1 %tobool216.not, label %if.then217, label %if.end238
 
 if.then217:                                       ; preds = %if.end214
-  %.not30 = icmp eq ptr @_ZTH13verbosestream, null
-  br i1 %.not30, label %_ZTW13verbosestream.exit505, label %85
+  %.not29 = icmp eq ptr @_ZTH13verbosestream, null
+  br i1 %.not29, label %_ZTW13verbosestream.exit505, label %85
 
 85:                                               ; preds = %if.then217
   tail call void @_ZTH13verbosestream()
@@ -1032,8 +1030,8 @@ sw.bb246:                                         ; preds = %if.end238, %if.end2
           to label %sw.epilog unwind label %lpad242
 
 sw.default:                                       ; preds = %if.end238
-  %.not28 = icmp eq ptr @_ZTH13warningstream, null
-  br i1 %.not28, label %_ZTW13warningstream.exit, label %101
+  %.not27 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not27, label %_ZTW13warningstream.exit, label %101
 
 101:                                              ; preds = %sw.default
   tail call void @_ZTH13warningstream()
@@ -1092,9 +1090,9 @@ invoke.cont267.thread:                            ; preds = %invoke.cont262
 invoke.cont267:                                   ; preds = %invoke.cont262
   %Z9.i.i = getelementptr inbounds nuw i8, ptr %true_source, i64 4
   %108 = load i16, ptr %Z9.i.i, align 2, !tbaa !16
-  %.fr = freeze i16 %108
-  %cmp11.i.i = icmp ne i16 %.fr, %56
-  %inc = zext i1 %cmp11.i.i to i32
+  %cmp11.i.i = icmp ne i16 %108, %56
+  %cond.fr = freeze i1 %cmp11.i.i
+  %inc = zext i1 %cond.fr to i32
   %spec.select846 = add nsw i32 %inc, %conv265
   br label %invoke.cont271.thread
 
@@ -1109,9 +1107,9 @@ invoke.cont271.thread:                            ; preds = %invoke.cont267, %in
   %or.cond850 = select i1 %not.cmp.i.i572, i1 true, i1 %cmp7.i.i577
   %Z9.i.i580 = getelementptr inbounds nuw i8, ptr %true_destination, i64 4
   %112 = load i16, ptr %Z9.i.i580, align 2
-  %.fr27 = freeze i16 %112
-  %cmp11.i.i581 = icmp ne i16 %.fr27, %pos.sroa.3.0.extract.trunc.i439
-  %narrow = or i1 %or.cond850, %cmp11.i.i581
+  %cmp11.i.i581 = icmp ne i16 %112, %pos.sroa.3.0.extract.trunc.i439
+  %cond.fr835 = freeze i1 %cmp11.i.i581
+  %narrow = or i1 %or.cond850, %cond.fr835
   %inc274.sink = zext i1 %narrow to i32
   %spec.select847 = add nsw i32 %109, %inc274.sink
   %conv276 = sext i32 %spec.select847 to i64
@@ -1274,7 +1272,7 @@ lpad288.loopexit.split-lp:                        ; preds = %if.then298, %if.the
 for.end:                                          ; preds = %for.inc, %if.end282
   %cmp7.i.i618 = icmp eq i16 %111, %pos.sroa.2.0.extract.trunc.i437
   %or.cond853 = select i1 %cmp.i.i572, i1 %cmp7.i.i618, i1 false
-  %cmp11.i.i622.not = icmp eq i16 %.fr27, %pos.sroa.3.0.extract.trunc.i439
+  %cmp11.i.i622.not = icmp eq i16 %112, %pos.sroa.3.0.extract.trunc.i439
   %or.cond854 = select i1 %or.cond853, i1 %cmp11.i.i622.not, i1 false
   br i1 %or.cond854, label %if.end300, label %if.then298
 
@@ -1319,8 +1317,8 @@ _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EED2Ev.exit631: ; preds = %if.then.i.i
   br label %ehcleanup319
 
 if.else305:                                       ; preds = %sw.epilog, %if.then.i564, %invoke.cont254
-  %.not29 = icmp eq ptr @_ZTH10infostream, null
-  br i1 %.not29, label %_ZTW10infostream.exit, label %125
+  %.not28 = icmp eq ptr @_ZTH10infostream, null
+  br i1 %.not28, label %_ZTW10infostream.exit, label %125
 
 125:                                              ; preds = %if.else305
   tail call void @_ZTH10infostream()
@@ -5895,7 +5893,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %while.body.lr.ph
-  %__holeIndex.addr.069 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %12, %while.body ]
+  %__holeIndex.addr.069 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %11, %while.body ]
   %add = shl i64 %__holeIndex.addr.069, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %mul
@@ -5945,27 +5943,26 @@ while.body:                                       ; preds = %while.body, %while.
   %6 = load ptr, ptr %vtable.i43.i.i, align 8
   %call.i44.i.i = tail call noundef nonnull align 4 dereferenceable(92) ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5, i48 %retval.sroa.0.0.insert.insert.i.i41.i.i)
   %7 = load i8, ptr %call.i.i.i, align 4, !tbaa !110, !range !86, !noundef !87
-  %tobool.not.i.i = icmp eq i8 %7, 0
+  %tobool.not.i.i = icmp ne i8 %7, 0
   %8 = load i8, ptr %call.i44.i.i, align 4, !range !86
-  %tobool15.not.i.i = icmp eq i8 %8, 0
-  %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool15.not.i.i
+  %tobool15.not.i.i = icmp ne i8 %8, 0
+  %or.cond.i.i.not1 = select i1 %tobool.not.i.i, i1 %tobool15.not.i.i, i1 false
   %estimated_cost.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %9 = load i32, ptr %estimated_cost.i.i, align 4
   %estimated_cost18.i.i = getelementptr inbounds nuw i8, ptr %call.i44.i.i, i64 8
   %10 = load i32, ptr %estimated_cost18.i.i, align 4
-  %.fr = freeze i32 %9
-  %.fr1 = freeze i32 %10
-  %cmp.i.i = icmp sle i32 %.fr, %.fr1
-  %11 = or i1 %or.cond.i.i, %cmp.i.i
-  %12 = select i1 %11, i64 %mul, i64 %sub5
-  %add.ptr.i56 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %12
+  %cmp.i.i = icmp sgt i32 %9, %10
+  %cond.fr = freeze i1 %cmp.i.i
+  %.not = and i1 %or.cond.i.i.not1, %cond.fr
+  %11 = select i1 %.not, i64 %sub5, i64 %mul
+  %add.ptr.i56 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %11
   %add.ptr.i57 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__holeIndex.addr.069
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i57, ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i56, i64 6, i1 false), !tbaa.struct !24
-  %cmp = icmp slt i64 %12, %div
+  %cmp = icmp slt i64 %11, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !185
 
 while.end:                                        ; preds = %while.body, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %12, %while.body ]
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %11, %while.body ]
   %and = and i64 %__len, 1
   %cmp18 = icmp eq i64 %and, 0
   br i1 %cmp18, label %land.lhs.true, label %if.end35
@@ -5987,8 +5984,8 @@ if.then22:                                        ; preds = %land.lhs.true
 if.end35:                                         ; preds = %if.then22, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub26, %if.then22 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__cmp)
-  %13 = ptrtoint ptr %__comp.coerce to i64
-  store i64 %13, ptr %__cmp, align 8, !tbaa !115
+  %12 = ptrtoint ptr %__comp.coerce to i64
+  store i64 %12, ptr %__cmp, align 8, !tbaa !115
   call void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3irr4core8vector3dIsEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valI26PathfinderCompareHeuristicEEEvT_T0_SG_T1_RT2_(ptr %__first.coerce, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, i48 %__value.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__cmp)
   call void @llvm.lifetime.end.p0(ptr nonnull %__cmp)
   ret void

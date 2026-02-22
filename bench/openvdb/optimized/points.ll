@@ -124453,39 +124453,38 @@ entry:
   %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %cmp.i.not7.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not7.i.i.i, label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit, label %for.body.lr.ph.i.i.i
+  %cmp.i.not6.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.not6.i.i.i, label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mBackground.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %mBackground.i.i.i.i, align 4
-  %.fr6.i.i.i = freeze i32 %3
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i, %for.body.lr.ph.i.i.i
-  %count.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %7, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
-  %i.sroa.0.08.i.i.i = phi ptr [ %2, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 48
+  %count.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %7, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
+  %i.sroa.0.07.i.i.i = phi ptr [ %2, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 48
   %4 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne ptr %4, null
-  %active.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 60
+  %active.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 60
   %5 = load i8, ptr %active.i.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i.i = trunc i8 %5 to i1
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %tobool.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i
 
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i: ; preds = %for.body.i.i.i
-  %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 56
+  %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 56
   %6 = load i32, ptr %tile.i.i.i.i.i, align 4
-  %.fr.i.i.i = freeze i32 %6
-  %cmp.i.i.i2.i.i.i.i = icmp eq i32 %.fr.i.i.i, %.fr6.i.i.i
-  %inc.i.i.i = zext i1 %cmp.i.i.i2.i.i.i.i to i64
-  %spec.select.i.i.i = add i64 %count.09.i.i.i, %inc.i.i.i
+  %cmp.i.i.i2.i.i.i.i = icmp eq i32 %6, %3
+  %cond.fr.i.i.i = freeze i1 %cmp.i.i.i2.i.i.i.i
+  %inc.i.i.i = zext i1 %cond.fr.i.i.i to i64
+  %spec.select.i.i.i = add i64 %count.08.i.i.i, %inc.i.i.i
   br label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i
 
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i, %for.body.i.i.i
-  %7 = phi i64 [ %count.09.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i ]
-  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.08.i.i.i) #32
+  %7 = phi i64 [ %count.08.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i ]
+  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.07.i.i.i) #32
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit, label %for.body.i.i.i, !llvm.loop !632
 
@@ -126117,39 +126116,38 @@ entry:
   %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %cmp.i.not7.i.i.i = icmp eq ptr %1, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not7.i.i.i, label %return, label %for.body.lr.ph.i.i.i
+  %cmp.i.not6.i.i.i = icmp eq ptr %1, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.not6.i.i.i, label %return, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mBackground.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i32, ptr %mBackground.i.i.i.i, align 8
-  %.fr6.i.i.i = freeze i32 %2
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i, %for.body.lr.ph.i.i.i
-  %count.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %6, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
-  %i.sroa.0.08.i.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 48
+  %count.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %6, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
+  %i.sroa.0.07.i.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 48
   %3 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne ptr %3, null
-  %active.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 60
+  %active.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 60
   %4 = load i8, ptr %active.i.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i.i = trunc i8 %4 to i1
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %tobool.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i
 
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i: ; preds = %for.body.i.i.i
-  %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 56
+  %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 56
   %5 = load i32, ptr %tile.i.i.i.i.i, align 4
-  %.fr.i.i.i = freeze i32 %5
-  %cmp.i.i.i2.i.i.i.i = icmp eq i32 %.fr.i.i.i, %.fr6.i.i.i
-  %inc.i.i.i = zext i1 %cmp.i.i.i2.i.i.i.i to i64
-  %spec.select.i.i.i = add i64 %count.09.i.i.i, %inc.i.i.i
+  %cmp.i.i.i2.i.i.i.i = icmp eq i32 %5, %2
+  %cond.fr.i.i.i = freeze i1 %cmp.i.i.i2.i.i.i.i
+  %inc.i.i.i = zext i1 %cond.fr.i.i.i to i64
+  %spec.select.i.i.i = add i64 %count.08.i.i.i, %inc.i.i.i
   br label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i
 
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i, %for.body.i.i.i
-  %6 = phi i64 [ %count.09.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i ]
-  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.08.i.i.i) #32
+  %6 = phi i64 [ %count.08.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i ]
+  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.07.i.i.i) #32
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit, label %for.body.i.i.i, !llvm.loop !632
 
@@ -126313,39 +126311,38 @@ entry:
   %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %cmp.i.not7.i.i.i = icmp eq ptr %1, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not7.i.i.i, label %return, label %for.body.lr.ph.i.i.i
+  %cmp.i.not6.i.i.i = icmp eq ptr %1, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.not6.i.i.i, label %return, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mBackground.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i32, ptr %mBackground.i.i.i.i, align 8
-  %.fr6.i.i.i = freeze i32 %2
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i, %for.body.lr.ph.i.i.i
-  %count.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %6, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
-  %i.sroa.0.08.i.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 48
+  %count.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %6, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
+  %i.sroa.0.07.i.i.i = phi ptr [ %1, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i ]
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 48
   %3 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne ptr %3, null
-  %active.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 60
+  %active.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 60
   %4 = load i8, ptr %active.i.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i.i = trunc i8 %4 to i1
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %tobool.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i, label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i
 
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i: ; preds = %for.body.i.i.i
-  %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 56
+  %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.07.i.i.i, i64 56
   %5 = load i32, ptr %tile.i.i.i.i.i, align 4
-  %.fr.i.i.i = freeze i32 %5
-  %cmp.i.i.i2.i.i.i.i = icmp eq i32 %.fr.i.i.i, %.fr6.i.i.i
-  %inc.i.i.i = zext i1 %cmp.i.i.i2.i.i.i.i to i64
-  %spec.select.i.i.i = add i64 %count.09.i.i.i, %inc.i.i.i
+  %cmp.i.i.i2.i.i.i.i = icmp eq i32 %5, %2
+  %cond.fr.i.i.i = freeze i1 %cmp.i.i.i2.i.i.i.i
+  %inc.i.i.i = zext i1 %cond.fr.i.i.i to i64
+  %spec.select.i.i.i = add i64 %count.08.i.i.i, %inc.i.i.i
   br label %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i
 
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.thread.i.i.i: ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i, %for.body.i.i.i
-  %6 = phi i64 [ %count.09.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i ]
-  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.08.i.i.i) #32
+  %6 = phi i64 [ %count.08.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEE.exit.i.i.i ]
+  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.07.i.i.i) #32
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE5emptyEv.exit, label %for.body.i.i.i, !llvm.loop !632
 

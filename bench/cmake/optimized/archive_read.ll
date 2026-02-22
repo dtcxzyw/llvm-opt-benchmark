@@ -2742,41 +2742,41 @@ define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %
   %.not1.i = icmp eq ptr %.val, null
   br i1 %.not1.i, label %close_filters.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %7, %20
-  %.03.i = phi ptr [ %10, %20 ], [ %.val, %7 ]
-  %.0142.i = phi i32 [ %.1.i, %20 ], [ 0, %7 ]
+.lr.ph.i:                                         ; preds = %7, %21
+  %.03.i = phi ptr [ %10, %21 ], [ %.val, %7 ]
+  %.0142.i = phi i32 [ %.1.i, %21 ], [ 0, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %.03.i, i64 137
   %12 = load i8, ptr %11, align 1, !tbaa !64
   %.not17.i = icmp eq i8 %12, 0
-  br i1 %.not17.i, label %13, label %20
+  br i1 %.not17.i, label %13, label %21
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.03.i, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !47
   %.not18.i = icmp eq ptr %15, null
-  br i1 %.not18.i, label %20, label %16
+  br i1 %.not18.i, label %21, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !65
   %19 = tail call i32 %18(ptr noundef nonnull %.03.i) #15
   store i8 1, ptr %11, align 1, !tbaa !64
-  %.fr = freeze i32 %19
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %.0142.i)
-  br label %20
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %19, i32 %.0142.i)
+  %20 = freeze i32 %spec.select.i
+  br label %21
 
-20:                                               ; preds = %16, %13, %.lr.ph.i
-  %.1.i = phi i32 [ %.0142.i, %.lr.ph.i ], [ %spec.select.i, %16 ], [ %.0142.i, %13 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.03.i, i64 72
-  %22 = load ptr, ptr %21, align 8, !tbaa !67
-  tail call void @free(ptr noundef %22) #15
-  store ptr null, ptr %21, align 8, !tbaa !67
+21:                                               ; preds = %16, %13, %.lr.ph.i
+  %.1.i = phi i32 [ %.0142.i, %.lr.ph.i ], [ %20, %16 ], [ %.0142.i, %13 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.03.i, i64 72
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
+  tail call void @free(ptr noundef %23) #15
+  store ptr null, ptr %22, align 8, !tbaa !67
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %close_filters.exit, label %.lr.ph.i, !llvm.loop !68
 
-close_filters.exit:                               ; preds = %20
+close_filters.exit:                               ; preds = %21
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 0)
   br label %close_filters.exit.thread
 

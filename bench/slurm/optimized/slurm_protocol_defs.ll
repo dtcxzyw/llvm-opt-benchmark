@@ -12501,8 +12501,8 @@ define dso_local void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr 
 
 61:                                               ; preds = %59
   %62 = tail call i64 @strtol(ptr noundef nonnull captures(none) %60, ptr noundef null, i32 noundef 10) #25
-  %.fr = freeze i64 %62
-  %63 = trunc i64 %.fr to i32
+  %.fr104 = freeze i64 %62
+  %63 = trunc i64 %.fr104 to i32
   %64 = icmp slt i32 %63, 0
   %65 = tail call i32 @llvm.smin.i32(i32 %63, i32 4096)
   br i1 %64, label %.thread102, label %66

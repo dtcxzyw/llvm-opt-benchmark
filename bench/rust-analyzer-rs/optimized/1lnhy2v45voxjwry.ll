@@ -105131,7 +105131,7 @@ _ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit: ; preds = %28, %switc
 _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he32bb3e7bbccaf94E.exit"
   %48 = getelementptr inbounds i8, ptr %4, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i, ptr nonnull readonly align 1 %48, i64 %.0.i.i, i1 false), !alias.scope !20273, !noalias !20277
-  %.sroa.0.i.0.128 = load i128, ptr %.sroa.0.i, align 16, !noalias !20266
+  %.sroa.0.i.0.129 = load i128, ptr %.sroa.0.i, align 16, !noalias !20266
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %50 = load i8, ptr %49, align 8, !range !191, !noundef !137
@@ -105291,7 +105291,7 @@ common.resume:                                    ; preds = %104, %109, %68, %63
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd0532f269d205c1eE.exit.i": ; preds = %121, %120, %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$i128$C$hir_ty..consteval..ConstEvalError$GT$$GT$17h7fd9aa5793a3ca14E.exit.i.i.i.i.i"
-  %124 = icmp eq i128 %114, %.sroa.0.i.0.128
+  %124 = icmp eq i128 %114, %.sroa.0.i.0.129
   %or.cond.i.i.i.i.i = select i1 %116, i1 %124, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !20293
   %125 = add nuw nsw i64 %.sroa.8.0, 1
@@ -105302,7 +105302,7 @@ common.resume:                                    ; preds = %104, %109, %68, %63
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %127, ptr %14, align 8
   %128 = load i128, ptr %16, align 16, !noundef !137
-  %129 = sub i128 %.sroa.0.i.0.128, %128
+  %129 = sub i128 %.sroa.0.i.0.129, %128
   %130 = trunc i128 %129 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -105355,10 +105355,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h534a18ea202516d2E.exit: ; preds = %
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.sroa.024.sroa.5.0..sroa_idx, ptr %145, align 8, !noalias !20357
   %146 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha0245b3efc5b88f2E.llvm.13094975786070861856(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8), !noalias !20374
-  %.fr = freeze { i64, i64 } %146
+  %.fr113 = freeze { i64, i64 } %146
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !20357
-  %147 = extractvalue { i64, i64 } %.fr, 0
-  %148 = extractvalue { i64, i64 } %.fr, 1
+  %147 = extractvalue { i64, i64 } %.fr113, 0
+  %148 = extractvalue { i64, i64 } %.fr113, 1
   %149 = load ptr, ptr %14, align 8, !nonnull !137, !align !1715, !noundef !137
   %150 = load i64, ptr %149, align 8, !noundef !137
   %151 = icmp eq i64 %147, 0

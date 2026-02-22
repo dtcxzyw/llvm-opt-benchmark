@@ -10130,8 +10130,8 @@ sentinelGetMasterByNameOrReplyError.exit316:      ; preds = %50
 
 .thread328:                                       ; preds = %74
   %87 = load i32, ptr %83, align 8, !tbaa !34
-  %.fr = freeze i32 %87
-  %88 = and i32 %.fr, 9
+  %.fr416 = freeze i32 %87
+  %88 = and i32 %.fr416, 9
   %or.cond304 = icmp ne i32 %88, 9
   br label %90
 
@@ -10147,7 +10147,7 @@ sentinelGetMasterByNameOrReplyError.exit316:      ; preds = %50
   br label %90
 
 90:                                               ; preds = %._crit_edge380, %.thread328
-  %91 = phi i32 [ %.fr, %.thread328 ], [ %.pre381, %._crit_edge380 ]
+  %91 = phi i32 [ %.fr416, %.thread328 ], [ %.pre381, %._crit_edge380 ]
   %.not259331 = phi i1 [ %or.cond304, %.thread328 ], [ true, %._crit_edge380 ]
   %92 = and i32 %91, 1
   %.not257 = icmp eq i32 %92, 0

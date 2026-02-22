@@ -10244,12 +10244,12 @@ define internal fastcc range(i32 0, 2) i32 @find_same_type(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %2
   %4 = load i32, ptr %1, align 8, !tbaa !35
-  %.fr = freeze i32 %4
-  %5 = add i32 %.fr, -1
+  %.fr23 = freeze i32 %4
+  %5 = add i32 %.fr23, -1
   %or.cond.i.i = icmp ult i32 %5, 13
-  %6 = zext i32 %.fr to i64
+  %6 = zext i32 %.fr23 to i64
   %7 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %6
-  %8 = icmp ugt i32 %.fr, 13
+  %8 = icmp ugt i32 %.fr23, 13
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br i1 %or.cond.i.i, label %.lr.ph.split, label %.lr.ph.split.us
 

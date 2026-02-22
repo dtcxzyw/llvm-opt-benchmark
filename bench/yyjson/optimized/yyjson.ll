@@ -1873,8 +1873,7 @@ define dso_local zeroext i1 @unsafe_yyjson_equals(ptr noundef %0, ptr noundef %1
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
   %6 = load i64, ptr %1, align 8, !tbaa !73
-  %.fr92 = freeze i64 %6
-  %7 = trunc i64 %.fr92 to i8
+  %7 = trunc i64 %6 to i8
   %8 = and i8 %7, 7
   %.not = icmp eq i8 %5, %8
   br i1 %.not, label %9, label %.critedge
@@ -1893,7 +1892,7 @@ define dso_local zeroext i1 @unsafe_yyjson_equals(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %9
   %11 = lshr i64 %3, 8
-  %12 = lshr i64 %.fr92, 8
+  %12 = lshr i64 %6, 8
   %.not48 = icmp eq i64 %11, %12
   br i1 %.not48, label %13, label %.critedge
 
@@ -1935,7 +1934,8 @@ yyjson_is_obj.exit:                               ; preds = %13
 .lr.ph:                                           ; preds = %25
   %27 = add nuw nsw i64 %.038.i, 1
   %28 = icmp ult i64 %.sroa.0.088, %11
-  br i1 %28, label %.lr.ph.split, label %.lr.ph.split.us
+  %.fr = freeze i1 %28
+  br i1 %.fr, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %unsafe_yyjson_equals_strn.exit.thread.us
   %29 = phi i64 [ %44, %unsafe_yyjson_equals_strn.exit.thread.us ], [ %27, %.lr.ph ]
@@ -2019,7 +2019,7 @@ yyjson_obj_iter_getn.exit:                        ; preds = %unsafe_yyjson_equal
 
 73:                                               ; preds = %9
   %74 = lshr i64 %3, 8
-  %75 = lshr i64 %.fr92, 8
+  %75 = lshr i64 %6, 8
   %.not45 = icmp eq i64 %74, %75
   br i1 %.not45, label %76, label %.critedge
 
@@ -2106,7 +2106,7 @@ yyjson_obj_iter_getn.exit:                        ; preds = %unsafe_yyjson_equal
 
 126:                                              ; preds = %9, %9
   %127 = lshr i64 %3, 8
-  %128 = lshr i64 %.fr92, 8
+  %128 = lshr i64 %6, 8
   %.not.i52 = icmp eq i64 %127, %128
   br i1 %.not.i52, label %129, label %.critedge
 
@@ -2120,7 +2120,7 @@ yyjson_obj_iter_getn.exit:                        ; preds = %unsafe_yyjson_equal
   br label %.critedge
 
 134:                                              ; preds = %9, %9
-  %135 = icmp eq i64 %3, %.fr92
+  %135 = icmp eq i64 %3, %6
   br label %.critedge
 
 default.unreachable:                              ; preds = %9
@@ -2137,8 +2137,8 @@ define dso_local zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef readonly captu
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
   %6 = load i64, ptr %1, align 8, !tbaa !73
-  %.fr78 = freeze i64 %6
-  %7 = trunc i64 %.fr78 to i8
+  %.fr = freeze i64 %6
+  %7 = trunc i64 %.fr to i8
   %8 = and i8 %7, 7
   %.not = icmp eq i8 %5, %8
   br i1 %.not, label %9, label %.critedge
@@ -2157,7 +2157,7 @@ define dso_local zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef readonly captu
 
 10:                                               ; preds = %9
   %11 = lshr i64 %3, 8
-  %12 = lshr i64 %.fr78, 8
+  %12 = lshr i64 %.fr, 8
   %.not48 = icmp eq i64 %11, %12
   br i1 %.not48, label %13, label %.critedge
 
@@ -2227,7 +2227,7 @@ unsafe_yyjson_equals_strn.exit.backedge.us:       ; preds = %32, %unsafe_yyjson_
 
 43:                                               ; preds = %9
   %44 = lshr i64 %3, 8
-  %45 = lshr i64 %.fr78, 8
+  %45 = lshr i64 %.fr, 8
   %.not45 = icmp eq i64 %44, %45
   br i1 %.not45, label %46, label %.critedge
 
@@ -2302,7 +2302,7 @@ unsafe_yyjson_equals_strn.exit.backedge.us:       ; preds = %32, %unsafe_yyjson_
 
 83:                                               ; preds = %9, %9
   %84 = lshr i64 %3, 8
-  %85 = lshr i64 %.fr78, 8
+  %85 = lshr i64 %.fr, 8
   %.not.i = icmp eq i64 %84, %85
   br i1 %.not.i, label %86, label %.critedge
 
@@ -2316,7 +2316,7 @@ unsafe_yyjson_equals_strn.exit.backedge.us:       ; preds = %32, %unsafe_yyjson_
   br label %.critedge
 
 91:                                               ; preds = %9, %9
-  %92 = icmp eq i64 %3, %.fr78
+  %92 = icmp eq i64 %3, %.fr
   br label %.critedge
 
 default.unreachable:                              ; preds = %9

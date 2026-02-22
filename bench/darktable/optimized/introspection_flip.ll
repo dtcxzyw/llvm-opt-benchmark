@@ -185,8 +185,8 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !47
   %7 = load i32, ptr %6, align 4, !tbaa !53
-  %.fr = freeze i32 %7
-  %8 = icmp eq i32 %.fr, 0
+  %.fr47 = freeze i32 %7
+  %8 = icmp eq i32 %.fr47, 0
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
@@ -195,12 +195,12 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = and i32 %.fr, 2
+  %10 = and i32 %.fr47, 2
   %.not = icmp eq i32 %10, 0
-  %11 = and i32 %.fr, 1
+  %11 = and i32 %.fr47, 1
   %.not31 = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %13 = and i32 %.fr, 4
+  %13 = and i32 %.fr47, 4
   %.not32 = icmp eq i32 %13, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -328,8 +328,8 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !47
   %7 = load i32, ptr %6, align 4, !tbaa !53
-  %.fr = freeze i32 %7
-  %8 = icmp eq i32 %.fr, 0
+  %.fr51 = freeze i32 %7
+  %8 = icmp eq i32 %.fr51, 0
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
@@ -338,11 +338,11 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   br i1 %.not50, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = and i32 %.fr, 4
+  %10 = and i32 %.fr51, 4
   %.not = icmp eq i32 %10, 0
-  %11 = and i32 %.fr, 2
+  %11 = and i32 %.fr51, 2
   %.not30 = icmp eq i32 %11, 0
-  %12 = and i32 %.fr, 1
+  %12 = and i32 %.fr51, 1
   %.not31 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 148
   br i1 %.not30, label %.lr.ph.split.us, label %.lr.ph.split
@@ -536,7 +536,7 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %21 = add i32 %20, %19
   store i32 %21, ptr %17, align 4, !tbaa !46
   %22 = load i32, ptr %7, align 4, !tbaa !53
-  %.fr = freeze i32 %22
+  %.fr128 = freeze i32 %22
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %24 = load i32, ptr %23, align 4, !tbaa !63
   %25 = sitofp i32 %24 to float
@@ -549,11 +549,11 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %32 = sitofp i32 %31 to float
   %33 = fmul reassoc nsz arcp contract afn float %27, %32
   %34 = fptosi float %33 to i32
-  %35 = and i32 %.fr, 4
+  %35 = and i32 %.fr128, 4
   %.not.i = icmp eq i32 %35, 0
-  %36 = and i32 %.fr, 2
+  %36 = and i32 %.fr128, 2
   %.not20.i = icmp eq i32 %36, 0
-  %37 = and i32 %.fr, 1
+  %37 = and i32 %.fr128, 1
   %.not21.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %.preheader.us, label %.split
 
@@ -584,8 +584,8 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %53 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.077.us, i32 %.sroa.072.0.us)
   %54 = tail call i32 @llvm.smax.i32(i32 %.sroa.14.076.us, i32 %.sroa.5.0.us)
   %55 = add nuw nsw i32 %.080.us, 1
-  %exitcond144.not = icmp eq i32 %55, 4
-  br i1 %exitcond144.not, label %.split82.us, label %.preheader.us
+  %exitcond145.not = icmp eq i32 %55, 4
+  br i1 %exitcond145.not, label %.split82.us, label %.preheader.us
 
 .split:                                           ; preds = %4
   br i1 %.not20.i, label %.preheader.us86, label %.split.split
@@ -614,8 +614,8 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %69 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.077.us90, i32 %65)
   %70 = tail call i32 @llvm.smax.i32(i32 %.sroa.14.076.us91, i32 %.sroa.5.0.us97)
   %71 = add nuw nsw i32 %.080.us87, 1
-  %exitcond143.not = icmp eq i32 %71, 4
-  br i1 %exitcond143.not, label %.split82.us, label %.preheader.us86
+  %exitcond144.not = icmp eq i32 %71, 4
+  br i1 %exitcond144.not, label %.split82.us, label %.preheader.us86
 
 .split.split:                                     ; preds = %.split
   br i1 %.not21.i, label %.preheader.us107, label %.preheader
@@ -643,8 +643,8 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %85 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.077.us111, i32 %83)
   %86 = tail call i32 @llvm.smax.i32(i32 %.sroa.14.076.us112, i32 %76)
   %87 = add nuw nsw i32 %.080.us108, 1
-  %exitcond142.not = icmp eq i32 %87, 4
-  br i1 %exitcond142.not, label %.split82.us, label %.preheader.us107
+  %exitcond143.not = icmp eq i32 %87, 4
+  br i1 %exitcond143.not, label %.split82.us, label %.preheader.us107
 
 .preheader:                                       ; preds = %.split.split, %.preheader
   %.080 = phi i32 [ %105, %.preheader ], [ 0, %.split.split ]

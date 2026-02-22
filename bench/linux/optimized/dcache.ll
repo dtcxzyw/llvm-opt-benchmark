@@ -1827,7 +1827,7 @@ define internal fastcc void @d_walk(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %18
 
 18:                                               ; preds = %17, %.loopexit17
-  %.fr76 = phi i32 [ %16, %.loopexit17 ], [ %7, %17 ]
+  %.fr = phi i32 [ %16, %.loopexit17 ], [ %7, %17 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #17
   %19 = tail call i32 %2(ptr noundef %1, ptr noundef %0) #17
   switch i32 %19, label %21 [
@@ -1841,7 +1841,7 @@ define internal fastcc void @d_walk(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 21:                                               ; preds = %20, %18
   %22 = phi i8 [ 1, %18 ], [ 0, %20 ]
-  %23 = and i32 %.fr76, 1
+  %23 = and i32 %.fr, 1
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.split50.us.us, label %.split50
 
@@ -1921,7 +1921,7 @@ select.unfold.us.us:                              ; preds = %.split50.us.us, %.s
   tail call void @_raw_spin_lock(ptr noundef nonnull %65) #17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
   %66 = load volatile i32, ptr @rename_lock, align 64
-  %.not.us.us.us = icmp eq i32 %66, %.fr76
+  %.not.us.us.us = icmp eq i32 %66, %.fr
   br i1 %.not.us.us.us, label %.critedge.us.us.us, label %.loopexit11.split.us.split.us.split.us
 
 .critedge.us.us.us:                               ; preds = %.preheader10.us.us
@@ -2087,7 +2087,7 @@ select.unfold:                                    ; preds = %.split50, %.split
 148:                                              ; preds = %.loopexit12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
   %149 = load volatile i32, ptr @rename_lock, align 64
-  %.not7 = icmp eq i32 %149, %.fr76
+  %.not7 = icmp eq i32 %149, %.fr
   br i1 %.not7, label %.critedge9, label %.loopexit11.split.us.split.us.split.us
 
 .critedge9:                                       ; preds = %.loopexit12, %148
@@ -2095,7 +2095,7 @@ select.unfold:                                    ; preds = %.split50, %.split
   br label %.loopexit18
 
 .loopexit18.loopexit:                             ; preds = %18, %18
-  %.pre = and i32 %.fr76, 1
+  %.pre = and i32 %.fr, 1
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %.loopexit18.loopexit, %.critedge9, %.split52.us

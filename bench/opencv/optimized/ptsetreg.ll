@@ -9713,7 +9713,7 @@ _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.us: ; 
   br i1 %49, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
-  %.pre28 = load i32, ptr %0, align 4, !tbaa !11
+  %.pre29 = load i32, ptr %0, align 4, !tbaa !11
   br label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %56
@@ -9739,7 +9739,7 @@ _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.us: ; 
   br i1 %58, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !289
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %62
-  %59 = phi i32 [ %63, %62 ], [ %.pre28, %.lr.ph.split.split.us.split.preheader ]
+  %59 = phi i32 [ %63, %62 ], [ %.pre29, %.lr.ph.split.split.us.split.preheader ]
   %.011.us12 = phi ptr [ %64, %62 ], [ %1, %.lr.ph.split.split.us.split.preheader ]
   %60 = load i32, ptr %.011.us12, align 4, !tbaa !11
   %61 = icmp slt i32 %60, %59

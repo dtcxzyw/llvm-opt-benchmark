@@ -26087,7 +26087,7 @@ define linkonce_odr noundef i32 @_ZN5folly6detail13TurnSequencerISt6atomicE14try
   %10 = load atomic i32, ptr %0 acquire, align 4
   %11 = and i32 %10, -64
   %12 = icmp eq i32 %11, %9
-  br i1 %12, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread140, label %.lr.ph
+  br i1 %12, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread141, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %or.cond = or i1 %3, %8
@@ -26101,20 +26101,20 @@ define linkonce_odr noundef i32 @_ZN5folly6detail13TurnSequencerISt6atomicE14try
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
   %17 = phi i32 [ %38, %35 ], [ %11, %.lr.ph ]
   %18 = phi i32 [ %37, %35 ], [ %10, %.lr.ph ]
-  %.048111.us = phi i64 [ %spec.select.us, %35 ], [ 0, %.lr.ph ]
-  %.052110.us = phi i32 [ %36, %35 ], [ 0, %.lr.ph ]
+  %.048112.us = phi i64 [ %spec.select.us, %35 ], [ 0, %.lr.ph ]
+  %.052111.us = phi i32 [ %36, %35 ], [ 0, %.lr.ph ]
   %19 = sub i32 %9, %17
   %.not.us = icmp ult i32 %19, 2147483647
   br i1 %.not.us, label %20, label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit
 
 20:                                               ; preds = %.lr.ph.split.us
   %21 = tail call noundef i64 @llvm.x86.rdtsc()
-  %22 = icmp eq i32 %.052110.us, 0
-  %spec.select.us = select i1 %22, i64 %21, i64 %.048111.us
-  %23 = add i64 %.048111.us, %14
+  %22 = icmp eq i32 %.052111.us, 0
+  %spec.select.us = select i1 %22, i64 %21, i64 %.048112.us
+  %23 = add i64 %.048112.us, %14
   %24 = icmp ult i64 %21, %23
-  %or.cond117 = select i1 %22, i1 true, i1 %24
-  br i1 %or.cond117, label %34, label %25
+  %or.cond118 = select i1 %22, i1 true, i1 %24
+  br i1 %or.cond118, label %34, label %25
 
 25:                                               ; preds = %20
   %26 = and i32 %18, 63
@@ -26143,7 +26143,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
   br label %35
 
 35:                                               ; preds = %34, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread.us, %30
-  %36 = add i32 %.052110.us, 1
+  %36 = add i32 %.052111.us, 1
   %37 = load atomic i32, ptr %0 acquire, align 4
   %38 = and i32 %37, -64
   %39 = icmp eq i32 %38, %9
@@ -26157,20 +26157,20 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
   %41 = phi i32 [ %64, %61 ], [ %11, %.lr.ph ]
   %42 = phi i32 [ %63, %61 ], [ %10, %.lr.ph ]
-  %.048111 = phi i64 [ %spec.select, %61 ], [ 0, %.lr.ph ]
-  %.052110 = phi i32 [ %62, %61 ], [ 0, %.lr.ph ]
+  %.048112 = phi i64 [ %spec.select, %61 ], [ 0, %.lr.ph ]
+  %.052111 = phi i32 [ %62, %61 ], [ 0, %.lr.ph ]
   %43 = sub i32 %9, %41
   %.not = icmp ult i32 %43, 2147483647
   br i1 %.not, label %44, label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit
 
 44:                                               ; preds = %.lr.ph.split
   %45 = call noundef i64 @llvm.x86.rdtsc()
-  %46 = icmp eq i32 %.052110, 0
-  %spec.select = select i1 %46, i64 %45, i64 %.048111
-  %47 = add i64 %.048111, %14
+  %46 = icmp eq i32 %.052111, 0
+  %spec.select = select i1 %46, i64 %45, i64 %.048112
+  %47 = add i64 %.048112, %14
   %48 = icmp ult i64 %45, %47
-  %or.cond119 = select i1 %46, i1 true, i1 %48
-  br i1 %or.cond119, label %49, label %50
+  %or.cond120 = select i1 %46, i1 true, i1 %48
+  br i1 %or.cond120, label %49, label %50
 
 49:                                               ; preds = %44
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !517
@@ -26209,7 +26209,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
   br i1 %.not68, label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit, label %61
 
 61:                                               ; preds = %49, %55, %60
-  %62 = add i32 %.052110, 1
+  %62 = add i32 %.052111, 1
   %63 = load atomic i32, ptr %0 acquire, align 4
   %64 = and i32 %63, -64
   %65 = icmp eq i32 %64, %9
@@ -26221,9 +26221,9 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
   %or.cond4 = select i1 %3, i1 true, i1 %8
   br i1 %or.cond4, label %66, label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit
 
-_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread140: ; preds = %5
-  %or.cond4143 = select i1 %3, i1 true, i1 %8
-  br i1 %or.cond4143, label %.thread103, label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit
+_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread141: ; preds = %5
+  %or.cond4144 = select i1 %3, i1 true, i1 %8
+  br i1 %or.cond4144, label %.thread103, label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit
 
 66:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
   %67 = icmp eq i32 %.052.lcssa, 0
@@ -26242,8 +26242,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
   %75 = call i32 @llvm.umin.i32(i32 %.pre, i32 20000)
   br label %.thread103
 
-.thread103:                                       ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread140, %71, %66, %68
-  %.047 = phi i32 [ 200, %68 ], [ %75, %71 ], [ 200, %66 ], [ 200, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread140 ]
+.thread103:                                       ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread141, %71, %66, %68
+  %.047 = phi i32 [ 200, %68 ], [ %75, %71 ], [ 200, %66 ], [ 200, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread141 ]
   br i1 %8, label %76, label %77
 
 76:                                               ; preds = %.thread103
@@ -26257,8 +26257,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
   %81 = cmpxchg weak ptr %2, i32 %7, i32 %80 seq_cst seq_cst, align 4
   br label %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit
 
-_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit: ; preds = %.lr.ph.split, %60, %.lr.ph.split.us, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread140, %77, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %76
-  %.5 = phi i32 [ 0, %77 ], [ 0, %76 ], [ 0, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ 0, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread140 ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split ], [ 2, %60 ]
+_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit: ; preds = %.lr.ph.split, %60, %.lr.ph.split.us, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread141, %77, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %76
+  %.5 = phi i32 [ 0, %77 ], [ 0, %76 ], [ 0, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ 0, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread141 ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split ], [ 2, %60 ]
   ret i32 %.5
 
 .split:                                           ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread
@@ -26267,8 +26267,8 @@ _ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_order.exit: ; preds
   br label %83
 
 83:                                               ; preds = %.split.us, %.split
-  %.us-phi113 = phi { ptr, i32 } [ %82, %.split ], [ %40, %.split.us ]
-  %84 = extractvalue { ptr, i32 } %.us-phi113, 0
+  %.us-phi114 = phi { ptr, i32 } [ %82, %.split ], [ %40, %.split.us ]
+  %84 = extractvalue { ptr, i32 } %.us-phi114, 0
   call void @__clang_call_terminate(ptr %84) #41
   unreachable
 }

@@ -4211,7 +4211,6 @@ define hidden noundef zeroext i1 @_ZN16G1ConcurrentMark14is_root_regionEP12G1Hea
   %7 = zext i32 %4 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
-  %.fr3 = freeze ptr %9
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4221,21 +4220,21 @@ define hidden noundef zeroext i1 @_ZN16G1ConcurrentMark14is_root_regionEP12G1Hea
 
 .lr.ph.i:                                         ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.fr = freeze ptr %11
-  %15 = ptrtoint ptr %.fr to i64
-  %16 = ptrtoint ptr %.fr3 to i64
+  %15 = ptrtoint ptr %11 to i64
+  %16 = ptrtoint ptr %9 to i64
   %17 = sub i64 %15, %16
-  %18 = lshr i64 %17, 3
+  %.fr = freeze i64 %17
+  %18 = lshr i64 %.fr, 3
   %19 = load ptr, ptr %14, align 8
   %20 = icmp eq i64 %18, 0
-  %21 = getelementptr inbounds nuw ptr, ptr %.fr3, i64 %18
+  %21 = getelementptr inbounds nuw ptr, ptr %9, i64 %18
   br i1 %20, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %19, align 8
-  %25 = icmp eq ptr %24, %.fr3
+  %25 = icmp eq ptr %24, %9
   %26 = getelementptr inbounds ptr, ptr %24, i64 %23
   %27 = icmp eq ptr %26, %21
   %or.cond.us16.i = select i1 %25, i1 %27, i1 false
@@ -4246,7 +4245,7 @@ _ZNK9MemRegion6equalsES_.exit.thread8.us.i:       ; preds = %.lr.ph17.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
-  %32 = icmp eq ptr %31, %.fr3
+  %32 = icmp eq ptr %31, %9
   %33 = getelementptr inbounds ptr, ptr %31, i64 %30
   %34 = icmp eq ptr %33, %21
   %or.cond.us.i = select i1 %32, i1 %34, i1 false
@@ -4278,7 +4277,7 @@ _ZNK9MemRegion6equalsES_.exit.thread8.us.i:       ; preds = %.lr.ph17.i
 
 _ZNK9MemRegion6equalsES_.exit.thread8.i:          ; preds = %.lr.ph.split.i
   %50 = load ptr, ptr %46, align 8
-  %51 = icmp eq ptr %50, %.fr3
+  %51 = icmp eq ptr %50, %9
   %52 = getelementptr inbounds ptr, ptr %50, i64 %48
   %53 = icmp eq ptr %52, %21
   %or.cond.i = select i1 %51, i1 %53, i1 false

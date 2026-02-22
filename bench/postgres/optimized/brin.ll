@@ -1057,18 +1057,17 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr noundef read
   %.val = load i16, ptr %3, align 2
   %37 = getelementptr i8, ptr %3, i64 2
   %.val75 = load i16, ptr %37, align 2
-  %.val.fr = freeze i16 %.val
-  %38 = zext i16 %.val.fr to i32
+  %38 = zext i16 %.val to i32
   %39 = shl nuw i32 %38, 16
-  %.val75.fr = freeze i16 %.val75
-  %40 = zext i16 %.val75.fr to i32
+  %40 = zext i16 %.val75 to i32
   %41 = or disjoint i32 %39, %40
-  %42 = urem i32 %41, %36
-  %43 = sub nuw i32 %41, %42
+  %.fr = freeze i32 %41
+  %42 = urem i32 %.fr, %36
+  %43 = sub nuw i32 %.fr, %42
   %44 = icmp eq i32 %42, 0
-  %45 = icmp ne i32 %41, 0
+  %45 = icmp ne i32 %.fr, 0
   %46 = and i1 %44, %45
-  %or.cond74 = select i1 %22, i1 %46, i1 false
+  %or.cond74 = and i1 %22, %46
   %47 = getelementptr i8, ptr %3, i64 4
   %48 = add i32 %43, -1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3523,15 +3522,14 @@ define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr noundef read
   %.val = load i16, ptr %1, align 2
   %8 = getelementptr i8, ptr %1, i64 2
   %.val19 = load i16, ptr %8, align 2
-  %.val.fr = freeze i16 %.val
-  %9 = zext i16 %.val.fr to i32
+  %9 = zext i16 %.val to i32
   %10 = shl nuw i32 %9, 16
-  %.val19.fr = freeze i16 %.val19
-  %11 = zext i16 %.val19.fr to i32
+  %11 = zext i16 %.val19 to i32
   %12 = or disjoint i32 %10, %11
+  %.fr = freeze i32 %12
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = icmp ult i32 %12, %14
+  %15 = icmp ult i32 %.fr, %14
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %6
@@ -3539,7 +3537,7 @@ define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr noundef read
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %14, -1
   %20 = add i32 %19, %18
-  %21 = icmp ugt i32 %12, %20
+  %21 = icmp ugt i32 %.fr, %20
   br i1 %21, label %22, label %46
 
 22:                                               ; preds = %16, %6
@@ -3572,8 +3570,8 @@ form_and_spill_tuple.exit:                        ; preds = %22, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %40 = load i32, ptr %39, align 4
-  %41 = urem i32 %12, %40
-  %42 = sub nuw i32 %12, %41
+  %41 = urem i32 %.fr, %40
+  %42 = sub nuw i32 %.fr, %41
   store i32 %42, ptr %13, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %44 = load ptr, ptr %43, align 8

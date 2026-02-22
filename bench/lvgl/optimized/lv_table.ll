@@ -653,8 +653,8 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !3
-  %.fr86 = freeze i32 %5
-  %6 = icmp eq i32 %.fr86, %1
+  %.fr = freeze i32 %5
+  %6 = icmp eq i32 %.fr, %1
   br i1 %6, label %81, label %7
 
 7:                                                ; preds = %3
@@ -678,7 +678,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   tail call void @lv_memset(ptr noundef nonnull %13, i8 noundef zeroext 0, i64 noundef range(i64 0, 34359738361) %19) #9
-  %20 = tail call i32 @llvm.umin.i32(i32 %.fr86, i32 %1)
+  %20 = tail call i32 @llvm.umin.i32(i32 %.fr, i32 %1)
   %21 = load i32, ptr %8, align 4, !tbaa !18
   %.not85 = icmp eq i32 %21, 0
   br i1 %.not85, label %._crit_edge83, label %.lr.ph82
@@ -687,7 +687,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = zext i32 %20 to i64
   %24 = shl nuw nsw i64 %23, 3
-  %25 = sub i32 %.fr86, %1
+  %25 = sub i32 %.fr, %1
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.us.preheader, label %.lr.ph82.split
 
@@ -700,7 +700,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   %27 = phi ptr [ %.pre, %.lr.ph.us.preheader ], [ %54, %._crit_edge.us ]
   %indvars.iv92 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next93, %._crit_edge.us ]
   %28 = trunc nuw i64 %indvars.iv92 to i32
-  %29 = mul i32 %.fr86, %28
+  %29 = mul i32 %.fr, %28
   %30 = mul i32 %1, %28
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %13, i64 %31
@@ -757,7 +757,7 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
 .lr.ph82.split:                                   ; preds = %.lr.ph82, %.lr.ph82.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph82.split ], [ 0, %.lr.ph82 ]
   %59 = trunc nuw i64 %indvars.iv to i32
-  %60 = mul i32 %.fr86, %59
+  %60 = mul i32 %.fr, %59
   %61 = mul i32 %1, %59
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw ptr, ptr %13, i64 %62
@@ -786,11 +786,11 @@ define void @lv_table_set_column_count(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not73, label %.preheader77, label %.preheader78
 
 .preheader78:                                     ; preds = %._crit_edge83
-  %78 = icmp ult i32 %.fr86, %1
+  %78 = icmp ult i32 %.fr, %1
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader78
-  %79 = zext i32 %.fr86 to i64
+  %79 = zext i32 %.fr to i64
   br label %.lr.ph
 
 .preheader77:                                     ; preds = %._crit_edge83, %.preheader77

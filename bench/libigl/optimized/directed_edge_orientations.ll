@@ -1990,10 +1990,10 @@ define linkonce_odr dso_local void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixId
   %9 = alloca %"class.Eigen::Block.1030", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !range !88
-  %.fr = freeze i8 %11
-  %12 = trunc i8 %.fr to i1
-  %or.cond67 = xor i1 %12, true
-  %spec.select = and i1 %3, %or.cond67
+  %.fr67 = freeze i8 %11
+  %12 = trunc i8 %.fr67 to i1
+  %or.cond68 = xor i1 %12, true
+  %spec.select = and i1 %3, %or.cond68
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !120
   %15 = icmp sgt i64 %14, 47

@@ -3442,15 +3442,15 @@ frame2klass.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 rbimpl_RB_TYPE_P_fastpath.exit.i4:                ; preds = %13
   %15 = inttoptr i64 %12 to ptr
   %16 = load i64, ptr %15, align 8, !tbaa !43
-  %.fr = freeze i64 %16
-  %17 = and i64 %.fr, 31
+  %.fr10 = freeze i64 %16
+  %17 = and i64 %.fr10, 31
   %18 = icmp eq i64 %17, 2
   br i1 %18, label %RCLASS_SINGLETON_P.exit, label %.thread
 
 RCLASS_SINGLETON_P.exit:                          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i4
-  %19 = and i64 %.fr, 8192
-  %.not10 = icmp eq i64 %19, 0
-  %spec.select = select i1 %.not10, i64 0, i64 20
+  %19 = and i64 %.fr10, 8192
+  %.not11 = icmp eq i64 %19, 0
+  %spec.select = select i1 %.not11, i64 0, i64 20
   br label %.thread
 
 .thread:                                          ; preds = %RCLASS_SINGLETON_P.exit, %frame2klass.exit, %frame2klass.exit, %13, %rbimpl_RB_TYPE_P_fastpath.exit.i4, %1, %3, %rbimpl_RB_TYPE_P_fastpath.exit.i
@@ -3580,15 +3580,15 @@ frame2klass.exit.i.i:                             ; preds = %rbimpl_RB_TYPE_P_fa
 rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i:            ; preds = %16
   %18 = inttoptr i64 %15 to ptr
   %19 = load i64, ptr %18, align 8, !tbaa !43
-  %.fr.i.i = freeze i64 %19
-  %20 = and i64 %.fr.i.i, 31
+  %.fr10.i.i = freeze i64 %19
+  %20 = and i64 %.fr10.i.i, 31
   %21 = icmp eq i64 %20, 2
   br i1 %21, label %RCLASS_SINGLETON_P.exit.i.i, label %rb_profile_frame_singleton_method_p.exit.i
 
 RCLASS_SINGLETON_P.exit.i.i:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i
-  %22 = and i64 %.fr.i.i, 8192
-  %.not10.i.not.i = icmp eq i64 %22, 0
-  %23 = select i1 %.not10.i.not.i, ptr @.str.46, ptr @.str.45
+  %22 = and i64 %.fr10.i.i, 8192
+  %.not11.i.not.i = icmp eq i64 %22, 0
+  %23 = select i1 %.not11.i.not.i, ptr @.str.46, ptr @.str.45
   br label %rb_profile_frame_singleton_method_p.exit.i
 
 rb_profile_frame_singleton_method_p.exit.i:       ; preds = %RCLASS_SINGLETON_P.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i, %16, %frame2klass.exit.i.i, %frame2klass.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %6, %3
@@ -3663,15 +3663,15 @@ frame2klass.exit.i.i:                             ; preds = %rbimpl_RB_TYPE_P_fa
 rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i:            ; preds = %24
   %26 = inttoptr i64 %23 to ptr
   %27 = load i64, ptr %26, align 8, !tbaa !43
-  %.fr.i.i = freeze i64 %27
-  %28 = and i64 %.fr.i.i, 31
+  %.fr10.i.i = freeze i64 %27
+  %28 = and i64 %.fr10.i.i, 31
   %29 = icmp eq i64 %28, 2
   br i1 %29, label %RCLASS_SINGLETON_P.exit.i.i, label %rb_profile_frame_singleton_method_p.exit.i
 
 RCLASS_SINGLETON_P.exit.i.i:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i
-  %30 = and i64 %.fr.i.i, 8192
-  %.not10.i.not.i = icmp eq i64 %30, 0
-  %31 = select i1 %.not10.i.not.i, ptr @.str.46, ptr @.str.45
+  %30 = and i64 %.fr10.i.i, 8192
+  %.not11.i.not.i = icmp eq i64 %30, 0
+  %31 = select i1 %.not11.i.not.i, ptr @.str.46, ptr @.str.45
   br label %rb_profile_frame_singleton_method_p.exit.i
 
 rb_profile_frame_singleton_method_p.exit.i:       ; preds = %RCLASS_SINGLETON_P.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i, %24, %frame2klass.exit.i.i, %frame2klass.exit.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
@@ -3798,15 +3798,15 @@ frame2klass.exit.i.i.i:                           ; preds = %rbimpl_RB_TYPE_P_fa
 rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i.i:          ; preds = %77
   %79 = inttoptr i64 %76 to ptr
   %80 = load i64, ptr %79, align 8, !tbaa !43
-  %.fr.i.i.i = freeze i64 %80
-  %81 = and i64 %.fr.i.i.i, 31
+  %.fr10.i.i.i = freeze i64 %80
+  %81 = and i64 %.fr10.i.i.i, 31
   %82 = icmp eq i64 %81, 2
   br i1 %82, label %RCLASS_SINGLETON_P.exit.i.i.i, label %rb_profile_frame_singleton_method_p.exit.i.i
 
 RCLASS_SINGLETON_P.exit.i.i.i:                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i.i
-  %83 = and i64 %.fr.i.i.i, 8192
-  %.not10.i.not.i.i = icmp eq i64 %83, 0
-  %84 = select i1 %.not10.i.not.i.i, ptr @.str.46, ptr @.str.45
+  %83 = and i64 %.fr10.i.i.i, 8192
+  %.not11.i.not.i.i = icmp eq i64 %83, 0
+  %84 = select i1 %.not11.i.not.i.i, ptr @.str.46, ptr @.str.45
   br label %rb_profile_frame_singleton_method_p.exit.i.i
 
 rb_profile_frame_singleton_method_p.exit.i.i:     ; preds = %RCLASS_SINGLETON_P.exit.i.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i4.i.i.i, %77, %frame2klass.exit.i.i.i, %frame2klass.exit.i.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i, %69

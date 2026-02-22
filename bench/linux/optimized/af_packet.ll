@@ -3174,8 +3174,8 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %17 = load i32, ptr %16, align 4
-  %.fr132 = freeze i32 %17
-  %18 = and i32 %.fr132, 64
+  %.fr = freeze i32 %17
+  %18 = and i32 %.fr, 64
   %19 = icmp eq i32 %18, 0
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 1220
   %21 = load volatile i8, ptr %20, align 4

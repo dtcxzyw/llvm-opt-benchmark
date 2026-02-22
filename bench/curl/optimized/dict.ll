@@ -151,26 +151,26 @@ define internal i32 @dict_do(ptr noundef %0, ptr noundef writeonly captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @Curl_dyn_init(ptr noundef nonnull %3, i64 noundef 10000) #5
   %56 = load i8, ptr %.184, align 1, !tbaa !78
-  %.fr37.i = freeze i8 %56
-  %.not38.i = icmp eq i8 %.fr37.i, 0
-  br i1 %.not38.i, label %unescape_word.exit, label %.lr.ph.i
+  %.fr3738.i = freeze i8 %56
+  %.not39.i = icmp eq i8 %.fr3738.i, 0
+  br i1 %.not39.i, label %unescape_word.exit, label %.lr.ph.i
 
 57:                                               ; preds = %.thread.i
-  %58 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.02840.i, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !78
-  %.fr.i = freeze i8 %59
-  %.not.i = icmp eq i8 %.fr.i, 0
+  %.fr37.i = freeze i8 %59
+  %.not.i = icmp eq i8 %.fr37.i, 0
   br i1 %.not.i, label %unescape_word.exit, label %.lr.ph.i, !llvm.loop !82
 
 .lr.ph.i:                                         ; preds = %55, %57
-  %.fr40.i = phi i8 [ %.fr.i, %57 ], [ %.fr37.i, %55 ]
-  %.02839.i = phi ptr [ %58, %57 ], [ %.184, %55 ]
-  %60 = add i8 %.fr40.i, -127
+  %.fr3741.i = phi i8 [ %.fr37.i, %57 ], [ %.fr3738.i, %55 ]
+  %.02840.i = phi ptr [ %58, %57 ], [ %.184, %55 ]
+  %60 = add i8 %.fr3741.i, -127
   %or.cond.i = icmp ult i8 %60, -94
   br i1 %or.cond.i, label %61, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
-  switch i8 %.fr40.i, label %.thread.i [
+  switch i8 %.fr3741.i, label %.thread.i [
     i8 92, label %61
     i8 39, label %61
     i8 34, label %61
@@ -182,7 +182,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   br i1 %.not30.i, label %.thread.i, label %unescape_word.exit.thread
 
 .thread.i:                                        ; preds = %61, %switch.early.test.i
-  %63 = call i32 @Curl_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull %.02839.i, i64 noundef 1) #5
+  %63 = call i32 @Curl_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull %.02840.i, i64 noundef 1) #5
   %.not31.i = icmp eq i32 %63, 0
   br i1 %.not31.i, label %57, label %unescape_word.exit.thread
 
@@ -384,26 +384,26 @@ define internal fastcc ptr @unescape_word(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Curl_dyn_init(ptr noundef nonnull %2, i64 noundef 10000) #5
   %3 = load i8, ptr %0, align 1, !tbaa !78
-  %.fr37 = freeze i8 %3
-  %.not38 = icmp eq i8 %.fr37, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.fr3738 = freeze i8 %3
+  %.not39 = icmp eq i8 %.fr3738, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.thread
-  %5 = getelementptr inbounds nuw i8, ptr %.02839, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.02840, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !78
-  %.fr = freeze i8 %6
-  %.not = icmp eq i8 %.fr, 0
+  %.fr37 = freeze i8 %6
+  %.not = icmp eq i8 %.fr37, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 .lr.ph:                                           ; preds = %1, %4
-  %.fr40 = phi i8 [ %.fr, %4 ], [ %.fr37, %1 ]
-  %.02839 = phi ptr [ %5, %4 ], [ %0, %1 ]
-  %7 = add i8 %.fr40, -127
+  %.fr3741 = phi i8 [ %.fr37, %4 ], [ %.fr3738, %1 ]
+  %.02840 = phi ptr [ %5, %4 ], [ %0, %1 ]
+  %7 = add i8 %.fr3741, -127
   %or.cond = icmp ult i8 %7, -94
   br i1 %or.cond, label %8, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr40, label %.thread [
+  switch i8 %.fr3741, label %.thread [
     i8 92, label %8
     i8 39, label %8
     i8 34, label %8
@@ -415,7 +415,7 @@ switch.early.test:                                ; preds = %.lr.ph
   br i1 %.not30, label %.thread, label %.thread34
 
 .thread:                                          ; preds = %switch.early.test, %8
-  %10 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %.02839, i64 noundef 1) #5
+  %10 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %.02840, i64 noundef 1) #5
   %.not31 = icmp eq i32 %10, 0
   br i1 %.not31, label %4, label %.thread34
 

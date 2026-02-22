@@ -7395,7 +7395,8 @@ Ses_ManSelectVar.exit566.us.us946.i:              ; preds = %.preheader857.us.i,
 .preheader856.us.us.us.i:                         ; preds = %Ses_ManSelectVar.exit566.us.us946.i, %.split.us.us.us.us.i
   %.0403919.us.us.us.i = phi i32 [ %778, %.split.us.us.us.us.i ], [ 1, %Ses_ManSelectVar.exit566.us.us946.i ]
   %763 = icmp eq i32 %.1413943.us.i, %.0403919.us.us.us.i
-  br i1 %763, label %.preheader856.split.us.us.split.us932.us.i, label %Ses_ManSelectVar.exit574.us.us.us.us.us.i
+  %.fr.us.us.i = freeze i1 %763
+  br i1 %.fr.us.us.i, label %.preheader856.split.us.us.split.us932.us.i, label %Ses_ManSelectVar.exit574.us.us.us.us.us.i
 
 .preheader856.split.us.us.split.us932.us.i:       ; preds = %.preheader856.us.us.us.i, %776
   %.2406918.us.us.us923.us.i = phi i32 [ %777, %776 ], [ 0, %.preheader856.us.us.us.i ]
@@ -7410,7 +7411,7 @@ Ses_ManSelectVar.exit574.us.us.us924.us.i:        ; preds = %.preheader856.split
   %.neg.i569.us.us.us928.us.i = add i32 %765, %.neg18.i568.us.us.us927.us.i
   %.neg17.i570.us.us.us929.us.i = mul i32 %.neg.i569.us.us.us928.us.i, %.2406918.us.us.us923.us.i
   %766 = sdiv i32 %.neg17.i570.us.us.us929.us.i, 2
-  %767 = add nsw i32 %.1413943.us.i, %.neg18.i568.us.us.us927.us.i
+  %767 = add nsw i32 %.0403919.us.us.us.i, %.neg18.i568.us.us.us927.us.i
   %768 = add i32 %767, %.val463.us.us.us926.us.i
   %769 = add i32 %768, %766
   %770 = shl nsw i32 %769, 1
@@ -7427,7 +7428,7 @@ Ses_ManSelectVar.exit574.us.us.us924.us.i:        ; preds = %.preheader856.split
 
 776:                                              ; preds = %773, %Ses_ManSelectVar.exit574.us.us.us924.us.i, %.preheader856.split.us.us.split.us932.us.i
   %777 = add nuw nsw i32 %.2406918.us.us.us923.us.i, 1
-  %exitcond1059.not.i = icmp eq i32 %777, %.1413943.us.i
+  %exitcond1059.not.i = icmp eq i32 %777, %.0403919.us.us.us.i
   br i1 %exitcond1059.not.i, label %.split.us.us.us.us.i, label %.preheader856.split.us.us.split.us932.us.i, !llvm.loop !267
 
 .split.us.us.us.us.i:                             ; preds = %792, %776
@@ -7530,7 +7531,8 @@ Ses_ManSelectVar.exit566.loopexit.i:              ; preds = %.lr.ph.i563.i
 .preheader856.i:                                  ; preds = %Ses_ManSelectVar.exit566.loopexit.i, %.split.i
   %.0403919.i = phi i32 [ %864, %.split.i ], [ 1, %Ses_ManSelectVar.exit566.loopexit.i ]
   %822 = icmp eq i32 %.1413943.i, %.0403919.i
-  br i1 %822, label %.preheader856.i.split, label %.lr.ph.i571.preheader.i.us
+  %.fr = freeze i1 %822
+  br i1 %.fr, label %.preheader856.i.split, label %.lr.ph.i571.preheader.i.us
 
 .lr.ph.i571.preheader.i.us:                       ; preds = %.preheader856.i, %841
   %.2406918.i.us = phi i32 [ %842, %841 ], [ 0, %.preheader856.i ]
@@ -7604,7 +7606,7 @@ Ses_ManSelectVar.exit574.loopexit.i:              ; preds = %.lr.ph.i571.i
   %.neg.i569.i = add i32 %851, %.neg18.i568.i
   %.neg17.i570.i = mul i32 %.neg.i569.i, %.2406918.i
   %852 = sdiv i32 %.neg17.i570.i, 2
-  %853 = add nsw i32 %.1413943.i, %.neg18.i568.i
+  %853 = add nsw i32 %.0403919.i, %.neg18.i568.i
   %854 = add i32 %853, %852
   %855 = add i32 %854, %848
   %856 = shl nsw i32 %855, 1
@@ -7621,7 +7623,7 @@ Ses_ManSelectVar.exit574.loopexit.i:              ; preds = %.lr.ph.i571.i
 
 862:                                              ; preds = %859, %Ses_ManSelectVar.exit574.loopexit.i, %.preheader856.i.split
   %863 = add nuw nsw i32 %.2406918.i, 1
-  %exitcond.not.i50 = icmp eq i32 %863, %.1413943.i
+  %exitcond.not.i50 = icmp eq i32 %863, %.0403919.i
   br i1 %exitcond.not.i50, label %.split.i, label %.preheader856.i.split, !llvm.loop !267
 
 .split.i:                                         ; preds = %841, %862

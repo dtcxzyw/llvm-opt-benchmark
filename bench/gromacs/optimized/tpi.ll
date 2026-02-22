@@ -449,12 +449,11 @@ define void @_ZN3gmx21TestParticleInsertionC2ERK10t_inputrecRK10gmx_mtop_tRK14gm
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i62 = load ptr, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
-  %.fr8.i.i = freeze ptr %.sroa.0.0.copyload.i
-  %.fr7.i.i = freeze ptr %.sroa.0.0.copyload.i62
-  %47 = ptrtoint ptr %.fr7.i.i to i64
-  %48 = ptrtoint ptr %.fr8.i.i to i64
+  %47 = ptrtoint ptr %.sroa.0.0.copyload.i62 to i64
+  %48 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %49 = sub i64 %47, %48
-  %50 = sdiv exact i64 %49, 12
+  %reass.sub.fr.i = freeze i64 %49
+  %50 = sdiv exact i64 %reass.sub.fr.i, 12
   %51 = icmp ugt i64 %50, 768614336404564650
   br i1 %51, label %52, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
@@ -466,29 +465,29 @@ define void @_ZN3gmx21TestParticleInsertionC2ERK10t_inputrecRK10gmx_mtop_tRK14gm
   unreachable
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %30
-  %.not.i.i.i = icmp eq ptr %.fr7.i.i, %.fr8.i.i
+  %.not.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i62, %.sroa.0.0.copyload.i
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %53 = getelementptr inbounds nuw i8, ptr null, i64 %49
+  %53 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %53, ptr %54, align 8, !tbaa !169
   br label %71
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #31
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #31
           to label %.noexc5.i unwind label %62
 
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %55, ptr %45, align 8, !tbaa !170
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %49
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %reass.sub.fr.i
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %56, ptr %57, align 8, !tbaa !169
-  %58 = add i64 %49, -12
+  %58 = add i64 %reass.sub.fr.i, -12
   %59 = urem i64 %58, 12
   %60 = sub nuw i64 %58, %59
   %61 = add i64 %60, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %55, ptr align 4 %.fr8.i.i, i64 %61, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %55, ptr align 4 %.sroa.0.0.copyload.i, i64 %61, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %55, i64 %61
   br label %71
 
@@ -870,11 +869,10 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118haveElectrosta
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %17 = sext i32 %.0.val to i64
   %.sroa.01.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
-  %.sroa.01.0.copyload.i.i.i.i.fr.i.i.i.i = freeze ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %.sroa.0.0.copyload.i.i.i.i.fr.i.i.i.i = freeze ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i
-  %18 = icmp eq ptr %.sroa.01.0.copyload.i.i.i.i.fr.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.fr.i.i.i.i
-  br i1 %18, label %.lr.ph.i.split.us.i.i.i.i, label %.lr.ph.i.split.i.i.i.i
+  %18 = icmp eq ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i.i
+  %.fr.i.i.i.i = freeze i1 %18
+  br i1 %.fr.i.i.i.i, label %.lr.ph.i.split.us.i.i.i.i, label %.lr.ph.i.split.i.i.i.i
 
 .lr.ph.i.split.us.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_118haveElectrostaticsERK9t_mdatomsRKNS2_5RangeIiEEE3$_0EclINS8_8iteratorEEEbT_.exit.thread7.i.us.i.i.i.i"
   %indvars.iv.i.us.i.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_118haveElectrostaticsERK9t_mdatomsRKNS2_5RangeIiEEE3$_0EclINS8_8iteratorEEEbT_.exit.thread7.i.us.i.i.i.i" ], [ %17, %.lr.ph.i.i.i.i.i ]
@@ -897,7 +895,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118haveElectrosta
   br i1 %25, label %.critedge.loopexit.split.loop.exit.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_118haveElectrostaticsERK9t_mdatomsRKNS2_5RangeIiEEE3$_0EclINS8_8iteratorEEEbT_.exit.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_118haveElectrostaticsERK9t_mdatomsRKNS2_5RangeIiEEE3$_0EclINS8_8iteratorEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.split.i.i.i.i
-  %26 = getelementptr inbounds float, ptr %.sroa.01.0.copyload.i.i.i.i.fr.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %26 = getelementptr inbounds float, ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %27 = load float, ptr %26, align 4, !tbaa !256
   %28 = fcmp une float %27, 0.000000e+00
   br i1 %28, label %.critedge.loopexit.split.loop.exit17.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmx12_GLOBAL__N_118haveElectrostaticsERK9t_mdatomsRKNS2_5RangeIiEEE3$_0EclINS8_8iteratorEEEbT_.exit.thread7.i.i.i.i.i"

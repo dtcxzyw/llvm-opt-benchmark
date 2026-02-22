@@ -102,32 +102,31 @@ BrotliCalculateDistanceCodeLimit.exit:            ; preds = %15, %47
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.sroa.0237.0.copyload = load i32, ptr %12, align 8, !tbaa !13
-  %.sroa.12245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %.sroa.12245.0.copyload = load i32, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !13
-  %.fr.i = freeze i32 %.sroa.12245.0.copyload
+  %.sroa.0234.0.copyload = load i32, ptr %12, align 8, !tbaa !13
+  %.sroa.12242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %.sroa.12242.0.copyload = load i32, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !13
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load i64, ptr %.sroa.20.0..sroa_idx, align 8
-  %.sroa.20255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %.sroa.20255.0.copyload = load i64, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.20252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %.sroa.20252.0.copyload = load i64, ptr %.sroa.20252.0..sroa_idx, align 8, !tbaa !14
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 68
   %14 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef 2192) #11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 2176
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 2184
-  %.not4556.i = icmp eq i64 %8, 0
-  %18 = add i32 %.fr.i, 16
-  %notmask.i.us.i = shl nsw i32 -1, %.sroa.0237.0.copyload
+  %.not4555.i = icmp eq i64 %8, 0
+  %18 = add i32 %.sroa.12242.0.copyload, 16
+  %notmask.i.us.i = shl nsw i32 -1, %.sroa.0234.0.copyload
   %19 = xor i32 %notmask.i.us.i, -1
-  %20 = zext i32 %.sroa.0237.0.copyload to i64
+  %20 = zext i32 %.sroa.0234.0.copyload to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %11, %168
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %168 ]
-  %.0143299 = phi double [ 0x547D42AEA2879F2E, %11 ], [ %.1283364, %168 ]
-  %.0144298 = phi i32 [ 1, %11 ], [ %.2146365, %168 ]
-  %.0148297 = phi i32 [ 0, %11 ], [ %169, %168 ]
-  %21 = icmp samesign ult i32 %.0148297, 16
+.preheader:                                       ; preds = %11, %170
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %170 ]
+  %.0143296 = phi double [ 0x547D42AEA2879F2E, %11 ], [ %.1280361, %170 ]
+  %.0144295 = phi i32 [ 1, %11 ], [ %.2146362, %170 ]
+  %.0148294 = phi i32 [ 0, %11 ], [ %171, %170 ]
+  %21 = icmp samesign ult i32 %.0148294, 16
   br i1 %21, label %.lr.ph, label %.thread.thread
 
 .lr.ph:                                           ; preds = %.preheader
@@ -142,22 +141,21 @@ define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 nou
   %29 = zext nneg i32 %24 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph, %162
-  %.1288 = phi double [ %.0143299, %.lr.ph ], [ %160, %162 ]
-  %.1145287 = phi i32 [ %.0144298, %.lr.ph ], [ %.3147, %162 ]
-  %.1149286 = phi i32 [ %.0148297, %.lr.ph ], [ %163, %162 ]
-  %31 = shl nuw nsw i32 %.1149286, %22
-  %.fr46.i = freeze i32 %31
+30:                                               ; preds = %.lr.ph, %164
+  %.1285 = phi double [ %.0143296, %.lr.ph ], [ %162, %164 ]
+  %.1145284 = phi i32 [ %.0144295, %.lr.ph ], [ %.3147, %164 ]
+  %.1149283 = phi i32 [ %.0148294, %.lr.ph ], [ %165, %164 ]
+  %31 = shl nuw nsw i32 %.1149283, %22
   %32 = load i32, ptr %15, align 4, !tbaa !15
-  %33 = add nuw nsw i32 %.fr46.i, 16
+  %33 = add nuw nsw i32 %31, 16
   %34 = add nuw nsw i32 %33, %23
-  %35 = add nuw nsw i32 %.1149286, 67108860
+  %35 = add nuw nsw i32 %.1149283, 67108860
   %36 = shl nuw nsw i32 %35, %22
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %BrotliInitDistanceParams.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = sub nuw nsw i32 2147483644, %.fr46.i
+  %38 = sub nuw nsw i32 2147483644, %31
   %39 = lshr i32 %38, %22
   %40 = add nuw i32 %39, 4
   %41 = lshr i32 %40, 1
@@ -178,19 +176,19 @@ define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 nou
   %53 = shl nuw nsw i32 %52, %51
   %54 = shl nsw i32 %49, %22
   %55 = or i32 %54, %24
-  %56 = add nuw nsw i32 %.fr46.i, 17
+  %56 = add nuw nsw i32 %31, 17
   %57 = add i32 %56, %55
   %58 = shl nuw i32 6, %50
   %59 = add i32 %58, -5
   %60 = add nuw i32 %59, %53
   %61 = shl i32 %60, %22
-  %62 = sub i32 %.fr46.i, %notmask.i.i
+  %62 = sub i32 %31, %notmask.i.i
   %63 = add i32 %62, %61
   br label %BrotliCalculateDistanceCodeLimit.exit.i
 
 BrotliCalculateDistanceCodeLimit.exit.i:          ; preds = %37, %48
   %.sroa.0.1.i.i = phi i32 [ %57, %48 ], [ %33, %37 ]
-  %.sroa.4.1.i.i = phi i32 [ %63, %48 ], [ %.fr46.i, %37 ]
+  %.sroa.4.1.i.i = phi i32 [ %63, %48 ], [ %31, %37 ]
   %64 = add nuw nsw i32 %33, %25
   br label %BrotliInitDistanceParams.exit
 
@@ -199,625 +197,627 @@ BrotliInitDistanceParams.exit:                    ; preds = %30, %BrotliCalculat
   %.020.i = phi i32 [ %.sroa.0.1.i.i, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %34, %30 ]
   %.0.i183 = phi i32 [ %64, %BrotliCalculateDistanceCodeLimit.exit.i ], [ %34, %30 ]
   %65 = zext i32 %.021.i to i64
-  %66 = icmp eq i32 %.fr46.i, %.fr.i
-  %or.cond = and i1 %26, %66
-  %.3147 = select i1 %or.cond, i32 0, i32 %.1145287
+  %66 = icmp eq i32 %31, %.sroa.12242.0.copyload
+  %or.cond = select i1 %26, i1 %66, i1 false
+  %.3147 = select i1 %or.cond, i32 0, i32 %.1145284
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %14, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %17, align 8, !tbaa !32
   br i1 %26, label %67, label %.thread.i
 
 67:                                               ; preds = %BrotliInitDistanceParams.exit
-  br i1 %.not4556.i, label %.loopexit279, label %.lr.ph.i
+  br i1 %.not4555.i, label %.loopexit276, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %BrotliInitDistanceParams.exit
-  br i1 %.not4556.i, label %.loopexit279, label %.lr.ph.split.us.preheader.i
+  br i1 %.not4555.i, label %.loopexit276, label %.lr.ph.split.us.preheader.i
 
 .lr.ph.i:                                         ; preds = %67
-  br i1 %66, label %.lr.ph.split.i, label %.lr.ph.split.us.preheader.i
+  %68 = icmp ne i32 %.sroa.12242.0.copyload, %31
+  %69 = freeze i1 %68
+  br i1 %69, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.thread.i, %.lr.ph.i
-  %68 = zext i32 %.fr46.i to i64
-  %69 = add nuw nsw i64 %68, 16
-  %70 = sub nsw i64 %28, %68
+  %70 = zext nneg i32 %31 to i64
+  %71 = add nuw nsw i64 %70, 16
+  %72 = sub nsw i64 %28, %70
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.critedge.us.i, %.lr.ph.split.us.preheader.i
-  %71 = phi i64 [ %135, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
-  %.03144.us.i = phi i64 [ %136, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
+  %73 = phi i64 [ %137, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
+  %.03144.us.i = phi i64 [ %138, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
   %.03243.us.i = phi double [ %.234.us.i, %.critedge.us.i ], [ 0.000000e+00, %.lr.ph.split.us.preheader.i ]
-  %72 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.us.i
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !35
-  %75 = and i32 %74, 33554431
-  %.not.us.i = icmp eq i32 %75, 0
-  br i1 %.not.us.i, label %.critedge.us.i, label %76
+  %74 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.us.i
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !35
+  %77 = and i32 %76, 33554431
+  %.not.us.i = icmp eq i32 %77, 0
+  br i1 %.not.us.i, label %.critedge.us.i, label %78
 
-76:                                               ; preds = %.lr.ph.split.us.i
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %78 = load i16, ptr %77, align 4, !tbaa !38
-  %79 = icmp ugt i16 %78, 127
-  br i1 %79, label %80, label %.critedge.us.i
+78:                                               ; preds = %.lr.ph.split.us.i
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 12
+  %80 = load i16, ptr %79, align 4, !tbaa !38
+  %81 = icmp ugt i16 %80, 127
+  br i1 %81, label %82, label %.critedge.us.i
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %72, i64 14
-  %82 = load i16, ptr %81, align 2, !tbaa !39
-  %83 = zext i16 %82 to i32
-  %84 = and i32 %83, 1023
-  %85 = icmp ult i32 %84, %18
-  br i1 %85, label %CommandRestoreDistanceCode.exit.us.i, label %86
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 14
+  %84 = load i16, ptr %83, align 2, !tbaa !39
+  %85 = zext i16 %84 to i32
+  %86 = and i32 %85, 1023
+  %87 = icmp ult i32 %86, %18
+  br i1 %87, label %CommandRestoreDistanceCode.exit.us.i, label %88
 
-86:                                               ; preds = %80
-  %87 = lshr i32 %83, 10
-  %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %89 = load i32, ptr %88, align 4, !tbaa !40
-  %90 = sub nsw i32 %84, %.fr.i
-  %91 = add nsw i32 %90, -16
-  %92 = lshr i32 %91, %.sroa.0237.0.copyload
-  %93 = and i32 %91, %19
-  %94 = and i32 %92, 1
-  %95 = or disjoint i32 %94, 2
-  %96 = shl i32 %95, %87
-  %97 = add i32 %96, -4
-  %98 = add i32 %97, %89
-  %99 = shl i32 %98, %.sroa.0237.0.copyload
-  %100 = add nuw i32 %93, %18
-  %101 = add i32 %100, %99
+88:                                               ; preds = %82
+  %89 = lshr i32 %85, 10
+  %90 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %91 = load i32, ptr %90, align 4, !tbaa !40
+  %92 = sub nsw i32 %86, %.sroa.12242.0.copyload
+  %93 = add nsw i32 %92, -16
+  %94 = lshr i32 %93, %.sroa.0234.0.copyload
+  %95 = and i32 %93, %19
+  %96 = and i32 %94, 1
+  %97 = or disjoint i32 %96, 2
+  %98 = shl i32 %97, %89
+  %99 = add i32 %98, -4
+  %100 = add i32 %99, %91
+  %101 = shl i32 %100, %.sroa.0234.0.copyload
+  %102 = add nuw i32 %95, %18
+  %103 = add i32 %102, %101
   br label %CommandRestoreDistanceCode.exit.us.i
 
-CommandRestoreDistanceCode.exit.us.i:             ; preds = %86, %80
-  %.0.i.us.i = phi i32 [ %101, %86 ], [ %84, %80 ]
-  %102 = zext i32 %.0.i.us.i to i64
+CommandRestoreDistanceCode.exit.us.i:             ; preds = %88, %82
+  %.0.i.us.i = phi i32 [ %103, %88 ], [ %86, %82 ]
+  %104 = zext i32 %.0.i.us.i to i64
   %.not38.us.i = icmp ult i32 %.021.i, %.0.i.us.i
-  br i1 %.not38.us.i, label %.thread, label %103
+  br i1 %.not38.us.i, label %.thread, label %105
 
-103:                                              ; preds = %CommandRestoreDistanceCode.exit.us.i
-  %104 = icmp samesign ugt i64 %69, %102
-  br i1 %104, label %124, label %105
+105:                                              ; preds = %CommandRestoreDistanceCode.exit.us.i
+  %106 = icmp samesign ugt i64 %71, %104
+  br i1 %106, label %126, label %107
 
-105:                                              ; preds = %103
-  %106 = add nsw i64 %70, %102
-  %107 = trunc i64 %106 to i32
-  %108 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
-  %109 = sub nsw i32 30, %108
-  %110 = zext i32 %109 to i64
-  %111 = and i64 %106, %29
-  %112 = lshr i64 %106, %110
-  %113 = and i64 %112, 1
-  %114 = sub nsw i64 %110, %indvars.iv
-  %115 = shl nsw i64 %114, 10
-  %116 = shl nsw i64 %114, 1
-  %117 = add nsw i64 %116, 65534
-  %118 = or disjoint i64 %117, %113
-  %119 = shl nsw i64 %118, %indvars.iv
-  %120 = add nuw nsw i64 %111, %69
-  %121 = add i64 %120, %119
-  %122 = or i64 %121, %115
-  %123 = trunc i64 %122 to i16
+107:                                              ; preds = %105
+  %108 = add nsw i64 %72, %104
+  %109 = trunc i64 %108 to i32
+  %110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %109, i1 true)
+  %111 = sub nsw i32 30, %110
+  %112 = zext i32 %111 to i64
+  %113 = and i64 %108, %29
+  %114 = lshr i64 %108, %112
+  %115 = and i64 %114, 1
+  %116 = sub nsw i64 %112, %indvars.iv
+  %117 = shl nsw i64 %116, 10
+  %118 = shl nsw i64 %116, 1
+  %119 = add nsw i64 %118, 65534
+  %120 = or disjoint i64 %119, %115
+  %121 = shl nsw i64 %120, %indvars.iv
+  %122 = add nuw nsw i64 %113, %71
+  %123 = add i64 %122, %121
+  %124 = or i64 %123, %117
+  %125 = trunc i64 %124 to i16
   br label %PrefixEncodeCopyDistance.exit.us.i
 
-124:                                              ; preds = %103
-  %125 = trunc i32 %.0.i.us.i to i16
+126:                                              ; preds = %105
+  %127 = trunc i32 %.0.i.us.i to i16
   br label %PrefixEncodeCopyDistance.exit.us.i
 
-PrefixEncodeCopyDistance.exit.us.i:               ; preds = %124, %105
-  %.0.us.i = phi i16 [ %123, %105 ], [ %125, %124 ]
-  %126 = and i16 %.0.us.i, 1023
-  %127 = zext nneg i16 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %14, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !13
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %128, align 4, !tbaa !13
-  %131 = add i64 %71, 1
-  store i64 %131, ptr %16, align 8, !tbaa !41
-  %132 = lshr i16 %.0.us.i, 10
-  %133 = uitofp nneg i16 %132 to double
-  %134 = fadd double %.03243.us.i, %133
+PrefixEncodeCopyDistance.exit.us.i:               ; preds = %126, %107
+  %.0.us.i = phi i16 [ %125, %107 ], [ %127, %126 ]
+  %128 = and i16 %.0.us.i, 1023
+  %129 = zext nneg i16 %128 to i64
+  %130 = getelementptr inbounds nuw i32, ptr %14, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !13
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 4, !tbaa !13
+  %133 = add i64 %73, 1
+  store i64 %133, ptr %16, align 8, !tbaa !41
+  %134 = lshr i16 %.0.us.i, 10
+  %135 = uitofp nneg i16 %134 to double
+  %136 = fadd double %.03243.us.i, %135
   br label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %PrefixEncodeCopyDistance.exit.us.i, %76, %.lr.ph.split.us.i
-  %135 = phi i64 [ %71, %.lr.ph.split.us.i ], [ %71, %76 ], [ %131, %PrefixEncodeCopyDistance.exit.us.i ]
-  %.234.us.i = phi double [ %.03243.us.i, %.lr.ph.split.us.i ], [ %.03243.us.i, %76 ], [ %134, %PrefixEncodeCopyDistance.exit.us.i ]
-  %136 = add nuw i64 %.03144.us.i, 1
-  %exitcond48.not.i = icmp eq i64 %136, %8
-  br i1 %exitcond48.not.i, label %.loopexit279, label %.lr.ph.split.us.i, !llvm.loop !42
+.critedge.us.i:                                   ; preds = %PrefixEncodeCopyDistance.exit.us.i, %78, %.lr.ph.split.us.i
+  %137 = phi i64 [ %73, %.lr.ph.split.us.i ], [ %73, %78 ], [ %133, %PrefixEncodeCopyDistance.exit.us.i ]
+  %.234.us.i = phi double [ %.03243.us.i, %.lr.ph.split.us.i ], [ %.03243.us.i, %78 ], [ %136, %PrefixEncodeCopyDistance.exit.us.i ]
+  %138 = add nuw i64 %.03144.us.i, 1
+  %exitcond47.not.i = icmp eq i64 %138, %8
+  br i1 %exitcond47.not.i, label %.loopexit276, label %.lr.ph.split.us.i, !llvm.loop !42
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.critedge.i
-  %137 = phi i64 [ %157, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %.03144.i = phi i64 [ %158, %.critedge.i ], [ 0, %.lr.ph.i ]
+  %139 = phi i64 [ %159, %.critedge.i ], [ 0, %.lr.ph.i ]
+  %.03144.i = phi i64 [ %160, %.critedge.i ], [ 0, %.lr.ph.i ]
   %.03243.i = phi double [ %.234.i, %.critedge.i ], [ 0.000000e+00, %.lr.ph.i ]
-  %138 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.i
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !35
-  %141 = and i32 %140, 33554431
-  %.not.i184 = icmp eq i32 %141, 0
-  br i1 %.not.i184, label %.critedge.i, label %142
+  %140 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.i
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  %142 = load i32, ptr %141, align 4, !tbaa !35
+  %143 = and i32 %142, 33554431
+  %.not.i184 = icmp eq i32 %143, 0
+  br i1 %.not.i184, label %.critedge.i, label %144
 
-142:                                              ; preds = %.lr.ph.split.i
-  %143 = getelementptr inbounds nuw i8, ptr %138, i64 12
-  %144 = load i16, ptr %143, align 4, !tbaa !38
-  %145 = icmp ugt i16 %144, 127
-  br i1 %145, label %PrefixEncodeCopyDistance.exit.i, label %.critedge.i
+144:                                              ; preds = %.lr.ph.split.i
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 12
+  %146 = load i16, ptr %145, align 4, !tbaa !38
+  %147 = icmp ugt i16 %146, 127
+  br i1 %147, label %PrefixEncodeCopyDistance.exit.i, label %.critedge.i
 
-PrefixEncodeCopyDistance.exit.i:                  ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %138, i64 14
-  %147 = load i16, ptr %146, align 2, !tbaa !39
-  %148 = and i16 %147, 1023
-  %149 = zext nneg i16 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %14, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !13
-  %152 = add i32 %151, 1
-  store i32 %152, ptr %150, align 4, !tbaa !13
-  %153 = add i64 %137, 1
-  store i64 %153, ptr %16, align 8, !tbaa !41
-  %154 = lshr i16 %147, 10
-  %155 = uitofp nneg i16 %154 to double
-  %156 = fadd double %.03243.i, %155
+PrefixEncodeCopyDistance.exit.i:                  ; preds = %144
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 14
+  %149 = load i16, ptr %148, align 2, !tbaa !39
+  %150 = and i16 %149, 1023
+  %151 = zext nneg i16 %150 to i64
+  %152 = getelementptr inbounds nuw i32, ptr %14, i64 %151
+  %153 = load i32, ptr %152, align 4, !tbaa !13
+  %154 = add i32 %153, 1
+  store i32 %154, ptr %152, align 4, !tbaa !13
+  %155 = add i64 %139, 1
+  store i64 %155, ptr %16, align 8, !tbaa !41
+  %156 = lshr i16 %149, 10
+  %157 = uitofp nneg i16 %156 to double
+  %158 = fadd double %.03243.i, %157
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %PrefixEncodeCopyDistance.exit.i, %142, %.lr.ph.split.i
-  %157 = phi i64 [ %137, %.lr.ph.split.i ], [ %137, %142 ], [ %153, %PrefixEncodeCopyDistance.exit.i ]
-  %.234.i = phi double [ %.03243.i, %.lr.ph.split.i ], [ %.03243.i, %142 ], [ %156, %PrefixEncodeCopyDistance.exit.i ]
-  %158 = add nuw i64 %.03144.i, 1
-  %exitcond.not.i = icmp eq i64 %158, %8
-  br i1 %exitcond.not.i, label %.loopexit279, label %.lr.ph.split.i, !llvm.loop !42
+.critedge.i:                                      ; preds = %PrefixEncodeCopyDistance.exit.i, %144, %.lr.ph.split.i
+  %159 = phi i64 [ %139, %.lr.ph.split.i ], [ %139, %144 ], [ %155, %PrefixEncodeCopyDistance.exit.i ]
+  %.234.i = phi double [ %.03243.i, %.lr.ph.split.i ], [ %.03243.i, %144 ], [ %158, %PrefixEncodeCopyDistance.exit.i ]
+  %160 = add nuw i64 %.03144.i, 1
+  %exitcond.not.i = icmp eq i64 %160, %8
+  br i1 %exitcond.not.i, label %.loopexit276, label %.lr.ph.split.i, !llvm.loop !42
 
-.loopexit279:                                     ; preds = %.critedge.us.i, %.critedge.i, %.thread.i, %67
-  %.032.lcssa.i = phi double [ 0.000000e+00, %67 ], [ 0.000000e+00, %.thread.i ], [ %.234.i, %.critedge.i ], [ %.234.us.i, %.critedge.us.i ]
-  %159 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #11
-  %160 = fadd double %.032.lcssa.i, %159
-  %161 = fcmp ogt double %160, %.1288
-  br i1 %161, label %.thread, label %162
+.loopexit276:                                     ; preds = %.critedge.i, %.critedge.us.i, %.thread.i, %67
+  %.032.lcssa.i = phi double [ 0.000000e+00, %67 ], [ 0.000000e+00, %.thread.i ], [ %.234.us.i, %.critedge.us.i ], [ %.234.i, %.critedge.i ]
+  %161 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #11
+  %162 = fadd double %.032.lcssa.i, %161
+  %163 = fcmp ogt double %162, %.1285
+  br i1 %163, label %.thread, label %164
 
-162:                                              ; preds = %.loopexit279
+164:                                              ; preds = %.loopexit276
   store i32 %22, ptr %12, align 8, !tbaa !13
-  store i32 %.fr46.i, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !13
+  store i32 %31, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !13
   store i32 %.0.i183, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !13
   store i32 %.020.i, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !13
-  store i64 %65, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !14
-  %163 = add i32 %.1149286, 1
-  %exitcond.not = icmp eq i32 %163, 16
+  store i64 %65, ptr %.sroa.20252.0..sroa_idx, align 8, !tbaa !14
+  %165 = add i32 %.1149283, 1
+  %exitcond.not = icmp eq i32 %165, 16
   br i1 %exitcond.not, label %.thread.thread, label %30, !llvm.loop !44
 
-.thread.thread:                                   ; preds = %162, %.preheader
-  %.1149285.ph = phi i32 [ %.0148297, %.preheader ], [ 16, %162 ]
-  %.1283.ph = phi double [ %.0143299, %.preheader ], [ %160, %162 ]
-  %.2146.ph = phi i32 [ %.0144298, %.preheader ], [ %.3147, %162 ]
-  %164 = add i32 %.1149285.ph, -1
-  %165 = lshr i32 %164, 1
-  br label %168
-
-.thread:                                          ; preds = %.loopexit279, %CommandRestoreDistanceCode.exit.us.i
-  %.not177 = icmp eq i32 %.1149286, 0
-  %166 = add i32 %.1149286, -1
+.thread.thread:                                   ; preds = %164, %.preheader
+  %.1149282.ph = phi i32 [ %.0148294, %.preheader ], [ 16, %164 ]
+  %.1280.ph = phi double [ %.0143296, %.preheader ], [ %162, %164 ]
+  %.2146.ph = phi i32 [ %.0144295, %.preheader ], [ %.3147, %164 ]
+  %166 = add i32 %.1149282.ph, -1
   %167 = lshr i32 %166, 1
-  %spec.select = select i1 %.not177, i32 0, i32 %167
-  br label %168
+  br label %170
 
-168:                                              ; preds = %.thread, %.thread.thread
-  %.2146365 = phi i32 [ %.2146.ph, %.thread.thread ], [ %.3147, %.thread ]
-  %.1283364 = phi double [ %.1283.ph, %.thread.thread ], [ %.1288, %.thread ]
-  %169 = phi i32 [ %165, %.thread.thread ], [ %spec.select, %.thread ]
+.thread:                                          ; preds = %.loopexit276, %CommandRestoreDistanceCode.exit.us.i
+  %.not177 = icmp eq i32 %.1149283, 0
+  %168 = add i32 %.1149283, -1
+  %169 = lshr i32 %168, 1
+  %spec.select = select i1 %.not177, i32 0, i32 %169
+  br label %170
+
+170:                                              ; preds = %.thread, %.thread.thread
+  %.2146362 = phi i32 [ %.2146.ph, %.thread.thread ], [ %.3147, %.thread ]
+  %.1280361 = phi double [ %.1280.ph, %.thread.thread ], [ %.1285, %.thread ]
+  %171 = phi i32 [ %167, %.thread.thread ], [ %spec.select, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond322.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond322.not, label %170, label %.preheader, !llvm.loop !45
+  %exitcond319.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond319.not, label %172, label %.preheader, !llvm.loop !45
 
-170:                                              ; preds = %168
-  %.not = icmp eq i32 %.2146365, 0
-  br i1 %.not, label %ComputeDistanceCost.exit219.thread, label %171
+172:                                              ; preds = %170
+  %.not = icmp eq i32 %.2146362, 0
+  br i1 %.not, label %ComputeDistanceCost.exit216.thread, label %173
 
-171:                                              ; preds = %170
+173:                                              ; preds = %172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %14, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %17, align 8, !tbaa !32
-  br i1 %.not4556.i, label %ComputeDistanceCost.exit219, label %.lr.ph.split.i211
+  br i1 %.not4555.i, label %ComputeDistanceCost.exit216, label %.lr.ph.split.i208
 
-.lr.ph.split.i211:                                ; preds = %171, %.critedge.i215
-  %172 = phi i64 [ %192, %.critedge.i215 ], [ 0, %171 ]
-  %.03144.i212 = phi i64 [ %193, %.critedge.i215 ], [ 0, %171 ]
-  %.03243.i213 = phi double [ %.234.i216, %.critedge.i215 ], [ 0.000000e+00, %171 ]
-  %173 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.i212
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
-  %175 = load i32, ptr %174, align 4, !tbaa !35
-  %176 = and i32 %175, 33554431
-  %.not.i214 = icmp eq i32 %176, 0
-  br i1 %.not.i214, label %.critedge.i215, label %177
+.lr.ph.split.i208:                                ; preds = %173, %.critedge.i212
+  %174 = phi i64 [ %194, %.critedge.i212 ], [ 0, %173 ]
+  %.03144.i209 = phi i64 [ %195, %.critedge.i212 ], [ 0, %173 ]
+  %.03243.i210 = phi double [ %.234.i213, %.critedge.i212 ], [ 0.000000e+00, %173 ]
+  %175 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.03144.i209
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
+  %177 = load i32, ptr %176, align 4, !tbaa !35
+  %178 = and i32 %177, 33554431
+  %.not.i211 = icmp eq i32 %178, 0
+  br i1 %.not.i211, label %.critedge.i212, label %179
 
-177:                                              ; preds = %.lr.ph.split.i211
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  %179 = load i16, ptr %178, align 4, !tbaa !38
-  %180 = icmp ugt i16 %179, 127
-  br i1 %180, label %PrefixEncodeCopyDistance.exit.i218, label %.critedge.i215
+179:                                              ; preds = %.lr.ph.split.i208
+  %180 = getelementptr inbounds nuw i8, ptr %175, i64 12
+  %181 = load i16, ptr %180, align 4, !tbaa !38
+  %182 = icmp ugt i16 %181, 127
+  br i1 %182, label %PrefixEncodeCopyDistance.exit.i215, label %.critedge.i212
 
-PrefixEncodeCopyDistance.exit.i218:               ; preds = %177
-  %181 = getelementptr inbounds nuw i8, ptr %173, i64 14
-  %182 = load i16, ptr %181, align 2, !tbaa !39
-  %183 = and i16 %182, 1023
-  %184 = zext nneg i16 %183 to i64
-  %185 = getelementptr inbounds nuw i32, ptr %14, i64 %184
-  %186 = load i32, ptr %185, align 4, !tbaa !13
-  %187 = add i32 %186, 1
-  store i32 %187, ptr %185, align 4, !tbaa !13
-  %188 = add i64 %172, 1
-  store i64 %188, ptr %16, align 8, !tbaa !41
-  %189 = lshr i16 %182, 10
-  %190 = uitofp nneg i16 %189 to double
-  %191 = fadd double %.03243.i213, %190
-  br label %.critedge.i215
+PrefixEncodeCopyDistance.exit.i215:               ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %175, i64 14
+  %184 = load i16, ptr %183, align 2, !tbaa !39
+  %185 = and i16 %184, 1023
+  %186 = zext nneg i16 %185 to i64
+  %187 = getelementptr inbounds nuw i32, ptr %14, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !13
+  %189 = add i32 %188, 1
+  store i32 %189, ptr %187, align 4, !tbaa !13
+  %190 = add i64 %174, 1
+  store i64 %190, ptr %16, align 8, !tbaa !41
+  %191 = lshr i16 %184, 10
+  %192 = uitofp nneg i16 %191 to double
+  %193 = fadd double %.03243.i210, %192
+  br label %.critedge.i212
 
-.critedge.i215:                                   ; preds = %PrefixEncodeCopyDistance.exit.i218, %177, %.lr.ph.split.i211
-  %192 = phi i64 [ %172, %.lr.ph.split.i211 ], [ %172, %177 ], [ %188, %PrefixEncodeCopyDistance.exit.i218 ]
-  %.234.i216 = phi double [ %.03243.i213, %.lr.ph.split.i211 ], [ %.03243.i213, %177 ], [ %191, %PrefixEncodeCopyDistance.exit.i218 ]
-  %193 = add nuw i64 %.03144.i212, 1
-  %exitcond.not.i217 = icmp eq i64 %193, %8
-  br i1 %exitcond.not.i217, label %ComputeDistanceCost.exit219, label %.lr.ph.split.i211, !llvm.loop !42
+.critedge.i212:                                   ; preds = %PrefixEncodeCopyDistance.exit.i215, %179, %.lr.ph.split.i208
+  %194 = phi i64 [ %174, %.lr.ph.split.i208 ], [ %174, %179 ], [ %190, %PrefixEncodeCopyDistance.exit.i215 ]
+  %.234.i213 = phi double [ %.03243.i210, %.lr.ph.split.i208 ], [ %.03243.i210, %179 ], [ %193, %PrefixEncodeCopyDistance.exit.i215 ]
+  %195 = add nuw i64 %.03144.i209, 1
+  %exitcond.not.i214 = icmp eq i64 %195, %8
+  br i1 %exitcond.not.i214, label %ComputeDistanceCost.exit216, label %.lr.ph.split.i208, !llvm.loop !42
 
-ComputeDistanceCost.exit219:                      ; preds = %.critedge.i215, %171
-  %.032.lcssa.i197 = phi double [ 0.000000e+00, %171 ], [ %.234.i216, %.critedge.i215 ]
-  %194 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #11
-  %195 = fadd double %.032.lcssa.i197, %194
-  %196 = fcmp olt double %195, %.1283364
-  br i1 %196, label %197, label %ComputeDistanceCost.exit219.thread
+ComputeDistanceCost.exit216:                      ; preds = %.critedge.i212, %173
+  %.032.lcssa.i197 = phi double [ 0.000000e+00, %173 ], [ %.234.i213, %.critedge.i212 ]
+  %196 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %14) #11
+  %197 = fadd double %.032.lcssa.i197, %196
+  %198 = fcmp olt double %197, %.1280361
+  br i1 %198, label %199, label %ComputeDistanceCost.exit216.thread
 
-197:                                              ; preds = %ComputeDistanceCost.exit219
-  store i32 %.sroa.0237.0.copyload, ptr %12, align 8, !tbaa !13
-  store i32 %.fr.i, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !13
+199:                                              ; preds = %ComputeDistanceCost.exit216
+  store i32 %.sroa.0234.0.copyload, ptr %12, align 8, !tbaa !13
+  store i32 %.sroa.12242.0.copyload, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !13
   store i64 %13, ptr %.sroa.20.0..sroa_idx, align 8
-  store i64 %.sroa.20255.0.copyload, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !14
-  br label %ComputeDistanceCost.exit219.thread
+  store i64 %.sroa.20252.0.copyload, ptr %.sroa.20252.0..sroa_idx, align 8, !tbaa !14
+  br label %ComputeDistanceCost.exit216.thread
 
-ComputeDistanceCost.exit219.thread:               ; preds = %ComputeDistanceCost.exit219, %197, %170
+ComputeDistanceCost.exit216.thread:               ; preds = %ComputeDistanceCost.exit216, %199, %172
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %14) #11
-  %198 = load i32, ptr %12, align 8, !tbaa !3
-  %199 = icmp eq i32 %.sroa.0237.0.copyload, %198
-  br i1 %199, label %200, label %204
+  %200 = load i32, ptr %12, align 8, !tbaa !3
+  %201 = icmp eq i32 %.sroa.0234.0.copyload, %200
+  br i1 %201, label %202, label %206
 
-200:                                              ; preds = %ComputeDistanceCost.exit219.thread
-  %201 = load i32, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !9
-  %202 = icmp ne i32 %.fr.i, %201
-  %203 = icmp ne i64 %8, 0
-  %or.cond.i = and i1 %203, %202
-  br i1 %or.cond.i, label %.lr.ph.i220.preheader, label %RecomputeDistancePrefixes.exit
+202:                                              ; preds = %ComputeDistanceCost.exit216.thread
+  %203 = load i32, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !9
+  %204 = icmp ne i32 %.sroa.12242.0.copyload, %203
+  %205 = icmp ne i64 %8, 0
+  %or.cond.i = and i1 %205, %204
+  br i1 %or.cond.i, label %.lr.ph.i217.preheader, label %RecomputeDistancePrefixes.exit
 
-204:                                              ; preds = %ComputeDistanceCost.exit219.thread
-  br i1 %.not4556.i, label %RecomputeDistancePrefixes.exit, label %.lr.ph.i220.preheader
+206:                                              ; preds = %ComputeDistanceCost.exit216.thread
+  br i1 %.not4555.i, label %RecomputeDistancePrefixes.exit, label %.lr.ph.i217.preheader
 
-.lr.ph.i220.preheader:                            ; preds = %204, %200
-  br label %.lr.ph.i220
+.lr.ph.i217.preheader:                            ; preds = %206, %202
+  br label %.lr.ph.i217
 
-.lr.ph.i220:                                      ; preds = %.lr.ph.i220.preheader, %274
-  %.01.i = phi i64 [ %275, %274 ], [ 0, %.lr.ph.i220.preheader ]
-  %205 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.01.i
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
-  %207 = load i32, ptr %206, align 4, !tbaa !35
-  %208 = and i32 %207, 33554431
-  %.not.i222 = icmp eq i32 %208, 0
-  br i1 %.not.i222, label %274, label %209
+.lr.ph.i217:                                      ; preds = %.lr.ph.i217.preheader, %276
+  %.01.i = phi i64 [ %277, %276 ], [ 0, %.lr.ph.i217.preheader ]
+  %207 = getelementptr inbounds nuw %struct.Command, ptr %7, i64 %.01.i
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  %209 = load i32, ptr %208, align 4, !tbaa !35
+  %210 = and i32 %209, 33554431
+  %.not.i219 = icmp eq i32 %210, 0
+  br i1 %.not.i219, label %276, label %211
 
-209:                                              ; preds = %.lr.ph.i220
-  %210 = getelementptr inbounds nuw i8, ptr %205, i64 12
-  %211 = load i16, ptr %210, align 4, !tbaa !38
-  %212 = icmp ugt i16 %211, 127
-  br i1 %212, label %213, label %274
+211:                                              ; preds = %.lr.ph.i217
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 12
+  %213 = load i16, ptr %212, align 4, !tbaa !38
+  %214 = icmp ugt i16 %213, 127
+  br i1 %214, label %215, label %276
 
-213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw i8, ptr %205, i64 14
-  %215 = load i16, ptr %214, align 2, !tbaa !39
-  %216 = zext i16 %215 to i32
-  %217 = and i32 %216, 1023
-  %218 = icmp ult i32 %217, %18
-  br i1 %218, label %CommandRestoreDistanceCode.exit.i, label %219
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw i8, ptr %207, i64 14
+  %217 = load i16, ptr %216, align 2, !tbaa !39
+  %218 = zext i16 %217 to i32
+  %219 = and i32 %218, 1023
+  %220 = icmp ult i32 %219, %18
+  br i1 %220, label %CommandRestoreDistanceCode.exit.i, label %221
 
-219:                                              ; preds = %213
-  %220 = lshr i32 %216, 10
-  %221 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %222 = load i32, ptr %221, align 4, !tbaa !40
-  %223 = sub nsw i32 %217, %.fr.i
-  %224 = add nsw i32 %223, -16
-  %225 = lshr i32 %224, %.sroa.0237.0.copyload
-  %226 = and i32 %224, %19
-  %227 = and i32 %225, 1
-  %228 = or disjoint i32 %227, 2
-  %229 = shl i32 %228, %220
-  %230 = add i32 %229, -4
-  %231 = add i32 %230, %222
-  %232 = shl i32 %231, %.sroa.0237.0.copyload
-  %233 = add nuw i32 %226, %18
-  %234 = add i32 %233, %232
+221:                                              ; preds = %215
+  %222 = lshr i32 %218, 10
+  %223 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %224 = load i32, ptr %223, align 4, !tbaa !40
+  %225 = sub nsw i32 %219, %.sroa.12242.0.copyload
+  %226 = add nsw i32 %225, -16
+  %227 = lshr i32 %226, %.sroa.0234.0.copyload
+  %228 = and i32 %226, %19
+  %229 = and i32 %227, 1
+  %230 = or disjoint i32 %229, 2
+  %231 = shl i32 %230, %222
+  %232 = add i32 %231, -4
+  %233 = add i32 %232, %224
+  %234 = shl i32 %233, %.sroa.0234.0.copyload
+  %235 = add nuw i32 %228, %18
+  %236 = add i32 %235, %234
   br label %CommandRestoreDistanceCode.exit.i
 
-CommandRestoreDistanceCode.exit.i:                ; preds = %219, %213
-  %.0.i.i = phi i32 [ %234, %219 ], [ %217, %213 ]
-  %235 = zext i32 %.0.i.i to i64
-  %236 = load i32, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !9
-  %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %239 = add nuw nsw i64 %237, 16
-  %240 = icmp samesign ugt i64 %239, %235
-  br i1 %240, label %241, label %243
-
-241:                                              ; preds = %CommandRestoreDistanceCode.exit.i
-  %242 = trunc i32 %.0.i.i to i16
-  br label %PrefixEncodeCopyDistance.exit.i224
+CommandRestoreDistanceCode.exit.i:                ; preds = %221, %215
+  %.0.i.i = phi i32 [ %236, %221 ], [ %219, %215 ]
+  %237 = zext i32 %.0.i.i to i64
+  %238 = load i32, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !9
+  %239 = zext i32 %238 to i64
+  %240 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %241 = add nuw nsw i64 %239, 16
+  %242 = icmp samesign ugt i64 %241, %237
+  br i1 %242, label %243, label %245
 
 243:                                              ; preds = %CommandRestoreDistanceCode.exit.i
-  %244 = load i32, ptr %12, align 8, !tbaa !3
-  %245 = zext i32 %244 to i64
-  %246 = shl nuw i64 4, %245
-  %247 = add nsw i64 %235, -16
-  %248 = sub nsw i64 %247, %237
-  %249 = add i64 %248, %246
-  %250 = trunc i64 %249 to i32
-  %251 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %250, i1 true)
-  %252 = sub nsw i32 30, %251
-  %253 = zext i32 %252 to i64
-  %notmask.i16.i = shl nsw i32 -1, %244
-  %254 = xor i32 %notmask.i16.i, -1
-  %255 = zext nneg i32 %254 to i64
-  %256 = and i64 %249, %255
-  %257 = lshr i64 %249, %253
-  %258 = and i64 %257, 1
-  %259 = or disjoint i64 %258, 2
-  %260 = shl i64 %259, %253
-  %261 = sub nsw i64 %253, %245
-  %262 = shl nsw i64 %261, 10
-  %263 = shl nsw i64 %261, 1
-  %264 = add nsw i64 %263, 65534
-  %265 = or disjoint i64 %264, %258
-  %266 = shl i64 %265, %245
-  %267 = add nuw nsw i64 %256, %239
-  %268 = add i64 %267, %266
-  %269 = or i64 %268, %262
-  %270 = trunc i64 %269 to i16
-  %271 = sub i64 %249, %260
-  %272 = lshr i64 %271, %245
-  %273 = trunc i64 %272 to i32
-  br label %PrefixEncodeCopyDistance.exit.i224
+  %244 = trunc i32 %.0.i.i to i16
+  br label %PrefixEncodeCopyDistance.exit.i221
 
-PrefixEncodeCopyDistance.exit.i224:               ; preds = %243, %241
-  %.sink.i = phi i16 [ %242, %241 ], [ %270, %243 ]
-  %storemerge.i.i = phi i32 [ 0, %241 ], [ %273, %243 ]
-  store i16 %.sink.i, ptr %214, align 2, !tbaa !46
-  store i32 %storemerge.i.i, ptr %238, align 4, !tbaa !13
-  br label %274
+245:                                              ; preds = %CommandRestoreDistanceCode.exit.i
+  %246 = load i32, ptr %12, align 8, !tbaa !3
+  %247 = zext i32 %246 to i64
+  %248 = shl nuw i64 4, %247
+  %249 = add nsw i64 %237, -16
+  %250 = sub nsw i64 %249, %239
+  %251 = add i64 %250, %248
+  %252 = trunc i64 %251 to i32
+  %253 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
+  %254 = sub nsw i32 30, %253
+  %255 = zext i32 %254 to i64
+  %notmask.i16.i = shl nsw i32 -1, %246
+  %256 = xor i32 %notmask.i16.i, -1
+  %257 = zext nneg i32 %256 to i64
+  %258 = and i64 %251, %257
+  %259 = lshr i64 %251, %255
+  %260 = and i64 %259, 1
+  %261 = or disjoint i64 %260, 2
+  %262 = shl i64 %261, %255
+  %263 = sub nsw i64 %255, %247
+  %264 = shl nsw i64 %263, 10
+  %265 = shl nsw i64 %263, 1
+  %266 = add nsw i64 %265, 65534
+  %267 = or disjoint i64 %266, %260
+  %268 = shl i64 %267, %247
+  %269 = add nuw nsw i64 %258, %241
+  %270 = add i64 %269, %268
+  %271 = or i64 %270, %264
+  %272 = trunc i64 %271 to i16
+  %273 = sub i64 %251, %262
+  %274 = lshr i64 %273, %247
+  %275 = trunc i64 %274 to i32
+  br label %PrefixEncodeCopyDistance.exit.i221
 
-274:                                              ; preds = %PrefixEncodeCopyDistance.exit.i224, %209, %.lr.ph.i220
-  %275 = add nuw i64 %.01.i, 1
-  %exitcond.not.i223 = icmp eq i64 %275, %8
-  br i1 %exitcond.not.i223, label %RecomputeDistancePrefixes.exit, label %.lr.ph.i220, !llvm.loop !47
+PrefixEncodeCopyDistance.exit.i221:               ; preds = %245, %243
+  %.sink.i = phi i16 [ %244, %243 ], [ %272, %245 ]
+  %storemerge.i.i = phi i32 [ 0, %243 ], [ %275, %245 ]
+  store i16 %.sink.i, ptr %216, align 2, !tbaa !46
+  store i32 %storemerge.i.i, ptr %240, align 4, !tbaa !13
+  br label %276
 
-RecomputeDistancePrefixes.exit:                   ; preds = %274, %200, %204
-  %276 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %277 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  tail call void @BrotliSplitBlock(ptr noundef %0, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %10, ptr noundef nonnull %276, ptr noundef nonnull %277) #11
-  %278 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %279 = load i32, ptr %278, align 8, !tbaa !48
-  %.not165 = icmp eq i32 %279, 0
-  %.pre328 = load i64, ptr %10, align 8, !tbaa !49
-  br i1 %.not165, label %280, label %.loopexit278
+276:                                              ; preds = %PrefixEncodeCopyDistance.exit.i221, %211, %.lr.ph.i217
+  %277 = add nuw i64 %.01.i, 1
+  %exitcond.not.i220 = icmp eq i64 %277, %8
+  br i1 %exitcond.not.i220, label %RecomputeDistancePrefixes.exit, label %.lr.ph.i217, !llvm.loop !47
 
-280:                                              ; preds = %RecomputeDistancePrefixes.exit
-  %.not166 = icmp eq i64 %.pre328, 0
-  br i1 %.not166, label %ClearHistogramsLiteral.exit, label %281
+RecomputeDistancePrefixes.exit:                   ; preds = %276, %202, %206
+  %278 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %279 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  tail call void @BrotliSplitBlock(ptr noundef %0, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %10, ptr noundef nonnull %278, ptr noundef nonnull %279) #11
+  %280 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %281 = load i32, ptr %280, align 8, !tbaa !48
+  %.not165 = icmp eq i32 %281, 0
+  %.pre325 = load i64, ptr %10, align 8, !tbaa !49
+  br i1 %.not165, label %282, label %.loopexit275
 
-281:                                              ; preds = %280
-  %282 = shl i64 %.pre328, 2
-  %283 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %282) #11
+282:                                              ; preds = %RecomputeDistancePrefixes.exit
+  %.not166 = icmp eq i64 %.pre325, 0
+  br i1 %.not166, label %ClearHistogramsLiteral.exit, label %283
+
+283:                                              ; preds = %282
+  %284 = shl i64 %.pre325, 2
+  %285 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %284) #11
   %.pre = load i64, ptr %10, align 8, !tbaa !49
-  %.not312 = icmp eq i64 %.pre, 0
-  br i1 %.not312, label %ClearHistogramsLiteral.exit, label %.lr.ph301
+  %.not309 = icmp eq i64 %.pre, 0
+  br i1 %.not309, label %ClearHistogramsLiteral.exit, label %.lr.ph298
 
-.lr.ph301:                                        ; preds = %281, %.lr.ph301
-  %.0153300 = phi i64 [ %285, %.lr.ph301 ], [ 0, %281 ]
-  %284 = getelementptr inbounds nuw i32, ptr %283, i64 %.0153300
-  store i32 %9, ptr %284, align 4, !tbaa !13
-  %285 = add nuw i64 %.0153300, 1
-  %exitcond323.not = icmp eq i64 %285, %.pre
-  br i1 %exitcond323.not, label %.loopexit278.loopexit, label %.lr.ph301, !llvm.loop !56
+.lr.ph298:                                        ; preds = %283, %.lr.ph298
+  %.0153297 = phi i64 [ %287, %.lr.ph298 ], [ 0, %283 ]
+  %286 = getelementptr inbounds nuw i32, ptr %285, i64 %.0153297
+  store i32 %9, ptr %286, align 4, !tbaa !13
+  %287 = add nuw i64 %.0153297, 1
+  %exitcond320.not = icmp eq i64 %287, %.pre
+  br i1 %exitcond320.not, label %.loopexit275.loopexit, label %.lr.ph298, !llvm.loop !56
 
-.loopexit278.loopexit:                            ; preds = %.lr.ph301
-  %286 = shl i64 %.pre, 6
-  br label %.loopexit278
+.loopexit275.loopexit:                            ; preds = %.lr.ph298
+  %288 = shl i64 %.pre, 6
+  br label %.loopexit275
 
-.loopexit278:                                     ; preds = %.loopexit278.loopexit, %RecomputeDistancePrefixes.exit
-  %287 = phi i64 [ %.pre328, %RecomputeDistancePrefixes.exit ], [ %286, %.loopexit278.loopexit ]
-  %.0155 = phi ptr [ null, %RecomputeDistancePrefixes.exit ], [ %283, %.loopexit278.loopexit ]
-  %.not167 = icmp eq i64 %287, 0
-  br i1 %.not167, label %ClearHistogramsLiteral.exit, label %.lr.ph303.preheader
+.loopexit275:                                     ; preds = %.loopexit275.loopexit, %RecomputeDistancePrefixes.exit
+  %289 = phi i64 [ %.pre325, %RecomputeDistancePrefixes.exit ], [ %288, %.loopexit275.loopexit ]
+  %.0155 = phi ptr [ null, %RecomputeDistancePrefixes.exit ], [ %285, %.loopexit275.loopexit ]
+  %.not167 = icmp eq i64 %289, 0
+  br i1 %.not167, label %ClearHistogramsLiteral.exit, label %.lr.ph300.preheader
 
-.lr.ph303.preheader:                              ; preds = %.loopexit278
-  %288 = mul i64 %287, 1040
-  %289 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %288) #11
-  br label %.lr.ph303
+.lr.ph300.preheader:                              ; preds = %.loopexit275
+  %290 = mul i64 %289, 1040
+  %291 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %290) #11
+  br label %.lr.ph300
 
-.lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
-  %.0.i302 = phi i64 [ %292, %.lr.ph303 ], [ 0, %.lr.ph303.preheader ]
-  %290 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %289, i64 %.0.i302
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 1032
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %290, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %291, align 8, !tbaa !57
-  %292 = add nuw i64 %.0.i302, 1
-  %exitcond324.not = icmp eq i64 %292, %287
-  br i1 %exitcond324.not, label %ClearHistogramsLiteral.exit, label %.lr.ph303, !llvm.loop !59
+.lr.ph300:                                        ; preds = %.lr.ph300.preheader, %.lr.ph300
+  %.0.i299 = phi i64 [ %294, %.lr.ph300 ], [ 0, %.lr.ph300.preheader ]
+  %292 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %291, i64 %.0.i299
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 1032
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %292, i8 0, i64 1032, i1 false)
+  store double 0x7FF0000000000000, ptr %293, align 8, !tbaa !57
+  %294 = add nuw i64 %.0.i299, 1
+  %exitcond321.not = icmp eq i64 %294, %289
+  br i1 %exitcond321.not, label %ClearHistogramsLiteral.exit, label %.lr.ph300, !llvm.loop !59
 
-ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph303, %280, %281, %.loopexit278
-  %293 = phi ptr [ null, %280 ], [ null, %.loopexit278 ], [ null, %281 ], [ %289, %.lr.ph303 ]
-  %294 = phi i64 [ 0, %280 ], [ 0, %.loopexit278 ], [ 0, %281 ], [ %287, %.lr.ph303 ]
-  %.0155370375 = phi ptr [ null, %280 ], [ %.0155, %.loopexit278 ], [ %283, %281 ], [ %.0155, %.lr.ph303 ]
-  %295 = load i64, ptr %277, align 8, !tbaa !60
-  %296 = shl i64 %295, 2
-  %.not168 = icmp eq i64 %296, 0
-  br i1 %.not168, label %ClearHistogramsDistance.exit, label %.lr.ph305.preheader
+ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph300, %282, %283, %.loopexit275
+  %295 = phi ptr [ null, %282 ], [ null, %.loopexit275 ], [ null, %283 ], [ %291, %.lr.ph300 ]
+  %296 = phi i64 [ 0, %282 ], [ 0, %.loopexit275 ], [ 0, %283 ], [ %289, %.lr.ph300 ]
+  %.0155367372 = phi ptr [ null, %282 ], [ %.0155, %.loopexit275 ], [ %285, %283 ], [ %.0155, %.lr.ph300 ]
+  %297 = load i64, ptr %279, align 8, !tbaa !60
+  %298 = shl i64 %297, 2
+  %.not168 = icmp eq i64 %298, 0
+  br i1 %.not168, label %ClearHistogramsDistance.exit, label %.lr.ph302.preheader
 
-.lr.ph305.preheader:                              ; preds = %ClearHistogramsLiteral.exit
-  %297 = mul i64 %295, 8768
-  %298 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %297) #11
-  br label %.lr.ph305
+.lr.ph302.preheader:                              ; preds = %ClearHistogramsLiteral.exit
+  %299 = mul i64 %297, 8768
+  %300 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %299) #11
+  br label %.lr.ph302
 
-.lr.ph305:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
-  %.0.i180304 = phi i64 [ %301, %.lr.ph305 ], [ 0, %.lr.ph305.preheader ]
-  %299 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %298, i64 %.0.i180304
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 2184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %299, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %300, align 8, !tbaa !32
-  %301 = add nuw i64 %.0.i180304, 1
-  %exitcond325.not = icmp eq i64 %301, %296
-  br i1 %exitcond325.not, label %ClearHistogramsDistance.exit, label %.lr.ph305, !llvm.loop !61
+.lr.ph302:                                        ; preds = %.lr.ph302.preheader, %.lr.ph302
+  %.0.i180301 = phi i64 [ %303, %.lr.ph302 ], [ 0, %.lr.ph302.preheader ]
+  %301 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %300, i64 %.0.i180301
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 2184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %301, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %302, align 8, !tbaa !32
+  %303 = add nuw i64 %.0.i180301, 1
+  %exitcond322.not = icmp eq i64 %303, %298
+  br i1 %exitcond322.not, label %ClearHistogramsDistance.exit, label %.lr.ph302, !llvm.loop !61
 
-ClearHistogramsDistance.exit:                     ; preds = %.lr.ph305, %ClearHistogramsLiteral.exit
-  %302 = phi ptr [ null, %ClearHistogramsLiteral.exit ], [ %298, %.lr.ph305 ]
-  %303 = load i64, ptr %276, align 8, !tbaa !62
-  %304 = getelementptr inbounds nuw i8, ptr %10, i64 200
-  store i64 %303, ptr %304, align 8, !tbaa !63
-  %.not169 = icmp eq i64 %303, 0
-  br i1 %.not169, label %.thread377, label %306
+ClearHistogramsDistance.exit:                     ; preds = %.lr.ph302, %ClearHistogramsLiteral.exit
+  %304 = phi ptr [ null, %ClearHistogramsLiteral.exit ], [ %300, %.lr.ph302 ]
+  %305 = load i64, ptr %278, align 8, !tbaa !62
+  %306 = getelementptr inbounds nuw i8, ptr %10, i64 200
+  store i64 %305, ptr %306, align 8, !tbaa !63
+  %.not169 = icmp eq i64 %305, 0
+  br i1 %.not169, label %.thread374, label %308
 
-.thread377:                                       ; preds = %ClearHistogramsDistance.exit
-  %305 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store ptr null, ptr %305, align 8, !tbaa !64
+.thread374:                                       ; preds = %ClearHistogramsDistance.exit
+  %307 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store ptr null, ptr %307, align 8, !tbaa !64
   br label %ClearHistogramsCommand.exit
 
-306:                                              ; preds = %ClearHistogramsDistance.exit
-  %307 = mul i64 %303, 2832
-  %308 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %307) #11
-  %.pre329 = load i64, ptr %304, align 8, !tbaa !63
-  %309 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store ptr %308, ptr %309, align 8, !tbaa !64
-  %.not315 = icmp eq i64 %.pre329, 0
-  br i1 %.not315, label %ClearHistogramsCommand.exit, label %.lr.ph307
+308:                                              ; preds = %ClearHistogramsDistance.exit
+  %309 = mul i64 %305, 2832
+  %310 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %309) #11
+  %.pre326 = load i64, ptr %306, align 8, !tbaa !63
+  %311 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store ptr %310, ptr %311, align 8, !tbaa !64
+  %.not312 = icmp eq i64 %.pre326, 0
+  br i1 %.not312, label %ClearHistogramsCommand.exit, label %.lr.ph304
 
-.lr.ph307:                                        ; preds = %306, %.lr.ph307
-  %.0.i181306 = phi i64 [ %312, %.lr.ph307 ], [ 0, %306 ]
-  %310 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %308, i64 %.0.i181306
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 2824
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %310, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %311, align 8, !tbaa !65
-  %312 = add nuw i64 %.0.i181306, 1
-  %exitcond326.not = icmp eq i64 %312, %.pre329
-  br i1 %exitcond326.not, label %ClearHistogramsCommand.exit.loopexit, label %.lr.ph307, !llvm.loop !67
+.lr.ph304:                                        ; preds = %308, %.lr.ph304
+  %.0.i181303 = phi i64 [ %314, %.lr.ph304 ], [ 0, %308 ]
+  %312 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %310, i64 %.0.i181303
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 2824
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %312, i8 0, i64 2824, i1 false)
+  store double 0x7FF0000000000000, ptr %313, align 8, !tbaa !65
+  %314 = add nuw i64 %.0.i181303, 1
+  %exitcond323.not = icmp eq i64 %314, %.pre326
+  br i1 %exitcond323.not, label %ClearHistogramsCommand.exit.loopexit, label %.lr.ph304, !llvm.loop !67
 
-ClearHistogramsCommand.exit.loopexit:             ; preds = %.lr.ph307
-  %.pre330 = load ptr, ptr %309, align 8, !tbaa !64
+ClearHistogramsCommand.exit.loopexit:             ; preds = %.lr.ph304
+  %.pre327 = load ptr, ptr %311, align 8, !tbaa !64
   br label %ClearHistogramsCommand.exit
 
-ClearHistogramsCommand.exit:                      ; preds = %.thread377, %ClearHistogramsCommand.exit.loopexit, %306
-  %313 = phi ptr [ %.pre330, %ClearHistogramsCommand.exit.loopexit ], [ %308, %306 ], [ null, %.thread377 ]
-  tail call void @BrotliBuildHistogramsWithContext(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %276, ptr noundef nonnull %277, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %.0155370375, ptr noundef %293, ptr noundef %313, ptr noundef %302) #11
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0155370375) #11
-  %314 = load i64, ptr %10, align 8, !tbaa !49
-  %315 = shl i64 %314, 6
-  %316 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i64 %315, ptr %316, align 8, !tbaa !68
-  %.not170 = icmp eq i64 %315, 0
-  br i1 %.not170, label %.thread271, label %319
+ClearHistogramsCommand.exit:                      ; preds = %.thread374, %ClearHistogramsCommand.exit.loopexit, %308
+  %315 = phi ptr [ %.pre327, %ClearHistogramsCommand.exit.loopexit ], [ %310, %308 ], [ null, %.thread374 ]
+  tail call void @BrotliBuildHistogramsWithContext(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %278, ptr noundef nonnull %279, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %.0155367372, ptr noundef %295, ptr noundef %315, ptr noundef %304) #11
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0155367372) #11
+  %316 = load i64, ptr %10, align 8, !tbaa !49
+  %317 = shl i64 %316, 6
+  %318 = getelementptr inbounds nuw i8, ptr %10, i64 152
+  store i64 %317, ptr %318, align 8, !tbaa !68
+  %.not170 = icmp eq i64 %317, 0
+  br i1 %.not170, label %.thread268, label %321
 
-.thread271:                                       ; preds = %ClearHistogramsCommand.exit
-  %317 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store ptr null, ptr %317, align 8, !tbaa !69
-  %318 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store i64 0, ptr %318, align 8, !tbaa !70
-  br label %327
+.thread268:                                       ; preds = %ClearHistogramsCommand.exit
+  %319 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  store ptr null, ptr %319, align 8, !tbaa !69
+  %320 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  store i64 0, ptr %320, align 8, !tbaa !70
+  br label %329
 
-319:                                              ; preds = %ClearHistogramsCommand.exit
-  %320 = shl i64 %314, 8
-  %321 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %320) #11
-  %.pr = load i64, ptr %316, align 8, !tbaa !68
-  %322 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store ptr %321, ptr %322, align 8, !tbaa !69
-  %323 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store i64 %.pr, ptr %323, align 8, !tbaa !70
+321:                                              ; preds = %ClearHistogramsCommand.exit
+  %322 = shl i64 %316, 8
+  %323 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %322) #11
+  %.pr = load i64, ptr %318, align 8, !tbaa !68
+  %324 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  store ptr %323, ptr %324, align 8, !tbaa !69
+  %325 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  store i64 %.pr, ptr %325, align 8, !tbaa !70
   %.not171 = icmp eq i64 %.pr, 0
-  br i1 %.not171, label %327, label %324
+  br i1 %.not171, label %329, label %326
 
-324:                                              ; preds = %319
-  %325 = mul i64 %.pr, 1040
-  %326 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %325) #11
-  %.pre331 = load ptr, ptr %322, align 8, !tbaa !69
-  br label %327
+326:                                              ; preds = %321
+  %327 = mul i64 %.pr, 1040
+  %328 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %327) #11
+  %.pre328 = load ptr, ptr %324, align 8, !tbaa !69
+  br label %329
 
-327:                                              ; preds = %.thread271, %319, %324
-  %328 = phi ptr [ %.pre331, %324 ], [ %321, %319 ], [ null, %.thread271 ]
-  %329 = phi ptr [ %323, %324 ], [ %323, %319 ], [ %318, %.thread271 ]
-  %330 = phi ptr [ %322, %324 ], [ %322, %319 ], [ %317, %.thread271 ]
-  %331 = phi ptr [ %326, %324 ], [ null, %319 ], [ null, %.thread271 ]
-  %332 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  store ptr %331, ptr %332, align 8, !tbaa !71
-  tail call void @BrotliClusterHistogramsLiteral(ptr noundef %0, ptr noundef %293, i64 noundef %294, i64 noundef 256, ptr noundef %331, ptr noundef nonnull %329, ptr noundef %328) #11
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %293) #11
-  %333 = load i32, ptr %278, align 8, !tbaa !48
-  %.not172 = icmp eq i32 %333, 0
-  br i1 %.not172, label %.loopexit277, label %334
+329:                                              ; preds = %.thread268, %321, %326
+  %330 = phi ptr [ %.pre328, %326 ], [ %323, %321 ], [ null, %.thread268 ]
+  %331 = phi ptr [ %325, %326 ], [ %325, %321 ], [ %320, %.thread268 ]
+  %332 = phi ptr [ %324, %326 ], [ %324, %321 ], [ %319, %.thread268 ]
+  %333 = phi ptr [ %328, %326 ], [ null, %321 ], [ null, %.thread268 ]
+  %334 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  store ptr %333, ptr %334, align 8, !tbaa !71
+  tail call void @BrotliClusterHistogramsLiteral(ptr noundef %0, ptr noundef %295, i64 noundef %296, i64 noundef 256, ptr noundef %333, ptr noundef nonnull %331, ptr noundef %330) #11
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %295) #11
+  %335 = load i32, ptr %280, align 8, !tbaa !48
+  %.not172 = icmp eq i32 %335, 0
+  br i1 %.not172, label %.loopexit274, label %336
 
-334:                                              ; preds = %327
-  %335 = load i64, ptr %10, align 8, !tbaa !49
-  %.not173309 = icmp eq i64 %335, 0
-  br i1 %.not173309, label %.loopexit277, label %.lr.ph311
+336:                                              ; preds = %329
+  %337 = load i64, ptr %10, align 8, !tbaa !49
+  %.not173306 = icmp eq i64 %337, 0
+  br i1 %.not173306, label %.loopexit274, label %.lr.ph308
 
-.lr.ph311:                                        ; preds = %334
-  %336 = load ptr, ptr %330, align 8, !tbaa !69
-  br label %337
+.lr.ph308:                                        ; preds = %336
+  %338 = load ptr, ptr %332, align 8, !tbaa !69
+  br label %339
 
-.loopexit:                                        ; preds = %341
-  %.not173 = icmp eq i64 %338, 0
-  br i1 %.not173, label %.loopexit277, label %337, !llvm.loop !72
+.loopexit:                                        ; preds = %343
+  %.not173 = icmp eq i64 %340, 0
+  br i1 %.not173, label %.loopexit274, label %339, !llvm.loop !72
 
-337:                                              ; preds = %.lr.ph311, %.loopexit
-  %.1154310 = phi i64 [ %335, %.lr.ph311 ], [ %338, %.loopexit ]
-  %338 = add i64 %.1154310, -1
-  %339 = getelementptr inbounds nuw i32, ptr %336, i64 %338
-  %.idx = shl i64 %338, 8
-  %340 = getelementptr inbounds nuw i8, ptr %336, i64 %.idx
-  %.pre332 = load i32, ptr %339, align 4, !tbaa !13
-  br label %341
+339:                                              ; preds = %.lr.ph308, %.loopexit
+  %.1154307 = phi i64 [ %337, %.lr.ph308 ], [ %340, %.loopexit ]
+  %340 = add i64 %.1154307, -1
+  %341 = getelementptr inbounds nuw i32, ptr %338, i64 %340
+  %.idx = shl i64 %340, 8
+  %342 = getelementptr inbounds nuw i8, ptr %338, i64 %.idx
+  %.pre329 = load i32, ptr %341, align 4, !tbaa !13
+  br label %343
 
-341:                                              ; preds = %337, %341
-  %.0308 = phi i64 [ 0, %337 ], [ %343, %341 ]
-  %342 = getelementptr inbounds nuw i32, ptr %340, i64 %.0308
-  store i32 %.pre332, ptr %342, align 4, !tbaa !13
-  %343 = add nuw nsw i64 %.0308, 1
-  %exitcond327.not = icmp eq i64 %343, 64
-  br i1 %exitcond327.not, label %.loopexit, label %341, !llvm.loop !73
+343:                                              ; preds = %339, %343
+  %.0305 = phi i64 [ 0, %339 ], [ %345, %343 ]
+  %344 = getelementptr inbounds nuw i32, ptr %342, i64 %.0305
+  store i32 %.pre329, ptr %344, align 4, !tbaa !13
+  %345 = add nuw nsw i64 %.0305, 1
+  %exitcond324.not = icmp eq i64 %345, 64
+  br i1 %exitcond324.not, label %.loopexit, label %343, !llvm.loop !73
 
-.loopexit277:                                     ; preds = %.loopexit, %334, %327
-  %344 = load i64, ptr %277, align 8, !tbaa !60
-  %345 = shl i64 %344, 2
-  %346 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  store i64 %345, ptr %346, align 8, !tbaa !74
-  %.not174 = icmp eq i64 %345, 0
-  br i1 %.not174, label %.thread274, label %349
+.loopexit274:                                     ; preds = %.loopexit, %336, %329
+  %346 = load i64, ptr %279, align 8, !tbaa !60
+  %347 = shl i64 %346, 2
+  %348 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  store i64 %347, ptr %348, align 8, !tbaa !74
+  %.not174 = icmp eq i64 %347, 0
+  br i1 %.not174, label %.thread271, label %351
 
-.thread274:                                       ; preds = %.loopexit277
-  %347 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr null, ptr %347, align 8, !tbaa !75
-  %348 = getelementptr inbounds nuw i8, ptr %10, i64 216
-  store i64 0, ptr %348, align 8, !tbaa !76
-  br label %357
+.thread271:                                       ; preds = %.loopexit274
+  %349 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store ptr null, ptr %349, align 8, !tbaa !75
+  %350 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  store i64 0, ptr %350, align 8, !tbaa !76
+  br label %359
 
-349:                                              ; preds = %.loopexit277
-  %350 = shl i64 %344, 4
-  %351 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %350) #11
-  %.pr273 = load i64, ptr %346, align 8, !tbaa !74
-  %352 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr %351, ptr %352, align 8, !tbaa !75
-  %353 = getelementptr inbounds nuw i8, ptr %10, i64 216
-  store i64 %.pr273, ptr %353, align 8, !tbaa !76
-  %.not175 = icmp eq i64 %.pr273, 0
-  br i1 %.not175, label %357, label %354
+351:                                              ; preds = %.loopexit274
+  %352 = shl i64 %346, 4
+  %353 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %352) #11
+  %.pr270 = load i64, ptr %348, align 8, !tbaa !74
+  %354 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store ptr %353, ptr %354, align 8, !tbaa !75
+  %355 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  store i64 %.pr270, ptr %355, align 8, !tbaa !76
+  %.not175 = icmp eq i64 %.pr270, 0
+  br i1 %.not175, label %359, label %356
 
-354:                                              ; preds = %349
-  %355 = mul i64 %.pr273, 2192
-  %356 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %355) #11
-  %.pre333 = load i64, ptr %346, align 8, !tbaa !74
-  %.pre334 = load ptr, ptr %352, align 8, !tbaa !75
-  br label %357
+356:                                              ; preds = %351
+  %357 = mul i64 %.pr270, 2192
+  %358 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %357) #11
+  %.pre330 = load i64, ptr %348, align 8, !tbaa !74
+  %.pre331 = load ptr, ptr %354, align 8, !tbaa !75
+  br label %359
 
-357:                                              ; preds = %.thread274, %349, %354
-  %358 = phi ptr [ %.pre334, %354 ], [ %351, %349 ], [ null, %.thread274 ]
-  %359 = phi i64 [ %.pre333, %354 ], [ 0, %349 ], [ 0, %.thread274 ]
-  %360 = phi ptr [ %353, %354 ], [ %353, %349 ], [ %348, %.thread274 ]
-  %361 = phi ptr [ %356, %354 ], [ null, %349 ], [ null, %.thread274 ]
-  %362 = getelementptr inbounds nuw i8, ptr %10, i64 208
-  store ptr %361, ptr %362, align 8, !tbaa !77
-  tail call void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef %302, i64 noundef %359, i64 noundef 256, ptr noundef %361, ptr noundef nonnull %360, ptr noundef %358) #11
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %302) #11
+359:                                              ; preds = %.thread271, %351, %356
+  %360 = phi ptr [ %.pre331, %356 ], [ %353, %351 ], [ null, %.thread271 ]
+  %361 = phi i64 [ %.pre330, %356 ], [ 0, %351 ], [ 0, %.thread271 ]
+  %362 = phi ptr [ %355, %356 ], [ %355, %351 ], [ %350, %.thread271 ]
+  %363 = phi ptr [ %358, %356 ], [ null, %351 ], [ null, %.thread271 ]
+  %364 = getelementptr inbounds nuw i8, ptr %10, i64 208
+  store ptr %363, ptr %364, align 8, !tbaa !77
+  tail call void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef %304, i64 noundef %361, i64 noundef 256, ptr noundef %363, ptr noundef nonnull %362, ptr noundef %360) #11
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef %304) #11
   ret void
 }
 

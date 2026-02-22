@@ -16045,7 +16045,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43
-  %.048 = phi i64 [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43 ], [ %1, %4 ]
+  %.048 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43 ], [ %1, %4 ]
   %9 = shl i64 %.048, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %10
@@ -16055,23 +16055,20 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %14 = getelementptr i8, ptr %11, i64 8
   %.val1.i = load i64, ptr %14, align 8, !tbaa !147
   %.val2.i = load ptr, ptr %13, align 8, !tbaa !145
-  %.val2.i.fr = freeze ptr %.val2.i
   %15 = getelementptr i8, ptr %13, i64 8
   %.val3.i = load i64, ptr %15, align 8, !tbaa !147
-  %.val3.i.fr = freeze i64 %.val3.i
-  %16 = getelementptr %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.fr, i64 %.val3.i.fr
-  %.val1.i.fr = freeze i64 %.val1.i
-  %.v.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val3.i.fr, i64 %.val1.i.fr)
+  %16 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i, i64 %.val3.i
+  %.v.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val3.i, i64 %.val1.i)
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 %.v.i.i.i
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph
-  %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.val2.i.fr, i64 %.v.i.i.i
+  %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.val2.i, i64 %.v.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %21, %.lr.ph.preheader.i.i.i.i.i.i.i.i
-  %.01926.i.i.i.i.i.i.i.i = phi ptr [ %23, %21 ], [ %.val2.i.fr, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %.01926.i.i.i.i.i.i.i.i = phi ptr [ %23, %21 ], [ %.val2.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
   %.02025.i.i.i.i.i.i.i.i = phi ptr [ %22, %21 ], [ %.val.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
   %.020.val.i.i.i.i.i.i.i.i = load i8, ptr %.02025.i.i.i.i.i.i.i.i, align 1, !tbaa !239
   %.019.val.i.i.i.i.i.i.i.i = load i8, ptr %.01926.i.i.i.i.i.i.i.i, align 1, !tbaa !17
@@ -16089,75 +16086,76 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !325
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit: ; preds = %21, %.lr.ph
-  %.019.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %.val2.i.fr, %.lr.ph ], [ %scevgep.i.i.i.i.i.i.i.i, %21 ]
-  %.not = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i, %16
-  br i1 %.not, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread
+  %.019.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %.val2.i, %.lr.ph ], [ %scevgep.i.i.i.i.i.i.i.i, %21 ]
+  %24 = icmp ne ptr %.019.lcssa.i.i.i.i.i.i.i.i, %16
+  %cond.fr = freeze i1 %24
+  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43: ; preds = %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread
-  %24 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %10, %19 ]
-  %25 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %24
-  %26 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.048
-  %27 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %25)
-  %28 = icmp slt i64 %24, %7
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !426
+  %25 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %10, %19 ]
+  %26 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %25
+  %27 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.048
+  %28 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %29 = icmp slt i64 %25, %7
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !426
 
 ._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43, %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43 ]
-  %29 = and i64 %2, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %41
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread43 ]
+  %30 = and i64 %2, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %42
 
-31:                                               ; preds = %._crit_edge
-  %32 = add nsw i64 %2, -2
-  %33 = ashr exact i64 %32, 1
-  %34 = icmp eq i64 %.0.lcssa, %33
-  br i1 %34, label %35, label %41
+32:                                               ; preds = %._crit_edge
+  %33 = add nsw i64 %2, -2
+  %34 = ashr exact i64 %33, 1
+  %35 = icmp eq i64 %.0.lcssa, %34
+  br i1 %35, label %36, label %42
 
-35:                                               ; preds = %31
-  %36 = shl nsw i64 %.0.lcssa, 1
-  %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.0.lcssa
-  %40 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %38)
-  br label %41
+36:                                               ; preds = %32
+  %37 = shl nsw i64 %.0.lcssa, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %38
+  %40 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.0.lcssa
+  %41 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  br label %42
 
-41:                                               ; preds = %35, %31, %._crit_edge
-  %.1 = phi i64 [ %37, %35 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %._crit_edge ]
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %42, ptr %5, align 8, !tbaa !145
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %43, align 8, !tbaa !147
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 3, ptr %44, align 8, !tbaa !148
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !147
-  %.not.i.i.i = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit, label %47
+42:                                               ; preds = %36, %32, %._crit_edge
+  %.1 = phi i64 [ %38, %36 ], [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ]
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %43, ptr %5, align 8, !tbaa !145
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %44, align 8, !tbaa !147
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 3, ptr %45, align 8, !tbaa !148
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !147
+  %.not.i.i.i = icmp eq i64 %47, 0
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit, label %48
 
-47:                                               ; preds = %41
-  %48 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
+48:                                               ; preds = %42
+  %49 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit
 
-_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit: ; preds = %41, %47
-  %49 = icmp sgt i64 %.1, %1
-  br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
+_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit: ; preds = %42, %48
+  %50 = icmp sgt i64 %.1, %1
+  br i1 %50, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i
   %.013.i = phi i64 [ %.0914.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i ], [ %.1, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit ]
   %.0914.in.i = add nsw i64 %.013.i, -1
   %.0914.i = sdiv i64 %.0914.in.i, 2
-  %50 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.0914.i
+  %51 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.0914.i
   %.val16.i = load ptr, ptr %5, align 8, !tbaa !145
-  %.val17.i = load i64, ptr %43, align 8, !tbaa !147
-  %.val.i.i = load ptr, ptr %50, align 8, !tbaa !145
-  %51 = getelementptr i8, ptr %50, i64 8
-  %.val1.i.i = load i64, ptr %51, align 8, !tbaa !147
-  %52 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val16.i, i64 %.val17.i
+  %.val17.i = load i64, ptr %44, align 8, !tbaa !147
+  %.val.i.i = load ptr, ptr %51, align 8, !tbaa !145
+  %52 = getelementptr i8, ptr %51, i64 8
+  %.val1.i.i = load i64, ptr %52, align 8, !tbaa !147
+  %53 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val16.i, i64 %.val17.i
   %.v.i.i.i.i = call i64 @llvm.smin.i64(i64 %.val17.i, i64 %.val1.i.i)
-  %53 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.v.i.i.i.i
+  %54 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.v.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
@@ -16165,142 +16163,142 @@ _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit: ; preds = %41, %47
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.val16.i, i64 %.v.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %57, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %.01926.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %57 ], [ %.val16.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
-  %.02025.i.i.i.i.i.i.i.i.i = phi ptr [ %58, %57 ], [ %.val.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %58, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
+  %.01926.i.i.i.i.i.i.i.i.i = phi ptr [ %60, %58 ], [ %.val16.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
+  %.02025.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %58 ], [ %.val.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
   %.020.val.i.i.i.i.i.i.i.i.i = load i8, ptr %.02025.i.i.i.i.i.i.i.i.i, align 1, !tbaa !239
   %.019.val.i.i.i.i.i.i.i.i.i = load i8, ptr %.01926.i.i.i.i.i.i.i.i.i, align 1, !tbaa !17
-  %54 = icmp slt i8 %.020.val.i.i.i.i.i.i.i.i.i, %.019.val.i.i.i.i.i.i.i.i.i
-  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i, label %55
+  %55 = icmp slt i8 %.020.val.i.i.i.i.i.i.i.i.i, %.019.val.i.i.i.i.i.i.i.i.i
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i, label %56
 
-55:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %56 = icmp slt i8 %.019.val.i.i.i.i.i.i.i.i.i, %.020.val.i.i.i.i.i.i.i.i.i
-  br i1 %56, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, label %57
+56:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %57 = icmp slt i8 %.019.val.i.i.i.i.i.i.i.i.i, %.020.val.i.i.i.i.i.i.i.i.i
+  br i1 %57, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, label %58
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %.02025.i.i.i.i.i.i.i.i.i, i64 1
-  %59 = getelementptr inbounds nuw i8, ptr %.01926.i.i.i.i.i.i.i.i.i, i64 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, %53
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %.02025.i.i.i.i.i.i.i.i.i, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.01926.i.i.i.i.i.i.i.i.i, i64 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %59, %54
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !325
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i: ; preds = %57, %.lr.ph.i
-  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.val16.i, %.lr.ph.i ], [ %scevgep.i.i.i.i.i.i.i.i.i, %57 ]
-  %.not.i = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %52
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i: ; preds = %58, %.lr.ph.i
+  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.val16.i, %.lr.ph.i ], [ %scevgep.i.i.i.i.i.i.i.i.i, %58 ]
+  %.not.i = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %53
   br i1 %.not.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i
-  %60 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.013.i
-  %61 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %50)
-  %62 = icmp sgt i64 %.0914.i, %1
-  br i1 %62, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !427
+  %61 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.013.i
+  %62 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %51)
+  %63 = icmp sgt i64 %.0914.i, %1
+  br i1 %63, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !427
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i, %55, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit
-  %.010.i = phi i64 [ %.013.i, %55 ], [ %.1, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit ], [ %.013.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i ], [ %.0914.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i ]
-  %63 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.010.i
-  %64 = icmp eq ptr %63, %5
-  br i1 %64, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit, label %65
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i, %56, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit
+  %.010.i = phi i64 [ %.013.i, %56 ], [ %.1, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit ], [ %.013.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i ], [ %.0914.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i ]
+  %64 = getelementptr inbounds %"struct.(anonymous namespace)::OperandsSignature", ptr %0, i64 %.010.i
+  %65 = icmp eq ptr %64, %5
+  br i1 %65, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit, label %66
 
-65:                                               ; preds = %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
-  %66 = load ptr, ptr %5, align 8, !tbaa !145
-  %67 = icmp eq ptr %66, %42
-  br i1 %67, label %78, label %68
+66:                                               ; preds = %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit
+  %67 = load ptr, ptr %5, align 8, !tbaa !145
+  %68 = icmp eq ptr %67, %43
+  br i1 %68, label %79, label %69
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %63, align 8, !tbaa !145
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %71 = icmp eq ptr %69, %70
-  br i1 %71, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEE12assignRemoteEOS4_.exit.i, label %72
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %64, align 8, !tbaa !145
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEE12assignRemoteEOS4_.exit.i, label %73
 
-72:                                               ; preds = %68
-  call void @free(ptr noundef %69) #20
+73:                                               ; preds = %69
+  call void @free(ptr noundef %70) #20
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !145
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEE12assignRemoteEOS4_.exit.i
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEE12assignRemoteEOS4_.exit.i: ; preds = %72, %68
-  %73 = phi ptr [ %66, %68 ], [ %.pre.i, %72 ]
-  store ptr %73, ptr %63, align 8, !tbaa !145
-  %74 = load i64, ptr %43, align 8, !tbaa !147
-  %75 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 %74, ptr %75, align 8, !tbaa !147
-  %76 = load i64, ptr %44, align 8, !tbaa !148
-  %77 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store i64 %76, ptr %77, align 8, !tbaa !148
-  store ptr %42, ptr %5, align 8, !tbaa !145
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEE12assignRemoteEOS4_.exit.i: ; preds = %73, %69
+  %74 = phi ptr [ %67, %69 ], [ %.pre.i, %73 ]
+  store ptr %74, ptr %64, align 8, !tbaa !145
+  %75 = load i64, ptr %44, align 8, !tbaa !147
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i64 %75, ptr %76, align 8, !tbaa !147
+  %77 = load i64, ptr %45, align 8, !tbaa !148
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i64 %77, ptr %78, align 8, !tbaa !148
+  store ptr %43, ptr %5, align 8, !tbaa !145
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit
 
-78:                                               ; preds = %65
-  %79 = load i64, ptr %43, align 8, !tbaa !147
-  %80 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !147
-  %.not.i33 = icmp ult i64 %81, %79
-  br i1 %.not.i33, label %84, label %82
+79:                                               ; preds = %66
+  %80 = load i64, ptr %44, align 8, !tbaa !147
+  %81 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %82 = load i64, ptr %81, align 8, !tbaa !147
+  %.not.i33 = icmp ult i64 %82, %80
+  br i1 %.not.i33, label %85, label %83
 
-82:                                               ; preds = %78
-  %.not33.i = icmp eq i64 %79, 0
-  br i1 %.not33.i, label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit.i, label %83
+83:                                               ; preds = %79
+  %.not33.i = icmp eq i64 %80, 0
+  br i1 %.not33.i, label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit.i, label %84
 
-83:                                               ; preds = %82
-  %.val39.i = load ptr, ptr %63, align 8, !tbaa !145
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.val39.i, ptr align 1 %66, i64 %79, i1 false)
+84:                                               ; preds = %83
+  %.val39.i = load ptr, ptr %64, align 8, !tbaa !145
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.val39.i, ptr align 1 %67, i64 %80, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit.i
 
-_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit.i: ; preds = %83, %82
-  store i64 %79, ptr %80, align 8, !tbaa !147
-  store i64 0, ptr %43, align 8, !tbaa !147
+_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit.i: ; preds = %84, %83
+  store i64 %80, ptr %81, align 8, !tbaa !147
+  store i64 0, ptr %44, align 8, !tbaa !147
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %86 = load i64, ptr %85, align 8, !tbaa !148
-  %87 = icmp ult i64 %86, %79
-  br i1 %87, label %88, label %90
+85:                                               ; preds = %79
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %87 = load i64, ptr %86, align 8, !tbaa !148
+  %88 = icmp ult i64 %87, %80
+  br i1 %88, label %89, label %91
 
-88:                                               ; preds = %84
-  store i64 0, ptr %80, align 8, !tbaa !147
-  %89 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull %89, i64 noundef %79, i64 noundef 1) #20
+89:                                               ; preds = %85
+  store i64 0, ptr %81, align 8, !tbaa !147
+  %90 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull %90, i64 noundef %80, i64 noundef 1) #20
   br label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i
 
-90:                                               ; preds = %84
-  %.not32.i = icmp eq i64 %81, 0
-  br i1 %.not32.i, label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i, label %91
+91:                                               ; preds = %85
+  %.not32.i = icmp eq i64 %82, 0
+  br i1 %.not32.i, label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i, label %92
 
-91:                                               ; preds = %90
-  %.val35.i = load ptr, ptr %63, align 8, !tbaa !145
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.val35.i, ptr align 1 %66, i64 %81, i1 false)
+92:                                               ; preds = %91
+  %.val35.i = load ptr, ptr %64, align 8, !tbaa !145
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.val35.i, ptr align 1 %67, i64 %82, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i
 
-_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i: ; preds = %91, %90, %88
-  %.026.i = phi i64 [ 0, %88 ], [ 0, %90 ], [ %81, %91 ]
-  %.val41.i = load i64, ptr %43, align 8, !tbaa !147
+_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i: ; preds = %92, %91, %89
+  %.026.i = phi i64 [ 0, %89 ], [ 0, %91 ], [ %82, %92 ]
+  %.val41.i = load i64, ptr %44, align 8, !tbaa !147
   %.not.i.i.i34 = icmp samesign eq i64 %.026.i, %.val41.i
-  br i1 %.not.i.i.i34, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117OperandsSignature6OpKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %92
+  br i1 %.not.i.i.i34, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117OperandsSignature6OpKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %93
 
-92:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i
+93:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i
   %.val34.i = load ptr, ptr %5, align 8, !tbaa !145
-  %93 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 %.026.i
-  %.val.i35 = load ptr, ptr %63, align 8, !tbaa !145
-  %94 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i35, i64 %.026.i
+  %94 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 %.026.i
+  %.val.i35 = load ptr, ptr %64, align 8, !tbaa !145
+  %95 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i35, i64 %.026.i
   %gepdiff.i = sub nsw i64 %.val41.i, %.026.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr align 1 %93, i64 %gepdiff.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %94, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117OperandsSignature6OpKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117OperandsSignature6OpKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %92, %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i
-  store i64 %79, ptr %80, align 8, !tbaa !147
-  store i64 0, ptr %43, align 8, !tbaa !147
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117OperandsSignature6OpKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %93, %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit47.i
+  store i64 %80, ptr %81, align 8, !tbaa !147
+  store i64 0, ptr %44, align 8, !tbaa !147
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit: ; preds = %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_less_valEEvT_T0_SC_T1_RT2_.exit, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEE12assignRemoteEOS4_.exit.i, %_ZSt4moveIPN12_GLOBAL__N_117OperandsSignature6OpKindES3_ET0_T_S5_S4_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117OperandsSignature6OpKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %95 = load ptr, ptr %5, align 8, !tbaa !145
-  %96 = icmp eq ptr %95, %42
-  br i1 %96, label %_ZN12_GLOBAL__N_117OperandsSignatureD2Ev.exit, label %97
+  %96 = load ptr, ptr %5, align 8, !tbaa !145
+  %97 = icmp eq ptr %96, %43
+  br i1 %97, label %_ZN12_GLOBAL__N_117OperandsSignatureD2Ev.exit, label %98
 
-97:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit
-  call void @free(ptr noundef %95) #20
+98:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit
+  call void @free(ptr noundef %96) #20
   br label %_ZN12_GLOBAL__N_117OperandsSignatureD2Ev.exit
 
-_ZN12_GLOBAL__N_117OperandsSignatureD2Ev.exit:    ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit, %97
+_ZN12_GLOBAL__N_117OperandsSignatureD2Ev.exit:    ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117OperandsSignature6OpKindEEaSEOS4_.exit, %98
   ret void
 }
 

@@ -1583,31 +1583,30 @@ _ZNK3irr4core8vector3dIsEeqERKS2_.exit:           ; preds = %land.lhs.true.i
   %9 = load i16, ptr %Z.i, align 2, !tbaa !21
   %Z9.i = getelementptr inbounds nuw i8, ptr %data, i64 58
   %10 = load i16, ptr %Z9.i, align 2, !tbaa !21
-  %.fr = freeze i16 %9
-  %.fr1 = freeze i16 %10
-  %cmp11.i = icmp eq i16 %.fr, %.fr1
-  br i1 %cmp11.i, label %for.body.us.preheader, label %for.body.preheader
+  %cmp11.i = icmp eq i16 %9, %10
+  %11 = freeze i1 %cmp11.i
+  br i1 %11, label %for.body.us.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZNK3irr4core8vector3dIsEeqERKS2_.exit, %land.lhs.true.i, %_ZNK14NodeDefManager3getERK7MapNode.exit
   %texture_id = getelementptr inbounds nuw i8, ptr %tile, i64 36
-  %11 = load i32, ptr %texture_id, align 4, !tbaa !55
-  %cmp3 = icmp ne i32 %11, 0
+  %12 = load i32, ptr %texture_id, align 4, !tbaa !55
+  %cmp3 = icmp ne i32 %12, 0
   %has_color = getelementptr inbounds nuw i8, ptr %tile, i64 46
-  %12 = load i8, ptr %has_color, align 2, !range !34
-  %tobool.not = icmp eq i8 %12, 0
+  %13 = load i8, ptr %has_color, align 2, !range !34
+  %tobool.not = icmp eq i8 %13, 0
   %or.cond = select i1 %cmp3, i1 %tobool.not, i1 false
   br i1 %or.cond, label %if.then4, label %cleanup
 
 for.body.us.preheader:                            ; preds = %_ZNK3irr4core8vector3dIsEeqERKS2_.exit
   %texture_id.us = getelementptr inbounds nuw i8, ptr %tile, i64 36
-  %13 = load i32, ptr %texture_id.us, align 4, !tbaa !55
-  %cmp3.us = icmp eq i32 %13, 0
+  %14 = load i32, ptr %texture_id.us, align 4, !tbaa !55
+  %cmp3.us = icmp eq i32 %14, 0
   br i1 %cmp3.us, label %cleanup.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us.preheader
   %has_color.us = getelementptr inbounds nuw i8, ptr %tile, i64 46
-  %14 = load i8, ptr %has_color.us, align 2, !tbaa !57, !range !34, !noundef !35
-  %tobool.not.us = icmp eq i8 %14, 0
+  %15 = load i8, ptr %has_color.us, align 2, !tbaa !57, !range !34, !noundef !35
+  %tobool.not.us = icmp eq i8 %15, 0
   br i1 %tobool.not.us, label %if.then4.us, label %if.end5.us
 
 if.then4.us:                                      ; preds = %if.end.us
@@ -1617,21 +1616,21 @@ if.then4.us:                                      ; preds = %if.end.us
 
 if.end5.us:                                       ; preds = %if.then4.us, %if.end.us
   %material_flags.us = getelementptr inbounds nuw i8, ptr %tile, i64 45
-  %15 = load i8, ptr %material_flags.us, align 1, !tbaa !58
-  %16 = or i8 %15, 2
-  store i8 %16, ptr %material_flags.us, align 1, !tbaa !58
+  %16 = load i8, ptr %material_flags.us, align 1, !tbaa !58
+  %17 = or i8 %16, 2
+  store i8 %17, ptr %material_flags.us, align 1, !tbaa !58
   br label %cleanup.us
 
 cleanup.us:                                       ; preds = %if.end5.us, %for.body.us.preheader
   %texture_id.us.1 = getelementptr inbounds nuw i8, ptr %tile, i64 92
-  %17 = load i32, ptr %texture_id.us.1, align 4, !tbaa !55
-  %cmp3.us.1 = icmp eq i32 %17, 0
+  %18 = load i32, ptr %texture_id.us.1, align 4, !tbaa !55
+  %cmp3.us.1 = icmp eq i32 %18, 0
   br i1 %cmp3.us.1, label %for.cond.cleanup, label %if.end.us.1
 
 if.end.us.1:                                      ; preds = %cleanup.us
   %has_color.us.1 = getelementptr inbounds nuw i8, ptr %tile, i64 102
-  %18 = load i8, ptr %has_color.us.1, align 2, !tbaa !57, !range !34, !noundef !35
-  %tobool.not.us.1 = icmp eq i8 %18, 0
+  %19 = load i8, ptr %has_color.us.1, align 2, !tbaa !57, !range !34, !noundef !35
+  %tobool.not.us.1 = icmp eq i8 %19, 0
   br i1 %tobool.not.us.1, label %if.then4.us.1, label %if.end5.us.1
 
 if.then4.us.1:                                    ; preds = %if.end.us.1
@@ -1641,9 +1640,9 @@ if.then4.us.1:                                    ; preds = %if.end.us.1
 
 if.end5.us.1:                                     ; preds = %if.then4.us.1, %if.end.us.1
   %material_flags.us.1 = getelementptr inbounds nuw i8, ptr %tile, i64 101
-  %19 = load i8, ptr %material_flags.us.1, align 1, !tbaa !58
-  %20 = or i8 %19, 2
-  store i8 %20, ptr %material_flags.us.1, align 1, !tbaa !58
+  %20 = load i8, ptr %material_flags.us.1, align 1, !tbaa !58
+  %21 = or i8 %20, 2
+  store i8 %21, ptr %material_flags.us.1, align 1, !tbaa !58
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %if.then4.1, %cleanup, %if.end5.us.1, %cleanup.us
@@ -1656,11 +1655,11 @@ if.then4:                                         ; preds = %for.body.preheader
 
 cleanup:                                          ; preds = %if.then4, %for.body.preheader
   %texture_id.1 = getelementptr inbounds nuw i8, ptr %tile, i64 92
-  %21 = load i32, ptr %texture_id.1, align 4, !tbaa !55
-  %cmp3.1 = icmp ne i32 %21, 0
+  %22 = load i32, ptr %texture_id.1, align 4, !tbaa !55
+  %cmp3.1 = icmp ne i32 %22, 0
   %has_color.1 = getelementptr inbounds nuw i8, ptr %tile, i64 102
-  %22 = load i8, ptr %has_color.1, align 2, !range !34
-  %tobool.not.1 = icmp eq i8 %22, 0
+  %23 = load i8, ptr %has_color.1, align 2, !range !34
+  %tobool.not.1 = icmp eq i8 %23, 0
   %or.cond27 = select i1 %cmp3.1, i1 %tobool.not.1, i1 false
   br i1 %or.cond27, label %if.then4.1, label %for.cond.cleanup
 

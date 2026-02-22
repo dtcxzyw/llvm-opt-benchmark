@@ -643,10 +643,10 @@ Vec_PtrAllocSimInfo.exit.split.us.split.us.preheader.i: ; preds = %Vec_PtrAllocS
   br label %Vec_PtrAllocSimInfo.exit.split.us.split.us.i
 
 Vec_PtrAllocSimInfo.exit.split.us.split.us.i:     ; preds = %..loopexit27_crit_edge.us.us.i, %Vec_PtrAllocSimInfo.exit.split.us.split.us.preheader.i
-  %indvars.iv54.i = phi i64 [ 0, %Vec_PtrAllocSimInfo.exit.split.us.split.us.preheader.i ], [ %indvars.iv.next55.i, %..loopexit27_crit_edge.us.us.i ]
-  %47 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv54.i
+  %indvars.iv55.i = phi i64 [ 0, %Vec_PtrAllocSimInfo.exit.split.us.split.us.preheader.i ], [ %indvars.iv.next56.i, %..loopexit27_crit_edge.us.us.i ]
+  %47 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv55.i
   %48 = load ptr, ptr %47, align 8, !tbaa !38
-  %49 = icmp samesign ult i64 %indvars.iv54.i, 5
+  %49 = icmp samesign ult i64 %indvars.iv55.i, 5
   br i1 %49, label %.preheader.us.us.i, label %.preheader26.us.us.i
 
 50:                                               ; preds = %.preheader26.us.us.i, %50
@@ -662,25 +662,25 @@ Vec_PtrAllocSimInfo.exit.split.us.split.us.i:     ; preds = %..loopexit27_crit_e
   br i1 %exitcond.not.i, label %..loopexit27_crit_edge.us.us.i, label %50, !llvm.loop !44
 
 ..loopexit27_crit_edge.us.us.i:                   ; preds = %50, %54
-  %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
-  %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, %36
-  br i1 %exitcond58.not.i, label %Vec_PtrAllocTruthTables.exit, label %Vec_PtrAllocSimInfo.exit.split.us.split.us.i, !llvm.loop !45
+  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
+  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %36
+  br i1 %exitcond59.not.i, label %Vec_PtrAllocTruthTables.exit, label %Vec_PtrAllocSimInfo.exit.split.us.split.us.i, !llvm.loop !45
 
 54:                                               ; preds = %.preheader.us.us.i, %54
-  %indvars.iv48.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next49.i, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv48.i
+  %indvars.iv49.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next50.i, %54 ]
+  %55 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv49.i
   store i32 %57, ptr %55, align 4, !tbaa !32
-  %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %exitcond53.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count.i
-  br i1 %exitcond53.not.i, label %..loopexit27_crit_edge.us.us.i, label %54, !llvm.loop !46
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
+  br i1 %exitcond54.not.i, label %..loopexit27_crit_edge.us.us.i, label %54, !llvm.loop !46
 
 .preheader.us.us.i:                               ; preds = %Vec_PtrAllocSimInfo.exit.split.us.split.us.i
-  %56 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv54.i
+  %56 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv55.i
   %57 = load i32, ptr %56, align 4, !tbaa !32
   br label %54
 
 .preheader26.us.us.i:                             ; preds = %Vec_PtrAllocSimInfo.exit.split.us.split.us.i
-  %58 = trunc i64 %indvars.iv54.i to i32
+  %58 = trunc i64 %indvars.iv55.i to i32
   %59 = add i32 %58, -5
   %60 = shl nuw i32 1, %59
   br label %50

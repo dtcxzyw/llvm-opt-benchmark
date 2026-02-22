@@ -3190,8 +3190,8 @@ _ZN5clang8comments4Sema17isAnyFunctionDeclEv.exit18.thread: ; preds = %_ZN5clang
 _ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24: ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 28
   %70 = load i32, ptr %69, align 4
-  %.fr102 = freeze i32 %70
-  %71 = and i32 %.fr102, 127
+  %.fr103 = freeze i32 %70
+  %71 = and i32 %.fr103, 127
   %72 = icmp eq i32 %71, 69
   br i1 %72, label %.thread, label %.thread90
 
@@ -3231,8 +3231,8 @@ _ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27: ; preds = %80, %76
 _ZN5clang8comments4Sema16isObjCMethodDeclEv.exit: ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %89 = load i32, ptr %88, align 4
-  %.fr101 = freeze i32 %89
-  %90 = and i32 %.fr101, 127
+  %.fr102 = freeze i32 %89
+  %90 = and i32 %.fr102, 127
   %91 = icmp eq i32 %90, 16
   br i1 %91, label %.thread, label %.thread90
 
@@ -3272,8 +3272,8 @@ _ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34: ; preds = %99, %95
 _ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39: ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 28
   %108 = load i32, ptr %107, align 4
-  %.fr = freeze i32 %108
-  %109 = and i32 %.fr, 127
+  %.fr101 = freeze i32 %108
+  %109 = and i32 %.fr101, 127
   %110 = icmp eq i32 %109, 16
   br i1 %110, label %.thread, label %.thread90
 
@@ -3285,8 +3285,8 @@ _ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39: ; preds = %104
   %114 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 127
-  %.not103 = icmp eq i32 %116, 69
-  br i1 %.not103, label %.thread, label %.thread90
+  %.not104 = icmp eq i32 %116, 69
+  br i1 %.not104, label %.thread, label %.thread90
 
 .thread90:                                        ; preds = %44, %19, %40, %92, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34, %104, %73, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27, %85, %65, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %111, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %113
   %.093 = phi i64 [ 3, %92 ], [ 0, %113 ], [ 2, %73 ], [ 2, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit ], [ 3, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39 ], [ 0, %19 ], [ 1, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24 ], [ 4, %111 ], [ 0, %40 ], [ 1, %65 ], [ 2, %85 ], [ 2, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27 ], [ 3, %104 ], [ 3, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34 ], [ 1, %44 ]
@@ -3783,8 +3783,8 @@ define dso_local void @_ZN5clang8comments4Sema30checkContainerDeclVerbatimLineEP
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 127
-  %.not93 = icmp eq i32 %36, 70
-  br i1 %.not93, label %.thread, label %.thread73
+  %.not95 = icmp eq i32 %36, 70
+  br i1 %.not95, label %.thread, label %.thread73
 
 .thread73:                                        ; preds = %29, %33
   %37 = load i32, ptr %7, align 4
@@ -3814,8 +3814,8 @@ define dso_local void @_ZN5clang8comments4Sema30checkContainerDeclVerbatimLineEP
 _ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit: ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
-  %.fr94 = freeze i32 %49
-  %50 = and i32 %.fr94, 127
+  %.fr97 = freeze i32 %49
+  %50 = and i32 %.fr97, 127
   %51 = icmp eq i32 %50, 18
   br i1 %51, label %.thread, label %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread
 
@@ -3847,8 +3847,8 @@ _ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit: ; preds = %44
 _ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23: ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %65 = load i32, ptr %64, align 4
-  %.fr92 = freeze i32 %65
-  %66 = and i32 %.fr92, 127
+  %.fr94 = freeze i32 %65
+  %66 = and i32 %.fr94, 127
   %67 = icmp eq i32 %66, 18
   br i1 %67, label %.thread, label %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread
 
@@ -3880,8 +3880,8 @@ _ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23: ; preds = %60
 _ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit: ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %81 = load i32, ptr %80, align 4
-  %.fr91 = freeze i32 %81
-  %82 = and i32 %.fr91, 127
+  %.fr92 = freeze i32 %81
+  %82 = and i32 %.fr92, 127
   %83 = icmp eq i32 %82, 17
   br i1 %83, label %.thread, label %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread
 

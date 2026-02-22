@@ -3252,10 +3252,10 @@ _ZL21hb_ot_substitute_postPK21hb_ot_shape_context_t.exit.i: ; preds = %779, %777
 
 786:                                              ; preds = %_ZL21hb_ot_substitute_postPK21hb_ot_shape_context_t.exit.i
   %787 = load i32, ptr %97, align 8
-  %.fr71.i.i = freeze i32 %787
-  %788 = and i32 %.fr71.i.i, 128
+  %.fr.i.i = freeze i32 %787
+  %788 = and i32 %.fr.i.i, 128
   %.not36.i.i = icmp eq i32 %788, 0
-  %789 = and i32 %.fr71.i.i, 64
+  %789 = and i32 %.fr.i.i, 64
   %790 = icmp eq i32 %789, 0
   %791 = load ptr, ptr %256, align 8
   %792 = load i32, ptr %26, align 8

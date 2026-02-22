@@ -5986,13 +5986,13 @@ define internal fastcc noundef range(i32 33, 43) i32 @_ZL26areGlobalsPotentially
   %19 = load ptr, ptr %18, align 8, !tbaa !100
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %.fr.i.i = freeze i32 %21
-  %22 = and i32 %.fr.i.i, 255
+  %.fr8.i.i = freeze i32 %21
+  %22 = and i32 %.fr8.i.i, 255
   %23 = icmp eq i32 %22, 12
   br i1 %23, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %24
 
 24:                                               ; preds = %17
-  %trunc.i.i.i.i = trunc i32 %.fr.i.i to i8
+  %trunc.i.i.i.i = trunc i32 %.fr8.i.i to i8
   switch i8 %trunc.i.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
@@ -6002,7 +6002,7 @@ define internal fastcc noundef range(i32 33, 43) i32 @_ZL26areGlobalsPotentially
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %24
-  %25 = and i32 %.fr.i.i, 253
+  %25 = and i32 %.fr8.i.i, 253
   %spec.select.i.i12.i = icmp eq i32 %25, 4
   br i1 %spec.select.i.i12.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %switch.early.test.i.i
 
@@ -6046,13 +6046,13 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i: ; preds = %_Z
   %38 = load ptr, ptr %37, align 8, !tbaa !100
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
-  %.fr.i.i3 = freeze i32 %40
-  %41 = and i32 %.fr.i.i3, 255
+  %.fr8.i.i3 = freeze i32 %40
+  %41 = and i32 %.fr8.i.i3, 255
   %42 = icmp eq i32 %41, 12
   br i1 %42, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i5, label %43
 
 43:                                               ; preds = %36
-  %trunc.i.i.i.i4 = trunc i32 %.fr.i.i3 to i8
+  %trunc.i.i.i.i4 = trunc i32 %.fr8.i.i3 to i8
   switch i8 %trunc.i.i.i.i4, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i7 [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i5
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i5
@@ -6062,7 +6062,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i: ; preds = %_Z
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i7:    ; preds = %43
-  %44 = and i32 %.fr.i.i3, 253
+  %44 = and i32 %.fr8.i.i3, 253
   %spec.select.i.i12.i8 = icmp eq i32 %44, 4
   br i1 %spec.select.i.i12.i8, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i5, label %switch.early.test.i.i9
 

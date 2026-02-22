@@ -172,8 +172,8 @@ define range(i64 0, -4294967294) i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpea
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 8, !tbaa !19
-  %.fr15 = freeze i64 %9
-  %10 = srem i64 %.fr15, 86400
+  %.fr = freeze i64 %9
+  %10 = srem i64 %.fr, 86400
   %11 = trunc nsw i64 %10 to i32
   %12 = srem i32 %11, 60
   %13 = sub nsw i32 %11, %12

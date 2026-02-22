@@ -461,8 +461,8 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   %10 = lshr i64 %.01132.i.i, 1
   %11 = getelementptr inbounds nuw %"struct.llvm::RISCV::VLEPseudo", ptr %.033.i.i, i64 %10
   %.val.i.i = load i16, ptr %11, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %12 = and i16 %.val.fr.i.i, 1
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %12 = and i16 %.val.i.i.fr, 1
   %13 = zext nneg i16 %12 to i32
   %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
@@ -472,7 +472,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
-  %18 = lshr i16 %.val.fr.i.i, 1
+  %18 = lshr i16 %.val.i.i.fr, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
   %21 = icmp samesign ult i32 %20, %6
@@ -483,7 +483,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
-  %25 = lshr i16 %.val.fr.i.i, 2
+  %25 = lshr i16 %.val.i.i.fr, 2
   %26 = and i16 %25, 1
   %27 = zext nneg i16 %26 to i32
   %28 = icmp samesign ult i32 %27, %7
@@ -494,7 +494,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
-  %32 = lshr i16 %.val.fr.i.i, 3
+  %32 = lshr i16 %.val.i.i.fr, 3
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
   %35 = icmp samesign ult i32 %34, %8
@@ -511,7 +511,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
-  %41 = lshr i16 %.val.fr.i.i, 6
+  %41 = lshr i16 %.val.i.i.fr, 6
   %42 = and i16 %41, 7
   %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -588,8 +588,8 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   %12 = lshr i64 %.01132.i.i, 1
   %13 = getelementptr inbounds nuw %"struct.llvm::RISCV::VLSEGPseudo", ptr %.033.i.i, i64 %12
   %.val.i.i = load i16, ptr %13, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %14 = and i16 %.val.fr.i.i, 15
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %14 = and i16 %.val.i.i.fr, 15
   %15 = zext nneg i16 %14 to i32
   %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %.thread.i.i, label %17
@@ -599,7 +599,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %18, label %.thread27.i.i, label %19
 
 19:                                               ; preds = %17
-  %20 = lshr i16 %.val.fr.i.i, 4
+  %20 = lshr i16 %.val.i.i.fr, 4
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i32
   %23 = icmp samesign ult i32 %22, %7
@@ -610,7 +610,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %25, label %.thread27.i.i, label %26
 
 26:                                               ; preds = %24
-  %27 = lshr i16 %.val.fr.i.i, 5
+  %27 = lshr i16 %.val.i.i.fr, 5
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
   %30 = icmp samesign ult i32 %29, %8
@@ -621,7 +621,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %32, label %.thread27.i.i, label %33
 
 33:                                               ; preds = %31
-  %34 = lshr i16 %.val.fr.i.i, 6
+  %34 = lshr i16 %.val.i.i.fr, 6
   %35 = and i16 %34, 1
   %36 = zext nneg i16 %35 to i32
   %37 = icmp samesign ult i32 %36, %9
@@ -632,7 +632,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %39, label %.thread27.i.i, label %40
 
 40:                                               ; preds = %38
-  %41 = lshr i16 %.val.fr.i.i, 7
+  %41 = lshr i16 %.val.i.i.fr, 7
   %42 = and i16 %41, 7
   %43 = zext nneg i16 %42 to i32
   %44 = icmp samesign ult i32 %43, %10
@@ -649,7 +649,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
-  %50 = lshr i16 %.val.fr.i.i, 10
+  %50 = lshr i16 %.val.i.i.fr, 10
   %51 = and i16 %50, 7
   %52 = icmp samesign ult i16 %51, %11
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -733,8 +733,8 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   %12 = lshr i64 %.01132.i.i, 1
   %13 = getelementptr inbounds nuw %"struct.llvm::RISCV::VLXSEGPseudo", ptr %.033.i.i, i64 %12
   %.val.i.i = load i16, ptr %13, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %14 = and i16 %.val.fr.i.i, 15
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %14 = and i16 %.val.i.i.fr, 15
   %15 = zext nneg i16 %14 to i32
   %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %.thread.i.i, label %17
@@ -744,7 +744,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %18, label %.thread27.i.i, label %19
 
 19:                                               ; preds = %17
-  %20 = lshr i16 %.val.fr.i.i, 4
+  %20 = lshr i16 %.val.i.i.fr, 4
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i32
   %23 = icmp samesign ult i32 %22, %7
@@ -755,7 +755,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %25, label %.thread27.i.i, label %26
 
 26:                                               ; preds = %24
-  %27 = lshr i16 %.val.fr.i.i, 5
+  %27 = lshr i16 %.val.i.i.fr, 5
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
   %30 = icmp samesign ult i32 %29, %8
@@ -766,7 +766,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %32, label %.thread27.i.i, label %33
 
 33:                                               ; preds = %31
-  %34 = lshr i16 %.val.fr.i.i, 6
+  %34 = lshr i16 %.val.i.i.fr, 6
   %35 = and i16 %34, 7
   %36 = zext nneg i16 %35 to i32
   %37 = icmp samesign ult i32 %36, %9
@@ -777,7 +777,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %39, label %.thread27.i.i, label %40
 
 40:                                               ; preds = %38
-  %41 = lshr i16 %.val.fr.i.i, 9
+  %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
   %43 = zext nneg i16 %42 to i32
   %44 = icmp samesign ult i32 %43, %10
@@ -794,7 +794,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
-  %50 = lshr i16 %.val.fr.i.i, 12
+  %50 = lshr i16 %.val.i.i.fr, 12
   %51 = and i16 %50, 7
   %52 = icmp samesign ult i16 %51, %11
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -877,8 +877,8 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   %10 = lshr i64 %.01132.i.i, 1
   %11 = getelementptr inbounds nuw %"struct.llvm::RISCV::VLX_VSXPseudo", ptr %.033.i.i, i64 %10
   %.val.i.i = load i16, ptr %11, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %12 = and i16 %.val.fr.i.i, 1
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %12 = and i16 %.val.i.i.fr, 1
   %13 = zext nneg i16 %12 to i32
   %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
@@ -888,7 +888,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
-  %18 = lshr i16 %.val.fr.i.i, 1
+  %18 = lshr i16 %.val.i.i.fr, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
   %21 = icmp samesign ult i32 %20, %6
@@ -899,7 +899,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
-  %25 = lshr i16 %.val.fr.i.i, 2
+  %25 = lshr i16 %.val.i.i.fr, 2
   %26 = and i16 %25, 7
   %27 = zext nneg i16 %26 to i32
   %28 = icmp samesign ult i32 %27, %7
@@ -910,7 +910,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
-  %32 = lshr i16 %.val.fr.i.i, 5
+  %32 = lshr i16 %.val.i.i.fr, 5
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
   %35 = icmp samesign ult i32 %34, %8
@@ -927,7 +927,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
-  %41 = lshr i16 %.val.fr.i.i, 8
+  %41 = lshr i16 %.val.i.i.fr, 8
   %42 = and i16 %41, 7
   %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -998,8 +998,8 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   %4 = lshr i64 %.01132.i.i, 1
   %5 = getelementptr inbounds nuw %"struct.llvm::RISCV::VSEPseudo", ptr %.033.i.i, i64 %4
   %.val.i.i = load i8, ptr %5, align 2
-  %.val.fr.i.i = freeze i8 %.val.i.i
-  %6 = and i8 %.val.fr.i.i, 1
+  %.val.i.i.fr = freeze i8 %.val.i.i
+  %6 = and i8 %.val.i.i.fr, 1
   %7 = icmp ult i8 %6, %0
   br i1 %7, label %.thread.i.i, label %8
 
@@ -1008,7 +1008,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %9, label %.thread27.i.i, label %10
 
 10:                                               ; preds = %8
-  %11 = lshr i8 %.val.fr.i.i, 1
+  %11 = lshr i8 %.val.i.i.fr, 1
   %12 = and i8 %11, 1
   %13 = icmp ult i8 %12, %1
   br i1 %13, label %.thread.i.i, label %14
@@ -1018,7 +1018,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %15, label %.thread27.i.i, label %16
 
 16:                                               ; preds = %14
-  %17 = lshr i8 %.val.fr.i.i, 2
+  %17 = lshr i8 %.val.i.i.fr, 2
   %18 = and i8 %17, 7
   %19 = icmp ult i8 %18, %2
   br i1 %19, label %.thread.i.i, label %20
@@ -1034,7 +1034,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %20
-  %25 = lshr i8 %.val.fr.i.i, 5
+  %25 = lshr i8 %.val.i.i.fr, 5
   %26 = icmp ult i8 %25, %3
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = xor i64 %4, -1
@@ -1098,8 +1098,8 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   %10 = lshr i64 %.01132.i.i, 1
   %11 = getelementptr inbounds nuw %"struct.llvm::RISCV::VSSEGPseudo", ptr %.033.i.i, i64 %10
   %.val.i.i = load i16, ptr %11, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %12 = and i16 %.val.fr.i.i, 15
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %12 = and i16 %.val.i.i.fr, 15
   %13 = zext nneg i16 %12 to i32
   %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
@@ -1109,7 +1109,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
-  %18 = lshr i16 %.val.fr.i.i, 4
+  %18 = lshr i16 %.val.i.i.fr, 4
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
   %21 = icmp samesign ult i32 %20, %6
@@ -1120,7 +1120,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
-  %25 = lshr i16 %.val.fr.i.i, 5
+  %25 = lshr i16 %.val.i.i.fr, 5
   %26 = and i16 %25, 1
   %27 = zext nneg i16 %26 to i32
   %28 = icmp samesign ult i32 %27, %7
@@ -1131,7 +1131,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
-  %32 = lshr i16 %.val.fr.i.i, 6
+  %32 = lshr i16 %.val.i.i.fr, 6
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
   %35 = icmp samesign ult i32 %34, %8
@@ -1148,7 +1148,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
-  %41 = lshr i16 %.val.fr.i.i, 9
+  %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
   %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1225,8 +1225,8 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   %12 = lshr i64 %.01132.i.i, 1
   %13 = getelementptr inbounds nuw %"struct.llvm::RISCV::VSXSEGPseudo", ptr %.033.i.i, i64 %12
   %.val.i.i = load i16, ptr %13, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %14 = and i16 %.val.fr.i.i, 15
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %14 = and i16 %.val.i.i.fr, 15
   %15 = zext nneg i16 %14 to i32
   %16 = icmp samesign ult i32 %15, %6
   br i1 %16, label %.thread.i.i, label %17
@@ -1236,7 +1236,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %18, label %.thread27.i.i, label %19
 
 19:                                               ; preds = %17
-  %20 = lshr i16 %.val.fr.i.i, 4
+  %20 = lshr i16 %.val.i.i.fr, 4
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i32
   %23 = icmp samesign ult i32 %22, %7
@@ -1247,7 +1247,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %25, label %.thread27.i.i, label %26
 
 26:                                               ; preds = %24
-  %27 = lshr i16 %.val.fr.i.i, 5
+  %27 = lshr i16 %.val.i.i.fr, 5
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
   %30 = icmp samesign ult i32 %29, %8
@@ -1258,7 +1258,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %32, label %.thread27.i.i, label %33
 
 33:                                               ; preds = %31
-  %34 = lshr i16 %.val.fr.i.i, 6
+  %34 = lshr i16 %.val.i.i.fr, 6
   %35 = and i16 %34, 7
   %36 = zext nneg i16 %35 to i32
   %37 = icmp samesign ult i32 %36, %9
@@ -1269,7 +1269,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br i1 %39, label %.thread27.i.i, label %40
 
 40:                                               ; preds = %38
-  %41 = lshr i16 %.val.fr.i.i, 9
+  %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
   %43 = zext nneg i16 %42 to i32
   %44 = icmp samesign ult i32 %43, %10
@@ -1286,7 +1286,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
-  %50 = lshr i16 %.val.fr.i.i, 12
+  %50 = lshr i16 %.val.i.i.fr, 12
   %51 = and i16 %50, 7
   %52 = icmp samesign ult i16 %51, %11
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -1369,8 +1369,8 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   %10 = lshr i64 %.01132.i.i, 1
   %11 = getelementptr inbounds nuw %"struct.llvm::RISCV::VLX_VSXPseudo", ptr %.033.i.i, i64 %10
   %.val.i.i = load i16, ptr %11, align 2
-  %.val.fr.i.i = freeze i16 %.val.i.i
-  %12 = and i16 %.val.fr.i.i, 1
+  %.val.i.i.fr = freeze i16 %.val.i.i
+  %12 = and i16 %.val.i.i.fr, 1
   %13 = zext nneg i16 %12 to i32
   %14 = icmp samesign ult i32 %13, %5
   br i1 %14, label %.thread.i.i, label %15
@@ -1380,7 +1380,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br i1 %16, label %.thread27.i.i, label %17
 
 17:                                               ; preds = %15
-  %18 = lshr i16 %.val.fr.i.i, 1
+  %18 = lshr i16 %.val.i.i.fr, 1
   %19 = and i16 %18, 1
   %20 = zext nneg i16 %19 to i32
   %21 = icmp samesign ult i32 %20, %6
@@ -1391,7 +1391,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br i1 %23, label %.thread27.i.i, label %24
 
 24:                                               ; preds = %22
-  %25 = lshr i16 %.val.fr.i.i, 2
+  %25 = lshr i16 %.val.i.i.fr, 2
   %26 = and i16 %25, 7
   %27 = zext nneg i16 %26 to i32
   %28 = icmp samesign ult i32 %27, %7
@@ -1402,7 +1402,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br i1 %30, label %.thread27.i.i, label %31
 
 31:                                               ; preds = %29
-  %32 = lshr i16 %.val.fr.i.i, 5
+  %32 = lshr i16 %.val.i.i.fr, 5
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32
   %35 = icmp samesign ult i32 %34, %8
@@ -1419,7 +1419,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   br label %.thread27.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
-  %41 = lshr i16 %.val.fr.i.i, 8
+  %41 = lshr i16 %.val.i.i.fr, 8
   %42 = and i16 %41, 7
   %43 = icmp samesign ult i16 %42, %9
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 4

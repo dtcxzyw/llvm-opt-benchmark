@@ -4707,11 +4707,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !79
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8, !tbaa !80
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !203
@@ -4733,16 +4731,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #27
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -28
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 28
-  %25 = add i64 %23, 28
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 28
+  %25 = add i64 %.fr.i, 28
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -4768,11 +4767,11 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = 
   br i1 %.not24, label %36, label %34
 
 34:                                               ; preds = %29
-  %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
+  %.not.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
 36:                                               ; preds = %29
@@ -4780,7 +4779,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = 
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN2cv8KeyPointES2_ET0_T_S4_S3_.exit, label %37
 
 37:                                               ; preds = %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !80
   %.pre27 = load ptr, ptr %30, align 8, !tbaa !79
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !80
@@ -4792,9 +4791,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = 
 
 _ZSt4copyIPN2cv8KeyPointES2_ET0_T_S4_S3_.exit:    ; preds = %36, %37
   %.pre-phi34 = phi i64 [ 0, %36 ], [ %.pre33, %37 ]
-  %38 = phi ptr [ %.fr13.i, %36 ], [ %.pre29, %37 ]
+  %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
   %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
-  %40 = phi ptr [ %.fr14.i, %36 ], [ %.pre, %37 ]
+  %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.pre-phi34
   %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %.lr.ph.i.i.i.i

@@ -365,19 +365,19 @@ define internal noundef zeroext i1 @dissect_websocket_heur_tcp(ptr noundef %0, p
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.fr.i = freeze i8 %8
+  %.fr1.i = freeze i8 %8
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %10 = and i8 %.fr.i, 112
+  %10 = and i8 %.fr1.i, 112
   %.not.i = icmp eq i8 %10, 0
   br i1 %.not.i, label %11, label %test_websocket.exit.thread
 
 11:                                               ; preds = %7
-  %12 = and i8 %.fr.i, 14
+  %12 = and i8 %.fr1.i, 14
   %13 = icmp eq i8 %12, 8
   br i1 %13, label %15, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %11
-  %14 = and i8 %.fr.i, 15
+  %14 = and i8 %.fr1.i, 15
   switch i8 %14, label %test_websocket.exit.thread [
     i8 10, label %15
     i8 2, label %15
@@ -386,7 +386,7 @@ switch.early.test.i:                              ; preds = %11
   ]
 
 15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %11
-  %16 = add i8 %.fr.i, -65
+  %16 = add i8 %.fr1.i, -65
   %or.cond.i = icmp ult i8 %16, 26
   br i1 %or.cond.i, label %17, label %test_websocket.exit
 

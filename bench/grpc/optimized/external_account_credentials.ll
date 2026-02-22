@@ -18971,8 +18971,8 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ESt17ba
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %1
-  %.not82 = icmp samesign eq i64 %1, 0
-  br i1 %.not82, label %._crit_edge, label %.lr.ph
+  %.not83 = icmp samesign eq i64 %1, 0
+  br i1 %.not83, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %3
   %9 = landingpad { ptr, i32 }
@@ -18980,19 +18980,19 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ESt17ba
   br label %86
 
 .lr.ph:                                           ; preds = %6, %82
-  %.06383 = phi ptr [ %85, %82 ], [ %2, %6 ]
-  %10 = load i8, ptr %.06383, align 1, !tbaa !28
-  %.fr = freeze i8 %10
-  %11 = add i8 %.fr, -48
+  %.06384 = phi ptr [ %85, %82 ], [ %2, %6 ]
+  %10 = load i8, ptr %.06384, align 1, !tbaa !28
+  %.fr81 = freeze i8 %10
+  %11 = add i8 %.fr81, -48
   %or.cond = icmp ult i8 %11, 10
-  %12 = and i8 %.fr, -33
+  %12 = and i8 %.fr81, -33
   %13 = add i8 %12, -65
   %14 = icmp ult i8 %13, 26
-  %or.cond81 = or i1 %or.cond, %14
-  br i1 %or.cond81, label %15, label %switch.early.test
+  %or.cond82 = or i1 %or.cond, %14
+  br i1 %or.cond82, label %15, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr, label %30 [
+  switch i8 %.fr81, label %30 [
     i8 126, label %15
     i8 95, label %15
     i8 46, label %15
@@ -19033,7 +19033,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %.noexc
   %26 = phi ptr [ %.pre.i, %.noexc ], [ %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %16
-  store i8 %.fr, ptr %27, align 1, !tbaa !28
+  store i8 %.fr81, ptr %27, align 1, !tbaa !28
   br label %82
 
 28:                                               ; preds = %79, %60, %40, %25
@@ -19075,7 +19075,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i67: ; pr
   %44 = load ptr, ptr %0, align 8, !tbaa !25
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %32
   store i8 0, ptr %45, align 1, !tbaa !28
-  %46 = zext i8 %.fr to i32
+  %46 = zext i8 %.fr81 to i32
   %47 = lshr i32 %46, 4
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr @.str.94, i64 %48
@@ -19154,7 +19154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit78: ; pred
   %83 = load ptr, ptr %0, align 8, !tbaa !25
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink
   store i8 0, ptr %84, align 1, !tbaa !28
-  %85 = getelementptr inbounds nuw i8, ptr %.06383, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.06384, i64 1
   %.not = icmp eq ptr %85, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

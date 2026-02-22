@@ -1646,21 +1646,20 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %7 = trunc nuw i64 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !242, !noalias !251
-  %.fr.i.i = freeze i64 %9
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load ptr, ptr %10, align 8, !alias.scope !242, !noalias !251, !nonnull !3, !align !78
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load i64, ptr %12, align 8, !alias.scope !242, !noalias !251
-  %14 = icmp eq i64 %.fr.i.i, 0
-  %.not.i.i.i = icmp ult i64 %.fr.i.i, %13
-  %15 = icmp eq i64 %.fr.i.i, %13
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.fr.i.i
+  %14 = icmp eq i64 %9, 0
+  %.not.i.i.i = icmp ult i64 %9, %13
+  %15 = icmp eq i64 %9, %13
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %9
   %17 = getelementptr inbounds i8, ptr %16, i64 -1
-  %18 = icmp ne i64 %.fr.i.i, 1
+  %18 = icmp ne i64 %9, 1
   %19 = getelementptr inbounds i8, ptr %16, i64 -2
-  %20 = icmp ne i64 %.fr.i.i, 2
+  %20 = icmp ne i64 %9, 2
   %21 = getelementptr inbounds i8, ptr %16, i64 -3
-  %22 = icmp ne i64 %.fr.i.i, 3
+  %22 = icmp ne i64 %9, 3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load i64, ptr %24, align 8, !alias.scope !242, !noalias !251
@@ -1674,21 +1673,21 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.promoted.i = load i64, ptr %23, align 8, !alias.scope !242, !noalias !251
-  %.promoted90.i = load i64, ptr %33, align 8, !alias.scope !242, !noalias !251
+  %.promoted91.i = load i64, ptr %33, align 8, !alias.scope !242, !noalias !251
   br i1 %7, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %4
   %35 = icmp eq i64 %.promoted.i, 0
-  br i1 %35, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit, label %.lr.ph148.i
+  br i1 %35, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit, label %.lr.ph149.i
 
-.lr.ph148.i:                                      ; preds = %.split.us.i
+.lr.ph149.i:                                      ; preds = %.split.us.i
   %36 = load i64, ptr %34, align 8, !alias.scope !242, !noalias !251
   br label %37
 
-37:                                               ; preds = %67, %.lr.ph148.i
-  %.sink109.i.i.us.i76.lcssa7990 = phi i64 [ %.promoted90.i, %.lr.ph148.i ], [ %spec.select, %67 ]
-  %.lcssa7083 = phi i64 [ %.promoted.i, %.lr.ph148.i ], [ %44, %67 ]
-  %.sink109.i.i94.us147.i = phi i64 [ %.promoted90.i, %.lr.ph148.i ], [ %spec.select98, %67 ]
+37:                                               ; preds = %67, %.lr.ph149.i
+  %.sink109.i.i.us.i76.lcssa7990 = phi i64 [ %.promoted91.i, %.lr.ph149.i ], [ %spec.select, %67 ]
+  %.lcssa7083 = phi i64 [ %.promoted.i, %.lr.ph149.i ], [ %44, %67 ]
+  %.sink109.i.i95.us148.i = phi i64 [ %.promoted91.i, %.lr.ph149.i ], [ %spec.select98, %67 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
@@ -1698,16 +1697,15 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 
 .lr.ph.i.i.us.i:                                  ; preds = %37
   %40 = sub i64 %.lcssa7083, %36
-  %.neg.i.i.us.i = sub i64 %.lcssa7083, %.fr.i.i
+  %.neg.i.i.us.i = sub i64 %.lcssa7083, %9
   br label %41
 
 41:                                               ; preds = %82, %.lr.ph.i.i.us.i
   %.sink109.i.i.us.i76 = phi i64 [ %.sink109.i.i.us.i76.lcssa7990, %.lr.ph.i.i.us.i ], [ %.sink109.i.i.us.i75, %82 ]
   %42 = phi i64 [ %.lcssa7083, %.lr.ph.i.i.us.i ], [ %84, %82 ]
-  %.sink109.i.i93.us.i = phi i64 [ %.sink109.i.i94.us147.i, %.lr.ph.i.i.us.i ], [ %.sink109.i.i92.us.i, %82 ]
-  %43 = phi i64 [ %.sink109.i.i94.us147.i, %.lr.ph.i.i.us.i ], [ %83, %82 ]
+  %.sink109.i.i94.us.i = phi i64 [ %.sink109.i.i95.us148.i, %.lr.ph.i.i.us.i ], [ %.sink109.i.i93.us.i, %82 ]
+  %43 = phi i64 [ %.sink109.i.i95.us148.i, %.lr.ph.i.i.us.i ], [ %83, %82 ]
   %44 = phi i64 [ %38, %.lr.ph.i.i.us.i ], [ %85, %82 ]
-  %.fr57.i.us.i = freeze i64 %43
   %.not.i14.i.us.i = icmp eq i64 %.lcssa7083, %42
   br i1 %.not.i14.i.us.i, label %45, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
@@ -1722,18 +1720,19 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %52, label %81, label %53
 
 53:                                               ; preds = %45
-  %.sroa.0.0.sroa.speculated.i.i.i.us.i = tail call i64 @llvm.umin.i64(i64 %.fr57.i.us.i, i64 %.fr.i.i)
-  %.sroa.03.0.i.i.us.i = select i1 %26, i64 %.fr.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.us.i
-  %54 = add i64 %.sroa.03.0.i.i.us.i, -1
+  %.sroa.0.0.sroa.speculated.i.i.i.us.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %9)
+  %.sroa.03.0.i.i.us.i = select i1 %26, i64 %9, i64 %.sroa.0.0.sroa.speculated.i.i.i.us.i
+  %.sroa.03.0.i.fr.i.us.i = freeze i64 %.sroa.03.0.i.i.us.i
+  %54 = add i64 %.sroa.03.0.i.fr.i.us.i, -1
   %.first_iter.i.i.us.i = icmp ult i64 %54, %30
   br i1 %.first_iter.i.i.us.i, label %.split44.us.i.us.i, label %.split44.i.us.i
 
 .split44.i.us.i:                                  ; preds = %53
-  %.not24.i.i.us.i = icmp eq i64 %.sroa.03.0.i.i.us.i, 0
-  br i1 %.not24.i.i.us.i, label %.split46.us.i.us.i, label %.split108.us.i
+  %.not24.i.i.us.i = icmp eq i64 %.sroa.03.0.i.fr.i.us.i, 0
+  br i1 %.not24.i.i.us.i, label %.split46.us.i.us.i, label %.split109.us.i
 
 .split44.us.i.us.i:                               ; preds = %53, %59
-  %.sroa.5.0.i.us.i.us.i = phi i64 [ %56, %59 ], [ %.sroa.03.0.i.i.us.i, %53 ]
+  %.sroa.5.0.i.us.i.us.i = phi i64 [ %56, %59 ], [ %.sroa.03.0.i.fr.i.us.i, %53 ]
   %.not24.i.us.i.us.i = icmp eq i64 %.sroa.5.0.i.us.i.us.i, 0
   br i1 %.not24.i.us.i.us.i, label %.split46.us.i.us.i, label %55
 
@@ -1756,29 +1755,29 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %26, label %82, label %.sink.split.i.i.us.i
 
 .split46.us.i.us.i:                               ; preds = %.split44.us.i.us.i, %.split44.i.us.i
-  %.sroa.09.0.i.i.us.i = select i1 %26, i64 %30, i64 %.fr57.i.us.i
+  %.sroa.09.0.i.i.us.i = select i1 %26, i64 %30, i64 %43
   br label %65
 
 65:                                               ; preds = %75, %.split46.us.i.us.i
-  %.sroa.010.0.i.i.us.i = phi i64 [ %.fr.i.i, %.split46.us.i.us.i ], [ %70, %75 ]
+  %.sroa.010.0.i.i.us.i = phi i64 [ %9, %.split46.us.i.us.i ], [ %70, %75 ]
   %66 = icmp ult i64 %.sroa.010.0.i.i.us.i, %.sroa.09.0.i.i.us.i
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65
   %spec.select = select i1 %26, i64 %.sink109.i.i.us.i76, i64 %30
-  %spec.select98 = select i1 %26, i64 %.sink109.i.i93.us.i, i64 %30
+  %spec.select98 = select i1 %26, i64 %.sink109.i.i94.us.i, i64 %30
   %68 = icmp eq i64 %44, 0
   br i1 %68, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit, label %37
 
 69:                                               ; preds = %65
   %70 = add nuw i64 %.sroa.010.0.i.i.us.i, 1
   %71 = icmp ult i64 %.sroa.010.0.i.i.us.i, %30
-  br i1 %71, label %72, label %.split114.us.i
+  br i1 %71, label %72, label %.split115.us.i
 
 72:                                               ; preds = %69
   %73 = add i64 %.sroa.010.0.i.i.us.i, %44
   %74 = icmp ult i64 %73, %13
-  br i1 %74, label %75, label %.split118.us.i
+  br i1 %74, label %75, label %.split119.us.i
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %28, i64 %.sroa.010.0.i.i.us.i
@@ -1801,8 +1800,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 
 82:                                               ; preds = %.sink.split.i.i.us.i, %81, %80, %.split50.us.i.us.i
   %.sink109.i.i.us.i75 = phi i64 [ %.sink109.i.i.us.i76, %.split50.us.i.us.i ], [ %.sink109.i.i.us.i76, %80 ], [ %.sink109.i.i.us.i76, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
-  %.sink109.i.i92.us.i = phi i64 [ %.sink109.i.i93.us.i, %.split50.us.i.us.i ], [ %.sink109.i.i93.us.i, %80 ], [ %.sink109.i.i93.us.i, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
-  %83 = phi i64 [ %.fr57.i.us.i, %.split50.us.i.us.i ], [ %.fr57.i.us.i, %80 ], [ %.fr57.i.us.i, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
+  %.sink109.i.i93.us.i = phi i64 [ %.sink109.i.i94.us.i, %.split50.us.i.us.i ], [ %.sink109.i.i94.us.i, %80 ], [ %.sink109.i.i94.us.i, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
+  %83 = phi i64 [ %43, %.split50.us.i.us.i ], [ %43, %80 ], [ %43, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
   %84 = phi i64 [ %64, %.split50.us.i.us.i ], [ %40, %80 ], [ %44, %81 ], [ %.ph108.i.i.us.i, %.sink.split.i.i.us.i ]
   %85 = sub i64 %84, %30
   %86 = icmp ult i64 %85, %13
@@ -1813,7 +1812,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %89 = load i8, ptr %88, align 2, !range !262, !alias.scope !242, !noalias !251
   %90 = trunc nuw i8 %89 to i1
-  %.promoted124.i = load i8, ptr %87, align 1, !alias.scope !242, !noalias !251
+  %.promoted125.i = load i8, ptr %87, align 1, !alias.scope !242, !noalias !251
   br i1 %90, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split.i
@@ -1825,7 +1824,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 .lr.ph.split.split.i.preheader.split.us:          ; preds = %.lr.ph.split.split.i.preheader
   %91 = load i8, ptr %16, align 1, !alias.scope !263, !noalias !266, !noundef !3
   %92 = icmp sgt i8 %91, -65
-  br i1 %92, label %.lr.ph.split.split.i.preheader.split.us.split.us, label %.split132.us.i
+  br i1 %92, label %.lr.ph.split.split.i.preheader.split.us.split.us, label %.split133.us.i
 
 .lr.ph.split.split.i.preheader.split.us.split.us: ; preds = %.lr.ph.split.split.i.preheader.split.us
   %93 = load i8, ptr %17, align 1, !noalias !267, !noundef !3
@@ -1833,7 +1832,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %94, label %.lr.ph.split.split.i.us.us.us.preheader, label %.lr.ph.split.split.i.preheader.split.us.split.us.split
 
 .lr.ph.split.split.i.us.us.us.preheader:          ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us
-  %95 = trunc nuw i8 %.promoted124.i to i1
+  %95 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %95, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
@@ -1851,22 +1850,22 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 
 .lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us
   tail call void @llvm.assume(i1 %22)
-  %100 = trunc nuw i8 %.promoted124.i to i1
+  %100 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %100, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 .lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us
-  %101 = trunc nuw i8 %.promoted124.i to i1
+  %101 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %101, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 .lr.ph.split.split.i.preheader.split.us.split.us.split.split: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split
-  %102 = trunc nuw i8 %.promoted124.i to i1
+  %102 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %102, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 .lr.ph.split.split.i.preheader.split:             ; preds = %.lr.ph.split.split.i.preheader
-  br i1 %15, label %.lr.ph.split.split.i.preheader.split.split.us, label %.split132.us.i
+  br i1 %15, label %.lr.ph.split.split.i.preheader.split.split.us, label %.split133.us.i
 
 .lr.ph.split.split.i.preheader.split.split.us:    ; preds = %.lr.ph.split.split.i.preheader.split
   %103 = load i8, ptr %17, align 1, !noalias !267, !noundef !3
@@ -1874,7 +1873,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %104, label %.lr.ph.split.split.i.us47.us.preheader, label %.lr.ph.split.split.i.preheader.split.split.us.split
 
 .lr.ph.split.split.i.us47.us.preheader:           ; preds = %.lr.ph.split.split.i.preheader.split.split.us
-  %105 = trunc nuw i8 %.promoted124.i to i1
+  %105 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %105, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
@@ -1892,40 +1891,40 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 
 .lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split.us
   tail call void @llvm.assume(i1 %22)
-  %110 = trunc nuw i8 %.promoted124.i to i1
+  %110 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %110, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 .lr.ph.split.split.i.preheader.split.split.us.split.split.us.split: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split.us
-  %111 = trunc nuw i8 %.promoted124.i to i1
+  %111 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %111, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 .lr.ph.split.split.i.preheader.split.split.us.split.split: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split
-  %112 = trunc nuw i8 %.promoted124.i to i1
+  %112 = trunc nuw i8 %.promoted125.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br i1 %112, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.i
-  %113 = trunc nuw i8 %.promoted124.i to i1
+  %113 = trunc nuw i8 %.promoted125.i to i1
   br i1 %113, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
-.split132.us.i:                                   ; preds = %.lr.ph.split.split.i.preheader.split, %.lr.ph.split.split.i.preheader.split.us
+.split133.us.i:                                   ; preds = %.lr.ph.split.split.i.preheader.split, %.lr.ph.split.split.i.preheader.split.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13, i64 noundef 0, i64 noundef %.fr.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8859263a9d62f989d4ee3ebd56492523.57) #23, !noalias !266
+  tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13, i64 noundef 0, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8859263a9d62f989d4ee3ebd56492523.57) #23, !noalias !266
   unreachable
 
-.split108.us.i:                                   ; preds = %.split44.i.us.i
+.split109.us.i:                                   ; preds = %.split44.i.us.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %54, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8859263a9d62f989d4ee3ebd56492523.17) #23, !noalias !270
   unreachable
 
-.split114.us.i:                                   ; preds = %69
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %.fr.i.i, i64 %30)
+.split115.us.i:                                   ; preds = %69
+  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 %30)
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %umax.i.i.i, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8859263a9d62f989d4ee3ebd56492523.15) #23, !noalias !270
   unreachable
 
-.split118.us.i:                                   ; preds = %72
-  %114 = add i64 %44, %.fr.i.i
+.split119.us.i:                                   ; preds = %72
+  %114 = add i64 %44, %9
   %umax78.i.i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 %114)
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %umax78.i.i.i, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8859263a9d62f989d4ee3ebd56492523.16) #23, !noalias !270
   unreachable
@@ -1935,12 +1934,12 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   unreachable
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i
-  %.sroa.0.0.ph = phi i64 [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ]
+  %.sroa.0.0.ph = phi i64 [ %9, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %9, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %9, %.lr.ph.split.split.i.us47.us.preheader ], [ %9, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %9, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %9, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %9, %.lr.ph.split.split.i.us.us.us.preheader ], [ 0, %.lr.ph.split.us.split.i ], [ %9, %.lr.ph.split.split.i.preheader.split.split.us.split.split ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit: ; preds = %67, %37, %41, %82, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
-  %.sroa.0.0 = phi i64 [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ 0, %.lr.ph.split.us.split.i ], [ 0, %.split.us.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ 0, %.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.lcssa7083, %41 ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.lcssa7083, %82 ], [ %.lcssa7083, %37 ], [ 0, %67 ]
+  %.sroa.0.0 = phi i64 [ %9, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ 0, %.lr.ph.split.us.split.i ], [ 0, %.split.us.i ], [ %9, %.lr.ph.split.split.i.us.us.us.preheader ], [ 0, %.split.i ], [ %9, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %9, %.lr.ph.split.split.i.us47.us.preheader ], [ %9, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %9, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split ], [ %9, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.lcssa7083, %41 ], [ %9, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.lcssa7083, %82 ], [ %.lcssa7083, %37 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %115 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %116 = insertvalue { ptr, i64 } %115, i64 %.sroa.0.0, 1

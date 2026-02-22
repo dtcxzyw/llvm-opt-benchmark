@@ -1931,8 +1931,8 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_area_membind(ptr noundef %
   store i32 0, ptr %7, align 4, !tbaa !3
   %8 = tail call i64 @sysconf(i32 noundef 30) #29
   %9 = tail call fastcc i32 @hwloc_linux_find_kernel_max_numnodes()
-  %.fr105 = freeze i32 %9
-  %10 = lshr i32 %.fr105, 6
+  %.fr = freeze i32 %9
+  %10 = lshr i32 %.fr, 6
   %11 = shl nuw nsw i32 %10, 3
   %12 = zext nneg i32 %11 to i64
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #30
@@ -1958,7 +1958,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_area_membind(ptr noundef %
   br label %68
 
 .lr.ph84:                                         ; preds = %17
-  %24 = zext i32 %.fr105 to i64
+  %24 = zext i32 %.fr to i64
   %.not9.i = icmp eq i32 %10, 0
   %wide.trip.count.i = zext nneg i32 %10 to i64
   %sext = shl i64 %8, 32

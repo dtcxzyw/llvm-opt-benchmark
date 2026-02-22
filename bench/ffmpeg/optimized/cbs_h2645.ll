@@ -29194,15 +29194,14 @@ cbs_h2645_read_more_rbsp_data.exit:               ; preds = %217
   %225 = shl i32 %223, %224
   %226 = sub nsw i32 32, %215
   %227 = lshr i32 %225, %226
-  %.fr = freeze i32 %227
-  %228 = zext i32 %.fr to i64
+  %228 = zext nneg i32 %227 to i64
   %229 = add nsw i32 %215, -1
   %230 = zext nneg i32 %229 to i64
   %notmask.i94 = shl nsw i64 -1, %230
-  %notmask.i94.fr = freeze i64 %notmask.i94
-  %231 = xor i64 %notmask.i94.fr, -1
+  %231 = xor i64 %notmask.i94, -1
   %232 = and i64 %228, %231
-  %.not.i95.not = icmp eq i64 %232, 0
+  %.fr = freeze i64 %232
+  %.not.i95.not = icmp eq i64 %.fr, 0
   br i1 %.not.i95.not, label %.thread, label %cbs_h2645_read_more_rbsp_data.exit.thread101
 
 cbs_h2645_read_more_rbsp_data.exit.thread101:     ; preds = %.loopexit, %cbs_h2645_read_more_rbsp_data.exit

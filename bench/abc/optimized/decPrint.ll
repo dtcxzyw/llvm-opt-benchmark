@@ -52,8 +52,8 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %16 = getelementptr inbounds nuw ptr, ptr %.036, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
-  %.fr = freeze i64 %18
-  %19 = trunc i64 %.fr to i32
+  %.fr63 = freeze i64 %18
+  %19 = trunc i64 %.fr63 to i32
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.03756, i32 %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

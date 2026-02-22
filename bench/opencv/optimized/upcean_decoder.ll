@@ -1805,7 +1805,7 @@ define hidden noundef zeroext i1 @_ZNK2cv7barcode13UPCEANDecoder7isValidERKNSt7_
   br label %21
 
 ._crit_edge.loopexit:                             ; preds = %21
-  %12 = srem i32 %30, 10
+  %12 = srem i32 %.016.fr, 10
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
@@ -1824,12 +1824,11 @@ define hidden noundef zeroext i1 @_ZNK2cv7barcode13UPCEANDecoder7isValidERKNSt7_
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %.016.fr20 = phi i32 [ 0, %.lr.ph ], [ %30, %21 ]
+  %.016.fr20 = phi i32 [ 0, %.lr.ph ], [ %.016.fr, %21 ]
   %.01419 = phi i32 [ 1, %.lr.ph ], [ %31, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %.pre, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !14
-  %.fr = freeze i8 %23
-  %24 = sext i8 %.fr to i32
+  %24 = sext i8 %23 to i32
   %25 = add nsw i32 %24, -48
   %26 = and i32 %.01419, 1
   %.not17 = icmp eq i32 %26, 0
@@ -1839,6 +1838,7 @@ define hidden noundef zeroext i1 @_ZNK2cv7barcode13UPCEANDecoder7isValidERKNSt7_
   %30 = add i32 %29, %28
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %31 = add nuw i32 %.01419, 1
+  %.016.fr = freeze i32 %30
   %exitcond.not = icmp eq i32 %31, %8
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %21, !llvm.loop !99
 

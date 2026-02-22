@@ -31,8 +31,8 @@ define hidden noundef zeroext i1 @Curl_check_noproxy(ptr noundef %0, ptr noundef
 sub_0:                                            ; preds = %13
   %15 = zext i8 %14 to i32
   %16 = sub nsw i32 42, %15
-  %.not193 = icmp eq i8 %14, 42
-  br i1 %.not193, label %sub_1, label %.tail
+  %.not194 = icmp eq i8 %14, 42
+  br i1 %.not194, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -61,20 +61,20 @@ sub_1:                                            ; preds = %sub_0
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = icmp ugt i64 %30, 127
-  br i1 %31, label %.critedge138, label %.preheader178.lr.ph.thread
+  br i1 %31, label %.critedge138, label %.preheader179.lr.ph.thread
 
-.preheader178.lr.ph.thread:                       ; preds = %26
+.preheader179.lr.ph.thread:                       ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %27, i64 %30, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 %30
   store i8 0, ptr %32, align 1, !tbaa !3
-  br label %.preheader178.preheader
+  br label %.preheader179.preheader
 
 33:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %35 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %8) #10
-  %.not234 = icmp eq i32 %35, 1
-  br i1 %.not234, label %42, label %36
+  %.not235 = icmp eq i32 %35, 1
+  br i1 %.not235, label %42, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr i8, ptr %0, i64 %34
@@ -89,39 +89,39 @@ sub_1:                                            ; preds = %sub_0
   %.2105 = phi i64 [ %spec.select, %36 ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i8, ptr %1, align 1, !tbaa !3
-  %.not129182 = icmp eq i8 %.pre, 0
-  br i1 %.not129182, label %.critedge138, label %.preheader178.lr.ph
+  %.not129183 = icmp eq i8 %.pre, 0
+  br i1 %.not129183, label %.critedge138, label %.preheader179.lr.ph
 
-.preheader178.lr.ph:                              ; preds = %42
-  br i1 %.not234, label %.preheader178.preheader, label %.preheader178.us
+.preheader179.lr.ph:                              ; preds = %42
+  br i1 %.not235, label %.preheader179.preheader, label %.preheader179.us
 
-.preheader178.preheader:                          ; preds = %.preheader178.lr.ph.thread, %.preheader178.lr.ph
-  %43 = phi i8 [ %14, %.preheader178.lr.ph.thread ], [ %.pre, %.preheader178.lr.ph ]
-  %.199220224 = phi ptr [ %7, %.preheader178.lr.ph.thread ], [ %0, %.preheader178.lr.ph ]
-  br label %.preheader178
+.preheader179.preheader:                          ; preds = %.preheader179.lr.ph.thread, %.preheader179.lr.ph
+  %43 = phi i8 [ %14, %.preheader179.lr.ph.thread ], [ %.pre, %.preheader179.lr.ph ]
+  %.199221225 = phi ptr [ %7, %.preheader179.lr.ph.thread ], [ %0, %.preheader179.lr.ph ]
+  br label %.preheader179
 
-.preheader178.us:                                 ; preds = %.preheader178.lr.ph, %.preheader178.us.backedge
-  %44 = phi i8 [ %.be252, %.preheader178.us.backedge ], [ %.pre, %.preheader178.lr.ph ]
-  %.1107.us = phi ptr [ %.1107.us.be, %.preheader178.us.backedge ], [ %1, %.preheader178.lr.ph ]
+.preheader179.us:                                 ; preds = %.preheader179.lr.ph, %.preheader179.us.backedge
+  %44 = phi i8 [ %.be253, %.preheader179.us.backedge ], [ %.pre, %.preheader179.lr.ph ]
+  %.1107.us = phi ptr [ %.1107.us.be, %.preheader179.us.backedge ], [ %1, %.preheader179.lr.ph ]
   switch i8 %44, label %.critedge.us [
     i8 9, label %.critedge3.us
     i8 32, label %.critedge3.us
   ]
 
-.critedge3.us:                                    ; preds = %.preheader178.us, %.preheader178.us
+.critedge3.us:                                    ; preds = %.preheader179.us, %.preheader179.us
   %45 = getelementptr inbounds nuw i8, ptr %.1107.us, i64 1
   %.pr.us = load i8, ptr %45, align 1, !tbaa !3
-  br label %.preheader178.us.backedge
+  br label %.preheader179.us.backedge
 
-.preheader178.us.backedge:                        ; preds = %.preheader.us, %.critedge3.us
-  %.be252 = phi i8 [ %.pr.us, %.critedge3.us ], [ %.pr150.us, %.preheader.us ]
+.preheader179.us.backedge:                        ; preds = %.preheader.us, %.critedge3.us
+  %.be253 = phi i8 [ %.pr.us, %.critedge3.us ], [ %.pr150.us, %.preheader.us ]
   %.1107.us.be = phi ptr [ %45, %.critedge3.us ], [ %73, %.preheader.us ]
-  br label %.preheader178.us, !llvm.loop !6
+  br label %.preheader179.us, !llvm.loop !6
 
-.critedge.us:                                     ; preds = %.preheader178.us, %75
-  %46 = phi i8 [ %.pre203, %75 ], [ %44, %.preheader178.us ]
-  %.2108.us = phi ptr [ %76, %75 ], [ %.1107.us, %.preheader178.us ]
-  %.094.us = phi i64 [ %77, %75 ], [ 0, %.preheader178.us ]
+.critedge.us:                                     ; preds = %.preheader179.us, %75
+  %46 = phi i8 [ %.pre204, %75 ], [ %44, %.preheader179.us ]
+  %.2108.us = phi ptr [ %76, %75 ], [ %.1107.us, %.preheader179.us ]
+  %.094.us = phi i64 [ %77, %75 ], [ 0, %.preheader179.us ]
   switch i8 %46, label %75 [
     i8 0, label %.critedge5.us
     i8 32, label %.critedge5.us
@@ -172,13 +172,13 @@ sub_1:                                            ; preds = %sub_0
 
 68:                                               ; preds = %62
   %69 = call i32 @curl_strnequal(ptr noundef nonnull %.097.us, ptr noundef nonnull %64, i64 noundef %.296.us) #10
-  %.not176.us = icmp eq i32 %69, 0
-  br i1 %.not176.us, label %.critedge141.us.preheader, label %.critedge138
+  %.not177.us = icmp eq i32 %69, 0
+  br i1 %.not177.us, label %.critedge141.us.preheader, label %.critedge138
 
 70:                                               ; preds = %58
   %71 = call i32 @curl_strnequal(ptr noundef nonnull %.097.us, ptr noundef nonnull %0, i64 noundef %.2105) #10
-  %.not177.us = icmp eq i32 %71, 0
-  br i1 %.not177.us, label %.critedge141.us.preheader, label %.critedge138
+  %.not178.us = icmp eq i32 %71, 0
+  br i1 %.not178.us, label %.critedge141.us.preheader, label %.critedge138
 
 .critedge141.us.preheader:                        ; preds = %70, %68, %62, %60, %.critedge5.us
   br label %.critedge141.us
@@ -193,10 +193,10 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 .preheader.us:                                    ; preds = %.critedge141.us, %.preheader.us
-  %.5111181.us = phi ptr [ %73, %.preheader.us ], [ %.4110.us, %.critedge141.us ]
-  %73 = getelementptr inbounds nuw i8, ptr %.5111181.us, i64 1
+  %.5111182.us = phi ptr [ %73, %.preheader.us ], [ %.4110.us, %.critedge141.us ]
+  %73 = getelementptr inbounds nuw i8, ptr %.5111182.us, i64 1
   %.pr150.us = load i8, ptr %73, align 1, !tbaa !3
-  switch i8 %.pr150.us, label %.preheader178.us.backedge [
+  switch i8 %.pr150.us, label %.preheader179.us.backedge [
     i8 44, label %.preheader.us
     i8 0, label %.critedge138
   ]
@@ -208,31 +208,31 @@ sub_1:                                            ; preds = %sub_0
 75:                                               ; preds = %.critedge.us
   %76 = getelementptr inbounds nuw i8, ptr %.2108.us, i64 1
   %77 = add i64 %.094.us, 1
-  %.pre203 = load i8, ptr %76, align 1, !tbaa !3
+  %.pre204 = load i8, ptr %76, align 1, !tbaa !3
   br label %.critedge.us, !llvm.loop !9
 
-.preheader178:                                    ; preds = %.preheader178.backedge, %.preheader178.preheader
-  %78 = phi i8 [ %43, %.preheader178.preheader ], [ %.be, %.preheader178.backedge ]
-  %.1107 = phi ptr [ %1, %.preheader178.preheader ], [ %.1107.be, %.preheader178.backedge ]
+.preheader179:                                    ; preds = %.preheader179.backedge, %.preheader179.preheader
+  %78 = phi i8 [ %43, %.preheader179.preheader ], [ %.be, %.preheader179.backedge ]
+  %.1107 = phi ptr [ %1, %.preheader179.preheader ], [ %.1107.be, %.preheader179.backedge ]
   switch i8 %78, label %.critedge [
     i8 9, label %.critedge3
     i8 32, label %.critedge3
   ]
 
-.critedge3:                                       ; preds = %.preheader178, %.preheader178
+.critedge3:                                       ; preds = %.preheader179, %.preheader179
   %79 = getelementptr inbounds nuw i8, ptr %.1107, i64 1
   %.pr = load i8, ptr %79, align 1, !tbaa !3
-  br label %.preheader178.backedge
+  br label %.preheader179.backedge
 
-.preheader178.backedge:                           ; preds = %.preheader, %.critedge3
+.preheader179.backedge:                           ; preds = %.preheader, %.critedge3
   %.be = phi i8 [ %.pr, %.critedge3 ], [ %.pr150, %.preheader ]
   %.1107.be = phi ptr [ %79, %.critedge3 ], [ %143, %.preheader ]
-  br label %.preheader178, !llvm.loop !6
+  br label %.preheader179, !llvm.loop !6
 
-.critedge:                                        ; preds = %.preheader178, %81
-  %80 = phi i8 [ %.pre202, %81 ], [ %78, %.preheader178 ]
-  %.2108 = phi ptr [ %82, %81 ], [ %.1107, %.preheader178 ]
-  %.094 = phi i64 [ %83, %81 ], [ 0, %.preheader178 ]
+.critedge:                                        ; preds = %.preheader179, %81
+  %80 = phi i8 [ %.pre203, %81 ], [ %78, %.preheader179 ]
+  %.2108 = phi ptr [ %82, %81 ], [ %.1107, %.preheader179 ]
+  %.094 = phi i64 [ %83, %81 ], [ 0, %.preheader179 ]
   switch i8 %80, label %81 [
     i8 0, label %.critedge5
     i8 32, label %.critedge5
@@ -243,7 +243,7 @@ sub_1:                                            ; preds = %sub_0
 81:                                               ; preds = %.critedge
   %82 = getelementptr inbounds nuw i8, ptr %.2108, i64 1
   %83 = add i64 %.094, 1
-  %.pre202 = load i8, ptr %82, align 1, !tbaa !3
+  %.pre203 = load i8, ptr %82, align 1, !tbaa !3
   br label %.critedge, !llvm.loop !9
 
 .critedge5:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge
@@ -266,8 +266,8 @@ sub_1:                                            ; preds = %sub_0
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 1
   %91 = call i64 @strtol(ptr noundef nonnull captures(none) %90, ptr noundef null, i32 noundef 10) #10
-  %.fr = freeze i64 %91
-  %92 = trunc i64 %.fr to i32
+  %.fr176 = freeze i64 %91
+  %92 = trunc i64 %.fr176 to i32
   store i8 0, ptr %88, align 1, !tbaa !3
   br i1 %23, label %93, label %122
 
@@ -308,7 +308,7 @@ sub_1:                                            ; preds = %sub_0
   %101 = phi i1 [ %100, %96 ], [ false, %.thread163 ], [ false, %93 ]
   %102 = phi i32 [ %98, %96 ], [ 16, %.thread163 ], [ 16, %93 ]
   %103 = phi i32 [ %97, %96 ], [ 0, %.thread163 ], [ 0, %93 ]
-  %104 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.199220224, ptr noundef nonnull %5) #10
+  %104 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.199221225, ptr noundef nonnull %5) #10
   %.not17.i = icmp eq i32 %104, 1
   br i1 %.not17.i, label %105, label %.thread173
 
@@ -354,7 +354,7 @@ sub_1:                                            ; preds = %sub_0
 
 124:                                              ; preds = %.thread147, %122
   %.0146149 = phi i32 [ 0, %.thread147 ], [ %92, %122 ]
-  %125 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.199220224, ptr noundef nonnull %3) #10
+  %125 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.199221225, ptr noundef nonnull %3) #10
   %.not.i142 = icmp eq i32 %125, 1
   br i1 %.not.i142, label %126, label %Curl_cidr4_match.exit.thread
 
@@ -427,10 +427,10 @@ Curl_cidr4_match.exit:                            ; preds = %128
   br label %.critedge141, !llvm.loop !8
 
 .preheader:                                       ; preds = %.critedge141, %.preheader
-  %.5111181 = phi ptr [ %143, %.preheader ], [ %.4110, %.critedge141 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.5111181, i64 1
+  %.5111182 = phi ptr [ %143, %.preheader ], [ %.4110, %.critedge141 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.5111182, i64 1
   %.pr150 = load i8, ptr %143, align 1, !tbaa !3
-  switch i8 %.pr150, label %.preheader178.backedge [
+  switch i8 %.pr150, label %.preheader179.backedge [
     i8 44, label %.preheader
     i8 0, label %.critedge138
   ]

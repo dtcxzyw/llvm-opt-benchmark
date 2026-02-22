@@ -63,8 +63,8 @@ define dso_local void @_ZN3igl10lbs_matrixERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1E
   %5 = alloca %"class.Eigen::Block", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !4
-  %.fr = freeze i64 %7
-  %8 = trunc i64 %.fr to i32
+  %.fr90 = freeze i64 %7
+  %8 = trunc i64 %.fr90 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -110,73 +110,73 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not85, label %.lr.ph88.split.us.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph88
-  %35 = and i64 %.fr, 2147483647
+  %35 = and i64 %.fr90, 2147483647
   %36 = zext nneg i32 %15 to i64
-  %wide.trip.count99 = and i64 %12, 2147483647
+  %wide.trip.count100 = and i64 %12, 2147483647
   br label %.lr.ph
 
 .lr.ph88.split.us.preheader:                      ; preds = %.lr.ph88
-  %wide.trip.count104 = and i64 %12, 2147483647
+  %wide.trip.count105 = and i64 %12, 2147483647
   br label %.lr.ph88.split.us
 
 .lr.ph88.split.us:                                ; preds = %.lr.ph88.split.us.preheader, %.lr.ph88.split.us
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph88.split.us.preheader ], [ %indvars.iv.next102, %.lr.ph88.split.us ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph88.split.us.preheader ], [ %indvars.iv.next103, %.lr.ph88.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = load i64, ptr %9, align 8, !tbaa !11
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %38 = load ptr, ptr %1, align 8, !tbaa !17, !noalias !14
   %39 = load i64, ptr %27, align 8, !tbaa !11, !noalias !14
-  %40 = mul nsw i64 %39, %indvars.iv101
+  %40 = mul nsw i64 %39, %indvars.iv102
   %41 = getelementptr inbounds double, ptr %38, i64 %40
   store ptr %41, ptr %5, align 8, !tbaa !18, !alias.scope !14
   store i64 %37, ptr %28, align 8, !tbaa !21, !alias.scope !14
   store i64 1, ptr %29, align 8, !tbaa !21, !alias.scope !14
   store ptr %1, ptr %30, align 8, !tbaa !22, !alias.scope !14
   store i64 0, ptr %31, align 8, !tbaa !21, !alias.scope !14
-  store i64 %indvars.iv101, ptr %32, align 8, !tbaa !21, !alias.scope !14
+  store i64 %indvars.iv102, ptr %32, align 8, !tbaa !21, !alias.scope !14
   store i64 %39, ptr %33, align 8, !tbaa !24, !alias.scope !14
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEC2INS_5BlockIKNS1_IdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = load ptr, ptr %4, align 8, !tbaa !26
   call void @free(ptr noundef %42) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge89, label %.lr.ph88.split.us, !llvm.loop !28
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
+  br i1 %exitcond106.not, label %._crit_edge89, label %.lr.ph88.split.us, !llvm.loop !28
 
 ._crit_edge89:                                    ; preds = %._crit_edge, %.lr.ph88.split.us, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next97, %._crit_edge ]
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next98, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = load i64, ptr %9, align 8, !tbaa !11
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %44 = load ptr, ptr %1, align 8, !tbaa !17, !noalias !14
   %45 = load i64, ptr %27, align 8, !tbaa !11, !noalias !14
-  %46 = mul nsw i64 %45, %indvars.iv96
+  %46 = mul nsw i64 %45, %indvars.iv97
   %47 = getelementptr inbounds double, ptr %44, i64 %46
   store ptr %47, ptr %5, align 8, !tbaa !18, !alias.scope !14
   store i64 %43, ptr %28, align 8, !tbaa !21, !alias.scope !14
   store i64 1, ptr %29, align 8, !tbaa !21, !alias.scope !14
   store ptr %1, ptr %30, align 8, !tbaa !22, !alias.scope !14
   store i64 0, ptr %31, align 8, !tbaa !21, !alias.scope !14
-  store i64 %indvars.iv96, ptr %32, align 8, !tbaa !21, !alias.scope !14
+  store i64 %indvars.iv97, ptr %32, align 8, !tbaa !21, !alias.scope !14
   store i64 %45, ptr %33, align 8, !tbaa !24, !alias.scope !14
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEC2INS_5BlockIKNS1_IdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %48 = mul nuw nsw i64 %indvars.iv96, %36
+  %48 = mul nuw nsw i64 %indvars.iv97, %36
   br label %50
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS1_IdLin1ELi1ELi0ELin1ELi1EEEKNS0_IKS2_Lin1ELi1ELb1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit
   %49 = load ptr, ptr %4, align 8, !tbaa !26
   call void @free(ptr noundef %49) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge89, label %.lr.ph, !llvm.loop !28
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
+  br i1 %exitcond101.not, label %._crit_edge89, label %.lr.ph, !llvm.loop !28
 
 50:                                               ; preds = %.lr.ph, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS1_IdLin1ELi1ELi0ELin1ELi1EEEKNS0_IKS2_Lin1ELi1ELb1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS1_IdLin1ELi1ELi0ELin1ELi1EEEKNS0_IKS2_Lin1ELi1ELb1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
@@ -264,7 +264,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 98:                                               ; preds = %50
   %99 = load ptr, ptr %1, align 8, !tbaa !17, !noalias !39
   %100 = load i64, ptr %27, align 8, !tbaa !11, !noalias !39
-  %101 = mul nsw i64 %100, %indvars.iv96
+  %101 = mul nsw i64 %100, %indvars.iv97
   %102 = getelementptr inbounds double, ptr %99, i64 %101
   %103 = ptrtoint ptr %56 to i64
   %104 = and i64 %103, 7

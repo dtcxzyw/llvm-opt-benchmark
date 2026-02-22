@@ -379,8 +379,8 @@ lv_image_get_pivot.exit:                          ; preds = %15
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %154, i64 96
   %177 = load i32, ptr %176, align 8, !tbaa !19
-  %.not101.i = icmp eq i32 %177, 0
-  br i1 %.not101.i, label %179, label %178
+  %.not96.i = icmp eq i32 %177, 0
+  br i1 %.not96.i, label %179, label %178
 
 178:                                              ; preds = %175
   store i32 1, ptr %156, align 8, !tbaa !37
@@ -459,8 +459,8 @@ lv_image_get_pivot.exit:                          ; preds = %15
 220:                                              ; preds = %.critedge.i, %187
   %221 = getelementptr inbounds nuw i8, ptr %154, i64 72
   %222 = load ptr, ptr %221, align 8, !tbaa !40
-  %.not102.i = icmp eq ptr %222, null
-  br i1 %.not102.i, label %draw_image.exit, label %223
+  %.not97.i = icmp eq ptr %222, null
+  br i1 %.not97.i, label %draw_image.exit, label %223
 
 223:                                              ; preds = %220
   store i32 1, ptr %156, align 8, !tbaa !37
@@ -602,27 +602,23 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %313 = load i32, ptr %246, align 4, !tbaa !58
   %314 = load i32, ptr %281, align 8, !tbaa !62
   %315 = load i32, ptr %229, align 8, !tbaa !17
-  %.fr97.i = freeze i32 %315
-  %.fr96.i = freeze i32 %314
-  %.fr95.i = freeze i32 %313
-  %.neg = add i32 %.fr95.i, 1
-  %316 = add i32 %.fr96.i, %.fr97.i
-  %317 = sub i32 %.neg, %316
-  %318 = srem i32 %317, %.fr97.i
-  %319 = sub nsw i32 %317, %318
+  %.neg108 = add i32 %313, 1
+  %316 = add i32 %314, %315
+  %317 = sub i32 %.neg108, %316
+  %.fr.i = freeze i32 %317
+  %318 = srem i32 %.fr.i, %315
+  %319 = sub nsw i32 %.fr.i, %318
   %320 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %321 = load i32, ptr %320, align 4, !tbaa !63
   %322 = getelementptr inbounds nuw i8, ptr %5, i64 116
   %323 = load i32, ptr %322, align 4, !tbaa !64
   %324 = load i32, ptr %225, align 4, !tbaa !18
-  %.fr100.i = freeze i32 %324
-  %.fr99.i = freeze i32 %323
-  %.fr98.i = freeze i32 %321
-  %.neg107 = add i32 %.fr98.i, 1
-  %325 = add i32 %.fr99.i, %.fr100.i
-  %326 = sub i32 %.neg107, %325
-  %327 = srem i32 %326, %.fr100.i
-  %328 = sub nsw i32 %326, %327
+  %.neg111 = add i32 %321, 1
+  %325 = add i32 %323, %324
+  %326 = sub i32 %.neg111, %325
+  %.fr95.i = freeze i32 %326
+  %327 = srem i32 %.fr95.i, %324
+  %328 = sub nsw i32 %.fr95.i, %327
   call void @lv_area_move(ptr noundef nonnull %281, i32 noundef %319, i32 noundef %328) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !49
   %329 = load i8, ptr %265, align 1

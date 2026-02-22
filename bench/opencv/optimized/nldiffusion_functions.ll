@@ -2442,7 +2442,6 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   %10 = add nsw i32 %4, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %.fr82 = freeze i32 %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2452,20 +2451,23 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   br i1 %5, label %.lr.ph.us, label %.lr.ph
 
 .lr.ph.us:                                        ; preds = %.lr.ph67.split, %._crit_edge.us
-  %.03964.us70 = phi i32 [ %22, %._crit_edge.us ], [ %8, %.lr.ph67.split ]
+  %.03964.us70 = phi i32 [ %21, %._crit_edge.us ], [ %8, %.lr.ph67.split ]
   %19 = icmp sgt i32 %.03964.us70, -1
+  %.not46.us = icmp eq i32 %.03964.us70, %3
   %20 = zext nneg i32 %.03964.us70 to i64
-  %21 = icmp slt i32 %.03964.us70, %.fr82
-  %or.cond103 = and i1 %19, %21
-  br i1 %or.cond103, label %.lr.ph.split.us.split.us76, label %._crit_edge.us
+  br i1 %19, label %.lr.ph.split.us.us, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %33, %45, %.lr.ph.us
-  %22 = add i32 %.03964.us70, 1
-  %.not.us75 = icmp sgt i32 %22, %7
+._crit_edge.us:                                   ; preds = %33, %45, %.lr.ph.split.us.us, %.lr.ph.us
+  %21 = add i32 %.03964.us70, 1
+  %.not.us75 = icmp sgt i32 %21, %7
   br i1 %.not.us75, label %.thread, label %.lr.ph.us, !llvm.loop !127
 
-.lr.ph.split.us.split.us76:                       ; preds = %.lr.ph.us
-  %.not46.us = icmp eq i32 %.03964.us70, %3
+.lr.ph.split.us.us:                               ; preds = %.lr.ph.us
+  %22 = icmp slt i32 %.03964.us70, %12
+  %.fr.us = freeze i1 %22
+  br i1 %.fr.us, label %.lr.ph.split.us.split.us76, label %._crit_edge.us
+
+.lr.ph.split.us.split.us76:                       ; preds = %.lr.ph.split.us.us
   br i1 %.not46.us, label %.lr.ph.split.us.split.split.us.us.split, label %.lr.ph.split.us.split.split.us.us.split.us
 
 .lr.ph.split.us.split.split.us.us.split.us:       ; preds = %.lr.ph.split.us.split.us76, %33
@@ -2494,9 +2496,9 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   %.057.us.us58.us = phi i32 [ %46, %45 ], [ %9, %.lr.ph.split.us.split.us76 ]
   %35 = icmp slt i32 %.057.us.us58.us, 0
   %36 = icmp sge i32 %.057.us.us58.us, %14
-  %or.cond50.us.us.us.not85 = select i1 %35, i1 true, i1 %36
+  %or.cond50.us.us.us.not84 = select i1 %35, i1 true, i1 %36
   %.not47.us.us.us = icmp eq i32 %.057.us.us58.us, %4
-  %or.cond = or i1 %or.cond50.us.us.us.not85, %.not47.us.us.us
+  %or.cond = or i1 %or.cond50.us.us.us.not84, %.not47.us.us.us
   br i1 %or.cond, label %45, label %37
 
 37:                                               ; preds = %.lr.ph.split.us.split.split.us.us.split
@@ -2518,12 +2520,15 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   %.03964 = phi i32 [ %62, %._crit_edge ], [ %8, %.lr.ph67.split ]
   %47 = icmp sgt i32 %.03964, -1
   %48 = zext nneg i32 %.03964 to i64
-  %49 = icmp slt i32 %.03964, %.fr82
-  %or.cond104 = and i1 %47, %49
-  br i1 %or.cond104, label %.lr.ph.split.us.split, label %._crit_edge
+  br i1 %47, label %.lr.ph.split.us, label %._crit_edge
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %60
-  %.057.us = phi i32 [ %61, %60 ], [ %9, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %49 = icmp slt i32 %.03964, %12
+  %.fr = freeze i1 %49
+  br i1 %.fr, label %.lr.ph.split.us.split, label %._crit_edge
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %60
+  %.057.us = phi i32 [ %61, %60 ], [ %9, %.lr.ph.split.us ]
   %50 = icmp sgt i32 %.057.us, -1
   %51 = icmp slt i32 %.057.us, %14
   %or.cond50.us = select i1 %50, i1 %51, i1 false
@@ -2544,10 +2549,10 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   %.not45.us.not = icmp slt i32 %.057.us, %10
   br i1 %.not45.us.not, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !128
 
-._crit_edge:                                      ; preds = %60, %.lr.ph
-  %62 = add i32 %.03964, 1
-  %.not = icmp sgt i32 %62, %7
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !127
+._crit_edge:                                      ; preds = %60, %.lr.ph.split.us, %.lr.ph
+  %62 = add nsw i32 %.03964, 1
+  %.not.not = icmp slt i32 %.03964, %7
+  br i1 %.not.not, label %.lr.ph, label %.thread, !llvm.loop !127
 
 .thread:                                          ; preds = %._crit_edge, %52, %._crit_edge.us, %25, %37, %6
   %.not55 = phi i1 [ false, %52 ], [ false, %25 ], [ true, %._crit_edge.us ], [ true, %6 ], [ false, %37 ], [ true, %._crit_edge ]

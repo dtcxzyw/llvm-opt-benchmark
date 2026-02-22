@@ -585,7 +585,7 @@ define internal range(i32 1, 1068) i32 @calculate_s5066dts_dpdu_len(ptr readnone
 
 8:                                                ; preds = %6
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 2)
-  %.fr = freeze i8 %9
+  %.fr29 = freeze i8 %9
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 5)
   %11 = lshr i8 %10, 5
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 5)
@@ -593,12 +593,12 @@ define internal range(i32 1, 1068) i32 @calculate_s5066dts_dpdu_len(ptr readnone
   %narrow = add nuw nsw i8 %11, 2
   %narrow26 = add nuw nsw i8 %narrow, %13
   %14 = zext nneg i8 %narrow26 to i32
-  %15 = and i8 %.fr, -48
+  %15 = and i8 %.fr29, -48
   %or.cond = icmp eq i8 %15, 0
   br i1 %or.cond, label %17, label %switch.early.test
 
 switch.early.test:                                ; preds = %8
-  %16 = lshr i8 %.fr, 4
+  %16 = lshr i8 %.fr29, 4
   switch i8 %16, label %23 [
     i8 8, label %17
     i8 7, label %17
@@ -636,8 +636,8 @@ define internal i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr nounde
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.176)
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %.fr = freeze i8 %11
-  %12 = lshr i8 %.fr, 4
+  %.fr148 = freeze i8 %11
+  %12 = lshr i8 %.fr148, 4
   %13 = zext nneg i8 %12 to i32
   %14 = load ptr, ptr %9, align 8
   %15 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @s5066dts_dpdu_type, ptr noundef nonnull @.str.254)
@@ -648,7 +648,7 @@ define internal i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr nounde
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %20 = and i8 %19, 15
   %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  switch i8 %20, label %default.unreachable153 [
+  switch i8 %20, label %default.unreachable154 [
     i8 0, label %22
     i8 1, label %24
     i8 2, label %24
@@ -692,7 +692,7 @@ define internal i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef 15, ptr noundef %32, ptr noundef %34)
   br label %35
 
-default.unreachable153:                           ; preds = %8
+default.unreachable154:                           ; preds = %8
   unreachable
 
 35:                                               ; preds = %30, %28, %24, %22
@@ -1019,7 +1019,7 @@ dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_
 
 dissect_s5066dts_header_crc.exit:                 ; preds = %226, %227
   %229 = add nuw nsw i32 %.0143, 2
-  %230 = and i8 %.fr, -48
+  %230 = and i8 %.fr148, -48
   %or.cond = icmp eq i8 %230, 0
   br i1 %or.cond, label %231, label %switch.early.test
 

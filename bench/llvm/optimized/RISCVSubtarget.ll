@@ -4413,17 +4413,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm21isTuneAUIPCADDIFusionERKNS_15Targ
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %9 = load i16, ptr %8, align 4, !tbaa !521
   %.not = icmp eq i16 %9, 11754
-  br i1 %.not, label %10, label %46
+  br i1 %.not, label %10, label %47
 
 10:                                               ; preds = %4
   %.not23 = icmp eq ptr %2, null
-  br i1 %.not23, label %46, label %11
+  br i1 %.not23, label %47, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %13 = load i16, ptr %12, align 4, !tbaa !521
   %.not24 = icmp eq i16 %13, 11940
-  br i1 %.not24, label %14, label %46
+  br i1 %.not24, label %14, label %47
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4437,7 +4437,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21isTuneAUIPCADDIFusionERKNS_15Targ
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !403
   %.not32 = icmp eq i32 %18, %22
-  br i1 %.not32, label %23, label %46
+  br i1 %.not32, label %23, label %47
 
 23:                                               ; preds = %20, %14
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4449,7 +4449,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21isTuneAUIPCADDIFusionERKNS_15Targ
 
 29:                                               ; preds = %23
   %30 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %7, i32 %27) #24
-  br i1 %30, label %..critedge_crit_edge, label %46
+  br i1 %30, label %..critedge_crit_edge, label %47
 
 ..critedge_crit_edge:                             ; preds = %29
   %.pre = load ptr, ptr %24, align 8, !tbaa !384
@@ -4475,15 +4475,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm21isTuneAUIPCADDIFusionERKNS_15Targ
   %43 = load i32, ptr %42, align 4, !tbaa !403
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !403
-  %.fr = freeze i32 %43
-  %.fr33 = freeze i32 %45
-  %.not34 = icmp eq i32 %.fr, %.fr33
-  br i1 %.not34, label %46, label %.thread
+  %46 = icmp ne i32 %43, %45
+  %cond.fr = freeze i1 %46
+  br i1 %cond.fr, label %.thread, label %47
 
 .thread:                                          ; preds = %.critedge, %35, %41
-  br label %46
+  br label %47
 
-46:                                               ; preds = %.thread, %41, %29, %20, %10, %11, %4
+47:                                               ; preds = %.thread, %41, %29, %20, %10, %11, %4
   %.1 = phi i1 [ true, %10 ], [ false, %29 ], [ false, %20 ], [ false, %4 ], [ false, %11 ], [ false, %.thread ], [ true, %41 ]
   ret i1 %.1
 }
@@ -4496,7 +4495,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneLDADDFusionERKNS_15TargetIn
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %9 = load i16, ptr %8, align 4, !tbaa !521
   %10 = icmp eq i16 %9, 12665
-  br i1 %10, label %11, label %55
+  br i1 %10, label %11, label %56
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4505,23 +4504,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneLDADDFusionERKNS_15TargetIn
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %55
+  br i1 %17, label %18, label %56
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %20 = load i64, ptr %19, align 8, !tbaa !403
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.critedge, label %55
+  br i1 %21, label %.critedge, label %56
 
 .critedge:                                        ; preds = %18
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %55, label %22
+  br i1 %.not, label %56, label %22
 
 22:                                               ; preds = %.critedge
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %24 = load i16, ptr %23, align 4, !tbaa !521
   %.not25 = icmp eq i16 %24, 11753
-  br i1 %.not25, label %25, label %55
+  br i1 %.not25, label %25, label %56
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -4533,7 +4532,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneLDADDFusionERKNS_15TargetIn
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %31 = load i32, ptr %30, align 4, !tbaa !403
   %.not35 = icmp eq i32 %27, %31
-  br i1 %.not35, label %32, label %55
+  br i1 %.not35, label %32, label %56
 
 32:                                               ; preds = %29, %25
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4545,7 +4544,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneLDADDFusionERKNS_15TargetIn
 
 38:                                               ; preds = %32
   %39 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %7, i32 %36) #24
-  br i1 %39, label %..critedge27_crit_edge, label %55
+  br i1 %39, label %..critedge27_crit_edge, label %56
 
 ..critedge27_crit_edge:                           ; preds = %38
   %.pre = load ptr, ptr %33, align 8, !tbaa !384
@@ -4571,15 +4570,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneLDADDFusionERKNS_15TargetIn
   %52 = load i32, ptr %51, align 4, !tbaa !403
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 36
   %54 = load i32, ptr %53, align 4, !tbaa !403
-  %.fr = freeze i32 %52
-  %.fr36 = freeze i32 %54
-  %.not37 = icmp eq i32 %.fr, %.fr36
-  br i1 %.not37, label %55, label %.thread
+  %55 = icmp ne i32 %52, %54
+  %cond.fr = freeze i1 %55
+  br i1 %cond.fr, label %.thread, label %56
 
 .thread:                                          ; preds = %.critedge27, %44, %50
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.thread, %50, %38, %29, %.critedge, %18, %11, %4, %22
+56:                                               ; preds = %.thread, %50, %38, %29, %.critedge, %18, %11, %4, %22
   %.1 = phi i1 [ true, %.critedge ], [ false, %38 ], [ false, %29 ], [ false, %11 ], [ false, %22 ], [ false, %18 ], [ false, %4 ], [ false, %.thread ], [ true, %50 ]
   ret i1 %.1
 }
@@ -4593,17 +4591,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isTuneLUIADDIFusionERKNS_15Target
   %9 = load i16, ptr %8, align 4, !tbaa !521
   %10 = and i16 %9, -2
   %switch = icmp eq i16 %10, 11754
-  br i1 %switch, label %.critedge, label %46
+  br i1 %switch, label %.critedge, label %47
 
 .critedge:                                        ; preds = %4
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %46, label %11
+  br i1 %.not25, label %47, label %11
 
 11:                                               ; preds = %.critedge
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %13 = load i16, ptr %12, align 4, !tbaa !521
   %.not26 = icmp eq i16 %13, 12681
-  br i1 %.not26, label %14, label %46
+  br i1 %.not26, label %14, label %47
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4617,7 +4615,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isTuneLUIADDIFusionERKNS_15Target
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !403
   %.not = icmp eq i32 %18, %22
-  br i1 %.not, label %23, label %46
+  br i1 %.not, label %23, label %47
 
 23:                                               ; preds = %20, %14
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4629,7 +4627,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isTuneLUIADDIFusionERKNS_15Target
 
 29:                                               ; preds = %23
   %30 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %7, i32 %27) #24
-  br i1 %30, label %..critedge28_crit_edge, label %46
+  br i1 %30, label %..critedge28_crit_edge, label %47
 
 ..critedge28_crit_edge:                           ; preds = %29
   %.pre = load ptr, ptr %24, align 8, !tbaa !384
@@ -4655,15 +4653,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isTuneLUIADDIFusionERKNS_15Target
   %43 = load i32, ptr %42, align 4, !tbaa !403
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !403
-  %.fr = freeze i32 %43
-  %.fr36 = freeze i32 %45
-  %.not37 = icmp eq i32 %.fr, %.fr36
-  br i1 %.not37, label %46, label %.thread
+  %46 = icmp ne i32 %43, %45
+  %cond.fr = freeze i1 %46
+  br i1 %cond.fr, label %.thread, label %47
 
 .thread:                                          ; preds = %.critedge28, %35, %41
-  br label %46
+  br label %47
 
-46:                                               ; preds = %4, %.thread, %41, %29, %20, %.critedge, %11
+47:                                               ; preds = %4, %.thread, %41, %29, %20, %.critedge, %11
   %.1 = phi i1 [ true, %.critedge ], [ false, %29 ], [ false, %20 ], [ false, %4 ], [ false, %11 ], [ false, %.thread ], [ true, %41 ]
   ret i1 %.1
 }
@@ -4676,7 +4673,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %9 = load i16, ptr %8, align 4, !tbaa !521
   %10 = icmp eq i16 %9, 12922
-  br i1 %10, label %11, label %63
+  br i1 %10, label %11, label %64
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4685,23 +4682,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %63
+  br i1 %17, label %18, label %64
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %20 = load i64, ptr %19, align 8, !tbaa !403
   %or.cond = icmp ult i64 %20, 32
-  br i1 %or.cond, label %.critedge, label %63
+  br i1 %or.cond, label %.critedge, label %64
 
 .critedge:                                        ; preds = %18
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %63, label %21
+  br i1 %.not, label %64, label %21
 
 21:                                               ; preds = %.critedge
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %23 = load i16, ptr %22, align 4, !tbaa !521
   %24 = icmp eq i16 %23, 12904
-  br i1 %24, label %25, label %63
+  br i1 %24, label %25, label %64
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4710,13 +4707,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 255
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %32, label %63
+  br i1 %31, label %32, label %64
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %34 = load i64, ptr %33, align 8, !tbaa !403
   %35 = icmp eq i64 %34, 32
-  br i1 %35, label %.critedge29, label %63
+  br i1 %35, label %.critedge29, label %64
 
 .critedge29:                                      ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -4728,7 +4725,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %41 = load i32, ptr %40, align 4, !tbaa !403
   %.not39 = icmp eq i32 %37, %41
-  br i1 %.not39, label %42, label %63
+  br i1 %.not39, label %42, label %64
 
 42:                                               ; preds = %39, %.critedge29
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -4738,7 +4735,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
 
 46:                                               ; preds = %42
   %47 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %7, i32 %44) #24
-  br i1 %47, label %..critedge31_crit_edge, label %63
+  br i1 %47, label %..critedge31_crit_edge, label %64
 
 ..critedge31_crit_edge:                           ; preds = %46
   %.pre = load ptr, ptr %26, align 8, !tbaa !384
@@ -4764,15 +4761,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isTuneShiftedZExtWFusionERKNS_15T
   %60 = load i32, ptr %59, align 4, !tbaa !403
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %62 = load i32, ptr %61, align 4, !tbaa !403
-  %.fr = freeze i32 %60
-  %.fr40 = freeze i32 %62
-  %.not41 = icmp eq i32 %.fr, %.fr40
-  br i1 %.not41, label %63, label %.thread
+  %63 = icmp ne i32 %60, %62
+  %cond.fr = freeze i1 %63
+  br i1 %cond.fr, label %.thread, label %64
 
 .thread:                                          ; preds = %.critedge31, %52, %58
-  br label %63
+  br label %64
 
-63:                                               ; preds = %.thread, %58, %46, %39, %32, %25, %21, %.critedge, %18, %11, %4
+64:                                               ; preds = %.thread, %58, %46, %39, %32, %25, %21, %.critedge, %18, %11, %4
   %.1 = phi i1 [ false, %32 ], [ false, %46 ], [ false, %39 ], [ false, %25 ], [ true, %.critedge ], [ true, %58 ], [ false, %4 ], [ false, %11 ], [ false, %18 ], [ false, %21 ], [ false, %.thread ]
   ret i1 %.1
 }
@@ -4785,7 +4781,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %9 = load i16, ptr %8, align 4, !tbaa !521
   %10 = icmp eq i16 %9, 12922
-  br i1 %10, label %11, label %64
+  br i1 %10, label %11, label %65
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4794,23 +4790,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %64
+  br i1 %17, label %18, label %65
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %20 = load i64, ptr %19, align 8, !tbaa !403
   %21 = icmp eq i64 %20, 48
-  br i1 %21, label %.critedge, label %64
+  br i1 %21, label %.critedge, label %65
 
 .critedge:                                        ; preds = %18
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %64, label %22
+  br i1 %.not, label %65, label %22
 
 22:                                               ; preds = %.critedge
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %24 = load i16, ptr %23, align 4, !tbaa !521
   %25 = icmp eq i16 %24, 12904
-  br i1 %25, label %26, label %64
+  br i1 %25, label %26, label %65
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4819,13 +4815,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 255
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %64
+  br i1 %32, label %33, label %65
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %35 = load i64, ptr %34, align 8, !tbaa !403
   %36 = icmp eq i64 %35, 48
-  br i1 %36, label %.critedge28, label %64
+  br i1 %36, label %.critedge28, label %65
 
 .critedge28:                                      ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -4837,7 +4833,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !403
   %.not38 = icmp eq i32 %38, %42
-  br i1 %.not38, label %43, label %64
+  br i1 %.not38, label %43, label %65
 
 43:                                               ; preds = %40, %.critedge28
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -4847,7 +4843,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
 
 47:                                               ; preds = %43
   %48 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %7, i32 %45) #24
-  br i1 %48, label %..critedge30_crit_edge, label %64
+  br i1 %48, label %..critedge30_crit_edge, label %65
 
 ..critedge30_crit_edge:                           ; preds = %47
   %.pre = load ptr, ptr %27, align 8, !tbaa !384
@@ -4873,15 +4869,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtHFusionERKNS_15TargetIn
   %61 = load i32, ptr %60, align 4, !tbaa !403
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 36
   %63 = load i32, ptr %62, align 4, !tbaa !403
-  %.fr = freeze i32 %61
-  %.fr39 = freeze i32 %63
-  %.not40 = icmp eq i32 %.fr, %.fr39
-  br i1 %.not40, label %64, label %.thread
+  %64 = icmp ne i32 %61, %63
+  %cond.fr = freeze i1 %64
+  br i1 %cond.fr, label %.thread, label %65
 
 .thread:                                          ; preds = %.critedge30, %53, %59
-  br label %64
+  br label %65
 
-64:                                               ; preds = %.thread, %59, %47, %40, %33, %26, %22, %.critedge, %18, %11, %4
+65:                                               ; preds = %.thread, %59, %47, %40, %33, %26, %22, %.critedge, %18, %11, %4
   %.1 = phi i1 [ false, %33 ], [ false, %47 ], [ false, %40 ], [ false, %26 ], [ true, %.critedge ], [ false, %18 ], [ false, %4 ], [ false, %11 ], [ false, %22 ], [ false, %.thread ], [ true, %59 ]
   ret i1 %.1
 }
@@ -4894,7 +4889,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %9 = load i16, ptr %8, align 4, !tbaa !521
   %10 = icmp eq i16 %9, 12922
-  br i1 %10, label %11, label %64
+  br i1 %10, label %11, label %65
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4903,23 +4898,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %64
+  br i1 %17, label %18, label %65
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %20 = load i64, ptr %19, align 8, !tbaa !403
   %21 = icmp eq i64 %20, 32
-  br i1 %21, label %.critedge, label %64
+  br i1 %21, label %.critedge, label %65
 
 .critedge:                                        ; preds = %18
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %64, label %22
+  br i1 %.not, label %65, label %22
 
 22:                                               ; preds = %.critedge
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %24 = load i16, ptr %23, align 4, !tbaa !521
   %25 = icmp eq i16 %24, 12904
-  br i1 %25, label %26, label %64
+  br i1 %25, label %26, label %65
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4928,13 +4923,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 255
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %64
+  br i1 %32, label %33, label %65
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %35 = load i64, ptr %34, align 8, !tbaa !403
   %36 = icmp eq i64 %35, 32
-  br i1 %36, label %.critedge28, label %64
+  br i1 %36, label %.critedge28, label %65
 
 .critedge28:                                      ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -4946,7 +4941,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !403
   %.not38 = icmp eq i32 %38, %42
-  br i1 %.not38, label %43, label %64
+  br i1 %.not38, label %43, label %65
 
 43:                                               ; preds = %40, %.critedge28
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -4956,7 +4951,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
 
 47:                                               ; preds = %43
   %48 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %7, i32 %45) #24
-  br i1 %48, label %..critedge30_crit_edge, label %64
+  br i1 %48, label %..critedge30_crit_edge, label %65
 
 ..critedge30_crit_edge:                           ; preds = %47
   %.pre = load ptr, ptr %27, align 8, !tbaa !384
@@ -4982,15 +4977,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isTuneZExtWFusionERKNS_15TargetIn
   %61 = load i32, ptr %60, align 4, !tbaa !403
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 36
   %63 = load i32, ptr %62, align 4, !tbaa !403
-  %.fr = freeze i32 %61
-  %.fr39 = freeze i32 %63
-  %.not40 = icmp eq i32 %.fr, %.fr39
-  br i1 %.not40, label %64, label %.thread
+  %64 = icmp ne i32 %61, %63
+  %cond.fr = freeze i1 %64
+  br i1 %cond.fr, label %.thread, label %65
 
 .thread:                                          ; preds = %.critedge30, %53, %59
-  br label %64
+  br label %65
 
-64:                                               ; preds = %.thread, %59, %47, %40, %33, %26, %22, %.critedge, %18, %11, %4
+65:                                               ; preds = %.thread, %59, %47, %40, %33, %26, %22, %.critedge, %18, %11, %4
   %.1 = phi i1 [ false, %33 ], [ false, %47 ], [ false, %40 ], [ false, %26 ], [ true, %.critedge ], [ false, %18 ], [ false, %4 ], [ false, %11 ], [ false, %22 ], [ false, %.thread ], [ true, %59 ]
   ret i1 %.1
 }

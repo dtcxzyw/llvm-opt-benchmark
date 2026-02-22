@@ -514,12 +514,11 @@ _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
-  %.fr19 = freeze ptr %17
-  %20 = ptrtoint ptr %.fr19 to i64
-  %.fr = freeze i64 %19
-  %21 = add i64 %.fr, -1
+  %20 = ptrtoint ptr %17 to i64
+  %21 = add i64 %19, -1
   %22 = and i64 %21, %20
-  %23 = icmp ne i64 %22, 0
+  %.fr = freeze i64 %22
+  %23 = icmp ne i64 %.fr, 0
   %24 = sext i1 %23 to i64
   %spec.select = add i64 %13, %24
   br label %.thread

@@ -4573,9 +4573,8 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000EOf.exit: ; preds = %53,
 
 81:                                               ; preds = %._crit_edge
   %82 = tail call i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %80, i64 %1)
-  %.fr = freeze i64 %82
-  %.sroa.0.0.extract.trunc = trunc i64 %.fr to i32
-  %.sroa.3.0.extract.shift = lshr i64 %.fr, 32
+  %.sroa.0.0.extract.trunc = trunc i64 %82 to i32
+  %.sroa.3.0.extract.shift = lshr i64 %82, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %83 = load ptr, ptr %7, align 8
   %84 = load ptr, ptr %2, align 8
@@ -4583,10 +4582,10 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000EOf.exit: ; preds = %53,
   br i1 %.not92, label %.loopexit, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %81
-  %85 = and i64 %.fr, -9223372034707292160
+  %85 = and i64 %82, -9223372034707292160
   %or.cond = icmp eq i64 %85, 0
   %86 = icmp slt i32 %.sroa.0.0.extract.trunc, 0
-  %87 = icmp sgt i64 %.fr, -1
+  %87 = icmp sgt i64 %82, -1
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br label %89
 
@@ -4595,7 +4594,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000EOf.exit: ; preds = %53,
   %90 = load ptr, ptr %3, align 8
   %91 = getelementptr inbounds %"class.std::__1::basic_string", ptr %90, i64 %.05189
   %92 = tail call noundef zeroext i1 @_ZN3tev7Channel7isAlphaERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %91)
-  %or.cond86 = and i1 %or.cond, %92
+  %or.cond86 = select i1 %92, i1 %or.cond, i1 false
   %.pre = load ptr, ptr %79, align 8
   br i1 %or.cond86, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.i.i.critedge, label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
 
@@ -4613,11 +4612,10 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.i13.i.critedge: ; preds = %_ZN7nanog
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %.pre, i64 240
   %102 = load i32, ptr %101, align 4
-  %.fr107 = freeze i32 %100
-  %.fr108 = freeze i32 %102
-  %103 = sub i32 %.fr107, %.fr108
+  %103 = sub nsw i32 %100, %102
   %104 = icmp sgt i32 %103, %.sroa.3.0.extract.trunc
-  br i1 %104, label %105, label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
+  %cond.fr = freeze i1 %104
+  br i1 %cond.fr, label %105, label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
 
 105:                                              ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.i13.i.critedge
   br label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
@@ -4635,7 +4633,7 @@ _ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread: ; preds = %_ZN7na
   %.not.i.i58 = icmp eq ptr %113, %114
   %.not84 = icmp eq ptr %113, null
   %.not = or i1 %.not84, %.not.i.i58
-  %brmerge = or i1 %.not, %86
+  %brmerge = select i1 %.not, i1 true, i1 %86
   %.mux = select i1 %.not, float %106, float 0.000000e+00
   br i1 %brmerge, label %_ZNK3tev7Channel4evalEN7nanogui5ArrayIiLm2EEE.exit68, label %115
 
@@ -32436,8 +32434,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.381, align 8
-  %.fr100 = freeze i64 %3
-  store i64 %.fr100, ptr %7, align 8
+  %.fr101 = freeze i64 %3
+  store i64 %.fr101, ptr %7, align 8
   %24 = load i32, ptr %1, align 4
   store i32 %24, ptr %8, align 4
   %25 = or i32 %24, 1
@@ -32452,9 +32450,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %34 = trunc nuw i64 %33 to i32
   store i32 %34, ptr %9, align 4
   store i8 48, ptr %10, align 1
-  %35 = lshr i64 %.fr100, 32
+  %35 = lshr i64 %.fr101, 32
   %36 = trunc nuw i64 %35 to i32
-  %37 = lshr i64 %.fr100, 40
+  %37 = lshr i64 %.fr101, 40
   %38 = trunc i64 %37 to i8
   store i8 %38, ptr %11, align 1
   %.not = icmp ne i8 %38, 0
@@ -32463,7 +32461,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %41 = and i64 %40, 4294967295
   %42 = and i32 %36, 131072
   %.not63 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr100 to i32
+  %43 = trunc i64 %.fr101 to i32
   br i1 %.not63, label %54, label %44
 
 44:                                               ; preds = %5
@@ -32847,11 +32845,11 @@ _ZN3fmt2v96detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 216:                                              ; preds = %209
   %217 = and i32 %36, 524288
-  %.not93 = icmp eq i32 %217, 0
+  %.not94 = icmp eq i32 %217, 0
   %.lobit = lshr exact i32 %217, 19
   %218 = trunc nuw nsw i32 %.lobit to i8
   store i8 %218, ptr %22, align 1
-  br i1 %.not93, label %220, label %219
+  br i1 %.not94, label %220, label %219
 
 219:                                              ; preds = %.thread91, %216
   br label %220
@@ -35897,8 +35895,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.388, align 8
-  %.fr100 = freeze i64 %3
-  store i64 %.fr100, ptr %7, align 8
+  %.fr101 = freeze i64 %3
+  store i64 %.fr101, ptr %7, align 8
   %24 = load i64, ptr %1, align 8
   store i64 %24, ptr %8, align 8
   %25 = or i64 %24, 1
@@ -35915,9 +35913,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %35 = add nsw i32 %.neg.i.i.i, %30
   store i32 %35, ptr %9, align 4
   store i8 48, ptr %10, align 1
-  %36 = lshr i64 %.fr100, 32
+  %36 = lshr i64 %.fr101, 32
   %37 = trunc nuw i64 %36 to i32
-  %38 = lshr i64 %.fr100, 40
+  %38 = lshr i64 %.fr101, 40
   %39 = trunc i64 %38 to i8
   store i8 %39, ptr %11, align 1
   %.not = icmp ne i8 %39, 0
@@ -35926,7 +35924,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %42 = zext i32 %41 to i64
   %43 = and i32 %37, 131072
   %.not63 = icmp eq i32 %43, 0
-  %44 = trunc i64 %.fr100 to i32
+  %44 = trunc i64 %.fr101 to i32
   br i1 %.not63, label %55, label %45
 
 45:                                               ; preds = %5
@@ -36310,11 +36308,11 @@ _ZN3fmt2v96detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 217:                                              ; preds = %210
   %218 = and i32 %37, 524288
-  %.not93 = icmp eq i32 %218, 0
+  %.not94 = icmp eq i32 %218, 0
   %.lobit = lshr exact i32 %218, 19
   %219 = trunc nuw nsw i32 %.lobit to i8
   store i8 %219, ptr %22, align 1
-  br i1 %.not93, label %221, label %220
+  br i1 %.not94, label %221, label %220
 
 220:                                              ; preds = %.thread91, %217
   br label %221
@@ -42803,17 +42801,17 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.412, align 8
-  %.fr100 = freeze i64 %3
-  store i64 %.fr100, ptr %7, align 8
+  %.fr101 = freeze i64 %3
+  store i64 %.fr101, ptr %7, align 8
   %24 = load ptr, ptr %1, align 8
   store ptr %24, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr %9, align 4
   store i8 48, ptr %10, align 1
-  %27 = lshr i64 %.fr100, 32
+  %27 = lshr i64 %.fr101, 32
   %28 = trunc nuw i64 %27 to i32
-  %29 = lshr i64 %.fr100, 40
+  %29 = lshr i64 %.fr101, 40
   %30 = trunc i64 %29 to i8
   store i8 %30, ptr %11, align 1
   %.not = icmp ne i8 %30, 0
@@ -42822,7 +42820,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %33 = zext i32 %32 to i64
   %34 = and i32 %28, 131072
   %.not63 = icmp eq i32 %34, 0
-  %35 = trunc i64 %.fr100 to i32
+  %35 = trunc i64 %.fr101 to i32
   br i1 %.not63, label %46, label %36
 
 36:                                               ; preds = %5
@@ -43206,11 +43204,11 @@ _ZN3fmt2v96detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 208:                                              ; preds = %201
   %209 = and i32 %28, 524288
-  %.not93 = icmp eq i32 %209, 0
+  %.not94 = icmp eq i32 %209, 0
   %.lobit = lshr exact i32 %209, 19
   %210 = trunc nuw nsw i32 %.lobit to i8
   store i8 %210, ptr %22, align 1
-  br i1 %.not93, label %212, label %211
+  br i1 %.not94, label %212, label %211
 
 211:                                              ; preds = %.thread91, %208
   br label %212

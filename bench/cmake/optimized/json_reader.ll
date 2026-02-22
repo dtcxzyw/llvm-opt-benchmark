@@ -14561,8 +14561,8 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5Toke
   %.14160 = phi ptr [ %16, %29 ], [ %.040, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %.14160, i64 1
   %17 = load i8, ptr %.14160, align 1, !tbaa !12
-  %.fr = freeze i8 %17
-  %18 = add i8 %.fr, -58
+  %.fr63 = freeze i8 %17
+  %18 = add i8 %.fr63, -58
   %or.cond = icmp ult i8 %18, -10
   br i1 %or.cond, label %19, label %21
 
@@ -14571,7 +14571,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5Toke
   br label %.thread
 
 21:                                               ; preds = %.lr.ph
-  %22 = zext nneg i8 %.fr to i32
+  %22 = zext nneg i8 %.fr63 to i32
   %23 = add nsw i32 %22, -48
   %.not = icmp ult i64 %.044.fr61, %12
   br i1 %.not, label %29, label %24
@@ -14599,12 +14599,12 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5Toke
   br i1 %10, label %34, label %37
 
 ._crit_edge.thread:                               ; preds = %3
-  br i1 %10, label %34, label %.thread67
+  br i1 %10, label %34, label %.thread69
 
 34:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.044.fr.lcssa65 = phi i64 [ 0, %._crit_edge.thread ], [ %32, %._crit_edge ]
+  %.044.fr.lcssa67 = phi i64 [ 0, %._crit_edge.thread ], [ %32, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %35 = sub i64 0, %.044.fr.lcssa65
+  %35 = sub i64 0, %.044.fr.lcssa67
   call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %35)
   %36 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4) #28
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #28
@@ -14613,12 +14613,12 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5Toke
 
 37:                                               ; preds = %._crit_edge
   %38 = icmp sgt i64 %32, -1
-  br i1 %38, label %.thread67, label %40
+  br i1 %38, label %.thread69, label %40
 
-.thread67:                                        ; preds = %._crit_edge.thread, %37
-  %.044.fr.lcssa6669 = phi i64 [ %32, %37 ], [ 0, %._crit_edge.thread ]
+.thread69:                                        ; preds = %._crit_edge.thread, %37
+  %.044.fr.lcssa6871 = phi i64 [ %32, %37 ], [ 0, %._crit_edge.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %.044.fr.lcssa6669)
+  call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %.044.fr.lcssa6871)
   %39 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %5) #28
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -14632,8 +14632,8 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5Toke
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-.thread:                                          ; preds = %27, %19, %34, %40, %.thread67
-  %.3 = phi i1 [ true, %34 ], [ true, %.thread67 ], [ true, %40 ], [ %28, %27 ], [ %20, %19 ]
+.thread:                                          ; preds = %27, %19, %34, %40, %.thread69
+  %.3 = phi i1 [ true, %34 ], [ true, %.thread69 ], [ true, %40 ], [ %28, %27 ], [ %20, %19 ]
   ret i1 %.3
 }
 

@@ -459,8 +459,8 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %60 = zext i8 %24 to i64
   %61 = getelementptr i16, ptr %10, i64 %60
   %62 = load i16, ptr %61, align 2
-  %.fr = freeze i16 %62
-  %63 = and i16 %.fr, 1024
+  %.fr93 = freeze i16 %62
+  %63 = and i16 %.fr93, 1024
   %.not15.i = icmp ne i16 %63, 0
   %64 = and i32 %3, 65536
   %.not16.i = icmp ne i32 %64, 0
@@ -500,8 +500,8 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
 
 .lr.ph.split.split:                               ; preds = %25, %31, %27, %29, %.lr.ph.split
   %.phi.trans.insert = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %11
-  %.pre112 = load i8, ptr %.phi.trans.insert, align 1
-  %83 = icmp slt i8 %.pre112, 0
+  %.pre113 = load i8, ptr %.phi.trans.insert, align 1
+  %83 = icmp slt i8 %.pre113, 0
   br i1 %83, label %.split.us, label %84
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split
@@ -521,7 +521,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   br i1 %4, label %.thread51.thread, label %.thread51
 
 .threadthread-pre-split:                          ; preds = %84
-  %90 = shl i8 %.pre112, 4
+  %90 = shl i8 %.pre113, 4
   %91 = add i8 %88, %90
   store i8 %91, ptr %6, align 1
   %92 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 1)

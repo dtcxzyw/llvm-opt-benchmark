@@ -2913,10 +2913,9 @@ _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
   %2 = load ptr, ptr %1, align 8
   %tailStart_.i = getelementptr inbounds nuw i8, ptr %this, i64 568
   %3 = load ptr, ptr %tailStart_.i, align 8
-  %.fr = freeze ptr %2
-  %.fr4 = freeze ptr %3
-  %cmp.i = icmp eq ptr %.fr, %.fr4
-  br i1 %cmp.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
+  %cmp.i = icmp eq ptr %2, %3
+  %cond.fr = freeze i1 %cmp.i
+  br i1 %cond.fr, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
 
 _ZNK5folly10IOBufQueue5emptyEv.exit.thread:       ; preds = %entry, %_ZNK5folly10IOBufQueue5emptyEv.exit
   br label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2

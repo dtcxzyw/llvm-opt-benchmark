@@ -825,11 +825,11 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   br label %108
 
 108:                                              ; preds = %.thread, %108
-  %indvars.iv293 = phi i64 [ 0, %.thread ], [ %indvars.iv.next294, %108 ]
+  %indvars.iv291 = phi i64 [ 0, %.thread ], [ %indvars.iv.next292, %108 ]
   %109 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %110 = icmp eq i64 %indvars.iv293, 0
+  %110 = icmp eq i64 %indvars.iv291, 0
   %111 = select i1 %110, ptr @.str.10, ptr @.str.11
-  %112 = getelementptr inbounds nuw %struct.UOption, ptr @_ZL7options, i64 %indvars.iv293
+  %112 = getelementptr inbounds nuw %struct.UOption, ptr @_ZL7options, i64 %indvars.iv291
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load i8, ptr %113, align 8, !tbaa !25
   %115 = sext i8 %114 to i32
@@ -837,11 +837,11 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %.not99 = icmp eq ptr %116, null
   %.str.12..str.13 = select i1 %.not99, ptr @.str.13, ptr @.str.12
   %spec.select = select i1 %.not99, ptr @.str.11, ptr %116
-  %117 = getelementptr inbounds nuw [320 x i8], ptr @_ZL12options_help, i64 %indvars.iv293
+  %117 = getelementptr inbounds nuw [320 x i8], ptr @_ZL12options_help, i64 %indvars.iv291
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.9, ptr noundef nonnull %111, i32 noundef %115, ptr noundef nonnull %.str.12..str.13, ptr noundef nonnull %spec.select, ptr noundef nonnull %117) #24
-  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %exitcond296.not = icmp eq i64 %indvars.iv.next294, 23
-  br i1 %exitcond296.not, label %119, label %108, !llvm.loop !27
+  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
+  %exitcond294.not = icmp eq i64 %indvars.iv.next292, 23
+  br i1 %exitcond294.not, label %119, label %108, !llvm.loop !27
 
 119:                                              ; preds = %108
   %120 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -849,12 +849,12 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   br label %122
 
 122:                                              ; preds = %119, %135
-  %indvars.iv297 = phi i64 [ 0, %119 ], [ %indvars.iv.next298, %135 ]
+  %indvars.iv295 = phi i64 [ 0, %119 ], [ %indvars.iv.next296, %135 ]
   %123 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %124 = getelementptr inbounds nuw %struct.anon, ptr @_ZL5modes, i64 %indvars.iv297
+  %124 = getelementptr inbounds nuw %struct.anon, ptr @_ZL5modes, i64 %indvars.iv295
   %125 = load ptr, ptr %124, align 8, !tbaa !28
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.15, ptr noundef %125) #24
-  %.not98 = icmp eq i64 %indvars.iv297, 0
+  %.not98 = icmp eq i64 %indvars.iv295, 0
   br i1 %.not98, label %132, label %127
 
 127:                                              ; preds = %122
@@ -874,9 +874,9 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %137 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !31
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.18, ptr noundef %138) #24
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %exitcond300.not = icmp eq i64 %indvars.iv.next298, 4
-  br i1 %exitcond300.not, label %.loopexit, label %122, !llvm.loop !32
+  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
+  %exitcond298.not = icmp eq i64 %indvars.iv.next296, 4
+  br i1 %exitcond298.not, label %.loopexit, label %122, !llvm.loop !32
 
 140:                                              ; preds = %97
   %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 88), align 8, !tbaa !17
@@ -940,11 +940,10 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 165:                                              ; preds = %.loopexit211, %162
   %166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 234), align 2, !tbaa !19
   %167 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 74), align 2, !tbaa !19
-  %.fr252 = freeze i8 %167
-  %.not79 = icmp eq i8 %.fr252, 0
+  %.not79 = icmp eq i8 %167, 0
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 48), align 16
-  %.fr253 = freeze ptr %168
-  %spec.select203 = select i1 %.not79, ptr null, ptr %.fr253
+  %spec.select203 = select i1 %.not79, ptr null, ptr %168
+  %spec.select203.fr = freeze ptr %spec.select203
   %169 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 274), align 2, !tbaa !19
   %.not80 = icmp eq i8 %169, 0
   %170 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 314), align 2
@@ -1248,8 +1247,8 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   br label %.loopexit
 
 .loopexit210:                                     ; preds = %._crit_edge.i103, %._crit_edge.thread, %._crit_edge
-  %.not126.i349 = phi i1 [ true, %._crit_edge ], [ true, %._crit_edge.thread ], [ false, %._crit_edge.i103 ]
-  %.sroa.0.0.lcssa341 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %193, %._crit_edge.i103 ]
+  %.not126.i347 = phi i1 [ true, %._crit_edge ], [ true, %._crit_edge.thread ], [ false, %._crit_edge.i103 ]
+  %.sroa.0.0.lcssa339 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %193, %._crit_edge.i103 ]
   %.sroa.14.5.ph = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.sroa.14.3, %._crit_edge.i103 ]
   %.sroa.10.5.ph = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.sroa.10.3, %._crit_edge.i103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1274,7 +1273,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   br i1 %.not56.i.i, label %._crit_edge.i.i, label %.preheader48.i.i.preheader
 
 .preheader48.i.i.preheader:                       ; preds = %.loopexit210
-  %293 = icmp eq ptr %spec.select203, null
+  %293 = icmp eq ptr %spec.select203.fr, null
   %.not43.i.i = icmp eq i8 %166, 0
   br i1 %293, label %.preheader48.i.i.us, label %.preheader48.i.i
 
@@ -1344,14 +1343,14 @@ thread-pre-split.i.i:                             ; preds = %349
 
 313:                                              ; preds = %.critedge.i.i
   %314 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %315 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.81, ptr noundef nonnull %.fr253) #21
+  %315 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.81, ptr noundef nonnull %168) #21
   %.pre78.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   br label %316
 
 316:                                              ; preds = %313, %.critedge.i.i
   %317 = phi ptr [ %.pre78.i.i, %313 ], [ %301, %.critedge.i.i ]
   store i32 0, ptr %17, align 4, !tbaa !14
-  %318 = call i32 @parseFlagsFile(ptr noundef nonnull %.fr253, ptr noundef %317, i32 noundef %.03557.i.i, ptr noundef nonnull @_ZL10FLAG_NAMES, i32 noundef 17, ptr noundef nonnull %17)
+  %318 = call i32 @parseFlagsFile(ptr noundef nonnull %168, ptr noundef %317, i32 noundef %.03557.i.i, ptr noundef nonnull @_ZL10FLAG_NAMES, i32 noundef 17, ptr noundef nonnull %17)
   %319 = load i32, ptr %17, align 4, !tbaa !14
   %320 = icmp eq i32 %319, 15
   br i1 %320, label %.preheader.preheader.i.i, label %329
@@ -1388,7 +1387,7 @@ thread-pre-split.i.i:                             ; preds = %349
 331:                                              ; preds = %329
   %332 = load ptr, ptr @stderr, align 8, !tbaa !20
   %333 = call ptr @u_errorName_77(i32 noundef %319)
-  %334 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %332, ptr noundef nonnull @.str.82, ptr noundef nonnull %.fr253, ptr noundef %333) #24
+  %334 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %332, ptr noundef nonnull @.str.82, ptr noundef nonnull %168, ptr noundef %333) #24
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 .loopexit47.i.i:                                  ; preds = %327, %329
@@ -1448,7 +1447,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %349, %297, %331, %
   br label %360
 
 360:                                              ; preds = %357, %354
-  %361 = load ptr, ptr %.sroa.0.0.lcssa341, align 8, !tbaa !37
+  %361 = load ptr, ptr %.sroa.0.0.lcssa339, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %14, i8 0, i64 16384, i1 false)
   %362 = call signext i8 @T_FileStream_file_exists(ptr noundef nonnull %18)
@@ -1580,7 +1579,7 @@ _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %404, %366
   br label %414
 
 414:                                              ; preds = %411, %405
-  %415 = load ptr, ptr %.sroa.0.0.lcssa341, align 8, !tbaa !37
+  %415 = load ptr, ptr %.sroa.0.0.lcssa339, align 8, !tbaa !37
   %416 = call i32 @writePackageDatFile(ptr noundef nonnull %21, ptr noundef %.sroa.66.0, ptr noundef %.sroa.45.0, ptr noundef %415, ptr noundef null, i8 noundef signext 108)
   %.not167.i = icmp eq i32 %416, 0
   br i1 %.not167.i, label %420, label %417
@@ -1866,7 +1865,7 @@ _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.thread.i: ; preds = %556, %
   br i1 %.not172.i, label %577, label %565
 
 565:                                              ; preds = %563
-  %566 = call signext i8 @isFileModTimeLater(ptr noundef nonnull %22, ptr noundef %spec.select203, i8 noundef signext 0)
+  %566 = call signext i8 @isFileModTimeLater(ptr noundef nonnull %22, ptr noundef %spec.select203.fr, i8 noundef signext 0)
   %.not173.i = icmp eq i8 %566, 0
   br i1 %.not173.i, label %577, label %567
 
@@ -2121,7 +2120,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %641
   br i1 %684, label %685, label %687
 
 685:                                              ; preds = %.lr.ph.i224.i
-  %686 = load ptr, ptr %.sroa.0.0.lcssa341, align 8, !tbaa !37
+  %686 = load ptr, ptr %.sroa.0.0.lcssa339, align 8, !tbaa !37
   call void @createCommonDataFile(ptr noundef nonnull %.sroa.38135.0, ptr noundef nonnull %145, ptr noundef %.sroa.29.0, ptr noundef null, ptr noundef %.sroa.45.0, ptr noundef %.sroa.66.0, ptr noundef %686, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %166, ptr noundef nonnull %5)
   store i8 0, ptr %679, align 1, !tbaa !22
   br label %720
@@ -2525,22 +2524,22 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %353, %_ZL19pkg_inst
 
 .preheader:                                       ; preds = %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, %881
   %877 = phi ptr [ %882, %881 ], [ %876, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
-  %indvars.iv289 = phi i64 [ %indvars.iv.next290, %881 ], [ 0, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
-  %878 = getelementptr inbounds nuw ptr, ptr %877, i64 %indvars.iv289
+  %indvars.iv287 = phi i64 [ %indvars.iv.next288, %881 ], [ 0, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
+  %878 = getelementptr inbounds nuw ptr, ptr %877, i64 %indvars.iv287
   %879 = load ptr, ptr %878, align 8, !tbaa !16
   %.not95 = icmp eq ptr %879, null
   br i1 %.not95, label %881, label %880
 
 880:                                              ; preds = %.preheader
   call void @uprv_free_77(ptr noundef nonnull %879)
-  %.pre301 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %.pre299 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   br label %881
 
 881:                                              ; preds = %.preheader, %880
-  %882 = phi ptr [ %877, %.preheader ], [ %.pre301, %880 ]
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %exitcond292.not = icmp eq i64 %indvars.iv.next290, 17
-  br i1 %exitcond292.not, label %883, label %.preheader, !llvm.loop !57
+  %882 = phi ptr [ %877, %.preheader ], [ %.pre299, %880 ]
+  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
+  %exitcond290.not = icmp eq i64 %indvars.iv.next288, 17
+  br i1 %exitcond290.not, label %883, label %.preheader, !llvm.loop !57
 
 883:                                              ; preds = %881
   call void @uprv_free_77(ptr noundef %882)
@@ -2555,10 +2554,10 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %353, %_ZL19pkg_inst
   br label %886
 
 886:                                              ; preds = %885, %884
-  br i1 %.not126.i349, label %888, label %887
+  br i1 %.not126.i347, label %888, label %887
 
 887:                                              ; preds = %886
-  call void @pkg_deleteList(ptr noundef nonnull %.sroa.0.0.lcssa341)
+  call void @pkg_deleteList(ptr noundef nonnull %.sroa.0.0.lcssa339)
   br label %888
 
 888:                                              ; preds = %887, %886

@@ -626,8 +626,8 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
 6:                                                ; preds = %1
   %7 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.13) #17
   %8 = tail call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 10) #17
-  %.fr = freeze i64 %8
-  %9 = trunc i64 %.fr to i32
+  %.fr15 = freeze i64 %8
+  %9 = trunc i64 %.fr15 to i32
   %10 = icmp eq i32 %9, 16
   %11 = icmp eq i32 %9, 32
   %. = select i1 %11, i32 2, i32 0

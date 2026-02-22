@@ -524,20 +524,20 @@ if.then2.i:                                       ; preds = %if.end.i5
   br i1 %cmp3.i, label %8, label %return
 
 do.body.i:                                        ; preds = %if.end.i5, %if.end17.i
-  %res.0.i = phi i64 [ %add.i, %if.end17.i ], [ 0, %if.end.i5 ]
+  %res.0.i = phi i64 [ %add.fr.i, %if.end17.i ], [ 0, %if.end.i5 ]
   %first.addr.0.i = phi ptr [ %incdec.ptr19.i, %if.end17.i ], [ %add.ptr10.i, %if.end.i5 ]
   %4 = load i8, ptr %first.addr.0.i, align 1
-  %.fr.i = freeze i8 %4
-  %5 = add i8 %.fr.i, -58
+  %5 = add i8 %4, -58
   %or.cond.i = icmp ult i8 %5, -10
   br i1 %or.cond.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %do.body.i
   %mul.i = mul nuw nsw i64 %res.0.i, 10
-  %6 = and i8 %.fr.i, 15
+  %6 = and i8 %4, 15
   %conv15.i = zext nneg i8 %6 to i64
   %add.i = add nuw nsw i64 %mul.i, %conv15.i
-  %7 = icmp samesign ugt i64 %add.i, 4294967295
+  %add.fr.i = freeze i64 %add.i
+  %7 = icmp samesign ugt i64 %add.fr.i, 4294967295
   br i1 %7, label %return, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end12.i
@@ -546,11 +546,11 @@ if.end17.i:                                       ; preds = %if.end12.i
   br i1 %cmp20.not.i, label %return.i, label %do.body.i, !llvm.loop !6
 
 return.i:                                         ; preds = %if.end17.i
-  %cmp21.not.i = icmp eq i64 %add.i, 4294967295
+  %cmp21.not.i = icmp eq i64 %add.fr.i, 4294967295
   br i1 %cmp21.not.i, label %return, label %8
 
 8:                                                ; preds = %return.i, %if.then2.i
-  %retval.sroa.0.025.i = phi i64 [ 0, %if.then2.i ], [ %add.i, %return.i ]
+  %retval.sroa.0.025.i = phi i64 [ 0, %if.then2.i ], [ %add.fr.i, %return.i ]
   %9 = or disjoint i64 %retval.sroa.0.025.i, 4294967296
   br label %return
 
@@ -607,45 +607,45 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit: ; preds = %if.end, %if.then.
 if.end.i33:                                       ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit
   %14 = load i16, ptr %add.ptr10.i22, align 2
   %cmp1.i34 = icmp eq i16 %14, 48
-  br i1 %cmp1.i34, label %if.then2.i51, label %do.body.i35
+  br i1 %cmp1.i34, label %if.then2.i52, label %do.body.i35
 
-if.then2.i51:                                     ; preds = %if.end.i33
-  %cmp3.i53 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
-  br i1 %cmp3.i53, label %19, label %return
+if.then2.i52:                                     ; preds = %if.end.i33
+  %cmp3.i54 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
+  br i1 %cmp3.i54, label %19, label %return
 
-do.body.i35:                                      ; preds = %if.end.i33, %if.end17.i44
-  %res.0.i36 = phi i64 [ %add.i43, %if.end17.i44 ], [ 0, %if.end.i33 ]
-  %first.addr.0.i37 = phi ptr [ %incdec.ptr19.i45, %if.end17.i44 ], [ %add.ptr10.i22, %if.end.i33 ]
+do.body.i35:                                      ; preds = %if.end.i33, %if.end17.i45
+  %res.0.i36 = phi i64 [ %add.fr.i44, %if.end17.i45 ], [ 0, %if.end.i33 ]
+  %first.addr.0.i37 = phi ptr [ %incdec.ptr19.i46, %if.end17.i45 ], [ %add.ptr10.i22, %if.end.i33 ]
   %15 = load i16, ptr %first.addr.0.i37, align 2
-  %.fr.i38 = freeze i16 %15
-  %16 = add i16 %.fr.i38, -58
-  %or.cond.i39 = icmp ult i16 %16, -10
-  br i1 %or.cond.i39, label %return, label %if.end12.i40
+  %16 = add i16 %15, -58
+  %or.cond.i38 = icmp ult i16 %16, -10
+  br i1 %or.cond.i38, label %return, label %if.end12.i39
 
-if.end12.i40:                                     ; preds = %do.body.i35
+if.end12.i39:                                     ; preds = %do.body.i35
   %mul.i41 = mul nuw nsw i64 %res.0.i36, 10
-  %17 = and i16 %.fr.i38, 15
+  %17 = and i16 %15, 15
   %conv15.i42 = zext nneg i16 %17 to i64
   %add.i43 = add nuw nsw i64 %mul.i41, %conv15.i42
-  %18 = icmp samesign ugt i64 %add.i43, 4294967295
-  br i1 %18, label %return, label %if.end17.i44
+  %add.fr.i44 = freeze i64 %add.i43
+  %18 = icmp samesign ugt i64 %add.fr.i44, 4294967295
+  br i1 %18, label %return, label %if.end17.i45
 
-if.end17.i44:                                     ; preds = %if.end12.i40
-  %incdec.ptr19.i45 = getelementptr inbounds nuw i8, ptr %first.addr.0.i37, i64 2
-  %cmp20.not.i46 = icmp eq ptr %incdec.ptr19.i45, %add.ptr6
-  br i1 %cmp20.not.i46, label %return.i47, label %do.body.i35, !llvm.loop !7
+if.end17.i45:                                     ; preds = %if.end12.i39
+  %incdec.ptr19.i46 = getelementptr inbounds nuw i8, ptr %first.addr.0.i37, i64 2
+  %cmp20.not.i47 = icmp eq ptr %incdec.ptr19.i46, %add.ptr6
+  br i1 %cmp20.not.i47, label %return.i48, label %do.body.i35, !llvm.loop !7
 
-return.i47:                                       ; preds = %if.end17.i44
-  %cmp21.not.i48 = icmp eq i64 %add.i43, 4294967295
-  br i1 %cmp21.not.i48, label %return, label %19
+return.i48:                                       ; preds = %if.end17.i45
+  %cmp21.not.i49 = icmp eq i64 %add.fr.i44, 4294967295
+  br i1 %cmp21.not.i49, label %return, label %19
 
-19:                                               ; preds = %return.i47, %if.then2.i51
-  %retval.sroa.0.025.i49 = phi i64 [ 0, %if.then2.i51 ], [ %add.i43, %return.i47 ]
-  %20 = or disjoint i64 %retval.sroa.0.025.i49, 4294967296
+19:                                               ; preds = %return.i48, %if.then2.i52
+  %retval.sroa.0.025.i50 = phi i64 [ 0, %if.then2.i52 ], [ %add.fr.i44, %return.i48 ]
+  %20 = or disjoint i64 %retval.sroa.0.025.i50, 4294967296
   br label %return
 
-return:                                           ; preds = %if.end12.i40, %do.body.i35, %if.end12.i, %do.body.i, %19, %return.i47, %if.then2.i51, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %8, %return.i, %if.then2.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
-  %retval.sroa.0.0 = phi i64 [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ %9, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ 0, %if.end12.i ], [ %20, %19 ], [ 0, %return.i47 ], [ 0, %if.then2.i51 ], [ 0, %do.body.i ], [ 0, %do.body.i35 ], [ 0, %if.end12.i40 ]
+return:                                           ; preds = %if.end12.i39, %do.body.i35, %if.end12.i, %do.body.i, %19, %return.i48, %if.then2.i52, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %8, %return.i, %if.then2.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
+  %retval.sroa.0.0 = phi i64 [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ %9, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ 0, %if.end12.i ], [ %20, %19 ], [ 0, %return.i48 ], [ 0, %if.then2.i52 ], [ 0, %do.body.i ], [ 0, %do.body.i35 ], [ 0, %if.end12.i39 ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -8711,8 +8711,8 @@ _ZN6hermes2vm9toBooleanENS0_11HermesValueE.exit117: ; preds = %if.end128, %if.en
   %37 = inttoptr i64 %and.i.i2.i110 to ptr
   %lengthAndUniquedFlag_.i.i111 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %38 = load i32, ptr %lengthAndUniquedFlag_.i.i111, align 4
-  %.fr233 = freeze i32 %38
-  %and.i.i112 = and i32 %.fr233, 2147483647
+  %.fr234 = freeze i32 %38
+  %and.i.i112 = and i32 %.fr234, 2147483647
   %cmp12.i113.not = icmp eq i32 %and.i.i112, 0
   %bf.load136 = load i16, ptr %flags, align 4
   br i1 %cmp12.i113.not, label %40, label %39

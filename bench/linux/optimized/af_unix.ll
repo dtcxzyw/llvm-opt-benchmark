@@ -2969,14 +2969,13 @@ define internal range(i32 0, 9216) i32 @unix_poll(ptr noundef %0, ptr noundef %1
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 340
   %61 = load volatile i32, ptr %60, align 4
-  %.fr = freeze i32 %61
-  %62 = shl i32 %.fr, 2
+  %62 = shl i32 %61, 2
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 332
   %64 = load i32, ptr %63, align 4
-  %.fr5 = freeze i32 %64
-  %65 = icmp ugt i32 %62, %.fr5
+  %65 = icmp ugt i32 %62, %64
   %66 = or i32 %55, 772
-  br i1 %65, label %.thread, label %67
+  %cond.fr = freeze i1 %65
+  br i1 %cond.fr, label %.thread, label %67
 
 .thread:                                          ; preds = %54, %59
   br label %67

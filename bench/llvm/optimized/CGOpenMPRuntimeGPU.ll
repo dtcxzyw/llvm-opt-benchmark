@@ -18603,8 +18603,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12CapturedStmtEKNS1_4StmtEEEDaPT0_.exit: ; pre
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i32, ptr %47, align 8, !tbaa !1207
-  %.fr = freeze i32 %50
-  %51 = zext i32 %.fr to i64
+  %.fr44 = freeze i32 %50
+  %51 = zext i32 %.fr44 to i64
   %52 = shl nuw nsw i64 %51, 3
   br label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 

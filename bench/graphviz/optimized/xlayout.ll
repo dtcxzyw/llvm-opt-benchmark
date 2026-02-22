@@ -465,12 +465,10 @@ overlap.exit.i.i.i.i:                             ; preds = %231, %219
   %243 = phi double [ %226, %219 ], [ %238, %231 ]
   %244 = phi double [ %221, %219 ], [ %233, %231 ]
   %245 = phi double [ %230, %219 ], [ %242, %231 ]
-  %.fr29.i.i.i.i = freeze double %243
-  %.fr30.i.i.i.i = freeze double %245
-  %246 = fadd double %.fr29.i.i.i.i, %.fr30.i.i.i.i
-  %.fr.i.i.i.i = freeze double %244
-  %247 = fcmp ugt double %.fr.i.i.i.i, %246
-  br i1 %247, label %248, label %applyRep.exit.i.i
+  %246 = fadd double %243, %245
+  %247 = fcmp ole double %244, %246
+  %.fr.i.i.i.i = freeze i1 %247
+  br i1 %.fr.i.i.i.i, label %applyRep.exit.i.i, label %248
 
 248:                                              ; preds = %overlap.exit.i.i.i.i
   br label %applyRep.exit.i.i

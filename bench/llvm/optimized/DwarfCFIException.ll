@@ -368,8 +368,8 @@ define hidden void @_ZN4llvm17DwarfCFIException13beginFunctionEPKNS_15MachineFun
   %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i8 %25, 4
   %spec.select.i.i = select i1 %switch.selectcmp.i.i.i.i.i.i.i.i, ptr %24, ptr null
   %.pre = load i16, ptr %19, align 2, !tbaa !267
-  %.pre31 = and i16 %.pre, 8
-  %26 = icmp eq i16 %.pre31, 0
+  %.pre30 = and i16 %.pre, 8
+  %26 = icmp eq i16 %.pre30, 0
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %22
@@ -406,7 +406,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %32
   br i1 %or.cond, label %44, label %41
 
 .critedge:                                        ; preds = %2, %22, %27
-  %.036 = phi ptr [ %spec.select.i.i, %27 ], [ %spec.select.i.i, %22 ], [ null, %2 ]
+  %.035 = phi ptr [ %spec.select.i.i, %27 ], [ %spec.select.i.i, %22 ], [ null, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %40, align 1, !tbaa !273
   %.old = icmp eq i32 %18, 255
@@ -414,8 +414,8 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %32
   br i1 %or.cond.not.old, label %44, label %41
 
 41:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread, %.critedge, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit
-  %.035 = phi ptr [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread ], [ %.036, %.critedge ], [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ]
-  %42 = icmp ne ptr %.035, null
+  %.034 = phi ptr [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread ], [ %.035, %.critedge ], [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ]
+  %42 = icmp ne ptr %.034, null
   %43 = zext i1 %42 to i8
   br label %44
 
@@ -450,12 +450,12 @@ _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread:  ; preds = %44, %44, %44
 _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit:         ; preds = %44
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 396
   %60 = load i32, ptr %59, align 4, !tbaa !153
-  %.fr = freeze i32 %60
-  %.not.i.i = icmp ne i32 %.fr, 0
-  %61 = icmp ne i32 %.fr, 6
+  %.not.i.i = icmp ne i32 %60, 0
+  %61 = icmp ne i32 %60, 6
   %spec.select.i.i21 = and i1 %.not.i.i, %61
   %62 = or i1 %14, %48
-  %narrow = select i1 %spec.select.i.i21, i1 %62, i1 false
+  %cond.fr = freeze i1 %spec.select.i.i21
+  %narrow = select i1 %cond.fr, i1 %62, i1 false
   br label %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread26
 
 _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread26: ; preds = %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %44, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread

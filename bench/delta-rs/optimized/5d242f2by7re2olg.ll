@@ -25540,12 +25540,10 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
 96:                                               ; preds = %91, %88
   %.010.i = phi i32 [ %89, %88 ], [ %92, %91 ]
   %.0.i19 = phi i64 [ %86, %88 ], [ %94, %91 ]
-  %.010.i.fr = freeze i32 %.010.i
-  %97 = udiv i32 %.010.i.fr, 1000000000
-  %98 = urem i32 %.010.i.fr, 1000000000
+  %97 = udiv i32 %.010.i, 1000000000
+  %98 = urem i32 %.010.i, 1000000000
   %99 = zext nneg i32 %97 to i64
-  %.0.i19.fr = freeze i64 %.0.i19
-  %100 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i19.fr, i64 %99)
+  %100 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i19, i64 %99)
   %101 = extractvalue { i64, i1 } %100, 1
   br i1 %101, label %102, label %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit
 
@@ -25575,8 +25573,9 @@ _ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit.thread: ; preds = %
 "_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22": ; preds = %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit
   %109 = icmp eq i64 %107, %84
   %110 = icmp samesign ule i32 %98, %80
-  %spec.select = and i1 %109, %110
-  %spec.select48 = select i1 %spec.select, i32 %53, i32 1000000000
+  %spec.select = select i1 %109, i1 %110, i1 false
+  %cond.fr = freeze i1 %spec.select
+  %spec.select48 = select i1 %cond.fr, i32 %53, i32 1000000000
   br label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread"
 }
 

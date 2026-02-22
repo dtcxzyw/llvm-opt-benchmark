@@ -212,8 +212,8 @@ define dso_local void @clock_was_set(i32 noundef %0) local_unnamed_addr #4 align
 43:                                               ; preds = %22
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %45 = load i8, ptr %44, align 16
-  %.fr9 = freeze i8 %45
-  %46 = and i8 %.fr9, 2
+  %.fr = freeze i8 %45
+  %46 = and i8 %.fr, 2
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %.thread5
 
@@ -228,7 +228,7 @@ define dso_local void @clock_was_set(i32 noundef %0) local_unnamed_addr #4 align
   br i1 %55, label %.thread5, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
-  %56 = and i8 %.fr9, 8
+  %56 = and i8 %.fr, 8
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %.lr.ph.split, label %.lr.ph.split.us
 

@@ -12331,9 +12331,9 @@ default.unreachable152:                           ; preds = %32
   %.sroa.04.0.copyload = load i32, ptr %50, align 4
   %.sroa.064.0.copyload = load i40, ptr %30, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1236)
-  %.fr74.i = freeze i32 %.sroa.04.0.copyload
+  %.fr75.i = freeze i32 %.sroa.04.0.copyload
   %.fr.i = freeze i32 %.sroa.02.0.copyload
-  %.sroa.416.0.extract.shift.i = lshr i32 %.fr74.i, 8
+  %.sroa.416.0.extract.shift.i = lshr i32 %.fr75.i, 8
   %.sroa.416.0.extract.trunc.i = trunc nuw i32 %.sroa.416.0.extract.shift.i to i24
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1239
   call void @_ZN4fish8terminal9Outputter13new_buffering17ha639b649bdec6f8aE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %9), !noalias !1239
@@ -12381,7 +12381,7 @@ default.unreachable152:                           ; preds = %32
   %61 = and i32 %.fr.i, 255
   %.not48.i = icmp eq i32 %61, 4
   %.sroa.027.0.i = select i1 %.not48.i, i32 0, i32 4
-  %62 = and i32 %.fr74.i, 255
+  %62 = and i32 %.fr75.i, 255
   %.not49.i = icmp eq i32 %62, 4
   %.sroa.032.0.i = select i1 %.not49.i, i32 0, i32 %62
   br i1 %.not48.i, label %.split.us.split.us.i, label %.split.i

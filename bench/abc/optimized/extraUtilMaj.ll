@@ -90,8 +90,8 @@ define noalias noundef ptr @Gem_ManAlloc(i32 noundef %0, i32 noundef %1) local_u
   %5 = icmp slt i32 %0, 7
   %6 = add nsw i32 %0, -6
   %7 = shl nuw i32 1, %6
-  %.fr37.i = freeze i32 %7
-  %8 = select i1 %5, i32 1, i32 %.fr37.i
+  %.fr.i = freeze i32 %7
+  %8 = select i1 %5, i32 1, i32 %.fr.i
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %9, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -858,10 +858,8 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %.sroa.0.0 = phi i32 [ %233, %232 ], [ %.sroa.0.0.copyload, %217 ]
   %.sroa.21.0 = phi i32 [ %234, %232 ], [ %.sroa.21.0.copyload, %217 ]
   %.0397 = phi ptr [ %219, %232 ], [ null, %217 ]
-  %.sroa.0.0.fr = freeze i32 %.sroa.0.0
-  %spec.select = call i32 @llvm.umax.i32(i32 %.sroa.0.0.fr, i32 1)
-  %.sroa.21.0.fr = freeze i32 %.sroa.21.0
-  %.sroa.21.1 = call i32 @llvm.umax.i32(i32 %.sroa.21.0.fr, i32 1)
+  %spec.select = call i32 @llvm.umax.i32(i32 %.sroa.0.0, i32 1)
+  %.sroa.21.1 = call i32 @llvm.umax.i32(i32 %.sroa.21.0, i32 1)
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %237 = load i32, ptr %236, align 8, !tbaa !109
   %238 = sitofp i32 %237 to float
@@ -872,6 +870,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %243 = load float, ptr %242, align 4, !tbaa !111
   %244 = fmul reassoc nsz arcp contract afn float %243, 0x3F847AE140000000
   %245 = icmp sgt i32 %spec.select, %.sroa.21.1
+  %cond.fr476502 = freeze i1 %245
   %246 = sitofp i32 %spec.select to float
   %247 = sitofp i32 %.sroa.21.1 to float
   %248 = call i32 @llvm.smax.i32(i32 %spec.select, i32 %.sroa.21.1)
@@ -893,7 +892,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %256 = fmul reassoc nsz arcp contract afn float %253, %244
   %257 = fmul reassoc nsz arcp contract afn float %256, %255
   %258 = fdiv reassoc nsz arcp contract afn float %257, %249
-  br i1 %245, label %334, label %338
+  br i1 %cond.fr476502, label %334, label %338
 
 .thread464:                                       ; preds = %235
   %259 = fcmp reassoc nsz arcp contract afn olt float %238, %241
@@ -903,7 +902,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %263 = fmul reassoc nsz arcp contract afn float %260, %244
   %264 = fmul reassoc nsz arcp contract afn float %263, %262
   %265 = fdiv reassoc nsz arcp contract afn float %264, %249
-  br i1 %245, label %334, label %338
+  br i1 %cond.fr476502, label %334, label %338
 
 .thread470:                                       ; preds = %235
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -974,12 +973,12 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
 308:                                              ; preds = %235
   %309 = fdiv reassoc nsz arcp contract afn float %238, %246
   %310 = fdiv reassoc nsz arcp contract afn float %241, %247
-  %.0403 = select nsz i1 %245, float %309, float %310
+  %.0403 = select nsz i1 %cond.fr476502, float %309, float %310
   %311 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %312 = load float, ptr %311, align 4, !tbaa !113
   %313 = fmul reassoc nsz arcp contract afn float %.0403, %244
   %314 = fmul reassoc nsz arcp contract afn float %313, %312
-  br i1 %245, label %.thread520, label %..thread504_crit_edge
+  br i1 %cond.fr476502, label %.thread520, label %..thread504_crit_edge
 
 ..thread504_crit_edge:                            ; preds = %308
   %.pre = fmul reassoc nsz arcp contract afn float %244, %241

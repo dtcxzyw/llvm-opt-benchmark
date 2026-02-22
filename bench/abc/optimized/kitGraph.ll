@@ -1393,15 +1393,15 @@ define noalias noundef ptr @Kit_TruthTest(ptr noundef %0) local_unnamed_addr #7 
 
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8, !tbaa !27
-  %.neg27 = mul i64 %7, -1000000
+  %.neg28 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !30
   %.neg = sdiv i64 %9, -1000
-  %.neg28 = add i64 %.neg, %.neg27
+  %.neg29 = add i64 %.neg, %.neg28
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %1, %6
-  %.0.i.neg = phi i64 [ %.neg28, %6 ], [ 1, %1 ]
+  %.0.i.neg = phi i64 [ %.neg29, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = call i32 @Extra_FileSize(ptr noundef %0) #21
   %11 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
@@ -1429,8 +1429,8 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 Kit_TruthFindVarNum.exit:                         ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %19 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %18, ptr noundef null, i32 noundef 10) #21
-  %.fr = freeze i64 %19
-  %20 = trunc i64 %.fr to i32
+  %.fr27 = freeze i64 %19
+  %20 = trunc i64 %.fr27 to i32
   %21 = icmp slt i32 %20, 6
   %22 = add nsw i32 %20, -5
   %23 = shl nuw i32 1, %22

@@ -2191,18 +2191,18 @@ switch.lookup:
 define dso_local range(i32 0, 2) i32 @LLVMTypeIsSized(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %.fr.i = freeze i32 %3
-  %4 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %3
+  %4 = and i32 %.fr8.i, 255
   %5 = icmp eq i32 %4, 12
   br i1 %5, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, label %6
 
 6:                                                ; preds = %1
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   %7 = icmp ult i8 %trunc.i.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %7, i1 %switch.lobit, i1 false
-  %8 = and i32 %.fr.i, 253
+  %8 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %8, 4
   %or.cond1 = or i1 %or.cond, %spec.select.i.i
   br i1 %or.cond1, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, label %switch.early.test.i

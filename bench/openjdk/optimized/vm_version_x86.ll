@@ -8372,19 +8372,19 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   %.str.133.sink = phi ptr [ @.str.130, %2 ], [ @.str.135, %8 ], [ @.str.133, %7 ], [ @.str.133, %6 ]
   %.03 = phi ptr [ @.str.129, %2 ], [ @.str.128, %8 ], [ @.str.134, %7 ], [ @.str.132, %6 ]
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
-  %.fr = freeze i32 %10
-  %11 = lshr i32 %.fr, 8
+  %11 = lshr i32 %10, 8
   %12 = and i32 %11, 15
-  %13 = lshr i32 %.fr, 20
+  %13 = lshr i32 %10, 20
   %14 = and i32 %13, 255
   %15 = add nuw nsw i32 %12, %14
+  %.fr = freeze i32 %15
   %16 = icmp eq i32 %3, 1752462657
-  %17 = icmp samesign ult i32 %15, 24
+  %17 = icmp samesign ult i32 %.fr, 24
   %or.cond.i = and i1 %16, %17
   br i1 %or.cond.i, label %18, label %22
 
 18:                                               ; preds = %9
-  %19 = zext nneg i32 %15 to i64
+  %19 = zext nneg i32 %.fr to i64
   %20 = getelementptr inbounds nuw ptr, ptr @_ZL14_family_id_amd, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
@@ -8393,13 +8393,13 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   br i1 %4, label %23, label %40
 
 23:                                               ; preds = %22
-  %24 = icmp eq i32 %15, 6
+  %24 = icmp eq i32 %.fr, 6
   br i1 %24, label %.preheader.preheader.i.i, label %34
 
 .preheader.preheader.i.i:                         ; preds = %23
-  %25 = lshr i32 %.fr, 12
+  %25 = lshr i32 %10, 12
   %26 = and i32 %25, 240
-  %27 = lshr i32 %.fr, 4
+  %27 = lshr i32 %10, 4
   %28 = and i32 %27, 15
   %29 = or disjoint i32 %26, %28
   %30 = icmp samesign ugt i32 %29, 70
@@ -8412,11 +8412,11 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
 34:                                               ; preds = %23
-  %35 = icmp samesign ult i32 %15, 16
+  %35 = icmp samesign ult i32 %.fr, 16
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = zext nneg i32 %15 to i64
+  %37 = zext nneg i32 %.fr to i64
   %38 = getelementptr inbounds nuw ptr, ptr @_ZL16_family_id_intel, i64 %37
   %39 = load ptr, ptr %38, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
@@ -8450,8 +8450,8 @@ _ZN10VM_Version22cpu_family_descriptionEv.exit:   ; preds = %18, %.preheader.pre
   %55 = and i64 %44, 1024
   %.not16 = icmp eq i64 %55, 0
   %56 = select i1 %.not16, ptr @.str.131, ptr @.str.142
-  %57 = icmp eq i32 %15, 15
-  %58 = icmp eq i32 %15, 6
+  %57 = icmp eq i32 %.fr, 15
+  %58 = icmp eq i32 %.fr, 6
   %59 = and i1 %4, %57
   %60 = select i1 %59, ptr @.str.143, ptr @.str.131
   %61 = and i1 %4, %58

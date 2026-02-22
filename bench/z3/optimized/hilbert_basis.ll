@@ -14526,11 +14526,10 @@ _ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i25: ; preds = %
 
 _Z3absRK13checked_int64ILb1EE.exit.i18:           ; preds = %56, %.lr.ph.i14
   %.sroa.0.0.i.i.i19 = phi i64 [ %57, %56 ], [ %51, %.lr.ph.i14 ]
-  %.sroa.0.0.i.i.i19.fr = freeze i64 %.sroa.0.0.i.i.i19
-  %58 = add i64 %.sroa.0.0.i.i.i19.fr, %.sroa.017.03261.i17
+  %58 = add i64 %.sroa.0.0.i.i.i19, %.sroa.017.03261.i17
   %59 = icmp sgt i64 %.sroa.017.03261.i17, 0
   %60 = icmp slt i64 %58, 1
-  %or.cond.i20 = and i1 %59, %60
+  %or.cond.i20 = select i1 %59, i1 %60, i1 false
   br i1 %or.cond.i20, label %.split55.us.i32, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i21
 
 .split55.us.i32:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i18
@@ -14561,11 +14560,10 @@ _ZN13checked_int64ILb1EEpLERKS0_.exit.i21:        ; preds = %_Z3absRK13checked_i
 
 _Z3absRK13checked_int64ILb1EE.exit10.i22:         ; preds = %68, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i21
   %.sroa.0.0.i.i9.i23 = phi i64 [ %69, %68 ], [ %63, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i21 ]
-  %.sroa.0.0.i.i9.i23.fr = freeze i64 %.sroa.0.0.i.i9.i23
-  %70 = add i64 %.sroa.0.0.i.i9.i23.fr, %.sroa.015.03162.i16
+  %70 = add i64 %.sroa.0.0.i.i9.i23, %.sroa.015.03162.i16
   %71 = icmp sgt i64 %.sroa.015.03162.i16, 0
   %72 = icmp slt i64 %70, 1
-  %or.cond22.i24 = and i1 %71, %72
+  %or.cond22.i24 = select i1 %71, i1 %72, i1 false
   br i1 %or.cond22.i24, label %.split59.us.i30, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i25
 
 .split59.us.i30:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i22
@@ -14577,7 +14575,8 @@ _Z3absRK13checked_int64ILb1EE.exit10.i22:         ; preds = %68, %_ZN13checked_i
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit34: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i25
   %74 = icmp slt i64 %58, %70
   %75 = or disjoint i64 %29, 1
-  %spec.select = select i1 %74, i64 %75, i64 %30
+  %cond.fr = freeze i1 %74
+  %spec.select = select i1 %cond.fr, i64 %75, i64 %30
   %.phi.trans.insert = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %spec.select
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !77
   br label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit34.thread
@@ -14879,11 +14878,10 @@ _ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i35: ; preds = %
 
 _Z3absRK13checked_int64ILb1EE.exit.i28:           ; preds = %62, %.lr.ph.i24
   %.sroa.0.0.i.i.i29 = phi i64 [ %63, %62 ], [ %57, %.lr.ph.i24 ]
-  %.sroa.0.0.i.i.i29.fr = freeze i64 %.sroa.0.0.i.i.i29
-  %64 = add i64 %.sroa.0.0.i.i.i29.fr, %.sroa.017.03261.i27
+  %64 = add i64 %.sroa.0.0.i.i.i29, %.sroa.017.03261.i27
   %65 = icmp sgt i64 %.sroa.017.03261.i27, 0
   %66 = icmp slt i64 %64, 1
-  %or.cond.i30 = and i1 %65, %66
+  %or.cond.i30 = select i1 %65, i1 %66, i1 false
   br i1 %or.cond.i30, label %.split55.us.i42, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i31
 
 .split55.us.i42:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i28
@@ -14914,11 +14912,10 @@ _ZN13checked_int64ILb1EEpLERKS0_.exit.i31:        ; preds = %_Z3absRK13checked_i
 
 _Z3absRK13checked_int64ILb1EE.exit10.i32:         ; preds = %74, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i31
   %.sroa.0.0.i.i9.i33 = phi i64 [ %75, %74 ], [ %69, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i31 ]
-  %.sroa.0.0.i.i9.i33.fr = freeze i64 %.sroa.0.0.i.i9.i33
-  %76 = add i64 %.sroa.0.0.i.i9.i33.fr, %.sroa.015.03162.i26
+  %76 = add i64 %.sroa.0.0.i.i9.i33, %.sroa.015.03162.i26
   %77 = icmp sgt i64 %.sroa.015.03162.i26, 0
   %78 = icmp slt i64 %76, 1
-  %or.cond22.i34 = and i1 %77, %78
+  %or.cond22.i34 = select i1 %77, i1 %78, i1 false
   br i1 %or.cond22.i34, label %.split59.us.i40, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i35
 
 .split59.us.i40:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i32
@@ -14930,7 +14927,8 @@ _Z3absRK13checked_int64ILb1EE.exit10.i32:         ; preds = %74, %_ZN13checked_i
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit44: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i35
   %80 = icmp slt i64 %64, %76
   %81 = or disjoint i64 %35, 1
-  %spec.select = select i1 %80, i64 %81, i64 %36
+  %cond.fr = freeze i1 %80
+  %spec.select = select i1 %cond.fr, i64 %81, i64 %36
   %.phi.trans.insert = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %spec.select
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !77
   br label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit44.thread

@@ -1277,7 +1277,7 @@ ClusterBlocksLiteral.exit.i:                      ; preds = %._crit_edge481.loop
 SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %ClusterBlocksLiteral.exit.i
   %600 = phi ptr [ %47, %.thread467 ], [ %.ph, %ClusterBlocksLiteral.exit.i ]
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %600) #8
-  br i1 %.not.i, label %.thread652, label %.lr.ph.preheader
+  br i1 %.not.i, label %.thread653, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %SplitByteVectorLiteral.exit.thread, %SplitByteVectorLiteral.exit
   %601 = shl i64 %2, 1
@@ -1285,20 +1285,20 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.055489 = phi i64 [ %607, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %603 = getelementptr inbounds nuw %struct.Command, ptr %1, i64 %.055489
+  %.055490 = phi i64 [ %607, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %603 = getelementptr inbounds nuw %struct.Command, ptr %1, i64 %.055490
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 12
   %605 = load i16, ptr %604, align 4, !tbaa !84
-  %606 = getelementptr inbounds nuw i16, ptr %602, i64 %.055489
+  %606 = getelementptr inbounds nuw i16, ptr %602, i64 %.055490
   store i16 %605, ptr %606, align 2, !tbaa !61
-  %607 = add nuw i64 %.055489, 1
+  %607 = add nuw i64 %.055490, 1
   %exitcond.not = icmp eq i64 %607, %2
   br i1 %exitcond.not, label %608, label %.lr.ph, !llvm.loop !85
 
-.thread652:                                       ; preds = %SplitByteVectorLiteral.exit
+.thread653:                                       ; preds = %SplitByteVectorLiteral.exit
   store i64 1, ptr %8, align 8, !tbaa !20
   tail call void @BrotliFree(ptr noundef %0, ptr noundef null) #8
-  br label %.thread661
+  br label %.thread662
 
 608:                                              ; preds = %.lr.ph
   %.lhs.trunc.i66 = trunc i64 %2 to i16
@@ -1358,7 +1358,7 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %636 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %637 = load i64, ptr %636, align 8, !tbaa !24
   %638 = icmp ult i64 %637, %.pre-phi.i233
-  br i1 %638, label %639, label %.thread653
+  br i1 %638, label %639, label %.thread654
 
 639:                                              ; preds = %634
   %640 = icmp eq i64 %637, 0
@@ -1392,9 +1392,9 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   store ptr %646, ptr %653, align 8, !tbaa !11
   store i64 %.0136.i235, ptr %636, align 8, !tbaa !24
   %.pre186.i = load i64, ptr %616, align 8, !tbaa !22
-  br label %.thread653
+  br label %.thread654
 
-.thread653:                                       ; preds = %652, %634
+.thread654:                                       ; preds = %652, %634
   %655 = phi i64 [ %.pre186.i, %652 ], [ %635, %634 ]
   store i64 1, ptr %8, align 8, !tbaa !20
   %656 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1412,7 +1412,7 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %602) #8
   %.pre = shl nuw nsw i64 %2, 1
   %665 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.pre) #8
-  br label %.lr.ph493.preheader
+  br label %.lr.ph494.preheader
 
 666:                                              ; preds = %608
   %667 = mul nuw nsw i64 %spec.select.i68, 2832
@@ -2466,23 +2466,23 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %738) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %602) #8
   %1166 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %702) #8
-  br i1 %.not.i, label %.thread661, label %.lr.ph493.preheader
+  br i1 %.not.i, label %.thread662, label %.lr.ph494.preheader
 
-.lr.ph493.preheader:                              ; preds = %.thread653, %1164
-  %1167 = phi ptr [ %665, %.thread653 ], [ %1166, %1164 ]
-  br label %.lr.ph493
+.lr.ph494.preheader:                              ; preds = %.thread654, %1164
+  %1167 = phi ptr [ %665, %.thread654 ], [ %1166, %1164 ]
+  br label %.lr.ph494
 
-.lr.ph493:                                        ; preds = %.lr.ph493.preheader, %1182
-  %.0491 = phi i64 [ %1183, %1182 ], [ 0, %.lr.ph493.preheader ]
-  %.054490 = phi i64 [ %.1, %1182 ], [ 0, %.lr.ph493.preheader ]
-  %1168 = getelementptr inbounds nuw %struct.Command, ptr %1, i64 %.0491
+.lr.ph494:                                        ; preds = %.lr.ph494.preheader, %1182
+  %.0492 = phi i64 [ %1183, %1182 ], [ 0, %.lr.ph494.preheader ]
+  %.054491 = phi i64 [ %.1, %1182 ], [ 0, %.lr.ph494.preheader ]
+  %1168 = getelementptr inbounds nuw %struct.Command, ptr %1, i64 %.0492
   %1169 = getelementptr inbounds nuw i8, ptr %1168, i64 4
   %1170 = load i32, ptr %1169, align 4, !tbaa !18
   %1171 = and i32 %1170, 33554431
   %.not60 = icmp eq i32 %1171, 0
   br i1 %.not60, label %1182, label %1172
 
-1172:                                             ; preds = %.lr.ph493
+1172:                                             ; preds = %.lr.ph494
   %1173 = getelementptr inbounds nuw i8, ptr %1168, i64 12
   %1174 = load i16, ptr %1173, align 4, !tbaa !84
   %1175 = icmp ugt i16 %1174, 127
@@ -2492,18 +2492,18 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1177 = getelementptr inbounds nuw i8, ptr %1168, i64 14
   %1178 = load i16, ptr %1177, align 2, !tbaa !124
   %1179 = and i16 %1178, 1023
-  %1180 = add i64 %.054490, 1
-  %1181 = getelementptr inbounds nuw i16, ptr %1167, i64 %.054490
+  %1180 = add i64 %.054491, 1
+  %1181 = getelementptr inbounds nuw i16, ptr %1167, i64 %.054491
   store i16 %1179, ptr %1181, align 2, !tbaa !61
   br label %1182
 
-1182:                                             ; preds = %1176, %1172, %.lr.ph493
-  %.1 = phi i64 [ %1180, %1176 ], [ %.054490, %1172 ], [ %.054490, %.lr.ph493 ]
-  %1183 = add nuw i64 %.0491, 1
-  %exitcond514.not = icmp eq i64 %1183, %2
-  br i1 %exitcond514.not, label %._crit_edge494, label %.lr.ph493, !llvm.loop !125
+1182:                                             ; preds = %1176, %1172, %.lr.ph494
+  %.1 = phi i64 [ %1180, %1176 ], [ %.054491, %1172 ], [ %.054491, %.lr.ph494 ]
+  %1183 = add nuw i64 %.0492, 1
+  %exitcond515.not = icmp eq i64 %1183, %2
+  br i1 %exitcond515.not, label %._crit_edge495, label %.lr.ph494, !llvm.loop !125
 
-._crit_edge494:                                   ; preds = %1182
+._crit_edge495:                                   ; preds = %1182
   %.lhs.trunc.i241 = trunc i64 %.1 to i16
   %1184 = udiv i16 %.lhs.trunc.i241, 544
   %narrow.i242 = add nuw nsw i16 %1184, 1
@@ -2511,14 +2511,14 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1186 = icmp ugt i64 %.1, 27199
   %spec.select = select i1 %1186, i64 50, i64 %1185
   %1187 = icmp eq i64 %.1, 0
-  br i1 %1187, label %.thread661, label %1189
+  br i1 %1187, label %.thread662, label %1189
 
-.thread661:                                       ; preds = %1164, %.thread652, %._crit_edge494
-  %1188 = phi ptr [ %1167, %._crit_edge494 ], [ null, %.thread652 ], [ %1166, %1164 ]
+.thread662:                                       ; preds = %1164, %.thread653, %._crit_edge495
+  %1188 = phi ptr [ %1167, %._crit_edge495 ], [ null, %.thread653 ], [ %1166, %1164 ]
   store i64 1, ptr %9, align 8, !tbaa !20
   br label %SplitByteVectorDistance.exit
 
-1189:                                             ; preds = %._crit_edge494
+1189:                                             ; preds = %._crit_edge495
   %1190 = icmp ult i64 %.1, 128
   br i1 %1190, label %1191, label %1244
 
@@ -3675,8 +3675,8 @@ ClusterBlocksDistance.exit.i:                     ; preds = %._crit_edge482.loop
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1316) #8
   br label %SplitByteVectorDistance.exit
 
-SplitByteVectorDistance.exit:                     ; preds = %.thread661, %1233, %ClusterBlocksDistance.exit.i
-  %1743 = phi ptr [ %1188, %.thread661 ], [ %1167, %1233 ], [ %1167, %ClusterBlocksDistance.exit.i ]
+SplitByteVectorDistance.exit:                     ; preds = %.thread662, %1233, %ClusterBlocksDistance.exit.i
+  %1743 = phi ptr [ %1188, %.thread662 ], [ %1167, %1233 ], [ %1167, %ClusterBlocksDistance.exit.i ]
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1743) #8
   ret void
 }

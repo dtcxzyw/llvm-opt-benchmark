@@ -188,25 +188,21 @@ define hidden noundef i32 @_ZN4ncnn26DeconvolutionDepthWise_x8615create_pipeline
   %9 = load i32, ptr %8, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %11 = load i32, ptr %10, align 8, !tbaa !40
-  %.fr88 = freeze i32 %11
-  %.fr89 = freeze i32 %9
-  %12 = mul i32 %.fr88, %.fr89
+  %12 = mul nsw i32 %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %14 = load i32, ptr %13, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %16 = load i32, ptr %15, align 4, !tbaa !42
-  %.fr87 = freeze i32 %16
-  %.fr86 = freeze i32 %14
-  %17 = sdiv i32 %.fr86, %.fr87
+  %17 = sdiv i32 %14, %16
   %18 = sdiv i32 %17, %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %20 = load i32, ptr %19, align 8, !tbaa !43
-  %.fr90 = freeze i32 %20
-  %21 = sdiv i32 %.fr90, %.fr87
+  %21 = sdiv i32 %20, %16
   %22 = sdiv i32 %18, %21
-  %23 = mul i32 %22, %.fr87
-  %24 = icmp eq i32 %23, %.fr87
-  %25 = icmp eq i32 %.fr87, %.fr90
+  %23 = mul nsw i32 %22, %16
+  %.fr = freeze i32 %23
+  %24 = icmp eq i32 %.fr, %16
+  %25 = icmp eq i32 %16, %20
   %or.cond = and i1 %25, %24
   br i1 %or.cond, label %26, label %209
 
@@ -214,7 +210,7 @@ define hidden noundef i32 @_ZN4ncnn26DeconvolutionDepthWise_x8615create_pipeline
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %28 = load i8, ptr %27, align 1, !tbaa !44, !range !46, !noundef !47
   %29 = trunc nuw i8 %28 to i1
-  %30 = and i32 %.fr87, 3
+  %30 = and i32 %16, 3
   %31 = icmp eq i32 %30, 0
   %32 = and i1 %31, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -238,8 +234,8 @@ define hidden noundef i32 @_ZN4ncnn26DeconvolutionDepthWise_x8615create_pipeline
   %46 = load i32, ptr %15, align 4, !tbaa !42
   %47 = load i32, ptr %19, align 8, !tbaa !43
   %48 = sdiv i32 %47, %46
-  %49 = srem i32 %.fr87, %46
-  %50 = sub nsw i32 %.fr87, %49
+  %49 = srem i32 %16, %46
+  %50 = sub nsw i32 %16, %49
   %51 = mul i32 %50, %48
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.preheader.lr.ph, label %._crit_edge85
@@ -277,8 +273,8 @@ define hidden noundef i32 @_ZN4ncnn26DeconvolutionDepthWise_x8615create_pipeline
   %63 = getelementptr inbounds nuw float, ptr %.03083.us, i64 %54
   %64 = getelementptr inbounds nuw float, ptr %.03482.us, i64 %54
   %65 = add nuw nsw i32 %.02984.us, 1
-  %exitcond95.not = icmp eq i32 %65, %51
-  br i1 %exitcond95.not, label %._crit_edge85, label %.preheader.us, !llvm.loop !53
+  %exitcond88.not = icmp eq i32 %65, %51
+  br i1 %exitcond88.not, label %._crit_edge85, label %.preheader.us, !llvm.loop !53
 
 ._crit_edge85:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %26
   br i1 %32, label %66, label %110
@@ -1919,18 +1915,18 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %106, %121, %122, %1
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %142 = load i64, ptr %141, align 8, !tbaa !17
   store i64 %142, ptr %82, align 8, !tbaa !17
-  %.pre302 = load i32, ptr %10, align 4, !tbaa !86
-  %.pre303 = load i32, ptr %11, align 4, !tbaa !86
-  %.pre304 = load i32, ptr %64, align 8, !tbaa !43
+  %.pre301 = load i32, ptr %10, align 4, !tbaa !86
+  %.pre302 = load i32, ptr %11, align 4, !tbaa !86
+  %.pre303 = load i32, ptr %64, align 8, !tbaa !43
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %104, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %95
-  %.sink = phi i32 [ %65, %4 ], [ %65, %95 ], [ %.pre304, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %65, %104 ]
-  %.sink352 = phi i64 [ 16, %4 ], [ 16, %95 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %104 ]
-  %143 = phi i32 [ %52, %4 ], [ %52, %95 ], [ %.pre302, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %52, %104 ]
-  %144 = phi i32 [ %60, %4 ], [ %60, %95 ], [ %.pre303, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %60, %104 ]
+  %.sink = phi i32 [ %65, %4 ], [ %65, %95 ], [ %.pre303, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %65, %104 ]
+  %.sink351 = phi i64 [ 16, %4 ], [ 16, %95 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %104 ]
+  %143 = phi i32 [ %52, %4 ], [ %52, %95 ], [ %.pre301, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %52, %104 ]
+  %144 = phi i32 [ %60, %4 ], [ %60, %95 ], [ %.pre302, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %60, %104 ]
   %145 = sdiv i32 %.sink, %.078
-  %146 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink352
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink351
   %147 = load ptr, ptr %146, align 8, !tbaa !87
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef %143, i32 noundef %144, i32 noundef %145, i64 noundef %72, i32 noundef %.078, ptr noundef %147)
           to label %148 unwind label %102
@@ -2153,8 +2149,8 @@ _ZNK4ncnn3Mat5emptyEv.exit205:                    ; preds = %260
 
 270:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit205, %_ZN4ncnn3Mat6addrefEv.exit
   %271 = load i32, ptr %162, align 4, !tbaa !42
-  %.not107296 = icmp sgt i32 %271, 0
-  br i1 %.not107296, label %.lr.ph, label %._crit_edge
+  %.not107295 = icmp sgt i32 %271, 0
+  br i1 %.not107295, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %270
   %272 = sdiv i32 %170, %.081
@@ -2731,11 +2727,10 @@ _ZNK4ncnn3Mat5emptyEv.exit207:                    ; preds = %534
   %538 = load i64, ptr %537, align 8, !tbaa !17
   %539 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %540 = load i32, ptr %539, align 8, !tbaa !60
-  %.fr213 = freeze i32 %540
-  %541 = sext i32 %.fr213 to i64
-  %.fr = freeze i64 %538
-  %542 = mul i64 %.fr, %541
-  %543 = icmp eq i64 %542, 0
+  %541 = sext i32 %540 to i64
+  %542 = mul i64 %538, %541
+  %.fr = freeze i64 %542
+  %543 = icmp eq i64 %.fr, 0
   br i1 %543, label %_ZNK4ncnn3Mat5emptyEv.exit207.thread, label %546
 
 _ZNK4ncnn3Mat5emptyEv.exit207.thread:             ; preds = %534, %_ZNK4ncnn3Mat5emptyEv.exit207

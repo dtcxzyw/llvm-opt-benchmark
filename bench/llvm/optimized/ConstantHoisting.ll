@@ -6056,19 +6056,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm20ConstantHoistingPass17emitBaseCon
   call void @_ZNK4llvm20ConstantHoistingPass26findConstantInsertionPointERKNS_10consthoist12ConstantInfoENS_8ArrayRefINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SetVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(5600) %0, ptr nonnull align 8 poison, ptr %46, i64 %48)
   %49 = load i32, ptr %28, align 8, !tbaa !26
   %.not.i.i = icmp eq i32 %49, 0
-  %.pre151 = load ptr, ptr %29, align 8, !tbaa !25
+  %.pre152 = load ptr, ptr %29, align 8, !tbaa !25
   br i1 %.not.i.i, label %.loopexit113, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %44
   %50 = zext i32 %49 to i64
   %.idx143 = shl nuw nsw i64 %50, 4
-  %51 = getelementptr inbounds nuw i8, ptr %.pre151, i64 %.idx143
+  %51 = getelementptr inbounds nuw i8, ptr %.pre152, i64 %.idx143
   %52 = getelementptr inbounds nuw i8, ptr %.071136, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %.071136, i64 8
   br label %54
 
 54:                                               ; preds = %.lr.ph134, %_ZN4llvm11SmallVectorINS_20ConstantHoistingPass14UserAdjustmentELj4EED2Ev.exit
-  %.080130 = phi ptr [ %.pre151, %.lr.ph134 ], [ %176, %_ZN4llvm11SmallVectorINS_20ConstantHoistingPass14UserAdjustmentELj4EED2Ev.exit ]
+  %.080130 = phi ptr [ %.pre152, %.lr.ph134 ], [ %176, %_ZN4llvm11SmallVectorINS_20ConstantHoistingPass14UserAdjustmentELj4EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %30, ptr %8, align 8, !tbaa !25
   store i32 0, ptr %31, align 8, !tbaa !26
@@ -6391,11 +6391,11 @@ _ZN4llvm11SmallVectorINS_20ConstantHoistingPass14UserAdjustmentELj4EED2Ev.exit: 
   br i1 %.not88, label %.loopexit113.loopexit, label %54
 
 .loopexit113.loopexit:                            ; preds = %_ZN4llvm11SmallVectorINS_20ConstantHoistingPass14UserAdjustmentELj4EED2Ev.exit
-  %.pre150 = load ptr, ptr %29, align 8, !tbaa !25
+  %.pre151 = load ptr, ptr %29, align 8, !tbaa !25
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %.loopexit113.loopexit, %44
-  %177 = phi ptr [ %.pre151, %44 ], [ %.pre150, %.loopexit113.loopexit ]
+  %177 = phi ptr [ %.pre152, %44 ], [ %.pre151, %.loopexit113.loopexit ]
   %.1 = phi i1 [ %.0138, %44 ], [ true, %.loopexit113.loopexit ]
   %178 = icmp eq ptr %177, %42
   br i1 %178, label %_ZN4llvm9SetVectorINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_11SmallVectorIS7_Lj0EEENS_8DenseSetIS7_NS_12DenseMapInfoIS7_vEEEELj0EED2Ev.exit, label %179

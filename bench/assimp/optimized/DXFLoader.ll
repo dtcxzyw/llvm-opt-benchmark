@@ -6696,9 +6696,9 @@ _ZNSt12__shared_ptrIN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %82 = load i32, ptr %81, align 8
   %83 = icmp sgt i32 %82, 1
-  br i1 %83, label %.thread193, label %.lr.ph
+  br i1 %83, label %.thread192, label %.lr.ph
 
-.thread193:                                       ; preds = %_ZNSt12__shared_ptrIN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+.thread192:                                       ; preds = %_ZNSt12__shared_ptrIN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   store float 0.000000e+00, ptr %17, align 16
   br label %_ZNK10aiVector3tIfEeqERKS0_.exit
 
@@ -6731,10 +6731,10 @@ _ZNSt12__shared_ptrIN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %107 = phi float [ 0.000000e+00, %.lr.ph ], [ %186, %177 ]
   %108 = phi float [ 0.000000e+00, %.lr.ph ], [ %187, %177 ]
   %109 = phi float [ 0.000000e+00, %.lr.ph ], [ %188, %177 ]
-  %.sroa.18.074 = phi i1 [ false, %.lr.ph ], [ %.sroa.18.1, %177 ]
-  %.sroa.14.073 = phi i1 [ false, %.lr.ph ], [ %.sroa.14.1, %177 ]
-  %.sroa.8.072 = phi i8 [ 0, %.lr.ph ], [ %.sroa.8.1, %177 ]
-  %.sroa.0.071 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %177 ]
+  %.sroa.18.073 = phi i1 [ false, %.lr.ph ], [ %.sroa.18.1, %177 ]
+  %.sroa.14.072 = phi i1 [ false, %.lr.ph ], [ %.sroa.14.1, %177 ]
+  %.sroa.8.071 = phi i8 [ 0, %.lr.ph ], [ %.sroa.8.1, %177 ]
+  %.sroa.0.070 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %177 ]
   %110 = phi float [ 0.000000e+00, %.lr.ph ], [ %189, %177 ]
   %111 = load i32, ptr %84, align 8
   switch i32 %111, label %177 [
@@ -6919,73 +6919,72 @@ _ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit: ; preds = %_ZNK6Assimp3D
   %187 = phi float [ %108, %98 ], [ %108, %114 ], [ %108, %115 ], [ %108, %119 ], [ %108, %123 ], [ %108, %127 ], [ %108, %131 ], [ %108, %135 ], [ %108, %139 ], [ %108, %143 ], [ %108, %147 ], [ %108, %151 ], [ %158, %155 ], [ %108, %159 ], [ %108, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
   %188 = phi float [ %109, %98 ], [ %109, %114 ], [ %109, %115 ], [ %109, %119 ], [ %109, %123 ], [ %109, %127 ], [ %109, %131 ], [ %109, %135 ], [ %109, %139 ], [ %109, %143 ], [ %109, %147 ], [ %109, %151 ], [ %109, %155 ], [ %162, %159 ], [ %109, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
   %189 = phi float [ %110, %98 ], [ %110, %114 ], [ %118, %115 ], [ %110, %119 ], [ %110, %123 ], [ %110, %127 ], [ %110, %131 ], [ %110, %135 ], [ %110, %139 ], [ %110, %143 ], [ %110, %147 ], [ %110, %151 ], [ %110, %155 ], [ %110, %159 ], [ %110, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
-  %.sroa.0.1 = phi i8 [ %.sroa.0.071, %98 ], [ %.sroa.0.071, %114 ], [ %.sroa.0.071, %115 ], [ %.sroa.0.071, %119 ], [ %.sroa.0.071, %123 ], [ %.sroa.0.071, %127 ], [ %.sroa.0.071, %131 ], [ %.sroa.0.071, %135 ], [ 1, %139 ], [ 1, %143 ], [ 1, %147 ], [ %.sroa.0.071, %151 ], [ %.sroa.0.071, %155 ], [ %.sroa.0.071, %159 ], [ %.sroa.0.071, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
-  %.sroa.8.1 = phi i8 [ %.sroa.8.072, %98 ], [ %.sroa.8.072, %114 ], [ %.sroa.8.072, %115 ], [ %.sroa.8.072, %119 ], [ %.sroa.8.072, %123 ], [ %.sroa.8.072, %127 ], [ %.sroa.8.072, %131 ], [ %.sroa.8.072, %135 ], [ %.sroa.8.072, %139 ], [ %.sroa.8.072, %143 ], [ %.sroa.8.072, %147 ], [ 1, %151 ], [ 1, %155 ], [ 1, %159 ], [ %.sroa.8.072, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
-  %.sroa.14.1 = phi i1 [ %.sroa.14.073, %98 ], [ %.sroa.14.073, %114 ], [ true, %115 ], [ true, %119 ], [ true, %123 ], [ %.sroa.14.073, %127 ], [ %.sroa.14.073, %131 ], [ %.sroa.14.073, %135 ], [ %.sroa.14.073, %139 ], [ %.sroa.14.073, %143 ], [ %.sroa.14.073, %147 ], [ %.sroa.14.073, %151 ], [ %.sroa.14.073, %155 ], [ %.sroa.14.073, %159 ], [ %.sroa.14.073, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
-  %.sroa.18.1 = phi i1 [ %.sroa.18.074, %98 ], [ %.sroa.18.074, %114 ], [ %.sroa.18.074, %115 ], [ %.sroa.18.074, %119 ], [ %.sroa.18.074, %123 ], [ true, %127 ], [ true, %131 ], [ true, %135 ], [ %.sroa.18.074, %139 ], [ %.sroa.18.074, %143 ], [ %.sroa.18.074, %147 ], [ %.sroa.18.074, %151 ], [ %.sroa.18.074, %155 ], [ %.sroa.18.074, %159 ], [ %.sroa.18.074, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.070, %98 ], [ %.sroa.0.070, %114 ], [ %.sroa.0.070, %115 ], [ %.sroa.0.070, %119 ], [ %.sroa.0.070, %123 ], [ %.sroa.0.070, %127 ], [ %.sroa.0.070, %131 ], [ %.sroa.0.070, %135 ], [ 1, %139 ], [ 1, %143 ], [ 1, %147 ], [ %.sroa.0.070, %151 ], [ %.sroa.0.070, %155 ], [ %.sroa.0.070, %159 ], [ %.sroa.0.070, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
+  %.sroa.8.1 = phi i8 [ %.sroa.8.071, %98 ], [ %.sroa.8.071, %114 ], [ %.sroa.8.071, %115 ], [ %.sroa.8.071, %119 ], [ %.sroa.8.071, %123 ], [ %.sroa.8.071, %127 ], [ %.sroa.8.071, %131 ], [ %.sroa.8.071, %135 ], [ %.sroa.8.071, %139 ], [ %.sroa.8.071, %143 ], [ %.sroa.8.071, %147 ], [ 1, %151 ], [ 1, %155 ], [ 1, %159 ], [ %.sroa.8.071, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
+  %.sroa.14.1 = phi i1 [ %.sroa.14.072, %98 ], [ %.sroa.14.072, %114 ], [ true, %115 ], [ true, %119 ], [ true, %123 ], [ %.sroa.14.072, %127 ], [ %.sroa.14.072, %131 ], [ %.sroa.14.072, %135 ], [ %.sroa.14.072, %139 ], [ %.sroa.14.072, %143 ], [ %.sroa.14.072, %147 ], [ %.sroa.14.072, %151 ], [ %.sroa.14.072, %155 ], [ %.sroa.14.072, %159 ], [ %.sroa.14.072, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
+  %.sroa.18.1 = phi i1 [ %.sroa.18.073, %98 ], [ %.sroa.18.073, %114 ], [ %.sroa.18.073, %115 ], [ %.sroa.18.073, %119 ], [ %.sroa.18.073, %123 ], [ true, %127 ], [ true, %131 ], [ true, %135 ], [ %.sroa.18.073, %139 ], [ %.sroa.18.073, %143 ], [ %.sroa.18.073, %147 ], [ %.sroa.18.073, %151 ], [ %.sroa.18.073, %155 ], [ %.sroa.18.073, %159 ], [ %.sroa.18.073, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ]
   %190 = call noundef nonnull align 8 dereferenceable(108) ptr @_ZN6Assimp3DXF10LineReaderppEv(ptr noundef nonnull align 8 dereferenceable(108) %1)
   %191 = load i32, ptr %81, align 8
   %192 = icmp sgt i32 %191, 1
   br i1 %192, label %._crit_edge, label %98, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %177, %98
-  %.lcssa233.sink = phi float [ %109, %98 ], [ %188, %177 ]
-  %.lcssa234.sink = phi float [ %108, %98 ], [ %187, %177 ]
-  %.lcssa235.sink = phi float [ %107, %98 ], [ %186, %177 ]
-  %.lcssa236.sink = phi float [ %106, %98 ], [ %185, %177 ]
-  %.lcssa237.sink = phi float [ %105, %98 ], [ %184, %177 ]
-  %.lcssa238.sink = phi float [ %104, %98 ], [ %183, %177 ]
-  %.lcssa239.sink = phi float [ %103, %98 ], [ %182, %177 ]
-  %.lcssa240.sink = phi float [ %102, %98 ], [ %181, %177 ]
-  %.lcssa241.sink = phi float [ %101, %98 ], [ %180, %177 ]
-  %.lcssa242.sink = phi float [ %100, %98 ], [ %179, %177 ]
-  %.lcssa243.sink = phi float [ %99, %98 ], [ %178, %177 ]
-  %.lcssa70 = phi float [ %110, %98 ], [ %189, %177 ]
-  %.sroa.0.0.lcssa = phi i8 [ %.sroa.0.071, %98 ], [ %.sroa.0.1, %177 ]
-  %.sroa.8.0.lcssa = phi i8 [ %.sroa.8.072, %98 ], [ %.sroa.8.1, %177 ]
-  %.sroa.14.0.lcssa = phi i1 [ %.sroa.14.073, %98 ], [ %.sroa.14.1, %177 ]
-  %.sroa.18.0.lcssa = phi i1 [ %.sroa.18.074, %98 ], [ %.sroa.18.1, %177 ]
-  store float %.lcssa233.sink, ptr %86, align 4
-  store float %.lcssa234.sink, ptr %87, align 8
-  store float %.lcssa235.sink, ptr %88, align 4
-  store float %.lcssa236.sink, ptr %89, align 16
-  store float %.lcssa237.sink, ptr %90, align 4
-  store float %.lcssa238.sink, ptr %91, align 8
-  store float %.lcssa239.sink, ptr %92, align 4
-  store float %.lcssa240.sink, ptr %93, align 16
-  store float %.lcssa241.sink, ptr %94, align 4
-  store float %.lcssa242.sink, ptr %95, align 8
-  store float %.lcssa243.sink, ptr %96, align 4
-  store float %.lcssa70, ptr %17, align 16
-  %193 = fcmp oeq float %.lcssa235.sink, %.lcssa238.sink
-  %194 = fcmp oeq float %.lcssa234.sink, %.lcssa237.sink
-  %or.cond244 = select i1 %193, i1 %194, i1 false
-  br i1 %or.cond244, label %_ZNK10aiVector3tIfEeqERKS0_.exit, label %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
+  %.lcssa232.sink = phi float [ %109, %98 ], [ %188, %177 ]
+  %.lcssa233.sink = phi float [ %108, %98 ], [ %187, %177 ]
+  %.lcssa234.sink = phi float [ %107, %98 ], [ %186, %177 ]
+  %.lcssa235.sink = phi float [ %106, %98 ], [ %185, %177 ]
+  %.lcssa236.sink = phi float [ %105, %98 ], [ %184, %177 ]
+  %.lcssa237.sink = phi float [ %104, %98 ], [ %183, %177 ]
+  %.lcssa238.sink = phi float [ %103, %98 ], [ %182, %177 ]
+  %.lcssa239.sink = phi float [ %102, %98 ], [ %181, %177 ]
+  %.lcssa240.sink = phi float [ %101, %98 ], [ %180, %177 ]
+  %.lcssa241.sink = phi float [ %100, %98 ], [ %179, %177 ]
+  %.lcssa242.sink = phi float [ %99, %98 ], [ %178, %177 ]
+  %.lcssa69 = phi float [ %110, %98 ], [ %189, %177 ]
+  %.sroa.0.0.lcssa = phi i8 [ %.sroa.0.070, %98 ], [ %.sroa.0.1, %177 ]
+  %.sroa.8.0.lcssa = phi i8 [ %.sroa.8.071, %98 ], [ %.sroa.8.1, %177 ]
+  %.sroa.14.0.lcssa = phi i1 [ %.sroa.14.072, %98 ], [ %.sroa.14.1, %177 ]
+  %.sroa.18.0.lcssa = phi i1 [ %.sroa.18.073, %98 ], [ %.sroa.18.1, %177 ]
+  store float %.lcssa232.sink, ptr %86, align 4
+  store float %.lcssa233.sink, ptr %87, align 8
+  store float %.lcssa234.sink, ptr %88, align 4
+  store float %.lcssa235.sink, ptr %89, align 16
+  store float %.lcssa236.sink, ptr %90, align 4
+  store float %.lcssa237.sink, ptr %91, align 8
+  store float %.lcssa238.sink, ptr %92, align 4
+  store float %.lcssa239.sink, ptr %93, align 16
+  store float %.lcssa240.sink, ptr %94, align 4
+  store float %.lcssa241.sink, ptr %95, align 8
+  store float %.lcssa242.sink, ptr %96, align 4
+  store float %.lcssa69, ptr %17, align 16
+  %193 = fcmp oeq float %.lcssa234.sink, %.lcssa237.sink
+  %194 = fcmp oeq float %.lcssa233.sink, %.lcssa236.sink
+  %or.cond243 = select i1 %193, i1 %194, i1 false
+  br i1 %or.cond243, label %_ZNK10aiVector3tIfEeqERKS0_.exit, label %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
 
-_ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %._crit_edge, %.thread193
-  %195 = phi float [ 0.000000e+00, %.thread193 ], [ %.lcssa236.sink, %._crit_edge ]
-  %196 = phi float [ 0.000000e+00, %.thread193 ], [ %.lcssa233.sink, %._crit_edge ]
-  %.sroa.0.0.lcssa187201 = phi i8 [ 0, %.thread193 ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %.sroa.8.0.lcssa188200 = phi i8 [ 0, %.thread193 ], [ %.sroa.8.0.lcssa, %._crit_edge ]
-  %.sroa.14.0.lcssa190199 = phi i1 [ false, %.thread193 ], [ %.sroa.14.0.lcssa, %._crit_edge ]
-  %.sroa.18.0.lcssa192198 = phi i1 [ false, %.thread193 ], [ %.sroa.18.0.lcssa, %._crit_edge ]
-  %.fr = freeze float %196
-  %.fr67 = freeze float %195
-  %197 = fcmp oeq float %.fr, %.fr67
-  %spec.select = select i1 %197, i8 0, i8 %.sroa.8.0.lcssa188200
+_ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %._crit_edge, %.thread192
+  %195 = phi float [ 0.000000e+00, %.thread192 ], [ %.lcssa235.sink, %._crit_edge ]
+  %196 = phi float [ 0.000000e+00, %.thread192 ], [ %.lcssa232.sink, %._crit_edge ]
+  %.sroa.0.0.lcssa186200 = phi i8 [ 0, %.thread192 ], [ %.sroa.0.0.lcssa, %._crit_edge ]
+  %.sroa.8.0.lcssa187199 = phi i8 [ 0, %.thread192 ], [ %.sroa.8.0.lcssa, %._crit_edge ]
+  %.sroa.14.0.lcssa189198 = phi i1 [ false, %.thread192 ], [ %.sroa.14.0.lcssa, %._crit_edge ]
+  %.sroa.18.0.lcssa191197 = phi i1 [ false, %.thread192 ], [ %.sroa.18.0.lcssa, %._crit_edge ]
+  %197 = fcmp oeq float %196, %195
+  %cond.fr = freeze i1 %197
+  %spec.select = select i1 %cond.fr, i8 0, i8 %.sroa.8.0.lcssa187199
   br label %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
 
 _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %_ZNK10aiVector3tIfEeqERKS0_.exit, %._crit_edge
-  %.sroa.18.0.lcssa191 = phi i1 [ %.sroa.18.0.lcssa, %._crit_edge ], [ %.sroa.18.0.lcssa192198, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
-  %.sroa.14.0.lcssa189 = phi i1 [ %.sroa.14.0.lcssa, %._crit_edge ], [ %.sroa.14.0.lcssa190199, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
-  %.sroa.0.0.lcssa186 = phi i8 [ %.sroa.0.0.lcssa, %._crit_edge ], [ %.sroa.0.0.lcssa187201, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
+  %.sroa.18.0.lcssa190 = phi i1 [ %.sroa.18.0.lcssa, %._crit_edge ], [ %.sroa.18.0.lcssa191197, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
+  %.sroa.14.0.lcssa188 = phi i1 [ %.sroa.14.0.lcssa, %._crit_edge ], [ %.sroa.14.0.lcssa189198, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
+  %.sroa.0.0.lcssa185 = phi i8 [ %.sroa.0.0.lcssa, %._crit_edge ], [ %.sroa.0.0.lcssa186200, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
   %198 = phi i8 [ %.sroa.8.0.lcssa, %._crit_edge ], [ %spec.select, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
   %199 = trunc nuw i8 %198 to i1
   %.not = xor i1 %199, true
-  %200 = trunc nuw i8 %.sroa.0.0.lcssa186 to i1
+  %200 = trunc nuw i8 %.sroa.0.0.lcssa185 to i1
   %or.cond = select i1 %.not, i1 true, i1 %200
-  %or.cond5 = select i1 %or.cond, i1 %.sroa.14.0.lcssa189, i1 false
-  %or.cond8 = select i1 %or.cond5, i1 %.sroa.18.0.lcssa191, i1 false
+  %or.cond5 = select i1 %or.cond, i1 %.sroa.14.0.lcssa188, i1 false
+  %or.cond8 = select i1 %or.cond5, i1 %.sroa.18.0.lcssa190, i1 false
   br i1 %or.cond8, label %230, label %201
 
 201:                                              ; preds = %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
@@ -7046,7 +7045,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %226,
   br label %_ZNSt6vectorISt10shared_ptrIN6Assimp3DXF8PolyLineEESaIS4_EE8pop_backEv.exit
 
 230:                                              ; preds = %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
-  %231 = or disjoint i8 %.sroa.0.0.lcssa186, 2
+  %231 = or disjoint i8 %.sroa.0.0.lcssa185, 2
   %narrow = add nuw nsw i8 %231, %198
   %232 = zext nneg i8 %narrow to i32
   %233 = getelementptr inbounds nuw i8, ptr %80, i64 72
@@ -7121,7 +7120,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %238, %_ZNSt6vectorI
   %266 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %267 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %268 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %269 = add nuw nsw i8 %.sroa.0.0.lcssa186, %198
+  %269 = add nuw nsw i8 %.sroa.0.0.lcssa185, %198
   %270 = add nuw nsw i8 %269, 2
   %wide.trip.count = zext i8 %270 to i64
   br label %271

@@ -43175,11 +43175,9 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.val2.i.i.i.i.i = load ptr, ptr %39, align 8, !tbaa !154
   %40 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 100
   %.val.val.i.i.i.i.i = load i32, ptr %40, align 4, !tbaa !633
-  %.val.val.i.fr.i.i.i.i = freeze i32 %.val.val.i.i.i.i.i
   %41 = getelementptr i8, ptr %.val2.i.i.i.i.i, i64 100
   %.val2.val.i.i.i.i.i = load i32, ptr %41, align 4, !tbaa !633
-  %.val2.val.i.fr.i.i.i.i = freeze i32 %.val2.val.i.i.i.i.i
-  %42 = icmp slt i32 %.val2.val.i.fr.i.i.i.i, %.val.val.i.fr.i.i.i.i
+  %42 = icmp slt i32 %.val2.val.i.i.i.i.i, %.val.val.i.i.i.i.i
   br i1 %42, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -43187,12 +43185,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3
   %.val3.i.i.i.i.i = load i32, ptr %43, align 8
   %44 = getelementptr i8, ptr %37, i64 8
   %.val1.i.i.i.i.i = load i32, ptr %44, align 8
-  %45 = icmp eq i32 %.val2.val.i.fr.i.i.i.i, %.val.val.i.fr.i.i.i.i
-  %.val3.i.fr.i.i.i.i = freeze i32 %.val3.i.i.i.i.i
-  %.val1.i.fr.i.i.i.i = freeze i32 %.val1.i.i.i.i.i
-  %46 = icmp slt i32 %.val3.i.fr.i.i.i.i, %.val1.i.fr.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i = and i1 %45, %46
-  br i1 %spec.select.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i, label %47
+  %45 = icmp eq i32 %.val2.val.i.i.i.i.i, %.val.val.i.i.i.i.i
+  %46 = icmp slt i32 %.val3.i.i.i.i.i, %.val1.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = select i1 %45, i1 %46, i1 false
+  %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i.i
+  br i1 %cond.fr.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i, label %47
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i.i, %.lr.ph.i.i.i.i
   br label %47
@@ -43290,30 +43287,27 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolINS2_5RT
   %.val2.i.i.i.i35.i = load ptr, ptr %79, align 8, !tbaa !154
   %80 = getelementptr i8, ptr %.val.i.i.i.i34.i, i64 100
   %.val.val.i.i.i.i36.i = load i32, ptr %80, align 4, !tbaa !633
-  %.val.val.i.fr.i.i.i37.i = freeze i32 %.val.val.i.i.i.i36.i
   %81 = getelementptr i8, ptr %.val2.i.i.i.i35.i, i64 100
-  %.val2.val.i.i.i.i38.i = load i32, ptr %81, align 4, !tbaa !633
-  %.val2.val.i.fr.i.i.i39.i = freeze i32 %.val2.val.i.i.i.i38.i
-  %82 = icmp slt i32 %.val2.val.i.fr.i.i.i39.i, %.val.val.i.fr.i.i.i37.i
-  br i1 %82, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i46.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i40.i
+  %.val2.val.i.i.i.i37.i = load i32, ptr %81, align 4, !tbaa !633
+  %82 = icmp slt i32 %.val2.val.i.i.i.i37.i, %.val.val.i.i.i.i36.i
+  br i1 %82, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i43.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i38.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i40.i: ; preds = %.lr.ph.i.i.i32.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i38.i: ; preds = %.lr.ph.i.i.i32.i
   %83 = getelementptr i8, ptr %79, i64 8
-  %.val3.i.i.i.i41.i = load i32, ptr %83, align 8
+  %.val3.i.i.i.i39.i = load i32, ptr %83, align 8
   %84 = getelementptr i8, ptr %77, i64 8
-  %.val1.i.i.i.i42.i = load i32, ptr %84, align 8
-  %85 = icmp eq i32 %.val2.val.i.fr.i.i.i39.i, %.val.val.i.fr.i.i.i37.i
-  %.val3.i.fr.i.i.i43.i = freeze i32 %.val3.i.i.i.i41.i
-  %.val1.i.fr.i.i.i44.i = freeze i32 %.val1.i.i.i.i42.i
-  %86 = icmp slt i32 %.val3.i.fr.i.i.i43.i, %.val1.i.fr.i.i.i44.i
-  %spec.select.i.i.i.i.i.i45.i = and i1 %85, %86
-  br i1 %spec.select.i.i.i.i.i.i45.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i46.i, label %87
+  %.val1.i.i.i.i40.i = load i32, ptr %84, align 8
+  %85 = icmp eq i32 %.val2.val.i.i.i.i37.i, %.val.val.i.i.i.i36.i
+  %86 = icmp slt i32 %.val3.i.i.i.i39.i, %.val1.i.i.i.i40.i
+  %spec.select.i.i.i.i.i.i41.i = select i1 %85, i1 %86, i1 false
+  %cond.fr.i.i.i42.i = freeze i1 %spec.select.i.i.i.i.i.i41.i
+  br i1 %cond.fr.i.i.i42.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i43.i, label %87
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i46.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i40.i, %.lr.ph.i.i.i32.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i43.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i38.i, %.lr.ph.i.i.i32.i
   br label %87
 
-87:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i46.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i40.i
-  %88 = phi i64 [ %78, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i46.i ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i40.i ]
+87:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i43.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i38.i
+  %88 = phi i64 [ %78, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.thread.i.i.i43.i ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE4sortIZN12_GLOBAL__N_112XAigerWriterC1EPNS5_6ModuleEbE15sort_by_port_idEEvT_EUlRKNS9_7entry_tESJ_E_EclINS_17__normal_iteratorIPSH_St6vectorISH_SaISH_EEEESS_EEbSG_T0_.exit.i.i.i38.i ]
   %89 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %88
   %90 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %0, i64 %.044.i.i.i33.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %90, ptr noundef nonnull align 8 dereferenceable(20) %89, i64 20, i1 false), !tbaa.struct !419

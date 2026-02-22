@@ -19003,8 +19003,8 @@ _ZN4llvm8ExpectedIPN5clang11DeclContextEED2Ev.exit: ; preds = %4
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i16, ptr %41, align 8
-  %.fr168 = freeze i16 %42
-  %43 = and i16 %.fr168, 127
+  %.fr169 = freeze i16 %42
+  %43 = and i16 %.fr169, 127
   %44 = add nsw i16 %43, -61
   %45 = icmp ult i16 %44, -5
   %46 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -19365,11 +19365,11 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %1
   br i1 %176, label %_ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit88.us, label %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us"
 
 _ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit88.us: ; preds = %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.us"
-  %.sink.i197 = inttoptr i64 %175 to ptr
+  %.sink.i198 = inttoptr i64 %175 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %.sink.i197, ptr %9, align 8, !tbaa !71
+  store ptr %.sink.i198, ptr %9, align 8, !tbaa !71
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   %177 = load ptr, ptr %9, align 8, !tbaa !71
   %178 = icmp eq ptr %177, null
@@ -19416,7 +19416,7 @@ _ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit88.us: ; preds = %"_ZZN5clang1
   call void @_ZN5clang11ASTImporter6ImportEPNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.524") align 8 %5, ptr noundef nonnull align 8 dereferenceable(280360) %190, ptr noundef nonnull %.sroa.0109.0164), !noalias !2260
   %191 = load i8, ptr %168, align 8, !noalias !2260
   %192 = load i64, ptr %5, align 8
-  %.sink.i200 = inttoptr i64 %192 to ptr
+  %.sink.i201 = inttoptr i64 %192 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2260
   %193 = trunc i8 %191 to i1
   br i1 %193, label %_ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit88, label %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread"
@@ -19430,7 +19430,7 @@ _ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit88: ; preds = %"_ZZN5clang15AS
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.sroa.0127.4163, ptr %11, align 8, !tbaa !71, !noalias !2263
-  store ptr %.sink.i200, ptr %12, align 8, !tbaa !71, !noalias !2263
+  store ptr %.sink.i201, ptr %12, align 8, !tbaa !71, !noalias !2263
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %195 = load ptr, ptr %12, align 8, !tbaa !71, !noalias !2263
   %196 = icmp eq ptr %195, null
@@ -19466,7 +19466,7 @@ _ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit88.thread: ; preds = %_ZN4llvm
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %.sink.i200, ptr %9, align 8, !tbaa !71
+  store ptr %.sink.i201, ptr %9, align 8, !tbaa !71
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   %208 = load ptr, ptr %9, align 8, !tbaa !71
   %209 = icmp eq ptr %208, null
@@ -19495,8 +19495,8 @@ _ZN4llvm5ErrorD2Ev.exit11.i94:                    ; preds = %210, %_ZN4llvm8Expe
   br i1 %.not152, label %_ZN4llvm5ErrorD2Ev.exit106, label %.lr.ph166.split
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread", %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us", %.loopexit153, %.thread
-  %storemerge229 = phi ptr [ %122, %.thread ], [ %.sroa.0127.0.lcssa, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us" ], [ %.sroa.0127.0.lcssa, %.loopexit153 ], [ %.sroa.0127.5, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread" ]
-  store ptr %storemerge229, ptr %0, align 8, !tbaa !71
+  %storemerge230 = phi ptr [ %122, %.thread ], [ %.sroa.0127.0.lcssa, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread.us" ], [ %.sroa.0127.0.lcssa, %.loopexit153 ], [ %.sroa.0127.5, %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit85.thread" ]
+  store ptr %storemerge230, ptr %0, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %217
 

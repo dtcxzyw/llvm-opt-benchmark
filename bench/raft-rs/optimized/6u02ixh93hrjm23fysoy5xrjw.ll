@@ -1165,9 +1165,8 @@ define void @_ZN4raft14default_logger17h416f64140cc5abcdE(ptr dead_on_unwind noa
           to label %49 unwind label %47
 
 10:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hf8b1857ee81dc060E.exit"
-  %.fr = freeze { ptr, i64 } %8
-  %11 = extractvalue { ptr, i64 } %.fr, 0
-  %12 = extractvalue { ptr, i64 } %.fr, 1
+  %11 = extractvalue { ptr, i64 } %8, 0
+  %12 = extractvalue { ptr, i64 } %8, 1
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %.lr.ph.i.i.i.i
 

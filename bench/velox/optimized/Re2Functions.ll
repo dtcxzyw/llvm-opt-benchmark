@@ -3513,9 +3513,8 @@ define void @_ZN8facebook5velox9functions8unescapeB5cxx11ESt17basic_string_viewI
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  %escapeChar.coerce.fr = freeze i16 %escapeChar.coerce
-  %escapeChar.sroa.0.0.extract.trunc = trunc i16 %escapeChar.coerce.fr to i8
-  %0 = and i16 %escapeChar.coerce.fr, 256
+  %escapeChar.sroa.0.0.extract.trunc = trunc i16 %escapeChar.coerce to i8
+  %0 = and i16 %escapeChar.coerce, 256
   %tobool.i.i.not = icmp eq i16 %0, 0
   br i1 %tobool.i.i.not, label %if.then, label %if.end
 
@@ -3683,12 +3682,12 @@ if.then22:                                        ; preds = %if.end19
 
 if.end23:                                         ; preds = %if.end19
   %10 = load i8, ptr %add.ptr20, align 1
-  %.fr = freeze i8 %10
-  %cmp.i.not = icmp eq i8 %.fr, %escapeChar.sroa.0.0.extract.trunc
-  br i1 %cmp.i.not, label %if.end32, label %switch.early.test
+  %cmp.i = icmp ne i8 %10, %escapeChar.sroa.0.0.extract.trunc
+  %11 = freeze i1 %cmp.i
+  br i1 %11, label %switch.early.test, label %if.end32
 
 switch.early.test:                                ; preds = %if.end23
-  switch i8 %.fr, label %if.then31 [
+  switch i8 %10, label %if.then31 [
     i8 95, label %if.end32
     i8 37, label %if.end32
   ]
@@ -3698,7 +3697,7 @@ if.then31:                                        ; preds = %switch.early.test
   unreachable
 
 if.end32:                                         ; preds = %switch.early.test, %switch.early.test, %if.end23
-  %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %.fr)
+  %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %10)
           to label %if.end40 unwind label %lpad8.loopexit
 
 if.else:                                          ; preds = %sw.bb25.i.i.i, %for.end.i.i.i, %invoke.cont11

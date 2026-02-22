@@ -1949,8 +1949,7 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %52 = fdiv contract float 1.000000e+00, %.sroa.0553.12.vec.extract
   %53 = insertelement <4 x float> poison, float %52, i64 0
   %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
-  %.fr651 = freeze <4 x float> %54
-  %55 = fmul contract <4 x float> %51, %.fr651
+  %55 = fmul contract <4 x float> %51, %54
   %.sroa.0538.0.vec.extract = extractelement <4 x float> %55, i64 0
   %.sroa.0538.4.vec.extract = extractelement <4 x float> %55, i64 1
   %56 = fcmp contract oge float %.sroa.0538.0.vec.extract, 0.000000e+00
@@ -1959,6 +1958,7 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %59 = fcmp contract ole float %.sroa.0538.4.vec.extract, 1.000000e+00
   %60 = and i1 %58, %56
   %61 = and i1 %59, %57
+  %.fr = freeze i1 %61
   store float 0x7FF0000000000000, ptr %7, align 16
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store ptr null, ptr %62, align 8
@@ -1973,7 +1973,7 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store <2 x float> zeroinitializer, ptr %68, align 16
   %69 = fcmp contract ogt float %.sroa.0621.8.vec.extract623, 0.000000e+00
-  %70 = and i1 %60, %61
+  %70 = and i1 %60, %.fr
   %71 = and i1 %69, %70
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store <2 x float> zeroinitializer, ptr %72, align 8
@@ -1984,8 +1984,8 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %64, ptr noundef nonnull align 16 dereferenceable(16) %74, i64 16, i1 false)
   store float %.sroa.0538.0.vec.extract, ptr %66, align 8
-  %.sroa_idx641 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store float %.sroa.0538.4.vec.extract, ptr %.sroa_idx641, align 4
+  %.sroa_idx638 = getelementptr inbounds nuw i8, ptr %7, i64 76
+  store float %.sroa.0538.4.vec.extract, ptr %.sroa_idx638, align 4
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %76 = load ptr, ptr %75, align 16
   %77 = load ptr, ptr %76, align 8

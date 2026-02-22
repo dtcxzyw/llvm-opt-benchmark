@@ -3050,17 +3050,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %.val = load i16, ptr %30, align 2
   %31 = and i16 %.val, 4
   %.not65 = icmp eq i16 %31, 0
-  br i1 %.not65, label %.thread94, label %48
+  br i1 %.not65, label %.thread95, label %48
 
-.thread94:                                        ; preds = %BufferGetPage.exit
+.thread95:                                        ; preds = %BufferGetPage.exit
   %32 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val5896 = load i16, ptr %32, align 4
-  %33 = icmp ult i16 %.val5896, 25
-  %34 = zext i16 %.val5896 to i32
+  %.val5897 = load i16, ptr %32, align 4
+  %33 = icmp ult i16 %.val5897, 25
+  %34 = zext i16 %.val5897 to i32
   %35 = add nuw nsw i32 %34, 262120
   %36 = lshr i32 %35, 2
   %37 = trunc i32 %36 to i16
-  %.0.i97 = select i1 %33, i16 0, i16 %37
+  %.0.i98 = select i1 %33, i16 0, i16 %37
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3100,17 +3100,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %53, label %.split.preheader, label %.split.us
 
-.split.preheader:                                 ; preds = %.thread94, %48
-  %71 = phi ptr [ %47, %.thread94 ], [ %70, %48 ]
-  %72 = phi ptr [ %46, %.thread94 ], [ %69, %48 ]
-  %73 = phi ptr [ %45, %.thread94 ], [ %68, %48 ]
-  %74 = phi i16 [ %44, %.thread94 ], [ %67, %48 ]
-  %75 = phi i16 [ %43, %.thread94 ], [ %66, %48 ]
-  %76 = phi ptr [ %41, %.thread94 ], [ %64, %48 ]
-  %77 = phi ptr [ %40, %.thread94 ], [ %63, %48 ]
-  %78 = phi ptr [ %39, %.thread94 ], [ %61, %48 ]
-  %79 = phi ptr [ %38, %.thread94 ], [ %60, %48 ]
-  %.0.i98 = phi i16 [ %.0.i97, %.thread94 ], [ %.0.i, %48 ]
+.split.preheader:                                 ; preds = %.thread95, %48
+  %71 = phi ptr [ %47, %.thread95 ], [ %70, %48 ]
+  %72 = phi ptr [ %46, %.thread95 ], [ %69, %48 ]
+  %73 = phi ptr [ %45, %.thread95 ], [ %68, %48 ]
+  %74 = phi i16 [ %44, %.thread95 ], [ %67, %48 ]
+  %75 = phi i16 [ %43, %.thread95 ], [ %66, %48 ]
+  %76 = phi ptr [ %41, %.thread95 ], [ %64, %48 ]
+  %77 = phi ptr [ %40, %.thread95 ], [ %63, %48 ]
+  %78 = phi ptr [ %39, %.thread95 ], [ %61, %48 ]
+  %79 = phi ptr [ %38, %.thread95 ], [ %60, %48 ]
+  %.0.i99 = phi i16 [ %.0.i98, %.thread95 ], [ %.0.i, %48 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %82 = getelementptr i8, ptr %.0.i.i, i64 20
@@ -3210,7 +3210,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %112
 
 126:                                              ; preds = %125, %.split
   %127 = load ptr, ptr %79, align 8
-  %128 = tail call zeroext i16 %127(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i98) #10
+  %128 = tail call zeroext i16 %127(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i99) #10
   %129 = add i16 %128, -1
   %130 = icmp ult i16 %129, 2048
   br i1 %130, label %131, label %.split71.us
@@ -3313,11 +3313,11 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %145
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %170) #10
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
-  %.pre89 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
   br label %178
 
 178:                                              ; preds = %.thread60, %177
-  %179 = phi ptr [ %172, %.thread60 ], [ %.pre89, %177 ]
+  %179 = phi ptr [ %172, %.thread60 ], [ %.pre90, %177 ]
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, 1

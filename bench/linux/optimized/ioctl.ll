@@ -782,14 +782,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ioctl
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %48 = load i16, ptr %47, align 2
   switch i16 %48, label %64 [
-    i16 0, label %._crit_edge7
+    i16 0, label %._crit_edge8
     i16 1, label %49
     i16 2, label %51
   ]
 
-._crit_edge7:                                     ; preds = %46
-  %.phi.trans.insert8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre9 = load i64, ptr %.phi.trans.insert8, align 4
+._crit_edge8:                                     ; preds = %46
+  %.phi.trans.insert9 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.pre10 = load i64, ptr %.phi.trans.insert9, align 4
   br label %59
 
 49:                                               ; preds = %46
@@ -809,8 +809,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ioctl
   store i64 %58, ptr %56, align 4
   br label %59
 
-59:                                               ; preds = %._crit_edge7, %53
-  %60 = phi i64 [ %.pre9, %._crit_edge7 ], [ %58, %53 ]
+59:                                               ; preds = %._crit_edge8, %53
+  %60 = phi i64 [ %.pre10, %._crit_edge8 ], [ %58, %53 ]
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %62 = load i64, ptr %61, align 4
   %63 = call i32 @vfs_fallocate(ptr noundef nonnull %17, i32 noundef 1, i64 noundef %60, i64 noundef %62) #9
@@ -835,14 +835,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ioctl
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %74 = load i16, ptr %73, align 2
   switch i16 %74, label %90 [
-    i16 0, label %._crit_edge4
+    i16 0, label %._crit_edge5
     i16 1, label %75
     i16 2, label %77
   ]
 
-._crit_edge4:                                     ; preds = %72
-  %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 4
+._crit_edge5:                                     ; preds = %72
+  %.phi.trans.insert6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.pre7 = load i64, ptr %.phi.trans.insert6, align 4
   br label %85
 
 75:                                               ; preds = %72
@@ -862,8 +862,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ioctl
   store i64 %84, ptr %82, align 4
   br label %85
 
-85:                                               ; preds = %._crit_edge4, %79
-  %86 = phi i64 [ %.pre6, %._crit_edge4 ], [ %84, %79 ]
+85:                                               ; preds = %._crit_edge5, %79
+  %86 = phi i64 [ %.pre7, %._crit_edge5 ], [ %84, %79 ]
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %88 = load i64, ptr %87, align 4
   %89 = call i32 @vfs_fallocate(ptr noundef nonnull %17, i32 noundef 3, i64 noundef %86, i64 noundef %88) #9
@@ -948,8 +948,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_ioctl
 
 131:                                              ; preds = %125
   %132 = tail call i64 %129(ptr noundef nonnull %17, i32 noundef %122, i64 noundef %11) #9
-  %.fr = freeze i64 %132
-  %133 = trunc i64 %.fr to i32
+  %.fr4 = freeze i64 %132
+  %133 = trunc i64 %.fr4 to i32
   %134 = icmp eq i32 %133, -515
   br i1 %134, label %.thread, label %135
 

@@ -3508,9 +3508,8 @@ define internal range(i32 -2147483608, 2147483638) i32 @mpegts_probe(ptr noundef
   %4 = alloca [204 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !184
-  %.fr = freeze i32 %6
-  %7 = sdiv i32 %.fr, 204
-  %or.cond116 = icmp sgt i32 %.fr, 203
+  %7 = sdiv i32 %6, 204
+  %or.cond116 = icmp sgt i32 %6, 203
   br i1 %or.cond116, label %.lr.ph.i.lr.ph, label %.thread113
 
 .lr.ph.i.lr.ph:                                   ; preds = %1
@@ -3562,10 +3561,9 @@ define internal range(i32 -2147483608, 2147483638) i32 @mpegts_probe(ptr noundef
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !107
-  %.fr120 = freeze i32 %35
-  %36 = add i32 %.fr120, 1
+  %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !107
-  %37 = add i32 %.033.i, 1
+  %37 = add nsw i32 %.033.i, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.02731.i, i32 %36)
   br label %38
 
@@ -3614,10 +3612,9 @@ analyze.exit:                                     ; preds = %38
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw i32, ptr %3, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !107
-  %.fr121 = freeze i32 %60
-  %61 = add i32 %.fr121, 1
+  %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !107
-  %62 = add i32 %.033.i68, 1
+  %62 = add nsw i32 %.033.i68, 1
   %spec.select.i75 = tail call i32 @llvm.smax.i32(i32 %.02731.i69, i32 %61)
   br label %63
 
@@ -3666,10 +3663,9 @@ analyze.exit76.loopexit:                          ; preds = %63
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw i32, ptr %2, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !107
-  %.fr122 = freeze i32 %85
-  %86 = add i32 %.fr122, 1
+  %86 = add nsw i32 %85, 1
   store i32 %86, ptr %84, align 4, !tbaa !107
-  %87 = add i32 %.033.i84, 1
+  %87 = add nsw i32 %.033.i84, 1
   %spec.select.i91 = tail call i32 @llvm.smax.i32(i32 %.02731.i85, i32 %86)
   br label %88
 
@@ -3685,47 +3681,47 @@ analyze.exit92.loopexit:                          ; preds = %88
   %89 = add i32 %.2.i, %.neg.i
   %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
   %91 = udiv i32 %90, 10
-  %92 = sub i32 %.3.i, %91
+  %92 = sub nsw i32 %.3.i, %91
   %.neg.i63 = mul i32 %.3.i70, -10
   %93 = add i32 %.2.i71, %.neg.i63
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %95 = udiv i32 %94, 10
-  %96 = sub i32 %.3.i70, %95
+  %96 = sub nsw i32 %.3.i70, %95
   %.neg.i79 = mul i32 %.3.i86, -10
   %97 = add i32 %.2.i87, %.neg.i79
   %98 = tail call i32 @llvm.smax.i32(i32 %97, i32 0)
   %99 = udiv i32 %98, 10
-  %100 = sub i32 %.3.i86, %99
+  %100 = sub nsw i32 %.3.i86, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %101 = tail call i32 @llvm.smax.i32(i32 %92, i32 %96)
   %. = tail call i32 @llvm.smax.i32(i32 %101, i32 %100)
-  %.05497.fr = freeze i32 %.05497
-  %102 = add i32 %., %.05497.fr
+  %102 = add nsw i32 %., %.05497
   %103 = tail call i32 @llvm.smax.i32(i32 %.05398, i32 %.)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 100
   %104 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %104, label %.lr.ph.i, label %._crit_edge, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %analyze.exit92.loopexit
-  %105 = mul i32 %102, 10
+  %105 = mul nsw i32 %102, 10
   %106 = icmp sgt i32 %103, 69
   %107 = sdiv i32 %105, %7
-  %108 = icmp sgt i32 %.fr, 2243
-  %109 = icmp sgt i32 %107, 6
-  %or.cond = select i1 %108, i1 %109, i1 false
+  %.fr = freeze i32 %107
+  %108 = icmp sgt i32 %6, 2243
+  %109 = icmp sgt i32 %.fr, 6
+  %or.cond = and i1 %108, %109
   br i1 %or.cond, label %110, label %112
 
 110:                                              ; preds = %._crit_edge
-  %111 = add nuw nsw i32 %107, 90
+  %111 = add nuw nsw i32 %.fr, 90
   br label %.thread113
 
 112:                                              ; preds = %._crit_edge
-  %113 = icmp sgt i32 %.fr, 2039
-  %or.cond3 = select i1 %113, i1 %109, i1 false
+  %113 = icmp sgt i32 %6, 2039
+  %or.cond3 = and i1 %113, %109
   br i1 %or.cond3, label %114, label %116
 
 114:                                              ; preds = %112
-  %115 = add nuw nsw i32 %107, 40
+  %115 = add nuw nsw i32 %.fr, 40
   br label %.thread113
 
 116:                                              ; preds = %112
@@ -3733,7 +3729,7 @@ analyze.exit92.loopexit:                          ; preds = %88
   br i1 %or.cond5, label %117, label %119
 
 117:                                              ; preds = %116
-  %118 = add nsw i32 %107, 40
+  %118 = add nsw i32 %.fr, 40
   br label %.thread113
 
 119:                                              ; preds = %116
@@ -4245,17 +4241,15 @@ define internal i64 @mpegts_get_dts(ptr noundef %0, i32 noundef %1, ptr noundef 
   %9 = load i64, ptr %8, align 8, !tbaa !178
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !111
-  %.fr28 = freeze i32 %11
-  %12 = sext i32 %.fr28 to i64
-  %.fr29 = freeze i64 %9
-  %13 = srem i64 %.fr29, %12
+  %12 = sext i32 %11 to i64
+  %13 = srem i64 %9, %12
   %14 = load i64, ptr %2, align 8, !tbaa !90
-  %.fr27 = freeze i64 %14
   %15 = xor i64 %13, -1
-  %16 = add nsw i64 %12, %15
-  %17 = add i64 %16, %.fr27
-  %18 = srem i64 %17, %12
-  %19 = sub nsw i64 %17, %18
+  %16 = add nsw i64 %15, %12
+  %17 = add i64 %16, %14
+  %.fr = freeze i64 %17
+  %18 = srem i64 %.fr, %12
+  %19 = sub nsw i64 %.fr, %18
   %20 = add nsw i64 %19, %13
   tail call void @ff_read_frame_flush(ptr noundef %0) #12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4288,10 +4282,10 @@ define internal i64 @mpegts_get_dts(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %28, align 8, !tbaa !202
-  %.not30 = icmp ne i64 %36, -9223372036854775808
+  %.not27 = icmp ne i64 %36, -9223372036854775808
   %.pre = load i64, ptr %29, align 8, !tbaa !203
   %37 = icmp sgt i64 %.pre, -1
-  %or.cond = select i1 %.not30, i1 %37, i1 false
+  %or.cond = select i1 %.not27, i1 %37, i1 false
   br i1 %or.cond, label %38, label %54
 
 38:                                               ; preds = %35
@@ -4307,21 +4301,21 @@ define internal i64 @mpegts_get_dts(ptr noundef %0, i32 noundef %1, ptr noundef 
   %47 = tail call i32 @av_add_index_entry(ptr noundef %44, i64 noundef %45, i64 noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
   %48 = load i32, ptr %30, align 4, !tbaa !159
   %49 = icmp eq i32 %48, %1
-  %.pre36 = load i64, ptr %29, align 8, !tbaa !203
+  %.pre33 = load i64, ptr %29, align 8, !tbaa !203
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %38
   %51 = load i64, ptr %2, align 8, !tbaa !90
-  %.not31 = icmp slt i64 %.pre36, %51
-  br i1 %.not31, label %54, label %52
+  %.not28 = icmp slt i64 %.pre33, %51
+  br i1 %.not28, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = load i64, ptr %28, align 8, !tbaa !202
-  store i64 %.pre36, ptr %2, align 8, !tbaa !90
+  store i64 %.pre33, ptr %2, align 8, !tbaa !90
   br label %.thread.sink.split
 
 54:                                               ; preds = %35, %50, %38
-  %55 = phi i64 [ %.pre, %35 ], [ %.pre36, %38 ], [ %.pre36, %50 ]
+  %55 = phi i64 [ %.pre, %35 ], [ %.pre33, %38 ], [ %.pre33, %50 ]
   tail call void @av_packet_unref(ptr noundef nonnull %26) #12
   %56 = icmp slt i64 %55, %3
   br i1 %56, label %32, label %.thread.sink.split, !llvm.loop !206

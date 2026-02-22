@@ -4018,8 +4018,8 @@ define internal void @text_input_preedit_string(ptr noundef writeonly captures(n
 16:                                               ; preds = %13
   %17 = zext nneg i32 %4 to i64
   %18 = tail call i64 @SDL_utf8strnlen_REAL(ptr noundef nonnull %2, i64 noundef %17) #12
-  %.fr = freeze i64 %18
-  %19 = trunc i64 %.fr to i32
+  %.fr24 = freeze i64 %18
+  %19 = trunc i64 %.fr24 to i32
   %20 = icmp sgt i32 %19, -1
   %21 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
   %spec.select = sub nsw i32 %19, %21

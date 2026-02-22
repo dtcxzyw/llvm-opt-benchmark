@@ -3213,12 +3213,12 @@ define internal fastcc void @schedule_update_locked(ptr noundef captures(none) %
 trailing_dts.exit:                                ; preds = %._crit_edge.split.i, %19, %4
   %.not47.i = phi i1 [ false, %4 ], [ true, %19 ], [ false, %._crit_edge.split.i ]
   %.128.i = phi i64 [ 9223372036854775807, %4 ], [ %.22949.i, %19 ], [ %.229.lcssa.i, %._crit_edge.split.i ]
-  %.128.i.fr = freeze i64 %.128.i
-  %25 = icmp eq i64 %.128.i.fr, 9223372036854775807
-  %26 = or i1 %.not47.i, %25
-  %.5.i = select i1 %26, i64 -9223372036854775808, i64 %.128.i.fr
+  %25 = icmp eq i64 %.128.i, 9223372036854775807
+  %26 = select i1 %.not47.i, i1 true, i1 %25
+  %.5.i = select i1 %26, i64 -9223372036854775808, i64 %.128.i
+  %.5.i.fr = freeze i64 %.5.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store atomic i64 %.5.i, ptr %27 seq_cst, align 8
+  store atomic i64 %.5.i.fr, ptr %27 seq_cst, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.preheader108
@@ -3235,19 +3235,19 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
   br i1 %.not97, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %31 = load ptr, ptr %29, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw %struct.SchDemux, ptr %31, i64 %indvars.iv165
+  %32 = getelementptr inbounds nuw %struct.SchDemux, ptr %31, i64 %indvars.iv164
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 168
   %34 = load atomic i32, ptr %33 seq_cst, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 172
   store i32 %34, ptr %35, align 4, !tbaa !173
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 176
   store i32 1, ptr %36, align 8, !tbaa !174
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %37 = load i32, ptr %.in98, align 8, !tbaa !68
   %38 = zext i32 %37 to i64
-  %39 = icmp samesign ult i64 %indvars.iv.next166, %38
+  %39 = icmp samesign ult i64 %indvars.iv.next165, %38
   br i1 %39, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !175
 
 .preheader107:                                    ; preds = %._crit_edge, %.lr.ph.split
@@ -3258,35 +3258,35 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 .lr.ph125:                                        ; preds = %.preheader107
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !35
-  %cond = icmp eq i64 %.5.i, -9223372036854775808
-  %wide.trip.count184 = zext i32 %40 to i64
+  %cond = icmp eq i64 %.5.i.fr, -9223372036854775808
+  %wide.trip.count183 = zext i32 %40 to i64
   br i1 %cond, label %.lr.ph125.split.us, label %.lr.ph125.split
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %._crit_edge122.split.us.us
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %._crit_edge122.split.us.us ], [ 0, %.lr.ph125 ]
+  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %._crit_edge122.split.us.us ], [ 0, %.lr.ph125 ]
   %.0124.us = phi i32 [ %.1.lcssa.us, %._crit_edge122.split.us.us ], [ 0, %.lr.ph125 ]
-  %43 = getelementptr inbounds nuw %struct.SchMux, ptr %42, i64 %indvars.iv181
+  %43 = getelementptr inbounds nuw %struct.SchMux, ptr %42, i64 %indvars.iv180
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !36
-  %.not145 = icmp eq i32 %45, 0
-  br i1 %.not145, label %._crit_edge122.split.us.us, label %.lr.ph121.us
+  %.not144 = icmp eq i32 %45, 0
+  br i1 %.not144, label %._crit_edge122.split.us.us, label %.lr.ph121.us
 
 ._crit_edge122.split.us.us:                       ; preds = %unchoke_for_stream.exit.us.us, %.lr.ph125.split.us
   %.1.lcssa.us = phi i32 [ %.0124.us, %.lr.ph125.split.us ], [ %.2.us.us, %unchoke_for_stream.exit.us.us ]
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %.preheader106, label %.lr.ph125.split.us, !llvm.loop !176
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
+  br i1 %exitcond184.not, label %.preheader106, label %.lr.ph125.split.us, !llvm.loop !176
 
 .lr.ph121.us:                                     ; preds = %.lr.ph125.split.us
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !41
-  %wide.trip.count179 = zext i32 %45 to i64
+  %wide.trip.count178 = zext i32 %45 to i64
   br label %48
 
 48:                                               ; preds = %unchoke_for_stream.exit.us.us, %.lr.ph121.us
-  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %unchoke_for_stream.exit.us.us ], [ 0, %.lr.ph121.us ]
+  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %unchoke_for_stream.exit.us.us ], [ 0, %.lr.ph121.us ]
   %.1119.us.us = phi i32 [ %.2.us.us, %unchoke_for_stream.exit.us.us ], [ %.0124.us, %.lr.ph121.us ]
-  %49 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %47, i64 %indvars.iv176
+  %49 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %47, i64 %indvars.iv175
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %51 = load i32, ptr %50, align 8, !tbaa !172
   %.not94.us.us = icmp eq i32 %51, 0
@@ -3296,9 +3296,9 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %54 = load i64, ptr %53, align 8, !tbaa !80
   %.not95.us.us = icmp eq i64 %54, -9223372036854775808
-  br i1 %.not95.us.us, label %.preheader150, label %unchoke_for_stream.exit.us.us
+  br i1 %.not95.us.us, label %.preheader149, label %unchoke_for_stream.exit.us.us
 
-.preheader150:                                    ; preds = %52, %63
+.preheader149:                                    ; preds = %52, %63
   %.pn.us.us = phi ptr [ %67, %63 ], [ %49, %52 ]
   %.sroa.07.sroa.0.0.in.i.in.us.us = getelementptr inbounds nuw i8, ptr %.pn.us.us, i64 12
   %.sroa.07.sroa.0.0.in.i.us.us = load i64, ptr %.sroa.07.sroa.0.0.in.i.in.us.us, align 4
@@ -3309,7 +3309,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
     i32 6, label %55
   ]
 
-55:                                               ; preds = %.preheader150
+55:                                               ; preds = %.preheader149
   %56 = load ptr, ptr %28, align 8, !tbaa !65
   %57 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %56, i64 %.sroa.07.sroa.4.0.in.i.us.us
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 216
@@ -3324,14 +3324,14 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
   %65 = load ptr, ptr %64, align 8, !tbaa !109
   %66 = zext i32 %59 to i64
   %67 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %65, i64 %66
-  br label %.preheader150
+  br label %.preheader149
 
 68:                                               ; preds = %55
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 208
   store i32 0, ptr %69, align 8, !tbaa !178
   br label %unchoke_for_stream.exit.us.us
 
-70:                                               ; preds = %.preheader150
+70:                                               ; preds = %.preheader149
   %71 = load ptr, ptr %29, align 8, !tbaa !21
   %72 = getelementptr inbounds nuw %struct.SchDemux, ptr %71, i64 %.sroa.07.sroa.4.0.in.i.us.us
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 176
@@ -3340,9 +3340,9 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
 
 unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
   %.2.us.us = phi i32 [ 1, %68 ], [ %.1119.us.us, %48 ], [ %.1119.us.us, %52 ], [ 1, %70 ]
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %._crit_edge122.split.us.us, label %48, !llvm.loop !180
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
+  br i1 %exitcond179.not, label %._crit_edge122.split.us.us, label %48, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.preheader108
   br i1 %.not97, label %.preheader108, label %.preheader107, !llvm.loop !181
@@ -3372,13 +3372,13 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
   br label %.preheader104
 
 .lr.ph125.split:                                  ; preds = %.lr.ph125, %._crit_edge122.split
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %._crit_edge122.split ], [ 0, %.lr.ph125 ]
+  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %._crit_edge122.split ], [ 0, %.lr.ph125 ]
   %.0124 = phi i32 [ %.1.lcssa, %._crit_edge122.split ], [ 0, %.lr.ph125 ]
-  %83 = getelementptr inbounds nuw %struct.SchMux, ptr %42, i64 %indvars.iv171
+  %83 = getelementptr inbounds nuw %struct.SchMux, ptr %42, i64 %indvars.iv170
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8, !tbaa !36
-  %.not144 = icmp eq i32 %85, 0
-  br i1 %.not144, label %._crit_edge122.split, label %.lr.ph121
+  %.not143 = icmp eq i32 %85, 0
+  br i1 %.not143, label %._crit_edge122.split, label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.lr.ph125.split
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -3388,14 +3388,14 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 
 ._crit_edge122.split:                             ; preds = %unchoke_for_stream.exit, %.lr.ph125.split
   %.1.lcssa = phi i32 [ %.0124, %.lr.ph125.split ], [ %.2, %unchoke_for_stream.exit ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count184
-  br i1 %exitcond175.not, label %.preheader106, label %.lr.ph125.split, !llvm.loop !176
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count183
+  br i1 %exitcond174.not, label %.preheader106, label %.lr.ph125.split, !llvm.loop !176
 
 88:                                               ; preds = %.lr.ph121, %unchoke_for_stream.exit
-  %indvars.iv168 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next169, %unchoke_for_stream.exit ]
+  %indvars.iv167 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next168, %unchoke_for_stream.exit ]
   %.1119 = phi i32 [ %.0124, %.lr.ph121 ], [ %.2, %unchoke_for_stream.exit ]
-  %89 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %87, i64 %indvars.iv168
+  %89 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %87, i64 %indvars.iv167
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %91 = load i32, ptr %90, align 8, !tbaa !172
   %.not94 = icmp eq i32 %91, 0
@@ -3404,11 +3404,11 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %94 = load i64, ptr %93, align 8, !tbaa !80
-  %95 = sub nsw i64 %94, %.5.i
+  %95 = sub nsw i64 %94, %.5.i.fr
   %96 = icmp sgt i64 %95, 99999
-  br i1 %96, label %unchoke_for_stream.exit, label %.preheader151
+  br i1 %96, label %unchoke_for_stream.exit, label %.preheader150
 
-.preheader151:                                    ; preds = %92, %111
+.preheader150:                                    ; preds = %92, %111
   %.pn = phi ptr [ %115, %111 ], [ %89, %92 ]
   %.sroa.07.sroa.0.0.in.i.in = getelementptr inbounds nuw i8, ptr %.pn, i64 12
   %.sroa.07.sroa.0.0.in.i = load i64, ptr %.sroa.07.sroa.0.0.in.i.in, align 4
@@ -3419,19 +3419,19 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
     i32 6, label %101
   ]
 
-97:                                               ; preds = %.preheader151
+97:                                               ; preds = %.preheader150
   %98 = load ptr, ptr %29, align 8, !tbaa !21
   %99 = getelementptr inbounds nuw %struct.SchDemux, ptr %98, i64 %.sroa.07.sroa.4.0.in.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 176
   store i32 0, ptr %100, align 8, !tbaa !179
   br label %unchoke_for_stream.exit
 
-.split.us:                                        ; preds = %.preheader151, %.preheader150
+.split.us:                                        ; preds = %.preheader150, %.preheader149
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.2, i32 noundef 1278) #9
   tail call void @abort() #10
   unreachable
 
-101:                                              ; preds = %.preheader151
+101:                                              ; preds = %.preheader150
   %102 = load ptr, ptr %28, align 8, !tbaa !65
   %103 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %102, i64 %.sroa.07.sroa.4.0.in.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 216
@@ -3451,12 +3451,12 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
   %113 = load ptr, ptr %112, align 8, !tbaa !109
   %114 = zext i32 %105 to i64
   %115 = getelementptr inbounds nuw %struct.SchFilterIn, ptr %113, i64 %114
-  br label %.preheader151
+  br label %.preheader150
 
 unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %.2 = phi i32 [ %.1119, %92 ], [ %.1119, %88 ], [ 1, %109 ], [ 1, %97 ]
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge122.split, label %88, !llvm.loop !180
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %.loopexit105
@@ -3465,11 +3465,11 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %.in91.v = select i1 %.not90, i64 16, i64 232
   %.in91 = getelementptr inbounds nuw i8, ptr %0, i64 %.in91.v
   %116 = load i32, ptr %.in91, align 8, !tbaa !68
-  %.not146 = icmp eq i32 %116, 0
-  br i1 %.not146, label %.loopexit105, label %.lr.ph129
+  %.not145 = icmp eq i32 %116, 0
+  br i1 %.not145, label %.loopexit105, label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %.preheader104
-  %wide.trip.count194 = zext i32 %116 to i64
+  %wide.trip.count193 = zext i32 %116 to i64
   br i1 %.not90, label %.lr.ph129.split.us, label %.lr.ph129.split
 
 .lr.ph129.split.us:                               ; preds = %.lr.ph129
@@ -3477,20 +3477,20 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   br label %118
 
 118:                                              ; preds = %122, %.lr.ph129.split.us
-  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %122 ], [ 0, %.lr.ph129.split.us ]
-  %119 = getelementptr inbounds nuw %struct.SchDemux, ptr %117, i64 %indvars.iv191
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %122 ], [ 0, %.lr.ph129.split.us ]
+  %119 = getelementptr inbounds nuw %struct.SchDemux, ptr %117, i64 %indvars.iv190
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 192
   %121 = load i32, ptr %120, align 4, !tbaa !68
   %.not93.not.us = icmp eq i32 %121, 0
   br i1 %.not93.not.us, label %.thread100.split.us, label %122
 
 122:                                              ; preds = %118
-  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %.loopexit105, label %118, !llvm.loop !182
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
+  br i1 %exitcond194.not, label %.loopexit105, label %118, !llvm.loop !182
 
 .thread100.split.us:                              ; preds = %118
-  %123 = and i64 %indvars.iv191, 4294967295
+  %123 = and i64 %indvars.iv190, 4294967295
   %124 = getelementptr inbounds nuw %struct.SchDemux, ptr %117, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 80
   br label %.loopexit105.thread
@@ -3500,20 +3500,20 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   br label %128
 
 127:                                              ; preds = %128
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count194
-  br i1 %exitcond190.not, label %.loopexit105, label %128, !llvm.loop !182
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count193
+  br i1 %exitcond189.not, label %.loopexit105, label %128, !llvm.loop !182
 
 128:                                              ; preds = %.lr.ph129.split, %127
-  %indvars.iv186 = phi i64 [ 0, %.lr.ph129.split ], [ %indvars.iv.next187, %127 ]
-  %129 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %126, i64 %indvars.iv186
+  %indvars.iv185 = phi i64 [ 0, %.lr.ph129.split ], [ %indvars.iv.next186, %127 ]
+  %129 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %126, i64 %indvars.iv185
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 220
   %131 = load i32, ptr %130, align 4, !tbaa !68
   %.not93.not = icmp eq i32 %131, 0
   br i1 %.not93.not, label %.thread100.split, label %127
 
 .thread100.split:                                 ; preds = %128
-  %132 = and i64 %indvars.iv186, 4294967295
+  %132 = and i64 %indvars.iv185, 4294967295
   %133 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %126, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 112
   br label %.loopexit105.thread
@@ -3536,17 +3536,17 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %.in.v = select i1 %.not88, i64 16, i64 232
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %137 = load i32, ptr %.in, align 8, !tbaa !68
-  %.not147 = icmp eq i32 %137, 0
-  br i1 %.not147, label %._crit_edge139, label %.lr.ph138
+  %.not146 = icmp eq i32 %137, 0
+  br i1 %.not146, label %._crit_edge139, label %.lr.ph138
 
 .lr.ph138:                                        ; preds = %.preheader
   br i1 %.not88, label %.lr.ph138.split.us, label %.lr.ph138.split
 
 .lr.ph138.split.us:                               ; preds = %.lr.ph138, %152
   %138 = phi i32 [ %153, %152 ], [ %137, %.lr.ph138 ]
-  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %152 ], [ 0, %.lr.ph138 ]
+  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %152 ], [ 0, %.lr.ph138 ]
   %139 = load ptr, ptr %29, align 8, !tbaa !21
-  %140 = getelementptr inbounds nuw %struct.SchDemux, ptr %139, i64 %indvars.iv199
+  %140 = getelementptr inbounds nuw %struct.SchDemux, ptr %139, i64 %indvars.iv198
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 172
   %142 = load i32, ptr %141, align 4, !tbaa !173
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 176
@@ -3562,14 +3562,14 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
   %149 = getelementptr inbounds nuw i8, ptr %140, i64 120
   %150 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %149) #9
   %151 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %146) #9
-  %.pre202 = load i32, ptr %.in, align 8, !tbaa !68
+  %.pre201 = load i32, ptr %.in, align 8, !tbaa !68
   br label %152
 
 152:                                              ; preds = %145, %.lr.ph138.split.us
-  %153 = phi i32 [ %.pre202, %145 ], [ %138, %.lr.ph138.split.us ]
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %153 = phi i32 [ %.pre201, %145 ], [ %138, %.lr.ph138.split.us ]
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %154 = zext i32 %153 to i64
-  %155 = icmp samesign ult i64 %indvars.iv.next200, %154
+  %155 = icmp samesign ult i64 %indvars.iv.next199, %154
   br i1 %155, label %.lr.ph138.split.us, label %._crit_edge139, !llvm.loop !184
 
 ._crit_edge139:                                   ; preds = %170, %152, %.preheader
@@ -3577,9 +3577,9 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
 
 .lr.ph138.split:                                  ; preds = %.lr.ph138, %170
   %156 = phi i32 [ %171, %170 ], [ %137, %.lr.ph138 ]
-  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %170 ], [ 0, %.lr.ph138 ]
+  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %170 ], [ 0, %.lr.ph138 ]
   %157 = load ptr, ptr %28, align 8, !tbaa !65
-  %158 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %157, i64 %indvars.iv196
+  %158 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %157, i64 %indvars.iv195
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 204
   %160 = load i32, ptr %159, align 4, !tbaa !173
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 208
@@ -3600,9 +3600,9 @@ unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
 
 170:                                              ; preds = %163, %.lr.ph138.split
   %171 = phi i32 [ %.pre, %163 ], [ %156, %.lr.ph138.split ]
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %172 = zext i32 %171 to i64
-  %173 = icmp samesign ult i64 %indvars.iv.next197, %172
+  %173 = icmp samesign ult i64 %indvars.iv.next196, %172
   br i1 %173, label %.lr.ph138.split, label %._crit_edge139, !llvm.loop !184
 
 .loopexit:                                        ; preds = %._crit_edge139, %1

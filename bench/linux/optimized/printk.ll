@@ -4069,7 +4069,7 @@ define internal fastcc zeroext i1 @console_flush_all(i1 noundef zeroext %0, ptr 
   %14 = getelementptr i8, ptr %12, i64 -112
   %15 = icmp eq ptr %14, null
   %16 = or i1 %13, %15
-  br i1 %16, label %.loopexit12, label %17
+  br i1 %16, label %.loopexit10, label %17
 
 17:                                               ; preds = %9
   %18 = icmp ult i32 %11, 2
@@ -4264,10 +4264,9 @@ define internal fastcc zeroext i1 @console_flush_all(i1 noundef zeroext %0, ptr 
 115:                                              ; preds = %112
   %116 = load volatile i32, ptr @panic_cpu, align 4
   %117 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #28, !srcloc !55
-  %.fr = freeze i32 %116
-  %.fr10 = freeze i32 %117
-  %118 = icmp eq i32 %.fr, %.fr10
-  br i1 %118, label %119, label %137
+  %118 = icmp ne i32 %116, %117
+  %cond.fr = freeze i1 %118
+  br i1 %cond.fr, label %137, label %119
 
 119:                                              ; preds = %115
   br i1 %0, label %120, label %122
@@ -4285,25 +4284,25 @@ define internal fastcc zeroext i1 @console_flush_all(i1 noundef zeroext %0, ptr 
   %126 = getelementptr i8, ptr %124, i64 -112
   %127 = icmp eq ptr %126, null
   %128 = or i1 %125, %127
-  br i1 %128, label %.loopexit12.loopexit, label %19, !llvm.loop !78
+  br i1 %128, label %.loopexit10.loopexit, label %19, !llvm.loop !78
 
-.loopexit12.loopexit:                             ; preds = %122
+.loopexit10.loopexit:                             ; preds = %122
   %129 = icmp eq i8 %.ph6, 0
-  br label %.loopexit12
+  br label %.loopexit10
 
-.loopexit12:                                      ; preds = %.loopexit12.loopexit, %9
-  %130 = phi i1 [ true, %9 ], [ %129, %.loopexit12.loopexit ]
-  %131 = phi i8 [ %10, %9 ], [ %.ph7, %.loopexit12.loopexit ]
+.loopexit10:                                      ; preds = %.loopexit10.loopexit, %9
+  %130 = phi i1 [ true, %9 ], [ %129, %.loopexit10.loopexit ]
+  %131 = phi i8 [ %10, %9 ], [ %.ph7, %.loopexit10.loopexit ]
   %132 = icmp ult i32 %11, 2
   br i1 %132, label %134, label %133, !prof !9
 
-133:                                              ; preds = %.loopexit12
+133:                                              ; preds = %.loopexit10
   call void asm sideeffect "119: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 119b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 119) #28, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.74, i32 301, i32 2307, i64 12) #28, !srcloc !14
   call void asm sideeffect "120: nop\0A\09.pushsection .discard.instr_end\0A\09.long 120b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 120) #28, !srcloc !15
   br label %134
 
-134:                                              ; preds = %133, %.loopexit12
+134:                                              ; preds = %133, %.loopexit10
   call void @__srcu_read_unlock(ptr noundef nonnull @console_srcu, i32 noundef %11) #28
   br i1 %130, label %135, label %9, !llvm.loop !79
 

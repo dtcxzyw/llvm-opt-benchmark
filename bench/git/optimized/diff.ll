@@ -14647,30 +14647,29 @@ diff_resolve_rename_copy.exit:                    ; preds = %137, %80
   %.pr.pre = phi i32 [ %.pr.pre.pre, %80 ], [ %138, %137 ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %143 = load i32, ptr %142, align 4, !tbaa !209
-  %.fr56.i = freeze i32 %143
-  %.not.i46 = icmp eq i32 %.fr56.i, 0
+  %.not.i46 = icmp eq i32 %143, 0
   br i1 %.not.i46, label %diffcore_apply_filter.exit, label %144
 
 144:                                              ; preds = %diff_resolve_rename_copy.exit
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 168), align 8, !tbaa !11
-  %146 = and i32 %145, %.fr56.i
+  %146 = and i32 %145, %143
   %.not30.i = icmp eq i32 %146, 0
   %147 = icmp sgt i32 %.pr.pre, 0
-  br i1 %.not30.i, label %.preheader.i, label %.preheader60.i
+  br i1 %.not30.i, label %.preheader.i, label %.preheader59.i
 
-.preheader60.i:                                   ; preds = %144
+.preheader59.i:                                   ; preds = %144
   br i1 %147, label %.lr.ph.i47, label %.loopexit.i
 
-.lr.ph.i47:                                       ; preds = %.preheader60.i
+.lr.ph.i47:                                       ; preds = %.preheader59.i
   %148 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
   %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 264), align 8
-  %.fr88.i = freeze i32 %149
-  %150 = and i32 %.fr88.i, %.fr56.i
-  %.not8.i.i = icmp eq i32 %150, 0
+  %150 = and i32 %149, %143
+  %.fr87.i = freeze i32 %150
+  %.not8.i.i = icmp eq i32 %.fr87.i, 0
   %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 308), align 4
-  %.fr89.i = freeze i32 %151
-  %152 = and i32 %.fr89.i, %.fr56.i
-  %.not10.i.i = icmp eq i32 %152, 0
+  %152 = and i32 %151, %143
+  %.fr88.i = freeze i32 %152
+  %.not10.i.i = icmp eq i32 %.fr88.i, 0
   %153 = zext nneg i32 %.pr.pre to i64
   br i1 %.not8.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -14678,8 +14677,8 @@ diff_resolve_rename_copy.exit:                    ; preds = %137, %80
   br i1 %.not10.i.i, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %match_filter.exit.thread.us.us.i
-  %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %match_filter.exit.thread.us.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv102.i
+  %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %match_filter.exit.thread.us.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv101.i
   %155 = load ptr, ptr %154, align 8, !tbaa !177
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 18
   %157 = load i8, ptr %156, align 2, !tbaa !270
@@ -14690,19 +14689,19 @@ match_filter.exit.us.us.i:                        ; preds = %.lr.ph.split.us.spl
   %159 = sext i8 %157 to i64
   %160 = getelementptr inbounds i32, ptr @filter_bit, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !11
-  %.fr.us.us.i = freeze i32 %161
-  %162 = and i32 %.fr.us.us.i, %.fr56.i
-  %.not55.us.us.i = icmp eq i32 %162, 0
+  %162 = and i32 %161, %143
+  %.fr.us.us.i = freeze i32 %162
+  %.not55.us.us.i = icmp eq i32 %.fr.us.us.i, 0
   br i1 %.not55.us.us.i, label %match_filter.exit.thread.us.us.i, label %diffcore_apply_filter.exit
 
 match_filter.exit.thread.us.us.i:                 ; preds = %match_filter.exit.us.us.i, %.lr.ph.split.us.split.us.i
-  %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next103.i, %153
-  br i1 %exitcond73.not, label %.lr.ph79.i.preheader, label %.lr.ph.split.us.split.us.i, !llvm.loop !372
+  %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next102.i, %153
+  br i1 %exitcond73.not, label %.lr.ph78.i.preheader, label %.lr.ph.split.us.split.us.i, !llvm.loop !372
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %match_filter.exit.thread.us.i
-  %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %match_filter.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %163 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv99.i
+  %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %match_filter.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %163 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv98.i
   %164 = load ptr, ptr %163, align 8, !tbaa !177
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 18
   %166 = load i8, ptr %165, align 2, !tbaa !270
@@ -14713,9 +14712,9 @@ match_filter.exit.us.i:                           ; preds = %.lr.ph.split.us.spl
   %168 = sext i8 %166 to i64
   %169 = getelementptr inbounds i32, ptr @filter_bit, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !11
-  %.fr.us.i = freeze i32 %170
-  %171 = and i32 %.fr.us.i, %.fr56.i
-  %.not55.us.i = icmp eq i32 %171, 0
+  %171 = and i32 %170, %143
+  %.fr.us.i = freeze i32 %171
+  %.not55.us.i = icmp eq i32 %.fr.us.i, 0
   br i1 %.not55.us.i, label %match_filter.exit.thread.us.i, label %diffcore_apply_filter.exit
 
 172:                                              ; preds = %.lr.ph.split.us.split.i
@@ -14725,44 +14724,44 @@ match_filter.exit.us.i:                           ; preds = %.lr.ph.split.us.spl
   br i1 %.not.i.us.i, label %diffcore_apply_filter.exit, label %match_filter.exit.thread.us.i
 
 match_filter.exit.thread.us.i:                    ; preds = %172, %match_filter.exit.us.i
-  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next100.i, %153
-  br i1 %exitcond72.not, label %.lr.ph79.i.preheader, label %.lr.ph.split.us.split.i, !llvm.loop !372
+  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next99.i, %153
+  br i1 %exitcond72.not, label %.lr.ph78.i.preheader, label %.lr.ph.split.us.split.i, !llvm.loop !372
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i47
   br i1 %.not10.i.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %match_filter.exit.thread.us71.i
-  %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %match_filter.exit.thread.us71.i ], [ 0, %.lr.ph.split.i ]
-  %175 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv96.i
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %match_filter.exit.thread.us70.i
+  %indvars.iv95.i = phi i64 [ %indvars.iv.next96.i, %match_filter.exit.thread.us70.i ], [ 0, %.lr.ph.split.i ]
+  %175 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv95.i
   %176 = load ptr, ptr %175, align 8, !tbaa !177
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 18
   %178 = load i8, ptr %177, align 2, !tbaa !270
   %179 = icmp eq i8 %178, 77
-  br i1 %179, label %184, label %match_filter.exit.us66.i
+  br i1 %179, label %184, label %match_filter.exit.us65.i
 
-match_filter.exit.us66.i:                         ; preds = %.lr.ph.split.split.us.i
+match_filter.exit.us65.i:                         ; preds = %.lr.ph.split.split.us.i
   %180 = sext i8 %178 to i64
   %181 = getelementptr inbounds i32, ptr @filter_bit, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !11
-  %.fr.us67.i = freeze i32 %182
-  %183 = and i32 %.fr.us67.i, %.fr56.i
-  %.not55.us68.i = icmp eq i32 %183, 0
-  br i1 %.not55.us68.i, label %match_filter.exit.thread.us71.i, label %diffcore_apply_filter.exit
+  %183 = and i32 %182, %143
+  %.fr.us66.i = freeze i32 %183
+  %.not55.us67.i = icmp eq i32 %.fr.us66.i, 0
+  br i1 %.not55.us67.i, label %match_filter.exit.thread.us70.i, label %diffcore_apply_filter.exit
 
 184:                                              ; preds = %.lr.ph.split.split.us.i
   %185 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %186 = load i16, ptr %185, align 8, !tbaa !297
-  %.not.i.us69.i = icmp eq i16 %186, 0
-  br i1 %.not.i.us69.i, label %match_filter.exit.thread.us71.i, label %diffcore_apply_filter.exit
+  %.not.i.us68.i = icmp eq i16 %186, 0
+  br i1 %.not.i.us68.i, label %match_filter.exit.thread.us70.i, label %diffcore_apply_filter.exit
 
-match_filter.exit.thread.us71.i:                  ; preds = %184, %match_filter.exit.us66.i
-  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next97.i, %153
-  br i1 %exitcond.not, label %.lr.ph79.i.preheader, label %.lr.ph.split.split.us.i, !llvm.loop !372
+match_filter.exit.thread.us70.i:                  ; preds = %184, %match_filter.exit.us65.i
+  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next96.i, %153
+  br i1 %exitcond.not, label %.lr.ph78.i.preheader, label %.lr.ph.split.split.us.i, !llvm.loop !372
 
 .preheader.i:                                     ; preds = %144
-  br i1 %147, label %.lr.ph84.i, label %.loopexit.i
+  br i1 %147, label %.lr.ph83.i, label %.loopexit.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %match_filter.exit.thread.i
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %match_filter.exit.thread.i ], [ 0, %.lr.ph.split.i ]
@@ -14777,46 +14776,46 @@ match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.
   %192 = sext i8 %190 to i64
   %193 = getelementptr inbounds i32, ptr @filter_bit, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !11
-  %.fr.i = freeze i32 %194
-  %195 = and i32 %.fr.i, %.fr56.i
-  %.not55.not.i = icmp eq i32 %195, 0
+  %195 = and i32 %194, %143
+  %.fr.i = freeze i32 %195
+  %.not55.not.i = icmp eq i32 %.fr.i, 0
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
   %196 = icmp samesign ult i64 %indvars.iv.next.i49, %153
   %or.cond.i50 = select i1 %.not55.not.i, i1 %196, i1 false
   br i1 %or.cond.i50, label %.lr.ph.split.split.i, label %.critedge.i, !llvm.loop !372
 
 .critedge.i:                                      ; preds = %match_filter.exit.thread.i
-  br i1 %.not55.not.i, label %.lr.ph79.i.preheader, label %diffcore_apply_filter.exit
+  br i1 %.not55.not.i, label %.lr.ph78.i.preheader, label %diffcore_apply_filter.exit
 
-.lr.ph79.i.preheader:                             ; preds = %match_filter.exit.thread.us71.i, %match_filter.exit.thread.us.i, %match_filter.exit.thread.us.us.i, %.critedge.i
-  br label %.lr.ph79.i
+.lr.ph78.i.preheader:                             ; preds = %match_filter.exit.thread.us70.i, %match_filter.exit.thread.us.i, %match_filter.exit.thread.us.us.i, %.critedge.i
+  br label %.lr.ph78.i
 
-.lr.ph79.i:                                       ; preds = %.lr.ph79.i.preheader, %.lr.ph79.i
-  %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %.lr.ph79.i ], [ 0, %.lr.ph79.i.preheader ]
+.lr.ph78.i:                                       ; preds = %.lr.ph78.i.preheader, %.lr.ph78.i
+  %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %.lr.ph78.i ], [ 0, %.lr.ph78.i.preheader ]
   %197 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv105.i
+  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv104.i
   %199 = load ptr, ptr %198, align 8, !tbaa !177
   tail call void @diff_free_filepair(ptr noundef %199)
-  %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
+  %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !172
   %201 = sext i32 %200 to i64
-  %202 = icmp slt i64 %indvars.iv.next106.i, %201
-  br i1 %202, label %.lr.ph79.i, label %.loopexit.i, !llvm.loop !373
+  %202 = icmp slt i64 %indvars.iv.next105.i, %201
+  br i1 %202, label %.lr.ph78.i, label %.loopexit.i, !llvm.loop !373
 
-.lr.ph84.i:                                       ; preds = %.preheader.i, %232
-  %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %232 ], [ 0, %.preheader.i ]
-  %.sroa.9.182.i = phi i32 [ %.sroa.9.2.i, %232 ], [ 0, %.preheader.i ]
-  %.sroa.7.181.i = phi i32 [ %.sroa.7.2.i57, %232 ], [ 0, %.preheader.i ]
-  %.sroa.0.180.i = phi ptr [ %.sroa.0.2.i56, %232 ], [ null, %.preheader.i ]
+.lr.ph83.i:                                       ; preds = %.preheader.i, %232
+  %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %232 ], [ 0, %.preheader.i ]
+  %.sroa.9.181.i = phi i32 [ %.sroa.9.2.i, %232 ], [ 0, %.preheader.i ]
+  %.sroa.7.180.i = phi i32 [ %.sroa.7.2.i57, %232 ], [ 0, %.preheader.i ]
+  %.sroa.0.179.i = phi ptr [ %.sroa.0.2.i56, %232 ], [ null, %.preheader.i ]
   %203 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv108.i
+  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv107.i
   %205 = load ptr, ptr %204, align 8, !tbaa !177
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 18
   %207 = load i8, ptr %206, align 2, !tbaa !270
   %208 = icmp eq i8 %207, 77
   br i1 %208, label %209, label %match_filter.exit43.i
 
-209:                                              ; preds = %.lr.ph84.i
+209:                                              ; preds = %.lr.ph83.i
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %211 = load i16, ptr %210, align 8, !tbaa !297
   %.not.i38.i = icmp eq i16 %211, 0
@@ -14835,22 +14834,22 @@ match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.
   %.not10.i42.i = icmp eq i32 %217, 0
   br i1 %.not10.i42.i, label %match_filter.exit43.thread53.i, label %match_filter.exit43.thread.i
 
-match_filter.exit43.i:                            ; preds = %.lr.ph84.i
+match_filter.exit43.i:                            ; preds = %.lr.ph83.i
   %.val.i37.i = load i32, ptr %142, align 4, !tbaa !209
   %218 = sext i8 %207 to i64
   %219 = getelementptr inbounds i32, ptr @filter_bit, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !11
   %221 = and i32 %220, %.val.i37.i
-  %.not57.i = icmp eq i32 %221, 0
-  br i1 %.not57.i, label %match_filter.exit43.thread53.i, label %match_filter.exit43.thread.i
+  %.not56.i = icmp eq i32 %221, 0
+  br i1 %.not56.i, label %match_filter.exit43.thread53.i, label %match_filter.exit43.thread.i
 
 match_filter.exit43.thread.i:                     ; preds = %match_filter.exit43.i, %215, %212
-  %.not.i44.i = icmp slt i32 %.sroa.9.182.i, %.sroa.7.181.i
-  %.pre.i51 = add nsw i32 %.sroa.9.182.i, 1
+  %.not.i44.i = icmp slt i32 %.sroa.9.181.i, %.sroa.7.180.i
+  %.pre.i51 = add nsw i32 %.sroa.9.181.i, 1
   br i1 %.not.i44.i, label %diff_q.exit.i55, label %222
 
 222:                                              ; preds = %match_filter.exit43.thread.i
-  %223 = mul i32 %.sroa.7.181.i, 3
+  %223 = mul i32 %.sroa.7.180.i, 3
   %224 = add i32 %223, 48
   %225 = sdiv i32 %224, 2
   %..i.i52 = tail call i32 @llvm.smax.i32(i32 %225, i32 %.pre.i51)
@@ -14864,13 +14863,13 @@ match_filter.exit43.thread.i:                     ; preds = %match_filter.exit43
 
 st_mult.exit.i.i54:                               ; preds = %222
   %228 = shl nuw nsw i64 %226, 3
-  %229 = tail call ptr @xrealloc(ptr noundef %.sroa.0.180.i, i64 noundef %228) #34
+  %229 = tail call ptr @xrealloc(ptr noundef %.sroa.0.179.i, i64 noundef %228) #34
   br label %diff_q.exit.i55
 
 diff_q.exit.i55:                                  ; preds = %st_mult.exit.i.i54, %match_filter.exit43.thread.i
-  %.sroa.0.3.i = phi ptr [ %229, %st_mult.exit.i.i54 ], [ %.sroa.0.180.i, %match_filter.exit43.thread.i ]
-  %.sroa.7.3.i = phi i32 [ %..i.i52, %st_mult.exit.i.i54 ], [ %.sroa.7.181.i, %match_filter.exit43.thread.i ]
-  %230 = sext i32 %.sroa.9.182.i to i64
+  %.sroa.0.3.i = phi ptr [ %229, %st_mult.exit.i.i54 ], [ %.sroa.0.179.i, %match_filter.exit43.thread.i ]
+  %.sroa.7.3.i = phi i32 [ %..i.i52, %st_mult.exit.i.i54 ], [ %.sroa.7.180.i, %match_filter.exit43.thread.i ]
+  %230 = sext i32 %.sroa.9.181.i to i64
   %231 = getelementptr inbounds ptr, ptr %.sroa.0.3.i, i64 %230
   store ptr %205, ptr %231, align 8, !tbaa !177
   br label %232
@@ -14880,19 +14879,19 @@ match_filter.exit43.thread53.i:                   ; preds = %match_filter.exit43
   br label %232
 
 232:                                              ; preds = %match_filter.exit43.thread53.i, %diff_q.exit.i55
-  %.sroa.0.2.i56 = phi ptr [ %.sroa.0.180.i, %match_filter.exit43.thread53.i ], [ %.sroa.0.3.i, %diff_q.exit.i55 ]
-  %.sroa.7.2.i57 = phi i32 [ %.sroa.7.181.i, %match_filter.exit43.thread53.i ], [ %.sroa.7.3.i, %diff_q.exit.i55 ]
-  %.sroa.9.2.i = phi i32 [ %.sroa.9.182.i, %match_filter.exit43.thread53.i ], [ %.pre.i51, %diff_q.exit.i55 ]
-  %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
+  %.sroa.0.2.i56 = phi ptr [ %.sroa.0.179.i, %match_filter.exit43.thread53.i ], [ %.sroa.0.3.i, %diff_q.exit.i55 ]
+  %.sroa.7.2.i57 = phi i32 [ %.sroa.7.180.i, %match_filter.exit43.thread53.i ], [ %.sroa.7.3.i, %diff_q.exit.i55 ]
+  %.sroa.9.2.i = phi i32 [ %.sroa.9.181.i, %match_filter.exit43.thread53.i ], [ %.pre.i51, %diff_q.exit.i55 ]
+  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !172
   %234 = sext i32 %233 to i64
-  %235 = icmp slt i64 %indvars.iv.next109.i, %234
-  br i1 %235, label %.lr.ph84.i, label %.loopexit.i, !llvm.loop !374
+  %235 = icmp slt i64 %indvars.iv.next108.i, %234
+  br i1 %235, label %.lr.ph83.i, label %.loopexit.i, !llvm.loop !374
 
-.loopexit.i:                                      ; preds = %.lr.ph79.i, %232, %.preheader.i, %.preheader60.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.2.i56, %232 ], [ null, %.preheader.i ], [ null, %.preheader60.i ], [ null, %.lr.ph79.i ]
-  %.sroa.7.0.i = phi i32 [ %.sroa.7.2.i57, %232 ], [ 0, %.preheader.i ], [ 0, %.preheader60.i ], [ 0, %.lr.ph79.i ]
-  %.sroa.9.0.i = phi i32 [ %.sroa.9.2.i, %232 ], [ 0, %.preheader.i ], [ 0, %.preheader60.i ], [ 0, %.lr.ph79.i ]
+.loopexit.i:                                      ; preds = %.lr.ph78.i, %232, %.preheader.i, %.preheader59.i
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.2.i56, %232 ], [ null, %.preheader.i ], [ null, %.preheader59.i ], [ null, %.lr.ph78.i ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.7.2.i57, %232 ], [ 0, %.preheader.i ], [ 0, %.preheader59.i ], [ 0, %.lr.ph78.i ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.9.2.i, %232 ], [ 0, %.preheader.i ], [ 0, %.preheader59.i ], [ 0, %.lr.ph78.i ]
   %236 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
   tail call void @free(ptr noundef %236) #34
   store ptr %.sroa.0.0.i, ptr @diff_queued_diff, align 8, !tbaa !368
@@ -14900,8 +14899,8 @@ match_filter.exit43.thread53.i:                   ; preds = %match_filter.exit43
   store i32 %.sroa.9.0.i, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !11
   br label %diffcore_apply_filter.exit
 
-diffcore_apply_filter.exit:                       ; preds = %.lr.ph.split.split.i, %match_filter.exit.us66.i, %184, %match_filter.exit.us.i, %172, %match_filter.exit.us.us.i, %diff_resolve_rename_copy.exit, %.critedge.i, %.loopexit.i
-  %237 = phi i32 [ %.sroa.9.0.i, %.loopexit.i ], [ 1, %match_filter.exit.us66.i ], [ %.pr.pre, %diff_resolve_rename_copy.exit ], [ 1, %match_filter.exit.us.us.i ], [ 1, %.critedge.i ], [ 1, %match_filter.exit.us.i ], [ 1, %172 ], [ 1, %184 ], [ 1, %.lr.ph.split.split.i ]
+diffcore_apply_filter.exit:                       ; preds = %.lr.ph.split.split.i, %match_filter.exit.us65.i, %184, %match_filter.exit.us.i, %172, %match_filter.exit.us.us.i, %diff_resolve_rename_copy.exit, %.critedge.i, %.loopexit.i
+  %237 = phi i32 [ %.sroa.9.0.i, %.loopexit.i ], [ 1, %match_filter.exit.us65.i ], [ %.pr.pre, %diff_resolve_rename_copy.exit ], [ 1, %match_filter.exit.us.us.i ], [ 1, %.critedge.i ], [ 1, %match_filter.exit.us.i ], [ 1, %172 ], [ 1, %184 ], [ 1, %.lr.ph.split.split.i ]
   %.not38 = icmp eq i32 %237, 0
   br i1 %.not38, label %241, label %238
 

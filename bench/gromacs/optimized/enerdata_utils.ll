@@ -776,22 +776,21 @@ define void @_ZN18ForeignLambdaTerms12zeroAllTermsEv(ptr noundef nonnull align 8
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !59
-  %.fr14 = freeze ptr %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !59
-  %.fr13 = freeze ptr %15
-  %.not10 = icmp eq ptr %.fr14, %.fr13
+  %.not10 = icmp eq ptr %13, %15
   br i1 %.not10, label %_ZSt4fillIPddEvT_S1_RKT0_.exit._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
-  %16 = ptrtoint ptr %.fr13 to i64
-  %17 = ptrtoint ptr %.fr14 to i64
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %13 to i64
   %18 = add i64 %16, -56
   %19 = sub i64 %18, %17
-  %20 = urem i64 %19, 56
-  %21 = sub nuw i64 %19, %20
+  %.fr = freeze i64 %19
+  %20 = urem i64 %.fr, 56
+  %21 = sub nuw i64 %.fr, %20
   %22 = add i64 %21, 56
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.fr14, i8 0, i64 %22, i1 false), !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %22, i1 false), !tbaa !26
   br label %_ZSt4fillIPddEvT_S1_RKT0_.exit._crit_edge
 
 _ZSt4fillIPddEvT_S1_RKT0_.exit._crit_edge:        ; preds = %.lr.ph.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
@@ -1876,21 +1875,20 @@ define void @_Z14reset_enerdataP14gmx_enerdata_t(ptr noundef captures(none) %0) 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.preheader.i, %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %20 = load ptr, ptr %19, align 8, !tbaa !59
-  %.fr14.i = freeze ptr %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %22 = load ptr, ptr %21, align 8, !tbaa !59
-  %.fr13.i = freeze ptr %22
-  %.not10.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not10.i = icmp eq ptr %20, %22
   br i1 %.not10.i, label %_ZN18ForeignLambdaTerms12zeroAllTermsEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.i
-  %23 = ptrtoint ptr %.fr13.i to i64
-  %24 = ptrtoint ptr %.fr14.i to i64
+  %23 = ptrtoint ptr %22 to i64
+  %24 = ptrtoint ptr %20 to i64
   %reass.sub27 = sub i64 %23, %24
-  %25 = add i64 %reass.sub27, -56
+  %reass.sub27.fr = freeze i64 %reass.sub27
+  %25 = add i64 %reass.sub27.fr, -56
   %26 = urem i64 %25, 56
-  %27 = sub i64 %reass.sub27, %26
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.fr14.i, i8 0, i64 %27, i1 false), !tbaa !26
+  %27 = sub i64 %reass.sub27.fr, %26
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %27, i1 false), !tbaa !26
   br label %_ZN18ForeignLambdaTerms12zeroAllTermsEv.exit
 
 _ZN18ForeignLambdaTerms12zeroAllTermsEv.exit:     ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.i, %.lr.ph.preheader.i

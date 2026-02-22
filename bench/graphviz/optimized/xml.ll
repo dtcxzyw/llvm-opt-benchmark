@@ -66,7 +66,7 @@ define i32 @xml_escape(ptr noundef readonly captures(none) %0, i32 %1, ptr nound
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.021, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !3
-  switch i8 %23, label %.preheader19.i.i [
+  switch i8 %23, label %.preheader20.i.i [
     i8 120, label %24
     i8 88, label %24
   ]
@@ -104,14 +104,14 @@ gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %26, !llvm.loop !8
 
-.preheader19.i.i:                                 ; preds = %21, %.preheader19.i.i
-  %.1.i.i = phi ptr [ %36, %.preheader19.i.i ], [ %22, %21 ]
+.preheader20.i.i:                                 ; preds = %21, %.preheader20.i.i
+  %.1.i.i = phi ptr [ %36, %.preheader20.i.i ], [ %22, %21 ]
   %32 = load i8, ptr %.1.i.i, align 1, !tbaa !3
   %33 = sext i8 %32 to i32
   %34 = add nsw i32 %33, -48
   %35 = icmp ult i32 %34, 10
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
-  br i1 %35, label %.preheader19.i.i, label %xml_isentity.exit.i, !llvm.loop !9
+  br i1 %35, label %.preheader20.i.i, label %xml_isentity.exit.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
   %.3.i.i = phi ptr [ %42, %.preheader.i.i ], [ %17, %19 ]
@@ -123,8 +123,8 @@ gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i
   %42 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
   br i1 %41, label %.preheader.i.i, label %xml_isentity.exit.i, !llvm.loop !10
 
-xml_isentity.exit.i:                              ; preds = %switch.early.test.i.i, %.preheader19.i.i, %.preheader.i.i
-  %43 = phi i8 [ %37, %.preheader.i.i ], [ %32, %.preheader19.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
+xml_isentity.exit.i:                              ; preds = %switch.early.test.i.i, %.preheader20.i.i, %.preheader.i.i
+  %43 = phi i8 [ %37, %.preheader.i.i ], [ %32, %.preheader20.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
   %44 = icmp eq i8 %43, 59
   br i1 %44, label %53, label %xml_isentity.exit.thread.i
 

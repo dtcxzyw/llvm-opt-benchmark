@@ -7270,7 +7270,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split.us
-  %.06181 = phi i64 [ %44, %.lr.ph ], [ %115, %.split.us ]
+  %.06181 = phi i64 [ %44, %.lr.ph ], [ %119, %.split.us ]
   %56 = srem i64 %.06181, %9
   %57 = shl nsw i64 %56, 2
   %58 = sdiv i64 %.06181, %9
@@ -7289,7 +7289,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit:              ; preds = %60, %62
   %66 = phi i64 [ %61, %60 ], [ %65, %62 ]
-  %.fr82 = freeze i64 %66
   %67 = add nsw i64 %58, 1
   %68 = icmp slt i64 %67, %23
   br i1 %68, label %69, label %71
@@ -7306,19 +7305,19 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit:              ; preds = %60, %62
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %75 = phi i64 [ %70, %69 ], [ %74, %71 ]
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %.fr82, i64 %2)
-  %.fr83 = freeze i64 %75
-  %76 = tail call i64 @llvm.smin.i64(i64 %.fr83, i64 %2)
-  %77 = icmp slt i64 %.fr82, %76
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %66, i64 %2)
+  %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
+  %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %.fr = freeze i64 %78
+  %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
   %invariant.gep = getelementptr float, ptr %79, i64 %57
-  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %.fr = freeze i1 %77
+  br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %81 = icmp sgt i64 %.fr, 0
+  %81 = icmp sgt i64 %.fr82, 0
   br i1 %81, label %.preheader.us.us, label %.preheader37.i.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
@@ -7359,7 +7358,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 95:                                               ; preds = %89
   %96 = add nuw nsw i64 %.03346.i.us.us.us, 16
-  %97 = icmp slt i64 %96, %.fr
+  %97 = icmp slt i64 %96, %.fr82
   br i1 %97, label %.preheader39.i.us.us.us, label %.preheader37.i.loopexit.us.us.us, !llvm.loop !135
 
 98:                                               ; preds = %.preheader37.i.loopexit.us.us.us, %98
@@ -7376,56 +7375,65 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %98
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %104 = add nsw i64 %.067.us.us.us, 1
-  %exitcond89.not = icmp eq i64 %104, %76
-  br i1 %exitcond89.not, label %.split.us, label %.preheader39.lr.ph.i.us.us.us, !llvm.loop !185
+  %105 = icmp slt i64 %104, %76
+  br i1 %105, label %.preheader39.lr.ph.i.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !185
 
 .preheader37.i.loopexit.us.us.us:                 ; preds = %95
-  %105 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %105
+  %106 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %106
   br label %98
 
+._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %107 = icmp eq i64 %104, %76
+  br i1 %107, label %.split.us, label %.split77.us, !llvm.loop !186
+
 .preheader37.i.us:                                ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72
-  %.067.us68 = phi i64 [ %113, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %.067.us68 = phi i64 [ %115, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %106 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %106
-  br label %107
+  %108 = mul nsw i64 %80, %.067.us68
+  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %108
+  br label %109
 
-107:                                              ; preds = %107, %.preheader37.i.us
-  %.047.i.us70 = phi i64 [ 0, %.preheader37.i.us ], [ %112, %107 ]
-  %108 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us70
-  %109 = load <16 x float>, ptr %108, align 64, !tbaa !53
-  %110 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %109)
-  %111 = getelementptr float, ptr %gep.us69, i64 %.047.i.us70
-  store float %110, ptr %111, align 4, !tbaa !93
-  %112 = add nuw nsw i64 %.047.i.us70, 1
-  %exitcond48.not.i.us71 = icmp eq i64 %112, 4
-  br i1 %exitcond48.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72, label %107, !llvm.loop !137
+109:                                              ; preds = %109, %.preheader37.i.us
+  %.047.i.us70 = phi i64 [ 0, %.preheader37.i.us ], [ %114, %109 ]
+  %110 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.047.i.us70
+  %111 = load <16 x float>, ptr %110, align 64, !tbaa !53
+  %112 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %111)
+  %113 = getelementptr float, ptr %gep.us69, i64 %.047.i.us70
+  store float %112, ptr %113, align 4, !tbaa !93
+  %114 = add nuw nsw i64 %.047.i.us70, 1
+  %exitcond48.not.i.us71 = icmp eq i64 %114, 4
+  br i1 %exitcond48.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72, label %109, !llvm.loop !137
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %107
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %113 = add nsw i64 %.067.us68, 1
-  %exitcond.not = icmp eq i64 %113, %76
-  br i1 %exitcond.not, label %.split.us, label %.preheader37.i.us, !llvm.loop !185
+  %115 = add nsw i64 %.067.us68, 1
+  %116 = icmp slt i64 %115, %76
+  br i1 %116, label %.preheader37.i.us, label %._crit_edge.split.us73, !llvm.loop !185
+
+._crit_edge.split.us73:                           ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %117 = icmp eq i64 %115, %76
+  br i1 %117, label %.split.us, label %.split77.us, !llvm.loop !186
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %114 = icmp eq i64 %spec.select, %76
-  br i1 %114, label %.split.us, label %.split77.us, !llvm.loop !186
+  %118 = icmp eq i64 %spec.select, %76
+  %.fr79 = freeze i1 %118
+  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !186
 
-.split.us:                                        ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %115 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %116 = icmp slt i64 %115, %24
-  br i1 %116, label %55, label %._crit_edge, !llvm.loop !187
+.split.us:                                        ; preds = %._crit_edge.split.us73, %._crit_edge.split.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %119 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %120 = icmp slt i64 %119, %24
+  br i1 %120, label %55, label %._crit_edge, !llvm.loop !187
 
-.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
-  %117 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %118 = load ptr, ptr %117, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %118)
+  %121 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %122 = load ptr, ptr %121, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %122)
   ret void
 }
 
@@ -14049,7 +14057,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split.us
-  %.06181 = phi i64 [ %44, %.lr.ph ], [ %121, %.split.us ]
+  %.06181 = phi i64 [ %44, %.lr.ph ], [ %125, %.split.us ]
   %56 = srem i64 %.06181, %9
   %57 = shl nsw i64 %56, 2
   %58 = sdiv i64 %.06181, %9
@@ -14068,7 +14076,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit:              ; preds = %60, %62
   %66 = phi i64 [ %61, %60 ], [ %65, %62 ]
-  %.fr82 = freeze i64 %66
   %67 = add nsw i64 %58, 1
   %68 = icmp slt i64 %67, %23
   br i1 %68, label %69, label %71
@@ -14085,19 +14092,19 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit:              ; preds = %60, %62
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %75 = phi i64 [ %70, %69 ], [ %74, %71 ]
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %.fr82, i64 %2)
-  %.fr83 = freeze i64 %75
-  %76 = tail call i64 @llvm.smin.i64(i64 %.fr83, i64 %2)
-  %77 = icmp slt i64 %.fr82, %76
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %66, i64 %2)
+  %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
+  %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %.fr = freeze i64 %78
+  %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
   %invariant.gep = getelementptr float, ptr %79, i64 %57
-  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %.fr = freeze i1 %77
+  br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %81 = icmp sgt i64 %.fr, 0
+  %81 = icmp sgt i64 %.fr82, 0
   br i1 %81, label %.preheader.us.us, label %.preheader39.i.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
@@ -14144,7 +14151,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 101:                                              ; preds = %92
   %102 = add nuw nsw i64 %.03349.i.us.us.us, 16
-  %103 = icmp slt i64 %102, %.fr
+  %103 = icmp slt i64 %102, %.fr82
   br i1 %103, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !235
 
 104:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %104
@@ -14161,56 +14168,65 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %110 = add nsw i64 %.067.us.us.us, 1
-  %exitcond89.not = icmp eq i64 %110, %76
-  br i1 %exitcond89.not, label %.split.us, label %.preheader41.lr.ph.i.us.us.us, !llvm.loop !285
+  %111 = icmp slt i64 %110, %76
+  br i1 %111, label %.preheader41.lr.ph.i.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !285
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %101
-  %111 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %111
+  %112 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %112
   br label %104
 
+._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %113 = icmp eq i64 %110, %76
+  br i1 %113, label %.split.us, label %.split77.us, !llvm.loop !286
+
 .preheader39.i.us:                                ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72
-  %.067.us68 = phi i64 [ %119, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %.067.us68 = phi i64 [ %121, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %112 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %112
-  br label %113
+  %114 = mul nsw i64 %80, %.067.us68
+  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %114
+  br label %115
 
-113:                                              ; preds = %113, %.preheader39.i.us
-  %.050.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %118, %113 ]
-  %114 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us70
-  %115 = load <16 x float>, ptr %114, align 64, !tbaa !53
-  %116 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %115)
-  %117 = getelementptr float, ptr %gep.us69, i64 %.050.i.us70
-  store float %116, ptr %117, align 4, !tbaa !93
-  %118 = add nuw nsw i64 %.050.i.us70, 1
-  %exitcond51.not.i.us71 = icmp eq i64 %118, 4
-  br i1 %exitcond51.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72, label %113, !llvm.loop !237
+115:                                              ; preds = %115, %.preheader39.i.us
+  %.050.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %120, %115 ]
+  %116 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.050.i.us70
+  %117 = load <16 x float>, ptr %116, align 64, !tbaa !53
+  %118 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %117)
+  %119 = getelementptr float, ptr %gep.us69, i64 %.050.i.us70
+  store float %118, ptr %119, align 4, !tbaa !93
+  %120 = add nuw nsw i64 %.050.i.us70, 1
+  %exitcond51.not.i.us71 = icmp eq i64 %120, 4
+  br i1 %exitcond51.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72, label %115, !llvm.loop !237
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %113
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %119 = add nsw i64 %.067.us68, 1
-  %exitcond.not = icmp eq i64 %119, %76
-  br i1 %exitcond.not, label %.split.us, label %.preheader39.i.us, !llvm.loop !285
+  %121 = add nsw i64 %.067.us68, 1
+  %122 = icmp slt i64 %121, %76
+  br i1 %122, label %.preheader39.i.us, label %._crit_edge.split.us73, !llvm.loop !285
+
+._crit_edge.split.us73:                           ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %123 = icmp eq i64 %121, %76
+  br i1 %123, label %.split.us, label %.split77.us, !llvm.loop !286
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %120 = icmp eq i64 %spec.select, %76
-  br i1 %120, label %.split.us, label %.split77.us, !llvm.loop !286
+  %124 = icmp eq i64 %spec.select, %76
+  %.fr79 = freeze i1 %124
+  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !286
 
-.split.us:                                        ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %121 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %122 = icmp slt i64 %121, %24
-  br i1 %122, label %55, label %._crit_edge, !llvm.loop !287
+.split.us:                                        ; preds = %._crit_edge.split.us73, %._crit_edge.split.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %125 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %126 = icmp slt i64 %125, %24
+  br i1 %126, label %55, label %._crit_edge, !llvm.loop !287
 
-.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
-  %123 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %124)
+  %127 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %128 = load ptr, ptr %127, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %128)
   ret void
 }
 
@@ -20715,7 +20731,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split.us
-  %.06181 = phi i64 [ %44, %.lr.ph ], [ %117, %.split.us ]
+  %.06181 = phi i64 [ %44, %.lr.ph ], [ %121, %.split.us ]
   %56 = srem i64 %.06181, %9
   %57 = shl nsw i64 %56, 2
   %58 = sdiv i64 %.06181, %9
@@ -20734,7 +20750,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit:              ; preds = %60, %62
   %66 = phi i64 [ %61, %60 ], [ %65, %62 ]
-  %.fr82 = freeze i64 %66
   %67 = add nsw i64 %58, 1
   %68 = icmp slt i64 %67, %23
   br i1 %68, label %69, label %71
@@ -20751,19 +20766,19 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit:              ; preds = %60, %62
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %75 = phi i64 [ %70, %69 ], [ %74, %71 ]
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %.fr82, i64 %2)
-  %.fr83 = freeze i64 %75
-  %76 = tail call i64 @llvm.smin.i64(i64 %.fr83, i64 %2)
-  %77 = icmp slt i64 %.fr82, %76
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %66, i64 %2)
+  %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
+  %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %.fr = freeze i64 %78
+  %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
   %invariant.gep = getelementptr float, ptr %79, i64 %57
-  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %.fr = freeze i1 %77
+  br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %81 = icmp sgt i64 %.fr, 0
+  %81 = icmp sgt i64 %.fr82, 0
   br i1 %81, label %.preheader.us.us, label %.preheader39.i.us
 
 .preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
@@ -20806,7 +20821,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 
 97:                                               ; preds = %90
   %98 = add nuw nsw i64 %.03348.i.us.us.us, 16
-  %99 = icmp slt i64 %98, %.fr
+  %99 = icmp slt i64 %98, %.fr82
   br i1 %99, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !335
 
 100:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %100
@@ -20823,56 +20838,65 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18B
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %106 = add nsw i64 %.067.us.us.us, 1
-  %exitcond89.not = icmp eq i64 %106, %76
-  br i1 %exitcond89.not, label %.split.us, label %.preheader41.lr.ph.i.us.us.us, !llvm.loop !385
+  %107 = icmp slt i64 %106, %76
+  br i1 %107, label %.preheader41.lr.ph.i.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !385
 
 .preheader39.i.loopexit.us.us.us:                 ; preds = %97
-  %107 = mul nsw i64 %80, %.067.us.us.us
-  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %107
+  %108 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %108
   br label %100
 
+._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %109 = icmp eq i64 %106, %76
+  br i1 %109, label %.split.us, label %.split77.us, !llvm.loop !386
+
 .preheader39.i.us:                                ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72
-  %.067.us68 = phi i64 [ %115, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %.067.us68 = phi i64 [ %117, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %108 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %108
-  br label %109
+  %110 = mul nsw i64 %80, %.067.us68
+  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %110
+  br label %111
 
-109:                                              ; preds = %109, %.preheader39.i.us
-  %.049.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %114, %109 ]
-  %110 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us70
-  %111 = load <16 x float>, ptr %110, align 64, !tbaa !53
-  %112 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %111)
-  %113 = getelementptr float, ptr %gep.us69, i64 %.049.i.us70
-  store float %112, ptr %113, align 4, !tbaa !93
-  %114 = add nuw nsw i64 %.049.i.us70, 1
-  %exitcond50.not.i.us71 = icmp eq i64 %114, 4
-  br i1 %exitcond50.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72, label %109, !llvm.loop !337
+111:                                              ; preds = %111, %.preheader39.i.us
+  %.049.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %116, %111 ]
+  %112 = getelementptr inbounds nuw <16 x float>, ptr %4, i64 %.049.i.us70
+  %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
+  %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
+  %115 = getelementptr float, ptr %gep.us69, i64 %.049.i.us70
+  store float %114, ptr %115, align 4, !tbaa !93
+  %116 = add nuw nsw i64 %.049.i.us70, 1
+  %exitcond50.not.i.us71 = icmp eq i64 %116, 4
+  br i1 %exitcond50.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72, label %111, !llvm.loop !337
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %109
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %115 = add nsw i64 %.067.us68, 1
-  %exitcond.not = icmp eq i64 %115, %76
-  br i1 %exitcond.not, label %.split.us, label %.preheader39.i.us, !llvm.loop !385
+  %117 = add nsw i64 %.067.us68, 1
+  %118 = icmp slt i64 %117, %76
+  br i1 %118, label %.preheader39.i.us, label %._crit_edge.split.us73, !llvm.loop !385
+
+._crit_edge.split.us73:                           ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %119 = icmp eq i64 %117, %76
+  br i1 %119, label %.split.us, label %.split77.us, !llvm.loop !386
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %116 = icmp eq i64 %spec.select, %76
-  br i1 %116, label %.split.us, label %.split77.us, !llvm.loop !386
+  %120 = icmp eq i64 %spec.select, %76
+  %.fr79 = freeze i1 %120
+  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !386
 
-.split.us:                                        ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %117 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %118 = icmp slt i64 %117, %24
-  br i1 %118, label %55, label %._crit_edge, !llvm.loop !387
+.split.us:                                        ; preds = %._crit_edge.split.us73, %._crit_edge.split.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %121 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %122 = icmp slt i64 %121, %24
+  br i1 %122, label %55, label %._crit_edge, !llvm.loop !387
 
-.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
-  %119 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %120)
+  %123 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %124 = load ptr, ptr %123, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %124)
   ret void
 }
 

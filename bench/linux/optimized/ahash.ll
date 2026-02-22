@@ -104,8 +104,8 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
 .preheader:                                       ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
-  %.fr11 = freeze i32 %12
-  %13 = and i32 %.fr11, 512
+  %.fr = freeze i32 %12
+  %13 = and i32 %.fr, 512
   %14 = icmp eq i32 %13, 0
   %15 = tail call i32 @llvm.umin.i32(i32 %10, i32 %4)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8

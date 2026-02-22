@@ -3298,7 +3298,7 @@ define dso_local ptr @get_dump_page(i64 noundef %0) local_unnamed_addr #0 align 
   store ptr null, ptr %2, align 8, !annotation !47
   store i32 1, ptr %3, align 4
   %17 = call fastcc i64 @__get_user_pages(ptr noundef %7, i64 noundef %0, i64 noundef 1, i32 noundef 14, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %.fr = freeze i64 %17
+  %.fr4 = freeze i64 %17
   %18 = load i32, ptr %3, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %23, label %20
@@ -3316,7 +3316,7 @@ define dso_local ptr @get_dump_page(i64 noundef %0) local_unnamed_addr #0 align 
   br label %23
 
 23:                                               ; preds = %22, %16
-  %24 = icmp eq i64 %.fr, 0
+  %24 = icmp eq i64 %.fr4, 0
   br i1 %24, label %.thread2, label %25, !prof !5
 
 .thread2:                                         ; preds = %23
@@ -3326,7 +3326,7 @@ define dso_local ptr @get_dump_page(i64 noundef %0) local_unnamed_addr #0 align 
   br label %.thread
 
 25:                                               ; preds = %23
-  %26 = and i64 %.fr, 4294967295
+  %26 = and i64 %.fr4, 4294967295
   %27 = icmp eq i64 %26, 1
   %28 = load ptr, ptr %2, align 8
   %spec.select = select i1 %27, ptr %28, ptr null

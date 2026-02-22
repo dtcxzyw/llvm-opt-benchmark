@@ -5959,8 +5959,8 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   br i1 %87, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %81, %92
-  %.082106.i = phi ptr [ %93, %92 ], [ %85, %81 ]
-  %88 = load ptr, ptr %.082106.i, align 8, !tbaa !163
+  %.082105.i = phi ptr [ %93, %92 ], [ %85, %81 ]
+  %88 = load ptr, ptr %.082105.i, align 8, !tbaa !163
   %.not95.i = icmp uge ptr %88, %67
   %89 = icmp ult ptr %88, %69
   %or.cond.i = select i1 %.not95.i, i1 %89, i1 false
@@ -5968,11 +5968,11 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
 
 90:                                               ; preds = %.lr.ph.i
   %91 = getelementptr inbounds i8, ptr %88, i64 %84
-  store ptr %91, ptr %.082106.i, align 8, !tbaa !163
+  store ptr %91, ptr %.082105.i, align 8, !tbaa !163
   br label %92
 
 92:                                               ; preds = %90, %.lr.ph.i
-  %93 = getelementptr inbounds nuw i8, ptr %.082106.i, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.082105.i, i64 8
   %94 = icmp ult ptr %93, %86
   br i1 %94, label %.lr.ph.i, label %.thread.i, !llvm.loop !515
 
@@ -5982,19 +5982,19 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   store i32 %96, ptr %59, align 8, !tbaa !470
   %97 = sub i32 %55, %46
   %98 = add i32 %97, %35
-  %.not117.i = icmp eq i32 %35, 0
-  br i1 %.not117.i, label %._crit_edge116.i, label %.lr.ph115.i
+  %.not116.i = icmp eq i32 %35, 0
+  br i1 %.not116.i, label %._crit_edge115.i, label %.lr.ph114.i
 
-.lr.ph115.i:                                      ; preds = %.thread.i
+.lr.ph114.i:                                      ; preds = %.thread.i
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 1096
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 1128
   %wide.trip.count.i = and i64 %34, 4294967295
   br label %102
 
-102:                                              ; preds = %._crit_edge.i, %.lr.ph115.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph115.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.084114.i = phi i32 [ %98, %.lr.ph115.i ], [ %.1.lcssa.i, %._crit_edge.i ]
+102:                                              ; preds = %._crit_edge.i, %.lr.ph114.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph114.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %.084113.i = phi i32 [ %98, %.lr.ph114.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %103 = load ptr, ptr %99, align 8, !tbaa !482
   %104 = load ptr, ptr %49, align 8, !tbaa !460
   %105 = trunc nuw i64 %indvars.iv.i to i32
@@ -6005,18 +6005,18 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %109 = call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val97.i, i64 noundef 0)
   %110 = load i32, ptr %44, align 8, !tbaa !481
   %111 = icmp ugt i32 %110, 1
-  br i1 %111, label %.lr.ph111.i, label %._crit_edge.i
+  br i1 %111, label %.lr.ph110.i, label %._crit_edge.i
 
-.lr.ph111.i:                                      ; preds = %102, %do_fixed.exit.i
+.lr.ph110.i:                                      ; preds = %102, %do_fixed.exit.i
   %112 = phi i32 [ %204, %do_fixed.exit.i ], [ %110, %102 ]
-  %.0110.i = phi i64 [ %214, %do_fixed.exit.i ], [ %109, %102 ]
-  %.pn109.i = phi ptr [ %.080.i, %do_fixed.exit.i ], [ %103, %102 ]
-  %.1108.i = phi i32 [ %114, %do_fixed.exit.i ], [ %.084114.i, %102 ]
-  %.086107.i = phi i32 [ %215, %do_fixed.exit.i ], [ 1, %102 ]
-  %.080.i = getelementptr inbounds nuw i8, ptr %.pn109.i, i64 4
+  %.0109.i = phi i64 [ %214, %do_fixed.exit.i ], [ %109, %102 ]
+  %.pn108.i = phi ptr [ %.080.i, %do_fixed.exit.i ], [ %103, %102 ]
+  %.1107.i = phi i32 [ %114, %do_fixed.exit.i ], [ %.084113.i, %102 ]
+  %.086106.i = phi i32 [ %215, %do_fixed.exit.i ], [ 1, %102 ]
+  %.080.i = getelementptr inbounds nuw i8, ptr %.pn108.i, i64 4
   %113 = load ptr, ptr %49, align 8, !tbaa !460
-  %114 = add i32 %.1108.i, 1
-  %115 = zext i32 %.1108.i to i64
+  %114 = add i32 %.1107.i, 1
+  %115 = zext i32 %.1107.i to i64
   %116 = getelementptr inbounds nuw ptr, ptr %113, i64 %115
   %.val.i = load ptr, ptr %116, align 8, !tbaa !163
   %117 = load i8, ptr %.val.i, align 1, !tbaa !167
@@ -6025,13 +6025,13 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
     i8 -1, label %121
   ]
 
-118:                                              ; preds = %.lr.ph111.i
+118:                                              ; preds = %.lr.ph110.i
   %119 = load ptr, ptr %100, align 8, !tbaa !496
   %120 = call fastcc i64 @cff_parse_real(ptr noundef nonnull readonly %.val.i, ptr noundef %119, i64 noundef 0, ptr noundef null)
   %.pre.i = load i32, ptr %44, align 8, !tbaa !481
   br label %do_fixed.exit.i
 
-121:                                              ; preds = %.lr.ph111.i
+121:                                              ; preds = %.lr.ph110.i
   %122 = getelementptr inbounds nuw i8, ptr %.val.i, i64 1
   %123 = load i8, ptr %122, align 1, !tbaa !167
   %124 = zext i8 %123 to i64
@@ -6052,7 +6052,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %139 = or disjoint i64 %135, %138
   br label %do_fixed.exit.i
 
-140:                                              ; preds = %.lr.ph111.i
+140:                                              ; preds = %.lr.ph110.i
   %141 = load ptr, ptr %100, align 8, !tbaa !496
   %142 = getelementptr inbounds nuw i8, ptr %.val.i, i64 1
   %143 = zext i8 %117 to i32
@@ -6144,16 +6144,15 @@ cff_parse_integer.exit.i.thread.thread.i:         ; preds = %cff_parse_integer.e
 
 cff_parse_integer.exit.i.thread.i:                ; preds = %144
   %194 = load i8, ptr %142, align 1, !tbaa !167
-  %.fr.i = freeze i8 %194
-  %195 = zext i8 %.fr.i to i16
+  %195 = zext i8 %194 to i16
   %196 = shl nuw i16 %195, 8
   %197 = getelementptr inbounds nuw i8, ptr %.val.i, i64 2
   %198 = load i8, ptr %197, align 1, !tbaa !167
-  %.fr104.i = freeze i8 %198
-  %199 = zext i8 %.fr104.i to i16
+  %199 = zext i8 %198 to i16
   %200 = or disjoint i16 %196, %199
-  %201 = sext i16 %200 to i64
-  %202 = icmp eq i16 %200, -32768
+  %.fr.i = freeze i16 %200
+  %201 = sext i16 %.fr.i to i64
+  %202 = icmp eq i16 %.fr.i, -32768
   %203 = shl nsw i64 %201, 16
   %spec.select.i = select i1 %202, i64 -2147483647, i64 %203
   br label %do_fixed.exit.i
@@ -6171,13 +6170,13 @@ do_fixed.exit.i:                                  ; preds = %cff_parse_integer.e
   %211 = add nsw i64 %210, %209
   %212 = shl i64 %211, 16
   %213 = ashr i64 %212, 32
-  %214 = add nsw i64 %213, %.0110.i
-  %215 = add nuw i32 %.086107.i, 1
+  %214 = add nsw i64 %213, %.0109.i
+  %215 = add nuw i32 %.086106.i, 1
   %216 = icmp ult i32 %215, %204
-  br i1 %216, label %.lr.ph111.i, label %._crit_edge.i, !llvm.loop !516
+  br i1 %216, label %.lr.ph110.i, label %._crit_edge.i, !llvm.loop !516
 
 ._crit_edge.i:                                    ; preds = %do_fixed.exit.i, %102
-  %.1.lcssa.i = phi i32 [ %.084114.i, %102 ], [ %114, %do_fixed.exit.i ]
+  %.1.lcssa.i = phi i32 [ %.084113.i, %102 ], [ %114, %do_fixed.exit.i ]
   %.0.lcssa.i = phi i64 [ %109, %102 ], [ %214, %do_fixed.exit.i ]
   %217 = load ptr, ptr %101, align 8, !tbaa !469
   %218 = load ptr, ptr %49, align 8, !tbaa !460
@@ -6211,22 +6210,22 @@ do_fixed.exit.i:                                  ; preds = %cff_parse_integer.e
   store i8 %233, ptr %234, align 1, !tbaa !167
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge116.loopexit.i, label %102, !llvm.loop !517
+  br i1 %exitcond.not.i, label %._crit_edge115.loopexit.i, label %102, !llvm.loop !517
 
-._crit_edge116.loopexit.i:                        ; preds = %._crit_edge.i
-  %.pre120.pre.i = load i32, ptr %2, align 4, !tbaa !59
-  br label %._crit_edge116.i
+._crit_edge115.loopexit.i:                        ; preds = %._crit_edge.i
+  %.pre119.pre.i = load i32, ptr %2, align 4, !tbaa !59
+  br label %._crit_edge115.i
 
-._crit_edge116.i:                                 ; preds = %._crit_edge116.loopexit.i, %.thread.i
-  %.pre120.i = phi i32 [ %.pre120.pre.i, %._crit_edge116.loopexit.i ], [ 0, %.thread.i ]
+._crit_edge115.i:                                 ; preds = %._crit_edge115.loopexit.i, %.thread.i
+  %.pre119.i = phi i32 [ %.pre119.pre.i, %._crit_edge115.loopexit.i ], [ 0, %.thread.i ]
   %236 = load ptr, ptr %49, align 8, !tbaa !460
   %237 = zext i32 %98 to i64
   %238 = getelementptr inbounds nuw ptr, ptr %236, i64 %237
   store ptr %238, ptr %31, align 8, !tbaa !462
   br label %cff_blend_doBlend.exit
 
-cff_blend_doBlend.exit:                           ; preds = %39, %65, %._crit_edge116.i
-  %239 = phi i32 [ %74, %65 ], [ %.pre120.i, %._crit_edge116.i ], [ 161, %39 ]
+cff_blend_doBlend.exit:                           ; preds = %39, %65, %._crit_edge115.i
+  %239 = phi i32 [ %74, %65 ], [ %.pre119.i, %._crit_edge115.i ], [ 161, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 1057
   store i8 1, ptr %240, align 1, !tbaa !512

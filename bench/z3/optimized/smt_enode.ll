@@ -152,14 +152,13 @@ define hidden noundef ptr @_ZN3smt5enode4initER11ast_managerPvRK10ptr_vectorIS0_
 
 _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %27
   %32 = load i32, ptr %31, align 8, !tbaa !40
-  %.fr = freeze i32 %32
-  %33 = icmp eq i32 %.fr, 0
+  %33 = icmp eq i32 %32, 0
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = load i32, ptr %34, align 4
-  %.fr42 = freeze i32 %35
-  %36 = icmp eq i32 %.fr42, 2
-  %37 = and i1 %33, %36
-  %spec.select = select i1 %37, i16 16, i16 0
+  %36 = icmp eq i32 %35, 2
+  %37 = select i1 %33, i1 %36, i1 false
+  %cond.fr = freeze i1 %37
+  %spec.select = select i1 %cond.fr, i16 16, i16 0
   %38 = or disjoint i16 %spec.select, %22
   br label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread
 
@@ -185,8 +184,8 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %_ZNK11ast_manager5i
 _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 17
   %49 = load i16, ptr %48, align 1
-  %.fr43 = freeze i16 %49
-  %50 = shl i16 %.fr43, 2
+  %.fr42 = freeze i16 %49
+  %50 = shl i16 %.fr42, 2
   %spec.select41 = and i16 %50, 32
   br label %_ZNK3smt5enode12get_num_argsEv.exit.thread
 
@@ -226,19 +225,19 @@ _ZNK3smt5enode12get_num_argsEv.exit24:            ; preds = %_ZNK3smt5enode12get
 .lr.ph:                                           ; preds = %_ZNK3smt5enode12get_num_argsEv.exit24
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %wide.trip.count50 = zext i32 %70 to i64
+  %wide.trip.count49 = zext i32 %70 to i64
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us ], [ 0, %.lr.ph ]
-  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv47
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us ], [ 0, %.lr.ph ]
+  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv46
   %74 = load ptr, ptr %73, align 8, !tbaa !48
   %75 = load i32, ptr %74, align 4, !tbaa !50
   %76 = load ptr, ptr %2, align 8, !tbaa !51
   %77 = zext i32 %75 to i64
   %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !52
-  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv47
+  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv46
   store ptr %79, ptr %80, align 8, !tbaa !52
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !24
@@ -277,9 +276,9 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us: ; preds = %97, %91
   store ptr %1, ptr %102, align 8, !tbaa !52
   %103 = add i32 %98, 1
   store i32 %103, ptr %100, align 4, !tbaa !53
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !54
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us, %_ZNK3smt5enode12get_num_argsEv.exit.thread, %_ZNK3smt5enode12get_num_argsEv.exit24
   ret ptr %1
@@ -303,7 +302,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us: ; preds = %97, %91
   %117 = or disjoint i16 %116, 1024
   store i16 %117, ptr %114, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !54
 }
 
@@ -1201,8 +1200,8 @@ define hidden noundef ptr @_ZN3smt9tmp_enode3setEP9func_decljPKPNS_5enodeE(ptr n
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !81
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !tbaa !80
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8, !tbaa !80
   br label %25
 
 8:                                                ; preds = %4
@@ -1242,7 +1241,7 @@ _ZN3smt9tmp_enode12set_capacityEj.exit:           ; preds = %8, %_Z13dealloc_sve
   br label %25
 
 25:                                               ; preds = %._crit_edge, %_ZN3smt9tmp_enode12set_capacityEj.exit
-  %26 = phi ptr [ %.pre16, %._crit_edge ], [ %17, %_ZN3smt9tmp_enode12set_capacityEj.exit ]
+  %26 = phi ptr [ %.pre17, %._crit_edge ], [ %17, %_ZN3smt9tmp_enode12set_capacityEj.exit ]
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %15, %_ZN3smt9tmp_enode12set_capacityEj.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !29
@@ -1270,8 +1269,8 @@ _ZN3smt9tmp_enode12set_capacityEj.exit:           ; preds = %8, %_Z13dealloc_sve
 _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 17
   %39 = load i16, ptr %38, align 1
-  %.fr = freeze i16 %39
-  %40 = shl i16 %.fr, 2
+  %.fr14 = freeze i16 %39
+  %40 = shl i16 %.fr14, 2
   %spec.select = and i16 %40, 32
   br label %_ZNK9func_decl14is_commutativeEv.exit.thread
 

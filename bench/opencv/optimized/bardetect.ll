@@ -694,8 +694,8 @@ define hidden void @_ZN2cv7barcode6Detect12calCoherenceEi(ptr noundef nonnull al
   %8 = fmul nnan float %7, 0x3FDAE147A0000000
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4, !tbaa !41
-  %.fr183 = freeze i32 %10
-  %11 = sdiv i32 %.fr183, %1
+  %.fr = freeze i32 %10
+  %11 = sdiv i32 %.fr, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load i32, ptr %12, align 8, !tbaa !42
   %14 = sdiv i32 %13, %1

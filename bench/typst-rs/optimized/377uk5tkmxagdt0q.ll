@@ -10046,9 +10046,9 @@ _ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.exit: ; preds = %504
           to label %.noexc109 unwind label %.loopexit
 
 .noexc109:                                        ; preds = %515
-  %.fr.i = freeze { i16, i16 } %516
-  %517 = extractvalue { i16, i16 } %.fr.i, 0
-  %518 = extractvalue { i16, i16 } %.fr.i, 1
+  %.fr12.i = freeze { i16, i16 } %516
+  %517 = extractvalue { i16, i16 } %.fr12.i, 0
+  %518 = extractvalue { i16, i16 } %.fr12.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1992
   %519 = icmp eq i16 %517, 0
   br i1 %519, label %.thread.i107, label %_ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit

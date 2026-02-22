@@ -2281,13 +2281,13 @@ define hidden zeroext range(i16 0, 256) i16 @calculate_clut_3dl(ptr noundef %0, 
   %.0105.ph.ph = phi i32 [ %.0105, %68 ], [ 0, %.preheader ]
   %.099.ph.ph = phi ptr [ %70, %68 ], [ null, %.preheader ]
   %.092.ph.ph = phi i16 [ %53, %68 ], [ 0, %.preheader ]
-  br label %.outer.outer222
+  br label %.outer.outer221
 
 11:                                               ; preds = %2
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.55, ptr noundef %0) #25
   %12 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #25
   tail call void (ptr, ...) @dt_control_log(ptr noundef %12, ptr noundef %0) #25
-  br label %.thread144
+  br label %.thread143
 
 13:                                               ; preds = %.outer, %86
   %.0111 = phi i32 [ %87, %86 ], [ %.0111.ph, %.outer ]
@@ -2376,14 +2376,14 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
 
 42:                                               ; preds = %41
   %43 = icmp ugt i8 %.039.i, 3
-  br i1 %43, label %46, label %.outer.outer222.backedge
+  br i1 %43, label %46, label %.outer.outer221.backedge
 
-.outer.outer222:                                  ; preds = %.outer.outer222.backedge, %.outer.outer
-  %.0111.ph.ph223 = phi i32 [ %.0111.ph.ph, %.outer.outer ], [ %.0111, %.outer.outer222.backedge ]
-  %.0105.ph.ph224 = phi i32 [ %.0105.ph.ph, %.outer.outer ], [ %.0105, %.outer.outer222.backedge ]
-  %.092.ph.ph225 = phi i16 [ %.092.ph.ph, %.outer.outer ], [ 0, %.outer.outer222.backedge ]
-  %.not134 = icmp eq i16 %.092.ph.ph225, 0
-  %44 = zext nneg i16 %.092.ph.ph225 to i32
+.outer.outer221:                                  ; preds = %.outer.outer221.backedge, %.outer.outer
+  %.0111.ph.ph222 = phi i32 [ %.0111.ph.ph, %.outer.outer ], [ %.0111, %.outer.outer221.backedge ]
+  %.0105.ph.ph223 = phi i32 [ %.0105.ph.ph, %.outer.outer ], [ %.0105, %.outer.outer221.backedge ]
+  %.092.ph.ph224 = phi i16 [ %.092.ph.ph, %.outer.outer ], [ 0, %.outer.outer221.backedge ]
+  %.not134 = icmp eq i16 %.092.ph.ph224, 0
+  %44 = zext nneg i16 %.092.ph.ph224 to i32
   %45 = mul nuw nsw i32 %44, %44
   br label %.outer
 
@@ -2393,10 +2393,10 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %49 = call i64 @strtoll(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #25
   %50 = trunc i64 %49 to i32
   %51 = icmp sgt i32 %50, %48
-  br i1 %51, label %52, label %.outer.outer222.backedge
+  br i1 %51, label %52, label %.outer.outer221.backedge
 
-.outer.outer222.backedge:                         ; preds = %46, %42
-  br label %.outer.outer222
+.outer.outer221.backedge:                         ; preds = %46, %42
+  br label %.outer.outer221
 
 52:                                               ; preds = %46
   %53 = zext i8 %.039.i to i16
@@ -2410,7 +2410,7 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %57 = load ptr, ptr %3, align 8, !tbaa !74
   call void @free(ptr noundef %57) #25
   %58 = call i32 @fclose(ptr noundef nonnull %6)
-  br label %.thread144
+  br label %.thread143
 
 59:                                               ; preds = %52
   %60 = zext i8 %.039.i to i32
@@ -2441,7 +2441,7 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %73 = load ptr, ptr %3, align 8, !tbaa !74
   call void @free(ptr noundef %73) #25
   %74 = call i32 @fclose(ptr noundef nonnull %6)
-  br label %.thread144
+  br label %.thread143
 
 75:                                               ; preds = %41
   %76 = icmp eq i8 %.039.i, 3
@@ -2451,11 +2451,12 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %78 = udiv i32 %.0111, %45
   %79 = mul i32 %78, %45
   %.recomposed = urem i32 %.0111, %45
-  %80 = urem i32 %.recomposed, %44
+  %.fr = freeze i32 %.recomposed
+  %80 = urem i32 %.fr, %44
   %81 = mul nuw nsw i32 %80, %45
   %82 = sub i32 %78, %80
-  %83 = add i32 %82, %.recomposed
-  %84 = add i32 %83, %81
+  %83 = add i32 %82, %81
+  %84 = add i32 %83, %.fr
   %85 = mul i32 %84, 3
   br label %90
 
@@ -2463,12 +2464,12 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %87 = add i32 %.0111, 1
   %88 = mul i32 %87, 3
   %89 = zext i32 %88 to i64
-  %.not138.not = icmp samesign ult i64 %.0116.ph.ph, %89
-  br i1 %.not138.not, label %99, label %13
+  %.not137.not = icmp samesign ult i64 %.0116.ph.ph, %89
+  br i1 %.not137.not, label %99, label %13
 
 90:                                               ; preds = %77, %90
   %indvars.iv = phi i64 [ 0, %77 ], [ %indvars.iv.next, %90 ]
-  %.4109160 = phi i32 [ %.0105, %77 ], [ %spec.select, %90 ]
+  %.4109159 = phi i32 [ %.0105, %77 ], [ %spec.select, %90 ]
   %91 = getelementptr inbounds nuw [50 x i8], ptr %5, i64 %indvars.iv
   %92 = call i64 @strtoll(ptr noundef nonnull captures(none) %91, ptr noundef null, i32 noundef 10) #25
   %93 = trunc i64 %92 to i32
@@ -2478,7 +2479,7 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds nuw float, ptr %.099.ph.ph, i64 %97
   store float %94, ptr %98, align 4, !tbaa !18
-  %spec.select = call i32 @llvm.umax.i32(i32 %.4109160, i32 %93)
+  %spec.select = call i32 @llvm.umax.i32(i32 %.4109159, i32 %93)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %86, label %90
@@ -2486,9 +2487,9 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
 .outer.loopexit:                                  ; preds = %parse_cube_line.exit, %75
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer222, %.outer.loopexit
-  %.0111.ph = phi i32 [ %.0111, %.outer.loopexit ], [ %.0111.ph.ph223, %.outer.outer222 ]
-  %.0105.ph = phi i32 [ %.0105, %.outer.loopexit ], [ %.0105.ph.ph224, %.outer.outer222 ]
+.outer:                                           ; preds = %.outer.outer221, %.outer.loopexit
+  %.0111.ph = phi i32 [ %.0111, %.outer.loopexit ], [ %.0111.ph.ph222, %.outer.outer221 ]
+  %.0105.ph = phi i32 [ %.0105, %.outer.loopexit ], [ %.0105.ph.ph223, %.outer.outer221 ]
   br label %13
 
 99:                                               ; preds = %86, %13
@@ -2509,7 +2510,7 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %106 = load ptr, ptr %3, align 8, !tbaa !74
   call void @free(ptr noundef %106) #25
   %107 = call i32 @fclose(ptr noundef nonnull %6)
-  br label %.thread144
+  br label %.thread143
 
 108:                                              ; preds = %99
   %109 = load ptr, ptr %3, align 8, !tbaa !74
@@ -2533,11 +2534,11 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %117 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #25
   call void (ptr, ...) @dt_control_log(ptr noundef %117) #25
   call void @free(ptr noundef %.099.ph.ph) #25
-  br label %.thread144
+  br label %.thread143
 
 118:                                              ; preds = %114
-  %.not163 = icmp eq i64 %.0116.ph.ph, 0
-  br i1 %.not163, label %._crit_edge, label %.lr.ph.preheader
+  %.not162 = icmp eq i64 %.0116.ph.ph, 0
+  br i1 %.not162, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %118
   %119 = add nsw i32 %.091, -1
@@ -2546,8 +2547,8 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %129
-  %indvars.iv172 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next173, %129 ]
-  %122 = getelementptr inbounds nuw float, ptr %.099.ph.ph, i64 %indvars.iv172
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next172, %129 ]
+  %122 = getelementptr inbounds nuw float, ptr %.099.ph.ph, i64 %indvars.iv171
   %123 = load float, ptr %122, align 4, !tbaa !18
   %124 = fmul reassoc nsz arcp contract afn float %123, %121
   %125 = fcmp reassoc nsz arcp contract afn ogt float %124, 1.000000e+00
@@ -2563,16 +2564,16 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
 129:                                              ; preds = %128, %126, %.lr.ph
   %130 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %.lr.ph ], [ %124, %128 ], [ 0.000000e+00, %126 ]
   store float %130, ptr %122, align 4, !tbaa !18
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next173, %.0116.ph.ph
-  br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next172, %.0116.ph.ph
+  br i1 %exitcond174.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %129, %118
   store ptr %.099.ph.ph, ptr %1, align 8, !tbaa !22
-  br label %.thread144
+  br label %.thread143
 
-.thread144:                                       ; preds = %71, %55, %116, %._crit_edge, %104, %11
-  %.0 = phi i16 [ 0, %71 ], [ 0, %104 ], [ 0, %11 ], [ 0, %116 ], [ %.092.ph.ph225, %._crit_edge ], [ 0, %55 ]
+.thread143:                                       ; preds = %71, %55, %116, %._crit_edge, %104, %11
+  %.0 = phi i16 [ 0, %71 ], [ 0, %104 ], [ 0, %11 ], [ 0, %116 ], [ %.092.ph.ph224, %._crit_edge ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

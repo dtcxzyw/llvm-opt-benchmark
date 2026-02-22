@@ -60,8 +60,8 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %6 = load i16, ptr %5, align 4
-  %.fr16 = freeze i16 %6
-  %7 = and i16 %.fr16, 1
+  %.fr = freeze i16 %6
+  %7 = and i16 %.fr, 1
   %8 = icmp eq i16 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -89,7 +89,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %19
-  %29 = and i16 %.fr16, 8
+  %29 = and i16 %.fr, 8
   %30 = icmp eq i16 %29, 0
   %.pre = load i32, ptr %26, align 8
   br i1 %30, label %36, label %31
@@ -173,7 +173,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, -2
   %76 = inttoptr i64 %75 to ptr
-  %77 = and i16 %.fr16, 8
+  %77 = and i16 %.fr, 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
@@ -257,14 +257,14 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   br label %.loopexit9
 
 .thread:                                          ; preds = %14, %19, %72
-  %123 = lshr i16 %.fr16, 2
+  %123 = lshr i16 %.fr, 2
   %124 = and i16 %123, 1
   %125 = zext nneg i16 %124 to i32
   br label %129
 
 .loopexit9:                                       ; preds = %61, %.split, %.split.us.split, %108, %104, %93, %91, %.split.us, %.loopexit12, %31, %117, %.loopexit
   %.ph = phi i32 [ %71, %.loopexit12 ], [ 0, %.loopexit ], [ 0, %.split.us ], [ %122, %117 ], [ 0, %31 ], [ 1, %93 ], [ 0, %108 ], [ 1, %.split.us.split ], [ 0, %91 ], [ 0, %104 ], [ 0, %.split ], [ 0, %61 ]
-  %126 = and i16 %.fr16, 4
+  %126 = and i16 %.fr, 4
   %127 = icmp eq i16 %126, 0
   %128 = select i1 %127, i32 %.ph, i32 0
   br label %129

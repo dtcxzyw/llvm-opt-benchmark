@@ -759,7 +759,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
           cleanup
   br label %.thread486
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1458, %.invoke
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1459, %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread486
@@ -1020,9 +1020,9 @@ _ZN4core3ops8function6FnOnce9call_once17ha0c7b06edd2d98c5E.exit..critedge_crit_e
   br i1 %214, label %215, label %.invoke
 
 215:                                              ; preds = %203, %202, %213, %209
-  %.sink1460 = phi i64 [ -2, %213 ], [ -2, %209 ], [ -1, %202 ], [ -1, %203 ]
+  %.sink1461 = phi i64 [ -2, %213 ], [ -2, %209 ], [ -1, %202 ], [ -1, %203 ]
   %.sink = phi i64 [ 2, %213 ], [ 2, %209 ], [ 1, %202 ], [ 1, %203 ]
-  %216 = add i64 %109, %.sink1460
+  %216 = add i64 %109, %.sink1461
   %217 = getelementptr inbounds nuw i8, ptr %110, i64 %.sink
   %218 = invoke noundef i64 @_ZN11shellexpand16env_with_context11find_dollar17h2c1ebb1740481c21E(ptr noalias noundef nonnull readonly align 1 %217, i64 noundef %216)
           to label %.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1642,21 +1642,21 @@ select.unfold460:                                 ; preds = %373
 511:                                              ; preds = %.preheader4.i
   %512 = add i64 %.sroa.59.0.i12.i, -1
   %513 = icmp ult i64 %512, %480
-  br i1 %513, label %514, label %.invoke1458
+  br i1 %513, label %514, label %.invoke1459
 
 514:                                              ; preds = %511
   %515 = add i64 %512, %490
   %516 = icmp ult i64 %515, %478
-  br i1 %516, label %520, label %.invoke1458
+  br i1 %516, label %520, label %.invoke1459
 
-.invoke1458:                                      ; preds = %.preheader.i.preheader.split, %514, %511, %562, %581, %533
+.invoke1459:                                      ; preds = %.preheader.i.preheader.split, %514, %511, %562, %581, %533
   %517 = phi i64 [ %umax.i.i, %581 ], [ %564, %562 ], [ %umax.i14.i, %533 ], [ %512, %511 ], [ %515, %514 ], [ %544, %.preheader.i.preheader.split ]
   %518 = phi i64 [ %478, %581 ], [ %478, %562 ], [ %478, %533 ], [ %480, %511 ], [ %478, %514 ], [ %480, %.preheader.i.preheader.split ]
   %519 = phi ptr [ @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.74, %581 ], [ @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.72, %562 ], [ @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.74, %533 ], [ @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.71, %511 ], [ @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.72, %514 ], [ @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.71, %.preheader.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %517, i64 noundef %518, ptr noalias noundef readonly align 8 dereferenceable(24) %519) #54
-          to label %.cont1459 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont1460 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont1459:                                        ; preds = %.invoke1458
+.cont1460:                                        ; preds = %.invoke1459
   unreachable
 
 520:                                              ; preds = %514
@@ -1683,7 +1683,7 @@ select.unfold460:                                 ; preds = %373
 533:                                              ; preds = %507
   %534 = add i64 %.sroa.0.0.sroa.speculated.i.i10.i, %490
   %umax.i14.i = call i64 @llvm.umax.i64(i64 %478, i64 %534)
-  br label %.invoke1458
+  br label %.invoke1459
 
 535:                                              ; preds = %527
   %reass.sub = sub i64 %490, %486
@@ -1703,9 +1703,9 @@ select.unfold460:                                 ; preds = %373
 .lr.ph.i4.i:                                      ; preds = %538
   %541 = load i64, ptr %58, align 8, !alias.scope !203, !noalias !210, !noundef !4
   %542 = load i64, ptr %49, align 8, !alias.scope !203, !noalias !210
-  %.fr = freeze i64 %542
+  %.fr844 = freeze i64 %542
   %543 = load i64, ptr %51, align 8, !alias.scope !203, !noalias !210
-  %544 = add i64 %.fr, -1
+  %544 = add i64 %.fr844, -1
   %.first_iter.i = icmp ult i64 %544, %480
   br label %545
 
@@ -1732,7 +1732,7 @@ select.unfold460:                                 ; preds = %373
   br i1 %560, label %545, label %.thread466
 
 .preheader3.i:                                    ; preds = %545, %575
-  %.sroa.04.0.i.i = phi i64 [ %576, %575 ], [ %.fr, %545 ]
+  %.sroa.04.0.i.i = phi i64 [ %576, %575 ], [ %.fr844, %545 ]
   %561 = icmp ult i64 %.sroa.04.0.i.i, %480
   br i1 %561, label %572, label %.preheader.i.preheader
 
@@ -1740,7 +1740,7 @@ select.unfold460:                                 ; preds = %373
   br i1 %.first_iter.i, label %.preheader.i.us, label %.preheader.i.preheader.split
 
 .preheader.i.us:                                  ; preds = %.preheader.i.preheader, %566
-  %.sroa.59.0.i.i.us = phi i64 [ %563, %566 ], [ %.fr, %.preheader.i.preheader ]
+  %.sroa.59.0.i.i.us = phi i64 [ %563, %566 ], [ %.fr844, %.preheader.i.preheader ]
   %.not.i324.us = icmp eq i64 %.sroa.59.0.i.i.us, 0
   br i1 %.not.i324.us, label %.loopexit, label %562
 
@@ -1748,7 +1748,7 @@ select.unfold460:                                 ; preds = %373
   %563 = add i64 %.sroa.59.0.i.i.us, -1
   %564 = add i64 %563, %546
   %565 = icmp ult i64 %564, %478
-  br i1 %565, label %566, label %.invoke1458
+  br i1 %565, label %566, label %.invoke1459
 
 566:                                              ; preds = %562
   %567 = getelementptr inbounds i8, ptr %479, i64 %563
@@ -1763,8 +1763,8 @@ select.unfold460:                                 ; preds = %373
   br label %557
 
 .preheader.i.preheader.split:                     ; preds = %.preheader.i.preheader
-  %.not.i324 = icmp eq i64 %.fr, 0
-  br i1 %.not.i324, label %.loopexit, label %.invoke1458
+  %.not.i324 = icmp eq i64 %.fr844, 0
+  br i1 %.not.i324, label %.loopexit, label %.invoke1459
 
 572:                                              ; preds = %.preheader3.i
   %573 = add i64 %.sroa.04.0.i.i, %546
@@ -1781,13 +1781,13 @@ select.unfold460:                                 ; preds = %373
   br i1 %.not24.i.i, label %.preheader3.i, label %583
 
 581:                                              ; preds = %572
-  %582 = add i64 %546, %.fr
+  %582 = add i64 %546, %.fr844
   %umax.i.i = call i64 @llvm.umax.i64(i64 %478, i64 %582)
-  br label %.invoke1458
+  br label %.invoke1459
 
 583:                                              ; preds = %575
-  %reass.sub844 = sub i64 %546, %.fr
-  %584 = add i64 %reass.sub844, 1
+  %reass.sub845 = sub i64 %546, %.fr844
+  %584 = add i64 %reass.sub845, 1
   %585 = add i64 %584, %.sroa.04.0.i.i
   br label %557
 
@@ -2287,8 +2287,8 @@ define hidden void @"_ZN11shellexpand17full_with_context28_$u7b$$u7b$closure$u7d
   br label %_ZN11shellexpand18tilde_with_context17hd714611fcd9856c2E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfffc4e49833b3883E.exit.i": ; preds = %31
-  %rhsc16.i = load i8, ptr %30, align 1, !alias.scope !255, !noalias !252
-  %38 = icmp eq i8 %rhsc16.i, 47
+  %rhsc17.i = load i8, ptr %30, align 1, !alias.scope !255, !noalias !252
+  %38 = icmp eq i8 %rhsc17.i, 47
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfffc4e49833b3883E.exit.i", %31
@@ -2455,8 +2455,8 @@ _ZN11shellexpand18tilde_with_context17hd714611fcd9856c2E.exit: ; preds = %35, %4
   br i1 %81, label %83, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfffc4e49833b3883E.exit.i14"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfffc4e49833b3883E.exit.i14": ; preds = %78
-  %rhsc2.i = load i8, ptr %77, align 1, !noalias !279
-  %82 = icmp eq i8 %rhsc2.i, 47
+  %rhsc3.i = load i8, ptr %77, align 1, !noalias !279
+  %82 = icmp eq i8 %rhsc3.i, 47
   br i1 %82, label %83, label %.thread42
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfffc4e49833b3883E.exit.i14", %78

@@ -11596,10 +11596,9 @@ _ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit5: ; preds
   %22 = load ptr, ptr %21, align 8, !tbaa !415
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !411
-  %.fr = freeze i32 %20
-  %.fr12 = freeze i32 %24
-  %25 = icmp slt i32 %.fr, %.fr12
-  br i1 %25, label %_ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit5.thread, label %_ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit.thread
+  %25 = icmp slt i32 %20, %24
+  %cond.fr = freeze i1 %25
+  br i1 %cond.fr, label %_ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit5.thread, label %_ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit5.thread: ; preds = %6, %_ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit5
   br label %_ZNKSt4lessIN4llvm12BranchFolder18MergePotentialsEltEEclERKS2_S5_.exit.thread

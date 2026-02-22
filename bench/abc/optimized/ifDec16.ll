@@ -793,8 +793,8 @@ define i32 @If_CluSupportSize(ptr noundef readonly captures(none) %0, i32 nounde
   %4 = icmp samesign ult i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
-  %.fr37 = freeze i32 %6
-  %7 = select i1 %4, i32 1, i32 %.fr37
+  %.fr = freeze i32 %6
+  %7 = select i1 %4, i32 1, i32 %.fr
   %8 = icmp sgt i32 %7, 0
   %wide.trip.count52.i = zext nneg i32 %7 to i64
   br i1 %8, label %.lr.ph.split.us.split.us.preheader, label %._crit_edge
@@ -6162,8 +6162,8 @@ define range(i32 0, 2) i32 @If_CluCheckNonDisjointGroup(ptr noundef captures(non
   %14 = icmp slt i32 %1, 7
   %15 = add nsw i32 %1, -6
   %16 = shl nuw i32 1, %15
-  %.fr58 = freeze i32 %16
-  %17 = select i1 %14, i32 1, i32 %.fr58
+  %.fr = freeze i32 %16
+  %17 = select i1 %14, i32 1, i32 %.fr
   %18 = icmp sgt i32 %17, 0
   %wide.trip.count73.i = zext nneg i32 %17 to i64
   %wide.trip.count78 = zext nneg i32 %11 to i64
@@ -6412,8 +6412,8 @@ define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If
   %54 = sext i32 %3 to i64
   %55 = sext i32 %41 to i64
   %56 = sext i32 %42 to i64
-  %wide.trip.count201 = zext nneg i32 %7 to i64
-  %invariant.gep219 = getelementptr i32, ptr %6, i64 %55
+  %wide.trip.count202 = zext nneg i32 %7 to i64
+  %invariant.gep220 = getelementptr i32, ptr %6, i64 %55
   br label %57
 
 57:                                               ; preds = %.preheader, %154
@@ -6426,10 +6426,10 @@ define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If
   br i1 %.not152166, label %._crit_edge172, label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %59, %70
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %70 ], [ %53, %59 ]
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %70 ], [ %53, %59 ]
   %.0169 = phi i32 [ %.1, %70 ], [ %61, %59 ]
   %.0135168 = phi i32 [ %.1136, %70 ], [ %60, %59 ]
-  %62 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv192
+  %62 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv193
   %63 = load i32, ptr %62, align 4, !tbaa !5
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i32, ptr %5, i64 %64
@@ -6446,8 +6446,8 @@ define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If
 70:                                               ; preds = %.lr.ph171, %68
   %.1136 = phi i32 [ %69, %68 ], [ %.0135168, %.lr.ph171 ]
   %.1 = phi i32 [ %67, %68 ], [ %.0169, %.lr.ph171 ]
-  %indvars.iv.next193 = add nsw i64 %indvars.iv192, -1
-  %.not152.not = icmp sgt i64 %indvars.iv192, %54
+  %indvars.iv.next194 = add nsw i64 %indvars.iv193, -1
+  %.not152.not = icmp sgt i64 %indvars.iv193, %54
   br i1 %.not152.not, label %.lr.ph171, label %._crit_edge172, !llvm.loop !166
 
 ._crit_edge172:                                   ; preds = %70, %59
@@ -6465,10 +6465,10 @@ define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If
   br i1 %43, label %.lr.ph177, label %._crit_edge178
 
 .lr.ph177:                                        ; preds = %75, %136
-  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %136 ], [ %55, %75 ]
+  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %136 ], [ %55, %75 ]
   %.2175 = phi i32 [ %.3, %136 ], [ %77, %75 ]
   %.2137174 = phi i32 [ %.3138, %136 ], [ %76, %75 ]
-  %78 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv195
+  %78 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv196
   %79 = load i32, ptr %78, align 4, !tbaa !5
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i32, ptr %5, i64 %80
@@ -6648,8 +6648,8 @@ If_CluCountCofs.exit:                             ; preds = %.loopexit, %.thread
 136:                                              ; preds = %If_CluCountCofs.exit, %134
   %.3138 = phi i32 [ %135, %134 ], [ %.2137174, %If_CluCountCofs.exit ]
   %.3 = phi i32 [ %.3103.i, %134 ], [ %.2175, %If_CluCountCofs.exit ]
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %137 = icmp slt i64 %indvars.iv.next196, %56
+  %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
+  %137 = icmp slt i64 %indvars.iv.next197, %56
   br i1 %137, label %.lr.ph177, label %._crit_edge178, !llvm.loop !167
 
 ._crit_edge178:                                   ; preds = %136, %75
@@ -6671,15 +6671,15 @@ If_CluCountCofs.exit:                             ; preds = %.loopexit, %.thread
   br i1 %16, label %.lr.ph182, label %thread-pre-split
 
 .lr.ph182:                                        ; preds = %144, %.lr.ph182
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.lr.ph182 ], [ 0, %144 ]
-  %gep220 = getelementptr i32, ptr %invariant.gep219, i64 %indvars.iv198
-  %146 = load i32, ptr %gep220, align 4, !tbaa !5
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph182 ], [ 0, %144 ]
+  %gep221 = getelementptr i32, ptr %invariant.gep220, i64 %indvars.iv199
+  %146 = load i32, ptr %gep221, align 4, !tbaa !5
   %147 = trunc i32 %146 to i8
-  %148 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv198
+  %148 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv199
   store i8 %147, ptr %148, align 1, !tbaa !58
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %thread-pre-split, label %.lr.ph182, !llvm.loop !168
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
+  br i1 %exitcond203.not, label %thread-pre-split, label %.lr.ph182, !llvm.loop !168
 
 thread-pre-split:                                 ; preds = %.lr.ph182, %144, %._crit_edge178
   %149 = phi i8 [ %142, %._crit_edge178 ], [ %145, %144 ], [ %145, %.lr.ph182 ]
@@ -6885,8 +6885,8 @@ define range(i32 0, 2) i32 @If_CluMinimumBase(ptr noundef captures(none) %0, ptr
   %7 = icmp samesign ult i32 %2, 7
   %8 = add nsw i32 %2, -6
   %9 = shl nuw i32 1, %8
-  %.fr76 = freeze i32 %9
-  %10 = select i1 %7, i32 1, i32 %.fr76
+  %.fr = freeze i32 %9
+  %10 = select i1 %7, i32 1, i32 %.fr
   %11 = icmp sgt i32 %10, 0
   %wide.trip.count52.i = zext nneg i32 %10 to i64
   %.not32 = icmp eq ptr %1, null
@@ -7292,8 +7292,8 @@ If_CluCopy.exit:                                  ; preds = %.lr.ph.preheader.i,
   %37 = icmp slt i32 %3, 7
   %38 = add nsw i32 %3, -6
   %39 = shl nuw i32 1, %38
-  %.fr37.i = freeze i32 %39
-  %40 = select i1 %37, i32 1, i32 %.fr37.i
+  %.fr.i = freeze i32 %39
+  %40 = select i1 %37, i32 1, i32 %.fr.i
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph.preheader.i145, label %If_CluCopy.exit151
 
@@ -7324,7 +7324,7 @@ If_CluCopy.exit151:                               ; preds = %.lr.ph.preheader.i1
 
 .lr.ph.i152:                                      ; preds = %.lr.ph
   %47 = icmp samesign ult i32 %3, 7
-  %48 = select i1 %47, i32 1, i32 %.fr37.i
+  %48 = select i1 %47, i32 1, i32 %.fr.i
   %49 = icmp sgt i32 %48, 0
   %wide.trip.count52.i.i = zext nneg i32 %48 to i64
   br i1 %49, label %.lr.ph.split.us.split.us.preheader.i, label %If_CluSupport.exit.thread

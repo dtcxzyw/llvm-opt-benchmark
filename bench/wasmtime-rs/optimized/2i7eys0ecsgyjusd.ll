@@ -1969,13 +1969,13 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
           to label %.noexc115 unwind label %.loopexit.split-lp.loopexit
 
 .noexc115:                                        ; preds = %229
-  %.fr.i = freeze { i64, i64 } %234
-  %235 = extractvalue { i64, i64 } %.fr.i, 0
+  %.fr9.i = freeze { i64, i64 } %234
+  %235 = extractvalue { i64, i64 } %.fr9.i, 0
   %236 = icmp eq i64 %235, 0
   br i1 %236, label %249, label %237
 
 237:                                              ; preds = %.noexc115
-  %238 = extractvalue { i64, i64 } %.fr.i, 1
+  %238 = extractvalue { i64, i64 } %.fr9.i, 1
   %239 = zext i32 %233 to i64
   %240 = add i64 %238, %239
   %241 = load ptr, ptr %223, align 8, !alias.scope !298, !noalias !297, !nonnull !4, !noundef !4

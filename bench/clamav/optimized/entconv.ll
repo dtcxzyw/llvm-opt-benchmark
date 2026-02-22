@@ -2026,7 +2026,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   br label %30
 
 30:                                               ; preds = %.lr.ph, %102
-  %.090106 = phi i64 [ 0, %.lr.ph ], [ %.1.fr, %102 ]
+  %.090106 = phi i64 [ 0, %.lr.ph ], [ %.1, %102 ]
   %.192105 = phi i64 [ %.091, %.lr.ph ], [ %103, %102 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.192105
   %32 = load i16, ptr %31, align 1, !tbaa !3
@@ -2138,16 +2138,16 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
 102:                                              ; preds = %40, %71, %97, %52, %34
   %.293 = phi i64 [ %.192105, %34 ], [ %.192105, %40 ], [ %.192105, %52 ], [ %96, %71 ], [ %.192105, %97 ]
   %.1 = phi i64 [ %36, %34 ], [ %49, %40 ], [ %66, %52 ], [ %95, %71 ], [ %100, %97 ]
-  %.1.fr = freeze i64 %.1
   %103 = add i64 %.293, 2
   %104 = icmp ult i64 %103, %.088
-  %105 = icmp ult i64 %.1.fr, %6
-  %106 = select i1 %104, i1 %105, i1 false
+  %105 = icmp ult i64 %.1, %6
+  %cond.fr = freeze i1 %105
+  %106 = and i1 %104, %cond.fr
   br i1 %106, label %30, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %102
   %107 = add nuw i64 %5, 1
-  %spec.select117 = select i1 %105, i64 %.1.fr, i64 %107
+  %spec.select117 = select i1 %cond.fr, i64 %.1, i64 %107
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %26

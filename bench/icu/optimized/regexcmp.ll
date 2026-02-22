@@ -6039,8 +6039,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit115:      ; preds = %_ZNK6icu_779UVector
   %130 = zext nneg i32 %125 to i64
   %131 = getelementptr inbounds nuw i64, ptr %129, i64 %130
   %132 = load i64, ptr %131, align 8, !tbaa !116
-  %.fr = freeze i64 %132
-  %133 = and i64 %.fr, 4294967295
+  %.fr181 = freeze i64 %132
+  %133 = and i64 %.fr181, 4294967295
   %134 = icmp eq i64 %133, 0
   %135 = add nsw i32 %.177145, 3
   br i1 %134, label %_ZNK6icu_779UVector6410elementAtiEi.exit115.thread, label %_ZNK6icu_779UVector3210elementAtiEi.exit101
@@ -6062,15 +6062,15 @@ _ZNK6icu_779UVector6410elementAtiEi.exit115.thread: ; preds = %_ZNK6icu_779UVect
   %140 = load ptr, ptr %139, align 8, !tbaa !115
   %141 = load i32, ptr %13, align 8
   %142 = load ptr, ptr %14, align 8
-  br label %.thread126.outer182
+  br label %.thread126.outer183
 
-.thread126.outer182:                              ; preds = %.thread126.outer182.backedge, %.thread126.outer
-  %.480.ph183 = phi i32 [ %.480.ph, %.thread126.outer ], [ %143, %.thread126.outer182.backedge ]
-  %.075.ph184 = phi i32 [ %.075.ph, %.thread126.outer ], [ %.075.ph184.be, %.thread126.outer182.backedge ]
+.thread126.outer183:                              ; preds = %.thread126.outer183.backedge, %.thread126.outer
+  %.480.ph184 = phi i32 [ %.480.ph, %.thread126.outer ], [ %143, %.thread126.outer183.backedge ]
+  %.075.ph185 = phi i32 [ %.075.ph, %.thread126.outer ], [ %.075.ph185.be, %.thread126.outer183.backedge ]
   br label %.thread126
 
-.thread126:                                       ; preds = %.thread126.outer182, %.thread126
-  %.480 = phi i32 [ %143, %.thread126 ], [ %.480.ph183, %.thread126.outer182 ]
+.thread126:                                       ; preds = %.thread126.outer183, %.thread126
+  %.480 = phi i32 [ %143, %.thread126 ], [ %.480.ph184, %.thread126.outer183 ]
   %143 = add nsw i32 %.480, 1
   %144 = icmp sgt i32 %.480, -2
   %145 = icmp slt i32 %143, %.pre151156.ph
@@ -6084,13 +6084,13 @@ _ZNK6icu_779UVector6410elementAtiEi.exit117:      ; preds = %.thread126
   %149 = trunc i64 %148 to i32
   %150 = lshr i32 %149, 24
   %151 = icmp eq i32 %150, 37
-  %152 = add nsw i32 %.075.ph184, 2
-  %spec.select = select i1 %151, i32 %152, i32 %.075.ph184
+  %152 = add nsw i32 %.075.ph185, 2
+  %spec.select = select i1 %151, i32 %152, i32 %.075.ph185
   %153 = icmp eq i32 %150, 44
   %154 = zext i1 %153 to i32
   %.2 = add nsw i32 %spec.select, %154
   %trunc132 = trunc nuw i32 %150 to i8
-  switch i8 %trunc132, label %.thread126.outer182.backedge [
+  switch i8 %trunc132, label %.thread126.outer183.backedge [
     i8 38, label %155
     i8 48, label %158
     i8 6, label %161
@@ -6099,21 +6099,21 @@ _ZNK6icu_779UVector6410elementAtiEi.exit117:      ; preds = %.thread126
 155:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit117
   %156 = add nsw i32 %spec.select, -1
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %_ZNK6icu_779UVector3210elementAtiEi.exit101, label %.thread126.outer182.backedge
+  br i1 %157, label %_ZNK6icu_779UVector3210elementAtiEi.exit101, label %.thread126.outer183.backedge
 
-.thread126.outer182.backedge:                     ; preds = %155, %_ZNK6icu_779UVector6410elementAtiEi.exit117, %161, %_ZNK6icu_779UVector3210elementAtiEi.exit119, %158
-  %.075.ph184.be = phi i32 [ %159, %158 ], [ %.2, %_ZNK6icu_779UVector3210elementAtiEi.exit119 ], [ %.2, %161 ], [ %.2, %_ZNK6icu_779UVector6410elementAtiEi.exit117 ], [ %156, %155 ]
-  br label %.thread126.outer182, !llvm.loop !136
+.thread126.outer183.backedge:                     ; preds = %155, %_ZNK6icu_779UVector6410elementAtiEi.exit117, %161, %_ZNK6icu_779UVector3210elementAtiEi.exit119, %158
+  %.075.ph185.be = phi i32 [ %159, %158 ], [ %.2, %_ZNK6icu_779UVector3210elementAtiEi.exit119 ], [ %.2, %161 ], [ %.2, %_ZNK6icu_779UVector6410elementAtiEi.exit117 ], [ %156, %155 ]
+  br label %.thread126.outer183, !llvm.loop !136
 
 158:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit117
   %159 = add nsw i32 %.2, -1
   %160 = icmp eq i32 %159, 0
-  br i1 %160, label %_ZNK6icu_779UVector3210elementAtiEi.exit101, label %.thread126.outer182.backedge
+  br i1 %160, label %_ZNK6icu_779UVector3210elementAtiEi.exit101, label %.thread126.outer183.backedge
 
 161:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit117
   %162 = and i32 %149, 16777215
   %163 = icmp samesign ugt i32 %162, %143
-  br i1 %163, label %164, label %.thread126.outer182.backedge
+  br i1 %163, label %164, label %.thread126.outer183.backedge
 
 164:                                              ; preds = %161
   %165 = icmp sgt i32 %141, %162
@@ -6128,7 +6128,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit117:      ; preds = %.thread126
 _ZNK6icu_779UVector3210elementAtiEi.exit119:      ; preds = %164, %166
   %170 = phi i32 [ %169, %166 ], [ 0, %164 ]
   %171 = icmp slt i32 %.182, %170
-  br i1 %171, label %172, label %.thread126.outer182.backedge
+  br i1 %171, label %172, label %.thread126.outer183.backedge
 
 172:                                              ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit119
   invoke void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %.182, i32 noundef %162)
@@ -8832,8 +8832,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %15
   %20 = zext nneg i32 %16 to i64
   %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !116
-  %.fr = freeze i64 %22
-  %23 = and i64 %.fr, 4278190080
+  %.fr12 = freeze i64 %22
+  %23 = and i64 %.fr12, 4278190080
   %24 = icmp eq i64 %23, 83886080
   %25 = add nsw i32 %8, -2
   %spec.select = select i1 %24, i32 %25, i32 %16
@@ -9169,8 +9169,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %22
   %27 = zext nneg i32 %23 to i64
   %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !116
-  %.fr.i = freeze i64 %29
-  %30 = and i64 %.fr.i, 4278190080
+  %.fr12.i = freeze i64 %29
+  %30 = and i64 %.fr12.i, 4278190080
   %31 = icmp eq i64 %30, 83886080
   %32 = add nsw i32 %15, -2
   %spec.select.i = select i1 %31, i32 %32, i32 %23
@@ -9330,8 +9330,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %18
   %23 = zext nneg i32 %19 to i64
   %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !116
-  %.fr.i = freeze i64 %25
-  %26 = and i64 %.fr.i, 4278190080
+  %.fr12.i = freeze i64 %25
+  %26 = and i64 %.fr12.i, 4278190080
   %27 = icmp eq i64 %26, 83886080
   %28 = add nsw i32 %11, -2
   %spec.select.i = select i1 %27, i32 %28, i32 %19

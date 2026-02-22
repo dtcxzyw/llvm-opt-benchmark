@@ -1226,13 +1226,13 @@ define internal fastcc i32 @canon_string(ptr noundef %0, i64 noundef %1, ptr nou
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.04475, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !88
-  %.fr = freeze i8 %24
-  %25 = add i8 %.fr, -48
+  %.fr77 = freeze i8 %24
+  %25 = add i8 %.fr77, -48
   %or.cond61 = icmp ult i8 %25, 10
   br i1 %or.cond61, label %26, label %switch.early.test
 
 switch.early.test:                                ; preds = %22
-  switch i8 %.fr, label %37 [
+  switch i8 %.fr77, label %37 [
     i8 102, label %26
     i8 101, label %26
     i8 100, label %26
@@ -1250,13 +1250,13 @@ switch.early.test:                                ; preds = %22
 26:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %22
   %27 = getelementptr inbounds nuw i8, ptr %.04475, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !88
-  %.fr77 = freeze i8 %28
-  %29 = add i8 %.fr77, -48
+  %.fr78 = freeze i8 %28
+  %29 = add i8 %.fr78, -48
   %or.cond64 = icmp ult i8 %29, 10
   br i1 %or.cond64, label %30, label %switch.early.test73
 
 switch.early.test73:                              ; preds = %26
-  switch i8 %.fr77, label %37 [
+  switch i8 %.fr78, label %37 [
     i8 102, label %30
     i8 101, label %30
     i8 100, label %30

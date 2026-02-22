@@ -461,10 +461,10 @@ define internal fastcc noalias nonnull ptr @genRound(ptr noundef %0, ptr noundef
 
 .thread28:                                        ; preds = %4
   %6 = tail call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 10) #14
-  %.fr = freeze i64 %6
-  %7 = trunc i64 %.fr to i32
+  %.fr30 = freeze i64 %6
+  %7 = trunc i64 %.fr30 to i32
   %8 = icmp slt i32 %7, 3
-  %9 = and i64 %.fr, 2147483647
+  %9 = and i64 %.fr30, 2147483647
   %spec.select = select i1 %8, i64 20, i64 %9
   %10 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 16) #15
   %11 = icmp eq ptr %10, null
@@ -476,8 +476,8 @@ define internal fastcc noalias nonnull ptr @genRound(ptr noundef %0, ptr noundef
   br i1 %13, label %27, label %.lr.ph
 
 gv_calloc.exit.preheader:                         ; preds = %.thread28
-  %.not31 = icmp eq i64 %spec.select, 0
-  br i1 %.not31, label %gv_calloc.exit._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i64 %spec.select, 0
+  br i1 %.not32, label %gv_calloc.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread28.thread, %gv_calloc.exit.preheader
   %14 = phi i64 [ %spec.select, %gv_calloc.exit.preheader ], [ 20, %.thread28.thread ]
@@ -510,20 +510,20 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   ret ptr %33
 
 gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.exit
-  %.030 = phi i64 [ 0, %.lr.ph ], [ %44, %gv_calloc.exit ]
-  %34 = uitofp nneg i64 %.030 to double
+  %.031 = phi i64 [ 0, %.lr.ph ], [ %44, %gv_calloc.exit ]
+  %34 = uitofp nneg i64 %.031 to double
   %35 = fdiv double %34, %22
   %36 = fmul double %35, 0x400921FB54442D18
   %37 = fmul double %36, 2.000000e+00
   %38 = tail call double @cos(double noundef %37) #14, !tbaa !51
   %39 = fmul double %38, %21
-  %40 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i64 %.030
+  %40 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i64 %.031
   store double %39, ptr %40, align 8, !tbaa !38
   %41 = tail call double @sin(double noundef %37) #14, !tbaa !51
   %42 = fmul double %41, %26
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store double %42, ptr %43, align 8, !tbaa !39
-  %44 = add nuw nsw i64 %.030, 1
+  %44 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %44, %14
   br i1 %exitcond.not, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit, !llvm.loop !57
 }

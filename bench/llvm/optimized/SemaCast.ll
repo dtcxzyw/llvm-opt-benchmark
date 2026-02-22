@@ -24177,8 +24177,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %309, %_ZNK5clang4Ty
 
 _ZNK5clang4Type13isBooleanTypeEv.exit185:         ; preds = %354
   %367 = load i32, ptr %364, align 16
-  %.fr = freeze i32 %367
-  %368 = and i32 %.fr, 267911168
+  %.fr301 = freeze i32 %367
+  %368 = and i32 %.fr301, 267911168
   %369 = icmp eq i32 %368, 228065280
   %spec.select = select i1 %369, i32 28, i32 27
   br label %_ZNK5clang4Type13isBooleanTypeEv.exit185.thread

@@ -1458,8 +1458,8 @@ define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr noundef r
   %6 = load i32, ptr %5, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4, !tbaa !48
-  %.fr48 = freeze i32 %8
-  %9 = zext i32 %.fr48 to i64
+  %.fr49 = freeze i32 %8
+  %9 = zext i32 %.fr49 to i64
   %10 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !49
   %12 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %9
@@ -2101,8 +2101,8 @@ define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr noundef readon
   %6 = load i32, ptr %5, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4, !tbaa !48
-  %.fr68 = freeze i32 %8
-  %9 = zext i32 %.fr68 to i64
+  %.fr69 = freeze i32 %8
+  %9 = zext i32 %.fr69 to i64
   %10 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !49
   %12 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %9

@@ -231,13 +231,13 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %56 = load ptr, ptr %55, align 8, !tbaa !58
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
-  %.fr.i.i = freeze i32 %58
-  %59 = and i32 %.fr.i.i, 255
+  %.fr8.i.i = freeze i32 %58
+  %59 = and i32 %.fr8.i.i, 255
   %60 = icmp eq i32 %59, 12
   br i1 %60, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %61
 
 61:                                               ; preds = %54
-  %trunc.i.i.i.i = trunc i32 %.fr.i.i to i8
+  %trunc.i.i.i.i = trunc i32 %.fr8.i.i to i8
   switch i8 %trunc.i.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
@@ -247,7 +247,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %61
-  %62 = and i32 %.fr.i.i, 253
+  %62 = and i32 %.fr8.i.i, 253
   %spec.select.i.i.i = icmp eq i32 %62, 4
   br i1 %spec.select.i.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %switch.early.test.i.i
 

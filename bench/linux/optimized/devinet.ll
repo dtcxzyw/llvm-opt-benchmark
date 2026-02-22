@@ -2811,8 +2811,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load i64, ptr %21, align 8
-  %.fr69 = freeze i64 %22
-  %23 = trunc i64 %.fr69 to i32
+  %23 = trunc i64 %22 to i32
   %24 = getelementptr i8, ptr %1, i64 88
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
@@ -3005,11 +3004,11 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %126 = load ptr, ptr %115, align 8
   %127 = load i32, ptr %116, align 8
   %128 = icmp eq i32 %127, 0
-  %.pre101 = load i32, ptr %117, align 4
+  %.pre99 = load i32, ptr %117, align 4
   br i1 %128, label %135, label %129
 
 129:                                              ; preds = %125
-  %130 = icmp eq i32 %.pre101, %127
+  %130 = icmp eq i32 %.pre99, %127
   br i1 %130, label %135, label %131
 
 131:                                              ; preds = %129
@@ -3017,11 +3016,11 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %133 = load i16, ptr %132, align 2
   %134 = or i16 %133, 16
   store i16 %134, ptr %132, align 2
-  %.pre100 = load i32, ptr %117, align 4
+  %.pre98 = load i32, ptr %117, align 4
   br label %135
 
 135:                                              ; preds = %131, %129, %125
-  %136 = phi i32 [ %.pre100, %131 ], [ %127, %129 ], [ %.pre101, %125 ]
+  %136 = phi i32 [ %.pre98, %131 ], [ %127, %129 ], [ %.pre99, %125 ]
   store i32 %136, ptr %116, align 8
   br label %137
 
@@ -3057,7 +3056,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %160 = shl i64 %.fr69, 32
+  %160 = shl i64 %22, 32
   %161 = ashr exact i64 %160, 32
   br label %162
 
@@ -3083,7 +3082,8 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
 
 178:                                              ; preds = %162
   %179 = icmp sgt i64 %163, %161
-  br i1 %179, label %.split.us, label %.split
+  %.fr = freeze i1 %179
+  br i1 %.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %178, %217
   %180 = phi i32 [ %219, %217 ], [ 0, %178 ]
@@ -3119,11 +3119,11 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %199 = load ptr, ptr %158, align 8
   %200 = load i32, ptr %159, align 8
   %201 = icmp eq i32 %200, 0
-  %.pre105 = load i32, ptr %157, align 4
+  %.pre103 = load i32, ptr %157, align 4
   br i1 %201, label %208, label %202
 
 202:                                              ; preds = %198
-  %203 = icmp eq i32 %.pre105, %200
+  %203 = icmp eq i32 %.pre103, %200
   br i1 %203, label %208, label %204
 
 204:                                              ; preds = %202
@@ -3131,11 +3131,11 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %206 = load i16, ptr %205, align 2
   %207 = or i16 %206, 16
   store i16 %207, ptr %205, align 2
-  %.pre104 = load i32, ptr %157, align 4
+  %.pre102 = load i32, ptr %157, align 4
   br label %208
 
 208:                                              ; preds = %204, %202, %198
-  %209 = phi i32 [ %.pre104, %204 ], [ %200, %202 ], [ %.pre105, %198 ]
+  %209 = phi i32 [ %.pre102, %204 ], [ %200, %202 ], [ %.pre103, %198 ]
   store i32 %209, ptr %159, align 8
   br label %210
 
@@ -3185,7 +3185,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
-  br i1 %238, label %.sink.split171, label %.preheader
+  br i1 %238, label %.sink.split169, label %.preheader
 
 .preheader:                                       ; preds = %235, %257
   %239 = phi ptr [ %260, %257 ], [ %237, %235 ]
@@ -3202,11 +3202,11 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %246 = load ptr, ptr %158, align 8
   %247 = load i32, ptr %159, align 8
   %248 = icmp eq i32 %247, 0
-  %.pre103 = load i32, ptr %157, align 4
+  %.pre101 = load i32, ptr %157, align 4
   br i1 %248, label %255, label %249
 
 249:                                              ; preds = %245
-  %250 = icmp eq i32 %.pre103, %247
+  %250 = icmp eq i32 %.pre101, %247
   br i1 %250, label %255, label %251
 
 251:                                              ; preds = %249
@@ -3214,11 +3214,11 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %253 = load i16, ptr %252, align 2
   %254 = or i16 %253, 16
   store i16 %254, ptr %252, align 2
-  %.pre102 = load i32, ptr %157, align 4
+  %.pre100 = load i32, ptr %157, align 4
   br label %255
 
 255:                                              ; preds = %251, %249, %245
-  %256 = phi i32 [ %.pre102, %251 ], [ %247, %249 ], [ %.pre103, %245 ]
+  %256 = phi i32 [ %.pre100, %251 ], [ %247, %249 ], [ %.pre101, %245 ]
   store i32 %256, ptr %159, align 8
   br label %257
 
@@ -3231,7 +3231,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
 
 262:                                              ; preds = %257
   %263 = sext i32 %258 to i64
-  br label %.sink.split171
+  br label %.sink.split169
 
 .split62.us:                                      ; preds = %242, %195
   %.us-phi63 = phi i32 [ %180, %195 ], [ %226, %242 ]
@@ -3242,13 +3242,13 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   call void @__rcu_read_unlock() #17
   br label %.loopexit41
 
-.sink.split171:                                   ; preds = %235, %262
-  %.sink172 = phi i64 [ %263, %262 ], [ 0, %235 ]
-  store i64 %.sink172, ptr %27, align 8
+.sink.split169:                                   ; preds = %235, %262
+  %.sink170 = phi i64 [ %263, %262 ], [ 0, %235 ]
+  store i64 %.sink170, ptr %27, align 8
   br label %265
 
-265:                                              ; preds = %.sink.split171, %230, %.split
-  %266 = phi i32 [ %227, %.split ], [ %spec.select, %230 ], [ %spec.select, %.sink.split171 ]
+265:                                              ; preds = %.sink.split169, %230, %.split
+  %266 = phi i32 [ %227, %.split ], [ %spec.select, %230 ], [ %spec.select, %.sink.split169 ]
   %267 = add i32 %226, 1
   %268 = getelementptr inbounds nuw i8, ptr %228, i64 1040
   %269 = load volatile ptr, ptr %268, align 8
@@ -3262,13 +3262,13 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %274 = phi i32 [ %165, %162 ], [ %218, %217 ], [ %266, %265 ]
   %275 = phi i32 [ 0, %162 ], [ %219, %217 ], [ %267, %265 ]
   call void @__rcu_read_unlock() #17
-  %276 = add i64 %163, 1
+  %276 = add nsw i64 %163, 1
   %277 = and i64 %276, 4294967295
   %278 = icmp eq i64 %277, 256
   br i1 %278, label %.loopexit41, label %162, !llvm.loop !71
 
 .loopexit41:                                      ; preds = %.loopexit, %.split62.us, %149
-  %279 = phi i64 [ %163, %.split62.us ], [ %.fr69, %149 ], [ 256, %.loopexit ]
+  %279 = phi i64 [ %163, %.split62.us ], [ %22, %149 ], [ 256, %.loopexit ]
   %280 = phi i32 [ %.us-phi65, %.split62.us ], [ 0, %149 ], [ 0, %.loopexit ]
   %281 = phi i32 [ %.us-phi63, %.split62.us ], [ %26, %149 ], [ %275, %.loopexit ]
   %282 = shl i64 %279, 32

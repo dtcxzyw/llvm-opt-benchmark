@@ -68,13 +68,11 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %.val337.i = load i32, ptr %12, align 8
   %.val337.fr.i = freeze i32 %.val337.i
   %.val339.i = load i32, ptr %13, align 8
-  %.val339.fr.i = freeze i32 %.val339.i
-  %36 = ashr i32 %.val339.fr.i, 2
+  %36 = ashr i32 %.val339.i, 2
   %37 = ashr i32 %.val679, 2
   %.val341.i = load ptr, ptr %17, align 8
   %.val342.i = load i32, ptr %19, align 4
-  %.val.fr.i = freeze i32 %.val.i
-  %reass.sub.i = sub i32 %.val.fr.i, %4
+  %reass.sub.i = sub i32 %.val.i, %4
   %38 = add i32 %reass.sub.i, 1
   %39 = mul nsw i32 %37, %6
   %40 = sext i32 %39 to i64
@@ -105,7 +103,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %55 = sext i32 %54 to i64
   %56 = mul nsw i32 %36, 3
   %57 = sext i32 %56 to i64
-  %58 = and i32 %.val339.fr.i, -4
+  %58 = and i32 %.val339.i, -4
   %59 = sext i32 %58 to i64
   %60 = sext i32 %37 to i64
   %61 = shl nsw i32 %37, 1
@@ -495,18 +493,19 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
 
 .lr.ph69.us.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge70.split.us89.i
   %.029982.us.i = phi i32 [ %249, %._crit_edge70.split.us89.i ], [ 0, %.lr.ph.split.us.i ]
-  %245 = sub i32 %38, %.029982.us.i
+  %245 = sub nsw i32 %38, %.029982.us.i
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %245, i32 %spec.store.select.i)
-  %246 = icmp sgt i32 %spec.select.us.i, 0
+  %spec.select.us.fr.i = freeze i32 %spec.select.us.i
+  %246 = icmp sgt i32 %spec.select.us.fr.i, 0
   br i1 %246, label %.lr.ph69.split.split.us.us.preheader.i, label %._crit_edge70.split.us89.i
 
 .lr.ph69.split.split.us.us.preheader.i:           ; preds = %.lr.ph69.us.i
-  %247 = zext nneg i32 %spec.select.us.i to i64
+  %247 = zext nneg i32 %spec.select.us.fr.i to i64
   %248 = shl nuw nsw i64 %247, 2
   br label %.lr.ph69.split.split.us.us.i
 
 ._crit_edge70.split.us89.i:                       ; preds = %..preheader5_crit_edge.us76.us.i, %.lr.ph69.us.i
-  %249 = add i32 %spec.select.us.i, %.029982.us.i
+  %249 = add nsw i32 %spec.select.us.fr.i, %.029982.us.i
   %250 = icmp slt i32 %249, %38
   br i1 %250, label %.lr.ph69.us.i, label %._crit_edge.i, !llvm.loop !16
 

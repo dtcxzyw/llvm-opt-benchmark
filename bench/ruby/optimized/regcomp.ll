@@ -3111,8 +3111,8 @@ add_opcode_rel_addr.exit.thread255:               ; preds = %73, %66, %25
 122:                                              ; preds = %tailrecurse
   %123 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %124 = load i32, ptr %123, align 8, !tbaa !34
-  %.fr74.i = freeze i32 %124
-  %125 = and i32 %.fr74.i, 1
+  %.fr.i = freeze i32 %124
+  %125 = and i32 %.fr.i, 1
   %.not155 = icmp eq i32 %125, 0
   %126 = getelementptr i8, ptr %.tr, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !157
@@ -3140,7 +3140,7 @@ add_opcode_rel_addr.exit.thread255:               ; preds = %73, %66, %25
   br i1 %.not.i180, label %139, label %common.ret
 
 139:                                              ; preds = %134
-  %140 = and i32 %.fr74.i, 2
+  %140 = and i32 %.fr.i, 2
   %.not75.i = icmp eq i32 %140, 0
   %.lobit.i = lshr exact i32 %140, 1
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -11344,8 +11344,8 @@ define internal fastcc i32 @compile_length_tree(ptr noundef readonly captures(no
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !34
-  %.fr25.i = freeze i32 %26
-  %27 = and i32 %.fr25.i, 1
+  %.fr.i = freeze i32 %26
+  %27 = and i32 %.fr.i, 1
   %.not58 = icmp eq i32 %27, 0
   %28 = getelementptr i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !157
@@ -11377,7 +11377,7 @@ add_compile_string_length.exit.i:                 ; preds = %30
   br i1 %.not.i63, label %43, label %common.ret166
 
 43:                                               ; preds = %39
-  %44 = and i32 %.fr25.i, 2
+  %44 = and i32 %.fr.i, 2
   %.not26.i = icmp eq i32 %44, 0
   %45 = getelementptr inbounds nuw i8, ptr %.val62, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !159

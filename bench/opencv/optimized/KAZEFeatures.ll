@@ -3159,8 +3159,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
 
 38:                                               ; preds = %107
   %39 = add nsw i32 %.092167, 1
-  %exitcond191.not = icmp eq i32 %39, 7
-  br i1 %exitcond191.not, label %.preheader, label %.preheader162, !llvm.loop !193
+  %exitcond189.not = icmp eq i32 %39, 7
+  br i1 %exitcond189.not, label %.preheader, label %.preheader162, !llvm.loop !193
 
 40:                                               ; preds = %.preheader162, %107
   %.091165 = phi i32 [ -6, %.preheader162 ], [ %108, %107 ]
@@ -3241,17 +3241,17 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   br label %99
 
 99:                                               ; preds = %96, %58
-  %.sink203 = phi i64 [ %97, %96 ], [ %82, %58 ]
+  %.sink202 = phi i64 [ %97, %96 ], [ %82, %58 ]
   %.sink = phi float [ 0.000000e+00, %96 ], [ %93, %58 ]
   %100 = phi float [ 0.000000e+00, %96 ], [ %81, %58 ]
-  %101 = getelementptr inbounds nuw float, ptr %5, i64 %.sink203
+  %101 = getelementptr inbounds nuw float, ptr %5, i64 %.sink202
   store float %.sink, ptr %101, align 4, !tbaa !8
   %102 = invoke noundef float @_ZN2cv9fastAtan2Eff(float noundef %.sink, float noundef %100)
           to label %103 unwind label %94
 
 103:                                              ; preds = %99
   %104 = fmul float %102, 0x3F91DF46A0000000
-  %105 = getelementptr inbounds nuw float, ptr %7, i64 %.sink203
+  %105 = getelementptr inbounds nuw float, ptr %7, i64 %.sink202
   store float %104, ptr %105, align 4, !tbaa !8
   %106 = add nsw i32 %.1106164, 1
   br label %107
@@ -3271,7 +3271,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   %113 = select i1 %111, float %112, float %110
   %114 = fcmp olt float %.093185, %113
   %115 = fcmp olt float %113, %.093185
-  br i1 %115, label %.split.us, label %.split
+  %.fr = freeze i1 %115
+  br i1 %.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %109, %132
   %.0170.us = phi i64 [ %133, %132 ], [ 0, %109 ]
@@ -3312,8 +3313,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   %.198.us = phi float [ %.097168.us, %123 ], [ %128, %.sink.split ]
   %.196.us = phi float [ %.095169.us, %123 ], [ %131, %.sink.split ]
   %133 = add nuw nsw i64 %.0170.us, 1
-  %exitcond193.not = icmp eq i64 %133, 109
-  br i1 %exitcond193.not, label %.split172.us, label %.split.us, !llvm.loop !196
+  %exitcond191.not = icmp eq i64 %133, 109
+  br i1 %exitcond191.not, label %.split172.us, label %.split.us, !llvm.loop !196
 
 .split:                                           ; preds = %109
   br i1 %114, label %.split.split.us, label %.split172.us
@@ -3342,8 +3343,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   %.198.us178 = phi float [ %141, %138 ], [ %.097168.us176, %.split.split.us ]
   %.196.us179 = phi float [ %144, %138 ], [ %.095169.us175, %.split.split.us ]
   %146 = add nuw nsw i64 %.0170.us174, 1
-  %exitcond192.not = icmp eq i64 %146, 109
-  br i1 %exitcond192.not, label %.split172.us, label %.split.split.us, !llvm.loop !196
+  %exitcond190.not = icmp eq i64 %146, 109
+  br i1 %exitcond190.not, label %.split172.us, label %.split.split.us, !llvm.loop !196
 
 .split172.us:                                     ; preds = %145, %132, %.split
   %.us-phi = phi float [ %.198.us, %132 ], [ 0.000000e+00, %.split ], [ %.198.us178, %145 ]

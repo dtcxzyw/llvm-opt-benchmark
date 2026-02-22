@@ -270,29 +270,28 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %8 = load i32, ptr %7, align 4, !tbaa !23
-  %9 = icmp sgt i32 %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  br i1 %9, label %.lr.ph.split.us.preheader, label %._crit_edge
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = load i32, ptr %9, align 4, !tbaa !23
+  %11 = icmp sgt i32 %10, 0
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  br i1 %11, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %14 = load i32, ptr %13, align 4, !tbaa !11
-  %15 = zext nneg i32 %8 to i64
+  %15 = zext nneg i32 %10 to i64
   %16 = sext i32 %3 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %.fr = freeze i32 %14
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next31, %.loopexit.us ]
-  %17 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv30
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next30, %.loopexit.us ]
+  %17 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv29
   %18 = load float, ptr %17, align 4, !tbaa !17
   %19 = fmul nsz float %2, %18
-  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv30
+  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv29
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = icmp slt i32 %21, %3
   br i1 %22, label %.preheader.us, label %.split.us
@@ -304,24 +303,24 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
   %24 = load float, ptr %23, align 4, !tbaa !17
   %25 = fadd nsz float %.0.us, %24
   store float %25, ptr %23, align 4, !tbaa !17
-  %26 = load float, ptr %12, align 4, !tbaa !24
+  %26 = load float, ptr %14, align 4, !tbaa !24
   %27 = fmul nsz float %.0.us, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, %15
   %28 = icmp slt i64 %indvars.iv.next, %16
   br i1 %28, label %.preheader.split.us26, label %.loopexit.us, !llvm.loop !25
 
 .preheader.us:                                    ; preds = %.lr.ph.split.us
-  %29 = trunc nuw nsw i64 %indvars.iv30 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv29 to i32
   %30 = shl nuw i32 1, %29
-  %.fr27 = freeze i32 %30
-  %31 = and i32 %.fr, %.fr27
-  %.not.us = icmp eq i32 %31, 0
+  %31 = and i32 %8, %30
+  %.fr = freeze i32 %31
+  %.not.us = icmp eq i32 %.fr, 0
   %32 = sext i32 %21 to i64
   br i1 %.not.us, label %.preheader.split.us26, label %.preheader.split.us.us
 
 .loopexit.us:                                     ; preds = %.preheader.split.us26, %.preheader.split.us.us
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
@@ -353,29 +352,28 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %8 = load i32, ptr %7, align 4, !tbaa !23
-  %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.preheader.us.preheader, label %._crit_edge
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = load i32, ptr %9, align 4, !tbaa !23
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.preheader.us.preheader, label %._crit_edge
 
 .preheader.us.preheader:                          ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %11 = load i32, ptr %10, align 4, !tbaa !11
-  %12 = zext nneg i32 %8 to i64
+  %12 = zext nneg i32 %10 to i64
   %13 = sext i32 %2 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %.fr = freeze i32 %11
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
-  %indvars.iv20 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next21, %.loopexit.us ]
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv20
+  %indvars.iv19 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next20, %.loopexit.us ]
+  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv19
   %15 = load i32, ptr %14, align 4, !tbaa !16
-  %16 = trunc nuw nsw i64 %indvars.iv20 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv19 to i32
   %17 = shl nuw i32 1, %16
-  %.fr17 = freeze i32 %17
-  %18 = and i32 %.fr, %.fr17
-  %.not.us = icmp eq i32 %18, 0
+  %18 = and i32 %8, %17
+  %.fr = freeze i32 %18
+  %.not.us = icmp eq i32 %.fr, 0
   %19 = sext i32 %15 to i64
   br i1 %.not.us, label %.preheader.split.us16, label %.preheader.split.us.us
 
@@ -388,8 +386,8 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %21, label %.preheader.split.us16, label %.loopexit.us, !llvm.loop !27
 
 .loopexit.us:                                     ; preds = %.preheader.split.us16, %.preheader.split.us.us
-  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count
+  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !28
 
 .preheader.split.us.us:                           ; preds = %.preheader.us

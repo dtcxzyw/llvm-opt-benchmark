@@ -147,8 +147,8 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %.3245, i64 2
   %56 = load i8, ptr %55, align 1, !tbaa !4
-  %.fr = freeze i8 %56
-  %57 = icmp eq i8 %.fr, 47
+  %.fr759 = freeze i8 %56
+  %57 = icmp eq i8 %.fr759, 47
   %spec.select504 = zext i1 %57 to i32
   br label %.thread451.thread666.thread
 

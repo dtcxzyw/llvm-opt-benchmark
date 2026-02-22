@@ -1819,8 +1819,8 @@ _ZN5drjit13dr_unique_ptrIA_mED2Ev.exit11.i:       ; preds = %4
   %.01525 = phi i64 [ %22, %.lr.ph ], [ 1, %.lr.ph.i ]
   %20 = getelementptr inbounds i64, ptr %3, i64 %.026
   %21 = load i64, ptr %20, align 8
-  %.fr = freeze i64 %21
-  %22 = mul i64 %.fr, %.01525
+  %.fr36 = freeze i64 %21
+  %22 = mul i64 %.fr36, %.01525
   %23 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %23, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12

@@ -27804,10 +27804,9 @@ _ZNK4Luau9TypeLevel8subsumesERKS0_.exit.i:        ; preds = %114
   %117 = load i32, ptr %116, align 4, !tbaa !464
   %118 = getelementptr inbounds nuw i8, ptr %.0207, i64 88
   %119 = load i32, ptr %118, align 4, !tbaa !464
-  %.fr.i = freeze i32 %117
-  %.fr10.i = freeze i32 %119
-  %120 = icmp eq i32 %.fr.i, %.fr10.i
-  br i1 %120, label %_ZNK4Luau9TypeLevel8subsumesERKS0_.exit.thread.i, label %121
+  %120 = icmp eq i32 %117, %119
+  %cond.fr.i = freeze i1 %120
+  br i1 %cond.fr.i, label %_ZNK4Luau9TypeLevel8subsumesERKS0_.exit.thread.i, label %121
 
 _ZNK4Luau9TypeLevel8subsumesERKS0_.exit.thread.i: ; preds = %_ZNK4Luau9TypeLevel8subsumesERKS0_.exit.i, %107
   br label %121

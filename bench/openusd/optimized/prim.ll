@@ -19507,26 +19507,25 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim32_MakeResolveTargetF
 
 36:                                               ; preds = %35
   %.sroa.0.0.copyload.i.i = load ptr, ptr %8, align 8
-  %.sroa.0.0.copyload.i.fr.i = freeze ptr %.sroa.0.0.copyload.i.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.copyload.i11.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8
-  %.sroa.0.0.copyload.i11.fr.i = freeze ptr %.sroa.0.0.copyload.i11.i
-  %38 = icmp ne ptr %.sroa.0.0.copyload.i.fr.i, %.sroa.0.0.copyload.i11.fr.i
+  %38 = icmp ne ptr %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i11.i
+  %.fr.i = freeze i1 %38
   %39 = icmp ne i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i13.i
-  %.not3.i30.i = or i1 %38, %39
+  %.not3.i30.i = or i1 %.fr.i, %39
   br i1 %.not3.i30.i, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %38, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %50
   %.sroa.3.031.us.i = phi i64 [ %51, %50 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  store ptr %.sroa.0.0.copyload.i.fr.i, ptr %9, align 8
+  store ptr %.sroa.0.0.copyload.i.i, ptr %9, align 8
   store i64 %.sroa.3.031.us.i, ptr %40, align 8
   %41 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetPathEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %42 unwind label %.loopexit27.split.us.i
@@ -19566,7 +19565,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim32_MakeResolveTargetF
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %65
   %.sroa.3.031.i = phi i64 [ %66, %65 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  store ptr %.sroa.0.0.copyload.i.fr.i, ptr %9, align 8
+  store ptr %.sroa.0.0.copyload.i.i, ptr %9, align 8
   store i64 %.sroa.3.031.i, ptr %40, align 8
   %52 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetPathEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %53 unwind label %.loopexit27.split.i
@@ -23036,8 +23035,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
 
 .lr.ph:                                           ; preds = %2
   %14 = load i64, ptr %9, align 8
-  %.fr20 = freeze i64 %14
-  %15 = add i64 %.fr20, -1
+  %.fr = freeze i64 %14
+  %15 = add i64 %.fr, -1
   %16 = icmp ult i64 %15, 4294967296
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split

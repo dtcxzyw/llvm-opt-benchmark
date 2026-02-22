@@ -36364,18 +36364,17 @@ define internal void @_ZN12_GLOBAL__N_137Uint128_DivideAndModRandomInputs_Test8T
 23:                                               ; preds = %17
   %.sroa.016.0.copyload = load i64, ptr %4, align 16, !tbaa !35
   %.sroa.217.0.copyload = load i64, ptr %14, align 8, !tbaa !35
-  %.sroa.217.0.copyload.fr = freeze i64 %.sroa.217.0.copyload
-  %.sroa.24.0.insert.ext.i = zext i64 %.sroa.217.0.copyload.fr to i128
+  %.sroa.24.0.insert.ext.i = zext i64 %.sroa.217.0.copyload to i128
   %.sroa.24.0.insert.shift.i = shl nuw i128 %.sroa.24.0.insert.ext.i, 64
-  %.sroa.016.0.copyload.fr = freeze i64 %.sroa.016.0.copyload
-  %.sroa.03.0.insert.ext.i = zext i64 %.sroa.016.0.copyload.fr to i128
+  %.sroa.03.0.insert.ext.i = zext i64 %.sroa.016.0.copyload to i128
   %.sroa.03.0.insert.insert.i = or disjoint i128 %.sroa.24.0.insert.shift.i, %.sroa.03.0.insert.ext.i
-  %24 = urem i128 %.sroa.03.0.insert.insert.i, %.sroa.01.0.insert.insert.i
+  %.sroa.03.0.insert.insert.i.fr = freeze i128 %.sroa.03.0.insert.insert.i
+  %24 = urem i128 %.sroa.03.0.insert.insert.i.fr, %.sroa.01.0.insert.insert.i
   %.sroa.2.0.extract.shift.i58 = lshr i128 %24, 64
   %.sroa.2.0.extract.trunc.i59 = trunc nuw i128 %.sroa.2.0.extract.shift.i58 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %25 = sub nuw i128 %.sroa.03.0.insert.insert.i, %24
+  %25 = sub nuw i128 %.sroa.03.0.insert.insert.i.fr, %24
   %.sroa.01.0.insert.ext.i78 = and i128 %24, 18446744073709551615
   %.sroa.03.0.insert.insert.i80 = add i128 %25, %.sroa.01.0.insert.ext.i78
   %.sroa.0.0.extract.trunc.i81 = trunc i128 %.sroa.03.0.insert.insert.i80 to i64
@@ -36388,7 +36387,7 @@ define internal void @_ZN12_GLOBAL__N_137Uint128_DivideAndModRandomInputs_Test8T
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i.i, 64
   %.sroa.0.0.insert.ext.i.i.i = and i128 %.sroa.03.0.insert.insert.i80, 18446744073709551615
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %27 = icmp eq i128 %.sroa.03.0.insert.insert.i, %.sroa.0.0.insert.insert.i.i.i
+  %27 = icmp eq i128 %.sroa.03.0.insert.insert.i.fr, %.sroa.0.0.insert.insert.i.i.i
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %23

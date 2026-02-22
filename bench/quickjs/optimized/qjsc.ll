@@ -1100,8 +1100,8 @@ namelist_add.exit145:                             ; preds = %110, %113
 173:                                              ; preds = %171
   %174 = load i64, ptr %11, align 8, !tbaa !25
   %175 = call i32 @JS_DetectModule(ptr noundef nonnull %166, i64 noundef %174) #18
-  %.fr.i = freeze i32 %175
-  %.not348 = icmp eq i32 %.fr.i, 0
+  %.fr38.i = freeze i32 %175
+  %.not348 = icmp eq i32 %.fr38.i, 0
   %176 = select i1 %.not348, i32 32, i32 33
   br label %.thread.i
 
@@ -1112,8 +1112,8 @@ namelist_add.exit145:                             ; preds = %110, %113
   %180 = extractvalue { i64, i64 } %179, 0
   %181 = extractvalue { i64, i64 } %179, 1
   %182 = and i64 %181, 4294967295
-  %.not38.i = icmp eq i64 %182, 6
-  br i1 %.not38.i, label %183, label %184
+  %.not39.i = icmp eq i64 %182, 6
+  br i1 %.not39.i, label %183, label %184
 
 183:                                              ; preds = %.thread.i
   call void @js_std_dump_error(ptr noundef %149) #18

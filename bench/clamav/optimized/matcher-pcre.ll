@@ -1131,8 +1131,8 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 31:                                               ; preds = %.lr.ph, %cli_pcre_qoff.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %cli_pcre_qoff.exit ]
-  %.0100195 = phi i32 [ 0, %.lr.ph ], [ %.1, %cli_pcre_qoff.exit ]
-  %.0101194 = phi i32 [ 0, %.lr.ph ], [ %.1102, %cli_pcre_qoff.exit ]
+  %.0100196 = phi i32 [ 0, %.lr.ph ], [ %.1, %cli_pcre_qoff.exit ]
+  %.0101195 = phi i32 [ 0, %.lr.ph ], [ %.1102, %cli_pcre_qoff.exit ]
   %32 = load ptr, ptr %16, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !49
@@ -1189,9 +1189,9 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 64:                                               ; preds = %51, %53, %63
   %65 = load i32, ptr %36, align 8, !tbaa !46
-  %.fr = freeze i32 %65
-  %66 = and i32 %.fr, 2
-  %67 = and i32 %.fr, 4
+  %.fr187 = freeze i32 %65
+  %66 = and i32 %.fr187, 2
+  %67 = and i32 %.fr187, 4
   %68 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %69 = load i32, ptr %68, align 8, !tbaa !80
   br i1 %.not138, label %70, label %84
@@ -1242,16 +1242,16 @@ cli_pcre_qoff.exit.thread:                        ; preds = %70, %.sink.split.i,
   %or.cond.not145 = select i1 %91, i1 %92, i1 false
   %93 = icmp ne i32 %.2176.fr, -1
   %or.cond3 = and i1 %93, %or.cond.not145
-  %94 = or i32 %.0100195, -2147483648
+  %94 = or i32 %.0100196, -2147483648
   %.2 = select i1 %or.cond3, i32 %94, i32 0
   %95 = icmp eq i32 %.2176.fr, -1
-  %spec.select229 = select i1 %95, i32 0, i32 %.2176.fr
-  %96 = icmp ult i32 %spec.select229, %1
+  %spec.select230 = select i1 %95, i32 0, i32 %.2176.fr
+  %96 = icmp ult i32 %spec.select230, %1
   br i1 %96, label %97, label %cli_pcre_qoff.exit
 
 97:                                               ; preds = %cli_pcre_qoff.exit.thread
-  %.not187 = icmp eq i32 %66, 0
-  br i1 %.not187, label %102, label %switch.early.test
+  %.not188 = icmp eq i32 %66, 0
+  br i1 %.not188, label %102, label %switch.early.test
 
 switch.early.test:                                ; preds = %97
   switch i32 %.2172, label %98 [
@@ -1260,32 +1260,32 @@ switch.early.test:                                ; preds = %97
   ]
 
 98:                                               ; preds = %switch.early.test
-  %99 = add i32 %spec.select229, %.2172
+  %99 = add i32 %spec.select230, %.2172
   %100 = icmp ugt i32 %99, %1
-  %101 = sub i32 %1, %spec.select229
+  %101 = sub i32 %1, %spec.select230
   %spec.select158 = select i1 %100, i32 %101, i32 %.2172
   br label %104
 
 102:                                              ; preds = %switch.early.test, %switch.early.test, %97
-  %103 = sub i32 %1, %spec.select229
+  %103 = sub i32 %1, %spec.select230
   br label %104
 
 104:                                              ; preds = %98, %102
   %.0110 = phi i32 [ %spec.select158, %98 ], [ %103, %102 ]
   %105 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  %106 = zext i32 %spec.select229 to i64
+  %106 = zext i32 %spec.select230 to i64
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 %106
   %108 = zext i32 %.0110 to i64
   %109 = icmp ne i32 %.2172, 0
-  %or.cond9 = select i1 %.not187, i1 %109, i1 false
+  %or.cond9 = select i1 %.not188, i1 %109, i1 false
   %110 = getelementptr inbounds nuw i8, ptr %34, i64 108
   %111 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %112 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %113 = trunc i32 %.fr to i1
+  %113 = trunc i32 %.fr187 to i1
   br label %114
 
 114:                                              ; preds = %167, %104
-  %.2103 = phi i32 [ %.0101194, %104 ], [ %126, %167 ]
+  %.2103 = phi i32 [ %.0101195, %104 ], [ %126, %167 ]
   %.0 = phi i32 [ %69, %104 ], [ %168, %167 ]
   %115 = call i32 @cli_checktimelimit(ptr noundef %7) #13
   %.not146 = icmp eq i32 %115, 0
@@ -1326,15 +1326,15 @@ switch.early.test:                                ; preds = %97
 
 133:                                              ; preds = %131
   %134 = load i32, ptr %28, align 4, !tbaa !3
-  %135 = add i32 %134, %spec.select229
+  %135 = add i32 %134, %spec.select230
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, i32 noundef %135) #13
   %136 = load i32, ptr %28, align 4
   %137 = icmp ugt i32 %136, %.2172
-  %or.cond198 = select i1 %or.cond9, i1 %137, i1 false
-  br i1 %or.cond198, label %138, label %140
+  %or.cond199 = select i1 %or.cond9, i1 %137, i1 false
+  br i1 %or.cond199, label %138, label %140
 
 138:                                              ; preds = %133
-  %139 = add i32 %136, %spec.select229
+  %139 = add i32 %136, %spec.select230
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, i32 noundef %139) #13
   br label %.critedge
 
@@ -1350,7 +1350,7 @@ switch.early.test:                                ; preds = %97
   %145 = load i32, ptr %111, align 4, !tbaa !3
   %146 = load i32, ptr %112, align 8, !tbaa !3
   %147 = load i32, ptr %28, align 4, !tbaa !3
-  %148 = add i32 %147, %spec.select229
+  %148 = add i32 %147, %spec.select230
   %149 = call i32 @lsig_sub_matched(ptr noundef %4, ptr noundef %5, i32 noundef %145, i32 noundef %146, i32 noundef %148, i32 noundef 0) #13
   %.not154 = icmp eq i32 %149, 0
   br i1 %.not154, label %167, label %.critedge
@@ -1375,7 +1375,7 @@ switch.early.test:                                ; preds = %97
   %157 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store ptr %156, ptr %157, align 8, !tbaa !105
   %158 = load i32, ptr %28, align 4, !tbaa !3
-  %159 = add i32 %158, %spec.select229
+  %159 = add i32 %158, %spec.select230
   %160 = zext i32 %159 to i64
   %161 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store i64 %160, ptr %161, align 8, !tbaa !106
@@ -1416,8 +1416,8 @@ switch.early.test:                                ; preds = %97
   br i1 %.not155, label %cli_pcre_qoff.exit, label %.critedge._crit_edge
 
 cli_pcre_qoff.exit:                               ; preds = %70, %.critedge, %cli_pcre_qoff.exit.thread, %53, %42, %38
-  %.1102 = phi i32 [ %.0101194, %38 ], [ %.0101194, %42 ], [ %.0101194, %53 ], [ %.3, %.critedge ], [ %.0101194, %cli_pcre_qoff.exit.thread ], [ %.0101194, %70 ]
-  %.1 = phi i32 [ %.0100195, %38 ], [ %.0100195, %42 ], [ %.0100195, %53 ], [ %.2, %.critedge ], [ %.2, %cli_pcre_qoff.exit.thread ], [ %.0100195, %70 ]
+  %.1102 = phi i32 [ %.0101195, %38 ], [ %.0101195, %42 ], [ %.0101195, %53 ], [ %.3, %.critedge ], [ %.0101195, %cli_pcre_qoff.exit.thread ], [ %.0101195, %70 ]
+  %.1 = phi i32 [ %.0100196, %38 ], [ %.0100196, %42 ], [ %.0100196, %53 ], [ %.2, %.critedge ], [ %.2, %cli_pcre_qoff.exit.thread ], [ %.0100196, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %173 = load i32, ptr %12, align 4, !tbaa !47
   %174 = zext i32 %173 to i64

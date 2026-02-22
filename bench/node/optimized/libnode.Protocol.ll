@@ -14829,16 +14829,16 @@ for.body.preheader.i.i:                           ; preds = %sw.bb.i
 
 for.body.i.i88:                                   ; preds = %for.inc.i.i91, %for.body.preheader.i.i
   %exitcond.not.i.i = phi i1 [ true, %for.inc.i.i91 ], [ false, %for.body.preheader.i.i ]
-  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i89, %for.inc.i.i91 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
-  %incdec.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %start.addr.015.i.i, i64 2
-  %23 = load i16, ptr %start.addr.015.i.i, align 2
-  %.fr.i.i = freeze i16 %23
-  %24 = add i16 %.fr.i.i, -48
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i89, %for.inc.i.i91 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
+  %incdec.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 2
+  %23 = load i16, ptr %start.addr.016.i.i, align 2
+  %.fr14.i.i = freeze i16 %23
+  %24 = add i16 %.fr14.i.i, -48
   %or.cond.i.i90 = icmp ult i16 %24, 10
   br i1 %or.cond.i.i90, label %for.inc.i.i91, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %for.body.i.i88
-  switch i16 %.fr.i.i, label %return [
+  switch i16 %.fr14.i.i, label %return [
     i16 102, label %for.inc.i.i91
     i16 101, label %for.inc.i.i91
     i16 100, label %for.inc.i.i91
@@ -14867,17 +14867,17 @@ for.body.preheader.i11.i:                         ; preds = %sw.bb8.i
   br label %for.body.i13.i
 
 for.body.i13.i:                                   ; preds = %for.inc.i20.i, %for.body.preheader.i11.i
-  %i.016.i14.i = phi i32 [ %inc.i21.i, %for.inc.i20.i ], [ 0, %for.body.preheader.i11.i ]
-  %start.addr.015.i15.i = phi ptr [ %incdec.ptr.i16.i, %for.inc.i20.i ], [ %incdec.ptr4.i, %for.body.preheader.i11.i ]
-  %incdec.ptr.i16.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i15.i, i64 2
-  %25 = load i16, ptr %start.addr.015.i15.i, align 2
-  %.fr.i17.i = freeze i16 %25
-  %26 = add i16 %.fr.i17.i, -48
+  %i.017.i14.i = phi i32 [ %inc.i21.i, %for.inc.i20.i ], [ 0, %for.body.preheader.i11.i ]
+  %start.addr.016.i15.i = phi ptr [ %incdec.ptr.i16.i, %for.inc.i20.i ], [ %incdec.ptr4.i, %for.body.preheader.i11.i ]
+  %incdec.ptr.i16.i = getelementptr inbounds nuw i8, ptr %start.addr.016.i15.i, i64 2
+  %25 = load i16, ptr %start.addr.016.i15.i, align 2
+  %.fr14.i17.i = freeze i16 %25
+  %26 = add i16 %.fr14.i17.i, -48
   %or.cond.i18.i = icmp ult i16 %26, 10
   br i1 %or.cond.i18.i, label %for.inc.i20.i, label %switch.early.test.i19.i
 
 switch.early.test.i19.i:                          ; preds = %for.body.i13.i
-  switch i16 %.fr.i17.i, label %return [
+  switch i16 %.fr14.i17.i, label %return [
     i16 102, label %for.inc.i20.i
     i16 101, label %for.inc.i20.i
     i16 100, label %for.inc.i20.i
@@ -14893,7 +14893,7 @@ switch.early.test.i19.i:                          ; preds = %for.body.i13.i
   ]
 
 for.inc.i20.i:                                    ; preds = %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %for.body.i13.i
-  %inc.i21.i = add nuw nsw i32 %i.016.i14.i, 1
+  %inc.i21.i = add nuw nsw i32 %i.017.i14.i, 1
   %exitcond.not.i22.i = icmp eq i32 %inc.i21.i, 4
   br i1 %exitcond.not.i22.i, label %if.end17.i, label %for.body.i13.i, !llvm.loop !294
 
@@ -16039,16 +16039,16 @@ for.body.preheader.i.i:                           ; preds = %sw.bb.i
 
 for.body.i.i90:                                   ; preds = %for.inc.i.i94, %for.body.preheader.i.i
   %exitcond.not.i.i91 = phi i1 [ true, %for.inc.i.i94 ], [ false, %for.body.preheader.i.i ]
-  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i92, %for.inc.i.i94 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
-  %incdec.ptr.i.i92 = getelementptr inbounds nuw i8, ptr %start.addr.015.i.i, i64 1
-  %33 = load i8, ptr %start.addr.015.i.i, align 1
-  %.fr.i.i = freeze i8 %33
-  %34 = add i8 %.fr.i.i, -48
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i92, %for.inc.i.i94 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
+  %incdec.ptr.i.i92 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 1
+  %33 = load i8, ptr %start.addr.016.i.i, align 1
+  %.fr14.i.i = freeze i8 %33
+  %34 = add i8 %.fr14.i.i, -48
   %or.cond.i.i93 = icmp ult i8 %34, 10
   br i1 %or.cond.i.i93, label %for.inc.i.i94, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %for.body.i.i90
-  switch i8 %.fr.i.i, label %return [
+  switch i8 %.fr14.i.i, label %return [
     i8 102, label %for.inc.i.i94
     i8 101, label %for.inc.i.i94
     i8 100, label %for.inc.i.i94
@@ -16077,17 +16077,17 @@ for.body.preheader.i10.i:                         ; preds = %sw.bb8.i
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.inc.i19.i, %for.body.preheader.i10.i
-  %i.016.i13.i = phi i32 [ %inc.i20.i, %for.inc.i19.i ], [ 0, %for.body.preheader.i10.i ]
-  %start.addr.015.i14.i = phi ptr [ %incdec.ptr.i15.i, %for.inc.i19.i ], [ %incdec.ptr4.i, %for.body.preheader.i10.i ]
-  %incdec.ptr.i15.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i14.i, i64 1
-  %35 = load i8, ptr %start.addr.015.i14.i, align 1
-  %.fr.i16.i = freeze i8 %35
-  %36 = add i8 %.fr.i16.i, -48
+  %i.017.i13.i = phi i32 [ %inc.i20.i, %for.inc.i19.i ], [ 0, %for.body.preheader.i10.i ]
+  %start.addr.016.i14.i = phi ptr [ %incdec.ptr.i15.i, %for.inc.i19.i ], [ %incdec.ptr4.i, %for.body.preheader.i10.i ]
+  %incdec.ptr.i15.i = getelementptr inbounds nuw i8, ptr %start.addr.016.i14.i, i64 1
+  %35 = load i8, ptr %start.addr.016.i14.i, align 1
+  %.fr14.i16.i = freeze i8 %35
+  %36 = add i8 %.fr14.i16.i, -48
   %or.cond.i17.i = icmp ult i8 %36, 10
   br i1 %or.cond.i17.i, label %for.inc.i19.i, label %switch.early.test.i18.i
 
 switch.early.test.i18.i:                          ; preds = %for.body.i12.i
-  switch i8 %.fr.i16.i, label %return [
+  switch i8 %.fr14.i16.i, label %return [
     i8 102, label %for.inc.i19.i
     i8 101, label %for.inc.i19.i
     i8 100, label %for.inc.i19.i
@@ -16103,7 +16103,7 @@ switch.early.test.i18.i:                          ; preds = %for.body.i12.i
   ]
 
 for.inc.i19.i:                                    ; preds = %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %for.body.i12.i
-  %inc.i20.i = add nuw nsw i32 %i.016.i13.i, 1
+  %inc.i20.i = add nuw nsw i32 %i.017.i13.i, 1
   %exitcond.not.i21.i = icmp eq i32 %inc.i20.i, 4
   br i1 %exitcond.not.i21.i, label %if.end17.i, label %for.body.i12.i, !llvm.loop !333
 
@@ -24255,16 +24255,16 @@ for.body.preheader.i.i:                           ; preds = %sw.bb.i
 
 for.body.i.i88:                                   ; preds = %for.inc.i.i92, %for.body.preheader.i.i
   %exitcond.not.i.i89 = phi i1 [ true, %for.inc.i.i92 ], [ false, %for.body.preheader.i.i ]
-  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i90, %for.inc.i.i92 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
-  %incdec.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %start.addr.015.i.i, i64 1
-  %33 = load i8, ptr %start.addr.015.i.i, align 1
-  %.fr.i.i = freeze i8 %33
-  %34 = add i8 %.fr.i.i, -48
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i90, %for.inc.i.i92 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
+  %incdec.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 1
+  %33 = load i8, ptr %start.addr.016.i.i, align 1
+  %.fr14.i.i = freeze i8 %33
+  %34 = add i8 %.fr14.i.i, -48
   %or.cond.i.i91 = icmp ult i8 %34, 10
   br i1 %or.cond.i.i91, label %for.inc.i.i92, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %for.body.i.i88
-  switch i8 %.fr.i.i, label %return [
+  switch i8 %.fr14.i.i, label %return [
     i8 102, label %for.inc.i.i92
     i8 101, label %for.inc.i.i92
     i8 100, label %for.inc.i.i92
@@ -24293,17 +24293,17 @@ for.body.preheader.i10.i:                         ; preds = %sw.bb8.i
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.inc.i19.i, %for.body.preheader.i10.i
-  %i.016.i13.i = phi i32 [ %inc.i20.i, %for.inc.i19.i ], [ 0, %for.body.preheader.i10.i ]
-  %start.addr.015.i14.i = phi ptr [ %incdec.ptr.i15.i, %for.inc.i19.i ], [ %incdec.ptr4.i, %for.body.preheader.i10.i ]
-  %incdec.ptr.i15.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i14.i, i64 1
-  %35 = load i8, ptr %start.addr.015.i14.i, align 1
-  %.fr.i16.i = freeze i8 %35
-  %36 = add i8 %.fr.i16.i, -48
+  %i.017.i13.i = phi i32 [ %inc.i20.i, %for.inc.i19.i ], [ 0, %for.body.preheader.i10.i ]
+  %start.addr.016.i14.i = phi ptr [ %incdec.ptr.i15.i, %for.inc.i19.i ], [ %incdec.ptr4.i, %for.body.preheader.i10.i ]
+  %incdec.ptr.i15.i = getelementptr inbounds nuw i8, ptr %start.addr.016.i14.i, i64 1
+  %35 = load i8, ptr %start.addr.016.i14.i, align 1
+  %.fr14.i16.i = freeze i8 %35
+  %36 = add i8 %.fr14.i16.i, -48
   %or.cond.i17.i = icmp ult i8 %36, 10
   br i1 %or.cond.i17.i, label %for.inc.i19.i, label %switch.early.test.i18.i
 
 switch.early.test.i18.i:                          ; preds = %for.body.i12.i
-  switch i8 %.fr.i16.i, label %return [
+  switch i8 %.fr14.i16.i, label %return [
     i8 102, label %for.inc.i19.i
     i8 101, label %for.inc.i19.i
     i8 100, label %for.inc.i19.i
@@ -24319,7 +24319,7 @@ switch.early.test.i18.i:                          ; preds = %for.body.i12.i
   ]
 
 for.inc.i19.i:                                    ; preds = %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %switch.early.test.i18.i, %for.body.i12.i
-  %inc.i20.i = add nuw nsw i32 %i.016.i13.i, 1
+  %inc.i20.i = add nuw nsw i32 %i.017.i13.i, 1
   %exitcond.not.i21.i = icmp eq i32 %inc.i20.i, 4
   br i1 %exitcond.not.i21.i, label %if.end17.i, label %for.body.i12.i, !llvm.loop !430
 
@@ -26044,16 +26044,16 @@ for.body.preheader.i.i:                           ; preds = %sw.bb.i
 
 for.body.i.i86:                                   ; preds = %for.inc.i.i89, %for.body.preheader.i.i
   %exitcond.not.i.i = phi i1 [ true, %for.inc.i.i89 ], [ false, %for.body.preheader.i.i ]
-  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i87, %for.inc.i.i89 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
-  %incdec.ptr.i.i87 = getelementptr inbounds nuw i8, ptr %start.addr.015.i.i, i64 2
-  %23 = load i16, ptr %start.addr.015.i.i, align 2
-  %.fr.i.i = freeze i16 %23
-  %24 = add i16 %.fr.i.i, -48
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i87, %for.inc.i.i89 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
+  %incdec.ptr.i.i87 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 2
+  %23 = load i16, ptr %start.addr.016.i.i, align 2
+  %.fr14.i.i = freeze i16 %23
+  %24 = add i16 %.fr14.i.i, -48
   %or.cond.i.i88 = icmp ult i16 %24, 10
   br i1 %or.cond.i.i88, label %for.inc.i.i89, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %for.body.i.i86
-  switch i16 %.fr.i.i, label %return [
+  switch i16 %.fr14.i.i, label %return [
     i16 102, label %for.inc.i.i89
     i16 101, label %for.inc.i.i89
     i16 100, label %for.inc.i.i89
@@ -26082,17 +26082,17 @@ for.body.preheader.i11.i:                         ; preds = %sw.bb8.i
   br label %for.body.i13.i
 
 for.body.i13.i:                                   ; preds = %for.inc.i20.i, %for.body.preheader.i11.i
-  %i.016.i14.i = phi i32 [ %inc.i21.i, %for.inc.i20.i ], [ 0, %for.body.preheader.i11.i ]
-  %start.addr.015.i15.i = phi ptr [ %incdec.ptr.i16.i, %for.inc.i20.i ], [ %incdec.ptr4.i, %for.body.preheader.i11.i ]
-  %incdec.ptr.i16.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i15.i, i64 2
-  %25 = load i16, ptr %start.addr.015.i15.i, align 2
-  %.fr.i17.i = freeze i16 %25
-  %26 = add i16 %.fr.i17.i, -48
+  %i.017.i14.i = phi i32 [ %inc.i21.i, %for.inc.i20.i ], [ 0, %for.body.preheader.i11.i ]
+  %start.addr.016.i15.i = phi ptr [ %incdec.ptr.i16.i, %for.inc.i20.i ], [ %incdec.ptr4.i, %for.body.preheader.i11.i ]
+  %incdec.ptr.i16.i = getelementptr inbounds nuw i8, ptr %start.addr.016.i15.i, i64 2
+  %25 = load i16, ptr %start.addr.016.i15.i, align 2
+  %.fr14.i17.i = freeze i16 %25
+  %26 = add i16 %.fr14.i17.i, -48
   %or.cond.i18.i = icmp ult i16 %26, 10
   br i1 %or.cond.i18.i, label %for.inc.i20.i, label %switch.early.test.i19.i
 
 switch.early.test.i19.i:                          ; preds = %for.body.i13.i
-  switch i16 %.fr.i17.i, label %return [
+  switch i16 %.fr14.i17.i, label %return [
     i16 102, label %for.inc.i20.i
     i16 101, label %for.inc.i20.i
     i16 100, label %for.inc.i20.i
@@ -26108,7 +26108,7 @@ switch.early.test.i19.i:                          ; preds = %for.body.i13.i
   ]
 
 for.inc.i20.i:                                    ; preds = %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %for.body.i13.i
-  %inc.i21.i = add nuw nsw i32 %i.016.i14.i, 1
+  %inc.i21.i = add nuw nsw i32 %i.017.i14.i, 1
   %exitcond.not.i22.i = icmp eq i32 %inc.i21.i, 4
   br i1 %exitcond.not.i22.i, label %if.end17.i, label %for.body.i13.i, !llvm.loop !441
 

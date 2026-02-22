@@ -336,8 +336,8 @@ define void @_ZN6icu_7714IndianCalendar19handleComputeFieldsEiR10UErrorCode(ptr 
   %23 = srem i32 %19, 100
   %.not.i.i = icmp ne i32 %23, 0
   %24 = srem i32 %19, 400
-  %.not52 = icmp eq i32 %24, 0
-  %or.cond = or i1 %.not.i.i, %.not52
+  %.not53 = icmp eq i32 %24, 0
+  %or.cond = or i1 %.not.i.i, %.not53
   br i1 %or.cond, label %_ZN6icu_77L15isGregorianLeapEi.exit.thread44, label %_ZN6icu_77L15isGregorianLeapEi.exit.thread
 
 _ZN6icu_77L15isGregorianLeapEi.exit.thread:       ; preds = %22, %17
@@ -360,8 +360,8 @@ _ZN6icu_77L15isGregorianLeapEi.exit.thread44:     ; preds = %22, %_ZN6icu_77L15i
   %.not.i.i40 = icmp ne i32 %33, 0
   %34 = srem i32 %5, 400
   %.not = icmp eq i32 %34, 0
-  %or.cond53 = or i1 %.not.i.i40, %.not
-  br i1 %or.cond53, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread48, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread
+  %or.cond54 = or i1 %.not.i.i40, %.not
+  br i1 %or.cond54, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread48, label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread
 
 _ZN6icu_77L15isGregorianLeapEi.exit41.thread:     ; preds = %32, %28
   br label %_ZN6icu_77L15isGregorianLeapEi.exit41.thread48

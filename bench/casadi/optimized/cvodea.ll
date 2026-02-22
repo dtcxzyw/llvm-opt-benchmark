@@ -4331,7 +4331,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !40
-  %.fr284 = freeze ptr %21
+  %.fr282 = freeze ptr %21
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !43
   %.not = icmp eq i32 %23, 0
@@ -4344,10 +4344,8 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = load double, ptr %26, align 8, !tbaa !62
-  %.fr282 = freeze double %27
   %28 = load double, ptr %14, align 8, !tbaa !63
-  %.fr283 = freeze double %28
-  %29 = fcmp ogt double %.fr282, %.fr283
+  %29 = fcmp ogt double %27, %28
   %30 = select i1 %29, i32 1, i32 -1
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !45
@@ -4355,7 +4353,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not147, label %72, label %.preheader170
 
 .preheader170:                                    ; preds = %25
-  %.not148180 = icmp eq ptr %.fr284, null
+  %.not148180 = icmp eq ptr %.fr282, null
   br i1 %.not148180, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader170
@@ -4364,18 +4362,18 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br label %35
 
 35:                                               ; preds = %.lr.ph, %62
-  %.0135181 = phi ptr [ %.fr284, %.lr.ph ], [ %64, %62 ]
+  %.0135181 = phi ptr [ %.fr282, %.lr.ph ], [ %64, %62 ]
   %36 = getelementptr inbounds nuw i8, ptr %.0135181, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !123
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 984
   %39 = load double, ptr %38, align 8, !tbaa !77
-  %40 = fsub double %39, %.fr283
+  %40 = fsub double %39, %28
   %41 = fmul double %40, %33
   %42 = fcmp olt double %41, 0.000000e+00
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %35
-  %44 = fsub double %.fr282, %39
+  %44 = fsub double %27, %39
   %45 = fmul double %44, %33
   %46 = fcmp olt double %45, 0.000000e+00
   br i1 %46, label %47, label %49
@@ -4449,27 +4447,27 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
 
 75:                                               ; preds = %72
   %76 = sitofp i32 %30 to double
-  %77 = fsub double %1, %.fr283
+  %77 = fsub double %1, %28
   %78 = fmul double %77, %76
   %79 = fcmp olt double %78, 0.000000e+00
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %75
-  %81 = fsub double %.fr282, %1
+  %81 = fsub double %27, %1
   %82 = fmul double %81, %76
   %83 = fcmp olt double %82, 0.000000e+00
-  br i1 %83, label %84, label %103
+  br i1 %83, label %84, label %102
 
 84:                                               ; preds = %80, %75
   %85 = load double, ptr %0, align 8, !tbaa !68
-  %86 = tail call double @SUNRabs(double noundef %.fr283) #8
+  %86 = tail call double @SUNRabs(double noundef %28) #8
   %87 = load double, ptr %26, align 8, !tbaa !62
   %88 = tail call double @SUNRabs(double noundef %87) #8
   %89 = load double, ptr %14, align 8, !tbaa !63
   %90 = fsub double %1, %89
   %91 = fmul double %90, %76
   %92 = fcmp olt double %91, 0.000000e+00
-  br i1 %92, label %93, label %102
+  br i1 %92, label %93, label %101
 
 93:                                               ; preds = %84
   %94 = fmul double %85, 1.000000e+02
@@ -4477,286 +4475,285 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   %96 = fmul double %94, %95
   %97 = tail call double @SUNRabs(double noundef %90) #8
   %98 = fcmp olt double %97, %96
-  br i1 %98, label %99, label %102
+  br i1 %98, label %99, label %101
 
 99:                                               ; preds = %93
   %100 = load double, ptr %14, align 8, !tbaa !63
-  %101 = freeze double %100
-  br label %103
+  br label %102
 
-102:                                              ; preds = %93, %84
+101:                                              ; preds = %93, %84
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.27) #8
   br label %.critedge163
 
-103:                                              ; preds = %99, %80
-  %.0132 = phi double [ %101, %99 ], [ %1, %80 ]
-  %104 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !18
-  %.not151182 = icmp eq ptr %.fr284, null
+102:                                              ; preds = %99, %80
+  %.0132 = phi double [ %100, %99 ], [ %1, %80 ]
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %104 = load ptr, ptr %103, align 8, !tbaa !18
+  %.not151182 = icmp eq ptr %.fr282, null
   br i1 %.not151182, label %.critedge.us, label %.split
 
-.critedge.us:                                     ; preds = %103, %.critedge.us
-  %.0133.us = phi ptr [ %107, %.critedge.us ], [ %105, %103 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.0133.us, i64 816
-  %107 = load ptr, ptr %106, align 8, !tbaa !105
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %.loopexit.thread, label %.critedge.us
+.critedge.us:                                     ; preds = %102, %.critedge.us
+  %.0133.us = phi ptr [ %106, %.critedge.us ], [ %104, %102 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.0133.us, i64 816
+  %106 = load ptr, ptr %105, align 8, !tbaa !105
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %.loopexit.thread, label %.critedge.us
 
 .loopexit.thread:                                 ; preds = %.critedge.us
-  %109 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %110 = icmp eq i32 %2, 2
-  %111 = load ptr, ptr %109, align 8, !tbaa !24
-  %.not153.us.us = icmp eq ptr %.0133.us, %111
-  br i1 %110, label %.split221.us.split.us, label %.split221.us.split.split.us
+  %108 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %109 = icmp eq i32 %2, 2
+  %110 = load ptr, ptr %108, align 8, !tbaa !24
+  %.not153.us.us = icmp eq ptr %.0133.us, %110
+  br i1 %109, label %.split221.us.split.us, label %.split221.us.split.split.us
 
-.split:                                           ; preds = %103
-  %112 = icmp eq i32 %2, 1
-  br i1 %112, label %.lr.ph185.us, label %.lr.ph185
+.split:                                           ; preds = %102
+  %111 = icmp eq i32 %2, 1
+  br i1 %111, label %.lr.ph185.us, label %.lr.ph185
 
 .lr.ph185.us:                                     ; preds = %.split, %..critedge_crit_edge.split.us202
-  %.0133.us196 = phi ptr [ %129, %..critedge_crit_edge.split.us202 ], [ %105, %.split ]
-  %113 = load double, ptr %.0133.us196, align 8, !tbaa !132
-  %.fr = freeze double %113
-  %114 = fsub double %.0132, %.fr
-  %115 = fmul double %114, %76
-  %116 = fcmp ult double %115, 0.000000e+00
-  br i1 %116, label %.lr.ph185.split.split.us.us, label %.lr.ph185.split.split.us201
+  %.0133.us196 = phi ptr [ %128, %..critedge_crit_edge.split.us202 ], [ %104, %.split ]
+  %112 = load double, ptr %.0133.us196, align 8, !tbaa !132
+  %113 = fsub double %.0132, %112
+  %114 = fmul double %113, %76
+  %.fr = freeze double %114
+  %115 = fcmp ult double %.fr, 0.000000e+00
+  br i1 %115, label %.lr.ph185.split.split.us.us, label %.lr.ph185.split.split.us201
 
-.lr.ph185.split.split.us201:                      ; preds = %.lr.ph185.us, %125
-  %.1136183.us197 = phi ptr [ %127, %125 ], [ %.fr284, %.lr.ph185.us ]
-  %117 = getelementptr inbounds nuw i8, ptr %.1136183.us197, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !123
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 984
-  %120 = load double, ptr %119, align 8, !tbaa !77
-  %121 = fsub double %120, %.fr
-  %122 = fmul double %121, %76
-  %123 = fcmp ogt double %122, 0.000000e+00
-  %124 = fcmp oeq double %120, %.fr
-  %or.cond280 = or i1 %123, %124
-  br i1 %or.cond280, label %.loopexit, label %125
+.lr.ph185.split.split.us201:                      ; preds = %.lr.ph185.us, %124
+  %.1136183.us197 = phi ptr [ %126, %124 ], [ %.fr282, %.lr.ph185.us ]
+  %116 = getelementptr inbounds nuw i8, ptr %.1136183.us197, i64 16
+  %117 = load ptr, ptr %116, align 8, !tbaa !123
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 984
+  %119 = load double, ptr %118, align 8, !tbaa !77
+  %120 = fsub double %119, %112
+  %121 = fmul double %120, %76
+  %122 = fcmp ogt double %121, 0.000000e+00
+  %123 = fcmp oeq double %119, %112
+  %or.cond280 = select i1 %122, i1 true, i1 %123
+  br i1 %or.cond280, label %.loopexit, label %124
 
-125:                                              ; preds = %.lr.ph185.split.split.us201
-  %126 = getelementptr inbounds nuw i8, ptr %.1136183.us197, i64 120
-  %127 = load ptr, ptr %126, align 8, !tbaa !119
-  %.not151.us198 = icmp eq ptr %127, null
+124:                                              ; preds = %.lr.ph185.split.split.us201
+  %125 = getelementptr inbounds nuw i8, ptr %.1136183.us197, i64 120
+  %126 = load ptr, ptr %125, align 8, !tbaa !119
+  %.not151.us198 = icmp eq ptr %126, null
   br i1 %.not151.us198, label %..critedge_crit_edge.split.us202, label %.lr.ph185.split.split.us201, !llvm.loop !214
 
-..critedge_crit_edge.split.us202:                 ; preds = %125, %138
-  %128 = getelementptr inbounds nuw i8, ptr %.0133.us196, i64 816
-  %129 = load ptr, ptr %128, align 8, !tbaa !105
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %.loopexit, label %.lr.ph185.us
+..critedge_crit_edge.split.us202:                 ; preds = %124, %137
+  %127 = getelementptr inbounds nuw i8, ptr %.0133.us196, i64 816
+  %128 = load ptr, ptr %127, align 8, !tbaa !105
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %.loopexit, label %.lr.ph185.us
 
-.lr.ph185.split.split.us.us:                      ; preds = %.lr.ph185.us, %138
-  %.1136183.us186.us = phi ptr [ %140, %138 ], [ %.fr284, %.lr.ph185.us ]
-  %131 = getelementptr inbounds nuw i8, ptr %.1136183.us186.us, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !123
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 984
-  %134 = load double, ptr %133, align 8, !tbaa !77
-  %135 = fsub double %134, %.fr
-  %136 = fmul double %135, %76
-  %137 = fcmp ogt double %136, 0.000000e+00
-  br i1 %137, label %.loopexit, label %138
+.lr.ph185.split.split.us.us:                      ; preds = %.lr.ph185.us, %137
+  %.1136183.us186.us = phi ptr [ %139, %137 ], [ %.fr282, %.lr.ph185.us ]
+  %130 = getelementptr inbounds nuw i8, ptr %.1136183.us186.us, i64 16
+  %131 = load ptr, ptr %130, align 8, !tbaa !123
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 984
+  %133 = load double, ptr %132, align 8, !tbaa !77
+  %134 = fsub double %133, %112
+  %135 = fmul double %134, %76
+  %136 = fcmp ogt double %135, 0.000000e+00
+  br i1 %136, label %.loopexit, label %137
 
-138:                                              ; preds = %.lr.ph185.split.split.us.us
-  %139 = getelementptr inbounds nuw i8, ptr %.1136183.us186.us, i64 120
-  %140 = load ptr, ptr %139, align 8, !tbaa !119
-  %.not151.us187.us = icmp eq ptr %140, null
+137:                                              ; preds = %.lr.ph185.split.split.us.us
+  %138 = getelementptr inbounds nuw i8, ptr %.1136183.us186.us, i64 120
+  %139 = load ptr, ptr %138, align 8, !tbaa !119
+  %.not151.us187.us = icmp eq ptr %139, null
   br i1 %.not151.us187.us, label %..critedge_crit_edge.split.us202, label %.lr.ph185.split.split.us.us, !llvm.loop !214
 
 .lr.ph185:                                        ; preds = %.split, %..critedge_crit_edge.split.us
-  %.0133 = phi ptr [ %154, %..critedge_crit_edge.split.us ], [ %105, %.split ]
-  %141 = load double, ptr %.0133, align 8, !tbaa !132
-  br label %142
+  %.0133 = phi ptr [ %153, %..critedge_crit_edge.split.us ], [ %104, %.split ]
+  %140 = load double, ptr %.0133, align 8, !tbaa !132
+  br label %141
 
-142:                                              ; preds = %150, %.lr.ph185
-  %.1136183.us = phi ptr [ %.fr284, %.lr.ph185 ], [ %152, %150 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.1136183.us, i64 16
-  %144 = load ptr, ptr %143, align 8, !tbaa !123
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 984
-  %146 = load double, ptr %145, align 8, !tbaa !77
-  %147 = fsub double %146, %141
-  %148 = fmul double %147, %76
-  %149 = fcmp ogt double %148, 0.000000e+00
-  br i1 %149, label %.loopexit, label %150
+141:                                              ; preds = %149, %.lr.ph185
+  %.1136183.us = phi ptr [ %.fr282, %.lr.ph185 ], [ %151, %149 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.1136183.us, i64 16
+  %143 = load ptr, ptr %142, align 8, !tbaa !123
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 984
+  %145 = load double, ptr %144, align 8, !tbaa !77
+  %146 = fsub double %145, %140
+  %147 = fmul double %146, %76
+  %148 = fcmp ogt double %147, 0.000000e+00
+  br i1 %148, label %.loopexit, label %149
 
-150:                                              ; preds = %142
-  %151 = getelementptr inbounds nuw i8, ptr %.1136183.us, i64 120
-  %152 = load ptr, ptr %151, align 8, !tbaa !119
-  %.not151.us = icmp eq ptr %152, null
-  br i1 %.not151.us, label %..critedge_crit_edge.split.us, label %142, !llvm.loop !214
+149:                                              ; preds = %141
+  %150 = getelementptr inbounds nuw i8, ptr %.1136183.us, i64 120
+  %151 = load ptr, ptr %150, align 8, !tbaa !119
+  %.not151.us = icmp eq ptr %151, null
+  br i1 %.not151.us, label %..critedge_crit_edge.split.us, label %141, !llvm.loop !214
 
-..critedge_crit_edge.split.us:                    ; preds = %150
-  %153 = getelementptr inbounds nuw i8, ptr %.0133, i64 816
-  %154 = load ptr, ptr %153, align 8, !tbaa !105
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %.loopexit, label %.lr.ph185
+..critedge_crit_edge.split.us:                    ; preds = %149
+  %152 = getelementptr inbounds nuw i8, ptr %.0133, i64 816
+  %153 = load ptr, ptr %152, align 8, !tbaa !105
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %.loopexit, label %.lr.ph185
 
-.loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %142, %..critedge_crit_edge.split.us202, %.lr.ph185.split.split.us201, %.lr.ph185.split.split.us.us
-  %.0133177 = phi ptr [ %.0133.us196, %..critedge_crit_edge.split.us202 ], [ %.0133, %142 ], [ %.0133.us196, %.lr.ph185.split.split.us201 ], [ %.0133.us196, %.lr.ph185.split.split.us.us ], [ %.0133, %..critedge_crit_edge.split.us ]
-  %156 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %157 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %158 = icmp eq i32 %2, 2
-  br i1 %158, label %.split221.split.us, label %.split221.split.split
+.loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %141, %..critedge_crit_edge.split.us202, %.lr.ph185.split.split.us201, %.lr.ph185.split.split.us.us
+  %.0133177 = phi ptr [ %.0133.us196, %..critedge_crit_edge.split.us202 ], [ %.0133, %141 ], [ %.0133.us196, %.lr.ph185.split.split.us201 ], [ %.0133.us196, %.lr.ph185.split.split.us.us ], [ %.0133, %..critedge_crit_edge.split.us ]
+  %155 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %156 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %157 = icmp eq i32 %2, 2
+  br i1 %157, label %.split221.split.us, label %.split221.split.split
 
 .split221.us.split.us:                            ; preds = %.loopexit.thread
-  br i1 %.not153.us.us, label %.critedge163, label %159
+  br i1 %.not153.us.us, label %.critedge163, label %158
 
-159:                                              ; preds = %.split221.us.split.us
-  %160 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.0133.us)
+158:                                              ; preds = %.split221.us.split.us
+  %159 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.0133.us)
   br label %.critedge163
 
 .split221.us.split.split.us:                      ; preds = %.loopexit.thread
-  br i1 %.not153.us.us, label %.critedge163, label %161
+  br i1 %.not153.us.us, label %.critedge163, label %160
 
-161:                                              ; preds = %.split221.us.split.split.us
-  %162 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.0133.us)
+160:                                              ; preds = %.split221.us.split.split.us
+  %161 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.0133.us)
   br label %.critedge163
 
 .split221.split.us:                               ; preds = %.loopexit
-  %163 = load ptr, ptr %156, align 8, !tbaa !24
-  %.not153.us228 = icmp eq ptr %.0133177, %163
-  br i1 %.not153.us228, label %.lr.ph213.us.preheader, label %164
+  %162 = load ptr, ptr %155, align 8, !tbaa !24
+  %.not153.us228 = icmp eq ptr %.0133177, %162
+  br i1 %.not153.us228, label %.lr.ph213.us.preheader, label %163
 
-164:                                              ; preds = %.split221.split.us
-  %165 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef nonnull %.0133177)
-  %.not154.us229 = icmp eq i32 %165, 0
+163:                                              ; preds = %.split221.split.us
+  %164 = tail call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef nonnull %.0133177)
+  %.not154.us229 = icmp eq i32 %164, 0
   br i1 %.not154.us229, label %.lr.ph213.us.preheader, label %.critedge163
 
-.lr.ph213.us.preheader:                           ; preds = %164, %.split221.split.us
+.lr.ph213.us.preheader:                           ; preds = %163, %.split221.split.us
   br label %.lr.ph213.us
 
-.lr.ph213.us:                                     ; preds = %.lr.ph213.us.preheader, %186
-  %.2137211.us = phi ptr [ %188, %186 ], [ %.fr284, %.lr.ph213.us.preheader ]
-  %166 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 16
-  %167 = load ptr, ptr %166, align 8, !tbaa !123
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 984
-  %169 = load double, ptr %168, align 8, !tbaa !77
-  %170 = load double, ptr %.0133177, align 8, !tbaa !132
-  %171 = fcmp oeq double %169, %170
-  br i1 %171, label %.thread336, label %172
+.lr.ph213.us:                                     ; preds = %.lr.ph213.us.preheader, %185
+  %.2137211.us = phi ptr [ %187, %185 ], [ %.fr282, %.lr.ph213.us.preheader ]
+  %165 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 16
+  %166 = load ptr, ptr %165, align 8, !tbaa !123
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 984
+  %168 = load double, ptr %167, align 8, !tbaa !77
+  %169 = load double, ptr %.0133177, align 8, !tbaa !132
+  %170 = fcmp oeq double %168, %169
+  br i1 %170, label %.thread334, label %171
 
-172:                                              ; preds = %.lr.ph213.us
-  %173 = fsub double %169, %170
-  %174 = fmul double %173, %76
-  %175 = fcmp olt double %174, 0.000000e+00
-  br i1 %175, label %.thread336, label %176
+171:                                              ; preds = %.lr.ph213.us
+  %172 = fsub double %168, %169
+  %173 = fmul double %172, %76
+  %174 = fcmp olt double %173, 0.000000e+00
+  br i1 %174, label %.thread334, label %175
 
-176:                                              ; preds = %172
-  store ptr %.2137211.us, ptr %157, align 8, !tbaa !41
-  %177 = call i32 @CVodeSetStopTime(ptr noundef nonnull %167, double noundef %170) #8
-  %178 = load ptr, ptr %166, align 8, !tbaa !123
-  %179 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 112
-  %180 = load ptr, ptr %179, align 8, !tbaa !127
-  %181 = call i32 @CVode(ptr noundef %178, double noundef %.0132, ptr noundef %180, ptr noundef nonnull %4, i32 noundef 2) #8
-  %182 = load double, ptr %4, align 8, !tbaa !90
-  %183 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 104
-  store double %182, ptr %183, align 8, !tbaa !215
-  %184 = icmp slt i32 %181, 0
-  br i1 %184, label %.thread, label %186
+175:                                              ; preds = %171
+  store ptr %.2137211.us, ptr %156, align 8, !tbaa !41
+  %176 = call i32 @CVodeSetStopTime(ptr noundef nonnull %166, double noundef %169) #8
+  %177 = load ptr, ptr %165, align 8, !tbaa !123
+  %178 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 112
+  %179 = load ptr, ptr %178, align 8, !tbaa !127
+  %180 = call i32 @CVode(ptr noundef %177, double noundef %.0132, ptr noundef %179, ptr noundef nonnull %4, i32 noundef 2) #8
+  %181 = load double, ptr %4, align 8, !tbaa !90
+  %182 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 104
+  store double %181, ptr %182, align 8, !tbaa !215
+  %183 = icmp slt i32 %180, 0
+  br i1 %183, label %.thread, label %185
 
-.thread336:                                       ; preds = %.lr.ph213.us, %172
-  %185 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 104
-  store double %169, ptr %185, align 8, !tbaa !215
-  br label %186
+.thread334:                                       ; preds = %.lr.ph213.us, %171
+  %184 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 104
+  store double %168, ptr %184, align 8, !tbaa !215
+  br label %185
 
-186:                                              ; preds = %.thread336, %176
-  %.5.us = phi i32 [ %181, %176 ], [ 0, %.thread336 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 120
-  %188 = load ptr, ptr %187, align 8, !tbaa !119
-  %.not155.us = icmp eq ptr %188, null
+185:                                              ; preds = %.thread334, %175
+  %.5.us = phi i32 [ %180, %175 ], [ 0, %.thread334 ]
+  %186 = getelementptr inbounds nuw i8, ptr %.2137211.us, i64 120
+  %187 = load ptr, ptr %186, align 8, !tbaa !119
+  %.not155.us = icmp eq ptr %187, null
   br i1 %.not155.us, label %.critedge163, label %.lr.ph213.us, !llvm.loop !216
 
-.split221.split.split:                            ; preds = %.loopexit, %228
-  %.1134 = phi ptr [ %230, %228 ], [ %.0133177, %.loopexit ]
-  %189 = load ptr, ptr %156, align 8, !tbaa !24
-  %.not153 = icmp eq ptr %.1134, %189
-  br i1 %.not153, label %.lr.ph213.preheader, label %190
+.split221.split.split:                            ; preds = %.loopexit, %227
+  %.1134 = phi ptr [ %229, %227 ], [ %.0133177, %.loopexit ]
+  %188 = load ptr, ptr %155, align 8, !tbaa !24
+  %.not153 = icmp eq ptr %.1134, %188
+  br i1 %.not153, label %.lr.ph213.preheader, label %189
 
-190:                                              ; preds = %.split221.split.split
-  %191 = call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.1134)
-  %.not154 = icmp eq i32 %191, 0
+189:                                              ; preds = %.split221.split.split
+  %190 = call fastcc i32 @CVAdataStore(ptr noundef %0, ptr noundef %.1134)
+  %.not154 = icmp eq i32 %190, 0
   br i1 %.not154, label %.lr.ph213.preheader, label %.critedge163
 
-.lr.ph213.preheader:                              ; preds = %190, %.split221.split.split
+.lr.ph213.preheader:                              ; preds = %189, %.split221.split.split
   br label %.lr.ph213
 
-.lr.ph213:                                        ; preds = %.lr.ph213.preheader, %216
-  %.2137211 = phi ptr [ %218, %216 ], [ %.fr284, %.lr.ph213.preheader ]
-  %192 = getelementptr inbounds nuw i8, ptr %.2137211, i64 16
-  %193 = load ptr, ptr %192, align 8, !tbaa !123
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 984
-  %195 = load double, ptr %194, align 8, !tbaa !77
-  %196 = load double, ptr %.1134, align 8, !tbaa !132
-  %197 = fcmp oeq double %195, %196
-  br i1 %197, label %198, label %202
+.lr.ph213:                                        ; preds = %.lr.ph213.preheader, %215
+  %.2137211 = phi ptr [ %217, %215 ], [ %.fr282, %.lr.ph213.preheader ]
+  %191 = getelementptr inbounds nuw i8, ptr %.2137211, i64 16
+  %192 = load ptr, ptr %191, align 8, !tbaa !123
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 984
+  %194 = load double, ptr %193, align 8, !tbaa !77
+  %195 = load double, ptr %.1134, align 8, !tbaa !132
+  %196 = fcmp oeq double %194, %195
+  br i1 %196, label %197, label %201
 
-198:                                              ; preds = %.lr.ph213
-  %199 = fsub double %.0132, %196
-  %200 = fmul double %199, %76
-  %201 = fcmp olt double %200, 0.000000e+00
-  br i1 %201, label %.thread339, label %202
+197:                                              ; preds = %.lr.ph213
+  %198 = fsub double %.0132, %195
+  %199 = fmul double %198, %76
+  %200 = fcmp olt double %199, 0.000000e+00
+  br i1 %200, label %.thread337, label %201
 
-202:                                              ; preds = %198, %.lr.ph213
-  %203 = fsub double %195, %196
-  %204 = fmul double %203, %76
-  %205 = fcmp olt double %204, 0.000000e+00
-  br i1 %205, label %.thread339, label %206
+201:                                              ; preds = %197, %.lr.ph213
+  %202 = fsub double %194, %195
+  %203 = fmul double %202, %76
+  %204 = fcmp olt double %203, 0.000000e+00
+  br i1 %204, label %.thread337, label %205
 
-206:                                              ; preds = %202
-  store ptr %.2137211, ptr %157, align 8, !tbaa !41
-  %207 = call i32 @CVodeSetStopTime(ptr noundef nonnull %193, double noundef %196) #8
-  %208 = load ptr, ptr %192, align 8, !tbaa !123
-  %209 = getelementptr inbounds nuw i8, ptr %.2137211, i64 112
-  %210 = load ptr, ptr %209, align 8, !tbaa !127
-  %211 = call i32 @CVode(ptr noundef %208, double noundef %.0132, ptr noundef %210, ptr noundef nonnull %4, i32 noundef %2) #8
-  %212 = load double, ptr %4, align 8, !tbaa !90
-  %213 = getelementptr inbounds nuw i8, ptr %.2137211, i64 104
-  store double %212, ptr %213, align 8, !tbaa !215
-  %214 = icmp slt i32 %211, 0
-  br i1 %214, label %.thread, label %216
+205:                                              ; preds = %201
+  store ptr %.2137211, ptr %156, align 8, !tbaa !41
+  %206 = call i32 @CVodeSetStopTime(ptr noundef nonnull %192, double noundef %195) #8
+  %207 = load ptr, ptr %191, align 8, !tbaa !123
+  %208 = getelementptr inbounds nuw i8, ptr %.2137211, i64 112
+  %209 = load ptr, ptr %208, align 8, !tbaa !127
+  %210 = call i32 @CVode(ptr noundef %207, double noundef %.0132, ptr noundef %209, ptr noundef nonnull %4, i32 noundef %2) #8
+  %211 = load double, ptr %4, align 8, !tbaa !90
+  %212 = getelementptr inbounds nuw i8, ptr %.2137211, i64 104
+  store double %211, ptr %212, align 8, !tbaa !215
+  %213 = icmp slt i32 %210, 0
+  br i1 %213, label %.thread, label %215
 
-.thread339:                                       ; preds = %198, %202
-  %215 = getelementptr inbounds nuw i8, ptr %.2137211, i64 104
-  store double %195, ptr %215, align 8, !tbaa !215
-  br label %216
+.thread337:                                       ; preds = %197, %201
+  %214 = getelementptr inbounds nuw i8, ptr %.2137211, i64 104
+  store double %194, ptr %214, align 8, !tbaa !215
+  br label %215
 
-216:                                              ; preds = %206, %.thread339
-  %.5 = phi i32 [ %211, %206 ], [ 0, %.thread339 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.2137211, i64 120
-  %218 = load ptr, ptr %217, align 8, !tbaa !119
-  %.not155 = icmp eq ptr %218, null
+215:                                              ; preds = %205, %.thread337
+  %.5 = phi i32 [ %210, %205 ], [ 0, %.thread337 ]
+  %216 = getelementptr inbounds nuw i8, ptr %.2137211, i64 120
+  %217 = load ptr, ptr %216, align 8, !tbaa !119
+  %.not155 = icmp eq ptr %217, null
   br i1 %.not155, label %.preheader, label %.lr.ph213, !llvm.loop !216
 
-.thread:                                          ; preds = %206, %176
-  %.us-phi232 = phi i32 [ %181, %176 ], [ %211, %206 ]
-  %.us-phi233 = phi ptr [ %.2137211.us, %176 ], [ %.2137211, %206 ]
-  %219 = load i32, ptr %.us-phi233, align 8, !tbaa !203
-  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef %.us-phi232, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.30, i32 noundef %219) #8
+.thread:                                          ; preds = %205, %175
+  %.us-phi232 = phi i32 [ %180, %175 ], [ %210, %205 ]
+  %.us-phi233 = phi ptr [ %.2137211.us, %175 ], [ %.2137211, %205 ]
+  %218 = load i32, ptr %.us-phi233, align 8, !tbaa !203
+  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef %.us-phi232, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.30, i32 noundef %218) #8
   br label %.critedge163
 
-.preheader:                                       ; preds = %216, %225
-  %.3138217 = phi ptr [ %227, %225 ], [ %.fr284, %216 ]
-  %220 = getelementptr inbounds nuw i8, ptr %.3138217, i64 104
-  %221 = load double, ptr %220, align 8, !tbaa !215
-  %222 = fsub double %221, %.0132
-  %223 = fmul double %222, %76
-  %224 = fcmp ogt double %223, 0.000000e+00
-  br i1 %224, label %228, label %225
+.preheader:                                       ; preds = %215, %224
+  %.3138217 = phi ptr [ %226, %224 ], [ %.fr282, %215 ]
+  %219 = getelementptr inbounds nuw i8, ptr %.3138217, i64 104
+  %220 = load double, ptr %219, align 8, !tbaa !215
+  %221 = fsub double %220, %.0132
+  %222 = fmul double %221, %76
+  %223 = fcmp ogt double %222, 0.000000e+00
+  br i1 %223, label %227, label %224
 
-225:                                              ; preds = %.preheader
-  %226 = getelementptr inbounds nuw i8, ptr %.3138217, i64 120
-  %227 = load ptr, ptr %226, align 8, !tbaa !119
-  %.not157.not = icmp eq ptr %227, null
+224:                                              ; preds = %.preheader
+  %225 = getelementptr inbounds nuw i8, ptr %.3138217, i64 120
+  %226 = load ptr, ptr %225, align 8, !tbaa !119
+  %.not157.not = icmp eq ptr %226, null
   br i1 %.not157.not, label %.critedge163, label %.preheader, !llvm.loop !217
 
-228:                                              ; preds = %.preheader
-  %229 = getelementptr inbounds nuw i8, ptr %.1134, i64 816
-  %230 = load ptr, ptr %229, align 8, !tbaa !105
+227:                                              ; preds = %.preheader
+  %228 = getelementptr inbounds nuw i8, ptr %.1134, i64 816
+  %229 = load ptr, ptr %228, align 8, !tbaa !105
   br label %.split221.split.split
 
-.critedge163:                                     ; preds = %190, %225, %186, %161, %159, %.split221.us.split.us, %164, %.split221.us.split.split.us, %.thread, %102, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %.us-phi232, %.thread ], [ -22, %102 ], [ 0, %.split221.us.split.us ], [ %160, %159 ], [ 0, %.split221.us.split.split.us ], [ %.5.us, %186 ], [ %.5, %225 ], [ %165, %164 ], [ %162, %161 ], [ %191, %190 ]
+.critedge163:                                     ; preds = %189, %224, %185, %160, %158, %.split221.us.split.us, %163, %.split221.us.split.split.us, %.thread, %101, %74, %70, %53, %47, %24, %18, %11, %6
+  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %.us-phi232, %.thread ], [ -22, %101 ], [ 0, %.split221.us.split.us ], [ %159, %158 ], [ 0, %.split221.us.split.split.us ], [ %.5.us, %185 ], [ %.5, %224 ], [ %164, %163 ], [ %161, %160 ], [ %190, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0128
 }

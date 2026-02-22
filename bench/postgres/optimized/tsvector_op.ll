@@ -5998,8 +5998,8 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr noundef capture
   %10 = load i32, ptr %1, align 8
   %11 = icmp eq i32 %10, 0
   %12 = load i32, ptr %7, align 4
-  %.fr146 = freeze i32 %12
-  %13 = and i32 %.fr146, 1
+  %.fr147 = freeze i32 %12
+  %13 = and i32 %.fr147, 1
   %.not64 = icmp eq i32 %13, 0
   br i1 %11, label %14, label %29
 
@@ -6011,8 +6011,8 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr noundef capture
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %18
-  %20 = lshr i32 %.fr146, 12
-  %21 = lshr i32 %.fr146, 1
+  %20 = lshr i32 %.fr147, 12
+  %21 = lshr i32 %.fr147, 1
   %22 = and i32 %21, 2047
   %23 = add nuw nsw i32 %20, 1
   %narrow = add nuw nsw i32 %23, %22
@@ -6031,8 +6031,8 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr noundef capture
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %33
-  %35 = lshr i32 %.fr146, 12
-  %36 = lshr i32 %.fr146, 1
+  %35 = lshr i32 %.fr147, 12
+  %36 = lshr i32 %.fr147, 1
   %37 = and i32 %36, 2047
   %38 = add nuw nsw i32 %35, 1
   %narrow.i = add nuw nsw i32 %38, %37
@@ -6071,7 +6071,7 @@ check_weight.exit:                                ; preds = %47, %15
   br i1 %55, label %check_weight.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %14, %check_weight.exit
-  %.058172 = phi i32 [ %.058, %check_weight.exit ], [ 1, %14 ]
+  %.058173 = phi i32 [ %.058, %check_weight.exit ], [ 1, %14 ]
   %.not6573 = icmp eq ptr %9, null
   br i1 %.not6573, label %tsCompareString.exit.thread71, label %.lr.ph
 
@@ -6080,10 +6080,10 @@ check_weight.exit:                                ; preds = %47, %15
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds %struct.WordEntry, ptr %5, i64 %58
-  %60 = lshr i32 %.fr146, 12
+  %60 = lshr i32 %.fr147, 12
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
-  %63 = lshr i32 %.fr146, 1
+  %63 = lshr i32 %.fr147, 1
   %64 = and i32 %63, 2047
   %65 = icmp eq i32 %64, 0
   %66 = icmp ne i32 %64, 0
@@ -6109,13 +6109,13 @@ check_weight.exit:                                ; preds = %47, %15
 tsCompareString.exit.thread.us:                   ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %78 = phi i1 [ %76, %.lr.ph.split.us ], [ %71, %.lr.ph.split.us.preheader ]
   %79 = phi i1 [ %75, %.lr.ph.split.us ], [ %70, %.lr.ph.split.us.preheader ]
-  %.06074.us196 = phi ptr [ %80, %.lr.ph.split.us ], [ %9, %.lr.ph.split.us.preheader ]
-  %.076.us195 = phi i32 [ %81, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
-  %.in.us = getelementptr inbounds nuw i8, ptr %.06074.us196, i64 16
+  %.06074.us197 = phi ptr [ %80, %.lr.ph.split.us ], [ %9, %.lr.ph.split.us.preheader ]
+  %.076.us196 = phi i32 [ %81, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
+  %.in.us = getelementptr inbounds nuw i8, ptr %.06074.us197, i64 16
   %80 = load ptr, ptr %.in.us, align 8
-  %81 = add i32 %.076.us195, 1
+  %81 = add i32 %.076.us196, 1
   %.not65.us = icmp eq ptr %80, null
-  br i1 %.not65.us, label %tsCompareString.exit.thread71.loopexit.split.loop.exit179, label %.lr.ph.split.us, !llvm.loop !45
+  br i1 %.not65.us, label %tsCompareString.exit.thread71.loopexit.split.loop.exit180, label %.lr.ph.split.us, !llvm.loop !45
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %tsCompareString.exit.thread
   %.076 = phi i32 [ %97, %tsCompareString.exit.thread ], [ 1, %.lr.ph ]
@@ -6153,17 +6153,17 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split.split,
   %.not65 = icmp eq ptr %96, null
   br i1 %.not65, label %tsCompareString.exit.thread71, label %.lr.ph.split.split, !llvm.loop !45
 
-tsCompareString.exit.thread71.loopexit.split.loop.exit179: ; preds = %tsCompareString.exit.thread.us
+tsCompareString.exit.thread71.loopexit.split.loop.exit180: ; preds = %tsCompareString.exit.thread.us
   %98 = zext i1 %78 to i32
   %.0.i.us.le = select i1 %79, i32 %67, i32 %98
   br label %tsCompareString.exit.thread71
 
-tsCompareString.exit.thread71:                    ; preds = %tsCompareString.exit.thread, %91, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %tsCompareString.exit.thread71.loopexit.split.loop.exit179, %.preheader
-  %.060.lcssa = phi ptr [ null, %.preheader ], [ %80, %.lr.ph.split.us ], [ null, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ %9, %.lr.ph.split.us.preheader ], [ %.06074, %91 ], [ null, %tsCompareString.exit.thread ]
-  %.059.lcssa = phi ptr [ null, %.preheader ], [ %.06074.us196, %.lr.ph.split.us ], [ %.06074.us196, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ null, %.lr.ph.split.us.preheader ], [ %.05975, %91 ], [ %.06074, %tsCompareString.exit.thread ]
-  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %81, %.lr.ph.split.us ], [ %81, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ 1, %.lr.ph.split.us.preheader ], [ %.076, %91 ], [ %97, %tsCompareString.exit.thread ]
-  %.not65.lcssa = phi i1 [ true, %.preheader ], [ false, %.lr.ph.split.us ], [ true, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ false, %.lr.ph.split.us.preheader ], [ false, %91 ], [ true, %tsCompareString.exit.thread ]
-  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph.split.us ], [ %.0.i.us.le, %tsCompareString.exit.thread71.loopexit.split.loop.exit179 ], [ 0, %.lr.ph.split.us.preheader ], [ 0, %91 ], [ %.0.i70, %tsCompareString.exit.thread ]
+tsCompareString.exit.thread71:                    ; preds = %tsCompareString.exit.thread, %91, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %tsCompareString.exit.thread71.loopexit.split.loop.exit180, %.preheader
+  %.060.lcssa = phi ptr [ null, %.preheader ], [ %80, %.lr.ph.split.us ], [ null, %tsCompareString.exit.thread71.loopexit.split.loop.exit180 ], [ %9, %.lr.ph.split.us.preheader ], [ %.06074, %91 ], [ null, %tsCompareString.exit.thread ]
+  %.059.lcssa = phi ptr [ null, %.preheader ], [ %.06074.us197, %.lr.ph.split.us ], [ %.06074.us197, %tsCompareString.exit.thread71.loopexit.split.loop.exit180 ], [ null, %.lr.ph.split.us.preheader ], [ %.05975, %91 ], [ %.06074, %tsCompareString.exit.thread ]
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %81, %.lr.ph.split.us ], [ %81, %tsCompareString.exit.thread71.loopexit.split.loop.exit180 ], [ 1, %.lr.ph.split.us.preheader ], [ %.076, %91 ], [ %97, %tsCompareString.exit.thread ]
+  %.not65.lcssa = phi i1 [ true, %.preheader ], [ false, %.lr.ph.split.us ], [ true, %tsCompareString.exit.thread71.loopexit.split.loop.exit180 ], [ false, %.lr.ph.split.us.preheader ], [ false, %91 ], [ true, %tsCompareString.exit.thread ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph.split.us ], [ %.0.i.us.le, %tsCompareString.exit.thread71.loopexit.split.loop.exit180 ], [ 0, %.lr.ph.split.us.preheader ], [ 0, %91 ], [ %.0.i70, %tsCompareString.exit.thread ]
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = icmp ugt i32 %.0.lcssa, %100
@@ -6187,7 +6187,7 @@ tsCompareString.exit.thread71:                    ; preds = %tsCompareString.exi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
   store i32 1, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.058172, ptr %111, align 4
+  store i32 %.058173, ptr %111, align 4
   %112 = load i32, ptr %7, align 4
   %113 = lshr i32 %112, 1
   %114 = and i32 %113, 2047
@@ -6231,7 +6231,7 @@ tsCompareString.exit.thread71:                    ; preds = %tsCompareString.exi
   store i32 %136, ptr %.060.lcssa, align 8
   %137 = getelementptr inbounds nuw i8, ptr %.060.lcssa, i64 4
   %138 = load i32, ptr %137, align 4
-  %139 = add i32 %138, %.058172
+  %139 = add i32 %138, %.058173
   store i32 %139, ptr %137, align 4
   br label %check_weight.exit.thread
 

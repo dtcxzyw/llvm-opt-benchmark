@@ -40523,9 +40523,8 @@ define hidden void @_ZN11ide_assists5utils22convert_reference_type17hbaa0431f2e3
           to label %.noexc57 unwind label %.body.thread106
 
 .noexc57:                                         ; preds = %.thread122
-  %.fr.i.i.i = freeze { i32, i32 } %168
-  %169 = extractvalue { i32, i32 } %.fr.i.i.i, 0
-  %170 = extractvalue { i32, i32 } %.fr.i.i.i, 1
+  %169 = extractvalue { i32, i32 } %168, 0
+  %170 = extractvalue { i32, i32 } %168, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !12226
   %171 = invoke noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_option_Option17h79adf2b024995de4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc58 unwind label %.body.thread106
@@ -40583,9 +40582,10 @@ define hidden void @_ZN11ide_assists5utils22convert_reference_type17hbaa0431f2e3
 .noexc62:                                         ; preds = %188
   %189 = icmp eq i32 %169, %182
   %190 = icmp eq i32 %170, %183
-  %spec.select.i.i.i.i = and i1 %189, %190
+  %spec.select.i.i.i.i = select i1 %189, i1 %190, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !12226
-  br i1 %spec.select.i.i.i.i, label %219, label %193
+  %cond.fr.i.i.i = freeze i1 %spec.select.i.i.i.i
+  br i1 %cond.fr.i.i.i, label %219, label %193
 
 191:                                              ; preds = %179
   %192 = landingpad { ptr, i32 }
@@ -40602,9 +40602,8 @@ define hidden void @_ZN11ide_assists5utils22convert_reference_type17hbaa0431f2e3
           to label %.noexc77 unwind label %.body.thread106
 
 .noexc77:                                         ; preds = %193
-  %.fr.i.i.i73 = freeze { i32, i32 } %194
-  %195 = extractvalue { i32, i32 } %.fr.i.i.i73, 0
-  %196 = extractvalue { i32, i32 } %.fr.i.i.i73, 1
+  %195 = extractvalue { i32, i32 } %194, 0
+  %196 = extractvalue { i32, i32 } %194, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !12235
   %197 = invoke noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_result_Result17hc440f7331d28d39cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc78 unwind label %.body.thread106
@@ -40633,9 +40632,9 @@ define hidden void @_ZN11ide_assists5utils22convert_reference_type17hbaa0431f2e3
           to label %.body.thread unwind label %217, !noalias !12243
 
 207:                                              ; preds = %.noexc79
-  %.fr8.i.i.i74 = freeze { i32, i32 } %204
-  %208 = extractvalue { i32, i32 } %.fr8.i.i.i74, 0
-  %209 = extractvalue { i32, i32 } %.fr8.i.i.i74, 1
+  %.fr8.i.i.i73 = freeze { i32, i32 } %204
+  %208 = extractvalue { i32, i32 } %.fr8.i.i.i73, 0
+  %209 = extractvalue { i32, i32 } %.fr8.i.i.i73, 1
   %210 = icmp eq i32 %195, 3
   %211 = icmp eq i32 %208, 3
   br i1 %210, label %212, label %213
@@ -40662,9 +40661,10 @@ define hidden void @_ZN11ide_assists5utils22convert_reference_type17hbaa0431f2e3
 .noexc82:                                         ; preds = %214
   %215 = icmp eq i32 %195, %208
   %216 = icmp eq i32 %196, %209
-  %spec.select.i.i.i.i75 = and i1 %215, %216
+  %spec.select.i.i.i.i74 = select i1 %215, i1 %216, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12235
-  br i1 %spec.select.i.i.i.i75, label %219, label %222
+  %cond.fr.i.i.i75 = freeze i1 %spec.select.i.i.i.i74
+  br i1 %cond.fr.i.i.i75, label %219, label %222
 
 217:                                              ; preds = %205
   %218 = landingpad { ptr, i32 }

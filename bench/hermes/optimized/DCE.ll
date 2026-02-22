@@ -77,40 +77,40 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO.i, ptr noundef nonnull %__begin1.sroa.0.065) #6
   %0 = load ptr, ptr %Order.i.i, align 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.not28.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.not28.i, label %for.end25.i, label %for.body.i
+  %cmp.i.not29.i = icmp eq ptr %0, %1
+  br i1 %cmp.i.not29.i, label %for.end25.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body, %for.inc.i
-  %changed.030.i = phi i1 [ %changed.1.ph.lcssa.i, %for.inc.i ], [ false, %for.body ]
-  %__begin1.sroa.0.029.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %for.body ]
-  %2 = load ptr, ptr %__begin1.sroa.0.029.i, align 8
+  %changed.031.i = phi i1 [ %changed.1.ph.lcssa.i, %for.inc.i ], [ false, %for.body ]
+  %__begin1.sroa.0.030.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %for.body ]
+  %2 = load ptr, ptr %__begin1.sroa.0.030.i, align 8
   %InstList.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %InstList.i.i, align 8
-  %cmp.i4.not2124.i = icmp eq ptr %3, %InstList.i.i
-  br i1 %cmp.i4.not2124.i, label %for.inc.i, label %for.body11.lr.ph.i
+  %cmp.i4.not2225.i = icmp eq ptr %3, %InstList.i.i
+  br i1 %cmp.i4.not2225.i, label %for.inc.i, label %for.body11.lr.ph.i
 
 for.body11.lr.ph.i:                               ; preds = %for.body.i, %do.end.i
-  %changed.1.ph26.i = phi i1 [ true, %do.end.i ], [ %changed.030.i, %for.body.i ]
-  %it.sroa.0.0.ph25.i = phi ptr [ %4, %do.end.i ], [ %3, %for.body.i ]
+  %changed.1.ph27.i = phi i1 [ true, %do.end.i ], [ %changed.031.i, %for.body.i ]
+  %it.sroa.0.0.ph26.i = phi ptr [ %4, %do.end.i ], [ %3, %for.body.i ]
   br label %for.body11.i
 
 for.body11.i:                                     ; preds = %for.cond9.backedge.i, %for.body11.lr.ph.i
-  %it.sroa.0.022.i = phi ptr [ %it.sroa.0.0.ph25.i, %for.body11.lr.ph.i ], [ %4, %for.cond9.backedge.i ]
-  %4 = load ptr, ptr %it.sroa.0.022.i, align 8
-  %call.i.i = call noundef i32 @_ZN6hermes11Instruction20getDerivedSideEffectEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.022.i) #6
+  %it.sroa.0.023.i = phi ptr [ %it.sroa.0.0.ph26.i, %for.body11.lr.ph.i ], [ %4, %for.cond9.backedge.i ]
+  %4 = load ptr, ptr %it.sroa.0.023.i, align 8
+  %call.i.i = call noundef i32 @_ZN6hermes11Instruction20getDerivedSideEffectEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.023.i) #6
   %cmp.i5.i = icmp sgt i32 %call.i.i, 1
   br i1 %cmp.i5.i, label %for.cond9.backedge.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body11.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.022.i, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.023.i, i64 16
   %5 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %.fr.i = freeze i8 %5
-  %6 = add i8 %.fr.i, -75
+  %.fr20.i = freeze i8 %5
+  %6 = add i8 %.fr20.i, -75
   %7 = icmp ult i8 %6, 15
   br i1 %7, label %for.cond9.backedge.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %lor.lhs.false.i
-  switch i8 %.fr.i, label %if.end.i [
+  switch i8 %.fr20.i, label %if.end.i [
     i8 7, label %for.cond9.backedge.i
     i8 4, label %for.cond9.backedge.i
   ]
@@ -125,13 +125,13 @@ if.end.i:                                         ; preds = %switch.early.test.i
   br i1 %tobool.not.i, label %do.end.i, label %for.cond9.backedge.i
 
 do.end.i:                                         ; preds = %if.end.i
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.022.i) #6
-  %cmp.i4.not21.i = icmp eq ptr %4, %InstList.i.i
-  br i1 %cmp.i4.not21.i, label %for.inc.i, label %for.body11.lr.ph.i, !llvm.loop !4
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.023.i) #6
+  %cmp.i4.not22.i = icmp eq ptr %4, %InstList.i.i
+  br i1 %cmp.i4.not22.i, label %for.inc.i, label %for.body11.lr.ph.i, !llvm.loop !4
 
 for.inc.i:                                        ; preds = %do.end.i, %for.cond9.backedge.i, %for.body.i
-  %changed.1.ph.lcssa.i = phi i1 [ %changed.1.ph26.i, %for.cond9.backedge.i ], [ %changed.030.i, %for.body.i ], [ true, %do.end.i ]
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.029.i, i64 8
+  %changed.1.ph.lcssa.i = phi i1 [ %changed.1.ph27.i, %for.cond9.backedge.i ], [ %changed.031.i, %for.body.i ], [ true, %do.end.i ]
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.030.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %for.end25.loopexit.i, label %for.body.i
 

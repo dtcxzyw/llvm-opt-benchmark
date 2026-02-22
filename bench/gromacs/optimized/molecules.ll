@@ -17405,8 +17405,8 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5t
   br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i.i
-  %.041.i.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i.i ], [ 0, %9 ]
-  %22 = shl i64 %.041.i.i, 1
+  %.040.i.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i.i ], [ 0, %9 ]
+  %22 = shl i64 %.040.i.i, 1
   %23 = add i64 %22, 2
   %24 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
@@ -17425,10 +17425,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5t
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i: ; preds = %32
   %34 = load i32, ptr %24, align 4, !tbaa !101
   %35 = load i32, ptr %26, align 4, !tbaa !101
-  %.fr.i.i = freeze i32 %34
-  %.fr40.i.i = freeze i32 %35
-  %36 = icmp slt i32 %.fr.i.i, %.fr40.i.i
-  br i1 %36, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i.i
+  %36 = icmp slt i32 %34, %35
+  %cond.fr.i.i = freeze i1 %36
+  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i.i
@@ -17437,7 +17436,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt
   %37 = phi i32 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i.i ], [ %28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i ], [ %28, %32 ]
   %38 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i.i ], [ %23, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i ], [ %23, %32 ]
   %39 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %.041.i.i
+  %40 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %.040.i.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %37, ptr %41, align 4, !tbaa !101
   %42 = load i32, ptr %39, align 4, !tbaa !101
@@ -17554,8 +17553,8 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5t
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %22, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i
-  %.041.i = phi i64 [ %44, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i ], [ %.07, %22 ]
-  %28 = shl i64 %.041.i, 1
+  %.040.i = phi i64 [ %44, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i ], [ %.07, %22 ]
+  %28 = shl i64 %.040.i, 1
   %29 = add i64 %28, 2
   %30 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %29
   %31 = or disjoint i64 %28, 1
@@ -17574,10 +17573,9 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5t
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i: ; preds = %38
   %40 = load i32, ptr %30, align 4, !tbaa !101
   %41 = load i32, ptr %32, align 4, !tbaa !101
-  %.fr.i = freeze i32 %40
-  %.fr40.i = freeze i32 %41
-  %42 = icmp slt i32 %.fr.i, %.fr40.i
-  br i1 %42, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i
+  %42 = icmp slt i32 %40, %41
+  %cond.fr.i = freeze i1 %42
+  br i1 %cond.fr.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i, %.lr.ph.i
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread38.i
@@ -17586,7 +17584,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt
   %43 = phi i32 [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i ], [ %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i ], [ %34, %38 ]
   %44 = phi i64 [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i ], [ %29, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i ], [ %29, %38 ]
   %45 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %44
-  %46 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %.041.i
+  %46 = getelementptr inbounds %"class.std::tuple.230", ptr %0, i64 %.040.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %43, ptr %47, align 4, !tbaa !101
   %48 = load i32, ptr %45, align 4, !tbaa !101

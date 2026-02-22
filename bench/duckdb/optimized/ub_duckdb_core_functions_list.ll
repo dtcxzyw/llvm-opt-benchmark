@@ -17945,12 +17945,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %255 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
   %256 = icmp ult i32 %254, 13
   %257 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i.i.i.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %253, i64 24
-  %.pre25.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert24.i.i.i.i.i.i.i, align 8, !tbaa !427, !noalias !414
+  %.phi.trans.insert25.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %253, i64 24
+  %.pre26.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i.i.i.i, align 8, !tbaa !427, !noalias !414
   br i1 %256, label %.split.us.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i.i:                          ; preds = %252, %267
-  %258 = phi i64 [ %269, %267 ], [ %.pre25.i.i.i.i.i.i.i, %252 ]
+  %258 = phi i64 [ %269, %267 ], [ %.pre26.i.i.i.i.i.i.i, %252 ]
   %.0.us.i.i.i.i.i.i.i = phi ptr [ %266, %267 ], [ %253, %252 ]
   %259 = icmp eq i64 %246, %258
   br i1 %259, label %260, label %265
@@ -17980,7 +17980,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i, label %.critedge50.i.i.i.i.i.i, !llvm.loop !429
 
 .split.i.i.i.i.i.i.i:                             ; preds = %252, %283
-  %271 = phi i64 [ %285, %283 ], [ %.pre25.i.i.i.i.i.i.i, %252 ]
+  %271 = phi i64 [ %285, %283 ], [ %.pre26.i.i.i.i.i.i.i, %252 ]
   %.0.i.i.i.i.i.i.i = phi ptr [ %282, %283 ], [ %253, %252 ]
   %272 = icmp eq i64 %246, %271
   br i1 %272, label %273, label %281
@@ -18263,12 +18263,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %376 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i119.i.i.i.i to ptr
   %377 = icmp ult i32 %375, 13
   %378 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i118.i.i.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i120.i.i.i.i = getelementptr inbounds nuw i8, ptr %374, i64 24
-  %.pre25.i.i.i121.i.i.i.i = load i64, ptr %.phi.trans.insert24.i.i.i120.i.i.i.i, align 8, !tbaa !427, !noalias !414
+  %.phi.trans.insert25.i.i.i120.i.i.i.i = getelementptr inbounds nuw i8, ptr %374, i64 24
+  %.pre26.i.i.i121.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i120.i.i.i.i, align 8, !tbaa !427, !noalias !414
   br i1 %377, label %.split.us.i.i.i131.i.i.i.i, label %.split.i.i.i122.i.i.i.i
 
 .split.us.i.i.i131.i.i.i.i:                       ; preds = %373, %388
-  %379 = phi i64 [ %390, %388 ], [ %.pre25.i.i.i121.i.i.i.i, %373 ]
+  %379 = phi i64 [ %390, %388 ], [ %.pre26.i.i.i121.i.i.i.i, %373 ]
   %.0.us.i.i.i132.i.i.i.i = phi ptr [ %387, %388 ], [ %374, %373 ]
   %380 = icmp eq i64 %367, %379
   br i1 %380, label %381, label %386
@@ -18298,7 +18298,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i134.i.i.i.i, label %.split.us.i.i.i131.i.i.i.i, label %.critedge50.i.i98.i.i.i.i, !llvm.loop !429
 
 .split.i.i.i122.i.i.i.i:                          ; preds = %373, %404
-  %392 = phi i64 [ %406, %404 ], [ %.pre25.i.i.i121.i.i.i.i, %373 ]
+  %392 = phi i64 [ %406, %404 ], [ %.pre26.i.i.i121.i.i.i.i, %373 ]
   %.0.i.i.i123.i.i.i.i = phi ptr [ %403, %404 ], [ %374, %373 ]
   %393 = icmp eq i64 %367, %392
   br i1 %393, label %394, label %402
@@ -18821,12 +18821,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %577 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i.i.i113.i.i to ptr
   %578 = icmp ult i32 %576, 13
   %579 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i.i.i112.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i.i.i114.i.i = getelementptr inbounds nuw i8, ptr %575, i64 24
-  %.pre25.i.i.i.i.i115.i.i = load i64, ptr %.phi.trans.insert24.i.i.i.i.i114.i.i, align 8, !tbaa !427, !noalias !442
+  %.phi.trans.insert25.i.i.i.i.i114.i.i = getelementptr inbounds nuw i8, ptr %575, i64 24
+  %.pre26.i.i.i.i.i115.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i.i114.i.i, align 8, !tbaa !427, !noalias !442
   br i1 %578, label %.split.us.i.i.i.i.i126.i.i, label %.split.i.i.i.i.i116.i.i
 
 .split.us.i.i.i.i.i126.i.i:                       ; preds = %574, %589
-  %580 = phi i64 [ %591, %589 ], [ %.pre25.i.i.i.i.i115.i.i, %574 ]
+  %580 = phi i64 [ %591, %589 ], [ %.pre26.i.i.i.i.i115.i.i, %574 ]
   %.0.us.i.i.i.i.i127.i.i = phi ptr [ %588, %589 ], [ %575, %574 ]
   %581 = icmp eq i64 %568, %580
   br i1 %581, label %582, label %587
@@ -18856,7 +18856,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i.i.i129.i.i, label %.split.us.i.i.i.i.i126.i.i, label %.critedge50.i.i.i.i120.i.i, !llvm.loop !429
 
 .split.i.i.i.i.i116.i.i:                          ; preds = %574, %605
-  %593 = phi i64 [ %607, %605 ], [ %.pre25.i.i.i.i.i115.i.i, %574 ]
+  %593 = phi i64 [ %607, %605 ], [ %.pre26.i.i.i.i.i115.i.i, %574 ]
   %.0.i.i.i.i.i117.i.i = phi ptr [ %604, %605 ], [ %575, %574 ]
   %594 = icmp eq i64 %568, %593
   br i1 %594, label %595, label %603
@@ -19139,12 +19139,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %698 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i119.i.i210.i.i to ptr
   %699 = icmp ult i32 %697, 13
   %700 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i118.i.i209.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i120.i.i211.i.i = getelementptr inbounds nuw i8, ptr %696, i64 24
-  %.pre25.i.i.i121.i.i212.i.i = load i64, ptr %.phi.trans.insert24.i.i.i120.i.i211.i.i, align 8, !tbaa !427, !noalias !442
+  %.phi.trans.insert25.i.i.i120.i.i211.i.i = getelementptr inbounds nuw i8, ptr %696, i64 24
+  %.pre26.i.i.i121.i.i212.i.i = load i64, ptr %.phi.trans.insert25.i.i.i120.i.i211.i.i, align 8, !tbaa !427, !noalias !442
   br i1 %699, label %.split.us.i.i.i131.i.i223.i.i, label %.split.i.i.i122.i.i213.i.i
 
 .split.us.i.i.i131.i.i223.i.i:                    ; preds = %695, %710
-  %701 = phi i64 [ %712, %710 ], [ %.pre25.i.i.i121.i.i212.i.i, %695 ]
+  %701 = phi i64 [ %712, %710 ], [ %.pre26.i.i.i121.i.i212.i.i, %695 ]
   %.0.us.i.i.i132.i.i224.i.i = phi ptr [ %709, %710 ], [ %696, %695 ]
   %702 = icmp eq i64 %689, %701
   br i1 %702, label %703, label %708
@@ -19174,7 +19174,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i134.i.i226.i.i, label %.split.us.i.i.i131.i.i223.i.i, label %.critedge50.i.i98.i.i217.i.i, !llvm.loop !429
 
 .split.i.i.i122.i.i213.i.i:                       ; preds = %695, %726
-  %714 = phi i64 [ %728, %726 ], [ %.pre25.i.i.i121.i.i212.i.i, %695 ]
+  %714 = phi i64 [ %728, %726 ], [ %.pre26.i.i.i121.i.i212.i.i, %695 ]
   %.0.i.i.i123.i.i214.i.i = phi ptr [ %725, %726 ], [ %696, %695 ]
   %715 = icmp eq i64 %689, %714
   br i1 %715, label %716, label %724
@@ -19673,12 +19673,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %897 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i.i.i320.i.i to ptr
   %898 = icmp ult i32 %896, 13
   %899 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i.i.i319.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i.i.i321.i.i = getelementptr inbounds nuw i8, ptr %895, i64 24
-  %.pre25.i.i.i.i.i322.i.i = load i64, ptr %.phi.trans.insert24.i.i.i.i.i321.i.i, align 8, !tbaa !427, !noalias !457
+  %.phi.trans.insert25.i.i.i.i.i321.i.i = getelementptr inbounds nuw i8, ptr %895, i64 24
+  %.pre26.i.i.i.i.i322.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i.i321.i.i, align 8, !tbaa !427, !noalias !457
   br i1 %898, label %.split.us.i.i.i.i.i333.i.i, label %.split.i.i.i.i.i323.i.i
 
 .split.us.i.i.i.i.i333.i.i:                       ; preds = %894, %909
-  %900 = phi i64 [ %911, %909 ], [ %.pre25.i.i.i.i.i322.i.i, %894 ]
+  %900 = phi i64 [ %911, %909 ], [ %.pre26.i.i.i.i.i322.i.i, %894 ]
   %.0.us.i.i.i.i.i334.i.i = phi ptr [ %908, %909 ], [ %895, %894 ]
   %901 = icmp eq i64 %888, %900
   br i1 %901, label %902, label %907
@@ -19708,7 +19708,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i.i.i336.i.i, label %.split.us.i.i.i.i.i333.i.i, label %.critedge50.i.i.i.i327.i.i, !llvm.loop !429
 
 .split.i.i.i.i.i323.i.i:                          ; preds = %894, %925
-  %913 = phi i64 [ %927, %925 ], [ %.pre25.i.i.i.i.i322.i.i, %894 ]
+  %913 = phi i64 [ %927, %925 ], [ %.pre26.i.i.i.i.i322.i.i, %894 ]
   %.0.i.i.i.i.i324.i.i = phi ptr [ %924, %925 ], [ %895, %894 ]
   %914 = icmp eq i64 %888, %913
   br i1 %914, label %915, label %923
@@ -19993,12 +19993,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %1019 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i128.i.i.i.i to ptr
   %1020 = icmp ult i32 %1018, 13
   %1021 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i127.i.i.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i129.i.i.i.i = getelementptr inbounds nuw i8, ptr %1017, i64 24
-  %.pre25.i.i.i130.i.i.i.i = load i64, ptr %.phi.trans.insert24.i.i.i129.i.i.i.i, align 8, !tbaa !427, !noalias !457
+  %.phi.trans.insert25.i.i.i129.i.i.i.i = getelementptr inbounds nuw i8, ptr %1017, i64 24
+  %.pre26.i.i.i130.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i129.i.i.i.i, align 8, !tbaa !427, !noalias !457
   br i1 %1020, label %.split.us.i.i.i140.i.i.i.i, label %.split.i.i.i131.i.i.i.i
 
 .split.us.i.i.i140.i.i.i.i:                       ; preds = %1016, %1031
-  %1022 = phi i64 [ %1033, %1031 ], [ %.pre25.i.i.i130.i.i.i.i, %1016 ]
+  %1022 = phi i64 [ %1033, %1031 ], [ %.pre26.i.i.i130.i.i.i.i, %1016 ]
   %.0.us.i.i.i141.i.i.i.i = phi ptr [ %1030, %1031 ], [ %1017, %1016 ]
   %1023 = icmp eq i64 %1010, %1022
   br i1 %1023, label %1024, label %1029
@@ -20028,7 +20028,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i143.i.i.i.i, label %.split.us.i.i.i140.i.i.i.i, label %.critedge50.i.i107.i.i.i.i, !llvm.loop !429
 
 .split.i.i.i131.i.i.i.i:                          ; preds = %1016, %1047
-  %1035 = phi i64 [ %1049, %1047 ], [ %.pre25.i.i.i130.i.i.i.i, %1016 ]
+  %1035 = phi i64 [ %1049, %1047 ], [ %.pre26.i.i.i130.i.i.i.i, %1016 ]
   %.0.i.i.i132.i.i.i.i = phi ptr [ %1046, %1047 ], [ %1017, %1016 ]
   %1036 = icmp eq i64 %1010, %1035
   br i1 %1036, label %1037, label %1045
@@ -23269,12 +23269,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %256 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
   %257 = icmp ult i32 %255, 13
   %258 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i.i.i.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %254, i64 24
-  %.pre25.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert24.i.i.i.i.i.i.i, align 8, !tbaa !427, !noalias !507
+  %.phi.trans.insert25.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %254, i64 24
+  %.pre26.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i.i.i.i, align 8, !tbaa !427, !noalias !507
   br i1 %257, label %.split.us.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i.i:                          ; preds = %253, %268
-  %259 = phi i64 [ %270, %268 ], [ %.pre25.i.i.i.i.i.i.i, %253 ]
+  %259 = phi i64 [ %270, %268 ], [ %.pre26.i.i.i.i.i.i.i, %253 ]
   %.0.us.i.i.i.i.i.i.i = phi ptr [ %267, %268 ], [ %254, %253 ]
   %260 = icmp eq i64 %247, %259
   br i1 %260, label %261, label %266
@@ -23304,7 +23304,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i", !llvm.loop !429
 
 .split.i.i.i.i.i.i.i:                             ; preds = %253, %284
-  %272 = phi i64 [ %286, %284 ], [ %.pre25.i.i.i.i.i.i.i, %253 ]
+  %272 = phi i64 [ %286, %284 ], [ %.pre26.i.i.i.i.i.i.i, %253 ]
   %.0.i.i.i.i.i.i.i = phi ptr [ %283, %284 ], [ %254, %253 ]
   %273 = icmp eq i64 %247, %272
   br i1 %273, label %274, label %282
@@ -23562,12 +23562,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %369 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i109.i.i.i.i to ptr
   %370 = icmp ult i32 %368, 13
   %371 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i108.i.i.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i110.i.i.i.i = getelementptr inbounds nuw i8, ptr %367, i64 24
-  %.pre25.i.i.i111.i.i.i.i = load i64, ptr %.phi.trans.insert24.i.i.i110.i.i.i.i, align 8, !tbaa !427, !noalias !507
+  %.phi.trans.insert25.i.i.i110.i.i.i.i = getelementptr inbounds nuw i8, ptr %367, i64 24
+  %.pre26.i.i.i111.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i110.i.i.i.i, align 8, !tbaa !427, !noalias !507
   br i1 %370, label %.split.us.i.i.i121.i.i.i.i, label %.split.i.i.i112.i.i.i.i
 
 .split.us.i.i.i121.i.i.i.i:                       ; preds = %366, %381
-  %372 = phi i64 [ %383, %381 ], [ %.pre25.i.i.i111.i.i.i.i, %366 ]
+  %372 = phi i64 [ %383, %381 ], [ %.pre26.i.i.i111.i.i.i.i, %366 ]
   %.0.us.i.i.i122.i.i.i.i = phi ptr [ %380, %381 ], [ %367, %366 ]
   %373 = icmp eq i64 %360, %372
   br i1 %373, label %374, label %379
@@ -23597,7 +23597,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i124.i.i.i.i, label %.split.us.i.i.i121.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.i.i.i.i", !llvm.loop !429
 
 .split.i.i.i112.i.i.i.i:                          ; preds = %366, %397
-  %385 = phi i64 [ %399, %397 ], [ %.pre25.i.i.i111.i.i.i.i, %366 ]
+  %385 = phi i64 [ %399, %397 ], [ %.pre26.i.i.i111.i.i.i.i, %366 ]
   %.0.i.i.i113.i.i.i.i = phi ptr [ %396, %397 ], [ %367, %366 ]
   %386 = icmp eq i64 %360, %385
   br i1 %386, label %387, label %395
@@ -24091,12 +24091,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %564 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i.i.i103.i.i to ptr
   %565 = icmp ult i32 %563, 13
   %566 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i.i.i102.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i.i.i104.i.i = getelementptr inbounds nuw i8, ptr %562, i64 24
-  %.pre25.i.i.i.i.i105.i.i = load i64, ptr %.phi.trans.insert24.i.i.i.i.i104.i.i, align 8, !tbaa !427, !noalias !524
+  %.phi.trans.insert25.i.i.i.i.i104.i.i = getelementptr inbounds nuw i8, ptr %562, i64 24
+  %.pre26.i.i.i.i.i105.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i.i104.i.i, align 8, !tbaa !427, !noalias !524
   br i1 %565, label %.split.us.i.i.i.i.i116.i.i, label %.split.i.i.i.i.i106.i.i
 
 .split.us.i.i.i.i.i116.i.i:                       ; preds = %561, %576
-  %567 = phi i64 [ %578, %576 ], [ %.pre25.i.i.i.i.i105.i.i, %561 ]
+  %567 = phi i64 [ %578, %576 ], [ %.pre26.i.i.i.i.i105.i.i, %561 ]
   %.0.us.i.i.i.i.i117.i.i = phi ptr [ %575, %576 ], [ %562, %561 ]
   %568 = icmp eq i64 %555, %567
   br i1 %568, label %569, label %574
@@ -24126,7 +24126,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i.i.i119.i.i, label %.split.us.i.i.i.i.i116.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i85.i.i", !llvm.loop !429
 
 .split.i.i.i.i.i106.i.i:                          ; preds = %561, %592
-  %580 = phi i64 [ %594, %592 ], [ %.pre25.i.i.i.i.i105.i.i, %561 ]
+  %580 = phi i64 [ %594, %592 ], [ %.pre26.i.i.i.i.i105.i.i, %561 ]
   %.0.i.i.i.i.i107.i.i = phi ptr [ %591, %592 ], [ %562, %561 ]
   %581 = icmp eq i64 %555, %580
   br i1 %581, label %582, label %590
@@ -24384,12 +24384,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %677 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i109.i.i187.i.i to ptr
   %678 = icmp ult i32 %676, 13
   %679 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i108.i.i186.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i110.i.i188.i.i = getelementptr inbounds nuw i8, ptr %675, i64 24
-  %.pre25.i.i.i111.i.i189.i.i = load i64, ptr %.phi.trans.insert24.i.i.i110.i.i188.i.i, align 8, !tbaa !427, !noalias !524
+  %.phi.trans.insert25.i.i.i110.i.i188.i.i = getelementptr inbounds nuw i8, ptr %675, i64 24
+  %.pre26.i.i.i111.i.i189.i.i = load i64, ptr %.phi.trans.insert25.i.i.i110.i.i188.i.i, align 8, !tbaa !427, !noalias !524
   br i1 %678, label %.split.us.i.i.i121.i.i200.i.i, label %.split.i.i.i112.i.i190.i.i
 
 .split.us.i.i.i121.i.i200.i.i:                    ; preds = %674, %689
-  %680 = phi i64 [ %691, %689 ], [ %.pre25.i.i.i111.i.i189.i.i, %674 ]
+  %680 = phi i64 [ %691, %689 ], [ %.pre26.i.i.i111.i.i189.i.i, %674 ]
   %.0.us.i.i.i122.i.i201.i.i = phi ptr [ %688, %689 ], [ %675, %674 ]
   %681 = icmp eq i64 %668, %680
   br i1 %681, label %682, label %687
@@ -24419,7 +24419,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i124.i.i203.i.i, label %.split.us.i.i.i121.i.i200.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit99.i.i170.i.i", !llvm.loop !429
 
 .split.i.i.i112.i.i190.i.i:                       ; preds = %674, %705
-  %693 = phi i64 [ %707, %705 ], [ %.pre25.i.i.i111.i.i189.i.i, %674 ]
+  %693 = phi i64 [ %707, %705 ], [ %.pre26.i.i.i111.i.i189.i.i, %674 ]
   %.0.i.i.i113.i.i191.i.i = phi ptr [ %704, %705 ], [ %675, %674 ]
   %694 = icmp eq i64 %668, %693
   br i1 %694, label %695, label %703
@@ -24895,12 +24895,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %870 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i.i.i289.i.i to ptr
   %871 = icmp ult i32 %869, 13
   %872 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i.i.i288.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i.i.i290.i.i = getelementptr inbounds nuw i8, ptr %868, i64 24
-  %.pre25.i.i.i.i.i291.i.i = load i64, ptr %.phi.trans.insert24.i.i.i.i.i290.i.i, align 8, !tbaa !427, !noalias !539
+  %.phi.trans.insert25.i.i.i.i.i290.i.i = getelementptr inbounds nuw i8, ptr %868, i64 24
+  %.pre26.i.i.i.i.i291.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i.i290.i.i, align 8, !tbaa !427, !noalias !539
   br i1 %871, label %.split.us.i.i.i.i.i302.i.i, label %.split.i.i.i.i.i292.i.i
 
 .split.us.i.i.i.i.i302.i.i:                       ; preds = %867, %882
-  %873 = phi i64 [ %884, %882 ], [ %.pre25.i.i.i.i.i291.i.i, %867 ]
+  %873 = phi i64 [ %884, %882 ], [ %.pre26.i.i.i.i.i291.i.i, %867 ]
   %.0.us.i.i.i.i.i303.i.i = phi ptr [ %881, %882 ], [ %868, %867 ]
   %874 = icmp eq i64 %861, %873
   br i1 %874, label %875, label %880
@@ -24930,7 +24930,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i.i.i305.i.i, label %.split.us.i.i.i.i.i302.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i272.i.i", !llvm.loop !429
 
 .split.i.i.i.i.i292.i.i:                          ; preds = %867, %898
-  %886 = phi i64 [ %900, %898 ], [ %.pre25.i.i.i.i.i291.i.i, %867 ]
+  %886 = phi i64 [ %900, %898 ], [ %.pre26.i.i.i.i.i291.i.i, %867 ]
   %.0.i.i.i.i.i293.i.i = phi ptr [ %897, %898 ], [ %868, %867 ]
   %887 = icmp eq i64 %861, %886
   br i1 %887, label %888, label %896
@@ -25190,12 +25190,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %984 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i.i118.i.i.i.i to ptr
   %985 = icmp ult i32 %983, 13
   %986 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i.i117.i.i.i.i, 4294967295
-  %.phi.trans.insert24.i.i.i119.i.i.i.i = getelementptr inbounds nuw i8, ptr %982, i64 24
-  %.pre25.i.i.i120.i.i.i.i = load i64, ptr %.phi.trans.insert24.i.i.i119.i.i.i.i, align 8, !tbaa !427, !noalias !539
+  %.phi.trans.insert25.i.i.i119.i.i.i.i = getelementptr inbounds nuw i8, ptr %982, i64 24
+  %.pre26.i.i.i120.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i119.i.i.i.i, align 8, !tbaa !427, !noalias !539
   br i1 %985, label %.split.us.i.i.i130.i.i.i.i, label %.split.i.i.i121.i.i.i.i
 
 .split.us.i.i.i130.i.i.i.i:                       ; preds = %981, %996
-  %987 = phi i64 [ %998, %996 ], [ %.pre25.i.i.i120.i.i.i.i, %981 ]
+  %987 = phi i64 [ %998, %996 ], [ %.pre26.i.i.i120.i.i.i.i, %981 ]
   %.0.us.i.i.i131.i.i.i.i = phi ptr [ %995, %996 ], [ %982, %981 ]
   %988 = icmp eq i64 %975, %987
   br i1 %988, label %989, label %994
@@ -25225,7 +25225,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i.i133.i.i.i.i, label %.split.us.i.i.i130.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L18ListHasAllFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_12list_entry_tES9_bEET3_T_T1_T2_RNS_12ValidityMaskEm.exit108.i.i.i.i", !llvm.loop !429
 
 .split.i.i.i121.i.i.i.i:                          ; preds = %981, %1012
-  %1000 = phi i64 [ %1014, %1012 ], [ %.pre25.i.i.i120.i.i.i.i, %981 ]
+  %1000 = phi i64 [ %1014, %1012 ], [ %.pre26.i.i.i120.i.i.i.i, %981 ]
   %.0.i.i.i122.i.i.i.i = phi ptr [ %1011, %1012 ], [ %982, %981 ]
   %1001 = icmp eq i64 %975, %1000
   br i1 %1001, label %1002, label %1010
@@ -57993,12 +57993,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %37 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %38 = icmp ult i32 %36, 13
   %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !427
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !427
   br i1 %38, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %34, %49
-  %40 = phi i64 [ %51, %49 ], [ %.pre25.i.i, %34 ]
+  %40 = phi i64 [ %51, %49 ], [ %.pre26.i.i, %34 ]
   %.0.us.i.i = phi ptr [ %48, %49 ], [ %35, %34 ]
   %41 = icmp eq i64 %25, %40
   br i1 %41, label %42, label %47
@@ -58028,7 +58028,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %.critedge, !llvm.loop !925
 
 .split.i.i:                                       ; preds = %34, %65
-  %53 = phi i64 [ %67, %65 ], [ %.pre25.i.i, %34 ]
+  %53 = phi i64 [ %67, %65 ], [ %.pre26.i.i, %34 ]
   %.0.i.i = phi ptr [ %64, %65 ], [ %35, %34 ]
   %54 = icmp eq i64 %25, %53
   br i1 %54, label %55, label %63
@@ -58371,12 +58371,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %34 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %35 = icmp ult i32 %33, 13
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !427
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !427
   br i1 %35, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %31, %46
-  %37 = phi i64 [ %48, %46 ], [ %.pre25.i.i, %31 ]
+  %37 = phi i64 [ %48, %46 ], [ %.pre26.i.i, %31 ]
   %.0.us.i.i = phi ptr [ %45, %46 ], [ %32, %31 ]
   %38 = icmp eq i64 %24, %37
   br i1 %38, label %39, label %44
@@ -58406,7 +58406,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, !llvm.loop !429
 
 .split.i.i:                                       ; preds = %31, %62
-  %50 = phi i64 [ %64, %62 ], [ %.pre25.i.i, %31 ]
+  %50 = phi i64 [ %64, %62 ], [ %.pre26.i.i, %31 ]
   %.0.i.i = phi ptr [ %61, %62 ], [ %32, %31 ]
   %51 = icmp eq i64 %24, %50
   br i1 %51, label %52, label %60

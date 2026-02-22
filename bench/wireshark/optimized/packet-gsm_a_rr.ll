@@ -4917,8 +4917,8 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
   %95 = zext i8 %89 to i64
   %96 = getelementptr i8, ptr @convert_n_to_p, i64 %95
   %97 = load i8, ptr %96, align 1
-  %.fr303 = freeze i8 %97
-  %98 = zext i8 %.fr303 to i32
+  %.fr302 = freeze i8 %97
+  %98 = zext i8 %.fr302 to i32
   %99 = ashr i32 %94, 3
   %100 = lshr i32 %98, 3
   %101 = add nuw nsw i32 %100, 1
@@ -4941,7 +4941,7 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
   br i1 %.not258, label %.loopexit, label %.preheader309
 
 .preheader309:                                    ; preds = %111
-  %.not356 = icmp eq i8 %.fr303, 0
+  %.not356 = icmp eq i8 %.fr302, 0
   br i1 %.not356, label %._crit_edge347, label %.lr.ph346
 
 .lr.ph346:                                        ; preds = %.preheader309, %118
@@ -5157,8 +5157,8 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %229 = zext i8 %223 to i64
   %230 = getelementptr i8, ptr @convert_n_to_q, i64 %229
   %231 = load i8, ptr %230, align 1
-  %.fr297 = freeze i8 %231
-  %232 = zext i8 %.fr297 to i32
+  %.fr296 = freeze i8 %231
+  %232 = zext i8 %.fr296 to i32
   %233 = ashr i32 %228, 3
   %234 = lshr i32 %232, 3
   %235 = add nuw nsw i32 %234, 1
@@ -5183,7 +5183,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   br i1 %.not, label %.loopexit311, label %.preheader312
 
 .preheader312:                                    ; preds = %247
-  %.not354 = icmp eq i8 %.fr297, 0
+  %.not354 = icmp eq i8 %.fr296, 0
   br i1 %.not354, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader312, %254
@@ -13249,8 +13249,8 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   %52 = zext i8 %46 to i64
   %53 = getelementptr i8, ptr @convert_n_to_p, i64 %52
   %54 = load i8, ptr %53, align 1
-  %.fr103 = freeze i8 %54
-  %55 = zext i8 %.fr103 to i32
+  %.fr102 = freeze i8 %54
+  %55 = zext i8 %.fr102 to i32
   %56 = ashr i32 %51, 3
   %57 = lshr i32 %55, 3
   %58 = add nuw nsw i32 %57, 1
@@ -13273,7 +13273,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   br i1 %.not, label %.loopexit, label %.preheader104
 
 .preheader104:                                    ; preds = %68
-  %.not121 = icmp eq i8 %.fr103, 0
+  %.not121 = icmp eq i8 %.fr102, 0
   br i1 %.not121, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader104, %75
@@ -13495,8 +13495,8 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %51 = zext i8 %45 to i64
   %52 = getelementptr i8, ptr @convert_n_to_q, i64 %51
   %53 = load i8, ptr %52, align 1
-  %.fr110 = freeze i8 %53
-  %54 = zext i8 %.fr110 to i32
+  %.fr109 = freeze i8 %53
+  %54 = zext i8 %.fr109 to i32
   %55 = ashr i32 %50, 3
   %56 = lshr i32 %54, 3
   %57 = add nuw nsw i32 %56, 1
@@ -13521,7 +13521,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   br i1 %.not, label %.loopexit, label %.preheader111
 
 .preheader111:                                    ; preds = %69
-  %.not128 = icmp eq i8 %.fr110, 0
+  %.not128 = icmp eq i8 %.fr109, 0
   br i1 %.not128, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader111, %76

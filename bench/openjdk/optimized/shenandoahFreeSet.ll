@@ -2362,8 +2362,7 @@ declare noundef i64 @_ZN4PLAB8min_sizeEv() local_unnamed_addr #1
 define hidden noundef ptr @_ZN17ShenandoahFreeSet19allocate_contiguousER22ShenandoahAllocRequest(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(28) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %.fr98 = freeze i64 %4
-  %5 = shl i64 %.fr98, 3
+  %5 = shl i64 %4, 3
   %6 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
   %7 = add i64 %5, -1
   %8 = add i64 %7, %6
@@ -2507,14 +2506,14 @@ _ZNK17ShenandoahFreeSet17can_allocate_fromEP20ShenandoahHeapRegion.exit.thread: 
 
 83:                                               ; preds = %_ZNK17ShenandoahFreeSet17can_allocate_fromEP20ShenandoahHeapRegion.exit.thread
   %84 = load i64, ptr @_ZN20ShenandoahHeapRegion19RegionSizeWordsMaskE, align 8
-  %.fr97 = freeze i64 %84
-  %85 = and i64 %.fr97, %.fr98
+  %85 = and i64 %84, %4
+  %.fr97 = freeze i64 %85
   %.not94 = icmp sgt i64 %.1.ph, %.165
   br i1 %.not94, label %._crit_edge, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %83
-  %.not99 = icmp eq i64 %85, 0
-  br i1 %.not99, label %.lr.ph96.split.us, label %.lr.ph96.split
+  %.not98 = icmp eq i64 %.fr97, 0
+  br i1 %.not98, label %.lr.ph96.split.us, label %.lr.ph96.split
 
 .lr.ph96.split.us:                                ; preds = %.lr.ph96, %109
   %.06395.us = phi i64 [ %115, %109 ], [ %.1.ph, %.lr.ph96 ]
@@ -2570,8 +2569,8 @@ _ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit.us: ; p
   %114 = getelementptr inbounds nuw i8, ptr %.0.i80.us, i64 48
   store ptr %113, ptr %114, align 8
   %115 = add i64 %.06395.us, 1
-  %exitcond108.not = icmp eq i64 %.06395.us, %.165
-  br i1 %exitcond108.not, label %._crit_edge, label %.lr.ph96.split.us, !llvm.loop !24
+  %exitcond107.not = icmp eq i64 %.06395.us, %.165
+  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph96.split.us, !llvm.loop !24
 
 .lr.ph96.split:                                   ; preds = %.lr.ph96, %139
   %.06395 = phi i64 [ %146, %139 ], [ %.1.ph, %.lr.ph96 ]
@@ -2622,7 +2621,7 @@ _ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit: ; pred
 139:                                              ; preds = %138, %137
   %140 = icmp eq i64 %.06395, %.165
   %141 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
-  %spec.select = select i1 %140, i64 %85, i64 %141
+  %spec.select = select i1 %140, i64 %.fr97, i64 %141
   %142 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds ptr, ptr %143, i64 %spec.select
@@ -2633,13 +2632,13 @@ _ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit: ; pred
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph96.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %139, %109, %83
-  %.not73 = icmp eq i64 %85, 0
+  %.not73 = icmp eq i64 %.fr97, 0
   br i1 %.not73, label %_ZNK14ShenandoahHeap10get_regionEm.exit83, label %147
 
 147:                                              ; preds = %._crit_edge
   %148 = load ptr, ptr %0, align 8
   %149 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
-  %150 = sub i64 %149, %85
+  %150 = sub i64 %149, %.fr97
   tail call void @_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb(ptr noundef nonnull align 8 dereferenceable(2657) %148, i64 noundef %150, i1 noundef zeroext true) #18
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit83
 
@@ -2652,7 +2651,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit83:        ; preds = %147, %._crit_edge
   %155 = add i64 %154, %152
   store i64 %155, ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %.fr98, ptr %156, align 8
+  store i64 %4, ptr %156, align 8
   %157 = load ptr, ptr %0, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 544
   %159 = load i64, ptr %158, align 8

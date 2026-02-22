@@ -894,8 +894,8 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 1936
   %36 = load i64, ptr %35, align 8
-  %.fr = freeze i64 %36
-  %37 = and i64 %.fr, 256
+  %.fr15 = freeze i64 %36
+  %37 = and i64 %.fr15, 256
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %.thread9.backedge, label %39
 
@@ -1220,8 +1220,8 @@ define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 1936
   %53 = load i64, ptr %52, align 8
-  %.fr = freeze i64 %53
-  %54 = and i64 %.fr, 256
+  %.fr15 = freeze i64 %53
+  %54 = and i64 %.fr15, 256
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %.thread9.backedge, label %56
 

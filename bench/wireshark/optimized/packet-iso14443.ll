@@ -1711,9 +1711,9 @@ define internal range(i32 1, 260) i32 @dissect_iso14443_cmd_type_block(ptr nound
   %.not = icmp eq i64 %6, 0
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2)
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.fr = freeze i8 %8
-  %9 = zext i8 %.fr to i32
-  %10 = lshr i8 %.fr, 6
+  %.fr174 = freeze i8 %8
+  %9 = zext i8 %.fr174 to i32
+  %10 = lshr i8 %.fr174, 6
   %11 = zext nneg i8 %10 to i32
   %12 = tail call ptr @try_val_to_str(i32 noundef %11, ptr noundef nonnull @iso14443_block_type)
   %.not137 = icmp eq ptr %12, null
@@ -1790,7 +1790,7 @@ default.unreachable:                              ; preds = %16
   br i1 %.not140, label %99, label %68
 
 .thread164:                                       ; preds = %16
-  %57 = lshr i8 %.fr, 4
+  %57 = lshr i8 %.fr174, 4
   %58 = and i8 %57, 3
   %59 = load i32, ptr @hf_iso14443_s_blk_cmd, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %59, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)

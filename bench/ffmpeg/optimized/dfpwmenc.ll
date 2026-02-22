@@ -59,51 +59,50 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %27, %.preheader.lr.ph.i
-  %.071.i = phi ptr [ %23, %.preheader.lr.ph.i ], [ %29, %27 ]
-  %.03970.i = phi ptr [ %21, %.preheader.lr.ph.i ], [ %scevgep.i, %27 ]
-  %.04169.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %51, %27 ]
-  %.04568.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %30, %27 ]
+  %.070.i = phi ptr [ %23, %.preheader.lr.ph.i ], [ %29, %27 ]
+  %.03969.i = phi ptr [ %21, %.preheader.lr.ph.i ], [ %scevgep.i, %27 ]
+  %.04168.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %51, %27 ]
+  %.04567.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %30, %27 ]
   %.promoted.i = load i32, ptr %24, align 4, !tbaa !29
-  %.promoted63.i = load i32, ptr %25, align 4, !tbaa !30
-  %.promoted64.i = load i32, ptr %26, align 4, !tbaa !31
+  %.promoted62.i = load i32, ptr %25, align 4, !tbaa !30
+  %.promoted63.i = load i32, ptr %26, align 4, !tbaa !31
   br label %31
 
 27:                                               ; preds = %49
-  %scevgep.i = getelementptr i8, ptr %.03970.i, i64 8
+  %scevgep.i = getelementptr i8, ptr %.03969.i, i64 8
   %28 = trunc nuw i32 %51 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %.071.i, i64 1
-  store i8 %28, ptr %.071.i, align 1, !tbaa !42
-  %30 = add nuw nsw i32 %.04568.i, 1
-  %exitcond73.not.i = icmp eq i32 %30, %16
-  br i1 %exitcond73.not.i, label %au_compress.exit, label %.preheader.i, !llvm.loop !43
+  %29 = getelementptr inbounds nuw i8, ptr %.070.i, i64 1
+  store i8 %28, ptr %.070.i, align 1, !tbaa !42
+  %30 = add nuw nsw i32 %.04567.i, 1
+  %exitcond72.not.i = icmp eq i32 %30, %16
+  br i1 %exitcond72.not.i, label %au_compress.exit, label %.preheader.i, !llvm.loop !43
 
 31:                                               ; preds = %49, %.preheader.i
-  %.167.i = phi ptr [ %.03970.i, %.preheader.i ], [ %35, %49 ]
-  %.14266.i = phi i32 [ %.04169.i, %.preheader.i ], [ %51, %49 ]
-  %.04465.i = phi i32 [ 0, %.preheader.i ], [ %62, %49 ]
+  %.166.i = phi ptr [ %.03969.i, %.preheader.i ], [ %35, %49 ]
+  %.14265.i = phi i32 [ %.04168.i, %.preheader.i ], [ %51, %49 ]
+  %.04464.i = phi i32 [ 0, %.preheader.i ], [ %62, %49 ]
   %32 = phi i32 [ %.promoted.i, %.preheader.i ], [ %.043.i, %49 ]
-  %33 = phi i32 [ %.promoted63.i, %.preheader.i ], [ %spec.store.select.i, %49 ]
-  %34 = phi i32 [ %.promoted64.i, %.preheader.i ], [ %50, %49 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.167.i, i64 1
-  %36 = load i8, ptr %.167.i, align 1, !tbaa !42
-  %.fr.i = freeze i8 %36
-  %37 = zext i8 %.fr.i to i32
+  %33 = phi i32 [ %.promoted62.i, %.preheader.i ], [ %spec.store.select.i, %49 ]
+  %34 = phi i32 [ %.promoted63.i, %.preheader.i ], [ %50, %49 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.166.i, i64 1
+  %36 = load i8, ptr %.166.i, align 1, !tbaa !42
+  %37 = zext i8 %36 to i32
   %38 = add nsw i32 %37, -128
-  %.fr62.i = freeze i32 %32
-  %39 = icmp sgt i32 %38, %.fr62.i
+  %39 = icmp sgt i32 %38, %32
   br i1 %39, label %.thread57.i, label %42
 
 .thread57.i:                                      ; preds = %31
-  %40 = lshr i32 %.14266.i, 1
+  %40 = lshr i32 %.14265.i, 1
   %41 = or i32 %40, 128
   br label %49
 
 42:                                               ; preds = %31
   %43 = icmp eq i32 %38, 127
-  %44 = icmp eq i32 %.fr62.i, 127
+  %44 = icmp eq i32 %32, 127
   %45 = and i1 %44, %43
-  %46 = lshr i32 %.14266.i, 1
-  br i1 %45, label %47, label %49
+  %cond.fr55.i = freeze i1 %45
+  %46 = lshr i32 %.14265.i, 1
+  br i1 %cond.fr55.i, label %47, label %49
 
 47:                                               ; preds = %42
   %48 = or i32 %46, 128
@@ -113,11 +112,11 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %50 = phi i32 [ 127, %47 ], [ 127, %.thread57.i ], [ -128, %42 ]
   %spec.select61.i = phi i32 [ 1, %47 ], [ 1, %.thread57.i ], [ -1, %42 ]
   %51 = phi i32 [ %48, %47 ], [ %41, %.thread57.i ], [ %46, %42 ]
-  %52 = sub nsw i32 %50, %.fr62.i
+  %52 = sub nsw i32 %50, %32
   %53 = mul nsw i32 %52, %33
   %54 = add nsw i32 %53, 512
   %55 = ashr i32 %54, 10
-  %56 = add nsw i32 %55, %.fr62.i
+  %56 = add nsw i32 %55, %32
   %57 = icmp ne i32 %55, 0
   %.not.i = icmp eq i32 %56, %50
   %or.cond.i = select i1 %57, i1 true, i1 %.not.i
@@ -133,7 +132,7 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.040.i, i32 8)
   store i32 %spec.store.select.i, ptr %25, align 4, !tbaa !30
   store i32 %50, ptr %26, align 4, !tbaa !31
-  %62 = add nuw nsw i32 %.04465.i, 1
+  %62 = add nuw nsw i32 %.04464.i, 1
   %exitcond.not.i = icmp eq i32 %62, 8
   br i1 %exitcond.not.i, label %27, label %31, !llvm.loop !45
 

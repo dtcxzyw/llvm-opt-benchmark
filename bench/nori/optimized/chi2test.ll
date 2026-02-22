@@ -5070,12 +5070,11 @@ _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_SH_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat {
-  %.fr44 = freeze ptr %0
-  %.fr43 = freeze ptr %1
-  %4 = ptrtoint ptr %.fr43 to i64
-  %5 = ptrtoint ptr %.fr44 to i64
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = ashr i64 %6, 4
+  %.fr = freeze i64 %6
+  %7 = ashr i64 %.fr, 4
   %8 = icmp slt i64 %7, 2
   br i1 %8, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_RT0_.exit, label %.split.i
 
@@ -5084,16 +5083,16 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %10 = lshr i64 %9, 1
   %11 = add nsw i64 %7, -1
   %12 = lshr i64 %11, 1
-  %13 = and i64 %6, 16
+  %13 = and i64 %.fr, 16
   %14 = icmp eq i64 %13, 0
   %15 = or disjoint i64 %9, 1
-  %16 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %15
-  %17 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %10
+  %16 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %10
   br label %18
 
 18:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_T0_SI_T1_T2_.exit.i, %.split.i
   %.0.i = phi i64 [ %10, %.split.i ], [ %43, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_T0_SI_T1_T2_.exit.i ]
-  %phi.call.i = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %.0.i
+  %phi.call.i = getelementptr inbounds %struct.Cell, ptr %0, i64 %.0.i
   %.sroa.03.0.copyload.i = load double, ptr %phi.call.i, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %phi.call.i, i64 8
   %.sroa.24.0.copyload.i = load i64, ptr %.sroa.24.0..sroa_idx.i, align 8
@@ -5104,15 +5103,15 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %.036.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.0.i, %18 ]
   %20 = shl i64 %.036.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %21
+  %22 = getelementptr inbounds %struct.Cell, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %23
+  %24 = getelementptr inbounds %struct.Cell, ptr %0, i64 %23
   %25 = load double, ptr %22, align 8
   %26 = load double, ptr %24, align 8
   %27 = fcmp olt double %25, %26
   %spec.select.i.i = select i1 %27, i64 %23, i64 %21
-  %28 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %spec.select.i.i
-  %29 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %.036.i.i
+  %28 = getelementptr inbounds %struct.Cell, ptr %0, i64 %spec.select.i.i
+  %29 = getelementptr inbounds %struct.Cell, ptr %0, i64 %.036.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %30 = icmp slt i64 %spec.select.i.i, %12
   br i1 %30, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !52
@@ -5136,20 +5135,20 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %.019.i.i.i = phi i64 [ %.0920.i.i.i, %38 ], [ %.1.i.i, %33 ]
   %.0920.in.i.i.i = add nsw i64 %.019.i.i.i, -1
   %.0920.i.i.i = sdiv i64 %.0920.in.i.i.i, 2
-  %35 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %.0920.i.i.i
+  %35 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %.0920.i.i.i
   %36 = load double, ptr %35, align 8
   %37 = fcmp olt double %36, %.sroa.03.0.copyload.i
   br i1 %37, label %38, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_T0_SI_T1_T2_.exit.i
 
 38:                                               ; preds = %.lr.ph.i.i.i
-  %39 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %.019.i.i.i
+  %39 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %.019.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   %40 = icmp sgt i64 %.0920.i.i.i, %.0.i
   br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_T0_SI_T1_T2_.exit.i, !llvm.loop !53
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_T0_SI_T1_T2_.exit.i: ; preds = %38, %.lr.ph.i.i.i, %33
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %33 ], [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.0920.i.i.i, %38 ]
-  %41 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %.0.lcssa.i.i.i
+  %41 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %.0.lcssa.i.i.i
   store double %.sroa.03.0.copyload.i, ptr %41, align 8
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %.sroa.24.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 8
@@ -5158,14 +5157,14 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cx
   br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_RT0_.exit, label %18, !llvm.loop !55
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_T0_SI_T1_T2_.exit.i, %3
-  %44 = icmp ult ptr %.fr43, %2
+  %44 = icmp ult ptr %1, %2
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_RT0_.exit
   %45 = add nsw i64 %7, -1
   %46 = sdiv i64 %45, 2
   %47 = icmp sgt i64 %7, 2
-  %48 = and i64 %6, 16
+  %48 = and i64 %.fr, 16
   %49 = icmp eq i64 %48, 0
   %50 = add nsw i64 %7, -2
   %51 = ashr exact i64 %50, 1
@@ -5173,36 +5172,36 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx1
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %52 = or disjoint i64 %50, 1
-  %53 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %52
-  %54 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %51
+  %53 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %52
+  %54 = getelementptr inbounds %struct.Cell, ptr %0, i64 %51
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %76
-  %.sroa.0.025.us = phi ptr [ %77, %76 ], [ %.fr43, %.lr.ph.split.us.preheader ]
+  %.sroa.0.025.us = phi ptr [ %77, %76 ], [ %1, %.lr.ph.split.us.preheader ]
   %55 = load double, ptr %.sroa.0.025.us, align 8
-  %56 = load double, ptr %.fr44, align 8
+  %56 = load double, ptr %0, align 8
   %57 = fcmp olt double %55, %56
   br i1 %57, label %.lr.ph.i.i20.preheader.us, label %76
 
 .lr.ph.i.i20.preheader.us:                        ; preds = %.lr.ph.split.us
   %.sroa.24.0..sroa_idx.i10.us = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us, i64 8
   %.sroa.24.0.copyload.i11.us = load i64, ptr %.sroa.24.0..sroa_idx.i10.us, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.us, ptr noundef nonnull align 8 dereferenceable(16) %.fr44, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.us, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   br label %.lr.ph.i.i20.us
 
 .lr.ph.i.i20.us:                                  ; preds = %.lr.ph.i.i20.preheader.us, %.lr.ph.i.i20.us
   %.036.i.i21.us = phi i64 [ %spec.select.i.i22.us, %.lr.ph.i.i20.us ], [ 0, %.lr.ph.i.i20.preheader.us ]
   %58 = shl i64 %.036.i.i21.us, 1
   %59 = add i64 %58, 2
-  %60 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %59
+  %60 = getelementptr inbounds %struct.Cell, ptr %0, i64 %59
   %61 = or disjoint i64 %58, 1
-  %62 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %61
+  %62 = getelementptr inbounds %struct.Cell, ptr %0, i64 %61
   %63 = load double, ptr %60, align 8
   %64 = load double, ptr %62, align 8
   %65 = fcmp olt double %63, %64
   %spec.select.i.i22.us = select i1 %65, i64 %61, i64 %59
-  %66 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %spec.select.i.i22.us
-  %67 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %.036.i.i21.us
+  %66 = getelementptr inbounds %struct.Cell, ptr %0, i64 %spec.select.i.i22.us
+  %67 = getelementptr inbounds %struct.Cell, ptr %0, i64 %.036.i.i21.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
   %68 = icmp slt i64 %spec.select.i.i22.us, %46
   br i1 %68, label %.lr.ph.i.i20.us, label %._crit_edge.i.i12.loopexit.us, !llvm.loop !52
@@ -5223,20 +5222,20 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx1
   %.019.i.i.i15.us = phi i64 [ %.0920.i.i910.i.us, %73 ], [ %.019.i.i.i15.us.ph, %.lr.ph.i.i.i14.us.preheader ]
   %.0920.in.i.i.i16.us = add nsw i64 %.019.i.i.i15.us, -1
   %.0920.i.i910.i.us = lshr i64 %.0920.in.i.i.i16.us, 1
-  %70 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %.0920.i.i910.i.us
+  %70 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %.0920.i.i910.i.us
   %71 = load double, ptr %70, align 8
   %72 = fcmp olt double %71, %55
   br i1 %72, label %73, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_SH_RT0_.exit.us
 
 73:                                               ; preds = %.lr.ph.i.i.i14.us
-  %74 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %.019.i.i.i15.us
+  %74 = getelementptr inbounds %struct.Cell, ptr %0, i64 %.019.i.i.i15.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
   %.not11.i.us = icmp eq i64 %.0920.i.i910.i.us, 0
   br i1 %.not11.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i14.us, !llvm.loop !53
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_SH_RT0_.exit.us: ; preds = %.lr.ph.i.i.i14.us, %73, %69
   %.0.lcssa.i.i.i18.us = phi i64 [ 0, %69 ], [ %.019.i.i.i15.us, %.lr.ph.i.i.i14.us ], [ 0, %73 ]
-  %75 = getelementptr inbounds %struct.Cell, ptr %.fr44, i64 %.0.lcssa.i.i.i18.us
+  %75 = getelementptr inbounds %struct.Cell, ptr %0, i64 %.0.lcssa.i.i.i18.us
   store double %55, ptr %75, align 8
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 %.sroa.24.0.copyload.i11.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us, align 8
@@ -5253,7 +5252,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
   br i1 %or.cond, label %.thread.i.us, label %69
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %80 = getelementptr inbounds nuw i8, ptr %.fr44, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %49, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -5261,21 +5260,21 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
   br i1 %81, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %88
-  %.sroa.0.025.us26.us = phi ptr [ %89, %88 ], [ %.fr43, %.lr.ph.split.split.us ]
+  %.sroa.0.025.us26.us = phi ptr [ %89, %88 ], [ %1, %.lr.ph.split.split.us ]
   %82 = load double, ptr %.sroa.0.025.us26.us, align 8
-  %83 = load double, ptr %.fr44, align 8
+  %83 = load double, ptr %0, align 8
   %84 = fcmp olt double %82, %83
   br i1 %84, label %._crit_edge.i.i12.us27.us, label %88
 
 ._crit_edge.i.i12.us27.us:                        ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.24.0..sroa_idx.i10.us28.us = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us26.us, i64 8
   %.sroa.24.0.copyload.i11.us29.us = load i64, ptr %.sroa.24.0..sroa_idx.i10.us28.us, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.us26.us, ptr noundef nonnull align 8 dereferenceable(16) %.fr44, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.fr44, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
-  %85 = load double, ptr %.fr44, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.us26.us, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
+  %85 = load double, ptr %0, align 8
   %86 = fcmp uge double %85, %82
   %.0.lcssa.i.i.i18.ph.us40.us = zext i1 %86 to i64
-  %87 = getelementptr inbounds nuw %struct.Cell, ptr %.fr44, i64 %.0.lcssa.i.i.i18.ph.us40.us
+  %87 = getelementptr inbounds nuw %struct.Cell, ptr %0, i64 %.0.lcssa.i.i.i18.ph.us40.us
   store double %82, ptr %87, align 8
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us38.us = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %.sroa.24.0.copyload.i11.us29.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us38.us, align 8
@@ -5287,13 +5286,13 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
   br i1 %90, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !56
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us38 = getelementptr inbounds nuw i8, ptr %.fr44, i64 8
-  %.pre48 = load double, ptr %.fr44, align 8
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre48 = load double, ptr %0, align 8
   br label %91
 
 91:                                               ; preds = %95, %.lr.ph.split.split.us.split
   %92 = phi double [ %.pre48, %.lr.ph.split.split.us.split ], [ %96, %95 ]
-  %.sroa.0.025.us26 = phi ptr [ %.fr43, %.lr.ph.split.split.us.split ], [ %97, %95 ]
+  %.sroa.0.025.us26 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %97, %95 ]
   %93 = load double, ptr %.sroa.0.025.us26, align 8
   %94 = fcmp olt double %93, %92
   br i1 %94, label %._crit_edge.i.i12.us27, label %95
@@ -5301,8 +5300,8 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
 ._crit_edge.i.i12.us27:                           ; preds = %91
   %.sroa.24.0..sroa_idx.i10.us28 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us26, i64 8
   %.sroa.24.0.copyload.i11.us29 = load i64, ptr %.sroa.24.0..sroa_idx.i10.us28, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.us26, ptr noundef nonnull align 8 dereferenceable(16) %.fr44, i64 16, i1 false)
-  store double %93, ptr %.fr44, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025.us26, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  store double %93, ptr %0, align 8
   store i64 %.sroa.24.0.copyload.i11.us29, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us38, align 8
   br label %95
 
@@ -5313,13 +5312,13 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
   br i1 %98, label %91, label %._crit_edge, !llvm.loop !56
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19 = getelementptr inbounds nuw i8, ptr %.fr44, i64 8
-  %.pre = load double, ptr %.fr44, align 8
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load double, ptr %0, align 8
   br label %99
 
 99:                                               ; preds = %.lr.ph.split.split, %103
   %100 = phi double [ %.pre, %.lr.ph.split.split ], [ %104, %103 ]
-  %.sroa.0.025 = phi ptr [ %.fr43, %.lr.ph.split.split ], [ %105, %103 ]
+  %.sroa.0.025 = phi ptr [ %1, %.lr.ph.split.split ], [ %105, %103 ]
   %101 = load double, ptr %.sroa.0.025, align 8
   %102 = fcmp olt double %101, %100
   br i1 %102, label %._crit_edge.i.i12, label %103
@@ -5327,8 +5326,8 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
 ._crit_edge.i.i12:                                ; preds = %99
   %.sroa.24.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.025, i64 8
   %.sroa.24.0.copyload.i11 = load i64, ptr %.sroa.24.0..sroa_idx.i10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025, ptr noundef nonnull align 8 dereferenceable(16) %.fr44, i64 16, i1 false)
-  store double %101, ptr %.fr44, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.025, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  store double %101, ptr %0, align 8
   store i64 %.sroa.24.0.copyload.i11, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19, align 8
   br label %103
 

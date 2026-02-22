@@ -1586,20 +1586,18 @@ opus_rc_enc_normalize.exit:                       ; preds = %opus_rc_enc_carryou
 define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8, !tbaa !8
-  %.fr86 = freeze i32 %5
-  %6 = lshr i32 %.fr86, 15
+  %6 = lshr i32 %5, 15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4, !tbaa !15
-  %.fr = freeze i32 %8
-  %9 = udiv i32 %.fr, %6
+  %9 = udiv i32 %8, %6
   %10 = add i32 %9, 1
   %11 = tail call i32 @llvm.usub.sat.i32(i32 32768, i32 %10)
   %.not = icmp ult i32 %11, %1
   br i1 %.not, label %opus_rc_dec_update.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = sub i32 32736, %1
-  %14 = sub i32 16384, %2
+  %13 = sub nsw i32 32736, %1
+  %14 = sub nsw i32 16384, %2
   %15 = mul i32 %14, %13
   %.1.in58 = lshr i32 %15, 15
   %cond60 = icmp eq i32 %.1.in58, 0
@@ -1637,72 +1635,72 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   %.155 = phi i32 [ 1, %._crit_edge ], [ %.163, %.lr.ph ]
   %.245 = phi i32 [ %24, %._crit_edge ], [ %.14461, %.lr.ph ]
   %.2 = phi i32 [ %26, %._crit_edge ], [ %.14262, %.lr.ph ]
-  %.2.fr = freeze i32 %.2
-  %27 = add i32 %.2.fr, %.155
+  %27 = add i32 %.2, %.155
   %28 = icmp ult i32 %11, %27
   %29 = sub nsw i32 0, %.245
   %spec.select = select i1 %28, i32 %29, i32 %.245
-  %spec.select53 = select i1 %28, i32 %.2.fr, i32 %27
+  %spec.select53 = select i1 %28, i32 %.2, i32 %27
+  %30 = freeze i32 %spec.select53
   br label %opus_rc_dec_update.exit
 
 opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
   %.043 = phi i32 [ %spec.select, %.critedge ], [ 0, %3 ]
-  %.041 = phi i32 [ %spec.select53, %.critedge ], [ 0, %3 ]
+  %.041 = phi i32 [ %30, %.critedge ], [ 0, %3 ]
   %.0 = phi i32 [ %.155, %.critedge ], [ %1, %3 ]
-  %30 = add i32 %.0, %.041
-  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 32768)
-  %32 = sub nuw nsw i32 32768, %31
-  %33 = mul nuw i32 %32, %6
-  %34 = sub i32 %.fr, %33
-  store i32 %34, ptr %7, align 4, !tbaa !15
+  %31 = add i32 %.0, %.041
+  %32 = tail call i32 @llvm.umin.i32(i32 %31, i32 32768)
+  %33 = sub nuw nsw i32 32768, %32
+  %34 = mul nuw i32 %33, %6
+  %35 = sub i32 %8, %34
+  store i32 %35, ptr %7, align 4, !tbaa !15
   %.not.i = icmp eq i32 %.041, 0
-  %35 = sub i32 %31, %.041
-  %36 = mul i32 %35, %6
-  %37 = sub i32 %.fr86, %33
-  %spec.select85 = select i1 %.not.i, i32 %37, i32 %36
+  %36 = sub i32 %32, %.041
+  %37 = mul i32 %36, %6
+  %38 = sub i32 %5, %34
+  %spec.select85 = select i1 %.not.i, i32 %38, i32 %37
   store i32 %spec.select85, ptr %4, align 8, !tbaa !8
-  %38 = icmp ult i32 %spec.select85, 8388609
-  br i1 %38, label %.lr.ph66, label %opus_rc_dec_normalize.exit
+  %39 = icmp ult i32 %spec.select85, 8388609
+  br i1 %39, label %.lr.ph66, label %opus_rc_dec_normalize.exit
 
 .lr.ph66:                                         ; preds = %opus_rc_dec_update.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !18
-  %42 = load ptr, ptr %0, align 8, !tbaa !19
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.promoted67 = load i32, ptr %39, align 8, !tbaa !20
-  %.promoted68 = load i32, ptr %43, align 8, !tbaa !21
-  br label %44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = load i32, ptr %41, align 8, !tbaa !18
+  %43 = load ptr, ptr %0, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.promoted67 = load i32, ptr %40, align 8, !tbaa !20
+  %.promoted68 = load i32, ptr %44, align 8, !tbaa !21
+  br label %45
 
-44:                                               ; preds = %.lr.ph66, %44
-  %45 = phi i32 [ %.promoted68, %.lr.ph66 ], [ %63, %44 ]
-  %46 = phi i32 [ %.promoted67, %.lr.ph66 ], [ %59, %44 ]
-  %47 = phi i32 [ %34, %.lr.ph66 ], [ %61, %44 ]
-  %48 = phi i32 [ %spec.select85, %.lr.ph66 ], [ %62, %44 ]
-  %49 = shl i32 %47, 8
-  %50 = lshr i32 %46, 3
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %42, i64 %51
-  %53 = load i32, ptr %52, align 1, !tbaa !22
-  %54 = tail call i32 @llvm.bswap.i32(i32 %53)
-  %55 = and i32 %46, 7
-  %56 = shl i32 %54, %55
-  %57 = lshr i32 %56, 24
-  %58 = add i32 %46, 8
-  %59 = tail call i32 @llvm.umin.i32(i32 %41, i32 %58)
-  store i32 %59, ptr %39, align 8, !tbaa !20
-  %.masked.i = and i32 %49, 2147483392
-  %60 = or disjoint i32 %57, %.masked.i
-  %61 = xor i32 %60, 255
-  store i32 %61, ptr %7, align 4, !tbaa !15
-  %62 = shl nuw i32 %48, 8
-  store i32 %62, ptr %4, align 8, !tbaa !8
-  %63 = add i32 %45, 8
-  store i32 %63, ptr %43, align 8, !tbaa !21
-  %64 = icmp ult i32 %48, 32769
-  br i1 %64, label %44, label %opus_rc_dec_normalize.exit, !llvm.loop !23
+45:                                               ; preds = %.lr.ph66, %45
+  %46 = phi i32 [ %.promoted68, %.lr.ph66 ], [ %64, %45 ]
+  %47 = phi i32 [ %.promoted67, %.lr.ph66 ], [ %60, %45 ]
+  %48 = phi i32 [ %35, %.lr.ph66 ], [ %62, %45 ]
+  %49 = phi i32 [ %spec.select85, %.lr.ph66 ], [ %63, %45 ]
+  %50 = shl i32 %48, 8
+  %51 = lshr i32 %47, 3
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 %52
+  %54 = load i32, ptr %53, align 1, !tbaa !22
+  %55 = tail call i32 @llvm.bswap.i32(i32 %54)
+  %56 = and i32 %47, 7
+  %57 = shl i32 %55, %56
+  %58 = lshr i32 %57, 24
+  %59 = add i32 %47, 8
+  %60 = tail call i32 @llvm.umin.i32(i32 %42, i32 %59)
+  store i32 %60, ptr %40, align 8, !tbaa !20
+  %.masked.i = and i32 %50, 2147483392
+  %61 = or disjoint i32 %58, %.masked.i
+  %62 = xor i32 %61, 255
+  store i32 %62, ptr %7, align 4, !tbaa !15
+  %63 = shl nuw i32 %49, 8
+  store i32 %63, ptr %4, align 8, !tbaa !8
+  %64 = add i32 %46, 8
+  store i32 %64, ptr %44, align 8, !tbaa !21
+  %65 = icmp ult i32 %49, 32769
+  br i1 %65, label %45, label %opus_rc_dec_normalize.exit, !llvm.loop !23
 
-opus_rc_dec_normalize.exit:                       ; preds = %44, %opus_rc_dec_update.exit
+opus_rc_dec_normalize.exit:                       ; preds = %45, %opus_rc_dec_update.exit
   ret i32 %.043
 }
 

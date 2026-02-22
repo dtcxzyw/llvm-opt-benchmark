@@ -1401,7 +1401,7 @@ zddSwapAny.exit:                                  ; preds = %122, %115
   br label %141
 
 .preheader.i:                                     ; preds = %141
-  switch i32 %spec.select32.i, label %.lr.ph.split.us.i [
+  switch i32 %spec.select32.fr.i, label %.lr.ph.split.us.i [
     i32 0, label %cuddZddSiftingBackward.exit
     i32 -1, label %.lr.ph.split.i
   ]
@@ -1421,24 +1421,24 @@ zddSwapAny.exit:                                  ; preds = %122, %115
   %138 = load ptr, ptr %137, align 8, !tbaa !101
   %139 = add nuw nsw i32 %.12538.us.i, 1
   %.not30.us.i = icmp eq ptr %138, null
-  %140 = icmp eq i32 %139, %spec.select32.i
+  %140 = icmp eq i32 %139, %spec.select32.fr.i
   %or.cond.us.i = select i1 %.not30.us.i, i1 true, i1 %140
   br i1 %or.cond.us.i, label %cuddZddSiftingBackward.exit, label %.lr.ph.split.us.i, !llvm.loop !104
 
 141:                                              ; preds = %141, %zddSwapAny.exit
   %.02137.i = phi ptr [ %.0154.i, %zddSwapAny.exit ], [ %146, %141 ]
-  %.02236.i = phi i32 [ -1, %zddSwapAny.exit ], [ %spec.select32.i, %141 ]
+  %.02236.i = phi i32 [ -1, %zddSwapAny.exit ], [ %spec.select32.fr.i, %141 ]
   %.02435.i = phi i32 [ 0, %zddSwapAny.exit ], [ %147, %141 ]
   %.02634.i = phi i32 [ %51, %zddSwapAny.exit ], [ %spec.select.i83, %141 ]
   %142 = getelementptr inbounds nuw i8, ptr %.02137.i, i64 12
   %143 = load i32, ptr %142, align 4, !tbaa !100
-  %.fr45.i = freeze i32 %143
-  %144 = icmp slt i32 %.fr45.i, %.02634.i
-  %spec.select.i83 = tail call i32 @llvm.smin.i32(i32 %.fr45.i, i32 %.02634.i)
+  %144 = icmp slt i32 %143, %.02634.i
+  %spec.select.i83 = tail call i32 @llvm.smin.i32(i32 %143, i32 %.02634.i)
   %spec.select32.i = select i1 %144, i32 %.02435.i, i32 %.02236.i
+  %spec.select32.fr.i = freeze i32 %spec.select32.i
   %145 = getelementptr inbounds nuw i8, ptr %.02137.i, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !101
-  %147 = add i32 %.02435.i, 1
+  %147 = add nuw nsw i32 %.02435.i, 1
   %.not.i = icmp eq ptr %146, null
   br i1 %.not.i, label %.preheader.i, label %141, !llvm.loop !105
 
@@ -1668,7 +1668,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   br label %cuddZddSiftingAux.exit.thread
 
 .preheader.i.i:                                   ; preds = %cuddZddSiftingDown.exit.i
-  switch i32 %spec.select32.i.i, label %.lr.ph.split.us.i.i [
+  switch i32 %spec.select32.fr.i.i, label %.lr.ph.split.us.i.i [
     i32 0, label %.lr.ph.i
     i32 -1, label %.lr.ph.split.i.i
   ]
@@ -1688,24 +1688,24 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   %82 = load ptr, ptr %81, align 8, !tbaa !101
   %83 = add nuw nsw i32 %.12538.us.i.i, 1
   %.not30.us.i.i = icmp eq ptr %82, null
-  %84 = icmp eq i32 %83, %spec.select32.i.i
+  %84 = icmp eq i32 %83, %spec.select32.fr.i.i
   %or.cond.us.i.i = select i1 %.not30.us.i.i, i1 true, i1 %84
   br i1 %or.cond.us.i.i, label %.lr.ph.i, label %.lr.ph.split.us.i.i, !llvm.loop !104
 
 cuddZddSiftingDown.exit.i:                        ; preds = %60, %cuddZddSiftingDown.exit.i
   %.02137.i.i = phi ptr [ %89, %cuddZddSiftingDown.exit.i ], [ %58, %60 ]
-  %.02236.i.i = phi i32 [ %spec.select32.i.i, %cuddZddSiftingDown.exit.i ], [ -1, %60 ]
+  %.02236.i.i = phi i32 [ %spec.select32.fr.i.i, %cuddZddSiftingDown.exit.i ], [ -1, %60 ]
   %.02435.i.i = phi i32 [ %90, %cuddZddSiftingDown.exit.i ], [ 0, %60 ]
   %.02634.i.i = phi i32 [ %spec.select.i115.i, %cuddZddSiftingDown.exit.i ], [ %52, %60 ]
   %85 = getelementptr inbounds nuw i8, ptr %.02137.i.i, i64 12
   %86 = load i32, ptr %85, align 4, !tbaa !100
-  %.fr45.i.i = freeze i32 %86
-  %87 = icmp slt i32 %.fr45.i.i, %.02634.i.i
-  %spec.select.i115.i = tail call i32 @llvm.smin.i32(i32 %.fr45.i.i, i32 %.02634.i.i)
+  %87 = icmp slt i32 %86, %.02634.i.i
+  %spec.select.i115.i = tail call i32 @llvm.smin.i32(i32 %86, i32 %.02634.i.i)
   %spec.select32.i.i = select i1 %87, i32 %.02435.i.i, i32 %.02236.i.i
+  %spec.select32.fr.i.i = freeze i32 %spec.select32.i.i
   %88 = getelementptr inbounds nuw i8, ptr %.02137.i.i, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !101
-  %90 = add i32 %.02435.i.i, 1
+  %90 = add nuw nsw i32 %.02435.i.i, 1
   %.not.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i, label %.preheader.i.i, label %cuddZddSiftingDown.exit.i, !llvm.loop !105
 
@@ -1792,7 +1792,7 @@ cuddZddSiftingDown.exit.i:                        ; preds = %60, %cuddZddSifting
   br label %cuddZddSiftingAux.exit.thread
 
 .preheader.i139.i:                                ; preds = %cuddZddSiftingUp.exit.i
-  switch i32 %spec.select32.i137.i, label %.lr.ph.split.us.i145.i [
+  switch i32 %spec.select32.fr.i137.i, label %.lr.ph.split.us.i145.i [
     i32 0, label %.lr.ph307.i
     i32 -1, label %.lr.ph.split.i140.i
   ]
@@ -1812,24 +1812,24 @@ cuddZddSiftingDown.exit.i:                        ; preds = %60, %cuddZddSifting
   %130 = load ptr, ptr %129, align 8, !tbaa !101
   %131 = add nuw nsw i32 %.12538.us.i147.i, 1
   %.not30.us.i149.i = icmp eq ptr %130, null
-  %132 = icmp eq i32 %131, %spec.select32.i137.i
+  %132 = icmp eq i32 %131, %spec.select32.fr.i137.i
   %or.cond.us.i150.i = select i1 %.not30.us.i149.i, i1 true, i1 %132
   br i1 %or.cond.us.i150.i, label %.preheader276.i, label %.lr.ph.split.us.i145.i, !llvm.loop !104
 
 cuddZddSiftingUp.exit.i:                          ; preds = %108, %cuddZddSiftingUp.exit.i
   %.02137.i131.i = phi ptr [ %137, %cuddZddSiftingUp.exit.i ], [ %106, %108 ]
-  %.02236.i132.i = phi i32 [ %spec.select32.i137.i, %cuddZddSiftingUp.exit.i ], [ -1, %108 ]
+  %.02236.i132.i = phi i32 [ %spec.select32.fr.i137.i, %cuddZddSiftingUp.exit.i ], [ -1, %108 ]
   %.02435.i133.i = phi i32 [ %138, %cuddZddSiftingUp.exit.i ], [ 0, %108 ]
-  %.02634.i134.i = phi i32 [ %spec.select.i136.i, %cuddZddSiftingUp.exit.i ], [ %52, %108 ]
+  %.02634.i134.i = phi i32 [ %spec.select.i135.i, %cuddZddSiftingUp.exit.i ], [ %52, %108 ]
   %133 = getelementptr inbounds nuw i8, ptr %.02137.i131.i, i64 12
   %134 = load i32, ptr %133, align 4, !tbaa !100
-  %.fr45.i135.i = freeze i32 %134
-  %135 = icmp slt i32 %.fr45.i135.i, %.02634.i134.i
-  %spec.select.i136.i = tail call i32 @llvm.smin.i32(i32 %.fr45.i135.i, i32 %.02634.i134.i)
-  %spec.select32.i137.i = select i1 %135, i32 %.02435.i133.i, i32 %.02236.i132.i
+  %135 = icmp slt i32 %134, %.02634.i134.i
+  %spec.select.i135.i = tail call i32 @llvm.smin.i32(i32 %134, i32 %.02634.i134.i)
+  %spec.select32.i136.i = select i1 %135, i32 %.02435.i133.i, i32 %.02236.i132.i
+  %spec.select32.fr.i137.i = freeze i32 %spec.select32.i136.i
   %136 = getelementptr inbounds nuw i8, ptr %.02137.i131.i, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !101
-  %138 = add i32 %.02435.i133.i, 1
+  %138 = add nuw nsw i32 %.02435.i133.i, 1
   %.not.i138.i = icmp eq ptr %137, null
   br i1 %.not.i138.i, label %.preheader.i139.i, label %cuddZddSiftingUp.exit.i, !llvm.loop !105
 
@@ -1843,7 +1843,7 @@ cuddZddSiftingUp.exit.i:                          ; preds = %108, %cuddZddSiftin
   br i1 %.not31.i142.i, label %.preheader.i, label %143
 
 143:                                              ; preds = %.lr.ph.split.i140.i
-  %144 = icmp eq i32 %142, %spec.select.i136.i
+  %144 = icmp eq i32 %142, %spec.select.i135.i
   br i1 %144, label %.preheader276.i, label %145
 
 145:                                              ; preds = %143
@@ -1979,7 +1979,7 @@ cuddZddSiftingDown.exit168.i:                     ; preds = %158
   br label %.lr.ph311.i
 
 .preheader.i194.i:                                ; preds = %cuddZddSiftingUp.exit185.i
-  switch i32 %spec.select32.i192.i, label %.lr.ph.split.us.i200.i [
+  switch i32 %spec.select32.fr.i192.i, label %.lr.ph.split.us.i200.i [
     i32 0, label %.lr.ph.i
     i32 -1, label %.lr.ph.split.i195.i
   ]
@@ -1999,24 +1999,24 @@ cuddZddSiftingDown.exit168.i:                     ; preds = %158
   %201 = load ptr, ptr %200, align 8, !tbaa !101
   %202 = add nuw nsw i32 %.12538.us.i202.i, 1
   %.not30.us.i204.i = icmp eq ptr %201, null
-  %203 = icmp eq i32 %202, %spec.select32.i192.i
+  %203 = icmp eq i32 %202, %spec.select32.fr.i192.i
   %or.cond.us.i205.i = select i1 %.not30.us.i204.i, i1 true, i1 %203
   br i1 %or.cond.us.i205.i, label %.lr.ph.i, label %.lr.ph.split.us.i200.i, !llvm.loop !104
 
 cuddZddSiftingUp.exit185.i:                       ; preds = %179, %cuddZddSiftingUp.exit185.i
   %.02137.i186.i = phi ptr [ %208, %cuddZddSiftingUp.exit185.i ], [ %177, %179 ]
-  %.02236.i187.i = phi i32 [ %spec.select32.i192.i, %cuddZddSiftingUp.exit185.i ], [ -1, %179 ]
+  %.02236.i187.i = phi i32 [ %spec.select32.fr.i192.i, %cuddZddSiftingUp.exit185.i ], [ -1, %179 ]
   %.02435.i188.i = phi i32 [ %209, %cuddZddSiftingUp.exit185.i ], [ 0, %179 ]
-  %.02634.i189.i = phi i32 [ %spec.select.i191.i, %cuddZddSiftingUp.exit185.i ], [ %52, %179 ]
+  %.02634.i189.i = phi i32 [ %spec.select.i190.i, %cuddZddSiftingUp.exit185.i ], [ %52, %179 ]
   %204 = getelementptr inbounds nuw i8, ptr %.02137.i186.i, i64 12
   %205 = load i32, ptr %204, align 4, !tbaa !100
-  %.fr45.i190.i = freeze i32 %205
-  %206 = icmp slt i32 %.fr45.i190.i, %.02634.i189.i
-  %spec.select.i191.i = tail call i32 @llvm.smin.i32(i32 %.fr45.i190.i, i32 %.02634.i189.i)
-  %spec.select32.i192.i = select i1 %206, i32 %.02435.i188.i, i32 %.02236.i187.i
+  %206 = icmp slt i32 %205, %.02634.i189.i
+  %spec.select.i190.i = tail call i32 @llvm.smin.i32(i32 %205, i32 %.02634.i189.i)
+  %spec.select32.i191.i = select i1 %206, i32 %.02435.i188.i, i32 %.02236.i187.i
+  %spec.select32.fr.i192.i = freeze i32 %spec.select32.i191.i
   %207 = getelementptr inbounds nuw i8, ptr %.02137.i186.i, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !101
-  %209 = add i32 %.02435.i188.i, 1
+  %209 = add nuw nsw i32 %.02435.i188.i, 1
   %.not.i193.i = icmp eq ptr %208, null
   br i1 %.not.i193.i, label %.preheader.i194.i, label %cuddZddSiftingUp.exit185.i, !llvm.loop !105
 
@@ -2030,7 +2030,7 @@ cuddZddSiftingUp.exit185.i:                       ; preds = %179, %cuddZddSiftin
   br i1 %.not31.i197.i, label %.lr.ph311.i, label %214
 
 214:                                              ; preds = %.lr.ph.split.i195.i
-  %215 = icmp eq i32 %213, %spec.select.i191.i
+  %215 = icmp eq i32 %213, %spec.select.i190.i
   br i1 %215, label %.lr.ph.i, label %216
 
 216:                                              ; preds = %214
@@ -2156,7 +2156,7 @@ cuddZddSiftingUp.exit223.i:                       ; preds = %225
   br i1 %.not45.i238.i, label %.preheader.i.sink.split, label %256, !llvm.loop !113
 
 .preheader.i249.i:                                ; preds = %cuddZddSiftingDown.exit240.i
-  switch i32 %spec.select32.i247.i, label %.lr.ph.split.us.i255.i [
+  switch i32 %spec.select32.fr.i247.i, label %.lr.ph.split.us.i255.i [
     i32 0, label %.lr.ph.i
     i32 -1, label %.lr.ph.split.i250.i
   ]
@@ -2176,24 +2176,24 @@ cuddZddSiftingUp.exit223.i:                       ; preds = %225
   %268 = load ptr, ptr %267, align 8, !tbaa !101
   %269 = add nuw nsw i32 %.12538.us.i257.i, 1
   %.not30.us.i259.i = icmp eq ptr %268, null
-  %270 = icmp eq i32 %269, %spec.select32.i247.i
+  %270 = icmp eq i32 %269, %spec.select32.fr.i247.i
   %or.cond.us.i260.i = select i1 %.not30.us.i259.i, i1 true, i1 %270
   br i1 %or.cond.us.i260.i, label %.lr.ph.i, label %.lr.ph.split.us.i255.i, !llvm.loop !104
 
 cuddZddSiftingDown.exit240.i:                     ; preds = %246, %cuddZddSiftingDown.exit240.i
   %.02137.i241.i = phi ptr [ %275, %cuddZddSiftingDown.exit240.i ], [ %244, %246 ]
-  %.02236.i242.i = phi i32 [ %spec.select32.i247.i, %cuddZddSiftingDown.exit240.i ], [ -1, %246 ]
+  %.02236.i242.i = phi i32 [ %spec.select32.fr.i247.i, %cuddZddSiftingDown.exit240.i ], [ -1, %246 ]
   %.02435.i243.i = phi i32 [ %276, %cuddZddSiftingDown.exit240.i ], [ 0, %246 ]
-  %.02634.i244.i = phi i32 [ %spec.select.i246.i, %cuddZddSiftingDown.exit240.i ], [ %52, %246 ]
+  %.02634.i244.i = phi i32 [ %spec.select.i245.i, %cuddZddSiftingDown.exit240.i ], [ %52, %246 ]
   %271 = getelementptr inbounds nuw i8, ptr %.02137.i241.i, i64 12
   %272 = load i32, ptr %271, align 4, !tbaa !100
-  %.fr45.i245.i = freeze i32 %272
-  %273 = icmp slt i32 %.fr45.i245.i, %.02634.i244.i
-  %spec.select.i246.i = tail call i32 @llvm.smin.i32(i32 %.fr45.i245.i, i32 %.02634.i244.i)
-  %spec.select32.i247.i = select i1 %273, i32 %.02435.i243.i, i32 %.02236.i242.i
+  %273 = icmp slt i32 %272, %.02634.i244.i
+  %spec.select.i245.i = tail call i32 @llvm.smin.i32(i32 %272, i32 %.02634.i244.i)
+  %spec.select32.i246.i = select i1 %273, i32 %.02435.i243.i, i32 %.02236.i242.i
+  %spec.select32.fr.i247.i = freeze i32 %spec.select32.i246.i
   %274 = getelementptr inbounds nuw i8, ptr %.02137.i241.i, i64 16
   %275 = load ptr, ptr %274, align 8, !tbaa !101
-  %276 = add i32 %.02435.i243.i, 1
+  %276 = add nuw nsw i32 %.02435.i243.i, 1
   %.not.i248.i = icmp eq ptr %275, null
   br i1 %.not.i248.i, label %.preheader.i249.i, label %cuddZddSiftingDown.exit240.i, !llvm.loop !105
 
@@ -2207,7 +2207,7 @@ cuddZddSiftingDown.exit240.i:                     ; preds = %246, %cuddZddSiftin
   br i1 %.not31.i252.i, label %.lr.ph311.i, label %281
 
 281:                                              ; preds = %.lr.ph.split.i250.i
-  %282 = icmp eq i32 %280, %spec.select.i246.i
+  %282 = icmp eq i32 %280, %spec.select.i245.i
   br i1 %282, label %.lr.ph.i, label %283
 
 283:                                              ; preds = %281

@@ -81,30 +81,30 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie17firstForCodePointEi(
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %9 = load i16, ptr %7, align 2, !tbaa !12
-  %.fr53.i.i = freeze i16 %9
-  %10 = zext i16 %.fr53.i.i to i32
-  %11 = icmp ult i16 %.fr53.i.i, 48
+  %.fr54.i.i = freeze i16 %9
+  %10 = zext i16 %.fr54.i.i to i32
+  %11 = icmp ult i16 %.fr54.i.i, 48
   br i1 %11, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4
   %12 = and i32 %10, 63
   %13 = icmp samesign ult i32 %12, 48
-  %14 = icmp ult i16 %.fr53.i.i, 64
+  %14 = icmp ult i16 %.fr54.i.i, 64
   br i1 %13, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i, !llvm.loop !15
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
   br i1 %14, label %.split.us.i.i, label %15
 
 15:                                               ; preds = %.lr.ph.split.us.i.i
-  %.not.us.i.i = icmp sgt i16 %.fr53.i.i, -1
+  %.not.us.i.i = icmp sgt i16 %.fr54.i.i, -1
   br i1 %.not.us.i.i, label %16, label %.loopexit.i.i
 
 16:                                               ; preds = %15
-  %17 = icmp samesign ugt i16 %.fr53.i.i, 16447
+  %17 = icmp samesign ugt i16 %.fr54.i.i, 16447
   br i1 %17, label %18, label %._crit_edge.i.i
 
 18:                                               ; preds = %16
-  %19 = icmp samesign ult i16 %.fr53.i.i, 32704
+  %19 = icmp samesign ult i16 %.fr54.i.i, 32704
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %18
@@ -119,15 +119,15 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie17firstForCodePointEi(
   br i1 %14, label %.split.us.i.i, label %.lr.ph38.split.us.i.i
 
 .lr.ph38.split.us.i.i:                            ; preds = %.lr.ph.split.i.i
-  %.not.us40.i.i = icmp sgt i16 %.fr53.i.i, -1
+  %.not.us40.i.i = icmp sgt i16 %.fr54.i.i, -1
   br i1 %.not.us40.i.i, label %24, label %.loopexit.i.i
 
 24:                                               ; preds = %.lr.ph38.split.us.i.i
-  %25 = icmp samesign ugt i16 %.fr53.i.i, 16447
+  %25 = icmp samesign ugt i16 %.fr54.i.i, 16447
   br i1 %25, label %26, label %.split.us.i.i
 
 26:                                               ; preds = %24
-  %27 = icmp samesign ult i16 %.fr53.i.i, 32704
+  %27 = icmp samesign ult i16 %.fr54.i.i, 32704
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -187,30 +187,30 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie17firstForCodePointEi(
   %54 = load ptr, ptr %53, align 8, !tbaa !14
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %56 = load i16, ptr %54, align 2, !tbaa !12
-  %.fr53.i.i4 = freeze i16 %56
-  %57 = zext i16 %.fr53.i.i4 to i32
-  %58 = icmp ult i16 %.fr53.i.i4, 48
+  %.fr54.i.i4 = freeze i16 %56
+  %57 = zext i16 %.fr54.i.i4 to i32
+  %58 = icmp ult i16 %.fr54.i.i4, 48
   br i1 %58, label %._crit_edge.i.i17, label %.lr.ph.i.i5
 
 .lr.ph.i.i5:                                      ; preds = %48
   %59 = and i32 %57, 63
   %60 = icmp samesign ult i32 %59, 48
-  %61 = icmp ult i16 %.fr53.i.i4, 64
+  %61 = icmp ult i16 %.fr54.i.i4, 64
   br i1 %60, label %.lr.ph.split.us.i.i15, label %.lr.ph.split.i.i6, !llvm.loop !15
 
 .lr.ph.split.us.i.i15:                            ; preds = %.lr.ph.i.i5
   br i1 %61, label %.split.us.i.i11, label %62
 
 62:                                               ; preds = %.lr.ph.split.us.i.i15
-  %.not.us.i.i16 = icmp sgt i16 %.fr53.i.i4, -1
+  %.not.us.i.i16 = icmp sgt i16 %.fr54.i.i4, -1
   br i1 %.not.us.i.i16, label %63, label %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread23
 
 63:                                               ; preds = %62
-  %64 = icmp samesign ugt i16 %.fr53.i.i4, 16447
+  %64 = icmp samesign ugt i16 %.fr54.i.i4, 16447
   br i1 %64, label %65, label %._crit_edge.i.i17
 
 65:                                               ; preds = %63
-  %66 = icmp samesign ult i16 %.fr53.i.i4, 32704
+  %66 = icmp samesign ult i16 %.fr54.i.i4, 32704
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65
@@ -225,15 +225,15 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie17firstForCodePointEi(
   br i1 %61, label %.split.us.i.i11, label %.lr.ph38.split.us.i.i7
 
 .lr.ph38.split.us.i.i7:                           ; preds = %.lr.ph.split.i.i6
-  %.not.us40.i.i8 = icmp sgt i16 %.fr53.i.i4, -1
+  %.not.us40.i.i8 = icmp sgt i16 %.fr54.i.i4, -1
   br i1 %.not.us40.i.i8, label %71, label %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread23
 
 71:                                               ; preds = %.lr.ph38.split.us.i.i7
-  %72 = icmp samesign ugt i16 %.fr53.i.i4, 16447
+  %72 = icmp samesign ugt i16 %.fr54.i.i4, 16447
   br i1 %72, label %73, label %.split.us.i.i11
 
 73:                                               ; preds = %71
-  %74 = icmp samesign ult i16 %.fr53.i.i4, 32704
+  %74 = icmp samesign ult i16 %.fr54.i.i4, 32704
   br i1 %74, label %77, label %75
 
 75:                                               ; preds = %73
@@ -313,8 +313,8 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextEi(ptr noundef no
   %9 = icmp sgt i32 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %11 = load i16, ptr %4, align 2, !tbaa !12
-  %.fr53.i = freeze i16 %11
-  %12 = zext i16 %.fr53.i to i32
+  %.fr54.i = freeze i16 %11
+  %12 = zext i16 %.fr54.i to i32
   br i1 %9, label %13, label %26
 
 13:                                               ; preds = %6
@@ -344,28 +344,28 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextEi(ptr noundef no
   br label %_ZN6icu_7710UCharsTrie8nextImplEPKDsi.exit
 
 26:                                               ; preds = %6
-  %27 = icmp ult i16 %.fr53.i, 48
+  %27 = icmp ult i16 %.fr54.i, 48
   br i1 %27, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26
   %28 = and i32 %12, 63
   %29 = icmp samesign ult i32 %28, 48
-  %30 = icmp ult i16 %.fr53.i, 64
+  %30 = icmp ult i16 %.fr54.i, 64
   br i1 %29, label %.lr.ph.split.us.i, label %.lr.ph.split.i, !llvm.loop !15
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   br i1 %30, label %.split.us.i, label %31
 
 31:                                               ; preds = %.lr.ph.split.us.i
-  %.not.us.i = icmp sgt i16 %.fr53.i, -1
+  %.not.us.i = icmp sgt i16 %.fr54.i, -1
   br i1 %.not.us.i, label %32, label %.loopexit.i
 
 32:                                               ; preds = %31
-  %33 = icmp samesign ugt i16 %.fr53.i, 16447
+  %33 = icmp samesign ugt i16 %.fr54.i, 16447
   br i1 %33, label %34, label %._crit_edge.i
 
 34:                                               ; preds = %32
-  %35 = icmp samesign ult i16 %.fr53.i, 32704
+  %35 = icmp samesign ult i16 %.fr54.i, 32704
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %34
@@ -380,15 +380,15 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextEi(ptr noundef no
   br i1 %30, label %.split.us.i, label %.lr.ph38.split.us.i
 
 .lr.ph38.split.us.i:                              ; preds = %.lr.ph.split.i
-  %.not.us40.i = icmp sgt i16 %.fr53.i, -1
+  %.not.us40.i = icmp sgt i16 %.fr54.i, -1
   br i1 %.not.us40.i, label %40, label %.loopexit.i
 
 40:                                               ; preds = %.lr.ph38.split.us.i
-  %41 = icmp samesign ugt i16 %.fr53.i, 16447
+  %41 = icmp samesign ugt i16 %.fr54.i, 16447
   br i1 %41, label %42, label %.split.us.i
 
 42:                                               ; preds = %40
-  %43 = icmp samesign ult i16 %.fr53.i, 32704
+  %43 = icmp samesign ult i16 %.fr54.i, 32704
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %42
@@ -691,30 +691,30 @@ _ZN6icu_7710UCharsTrie9skipValueEPKDs.exit:       ; preds = %93, %100, %102
 define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie8nextImplEPKDsi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %5 = load i16, ptr %1, align 2, !tbaa !12
-  %.fr53 = freeze i16 %5
-  %6 = zext i16 %.fr53 to i32
-  %7 = icmp ult i16 %.fr53, 48
+  %.fr54 = freeze i16 %5
+  %6 = zext i16 %.fr54 to i32
+  %7 = icmp ult i16 %.fr54, 48
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = and i32 %6, 63
   %9 = icmp samesign ult i32 %8, 48
-  %10 = icmp ult i16 %.fr53, 64
+  %10 = icmp ult i16 %.fr54, 64
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split, !llvm.loop !15
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %10, label %.split.us, label %11
 
 11:                                               ; preds = %.lr.ph.split.us
-  %.not.us = icmp sgt i16 %.fr53, -1
+  %.not.us = icmp sgt i16 %.fr54, -1
   br i1 %.not.us, label %12, label %.loopexit
 
 12:                                               ; preds = %11
-  %13 = icmp samesign ugt i16 %.fr53, 16447
+  %13 = icmp samesign ugt i16 %.fr54, 16447
   br i1 %13, label %14, label %._crit_edge
 
 14:                                               ; preds = %12
-  %15 = icmp samesign ult i16 %.fr53, 32704
+  %15 = icmp samesign ult i16 %.fr54, 32704
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %14
@@ -729,15 +729,15 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie8nextImplEPKDsi(ptr no
   br i1 %10, label %.split.us, label %.lr.ph38.split.us
 
 .lr.ph38.split.us:                                ; preds = %.lr.ph.split
-  %.not.us40 = icmp sgt i16 %.fr53, -1
+  %.not.us40 = icmp sgt i16 %.fr54, -1
   br i1 %.not.us40, label %20, label %.loopexit
 
 20:                                               ; preds = %.lr.ph38.split.us
-  %21 = icmp samesign ugt i16 %.fr53, 16447
+  %21 = icmp samesign ugt i16 %.fr54, 16447
   br i1 %21, label %22, label %.split.us
 
 22:                                               ; preds = %20
-  %23 = icmp samesign ult i16 %.fr53, 32704
+  %23 = icmp samesign ult i16 %.fr54, 32704
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22

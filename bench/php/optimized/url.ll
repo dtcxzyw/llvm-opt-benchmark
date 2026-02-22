@@ -247,25 +247,25 @@ define dso_local noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %1, 
   %.not = icmp eq ptr %10, null
   %.not286 = icmp eq ptr %10, %0
   %or.cond303 = or i1 %.not, %.not286
-  br i1 %or.cond303, label %156, label %.preheader398
+  br i1 %or.cond303, label %156, label %.preheader399
 
-.preheader398:                                    ; preds = %3
+.preheader399:                                    ; preds = %3
   %12 = icmp ult ptr %0, %10
   br i1 %12, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader398
+.lr.ph:                                           ; preds = %.preheader399
   %13 = tail call ptr @__ctype_b_loc() #16
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   br label %15
 
 15:                                               ; preds = %.lr.ph, %42
-  %.0256399 = phi ptr [ %0, %.lr.ph ], [ %43, %42 ]
-  %16 = load i8, ptr %.0256399, align 1, !tbaa !11
+  %.0256400 = phi ptr [ %0, %.lr.ph ], [ %43, %42 ]
+  %16 = load i8, ptr %.0256400, align 1, !tbaa !11
   %17 = sext i8 %16 to i64
   %18 = getelementptr inbounds i16, ptr %14, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !25
-  %.fr = freeze i16 %19
-  %20 = and i16 %.fr, 3072
+  %.fr395 = freeze i16 %19
+  %20 = and i16 %.fr395, 3072
   %or.cond304.not = icmp eq i16 %20, 0
   br i1 %or.cond304.not, label %switch.early.test, label %42
 
@@ -279,12 +279,12 @@ switch.early.test:                                ; preds = %15
 21:                                               ; preds = %switch.early.test
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %23 = icmp ult ptr %22, %9
-  br i1 %23, label %.preheader469, label %31
+  br i1 %23, label %.preheader470, label %31
 
-.preheader469:                                    ; preds = %21, %.preheader469
-  %24 = phi i8 [ %29, %.preheader469 ], [ 63, %21 ]
-  %.015.i = phi ptr [ %spec.select.i, %.preheader469 ], [ %9, %21 ]
-  %.0914.i.idx = phi i64 [ %.0914.i.add, %.preheader469 ], [ 0, %21 ]
+.preheader470:                                    ; preds = %21, %.preheader470
+  %24 = phi i8 [ %29, %.preheader470 ], [ 63, %21 ]
+  %.015.i = phi ptr [ %spec.select.i, %.preheader470 ], [ %9, %21 ]
+  %.0914.i.idx = phi i64 [ %.0914.i.add, %.preheader470 ], [ 0, %21 ]
   %25 = sext i8 %24 to i32
   %26 = ptrtoint ptr %.015.i to i64
   %27 = sub i64 %26, %4
@@ -294,10 +294,10 @@ switch.early.test:                                ; preds = %15
   %.0914.i.add = add nuw nsw i64 %.0914.i.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str, i64 %.0914.i.add
   %29 = load i8, ptr %.ptr, align 1, !tbaa !11
-  %exitcond416 = icmp eq i64 %.0914.i.add, 2
-  br i1 %exitcond416, label %binary_strcspn.exit, label %.preheader469
+  %exitcond417 = icmp eq i64 %.0914.i.add, 2
+  br i1 %exitcond417, label %binary_strcspn.exit, label %.preheader470
 
-binary_strcspn.exit:                              ; preds = %.preheader469
+binary_strcspn.exit:                              ; preds = %.preheader470
   %30 = icmp ult ptr %10, %spec.select.i
   br i1 %30, label %157, label %31
 
@@ -321,11 +321,11 @@ binary_strcspn.exit:                              ; preds = %.preheader469
   br label %217
 
 42:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %15
-  %43 = getelementptr inbounds nuw i8, ptr %.0256399, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0256400, i64 1
   %exitcond.not = icmp eq ptr %43, %10
   br i1 %exitcond.not, label %._crit_edge, label %15
 
-._crit_edge:                                      ; preds = %42, %.preheader398
+._crit_edge:                                      ; preds = %42, %.preheader399
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %45 = icmp eq ptr %44, %9
   br i1 %45, label %zend_string_alloc.exit334, label %67
@@ -377,16 +377,16 @@ zend_string_alloc.exit334:                        ; preds = %._crit_edge
 
 .preheader:                                       ; preds = %67
   %69 = icmp ult ptr %44, %9
-  br i1 %69, label %.lr.ph401, label %.critedge
+  br i1 %69, label %.lr.ph402, label %.critedge
 
-.lr.ph401:                                        ; preds = %.preheader
+.lr.ph402:                                        ; preds = %.preheader
   %70 = tail call ptr @__ctype_b_loc() #16
   %71 = load ptr, ptr %70, align 8, !tbaa !23
   br label %72
 
-72:                                               ; preds = %.lr.ph401, %78
-  %.1257400 = phi ptr [ %44, %.lr.ph401 ], [ %79, %78 ]
-  %73 = load i8, ptr %.1257400, align 1, !tbaa !11
+72:                                               ; preds = %.lr.ph402, %78
+  %.1257401 = phi ptr [ %44, %.lr.ph402 ], [ %79, %78 ]
+  %73 = load i8, ptr %.1257401, align 1, !tbaa !11
   %74 = sext i8 %73 to i64
   %75 = getelementptr inbounds i16, ptr %71, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !25
@@ -395,12 +395,12 @@ zend_string_alloc.exit334:                        ; preds = %._crit_edge
   br i1 %.not289, label %.critedge, label %78
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds nuw i8, ptr %.1257400, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.1257401, i64 1
   %80 = icmp ult ptr %79, %9
   br i1 %80, label %72, label %.critedge
 
 .critedge:                                        ; preds = %72, %78, %.preheader
-  %.1257.lcssa = phi ptr [ %44, %.preheader ], [ %79, %78 ], [ %.1257400, %72 ]
+  %.1257.lcssa = phi ptr [ %44, %.preheader ], [ %79, %78 ], [ %.1257401, %72 ]
   %81 = icmp eq ptr %.1257.lcssa, %9
   br i1 %81, label %88, label %82
 
@@ -548,17 +548,17 @@ php_replace_controlchars.exit345:                 ; preds = %128
 157:                                              ; preds = %82, %156, %88, %binary_strcspn.exit
   %.ptr296 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %158 = icmp ult ptr %.ptr296, %9
-  br i1 %158, label %.lr.ph408, label %.critedge3.thread
+  br i1 %158, label %.lr.ph409, label %.critedge3.thread
 
-.lr.ph408:                                        ; preds = %157
+.lr.ph409:                                        ; preds = %157
   %159 = tail call ptr @__ctype_b_loc() #16
   %160 = load ptr, ptr %159, align 8, !tbaa !23
   br label %161
 
-161:                                              ; preds = %.lr.ph408, %167
-  %.0255.ptr406 = phi ptr [ %.ptr296, %.lr.ph408 ], [ %.0255.ptr, %167 ]
-  %.0255.idx405 = phi i64 [ 1, %.lr.ph408 ], [ %.0255.add, %167 ]
-  %162 = load i8, ptr %.0255.ptr406, align 1, !tbaa !11
+161:                                              ; preds = %.lr.ph409, %167
+  %.0255.ptr407 = phi ptr [ %.ptr296, %.lr.ph409 ], [ %.0255.ptr, %167 ]
+  %.0255.idx406 = phi i64 [ 1, %.lr.ph409 ], [ %.0255.add, %167 ]
+  %162 = load i8, ptr %.0255.ptr407, align 1, !tbaa !11
   %163 = sext i8 %162 to i64
   %164 = getelementptr inbounds i16, ptr %160, i64 %163
   %165 = load i16, ptr %164, align 2, !tbaa !25
@@ -567,16 +567,16 @@ php_replace_controlchars.exit345:                 ; preds = %128
   br i1 %.not295, label %.critedge3, label %167
 
 167:                                              ; preds = %161
-  %.0255.add = add nuw nsw i64 %.0255.idx405, 1
+  %.0255.add = add nuw nsw i64 %.0255.idx406, 1
   %.0255.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.0255.add
   %168 = icmp ult ptr %.0255.ptr, %9
-  %169 = icmp samesign ult i64 %.0255.idx405, 6
+  %169 = icmp samesign ult i64 %.0255.idx406, 6
   %or.cond318 = select i1 %168, i1 %169, i1 false
   br i1 %or.cond318, label %161, label %.critedge3
 
 .critedge3:                                       ; preds = %161, %167
-  %.0255.idx.lcssa = phi i64 [ %.0255.add, %167 ], [ %.0255.idx405, %161 ]
-  %.0255.ptr.lcssa = phi ptr [ %.0255.ptr, %167 ], [ %.0255.ptr406, %161 ]
+  %.0255.idx.lcssa = phi i64 [ %.0255.add, %167 ], [ %.0255.idx406, %161 ]
+  %.0255.ptr.lcssa = phi ptr [ %.0255.ptr, %167 ], [ %.0255.ptr407, %161 ]
   %gepdiff = add nsw i64 %.0255.idx.lcssa, -1
   %170 = add nsw i64 %.0255.idx.lcssa, -2
   %or.cond320 = icmp ult i64 %170, 5
@@ -635,10 +635,10 @@ php_replace_controlchars.exit345:                 ; preds = %128
   br label %php_replace_controlchars.exit
 
 .critedge3.thread:                                ; preds = %157, %.critedge3
-  %.0255.ptr.lcssa465 = phi ptr [ %.0255.ptr.lcssa, %.critedge3 ], [ %.ptr296, %157 ]
-  %.0255.idx.lcssa464 = phi i64 [ %.0255.idx.lcssa, %.critedge3 ], [ 1, %157 ]
-  %193 = icmp eq i64 %.0255.idx.lcssa464, 1
-  %194 = icmp eq ptr %.0255.ptr.lcssa465, %9
+  %.0255.ptr.lcssa466 = phi ptr [ %.0255.ptr.lcssa, %.critedge3 ], [ %.ptr296, %157 ]
+  %.0255.idx.lcssa465 = phi i64 [ %.0255.idx.lcssa, %.critedge3 ], [ 1, %157 ]
+  %193 = icmp eq i64 %.0255.idx.lcssa465, 1
+  %194 = icmp eq ptr %.0255.ptr.lcssa466, %9
   %or.cond323 = select i1 %193, i1 %194, i1 false
   br i1 %or.cond323, label %195, label %.thread389
 
@@ -700,10 +700,10 @@ php_replace_controlchars.exit345:                 ; preds = %128
   %.not12.i349 = icmp eq ptr %224, null
   %spec.select.i350 = select i1 %.not12.i349, ptr %.015.i347, ptr %224
   %.0914.i348.add = add nuw nsw i64 %.0914.i348.idx, 1
-  %.ptr459 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.0914.i348.add
-  %225 = load i8, ptr %.ptr459, align 1, !tbaa !11
-  %exitcond417 = icmp eq i64 %.0914.i348.add, 3
-  br i1 %exitcond417, label %binary_strcspn.exit352, label %219
+  %.ptr460 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.0914.i348.add
+  %225 = load i8, ptr %.ptr460, align 1, !tbaa !11
+  %exitcond418 = icmp eq i64 %.0914.i348.add, 3
+  br i1 %exitcond418, label %binary_strcspn.exit352, label %219
 
 binary_strcspn.exit352:                           ; preds = %219
   %226 = ptrtoint ptr %spec.select.i350 to i64

@@ -7315,8 +7315,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorISt4pairIj
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread30"
-  %.033 = phi i64 [ %26, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread30" ], [ %1, %4 ]
-  %9 = shl nuw nsw i64 %.033, 1
+  %.032 = phi i64 [ %26, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread30" ], [ %1, %4 ]
+  %9 = shl nuw nsw i64 %.032, 1
   %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"class.llvm::SmallVector.209", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"class.llvm::SmallVector.209", ptr %0, i64 %9
@@ -7341,17 +7341,16 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorISt4pairIj
   %21 = load i32, ptr %20, align 4, !tbaa !188
   %22 = getelementptr inbounds nuw i8, ptr %.val28, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !188
-  %.fr = freeze i32 %21
-  %.fr32 = freeze i32 %23
-  %24 = icmp ult i32 %.fr, %.fr32
+  %24 = icmp ult i32 %21, %23
   %25 = or disjoint i64 %9, 1
-  %spec.select = select i1 %24, i64 %25, i64 %10
+  %cond.fr = freeze i1 %24
+  %spec.select = select i1 %cond.fr, i64 %25, i64 %10
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread30"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread30": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit", %18, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread"
   %26 = phi i64 [ %10, %18 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit" ], [ %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS2_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS6_EELj6EEEE3$_0EclIPNS3_ISt4pairIjjELj4EEESJ_EEbT_T0_.exit.thread" ]
   %27 = getelementptr inbounds nuw %"class.llvm::SmallVector.209", ptr %0, i64 %26
-  %28 = getelementptr inbounds nuw %"class.llvm::SmallVector.209", ptr %0, i64 %.033
+  %28 = getelementptr inbounds nuw %"class.llvm::SmallVector.209", ptr %0, i64 %.032
   %29 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIjjEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %27)
   %30 = icmp slt i64 %26, %7
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !423

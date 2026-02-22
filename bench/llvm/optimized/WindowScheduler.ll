@@ -3680,8 +3680,8 @@ declare void @_ZN4llvm13LiveIntervals10handleMoveERNS_12MachineInstrEb(ptr nound
 define dso_local void @_ZN4llvm15WindowScheduler16getSearchIndexesEjj(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.173") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6436) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 6420
   %6 = load i32, ptr %5, align 4, !tbaa !218
-  %.fr = freeze i32 %6
-  %7 = mul i32 %.fr, %3
+  %.fr15 = freeze i32 %6
+  %7 = mul i32 %.fr15, %3
   %8 = udiv i32 %7, 100
   %9 = add i32 %2, -1
   %or.cond.not = icmp ult i32 %9, %8
@@ -3704,7 +3704,7 @@ define dso_local void @_ZN4llvm15WindowScheduler16getSearchIndexesEjj(ptr dead_o
 
 .lr.ph:                                           ; preds = %12, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %17 = phi i32 [ %27, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ 0, %12 ]
-  %.015 = phi i32 [ %28, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ 0, %12 ]
+  %.016 = phi i32 [ %28, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ 0, %12 ]
   %18 = load i32, ptr %16, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %17, %18
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %19, !prof !33
@@ -3721,11 +3721,11 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph, %1
   %23 = load ptr, ptr %0, align 8, !tbaa !25
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
-  store i32 %.015, ptr %25, align 1
+  store i32 %.016, ptr %25, align 1
   %26 = load i32, ptr %15, align 8, !tbaa !26
   %27 = add i32 %26, 1
   store i32 %27, ptr %15, align 8, !tbaa !26
-  %28 = add nuw nsw i32 %.015, %13
+  %28 = add nuw nsw i32 %.016, %13
   %29 = icmp ult i32 %28, %8
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !495
 

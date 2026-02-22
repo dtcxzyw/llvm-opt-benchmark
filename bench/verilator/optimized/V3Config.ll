@@ -6295,9 +6295,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %18,
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12V3ConfigFile5waiveE11V3ErrorCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 {
-  %.fr = freeze i8 %1
-  %.not.i = icmp ne i8 %.fr, 1
-  %4 = icmp ult i8 %.fr, 20
+  %.fr40 = freeze i8 %1
+  %.not.i = icmp ne i8 %.fr40, 1
+  %4 = icmp ult i8 %.fr40, 20
   %spec.select.i = and i1 %.not.i, %4
   br i1 %spec.select.i, label %.loopexit, label %5
 
@@ -6310,9 +6310,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12V3ConfigFile5waiveE11V3Er
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = and i8 %.fr, -4
+  %10 = and i8 %.fr40, -4
   %switch.selectcmp.i = icmp eq i8 %10, 104
-  %.off.i = add i8 %.fr, -116
+  %.off.i = add i8 %.fr40, -116
   %switch.i = icmp ult i8 %.off.i, 3
   br i1 %switch.selectcmp.i, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -6322,7 +6322,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12V3ConfigFile5waiveE11V3Er
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge.us.us
   %.sroa.012.023.us.us = phi ptr [ %18, %.critedge.us.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.0.0.copyload.us.us = load i8, ptr %.sroa.012.023.us.us, align 8, !tbaa !224
-  %11 = icmp eq i8 %.fr, %.sroa.0.0.copyload.us.us
+  %11 = icmp eq i8 %.fr40, %.sroa.0.0.copyload.us.us
   br i1 %11, label %_ZN11V3ErrorCode7isUnderES_.exit.thread.us.us, label %12
 
 12:                                               ; preds = %.lr.ph.split.us.split.us
@@ -6350,7 +6350,7 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us.us:    ; preds = %12, %12, %12, %.lr.
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge.us
   %.sroa.012.023.us = phi ptr [ %26, %.critedge.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.0.0.copyload.us = load i8, ptr %.sroa.012.023.us, align 8, !tbaa !224
-  %19 = icmp eq i8 %.fr, %.sroa.0.0.copyload.us
+  %19 = icmp eq i8 %.fr40, %.sroa.0.0.copyload.us
   br i1 %19, label %_ZN11V3ErrorCode7isUnderES_.exit.thread.us, label %20
 
 20:                                               ; preds = %.lr.ph.split.us.split
@@ -6380,7 +6380,7 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us:       ; preds = %20, %20, %.lr.ph.sp
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us31
   %.sroa.012.023.us27 = phi ptr [ %34, %.critedge.us31 ], [ %7, %.lr.ph.split ]
   %.sroa.0.0.copyload.us28 = load i8, ptr %.sroa.012.023.us27, align 8, !tbaa !224
-  %27 = icmp eq i8 %.fr, %.sroa.0.0.copyload.us28
+  %27 = icmp eq i8 %.fr40, %.sroa.0.0.copyload.us28
   br i1 %27, label %_ZN11V3ErrorCode7isUnderES_.exit.thread.us30, label %28
 
 28:                                               ; preds = %.lr.ph.split.split.us
@@ -6407,7 +6407,7 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us30:     ; preds = %28, %28, %.lr.ph.sp
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
   %.sroa.012.023 = phi ptr [ %41, %.critedge ], [ %7, %.lr.ph.split ]
   %.sroa.0.0.copyload = load i8, ptr %.sroa.012.023, align 8, !tbaa !224
-  %35 = icmp eq i8 %.fr, %.sroa.0.0.copyload
+  %35 = icmp eq i8 %.fr40, %.sroa.0.0.copyload
   %cond = icmp eq i8 %.sroa.0.0.copyload, 10
   %or.cond = or i1 %35, %cond
   br i1 %or.cond, label %_ZN11V3ErrorCode7isUnderES_.exit.thread, label %.critedge

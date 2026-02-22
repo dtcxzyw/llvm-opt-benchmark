@@ -537,8 +537,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN7xgboost4tree11AssignNodesEPKNS_7RegTreeERKSt6vectorINS0_14CPUExpandEntryESaIS5_EENS_6common4SpanIiLm18446744073709551615EEESC_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 %2, ptr writeonly captures(none) %3, i64 %4, ptr writeonly captures(none) %5) local_unnamed_addr #9 {
-  %.fr29 = freeze i64 %4
-  %.fr = freeze i64 %2
   %7 = load ptr, ptr %1, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !45
@@ -548,14 +546,15 @@ define void @_ZN7xgboost4tree11AssignNodesEPKNS_7RegTreeERKSt6vectorINS0_14CPUEx
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8, !tbaa !30
-  %injected.cond.not = icmp ugt i64 %.fr, %.fr29
-  br i1 %injected.cond.not, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, label %.lr.ph.split.us
+  %injected.cond = icmp ule i64 %2, %4
+  %injected.cond.fr = freeze i1 %injected.cond
+  br i1 %injected.cond.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us
   %.028.us = phi i64 [ %26, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us ], [ 0, %.lr.ph ]
   %.sroa.018.027.us = phi ptr [ %27, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us ], [ %7, %.lr.ph ]
-  %exitcond.not = icmp eq i64 %.028.us, %.fr
-  br i1 %exitcond.not, label %.split.us, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, !prof !44
+  %exitcond32.not = icmp eq i64 %.028.us, %2
+  br i1 %exitcond32.not, label %.split.us, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, !prof !44
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.ph.split.us
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.018.027.us, i64 80
@@ -581,14 +580,10 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.p
   %.not.us = icmp eq ptr %27, %9
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
-._crit_edge:                                      ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, %6
+._crit_edge:                                      ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, %6
   ret void
 
-.split.us:                                        ; preds = %.lr.ph.split.us
-  tail call void @_ZSt9terminatev() #29
-  unreachable
-
-_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14
   %.028 = phi i64 [ %43, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14 ], [ 0, %.lr.ph ]
   %.sroa.018.027 = phi ptr [ %44, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14 ], [ %7, %.lr.ph ]
   %28 = load i32, ptr %.sroa.018.027, align 8, !tbaa !49
@@ -603,24 +598,32 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph, 
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 64
   %38 = load double, ptr %37, align 8, !tbaa !47
   %39 = fcmp olt double %36, %38
+  %.024 = select i1 %39, i32 %32, i32 %34
+  %exitcond.not = icmp eq i64 %.028, %2
+  br i1 %exitcond.not, label %.split.us, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, !prof !44
+
+.split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
+  tail call void @_ZSt9terminatev() #29
+  unreachable
+
+_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph.split
   %.025 = select i1 %39, i32 %34, i32 %32
   %40 = getelementptr inbounds nuw i32, ptr %3, i64 %.028
   store i32 %.025, ptr %40, align 4, !tbaa !33
-  %exitcond32.not = icmp eq i64 %.028, %.fr29
-  br i1 %exitcond32.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, !prof !44
+  %exitcond31.not = icmp eq i64 %.028, %4
+  br i1 %exitcond31.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, !prof !44
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
   tail call void @_ZSt9terminatev() #29
   unreachable
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14: ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
-  %.024 = select i1 %39, i32 %32, i32 %34
   %42 = getelementptr inbounds nuw i32, ptr %5, i64 %.028
   store i32 %.024, ptr %42, align 4, !tbaa !33
   %43 = add i64 %.028, 1
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 88
   %.not = icmp eq ptr %44, %9
-  br i1 %.not, label %._crit_edge, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !54
 }
 
 ; Function Attrs: mustprogress noinline uwtable

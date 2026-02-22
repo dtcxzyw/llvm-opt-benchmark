@@ -21,8 +21,8 @@ define noalias noundef ptr @Gia_ManSupStart(i32 noundef %0) local_unnamed_addr #
   %3 = icmp slt i32 %0, 6
   %4 = add nsw i32 %0, -5
   %5 = shl nuw i32 1, %4
-  %.fr43.i = freeze i32 %5
-  %6 = select i1 %3, i32 1, i32 %.fr43.i
+  %.fr.i = freeze i32 %5
+  %6 = select i1 %3, i32 1, i32 %.fr.i
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4, !tbaa !13
   %8 = sext i32 %6 to i64

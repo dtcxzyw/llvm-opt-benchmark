@@ -3889,8 +3889,7 @@ uleb128.exit:                                     ; preds = %.lr.ph.i, %.lr.ph
   %27 = and i8 %25, 127
   %28 = zext nneg i8 %27 to i32
   %29 = shl i32 %28, %.01119.i46
-  %.fr126 = freeze i32 %29
-  %30 = zext i32 %.fr126 to i64
+  %30 = zext i32 %29 to i64
   %31 = add i32 %.01119.i46, 7
   %.1.i47 = add i64 %.01020.i45, %30
   %32 = getelementptr i8, ptr %26, i64 1
@@ -3909,9 +3908,9 @@ uleb128.exit53:                                   ; preds = %._crit_edge, %._cri
   %.lcssa.i51 = phi i8 [ %23, %._crit_edge ], [ %33, %._crit_edge.loopexit.i48 ]
   %36 = zext nneg i8 %.lcssa.i51 to i64
   %37 = shl i64 %36, %.011.lcssa.i49
-  %.fr = freeze i64 %37
-  %.117.i52 = add i64 %.fr, %.010.lcssa.i50
-  %38 = trunc i64 %.117.i52 to i32
+  %.117.i52 = add i64 %37, %.010.lcssa.i50
+  %.117.i52.fr = freeze i64 %.117.i52
+  %38 = trunc i64 %.117.i52.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %39, i8 0, i64 2184, i1 false)

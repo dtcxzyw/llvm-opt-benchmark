@@ -6632,9 +6632,8 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeArea
   %21 = load ptr, ptr %3, align 8, !tbaa !231
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !231
-  %.fr101 = freeze ptr %21
-  %.fr102 = freeze ptr %23
-  %24 = icmp eq ptr %.fr101, %.fr102
+  %24 = icmp eq ptr %21, %23
+  %.fr = freeze i1 %24
   br i1 %20, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit: ; preds = %9
@@ -6667,24 +6666,24 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %.not.us.us = icmp eq ptr %25, %39
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %45 = zext nneg i32 %27 to i64
-  br i1 %24, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %63
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %63 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %63 ], [ 0, %.lr.ph.split.us ]
   %.05794.us.us = phi float [ %.1.us.us, %63 ], [ 0.000000e+00, %.lr.ph.split.us ]
-  br i1 %.not.us.us, label %46, label %.thread121
+  br i1 %.not.us.us, label %46, label %.thread119
 
 46:                                               ; preds = %.lr.ph.split.us.split.us
-  %sext137 = shl i64 %indvars.iv112, 32
-  %47 = ashr exact i64 %sext137, 32
+  %sext135 = shl i64 %indvars.iv110, 32
+  %47 = ashr exact i64 %sext135, 32
   %48 = getelementptr inbounds i32, ptr %41, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !156
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %58, label %63
 
-.thread121:                                       ; preds = %.lr.ph.split.us.split.us
+.thread119:                                       ; preds = %.lr.ph.split.us.split.us
   %51 = load ptr, ptr %44, align 8, !tbaa !220
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv112
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv110
   %53 = load i32, ptr %52, align 4, !tbaa !156
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %41, i64 %54
@@ -6692,8 +6691,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %58, label %.split.us
 
-58:                                               ; preds = %.thread121, %46
-  %59 = phi i64 [ %54, %.thread121 ], [ %47, %46 ]
+58:                                               ; preds = %.thread119, %46
+  %59 = phi i64 [ %54, %.thread119 ], [ %47, %46 ]
   %60 = getelementptr inbounds nuw float, ptr %42, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !182
   %62 = fadd float %.05794.us.us, %61
@@ -6701,27 +6700,27 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 
 63:                                               ; preds = %46, %58
   %.1.us.us = phi float [ %62, %58 ], [ %.05794.us.us, %46 ]
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %64 = icmp samesign ult i64 %indvars.iv.next113, %45
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %64 = icmp samesign ult i64 %indvars.iv.next111, %45
   br i1 %64, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !333
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %85
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %85 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %85 ], [ 0, %.lr.ph.split.us ]
   %.05794.us = phi float [ %.1.us, %85 ], [ 0.000000e+00, %.lr.ph.split.us ]
   %.05893.us = phi float [ %.159.us, %85 ], [ 0.000000e+00, %.lr.ph.split.us ]
-  br i1 %.not.us.us, label %65, label %.thread123
+  br i1 %.not.us.us, label %65, label %.thread121
 
 65:                                               ; preds = %.lr.ph.split.us.split
-  %sext = shl i64 %indvars.iv109, 32
+  %sext = shl i64 %indvars.iv107, 32
   %66 = ashr exact i64 %sext, 32
   %67 = getelementptr inbounds i32, ptr %41, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !156
   %69 = icmp sgt i32 %68, -1
   br i1 %69, label %77, label %85
 
-.thread123:                                       ; preds = %.lr.ph.split.us.split
+.thread121:                                       ; preds = %.lr.ph.split.us.split
   %70 = load ptr, ptr %44, align 8, !tbaa !220
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv109
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv107
   %72 = load i32, ptr %71, align 4, !tbaa !156
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %41, i64 %73
@@ -6729,8 +6728,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %77, label %.split.us
 
-77:                                               ; preds = %.thread123, %65
-  %78 = phi i64 [ %73, %.thread123 ], [ %66, %65 ]
+77:                                               ; preds = %.thread121, %65
+  %78 = phi i64 [ %73, %.thread121 ], [ %66, %65 ]
   %79 = getelementptr inbounds nuw float, ptr %42, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !182
   %81 = fadd float %.05794.us, %80
@@ -6742,8 +6741,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 85:                                               ; preds = %65, %77
   %.159.us = phi float [ %84, %77 ], [ %.05893.us, %65 ]
   %.1.us = phi float [ %81, %77 ], [ %.05794.us, %65 ]
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %86 = icmp samesign ult i64 %indvars.iv.next110, %45
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %86 = icmp samesign ult i64 %indvars.iv.next108, %45
   br i1 %86, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !333
 
 ._crit_edge:                                      ; preds = %143, %85, %63, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
@@ -6753,12 +6752,12 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   br i1 %20, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread, %._crit_edge
-  %.057.lcssa129 = phi float [ %.057.lcssa, %._crit_edge ], [ 0.000000e+00, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
-  %.058.lcssa127 = phi float [ %.058.lcssa, %._crit_edge ], [ 0.000000e+00, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
+  %.057.lcssa127 = phi float [ %.057.lcssa, %._crit_edge ], [ 0.000000e+00, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
+  %.058.lcssa125 = phi float [ %.058.lcssa, %._crit_edge ], [ 0.000000e+00, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
   %88 = phi ptr [ %87, %._crit_edge ], [ %17, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
   %89 = load ptr, ptr %18, align 8, !tbaa !171
-  %.not103 = icmp eq ptr %89, %88
-  br i1 %.not103, label %.loopexit, label %.lr.ph100
+  %.not101 = icmp eq ptr %89, %88
+  br i1 %.not101, label %.loopexit, label %.lr.ph100
 
 .lr.ph.split:                                     ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread, %143
   %90 = phi ptr [ %144, %143 ], [ %17, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
@@ -6768,7 +6767,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %.05893 = phi float [ %.159, %143 ], [ 0.000000e+00, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.thread ]
   %92 = load ptr, ptr %0, align 8, !tbaa !165
   %.not = icmp eq ptr %91, %92
-  br i1 %.not, label %93, label %.thread131
+  br i1 %.not, label %93, label %.thread129
 
 93:                                               ; preds = %.lr.ph.split
   %94 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6780,7 +6779,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %100 = icmp sgt i32 %99, -1
   br i1 %100, label %122, label %143
 
-.thread131:                                       ; preds = %.lr.ph.split
+.thread129:                                       ; preds = %.lr.ph.split
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 104
   %102 = load ptr, ptr %101, align 8, !tbaa !220
   %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
@@ -6793,7 +6792,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %110 = icmp sgt i32 %109, -1
   br i1 %110, label %122, label %.split.us
 
-.split.us:                                        ; preds = %.thread131, %.thread123, %.thread121
+.split.us:                                        ; preds = %.thread129, %.thread121, %.thread119
   %111 = call ptr @__cxa_allocate_exception(i64 24) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull @.str.101)
@@ -6856,9 +6855,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %.pn.pn85 = phi { ptr, i32 } [ %.pn.pn86, %120 ], [ %119, %118 ]
   resume { ptr, i32 } %.pn.pn85
 
-122:                                              ; preds = %.thread131, %93
-  %123 = phi i64 [ %107, %.thread131 ], [ %97, %93 ]
-  %124 = phi i32 [ %104, %.thread131 ], [ %94, %93 ]
+122:                                              ; preds = %.thread129, %93
+  %123 = phi i64 [ %107, %.thread129 ], [ %97, %93 ]
+  %124 = phi i32 [ %104, %.thread129 ], [ %94, %93 ]
   %125 = load ptr, ptr %2, align 8, !tbaa !76
   %126 = getelementptr inbounds nuw float, ptr %125, i64 %123
   %127 = load float, ptr %126, align 4, !tbaa !182
@@ -6874,7 +6873,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %136 = load float, ptr %135, align 4, !tbaa !182
   %137 = fadd float %127, %136
   store float %137, ptr %135, align 4, !tbaa !182
-  br i1 %24, label %143, label %138
+  br i1 %.fr, label %143, label %138
 
 138:                                              ; preds = %122
   %139 = load ptr, ptr %3, align 8, !tbaa !76
@@ -6913,10 +6912,10 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   br i1 %161, label %.lr.ph100, label %.loopexit, !llvm.loop !334
 
 .loopexit:                                        ; preds = %.lr.ph100, %.preheader, %._crit_edge
-  %.057.lcssa130 = phi float [ %.057.lcssa, %._crit_edge ], [ %.057.lcssa129, %.preheader ], [ %.057.lcssa129, %.lr.ph100 ]
-  %.058.lcssa128 = phi float [ %.058.lcssa, %._crit_edge ], [ %.058.lcssa127, %.preheader ], [ %.058.lcssa127, %.lr.ph100 ]
-  store float %.057.lcssa130, ptr %4, align 4, !tbaa !182
-  store float %.058.lcssa128, ptr %5, align 4, !tbaa !182
+  %.057.lcssa128 = phi float [ %.057.lcssa, %._crit_edge ], [ %.057.lcssa127, %.preheader ], [ %.057.lcssa127, %.lr.ph100 ]
+  %.058.lcssa126 = phi float [ %.058.lcssa, %._crit_edge ], [ %.058.lcssa125, %.preheader ], [ %.058.lcssa125, %.lr.ph100 ]
+  store float %.057.lcssa128, ptr %4, align 4, !tbaa !182
+  store float %.058.lcssa126, ptr %5, align 4, !tbaa !182
   ret void
 
 162:                                              ; preds = %115

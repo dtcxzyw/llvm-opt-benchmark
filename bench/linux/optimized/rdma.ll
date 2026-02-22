@@ -611,35 +611,35 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr readnone c
   br label %14
 
 14:                                               ; preds = %18, %10
-  %15 = phi ptr [ %9, %10 ], [ %.fr12, %18 ]
+  %15 = phi ptr [ %9, %10 ], [ %.fr13, %18 ]
   %16 = load ptr, ptr %15, align 8
-  %.fr12 = freeze ptr %16
-  %17 = icmp eq ptr %.fr12, %9
+  %.fr13 = freeze ptr %16
+  %17 = icmp eq ptr %.fr13, %9
   br i1 %17, label %.split.loop.exit5, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr i8, ptr %.fr12, i64 -24
+  %19 = getelementptr i8, ptr %.fr13, i64 -24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %11
-  br i1 %21, label %.split.loop.exit5.split.loop.exit21, label %14, !llvm.loop !5
+  br i1 %21, label %.split.loop.exit5.split.loop.exit22, label %14, !llvm.loop !5
 
-.split.loop.exit5.split.loop.exit21:              ; preds = %18
-  %22 = getelementptr i8, ptr %.fr12, i64 -24
+.split.loop.exit5.split.loop.exit22:              ; preds = %18
+  %22 = getelementptr i8, ptr %.fr13, i64 -24
   br label %.split.loop.exit5
 
-.split.loop.exit5:                                ; preds = %14, %.split.loop.exit5.split.loop.exit21
-  %.fr = phi ptr [ %22, %.split.loop.exit5.split.loop.exit21 ], [ null, %14 ]
+.split.loop.exit5:                                ; preds = %14, %.split.loop.exit5.split.loop.exit22
+  %.fr12 = phi ptr [ %22, %.split.loop.exit5.split.loop.exit22 ], [ null, %14 ]
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load i64, ptr %27, align 8
-  %.fr11 = freeze i64 %28
-  %29 = and i64 %.fr11, 4294967295
+  %.fr = freeze i64 %28
+  %29 = and i64 %.fr, 4294967295
   %30 = icmp eq i64 %29, 0
-  %31 = icmp eq ptr %.fr, null
-  %32 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
+  %31 = icmp eq ptr %.fr12, null
+  %32 = getelementptr inbounds nuw i8, ptr %.fr12, i64 8
   br i1 %30, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.split.loop.exit5, %41
@@ -929,8 +929,8 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
 
 .thread20:                                        ; preds = %.thread19, %105
   %111 = phi ptr [ %106, %105 ], [ inttoptr (i64 -12 to ptr), %.thread19 ]
-  %.fr53 = freeze ptr %111
-  %112 = ptrtoint ptr %.fr53 to i64
+  %.fr54 = freeze ptr %111
+  %112 = ptrtoint ptr %.fr54 to i64
   %113 = trunc i64 %112 to i32
   br label %.thread18
 

@@ -770,8 +770,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit151: ; pred
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit151
   %171 = load i32, ptr %168, align 16
-  %.fr.i = freeze i32 %171
-  %172 = and i32 %.fr.i, 267911168
+  %.fr7.i = freeze i32 %171
+  %172 = and i32 %.fr7.i, 267911168
   %switch.selectcmp233 = icmp eq i32 %172, 228065280
   %switch.select234 = select i1 %switch.selectcmp233, i32 1, i32 2
   %switch.selectcmp235 = icmp eq i32 %172, 227540992

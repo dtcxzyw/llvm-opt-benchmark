@@ -1172,8 +1172,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %.01617.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %411, %406 ]
   %407 = getelementptr inbounds nuw i8, ptr %402, i64 %indvars.iv.i.i119
   %408 = load i8, ptr %407, align 1, !tbaa !21
-  %.fr31.i.i = freeze i8 %408
-  %409 = sext i8 %.fr31.i.i to i32
+  %.fr32.i.i = freeze i8 %408
+  %409 = sext i8 %.fr32.i.i to i32
   %410 = add i32 %.01617.i.i, -48
   %411 = add i32 %410, %409
   %indvars.iv.next.i.i120 = add nsw i64 %indvars.iv.i.i119, -2
@@ -1181,16 +1181,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %412, label %406, label %._crit_edge.i.i121, !llvm.loop !60
 
 413:                                              ; preds = %413, %.lr.ph23.i.i
-  %indvars.iv28.i.i = phi i64 [ %405, %.lr.ph23.i.i ], [ %indvars.iv.next29.i.i, %413 ]
+  %indvars.iv29.i.i = phi i64 [ %405, %.lr.ph23.i.i ], [ %indvars.iv.next30.i.i, %413 ]
   %.1.fr21.i.i = phi i32 [ %404, %.lr.ph23.i.i ], [ %418, %413 ]
-  %indvars.iv.next29.i.i = add nsw i64 %indvars.iv28.i.i, -2
-  %414 = getelementptr inbounds nuw i8, ptr %402, i64 %indvars.iv.next29.i.i
+  %indvars.iv.next30.i.i = add nsw i64 %indvars.iv29.i.i, -2
+  %414 = getelementptr inbounds nuw i8, ptr %402, i64 %indvars.iv.next30.i.i
   %415 = load i8, ptr %414, align 1, !tbaa !21
-  %.fr.i.i = freeze i8 %415
-  %416 = sext i8 %.fr.i.i to i32
+  %.fr26.i.i = freeze i8 %415
+  %416 = sext i8 %.fr26.i.i to i32
   %417 = add i32 %.1.fr21.i.i, -48
   %418 = add i32 %417, %416
-  %419 = icmp samesign ugt i64 %indvars.iv28.i.i, 3
+  %419 = icmp samesign ugt i64 %indvars.iv29.i.i, 3
   br i1 %419, label %413, label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit.i, !llvm.loop !61
 
 _ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit.i: ; preds = %413, %._crit_edge.i.i121, %391

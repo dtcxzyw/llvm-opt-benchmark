@@ -602,19 +602,17 @@ define range(i32 -2147483648, 1) i32 @avcodec_send_frame(ptr noundef %0, ptr nou
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %52 = load i32, ptr %51, align 8, !tbaa !71
-  %.fr66.i = freeze i32 %52
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %54 = load i32, ptr %53, align 8, !tbaa !83
-  %.fr80.i = freeze i32 %54
-  %55 = icmp sgt i32 %.fr66.i, %.fr80.i
+  %55 = icmp sgt i32 %52, %54
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %50
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.fr66.i, i32 noundef %.fr80.i) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %52, i32 noundef %54) #8
   br label %encode_send_frame_internal.exit.thread
 
 57:                                               ; preds = %50
-  %58 = icmp slt i32 %.fr66.i, %.fr80.i
+  %58 = icmp slt i32 %52, %54
   br i1 %58, label %59, label %.thread.i
 
 59:                                               ; preds = %57
@@ -626,15 +624,15 @@ define range(i32 -2147483648, 1) i32 @avcodec_send_frame(ptr noundef %0, ptr nou
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !84
-  %.fr.i = freeze i32 %63
-  %.not65.i = icmp eq i32 %.fr.i, 0
-  %spec.select.i = select i1 %.not65.i, i32 %.fr80.i, i32 %.fr.i
-  %64 = add i32 %.fr66.i, -1
-  %65 = add i32 %64, %spec.select.i
+  %.not65.i = icmp eq i32 %63, 0
+  %spec.select.i = select i1 %.not65.i, i32 %54, i32 %63
+  %64 = add nsw i32 %spec.select.i, %52
+  %.fr66.i = freeze i32 %64
+  %65 = add i32 %.fr66.i, -1
   %66 = srem i32 %65, %spec.select.i
   %67 = sub nsw i32 %65, %66
-  %.not68.i = icmp eq i32 %67, %.fr66.i
-  br i1 %.not68.i, label %.thread.i, label %68
+  %.not67.i = icmp eq i32 %67, %52
+  br i1 %.not67.i, label %.thread.i, label %68
 
 68:                                               ; preds = %61
   %69 = tail call fastcc i32 @pad_last_frame(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull %1, i32 noundef %67)
@@ -650,8 +648,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_send_frame(ptr noundef %0, ptr nou
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %75 = load i32, ptr %74, align 8, !tbaa !52
   %76 = and i32 %75, 256
-  %.not69.i = icmp eq i32 %76, 0
-  br i1 %.not69.i, label %77, label %encode_send_frame_internal.exit
+  %.not68.i = icmp eq i32 %76, 0
+  br i1 %.not68.i, label %77, label %encode_send_frame_internal.exit
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %23, i64 408

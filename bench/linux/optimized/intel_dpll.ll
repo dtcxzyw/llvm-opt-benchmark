@@ -2734,9 +2734,8 @@ define internal fastcc zeroext i1 @g4x_find_best_dpll(ptr noundef readonly captu
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %29, align 4
-  %.fr16 = freeze i32 %32
-  %33 = icmp sgt i32 %.fr16, %31
-  br i1 %33, label %204, label %34
+  %33 = icmp sgt i32 %32, %31
+  br i1 %33, label %.split40.us, label %34
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2762,268 +2761,271 @@ define internal fastcc zeroext i1 @g4x_find_best_dpll(ptr noundef readonly captu
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.pre = load i32, ptr %35, align 4
-  br label %50
+  %50 = load i32, ptr %36, align 4
+  %51 = load i32, ptr %35, align 4
+  %52 = icmp slt i32 %50, %51
+  br i1 %52, label %.split40.us, label %.split38
 
-50:                                               ; preds = %.loopexit26, %34
-  %51 = phi i32 [ %.pre, %34 ], [ %195, %.loopexit26 ]
-  %52 = phi i32 [ %.pre, %34 ], [ %196, %.loopexit26 ]
-  %.sroa.0.0 = phi i32 [ %.fr16, %34 ], [ %200, %.loopexit26 ]
-  %53 = phi i32 [ %31, %34 ], [ %199, %.loopexit26 ]
-  %54 = phi i32 [ %10, %34 ], [ %198, %.loopexit26 ]
-  %55 = phi i8 [ 0, %34 ], [ %197, %.loopexit26 ]
-  %56 = load i32, ptr %36, align 4
-  %.fr = freeze i32 %56
-  %57 = icmp slt i32 %.fr, %52
-  br i1 %57, label %.loopexit26, label %58
+.split38:                                         ; preds = %34, %.loopexit22
+  %53 = phi i32 [ %200, %.loopexit22 ], [ %51, %34 ]
+  %54 = phi i32 [ %201, %.loopexit22 ], [ %51, %34 ]
+  %.sroa.0.0 = phi i32 [ %205, %.loopexit22 ], [ %32, %34 ]
+  %55 = phi i32 [ %204, %.loopexit22 ], [ %31, %34 ]
+  %56 = phi i32 [ %203, %.loopexit22 ], [ %10, %34 ]
+  %57 = phi i8 [ %202, %.loopexit22 ], [ 0, %34 ]
+  %58 = load i32, ptr %36, align 4
+  %59 = icmp slt i32 %58, %54
+  br i1 %59, label %.loopexit22, label %60
 
-58:                                               ; preds = %50
-  %59 = add i32 %.sroa.0.0, 2
-  %60 = icmp eq i32 %59, 0
-  %61 = icmp slt i32 %59, 1
-  %.pre48 = load i32, ptr %37, align 4
-  br label %62
+60:                                               ; preds = %.split38
+  %61 = add i32 %.sroa.0.0, 2
+  %62 = icmp eq i32 %61, 0
+  %63 = icmp slt i32 %61, 1
+  %64 = load i32, ptr %38, align 4
+  %65 = load i32, ptr %37, align 4
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %.loopexit22, label %.split34
 
-62:                                               ; preds = %.loopexit25, %58
-  %63 = phi i32 [ %51, %58 ], [ %187, %.loopexit25 ]
-  %64 = phi i32 [ %.pre48, %58 ], [ %188, %.loopexit25 ]
-  %65 = phi i32 [ %.pre48, %58 ], [ %189, %.loopexit25 ]
-  %.sroa.7.0 = phi i32 [ %.fr, %58 ], [ %193, %.loopexit25 ]
-  %66 = phi i32 [ %53, %58 ], [ %192, %.loopexit25 ]
-  %67 = phi i32 [ %54, %58 ], [ %191, %.loopexit25 ]
-  %68 = phi i8 [ %55, %58 ], [ %190, %.loopexit25 ]
-  %69 = load i32, ptr %38, align 4
-  %.fr17 = freeze i32 %69
-  %70 = icmp slt i32 %.fr17, %65
-  br i1 %70, label %.loopexit25, label %71
+.split34:                                         ; preds = %60, %.loopexit21
+  %67 = phi i32 [ %192, %.loopexit21 ], [ %53, %60 ]
+  %68 = phi i32 [ %193, %.loopexit21 ], [ %65, %60 ]
+  %69 = phi i32 [ %194, %.loopexit21 ], [ %65, %60 ]
+  %.sroa.7.0 = phi i32 [ %198, %.loopexit21 ], [ %58, %60 ]
+  %70 = phi i32 [ %197, %.loopexit21 ], [ %55, %60 ]
+  %71 = phi i32 [ %196, %.loopexit21 ], [ %56, %60 ]
+  %72 = phi i8 [ %195, %.loopexit21 ], [ %57, %60 ]
+  %73 = load i32, ptr %38, align 4
+  %74 = icmp slt i32 %73, %69
+  br i1 %74, label %.loopexit21, label %75
 
-71:                                               ; preds = %62
-  %72 = mul i32 %.sroa.7.0, 5
-  %73 = add i32 %72, 12
-  %74 = load i32, ptr %40, align 4
-  %75 = load i32, ptr %39, align 4
-  %76 = icmp slt i32 %74, %75
-  br i1 %76, label %.loopexit25, label %.split
+75:                                               ; preds = %.split34
+  %76 = mul i32 %.sroa.7.0, 5
+  %77 = add i32 %76, 12
+  %78 = load i32, ptr %40, align 4
+  %79 = load i32, ptr %39, align 4
+  %80 = icmp slt i32 %78, %79
+  br i1 %80, label %.loopexit21, label %.split
 
-.split:                                           ; preds = %71, %.loopexit
-  %77 = phi i32 [ %179, %.loopexit ], [ %64, %71 ]
-  %78 = phi i32 [ %180, %.loopexit ], [ %75, %71 ]
-  %79 = phi i32 [ %181, %.loopexit ], [ %75, %71 ]
-  %.sroa.10.0 = phi i32 [ %185, %.loopexit ], [ %.fr17, %71 ]
-  %80 = phi i32 [ %184, %.loopexit ], [ %66, %71 ]
-  %81 = phi i32 [ %183, %.loopexit ], [ %67, %71 ]
-  %82 = phi i8 [ %182, %.loopexit ], [ %68, %71 ]
-  %83 = load i32, ptr %40, align 4
-  %84 = icmp slt i32 %83, %79
-  br i1 %84, label %.loopexit, label %85
+.split:                                           ; preds = %75, %.loopexit
+  %81 = phi i32 [ %184, %.loopexit ], [ %68, %75 ]
+  %82 = phi i32 [ %185, %.loopexit ], [ %79, %75 ]
+  %83 = phi i32 [ %186, %.loopexit ], [ %79, %75 ]
+  %.sroa.10.0 = phi i32 [ %190, %.loopexit ], [ %73, %75 ]
+  %84 = phi i32 [ %189, %.loopexit ], [ %70, %75 ]
+  %85 = phi i32 [ %188, %.loopexit ], [ %71, %75 ]
+  %86 = phi i8 [ %187, %.loopexit ], [ %72, %75 ]
+  %87 = load i32, ptr %40, align 4
+  %88 = icmp slt i32 %87, %83
+  br i1 %88, label %.loopexit, label %89
 
-85:                                               ; preds = %.split
-  %86 = add i32 %73, %.sroa.10.0
-  %87 = mul i32 %86, %3
-  %88 = icmp sgt i32 %87, 0
-  %89 = xor i1 %61, %88
-  %90 = select i1 %89, i32 2, i32 -2
-  %91 = icmp sgt i32 %.sroa.7.0, %.sroa.10.0
-  br label %92
+89:                                               ; preds = %.split
+  %90 = add i32 %77, %.sroa.10.0
+  %91 = mul i32 %90, %3
+  %92 = icmp sgt i32 %91, 0
+  %93 = xor i1 %63, %92
+  %94 = freeze i1 %93
+  %95 = select i1 %94, i32 2, i32 -2
+  %96 = icmp sgt i32 %.sroa.7.0, %.sroa.10.0
+  br label %97
 
-92:                                               ; preds = %intel_pll_is_valid.exit.thread, %85
-  %93 = phi i32 [ %78, %85 ], [ %173, %intel_pll_is_valid.exit.thread ]
-  %.sroa.13.0 = phi i32 [ %83, %85 ], [ %177, %intel_pll_is_valid.exit.thread ]
-  %94 = phi i32 [ %80, %85 ], [ %176, %intel_pll_is_valid.exit.thread ]
-  %95 = phi i32 [ %81, %85 ], [ %175, %intel_pll_is_valid.exit.thread ]
-  %96 = phi i8 [ %82, %85 ], [ %174, %intel_pll_is_valid.exit.thread ]
-  %97 = mul i32 %.sroa.13.0, %28
-  br i1 %60, label %102, label %98
+97:                                               ; preds = %intel_pll_is_valid.exit.thread, %89
+  %98 = phi i32 [ %82, %89 ], [ %178, %intel_pll_is_valid.exit.thread ]
+  %.sroa.13.0 = phi i32 [ %87, %89 ], [ %182, %intel_pll_is_valid.exit.thread ]
+  %99 = phi i32 [ %84, %89 ], [ %181, %intel_pll_is_valid.exit.thread ]
+  %100 = phi i32 [ %85, %89 ], [ %180, %intel_pll_is_valid.exit.thread ]
+  %101 = phi i8 [ %86, %89 ], [ %179, %intel_pll_is_valid.exit.thread ]
+  %102 = mul i32 %.sroa.13.0, %28
+  br i1 %62, label %107, label %103
 
-98:                                               ; preds = %92
-  %99 = sdiv i32 %59, %90
-  %100 = add i32 %99, %87
-  %101 = sdiv i32 %100, %59
-  br label %102
+103:                                              ; preds = %97
+  %104 = sdiv i32 %61, %95
+  %105 = add i32 %104, %91
+  %106 = sdiv i32 %105, %61
+  br label %107
 
-102:                                              ; preds = %98, %92
-  %103 = phi i32 [ %101, %98 ], [ 0, %92 ]
-  %104 = icmp eq i32 %97, 0
-  br i1 %104, label %113, label %105
+107:                                              ; preds = %103, %97
+  %108 = phi i32 [ %106, %103 ], [ 0, %97 ]
+  %109 = icmp eq i32 %102, 0
+  br i1 %109, label %118, label %110
 
-105:                                              ; preds = %102
-  %106 = icmp sgt i32 %103, 0
-  %107 = icmp slt i32 %97, 1
-  %108 = xor i1 %107, %106
-  %109 = select i1 %108, i32 2, i32 -2
-  %110 = sdiv i32 %97, %109
-  %111 = add i32 %110, %103
-  %112 = sdiv i32 %111, %97
-  br label %113
+110:                                              ; preds = %107
+  %111 = icmp sgt i32 %108, 0
+  %112 = icmp slt i32 %102, 1
+  %113 = xor i1 %112, %111
+  %114 = select i1 %113, i32 2, i32 -2
+  %115 = sdiv i32 %102, %114
+  %116 = add i32 %115, %108
+  %117 = sdiv i32 %116, %102
+  br label %118
 
-113:                                              ; preds = %105, %102
-  %114 = phi i32 [ %112, %105 ], [ 0, %102 ]
-  %115 = load i32, ptr %29, align 4
-  %116 = icmp slt i32 %.sroa.0.0, %115
-  br i1 %116, label %intel_pll_is_valid.exit.thread, label %117
+118:                                              ; preds = %110, %107
+  %119 = phi i32 [ %117, %110 ], [ 0, %107 ]
+  %120 = load i32, ptr %29, align 4
+  %121 = icmp slt i32 %.sroa.0.0, %120
+  br i1 %121, label %intel_pll_is_valid.exit.thread, label %122
 
-117:                                              ; preds = %113
-  %118 = load i32, ptr %30, align 4
-  %119 = icmp slt i32 %118, %.sroa.0.0
-  br i1 %119, label %intel_pll_is_valid.exit.thread, label %120
+122:                                              ; preds = %118
+  %123 = load i32, ptr %30, align 4
+  %124 = icmp slt i32 %123, %.sroa.0.0
+  br i1 %124, label %intel_pll_is_valid.exit.thread, label %125
 
-120:                                              ; preds = %117
-  %121 = load i32, ptr %40, align 4
-  %122 = icmp slt i32 %121, %.sroa.13.0
-  br i1 %122, label %intel_pll_is_valid.exit.thread, label %123
+125:                                              ; preds = %122
+  %126 = load i32, ptr %40, align 4
+  %127 = icmp slt i32 %126, %.sroa.13.0
+  br i1 %127, label %intel_pll_is_valid.exit.thread, label %128
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr %37, align 4
-  %125 = icmp slt i32 %.sroa.10.0, %124
-  br i1 %125, label %intel_pll_is_valid.exit.thread, label %126
+128:                                              ; preds = %125
+  %129 = load i32, ptr %37, align 4
+  %130 = icmp slt i32 %.sroa.10.0, %129
+  br i1 %130, label %intel_pll_is_valid.exit.thread, label %131
 
-126:                                              ; preds = %123
-  %127 = load i32, ptr %38, align 4
-  %128 = icmp slt i32 %127, %.sroa.10.0
-  br i1 %128, label %intel_pll_is_valid.exit.thread, label %129
+131:                                              ; preds = %128
+  %132 = load i32, ptr %38, align 4
+  %133 = icmp slt i32 %132, %.sroa.10.0
+  br i1 %133, label %intel_pll_is_valid.exit.thread, label %134
 
-129:                                              ; preds = %126
-  %130 = load i32, ptr %35, align 4
-  %131 = icmp slt i32 %.sroa.7.0, %130
-  br i1 %131, label %intel_pll_is_valid.exit.thread, label %132
+134:                                              ; preds = %131
+  %135 = load i32, ptr %35, align 4
+  %136 = icmp slt i32 %.sroa.7.0, %135
+  br i1 %136, label %intel_pll_is_valid.exit.thread, label %137
 
-132:                                              ; preds = %129
-  %133 = load i32, ptr %36, align 4
-  %134 = icmp slt i32 %133, %.sroa.7.0
-  br i1 %134, label %intel_pll_is_valid.exit.thread, label %135
+137:                                              ; preds = %134
+  %138 = load i32, ptr %36, align 4
+  %139 = icmp slt i32 %138, %.sroa.7.0
+  br i1 %139, label %intel_pll_is_valid.exit.thread, label %140
 
-135:                                              ; preds = %132
-  %136 = load i32, ptr %41, align 4
-  %137 = and i32 %136, 8192
-  %138 = icmp ne i32 %137, 0
-  %139 = load ptr, ptr %42, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 28
-  %141 = load i64, ptr %140, align 4
-  %142 = and i64 %141, 2
-  %143 = icmp ne i64 %142, 0
-  %144 = or i1 %91, %143
-  %or.cond = select i1 %138, i1 true, i1 %144
+140:                                              ; preds = %137
+  %141 = load i32, ptr %41, align 4
+  %142 = and i32 %141, 8192
+  %143 = icmp ne i32 %142, 0
+  %144 = load ptr, ptr %42, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 28
+  %146 = load i64, ptr %145, align 4
+  %147 = and i64 %146, 2
+  %148 = icmp ne i64 %147, 0
+  %149 = or i1 %96, %148
+  %or.cond = select i1 %143, i1 true, i1 %149
   br i1 %or.cond, label %._crit_edge.i, label %intel_pll_is_valid.exit.thread
 
-._crit_edge.i:                                    ; preds = %135
-  %145 = icmp eq i64 %142, 0
-  br i1 %145, label %146, label %158
+._crit_edge.i:                                    ; preds = %140
+  %150 = icmp eq i64 %147, 0
+  br i1 %150, label %151, label %163
 
-146:                                              ; preds = %._crit_edge.i
-  %147 = load i32, ptr %43, align 4
-  %148 = icmp slt i32 %97, %147
-  br i1 %148, label %intel_pll_is_valid.exit.thread, label %149
+151:                                              ; preds = %._crit_edge.i
+  %152 = load i32, ptr %43, align 4
+  %153 = icmp slt i32 %102, %152
+  br i1 %153, label %intel_pll_is_valid.exit.thread, label %154
 
-149:                                              ; preds = %146
-  %150 = load i32, ptr %44, align 4
-  %151 = icmp slt i32 %150, %97
-  br i1 %151, label %intel_pll_is_valid.exit.thread, label %152
+154:                                              ; preds = %151
+  %155 = load i32, ptr %44, align 4
+  %156 = icmp slt i32 %155, %102
+  br i1 %156, label %intel_pll_is_valid.exit.thread, label %157
 
-152:                                              ; preds = %149
-  %153 = load i32, ptr %45, align 4
-  %154 = icmp slt i32 %86, %153
-  br i1 %154, label %intel_pll_is_valid.exit.thread, label %155
+157:                                              ; preds = %154
+  %158 = load i32, ptr %45, align 4
+  %159 = icmp slt i32 %90, %158
+  br i1 %159, label %intel_pll_is_valid.exit.thread, label %160
 
-155:                                              ; preds = %152
-  %156 = load i32, ptr %46, align 4
-  %157 = icmp slt i32 %156, %86
-  br i1 %157, label %intel_pll_is_valid.exit.thread, label %158
+160:                                              ; preds = %157
+  %161 = load i32, ptr %46, align 4
+  %162 = icmp slt i32 %161, %90
+  br i1 %162, label %intel_pll_is_valid.exit.thread, label %163
 
-158:                                              ; preds = %155, %._crit_edge.i
-  %159 = load i32, ptr %47, align 4
-  %160 = icmp slt i32 %103, %159
-  br i1 %160, label %intel_pll_is_valid.exit.thread, label %161
+163:                                              ; preds = %160, %._crit_edge.i
+  %164 = load i32, ptr %47, align 4
+  %165 = icmp slt i32 %108, %164
+  br i1 %165, label %intel_pll_is_valid.exit.thread, label %166
 
-161:                                              ; preds = %158
-  %162 = load i32, ptr %48, align 4
-  %163 = icmp slt i32 %162, %103
-  br i1 %163, label %intel_pll_is_valid.exit.thread, label %164
+166:                                              ; preds = %163
+  %167 = load i32, ptr %48, align 4
+  %168 = icmp slt i32 %167, %108
+  br i1 %168, label %intel_pll_is_valid.exit.thread, label %169
 
-164:                                              ; preds = %161
-  %165 = load i32, ptr %0, align 4
-  %166 = icmp slt i32 %114, %165
-  br i1 %166, label %intel_pll_is_valid.exit.thread, label %intel_pll_is_valid.exit
+169:                                              ; preds = %166
+  %170 = load i32, ptr %0, align 4
+  %171 = icmp slt i32 %119, %170
+  br i1 %171, label %intel_pll_is_valid.exit.thread, label %intel_pll_is_valid.exit
 
-intel_pll_is_valid.exit:                          ; preds = %164
-  %167 = load i32, ptr %49, align 4
-  %.not = icmp slt i32 %167, %114
-  br i1 %.not, label %intel_pll_is_valid.exit.thread, label %168
+intel_pll_is_valid.exit:                          ; preds = %169
+  %172 = load i32, ptr %49, align 4
+  %.not = icmp slt i32 %172, %119
+  br i1 %.not, label %intel_pll_is_valid.exit.thread, label %173
 
-168:                                              ; preds = %intel_pll_is_valid.exit
-  %169 = sub i32 %114, %2
-  %170 = tail call i32 @llvm.abs.i32(i32 %169, i1 false)
-  %171 = icmp slt i32 %170, %95
-  br i1 %171, label %172, label %intel_pll_is_valid.exit.thread
+173:                                              ; preds = %intel_pll_is_valid.exit
+  %174 = sub i32 %119, %2
+  %175 = tail call i32 @llvm.abs.i32(i32 %174, i1 false)
+  %176 = icmp slt i32 %175, %100
+  br i1 %176, label %177, label %intel_pll_is_valid.exit.thread
 
-172:                                              ; preds = %168
+177:                                              ; preds = %173
   store i32 %.sroa.0.0, ptr %4, align 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
   store i32 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 4
   store i32 %28, ptr %.sroa.16.0..sroa_idx, align 4
-  store i32 %114, ptr %.sroa.17.0..sroa_idx, align 4
-  store i32 %103, ptr %.sroa.19.0..sroa_idx, align 4
-  store i32 %86, ptr %.sroa.21.0..sroa_idx, align 4
-  store i32 %97, ptr %.sroa.23.0..sroa_idx, align 4
-  %.pre49 = load i32, ptr %39, align 4
+  store i32 %119, ptr %.sroa.17.0..sroa_idx, align 4
+  store i32 %108, ptr %.sroa.19.0..sroa_idx, align 4
+  store i32 %90, ptr %.sroa.21.0..sroa_idx, align 4
+  store i32 %102, ptr %.sroa.23.0..sroa_idx, align 4
+  %.pre = load i32, ptr %39, align 4
   br label %intel_pll_is_valid.exit.thread
 
-intel_pll_is_valid.exit.thread:                   ; preds = %135, %164, %158, %161, %152, %155, %146, %149, %129, %132, %123, %126, %120, %113, %117, %172, %168, %intel_pll_is_valid.exit
-  %173 = phi i32 [ %93, %intel_pll_is_valid.exit ], [ %.pre49, %172 ], [ %93, %168 ], [ %93, %117 ], [ %93, %113 ], [ %93, %120 ], [ %93, %135 ], [ %93, %126 ], [ %93, %123 ], [ %93, %132 ], [ %93, %129 ], [ %93, %149 ], [ %93, %146 ], [ %93, %155 ], [ %93, %152 ], [ %93, %161 ], [ %93, %158 ], [ %93, %164 ]
-  %174 = phi i8 [ %96, %intel_pll_is_valid.exit ], [ 1, %172 ], [ %96, %168 ], [ %96, %117 ], [ %96, %113 ], [ %96, %120 ], [ %96, %135 ], [ %96, %126 ], [ %96, %123 ], [ %96, %132 ], [ %96, %129 ], [ %96, %149 ], [ %96, %146 ], [ %96, %155 ], [ %96, %152 ], [ %96, %161 ], [ %96, %158 ], [ %96, %164 ]
-  %175 = phi i32 [ %95, %intel_pll_is_valid.exit ], [ %170, %172 ], [ %95, %168 ], [ %95, %117 ], [ %95, %113 ], [ %95, %120 ], [ %95, %135 ], [ %95, %126 ], [ %95, %123 ], [ %95, %132 ], [ %95, %129 ], [ %95, %149 ], [ %95, %146 ], [ %95, %155 ], [ %95, %152 ], [ %95, %161 ], [ %95, %158 ], [ %95, %164 ]
-  %176 = phi i32 [ %94, %intel_pll_is_valid.exit ], [ %.sroa.0.0, %172 ], [ %94, %168 ], [ %94, %117 ], [ %94, %113 ], [ %94, %120 ], [ %94, %135 ], [ %94, %126 ], [ %94, %123 ], [ %94, %132 ], [ %94, %129 ], [ %94, %149 ], [ %94, %146 ], [ %94, %155 ], [ %94, %152 ], [ %94, %161 ], [ %94, %158 ], [ %94, %164 ]
-  %177 = add i32 %.sroa.13.0, -1
-  %178 = icmp slt i32 %177, %173
-  br i1 %178, label %.loopexit.loopexit, label %92, !llvm.loop !48
+intel_pll_is_valid.exit.thread:                   ; preds = %140, %169, %163, %166, %157, %160, %151, %154, %134, %137, %128, %131, %125, %118, %122, %177, %173, %intel_pll_is_valid.exit
+  %178 = phi i32 [ %98, %intel_pll_is_valid.exit ], [ %.pre, %177 ], [ %98, %173 ], [ %98, %122 ], [ %98, %118 ], [ %98, %125 ], [ %98, %140 ], [ %98, %131 ], [ %98, %128 ], [ %98, %137 ], [ %98, %134 ], [ %98, %154 ], [ %98, %151 ], [ %98, %160 ], [ %98, %157 ], [ %98, %166 ], [ %98, %163 ], [ %98, %169 ]
+  %179 = phi i8 [ %101, %intel_pll_is_valid.exit ], [ 1, %177 ], [ %101, %173 ], [ %101, %122 ], [ %101, %118 ], [ %101, %125 ], [ %101, %140 ], [ %101, %131 ], [ %101, %128 ], [ %101, %137 ], [ %101, %134 ], [ %101, %154 ], [ %101, %151 ], [ %101, %160 ], [ %101, %157 ], [ %101, %166 ], [ %101, %163 ], [ %101, %169 ]
+  %180 = phi i32 [ %100, %intel_pll_is_valid.exit ], [ %175, %177 ], [ %100, %173 ], [ %100, %122 ], [ %100, %118 ], [ %100, %125 ], [ %100, %140 ], [ %100, %131 ], [ %100, %128 ], [ %100, %137 ], [ %100, %134 ], [ %100, %154 ], [ %100, %151 ], [ %100, %160 ], [ %100, %157 ], [ %100, %166 ], [ %100, %163 ], [ %100, %169 ]
+  %181 = phi i32 [ %99, %intel_pll_is_valid.exit ], [ %.sroa.0.0, %177 ], [ %99, %173 ], [ %99, %122 ], [ %99, %118 ], [ %99, %125 ], [ %99, %140 ], [ %99, %131 ], [ %99, %128 ], [ %99, %137 ], [ %99, %134 ], [ %99, %154 ], [ %99, %151 ], [ %99, %160 ], [ %99, %157 ], [ %99, %166 ], [ %99, %163 ], [ %99, %169 ]
+  %182 = add i32 %.sroa.13.0, -1
+  %183 = icmp slt i32 %182, %178
+  br i1 %183, label %.loopexit.loopexit, label %97, !llvm.loop !48
 
 .loopexit.loopexit:                               ; preds = %intel_pll_is_valid.exit.thread
-  %.pre50 = load i32, ptr %37, align 4
+  %.pre54 = load i32, ptr %37, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.split
-  %179 = phi i32 [ %77, %.split ], [ %.pre50, %.loopexit.loopexit ]
-  %180 = phi i32 [ %78, %.split ], [ %173, %.loopexit.loopexit ]
-  %181 = phi i32 [ %79, %.split ], [ %173, %.loopexit.loopexit ]
-  %182 = phi i8 [ %82, %.split ], [ %174, %.loopexit.loopexit ]
-  %183 = phi i32 [ %81, %.split ], [ %175, %.loopexit.loopexit ]
-  %184 = phi i32 [ %80, %.split ], [ %176, %.loopexit.loopexit ]
-  %185 = add i32 %.sroa.10.0, -1
-  %186 = icmp slt i32 %185, %179
-  br i1 %186, label %.loopexit25.loopexit38, label %.split, !llvm.loop !49
+  %184 = phi i32 [ %81, %.split ], [ %.pre54, %.loopexit.loopexit ]
+  %185 = phi i32 [ %82, %.split ], [ %178, %.loopexit.loopexit ]
+  %186 = phi i32 [ %83, %.split ], [ %178, %.loopexit.loopexit ]
+  %187 = phi i8 [ %86, %.split ], [ %179, %.loopexit.loopexit ]
+  %188 = phi i32 [ %85, %.split ], [ %180, %.loopexit.loopexit ]
+  %189 = phi i32 [ %84, %.split ], [ %181, %.loopexit.loopexit ]
+  %190 = add i32 %.sroa.10.0, -1
+  %191 = icmp slt i32 %190, %184
+  br i1 %191, label %.loopexit21.loopexit42, label %.split, !llvm.loop !49
 
-.loopexit25.loopexit38:                           ; preds = %.loopexit
-  %.pre51 = load i32, ptr %35, align 4
-  br label %.loopexit25
+.loopexit21.loopexit42:                           ; preds = %.loopexit
+  %.pre55 = load i32, ptr %35, align 4
+  br label %.loopexit21
 
-.loopexit25:                                      ; preds = %71, %.loopexit25.loopexit38, %62
-  %187 = phi i32 [ %63, %62 ], [ %.pre51, %.loopexit25.loopexit38 ], [ %63, %71 ]
-  %188 = phi i32 [ %64, %62 ], [ %179, %.loopexit25.loopexit38 ], [ %64, %71 ]
-  %189 = phi i32 [ %65, %62 ], [ %179, %.loopexit25.loopexit38 ], [ %65, %71 ]
-  %190 = phi i8 [ %68, %62 ], [ %182, %.loopexit25.loopexit38 ], [ %68, %71 ]
-  %191 = phi i32 [ %67, %62 ], [ %183, %.loopexit25.loopexit38 ], [ %67, %71 ]
-  %192 = phi i32 [ %66, %62 ], [ %184, %.loopexit25.loopexit38 ], [ %66, %71 ]
-  %193 = add i32 %.sroa.7.0, -1
-  %194 = icmp slt i32 %193, %187
-  br i1 %194, label %.loopexit26, label %62, !llvm.loop !50
+.loopexit21:                                      ; preds = %75, %.loopexit21.loopexit42, %.split34
+  %192 = phi i32 [ %67, %.split34 ], [ %.pre55, %.loopexit21.loopexit42 ], [ %67, %75 ]
+  %193 = phi i32 [ %68, %.split34 ], [ %184, %.loopexit21.loopexit42 ], [ %68, %75 ]
+  %194 = phi i32 [ %69, %.split34 ], [ %184, %.loopexit21.loopexit42 ], [ %69, %75 ]
+  %195 = phi i8 [ %72, %.split34 ], [ %187, %.loopexit21.loopexit42 ], [ %72, %75 ]
+  %196 = phi i32 [ %71, %.split34 ], [ %188, %.loopexit21.loopexit42 ], [ %71, %75 ]
+  %197 = phi i32 [ %70, %.split34 ], [ %189, %.loopexit21.loopexit42 ], [ %70, %75 ]
+  %198 = add i32 %.sroa.7.0, -1
+  %199 = icmp slt i32 %198, %192
+  br i1 %199, label %.loopexit22, label %.split34, !llvm.loop !50
 
-.loopexit26:                                      ; preds = %.loopexit25, %50
-  %195 = phi i32 [ %51, %50 ], [ %187, %.loopexit25 ]
-  %196 = phi i32 [ %52, %50 ], [ %187, %.loopexit25 ]
-  %197 = phi i8 [ %55, %50 ], [ %190, %.loopexit25 ]
-  %198 = phi i32 [ %54, %50 ], [ %191, %.loopexit25 ]
-  %199 = phi i32 [ %53, %50 ], [ %192, %.loopexit25 ]
-  %200 = add i32 %.sroa.0.0, 1
-  %201 = icmp sgt i32 %200, %199
-  br i1 %201, label %202, label %50, !llvm.loop !51
+.loopexit22:                                      ; preds = %.loopexit21, %60, %.split38
+  %200 = phi i32 [ %53, %.split38 ], [ %53, %60 ], [ %192, %.loopexit21 ]
+  %201 = phi i32 [ %54, %.split38 ], [ %54, %60 ], [ %192, %.loopexit21 ]
+  %202 = phi i8 [ %57, %.split38 ], [ %57, %60 ], [ %195, %.loopexit21 ]
+  %203 = phi i32 [ %56, %.split38 ], [ %56, %60 ], [ %196, %.loopexit21 ]
+  %204 = phi i32 [ %55, %.split38 ], [ %55, %60 ], [ %197, %.loopexit21 ]
+  %205 = add i32 %.sroa.0.0, 1
+  %206 = icmp sgt i32 %205, %204
+  br i1 %206, label %.split40.us.loopexit44, label %.split38, !llvm.loop !51
 
-202:                                              ; preds = %.loopexit26
-  %203 = icmp ne i8 %197, 0
-  br label %204
+.split40.us.loopexit44:                           ; preds = %.loopexit22
+  %207 = icmp ne i8 %202, 0
+  br label %.split40.us
 
-204:                                              ; preds = %202, %25
-  %205 = phi i1 [ false, %25 ], [ %203, %202 ]
-  ret i1 %205
+.split40.us:                                      ; preds = %.split40.us.loopexit44, %34, %25
+  %208 = phi i1 [ false, %25 ], [ %207, %.split40.us.loopexit44 ], [ false, %34 ]
+  ret i1 %208
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3164,12 +3166,11 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 880
   %11 = load i8, ptr %10, align 8, !range !24, !noundef !25
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %123
+  br i1 %12, label %13, label %131
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1448
   %15 = load i32, ptr %14, align 8
-  %.fr4 = freeze i32 %15
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 884
   %17 = load ptr, ptr %9, align 8
   %18 = load ptr, ptr %17, align 8
@@ -3177,9 +3178,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 7184
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 7168
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 916
-  %22 = icmp ne i32 %.fr4, 0
+  %22 = icmp ne i32 %15, 0
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = zext i32 %.fr4 to i64
+  %24 = zext i32 %15 to i64
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 888
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 892
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 896
@@ -3189,23 +3190,23 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 912
   br label %25
 
-25:                                               ; preds = %118, %13
-  %.sroa.0.0 = phi i32 [ 1, %13 ], [ %119, %118 ]
-  %26 = phi i8 [ 0, %13 ], [ %111, %118 ]
-  %27 = phi i32 [ 1000000, %13 ], [ %110, %118 ]
-  %28 = mul i32 %.sroa.0.0, %.fr4
-  br label %.split51.preheader
+25:                                               ; preds = %126, %13
+  %.sroa.0.0 = phi i32 [ 1, %13 ], [ %127, %126 ]
+  %26 = phi i8 [ 0, %13 ], [ %119, %126 ]
+  %27 = phi i32 [ 1000000, %13 ], [ %118, %126 ]
+  %28 = mul i32 %.sroa.0.0, %15
+  br label %.split43.preheader
 
-.split51.preheader:                               ; preds = %25, %.split62.us
-  %.sroa.12.0 = phi i32 [ 3, %25 ], [ %116, %.split62.us ]
-  %29 = phi i8 [ %26, %25 ], [ %111, %.split62.us ]
-  %30 = phi i32 [ %27, %25 ], [ %110, %.split62.us ]
-  br label %.split51
+.split43.preheader:                               ; preds = %25, %.split54.us
+  %.sroa.12.0 = phi i32 [ 3, %25 ], [ %124, %.split54.us ]
+  %29 = phi i8 [ %26, %25 ], [ %119, %.split54.us ]
+  %30 = phi i32 [ %27, %25 ], [ %118, %.split54.us ]
+  br label %.split43
 
-.split51:                                         ; preds = %.split51.preheader, %.split53
-  %.sroa.15.0 = phi i32 [ %114, %.split53 ], [ 20, %.split51.preheader ]
-  %31 = phi i8 [ %111, %.split53 ], [ %29, %.split51.preheader ]
-  %32 = phi i32 [ %110, %.split53 ], [ %30, %.split51.preheader ]
+.split43:                                         ; preds = %.split43.preheader, %.split45
+  %.sroa.15.0 = phi i32 [ %122, %.split45 ], [ 20, %.split43.preheader ]
+  %31 = phi i8 [ %119, %.split45 ], [ %29, %.split43.preheader ]
+  %32 = phi i32 [ %118, %.split45 ], [ %30, %.split43.preheader ]
   %33 = mul i32 %.sroa.15.0, %.sroa.12.0
   %34 = mul i32 %33, 5
   %35 = icmp eq i32 %33, 0
@@ -3214,257 +3215,276 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %38 = icmp sgt i32 %37, 0
   br label %39
 
-39:                                               ; preds = %intel_pll_is_valid.exit.thread, %.split51
-  %40 = phi i1 [ false, %.split51 ], [ true, %intel_pll_is_valid.exit.thread ]
-  %.sroa.7.0 = phi i32 [ 2, %.split51 ], [ 3, %intel_pll_is_valid.exit.thread ]
-  %41 = phi i8 [ %31, %.split51 ], [ %111, %intel_pll_is_valid.exit.thread ]
-  %42 = phi i32 [ %32, %.split51 ], [ %110, %intel_pll_is_valid.exit.thread ]
+39:                                               ; preds = %intel_pll_is_valid.exit.thread, %.split43
+  %40 = phi i1 [ false, %.split43 ], [ true, %intel_pll_is_valid.exit.thread ]
+  %.sroa.7.0 = phi i32 [ 2, %.split43 ], [ 3, %intel_pll_is_valid.exit.thread ]
+  %41 = phi i8 [ %31, %.split43 ], [ %119, %intel_pll_is_valid.exit.thread ]
+  %42 = phi i32 [ %32, %.split43 ], [ %118, %intel_pll_is_valid.exit.thread ]
   %43 = mul nuw nsw i32 %.sroa.7.0, 100000
   %44 = lshr exact i32 %43, 1
   %45 = sub nsw i32 0, %44
   %46 = select i1 %38, i32 %44, i32 %45
   %47 = add i32 %46, %37
   %48 = sdiv i32 %47, %43
-  %49 = mul nsw i32 %48, %.sroa.7.0
+  %.fr = freeze i32 %48
+  %49 = mul i32 %.fr, %.sroa.7.0
   %50 = mul i32 %49, 100000
   %51 = icmp sgt i32 %50, 0
   %52 = select i1 %51, i32 2, i32 -2
   %53 = sdiv i32 %.sroa.0.0, %52
   %54 = add i32 %50, %53
   %55 = sdiv i32 %54, %.sroa.0.0
-  br i1 %35, label %63, label %56
+  br i1 %35, label %64, label %56
 
 56:                                               ; preds = %39
   %57 = icmp sgt i32 %55, 0
   %58 = xor i1 %36, %57
-  %59 = select i1 %58, i32 2, i32 -2
-  %60 = sdiv i32 %34, %59
-  %61 = add i32 %60, %55
-  %62 = sdiv i32 %61, %34
-  br label %63
+  %59 = freeze i1 %58
+  %60 = select i1 %59, i32 2, i32 -2
+  %61 = sdiv i32 %34, %60
+  %62 = add i32 %61, %55
+  %63 = sdiv i32 %62, %34
+  br label %64
 
-63:                                               ; preds = %56, %39
-  %64 = phi i32 [ %62, %56 ], [ 0, %39 ]
-  %65 = add nsw i32 %48, -157
-  %or.cond28 = icmp ult i32 %65, -146
-  br i1 %or.cond28, label %intel_pll_is_valid.exit.thread, label %66
+64:                                               ; preds = %39, %56
+  %65 = phi i32 [ %63, %56 ], [ 0, %39 ]
+  %66 = add i32 %.fr, -157
+  %or.cond20 = icmp ult i32 %66, -146
+  br i1 %or.cond20, label %intel_pll_is_valid.exit.thread, label %67
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %19, align 4
-  %68 = load ptr, ptr %20, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %70 = load i64, ptr %69, align 4
-  %71 = and i64 %70, 2
-  %.not = icmp eq i64 %71, 0
-  br i1 %.not, label %intel_pll_is_valid.exit.thread, label %72
+67:                                               ; preds = %64
+  %68 = load i32, ptr %19, align 4
+  %69 = and i32 %68, 8192
+  %70 = icmp eq i32 %69, 0
+  %71 = load ptr, ptr %20, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 28
+  %73 = load i64, ptr %72, align 4
+  %74 = and i64 %73, 2
+  %.not = icmp eq i64 %74, 0
+  %or.cond41 = select i1 %70, i1 %.not, i1 false
+  br i1 %or.cond41, label %intel_pll_is_valid.exit.thread, label %._crit_edge.i
 
-72:                                               ; preds = %66
-  %73 = add i32 %55, -4000000
-  %74 = icmp ult i32 %73, 2000001
-  %75 = add i32 %64, -25000
-  %76 = icmp ult i32 %75, 245001
-  %or.cond41 = and i1 %74, %76
-  br i1 %or.cond41, label %77, label %intel_pll_is_valid.exit.thread
+._crit_edge.i:                                    ; preds = %67
+  br i1 %.not, label %75, label %81
 
-77:                                               ; preds = %72
-  %78 = and i32 %67, 16777216
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %83, label %80
+75:                                               ; preds = %._crit_edge.i
+  %76 = or i32 %49, %33
+  %or.cond23 = icmp eq i32 %76, 0
+  %77 = add i32 %55, -4000000
+  %78 = icmp ult i32 %77, 2000001
+  %or.cond26.not38 = and i1 %or.cond23, %78
+  %79 = add i32 %65, -25000
+  %80 = icmp ult i32 %79, 245001
+  %or.cond32 = and i1 %or.cond26.not38, %80
+  br i1 %or.cond32, label %85, label %intel_pll_is_valid.exit.thread
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %21, align 4
-  %82 = icmp sgt i32 %34, %81
-  br i1 %82, label %vlv_PLL_is_optimal.exit.thread22, label %intel_pll_is_valid.exit.thread
+81:                                               ; preds = %._crit_edge.i
+  %82 = add i32 %55, -4000000
+  %or.cond27 = icmp ult i32 %82, 2000001
+  %83 = add i32 %65, -25000
+  %84 = icmp ult i32 %83, 245001
+  %or.cond33 = and i1 %or.cond27, %84
+  br i1 %or.cond33, label %85, label %intel_pll_is_valid.exit.thread
 
-83:                                               ; preds = %77
-  %84 = load i1, ptr @vlv_PLL_is_optimal.__already_done, align 1
-  %85 = select i1 %22, i1 true, i1 %84
-  br i1 %85, label %96, label %86, !prof !7
+85:                                               ; preds = %81, %75
+  %86 = and i32 %68, 16777216
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %91, label %88
 
-86:                                               ; preds = %83
+88:                                               ; preds = %85
+  %89 = load i32, ptr %21, align 4
+  %90 = icmp sgt i32 %34, %89
+  br i1 %90, label %vlv_PLL_is_optimal.exit.thread15, label %intel_pll_is_valid.exit.thread
+
+91:                                               ; preds = %85
+  %92 = load i1, ptr @vlv_PLL_is_optimal.__already_done, align 1
+  %93 = select i1 %22, i1 true, i1 %92
+  br i1 %93, label %104, label %94, !prof !7
+
+94:                                               ; preds = %91
   store i1 true, ptr @vlv_PLL_is_optimal.__already_done, align 1
   tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #11, !srcloc !8
-  %87 = load ptr, ptr %23, align 8
-  %88 = tail call ptr @dev_driver_string(ptr noundef %87) #11
-  %89 = load ptr, ptr %23, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 80
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %.thread.i
+  %95 = load ptr, ptr %23, align 8
+  %96 = tail call ptr @dev_driver_string(ptr noundef %95) #11
+  %97 = load ptr, ptr %23, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
+  %99 = load ptr, ptr %98, align 8
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %.thread.i
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %89, align 8
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %97, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %93, %86
-  %95 = phi ptr [ %94, %93 ], [ %91, %86 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %88, ptr noundef %95, ptr noundef nonnull @.str.8) #11
+.thread.i:                                        ; preds = %101, %94
+  %103 = phi ptr [ %102, %101 ], [ %99, %94 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %96, ptr noundef %103, ptr noundef nonnull @.str.8) #11
   tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #11, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 799, i32 2313, i64 12) #11, !srcloc !10
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #11, !srcloc !11
   tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #11, !srcloc !12
   br label %intel_pll_is_valid.exit.thread
 
-96:                                               ; preds = %83
-  br i1 %22, label %97, label %intel_pll_is_valid.exit.thread
+104:                                              ; preds = %91
+  br i1 %22, label %105, label %intel_pll_is_valid.exit.thread
 
-97:                                               ; preds = %96
-  %98 = sub i32 %.fr4, %64
-  %99 = tail call i32 @llvm.abs.i32(i32 %98, i1 false)
-  %100 = sext i32 %99 to i64
-  %101 = mul nsw i64 %100, 1000000
-  %102 = udiv i64 %101, %24
-  %103 = trunc i64 %102 to i32
-  %104 = icmp ult i32 %103, 100
-  br i1 %104, label %105, label %vlv_PLL_is_optimal.exit
+105:                                              ; preds = %104
+  %106 = sub i32 %15, %65
+  %107 = tail call i32 @llvm.abs.i32(i32 %106, i1 false)
+  %108 = sext i32 %107 to i64
+  %109 = mul nsw i64 %108, 1000000
+  %110 = udiv i64 %109, %24
+  %111 = trunc i64 %110 to i32
+  %112 = icmp ult i32 %111, 100
+  br i1 %112, label %113, label %vlv_PLL_is_optimal.exit
 
-105:                                              ; preds = %97
-  %106 = load i32, ptr %21, align 4
-  %107 = icmp sgt i32 %34, %106
-  br i1 %107, label %vlv_PLL_is_optimal.exit.thread22, label %vlv_PLL_is_optimal.exit
+113:                                              ; preds = %105
+  %114 = load i32, ptr %21, align 4
+  %115 = icmp sgt i32 %34, %114
+  br i1 %115, label %vlv_PLL_is_optimal.exit.thread15, label %vlv_PLL_is_optimal.exit
 
-vlv_PLL_is_optimal.exit:                          ; preds = %97, %105
-  %108 = add i32 %103, 10
-  %109 = icmp ult i32 %108, %42
-  br i1 %109, label %vlv_PLL_is_optimal.exit.thread22, label %intel_pll_is_valid.exit.thread
+vlv_PLL_is_optimal.exit:                          ; preds = %105, %113
+  %116 = add i32 %111, 10
+  %117 = icmp ult i32 %116, %42
+  br i1 %117, label %vlv_PLL_is_optimal.exit.thread15, label %intel_pll_is_valid.exit.thread
 
-vlv_PLL_is_optimal.exit.thread22:                 ; preds = %105, %80, %vlv_PLL_is_optimal.exit
-  %.024 = phi i32 [ 0, %80 ], [ %103, %vlv_PLL_is_optimal.exit ], [ 0, %105 ]
+vlv_PLL_is_optimal.exit.thread15:                 ; preds = %113, %88, %vlv_PLL_is_optimal.exit
+  %.017 = phi i32 [ 0, %88 ], [ %111, %vlv_PLL_is_optimal.exit ], [ 0, %113 ]
   store i32 %.sroa.0.0, ptr %16, align 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
-  store i32 %48, ptr %.sroa.10.0..sroa_idx, align 4
+  store i32 %.fr, ptr %.sroa.10.0..sroa_idx, align 4
   store i32 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 4
   store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 4
-  store i32 %64, ptr %.sroa.17.0..sroa_idx, align 4
+  store i32 %65, ptr %.sroa.17.0..sroa_idx, align 4
   store i32 %55, ptr %.sroa.20.0..sroa_idx, align 4
   store i32 %49, ptr %.sroa.22.0..sroa_idx, align 4
   store i32 %34, ptr %21, align 4
   br label %intel_pll_is_valid.exit.thread
 
-intel_pll_is_valid.exit.thread:                   ; preds = %66, %96, %.thread.i, %72, %63, %80, %vlv_PLL_is_optimal.exit.thread22, %vlv_PLL_is_optimal.exit
-  %110 = phi i32 [ %.024, %vlv_PLL_is_optimal.exit.thread22 ], [ %42, %66 ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %80 ], [ %42, %72 ], [ %42, %.thread.i ], [ %42, %63 ], [ %42, %96 ]
-  %111 = phi i8 [ 1, %vlv_PLL_is_optimal.exit.thread22 ], [ %41, %66 ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %80 ], [ %41, %72 ], [ %41, %.thread.i ], [ %41, %63 ], [ %41, %96 ]
-  br i1 %40, label %.split53, label %39, !llvm.loop !52
+intel_pll_is_valid.exit.thread:                   ; preds = %67, %104, %.thread.i, %81, %75, %64, %88, %vlv_PLL_is_optimal.exit.thread15, %vlv_PLL_is_optimal.exit
+  %118 = phi i32 [ %.017, %vlv_PLL_is_optimal.exit.thread15 ], [ %42, %75 ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %88 ], [ %42, %104 ], [ %42, %64 ], [ %42, %67 ], [ %42, %81 ], [ %42, %.thread.i ]
+  %119 = phi i8 [ 1, %vlv_PLL_is_optimal.exit.thread15 ], [ %41, %75 ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %88 ], [ %41, %104 ], [ %41, %64 ], [ %41, %67 ], [ %41, %81 ], [ %41, %.thread.i ]
+  br i1 %40, label %.split45, label %39, !llvm.loop !52
 
-.split53:                                         ; preds = %intel_pll_is_valid.exit.thread
-  %112 = icmp samesign ugt i32 %.sroa.15.0, 10
-  %113 = select i1 %112, i32 -2, i32 -1
-  %114 = add nsw i32 %113, %.sroa.15.0
-  %115 = icmp sgt i32 %114, 1
-  br i1 %115, label %.split51, label %.split62.us, !llvm.loop !53
+.split45:                                         ; preds = %intel_pll_is_valid.exit.thread
+  %120 = icmp samesign ugt i32 %.sroa.15.0, 10
+  %121 = select i1 %120, i32 -2, i32 -1
+  %122 = add nsw i32 %121, %.sroa.15.0
+  %123 = icmp sgt i32 %122, 1
+  br i1 %123, label %.split43, label %.split54.us, !llvm.loop !53
 
-.split62.us:                                      ; preds = %.split53
-  %116 = add nsw i32 %.sroa.12.0, -1
-  %117 = icmp samesign ugt i32 %.sroa.12.0, 2
-  br i1 %117, label %.split51.preheader, label %118, !llvm.loop !54
+.split54.us:                                      ; preds = %.split45
+  %124 = add nsw i32 %.sroa.12.0, -1
+  %125 = icmp samesign ugt i32 %.sroa.12.0, 2
+  br i1 %125, label %.split43.preheader, label %126, !llvm.loop !54
 
-118:                                              ; preds = %.split62.us
-  %119 = add nuw nsw i32 %.sroa.0.0, 1
-  %120 = icmp eq i32 %119, 6
-  br i1 %120, label %121, label %25, !llvm.loop !55
+126:                                              ; preds = %.split54.us
+  %127 = add nuw nsw i32 %.sroa.0.0, 1
+  %128 = icmp eq i32 %127, 6
+  br i1 %128, label %129, label %25, !llvm.loop !55
 
-121:                                              ; preds = %118
-  %122 = icmp eq i8 %111, 0
-  br i1 %122, label %189, label %123
+129:                                              ; preds = %126
+  %130 = icmp eq i8 %119, 0
+  br i1 %130, label %197, label %131
 
-123:                                              ; preds = %121, %2
-  %124 = getelementptr inbounds nuw i8, ptr %9, i64 884
-  %125 = getelementptr inbounds nuw i8, ptr %9, i64 888
-  %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %9, i64 892
-  %128 = load i32, ptr %127, align 4
-  %129 = mul i32 %128, %126
-  %130 = getelementptr inbounds nuw i8, ptr %9, i64 912
-  store i32 %129, ptr %130, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %9, i64 896
-  %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %9, i64 900
+131:                                              ; preds = %129, %2
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 884
+  %133 = getelementptr inbounds nuw i8, ptr %9, i64 888
   %134 = load i32, ptr %133, align 4
-  %135 = mul i32 %134, %132
-  %136 = mul i32 %135, 5
-  %137 = getelementptr inbounds nuw i8, ptr %9, i64 916
-  store i32 %136, ptr %137, align 4
-  %138 = load i32, ptr %124, align 4
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %149, label %140
+  %135 = getelementptr inbounds nuw i8, ptr %9, i64 892
+  %136 = load i32, ptr %135, align 4
+  %137 = mul i32 %136, %134
+  %138 = getelementptr inbounds nuw i8, ptr %9, i64 912
+  store i32 %137, ptr %138, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %9, i64 896
+  %140 = load i32, ptr %139, align 4
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 900
+  %142 = load i32, ptr %141, align 4
+  %143 = mul i32 %142, %140
+  %144 = mul i32 %143, 5
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 916
+  store i32 %144, ptr %145, align 4
+  %146 = load i32, ptr %132, align 4
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %157, label %148
 
-140:                                              ; preds = %123
-  %141 = mul i32 %129, 100000
-  %142 = icmp sgt i32 %141, 0
-  %143 = icmp slt i32 %138, 1
-  %144 = xor i1 %142, %143
-  %145 = select i1 %144, i32 2, i32 -2
-  %146 = sdiv i32 %138, %145
-  %147 = add i32 %146, %141
-  %148 = sdiv i32 %147, %138
-  br label %149
+148:                                              ; preds = %131
+  %149 = mul i32 %137, 100000
+  %150 = icmp sgt i32 %149, 0
+  %151 = icmp slt i32 %146, 1
+  %152 = xor i1 %150, %151
+  %153 = select i1 %152, i32 2, i32 -2
+  %154 = sdiv i32 %146, %153
+  %155 = add i32 %154, %149
+  %156 = sdiv i32 %155, %146
+  br label %157
 
-149:                                              ; preds = %140, %123
-  %150 = phi i32 [ %148, %140 ], [ 0, %123 ]
-  %151 = getelementptr inbounds nuw i8, ptr %9, i64 908
-  store i32 %150, ptr %151, align 4
-  %152 = icmp eq i32 %135, 0
-  br i1 %152, label %161, label %153
+157:                                              ; preds = %148, %131
+  %158 = phi i32 [ %156, %148 ], [ 0, %131 ]
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 908
+  store i32 %158, ptr %159, align 4
+  %160 = icmp eq i32 %143, 0
+  br i1 %160, label %169, label %161
 
-153:                                              ; preds = %149
-  %154 = icmp sgt i32 %150, 0
-  %155 = icmp slt i32 %136, 1
-  %156 = xor i1 %155, %154
-  %157 = select i1 %156, i32 2, i32 -2
-  %158 = sdiv i32 %136, %157
-  %159 = add i32 %158, %150
-  %160 = sdiv i32 %159, %136
-  br label %161
+161:                                              ; preds = %157
+  %162 = icmp sgt i32 %158, 0
+  %163 = icmp slt i32 %144, 1
+  %164 = xor i1 %163, %162
+  %165 = select i1 %164, i32 2, i32 -2
+  %166 = sdiv i32 %144, %165
+  %167 = add i32 %166, %158
+  %168 = sdiv i32 %167, %144
+  br label %169
 
-161:                                              ; preds = %153, %149
-  %162 = phi i32 [ %160, %153 ], [ 0, %149 ]
-  %163 = getelementptr inbounds nuw i8, ptr %9, i64 904
-  store i32 %162, ptr %163, align 4
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %9, i64 928
-  store i32 805314560, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 1648
-  %167 = load i32, ptr %166, align 8
-  %168 = icmp eq i32 %167, 0
-  %169 = select i1 %168, i32 805314560, i32 805330944
-  store i32 %169, ptr %165, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %9, i64 872
-  %171 = load i32, ptr %170, align 8
-  %172 = and i32 %171, 512
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %179, label %174
+169:                                              ; preds = %161, %157
+  %170 = phi i32 [ %168, %161 ], [ 0, %157 ]
+  %171 = getelementptr inbounds nuw i8, ptr %9, i64 904
+  store i32 %170, ptr %171, align 4
+  %172 = load ptr, ptr %9, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 928
+  store i32 805314560, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 1648
+  %175 = load i32, ptr %174, align 8
+  %176 = icmp eq i32 %175, 0
+  %177 = select i1 %176, i32 805314560, i32 805330944
+  store i32 %177, ptr %173, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %9, i64 872
+  %179 = load i32, ptr %178, align 8
+  %180 = and i32 %179, 512
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %187, label %182
 
-174:                                              ; preds = %161
-  %175 = getelementptr inbounds nuw i8, ptr %9, i64 1452
-  %176 = load i32, ptr %175, align 4
-  %177 = shl i32 %176, 8
-  %178 = add i32 %177, -256
+182:                                              ; preds = %169
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 1452
+  %184 = load i32, ptr %183, align 4
+  %185 = shl i32 %184, 8
+  %186 = add i32 %185, -256
   br label %.sink.split
 
-179:                                              ; preds = %161
-  %180 = or disjoint i32 %169, -1073741824
-  store i32 %180, ptr %165, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %9, i64 1452
-  %182 = load i32, ptr %181, align 4
-  %183 = shl i32 %182, 8
-  %184 = add i32 %183, -256
-  %185 = getelementptr inbounds nuw i8, ptr %9, i64 932
-  store i32 %184, ptr %185, align 4
-  %186 = getelementptr inbounds nuw i8, ptr %9, i64 1448
-  store i32 %162, ptr %186, align 8
-  %187 = tail call i32 @intel_crtc_dotclock(ptr noundef %9) #11
+187:                                              ; preds = %169
+  %188 = or disjoint i32 %177, -1073741824
+  store i32 %188, ptr %173, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %9, i64 1452
+  %190 = load i32, ptr %189, align 4
+  %191 = shl i32 %190, 8
+  %192 = add i32 %191, -256
+  %193 = getelementptr inbounds nuw i8, ptr %9, i64 932
+  store i32 %192, ptr %193, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %9, i64 1448
+  store i32 %170, ptr %194, align 8
+  %195 = tail call i32 @intel_crtc_dotclock(ptr noundef %9) #11
   br label %.sink.split
 
-.sink.split:                                      ; preds = %179, %174
-  %.sink75 = phi i64 [ 932, %174 ], [ 636, %179 ]
-  %.sink = phi i32 [ %178, %174 ], [ %187, %179 ]
-  %188 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink75
-  store i32 %.sink, ptr %188, align 4
-  br label %189
+.sink.split:                                      ; preds = %187, %182
+  %.sink67 = phi i64 [ 932, %182 ], [ 636, %187 ]
+  %.sink = phi i32 [ %186, %182 ], [ %195, %187 ]
+  %196 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink67
+  store i32 %.sink, ptr %196, align 4
+  br label %197
 
-189:                                              ; preds = %.sink.split, %121
-  %190 = phi i32 [ -22, %121 ], [ 0, %.sink.split ]
-  ret i32 %190
+197:                                              ; preds = %.sink.split, %129
+  %198 = phi i32 [ -22, %129 ], [ 0, %.sink.split ]
+  ret i32 %198
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3893,11 +3913,9 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %56 = load i32, ptr %55, align 4
-  %.fr = freeze i32 %56
   %57 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %58 = load i32, ptr %57, align 4
-  %.fr63 = freeze i32 %58
-  %59 = icmp sgt i32 %.fr, %.fr63
+  %59 = icmp sgt i32 %56, %58
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %51
@@ -3906,10 +3924,8 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %64 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %65 = load i32, ptr %61, align 4
-  %.fr65 = freeze i32 %65
   %66 = load i32, ptr %62, align 4
-  %.fr60 = freeze i32 %66
-  %67 = icmp sgt i32 %.fr65, %.fr60
+  %67 = icmp sgt i32 %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 7184
   %69 = getelementptr inbounds nuw i8, ptr %38, i64 7168
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -3933,10 +3949,8 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %78 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %79 = load i32, ptr %78, align 4
-  %.fr69 = freeze i32 %79
   %80 = load i32, ptr %77, align 4
-  %.fr67 = freeze i32 %80
-  %81 = icmp sgt i32 %.fr69, %.fr67
+  %81 = icmp sgt i32 %79, %80
   br i1 %81, label %.thread, label %.split49.split
 
 .split49.split:                                   ; preds = %.split49
@@ -3946,31 +3960,33 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   br i1 %84, label %.thread, label %.split44
 
 .split44:                                         ; preds = %.split49.split, %.loopexit33.split.split
-  %.sroa.7.0 = phi i32 [ %166, %.loopexit33.split.split ], [ %.fr, %.split49.split ]
+  %.sroa.7.0 = phi i32 [ %166, %.loopexit33.split.split ], [ %56, %.split49.split ]
   %85 = phi i32 [ %.us-phi, %.loopexit33.split.split ], [ %35, %.split49.split ]
-  %86 = icmp slt i32 %.sroa.7.0, %.fr
+  %86 = icmp slt i32 %.sroa.7.0, %56
   br label %.split41
 
 .split41:                                         ; preds = %.loopexit32.split, %.split44
-  %.sroa.10.0 = phi i32 [ %.fr65, %.split44 ], [ %164, %.loopexit32.split ]
+  %.sroa.10.0 = phi i32 [ %65, %.split44 ], [ %164, %.loopexit32.split ]
   %87 = phi i32 [ %85, %.split44 ], [ %.us-phi, %.loopexit32.split ]
   %88 = add i32 %.sroa.10.0, 2
   %89 = mul i32 %88, %29
   %90 = icmp sgt i32 %89, 0
-  %91 = icmp slt i32 %.sroa.10.0, %.fr65
+  %91 = icmp slt i32 %.sroa.10.0, %65
   %invariant.op38.reass = or i1 %91, %86
   %92 = icmp sgt i32 %.sroa.7.0, %.sroa.10.0
+  %invariant.op38.fr = freeze i1 %invariant.op38.reass
   br label %93
 
 93:                                               ; preds = %.loopexit, %.split41
-  %.sroa.0.0 = phi i32 [ %.fr69, %.split41 ], [ %162, %.loopexit ]
+  %.sroa.0.0 = phi i32 [ %79, %.split41 ], [ %162, %.loopexit ]
   %94 = phi i32 [ %87, %.split41 ], [ %.us-phi, %.loopexit ]
   %95 = icmp eq i32 %.sroa.0.0, 0
   %96 = icmp slt i32 %.sroa.0.0, 1
   %97 = xor i1 %90, %96
   %98 = select i1 %97, i32 2, i32 -2
-  %99 = icmp slt i32 %.sroa.0.0, %.fr69
-  %100 = or i1 %invariant.op38.reass, %99
+  %99 = icmp slt i32 %.sroa.0.0, %79
+  %or.cond.fr = freeze i1 %99
+  %100 = or i1 %invariant.op38.fr, %or.cond.fr
   br i1 %100, label %.loopexit, label %.split39
 
 .split39:                                         ; preds = %93, %intel_pll_is_valid.exit.thread
@@ -4089,17 +4105,17 @@ intel_pll_is_valid.exit.thread:                   ; preds = %121, %150, %144, %1
 .loopexit:                                        ; preds = %intel_pll_is_valid.exit.thread, %93
   %.us-phi = phi i32 [ %94, %93 ], [ %159, %intel_pll_is_valid.exit.thread ]
   %162 = add i32 %.sroa.0.0, 1
-  %163 = icmp sgt i32 %162, %.fr67
+  %163 = icmp sgt i32 %162, %80
   br i1 %163, label %.loopexit32.split, label %93, !llvm.loop !66
 
 .loopexit32.split:                                ; preds = %.loopexit
   %164 = add i32 %.sroa.10.0, 1
-  %165 = icmp sgt i32 %164, %.fr60
+  %165 = icmp sgt i32 %164, %66
   br i1 %165, label %.loopexit33.split.split, label %.split41, !llvm.loop !67
 
 .loopexit33.split.split:                          ; preds = %.loopexit32.split
   %166 = add i32 %.sroa.7.0, 1
-  %167 = icmp sgt i32 %166, %.fr63
+  %167 = icmp sgt i32 %166, %58
   br i1 %167, label %.split51.us, label %.split44, !llvm.loop !68
 
 .split51.us:                                      ; preds = %.loopexit33.split.split
@@ -4329,11 +4345,10 @@ define internal fastcc zeroext i1 @i9xx_find_best_dpll(ptr noundef readonly capt
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i32, ptr %26, align 4
-  %.fr15 = freeze i32 %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %29 = load i32, ptr %28, align 4
-  %30 = icmp sgt i32 %.fr15, %29
-  br i1 %30, label %.loopexit26, label %31
+  %30 = icmp sgt i32 %27, %29
+  br i1 %30, label %.loopexit22, label %31
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4361,249 +4376,250 @@ define internal fastcc zeroext i1 @i9xx_find_best_dpll(ptr noundef readonly capt
   %.pre = load i32, ptr %33, align 4
   br label %46
 
-46:                                               ; preds = %.loopexit25, %31
-  %47 = phi i32 [ %29, %31 ], [ %174, %.loopexit25 ]
-  %48 = phi i32 [ %.pre, %31 ], [ %175, %.loopexit25 ]
-  %49 = phi i32 [ %.pre, %31 ], [ %176, %.loopexit25 ]
-  %.sroa.7.0 = phi i32 [ %.fr15, %31 ], [ %178, %.loopexit25 ]
-  %50 = phi i32 [ %2, %31 ], [ %177, %.loopexit25 ]
+46:                                               ; preds = %.loopexit21, %31
+  %47 = phi i32 [ %29, %31 ], [ %177, %.loopexit21 ]
+  %48 = phi i32 [ %.pre, %31 ], [ %178, %.loopexit21 ]
+  %49 = phi i32 [ %.pre, %31 ], [ %179, %.loopexit21 ]
+  %.sroa.7.0 = phi i32 [ %27, %31 ], [ %181, %.loopexit21 ]
+  %50 = phi i32 [ %2, %31 ], [ %180, %.loopexit21 ]
   %51 = load i32, ptr %32, align 4
-  %.fr = freeze i32 %51
-  %52 = icmp sle i32 %.fr, %49
-  %53 = icmp slt i32 %.fr, %.sroa.7.0
+  %52 = icmp sle i32 %51, %49
+  %53 = icmp slt i32 %51, %.sroa.7.0
   %54 = and i1 %53, %52
-  br i1 %54, label %55, label %.loopexit25
+  br i1 %54, label %55, label %.loopexit21
 
 55:                                               ; preds = %46
   %56 = mul i32 %.sroa.7.0, 5
   %57 = add i32 %56, 12
-  %.pre34 = load i32, ptr %35, align 4
-  br label %58
+  %58 = load i32, ptr %34, align 4
+  %59 = load i32, ptr %35, align 4
+  %60 = icmp sgt i32 %58, %59
+  br i1 %60, label %.loopexit21, label %.split26
 
-58:                                               ; preds = %.loopexit24, %55
-  %59 = phi i32 [ %48, %55 ], [ %166, %.loopexit24 ]
-  %60 = phi i32 [ %.pre34, %55 ], [ %167, %.loopexit24 ]
-  %61 = phi i32 [ %.pre34, %55 ], [ %168, %.loopexit24 ]
-  %.sroa.10.0 = phi i32 [ %.fr, %55 ], [ %170, %.loopexit24 ]
-  %62 = phi i32 [ %50, %55 ], [ %169, %.loopexit24 ]
-  %63 = load i32, ptr %34, align 4
-  %.fr16 = freeze i32 %63
-  %64 = icmp sgt i32 %.fr16, %61
-  br i1 %64, label %.loopexit24, label %65
+.split26:                                         ; preds = %55, %.loopexit20
+  %61 = phi i32 [ %169, %.loopexit20 ], [ %48, %55 ]
+  %62 = phi i32 [ %170, %.loopexit20 ], [ %59, %55 ]
+  %63 = phi i32 [ %171, %.loopexit20 ], [ %59, %55 ]
+  %.sroa.10.0 = phi i32 [ %173, %.loopexit20 ], [ %51, %55 ]
+  %64 = phi i32 [ %172, %.loopexit20 ], [ %50, %55 ]
+  %65 = load i32, ptr %34, align 4
+  %66 = icmp sgt i32 %65, %63
+  br i1 %66, label %.loopexit20, label %67
 
-65:                                               ; preds = %58
-  %66 = add i32 %57, %.sroa.10.0
-  %67 = mul i32 %66, %3
-  %68 = icmp sgt i32 %67, 0
-  %69 = load i32, ptr %36, align 4
-  %70 = load i32, ptr %37, align 4
-  %71 = icmp sgt i32 %69, %70
-  br i1 %71, label %.loopexit24, label %.split
+67:                                               ; preds = %.split26
+  %68 = add i32 %57, %.sroa.10.0
+  %69 = mul i32 %68, %3
+  %70 = icmp sgt i32 %69, 0
+  %71 = load i32, ptr %36, align 4
+  %72 = load i32, ptr %37, align 4
+  %73 = icmp sgt i32 %71, %72
+  br i1 %73, label %.loopexit20, label %.split
 
-.split:                                           ; preds = %65, %.loopexit
-  %72 = phi i32 [ %160, %.loopexit ], [ %60, %65 ]
-  %73 = phi i32 [ %161, %.loopexit ], [ %70, %65 ]
-  %74 = phi i32 [ %162, %.loopexit ], [ %70, %65 ]
-  %.sroa.0.0 = phi i32 [ %164, %.loopexit ], [ %.fr16, %65 ]
-  %75 = phi i32 [ %163, %.loopexit ], [ %62, %65 ]
-  %76 = load i32, ptr %36, align 4
-  %77 = icmp sgt i32 %76, %74
-  br i1 %77, label %.loopexit, label %78
+.split:                                           ; preds = %67, %.loopexit
+  %74 = phi i32 [ %163, %.loopexit ], [ %62, %67 ]
+  %75 = phi i32 [ %164, %.loopexit ], [ %72, %67 ]
+  %76 = phi i32 [ %165, %.loopexit ], [ %72, %67 ]
+  %.sroa.0.0 = phi i32 [ %167, %.loopexit ], [ %65, %67 ]
+  %77 = phi i32 [ %166, %.loopexit ], [ %64, %67 ]
+  %78 = load i32, ptr %36, align 4
+  %79 = icmp sgt i32 %78, %76
+  br i1 %79, label %.loopexit, label %80
 
-78:                                               ; preds = %.split
-  %79 = add i32 %.sroa.0.0, 2
-  %80 = icmp eq i32 %79, 0
-  %81 = icmp slt i32 %79, 1
-  %82 = xor i1 %68, %81
-  %83 = select i1 %82, i32 2, i32 -2
-  br label %84
+80:                                               ; preds = %.split
+  %81 = add i32 %.sroa.0.0, 2
+  %82 = icmp eq i32 %81, 0
+  %83 = icmp slt i32 %81, 1
+  %84 = xor i1 %70, %83
+  %85 = freeze i1 %84
+  %86 = select i1 %85, i32 2, i32 -2
+  br label %87
 
-84:                                               ; preds = %intel_pll_is_valid.exit.thread, %78
-  %85 = phi i32 [ %73, %78 ], [ %156, %intel_pll_is_valid.exit.thread ]
-  %.sroa.13.0 = phi i32 [ %76, %78 ], [ %158, %intel_pll_is_valid.exit.thread ]
-  %86 = phi i32 [ %75, %78 ], [ %157, %intel_pll_is_valid.exit.thread ]
-  %87 = mul i32 %.sroa.13.0, %25
-  br i1 %80, label %92, label %88
+87:                                               ; preds = %intel_pll_is_valid.exit.thread, %80
+  %88 = phi i32 [ %75, %80 ], [ %159, %intel_pll_is_valid.exit.thread ]
+  %.sroa.13.0 = phi i32 [ %78, %80 ], [ %161, %intel_pll_is_valid.exit.thread ]
+  %89 = phi i32 [ %77, %80 ], [ %160, %intel_pll_is_valid.exit.thread ]
+  %90 = mul i32 %.sroa.13.0, %25
+  br i1 %82, label %95, label %91
 
-88:                                               ; preds = %84
-  %89 = sdiv i32 %79, %83
-  %90 = add i32 %89, %67
-  %91 = sdiv i32 %90, %79
-  br label %92
+91:                                               ; preds = %87
+  %92 = sdiv i32 %81, %86
+  %93 = add i32 %92, %69
+  %94 = sdiv i32 %93, %81
+  br label %95
 
-92:                                               ; preds = %88, %84
-  %93 = phi i32 [ %91, %88 ], [ 0, %84 ]
-  %94 = icmp eq i32 %87, 0
-  br i1 %94, label %103, label %95
+95:                                               ; preds = %91, %87
+  %96 = phi i32 [ %94, %91 ], [ 0, %87 ]
+  %97 = icmp eq i32 %90, 0
+  br i1 %97, label %106, label %98
 
-95:                                               ; preds = %92
-  %96 = icmp sgt i32 %93, 0
-  %97 = icmp slt i32 %87, 1
-  %98 = xor i1 %97, %96
-  %99 = select i1 %98, i32 2, i32 -2
-  %100 = sdiv i32 %87, %99
-  %101 = add i32 %100, %93
-  %102 = sdiv i32 %101, %87
-  br label %103
+98:                                               ; preds = %95
+  %99 = icmp sgt i32 %96, 0
+  %100 = icmp slt i32 %90, 1
+  %101 = xor i1 %100, %99
+  %102 = select i1 %101, i32 2, i32 -2
+  %103 = sdiv i32 %90, %102
+  %104 = add i32 %103, %96
+  %105 = sdiv i32 %104, %90
+  br label %106
 
-103:                                              ; preds = %95, %92
-  %104 = phi i32 [ %102, %95 ], [ 0, %92 ]
-  %105 = load i32, ptr %34, align 4
-  %106 = icmp slt i32 %.sroa.0.0, %105
-  br i1 %106, label %intel_pll_is_valid.exit.thread, label %107
-
-107:                                              ; preds = %103
-  %108 = load i32, ptr %35, align 4
-  %109 = icmp slt i32 %108, %.sroa.0.0
+106:                                              ; preds = %98, %95
+  %107 = phi i32 [ %105, %98 ], [ 0, %95 ]
+  %108 = load i32, ptr %34, align 4
+  %109 = icmp slt i32 %.sroa.0.0, %108
   br i1 %109, label %intel_pll_is_valid.exit.thread, label %110
 
-110:                                              ; preds = %107
-  %111 = load i32, ptr %36, align 4
-  %112 = icmp slt i32 %.sroa.13.0, %111
+110:                                              ; preds = %106
+  %111 = load i32, ptr %35, align 4
+  %112 = icmp slt i32 %111, %.sroa.0.0
   br i1 %112, label %intel_pll_is_valid.exit.thread, label %113
 
 113:                                              ; preds = %110
-  %114 = load i32, ptr %32, align 4
-  %115 = icmp slt i32 %.sroa.10.0, %114
+  %114 = load i32, ptr %36, align 4
+  %115 = icmp slt i32 %.sroa.13.0, %114
   br i1 %115, label %intel_pll_is_valid.exit.thread, label %116
 
 116:                                              ; preds = %113
-  %117 = load i32, ptr %33, align 4
-  %118 = icmp slt i32 %117, %.sroa.10.0
+  %117 = load i32, ptr %32, align 4
+  %118 = icmp slt i32 %.sroa.10.0, %117
   br i1 %118, label %intel_pll_is_valid.exit.thread, label %119
 
 119:                                              ; preds = %116
-  %120 = load i32, ptr %26, align 4
-  %121 = icmp slt i32 %.sroa.7.0, %120
+  %120 = load i32, ptr %33, align 4
+  %121 = icmp slt i32 %120, %.sroa.10.0
   br i1 %121, label %intel_pll_is_valid.exit.thread, label %122
 
 122:                                              ; preds = %119
-  %123 = load i32, ptr %28, align 4
-  %124 = icmp slt i32 %123, %.sroa.7.0
-  br i1 %124, label %intel_pll_is_valid.exit.thread, label %._crit_edge.i
+  %123 = load i32, ptr %26, align 4
+  %124 = icmp slt i32 %.sroa.7.0, %123
+  br i1 %124, label %intel_pll_is_valid.exit.thread, label %125
 
-._crit_edge.i:                                    ; preds = %122
-  %125 = load ptr, ptr %38, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 28
-  %127 = load i64, ptr %126, align 4
-  %.pre-phi = and i64 %127, 2
-  %128 = icmp eq i64 %.pre-phi, 0
-  br i1 %128, label %129, label %141
+125:                                              ; preds = %122
+  %126 = load i32, ptr %28, align 4
+  %127 = icmp slt i32 %126, %.sroa.7.0
+  br i1 %127, label %intel_pll_is_valid.exit.thread, label %._crit_edge.i
 
-129:                                              ; preds = %._crit_edge.i
-  %130 = load i32, ptr %39, align 4
-  %131 = icmp slt i32 %87, %130
-  br i1 %131, label %intel_pll_is_valid.exit.thread, label %132
+._crit_edge.i:                                    ; preds = %125
+  %128 = load ptr, ptr %38, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 28
+  %130 = load i64, ptr %129, align 4
+  %.pre-phi = and i64 %130, 2
+  %131 = icmp eq i64 %.pre-phi, 0
+  br i1 %131, label %132, label %144
 
-132:                                              ; preds = %129
-  %133 = load i32, ptr %40, align 4
-  %134 = icmp slt i32 %133, %87
+132:                                              ; preds = %._crit_edge.i
+  %133 = load i32, ptr %39, align 4
+  %134 = icmp slt i32 %90, %133
   br i1 %134, label %intel_pll_is_valid.exit.thread, label %135
 
 135:                                              ; preds = %132
-  %136 = load i32, ptr %41, align 4
-  %137 = icmp slt i32 %66, %136
+  %136 = load i32, ptr %40, align 4
+  %137 = icmp slt i32 %136, %90
   br i1 %137, label %intel_pll_is_valid.exit.thread, label %138
 
 138:                                              ; preds = %135
-  %139 = load i32, ptr %42, align 4
-  %140 = icmp slt i32 %139, %66
+  %139 = load i32, ptr %41, align 4
+  %140 = icmp slt i32 %68, %139
   br i1 %140, label %intel_pll_is_valid.exit.thread, label %141
 
-141:                                              ; preds = %138, %._crit_edge.i
-  %142 = load i32, ptr %43, align 4
-  %143 = icmp slt i32 %93, %142
+141:                                              ; preds = %138
+  %142 = load i32, ptr %42, align 4
+  %143 = icmp slt i32 %142, %68
   br i1 %143, label %intel_pll_is_valid.exit.thread, label %144
 
-144:                                              ; preds = %141
-  %145 = load i32, ptr %44, align 4
-  %146 = icmp slt i32 %145, %93
+144:                                              ; preds = %141, %._crit_edge.i
+  %145 = load i32, ptr %43, align 4
+  %146 = icmp slt i32 %96, %145
   br i1 %146, label %intel_pll_is_valid.exit.thread, label %147
 
 147:                                              ; preds = %144
-  %148 = load i32, ptr %0, align 4
-  %149 = icmp slt i32 %104, %148
-  br i1 %149, label %intel_pll_is_valid.exit.thread, label %intel_pll_is_valid.exit
+  %148 = load i32, ptr %44, align 4
+  %149 = icmp slt i32 %148, %96
+  br i1 %149, label %intel_pll_is_valid.exit.thread, label %150
 
-intel_pll_is_valid.exit:                          ; preds = %147
-  %150 = load i32, ptr %45, align 4
-  %.not = icmp slt i32 %150, %104
-  br i1 %.not, label %intel_pll_is_valid.exit.thread, label %151
+150:                                              ; preds = %147
+  %151 = load i32, ptr %0, align 4
+  %152 = icmp slt i32 %107, %151
+  br i1 %152, label %intel_pll_is_valid.exit.thread, label %intel_pll_is_valid.exit
 
-151:                                              ; preds = %intel_pll_is_valid.exit
-  %152 = sub i32 %104, %2
-  %153 = tail call i32 @llvm.abs.i32(i32 %152, i1 false)
-  %154 = icmp slt i32 %153, %86
-  br i1 %154, label %155, label %intel_pll_is_valid.exit.thread
+intel_pll_is_valid.exit:                          ; preds = %150
+  %153 = load i32, ptr %45, align 4
+  %.not = icmp slt i32 %153, %107
+  br i1 %.not, label %intel_pll_is_valid.exit.thread, label %154
 
-155:                                              ; preds = %151
+154:                                              ; preds = %intel_pll_is_valid.exit
+  %155 = sub i32 %107, %2
+  %156 = tail call i32 @llvm.abs.i32(i32 %155, i1 false)
+  %157 = icmp slt i32 %156, %89
+  br i1 %157, label %158, label %intel_pll_is_valid.exit.thread
+
+158:                                              ; preds = %154
   store i32 %.sroa.0.0, ptr %4, align 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
   store i32 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 4
   store i32 %25, ptr %.sroa.16.0..sroa_idx, align 4
-  store i32 %104, ptr %.sroa.17.0..sroa_idx, align 4
-  store i32 %93, ptr %.sroa.19.0..sroa_idx, align 4
-  store i32 %66, ptr %.sroa.21.0..sroa_idx, align 4
-  store i32 %87, ptr %.sroa.23.0..sroa_idx, align 4
-  %.pre35 = load i32, ptr %37, align 4
+  store i32 %107, ptr %.sroa.17.0..sroa_idx, align 4
+  store i32 %96, ptr %.sroa.19.0..sroa_idx, align 4
+  store i32 %68, ptr %.sroa.21.0..sroa_idx, align 4
+  store i32 %90, ptr %.sroa.23.0..sroa_idx, align 4
+  %.pre33 = load i32, ptr %37, align 4
   br label %intel_pll_is_valid.exit.thread
 
-intel_pll_is_valid.exit.thread:                   ; preds = %147, %141, %144, %135, %138, %129, %132, %119, %122, %113, %116, %110, %103, %107, %155, %151, %intel_pll_is_valid.exit
-  %156 = phi i32 [ %85, %intel_pll_is_valid.exit ], [ %.pre35, %155 ], [ %85, %151 ], [ %85, %107 ], [ %85, %103 ], [ %85, %147 ], [ %85, %110 ], [ %85, %116 ], [ %85, %113 ], [ %85, %122 ], [ %85, %119 ], [ %85, %132 ], [ %85, %129 ], [ %85, %138 ], [ %85, %135 ], [ %85, %144 ], [ %85, %141 ]
-  %157 = phi i32 [ %86, %intel_pll_is_valid.exit ], [ %153, %155 ], [ %86, %151 ], [ %86, %107 ], [ %86, %103 ], [ %86, %147 ], [ %86, %110 ], [ %86, %116 ], [ %86, %113 ], [ %86, %122 ], [ %86, %119 ], [ %86, %132 ], [ %86, %129 ], [ %86, %138 ], [ %86, %135 ], [ %86, %144 ], [ %86, %141 ]
-  %158 = add i32 %.sroa.13.0, 1
-  %159 = icmp sgt i32 %158, %156
-  br i1 %159, label %.loopexit.loopexit, label %84, !llvm.loop !69
+intel_pll_is_valid.exit.thread:                   ; preds = %150, %144, %147, %138, %141, %132, %135, %122, %125, %116, %119, %113, %106, %110, %158, %154, %intel_pll_is_valid.exit
+  %159 = phi i32 [ %88, %intel_pll_is_valid.exit ], [ %.pre33, %158 ], [ %88, %154 ], [ %88, %110 ], [ %88, %106 ], [ %88, %150 ], [ %88, %113 ], [ %88, %119 ], [ %88, %116 ], [ %88, %125 ], [ %88, %122 ], [ %88, %135 ], [ %88, %132 ], [ %88, %141 ], [ %88, %138 ], [ %88, %147 ], [ %88, %144 ]
+  %160 = phi i32 [ %89, %intel_pll_is_valid.exit ], [ %156, %158 ], [ %89, %154 ], [ %89, %110 ], [ %89, %106 ], [ %89, %150 ], [ %89, %113 ], [ %89, %119 ], [ %89, %116 ], [ %89, %125 ], [ %89, %122 ], [ %89, %135 ], [ %89, %132 ], [ %89, %141 ], [ %89, %138 ], [ %89, %147 ], [ %89, %144 ]
+  %161 = add i32 %.sroa.13.0, 1
+  %162 = icmp sgt i32 %161, %159
+  br i1 %162, label %.loopexit.loopexit, label %87, !llvm.loop !69
 
 .loopexit.loopexit:                               ; preds = %intel_pll_is_valid.exit.thread
-  %.pre36 = load i32, ptr %35, align 4
+  %.pre34 = load i32, ptr %35, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.split
-  %160 = phi i32 [ %72, %.split ], [ %.pre36, %.loopexit.loopexit ]
-  %161 = phi i32 [ %73, %.split ], [ %156, %.loopexit.loopexit ]
-  %162 = phi i32 [ %74, %.split ], [ %156, %.loopexit.loopexit ]
-  %163 = phi i32 [ %75, %.split ], [ %157, %.loopexit.loopexit ]
-  %164 = add i32 %.sroa.0.0, 1
-  %165 = icmp sgt i32 %164, %160
-  br i1 %165, label %.loopexit24.loopexit30, label %.split, !llvm.loop !70
+  %163 = phi i32 [ %74, %.split ], [ %.pre34, %.loopexit.loopexit ]
+  %164 = phi i32 [ %75, %.split ], [ %159, %.loopexit.loopexit ]
+  %165 = phi i32 [ %76, %.split ], [ %159, %.loopexit.loopexit ]
+  %166 = phi i32 [ %77, %.split ], [ %160, %.loopexit.loopexit ]
+  %167 = add i32 %.sroa.0.0, 1
+  %168 = icmp sgt i32 %167, %163
+  br i1 %168, label %.loopexit20.loopexit28, label %.split, !llvm.loop !70
 
-.loopexit24.loopexit30:                           ; preds = %.loopexit
-  %.pre37 = load i32, ptr %33, align 4
-  br label %.loopexit24
+.loopexit20.loopexit28:                           ; preds = %.loopexit
+  %.pre35 = load i32, ptr %33, align 4
+  br label %.loopexit20
 
-.loopexit24:                                      ; preds = %65, %.loopexit24.loopexit30, %58
-  %166 = phi i32 [ %59, %58 ], [ %.pre37, %.loopexit24.loopexit30 ], [ %59, %65 ]
-  %167 = phi i32 [ %60, %58 ], [ %160, %.loopexit24.loopexit30 ], [ %60, %65 ]
-  %168 = phi i32 [ %61, %58 ], [ %160, %.loopexit24.loopexit30 ], [ %61, %65 ]
-  %169 = phi i32 [ %62, %58 ], [ %163, %.loopexit24.loopexit30 ], [ %62, %65 ]
-  %170 = add nsw i32 %.sroa.10.0, 1
-  %171 = icmp slt i32 %.sroa.10.0, %166
-  %172 = icmp slt i32 %170, %.sroa.7.0
-  %173 = and i1 %172, %171
-  br i1 %173, label %58, label %.loopexit25.loopexit, !llvm.loop !71
+.loopexit20:                                      ; preds = %67, %.loopexit20.loopexit28, %.split26
+  %169 = phi i32 [ %61, %.split26 ], [ %.pre35, %.loopexit20.loopexit28 ], [ %61, %67 ]
+  %170 = phi i32 [ %62, %.split26 ], [ %163, %.loopexit20.loopexit28 ], [ %62, %67 ]
+  %171 = phi i32 [ %63, %.split26 ], [ %163, %.loopexit20.loopexit28 ], [ %63, %67 ]
+  %172 = phi i32 [ %64, %.split26 ], [ %166, %.loopexit20.loopexit28 ], [ %64, %67 ]
+  %173 = add nsw i32 %.sroa.10.0, 1
+  %174 = icmp slt i32 %.sroa.10.0, %169
+  %175 = icmp slt i32 %173, %.sroa.7.0
+  %176 = and i1 %175, %174
+  br i1 %176, label %.split26, label %.loopexit21.loopexit29, !llvm.loop !71
 
-.loopexit25.loopexit:                             ; preds = %.loopexit24
-  %.pre38 = load i32, ptr %28, align 4
-  br label %.loopexit25
+.loopexit21.loopexit29:                           ; preds = %.loopexit20
+  %.pre36 = load i32, ptr %28, align 4
+  br label %.loopexit21
 
-.loopexit25:                                      ; preds = %.loopexit25.loopexit, %46
-  %174 = phi i32 [ %47, %46 ], [ %.pre38, %.loopexit25.loopexit ]
-  %175 = phi i32 [ %48, %46 ], [ %166, %.loopexit25.loopexit ]
-  %176 = phi i32 [ %49, %46 ], [ %166, %.loopexit25.loopexit ]
-  %177 = phi i32 [ %50, %46 ], [ %169, %.loopexit25.loopexit ]
-  %178 = add i32 %.sroa.7.0, 1
-  %179 = icmp sgt i32 %178, %174
-  br i1 %179, label %.loopexit26.loopexit, label %46, !llvm.loop !72
+.loopexit21:                                      ; preds = %55, %.loopexit21.loopexit29, %46
+  %177 = phi i32 [ %47, %46 ], [ %.pre36, %.loopexit21.loopexit29 ], [ %47, %55 ]
+  %178 = phi i32 [ %48, %46 ], [ %169, %.loopexit21.loopexit29 ], [ %48, %55 ]
+  %179 = phi i32 [ %49, %46 ], [ %169, %.loopexit21.loopexit29 ], [ %49, %55 ]
+  %180 = phi i32 [ %50, %46 ], [ %172, %.loopexit21.loopexit29 ], [ %50, %55 ]
+  %181 = add i32 %.sroa.7.0, 1
+  %182 = icmp sgt i32 %181, %177
+  br i1 %182, label %.loopexit22.loopexit, label %46, !llvm.loop !72
 
-.loopexit26.loopexit:                             ; preds = %.loopexit25
-  %180 = icmp ne i32 %177, %2
-  br label %.loopexit26
+.loopexit22.loopexit:                             ; preds = %.loopexit21
+  %183 = icmp ne i32 %180, %2
+  br label %.loopexit22
 
-.loopexit26:                                      ; preds = %.loopexit26.loopexit, %22
-  %181 = phi i1 [ false, %22 ], [ %180, %.loopexit26.loopexit ]
-  ret i1 %181
+.loopexit22:                                      ; preds = %.loopexit22.loopexit, %22
+  %184 = phi i1 [ false, %22 ], [ %183, %.loopexit22.loopexit ]
+  ret i1 %184
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4877,8 +4893,8 @@ attributes #13 = { nounwind memory(none) }
 !47 = !{i64 2147908624, i64 2147908652, i64 2147908658, i64 2147908674, i64 2147908690, i64 2147908717, i64 2147909050, i64 2147908350, i64 2147909056, i64 2147909104, i64 2147909168, i64 2147909232, i64 2147909289, i64 2147908431, i64 2147908456, i64 2147909496, i64 2147909626, i64 2147909557, i64 2147909640, i64 2147908548}
 !48 = distinct !{!48, !14, !15}
 !49 = distinct !{!49, !14, !15, !17}
-!50 = distinct !{!50, !14, !15}
-!51 = distinct !{!51, !14, !15}
+!50 = distinct !{!50, !14, !15, !17}
+!51 = distinct !{!51, !14, !15, !17}
 !52 = distinct !{!52, !14, !15}
 !53 = distinct !{!53, !14, !15}
 !54 = distinct !{!54, !14, !15}
@@ -4898,5 +4914,5 @@ attributes #13 = { nounwind memory(none) }
 !68 = distinct !{!68, !14, !15}
 !69 = distinct !{!69, !14, !15}
 !70 = distinct !{!70, !14, !15, !17}
-!71 = distinct !{!71, !14, !15}
+!71 = distinct !{!71, !14, !15, !17}
 !72 = distinct !{!72, !14, !15}

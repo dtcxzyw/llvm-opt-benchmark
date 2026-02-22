@@ -8967,8 +8967,8 @@ _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us: ; preds = %
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us: ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !172
-  %.fr = freeze i64 %12
-  %13 = add i64 %.fr, -1
+  %.fr57 = freeze i64 %12
+  %13 = add i64 %.fr57, -1
   %14 = icmp sgt i64 %13, -1
   %spec.select56 = select i1 %14, i64 16, i64 24
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit8.i.i.us.thread

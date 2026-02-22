@@ -17692,16 +17692,16 @@ define hidden void @_ZN14ide_completion11completions11Completions24add_keyword_s
   br label %.body.thread
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit": ; preds = %28
-  %.fr = freeze { i64, i64 } %29
-  %37 = extractvalue { i64, i64 } %.fr, 0
+  %.fr59 = freeze { i64, i64 } %29
+  %37 = extractvalue { i64, i64 } %.fr59, 0
   %38 = icmp eq i64 %37, 1
   %spec.select = select i1 %38, i64 %4, i64 %6
-  %spec.select69 = select i1 %38, ptr %3, ptr %5
+  %spec.select70 = select i1 %38, ptr %3, ptr %5
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i.i, %34, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit", %30
   %39 = phi i64 [ 0, %30 ], [ %spec.select, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit" ], [ %6, %34 ], [ %4, %.lr.ph.i.i ]
-  %40 = phi ptr [ %5, %30 ], [ %spec.select69, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit" ], [ %5, %34 ], [ %3, %.lr.ph.i.i ]
+  %40 = phi ptr [ %5, %30 ], [ %spec.select70, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit" ], [ %5, %34 ], [ %3, %.lr.ph.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4643)
   %41 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb2eed5d9db4841a7E"(i64 noundef %39, i1 noundef zeroext false)
           to label %.noexc7 unwind label %.body.thread41
@@ -18080,16 +18080,16 @@ _ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit: ; preds 
   br label %.body.thread
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit": ; preds = %21
-  %.fr = freeze { i64, i64 } %22
-  %49 = extractvalue { i64, i64 } %.fr, 0
+  %.fr48 = freeze { i64, i64 } %22
+  %49 = extractvalue { i64, i64 } %.fr48, 0
   %50 = icmp eq i64 %49, 1
   %spec.select = select i1 %50, i64 %3, i64 %5
-  %spec.select48 = select i1 %50, ptr %2, ptr %4
+  %spec.select49 = select i1 %50, ptr %2, ptr %4
   br label %.thread44
 
 .thread44:                                        ; preds = %.lr.ph.i.i, %27, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit", %23
   %51 = phi i64 [ 0, %23 ], [ %spec.select, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit" ], [ %3, %.lr.ph.i.i ], [ %5, %27 ]
-  %52 = phi ptr [ %4, %23 ], [ %spec.select48, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit" ], [ %2, %.lr.ph.i.i ], [ %4, %27 ]
+  %52 = phi ptr [ %4, %23 ], [ %spec.select49, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.6578722319504587490.exit" ], [ %2, %.lr.ph.i.i ], [ %4, %27 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4762)
   %53 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb2eed5d9db4841a7E"(i64 noundef %51, i1 noundef zeroext false)
           to label %.noexc14 unwind label %.body.thread31
@@ -18147,10 +18147,10 @@ _ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit18: ; pred
   br label %.noexc19
 
 .noexc19:                                         ; preds = %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit18, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit
-  %.sink58 = phi ptr [ %55, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit18 ], [ %33, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit ]
+  %.sink59 = phi ptr [ %55, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit18 ], [ %33, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit ]
   %.sink = phi i64 [ %51, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit18 ], [ %5, %_ZN14ide_completion4item7Builder11insert_text17h723ce3d17d9aa31bE.exit ]
   %.sroa.53.0..sroa_idx4.i12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %.sink58, ptr %.sroa.53.0..sroa_idx4.i12, align 8, !noalias !4
+  store ptr %.sink59, ptr %.sroa.53.0..sroa_idx4.i12, align 8, !noalias !4
   %.sroa.6.0..sroa_idx6.i13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx6.i13, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

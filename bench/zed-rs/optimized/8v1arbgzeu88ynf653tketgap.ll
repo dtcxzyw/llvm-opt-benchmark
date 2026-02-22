@@ -68690,18 +68690,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h127ef1d
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %1, align 8, !nonnull !14
-  %.fr10 = freeze ptr %7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.fr11 = freeze ptr %9
-  %10 = icmp eq ptr %.fr10, %.fr11
+  %10 = icmp eq ptr %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = icmp ne ptr %.fr11, %.fr10
+  %12 = icmp ne ptr %9, %7
   %spec.select.i.i = sext i1 %12 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted8 = load ptr, ptr %6, align 8, !alias.scope !20966
   %.promoted9 = load ptr, ptr %5, align 8, !alias.scope !20966
-  br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %10
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %27
   %14 = phi ptr [ %19, %27 ], [ %.promoted9, %.lr.ph ]
@@ -68713,8 +68712,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h127ef1d
   br i1 %17, label %._crit_edge7.split.us, label %18
 
 ._crit_edge7.split.us:                            ; preds = %.lr.ph.split.us
-  store ptr %.fr10, ptr %5, align 8, !alias.scope !20966
-  store ptr %.fr11, ptr %6, align 8, !alias.scope !20966
+  store ptr %7, ptr %5, align 8, !alias.scope !20966
+  store ptr %9, ptr %6, align 8, !alias.scope !20966
   br label %._crit_edge
 
 18:                                               ; preds = %.lr.ph.split.us
@@ -68760,12 +68759,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h127ef1d
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %.lr.ph.split
-  store ptr %.fr11, ptr %6, align 8, !alias.scope !20966
+  store ptr %9, ptr %6, align 8, !alias.scope !20966
   br label %38
 
 38:                                               ; preds = %37, %.lr.ph.split
-  %39 = phi ptr [ %33, %.lr.ph.split ], [ %.fr11, %37 ]
-  %.sink8.i.i.i = phi ptr [ %32, %.lr.ph.split ], [ %.fr10, %37 ]
+  %39 = phi ptr [ %33, %.lr.ph.split ], [ %9, %37 ]
+  %.sink8.i.i.i = phi ptr [ %32, %.lr.ph.split ], [ %7, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 1
   store ptr %40, ptr %5, align 8, !alias.scope !20966
   %41 = load i8, ptr %.sink8.i.i.i, align 1, !alias.scope !20975, !noalias !20973, !noundef !14

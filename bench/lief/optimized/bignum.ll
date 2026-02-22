@@ -1444,19 +1444,19 @@ mbedtls_mpi_cmp_int.exit.us.i:                    ; preds = %92
   br label %106
 
 106:                                              ; preds = %106, %103
-  %.03540.i.i = phi i64 [ 0, %103 ], [ %115, %106 ]
-  %.03639.i.i = phi i64 [ %104, %103 ], [ %116, %106 ]
-  %107 = getelementptr i64, ptr %105, i64 %.03639.i.i
+  %.03542.i.i = phi i64 [ 0, %103 ], [ %115, %106 ]
+  %.03641.i.i = phi i64 [ %104, %103 ], [ %116, %106 ]
+  %107 = getelementptr i64, ptr %105, i64 %.03641.i.i
   %108 = getelementptr i8, ptr %107, i64 -8
   %109 = load i64, ptr %108, align 8, !tbaa !17
-  %.fr38.i.i = freeze i64 %109
-  %110 = call i64 @llvm.fshl.i64(i64 %.03540.i.i, i64 %.fr38.i.i, i64 32)
+  %.fr40.i.i = freeze i64 %109
+  %110 = call i64 @llvm.fshl.i64(i64 %.03542.i.i, i64 %.fr40.i.i, i64 32)
   %111 = urem i64 %110, %72
-  %112 = and i64 %.fr38.i.i, 4294967295
+  %112 = and i64 %.fr40.i.i, 4294967295
   %113 = shl nuw nsw i64 %111, 32
   %114 = or disjoint i64 %113, %112
   %115 = urem i64 %114, %72
-  %116 = add nsw i64 %.03639.i.i, -1
+  %116 = add nsw i64 %.03641.i.i, -1
   %.not.i.i = icmp eq i64 %116, 0
   br i1 %.not.i.i, label %117, label %106, !llvm.loop !32
 
@@ -3239,19 +3239,19 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i134, %
 107:                                              ; preds = %104
   %108 = call i32 @mbedtls_mpi_shift_l(ptr noundef nonnull %6, i64 noundef %105)
   %.not114 = icmp eq i32 %108, 0
-  br i1 %.not114, label %._crit_edge183, label %mbedtls_mpi_lset.exit
+  br i1 %.not114, label %._crit_edge184, label %mbedtls_mpi_lset.exit
 
-._crit_edge183:                                   ; preds = %107
+._crit_edge184:                                   ; preds = %107
   %.pre = load i16, ptr %28, align 2, !tbaa !3
   br label %109
 
-109:                                              ; preds = %._crit_edge183, %98
-  %110 = phi i16 [ %.pre, %._crit_edge183 ], [ %100, %98 ]
-  %.0 = phi i64 [ %105, %._crit_edge183 ], [ 0, %98 ]
+109:                                              ; preds = %._crit_edge184, %98
+  %110 = phi i16 [ %.pre, %._crit_edge184 ], [ %100, %98 ]
+  %.0 = phi i64 [ %105, %._crit_edge184 ], [ 0, %98 ]
   %111 = load i16, ptr %26, align 2, !tbaa !3
   %112 = zext i16 %111 to i64
-  %.fr175 = freeze i16 %110
-  %113 = zext i16 %.fr175 to i64
+  %.fr176 = freeze i16 %110
+  %113 = zext i16 %.fr176 to i64
   %114 = add nsw i64 %113, -1
   %115 = sub nsw i64 %112, %113
   %116 = shl nsw i64 %115, 6
@@ -3841,19 +3841,19 @@ define hidden range(i32 -12, 1) i32 @mbedtls_mpi_mod_int(ptr noundef writeonly c
   br label %22
 
 22:                                               ; preds = %19, %22
-  %.03540 = phi i64 [ 0, %19 ], [ %31, %22 ]
-  %.03639 = phi i64 [ %20, %19 ], [ %32, %22 ]
-  %23 = getelementptr i64, ptr %21, i64 %.03639
+  %.03542 = phi i64 [ 0, %19 ], [ %31, %22 ]
+  %.03641 = phi i64 [ %20, %19 ], [ %32, %22 ]
+  %23 = getelementptr i64, ptr %21, i64 %.03641
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load i64, ptr %24, align 8, !tbaa !17
-  %.fr38 = freeze i64 %25
-  %26 = tail call i64 @llvm.fshl.i64(i64 %.03540, i64 %.fr38, i64 32)
+  %.fr40 = freeze i64 %25
+  %26 = tail call i64 @llvm.fshl.i64(i64 %.03542, i64 %.fr40, i64 32)
   %27 = urem i64 %26, %2
-  %28 = and i64 %.fr38, 4294967295
+  %28 = and i64 %.fr40, 4294967295
   %29 = shl i64 %27, 32
   %30 = or disjoint i64 %29, %28
   %31 = urem i64 %30, %2
-  %32 = add nsw i64 %.03639, -1
+  %32 = add nsw i64 %.03641, -1
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %33, label %22, !llvm.loop !32
 
@@ -5499,19 +5499,19 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   br label %17
 
 17:                                               ; preds = %17, %15
-  %.03540.i = phi i64 [ 0, %15 ], [ %26, %17 ]
-  %.03639.i = phi i64 [ %16, %15 ], [ %27, %17 ]
-  %18 = getelementptr i64, ptr %2, i64 %.03639.i
+  %.03542.i = phi i64 [ 0, %15 ], [ %26, %17 ]
+  %.03641.i = phi i64 [ %16, %15 ], [ %27, %17 ]
+  %18 = getelementptr i64, ptr %2, i64 %.03641.i
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !17
-  %.fr38.i = freeze i64 %20
-  %21 = tail call i64 @llvm.fshl.i64(i64 %.03540.i, i64 %.fr38.i, i64 32)
+  %.fr40.i = freeze i64 %20
+  %21 = tail call i64 @llvm.fshl.i64(i64 %.03542.i, i64 %.fr40.i, i64 32)
   %22 = urem i64 %21, %9
-  %23 = and i64 %.fr38.i, 4294967295
+  %23 = and i64 %.fr40.i, 4294967295
   %24 = shl nuw i64 %22, 32
   %25 = or disjoint i64 %24, %23
   %26 = urem i64 %25, %9
-  %27 = add nsw i64 %.03639.i, -1
+  %27 = add nsw i64 %.03641.i, -1
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %28, label %17, !llvm.loop !32
 
@@ -6470,11 +6470,11 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
 69:                                               ; preds = %67
   %70 = zext i16 %68 to i64
   tail call void @mbedtls_mpi_core_shift_r(ptr noundef nonnull %62, i64 noundef %70, i64 noundef %59) #17
-  %.pre125 = load ptr, ptr %0, align 8, !tbaa !12
+  %.pre126 = load ptr, ptr %0, align 8, !tbaa !12
   br label %mbedtls_mpi_shift_r.exit.us.us
 
 mbedtls_mpi_shift_r.exit.us.us:                   ; preds = %69, %67
-  %71 = phi ptr [ %.pre125, %69 ], [ %62, %67 ]
+  %71 = phi ptr [ %.pre126, %69 ], [ %62, %67 ]
   %72 = load i64, ptr %71, align 8, !tbaa !17
   %73 = or i64 %72, 1
   store i64 %73, ptr %71, align 8, !tbaa !17
@@ -6562,19 +6562,19 @@ mbedtls_mpi_shift_r.exit.us:                      ; preds = %.lr.ph.split.split,
   br label %107
 
 107:                                              ; preds = %107, %105
-  %.03540.i = phi i64 [ 0, %105 ], [ %116, %107 ]
-  %.03639.i = phi i64 [ %106, %105 ], [ %117, %107 ]
-  %108 = getelementptr i64, ptr %.sink, i64 %.03639.i
+  %.03542.i = phi i64 [ 0, %105 ], [ %116, %107 ]
+  %.03641.i = phi i64 [ %106, %105 ], [ %117, %107 ]
+  %108 = getelementptr i64, ptr %.sink, i64 %.03641.i
   %109 = getelementptr i8, ptr %108, i64 -8
   %110 = load i64, ptr %109, align 8, !tbaa !17
-  %.fr38.i = freeze i64 %110
-  %111 = tail call i64 @llvm.fshl.i64(i64 %.03540.i, i64 %.fr38.i, i64 32)
+  %.fr40.i = freeze i64 %110
+  %111 = tail call i64 @llvm.fshl.i64(i64 %.03542.i, i64 %.fr40.i, i64 32)
   %112 = urem i64 %111, 3
-  %113 = and i64 %.fr38.i, 4294967295
+  %113 = and i64 %.fr40.i, 4294967295
   %114 = shl nuw nsw i64 %112, 32
   %115 = or disjoint i64 %114, %113
   %116 = urem i64 %115, 3
-  %117 = add nsw i64 %.03639.i, -1
+  %117 = add nsw i64 %.03641.i, -1
   %.not.i88 = icmp eq i64 %117, 0
   br i1 %.not.i88, label %mbedtls_mpi_mod_int.exit, label %107, !llvm.loop !32
 

@@ -547,7 +547,7 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   %118 = icmp ult i32 %2, 2
   %119 = and i1 %118, %117
   %spec.select = select i1 %119, i32 16, i32 15
-  %spec.select22 = select i1 %119, ptr @skl_planar_formats, ptr @skl_plane_formats
+  %spec.select23 = select i1 %119, ptr @skl_planar_formats, ptr @skl_plane_formats
   br label %.thread17
 
 .thread9:                                         ; preds = %.thread, %94, %80
@@ -557,9 +557,9 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   %123 = icmp ugt i16 %120, 11
   %124 = select i1 %123, ptr @gen12_plane_funcs, ptr @skl_plane_funcs
   %125 = icmp ult i16 %120, 13
-  br i1 %125, label %.thread17, label %.thread17.thread48
+  br i1 %125, label %.thread17, label %.thread17.thread49
 
-.thread17.thread48:                               ; preds = %.thread9
+.thread17.thread49:                               ; preds = %.thread9
   %126 = getelementptr i8, ptr %0, i64 7188
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, 512
@@ -570,19 +570,19 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
 .thread17:                                        ; preds = %114, %113, %.thread9
   %130 = phi i16 [ %.fr, %113 ], [ %120, %.thread9 ], [ %.fr, %114 ]
   %131 = phi ptr [ @skl_plane_funcs, %113 ], [ %124, %.thread9 ], [ @skl_plane_funcs, %114 ]
-  %132 = phi ptr [ @skl_plane_formats, %113 ], [ %122, %.thread9 ], [ %spec.select22, %114 ]
+  %132 = phi ptr [ @skl_plane_formats, %113 ], [ %122, %.thread9 ], [ %spec.select23, %114 ]
   %133 = phi i32 [ 15, %113 ], [ %121, %.thread9 ], [ %spec.select, %114 ]
-  %.fr52 = freeze i16 %130
-  %134 = icmp ult i16 %.fr52, 12
-  %spec.select51 = select i1 %134, i8 56, i8 24
+  %.fr53 = freeze i16 %130
+  %134 = icmp ult i16 %.fr53, 12
+  %spec.select52 = select i1 %134, i8 56, i8 24
   br label %135
 
-135:                                              ; preds = %.thread17, %.thread17.thread, %.thread17.thread48
-  %136 = phi i16 [ %120, %.thread17.thread48 ], [ %.fr52, %.thread17 ], [ 10, %.thread17.thread ]
-  %137 = phi i32 [ %121, %.thread17.thread48 ], [ %133, %.thread17 ], [ %111, %.thread17.thread ]
-  %138 = phi ptr [ %122, %.thread17.thread48 ], [ %132, %.thread17 ], [ %112, %.thread17.thread ]
-  %139 = phi ptr [ %124, %.thread17.thread48 ], [ %131, %.thread17 ], [ @skl_plane_funcs, %.thread17.thread ]
-  %140 = phi i8 [ %spec.select20, %.thread17.thread48 ], [ %spec.select51, %.thread17 ], [ 56, %.thread17.thread ]
+135:                                              ; preds = %.thread17, %.thread17.thread, %.thread17.thread49
+  %136 = phi i16 [ %120, %.thread17.thread49 ], [ %.fr53, %.thread17 ], [ 10, %.thread17.thread ]
+  %137 = phi i32 [ %121, %.thread17.thread49 ], [ %133, %.thread17 ], [ %111, %.thread17.thread ]
+  %138 = phi ptr [ %122, %.thread17.thread49 ], [ %132, %.thread17 ], [ %112, %.thread17.thread ]
+  %139 = phi ptr [ %124, %.thread17.thread49 ], [ %131, %.thread17 ], [ @skl_plane_funcs, %.thread17.thread ]
+  %140 = phi i8 [ %spec.select20, %.thread17.thread49 ], [ %spec.select52, %.thread17 ], [ 56, %.thread17.thread ]
   %141 = zext i1 %67 to i32
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %143 = getelementptr i8, ptr %0, i64 7188
@@ -626,18 +626,18 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   tail call void asm sideeffect "971: nop\0A\09.pushsection .discard.instr_end\0A\09.long 971b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 971) #12, !srcloc !20
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_end\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #12, !srcloc !21
   %.pre = load i8, ptr %154, align 1
-  %.pre24.pre = load i16, ptr %35, align 8
+  %.pre25.pre = load i16, ptr %35, align 8
   br label %169
 
 169:                                              ; preds = %167, %153
-  %.pre24 = phi i16 [ %.pre24.pre, %167 ], [ %136, %153 ]
+  %.pre25 = phi i16 [ %.pre25.pre, %167 ], [ %136, %153 ]
   %170 = phi i8 [ %.pre, %167 ], [ %155, %153 ]
   %171 = add i8 %170, -1
   %172 = icmp ult i8 %171, 4
   br i1 %172, label %188, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %169, %135
-  %173 = phi i16 [ %136, %135 ], [ %.pre24, %169 ]
+  %173 = phi i16 [ %136, %135 ], [ %.pre25, %169 ]
   %174 = icmp ugt i16 %173, 10
   br i1 %174, label %184, label %175
 
@@ -663,7 +663,7 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   br label %188
 
 188:                                              ; preds = %184, %169
-  %189 = phi i16 [ %.pre24, %169 ], [ %173, %184 ]
+  %189 = phi i16 [ %.pre25, %169 ], [ %173, %184 ]
   %190 = phi i8 [ %150, %169 ], [ %187, %184 ]
   %191 = icmp ult i16 %189, 12
   br i1 %191, label %.thread19, label %192
@@ -708,21 +708,21 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2271, i32 2313, i64 12) #12, !srcloc !24
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_end\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #12, !srcloc !25
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_end\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #12, !srcloc !26
-  %.pre25 = load i8, ptr %201, align 1
+  %.pre26 = load i8, ptr %201, align 1
   br label %216
 
 216:                                              ; preds = %214, %200
-  %217 = phi i8 [ %.pre25, %214 ], [ %202, %200 ]
+  %217 = phi i8 [ %.pre26, %214 ], [ %202, %200 ]
   %218 = add i8 %217, -1
   %219 = icmp ult i8 %218, 12
-  br i1 %219, label %.thread19, label %._crit_edge26
+  br i1 %219, label %.thread19, label %._crit_edge27
 
-._crit_edge26:                                    ; preds = %216
-  %.pre27 = load i32, ptr %143, align 4
+._crit_edge27:                                    ; preds = %216
+  %.pre28 = load i32, ptr %143, align 4
   br label %220
 
-220:                                              ; preds = %._crit_edge26, %197
-  %221 = phi i32 [ %.pre27, %._crit_edge26 ], [ %193, %197 ]
+220:                                              ; preds = %._crit_edge27, %197
+  %221 = phi i32 [ %.pre28, %._crit_edge27 ], [ %193, %197 ]
   %222 = and i32 %221, 512
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %244, label %224
@@ -755,11 +755,11 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2275, i32 2313, i64 12) #12, !srcloc !29
   tail call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #12, !srcloc !30
   tail call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_end\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #12, !srcloc !31
-  %.pre28 = load i8, ptr %225, align 1
+  %.pre29 = load i8, ptr %225, align 1
   br label %240
 
 240:                                              ; preds = %238, %224
-  %241 = phi i8 [ %.pre28, %238 ], [ %226, %224 ]
+  %241 = phi i8 [ %.pre29, %238 ], [ %226, %224 ]
   %242 = add i8 %241, -1
   %243 = icmp ult i8 %242, 4
   br i1 %243, label %.thread19, label %244

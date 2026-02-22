@@ -1405,7 +1405,6 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
 
 7:                                                ; preds = %5
   %.sroa.065.0.copyload = load double, ptr %0, align 8, !tbaa !23
-  %.sroa.065.0.copyload.fr = freeze double %.sroa.065.0.copyload
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.13.0.copyload = load double, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1458,15 +1457,15 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
   ]
 
 30:                                               ; preds = %28
-  %31 = fcmp oeq double %.sroa.065.0.copyload.fr, %.sroa.057.0.copyload
+  %31 = fcmp oeq double %.sroa.065.0.copyload, %.sroa.057.0.copyload
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %30
-  store double %.sroa.065.0.copyload.fr, ptr %2, align 8, !tbaa !23
+  store double %.sroa.065.0.copyload, ptr %2, align 8, !tbaa !23
   %33 = fsub double %.sroa.12.0.copyload, %.sroa.1042.0.copyload
   %34 = fsub double %.sroa.046.0.copyload, %.sroa.037.0.copyload
   %35 = fdiv double %33, %34
-  %36 = fsub double %.sroa.065.0.copyload.fr, %.sroa.037.0.copyload
+  %36 = fsub double %.sroa.065.0.copyload, %.sroa.037.0.copyload
   %37 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %.sroa.1042.0.copyload)
   br label %online.exit204.thread.sink.split
 
@@ -1477,7 +1476,7 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
 40:                                               ; preds = %38
   store double %.sroa.046.0.copyload, ptr %2, align 8, !tbaa !23
   %41 = fsub double %.sroa.13.0.copyload, %.sroa.11.0.copyload
-  %42 = fsub double %.sroa.065.0.copyload.fr, %.sroa.057.0.copyload
+  %42 = fsub double %.sroa.065.0.copyload, %.sroa.057.0.copyload
   %43 = fdiv double %41, %42
   %44 = fsub double %.sroa.046.0.copyload, %.sroa.057.0.copyload
   %45 = tail call double @llvm.fmuladd.f64(double %43, double %44, double %.sroa.11.0.copyload)
@@ -1488,12 +1487,12 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
   %48 = fsub double %.sroa.046.0.copyload, %.sroa.037.0.copyload
   %49 = fdiv double %47, %48
   %50 = fsub double %.sroa.13.0.copyload, %.sroa.11.0.copyload
-  %51 = fsub double %.sroa.065.0.copyload.fr, %.sroa.057.0.copyload
+  %51 = fsub double %.sroa.065.0.copyload, %.sroa.057.0.copyload
   %52 = fdiv double %50, %51
   %53 = fneg double %49
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %.sroa.046.0.copyload, double %.sroa.12.0.copyload)
   %55 = fneg double %52
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double %.sroa.065.0.copyload.fr, double %.sroa.13.0.copyload)
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double %.sroa.065.0.copyload, double %.sroa.13.0.copyload)
   %57 = fsub double %56, %54
   %58 = fsub double %49, %52
   %59 = fdiv double %57, %58
@@ -1517,11 +1516,11 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
 68:                                               ; preds = %66, %64
   %69 = phi ptr [ %65, %64 ], [ %67, %66 ]
   %.sroa.05.0.copyload.i = load double, ptr %69, align 8, !tbaa !23
-  %70 = fcmp oeq double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i
+  %70 = fcmp oeq double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i
   br i1 %70, label %online.exit.thread, label %71
 
 71:                                               ; preds = %68
-  %72 = fcmp olt double %.sroa.065.0.copyload.fr, %.sroa.046.0.copyload
+  %72 = fcmp olt double %.sroa.065.0.copyload, %.sroa.046.0.copyload
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
@@ -1529,7 +1528,7 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
   br i1 %74, label %78, label %online.exit.thread
 
 75:                                               ; preds = %71
-  %76 = fcmp ule double %.sroa.065.0.copyload.fr, %.sroa.046.0.copyload
+  %76 = fcmp ule double %.sroa.065.0.copyload, %.sroa.046.0.copyload
   %77 = fcmp uge double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i
   %or.cond.not = or i1 %76, %77
   br i1 %or.cond.not, label %online.exit.thread, label %78
@@ -1592,24 +1591,28 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captur
 103:                                              ; preds = %101, %99
   %104 = phi ptr [ %100, %99 ], [ %102, %101 ]
   %.sroa.05.0.copyload.i140 = load double, ptr %104, align 8, !tbaa !23
-  %.sroa.05.0.copyload.i140.fr = freeze double %.sroa.05.0.copyload.i140
-  %105 = fcmp oeq double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i140.fr
+  %105 = fcmp oeq double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i140
   br i1 %105, label %online.exit136.thread, label %106
 
 106:                                              ; preds = %103
-  %107 = fcmp olt double %.sroa.046.0.copyload, %.sroa.065.0.copyload.fr
-  br i1 %107, label %108, label %110
+  %107 = fcmp olt double %.sroa.046.0.copyload, %.sroa.065.0.copyload
+  %108 = fcmp olt double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i140
+  %.fr = freeze i1 %108
+  br i1 %107, label %109, label %110
 
-108:                                              ; preds = %106
-  %109 = fcmp ogt double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i140.fr
-  br i1 %109, label %112, label %online.exit136.thread
+109:                                              ; preds = %106
+  br i1 %.fr, label %online.exit136.thread, label %online.exit153
 
 110:                                              ; preds = %106
-  %111 = fcmp olt double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i140.fr
-  %spec.select = and i1 %72, %111
+  %spec.select = and i1 %72, %.fr
   br i1 %spec.select, label %112, label %online.exit136.thread
 
-112:                                              ; preds = %108, %110
+online.exit153:                                   ; preds = %109
+  %111 = fcmp ogt double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i140
+  %cond.fr = freeze i1 %111
+  br i1 %cond.fr, label %112, label %online.exit136.thread
+
+112:                                              ; preds = %online.exit153, %110
   br label %online.exit136.thread
 
 online.exit.thread:                               ; preds = %68, %75, %73
@@ -1639,11 +1642,11 @@ online.exit.thread:                               ; preds = %68, %75, %73
 123:                                              ; preds = %121, %119
   %.pn.i160 = phi ptr [ %122, %121 ], [ %120, %119 ]
   %.sroa.0.0.i161 = load double, ptr %.pn.i160, align 8, !tbaa !23
-  %124 = fcmp oeq double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i157
+  %124 = fcmp oeq double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i157
   br i1 %124, label %online.exit170.thread, label %125
 
 125:                                              ; preds = %123
-  %126 = fcmp olt double %.sroa.065.0.copyload.fr, %.sroa.0.0.i161
+  %126 = fcmp olt double %.sroa.065.0.copyload, %.sroa.0.0.i161
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125
@@ -1651,7 +1654,7 @@ online.exit.thread:                               ; preds = %68, %75, %73
   br i1 %128, label %132, label %online.exit170.thread
 
 129:                                              ; preds = %125
-  %130 = fcmp ule double %.sroa.065.0.copyload.fr, %.sroa.0.0.i161
+  %130 = fcmp ule double %.sroa.065.0.copyload, %.sroa.0.0.i161
   %131 = fcmp uge double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
   %or.cond236.not = select i1 %130, i1 true, i1 %131
   br i1 %or.cond236.not, label %online.exit170.thread, label %132
@@ -1670,11 +1673,11 @@ online.exit.thread:                               ; preds = %68, %75, %73
 137:                                              ; preds = %135, %133
   %138 = phi ptr [ %134, %133 ], [ %136, %135 ]
   %.sroa.05.0.copyload.i174 = load double, ptr %138, align 8, !tbaa !23
-  %139 = fcmp oeq double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i174
+  %139 = fcmp oeq double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i174
   br i1 %139, label %online.exit136.thread, label %140
 
 140:                                              ; preds = %137
-  %141 = fcmp olt double %.sroa.065.0.copyload.fr, %.sroa.046.0.copyload
+  %141 = fcmp olt double %.sroa.065.0.copyload, %.sroa.046.0.copyload
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140
@@ -1682,7 +1685,7 @@ online.exit.thread:                               ; preds = %68, %75, %73
   br i1 %143, label %147, label %online.exit136.thread
 
 144:                                              ; preds = %140
-  %145 = fcmp ule double %.sroa.065.0.copyload.fr, %.sroa.046.0.copyload
+  %145 = fcmp ule double %.sroa.065.0.copyload, %.sroa.046.0.copyload
   %146 = fcmp uge double %.sroa.046.0.copyload, %.sroa.05.0.copyload.i174
   %or.cond238.not = or i1 %145, %146
   br i1 %or.cond238.not, label %online.exit136.thread, label %147
@@ -1690,7 +1693,7 @@ online.exit.thread:                               ; preds = %68, %75, %73
 147:                                              ; preds = %142, %144
   %148 = tail call fastcc i32 @online(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 0)
   %149 = icmp eq i32 %148, -1
-  %.sroa.057.0.copyload..sroa.065.0.copyload119 = select i1 %149, double %.sroa.057.0.copyload, double %.sroa.065.0.copyload.fr
+  %.sroa.057.0.copyload..sroa.065.0.copyload119 = select i1 %149, double %.sroa.057.0.copyload, double %.sroa.065.0.copyload
   %.sroa.11.0.copyload..sroa.13.0.copyload120 = select i1 %149, double %.sroa.11.0.copyload, double %.sroa.13.0.copyload
   br label %online.exit136.thread
 
@@ -1712,24 +1715,24 @@ online.exit170.thread:                            ; preds = %123, %129, %127
   br i1 %156, label %online.exit204.thread, label %157
 
 157:                                              ; preds = %154
-  %158 = fcmp olt double %.sroa.046.0.copyload, %.sroa.065.0.copyload.fr
+  %158 = fcmp olt double %.sroa.046.0.copyload, %.sroa.065.0.copyload
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %157
-  %160 = fcmp ogt double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i191
+  %160 = fcmp ogt double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i191
   br i1 %160, label %online.exit136.thread, label %online.exit204.thread
 
 161:                                              ; preds = %157
-  %162 = fcmp ule double %.sroa.046.0.copyload, %.sroa.065.0.copyload.fr
-  %163 = fcmp uge double %.sroa.065.0.copyload.fr, %.sroa.05.0.copyload.i191
+  %162 = fcmp ule double %.sroa.046.0.copyload, %.sroa.065.0.copyload
+  %163 = fcmp uge double %.sroa.065.0.copyload, %.sroa.05.0.copyload.i191
   %or.cond240.not = or i1 %162, %163
   br i1 %or.cond240.not, label %online.exit204.thread, label %online.exit136.thread
 
-online.exit136.thread:                            ; preds = %110, %159, %161, %108, %103, %112, %137, %89, %144, %142, %95, %93, %147
-  %.sroa.0.0 = phi double [ %.sroa.065.0.copyload.fr, %108 ], [ %.sroa.057.0.copyload, %161 ], [ %.sroa.065.0.copyload.fr, %103 ], [ %.sroa.057.0.copyload..sroa.065.0.copyload119, %147 ], [ %.sroa.057.0.copyload, %159 ], [ %.sroa.037.0.copyload, %89 ], [ %.sroa.046.0.copyload, %144 ], [ %.sroa.037.0.copyload, %93 ], [ %.sroa.046.0.copyload, %142 ], [ %.sroa.037.0.copyload, %95 ], [ %.sroa.046.0.copyload, %137 ], [ %.sroa.057.0.copyload, %112 ], [ %.sroa.065.0.copyload.fr, %110 ]
-  %.sroa.10.0 = phi double [ %.sroa.13.0.copyload, %108 ], [ %.sroa.11.0.copyload, %161 ], [ %.sroa.13.0.copyload, %103 ], [ %.sroa.11.0.copyload..sroa.13.0.copyload120, %147 ], [ %.sroa.11.0.copyload, %159 ], [ %.sroa.1042.0.copyload, %89 ], [ %.sroa.12.0.copyload, %144 ], [ %.sroa.1042.0.copyload, %93 ], [ %.sroa.12.0.copyload, %142 ], [ %.sroa.1042.0.copyload, %95 ], [ %.sroa.12.0.copyload, %137 ], [ %.sroa.11.0.copyload, %112 ], [ %.sroa.13.0.copyload, %110 ]
-  %.sroa.030.0 = phi double [ %.sroa.046.0.copyload, %108 ], [ %.sroa.065.0.copyload.fr, %161 ], [ %.sroa.046.0.copyload, %103 ], [ %.sroa.037.0.copyload, %147 ], [ %.sroa.065.0.copyload.fr, %159 ], [ %.sroa.046.0.copyload, %89 ], [ %.sroa.037.0.copyload, %144 ], [ %.sroa.046.0.copyload, %93 ], [ %.sroa.037.0.copyload, %142 ], [ %.sroa.046.0.copyload, %95 ], [ %.sroa.037.0.copyload, %137 ], [ %.sroa.046.0.copyload, %112 ], [ %.sroa.046.0.copyload, %110 ]
-  %.sroa.6.0 = phi double [ %.sroa.12.0.copyload, %108 ], [ %.sroa.13.0.copyload, %161 ], [ %.sroa.12.0.copyload, %103 ], [ %.sroa.1042.0.copyload, %147 ], [ %.sroa.13.0.copyload, %159 ], [ %.sroa.12.0.copyload, %89 ], [ %.sroa.1042.0.copyload, %144 ], [ %.sroa.12.0.copyload, %93 ], [ %.sroa.1042.0.copyload, %142 ], [ %.sroa.12.0.copyload, %95 ], [ %.sroa.1042.0.copyload, %137 ], [ %.sroa.12.0.copyload, %112 ], [ %.sroa.12.0.copyload, %110 ]
+online.exit136.thread:                            ; preds = %online.exit153, %110, %159, %161, %109, %103, %112, %137, %89, %144, %142, %95, %93, %147
+  %.sroa.0.0 = phi double [ %.sroa.065.0.copyload, %109 ], [ %.sroa.057.0.copyload, %161 ], [ %.sroa.065.0.copyload, %103 ], [ %.sroa.057.0.copyload..sroa.065.0.copyload119, %147 ], [ %.sroa.057.0.copyload, %159 ], [ %.sroa.037.0.copyload, %89 ], [ %.sroa.046.0.copyload, %144 ], [ %.sroa.037.0.copyload, %93 ], [ %.sroa.046.0.copyload, %142 ], [ %.sroa.037.0.copyload, %95 ], [ %.sroa.046.0.copyload, %137 ], [ %.sroa.057.0.copyload, %112 ], [ %.sroa.065.0.copyload, %110 ], [ %.sroa.065.0.copyload, %online.exit153 ]
+  %.sroa.10.0 = phi double [ %.sroa.13.0.copyload, %109 ], [ %.sroa.11.0.copyload, %161 ], [ %.sroa.13.0.copyload, %103 ], [ %.sroa.11.0.copyload..sroa.13.0.copyload120, %147 ], [ %.sroa.11.0.copyload, %159 ], [ %.sroa.1042.0.copyload, %89 ], [ %.sroa.12.0.copyload, %144 ], [ %.sroa.1042.0.copyload, %93 ], [ %.sroa.12.0.copyload, %142 ], [ %.sroa.1042.0.copyload, %95 ], [ %.sroa.12.0.copyload, %137 ], [ %.sroa.11.0.copyload, %112 ], [ %.sroa.13.0.copyload, %110 ], [ %.sroa.13.0.copyload, %online.exit153 ]
+  %.sroa.030.0 = phi double [ %.sroa.046.0.copyload, %109 ], [ %.sroa.065.0.copyload, %161 ], [ %.sroa.046.0.copyload, %103 ], [ %.sroa.037.0.copyload, %147 ], [ %.sroa.065.0.copyload, %159 ], [ %.sroa.046.0.copyload, %89 ], [ %.sroa.037.0.copyload, %144 ], [ %.sroa.046.0.copyload, %93 ], [ %.sroa.037.0.copyload, %142 ], [ %.sroa.046.0.copyload, %95 ], [ %.sroa.037.0.copyload, %137 ], [ %.sroa.046.0.copyload, %112 ], [ %.sroa.046.0.copyload, %110 ], [ %.sroa.046.0.copyload, %online.exit153 ]
+  %.sroa.6.0 = phi double [ %.sroa.12.0.copyload, %109 ], [ %.sroa.13.0.copyload, %161 ], [ %.sroa.12.0.copyload, %103 ], [ %.sroa.1042.0.copyload, %147 ], [ %.sroa.13.0.copyload, %159 ], [ %.sroa.12.0.copyload, %89 ], [ %.sroa.1042.0.copyload, %144 ], [ %.sroa.12.0.copyload, %93 ], [ %.sroa.1042.0.copyload, %142 ], [ %.sroa.12.0.copyload, %95 ], [ %.sroa.1042.0.copyload, %137 ], [ %.sroa.12.0.copyload, %112 ], [ %.sroa.12.0.copyload, %110 ], [ %.sroa.12.0.copyload, %online.exit153 ]
   %164 = fadd double %.sroa.0.0, %.sroa.030.0
   %165 = fmul double %164, 5.000000e-01
   store double %165, ptr %2, align 8, !tbaa !23
@@ -1738,11 +1741,11 @@ online.exit136.thread:                            ; preds = %110, %159, %161, %1
   br label %online.exit204.thread.sink.split
 
 168:                                              ; preds = %28
-  %169 = fsub double %.sroa.065.0.copyload.fr, %.sroa.057.0.copyload
+  %169 = fsub double %.sroa.065.0.copyload, %.sroa.057.0.copyload
   %170 = fsub double %.sroa.12.0.copyload, %.sroa.13.0.copyload
   %171 = fmul double %169, %170
   %172 = fsub double %.sroa.13.0.copyload, %.sroa.11.0.copyload
-  %173 = fsub double %.sroa.046.0.copyload, %.sroa.065.0.copyload.fr
+  %173 = fsub double %.sroa.046.0.copyload, %.sroa.065.0.copyload
   %174 = fmul double %172, %173
   %175 = fcmp oeq double %171, %174
   br i1 %175, label %176, label %177

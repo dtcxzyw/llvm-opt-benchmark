@@ -6153,8 +6153,8 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper9make_meshERK
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i64, ptr %44, align 8
-  %.fr62 = freeze i64 %45
-  %46 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr62, i64 12)
+  %.fr63 = freeze i64 %45
+  %46 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr63, i64 12)
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   %49 = select i1 %47, i64 -1, i64 %48
@@ -6244,7 +6244,7 @@ _ZN6aiFaceaSERKS_.exit:                           ; preds = %79, %.noexc35, %62
   br label %110
 
 81:                                               ; preds = %._crit_edge
-  %82 = icmp eq i64 %.fr62, 0
+  %82 = icmp eq i64 %.fr63, 0
   br i1 %82, label %.loopexit.thread, label %.lr.ph45
 
 .loopexit.thread:                                 ; preds = %81
@@ -6259,7 +6259,7 @@ _ZN6aiFaceaSERKS_.exit:                           ; preds = %79, %.noexc35, %62
   %86 = add i64 %85, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %50, i8 0, i64 %86, i1 false)
   store ptr %50, ptr %25, align 8
-  %87 = trunc i64 %.fr62 to i32
+  %87 = trunc i64 %.fr63 to i32
   store i32 %87, ptr %23, align 4
   br label %105
 
@@ -6323,7 +6323,7 @@ _ZNSt6vectorI6aiFaceSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6aiF
   %108 = getelementptr inbounds nuw %class.aiVector3t, ptr %50, i64 %.043
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %108, ptr noundef nonnull align 4 dereferenceable(12) %107, i64 12, i1 false)
   %109 = add nuw i64 %.043, 1
-  %exitcond52.not = icmp eq i64 %109, %.fr62
+  %exitcond52.not = icmp eq i64 %109, %.fr63
   br i1 %exitcond52.not, label %._crit_edge46, label %105, !llvm.loop !75
 
 110:                                              ; preds = %.loopexit37, %.loopexit.split-lp, %51, %103, %53, %18, %16
@@ -6430,8 +6430,8 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp12X3DGeoHelper14make_line_m
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i64, ptr %44, align 8
-  %.fr55 = freeze i64 %45
-  %46 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr55, i64 12)
+  %.fr56 = freeze i64 %45
+  %46 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr56, i64 12)
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   %49 = select i1 %47, i64 -1, i64 %48
@@ -6500,7 +6500,7 @@ _ZN6aiFaceaSERKS_.exit:                           ; preds = %72, %.noexc, %.lr.p
   br label %104
 
 76:                                               ; preds = %._crit_edge
-  %77 = icmp eq i64 %.fr55, 0
+  %77 = icmp eq i64 %.fr56, 0
   br i1 %77, label %.loopexit.thread, label %.lr.ph40
 
 .loopexit.thread:                                 ; preds = %76
@@ -6515,7 +6515,7 @@ _ZN6aiFaceaSERKS_.exit:                           ; preds = %72, %.noexc, %.lr.p
   %81 = add i64 %80, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %50, i8 0, i64 %81, i1 false)
   store ptr %50, ptr %24, align 8
-  %82 = trunc i64 %.fr55 to i32
+  %82 = trunc i64 %.fr56 to i32
   store i32 %82, ptr %22, align 4
   br label %99
 
@@ -6577,7 +6577,7 @@ _ZNSt6vectorI6aiFaceSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6aiF
   %102 = getelementptr inbounds nuw %class.aiVector3t, ptr %50, i64 %.038
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %102, ptr noundef nonnull align 4 dereferenceable(12) %101, i64 12, i1 false)
   %103 = add nuw i64 %.038, 1
-  %exitcond44.not = icmp eq i64 %103, %.fr55
+  %exitcond44.not = icmp eq i64 %103, %.fr56
   br i1 %exitcond44.not, label %._crit_edge41, label %99, !llvm.loop !78
 
 104:                                              ; preds = %51, %97, %74, %53, %17, %15

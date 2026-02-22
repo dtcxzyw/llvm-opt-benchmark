@@ -10409,18 +10409,18 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %148 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %149 = and i64 %148, 4294967295
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %._crit_edge35, label %158
+  br i1 %150, label %._crit_edge36, label %158
 
-._crit_edge35:                                    ; preds = %147
-  %.pre36 = load i32, ptr %8, align 4
+._crit_edge36:                                    ; preds = %147
+  %.pre37 = load i32, ptr %8, align 4
   br label %152
 
 151:                                              ; preds = %144
   store i32 %146, ptr %18, align 1
   br label %152
 
-152:                                              ; preds = %._crit_edge35, %151
-  %153 = phi i32 [ %.pre36, %._crit_edge35 ], [ %146, %151 ]
+152:                                              ; preds = %._crit_edge36, %151
+  %153 = phi i32 [ %.pre37, %._crit_edge36 ], [ %146, %151 ]
   %154 = sext i32 %153 to i64
   %155 = call fastcc i32 @copy_to_sockptr(ptr %3, i8 %4, ptr noundef nonnull %9, i64 noundef %154)
   %156 = icmp eq i32 %155, 0
@@ -10478,18 +10478,18 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %183 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %184 = and i64 %183, 4294967295
   %185 = icmp eq i64 %184, 0
-  br i1 %185, label %._crit_edge33, label %193
+  br i1 %185, label %._crit_edge34, label %193
 
-._crit_edge33:                                    ; preds = %182
-  %.pre34 = load i32, ptr %8, align 4
+._crit_edge34:                                    ; preds = %182
+  %.pre35 = load i32, ptr %8, align 4
   br label %187
 
 186:                                              ; preds = %178
   store i32 %181, ptr %18, align 1
   br label %187
 
-187:                                              ; preds = %._crit_edge33, %186
-  %188 = phi i32 [ %.pre34, %._crit_edge33 ], [ %181, %186 ]
+187:                                              ; preds = %._crit_edge34, %186
+  %188 = phi i32 [ %.pre35, %._crit_edge34 ], [ %181, %186 ]
   %189 = sext i32 %188 to i64
   %190 = call fastcc i32 @copy_to_sockptr(ptr %3, i8 %4, ptr noundef nonnull %10, i64 noundef %189)
   %191 = icmp eq i32 %190, 0
@@ -10528,10 +10528,10 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %211 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %212 = and i64 %211, 4294967295
   %213 = icmp eq i64 %212, 0
-  br i1 %213, label %._crit_edge31, label %572
+  br i1 %213, label %._crit_edge32, label %572
 
-._crit_edge31:                                    ; preds = %208
-  %.pre32 = load i32, ptr %8, align 4
+._crit_edge32:                                    ; preds = %208
+  %.pre33 = load i32, ptr %8, align 4
   br label %217
 
 214:                                              ; preds = %203
@@ -10541,8 +10541,8 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   store i32 %216, ptr %18, align 1
   br label %217
 
-217:                                              ; preds = %._crit_edge31, %214
-  %218 = phi i32 [ %.pre32, %._crit_edge31 ], [ %216, %214 ]
+217:                                              ; preds = %._crit_edge32, %214
+  %218 = phi i32 [ %.pre33, %._crit_edge32 ], [ %216, %214 ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 88
@@ -10595,19 +10595,19 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %249 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %250 = and i64 %249, 4294967295
   %251 = icmp eq i64 %250, 0
-  br i1 %251, label %._crit_edge29, label %572
+  br i1 %251, label %._crit_edge30, label %572
 
-._crit_edge29:                                    ; preds = %248
-  %.pre30 = load i32, ptr %8, align 4
+._crit_edge30:                                    ; preds = %248
+  %.pre31 = load i32, ptr %8, align 4
   br label %253
 
 252:                                              ; preds = %.thread17
   store i32 %238, ptr %18, align 1
   br label %253
 
-253:                                              ; preds = %._crit_edge29, %252
-  %254 = phi i32 [ %238, %252 ], [ %.pre30, %._crit_edge29 ]
-  %255 = phi ptr [ %239, %252 ], [ %234, %._crit_edge29 ]
+253:                                              ; preds = %._crit_edge30, %252
+  %254 = phi i32 [ %238, %252 ], [ %.pre31, %._crit_edge30 ]
+  %255 = phi ptr [ %239, %252 ], [ %234, %._crit_edge30 ]
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 64
   %258 = sext i32 %254 to i64
@@ -10644,18 +10644,18 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %275 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %276 = and i64 %275, 4294967295
   %277 = icmp eq i64 %276, 0
-  br i1 %277, label %._crit_edge27, label %285
+  br i1 %277, label %._crit_edge28, label %285
 
-._crit_edge27:                                    ; preds = %274
-  %.pre28 = load i32, ptr %8, align 4
+._crit_edge28:                                    ; preds = %274
+  %.pre29 = load i32, ptr %8, align 4
   br label %279
 
 278:                                              ; preds = %269
   store i32 %273, ptr %18, align 1
   br label %279
 
-279:                                              ; preds = %._crit_edge27, %278
-  %280 = phi i32 [ %.pre28, %._crit_edge27 ], [ %273, %278 ]
+279:                                              ; preds = %._crit_edge28, %278
+  %280 = phi i32 [ %.pre29, %._crit_edge28 ], [ %273, %278 ]
   %281 = sext i32 %280 to i64
   %282 = call fastcc i32 @copy_to_sockptr(ptr %3, i8 %4, ptr noundef nonnull %12, i64 noundef %281)
   %283 = icmp eq i32 %282, 0
@@ -10757,8 +10757,8 @@ copy_to_sockptr.exit.thread:                      ; preds = %323
 
 copy_to_sockptr.exit:                             ; preds = %323
   %340 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %13, i64 noundef 20) #22
-  %.fr = freeze i64 %340
-  %341 = and i64 %.fr, 4294967295
+  %.fr23 = freeze i64 %340
+  %341 = and i64 %.fr23, 4294967295
   %342 = icmp eq i64 %341, 0
   br i1 %342, label %343, label %344
 
@@ -10926,10 +10926,10 @@ copy_to_sockptr.exit:                             ; preds = %323
   %440 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %441 = and i64 %440, 4294967295
   %442 = icmp eq i64 %441, 0
-  br i1 %442, label %._crit_edge25, label %444
+  br i1 %442, label %._crit_edge26, label %444
 
-._crit_edge25:                                    ; preds = %439
-  %.pre26 = load i32, ptr %8, align 4
+._crit_edge26:                                    ; preds = %439
+  %.pre27 = load i32, ptr %8, align 4
   br label %445
 
 443:                                              ; preds = %438
@@ -10940,8 +10940,8 @@ copy_to_sockptr.exit:                             ; preds = %323
   call void @sockopt_release_sock(ptr noundef %0) #22
   br label %572
 
-445:                                              ; preds = %._crit_edge25, %443
-  %446 = phi i32 [ %.pre26, %._crit_edge25 ], [ %428, %443 ]
+445:                                              ; preds = %._crit_edge26, %443
+  %446 = phi i32 [ %.pre27, %._crit_edge26 ], [ %428, %443 ]
   %447 = load ptr, ptr %417, align 16
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 12
   %449 = sext i32 %446 to i64
@@ -11029,18 +11029,18 @@ thread-pre-split20:                               ; preds = %463
   %484 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %485 = and i64 %484, 4294967295
   %486 = icmp eq i64 %485, 0
-  br i1 %486, label %._crit_edge23, label %538
+  br i1 %486, label %._crit_edge24, label %538
 
-._crit_edge23:                                    ; preds = %483
-  %.pre24 = load i32, ptr %8, align 4
+._crit_edge24:                                    ; preds = %483
+  %.pre25 = load i32, ptr %8, align 4
   br label %488
 
 487:                                              ; preds = %482
   store i32 64, ptr %18, align 1
   br label %488
 
-488:                                              ; preds = %._crit_edge23, %487, %472
-  %489 = phi i32 [ %.pre24, %._crit_edge23 ], [ 64, %487 ], [ %470, %472 ]
+488:                                              ; preds = %._crit_edge24, %487, %472
+  %489 = phi i32 [ %.pre25, %._crit_edge24 ], [ 64, %487 ], [ %470, %472 ]
   %490 = sext i32 %489 to i64
   %491 = call fastcc i32 @copy_from_sockptr(ptr noundef nonnull %15, ptr %3, i8 %4, i64 noundef %490)
   %492 = icmp eq i32 %491, 0
@@ -11171,10 +11171,10 @@ thread-pre-split20:                               ; preds = %463
   %553 = call i64 @_copy_to_user(ptr noundef %18, ptr noundef nonnull %8, i64 noundef 4) #22
   %554 = and i64 %553, 4294967295
   %555 = icmp eq i64 %554, 0
-  br i1 %555, label %._crit_edge37, label %572
+  br i1 %555, label %._crit_edge38, label %572
 
-._crit_edge37:                                    ; preds = %552
-  %.pre38 = load i32, ptr %8, align 4
+._crit_edge38:                                    ; preds = %552
+  %.pre39 = load i32, ptr %8, align 4
   br label %558
 
 556:                                              ; preds = %551
@@ -11182,8 +11182,8 @@ thread-pre-split20:                               ; preds = %463
   store i32 %557, ptr %18, align 1
   br label %558
 
-558:                                              ; preds = %._crit_edge37, %556
-  %559 = phi i32 [ %.pre38, %._crit_edge37 ], [ %557, %556 ]
+558:                                              ; preds = %._crit_edge38, %556
+  %559 = phi i32 [ %.pre39, %._crit_edge38 ], [ %557, %556 ]
   %560 = sext i32 %559 to i64
   %561 = and i8 %4, 1
   %562 = icmp eq i8 %561, 0

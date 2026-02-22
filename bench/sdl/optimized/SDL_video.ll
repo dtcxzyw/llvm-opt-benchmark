@@ -6748,8 +6748,8 @@ SDL_GL_LoadLibrary_REAL.exit:                     ; preds = %151
   %211 = getelementptr i8, ptr %210, i64 908
   %.val = load i32, ptr %211, align 4
   %212 = and i32 %.val, 8
-  %.not192 = icmp eq i32 %212, 0
-  br i1 %.not192, label %232, label %213
+  %.not193 = icmp eq i32 %212, 0
+  br i1 %.not193, label %232, label %213
 
 213:                                              ; preds = %209, %207
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6783,11 +6783,11 @@ SDL_GL_LoadLibrary_REAL.exit:                     ; preds = %151
   store i64 %230, ptr %228, align 8
   %231 = or i64 %.0132, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre193 = load ptr, ptr @_this, align 8
+  %.pre194 = load ptr, ptr @_this, align 8
   br label %232
 
 232:                                              ; preds = %218, %209
-  %233 = phi ptr [ %.pre193, %218 ], [ %210, %209 ]
+  %233 = phi ptr [ %.pre194, %218 ], [ %210, %209 ]
   %.2134 = phi i64 [ %231, %218 ], [ %.0132, %209 ]
   %234 = and i64 %.2134, 4027523186
   %235 = or disjoint i64 %234, 8

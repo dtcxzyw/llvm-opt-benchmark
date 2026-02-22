@@ -2423,8 +2423,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %838 = add i32 %.0120.i.i, 2
   %839 = sdiv i32 %838, 8
   %840 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %839)
-  %.fr122.i.i = freeze i8 %840
-  %841 = zext i8 %.fr122.i.i to i32
+  %841 = zext i8 %840 to i32
   %842 = srem i32 %838, 8
   %843 = sub nsw i32 7, %842
   %844 = load i32, ptr @hf_dlmap_mimo_dl_chase_harq_ack_disable, align 4
@@ -2464,9 +2463,9 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 .lr.ph.i.i:                                       ; preds = %860
   %866 = shl nuw nsw i32 1, %843
-  %.fr121.i.i = freeze i32 %866
-  %867 = and i32 %.fr121.i.i, %841
-  %868 = icmp eq i32 %867, 0
+  %867 = and i32 %866, %841
+  %.fr121.i.i = freeze i32 %867
+  %868 = icmp eq i32 %.fr121.i.i, 0
   br i1 %868, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %873
@@ -2619,8 +2618,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %972 = add i32 %.0101.i.i, 2
   %973 = sdiv i32 %972, 8
   %974 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %973)
-  %.fr102.i.i = freeze i8 %974
-  %975 = zext i8 %.fr102.i.i to i32
+  %975 = zext i8 %974 to i32
   %976 = srem i32 %972, 8
   %977 = sub nsw i32 7, %976
   %978 = load i32, ptr @hf_dlmap_mimo_dl_ir_harq_ack_disable, align 4
@@ -2660,9 +2658,9 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 .lr.ph.i171.i:                                    ; preds = %994
   %1000 = shl nuw nsw i32 1, %977
-  %.fr.i.i = freeze i32 %1000
-  %1001 = and i32 %.fr.i.i, %975
-  %.not96.i.i = icmp eq i32 %1001, 0
+  %1001 = and i32 %1000, %975
+  %.fr.i.i = freeze i32 %1001
+  %.not96.i.i = icmp eq i32 %.fr.i.i, 0
   br i1 %.not96.i.i, label %.lr.ph.split.us.i174.i, label %.lr.ph.split.i172.i
 
 .lr.ph.split.us.i174.i:                           ; preds = %.lr.ph.i171.i
@@ -2785,8 +2783,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %1083 = add i32 %.0108.i.i, 2
   %1084 = sdiv i32 %1083, 8
   %1085 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %1084)
-  %.fr110.i.i = freeze i8 %1085
-  %1086 = zext i8 %.fr110.i.i to i32
+  %1086 = zext i8 %1085 to i32
   %1087 = srem i32 %1083, 8
   %1088 = sub nsw i32 7, %1087
   %1089 = load i32, ptr @hf_dlmap_mimo_dl_ir_harq_cc_ack_disable, align 4
@@ -2826,9 +2823,9 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 .lr.ph.i182.i:                                    ; preds = %1105
   %1111 = shl nuw nsw i32 1, %1088
-  %.fr109.i.i = freeze i32 %1111
-  %1112 = and i32 %.fr109.i.i, %1086
-  %1113 = icmp eq i32 %1112, 0
+  %1112 = and i32 %1111, %1086
+  %.fr109.i.i = freeze i32 %1112
+  %1113 = icmp eq i32 %.fr109.i.i, 0
   br i1 %1113, label %.lr.ph.split.us.i186.i, label %.lr.ph.split.i183.i
 
 .lr.ph.split.us.i186.i:                           ; preds = %.lr.ph.i182.i, %1118

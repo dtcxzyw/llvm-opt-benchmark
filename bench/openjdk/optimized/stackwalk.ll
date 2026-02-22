@@ -781,8 +781,8 @@ _ZN15BaseFrameStream11is_valid_inEP6Thread14objArrayHandle.exit: ; preds = %14
   %29 = load ptr, ptr %16, align 8
   %30 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %29) #14
   %31 = icmp eq ptr %26, %30
-  %.fr = freeze i64 %28
-  %32 = icmp eq i64 %.fr, %1
+  %.fr9 = freeze i64 %28
+  %32 = icmp eq i64 %.fr9, %1
   %or.cond.i.i = and i1 %32, %31
   %spec.select = select i1 %or.cond.i.i, ptr %15, ptr null
   br label %_ZN15BaseFrameStream11is_valid_inEP6Thread14objArrayHandle.exit.thread
@@ -2400,8 +2400,8 @@ _ZN15BaseFrameStream11is_valid_inEP6Thread14objArrayHandle.exit.i: ; preds = %22
   %37 = load ptr, ptr %24, align 8
   %38 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %37) #14
   %39 = icmp eq ptr %34, %38
-  %.fr.i = freeze i64 %36
-  %40 = icmp eq i64 %.fr.i, %2
+  %.fr9.i = freeze i64 %36
+  %40 = icmp eq i64 %.fr9.i, %2
   %or.cond.i.i.i = and i1 %40, %39
   br i1 %or.cond.i.i.i, label %_ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle.exit, label %41
 
@@ -2539,8 +2539,8 @@ _ZN15BaseFrameStream11is_valid_inEP6Thread14objArrayHandle.exit.i: ; preds = %20
   %35 = load ptr, ptr %22, align 8
   %36 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %35) #14
   %37 = icmp eq ptr %32, %36
-  %.fr.i = freeze i64 %34
-  %38 = icmp eq i64 %.fr.i, %1
+  %.fr9.i = freeze i64 %34
+  %38 = icmp eq i64 %.fr9.i, %1
   %or.cond.i.i.i = and i1 %38, %37
   br i1 %or.cond.i.i.i, label %_ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle.exit, label %39
 

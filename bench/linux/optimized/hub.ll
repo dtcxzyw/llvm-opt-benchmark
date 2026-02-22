@@ -5978,7 +5978,7 @@ define internal range(i32 -38, 257) i32 @hub_ioctl(ptr noundef readonly captures
 define internal noundef range(i32 -16, 1) i32 @hub_suspend(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
-  %.fr12 = freeze i32 %1
+  %.fr = freeze i32 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5992,7 +5992,7 @@ define internal noundef range(i32 -16, 1) i32 @hub_suspend(ptr noundef readonly 
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 528
-  %15 = and i32 %.fr12, 1024
+  %15 = and i32 %.fr, 1024
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.split.us, label %.split.preheader
 
@@ -6216,7 +6216,7 @@ hub_quiesce.exit.loopexit:                        ; preds = %93, %88
   br i1 %155, label %144, label %156
 
 156:                                              ; preds = %.preheader6
-  %157 = and i32 %.fr12, 1024
+  %157 = and i32 %.fr, 1024
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %hub_quiesce.exit
 

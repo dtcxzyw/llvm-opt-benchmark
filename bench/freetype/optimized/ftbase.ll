@@ -14197,50 +14197,47 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   %53 = ashr i64 %52, %41
   %54 = sext i32 %.04366 to i64
   %wide.trip.count = zext i16 %45 to i64
-  %55 = freeze i64 %51
-  %56 = freeze i64 %53
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.164 = phi i64 [ %.067, %.lr.ph.preheader ], [ %66, %.lr.ph ]
-  %.sroa.023.062 = phi i64 [ %56, %.lr.ph.preheader ], [ %.fr86, %.lr.ph ]
-  %.sroa.524.061 = phi i64 [ %55, %.lr.ph.preheader ], [ %.fr, %.lr.ph ]
+  %.164 = phi i64 [ %.067, %.lr.ph.preheader ], [ %65, %.lr.ph ]
+  %.sroa.023.062 = phi i64 [ %53, %.lr.ph.preheader ], [ %57, %.lr.ph ]
+  %.sroa.524.061 = phi i64 [ %51, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %57 = getelementptr inbounds %struct.FT_Vector_, ptr %8, i64 %indvars.iv.next
-  %58 = load i64, ptr %57, align 8, !tbaa !157
-  %59 = ashr i64 %58, %41
-  %.fr86 = freeze i64 %59
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !158
-  %62 = ashr i64 %61, %42
-  %.fr = freeze i64 %62
-  %63 = sub i64 %.fr, %.sroa.524.061
-  %64 = add i64 %.fr86, %.sroa.023.062
-  %65 = mul i64 %63, %64
-  %66 = add i64 %65, %.164
+  %55 = getelementptr inbounds %struct.FT_Vector_, ptr %8, i64 %indvars.iv.next
+  %56 = load i64, ptr %55, align 8, !tbaa !157
+  %57 = ashr i64 %56, %41
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %59 = load i64, ptr %58, align 8, !tbaa !158
+  %60 = ashr i64 %59, %42
+  %61 = sub nsw i64 %60, %.sroa.524.061
+  %62 = add nsw i64 %57, %.sroa.023.062
+  %63 = mul i64 %61, %62
+  %64 = add i64 %63, %.164
+  %65 = freeze i64 %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !504
 
 ._crit_edge:                                      ; preds = %.lr.ph, %43
-  %.1.lcssa = phi i64 [ %.067, %43 ], [ %66, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.067, %43 ], [ %65, %.lr.ph ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge70, label %43, !llvm.loop !505
 
 ._crit_edge70:                                    ; preds = %._crit_edge
-  %67 = icmp sgt i64 %.1.lcssa, 0
-  br i1 %67, label %FT_Outline_Get_CBox.exit.thread, label %68
+  %66 = icmp sgt i64 %.1.lcssa, 0
+  br i1 %66, label %FT_Outline_Get_CBox.exit.thread, label %67
 
-68:                                               ; preds = %._crit_edge70
+67:                                               ; preds = %._crit_edge70
   %.not59 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not59, label %.thread, label %FT_Outline_Get_CBox.exit.thread
 
-.thread:                                          ; preds = %25, %68
+.thread:                                          ; preds = %25, %67
   br label %FT_Outline_Get_CBox.exit.thread
 
-FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %68, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
-  %.044 = phi i32 [ 1, %._crit_edge70 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 2, %6 ], [ 0, %2 ], [ 2, %.thread ], [ 0, %68 ]
+FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %67, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
+  %.044 = phi i32 [ 1, %._crit_edge70 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 2, %6 ], [ 0, %2 ], [ 2, %.thread ], [ 0, %67 ]
   ret i32 %.044
 }
 
@@ -17773,8 +17770,9 @@ define range(i64 -11796479, 11796481) i64 @FT_Angle_Diff(i64 noundef %0, i64 nou
   %smin = tail call i64 @llvm.smin.i64(i64 %11, i64 11796480)
   %13 = add i64 %0, %smin
   %14 = sub i64 %12, %13
-  %15 = urem i64 %14, 23592960
-  %.neg = sub i64 %15, %14
+  %.fr = freeze i64 %14
+  %15 = urem i64 %.fr, 23592960
+  %.neg = sub i64 %15, %.fr
   %16 = add i64 %.neg, %11
   ret i64 %16
 }

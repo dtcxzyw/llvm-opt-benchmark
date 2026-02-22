@@ -25095,8 +25095,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser18applySpi
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector.125", align 8
-  %.fr103 = freeze i64 %3
-  %.sroa.072.0.extract.trunc = trunc i64 %.fr103 to i32
+  %.fr = freeze i64 %3
+  %.sroa.072.0.extract.trunc = trunc i64 %.fr to i32
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
@@ -25107,7 +25107,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser18applySpi
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.not82 = icmp eq ptr %15, %16
-  %17 = and i64 %.fr103, 4294967296
+  %17 = and i64 %.fr, 4294967296
   %.pre.not = icmp eq i64 %17, 0
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
@@ -25188,19 +25188,19 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.us:                 ; preds = %34, %29, %26
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %46, %43, %51
   %53 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.069.083) #25
   %.not = icmp eq ptr %53, %16
-  br i1 %.not, label %._crit_edge.thread141, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge.thread140, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %4
-  br i1 %.pre.not, label %._crit_edge.thread141, label %.loopexit
+  br i1 %.pre.not, label %._crit_edge.thread140, label %.loopexit
 
-._crit_edge.thread141:                            ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %._crit_edge
+._crit_edge.thread140:                            ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %._crit_edge
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %.not7889 = icmp eq ptr %55, %56
   br i1 %.not7889, label %.loopexit, label %.lr.ph92
 
-.lr.ph92:                                         ; preds = %._crit_edge.thread141
+.lr.ph92:                                         ; preds = %._crit_edge.thread140
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -25383,8 +25383,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit46:                  ; preds = %._crit_edge88, %136
   %.not78 = icmp eq ptr %141, %56
   br i1 %.not78, label %.loopexit, label %60
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.us, %_ZNSt6vectorIjSaIjEED2Ev.exit46, %._crit_edge.thread141, %._crit_edge
-  %.pre-phi140 = phi i1 [ false, %_ZNSt6vectorIjSaIjEED2Ev.exit46 ], [ true, %._crit_edge ], [ false, %._crit_edge.thread141 ], [ true, %_ZNSt6vectorIjSaIjEED2Ev.exit.us ]
+.loopexit:                                        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.us, %_ZNSt6vectorIjSaIjEED2Ev.exit46, %._crit_edge.thread140, %._crit_edge
+  %.pre-phi139 = phi i1 [ false, %_ZNSt6vectorIjSaIjEED2Ev.exit46 ], [ true, %._crit_edge ], [ false, %._crit_edge.thread140 ], [ true, %_ZNSt6vectorIjSaIjEED2Ev.exit.us ]
   %142 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %13, i64 128
@@ -25486,7 +25486,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit:    ; preds = %164, %_ZNSt6vectorI
 
 ._crit_edge97:                                    ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit, %148
   %189 = load i32, ptr %149, align 8
-  br i1 %.pre-phi140, label %190, label %191
+  br i1 %.pre-phi139, label %190, label %191
 
 190:                                              ; preds = %._crit_edge97
   call void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorIPKcSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(1416) %147, i32 noundef %2, i32 noundef %.sroa.072.0.extract.trunc, i32 noundef %189, ptr noundef nonnull align 8 dereferenceable(24) %7) #21

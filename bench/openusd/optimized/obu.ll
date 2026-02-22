@@ -359,8 +359,8 @@ is_obu_in_current_operating_point.exit.thread:    ; preds = %128, %123, %118
   store i32 0, ptr %76, align 8
   store i32 0, ptr %77, align 4
   %153 = call i32 @aom_rb_read_literal(ptr noundef nonnull %14, i32 noundef 5) #9
-  %.fr.i.i = freeze i32 %153
-  %154 = trunc i32 %.fr.i.i to i8
+  %.fr9.i.i = freeze i32 %153
+  %154 = trunc i32 %.fr9.i.i to i8
   store i8 %154, ptr %78, align 1
   %155 = icmp eq i8 %154, 31
   br i1 %155, label %read_bitstream_level.exit.thread.i, label %read_bitstream_level.exit.i
@@ -369,13 +369,13 @@ read_bitstream_level.exit.i:                      ; preds = %152
   %156 = icmp ugt i8 %154, 23
   %157 = and i8 %154, -6
   %158 = icmp eq i8 %157, 2
-  %or.cond11.i.not12.not15.i.not209.i = or i1 %156, %158
+  %or.cond11.i.not13.not16.i.not209.i = or i1 %156, %158
   %159 = and i8 %154, -2
   %160 = icmp eq i8 %159, 10
-  %or.cond17.i.not10.not13.i.not206.i = or i1 %160, %or.cond11.i.not12.not15.i.not209.i
+  %or.cond17.i.not11.not14.i.not206.i = or i1 %160, %or.cond11.i.not13.not16.i.not209.i
   %161 = and i8 %154, -4
   %162 = icmp eq i8 %161, 20
-  %or.cond.not.i.not.i = or i1 %162, %or.cond17.i.not10.not13.i.not206.i
+  %or.cond.not.i.not.i = or i1 %162, %or.cond17.i.not11.not14.i.not206.i
   br i1 %or.cond.not.i.not.i, label %read_sequence_header_obu.exit.thread, label %read_bitstream_level.exit.thread.i
 
 read_bitstream_level.exit.thread.i:               ; preds = %read_bitstream_level.exit.i, %152
@@ -422,8 +422,8 @@ read_bitstream_level.exit.thread.i:               ; preds = %read_bitstream_leve
   store i32 %174, ptr %175, align 4
   %176 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i
   %177 = call i32 @aom_rb_read_literal(ptr noundef nonnull %14, i32 noundef 5) #9
-  %.fr.i195.i = freeze i32 %177
-  %178 = trunc i32 %.fr.i195.i to i8
+  %.fr9.i195.i = freeze i32 %177
+  %178 = trunc i32 %.fr9.i195.i to i8
   store i8 %178, ptr %176, align 1
   %179 = icmp eq i8 %178, 31
   br i1 %179, label %.thread.i, label %read_bitstream_level.exit200.i
@@ -432,13 +432,13 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   %180 = icmp ugt i8 %178, 23
   %181 = and i8 %178, -6
   %182 = icmp eq i8 %181, 2
-  %or.cond11.i.not12.not15.i196.not215.i = or i1 %180, %182
+  %or.cond11.i.not13.not16.i196.not215.i = or i1 %180, %182
   %183 = and i8 %178, -2
   %184 = icmp eq i8 %183, 10
-  %or.cond17.i.not10.not13.i197.not212.i = or i1 %184, %or.cond11.i.not12.not15.i196.not215.i
+  %or.cond17.i.not11.not14.i197.not212.i = or i1 %184, %or.cond11.i.not13.not16.i196.not215.i
   %185 = and i8 %178, -4
   %186 = icmp eq i8 %185, 20
-  %or.cond.not.i198.not.i = or i1 %186, %or.cond17.i.not10.not13.i197.not212.i
+  %or.cond.not.i198.not.i = or i1 %186, %or.cond17.i.not11.not14.i197.not212.i
   br i1 %or.cond.not.i198.not.i, label %read_sequence_header_obu.exit.thread, label %187
 
 187:                                              ; preds = %read_bitstream_level.exit200.i

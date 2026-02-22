@@ -135,20 +135,19 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %.not = icmp eq i8 %22, 0
   %.pre25.pre = load i64, ptr %11, align 8, !tbaa !13
-  %.pre25.pre.fr = freeze i64 %.pre25.pre
   br i1 %.not, label %23, label %._crit_edge
 
 23:                                               ; preds = %.lr.ph
   %24 = add nuw i64 %.021, 1
-  %25 = icmp ult i64 %24, %.pre25.pre.fr
+  %25 = icmp ult i64 %24, %.pre25.pre
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph
   %.0.lcssa.ph = phi i64 [ %24, %23 ], [ %.021, %.lr.ph ]
-  %.0.lcssa.ph.fr = freeze i64 %.0.lcssa.ph
-  %26 = icmp eq i64 %.0.lcssa.ph.fr, %.pre25.pre.fr
-  %. = zext i1 %26 to i8
-  %spec.select = select i1 %26, i32 9, i32 0
+  %26 = icmp eq i64 %.0.lcssa.ph, %.pre25.pre
+  %cond.fr = freeze i1 %26
+  %. = zext i1 %cond.fr to i8
+  %spec.select = select i1 %cond.fr, i32 9, i32 0
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader

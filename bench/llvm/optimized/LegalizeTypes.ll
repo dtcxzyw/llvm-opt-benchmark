@@ -6452,7 +6452,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK4llvm18TargetLoweringBase20promoteT
   %7 = alloca %"struct.llvm::EVT", align 8
   %8 = alloca %"class.llvm::SDLoc", align 8
   %9 = alloca %"class.llvm::SDValue", align 8
-  %.fr.i = freeze i16 %4
+  %.fr4.i = freeze i16 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !201
@@ -6477,25 +6477,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %6, %12
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 528
   %24 = load ptr, ptr %23, align 8
-  %25 = call { i16, ptr } %24(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(496) %19, ptr noundef nonnull align 8 dereferenceable(8) %21, i16 %.fr.i, ptr %5) #21
+  %25 = call { i16, ptr } %24(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(496) %19, ptr noundef nonnull align 8 dereferenceable(8) %21, i16 %.fr4.i, ptr %5) #21
   %26 = extractvalue { i16, ptr } %25, 0
   %27 = extractvalue { i16, ptr } %25, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i16 %.fr.i, ptr %7, align 8
+  store i16 %.fr4.i, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %28, align 8
-  %.not.i.i = icmp eq i16 %.fr.i, 0
+  %.not.i.i = icmp eq i16 %.fr4.i, 0
   br i1 %.not.i.i, label %34, label %29
 
 29:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit
-  %30 = add i16 %.fr.i, -17
+  %30 = add i16 %.fr4.i, -17
   %spec.select.i.i.i = icmp ult i16 %30, 174
-  %31 = add i16 %.fr.i, -10
+  %31 = add i16 %.fr4.i, -10
   %or.cond.i.i.i = icmp ult i16 %31, 7
-  %32 = add i16 %.fr.i, -88
+  %32 = add i16 %.fr4.i, -88
   %or.cond3.i.i.i = icmp ult i16 %32, 50
   %or.cond4.i.i.i = or i1 %or.cond.i.i.i, %or.cond3.i.i.i
-  %33 = add i16 %.fr.i, -170
+  %33 = add i16 %.fr4.i, -170
   %spec.select.i.i2.i = icmp ult i16 %33, 21
   %or.cond.i = or i1 %spec.select.i.i2.i, %or.cond4.i.i.i
   br i1 %or.cond.i, label %_ZNK4llvm3EVT15isFloatingPointEv.exit.thread.i, label %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit

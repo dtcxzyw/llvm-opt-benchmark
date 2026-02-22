@@ -17190,8 +17190,7 @@ _ZNK6vectorIN5arith6solver5scopeELb0EjE4sizeEv.exit.thread.i: ; preds = %58, %_Z
   store i32 %63, ptr %64, align 8, !tbaa !366
   %65 = getelementptr inbounds i8, ptr %55, i64 -4
   %66 = load i32, ptr %65, align 4, !tbaa !280
-  %.fr = freeze i32 %66
-  %.not15.i = icmp ugt i32 %10, %.fr
+  %.not15.i = icmp ugt i32 %10, %66
   br i1 %.not15.i, label %.preheader, label %67
 
 67:                                               ; preds = %_ZNK6vectorIN5arith6solver5scopeELb0EjE4sizeEv.exit.thread.i
@@ -17217,13 +17216,14 @@ _ZNK6vectorIN5arith6solver5scopeELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZN
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN5arith6solver5scopeELb0EjE8capacityEv.exit.i
   %72 = getelementptr inbounds i8, ptr %.pr.i, i64 -4
   store i32 %10, ptr %72, align 4, !tbaa !280
-  %73 = zext i32 %.fr to i64
+  %73 = zext i32 %66 to i64
   %74 = getelementptr %"struct.arith::solver::scope", ptr %.pr.i, i64 %73
   %reass.add = sub nsw i64 %11, %73
-  %reass.mul = mul nsw i64 %reass.add, 12
-  %75 = add nsw i64 %reass.mul, -12
+  %reass.add.fr = freeze i64 %reass.add
+  %reass.mul = mul i64 %reass.add.fr, 12
+  %75 = add i64 %reass.mul, -12
   %76 = urem i64 %75, 12
-  %77 = sub nsw i64 %reass.mul, %76
+  %77 = sub i64 %reass.mul, %76
   call void @llvm.memset.p0.i64(ptr align 4 %74, i8 0, i64 %77, i1 false)
   br label %_ZN6vectorIN5arith6solver5scopeELb0EjE6resizeEj.exit
 

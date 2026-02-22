@@ -1138,8 +1138,6 @@ while.end:                                        ; preds = %if.end, %while.body
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8proxygen11HTTPHeaders17removeAllVersionsENS_14HTTPHeaderCodeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i8 noundef zeroext %code, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #12 align 2 {
 entry:
-  %name.coerce1.fr = freeze ptr %name.coerce1
-  %name.coerce0.fr = freeze ptr %name.coerce0
   %cmp.not = icmp ne i8 %code, 1
   %.pre = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.then, label %if.end
@@ -1213,15 +1211,16 @@ while.body.lr.ph:                                 ; preds = %if.end.thread84, %i
   %removed.091 = phi i1 [ false, %if.end.thread84 ], [ %cmp.not, %if.end ]
   %10 = phi ptr [ %.pre, %if.end.thread84 ], [ %7, %if.end ]
   %length_94 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %name.coerce1.fr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %name.coerce0.fr to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %name.coerce1 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %name.coerce0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.not7.i.i = icmp eq ptr %name.coerce0.fr, %name.coerce1.fr
+  %cmp.not7.i.i = icmp eq ptr %name.coerce0, %name.coerce1
   %deletedCount_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %cmp.not7.i.i.fr = freeze i1 %cmp.not7.i.i
   %11 = load i64, ptr %length_94, align 8
   %call4.us65 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i93, i32 noundef 1, i64 noundef %11) #25
   %cmp5.us66 = icmp eq ptr %call4.us65, null
-  br i1 %cmp.not7.i.i, label %while.body.lr.ph.split.us.split, label %while.body.lr.ph.split.split
+  br i1 %cmp.not7.i.i.fr, label %while.body.lr.ph.split.us.split, label %while.body.lr.ph.split.split
 
 while.body.lr.ph.split.us.split:                  ; preds = %while.body.lr.ph
   br i1 %cmp5.us66, label %while.end, label %if.end7.us.preheader
@@ -1318,7 +1317,7 @@ if.end7:                                          ; preds = %if.end7.preheader, 
 
 for.body.i.i:                                     ; preds = %if.end7, %for.inc.i.i
   %__first2.addr.09.i.i = phi ptr [ %incdec.ptr1.i.i, %for.inc.i.i ], [ %call.i, %if.end7 ]
-  %__first1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %name.coerce0.fr, %if.end7 ]
+  %__first1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %name.coerce0, %if.end7 ]
   %27 = load i8, ptr %__first1.addr.08.i.i, align 1
   %28 = load i8, ptr %__first2.addr.09.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %27, 95
@@ -1342,7 +1341,7 @@ _ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i: ; preds = %if.end.i
 for.inc.i.i:                                      ; preds = %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.08.i.i, i64 1
   %incdec.ptr1.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.09.i.i, i64 1
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %name.coerce1.fr
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %name.coerce1
   br i1 %cmp.not.i.i, label %if.then15.loopexit, label %for.body.i.i, !llvm.loop !11
 
 if.then15.loopexit:                               ; preds = %for.inc.i.i

@@ -2211,19 +2211,19 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 %29
   %31 = call ptr @memchr(ptr noundef nonnull %6, i32 noundef 47, i64 noundef %28) #16
-  %.fr = freeze ptr %31
-  %32 = icmp ne ptr %.fr, null
+  %32 = icmp ne ptr %31, null
   %33 = icmp eq i64 %28, 1
   %or.cond = and i1 %33, %32
   br i1 %or.cond, label %.critedge3, label %.preheader96
 
 .preheader96:                                     ; preds = %27
-  %34 = ptrtoint ptr %.fr to i64
+  %34 = ptrtoint ptr %31 to i64
   %reass.sub = sub i64 %34, %7
   %35 = add i64 %reass.sub, 1
   %.055 = select i1 %32, i64 %35, i64 0
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %.055
-  %.not78 = icmp eq i64 %.055, 1
+  %.055.fr = freeze i64 %.055
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %.055.fr
+  %.not78 = icmp eq i64 %.055.fr, 1
   %37 = trunc i64 %7 to i32
   br i1 %.not78, label %.preheader96.split.us, label %.preheader96.split
 
@@ -2281,8 +2281,8 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br i1 %54, label %.lr.ph.preheader, label %.critedge5
 
 .lr.ph.preheader:                                 ; preds = %.critedge
-  %.160130 = ptrtoint ptr %.160 to i64
-  %55 = trunc i64 %.160130 to i32
+  %.160129 = ptrtoint ptr %.160 to i64
+  %55 = trunc i64 %.160129 to i32
   %56 = sub i32 %55, %37
   br label %.lr.ph
 
@@ -2319,11 +2319,11 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   %65 = zext i32 %.us-phi106 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 47, i64 %65, i1 false), !tbaa !4
   %66 = zext i32 %.us-phi106 to i64
-  %scevgep131 = getelementptr i8, ptr %.us-phi, i64 %66
+  %scevgep130 = getelementptr i8, ptr %.us-phi, i64 %66
   br label %.critedge3
 
 .critedge3:                                       ; preds = %52, %.preheader96.split.us, %.lr.ph110.preheader, %.preheader, %27
-  %.059 = phi ptr [ %.fr, %27 ], [ %scevgep131, %.lr.ph110.preheader ], [ %.us-phi, %.preheader ], [ null, %.preheader96.split.us ], [ null, %52 ]
+  %.059 = phi ptr [ %31, %27 ], [ %scevgep130, %.lr.ph110.preheader ], [ %.us-phi, %.preheader ], [ null, %.preheader96.split.us ], [ null, %52 ]
   %.not81 = icmp eq ptr %.059, null
   %spec.select87 = select i1 %.not81, ptr %6, ptr %.059
   br label %.loopexit
@@ -2347,8 +2347,8 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
 
 74:                                               ; preds = %69, %.loopexit
   %75 = getelementptr inbounds nuw i8, ptr %.6, i64 1
-  %.not123 = icmp eq ptr %75, %30
-  br i1 %.not123, label %._crit_edge, label %.lr.ph114
+  %.not122 = icmp eq ptr %75, %30
+  br i1 %.not122, label %._crit_edge, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %74, %82
   %76 = phi ptr [ %83, %82 ], [ %75, %74 ]
@@ -2366,8 +2366,8 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
 
 82:                                               ; preds = %79, %.lr.ph114
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  %.not124 = icmp eq ptr %83, %30
-  br i1 %.not124, label %._crit_edge, label %.lr.ph114
+  %.not123 = icmp eq ptr %83, %30
+  br i1 %.not123, label %._crit_edge, label %.lr.ph114
 
 ._crit_edge:                                      ; preds = %74, %82
   br i1 %68, label %.thread91, label %84

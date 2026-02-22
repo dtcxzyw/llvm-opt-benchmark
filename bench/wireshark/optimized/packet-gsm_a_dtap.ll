@@ -3577,8 +3577,8 @@ define internal noundef zeroext i16 @de_keypad_facility(ptr noundef %0, ptr noun
   %or.cond = icmp ult i8 %16, -10
   %17 = add nsw i8 %9, -69
   %or.cond5 = icmp ult i8 %17, -4
-  %or.cond36 = select i1 %or.cond, i1 %or.cond5, i1 false
-  br i1 %or.cond36, label %switch.early.test, label %20
+  %or.cond37 = select i1 %or.cond, i1 %or.cond5, i1 false
+  br i1 %or.cond37, label %switch.early.test, label %20
 
 switch.early.test:                                ; preds = %7
   switch i8 %.fr, label %18 [
@@ -4865,8 +4865,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %21, ptr @dissect_dtap.tap_p, align 8
   store ptr %2, ptr @g_tree, align 8
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.fr = freeze i8 %22
-  %23 = zext i8 %.fr to i32
+  %.fr155 = freeze i8 %22
+  %23 = zext i8 %.fr155 to i32
   %24 = lshr i32 %23, 4
   %25 = and i32 %23, 112
   %26 = icmp eq i32 %25, 112
@@ -4883,7 +4883,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 31:                                               ; preds = %27, %14
   %.0132 = phi i32 [ 1, %14 ], [ 2, %27 ]
   %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0132)
-  %33 = and i8 %.fr, 15
+  %33 = and i8 %.fr155, 15
   store ptr null, ptr %7, align 8
   store i32 -1, ptr %8, align 4
   store i32 -1, ptr %9, align 4
@@ -5179,7 +5179,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %181
 
 181:                                              ; preds = %173, %.thread, %175
-  %182 = and i8 %.fr, 14
+  %182 = and i8 %.fr155, 14
   %183 = icmp eq i8 %182, 10
   br i1 %183, label %184, label %switch.early.test
 

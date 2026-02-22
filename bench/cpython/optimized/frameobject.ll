@@ -4237,18 +4237,18 @@ frame_is_suspended.exit:                          ; preds = %15, %19
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %or.cond = icmp ugt i32 %.1.i, 2147483646
+  %or.cond = icmp ugt i32 %.1.fr.i, 2147483646
   br i1 %or.cond, label %first_line_not_before.exit.thread, label %68
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01316.i = phi i32 [ 2147483647, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
+  %.01316.i = phi i32 [ 2147483647, %.lr.ph.preheader.i ], [ %.1.fr.i, %.lr.ph.i ]
   %63 = getelementptr i32, ptr %59, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !183
-  %.fr.i = freeze i32 %64
-  %.not.i138 = icmp slt i32 %.fr.i, %49
-  %65 = call i32 @llvm.smin.i32(i32 %.fr.i, i32 %.01316.i)
+  %.not.i138 = icmp slt i32 %64, %49
+  %65 = call i32 @llvm.smin.i32(i32 %64, i32 %.01316.i)
   %.1.i = select i1 %.not.i138, i32 %.01316.i, i32 %65
+  %.1.fr.i = freeze i32 %.1.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !185
@@ -4309,7 +4309,7 @@ first_line_not_before.exit.thread:                ; preds = %._crit_edge.i, %61
   %.0109157 = phi ptr [ @.str.53, %.lr.ph.preheader ], [ %.2111, %explain_incompatible_stack.exit ]
   %85 = getelementptr i32, ptr %59, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4, !tbaa !183
-  %87 = icmp eq i32 %86, %.1.i
+  %87 = icmp eq i32 %86, %.1.fr.i
   br i1 %87, label %88, label %explain_incompatible_stack.exit
 
 88:                                               ; preds = %.lr.ph

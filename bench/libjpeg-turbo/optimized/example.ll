@@ -487,18 +487,17 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   %37 = load i32, ptr %36, align 8, !tbaa !81
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %39 = load i32, ptr %38, align 4, !tbaa !82
-  %.fr65 = freeze i32 %39
-  %.fr66 = freeze i32 %37
-  %40 = mul i32 %.fr65, %.fr66
+  %40 = mul i32 %39, %37
+  %.fr65 = freeze i32 %40
   %41 = load i32, ptr %30, align 8, !tbaa !80
   %42 = icmp eq i32 %41, 12
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !83
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !46
-  %47 = call ptr %46(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %40, i32 noundef 1) #12
+  %47 = call ptr %46(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.fr65, i32 noundef 1) #12
   %. = select i1 %42, ptr %47, ptr null
-  %.75 = select i1 %42, ptr null, ptr %47
+  %.73 = select i1 %42, ptr null, ptr %47
   %48 = load i32, ptr %30, align 8, !tbaa !80
   %49 = icmp eq i32 %48, 12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -512,20 +511,20 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   br i1 %54, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader60
-  %55 = sext i32 %40 to i64
+  %55 = sext i32 %.fr65 to i64
   br label %74
 
 .preheader:                                       ; preds = %24
   br i1 %54, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %.preheader
-  %56 = icmp sgt i32 %40, 0
-  %57 = sext i32 %40 to i64
+  %56 = icmp sgt i32 %.fr65, 0
+  %57 = sext i32 %.fr65 to i64
   %58 = shl nsw i64 %57, 1
   br i1 %56, label %.lr.ph63.us.preheader, label %.lr.ph64.split
 
 .lr.ph63.us.preheader:                            ; preds = %.lr.ph64
-  %wide.trip.count = zext nneg i32 %40 to i64
+  %wide.trip.count = zext nneg i32 %.fr65 to i64
   br label %.lr.ph63.us
 
 .lr.ph63.us:                                      ; preds = %.lr.ph63.us.preheader, %._crit_edge.us
@@ -560,7 +559,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   br i1 %73, label %.lr.ph64.split, label %.loopexit, !llvm.loop !87
 
 74:                                               ; preds = %.lr.ph, %74
-  %75 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.75, i32 noundef 1) #12
+  %75 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.73, i32 noundef 1) #12
   %76 = load ptr, ptr %47, align 8, !tbaa !8
   %77 = call i64 @fwrite(ptr noundef %76, i64 noundef 1, i64 noundef %55, ptr noundef nonnull %11)
   %78 = load i32, ptr %50, align 8, !tbaa !84

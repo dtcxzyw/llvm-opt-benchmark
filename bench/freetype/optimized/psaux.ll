@@ -647,8 +647,8 @@ skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i
 
 40:                                               ; preds = %skip_spaces.exit.i
   %41 = load i8, ptr %storemerge.lcssa.i.i, align 1, !tbaa !37
-  %.fr.i = freeze i8 %41
-  %42 = add i8 %.fr.i, -48
+  %.fr27.i = freeze i8 %41
+  %42 = add i8 %.fr27.i, -48
   %or.cond.i = icmp ult i8 %42, 10
   br i1 %or.cond.i, label %.backedge.i, label %switch.early.test.i
 
@@ -658,7 +658,7 @@ skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i
   br i1 %44, label %.lr.ph.i.i28.backedge, label %switch.early.test._crit_edge.i
 
 switch.early.test.i:                              ; preds = %40
-  switch i8 %.fr.i, label %switch.early.test._crit_edge.i [
+  switch i8 %.fr27.i, label %switch.early.test._crit_edge.i [
     i8 102, label %.backedge.i
     i8 101, label %.backedge.i
     i8 100, label %.backedge.i
@@ -8771,8 +8771,8 @@ skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i
 
 28:                                               ; preds = %skip_spaces.exit.i
   %29 = load i8, ptr %storemerge.lcssa.i.i, align 1, !tbaa !37
-  %.fr.i = freeze i8 %29
-  %30 = add i8 %.fr.i, -48
+  %.fr27.i = freeze i8 %29
+  %30 = add i8 %.fr27.i, -48
   %or.cond.i = icmp ult i8 %30, 10
   br i1 %or.cond.i, label %.backedge.i, label %switch.early.test.i
 
@@ -8782,7 +8782,7 @@ skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i
   br i1 %32, label %.lr.ph.i.i.backedge, label %switch.early.test._crit_edge.i
 
 switch.early.test.i:                              ; preds = %28
-  switch i8 %.fr.i, label %switch.early.test._crit_edge.i [
+  switch i8 %.fr27.i, label %switch.early.test._crit_edge.i [
     i8 102, label %.backedge.i
     i8 101, label %.backedge.i
     i8 100, label %.backedge.i

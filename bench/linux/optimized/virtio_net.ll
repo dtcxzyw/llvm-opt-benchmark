@@ -976,11 +976,11 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %184 = load i32, ptr %125, align 8
   %185 = or i32 %184, 32
   store i32 %185, ptr %125, align 8
-  %.pre28 = load i64, ptr %10, align 8
+  %.pre29 = load i64, ptr %10, align 8
   br label %186
 
 186:                                              ; preds = %182, %170
-  %187 = phi i64 [ %.pre28, %182 ], [ %179, %170 ]
+  %187 = phi i64 [ %.pre29, %182 ], [ %179, %170 ]
   %188 = and i64 %187, 144115188075855872
   %189 = icmp eq i64 %188, 0
   br i1 %189, label %192, label %190
@@ -988,24 +988,24 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
 190:                                              ; preds = %186
   %191 = getelementptr i8, ptr %30, i64 2362
   store i8 1, ptr %191, align 2
-  %.pre29 = load i64, ptr %10, align 8
+  %.pre30 = load i64, ptr %10, align 8
   br label %192
 
 192:                                              ; preds = %190, %186
-  %193 = phi i64 [ %.pre29, %190 ], [ %187, %186 ]
+  %193 = phi i64 [ %.pre30, %190 ], [ %187, %186 ]
   %194 = and i64 %193, 1152921504606846976
   %195 = icmp eq i64 %194, 0
   %.phi.trans.insert = getelementptr i8, ptr %30, i64 2361
-  br i1 %195, label %197, label %.thread53
+  br i1 %195, label %197, label %.thread54
 
-.thread53:                                        ; preds = %192
+.thread54:                                        ; preds = %192
   store i8 1, ptr %.phi.trans.insert, align 1
   %196 = getelementptr i8, ptr %30, i64 2361
   br label %205
 
 197:                                              ; preds = %192
-  %.pre30 = load i8, ptr %.phi.trans.insert, align 1, !range !6
-  %198 = icmp eq i8 %.pre30, 0
+  %.pre31 = load i8, ptr %.phi.trans.insert, align 1, !range !6
+  %198 = icmp eq i8 %.pre31, 0
   %199 = getelementptr i8, ptr %30, i64 2361
   br i1 %198, label %200, label %205
 
@@ -1013,14 +1013,14 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %201 = getelementptr i8, ptr %30, i64 2362
   %202 = load i8, ptr %201, align 2, !range !6, !noundef !7
   %203 = icmp eq i8 %202, 0
-  br i1 %203, label %.thread54, label %205
+  br i1 %203, label %.thread55, label %205
 
-.thread54:                                        ; preds = %200
+.thread55:                                        ; preds = %200
   %204 = getelementptr i8, ptr %30, i64 2362
   br label %231
 
-205:                                              ; preds = %197, %200, %.thread53
-  %206 = phi ptr [ %196, %.thread53 ], [ %199, %200 ], [ %199, %197 ]
+205:                                              ; preds = %197, %200, %.thread54
+  %206 = phi ptr [ %196, %.thread54 ], [ %199, %200 ], [ %199, %197 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !15
   %207 = call i32 @__SCT__might_resched() #26
@@ -1057,9 +1057,9 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %225 = load i64, ptr %224, align 8
   %226 = or i64 %225, 549755813888
   store i64 %226, ptr %224, align 8
-  %.phi.trans.insert31 = getelementptr i8, ptr %30, i64 2362
-  %.pre32 = load i8, ptr %.phi.trans.insert31, align 2, !range !6
-  %227 = icmp eq i8 %.pre32, 0
+  %.phi.trans.insert32 = getelementptr i8, ptr %30, i64 2362
+  %.pre33 = load i8, ptr %.phi.trans.insert32, align 2, !range !6
+  %227 = icmp eq i8 %.pre33, 0
   %228 = getelementptr i8, ptr %30, i64 2362
   br i1 %227, label %231, label %229
 
@@ -1068,9 +1068,9 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   store i8 20, ptr %230, align 2
   br label %240
 
-231:                                              ; preds = %.thread54, %205
-  %232 = phi ptr [ %204, %.thread54 ], [ %228, %205 ]
-  %233 = phi ptr [ %199, %.thread54 ], [ %206, %205 ]
+231:                                              ; preds = %.thread55, %205
+  %232 = phi ptr [ %204, %.thread55 ], [ %228, %205 ]
+  %233 = phi ptr [ %199, %.thread55 ], [ %206, %205 ]
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 15) #26
   %234 = load i64, ptr %10, align 8
   %235 = and i64 %234, 4295000064
@@ -1185,8 +1185,8 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %296 = load ptr, ptr %171, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 784
   %298 = load i64, ptr %297, align 8
-  %.fr = freeze i64 %298
-  %299 = and i64 %.fr, 54043195528445952
+  %.fr26 = freeze i64 %298
+  %299 = and i64 %.fr26, 54043195528445952
   %300 = icmp eq i64 %299, 54043195528445952
   %301 = icmp samesign ugt i32 %271, 1500
   %302 = or i1 %301, %300
@@ -1270,19 +1270,19 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %348 = icmp ne i32 %347, 0
   %349 = zext i1 %348 to i32
   store i32 %349, ptr %342, align 4
-  %.pre33 = load i64, ptr %335, align 8
+  %.pre34 = load i64, ptr %335, align 8
   br label %350
 
 350:                                              ; preds = %339, %333
-  %351 = phi i64 [ %.pre33, %339 ], [ %336, %333 ]
+  %351 = phi i64 [ %.pre34, %339 ], [ %336, %333 ]
   %352 = and i64 %351, 4503599627370496
   %353 = icmp eq i64 %352, 0
-  br i1 %353, label %.loopexit27, label %354
+  br i1 %353, label %.loopexit28, label %354
 
 354:                                              ; preds = %350
   %355 = load i16, ptr %330, align 4
   %356 = icmp eq i16 %355, 0
-  br i1 %356, label %.loopexit27, label %357
+  br i1 %356, label %.loopexit28, label %357
 
 357:                                              ; preds = %354
   %358 = getelementptr i8, ptr %30, i64 2328
@@ -1301,28 +1301,28 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
 367:                                              ; preds = %359
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 680
   store i32 1, ptr %368, align 8
-  %.pre34 = load i16, ptr %330, align 4
+  %.pre35 = load i16, ptr %330, align 4
   br label %369
 
 369:                                              ; preds = %367, %359
-  %370 = phi i16 [ %.pre34, %367 ], [ %360, %359 ]
+  %370 = phi i16 [ %.pre35, %367 ], [ %360, %359 ]
   %371 = add nuw nsw i64 %361, 1
   %372 = zext i16 %370 to i64
   %373 = icmp samesign ult i64 %371, %372
-  br i1 %373, label %359, label %.loopexit27, !llvm.loop !18
+  br i1 %373, label %359, label %.loopexit28, !llvm.loop !18
 
-.loopexit27:                                      ; preds = %369, %354, %350
+.loopexit28:                                      ; preds = %369, %354, %350
   %374 = getelementptr i8, ptr %30, i64 2360
   %375 = load i8, ptr %374, align 8, !range !6, !noundef !7
   %376 = icmp eq i8 %375, 0
   br i1 %376, label %379, label %377
 
-377:                                              ; preds = %.loopexit27
+377:                                              ; preds = %.loopexit28
   %378 = getelementptr inbounds nuw i8, ptr %30, i64 2096
   store ptr @virtio_net_mrg_rx_group, ptr %378, align 8
   br label %379
 
-379:                                              ; preds = %377, %.loopexit27
+379:                                              ; preds = %377, %.loopexit28
   %380 = load i16, ptr %329, align 2
   %381 = zext i16 %380 to i32
   %382 = call i32 @netif_set_real_num_tx_queues(ptr noundef %30, i32 noundef %381) #26
@@ -1381,7 +1381,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   store i16 0, ptr %418, align 2
   %419 = load i16, ptr %412, align 4
   %420 = icmp eq i16 %419, 0
-  br i1 %420, label %.loopexit26, label %.preheader
+  br i1 %420, label %.loopexit27, label %.preheader
 
 .preheader:                                       ; preds = %405, %.preheader
   %421 = phi i64 [ %427, %.preheader ], [ 0, %405 ]
@@ -1396,19 +1396,19 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %428 = load i16, ptr %412, align 4
   %429 = zext i16 %428 to i64
   %430 = icmp samesign ult i64 %427, %429
-  br i1 %430, label %.preheader, label %.loopexit26, !llvm.loop !19
+  br i1 %430, label %.preheader, label %.loopexit27, !llvm.loop !19
 
-.loopexit26:                                      ; preds = %.preheader, %405
+.loopexit27:                                      ; preds = %.preheader, %405
   %431 = load i8, ptr %242, align 1, !range !6, !noundef !7
   %432 = icmp eq i8 %431, 0
   br i1 %432, label %435, label %433
 
-433:                                              ; preds = %.loopexit26
+433:                                              ; preds = %.loopexit27
   %434 = load i16, ptr %329, align 2
   br label %435
 
-435:                                              ; preds = %433, %.loopexit26
-  %436 = phi i16 [ %434, %433 ], [ 0, %.loopexit26 ]
+435:                                              ; preds = %433, %.loopexit27
+  %436 = phi i16 [ %434, %433 ], [ 0, %.loopexit27 ]
   %437 = load ptr, ptr %408, align 8
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 288
   store i16 %436, ptr %438, align 8
@@ -6697,10 +6697,10 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load i32, ptr %16, align 8
-  %.fr36 = freeze i32 %17
+  %.fr = freeze i32 %17
   %18 = getelementptr i8, ptr %0, i64 2328
   %19 = load ptr, ptr %18, align 8
-  %20 = and i32 %.fr36, 1
+  %20 = and i32 %.fr, 1
   %21 = icmp eq i32 %20, 0
   %22 = zext i16 %13 to i64
   br i1 %21, label %.split25.us, label %.split25.split

@@ -13991,8 +13991,8 @@ common.resume:                                    ; preds = %.body, %203, %120, 
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i.i.i": ; preds = %182
   %192 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 %180, i64 noundef %184), !noalias !2513
-  %.fr.i.i.i = freeze { i64, i64 } %192
-  %193 = extractvalue { i64, i64 } %.fr.i.i.i, 0
+  %.fr6.i.i.i = freeze { i64, i64 } %192
+  %193 = extractvalue { i64, i64 } %.fr6.i.i.i, 0
   %194 = icmp eq i64 %193, 1
   br i1 %194, label %.thread30.i, label %.loopexit.i
 
@@ -15076,8 +15076,8 @@ _ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17
           to label %.noexc174 unwind label %.loopexit299
 
 .noexc174:                                        ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i"
-  %.fr.i = freeze { i64, i64 } %555
-  %556 = extractvalue { i64, i64 } %.fr.i, 0
+  %.fr6.i = freeze { i64, i64 } %555
+  %556 = extractvalue { i64, i64 } %.fr6.i, 0
   %557 = icmp eq i64 %556, 1
   br i1 %557, label %.loopexit, label %.loopexit297
 
@@ -15836,8 +15836,8 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
           to label %.noexc85.i unwind label %.loopexit150.i, !noalias !2757
 
 .noexc85.i:                                       ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i.i"
-  %.fr.i.i = freeze { i64, i64 } %853
-  %854 = extractvalue { i64, i64 } %.fr.i.i, 0
+  %.fr6.i.i = freeze { i64, i64 } %853
+  %854 = extractvalue { i64, i64 } %.fr6.i.i, 0
   %855 = icmp eq i64 %854, 1
   br i1 %855, label %.loopexit.i206, label %.loopexit148.i
 

@@ -862,8 +862,8 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
   %45 = zext i8 %42 to i32
   %46 = and i32 %34, 7
   %47 = shl nuw nsw i32 %45, %46
-  %.fr = freeze i32 %47
-  %48 = lshr i32 %.fr, 7
+  %.fr101 = freeze i32 %47
+  %48 = lshr i32 %.fr101, 7
   store i32 %spec.select.i, ptr %13, align 8, !tbaa !68
   %49 = and i32 %48, 1
   br label %50
@@ -949,8 +949,8 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
   %99 = sext i32 %98 to i64
   tail call void %94(ptr noundef %97, i64 noundef %99, ptr noundef nonnull %9, ptr noundef nonnull @hqx_quant_luma) #8
   %100 = load ptr, ptr %0, align 16, !tbaa !74
-  %spec.select101 = select i1 %.not.not.i, i32 8, i32 1
-  %101 = add nsw i32 %spec.select101, %3
+  %spec.select102 = select i1 %.not.not.i, i32 8, i32 1
+  %101 = add nsw i32 %spec.select102, %3
   %102 = mul nsw i32 %101, %88
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %93, i64 %103
@@ -1124,8 +1124,8 @@ define internal noundef i32 @hqx_decode_444a(ptr noundef %0, i32 noundef %1, i32
   %45 = zext i8 %42 to i32
   %46 = and i32 %34, 7
   %47 = shl nuw nsw i32 %45, %46
-  %.fr = freeze i32 %47
-  %48 = lshr i32 %.fr, 7
+  %.fr101 = freeze i32 %47
+  %48 = lshr i32 %.fr101, 7
   store i32 %spec.select.i, ptr %13, align 8, !tbaa !68
   %49 = and i32 %48, 1
   br label %50

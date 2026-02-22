@@ -2633,9 +2633,9 @@ init_neighbour_context.exit.i:                    ; preds = %50, %40, %.is_a0_av
   %98 = icmp slt i32 %30, 8
   %99 = icmp slt i32 %32, 8
   %or.cond.i.i = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond.i.i, label %sb_temporal_merge_candidate.exit.thread.i, label %._crit_edge78.i.i
+  br i1 %or.cond.i.i, label %sb_temporal_merge_candidate.exit.thread.i, label %._crit_edge75.i.i
 
-._crit_edge78.i.i:                                ; preds = %97
+._crit_edge75.i.i:                                ; preds = %97
   %100 = ashr i32 %30, 3
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %100, ptr %101, align 4, !tbaa !97
@@ -2651,7 +2651,7 @@ init_neighbour_context.exit.i:                    ; preds = %50, %40, %.is_a0_av
   %110 = zext i16 %109 to i32
   br i1 %.not.i.i, label %derive_corner_mvf.exit.i.i, label %111
 
-111:                                              ; preds = %._crit_edge78.i.i
+111:                                              ; preds = %._crit_edge75.i.i
   store i32 1, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !tbaa !160
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 15417
   %113 = load i8, ptr %112, align 1, !tbaa !163
@@ -2661,8 +2661,8 @@ init_neighbour_context.exit.i:                    ; preds = %50, %40, %.is_a0_av
 114:                                              ; preds = %111
   %115 = ashr i32 %70, %35
   %116 = ashr i32 %26, %35
-  %.not135.i = icmp sgt i32 %115, %116
-  br i1 %.not135.i, label %check_available.exit.thread122.i, label %.thread.i.i
+  %.not134.i = icmp sgt i32 %115, %116
+  br i1 %.not134.i, label %check_available.exit.thread121.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %114, %111
   %117 = getelementptr inbounds nuw i8, ptr %22, i64 34
@@ -2681,7 +2681,7 @@ init_neighbour_context.exit.i:                    ; preds = %50, %40, %.is_a0_av
   %130 = getelementptr inbounds i8, ptr %126, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !29
   %.not1.i.i = icmp eq i8 %131, 0
-  br i1 %.not1.i.i, label %check_available.exit.thread122.i, label %132
+  br i1 %.not1.i.i, label %check_available.exit.thread121.i, label %132
 
 132:                                              ; preds = %.thread.i.i
   %133 = getelementptr inbounds nuw i8, ptr %23, i64 52
@@ -2698,9 +2698,9 @@ init_neighbour_context.exit.i:                    ; preds = %50, %40, %.is_a0_av
   %144 = getelementptr inbounds nuw i32, ptr @pred_flag_to_mode.lut, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !131
   %146 = icmp eq i32 %134, %145
-  br i1 %146, label %check_available.exit.i, label %check_available.exit.thread122.i
+  br i1 %146, label %check_available.exit.i, label %check_available.exit.thread121.i
 
-check_available.exit.thread122.i:                 ; preds = %132, %.thread.i.i, %114
+check_available.exit.thread121.i:                 ; preds = %132, %.thread.i.i, %114
   store i32 0, ptr %.sroa.10.0..sroa_idx.i.i, align 4, !tbaa !161
   br label %derive_corner_mvf.exit.i.i
 
@@ -2720,8 +2720,8 @@ check_available.exit.i:                           ; preds = %132
   %spec.select = select i1 %narrow.not.i.i, ptr %140, ptr null
   br label %derive_corner_mvf.exit.i.i
 
-derive_corner_mvf.exit.i.i:                       ; preds = %check_available.exit.i, %check_available.exit.thread122.i, %._crit_edge78.i.i
-  %spec.select.i.i.i = phi ptr [ null, %._crit_edge78.i.i ], [ %spec.select, %check_available.exit.i ], [ null, %check_available.exit.thread122.i ]
+derive_corner_mvf.exit.i.i:                       ; preds = %check_available.exit.i, %check_available.exit.thread121.i, %._crit_edge75.i.i
+  %spec.select.i.i.i = phi ptr [ null, %._crit_edge75.i.i ], [ %spec.select, %check_available.exit.i ], [ null, %check_available.exit.thread121.i ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 4580544
   %158 = load ptr, ptr %157, align 16, !tbaa !10
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16696
@@ -2817,17 +2817,13 @@ sb_temporal_luma_motion_data.exit.i.i:            ; preds = %205, %169
 218:                                              ; preds = %sb_temporal_luma_motion_data.exit.i.i
   %219 = load i32, ptr %29, align 4, !tbaa !89
   %220 = load i32, ptr %101, align 4, !tbaa !97
-  %.fr73.i.i = freeze i32 %220
-  %.fr.i.i = freeze i32 %219
-  %221 = sdiv i32 %.fr.i.i, %.fr73.i.i
+  %221 = sdiv i32 %219, %220
   %222 = load i32, ptr %31, align 8, !tbaa !83
   %223 = load i32, ptr %103, align 4, !tbaa !98
-  %.fr75.i.i = freeze i32 %223
-  %.fr74.i.i = freeze i32 %222
-  %224 = sdiv i32 %.fr74.i.i, %.fr75.i.i
+  %224 = sdiv i32 %222, %223
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %225 = icmp sgt i32 %.fr75.i.i, 0
+  %225 = icmp sgt i32 %223, 0
   br i1 %225, label %.preheader.lr.ph.i.i, label %.loopexit.i
 
 .preheader.lr.ph.i.i:                             ; preds = %218
@@ -2837,12 +2833,13 @@ sb_temporal_luma_motion_data.exit.i.i:            ; preds = %205, %169
   %229 = icmp sgt i32 %224, 0
   %230 = icmp sgt i32 %221, 0
   %or.cond.i.i.i = and i1 %230, %229
+  %or.cond.i.fr.i.i = freeze i1 %or.cond.i.i.i
   %invariant.op.i.i = add i32 %226, %26
-  %231 = icmp sgt i32 %.fr73.i.i, 0
+  %231 = icmp sgt i32 %220, 0
   br i1 %231, label %.preheader.i.i, label %.loopexit.i
 
 .preheader.i.i:                                   ; preds = %.preheader.lr.ph.i.i, %._crit_edge.i.i
-  %232 = phi i32 [ %266, %._crit_edge.i.i ], [ %.fr73.i.i, %.preheader.lr.ph.i.i ]
+  %232 = phi i32 [ %266, %._crit_edge.i.i ], [ %220, %.preheader.lr.ph.i.i ]
   %.05871.i.i = phi i32 [ %267, %._crit_edge.i.i ], [ 0, %.preheader.lr.ph.i.i ]
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -2851,11 +2848,11 @@ sb_temporal_luma_motion_data.exit.i.i:            ; preds = %205, %169
   %234 = mul nsw i32 %.05871.i.i, %224
   %235 = add nsw i32 %234, %28
   %236 = add nsw i32 %235, %227
-  br i1 %or.cond.i.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
+  br i1 %or.cond.i.fr.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %ff_vvc_set_mvf.exit.loopexit.us.i.i
   %.05770.us.i.i = phi i32 [ %263, %ff_vvc_set_mvf.exit.loopexit.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %237 = mul nuw nsw i32 %.05770.us.i.i, %221
+  %237 = mul nsw i32 %.05770.us.i.i, %221
   %238 = add nsw i32 %237, %26
   %239 = add nsw i32 %238, %226
   call fastcc void @sb_temproal_luma_motion(ptr noundef nonnull readonly %0, i32 noundef %88, i32 noundef %89, i32 %.sroa.0.0.i.i, i32 %.sroa.5.0.i.i, i32 noundef %239, i32 noundef %236, ptr noundef %228, ptr noundef %6)
@@ -4397,12 +4394,11 @@ define internal fastcc void @ibc_merge_candidates(ptr noundef %0, i32 noundef %1
   %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !89
-  %.4547736.val.12.val.fr.i = freeze i32 %26
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !83
-  %.4547736.val.16.val.fr.i = freeze i32 %28
-  %29 = mul i32 %.4547736.val.16.val.fr.i, %.4547736.val.12.val.fr.i
-  %30 = icmp sgt i32 %29, 16
+  %29 = mul nsw i32 %28, %26
+  %.fr24.i = freeze i32 %29
+  %30 = icmp sgt i32 %.fr24.i, 16
   br i1 %30, label %init_neighbour_context.exit.i, label %.critedge.sink.split.i.thread
 
 init_neighbour_context.exit.i:                    ; preds = %3
@@ -4417,12 +4413,12 @@ init_neighbour_context.exit.i:                    ; preds = %3
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4580520
   %41 = add nsw i32 %32, -1
-  %.pre-phi.i.i = add i32 %.4547736.val.16.val.fr.i, -1
+  %.pre-phi.i.i = add i32 %28, -1
   %42 = add i32 %.pre-phi.i.i, %34
   %43 = load i32, ptr %40, align 4, !tbaa !148
   %.not.i.not.i = icmp eq i32 %43, 0
   %44 = add nsw i32 %34, -1
-  %45 = add i32 %.4547736.val.12.val.fr.i, -1
+  %45 = add i32 %26, -1
   %46 = add i32 %45, %32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4580524
   %48 = load i32, ptr %47, align 4, !tbaa !150
@@ -4583,7 +4579,7 @@ check_available.exit53.i:                         ; preds = %.thread.i51.i
 .lr.ph19.i:                                       ; preds = %.critedge.sink.split.i
   %138 = getelementptr inbounds nuw i8, ptr %.val16, i64 2848
   %139 = icmp sgt i32 %.0.ph.fr, 0
-  %wide.trip.count31.i = zext nneg i32 %.0.ph.fr to i64
+  %wide.trip.count32.i = zext nneg i32 %.0.ph.fr to i64
   %140 = zext nneg i32 %131 to i64
   br i1 %139, label %.lr.ph19.split.i.preheader29, label %.lr.ph19.split.i.us.preheader
 
@@ -4644,16 +4640,16 @@ check_available.exit53.i:                         ; preds = %.thread.i51.i
   br i1 %154, label %.lr.ph.split.us.i, label %._crit_edge.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph19.split.i, %.thread.us.i
-  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.thread.us.i ], [ 0, %.lr.ph19.split.i ]
-  %155 = getelementptr inbounds nuw %struct.Mv, ptr %4, i64 %indvars.iv28.i
+  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %.thread.us.i ], [ 0, %.lr.ph19.split.i ]
+  %155 = getelementptr inbounds nuw %struct.Mv, ptr %4, i64 %indvars.iv29.i
   %156 = load i64, ptr %155, align 8, !tbaa !29
   %157 = icmp eq i64 %.pre, %156
   br i1 %157, label %.thread4.i, label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i
-  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !216
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
+  br i1 %exitcond33.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !216
 
 ._crit_edge.i:                                    ; preds = %.thread.us.i, %.lr.ph19.split.i
   %158 = zext nneg i32 %.03814.i to i64

@@ -252,8 +252,8 @@ define internal noundef zeroext i1 @Check_Numeric_Character(i32 noundef %0, ptr 
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds i16, ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !24
-  %.fr = freeze i16 %7
-  %8 = and i16 %.fr, 2048
+  %.fr7 = freeze i16 %7
+  %8 = and i16 %.fr7, 2048
   %.not = icmp eq i16 %8, 0
   br i1 %.not, label %switch.early.test, label %switch.edge
 

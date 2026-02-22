@@ -1633,8 +1633,8 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal10WireFormat20Pars
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %.fr = freeze { ptr, ptr } %6
-  %7 = extractvalue { ptr, ptr } %.fr, 0
+  %.fr61 = freeze { ptr, ptr } %6
+  %7 = extractvalue { ptr, ptr } %.fr61, 0
   %8 = load ptr, ptr %1, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8

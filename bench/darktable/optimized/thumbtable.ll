@@ -3521,11 +3521,9 @@ define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, p
 17:                                               ; preds = %16, %5
   %.159.i = phi i32 [ %.058.i, %5 ], [ %spec.select81.i, %16 ]
   %.1.i = phi i32 [ %.0.i, %5 ], [ %spec.select.i, %16 ]
-  %.1.fr.i = freeze i32 %.1.i
-  %.159.fr.i = freeze i32 %.159.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !230
-  %18 = icmp slt i32 %.1.fr.i, %.159.fr.i
+  %18 = icmp slt i32 %.1.i, %.159.i
   br i1 %18, label %19, label %68
 
 19:                                               ; preds = %17
@@ -3533,8 +3531,8 @@ define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, p
   %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef 5) #16
   %21 = tail call noalias ptr @g_strdup(ptr noundef %20) #16
   store ptr %21, ptr %4, align 8, !tbaa !90
-  %22 = icmp sgt i32 %.159.fr.i, 7
-  %23 = icmp eq i32 %.1.fr.i, 0
+  %22 = icmp sgt i32 %.159.i, 7
+  %23 = icmp eq i32 %.1.i, 0
   %or.cond.i = and i1 %22, %23
   br i1 %or.cond.i, label %24, label %26
 
@@ -3548,7 +3546,7 @@ define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, p
 
 27:                                               ; preds = %26
   %28 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.110, i32 noundef 5) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef %28, i32 noundef %.1.fr.i) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef %28, i32 noundef %.1.i) #16
   br label %34
 
 29:                                               ; preds = %26
@@ -3556,12 +3554,12 @@ define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, p
 
 30:                                               ; preds = %29
   %31 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.111, i32 noundef 5) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef %31, i32 noundef %.159.fr.i) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef %31, i32 noundef %.159.i) #16
   br label %34
 
 32:                                               ; preds = %29
   %33 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 5) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef %33, i32 noundef %.1.fr.i, i32 noundef %.159.fr.i) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef %33, i32 noundef %.1.i, i32 noundef %.159.i) #16
   br label %34
 
 34:                                               ; preds = %32, %30, %27, %24
@@ -3610,11 +3608,11 @@ define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, p
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.us.i
-  %.060.in83.us.i = phi i32 [ %.159.fr.i, %.lr.ph.us.i ], [ %.060.us.i, %59 ]
+  %.060.in83.us.i = phi i32 [ %.159.i, %.lr.ph.us.i ], [ %.060.us.i, %59 ]
   %.060.us.i = add nsw i32 %.060.in83.us.i, -1
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !123
   call void @dt_mipmap_cache_remove_at_size(ptr noundef %60, i32 noundef %58, i32 noundef %.060.us.i) #16
-  %.not76.not.us.i = icmp sgt i32 %.060.us.i, %.1.fr.i
+  %.not76.not.us.i = icmp sgt i32 %.060.us.i, %.1.i
   br i1 %.not76.not.us.i, label %59, label %..loopexit_crit_edge.us.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %59
@@ -3661,7 +3659,7 @@ define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, p
 
 82:                                               ; preds = %76, %72
   %83 = load ptr, ptr %3, align 8, !tbaa !230
-  %84 = call i32 @sqlite3_bind_int(ptr noundef %83, i32 noundef 1, i32 noundef %.1.fr.i) #16
+  %84 = call i32 @sqlite3_bind_int(ptr noundef %83, i32 noundef 1, i32 noundef %.1.i) #16
   %.not75.i = icmp eq i32 %84, 0
   br i1 %.not75.i, label %_thumbs_ask_for_discard.exit, label %85
 
@@ -5880,8 +5878,8 @@ define range(i32 0, 2) i32 @dt_thumbtable_check_imgid_visibility(ptr noundef rea
   br i1 %.not.i9, label %_filemanager_check_rowid_visibility.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %41, %69
-  %.03371.i = phi ptr [ %71, %69 ], [ %43, %41 ]
-  %44 = load ptr, ptr %.03371.i, align 8, !tbaa !23
+  %.03366.i = phi ptr [ %71, %69 ], [ %43, %41 ]
+  %44 = load ptr, ptr %.03366.i, align 8, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !44
   %.not51.i = icmp eq i32 %46, %39
@@ -5890,43 +5888,38 @@ define range(i32 0, 2) i32 @dt_thumbtable_check_imgid_visibility(ptr noundef rea
 47:                                               ; preds = %.preheader.i
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %49 = load i32, ptr %48, align 4, !tbaa !40
-  %.fr69.i = freeze i32 %49
-  %50 = icmp slt i32 %.fr69.i, 0
+  %50 = icmp slt i32 %49, 0
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load i32, ptr %52, align 8, !tbaa !81
-  %.fr70.i = freeze i32 %53
-  %54 = add i32 %.fr70.i, %.fr69.i
+  %54 = add nsw i32 %53, %49
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %56 = load i32, ptr %55, align 4, !tbaa !43
-  %.fr68.i = freeze i32 %56
-  %57 = icmp sge i32 %.fr68.i, %54
+  %57 = icmp sge i32 %56, %54
   br label %58
 
 58:                                               ; preds = %51, %47
   %.138.i = phi i1 [ %57, %51 ], [ false, %47 ]
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !39
-  %.fr66.i = freeze i32 %60
-  %61 = icmp slt i32 %.fr66.i, 0
+  %61 = icmp slt i32 %60, 0
   br i1 %61, label %.thread55.i, label %62
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load i32, ptr %63, align 8, !tbaa !81
-  %.fr67.i = freeze i32 %64
-  %65 = add i32 %.fr67.i, %.fr66.i
+  %65 = add nsw i32 %64, %60
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load i32, ptr %66, align 8, !tbaa !42
-  %.fr.i = freeze i32 %67
-  %68 = icmp sge i32 %.fr.i, %65
-  %or.cond.i = and i1 %.138.i, %68
-  br i1 %or.cond.i, label %_filemanager_check_rowid_visibility.exit, label %.thread55.i
+  %68 = icmp sge i32 %67, %65
+  %or.cond.i = select i1 %68, i1 %.138.i, i1 false
+  %or.cond.fr.i = freeze i1 %or.cond.i
+  br i1 %or.cond.fr.i, label %_filemanager_check_rowid_visibility.exit, label %.thread55.i
 
 69:                                               ; preds = %.preheader.i
-  %70 = getelementptr inbounds nuw i8, ptr %.03371.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.03366.i, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !85
   %.not48.i = icmp eq ptr %71, null
   br i1 %.not48.i, label %.thread55.i, label %.preheader.i

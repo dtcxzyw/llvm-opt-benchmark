@@ -2557,17 +2557,17 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
   %.02.i = phi i64 [ %31, %.lr.ph.i ], [ %20, %19 ]
-  %.0151.i = phi i64 [ %29, %.lr.ph.i ], [ 1, %19 ]
+  %.0151.i = phi i64 [ %.fr.i, %.lr.ph.i ], [ 1, %19 ]
   %22 = lshr i64 %.02.i, 1
   %23 = add i64 %22, %.0151.i
   %sext.i = shl i64 %23, 32
   %24 = ashr exact i64 %sext.i, 30
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !4
-  %.fr.i = freeze float %26
-  %27 = fcmp ole float %.fr.i, %2
+  %27 = fcmp ole float %26, %2
   %28 = add i64 %23, 1
   %29 = select i1 %27, i64 %28, i64 %.0151.i
+  %.fr.i = freeze i64 %29
   %.neg.i = xor i64 %22, -1
   %30 = add nsw i64 %.02.i, %.neg.i
   %31 = select i1 %27, i64 %30, i64 %22
@@ -2575,9 +2575,9 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !104
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %33 = add nsw i64 %29, -1
+  %33 = add nsw i64 %.fr.i, -1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 %20)
-  %.inv.i = icmp sgt i64 %29, 0
+  %.inv.i = icmp sgt i64 %.fr.i, 0
   %spec.select.i = select i1 %.inv.i, i64 %..i.i, i64 0
   br label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
 
@@ -2761,17 +2761,17 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.02.i = phi i64 [ %30, %.lr.ph.i ], [ %19, %18 ]
-  %.0151.i = phi i64 [ %28, %.lr.ph.i ], [ 1, %18 ]
+  %.0151.i = phi i64 [ %.fr.i, %.lr.ph.i ], [ 1, %18 ]
   %21 = lshr i64 %.02.i, 1
   %22 = add i64 %21, %.0151.i
   %sext.i = shl i64 %22, 32
   %23 = ashr exact i64 %sext.i, 30
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !4
-  %.fr.i = freeze float %25
-  %26 = fcmp ole float %.fr.i, %4
+  %26 = fcmp ole float %25, %4
   %27 = add i64 %22, 1
   %28 = select i1 %26, i64 %27, i64 %.0151.i
+  %.fr.i = freeze i64 %28
   %.neg.i = xor i64 %21, -1
   %29 = add nsw i64 %.02.i, %.neg.i
   %30 = select i1 %26, i64 %29, i64 %21
@@ -2779,9 +2779,9 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
   br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %32 = add nsw i64 %28, -1
+  %32 = add nsw i64 %.fr.i, -1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %32, i64 %19)
-  %.inv.i = icmp sgt i64 %28, 0
+  %.inv.i = icmp sgt i64 %.fr.i, 0
   %spec.select.i = select i1 %.inv.i, i64 %..i.i, i64 0
   br label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
@@ -2957,17 +2957,17 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
   %.02.i = phi i64 [ %31, %.lr.ph.i ], [ %20, %19 ]
-  %.0151.i = phi i64 [ %29, %.lr.ph.i ], [ 1, %19 ]
+  %.0151.i = phi i64 [ %.fr.i, %.lr.ph.i ], [ 1, %19 ]
   %22 = lshr i64 %.02.i, 1
   %23 = add i64 %22, %.0151.i
   %sext.i = shl i64 %23, 32
   %24 = ashr exact i64 %sext.i, 30
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !4
-  %.fr.i = freeze float %26
-  %27 = fcmp ole float %.fr.i, %4
+  %27 = fcmp ole float %26, %4
   %28 = add i64 %23, 1
   %29 = select i1 %27, i64 %28, i64 %.0151.i
+  %.fr.i = freeze i64 %29
   %.neg.i = xor i64 %22, -1
   %30 = add nsw i64 %.02.i, %.neg.i
   %31 = select i1 %27, i64 %30, i64 %22
@@ -2975,9 +2975,9 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %33 = add nsw i64 %29, -1
+  %33 = add nsw i64 %.fr.i, -1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 %20)
-  %.inv.i = icmp sgt i64 %29, 0
+  %.inv.i = icmp sgt i64 %.fr.i, 0
   %spec.select.i = select i1 %.inv.i, i64 %..i.i, i64 0
   br label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 

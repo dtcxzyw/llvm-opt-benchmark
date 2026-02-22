@@ -500,12 +500,12 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   br label %17
 
 17:                                               ; preds = %.lr.ph126, %.loopexit99
-  %indvars.iv159 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next160, %.loopexit99 ]
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next157, %.loopexit99 ]
   %.086123 = phi ptr [ %10, %.lr.ph126 ], [ %109, %.loopexit99 ]
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv159
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv156
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %15, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.086123, i64 12
@@ -533,37 +533,37 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   %.088 = phi i32 [ %31, %30 ], [ %spec.select, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %.086123, i64 28
   %40 = load i32, ptr %39, align 4
-  %.fr128 = freeze i32 %40
+  %.fr160 = freeze i32 %40
   %41 = getelementptr inbounds nuw i8, ptr %.086123, i64 8
   %42 = load i32, ptr %41, align 8
-  %.fr129 = freeze i32 %42
-  %43 = urem i32 %.fr128, %.fr129
+  %.fr = freeze i32 %42
+  %43 = urem i32 %.fr160, %.fr
   %44 = icmp sgt i32 %43, 0
-  %45 = sub i32 %.fr129, %43
+  %45 = sub i32 %.fr, %43
   %spec.select98 = select i1 %44, i32 %45, i32 %43
   %46 = icmp sgt i32 %.088, 0
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv159
+  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv156
   %48 = icmp sgt i32 %spec.select98, 0
-  %49 = zext i32 %.fr128 to i64
+  %49 = zext i32 %.fr160 to i64
   %50 = zext i32 %spec.select98 to i64
   %51 = shl nuw nsw i64 %50, 7
-  %wide.trip.count143 = zext nneg i32 %.088 to i64
+  %wide.trip.count140 = zext nneg i32 %.088 to i64
   br i1 %48, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.loopexit.us ], [ 0, %.lr.ph ]
-  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv140
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.loopexit.us ], [ 0, %.lr.ph ]
+  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv137
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %16, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %47, align 8
-  %indvars.iv140.tr = trunc i64 %indvars.iv140 to i32
-  %58 = shl i32 %indvars.iv140.tr, 3
-  tail call void %56(ptr noundef nonnull %0, ptr noundef %.086123, ptr noundef %57, ptr noundef %53, i32 noundef %58, i32 noundef 0, i32 noundef %.fr128) #2
+  %indvars.iv137.tr = trunc i64 %indvars.iv137 to i32
+  %58 = shl i32 %indvars.iv137.tr, 3
+  tail call void %56(ptr noundef nonnull %0, ptr noundef %.086123, ptr noundef %57, ptr noundef %53, i32 noundef %58, i32 noundef 0, i32 noundef %.fr160) #2
   %59 = getelementptr inbounds nuw [64 x i16], ptr %53, i64 %49
   tail call void @jZeroFar(ptr noundef %59, i64 noundef %51) #2
   %60 = getelementptr inbounds i8, ptr %59, i64 -128
@@ -571,17 +571,17 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   br label %62
 
 62:                                               ; preds = %62, %.lr.ph.split.us
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %62 ], [ 0, %.lr.ph.split.us ]
-  %63 = getelementptr inbounds nuw [64 x i16], ptr %59, i64 %indvars.iv135
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %62 ], [ 0, %.lr.ph.split.us ]
+  %63 = getelementptr inbounds nuw [64 x i16], ptr %59, i64 %indvars.iv132
   store i16 %61, ptr %63, align 2
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %50
-  br i1 %exitcond139.not, label %.loopexit.us, label %62, !llvm.loop !15
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %50
+  br i1 %exitcond136.not, label %.loopexit.us, label %62, !llvm.loop !15
 
 .loopexit.us:                                     ; preds = %62
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
+  br i1 %exitcond141.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -593,9 +593,9 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   %69 = load ptr, ptr %47, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %70 = shl i32 %indvars.iv.tr, 3
-  tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %.086123, ptr noundef %69, ptr noundef %65, i32 noundef %70, i32 noundef 0, i32 noundef %.fr128) #2
+  tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %.086123, ptr noundef %69, ptr noundef %65, i32 noundef %70, i32 noundef 0, i32 noundef %.fr160) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count140
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.loopexit.us, %38
@@ -604,8 +604,8 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   br i1 %72, label %73, label %.loopexit99
 
 73:                                               ; preds = %._crit_edge
-  %74 = add i32 %spec.select98, %.fr128
-  %75 = udiv i32 %74, %.fr129
+  %74 = add i32 %spec.select98, %.fr160
+  %75 = udiv i32 %74, %.fr
   %76 = load i32, ptr %24, align 4
   %77 = icmp slt i32 %.088, %76
   br i1 %77, label %.lr.ph114, label %.loopexit99
@@ -613,8 +613,8 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
 .lr.ph114:                                        ; preds = %73
   %78 = zext i32 %74 to i64
   %79 = shl nuw nsw i64 %78, 7
-  %.not = icmp ugt i32 %.fr129, %74
-  %80 = sext i32 %.fr129 to i64
+  %.not = icmp ugt i32 %.fr, %74
+  %80 = sext i32 %.fr to i64
   br i1 %.not, label %.lr.ph114.split.preheader, label %.lr.ph114.split.us
 
 .lr.ph114.split.preheader:                        ; preds = %.lr.ph114
@@ -622,12 +622,12 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   br label %.lr.ph114.split
 
 .lr.ph114.split.us:                               ; preds = %.lr.ph114
-  %82 = icmp sgt i32 %.fr129, 0
+  %82 = icmp sgt i32 %.fr, 0
   %83 = sext i32 %.088 to i64
   br i1 %82, label %.lr.ph110.us.us.preheader, label %.lr.ph110.us
 
 .lr.ph110.us.us.preheader:                        ; preds = %.lr.ph114.split.us
-  %wide.trip.count151 = zext nneg i32 %.fr129 to i64
+  %wide.trip.count151 = zext nneg i32 %.fr to i64
   br label %.lr.ph110.us.us
 
 .lr.ph110.us.us:                                  ; preds = %.lr.ph110.us.us.preheader, %._crit_edge111.split.us.us.us
@@ -681,22 +681,22 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   br i1 %103, label %.lr.ph110.us, label %.loopexit99, !llvm.loop !19
 
 .lr.ph114.split:                                  ; preds = %.lr.ph114.split.preheader, %.lr.ph114.split
-  %indvars.iv156 = phi i64 [ %81, %.lr.ph114.split.preheader ], [ %indvars.iv.next157, %.lr.ph114.split ]
-  %104 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv156
+  %indvars.iv142 = phi i64 [ %81, %.lr.ph114.split.preheader ], [ %indvars.iv.next143, %.lr.ph114.split ]
+  %104 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv142
   %105 = load ptr, ptr %104, align 8
   tail call void @jZeroFar(ptr noundef %105, i64 noundef %79) #2
-  %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
+  %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
   %106 = load i32, ptr %24, align 4
   %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next157, %107
+  %108 = icmp slt i64 %indvars.iv.next143, %107
   br i1 %108, label %.lr.ph114.split, label %.loopexit99, !llvm.loop !19
 
 .loopexit99:                                      ; preds = %.lr.ph110.us, %._crit_edge111.split.us.us.us, %.lr.ph114.split, %73, %._crit_edge
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %109 = getelementptr inbounds nuw i8, ptr %.086123, i64 96
   %110 = load i32, ptr %6, align 4
   %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next160, %111
+  %112 = icmp slt i64 %indvars.iv.next157, %111
   br i1 %112, label %17, label %._crit_edge127, !llvm.loop !20
 
 ._crit_edge127:                                   ; preds = %.loopexit99, %2

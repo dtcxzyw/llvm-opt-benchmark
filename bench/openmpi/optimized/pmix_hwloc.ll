@@ -3629,8 +3629,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr noundef readonl
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 528
   %24 = load i64, ptr %23, align 8, !tbaa !39
-  %.fr640 = freeze i64 %24
-  %25 = or i64 %.fr640, %.2259495
+  %25 = or i64 %24, %.2259495
   br label %32
 
 26:                                               ; preds = %.lr.ph
@@ -3690,14 +3689,14 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr noundef readonl
 dsearch.exit:                                     ; preds = %47
   %51 = add nuw i32 %.0238498, 1
   %exitcond570.not = icmp eq i32 %51, %36
-  br i1 %exitcond570.not, label %dsearch.exit.thread.thread642, label %40, !llvm.loop !131
+  br i1 %exitcond570.not, label %dsearch.exit.thread.thread641, label %40, !llvm.loop !131
 
 dsearch.exit.thread:                              ; preds = %40, %49
   %52 = icmp eq ptr %.0234499, null
-  br i1 %52, label %.critedge314, label %dsearch.exit.thread.thread642
+  br i1 %52, label %.critedge314, label %dsearch.exit.thread.thread641
 
-dsearch.exit.thread.thread642:                    ; preds = %dsearch.exit, %dsearch.exit.thread
-  %.0234493644 = phi ptr [ %.0234499, %dsearch.exit.thread ], [ %43, %dsearch.exit ]
+dsearch.exit.thread.thread641:                    ; preds = %dsearch.exit, %dsearch.exit.thread
+  %.0234493643 = phi ptr [ %.0234499, %dsearch.exit.thread ], [ %43, %dsearch.exit ]
   %53 = call i32 @hwloc_get_type_depth(ptr noundef %35, i32 noundef 3) #17
   %54 = load ptr, ptr %34, align 8, !tbaa !41
   %55 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %54, i32 noundef %53) #18
@@ -3706,11 +3705,11 @@ dsearch.exit.thread.thread642:                    ; preds = %dsearch.exit, %dsea
   %.not285 = icmp eq i32 %56, %57
   br i1 %.not285, label %59, label %58
 
-58:                                               ; preds = %dsearch.exit.thread.thread642
+58:                                               ; preds = %dsearch.exit.thread.thread641
   call void @pmix_class_initialize(ptr noundef nonnull @pmix_list_t_class) #17
   br label %59
 
-59:                                               ; preds = %58, %dsearch.exit.thread.thread642
+59:                                               ; preds = %58, %dsearch.exit.thread.thread641
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @pmix_list_t_class, ptr %60, align 8, !tbaa !70
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -3737,7 +3736,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %59
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %.not550 = icmp eq i32 %55, 0
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %72 = getelementptr inbounds nuw i8, ptr %.0234493644, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.0234493643, i64 48
   br label %73
 
 73:                                               ; preds = %pmix_obj_run_constructors.exit, %.loopexit468
@@ -3745,9 +3744,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %59
   %74 = getelementptr inbounds nuw %struct.pmix_type_conversion_t, ptr @table, i64 %.2263529
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !132
-  %.fr = freeze i64 %76
-  %77 = and i64 %.fr, %.1258
-  %.not289 = icmp eq i64 %77, 0
+  %77 = and i64 %76, %.1258
+  %.fr = freeze i64 %77
+  %.not289 = icmp eq i64 %.fr, 0
   br i1 %.not289, label %.loopexit468, label %switch.early.test
 
 switch.early.test:                                ; preds = %73
@@ -3834,7 +3833,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %94, %9
   store volatile i64 %111, ptr %70, align 8, !tbaa !102
   %112 = getelementptr inbounds nuw i8, ptr %90, i64 144
   %113 = getelementptr inbounds nuw i8, ptr %90, i64 160
-  store i64 %.fr, ptr %113, align 8, !tbaa !136
+  store i64 %76, ptr %113, align 8, !tbaa !136
   switch i64 %.2263529, label %338 [
     i64 2, label %.preheader466
     i64 3, label %.preheader467
@@ -4455,8 +4454,8 @@ pmix_obj_run_destructors.exit376:                 ; preds = %.lr.ph.i373, %350
   %387 = add i64 %.0265513, 1
   %388 = getelementptr inbounds nuw ptr, ptr %371, i64 %387
   %389 = load ptr, ptr %388, align 8, !tbaa !7
-  %.not301655 = icmp eq ptr %389, null
-  br i1 %.not301655, label %._crit_edge516.thread, label %.outer, !llvm.loop !155
+  %.not301654 = icmp eq ptr %389, null
+  br i1 %.not301654, label %._crit_edge516.thread, label %.outer, !llvm.loop !155
 
 ._crit_edge516:                                   ; preds = %383
   br i1 %.0255514.ph, label %._crit_edge516.thread, label %.critedge548
@@ -4663,7 +4662,7 @@ pmix_obj_run_destructors.exit398:                 ; preds = %.lr.ph.i395, %457
 .lr.ph521:                                        ; preds = %.critedge
   %481 = load ptr, ptr %34, align 8, !tbaa !41
   %482 = load ptr, ptr %71, align 8, !tbaa !41
-  %.not9.i = icmp eq ptr %.0234493644, %.1236
+  %.not9.i = icmp eq ptr %.0234493643, %.1236
   br label %483
 
 483:                                              ; preds = %.lr.ph521, %568
@@ -4682,7 +4681,7 @@ pmix_obj_run_destructors.exit398:                 ; preds = %.lr.ph.i395, %457
 
 .preheader1.i:                                    ; preds = %488, %511
   %.011.i = phi ptr [ %.2.i, %511 ], [ %.1236, %488 ]
-  %.01510.i = phi ptr [ %.217.i, %511 ], [ %.0234493644, %488 ]
+  %.01510.i = phi ptr [ %.217.i, %511 ], [ %.0234493643, %488 ]
   %489 = getelementptr inbounds nuw i8, ptr %.011.i, i64 48
   %490 = load i32, ptr %489, align 8, !tbaa !151
   %491 = getelementptr inbounds nuw i8, ptr %.01510.i, i64 48
@@ -4736,7 +4735,7 @@ pmix_obj_run_destructors.exit398:                 ; preds = %.lr.ph.i395, %457
   br i1 %.not.i406, label %hwloc_get_common_ancestor_obj.exit, label %.preheader1.i, !llvm.loop !162
 
 hwloc_get_common_ancestor_obj.exit:               ; preds = %511, %488
-  %.015.lcssa.i = phi ptr [ %.0234493644, %488 ], [ %.217.i, %511 ]
+  %.015.lcssa.i = phi ptr [ %.0234493643, %488 ], [ %.217.i, %511 ]
   %.not305 = icmp eq ptr %.015.lcssa.i, null
   br i1 %.not305, label %.preheader460, label %515
 

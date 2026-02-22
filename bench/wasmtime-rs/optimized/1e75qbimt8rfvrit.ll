@@ -171,15 +171,14 @@ define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hd39
 define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h92ed0c60661949ddE"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call i64 @_ZN4core3cmp6min_by17h83f2fa75b02956cbE(i64 %1, i64 %3)
   %6 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf156a56bf74e7174E"(i64 0, i64 %5, ptr align 8 %0, i64 %1, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.6)
-  %.fr = freeze { ptr, i64 } %6
-  %7 = extractvalue { ptr, i64 } %.fr, 0
-  %8 = extractvalue { ptr, i64 } %.fr, 1
+  %7 = extractvalue { ptr, i64 } %6, 0
+  %8 = extractvalue { ptr, i64 } %6, 1
   %9 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf156a56bf74e7174E"(i64 0, i64 %5, ptr align 8 %2, i64 %3, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.7)
-  %.fr24 = freeze { ptr, i64 } %9
-  %10 = extractvalue { ptr, i64 } %.fr24, 0
-  %11 = extractvalue { ptr, i64 } %.fr24, 1
-  %injected.cond.not = icmp ugt i64 %8, %11
-  br i1 %injected.cond.not, label %.split, label %.split.us
+  %10 = extractvalue { ptr, i64 } %9, 0
+  %11 = extractvalue { ptr, i64 } %9, 1
+  %injected.cond = icmp ule i64 %8, %11
+  %injected.cond.fr = freeze i1 %injected.cond
+  br i1 %injected.cond.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %15
   %.sroa.0.0.us = phi i64 [ %13, %15 ], [ 0, %4 ]
@@ -208,7 +207,7 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   %22 = icmp ult i64 %.sroa.0.0, %8
   br i1 %22, label %.check, label %.split22.us, !prof !5
 
-.critedge:                                        ; preds = %.split.us, %.split
+.critedge:                                        ; preds = %.split, %.split.us
   %23 = icmp ult i64 %1, %3
   br i1 %23, label %.loopexit, label %24
 
@@ -217,16 +216,16 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   %. = zext i1 %25 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %27, %.critedge, %24
-  %.0 = phi i8 [ %., %24 ], [ -1, %.critedge ], [ %30, %27 ], [ %18, %15 ]
+.loopexit:                                        ; preds = %27, %15, %.critedge, %24
+  %.0 = phi i8 [ %., %24 ], [ -1, %.critedge ], [ %18, %15 ], [ %30, %27 ]
   ret i8 %.0
 
 .check:                                           ; preds = %20
   %26 = icmp ult i64 %.sroa.0.0, %11
   br i1 %26, label %27, label %32, !prof !5
 
-.split22.us:                                      ; preds = %12, %20
-  %.us-phi = phi i64 [ %.sroa.0.0, %20 ], [ %.sroa.0.0.us, %12 ]
+.split22.us:                                      ; preds = %20, %12
+  %.us-phi = phi i64 [ %.sroa.0.0.us, %12 ], [ %.sroa.0.0, %20 ]
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.us-phi, i64 %8, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.8) #10
   unreachable
 

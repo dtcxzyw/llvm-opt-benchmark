@@ -6942,20 +6942,19 @@ declare void @repeatUnpack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash32(ptr noundef readonly captures(none) %0, i32 %.0.val, i32 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
-  %.0.val1.fr = freeze i32 %.0.val1
-  %.0.val.fr = freeze i32 %.0.val
-  %6 = and i32 %.0.val1.fr, %.0.val.fr
-  %.not.i20 = icmp eq i32 %6, 0
+  %6 = and i32 %.0.val1, %.0.val
+  %.fr = freeze i32 %6
+  %.not.i20 = icmp eq i32 %.fr, 0
   br i1 %.not.i20, label %moProcessAcceptsImpl32.exit, label %.preheader
 
 .preheader:                                       ; preds = %5, %limexRunAccept.exit.thread8
-  %.021 = phi i32 [ %9, %limexRunAccept.exit.thread8 ], [ %6, %5 ]
+  %.021 = phi i32 [ %9, %limexRunAccept.exit.thread8 ], [ %.fr, %5 ]
   %7 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.021) #9, !srcloc !6
   %8 = extractvalue { i32, i32 } %7, 0
   %9 = extractvalue { i32, i32 } %7, 1
   %notmask.i = shl nsw i32 -1, %8
   %10 = xor i32 %notmask.i, -1
-  %11 = and i32 %.0.val1.fr, %10
+  %11 = and i32 %.0.val1, %10
   %12 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %13
@@ -7004,20 +7003,19 @@ declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts32(ptr noundef readonly captures(none) %0, i32 %.0.val, i32 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
-  %.0.val1.fr = freeze i32 %.0.val1
-  %.0.val.fr = freeze i32 %.0.val
-  %6 = and i32 %.0.val1.fr, %.0.val.fr
-  %.not.i25 = icmp eq i32 %6, 0
+  %6 = and i32 %.0.val1, %.0.val
+  %.fr = freeze i32 %6
+  %.not.i25 = icmp eq i32 %.fr, 0
   br i1 %.not.i25, label %moProcessAcceptsImpl32.exit, label %.preheader
 
 .preheader:                                       ; preds = %5, %limexRunAccept.exit.thread10
-  %.0726 = phi i32 [ %9, %limexRunAccept.exit.thread10 ], [ %6, %5 ]
+  %.0726 = phi i32 [ %9, %limexRunAccept.exit.thread10 ], [ %.fr, %5 ]
   %7 = tail call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %.0726) #9, !srcloc !6
   %8 = extractvalue { i32, i32 } %7, 0
   %9 = extractvalue { i32, i32 } %7, 1
   %notmask.i = shl nsw i32 -1, %8
   %10 = xor i32 %notmask.i, -1
-  %11 = and i32 %.0.val1.fr, %10
+  %11 = and i32 %.0.val1, %10
   %12 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %13

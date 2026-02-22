@@ -149,8 +149,8 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeInitialize(ptr noundef 
 define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i32, ptr %4, align 8, !tbaa !7
-  %.fr76 = freeze i32 %5
-  %6 = lshr i32 %.fr76, 3
+  %.fr = freeze i32 %5
+  %6 = lshr i32 %.fr, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8, !tbaa !11
   %.not = icmp eq i32 %8, 0
@@ -163,9 +163,9 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
 .lr.ph74:                                         ; preds = %.preheader67
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %10 = zext nneg i32 %6 to i64
-  %11 = and i32 %.fr76, 56
+  %11 = and i32 %.fr, 56
   %12 = icmp eq i32 %11, 0
-  %13 = lshr i32 %.fr76, 6
+  %13 = lshr i32 %.fr, 6
   br i1 %12, label %.lr.ph74.split.us, label %.lr.ph74.split
 
 .lr.ph74.split.us:                                ; preds = %.lr.ph74, %27

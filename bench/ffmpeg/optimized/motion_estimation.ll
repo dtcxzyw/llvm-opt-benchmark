@@ -1174,19 +1174,17 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %6 = load i32, ptr %5, align 4, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !13
-  %.fr517 = freeze i32 %8
-  %9 = sub nsw i32 %1, %.fr517
+  %9 = sub nsw i32 %1, %8
   %. = tail call i32 @llvm.smax.i32(i32 %6, i32 %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4, !tbaa !17
-  %12 = sub i32 %2, %.fr517
-  %.fr = freeze i32 %11
-  %13 = tail call i32 @llvm.smax.i32(i32 %.fr, i32 %12)
-  %14 = add i32 %.fr517, %1
+  %12 = sub nsw i32 %2, %8
+  %13 = tail call i32 @llvm.smax.i32(i32 %11, i32 %12)
+  %14 = add i32 %8, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !16
   %17 = tail call i32 @llvm.smin.i32(i32 %14, i32 %16)
-  %18 = add nsw i32 %.fr517, %2
+  %18 = add nsw i32 %8, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !18
   %21 = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
@@ -1395,20 +1393,19 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 ._crit_edge490.loopexit:                          ; preds = %104
   %.pre = load i32, ptr %3, align 4, !tbaa !26
-  %.pre535 = load i32, ptr %68, align 4, !tbaa !26
+  %.pre533 = load i32, ptr %68, align 4, !tbaa !26
   br label %._crit_edge490
 
 ._crit_edge490:                                   ; preds = %._crit_edge490.loopexit, %._crit_edge
   %107 = phi i32 [ %70, %._crit_edge ], [ %106, %._crit_edge490.loopexit ]
-  %108 = phi i32 [ %69, %._crit_edge ], [ %.pre535, %._crit_edge490.loopexit ]
+  %108 = phi i32 [ %69, %._crit_edge ], [ %.pre533, %._crit_edge490.loopexit ]
   %109 = phi i32 [ %67, %._crit_edge ], [ %.pre, %._crit_edge490.loopexit ]
   %.3363.lcssa = phi i64 [ %.1361.lcssa, %._crit_edge ], [ %.7, %._crit_edge490.loopexit ]
-  %.fr519 = freeze i32 %108
   %110 = add i32 %109, 2
   %.469 = tail call i32 @llvm.smin.i32(i32 %110, i32 %17)
-  %111 = add nsw i32 %.fr519, 2
+  %111 = add nsw i32 %108, 2
   %112 = tail call i32 @llvm.smin.i32(i32 %111, i32 %21)
-  %113 = add i32 %.fr519, -2
+  %113 = add nsw i32 %108, -2
   %114 = tail call i32 @llvm.smax.i32(i32 %13, i32 %113)
   %.not415499 = icmp sgt i32 %114, %112
   br i1 %.not415499, label %._crit_edge505, label %.lr.ph504
@@ -1424,13 +1421,16 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %118 = add nsw i32 %117, -2
   %.. = tail call i32 @llvm.smax.i32(i32 %., i32 %118)
   %.not431492 = icmp sgt i32 %.., %.469
-  %.not434 = icmp slt i32 %.0356501, %13
-  %or.cond577 = or i1 %.not431492, %.not434
-  br i1 %or.cond577, label %._crit_edge497, label %.lr.ph496.split
+  br i1 %.not431492, label %._crit_edge497, label %.lr.ph496
 
-.lr.ph496.split:                                  ; preds = %116, %124
-  %.0494 = phi i32 [ %125, %124 ], [ %.., %116 ]
-  %.9493 = phi i64 [ %.10, %124 ], [ %.8500, %116 ]
+.lr.ph496:                                        ; preds = %116
+  %.not434 = icmp slt i32 %.0356501, %13
+  %.not434.fr = freeze i1 %.not434
+  br i1 %.not434.fr, label %._crit_edge497, label %.lr.ph496.split
+
+.lr.ph496.split:                                  ; preds = %.lr.ph496, %124
+  %.0494 = phi i32 [ %125, %124 ], [ %.., %.lr.ph496 ]
+  %.9493 = phi i64 [ %.10, %124 ], [ %.8500, %.lr.ph496 ]
   %.not432 = icmp slt i32 %.0494, %.
   %.not433 = icmp sgt i32 %.0494, %17
   %or.cond470 = select i1 %.not432, i1 true, i1 %.not433
@@ -1453,22 +1453,22 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %exitcond.not = icmp eq i32 %.0494, %.469
   br i1 %exitcond.not, label %._crit_edge497, label %.lr.ph496.split, !llvm.loop !55
 
-._crit_edge497:                                   ; preds = %124, %116
-  %.9.lcssa = phi i64 [ %.8500, %116 ], [ %.10, %124 ]
+._crit_edge497:                                   ; preds = %124, %.lr.ph496, %116
+  %.9.lcssa = phi i64 [ %.8500, %116 ], [ %.8500, %.lr.ph496 ], [ %.10, %124 ]
   %126 = add i32 %.0356501, 1
-  %.not415 = icmp sgt i32 %126, %112
-  br i1 %.not415, label %._crit_edge505.loopexit, label %116, !llvm.loop !56
+  %exitcond520.not = icmp eq i32 %.0356501, %112
+  br i1 %exitcond520.not, label %._crit_edge505.loopexit, label %116, !llvm.loop !56
 
 ._crit_edge505.loopexit:                          ; preds = %._crit_edge497
-  %.pre536 = load i32, ptr %3, align 4, !tbaa !26
-  %.pre537 = load i32, ptr %68, align 4, !tbaa !26
-  %.pre538 = load i32, ptr %7, align 8, !tbaa !13
+  %.pre534 = load i32, ptr %3, align 4, !tbaa !26
+  %.pre535 = load i32, ptr %68, align 4, !tbaa !26
+  %.pre536 = load i32, ptr %7, align 8, !tbaa !13
   br label %._crit_edge505
 
 ._crit_edge505:                                   ; preds = %._crit_edge505.loopexit, %._crit_edge490
-  %127 = phi i32 [ %107, %._crit_edge490 ], [ %.pre538, %._crit_edge505.loopexit ]
-  %128 = phi i32 [ %.fr519, %._crit_edge490 ], [ %.pre537, %._crit_edge505.loopexit ]
-  %129 = phi i32 [ %109, %._crit_edge490 ], [ %.pre536, %._crit_edge505.loopexit ]
+  %127 = phi i32 [ %107, %._crit_edge490 ], [ %.pre536, %._crit_edge505.loopexit ]
+  %128 = phi i32 [ %108, %._crit_edge490 ], [ %.pre535, %._crit_edge505.loopexit ]
+  %129 = phi i32 [ %109, %._crit_edge490 ], [ %.pre534, %._crit_edge505.loopexit ]
   %.8.lcssa = phi i64 [ %.3363.lcssa, %._crit_edge490 ], [ %.9.lcssa, %._crit_edge505.loopexit ]
   %.not416509 = icmp slt i32 %127, 4
   br i1 %.not416509, label %.critedge.preheader, label %.preheader481.lr.ph
@@ -1483,19 +1483,19 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %132
 
 .critedge.preheader.loopexit:                     ; preds = %150
-  %.pre539.pre = load i32, ptr %3, align 4, !tbaa !26
+  %.pre537.pre = load i32, ptr %3, align 4, !tbaa !26
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %._crit_edge505
-  %.pre539 = phi i32 [ %129, %._crit_edge505 ], [ %.pre539.pre, %.critedge.preheader.loopexit ]
+  %.pre537 = phi i32 [ %129, %._crit_edge505 ], [ %.pre537.pre, %.critedge.preheader.loopexit ]
   %.11.lcssa = phi i64 [ %.8.lcssa, %._crit_edge505 ], [ %.13, %.critedge.preheader.loopexit ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %.critedge
 
 132:                                              ; preds = %.preheader481, %149
-  %indvars.iv523 = phi i64 [ 1, %.preheader481 ], [ %indvars.iv.next524, %149 ]
+  %indvars.iv521 = phi i64 [ 1, %.preheader481 ], [ %indvars.iv.next522, %149 ]
   %.12507 = phi i64 [ %.11510, %.preheader481 ], [ %.13, %149 ]
-  %133 = getelementptr inbounds nuw [2 x i8], ptr @hex4, i64 %indvars.iv523
+  %133 = getelementptr inbounds nuw [2 x i8], ptr @hex4, i64 %indvars.iv521
   %134 = load i8, ptr %133, align 2, !tbaa !22
   %135 = sext i8 %134 to i32
   %136 = mul nsw i32 %.1359511, %135
@@ -1529,9 +1529,9 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 149:                                              ; preds = %132, %138, %148, %144
   %.13 = phi i64 [ %146, %148 ], [ %.12507, %144 ], [ %.12507, %132 ], [ %.12507, %138 ]
-  %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
-  %exitcond526.not = icmp eq i64 %indvars.iv.next524, 16
-  br i1 %exitcond526.not, label %150, label %132, !llvm.loop !57
+  %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
+  %exitcond524.not = icmp eq i64 %indvars.iv.next522, 16
+  br i1 %exitcond524.not, label %150, label %132, !llvm.loop !57
 
 150:                                              ; preds = %149
   %151 = add nuw nsw i32 %.1359511, 1
@@ -1541,15 +1541,15 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %.not416.not, label %.preheader481, label %.critedge.preheader.loopexit, !llvm.loop !58
 
 .critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
-  %154 = phi i32 [ %.pre539, %.critedge.preheader ], [ %173, %.critedge.backedge ]
+  %154 = phi i32 [ %.pre537, %.critedge.preheader ], [ %173, %.critedge.backedge ]
   %.14 = phi i64 [ %.11.lcssa, %.critedge.preheader ], [ %.16, %.critedge.backedge ]
   %155 = load i32, ptr %68, align 4, !tbaa !26
   br label %156
 
 156:                                              ; preds = %.critedge, %171
-  %indvars.iv527 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next528, %171 ]
+  %indvars.iv525 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next526, %171 ]
   %.15513 = phi i64 [ %.14, %.critedge ], [ %.16, %171 ]
-  %157 = getelementptr inbounds nuw [2 x i8], ptr @hex2, i64 %indvars.iv527
+  %157 = getelementptr inbounds nuw [2 x i8], ptr @hex2, i64 %indvars.iv525
   %158 = load i8, ptr %157, align 1, !tbaa !22
   %159 = sext i8 %158 to i32
   %160 = add nsw i32 %154, %159
@@ -1581,9 +1581,9 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 171:                                              ; preds = %156, %161, %170, %166
   %.16 = phi i64 [ %168, %170 ], [ %.15513, %166 ], [ %.15513, %156 ], [ %.15513, %161 ]
-  %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
-  %exitcond530.not = icmp eq i64 %indvars.iv.next528, 6
-  br i1 %exitcond530.not, label %172, label %156, !llvm.loop !59
+  %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
+  %exitcond528.not = icmp eq i64 %indvars.iv.next526, 6
+  br i1 %exitcond528.not, label %172, label %156, !llvm.loop !59
 
 172:                                              ; preds = %171
   %173 = load i32, ptr %3, align 4, !tbaa !26
@@ -1599,9 +1599,9 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %.critedge, !llvm.loop !60
 
 .preheader:                                       ; preds = %174, %190
-  %indvars.iv531 = phi i64 [ %indvars.iv.next532, %190 ], [ 0, %174 ]
+  %indvars.iv529 = phi i64 [ %indvars.iv.next530, %190 ], [ 0, %174 ]
   %.17515 = phi i64 [ %.18, %190 ], [ %.16, %174 ]
-  %176 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv531
+  %176 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv529
   %177 = load i8, ptr %176, align 1, !tbaa !22
   %178 = sext i8 %177 to i32
   %179 = add nsw i32 %154, %178
@@ -1633,9 +1633,9 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 190:                                              ; preds = %.preheader, %180, %189, %185
   %.18 = phi i64 [ %187, %189 ], [ %.17515, %185 ], [ %.17515, %.preheader ], [ %.17515, %180 ]
-  %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
-  %exitcond534.not = icmp eq i64 %indvars.iv.next532, 4
-  br i1 %exitcond534.not, label %191, label %.preheader, !llvm.loop !61
+  %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
+  %exitcond532.not = icmp eq i64 %indvars.iv.next530, 4
+  br i1 %exitcond532.not, label %191, label %.preheader, !llvm.loop !61
 
 191:                                              ; preds = %190
   ret i64 %.18

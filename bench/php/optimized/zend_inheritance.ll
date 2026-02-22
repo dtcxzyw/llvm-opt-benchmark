@@ -4306,8 +4306,8 @@ define hidden void @zend_verify_abstract_class(ptr noundef %0) local_unnamed_add
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4, !tbaa !22
-  %.fr = freeze i32 %4
-  %5 = and i32 %.fr, 64
+  %.fr169 = freeze i32 %4
+  %5 = and i32 %.fr169, 64
   %.not113.not = icmp eq i32 %5, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4396,7 +4396,7 @@ zend_verify_abstract_class_function.exit:         ; preds = %39, %41
   br i1 %.not115, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %45, %27, %1
-  %.promoted161175 = phi i32 [ 0, %1 ], [ %28, %27 ], [ %46, %45 ]
+  %.promoted161176 = phi i32 [ 0, %1 ], [ %28, %27 ], [ %46, %45 ]
   br i1 %.not113.not, label %48, label %.loopexit157
 
 48:                                               ; preds = %._crit_edge
@@ -4417,7 +4417,7 @@ zend_verify_abstract_class_function.exit:         ; preds = %39, %41
   br label %59
 
 59:                                               ; preds = %.lr.ph167, %.loopexit
-  %.promoted161 = phi i32 [ %.promoted161175, %.lr.ph167 ], [ %.promoted161174, %.loopexit ]
+  %.promoted161 = phi i32 [ %.promoted161176, %.lr.ph167 ], [ %.promoted161175, %.loopexit ]
   %.092165 = phi ptr [ %52, %.lr.ph167 ], [ %84, %.loopexit ]
   %.093164 = phi i32 [ %50, %.lr.ph167 ], [ %85, %.loopexit ]
   %60 = getelementptr inbounds nuw i8, ptr %.092165, i64 8
@@ -4467,7 +4467,7 @@ zend_verify_abstract_class_function.exit141:      ; preds = %75, %77
   br i1 %67, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %81, %63, %59
-  %.promoted161174 = phi i32 [ %.promoted161, %59 ], [ %.promoted161, %63 ], [ %82, %81 ]
+  %.promoted161175 = phi i32 [ %.promoted161, %59 ], [ %.promoted161, %63 ], [ %82, %81 ]
   %83 = getelementptr inbounds nuw i8, ptr %.092165, i64 %58
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = add i32 %.093164, -1
@@ -4475,12 +4475,12 @@ zend_verify_abstract_class_function.exit141:      ; preds = %75, %77
   br i1 %.not116, label %.loopexit157, label %59
 
 .loopexit157:                                     ; preds = %.loopexit, %48, %._crit_edge
-  %86 = phi i32 [ %.promoted161175, %._crit_edge ], [ %.promoted161175, %48 ], [ %.promoted161174, %.loopexit ]
+  %86 = phi i32 [ %.promoted161176, %._crit_edge ], [ %.promoted161176, %48 ], [ %.promoted161175, %.loopexit ]
   %.not120 = icmp eq i32 %86, 0
   br i1 %.not120, label %231, label %87
 
 87:                                               ; preds = %.loopexit157
-  %88 = and i32 %.fr, 268435524
+  %88 = and i32 %.fr169, 268435524
   %or.cond = icmp eq i32 %88, 0
   %89 = tail call ptr @zend_get_object_type_case(ptr noundef %0, i1 noundef zeroext true) #17
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4704,7 +4704,7 @@ zend_verify_abstract_class_function.exit141:      ; preds = %75, %77
   unreachable
 
 231:                                              ; preds = %.loopexit157
-  %232 = and i32 %.fr, -17
+  %232 = and i32 %.fr169, -17
   store i32 %232, ptr %3, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

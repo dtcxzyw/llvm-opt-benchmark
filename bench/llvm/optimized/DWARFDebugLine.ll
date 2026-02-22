@@ -8837,16 +8837,15 @@ _ZStltIJRKmS1_EJS1_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit: ; preds = %2, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1, i64 %2, i64 %3) local_unnamed_addr #5 align 2 {
   %5 = alloca %"struct.llvm::DWARFDebugLine::Row", align 8
-  %.fr = freeze i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !396
   %8 = icmp eq i64 %7, %3
   %9 = load i64, ptr %1, align 8
-  %.not.i = icmp ule i64 %9, %.fr
+  %.not.i = icmp ule i64 %9, %2
   %or.cond.i.not23 = select i1 %8, i1 %.not.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = icmp ult i64 %.fr, %11
+  %12 = icmp ult i64 %2, %11
   %or.cond = select i1 %or.cond.i.not23, i1 %12, i1 false
   br i1 %or.cond, label %14, label %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit.thread
 
@@ -8857,7 +8856,7 @@ _ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exi
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm14DWARFDebugLine3RowC1Eb(ptr noundef nonnull align 8 dereferenceable(31) %5, i1 noundef zeroext false) #26
-  store i64 %.fr, ptr %5, align 8, !tbaa !54
+  store i64 %2, ptr %5, align 8, !tbaa !54
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -8900,9 +8899,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vect
 
 _ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit: ; preds = %34
   %39 = load i64, ptr %30, align 8, !tbaa !54
-  %.fr25 = freeze i64 %39
-  %40 = icmp ult i64 %.fr, %.fr25
-  br i1 %40, label %.thread, label %41
+  %40 = icmp ult i64 %2, %39
+  %cond.fr = freeze i1 %40
+  br i1 %cond.fr, label %.thread, label %41
 
 41:                                               ; preds = %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit
   %42 = xor i64 %29, -1
@@ -8954,13 +8953,12 @@ define dso_local noundef i32 @_ZNK4llvm14DWARFDebugLine9LineTable13lookupAddress
 define dso_local noundef i32 @_ZNK4llvm14DWARFDebugLine9LineTable17lookupAddressImplENS_6object16SectionedAddressEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
   %5 = alloca %"struct.llvm::DWARFDebugLine::Row", align 8
   %6 = alloca %"struct.llvm::DWARFDebugLine::Sequence", align 8
-  %.fr = freeze i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm14DWARFDebugLine8SequenceC1Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %2, ptr %7, align 8, !tbaa !396
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.fr, ptr %8, align 8, !tbaa !660
+  store i64 %1, ptr %8, align 8, !tbaa !660
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !607
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -8998,9 +8996,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt
 
 _ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit: ; preds = %24
   %29 = load i64, ptr %21, align 8, !tbaa !54
-  %.fr42 = freeze i64 %29
-  %30 = icmp ult i64 %.fr, %.fr42
-  br i1 %30, label %.thread, label %31
+  %30 = icmp ult i64 %1, %29
+  %cond.fr = freeze i1 %30
+  br i1 %cond.fr, label %.thread, label %31
 
 31:                                               ; preds = %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit
   %32 = xor i64 %18, -1
@@ -9031,10 +9029,10 @@ _ZN4llvm11upper_boundIRKSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EERS3_PFbRK
 
 43:                                               ; preds = %39
   %44 = load i64, ptr %.sroa.012.0.lcssa.i.i.i, align 8
-  %.not.i.i = icmp ule i64 %44, %.fr
+  %.not.i.i = icmp ule i64 %44, %1
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 8
   %46 = load i64, ptr %45, align 8
-  %47 = icmp ult i64 %.fr, %46
+  %47 = icmp ult i64 %1, %46
   %or.cond.i = select i1 %.not.i.i, i1 %47, i1 false
   br i1 %or.cond.i, label %49, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit.thread
 
@@ -9045,7 +9043,7 @@ _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16Se
 49:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4llvm14DWARFDebugLine3RowC1Eb(ptr noundef nonnull align 8 dereferenceable(31) %5, i1 noundef zeroext false) #26
-  store i64 %.fr, ptr %5, align 8, !tbaa !54
+  store i64 %1, ptr %5, align 8, !tbaa !54
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !54
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -9088,9 +9086,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vect
 
 _ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i: ; preds = %69
   %74 = load i64, ptr %65, align 8, !tbaa !54
-  %.fr25.i = freeze i64 %74
-  %75 = icmp ult i64 %.fr, %.fr25.i
-  br i1 %75, label %.thread.i, label %76
+  %75 = icmp ult i64 %1, %74
+  %cond.fr.i = freeze i1 %75
+  br i1 %cond.fr.i, label %.thread.i, label %76
 
 76:                                               ; preds = %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i
   %77 = xor i64 %64, -1
@@ -9122,8 +9120,8 @@ _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16Se
 .preheader:                                       ; preds = %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 24
   %92 = load i32, ptr %91, align 8, !tbaa !398
-  %.not2245 = icmp ugt i32 %92, %88
-  br i1 %.not2245, label %._crit_edge, label %.lr.ph
+  %.not2244 = icmp ugt i32 %92, %88
+  br i1 %.not2244, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -9131,8 +9129,8 @@ _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16Se
   br label %95
 
 95:                                               ; preds = %.lr.ph, %100
-  %.046 = phi i32 [ %88, %.lr.ph ], [ %101, %100 ]
-  %96 = zext i32 %.046 to i64
+  %.045 = phi i32 [ %88, %.lr.ph ], [ %101, %100 ]
+  %96 = zext i32 %.045 to i64
   %97 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugLine::Row", ptr %94, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i32, ptr %98, align 8, !tbaa !374
@@ -9141,7 +9139,7 @@ _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16Se
 
 100:                                              ; preds = %95
   store i8 1, ptr %3, align 1, !tbaa !443
-  %101 = add i32 %.046, -1
+  %101 = add i32 %.045, -1
   %.not22 = icmp ult i32 %101, %92
   br i1 %.not22, label %._crit_edge, label %95, !llvm.loop !662
 
@@ -9150,7 +9148,7 @@ _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16Se
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit.thread, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit, %._crit_edge, %.critedge
-  %.018 = phi i32 [ %42, %.critedge ], [ %88, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit ], [ %88, %._crit_edge ], [ %48, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit.thread ], [ %.046, %95 ]
+  %.018 = phi i32 [ %42, %.critedge ], [ %88, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit ], [ %88, %._crit_edge ], [ %48, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit.thread ], [ %.045, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.018
 }
@@ -9178,7 +9176,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DWARFDebugLine9LineTable22lookup
   %6 = alloca %"struct.llvm::DWARFDebugLine::Row", align 8
   %7 = alloca %"struct.llvm::DWARFDebugLine::Row", align 8
   %8 = alloca %"struct.llvm::DWARFDebugLine::Sequence", align 8
-  %.fr = freeze i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !607
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -9187,13 +9184,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DWARFDebugLine9LineTable22lookup
   br i1 %13, label %187, label %14
 
 14:                                               ; preds = %5
-  %15 = add i64 %3, %.fr
+  %15 = add i64 %3, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm14DWARFDebugLine8SequenceC1Ev(ptr noundef nonnull align 8 dereferenceable(33) %8) #26
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %16, align 8, !tbaa !396
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.fr, ptr %17, align 8, !tbaa !660
+  store i64 %1, ptr %17, align 8, !tbaa !660
   %18 = load ptr, ptr %11, align 8, !tbaa !607
   %19 = load ptr, ptr %9, align 8, !tbaa !607
   %20 = ptrtoint ptr %18 to i64
@@ -9219,9 +9216,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i
   %32 = icmp ult i64 %29, %2
-  br i1 %32, label %.thread71, label %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit
+  br i1 %32, label %.thread70, label %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit
 
-.thread71:                                        ; preds = %31
+.thread70:                                        ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %34 = xor i64 %25, -1
   %35 = add nsw i64 %.014.i.i.i, %34
@@ -9229,9 +9226,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt
 
 _ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit: ; preds = %31
   %36 = load i64, ptr %28, align 8, !tbaa !54
-  %.fr74 = freeze i64 %36
-  %37 = icmp ult i64 %.fr, %.fr74
-  br i1 %37, label %.thread, label %38
+  %37 = icmp ult i64 %1, %36
+  %cond.fr = freeze i1 %37
+  br i1 %cond.fr, label %.thread, label %38
 
 38:                                               ; preds = %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit
   %39 = xor i64 %25, -1
@@ -9239,9 +9236,9 @@ _ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit: ; preds = %31
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 40
   br label %.thread
 
-.thread:                                          ; preds = %38, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit, %.thread71
-  %42 = phi ptr [ %33, %.thread71 ], [ %41, %38 ], [ %.sroa.012.013.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.012.013.i.i.i, %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit ]
-  %43 = phi i64 [ %35, %.thread71 ], [ %40, %38 ], [ %25, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %25, %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit ]
+.thread:                                          ; preds = %38, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit, %.thread70
+  %42 = phi ptr [ %33, %.thread70 ], [ %41, %38 ], [ %.sroa.012.013.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.012.013.i.i.i, %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit ]
+  %43 = phi i64 [ %35, %.thread70 ], [ %40, %38 ], [ %25, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i ], [ %25, %_ZN4llvm14DWARFDebugLine8Sequence13orderByHighPCERKS1_S3_.exit ]
   %44 = icmp sgt i64 %43, 0
   br i1 %44, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine8SequenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11upper_boundIRKSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EERS3_PFbRKS3_SA_EEEDaOT_OT0_T1_.exit, !llvm.loop !661
 
@@ -9255,45 +9252,45 @@ _ZN4llvm11upper_boundIRKSt6vectorINS_14DWARFDebugLine8SequenceESaIS3_EERS3_PFbRK
   %48 = load i64, ptr %47, align 8, !tbaa !396
   %49 = icmp ne i64 %48, %2
   %50 = load i64, ptr %.sroa.012.0.lcssa.i.i.i, align 8
-  %.not.i = icmp ugt i64 %50, %.fr
+  %.not.i = icmp ugt i64 %50, %1
   %or.cond.i = select i1 %49, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %.critedge, label %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit
 
 _ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit: ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !660
-  %53 = icmp ult i64 %.fr, %52
-  br i1 %53, label %.lr.ph82, label %.critedge
+  %53 = icmp ult i64 %1, %52
+  br i1 %53, label %.lr.ph80, label %.critedge
 
-.lr.ph82:                                         ; preds = %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit
+.lr.ph80:                                         ; preds = %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %55 = add i64 %15, -1
-  %.sroa.3.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.3.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.lcssa.i.i.i, i64 28
   br label %59
 
-59:                                               ; preds = %.lr.ph82, %._crit_edge
-  %.sroa.057.081 = phi ptr [ %.sroa.012.0.lcssa.i.i.i, %.lr.ph82 ], [ %159, %._crit_edge ]
-  %60 = load i64, ptr %.sroa.057.081, align 8, !tbaa !663
+59:                                               ; preds = %.lr.ph80, %._crit_edge
+  %.sroa.056.079 = phi ptr [ %.sroa.012.0.lcssa.i.i.i, %.lr.ph80 ], [ %159, %._crit_edge ]
+  %60 = load i64, ptr %.sroa.056.079, align 8, !tbaa !663
   %61 = icmp ult i64 %60, %15
   br i1 %61, label %62, label %.critedge
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.057.081, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !398
-  %65 = icmp eq ptr %.sroa.057.081, %.sroa.012.0.lcssa.i.i.i
+  %65 = icmp eq ptr %.sroa.056.079, %.sroa.012.0.lcssa.i.i.i
   br i1 %65, label %66, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit
 
 66:                                               ; preds = %62
   %67 = load i64, ptr %47, align 8, !tbaa !396
   %68 = icmp eq i64 %67, %2
-  %.not.i.i = icmp ule i64 %60, %.fr
-  %or.cond.i.not23.i = and i1 %.not.i.i, %68
+  %.not.i.i = icmp ule i64 %60, %1
+  %or.cond.i.not23.i = select i1 %68, i1 %.not.i.i, i1 false
   %69 = load i64, ptr %51, align 8
-  %70 = icmp ult i64 %.fr, %69
+  %70 = icmp ult i64 %1, %69
   %or.cond.i27 = select i1 %or.cond.i.not23.i, i1 %70, i1 false
   br i1 %or.cond.i27, label %72, label %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit.thread.i
 
@@ -9304,7 +9301,7 @@ _ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exi
 72:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm14DWARFDebugLine3RowC1Eb(ptr noundef nonnull align 8 dereferenceable(31) %7, i1 noundef zeroext false) #26
-  store i64 %.fr, ptr %7, align 8, !tbaa !54
+  store i64 %1, ptr %7, align 8, !tbaa !54
   store i64 %2, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !54
   %73 = load ptr, ptr %54, align 8, !tbaa !417
   %74 = load i32, ptr %63, align 8, !tbaa !398
@@ -9343,9 +9340,9 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vect
 
 _ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i: ; preds = %89
   %94 = load i64, ptr %85, align 8, !tbaa !54
-  %.fr25.i = freeze i64 %94
-  %95 = icmp ult i64 %.fr, %.fr25.i
-  br i1 %95, label %.thread.i, label %96
+  %95 = icmp ult i64 %1, %94
+  %cond.fr.i = freeze i1 %95
+  br i1 %cond.fr.i, label %.thread.i, label %96
 
 96:                                               ; preds = %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i
   %97 = xor i64 %84, -1
@@ -9374,119 +9371,119 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt
 _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEES4_PFbRS5_SB_EET_SE_SE_RKT0_T1_.exit.i, %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit.thread.i, %62
   %109 = phi i64 [ %60, %62 ], [ %.pre, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEES4_PFbRS5_SB_EET_SE_SE_RKT0_T1_.exit.i ], [ %60, %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit.thread.i ]
   %.024 = phi i32 [ %64, %62 ], [ %108, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEES4_PFbRS5_SB_EET_SE_SE_RKT0_T1_.exit.i ], [ %71, %_ZNK4llvm14DWARFDebugLine8Sequence10containsPCENS_6object16SectionedAddressE.exit.thread.i ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.057.081, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 16
   %111 = load i64, ptr %110, align 8, !tbaa !396
   %112 = icmp eq i64 %111, %2
-  %.not.i.i34 = icmp ule i64 %109, %55
-  %or.cond.i.not23.i35 = select i1 %112, i1 %.not.i.i34, i1 false
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.057.081, i64 8
+  %.not.i.i33 = icmp ule i64 %109, %55
+  %or.cond.i.not23.i34 = select i1 %112, i1 %.not.i.i33, i1 false
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 8
   %114 = load i64, ptr %113, align 8
   %115 = icmp ult i64 %55, %114
-  %or.cond.i36 = select i1 %or.cond.i.not23.i35, i1 %115, i1 false
-  br i1 %or.cond.i36, label %116, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53.thread
+  %or.cond.i35 = select i1 %or.cond.i.not23.i34, i1 %115, i1 false
+  br i1 %or.cond.i35, label %116, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52.thread
 
 116:                                              ; preds = %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm14DWARFDebugLine3RowC1Eb(ptr noundef nonnull align 8 dereferenceable(31) %6, i1 noundef zeroext false) #26
   store i64 %55, ptr %6, align 8, !tbaa !54
-  store i64 %2, ptr %.sroa.3.0..sroa_idx.i39, align 8, !tbaa !54
+  store i64 %2, ptr %.sroa.3.0..sroa_idx.i38, align 8, !tbaa !54
   %117 = load ptr, ptr %54, align 8, !tbaa !417
   %118 = load i32, ptr %63, align 8, !tbaa !398
   %119 = zext i32 %118 to i64
-  %.idx24.i40 = shl nuw nsw i64 %119, 5
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.057.081, i64 28
+  %.idx24.i39 = shl nuw nsw i64 %119, 5
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 28
   %121 = load i32, ptr %120, align 4, !tbaa !399
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx24.i40
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx24.i39
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = sub nsw i64 %122, %119
   %126 = shl nsw i64 %125, 5
-  %gepdiff.i41 = add nsw i64 %126, -64
-  %127 = ashr exact i64 %gepdiff.i41, 5
+  %gepdiff.i40 = add nsw i64 %126, -64
+  %127 = ashr exact i64 %gepdiff.i40, 5
   %128 = icmp sgt i64 %127, 0
-  br i1 %128, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53
+  br i1 %128, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44: ; preds = %116, %.thread.i51
-  %.014.i.i.i45 = phi i64 [ %146, %.thread.i51 ], [ %127, %116 ]
-  %.sroa.012.013.i.i.i46 = phi ptr [ %145, %.thread.i51 ], [ %124, %116 ]
-  %129 = lshr i64 %.014.i.i.i45, 1
-  %130 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugLine::Row", ptr %.sroa.012.013.i.i.i46, i64 %129
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43: ; preds = %116, %.thread.i50
+  %.014.i.i.i44 = phi i64 [ %146, %.thread.i50 ], [ %127, %116 ]
+  %.sroa.012.013.i.i.i45 = phi ptr [ %145, %.thread.i50 ], [ %124, %116 ]
+  %129 = lshr i64 %.014.i.i.i44, 1
+  %130 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugLine::Row", ptr %.sroa.012.013.i.i.i45, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !54
   %133 = icmp ult i64 %2, %132
-  br i1 %133, label %.thread.i51, label %134
+  br i1 %133, label %.thread.i50, label %134
 
-134:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44
+134:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43
   %135 = icmp ult i64 %132, %2
-  br i1 %135, label %.thread18.i52, label %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i49
+  br i1 %135, label %.thread18.i51, label %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i48
 
-.thread18.i52:                                    ; preds = %134
+.thread18.i51:                                    ; preds = %134
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %137 = xor i64 %129, -1
-  %138 = add nsw i64 %.014.i.i.i45, %137
-  br label %.thread.i51
+  %138 = add nsw i64 %.014.i.i.i44, %137
+  br label %.thread.i50
 
-_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i49: ; preds = %134
+_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i48: ; preds = %134
   %139 = load i64, ptr %130, align 8, !tbaa !54
-  %.fr25.i50 = freeze i64 %139
-  %140 = icmp ult i64 %55, %.fr25.i50
-  br i1 %140, label %.thread.i51, label %141
+  %140 = icmp ult i64 %55, %139
+  %cond.fr.i49 = freeze i1 %140
+  br i1 %cond.fr.i49, label %.thread.i50, label %141
 
-141:                                              ; preds = %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i49
+141:                                              ; preds = %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i48
   %142 = xor i64 %129, -1
-  %143 = add nsw i64 %.014.i.i.i45, %142
+  %143 = add nsw i64 %.014.i.i.i44, %142
   %144 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  br label %.thread.i51
+  br label %.thread.i50
 
-.thread.i51:                                      ; preds = %141, %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i49, %.thread18.i52, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44
-  %145 = phi ptr [ %136, %.thread18.i52 ], [ %144, %141 ], [ %.sroa.012.013.i.i.i46, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44 ], [ %.sroa.012.013.i.i.i46, %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i49 ]
-  %146 = phi i64 [ %138, %.thread18.i52 ], [ %143, %141 ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44 ], [ %129, %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i49 ]
+.thread.i50:                                      ; preds = %141, %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i48, %.thread18.i51, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43
+  %145 = phi ptr [ %136, %.thread18.i51 ], [ %144, %141 ], [ %.sroa.012.013.i.i.i45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43 ], [ %.sroa.012.013.i.i.i45, %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i48 ]
+  %146 = phi i64 [ %138, %.thread18.i51 ], [ %143, %141 ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43 ], [ %129, %_ZN4llvm14DWARFDebugLine3Row14orderByAddressERKS1_S3_.exit.i48 ]
   %147 = icmp sgt i64 %146, 0
-  br i1 %147, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i44, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53, !llvm.loop !659
+  br i1 %147, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i.i43, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52, !llvm.loop !659
 
-_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53: ; preds = %.thread.i51, %116
-  %.sroa.012.0.lcssa.i.i.i43 = phi ptr [ %124, %116 ], [ %145, %.thread.i51 ]
-  %148 = getelementptr inbounds i8, ptr %.sroa.012.0.lcssa.i.i.i43, i64 -32
+_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52: ; preds = %.thread.i50, %116
+  %.sroa.012.0.lcssa.i.i.i42 = phi ptr [ %124, %116 ], [ %145, %.thread.i50 ]
+  %148 = getelementptr inbounds i8, ptr %.sroa.012.0.lcssa.i.i.i42, i64 -32
   %149 = ptrtoint ptr %148 to i64
   %150 = ptrtoint ptr %117 to i64
   %151 = sub i64 %149, %150
   %152 = lshr exact i64 %151, 5
   %153 = trunc i64 %152 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre86 = load i32, ptr %0, align 8, !tbaa !401
-  %154 = icmp eq i32 %.pre86, %153
-  br i1 %154, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53.thread, label %158
+  %.pre84 = load i32, ptr %0, align 8, !tbaa !401
+  %154 = icmp eq i32 %.pre84, %153
+  br i1 %154, label %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52.thread, label %158
 
-_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53.thread: ; preds = %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.057.081, i64 28
+_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52.thread: ; preds = %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 28
   %156 = load i32, ptr %155, align 4, !tbaa !399
   %157 = add i32 %156, -1
   br label %158
 
-158:                                              ; preds = %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53.thread, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53
-  %.023 = phi i32 [ %157, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53.thread ], [ %153, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit53 ]
-  %.not78 = icmp ugt i32 %.024, %.023
-  br i1 %.not78, label %._crit_edge, label %.lr.ph.preheader
+158:                                              ; preds = %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52.thread, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52
+  %.023 = phi i32 [ %157, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52.thread ], [ %153, %_ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16SectionedAddressE.exit52 ]
+  %.not76 = icmp ugt i32 %.024, %.023
+  br i1 %.not76, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %158
-  %.pre87 = load ptr, ptr %56, align 8, !tbaa !664
-  %.pre88 = load ptr, ptr %57, align 8, !tbaa !667
+  %.pre85 = load ptr, ptr %56, align 8, !tbaa !664
+  %.pre86 = load ptr, ptr %57, align 8, !tbaa !667
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %158
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.057.081, i64 40
-  %.not75 = icmp eq ptr %159, %18
-  br i1 %.not75, label %.critedge, label %59, !llvm.loop !668
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 40
+  %.not73 = icmp eq ptr %159, %18
+  br i1 %.not73, label %.critedge, label %59, !llvm.loop !668
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %160 = phi ptr [ %184, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.pre88, %.lr.ph.preheader ]
-  %161 = phi ptr [ %185, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.pre87, %.lr.ph.preheader ]
-  %storemerge79 = phi i32 [ %186, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.024, %.lr.ph.preheader ]
-  %.not.i54 = icmp eq ptr %161, %160
-  br i1 %.not.i54, label %164, label %162
+  %160 = phi ptr [ %184, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.pre86, %.lr.ph.preheader ]
+  %161 = phi ptr [ %185, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.pre85, %.lr.ph.preheader ]
+  %storemerge77 = phi i32 [ %186, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.024, %.lr.ph.preheader ]
+  %.not.i53 = icmp eq ptr %161, %160
+  br i1 %.not.i53, label %164, label %162
 
 162:                                              ; preds = %.lr.ph
-  store i32 %storemerge79, ptr %161, align 4, !tbaa !386
+  store i32 %storemerge77, ptr %161, align 4, !tbaa !386
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 4
   store ptr %163, ptr %56, align 8, !tbaa !664
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -9515,7 +9512,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %164
   %176 = shl nuw nsw i64 %175, 2
   %177 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #29
   %178 = getelementptr inbounds i8, ptr %177, i64 %168
-  store i32 %storemerge79, ptr %178, align 4, !tbaa !386
+  store i32 %storemerge77, ptr %178, align 4, !tbaa !386
   %179 = icmp sgt i64 %168, 0
   br i1 %179, label %180, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
@@ -9542,7 +9539,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %162, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
   %184 = phi ptr [ %160, %162 ], [ %183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %185 = phi ptr [ %163, %162 ], [ %181, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %186 = add i32 %storemerge79, 1
+  %186 = add i32 %storemerge77, 1
   %.not = icmp ugt i32 %186, %.023
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !670
 

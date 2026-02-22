@@ -121,12 +121,12 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
 .lr.ph:                                           ; preds = %2, %9
   %.04156 = phi ptr [ %.041, %9 ], [ %.04154, %2 ]
   %8 = tail call i32 %5(ptr noundef nonnull %.04156, ptr noundef %1) #4
-  %.fr = freeze i32 %8
-  %.not48 = icmp eq i32 %.fr, 0
+  %.fr122 = freeze i32 %8
+  %.not48 = icmp eq i32 %.fr122, 0
   br i1 %.not48, label %.critedge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp sgt i32 %.fr, 0
+  %10 = icmp sgt i32 %.fr122, 0
   %11 = zext i1 %10 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %.04156, i64 %11
   %.041 = load ptr, ptr %12, align 8, !tbaa !11

@@ -3431,8 +3431,8 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
 
 1513:                                             ; preds = %._crit_edge.i25.i
   %1514 = load i32, ptr %152, align 8, !tbaa !78
-  %.fr.i.i = freeze i32 %1514
-  %1515 = and i32 %.fr.i.i, 49135
+  %.fr197.i.i = freeze i32 %1514
+  %1515 = and i32 %.fr197.i.i, 49135
   %.not89.i.i1050 = icmp eq i32 %1515, 0
   br i1 %.not89.i.i1050, label %1517, label %.thread.i1051
 
@@ -3475,10 +3475,10 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
   %.046.i.i.i.i.i1056 = phi ptr [ %1531, %1517 ], [ %1537, %1533 ]
   store ptr %.046.i.i.i.i.i1056, ptr %89, align 8, !tbaa !60
   %.pre.i34.i = load ptr, ptr %143, align 8, !tbaa !68
-  %.pre199.i.i = load i32, ptr %51, align 8, !tbaa !39
-  %.pre202.i.i = add i32 %.pre199.i.i, -1
-  %.pre203.i.i = zext i32 %.pre202.i.i to i64
-  %.phi.trans.insert.i1057 = getelementptr inbounds nuw %union.IRIns, ptr %.pre.i34.i, i64 %.pre203.i.i
+  %.pre200.i.i = load i32, ptr %51, align 8, !tbaa !39
+  %.pre203.i.i = add i32 %.pre200.i.i, -1
+  %.pre204.i.i = zext i32 %.pre203.i.i to i64
+  %.phi.trans.insert.i1057 = getelementptr inbounds nuw %union.IRIns, ptr %.pre.i34.i, i64 %.pre204.i.i
   %.phi.trans.insert38.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i1057, i64 5
   %.pre39.i = load i8, ptr %.phi.trans.insert38.i, align 1, !tbaa !20
   %1539 = icmp eq i8 %.pre39.i, 19
@@ -3487,9 +3487,9 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
 .lr.ph191.split.us.preheader.i.i:                 ; preds = %1538, %.thread.i1051
   %.082.i69.i = phi i32 [ %1516, %.thread.i1051 ], [ 0, %1538 ]
   %1540 = phi ptr [ %1483, %.thread.i1051 ], [ %.pre.i34.i, %1538 ]
-  %.pre-phi204.i67.i = phi i64 [ %1486, %.thread.i1051 ], [ %.pre203.i.i, %1538 ]
+  %.pre-phi205.i67.i = phi i64 [ %1486, %.thread.i1051 ], [ %.pre204.i.i, %1538 ]
   %1541 = phi ptr [ %1482, %.thread.i1051 ], [ %.046.i.i.i.i.i1056, %1538 ]
-  %1542 = getelementptr inbounds nuw %union.IRIns, ptr %1540, i64 %.pre-phi204.i67.i
+  %1542 = getelementptr inbounds nuw %union.IRIns, ptr %1540, i64 %.pre-phi205.i67.i
   %1543 = shl nuw nsw i32 %.082.i69.i, 3
   %1544 = and i32 %1543, 56
   br label %.lr.ph191.split.us.i.i
@@ -3720,7 +3720,7 @@ emit_storeofs.exit120.i.i:                        ; preds = %emit_rmro.exit.i118
   %1673 = shl nuw i32 1, %spec.select.i.i1055
   %1674 = and i32 %1673, %1670
   %.not93.i27.i = icmp eq i32 %1674, 0
-  %.pre201.i.i = load ptr, ptr %143, align 8, !tbaa !68
+  %.pre202.i.i = load ptr, ptr %143, align 8, !tbaa !68
   br i1 %.not93.i27.i, label %1675, label %1698
 
 1675:                                             ; preds = %1669
@@ -3729,7 +3729,7 @@ emit_storeofs.exit120.i.i:                        ; preds = %emit_rmro.exit.i118
   %1678 = load i32, ptr %1677, align 4, !tbaa !21
   %1679 = and i32 %1678, 65535
   %1680 = zext nneg i32 %1679 to i64
-  %1681 = getelementptr inbounds nuw %union.IRIns, ptr %.pre201.i.i, i64 %1680
+  %1681 = getelementptr inbounds nuw %union.IRIns, ptr %.pre202.i.i, i64 %1680
   %1682 = getelementptr inbounds nuw i8, ptr %1681, i64 4
   %1683 = load i8, ptr %1682, align 4, !tbaa !20
   %1684 = and i8 %1683, 31
@@ -3760,12 +3760,12 @@ emit_storeofs.exit120.i.i:                        ; preds = %emit_rmro.exit.i118
 emit_rmro.exit163.i.i:                            ; preds = %1695, %1675
   %.046.i.i162.i.i = phi ptr [ %1693, %1675 ], [ %1692, %1695 ]
   store ptr %.046.i.i162.i.i, ptr %89, align 8, !tbaa !60
-  %.pre200.i.i = load ptr, ptr %143, align 8, !tbaa !68
+  %.pre201.i.i = load ptr, ptr %143, align 8, !tbaa !68
   br label %1698
 
 1698:                                             ; preds = %emit_rmro.exit163.i.i, %1669
   %1699 = phi ptr [ %.046.i.i162.i.i, %emit_rmro.exit163.i.i ], [ %1667, %1669 ]
-  %1700 = phi ptr [ %.pre200.i.i, %emit_rmro.exit163.i.i ], [ %.pre201.i.i, %1669 ]
+  %1700 = phi ptr [ %.pre201.i.i, %emit_rmro.exit163.i.i ], [ %.pre202.i.i, %1669 ]
   %1701 = load i32, ptr %51, align 8, !tbaa !39
   %1702 = add i32 %1701, -1
   %1703 = zext i32 %1702 to i64
@@ -21492,16 +21492,16 @@ ra_dest.exit:                                     ; preds = %76, %79
 asm_swapops.exit:                                 ; preds = %131, %143, %146
   %150 = getelementptr inbounds nuw i8, ptr %108, i64 5
   %151 = load i8, ptr %150, align 1, !tbaa !20
-  %.fr = freeze i8 %151
-  %152 = add i8 %.fr, -73
+  %.fr144 = freeze i8 %151
+  %152 = add i8 %.fr144, -73
   %switch.i = icmp ult i8 %152, -7
   %spec.select = select i1 %switch.i, i32 %8, i32 %5
-  %spec.select144 = select i1 %switch.i, i32 %5, i32 %8
+  %spec.select145 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread138
 
 .thread138:                                       ; preds = %asm_swapops.exit, %118, %139, %105, %124, %121, %146
   %153 = phi i32 [ %5, %121 ], [ %spec.select, %asm_swapops.exit ], [ %5, %124 ], [ %5, %146 ], [ %8, %105 ], [ %8, %118 ], [ %8, %139 ]
-  %154 = phi i32 [ %8, %121 ], [ %spec.select144, %asm_swapops.exit ], [ %8, %124 ], [ %8, %146 ], [ %5, %105 ], [ %5, %118 ], [ %5, %139 ]
+  %154 = phi i32 [ %8, %121 ], [ %spec.select145, %asm_swapops.exit ], [ %8, %124 ], [ %8, %146 ], [ %5, %105 ], [ %5, %118 ], [ %5, %139 ]
   %155 = shl nuw i32 1, %.0.i
   %156 = xor i32 %155, -1
   %157 = and i32 %.074, %156
@@ -22862,16 +22862,16 @@ ra_dest.exit:                                     ; preds = %54, %57
 asm_swapops.exit:                                 ; preds = %87, %99, %102
   %106 = getelementptr inbounds nuw i8, ptr %64, i64 5
   %107 = load i8, ptr %106, align 1, !tbaa !20
-  %.fr = freeze i8 %107
-  %108 = add i8 %.fr, -73
+  %.fr59 = freeze i8 %107
+  %108 = add i8 %.fr59, -73
   %switch.i = icmp ult i8 %108, -7
   %spec.select = select i1 %switch.i, i32 %8, i32 %5
-  %spec.select59 = select i1 %switch.i, i32 %5, i32 %8
+  %spec.select60 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread55
 
 .thread55:                                        ; preds = %asm_swapops.exit, %74, %95, %60, %80, %77, %102
   %109 = phi i32 [ %5, %77 ], [ %spec.select, %asm_swapops.exit ], [ %5, %80 ], [ %5, %102 ], [ %8, %60 ], [ %8, %74 ], [ %8, %95 ]
-  %110 = phi i32 [ %8, %77 ], [ %spec.select59, %asm_swapops.exit ], [ %8, %80 ], [ %8, %102 ], [ %5, %60 ], [ %5, %74 ], [ %5, %95 ]
+  %110 = phi i32 [ %8, %77 ], [ %spec.select60, %asm_swapops.exit ], [ %8, %80 ], [ %8, %102 ], [ %5, %60 ], [ %5, %74 ], [ %5, %95 ]
   %111 = shl nuw i32 1, %.0.i
   %112 = xor i32 %111, -1
   %113 = and i32 %.033, %112

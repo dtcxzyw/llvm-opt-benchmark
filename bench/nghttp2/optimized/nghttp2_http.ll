@@ -1043,8 +1043,8 @@ define hidden range(i32 -1, 1) i32 @nghttp2_http_on_response_headers(ptr noundef
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %8 = load i16, ptr %7, align 4, !tbaa !59
-  %.fr = freeze i16 %8
-  %.off = add i16 %.fr, -100
+  %.fr15 = freeze i16 %8
+  %.off = add i16 %.fr15, -100
   %9 = icmp ult i16 %.off, 100
   br i1 %9, label %10, label %14
 
@@ -1065,13 +1065,13 @@ define hidden range(i32 -1, 1) i32 @nghttp2_http_on_response_headers(ptr noundef
   br i1 %17, label %18, label %expect_response_body.exit.thread
 
 18:                                               ; preds = %14
-  %19 = sext i16 %.fr to i32
+  %19 = sext i16 %.fr15 to i32
   %.off.i = add nsw i32 %19, -100
   %.not.i = icmp ult i32 %.off.i, 100
   br i1 %.not.i, label %expect_response_body.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
-  switch i16 %.fr, label %21 [
+  switch i16 %.fr15, label %21 [
     i16 304, label %expect_response_body.exit.thread
     i16 204, label %expect_response_body.exit.thread
   ]

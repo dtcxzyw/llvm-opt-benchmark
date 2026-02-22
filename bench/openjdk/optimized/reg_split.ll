@@ -141,10 +141,9 @@ _ZN7Compile16check_node_countEjPKc.exit:          ; preds = %20
   %66 = load i64, ptr %65, align 8
   %67 = getelementptr inbounds nuw i64, ptr %39, i64 %64
   %68 = load i64, ptr %67, align 8
-  %.fr = freeze i64 %68
-  %.fr61 = freeze i64 %66
-  %69 = and i64 %.fr, %.fr61
-  %70 = or i64 %69, %.01113.i
+  %69 = and i64 %68, %66
+  %.fr61 = freeze i64 %69
+  %70 = or i64 %.fr61, %.01113.i
   %71 = add i32 %.014.i, 1
   %.not.i = icmp ugt i32 %71, %58
   br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !6

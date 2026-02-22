@@ -7371,11 +7371,11 @@ _ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_S
   br i1 %61, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !76
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.pre30 = load float, ptr %6, align 4
+  %.pre31 = load float, ptr %6, align 4
   br label %62
 
 62:                                               ; preds = %67, %.lr.ph.split.split.us.split
-  %63 = phi float [ %.pre30, %.lr.ph.split.split.us.split ], [ %68, %67 ]
+  %63 = phi float [ %.pre31, %.lr.ph.split.split.us.split ], [ %68, %67 ]
   %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %69, %67 ]
   %64 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
   %65 = load float, ptr %64, align 4

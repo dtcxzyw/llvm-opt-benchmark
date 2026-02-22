@@ -3468,15 +3468,15 @@ define internal fastcc void @dissect_rtmpt_body_audio(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
-  %.fr128 = freeze i8 %4
-  %5 = zext i8 %.fr128 to i32
-  %6 = lshr i8 %.fr128, 4
+  %.fr = freeze i8 %4
+  %5 = zext i8 %.fr to i32
+  %6 = lshr i8 %.fr, 4
   %7 = and i8 %6, 7
-  %.not = icmp sgt i8 %.fr128, -1
+  %.not = icmp sgt i8 %.fr, -1
   br i1 %.not, label %102, label %8
 
 8:                                                ; preds = %3
-  %9 = and i8 %.fr128, 15
+  %9 = and i8 %.fr, 15
   %10 = zext nneg i8 %9 to i32
   %11 = load i32, ptr @hf_rtmpt_video_control, align 4
   %12 = zext nneg i8 %7 to i32
@@ -3503,9 +3503,9 @@ define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 nounde
 
 29:                                               ; preds = %27
   %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %24)
-  %.fr = freeze i8 %30
-  %31 = zext i8 %.fr to i32
-  %32 = lshr i8 %.fr, 4
+  %.fr156 = freeze i8 %30
+  %31 = zext i8 %.fr156 to i32
+  %32 = lshr i8 %.fr156, 4
   %33 = load i32, ptr @hf_rtmpt_video_multitrack_control, align 4
   %34 = zext nneg i8 %32 to i32
   %35 = tail call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @rtmpt_av_multitrack_types, ptr noundef nonnull @.str.406)

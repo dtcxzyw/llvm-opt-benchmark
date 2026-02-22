@@ -495,17 +495,17 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   call void @ff_matrix_mul_3x3_vec(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %24) #11
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre81 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !4
+  %.pre82 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !4
   br label %25
 
 25:                                               ; preds = %23, %22
-  %26 = phi i64 [ %.pre81, %23 ], [ %14, %22 ]
+  %26 = phi i64 [ %.pre82, %23 ], [ %14, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load double, ptr %27, align 8, !tbaa !37
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %28, ptr %29, align 8, !tbaa !37
-  %.fr = freeze i64 %26
-  %30 = and i64 %.fr, 32
+  %.fr59 = freeze i64 %26
+  %30 = and i64 %.fr59, 32
   %.not51 = icmp eq i64 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !30
@@ -516,29 +516,29 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   br i1 %.not51, label %.split.us.split, label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.split.us.split.us ], [ 0, %.split.us ]
-  %34 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv70
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.split.us.split.us ], [ 0, %.split.us ]
+  %34 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv71
   %35 = load double, ptr %34, align 8, !tbaa !37
   %36 = fmul nsz double %35, 0x3FEB7B7B7B7B7B7B
   %37 = fadd nsz double %36, 0x3FB0101010101010
   store double %37, ptr %34, align 8, !tbaa !37
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next71, 3
-  br i1 %exitcond73.not, label %.split55.us, label %.split.us.split.us, !llvm.loop !40
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next72, 3
+  br i1 %exitcond74.not, label %.split55.us, label %.split.us.split.us, !llvm.loop !40
 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.split.us.split ], [ 0, %.split.us ]
-  %.not60 = icmp eq i64 %indvars.iv74, 0
-  %unswitched.select = select i1 %.not60, double 0x3FEB7B7B7B7B7B7B, double 0x3FEC1C1C1C1C1C1C
-  %38 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv74
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.split.us.split ], [ 0, %.split.us ]
+  %.not61 = icmp eq i64 %indvars.iv75, 0
+  %unswitched.select = select i1 %.not61, double 0x3FEB7B7B7B7B7B7B, double 0x3FEC1C1C1C1C1C1C
+  %38 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv75
   %39 = load double, ptr %38, align 8, !tbaa !37
   %40 = fmul nsz double %unswitched.select, %39
-  %41 = select i1 %.not60, double 0x3FB0101010101010, double 0x3FE0101010101010
+  %41 = select i1 %.not61, double 0x3FB0101010101010, double 0x3FE0101010101010
   %42 = fadd nsz double %41, %40
   store double %42, ptr %38, align 8, !tbaa !37
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next75, 3
-  br i1 %exitcond77.not, label %.split55.us, label %.split.us.split, !llvm.loop !40
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next76, 3
+  br i1 %exitcond78.not, label %.split55.us, label %.split.us.split, !llvm.loop !40
 
 .split:                                           ; preds = %25
   br i1 %.not51, label %.split.split, label %.split55.us
@@ -550,28 +550,28 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   br i1 %45, label %51, label %.lr.ph
 
 .split.split:                                     ; preds = %.split, %50
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %50 ], [ 0, %.split ]
-  %.not59 = icmp eq i64 %indvars.iv66, 0
-  br i1 %.not59, label %50, label %46
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %50 ], [ 0, %.split ]
+  %.not60 = icmp eq i64 %indvars.iv67, 0
+  br i1 %.not60, label %50, label %46
 
 46:                                               ; preds = %.split.split
-  %47 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv66
+  %47 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv67
   %48 = load double, ptr %47, align 8, !tbaa !37
   %49 = fadd nsz double %48, 5.000000e-01
   store double %49, ptr %47, align 8, !tbaa !37
   br label %50
 
 50:                                               ; preds = %.split.split, %46
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next67, 3
-  br i1 %exitcond69.not, label %.split55.us, label %.split.split, !llvm.loop !40
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
+  br i1 %exitcond70.not, label %.split55.us, label %.split.split, !llvm.loop !40
 
 51:                                               ; preds = %.split55.us
   %52 = load double, ptr %29, align 8, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %52, ptr %53, align 8, !tbaa !37
-  %.not61 = icmp eq i8 %44, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq i8 %44, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split55.us, %51
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -583,12 +583,12 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   ret void
 
 55:                                               ; preds = %.lr.ph, %88
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next79, %88 ]
-  %56 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv78
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next80, %88 ]
+  %56 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv79
   %57 = load double, ptr %56, align 8, !tbaa !37
   %58 = load ptr, ptr %0, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %60 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %59, i64 %indvars.iv78
+  %60 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %59, i64 %indvars.iv79
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 4, !tbaa !16
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 12
@@ -599,7 +599,7 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   %67 = uitofp nneg i32 %66 to double
   %68 = call nsz double @llvm.fmuladd.f64(double %57, double %67, double 5.000000e-01)
   %69 = fptoui double %68 to i32
-  %70 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %54, i64 %indvars.iv78
+  %70 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %54, i64 %indvars.iv79
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 4, !tbaa !16
   %73 = icmp sgt i32 %72, 8
@@ -626,10 +626,10 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   br label %88
 
 88:                                               ; preds = %84, %79
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %89 = load i8, ptr %43, align 8, !tbaa !11
   %90 = zext i8 %89 to i64
-  %91 = icmp samesign ult i64 %indvars.iv.next79, %90
+  %91 = icmp samesign ult i64 %indvars.iv.next80, %90
   br i1 %91, label %55, label %._crit_edge, !llvm.loop !41
 }
 

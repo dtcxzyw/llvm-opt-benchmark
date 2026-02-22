@@ -1577,12 +1577,12 @@ define internal i32 @dissect_zbee_apf(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %18 = zext i8 %17 to i32
   %19 = tail call i32 @zbee_get_bit_field(i32 noundef %18, i32 noundef 240)
-  %.fr49 = freeze i32 %19
+  %.fr = freeze i32 %19
   %20 = load i32, ptr @hf_zbee_apf_count, align 4
   %21 = and i32 %16, 255
   %22 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %21)
   %23 = load i32, ptr @hf_zbee_apf_type, align 4
-  %24 = and i32 %.fr49, 255
+  %24 = and i32 %.fr, 255
   %25 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %24)
   %26 = icmp ne ptr %.045, null
   %27 = icmp ne i32 %21, 0

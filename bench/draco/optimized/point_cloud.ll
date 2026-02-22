@@ -2168,6 +2168,9 @@ define void @_ZN5draco10PointCloud25ApplyPointIdDeduplicationERKNS_15IndexTypeVe
   %.pre42 = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !29
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !14
+  %.pre46 = ptrtoint ptr %.pre42 to i64
+  %.pre47 = ptrtoint ptr %.pre44 to i64
+  %.pre49 = sub i64 %.pre46, %.pre47
   br label %.preheader
 
 .lr.ph32:                                         ; preds = %3
@@ -2175,13 +2178,12 @@ define void @_ZN5draco10PointCloud25ApplyPointIdDeduplicationERKNS_15IndexTypeVe
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %.fr34 = freeze ptr %10
   %11 = load ptr, ptr %8, align 8
-  %.fr35 = freeze ptr %11
-  %12 = ptrtoint ptr %.fr34 to i64
-  %13 = ptrtoint ptr %.fr35 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = lshr i64 %14, 3
+  %.fr35 = freeze i64 %14
+  %15 = lshr i64 %.fr35, 3
   %16 = trunc i64 %15 to i32
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph32.split.us.preheader, label %.lr.ph32.split
@@ -2202,7 +2204,7 @@ define void @_ZN5draco10PointCloud25ApplyPointIdDeduplicationERKNS_15IndexTypeVe
 
 22:                                               ; preds = %.preheader26.us, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader26.us ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ]
-  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %.fr35, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %11, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 100
   %26 = load i8, ptr %25, align 4, !tbaa !46, !range !128, !noundef !129
@@ -2239,89 +2241,87 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br label %32
 
 .preheader:                                       ; preds = %.lr.ph32.split, %32, %..preheader_crit_edge
-  %36 = phi ptr [ %.pre44, %..preheader_crit_edge ], [ %.fr35, %32 ], [ %.fr35, %.lr.ph32.split ]
-  %37 = phi ptr [ %.pre42, %..preheader_crit_edge ], [ %.fr34, %32 ], [ %.fr34, %.lr.ph32.split ]
+  %.pre-phi50 = phi i64 [ %.pre49, %..preheader_crit_edge ], [ %.fr35, %32 ], [ %.fr35, %.lr.ph32.split ]
+  %36 = phi ptr [ %.pre44, %..preheader_crit_edge ], [ %11, %32 ], [ %11, %.lr.ph32.split ]
+  %37 = phi ptr [ %.pre42, %..preheader_crit_edge ], [ %10, %32 ], [ %10, %.lr.ph32.split ]
   %.015.lcssa = phi i32 [ 0, %..preheader_crit_edge ], [ %.1.us, %32 ], [ %spec.select, %.lr.ph32.split ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = ptrtoint ptr %37 to i64
-  %41 = ptrtoint ptr %36 to i64
-  %42 = sub i64 %40, %41
-  %43 = lshr exact i64 %42, 3
-  %44 = trunc i64 %43 to i32
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph, label %._crit_edge
+  %40 = lshr exact i64 %.pre-phi50, 3
+  %41 = trunc i64 %40 to i32
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %46 = sext i32 %.015.lcssa to i64
-  br label %53
+  %43 = sext i32 %.015.lcssa to i64
+  br label %50
 
 .lr.ph32.split:                                   ; preds = %.lr.ph32, %.lr.ph32.split
   %.01530 = phi i32 [ %spec.select, %.lr.ph32.split ], [ 0, %.lr.ph32 ]
-  %.sroa.022.029 = phi ptr [ %52, %.lr.ph32.split ], [ %4, %.lr.ph32 ]
-  %47 = load i32, ptr %.sroa.022.029, align 4, !tbaa !12
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %7, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !12
-  %.not25 = icmp ult i32 %50, %.01530
-  %51 = add i32 %50, 1
-  %spec.select = select i1 %.not25, i32 %.01530, i32 %51
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 4
-  %.not = icmp eq ptr %52, %6
+  %.sroa.022.029 = phi ptr [ %49, %.lr.ph32.split ], [ %4, %.lr.ph32 ]
+  %44 = load i32, ptr %.sroa.022.029, align 4, !tbaa !12
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %7, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !12
+  %.not25 = icmp ult i32 %47, %.01530
+  %48 = add i32 %47, 1
+  %spec.select = select i1 %.not25, i32 %.01530, i32 %48
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 4
+  %.not = icmp eq ptr %49, %6
   br i1 %.not, label %.preheader, label %.lr.ph32.split
 
 ._crit_edge:                                      ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, %.preheader
   ret void
 
-53:                                               ; preds = %.lr.ph, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
-  %54 = phi ptr [ %37, %.lr.ph ], [ %75, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
+50:                                               ; preds = %.lr.ph, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
+  %51 = phi ptr [ %37, %.lr.ph ], [ %72, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
   %indvars.iv38 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next39, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
-  %55 = phi ptr [ %36, %.lr.ph ], [ %76, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
-  %56 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %55, i64 %indvars.iv38
-  %57 = load ptr, ptr %56, align 8, !tbaa !17
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 100
-  store i8 0, ptr %58, align 4, !tbaa !46
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %61 = load ptr, ptr %60, align 8, !tbaa !67
-  %62 = load ptr, ptr %59, align 8, !tbaa !68
-  %63 = ptrtoint ptr %61 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = ashr exact i64 %65, 2
-  %67 = icmp ult i64 %66, %46
-  br i1 %67, label %68, label %70
+  %52 = phi ptr [ %36, %.lr.ph ], [ %73, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
+  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %52, i64 %indvars.iv38
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 100
+  store i8 0, ptr %55, align 4, !tbaa !46
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 80
+  %58 = load ptr, ptr %57, align 8, !tbaa !67
+  %59 = load ptr, ptr %56, align 8, !tbaa !68
+  %60 = ptrtoint ptr %58 to i64
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  %63 = ashr exact i64 %62, 2
+  %64 = icmp ult i64 %63, %43
+  br i1 %64, label %65, label %67
 
-68:                                               ; preds = %53
-  %69 = sub nuw nsw i64 %46, %66
-  tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr %61, i64 noundef %69, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
+65:                                               ; preds = %50
+  %66 = sub nuw nsw i64 %43, %63
+  tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr %58, i64 noundef %66, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
   %.pre45 = load ptr, ptr %39, align 8, !tbaa !29
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
-70:                                               ; preds = %53
-  %71 = icmp ugt i64 %66, %46
-  br i1 %71, label %72, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
+67:                                               ; preds = %50
+  %68 = icmp ugt i64 %63, %43
+  br i1 %68, label %69, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw %"class.draco::IndexType.72", ptr %62, i64 %46
-  %.not.i.i.i.i = icmp eq ptr %61, %73
-  br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %74
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw %"class.draco::IndexType.72", ptr %59, i64 %43
+  %.not.i.i.i.i = icmp eq ptr %58, %70
+  br i1 %.not.i.i.i.i, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %71
 
-74:                                               ; preds = %72
-  store ptr %73, ptr %60, align 8, !tbaa !67
+71:                                               ; preds = %69
+  store ptr %70, ptr %57, align 8, !tbaa !67
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
-_ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %68, %70, %72, %74
-  %75 = phi ptr [ %.pre45, %68 ], [ %54, %70 ], [ %54, %72 ], [ %54, %74 ]
+_ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %65, %67, %69, %71
+  %72 = phi ptr [ %.pre45, %65 ], [ %51, %67 ], [ %51, %69 ], [ %51, %71 ]
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %76 = load ptr, ptr %38, align 8, !tbaa !14
-  %77 = ptrtoint ptr %75 to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %sext = shl i64 %79, 29
-  %80 = ashr i64 %sext, 32
-  %81 = icmp slt i64 %indvars.iv.next39, %80
-  br i1 %81, label %53, label %._crit_edge, !llvm.loop !152
+  %73 = load ptr, ptr %38, align 8, !tbaa !14
+  %74 = ptrtoint ptr %72 to i64
+  %75 = ptrtoint ptr %73 to i64
+  %76 = sub i64 %74, %75
+  %sext = shl i64 %76, 29
+  %77 = ashr i64 %sext, 32
+  %78 = icmp slt i64 %indvars.iv.next39, %77
+  br i1 %78, label %50, label %._crit_edge, !llvm.loop !152
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

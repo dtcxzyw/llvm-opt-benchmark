@@ -927,17 +927,17 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
 
 17:                                               ; preds = %9
   %18 = tail call i64 @EVP_MD_block_size(ptr noundef %8) #12
-  %.fr114 = freeze i64 %18
+  %.fr = freeze i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 %4, i64 %.fr114, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 %4, i64 %.fr, i1 false)
   %19 = add i64 %3, -1
-  %20 = add i64 %19, %.fr114
+  %20 = add i64 %19, %.fr
   %21 = icmp ult i64 %20, %3
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
   %23 = add i64 %1, -1
-  %24 = add i64 %23, %.fr114
+  %24 = add i64 %23, %.fr
   %25 = icmp ult i64 %24, %1
   br i1 %25, label %26, label %27
 
@@ -946,9 +946,9 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   br label %97
 
 27:                                               ; preds = %22
-  %28 = urem i64 %20, %.fr114
+  %28 = urem i64 %20, %.fr
   %29 = sub nuw i64 %20, %28
-  %30 = urem i64 %24, %.fr114
+  %30 = urem i64 %24, %.fr
   %31 = sub nuw i64 %24, %30
   %32 = add i64 %31, %29
   %33 = icmp ult i64 %32, %29
@@ -1009,7 +1009,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
 .lr.ph152:                                        ; preds = %._crit_edge
   %.not155 = icmp eq i32 %5, 1
   %.not156 = icmp eq i64 %32, 0
-  %.0141 = add i64 %.fr114, -1
+  %.0141 = add i64 %.fr, -1
   %51 = call i32 @llvm.umax.i32(i32 %5, i32 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1020,7 +1020,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
 .lr.ph175:                                        ; preds = %.lr.ph152, %._crit_edge147
   %.0100149174 = phi ptr [ %70, %._crit_edge147 ], [ %7, %.lr.ph152 ]
   %.097150173 = phi i64 [ %71, %._crit_edge147 ], [ %6, %.lr.ph152 ]
-  %53 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef %.fr114) #12
+  %53 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef %.fr) #12
   %.not116 = icmp eq i32 %53, 0
   br i1 %.not116, label %.loopexit.sink.split, label %54
 
@@ -1097,11 +1097,11 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   store i8 %84, ptr %76, align 1, !tbaa !26
   %85 = lshr i32 %83, 8
   %.0.us = add i64 %.0143.us, -1
-  %86 = icmp ult i64 %.0.us, %.fr114
+  %86 = icmp ult i64 %.0.us, %.fr
   br i1 %86, label %75, label %._crit_edge145.us, !llvm.loop !46
 
 ._crit_edge145.us:                                ; preds = %75
-  %87 = add i64 %.396146.us, %.fr114
+  %87 = add i64 %.396146.us, %.fr
   %88 = icmp ult i64 %87, %32
   br i1 %88, label %.preheader.us, label %._crit_edge147, !llvm.loop !47
 
@@ -1113,7 +1113,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 %.295140
   store i8 %92, ptr %93, align 1, !tbaa !26
   %94 = add nuw i64 %.295140, 1
-  %exitcond159.not = icmp eq i64 %94, %.fr114
+  %exitcond159.not = icmp eq i64 %94, %.fr
   br i1 %exitcond159.not, label %.preheader129, label %89, !llvm.loop !48
 
 ._crit_edge147:                                   ; preds = %._crit_edge145.us, %.preheader129
@@ -1225,8 +1225,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @PKCS12_handle_content_infos(
 
 .preheader:                                       ; preds = %40
   %42 = call i64 @CBS_len(ptr noundef nonnull %26) #12
-  %.not1426 = icmp eq i64 %42, 0
-  br i1 %.not1426, label %.loopexit, label %.lr.ph
+  %.not1427 = icmp eq i64 %42, 0
+  br i1 %.not1427, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1480,8 +1480,8 @@ PKCS12_handle_content_info.exit.thread21:         ; preds = %56
   store ptr %132, ptr %133, align 8, !tbaa !32
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %129) #12
   %134 = load ptr, ptr %2, align 8, !tbaa !34
-  %.fr = freeze ptr %134
-  %135 = icmp ne ptr %.fr, null
+  %.fr26 = freeze ptr %134
+  %135 = icmp ne ptr %.fr26, null
   %..i = zext i1 %135 to i32
   br label %136
 

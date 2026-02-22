@@ -853,21 +853,21 @@ parse_options.exit:                               ; preds = %42
 
 251:                                              ; preds = %.thread.i
   %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1260), align 4, !tbaa !60
-  %.fr.i = freeze i32 %252
-  %253 = icmp slt i32 %.fr.i, 0
-  %254 = and i32 %.fr.i, 2147483631
-  %.not153.i = icmp eq i32 %254, 8
-  %or.cond158.i = or i1 %253, %.not153.i
-  br i1 %or.cond158.i, label %256, label %switch.early.test.i
+  %.fr153.i = freeze i32 %252
+  %253 = icmp slt i32 %.fr153.i, 0
+  %254 = and i32 %.fr153.i, 2147483631
+  %.not154.i = icmp eq i32 %254, 8
+  %or.cond159.i = or i1 %253, %.not154.i
+  br i1 %or.cond159.i, label %256, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %251
-  switch i32 %.fr.i, label %255 [
+  switch i32 %.fr153.i, label %255 [
     i32 32, label %256
     i32 16, label %256
   ]
 
 255:                                              ; preds = %switch.early.test.i
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.10, i32 noundef %.fr.i)
+  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.10, i32 noundef %.fr153.i)
   br label %do_it.exit
 
 256:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %251
@@ -1230,20 +1230,20 @@ switch.early.test.i:                              ; preds = %251
   br label %sub_0.preheader.i
 
 sub_0.preheader.i:                                ; preds = %411, %407
-  %.pre182.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
+  %.pre183.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
   br label %sub_0.i
 
 sub_0.i:                                          ; preds = %423, %sub_0.preheader.i
   %412 = phi i32 [ %408, %sub_0.preheader.i ], [ %424, %423 ]
-  %413 = phi ptr [ %.pre182.i, %sub_0.preheader.i ], [ %425, %423 ]
+  %413 = phi ptr [ %.pre183.i, %sub_0.preheader.i ], [ %425, %423 ]
   %indvars.iv.i3 = phi i64 [ 0, %sub_0.preheader.i ], [ %indvars.iv.next.i4, %423 ]
-  %.157161.i = phi i32 [ 0, %sub_0.preheader.i ], [ %.258.i, %423 ]
+  %.157162.i = phi i32 [ 0, %sub_0.preheader.i ], [ %.258.i, %423 ]
   %414 = phi i1 [ true, %sub_0.preheader.i ], [ false, %423 ]
   %415 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv.i3
   %416 = load ptr, ptr %415, align 8, !tbaa !45
   %417 = load i8, ptr %416, align 1
-  %.not172.i = icmp eq i8 %417, 45
-  br i1 %.not172.i, label %.tail.i, label %.tail.thread.i
+  %.not173.i = icmp eq i8 %417, 45
+  br i1 %.not173.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 1
@@ -1254,15 +1254,15 @@ sub_0.i:                                          ; preds = %423, %sub_0.prehead
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
   %421 = call fastcc i32 @decode_file(ptr noundef nonnull %416)
-  %422 = or i32 %421, %.157161.i
+  %422 = or i32 %421, %.157162.i
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  %.pre183.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
+  %.pre184.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
   br label %423
 
 423:                                              ; preds = %.tail.thread.i, %.tail.i
-  %424 = phi i32 [ %.pre183.i, %.tail.thread.i ], [ %412, %.tail.i ]
+  %424 = phi i32 [ %.pre184.i, %.tail.thread.i ], [ %412, %.tail.i ]
   %425 = phi ptr [ %.pre.i, %.tail.thread.i ], [ %413, %.tail.i ]
-  %.258.i = phi i32 [ %422, %.tail.thread.i ], [ %.157161.i, %.tail.i ]
+  %.258.i = phi i32 [ %422, %.tail.thread.i ], [ %.157162.i, %.tail.i ]
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %426 = zext i32 %424 to i64
   %427 = icmp samesign ult i64 %indvars.iv.next.i4, %426
@@ -1282,7 +1282,7 @@ sub_0.i:                                          ; preds = %423, %sub_0.prehead
   %433 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
   switch i32 %433, label %436 [
     i32 0, label %434
-    i32 1, label %sub_0155.preheader.i
+    i32 1, label %sub_0156.preheader.i
   ]
 
 434:                                              ; preds = %432
@@ -1291,54 +1291,54 @@ sub_0.i:                                          ; preds = %423, %sub_0.prehead
 
 436:                                              ; preds = %432
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 152), align 8, !tbaa !77
-  br label %sub_0155.preheader.i
+  br label %sub_0156.preheader.i
 
-sub_0155.preheader.i:                             ; preds = %436, %432
-  %.pre185.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  br label %sub_0155.i
+sub_0156.preheader.i:                             ; preds = %436, %432
+  %.pre186.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
+  br label %sub_0156.i
 
-sub_0155.i:                                       ; preds = %451, %sub_0155.preheader.i
-  %437 = phi i32 [ %433, %sub_0155.preheader.i ], [ %452, %451 ]
-  %438 = phi ptr [ %.pre185.i, %sub_0155.preheader.i ], [ %453, %451 ]
-  %indvars.iv176.i = phi i64 [ 0, %sub_0155.preheader.i ], [ %indvars.iv.next177.i, %451 ]
-  %.561164.i = phi i32 [ 0, %sub_0155.preheader.i ], [ %.662.i, %451 ]
-  %.066162.i = phi i32 [ 1, %sub_0155.preheader.i ], [ %.167.i, %451 ]
-  %439 = getelementptr inbounds nuw ptr, ptr %438, i64 %indvars.iv176.i
+sub_0156.i:                                       ; preds = %451, %sub_0156.preheader.i
+  %437 = phi i32 [ %433, %sub_0156.preheader.i ], [ %452, %451 ]
+  %438 = phi ptr [ %.pre186.i, %sub_0156.preheader.i ], [ %453, %451 ]
+  %indvars.iv177.i = phi i64 [ 0, %sub_0156.preheader.i ], [ %indvars.iv.next178.i, %451 ]
+  %.561165.i = phi i32 [ 0, %sub_0156.preheader.i ], [ %.662.i, %451 ]
+  %.066163.i = phi i32 [ 1, %sub_0156.preheader.i ], [ %.167.i, %451 ]
+  %439 = getelementptr inbounds nuw ptr, ptr %438, i64 %indvars.iv177.i
   %440 = load ptr, ptr %439, align 8, !tbaa !45
   %441 = load i8, ptr %440, align 1
-  %.not174.i = icmp eq i8 %441, 45
-  br i1 %.not174.i, label %.tail154.i, label %.tail154.thread.i
+  %.not175.i = icmp eq i8 %441, 45
+  br i1 %.not175.i, label %.tail155.i, label %.tail155.thread.i
 
-.tail154.i:                                       ; preds = %sub_0155.i
+.tail155.i:                                       ; preds = %sub_0156.i
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 1
   %443 = load i8, ptr %442, align 1
   %444 = icmp ne i8 %443, 0
-  %445 = icmp ne i32 %.066162.i, 0
+  %445 = icmp ne i32 %.066163.i, 0
   %or.cond26.i = select i1 %444, i1 true, i1 %445
-  br i1 %or.cond26.i, label %.tail154.thread.i, label %451
+  br i1 %or.cond26.i, label %.tail155.thread.i, label %451
 
-.tail154.thread.i:                                ; preds = %.tail154.i, %sub_0155.i
+.tail155.thread.i:                                ; preds = %.tail155.i, %sub_0156.i
   %446 = add i32 %437, -1
   %447 = zext i32 %446 to i64
-  %448 = icmp eq i64 %indvars.iv176.i, %447
+  %448 = icmp eq i64 %indvars.iv177.i, %447
   %449 = zext i1 %448 to i32
-  %450 = call fastcc i32 @encode_file(ptr noundef nonnull %440, i32 noundef %.066162.i, i32 noundef %449)
+  %450 = call fastcc i32 @encode_file(ptr noundef nonnull %440, i32 noundef %.066163.i, i32 noundef %449)
   %.not128.i = icmp eq i32 %450, 0
-  %..066.i = select i1 %.not128.i, i32 0, i32 %.066162.i
-  %.561..i = select i1 %.not128.i, i32 %.561164.i, i32 1
-  %.pre184.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  %.pre186.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
+  %..066.i = select i1 %.not128.i, i32 0, i32 %.066163.i
+  %.561..i = select i1 %.not128.i, i32 %.561165.i, i32 1
+  %.pre185.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
+  %.pre187.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
   br label %451
 
-451:                                              ; preds = %.tail154.thread.i, %.tail154.i
-  %452 = phi i32 [ %.pre186.i, %.tail154.thread.i ], [ %437, %.tail154.i ]
-  %453 = phi ptr [ %.pre184.i, %.tail154.thread.i ], [ %438, %.tail154.i ]
-  %.167.i = phi i32 [ %..066.i, %.tail154.thread.i ], [ 0, %.tail154.i ]
-  %.662.i = phi i32 [ %.561..i, %.tail154.thread.i ], [ %.561164.i, %.tail154.i ]
-  %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
+451:                                              ; preds = %.tail155.thread.i, %.tail155.i
+  %452 = phi i32 [ %.pre187.i, %.tail155.thread.i ], [ %437, %.tail155.i ]
+  %453 = phi ptr [ %.pre185.i, %.tail155.thread.i ], [ %438, %.tail155.i ]
+  %.167.i = phi i32 [ %..066.i, %.tail155.thread.i ], [ 0, %.tail155.i ]
+  %.662.i = phi i32 [ %.561..i, %.tail155.thread.i ], [ %.561165.i, %.tail155.i ]
+  %indvars.iv.next178.i = add nuw nsw i64 %indvars.iv177.i, 1
   %454 = zext i32 %452 to i64
-  %455 = icmp samesign ult i64 %indvars.iv.next177.i, %454
-  br i1 %455, label %sub_0155.i, label %._crit_edge.i, !llvm.loop !79
+  %455 = icmp samesign ult i64 %indvars.iv.next178.i, %454
+  br i1 %455, label %sub_0156.i, label %._crit_edge.i, !llvm.loop !79
 
 ._crit_edge.i:                                    ; preds = %451
   %456 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 140), align 4, !tbaa !73
@@ -1352,8 +1352,8 @@ sub_0155.i:                                       ; preds = %451, %sub_0155.preh
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @grabbag__replaygain_get_album(ptr noundef nonnull %3, ptr noundef nonnull %4) #21
   %460 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
-  %.not127166.not.i = icmp eq i32 %460, 0
-  br i1 %.not127166.not.i, label %.thread148.i, label %.lr.ph.i5
+  %.not127167.not.i = icmp eq i32 %460, 0
+  br i1 %.not127167.not.i, label %.thread148.i, label %.lr.ph.i5
 
 .thread148.i:                                     ; preds = %472, %459
   %.8.lcssa.i = phi i32 [ 0, %459 ], [ %.9.ph.i, %472 ]
@@ -1362,10 +1362,10 @@ sub_0155.i:                                       ; preds = %451, %sub_0155.preh
   br label %do_it.exit
 
 .lr.ph.i5:                                        ; preds = %459, %472
-  %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %472 ], [ 0, %459 ]
-  %.8168.i = phi i32 [ %.9.ph.i, %472 ], [ 0, %459 ]
+  %indvars.iv180.i = phi i64 [ %indvars.iv.next181.i, %472 ], [ 0, %459 ]
+  %.8169.i = phi i32 [ %.9.ph.i, %472 ], [ 0, %459 ]
   %461 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  %462 = getelementptr inbounds nuw ptr, ptr %461, i64 %indvars.iv179.i
+  %462 = getelementptr inbounds nuw ptr, ptr %461, i64 %indvars.iv180.i
   %463 = load ptr, ptr %462, align 8, !tbaa !45
   %464 = call fastcc ptr @get_encoded_outfilename(ptr noundef %463)
   %.not126.i = icmp eq ptr %464, null
@@ -1385,17 +1385,17 @@ sub_0155.i:                                       ; preds = %451, %sub_0155.preh
   br label %472
 
 472:                                              ; preds = %470, %465
-  %.9.ph.i = phi i32 [ %.8168.i, %465 ], [ 1, %470 ]
-  %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
+  %.9.ph.i = phi i32 [ %.8169.i, %465 ], [ 1, %470 ]
+  %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
   %473 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6312), align 8, !tbaa !48
   %474 = zext i32 %473 to i64
-  %.not127.i = icmp samesign ult i64 %indvars.iv.next180.i, %474
+  %.not127.i = icmp samesign ult i64 %indvars.iv.next181.i, %474
   br i1 %.not127.i, label %.lr.ph.i5, label %.thread148.i, !llvm.loop !82
 
 475:                                              ; preds = %.lr.ph.i5
   %476 = load ptr, ptr @stderr, align 8, !tbaa !39
   %477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  %478 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv179.i
+  %478 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv180.i
   %479 = load ptr, ptr %478, align 8, !tbaa !45
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %476, i32 noundef 1, ptr noundef nonnull @.str.45, ptr noundef %479) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

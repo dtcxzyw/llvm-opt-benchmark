@@ -11234,7 +11234,7 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
           to label %.body.thread unwind label %43, !noalias !1968
 
 23:                                               ; preds = %18
-  %.fr = freeze { i64, ptr } %20
+  %.fr49 = freeze { i64, ptr } %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1963
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %34 unwind label %24, !noalias !1968
@@ -11452,8 +11452,8 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
   br label %109
 
 "_ZN4core3ptr332drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$call..room..Room$GT$..update$LT$gpui..app..async_context..AsyncAppContext$C$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$call..room..Room..rejoin..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4b34e2ac9554feceE.exit": ; preds = %34, %37, %41
-  %106 = extractvalue { i64, ptr } %.fr, 0
-  %107 = extractvalue { i64, ptr } %.fr, 1
+  %106 = extractvalue { i64, ptr } %.fr49, 0
+  %107 = extractvalue { i64, ptr } %.fr49, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %108 = icmp eq i64 %106, 2

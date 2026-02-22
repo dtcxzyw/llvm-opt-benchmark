@@ -72200,15 +72200,15 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_integral_
   br i1 %13, label %.lr.ph, label %.thread216
 
 .lr.ph:                                           ; preds = %.preheader, %20
-  %.0112282 = phi i64 [ %21, %20 ], [ %1, %.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0112282
+  %.0112283 = phi i64 [ %21, %20 ], [ %1, %.preheader ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0112283
   %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = add i8 %15, -48
   %or.cond = icmp ult i8 %16, 10
   br i1 %or.cond, label %20, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = icmp ugt i64 %.0112282, %1
+  %18 = icmp ugt i64 %.0112283, %1
   br i1 %18, label %19, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit
 
 19:                                               ; preds = %17
@@ -72229,7 +72229,7 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %19, %17
   br label %.thread248
 
 20:                                               ; preds = %.lr.ph
-  %21 = add i64 %.0112282, 1
+  %21 = add i64 %.0112283, 1
   %exitcond.not = icmp eq i64 %21, %4
   br i1 %exitcond.not, label %.thread216, label %.lr.ph, !llvm.loop !1097
 
@@ -72245,20 +72245,20 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %19, %17
 
 26:                                               ; preds = %22
   %27 = add i64 %1, 2
-  %.not127289 = icmp ult i64 %27, %4
-  br i1 %.not127289, label %.lr.ph291, label %.thread248
+  %.not127290 = icmp ult i64 %27, %4
+  br i1 %.not127290, label %.lr.ph292, label %.thread248
 
-.lr.ph291:                                        ; preds = %26, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
-  %.0113290 = phi i64 [ %34, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %27, %26 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0113290
+.lr.ph292:                                        ; preds = %26, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
+  %.0113291 = phi i64 [ %34, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %27, %26 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0113291
   %29 = load i8, ptr %28, align 1, !tbaa !21
-  %.fr = freeze i8 %29
-  %30 = add i8 %.fr, -48
+  %.fr269 = freeze i8 %29
+  %30 = add i8 %.fr269, -48
   %or.cond.i = icmp ult i8 %30, 10
   br i1 %or.cond.i, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, label %switch.early.test
 
-switch.early.test:                                ; preds = %.lr.ph291
-  switch i8 %.fr, label %31 [
+switch.early.test:                                ; preds = %.lr.ph292
+  switch i8 %.fr269, label %31 [
     i8 102, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
     i8 101, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
     i8 100, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
@@ -72274,11 +72274,11 @@ switch.early.test:                                ; preds = %.lr.ph291
   ]
 
 31:                                               ; preds = %switch.early.test
-  %32 = icmp ugt i64 %.0113290, %27
+  %32 = icmp ugt i64 %.0113291, %27
   br i1 %32, label %33, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188
 
 33:                                               ; preds = %31
-  switch i8 %.fr, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 [
+  switch i8 %.fr269, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 [
     i8 125, label %.thread248
     i8 93, label %.thread248
     i8 59, label %.thread248
@@ -72294,26 +72294,26 @@ switch.early.test:                                ; preds = %.lr.ph291
 _ZN2c415basic_substringIKcE14_is_delim_charEc.exit188: ; preds = %33, %31
   br label %.thread248
 
-_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph291
-  %34 = add i64 %.0113290, 1
-  %exitcond311.not = icmp eq i64 %34, %4
-  br i1 %exitcond311.not, label %.thread248, label %.lr.ph291, !llvm.loop !1098
+_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph292
+  %34 = add i64 %.0113291, 1
+  %exitcond312.not = icmp eq i64 %34, %4
+  br i1 %exitcond312.not, label %.thread248, label %.lr.ph292, !llvm.loop !1098
 
 35:                                               ; preds = %22
   %36 = add i64 %1, 2
-  %.not124286 = icmp ult i64 %36, %4
-  br i1 %.not124286, label %.lr.ph288, label %.thread248
+  %.not124287 = icmp ult i64 %36, %4
+  br i1 %.not124287, label %.lr.ph289, label %.thread248
 
-.lr.ph288:                                        ; preds = %35, %43
-  %.0111287 = phi i64 [ %44, %43 ], [ %36, %35 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0111287
+.lr.ph289:                                        ; preds = %35, %43
+  %.0111288 = phi i64 [ %44, %43 ], [ %36, %35 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0111288
   %38 = load i8, ptr %37, align 1, !tbaa !21
   %39 = and i8 %38, -2
   %or.cond18 = icmp eq i8 %39, 48
   br i1 %or.cond18, label %43, label %40
 
-40:                                               ; preds = %.lr.ph288
-  %41 = icmp ugt i64 %.0111287, %36
+40:                                               ; preds = %.lr.ph289
+  %41 = icmp ugt i64 %.0111288, %36
   br i1 %41, label %42, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189
 
 42:                                               ; preds = %40
@@ -72333,26 +72333,26 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
 _ZN2c415basic_substringIKcE14_is_delim_charEc.exit189: ; preds = %42, %40
   br label %.thread248
 
-43:                                               ; preds = %.lr.ph288
-  %44 = add i64 %.0111287, 1
-  %exitcond310.not = icmp eq i64 %44, %4
-  br i1 %exitcond310.not, label %.thread248, label %.lr.ph288, !llvm.loop !1099
+43:                                               ; preds = %.lr.ph289
+  %44 = add i64 %.0111288, 1
+  %exitcond311.not = icmp eq i64 %44, %4
+  br i1 %exitcond311.not, label %.thread248, label %.lr.ph289, !llvm.loop !1099
 
 45:                                               ; preds = %22
   %46 = add i64 %1, 2
-  %.not121283 = icmp ult i64 %46, %4
-  br i1 %.not121283, label %.lr.ph285, label %.thread248
+  %.not121284 = icmp ult i64 %46, %4
+  br i1 %.not121284, label %.lr.ph286, label %.thread248
 
-.lr.ph285:                                        ; preds = %45, %53
-  %.0109284 = phi i64 [ %54, %53 ], [ %46, %45 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0109284
+.lr.ph286:                                        ; preds = %45, %53
+  %.0109285 = phi i64 [ %54, %53 ], [ %46, %45 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0109285
   %48 = load i8, ptr %47, align 1, !tbaa !21
   %49 = and i8 %48, -8
   %or.cond24 = icmp eq i8 %49, 48
   br i1 %or.cond24, label %53, label %50
 
-50:                                               ; preds = %.lr.ph285
-  %51 = icmp ugt i64 %.0109284, %46
+50:                                               ; preds = %.lr.ph286
+  %51 = icmp ugt i64 %.0109285, %46
   br i1 %51, label %52, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190
 
 52:                                               ; preds = %50
@@ -72372,25 +72372,25 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit189: ; preds = %42, %40
 _ZN2c415basic_substringIKcE14_is_delim_charEc.exit190: ; preds = %52, %50
   br label %.thread248
 
-53:                                               ; preds = %.lr.ph285
-  %54 = add i64 %.0109284, 1
-  %exitcond309.not = icmp eq i64 %54, %4
-  br i1 %exitcond309.not, label %.thread248, label %.lr.ph285, !llvm.loop !1100
+53:                                               ; preds = %.lr.ph286
+  %54 = add i64 %.0109285, 1
+  %exitcond310.not = icmp eq i64 %54, %4
+  br i1 %exitcond310.not, label %.thread248, label %.lr.ph286, !llvm.loop !1100
 
 .thread216:                                       ; preds = %20, %.preheader, %22, %8
   %55 = icmp ult i64 %1, %4
-  br i1 %55, label %.lr.ph293, label %.thread248
+  br i1 %55, label %.lr.ph294, label %.thread248
 
-.lr.ph293:                                        ; preds = %.thread216, %62
-  %.0292 = phi i64 [ %63, %62 ], [ %1, %.thread216 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0292
+.lr.ph294:                                        ; preds = %.thread216, %62
+  %.0293 = phi i64 [ %63, %62 ], [ %1, %.thread216 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload102.pre.pre, i64 %.0293
   %57 = load i8, ptr %56, align 1, !tbaa !21
   %58 = add i8 %57, -48
   %or.cond27 = icmp ult i8 %58, 10
   br i1 %or.cond27, label %62, label %59
 
-59:                                               ; preds = %.lr.ph293
-  %60 = icmp ugt i64 %.0292, %1
+59:                                               ; preds = %.lr.ph294
+  %60 = icmp ugt i64 %.0293, %1
   br i1 %60, label %61, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191
 
 61:                                               ; preds = %59
@@ -72410,14 +72410,14 @@ _ZN2c415basic_substringIKcE14_is_delim_charEc.exit190: ; preds = %52, %50
 _ZN2c415basic_substringIKcE14_is_delim_charEc.exit191: ; preds = %61, %59
   br label %.thread248
 
-62:                                               ; preds = %.lr.ph293
-  %63 = add i64 %.0292, 1
-  %exitcond312.not = icmp eq i64 %63, %4
-  br i1 %exitcond312.not, label %.thread248, label %.lr.ph293, !llvm.loop !1101
+62:                                               ; preds = %.lr.ph294
+  %63 = add i64 %.0293, 1
+  %exitcond313.not = icmp eq i64 %63, %4
+  br i1 %exitcond313.not, label %.thread248, label %.lr.ph294, !llvm.loop !1101
 
 .thread248:                                       ; preds = %53, %43, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %62, %.thread216, %45, %35, %26, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %6
   %.sroa.0.0 = phi ptr [ %7, %6 ], [ %.sroa.0.0.copyload102.pre.pre, %43 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ %.sroa.0.0.copyload102.pre.pre, %26 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189 ], [ %.sroa.0.0.copyload102.pre.pre, %35 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %19 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %33 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %42 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %52 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %61 ], [ %.sroa.0.0.copyload102.pre.pre, %45 ], [ %.sroa.0.0.copyload102.pre.pre, %.thread216 ], [ %.sroa.0.0.copyload102.pre.pre, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.sroa.0.0.copyload102.pre.pre, %62 ], [ %.sroa.0.0.copyload102.pre.pre, %53 ]
-  %.sroa.16.0 = phi i64 [ 0, %6 ], [ %4, %43 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ %4, %26 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189 ], [ %4, %35 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0112282, %19 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0113290, %33 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0111287, %42 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0109284, %52 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %.0292, %61 ], [ %4, %45 ], [ %4, %.thread216 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %4, %62 ], [ %4, %53 ]
+  %.sroa.16.0 = phi i64 [ 0, %6 ], [ %4, %43 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit190 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ %4, %26 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit189 ], [ %4, %35 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit188 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit191 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0112283, %19 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0113291, %33 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0111288, %42 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0109285, %52 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %.0293, %61 ], [ %4, %45 ], [ %4, %.thread216 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %4, %62 ], [ %4, %53 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.16.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -72677,17 +72677,17 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
   br i1 %5, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
-  %.063236 = phi i64 [ %15, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ %1, %2 ]
-  %.071235 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ false, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.063236
+  %.063237 = phi i64 [ %15, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ %1, %2 ]
+  %.071236 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ], [ false, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.063237
   %7 = load i8, ptr %6, align 1, !tbaa !21
-  %.fr = freeze i8 %7
-  %8 = add i8 %.fr, -48
+  %.fr213 = freeze i8 %7
+  %8 = add i8 %.fr213, -48
   %or.cond.i138 = icmp ult i8 %8, 10
   br i1 %or.cond.i138, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr, label %10 [
+  switch i8 %.fr213, label %10 [
     i8 102, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
     i8 101, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
     i8 100, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
@@ -72700,25 +72700,25 @@ switch.early.test:                                ; preds = %.lr.ph
     i8 67, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
     i8 66, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
     i8 65, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread
-    i8 46, label %.preheader218
+    i8 46, label %.preheader219
   ]
 
-.preheader218:                                    ; preds = %switch.early.test
-  %.3238 = add nuw i64 %.063236, 1
-  %9 = icmp ult i64 %.3238, %4
-  br i1 %9, label %.lr.ph242, label %._crit_edge243
+.preheader219:                                    ; preds = %switch.early.test
+  %.3239 = add nuw i64 %.063237, 1
+  %9 = icmp ult i64 %.3239, %4
+  br i1 %9, label %.lr.ph243, label %._crit_edge244
 
 10:                                               ; preds = %switch.early.test
-  %11 = and i8 %.fr, -33
+  %11 = and i8 %.fr213, -33
   %or.cond = icmp eq i8 %11, 80
   br i1 %or.cond, label %.thread178, label %13
 
 .thread178:                                       ; preds = %10
-  %12 = add nuw i64 %.063236, 1
+  %12 = add nuw i64 %.063237, 1
   br label %26
 
 13:                                               ; preds = %10
-  switch i8 %.fr, label %.thread [
+  switch i8 %.fr213, label %.thread [
     i8 125, label %14
     i8 93, label %14
     i8 59, label %14
@@ -72732,27 +72732,27 @@ switch.early.test:                                ; preds = %.lr.ph
   ]
 
 14:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %.063. = select i1 %.071235, i64 %.063236, i64 0
+  %.063. = select i1 %.071236, i64 %.063237, i64 0
   br label %.thread
 
 _ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
-  %15 = add i64 %.063236, 1
+  %15 = add i64 %.063237, 1
   %exitcond.not = icmp eq i64 %15, %4
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !1108
 
-.lr.ph242:                                        ; preds = %.preheader218, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
-  %.3241 = phi i64 [ %.3, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.3238, %.preheader218 ]
-  %.3.in240 = phi i64 [ %.3241, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.063236, %.preheader218 ]
-  %.169239 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ false, %.preheader218 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.3241
+.lr.ph243:                                        ; preds = %.preheader219, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
+  %.3242 = phi i64 [ %.3, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.3239, %.preheader219 ]
+  %.3.in241 = phi i64 [ %.3242, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ %.063237, %.preheader219 ]
+  %.169240 = phi i1 [ true, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread ], [ false, %.preheader219 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %.3242
   %17 = load i8, ptr %16, align 1, !tbaa !21
-  %.fr213 = freeze i8 %17
-  %18 = add i8 %.fr213, -48
+  %.fr214 = freeze i8 %17
+  %18 = add i8 %.fr214, -48
   %or.cond.i = icmp ult i8 %18, 10
   br i1 %or.cond.i, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, label %switch.early.test212
 
-switch.early.test212:                             ; preds = %.lr.ph242
-  switch i8 %.fr213, label %19 [
+switch.early.test212:                             ; preds = %.lr.ph243
+  switch i8 %.fr214, label %19 [
     i8 102, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
     i8 101, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
     i8 100, label %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread
@@ -72768,12 +72768,12 @@ switch.early.test212:                             ; preds = %.lr.ph242
   ]
 
 19:                                               ; preds = %switch.early.test212
-  %20 = and i8 %.fr213, -33
+  %20 = and i8 %.fr214, -33
   %or.cond5 = icmp eq i8 %20, 80
   br i1 %or.cond5, label %23, label %21
 
 21:                                               ; preds = %19
-  switch i8 %.fr213, label %.thread [
+  switch i8 %.fr214, label %.thread [
     i8 125, label %22
     i8 93, label %22
     i8 59, label %22
@@ -72787,26 +72787,26 @@ switch.early.test212:                             ; preds = %.lr.ph242
   ]
 
 22:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
-  %or.cond7 = or i1 %.071235, %.169239
-  %.3. = select i1 %or.cond7, i64 %.3241, i64 0
+  %or.cond7 = or i1 %.071236, %.169240
+  %.3. = select i1 %or.cond7, i64 %.3242, i64 0
   br label %.thread
 
 23:                                               ; preds = %19
-  %24 = add nuw i64 %.3.in240, 2
+  %24 = add nuw i64 %.3.in241, 2
   br label %26
 
-_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %.lr.ph242
-  %.3 = add nuw i64 %.3241, 1
+_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %switch.early.test212, %.lr.ph243
+  %.3 = add nuw i64 %.3242, 1
   %25 = icmp ult i64 %.3, %4
-  br i1 %25, label %.lr.ph242, label %._crit_edge243, !llvm.loop !1109
+  br i1 %25, label %.lr.ph243, label %._crit_edge244, !llvm.loop !1109
 
-._crit_edge243:                                   ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %.preheader218
-  %or.cond9 = or i1 %.071235, %9
+._crit_edge244:                                   ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread, %.preheader219
+  %or.cond9 = or i1 %.071236, %9
   %spec.select = select i1 %or.cond9, i64 %4, i64 0
   br label %.thread
 
 26:                                               ; preds = %23, %.thread178
-  %.068 = phi i1 [ %.169239, %23 ], [ false, %.thread178 ]
+  %.068 = phi i1 [ %.169240, %23 ], [ false, %.thread178 ]
   %.265 = phi i64 [ %24, %23 ], [ %12, %.thread178 ]
   %27 = add i64 %.265, 1
   %.not = icmp ugt i64 %4, %27
@@ -72821,29 +72821,29 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
   ]
 
 31:                                               ; preds = %28, %28
-  %or.cond11 = or i1 %.071235, %.068
-  br i1 %or.cond11, label %.lr.ph247.preheader, label %.thread
+  %or.cond11 = or i1 %.071236, %.068
+  br i1 %or.cond11, label %.lr.ph248.preheader, label %.thread
 
-.lr.ph247.preheader:                              ; preds = %31
+.lr.ph248.preheader:                              ; preds = %31
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %27
   %33 = load i8, ptr %32, align 1, !tbaa !21
   %34 = add i8 %33, -48
-  %or.cond14297 = icmp ult i8 %34, 10
-  br i1 %or.cond14297, label %.lr.ph299, label %.lr.ph247._crit_edge
+  %or.cond14298 = icmp ult i8 %34, 10
+  br i1 %or.cond14298, label %.lr.ph300, label %.lr.ph248._crit_edge
 
-.lr.ph247:                                        ; preds = %.lr.ph299
+.lr.ph248:                                        ; preds = %.lr.ph300
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre, i64 %39
   %36 = load i8, ptr %35, align 1, !tbaa !21
   %37 = add i8 %36, -48
   %or.cond14 = icmp ult i8 %37, 10
-  br i1 %or.cond14, label %.lr.ph299, label %.lr.ph247._crit_edge, !llvm.loop !1110
+  br i1 %or.cond14, label %.lr.ph300, label %.lr.ph248._crit_edge, !llvm.loop !1110
 
-.lr.ph247._crit_edge:                             ; preds = %.lr.ph247, %.lr.ph247.preheader
-  %.5246.lcssa = phi i64 [ %27, %.lr.ph247.preheader ], [ %39, %.lr.ph247 ]
-  %.lcssa = phi i8 [ %33, %.lr.ph247.preheader ], [ %36, %.lr.ph247 ]
-  br i1 %or.cond14297, label %38, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit
+.lr.ph248._crit_edge:                             ; preds = %.lr.ph248, %.lr.ph248.preheader
+  %.5247.lcssa = phi i64 [ %27, %.lr.ph248.preheader ], [ %39, %.lr.ph248 ]
+  %.lcssa = phi i8 [ %33, %.lr.ph248.preheader ], [ %36, %.lr.ph248 ]
+  br i1 %or.cond14298, label %38, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit
 
-38:                                               ; preds = %.lr.ph247._crit_edge
+38:                                               ; preds = %.lr.ph248._crit_edge
   switch i8 %.lcssa, label %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit [
     i8 125, label %.thread
     i8 93, label %.thread
@@ -72857,17 +72857,17 @@ _ZN2c415basic_substringIKcE12_is_hex_charEc.exit.thread: ; preds = %switch.early
     i8 0, label %.thread
   ]
 
-_ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %38, %.lr.ph247._crit_edge
+_ZN2c415basic_substringIKcE14_is_delim_charEc.exit: ; preds = %38, %.lr.ph248._crit_edge
   br label %.thread
 
-.lr.ph299:                                        ; preds = %.lr.ph247.preheader, %.lr.ph247
-  %.5246298 = phi i64 [ %39, %.lr.ph247 ], [ %27, %.lr.ph247.preheader ]
-  %39 = add i64 %.5246298, 1
-  %exitcond262.not = icmp eq i64 %39, %4
-  br i1 %exitcond262.not, label %.thread, label %.lr.ph247, !llvm.loop !1110
+.lr.ph300:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
+  %.5247299 = phi i64 [ %39, %.lr.ph248 ], [ %27, %.lr.ph248.preheader ]
+  %39 = add i64 %.5247299, 1
+  %exitcond263.not = icmp eq i64 %39, %4
+  br i1 %exitcond263.not, label %.thread, label %.lr.ph248, !llvm.loop !1110
 
-.thread:                                          ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread, %.lr.ph299, %2, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %26, %31, %28, %21, %13, %._crit_edge243, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit, %22, %14
-  %.sroa.15.3 = phi i64 [ %.5246.lcssa, %38 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ 0, %21 ], [ %.3., %22 ], [ %spec.select, %._crit_edge243 ], [ 0, %13 ], [ %4, %.lr.ph299 ], [ 0, %26 ], [ %.063., %14 ], [ 0, %28 ], [ 0, %31 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ %.5246.lcssa, %38 ], [ 0, %2 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ]
+.thread:                                          ; preds = %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread, %.lr.ph300, %2, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %26, %31, %28, %21, %13, %._crit_edge244, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit, %22, %14
+  %.sroa.15.3 = phi i64 [ %.5247.lcssa, %38 ], [ 0, %_ZN2c415basic_substringIKcE14_is_delim_charEc.exit ], [ 0, %21 ], [ %.3., %22 ], [ %spec.select, %._crit_edge244 ], [ 0, %13 ], [ %4, %.lr.ph300 ], [ 0, %26 ], [ %.063., %14 ], [ 0, %28 ], [ 0, %31 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ %.5247.lcssa, %38 ], [ 0, %2 ], [ %4, %_ZN2c415basic_substringIKcE12_is_hex_charEc.exit141.thread ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.pre, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.15.3, 1
   ret { ptr, i64 } %.fca.1.insert

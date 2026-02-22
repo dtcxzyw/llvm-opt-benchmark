@@ -7580,8 +7580,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN5arrow7compute6detail12_G
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !297
-  %.fr = freeze i64 %16
-  %17 = icmp eq i64 %.fr, 0
+  %17 = icmp eq i64 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -7591,9 +7590,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN5arrow7compute6detail12_G
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !279
-  %.fr22 = freeze i64 %23
-  %.not23 = icmp eq i64 %.fr, %.fr22
-  %spec.select = select i1 %.not23, i32 2, i32 0
+  %24 = icmp ne i64 %16, %23
+  %cond.fr = freeze i1 %24
+  %spec.select = select i1 %cond.fr, i32 0, i32 2
   br label %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
 
 _ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit.fold.split: ; preds = %1, %1, %1

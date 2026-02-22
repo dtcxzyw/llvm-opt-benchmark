@@ -4560,10 +4560,9 @@ define internal noundef i32 @iir_ch_serial_dblp(ptr noundef readonly captures(no
   %27 = load i32, ptr %26, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !31
-  %.fr = freeze i32 %27
-  %.fr95 = freeze i32 %29
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr, i32 %.fr95)
-  %30 = icmp sgt i32 %., 0
+  %. = tail call i32 @llvm.smax.i32(i32 %27, i32 %29)
+  %..fr = freeze i32 %.
+  %30 = icmp sgt i32 %..fr, 0
   br i1 %30, label %.lr.ph86, label %._crit_edge87
 
 .lr.ph86:                                         ; preds = %4
@@ -4580,7 +4579,7 @@ define internal noundef i32 @iir_ch_serial_dblp(ptr noundef readonly captures(no
   br i1 %39, label %.lr.ph.us.preheader, label %._crit_edge87
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph86
-  %41 = add nuw i32 %., 1
+  %41 = add nuw i32 %..fr, 1
   %42 = sdiv i32 %41, 2
   %.07383 = add nsw i32 %42, -1
   %43 = zext i32 %.07383 to i64
@@ -5068,10 +5067,9 @@ define internal noundef i32 @iir_ch_serial_fltp(ptr noundef readonly captures(no
   %27 = load i32, ptr %26, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !31
-  %.fr = freeze i32 %27
-  %.fr95 = freeze i32 %29
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr, i32 %.fr95)
-  %30 = icmp sgt i32 %., 0
+  %. = tail call i32 @llvm.smax.i32(i32 %27, i32 %29)
+  %..fr = freeze i32 %.
+  %30 = icmp sgt i32 %..fr, 0
   br i1 %30, label %.lr.ph86, label %._crit_edge87
 
 .lr.ph86:                                         ; preds = %4
@@ -5088,7 +5086,7 @@ define internal noundef i32 @iir_ch_serial_fltp(ptr noundef readonly captures(no
   br i1 %39, label %.lr.ph.us.preheader, label %._crit_edge87
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph86
-  %41 = add nuw i32 %., 1
+  %41 = add nuw i32 %..fr, 1
   %42 = sdiv i32 %41, 2
   %.07383 = add nsw i32 %42, -1
   %43 = zext i32 %.07383 to i64
@@ -5616,10 +5614,9 @@ define internal noundef i32 @iir_ch_serial_s32p(ptr noundef readonly captures(no
   %28 = load i32, ptr %26, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !31
-  %.fr = freeze i32 %28
-  %.fr97 = freeze i32 %30
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr, i32 %.fr97)
-  %31 = icmp sgt i32 %., 0
+  %. = tail call i32 @llvm.smax.i32(i32 %28, i32 %30)
+  %..fr = freeze i32 %.
+  %31 = icmp sgt i32 %..fr, 0
   br i1 %31, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %4
@@ -5636,7 +5633,7 @@ define internal noundef i32 @iir_ch_serial_s32p(ptr noundef readonly captures(no
   br i1 %41, label %.lr.ph95.split.preheader, label %._crit_edge96
 
 .lr.ph95.split.preheader:                         ; preds = %.lr.ph95
-  %42 = add nuw i32 %., 1
+  %42 = add nuw i32 %..fr, 1
   %43 = sdiv i32 %42, 2
   %.08392 = add nsw i32 %43, -1
   %44 = zext i32 %.08392 to i64
@@ -6312,10 +6309,9 @@ define internal noundef i32 @iir_ch_serial_s16p(ptr noundef readonly captures(no
   %28 = load i32, ptr %26, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !31
-  %.fr = freeze i32 %28
-  %.fr97 = freeze i32 %30
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr, i32 %.fr97)
-  %31 = icmp sgt i32 %., 0
+  %. = tail call i32 @llvm.smax.i32(i32 %28, i32 %30)
+  %..fr = freeze i32 %.
+  %31 = icmp sgt i32 %..fr, 0
   br i1 %31, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %4
@@ -6332,7 +6328,7 @@ define internal noundef i32 @iir_ch_serial_s16p(ptr noundef readonly captures(no
   br i1 %41, label %.lr.ph95.split.preheader, label %._crit_edge96
 
 .lr.ph95.split.preheader:                         ; preds = %.lr.ph95
-  %42 = add nuw i32 %., 1
+  %42 = add nuw i32 %..fr, 1
   %43 = sdiv i32 %42, 2
   %.08392 = add nsw i32 %43, -1
   %44 = zext i32 %.08392 to i64

@@ -6242,15 +6242,13 @@ entry:
   %0 = load ptr, ptr %Owner, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i64, ptr %Length.i.i, align 8
-  %.fr = freeze i64 %1
-  %cmp.i.i.not = icmp eq i64 %.fr, 0
+  %cmp.i.i.not = icmp eq i64 %1, 0
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
-  %ArgName.coerce1.fr = freeze i64 %ArgName.coerce1
-  %Arg.coerce1.fr = freeze i64 %Arg.coerce1
-  %spec.select18 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
+  %spec.select18 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1, i64 %Arg.coerce1
+  %agg.tmp5.sroa.2.0.copyload.fr = freeze i64 %spec.select18
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ArgVal, i64 8
-  store i64 %spec.select18, ptr %2, align 8
+  store i64 %agg.tmp5.sroa.2.0.copyload.fr, ptr %2, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
@@ -6260,7 +6258,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
-  %cmp.i28 = icmp eq i64 %spec.select18, 0
+  %cmp.i28 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
   br i1 %cmp.i28, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -6281,12 +6279,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.08
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i23, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select18
+  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload.fr
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i23, align 8
-  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select18)
+  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %agg.tmp5.sroa.2.0.copyload.fr)
   %5 = icmp eq i32 %bcmp, 0
   br i1 %5, label %if.then7, label %for.inc
 
@@ -6652,15 +6650,13 @@ entry:
   %0 = load ptr, ptr %Owner, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i64, ptr %Length.i.i, align 8
-  %.fr = freeze i64 %1
-  %cmp.i.i.not = icmp eq i64 %.fr, 0
+  %cmp.i.i.not = icmp eq i64 %1, 0
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
-  %ArgName.coerce1.fr = freeze i64 %ArgName.coerce1
-  %Arg.coerce1.fr = freeze i64 %Arg.coerce1
-  %spec.select18 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
+  %spec.select18 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1, i64 %Arg.coerce1
+  %agg.tmp5.sroa.2.0.copyload.fr = freeze i64 %spec.select18
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ArgVal, i64 8
-  store i64 %spec.select18, ptr %2, align 8
+  store i64 %agg.tmp5.sroa.2.0.copyload.fr, ptr %2, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
@@ -6670,7 +6666,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
-  %cmp.i20 = icmp eq i64 %spec.select18, 0
+  %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
   br i1 %cmp.i20, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -6691,12 +6687,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i28 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.08
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i28, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select18
+  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload.fr
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i28, align 8
-  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select18)
+  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %agg.tmp5.sroa.2.0.copyload.fr)
   %5 = icmp eq i32 %bcmp, 0
   br i1 %5, label %if.then7, label %for.inc
 

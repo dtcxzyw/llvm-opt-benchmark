@@ -234,7 +234,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %header_value_mark.12900 = phi ptr [ %header_value_mark.0, %for.body.lr.ph ], [ %header_value_mark.5, %for.inc ]
   %header_field_mark.12899 = phi ptr [ %spec.select, %for.body.lr.ph ], [ %header_field_mark.3, %for.inc ]
   %13 = load i8, ptr %p.02906, align 1
-  %.fr1535 = freeze i8 %13
+  %.fr = freeze i8 %13
   br label %reexecute_byte
 
 reexecute_byte:                                   ; preds = %reexecute_byte.backedge, %for.body
@@ -243,7 +243,7 @@ reexecute_byte:                                   ; preds = %reexecute_byte.back
   %body_mark.1 = phi ptr [ %body_mark.02903, %for.body ], [ %body_mark.1.be, %reexecute_byte.backedge ]
   %state.1 = phi i8 [ %state.02905, %for.body ], [ %state.1.be, %reexecute_byte.backedge ]
   %p.1 = phi ptr [ %p.02906, %for.body ], [ %p.1.be, %reexecute_byte.backedge ]
-  %ch.0 = phi i8 [ %.fr1535, %for.body ], [ %ch.0.be, %reexecute_byte.backedge ]
+  %ch.0 = phi i8 [ %.fr, %for.body ], [ %ch.0.be, %reexecute_byte.backedge ]
   switch i8 %state.1, label %do.body3648 [
     i8 2, label %sw.bb94
     i8 3, label %sw.bb125
@@ -3216,13 +3216,13 @@ if.else3266:                                      ; preds = %if.else3262
 
 lor.lhs.false3272:                                ; preds = %if.else3266
   %154 = load i16, ptr %status_code3267, align 4
-  %.fr = freeze i16 %154
-  %155 = add i16 %.fr, -100
+  %.fr1535 = freeze i16 %154
+  %155 = add i16 %.fr1535, -100
   %or.cond248 = icmp ult i16 %155, 100
   br i1 %or.cond248, label %if.then3284, label %switch.early.test1528
 
 switch.early.test1528:                            ; preds = %lor.lhs.false3272
-  switch i16 %.fr, label %for.inc [
+  switch i16 %.fr1535, label %for.inc [
     i16 304, label %if.then3284
     i16 204, label %if.then3284
   ]

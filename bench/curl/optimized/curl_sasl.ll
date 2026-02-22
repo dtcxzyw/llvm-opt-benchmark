@@ -46,9 +46,9 @@ define hidden zeroext i16 @Curl_sasl_decode_mech(ptr noundef readonly captures(n
   br i1 %.not41, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %16
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %16 ], [ 0, %3 ]
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %16 ], [ 0, %3 ]
   %4 = phi ptr [ %18, %16 ], [ @.str.8, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv60
+  %5 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv61
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %.not39.us = icmp ult i64 %1, %7
@@ -66,25 +66,25 @@ define hidden zeroext i16 @Curl_sasl_decode_mech(ptr noundef readonly captures(n
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %13 = load i8, ptr %12, align 1, !tbaa !11
-  %.fr.us = freeze i8 %13
-  %14 = add i8 %.fr.us, -91
+  %.fr42.us = freeze i8 %13
+  %14 = add i8 %.fr42.us, -91
   %or.cond.us = icmp ult i8 %14, -26
-  %15 = add i8 %.fr.us, -58
+  %15 = add i8 %.fr42.us, -58
   %or.cond5.us = icmp ult i8 %15, -10
-  %or.cond42.us = and i1 %or.cond.us, %or.cond5.us
-  br i1 %or.cond42.us, label %switch.early.test.us, label %16
+  %or.cond43.us = and i1 %or.cond.us, %or.cond5.us
+  br i1 %or.cond43.us, label %switch.early.test.us, label %16
 
 switch.early.test.us:                             ; preds = %11
-  switch i8 %.fr.us, label %.loopexit.sink.split [
+  switch i8 %.fr42.us, label %.loopexit.sink.split [
     i8 95, label %16
     i8 45, label %16
   ]
 
 16:                                               ; preds = %switch.early.test.us, %switch.early.test.us, %11, %8, %.split.us
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %17 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next61
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %17 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next62
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %.not.us = icmp eq i64 %indvars.iv.next61, 11
+  %.not.us = icmp eq i64 %indvars.iv.next62, 11
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %3, %31
@@ -109,16 +109,16 @@ switch.early.test.us:                             ; preds = %11
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %28 = load i8, ptr %27, align 1, !tbaa !11
-  %.fr = freeze i8 %28
-  %29 = add i8 %.fr, -91
+  %.fr42 = freeze i8 %28
+  %29 = add i8 %.fr42, -91
   %or.cond = icmp ult i8 %29, -26
-  %30 = add i8 %.fr, -58
+  %30 = add i8 %.fr42, -58
   %or.cond5 = icmp ult i8 %30, -10
-  %or.cond42 = and i1 %or.cond, %or.cond5
-  br i1 %or.cond42, label %switch.early.test, label %31
+  %or.cond43 = and i1 %or.cond, %or.cond5
+  br i1 %or.cond43, label %switch.early.test, label %31
 
 switch.early.test:                                ; preds = %26
-  switch i8 %.fr, label %.loopexit.sink.split [
+  switch i8 %.fr42, label %.loopexit.sink.split [
     i8 95, label %31
     i8 45, label %31
   ]
@@ -131,7 +131,7 @@ switch.early.test:                                ; preds = %26
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %switch.early.test, %24, %switch.early.test.us, %9
-  %.sink = phi i64 [ %indvars.iv60, %switch.early.test.us ], [ %indvars.iv60, %9 ], [ %indvars.iv, %24 ], [ %indvars.iv, %switch.early.test ]
+  %.sink = phi i64 [ %indvars.iv61, %switch.early.test.us ], [ %indvars.iv61, %9 ], [ %indvars.iv, %24 ], [ %indvars.iv, %switch.early.test ]
   %34 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %.sink
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i16, ptr %35, align 8, !tbaa !16
@@ -192,16 +192,16 @@ define hidden range(i32 0, 4) i32 @Curl_sasl_parse_url_auth_option(ptr noundef c
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %24 = load i8, ptr %23, align 1, !tbaa !11
-  %.fr.i = freeze i8 %24
-  %25 = add i8 %.fr.i, -91
+  %.fr42.i = freeze i8 %24
+  %25 = add i8 %.fr42.i, -91
   %or.cond.i = icmp ult i8 %25, -26
-  %26 = add i8 %.fr.i, -58
+  %26 = add i8 %.fr42.i, -58
   %or.cond5.i = icmp ult i8 %26, -10
-  %or.cond42.i = and i1 %or.cond.i, %or.cond5.i
-  br i1 %or.cond42.i, label %switch.early.test.i, label %27
+  %or.cond43.i = and i1 %or.cond.i, %or.cond5.i
+  br i1 %or.cond43.i, label %switch.early.test.i, label %27
 
 switch.early.test.i:                              ; preds = %22
-  switch i8 %.fr.i, label %Curl_sasl_decode_mech.exit.thread [
+  switch i8 %.fr42.i, label %Curl_sasl_decode_mech.exit.thread [
     i8 95, label %27
     i8 45, label %27
   ]

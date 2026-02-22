@@ -17505,13 +17505,13 @@ define internal fastcc i64 @Abc_TtDeriveBiDecOne(ptr noundef nonnull readonly ca
   %7 = icmp samesign ult i32 %1, 7
   %8 = add nsw i32 %1, -6
   %9 = shl nuw i32 1, %8
-  %.fr83.i = freeze i32 %9
-  %10 = select i1 %7, i32 1, i32 %.fr83.i
-  %11 = icmp sgt i32 %10, 0
+  %10 = select i1 %7, i32 1, i32 %9
+  %.fr83.i = freeze i32 %10
+  %11 = icmp sgt i32 %.fr83.i, 0
   br i1 %11, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
 .lr.ph18.preheader.i:                             ; preds = %3
-  %wide.trip.count24.i = zext nneg i32 %10 to i64
+  %wide.trip.count24.i = zext nneg i32 %.fr83.i to i64
   %12 = shl nuw nsw i64 %wide.trip.count24.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %0, i64 %12, i1 false), !tbaa !159
   br label %Abc_TtCopy.exit
@@ -17521,11 +17521,11 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.preheader.
   br i1 %.not21, label %Abc_TtShrink.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_TtCopy.exit
-  %13 = icmp eq i32 %10, 1
-  %14 = sext i32 %10 to i64
+  %13 = icmp eq i32 %.fr83.i, 1
+  %14 = sext i32 %.fr83.i to i64
   %.idx.i.i = shl nsw i64 %14, 3
   %15 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
-  %16 = zext nneg i32 %10 to i64
+  %16 = zext nneg i32 %.fr83.i to i64
   %.idx.i7.i = shl nuw nsw i64 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i7.i
   %wide.trip.count30 = zext nneg i32 %1 to i64
@@ -17720,10 +17720,10 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i20.i, %41, 
   br label %.lr.ph61.i
 
 .lr.ph61.i:                                       ; preds = %91, %._crit_edge.loopexit
-  %92 = sext i32 %10 to i64
+  %92 = sext i32 %.fr83.i to i64
   %.idx65.i.i = shl nsw i64 %92, 3
   %93 = getelementptr inbounds i8, ptr %6, i64 %.idx65.i.i
-  %wide.trip.count73.i.i = zext nneg i32 %10 to i64
+  %wide.trip.count73.i.i = zext nneg i32 %.fr83.i to i64
   br i1 %11, label %.lr.ph61.split.us.split.us.preheader.i, label %Abc_TtShrink.exit
 
 .lr.ph61.split.us.split.us.preheader.i:           ; preds = %.lr.ph61.i

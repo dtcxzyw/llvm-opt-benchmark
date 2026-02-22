@@ -431,8 +431,8 @@ declare i64 @FSE_writeNCount(ptr noundef, i64 noundef, ptr noundef, i32 noundef,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, i64 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #4 {
-  %13 = getelementptr i8, ptr %0, i64 %1
-  %14 = getelementptr i8, ptr %13, i64 -8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = icmp ugt i64 %1, 8
   br i1 %15, label %16, label %ZSTD_encodeSequences_default.exit
 
@@ -441,10 +441,9 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !16
   %.val.i.i.i = load i16, ptr %2, align 1, !tbaa !4
-  %.val.i.i.fr.i = freeze i16 %.val.i.i.i
-  %20 = zext i16 %.val.i.i.fr.i to i32
+  %20 = zext i16 %.val.i.i.i to i32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.not.i.i.i = icmp eq i16 %.val.i.i.fr.i, 0
+  %.not.i.i.i = icmp eq i16 %.val.i.i.i, 0
   %22 = add nsw i32 %20, -1
   %23 = shl nuw i32 1, %22
   %24 = sext i32 %23 to i64
@@ -470,10 +469,9 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = zext i8 %41 to i32
   %.val.i.i16.i = load i16, ptr %4, align 1, !tbaa !4
-  %.val.i.i16.fr.i = freeze i16 %.val.i.i16.i
-  %43 = zext i16 %.val.i.i16.fr.i to i32
+  %43 = zext i16 %.val.i.i16.i to i32
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.not.i.i17.i = icmp eq i16 %.val.i.i16.fr.i, 0
+  %.not.i.i17.i = icmp eq i16 %.val.i.i16.i, 0
   %45 = add nsw i32 %43, -1
   %46 = shl nuw i32 1, %45
   %47 = sext i32 %46 to i64
@@ -498,10 +496,9 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %64 = load i8, ptr %63, align 1, !tbaa !16
   %.val.i.i21.i = load i16, ptr %6, align 1, !tbaa !4
-  %.val.i.i21.fr.i = freeze i16 %.val.i.i21.i
-  %65 = zext i16 %.val.i.i21.fr.i to i32
+  %65 = zext i16 %.val.i.i21.i to i32
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.not.i.i22.i = icmp eq i16 %.val.i.i21.fr.i, 0
+  %.not.i.i22.i = icmp eq i16 %.val.i.i21.i, 0
   %67 = add nsw i32 %65, -1
   %68 = shl nuw i32 1, %67
   %69 = sext i32 %68 to i64
@@ -622,8 +619,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %.sroa.058.1.i = phi i64 [ %153, %145 ], [ %143, %.thread.i ]
   %.sroa.63.1.i = phi i32 [ %154, %145 ], [ %144, %.thread.i ]
   %.sroa.112.1.i = phi ptr [ %0, %145 ], [ %.sroa.112.0.i, %.thread.i ]
-  %.sroa.63.2.in.fr138.i = freeze i32 %.sroa.63.1.i
-  %156 = lshr i32 %.sroa.63.2.in.fr138.i, 3
+  %156 = lshr i32 %.sroa.63.1.i, 3
   %157 = zext nneg i32 %156 to i64
   store i64 %.sroa.058.1.i, ptr %.sroa.112.1.i, align 1, !tbaa !21
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.112.1.i, i64 %157
@@ -631,8 +627,8 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %spec.store.select.i26.i = select i1 %159, ptr %14, ptr %158
   %160 = shl nuw nsw i64 %157, 3
   %161 = lshr i64 %.sroa.058.1.i, %160
-  %.sroa.0.0137.i = zext i16 %84 to i64
-  %.sroa.63.2139.i = and i32 %.sroa.63.2.in.fr138.i, 7
+  %.sroa.0.0138.i = zext i16 %84 to i64
+  %.sroa.63.2139.i = and i32 %.sroa.63.1.i, 7
   %.sroa.052.0140.i = zext i16 %39 to i64
   %.sroa.046.0141.i = zext i16 %62 to i64
   %162 = icmp ugt i64 %9, 1
@@ -646,7 +642,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %.sroa.046.0148.i = phi i64 [ %.sroa.046.0.i, %325 ], [ %.sroa.046.0141.i, %.lr.ph.preheader.i ]
   %.sroa.052.0147.i = phi i64 [ %.sroa.052.0.i, %325 ], [ %.sroa.052.0140.i, %.lr.ph.preheader.i ]
   %.sroa.63.2146.i = phi i32 [ %.sroa.63.2.i, %325 ], [ %.sroa.63.2139.i, %.lr.ph.preheader.i ]
-  %.sroa.0.0145.i = phi i64 [ %.sroa.0.0.i, %325 ], [ %.sroa.0.0137.i, %.lr.ph.preheader.i ]
+  %.sroa.0.0145.i = phi i64 [ %.sroa.0.0.i, %325 ], [ %.sroa.0.0138.i, %.lr.ph.preheader.i ]
   %.086.i144.i = phi i64 [ %332, %325 ], [ %163, %.lr.ph.preheader.i ]
   %.sroa.112.2143.i = phi ptr [ %spec.store.select.i39.i, %325 ], [ %spec.store.select.i26.i, %.lr.ph.preheader.i ]
   %.sroa.058.2142.i = phi i64 [ %331, %325 ], [ %161, %.lr.ph.preheader.i ]
@@ -866,8 +862,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %.sroa.058.6.i = phi i64 [ %323, %315 ], [ %313, %.thread133.i ]
   %.sroa.63.6.i = phi i32 [ %324, %315 ], [ %314, %.thread133.i ]
   %.sroa.112.6.i = phi ptr [ %.sroa.112.4.i, %315 ], [ %.sroa.112.5.i, %.thread133.i ]
-  %.sroa.63.2.in.fr.i = freeze i32 %.sroa.63.6.i
-  %326 = lshr i32 %.sroa.63.2.in.fr.i, 3
+  %326 = lshr i32 %.sroa.63.6.i, 3
   %327 = zext nneg i32 %326 to i64
   store i64 %.sroa.058.6.i, ptr %.sroa.112.6.i, align 1, !tbaa !21
   %328 = getelementptr inbounds nuw i8, ptr %.sroa.112.6.i, i64 %327
@@ -877,7 +872,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %331 = lshr i64 %.sroa.058.6.i, %330
   %332 = add i64 %.086.i144.i, -1
   %.sroa.0.0.i = zext i16 %233 to i64
-  %.sroa.63.2.i = and i32 %.sroa.63.2.in.fr.i, 7
+  %.sroa.63.2.i = and i32 %.sroa.63.6.i, 7
   %.sroa.052.0.i = zext i16 %213 to i64
   %.sroa.046.0.i = zext i16 %196 to i64
   %333 = icmp ult i64 %332, %9
@@ -886,11 +881,11 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
 ._crit_edge.i:                                    ; preds = %325, %155
   %.sroa.058.2.lcssa.i = phi i64 [ %161, %155 ], [ %331, %325 ]
   %.sroa.112.2.lcssa.i = phi ptr [ %spec.store.select.i26.i, %155 ], [ %spec.store.select.i39.i, %325 ]
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0137.i, %155 ], [ %.sroa.0.0.i, %325 ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0138.i, %155 ], [ %.sroa.0.0.i, %325 ]
   %.sroa.63.2.lcssa.i = phi i32 [ %.sroa.63.2139.i, %155 ], [ %.sroa.63.2.i, %325 ]
   %.sroa.052.0.lcssa.i = phi i64 [ %.sroa.052.0140.i, %155 ], [ %.sroa.052.0.i, %325 ]
   %.sroa.046.0.lcssa.i = phi i64 [ %.sroa.046.0141.i, %155 ], [ %.sroa.046.0.i, %325 ]
-  %334 = zext i16 %.val.i.i.fr.i to i64
+  %334 = zext i16 %.val.i.i.i to i64
   %335 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %334
   %336 = load i32, ptr %335, align 4, !tbaa !11
   %337 = zext i32 %336 to i64
@@ -908,7 +903,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %347 = and i32 %342, 7
   %348 = shl nuw nsw i64 %344, 3
   %349 = lshr i64 %341, %348
-  %350 = zext i16 %.val.i.i16.fr.i to i64
+  %350 = zext i16 %.val.i.i16.i to i64
   %351 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %350
   %352 = load i32, ptr %351, align 4, !tbaa !11
   %353 = zext i32 %352 to i64
@@ -926,7 +921,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %363 = and i32 %358, 7
   %364 = shl nuw nsw i64 %360, 3
   %365 = lshr i64 %357, %364
-  %366 = zext i16 %.val.i.i21.fr.i to i64
+  %366 = zext i16 %.val.i.i21.i to i64
   %367 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %366
   %368 = load i32, ptr %367, align 4, !tbaa !11
   %369 = zext i32 %368 to i64
@@ -951,7 +946,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %386 = lshr i32 %385, 3
   %387 = zext nneg i32 %386 to i64
   store i64 %384, ptr %spec.store.select.i.i41.i, align 1, !tbaa !21
-  %388 = getelementptr i8, ptr %spec.store.select.i.i41.i, i64 %387
+  %388 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i41.i, i64 %387
   %389 = icmp ugt ptr %388, %14
   %spec.store.select.i.i42.i = select i1 %389, ptr %14, ptr %388
   %.not.i43.i = icmp ult ptr %spec.store.select.i.i42.i, %14
@@ -963,8 +958,9 @@ BIT_closeCStream.exit.i:                          ; preds = %._crit_edge.i
   %392 = ptrtoint ptr %0 to i64
   %393 = icmp ne i32 %390, 0
   %394 = zext i1 %393 to i64
-  %395 = sub i64 %394, %392
-  %396 = add i64 %395, %391
+  %395 = add i64 %391, %394
+  %.fr137.i = freeze i64 %395
+  %396 = sub i64 %.fr137.i, %392
   %397 = icmp eq i64 %396, 0
   br i1 %397, label %BIT_closeCStream.exit.thread.i, label %ZSTD_encodeSequences_default.exit
 

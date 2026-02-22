@@ -8193,12 +8193,11 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %64 = load ptr, ptr %63, align 8, !tbaa !151
   %65 = load ptr, ptr %62, align 8, !tbaa !154
-  %.fr.i = freeze ptr %64
-  %66 = ptrtoint ptr %.fr.i to i64
-  %.fr18.i = freeze ptr %65
-  %67 = ptrtoint ptr %.fr18.i to i64
+  %66 = ptrtoint ptr %64 to i64
+  %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
-  %69 = lshr i64 %68, 3
+  %.fr.i = freeze i64 %68
+  %69 = lshr i64 %.fr.i, 3
   %70 = trunc i64 %69 to i32
   %.not11.i = icmp eq i32 %70, 0
   %spec.select.i = select i1 %.not11.i, i32 %55, i32 %70
@@ -8553,12 +8552,11 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 104
   %68 = load ptr, ptr %67, align 8, !tbaa !151
   %69 = load ptr, ptr %66, align 8, !tbaa !154
-  %.fr.i = freeze ptr %68
-  %70 = ptrtoint ptr %.fr.i to i64
-  %.fr18.i = freeze ptr %69
-  %71 = ptrtoint ptr %.fr18.i to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
-  %73 = lshr i64 %72, 3
+  %.fr.i = freeze i64 %72
+  %73 = lshr i64 %.fr.i, 3
   %74 = trunc i64 %73 to i32
   %.not11.i = icmp eq i32 %74, 0
   %spec.select.i = select i1 %.not11.i, i32 %59, i32 %74
@@ -15270,12 +15268,11 @@ _ZN4llvm11SmallVectorIPNS_14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIN
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 104
   %168 = load ptr, ptr %167, align 8, !tbaa !151
   %169 = load ptr, ptr %166, align 8, !tbaa !154
-  %.fr.i = freeze ptr %168
-  %170 = ptrtoint ptr %.fr.i to i64
-  %.fr18.i = freeze ptr %169
-  %171 = ptrtoint ptr %.fr18.i to i64
+  %170 = ptrtoint ptr %168 to i64
+  %171 = ptrtoint ptr %169 to i64
   %172 = sub i64 %170, %171
-  %173 = lshr i64 %172, 3
+  %.fr.i = freeze i64 %172
+  %173 = lshr i64 %.fr.i, 3
   %174 = trunc i64 %173 to i32
   %.not11.i = icmp eq i32 %174, 0
   %spec.select.i = select i1 %.not11.i, i32 %159, i32 %174
@@ -15482,8 +15479,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %.fr24 = freeze i32 %5
-  %6 = and i32 %.fr24, 1
+  %6 = and i32 %5, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -15493,16 +15489,13 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.fr25 = freeze ptr %12
-  %13 = select i1 %.not.i.i.i, ptr %.fr25, ptr %11
+  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
   %14 = load i32, ptr %1, align 8
-  %.fr26 = freeze i32 %14
-  %15 = and i32 %.fr26, 1
+  %15 = and i32 %14, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.fr27 = freeze ptr %17
-  %18 = select i1 %.not.i.i, ptr %.fr27, ptr %16
+  %18 = select i1 %.not.i.i, ptr %17, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 4
@@ -15512,7 +15505,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
 
 .lr.ph:                                           ; preds = %2
   %23 = icmp eq ptr %13, %18
-  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %23
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit.us
   %.023.us = phi i64 [ %35, %_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit.us ], [ 0, %.lr.ph ]
@@ -15545,8 +15539,8 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEC2ERKS3_.exit.us.i.us: ; pred
 
 _ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit.us: ; preds = %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEC2ERKS3_.exit.us.i.us, %.lr.ph.split.us, %.lr.ph.split.us
   %35 = add nuw nsw i64 %.023.us, 1
-  %exitcond29.not = icmp eq i64 %35, %22
-  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !471
+  %exitcond25.not = icmp eq i64 %35, %22
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !471
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit, %_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EE14DeletesInsertsC2ERKS4_.exit.us, %2
   ret void
@@ -15652,12 +15646,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !151
   %21 = load ptr, ptr %18, align 8, !tbaa !154
-  %.fr = freeze ptr %20
-  %22 = ptrtoint ptr %.fr to i64
-  %.fr18 = freeze ptr %21
-  %23 = ptrtoint ptr %.fr18 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
-  %25 = lshr i64 %24, 3
+  %.fr = freeze i64 %24
+  %25 = lshr i64 %.fr, 3
   %26 = trunc i64 %25 to i32
   %.not11 = icmp eq i32 %26, 0
   %spec.select = select i1 %.not11, i32 %9, i32 %26

@@ -797,8 +797,6 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK8proxygen16QPACKHeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %headerName, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %nameOnly, i1 noundef zeroext %allowVulnerable) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %value.coerce0.fr = freeze ptr %value.coerce0
-  %value.coerce1.fr = freeze ptr %value.coerce1
   %names_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %headerName, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
@@ -944,10 +942,11 @@ if.end:                                           ; preds = %land.rhs.i.i.i.i, %
 
 for.body.lr.ph:                                   ; preds = %if.end
   %table_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %value.coerce1.fr to i64
-  %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %value.coerce0.fr to i64
+  %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %value.coerce1 to i64
+  %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %value.coerce0 to i64
   %sub.ptr.sub.i6.i.i = sub i64 %sub.ptr.lhs.cast.i4.i.i, %sub.ptr.rhs.cast.i5.i.i
-  %cmp.i8.i.i.i = icmp eq ptr %value.coerce1.fr, %value.coerce0.fr
+  %cmp.i8.i.i.i = icmp eq ptr %value.coerce1, %value.coerce0
+  %cmp.i8.i.i.i.fr = freeze i1 %cmp.i8.i.i.i
   %insertCount_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ackedInsertCount_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   br i1 %nameOnly, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
@@ -987,7 +986,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
   %31 = load ptr, ptr %table_, align 8
-  br i1 %cmp.i8.i.i.i, label %for.body.us61.us, label %for.body.us61
+  br i1 %cmp.i8.i.i.i.fr, label %for.body.us61.us, label %for.body.us61
 
 for.body.us61.us:                                 ; preds = %for.body.lr.ph.split.split.us, %for.inc.us67.us
   %indexIt.sroa.0.058.us63.us = phi ptr [ %32, %for.inc.us67.us ], [ %second, %for.body.lr.ph.split.split.us ]
@@ -1036,7 +1035,7 @@ land.rhs.i.i.us:                                  ; preds = %for.body.us61
   %value13.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us, i64 8
   %40 = load ptr, ptr %value13.us, align 8
   %cond.i.i.i.i.i.us = select i1 %cmp.i.i.i.i.i36.us, ptr %value13.us, ptr %40
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr %cond.i.i.i.i.i.us, ptr %value.coerce0.fr, i64 %sub.ptr.sub.i6.i.i)
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr %cond.i.i.i.i.i.us, ptr %value.coerce0, i64 %sub.ptr.sub.i6.i.i)
   %cmp.i.i.i39.us = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %cmp.i.i.i39.us, label %if.then19, label %for.inc.us67
 
@@ -1071,10 +1070,10 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp.i.i38, label %land.rhs.i.i, label %for.inc
 
 land.rhs.i.i:                                     ; preds = %for.body
-  br i1 %cmp.i8.i.i.i, label %if.then15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.i8.i.i.i.fr, label %if.then15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i, ptr %value.coerce0.fr, i64 %sub.ptr.sub.i6.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i, ptr %value.coerce0, i64 %sub.ptr.sub.i6.i.i)
   %cmp.i.i.i39 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i39, label %if.then15, label %for.inc
 

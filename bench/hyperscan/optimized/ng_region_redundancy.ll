@@ -2562,8 +2562,8 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
 .lr.ph:                                           ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %53 = load i64, ptr %52, align 8
-  %.fr109 = freeze i64 %53
-  %54 = trunc i64 %.fr109 to i32
+  %.fr110 = freeze i64 %53
+  %54 = trunc i64 %.fr110 to i32
   %or.cond3.i = icmp ult i32 %54, 2
   %55 = load i64, ptr %5, align 8
   %.not.not.i.i.i.i = icmp eq i64 %55, 0
@@ -2624,19 +2624,19 @@ _ZN3ue213inLaterRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorI
   br i1 %79, label %select.unfold, label %80
 
 80:                                               ; preds = %78
-  br i1 %.not.not.i.i.i.i, label %.preheader114, label %84
+  br i1 %.not.not.i.i.i.i, label %.preheader115, label %84
 
-.preheader114:                                    ; preds = %80, %81
+.preheader115:                                    ; preds = %80, %81
   %.sroa.06.0.in.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %81 ], [ %59, %80 ]
   %.sroa.06.0.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %81
 
-81:                                               ; preds = %.preheader114
+81:                                               ; preds = %.preheader115
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %82, align 8
   %83 = icmp eq ptr %1, %.sroa.0.0.copyload.i.i.i.i.i.i
-  br i1 %83, label %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit.i, label %.preheader114, !llvm.loop !8
+  br i1 %83, label %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit.i, label %.preheader115, !llvm.loop !8
 
 84:                                               ; preds = %80
   %85 = urem i64 %2, %57
@@ -2685,7 +2685,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
 ..loopexit_crit_edge22.i.i.i.i.i.i:               ; preds = %104
   br label %.loopexit.i.i.i, !llvm.loop !10
 
-.loopexit.i.i.i:                                  ; preds = %84, %.lr.ph.i.i.i.i.i.i, %.preheader114, %..loopexit_crit_edge22.i.i.i.i.i.i
+.loopexit.i.i.i:                                  ; preds = %84, %.lr.ph.i.i.i.i.i.i, %.preheader115, %..loopexit_crit_edge22.i.i.i.i.i.i
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #19
   unreachable
 

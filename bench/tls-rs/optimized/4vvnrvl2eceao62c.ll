@@ -7034,62 +7034,59 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 .lr.ph:                                           ; preds = %2
   %5 = load i8, ptr %1, align 1, !range !866
-  %.fr = freeze i8 %5
-  %6 = icmp eq i8 %.fr, 6
+  %6 = icmp eq i8 %5, 6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
-  %.fr28 = freeze i8 %8
-  %9 = icmp eq i8 %.fr28, 0
-  %or.cond = and i1 %6, %9
-  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
+  %9 = icmp eq i8 %8, 0
+  %or.cond = select i1 %6, i1 %9, i1 false
+  %or.cond.fr = freeze i1 %or.cond
+  br i1 %or.cond.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
   %10 = phi ptr [ %11, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ %.promoted, %.lr.ph ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %10, align 2, !range !41, !alias.scope !867, !noalias !872, !noundef !7
-  switch i16 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split" [
-    i16 0, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 2, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 3, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 4, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 5, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 6, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 7, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 8, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 9, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 10, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 11, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-    i16 12, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
-  ]
+  %13 = icmp samesign ult i16 %12, 13
+  %switch.shifted = lshr i16 8189, %12
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond51 = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond51, label %switch.lookup, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split"
 
-"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us": ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
-  %.not30 = icmp eq ptr %11, %4
-  br i1 %.not30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %.lr.ph.split.us
+switch.lookup:                                    ; preds = %.lr.ph.split.us
+  %14 = zext nneg i16 %12 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %14
+  %switch.load = load i8, ptr %switch.gep, align 1
+  %15 = icmp eq i8 %switch.load, %5
+  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us"
+
+"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us": ; preds = %switch.lookup
+  %.not29 = icmp eq ptr %11, %4
+  br i1 %.not29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
-  %13 = phi ptr [ %14, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ], [ %.promoted, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = load i16, ptr %13, align 2, !range !41, !alias.scope !867, !noalias !872, !noundef !7
-  %16 = icmp samesign ult i16 %15, 13
-  %switch.shifted = lshr i16 8189, %15
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond50 = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond50, label %switch.lookup, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
+  %16 = phi ptr [ %17, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ], [ %.promoted, %.lr.ph ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i16, ptr %16, align 2, !range !41, !alias.scope !867, !noalias !872, !noundef !7
+  %19 = icmp samesign ult i16 %18, 13
+  %switch.shifted54 = lshr i16 8189, %18
+  %switch.lobit55 = trunc i16 %switch.shifted54 to i1
+  %or.cond58 = select i1 %19, i1 %switch.lobit55, i1 false
+  br i1 %or.cond58, label %switch.lookup53, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
 
-switch.lookup:                                    ; preds = %.lr.ph.split
-  %17 = zext nneg i16 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %17
-  %switch.load = load i8, ptr %switch.gep, align 1
-  %18 = icmp eq i8 %switch.load, %.fr
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
+switch.lookup53:                                  ; preds = %.lr.ph.split
+  %20 = zext nneg i16 %18 to i64
+  %switch.gep56 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %20
+  %switch.load57 = load i8, ptr %switch.gep56, align 1
+  %21 = icmp eq i8 %switch.load57, %5
+  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
 
-"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge": ; preds = %.lr.ph.split, %switch.lookup
-  %.not29 = icmp eq ptr %14, %4
-  br i1 %.not29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %.lr.ph.split
+"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge": ; preds = %.lr.ph.split, %switch.lookup53
+  %.not28 = icmp eq ptr %17, %4
+  br i1 %.not28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %.lr.ph.split
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge", %switch.lookup, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us", %.lr.ph.split.us
-  %.us-phi20.sink = phi ptr [ %11, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ %11, %.lr.ph.split.us ], [ %14, %switch.lookup ], [ %14, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ]
-  %.lcssa.ph = phi i1 [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ true, %.lr.ph.split.us ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ], [ true, %switch.lookup ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge", %switch.lookup53, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us", %switch.lookup, %.lr.ph.split.us
+  %.us-phi20.sink = phi ptr [ %11, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ %11, %.lr.ph.split.us ], [ %11, %switch.lookup ], [ %17, %switch.lookup53 ], [ %17, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ]
+  %.lcssa.ph = phi i1 [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us" ], [ true, %switch.lookup ], [ true, %.lr.ph.split.us ], [ true, %switch.lookup53 ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge" ]
   store ptr %.us-phi20.sink, ptr %0, align 8, !alias.scope !863
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit"
 
@@ -7111,8 +7108,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1, !noalias !877
   %8 = icmp eq i8 %5, 6
-  %.fr28.i.i.i = freeze i8 %7
-  %9 = icmp eq i8 %.fr28.i.i.i, 0
+  %.fr3.i.i = freeze i8 %7
+  %9 = icmp eq i8 %.fr3.i.i, 0
   %or.cond.i.i.i = and i1 %8, %9
   br i1 %or.cond.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -7156,8 +7153,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i.i.us": ; preds = %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us, %.lr.ph.split.us.i.i.i.us
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %.not30.i.i.i.us = icmp eq ptr %23, %20
-  br i1 %.not30.i.i.i.us, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us", label %.lr.ph.split.us.i.i.i.us
+  %.not29.i.i.i.us = icmp eq ptr %23, %20
+  br i1 %.not29.i.i.i.us, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us", label %.lr.ph.split.us.i.i.i.us
 
 "_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i.i.us", %13
   %.not26 = icmp eq ptr %11, %4
@@ -7201,8 +7198,8 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i.i.i
   br i1 %40, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i"
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i": ; preds = %.lr.ph.split.i.i.i, %switch.lookup
-  %.not29.i.i.i = icmp eq ptr %36, %34
-  br i1 %.not29.i.i.i, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit", label %.lr.ph.split.i.i.i
+  %.not28.i.i.i = icmp eq ptr %36, %34
+  br i1 %.not28.i.i.i, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit", label %.lr.ph.split.i.i.i
 
 "_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i", %27
   %.not25 = icmp eq ptr %25, %4
@@ -11651,8 +11648,7 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN6rustls5tls1316Tls13C
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8, !invariant.load !7, !nonnull !7
   %8 = tail call { i8, i8 } %7(ptr noundef nonnull align 1 %3)
-  %.fr = freeze { i8, i8 } %8
-  %.fca.0.extract = extractvalue { i8, i8 } %.fr, 0
+  %.fca.0.extract = extractvalue { i8, i8 } %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !nonnull !7, !align !72, !noundef !7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -11660,15 +11656,15 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN6rustls5tls1316Tls13C
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8, !invariant.load !7, !nonnull !7
   %15 = tail call { i8, i8 } %14(ptr noundef nonnull align 1 %10)
-  %.fr18 = freeze { i8, i8 } %15
-  %.fca.0.extract6 = extractvalue { i8, i8 } %.fr18, 0
+  %.fca.0.extract6 = extractvalue { i8, i8 } %15, 0
   %16 = icmp eq i8 %.fca.0.extract, %.fca.0.extract6
-  %.fca.1.extract7 = extractvalue { i8, i8 } %.fr18, 1
-  %.fca.1.extract = extractvalue { i8, i8 } %.fr, 1
+  %.fca.1.extract7 = extractvalue { i8, i8 } %15, 1
+  %.fca.1.extract = extractvalue { i8, i8 } %8, 1
   %17 = icmp ne i8 %.fca.0.extract, 7
   %18 = icmp eq i8 %.fca.1.extract, %.fca.1.extract7
-  %spec.select = or i1 %18, %17
-  %19 = and i1 %16, %spec.select
+  %spec.select = select i1 %17, i1 true, i1 %18
+  %cond.fr = freeze i1 %spec.select
+  %19 = and i1 %16, %cond.fr
   %20 = select i1 %19, ptr %1, ptr null
   ret ptr %20
 }
@@ -13172,8 +13168,8 @@ define noundef zeroext i1 @_ZN6rustls6suites20SupportedCipherSuite30usable_for_s
 
 .lr.ph.i:                                         ; preds = %5
   %13 = icmp eq i8 %1, 6
-  %.fr28.i = freeze i8 %2
-  %14 = icmp eq i8 %.fr28.i, 0
+  %.fr3 = freeze i8 %2
+  %14 = icmp eq i8 %.fr3, 0
   %or.cond.i = and i1 %13, %14
   br i1 %or.cond.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -13197,8 +13193,8 @@ define noundef zeroext i1 @_ZN6rustls6suites20SupportedCipherSuite30usable_for_s
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i": ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.not30.i = icmp eq ptr %17, %12
-  br i1 %.not30.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit", label %.lr.ph.split.us.i
+  %.not29.i = icmp eq ptr %17, %12
+  br i1 %.not29.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit", label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i"
   %18 = phi ptr [ %19, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i" ], [ %9, %.lr.ph.i ]
@@ -13218,8 +13214,8 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i"
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i": ; preds = %.lr.ph.split.i, %switch.lookup
-  %.not29.i = icmp eq ptr %19, %12
-  br i1 %.not29.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit", label %.lr.ph.split.i
+  %.not28.i = icmp eq ptr %19, %12
+  br i1 %.not28.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit", label %.lr.ph.split.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i", %switch.lookup, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i", %.lr.ph.split.us.i, %5, %3
   %.0 = phi i1 [ true, %3 ], [ false, %5 ], [ true, %.lr.ph.split.us.i ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i" ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i" ], [ true, %switch.lookup ]
@@ -13493,8 +13489,8 @@ _ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread: ; preds 
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i.i.us.i": ; preds = %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i, %.lr.ph.split.us.i.i.i.us.i
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %.not30.i.i.i.us.i = icmp eq ptr %22, %19
-  br i1 %.not30.i.i.i.us.i, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us.i", label %.lr.ph.split.us.i.i.i.us.i
+  %.not29.i.i.i.us.i = icmp eq ptr %22, %19
+  br i1 %.not29.i.i.i.us.i, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us.i", label %.lr.ph.split.us.i.i.i.us.i
 
 "_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.us.i": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i.i.us.i", %12
   %.not26.i = icmp eq ptr %10, %8
@@ -13538,8 +13534,8 @@ switch.lookup29:                                  ; preds = %.lr.ph.split.i.i.i.
   br i1 %39, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hde0e90bb77dc6815E.llvm.6030771845222660662.exit", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i.i"
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i.i": ; preds = %.lr.ph.split.i.i.i.i, %switch.lookup29
-  %.not29.i.i.i.i = icmp eq ptr %35, %33
-  br i1 %.not29.i.i.i.i, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.i", label %.lr.ph.split.i.i.i.i
+  %.not28.i.i.i.i = icmp eq ptr %35, %33
+  br i1 %.not28.i.i.i.i, label %"_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.i", label %.lr.ph.split.i.i.i.i
 
 "_ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662.exit.i": ; preds = %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i.i", %26
   %.not25.i = icmp eq ptr %24, %7
@@ -13574,8 +13570,8 @@ define hidden noundef zeroext i1 @"_ZN6rustls6suites31compatible_sigscheme_for_s
 
 .lr.ph.i.i:                                       ; preds = %8
   %16 = icmp eq i8 %5, 6
-  %.fr28.i.i = freeze i8 %7
-  %17 = icmp eq i8 %.fr28.i.i, 0
+  %.fr3.i = freeze i8 %7
+  %17 = icmp eq i8 %.fr3.i, 0
   %or.cond.i.i = and i1 %16, %17
   br i1 %or.cond.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
@@ -13599,8 +13595,8 @@ define hidden noundef zeroext i1 @"_ZN6rustls6suites31compatible_sigscheme_for_s
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i": ; preds = %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.us.i.i
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %.not30.i.i = icmp eq ptr %20, %15
-  br i1 %.not30.i.i, label %_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit, label %.lr.ph.split.us.i.i
+  %.not29.i.i = icmp eq ptr %20, %15
+  br i1 %.not29.i.i, label %_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i"
   %21 = phi ptr [ %22, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i" ], [ %12, %.lr.ph.i.i ]
@@ -13620,8 +13616,8 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i.i
   br i1 %26, label %_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i"
 
 "_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i": ; preds = %.lr.ph.split.i.i, %switch.lookup
-  %.not29.i.i = icmp eq ptr %22, %15
-  br i1 %.not29.i.i, label %_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit, label %.lr.ph.split.i.i
+  %.not28.i.i = icmp eq ptr %22, %15
+  br i1 %.not28.i.i, label %_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit, label %.lr.ph.split.i.i
 
 _ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit: ; preds = %switch.lookup, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i", %.lr.ph.split.us.i.i, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i", %2, %8
   %.0.i = phi i1 [ true, %2 ], [ false, %8 ], [ true, %.lr.ph.split.us.i.i ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.us.i.i" ], [ true, %switch.lookup ], [ false, %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i" ]

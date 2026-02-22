@@ -657,20 +657,20 @@ declare i32 @psa_unregister_read_under_mutex(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #9 {
   %7 = load i16, ptr %0, align 4, !tbaa !24
-  %.fr = freeze i16 %7
-  %8 = and i16 %.fr, -12289
+  %.fr13 = freeze i16 %7
+  %8 = and i16 %.fr13, -12289
   %9 = icmp eq i16 %8, 16385
   br i1 %9, label %13, label %switch.early.test
 
 switch.early.test:                                ; preds = %6
-  %10 = and i16 %.fr, 28672
+  %10 = and i16 %.fr13, 28672
   switch i16 %10, label %11 [
     i16 8192, label %13
     i16 4096, label %13
   ]
 
 11:                                               ; preds = %switch.early.test
-  %12 = and i16 %.fr, -12544
+  %12 = and i16 %.fr13, -12544
   switch i16 %12, label %psa_export_key_buffer_internal.exit [
     i16 16640, label %13
     i16 16896, label %13
@@ -709,8 +709,8 @@ define hidden i32 @psa_export_key(i32 noundef %0, ptr noundef writeonly captures
 9:                                                ; preds = %7
   %10 = load ptr, ptr %5, align 8, !tbaa !29
   %11 = load i16, ptr %10, align 8, !tbaa !35
-  %.fr.i.i = freeze i16 %11
-  %12 = and i16 %.fr.i.i, 28672
+  %.fr13.i.i = freeze i16 %11
+  %12 = and i16 %.fr13.i.i, 28672
   %13 = icmp ne i16 %12, 16384
   %spec.select.i = zext i1 %13 to i32
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -740,19 +740,19 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %9
   br i1 %cond.i, label %26, label %39
 
 26:                                               ; preds = %20
-  %27 = and i16 %.fr.i.i, -12289
+  %27 = and i16 %.fr13.i.i, -12289
   %28 = icmp eq i16 %27, 16385
   br i1 %28, label %32, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %26
-  %29 = and i16 %.fr.i.i, 28672
+  %29 = and i16 %.fr13.i.i, 28672
   switch i16 %29, label %30 [
     i16 8192, label %32
     i16 4096, label %32
   ]
 
 30:                                               ; preds = %switch.early.test.i.i
-  %31 = and i16 %.fr.i.i, -12544
+  %31 = and i16 %.fr13.i.i, -12544
   switch i16 %31, label %39 [
     i16 16640, label %32
     i16 16896, label %32
@@ -7972,8 +7972,8 @@ define hidden i32 @psa_key_derivation_output_key_custom(ptr noundef readonly cap
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %56 = load i64, ptr %55, align 8, !tbaa !97
-  %.fr.i.i = freeze i64 %56
-  %57 = add i64 %.fr.i.i, 7
+  %.fr67.i.i = freeze i64 %56
+  %57 = add i64 %.fr67.i.i, 7
   %58 = lshr i64 %57, 3
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %60 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %9, ptr noundef nonnull %59, i64 noundef 2) #22
@@ -7986,7 +7986,7 @@ define hidden i32 @psa_key_derivation_output_key_custom(ptr noundef readonly cap
   br i1 %63, label %.loopexit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %61
-  %64 = and i64 %.fr.i.i, 7
+  %64 = and i64 %.fr67.i.i, 7
   %.not43.i.i = icmp eq i64 %64, 0
   %65 = trunc nuw nsw i64 %64 to i8
   %notmask.i.i = shl nsw i8 -1, %65

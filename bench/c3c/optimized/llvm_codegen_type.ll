@@ -2509,15 +2509,15 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %25 = shl nuw nsw i64 %24, 3
   %26 = tail call ptr @calloc_arena(i64 noundef %25) #6
   %27 = load i64, ptr %12, align 8
-  %.fr = freeze i64 %27
-  %28 = and i64 %.fr, 33554432
+  %.fr137 = freeze i64 %27
+  %28 = and i64 %.fr137, 33554432
   %.not120 = icmp eq i64 %28, 0
-  %wide.trip.count145 = zext i32 %spec.select to i64
+  %wide.trip.count146 = zext i32 %spec.select to i64
   br i1 %.not120, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv142
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv143
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   tail call void @scratch_buffer_clear() #6
@@ -2526,11 +2526,11 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %32 = tail call ptr @scratch_buffer_to_string() #6
   %33 = tail call ptr @scratch_buffer_to_string() #6
   %34 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %33) #6
-  %35 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv142
+  %35 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv143
   store ptr %34, ptr %35, align 8
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2543,7 +2543,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %39 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count145
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count146
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21
@@ -2603,8 +2603,8 @@ type_base.exit:                                   ; preds = %44
 66:                                               ; preds = %type_base.exit
   %67 = getelementptr inbounds i8, ptr %23, i64 -8
   %68 = load i32, ptr %67, align 4
-  %.not137 = icmp eq i32 %68, 0
-  br i1 %.not137, label %._crit_edge135, label %.preheader.lr.ph
+  %.not138 = icmp eq i32 %68, 0
+  br i1 %.not138, label %._crit_edge135, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2614,27 +2614,27 @@ type_base.exit:                                   ; preds = %44
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %wide.trip.count154 = zext i32 %68 to i64
+  %wide.trip.count155 = zext i32 %68 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %105
-  %indvars.iv151 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next152, %105 ]
+  %indvars.iv152 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next153, %105 ]
   br i1 %.not119, label %._crit_edge132.thread, label %.lr.ph131
 
 ._crit_edge132.thread:                            ; preds = %.preheader
-  %76 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv151
+  %76 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv152
   %77 = load ptr, ptr %76, align 8
   br label %102
 
 .lr.ph131:                                        ; preds = %.preheader, %93
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %93 ], [ 0, %.preheader ]
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %93 ], [ 0, %.preheader ]
   %.0109129 = phi i1 [ %.1, %93 ], [ false, %.preheader ]
   %.0112128 = phi ptr [ %.1113, %93 ], [ null, %.preheader ]
-  %78 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv147
+  %78 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv148
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv151
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv152
   %83 = load ptr, ptr %82, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %83) #6
   %.val = load i8, ptr %3, align 8
@@ -2655,20 +2655,20 @@ type_base.exit:                                   ; preds = %44
 
 93:                                               ; preds = %91, %86
   %94 = phi ptr [ %90, %86 ], [ %92, %91 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv147
+  %95 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv148
   store ptr %94, ptr %95, align 8
   %.not122 = icmp ne ptr %.0112128, null
   %96 = call ptr @LLVMTypeOf(ptr noundef %94) #6
   %.not123 = icmp ne ptr %.0112128, %96
   %.1113 = select i1 %.not122, ptr %.0112128, ptr %96
-  %.not166 = select i1 %.not122, i1 %.not123, i1 false
-  %.1 = select i1 %.not166, i1 true, i1 %.0109129
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next148, %64
-  br i1 %exitcond150.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !16
+  %.not167 = select i1 %.not122, i1 %.not123, i1 false
+  %.1 = select i1 %.not167, i1 true, i1 %.0109129
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond151.not = icmp eq i64 %indvars.iv.next149, %64
+  br i1 %exitcond151.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !16
 
 ._crit_edge132:                                   ; preds = %93
-  %97 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv151
+  %97 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv152
   %98 = load ptr, ptr %97, align 8
   br i1 %.1, label %99, label %102
 
@@ -2679,8 +2679,8 @@ type_base.exit:                                   ; preds = %44
 
 102:                                              ; preds = %._crit_edge132.thread, %._crit_edge132
   %103 = phi ptr [ %77, %._crit_edge132.thread ], [ %98, %._crit_edge132 ]
-  %.0112.lcssa163 = phi ptr [ null, %._crit_edge132.thread ], [ %.1113, %._crit_edge132 ]
-  %104 = call ptr @LLVMConstArray(ptr noundef %.0112.lcssa163, ptr noundef %40, i32 noundef %spec.select) #6
+  %.0112.lcssa164 = phi ptr [ null, %._crit_edge132.thread ], [ %.1113, %._crit_edge132 ]
+  %104 = call ptr @LLVMConstArray(ptr noundef %.0112.lcssa164, ptr noundef %40, i32 noundef %spec.select) #6
   br label %105
 
 105:                                              ; preds = %102, %99
@@ -2704,9 +2704,9 @@ type_base.exit:                                   ; preds = %44
   call void @LLVMSetGlobalConstant(ptr noundef %113, i32 noundef 1) #6
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %113, ptr %116, align 8
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge135, label %.preheader, !llvm.loop !17
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
+  br i1 %exitcond156.not, label %._crit_edge135, label %.preheader, !llvm.loop !17
 
 ._crit_edge135:                                   ; preds = %105, %type_base.exit, %66
   ret ptr %65

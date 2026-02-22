@@ -15528,8 +15528,8 @@ _ZN7testing15AssertionResultD2Ev.exit102:         ; preds = %147, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %156 = load ptr, ptr %2, align 8, !tbaa !737
   %157 = load ptr, ptr %44, align 8, !tbaa !737
-  %.not284 = icmp eq ptr %156, %157
-  br i1 %.not284, label %._crit_edge.thread, label %.lr.ph
+  %.not285 = icmp eq ptr %156, %157
+  br i1 %.not285, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit102
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -15558,10 +15558,10 @@ _ZN7testing15AssertionResultD2Ev.exit102:         ; preds = %147, %_ZNKSt14defau
   br i1 %166, label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal13sequence_urbgEEEiRT_.exit.i.us, label %.lr.ph.split
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal13sequence_urbgEEEiRT_.exit.i.us: ; preds = %.lr.ph, %198
-  %.sroa.0248.0286.us = phi i64 [ %182, %198 ], [ 0, %.lr.ph ]
-  %.sroa.0244.0285.us = phi ptr [ %200, %198 ], [ %156, %.lr.ph ]
-  %170 = add i64 %.sroa.0248.0286.us, 1
-  %171 = urem i64 %.sroa.0248.0286.us, 12
+  %.sroa.0247.0287.us = phi i64 [ %182, %198 ], [ 0, %.lr.ph ]
+  %.sroa.0243.0286.us = phi ptr [ %200, %198 ], [ %156, %.lr.ph ]
+  %170 = add i64 %.sroa.0247.0287.us, 1
+  %171 = urem i64 %.sroa.0247.0287.us, 12
   %172 = getelementptr inbounds nuw i64, ptr %39, i64 %171
   %173 = load i64, ptr %172, align 8, !tbaa !257
   %174 = and i64 %.sroa.4.0.extract.shift.i.i, %173
@@ -15576,25 +15576,24 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal13sequence_urbgEEEiR
   %.013.i.i.i.us = phi double [ %177, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal13sequence_urbgEEEiRT_.exit.i.us ], [ %194, %190 ]
   %180 = fmul double %.013.i.i.i.us, 0x41F0000000000000
   %181 = fptosi double %180 to i64
-  %.fr11.i.us = freeze i64 %181
   %182 = add i64 %179, 1
   %183 = urem i64 %179, 12
   %184 = getelementptr inbounds nuw i64, ptr %39, i64 %183
   %185 = load i64, ptr %184, align 8, !tbaa !257
-  %.fr.i.us = freeze i64 %185
-  %186 = and i64 %.fr.i.us, 4294967295
-  %.not.i.i.i213.us = icmp eq i64 %186, %.fr11.i.us
+  %186 = and i64 %185, 4294967295
+  %.not.i.i.i213.us = icmp eq i64 %186, %181
   br i1 %.not.i.i.i213.us, label %190, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i.us, !prof !247
 
 _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i.us: ; preds = %178
-  %187 = icmp ult i64 %186, %.fr11.i.us
+  %187 = icmp ult i64 %186, %181
   %188 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %189 = load i64, ptr %188, align 8
-  %spec.select.v.i.us = select i1 %187, i64 %174, i64 %189
+  %cond.fr.i.us = freeze i1 %187
+  %spec.select.v.i.us = select i1 %cond.fr.i.us, i64 %174, i64 %189
   br label %198
 
 190:                                              ; preds = %178
-  %191 = uitofp nneg i64 %.fr11.i.us to double
+  %191 = uitofp nneg i64 %181 to double
   %192 = fmul nnan double %191, 0x3DF0000000000000
   %193 = fsub double %.013.i.i.i.us, %192
   %194 = fmul double %193, 0x41F0000000000000
@@ -15609,19 +15608,19 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
 198:                                              ; preds = %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i.us, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i.us
   %.in.i.us = phi i64 [ %197, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i.us ], [ %spec.select.v.i.us, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i.us ]
   %199 = trunc i64 %.in.i.us to i32
-  store i32 %199, ptr %.sroa.0244.0285.us, align 4, !tbaa !256
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0244.0285.us, i64 4
+  store i32 %199, ptr %.sroa.0243.0286.us, align 4, !tbaa !256
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0243.0286.us, i64 4
   %.not.us = icmp eq ptr %200, %157
   br i1 %.not.us, label %._crit_edge, label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal13sequence_urbgEEEiRT_.exit.i.us
 
 ._crit_edge:                                      ; preds = %249, %198
-  %.sroa.0248.0.lcssa = phi i64 [ %182, %198 ], [ %233, %249 ]
+  %.sroa.0247.0.lcssa = phi i64 [ %182, %198 ], [ %233, %249 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 12, ptr %13, align 4, !tbaa !256
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %.sroa.0248.0.lcssa, ptr %14, align 8, !tbaa !257
-  %201 = icmp eq i64 %.sroa.0248.0.lcssa, 12
+  store i64 %.sroa.0247.0.lcssa, ptr %14, align 8, !tbaa !257
+  %201 = icmp eq i64 %.sroa.0247.0.lcssa, 12
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %._crit_edge
@@ -15638,10 +15637,10 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
   br label %307
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %249
-  %.sroa.0248.0286 = phi i64 [ %233, %249 ], [ 0, %.lr.ph ]
-  %.sroa.0244.0285 = phi ptr [ %251, %249 ], [ %156, %.lr.ph ]
-  %205 = add i64 %.sroa.0248.0286, 1
-  %206 = urem i64 %.sroa.0248.0286, 12
+  %.sroa.0247.0287 = phi i64 [ %233, %249 ], [ 0, %.lr.ph ]
+  %.sroa.0243.0286 = phi ptr [ %251, %249 ], [ %156, %.lr.ph ]
+  %205 = add i64 %.sroa.0247.0287, 1
+  %206 = urem i64 %.sroa.0247.0287, 12
   %207 = getelementptr inbounds nuw i64, ptr %39, i64 %206
   %208 = load i64, ptr %207, align 8, !tbaa !257
   %209 = and i64 %208, 4294967295
@@ -15668,7 +15667,7 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
   br i1 %224, label %.lr.ph.i.i.i.i, label %.loopexit.i.i.i.i, !llvm.loop !739
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i, %213, %.lr.ph.split
-  %.promoted.i.i19.i = phi i64 [ %205, %.lr.ph.split ], [ %205, %213 ], [ %217, %.lr.ph.i.i.i.i ]
+  %.promoted.i.i20.i = phi i64 [ %205, %.lr.ph.split ], [ %205, %213 ], [ %217, %.lr.ph.i.i.i.i ]
   %.018.i.i.i.i = phi i64 [ %210, %.lr.ph.split ], [ %210, %213 ], [ %222, %.lr.ph.i.i.i.i ]
   %225 = lshr i64 %.018.i.i.i.i, 32
   %sext.i = ashr i64 %.018.i.i.i.i, 28
@@ -15678,22 +15677,20 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
   br label %229
 
 229:                                              ; preds = %238, %.loopexit.i.i.i.i
-  %230 = phi i64 [ %.promoted.i.i19.i, %.loopexit.i.i.i.i ], [ %233, %238 ]
+  %230 = phi i64 [ %.promoted.i.i20.i, %.loopexit.i.i.i.i ], [ %233, %238 ]
   %.013.i.i.i = phi double [ %228, %.loopexit.i.i.i.i ], [ %242, %238 ]
   %231 = fmul double %.013.i.i.i, 0x41F0000000000000
   %232 = fptosi double %231 to i64
-  %.fr11.i = freeze i64 %232
   %233 = add i64 %230, 1
   %234 = urem i64 %230, 12
   %235 = getelementptr inbounds nuw i64, ptr %39, i64 %234
   %236 = load i64, ptr %235, align 8, !tbaa !257
-  %.fr.i = freeze i64 %236
-  %237 = and i64 %.fr.i, 4294967295
-  %.not.i.i.i213 = icmp eq i64 %237, %.fr11.i
+  %237 = and i64 %236, 4294967295
+  %.not.i.i.i213 = icmp eq i64 %237, %232
   br i1 %.not.i.i.i213, label %238, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i, !prof !247
 
 238:                                              ; preds = %229
-  %239 = uitofp nneg i64 %.fr11.i to double
+  %239 = uitofp nneg i64 %232 to double
   %240 = fmul nnan double %239, 0x3DF0000000000000
   %241 = fsub double %.013.i.i.i, %240
   %242 = fmul double %241, 0x41F0000000000000
@@ -15706,17 +15703,18 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
   br label %249
 
 _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i: ; preds = %229
-  %246 = icmp ult i64 %237, %.fr11.i
+  %246 = icmp ult i64 %237, %232
   %247 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %248 = load i64, ptr %247, align 8
-  %spec.select.v.i = select i1 %246, i64 %225, i64 %248
+  %cond.fr.i = freeze i1 %246
+  %spec.select.v.i = select i1 %cond.fr.i, i64 %225, i64 %248
   br label %249
 
 249:                                              ; preds = %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i
   %.in.i = phi i64 [ %245, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i ], [ %spec.select.v.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i ]
   %250 = trunc i64 %.in.i to i32
-  store i32 %250, ptr %.sroa.0244.0285, align 4, !tbaa !256
-  %251 = getelementptr inbounds nuw i8, ptr %.sroa.0244.0285, i64 4
+  store i32 %250, ptr %.sroa.0243.0286, align 4, !tbaa !256
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.0243.0286, i64 4
   %.not = icmp eq ptr %251, %157
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
@@ -15868,12 +15866,12 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i119: ; preds = %290, %_ZN7testing15
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 3, ptr %18, align 4
-  %.sroa.4261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 3, ptr %.sroa.4261.0..sroa_idx, align 4
-  %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 3, ptr %.sroa.5262.0..sroa_idx, align 4
-  %.sroa.6263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 1, ptr %.sroa.6263.0..sroa_idx, align 4
+  %.sroa.4260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 3, ptr %.sroa.4260.0..sroa_idx, align 4
+  %.sroa.5261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 3, ptr %.sroa.5261.0..sroa_idx, align 4
+  %.sroa.6262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
+  store i32 1, ptr %.sroa.6262.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 3, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 20
@@ -16332,10 +16330,10 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %444, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %453 = load ptr, ptr %2, align 8, !tbaa !737
   %454 = load ptr, ptr %44, align 8, !tbaa !737
-  %.not270287 = icmp eq ptr %453, %454
-  br i1 %.not270287, label %._crit_edge291.thread, label %.lr.ph290
+  %.not269288 = icmp eq ptr %453, %454
+  br i1 %.not269288, label %._crit_edge292.thread, label %.lr.ph291
 
-._crit_edge291.thread:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit170
+._crit_edge292.thread:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit170
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 12, ptr %31, align 4, !tbaa !256
@@ -16343,7 +16341,7 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %444, %_ZNKSt14defau
   store i64 0, ptr %32, align 8, !tbaa !257
   br label %498
 
-.lr.ph290:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit170
+.lr.ph291:                                        ; preds = %_ZN7testing15AssertionResultD2Ev.exit170
   %455 = load ptr, ptr %346, align 8, !tbaa !36
   %456 = load ptr, ptr %21, align 8, !tbaa !32
   %457 = ptrtoint ptr %455 to i64
@@ -16356,13 +16354,13 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %444, %_ZNKSt14defau
   %463 = sub nsw i64 0, %460
   %464 = add nsw i64 %460, -1
   %465 = load ptr, ptr %347, align 8, !tbaa !51
-  br i1 %462, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us, label %.lr.ph290.split
+  br i1 %462, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us, label %.lr.ph291.split
 
-_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us: ; preds = %.lr.ph290, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us
-  %.sroa.0248.1289.us = phi i64 [ %477, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us ], [ 0, %.lr.ph290 ]
-  %.sroa.0228.0288.us = phi ptr [ %495, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us ], [ %453, %.lr.ph290 ]
-  %466 = add i64 %.sroa.0248.1289.us, 1
-  %467 = urem i64 %.sroa.0248.1289.us, 12
+_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us: ; preds = %.lr.ph291, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us
+  %.sroa.0247.1290.us = phi i64 [ %477, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us ], [ 0, %.lr.ph291 ]
+  %.sroa.0227.0289.us = phi ptr [ %495, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us ], [ %453, %.lr.ph291 ]
+  %466 = add i64 %.sroa.0247.1290.us, 1
+  %467 = urem i64 %.sroa.0247.1290.us, 12
   %468 = getelementptr inbounds nuw i64, ptr %39, i64 %467
   %469 = load i64, ptr %468, align 8, !tbaa !257
   %470 = and i64 %464, %469
@@ -16375,59 +16373,58 @@ _ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElR
   %.013.i.i.i215.us = phi double [ %472, %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us ], [ %489, %485 ]
   %475 = fmul double %.013.i.i.i215.us, 0x41F0000000000000
   %476 = fptosi double %475 to i64
-  %.fr11.i216.us = freeze i64 %476
   %477 = add i64 %474, 1
   %478 = urem i64 %474, 12
   %479 = getelementptr inbounds nuw i64, ptr %39, i64 %478
   %480 = load i64, ptr %479, align 8, !tbaa !257
-  %.fr.i217.us = freeze i64 %480
-  %481 = and i64 %.fr.i217.us, 4294967295
-  %.not.i.i.i218.us = icmp eq i64 %481, %.fr11.i216.us
-  br i1 %.not.i.i.i218.us, label %485, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219.us, !prof !247
+  %481 = and i64 %480, 4294967295
+  %.not.i.i.i216.us = icmp eq i64 %481, %476
+  br i1 %.not.i.i.i216.us, label %485, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217.us, !prof !247
 
-_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219.us: ; preds = %473
-  %482 = icmp ult i64 %481, %.fr11.i216.us
+_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217.us: ; preds = %473
+  %482 = icmp ult i64 %481, %476
   %483 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %484 = load i64, ptr %483, align 8
-  %spec.select.i.us = select i1 %482, i64 %470, i64 %484
+  %cond.fr.i218.us = freeze i1 %482
+  %spec.select.i.us = select i1 %cond.fr.i218.us, i64 %470, i64 %484
   br label %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us
 
 485:                                              ; preds = %473
-  %486 = uitofp nneg i64 %.fr11.i216.us to double
+  %486 = uitofp nneg i64 %476 to double
   %487 = fmul nnan double %486, 0x3DF0000000000000
   %488 = fsub double %.013.i.i.i215.us, %487
   %489 = fmul double %488, 0x41F0000000000000
   %490 = fcmp une double %489, 0.000000e+00
-  br i1 %490, label %473, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220.us, !llvm.loop !738
+  br i1 %490, label %473, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219.us, !llvm.loop !738
 
-_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220.us: ; preds = %485
+_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219.us: ; preds = %485
   %491 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %492 = load i64, ptr %491, align 8
   br label %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us
 
-_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us: ; preds = %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220.us, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219.us
-  %493 = phi i64 [ %492, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220.us ], [ %spec.select.i.us, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219.us ]
+_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us: ; preds = %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219.us, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217.us
+  %493 = phi i64 [ %492, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219.us ], [ %spec.select.i.us, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217.us ]
   %494 = trunc i64 %493 to i32
-  store i32 %494, ptr %.sroa.0228.0288.us, align 4, !tbaa !256
-  %495 = getelementptr inbounds nuw i8, ptr %.sroa.0228.0288.us, i64 4
-  %.not270.us = icmp eq ptr %495, %454
-  br i1 %.not270.us, label %._crit_edge291, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us
+  store i32 %494, ptr %.sroa.0227.0289.us, align 4, !tbaa !256
+  %495 = getelementptr inbounds nuw i8, ptr %.sroa.0227.0289.us, i64 4
+  %.not269.us = icmp eq ptr %495, %454
+  br i1 %.not269.us, label %._crit_edge292, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i.us
 
-._crit_edge291:                                   ; preds = %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us
-  %.sroa.0248.1.lcssa = phi i64 [ %477, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us ], [ %522, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit ]
+._crit_edge292:                                   ; preds = %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us
+  %.sroa.0247.1.lcssa = phi i64 [ %477, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.us ], [ %522, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 12, ptr %31, align 4, !tbaa !256
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store i64 %.sroa.0248.1.lcssa, ptr %32, align 8, !tbaa !257
-  %496 = icmp eq i64 %.sroa.0248.1.lcssa, 12
+  store i64 %.sroa.0247.1.lcssa, ptr %32, align 8, !tbaa !257
+  %496 = icmp eq i64 %.sroa.0247.1.lcssa, 12
   br i1 %496, label %497, label %498
 
-497:                                              ; preds = %._crit_edge291
+497:                                              ; preds = %._crit_edge292
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %30)
           to label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit173 unwind label %543
 
-498:                                              ; preds = %._crit_edge291.thread, %._crit_edge291
+498:                                              ; preds = %._crit_edge292.thread, %._crit_edge292
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIimEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %30, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %_ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit173 unwind label %543
 
@@ -16436,11 +16433,11 @@ _ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %596
 
-.lr.ph290.split:                                  ; preds = %.lr.ph290, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit
-  %.sroa.0248.1289 = phi i64 [ %522, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit ], [ 0, %.lr.ph290 ]
-  %.sroa.0228.0288 = phi ptr [ %540, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit ], [ %453, %.lr.ph290 ]
-  %500 = add i64 %.sroa.0248.1289, 1
-  %501 = urem i64 %.sroa.0248.1289, 12
+.lr.ph291.split:                                  ; preds = %.lr.ph291, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit
+  %.sroa.0247.1290 = phi i64 [ %522, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit ], [ 0, %.lr.ph291 ]
+  %.sroa.0227.0289 = phi ptr [ %540, %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit ], [ %453, %.lr.ph291 ]
+  %500 = add i64 %.sroa.0247.1290, 1
+  %501 = urem i64 %.sroa.0247.1290, 12
   %502 = getelementptr inbounds nuw i64, ptr %39, i64 %501
   %503 = load i64, ptr %502, align 8, !tbaa !257
   %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %503 to i128
@@ -16451,13 +16448,13 @@ _ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.
   %505 = icmp ugt i64 %460, %.sroa.0.0.extract.trunc.i.i.i.i.i.i
   br i1 %505, label %506, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i, !prof !247
 
-506:                                              ; preds = %.lr.ph290.split
+506:                                              ; preds = %.lr.ph291.split
   %507 = urem i64 %463, %460
   %508 = icmp ugt i64 %507, %.sroa.0.0.extract.trunc.i.i.i.i.i.i
-  br i1 %508, label %.lr.ph.i.i.i.i221, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i
+  br i1 %508, label %.lr.ph.i.i.i.i220, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i
 
-.lr.ph.i.i.i.i221:                                ; preds = %506, %.lr.ph.i.i.i.i221
-  %509 = phi i64 [ %510, %.lr.ph.i.i.i.i221 ], [ %500, %506 ]
+.lr.ph.i.i.i.i220:                                ; preds = %506, %.lr.ph.i.i.i.i220
+  %509 = phi i64 [ %510, %.lr.ph.i.i.i.i220 ], [ %500, %506 ]
   %510 = add i64 %509, 1
   %511 = urem i64 %509, 12
   %512 = getelementptr inbounds nuw i64, ptr %39, i64 %511
@@ -16466,16 +16463,16 @@ _ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.
   %514 = mul nuw i128 %.sroa.03.0.insert.ext.i.i26.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i28.i.i.i.i = trunc i128 %514 to i64
   %515 = icmp ugt i64 %507, %.sroa.0.0.extract.trunc.i.i28.i.i.i.i
-  br i1 %515, label %.lr.ph.i.i.i.i221, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !740
+  br i1 %515, label %.lr.ph.i.i.i.i220, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !740
 
-..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i221
+..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i220
   %.sroa.2.0.extract.shift.i.i29.le.i.i.i.i = lshr i128 %514, 64
   %.sroa.2.0.extract.trunc.i.i30.le.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i29.le.i.i.i.i to i64
   br label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i
 
-_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i: ; preds = %..loopexit_crit_edge.i.i.i.i, %506, %.lr.ph290.split
-  %.promoted.i.i.i214 = phi i64 [ %500, %506 ], [ %500, %.lr.ph290.split ], [ %510, %..loopexit_crit_edge.i.i.i.i ]
-  %.0.i.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %506 ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %.lr.ph290.split ], [ %.sroa.2.0.extract.trunc.i.i30.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
+_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i: ; preds = %..loopexit_crit_edge.i.i.i.i, %506, %.lr.ph291.split
+  %.promoted.i.i.i214 = phi i64 [ %500, %506 ], [ %500, %.lr.ph291.split ], [ %510, %..loopexit_crit_edge.i.i.i.i ]
+  %.0.i.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %506 ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %.lr.ph291.split ], [ %.sroa.2.0.extract.trunc.i.i30.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %516 = getelementptr inbounds nuw %"struct.std::pair", ptr %465, i64 %.0.i.i.i.i
   %517 = load double, ptr %516, align 8, !tbaa !722
   br label %518
@@ -16485,43 +16482,42 @@ _ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElR
   %.013.i.i.i215 = phi double [ %517, %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i ], [ %531, %527 ]
   %520 = fmul double %.013.i.i.i215, 0x41F0000000000000
   %521 = fptosi double %520 to i64
-  %.fr11.i216 = freeze i64 %521
   %522 = add i64 %519, 1
   %523 = urem i64 %519, 12
   %524 = getelementptr inbounds nuw i64, ptr %39, i64 %523
   %525 = load i64, ptr %524, align 8, !tbaa !257
-  %.fr.i217 = freeze i64 %525
-  %526 = and i64 %.fr.i217, 4294967295
-  %.not.i.i.i218 = icmp eq i64 %526, %.fr11.i216
-  br i1 %.not.i.i.i218, label %527, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219, !prof !247
+  %526 = and i64 %525, 4294967295
+  %.not.i.i.i216 = icmp eq i64 %526, %521
+  br i1 %.not.i.i.i216, label %527, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217, !prof !247
 
 527:                                              ; preds = %518
-  %528 = uitofp nneg i64 %.fr11.i216 to double
+  %528 = uitofp nneg i64 %521 to double
   %529 = fmul nnan double %528, 0x3DF0000000000000
   %530 = fsub double %.013.i.i.i215, %529
   %531 = fmul double %530, 0x41F0000000000000
   %532 = fcmp une double %531, 0.000000e+00
-  br i1 %532, label %518, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220, !llvm.loop !738
+  br i1 %532, label %518, label %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219, !llvm.loop !738
 
-_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220: ; preds = %527
+_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219: ; preds = %527
   %533 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %534 = load i64, ptr %533, align 8
   br label %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit
 
-_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219: ; preds = %518
-  %535 = icmp ult i64 %526, %.fr11.i216
+_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217: ; preds = %518
+  %535 = icmp ult i64 %526, %521
   %536 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %537 = load i64, ptr %536, align 8
-  %spec.select.i = select i1 %535, i64 %.0.i.i.i.i, i64 %537
+  %cond.fr.i218 = freeze i1 %535
+  %spec.select.i = select i1 %cond.fr.i218, i64 %.0.i.i.i.i, i64 %537
   br label %_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit
 
-_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit: ; preds = %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219
-  %538 = phi i64 [ %534, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i220 ], [ %spec.select.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i219 ]
+_ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit: ; preds = %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217
+  %538 = phi i64 [ %534, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.thread.i219 ], [ %spec.select.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.exit.i217 ]
   %539 = trunc i64 %538 to i32
-  store i32 %539, ptr %.sroa.0228.0288, align 4, !tbaa !256
-  %540 = getelementptr inbounds nuw i8, ptr %.sroa.0228.0288, i64 4
-  %.not270 = icmp eq ptr %540, %454
-  br i1 %.not270, label %._crit_edge291, label %.lr.ph290.split
+  store i32 %539, ptr %.sroa.0227.0289, align 4, !tbaa !256
+  %540 = getelementptr inbounds nuw i8, ptr %.sroa.0227.0289, i64 4
+  %.not269 = icmp eq ptr %540, %454
+  br i1 %.not269, label %._crit_edge292, label %.lr.ph291.split
 
 _ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit173: ; preds = %497, %498
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -16671,16 +16667,16 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i189: ; preds = %579, %_ZN7testing15
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 4, ptr %36, align 4
-  %.sroa.4265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 0, ptr %.sroa.4265.0..sroa_idx, align 4
-  %.sroa.5266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 3, ptr %.sroa.5266.0..sroa_idx, align 4
-  %.sroa.6267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 12
-  store i32 0, ptr %.sroa.6267.0..sroa_idx, align 4
-  %.sroa.7268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 3, ptr %.sroa.7268.0..sroa_idx, align 4
-  %.sroa.8269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 20
-  store i32 3, ptr %.sroa.8269.0..sroa_idx, align 4
+  %.sroa.4264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 0, ptr %.sroa.4264.0..sroa_idx, align 4
+  %.sroa.5265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i32 3, ptr %.sroa.5265.0..sroa_idx, align 4
+  %.sroa.6266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 12
+  store i32 0, ptr %.sroa.6266.0..sroa_idx, align 4
+  %.sroa.7267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i32 3, ptr %.sroa.7267.0..sroa_idx, align 4
+  %.sroa.8268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 20
+  store i32 3, ptr %.sroa.8268.0..sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiiiEEEEEclISt6vectorIiSaIiEEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %35, ptr noundef nonnull align 4 dereferenceable(24) %36, ptr noundef nonnull @.str.85, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %592 unwind label %597
 

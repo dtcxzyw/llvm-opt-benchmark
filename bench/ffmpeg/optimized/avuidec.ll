@@ -43,8 +43,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.0129161, i64 19
   %15 = load i8, ptr %14, align 1, !tbaa !31
-  %.fr = freeze i8 %15
-  %16 = icmp ne i8 %.fr, 1
+  %16 = icmp ne i8 %15, 1
   %17 = zext i1 %16 to i32
   br label %.thread
 
@@ -65,21 +64,18 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.1127 = phi i32 [ %17, %13 ], [ 1, %4 ], [ 1, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %26 = load i32, ptr %25, align 4, !tbaa !32
-  %.fr198 = freeze i32 %26
-  %27 = icmp eq i32 %.fr198, 486
+  %27 = icmp eq i32 %26, 486
   %. = select i1 %27, i32 10, i32 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %29 = load i32, ptr %28, align 8, !tbaa !33
-  %.fr197 = freeze i32 %29
-  %30 = shl i32 %.fr197, 1
-  %31 = add i32 %., %.fr198
-  %32 = mul i32 %30, %31
+  %30 = shl nsw i32 %29, 1
+  %31 = add nsw i32 %., %26
+  %32 = mul nsw i32 %30, %31
   %33 = shl nuw nsw i32 %.1127, 2
-  %34 = add i32 %32, %33
+  %34 = add nsw i32 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !34
-  %.fr196 = freeze i32 %36
-  %37 = icmp slt i32 %.fr196, %34
+  %37 = icmp slt i32 %36, %34
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %.thread
@@ -89,26 +85,25 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 39:                                               ; preds = %.thread
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %41 = load i32, ptr %40, align 8, !tbaa !35
-  %.fr195 = freeze i32 %41
-  %42 = icmp eq i32 %.fr195, 32
-  %43 = shl i32 %34, 1
-  %44 = add i32 %43, 4
-  %45 = icmp sge i32 %.fr196, %44
-  %46 = and i1 %42, %45
-  %47 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #5
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %228, label %49
+  %42 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #5
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %228, label %44
 
-49:                                               ; preds = %39
-  %50 = sext i32 %34 to i64
-  %51 = getelementptr inbounds i8, ptr %6, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 5
+44:                                               ; preds = %39
+  %45 = sext i32 %34 to i64
+  %46 = getelementptr inbounds i8, ptr %6, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 5
+  %48 = icmp eq i32 %41, 32
+  %49 = shl nsw i32 %34, 1
+  %50 = add nsw i32 %49, 4
+  %51 = icmp sge i32 %36, %50
+  %52 = select i1 %48, i1 %51, i1 false
   %.not150 = icmp eq i32 %.1127, 0
   %.pre.pre = load i32, ptr %28, align 8, !tbaa !33
   %53 = mul nsw i32 %.pre.pre, %.
   %54 = sext i32 %53 to i64
   %.0139.idx = select i1 %.not150, i64 %54, i64 0
-  %.0139 = getelementptr inbounds i8, ptr %52, i64 %.0139.idx
+  %.0139 = getelementptr inbounds i8, ptr %47, i64 %.0139.idx
   %.0123.idx = select i1 %.not150, i64 %54, i64 0
   %.0123 = getelementptr inbounds i8, ptr %6, i64 %.0123.idx
   %55 = add nuw nsw i32 %.1127, 1
@@ -119,15 +114,16 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %.fr = freeze i1 %52
   br label %63
 
-63:                                               ; preds = %49, %._crit_edge181
-  %64 = phi i32 [ %.pre.pre, %49 ], [ %220, %._crit_edge181 ]
-  %65 = phi i32 [ %.pre.pre, %49 ], [ %221, %._crit_edge181 ]
-  %66 = phi i32 [ %.pre.pre, %49 ], [ %222, %._crit_edge181 ]
-  %.0122188 = phi i32 [ 0, %49 ], [ %225, %._crit_edge181 ]
-  %.1124187 = phi ptr [ %.0123, %49 ], [ %223, %._crit_edge181 ]
-  %.1140186 = phi ptr [ %.0139, %49 ], [ %224, %._crit_edge181 ]
+63:                                               ; preds = %44, %._crit_edge181
+  %64 = phi i32 [ %.pre.pre, %44 ], [ %220, %._crit_edge181 ]
+  %65 = phi i32 [ %.pre.pre, %44 ], [ %221, %._crit_edge181 ]
+  %66 = phi i32 [ %.pre.pre, %44 ], [ %222, %._crit_edge181 ]
+  %.0122188 = phi i32 [ 0, %44 ], [ %225, %._crit_edge181 ]
+  %.1124187 = phi ptr [ %.0123, %44 ], [ %223, %._crit_edge181 ]
+  %.1140186 = phi ptr [ %.0139, %44 ], [ %224, %._crit_edge181 ]
   %67 = mul nsw i32 %66, %.
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %.1124187, i64 %68
@@ -135,54 +131,54 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not150, label %._crit_edge, label %71
 
 ._crit_edge:                                      ; preds = %63
-  %.pre209 = load ptr, ptr %1, align 8, !tbaa !36
-  %.pre211 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre213 = load ptr, ptr %57, align 8, !tbaa !36
-  %.pre215 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre217 = load ptr, ptr %59, align 8, !tbaa !36
-  %.pre219 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre221 = load ptr, ptr %61, align 8, !tbaa !36
-  %.pre223 = load i32, ptr %62, align 4, !tbaa !37
-  %.pre225.pre = load i32, ptr %25, align 4, !tbaa !32
+  %.pre204 = load ptr, ptr %1, align 8, !tbaa !36
+  %.pre206 = load i32, ptr %56, align 8, !tbaa !37
+  %.pre208 = load ptr, ptr %57, align 8, !tbaa !36
+  %.pre210 = load i32, ptr %58, align 4, !tbaa !37
+  %.pre212 = load ptr, ptr %59, align 8, !tbaa !36
+  %.pre214 = load i32, ptr %60, align 8, !tbaa !37
+  %.pre216 = load ptr, ptr %61, align 8, !tbaa !36
+  %.pre218 = load i32, ptr %62, align 4, !tbaa !37
+  %.pre220.pre = load i32, ptr %25, align 4, !tbaa !32
   br label %86
 
 71:                                               ; preds = %63
   %72 = load i32, ptr %25, align 4, !tbaa !32
   %73 = icmp eq i32 %72, 486
-  %.pre210 = load ptr, ptr %1, align 8, !tbaa !36
-  %.pre212 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre214 = load ptr, ptr %57, align 8, !tbaa !36
-  %.pre216 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre218 = load ptr, ptr %59, align 8, !tbaa !36
-  %.pre220 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre222 = load ptr, ptr %61, align 8, !tbaa !36
-  %.pre224 = load i32, ptr %62, align 4, !tbaa !37
+  %.pre205 = load ptr, ptr %1, align 8, !tbaa !36
+  %.pre207 = load i32, ptr %56, align 8, !tbaa !37
+  %.pre209 = load ptr, ptr %57, align 8, !tbaa !36
+  %.pre211 = load i32, ptr %58, align 4, !tbaa !37
+  %.pre213 = load ptr, ptr %59, align 8, !tbaa !36
+  %.pre215 = load i32, ptr %60, align 8, !tbaa !37
+  %.pre217 = load ptr, ptr %61, align 8, !tbaa !36
+  %.pre219 = load i32, ptr %62, align 4, !tbaa !37
   br i1 %73, label %74, label %86
 
 74:                                               ; preds = %71
   %75 = sub nuw nsw i32 1, %.0122188
-  %76 = mul nuw nsw i32 %.pre212, %75
+  %76 = mul nuw nsw i32 %.pre207, %75
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %.pre210, i64 %77
-  %79 = mul nuw nsw i32 %.pre216, %75
+  %78 = getelementptr inbounds i8, ptr %.pre205, i64 %77
+  %79 = mul nuw nsw i32 %.pre211, %75
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %.pre214, i64 %80
-  %82 = mul nuw nsw i32 %.pre220, %75
+  %81 = getelementptr inbounds i8, ptr %.pre209, i64 %80
+  %82 = mul nuw nsw i32 %.pre215, %75
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %.pre218, i64 %83
-  %85 = mul nuw nsw i32 %.pre224, %75
+  %84 = getelementptr inbounds i8, ptr %.pre213, i64 %83
+  %85 = mul nuw nsw i32 %.pre219, %75
   br label %105
 
 86:                                               ; preds = %._crit_edge, %71
-  %.pre225 = phi i32 [ %.pre225.pre, %._crit_edge ], [ %72, %71 ]
-  %87 = phi i32 [ %.pre223, %._crit_edge ], [ %.pre224, %71 ]
-  %88 = phi ptr [ %.pre221, %._crit_edge ], [ %.pre222, %71 ]
-  %89 = phi i32 [ %.pre219, %._crit_edge ], [ %.pre220, %71 ]
-  %90 = phi ptr [ %.pre217, %._crit_edge ], [ %.pre218, %71 ]
-  %91 = phi i32 [ %.pre215, %._crit_edge ], [ %.pre216, %71 ]
-  %92 = phi ptr [ %.pre213, %._crit_edge ], [ %.pre214, %71 ]
-  %93 = phi i32 [ %.pre211, %._crit_edge ], [ %.pre212, %71 ]
-  %94 = phi ptr [ %.pre209, %._crit_edge ], [ %.pre210, %71 ]
+  %.pre220 = phi i32 [ %.pre220.pre, %._crit_edge ], [ %72, %71 ]
+  %87 = phi i32 [ %.pre218, %._crit_edge ], [ %.pre219, %71 ]
+  %88 = phi ptr [ %.pre216, %._crit_edge ], [ %.pre217, %71 ]
+  %89 = phi i32 [ %.pre214, %._crit_edge ], [ %.pre215, %71 ]
+  %90 = phi ptr [ %.pre212, %._crit_edge ], [ %.pre213, %71 ]
+  %91 = phi i32 [ %.pre210, %._crit_edge ], [ %.pre211, %71 ]
+  %92 = phi ptr [ %.pre208, %._crit_edge ], [ %.pre209, %71 ]
+  %93 = phi i32 [ %.pre206, %._crit_edge ], [ %.pre207, %71 ]
+  %94 = phi ptr [ %.pre204, %._crit_edge ], [ %.pre205, %71 ]
   %95 = mul nuw nsw i32 %93, %.0122188
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %94, i64 %96
@@ -196,13 +192,13 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %105
 
 105:                                              ; preds = %86, %74
-  %.sink257 = phi i32 [ %104, %86 ], [ %85, %74 ]
-  %.sink = phi ptr [ %88, %86 ], [ %.pre222, %74 ]
-  %106 = phi i32 [ %87, %86 ], [ %.pre224, %74 ]
-  %107 = phi i32 [ %89, %86 ], [ %.pre220, %74 ]
-  %108 = phi i32 [ %91, %86 ], [ %.pre216, %74 ]
-  %109 = phi i32 [ %93, %86 ], [ %.pre212, %74 ]
-  %110 = phi i32 [ %.pre225, %86 ], [ 486, %74 ]
+  %.sink253 = phi i32 [ %104, %86 ], [ %85, %74 ]
+  %.sink = phi ptr [ %88, %86 ], [ %.pre217, %74 ]
+  %106 = phi i32 [ %87, %86 ], [ %.pre219, %74 ]
+  %107 = phi i32 [ %89, %86 ], [ %.pre215, %74 ]
+  %108 = phi i32 [ %91, %86 ], [ %.pre211, %74 ]
+  %109 = phi i32 [ %93, %86 ], [ %.pre207, %74 ]
+  %110 = phi i32 [ %.pre220, %86 ], [ 486, %74 ]
   %.0137 = phi ptr [ %97, %86 ], [ %78, %74 ]
   %.0135 = phi ptr [ %100, %86 ], [ %81, %74 ]
   %.0133 = phi ptr [ %103, %86 ], [ %84, %74 ]
@@ -211,9 +207,9 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %112, label %.preheader.lr.ph, label %._crit_edge181
 
 .preheader.lr.ph:                                 ; preds = %105
-  %113 = sext i32 %.sink257 to i64
+  %113 = sext i32 %.sink253 to i64
   %114 = getelementptr inbounds i8, ptr %.sink, i64 %113
-  br i1 %46, label %.preheader.us, label %.preheader
+  br i1 %.fr, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.split.us.us
   %115 = phi i32 [ %122, %._crit_edge.split.us.us ], [ %110, %.preheader.lr.ph ]
@@ -233,19 +229,19 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %121, label %.lr.ph167.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us.loopexit:                 ; preds = %.lr.ph167.us
-  %.pre231 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre232 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre233 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre234 = load i32, ptr %62, align 4, !tbaa !37
-  %.pre235 = load i32, ptr %25, align 4, !tbaa !32
+  %.pre226 = load i32, ptr %56, align 8, !tbaa !37
+  %.pre227 = load i32, ptr %58, align 4, !tbaa !37
+  %.pre228 = load i32, ptr %60, align 8, !tbaa !37
+  %.pre229 = load i32, ptr %62, align 4, !tbaa !37
+  %.pre230 = load i32, ptr %25, align 4, !tbaa !32
   br label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.preheader.us
-  %122 = phi i32 [ %115, %.preheader.us ], [ %.pre235, %._crit_edge.split.us.us.loopexit ]
-  %123 = phi i32 [ %116, %.preheader.us ], [ %.pre234, %._crit_edge.split.us.us.loopexit ]
-  %124 = phi i32 [ %117, %.preheader.us ], [ %.pre233, %._crit_edge.split.us.us.loopexit ]
-  %125 = phi i32 [ %118, %.preheader.us ], [ %.pre232, %._crit_edge.split.us.us.loopexit ]
-  %126 = phi i32 [ %119, %.preheader.us ], [ %.pre231, %._crit_edge.split.us.us.loopexit ]
+  %122 = phi i32 [ %115, %.preheader.us ], [ %.pre230, %._crit_edge.split.us.us.loopexit ]
+  %123 = phi i32 [ %116, %.preheader.us ], [ %.pre229, %._crit_edge.split.us.us.loopexit ]
+  %124 = phi i32 [ %117, %.preheader.us ], [ %.pre228, %._crit_edge.split.us.us.loopexit ]
+  %125 = phi i32 [ %118, %.preheader.us ], [ %.pre227, %._crit_edge.split.us.us.loopexit ]
+  %126 = phi i32 [ %119, %.preheader.us ], [ %.pre226, %._crit_edge.split.us.us.loopexit ]
   %127 = phi i32 [ %120, %.preheader.us ], [ %165, %._crit_edge.split.us.us.loopexit ]
   %.3142.lcssa.us = phi ptr [ %.2141170.us, %.preheader.us ], [ %164, %._crit_edge.split.us.us.loopexit ]
   %.3.lcssa.us = phi ptr [ %.2179.us, %.preheader.us ], [ %162, %._crit_edge.split.us.us.loopexit ]
@@ -267,16 +263,16 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %142, label %.preheader.us, label %._crit_edge181, !llvm.loop !38
 
 .lr.ph167.us:                                     ; preds = %.preheader.us, %.lr.ph167.us
-  %indvars.iv206 = phi i64 [ %indvars.iv.next207, %.lr.ph167.us ], [ 0, %.preheader.us ]
+  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.lr.ph167.us ], [ 0, %.preheader.us ]
   %.3165.us.us = phi ptr [ %162, %.lr.ph167.us ], [ %.2179.us, %.preheader.us ]
   %.3142164.us.us = phi ptr [ %164, %.lr.ph167.us ], [ %.2141170.us, %.preheader.us ]
   %143 = getelementptr inbounds nuw i8, ptr %.3165.us.us, i64 1
   %144 = load i8, ptr %.3165.us.us, align 1, !tbaa !31
-  %145 = getelementptr inbounds nuw i8, ptr %.1136173.us, i64 %indvars.iv206
+  %145 = getelementptr inbounds nuw i8, ptr %.1136173.us, i64 %indvars.iv201
   store i8 %144, ptr %145, align 1, !tbaa !31
   %146 = getelementptr inbounds nuw i8, ptr %.3165.us.us, i64 2
   %147 = load i8, ptr %143, align 1, !tbaa !31
-  %148 = shl nuw nsw i64 %indvars.iv206, 1
+  %148 = shl nuw nsw i64 %indvars.iv201, 1
   %149 = getelementptr inbounds nuw i8, ptr %.1138171.us, i64 %148
   store i8 %147, ptr %149, align 1, !tbaa !31
   %150 = load i8, ptr %.3142164.us.us, align 1, !tbaa !31
@@ -285,7 +281,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 %151, ptr %152, align 1, !tbaa !31
   %153 = getelementptr inbounds nuw i8, ptr %.3165.us.us, i64 3
   %154 = load i8, ptr %146, align 1, !tbaa !31
-  %155 = getelementptr inbounds nuw i8, ptr %.1134175.us, i64 %indvars.iv206
+  %155 = getelementptr inbounds nuw i8, ptr %.1134175.us, i64 %indvars.iv201
   store i8 %154, ptr %155, align 1, !tbaa !31
   %156 = load i8, ptr %153, align 1, !tbaa !31
   %157 = or disjoint i64 %148, 1
@@ -298,11 +294,11 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %163 = getelementptr inbounds nuw i8, ptr %.1132177.us, i64 %157
   store i8 %161, ptr %163, align 1, !tbaa !31
   %164 = getelementptr inbounds nuw i8, ptr %.3142164.us.us, i64 4
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %165 = load i32, ptr %28, align 8, !tbaa !33
   %166 = ashr i32 %165, 1
   %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %indvars.iv.next207, %167
+  %168 = icmp slt i64 %indvars.iv.next202, %167
   br i1 %168, label %.lr.ph167.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !40
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
@@ -358,20 +354,20 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %197, label %.lr.ph167, label %._crit_edge.split.loopexit, !llvm.loop !40
 
 ._crit_edge.split.loopexit:                       ; preds = %.lr.ph167
-  %.pre226 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre227 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre228 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre229 = load i32, ptr %62, align 4, !tbaa !37
-  %.pre230 = load i32, ptr %25, align 4, !tbaa !32
+  %.pre221 = load i32, ptr %56, align 8, !tbaa !37
+  %.pre222 = load i32, ptr %58, align 4, !tbaa !37
+  %.pre223 = load i32, ptr %60, align 8, !tbaa !37
+  %.pre224 = load i32, ptr %62, align 4, !tbaa !37
+  %.pre225 = load i32, ptr %25, align 4, !tbaa !32
   br label %._crit_edge.split
 
 ._crit_edge.split:                                ; preds = %._crit_edge.split.loopexit, %.preheader
   %198 = phi i32 [ %169, %.preheader ], [ %194, %._crit_edge.split.loopexit ]
-  %199 = phi i32 [ %170, %.preheader ], [ %.pre230, %._crit_edge.split.loopexit ]
-  %200 = phi i32 [ %171, %.preheader ], [ %.pre229, %._crit_edge.split.loopexit ]
-  %201 = phi i32 [ %172, %.preheader ], [ %.pre228, %._crit_edge.split.loopexit ]
-  %202 = phi i32 [ %173, %.preheader ], [ %.pre227, %._crit_edge.split.loopexit ]
-  %203 = phi i32 [ %174, %.preheader ], [ %.pre226, %._crit_edge.split.loopexit ]
+  %199 = phi i32 [ %170, %.preheader ], [ %.pre225, %._crit_edge.split.loopexit ]
+  %200 = phi i32 [ %171, %.preheader ], [ %.pre224, %._crit_edge.split.loopexit ]
+  %201 = phi i32 [ %172, %.preheader ], [ %.pre223, %._crit_edge.split.loopexit ]
+  %202 = phi i32 [ %173, %.preheader ], [ %.pre222, %._crit_edge.split.loopexit ]
+  %203 = phi i32 [ %174, %.preheader ], [ %.pre221, %._crit_edge.split.loopexit ]
   %204 = phi i32 [ %175, %.preheader ], [ %194, %._crit_edge.split.loopexit ]
   %.3142.lcssa = phi ptr [ %.2141170, %.preheader ], [ %193, %._crit_edge.split.loopexit ]
   %.3.lcssa = phi ptr [ %.2179, %.preheader ], [ %191, %._crit_edge.split.loopexit ]
@@ -410,7 +406,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %228
 
 228:                                              ; preds = %39, %226, %38
-  %.0118 = phi i32 [ -22, %38 ], [ %227, %226 ], [ %47, %39 ]
+  %.0118 = phi i32 [ -22, %38 ], [ %227, %226 ], [ %42, %39 ]
   ret i32 %.0118
 }
 

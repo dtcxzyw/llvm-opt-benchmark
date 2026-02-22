@@ -6702,20 +6702,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %38, 
 
 _ZN6spdlog7details9async_msgaSEOS1_.exit:         ; preds = %4, %26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %41
   %42 = load i64, ptr %6, align 8, !tbaa !170
-  %.fr = freeze i64 %42
-  %43 = add i64 %.fr, 1
+  %43 = add i64 %42, 1
   %44 = load i64, ptr %0, align 8, !tbaa !155
-  %.fr3 = freeze i64 %44
-  %45 = urem i64 %43, %.fr3
-  store i64 %45, ptr %6, align 8, !tbaa !170
+  %45 = urem i64 %43, %44
+  %.fr = freeze i64 %45
+  store i64 %.fr, ptr %6, align 8, !tbaa !170
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !171
-  %48 = icmp eq i64 %45, %47
+  %48 = icmp eq i64 %.fr, %47
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %_ZN6spdlog7details9async_msgaSEOS1_.exit
-  %50 = add nuw i64 %45, 1
-  %51 = icmp eq i64 %50, %.fr3
+  %50 = add i64 %.fr, 1
+  %51 = icmp eq i64 %50, %44
   %52 = select i1 %51, i64 0, i64 %50
   store i64 %52, ptr %46, align 8, !tbaa !171
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24

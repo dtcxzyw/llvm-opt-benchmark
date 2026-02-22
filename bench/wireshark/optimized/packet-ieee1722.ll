@@ -899,13 +899,12 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %59 = load i32, ptr @hf_1722_61883_cip_dbs, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %59, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
   %61 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 25)
-  %.fr253 = freeze i8 %61
   %62 = load i32, ptr @hf_1722_61883_cip_fn, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %62, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
   %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 26)
   %65 = lshr i8 %64, 6
   %switch.masked = icmp eq i8 %65, 3
-  %switch.masked268 = icmp eq i8 %65, 0
+  %switch.masked266 = icmp eq i8 %65, 0
   %66 = load i32, ptr @hf_1722_61883_cip_qpc, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %66, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
   %68 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 26)
@@ -970,16 +969,17 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %106 = load i32, ptr %5, align 4
   %107 = add i32 %106, -8
   store i32 %107, ptr %5, align 4
-  %108 = icmp eq i8 %.fr253, 0
-  %109 = zext i8 %.fr253 to i32
+  %108 = icmp eq i8 %61, 0
+  %109 = zext i8 %61 to i32
   %.0222 = select i1 %108, i32 256, i32 %109
+  %.0222.fr = freeze i32 %.0222
   switch i8 %88, label %179 [
     i8 16, label %110
     i8 32, label %148
   ]
 
 110:                                              ; preds = %105
-  br i1 %switch.masked268, label %113, label %111
+  br i1 %switch.masked266, label %113, label %111
 
 111:                                              ; preds = %110
   %112 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %63, ptr noundef nonnull @ei_1722_61883_6_incorrect_cip_fn)
@@ -1000,7 +1000,7 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %120 = load i32, ptr @ett_1722_61883_audio, align 4
   %121 = call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120)
   %122 = load i32, ptr %5, align 4
-  %123 = shl nuw nsw i32 %.0222, 2
+  %123 = shl nuw nsw i32 %.0222.fr, 2
   %124 = urem i32 %122, %123
   %.not240 = icmp eq i32 %124, 0
   br i1 %.not240, label %128, label %125
@@ -1008,11 +1008,11 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
 125:                                              ; preds = %116
   %126 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %119, ptr noundef nonnull @ei_1722_61883_incorrect_datalen)
   %127 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %21, ptr noundef nonnull @ei_1722_61883_incorrect_datalen)
-  %.pre259 = load i32, ptr %5, align 4
+  %.pre257 = load i32, ptr %5, align 4
   br label %128
 
 128:                                              ; preds = %125, %116
-  %129 = phi i32 [ %.pre259, %125 ], [ %122, %116 ]
+  %129 = phi i32 [ %.pre257, %125 ], [ %122, %116 ]
   %130 = udiv i32 %129, %123
   %.not241 = icmp ne ptr %121, null
   %131 = icmp ule i32 %123, %129
@@ -1020,8 +1020,8 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   br i1 %or.cond, label %.lr.ph251, label %.loopexit242
 
 .lr.ph251:                                        ; preds = %128
-  %.not255 = icmp eq i32 %.0222, 0
-  br i1 %.not255, label %.loopexit, label %.lr.ph248.us
+  %.not253 = icmp eq i32 %.0222.fr, 0
+  br i1 %.not253, label %.loopexit, label %.lr.ph248.us
 
 .lr.ph248.us:                                     ; preds = %.lr.ph251, %..loopexit_crit_edge.us
   %.0250.us = phi i32 [ %133, %..loopexit_crit_edge.us ], [ 0, %.lr.ph251 ]
@@ -1040,9 +1040,9 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %139 = load i32, ptr @hf_1722_61883_sample, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 3, i32 noundef 0)
   %141 = add i32 %.2246.us, 4
-  %142 = add nuw nsw i32 %.0221247.us, 1
-  %exitcond258.not = icmp eq i32 %142, %.0222
-  br i1 %exitcond258.not, label %..loopexit_crit_edge.us, label %135, !llvm.loop !6
+  %142 = add nuw i32 %.0221247.us, 1
+  %exitcond256.not = icmp eq i32 %142, %.0222.fr
+  br i1 %exitcond256.not, label %..loopexit_crit_edge.us, label %135, !llvm.loop !6
 
 ..loopexit_crit_edge.us:                          ; preds = %135
   %143 = icmp ult i32 %133, %130
@@ -1057,7 +1057,7 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   br i1 %147, label %.loopexit, label %.loopexit242, !llvm.loop !8
 
 148:                                              ; preds = %105
-  %.not234 = icmp eq i32 %.0222, 6
+  %.not234 = icmp eq i32 %.0222.fr, 6
   br i1 %.not234, label %151, label %149
 
 149:                                              ; preds = %148

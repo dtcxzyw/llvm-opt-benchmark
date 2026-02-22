@@ -43,10 +43,8 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   %27 = load i32, ptr %26, align 8, !tbaa !43
   %28 = load ptr, ptr %19, align 8, !tbaa !42
   %29 = load ptr, ptr %13, align 8, !tbaa !44
-  %.fr385.i = freeze ptr %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %31 = load ptr, ptr %30, align 8, !tbaa !45
-  %.fr.i = freeze ptr %31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %33 = load ptr, ptr %32, align 8, !tbaa !46
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 952
@@ -64,9 +62,9 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   %46 = load i32, ptr %12, align 8, !tbaa !52
   %47 = icmp eq i32 %46, 2
   %48 = zext i1 %47 to i32
-  %49 = icmp eq ptr %.fr385.i, %.fr.i
+  %49 = icmp eq ptr %29, %31
   %50 = ptrtoint ptr %35 to i64
-  %51 = getelementptr i8, ptr %.fr.i, i64 -8
+  %51 = getelementptr inbounds i8, ptr %31, i64 -8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 136
@@ -96,7 +94,7 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   %.0155.ph.i = phi ptr [ %366, %363 ], [ %1, %23 ]
   %.0145.ph.i = phi ptr [ %364, %363 ], [ %3, %23 ]
   %.0140.ph.i = phi ptr [ %365, %363 ], [ %33, %23 ]
-  %.0134.ph.i = phi ptr [ %212, %363 ], [ %.fr385.i, %23 ]
+  %.0134.ph.i = phi ptr [ %212, %363 ], [ %29, %23 ]
   %69 = ptrtoint ptr %.0140.ph.i to i64
   %70 = sub i64 %50, %69
   %.not22.i.i.i = icmp eq i32 %.0195.ph.i, 0
@@ -122,8 +120,9 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   br i1 %49, label %.thread.i, label %83
 
 83:                                               ; preds = %82
-  %84 = getelementptr %struct.seqDef_s, ptr %.0134.ph.i, i64 %.0183.i
+  %84 = getelementptr inbounds nuw %struct.seqDef_s, ptr %.0134.ph.i, i64 %.0183.i
   %85 = icmp eq ptr %84, %51
+  %cond.fr.i = freeze i1 %85
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %87 = load i16, ptr %86, align 4, !tbaa !53
   %88 = zext i16 %87 to i32
@@ -149,12 +148,12 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   %.sroa.0.0.insert.ext.i.i = zext nneg i32 %.sroa.0.0.i.i to i64
   %102 = add i64 %.0176.i, %.sroa.0.0.insert.ext.i.i
   %103 = add i64 %.0183.i, 1
-  %spec.select.i = select i1 %85, i64 %70, i64 %102
+  %spec.select.i = select i1 %cond.fr.i, i64 %70, i64 %102
   br label %.thread.i
 
 .thread.i:                                        ; preds = %101, %82
   %.1184345.i = phi i64 [ %103, %101 ], [ %.0183.i, %82 ]
-  %.0189342.i = phi i1 [ %85, %101 ], [ true, %82 ]
+  %.0189342.i = phi i1 [ %cond.fr.i, %101 ], [ true, %82 ]
   %104 = phi i64 [ %spec.select.i, %101 ], [ %70, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 255, ptr %10, align 4, !tbaa !58
@@ -395,7 +394,7 @@ ZSTD_estimateSubBlockSize.exit.i:                 ; preds = %ZSTD_estimateSubBlo
   br i1 %or.cond.i, label %ZSTD_seqDecompressedSize.exit.i, label %.thread255.i
 
 .lr.ph.i.i:                                       ; preds = %ZSTD_estimateSubBlockSize_symbolType.exit51.i.i.i
-  %188 = getelementptr %struct.seqDef_s, ptr %.0134.ph.i, i64 %.1184345.i
+  %188 = getelementptr inbounds nuw %struct.seqDef_s, ptr %.0134.ph.i, i64 %.1184345.i
   %189 = ptrtoint ptr %188 to i64
   %190 = load i32, ptr %52, align 4, !tbaa !56
   %191 = load ptr, ptr %13, align 8, !tbaa !44
@@ -791,14 +790,14 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %380
 
 396:                                              ; preds = %ZSTD_noCompressBlock.exit.i
   %397 = getelementptr inbounds nuw i8, ptr %.4159.ph349.i, i64 %386
-  %398 = icmp ult ptr %.4138.ph351.i, %.fr.i
+  %398 = icmp ult ptr %.4138.ph351.i, %31
   br i1 %398, label %399, label %443
 
 399:                                              ; preds = %396
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %400 = getelementptr inbounds nuw i8, ptr %24, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull readonly align 8 dereferenceable(12) %400, i64 12, i1 false)
-  %401 = icmp ult ptr %.fr385.i, %.4138.ph351.i
+  %401 = icmp ult ptr %29, %.4138.ph351.i
   br i1 %401, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %399
@@ -815,7 +814,7 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %380
 407:                                              ; preds = %ZSTD_updateRep.exit.i, %.lr.ph.i
   %.val308319.i = phi i32 [ %.promoted317.i, %.lr.ph.i ], [ %.val308318.i, %ZSTD_updateRep.exit.i ]
   %.val315.i = phi i32 [ %.promoted313.i, %.lr.ph.i ], [ %.val314.i, %ZSTD_updateRep.exit.i ]
-  %.0139312.i = phi ptr [ %.fr385.i, %.lr.ph.i ], [ %440, %ZSTD_updateRep.exit.i ]
+  %.0139312.i = phi ptr [ %29, %.lr.ph.i ], [ %440, %ZSTD_updateRep.exit.i ]
   %408 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %439, %ZSTD_updateRep.exit.i ]
   %409 = load i32, ptr %.0139312.i, align 4, !tbaa !74
   %410 = getelementptr inbounds nuw i8, ptr %.0139312.i, i64 4

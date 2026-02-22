@@ -224,13 +224,13 @@ define internal void @recff_nyi(ptr noundef %0, ptr noundef writeonly captures(n
 22:                                               ; preds = %13
   %23 = inttoptr i64 %19 to ptr
   %24 = load i32, ptr %23, align 4, !tbaa !39
-  %.fr = freeze i32 %24
-  %25 = and i32 %.fr, 253
+  %.fr21 = freeze i32 %24
+  %25 = and i32 %.fr21, 253
   %or.cond = icmp eq i32 %25, 65
   br i1 %or.cond, label %.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %22
-  %trunc = trunc i32 %.fr to i8
+  %trunc = trunc i32 %.fr21 to i8
   switch i8 %trunc, label %26 [
     i8 73, label %.thread
     i8 63, label %.thread
@@ -764,13 +764,13 @@ define internal void @recff_getfenv(ptr noundef %0, ptr noundef writeonly captur
 43:                                               ; preds = %34
   %44 = inttoptr i64 %40 to ptr
   %45 = load i32, ptr %44, align 4, !tbaa !39
-  %.fr.i = freeze i32 %45
-  %46 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %45
+  %46 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %46, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %43
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %47 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -1017,13 +1017,13 @@ define internal void @recff_select(ptr noundef %0, ptr noundef captures(none) %1
 56:                                               ; preds = %47
   %57 = inttoptr i64 %53 to ptr
   %58 = load i32, ptr %57, align 4, !tbaa !39
-  %.fr.i = freeze i32 %58
-  %59 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %58
+  %59 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %59, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %56
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %60 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -1120,13 +1120,13 @@ define internal void @recff_tonumber(ptr noundef %0, ptr noundef %1) #0 {
 41:                                               ; preds = %32
   %42 = inttoptr i64 %38 to ptr
   %43 = load i32, ptr %42, align 4, !tbaa !39
-  %.fr.i = freeze i32 %43
-  %44 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %43
+  %44 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %44, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %41
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %45 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -1217,13 +1217,13 @@ recff_nyi.exit:                                   ; preds = %50, %.thread.i
 85:                                               ; preds = %76
   %86 = inttoptr i64 %82 to ptr
   %87 = load i32, ptr %86, align 4, !tbaa !39
-  %.fr.i33 = freeze i32 %87
-  %88 = and i32 %.fr.i33, 253
+  %.fr21.i33 = freeze i32 %87
+  %88 = and i32 %.fr21.i33, 253
   %or.cond.i34 = icmp eq i32 %88, 65
   br i1 %or.cond.i34, label %.thread.i32, label %switch.early.test.i35
 
 switch.early.test.i35:                            ; preds = %85
-  %trunc.i36 = trunc i32 %.fr.i33 to i8
+  %trunc.i36 = trunc i32 %.fr21.i33 to i8
   switch i8 %trunc.i36, label %89 [
     i8 73, label %.thread.i32
     i8 63, label %.thread.i32
@@ -1406,13 +1406,13 @@ recff_metacall.exit:                              ; preds = %16
 75:                                               ; preds = %67
   %76 = inttoptr i64 %72 to ptr
   %77 = load i32, ptr %76, align 4, !tbaa !39
-  %.fr.i = freeze i32 %77
-  %78 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %77
+  %78 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %78, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %75
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %79 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -3085,13 +3085,13 @@ argv2int.exit:                                    ; preds = %59, %lj_strscan_num
 162:                                              ; preds = %153
   %163 = inttoptr i64 %159 to ptr
   %164 = load i32, ptr %163, align 4, !tbaa !39
-  %.fr.i = freeze i32 %164
-  %165 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %164
+  %165 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %165, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %162
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %166 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -3236,13 +3236,13 @@ define internal void @recff_table_insert(ptr noundef %0, ptr noundef captures(no
 60:                                               ; preds = %51
   %61 = inttoptr i64 %57 to ptr
   %62 = load i32, ptr %61, align 4, !tbaa !39
-  %.fr.i = freeze i32 %62
-  %63 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %62
+  %63 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %63, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %60
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %64 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -4376,13 +4376,13 @@ recff_sbufx_check.exit57:                         ; preds = %47
 115:                                              ; preds = %107
   %116 = inttoptr i64 %112 to ptr
   %117 = load i32, ptr %116, align 4, !tbaa !39
-  %.fr.i = freeze i32 %117
-  %118 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %117
+  %118 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %118, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %115
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %119 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -5832,13 +5832,13 @@ argv2str.exit:                                    ; preds = %17, %23
 116:                                              ; preds = %108
   %117 = inttoptr i64 %113 to ptr
   %118 = load i32, ptr %117, align 4, !tbaa !39
-  %.fr.i = freeze i32 %118
-  %119 = and i32 %.fr.i, 253
+  %.fr21.i = freeze i32 %118
+  %119 = and i32 %.fr21.i, 253
   %or.cond.i = icmp eq i32 %119, 65
   br i1 %or.cond.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %116
-  %trunc.i = trunc i32 %.fr.i to i8
+  %trunc.i = trunc i32 %.fr21.i to i8
   switch i8 %trunc.i, label %120 [
     i8 73, label %.thread.i
     i8 63, label %.thread.i
@@ -5949,13 +5949,13 @@ recff_nyi.exit:                                   ; preds = %125, %.thread.i
 169:                                              ; preds = %161
   %170 = inttoptr i64 %166 to ptr
   %171 = load i32, ptr %170, align 4, !tbaa !39
-  %.fr.i112 = freeze i32 %171
-  %172 = and i32 %.fr.i112, 253
+  %.fr21.i112 = freeze i32 %171
+  %172 = and i32 %.fr21.i112, 253
   %or.cond.i113 = icmp eq i32 %172, 65
   br i1 %or.cond.i113, label %.thread.i111, label %switch.early.test.i114
 
 switch.early.test.i114:                           ; preds = %169
-  %trunc.i115 = trunc i32 %.fr.i112 to i8
+  %trunc.i115 = trunc i32 %.fr21.i112 to i8
   switch i8 %trunc.i115, label %173 [
     i8 73, label %.thread.i111
     i8 63, label %.thread.i111

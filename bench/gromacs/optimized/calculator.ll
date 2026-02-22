@@ -5448,11 +5448,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !209
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8, !tbaa !89
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !92
@@ -5474,16 +5472,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #29
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -24
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 24
-  %25 = add i64 %23, 24
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 24
+  %25 = add i64 %.fr.i, 24
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
 
 _ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit: ; preds = %_ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -5509,11 +5508,11 @@ _ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   br i1 %.not24, label %36, label %34
 
 34:                                               ; preds = %29
-  %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
+  %.not.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5nblib12QuarticAngleESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5nblib12QuarticAngleESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
 36:                                               ; preds = %29
@@ -5521,7 +5520,7 @@ _ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN5nblib12QuarticAngleES2_ET0_T_S4_S3_.exit, label %37
 
 37:                                               ; preds = %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !89
   %.pre27 = load ptr, ptr %30, align 8, !tbaa !209
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !89
@@ -5533,9 +5532,9 @@ _ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
 
 _ZSt4copyIPN5nblib12QuarticAngleES2_ET0_T_S4_S3_.exit: ; preds = %36, %37
   %.pre-phi34 = phi i64 [ 0, %36 ], [ %.pre33, %37 ]
-  %38 = phi ptr [ %.fr13.i, %36 ], [ %.pre29, %37 ]
+  %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
   %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
-  %40 = phi ptr [ %.fr14.i, %36 ], [ %.pre, %37 ]
+  %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.pre-phi34
   %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5nblib12QuarticAngleESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %.lr.ph.i.i.i.i
@@ -6991,24 +6990,23 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
   %33 = load ptr, ptr %25, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw %"class.std::vector.12", ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !13
-  %.fr59 = freeze ptr %35
-  %36 = ptrtoint ptr %.fr59 to i64
+  %36 = ptrtoint ptr %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !177
-  %.fr58 = freeze ptr %38
-  %39 = ptrtoint ptr %.fr58 to i64
+  %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %39, %36
-  %41 = getelementptr inbounds nuw i8, ptr %.fr59, i64 %40
-  %.not4.i.i.i = icmp eq ptr %.fr59, %.fr58
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %40
+  %.not4.i.i.i = icmp eq ptr %35, %38
   br i1 %.not4.i.i.i, label %_ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %32
   %42 = add i64 %39, -12
   %43 = sub i64 %42, %36
-  %44 = urem i64 %43, 12
-  %45 = sub nuw i64 %43, %44
+  %.fr = freeze i64 %43
+  %44 = urem i64 %.fr, 12
+  %45 = sub nuw i64 %.fr, %44
   %46 = add i64 %45, 12
-  call void @llvm.memset.p0.i64(ptr align 4 %.fr59, i8 0, i64 %46, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %46, i1 false)
   br label %_ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit
 
 _ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit: ; preds = %.lr.ph.i.i.i.preheader, %32
@@ -7064,7 +7062,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   store ptr %48, ptr %10, align 8, !noalias !249
   store ptr %68, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !249
   store ptr %73, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !249
-  store ptr %.fr59, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !249
+  store ptr %35, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !249
   store ptr %41, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !249
   store ptr %11, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !249
   store ptr %74, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !249
@@ -7115,7 +7113,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   store ptr %48, ptr %8, align 8, !noalias !252
   store ptr %98, ptr %.sroa.4.0..sroa_idx.i26, align 8, !noalias !252
   store ptr %103, ptr %.sroa.5.0..sroa_idx.i27, align 8, !noalias !252
-  store ptr %.fr59, ptr %.sroa.6.0..sroa_idx.i28, align 8, !noalias !252
+  store ptr %35, ptr %.sroa.6.0..sroa_idx.i28, align 8, !noalias !252
   store ptr %41, ptr %.sroa.7.0..sroa_idx.i29, align 8, !noalias !252
   store ptr %9, ptr %.sroa.8.0..sroa_idx.i30, align 8, !noalias !252
   store ptr %16, ptr %.sroa.9.0..sroa_idx.i31, align 8, !noalias !252

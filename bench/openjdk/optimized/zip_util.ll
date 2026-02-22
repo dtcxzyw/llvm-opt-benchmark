@@ -2653,9 +2653,8 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %.fr41 = freeze i64 %8
   store ptr null, ptr %3, align 8
-  %9 = icmp eq i64 %.fr41, 0
+  %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
@@ -2682,7 +2681,7 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %20, ptr %21, align 8
-  %22 = icmp sgt i64 %.fr41, 0
+  %22 = icmp sgt i64 %8, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
@@ -2692,21 +2691,20 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
   br label %26
 
 26:                                               ; preds = %.lr.ph, %.split38.us
-  %.040 = phi i64 [ %.fr41, %.lr.ph ], [ %42, %.split38.us ]
+  %.040 = phi i64 [ %8, %.lr.ph ], [ %.fr, %.split38.us ]
   %.02739 = phi i64 [ 0, %.lr.ph ], [ %41, %.split38.us ]
   %27 = call i64 @llvm.umin.i64(i64 %.040, i64 4096)
   %28 = trunc nuw nsw i64 %27 to i32
   %29 = load ptr, ptr %23, align 8
   %30 = call i32 @JVM_RawMonitorEnter(ptr noundef %29) #21
   %31 = call i32 @ZIP_Read(ptr noundef %0, ptr noundef %1, i64 noundef %.02739, ptr noundef nonnull %6, i32 noundef %28)
-  %.fr = freeze i32 %31
   %32 = load ptr, ptr %23, align 8
   call void @JVM_RawMonitorExit(ptr noundef %32) #21
-  %33 = icmp slt i32 %.fr, 1
+  %33 = icmp slt i32 %31, 1
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %26
-  %35 = icmp eq i32 %.fr, 0
+  %35 = icmp eq i32 %31, 0
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
@@ -2718,12 +2716,13 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
   br label %56
 
 39:                                               ; preds = %26
-  %40 = zext nneg i32 %.fr to i64
+  %40 = zext nneg i32 %31 to i64
   %41 = add nuw nsw i64 %.02739, %40
   %42 = sub nsw i64 %.040, %40
+  %.fr = freeze i64 %42
   store ptr %6, ptr %5, align 8
-  store i32 %.fr, ptr %24, align 8
-  %.not31 = icmp eq i64 %42, 0
+  store i32 %31, ptr %24, align 8
+  %.not31 = icmp eq i64 %.fr, 0
   br i1 %.not31, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %39, %48
@@ -2759,7 +2758,7 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
   br i1 %.not33, label %.split38.us, label %.split, !llvm.loop !21
 
 .split38.us:                                      ; preds = %52, %48
-  %54 = icmp sgt i64 %42, 0
+  %54 = icmp sgt i64 %.fr, 0
   br i1 %54, label %26, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.split38.us, %16

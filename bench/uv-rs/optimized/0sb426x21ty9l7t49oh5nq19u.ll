@@ -2669,9 +2669,9 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @"_ZN106_$LT$core
   %39 = load i8, ptr %38, align 1, !range !947, !alias.scope !948, !noalias !951, !noundef !6
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %41 = load i8, ptr %40, align 8, !range !947, !alias.scope !948, !noalias !946
-  %.fr.i.i.i.i.i.i.i.i = freeze i8 %41
-  %.fr.masked.i.i.i.i.i.i.i.i = and i8 %.fr.i.i.i.i.i.i.i.i, 1
-  %42 = or i8 %.fr.masked.i.i.i.i.i.i.i.i, %39
+  %.fr4.i.i.i.i.i.i.i.i = freeze i8 %41
+  %.fr4.masked.i.i.i.i.i.i.i.i = and i8 %.fr4.i.i.i.i.i.i.i.i, 1
+  %42 = or i8 %.fr4.masked.i.i.i.i.i.i.i.i, %39
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h5dcefffa00c5e1dbE.exit.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h96d860e6604c8b0cE.exit.i.i.i.i.i.i"
 
@@ -2682,7 +2682,7 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @"_ZN106_$LT$core
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h5dcefffa00c5e1dbE.exit.i": ; preds = %"_ZN21uv_distribution_types9index_url14IndexLocations16implicit_indexes28_$u7b$$u7b$closure$u7d$$u7d$17ha727d4c0d664547cE.exit.thread.i.i.i.i.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !956)
   call void @llvm.experimental.noalias.scope.decl(metadata !959)
-  %44 = trunc nuw i8 %.fr.i.i.i.i.i.i.i.i to i1
+  %44 = trunc nuw i8 %.fr4.i.i.i.i.i.i.i.i to i1
   br i1 %44, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h0da45e042a7aba2bE.exit.i", label %45
 
 45:                                               ; preds = %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h5dcefffa00c5e1dbE.exit.i"

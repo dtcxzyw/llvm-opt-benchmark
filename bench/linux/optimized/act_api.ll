@@ -525,11 +525,11 @@ define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0,
   call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #14, !srcloc !21
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 1062, i32 2305, i64 12) #14, !srcloc !22
   call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #14, !srcloc !23
-  %.pre76 = load ptr, ptr %84, align 8
+  %.pre77 = load ptr, ptr %84, align 8
   br label %88
 
 88:                                               ; preds = %87, %.thread21
-  %89 = phi ptr [ %.pre76, %87 ], [ %85, %.thread21 ]
+  %89 = phi ptr [ %.pre77, %87 ], [ %85, %.thread21 ]
   %90 = ptrtoint ptr %18 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
@@ -546,8 +546,8 @@ define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0,
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %97 = getelementptr i8, ptr %2, i64 96
   %98 = load i64, ptr %97, align 8
-  %.fr49 = freeze i64 %98
-  %99 = trunc i64 %.fr49 to i32
+  %.fr50 = freeze i64 %98
+  %99 = trunc i64 %.fr50 to i32
   %100 = getelementptr i8, ptr %2, i64 104
   %101 = load i64, ptr %100, align 8
   %.fr = freeze i64 %101

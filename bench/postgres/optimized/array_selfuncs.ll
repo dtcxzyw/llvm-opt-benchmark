@@ -280,214 +280,215 @@ define internal fastcc double @mcelem_array_contain_overlap_selec(ptr noundef re
   %32 = icmp samesign ugt i32 %.320.i, 1
   %33 = zext i1 %32 to i32
   %.4.i = add nuw nsw i32 %.3.i, %33
+  %34 = freeze i32 %.4.i
   br label %floor_log2.exit
 
 floor_log2.exit:                                  ; preds = %18, %20
-  %.021.i = phi i32 [ %.4.i, %20 ], [ -1, %18 ]
-  %34 = icmp eq i32 %6, 2751
-  %.054 = select i1 %34, double 1.000000e+00, double 0.000000e+00
-  %35 = icmp sgt i32 %5, 0
-  br i1 %35, label %.lr.ph76, label %._crit_edge
+  %.021.i = phi i32 [ %34, %20 ], [ -1, %18 ]
+  %35 = icmp eq i32 %6, 2751
+  %.054 = select i1 %35, double 1.000000e+00, double 0.000000e+00
+  %36 = icmp sgt i32 %5, 0
+  br i1 %36, label %.lr.ph76, label %._crit_edge
 
 .lr.ph76:                                         ; preds = %floor_log2.exit
-  %36 = mul i32 %.021.i, %5
-  %37 = add i32 %5, %1
-  %38 = icmp slt i32 %36, %37
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %41 = add i32 %1, -1
-  %42 = fcmp ogt double %.050, 5.000000e-03
-  %43 = select i1 %42, double 5.000000e-03, double %.050
-  %wide.trip.count90 = zext nneg i32 %5 to i64
-  br i1 %38, label %.lr.ph76.split.us, label %.lr.ph76.split
+  %37 = mul i32 %.021.i, %5
+  %38 = add i32 %5, %1
+  %39 = icmp slt i32 %37, %38
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %42 = add i32 %1, -1
+  %43 = fcmp ogt double %.050, 5.000000e-03
+  %44 = select i1 %43, double 5.000000e-03, double %.050
+  %wide.trip.count91 = zext nneg i32 %5 to i64
+  br i1 %39, label %.lr.ph76.split.us, label %.lr.ph76.split
 
-.lr.ph76.split.us:                                ; preds = %.lr.ph76, %86
-  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %86 ], [ 0, %.lr.ph76 ]
-  %.15574.us = phi double [ %.256.us, %86 ], [ %.054, %.lr.ph76 ]
-  %.073.us = phi i32 [ %.165.us, %86 ], [ 0, %.lr.ph76 ]
-  %.not100 = icmp eq i64 %indvars.iv87, 0
-  br i1 %.not100, label %53, label %44
+.lr.ph76.split.us:                                ; preds = %.lr.ph76, %87
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %87 ], [ 0, %.lr.ph76 ]
+  %.15574.us = phi double [ %.256.us, %87 ], [ %.054, %.lr.ph76 ]
+  %.073.us = phi i32 [ %.165.us, %87 ], [ 0, %.lr.ph76 ]
+  %.not101 = icmp eq i64 %indvars.iv88, 0
+  br i1 %.not101, label %54, label %45
 
-44:                                               ; preds = %.lr.ph76.split.us
-  %45 = getelementptr i64, ptr %4, i64 %indvars.iv87
-  %46 = getelementptr i8, ptr %45, i64 -8
-  %47 = load i64, ptr %46, align 8
-  %48 = load i64, ptr %45, align 8
-  %49 = load i32, ptr %40, align 4
-  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %49, i64 noundef %47, i64 noundef %48) #9
-  %51 = and i64 %50, 4294967295
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %86, label %53
+45:                                               ; preds = %.lr.ph76.split.us
+  %46 = getelementptr i64, ptr %4, i64 %indvars.iv88
+  %47 = getelementptr i8, ptr %46, i64 -8
+  %48 = load i64, ptr %47, align 8
+  %49 = load i64, ptr %46, align 8
+  %50 = load i32, ptr %41, align 4
+  %51 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %50, i64 noundef %48, i64 noundef %49) #9
+  %52 = and i64 %51, 4294967295
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %87, label %54
 
-53:                                               ; preds = %44, %.lr.ph76.split.us
-  %54 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv87
-  %55 = load i64, ptr %54, align 8
-  %.not21.not.i.us = icmp sgt i32 %.073.us, %41
+54:                                               ; preds = %45, %.lr.ph76.split.us
+  %55 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv88
+  %56 = load i64, ptr %55, align 8
+  %.not21.not.i.us = icmp sgt i32 %.073.us, %42
   br i1 %.not21.not.i.us, label %find_next_mcelem.exit.us.thread, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %53, %65
-  %.01723.i.us = phi i32 [ %.1.i61.us, %65 ], [ %.073.us, %53 ]
-  %.01822.i.us = phi i32 [ %.119.i.us, %65 ], [ %41, %53 ]
-  %56 = add i32 %.01822.i.us, %.01723.i.us
-  %57 = sdiv i32 %56, 2
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %0, i64 %58
-  %60 = load i64, ptr %59, align 8
-  %61 = load i32, ptr %40, align 4
-  %62 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %61, i64 noundef %60, i64 noundef %55) #9
-  %63 = trunc i64 %62 to i32
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %find_next_mcelem.exit.us, label %65
+.lr.ph.i.us:                                      ; preds = %54, %66
+  %.01723.i.us = phi i32 [ %.1.i61.us, %66 ], [ %.073.us, %54 ]
+  %.01822.i.us = phi i32 [ %.119.i.us, %66 ], [ %42, %54 ]
+  %57 = add i32 %.01822.i.us, %.01723.i.us
+  %58 = sdiv i32 %57, 2
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i64, ptr %0, i64 %59
+  %61 = load i64, ptr %60, align 8
+  %62 = load i32, ptr %41, align 4
+  %63 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %62, i64 noundef %61, i64 noundef %56) #9
+  %64 = trunc i64 %63 to i32
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %find_next_mcelem.exit.us, label %66
 
-65:                                               ; preds = %.lr.ph.i.us
-  %66 = icmp slt i32 %63, 0
-  %67 = add nsw i32 %57, 1
-  %68 = add nsw i32 %57, -1
-  %.119.i.us = select i1 %66, i32 %.01822.i.us, i32 %68
-  %.1.i61.us = select i1 %66, i32 %67, i32 %.01723.i.us
+66:                                               ; preds = %.lr.ph.i.us
+  %67 = icmp slt i32 %64, 0
+  %68 = add nsw i32 %58, 1
+  %69 = add nsw i32 %58, -1
+  %.119.i.us = select i1 %67, i32 %.01822.i.us, i32 %69
+  %.1.i61.us = select i1 %67, i32 %68, i32 %.01723.i.us
   %.not.not.i.us = icmp sgt i32 %.1.i61.us, %.119.i.us
   br i1 %.not.not.i.us, label %find_next_mcelem.exit.us.thread, label %.lr.ph.i.us, !llvm.loop !6
 
 find_next_mcelem.exit.us:                         ; preds = %.lr.ph.i.us
-  br i1 %11, label %69, label %find_next_mcelem.exit.us.thread
+  br i1 %11, label %70, label %find_next_mcelem.exit.us.thread
 
-69:                                               ; preds = %find_next_mcelem.exit.us
-  %70 = sext i32 %57 to i64
-  %71 = getelementptr inbounds float, ptr %2, i64 %70
-  %72 = load float, ptr %71, align 4
-  %73 = fpext float %72 to double
-  %74 = add nsw i32 %57, 1
+70:                                               ; preds = %find_next_mcelem.exit.us
+  %71 = sext i32 %58 to i64
+  %72 = getelementptr inbounds float, ptr %2, i64 %71
+  %73 = load float, ptr %72, align 4
+  %74 = fpext float %73 to double
+  %75 = add nsw i32 %58, 1
   br label %find_next_mcelem.exit.us.thread
 
-find_next_mcelem.exit.us.thread:                  ; preds = %65, %53, %find_next_mcelem.exit.us, %69
-  %.5.us = phi i32 [ %74, %69 ], [ %57, %find_next_mcelem.exit.us ], [ %.073.us, %53 ], [ %.1.i61.us, %65 ]
-  %.053.us = phi double [ %73, %69 ], [ %43, %find_next_mcelem.exit.us ], [ %43, %53 ], [ %43, %65 ]
-  br i1 %34, label %79, label %75
+find_next_mcelem.exit.us.thread:                  ; preds = %66, %54, %find_next_mcelem.exit.us, %70
+  %.5.us = phi i32 [ %75, %70 ], [ %58, %find_next_mcelem.exit.us ], [ %.073.us, %54 ], [ %.1.i61.us, %66 ]
+  %.053.us = phi double [ %74, %70 ], [ %44, %find_next_mcelem.exit.us ], [ %44, %54 ], [ %44, %66 ]
+  br i1 %35, label %80, label %76
 
-75:                                               ; preds = %find_next_mcelem.exit.us.thread
-  %76 = fadd double %.15574.us, %.053.us
-  %77 = fneg double %.15574.us
-  %78 = tail call double @llvm.fmuladd.f64(double %77, double %.053.us, double %76)
-  br label %81
+76:                                               ; preds = %find_next_mcelem.exit.us.thread
+  %77 = fadd double %.15574.us, %.053.us
+  %78 = fneg double %.15574.us
+  %79 = tail call double @llvm.fmuladd.f64(double %78, double %.053.us, double %77)
+  br label %82
 
-79:                                               ; preds = %find_next_mcelem.exit.us.thread
-  %80 = fmul double %.15574.us, %.053.us
-  br label %81
+80:                                               ; preds = %find_next_mcelem.exit.us.thread
+  %81 = fmul double %.15574.us, %.053.us
+  br label %82
 
-81:                                               ; preds = %79, %75
-  %.357.us = phi double [ %80, %79 ], [ %78, %75 ]
-  %82 = fcmp olt double %.357.us, 0.000000e+00
-  br i1 %82, label %86, label %83
+82:                                               ; preds = %80, %76
+  %.357.us = phi double [ %81, %80 ], [ %79, %76 ]
+  %83 = fcmp olt double %.357.us, 0.000000e+00
+  br i1 %83, label %87, label %84
 
-83:                                               ; preds = %81
-  %84 = fcmp ogt double %.357.us, 1.000000e+00
-  br i1 %84, label %85, label %86
+84:                                               ; preds = %82
+  %85 = fcmp ogt double %.357.us, 1.000000e+00
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %83
-  br label %86
+86:                                               ; preds = %84
+  br label %87
 
-86:                                               ; preds = %85, %83, %81, %44
-  %.165.us = phi i32 [ %.073.us, %44 ], [ %.5.us, %81 ], [ %.5.us, %85 ], [ %.5.us, %83 ]
-  %.256.us = phi double [ %.15574.us, %44 ], [ 0.000000e+00, %81 ], [ 1.000000e+00, %85 ], [ %.357.us, %83 ]
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph76.split.us, !llvm.loop !8
+87:                                               ; preds = %86, %84, %82, %45
+  %.165.us = phi i32 [ %.073.us, %45 ], [ %.5.us, %82 ], [ %.5.us, %86 ], [ %.5.us, %84 ]
+  %.256.us = phi double [ %.15574.us, %45 ], [ 0.000000e+00, %82 ], [ 1.000000e+00, %86 ], [ %.357.us, %84 ]
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
+  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph76.split.us, !llvm.loop !8
 
-.lr.ph76.split:                                   ; preds = %.lr.ph76, %127
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %127 ], [ 0, %.lr.ph76 ]
-  %.15574 = phi double [ %.256, %127 ], [ %.054, %.lr.ph76 ]
-  %.073 = phi i32 [ %.165, %127 ], [ 0, %.lr.ph76 ]
-  %.not99 = icmp eq i64 %indvars.iv83, 0
-  br i1 %.not99, label %.preheader, label %87
+.lr.ph76.split:                                   ; preds = %.lr.ph76, %128
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %128 ], [ 0, %.lr.ph76 ]
+  %.15574 = phi double [ %.256, %128 ], [ %.054, %.lr.ph76 ]
+  %.073 = phi i32 [ %.165, %128 ], [ 0, %.lr.ph76 ]
+  %.not100 = icmp eq i64 %indvars.iv84, 0
+  br i1 %.not100, label %.preheader, label %88
 
-87:                                               ; preds = %.lr.ph76.split
-  %88 = getelementptr i64, ptr %4, i64 %indvars.iv83
-  %89 = getelementptr i8, ptr %88, i64 -8
-  %90 = load i64, ptr %89, align 8
-  %91 = load i64, ptr %88, align 8
-  %92 = load i32, ptr %40, align 4
-  %93 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %92, i64 noundef %90, i64 noundef %91) #9
-  %94 = and i64 %93, 4294967295
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %127, label %.preheader
+88:                                               ; preds = %.lr.ph76.split
+  %89 = getelementptr i64, ptr %4, i64 %indvars.iv84
+  %90 = getelementptr i8, ptr %89, i64 -8
+  %91 = load i64, ptr %90, align 8
+  %92 = load i64, ptr %89, align 8
+  %93 = load i32, ptr %41, align 4
+  %94 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %93, i64 noundef %91, i64 noundef %92) #9
+  %95 = and i64 %94, 4294967295
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %128, label %.preheader
 
-.preheader:                                       ; preds = %87, %.lr.ph76.split
-  %96 = icmp slt i32 %.073, %1
-  br i1 %96, label %.lr.ph, label %find_next_mcelem.exit.thread
+.preheader:                                       ; preds = %88, %.lr.ph76.split
+  %97 = icmp slt i32 %.073, %1
+  br i1 %97, label %.lr.ph, label %find_next_mcelem.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %97 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv83
-  %98 = sext i32 %.073 to i64
-  br label %99
+  %98 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv84
+  %99 = sext i32 %.073 to i64
+  br label %100
 
-99:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ %98, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %100 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
-  %101 = load i64, ptr %100, align 8
-  %102 = load i64, ptr %97, align 8
-  %103 = load i32, ptr %40, align 4
-  %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %103, i64 noundef %101, i64 noundef %102) #9
-  %105 = trunc i64 %104 to i32
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %107, label %find_next_mcelem.exit
+100:                                              ; preds = %.lr.ph, %108
+  %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %108 ]
+  %101 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %102 = load i64, ptr %101, align 8
+  %103 = load i64, ptr %98, align 8
+  %104 = load i32, ptr %41, align 4
+  %105 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %104, i64 noundef %102, i64 noundef %103) #9
+  %106 = trunc i64 %105 to i32
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %108, label %find_next_mcelem.exit
 
-107:                                              ; preds = %99
+108:                                              ; preds = %100
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %find_next_mcelem.exit.thread, label %99
+  br i1 %exitcond.not, label %find_next_mcelem.exit.thread, label %100
 
-find_next_mcelem.exit:                            ; preds = %99
-  %108 = trunc nsw i64 %indvars.iv to i32
-  %109 = icmp eq i32 %105, 0
-  %or.cond = and i1 %11, %109
-  br i1 %or.cond, label %110, label %find_next_mcelem.exit.thread
+find_next_mcelem.exit:                            ; preds = %100
+  %109 = trunc nsw i64 %indvars.iv to i32
+  %110 = icmp eq i32 %106, 0
+  %or.cond = and i1 %11, %110
+  br i1 %or.cond, label %111, label %find_next_mcelem.exit.thread
 
-110:                                              ; preds = %find_next_mcelem.exit
+111:                                              ; preds = %find_next_mcelem.exit
   %sext = shl i64 %indvars.iv, 32
-  %111 = ashr exact i64 %sext, 30
-  %112 = getelementptr inbounds i8, ptr %2, i64 %111
-  %113 = load float, ptr %112, align 4
-  %114 = fpext float %113 to double
-  %115 = add i32 %108, 1
+  %112 = ashr exact i64 %sext, 30
+  %113 = getelementptr inbounds i8, ptr %2, i64 %112
+  %114 = load float, ptr %113, align 4
+  %115 = fpext float %114 to double
+  %116 = add i32 %109, 1
   br label %find_next_mcelem.exit.thread
 
-find_next_mcelem.exit.thread:                     ; preds = %107, %.preheader, %find_next_mcelem.exit, %110
-  %.5 = phi i32 [ %115, %110 ], [ %108, %find_next_mcelem.exit ], [ %.073, %.preheader ], [ %1, %107 ]
-  %.053 = phi double [ %114, %110 ], [ %43, %find_next_mcelem.exit ], [ %43, %.preheader ], [ %43, %107 ]
-  br i1 %34, label %116, label %118
+find_next_mcelem.exit.thread:                     ; preds = %108, %.preheader, %find_next_mcelem.exit, %111
+  %.5 = phi i32 [ %116, %111 ], [ %109, %find_next_mcelem.exit ], [ %.073, %.preheader ], [ %1, %108 ]
+  %.053 = phi double [ %115, %111 ], [ %44, %find_next_mcelem.exit ], [ %44, %.preheader ], [ %44, %108 ]
+  br i1 %35, label %117, label %119
 
-116:                                              ; preds = %find_next_mcelem.exit.thread
-  %117 = fmul double %.15574, %.053
-  br label %122
+117:                                              ; preds = %find_next_mcelem.exit.thread
+  %118 = fmul double %.15574, %.053
+  br label %123
 
-118:                                              ; preds = %find_next_mcelem.exit.thread
-  %119 = fadd double %.15574, %.053
-  %120 = fneg double %.15574
-  %121 = tail call double @llvm.fmuladd.f64(double %120, double %.053, double %119)
-  br label %122
+119:                                              ; preds = %find_next_mcelem.exit.thread
+  %120 = fadd double %.15574, %.053
+  %121 = fneg double %.15574
+  %122 = tail call double @llvm.fmuladd.f64(double %121, double %.053, double %120)
+  br label %123
 
-122:                                              ; preds = %116, %118
-  %.357 = phi double [ %117, %116 ], [ %121, %118 ]
-  %123 = fcmp olt double %.357, 0.000000e+00
-  br i1 %123, label %127, label %124
+123:                                              ; preds = %117, %119
+  %.357 = phi double [ %118, %117 ], [ %122, %119 ]
+  %124 = fcmp olt double %.357, 0.000000e+00
+  br i1 %124, label %128, label %125
 
-124:                                              ; preds = %122
-  %125 = fcmp ogt double %.357, 1.000000e+00
-  br i1 %125, label %126, label %127
+125:                                              ; preds = %123
+  %126 = fcmp ogt double %.357, 1.000000e+00
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %124
-  br label %127
+127:                                              ; preds = %125
+  br label %128
 
-127:                                              ; preds = %126, %124, %122, %87
-  %.165 = phi i32 [ %.073, %87 ], [ %.5, %122 ], [ %.5, %126 ], [ %.5, %124 ]
-  %.256 = phi double [ %.15574, %87 ], [ 0.000000e+00, %122 ], [ 1.000000e+00, %126 ], [ %.357, %124 ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count90
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph76.split, !llvm.loop !8
+128:                                              ; preds = %127, %125, %123, %88
+  %.165 = phi i32 [ %.073, %88 ], [ %.5, %123 ], [ %.5, %127 ], [ %.5, %125 ]
+  %.256 = phi double [ %.15574, %88 ], [ 0.000000e+00, %123 ], [ 1.000000e+00, %127 ], [ %.357, %125 ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count91
+  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph76.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %127, %86, %floor_log2.exit
-  %.155.lcssa = phi double [ %.054, %floor_log2.exit ], [ %.256.us, %86 ], [ %.256, %127 ]
+._crit_edge:                                      ; preds = %128, %87, %floor_log2.exit
+  %.155.lcssa = phi double [ %.054, %floor_log2.exit ], [ %.256.us, %87 ], [ %.256, %128 ]
   ret double %.155.lcssa
 }
 

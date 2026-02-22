@@ -4201,87 +4201,86 @@ for.body.lr.ph:                                   ; preds = %if.end12
   %tobool.not.i = icmp eq ptr %4, null
   %stringBuffers_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %5 = load ptr, ptr %stringBuffers_, align 8
-  %.fr = freeze ptr %5
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %.fr33 = freeze ptr %6
-  %cmp.i8.not19 = icmp eq ptr %.fr, %.fr33
-  %wide.trip.count54 = zext nneg i32 %0 to i64
-  br i1 %cmp.i8.not19, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
+  %cmp.i8.not19 = icmp eq ptr %5, %6
+  %cmp.i8.not19.fr = freeze i1 %cmp.i8.not19
+  %wide.trip.count53 = zext nneg i32 %0 to i64
+  br i1 %cmp.i8.not19.fr, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br i1 %tobool.not.i, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc44.us.us
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %for.inc44.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.us.us = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv51
-  %stringView.sroa.0.0.copyload61 = load i32, ptr %arrayidx.us.us, align 8
-  %cmp.i.i.us.us = icmp ult i32 %stringView.sroa.0.0.copyload61, 13
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.inc44.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %arrayidx.us.us = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv50
+  %stringView.sroa.0.0.copyload60 = load i32, ptr %arrayidx.us.us, align 8
+  %cmp.i.i.us.us = icmp ult i32 %stringView.sroa.0.0.copyload60, 13
   br i1 %cmp.i.i.us.us, label %for.inc44.us.us, label %if.then41
 
 for.inc44.us.us:                                  ; preds = %for.body.us.us
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %for.end45, label %for.body.us.us, !llvm.loop !123
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %for.end45, label %for.body.us.us, !llvm.loop !123
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc44.us
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.inc44.us ], [ 0, %for.body.lr.ph.split.us ]
-  %div2.i.i.i.us = lshr i64 %indvars.iv46, 6
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %for.inc44.us ], [ 0, %for.body.lr.ph.split.us ]
+  %div2.i.i.i.us = lshr i64 %indvars.iv45, 6
   %arrayidx.i.i.i.us = getelementptr inbounds nuw i64, ptr %4, i64 %div2.i.i.i.us
   %7 = load i64, ptr %arrayidx.i.i.i.us, align 8
-  %and.i.i.i.us = and i64 %indvars.iv46, 63
+  %and.i.i.i.us = and i64 %indvars.iv45, 63
   %shl.i.i.i.us = shl nuw i64 1, %and.i.i.i.us
   %and2.i.i.i.us = and i64 %7, %shl.i.i.i.us
   %tobool.i.not.i.i.us = icmp eq i64 %and2.i.i.i.us, 0
   br i1 %tobool.i.not.i.i.us, label %for.inc44.us, label %if.end19.us
 
 if.end19.us:                                      ; preds = %for.body.us
-  %arrayidx.us = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv46
-  %stringView.sroa.0.0.copyload59 = load i32, ptr %arrayidx.us, align 8
-  %cmp.i.i.us = icmp ult i32 %stringView.sroa.0.0.copyload59, 13
+  %arrayidx.us = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv45
+  %stringView.sroa.0.0.copyload58 = load i32, ptr %arrayidx.us, align 8
+  %cmp.i.i.us = icmp ult i32 %stringView.sroa.0.0.copyload58, 13
   br i1 %cmp.i.i.us, label %for.inc44.us, label %if.then41
 
 for.inc44.us:                                     ; preds = %if.end19.us, %for.body.us
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count54
-  br i1 %exitcond50.not, label %for.end45, label %for.body.us, !llvm.loop !123
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count53
+  br i1 %exitcond49.not, label %for.end45, label %for.body.us, !llvm.loop !123
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %tobool.not.i, label %for.body.us23, label %for.body
 
 for.body.us23:                                    ; preds = %for.body.lr.ph.split, %for.inc44.us30
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %for.inc44.us30 ], [ 0, %for.body.lr.ph.split ]
-  %arrayidx.us27 = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv41
-  %stringView.sroa.0.0.copyload60 = load i32, ptr %arrayidx.us27, align 8
-  %stringView.sroa.865.0.arrayidx.us27.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.us27, i64 8
-  %stringView.sroa.865.0.copyload67 = load ptr, ptr %stringView.sroa.865.0.arrayidx.us27.sroa_idx, align 8
-  %cmp.i.i.us28 = icmp ult i32 %stringView.sroa.0.0.copyload60, 13
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %for.inc44.us30 ], [ 0, %for.body.lr.ph.split ]
+  %arrayidx.us27 = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv40
+  %stringView.sroa.0.0.copyload59 = load i32, ptr %arrayidx.us27, align 8
+  %stringView.sroa.864.0.arrayidx.us27.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.us27, i64 8
+  %stringView.sroa.864.0.copyload66 = load ptr, ptr %stringView.sroa.864.0.arrayidx.us27.sroa_idx, align 8
+  %cmp.i.i.us28 = icmp ult i32 %stringView.sroa.0.0.copyload59, 13
   br i1 %cmp.i.i.us28, label %for.inc44.us30, label %for.body27.us
 
 for.body27.us:                                    ; preds = %for.body.us23, %for.inc.us
-  %__begin4.sroa.0.020.us = phi ptr [ %incdec.ptr.i.us, %for.inc.us ], [ %.fr, %for.body.us23 ]
+  %__begin4.sroa.0.020.us = phi ptr [ %incdec.ptr.i.us, %for.inc.us ], [ %5, %for.body.us23 ]
   %8 = load ptr, ptr %__begin4.sroa.0.020.us, align 8
   %data_.i9.us = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %data_.i9.us, align 8
-  %cmp32.not.us = icmp ult ptr %stringView.sroa.865.0.copyload67, %9
+  %cmp32.not.us = icmp ult ptr %stringView.sroa.864.0.copyload66, %9
   br i1 %cmp32.not.us, label %for.inc.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %for.body27.us
   %size_.i15.us = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %size_.i15.us, align 8
   %add.ptr.us = getelementptr inbounds i8, ptr %9, i64 %10
-  %cmp36.us = icmp ult ptr %stringView.sroa.865.0.copyload67, %add.ptr.us
+  %cmp36.us = icmp ult ptr %stringView.sroa.864.0.copyload66, %add.ptr.us
   br i1 %cmp36.us, label %for.inc44.us30, label %for.inc.us
 
 for.inc.us:                                       ; preds = %land.lhs.true.us, %for.body27.us
   %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.020.us, i64 8
-  %cmp.i8.not.us = icmp eq ptr %incdec.ptr.i.us, %.fr33
+  %cmp.i8.not.us = icmp eq ptr %incdec.ptr.i.us, %6
   br i1 %cmp.i8.not.us, label %if.then41, label %for.body27.us
 
 for.inc44.us30:                                   ; preds = %land.lhs.true.us, %for.body.us23
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count54
-  br i1 %exitcond45.not, label %for.end45, label %for.body.us23, !llvm.loop !123
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count53
+  br i1 %exitcond44.not, label %for.end45, label %for.body.us23, !llvm.loop !123
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc44
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc44 ], [ 0, %for.body.lr.ph.split ]
@@ -4297,29 +4296,29 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 if.end19:                                         ; preds = %for.body
   %arrayidx = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %3, i64 %indvars.iv
   %stringView.sroa.0.0.copyload = load i32, ptr %arrayidx, align 8
-  %stringView.sroa.865.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %stringView.sroa.865.0.copyload = load ptr, ptr %stringView.sroa.865.0.arrayidx.sroa_idx, align 8
+  %stringView.sroa.864.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+  %stringView.sroa.864.0.copyload = load ptr, ptr %stringView.sroa.864.0.arrayidx.sroa_idx, align 8
   %cmp.i.i = icmp ult i32 %stringView.sroa.0.0.copyload, 13
   br i1 %cmp.i.i, label %for.inc44, label %for.body27
 
 for.body27:                                       ; preds = %if.end19, %for.inc
-  %__begin4.sroa.0.020 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %.fr, %if.end19 ]
+  %__begin4.sroa.0.020 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %5, %if.end19 ]
   %12 = load ptr, ptr %__begin4.sroa.0.020, align 8
   %data_.i9 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %data_.i9, align 8
-  %cmp32.not = icmp ult ptr %stringView.sroa.865.0.copyload, %13
+  %cmp32.not = icmp ult ptr %stringView.sroa.864.0.copyload, %13
   br i1 %cmp32.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body27
   %size_.i15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %size_.i15, align 8
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %14
-  %cmp36 = icmp ult ptr %stringView.sroa.865.0.copyload, %add.ptr
+  %cmp36 = icmp ult ptr %stringView.sroa.864.0.copyload, %add.ptr
   br i1 %cmp36, label %for.inc44, label %for.inc
 
 for.inc:                                          ; preds = %for.body27, %land.lhs.true
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.020, i64 8
-  %cmp.i8.not = icmp eq ptr %incdec.ptr.i, %.fr33
+  %cmp.i8.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i8.not, label %if.then41, label %for.body27
 
 if.then41:                                        ; preds = %for.inc, %for.inc.us, %if.end19.us, %for.body.us.us
@@ -4328,7 +4327,7 @@ if.then41:                                        ; preds = %for.inc, %for.inc.u
 
 for.inc44:                                        ; preds = %land.lhs.true, %if.end19, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count53
   br i1 %exitcond.not, label %for.end45, label %for.body, !llvm.loop !123
 
 for.end45:                                        ; preds = %for.inc44, %for.inc44.us30, %for.inc44.us, %for.inc44.us.us, %if.end12, %entry

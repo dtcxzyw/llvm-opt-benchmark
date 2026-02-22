@@ -1077,19 +1077,19 @@ define hidden i32 @find_among(ptr noundef %0, ptr noundef readonly captures(none
   %11 = sub i32 %7, %5
   br label %.outer
 
-.outer:                                           ; preds = %40, %3
-  %.074.ph = phi i32 [ %35, %40 ], [ %2, %3 ]
-  %.072.ph = phi i32 [ %36, %40 ], [ 0, %3 ]
-  %.070.ph = phi i32 [ %34, %40 ], [ 0, %3 ]
-  %.067.ph = phi i32 [ %spec.select, %40 ], [ 0, %3 ]
-  %.064.ph = phi i32 [ %37, %40 ], [ 0, %3 ]
+.outer:                                           ; preds = %43, %3
+  %.074.ph = phi i32 [ %38, %43 ], [ %2, %3 ]
+  %.072.ph = phi i32 [ %39, %43 ], [ 0, %3 ]
+  %.070.ph = phi i32 [ %37, %43 ], [ 0, %3 ]
+  %.067.ph = phi i32 [ %spec.select, %43 ], [ 0, %3 ]
+  %.064.ph = phi i32 [ %40, %43 ], [ 0, %3 ]
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.thread145, %.outer
-  %.074 = phi i32 [ %.074.ph, %.outer ], [ %35, %.thread145 ]
-  %.072 = phi i32 [ %.072.ph, %.outer ], [ %36, %.thread145 ]
-  %.070 = phi i32 [ %.070.ph, %.outer ], [ %34, %.thread145 ]
-  %.064 = phi i32 [ %.064.ph, %.outer ], [ %37, %.thread145 ]
+  %.074 = phi i32 [ %.074.ph, %.outer ], [ %38, %.thread145 ]
+  %.072 = phi i32 [ %.072.ph, %.outer ], [ %39, %.thread145 ]
+  %.070 = phi i32 [ %.070.ph, %.outer ], [ %37, %.thread145 ]
+  %.064 = phi i32 [ %.064.ph, %.outer ], [ %40, %.thread145 ]
   %12 = sub i32 %.074, %.064
   %13 = ashr i32 %12, 1
   %14 = add i32 %13, %.064
@@ -1104,8 +1104,8 @@ select.unfold:                                    ; preds = %.thread145, %.outer
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph, %31
-  %.06089 = phi i32 [ %15, %.lr.ph ], [ %32, %31 ]
+21:                                               ; preds = %.lr.ph, %34
+  %.06089 = phi i32 [ %15, %.lr.ph ], [ %35, %34 ]
   %22 = add i32 %.06089, %5
   %23 = icmp eq i32 %22, %7
   br i1 %23, label %.thread145, label %24
@@ -1114,81 +1114,83 @@ select.unfold:                                    ; preds = %.thread145, %.outer
   %25 = sext i32 %.06089 to i64
   %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = load i8, ptr %26, align 1
-  %.fr = freeze i8 %27
-  %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %25
-  %30 = load i8, ptr %29, align 1
-  %.fr166 = freeze i8 %30
-  %.not = icmp eq i8 %.fr, %.fr166
-  br i1 %.not, label %31, label %._crit_edge
+  %28 = zext i8 %27 to i32
+  %29 = load ptr, ptr %20, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 %25
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = sub nsw i32 %28, %32
+  %.fr = freeze i32 %33
+  %.not = icmp eq i32 %.fr, 0
+  br i1 %.not, label %34, label %._crit_edge
 
-31:                                               ; preds = %24
-  %32 = add nsw i32 %.06089, 1
-  %exitcond.not = icmp eq i32 %32, %18
+34:                                               ; preds = %24
+  %35 = add nsw i32 %.06089, 1
+  %exitcond.not = icmp eq i32 %35, %18
   br i1 %exitcond.not, label %.thread145, label %21, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %24
-  %33 = icmp ult i8 %.fr, %.fr166
-  br i1 %33, label %.thread152, label %.thread145
+  %36 = icmp slt i32 %.fr, 0
+  br i1 %36, label %.thread152, label %.thread145
 
 .thread152:                                       ; preds = %._crit_edge
   br label %.thread145
 
-.thread145:                                       ; preds = %31, %21, %._crit_edge, %select.unfold, %.thread152
-  %34 = phi i32 [ %.070, %._crit_edge ], [ %.06089, %.thread152 ], [ %.070, %select.unfold ], [ %.070, %31 ], [ %11, %21 ]
-  %35 = phi i32 [ %.074, %._crit_edge ], [ %14, %.thread152 ], [ %.074, %select.unfold ], [ %.074, %31 ], [ %14, %21 ]
-  %36 = phi i32 [ %.06089, %._crit_edge ], [ %.072, %.thread152 ], [ %15, %select.unfold ], [ %18, %31 ], [ %.072, %21 ]
-  %37 = phi i32 [ %14, %._crit_edge ], [ %.064, %.thread152 ], [ %14, %select.unfold ], [ %14, %31 ], [ %.064, %21 ]
-  %38 = sub i32 %35, %37
-  %39 = icmp slt i32 %38, 2
-  br i1 %39, label %40, label %select.unfold
+.thread145:                                       ; preds = %34, %21, %._crit_edge, %select.unfold, %.thread152
+  %37 = phi i32 [ %.070, %._crit_edge ], [ %.06089, %.thread152 ], [ %.070, %select.unfold ], [ %.070, %34 ], [ %11, %21 ]
+  %38 = phi i32 [ %.074, %._crit_edge ], [ %14, %.thread152 ], [ %.074, %select.unfold ], [ %.074, %34 ], [ %14, %21 ]
+  %39 = phi i32 [ %.06089, %._crit_edge ], [ %.072, %.thread152 ], [ %15, %select.unfold ], [ %18, %34 ], [ %.072, %21 ]
+  %40 = phi i32 [ %14, %._crit_edge ], [ %.064, %.thread152 ], [ %14, %select.unfold ], [ %14, %34 ], [ %.064, %21 ]
+  %41 = sub i32 %38, %40
+  %42 = icmp slt i32 %41, 2
+  br i1 %42, label %43, label %select.unfold
 
-40:                                               ; preds = %.thread145
-  %41 = icmp slt i32 %37, 1
-  %42 = icmp ne i32 %35, %37
-  %or.cond.not = and i1 %41, %42
+43:                                               ; preds = %.thread145
+  %44 = icmp slt i32 %40, 1
+  %45 = icmp ne i32 %38, %40
+  %or.cond.not = and i1 %44, %45
   %.not81 = icmp eq i32 %.067.ph, 0
   %spec.select = select i1 %or.cond.not, i32 1, i32 %.067.ph
   %spec.select85 = select i1 %or.cond.not, i1 %.not81, i1 false
   br i1 %spec.select85, label %.outer, label %.preheader
 
-.preheader:                                       ; preds = %40, %.thread
-  %.266 = phi i32 [ %56, %.thread ], [ %37, %40 ]
-  %43 = sext i32 %.266 to i64
-  %44 = getelementptr inbounds %struct.among, ptr %1, i64 %43
-  %45 = load i32, ptr %44, align 8
-  %.not82 = icmp slt i32 %36, %45
-  br i1 %.not82, label %.thread, label %46
+.preheader:                                       ; preds = %43, %.thread
+  %.266 = phi i32 [ %59, %.thread ], [ %40, %43 ]
+  %46 = sext i32 %.266 to i64
+  %47 = getelementptr inbounds %struct.among, ptr %1, i64 %46
+  %48 = load i32, ptr %47, align 8
+  %.not82 = icmp slt i32 %39, %48
+  br i1 %.not82, label %.thread, label %49
 
-46:                                               ; preds = %.preheader
-  %47 = add i32 %45, %5
-  store i32 %47, ptr %4, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.loopexit.sink.split, label %51
+49:                                               ; preds = %.preheader
+  %50 = add i32 %48, %5
+  store i32 %50, ptr %4, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.loopexit.sink.split, label %54
 
-51:                                               ; preds = %46
-  %52 = tail call i32 %49(ptr noundef nonnull %0) #9
-  %53 = load i32, ptr %44, align 8
-  %54 = add i32 %53, %5
-  store i32 %54, ptr %4, align 8
-  %.not83 = icmp eq i32 %52, 0
+54:                                               ; preds = %49
+  %55 = tail call i32 %52(ptr noundef nonnull %0) #9
+  %56 = load i32, ptr %47, align 8
+  %57 = add i32 %56, %5
+  store i32 %57, ptr %4, align 8
+  %.not83 = icmp eq i32 %55, 0
   br i1 %.not83, label %.thread, label %.loopexit.sink.split
 
-.thread:                                          ; preds = %51, %.preheader
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.loopexit, label %.preheader
+.thread:                                          ; preds = %54, %.preheader
+  %58 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %.loopexit, label %.preheader
 
-.loopexit.sink.split:                             ; preds = %51, %46
-  %58 = getelementptr inbounds nuw i8, ptr %44, i64 20
-  %59 = load i32, ptr %58, align 4
+.loopexit.sink.split:                             ; preds = %54, %49
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %62 = load i32, ptr %61, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.sink.split
-  %.2 = phi i32 [ %59, %.loopexit.sink.split ], [ 0, %.thread ]
+  %.2 = phi i32 [ %62, %.loopexit.sink.split ], [ 0, %.thread ]
   ret i32 %.2
 }
 
@@ -1205,19 +1207,19 @@ define hidden i32 @find_among_b(ptr noundef %0, ptr noundef readonly captures(no
   %12 = sub i32 %5, %7
   br label %.outer
 
-.outer:                                           ; preds = %47, %3
-  %.074.ph = phi i32 [ %42, %47 ], [ %2, %3 ]
-  %.072.ph = phi i32 [ %43, %47 ], [ 0, %3 ]
-  %.070.ph = phi i32 [ %41, %47 ], [ 0, %3 ]
-  %.067.ph = phi i32 [ %spec.select, %47 ], [ 0, %3 ]
-  %.064.ph = phi i32 [ %44, %47 ], [ 0, %3 ]
+.outer:                                           ; preds = %50, %3
+  %.074.ph = phi i32 [ %45, %50 ], [ %2, %3 ]
+  %.072.ph = phi i32 [ %46, %50 ], [ 0, %3 ]
+  %.070.ph = phi i32 [ %44, %50 ], [ 0, %3 ]
+  %.067.ph = phi i32 [ %spec.select, %50 ], [ 0, %3 ]
+  %.064.ph = phi i32 [ %47, %50 ], [ 0, %3 ]
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.thread143, %.outer
-  %.074 = phi i32 [ %.074.ph, %.outer ], [ %42, %.thread143 ]
-  %.072 = phi i32 [ %.072.ph, %.outer ], [ %43, %.thread143 ]
-  %.070 = phi i32 [ %.070.ph, %.outer ], [ %41, %.thread143 ]
-  %.064 = phi i32 [ %.064.ph, %.outer ], [ %44, %.thread143 ]
+  %.074 = phi i32 [ %.074.ph, %.outer ], [ %45, %.thread143 ]
+  %.072 = phi i32 [ %.072.ph, %.outer ], [ %46, %.thread143 ]
+  %.070 = phi i32 [ %.070.ph, %.outer ], [ %44, %.thread143 ]
+  %.064 = phi i32 [ %.064.ph, %.outer ], [ %47, %.thread143 ]
   %13 = sub i32 %.074, %.064
   %14 = ashr i32 %13, 1
   %15 = add i32 %14, %.064
@@ -1234,9 +1236,9 @@ select.unfold:                                    ; preds = %.thread143, %.outer
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %24
 
-24:                                               ; preds = %.lr.ph, %36
-  %.06089 = phi i32 [ %21, %.lr.ph ], [ %38, %36 ]
-  %.06188 = phi i32 [ %16, %.lr.ph ], [ %37, %36 ]
+24:                                               ; preds = %.lr.ph, %39
+  %.06089 = phi i32 [ %21, %.lr.ph ], [ %41, %39 ]
+  %.06188 = phi i32 [ %16, %.lr.ph ], [ %40, %39 ]
   %25 = sub i32 %5, %.06188
   %26 = icmp eq i32 %25, %7
   br i1 %26, label %.thread143, label %27
@@ -1246,83 +1248,85 @@ select.unfold:                                    ; preds = %.thread143, %.outer
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %11, i64 %29
   %31 = load i8, ptr %30, align 1
-  %.fr = freeze i8 %31
-  %32 = load ptr, ptr %23, align 8
-  %33 = zext nneg i32 %.06089 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %.fr164 = freeze i8 %35
-  %.not = icmp eq i8 %.fr, %.fr164
-  br i1 %.not, label %36, label %._crit_edge
+  %32 = zext i8 %31 to i32
+  %33 = load ptr, ptr %23, align 8
+  %34 = zext nneg i32 %.06089 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i8 %36 to i32
+  %38 = sub nsw i32 %32, %37
+  %.fr = freeze i32 %38
+  %.not = icmp eq i32 %.fr, 0
+  br i1 %.not, label %39, label %._crit_edge
 
-36:                                               ; preds = %27
-  %37 = add i32 %.06188, 1
-  %38 = add nsw i32 %.06089, -1
-  %39 = icmp sgt i32 %.06089, 0
-  br i1 %39, label %24, label %.thread143, !llvm.loop !17
+39:                                               ; preds = %27
+  %40 = add i32 %.06188, 1
+  %41 = add nsw i32 %.06089, -1
+  %42 = icmp sgt i32 %.06089, 0
+  br i1 %42, label %24, label %.thread143, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %27
-  %40 = icmp ult i8 %.fr, %.fr164
-  br i1 %40, label %.thread150, label %.thread143
+  %43 = icmp slt i32 %.fr, 0
+  br i1 %43, label %.thread150, label %.thread143
 
 .thread150:                                       ; preds = %._crit_edge
   br label %.thread143
 
-.thread143:                                       ; preds = %36, %24, %._crit_edge, %select.unfold, %.thread150
-  %41 = phi i32 [ %.070, %._crit_edge ], [ %.06188, %.thread150 ], [ %.070, %select.unfold ], [ %.070, %36 ], [ %12, %24 ]
-  %42 = phi i32 [ %.074, %._crit_edge ], [ %15, %.thread150 ], [ %.074, %select.unfold ], [ %.074, %36 ], [ %15, %24 ]
-  %43 = phi i32 [ %.06188, %._crit_edge ], [ %.072, %.thread150 ], [ %16, %select.unfold ], [ %19, %36 ], [ %.072, %24 ]
-  %44 = phi i32 [ %15, %._crit_edge ], [ %.064, %.thread150 ], [ %15, %select.unfold ], [ %15, %36 ], [ %.064, %24 ]
-  %45 = sub i32 %42, %44
-  %46 = icmp slt i32 %45, 2
-  br i1 %46, label %47, label %select.unfold
+.thread143:                                       ; preds = %39, %24, %._crit_edge, %select.unfold, %.thread150
+  %44 = phi i32 [ %.070, %._crit_edge ], [ %.06188, %.thread150 ], [ %.070, %select.unfold ], [ %.070, %39 ], [ %12, %24 ]
+  %45 = phi i32 [ %.074, %._crit_edge ], [ %15, %.thread150 ], [ %.074, %select.unfold ], [ %.074, %39 ], [ %15, %24 ]
+  %46 = phi i32 [ %.06188, %._crit_edge ], [ %.072, %.thread150 ], [ %16, %select.unfold ], [ %19, %39 ], [ %.072, %24 ]
+  %47 = phi i32 [ %15, %._crit_edge ], [ %.064, %.thread150 ], [ %15, %select.unfold ], [ %15, %39 ], [ %.064, %24 ]
+  %48 = sub i32 %45, %47
+  %49 = icmp slt i32 %48, 2
+  br i1 %49, label %50, label %select.unfold
 
-47:                                               ; preds = %.thread143
-  %48 = icmp slt i32 %44, 1
-  %49 = icmp ne i32 %42, %44
-  %or.cond.not = and i1 %48, %49
+50:                                               ; preds = %.thread143
+  %51 = icmp slt i32 %47, 1
+  %52 = icmp ne i32 %45, %47
+  %or.cond.not = and i1 %51, %52
   %.not81 = icmp eq i32 %.067.ph, 0
   %spec.select = select i1 %or.cond.not, i32 1, i32 %.067.ph
   %spec.select85 = select i1 %or.cond.not, i1 %.not81, i1 false
   br i1 %spec.select85, label %.outer, label %.preheader
 
-.preheader:                                       ; preds = %47, %.thread
-  %.266 = phi i32 [ %63, %.thread ], [ %44, %47 ]
-  %50 = sext i32 %.266 to i64
-  %51 = getelementptr inbounds %struct.among, ptr %1, i64 %50
-  %52 = load i32, ptr %51, align 8
-  %.not82 = icmp slt i32 %43, %52
-  br i1 %.not82, label %.thread, label %53
+.preheader:                                       ; preds = %50, %.thread
+  %.266 = phi i32 [ %66, %.thread ], [ %47, %50 ]
+  %53 = sext i32 %.266 to i64
+  %54 = getelementptr inbounds %struct.among, ptr %1, i64 %53
+  %55 = load i32, ptr %54, align 8
+  %.not82 = icmp slt i32 %46, %55
+  br i1 %.not82, label %.thread, label %56
 
-53:                                               ; preds = %.preheader
-  %54 = sub i32 %5, %52
-  store i32 %54, ptr %4, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit.sink.split, label %58
+56:                                               ; preds = %.preheader
+  %57 = sub i32 %5, %55
+  store i32 %57, ptr %4, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.loopexit.sink.split, label %61
 
-58:                                               ; preds = %53
-  %59 = tail call i32 %56(ptr noundef nonnull %0) #9
-  %60 = load i32, ptr %51, align 8
-  %61 = sub i32 %5, %60
-  store i32 %61, ptr %4, align 8
-  %.not83 = icmp eq i32 %59, 0
+61:                                               ; preds = %56
+  %62 = tail call i32 %59(ptr noundef nonnull %0) #9
+  %63 = load i32, ptr %54, align 8
+  %64 = sub i32 %5, %63
+  store i32 %64, ptr %4, align 8
+  %.not83 = icmp eq i32 %62, 0
   br i1 %.not83, label %.thread, label %.loopexit.sink.split
 
-.thread:                                          ; preds = %58, %.preheader
-  %62 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %.loopexit, label %.preheader
+.thread:                                          ; preds = %61, %.preheader
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %.loopexit, label %.preheader
 
-.loopexit.sink.split:                             ; preds = %58, %53
-  %65 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %66 = load i32, ptr %65, align 4
+.loopexit.sink.split:                             ; preds = %61, %56
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  %69 = load i32, ptr %68, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.sink.split
-  %.2 = phi i32 [ %66, %.loopexit.sink.split ], [ 0, %.thread ]
+  %.2 = phi i32 [ %69, %.loopexit.sink.split ], [ 0, %.thread ]
   ret i32 %.2
 }
 

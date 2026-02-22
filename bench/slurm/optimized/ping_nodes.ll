@@ -617,10 +617,10 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 446), align 2
-  %.fr = freeze i16 %4
-  %5 = and i16 %.fr, 32767
+  %.fr71 = freeze i16 %4
+  %5 = and i16 %.fr71, 32767
   %6 = zext nneg i16 %5 to i32
-  %.not = icmp sgt i16 %.fr, -1
+  %.not = icmp sgt i16 %.fr71, -1
   br i1 %.not, label %26, label %7
 
 7:                                                ; preds = %0
@@ -636,17 +636,17 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 12:                                               ; preds = %7
   %13 = load i32, ptr @run_health_check.base_node_loc, align 4
   %14 = icmp sgt i32 %13, 0
-  %.pre74 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 444), align 4
+  %.pre75 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 444), align 4
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = tail call double @difftime(i64 noundef %8, i64 noundef %9) #8
-  %17 = uitofp i16 %.pre74 to double
+  %17 = uitofp i16 %.pre75 to double
   %18 = fcmp olt double %16, %17
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %12, %15, %11
-  %20 = phi i16 [ %.pre74, %12 ], [ %.pre74, %15 ], [ %.pre, %11 ]
+  %20 = phi i16 [ %.pre75, %12 ], [ %.pre75, %15 ], [ %.pre, %11 ]
   store i64 %8, ptr @run_health_check.cycle_start_time, align 8
   %21 = load i32, ptr @active_node_record_count, align 4
   %22 = shl nsw i32 %21, 1
@@ -842,24 +842,24 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load i16, ptr %122, align 8
   %124 = icmp eq i32 %116, 2
-  br i1 %124, label %.thread86, label %125
+  br i1 %124, label %.thread87, label %125
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %110, i64 448
   %127 = load ptr, ptr %126, align 8
   %128 = call i32 @select_g_select_nodeinfo_get(ptr noundef %127, i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #7
-  %.pre75 = load i16, ptr %3, align 2
-  %129 = icmp eq i16 %.pre75, 0
-  br i1 %129, label %.thread86, label %138
+  %.pre76 = load i16, ptr %3, align 2
+  %129 = icmp eq i16 %.pre76, 0
+  br i1 %129, label %.thread87, label %138
 
-.thread86:                                        ; preds = %119, %125
+.thread87:                                        ; preds = %119, %125
   br i1 %.not54, label %130, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread86
-  %.pre76 = load i32, ptr %114, align 8
+._crit_edge:                                      ; preds = %.thread87
+  %.pre77 = load i32, ptr %114, align 8
   br label %134
 
-130:                                              ; preds = %.thread86
+130:                                              ; preds = %.thread87
   br i1 %.not55, label %.thread, label %131
 
 131:                                              ; preds = %130
@@ -869,13 +869,13 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   br i1 %.not56, label %134, label %.thread
 
 134:                                              ; preds = %._crit_edge, %131
-  %135 = phi i32 [ %.pre76, %._crit_edge ], [ %132, %131 ]
+  %135 = phi i32 [ %.pre77, %._crit_edge ], [ %132, %131 ]
   %136 = and i32 %135, 15
   %137 = icmp eq i32 %136, 2
   br i1 %137, label %142, label %.thread
 
 138:                                              ; preds = %125
-  %139 = icmp ult i16 %.pre75, %123
+  %139 = icmp ult i16 %.pre76, %123
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %138

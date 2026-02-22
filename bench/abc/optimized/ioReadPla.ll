@@ -1418,12 +1418,12 @@ define void @Io_ReadPlaCubePreprocess(ptr noundef captures(none) %0, i32 noundef
   %6 = tail call i32 @Abc_SopGetCubeNum(ptr noundef %.val47) #17
   %.val = load ptr, ptr %5, align 8, !tbaa !33
   %7 = tail call i32 @Abc_SopGetVarNum(ptr noundef %.val) #17
-  %.fr51 = freeze i32 %7
-  %8 = ashr i32 %.fr51, 5
-  %9 = and i32 %.fr51, 31
+  %8 = ashr i32 %7, 5
+  %9 = and i32 %7, 31
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
   %12 = add nsw i32 %8, %11
+  %.fr51 = freeze i32 %12
   %13 = ashr i32 %6, 5
   %14 = and i32 %6, 31
   %15 = icmp ne i32 %14, 0
@@ -1453,17 +1453,17 @@ Vec_BitStart.exit:                                ; preds = %3, %20
   br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %Vec_BitStart.exit
-  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %1, i32 noundef %.fr51, i32 noundef 0, i32 noundef %6)
+  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %1, i32 noundef %7, i32 noundef 0, i32 noundef %6)
   br label %29
 
 29:                                               ; preds = %Vec_BitStart.exit, %27
-  %30 = icmp sgt i32 %12, 0
-  %wide.trip.count.i.i = zext nneg i32 %12 to i64
+  %30 = icmp sgt i32 %.fr51, 0
+  %wide.trip.count.i.i = zext nneg i32 %.fr51 to i64
   br i1 %30, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %29, %Io_ReadPlaRemoveMarked.exit.us
   %.1.us = phi i32 [ %.0.lcssa.i.us, %Io_ReadPlaRemoveMarked.exit.us ], [ %6, %29 ]
-  tail call void @Io_ReadPlaMarkContained(ptr noundef %4, i32 noundef %.1.us, i32 noundef %12, ptr noundef nonnull %18)
+  tail call void @Io_ReadPlaMarkContained(ptr noundef %4, i32 noundef %.1.us, i32 noundef %.fr51, ptr noundef nonnull %18)
   %31 = icmp sgt i32 %.1.us, 0
   br i1 %31, label %.lr.ph.i.us, label %Io_ReadPlaRemoveMarked.exit.us
 
@@ -1525,13 +1525,13 @@ Abc_TtCopy.exit.us.i.us:                          ; preds = %52, %Abc_TtCopy.exi
 
 Io_ReadPlaRemoveMarked.exit.us:                   ; preds = %Abc_TtCopy.exit.us.i.us, %.split.us
   %.0.lcssa.i.us = phi i32 [ 0, %.split.us ], [ %.1.us.i.us, %Abc_TtCopy.exit.us.i.us ]
-  %54 = tail call i32 @Io_ReadPlaMergeDistance1(ptr noundef %4, i32 noundef %.0.lcssa.i.us, i32 noundef %12, ptr noundef nonnull %18)
+  %54 = tail call i32 @Io_ReadPlaMergeDistance1(ptr noundef %4, i32 noundef %.0.lcssa.i.us, i32 noundef %.fr51, ptr noundef nonnull %18)
   %.not44.us = icmp eq i32 %54, 0
   br i1 %.not44.us, label %.split50.us, label %.split.us, !llvm.loop !45
 
 .split:                                           ; preds = %29, %Io_ReadPlaRemoveMarked.exit
   %.1 = phi i32 [ %.0.lcssa.i, %Io_ReadPlaRemoveMarked.exit ], [ %6, %29 ]
-  tail call void @Io_ReadPlaMarkContained(ptr noundef %4, i32 noundef %.1, i32 noundef %12, ptr noundef nonnull %18)
+  tail call void @Io_ReadPlaMarkContained(ptr noundef %4, i32 noundef %.1, i32 noundef %.fr51, ptr noundef nonnull %18)
   %55 = icmp sgt i32 %.1, 0
   br i1 %55, label %.lr.ph.i, label %Io_ReadPlaRemoveMarked.exit
 
@@ -1557,7 +1557,7 @@ Io_ReadPlaRemoveMarked.exit.us:                   ; preds = %Abc_TtCopy.exit.us.
 
 Io_ReadPlaRemoveMarked.exit:                      ; preds = %.lr.ph.split.i, %.split
   %.0.lcssa.i = phi i32 [ 0, %.split ], [ %.1.i, %.lr.ph.split.i ]
-  %65 = tail call i32 @Io_ReadPlaMergeDistance1(ptr noundef %4, i32 noundef %.0.lcssa.i, i32 noundef %12, ptr noundef nonnull %18)
+  %65 = tail call i32 @Io_ReadPlaMergeDistance1(ptr noundef %4, i32 noundef %.0.lcssa.i, i32 noundef %.fr51, ptr noundef nonnull %18)
   %.not44 = icmp eq i32 %65, 0
   br i1 %.not44, label %.split50.us, label %.split, !llvm.loop !45
 
@@ -1568,12 +1568,12 @@ Io_ReadPlaRemoveMarked.exit:                      ; preds = %.lr.ph.split.i, %.s
 .critedge:                                        ; preds = %.split50.us
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 1, i32 noundef %.us-phi)
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 0)
-  tail call void @Io_ReadPlaCubeSetdown(ptr noundef %0, ptr noundef %4, i32 noundef %.us-phi, i32 noundef %.fr51)
+  tail call void @Io_ReadPlaCubeSetdown(ptr noundef %0, ptr noundef %4, i32 noundef %.us-phi, i32 noundef %7)
   %putchar = tail call i32 @putchar(i32 10)
   br label %68
 
 .critedge46:                                      ; preds = %.split50.us
-  tail call void @Io_ReadPlaCubeSetdown(ptr noundef %0, ptr noundef %4, i32 noundef %.us-phi, i32 noundef %.fr51)
+  tail call void @Io_ReadPlaCubeSetdown(ptr noundef %0, ptr noundef %4, i32 noundef %.us-phi, i32 noundef %7)
   br label %68
 
 68:                                               ; preds = %.critedge46, %.critedge

@@ -957,11 +957,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store ptr %80, ptr %81, align 8
   %.pre = load i64, ptr %34, align 8
-  %.pre38 = load i64, ptr %36, align 8
+  %.pre36 = load i64, ptr %36, align 8
   br label %82
 
 82:                                               ; preds = %78, %66
-  %83 = phi i64 [ %.pre38, %78 ], [ %60, %66 ]
+  %83 = phi i64 [ %.pre36, %78 ], [ %60, %66 ]
   %84 = phi i64 [ %.pre, %78 ], [ %35, %66 ]
   %85 = icmp ult i64 %84, %83
   br i1 %85, label %86, label %.thread24
@@ -1092,21 +1092,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
 
 155:                                              ; preds = %152
   %156 = load i64, ptr %96, align 8
-  %.fr = freeze i64 %156
-  %157 = getelementptr %struct.page_region, ptr %153, i64 %.fr
+  %157 = getelementptr %struct.page_region, ptr %153, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load i64, ptr %158, align 8
   %160 = load i64, ptr %157, align 8
-  %.fr34 = freeze i64 %159
-  %.fr35 = freeze i64 %160
-  %161 = icmp ne i64 %.fr34, %.fr35
+  %161 = icmp ne i64 %159, %160
   %162 = zext i1 %161 to i64
-  %163 = add i64 %.fr, %162
-  %164 = icmp eq i64 %163, 0
+  %163 = add i64 %156, %162
+  %.fr = freeze i64 %163
+  %164 = icmp eq i64 %.fr, 0
   br i1 %164, label %.thread17, label %165
 
 165:                                              ; preds = %155
-  %166 = mul i64 %163, 24
+  %166 = mul i64 %.fr, 24
   %167 = icmp ugt i64 %166, 2147483647
   br i1 %167, label %168, label %169, !prof !15
 
@@ -1124,10 +1122,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
 
 173:                                              ; preds = %169
   %174 = load i64, ptr %48, align 8
-  %175 = sub i64 %174, %163
+  %175 = sub i64 %174, %.fr
   store i64 %175, ptr %48, align 8
   %176 = load ptr, ptr %97, align 8
-  %177 = getelementptr %struct.page_region, ptr %176, i64 %163
+  %177 = getelementptr %struct.page_region, ptr %176, i64 %.fr
   store ptr %177, ptr %97, align 8
   store i64 0, ptr %96, align 8
   %178 = load i64, ptr %98, align 8
@@ -1138,9 +1136,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
   store i64 0, ptr %181, align 8
   %182 = load ptr, ptr %95, align 8
   store i64 0, ptr %182, align 8
-  %183 = icmp slt i64 %163, 0
-  %184 = trunc i64 %163 to i32
-  %185 = call i64 @llvm.smax.i64(i64 %163, i64 0)
+  %183 = icmp slt i64 %.fr, 0
+  %184 = trunc i64 %.fr to i32
+  %185 = call i64 @llvm.smax.i64(i64 %.fr, i64 0)
   %186 = add i64 %185, %101
   %spec.select = select i1 %183, i32 %184, i32 %134
   br label %.thread17

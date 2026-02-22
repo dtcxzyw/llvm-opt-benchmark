@@ -3303,20 +3303,20 @@ define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone capt
 
 .lr.ph56.i:                                       ; preds = %.lr.ph56.i, %.lr.ph56.preheader.i
   %indvars.iv68.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph56.i ]
-  %.038.fr55.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %.139.i, %.lr.ph56.i ]
+  %.038.fr55.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %.038.fr.i, %.lr.ph56.i ]
   %26 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv68.i
   %27 = load i64, ptr %26, align 8, !tbaa !76
-  %.fr.i = freeze i64 %27
   %28 = add i64 %.038.fr55.i, -1
-  %29 = add i64 %.fr.i, -1
+  %29 = add i64 %27, -1
   %.not49.i = icmp ult i64 %29, %28
-  %.139.i = select i1 %.not49.i, i64 %.fr.i, i64 %.038.fr55.i
+  %.139.i = select i1 %.not49.i, i64 %27, i64 %.038.fr55.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %.038.fr.i = freeze i64 %.139.i
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count71.i
   br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph56.i, !llvm.loop !126
 
 ._crit_edge.i:                                    ; preds = %.lr.ph56.i
-  %.not44.i = icmp eq i64 %.139.i, 0
+  %.not44.i = icmp eq i64 %.038.fr.i, 0
   br i1 %.not44.i, label %hwloc__distances_transform_links.exit, label %.lr.ph59.i
 
 30:                                               ; preds = %.lr.ph59.i
@@ -3328,7 +3328,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone capt
   %indvars.iv73.i = phi i64 [ %indvars.iv.next74.i, %30 ], [ 0, %._crit_edge.i ]
   %31 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv73.i
   %32 = load i64, ptr %31, align 8, !tbaa !76
-  %33 = urem i64 %32, %.139.i
+  %33 = urem i64 %32, %.038.fr.i
   %.not45.i = icmp eq i64 %33, 0
   br i1 %.not45.i, label %30, label %.loopexit.sink.split.i
 
@@ -3336,7 +3336,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone capt
   %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %.lr.ph61.i ], [ 0, %30 ]
   %34 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv78.i
   %35 = load i64, ptr %34, align 8, !tbaa !76
-  %36 = udiv i64 %35, %.139.i
+  %36 = udiv i64 %35, %.038.fr.i
   store i64 %36, ptr %34, align 8, !tbaa !76
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count71.i

@@ -894,8 +894,8 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   %49 = getelementptr inbounds nuw i8, ptr %23, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = shl nuw i64 1, %40
-  %.fr = freeze i64 %51
-  %52 = and i64 %.fr, 15823
+  %.fr58 = freeze i64 %51
+  %52 = and i64 %.fr58, 15823
   %.not = icmp eq i64 %52, 0
   br i1 %.not, label %61, label %53
 
@@ -1162,7 +1162,7 @@ select.unfold37:                                  ; preds = %164
 190:                                              ; preds = %184
   %191 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %193 = and i64 %.fr, 16333
+  %193 = and i64 %.fr58, 16333
   %.not41 = icmp eq i64 %193, 0
   br i1 %.not41, label %.split.us, label %.split
 
@@ -1252,7 +1252,7 @@ select.unfold37:                                  ; preds = %164
 .loopexit:                                        ; preds = %244, %225, %184
   %250 = phi i64 [ 0, %184 ], [ %222, %225 ], [ 0, %244 ]
   %251 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  %252 = and i64 %.fr, 16333
+  %252 = and i64 %.fr58, 16333
   %.not42 = icmp eq i64 %252, 0
   br i1 %.not42, label %253, label %264
 

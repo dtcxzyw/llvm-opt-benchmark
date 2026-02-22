@@ -899,8 +899,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !20
-  %.fr192 = freeze i32 %42
-  %43 = and i32 %.fr192, 2
+  %.fr = freeze i32 %42
+  %43 = and i32 %.fr, 2
   %44 = icmp ne i32 %43, 0
   %.not124 = icmp eq i8 %2, 0
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1459,8 +1459,8 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !20
-  %.fr203 = freeze i32 %42
-  %43 = and i32 %.fr203, 2
+  %.fr = freeze i32 %42
+  %43 = and i32 %.fr, 2
   %44 = icmp ne i32 %43, 0
   %.not140 = icmp eq i8 %3, 0
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2851,8 +2851,8 @@ _ZN6icu_7713UnicodeString13readOnlyAliasIA5_DsvEES0_RKT_.exit: ; preds = %_ZNSt1
   %.promoted = phi i32 [ %177, %176 ], [ %175, %168 ]
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %179 = load i32, ptr %178, align 8, !tbaa !20
-  %.fr = freeze i32 %179
-  %180 = and i32 %.fr, 2
+  %.fr410 = freeze i32 %179
+  %180 = and i32 %.fr410, 2
   %.not251 = icmp eq i32 %180, 0
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %.not251, label %.split.us, label %.split
@@ -3037,14 +3037,14 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit283:   ; preds = %245, %242, %247
 
 267:                                              ; preds = %262
   invoke void @_ZNK6icu_775UTS4614checkLabelBiDiEPKDsiRNS_8IDNAInfoE(ptr nonnull align 8 poison, ptr noundef %.4217, i32 noundef %.4199, ptr noundef nonnull align 4 dereferenceable(11) %5)
-          to label %._crit_edge412 unwind label %253
+          to label %._crit_edge413 unwind label %253
 
-._crit_edge412:                                   ; preds = %267
+._crit_edge413:                                   ; preds = %267
   %.pre = load i32, ptr %178, align 8, !tbaa !20
   br label %268
 
-268:                                              ; preds = %._crit_edge412, %262, %259
-  %269 = phi i32 [ %.pre, %._crit_edge412 ], [ %260, %262 ], [ %260, %259 ]
+268:                                              ; preds = %._crit_edge413, %262, %259
+  %269 = phi i32 [ %.pre, %._crit_edge413 ], [ %260, %262 ], [ %260, %259 ]
   %270 = and i32 %269, 8
   %.not257 = icmp ne i32 %270, 0
   %271 = and i16 %.us-phi, 8204
@@ -3547,8 +3547,8 @@ define noundef i32 @_ZNK6icu_775UTS4615markBadACELabelERNS_13UnicodeStringEiiaRN
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !20
-  %.fr = freeze i32 %13
-  %14 = and i32 %.fr, 2
+  %.fr50 = freeze i32 %13
+  %14 = and i32 %.fr50, 2
   %.not41 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i16, ptr %15, align 8, !tbaa !17

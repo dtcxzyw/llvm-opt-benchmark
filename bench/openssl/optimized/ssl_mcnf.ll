@@ -115,7 +115,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
-  %.149.fr68 = phi i32 [ %spec.select64, %.lr.ph ], [ 0, %36 ]
+  %.14968 = phi i32 [ %spec.select64, %.lr.ph ], [ 0, %36 ]
   %.05167 = phi i64 [ %53, %.lr.ph ], [ 0, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -123,10 +123,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   %48 = load ptr, ptr %8, align 8, !tbaa !3
   %49 = load ptr, ptr %9, align 8, !tbaa !3
   %50 = call i32 @SSL_CONF_cmd(ptr noundef nonnull %25, ptr noundef %48, ptr noundef %49) #4
-  %.fr70 = freeze i32 %50
-  %51 = icmp slt i32 %.fr70, 1
+  %51 = icmp slt i32 %50, 1
   %52 = zext i1 %51 to i32
-  %spec.select64 = add i32 %.149.fr68, %52
+  %spec.select64 = add nuw nsw i32 %.14968, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %53 = add nuw i64 %.05167, 1
@@ -135,13 +134,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
-  %.149.fr.lcssa = phi i32 [ 0, %36 ], [ %spec.select64, %.lr.ph ]
+  %.149.lcssa = phi i32 [ 0, %36 ], [ %spec.select64, %.lr.ph ]
   %56 = call i32 @SSL_CONF_CTX_finish(ptr noundef nonnull %25) #4
-  %.fr = freeze i32 %56
-  %.not61 = icmp eq i32 %.fr, 0
+  %.not61 = icmp eq i32 %56, 0
   %57 = zext i1 %.not61 to i32
-  %58 = or i32 %.149.fr.lcssa, %57
-  %59 = icmp eq i32 %58, 0
+  %58 = or i32 %.149.lcssa, %57
+  %.fr = freeze i32 %58
+  %59 = icmp eq i32 %.fr, 0
   br label %60
 
 60:                                               ; preds = %._crit_edge, %22, %20, %21, %12

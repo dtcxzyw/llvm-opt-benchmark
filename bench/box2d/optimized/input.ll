@@ -2819,13 +2819,13 @@ define range(i32 0, 2) i32 @glfwUpdateGamepadMappings(ptr noundef readonly captu
 8:                                                ; preds = %.lr.ph, %42
   %9 = phi i8 [ %5, %.lr.ph ], [ %43, %42 ]
   %.02849 = phi ptr [ %0, %.lr.ph ], [ %.1, %42 ]
-  %.fr = freeze i8 %9
-  %10 = add i8 %.fr, -48
+  %.fr51 = freeze i8 %9
+  %10 = add i8 %.fr51, -48
   %or.cond = icmp ult i8 %10, 10
   br i1 %or.cond, label %11, label %switch.early.test
 
 switch.early.test:                                ; preds = %8
-  switch i8 %.fr, label %37 [
+  switch i8 %.fr51, label %37 [
     i8 102, label %11
     i8 101, label %11
     i8 100, label %11

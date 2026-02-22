@@ -7322,8 +7322,8 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   %12 = sext i8 %8 to i64
   %13 = getelementptr inbounds i16, ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
-  %.fr54 = freeze i16 %14
-  %15 = and i16 %.fr54, 1024
+  %.fr56 = freeze i16 %14
+  %15 = and i16 %.fr56, 1024
   %16 = icmp ne i16 %15, 0
   br label %17
 
@@ -7339,19 +7339,19 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   %23 = sext i8 %8 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
-  %.fr53 = freeze i16 %25
-  %26 = and i16 %.fr53, 1024
-  %.not76 = icmp eq i16 %26, 0
-  br i1 %.not76, label %.split.us, label %.split.preheader
+  %.fr54 = freeze i16 %25
+  %26 = and i16 %.fr54, 1024
+  %.not78 = icmp eq i16 %26, 0
+  br i1 %.not78, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %17, %20
   %27 = load ptr, ptr %0, align 8
-  %.not82 = icmp eq ptr %27, null
+  %.not84 = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i32, ptr %28, align 8
-  %.not4383 = icmp eq i32 %29, 0
-  %or.cond7584 = select i1 %.not82, i1 %.not4383, i1 false
-  br i1 %or.cond7584, label %.split51.us, label %.critedge.preheader
+  %.not4385 = icmp eq i32 %29, 0
+  %or.cond7786 = select i1 %.not84, i1 %.not4385, i1 false
+  br i1 %or.cond7786, label %.split51.us, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.split.preheader
   %30 = tail call ptr @__ctype_b_loc() #25
@@ -7362,12 +7362,12 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 .split.us.split.preheader:                        ; preds = %.split.us
   %31 = load ptr, ptr %0, align 8
-  %.not.us78 = icmp eq ptr %31, null
+  %.not.us80 = icmp eq ptr %31, null
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8
-  %.not43.us79 = icmp eq i32 %33, 0
-  %or.cond7480 = select i1 %.not.us78, i1 %.not43.us79, i1 false
-  br i1 %or.cond7480, label %.split51.us, label %.critedge.us.preheader
+  %.not43.us81 = icmp eq i32 %33, 0
+  %or.cond7682 = select i1 %.not.us80, i1 %.not43.us81, i1 false
+  br i1 %or.cond7682, label %.split51.us, label %.critedge.us.preheader
 
 .critedge.us.preheader:                           ; preds = %.split.us.split.preheader
   %34 = tail call ptr @__ctype_b_loc() #25
@@ -7375,14 +7375,14 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.split.us.split
   %35 = phi i32 [ %51, %.split.us.split ], [ %33, %.critedge.us.preheader ]
-  %indvars.iv81 = phi i64 [ %indvars.iv.next, %.split.us.split ], [ 0, %.critedge.us.preheader ]
+  %indvars.iv83 = phi i64 [ %indvars.iv.next, %.split.us.split ], [ 0, %.critedge.us.preheader ]
   %36 = load ptr, ptr %34, align 8
   %37 = sext i32 %35 to i64
   %38 = getelementptr inbounds i16, ptr %36, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 1024
-  %.not55 = icmp eq i16 %40, 0
-  br i1 %.not55, label %.split.us.split, label %41
+  %.not57 = icmp eq i16 %40, 0
+  br i1 %.not57, label %.split.us.split, label %41
 
 41:                                               ; preds = %.critedge.us
   %sext.us = shl i32 %35, 24
@@ -7403,21 +7403,21 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br label %.split.us.split
 
 .split.us.split:                                  ; preds = %47, %.critedge.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv83, 1
   %48 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next
   %49 = load ptr, ptr %48, align 8
   %.not.us = icmp eq ptr %49, null
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %51 = load i32, ptr %50, align 8
   %.not43.us = icmp eq i32 %51, 0
-  %or.cond74 = select i1 %.not.us, i1 %.not43.us, i1 false
-  br i1 %or.cond74, label %.split51.us, label %.critedge.us, !llvm.loop !24
+  %or.cond76 = select i1 %.not.us, i1 %.not43.us, i1 false
+  br i1 %or.cond76, label %.split51.us, label %.critedge.us, !llvm.loop !24
 
 .critedge:                                        ; preds = %.critedge.preheader, %.split
   %52 = phi i32 [ %88, %.split ], [ %29, %.critedge.preheader ]
   %53 = phi ptr [ %86, %.split ], [ %27, %.critedge.preheader ]
-  %indvars.iv6185 = phi i64 [ %indvars.iv.next62, %.split ], [ 0, %.critedge.preheader ]
-  %54 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv6185
+  %indvars.iv6387 = phi i64 [ %indvars.iv.next64, %.split ], [ 0, %.critedge.preheader ]
+  %54 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv6387
   %55 = load ptr, ptr %30, align 8
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds i16, ptr %55, i64 %56
@@ -7443,13 +7443,13 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 67:                                               ; preds = %65, %61
   call void @slurm_xfree(ptr noundef nonnull %4) #21
-  %.pre66 = load ptr, ptr %54, align 8
+  %.pre68 = load ptr, ptr %54, align 8
   br label %68
 
 68:                                               ; preds = %67, %.critedge
-  %69 = phi ptr [ %.pre66, %67 ], [ %53, %.critedge ]
-  %.not56 = icmp eq ptr %69, null
-  br i1 %.not56, label %.split, label %70
+  %69 = phi ptr [ %.pre68, %67 ], [ %53, %.critedge ]
+  %.not58 = icmp eq ptr %69, null
+  br i1 %.not58, label %.split, label %70
 
 70:                                               ; preds = %68
   %71 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.44, ptr noundef nonnull %69) #21
@@ -7492,15 +7492,15 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br label %.split
 
 .split:                                           ; preds = %.sink.split, %68
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv6185, 1
-  %85 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next62
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv6387, 1
+  %85 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next64
   %86 = load ptr, ptr %85, align 8
   %.not = icmp eq ptr %86, null
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %88 = load i32, ptr %87, align 8
   %.not43 = icmp eq i32 %88, 0
-  %or.cond75 = select i1 %.not, i1 %.not43, i1 false
-  br i1 %or.cond75, label %.split51.us, label %.critedge, !llvm.loop !24
+  %or.cond77 = select i1 %.not, i1 %.not43, i1 false
+  br i1 %or.cond77, label %.split51.us, label %.critedge, !llvm.loop !24
 
 .split51.us:                                      ; preds = %.split.us.split, %.split, %.split.us.split.preheader, %.split.preheader, %.split.us
   %89 = load ptr, ptr %3, align 8

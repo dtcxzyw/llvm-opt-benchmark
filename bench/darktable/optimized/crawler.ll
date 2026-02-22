@@ -1488,9 +1488,9 @@ _lighttable_silent.exit:                          ; preds = %101
   %143 = call i32 @sqlite3_step(ptr noundef %142) #14
   %144 = icmp ne i32 %143, 100
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3404), align 4
-  %.not.i36.i = icmp eq i32 %145, 0
-  %or.cond37.i = select i1 %144, i1 true, i1 %.not.i36.i
-  br i1 %or.cond37.i, label %.critedge.thread.i, label %.lr.ph.i
+  %.not.i37.i = icmp eq i32 %145, 0
+  %or.cond38.i = select i1 %144, i1 true, i1 %.not.i37.i
+  br i1 %or.cond38.i, label %.critedge.thread.i, label %.lr.ph.i
 
 .critedge.thread.i:                               ; preds = %141
   %146 = load ptr, ptr %6, align 8, !tbaa !51
@@ -1498,8 +1498,8 @@ _lighttable_silent.exit:                          ; preds = %101
   br label %_update_all_thumbs.exit
 
 .lr.ph.i:                                         ; preds = %141, %235
-  %.039.i = phi i32 [ %.1.i, %235 ], [ 0, %141 ]
-  %.01638.i = phi i32 [ %.117.i, %235 ], [ 0, %141 ]
+  %.040.i = phi i32 [ %.1.i, %235 ], [ 0, %141 ]
+  %.01639.i = phi i32 [ %.117.i, %235 ], [ 0, %141 ]
   %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !93
   %.not.i.i.i = icmp eq ptr %148, null
   br i1 %.not.i.i.i, label %.critedge.i, label %149
@@ -1648,11 +1648,11 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   call void @dt_mimap_cache_evict(ptr noundef %228, i32 noundef %172) #14
   call void @dt_history_hash_set_mipmap(i32 noundef %172) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %229 = add nsw i32 %.01638.i, 1
+  %229 = add nsw i32 %.01639.i, 1
   br label %235
 
 230:                                              ; preds = %170
-  %231 = add nsw i32 %.039.i, 1
+  %231 = add nsw i32 %.040.i, 1
   %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %233 = and i32 %232, 1
   %.not25.i = icmp eq i32 %233, 0
@@ -1663,8 +1663,8 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br label %235
 
 235:                                              ; preds = %234, %230, %_update_img_thumbs.exit.i
-  %.117.i = phi i32 [ %229, %_update_img_thumbs.exit.i ], [ %.01638.i, %230 ], [ %.01638.i, %234 ]
-  %.1.i = phi i32 [ %.039.i, %_update_img_thumbs.exit.i ], [ %231, %230 ], [ %231, %234 ]
+  %.117.i = phi i32 [ %229, %_update_img_thumbs.exit.i ], [ %.01639.i, %230 ], [ %.01639.i, %234 ]
+  %.1.i = phi i32 [ %.040.i, %_update_img_thumbs.exit.i ], [ %231, %230 ], [ %231, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %236 = load ptr, ptr %6, align 8, !tbaa !51
   %237 = call i32 @sqlite3_step(ptr noundef %236) #14
@@ -1675,8 +1675,8 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %235, %_still_thumbing.exit.i, %_lighttable_silent.exit.i.i, %154, %151, %149, %.lr.ph.i
-  %.016.lcssa.i = phi i32 [ %.01638.i, %.lr.ph.i ], [ %.01638.i, %_still_thumbing.exit.i ], [ %.117.i, %235 ], [ %.01638.i, %_lighttable_silent.exit.i.i ], [ %.01638.i, %154 ], [ %.01638.i, %151 ], [ %.01638.i, %149 ]
-  %.0.lcssa.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.039.i, %_still_thumbing.exit.i ], [ %.1.i, %235 ], [ %.039.i, %_lighttable_silent.exit.i.i ], [ %.039.i, %154 ], [ %.039.i, %151 ], [ %.039.i, %149 ]
+  %.016.lcssa.i = phi i32 [ %.01639.i, %.lr.ph.i ], [ %.01639.i, %_still_thumbing.exit.i ], [ %.117.i, %235 ], [ %.01639.i, %_lighttable_silent.exit.i.i ], [ %.01639.i, %154 ], [ %.01639.i, %151 ], [ %.01639.i, %149 ]
+  %.0.lcssa.i = phi i32 [ %.040.i, %.lr.ph.i ], [ %.040.i, %_still_thumbing.exit.i ], [ %.1.i, %235 ], [ %.040.i, %_lighttable_silent.exit.i.i ], [ %.040.i, %154 ], [ %.040.i, %151 ], [ %.040.i, %149 ]
   %240 = load ptr, ptr %6, align 8, !tbaa !51
   %241 = call i32 @sqlite3_finalize(ptr noundef %240) #14
   %.not21.i = icmp eq i32 %.016.lcssa.i, 0
@@ -1731,8 +1731,8 @@ _lighttable_silent.exit.i31.i:                    ; preds = %254
 
 _still_thumbing.exit32.i:                         ; preds = %_lighttable_silent.exit.i31.i
   %267 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3412), align 4, !tbaa !101
-  %.fr.i = freeze i32 %267
-  %268 = add i32 %.fr.i, -8
+  %.fr36.i = freeze i32 %267
+  %268 = add i32 %.fr36.i, -8
   %269 = icmp ult i32 %268, -7
   br i1 %269, label %_still_thumbing.exit32.thread.i, label %270
 
@@ -1745,9 +1745,9 @@ _still_thumbing.exit32.thread.i:                  ; preds = %_still_thumbing.exi
   br label %_update_all_thumbs.exit
 
 _update_all_thumbs.exit:                          ; preds = %.critedge.thread.i, %.critedge.i, %242, %270
-  %.016.lcssa66.i = phi i32 [ 0, %.critedge.thread.i ], [ %.016.lcssa.i, %242 ], [ %.016.lcssa.i, %270 ], [ 0, %.critedge.i ]
+  %.016.lcssa67.i = phi i32 [ 0, %.critedge.thread.i ], [ %.016.lcssa.i, %242 ], [ %.016.lcssa.i, %270 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %272 = add nsw i32 %.016.lcssa66.i, %.02860
+  %272 = add nsw i32 %.016.lcssa67.i, %.02860
   br label %_lighttable_silent.exit.thread
 
 _lighttable_silent.exit.thread:                   ; preds = %94, %96, %98, %101, %_update_all_thumbs.exit, %114, %_lighttable_silent.exit

@@ -8596,8 +8596,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119_addExtensionToLis
 
 .preheader.split.us:                              ; preds = %.preheader
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
-  %.fr80 = freeze i64 %7
-  %8 = and i64 %.fr80, 4294967295
+  %.fr = freeze i64 %7
+  %8 = and i64 %.fr, 4294967295
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %.preheader.split.us.split.us.preheader, label %.preheader.split.us.split
 

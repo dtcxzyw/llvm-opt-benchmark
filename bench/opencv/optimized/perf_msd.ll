@@ -2255,8 +2255,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56
-  %.060 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56 ], [ %1, %4 ]
-  %8 = shl i64 %.060, 1
+  %.059 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56 ], [ %1, %4 ]
+  %8 = shl i64 %.059, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -2311,10 +2311,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit: ; preds = %42
   %44 = load float, ptr %10, align 4, !tbaa !123
   %45 = load float, ptr %12, align 4, !tbaa !123
-  %.fr = freeze float %44
-  %.fr59 = freeze float %45
-  %46 = fcmp olt float %.fr, %.fr59
-  br i1 %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56
+  %46 = fcmp olt float %44, %45
+  %cond.fr = freeze i1 %46
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread: ; preds = %42, %28, %20, %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56
@@ -2322,7 +2321,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56: ; preds = %26, %34, %18, %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread
   %47 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit ], [ %9, %36 ], [ %9, %18 ], [ %9, %34 ], [ %9, %26 ]
   %48 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %47
-  %49 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.060
+  %49 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.059
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %49, ptr noundef nonnull align 4 dereferenceable(28) %48, i64 28, i1 false), !tbaa.struct !112
   %50 = icmp slt i64 %47, %6
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !126

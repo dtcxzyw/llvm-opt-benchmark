@@ -338,8 +338,8 @@ HandleWalSummarizerInterrupts.exit34:             ; preds = %83, %85
   %91 = load i32, ptr @wal_segment_size, align 4
   %.fr32.i = freeze i32 %91
   %92 = sext i32 %.fr32.i to i64
-  %.fr41.i = freeze i64 %90
-  %93 = mul i64 %.fr41.i, %92
+  %.fr.i = freeze i64 %90
+  %93 = mul i64 %.fr.i, %92
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %.split.us.i, label %.split.i
 

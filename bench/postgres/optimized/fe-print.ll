@@ -463,8 +463,8 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 207:                                              ; preds = %201
   %208 = load i8, ptr %204, align 1
-  %.fr133.i = freeze i8 %208
-  %.not.i = icmp eq i8 %.fr133.i, 0
+  %.fr131134.i = freeze i8 %208
+  %.not.i = icmp eq i8 %.fr131134.i, 0
   br i1 %.not.i, label %209, label %213
 
 209:                                              ; preds = %207, %201
@@ -489,14 +489,14 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not120.i, label %.lr.ph.i, label %226
 
 .lr.ph.i:                                         ; preds = %215, %219
-  %.fr136.i = phi i8 [ %.fr.i, %219 ], [ %.fr133.i, %215 ]
-  %.0111135.i = phi ptr [ %223, %219 ], [ %204, %215 ]
-  %218 = add i8 %.fr136.i, -48
+  %.fr131137.i = phi i8 [ %.fr131.i, %219 ], [ %.fr131134.i, %215 ]
+  %.0111136.i = phi ptr [ %223, %219 ], [ %204, %215 ]
+  %218 = add i8 %.fr131137.i, -48
   %or.cond4.i = icmp ult i8 %218, 10
   br i1 %or.cond4.i, label %219, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
-  switch i8 %.fr136.i, label %.loopexit.i.thread [
+  switch i8 %.fr131137.i, label %.loopexit.i.thread [
     i8 101, label %219
     i8 69, label %219
     i8 46, label %219
@@ -506,12 +506,12 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 
 219:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
   %220 = load i32, ptr %188, align 4
-  %221 = call i32 @PQmblenBounded(ptr noundef nonnull %.0111135.i, i32 noundef %220) #14
+  %221 = call i32 @PQmblenBounded(ptr noundef nonnull %.0111136.i, i32 noundef %220) #14
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i8, ptr %.0111135.i, i64 %222
+  %223 = getelementptr inbounds i8, ptr %.0111136.i, i64 %222
   %224 = load i8, ptr %223, align 1
-  %.fr.i = freeze i8 %224
-  %.not121.i = icmp eq i8 %.fr.i, 0
+  %.fr131.i = freeze i8 %224
+  %.not121.i = icmp eq i8 %.fr131.i, 0
   br i1 %.not121.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %219

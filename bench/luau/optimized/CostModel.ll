@@ -2447,80 +2447,78 @@ _ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32: ; preds = %.critedge.i31, %91
   %.042 = phi double [ 1.000000e+00, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit22 ], [ %93, %91 ], [ %108, %.critedge.i31 ]
   %109 = tail call double @llvm.fabs.f64(double %.040)
   %or.cond.i = fcmp ugt double %109, 3.276700e+04
-  br i1 %or.cond.i, label %116, label %110
+  br i1 %or.cond.i, label %115, label %110
 
 110:                                              ; preds = %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32
   %111 = fptosi double %.040 to i32
-  %112 = freeze i32 %111
-  %113 = sitofp i32 %112 to double
-  %114 = fcmp oeq double %.040, %113
-  br i1 %114, label %115, label %116
+  %112 = sitofp i32 %111 to double
+  %113 = fcmp oeq double %.040, %112
+  br i1 %113, label %114, label %115
 
-115:                                              ; preds = %110
-  br label %116
+114:                                              ; preds = %110
+  br label %115
 
-116:                                              ; preds = %115, %110, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32
-  %.fr57 = phi i32 [ %112, %115 ], [ -2147483648, %110 ], [ -2147483648, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32 ]
+115:                                              ; preds = %114, %110, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32
+  %116 = phi i32 [ %111, %114 ], [ -2147483648, %110 ], [ -2147483648, %_ZN4Luau7Compile9getNumberEPNS_7AstExprERd.exit32 ]
   %117 = tail call double @llvm.fabs.f64(double %.041)
   %or.cond3.i = fcmp ugt double %117, 3.276700e+04
-  br i1 %or.cond3.i, label %124, label %118
+  br i1 %or.cond3.i, label %123, label %118
 
-118:                                              ; preds = %116
+118:                                              ; preds = %115
   %119 = fptosi double %.041 to i32
-  %120 = freeze i32 %119
-  %121 = sitofp i32 %120 to double
-  %122 = fcmp oeq double %.041, %121
-  br i1 %122, label %123, label %124
+  %120 = sitofp i32 %119 to double
+  %121 = fcmp oeq double %.041, %120
+  br i1 %121, label %122, label %123
 
-123:                                              ; preds = %118
-  br label %124
+122:                                              ; preds = %118
+  br label %123
 
-124:                                              ; preds = %123, %118, %116
-  %.fr = phi i32 [ %120, %123 ], [ -2147483648, %118 ], [ -2147483648, %116 ]
+123:                                              ; preds = %122, %118, %115
+  %124 = phi i32 [ %119, %122 ], [ -2147483648, %118 ], [ -2147483648, %115 ]
   %125 = tail call double @llvm.fabs.f64(double %.042)
   %or.cond5.i = fcmp ugt double %125, 3.276700e+04
   br i1 %or.cond5.i, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %126
 
-126:                                              ; preds = %124
+126:                                              ; preds = %123
   %127 = fptosi double %.042 to i32
-  %.fr58 = freeze i32 %127
-  %128 = sitofp i32 %.fr58 to double
+  %128 = sitofp i32 %127 to double
   %129 = fcmp oeq double %.042, %128
   br i1 %129, label %130, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread
 
 130:                                              ; preds = %126
-  %131 = icmp eq i32 %.fr57, -2147483648
-  %132 = icmp eq i32 %.fr, -2147483648
+  %131 = icmp eq i32 %116, -2147483648
+  %132 = icmp eq i32 %124, -2147483648
   %or.cond7.i = or i1 %131, %132
-  %133 = and i32 %.fr58, 2147483647
+  %133 = and i32 %127, 2147483647
   %134 = icmp eq i32 %133, 0
   %or.cond11.i = or i1 %134, %or.cond7.i
   br i1 %or.cond11.i, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %135
 
 135:                                              ; preds = %130
-  %136 = icmp slt i32 %.fr58, 0
-  %137 = icmp sgt i32 %.fr, %.fr57
+  %136 = icmp slt i32 %127, 0
+  %137 = icmp sgt i32 %124, %116
   %or.cond45.i = and i1 %136, %137
   br i1 %or.cond45.i, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %138
 
 138:                                              ; preds = %135
-  %139 = icmp sgt i32 %.fr58, 0
-  %140 = icmp slt i32 %.fr, %.fr57
+  %139 = icmp sgt i32 %127, 0
+  %140 = icmp slt i32 %124, %116
   %or.cond46.i = and i1 %139, %140
   br i1 %or.cond46.i, label %_ZN4Luau7Compile12getTripCountEddd.exit.thread, label %_ZN4Luau7Compile12getTripCountEddd.exit
 
 _ZN4Luau7Compile12getTripCountEddd.exit:          ; preds = %138
-  %141 = sub i32 %.fr, %.fr57
-  %142 = sdiv i32 %141, %.fr58
-  %143 = icmp slt i32 %142, -1
-  %144 = tail call i32 @llvm.smin.i32(i32 %142, i32 126)
+  %141 = sub nsw i32 %124, %116
+  %142 = sdiv i32 %141, %127
+  %.fr = freeze i32 %142
+  %143 = icmp slt i32 %.fr, -1
+  %144 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 126)
   %145 = add nsw i32 %144, 1
   %146 = select i1 %143, i32 3, i32 %145
   %147 = sext i32 %146 to i64
   br label %_ZN4Luau7Compile12getTripCountEddd.exit.thread
 
-_ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %138, %135, %100, %94, %96, %78, %71, %74, %55, %48, %51, %124, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
-  %148 = phi i64 [ 3, %100 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %51 ], [ 3, %48 ], [ 3, %55 ], [ 3, %74 ], [ 3, %71 ], [ 3, %78 ], [ 3, %96 ], [ 3, %94 ], [ 0, %135 ], [ 0, %138 ]
+_ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %138, %135, %100, %94, %96, %78, %71, %74, %55, %48, %51, %123, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
+  %148 = phi i64 [ 3, %100 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %123 ], [ 3, %51 ], [ 3, %48 ], [ 3, %55 ], [ 3, %74 ], [ 3, %71 ], [ 3, %78 ], [ 3, %96 ], [ 3, %94 ], [ 0, %135 ], [ 0, %138 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 64
   %149 = load ptr, ptr %.in, align 8, !tbaa !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)

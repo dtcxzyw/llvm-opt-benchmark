@@ -4610,8 +4610,8 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   %35 = phi i64 [ %26, %23 ], [ %20, %19 ], [ 0, %.thread ]
   %36 = phi i1 [ false, %23 ], [ true, %19 ], [ true, %.thread ]
   %37 = phi i8 [ -1, %23 ], [ 1, %19 ], [ 1, %.thread ]
-  %.fr = freeze i8 %33
-  %38 = add i8 %37, %.fr
+  %.fr9 = freeze i8 %33
+  %38 = add i8 %37, %.fr9
   store i8 %38, ptr %34, align 1
   %39 = icmp eq i8 %38, 0
   %40 = shl nuw i64 1, %35

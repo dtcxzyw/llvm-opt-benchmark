@@ -2848,7 +2848,7 @@ define void @_ZN7uu_tail4args14parse_obsolete17heeca2eb9ff14aeaeE(ptr noalias no
     i8 2, label %26
   ]
 
-default.unreachable91:                            ; preds = %26
+default.unreachable90:                            ; preds = %26
   unreachable
 
 23:                                               ; preds = %3
@@ -2873,7 +2873,7 @@ default.unreachable91:                            ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !5
   call void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17hc81afb44f3a3eefcE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %31)
-  switch i8 %27, label %default.unreachable91 [
+  switch i8 %27, label %default.unreachable90 [
     i8 0, label %34
     i8 1, label %47
     i8 2, label %50
@@ -3068,14 +3068,15 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit: ; preds = %
   %95 = zext nneg i8 %94 to i32
   %96 = or disjoint i32 %93, %95
   %97 = or disjoint i32 %96, %92
-  %98 = icmp eq i32 %97, 1114112
+  %.fr = freeze i32 %97
+  %98 = icmp eq i32 %.fr, 1114112
   br i1 %98, label %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit.thread82, label %99
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit.thread82: ; preds = %50, %51, %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit
   br label %99
 
 99:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit.thread82, %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit13.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i", %74
-  %100 = phi i32 [ 0, %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit.thread82 ], [ %97, %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit ], [ %75, %74 ], [ %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit13.i.i.i" ]
+  %100 = phi i32 [ 0, %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit.thread82 ], [ %.fr, %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit ], [ %75, %74 ], [ %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit13.i.i.i" ]
   store i32 %100, ptr %12, align 4
   store ptr %12, ptr %13, align 8
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8

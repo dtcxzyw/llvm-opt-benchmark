@@ -3653,18 +3653,17 @@ _ZL16isConsumableTypeRKN5clang8QualTypeE.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i2
 163:                                              ; preds = %159
   %164 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %158) #15
   %165 = load ptr, ptr %164, align 8, !tbaa !54
-  %.fr = freeze ptr %165
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = load i32, ptr %166, align 8, !tbaa !56
-  %.fr87 = freeze i32 %167
-  %168 = zext i32 %.fr87 to i64
+  %168 = zext i32 %167 to i64
   %.idx.i.i.i54 = shl nuw nsw i64 %168, 3
-  %169 = getelementptr i8, ptr %.fr, i64 %.idx.i.i.i54
-  %.not.i.i.i55 = icmp eq i32 %.fr87, 0
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx.i.i.i54
+  %.fr = freeze ptr %169
+  %.not.i.i.i55 = icmp eq i32 %167, 0
   br i1 %.not.i.i.i55, label %_ZL26mapParamTypestateAttrStatePKN5clang18ParamTypestateAttrE.exit, label %.lr.ph.i.i.i.i.i.i56
 
 .lr.ph.i.i.i.i.i.i56:                             ; preds = %163, %174
-  %.sroa.07.1.i.i.i.i.i57 = phi ptr [ %175, %174 ], [ %.fr, %163 ]
+  %.sroa.07.1.i.i.i.i.i57 = phi ptr [ %175, %174 ], [ %165, %163 ]
   %170 = load ptr, ptr %.sroa.07.1.i.i.i.i.i57, align 8, !tbaa !57
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %172 = load i16, ptr %171, align 8
@@ -3673,25 +3672,25 @@ _ZL16isConsumableTypeRKN5clang8QualTypeE.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i2
 
 174:                                              ; preds = %.lr.ph.i.i.i.i.i.i56
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i57, i64 8
-  %.not.i.i.i.i.i.i58 = icmp eq ptr %175, %169
+  %.not.i.i.i.i.i.i58 = icmp eq ptr %175, %.fr
   br i1 %.not.i.i.i.i.i.i58, label %_ZL26mapParamTypestateAttrStatePKN5clang18ParamTypestateAttrE.exit, label %.lr.ph.i.i.i.i.i.i56, !llvm.loop !162
 
 _ZL16isConsumableTypeRKN5clang8QualTypeE.exit62:  ; preds = %.lr.ph.i.i.i.i.i.i56
-  %.not88 = icmp eq ptr %.sroa.07.1.i.i.i.i.i57, %169
-  br i1 %.not88, label %_ZL26mapParamTypestateAttrStatePKN5clang18ParamTypestateAttrE.exit, label %179
+  %.not87 = icmp eq ptr %.sroa.07.1.i.i.i.i.i57, %.fr
+  br i1 %.not87, label %_ZL26mapParamTypestateAttrStatePKN5clang18ParamTypestateAttrE.exit, label %179
 
 .sink.split:                                      ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i22, %.lr.ph.i.i.i.i.i44, %117, %62, %21
-  %.sink126 = phi ptr [ %73, %.lr.ph.i.i.i.i.i22 ], [ %132, %.lr.ph.i.i.i.i.i44 ], [ %22, %21 ], [ %67, %62 ], [ %126, %117 ], [ %28, %.lr.ph.i.i.i.i ]
+  %.sink125 = phi ptr [ %73, %.lr.ph.i.i.i.i.i22 ], [ %132, %.lr.ph.i.i.i.i.i44 ], [ %22, %21 ], [ %67, %62 ], [ %126, %117 ], [ %28, %.lr.ph.i.i.i.i ]
   %switch.table._ZN5clang8consumed19ConsumedStmtVisitor16VisitParmVarDeclEPKNS_11ParmVarDeclE.25.sink = phi ptr [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i.i22 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i.i44 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %21 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %62 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %117 ], [ @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, %.lr.ph.i.i.i.i ]
-  %176 = getelementptr i8, ptr %.sink126, i64 36
+  %176 = getelementptr i8, ptr %.sink125, i64 36
   %177 = load i32, ptr %176, align 4, !tbaa !32
   %178 = zext nneg i32 %177 to i64
-  %switch.gep123 = getelementptr inbounds nuw i32, ptr %switch.table._ZN5clang8consumed19ConsumedStmtVisitor16VisitParmVarDeclEPKNS_11ParmVarDeclE.25.sink, i64 %178
-  %switch.load124 = load i32, ptr %switch.gep123, align 4
+  %switch.gep122 = getelementptr inbounds nuw i32, ptr %switch.table._ZN5clang8consumed19ConsumedStmtVisitor16VisitParmVarDeclEPKNS_11ParmVarDeclE.25.sink, i64 %178
+  %switch.load123 = load i32, ptr %switch.gep122, align 4
   br label %179
 
 179:                                              ; preds = %.sink.split, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit62
-  %.0.ph = phi i32 [ 1, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit62 ], [ %switch.load124, %.sink.split ]
+  %.0.ph = phi i32 [ 1, %_ZL16isConsumableTypeRKN5clang8QualTypeE.exit62 ], [ %switch.load123, %.sink.split ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

@@ -1344,12 +1344,12 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %19 = icmp ugt i32 %1, 45000000
   %20 = select i1 %19, i32 20000000, i32 2000000
-  br i1 %16, label %.split9.us, label %.split
+  br i1 %16, label %.split12.us, label %.split
 
 .split:                                           ; preds = %13
   %21 = load i32, ptr %17, align 8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.split9.us, label %.split.split
+  br i1 %22, label %.split12.us, label %.split.split
 
 .split.splitthread-pre-split:                     ; preds = %.thread4
   %23 = add i32 %26, -1
@@ -1387,8 +1387,8 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %44 = load i32, ptr %43, align 4
-  %.fr5 = freeze i32 %44
-  %45 = sub i32 %1, %.fr5
+  %.fr8 = freeze i32 %44
+  %45 = sub i32 %1, %.fr8
   %46 = tail call i32 @llvm.abs.i32(i32 %45, i1 false)
   %47 = icmp ule i32 %46, %20
   %48 = zext i1 %47 to i8
@@ -1410,7 +1410,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
 
 55:                                               ; preds = %49
   %56 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
-  br i1 %56, label %.thread4, label %.split9.us
+  br i1 %56, label %.thread4, label %.split12.us
 
 .thread4:                                         ; preds = %53, %.thread, %55
   %57 = phi ptr [ %35, %55 ], [ inttoptr (i64 -22 to ptr), %53 ], [ inttoptr (i64 -34 to ptr), %.thread ]
@@ -1419,9 +1419,9 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, 1000
   %62 = icmp ult i32 %61, %4
-  br i1 %62, label %.split9.us, label %.split.splitthread-pre-split, !llvm.loop !34
+  br i1 %62, label %.split12.us, label %.split.splitthread-pre-split, !llvm.loop !34
 
-.split9.us:                                       ; preds = %.thread4, %55, %.split, %13
+.split12.us:                                      ; preds = %.thread4, %55, %.split, %13
   %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %35, %55 ], [ %57, %.thread4 ]
   ret ptr %.us-phi
 }
@@ -4204,8 +4204,8 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
 125:                                              ; preds = %120
   %126 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %127 = load i32, ptr %126, align 4
-  %.fr5.i = freeze i32 %127
-  %128 = sub i32 %80, %.fr5.i
+  %.fr8.i = freeze i32 %127
+  %128 = sub i32 %80, %.fr8.i
   %129 = call i32 @llvm.abs.i32(i32 %128, i1 false)
   %130 = icmp ule i32 %129, %103
   %131 = zext i1 %130 to i8

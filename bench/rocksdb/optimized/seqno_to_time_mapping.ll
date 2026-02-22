@@ -6751,8 +6751,8 @@ define linkonce_odr void @_ZSt13__adjust_heapISt15_Deque_iteratorIN7rocksdb18Seq
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29
-  %.057 = phi i64 [ %1, %.lr.ph ], [ %68, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29 ]
-  %14 = shl i64 %.057, 1
+  %.056 = phi i64 [ %1, %.lr.ph ], [ %68, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29 ]
+  %14 = shl i64 %.056, 1
   %15 = add i64 %14, 2
   %16 = load ptr, ptr %0, align 8, !tbaa !11, !noalias !449
   %17 = load ptr, ptr %11, align 8, !tbaa !19, !noalias !449
@@ -6838,10 +6838,9 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit: ; preds = %63
   %65 = load i64, ptr %58, align 8, !tbaa !113
   %66 = load i64, ptr %59, align 8, !tbaa !113
-  %.fr = freeze i64 %65
-  %.fr56 = freeze i64 %66
-  %67 = icmp ult i64 %.fr, %.fr56
-  br i1 %67, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread54
+  %67 = icmp ult i64 %65, %66
+  %cond.fr = freeze i1 %67
+  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread54
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread: ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread54
@@ -6879,7 +6878,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit27: ; preds = %72, %78
   %storemerge.i.i26 = phi ptr [ %84, %78 ], [ %73, %72 ]
-  %85 = add nsw i64 %22, %.057
+  %85 = add nsw i64 %22, %.056
   %86 = icmp sgt i64 %85, -1
   br i1 %86, label %87, label %93
 
@@ -6888,7 +6887,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %.057
+  %90 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %.056
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29
 
 91:                                               ; preds = %87

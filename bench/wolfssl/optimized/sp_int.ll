@@ -1596,8 +1596,8 @@ define range(i32 -98, 1) i32 @sp_div_d(ptr noundef readonly captures(address_is_
   %115 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv45.i
   %116 = load i64, ptr %115, align 8, !tbaa !8
   %117 = shl nuw i128 %.03139.us.i, 64
-  %.fr53.i = freeze i64 %116
-  %118 = zext i64 %.fr53.i to i128
+  %.fr.i = freeze i64 %116
+  %118 = zext i64 %.fr.i to i128
   %119 = or disjoint i128 %117, %118
   %120 = urem i128 %119, %112
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
@@ -1781,8 +1781,8 @@ define range(i32 -98, 1) i32 @sp_mod_d(ptr noundef readonly captures(address_is_
   %62 = getelementptr i64, ptr %0, i64 %indvars.iv.i
   %63 = load i64, ptr %62, align 8, !tbaa !8
   %64 = shl nuw i128 %.01415.i, 64
-  %.fr18.i = freeze i64 %63
-  %65 = zext i64 %.fr18.i to i128
+  %.fr.i = freeze i64 %63
+  %65 = zext i64 %.fr.i to i128
   %66 = or disjoint i128 %64, %65
   %67 = urem i128 %66, %59
   %68 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -1914,8 +1914,8 @@ define range(i32 -98, 1) i32 @sp_div_2_mod_ct(ptr noundef readonly captures(addr
 
 .lr.ph:                                           ; preds = %.thread
   %12 = load i64, ptr %11, align 8, !tbaa !8
-  %.fr54 = freeze i64 %12
-  %13 = and i64 %.fr54, 1
+  %.fr = freeze i64 %12
+  %13 = and i64 %.fr, 1
   %14 = load i16, ptr %0, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = icmp eq i64 %13, 0
@@ -2696,10 +2696,8 @@ define range(i32 -98, 1) i32 @sp_addmod_ct(ptr noundef readonly captures(none) %
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.fr100 = freeze i16 %10
-  %15 = zext i16 %.fr100 to i64
-  %.fr97 = freeze i16 %9
-  %16 = zext i16 %.fr97 to i64
+  %15 = zext i16 %10 to i64
+  %16 = zext i16 %9 to i64
   %wide.trip.count = zext i16 %5 to i64
   br label %17
 
@@ -2717,14 +2715,12 @@ define range(i32 -98, 1) i32 @sp_addmod_ct(ptr noundef readonly captures(none) %
   %23 = add i64 %.05368, %22
   %24 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !8
-  %.fr98 = freeze i64 %25
-  %26 = and i64 %20, %.fr98
+  %26 = and i64 %20, %25
   %27 = zext i64 %26 to i128
   %28 = add nuw nsw i128 %.05865, %27
   %29 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8, !tbaa !8
-  %.fr101 = freeze i64 %30
-  %31 = and i64 %23, %.fr101
+  %31 = and i64 %23, %30
   %32 = zext i64 %31 to i128
   %33 = add nuw nsw i128 %28, %32
   %34 = trunc i128 %33 to i64
@@ -2733,13 +2729,12 @@ define range(i32 -98, 1) i32 @sp_addmod_ct(ptr noundef readonly captures(none) %
   %36 = and i128 %33, 18446744073709551615
   %37 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !8
-  %.fr = freeze i64 %38
-  %39 = zext i64 %.fr to i128
+  %39 = zext i64 %38 to i128
   %40 = sub nsw i128 %.05766, %39
   %41 = add nsw i128 %40, %36
   %42 = ashr i128 %41, 64
   %43 = lshr i128 %33, 64
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph74, label %17, !llvm.loop !52
 
@@ -2747,7 +2742,8 @@ define range(i32 -98, 1) i32 @sp_addmod_ct(ptr noundef readonly captures(none) %
   %44 = add nsw i128 %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.inv = icmp slt i128 %44, 0
+  %.fr = freeze i128 %44
+  %.inv = icmp slt i128 %.fr, 0
   %wide.trip.count93 = zext i16 %5 to i64
   br i1 %.inv, label %.lr.ph.i, label %.lr.ph74.split
 

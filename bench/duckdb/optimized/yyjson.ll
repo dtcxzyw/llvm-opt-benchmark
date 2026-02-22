@@ -1866,8 +1866,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson20unsafe_yyjson_equalsEPNS_10yyjson
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
   %6 = load i64, ptr %1, align 8, !tbaa !73
-  %.fr92 = freeze i64 %6
-  %7 = trunc i64 %.fr92 to i8
+  %7 = trunc i64 %6 to i8
   %8 = and i8 %7, 7
   %.not = icmp eq i8 %5, %8
   br i1 %.not, label %9, label %.critedge
@@ -1886,7 +1885,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson20unsafe_yyjson_equalsEPNS_10yyjson
 
 10:                                               ; preds = %9
   %11 = lshr i64 %3, 8
-  %12 = lshr i64 %.fr92, 8
+  %12 = lshr i64 %6, 8
   %.not48 = icmp eq i64 %11, %12
   br i1 %.not48, label %13, label %.critedge
 
@@ -1928,7 +1927,8 @@ _ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit: ; preds = %13
 .lr.ph:                                           ; preds = %25
   %27 = add nuw nsw i64 %.038.i, 1
   %28 = icmp ult i64 %.sroa.0.088, %11
-  br i1 %28, label %.lr.ph.split, label %.lr.ph.split.us
+  %.fr = freeze i1 %28
+  br i1 %.fr, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.thread.us
   %29 = phi i64 [ %44, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.thread.us ], [ %27, %.lr.ph ]
@@ -2012,7 +2012,7 @@ _ZN13duckdb_yyjsonL20yyjson_obj_iter_getnEPNS_15yyjson_obj_iterEPKcm.exit: ; pre
 
 73:                                               ; preds = %9
   %74 = lshr i64 %3, 8
-  %75 = lshr i64 %.fr92, 8
+  %75 = lshr i64 %6, 8
   %.not45 = icmp eq i64 %74, %75
   br i1 %.not45, label %76, label %.critedge
 
@@ -2099,7 +2099,7 @@ _ZN13duckdb_yyjsonL20yyjson_obj_iter_getnEPNS_15yyjson_obj_iterEPKcm.exit: ; pre
 
 126:                                              ; preds = %9, %9
   %127 = lshr i64 %3, 8
-  %128 = lshr i64 %.fr92, 8
+  %128 = lshr i64 %6, 8
   %.not.i52 = icmp eq i64 %127, %128
   br i1 %.not.i52, label %129, label %.critedge
 
@@ -2113,7 +2113,7 @@ _ZN13duckdb_yyjsonL20yyjson_obj_iter_getnEPNS_15yyjson_obj_iterEPKcm.exit: ; pre
   br label %.critedge
 
 134:                                              ; preds = %9, %9
-  %135 = icmp eq i64 %3, %.fr92
+  %135 = icmp eq i64 %3, %6
   br label %.critedge
 
 default.unreachable:                              ; preds = %9
@@ -2130,8 +2130,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson24unsafe_yyjson_mut_equalsEPNS_14yy
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
   %6 = load i64, ptr %1, align 8, !tbaa !73
-  %.fr78 = freeze i64 %6
-  %7 = trunc i64 %.fr78 to i8
+  %.fr = freeze i64 %6
+  %7 = trunc i64 %.fr to i8
   %8 = and i8 %7, 7
   %.not = icmp eq i8 %5, %8
   br i1 %.not, label %9, label %.critedge
@@ -2150,7 +2150,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson24unsafe_yyjson_mut_equalsEPNS_14yy
 
 10:                                               ; preds = %9
   %11 = lshr i64 %3, 8
-  %12 = lshr i64 %.fr78, 8
+  %12 = lshr i64 %.fr, 8
   %.not48 = icmp eq i64 %11, %12
   br i1 %.not48, label %13, label %.critedge
 
@@ -2220,7 +2220,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.backedge.us: ; preds 
 
 43:                                               ; preds = %9
   %44 = lshr i64 %3, 8
-  %45 = lshr i64 %.fr78, 8
+  %45 = lshr i64 %.fr, 8
   %.not45 = icmp eq i64 %44, %45
   br i1 %.not45, label %46, label %.critedge
 
@@ -2295,7 +2295,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.backedge.us: ; preds 
 
 83:                                               ; preds = %9, %9
   %84 = lshr i64 %3, 8
-  %85 = lshr i64 %.fr78, 8
+  %85 = lshr i64 %.fr, 8
   %.not.i = icmp eq i64 %84, %85
   br i1 %.not.i, label %86, label %.critedge
 
@@ -2309,7 +2309,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.backedge.us: ; preds 
   br label %.critedge
 
 91:                                               ; preds = %9, %9
-  %92 = icmp eq i64 %3, %.fr78
+  %92 = icmp eq i64 %3, %.fr
   br label %.critedge
 
 default.unreachable:                              ; preds = %9

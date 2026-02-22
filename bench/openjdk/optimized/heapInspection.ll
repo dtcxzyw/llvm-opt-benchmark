@@ -2682,7 +2682,7 @@ _ZL12print_indentP12outputStreami.exit.thread:    ; preds = %20, %_ZL12print_ind
 
 .lr.ph48:                                         ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %37 = add nsw i32 %.032, -1
+  %37 = add i32 %.032, -1
   br i1 %.not5.i, label %_ZL15print_interfaceP12outputStreamP13InstanceKlassPKci.exit.us, label %.lr.ph48.split
 
 _ZL15print_interfaceP12outputStreamP13InstanceKlassPKci.exit.us: ; preds = %.lr.ph48, %_ZL15print_interfaceP12outputStreamP13InstanceKlassPKci.exit.us

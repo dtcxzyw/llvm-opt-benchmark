@@ -1022,8 +1022,8 @@ define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_response_headers(ptr noun
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i16, ptr %7, align 8, !tbaa !58
-  %.fr = freeze i16 %8
-  %.off = add i16 %.fr, -100
+  %.fr15 = freeze i16 %8
+  %.off = add i16 %.fr15, -100
   %9 = icmp ult i16 %.off, 100
   br i1 %9, label %10, label %14
 
@@ -1044,13 +1044,13 @@ define dso_local range(i32 -1, 1) i32 @nghttp2_http_on_response_headers(ptr noun
   br i1 %17, label %18, label %expect_response_body.exit.thread
 
 18:                                               ; preds = %14
-  %19 = sext i16 %.fr to i32
+  %19 = sext i16 %.fr15 to i32
   %.off.i = add nsw i32 %19, -100
   %.not.i = icmp ult i32 %.off.i, 100
   br i1 %.not.i, label %expect_response_body.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
-  switch i16 %.fr, label %21 [
+  switch i16 %.fr15, label %21 [
     i16 304, label %expect_response_body.exit.thread
     i16 204, label %expect_response_body.exit.thread
   ]
@@ -1229,12 +1229,12 @@ define dso_local i64 @nghttp2_sf_parse_item(ptr noundef writeonly captures(addre
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc i64 @sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = tail call fastcc i64 @sf_parse_bare_item(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %.fr = freeze i64 %4
-  %5 = icmp slt i64 %.fr, 0
+  %.fr31 = freeze i64 %4
+  %5 = icmp slt i64 %.fr31, 0
   br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr i8, ptr %1, i64 %.fr
+  %7 = getelementptr i8, ptr %1, i64 %.fr31
   %.not40.i = icmp eq ptr %7, %2
   br i1 %.not40.i, label %sf_parse_params.exit, label %.lr.ph.i
 
@@ -1328,7 +1328,7 @@ sf_parse_params.exit:                             ; preds = %9, %40, %6
   %42 = ptrtoint ptr %7 to i64
   %43 = sub i64 %41, %42
   %44 = icmp slt i64 %43, 0
-  %45 = add nuw nsw i64 %43, %.fr
+  %45 = add nuw nsw i64 %43, %.fr31
   br i1 %44, label %sf_parse_params.exit.thread, label %46
 
 sf_parse_params.exit.thread:                      ; preds = %15, %35, %32, %sf_parse_key.exit.i, %.preheader.i, %sf_parse_params.exit

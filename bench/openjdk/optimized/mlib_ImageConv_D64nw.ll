@@ -8,14 +8,13 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr noundef readonly captures(none
   %9 = alloca [1600 x double], align 16
   %10 = getelementptr i8, ptr %1, i64 12
   %.val = load i32, ptr %10, align 4
-  %.val.fr.i = freeze i32 %.val
+  %.val.fr = freeze i32 %.val
   %11 = getelementptr i8, ptr %1, i64 8
   %.val655 = load i32, ptr %11, align 8
   %.val337.fr.i = freeze i32 %.val655
   %12 = getelementptr i8, ptr %1, i64 16
   %.val656 = load i32, ptr %12, align 8
-  %.val339.fr.i = freeze i32 %.val656
-  %13 = ashr i32 %.val339.fr.i, 3
+  %13 = ashr i32 %.val656, 3
   %14 = getelementptr i8, ptr %0, i64 16
   %.val657 = load i32, ptr %14, align 8
   %15 = ashr i32 %.val657, 3
@@ -32,7 +31,7 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr noundef readonly captures(none
 
 22:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %reass.sub.i = sub i32 %.val.fr.i, %4
+  %reass.sub.i = sub i32 %.val.fr, %4
   %23 = add i32 %reass.sub.i, 1
   %24 = mul nsw i32 %15, %6
   %25 = sext i32 %24 to i64
@@ -453,18 +452,19 @@ define hidden noundef i32 @mlib_convMxNnw_d64(ptr noundef readonly captures(none
 
 .lr.ph69.us.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge70.split.us89.i
   %.029982.us.i = phi i32 [ %237, %._crit_edge70.split.us89.i ], [ 0, %.lr.ph.split.us.i ]
-  %233 = sub i32 %23, %.029982.us.i
+  %233 = sub nsw i32 %23, %.029982.us.i
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %233, i32 %spec.store.select.i)
-  %234 = icmp sgt i32 %spec.select.us.i, 0
+  %spec.select.us.fr.i = freeze i32 %spec.select.us.i
+  %234 = icmp sgt i32 %spec.select.us.fr.i, 0
   br i1 %234, label %.lr.ph69.split.split.us.us.preheader.i, label %._crit_edge70.split.us89.i
 
 .lr.ph69.split.split.us.us.preheader.i:           ; preds = %.lr.ph69.us.i
-  %235 = zext nneg i32 %spec.select.us.i to i64
+  %235 = zext nneg i32 %spec.select.us.fr.i to i64
   %236 = shl nuw nsw i64 %235, 3
   br label %.lr.ph69.split.split.us.us.i
 
 ._crit_edge70.split.us89.i:                       ; preds = %..preheader5_crit_edge.us76.us.i, %.lr.ph69.us.i
-  %237 = add i32 %spec.select.us.i, %.029982.us.i
+  %237 = add nsw i32 %spec.select.us.fr.i, %.029982.us.i
   %238 = icmp slt i32 %237, %23
   br i1 %238, label %.lr.ph69.us.i, label %._crit_edge.i, !llvm.loop !15
 
@@ -499,7 +499,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %244
   br label %.loopexit691
 
 245:                                              ; preds = %8
-  %reass.sub979 = sub i32 %.val.fr.i, %4
+  %reass.sub979 = sub i32 %.val.fr, %4
   %246 = mul nsw i32 %15, %6
   %247 = mul nsw i32 %.val660, %5
   %248 = add nsw i32 %247, %246

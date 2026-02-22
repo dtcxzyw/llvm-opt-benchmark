@@ -4481,7 +4481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit646: ; preds = %_Z
 1764:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit744, %.lr.ph2657
   %1765 = phi ptr [ %.pre3017, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit744 ], [ %1226, %.lr.ph2657 ]
   %1766 = phi ptr [ %.pre3016, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit744 ], [ %1227, %.lr.ph2657 ]
-  %indvars.iv.next2999 = add i64 %indvars.iv2998, 1
+  %indvars.iv.next2999 = add nuw nsw i64 %indvars.iv2998, 1
   %1767 = ptrtoint ptr %1766 to i64
   %1768 = ptrtoint ptr %1765 to i64
   %1769 = sub i64 %1767, %1768
@@ -5417,17 +5417,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit847: ; preds = %_Z
   %.pre3018 = load ptr, ptr %1161, align 8, !tbaa !16
   %.pre3019 = load ptr, ptr %1160, align 8, !tbaa !19
   %.pre3020 = load ptr, ptr %56, align 8
-  %.pre3018.fr = freeze ptr %.pre3018
-  %.pre3031 = ptrtoint ptr %.pre3018.fr to i64
-  %.pre3019.fr = freeze ptr %.pre3019
-  %.pre3033 = ptrtoint ptr %.pre3019.fr to i64
+  %.pre3031 = ptrtoint ptr %.pre3018 to i64
+  %.pre3033 = ptrtoint ptr %.pre3019 to i64
   %.pre3035 = sub i64 %.pre3031, %.pre3033
-  %.pre3037 = lshr i64 %.pre3035, 5
+  %.pre3037 = lshr exact i64 %.pre3035, 5
   %.pre3041 = and i64 %.pre3037, 4294967295
   %2104 = icmp eq i64 %indvars.iv.next2999, %.pre3041
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %2105 = load ptr, ptr %55, align 8
-  %spec.select = select i1 %2104, ptr %.pre3020, ptr %2105
+  %cond.fr = freeze i1 %2104
+  %spec.select = select i1 %cond.fr, ptr %.pre3020, ptr %2105
   br label %2106
 
 2106:                                             ; preds = %2103, %.thread, %.thread3554

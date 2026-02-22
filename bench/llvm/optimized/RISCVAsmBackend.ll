@@ -1773,7 +1773,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15RISCVAsmBackend18relaxDwarfLineA
   %10 = load ptr, ptr %1, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %12 = load i64, ptr %11, align 8, !tbaa !125
-  %.fr = freeze i64 %12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %14 = load ptr, ptr %13, align 8, !tbaa !144
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1798,7 +1797,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15RISCVAsmBackend18relaxDwarfLineA
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %15, ptr %25, align 8, !tbaa !152
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
-  %.not = icmp eq i64 %.fr, 9223372036854775807
+  %.not = icmp eq i64 %12, 9223372036854775807
   br i1 %.not, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, label %26
 
 26:                                               ; preds = %4
@@ -1823,7 +1822,7 @@ _ZN4llvm11raw_ostreamlsEh.exit.preheader:         ; preds = %31, %33
   br label %_ZN4llvm11raw_ostreamlsEh.exit
 
 _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %_ZN4llvm11raw_ostreamlsEh.exit.preheader, %_ZN4llvm11raw_ostreamlsEc.exit.i
-  %.0.i28 = phi i64 [ %37, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ %.fr, %_ZN4llvm11raw_ostreamlsEh.exit.preheader ]
+  %.0.i28 = phi i64 [ %37, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ %12, %_ZN4llvm11raw_ostreamlsEh.exit.preheader ]
   %35 = trunc i64 %.0.i28 to i8
   %36 = and i8 %35, 127
   %37 = ashr i64 %.0.i28, 7
@@ -1837,12 +1836,13 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %_ZN4llvm11raw_ostre
   %42 = and i64 %.0.i28, 64
   %43 = icmp eq i64 %42, 0
   %.not31.i = or i1 %41, %43
-  %spec.select = select i1 %.not31.i, i8 -128, i8 0
+  %cond.fr = freeze i1 %.not31.i
+  %spec.select = select i1 %cond.fr, i8 -128, i8 0
   %44 = or disjoint i8 %spec.select, %36
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm11raw_ostreamlsEh.exit, %40
-  %45 = phi i1 [ %.not31.i, %40 ], [ false, %_ZN4llvm11raw_ostreamlsEh.exit ]
+  %45 = phi i1 [ %cond.fr, %40 ], [ false, %_ZN4llvm11raw_ostreamlsEh.exit ]
   %.025.i = phi i8 [ %44, %40 ], [ %36, %_ZN4llvm11raw_ostreamlsEh.exit ]
   %46 = load ptr, ptr %27, align 8, !tbaa !154
   %47 = load ptr, ptr %29, align 8, !tbaa !155

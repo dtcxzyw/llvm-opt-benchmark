@@ -775,8 +775,8 @@ define noalias noundef ptr @Abc_NtkManRefStart(i32 noundef %0, i32 noundef %1, i
   %17 = tail call noundef range(i32 6, -2147483648) i32 @llvm.smax.i32(i32 %0, i32 6)
   %18 = add nsw i32 %17, -5
   %19 = shl nuw i32 1, %18
-  %.fr43.i = freeze i32 %19
-  %20 = sext i32 %.fr43.i to i64
+  %.fr.i = freeze i32 %19
+  %20 = sext i32 %.fr.i to i64
   %21 = shl nsw i64 %20, 2
   %22 = add nsw i64 %21, 8
   %23 = zext nneg i32 %17 to i64
@@ -802,11 +802,11 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   store i32 %17, ptr %30, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %25, ptr %32, align 8, !tbaa !11
-  %33 = icmp sgt i32 %.fr43.i, 0
+  %33 = icmp sgt i32 %.fr.i, 0
   br i1 %33, label %.lr.ph33.split.us.split.us.preheader.i, label %Vec_PtrAllocTruthTables.exit
 
 .lr.ph33.split.us.split.us.preheader.i:           ; preds = %Vec_PtrAllocSimInfo.exit.i
-  %wide.trip.count67.i = zext nneg i32 %.fr43.i to i64
+  %wide.trip.count67.i = zext nneg i32 %.fr.i to i64
   br label %.lr.ph33.split.us.split.us.i
 
 .lr.ph33.split.us.split.us.i:                     ; preds = %..loopexit27_crit_edge.us.us.i, %.lr.ph33.split.us.split.us.preheader.i

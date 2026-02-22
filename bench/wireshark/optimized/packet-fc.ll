@@ -1327,15 +1327,15 @@ proto_item_set_hidden.exit500:                    ; preds = %proto_item_set_hidd
   %372 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %373 = icmp ult i32 %372, 24
   %374 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.fr = freeze i32 %374
+  %.fr526 = freeze i32 %374
   br i1 %373, label %375, label %377
 
 375:                                              ; preds = %370
-  %376 = tail call ptr @proto_tree_add_expert(ptr noundef %114, ptr noundef %1, ptr noundef nonnull @ei_short_hdr, ptr noundef %0, i32 noundef 0, i32 noundef %.fr)
+  %376 = tail call ptr @proto_tree_add_expert(ptr noundef %114, ptr noundef %1, ptr noundef nonnull @ei_short_hdr, ptr noundef %0, i32 noundef 0, i32 noundef %.fr526)
   br label %619
 
 377:                                              ; preds = %370
-  %378 = add i32 %.fr, -24
+  %378 = add i32 %.fr526, -24
   %379 = load i32, ptr %4, align 4
   switch i32 %379, label %394 [
     i32 64764, label %380
@@ -1362,7 +1362,7 @@ switch.early.test:                                ; preds = %382
   br label %619
 
 386:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %382
-  %387 = add i32 %.fr, -30
+  %387 = add i32 %.fr526, -30
   br label %394
 
 388:                                              ; preds = %377
@@ -1374,7 +1374,7 @@ switch.early.test:                                ; preds = %382
   br label %619
 
 392:                                              ; preds = %388
-  %393 = add i32 %.fr, -32
+  %393 = add i32 %.fr526, -32
   br label %394
 
 394:                                              ; preds = %377, %392, %386
@@ -1688,11 +1688,11 @@ dissect_fc_ba_acc.exit:                           ; preds = %516, %513, %498, %4
   %559 = load i16, ptr %558, align 1
   %560 = and i16 %559, 8
   %.not487 = icmp eq i16 %560, 0
-  %.pre528 = load i32, ptr %68, align 8
+  %.pre529 = load i32, ptr %68, align 8
   br i1 %.not487, label %561, label %575
 
 561:                                              ; preds = %556
-  %562 = and i32 %.pre528, 2097152
+  %562 = and i32 %.pre529, 2097152
   %.not488 = icmp eq i32 %562, 0
   br i1 %.not488, label %568, label %563
 
@@ -1707,7 +1707,7 @@ dissect_fc_ba_acc.exit:                           ; preds = %516, %513, %498, %4
   br label %568
 
 568:                                              ; preds = %563, %561
-  %569 = phi i32 [ %.pre, %563 ], [ %.pre528, %561 ]
+  %569 = phi i32 [ %.pre, %563 ], [ %.pre529, %561 ]
   %570 = and i32 %569, 1048576
   %.not489 = icmp eq i32 %570, 0
   br i1 %.not489, label %575, label %571
@@ -1717,11 +1717,11 @@ dissect_fc_ba_acc.exit:                           ; preds = %516, %513, %498, %4
   %573 = load i32, ptr %572, align 4
   %574 = getelementptr inbounds nuw i8, ptr %.0453, i64 4
   store i32 %573, ptr %574, align 4
-  %.pre527 = load i32, ptr %68, align 8
+  %.pre528 = load i32, ptr %68, align 8
   br label %575
 
 575:                                              ; preds = %568, %571, %556
-  %576 = phi i32 [ %569, %568 ], [ %.pre527, %571 ], [ %.pre528, %556 ]
+  %576 = phi i32 [ %569, %568 ], [ %.pre528, %571 ], [ %.pre529, %556 ]
   %577 = and i32 %576, 2097152
   %.not490 = icmp eq i32 %577, 0
   br i1 %.not490, label %578, label %603
@@ -1777,11 +1777,11 @@ proto_item_set_generated.exit:                    ; preds = %578, %582, %585
 
 proto_item_set_generated.exit516:                 ; preds = %591, %596, %599
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre529 = load i32, ptr %68, align 8
+  %.pre530 = load i32, ptr %68, align 8
   br label %603
 
 603:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit516, %575
-  %604 = phi i32 [ %589, %proto_item_set_generated.exit ], [ %.pre529, %proto_item_set_generated.exit516 ], [ %576, %575 ]
+  %604 = phi i32 [ %589, %proto_item_set_generated.exit ], [ %.pre530, %proto_item_set_generated.exit516 ], [ %576, %575 ]
   %605 = and i32 %604, 1048576
   %.not492 = icmp eq i32 %605, 0
   br i1 %.not492, label %606, label %proto_item_set_generated.exit519

@@ -21682,8 +21682,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIPN4llvm15DomTreeNodeBaseI
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread31
-  %.034 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
-  %9 = shl i64 %.034, 1
+  %.033 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
+  %9 = shl i64 %.033, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.368", ptr %0, i64 %10
   %12 = getelementptr %"struct.std::pair.368", ptr %0, i64 %9
@@ -21707,17 +21707,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15Dom
   %22 = load i32, ptr %21, align 4, !tbaa !293
   %23 = getelementptr i8, ptr %12, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !293
-  %.fr = freeze i32 %22
-  %.fr33 = freeze i32 %24
-  %25 = icmp ult i32 %.fr, %.fr33
+  %25 = icmp ult i32 %22, %24
   %26 = or disjoint i64 %9, 1
-  %spec.select = select i1 %25, i64 %26, i64 %10
+  %cond.fr = freeze i1 %25
+  %spec.select = select i1 %cond.fr, i64 %26, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread31
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread31: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit, %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread
   %27 = phi i64 [ %10, %19 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseINS2_10BasicBlockEEES6_IjjEESD_EEbT_T0_.exit.thread ]
   %28 = getelementptr inbounds %"struct.std::pair.368", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.std::pair.368", ptr %0, i64 %.034
+  %29 = getelementptr inbounds %"struct.std::pair.368", ptr %0, i64 %.033
   %30 = load ptr, ptr %28, align 8, !tbaa !120
   store ptr %30, ptr %29, align 8, !tbaa !294
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8

@@ -1150,8 +1150,8 @@ define signext range(i8 0, 2) i8 @u_isWhitespace_77(i32 noundef %0) local_unname
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink31 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink31 to i64
+  %.sink32 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink32 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -1168,8 +1168,8 @@ define signext range(i8 0, 2) i8 @u_isWhitespace_77(i32 noundef %0) local_unname
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
   %38 = shl nuw i32 1, %37
-  %.fr = freeze i32 %38
-  %39 = and i32 %.fr, 28672
+  %.fr28 = freeze i32 %38
+  %39 = and i32 %.fr28, 28672
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %switch.early.test
 

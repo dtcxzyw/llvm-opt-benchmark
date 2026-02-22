@@ -1356,8 +1356,8 @@ define dso_local noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipe
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = load i8, ptr %6, align 8, !tbaa !110
-  %.fr = freeze i8 %7
-  %8 = add i8 %.fr, -42
+  %.fr26 = freeze i8 %7
+  %8 = add i8 %.fr26, -42
   %or.cond = icmp ult i8 %8, 18
   br i1 %or.cond, label %9, label %18
 
@@ -1377,7 +1377,7 @@ define dso_local noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipe
   br label %74
 
 18:                                               ; preds = %2
-  %19 = add i8 %.fr, -67
+  %19 = add i8 %.fr26, -67
   %20 = icmp ult i8 %19, 13
   br i1 %20, label %21, label %24
 
@@ -1387,7 +1387,7 @@ define dso_local noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipe
   br label %74
 
 24:                                               ; preds = %18
-  switch i8 %.fr, label %73 [
+  switch i8 %.fr26, label %73 [
     i8 85, label %25
     i8 86, label %44
     i8 82, label %54
@@ -8858,8 +8858,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %.fr24 = freeze i32 %5
-  %6 = and i32 %.fr24, 1
+  %6 = and i32 %5, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8869,16 +8868,13 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.fr25 = freeze ptr %12
-  %13 = select i1 %.not.i.i.i, ptr %.fr25, ptr %11
+  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
   %14 = load i32, ptr %1, align 8
-  %.fr26 = freeze i32 %14
-  %15 = and i32 %.fr26, 1
+  %15 = and i32 %14, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.fr27 = freeze ptr %17
-  %18 = select i1 %.not.i.i, ptr %.fr27, ptr %16
+  %18 = select i1 %.not.i.i, ptr %17, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 4
@@ -8888,7 +8884,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
 
 .lr.ph:                                           ; preds = %2
   %23 = icmp eq ptr %13, %18
-  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %23
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit.us
   %.023.us = phi i64 [ %35, %_ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit.us ], [ 0, %.lr.ph ]
@@ -8921,8 +8918,8 @@ _ZN4llvm11SmallVectorIPNS_11VPBlockBaseELj2EEC2ERKS3_.exit.us.i.us: ; preds = %_
 
 _ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit.us: ; preds = %_ZN4llvm11SmallVectorIPNS_11VPBlockBaseELj2EEC2ERKS3_.exit.us.i.us, %.lr.ph.split.us, %.lr.ph.split.us
   %35 = add nuw nsw i64 %.023.us, 1
-  %exitcond29.not = icmp eq i64 %35, %22
-  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !456
+  %exitcond25.not = icmp eq i64 %35, %22
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !456
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit, %_ZN4llvm9GraphDiffIPNS_11VPBlockBaseELb0EE14DeletesInsertsC2ERKS4_.exit.us, %2
   ret void
@@ -10086,29 +10083,28 @@ _ZN4llvm15SmallVectorImplIPNS_11VPBlockBaseEE7reserveEm.exit: ; preds = %3, %17
   %23 = load ptr, ptr %2, align 8, !tbaa !159
   %24 = load ptr, ptr %0, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.pre-phi
-  %.fr18.i.i.i = freeze ptr %22
-  %.fr19.i.i.i = freeze ptr %23
-  %26 = icmp ne ptr %.fr18.i.i.i, %.fr19.i.i.i
+  %26 = icmp ne ptr %22, %23
+  %.fr.i.i.i = freeze i1 %26
   %27 = icmp ne i64 %21, %20
-  %.not3.i4.i.i.i.i = select i1 %26, i1 true, i1 %27
+  %.not3.i4.i.i.i.i = select i1 %.fr.i.i.i, i1 true, i1 %27
   br i1 %.not3.i4.i.i.i.i, label %.lr.ph.i.preheader.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11VPBlockBaseELb1EE18uninitialized_copyISt16reverse_iteratorINS_23VPAllSuccessorsIteratorIS2_EEEPS2_EEvT_SA_T0_.exit
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN4llvm15SmallVectorImplIPNS_11VPBlockBaseEE7reserveEm.exit
-  %28 = getelementptr inbounds nuw i8, ptr %.fr18.i.i.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load i8, ptr %28, align 8, !tbaa !164
   %30 = icmp ne i8 %29, 0
-  %.not.not9.i.i.i.i.i.i.i = icmp eq ptr %.fr18.i.i.i, null
+  %.not.not9.i.i.i.i.i.i.i = icmp eq ptr %22, null
   %.not.not.i.i.i.i.i.i.i = or i1 %.not.not9.i.i.i.i.i.i.i, %30
   br i1 %.not.not.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.split.us.i.i.i, label %.lr.ph.i.preheader.split.i.i.i
 
 .lr.ph.i.preheader.split.us.i.i.i:                ; preds = %.lr.ph.i.preheader.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %.fr18.i.i.i, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %32 = load i32, ptr %31, align 8, !tbaa !11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.lr.ph.i.preheader.split.us.split.us.i.i.i, label %.lr.ph.i.preheader.split.us.split.i.i.i
 
 .lr.ph.i.preheader.split.us.split.us.i.i.i:       ; preds = %.lr.ph.i.preheader.split.us.i.i.i
-  br i1 %26, label %.lr.ph.i.us.us.us.i.i.i, label %.lr.ph.i.us.us.i.i.i
+  br i1 %.fr.i.i.i, label %.lr.ph.i.us.us.us.i.i.i, label %.lr.ph.i.us.us.i.i.i
 
 .lr.ph.i.us.us.us.i.i.i:                          ; preds = %.lr.ph.i.preheader.split.us.split.us.i.i.i, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i.i.i.loopexit.us.us.us.i.i.i
   %34 = phi i64 [ %45, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i.i.i.loopexit.us.us.us.i.i.i ], [ %21, %.lr.ph.i.preheader.split.us.split.us.i.i.i ]
@@ -10116,7 +10112,7 @@ _ZN4llvm15SmallVectorImplIPNS_11VPBlockBaseEE7reserveEm.exit: ; preds = %3, %17
   br label %.lr.ph.i.i.i.i.i.us.us.us.i.i.i
 
 .lr.ph.i.i.i.i.i.us.us.us.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i.i.i, %.lr.ph.i.us.us.us.i.i.i
-  %.05.i10.i.i.i.i.us.us.us.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.us.us.us.i.i.i ], [ %.fr18.i.i.i, %.lr.ph.i.us.us.us.i.i.i ]
+  %.05.i10.i.i.i.i.us.us.us.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.us.us.us.i.i.i ], [ %22, %.lr.ph.i.us.us.us.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.05.i10.i.i.i.i.us.us.us.i.i.i, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !171, !nonnull !114, !noundef !114
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
@@ -10142,7 +10138,7 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   br label %.lr.ph.i.i.i.i.i.us.us.i.i.i
 
 .lr.ph.i.i.i.i.i.us.us.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.us.us.i.i.i, %.lr.ph.i.us.us.i.i.i
-  %.05.i10.i.i.i.i.us.us.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.us.us.i.i.i ], [ %.fr18.i.i.i, %.lr.ph.i.us.us.i.i.i ]
+  %.05.i10.i.i.i.i.us.us.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.us.us.i.i.i ], [ %22, %.lr.ph.i.us.us.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.05.i10.i.i.i.i.us.us.i.i.i, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !171, !nonnull !114, !noundef !114
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
@@ -10160,13 +10156,13 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   store ptr %.1.i.i.i.i.us.us.i.i.i, ptr %.05.i.us.us.i.i.i, align 8, !tbaa !162
   %58 = add i64 %47, -1
   %59 = getelementptr inbounds nuw i8, ptr %.05.i.us.us.i.i.i, i64 8
-  %.not21.i.i.i = icmp eq i64 %58, %20
-  br i1 %.not21.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11VPBlockBaseELb1EE18uninitialized_copyISt16reverse_iteratorINS_23VPAllSuccessorsIteratorIS2_EEEPS2_EEvT_SA_T0_.exit, label %.lr.ph.i.us.us.i.i.i, !llvm.loop !490
+  %.not19.i.i.i = icmp eq i64 %58, %20
+  br i1 %.not19.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11VPBlockBaseELb1EE18uninitialized_copyISt16reverse_iteratorINS_23VPAllSuccessorsIteratorIS2_EEEPS2_EEvT_SA_T0_.exit, label %.lr.ph.i.us.us.i.i.i, !llvm.loop !490
 
 .lr.ph.i.preheader.split.us.split.i.i.i:          ; preds = %.lr.ph.i.preheader.split.us.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %.fr18.i.i.i, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !3
-  br i1 %26, label %.lr.ph.i.us.us12.i.i.i, label %.lr.ph.i.us.i.i.i
+  br i1 %.fr.i.i.i, label %.lr.ph.i.us.us12.i.i.i, label %.lr.ph.i.us.i.i.i
 
 .lr.ph.i.us.us12.i.i.i:                           ; preds = %.lr.ph.i.preheader.split.us.split.i.i.i, %.lr.ph.i.us.us12.i.i.i
   %62 = phi i64 [ %66, %.lr.ph.i.us.us12.i.i.i ], [ %21, %.lr.ph.i.preheader.split.us.split.i.i.i ]
@@ -10190,13 +10186,13 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   store ptr %.1.i.i.i.i.us.i.i.i, ptr %.05.i.us.i.i.i, align 8, !tbaa !162
   %72 = add i64 %68, -1
   %73 = getelementptr inbounds nuw i8, ptr %.05.i.us.i.i.i, i64 8
-  %.not20.i.i.i = icmp eq i64 %72, %20
-  br i1 %.not20.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11VPBlockBaseELb1EE18uninitialized_copyISt16reverse_iteratorINS_23VPAllSuccessorsIteratorIS2_EEEPS2_EEvT_SA_T0_.exit, label %.lr.ph.i.us.i.i.i, !llvm.loop !490
+  %.not18.i.i.i = icmp eq i64 %72, %20
+  br i1 %.not18.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11VPBlockBaseELb1EE18uninitialized_copyISt16reverse_iteratorINS_23VPAllSuccessorsIteratorIS2_EEEPS2_EEvT_SA_T0_.exit, label %.lr.ph.i.us.i.i.i, !llvm.loop !490
 
 .lr.ph.i.preheader.split.i.i.i:                   ; preds = %.lr.ph.i.preheader.i.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.fr18.i.i.i, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %.1.i.i.i.i.us9.pre.i.i.i = load ptr, ptr %74, align 8, !tbaa !162
-  br i1 %26, label %.lr.ph.i.us7.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.fr.i.i.i, label %.lr.ph.i.us7.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.us7.i.i.i:                               ; preds = %.lr.ph.i.preheader.split.i.i.i, %.lr.ph.i.us7.i.i.i
   %.05.i.us8.i.i.i = phi ptr [ %75, %.lr.ph.i.us7.i.i.i ], [ %25, %.lr.ph.i.preheader.split.i.i.i ]

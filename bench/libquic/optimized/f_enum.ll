@@ -146,13 +146,13 @@ define hidden range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %0, ptr nound
   br i1 %26, label %._crit_edge157, label %..thread131_crit_edge
 
 ..thread131_crit_edge:                            ; preds = %22
-  %.phi.trans.insert186 = getelementptr i8, ptr %25, i64 -1
-  %.pre187 = load i8, ptr %.phi.trans.insert186, align 1, !tbaa !15
+  %.phi.trans.insert187 = getelementptr i8, ptr %25, i64 -1
+  %.pre188 = load i8, ptr %.phi.trans.insert187, align 1, !tbaa !15
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %..thread131_crit_edge
-  %.pre-phi188 = phi i64 [ %24, %..thread131_crit_edge ], [ %.pre-phi, %.thread ]
-  %27 = phi i8 [ %.pre187, %..thread131_crit_edge ], [ %20, %.thread ]
+  %.pre-phi189 = phi i64 [ %24, %..thread131_crit_edge ], [ %.pre-phi, %.thread ]
+  %27 = phi i8 [ %.pre188, %..thread131_crit_edge ], [ %20, %.thread ]
   %.1117133 = phi i32 [ %23, %..thread131_crit_edge ], [ %.0116130, %.thread ]
   %28 = icmp eq i8 %27, 92
   %.neg = sext i1 %28 to i32
@@ -162,13 +162,13 @@ define hidden range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !15
-  %.fr = freeze i8 %30
-  %31 = add i8 %.fr, -48
+  %.fr166 = freeze i8 %30
+  %31 = add i8 %.fr166, -48
   %or.cond126 = icmp ult i8 %31, 10
   br i1 %or.cond126, label %32, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr, label %switch.early.test._crit_edge.split.loop.exit203 [
+  switch i8 %.fr166, label %switch.early.test._crit_edge.split.loop.exit204 [
     i8 102, label %32
     i8 101, label %32
     i8 100, label %32
@@ -185,15 +185,15 @@ switch.early.test:                                ; preds = %.lr.ph
 
 32:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi188
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi189
   br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !19
 
-switch.early.test._crit_edge.split.loop.exit203:  ; preds = %switch.early.test
+switch.early.test._crit_edge.split.loop.exit204:  ; preds = %switch.early.test
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   br label %switch.early.test._crit_edge
 
-switch.early.test._crit_edge:                     ; preds = %32, %switch.early.test._crit_edge.split.loop.exit203
-  %.2118.ph = phi i32 [ %33, %switch.early.test._crit_edge.split.loop.exit203 ], [ %.1117133, %32 ]
+switch.early.test._crit_edge:                     ; preds = %32, %switch.early.test._crit_edge.split.loop.exit204
+  %.2118.ph = phi i32 [ %33, %switch.early.test._crit_edge.split.loop.exit204 ], [ %.1117133, %32 ]
   %34 = sext i32 %.2118.ph to i64
   %35 = getelementptr inbounds i8, ptr %2, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !15
@@ -270,21 +270,21 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
 
 .preheader.preheader:                             ; preds = %66
   %68 = sext i32 %.0104151 to i64
-  %wide.trip.count184 = zext nneg i32 %50 to i64
-  %invariant.gep205 = getelementptr i8, ptr %.1108, i64 %68
+  %wide.trip.count185 = zext nneg i32 %50 to i64
+  %invariant.gep206 = getelementptr i8, ptr %.1108, i64 %68
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %86
-  %indvars.iv179 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next180, %86 ]
-  %indvars.iv177 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next178, %86 ]
-  %gep206 = getelementptr i8, ptr %invariant.gep205, i64 %indvars.iv179
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.0105, i64 %indvars.iv177
+  %indvars.iv180 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next181, %86 ]
+  %indvars.iv178 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next179, %86 ]
+  %gep207 = getelementptr i8, ptr %invariant.gep206, i64 %indvars.iv180
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.0105, i64 %indvars.iv178
   br label %69
 
 69:                                               ; preds = %.preheader, %82
   %70 = phi i1 [ true, %.preheader ], [ false, %82 ]
-  %indvars.iv174 = phi i64 [ 0, %.preheader ], [ 1, %82 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv174
+  %indvars.iv175 = phi i64 [ 0, %.preheader ], [ 1, %82 ]
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv175
   %71 = load i8, ptr %gep, align 1, !tbaa !15
   %72 = add i8 %71, -48
   %or.cond = icmp ult i8 %72, 10
@@ -314,17 +314,17 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
 
 82:                                               ; preds = %69, %75, %79
   %.0112 = phi i8 [ %80, %79 ], [ %76, %75 ], [ %72, %69 ]
-  %83 = load i8, ptr %gep206, align 1, !tbaa !15
+  %83 = load i8, ptr %gep207, align 1, !tbaa !15
   %84 = shl i8 %83, 4
   %85 = or i8 %84, %.0112
-  store i8 %85, ptr %gep206, align 1, !tbaa !15
+  store i8 %85, ptr %gep207, align 1, !tbaa !15
   br i1 %70, label %69, label %86, !llvm.loop !20
 
 86:                                               ; preds = %82
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 2
-  %exitcond185.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge148, label %.preheader, !llvm.loop !21
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 2
+  %exitcond186.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count185
+  br i1 %exitcond186.not, label %._crit_edge148, label %.preheader, !llvm.loop !21
 
 ._crit_edge148:                                   ; preds = %86, %66
   br i1 %28, label %87, label %90

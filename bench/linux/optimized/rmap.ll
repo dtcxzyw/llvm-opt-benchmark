@@ -4504,7 +4504,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 
 46:                                               ; preds = %44
   %47 = add i64 %2, 4096
-  br label %._crit_edge32
+  br label %._crit_edge33
 
 48:                                               ; preds = %44
   %49 = add i64 %31, %28
@@ -4517,14 +4517,14 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %56 = icmp ult i64 %55, %50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %56, label %._crit_edge32, label %57
+  br i1 %56, label %._crit_edge33, label %57
 
 57:                                               ; preds = %48
-  %spec.select51 = tail call i64 @llvm.umin.i64(i64 %55, i64 %.pre)
-  br label %._crit_edge32
+  %spec.select52 = tail call i64 @llvm.umin.i64(i64 %55, i64 %.pre)
+  br label %._crit_edge33
 
-._crit_edge32:                                    ; preds = %57, %48, %46
-  %58 = phi i64 [ %47, %46 ], [ %spec.select51, %57 ], [ %.pre, %48 ]
+._crit_edge33:                                    ; preds = %57, %48, %46
+  %58 = phi i64 [ %47, %46 ], [ %spec.select52, %57 ], [ %.pre, %48 ]
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 1, ptr %60, align 4
@@ -4539,7 +4539,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %72, label %66
 
-66:                                               ; preds = %._crit_edge32
+66:                                               ; preds = %._crit_edge33
   %67 = getelementptr i8, ptr %0, i64 64
   %68 = load volatile i64, ptr %67, align 8
   %69 = and i64 %68, 256
@@ -4550,7 +4550,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   call void @adjust_range_if_pmd_sharing_possible(ptr noundef %1, ptr noundef nonnull %61, ptr noundef nonnull %59) #17
   br label %72
 
-72:                                               ; preds = %71, %66, %._crit_edge32
+72:                                               ; preds = %71, %66, %._crit_edge33
   %73 = call i32 @__SCT__might_resched() #17
   %74 = load ptr, ptr %11, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1160
@@ -4671,10 +4671,10 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %157 = call i32 @huge_pmd_unshare(ptr noundef %13, ptr noundef %1, i64 noundef %121, ptr noundef %143) #17
   %158 = icmp eq i32 %157, 0
   call void @hugetlb_vma_unlock_write(ptr noundef %1) #17
-  br i1 %158, label %._crit_edge33, label %159
+  br i1 %158, label %._crit_edge34, label %159
 
-._crit_edge33:                                    ; preds = %156
-  %.pre34 = load ptr, ptr %35, align 8
+._crit_edge34:                                    ; preds = %156
+  %.pre35 = load ptr, ptr %35, align 8
   br label %193
 
 159:                                              ; preds = %156
@@ -4725,8 +4725,8 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %192 = icmp eq ptr %191, null
   br i1 %192, label %.thread, label %.thread.sink.split
 
-193:                                              ; preds = %._crit_edge33, %139
-  %194 = phi ptr [ %.pre34, %._crit_edge33 ], [ %106, %139 ]
+193:                                              ; preds = %._crit_edge34, %139
+  %194 = phi ptr [ %.pre35, %._crit_edge34 ], [ %106, %139 ]
   %195 = call i64 @ptep_clear_flush(ptr noundef %1, i64 noundef %121, ptr noundef %194) #17
   br label %267
 
@@ -4779,11 +4779,11 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 
 223:                                              ; preds = %220, %.thread18
   %224 = icmp ugt i32 %216, %215
-  %.pre35 = load ptr, ptr %35, align 8
+  %.pre36 = load ptr, ptr %35, align 8
   br i1 %224, label %225, label %264
 
 225:                                              ; preds = %223
-  %226 = call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.pre35, i64 0, ptr elementtype(i64) %.pre35) #17, !srcloc !79
+  %226 = call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.pre36, i64 0, ptr elementtype(i64) %.pre36) #17, !srcloc !79
   %227 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !35
   %228 = inttoptr i64 %227 to ptr
   %229 = and i64 %226, 288230376151711808
@@ -4854,14 +4854,14 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br label %267
 
 264:                                              ; preds = %223, %196
-  %265 = phi ptr [ %.pre35, %223 ], [ %106, %196 ]
+  %265 = phi ptr [ %.pre36, %223 ], [ %106, %196 ]
   %266 = call i64 @ptep_clear_flush(ptr noundef %1, i64 noundef %121, ptr noundef %265) #17
   br label %267
 
 267:                                              ; preds = %193, %264, %262, %.thread19, %236, %233
   %268 = phi i64 [ %195, %193 ], [ %266, %264 ], [ %226, %233 ], [ %226, %236 ], [ %226, %.thread19 ], [ %226, %262 ]
-  %.fr = freeze i64 %268
-  %269 = and i64 %.fr, 288230376151711808
+  %.fr26 = freeze i64 %268
+  %269 = and i64 %.fr26, 288230376151711808
   %270 = icmp eq i64 %269, 0
   br i1 %270, label %273, label %271
 
@@ -4925,7 +4925,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 305:                                              ; preds = %298, %301
   %306 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 %.fr, ptr %8, align 8
+  store i64 %.fr26, ptr %8, align 8
   %.0..0..0..0. = load volatile i64, ptr %8, align 8
   store volatile i64 %.0..0..0..0., ptr %306, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4978,7 +4978,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 332:                                              ; preds = %324, %327
   %333 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 %.fr, ptr %7, align 8
+  store i64 %.fr26, ptr %7, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %7, align 8
   store volatile i64 %.0..0..0..0.1, ptr %333, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5004,7 +5004,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br i1 %345, label %.thread, label %.thread.sink.split
 
 346:                                              ; preds = %330, %319, %304, %293
-  %347 = and i64 %.fr, 2
+  %347 = and i64 %.fr26, 2
   %348 = icmp eq i64 %347, 0
   br i1 %348, label %352, label %.thread22
 
@@ -5026,7 +5026,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br label %364
 
 357:                                              ; preds = %352, %352
-  %358 = and i64 %.fr, 64
+  %358 = and i64 %.fr26, 64
   %359 = icmp eq i64 %358, 0
   %360 = load i64, ptr @vmemmap_base, align 8
   %361 = ptrtoint ptr %120 to i64
@@ -5040,7 +5040,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %365 = phi i64 [ 8646911284551352320, %.thread22 ], [ %spec.select, %357 ], [ %356, %.thread20 ]
   %366 = lshr exact i64 %.in, 6
   %367 = or disjoint i64 %366, %365
-  %368 = and i64 %.fr, 32
+  %368 = and i64 %.fr26, 32
   %369 = icmp eq i64 %368, 0
   %370 = load i8, ptr @swap_migration_ad_supported, align 1, !range !33
   %371 = icmp eq i8 %370, 0
@@ -5057,11 +5057,11 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
 375:                                              ; preds = %374, %373, %373
   %376 = phi i64 [ 17179869184, %374 ], [ 1099511627776, %373 ], [ 1099511627776, %373 ]
   %377 = or i64 %376, %367
-  %.pre36 = load i8, ptr @swap_migration_ad_supported, align 1, !range !33
+  %.pre37 = load i8, ptr @swap_migration_ad_supported, align 1, !range !33
   br label %378
 
 378:                                              ; preds = %375, %364
-  %379 = phi i8 [ %370, %364 ], [ %.pre36, %375 ]
+  %379 = phi i8 [ %370, %364 ], [ %.pre37, %375 ]
   %380 = phi i64 [ %367, %364 ], [ %377, %375 ]
   %381 = icmp eq i8 %379, 0
   %382 = select i1 %270, i1 true, i1 %381
@@ -5206,11 +5206,11 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br i1 %457, label %..critedge_crit_edge, label %.critedge16
 
 ..critedge_crit_edge:                             ; preds = %454
-  %.pre37 = load i64, ptr %0, align 16
+  %.pre38 = load i64, ptr %0, align 16
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %450
-  %458 = phi i64 [ %.pre37, %..critedge_crit_edge ], [ %451, %450 ]
+  %458 = phi i64 [ %.pre38, %..critedge_crit_edge ], [ %451, %450 ]
   %459 = load ptr, ptr %85, align 8
   %460 = ptrtoint ptr %459 to i64
   %461 = and i64 %460, 1

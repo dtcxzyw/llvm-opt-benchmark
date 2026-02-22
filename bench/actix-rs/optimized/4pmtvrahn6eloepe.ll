@@ -6378,8 +6378,8 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
 112:                                              ; preds = %120, %114, %108
   %.5 = phi i64 [ %131, %120 ], [ %.4212, %114 ], [ %.4212, %108 ]
   %113 = add i64 %.074211, 1
-  %exitcond234.not = icmp eq i64 %.074211, %.0.sroa.speculated.i100
-  br i1 %exitcond234.not, label %.loopexit, label %108
+  %exitcond235.not = icmp eq i64 %.074211, %.0.sroa.speculated.i100
+  br i1 %exitcond235.not, label %.loopexit, label %108
 
 114:                                              ; preds = %108
   %115 = lshr i32 %110, 5
@@ -6416,8 +6416,8 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   %134 = getelementptr inbounds nuw i32, ptr %13, i64 %.176209
   store i32 268435455, ptr %134, align 4
   %135 = add nuw nsw i64 %.176209, 1
-  %exitcond233.not = icmp eq i64 %135, 38
-  br i1 %exitcond233.not, label %88, label %133
+  %exitcond234.not = icmp eq i64 %135, 38
+  br i1 %exitcond234.not, label %88, label %133
 }
 
 ; Function Attrs: nonlazybind uwtable

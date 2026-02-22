@@ -1288,21 +1288,21 @@ define hidden i32 @mbedtls_mpi_core_random(ptr noundef %0, i64 noundef %1, ptr n
   %14 = add nsw i64 %indvars.iv.i, -1
   %15 = getelementptr inbounds nuw i64, ptr %2, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !3
-  %.fr = freeze i64 %16
-  %.not.i = icmp eq i64 %.fr, 0
+  %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %10, label %mbedtls_mpi_core_bitlen.exit, !llvm.loop !7
 
 mbedtls_mpi_core_bitlen.exit:                     ; preds = %13
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr, i1 true)
-  %18 = shl i64 %14, 6
-  %reass.sub.i = add nsw i64 %18, 64
-  %19 = sub nsw i64 %reass.sub.i, %17
-  %20 = add nuw nsw i64 %19, 7
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %16, i1 true)
+  %18 = shl nuw nsw i64 %14, 6
+  %reass.sub.i = add nuw nsw i64 %18, 64
+  %19 = sub nuw nsw i64 %reass.sub.i, %17
+  %.fr = freeze i64 %19
+  %20 = add nuw nsw i64 %.fr, 7
   %21 = lshr i64 %20, 3
-  %22 = icmp ugt i64 %19, 32
+  %22 = icmp ugt i64 %.fr, 32
   %spec.select = select i1 %22, i32 30, i32 250
   %23 = and i64 %20, 274877906936
-  %24 = sub nsw i64 %23, %19
+  %24 = sub nsw i64 %23, %.fr
   br label %mbedtls_mpi_core_bitlen.exit.thread
 
 mbedtls_mpi_core_bitlen.exit.thread:              ; preds = %10, %mbedtls_mpi_core_bitlen.exit

@@ -1440,25 +1440,22 @@ define noundef zeroext i1 @_ZNK3nix10SourcePathltERKS0_(ptr noundef nonnull read
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %.fr.i.i.i.i = freeze ptr %22
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
-  %.fr26.i.i.i.i = freeze i64 %25
-  %26 = getelementptr i8, ptr %.fr.i.i.i.i, i64 %.fr26.i.i.i.i
-  %27 = icmp eq i64 %.fr26.i.i.i.i, 0
+  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %27 = icmp eq i64 %25, 0
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8
-  %.pre.i.fr.i.i.i.i = freeze i64 %.pre.i.i.i.i.i
   br i1 %27, label %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %23, i64 %.pre.i.fr.i.i.i.i
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %23, i64 %.fr26.i.i.i.i
+  %28 = getelementptr inbounds i8, ptr %23, i64 %.pre.i.i.i.i.i
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %23, i64 %25
   br label %29
 
 29:                                               ; preds = %39, %.lr.ph.i.i.i.i.i
-  %.sroa.020.026.i.i.i.i.i = phi ptr [ %.fr.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %40, %39 ]
+  %.sroa.020.026.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %40, %39 ]
   %.sroa.016.025.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
   %30 = icmp eq ptr %.sroa.016.025.i.i.i.i.i, %28
   br i1 %30, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %31
@@ -1485,7 +1482,7 @@ define noundef zeroext i1 @_ZNK3nix10SourcePathltERKS0_(ptr noundef nonnull read
 
 _ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i:          ; preds = %39, %19
   %.sroa.016.0.lcssa.i.i.i.i.i = phi ptr [ %23, %19 ], [ %scevgep.i.i.i.i.i, %39 ]
-  %43 = getelementptr inbounds i8, ptr %23, i64 %.pre.i.fr.i.i.i.i
+  %43 = getelementptr inbounds i8, ptr %23, i64 %.pre.i.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.016.0.lcssa.i.i.i.i.i, %43
   br i1 %.not.i.i.i.i, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
 

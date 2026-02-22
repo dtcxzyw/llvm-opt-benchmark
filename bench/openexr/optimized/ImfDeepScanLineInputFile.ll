@@ -2898,9 +2898,9 @@ define hidden i64 @_ZNK7Imf_3_421DeepScanLineInputFile4Data13getChunkRangeEi(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !58
   %9 = tail call { i64, i64 } @_ZNK7Imf_3_47Context10dataWindowEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %8)
-  %.fr37 = freeze { i64, i64 } %9
-  %10 = extractvalue { i64, i64 } %.fr37, 0
-  %11 = extractvalue { i64, i64 } %.fr37, 1
+  %.fr38 = freeze { i64, i64 } %9
+  %10 = extractvalue { i64, i64 } %.fr38, 0
+  %11 = extractvalue { i64, i64 } %.fr38, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !14
   %.sroa.0.4.extract.shift = lshr i64 %10, 32

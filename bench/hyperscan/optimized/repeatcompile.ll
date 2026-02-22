@@ -1193,8 +1193,6 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge38, %21
   %.val16 = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %31, i64 8
   %.val17 = load ptr, ptr %32, align 8
-  %.8.val.fr.i = freeze ptr %.val15
-  %.0.val.fr.i = freeze ptr %.val
   %33 = ptrtoint ptr %.val17 to i64
   %34 = ptrtoint ptr %.val16 to i64
   %35 = sub i64 %33, %34
@@ -1204,14 +1202,15 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge38, %21
   br i1 %37, label %.lr.ph.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit
 
 .lr.ph.i:                                         ; preds = %27
-  %39 = ptrtoint ptr %.8.val.fr.i to i64
-  %40 = ptrtoint ptr %.0.val.fr.i to i64
+  %39 = ptrtoint ptr %.val15 to i64
+  %40 = ptrtoint ptr %.val to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 5
-  %.not6.i37.i = icmp eq ptr %.0.val.fr.i, %.8.val.fr.i
+  %.not6.i37.i = icmp eq ptr %.val, %.val15
   %43 = sub nsw i64 0, %42
   %invariant.gep.i = getelementptr %"class.ue2::CharReach", ptr %.val17, i64 %43
-  br i1 %.not6.i37.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %.not6.i37.fr.i = freeze i1 %.not6.i37.i
+  br i1 %.not6.i37.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %67
   %.03218.us.i = phi i32 [ %68, %67 ], [ 1, %.lr.ph.i ]
@@ -1224,7 +1223,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge38, %21
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.split.us.i
   %.neg.us.i = mul nsw i64 %45, -32
-  %46 = getelementptr inbounds i8, ptr %.8.val.fr.i, i64 %.neg.us.i
+  %46 = getelementptr inbounds i8, ptr %.val15, i64 %.neg.us.i
   br label %47
 
 47:                                               ; preds = %_ZNK3ue29CharReach4noneEv.exit.i.us.i, %.lr.ph.i.us.i
@@ -1268,7 +1267,7 @@ _ZNK3ue29CharReach4noneEv.exit.i.us.i:            ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.us.i, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.us.i, i64 32
-  %.not.i.us.i = icmp eq ptr %65, %.8.val.fr.i
+  %.not.i.us.i = icmp eq ptr %65, %.val15
   %or.cond.i.us.i = select i1 %.not13.i.i.i.us.i, i1 true, i1 %.not.i.us.i
   br i1 %or.cond.i.us.i, label %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i, label %47, !llvm.loop !12
 
@@ -1295,7 +1294,7 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
 
 .lr.ph.i.i:                                       ; preds = %74
   %.neg.i = mul nsw i64 %73, -32
-  %75 = getelementptr inbounds i8, ptr %.8.val.fr.i, i64 %.neg.i
+  %75 = getelementptr inbounds i8, ptr %.val15, i64 %.neg.i
   br label %76
 
 76:                                               ; preds = %_ZNK3ue29CharReach4noneEv.exit.i.i, %.lr.ph.i.i
@@ -1339,7 +1338,7 @@ _ZNK3ue29CharReach4noneEv.exit.i.i:               ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 32
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 32
-  %.not.i.i = icmp eq ptr %94, %.8.val.fr.i
+  %.not.i.i = icmp eq ptr %94, %.val15
   %or.cond.i.i = select i1 %.not13.i.i.i.i, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i, label %76, !llvm.loop !12
 
@@ -1353,7 +1352,7 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
 
 97:                                               ; preds = %_ZNK3ue29CharReach4noneEv.exit.i47.i, %.lr.ph.i38.i
   %.sroa.0.08.i39.i = phi ptr [ %gep.i, %.lr.ph.i38.i ], [ %116, %_ZNK3ue29CharReach4noneEv.exit.i47.i ]
-  %.sroa.03.07.i40.i = phi ptr [ %.0.val.fr.i, %.lr.ph.i38.i ], [ %115, %_ZNK3ue29CharReach4noneEv.exit.i47.i ]
+  %.sroa.03.07.i40.i = phi ptr [ %.val, %.lr.ph.i38.i ], [ %115, %_ZNK3ue29CharReach4noneEv.exit.i47.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.07.i40.i, i64 32, i1 false)
@@ -1392,7 +1391,7 @@ _ZNK3ue29CharReach4noneEv.exit.i47.i:             ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i40.i, i64 32
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i39.i, i64 32
-  %.not.i48.i = icmp eq ptr %115, %.8.val.fr.i
+  %.not.i48.i = icmp eq ptr %115, %.val15
   %or.cond.i49.i = select i1 %.not13.i.i.i43.i, i1 true, i1 %.not.i48.i
   br i1 %or.cond.i49.i, label %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i, label %97, !llvm.loop !12
 

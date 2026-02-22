@@ -245,8 +245,8 @@ define internal fastcc ptr @parse_range_funcname(ptr noundef %0, ptr noundef rea
   %68 = zext i8 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !8
-  %.fr.i.us.i = freeze i8 %70
-  %71 = and i8 %.fr.i.us.i, 4
+  %.fr16.i.us.i = freeze i8 %70
+  %71 = and i8 %.fr16.i.us.i, 4
   %.not14.not.i.us.i = icmp eq i8 %71, 0
   br i1 %.not14.not.i.us.i, label %switch.early.test.i.us.i, label %find_funcname_matching_regexp.exit
 
@@ -393,8 +393,8 @@ find_funcname_matching_regexp.exit:               ; preds = %.critedge2.i, %66, 
   %119 = zext i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
-  %.fr.i.us = freeze i8 %121
-  %122 = and i8 %.fr.i.us, 4
+  %.fr16.i.us = freeze i8 %121
+  %122 = and i8 %.fr16.i.us, 4
   %.not14.not.i.us = icmp eq i8 %122, 0
   br i1 %.not14.not.i.us, label %switch.early.test.i.us, label %.thread.thread
 

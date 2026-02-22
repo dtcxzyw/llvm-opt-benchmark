@@ -283,22 +283,20 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 .critedge.i:                                      ; preds = %._crit_edge.thread.i, %.thread51.i, %.preheader.i, %1
   %.060 = phi i32 [ %48, %.thread51.i ], [ %spec.store.select.i, %1 ], [ %spec.store.select.i, %.preheader.i ], [ %spec.store.select.i, %._crit_edge.thread.i ]
-  %.060.fr = freeze i32 %.060
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i8, ptr %49, align 4, !tbaa !44
-  %.fr90 = freeze i8 %50
-  %.not45.i = icmp eq i8 %.fr90, 0
-  %51 = or i32 %.060.fr, 2048
-  %spec.select = select i1 %.not45.i, i32 %.060.fr, i32 %51
+  %.not45.i = icmp eq i8 %50, 0
+  %51 = or i32 %.060, 2048
+  %spec.select = select i1 %.not45.i, i32 %.060, i32 %51
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !45
-  %.fr89 = freeze i8 %53
-  %.not46.i = icmp eq i8 %.fr89, 0
+  %.not46.i = icmp eq i8 %53, 0
   %54 = or i32 %spec.select, 512
   %.2 = select i1 %.not46.i, i32 %spec.select, i32 %54
+  %.2.fr = freeze i32 %.2
   store i32 20000630, ptr %2, align 4, !tbaa !43
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %.2, ptr %55, align 4, !tbaa !43
+  store i32 %.2.fr, ptr %55, align 4, !tbaa !43
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -310,20 +308,20 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %63 = and i32 %.2, 6144
+  %63 = and i32 %.2.fr, 6144
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.preheader74.split.us, label %.preheader74.split
 
 .preheader74.split.us:                            ; preds = %.preheader74, %.thread66.us
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.thread66.us ], [ 0, %.preheader74 ]
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.thread66.us ], [ 0, %.preheader74 ]
   %65 = load i32, ptr %60, align 4, !tbaa !23
   %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv125, %66
+  %67 = icmp slt i64 %indvars.iv122, %66
   br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %.preheader74.split.us
   %69 = load ptr, ptr %61, align 8, !tbaa !24
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv125
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv122
   %71 = load ptr, ptr %70, align 8, !tbaa !27
   %72 = load i8, ptr %62, align 1, !tbaa !47
   %.not54.us = icmp eq i8 %72, 0
@@ -333,16 +331,16 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   br i1 %.not54.us, label %.preheader.us, label %.preheader71.us
 
 76:                                               ; preds = %80
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %77 = load i32, ptr %73, align 8, !tbaa !28
   %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next123, %78
+  %79 = icmp slt i64 %indvars.iv.next120, %78
   br i1 %79, label %80, label %.thread66.us, !llvm.loop !48
 
 80:                                               ; preds = %.lr.ph86.us, %76
-  %indvars.iv122 = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next123, %76 ]
+  %indvars.iv119 = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next120, %76 ]
   %81 = load ptr, ptr %108, align 8, !tbaa !29
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv122
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv119
   %83 = load ptr, ptr %82, align 8, !tbaa !30
   %84 = call fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %83)
   %.not55.us = icmp eq i32 %84, 0
@@ -352,7 +350,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   store i8 0, ptr %3, align 1, !tbaa !35
   %85 = load ptr, ptr %56, align 8, !tbaa !46
   %86 = call i32 %85(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 1, ptr noundef nonnull %58) #6
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.preheader74.split.us, label %.critedge57, !llvm.loop !49
 
@@ -368,9 +366,9 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 89:                                               ; preds = %select.unfold.us.us, %.lr.ph.us
   %90 = phi i32 [ %105, %select.unfold.us.us ], [ %74, %.lr.ph.us ]
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %select.unfold.us.us ], [ 0, %.lr.ph.us ]
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %select.unfold.us.us ], [ 0, %.lr.ph.us ]
   %91 = load ptr, ptr %88, align 8, !tbaa !50
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv119
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv116
   %93 = load ptr, ptr %92, align 8, !tbaa !30
   %94 = load i32, ptr %60, align 4, !tbaa !23
   %95 = icmp eq i32 %94, 1
@@ -398,9 +396,9 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
 
 select.unfold.us.us:                              ; preds = %.select.unfold.us.us_crit_edge, %100, %96
   %105 = phi i32 [ %.pre, %.select.unfold.us.us_crit_edge ], [ %90, %100 ], [ %90, %96 ]
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next120, %106
+  %107 = icmp slt i64 %indvars.iv.next117, %106
   br i1 %107, label %89, label %.thread66.us, !llvm.loop !52
 
 .lr.ph86.us:                                      ; preds = %.preheader.us
@@ -408,15 +406,15 @@ select.unfold.us.us:                              ; preds = %.select.unfold.us.u
   br label %80
 
 .preheader74.split:                               ; preds = %.preheader74, %.thread66
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.thread66 ], [ 0, %.preheader74 ]
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.thread66 ], [ 0, %.preheader74 ]
   %109 = load i32, ptr %60, align 4, !tbaa !23
   %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv116, %110
+  %111 = icmp slt i64 %indvars.iv113, %110
   br i1 %111, label %112, label %.critedge
 
 112:                                              ; preds = %.preheader74.split
   %113 = load ptr, ptr %61, align 8, !tbaa !24
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv116
+  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv113
   %115 = load ptr, ptr %114, align 8, !tbaa !27
   %116 = load i8, ptr %62, align 1, !tbaa !47
   %.not54 = icmp eq i8 %116, 0
@@ -456,16 +454,16 @@ select.unfold:                                    ; preds = %122
   br i1 %129, label %122, label %.thread66, !llvm.loop !52
 
 130:                                              ; preds = %134
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %131 = load i32, ptr %117, align 8, !tbaa !28
   %132 = sext i32 %131 to i64
-  %133 = icmp slt i64 %indvars.iv.next114, %132
+  %133 = icmp slt i64 %indvars.iv.next111, %132
   br i1 %133, label %134, label %.thread66, !llvm.loop !48
 
 134:                                              ; preds = %.lr.ph86, %130
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next114, %130 ]
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next111, %130 ]
   %135 = load ptr, ptr %121, align 8, !tbaa !29
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv113
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv110
   %137 = load ptr, ptr %136, align 8, !tbaa !30
   %138 = call fastcc i32 @save_attr(ptr noundef nonnull %0, ptr noundef %137)
   %.not55 = icmp eq i32 %138, 0
@@ -475,7 +473,7 @@ select.unfold:                                    ; preds = %122
   store i8 0, ptr %3, align 1, !tbaa !35
   %139 = load ptr, ptr %56, align 8, !tbaa !46
   %140 = call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 1, ptr noundef nonnull %58) #6
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %.preheader74.split, label %.critedge57, !llvm.loop !49
 

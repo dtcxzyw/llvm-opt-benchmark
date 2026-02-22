@@ -4892,13 +4892,13 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
 define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %4 = load i32, ptr %3, align 4
-  %.fr.i = freeze i32 %4
-  %5 = and i32 %.fr.i, 1
+  %.fr103.i = freeze i32 %4
+  %5 = and i32 %.fr103.i, 1
   %.not.i = icmp eq i32 %5, 0
-  %6 = and i32 %.fr.i, 1040
+  %6 = and i32 %.fr103.i, 1040
   %or.cond.not.i = icmp eq i32 %6, 0
   %or.cond.i = or i1 %.not.i, %or.cond.not.i
-  %7 = and i32 %.fr.i, 1024
+  %7 = and i32 %.fr103.i, 1024
   %.not56.not.not.i = icmp eq i32 %7, 0
   %or.cond101.i = and i1 %.not56.not.not.i, %or.cond.i
   br i1 %or.cond101.i, label %8, label %.thread90.i
@@ -5005,7 +5005,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not58.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !40
 
 .critedge.i:                                      ; preds = %52, %34, %8
-  %55 = and i32 %.fr.i, 2
+  %55 = and i32 %.fr103.i, 2
   %.not66.i = icmp eq i32 %55, 0
   br i1 %.not66.i, label %OnConflict_CheckForSerializationFailure.exit, label %56
 
@@ -5026,8 +5026,8 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = load ptr, ptr %64, align 8
   %.not69.i = icmp eq ptr %65, null
-  %.not7098103.i = icmp eq ptr %65, %63
-  %.not7098.i = select i1 %.not69.i, i1 true, i1 %.not7098103.i
+  %.not7098104.i = icmp eq ptr %65, %63
+  %.not7098.i = select i1 %.not69.i, i1 true, i1 %.not7098104.i
   br i1 %.not7098.i, label %OnConflict_CheckForSerializationFailure.exit, label %.lr.ph100.i
 
 .lr.ph100.i:                                      ; preds = %62
@@ -5092,7 +5092,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 98:                                               ; preds = %.thread90.i
-  %99 = and i32 %.fr.i, 2
+  %99 = and i32 %.fr103.i, 2
   %.not76.i = icmp eq i32 %99, 0
   br i1 %.not76.i, label %110, label %100
 
@@ -5111,12 +5111,12 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 110:                                              ; preds = %98
-  %111 = or i32 %.fr.i, 8
+  %111 = or i32 %.fr103.i, 8
   store i32 %111, ptr %3, align 4
   br label %OnConflict_CheckForSerializationFailure.exit
 
 OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %56, %62, %110
-  %112 = phi i32 [ %111, %110 ], [ %.fr.i, %.critedge.i ], [ %.fr.i, %56 ], [ %.fr.i, %62 ], [ %.fr.i, %85 ]
+  %112 = phi i32 [ %111, %110 ], [ %.fr103.i, %.critedge.i ], [ %.fr103.i, %56 ], [ %.fr103.i, %62 ], [ %.fr103.i, %85 ]
   %113 = load ptr, ptr @OldCommittedSxact, align 8
   %114 = icmp eq ptr %0, %113
   br i1 %114, label %115, label %117

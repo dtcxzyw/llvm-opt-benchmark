@@ -13235,12 +13235,12 @@ _ZN4leanL18is_utf8_first_byteEh.exit.thread:      ; preds = %24
   %or.cond6.i35 = or i1 %53, %or.cond.i34
   %54 = and i32 %48, 248
   %55 = icmp eq i32 %54, 240
-  %or.cond41 = or i1 %55, %or.cond6.i35
-  %spec.select42 = select i1 %or.cond41, i64 %spec.select, i64 %14
+  %or.cond42 = or i1 %55, %or.cond6.i35
+  %spec.select43 = select i1 %or.cond42, i64 %spec.select, i64 %14
   br label %_ZN4leanL18is_utf8_first_byteEh.exit36.thread
 
 _ZN4leanL18is_utf8_first_byteEh.exit36.thread:    ; preds = %45, %_ZN4leanL18is_utf8_first_byteEh.exit.thread
-  %.127 = phi i64 [ %spec.select, %_ZN4leanL18is_utf8_first_byteEh.exit.thread ], [ %spec.select42, %45 ]
+  %.127 = phi i64 [ %spec.select, %_ZN4leanL18is_utf8_first_byteEh.exit.thread ], [ %spec.select43, %45 ]
   %56 = sub i64 %.127, %10
   %57 = tail call noundef i64 @_ZN4lean11utf8_strlenEPKcm(ptr noundef nonnull %25, i64 noundef %56)
   %58 = add i64 %56, 33

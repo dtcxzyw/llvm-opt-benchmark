@@ -143,8 +143,8 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
 
 61:                                               ; preds = %43
   %62 = cmpxchg ptr %19, i64 %17, i64 %4 seq_cst monotonic, align 8
-  %.fr = freeze { i64, i1 } %62
-  %63 = extractvalue { i64, i1 } %.fr, 1
+  %.fr61 = freeze { i64, i1 } %62
+  %63 = extractvalue { i64, i1 } %.fr61, 1
   %.43 = select i1 %63, ptr %53, ptr undef
   %64 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 264

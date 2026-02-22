@@ -1554,8 +1554,8 @@ switch.early.test:                                ; preds = %219
   %386 = call ptr @slurm_xcalloc(i64 noundef %385, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.33, i32 noundef 1032, ptr noundef nonnull @__func__._task_layout_lllp_cyclic) #7
   store ptr %386, ptr %27, align 8
   %387 = call i64 @slurm_bit_size(ptr noundef nonnull %329) #7
-  %.fr192.i = freeze i64 %387
-  %388 = trunc i64 %.fr192.i to i32
+  %.fr.i = freeze i64 %387
+  %388 = trunc i64 %.fr.i to i32
   %.not191.i = icmp eq i16 %317, 0
   br i1 %.not191.i, label %._crit_edge190.thread.i, label %.lr.ph189.i
 
@@ -2647,8 +2647,8 @@ define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nound
 
 72:                                               ; preds = %70, %61
   %73 = tail call i64 @slurm_bit_size(ptr noundef nonnull %27) #7
-  %.fr148 = freeze i64 %73
-  %74 = trunc i64 %.fr148 to i32
+  %.fr = freeze i64 %73
+  %74 = trunc i64 %.fr to i32
   %75 = zext i16 %15 to i64
   %76 = tail call ptr @slurm_xcalloc(i64 noundef %75, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.33, i32 noundef 1242, ptr noundef nonnull @__func__._task_layout_lllp_block) #7
   store ptr %76, ptr %2, align 8

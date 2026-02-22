@@ -946,9 +946,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10Header
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %43 = load ptr, ptr %42, align 8, !tbaa !70
   %44 = tail call { ptr, i64 } @_ZNK5clang12HeaderSearch23getIncludeNameForHeaderEPKNS_9FileEntryE(ptr noundef nonnull align 8 dereferenceable(2296) %43, ptr noundef nonnull %1) #15
-  %.fr92 = freeze { ptr, i64 } %44
-  %45 = extractvalue { ptr, i64 } %.fr92, 0
-  %46 = extractvalue { ptr, i64 } %.fr92, 1
+  %.fr = freeze { ptr, i64 } %44
+  %45 = extractvalue { ptr, i64 } %.fr, 0
+  %46 = extractvalue { ptr, i64 } %.fr, 1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %48 = load ptr, ptr %47, align 8, !tbaa !302
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 312

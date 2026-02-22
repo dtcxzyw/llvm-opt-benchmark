@@ -761,11 +761,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr46 = freeze i32 %9
-  %11 = add i32 %.fr46, 1
-  %.fr47 = freeze i32 %10
-  %12 = sub i32 %11, %.fr47
-  %13 = mul i32 %12, %7
+  %11 = add i32 %9, 1
+  %12 = sub i32 %11, %10
+  %.fr = freeze i32 %12
+  %13 = mul i32 %.fr, %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -805,26 +804,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %33 = zext nneg i32 %13 to i64
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
-  %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count53 = zext i32 %35 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next52, %._crit_edge.us ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
   %36 = load i32, ptr %16, align 4, !tbaa !21
-  %37 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv50 to i32
   %38 = add nsw i32 %36, %37
   %39 = mul nsw i32 %38, %18
   %40 = load i32, ptr %4, align 4, !tbaa !19
   %41 = add i32 %39, %40
   %42 = mul i32 %26, %41
-  %43 = mul nsw i64 %indvars.iv51, %32
+  %43 = mul nsw i64 %indvars.iv50, %32
   %44 = sext i32 %42 to i64
   %45 = add nsw i64 %43, %44
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
-  %50 = mul nuw nsw i64 %indvars.iv51, %33
+  %50 = mul nuw nsw i64 %indvars.iv50, %33
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 %50
   br label %51
 
@@ -837,13 +836,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = trunc i16 %54 to i8
   store i8 %55, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !25
+  %exitcond49.not = icmp eq i64 %indvars.iv.next, %33
+  br i1 %exitcond49.not, label %._crit_edge.us, label %51, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %51
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !27
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !27
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -875,11 +874,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -919,26 +917,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 %51
   br label %52
 
@@ -951,13 +949,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = trunc nuw i16 %55 to i8
   store i8 %56, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !28
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !29
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !29
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -1058,11 +1056,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1102,26 +1099,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 %51
   br label %52
 
@@ -1134,13 +1131,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = trunc nuw i32 %55 to i8
   store i8 %56, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !32
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !33
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !33
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -1172,11 +1169,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1216,26 +1212,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 %51
   br label %52
 
@@ -1247,13 +1243,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui float %54 to i8
   store i8 %55, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !35
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !36
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !36
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -1285,11 +1281,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1329,26 +1324,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 %51
   br label %52
 
@@ -1360,13 +1355,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui double %54 to i8
   store i8 %55, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !39
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !40
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !40
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2041,11 +2036,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr46 = freeze i32 %9
-  %11 = add i32 %.fr46, 1
-  %.fr47 = freeze i32 %10
-  %12 = sub i32 %11, %.fr47
-  %13 = mul i32 %12, %7
+  %11 = add i32 %9, 1
+  %12 = sub i32 %11, %10
+  %.fr = freeze i32 %12
+  %13 = mul i32 %.fr, %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2085,26 +2079,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %33 = zext nneg i32 %13 to i64
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
-  %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count53 = zext i32 %35 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next52, %._crit_edge.us ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
   %36 = load i32, ptr %16, align 4, !tbaa !21
-  %37 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv50 to i32
   %38 = add nsw i32 %36, %37
   %39 = mul nsw i32 %38, %18
   %40 = load i32, ptr %4, align 4, !tbaa !19
   %41 = add i32 %39, %40
   %42 = mul i32 %26, %41
-  %43 = mul nsw i64 %indvars.iv51, %32
+  %43 = mul nsw i64 %indvars.iv50, %32
   %44 = sext i32 %42 to i64
   %45 = add nsw i64 %43, %44
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
-  %50 = mul nuw nsw i64 %indvars.iv51, %33
+  %50 = mul nuw nsw i64 %indvars.iv50, %33
   %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %50
   br label %51
 
@@ -2118,13 +2112,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !49
+  %exitcond49.not = icmp eq i64 %indvars.iv.next, %33
+  br i1 %exitcond49.not, label %._crit_edge.us, label %51, !llvm.loop !49
 
 ._crit_edge.us:                                   ; preds = %51
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !50
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !50
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2225,11 +2219,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2269,26 +2262,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
   br label %52
 
@@ -2302,13 +2295,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = or disjoint i16 %56, %55
   store i16 %57, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !52
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !52
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !53
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !53
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2340,11 +2333,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2384,26 +2376,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
   br label %52
 
@@ -2416,13 +2408,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = trunc nuw i32 %55 to i16
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !54
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !54
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !55
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !55
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2454,11 +2446,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2498,26 +2489,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
   br label %52
 
@@ -2529,13 +2520,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui float %54 to i16
   store i16 %55, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !56
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !56
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !57
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !57
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2567,11 +2558,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2611,26 +2601,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
   br label %52
 
@@ -2642,13 +2632,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui double %54 to i16
   store i16 %55, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !58
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !58
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !59
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !59
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3345,11 +3335,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr46 = freeze i32 %9
-  %11 = add i32 %.fr46, 1
-  %.fr47 = freeze i32 %10
-  %12 = sub i32 %11, %.fr47
-  %13 = mul i32 %12, %7
+  %11 = add i32 %9, 1
+  %12 = sub i32 %11, %10
+  %.fr = freeze i32 %12
+  %13 = mul i32 %.fr, %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3389,26 +3378,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %33 = zext nneg i32 %13 to i64
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
-  %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count53 = zext i32 %35 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next52, %._crit_edge.us ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
   %36 = load i32, ptr %16, align 4, !tbaa !21
-  %37 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv50 to i32
   %38 = add nsw i32 %36, %37
   %39 = mul nsw i32 %38, %18
   %40 = load i32, ptr %4, align 4, !tbaa !19
   %41 = add i32 %39, %40
   %42 = mul i32 %26, %41
-  %43 = mul nsw i64 %indvars.iv51, %32
+  %43 = mul nsw i64 %indvars.iv50, %32
   %44 = sext i32 %42 to i64
   %45 = add nsw i64 %43, %44
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
-  %50 = mul nuw nsw i64 %indvars.iv51, %33
+  %50 = mul nuw nsw i64 %indvars.iv50, %33
   %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %50
   br label %51
 
@@ -3424,13 +3413,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %58 = mul nuw i32 %57, 65537
   store i32 %58, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !68
+  %exitcond49.not = icmp eq i64 %indvars.iv.next, %33
+  br i1 %exitcond49.not, label %._crit_edge.us, label %51, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %51
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !69
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !69
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3462,11 +3451,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3506,26 +3494,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
   br label %52
 
@@ -3539,13 +3527,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = or disjoint i32 %56, %55
   store i32 %57, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !70
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !71
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !71
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3577,11 +3565,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3621,26 +3608,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
   br label %52
 
@@ -3658,13 +3645,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %61 = or disjoint i32 %60, %55
   store i32 %61, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !72
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !73
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !73
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3765,11 +3752,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3809,26 +3795,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
   br label %52
 
@@ -3840,13 +3826,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui float %54 to i32
   store i32 %55, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !75
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !76
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !76
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3878,11 +3864,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3922,26 +3907,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
   br label %52
 
@@ -3953,13 +3938,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui double %54 to i32
   store i32 %55, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !77
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !78
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !78
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -4666,11 +4651,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr46 = freeze i32 %9
-  %11 = add i32 %.fr46, 1
-  %.fr47 = freeze i32 %10
-  %12 = sub i32 %11, %.fr47
-  %13 = mul i32 %12, %7
+  %11 = add i32 %9, 1
+  %12 = sub i32 %11, %10
+  %.fr = freeze i32 %12
+  %13 = mul i32 %.fr, %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4710,26 +4694,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %33 = zext nneg i32 %13 to i64
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
-  %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count53 = zext i32 %35 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next52, %._crit_edge.us ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
   %36 = load i32, ptr %16, align 4, !tbaa !21
-  %37 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv50 to i32
   %38 = add nsw i32 %36, %37
   %39 = mul nsw i32 %38, %18
   %40 = load i32, ptr %4, align 4, !tbaa !19
   %41 = add i32 %39, %40
   %42 = mul i32 %26, %41
-  %43 = mul nsw i64 %indvars.iv51, %32
+  %43 = mul nsw i64 %indvars.iv50, %32
   %44 = sext i32 %42 to i64
   %45 = add nsw i64 %43, %44
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
-  %50 = mul nuw nsw i64 %indvars.iv51, %33
+  %50 = mul nuw nsw i64 %indvars.iv50, %33
   %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %50
   br label %51
 
@@ -4744,13 +4728,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = uitofp i16 %56 to float
   store float %57, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !87
+  %exitcond49.not = icmp eq i64 %indvars.iv.next, %33
+  br i1 %exitcond49.not, label %._crit_edge.us, label %51, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %51
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !88
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !88
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -4782,11 +4766,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4826,26 +4809,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
   br label %52
 
@@ -4857,13 +4840,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i16 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !89
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !90
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !90
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -4895,11 +4878,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4939,26 +4921,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
   br label %52
 
@@ -4970,13 +4952,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i8 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !91
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !92
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !92
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -5008,11 +4990,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5052,26 +5033,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
   br label %52
 
@@ -5083,13 +5064,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i32 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !93
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !94
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !94
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -5190,11 +5171,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5234,26 +5214,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
   br label %52
 
@@ -5265,13 +5245,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptrunc double %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !96
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !96
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !97
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !97
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -5978,11 +5958,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr46 = freeze i32 %9
-  %11 = add i32 %.fr46, 1
-  %.fr47 = freeze i32 %10
-  %12 = sub i32 %11, %.fr47
-  %13 = mul i32 %12, %7
+  %11 = add i32 %9, 1
+  %12 = sub i32 %11, %10
+  %.fr = freeze i32 %12
+  %13 = mul i32 %.fr, %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6022,26 +6001,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %33 = zext nneg i32 %13 to i64
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
-  %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count53 = zext i32 %35 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next52, %._crit_edge.us ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
   %36 = load i32, ptr %16, align 4, !tbaa !21
-  %37 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv50 to i32
   %38 = add nsw i32 %36, %37
   %39 = mul nsw i32 %38, %18
   %40 = load i32, ptr %4, align 4, !tbaa !19
   %41 = add i32 %39, %40
   %42 = mul i32 %26, %41
-  %43 = mul nsw i64 %indvars.iv51, %32
+  %43 = mul nsw i64 %indvars.iv50, %32
   %44 = sext i32 %42 to i64
   %45 = add nsw i64 %43, %44
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
-  %50 = mul nuw nsw i64 %indvars.iv51, %33
+  %50 = mul nuw nsw i64 %indvars.iv50, %33
   %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %50
   br label %51
 
@@ -6056,13 +6035,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = uitofp i16 %56 to double
   store double %57, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !106
+  %exitcond49.not = icmp eq i64 %indvars.iv.next, %33
+  br i1 %exitcond49.not, label %._crit_edge.us, label %51, !llvm.loop !106
 
 ._crit_edge.us:                                   ; preds = %51
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !107
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !107
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6094,11 +6073,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6138,26 +6116,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
   br label %52
 
@@ -6169,13 +6147,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i16 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !108
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !108
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !109
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !109
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6207,11 +6185,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6251,26 +6228,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
   br label %52
 
@@ -6282,13 +6259,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i8 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !110
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !110
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !111
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !111
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6320,11 +6297,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6364,26 +6340,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
   br label %52
 
@@ -6395,13 +6371,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i32 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !112
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !112
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !113
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !113
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6433,11 +6409,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %4, align 4, !tbaa !19
-  %.fr50 = freeze i32 %10
-  %12 = add i32 %.fr50, 1
-  %.fr51 = freeze i32 %11
-  %13 = sub i32 %12, %.fr51
-  %14 = mul i32 %13, %7
+  %12 = add i32 %10, 1
+  %13 = sub i32 %12, %11
+  %.fr = freeze i32 %13
+  %14 = mul i32 %.fr, %7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6477,26 +6452,26 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = zext nneg i32 %14 to i64
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
-  %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count57 = zext i32 %36 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next55, %._crit_edge.us ]
   %37 = load i32, ptr %17, align 4, !tbaa !21
-  %38 = trunc nuw nsw i64 %indvars.iv55 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
   %39 = add nsw i32 %37, %38
   %40 = mul nsw i32 %39, %26
   %41 = load i32, ptr %4, align 4, !tbaa !19
   %42 = add i32 %40, %41
   %43 = mul i32 %27, %42
-  %44 = mul nsw i64 %indvars.iv55, %33
+  %44 = mul nsw i64 %indvars.iv54, %33
   %45 = sext i32 %43 to i64
   %46 = add nsw i64 %44, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
-  %51 = mul nuw nsw i64 %indvars.iv55, %34
+  %51 = mul nuw nsw i64 %indvars.iv54, %34
   %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
   br label %52
 
@@ -6508,13 +6483,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fpext float %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !114
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond53.not, label %._crit_edge.us, label %52, !llvm.loop !114
 
 ._crit_edge.us:                                   ; preds = %52
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !115
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !115
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true

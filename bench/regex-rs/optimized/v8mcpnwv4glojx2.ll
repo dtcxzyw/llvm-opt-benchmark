@@ -274,9 +274,9 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hf1bff7409402697dE.exit.i12.i.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i11.i.i
-  %rhsc19.i.i = load i8, ptr %9, align 1, !alias.scope !5
-  %rhsc19.fr.i.i = freeze i8 %rhsc19.i.i
-  %10 = icmp eq i8 %rhsc19.fr.i.i, 13
+  %rhsc20.i.i = load i8, ptr %9, align 1, !alias.scope !5
+  %rhsc20.fr.i.i = freeze i8 %rhsc20.i.i
+  %10 = icmp eq i8 %rhsc20.fr.i.i, 13
   %spec.select.i15.i.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i.i"
 
@@ -874,9 +874,9 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hf1bff7409402697dE.exit.i12": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i11
-  %rhsc19 = load i8, ptr %9, align 1
-  %rhsc19.fr = freeze i8 %rhsc19
-  %10 = icmp eq i8 %rhsc19.fr, 13
+  %rhsc20 = load i8, ptr %9, align 1
+  %rhsc20.fr = freeze i8 %rhsc20
+  %10 = icmp eq i8 %rhsc20.fr, 13
   %spec.select.i15 = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16"
 
@@ -920,9 +920,9 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hf1bff7409402697dE.exit.i12.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i11.i
-  %rhsc19.i = load i8, ptr %9, align 1, !alias.scope !103
-  %rhsc19.fr.i = freeze i8 %rhsc19.i
-  %10 = icmp eq i8 %rhsc19.fr.i, 13
+  %rhsc20.i = load i8, ptr %9, align 1, !alias.scope !103
+  %rhsc20.fr.i = freeze i8 %rhsc20.i
+  %10 = icmp eq i8 %rhsc20.fr.i, 13
   %spec.select.i15.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i"
 
@@ -2002,9 +2002,9 @@ select.unfold.i.i.i:                              ; preds = %"_ZN73_$LT$$u5b$A$u
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hf1bff7409402697dE.exit.i12.i.i.i.i.i.i": ; preds = %83
   %85 = getelementptr inbounds i8, ptr %80, i64 %.pre.i11.i.i.i.i.i.i
-  %rhsc19.i.i.i.i.i.i = load i8, ptr %85, align 1, !alias.scope !283, !noalias !290
-  %rhsc19.fr.i.i.i.i.i.i = freeze i8 %rhsc19.i.i.i.i.i.i
-  %86 = icmp eq i8 %rhsc19.fr.i.i.i.i.i.i, 13
+  %rhsc20.i.i.i.i.i.i = load i8, ptr %85, align 1, !alias.scope !283, !noalias !290
+  %rhsc20.fr.i.i.i.i.i.i = freeze i8 %rhsc20.i.i.i.i.i.i
+  %86 = icmp eq i8 %rhsc20.fr.i.i.i.i.i.i, 13
   %spec.select.i15.i.i.i.i.i.i = select i1 %86, ptr %.sroa.0.0.i.i.i.i.i87, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i.i.i.i.i.i"
 

@@ -9863,9 +9863,9 @@ if.end13:                                         ; preds = %do.end
   %9 = load ptr, ptr %ptr, align 8
   %st_mode = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i64, ptr %st_mode, align 8
-  %.fr = freeze i64 %10
+  %.fr8 = freeze i64 %10
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #31
-  %11 = trunc i64 %.fr to i32
+  %11 = trunc i64 %.fr8 to i32
   %12 = lshr i32 %11, 14
   %spec.select = and i32 %12, 1
   br label %return

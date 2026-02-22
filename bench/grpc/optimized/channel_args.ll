@@ -5317,7 +5317,7 @@ _ZN9grpc_core12QsortCompareINS_21RefCountedStringValueEEEiRKT_S4_.exit: ; preds 
 
 ._ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread_crit_edge.i: ; preds = %44
   %.pre.i = load ptr, ptr %35, align 8, !tbaa !14
-  %.pre11.i = load ptr, ptr %34, align 8, !tbaa !14
+  %.pre10.i = load ptr, ptr %34, align 8, !tbaa !14
   br label %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread.i
 
 _ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.i: ; preds = %41
@@ -5325,30 +5325,29 @@ _ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.i: ; preds = %41
   br i1 %49, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit, label %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread.i
 
 _ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread.i: ; preds = %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.i, %._ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread_crit_edge.i, %33
-  %50 = phi ptr [ %.pre11.i, %._ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread_crit_edge.i ], [ %36, %33 ], [ %36, %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.i ]
+  %50 = phi ptr [ %.pre10.i, %._ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread_crit_edge.i ], [ %36, %33 ], [ %36, %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.i ]
   %51 = phi ptr [ %.pre.i, %._ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread_crit_edge.i ], [ %39, %33 ], [ %39, %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.i ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !18
-  %.fr.i = freeze ptr %53
   %54 = icmp eq ptr %50, %51
   br i1 %54, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit, label %55
 
 55:                                               ; preds = %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit.thread.i
   %56 = load ptr, ptr %37, align 8, !tbaa !18
-  %.fr10.i = freeze ptr %56
-  %.not.i.i.i.i4.i = icmp eq ptr %.fr10.i, %.fr.i
+  %.not.i.i.i.i4.i = icmp eq ptr %56, %53
   br i1 %.not.i.i.i.i4.i, label %57, label %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit6.i
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !72
   %60 = tail call noundef i32 %59(ptr noundef %51, ptr noundef %50)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %63, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit
 
 _ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit6.i: ; preds = %55
-  %62 = icmp ult ptr %.fr.i, %.fr10.i
-  br i1 %62, label %63, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit
+  %62 = icmp ult ptr %53, %56
+  %cond.fr.i = freeze i1 %62
+  br i1 %cond.fr.i, label %63, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit
 
 63:                                               ; preds = %_ZNK9grpc_core11ChannelArgs5ValueltERKS1_.exit6.i, %57
   br label %_ZN9grpc_core12QsortCompareINS_11ChannelArgs5ValueEEEiRKT_S5_.exit

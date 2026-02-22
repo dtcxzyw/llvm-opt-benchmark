@@ -3956,12 +3956,10 @@ while.body:                                       ; preds = %if.end261, %while.b
   %oldRotKey.0486 = phi ptr [ null, %while.body.lr.ph ], [ %oldRotKey.2, %if.end261 ]
   %oldScaleKey.0485 = phi ptr [ null, %while.body.lr.ph ], [ %oldScaleKey.2, %if.end261 ]
   %oldPosKey.0484 = phi ptr [ null, %while.body.lr.ph ], [ %oldPosKey.2, %if.end261 ]
-  %9 = phi <4 x float> [ <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %while.body.lr.ph ], [ %131, %if.end261 ]
-  %10 = phi <4 x float> [ <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %while.body.lr.ph ], [ %132, %if.end261 ]
+  %9 = phi <4 x float> [ <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %while.body.lr.ph ], [ %133, %if.end261 ]
+  %10 = phi <4 x float> [ <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %while.body.lr.ph ], [ %134, %if.end261 ]
   %11 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph ], [ %42, %if.end261 ]
   %12 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph ], [ %43, %if.end261 ]
-  %.fr4 = freeze <4 x float> %9
-  %.fr = freeze <4 x float> %10
   call void @llvm.lifetime.start.p0(ptr nonnull %frame)
   %13 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable24 = load ptr, ptr %13, align 8, !tbaa !3
@@ -4205,57 +4203,58 @@ if.then174:                                       ; preds = %if.end171
   br i1 %cmp176.not, label %if.else212, label %land.lhs.true177
 
 land.lhs.true177:                                 ; preds = %if.then174
-  %73 = fcmp une <4 x float> %.fr, %.fr4
-  %74 = bitcast <4 x i1> %73 to i4
-  %75 = icmp eq i4 %74, 0
-  br i1 %75, label %if.then181, label %if.end241
+  %73 = fcmp oeq <4 x float> %10, %9
+  %74 = freeze <4 x i1> %73
+  %75 = bitcast <4 x i1> %74 to i4
+  %76 = icmp eq i4 %75, -1
+  br i1 %76, label %if.then181, label %if.end241
 
 if.then181:                                       ; preds = %land.lhs.true177
-  %76 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %.fr5 = freeze <4 x float> %76
-  %77 = shufflevector <4 x float> %.fr5, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %78 = fcmp une <4 x float> %.fr4, %77
-  %79 = bitcast <4 x i1> %78 to i4
-  %80 = icmp eq i4 %79, 0
-  br i1 %80, label %if.then188, label %if.else192
+  %77 = load <4 x float>, ptr %data, align 16, !tbaa !113
+  %78 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %79 = fcmp oeq <4 x float> %9, %78
+  %80 = freeze <4 x i1> %79
+  %81 = bitcast <4 x i1> %80 to i4
+  %82 = icmp eq i4 %81, -1
+  br i1 %82, label %if.then188, label %if.else192
 
 if.then188:                                       ; preds = %if.then181
-  %81 = load i32, ptr %frame, align 4, !tbaa !64
-  %conv189 = sitofp i32 %81 to float
+  %83 = load i32, ptr %frame, align 4, !tbaa !64
+  %conv189 = sitofp i32 %83 to float
   %sub190 = fadd float %conv189, -1.000000e+00
   store float %sub190, ptr %oldRotKey.0486, align 4, !tbaa !192
   br label %if.end261
 
 if.else192:                                       ; preds = %if.then181
-  %82 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
-  %vtable196 = load ptr, ptr %82, align 8, !tbaa !3
+  %84 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
+  %vtable196 = load ptr, ptr %84, align 8, !tbaa !3
   %vfn197 = getelementptr inbounds nuw i8, ptr %vtable196, i64 280
-  %83 = load ptr, ptr %vfn197, align 8
-  %call198 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(186) %82, ptr noundef %inJoint) #21
-  %84 = load i32, ptr %frame, align 4, !tbaa !64
-  %conv199 = sitofp i32 %84 to float
+  %85 = load ptr, ptr %vfn197, align 8
+  %call198 = call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(186) %84, ptr noundef %inJoint) #21
+  %86 = load i32, ptr %frame, align 4, !tbaa !64
+  %conv199 = sitofp i32 %86 to float
   %sub200 = fadd float %conv199, -1.000000e+00
   store float %sub200, ptr %call198, align 4, !tbaa !192
   %rotation = getelementptr inbounds nuw i8, ptr %call198, i64 4
-  %85 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  store <4 x float> %86, ptr %rotation, align 4, !tbaa !113
-  %87 = fmul <4 x float> %85, %85
-  %mul4.i = extractelement <4 x float> %87, i64 2
-  %88 = extractelement <4 x float> %85, i64 1
-  %89 = call float @llvm.fmuladd.f32(float %88, float %88, float %mul4.i)
-  %90 = extractelement <4 x float> %85, i64 3
-  %91 = call float @llvm.fmuladd.f32(float %90, float %90, float %89)
-  %92 = extractelement <4 x float> %85, i64 0
+  %87 = load <4 x float>, ptr %data, align 16, !tbaa !113
+  %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x float> %88, ptr %rotation, align 4, !tbaa !113
+  %89 = fmul <4 x float> %87, %87
+  %mul4.i = extractelement <4 x float> %89, i64 2
+  %90 = extractelement <4 x float> %87, i64 1
+  %91 = call float @llvm.fmuladd.f32(float %90, float %90, float %mul4.i)
+  %92 = extractelement <4 x float> %87, i64 3
   %93 = call float @llvm.fmuladd.f32(float %92, float %92, float %91)
-  %conv.i = fpext float %93 to double
+  %94 = extractelement <4 x float> %87, i64 0
+  %95 = call float @llvm.fmuladd.f32(float %94, float %94, float %93)
+  %conv.i = fpext float %95 to double
   %sqrt.i = call double @llvm.sqrt.f64(double %conv.i)
   %div.i.i = fdiv double 1.000000e+00, %sqrt.i
   %conv7.i = fptrunc double %div.i.i to float
-  %94 = insertelement <4 x float> poison, float %conv7.i, i64 0
-  %95 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %96 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> zeroinitializer
-  %97 = fmul <4 x float> %95, %96
+  %96 = insertelement <4 x float> poison, float %conv7.i, i64 0
+  %97 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %98 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> zeroinitializer
+  %99 = fmul <4 x float> %97, %98
   br label %if.end261
 
 if.else212:                                       ; preds = %if.then174
@@ -4263,104 +4262,104 @@ if.else212:                                       ; preds = %if.then174
   br i1 %tobool216.not, label %if.end241, label %if.then217
 
 if.then217:                                       ; preds = %if.else212
-  %98 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
-  %vtable219 = load ptr, ptr %98, align 8, !tbaa !3
+  %100 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
+  %vtable219 = load ptr, ptr %100, align 8, !tbaa !3
   %vfn220 = getelementptr inbounds nuw i8, ptr %vtable219, i64 280
-  %99 = load ptr, ptr %vfn220, align 8
-  %call221 = call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(186) %98, ptr noundef %inJoint) #21
-  %100 = load i32, ptr %frame, align 4, !tbaa !64
-  %conv222 = sitofp i32 %100 to float
+  %101 = load ptr, ptr %vfn220, align 8
+  %call221 = call noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(186) %100, ptr noundef %inJoint) #21
+  %102 = load i32, ptr %frame, align 4, !tbaa !64
+  %conv222 = sitofp i32 %102 to float
   %sub223 = fadd float %conv222, -1.000000e+00
   store float %sub223, ptr %call221, align 4, !tbaa !192
   %rotation226 = getelementptr inbounds nuw i8, ptr %call221, i64 4
-  %101 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  store <4 x float> %102, ptr %rotation226, align 4, !tbaa !113
-  %103 = fmul <4 x float> %101, %101
-  %mul4.i425 = extractelement <4 x float> %103, i64 2
-  %104 = extractelement <4 x float> %101, i64 1
-  %105 = call float @llvm.fmuladd.f32(float %104, float %104, float %mul4.i425)
-  %106 = extractelement <4 x float> %101, i64 3
-  %107 = call float @llvm.fmuladd.f32(float %106, float %106, float %105)
-  %108 = extractelement <4 x float> %101, i64 0
+  %103 = load <4 x float>, ptr %data, align 16, !tbaa !113
+  %104 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x float> %104, ptr %rotation226, align 4, !tbaa !113
+  %105 = fmul <4 x float> %103, %103
+  %mul4.i425 = extractelement <4 x float> %105, i64 2
+  %106 = extractelement <4 x float> %103, i64 1
+  %107 = call float @llvm.fmuladd.f32(float %106, float %106, float %mul4.i425)
+  %108 = extractelement <4 x float> %103, i64 3
   %109 = call float @llvm.fmuladd.f32(float %108, float %108, float %107)
-  %conv.i428 = fpext float %109 to double
+  %110 = extractelement <4 x float> %103, i64 0
+  %111 = call float @llvm.fmuladd.f32(float %110, float %110, float %109)
+  %conv.i428 = fpext float %111 to double
   %sqrt.i429 = call double @llvm.sqrt.f64(double %conv.i428)
   %div.i.i430 = fdiv double 1.000000e+00, %sqrt.i429
   %conv7.i431 = fptrunc double %div.i.i430 to float
-  %110 = insertelement <4 x float> poison, float %conv7.i431, i64 0
-  %111 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %112 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> zeroinitializer
-  %113 = fmul <4 x float> %111, %112
+  %112 = insertelement <4 x float> poison, float %conv7.i431, i64 0
+  %113 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %114 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> zeroinitializer
+  %115 = fmul <4 x float> %113, %114
   br label %if.end261
 
 if.end241:                                        ; preds = %if.else212, %land.lhs.true177
-  %114 = phi <4 x float> [ %.fr, %if.else212 ], [ %.fr4, %land.lhs.true177 ]
-  %115 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
-  %vtable243 = load ptr, ptr %115, align 8, !tbaa !3
+  %116 = phi <4 x float> [ %10, %if.else212 ], [ %9, %land.lhs.true177 ]
+  %117 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
+  %vtable243 = load ptr, ptr %117, align 8, !tbaa !3
   %vfn244 = getelementptr inbounds nuw i8, ptr %vtable243, i64 280
-  %116 = load ptr, ptr %vfn244, align 8
-  %call245 = call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(186) %115, ptr noundef %inJoint) #21
-  %117 = load i32, ptr %frame, align 4, !tbaa !64
-  %conv246 = sitofp i32 %117 to float
+  %118 = load ptr, ptr %vfn244, align 8
+  %call245 = call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(186) %117, ptr noundef %inJoint) #21
+  %119 = load i32, ptr %frame, align 4, !tbaa !64
+  %conv246 = sitofp i32 %119 to float
   %sub247 = fadd float %conv246, -1.000000e+00
   store float %sub247, ptr %call245, align 4, !tbaa !192
   %rotation250 = getelementptr inbounds nuw i8, ptr %call245, i64 4
-  %118 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  store <4 x float> %119, ptr %rotation250, align 4, !tbaa !113
-  %120 = fmul <4 x float> %118, %118
-  %mul4.i440 = extractelement <4 x float> %120, i64 2
-  %121 = extractelement <4 x float> %118, i64 1
-  %122 = call float @llvm.fmuladd.f32(float %121, float %121, float %mul4.i440)
-  %123 = extractelement <4 x float> %118, i64 3
-  %124 = call float @llvm.fmuladd.f32(float %123, float %123, float %122)
-  %125 = extractelement <4 x float> %118, i64 0
+  %120 = load <4 x float>, ptr %data, align 16, !tbaa !113
+  %121 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x float> %121, ptr %rotation250, align 4, !tbaa !113
+  %122 = fmul <4 x float> %120, %120
+  %mul4.i440 = extractelement <4 x float> %122, i64 2
+  %123 = extractelement <4 x float> %120, i64 1
+  %124 = call float @llvm.fmuladd.f32(float %123, float %123, float %mul4.i440)
+  %125 = extractelement <4 x float> %120, i64 3
   %126 = call float @llvm.fmuladd.f32(float %125, float %125, float %124)
-  %conv.i443 = fpext float %126 to double
+  %127 = extractelement <4 x float> %120, i64 0
+  %128 = call float @llvm.fmuladd.f32(float %127, float %127, float %126)
+  %conv.i443 = fpext float %128 to double
   %sqrt.i444 = call double @llvm.sqrt.f64(double %conv.i443)
   %div.i.i445 = fdiv double 1.000000e+00, %sqrt.i444
   %conv7.i446 = fptrunc double %div.i.i445 to float
-  %127 = insertelement <4 x float> poison, float %conv7.i446, i64 0
-  %128 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %129 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> zeroinitializer
-  %130 = fmul <4 x float> %128, %129
+  %129 = insertelement <4 x float> poison, float %conv7.i446, i64 0
+  %130 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %131 = shufflevector <4 x float> %129, <4 x float> poison, <4 x i32> zeroinitializer
+  %132 = fmul <4 x float> %130, %131
   br label %if.end261
 
 if.end261:                                        ; preds = %if.end241, %if.then217, %if.else192, %if.then188, %if.end171
   %oldRotKey.2 = phi ptr [ %oldRotKey.0486, %if.end171 ], [ %call245, %if.end241 ], [ null, %if.then217 ], [ %oldRotKey.0486, %if.then188 ], [ %call198, %if.else192 ]
   %isFirst.sroa.7.1 = phi i8 [ %isFirst.sroa.7.0487, %if.end171 ], [ %isFirst.sroa.7.0487, %if.end241 ], [ 0, %if.then217 ], [ %isFirst.sroa.7.0487, %if.then188 ], [ %isFirst.sroa.7.0487, %if.else192 ]
-  %131 = phi <4 x float> [ %.fr4, %if.end171 ], [ %130, %if.end241 ], [ %.fr4, %if.then217 ], [ %.fr4, %if.then188 ], [ %97, %if.else192 ]
-  %132 = phi <4 x float> [ %.fr, %if.end171 ], [ %114, %if.end241 ], [ %113, %if.then217 ], [ %.fr, %if.then188 ], [ %.fr4, %if.else192 ]
+  %133 = phi <4 x float> [ %9, %if.end171 ], [ %132, %if.end241 ], [ %9, %if.then217 ], [ %9, %if.then188 ], [ %99, %if.else192 ]
+  %134 = phi <4 x float> [ %10, %if.end171 ], [ %116, %if.end241 ], [ %115, %if.then217 ], [ %10, %if.then188 ], [ %9, %if.else192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %data)
   call void @llvm.lifetime.end.p0(ptr nonnull %frame)
-  %133 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
-  %startposition = getelementptr inbounds i8, ptr %133, i64 -8
-  %134 = load i64, ptr %startposition, align 8, !tbaa !75
-  %length = getelementptr inbounds i8, ptr %133, i64 -12
-  %135 = load i32, ptr %length, align 4, !tbaa !77
-  %conv = sext i32 %135 to i64
-  %add = add nsw i64 %134, %conv
-  %136 = load ptr, ptr %B3DFile, align 8, !tbaa !53
-  %vtable20 = load ptr, ptr %136, align 8, !tbaa !3
+  %135 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
+  %startposition = getelementptr inbounds i8, ptr %135, i64 -8
+  %136 = load i64, ptr %startposition, align 8, !tbaa !75
+  %length = getelementptr inbounds i8, ptr %135, i64 -12
+  %137 = load i32, ptr %length, align 4, !tbaa !77
+  %conv = sext i32 %137 to i64
+  %add = add nsw i64 %136, %conv
+  %138 = load ptr, ptr %B3DFile, align 8, !tbaa !53
+  %vtable20 = load ptr, ptr %138, align 8, !tbaa !3
   %vfn21 = getelementptr inbounds nuw i8, ptr %vtable20, i64 24
-  %137 = load ptr, ptr %vfn21, align 8
-  %call22 = call noundef i64 %137(ptr noundef nonnull align 8 dereferenceable(8) %136) #21
+  %139 = load ptr, ptr %vfn21, align 8
+  %call22 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(8) %138) #21
   %cmp = icmp sgt i64 %add, %call22
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !195
 
 while.end:                                        ; preds = %if.end261, %entry
   %B3dStack = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %138 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
-  %139 = load ptr, ptr %B3dStack, align 8, !tbaa !61
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %138 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %139 to i64
+  %140 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
+  %141 = load ptr, ptr %B3dStack, align 8, !tbaa !61
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %140 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %141 to i64
   %sub.ptr.sub.i.i = add i64 %sub.ptr.lhs.cast.i.i, 68719476720
   %conv.i452 = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i.i.i.i.idx = and i64 %conv.i452, 68719476720
-  %add.ptr.i.i.i453 = getelementptr inbounds nuw i8, ptr %139, i64 %add.ptr.i.i.i.i.i.idx
+  %add.ptr.i.i.i453 = getelementptr inbounds nuw i8, ptr %141, i64 %add.ptr.i.i.i.i.i.idx
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i453, i64 16
-  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %138
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %140
   br i1 %cmp.i.not.i.i.i, label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %while.end
@@ -4371,8 +4370,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaI
   br label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit
 
 _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, %while.end
-  %140 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %138, %while.end ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %140, i64 -16
+  %142 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %140, %while.end ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %142, i64 -16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !68
   call void @llvm.lifetime.end.p0(ptr nonnull %flags)
   ret i1 true

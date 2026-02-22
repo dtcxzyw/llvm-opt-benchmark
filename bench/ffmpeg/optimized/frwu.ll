@@ -94,7 +94,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.05889 = phi i32 [ 0, %.preheader ], [ 1, %.critedge ]
   %.07888 = phi ptr [ %28, %.preheader ], [ %103, %.critedge ]
   %34 = load i32, ptr %16, align 4, !tbaa !32
-  %35 = zext i1 %.not90 to i32
+  %35 = xor i32 %.05889, 1
   %36 = add nsw i32 %34, %35
   %37 = ashr i32 %36, 1
   %38 = shl nsw i32 %33, 1

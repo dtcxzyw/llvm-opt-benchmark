@@ -16950,26 +16950,25 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h36
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 192
   %19 = load ptr, ptr %18, align 8, !invariant.load !11, !noalias !5157, !nonnull !11
   %20 = tail call { i32, i32 } %19(ptr noundef nonnull align 1 %15), !noalias !5157
-  %.fr.i.i = freeze { i32, i32 } %20
-  %21 = extractvalue { i32, i32 } %.fr.i.i, 1
+  %21 = extractvalue { i32, i32 } %20, 1
   tail call void @llvm.assume(i1 %8)
   tail call void @llvm.assume(i1 %9)
   %22 = load ptr, ptr %10, align 8, !invariant.load !11, !noalias !5157, !nonnull !11
   %23 = tail call { i32, i32 } %22(ptr noundef nonnull align 1 %.val.i.i.i), !noalias !5157
-  %.fr3.i.i = freeze { i32, i32 } %23
-  %24 = extractvalue { i32, i32 } %.fr3.i.i, 1
+  %24 = extractvalue { i32, i32 } %23, 1
   %25 = icmp eq i32 %21, %24
   br i1 %25, label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit"
 
 "_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i": ; preds = %11
-  %26 = extractvalue { i32, i32 } %.fr3.i.i, 0
-  %27 = extractvalue { i32, i32 } %.fr.i.i, 0
+  %26 = extractvalue { i32, i32 } %23, 0
+  %27 = extractvalue { i32, i32 } %20, 0
   %28 = icmp ne i32 %27, 0
   tail call void @llvm.assume(i1 %28)
   %29 = icmp ne i32 %26, 0
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i32 %27, %26
-  br i1 %30, label %33, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit"
+  %cond.fr.i.i = freeze i1 %30
+  br i1 %cond.fr.i.i, label %33, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit": ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i", %11
   %31 = add i64 %13, 1
@@ -49624,26 +49623,25 @@ define hidden { i64, ptr } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 192
   %20 = load ptr, ptr %19, align 8, !invariant.load !11, !noalias !10805, !nonnull !11
   %21 = tail call { i32, i32 } %20(ptr noundef nonnull align 1 %16), !noalias !10805
-  %.fr.i.i.i = freeze { i32, i32 } %21
-  %22 = extractvalue { i32, i32 } %.fr.i.i.i, 1
+  %22 = extractvalue { i32, i32 } %21, 1
   tail call void @llvm.assume(i1 %9)
   tail call void @llvm.assume(i1 %10)
   %23 = load ptr, ptr %11, align 8, !invariant.load !11, !noalias !10805, !nonnull !11
   %24 = tail call { i32, i32 } %23(ptr noundef nonnull align 1 %.val.i.i.i.i), !noalias !10805
-  %.fr3.i.i.i = freeze { i32, i32 } %24
-  %25 = extractvalue { i32, i32 } %.fr3.i.i.i, 1
+  %25 = extractvalue { i32, i32 } %24, 1
   %26 = icmp eq i32 %22, %25
   br i1 %26, label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i"
 
 "_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i.i": ; preds = %12
-  %27 = extractvalue { i32, i32 } %.fr3.i.i.i, 0
-  %28 = extractvalue { i32, i32 } %.fr.i.i.i, 0
+  %27 = extractvalue { i32, i32 } %24, 0
+  %28 = extractvalue { i32, i32 } %21, 0
   %29 = icmp ne i32 %28, 0
   tail call void @llvm.assume(i1 %29)
   %30 = icmp ne i32 %27, 0
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i32 %28, %27
-  br i1 %31, label %34, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i"
+  %cond.fr.i.i.i = freeze i1 %31
+  br i1 %cond.fr.i.i.i, label %34, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i": ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i.i", %12
   %32 = add i64 %14, 1
@@ -54225,23 +54223,22 @@ define hidden { i64, ptr } @_ZN9itertools9Itertools13find_position17hd9d7665f409
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %17 = load ptr, ptr %16, align 8, !invariant.load !11, !noalias !11781, !nonnull !11
   %18 = tail call { i32, i32 } %17(ptr noundef nonnull align 1 %13), !noalias !11781
-  %.fr.i.i.i.i = freeze { i32, i32 } %18
-  %19 = extractvalue { i32, i32 } %.fr.i.i.i.i, 1
+  %19 = extractvalue { i32, i32 } %18, 1
   %20 = tail call { i32, i32 } %8(ptr noundef nonnull align 1 %1), !noalias !11781
-  %.fr3.i.i.i.i = freeze { i32, i32 } %20
-  %21 = extractvalue { i32, i32 } %.fr3.i.i.i.i, 1
+  %21 = extractvalue { i32, i32 } %20, 1
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i.i"
 
 "_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i.i.i": ; preds = %9
-  %23 = extractvalue { i32, i32 } %.fr3.i.i.i.i, 0
-  %24 = extractvalue { i32, i32 } %.fr.i.i.i.i, 0
+  %23 = extractvalue { i32, i32 } %20, 0
+  %24 = extractvalue { i32, i32 } %18, 0
   %25 = icmp ne i32 %24, 0
   tail call void @llvm.assume(i1 %25)
   %26 = icmp ne i32 %23, 0
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i32 %24, %23
-  br i1 %27, label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h9c6260ceb549fc17E.llvm.12597586636751361339.exit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i.i"
+  %cond.fr.i.i.i.i = freeze i1 %27
+  br i1 %cond.fr.i.i.i.i, label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h9c6260ceb549fc17E.llvm.12597586636751361339.exit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2c63d888df2ebfc2E.exit.i.i": ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hf1a784d23fd11051E.exit.i.i.i.i", %9
   %28 = add i64 %11, 1

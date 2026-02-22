@@ -20,35 +20,33 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !5
-  %.fr78 = freeze i32 %4
-  %5 = add i32 %.fr78, -1
+  %5 = add nsw i32 %4, -1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4, !tbaa !12
-  %.fr = freeze i32 %7
-  %8 = sub i32 %5, %.fr
+  %8 = sub nsw i32 %5, %7
   %9 = add nsw i32 %8, 1
-  %.not.not64 = icmp sgt i32 %.fr, 0
+  %.not.not64 = icmp sgt i32 %7, 0
   br i1 %.not.not64, label %.lr.ph69, label %._crit_edge70
 
 .lr.ph69:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = add i32 %8, 2
-  %14 = add i32 %.fr78, -2
+  %13 = add nsw i32 %8, 2
+  %14 = add nsw i32 %4, -2
   %.pre = load i32, ptr %1, align 4, !tbaa !14
-  %.pre81 = load i32, ptr %10, align 4, !tbaa !15
+  %.pre79 = load i32, ptr %10, align 4, !tbaa !15
   br label %15
 
 ._crit_edge70:                                    ; preds = %._crit_edge, %2
   ret void
 
 15:                                               ; preds = %.lr.ph69, %._crit_edge
-  %16 = phi i32 [ %.pre81, %.lr.ph69 ], [ %54, %._crit_edge ]
+  %16 = phi i32 [ %.pre79, %.lr.ph69 ], [ %54, %._crit_edge ]
   %17 = phi i32 [ %.pre, %.lr.ph69 ], [ %55, %._crit_edge ]
-  %18 = phi i32 [ %.pre81, %.lr.ph69 ], [ %56, %._crit_edge ]
+  %18 = phi i32 [ %.pre79, %.lr.ph69 ], [ %56, %._crit_edge ]
   %19 = phi i32 [ %.pre, %.lr.ph69 ], [ %57, %._crit_edge ]
-  %20 = phi i32 [ %.pre81, %.lr.ph69 ], [ %58, %._crit_edge ]
+  %20 = phi i32 [ %.pre79, %.lr.ph69 ], [ %58, %._crit_edge ]
   %21 = phi i32 [ %.pre, %.lr.ph69 ], [ %59, %._crit_edge ]
   %.065 = phi i32 [ %5, %.lr.ph69 ], [ %60, %._crit_edge ]
   %22 = add nsw i32 %20, %21
@@ -62,7 +60,9 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %27 = sub i32 %.065, %8
   %28 = and i32 %27, 1
   %.not55 = icmp eq i32 %28, 0
-  %29 = and i1 %26, %25
+  %.fr = freeze i1 %26
+  %.fr63 = freeze i1 %25
+  %29 = and i1 %.fr, %.fr63
   br i1 %29, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -86,15 +86,15 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
 38:                                               ; preds = %.lr.ph.split.us.split.us
   %39 = load i32, ptr %11, align 4, !tbaa !16
   tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us.us, i32 noundef %9, i32 noundef %39) #4
-  %.pre82 = load i32, ptr %1, align 4, !tbaa !14
-  %.pre83 = load i32, ptr %10, align 4, !tbaa !15
+  %.pre80 = load i32, ptr %1, align 4, !tbaa !14
+  %.pre81 = load i32, ptr %10, align 4, !tbaa !15
   br label %40
 
 40:                                               ; preds = %38, %.lr.ph.split.us.split.us
-  %41 = phi i32 [ %.pre83, %38 ], [ %30, %.lr.ph.split.us.split.us ]
-  %42 = phi i32 [ %.pre82, %38 ], [ %31, %.lr.ph.split.us.split.us ]
-  %43 = phi i32 [ %.pre83, %38 ], [ %32, %.lr.ph.split.us.split.us ]
-  %44 = phi i32 [ %.pre82, %38 ], [ %33, %.lr.ph.split.us.split.us ]
+  %41 = phi i32 [ %.pre81, %38 ], [ %30, %.lr.ph.split.us.split.us ]
+  %42 = phi i32 [ %.pre80, %38 ], [ %31, %.lr.ph.split.us.split.us ]
+  %43 = phi i32 [ %.pre81, %38 ], [ %32, %.lr.ph.split.us.split.us ]
+  %44 = phi i32 [ %.pre80, %38 ], [ %33, %.lr.ph.split.us.split.us ]
   %45 = add nsw i32 %.04661.us.us, 1
   %46 = add nsw i32 %43, %44
   %47 = icmp slt i32 %45, %46
@@ -118,7 +118,7 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %57 = phi i32 [ %44, %40 ], [ %92, %90 ], [ %19, %15 ], [ %50, %.lr.ph.split.us.split ]
   %58 = phi i32 [ %43, %40 ], [ %91, %90 ], [ %20, %15 ], [ %51, %.lr.ph.split.us.split ]
   %59 = phi i32 [ %44, %40 ], [ %92, %90 ], [ %21, %15 ], [ %50, %.lr.ph.split.us.split ]
-  %60 = add i32 %.065, -1
+  %60 = add nsw i32 %.065, -1
   %.not.not = icmp sgt i32 %60, %8
   br i1 %.not.not, label %15, label %._crit_edge70, !llvm.loop !19
 
@@ -180,13 +180,13 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
 89:                                               ; preds = %76, %86, %84, %71, %68
   %.045 = phi i32 [ %69, %76 ], [ %69, %71 ], [ %69, %68 ], [ %88, %86 ], [ %81, %84 ]
   tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661, i32 noundef %.065, i32 noundef %.045) #4
-  %.pre84 = load i32, ptr %1, align 4, !tbaa !14
-  %.pre85 = load i32, ptr %10, align 4, !tbaa !15
+  %.pre82 = load i32, ptr %1, align 4, !tbaa !14
+  %.pre83 = load i32, ptr %10, align 4, !tbaa !15
   br label %90
 
 90:                                               ; preds = %65, %89
-  %91 = phi i32 [ %61, %65 ], [ %.pre85, %89 ]
-  %92 = phi i32 [ %62, %65 ], [ %.pre84, %89 ]
+  %91 = phi i32 [ %61, %65 ], [ %.pre83, %89 ]
+  %92 = phi i32 [ %62, %65 ], [ %.pre82, %89 ]
   %93 = add nsw i32 %.04661, 1
   %94 = add nsw i32 %91, %92
   %95 = icmp slt i32 %93, %94

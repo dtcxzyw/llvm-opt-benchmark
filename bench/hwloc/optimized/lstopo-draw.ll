@@ -4502,11 +4502,11 @@ thread-pre-split.i:                               ; preds = %176, %171, %169
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
-  %.0196345 = phi i32 [ %202, %.lr.ph.loopexit ], [ 0, %.lr.ph.preheader ]
-  %.0197344 = phi ptr [ %.5.i294, %.lr.ph.loopexit ], [ %.5.i, %.lr.ph.preheader ]
-  %.0198343 = phi i32 [ %.1199, %.lr.ph.loopexit ], [ %138, %.lr.ph.preheader ]
-  %.0316342 = phi i32 [ %.555.i293, %.lr.ph.loopexit ], [ %.555.i, %.lr.ph.preheader ]
-  %194 = load i32, ptr %.0197344, align 8, !tbaa !96
+  %.0196344 = phi i32 [ %202, %.lr.ph.loopexit ], [ 0, %.lr.ph.preheader ]
+  %.0197343 = phi ptr [ %.5.i294, %.lr.ph.loopexit ], [ %.5.i, %.lr.ph.preheader ]
+  %.0198342 = phi i32 [ %.1199, %.lr.ph.loopexit ], [ %138, %.lr.ph.preheader ]
+  %.0316341 = phi i32 [ %.555.i293, %.lr.ph.loopexit ], [ %.555.i, %.lr.ph.preheader ]
+  %194 = load i32, ptr %.0197343, align 8, !tbaa !96
   %switch.tableidx = add i32 %194, -5
   %195 = icmp ult i32 %switch.tableidx, 13
   br i1 %195, label %switch.lookup, label %get_type_fun.exit
@@ -4519,26 +4519,26 @@ switch.lookup:                                    ; preds = %.lr.ph
 
 get_type_fun.exit:                                ; preds = %.lr.ph, %switch.lookup
   %.0.i277 = phi ptr [ %switch.load, %switch.lookup ], [ @normal_draw, %.lr.ph ]
-  tail call void %.0.i277(ptr noundef nonnull %0, ptr noundef nonnull %.0197344, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28, !callees !97
-  %197 = load i32, ptr %.0197344, align 8, !tbaa !96
+  tail call void %.0.i277(ptr noundef nonnull %0, ptr noundef nonnull %.0197343, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28, !callees !97
+  %197 = load i32, ptr %.0197343, align 8, !tbaa !96
   %198 = tail call i32 @hwloc_obj_type_is_normal(i32 noundef %197) #28
   %.not264 = icmp eq i32 %198, 0
   br i1 %.not264, label %201, label %199
 
 199:                                              ; preds = %get_type_fun.exit
-  %200 = load i32, ptr %.0197344, align 8, !tbaa !96
+  %200 = load i32, ptr %.0197343, align 8, !tbaa !96
   %.not265 = icmp eq i32 %200, 4
-  %spec.select = select i1 %.not265, i32 %.0198343, i32 0
+  %spec.select = select i1 %.not265, i32 %.0198342, i32 0
   br label %201
 
 201:                                              ; preds = %199, %get_type_fun.exit
-  %.1199 = phi i32 [ %.0198343, %get_type_fun.exit ], [ %spec.select, %199 ]
-  %202 = add i32 %.0196345, 1
+  %.1199 = phi i32 [ %.0198342, %get_type_fun.exit ], [ %spec.select, %199 ]
+  %202 = add i32 %.0196344, 1
   br label %.backedge.i300
 
 .backedge.i300:                                   ; preds = %.backedge.i300.backedge, %201
-  %.151.i278 = phi i32 [ %.0316342, %201 ], [ %.555.i293, %.backedge.i300.backedge ]
-  %.0197.pn = phi ptr [ %.0197344, %201 ], [ %.5.i294, %.backedge.i300.backedge ]
+  %.151.i278 = phi i32 [ %.0316341, %201 ], [ %.555.i293, %.backedge.i300.backedge ]
+  %.0197.pn = phi ptr [ %.0197343, %201 ], [ %.5.i294, %.backedge.i300.backedge ]
   %.1.i279.in = getelementptr inbounds nuw i8, ptr %.0197.pn, i64 88
   %.1.i279 = load ptr, ptr %.1.i279.in, align 8, !tbaa !154
   %203 = icmp ne ptr %.1.i279, null
@@ -4737,10 +4737,9 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
   %287 = load ptr, ptr %139, align 8, !tbaa !151
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 140
   %289 = load i32, ptr %288, align 4, !tbaa !143
-  %.fr = freeze i32 %286
-  %.fr340 = freeze i32 %289
-  %290 = add i32 %.fr340, %.fr
-  %291 = icmp ugt i32 %290, 1
+  %290 = add i32 %289, %286
+  %.fr = freeze i32 %290
+  %291 = icmp ugt i32 %.fr, 1
   %spec.select338 = select i1 %291, i32 %16, i32 0
   br label %.thread331
 
@@ -4828,10 +4827,10 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
 335:                                              ; preds = %332
   %336 = load i32, ptr %41, align 8, !tbaa !147
   %.not254 = icmp eq i32 %336, 0
-  br i1 %.not254, label %._crit_edge347, label %346
+  br i1 %.not254, label %._crit_edge346, label %346
 
-._crit_edge347:                                   ; preds = %335
-  %.pre348 = load i32, ptr %10, align 4, !tbaa !4
+._crit_edge346:                                   ; preds = %335
+  %.pre347 = load i32, ptr %10, align 4, !tbaa !4
   br label %371
 
 .thread333:                                       ; preds = %332
@@ -4872,8 +4871,8 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
   store i32 %2, ptr %355, align 4, !tbaa !171
   %356 = icmp ugt i32 %273, %274
   %357 = icmp ugt i32 %338, %318
-  %or.cond370 = select i1 %356, i1 %357, i1 false
-  br i1 %or.cond370, label %358, label %364
+  %or.cond369 = select i1 %356, i1 %357, i1 false
+  br i1 %or.cond369, label %358, label %364
 
 358:                                              ; preds = %351
   %359 = add i32 %338, %16
@@ -4895,8 +4894,8 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
   %370 = add i32 %367, %365
   br label %374
 
-371:                                              ; preds = %._crit_edge347, %.thread333
-  %372 = phi i32 [ %.pre348, %._crit_edge347 ], [ %338, %.thread333 ]
+371:                                              ; preds = %._crit_edge346, %.thread333
+  %372 = phi i32 [ %.pre347, %._crit_edge346 ], [ %338, %.thread333 ]
   %373 = tail call i32 @llvm.umax.i32(i32 %318, i32 %372)
   br label %374
 

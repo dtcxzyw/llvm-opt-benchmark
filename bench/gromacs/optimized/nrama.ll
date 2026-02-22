@@ -391,17 +391,17 @@ _ZL7get_dihP7t_xramaPK7t_atoms.exit:              ; preds = %.loopexit.i, %_ZL6a
 .preheader.i21:                                   ; preds = %_ZL6d_compRK5t_dihS1_.exit.thread.i, %..preheader_crit_edge.i
   %130 = phi i32 [ %.pre.i, %..preheader_crit_edge.i ], [ %161, %_ZL6d_compRK5t_dihS1_.exit.thread.i ]
   %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %.lr.ph77.i, label %_ZL13get_dih_propsP7t_xramaPK6t_idefi.exit
+  br i1 %131, label %.lr.ph76.i, label %_ZL13get_dih_propsP7t_xramaPK6t_idefi.exit
 
-.lr.ph77.i:                                       ; preds = %.preheader.i21
+.lr.ph76.i:                                       ; preds = %.preheader.i21
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre79.i = load ptr, ptr %132, align 8, !tbaa !22
+  %.pre78.i = load ptr, ptr %132, align 8, !tbaa !22
   br label %207
 
 133:                                              ; preds = %_ZL6d_compRK5t_dihS1_.exit.thread.i, %.lr.ph.i
-  %.04575.i = phi i32 [ 0, %.lr.ph.i ], [ %202, %_ZL6d_compRK5t_dihS1_.exit.thread.i ]
-  %.04774.i = phi ptr [ %125, %.lr.ph.i ], [ %205, %_ZL6d_compRK5t_dihS1_.exit.thread.i ]
-  %134 = load i32, ptr %.04774.i, align 4, !tbaa !23
+  %.04574.i = phi i32 [ 0, %.lr.ph.i ], [ %202, %_ZL6d_compRK5t_dihS1_.exit.thread.i ]
+  %.04773.i = phi ptr [ %125, %.lr.ph.i ], [ %205, %_ZL6d_compRK5t_dihS1_.exit.thread.i ]
+  %134 = load i32, ptr %.04773.i, align 4, !tbaa !23
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i32, ptr %127, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !23
@@ -462,11 +462,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %149
   br label %common.resume
 
 155:                                              ; preds = %133
-  %156 = getelementptr inbounds nuw i8, ptr %.04774.i, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.04773.i, i64 8
   %157 = load i32, ptr %156, align 4, !tbaa !23
-  %158 = getelementptr inbounds nuw i8, ptr %.04774.i, i64 12
+  %158 = getelementptr inbounds nuw i8, ptr %.04773.i, i64 12
   %159 = load i32, ptr %158, align 4, !tbaa !23
-  %.fr72.i = freeze i32 %159
   %160 = load ptr, ptr %128, align 8, !tbaa !22
   %161 = load i32, ptr %3, align 8, !tbaa !21
   %162 = sext i32 %161 to i64
@@ -497,18 +496,18 @@ _ZSt7advanceIP5t_dihlEvRT_T0_.exit.i.i.i:         ; preds = %155, %.thread65.i
 _ZL6d_compRK5t_dihS1_.exit52.i:                   ; preds = %173
   %175 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %176 = load i32, ptr %175, align 4, !tbaa !23
-  %.fr.i = freeze i32 %176
-  %177 = icmp slt i32 %.fr.i, %.fr72.i
+  %177 = icmp slt i32 %176, %159
+  %cond.fr.i = freeze i1 %177
   %178 = getelementptr inbounds nuw i8, ptr %166, i64 28
   %179 = xor i64 %165, -1
   %180 = add nsw i64 %.01116.i.i.i, %179
-  %spec.select.i = select i1 %177, i64 %180, i64 %165
-  %spec.select73.i = select i1 %177, ptr %178, ptr %.017.i.i.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %180, i64 %165
+  %spec.select72.i = select i1 %cond.fr.i, ptr %178, ptr %.017.i.i.i
   br label %.thread65.i
 
 .thread65.i:                                      ; preds = %_ZL6d_compRK5t_dihS1_.exit52.i, %173, %.thread.i
   %181 = phi i64 [ %165, %173 ], [ %spec.select.i, %_ZL6d_compRK5t_dihS1_.exit52.i ], [ %172, %.thread.i ]
-  %182 = phi ptr [ %.017.i.i.i, %173 ], [ %spec.select73.i, %_ZL6d_compRK5t_dihS1_.exit52.i ], [ %170, %.thread.i ]
+  %182 = phi ptr [ %.017.i.i.i, %173 ], [ %spec.select72.i, %_ZL6d_compRK5t_dihS1_.exit52.i ], [ %170, %.thread.i ]
   %183 = icmp sgt i64 %181, 0
   br i1 %183, label %_ZSt7advanceIP5t_dihlEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIP5t_dihS0_PFbRKS0_S3_EET_S6_S6_RKT0_T1_.exit.i, !llvm.loop !82
 
@@ -530,7 +529,7 @@ _ZSt11lower_boundIP5t_dihS0_PFbRKS0_S3_EET_S6_S6_RKT0_T1_.exit.i: ; preds = %.th
 _ZL6d_compRK5t_dihS1_.exit.i:                     ; preds = %189
   %191 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
   %192 = load i32, ptr %191, align 4, !tbaa !23
-  %193 = icmp slt i32 %.fr72.i, %192
+  %193 = icmp slt i32 %159, %192
   br i1 %193, label %_ZL6d_compRK5t_dihS1_.exit.thread.i, label %_ZL6d_compRK5t_dihS1_.exit.thread70.i
 
 _ZL6d_compRK5t_dihS1_.exit.thread70.i:            ; preds = %_ZL6d_compRK5t_dihS1_.exit.i, %189
@@ -546,18 +545,18 @@ _ZL6d_compRK5t_dihS1_.exit.thread70.i:            ; preds = %_ZL6d_compRK5t_dihS
   br label %_ZL6d_compRK5t_dihS1_.exit.thread.i
 
 _ZL6d_compRK5t_dihS1_.exit.thread.i:              ; preds = %_ZL6d_compRK5t_dihS1_.exit.thread70.i, %_ZL6d_compRK5t_dihS1_.exit.i, %185, %_ZSt11lower_boundIP5t_dihS0_PFbRKS0_S3_EET_S6_S6_RKT0_T1_.exit.i
-  %201 = add nsw i32 %.04575.i, 1
+  %201 = add nsw i32 %.04574.i, 1
   %202 = add i32 %201, %141
   %203 = sext i32 %141 to i64
-  %204 = getelementptr i32, ptr %.04774.i, i64 %203
+  %204 = getelementptr i32, ptr %.04773.i, i64 %203
   %205 = getelementptr i8, ptr %204, i64 4
   %206 = icmp slt i32 %202, %122
   br i1 %206, label %133, label %.preheader.i21, !llvm.loop !86
 
-207:                                              ; preds = %225, %.lr.ph77.i
-  %208 = phi i32 [ %130, %.lr.ph77.i ], [ %226, %225 ]
-  %209 = phi ptr [ %.pre79.i, %.lr.ph77.i ], [ %227, %225 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph77.i ], [ %indvars.iv.next.i, %225 ]
+207:                                              ; preds = %225, %.lr.ph76.i
+  %208 = phi i32 [ %130, %.lr.ph76.i ], [ %226, %225 ]
+  %209 = phi ptr [ %.pre78.i, %.lr.ph76.i ], [ %227, %225 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph76.i ], [ %indvars.iv.next.i, %225 ]
   %210 = getelementptr inbounds nuw %struct.t_dih, ptr %209, i64 %indvars.iv.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load i32, ptr %211, align 4, !tbaa !84
@@ -577,11 +576,11 @@ _ZL6d_compRK5t_dihS1_.exit.thread.i:              ; preds = %_ZL6d_compRK5t_dihS
   store i32 %4, ptr %223, align 4, !tbaa !84
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 20
   store float 1.800000e+02, ptr %224, align 4, !tbaa !85
-  %.pre80.i = load i32, ptr %3, align 8, !tbaa !21
+  %.pre79.i = load i32, ptr %3, align 8, !tbaa !21
   br label %225
 
 225:                                              ; preds = %214, %207
-  %226 = phi i32 [ %208, %207 ], [ %.pre80.i, %214 ]
+  %226 = phi i32 [ %208, %207 ], [ %.pre79.i, %214 ]
   %227 = phi ptr [ %209, %207 ], [ %221, %214 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = sext i32 %226 to i64

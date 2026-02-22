@@ -90,7 +90,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_110ApproxItemESaIS1_EE11_M_allocateEm.exit.i.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %71
   %.sroa.0.5 = phi ptr [ %.sroa.0.6, %71 ], [ %.ph, %.lr.ph.i.preheader ]
-  %.sroa.26.4 = phi ptr [ %.sroa.26.5.fr, %71 ], [ %.ph, %.lr.ph.i.preheader ]
+  %.sroa.26.4 = phi ptr [ %.sroa.26.5, %71 ], [ %.ph, %.lr.ph.i.preheader ]
   %.sroa.43.1 = phi ptr [ %.sroa.43.2, %71 ], [ %.sroa.43.1.ph, %.lr.ph.i.preheader ]
   %35 = phi ptr [ %72, %71 ], [ %.ph, %.lr.ph.i.preheader ]
   %.02960.i = phi i64 [ %77, %71 ], [ 0, %.lr.ph.i.preheader ]
@@ -228,7 +228,6 @@ _ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backEOS1_.exit.i: ; preds
   %.sroa.26.5 = phi ptr [ %.sroa.26.6, %69 ], [ %.sroa.26.6, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backEOS1_.exit.i ], [ %.sroa.26.4, %switch.early.test ]
   %.sroa.43.2 = phi ptr [ %.sroa.43.3, %69 ], [ %.sroa.43.3, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backEOS1_.exit.i ], [ %.sroa.43.1, %switch.early.test ]
   %72 = phi ptr [ %.sroa.26.6, %69 ], [ %.sroa.26.6, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backEOS1_.exit.i ], [ %35, %switch.early.test ]
-  %.sroa.26.5.fr = freeze ptr %.sroa.26.5
   %73 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN12_GLOBAL__N_115chainCodeDeltasE, i64 %41
   %.val39.i = load i32, ptr %73, align 8, !tbaa !35, !noalias !15
   %74 = getelementptr i8, ptr %73, i64 4
@@ -253,18 +252,18 @@ common.resume:                                    ; preds = %.body.thread, %.bod
   resume { ptr, i32 } %common.resume.op
 
 _ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit: ; preds = %71
-  %80 = ptrtoint ptr %.sroa.26.5.fr to i64
+  %80 = ptrtoint ptr %.sroa.26.5 to i64
   %81 = ptrtoint ptr %.sroa.0.6 to i64
   %82 = sub i64 %80, %81
   %83 = sdiv exact i64 %82, 24
   br i1 %28, label %.preheader172, label %_ZN12_GLOBAL__N_114calc_new_startERSt6vectorINS_10ApproxItemESaIS1_EERm.exit
 
 .preheader172:                                    ; preds = %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit
-  %.not212 = icmp eq ptr %.sroa.26.5.fr, %.sroa.0.6
+  %.not212 = icmp eq ptr %.sroa.26.5, %.sroa.0.6
   br i1 %.not212, label %.preheader171, label %.lr.ph.split
 
 .preheader171:                                    ; preds = %200, %.preheader172
-  %.not213 = icmp eq ptr %.sroa.26.5.fr, %.sroa.0.6
+  %.not213 = icmp eq ptr %.sroa.26.5, %.sroa.0.6
   br i1 %.not213, label %._crit_edge, label %.lr.ph197
 
 .lr.ph.split:                                     ; preds = %.preheader172, %200
@@ -728,12 +727,12 @@ _ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i: ; p
 
 _ZN12_GLOBAL__N_112get_next_idxERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit.i: ; preds = %288, %.preheader.i
   %.0.lcssa.i.i = phi i64 [ %.0.i60.i, %288 ], [ %83, %.preheader.i ]
-  %.not.i.i = icmp eq ptr %.sroa.26.5.fr, %.sroa.43.2
+  %.not.i.i = icmp eq ptr %.sroa.26.5, %.sroa.43.2
   br i1 %.not.i.i, label %295, label %293
 
 293:                                              ; preds = %_ZN12_GLOBAL__N_112get_next_idxERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.26.5.fr, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.6, i64 24, i1 false), !tbaa.struct !25
-  %294 = getelementptr inbounds nuw i8, ptr %.sroa.26.5.fr, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.26.5, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.6, i64 24, i1 false), !tbaa.struct !25
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.26.5, i64 24
   br label %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i
 
 295:                                              ; preds = %_ZN12_GLOBAL__N_112get_next_idxERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit.i
@@ -767,7 +766,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i.i, i64 24, i1 false), !tbaa.struct !25, !alias.scope !57
   %305 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i.i, i64 24
   %306 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %305, %.sroa.43.2
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %305, %.sroa.26.5
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -795,7 +794,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i: ; pred
 .critedge:                                        ; preds = %.critedge2.i, %.critedge2.thread.i, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i, %249, %252
   %.pre-phi250 = phi i64 [ %83, %.critedge2.i ], [ 2, %.critedge2.thread.i ], [ %.pre249, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i ], [ %83, %249 ], [ %83, %252 ]
   %.sroa.0.3 = phi ptr [ %.sroa.0.6, %.critedge2.i ], [ %.sroa.0.6, %.critedge2.thread.i ], [ %.sroa.0.9, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.0.6, %249 ], [ %.sroa.0.6, %252 ]
-  %.sroa.26.2 = phi ptr [ %.sroa.26.5.fr, %.critedge2.i ], [ %.sroa.26.5.fr, %.critedge2.thread.i ], [ %.sroa.26.8, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.26.5.fr, %249 ], [ %.sroa.26.5.fr, %252 ]
+  %.sroa.26.2 = phi ptr [ %.sroa.26.5, %.critedge2.i ], [ %.sroa.26.5, %.critedge2.thread.i ], [ %.sroa.26.8, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.26.5, %249 ], [ %.sroa.26.5, %252 ]
   %.0 = phi i64 [ %273, %.critedge2.i ], [ %273, %.critedge2.thread.i ], [ %.0.lcssa.i.i, %_ZNSt6vectorIN12_GLOBAL__N_110ApproxItemESaIS1_EE9push_backERKS1_.exit.i ], [ 0, %249 ], [ 0, %252 ]
   %311 = icmp ult i64 %.0, %.pre-phi250
   br i1 %311, label %.lr.ph.i110, label %_ZN12_GLOBAL__N_114calc_new_startERSt6vectorINS_10ApproxItemESaIS1_EERm.exit
@@ -915,7 +914,7 @@ _ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114: 
 _ZN12_GLOBAL__N_114calc_new_startERSt6vectorINS_10ApproxItemESaIS1_EERm.exit: ; preds = %269, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit, %.critedge.i, %.critedge, %._crit_edge
   %.pre-phi259 = phi i64 [ %.pre-phi250, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %83, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %83, %._crit_edge ], [ %83, %.critedge.i ], [ %.pre-phi250, %.critedge ], [ %83, %269 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.3, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.0.6, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.0.6, %._crit_edge ], [ %.sroa.0.6, %.critedge.i ], [ %.sroa.0.3, %.critedge ], [ %.sroa.0.6, %269 ]
-  %.sroa.26.0 = phi ptr [ %.sroa.26.2, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.26.5.fr, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.26.5.fr, %._crit_edge ], [ %.sroa.26.5.fr, %.critedge.i ], [ %.sroa.26.2, %.critedge ], [ %.sroa.26.5.fr, %269 ]
+  %.sroa.26.0 = phi ptr [ %.sroa.26.2, %_ZN12_GLOBAL__N_111clear_untilERSt6vectorINS_10ApproxItemESaIS1_EEmm.exit.i114 ], [ %.sroa.26.5, %_ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit ], [ %.sroa.26.5, %._crit_edge ], [ %.sroa.26.5, %.critedge.i ], [ %.sroa.26.2, %.critedge ], [ %.sroa.26.5, %269 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !62
   %358 = lshr i64 %.pre-phi259, 1

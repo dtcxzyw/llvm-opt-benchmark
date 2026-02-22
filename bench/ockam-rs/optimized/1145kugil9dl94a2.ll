@@ -102408,8 +102408,8 @@ _ZN9ockam_api9cli_state8journeys10attributes4hash17h718cf0407000b93dE.exit: ; pr
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ed92cf5d660da8cE.exit.thread.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ed92cf5d660da8cE.exit.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.9060417697508566391.exit15.i.i.i.i", %454, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.9060417697508566391.exit13.i.i.i.i"
   %476 = phi ptr [ %467, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ed92cf5d660da8cE.exit.i.i" ], [ %441, %454 ], [ %457, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.9060417697508566391.exit15.i.i.i.i" ], [ %447, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.9060417697508566391.exit13.i.i.i.i" ]
   %477 = phi i32 [ %475, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ed92cf5d660da8cE.exit.i.i" ], [ %455, %454 ], [ %464, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.9060417697508566391.exit15.i.i.i.i" ], [ %452, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.9060417697508566391.exit13.i.i.i.i" ]
-  %.fr.i.i = freeze i32 %477
-  %478 = add i32 %.fr.i.i, -48
+  %.fr15.i.i = freeze i32 %477
+  %478 = add i32 %.fr15.i.i, -48
   %or.cond.i.i.i.i = icmp ult i32 %478, 10
   br i1 %or.cond.i.i.i.i, label %.critedge.backedge.i.i, label %switch.early.test.i.i
 
@@ -102418,7 +102418,7 @@ _ZN9ockam_api9cli_state8journeys10attributes4hash17h718cf0407000b93dE.exit: ; pr
   br i1 %479, label %.loopexit.i168, label %.lr.ph.i.i
 
 switch.early.test.i.i:                            ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ed92cf5d660da8cE.exit.thread.i.i"
-  switch i32 %.fr.i.i, label %.lr.ph.i10.i [
+  switch i32 %.fr15.i.i, label %.lr.ph.i10.i [
     i32 102, label %.critedge.backedge.i.i
     i32 101, label %.critedge.backedge.i.i
     i32 100, label %.critedge.backedge.i.i

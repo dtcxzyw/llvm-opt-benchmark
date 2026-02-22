@@ -320,32 +320,29 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %122 = lshr exact i64 %121, 2
   %123 = trunc i64 %122 to i32
   %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph60.split.us.i, label %.preheader.i.preheader
+  br i1 %124, label %.lr.ph59.split.us.i, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %._crit_edge.us.i, %.noexc41
   br label %.preheader.i
 
-.lr.ph60.split.us.i:                              ; preds = %.noexc41
+.lr.ph59.split.us.i:                              ; preds = %.noexc41
   %125 = getelementptr i32, ptr %115, i64 %113
   %126 = getelementptr i8, ptr %125, i64 -4
   %127 = zext nneg i32 %3 to i64
   %128 = getelementptr inbounds nuw ptr, ptr @_ZN5ZXing6Pdf417L15EC_COEFFICIENTSE, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !25
   %130 = load i16, ptr %129, align 2, !tbaa !27
-  %.fr57.i = freeze i16 %130
-  %131 = sext i16 %.fr57.i to i32
+  %131 = sext i16 %130 to i32
   %132 = add nsw i64 %113, -1
   %wide.trip.count.i = and i64 %122, 2147483647
   br label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph60.split.us.i
-  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %._crit_edge.us.i ], [ 0, %.lr.ph60.split.us.i ]
-  %133 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv64.i
+.lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph59.split.us.i
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %._crit_edge.us.i ], [ 0, %.lr.ph59.split.us.i ]
+  %133 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv63.i
   %134 = load i32, ptr %133, align 4, !tbaa !24
   %135 = load i32, ptr %126, align 4, !tbaa !24
-  %.fr.us.i = freeze i32 %134
-  %.fr56.us.i = freeze i32 %135
-  %136 = add i32 %.fr56.us.i, %.fr.us.i
+  %136 = add nsw i32 %135, %134
   %137 = srem i32 %136, 929
   br label %138
 
@@ -369,14 +366,15 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge.us.i:                                 ; preds = %138
   %150 = mul nsw i32 %137, %131
-  %151 = srem i32 %150, 929
+  %.fr56.us.i = freeze i32 %150
+  %151 = srem i32 %.fr56.us.i, 929
   %152 = sub nsw i32 929, %151
   %.urem.us.i = sub nsw i32 0, %151
   %.cmp.us.i = icmp samesign ult i32 %152, 929
   %153 = select i1 %.cmp.us.i, i32 %152, i32 %.urem.us.i
   store i32 %153, ptr %115, align 4, !tbaa !24
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond.not.i40 = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count.i
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond.not.i40 = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
   br i1 %exitcond.not.i40, label %.preheader.i.preheader, label %.lr.ph.us.i, !llvm.loop !30
 
 154:                                              ; preds = %162
@@ -391,8 +389,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
           to label %196 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit39.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %162
-  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %162 ], [ 0, %.preheader.i.preheader ]
-  %158 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv67.i
+  %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %162 ], [ 0, %.preheader.i.preheader ]
+  %158 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv66.i
   %159 = load i32, ptr %158, align 4, !tbaa !24
   %.not.i39 = icmp eq i32 %159, 0
   br i1 %.not.i39, label %162, label %160
@@ -403,9 +401,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %162
 
 162:                                              ; preds = %160, %.preheader.i
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %113
-  br i1 %exitcond71.not.i, label %154, label %.preheader.i, !llvm.loop !32
+  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %113
+  br i1 %exitcond70.not.i, label %154, label %.preheader.i, !llvm.loop !32
 
 _ZNSt6vectorIiSaIiEED2Ev.exit39.i:                ; preds = %154
   %163 = landingpad { ptr, i32 }

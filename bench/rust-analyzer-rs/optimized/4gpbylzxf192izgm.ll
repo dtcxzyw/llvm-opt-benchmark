@@ -56,12 +56,11 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
   %14 = load i32, ptr %13, align 8, !alias.scope !7, !noalias !10
   %15 = getelementptr inbounds nuw i8, ptr %.01824, i64 28
   %16 = load i32, ptr %15, align 4, !alias.scope !7, !noalias !10
-  %.fr.i = freeze i32 %14
-  %.fr16.i = freeze i32 %16
-  %.not.i.i.i = icmp eq i32 %.fr.i, %.fr16.i
+  %.not.i.i.i = icmp eq i32 %14, %16
+  %.not.i.i.fr.i = freeze i1 %.not.i.i.i
   %17 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !13
   %.not.us.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %.split.us.i, label %.split.i
+  br i1 %.not.i.i.fr.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %.thread22
   br i1 %.not.us.i, label %.thread, label %.split14.us.i

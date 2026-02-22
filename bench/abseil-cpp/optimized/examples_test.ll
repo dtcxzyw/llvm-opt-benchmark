@@ -3018,10 +3018,9 @@ declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load float, ptr %1, align 4, !tbaa !41
-  %.fr4 = freeze float %4
   %5 = load float, ptr %2, align 4, !tbaa !41
-  %.fr3 = freeze float %5
-  %6 = fsub float %.fr3, %.fr4
+  %6 = fsub float %5, %4
+  %.fr3 = freeze float %6
   %7 = ptrtoint ptr %0 to i64
   %8 = and i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
@@ -3029,7 +3028,7 @@ define linkonce_odr dso_local noundef float @_ZN4absl15random_internal18Distribu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.pre.i.i = load i64, ptr %10, align 8, !tbaa !26
-  %13 = tail call i1 @llvm.is.fpclass.f32(float %6, i32 384)
+  %13 = tail call i1 @llvm.is.fpclass.f32(float %.fr3, i32 384)
   br i1 %13, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %3
@@ -3075,7 +3074,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %26, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
   %.0.i.i.i.us = phi float [ %35, %26 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us ]
-  %36 = tail call float @llvm.fmuladd.f32(float %.0.i.i.i.us, float %6, float %.fr4)
+  %36 = tail call float @llvm.fmuladd.f32(float %.0.i.i.i.us, float %.fr3, float %4)
   br label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEfRT_.exit
 
 .split:                                           ; preds = %3, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
@@ -3115,15 +3114,15 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %55 = trunc nuw nsw i64 %54 to i32
   %56 = and i32 %55, 8388607
   %57 = shl nuw nsw i32 %52, 23
-  %reass.sub7 = sub nsw i32 %56, %57
-  %58 = add nsw i32 %reass.sub7, 1056964608
+  %reass.sub6 = sub nsw i32 %56, %57
+  %58 = add nsw i32 %reass.sub6, 1056964608
   %59 = bitcast i32 %58 to float
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %50, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
   %.0.i.i.i = phi float [ %59, %50 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
-  %60 = tail call float @llvm.fmuladd.f32(float %.0.i.i.i, float %6, float %.fr4)
-  %61 = fcmp uge float %60, %.fr3
+  %60 = tail call float @llvm.fmuladd.f32(float %.0.i.i.i, float %.fr3, float %4)
+  %61 = fcmp uge float %60, %5
   br i1 %61, label %.split, label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEfRT_.exit
 
 _ZN4absl25uniform_real_distributionIfEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEfRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us

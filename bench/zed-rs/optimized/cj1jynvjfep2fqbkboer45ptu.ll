@@ -73553,13 +73553,13 @@ define noundef range(i64 0, -1) i64 @_ZN4gpui8elements3div12ScrollHandle8top_ite
 "_ZN4gpui8elements3div12ScrollHandle8top_item28_$u7b$$u7b$closure$u7d$$u7d$17h810f9b51eec15fe2E.exit.i": ; preds = %29
   %40 = getelementptr i8, ptr %33, i64 12
   %.val17.i = load float, ptr %40, align 4, !alias.scope !14739, !noalias !14742
-  %.val17.fr.i = freeze float %.val17.i
-  %41 = fadd float %.val16.i, %.val17.fr.i
+  %41 = fadd float %.val16.i, %.val17.i
   %42 = bitcast float %41 to i32
   %43 = ashr i32 %42, 31
   %44 = lshr i32 %43, 1
   %45 = xor i32 %44, %42
-  %.not.i = icmp sgt i32 %28, %45
+  %.fr.i = freeze i32 %45
+  %.not.i = icmp sgt i32 %28, %.fr.i
   %46 = add nuw i64 %31, 1
   br i1 %.not.i, label %.thread25.i, label %.thread20
 

@@ -68,8 +68,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
 
 25:                                               ; preds = %20
   %26 = load i8, ptr %.0165, align 1, !tbaa !13
-  %.fr = freeze i8 %26
-  %27 = sext i8 %.fr to i32
+  %27 = sext i8 %26 to i32
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.1, i32 %27, i64 15)
   %28 = icmp eq ptr %memchr, null
   br i1 %28, label %29, label %31
@@ -83,7 +82,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   br label %182
 
 31:                                               ; preds = %25
-  switch i8 %.fr, label %33 [
+  switch i8 %26, label %33 [
     i8 45, label %36
     i8 43, label %32
   ]
@@ -97,7 +96,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   br i1 %isdigit, label %.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %33
-  switch i8 %.fr, label %34 [
+  switch i8 %26, label %34 [
     i8 95, label %.thread
     i8 46, label %.thread
   ]
@@ -129,7 +128,7 @@ switch.early.test:                                ; preds = %33
   br label %182
 
 .thread:                                          ; preds = %33, %switch.early.test, %switch.early.test, %36
-  %44 = phi i8 [ %38, %36 ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %33 ]
+  %44 = phi i8 [ %38, %36 ], [ %26, %switch.early.test ], [ %26, %switch.early.test ], [ %26, %33 ]
   %.1166243 = phi ptr [ %15, %36 ], [ %.0165, %switch.early.test ], [ %.0165, %switch.early.test ], [ %.0165, %33 ]
   %45 = phi i1 [ %37, %36 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %33 ]
   br label %46
@@ -178,12 +177,12 @@ switch.early.test:                                ; preds = %33
   store ptr %.2167, ptr %1, align 8, !tbaa !11
   br label %182
 
-.critedge2:                                       ; preds = %.lr.ph547
-  br i1 %63, label %.lr.ph547, label %.outer248, !llvm.loop !19
+.critedge2:                                       ; preds = %.lr.ph546
+  br i1 %63, label %.lr.ph546, label %.outer248, !llvm.loop !19
 
-.lr.ph547:                                        ; preds = %.critedge2.lr.ph, %.critedge2
-  %.3272546 = phi ptr [ %60, %.critedge2 ], [ %.3.ph285, %.critedge2.lr.ph ]
-  %60 = getelementptr inbounds nuw i8, ptr %.3272546, i64 1
+.lr.ph546:                                        ; preds = %.critedge2.lr.ph, %.critedge2
+  %.3272545 = phi ptr [ %60, %.critedge2 ], [ %.3.ph285, %.critedge2.lr.ph ]
+  %60 = getelementptr inbounds nuw i8, ptr %.3272545, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !13
   %62 = sext i8 %61 to i32
   %isdigittmp209 = add nsw i32 %62, -48
@@ -213,13 +212,13 @@ switch.early.test:                                ; preds = %33
   %.0160.ph286 = phi i32 [ %67, %.outer248 ], [ 0, %.preheader247 ]
   %.3.ph285 = phi ptr [ %66, %.outer248 ], [ %.2167, %.preheader247 ]
   %.0174.ph284 = phi double [ %65, %.outer248 ], [ 0.000000e+00, %.preheader247 ]
-  br i1 %71, label %.lr.ph547, label %.outer248
+  br i1 %71, label %.lr.ph546, label %.outer248
 
-.outer248._crit_edge:                             ; preds = %.outer248, %.lr.ph547, %.preheader247
-  %.0174.ph.lcssa = phi double [ %.0174.ph284, %.lr.ph547 ], [ 0.000000e+00, %.preheader247 ], [ %65, %.outer248 ]
-  %.0160.ph.lcssa = phi i32 [ %.0160.ph286, %.lr.ph547 ], [ 0, %.preheader247 ], [ %67, %.outer248 ]
-  %.3.lcssa = phi ptr [ %60, %.lr.ph547 ], [ %.2167, %.preheader247 ], [ %66, %.outer248 ]
-  %.lcssa260 = phi i8 [ %61, %.lr.ph547 ], [ %47, %.preheader247 ], [ %68, %.outer248 ]
+.outer248._crit_edge:                             ; preds = %.outer248, %.lr.ph546, %.preheader247
+  %.0174.ph.lcssa = phi double [ %.0174.ph284, %.lr.ph546 ], [ 0.000000e+00, %.preheader247 ], [ %65, %.outer248 ]
+  %.0160.ph.lcssa = phi i32 [ %.0160.ph286, %.lr.ph546 ], [ 0, %.preheader247 ], [ %67, %.outer248 ]
+  %.3.lcssa = phi ptr [ %60, %.lr.ph546 ], [ %.2167, %.preheader247 ], [ %66, %.outer248 ]
+  %.lcssa260 = phi i8 [ %61, %.lr.ph546 ], [ %47, %.preheader247 ], [ %68, %.outer248 ]
   %.0160.ph.lcssa.fr = freeze i32 %.0160.ph.lcssa
   switch i8 %.lcssa260, label %.outer245._crit_edge.thread [
     i8 0, label %72
@@ -280,11 +279,11 @@ thread-pre-split:                                 ; preds = %77
   br i1 %88, label %91, label %.preheader244
 
 .preheader244:                                    ; preds = %86
-  %isdigittmp212292336 = add nsw i32 %87, -48
-  %isdigit213293337 = icmp ult i32 %isdigittmp212292336, 10
+  %isdigittmp212292335 = add nsw i32 %87, -48
+  %isdigit213293336 = icmp ult i32 %isdigittmp212292335, 10
   %89 = icmp eq i8 %84, 95
-  %or.cond237294338 = or i1 %89, %isdigit213293337
-  br i1 %or.cond237294338, label %.critedge6.lr.ph.preheader, label %.outer245._crit_edge.thread
+  %or.cond237294337 = or i1 %89, %isdigit213293336
+  br i1 %or.cond237294337, label %.critedge6.lr.ph.preheader, label %.outer245._crit_edge.thread
 
 .critedge6.lr.ph.preheader:                       ; preds = %.preheader244
   %smax = tail call i32 @llvm.smax.i32(i32 %.0160.ph.lcssa.fr, i32 18)
@@ -310,8 +309,8 @@ thread-pre-split:                                 ; preds = %77
   br i1 %99, label %.lr.ph, label %.outer245, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.critedge6.lr.ph.split, %.critedge6
-  %.7295332 = phi ptr [ %96, %.critedge6 ], [ %.7.ph341, %.critedge6.lr.ph.split ]
-  %96 = getelementptr inbounds nuw i8, ptr %.7295332, i64 1
+  %.7295331 = phi ptr [ %96, %.critedge6 ], [ %.7.ph340, %.critedge6.lr.ph.split ]
+  %96 = getelementptr inbounds nuw i8, ptr %.7295331, i64 1
   %97 = load i8, ptr %96, align 1, !tbaa !13
   %98 = sext i8 %97 to i32
   %isdigittmp212 = add nsw i32 %98, -48
@@ -321,16 +320,16 @@ thread-pre-split:                                 ; preds = %77
   br i1 %or.cond237, label %.critedge6, label %.outer245._crit_edge, !llvm.loop !21
 
 .outer245:                                        ; preds = %.critedge6, %.critedge6.lr.ph.split
-  %.7.lcssa257 = phi ptr [ %.7.ph341, %.critedge6.lr.ph.split ], [ %96, %.critedge6 ]
+  %.7.lcssa257 = phi ptr [ %.7.ph340, %.critedge6.lr.ph.split ], [ %96, %.critedge6 ]
   %.lcssa256 = phi i8 [ %109, %.critedge6.lr.ph.split ], [ %97, %.critedge6 ]
-  %isdigittmp212.lcssa254 = phi i32 [ %isdigittmp212292344, %.critedge6.lr.ph.split ], [ %isdigittmp212, %.critedge6 ]
+  %isdigittmp212.lcssa254 = phi i32 [ %isdigittmp212292343, %.critedge6.lr.ph.split ], [ %isdigittmp212, %.critedge6 ]
   %100 = sitofp i32 %isdigittmp212.lcssa254 to double
-  %101 = tail call double @llvm.fmuladd.f64(double %.2176.ph339, double 1.000000e+01, double %100)
+  %101 = tail call double @llvm.fmuladd.f64(double %.2176.ph338, double 1.000000e+01, double %100)
   %.not224 = icmp eq i8 %.lcssa256, 48
-  %spec.select238 = select i1 %.not224, i32 %.0170.ph340, i32 1
+  %spec.select238 = select i1 %.not224, i32 %.0170.ph339, i32 1
   %102 = getelementptr inbounds nuw i8, ptr %.7.lcssa257, i64 1
-  %103 = add i32 %.2162.ph342, 1
-  %104 = add nuw i32 %.0159.ph343, 1
+  %103 = add i32 %.2162.ph341, 1
+  %104 = add nuw i32 %.0159.ph342, 1
   %105 = load i8, ptr %102, align 1, !tbaa !13
   %106 = sext i8 %105 to i32
   %isdigittmp212292 = add nsw i32 %106, -48
@@ -341,18 +340,18 @@ thread-pre-split:                                 ; preds = %77
 
 .critedge6.lr.ph:                                 ; preds = %.critedge6.lr.ph.preheader, %.outer245
   %108 = phi i1 [ %107, %.outer245 ], [ %89, %.critedge6.lr.ph.preheader ]
-  %isdigittmp212292344 = phi i32 [ %isdigittmp212292, %.outer245 ], [ %isdigittmp212292336, %.critedge6.lr.ph.preheader ]
+  %isdigittmp212292343 = phi i32 [ %isdigittmp212292, %.outer245 ], [ %isdigittmp212292335, %.critedge6.lr.ph.preheader ]
   %109 = phi i8 [ %105, %.outer245 ], [ %84, %.critedge6.lr.ph.preheader ]
-  %.0159.ph343 = phi i32 [ %104, %.outer245 ], [ 0, %.critedge6.lr.ph.preheader ]
-  %.2162.ph342 = phi i32 [ %103, %.outer245 ], [ %.0160.ph.lcssa.fr, %.critedge6.lr.ph.preheader ]
-  %.7.ph341 = phi ptr [ %102, %.outer245 ], [ %.5, %.critedge6.lr.ph.preheader ]
-  %.0170.ph340 = phi i32 [ %spec.select238, %.outer245 ], [ 0, %.critedge6.lr.ph.preheader ]
-  %.2176.ph339 = phi double [ %101, %.outer245 ], [ %.0174.ph.lcssa, %.critedge6.lr.ph.preheader ]
-  %exitcond = icmp eq i32 %.0159.ph343, %90
+  %.0159.ph342 = phi i32 [ %104, %.outer245 ], [ 0, %.critedge6.lr.ph.preheader ]
+  %.2162.ph341 = phi i32 [ %103, %.outer245 ], [ %.0160.ph.lcssa.fr, %.critedge6.lr.ph.preheader ]
+  %.7.ph340 = phi ptr [ %102, %.outer245 ], [ %.5, %.critedge6.lr.ph.preheader ]
+  %.0170.ph339 = phi i32 [ %spec.select238, %.outer245 ], [ 0, %.critedge6.lr.ph.preheader ]
+  %.2176.ph338 = phi double [ %101, %.outer245 ], [ %.0174.ph.lcssa, %.critedge6.lr.ph.preheader ]
+  %exitcond = icmp eq i32 %.0159.ph342, %90
   br i1 %exitcond, label %.critedge6.us, label %.critedge6.lr.ph.split
 
 .critedge6.us:                                    ; preds = %.critedge6.lr.ph, %.critedge6.us
-  %.7295.us = phi ptr [ %110, %.critedge6.us ], [ %.7.ph341, %.critedge6.lr.ph ]
+  %.7295.us = phi ptr [ %110, %.critedge6.us ], [ %.7.ph340, %.critedge6.lr.ph ]
   %110 = getelementptr inbounds nuw i8, ptr %.7295.us, i64 1
   %111 = load i8, ptr %110, align 1, !tbaa !13
   %112 = sext i8 %111 to i32
@@ -367,10 +366,10 @@ thread-pre-split:                                 ; preds = %77
 
 .outer245._crit_edge:                             ; preds = %.outer245, %.lr.ph, %.critedge6.us
   %114 = phi i8 [ %97, %.lr.ph ], [ %111, %.critedge6.us ], [ %105, %.outer245 ]
-  %.2176.ph.lcssa = phi double [ %.2176.ph339, %.lr.ph ], [ %.2176.ph339, %.critedge6.us ], [ %101, %.outer245 ]
-  %.0170.ph.lcssa = phi i32 [ %.0170.ph340, %.lr.ph ], [ %.0170.ph340, %.critedge6.us ], [ %spec.select238, %.outer245 ]
-  %.2162.ph.lcssa = phi i32 [ %.2162.ph342, %.lr.ph ], [ %smax, %.critedge6.us ], [ %103, %.outer245 ]
-  %.0159.ph.lcssa = phi i32 [ %.0159.ph343, %.lr.ph ], [ %90, %.critedge6.us ], [ %104, %.outer245 ]
+  %.2176.ph.lcssa = phi double [ %.2176.ph338, %.lr.ph ], [ %.2176.ph338, %.critedge6.us ], [ %101, %.outer245 ]
+  %.0170.ph.lcssa = phi i32 [ %.0170.ph339, %.lr.ph ], [ %.0170.ph339, %.critedge6.us ], [ %spec.select238, %.outer245 ]
+  %.2162.ph.lcssa = phi i32 [ %.2162.ph341, %.lr.ph ], [ %smax, %.critedge6.us ], [ %103, %.outer245 ]
+  %.0159.ph.lcssa = phi i32 [ %.0159.ph342, %.lr.ph ], [ %90, %.critedge6.us ], [ %104, %.outer245 ]
   %.7.lcssa = phi ptr [ %96, %.lr.ph ], [ %110, %.critedge6.us ], [ %102, %.outer245 ]
   %.not214 = icmp eq i32 %.0170.ph.lcssa, 0
   br i1 %.not214, label %.outer245._crit_edge.thread, label %115
@@ -451,25 +450,25 @@ thread-pre-split:                                 ; preds = %77
   %.10 = phi ptr [ %.9, %136 ], [ %133, %134 ], [ %133, %134 ]
   %141 = load i8, ptr %.10, align 1, !tbaa !13
   %142 = sext i8 %141 to i32
-  %isdigittmp219351361 = add nsw i32 %142, -48
-  %isdigit220352362 = icmp ult i32 %isdigittmp219351361, 10
+  %isdigittmp219350360 = add nsw i32 %142, -48
+  %isdigit220351361 = icmp ult i32 %isdigittmp219350360, 10
   %143 = icmp eq i8 %141, 95
-  %or.cond239353363 = or i1 %143, %isdigit220352362
-  br i1 %or.cond239353363, label %.critedge11.lr.ph, label %.outer._crit_edge
+  %or.cond239352362 = or i1 %143, %isdigit220351361
+  br i1 %or.cond239352362, label %.critedge11.lr.ph, label %.outer._crit_edge
 
 .critedge11.lr.ph:                                ; preds = %140, %.outer
   %144 = phi i1 [ %154, %.outer ], [ %143, %140 ]
-  %isdigittmp219351366 = phi i32 [ %isdigittmp219351, %.outer ], [ %isdigittmp219351361, %140 ]
-  %.0163.ph365 = phi i32 [ %150, %.outer ], [ 0, %140 ]
-  %.11.ph364 = phi ptr [ %151, %.outer ], [ %.10, %140 ]
-  br i1 %144, label %.lr.ph550, label %.outer
+  %isdigittmp219350365 = phi i32 [ %isdigittmp219350, %.outer ], [ %isdigittmp219350360, %140 ]
+  %.0163.ph364 = phi i32 [ %150, %.outer ], [ 0, %140 ]
+  %.11.ph363 = phi ptr [ %151, %.outer ], [ %.10, %140 ]
+  br i1 %144, label %.lr.ph549, label %.outer
 
-.critedge11:                                      ; preds = %.lr.ph550
-  br i1 %148, label %.lr.ph550, label %.outer, !llvm.loop !23
+.critedge11:                                      ; preds = %.lr.ph549
+  br i1 %148, label %.lr.ph549, label %.outer, !llvm.loop !23
 
-.lr.ph550:                                        ; preds = %.critedge11.lr.ph, %.critedge11
-  %.11354549 = phi ptr [ %145, %.critedge11 ], [ %.11.ph364, %.critedge11.lr.ph ]
-  %145 = getelementptr inbounds nuw i8, ptr %.11354549, i64 1
+.lr.ph549:                                        ; preds = %.critedge11.lr.ph, %.critedge11
+  %.11353548 = phi ptr [ %145, %.critedge11 ], [ %.11.ph363, %.critedge11.lr.ph ]
+  %145 = getelementptr inbounds nuw i8, ptr %.11353548, i64 1
   %146 = load i8, ptr %145, align 1, !tbaa !13
   %147 = sext i8 %146 to i32
   %isdigittmp219 = add nsw i32 %147, -48
@@ -479,22 +478,22 @@ thread-pre-split:                                 ; preds = %77
   br i1 %or.cond239, label %.critedge11, label %.outer._crit_edge, !llvm.loop !23
 
 .outer:                                           ; preds = %.critedge11, %.critedge11.lr.ph
-  %isdigittmp219355.lcssa = phi i32 [ %isdigittmp219351366, %.critedge11.lr.ph ], [ %isdigittmp219, %.critedge11 ]
-  %.11354.lcssa = phi ptr [ %.11.ph364, %.critedge11.lr.ph ], [ %145, %.critedge11 ]
-  %149 = mul nsw i32 %.0163.ph365, 10
-  %150 = add nsw i32 %isdigittmp219355.lcssa, %149
-  %151 = getelementptr inbounds nuw i8, ptr %.11354.lcssa, i64 1
+  %isdigittmp219354.lcssa = phi i32 [ %isdigittmp219350365, %.critedge11.lr.ph ], [ %isdigittmp219, %.critedge11 ]
+  %.11353.lcssa = phi ptr [ %.11.ph363, %.critedge11.lr.ph ], [ %145, %.critedge11 ]
+  %149 = mul nsw i32 %.0163.ph364, 10
+  %150 = add nsw i32 %isdigittmp219354.lcssa, %149
+  %151 = getelementptr inbounds nuw i8, ptr %.11353.lcssa, i64 1
   %152 = load i8, ptr %151, align 1, !tbaa !13
   %153 = sext i8 %152 to i32
-  %isdigittmp219351 = add nsw i32 %153, -48
-  %isdigit220352 = icmp ult i32 %isdigittmp219351, 10
+  %isdigittmp219350 = add nsw i32 %153, -48
+  %isdigit220351 = icmp ult i32 %isdigittmp219350, 10
   %154 = icmp eq i8 %152, 95
-  %or.cond239353 = or i1 %154, %isdigit220352
-  br i1 %or.cond239353, label %.critedge11.lr.ph, label %.outer._crit_edge, !llvm.loop !23
+  %or.cond239352 = or i1 %154, %isdigit220351
+  br i1 %or.cond239352, label %.critedge11.lr.ph, label %.outer._crit_edge, !llvm.loop !23
 
-.outer._crit_edge:                                ; preds = %.outer, %.lr.ph550, %140
-  %.0163.ph.lcssa = phi i32 [ %.0163.ph365, %.lr.ph550 ], [ 0, %140 ], [ %150, %.outer ]
-  %.11.lcssa = phi ptr [ %145, %.lr.ph550 ], [ %.10, %140 ], [ %151, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %.lr.ph549, %140
+  %.0163.ph.lcssa = phi i32 [ %.0163.ph364, %.lr.ph549 ], [ 0, %140 ], [ %150, %.outer ]
+  %.11.lcssa = phi ptr [ %145, %.lr.ph549 ], [ %.10, %140 ], [ %151, %.outer ]
   %155 = sub nsw i32 0, %.0163.ph.lcssa
   %spec.select240 = select i1 %135, i32 %155, i32 %.0163.ph.lcssa
   %156 = add nsw i32 %spec.select240, %.0172
@@ -534,10 +533,10 @@ thread-pre-split:                                 ; preds = %77
   br label %170
 
 170:                                              ; preds = %168, %170
-  %.0370 = phi i32 [ %169, %168 ], [ %171, %170 ]
-  %.0157369 = phi double [ 1.000000e+00, %168 ], [ %172, %170 ]
-  %171 = add nsw i32 %.0370, -1
-  %172 = fmul double %.0157369, 1.000000e+01
+  %.0369 = phi i32 [ %169, %168 ], [ %171, %170 ]
+  %.0157368 = phi double [ 1.000000e+00, %168 ], [ %172, %170 ]
+  %171 = add nsw i32 %.0369, -1
+  %172 = fmul double %.0157368, 1.000000e+01
   %.not222 = icmp eq i32 %171, 0
   br i1 %.not222, label %173, label %170, !llvm.loop !24
 

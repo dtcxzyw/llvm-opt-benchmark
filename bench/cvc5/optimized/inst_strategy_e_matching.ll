@@ -3589,7 +3589,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers27InstStr
   %99 = load ptr, ptr %98, align 8, !tbaa !14
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.not10.i.i.i = icmp eq ptr %99, null
-  %.02021846.sroa.gep2059 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %.02021846.sroa.gep2058 = getelementptr inbounds nuw i8, ptr %67, i64 24
   br i1 %.not10.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
@@ -5956,8 +5956,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit854: ; preds = %1127, %1131, %1137
 .lr.ph.i.i.i856:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit854
   %1142 = load ptr, ptr %69, align 8, !tbaa !301
   %1143 = load i64, ptr %1142, align 8
-  %.fr = freeze i64 %1143
-  %1144 = and i64 %.fr, 1099511627775
+  %1144 = and i64 %1143, 1099511627775
   br label %1145
 
 1145:                                             ; preds = %1145, %.lr.ph.i.i.i856
@@ -5984,14 +5983,14 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4f
   %.19.i.i.i859.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i859.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1152 = load ptr, ptr %.19.i.i.i859.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !301
   %1153 = load i64, ptr %1152, align 8
-  %.fr2040 = freeze i64 %1153
-  %1154 = and i64 %.fr2040, 1099511627775
+  %1154 = and i64 %1153, 1099511627775
   %1155 = icmp samesign uge i64 %1144, %1154
-  %spec.select = select i1 %1155, i64 24, i64 0
+  %cond.fr = freeze i1 %1155
+  %spec.select = select i1 %cond.fr, i64 24, i64 0
   br label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit867.thread
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit867.thread: ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit867, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i864, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit854
-  %.sroa.0.0.i.i8662017 = phi i1 [ false, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i864 ], [ %1155, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit867 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit854 ]
+  %.sroa.0.0.i.i8662017 = phi i1 [ false, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i864 ], [ %cond.fr, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit867 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit854 ]
   %1156 = phi i64 [ 0, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS5_.exit.i.i864 ], [ %spec.select, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE4findERS7_.exit867 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit854 ]
   %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %67, i64 %1156
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -6270,7 +6269,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit887: ; preds = %_ZN4cvc58internal1
 
 1287:                                             ; preds = %.preheader1812, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit916
   %1288 = phi i1 [ true, %.preheader1812 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit916 ]
-  %.02021846.sroa.phi = phi ptr [ %67, %.preheader1812 ], [ %.02021846.sroa.gep2059, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit916 ]
+  %.02021846.sroa.phi = phi ptr [ %67, %.preheader1812 ], [ %.02021846.sroa.gep2058, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit916 ]
   %.02021846 = phi i64 [ 0, %.preheader1812 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit916 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !406

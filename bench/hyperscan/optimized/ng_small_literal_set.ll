@@ -1863,9 +1863,9 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   %694 = select i1 %693, i1 true, i1 %690
   %not..i.i.i = xor i1 %694, true
   %.13.i.i.i = select i1 %not..i.i.i, i1 true, i1 %.0220.i.i.i
-  %not.27.i.i.i = xor i1 %693, true
-  %not.25.i.i.i = select i1 %not.27.i.i.i, i1 %690, i1 false
-  %.1.i.i.i36 = select i1 %not.25.i.i.i, i1 true, i1 %.021.i.i.i
+  %not.25.i.i.i = xor i1 %693, true
+  %not.23.i.i.i = select i1 %not.25.i.i.i, i1 %690, i1 false
+  %.1.i.i.i36 = select i1 %not.23.i.i.i, i1 true, i1 %.021.i.i.i
   %695 = add nuw i64 %.sroa.6.019.i.i.i, 1
   %.not.i.i.i37 = icmp eq i64 %695, %678
   br i1 %.not.i.i.i37, label %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i, label %.lr.ph.split.i.i.i, !llvm.loop !85

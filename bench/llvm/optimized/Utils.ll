@@ -1292,7 +1292,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit51:         ; preds = %53
   %bcmp.i50 = call i32 @bcmp(ptr nonnull %57, ptr %50, i64 %52)
   %bcmp.i50.fr = freeze i32 %bcmp.i50
   %58 = icmp ne i32 %bcmp.i50.fr, 0
-  %brmerge.not = and i1 %58, %2
+  %brmerge.not = and i1 %2, %58
   br i1 %brmerge.not, label %_ZNK4llvm9StringRef9ends_withES0_.exit54, label %.thread
 
 _ZNK4llvm9StringRef9ends_withES0_.exit54:         ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit51, %_ZNK4llvm9StringRef9ends_withES0_.exit51.thread128

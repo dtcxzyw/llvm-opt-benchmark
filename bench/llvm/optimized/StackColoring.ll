@@ -10863,27 +10863,27 @@ declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnul
 define internal fastcc void @"_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_SB_T0_SC_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp eq i64 %3, 0
   %8 = icmp eq i64 %4, 0
-  %or.cond82 = or i1 %7, %8
-  br i1 %or.cond82, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread70", label %.lr.ph
+  %or.cond81 = or i1 %7, %8
+  br i1 %or.cond81, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread69", label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %9 = ptrtoint ptr %2 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr7787 = phi i64 [ %4, %.lr.ph ], [ %114, %tailrecurse ]
-  %.tr7686 = phi i64 [ %3, %.lr.ph ], [ %113, %tailrecurse ]
-  %.tr7484 = phi ptr [ %1, %.lr.ph ], [ %.067, %tailrecurse ]
-  %.tr83 = phi ptr [ %0, %.lr.ph ], [ %112, %tailrecurse ]
-  %11 = add nsw i64 %.tr7787, %.tr7686
+  %.tr7686 = phi i64 [ %4, %.lr.ph ], [ %114, %tailrecurse ]
+  %.tr7585 = phi i64 [ %3, %.lr.ph ], [ %113, %tailrecurse ]
+  %.tr7383 = phi ptr [ %1, %.lr.ph ], [ %.066, %tailrecurse ]
+  %.tr82 = phi ptr [ %0, %.lr.ph ], [ %112, %tailrecurse ]
+  %11 = add nsw i64 %.tr7686, %.tr7585
   %12 = icmp eq i64 %11, 2
   br i1 %12, label %13, label %33
 
 13:                                               ; preds = %10
-  %.val41 = load i32, ptr %.tr7484, align 4, !tbaa !272
-  %.val42 = load i32, ptr %.tr83, align 4, !tbaa !272
+  %.val41 = load i32, ptr %.tr7383, align 4, !tbaa !272
+  %.val42 = load i32, ptr %.tr82, align 4, !tbaa !272
   %14 = icmp eq i32 %.val41, -1
-  br i1 %14, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread70", label %15
+  br i1 %14, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread69", label %15
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %.val42, -1
@@ -10906,21 +10906,21 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops1
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !335
   %32 = icmp sgt i64 %26, %31
-  br i1 %32, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread70"
+  br i1 %32, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread69"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread": ; preds = %15, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit"
-  store i32 %.val41, ptr %.tr83, align 4, !tbaa !272
-  store i32 %.val42, ptr %.tr7484, align 4, !tbaa !272
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread70"
+  store i32 %.val41, ptr %.tr82, align 4, !tbaa !272
+  store i32 %.val42, ptr %.tr7383, align 4, !tbaa !272
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread69"
 
 33:                                               ; preds = %10
-  %34 = icmp sgt i64 %.tr7686, %.tr7787
-  %35 = ptrtoint ptr %.tr7484 to i64
+  %34 = icmp sgt i64 %.tr7585, %.tr7686
+  %35 = ptrtoint ptr %.tr7383 to i64
   br i1 %34, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit48
 
 _ZSt7advanceIPilEvRT_T0_.exit:                    ; preds = %33
-  %36 = sdiv i64 %.tr7686, 2
-  %37 = getelementptr inbounds i32, ptr %.tr83, i64 %36
+  %36 = sdiv i64 %.tr7585, 2
+  %37 = getelementptr inbounds i32, ptr %.tr82, i64 %36
   %.val43 = load i32, ptr %37, align 4
   %38 = sub i64 %9, %35
   %39 = ashr exact i64 %38, 2
@@ -10932,10 +10932,10 @@ _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i:            ; preds = %_ZSt7advanceIPilEvR
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i
 
 _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i
-  %.021.i = phi ptr [ %.tr7484, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %69, %.thread14.i ]
-  %.01120.i = phi i64 [ %39, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %68, %.thread14.i ]
-  %42 = lshr i64 %.01120.i, 1
-  %43 = getelementptr inbounds nuw i32, ptr %.021.i, i64 %42
+  %.020.i = phi ptr [ %.tr7383, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %69, %.thread14.i ]
+  %.01119.i = phi i64 [ %39, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %68, %.thread14.i ]
+  %42 = lshr i64 %.01119.i, 1
+  %43 = getelementptr inbounds nuw i32, ptr %.020.i, i64 %42
   %.val13.i = load i32, ptr %43, align 4, !tbaa !272
   %44 = icmp eq i32 %.val13.i, -1
   br i1 %44, label %.thread14.i, label %45
@@ -10946,7 +10946,7 @@ _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7
 .thread.i:                                        ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = xor i64 %42, -1
-  %48 = add nsw i64 %.01120.i, %47
+  %48 = add nsw i64 %.01119.i, %47
   br label %.thread14.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i": ; preds = %45
@@ -10965,19 +10965,18 @@ _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7
   %61 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %55, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !335
-  %.fr.i = freeze i64 %58
-  %.fr18.i = freeze i64 %63
-  %64 = icmp sgt i64 %.fr.i, %.fr18.i
+  %64 = icmp sgt i64 %58, %63
+  %cond.fr4.i = freeze i1 %64
   %65 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %66 = xor i64 %42, -1
-  %67 = add nsw i64 %.01120.i, %66
-  %spec.select.i = select i1 %64, i64 %67, i64 %42
-  %spec.select19.i = select i1 %64, ptr %65, ptr %.021.i
+  %67 = add nsw i64 %.01119.i, %66
+  %spec.select.i = select i1 %cond.fr4.i, i64 %67, i64 %42
+  %spec.select18.i = select i1 %cond.fr4.i, ptr %65, ptr %.020.i
   br label %.thread14.i
 
 .thread14.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i", %.thread.i, %_ZSt7advanceIPilEvRT_T0_.exit.i
   %68 = phi i64 [ %42, %_ZSt7advanceIPilEvRT_T0_.exit.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %48, %.thread.i ]
-  %69 = phi ptr [ %.021.i, %_ZSt7advanceIPilEvRT_T0_.exit.i ], [ %spec.select19.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %46, %.thread.i ]
+  %69 = phi ptr [ %.020.i, %_ZSt7advanceIPilEvRT_T0_.exit.i ], [ %spec.select18.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %46, %.thread.i ]
   %70 = icmp sgt i64 %68, 0
   br i1 %70, label %_ZSt7advanceIPilEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", !llvm.loop !587
 
@@ -10987,16 +10986,16 @@ _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7
 
 "_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPilEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %35, %_ZSt7advanceIPilEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %69, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr7484, %_ZSt7advanceIPilEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %69, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr7383, %_ZSt7advanceIPilEvRT_T0_.exit ]
   %71 = sub i64 %.pre-phi, %35
   %72 = ashr exact i64 %71, 2
   br label %tailrecurse
 
 _ZSt7advanceIPilEvRT_T0_.exit48:                  ; preds = %33
-  %73 = sdiv i64 %.tr7787, 2
-  %74 = getelementptr inbounds i32, ptr %.tr7484, i64 %73
+  %73 = sdiv i64 %.tr7686, 2
+  %74 = getelementptr inbounds i32, ptr %.tr7383, i64 %73
   %.val44 = load i32, ptr %74, align 4
-  %75 = ptrtoint ptr %.tr83 to i64
+  %75 = ptrtoint ptr %.tr82 to i64
   %76 = sub i64 %35, %75
   %77 = ashr exact i64 %76, 2
   %78 = icmp sgt i64 %77, 0
@@ -11006,23 +11005,23 @@ _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50:          ; preds = %_ZSt7advanceIPilEvR
   %79 = icmp eq i32 %.val44, -1
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i51
 
-_ZSt7advanceIPilEvRT_T0_.exit.i51:                ; preds = %.thread.i56, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50
-  %.020.i = phi ptr [ %.tr83, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50 ], [ %108, %.thread.i56 ]
-  %.01119.i = phi i64 [ %77, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50 ], [ %107, %.thread.i56 ]
-  %80 = lshr i64 %.01119.i, 1
-  %81 = getelementptr inbounds nuw i32, ptr %.020.i, i64 %80
+_ZSt7advanceIPilEvRT_T0_.exit.i51:                ; preds = %.thread.i55, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50
+  %.019.i = phi ptr [ %.tr82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50 ], [ %108, %.thread.i55 ]
+  %.01118.i = phi i64 [ %77, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i50 ], [ %107, %.thread.i55 ]
+  %80 = lshr i64 %.01118.i, 1
+  %81 = getelementptr inbounds nuw i32, ptr %.019.i, i64 %80
   %.val14.i = load i32, ptr %81, align 4, !tbaa !272
-  br i1 %79, label %.thread14.i57, label %85
+  br i1 %79, label %.thread14.i56, label %85
 
-.thread14.i57:                                    ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i51
+.thread14.i56:                                    ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i51
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = xor i64 %80, -1
-  %84 = add nsw i64 %.01119.i, %83
-  br label %.thread.i56
+  %84 = add nsw i64 %.01118.i, %83
+  br label %.thread.i55
 
 85:                                               ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i51
   %86 = icmp eq i32 %.val14.i, -1
-  br i1 %86, label %.thread.i56, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i"
+  br i1 %86, label %.thread.i55, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i": ; preds = %85
   %87 = load ptr, ptr %5, align 8, !tbaa !224
@@ -11040,49 +11039,48 @@ _ZSt7advanceIPilEvRT_T0_.exit.i51:                ; preds = %.thread.i56, %_ZSt7
   %99 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %93, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !335
-  %.fr.i54 = freeze i64 %96
-  %.fr18.i55 = freeze i64 %101
-  %102 = icmp sgt i64 %.fr.i54, %.fr18.i55
-  br i1 %102, label %.thread.i56, label %103
+  %102 = icmp sgt i64 %96, %101
+  %cond.fr4.i54 = freeze i1 %102
+  br i1 %cond.fr4.i54, label %.thread.i55, label %103
 
 103:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i"
   %104 = xor i64 %80, -1
-  %105 = add nsw i64 %.01119.i, %104
+  %105 = add nsw i64 %.01118.i, %104
   %106 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  br label %.thread.i56
+  br label %.thread.i55
 
-.thread.i56:                                      ; preds = %103, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i", %85, %.thread14.i57
-  %107 = phi i64 [ %84, %.thread14.i57 ], [ %105, %103 ], [ %80, %85 ], [ %80, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
-  %108 = phi ptr [ %82, %.thread14.i57 ], [ %106, %103 ], [ %.020.i, %85 ], [ %.020.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
+.thread.i55:                                      ; preds = %103, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i", %85, %.thread14.i56
+  %107 = phi i64 [ %84, %.thread14.i56 ], [ %105, %103 ], [ %80, %85 ], [ %80, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
+  %108 = phi ptr [ %82, %.thread14.i56 ], [ %106, %103 ], [ %.019.i, %85 ], [ %.019.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
   %109 = icmp sgt i64 %107, 0
   br i1 %109, label %_ZSt7advanceIPilEvRT_T0_.exit.i51, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", !llvm.loop !588
 
-"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit": ; preds = %.thread.i56
-  %.pre91 = ptrtoint ptr %108 to i64
+"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit": ; preds = %.thread.i55
+  %.pre90 = ptrtoint ptr %108 to i64
   br label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPilEvRT_T0_.exit48
-  %.pre-phi92 = phi i64 [ %.pre91, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %75, %_ZSt7advanceIPilEvRT_T0_.exit48 ]
-  %.0.lcssa.i49 = phi ptr [ %108, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr83, %_ZSt7advanceIPilEvRT_T0_.exit48 ]
-  %110 = sub i64 %.pre-phi92, %75
+  %.pre-phi91 = phi i64 [ %.pre90, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %75, %_ZSt7advanceIPilEvRT_T0_.exit48 ]
+  %.0.lcssa.i49 = phi ptr [ %108, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr82, %_ZSt7advanceIPilEvRT_T0_.exit48 ]
+  %110 = sub i64 %.pre-phi91, %75
   %111 = ashr exact i64 %110, 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit", %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit"
-  %.068 = phi ptr [ %37, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %.0.lcssa.i49, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
-  %.067 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %74, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
+  %.067 = phi ptr [ %37, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %.0.lcssa.i49, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
+  %.066 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %74, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
   %.038 = phi i64 [ %72, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %73, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %36, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %111, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
-  %112 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.068, ptr noundef %.tr7484, ptr noundef %.067)
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_SB_T0_SC_T1_"(ptr noundef %.tr83, ptr noundef %.068, ptr noundef %112, i64 noundef %.0, i64 noundef %.038, ptr %5)
-  %113 = sub nsw i64 %.tr7686, %.0
-  %114 = sub nsw i64 %.tr7787, %.038
+  %112 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.067, ptr noundef %.tr7383, ptr noundef %.066)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_SB_T0_SC_T1_"(ptr noundef %.tr82, ptr noundef %.067, ptr noundef %112, i64 noundef %.0, i64 noundef %.038, ptr %5)
+  %113 = sub nsw i64 %.tr7585, %.0
+  %114 = sub nsw i64 %.tr7686, %.038
   %115 = icmp eq i64 %113, 0
   %116 = icmp eq i64 %114, 0
   %or.cond = or i1 %115, %116
-  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread70", label %10
+  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread69", label %10
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread70": ; preds = %tailrecurse, %6, %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread69": ; preds = %tailrecurse, %6, %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread"
   ret void
 }
 
@@ -11448,22 +11446,22 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPiS0_N9__gnu_cxx5__
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_SB_T0_SC_T1_SC_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) unnamed_addr #0 {
   %9 = inttoptr i64 %7 to ptr
-  %.not123 = icmp sgt i64 %3, %4
-  %.not67124 = icmp sgt i64 %3, %6
-  %or.cond125 = or i1 %.not67124, %.not123
-  br i1 %or.cond125, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not122 = icmp sgt i64 %3, %4
+  %.not67123 = icmp sgt i64 %3, %6
+  %or.cond124 = or i1 %.not67123, %.not122
+  br i1 %or.cond124, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %10 = ptrtoint ptr %2 to i64
   br label %48
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i93, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr107.lcssa = phi ptr [ %1, %8 ], [ %.0103, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %11 = ptrtoint ptr %.tr107.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i92, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr106.lcssa = phi ptr [ %1, %8 ], [ %.0102, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %11 = ptrtoint ptr %.tr106.lcssa to i64
   %12 = ptrtoint ptr %.tr.lcssa to i64
   %13 = sub i64 %11, %12
-  %.not.i.i.i.i.i = icmp eq ptr %.tr107.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr106.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, label %14
 
 14:                                               ; preds = %tailrecurse._crit_edge
@@ -11472,15 +11470,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %tailrecurse._crit_edge, %14
   %15 = getelementptr inbounds i8, ptr %5, i64 %13
-  %16 = icmp ne ptr %.tr107.lcssa, %.tr.lcssa
-  %17 = icmp ne ptr %.tr107.lcssa, %2
+  %16 = icmp ne ptr %.tr106.lcssa, %.tr.lcssa
+  %17 = icmp ne ptr %.tr106.lcssa, %2
   %18 = and i1 %16, %17
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %40
   %.027.i = phi ptr [ %41, %40 ], [ %.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %.01826.i = phi ptr [ %.1.i, %40 ], [ %5, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
-  %.01925.i = phi ptr [ %.120.i, %40 ], [ %.tr107.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
+  %.01925.i = phi ptr [ %.120.i, %40 ], [ %.tr106.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %.019.val.i = load i32, ptr %.01925.i, align 4, !tbaa !272
   %.018.val.i = load i32, ptr %.01826.i, align 4, !tbaa !272
   %19 = icmp eq i32 %.019.val.i, -1
@@ -11542,24 +11540,24 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %._crit_edge.i
   br label %"_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_T0_SC_T1_T2_.exit"
 
 48:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
-  %.not131 = phi i1 [ %.not123, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr110130 = phi i64 [ %4, %.lr.ph ], [ %202, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr109129 = phi i64 [ %3, %.lr.ph ], [ %169, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr107127 = phi ptr [ %1, %.lr.ph ], [ %.0103, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr126 = phi ptr [ %0, %.lr.ph ], [ %.0.i93, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.not68 = icmp sgt i64 %.tr110130, %6
+  %.not130 = phi i1 [ %.not122, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr109129 = phi i64 [ %4, %.lr.ph ], [ %202, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr108128 = phi i64 [ %3, %.lr.ph ], [ %169, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr106126 = phi ptr [ %1, %.lr.ph ], [ %.0102, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr125 = phi ptr [ %0, %.lr.ph ], [ %.0.i92, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.not68 = icmp sgt i64 %.tr109129, %6
   br i1 %.not68, label %90, label %49
 
 49:                                               ; preds = %48
-  %.not.i.i.i.i.i70 = icmp eq ptr %2, %.tr107127
+  %.not.i.i.i.i.i70 = icmp eq ptr %2, %.tr106126
   br i1 %.not.i.i.i.i.i70, label %"_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_T0_SC_T1_T2_.exit", label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit71.thread
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit71.thread:        ; preds = %49
-  %50 = ptrtoint ptr %.tr107127 to i64
+  %50 = ptrtoint ptr %.tr106126 to i64
   %51 = sub i64 %10, %50
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr107127, i64 %51, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr106126, i64 %51, i1 false)
   %52 = getelementptr inbounds i8, ptr %5, i64 %51
-  %53 = icmp eq ptr %.tr126, %.tr107127
+  %53 = icmp eq ptr %.tr125, %.tr106126
   br i1 %53, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.sink.split.i, label %54
 
 54:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit71.thread
@@ -11567,7 +11565,7 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit71.thread:        ; preds = %49
   br label %.outer
 
 .outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74", %54
-  %.026.i.ph.pn = phi ptr [ %.tr107127, %54 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74" ]
+  %.026.i.ph.pn = phi ptr [ %.tr106126, %54 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74" ]
   %.024.i.ph = phi ptr [ %55, %54 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74" ]
   %.0.i.ph = phi ptr [ %2, %54 ], [ %76, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74" ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -4
@@ -11607,7 +11605,7 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit71.thread:        ; preds = %49
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.i72", %58
   %76 = getelementptr inbounds i8, ptr %.0.i, i64 -4
   store i32 %.026.val.i, ptr %76, align 4, !tbaa !272
-  %77 = icmp eq ptr %.tr126, %.026.i.ph
+  %77 = icmp eq ptr %.tr125, %.026.i.ph
   br i1 %77, label %78, label %.outer, !llvm.loop !596
 
 78:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiSA_EEbT_T0_.exit.thread.i74"
@@ -11638,12 +11636,12 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.sink.split.i: ; preds = %_ZSt4moveIPi
   br label %"_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_T0_SC_T1_T2_.exit"
 
 90:                                               ; preds = %48
-  %91 = ptrtoint ptr %.tr107127 to i64
-  br i1 %.not131, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit80
+  %91 = ptrtoint ptr %.tr106126 to i64
+  br i1 %.not130, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit80
 
 _ZSt7advanceIPilEvRT_T0_.exit:                    ; preds = %90
-  %92 = sdiv i64 %.tr109129, 2
-  %93 = getelementptr inbounds i32, ptr %.tr126, i64 %92
+  %92 = sdiv i64 %.tr108128, 2
+  %93 = getelementptr inbounds i32, ptr %.tr125, i64 %92
   %.val = load i32, ptr %93, align 4
   %94 = sub i64 %10, %91
   %95 = ashr exact i64 %94, 2
@@ -11655,10 +11653,10 @@ _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i:            ; preds = %_ZSt7advanceIPilEvR
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i
 
 _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i
-  %.021.i = phi ptr [ %.tr107127, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %125, %.thread14.i ]
-  %.01120.i = phi i64 [ %95, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %124, %.thread14.i ]
-  %98 = lshr i64 %.01120.i, 1
-  %99 = getelementptr inbounds nuw i32, ptr %.021.i, i64 %98
+  %.020.i = phi ptr [ %.tr106126, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %125, %.thread14.i ]
+  %.01119.i = phi i64 [ %95, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %124, %.thread14.i ]
+  %98 = lshr i64 %.01119.i, 1
+  %99 = getelementptr inbounds nuw i32, ptr %.020.i, i64 %98
   %.val13.i = load i32, ptr %99, align 4, !tbaa !272
   %100 = icmp eq i32 %.val13.i, -1
   br i1 %100, label %.thread14.i, label %101
@@ -11669,7 +11667,7 @@ _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7
 .thread.i:                                        ; preds = %101
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %103 = xor i64 %98, -1
-  %104 = add nsw i64 %.01120.i, %103
+  %104 = add nsw i64 %.01119.i, %103
   br label %.thread14.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i": ; preds = %101
@@ -11688,19 +11686,18 @@ _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7
   %117 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %111, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !tbaa !335
-  %.fr.i = freeze i64 %114
-  %.fr18.i = freeze i64 %119
-  %120 = icmp sgt i64 %.fr.i, %.fr18.i
+  %120 = icmp sgt i64 %114, %119
+  %cond.fr4.i = freeze i1 %120
   %121 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %122 = xor i64 %98, -1
-  %123 = add nsw i64 %.01120.i, %122
-  %spec.select.i = select i1 %120, i64 %123, i64 %98
-  %spec.select19.i = select i1 %120, ptr %121, ptr %.021.i
+  %123 = add nsw i64 %.01119.i, %122
+  %spec.select.i = select i1 %cond.fr4.i, i64 %123, i64 %98
+  %spec.select18.i = select i1 %cond.fr4.i, ptr %121, ptr %.020.i
   br label %.thread14.i
 
 .thread14.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i", %.thread.i, %_ZSt7advanceIPilEvRT_T0_.exit.i
   %124 = phi i64 [ %98, %_ZSt7advanceIPilEvRT_T0_.exit.i ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %104, %.thread.i ]
-  %125 = phi ptr [ %.021.i, %_ZSt7advanceIPilEvRT_T0_.exit.i ], [ %spec.select19.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %102, %.thread.i ]
+  %125 = phi ptr [ %.020.i, %_ZSt7advanceIPilEvRT_T0_.exit.i ], [ %spec.select18.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %102, %.thread.i ]
   %126 = icmp sgt i64 %124, 0
   br i1 %126, label %_ZSt7advanceIPilEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", !llvm.loop !587
 
@@ -11710,16 +11707,16 @@ _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %.thread14.i, %_ZSt7
 
 "_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPilEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %91, %_ZSt7advanceIPilEvRT_T0_.exit ]
-  %.0.lcssa.i76 = phi ptr [ %125, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr107127, %_ZSt7advanceIPilEvRT_T0_.exit ]
+  %.0.lcssa.i76 = phi ptr [ %125, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr106126, %_ZSt7advanceIPilEvRT_T0_.exit ]
   %127 = sub i64 %.pre-phi, %91
   %128 = ashr exact i64 %127, 2
   br label %168
 
 _ZSt7advanceIPilEvRT_T0_.exit80:                  ; preds = %90
-  %129 = sdiv i64 %.tr110130, 2
-  %130 = getelementptr inbounds i32, ptr %.tr107127, i64 %129
+  %129 = sdiv i64 %.tr109129, 2
+  %130 = getelementptr inbounds i32, ptr %.tr106126, i64 %129
   %.val69 = load i32, ptr %130, align 4
-  %131 = ptrtoint ptr %.tr126 to i64
+  %131 = ptrtoint ptr %.tr125 to i64
   %132 = sub i64 %91, %131
   %133 = ashr exact i64 %132, 2
   %134 = icmp sgt i64 %133, 0
@@ -11729,23 +11726,23 @@ _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83:          ; preds = %_ZSt7advanceIPilEvR
   %135 = icmp eq i32 %.val69, -1
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i84
 
-_ZSt7advanceIPilEvRT_T0_.exit.i84:                ; preds = %.thread.i89, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83
-  %.020.i = phi ptr [ %.tr126, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83 ], [ %164, %.thread.i89 ]
-  %.01119.i = phi i64 [ %133, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83 ], [ %163, %.thread.i89 ]
-  %136 = lshr i64 %.01119.i, 1
-  %137 = getelementptr inbounds nuw i32, ptr %.020.i, i64 %136
+_ZSt7advanceIPilEvRT_T0_.exit.i84:                ; preds = %.thread.i88, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83
+  %.019.i = phi ptr [ %.tr125, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83 ], [ %164, %.thread.i88 ]
+  %.01118.i = phi i64 [ %133, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i83 ], [ %163, %.thread.i88 ]
+  %136 = lshr i64 %.01118.i, 1
+  %137 = getelementptr inbounds nuw i32, ptr %.019.i, i64 %136
   %.val14.i = load i32, ptr %137, align 4, !tbaa !272
-  br i1 %135, label %.thread14.i90, label %141
+  br i1 %135, label %.thread14.i89, label %141
 
-.thread14.i90:                                    ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i84
+.thread14.i89:                                    ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i84
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %139 = xor i64 %136, -1
-  %140 = add nsw i64 %.01119.i, %139
-  br label %.thread.i89
+  %140 = add nsw i64 %.01118.i, %139
+  br label %.thread.i88
 
 141:                                              ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i84
   %142 = icmp eq i32 %.val14.i, -1
-  br i1 %142, label %.thread.i89, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i"
+  br i1 %142, label %.thread.i88, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i": ; preds = %141
   %143 = load ptr, ptr %9, align 8, !tbaa !224
@@ -11763,40 +11760,39 @@ _ZSt7advanceIPilEvRT_T0_.exit.i84:                ; preds = %.thread.i89, %_ZSt7
   %155 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %149, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i64, ptr %156, align 8, !tbaa !335
-  %.fr.i87 = freeze i64 %152
-  %.fr18.i88 = freeze i64 %157
-  %158 = icmp sgt i64 %.fr.i87, %.fr18.i88
-  br i1 %158, label %.thread.i89, label %159
+  %158 = icmp sgt i64 %152, %157
+  %cond.fr4.i87 = freeze i1 %158
+  br i1 %cond.fr4.i87, label %.thread.i88, label %159
 
 159:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i"
   %160 = xor i64 %136, -1
-  %161 = add nsw i64 %.01119.i, %160
+  %161 = add nsw i64 %.01118.i, %160
   %162 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  br label %.thread.i89
+  br label %.thread.i88
 
-.thread.i89:                                      ; preds = %159, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i", %141, %.thread14.i90
-  %163 = phi i64 [ %140, %.thread14.i90 ], [ %161, %159 ], [ %136, %141 ], [ %136, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
-  %164 = phi ptr [ %138, %.thread14.i90 ], [ %162, %159 ], [ %.020.i, %141 ], [ %.020.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
+.thread.i88:                                      ; preds = %159, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i", %141, %.thread14.i89
+  %163 = phi i64 [ %140, %.thread14.i89 ], [ %161, %159 ], [ %136, %141 ], [ %136, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
+  %164 = phi ptr [ %138, %.thread14.i89 ], [ %162, %159 ], [ %.019.i, %141 ], [ %.019.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EclIKiPiEEbRT_T0_.exit.i" ]
   %165 = icmp sgt i64 %163, 0
   br i1 %165, label %_ZSt7advanceIPilEvRT_T0_.exit.i84, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", !llvm.loop !588
 
-"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit": ; preds = %.thread.i89
-  %.pre141 = ptrtoint ptr %164 to i64
+"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit": ; preds = %.thread.i88
+  %.pre140 = ptrtoint ptr %164 to i64
   br label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPilEvRT_T0_.exit80
-  %.pre-phi142 = phi i64 [ %.pre141, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %131, %_ZSt7advanceIPilEvRT_T0_.exit80 ]
-  %.0.lcssa.i82 = phi ptr [ %164, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr126, %_ZSt7advanceIPilEvRT_T0_.exit80 ]
-  %166 = sub i64 %.pre-phi142, %131
+  %.pre-phi141 = phi i64 [ %.pre140, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %131, %_ZSt7advanceIPilEvRT_T0_.exit80 ]
+  %.0.lcssa.i82 = phi ptr [ %164, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr125, %_ZSt7advanceIPilEvRT_T0_.exit80 ]
+  %166 = sub i64 %.pre-phi141, %131
   %167 = ashr exact i64 %166, 2
   br label %168
 
 168:                                              ; preds = %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit", %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit"
-  %.0104 = phi ptr [ %93, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %.0.lcssa.i82, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
-  %.0103 = phi ptr [ %.0.lcssa.i76, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %130, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
+  %.0103 = phi ptr [ %93, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %.0.lcssa.i82, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
+  %.0102 = phi ptr [ %.0.lcssa.i76, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %130, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
   %.063 = phi i64 [ %128, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %129, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %92, %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ], [ %167, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEET_SB_SB_RKT0_T1_.exit" ]
-  %169 = sub nsw i64 %.tr109129, %.0
+  %169 = sub nsw i64 %.tr108128, %.0
   %170 = icmp sle i64 %169, %.063
   %.not.i = icmp sgt i64 %.063, %6
   %or.cond.i = or i1 %.not.i, %170
@@ -11807,38 +11803,38 @@ _ZSt7advanceIPilEvRT_T0_.exit.i84:                ; preds = %.thread.i89, %_ZSt7
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %172
 
 172:                                              ; preds = %171
-  %173 = ptrtoint ptr %.0103 to i64
-  %174 = ptrtoint ptr %.tr107127 to i64
+  %173 = ptrtoint ptr %.0102 to i64
+  %174 = ptrtoint ptr %.tr106126 to i64
   %175 = sub i64 %173, %174
-  %.not.i.i.i.i.i.i91 = icmp eq ptr %.0103, %.tr107127
-  br i1 %.not.i.i.i.i.i.i91, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i92, label %176
+  %.not.i.i.i.i.i.i90 = icmp eq ptr %.0102, %.tr106126
+  br i1 %.not.i.i.i.i.i.i90, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i91, label %176
 
 176:                                              ; preds = %172
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr107127, i64 %175, i1 false)
-  br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i92
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr106126, i64 %175, i1 false)
+  br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i91
 
-_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i92:             ; preds = %176, %172
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr107127, %.0104
+_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i91:             ; preds = %176, %172
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr106126, %.0103
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i, label %177
 
-177:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i92
-  %178 = ptrtoint ptr %.0104 to i64
+177:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i91
+  %178 = ptrtoint ptr %.0103 to i64
   %179 = sub i64 %174, %178
   %180 = ashr exact i64 %179, 2
   %181 = sub nsw i64 0, %180
-  %182 = getelementptr inbounds i32, ptr %.0103, i64 %181
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %182, ptr align 4 %.0104, i64 %179, i1 false)
+  %182 = getelementptr inbounds i32, ptr %.0102, i64 %181
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %182, ptr align 4 %.0103, i64 %179, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
 
-_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %177, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i92
-  br i1 %.not.i.i.i.i.i.i91, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, label %183
+_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %177, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i91
+  br i1 %.not.i.i.i.i.i.i90, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, label %183
 
 183:                                              ; preds = %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0104, ptr align 4 %5, i64 %175, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0103, ptr align 4 %5, i64 %175, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i:             ; preds = %183, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
-  %184 = getelementptr inbounds i8, ptr %.0104, i64 %175
+  %184 = getelementptr inbounds i8, ptr %.0103, i64 %175
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 185:                                              ; preds = %168
@@ -11846,28 +11842,28 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i:             ; preds = %183, %_ZSt13move_ba
   br i1 %.not33.i, label %200, label %186
 
 186:                                              ; preds = %185
-  %.not34.i = icmp eq i64 %.tr109129, %.0
+  %.not34.i = icmp eq i64 %.tr108128, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %187
 
 187:                                              ; preds = %186
-  %188 = ptrtoint ptr %.tr107127 to i64
-  %189 = ptrtoint ptr %.0104 to i64
+  %188 = ptrtoint ptr %.tr106126 to i64
+  %189 = ptrtoint ptr %.0103 to i64
   %190 = sub i64 %188, %189
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr107127, %.0104
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr106126, %.0103
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i, label %191
 
 191:                                              ; preds = %187
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0104, i64 %190, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0103, i64 %190, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i:             ; preds = %191, %187
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0103, %.tr107127
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0102, %.tr106126
   br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i, label %192
 
 192:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
-  %193 = ptrtoint ptr %.0103 to i64
+  %193 = ptrtoint ptr %.0102 to i64
   %194 = sub i64 %193, %188
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0104, ptr align 4 %.tr107127, i64 %194, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0103, ptr align 4 %.tr106126, i64 %194, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i:             ; preds = %192, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
@@ -11876,23 +11872,23 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i:             ; preds = %192, %_ZSt4moveIPiS
 195:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
   %196 = ashr exact i64 %190, 2
   %197 = sub nsw i64 0, %196
-  %198 = getelementptr inbounds i32, ptr %.0103, i64 %197
+  %198 = getelementptr inbounds i32, ptr %.0102, i64 %197
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %198, ptr align 4 %5, i64 %190, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i:   ; preds = %195, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %197, %195 ], [ 0, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i ]
-  %199 = getelementptr inbounds i32, ptr %.0103, i64 %.pre-phi.i.i.i.i.i44.i
+  %199 = getelementptr inbounds i32, ptr %.0102, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 200:                                              ; preds = %185
-  %201 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.0104, ptr noundef %.tr107127, ptr noundef %.0103)
+  %201 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.0103, ptr noundef %.tr106126, ptr noundef %.0102)
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 _ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %171, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, %186, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i, %200
-  %.0.i93 = phi ptr [ %184, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i ], [ %201, %200 ], [ %199, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i ], [ %.0104, %171 ], [ %.0103, %186 ]
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_SB_T0_SC_T1_SC_T2_"(ptr noundef %.tr126, ptr noundef %.0104, ptr noundef %.0.i93, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
-  %202 = sub nsw i64 %.tr110130, %.063
+  %.0.i92 = phi ptr [ %184, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i ], [ %201, %200 ], [ %199, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i ], [ %.0103, %171 ], [ %.0102, %186 ]
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StackColoring3runERN4llvm15MachineFunctionEE3$_0EEEvT_SB_SB_T0_SC_T1_SC_T2_"(ptr noundef %.tr125, ptr noundef %.0103, ptr noundef %.0.i92, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
+  %202 = sub nsw i64 %.tr109129, %.063
   %.not = icmp sgt i64 %169, %202
   %.not67 = icmp sgt i64 %169, %6
   %or.cond = or i1 %.not67, %.not

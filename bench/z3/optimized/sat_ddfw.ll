@@ -2132,7 +2132,6 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i:    ; preds = %18
   %47 = getelementptr inbounds nuw i32, ptr %35, i64 %46
   %48 = load ptr, ptr %12, align 8, !tbaa !40
   %.promoted.i = load i32, ptr %16, align 8
-  %.promoted.fr.i = freeze i32 %.promoted.i
   br label %50
 
 ._crit_edge.i:                                    ; preds = %.thread48.i, %.lr.ph65.i
@@ -2144,7 +2143,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i:    ; preds = %18
   br i1 %.not.i, label %_ZN3sat4ddfw20select_max_same_signEj.exit, label %.lr.ph65.i
 
 50:                                               ; preds = %.thread48.i, %.lr.ph.i
-  %51 = phi i32 [ %.promoted.fr.i, %.lr.ph.i ], [ %73, %.thread48.i ]
+  %51 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %73, %.thread48.i ]
   %.157.i = phi i32 [ %.064.i, %.lr.ph.i ], [ %75, %.thread48.i ]
   %.12356.i = phi double [ %.02263.i, %.lr.ph.i ], [ %74, %.thread48.i ]
   %.02655.i = phi ptr [ %47, %.lr.ph.i ], [ %76, %.thread48.i ]
@@ -2175,7 +2174,8 @@ _ZN3sat4ddfw13select_clauseEdRKNS_11clause_infoERj.exit.i: ; preds = %62
   %67 = and i32 %66, 32767
   %68 = add i32 %.12954.i, 1
   %69 = urem i32 %67, %.12954.i
-  %70 = icmp eq i32 %69, 0
+  %.fr.i = freeze i32 %69
+  %70 = icmp eq i32 %.fr.i, 0
   %71 = load double, ptr %54, align 8
   br i1 %70, label %.thread48.i, label %72
 
@@ -6287,7 +6287,6 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %2
   %35 = getelementptr inbounds nuw i32, ptr %23, i64 %34
   %36 = load ptr, ptr %3, align 8, !tbaa !40
   %.promoted = load i32, ptr %20, align 8
-  %.promoted.fr = freeze i32 %.promoted
   br label %38
 
 ._crit_edge:                                      ; preds = %.thread48, %21
@@ -6299,7 +6298,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %2
   br i1 %.not, label %._crit_edge66, label %21
 
 38:                                               ; preds = %.lr.ph, %.thread48
-  %39 = phi i32 [ %.promoted.fr, %.lr.ph ], [ %61, %.thread48 ]
+  %39 = phi i32 [ %.promoted, %.lr.ph ], [ %61, %.thread48 ]
   %.157 = phi i32 [ %.064, %.lr.ph ], [ %63, %.thread48 ]
   %.12356 = phi double [ %.02263, %.lr.ph ], [ %62, %.thread48 ]
   %.02655 = phi ptr [ %35, %.lr.ph ], [ %64, %.thread48 ]
@@ -6330,7 +6329,8 @@ _ZN3sat4ddfw13select_clauseEdRKNS_11clause_infoERj.exit: ; preds = %50
   %55 = and i32 %54, 32767
   %56 = add i32 %.12954, 1
   %57 = urem i32 %55, %.12954
-  %58 = icmp eq i32 %57, 0
+  %.fr = freeze i32 %57
+  %58 = icmp eq i32 %.fr, 0
   %59 = load double, ptr %42, align 8
   br i1 %58, label %.thread48, label %60
 

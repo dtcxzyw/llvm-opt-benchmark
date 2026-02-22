@@ -1376,10 +1376,10 @@ SDL_SeekIO_REAL.exit17.i:                         ; preds = %22, %20
 
 SDL_GetIOSize_REAL.exit:                          ; preds = %SDL_SeekIO_REAL.exit.thread.i, %SDL_SeekIO_REAL.exit.i, %26, %28, %31
   %.0.i = phi i64 [ %34, %31 ], [ %.0.i16.i, %28 ], [ -1, %SDL_SeekIO_REAL.exit.thread.i ], [ -1, %SDL_SeekIO_REAL.exit.i ], [ %.0.i16.i, %26 ]
-  %.0.i.fr = freeze i64 %.0.i
-  %35 = icmp slt i64 %.0.i.fr, 0
-  %spec.select = select i1 %35, i64 1024, i64 %.0.i.fr
-  %36 = add nuw nsw i64 %spec.select, 1
+  %35 = icmp slt i64 %.0.i, 0
+  %spec.select = select i1 %35, i64 1024, i64 %.0.i
+  %spec.select.fr = freeze i64 %spec.select
+  %36 = add nuw nsw i64 %spec.select.fr, 1
   %37 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %36) #18
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %102, label %.preheader
@@ -1392,7 +1392,7 @@ SDL_GetIOSize_REAL.exit:                          ; preds = %SDL_SeekIO_REAL.exi
 
 .outer.us:                                        ; preds = %.preheader, %SDL_ReadIO_REAL.exit.split.us.us
   %.140.ph.us = phi i64 [ %67, %SDL_ReadIO_REAL.exit.split.us.us ], [ 0, %.preheader ]
-  %.137.ph.us = phi i64 [ %.238.us.us, %SDL_ReadIO_REAL.exit.split.us.us ], [ 1024, %.preheader ]
+  %.137.ph.us = phi i64 [ %.238.us.us, %SDL_ReadIO_REAL.exit.split.us.us ], [ %spec.select.fr, %.preheader ]
   %.1.ph.us = phi ptr [ %.2.us.us, %SDL_ReadIO_REAL.exit.split.us.us ], [ %37, %.preheader ]
   %41 = add nsw i64 %.140.ph.us, 1024
   %42 = add nsw i64 %.140.ph.us, 1025
@@ -1459,7 +1459,7 @@ SDL_ReadIO_REAL.exit.split.us.us:                 ; preds = %54
   br label %.outer.us
 
 .preheader.split:                                 ; preds = %.preheader
-  %68 = icmp eq i64 %.0.i.fr, 0
+  %68 = icmp eq i64 %spec.select.fr, 0
   br i1 %68, label %.outer.split.split.us, label %.outer.split.split
 
 .outer.split.split.us.loopexit:                   ; preds = %SDL_ReadIO_REAL.exit.split
@@ -1467,7 +1467,6 @@ SDL_ReadIO_REAL.exit.split.us.us:                 ; preds = %54
   br label %.outer.split.split.us
 
 .outer.split.split.us:                            ; preds = %.outer.split.split.us.loopexit, %.preheader.split
-  %.140.ph.lcssa100 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %.outer.split.split.us.loopexit ]
   %.lcssa84 = phi ptr [ %37, %.preheader.split ], [ %69, %.outer.split.split.us.loopexit ]
   br label %70
 
@@ -1496,7 +1495,7 @@ SDL_GetIOStatus_REAL.exit.us77:                   ; preds = %72, %74
   br label %70
 
 .outer.split.split:                               ; preds = %.preheader.split, %SDL_ReadIO_REAL.exit.split
-  %79 = phi i64 [ %95, %SDL_ReadIO_REAL.exit.split ], [ %.0.i.fr, %.preheader.split ]
+  %79 = phi i64 [ %95, %SDL_ReadIO_REAL.exit.split ], [ %spec.select.fr, %.preheader.split ]
   %.140.ph109 = phi i64 [ %94, %SDL_ReadIO_REAL.exit.split ], [ 0, %.preheader.split ]
   %80 = getelementptr inbounds i8, ptr %37, i64 %.140.ph109
   br label %81
@@ -1522,8 +1521,8 @@ SDL_GetIOStatus_REAL.exit.us77:                   ; preds = %72, %74
   %87 = load ptr, ptr %38, align 8
   %88 = load ptr, ptr %40, align 8
   %89 = tail call i64 %87(ptr noundef %88, ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull %39) #18
-  %.fr116 = freeze i64 %89
-  %90 = icmp eq i64 %.fr116, 0
+  %.fr = freeze i64 %89
+  %90 = icmp eq i64 %.fr, 0
   br i1 %90, label %91, label %SDL_ReadIO_REAL.exit.split
 
 91:                                               ; preds = %85
@@ -1532,9 +1531,9 @@ SDL_GetIOStatus_REAL.exit.us77:                   ; preds = %72, %74
   br i1 %93, label %.split72.us.sink.split, label %SDL_GetIOStatus_REAL.exit
 
 SDL_ReadIO_REAL.exit.split:                       ; preds = %85
-  %94 = add i64 %.fr116, %.140.ph109
-  %95 = sub nsw i64 %spec.select, %94
-  %96 = icmp eq i64 %spec.select, %94
+  %94 = add i64 %.fr, %.140.ph109
+  %95 = sub nsw i64 %spec.select.fr, %94
+  %96 = icmp eq i64 %spec.select.fr, %94
   br i1 %96, label %.outer.split.split.us.loopexit, label %.outer.split.split
 
 SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
@@ -1553,12 +1552,12 @@ SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
   %100 = tail call ptr @SDL_GetError_REAL() #18
   %101 = load i8, ptr %100, align 1
   %.not18.i = icmp eq i8 %101, 0
-  %.166 = select i1 %.not18.i, i32 2, i32 1
-  store i32 %.166, ptr %39, align 8
+  %.165 = select i1 %.not18.i, i32 2, i32 1
+  store i32 %.165, ptr %39, align 8
   br label %.split72.us
 
 .split72.us:                                      ; preds = %SDL_GetIOStatus_REAL.exit, %SDL_GetIOStatus_REAL.exit.us77, %SDL_GetIOStatus_REAL.exit.us.us, %.split72.us.sink.split
-  %.us-phi73 = phi i64 [ %.140.ph.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.140.ph.lcssa100, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi73.ph, %.split72.us.sink.split ], [ %.140.ph109, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi73 = phi i64 [ %.140.ph.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %spec.select.fr, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi73.ph, %.split72.us.sink.split ], [ %.140.ph109, %SDL_GetIOStatus_REAL.exit ]
   %.us-phi74 = phi ptr [ %.2.us.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %37, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi74.ph, %.split72.us.sink.split ], [ %37, %SDL_GetIOStatus_REAL.exit ]
   %.us-phi75 = phi ptr [ %48, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.lcssa84, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.us-phi75.ph, %.split72.us.sink.split ], [ %80, %SDL_GetIOStatus_REAL.exit ]
   store i8 0, ptr %.us-phi75, align 1

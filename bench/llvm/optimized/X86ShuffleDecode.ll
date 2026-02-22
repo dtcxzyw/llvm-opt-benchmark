@@ -1564,20 +1564,20 @@ define dso_local void @_ZN4llvm20DecodeVPERM2X128MaskEjjRNS_15SmallVectorImplIiE
   %.not = phi i1 [ false, %3 ], [ true, %._crit_edge ]
   %.020 = phi i32 [ 0, %3 ], [ 4, %._crit_edge ]
   %10 = lshr i32 %1, %.020
-  %.fr = freeze i32 %10
-  %11 = and i32 %.fr, 3
+  %.fr21 = freeze i32 %10
+  %11 = and i32 %.fr21, 3
   %12 = mul i32 %11, %4
   %13 = add i32 %12, %4
   br i1 %.not1618, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %14 = and i32 %.fr, 8
+  %14 = and i32 %.fr21, 8
   %.not17 = icmp eq i32 %14, 0
-  %.pre22 = load i32, ptr %5, align 8, !tbaa !3
+  %.pre23 = load i32, ptr %5, align 8, !tbaa !3
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us
-  %15 = phi i32 [ %25, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us ], [ %.pre22, %.lr.ph ]
+  %15 = phi i32 [ %25, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us ], [ %.pre23, %.lr.ph ]
   %.01519.us = phi i32 [ %26, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us ], [ %12, %.lr.ph ]
   %16 = load i32, ptr %6, align 4, !tbaa !9
   %.not.i.i.not.i.us = icmp ult i32 %15, %16
@@ -1607,7 +1607,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us: ; preds = %.lr.ph.
   br i1 %.not, label %8, label %9, !llvm.loop !54
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %27 = phi i32 [ %37, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre22, %.lr.ph ]
+  %27 = phi i32 [ %37, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre23, %.lr.ph ]
   %.01519 = phi i32 [ %38, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %12, %.lr.ph ]
   %28 = load i32, ptr %6, align 4, !tbaa !9
   %.not.i.i.not.i = icmp ult i32 %27, %28

@@ -46083,8 +46083,8 @@ strprbrk.exit:                                    ; preds = %7
 define noundef nonnull ptr @GetPrevDirectoryPath(ptr noundef readonly captures(none) %0) local_unnamed_addr #50 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @GetPrevDirectoryPath.prevDirPath, i8 0, i64 4096, i1 false)
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
-  %.fr21 = freeze i64 %2
-  %3 = trunc i64 %.fr21 to i32
+  %.fr = freeze i64 %2
+  %3 = trunc i64 %.fr to i32
   %4 = icmp slt i32 %3, 4
   br i1 %4, label %5, label %.split.preheader
 
@@ -46093,7 +46093,7 @@ define noundef nonnull ptr @GetPrevDirectoryPath(ptr noundef readonly captures(n
   br label %.loopexit.split
 
 .split.preheader:                                 ; preds = %1
-  %7 = and i64 %.fr21, 2147483647
+  %7 = and i64 %.fr, 2147483647
   br label %.split
 
 .split:                                           ; preds = %.split.preheader, %9

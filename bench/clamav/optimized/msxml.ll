@@ -59,13 +59,13 @@ define i32 @msxml_read_cb(ptr noundef captures(none) %0, ptr noundef writeonly c
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %._crit_edge148
+  br i1 %.not, label %7, label %._crit_edge149
 
-._crit_edge148:                                   ; preds = %3
+._crit_edge149:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !12
-  %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre150 = load i64, ptr %.phi.trans.insert149, align 8, !tbaa !13
+  %.phi.trans.insert150 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre151 = load i64, ptr %.phi.trans.insert150, align 8, !tbaa !13
   br label %27
 
 7:                                                ; preds = %3
@@ -112,9 +112,9 @@ msxml_read_cb_new_window.exit:                    ; preds = %21
   store i64 %spec.select.i, ptr %16, align 8, !tbaa !12
   br label %27
 
-27:                                               ; preds = %._crit_edge148, %msxml_read_cb_new_window.exit
-  %28 = phi i64 [ %.pre150, %._crit_edge148 ], [ 0, %msxml_read_cb_new_window.exit ]
-  %29 = phi i64 [ %.pre, %._crit_edge148 ], [ %spec.select.i, %msxml_read_cb_new_window.exit ]
+27:                                               ; preds = %._crit_edge149, %msxml_read_cb_new_window.exit
+  %28 = phi i64 [ %.pre151, %._crit_edge149 ], [ 0, %msxml_read_cb_new_window.exit ]
+  %29 = phi i64 [ %.pre, %._crit_edge149 ], [ %spec.select.i, %msxml_read_cb_new_window.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = sub i64 %29, %28
@@ -131,11 +131,11 @@ msxml_read_cb_new_window.exit:                    ; preds = %21
   %.070134 = phi i64 [ %32, %.lr.ph137 ], [ %.373.lcssa, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %.067135
   %.not83 = icmp eq i64 %.070134, 0
-  br i1 %.not83, label %37, label %._crit_edge151
+  br i1 %.not83, label %37, label %._crit_edge152
 
-._crit_edge151:                                   ; preds = %35
-  %.pre152 = load ptr, ptr %5, align 8, !tbaa !3
-  %.pre153 = load i64, ptr %31, align 8, !tbaa !13
+._crit_edge152:                                   ; preds = %35
+  %.pre153 = load ptr, ptr %5, align 8, !tbaa !3
+  %.pre154 = load i64, ptr %31, align 8, !tbaa !13
   br label %54
 
 37:                                               ; preds = %35
@@ -182,10 +182,10 @@ msxml_read_cb_new_window.exit94:                  ; preds = %48
   %53 = trunc i64 %.067135 to i32
   br label %.thread105
 
-54:                                               ; preds = %._crit_edge151, %52
-  %55 = phi i64 [ %.pre153, %._crit_edge151 ], [ 0, %52 ]
-  %56 = phi ptr [ %.pre152, %._crit_edge151 ], [ %51, %52 ]
-  %.171 = phi i64 [ %.070134, %._crit_edge151 ], [ %spec.select.i90, %52 ]
+54:                                               ; preds = %._crit_edge152, %52
+  %55 = phi i64 [ %.pre154, %._crit_edge152 ], [ 0, %52 ]
+  %56 = phi ptr [ %.pre153, %._crit_edge152 ], [ %51, %52 ]
+  %.171 = phi i64 [ %.070134, %._crit_edge152 ], [ %spec.select.i90, %52 ]
   %57 = icmp ult i64 %.067135, %4
   br i1 %57, label %.lr.ph.preheader, label %._crit_edge
 
@@ -226,18 +226,18 @@ msxml_read_cb_new_window.exit94:                  ; preds = %48
 69:                                               ; preds = %66
   %70 = add i8 %67, -48
   %or.cond = icmp ult i8 %70, 10
-  %.176 = select i1 %or.cond, i32 4, i32 0
+  %.177 = select i1 %or.cond, i32 4, i32 0
   br label %.thread101.sink.split
 
 71:                                               ; preds = %.lr.ph
   %72 = load i8, ptr %.065126, align 1, !tbaa !22
-  %.fr = freeze i8 %72
-  %73 = add i8 %.fr, -48
+  %.fr142 = freeze i8 %72
+  %73 = add i8 %.fr142, -48
   %or.cond86 = icmp ult i8 %73, 10
   br i1 %or.cond86, label %.thread101, label %switch.early.test
 
 switch.early.test:                                ; preds = %71
-  switch i8 %.fr, label %.thread103.sink.split [
+  switch i8 %.fr142, label %.thread103.sink.split [
     i8 102, label %.thread101
     i8 101, label %.thread101
     i8 100, label %.thread101
@@ -287,7 +287,7 @@ switch.early.test:                                ; preds = %71
   br i1 %.not85, label %.thread101, label %._crit_edge
 
 .thread101.sink.split:                            ; preds = %69, %66, %63, %60
-  %.sink = phi i32 [ 3, %66 ], [ 1, %60 ], [ %., %63 ], [ %.176, %69 ]
+  %.sink = phi i32 [ 3, %66 ], [ 1, %60 ], [ %., %63 ], [ %.177, %69 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !21
   br label %.thread101
 
@@ -312,12 +312,12 @@ switch.early.test:                                ; preds = %71
   br i1 %92, label %35, label %._crit_edge138.loopexit
 
 ._crit_edge138.loopexit:                          ; preds = %._crit_edge
-  %.pre155 = load i64, ptr %30, align 8, !tbaa !12
+  %.pre156 = load i64, ptr %30, align 8, !tbaa !12
   %93 = trunc i64 %.168 to i32
   br label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %._crit_edge138.loopexit, %27
-  %94 = phi i64 [ %29, %27 ], [ %.pre155, %._crit_edge138.loopexit ]
+  %94 = phi i64 [ %29, %27 ], [ %.pre156, %._crit_edge138.loopexit ]
   %.070.lcssa = phi i64 [ %32, %27 ], [ %.373.lcssa, %._crit_edge138.loopexit ]
   %.067.lcssa = phi i32 [ 0, %27 ], [ %93, %._crit_edge138.loopexit ]
   %95 = sub i64 %94, %.070.lcssa

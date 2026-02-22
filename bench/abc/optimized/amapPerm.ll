@@ -1409,8 +1409,8 @@ define void @Amap_LibVerifyPerm(ptr noundef %0, ptr noundef readonly captures(no
   %10 = icmp ult i32 %8, 100663296
   %11 = add nsw i32 %9, -5
   %12 = shl nuw i32 1, %11
-  %.fr43.i = freeze i32 %12
-  %13 = select i1 %10, i32 1, i32 %.fr43.i
+  %13 = select i1 %10, i32 1, i32 %12
+  %.fr43.i = freeze i32 %13
   %14 = shl i32 15, %11
   %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 16)
@@ -1423,7 +1423,7 @@ define void @Amap_LibVerifyPerm(ptr noundef %0, ptr noundef readonly captures(no
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #11
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !11
-  %22 = sext i32 %13 to i64
+  %22 = sext i32 %.fr43.i to i64
   %23 = shl nsw i64 %22, 2
   %24 = add nsw i64 %23, 8
   %25 = zext nneg i32 %9 to i64
@@ -1450,12 +1450,12 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %5
   store i32 %9, ptr %32, align 8, !tbaa !54
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %27, ptr %34, align 8, !tbaa !44
-  %35 = icmp sgt i32 %13, 0
+  %35 = icmp sgt i32 %.fr43.i, 0
   %or.cond.i36 = and i1 %.not.i.i, %35
   br i1 %or.cond.i36, label %.lr.ph33.split.us.split.us.preheader.i, label %Vec_PtrAllocTruthTables.exit
 
 .lr.ph33.split.us.split.us.preheader.i:           ; preds = %Vec_PtrAllocSimInfo.exit.i
-  %wide.trip.count67.i = zext nneg i32 %13 to i64
+  %wide.trip.count67.i = zext nneg i32 %.fr43.i to i64
   br label %.lr.ph33.split.us.split.us.i
 
 .lr.ph33.split.us.split.us.i:                     ; preds = %..loopexit27_crit_edge.us.us.i, %.lr.ph33.split.us.split.us.preheader.i
@@ -1640,7 +1640,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
-  %111 = call ptr @Amap_LibVerifyPerm_rec(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %51, ptr noundef nonnull %15, i32 noundef %13, ptr noundef nonnull %6)
+  %111 = call ptr @Amap_LibVerifyPerm_rec(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %51, ptr noundef nonnull %15, i32 noundef %.fr43.i, ptr noundef nonnull %6)
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %113 = load i16, ptr %112, align 2, !tbaa !60
   %114 = and i16 %113, 1

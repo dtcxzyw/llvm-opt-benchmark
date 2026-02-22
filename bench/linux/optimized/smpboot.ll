@@ -769,8 +769,8 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %229 = inttoptr i64 %228 to ptr
   %230 = load i64, ptr %229, align 8
   %231 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %230) #24, !srcloc !23
-  %.fr29 = freeze i64 %231
-  %232 = trunc i64 %.fr29 to i32
+  %.fr = freeze i64 %231
+  %232 = trunc i64 %.fr to i32
   %233 = load i32, ptr @__max_smt_threads, align 4
   %234 = icmp slt i32 %233, %232
   br i1 %234, label %235, label %236

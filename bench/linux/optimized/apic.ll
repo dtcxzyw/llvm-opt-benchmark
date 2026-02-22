@@ -366,7 +366,8 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
   %12 = shl nuw nsw i32 %11, 8
   %13 = or disjoint i32 %10, %12
   %14 = zext i8 %1 to i32
-  %15 = or disjoint i32 %13, %14
+  %.fr = freeze i32 %13
+  %15 = or i32 %.fr, %14
   %16 = tail call i32 @__SCT__apic_call_read(i32 noundef %7) #17
   %17 = icmp ugt i8 %0, 3
   br i1 %17, label %.thread5, label %18

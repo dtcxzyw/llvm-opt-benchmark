@@ -2792,11 +2792,10 @@ _ZN6duckdb15LambdaFunctions10ColumnInfoC2ERNS_6VectorE.exit: ; preds = %_ZN6duck
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %60 = load ptr, ptr %10, align 8
-  %.fr = freeze ptr %60
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %62 = load ptr, ptr %61, align 8
-  %.fr153 = freeze ptr %62
-  %.not102120 = icmp eq ptr %.fr, %.fr153
+  %.not102120 = icmp eq ptr %60, %62
+  %.not102120.fr = freeze i1 %.not102120
   br label %78
 
 ._crit_edge150:                                   ; preds = %.loopexit, %53
@@ -2924,7 +2923,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
 
 .lr.ph128:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
   %119 = trunc i64 %.063145 to i32
-  br i1 %.not102120, label %.lr.ph128.split.us, label %.lr.ph128.split
+  br i1 %.not102120.fr, label %.lr.ph128.split.us, label %.lr.ph128.split
 
 .lr.ph128.split.us:                               ; preds = %.lr.ph128, %139
   %.260127.us = phi i64 [ %140, %139 ], [ %.058147, %.lr.ph128 ]
@@ -2960,9 +2959,9 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit.us:   ; preds = %123
   store i32 %129, ptr %131, align 4, !tbaa !99
   %132 = load i8, ptr %45, align 8, !tbaa !233, !range !82, !noundef !83
   %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %134, label %._crit_edge173
+  br i1 %133, label %134, label %._crit_edge172
 
-._crit_edge173:                                   ; preds = %126
+._crit_edge172:                                   ; preds = %126
   %.pre = add nuw i64 %.062126.us, 1
   br label %139
 
@@ -2985,8 +2984,8 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit.us:       ; preds = %134
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %139
 
-139:                                              ; preds = %._crit_edge173, %138
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge173 ], [ %135, %138 ]
+139:                                              ; preds = %._crit_edge172, %138
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge172 ], [ %135, %138 ]
   %140 = add i64 %.361.us, 1
   %141 = load i64, ptr %114, align 8, !tbaa !259
   %142 = icmp ult i64 %.pre-phi, %141
@@ -3014,7 +3013,7 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit.us:       ; preds = %134
 
 .lr.ph128.split:                                  ; preds = %.lr.ph128, %204
   %.260127 = phi i64 [ %205, %204 ], [ %.058147, %.lr.ph128 ]
-  %.062126 = phi i64 [ %.pre-phi175, %204 ], [ 0, %.lr.ph128 ]
+  %.062126 = phi i64 [ %.pre-phi174, %204 ], [ 0, %.lr.ph128 ]
   %147 = icmp eq i64 %.260127, 2048
   br i1 %147, label %148, label %.lr.ph
 
@@ -3120,18 +3119,18 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit:      ; preds = %150
   br i1 %175, label %182, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre174 = add nuw i64 %.062126, 1
+  %.pre173 = add nuw i64 %.062126, 1
   br label %204
 
 176:                                              ; preds = %.lr.ph, %176
-  %.sroa.093.0121 = phi ptr [ %.fr, %.lr.ph ], [ %181, %176 ]
+  %.sroa.093.0121 = phi ptr [ %60, %.lr.ph ], [ %181, %176 ]
   %177 = load ptr, ptr %.sroa.093.0121, align 8, !tbaa !263
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !252
   %180 = getelementptr inbounds nuw i32, ptr %179, i64 %.361
   store i32 %119, ptr %180, align 4, !tbaa !99
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.093.0121, i64 8
-  %.not102 = icmp eq ptr %181, %.fr153
+  %.not102 = icmp eq ptr %181, %62
   br i1 %.not102, label %._crit_edge, label %176
 
 182:                                              ; preds = %._crit_edge
@@ -3233,10 +3232,10 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit:          ; preds = %182
   br label %.body79
 
 204:                                              ; preds = %._crit_edge._crit_edge, %200
-  %.pre-phi175 = phi i64 [ %.pre174, %._crit_edge._crit_edge ], [ %183, %200 ]
+  %.pre-phi174 = phi i64 [ %.pre173, %._crit_edge._crit_edge ], [ %183, %200 ]
   %205 = add i64 %.361, 1
   %206 = load i64, ptr %114, align 8, !tbaa !259
-  %207 = icmp ult i64 %.pre-phi175, %206
+  %207 = icmp ult i64 %.pre-phi174, %206
   br i1 %207, label %.lr.ph128.split, label %.loopexit, !llvm.loop !260
 
 .loopexit:                                        ; preds = %204, %139, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, %102
@@ -3549,8 +3548,8 @@ _ZN6duckdb15LambdaFunctions10ColumnInfoC2ERNS_6VectorE.exit: ; preds = %_ZN6duck
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.not222 = icmp eq i64 %53, 0
-  br i1 %.not222, label %_ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
+  %.not221 = icmp eq i64 %53, 0
+  br i1 %.not221, label %_ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %56
   %58 = shl nuw nsw i64 %53, 3
@@ -3588,11 +3587,10 @@ _ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit: ; pr
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %71 = load ptr, ptr %10, align 8
-  %.fr = freeze ptr %71
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %73 = load ptr, ptr %72, align 8
-  %.fr165 = freeze ptr %73
-  %.not113133 = icmp eq ptr %.fr, %.fr165
+  %.not113133 = icmp eq ptr %71, %73
+  %.not113133.fr = freeze i1 %.not113133
   br label %91
 
 ._crit_edge162:                                   ; preds = %_ZN6duckdb17ListFilterFunctor13PushEmptyListERNS_6vectorImLb1EEE.exit, %63
@@ -3848,7 +3846,7 @@ _ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6ve
 
 .lr.ph141:                                        ; preds = %_ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6vectorImLb1EEE.exit
   %175 = trunc i64 %.064157 to i32
-  br i1 %.not113133, label %.lr.ph141.split.us, label %.lr.ph141.split
+  br i1 %.not113133.fr, label %.lr.ph141.split.us, label %.lr.ph141.split
 
 .lr.ph141.split.us:                               ; preds = %.lr.ph141, %195
   %.261140.us = phi i64 [ %196, %195 ], [ %.059159, %.lr.ph141 ]
@@ -3884,9 +3882,9 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit.us:   ; preds = %179
   store i32 %185, ptr %187, align 4, !tbaa !99
   %188 = load i8, ptr %46, align 8, !tbaa !233, !range !82, !noundef !83
   %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %._crit_edge185
+  br i1 %189, label %190, label %._crit_edge184
 
-._crit_edge185:                                   ; preds = %182
+._crit_edge184:                                   ; preds = %182
   %.pre = add nuw i64 %.063139.us, 1
   br label %195
 
@@ -3909,8 +3907,8 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit.us:       ; preds = %190
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %195
 
-195:                                              ; preds = %._crit_edge185, %194
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge185 ], [ %191, %194 ]
+195:                                              ; preds = %._crit_edge184, %194
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge184 ], [ %191, %194 ]
   %196 = add i64 %.362.us, 1
   %197 = load i64, ptr %147, align 8, !tbaa !259
   %198 = icmp ult i64 %.pre-phi, %197
@@ -3938,7 +3936,7 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit.us:       ; preds = %190
 
 .lr.ph141.split:                                  ; preds = %.lr.ph141, %260
   %.261140 = phi i64 [ %261, %260 ], [ %.059159, %.lr.ph141 ]
-  %.063139 = phi i64 [ %.pre-phi187, %260 ], [ 0, %.lr.ph141 ]
+  %.063139 = phi i64 [ %.pre-phi186, %260 ], [ 0, %.lr.ph141 ]
   %203 = icmp eq i64 %.261140, 2048
   br i1 %203, label %204, label %.lr.ph
 
@@ -4044,18 +4042,18 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit:      ; preds = %206
   br i1 %231, label %238, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre186 = add nuw i64 %.063139, 1
+  %.pre185 = add nuw i64 %.063139, 1
   br label %260
 
 232:                                              ; preds = %.lr.ph, %232
-  %.sroa.0107.0134 = phi ptr [ %.fr, %.lr.ph ], [ %237, %232 ]
+  %.sroa.0107.0134 = phi ptr [ %71, %.lr.ph ], [ %237, %232 ]
   %233 = load ptr, ptr %.sroa.0107.0134, align 8, !tbaa !263
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !252
   %236 = getelementptr inbounds nuw i32, ptr %235, i64 %.362
   store i32 %175, ptr %236, align 4, !tbaa !99
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0134, i64 8
-  %.not113 = icmp eq ptr %237, %.fr165
+  %.not113 = icmp eq ptr %237, %73
   br i1 %.not113, label %._crit_edge, label %232
 
 238:                                              ; preds = %._crit_edge
@@ -4157,10 +4155,10 @@ _ZN6duckdb11NumericCastIlmvEET_T0_.exit:          ; preds = %238
   br label %.body94
 
 260:                                              ; preds = %._crit_edge._crit_edge, %256
-  %.pre-phi187 = phi i64 [ %.pre186, %._crit_edge._crit_edge ], [ %239, %256 ]
+  %.pre-phi186 = phi i64 [ %.pre185, %._crit_edge._crit_edge ], [ %239, %256 ]
   %261 = add i64 %.362, 1
   %262 = load i64, ptr %147, align 8, !tbaa !259
-  %263 = icmp ult i64 %.pre-phi187, %262
+  %263 = icmp ult i64 %.pre-phi186, %262
   br i1 %263, label %.lr.ph141.split, label %_ZN6duckdb17ListFilterFunctor13PushEmptyListERNS_6vectorImLb1EEE.exit, !llvm.loop !284
 
 _ZN6duckdb17ListFilterFunctor13PushEmptyListERNS_6vectorImLb1EEE.exit: ; preds = %260, %195, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %126, %_ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6vectorImLb1EEE.exit

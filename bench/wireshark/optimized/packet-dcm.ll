@@ -11083,7 +11083,7 @@ define internal fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, pt
   %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %23 = add i32 %4, 2
   %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %23)
-  %.fr = freeze i8 %24
+  %.fr9 = freeze i8 %24
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %26
 
@@ -11140,9 +11140,9 @@ dcm_state_pctx_get.exit.thread:                   ; preds = %27, %dcm_state_pctx
   br i1 %6, label %54, label %51
 
 51:                                               ; preds = %dcm_state_pctx_get.exit.thread
-  %52 = zext i8 %.fr to i32
-  %53 = icmp ult i8 %.fr, 5
-  br i1 %53, label %switch.lookup, label %.thread26
+  %52 = zext i8 %.fr9 to i32
+  %53 = icmp ult i8 %.fr9, 5
+  br i1 %53, label %switch.lookup, label %.thread27
 
 54:                                               ; preds = %dcm_state_pctx_get.exit.thread
   %55 = add i32 %4, 4
@@ -11150,23 +11150,23 @@ dcm_state_pctx_get.exit.thread:                   ; preds = %27, %dcm_state_pctx
   br i1 %56, label %.lr.ph, label %.thread
 
 switch.lookup:                                    ; preds = %51
-  %57 = zext nneg i8 %.fr to i64
+  %57 = zext nneg i8 %.fr9 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dcm_pctx, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %.thread26
+  br label %.thread27
 
-.thread26:                                        ; preds = %switch.lookup, %51
+.thread27:                                        ; preds = %switch.lookup, %51
   %.1101 = phi ptr [ @.str.260, %51 ], [ %switch.load, %switch.lookup ]
   %58 = load i32, ptr @hf_dcm_pctx_result, align 4
   %59 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %58, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef %52, ptr noundef nonnull @.str.400, ptr noundef nonnull %.1101, i32 noundef %52)
   %60 = add i32 %4, 4
   %61 = icmp ult i32 %60, %13
-  br i1 %61, label %.lr.ph, label %.thread24
+  br i1 %61, label %.lr.ph, label %.thread25
 
-.lr.ph:                                           ; preds = %.thread26, %54
-  %62 = phi i32 [ %60, %.thread26 ], [ %55, %54 ]
-  %.010030 = phi ptr [ %.1101, %.thread26 ], [ @.str.260, %54 ]
-  %63 = icmp ne i8 %.fr, 0
+.lr.ph:                                           ; preds = %.thread27, %54
+  %62 = phi i32 [ %60, %.thread27 ], [ %55, %54 ]
+  %.010031 = phi ptr [ %.1101, %.thread27 ], [ @.str.260, %54 ]
+  %63 = icmp ne i8 %.fr9, 0
   %or.cond.not = or i1 %6, %63
   %64 = getelementptr inbounds nuw i8, ptr %.1.i2, i64 40
   %65 = getelementptr inbounds nuw i8, ptr %.1.i2, i64 48
@@ -11335,7 +11335,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
 136:                                              ; preds = %131
   %137 = load ptr, ptr %9, align 8
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %139, label %.thread24
+  br i1 %138, label %139, label %.thread25
 
 139:                                              ; preds = %136
   %140 = load ptr, ptr %8, align 8
@@ -11344,21 +11344,21 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
 
 142:                                              ; preds = %._crit_edge
   %143 = icmp sgt i32 %.0.lcssa, 1
-  br i1 %143, label %144, label %.thread24
+  br i1 %143, label %144, label %.thread25
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %8, align 8
   %146 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %145, ptr noundef nonnull @ei_dcm_multiple_transfer_syntax)
   br label %201
 
-.thread24:                                        ; preds = %.thread26, %142, %136
-  %.010028 = phi ptr [ %.010030, %136 ], [ %.010030, %142 ], [ %.1101, %.thread26 ]
+.thread25:                                        ; preds = %.thread27, %142, %136
+  %.010029 = phi ptr [ %.010031, %136 ], [ %.010031, %142 ], [ %.1101, %.thread27 ]
   %147 = getelementptr inbounds nuw i8, ptr %.1.i2, i64 24
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %158
 
-150:                                              ; preds = %.thread24
+150:                                              ; preds = %.thread25
   %151 = call ptr @wmem_file_scope()
   %152 = load ptr, ptr %9, align 8
   %153 = call noalias ptr @wmem_strdup(ptr noundef %151, ptr noundef %152)
@@ -11370,7 +11370,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   store ptr %156, ptr %157, align 8
   br label %158
 
-158:                                              ; preds = %150, %.thread24
+158:                                              ; preds = %150, %.thread25
   br i1 %6, label %159, label %169
 
 159:                                              ; preds = %158
@@ -11390,7 +11390,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   br label %199
 
 169:                                              ; preds = %158
-  %170 = icmp eq i8 %.fr, 0
+  %170 = icmp eq i8 %.fr9, 0
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %172 = load ptr, ptr %171, align 8
   br i1 %170, label %173, label %190
@@ -11411,7 +11411,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   %186 = icmp eq ptr %182, null
   %187 = select i1 %186, ptr @.str.247, ptr %182
   %188 = select i1 %185, ptr %187, ptr %184
-  %189 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.403, i32 noundef %49, ptr noundef nonnull %.010028, ptr noundef nonnull %181, ptr noundef nonnull %188)
+  %189 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.403, i32 noundef %49, ptr noundef nonnull %.010029, ptr noundef nonnull %181, ptr noundef nonnull %188)
   br label %199
 
 190:                                              ; preds = %169
@@ -11422,7 +11422,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   %195 = icmp eq ptr %191, null
   %196 = select i1 %195, ptr @.str.247, ptr %191
   %197 = select i1 %194, ptr %196, ptr %193
-  %198 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.404, i32 noundef %49, ptr noundef nonnull %.010028, ptr noundef nonnull %197)
+  %198 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.404, i32 noundef %49, ptr noundef nonnull %.010029, ptr noundef nonnull %197)
   br label %199
 
 199:                                              ; preds = %173, %190, %162, %164

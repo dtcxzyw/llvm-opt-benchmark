@@ -5146,12 +5146,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %34 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %35 = icmp ult i32 %33, 13
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !300
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !300
   br i1 %35, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %31, %46
-  %37 = phi i64 [ %48, %46 ], [ %.pre25.i.i, %31 ]
+  %37 = phi i64 [ %48, %46 ], [ %.pre26.i.i, %31 ]
   %.0.us.i.i = phi ptr [ %45, %46 ], [ %32, %31 ]
   %38 = icmp eq i64 %24, %37
   br i1 %38, label %39, label %44
@@ -5181,7 +5181,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, !llvm.loop !302
 
 .split.i.i:                                       ; preds = %31, %62
-  %50 = phi i64 [ %64, %62 ], [ %.pre25.i.i, %31 ]
+  %50 = phi i64 [ %64, %62 ], [ %.pre26.i.i, %31 ]
   %.0.i.i = phi ptr [ %61, %62 ], [ %32, %31 ]
   %51 = icmp eq i64 %24, %50
   br i1 %51, label %52, label %60
@@ -5317,12 +5317,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %37 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %38 = icmp ult i32 %36, 13
   %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !300
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !300
   br i1 %38, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %34, %49
-  %40 = phi i64 [ %51, %49 ], [ %.pre25.i.i, %34 ]
+  %40 = phi i64 [ %51, %49 ], [ %.pre26.i.i, %34 ]
   %.0.us.i.i = phi ptr [ %48, %49 ], [ %35, %34 ]
   %41 = icmp eq i64 %25, %40
   br i1 %41, label %42, label %47
@@ -5352,7 +5352,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %.critedge, !llvm.loop !304
 
 .split.i.i:                                       ; preds = %34, %65
-  %53 = phi i64 [ %67, %65 ], [ %.pre25.i.i, %34 ]
+  %53 = phi i64 [ %67, %65 ], [ %.pre26.i.i, %34 ]
   %.0.i.i = phi ptr [ %64, %65 ], [ %35, %34 ]
   %54 = icmp eq i64 %25, %53
   br i1 %54, label %55, label %63
@@ -5702,12 +5702,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   %37 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %38 = icmp ult i32 %36, 13
   %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !300
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !300
   br i1 %38, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %34, %49
-  %40 = phi i64 [ %51, %49 ], [ %.pre25.i.i, %34 ]
+  %40 = phi i64 [ %51, %49 ], [ %.pre26.i.i, %34 ]
   %.0.us.i.i = phi ptr [ %48, %49 ], [ %35, %34 ]
   %41 = icmp eq i64 %25, %40
   br i1 %41, label %42, label %47
@@ -5737,7 +5737,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tES2_NS_9_IdentityENS1_14String
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %.critedge, !llvm.loop !304
 
 .split.i.i:                                       ; preds = %34, %65
-  %53 = phi i64 [ %67, %65 ], [ %.pre25.i.i, %34 ]
+  %53 = phi i64 [ %67, %65 ], [ %.pre26.i.i, %34 ]
   %.0.i.i = phi ptr [ %64, %65 ], [ %35, %34 ]
   %54 = icmp eq i64 %25, %53
   br i1 %54, label %55, label %63
@@ -5883,12 +5883,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_jENS_10_Select1st
   %34 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %35 = icmp ult i32 %33, 13
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !300
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !300
   br i1 %35, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %31, %46
-  %37 = phi i64 [ %48, %46 ], [ %.pre25.i.i, %31 ]
+  %37 = phi i64 [ %48, %46 ], [ %.pre26.i.i, %31 ]
   %.0.us.i.i = phi ptr [ %45, %46 ], [ %32, %31 ]
   %38 = icmp eq i64 %24, %37
   br i1 %38, label %39, label %44
@@ -5918,7 +5918,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_jENS_10_Select1st
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN6duckdb8string_tESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !311
 
 .split.i.i:                                       ; preds = %31, %62
-  %50 = phi i64 [ %64, %62 ], [ %.pre25.i.i, %31 ]
+  %50 = phi i64 [ %64, %62 ], [ %.pre26.i.i, %31 ]
   %.0.i.i = phi ptr [ %61, %62 ], [ %32, %31 ]
   %51 = icmp eq i64 %24, %50
   br i1 %51, label %52, label %60
@@ -6059,12 +6059,12 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_jENS_10_Select1st
   %38 = inttoptr i64 %.0.copyload.i13.i.i.i.i.i.i.i.i to ptr
   %39 = icmp ult i32 %37, 13
   %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.fr.i.i, 4294967295
-  %.phi.trans.insert24.i.i = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %.pre25.i.i = load i64, ptr %.phi.trans.insert24.i.i, align 8, !tbaa !300
+  %.phi.trans.insert25.i.i = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %.pre26.i.i = load i64, ptr %.phi.trans.insert25.i.i, align 8, !tbaa !300
   br i1 %39, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %35, %50
-  %41 = phi i64 [ %52, %50 ], [ %.pre25.i.i, %35 ]
+  %41 = phi i64 [ %52, %50 ], [ %.pre26.i.i, %35 ]
   %.0.us.i.i = phi ptr [ %49, %50 ], [ %36, %35 ]
   %42 = icmp eq i64 %25, %41
   br i1 %42, label %43, label %48
@@ -6094,7 +6094,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_jENS_10_Select1st
   br i1 %.not19.us.i.i, label %.split.us.i.i, label %.critedge27, !llvm.loop !311
 
 .split.i.i:                                       ; preds = %35, %66
-  %54 = phi i64 [ %68, %66 ], [ %.pre25.i.i, %35 ]
+  %54 = phi i64 [ %68, %66 ], [ %.pre26.i.i, %35 ]
   %.0.i.i = phi ptr [ %65, %66 ], [ %36, %35 ]
   %55 = icmp eq i64 %25, %54
   br i1 %55, label %56, label %64

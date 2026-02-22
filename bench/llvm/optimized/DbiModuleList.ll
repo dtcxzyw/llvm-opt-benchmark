@@ -461,13 +461,12 @@ _ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit.thread: ; preds = %_ZNK
 _ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit: ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i16, ptr %24, align 4, !tbaa !15
-  %.fr = freeze i16 %25
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %27 = load i16, ptr %26, align 4, !tbaa !15
-  %.fr9 = freeze i16 %27
-  %28 = icmp eq i16 %.fr, %.fr9
-  %29 = icmp ult i16 %.fr, %.fr9
-  br i1 %28, label %_ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit.thread6, label %30
+  %28 = icmp eq i16 %25, %27
+  %29 = icmp ult i16 %25, %27
+  %cond.fr = freeze i1 %28
+  br i1 %cond.fr, label %_ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit.thread6, label %30
 
 _ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit.thread6: ; preds = %13, %_ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit
   br label %30

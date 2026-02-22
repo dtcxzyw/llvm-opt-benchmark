@@ -2579,8 +2579,8 @@ _ZNK4mold6SymbolINS_6X86_64EE11is_absoluteEv.exit.i: ; preds = %10
   %23 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i8, ptr %24, align 1
-  %.fr.i = freeze i8 %25
-  %26 = and i8 %.fr.i, 15
+  %.fr11.i = freeze i8 %25
+  %26 = and i8 %.fr11.i, 15
   switch i8 %26, label %_ZN4moldL12get_sym_typeINS_6X86_64EEElRNS_6SymbolIT_EE.exit [
     i8 10, label %27
     i8 2, label %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread.i
@@ -2821,8 +2821,8 @@ _ZNK4mold6SymbolINS_6X86_64EE11is_absoluteEv.exit.i: ; preds = %10
   %23 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i8, ptr %24, align 1
-  %.fr.i = freeze i8 %25
-  %26 = and i8 %.fr.i, 15
+  %.fr11.i = freeze i8 %25
+  %26 = and i8 %.fr11.i, 15
   switch i8 %26, label %_ZN4moldL12get_sym_typeINS_6X86_64EEElRNS_6SymbolIT_EE.exit [
     i8 10, label %27
     i8 2, label %_ZNK4mold6SymbolINS_6X86_64EE8get_typeEv.exit.thread.i

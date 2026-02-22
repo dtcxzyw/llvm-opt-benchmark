@@ -7601,11 +7601,9 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %_ZNK7xgboost6common
 121:                                              ; preds = %_ZNK7xgboost6common13HistogramCuts4PtrsEv.exit
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !144
-  %.fr264 = freeze ptr %123
   %124 = load ptr, ptr %120, align 8, !tbaa !146
-  %.fr265 = freeze ptr %124
-  %125 = ptrtoint ptr %.fr264 to i64
-  %126 = ptrtoint ptr %.fr265 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
   %128 = load i64, ptr %62, align 8, !tbaa !269
   %spec.select.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %128, i64 1)
@@ -7634,11 +7632,12 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %_ZNK7xgboost6common
   %138 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %139 = getelementptr inbounds nuw i8, ptr %42, i64 192
   %140 = trunc nuw i8 %131 to i1
-  %141 = icmp eq ptr %.fr264, %.fr265
+  %141 = icmp eq ptr %123, %124
+  %.fr256 = freeze i1 %141
   br i1 %140, label %.lr.ph47.i.i.i.split.us, label %.lr.ph47.i.i.i.split
 
 .lr.ph47.i.i.i.split.us:                          ; preds = %.lr.ph47.i.i.i
-  br i1 %141, label %.preheader.i.i.i.us.us, label %.preheader.i.i.i.us
+  br i1 %.fr256, label %.preheader.i.i.i.us.us, label %.preheader.i.i.i.us
 
 .preheader.i.i.i.us.us:                           ; preds = %.lr.ph47.i.i.i.split.us, %.loopexit.i.i.i.us.us
   %.4.us.us = phi i64 [ %.5.us.us, %.loopexit.i.i.i.us.us ], [ 0, %.lr.ph47.i.i.i.split.us ]
@@ -7775,7 +7774,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i.i.i.us:      ; preds = %211, %.noexc77.us
   br i1 %213, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i.i.i.i.us, label %.split.us246, !prof !298
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i.i.i.i.us: ; preds = %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us
-  %214 = getelementptr inbounds nuw i8, ptr %.fr265, i64 %.pre.i.i.i.i.us
+  %214 = getelementptr inbounds nuw i8, ptr %124, i64 %.pre.i.i.i.i.us
   %215 = load i8, ptr %214, align 1, !tbaa !299
   %216 = icmp eq i8 %215, 1
   br i1 %216, label %217, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i.i.i.i.us
@@ -7825,7 +7824,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br label %.body84
 
 .lr.ph47.i.i.i.split:                             ; preds = %.lr.ph47.i.i.i
-  br i1 %141, label %.lr.ph47.i.i.i.split.split.us, label %.lr.ph47.i.i.i.split.split
+  br i1 %.fr256, label %.lr.ph47.i.i.i.split.split.us, label %.lr.ph47.i.i.i.split.split
 
 .lr.ph47.i.i.i.split.split.us:                    ; preds = %.lr.ph47.i.i.i.split, %.loopexit.i.i.i.us250
   %.4.us247 = phi i64 [ %.5.us251, %.loopexit.i.i.i.us250 ], [ 0, %.lr.ph47.i.i.i.split ]
@@ -7947,7 +7946,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   unreachable
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i34.i.i.i: ; preds = %295
-  %298 = getelementptr inbounds nuw i8, ptr %.fr265, i64 %.pre.i33.i.i.i
+  %298 = getelementptr inbounds nuw i8, ptr %124, i64 %.pre.i33.i.i.i
   %299 = load i8, ptr %298, align 1, !tbaa !299
   %300 = icmp eq i8 %299, 1
   br i1 %300, label %301, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i35.i.i.i
@@ -8002,11 +8001,12 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %324 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %325 = getelementptr inbounds nuw i8, ptr %42, i64 192
   %326 = trunc nuw i8 %131 to i1
-  %327 = icmp eq ptr %.fr264, %.fr265
+  %327 = icmp eq ptr %123, %124
+  %.fr242 = freeze i1 %327
   br i1 %326, label %.lr.ph47.i7.i.i.split.us, label %.lr.ph47.i7.i.i.split
 
 .lr.ph47.i7.i.i.split.us:                         ; preds = %.lr.ph47.i7.i.i
-  br i1 %327, label %.preheader.i30.i.i.us.us, label %.preheader.i30.i.i.us
+  br i1 %.fr242, label %.preheader.i30.i.i.us.us, label %.preheader.i30.i.i.us
 
 .preheader.i30.i.i.us.us:                         ; preds = %.lr.ph47.i7.i.i.split.us, %.loopexit.i9.i.i.us.us
   %.0.us.us = phi i64 [ %.1.us.us, %.loopexit.i9.i.i.us.us ], [ 0, %.lr.ph47.i7.i.i.split.us ]
@@ -8143,7 +8143,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i36.i.i.us:    ; preds = %397, %.noexc79.us
   br i1 %399, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i.i42.i.i.us, label %.split.us, !prof !298
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i.i42.i.i.us: ; preds = %_ZNK7xgboost6common5IndexixEm.exit.i36.i.i.us
-  %400 = getelementptr inbounds nuw i8, ptr %.fr265, i64 %.pre.i.i41.i.i.us
+  %400 = getelementptr inbounds nuw i8, ptr %124, i64 %.pre.i.i41.i.i.us
   %401 = load i8, ptr %400, align 1, !tbaa !299
   %402 = icmp eq i8 %401, 1
   br i1 %402, label %403, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i.i43.i.i.us
@@ -8193,7 +8193,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br label %.body84
 
 .lr.ph47.i7.i.i.split:                            ; preds = %.lr.ph47.i7.i.i
-  br i1 %327, label %.lr.ph47.i7.i.i.split.split.us, label %.lr.ph47.i7.i.i.split.split
+  br i1 %.fr242, label %.lr.ph47.i7.i.i.split.split.us, label %.lr.ph47.i7.i.i.split.split
 
 .lr.ph47.i7.i.i.split.split.us:                   ; preds = %.lr.ph47.i7.i.i.split, %.loopexit.i9.i.i.us238
   %.0.us235 = phi i64 [ %.1.us239, %.loopexit.i9.i.i.us238 ], [ 0, %.lr.ph47.i7.i.i.split ]
@@ -8315,7 +8315,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   unreachable
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i34.i22.i.i: ; preds = %481
-  %484 = getelementptr inbounds nuw i8, ptr %.fr265, i64 %.pre.i33.i21.i.i
+  %484 = getelementptr inbounds nuw i8, ptr %124, i64 %.pre.i33.i21.i.i
   %485 = load i8, ptr %484, align 1, !tbaa !299
   %486 = icmp eq i8 %485, 1
   br i1 %486, label %487, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i35.i23.i.i
@@ -8412,7 +8412,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i: ; preds = %_ZN
   %519 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %520 = trunc nuw i8 %131 to i1
   %521 = getelementptr inbounds nuw i8, ptr %42, i64 192
-  %522 = icmp eq ptr %.fr264, %.fr265
+  %522 = icmp eq ptr %123, %124
+  %.fr263 = freeze i1 %522
   br i1 %520, label %.preheader.i.us, label %.lr.ph47.i.split
 
 .preheader.i.us:                                  ; preds = %.lr.ph47.i, %.loopexit.i.us
@@ -8466,7 +8467,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i.us:          ; preds = %548, %.noexc147.us
   br i1 %550, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i.i.us, label %.split.us260, !prof !298
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i.i.us: ; preds = %_ZNK7xgboost6common5IndexixEm.exit.i.us
-  %551 = getelementptr inbounds nuw i8, ptr %.fr265, i64 %.pre.i.i.us
+  %551 = getelementptr inbounds nuw i8, ptr %124, i64 %.pre.i.i.us
   %552 = load i8, ptr %551, align 1, !tbaa !299
   %553 = icmp eq i8 %552, 1
   br i1 %553, label %554, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i.i.us
@@ -8510,7 +8511,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %572, label %.preheader.i.us, label %"_ZN7xgboost20AssignColumnBinIndexIZNS_4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEE3$_0EEvRKNS_16GHistIndexMatrixEOT_.exit", !llvm.loop !312
 
 .lr.ph45.i.preheader.us:                          ; preds = %.preheader.i.us
-  br i1 %522, label %.lr.ph45.i.us.us, label %.lr.ph45.i.us
+  br i1 %.fr263, label %.lr.ph45.i.us.us, label %.lr.ph45.i.us
 
 .lr.ph45.i.us.us:                                 ; preds = %.lr.ph45.i.preheader.us, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us
   %.11.us.us = phi i64 [ %605, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us ], [ %.8.us, %.lr.ph45.i.preheader.us ]
@@ -8601,7 +8602,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i.us.us:       ; preds = %591, %.noexc147.us.
   unreachable
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph47.i.split
-  br i1 %522, label %.lr.ph.i.us, label %.lr.ph.i
+  br i1 %.fr263, label %.lr.ph.i.us, label %.lr.ph.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i35.i.us
   %.10.us = phi i64 [ %639, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i35.i.us ], [ %.8, %.lr.ph.i.preheader ]
@@ -8673,7 +8674,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   unreachable
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i34.i: ; preds = %649
-  %652 = getelementptr inbounds nuw i8, ptr %.fr265, i64 %.pre.i33.i
+  %652 = getelementptr inbounds nuw i8, ptr %124, i64 %.pre.i33.i
   %653 = load i8, ptr %652, align 1, !tbaa !299
   %654 = icmp eq i8 %653, 1
   br i1 %654, label %655, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i35.i
@@ -8772,11 +8773,11 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 695:                                              ; preds = %689
   %696 = atomicrmw volatile add ptr %676, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %16, align 8, !tbaa !324
-  %.pre289 = load ptr, ptr %690, align 8, !tbaa !91
+  %.pre287 = load ptr, ptr %690, align 8, !tbaa !91
   br label %_ZNSt10shared_ptrIKN7xgboost13ExtSparsePageEEC2IS1_vEERKS_IT_E.exit
 
 _ZNSt10shared_ptrIKN7xgboost13ExtSparsePageEEC2IS1_vEERKS_IT_E.exit: ; preds = %692, %695
-  %697 = phi ptr [ %674, %692 ], [ %.pre289, %695 ]
+  %697 = phi ptr [ %674, %692 ], [ %.pre287, %695 ]
   %698 = phi ptr [ %686, %692 ], [ %.pre, %695 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7xgboost4data23SimpleBatchIteratorImplINS_13ExtSparsePageEEE, i64 16), ptr %688, align 8, !tbaa !3
   %699 = getelementptr inbounds nuw i8, ptr %688, i64 8
@@ -8797,21 +8798,21 @@ _ZNSt10shared_ptrIKN7xgboost13ExtSparsePageEEC2IS1_vEERKS_IT_E.exit: ; preds = %
   br label %793
 
 _ZNSt12__shared_ptrIKN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN7xgboost13ExtSparsePageEEC2IS1_vEERKS_IT_E.exit
-  %.pre290 = load ptr, ptr %15, align 8, !tbaa !326
+  %.pre288 = load ptr, ptr %15, align 8, !tbaa !326
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre291 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
+  %.pre289 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
   %702 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.not.i.i.i.i93 = icmp eq ptr %.pre291, null
+  %.not.i.i.i.i93 = icmp eq ptr %.pre289, null
   br i1 %.not.i.i.i.i93, label %_ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit.thread, label %704
 
 _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit.thread: ; preds = %_ZNSt12__shared_ptrIKN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  store ptr %.pre290, ptr %0, align 8, !tbaa !326
+  store ptr %.pre288, ptr %0, align 8, !tbaa !326
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %703, align 8, !tbaa !91
   br label %_ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit101
 
 704:                                              ; preds = %_ZNSt12__shared_ptrIKN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %705 = getelementptr inbounds nuw i8, ptr %.pre291, i64 8
+  %705 = getelementptr inbounds nuw i8, ptr %.pre289, i64 8
   %706 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !74
   %.not.i.i.i.i.i94 = icmp eq i8 %706, 0
   br i1 %.not.i.i.i.i.i94, label %710, label %707
@@ -8828,9 +8829,9 @@ _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit.thread: ; preds = %_ZNS
 
 _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit: ; preds = %710, %707
   %.pr214 = load ptr, ptr %702, align 8, !tbaa !91
-  store ptr %.pre290, ptr %0, align 8, !tbaa !326
+  store ptr %.pre288, ptr %0, align 8, !tbaa !326
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.pre291, ptr %712, align 8, !tbaa !91
+  store ptr %.pre289, ptr %712, align 8, !tbaa !91
   %.not.i.i.i97 = icmp eq ptr %.pr214, null
   br i1 %.not.i.i.i97, label %_ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit101, label %713
 
@@ -9253,21 +9254,21 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %_ZN4
   br label %909
 
 _ZNSt12__shared_ptrIKN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit132: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124
-  %.pre292 = load ptr, ptr %18, align 8, !tbaa !326
-  %.phi.trans.insert293 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.pre294 = load ptr, ptr %.phi.trans.insert293, align 8, !tbaa !91
+  %.pre290 = load ptr, ptr %18, align 8, !tbaa !326
+  %.phi.trans.insert291 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !91
   %873 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.not.i.i.i.i133 = icmp eq ptr %.pre294, null
+  %.not.i.i.i.i133 = icmp eq ptr %.pre292, null
   br i1 %.not.i.i.i.i133, label %_ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit140.thread, label %875
 
 _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit140.thread: ; preds = %_ZNSt12__shared_ptrIKN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit132
-  store ptr %.pre292, ptr %0, align 8, !tbaa !326
+  store ptr %.pre290, ptr %0, align 8, !tbaa !326
   %874 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %874, align 8, !tbaa !91
   br label %_ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit145
 
 875:                                              ; preds = %_ZNSt12__shared_ptrIKN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit132
-  %876 = getelementptr inbounds nuw i8, ptr %.pre294, i64 8
+  %876 = getelementptr inbounds nuw i8, ptr %.pre292, i64 8
   %877 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !74
   %.not.i.i.i.i.i134 = icmp eq i8 %877, 0
   br i1 %.not.i.i.i.i.i134, label %881, label %878
@@ -9284,9 +9285,9 @@ _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit140.thread: ; preds = %_
 
 _ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit140: ; preds = %881, %878
   %.pr216 = load ptr, ptr %873, align 8, !tbaa !91
-  store ptr %.pre292, ptr %0, align 8, !tbaa !326
+  store ptr %.pre290, ptr %0, align 8, !tbaa !326
   %883 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.pre294, ptr %883, align 8, !tbaa !91
+  store ptr %.pre292, ptr %883, align 8, !tbaa !91
   %.not.i.i.i141 = icmp eq ptr %.pr216, null
   br i1 %.not.i.i.i141, label %_ZN7xgboost13BatchIteratorINS_13ExtSparsePageEED2Ev.exit145, label %884
 

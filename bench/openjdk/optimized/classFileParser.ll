@@ -12231,8 +12231,8 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit69: ; preds = %_ZNK15Cl
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
   %124 = load volatile i8, ptr %123, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !8
-  %.fr.i = freeze i8 %124
-  switch i8 %.fr.i, label %125 [
+  %.fr6.i = freeze i8 %124
+  switch i8 %.fr6.i, label %125 [
     i8 17, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit73
     i8 16, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit73
     i8 15, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit73
@@ -12245,8 +12245,8 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit69: ; preds = %_ZNK15Cl
   ]
 
 125:                                              ; preds = %119
-  %126 = icmp eq i8 %.fr.i, 100
-  %127 = icmp eq i8 %.fr.i, 103
+  %126 = icmp eq i8 %.fr6.i, 100
+  %127 = icmp eq i8 %.fr6.i, 103
   %spec.select.i.i = or i1 %126, %127
   br label %_ZNK11constantTag20is_loadable_constantEv.exit
 
@@ -15027,8 +15027,8 @@ define internal fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef %
   %7 = alloca %class.JavaCallArguments, align 8
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
-  %.not87 = icmp eq i32 %2, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph
+  %.not89 = icmp eq i32 %2, 0
+  br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -15043,26 +15043,26 @@ define internal fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef %
   br label %19
 
 19:                                               ; preds = %.lr.ph, %48
-  %.05689 = phi ptr [ %0, %.lr.ph ], [ %.157, %48 ]
-  %.05888 = phi i8 [ 0, %.lr.ph ], [ %.159, %48 ]
+  %.05691 = phi ptr [ %0, %.lr.ph ], [ %.157, %48 ]
+  %.05890 = phi i8 [ 0, %.lr.ph ], [ %.159, %48 ]
   %20 = phi i1 [ false, %.lr.ph ], [ true, %48 ]
   %21 = phi i1 [ true, %.lr.ph ], [ false, %48 ]
-  %22 = load i8, ptr %.05689, align 1
-  %.fr = freeze i8 %22
-  %23 = sext i8 %.fr to i32
+  %22 = load i8, ptr %.05691, align 1
+  %.fr71 = freeze i8 %22
+  %23 = sext i8 %.fr71 to i32
   %24 = and i32 %23, 65535
   %25 = icmp samesign ult i32 %24, 128
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %.05689, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.05691, i64 1
   %28 = and i32 %23, 65503
   %29 = add nsw i32 %28, -65
-  %or.cond70 = icmp ult i32 %29, 26
-  br i1 %or.cond70, label %48, label %switch.early.test
+  %or.cond72 = icmp ult i32 %29, 26
+  br i1 %or.cond72, label %48, label %switch.early.test
 
 switch.early.test:                                ; preds = %26
-  switch i8 %.fr, label %30 [
+  switch i8 %.fr71, label %30 [
     i8 95, label %48
     i8 36, label %48
   ]
@@ -15074,16 +15074,16 @@ switch.early.test:                                ; preds = %26
   br i1 %or.cond17, label %48, label %33
 
 33:                                               ; preds = %30
-  %34 = icmp eq i8 %.fr, 47
+  %34 = icmp eq i8 %.fr71, 47
   %or.cond20 = and i1 %1, %34
   br i1 %or.cond20, label %35, label %.loopexit
 
 35:                                               ; preds = %33
-  %.not65 = icmp eq i8 %.05888, 0
-  br i1 %.not65, label %48, label %.loopexit71
+  %.not65 = icmp eq i8 %.05890, 0
+  br i1 %.not65, label %48, label %.loopexit73
 
 36:                                               ; preds = %19
-  %37 = call noundef ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef nonnull %.05689, ptr noundef nonnull %4) #24
+  %37 = call noundef ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef nonnull %.05691, ptr noundef nonnull %4) #24
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   %38 = load ptr, ptr %5, align 8
   store i8 4, ptr %6, align 8
@@ -15109,7 +15109,7 @@ switch.early.test:                                ; preds = %26
 .thread67:                                        ; preds = %36
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %38) #24
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
-  br label %.loopexit71
+  br label %.loopexit73
 
 44:                                               ; preds = %36
   %45 = load i32, ptr %18, align 8
@@ -15119,8 +15119,8 @@ switch.early.test:                                ; preds = %26
   br i1 %.not63, label %.loopexit, label %48
 
 .loopexit:                                        ; preds = %33, %44
-  %47 = select i1 %21, ptr null, ptr %.05689
-  br label %.loopexit71
+  %47 = select i1 %21, ptr null, ptr %.05691
+  br label %.loopexit73
 
 48:                                               ; preds = %44, %35, %26, %30, %switch.early.test, %switch.early.test
   %49 = phi i1 [ false, %30 ], [ false, %26 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ true, %35 ], [ false, %44 ]
@@ -15132,11 +15132,11 @@ switch.early.test:                                ; preds = %26
 ._crit_edge:                                      ; preds = %48, %3
   %.058.lcssa = phi i1 [ false, %3 ], [ %49, %48 ]
   %.056.lcssa = phi ptr [ %0, %3 ], [ %.157, %48 ]
-  %or.cond22 = or i1 %.not87, %.058.lcssa
+  %or.cond22 = or i1 %.not89, %.058.lcssa
   %50 = select i1 %or.cond22, ptr null, ptr %.056.lcssa
-  br label %.loopexit71
+  br label %.loopexit73
 
-.loopexit71:                                      ; preds = %35, %.thread67, %._crit_edge, %.loopexit
+.loopexit73:                                      ; preds = %35, %.thread67, %._crit_edge, %.loopexit
   %.2 = phi ptr [ %50, %._crit_edge ], [ %47, %.loopexit ], [ null, %.thread67 ], [ null, %35 ]
   ret ptr %.2
 }

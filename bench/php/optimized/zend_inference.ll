@@ -1216,7 +1216,7 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %or.cond = select i1 %.not, i1 true, i1 %.not85
   %.not86 = icmp eq ptr %6, null
   %or.cond91 = select i1 %or.cond, i1 true, i1 %.not86
-  br i1 %or.cond91, label %182, label %11
+  br i1 %or.cond91, label %184, label %11
 
 11:                                               ; preds = %2
   %12 = zext i32 %8 to i64
@@ -1238,49 +1238,49 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %22 = phi ptr [ %20, %19 ], [ %18, %17 ]
   call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %16, i1 false)
   %23 = icmp sgt i32 %8, 0
-  br i1 %23, label %.lr.ph107, label %.preheader101
+  br i1 %23, label %.lr.ph106, label %.preheader100
 
-.lr.ph107:                                        ; preds = %21
+.lr.ph106:                                        ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %118
 
-.preheader101:                                    ; preds = %.loopexit102, %21
-  %.not116 = icmp eq i64 %14, 0
+.preheader100:                                    ; preds = %.loopexit101, %21
+  %.not115 = icmp eq i64 %14, 0
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not116, label %.split.us, label %.preheader99.us
+  br i1 %.not115, label %.split.us, label %.preheader98.us
 
-.preheader99.us:                                  ; preds = %.preheader101, %.loopexit98.us
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126.mux, %.loopexit98.us ], [ 0, %.preheader101 ]
-  %indvars.iv121 = phi i32 [ %indvars.iv.next122.mux, %.loopexit98.us ], [ 0, %.preheader101 ]
-  %.178113.us = phi i1 [ %.2.us.mux, %.loopexit98.us ], [ true, %.preheader101 ]
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv125
+.preheader98.us:                                  ; preds = %.preheader100, %.loopexit97.us
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125.mux, %.loopexit97.us ], [ 0, %.preheader100 ]
+  %indvars.iv120 = phi i32 [ %indvars.iv.next121.mux, %.loopexit97.us ], [ 0, %.preheader100 ]
+  %.178112.us = phi i1 [ %.2.us.mux, %.loopexit97.us ], [ true, %.preheader100 ]
+  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv124
   %27 = load i64, ptr %26, align 8, !tbaa !66
   %.not87.us = icmp eq i64 %27, 0
-  br i1 %.not87.us, label %.loopexit98.us, label %28
+  br i1 %.not87.us, label %.loopexit97.us, label %28
 
-28:                                               ; preds = %.preheader99.us
-  %29 = sext i32 %indvars.iv121 to i64
+28:                                               ; preds = %.preheader98.us
+  %29 = sext i32 %indvars.iv120 to i64
   br label %30
 
 30:                                               ; preds = %.loopexit.us, %28
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit.us ], [ %29, %28 ]
-  %.0112.us = phi i64 [ %108, %.loopexit.us ], [ %27, %28 ]
-  %.3110.us = phi i1 [ %.4.us, %.loopexit.us ], [ %.178113.us, %28 ]
-  %31 = and i64 %.0112.us, 1
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.loopexit.us ], [ %29, %28 ]
+  %.0111.us = phi i64 [ %108, %.loopexit.us ], [ %27, %28 ]
+  %.3109.us = phi i1 [ %.4.us, %.loopexit.us ], [ %.178112.us, %28 ]
+  %31 = and i64 %.0111.us, 1
   %.not89.us = icmp eq i64 %31, 0
   br i1 %.not89.us, label %.loopexit.us, label %32
 
 32:                                               ; preds = %30
-  %33 = and i64 %indvars.iv123, 63
+  %33 = and i64 %indvars.iv122, 63
   %34 = shl nuw i64 1, %33
   %35 = xor i64 %34, -1
-  %36 = lshr i64 %indvars.iv123, 6
+  %36 = lshr i64 %indvars.iv122, 6
   %37 = and i64 %36, 67108863
   %38 = getelementptr inbounds nuw i64, ptr %22, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !66
   %40 = and i64 %39, %35
   store i64 %40, ptr %38, align 8, !tbaa !66
-  %41 = getelementptr inbounds %struct._zend_ssa_var, ptr %4, i64 %indvars.iv123
+  %41 = getelementptr inbounds %struct._zend_ssa_var, ptr %4, i64 %indvars.iv122
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !68
   %.not90.us = icmp eq ptr %43, null
@@ -1292,12 +1292,12 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %87, label %.preheader.us
 
-48:                                               ; preds = %.lr.ph109.us, %77
-  %49 = phi i32 [ %111, %.lr.ph109.us ], [ %78, %77 ]
-  %50 = phi ptr [ %110, %.lr.ph109.us ], [ %79, %77 ]
-  %51 = phi ptr [ %.pre, %.lr.ph109.us ], [ %80, %77 ]
-  %indvars.iv118 = phi i64 [ 0, %.lr.ph109.us ], [ %indvars.iv.next119, %77 ]
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv118
+48:                                               ; preds = %.lr.ph108.us, %77
+  %49 = phi i32 [ %111, %.lr.ph108.us ], [ %78, %77 ]
+  %50 = phi ptr [ %110, %.lr.ph108.us ], [ %79, %77 ]
+  %51 = phi ptr [ %.pre, %.lr.ph108.us ], [ %80, %77 ]
+  %indvars.iv117 = phi i64 [ 0, %.lr.ph108.us ], [ %indvars.iv.next118, %77 ]
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv117
   %53 = load i32, ptr %52, align 4, !tbaa !24
   %54 = icmp sgt i32 %53, -1
   tail call void @llvm.assume(i1 %54)
@@ -1316,7 +1316,7 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %65 = and i8 %64, -2
   store i8 %65, ptr %63, align 8
   %66 = load ptr, ptr %117, align 8, !tbaa !62
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv118
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv117
   %68 = load i32, ptr %67, align 4, !tbaa !24
   %69 = and i32 %68, 63
   %70 = zext nneg i32 %69 to i64
@@ -1327,21 +1327,21 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %75 = load i64, ptr %74, align 8, !tbaa !66
   %76 = or i64 %71, %75
   store i64 %76, ptr %74, align 8, !tbaa !66
-  %.pre129 = load ptr, ptr %25, align 8, !tbaa !58
-  %.pre130 = load i32, ptr %109, align 8, !tbaa !59
+  %.pre128 = load ptr, ptr %25, align 8, !tbaa !58
+  %.pre129 = load i32, ptr %109, align 8, !tbaa !59
   br label %77
 
 77:                                               ; preds = %61, %48
-  %78 = phi i32 [ %.pre130, %61 ], [ %49, %48 ]
-  %79 = phi ptr [ %.pre129, %61 ], [ %50, %48 ]
+  %78 = phi i32 [ %.pre129, %61 ], [ %49, %48 ]
+  %79 = phi ptr [ %.pre128, %61 ], [ %50, %48 ]
   %80 = phi ptr [ %66, %61 ], [ %51, %48 ]
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %81 = sext i32 %78 to i64
   %82 = getelementptr inbounds %struct._zend_basic_block, ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i32, ptr %83, align 8, !tbaa !60
   %85 = sext i32 %84 to i64
-  %86 = icmp slt i64 %indvars.iv.next119, %85
+  %86 = icmp slt i64 %indvars.iv.next118, %85
   br i1 %86, label %48, label %.loopexit.us
 
 87:                                               ; preds = %44
@@ -1372,22 +1372,22 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %77, %.preheader.us, %96, %87, %32, %30
-  %.4.us = phi i1 [ false, %96 ], [ false, %87 ], [ %.3110.us, %30 ], [ false, %32 ], [ false, %.preheader.us ], [ false, %77 ]
-  %108 = lshr i64 %.0112.us, 1
-  %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
+  %.4.us = phi i1 [ false, %96 ], [ false, %87 ], [ %.3109.us, %30 ], [ false, %32 ], [ false, %.preheader.us ], [ false, %77 ]
+  %108 = lshr i64 %.0111.us, 1
+  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
   %.not88.us = icmp eq i64 %108, 0
-  br i1 %.not88.us, label %.loopexit98.us, label %30
+  br i1 %.not88.us, label %.loopexit97.us, label %30
 
-.loopexit98.us:                                   ; preds = %.loopexit.us, %.preheader99.us
-  %.2.us = phi i1 [ %.178113.us, %.preheader99.us ], [ %.4.us, %.loopexit.us ]
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %indvars.iv.next122 = add i32 %indvars.iv121, 64
-  %exitcond128.not = icmp eq i64 %indvars.iv.next126, %14
-  %brmerge.not = select i1 %exitcond128.not, i1 %.2.us, i1 false
-  %indvars.iv.next126.mux = select i1 %exitcond128.not, i64 0, i64 %indvars.iv.next126
-  %indvars.iv.next122.mux = select i1 %exitcond128.not, i32 0, i32 %indvars.iv.next122
-  %.2.us.mux = select i1 %exitcond128.not, i1 true, i1 %.2.us
-  br i1 %brmerge.not, label %.split.us, label %.preheader99.us
+.loopexit97.us:                                   ; preds = %.loopexit.us, %.preheader98.us
+  %.2.us = phi i1 [ %.178112.us, %.preheader98.us ], [ %.4.us, %.loopexit.us ]
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %indvars.iv.next121 = add i32 %indvars.iv120, 64
+  %exitcond127.not = icmp eq i64 %indvars.iv.next125, %14
+  %brmerge.not = select i1 %exitcond127.not, i1 %.2.us, i1 false
+  %indvars.iv.next125.mux = select i1 %exitcond127.not, i64 0, i64 %indvars.iv.next125
+  %indvars.iv.next121.mux = select i1 %exitcond127.not, i32 0, i32 %indvars.iv.next121
+  %.2.us.mux = select i1 %exitcond127.not, i1 true, i1 %.2.us
+  br i1 %brmerge.not, label %.split.us, label %.preheader98.us
 
 .preheader.us:                                    ; preds = %44
   %109 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -1398,15 +1398,15 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load i32, ptr %114, align 8, !tbaa !60
   %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.lr.ph109.us, label %.loopexit.us
+  br i1 %116, label %.lr.ph108.us, label %.loopexit.us
 
-.lr.ph109.us:                                     ; preds = %.preheader.us
+.lr.ph108.us:                                     ; preds = %.preheader.us
   %117 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %.pre = load ptr, ptr %117, align 8, !tbaa !62
   br label %48
 
-118:                                              ; preds = %.lr.ph107, %.loopexit102
-  %indvars.iv = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next, %.loopexit102 ]
+118:                                              ; preds = %.lr.ph106, %.loopexit101
+  %indvars.iv = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next, %.loopexit101 ]
   %119 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %4, i64 %indvars.iv
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load i8, ptr %120, align 8
@@ -1415,9 +1415,9 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %123 = load ptr, ptr %3, align 8, !tbaa !19
   %124 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %123, i64 %indvars.iv
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 12
-  %.079103 = load i32, ptr %125, align 4, !tbaa !24
-  %126 = icmp sgt i32 %.079103, -1
-  br i1 %126, label %.lr.ph, label %.loopexit102
+  %.079102 = load i32, ptr %125, align 4, !tbaa !24
+  %126 = icmp sgt i32 %.079102, -1
+  br i1 %126, label %.lr.ph, label %.loopexit101
 
 .lr.ph:                                           ; preds = %118
   %127 = load ptr, ptr %24, align 8, !tbaa !34
@@ -1425,8 +1425,8 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   br label %129
 
 129:                                              ; preds = %.lr.ph, %zend_ssa_next_use.exit
-  %.079104 = phi i32 [ %.079103, %.lr.ph ], [ %.079, %zend_ssa_next_use.exit ]
-  %130 = zext nneg i32 %.079104 to i64
+  %.079103 = phi i32 [ %.079102, %.lr.ph ], [ %.079, %zend_ssa_next_use.exit ]
+  %130 = zext nneg i32 %.079103 to i64
   %131 = getelementptr inbounds nuw %struct._zend_op, ptr %127, i64 %130
   %132 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %128, i64 %130
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 28
@@ -1457,90 +1457,90 @@ define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly cap
   %145 = load i32, ptr %132, align 4, !tbaa !51
   %146 = zext i32 %145 to i64
   %.not94 = icmp eq i64 %indvars.iv, %146
-  br i1 %.not94, label %zend_ssa_is_no_val_use.exit.thread, label %169
+  br i1 %.not94, label %zend_ssa_is_no_val_use.exit.thread, label %171
 
 147:                                              ; preds = %129
   %148 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %149 = load i32, ptr %148, align 4, !tbaa !69
-  %.fr = freeze i32 %149
-  %150 = zext i32 %.fr to i64
-  %.not96 = icmp eq i64 %indvars.iv, %150
-  br i1 %.not96, label %switch.early.test.i, label %zend_ssa_is_no_val_use.exit.thread
+  %150 = zext i32 %149 to i64
+  %151 = icmp ne i64 %indvars.iv, %150
+  %152 = freeze i1 %151
+  br i1 %152, label %zend_ssa_is_no_val_use.exit.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %147
-  switch i8 %134, label %151 [
+  switch i8 %134, label %153 [
     i8 -109, label %zend_ssa_is_no_val_use.exit.thread
     i8 72, label %zend_ssa_is_no_val_use.exit.thread
   ]
 
-151:                                              ; preds = %switch.early.test.i
-  %152 = load i32, ptr %132, align 4, !tbaa !51
-  %153 = zext i32 %152 to i64
-  %.not25.i = icmp eq i64 %indvars.iv, %153
-  br i1 %.not25.i, label %zend_ssa_is_no_val_use.exit.thread, label %154
+153:                                              ; preds = %switch.early.test.i
+  %154 = load i32, ptr %132, align 4, !tbaa !51
+  %155 = zext i32 %154 to i64
+  %.not25.i = icmp eq i64 %indvars.iv, %155
+  br i1 %.not25.i, label %zend_ssa_is_no_val_use.exit.thread, label %156
 
-154:                                              ; preds = %151
-  %155 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %156 = load i32, ptr %155, align 4, !tbaa !52
-  %157 = zext i32 %156 to i64
-  %.not97 = icmp eq i64 %indvars.iv, %157
-  br i1 %.not97, label %zend_ssa_is_no_val_use.exit.thread, label %169
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  %158 = load i32, ptr %157, align 4, !tbaa !52
+  %159 = zext i32 %158 to i64
+  %.not96 = icmp eq i64 %indvars.iv, %159
+  br i1 %.not96, label %zend_ssa_is_no_val_use.exit.thread, label %171
 
 zend_ssa_is_no_val_use.exit:                      ; preds = %135
-  %158 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %159 = load i32, ptr %158, align 4, !tbaa !52
-  %160 = zext i32 %159 to i64
-  %.not95 = icmp eq i64 %indvars.iv, %160
-  br i1 %.not95, label %zend_ssa_is_no_val_use.exit.thread, label %169
+  %160 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  %161 = load i32, ptr %160, align 4, !tbaa !52
+  %162 = zext i32 %161 to i64
+  %.not95 = icmp eq i64 %indvars.iv, %162
+  br i1 %.not95, label %zend_ssa_is_no_val_use.exit.thread, label %171
 
-zend_ssa_is_no_val_use.exit.thread:               ; preds = %147, %switch.early.test.i, %switch.early.test.i, %151, %139, %135, %144, %154, %zend_ssa_is_no_val_use.exit
-  %161 = and i8 %121, -2
-  store i8 %161, ptr %120, align 8
-  %162 = and i64 %indvars.iv, 63
-  %163 = shl nuw i64 1, %162
-  %164 = lshr i64 %indvars.iv, 6
-  %165 = and i64 %164, 67108863
-  %166 = getelementptr inbounds nuw i64, ptr %22, i64 %165
-  %167 = load i64, ptr %166, align 8, !tbaa !66
-  %168 = or i64 %167, %163
-  store i64 %168, ptr %166, align 8, !tbaa !66
-  br label %.loopexit102
+zend_ssa_is_no_val_use.exit.thread:               ; preds = %147, %switch.early.test.i, %switch.early.test.i, %153, %139, %135, %144, %156, %zend_ssa_is_no_val_use.exit
+  %163 = and i8 %121, -2
+  store i8 %163, ptr %120, align 8
+  %164 = and i64 %indvars.iv, 63
+  %165 = shl nuw i64 1, %164
+  %166 = lshr i64 %indvars.iv, 6
+  %167 = and i64 %166, 67108863
+  %168 = getelementptr inbounds nuw i64, ptr %22, i64 %167
+  %169 = load i64, ptr %168, align 8, !tbaa !66
+  %170 = or i64 %169, %165
+  store i64 %170, ptr %168, align 8, !tbaa !66
+  br label %.loopexit101
 
-169:                                              ; preds = %144, %154, %zend_ssa_is_no_val_use.exit
-  %170 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %6, i64 %130
-  %171 = load i32, ptr %170, align 4, !tbaa !51
-  %172 = zext i32 %171 to i64
-  %173 = icmp eq i64 %indvars.iv, %172
-  br i1 %173, label %zend_ssa_next_use.exit, label %174
+171:                                              ; preds = %144, %156, %zend_ssa_is_no_val_use.exit
+  %172 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %6, i64 %130
+  %173 = load i32, ptr %172, align 4, !tbaa !51
+  %174 = zext i32 %173 to i64
+  %175 = icmp eq i64 %indvars.iv, %174
+  br i1 %175, label %zend_ssa_next_use.exit, label %176
 
-174:                                              ; preds = %169
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 4
-  %176 = load i32, ptr %175, align 4, !tbaa !52
-  %177 = zext i32 %176 to i64
-  %178 = icmp eq i64 %indvars.iv, %177
-  %. = select i1 %178, i64 28, i64 32
+176:                                              ; preds = %171
+  %177 = getelementptr inbounds nuw i8, ptr %172, i64 4
+  %178 = load i32, ptr %177, align 4, !tbaa !52
+  %179 = zext i32 %178 to i64
+  %180 = icmp eq i64 %indvars.iv, %179
+  %. = select i1 %180, i64 28, i64 32
   br label %zend_ssa_next_use.exit
 
-zend_ssa_next_use.exit:                           ; preds = %174, %169
-  %.sink = phi i64 [ 24, %169 ], [ %., %174 ]
-  %179 = getelementptr inbounds nuw i8, ptr %170, i64 %.sink
-  %.079 = load i32, ptr %179, align 4, !tbaa !24
-  %180 = icmp sgt i32 %.079, -1
-  br i1 %180, label %129, label %.loopexit102
+zend_ssa_next_use.exit:                           ; preds = %176, %171
+  %.sink = phi i64 [ 24, %171 ], [ %., %176 ]
+  %181 = getelementptr inbounds nuw i8, ptr %172, i64 %.sink
+  %.079 = load i32, ptr %181, align 4, !tbaa !24
+  %182 = icmp sgt i32 %.079, -1
+  br i1 %182, label %129, label %.loopexit101
 
-.loopexit102:                                     ; preds = %zend_ssa_next_use.exit, %118, %zend_ssa_is_no_val_use.exit.thread
+.loopexit101:                                     ; preds = %zend_ssa_next_use.exit, %118, %zend_ssa_is_no_val_use.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %.preheader101, label %118
+  br i1 %exitcond.not, label %.preheader100, label %118
 
-.split.us:                                        ; preds = %.loopexit98.us, %.preheader101
-  br i1 %15, label %181, label %182, !prof !17
+.split.us:                                        ; preds = %.loopexit97.us, %.preheader100
+  br i1 %15, label %183, label %184, !prof !17
 
-181:                                              ; preds = %.split.us
+183:                                              ; preds = %.split.us
   call void @_efree(ptr noundef %22) #19
-  br label %182
+  br label %184
 
-182:                                              ; preds = %.split.us, %181, %2
+184:                                              ; preds = %.split.us, %183, %2
   ret void
 }
 

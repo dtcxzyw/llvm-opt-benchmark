@@ -8720,13 +8720,11 @@ while.body.i.i.i.i161:                            ; preds = %72, %while.body.lr.
   %54 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %add.i.i.i.i163
   %add.ptr3.i.i.i.i166 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %add.ptr.val.i.i.i.i167 = load i32, ptr %add.ptr.i.i.i.i165, align 4
-  %add.ptr.val.i.i.i.i167.fr = freeze i32 %add.ptr.val.i.i.i.i167
   %add.ptr3.val.i.i.i.i168 = load i32, ptr %add.ptr3.i.i.i.i166, align 4
-  %add.ptr3.val.i.i.i.i168.fr = freeze i32 %add.ptr3.val.i.i.i.i168
   %__comp.val.val.i.i.i.i169 = load ptr, ptr %53, align 8
-  %conv.i546 = zext i32 %add.ptr.val.i.i.i.i167.fr to i64
+  %conv.i546 = zext i32 %add.ptr.val.i.i.i.i167 to i64
   %arrayidx.i21.i547 = getelementptr inbounds nuw %"struct.hermes::Interval", ptr %__comp.val.val.i.i.i.i169, i64 %conv.i546
-  %conv3.i548 = zext i32 %add.ptr3.val.i.i.i.i168.fr to i64
+  %conv3.i548 = zext i32 %add.ptr3.val.i.i.i.i168 to i64
   %arrayidx.i.i549 = getelementptr inbounds nuw %"struct.hermes::Interval", ptr %__comp.val.val.i.i.i.i169, i64 %conv3.i548
   %55 = load ptr, ptr %arrayidx.i.i549, align 8
   %end_.i.i550 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -8863,19 +8861,17 @@ for.body.i96.i591:                                ; preds = %_ZNK6hermes8Interva
 
 _ZNK6hermes8Interval3endEv.exit104.i598:          ; preds = %for.body.i96.i591, %_ZNK6hermes8Interval3endEv.exit89.i589
   %start.0.lcssa.i103.i599 = phi i64 [ %60, %_ZNK6hermes8Interval3endEv.exit89.i589 ], [ %.sroa.speculated.i100.i595, %for.body.i96.i591 ]
-  %start.0.lcssa.i88.i590.fr = freeze i64 %start.0.lcssa.i88.i590
-  %start.0.lcssa.i103.i599.fr = freeze i64 %start.0.lcssa.i103.i599
-  %cmp16.i600 = icmp ugt i64 %start.0.lcssa.i88.i590.fr, %start.0.lcssa.i103.i599.fr
-  br i1 %cmp16.i600, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread", label %72
+  %cmp16.i600 = icmp ugt i64 %start.0.lcssa.i88.i590, %start.0.lcssa.i103.i599
+  %cond.fr704 = freeze i1 %cmp16.i600
+  br i1 %cond.fr704, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread", label %72
 
 "_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639": ; preds = %for.body.i67.i629, %_ZNK6hermes8Interval5startEv.exit61.i627
   %start.0.lcssa.i73.i636 = phi i64 [ %65, %_ZNK6hermes8Interval5startEv.exit61.i627 ], [ %.sroa.speculated.i70.i632, %for.body.i67.i629 ]
-  %start.0.lcssa.i60.i628.fr = freeze i64 %start.0.lcssa.i60.i628
-  %start.0.lcssa.i73.i636.fr = freeze i64 %start.0.lcssa.i73.i636
-  %cmp12.i637 = icmp eq i64 %start.0.lcssa.i60.i628.fr, %start.0.lcssa.i73.i636.fr
-  %cmp13.i638 = icmp ugt i32 %add.ptr3.val.i.i.i.i168.fr, %add.ptr.val.i.i.i.i167.fr
+  %cmp12.i637 = icmp eq i64 %start.0.lcssa.i60.i628, %start.0.lcssa.i73.i636
+  %cmp13.i638 = icmp ugt i32 %add.ptr3.val.i.i.i.i168, %add.ptr.val.i.i.i.i167
   %71 = and i1 %cmp13.i638, %cmp12.i637
-  br i1 %71, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread", label %72
+  %cond.fr = freeze i1 %71
+  br i1 %cond.fr, label %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread", label %72
 
 "_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit48.i617, %_ZNK6hermes8Interval3endEv.exit104.i598, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639"
   %dec.i.i.i.i171702 = or disjoint i64 %add.i.i.i.i163, 1
@@ -8884,7 +8880,7 @@ _ZNK6hermes8Interval3endEv.exit104.i598:          ; preds = %for.body.i96.i591, 
   br label %72
 
 72:                                               ; preds = %_ZNK6hermes8Interval3endEv.exit104.i598, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639", %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread"
-  %73 = phi i32 [ %.pre, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread" ], [ %add.ptr.val.i.i.i.i167.fr, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639" ], [ %add.ptr.val.i.i.i.i167.fr, %_ZNK6hermes8Interval3endEv.exit104.i598 ]
+  %73 = phi i32 [ %.pre, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread" ], [ %add.ptr.val.i.i.i.i167, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639" ], [ %add.ptr.val.i.i.i.i167, %_ZNK6hermes8Interval3endEv.exit104.i598 ]
   %74 = phi i64 [ %dec.i.i.i.i171702, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639.thread" ], [ %mul.i.i.i.i164, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit639" ], [ %mul.i.i.i.i164, %_ZNK6hermes8Interval3endEv.exit104.i598 ]
   %add.ptr5.i.i.i.i174 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %__secondChild.025.i.i.i.i162
   store i32 %73, ptr %add.ptr5.i.i.i.i174, align 4
@@ -13895,13 +13891,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = getelementptr inbounds nuw i32, ptr %__first, i64 %add
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %add.ptr.val = load i32, ptr %add.ptr, align 4
-  %add.ptr.val.fr = freeze i32 %add.ptr.val
   %add.ptr3.val = load i32, ptr %add.ptr3, align 4
-  %add.ptr3.val.fr = freeze i32 %add.ptr3.val
   %__comp.val.val = load ptr, ptr %0, align 8
-  %conv.i.i = zext i32 %add.ptr.val.fr to i64
+  %conv.i.i = zext i32 %add.ptr.val to i64
   %arrayidx.i15.i.i = getelementptr inbounds nuw %"struct.hermes::Interval", ptr %__comp.val.val, i64 %conv.i.i
-  %conv3.i.i = zext i32 %add.ptr3.val.fr to i64
+  %conv3.i.i = zext i32 %add.ptr3.val to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::Interval", ptr %__comp.val.val, i64 %conv3.i.i
   %2 = load ptr, ptr %arrayidx.i15.i.i, align 8
   %3 = load i64, ptr %2, align 8
@@ -13979,13 +13973,12 @@ for.body.i36.i.i:                                 ; preds = %_ZNK6hermes8Interva
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit": ; preds = %for.body.i36.i.i, %_ZNK6hermes8Interval5startEv.exit30.i.i
   %start.0.lcssa.i42.i.i = phi i64 [ %7, %_ZNK6hermes8Interval5startEv.exit30.i.i ], [ %.sroa.speculated.i39.i.i, %for.body.i36.i.i ]
-  %start.0.lcssa.i29.i.i.fr = freeze i64 %start.0.lcssa.i29.i.i
-  %start.0.lcssa.i42.i.i.fr = freeze i64 %start.0.lcssa.i42.i.i
-  %cmp9.i.i = icmp eq i64 %start.0.lcssa.i29.i.i.fr, %start.0.lcssa.i42.i.i.fr
-  %cmp10.i.i = icmp ult i32 %add.ptr.val.fr, %add.ptr3.val.fr
+  %cmp9.i.i = icmp eq i64 %start.0.lcssa.i29.i.i, %start.0.lcssa.i42.i.i
+  %cmp10.i.i = icmp ult i32 %add.ptr.val, %add.ptr3.val
   %12 = and i1 %cmp10.i.i, %cmp9.i.i
   %dec = or disjoint i64 %add, 1
-  %spec.select = select i1 %12, i64 %dec, i64 %mul
+  %cond.fr = freeze i1 %12
+  %spec.select = select i1 %cond.fr, i64 %dec, i64 %mul
   br label %while.cond
 
 while.cond:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"

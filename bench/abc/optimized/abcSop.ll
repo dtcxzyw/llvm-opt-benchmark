@@ -3956,9 +3956,9 @@ Abc_SopGetVarNum.exit:                            ; preds = %3
   br label %14
 
 14:                                               ; preds = %.lr.ph.us, %26
-  %indvars.iv49 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next50, %26 ]
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next49, %26 ]
   %indvars.iv = phi i64 [ %13, %.lr.ph.us ], [ %indvars.iv.next, %26 ]
-  %.043.us = phi i64 [ -1, %.lr.ph.us ], [ %.1.us, %26 ]
+  %.042.us = phi i64 [ -1, %.lr.ph.us ], [ %.1.us, %26 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !3
   switch i8 %16, label %26 [
@@ -3967,23 +3967,23 @@ Abc_SopGetVarNum.exit:                            ; preds = %3
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i64, ptr @Abc_SopToTruth.Truth, i64 %indvars.iv49
+  %18 = getelementptr inbounds nuw i64, ptr @Abc_SopToTruth.Truth, i64 %indvars.iv48
   %19 = load i64, ptr %18, align 8, !tbaa !23
   %20 = xor i64 %19, -1
-  %21 = and i64 %.043.us, %20
+  %21 = and i64 %.042.us, %20
   br label %26
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i64, ptr @Abc_SopToTruth.Truth, i64 %indvars.iv49
+  %23 = getelementptr inbounds nuw i64, ptr @Abc_SopToTruth.Truth, i64 %indvars.iv48
   %24 = load i64, ptr %23, align 8, !tbaa !23
-  %25 = and i64 %24, %.043.us
+  %25 = and i64 %24, %.042.us
   br label %26
 
 26:                                               ; preds = %22, %17, %14
-  %.1.us = phi i64 [ %25, %22 ], [ %21, %17 ], [ %.043.us, %14 ]
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %.1.us = phi i64 [ %25, %22 ], [ %21, %17 ], [ %.042.us, %14 ]
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !74
 
 ._crit_edge.us:                                   ; preds = %26
@@ -4014,19 +4014,19 @@ Abc_SopGetVarNum.exit:                            ; preds = %3
 Abc_SopIsComplement.exit:                         ; preds = %31
   %35 = getelementptr inbounds i8, ptr %.0.i31, i64 -1
   %36 = load i8, ptr %35, align 1, !tbaa !3
-  %.fr = freeze i8 %36
-  %37 = xor i64 %.us-phi, -1
-  switch i8 %.fr, label %Abc_SopIsComplement.exit.thread [
-    i8 110, label %38
-    i8 48, label %38
-  ]
+  %37 = icmp ne i8 %36, 48
+  %38 = icmp ne i8 %36, 110
+  %narrow.i.not = and i1 %37, %38
+  %39 = xor i64 %.us-phi, -1
+  %cond.fr = freeze i1 %narrow.i.not
+  br i1 %cond.fr, label %Abc_SopIsComplement.exit.thread, label %40
 
 Abc_SopIsComplement.exit.thread:                  ; preds = %31, %Abc_SopIsComplement.exit
-  br label %38
+  br label %40
 
-38:                                               ; preds = %Abc_SopIsComplement.exit, %Abc_SopIsComplement.exit, %Abc_SopIsComplement.exit.thread
-  %39 = phi i64 [ %.us-phi, %Abc_SopIsComplement.exit.thread ], [ %37, %Abc_SopIsComplement.exit ], [ %37, %Abc_SopIsComplement.exit ]
-  ret i64 %39
+40:                                               ; preds = %Abc_SopIsComplement.exit, %Abc_SopIsComplement.exit.thread
+  %41 = phi i64 [ %.us-phi, %Abc_SopIsComplement.exit.thread ], [ %39, %Abc_SopIsComplement.exit ]
+  ret i64 %41
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

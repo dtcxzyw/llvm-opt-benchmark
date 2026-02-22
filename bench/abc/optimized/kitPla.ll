@@ -1526,9 +1526,9 @@ define i64 @Kit_PlaToTruth6(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %5
 
 5:                                                ; preds = %.lr.ph.us, %17
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next45, %17 ]
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next44, %17 ]
   %indvars.iv = phi i64 [ %4, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
-  %.02637.us = phi i64 [ -1, %.lr.ph.us ], [ %.127.us, %17 ]
+  %.02636.us = phi i64 [ -1, %.lr.ph.us ], [ %.127.us, %17 ]
   %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !3
   switch i8 %7, label %17 [
@@ -1537,23 +1537,23 @@ define i64 @Kit_PlaToTruth6(ptr noundef readonly captures(none) %0, i32 noundef 
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv44
+  %9 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv43
   %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = xor i64 %10, -1
-  %12 = and i64 %.02637.us, %11
+  %12 = and i64 %.02636.us, %11
   br label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv44
+  %14 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv43
   %15 = load i64, ptr %14, align 8, !tbaa !34
-  %16 = and i64 %15, %.02637.us
+  %16 = and i64 %15, %.02636.us
   br label %17
 
 17:                                               ; preds = %13, %8, %5
-  %.127.us = phi i64 [ %16, %13 ], [ %12, %8 ], [ %.02637.us, %5 ]
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %.127.us = phi i64 [ %16, %13 ], [ %12, %8 ], [ %.02636.us, %5 ]
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %5, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %17
@@ -1584,19 +1584,19 @@ define i64 @Kit_PlaToTruth6(ptr noundef readonly captures(none) %0, i32 noundef 
 Kit_PlaIsComplement.exit:                         ; preds = %22
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %27 = load i8, ptr %26, align 1, !tbaa !3
-  %.fr = freeze i8 %27
-  %28 = xor i64 %.us-phi, -1
-  switch i8 %.fr, label %Kit_PlaIsComplement.exit.thread [
-    i8 110, label %29
-    i8 48, label %29
-  ]
+  %28 = icmp ne i8 %27, 48
+  %29 = icmp ne i8 %27, 110
+  %narrow.i.not = and i1 %28, %29
+  %30 = xor i64 %.us-phi, -1
+  %cond.fr = freeze i1 %narrow.i.not
+  br i1 %cond.fr, label %Kit_PlaIsComplement.exit.thread, label %31
 
 Kit_PlaIsComplement.exit.thread:                  ; preds = %22, %Kit_PlaIsComplement.exit
-  br label %29
+  br label %31
 
-29:                                               ; preds = %Kit_PlaIsComplement.exit, %Kit_PlaIsComplement.exit, %Kit_PlaIsComplement.exit.thread
-  %30 = phi i64 [ %.us-phi, %Kit_PlaIsComplement.exit.thread ], [ %28, %Kit_PlaIsComplement.exit ], [ %28, %Kit_PlaIsComplement.exit ]
-  ret i64 %30
+31:                                               ; preds = %Kit_PlaIsComplement.exit, %Kit_PlaIsComplement.exit.thread
+  %32 = phi i64 [ %.us-phi, %Kit_PlaIsComplement.exit.thread ], [ %30, %Kit_PlaIsComplement.exit ]
+  ret i64 %32
 }
 
 ; Function Attrs: nofree nounwind uwtable

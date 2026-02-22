@@ -407,8 +407,8 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin(ptr noundef %0
   %5 = alloca %struct.anon.31, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %7 = load i64, ptr %6, align 8
-  %.fr9 = freeze i64 %7
-  %8 = and i64 %.fr9, 134217728
+  %.fr = freeze i64 %7
+  %8 = and i64 %.fr, 134217728
   %9 = icmp eq i64 %8, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @__rcu_read_lock() #13

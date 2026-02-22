@@ -14339,11 +14339,11 @@ define void @_ZN5ImGui22DebugNodeTableSettingsEP18ImGuiTableSettings(ptr noundef
   %.not = icmp eq i16 %23, -1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 14
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %.fr = freeze i8 %.pre
+  %.fr27 = freeze i8 %.pre
   br i1 %.not, label %.thread24, label %24
 
 24:                                               ; preds = %20
-  %25 = and i8 %.fr, 3
+  %25 = and i8 %.fr27, 3
   %26 = sext i16 %23 to i32
   %27 = icmp eq i8 %25, 1
   %28 = icmp eq i8 %25, 2
@@ -14357,10 +14357,10 @@ define void @_ZN5ImGui22DebugNodeTableSettingsEP18ImGuiTableSettings(ptr noundef
   %.in.in = getelementptr inbounds nuw i8, ptr %21, i64 10
   %.in = load i16, ptr %.in.in, align 2, !tbaa !348
   %31 = sext i16 %.in to i32
-  %32 = shl i8 %.fr, 4
+  %32 = shl i8 %.fr27, 4
   %33 = ashr i8 %32, 6
   %34 = sext i8 %33 to i32
-  %35 = and i8 %.fr, 16
+  %35 = and i8 %.fr27, 16
   %.not21 = icmp eq i8 %35, 0
   %36 = select i1 %.not21, ptr @.str.43, ptr @.str.42
   %37 = load float, ptr %21, align 4, !tbaa !347

@@ -33804,83 +33804,83 @@ define hidden void @_ZNK5clang6driver10toolchains6Darwin12CheckObjCARCEv(ptr nou
   %2 = alloca %"class.clang::DiagnosticBuilder", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3964
   %4 = load i32, ptr %3, align 4, !tbaa !694
-  %.fr = freeze i32 %4
-  %.off.i.i = add i32 %.fr, -1
+  %.off.i.i = add i32 %4, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3968
   %6 = load i32, ptr %5, align 8
-  %.fr4 = freeze i32 %6
-  %7 = or i32 %.off.i.i, %.fr4
-  %or.cond = icmp ult i32 %7, 2
-  br i1 %or.cond, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %switch.early.test
+  %7 = icmp ult i32 %6, 2
+  %or.cond = select i1 %switch.i.i, i1 %7, i1 false
+  %8 = freeze i1 %or.cond
+  br i1 %8, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %switch.early.test
 
 switch.early.test:                                ; preds = %1
-  switch i32 %.fr, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit [
+  switch i32 %4, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit [
     i32 5, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
     i32 3, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
     i32 0, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread
   ]
 
 _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit: ; preds = %switch.early.test
-  %8 = icmp eq i32 %.fr, 1
-  %9 = icmp eq i32 %.fr4, 2
-  %10 = and i1 %8, %9
-  br i1 %10, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread, label %12
+  %9 = icmp eq i32 %4, 1
+  %10 = icmp eq i32 %6, 2
+  %11 = select i1 %9, i1 %10, i1 false
+  br i1 %11, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread, label %13
 
 _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread: ; preds = %switch.early.test, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
-  %11 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(4136) %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
-  br i1 %11, label %12, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %12 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(4136) %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
+  br i1 %12, label %13, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-12:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !133
-  %15 = load ptr, ptr %14, align 8, !tbaa !313, !noalias !1287
-  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %2, ptr noundef nonnull align 8 dereferenceable(15248) %15, i32 0, i32 noundef 310) #23
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %17 = load i8, ptr %16, align 8, !tbaa !338, !range !15, !noundef !16
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
+13:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !133
+  %16 = load ptr, ptr %15, align 8, !tbaa !313, !noalias !1287
+  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %2, ptr noundef nonnull align 8 dereferenceable(15248) %16, i32 0, i32 noundef 310) #23
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %18 = load i8, ptr %17, align 8, !tbaa !338, !range !15, !noundef !16
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %20, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !341
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 65
-  %23 = load i8, ptr %22, align 1, !tbaa !342, !range !15, !noundef !16
-  %24 = trunc nuw i8 %23 to i1
-  %25 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248) %21, ptr noundef nonnull align 8 dereferenceable(66) %2, i1 noundef zeroext %24) #23
-  store ptr null, ptr %20, align 8, !tbaa !341
-  store i8 0, ptr %16, align 8, !tbaa !338
-  store i8 0, ptr %22, align 1, !tbaa !342
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !341
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 65
+  %24 = load i8, ptr %23, align 1, !tbaa !342, !range !15, !noundef !16
+  %25 = trunc nuw i8 %24 to i1
+  %26 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248) %22, ptr noundef nonnull align 8 dereferenceable(66) %2, i1 noundef zeroext %25) #23
+  store ptr null, ptr %21, align 8, !tbaa !341
+  store i8 0, ptr %17, align 8, !tbaa !338
+  store i8 0, ptr %23, align 1, !tbaa !342
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %19, %12
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !108
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %20, %13
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %28 = load ptr, ptr %27, align 8, !tbaa !108
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  %30 = load i64, ptr %28, align 8, !tbaa !103
-  %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %31) #24
+  %31 = load i64, ptr %29, align 8, !tbaa !103
+  %32 = add i64 %31, 1
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %32) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %32 = load ptr, ptr %2, align 8, !tbaa !317
-  %.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %33
+  %33 = load ptr, ptr %2, align 8, !tbaa !317
+  %.not.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %34
 
-33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !321
-  %.not.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %36
+34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !321
+  %.not.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %37
 
-36:                                               ; preds = %33
-  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %35, ptr noundef nonnull %32)
+37:                                               ; preds = %34
+  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %36, ptr noundef nonnull %33)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %switch.early.test, %switch.early.test, %1, %36, %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread
+_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %switch.early.test, %switch.early.test, %1, %37, %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread
   ret void
 }
 

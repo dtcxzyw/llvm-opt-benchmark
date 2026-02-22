@@ -1067,36 +1067,36 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   %16 = sext i32 %3 to i64
   %17 = sext i32 %9 to i64
   %18 = sext i32 %15 to i64
-  %smax81 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count82 = zext nneg i32 %smax81 to i64
-  %invariant.gep92 = getelementptr i16, ptr %6, i64 %17
-  %invariant.gep94 = getelementptr i16, ptr %6, i64 %18
+  %smax82 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %wide.trip.count83 = zext nneg i32 %smax82 to i64
+  %invariant.gep93 = getelementptr i16, ptr %6, i64 %17
+  %invariant.gep95 = getelementptr i16, ptr %6, i64 %18
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %indvars.iv78 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next79, %.split.us ]
-  %19 = mul nsw i64 %indvars.iv78, %16
+  %indvars.iv79 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next80, %.split.us ]
+  %19 = mul nsw i64 %indvars.iv79, %16
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !22
   %22 = zext i8 %21 to i16
   %23 = shl nuw nsw i16 %22, 2
-  %24 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv78
+  %24 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv79
   store i16 %23, ptr %24, align 2, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %1, i64 %19
   %26 = load i8, ptr %25, align 1, !tbaa !22
   %27 = zext i8 %26 to i16
   %28 = shl nuw nsw i16 %27, 2
-  %gep93 = getelementptr i16, ptr %invariant.gep92, i64 %indvars.iv78
-  store i16 %28, ptr %gep93, align 2, !tbaa !14
+  %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %indvars.iv79
+  store i16 %28, ptr %gep94, align 2, !tbaa !14
   %29 = getelementptr inbounds i8, ptr %2, i64 %19
   %30 = load i8, ptr %29, align 1, !tbaa !22
   %31 = zext i8 %30 to i16
   %32 = shl nuw nsw i16 %31, 2
-  %gep95 = getelementptr i16, ptr %invariant.gep94, i64 %indvars.iv78
-  store i16 %32, ptr %gep95, align 2, !tbaa !14
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count82
-  br i1 %exitcond83.not, label %.split67.us, label %.split.us, !llvm.loop !27
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv79
+  store i16 %32, ptr %gep96, align 2, !tbaa !14
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count83
+  br i1 %exitcond84.not, label %.split67.us, label %.split.us, !llvm.loop !27
 
 .split:                                           ; preds = %7
   %33 = icmp sgt i32 %4, 8
@@ -1106,39 +1106,39 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   %37 = sext i32 %35 to i64
   %38 = sext i32 %9 to i64
   %39 = sext i32 %15 to i64
-  %smax75 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count76 = zext nneg i32 %smax75 to i64
-  %invariant.gep88 = getelementptr i16, ptr %6, i64 %38
-  %invariant.gep90 = getelementptr i16, ptr %6, i64 %39
+  %smax76 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %wide.trip.count77 = zext nneg i32 %smax76 to i64
+  %invariant.gep89 = getelementptr i16, ptr %6, i64 %38
+  %invariant.gep91 = getelementptr i16, ptr %6, i64 %39
   br i1 %36, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.split.split.us ], [ 0, %.split ]
-  %40 = mul nsw i64 %indvars.iv72, %37
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.split.split.us ], [ 0, %.split ]
+  %40 = mul nsw i64 %indvars.iv73, %37
   %41 = getelementptr inbounds i16, ptr %0, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !14
   %43 = zext i16 %42 to i32
   %44 = lshr i32 %43, %14
   %45 = trunc nuw i32 %44 to i16
-  %46 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv72
+  %46 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv73
   store i16 %45, ptr %46, align 2, !tbaa !14
   %47 = getelementptr inbounds i16, ptr %1, i64 %40
   %48 = load i16, ptr %47, align 2, !tbaa !14
   %49 = zext i16 %48 to i32
   %50 = lshr i32 %49, %14
   %51 = trunc nuw i32 %50 to i16
-  %gep89 = getelementptr i16, ptr %invariant.gep88, i64 %indvars.iv72
-  store i16 %51, ptr %gep89, align 2, !tbaa !14
+  %gep90 = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv73
+  store i16 %51, ptr %gep90, align 2, !tbaa !14
   %52 = getelementptr inbounds i16, ptr %2, i64 %40
   %53 = load i16, ptr %52, align 2, !tbaa !14
   %54 = zext i16 %53 to i32
   %55 = lshr i32 %54, %14
   %56 = trunc nuw i32 %55 to i16
-  %gep91 = getelementptr i16, ptr %invariant.gep90, i64 %indvars.iv72
-  store i16 %56, ptr %gep91, align 2, !tbaa !14
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count76
-  br i1 %exitcond77.not, label %.split67.us, label %.split.split.us, !llvm.loop !27
+  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv73
+  store i16 %56, ptr %gep92, align 2, !tbaa !14
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count77
+  br i1 %exitcond78.not, label %.split67.us, label %.split.split.us, !llvm.loop !27
 
 .split.split:                                     ; preds = %.split, %.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split.split ], [ 0, %.split ]
@@ -1155,17 +1155,17 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   %66 = zext i16 %65 to i32
   %67 = shl i32 %66, %13
   %68 = trunc i32 %67 to i16
-  %gep = getelementptr i16, ptr %invariant.gep88, i64 %indvars.iv
+  %gep = getelementptr i16, ptr %invariant.gep89, i64 %indvars.iv
   store i16 %68, ptr %gep, align 2, !tbaa !14
   %69 = getelementptr inbounds i16, ptr %2, i64 %57
   %70 = load i16, ptr %69, align 2, !tbaa !14
   %71 = zext i16 %70 to i32
   %72 = shl i32 %71, %13
   %73 = trunc i32 %72 to i16
-  %gep87 = getelementptr i16, ptr %invariant.gep90, i64 %indvars.iv
-  store i16 %73, ptr %gep87, align 2, !tbaa !14
+  %gep88 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv
+  store i16 %73, ptr %gep88, align 2, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count76
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
   br i1 %exitcond.not, label %.split67.us, label %.split.split, !llvm.loop !27
 
 .split67.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us

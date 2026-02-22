@@ -1148,16 +1148,13 @@ define internal i32 @cpuset_can_attach(ptr noundef %0) #1 align 16 {
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %22
-  %.fr11 = freeze i64 %28
-  %.fr12 = freeze i64 %29
-  %33 = icmp ne i64 %.fr11, %.fr12
-  %.fr9 = freeze i64 %24
-  %.fr10 = freeze i64 %25
-  %34 = icmp ne i64 %.fr9, %.fr10
+  %33 = icmp ne i64 %28, %29
+  %34 = icmp ne i64 %24, %25
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 328
-  %37 = or i1 %34, %33
-  br i1 %37, label %.split.us, label %.split
+  %37 = select i1 %34, i1 true, i1 %33
+  %.fr = freeze i1 %37
+  br i1 %.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %32, %55
   %38 = phi ptr [ %56, %55 ], [ %30, %32 ]

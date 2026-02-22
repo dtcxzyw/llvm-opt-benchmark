@@ -524,16 +524,15 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %34 = getelementptr inbounds i32, ptr %19, i64 %28
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %19, align 4
-  %.fr = freeze i32 %35
-  %.fr129 = freeze i32 %36
-  %37 = icmp ne i32 %.fr, %.fr129
-  %38 = zext i1 %37 to i32
+  %37 = icmp ne i32 %35, %36
+  %cond.fr = freeze i1 %37
+  %38 = zext i1 %cond.fr to i32
   %spec.select = add nsw i32 %9, %38
   br label %39
 
 39:                                               ; preds = %33, %.thread, %25
   %.0105 = phi i32 [ %9, %25 ], [ %spec.select, %33 ], [ %32, %.thread ]
-  %.0104.shrunk = phi i1 [ false, %25 ], [ %37, %33 ], [ true, %.thread ]
+  %.0104.shrunk = phi i1 [ false, %25 ], [ %cond.fr, %33 ], [ true, %.thread ]
   %40 = icmp sgt i32 %.0105, 64
   br i1 %40, label %41, label %.thread124
 
@@ -570,9 +569,9 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
-  %.098133 = phi i32 [ %50, %.lr.ph.preheader ], [ %.1, %71 ]
-  %.099132 = phi i32 [ %47, %.lr.ph.preheader ], [ %.1100, %71 ]
-  %.0101131 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %71 ]
+  %.098132 = phi i32 [ %50, %.lr.ph.preheader ], [ %.1, %71 ]
+  %.099131 = phi i32 [ %47, %.lr.ph.preheader ], [ %.1100, %71 ]
+  %.0101130 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %71 ]
   %56 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, %3
@@ -583,26 +582,26 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %62 = add nsw i32 %61, %4
   %spec.select122 = tail call i32 @llvm.smax.i32(i32 %62, i32 -32768)
   %63 = tail call i32 @llvm.smin.i32(i32 %spec.select122, i32 32767)
-  %.not116 = icmp eq i32 %59, %.099132
-  %.not117 = icmp eq i32 %63, %.098133
+  %.not116 = icmp eq i32 %59, %.099131
+  %.not117 = icmp eq i32 %63, %.098132
   %or.cond = select i1 %.not116, i1 %.not117, i1 false
   br i1 %or.cond, label %71, label %64
 
 64:                                               ; preds = %.lr.ph
   %65 = trunc nsw i32 %59 to i16
-  %66 = sext i32 %.0101131 to i64
+  %66 = sext i32 %.0101130 to i64
   %67 = getelementptr inbounds %struct.XPoint, ptr %.097127, i64 %66
   store i16 %65, ptr %67, align 2
   %68 = trunc nsw i32 %63 to i16
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i16 %68, ptr %69, align 2
-  %70 = add nsw i32 %.0101131, 1
+  %70 = add nsw i32 %.0101130, 1
   br label %71
 
 71:                                               ; preds = %.lr.ph, %64
-  %.1102 = phi i32 [ %70, %64 ], [ %.0101131, %.lr.ph ]
-  %.1100 = phi i32 [ %59, %64 ], [ %.099132, %.lr.ph ]
-  %.1 = phi i32 [ %63, %64 ], [ %.098133, %.lr.ph ]
+  %.1102 = phi i32 [ %70, %64 ], [ %.0101130, %.lr.ph ]
+  %.1100 = phi i32 [ %59, %64 ], [ %.099131, %.lr.ph ]
+  %.1 = phi i32 [ %63, %64 ], [ %.098132, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -612,12 +611,12 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   br i1 %72, label %._crit_edge.thread, label %77
 
 ._crit_edge.thread:                               ; preds = %.thread124, %._crit_edge
-  %.098.lcssa144 = phi i32 [ %.1, %._crit_edge ], [ %50, %.thread124 ]
-  %.099.lcssa143 = phi i32 [ %.1100, %._crit_edge ], [ %47, %.thread124 ]
-  %73 = trunc nsw i32 %.099.lcssa143 to i16
+  %.098.lcssa143 = phi i32 [ %.1, %._crit_edge ], [ %50, %.thread124 ]
+  %.099.lcssa142 = phi i32 [ %.1100, %._crit_edge ], [ %47, %.thread124 ]
+  %73 = trunc nsw i32 %.099.lcssa142 to i16
   %74 = getelementptr inbounds nuw i8, ptr %.097127, i64 4
   store i16 %73, ptr %74, align 2
-  %75 = trunc nsw i32 %.098.lcssa144 to i16
+  %75 = trunc nsw i32 %.098.lcssa143 to i16
   %76 = getelementptr inbounds nuw i8, ptr %.097127, i64 6
   store i16 %75, ptr %76, align 2
   br label %83

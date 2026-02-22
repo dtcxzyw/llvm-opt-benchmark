@@ -6392,8 +6392,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
 
 .lr.ph:                                           ; preds = %2
   %15 = load i64, ptr %10, align 8
-  %.fr20 = freeze i64 %15
-  %16 = add i64 %.fr20, -1
+  %.fr = freeze i64 %15
+  %16 = add i64 %.fr, -1
   %17 = icmp ult i64 %16, 4294967296
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32

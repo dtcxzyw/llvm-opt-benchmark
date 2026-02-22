@@ -6023,9 +6023,9 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
 .lr.ph.i25.i.i.i.i.i:                             ; preds = %186
   %189 = load i64, ptr %44, align 8, !alias.scope !932, !noalias !939, !noundef !10
   %190 = load i64, ptr %35, align 8, !alias.scope !932, !noalias !939
-  %.fr.i.i.i.i = freeze i64 %190
+  %.fr49.i.i.i.i = freeze i64 %190
   %191 = load i64, ptr %37, align 8, !alias.scope !932, !noalias !939
-  %192 = add i64 %.fr.i.i.i.i, -1
+  %192 = add i64 %.fr49.i.i.i.i, -1
   %.first_iter.i.i.i.i.i = icmp ult i64 %192, %126
   br label %193
 
@@ -6052,7 +6052,7 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br i1 %208, label %193, label %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i"
 
 .preheader6.i.i.i.i.i:                            ; preds = %193, %224
-  %.sroa.04.0.i.i.i.i.i.i = phi i64 [ %225, %224 ], [ %.fr.i.i.i.i, %193 ]
+  %.sroa.04.0.i.i.i.i.i.i = phi i64 [ %225, %224 ], [ %.fr49.i.i.i.i, %193 ]
   %209 = icmp ult i64 %.sroa.04.0.i.i.i.i.i.i, %126
   br i1 %209, label %220, label %.preheader.i.preheader.i.i.i.i
 
@@ -6060,7 +6060,7 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br i1 %.first_iter.i.i.i.i.i, label %.preheader.i.us.i.i.i.i, label %.preheader.i.i.i.i.i
 
 .preheader.i.us.i.i.i.i:                          ; preds = %.preheader.i.preheader.i.i.i.i, %214
-  %.sroa.59.0.i.i.us.i.i.i.i = phi i64 [ %211, %214 ], [ %.fr.i.i.i.i, %.preheader.i.preheader.i.i.i.i ]
+  %.sroa.59.0.i.i.us.i.i.i.i = phi i64 [ %211, %214 ], [ %.fr49.i.i.i.i, %.preheader.i.preheader.i.i.i.i ]
   %.not.i.us.i.i.i.i = icmp eq i64 %.sroa.59.0.i.i.us.i.i.i.i, 0
   br i1 %.not.i.us.i.i.i.i, label %.split.us.i.i.i.i, label %210
 
@@ -6088,7 +6088,7 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br i1 %222, label %224, label %230
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader.i.preheader.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i64 %.fr.i.i.i.i, 0
+  %.not.i.i.i.i.i = icmp eq i64 %.fr49.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i, label %.invoke
 
 .split.us.i.i.i.i:                                ; preds = %.preheader.i.us.i.i.i.i, %.preheader.i.i.i.i.i
@@ -6105,12 +6105,12 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br i1 %.not24.i.i.i.i.i.i, label %.preheader6.i.i.i.i.i, label %232
 
 230:                                              ; preds = %220
-  %231 = add i64 %194, %.fr.i.i.i.i
+  %231 = add i64 %194, %.fr49.i.i.i.i
   %umax.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %124, i64 %231)
   br label %.invoke
 
 232:                                              ; preds = %224
-  %reass.sub132 = sub i64 %194, %.fr.i.i.i.i
+  %reass.sub132 = sub i64 %194, %.fr49.i.i.i.i
   %233 = add i64 %reass.sub132, 1
   %234 = add i64 %233, %.sroa.04.0.i.i.i.i.i.i
   br label %205

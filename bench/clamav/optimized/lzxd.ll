@@ -3617,7 +3617,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   br label %.preheader.split.us.preheader
 
 .preheader.split.us.preheader:                    ; preds = %.split131.us, %.preheader.preheader
-  %indvars.iv148 = phi i32 [ %45, %.preheader.preheader ], [ %indvars.iv.next149, %.split131.us ]
+  %indvars.iv149 = phi i32 [ %45, %.preheader.preheader ], [ %indvars.iv.next150, %.split131.us ]
   %indvars.iv = phi i32 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %.split131.us ]
   %.1137 = phi i32 [ 32768, %.preheader.preheader ], [ %77, %.split131.us ]
   %.3136 = phi i32 [ %42, %.preheader.preheader ], [ %.5.us, %.split131.us ]
@@ -3632,7 +3632,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !43
   %50 = zext i8 %49 to i32
-  %.not96.us = icmp eq i32 %indvars.iv148, %50
+  %.not96.us = icmp eq i32 %indvars.iv149, %50
   br i1 %.not96.us, label %51, label %53
 
 51:                                               ; preds = %.preheader.split.us
@@ -3693,10 +3693,10 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 .split131.us:                                     ; preds = %53
   %77 = lshr i32 %.1137, 1
-  %indvars.iv.next149 = add nuw nsw i32 %indvars.iv148, 1
+  %indvars.iv.next150 = add nuw nsw i32 %indvars.iv149, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond151.not = icmp eq i32 %indvars.iv.next149, 17
-  br i1 %exitcond151.not, label %._crit_edge139, label %.preheader.split.us.preheader
+  %exitcond152.not = icmp eq i32 %indvars.iv.next150, 17
+  br i1 %exitcond152.not, label %._crit_edge139, label %.preheader.split.us.preheader
 
 ._crit_edge139:                                   ; preds = %.split131.us
   %78 = icmp ne i32 %.5.us, %41

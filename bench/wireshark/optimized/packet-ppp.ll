@@ -7342,9 +7342,8 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   %17 = load i32, ptr @hf_chap_identifier, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
-  %.fr = freeze i16 %19
-  %20 = zext i16 %.fr to i32
-  %21 = icmp ult i16 %.fr, 4
+  %20 = zext i16 %19 to i32
+  %21 = icmp ult i16 %19, 4
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %4
@@ -7375,8 +7374,7 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33)
   %35 = add nsw i32 %20, -5
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %.fr109 = freeze i8 %36
-  %37 = zext i8 %.fr109 to i32
+  %37 = zext i8 %36 to i32
   %.not107 = icmp samesign ult i32 %35, %37
   %38 = load i32, ptr @hf_chap_value_size, align 4
   br i1 %.not107, label %61, label %39
@@ -7390,13 +7388,14 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   %42 = load i32, ptr @hf_chap_value, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %42, ptr noundef %0, i32 noundef 5, i32 noundef %37, i32 noundef 0)
   %44 = sub nsw i32 %35, %37
+  %.fr = freeze i32 %44
   %.not105 = icmp eq i32 %35, %37
   br i1 %.not105, label %49, label %45
 
 45:                                               ; preds = %41
   %46 = add nuw nsw i32 %37, 5
   %47 = load i32, ptr @hf_chap_name, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef %44, i32 noundef 0)
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef %.fr, i32 noundef 0)
   br label %49
 
 49:                                               ; preds = %45, %41
@@ -7404,11 +7403,11 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   %50 = load ptr, ptr %6, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
-  %53 = icmp ugt i32 %44, 20
-  %54 = tail call i32 @llvm.umin.i32(i32 %44, i32 20)
+  %53 = icmp ugt i32 %.fr, 20
+  %54 = tail call i32 @llvm.umin.i32(i32 %.fr, i32 20)
   %55 = tail call ptr @tvb_format_text(ptr noundef %52, ptr noundef %0, i32 noundef %.092, i32 noundef %54)
   %spec.select = select i1 %53, ptr @.str.1581, ptr @.str.1006
-  %.not106 = icmp eq i8 %.fr109, 0
+  %.not106 = icmp eq i8 %36, 0
   br i1 %.not106, label %59, label %56
 
 56:                                               ; preds = %49
@@ -7422,7 +7421,7 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   br label %.thread
 
 61:                                               ; preds = %30
-  %62 = icmp eq i8 %.fr109, 1
+  %62 = icmp eq i8 %36, 1
   %63 = select i1 %62, ptr @.str.1006, ptr @.str.1007
   %64 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %34, i32 noundef %38, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %37, ptr noundef nonnull @.str.1579, i32 noundef %37, ptr noundef nonnull %63, i32 noundef %35)
   br label %79

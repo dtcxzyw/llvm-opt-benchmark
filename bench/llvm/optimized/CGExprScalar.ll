@@ -26731,67 +26731,66 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7Code
   %10 = alloca %"class.llvm::FixedPointSemantics", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = tail call i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #21
-  %.fr = freeze i32 %11
   %12 = load i32, ptr %2, align 4
-  %.fr24 = freeze i32 %12
-  %13 = load i32, ptr %4, align 4
-  %.fr25 = freeze i32 %13
-  %14 = and i32 %.fr25, %.fr24
-  %or.cond.i = icmp slt i32 %14, 0
-  %15 = lshr i32 %.fr, 30
-  %.lobit.i = and i32 %15, 1
-  %spec.select.i = and i32 %14, -2147483648
-  %16 = select i1 %or.cond.i, i32 %.lobit.i, i32 0
-  %17 = add i32 %16, %.fr
-  %18 = and i32 %17, 65535
-  %19 = and i32 %.fr, 2147418112
-  %20 = or disjoint i32 %spec.select.i, %19
-  %21 = or disjoint i32 %20, %18
-  store i32 %21, ptr %6, align 4
-  %22 = and i32 %.fr, 536870912
-  %23 = icmp ne i32 %22, 0
-  %spec.select = or i1 %23, %or.cond.i
-  %24 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
-  %25 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
-  %26 = load i32, ptr %6, align 4
-  %27 = and i32 %26, 1073741824
-  %.not = icmp eq i32 %27, 0
-  %28 = select i1 %spec.select, i32 330, i32 366
-  %29 = select i1 %spec.select, i32 329, i32 365
-  %.0 = select i1 %.not, i32 %29, i32 %28
-  %30 = load ptr, ptr %0, align 8, !tbaa !1488
+  %13 = icmp slt i32 %12, 0
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp slt i32 %14, 0
+  %or.cond.i = select i1 %13, i1 %15, i1 false
+  %16 = lshr i32 %11, 30
+  %.lobit.i = and i32 %16, 1
+  %spec.select.i = select i1 %or.cond.i, i32 -2147483648, i32 0
+  %17 = select i1 %or.cond.i, i32 %.lobit.i, i32 0
+  %18 = add i32 %17, %11
+  %19 = and i32 %18, 65535
+  %20 = and i32 %11, 2147418112
+  %21 = or disjoint i32 %spec.select.i, %20
+  %22 = or disjoint i32 %21, %19
+  store i32 %22, ptr %6, align 4
+  %23 = and i32 %11, 536870912
+  %24 = icmp ne i32 %23, 0
+  %spec.select = select i1 %24, i1 true, i1 %or.cond.i
+  %cond.fr23 = freeze i1 %spec.select
+  %25 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
+  %26 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
+  %27 = load i32, ptr %6, align 4
+  %28 = and i32 %27, 1073741824
+  %.not = icmp eq i32 %28, 0
+  %29 = select i1 %cond.fr23, i32 330, i32 366
+  %30 = select i1 %cond.fr23, i32 329, i32 365
+  %.0 = select i1 %.not, i32 %30, i32 %29
+  %31 = load ptr, ptr %0, align 8, !tbaa !1488
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !16
-  store ptr %32, ptr %7, align 8, !tbaa !640
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  store ptr %33, ptr %7, align 8, !tbaa !640
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %24, ptr %8, align 8, !tbaa !33
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %25, ptr %33, align 8, !tbaa !33
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %35 = shl i32 %26, 3
-  %36 = ashr i32 %35, 19
-  %37 = sub nsw i32 0, %36
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %39 = load ptr, ptr %38, align 8, !tbaa !37
-  %40 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %39) #21
-  %41 = zext i32 %37 to i64
-  %42 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %40, i64 noundef %41, i1 noundef zeroext false) #21
-  store ptr %42, ptr %34, align 8, !tbaa !33
+  store ptr %25, ptr %8, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %26, ptr %34, align 8, !tbaa !33
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %36 = shl i32 %27, 3
+  %37 = ashr i32 %36, 19
+  %38 = sub nsw i32 0, %37
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %41 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %40) #21
+  %42 = zext i32 %38 to i64
+  %43 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %41, i64 noundef %42, i1 noundef zeroext false) #21
+  store ptr %43, ptr %35, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i16 257, ptr %43, align 8
-  %44 = call noundef ptr @_ZN4llvm13IRBuilderBase15CreateIntrinsicEjNS_8ArrayRefIPNS_4TypeEEENS1_IPNS_5ValueEEENS_9FMFSourceERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %30, i32 noundef %.0, ptr nonnull %7, i64 1, ptr nonnull %8, i64 3, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %9) #21
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i16 257, ptr %44, align 8
+  %45 = call noundef ptr @_ZN4llvm13IRBuilderBase15CreateIntrinsicEjNS_8ArrayRefIPNS_4TypeEEENS1_IPNS_5ValueEEENS_9FMFSourceERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %31, i32 noundef %.0, ptr nonnull %7, i64 1, ptr nonnull %8, i64 3, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %45 = call i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #21
-  store i32 %45, ptr %10, align 4
-  %46 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %44, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %10, i1 noundef zeroext false)
+  %46 = call i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #21
+  store i32 %46, ptr %10, align 4
+  %47 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %10, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %46
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26803,67 +26802,66 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7Code
   %10 = alloca %"class.llvm::FixedPointSemantics", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = tail call i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #21
-  %.fr = freeze i32 %11
   %12 = load i32, ptr %2, align 4
-  %.fr24 = freeze i32 %12
-  %13 = load i32, ptr %4, align 4
-  %.fr25 = freeze i32 %13
-  %14 = and i32 %.fr25, %.fr24
-  %or.cond.i = icmp slt i32 %14, 0
-  %15 = lshr i32 %.fr, 30
-  %.lobit.i = and i32 %15, 1
-  %spec.select.i = and i32 %14, -2147483648
-  %16 = select i1 %or.cond.i, i32 %.lobit.i, i32 0
-  %17 = add i32 %16, %.fr
-  %18 = and i32 %17, 65535
-  %19 = and i32 %.fr, 2147418112
-  %20 = or disjoint i32 %spec.select.i, %19
-  %21 = or disjoint i32 %20, %18
-  store i32 %21, ptr %6, align 4
-  %22 = and i32 %.fr, 536870912
-  %23 = icmp ne i32 %22, 0
-  %spec.select = or i1 %23, %or.cond.i
-  %24 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
-  %25 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
-  %26 = load i32, ptr %6, align 4
-  %27 = and i32 %26, 1073741824
-  %.not = icmp eq i32 %27, 0
-  %28 = select i1 %spec.select, i32 314, i32 362
-  %29 = select i1 %spec.select, i32 313, i32 361
-  %.0 = select i1 %.not, i32 %29, i32 %28
-  %30 = load ptr, ptr %0, align 8, !tbaa !1488
+  %13 = icmp slt i32 %12, 0
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp slt i32 %14, 0
+  %or.cond.i = select i1 %13, i1 %15, i1 false
+  %16 = lshr i32 %11, 30
+  %.lobit.i = and i32 %16, 1
+  %spec.select.i = select i1 %or.cond.i, i32 -2147483648, i32 0
+  %17 = select i1 %or.cond.i, i32 %.lobit.i, i32 0
+  %18 = add i32 %17, %11
+  %19 = and i32 %18, 65535
+  %20 = and i32 %11, 2147418112
+  %21 = or disjoint i32 %spec.select.i, %20
+  %22 = or disjoint i32 %21, %19
+  store i32 %22, ptr %6, align 4
+  %23 = and i32 %11, 536870912
+  %24 = icmp ne i32 %23, 0
+  %spec.select = select i1 %24, i1 true, i1 %or.cond.i
+  %cond.fr23 = freeze i1 %spec.select
+  %25 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
+  %26 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %6, i1 noundef zeroext false)
+  %27 = load i32, ptr %6, align 4
+  %28 = and i32 %27, 1073741824
+  %.not = icmp eq i32 %28, 0
+  %29 = select i1 %cond.fr23, i32 314, i32 362
+  %30 = select i1 %cond.fr23, i32 313, i32 361
+  %.0 = select i1 %.not, i32 %30, i32 %29
+  %31 = load ptr, ptr %0, align 8, !tbaa !1488
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !16
-  store ptr %32, ptr %7, align 8, !tbaa !640
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  store ptr %33, ptr %7, align 8, !tbaa !640
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %24, ptr %8, align 8, !tbaa !33
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %25, ptr %33, align 8, !tbaa !33
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %35 = shl i32 %26, 3
-  %36 = ashr i32 %35, 19
-  %37 = sub nsw i32 0, %36
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %39 = load ptr, ptr %38, align 8, !tbaa !37
-  %40 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %39) #21
-  %41 = zext i32 %37 to i64
-  %42 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %40, i64 noundef %41, i1 noundef zeroext false) #21
-  store ptr %42, ptr %34, align 8, !tbaa !33
+  store ptr %25, ptr %8, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %26, ptr %34, align 8, !tbaa !33
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %36 = shl i32 %27, 3
+  %37 = ashr i32 %36, 19
+  %38 = sub nsw i32 0, %37
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %41 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %40) #21
+  %42 = zext i32 %38 to i64
+  %43 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %41, i64 noundef %42, i1 noundef zeroext false) #21
+  store ptr %43, ptr %35, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i16 257, ptr %43, align 8
-  %44 = call noundef ptr @_ZN4llvm13IRBuilderBase15CreateIntrinsicEjNS_8ArrayRefIPNS_4TypeEEENS1_IPNS_5ValueEEENS_9FMFSourceERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %30, i32 noundef %.0, ptr nonnull %7, i64 1, ptr nonnull %8, i64 3, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %9) #21
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i16 257, ptr %44, align 8
+  %45 = call noundef ptr @_ZN4llvm13IRBuilderBase15CreateIntrinsicEjNS_8ArrayRefIPNS_4TypeEEENS1_IPNS_5ValueEEENS_9FMFSourceERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %31, i32 noundef %.0, ptr nonnull %7, i64 1, ptr nonnull %8, i64 3, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %45 = call i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #21
-  store i32 %45, ptr %10, align 4
-  %46 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %44, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %10, i1 noundef zeroext false)
+  %46 = call i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #21
+  store i32 %46, ptr %10, align 4
+  %47 = call noundef ptr @_ZN4llvm17FixedPointBuilderIN5clang7CodeGen11CGBuilderTyEE7ConvertEPNS_5ValueERKNS_19FixedPointSemanticsES9_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %10, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %46
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

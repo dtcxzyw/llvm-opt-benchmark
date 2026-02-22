@@ -15390,8 +15390,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection19detect_lo
   %82 = add nsw i16 %66, -86
   %83 = zext nneg i16 %82 to i64
   %84 = shl nuw i64 %81, %83
-  %.fr = freeze i64 %84
-  %85 = zext i64 %.fr to i128
+  %85 = zext i64 %84 to i128
   %86 = mul nuw nsw i128 %85, 1000000000
   %87 = lshr i128 %86, 64
   %88 = trunc nuw nsw i128 %87 to i32
@@ -15401,10 +15400,11 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection19detect_lo
   %92 = icmp ne i128 %91, 0
   %93 = trunc i128 %87 to i1
   %narrow7.i.i = or i1 %90, %93
-  %narrow8.i.i = and i1 %92, %narrow7.i.i
+  %narrow8.i.i = select i1 %92, i1 %narrow7.i.i, i1 false
   %.sroa.0.0.i.i = zext i1 %narrow8.i.i to i32
   %94 = add nuw nsw i32 %.sroa.0.0.i.i, %88
-  %spec.select278 = tail call i32 @llvm.umax.i32(i32 %94, i32 1000000)
+  %.fr = freeze i32 %94
+  %spec.select278 = tail call i32 @llvm.umax.i32(i32 %.fr, i32 1000000)
   br label %.thread265
 
 95:                                               ; preds = %71

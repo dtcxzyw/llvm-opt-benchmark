@@ -15026,8 +15026,8 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
   %22 = alloca %class.anon.288, align 8
-  %.fr97 = freeze i64 %3
-  store i64 %.fr97, ptr %6, align 8
+  %.fr98 = freeze i64 %3
+  store i64 %.fr98, ptr %6, align 8
   %23 = load i32, ptr %1, align 4
   store i32 %23, ptr %7, align 4
   %24 = or i32 %23, 1
@@ -15042,7 +15042,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %33 = trunc nuw i64 %32 to i32
   store i32 %33, ptr %8, align 4
   store i8 48, ptr %9, align 1
-  %34 = lshr i64 %.fr97, 32
+  %34 = lshr i64 %.fr98, 32
   %35 = trunc nuw i64 %34 to i32
   %36 = lshr i32 %35, 8
   %37 = and i32 %36, 255
@@ -15053,7 +15053,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %40 = and i64 %39, 4294967295
   %41 = and i32 %35, 131072
   %.not62 = icmp eq i32 %41, 0
-  %42 = trunc i64 %.fr97 to i32
+  %42 = trunc i64 %.fr98 to i32
   br i1 %.not62, label %45, label %43
 
 43:                                               ; preds = %5
@@ -15377,11 +15377,11 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 189:                                              ; preds = %182
   %190 = and i32 %35, 1048576
-  %.not91 = icmp eq i32 %190, 0
+  %.not92 = icmp eq i32 %190, 0
   %.lobit = lshr exact i32 %190, 20
   %191 = trunc nuw nsw i32 %.lobit to i8
   store i8 %191, ptr %21, align 1
-  br i1 %.not91, label %193, label %192
+  br i1 %.not92, label %193, label %192
 
 192:                                              ; preds = %.thread89, %189
   br label %193
@@ -17895,8 +17895,8 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
   %22 = alloca %class.anon.297, align 8
-  %.fr97 = freeze i64 %3
-  store i64 %.fr97, ptr %6, align 8
+  %.fr98 = freeze i64 %3
+  store i64 %.fr98, ptr %6, align 8
   %23 = load i64, ptr %1, align 8
   store i64 %23, ptr %7, align 8
   %24 = or i64 %23, 1
@@ -17913,7 +17913,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %34 = add nsw i32 %.neg.i.i.i, %29
   store i32 %34, ptr %8, align 4
   store i8 48, ptr %9, align 1
-  %35 = lshr i64 %.fr97, 32
+  %35 = lshr i64 %.fr98, 32
   %36 = trunc nuw i64 %35 to i32
   %37 = lshr i32 %36, 8
   %38 = and i32 %37, 255
@@ -17924,7 +17924,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %41 = zext i32 %40 to i64
   %42 = and i32 %36, 131072
   %.not62 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr97 to i32
+  %43 = trunc i64 %.fr98 to i32
   br i1 %.not62, label %46, label %44
 
 44:                                               ; preds = %5
@@ -18248,11 +18248,11 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 190:                                              ; preds = %183
   %191 = and i32 %36, 1048576
-  %.not91 = icmp eq i32 %191, 0
+  %.not92 = icmp eq i32 %191, 0
   %.lobit = lshr exact i32 %191, 20
   %192 = trunc nuw nsw i32 %.lobit to i8
   store i8 %192, ptr %21, align 1
-  br i1 %.not91, label %194, label %193
+  br i1 %.not92, label %194, label %193
 
 193:                                              ; preds = %.thread89, %190
   br label %194
@@ -21161,15 +21161,15 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14b
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
   %22 = alloca %class.anon.304, align 8
-  %.fr97 = freeze i64 %3
-  store i64 %.fr97, ptr %6, align 8
+  %.fr98 = freeze i64 %3
+  store i64 %.fr98, ptr %6, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %8, align 4
   store i8 48, ptr %9, align 1
-  %26 = lshr i64 %.fr97, 32
+  %26 = lshr i64 %.fr98, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = lshr i32 %27, 8
   %29 = and i32 %28, 255
@@ -21180,7 +21180,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14b
   %32 = zext i32 %31 to i64
   %33 = and i32 %27, 131072
   %.not62 = icmp eq i32 %33, 0
-  %34 = trunc i64 %.fr97 to i32
+  %34 = trunc i64 %.fr98 to i32
   br i1 %.not62, label %37, label %35
 
 35:                                               ; preds = %5
@@ -21504,11 +21504,11 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 181:                                              ; preds = %174
   %182 = and i32 %27, 1048576
-  %.not91 = icmp eq i32 %182, 0
+  %.not92 = icmp eq i32 %182, 0
   %.lobit = lshr exact i32 %182, 20
   %183 = trunc nuw nsw i32 %.lobit to i8
   store i8 %183, ptr %21, align 1
-  br i1 %.not91, label %185, label %184
+  br i1 %.not92, label %185, label %184
 
 184:                                              ; preds = %.thread89, %181
   br label %185
@@ -45313,11 +45313,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -45339,16 +45337,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseIN8WasmEdge3AST10MemoryTypeESaIS2_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #23
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN8WasmEdge3AST10MemoryTypeESaIS2_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -12
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 12
-  %25 = add i64 %23, 12
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 12
+  %25 = add i64 %.fr.i, 12
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit
 
 _ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit: ; preds = %_ZNSt12_Vector_baseIN8WasmEdge3AST10MemoryTypeESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -45374,11 +45373,11 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST10MemoryTypeESaIS2_EE13_M_deallocateEPS2_m.exi
   br i1 %.not24, label %36, label %34
 
 34:                                               ; preds = %29
-  %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
+  %.not.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN8WasmEdge3AST10MemoryTypeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN8WasmEdge3AST10MemoryTypeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
 36:                                               ; preds = %29
@@ -45386,7 +45385,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST10MemoryTypeESaIS2_EE13_M_deallocateEPS2_m.exi
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN8WasmEdge3AST10MemoryTypeES3_ET0_T_S5_S4_.exit, label %37
 
 37:                                               ; preds = %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8
   %.pre27 = load ptr, ptr %30, align 8
   %.pre28 = load ptr, ptr %0, align 8
@@ -45398,9 +45397,9 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST10MemoryTypeESaIS2_EE13_M_deallocateEPS2_m.exi
 
 _ZSt4copyIPN8WasmEdge3AST10MemoryTypeES3_ET0_T_S5_S4_.exit: ; preds = %36, %37
   %.pre-phi34 = phi i64 [ 0, %36 ], [ %.pre33, %37 ]
-  %38 = phi ptr [ %.fr13.i, %36 ], [ %.pre29, %37 ]
+  %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
   %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
-  %40 = phi ptr [ %.fr14.i, %36 ], [ %.pre, %37 ]
+  %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 %.pre-phi34
   %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN8WasmEdge3AST10MemoryTypeESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i
@@ -48566,11 +48565,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -48592,16 +48589,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #23
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -12
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 12
-  %25 = add i64 %23, 12
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 12
+  %25 = add i64 %.fr.i, 12
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
 
 _ZNSt6vectorISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -48637,7 +48635,7 @@ _ZNSt12_Vector_baseISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE13_M_deallocateEPS3_m.e
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %.012.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0910.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0910.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
   %37 = load i32, ptr %.0910.i.i.i.i.i, align 4
   store i32 %37, ptr %.0811.i.i.i.i.i, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
@@ -48661,7 +48659,7 @@ _ZNSt12_Vector_baseISt4pairIjN8WasmEdge7ValTypeEESaIS3_EE13_M_deallocateEPS3_m.e
 .lr.ph.i.i.i.i.i27:                               ; preds = %.lr.ph.i.i.i.i.i27, %.lr.ph.preheader.i.i.i.i.i26
   %.012.i.i.i.i.i28 = phi i64 [ %54, %.lr.ph.i.i.i.i.i27 ], [ %47, %.lr.ph.preheader.i.i.i.i.i26 ]
   %.0811.i.i.i.i.i29 = phi ptr [ %53, %.lr.ph.i.i.i.i.i27 ], [ %12, %.lr.ph.preheader.i.i.i.i.i26 ]
-  %.0910.i.i.i.i.i30 = phi ptr [ %52, %.lr.ph.i.i.i.i.i27 ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i26 ]
+  %.0910.i.i.i.i.i30 = phi ptr [ %52, %.lr.ph.i.i.i.i.i27 ], [ %6, %.lr.ph.preheader.i.i.i.i.i26 ]
   %48 = load i32, ptr %.0910.i.i.i.i.i30, align 4
   store i32 %48, ptr %.0811.i.i.i.i.i29, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 4
@@ -48686,9 +48684,9 @@ _ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit: ; preds =
 
 _ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit, %45
   %.pre-phi41 = phi i64 [ %.pre40, %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit ], [ %33, %45 ]
-  %56 = phi ptr [ %.pre36, %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit ], [ %.fr13.i, %45 ]
+  %56 = phi ptr [ %.pre36, %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit ], [ %5, %45 ]
   %57 = phi ptr [ %.pre34, %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit ], [ %31, %45 ]
-  %58 = phi ptr [ %.pre, %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit ], [ %.fr14.i, %45 ]
+  %58 = phi ptr [ %.pre, %_ZSt4copyIPSt4pairIjN8WasmEdge7ValTypeEES4_ET0_T_S6_S5_.exit.loopexit ], [ %6, %45 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 %.pre-phi41
   %.not9.i.i.i.i = icmp eq ptr %59, %56
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIjN8WasmEdge7ValTypeEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i

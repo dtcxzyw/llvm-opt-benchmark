@@ -4775,27 +4775,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau3SetISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4hashIS8_EE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 comdat align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !171
-  %.sroa.0.0.copyload.i.fr = freeze ptr %.sroa.0.0.copyload.i
   %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.fr, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !102
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !115
-  %.fr = freeze ptr %5
-  %.not.i.not = icmp eq ptr %.sroa.0.0.copyload.i.fr, %.fr
+  %.not.i = icmp ne ptr %.sroa.0.0.copyload.i, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.fr, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.fr, i64 56
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.fr, i64 32
-  br i1 %.not.i.not, label %.split.preheader, label %.split.us
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
+  %.not.i.fr = freeze i1 %.not.i
+  br i1 %.not.i.fr, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %1
   %.sroa.2.0.copyload.i.pre = load i64, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !92
   br label %.split
 
 .split.us:                                        ; preds = %1
-  %11 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
+  %11 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !118
   %.sroa.2.0.copyload.i.us.pre = load i64, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !92
   br label %12
 
@@ -4863,7 +4862,7 @@ _ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_
   br i1 %41, label %.lr.ph.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
 
 .lr.ph.i.i:                                       ; preds = %.split
-  %42 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
+  %42 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !118
   %43 = load i8, ptr %9, align 8, !tbaa !83, !range !49, !noundef !50
   br label %44
 
@@ -4910,14 +4909,14 @@ _ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_
   br i1 %.not, label %.critedge, label %64
 
 64:                                               ; preds = %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
-  %65 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
+  %65 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !118
   %66 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %65, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load i8, ptr %67, align 8, !tbaa !174, !range !49, !noundef !50
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %.split, label %.critedge, !llvm.loop !176
 
-.critedge:                                        ; preds = %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit.us, %64, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+.critedge:                                        ; preds = %64, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit.us
   ret ptr %0
 }
 
@@ -8369,27 +8368,26 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau3SetISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4hashIS8_EE14const_iteratorC2ENS_6detail14DenseHashTableIS8_St4pairIS8_bESF_IKS8_bENSD_16ItemInterfaceMapIS8_bEESA_St8equal_toIS8_EE14const_iteratorESO_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #2 comdat align 2 {
-  %.fr5 = freeze ptr %3
-  %.fr = freeze ptr %1
-  store ptr %.fr, ptr %0, align 8, !tbaa !171
+  store ptr %1, ptr %0, align 8, !tbaa !171
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !92
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.fr5, ptr %6, align 8, !tbaa !171
+  store ptr %3, ptr %6, align 8, !tbaa !171
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !92
-  %.not.i = icmp ne ptr %.fr, %.fr5
+  %.not.i = icmp ne ptr %1, %3
+  %.not.i.fr = freeze i1 %.not.i
   %7 = icmp ne i64 %2, %4
-  %8 = select i1 %.not.i, i1 true, i1 %7
+  %8 = select i1 %.not.i.fr, i1 true, i1 %7
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5
-  %9 = load ptr, ptr %.fr, align 8, !tbaa !118
-  %10 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %.fr, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 56
-  %13 = getelementptr inbounds nuw i8, ptr %.fr, i64 32
-  br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %9 = load ptr, ptr %1, align 8, !tbaa !118
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  br i1 %.not.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %2

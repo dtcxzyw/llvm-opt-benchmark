@@ -2860,8 +2860,8 @@ define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr 
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.fr = freeze i8 %32
-  %35 = and i8 %.fr, 1
+  %.fr48 = freeze i8 %32
+  %35 = and i8 %.fr48, 1
   %.not = icmp eq i8 %35, 0
   %36 = add nuw nsw i32 %33, 11
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split

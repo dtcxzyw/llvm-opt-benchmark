@@ -493,13 +493,13 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us:          ; preds = %_ZNSt6vectorIbSaIbE
   %15 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.05062.us.us)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 %.163.us.us)
   %16 = add nuw nsw i32 %.05062.us.us, 1
-  %exitcond75.not = icmp eq i32 %16, 9
-  br i1 %exitcond75.not, label %.split65.us.us, label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us, !llvm.loop !69
+  %exitcond76.not = icmp eq i32 %16, 9
+  br i1 %exitcond76.not, label %.split65.us.us, label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us, !llvm.loop !69
 
 .split65.us.us:                                   ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us
   %17 = add nuw nsw i32 %.05166.us, 1
-  %exitcond76.not = icmp eq i32 %17, 5
-  br i1 %exitcond76.not, label %.loopexit, label %.split.us.us, !llvm.loop !70
+  %exitcond77.not = icmp eq i32 %17, 5
+  br i1 %exitcond77.not, label %.loopexit, label %.split.us.us, !llvm.loop !70
 
 .split:                                           ; preds = %.preheader, %.split65
   %.04867 = phi i32 [ %.2, %.split65 ], [ 0, %.preheader ]
@@ -509,8 +509,8 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us:          ; preds = %_ZNSt6vectorIbSaIbE
 
 .split65:                                         ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
   %18 = add nuw nsw i32 %.05166, 1
-  %exitcond74.not = icmp eq i32 %18, 5
-  br i1 %exitcond74.not, label %.loopexit, label %.split, !llvm.loop !70
+  %exitcond75.not = icmp eq i32 %18, 5
+  br i1 %exitcond75.not, label %.loopexit, label %.split, !llvm.loop !70
 
 19:                                               ; preds = %.split, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
   %.163 = phi i32 [ %.04867, %.split ], [ %.2, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit ]
@@ -668,8 +668,8 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
 _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit.i, %19
   %.2 = phi i32 [ %.163, %19 ], [ %20, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit.i ]
   %81 = add nuw nsw i32 %.05062, 1
-  %exitcond73.not = icmp eq i32 %81, 9
-  br i1 %exitcond73.not, label %.split65, label %19, !llvm.loop !69
+  %exitcond74.not = icmp eq i32 %81, 9
+  br i1 %exitcond74.not, label %.split65, label %19, !llvm.loop !69
 
 82:                                               ; preds = %9
   %.not = xor i1 %2, true
@@ -721,8 +721,8 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
 99:                                               ; preds = %97, %94
   %.6 = phi i32 [ %95, %97 ], [ %.560, %94 ]
   %100 = add nuw nsw i32 %.04761, 1
-  %exitcond72.not = icmp eq i32 %100, 5
-  br i1 %exitcond72.not, label %.loopexit, label %94, !llvm.loop !76
+  %exitcond73.not = icmp eq i32 %100, 5
+  br i1 %exitcond73.not, label %.loopexit, label %94, !llvm.loop !76
 
 .loopexit:                                        ; preds = %90, %99, %.split65, %.split65.us.us, %92, %5
   %.0 = phi i32 [ %6, %5 ], [ %.6, %99 ], [ %spec.select, %.split65.us.us ], [ 0, %92 ], [ %.2, %.split65 ], [ %.4, %90 ]
@@ -787,36 +787,36 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
   %37 = call noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #21, !noalias !88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %37, i8 -1, i64 36, i1 false), !tbaa !52, !noalias !88
   %38 = load i32, ptr %13, align 8, !tbaa !91, !noalias !88
-  %.fr37.i.i = freeze i32 %38
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %40 = srem i32 %39, %.fr37.i.i
-  %41 = sdiv i32 %39, %.fr37.i.i
+  %40 = srem i32 %39, %38
+  %41 = sdiv i32 %39, %38
   %42 = load i32, ptr %20, align 4, !noalias !88
   %43 = zext nneg i32 %40 to i64
-  %44 = sext i32 %.fr37.i.i to i64
-  %.fr38.i.i = freeze i32 %42
+  %44 = sext i32 %38 to i64
+  %.fr.i.i = freeze i32 %42
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.split.us.i.i, %36
-  %indvars.iv41.i.i = phi i64 [ -1, %36 ], [ %indvars.iv.next42.i.i, %.split.us.i.i ]
-  %45 = trunc nsw i64 %indvars.iv41.i.i to i32
+  %indvars.iv40.i.i = phi i64 [ -1, %36 ], [ %indvars.iv.next41.i.i, %.split.us.i.i ]
+  %45 = trunc nsw i64 %indvars.iv40.i.i to i32
   %46 = add i32 %41, %45
-  %47 = icmp sgt i32 %46, -1
-  %.not.i.i = icmp slt i32 %46, %.fr38.i.i
+  %.fr37.i.i = freeze i32 %46
+  %47 = icmp sgt i32 %.fr37.i.i, -1
+  %.not.i.i = icmp slt i32 %.fr37.i.i, %.fr.i.i
   %48 = and i1 %.not.i.i, %47
   br i1 %48, label %.preheader.split.preheader.i.i, label %.split.us.i.i
 
 .preheader.split.preheader.i.i:                   ; preds = %.preheader.i.i
-  %49 = mul nsw i32 %46, %.fr37.i.i
-  %.idx.i.i = mul nsw i64 %indvars.iv41.i.i, 12
+  %49 = mul nsw i32 %.fr37.i.i, %38
+  %.idx.i.i = mul nsw i64 %indvars.iv40.i.i, 12
   %50 = getelementptr i8, ptr %37, i64 %.idx.i.i
   %51 = getelementptr i8, ptr %50, i64 16
   br label %.preheader.split.i.i
 
 .split.us.i.i:                                    ; preds = %59, %.preheader.i.i
-  %indvars.iv.next42.i.i = add nsw i64 %indvars.iv41.i.i, 1
-  %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next42.i.i, 2
-  br i1 %exitcond44.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.preheader.i.i, !llvm.loop !92
+  %indvars.iv.next41.i.i = add nsw i64 %indvars.iv40.i.i, 1
+  %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 2
+  br i1 %exitcond43.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.preheader.i.i, !llvm.loop !92
 
 .preheader.split.i.i:                             ; preds = %59, %.preheader.split.preheader.i.i
   %indvars.iv.i.i = phi i64 [ -1, %.preheader.split.preheader.i.i ], [ %indvars.iv.next.i.i, %59 ]
@@ -1279,36 +1279,36 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher6getNB9EiRKNS_5Size_IiEE(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %7, align 8, !tbaa !106
   %8 = load i32, ptr %3, align 4, !tbaa !91
-  %.fr37 = freeze i32 %8
-  %9 = srem i32 %2, %.fr37
-  %10 = sdiv i32 %2, %.fr37
+  %9 = srem i32 %2, %8
+  %10 = sdiv i32 %2, %8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %9 to i64
-  %14 = sext i32 %.fr37 to i64
-  %.fr38 = freeze i32 %12
+  %14 = sext i32 %8 to i64
+  %.fr = freeze i32 %12
   br label %.preheader
 
 .preheader:                                       ; preds = %.noexc, %.split.us
-  %indvars.iv41 = phi i64 [ -1, %.noexc ], [ %indvars.iv.next42, %.split.us ]
-  %15 = trunc nsw i64 %indvars.iv41 to i32
+  %indvars.iv40 = phi i64 [ -1, %.noexc ], [ %indvars.iv.next41, %.split.us ]
+  %15 = trunc i64 %indvars.iv40 to i32
   %16 = add i32 %10, %15
-  %17 = icmp sgt i32 %16, -1
-  %.not = icmp slt i32 %16, %.fr38
+  %.fr37 = freeze i32 %16
+  %17 = icmp sgt i32 %.fr37, -1
+  %.not = icmp slt i32 %.fr37, %.fr
   %18 = and i1 %.not, %17
   br i1 %18, label %.preheader.split.preheader, label %.split.us
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %19 = mul nsw i32 %.fr37, %16
-  %.idx = mul i64 %indvars.iv41, 12
+  %19 = mul nsw i32 %8, %.fr37
+  %.idx = mul i64 %indvars.iv40, 12
   %20 = getelementptr i8, ptr %4, i64 %.idx
   %21 = getelementptr i8, ptr %20, i64 16
   br label %.preheader.split
 
 .split.us:                                        ; preds = %29, %.preheader
-  %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next42, 2
-  br i1 %exitcond44.not, label %30, label %.preheader, !llvm.loop !92
+  %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 2
+  br i1 %exitcond43.not, label %30, label %.preheader, !llvm.loop !92
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %29
   %indvars.iv = phi i64 [ -1, %.preheader.split.preheader ], [ %indvars.iv.next, %29 ]
@@ -1357,36 +1357,36 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher18initalizeNeighborsERNS_3Mat
   %11 = tail call noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #21, !noalias !107
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 -1, i64 36, i1 false), !tbaa !52, !noalias !107
   %12 = load i32, ptr %2, align 4, !tbaa !91, !noalias !107
-  %.fr37.i = freeze i32 %12
   %13 = trunc nuw nsw i64 %indvars.iv to i32
-  %14 = srem i32 %13, %.fr37.i
-  %15 = sdiv i32 %13, %.fr37.i
+  %14 = srem i32 %13, %12
+  %15 = sdiv i32 %13, %12
   %16 = load i32, ptr %7, align 4, !noalias !107
   %17 = zext nneg i32 %14 to i64
-  %18 = sext i32 %.fr37.i to i64
-  %.fr38.i = freeze i32 %16
+  %18 = sext i32 %12 to i64
+  %.fr.i = freeze i32 %16
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.us.i, %10
-  %indvars.iv41.i = phi i64 [ -1, %10 ], [ %indvars.iv.next42.i, %.split.us.i ]
-  %19 = trunc nsw i64 %indvars.iv41.i to i32
+  %indvars.iv40.i = phi i64 [ -1, %10 ], [ %indvars.iv.next41.i, %.split.us.i ]
+  %19 = trunc nsw i64 %indvars.iv40.i to i32
   %20 = add i32 %15, %19
-  %21 = icmp sgt i32 %20, -1
-  %.not.i = icmp slt i32 %20, %.fr38.i
+  %.fr37.i = freeze i32 %20
+  %21 = icmp sgt i32 %.fr37.i, -1
+  %.not.i = icmp slt i32 %.fr37.i, %.fr.i
   %22 = and i1 %.not.i, %21
   br i1 %22, label %.preheader.split.preheader.i, label %.split.us.i
 
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
-  %23 = mul nsw i32 %20, %.fr37.i
-  %.idx.i = mul nsw i64 %indvars.iv41.i, 12
+  %23 = mul nsw i32 %.fr37.i, %12
+  %.idx.i = mul nsw i64 %indvars.iv40.i, 12
   %24 = getelementptr i8, ptr %11, i64 %.idx.i
   %25 = getelementptr i8, ptr %24, i64 16
   br label %.preheader.split.i
 
 .split.us.i:                                      ; preds = %33, %.preheader.i
-  %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 2
-  br i1 %exitcond44.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.preheader.i, !llvm.loop !92
+  %indvars.iv.next41.i = add nsw i64 %indvars.iv40.i, 1
+  %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 2
+  br i1 %exitcond43.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.preheader.i, !llvm.loop !92
 
 .preheader.split.i:                               ; preds = %33, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ -1, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %33 ]
@@ -2204,36 +2204,36 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %92
 .noexc26:                                         ; preds = %105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %106, i8 -1, i64 36, i1 false), !tbaa !52, !noalias !147
   %107 = load i32, ptr %11, align 8, !tbaa !91, !noalias !147
-  %.fr37.i.i = freeze i32 %107
   %108 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %109 = srem i32 %108, %.fr37.i.i
-  %110 = sdiv i32 %108, %.fr37.i.i
+  %109 = srem i32 %108, %107
+  %110 = sdiv i32 %108, %107
   %111 = load i32, ptr %12, align 4, !noalias !147
   %112 = zext nneg i32 %109 to i64
-  %113 = sext i32 %.fr37.i.i to i64
-  %.fr38.i.i = freeze i32 %111
+  %113 = sext i32 %107 to i64
+  %.fr.i.i = freeze i32 %111
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.split.us.i.i, %.noexc26
-  %indvars.iv41.i.i = phi i64 [ -1, %.noexc26 ], [ %indvars.iv.next42.i.i, %.split.us.i.i ]
-  %114 = trunc nsw i64 %indvars.iv41.i.i to i32
+  %indvars.iv40.i.i = phi i64 [ -1, %.noexc26 ], [ %indvars.iv.next41.i.i, %.split.us.i.i ]
+  %114 = trunc nsw i64 %indvars.iv40.i.i to i32
   %115 = add i32 %110, %114
-  %116 = icmp sgt i32 %115, -1
-  %.not.i.i = icmp slt i32 %115, %.fr38.i.i
+  %.fr37.i.i = freeze i32 %115
+  %116 = icmp sgt i32 %.fr37.i.i, -1
+  %.not.i.i = icmp slt i32 %.fr37.i.i, %.fr.i.i
   %117 = and i1 %.not.i.i, %116
   br i1 %117, label %.preheader.split.preheader.i.i, label %.split.us.i.i
 
 .preheader.split.preheader.i.i:                   ; preds = %.preheader.i.i
-  %118 = mul nsw i32 %115, %.fr37.i.i
-  %.idx.i.i = mul nsw i64 %indvars.iv41.i.i, 12
+  %118 = mul nsw i32 %.fr37.i.i, %107
+  %.idx.i.i = mul nsw i64 %indvars.iv40.i.i, 12
   %119 = getelementptr i8, ptr %106, i64 %.idx.i.i
   %120 = getelementptr i8, ptr %119, i64 16
   br label %.preheader.split.i.i
 
 .split.us.i.i:                                    ; preds = %128, %.preheader.i.i
-  %indvars.iv.next42.i.i = add nsw i64 %indvars.iv41.i.i, 1
-  %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next42.i.i, 2
-  br i1 %exitcond44.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.preheader.i.i, !llvm.loop !92
+  %indvars.iv.next41.i.i = add nsw i64 %indvars.iv40.i.i, 1
+  %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 2
+  br i1 %exitcond43.not.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.preheader.i.i, !llvm.loop !92
 
 .preheader.split.i.i:                             ; preds = %128, %.preheader.split.preheader.i.i
   %indvars.iv.i.i = phi i64 [ -1, %.preheader.split.preheader.i.i ], [ %indvars.iv.next.i.i, %128 ]

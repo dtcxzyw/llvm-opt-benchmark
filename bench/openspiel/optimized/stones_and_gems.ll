@@ -4545,16 +4545,15 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
   br i1 %20, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit23, label %.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit23: ; preds = %17
-  %.sroa.01.0.copyload.fr = freeze i64 %.sroa.01.0.copyload
-  %.sroa.0.0.extract.trunc.i22 = trunc i64 %.sroa.01.0.copyload.fr to i32
+  %.sroa.0.0.extract.trunc.i22 = trunc i64 %.sroa.01.0.copyload to i32
   %21 = sext i32 %19 to i64
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %22, i64 %21
   %24 = load i32, ptr %23, align 4
-  %.fr = freeze i32 %24
-  %25 = icmp eq i32 %.fr, %.sroa.0.0.extract.trunc.i22
-  %spec.select = select i1 %25, i64 %4, i64 %2
-  %spec.select28 = select i1 %25, i64 %5, i64 %3
+  %25 = icmp eq i32 %24, %.sroa.0.0.extract.trunc.i22
+  %cond.fr = freeze i1 %25
+  %spec.select = select i1 %cond.fr, i64 %4, i64 %2
+  %spec.select28 = select i1 %cond.fr, i64 %5, i64 %3
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit23, %17

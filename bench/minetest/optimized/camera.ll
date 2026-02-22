@@ -1955,46 +1955,43 @@ if.end289:                                        ; preds = %for.cond, %if.then2
   %162 = extractelement <2 x float> %my_cp.sroa.0.4, i64 0
   %div291 = fdiv nsz float %162, 1.000000e+01
   %conv292 = fptosi float %div291 to i16
-  %conv292.fr = freeze i16 %conv292
-  %conv293 = sext i16 %conv292.fr to i32
+  %conv293 = sext i16 %conv292 to i32
   %m_camera_offset = getelementptr inbounds nuw i8, ptr %this, i64 84
   %163 = load i16, ptr %m_camera_offset, align 4, !tbaa !228
-  %.fr = freeze i16 %163
-  %conv295 = sext i16 %.fr to i32
+  %conv295 = sext i16 %163 to i32
   %sub296 = sub nsw i32 %conv293, %conv295
-  %164 = srem i32 %sub296, 200
-  %mul298 = sub nsw i32 %sub296, %164
+  %sub296.fr = freeze i32 %sub296
+  %164 = srem i32 %sub296.fr, 200
+  %mul298 = sub nsw i32 %sub296.fr, %164
   %165 = trunc i32 %mul298 to i16
-  %conv303 = add i16 %.fr, %165
+  %conv303 = add i16 %163, %165
   store i16 %conv303, ptr %m_camera_offset, align 4, !tbaa !228
   %166 = extractelement <2 x float> %my_cp.sroa.0.4, i64 1
   %div305 = fdiv nsz float %166, 1.000000e+01
   %conv306 = fptosi float %div305 to i16
-  %conv306.fr = freeze i16 %conv306
-  %conv307 = sext i16 %conv306.fr to i32
+  %conv307 = sext i16 %conv306 to i32
   %Y309 = getelementptr inbounds nuw i8, ptr %this, i64 86
   %167 = load i16, ptr %Y309, align 2, !tbaa !229
-  %.fr14 = freeze i16 %167
-  %conv310 = sext i16 %.fr14 to i32
+  %conv310 = sext i16 %167 to i32
   %sub311 = sub nsw i32 %conv307, %conv310
-  %168 = srem i32 %sub311, 200
-  %mul313 = sub nsw i32 %sub311, %168
+  %sub311.fr = freeze i32 %sub311
+  %168 = srem i32 %sub311.fr, 200
+  %mul313 = sub nsw i32 %sub311.fr, %168
   %169 = trunc i32 %mul313 to i16
-  %conv318 = add i16 %.fr14, %169
+  %conv318 = add i16 %167, %169
   store i16 %conv318, ptr %Y309, align 2, !tbaa !229
   %div320 = fdiv nsz float %my_cp.sroa.22.3, 1.000000e+01
   %conv321 = fptosi float %div320 to i16
-  %conv321.fr = freeze i16 %conv321
-  %conv322 = sext i16 %conv321.fr to i32
+  %conv322 = sext i16 %conv321 to i32
   %Z324 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %170 = load i16, ptr %Z324, align 8, !tbaa !230
-  %.fr15 = freeze i16 %170
-  %conv325 = sext i16 %.fr15 to i32
+  %conv325 = sext i16 %170 to i32
   %sub326 = sub nsw i32 %conv322, %conv325
-  %171 = srem i32 %sub326, 200
-  %mul328 = sub nsw i32 %sub326, %171
+  %sub326.fr = freeze i32 %sub326
+  %171 = srem i32 %sub326.fr, 200
+  %mul328 = sub nsw i32 %sub326.fr, %171
   %172 = trunc i32 %mul328 to i16
-  %conv333 = add i16 %.fr15, %172
+  %conv333 = add i16 %170, %172
   store i16 %conv333, ptr %Z324, align 8, !tbaa !230
   %m_cameranode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %173 = load ptr, ptr %m_cameranode, align 8, !tbaa !73
@@ -2419,44 +2416,44 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   %retval.sroa.0.4.vec.insert.i57.sink.i = phi <2 x float> [ %328, %if.else.i ], [ %306, %if.then4.i ]
   %retval.sroa.3.12.vec.insert.i59.sink.i = phi <2 x float> [ %329, %if.else.i ], [ %307, %if.then4.i ]
   %quat_slerp.sroa.5.12.vec.extract = extractelement <2 x float> %retval.sroa.3.12.vec.insert.i59.sink.i, i64 1
-  %mul.i16 = fmul nsz float %quat_slerp.sroa.5.12.vec.extract, %quat_slerp.sroa.5.12.vec.extract
-  %conv.i = fpext float %mul.i16 to double
+  %mul.i14 = fmul nsz float %quat_slerp.sroa.5.12.vec.extract, %quat_slerp.sroa.5.12.vec.extract
+  %conv.i = fpext float %mul.i14 to double
   %quat_slerp.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.4.vec.insert.i57.sink.i, i64 0
   %foldExtExtBinop = fmul nsz <2 x float> %retval.sroa.0.4.vec.insert.i57.sink.i, %retval.sroa.0.4.vec.insert.i57.sink.i
-  %mul4.i17 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %conv5.i = fpext float %mul4.i17 to double
+  %mul4.i15 = extractelement <2 x float> %foldExtExtBinop, i64 0
+  %conv5.i = fpext float %mul4.i15 to double
   %quat_slerp.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.4.vec.insert.i57.sink.i, i64 1
   %mul7.i = fmul nsz float %quat_slerp.sroa.0.4.vec.extract, %quat_slerp.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %quat_slerp.sroa.5.8.vec.extract = extractelement <2 x float> %retval.sroa.3.12.vec.insert.i59.sink.i, i64 0
-  %foldExtExtBinop50 = fmul nsz <2 x float> %retval.sroa.3.12.vec.insert.i59.sink.i, %retval.sroa.3.12.vec.insert.i59.sink.i
-  %mul10.i20 = extractelement <2 x float> %foldExtExtBinop50, i64 0
-  %conv11.i = fpext float %mul10.i20 to double
+  %foldExtExtBinop48 = fmul nsz <2 x float> %retval.sroa.3.12.vec.insert.i59.sink.i, %retval.sroa.3.12.vec.insert.i59.sink.i
+  %mul10.i18 = extractelement <2 x float> %foldExtExtBinop48, i64 0
+  %conv11.i = fpext float %mul10.i18 to double
   %330 = fneg nsz float %quat_slerp.sroa.0.0.vec.extract
   %neg.i = fmul nsz float %quat_slerp.sroa.5.8.vec.extract, %330
   %331 = call nsz float @llvm.fmuladd.f32(float %quat_slerp.sroa.0.4.vec.extract, float %quat_slerp.sroa.5.12.vec.extract, float %neg.i)
   %conv18.i = fpext float %331 to double
   %mul19.i = fmul nsz double %conv18.i, 2.000000e+00
-  %sub.i.i21 = fadd nsz double %mul19.i, -1.000000e+00
-  %332 = call nsz noundef double @llvm.fabs.f64(double %sub.i.i21)
-  %cmp.i.i22 = fcmp nsz ugt double %332, 0x3EB0C6F7A0B5ED8D
-  br i1 %cmp.i.i22, label %if.else.i24, label %if.then.i
+  %sub.i.i19 = fadd nsz double %mul19.i, -1.000000e+00
+  %332 = call nsz noundef double @llvm.fabs.f64(double %sub.i.i19)
+  %cmp.i.i20 = fcmp nsz ugt double %332, 0x3EB0C6F7A0B5ED8D
+  br i1 %cmp.i.i20, label %if.else.i22, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN3irr4core10quaternion5slerpES1_S1_ff.exit
   %conv21.i = fpext float %quat_slerp.sroa.0.0.vec.extract to double
   %conv23.i = fpext float %quat_slerp.sroa.5.12.vec.extract to double
   %call24.i = call nsz double @atan2(double noundef %conv21.i, double noundef %conv23.i) #32
-  %mul25.i23 = fmul nsz double %call24.i, -2.000000e+00
+  %mul25.i21 = fmul nsz double %call24.i, -2.000000e+00
   store float 0.000000e+00, ptr %wield_rotation, align 8, !tbaa !191
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
-if.else.i24:                                      ; preds = %_ZN3irr4core10quaternion5slerpES1_S1_ff.exit
+if.else.i22:                                      ; preds = %_ZN3irr4core10quaternion5slerpES1_S1_ff.exit
   %sub.i87.i = fadd nsz double %mul19.i, 1.000000e+00
   %333 = call nsz noundef double @llvm.fabs.f64(double %sub.i87.i)
   %cmp.i88.i = fcmp nsz ugt double %333, 0x3EB0C6F7A0B5ED8D
   br i1 %cmp.i88.i, label %if.else42.i, label %if.then31.i
 
-if.then31.i:                                      ; preds = %if.else.i24
+if.then31.i:                                      ; preds = %if.else.i22
   %conv33.i = fpext float %quat_slerp.sroa.0.0.vec.extract to double
   %conv35.i = fpext float %quat_slerp.sroa.5.12.vec.extract to double
   %call36.i = call nsz double @atan2(double noundef %conv33.i, double noundef %conv35.i) #32
@@ -2464,15 +2461,15 @@ if.then31.i:                                      ; preds = %if.else.i24
   store float 0.000000e+00, ptr %wield_rotation, align 8, !tbaa !191
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
-if.else42.i:                                      ; preds = %if.else.i24
+if.else42.i:                                      ; preds = %if.else.i22
   %mul48.i = fmul nsz float %quat_slerp.sroa.5.12.vec.extract, %quat_slerp.sroa.5.8.vec.extract
   %334 = call nsz float @llvm.fmuladd.f32(float %quat_slerp.sroa.0.0.vec.extract, float %quat_slerp.sroa.0.4.vec.extract, float %mul48.i)
   %conv49.i = fpext float %334 to double
   %mul50.i = fmul nsz double %conv49.i, 2.000000e+00
   %sub.i = fsub nsz double %conv5.i, %conv8.i
   %sub51.i = fsub nsz double %sub.i, %conv11.i
-  %add.i25 = fadd nsz double %sub51.i, %conv.i
-  %call52.i = call nsz double @atan2(double noundef %mul50.i, double noundef %add.i25) #32
+  %add.i23 = fadd nsz double %sub51.i, %conv.i
+  %call52.i = call nsz double @atan2(double noundef %mul50.i, double noundef %add.i23) #32
   %mul60.i = fmul nsz float %quat_slerp.sroa.0.0.vec.extract, %quat_slerp.sroa.5.12.vec.extract
   %335 = call nsz float @llvm.fmuladd.f32(float %quat_slerp.sroa.0.4.vec.extract, float %quat_slerp.sroa.5.8.vec.extract, float %mul60.i)
   %conv61.i = fpext float %335 to double
@@ -2483,8 +2480,8 @@ if.else42.i:                                      ; preds = %if.else.i24
   %call66.i = call nsz double @atan2(double noundef %mul62.i, double noundef %add65.i) #32
   %conv67.i = fptrunc double %call66.i to float
   store float %conv67.i, ptr %wield_rotation, align 8, !tbaa !191
-  %cmp.i.i.i26 = fcmp nsz olt double %mul19.i, -1.000000e+00
-  %337 = select i1 %cmp.i.i.i26, double -1.000000e+00, double %mul19.i
+  %cmp.i.i.i24 = fcmp nsz olt double %mul19.i, -1.000000e+00
+  %337 = select i1 %cmp.i.i.i24, double -1.000000e+00, double %mul19.i
   %cmp.i2.i.i = fcmp nsz olt double %337, 1.000000e+00
   %338 = select i1 %cmp.i2.i.i, double %337, double 1.000000e+00
   %call71.i = call nsz double @asin(double noundef %338) #32
@@ -2492,7 +2489,7 @@ if.else42.i:                                      ; preds = %if.else.i24
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
 _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i, %if.then31.i, %if.else42.i
-  %.in = phi double [ %mul37.i, %if.then31.i ], [ %call52.i, %if.else42.i ], [ %mul25.i23, %if.then.i ]
+  %.in = phi double [ %mul37.i, %if.then31.i ], [ %call52.i, %if.else42.i ], [ %mul25.i21, %if.then.i ]
   %.sink.i = phi float [ 0xBFF921FB60000000, %if.then31.i ], [ %conv72.i, %if.else42.i ], [ 0x3FF921FB60000000, %if.then.i ]
   %339 = fptrunc double %.in to float
   %Y41.i = getelementptr inbounds nuw i8, ptr %wield_rotation, i64 4

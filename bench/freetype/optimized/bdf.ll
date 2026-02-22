@@ -2016,7 +2016,7 @@ bdf_strtok_.exit:                                 ; preds = %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %bdf_strtok_.exit, %77
   %74 = phi i8 [ %85, %77 ], [ %63, %bdf_strtok_.exit ]
-  %.09.i = phi i64 [ %83, %77 ], [ 0, %bdf_strtok_.exit ]
+  %.09.i = phi i64 [ %.fr, %77 ], [ 0, %bdf_strtok_.exit ]
   %.068.i = phi ptr [ %84, %77 ], [ %.2.i, %bdf_strtok_.exit ]
   %75 = icmp ult i64 %.09.i, 1844674407370955160
   br i1 %75, label %77, label %.thread
@@ -2031,9 +2031,9 @@ bdf_strtok_.exit:                                 ; preds = %.loopexit.i
   %79 = sext i8 %74 to i64
   %80 = getelementptr inbounds i8, ptr @a2i, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !37
-  %.fr = freeze i8 %81
-  %82 = zext i8 %.fr to i64
+  %82 = zext i8 %81 to i64
   %83 = add i64 %78, %82
+  %.fr = freeze i64 %83
   %84 = getelementptr inbounds nuw i8, ptr %.068.i, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !37
   %86 = lshr i8 %85, 3
@@ -2049,7 +2049,7 @@ bdf_strtok_.exit:                                 ; preds = %.loopexit.i
   br i1 %.not.i238, label %bdf_atoul_.exit, label %.lr.ph.i, !llvm.loop !158
 
 bdf_atoul_.exit:                                  ; preds = %77
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %83, i64 2)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 2)
   br label %bdf_atoul_.exit.thread
 
 bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %bdf_atoul_.exit
@@ -2102,17 +2102,17 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   br i1 %.not195, label %.preheader369, label %.thread355
 
 .preheader369:                                    ; preds = %114, %119
-  %.0170395 = phi i64 [ %120, %119 ], [ 0, %114 ]
-  %.0173394 = phi ptr [ %121, %119 ], [ @bdf_properties_, %114 ]
-  %117 = load ptr, ptr %.0173394, align 8, !tbaa !159
-  %118 = call i32 @ft_hash_str_insert(ptr noundef %117, i64 noundef %.0170395, ptr noundef nonnull %115, ptr noundef %9) #18
+  %.0170394 = phi i64 [ %120, %119 ], [ 0, %114 ]
+  %.0173393 = phi ptr [ %121, %119 ], [ @bdf_properties_, %114 ]
+  %117 = load ptr, ptr %.0173393, align 8, !tbaa !159
+  %118 = call i32 @ft_hash_str_insert(ptr noundef %117, i64 noundef %.0170394, ptr noundef nonnull %115, ptr noundef %9) #18
   store i32 %118, ptr %7, align 4, !tbaa !25
   %.not196 = icmp eq i32 %118, 0
   br i1 %.not196, label %119, label %.thread355
 
 119:                                              ; preds = %.preheader369
-  %120 = add nuw nsw i64 %.0170395, 1
-  %121 = getelementptr inbounds nuw i8, ptr %.0173394, i64 24
+  %120 = add nuw nsw i64 %.0170394, 1
+  %121 = getelementptr inbounds nuw i8, ptr %.0173393, i64 24
   %exitcond.not = icmp eq i64 %120, 82
   br i1 %exitcond.not, label %122, label %.preheader369, !llvm.loop !160
 
@@ -2522,12 +2522,12 @@ bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
   br i1 %.not210, label %.preheader367, label %.thread355
 
 .preheader367:                                    ; preds = %bdf_strtok_.exit291, %.critedge
-  %.0168397 = phi i32 [ %313, %.critedge ], [ 0, %bdf_strtok_.exit291 ]
-  %.0171396 = phi ptr [ %spec.select230, %.critedge ], [ %.2.i289, %bdf_strtok_.exit291 ]
+  %.0168396 = phi i32 [ %313, %.critedge ], [ 0, %bdf_strtok_.exit291 ]
+  %.0171395 = phi ptr [ %spec.select230, %.critedge ], [ %.2.i289, %bdf_strtok_.exit291 ]
   br label %309
 
 309:                                              ; preds = %.preheader367, %311
-  %.1172 = phi ptr [ %312, %311 ], [ %.0171396, %.preheader367 ]
+  %.1172 = phi ptr [ %312, %311 ], [ %.0171395, %.preheader367 ]
   %310 = load i8, ptr %.1172, align 1, !tbaa !37
   switch i8 %310, label %311 [
     i8 0, label %.critedge
@@ -2542,9 +2542,9 @@ bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
   %.not213 = icmp ne i8 %310, 0
   %spec.select230.idx = zext i1 %.not213 to i64
   %spec.select230 = getelementptr inbounds nuw i8, ptr %.1172, i64 %spec.select230.idx
-  %313 = add nuw nsw i32 %.0168397, 1
-  %exitcond422.not = icmp eq i32 %313, 11
-  br i1 %exitcond422.not, label %314, label %.preheader367, !llvm.loop !165
+  %313 = add nuw nsw i32 %.0168396, 1
+  %exitcond420.not = icmp eq i32 %313, 11
+  br i1 %exitcond420.not, label %314, label %.preheader367, !llvm.loop !165
 
 314:                                              ; preds = %.critedge
   %315 = load i8, ptr %spec.select230, align 1, !tbaa !37
@@ -2901,9 +2901,9 @@ bdf_atous_.exit343:                               ; preds = %459
   br label %bdf_atous_.exit343.thread
 
 bdf_atous_.exit343.thread:                        ; preds = %.loopexit.i332, %.lr.ph.i338, %480, %478, %bdf_atous_.exit343, %.thread364
-  %.sink463 = phi i16 [ 2, %480 ], [ 4, %478 ], [ 1, %.thread364 ], [ 8, %bdf_atous_.exit343 ], [ 8, %.lr.ph.i338 ], [ 1, %.loopexit.i332 ]
+  %.sink460 = phi i16 [ 2, %480 ], [ 4, %478 ], [ 1, %.thread364 ], [ 8, %bdf_atous_.exit343 ], [ 8, %.lr.ph.i338 ], [ 1, %.loopexit.i332 ]
   %482 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  store i16 %.sink463, ptr %482, align 8, !tbaa !119
+  store i16 %.sink460, ptr %482, align 8, !tbaa !119
   %483 = load i64, ptr %4, align 8, !tbaa !26
   %484 = or i64 %483, 4
   store i64 %484, ptr %4, align 8, !tbaa !26

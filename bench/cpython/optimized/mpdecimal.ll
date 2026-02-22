@@ -6583,15 +6583,13 @@ mpd_isnormal.exit:                                ; preds = %mpd_iszero.exit21
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !11
-  %.fr = freeze i64 %19
-  %22 = add i64 %.fr, -1
-  %.fr38 = freeze i64 %21
-  %23 = add i64 %22, %.fr38
+  %22 = add i64 %19, -1
+  %23 = add i64 %22, %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !12
-  %.fr39 = freeze i64 %25
-  %.not37 = icmp slt i64 %23, %.fr39
-  %spec.select = select i1 %.not37, ptr @.str.6, ptr @.str.5
+  %.not37 = icmp slt i64 %23, %25
+  %cond.fr = freeze i1 %.not37
+  %spec.select = select i1 %cond.fr, ptr @.str.6, ptr @.str.5
   br label %mpd_isnormal.exit.thread
 
 26:                                               ; preds = %7
@@ -6605,27 +6603,25 @@ mpd_iszero.exit:                                  ; preds = %26
   %31 = getelementptr i64, ptr %28, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !3
-  %.not40 = icmp eq i64 %33, 0
-  br i1 %.not40, label %mpd_isnormal.exit.thread, label %mpd_isnormal.exit26
+  %.not38 = icmp eq i64 %33, 0
+  br i1 %.not38, label %mpd_isnormal.exit.thread, label %mpd_isnormal.exit26
 
 mpd_isnormal.exit26:                              ; preds = %mpd_iszero.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !11
-  %.fr42 = freeze i64 %35
-  %38 = add i64 %.fr42, -1
-  %.fr43 = freeze i64 %37
-  %39 = add i64 %38, %.fr43
+  %38 = add i64 %35, -1
+  %39 = add i64 %38, %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !12
-  %.fr44 = freeze i64 %41
-  %.not41 = icmp slt i64 %39, %.fr44
-  %spec.select45 = select i1 %.not41, ptr @.str.10, ptr @.str.9
+  %.not39 = icmp slt i64 %39, %41
+  %cond.fr32 = freeze i1 %.not39
+  %spec.select40 = select i1 %cond.fr32, ptr @.str.10, ptr @.str.9
   br label %mpd_isnormal.exit.thread
 
 mpd_isnormal.exit.thread:                         ; preds = %mpd_isnormal.exit26, %mpd_isnormal.exit, %mpd_iszero.exit, %26, %mpd_iszero.exit21, %10, %5
-  %.0 = phi ptr [ %.str.2..str.1, %5 ], [ @.str.8, %mpd_iszero.exit ], [ %spec.select, %mpd_isnormal.exit ], [ @.str.3, %10 ], [ @.str.7, %26 ], [ @.str.4, %mpd_iszero.exit21 ], [ %spec.select45, %mpd_isnormal.exit26 ]
+  %.0 = phi ptr [ %.str.2..str.1, %5 ], [ @.str.8, %mpd_iszero.exit ], [ %spec.select, %mpd_isnormal.exit ], [ @.str.3, %10 ], [ @.str.7, %26 ], [ @.str.4, %mpd_iszero.exit21 ], [ %spec.select40, %mpd_isnormal.exit26 ]
   ret ptr %.0
 }
 
@@ -9556,11 +9552,9 @@ define internal fastcc void @_mpd_qaddsub(ptr noundef initializes((8, 16)) %0, p
   store ptr %10, ptr %18, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !7
-  %.fr176 = freeze i64 %20
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !7
-  %.fr = freeze i64 %22
-  %.not = icmp eq i64 %.fr176, %.fr
+  %.not = icmp eq i64 %20, %22
   br i1 %.not, label %.thread, label %31
 
 .thread:                                          ; preds = %6
@@ -9576,9 +9570,10 @@ define internal fastcc void @_mpd_qaddsub(ptr noundef initializes((8, 16)) %0, p
   br label %104
 
 31:                                               ; preds = %6
-  %32 = icmp sgt i64 %.fr, %.fr176
-  %.1114 = select i1 %32, ptr %2, ptr %1
-  %.1110 = select i1 %32, ptr %1, ptr %2
+  %32 = icmp sgt i64 %22, %20
+  %cond.fr = freeze i1 %32
+  %.1114 = select i1 %cond.fr, ptr %2, ptr %1
+  %.1110 = select i1 %cond.fr, ptr %1, ptr %2
   %33 = getelementptr inbounds nuw i8, ptr %.1114, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %.1114, i64 24
@@ -9681,7 +9676,7 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
 95:                                               ; preds = %69, %31
   %.0113 = phi ptr [ %9, %69 ], [ %.1114, %31 ]
   %.0109 = phi ptr [ %.2111, %69 ], [ %.1110, %31 ]
-  %.0 = zext i1 %32 to i32
+  %.0 = zext i1 %cond.fr to i32
   %96 = getelementptr inbounds nuw i8, ptr %.0109, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !7
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9691,7 +9686,7 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
   %101 = getelementptr inbounds nuw i8, ptr %.0109, i64 24
   %102 = load i64, ptr %101, align 8, !tbaa !18
   %103 = icmp slt i64 %100, %102
-  %spec.select = select i1 %32, i32 2, i32 1
+  %spec.select = select i1 %cond.fr, i32 2, i32 1
   br label %104
 
 104:                                              ; preds = %95, %.thread

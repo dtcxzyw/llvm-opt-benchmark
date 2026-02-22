@@ -1603,14 +1603,13 @@ define hidden noundef ptr @_ZN3euf6solver8mk_enodeEP4exprjPKPNS_5enodeE(ptr noun
 
 _ZNK11ast_manager6is_iteEPK4expr.exit:            ; preds = %18
   %23 = load i32, ptr %22, align 8, !tbaa !439
-  %.fr = freeze i32 %23
-  %24 = icmp eq i32 %.fr, 0
+  %24 = icmp eq i32 %23, 0
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %26 = load i32, ptr %25, align 4
-  %.fr30 = freeze i32 %26
-  %27 = icmp eq i32 %.fr30, 4
-  %28 = and i1 %24, %27
-  %spec.select29 = select i1 %28, i32 0, i32 %spec.select
+  %27 = icmp eq i32 %26, 4
+  %28 = select i1 %24, i1 %27, i1 false
+  %cond.fr = freeze i1 %28
+  %spec.select29 = select i1 %cond.fr, i32 0, i32 %spec.select
   br label %_ZNK11ast_manager6is_iteEPK4expr.exit.thread
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit, %18, %4
@@ -1631,8 +1630,8 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %_ZNK11ast_manager6i
   br label %40
 
 40:                                               ; preds = %39, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread
-  %.not33 = icmp eq i32 %29, 0
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i32 %29, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -1696,9 +1695,9 @@ _ZNK3euf5enode8merge_tfEv.exit.thread:            ; preds = %_ZNK3euf5enode11num
 _ZNK3euf5enode8merge_tfEv.exit:                   ; preds = %66, %_ZNK3euf5enode11num_parentsEv.exit.i
   %72 = getelementptr inbounds nuw i8, ptr %58, i64 152
   %73 = load i32, ptr %72, align 8, !tbaa !506
-  %.not31 = icmp eq i32 %73, 0
+  %.not30 = icmp eq i32 %73, 0
   tail call void @_ZN3euf6egraph20set_merge_tf_enabledEPNS_5enodeEb(ptr noundef nonnull align 8 dereferenceable(536) %30, ptr noundef nonnull %58, i1 noundef zeroext true)
-  br i1 %.not31, label %74, label %98
+  br i1 %.not30, label %74, label %98
 
 74:                                               ; preds = %_ZNK3euf5enode8merge_tfEv.exit.thread28, %_ZNK3euf5enode8merge_tfEv.exit
   %75 = load i32, ptr %41, align 8, !tbaa !507

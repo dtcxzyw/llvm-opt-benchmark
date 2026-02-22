@@ -2087,8 +2087,8 @@ define dso_local void @_ZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12fun
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %14, align 4, !tbaa !27
   call void @_ZN4llvm15SmallVectorImplINS_11SmallVectorINS1_IiLj12EEELj1EEEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(96) %9, i64 noundef %11)
-  %.fr212 = freeze i64 %1
-  %15 = trunc i64 %.fr212 to i32
+  %.fr = freeze i64 %1
+  %15 = trunc i64 %.fr to i32
   %16 = udiv i32 %15, %3
   %17 = udiv i32 %15, %2
   %18 = shl i32 %2, 1
@@ -6095,8 +6095,8 @@ define dso_local noundef ptr @_ZN4llvm17propagateMetadataEPNS_11InstructionENS_8
   %4 = alloca %"class.llvm::SmallVector.93", align 8
   %5 = alloca %"class.llvm::MMRAMetadata", align 8
   %6 = alloca %"class.llvm::MMRAMetadata", align 8
-  %.fr52 = freeze i64 %2
-  %7 = icmp eq i64 %.fr52, 0
+  %.fr = freeze i64 %2
+  %7 = icmp eq i64 %.fr, 0
   br i1 %7, label %72, label %8
 
 8:                                                ; preds = %3
@@ -6111,14 +6111,14 @@ define dso_local noundef ptr @_ZN4llvm17propagateMetadataEPNS_11InstructionENS_8
   call void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %15 = and i64 %.fr52, 4294967295
+  %15 = and i64 %.fr, 4294967295
   %.not53 = icmp eq i64 %15, 1
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %.not53, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %8
-  %18 = and i64 %.fr52, 4294967295
+  %18 = and i64 %.fr, 4294967295
   br label %.split
 
 .split.us:                                        ; preds = %8, %_ZNK4llvm11Instruction11getMetadataEj.exit.us

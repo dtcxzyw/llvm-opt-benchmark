@@ -5800,11 +5800,11 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample9add_start17h307a8ae7409
 .lr.ph.i13.i.i.i.i.i:                             ; preds = %910
   %913 = load i64, ptr %330, align 8, !alias.scope !513, !noalias !520, !noundef !3
   %914 = load i64, ptr %321, align 8, !alias.scope !513, !noalias !520
-  %.fr.i.i.i.i = freeze i64 %914
+  %.fr81.i.i.i.i = freeze i64 %914
   %915 = load i64, ptr %323, align 8, !alias.scope !513, !noalias !520
-  %916 = add i64 %.fr.i.i.i.i, -1
+  %916 = add i64 %.fr81.i.i.i.i, -1
   %.first_iter.i.i.i.i.i = icmp ult i64 %916, %787
-  %reass.sub63.i.i.i.i.i = sub i64 1, %.fr.i.i.i.i
+  %reass.sub63.i.i.i.i.i = sub i64 1, %.fr81.i.i.i.i
   br i1 %.first_iter.i.i.i.i.i, label %.lr.ph.i13.i.split.us.i.i.i.i, label %.lr.ph.i13.i.split.i.i.i.i
 
 .lr.ph.i13.i.split.us.i.i.i.i:                    ; preds = %.lr.ph.i13.i.i.i.i.i, %940
@@ -5820,7 +5820,7 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample9add_start17h307a8ae7409
   br i1 %925, label %938, label %.preheader7.i.us.i.i.i.i
 
 .preheader7.i.us.i.i.i.i:                         ; preds = %.lr.ph.i13.i.split.us.i.i.i.i, %929
-  %.sroa.04.0.i.i.us.i.i.i.i = phi i64 [ %930, %929 ], [ %.fr.i.i.i.i, %.lr.ph.i13.i.split.us.i.i.i.i ]
+  %.sroa.04.0.i.i.us.i.i.i.i = phi i64 [ %930, %929 ], [ %.fr81.i.i.i.i, %.lr.ph.i13.i.split.us.i.i.i.i ]
   %exitcond.not.i.i.i.i = icmp eq i64 %.sroa.04.0.i.i.us.i.i.i.i, %787
   br i1 %exitcond.not.i.i.i.i, label %.preheader.i.us.us.i.i.i.i, label %926
 
@@ -5854,7 +5854,7 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample9add_start17h307a8ae7409
   br i1 %943, label %.lr.ph.i13.i.split.us.i.i.i.i, label %.loopexit.i.i.i.i
 
 .preheader.i.us.us.i.i.i.i:                       ; preds = %.preheader7.i.us.i.i.i.i, %948
-  %.sroa.59.0.i.i.us.us.i.i.i.i = phi i64 [ %945, %948 ], [ %.fr.i.i.i.i, %.preheader7.i.us.i.i.i.i ]
+  %.sroa.59.0.i.i.us.us.i.i.i.i = phi i64 [ %945, %948 ], [ %.fr81.i.i.i.i, %.preheader7.i.us.i.i.i.i ]
   %.not.i.us.us.i.i.i.i = icmp eq i64 %.sroa.59.0.i.i.us.us.i.i.i.i, 0
   br i1 %.not.i.us.us.i.i.i.i, label %.split.us.i.i.i.i, label %944
 
@@ -5899,7 +5899,7 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample9add_start17h307a8ae7409
   br i1 %968, label %.lr.ph.i13.i.split.i.i.i.i, label %.loopexit.i.i.i.i
 
 .preheader7.i.i.i.i.i:                            ; preds = %.lr.ph.i13.i.split.i.i.i.i, %974
-  %.sroa.04.0.i.i.i.i.i.i = phi i64 [ %975, %974 ], [ %.fr.i.i.i.i, %.lr.ph.i13.i.split.i.i.i.i ]
+  %.sroa.04.0.i.i.i.i.i.i = phi i64 [ %975, %974 ], [ %.fr81.i.i.i.i, %.lr.ph.i13.i.split.i.i.i.i ]
   %969 = icmp ult i64 %.sroa.04.0.i.i.i.i.i.i, %787
   br i1 %969, label %970, label %.preheader.i.i.i.i.i
 
@@ -5909,7 +5909,7 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample9add_start17h307a8ae7409
   br i1 %972, label %974, label %.split74.us.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader7.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i64 %.fr.i.i.i.i, 0
+  %.not.i.i.i.i.i = icmp eq i64 %.fr81.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i, label %.invoke.i.i.i.i
 
 .split.us.i.i.i.i:                                ; preds = %.preheader.i.us.us.i.i.i.i, %.preheader.i.i.i.i.i
@@ -5928,7 +5928,7 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample9add_start17h307a8ae7409
 
 .split74.us.i.i.i.i:                              ; preds = %970, %926
   %.us-phi75.i.i.i.i = phi i64 [ %917, %926 ], [ %954, %970 ]
-  %980 = add i64 %.us-phi75.i.i.i.i, %.fr.i.i.i.i
+  %980 = add i64 %.us-phi75.i.i.i.i, %.fr81.i.i.i.i
   %umax.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %785, i64 %980)
   br label %.invoke.i.i.i.i
 

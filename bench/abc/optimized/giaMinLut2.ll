@@ -6445,8 +6445,8 @@ Abc_TtCopy.exit62.us:                             ; preds = %.lr.ph18.i58.us.pre
 
 43:                                               ; preds = %42, %Abc_TtCopy.exit62.us
   %44 = add nuw nsw i32 %.04774.us, 1
-  %exitcond104.not = icmp eq i32 %44, %4
-  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !127
+  %exitcond105.not = icmp eq i32 %44, %4
+  br i1 %exitcond105.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !127
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %22, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
@@ -6491,8 +6491,8 @@ Abc_TtCopy.exit.thread.us88:                      ; preds = %Abc_TtCopy.exit.us8
 
 54:                                               ; preds = %53, %.lr.ph18.preheader.i56.us89
   %55 = add nuw nsw i32 %.04774.us83, 1
-  %exitcond103.not = icmp eq i32 %55, %4
-  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !127
+  %exitcond104.not = icmp eq i32 %55, %4
+  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !127
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %64
   %.078 = phi i32 [ %.1, %64 ], [ 1000000000, %.lr.ph.split ]

@@ -3563,7 +3563,7 @@ TLSX_Find.exit.thread:                            ; preds = %5, %1, %TLSX_Find.e
 define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %9 = load i64, ptr %8, align 8
-  %.fr = freeze i64 %9
+  %.fr132 = freeze i64 %9
   %10 = icmp eq i8 %3, 1
   br i1 %10, label %11, label %76
 
@@ -3589,17 +3589,17 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %22 = and i64 %.fr, 1024
+  %22 = and i64 %.fr132, 1024
   %.not108 = icmp eq i64 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1047
   %24 = zext i8 %16 to i64
   br i1 %.not108, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %37 ], [ 0, %.lr.ph ]
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %37 ], [ 0, %.lr.ph ]
   %.079127.us = phi i32 [ %.1.us, %37 ], [ 0, %.lr.ph ]
   %.083125.us = phi i8 [ %.184.us, %37 ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv133
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv134
   %26 = load i8, ptr %25, align 1, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !51
@@ -3625,8 +3625,8 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
 37:                                               ; preds = %36, %34, %30, %.lr.ph.split.us
   %.184.us = phi i8 [ %.083125.us, %.lr.ph.split.us ], [ %.083125.us, %30 ], [ %.083125.us, %34 ], [ %spec.select.us, %36 ]
   %.1.us = phi i32 [ %.079127.us, %.lr.ph.split.us ], [ %.079127.us, %30 ], [ %.079127.us, %34 ], [ 1, %36 ]
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 2
-  %38 = icmp samesign ult i64 %indvars.iv.next134, %24
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 2
+  %38 = icmp samesign ult i64 %indvars.iv.next135, %24
   br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !143
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
@@ -3753,7 +3753,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   br i1 %or.cond124, label %87, label %TLSX_Find.exit
 
 87:                                               ; preds = %79
-  %88 = and i64 %.fr, 1024
+  %88 = and i64 %.fr132, 1024
   %.not93 = icmp eq i64 %88, 0
   br i1 %.not93, label %97, label %89
 

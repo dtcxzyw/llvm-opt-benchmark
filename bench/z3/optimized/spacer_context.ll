@@ -63284,8 +63284,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN6spacer5lemmaElS2_N9__gn
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread30
-  %.033 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread30 ], [ %1, %4 ]
-  %8 = shl i64 %.033, 1
+  %.032 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread30 ], [ %1, %4 ]
+  %8 = shl i64 %.032, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds ptr, ptr %0, i64 %9
   %11 = getelementptr ptr, ptr %0, i64 %8
@@ -63316,18 +63316,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8
   %26 = load ptr, ptr %25, align 8, !tbaa !93
   %27 = load i32, ptr %24, align 4, !tbaa !164
   %28 = load i32, ptr %26, align 4, !tbaa !164
-  %.fr = freeze i32 %27
-  %.fr32 = freeze i32 %28
-  %29 = icmp ult i32 %.fr, %.fr32
+  %29 = icmp ult i32 %27, %28
   %30 = or disjoint i64 %8, 1
-  %spec.select = select i1 %29, i64 %30, i64 %9
+  %cond.fr = freeze i1 %29
+  %spec.select = select i1 %cond.fr, i64 %30, i64 %9
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread30: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit, %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread
   %31 = phi i64 [ %9, %21 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit ], [ %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer13lemma_lt_procEEclIPPNS2_5lemmaES8_EEbT_T0_.exit.thread ]
   %32 = getelementptr inbounds ptr, ptr %0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !525
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.033
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %.032
   store ptr %33, ptr %34, align 8, !tbaa !525
   %35 = icmp slt i64 %31, %6
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !1097

@@ -70563,8 +70563,8 @@ _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
   br i1 %.not.i.i, label %_ZNK7testing10TestResult7SkippedEv.exit, label %.lr.ph.i1.i, !llvm.loop !796
 
 _ZNK7testing10TestResult7SkippedEv.exit:          ; preds = %.lr.ph.i1.i
-  %.not320 = icmp eq i32 %spec.select.i.i, 0
-  %spec.select = select i1 %.not320, ptr @.str.301, ptr @.str.292
+  %.not321 = icmp eq i32 %spec.select.i.i, 0
+  %spec.select = select i1 %.not321, ptr @.str.301, ptr @.str.292
   br label %_ZNK7testing10TestResult7SkippedEv.exit.thread
 
 _ZNK7testing10TestResult7SkippedEv.exit.thread:   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i, %_ZNK7testing10TestResult7SkippedEv.exit, %.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209
@@ -80791,8 +80791,8 @@ _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
   br i1 %.not.i.i, label %_ZNK7testing10TestResult7SkippedEv.exit, label %.lr.ph.i1.i, !llvm.loop !796
 
 _ZNK7testing10TestResult7SkippedEv.exit:          ; preds = %.lr.ph.i1.i
-  %.not361 = icmp eq i32 %spec.select.i.i, 0
-  %spec.select = select i1 %.not361, ptr @.str.350, ptr @.str.354
+  %.not362 = icmp eq i32 %spec.select.i.i, 0
+  %spec.select = select i1 %.not362, ptr @.str.350, ptr @.str.354
   br label %_ZNK7testing10TestResult7SkippedEv.exit.thread
 
 _ZNK7testing10TestResult7SkippedEv.exit.thread:   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i, %_ZNK7testing10TestResult7SkippedEv.exit, %.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236

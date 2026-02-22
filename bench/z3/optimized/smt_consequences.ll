@@ -18643,8 +18643,9 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i909:         ; preds = %_ZNK6vectorIjLb0EjE
 
 .noexc331:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i909
   %1519 = icmp ult i32 %.05.lcssa.i.i889, %1518
-  %spec.select = select i1 %1519, i64 %1440, i64 %1443
-  %spec.select1598 = select i1 %1519, i32 %1437, i32 %1436
+  %cond.fr1549 = freeze i1 %1519
+  %spec.select = select i1 %cond.fr1549, i64 %1440, i64 %1443
+  %spec.select1598 = select i1 %cond.fr1549, i32 %1437, i32 %1436
   br label %.thread1553
 
 .thread1553:                                      ; preds = %.noexc331, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i903, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i905, %._crit_edge39.i.i
@@ -22359,7 +22360,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i52:          ; preds = %_ZNK6vectorIjLb0EjE
 _ZZN11max_cliquesIN3smt11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit59: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i52
   %99 = icmp ult i32 %.05.lcssa.i.i32, %98
   %100 = or disjoint i64 %20, 1
-  %spec.select = select i1 %99, i64 %100, i64 %21
+  %cond.fr = freeze i1 %99
+  %spec.select = select i1 %cond.fr, i64 %100, i64 %21
   %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %spec.select
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !519
   br label %_ZZN11max_cliquesIN3smt11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit59.thread
@@ -22832,7 +22834,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i61:          ; preds = %_ZNK6vectorIjLb0EjE
 _ZZN11max_cliquesIN3smt11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit68: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i61
   %105 = icmp ult i32 %.05.lcssa.i.i41, %104
   %106 = or disjoint i64 %26, 1
-  %spec.select = select i1 %105, i64 %106, i64 %27
+  %cond.fr = freeze i1 %105
+  %spec.select = select i1 %cond.fr, i64 %106, i64 %27
   %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %spec.select
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !519
   br label %_ZZN11max_cliquesIN3smt11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS4_Lb1EjEENKUljjE_clEjj.exit68.thread

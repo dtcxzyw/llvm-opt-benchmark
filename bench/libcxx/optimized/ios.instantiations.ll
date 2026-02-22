@@ -18478,18 +18478,17 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store ptr null, ptr %2, align 8, !tbaa !93
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
-  %.fr20 = freeze i8 %4
-  %5 = trunc i8 %.fr20 to i1
+  %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %9 = select i1 %5, ptr %7, ptr %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
-  %.fr21 = freeze i64 %11
-  %12 = lshr i8 %.fr20, 1
+  %12 = lshr i8 %4, 1
   %13 = zext nneg i8 %12 to i64
-  %14 = select i1 %5, i64 %.fr21, i64 %13
+  %14 = select i1 %5, i64 %11, i64 %13
+  %.fr20 = freeze i64 %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load i32, ptr %15, align 8, !tbaa !90
   %17 = and i32 %16, 8
@@ -18497,7 +18496,7 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.fr20
   store ptr %19, ptr %2, align 8, !tbaa !93
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %20, align 8, !tbaa !29
@@ -18513,7 +18512,7 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   br i1 %.not12, label %69, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %14
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %.fr20
   store ptr %26, ptr %2, align 8, !tbaa !93
   %27 = load i64, ptr %3, align 8
   %28 = and i64 %27, -2
@@ -18522,7 +18521,7 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   %31 = trunc i64 %27 to i1
   %32 = lshr i64 %27, 1
   %33 = and i64 %32, 127
-  %34 = select i1 %31, i64 %.fr21, i64 %33
+  %34 = select i1 %31, i64 %11, i64 %33
   %35 = icmp ugt i64 %30, %34
   br i1 %35, label %36, label %39
 
@@ -18570,23 +18569,23 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000
   br i1 %.not13, label %69, label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit
-  %58 = icmp ugt i64 %14, 2147483647
+  %58 = icmp ugt i64 %.fr20, 2147483647
   br i1 %58, label %.lr.ph.preheader, label %65
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %59 = add i64 %14, -2147483648
+  %59 = add i64 %.fr20, -2147483648
   %60 = urem i64 %59, 2147483647
   %61 = sub nuw i64 %59, %60
   %62 = getelementptr i8, ptr %9, i64 %61
   %scevgep = getelementptr i8, ptr %62, i64 2147483647
-  %63 = add i64 %14, -2147483647
+  %63 = add i64 %.fr20, -2147483647
   %64 = sub i64 %63, %61
   store ptr %scevgep, ptr %53, align 8, !tbaa !30
   br label %65
 
 65:                                               ; preds = %.lr.ph.preheader, %.preheader
   %66 = phi ptr [ %scevgep, %.lr.ph.preheader ], [ %9, %.preheader ]
-  %.0.lcssa = phi i64 [ %64, %.lr.ph.preheader ], [ %14, %.preheader ]
+  %.0.lcssa = phi i64 [ %64, %.lr.ph.preheader ], [ %.fr20, %.preheader ]
   %.not14 = icmp eq i64 %.0.lcssa, 0
   br i1 %.not14, label %69, label %67
 

@@ -715,8 +715,8 @@ _ZN5ZXing4OneDL15ChecksumIsValidENS0_7DataBar4PairES2_.exit: ; preds = %207
   %.01617.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %250, %245 ]
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 %indvars.iv.i.i
   %247 = load i8, ptr %246, align 1, !tbaa !51, !noalias !43
-  %.fr31.i.i = freeze i8 %247
-  %248 = sext i8 %.fr31.i.i to i32
+  %.fr32.i.i = freeze i8 %247
+  %248 = sext i8 %.fr32.i.i to i32
   %249 = add i32 %.01617.i.i, -48
   %250 = add i32 %249, %248
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -2
@@ -810,16 +810,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   unreachable
 
 283:                                              ; preds = %283, %.lr.ph23.i.i
-  %indvars.iv28.i.i = phi i64 [ %244, %.lr.ph23.i.i ], [ %indvars.iv.next29.i.i, %283 ]
+  %indvars.iv29.i.i = phi i64 [ %244, %.lr.ph23.i.i ], [ %indvars.iv.next30.i.i, %283 ]
   %.1.fr21.i.i = phi i32 [ %243, %.lr.ph23.i.i ], [ %288, %283 ]
-  %indvars.iv.next29.i.i = add nsw i64 %indvars.iv28.i.i, -2
-  %284 = getelementptr inbounds nuw i8, ptr %241, i64 %indvars.iv.next29.i.i
+  %indvars.iv.next30.i.i = add nsw i64 %indvars.iv29.i.i, -2
+  %284 = getelementptr inbounds nuw i8, ptr %241, i64 %indvars.iv.next30.i.i
   %285 = load i8, ptr %284, align 1, !tbaa !51, !noalias !43
-  %.fr.i.i = freeze i8 %285
-  %286 = sext i8 %.fr.i.i to i32
+  %.fr26.i.i = freeze i8 %285
+  %286 = sext i8 %.fr26.i.i to i32
   %287 = add i32 %.1.fr21.i.i, -48
   %288 = add i32 %287, %286
-  %289 = icmp samesign ugt i64 %indvars.iv28.i.i, 3
+  %289 = icmp samesign ugt i64 %indvars.iv29.i.i, 3
   br i1 %289, label %283, label %._crit_edge24.i.i, !llvm.loop !59
 
 _ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit.i: ; preds = %._crit_edge24.i.i

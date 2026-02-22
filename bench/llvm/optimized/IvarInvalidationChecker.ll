@@ -1503,20 +1503,20 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127Iva
   %.val22.i.i.i.i.i = load i32, ptr %349, align 4, !tbaa !196
   store i32 %.val22.i.i.i.i.i, ptr %350, align 4, !tbaa !196
   %.val23.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !115
-  %.val23.fr.i.i.i.i.i = freeze ptr %.val23.i.i.i.i.i
+  %.val23.i.fr.i.i.i.i = freeze ptr %.val23.i.i.i.i.i
   %.val20.i.i.i.i.i = load i32, ptr %346, align 8, !tbaa !116
   %377 = zext i32 %.val20.i.i.i.i.i to i64
   %.not.i4.i.i.i.i = icmp eq i32 %.val20.i.i.i.i.i, 0
   br i1 %.not.i4.i.i.i.i, label %_ZN4llvm8DenseMapIPKN5clang12ObjCIvarDeclEN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2ERKSD_.exit.i.i, label %.lr.ph.i5.i.i.i.i
 
 .lr.ph.i5.i.i.i.i:                                ; preds = %373
-  %378 = icmp eq ptr %376, %.val23.fr.i.i.i.i.i
+  %378 = icmp eq ptr %376, %.val23.i.fr.i.i.i.i
   br i1 %378, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %.lr.ph.i5.i.i.i.i, %_ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoC2ERKS1_.exit.us.i.i.i.i.i
   %.024.us.i.i.i.i.i = phi i64 [ %410, %_ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoC2ERKS1_.exit.us.i.i.i.i.i ], [ 0, %.lr.ph.i5.i.i.i.i ]
   %379 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.583", ptr %376, i64 %.024.us.i.i.i.i.i
-  %380 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.583", ptr %.val23.fr.i.i.i.i.i, i64 %.024.us.i.i.i.i.i
+  %380 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.583", ptr %.val23.i.fr.i.i.i.i, i64 %.024.us.i.i.i.i.i
   %381 = load ptr, ptr %380, align 8, !tbaa !58
   store ptr %381, ptr %379, align 8, !tbaa !58
   %magicptr.us.i.i.i.i.i = ptrtoint ptr %381 to i64
@@ -1583,7 +1583,7 @@ _ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoC2ERKS1_.exit.us
 .lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i5.i.i.i.i, %_ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoC2ERKS1_.exit.i.i.i.i.i
   %.024.i.i.i.i.i = phi i64 [ %452, %_ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl16InvalidationInfoC2ERKS1_.exit.i.i.i.i.i ], [ 0, %.lr.ph.i5.i.i.i.i ]
   %411 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.583", ptr %376, i64 %.024.i.i.i.i.i
-  %412 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.583", ptr %.val23.fr.i.i.i.i.i, i64 %.024.i.i.i.i.i
+  %412 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.583", ptr %.val23.i.fr.i.i.i.i, i64 %.024.i.i.i.i.i
   %413 = load ptr, ptr %412, align 8, !tbaa !58
   store ptr %413, ptr %411, align 8, !tbaa !58
   %magicptr.i6.i.i.i.i = ptrtoint ptr %413 to i64

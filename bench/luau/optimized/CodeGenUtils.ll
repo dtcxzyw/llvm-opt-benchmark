@@ -1713,35 +1713,36 @@ define dso_local void @_ZN4Luau7CodeGen22executeGETVARARGSConstEP9lua_StateP10lu
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %8 to i64
   %12 = sub i64 %10, %11
-  %13 = lshr i64 %12, 4
+  %13 = lshr exact i64 %12, 4
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4, !tbaa !73
-  %.fr28 = freeze i8 %18
-  %19 = zext i8 %.fr28 to i32
+  %19 = zext i8 %18 to i32
   %20 = xor i32 %19, -1
   %21 = add i32 %20, %14
+  %.fr = freeze i32 %21
   %22 = sext i32 %2 to i64
   %23 = getelementptr inbounds %struct.lua_TValue, ptr %1, i64 %22
-  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %3, i32 %21)
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %3, i32 %.fr)
   %24 = icmp sgt i32 %invariant.smin, 0
   br i1 %24, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %4
-  %25 = sext i32 %21 to i64
+  %25 = sext i32 %.fr to i64
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds %struct.lua_TValue, ptr %1, i64 %26
   %wide.trip.count = zext nneg i32 %invariant.smin to i64
   br label %30
 
 .preheader:                                       ; preds = %30, %4
-  %28 = icmp slt i32 %21, %3
+  %28 = icmp slt i32 %.fr, %3
   br i1 %28, label %.lr.ph27.preheader, label %._crit_edge
 
 .lr.ph27.preheader:                               ; preds = %.preheader
-  %29 = sext i32 %21 to i64
+  %29 = sext i32 %.fr to i64
+  %wide.trip.count32 = sext i32 %3 to i64
   br label %.lr.ph27
 
 30:                                               ; preds = %.lr.ph, %30
@@ -1757,13 +1758,12 @@ define dso_local void @_ZN4Luau7CodeGen22executeGETVARARGSConstEP9lua_StateP10lu
   ret void
 
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
-  %indvars.iv30 = phi i64 [ %29, %.lr.ph27.preheader ], [ %indvars.iv.next31, %.lr.ph27 ]
-  %33 = getelementptr inbounds %struct.lua_TValue, ptr %23, i64 %indvars.iv30
+  %indvars.iv29 = phi i64 [ %29, %.lr.ph27.preheader ], [ %indvars.iv.next30, %.lr.ph27 ]
+  %33 = getelementptr inbounds %struct.lua_TValue, ptr %23, i64 %indvars.iv29
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 0, ptr %34, align 4, !tbaa !15
-  %indvars.iv.next31 = add nsw i64 %indvars.iv30, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next31 to i32
-  %exitcond33.not = icmp eq i32 %3, %lftr.wideiv
+  %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
+  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph27, !llvm.loop !93
 }
 

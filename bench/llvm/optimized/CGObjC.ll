@@ -11959,8 +11959,8 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit: ; preds = %71, %74, %77
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 184
   %169 = load ptr, ptr %168, align 8, !tbaa !665
   %170 = load i64, ptr %169, align 8
-  %.fr.i.i = freeze i64 %170
-  %171 = and i64 %.fr.i.i, 512
+  %.fr4.i.i = freeze i64 %170
+  %171 = and i64 %.fr4.i.i, 512
   %.not.i.i26 = icmp eq i64 %171, 0
   %spec.select.i27 = select i1 %.not.i.i26, i32 2, i32 3
   br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i
@@ -11972,10 +11972,10 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit: ; preds = %71, %74, %77
   %175 = load ptr, ptr %174, align 8, !tbaa !655
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load i64, ptr %176, align 8
-  %.fr4.i.i = freeze i64 %177
-  %178 = and i64 %.fr4.i.i, 8796093022208
-  %.not5.i.i = icmp eq i64 %178, 0
-  %spec.select28.i = select i1 %.not5.i.i, i32 2, i32 3
+  %.fr5.i.i = freeze i64 %177
+  %178 = and i64 %.fr5.i.i, 8796093022208
+  %.not6.i.i = icmp eq i64 %178, 0
+  %spec.select28.i = select i1 %.not6.i.i, i32 2, i32 3
   br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i
 
 _ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.i: ; preds = %.split20.i, %167, %.split.i

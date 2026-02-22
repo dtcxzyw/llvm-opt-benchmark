@@ -2327,8 +2327,8 @@ _ZN6Assimp3MDL18IntSharedData_MDL7C2Ev.exit:      ; preds = %1
   store ptr %36, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %40 = load i32, ptr %39, align 1
-  %.fr442 = freeze i32 %40
-  %41 = zext i32 %.fr442 to i64
+  %.fr443 = freeze i32 %40
+  %41 = zext i32 %.fr443 to i64
   %42 = mul nuw nsw i64 %41, 24
   %43 = add nuw nsw i64 %42, 8
   %44 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %43) #33
@@ -2337,7 +2337,7 @@ _ZN6Assimp3MDL18IntSharedData_MDL7C2Ev.exit:      ; preds = %1
 45:                                               ; preds = %37
   store i64 %41, ptr %44, align 16
   %.ptr155 = getelementptr i8, ptr %44, i64 8
-  %46 = icmp eq i32 %.fr442, 0
+  %46 = icmp eq i32 %.fr443, 0
   br i1 %46, label %.loopexit286, label %.loopexit286.loopexit
 
 .loopexit286.loopexit:                            ; preds = %45
@@ -3483,7 +3483,7 @@ _ZN6Assimp3MDL22IntSplitGroupData_MDL7D2Ev.exit:  ; preds = %_ZN6Assimp3MDL17Int
 
 .preheader266:                                    ; preds = %531, %._crit_edge316.thread
   %indvars.iv358 = phi i64 [ %indvars.iv.next359, %._crit_edge316.thread ], [ 0, %531 ]
-  %.0134320 = phi i32 [ %.1135.lcssa445, %._crit_edge316.thread ], [ 0, %531 ]
+  %.0134320 = phi i32 [ %.1135.lcssa446, %._crit_edge316.thread ], [ 0, %531 ]
   %534 = getelementptr inbounds nuw %"class.std::vector.52", ptr %.ptr155, i64 %indvars.iv358
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
   %536 = load ptr, ptr %535, align 8
@@ -3536,7 +3536,7 @@ _ZN6Assimp3MDL22IntSplitGroupData_MDL7D2Ev.exit:  ; preds = %_ZN6Assimp3MDL17Int
   br label %._crit_edge316.thread
 
 ._crit_edge316.thread:                            ; preds = %.preheader266, %._crit_edge316, %559
-  %.1135.lcssa445 = phi i32 [ %547, %559 ], [ %547, %._crit_edge316 ], [ %.0134320, %.preheader266 ]
+  %.1135.lcssa446 = phi i32 [ %547, %559 ], [ %547, %._crit_edge316 ], [ %.0134320, %.preheader266 ]
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %566 = load i32, ptr %39, align 1
   %567 = zext i32 %566 to i64

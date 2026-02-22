@@ -148,11 +148,9 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
-  %.fr4 = freeze i32 %9
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %11 = load i32, ptr %10, align 4
-  %.fr5 = freeze i32 %11
-  %12 = sub i32 %.fr4, %.fr5
+  %12 = sub i32 %9, %11
   %13 = icmp eq ptr %1, null
   %14 = select i1 %13, ptr @drm_fb_xfrm.default_dst_pitch, ptr %1
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 5
@@ -163,8 +161,9 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %21 = icmp eq i32 %.fr4, %.fr5
-  br i1 %21, label %.split3.us, label %.split3
+  %21 = icmp eq i32 %9, %11
+  %.fr = freeze i1 %21
+  br i1 %.fr, label %.split3.us, label %.split3
 
 .split3.us:                                       ; preds = %18, %.split3.us
   %22 = phi i64 [ %25, %.split3.us ], [ 0, %18 ]

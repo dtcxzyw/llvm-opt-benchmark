@@ -323,13 +323,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i64, ptr %0, align 8, !tbaa !11
-  %.fr = freeze i64 %6
-  %7 = add i64 %.fr, -1
+  %7 = add nsw i64 %6, -1
   %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #9
   %9 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #9
   %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #9
   tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef %3) #9
-  %11 = icmp sgt i64 %.fr, 0
+  %11 = icmp sgt i64 %6, 0
   br i1 %11, label %.lr.ph64, label %._crit_edge65
 
 .lr.ph64:                                         ; preds = %5
@@ -341,7 +340,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %13 = load double, ptr %12, align 8, !tbaa !15
   %14 = uitofp nneg i64 %.062.us to double
   %15 = fmul double %13, %14
-  %16 = mul nuw nsw i64 %.062.us, %.fr
+  %16 = mul nuw nsw i64 %.062.us, %6
   %17 = fsub double 1.000000e+00, %15
   %18 = getelementptr double, ptr %8, i64 %16
   br label %19
@@ -359,12 +358,12 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %28 = getelementptr double, ptr %18, i64 %.05561.us
   store double %27, ptr %28, align 8, !tbaa !18
   %29 = add nuw nsw i64 %.05561.us, 1
-  %exitcond.not = icmp eq i64 %29, %.fr
+  %exitcond.not = icmp eq i64 %29, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19
 
 ._crit_edge.us:                                   ; preds = %19
   %30 = add nuw nsw i64 %.062.us, 1
-  %exitcond81.not = icmp eq i64 %30, %.fr
+  %exitcond81.not = icmp eq i64 %30, %6
   br i1 %exitcond81.not, label %._crit_edge65, label %.lr.ph.us
 
 ._crit_edge65:                                    ; preds = %._crit_edge.us, %5
@@ -427,7 +426,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph.us73:                                      ; preds = %heatres.exit, %._crit_edge.us76
   %.169.us = phi i64 [ %76, %._crit_edge.us76 ], [ 0, %heatres.exit ]
-  %64 = mul nuw nsw i64 %.169.us, %.fr
+  %64 = mul nuw nsw i64 %.169.us, %6
   %65 = icmp eq i64 %.169.us, 0
   br i1 %65, label %.lr.ph.split.us.us, label %.lr.ph.split.us75
 
@@ -450,16 +449,17 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 
 73:                                               ; preds = %68, %.lr.ph.split.split.us77
   %74 = add nuw nsw i64 %.15666.us72, 1
-  %exitcond82.not = icmp eq i64 %74, %.fr
+  %exitcond82.not = icmp eq i64 %74, %6
   br i1 %exitcond82.not, label %._crit_edge.us76, label %.lr.ph.split.split.us77
 
 .lr.ph.split.us75:                                ; preds = %.lr.ph.us73
   %75 = icmp eq i64 %.169.us, %7
-  br i1 %75, label %.lr.ph.split.split.us.us, label %.lr.ph.split.split.us77
+  %.fr.us = freeze i1 %75
+  br i1 %.fr.us, label %.lr.ph.split.split.us.us, label %.lr.ph.split.split.us77
 
 ._crit_edge.us76:                                 ; preds = %73, %.lr.ph.split.split.us.us, %.lr.ph.split.us.us
   %76 = add nuw nsw i64 %.169.us, 1
-  %exitcond85.not = icmp eq i64 %76, %.fr
+  %exitcond85.not = icmp eq i64 %76, %6
   br i1 %exitcond85.not, label %._crit_edge71, label %.lr.ph.us73
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us73, %.lr.ph.split.us.us
@@ -471,7 +471,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
   %79 = getelementptr inbounds nuw double, ptr %10, i64 %.15666.us.us
   store double 0.000000e+00, ptr %79, align 8, !tbaa !18
   %80 = add nuw nsw i64 %.15666.us.us, 1
-  %exitcond84.not = icmp eq i64 %80, %.fr
+  %exitcond84.not = icmp eq i64 %80, %6
   br i1 %exitcond84.not, label %._crit_edge.us76, label %.lr.ph.split.us.us
 
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us75, %.lr.ph.split.split.us.us
@@ -484,7 +484,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
   %84 = getelementptr inbounds nuw double, ptr %10, i64 %81
   store double 0.000000e+00, ptr %84, align 8, !tbaa !18
   %85 = add nuw nsw i64 %.15666.us68.us, 1
-  %exitcond83.not = icmp eq i64 %85, %.fr
+  %exitcond83.not = icmp eq i64 %85, %6
   br i1 %exitcond83.not, label %._crit_edge.us76, label %.lr.ph.split.split.us.us
 
 ._crit_edge71:                                    ; preds = %._crit_edge.us76, %heatres.exit

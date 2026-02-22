@@ -8746,8 +8746,8 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
   %22 = alloca %class.anon.86, align 8
-  %.fr97 = freeze i64 %3
-  store i64 %.fr97, ptr %6, align 8
+  %.fr98 = freeze i64 %3
+  store i64 %.fr98, ptr %6, align 8
   %23 = load i32, ptr %1, align 4
   store i32 %23, ptr %7, align 4
   %24 = or i32 %23, 1
@@ -8762,7 +8762,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %33 = trunc nuw i64 %32 to i32
   store i32 %33, ptr %8, align 4
   store i8 48, ptr %9, align 1
-  %34 = lshr i64 %.fr97, 32
+  %34 = lshr i64 %.fr98, 32
   %35 = trunc nuw i64 %34 to i32
   %36 = lshr i32 %35, 8
   %37 = and i32 %36, 255
@@ -8773,7 +8773,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %40 = and i64 %39, 4294967295
   %41 = and i32 %35, 131072
   %.not62 = icmp eq i32 %41, 0
-  %42 = trunc i64 %.fr97 to i32
+  %42 = trunc i64 %.fr98 to i32
   br i1 %.not62, label %45, label %43
 
 43:                                               ; preds = %5
@@ -9097,11 +9097,11 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 189:                                              ; preds = %182
   %190 = and i32 %35, 1048576
-  %.not91 = icmp eq i32 %190, 0
+  %.not92 = icmp eq i32 %190, 0
   %.lobit = lshr exact i32 %190, 20
   %191 = trunc nuw nsw i32 %.lobit to i8
   store i8 %191, ptr %21, align 1
-  br i1 %.not91, label %193, label %192
+  br i1 %.not92, label %193, label %192
 
 192:                                              ; preds = %.thread89, %189
   br label %193
@@ -11615,8 +11615,8 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
   %22 = alloca %class.anon.95, align 8
-  %.fr97 = freeze i64 %3
-  store i64 %.fr97, ptr %6, align 8
+  %.fr98 = freeze i64 %3
+  store i64 %.fr98, ptr %6, align 8
   %23 = load i64, ptr %1, align 8
   store i64 %23, ptr %7, align 8
   %24 = or i64 %23, 1
@@ -11633,7 +11633,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %34 = add nsw i32 %.neg.i.i.i, %29
   store i32 %34, ptr %8, align 4
   store i8 48, ptr %9, align 1
-  %35 = lshr i64 %.fr97, 32
+  %35 = lshr i64 %.fr98, 32
   %36 = trunc nuw i64 %35 to i32
   %37 = lshr i32 %36, 8
   %38 = and i32 %37, 255
@@ -11644,7 +11644,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %41 = zext i32 %40 to i64
   %42 = and i32 %36, 131072
   %.not62 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr97 to i32
+  %43 = trunc i64 %.fr98 to i32
   br i1 %.not62, label %46, label %44
 
 44:                                               ; preds = %5
@@ -11968,11 +11968,11 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 190:                                              ; preds = %183
   %191 = and i32 %36, 1048576
-  %.not91 = icmp eq i32 %191, 0
+  %.not92 = icmp eq i32 %191, 0
   %.lobit = lshr exact i32 %191, 20
   %192 = trunc nuw nsw i32 %.lobit to i8
   store i8 %192, ptr %21, align 1
-  br i1 %.not91, label %194, label %193
+  br i1 %.not92, label %194, label %193
 
 193:                                              ; preds = %.thread89, %190
   br label %194
@@ -14881,15 +14881,15 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14b
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
   %22 = alloca %class.anon.102, align 8
-  %.fr97 = freeze i64 %3
-  store i64 %.fr97, ptr %6, align 8
+  %.fr98 = freeze i64 %3
+  store i64 %.fr98, ptr %6, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %8, align 4
   store i8 48, ptr %9, align 1
-  %26 = lshr i64 %.fr97, 32
+  %26 = lshr i64 %.fr98, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = lshr i32 %27, 8
   %29 = and i32 %28, 255
@@ -14900,7 +14900,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14b
   %32 = zext i32 %31 to i64
   %33 = and i32 %27, 131072
   %.not62 = icmp eq i32 %33, 0
-  %34 = trunc i64 %.fr97 to i32
+  %34 = trunc i64 %.fr98 to i32
   br i1 %.not62, label %37, label %35
 
 35:                                               ; preds = %5
@@ -15224,11 +15224,11 @@ _ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 181:                                              ; preds = %174
   %182 = and i32 %27, 1048576
-  %.not91 = icmp eq i32 %182, 0
+  %.not92 = icmp eq i32 %182, 0
   %.lobit = lshr exact i32 %182, 20
   %183 = trunc nuw nsw i32 %.lobit to i8
   store i8 %183, ptr %21, align 1
-  br i1 %.not91, label %185, label %184
+  br i1 %.not92, label %185, label %184
 
 184:                                              ; preds = %.thread89, %181
   br label %185

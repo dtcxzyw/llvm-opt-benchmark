@@ -1062,15 +1062,15 @@ entry:
   store i32 0, ptr %BlendType, align 8, !tbaa !72
   %MaterialTypeParam = getelementptr inbounds nuw i8, ptr %material, i64 152
   %0 = load i32, ptr %MaterialTypeParam, align 8, !tbaa !61
-  %.fr2 = freeze i32 %0
-  %and3.i = lshr i32 %.fr2, 12
-  %and5.i = lshr i32 %.fr2, 8
-  %and7.i = lshr i32 %.fr2, 4
-  %1 = insertelement <4 x i32> poison, i32 %.fr2, i64 0
+  %and3.i = lshr i32 %0, 12
+  %and5.i = lshr i32 %0, 8
+  %and7.i = lshr i32 %0, 4
+  %1 = insertelement <4 x i32> poison, i32 %0, i64 0
   %2 = insertelement <4 x i32> %1, i32 %and7.i, i64 1
   %3 = insertelement <4 x i32> %2, i32 %and3.i, i64 2
   %4 = insertelement <4 x i32> %3, i32 %and5.i, i64 3
-  %5 = and <4 x i32> %4, splat (i32 15)
+  %.fr = freeze <4 x i32> %4
+  %5 = and <4 x i32> %.fr, splat (i32 15)
   %6 = add nsw <4 x i32> %5, splat (i32 -6)
   %7 = icmp ult <4 x i32> %6, splat (i32 5)
   %8 = bitcast <4 x i1> %7 to i4
@@ -1078,7 +1078,7 @@ entry:
   br i1 %.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %and.i = lshr i32 %.fr2, 20
+  %and.i = lshr i32 %0, 20
   %shr.i = and i32 %and.i, 15
   %shr.i.off = add nsw i32 %shr.i, -1
   %switch = icmp ult i32 %shr.i.off, 2

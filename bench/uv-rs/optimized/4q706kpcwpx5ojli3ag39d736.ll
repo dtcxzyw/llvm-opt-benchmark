@@ -3240,9 +3240,9 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h992a0546028291c9E.exit.i9.i.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i8.i.i
-  %rhsc15.i.i = load i8, ptr %9, align 1, !alias.scope !560
-  %rhsc15.fr.i.i = freeze i8 %rhsc15.i.i
-  %10 = icmp eq i8 %rhsc15.fr.i.i, 13
+  %rhsc16.i.i = load i8, ptr %9, align 1, !alias.scope !560
+  %rhsc16.fr.i.i = freeze i8 %rhsc16.i.i
+  %10 = icmp eq i8 %rhsc16.fr.i.i, 13
   %spec.select.i12.i.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17hb61510c4055e6a72E.exit13.i.i"
 
@@ -8056,9 +8056,9 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h992a0546028291c9E.exit.i9": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i8
-  %rhsc15 = load i8, ptr %9, align 1
-  %rhsc15.fr = freeze i8 %rhsc15
-  %10 = icmp eq i8 %rhsc15.fr, 13
+  %rhsc16 = load i8, ptr %9, align 1
+  %rhsc16.fr = freeze i8 %rhsc16
+  %10 = icmp eq i8 %rhsc16.fr, 13
   %spec.select.i12 = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17hb61510c4055e6a72E.exit13"
 
@@ -12077,9 +12077,9 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h992a0546028291c9E.exit.i9.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i8.i
-  %rhsc15.i = load i8, ptr %9, align 1, !alias.scope !1998
-  %rhsc15.fr.i = freeze i8 %rhsc15.i
-  %10 = icmp eq i8 %rhsc15.fr.i, 13
+  %rhsc16.i = load i8, ptr %9, align 1, !alias.scope !1998
+  %rhsc16.fr.i = freeze i8 %rhsc16.i
+  %10 = icmp eq i8 %rhsc16.fr.i, 13
   %spec.select.i12.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17hb61510c4055e6a72E.exit13.i"
 

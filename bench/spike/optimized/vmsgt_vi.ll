@@ -250,12 +250,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmsgt_viP1
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -688,12 +688,12 @@ define noundef i64 @_Z19fast_rv64i_vmsgt_viP11processor_t6insn_tm(ptr noundef %0
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -1006,12 +1006,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmsgt_vi
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -1326,12 +1326,12 @@ define noundef i64 @_Z21logged_rv64i_vmsgt_viP11processor_t6insn_tm(ptr noundef 
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -1644,12 +1644,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmsgt_viP1
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -1964,12 +1964,12 @@ define noundef i64 @_Z19fast_rv64e_vmsgt_viP11processor_t6insn_tm(ptr noundef %0
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -2282,12 +2282,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmsgt_vi
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32
@@ -2602,12 +2602,12 @@ define noundef i64 @_Z21logged_rv64e_vmsgt_viP11processor_t6insn_tm(ptr noundef 
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %.fr113 = freeze i64 %94
+  %.fr = freeze i64 %94
   %102 = and i64 %1, 33554432
   %103 = icmp eq i64 %102, 0
-  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr113)
+  %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %105 = icmp eq i64 %104, 1
-  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr113, i1 true)
+  %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   %107 = shl i64 %1, 44
   %108 = ashr i64 %107, 59
   %109 = trunc nsw i64 %108 to i32

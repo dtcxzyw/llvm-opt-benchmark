@@ -2153,24 +2153,24 @@ define void @_Z20ulocimp_toBcpType_77St17basic_string_viewIcSt11char_traitsIcEES
   %.sroa.04.0.copyload = load i64, ptr %7, align 8, !tbaa !18
   %.sroa.25.0.copyload = load ptr, ptr %9, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.25.0.copyload, i64 %.sroa.04.0.copyload
-  %.not49.i = icmp samesign eq i64 %.sroa.04.0.copyload, 0
-  br i1 %.not49.i, label %.thread, label %.lr.ph.i
+  %.not50.i = icmp samesign eq i64 %.sroa.04.0.copyload, 0
+  br i1 %.not50.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %34
-  %.03351.i = phi i32 [ %.23545.i, %34 ], [ 0, %25 ]
-  %.03750.i = phi ptr [ %35, %34 ], [ %.sroa.25.0.copyload, %25 ]
-  %27 = load i8, ptr %.03750.i, align 1, !tbaa !69
-  %.fr.i = freeze i8 %27
-  %28 = icmp eq i8 %.fr.i, 45
+  %.03352.i = phi i32 [ %.23545.i, %34 ], [ 0, %25 ]
+  %.03751.i = phi ptr [ %35, %34 ], [ %.sroa.25.0.copyload, %25 ]
+  %27 = load i8, ptr %.03751.i, align 1, !tbaa !69
+  %.fr49.i = freeze i8 %27
+  %28 = icmp eq i8 %.fr49.i, 45
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = add i8 %.fr.i, -48
+  %30 = add i8 %.fr49.i, -48
   %or.cond5.i = icmp ult i8 %30, 10
   br i1 %or.cond5.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %29
-  switch i8 %.fr.i, label %.thread [
+  switch i8 %.fr49.i, label %.thread [
     i8 102, label %.thread.i
     i8 101, label %.thread.i
     i8 100, label %.thread.i
@@ -2186,17 +2186,17 @@ switch.early.test.i:                              ; preds = %29
   ]
 
 .thread.i:                                        ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %29
-  %31 = add nsw i32 %.03351.i, 1
+  %31 = add nsw i32 %.03352.i, 1
   br label %34
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = add i32 %.03351.i, -4
+  %33 = add i32 %.03352.i, -4
   %or.cond.i = icmp ult i32 %33, 3
   br i1 %or.cond.i, label %34, label %.thread
 
 34:                                               ; preds = %32, %.thread.i
   %.23545.i = phi i32 [ %31, %.thread.i ], [ 0, %32 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.03750.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.03751.i, i64 1
   %.not.i = icmp eq ptr %35, %26
   br i1 %.not.i, label %36, label %.lr.ph.i
 
@@ -2374,24 +2374,24 @@ define void @_Z23ulocimp_toLegacyType_77St17basic_string_viewIcSt11char_traitsIc
   %.sroa.04.0.copyload = load i64, ptr %7, align 8, !tbaa !18
   %.sroa.25.0.copyload = load ptr, ptr %9, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.25.0.copyload, i64 %.sroa.04.0.copyload
-  %.not49.i = icmp samesign eq i64 %.sroa.04.0.copyload, 0
-  br i1 %.not49.i, label %.thread, label %.lr.ph.i
+  %.not50.i = icmp samesign eq i64 %.sroa.04.0.copyload, 0
+  br i1 %.not50.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23, %32
-  %.03351.i = phi i32 [ %.23545.i, %32 ], [ 0, %23 ]
-  %.03750.i = phi ptr [ %33, %32 ], [ %.sroa.25.0.copyload, %23 ]
-  %25 = load i8, ptr %.03750.i, align 1, !tbaa !69
-  %.fr.i = freeze i8 %25
-  %26 = icmp eq i8 %.fr.i, 45
+  %.03352.i = phi i32 [ %.23545.i, %32 ], [ 0, %23 ]
+  %.03751.i = phi ptr [ %33, %32 ], [ %.sroa.25.0.copyload, %23 ]
+  %25 = load i8, ptr %.03751.i, align 1, !tbaa !69
+  %.fr49.i = freeze i8 %25
+  %26 = icmp eq i8 %.fr49.i, 45
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = add i8 %.fr.i, -48
+  %28 = add i8 %.fr49.i, -48
   %or.cond5.i = icmp ult i8 %28, 10
   br i1 %or.cond5.i, label %.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %27
-  switch i8 %.fr.i, label %.thread [
+  switch i8 %.fr49.i, label %.thread [
     i8 102, label %.thread.i
     i8 101, label %.thread.i
     i8 100, label %.thread.i
@@ -2407,17 +2407,17 @@ switch.early.test.i:                              ; preds = %27
   ]
 
 .thread.i:                                        ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %27
-  %29 = add nsw i32 %.03351.i, 1
+  %29 = add nsw i32 %.03352.i, 1
   br label %32
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = add i32 %.03351.i, -4
+  %31 = add i32 %.03352.i, -4
   %or.cond.i = icmp ult i32 %31, 3
   br i1 %or.cond.i, label %32, label %.thread
 
 32:                                               ; preds = %30, %.thread.i
   %.23545.i = phi i32 [ %29, %.thread.i ], [ 0, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.03750.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.03751.i, i64 1
   %.not.i = icmp eq ptr %33, %24
   br i1 %.not.i, label %34, label %.lr.ph.i
 

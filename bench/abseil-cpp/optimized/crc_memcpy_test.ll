@@ -580,82 +580,82 @@ define internal void @_ZN12_GLOBAL__N_151gtest_EngineParamTestEngineParamTest_Ev
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
-          to label %.noexc.i unwind label %25, !noalias !30
+          to label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i unwind label %26, !noalias !30
 
-.noexc.i:                                         ; preds = %1
+.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i:             ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_110TestParamsEEE, i64 16), ptr %3, align 8, !tbaa !18, !noalias !42
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !42
   %5 = invoke noalias noundef nonnull dereferenceable(60) ptr @_Znwm(i64 noundef 60) #33
-          to label %.noexc6.i.i.i.i.i unwind label %.body.i.i.i, !noalias !42
+          to label %6 unwind label %.body.i.i.i, !noalias !42
 
-.noexc6.i.i.i.i.i:                                ; preds = %.noexc.i
+6:                                                ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i
   store ptr %5, ptr %4, align 8, !tbaa !43, !noalias !42
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %6, ptr %7, align 8, !tbaa !46, !noalias !42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, ptr noundef nonnull align 4 dereferenceable(60) %2, i64 60, i1 false), !noalias !30
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %8, align 8, !tbaa !47, !noalias !42
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %7, ptr %8, align 8, !tbaa !46, !noalias !42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, ptr noundef nonnull align 4 dereferenceable(60) %2, i64 60, i1 false), !noalias !42
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %7, ptr %9, align 8, !tbaa !47, !noalias !42
   store ptr %3, ptr %0, align 8, !tbaa !48, !alias.scope !42
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !53, !alias.scope !42
-  %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
-          to label %_ZNK7testing8internal10ValueArrayIJN12_GLOBAL__N_110TestParamsES3_S3_S3_S3_EEcvNS0_14ParamGeneratorIT_EEIS3_EEv.exit unwind label %11, !noalias !42
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %10, align 8, !tbaa !53, !alias.scope !42
+  %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
+          to label %_ZNK7testing8internal10ValueArrayIJN12_GLOBAL__N_110TestParamsES3_S3_S3_S3_EEcvNS0_14ParamGeneratorIT_EEIS3_EEv.exit unwind label %12, !noalias !42
 
-11:                                               ; preds = %.noexc6.i.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %6
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #32, !noalias !42
-  %15 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !42
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !42
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %3) #32, !noalias !42
+  %14 = extractvalue { ptr, i32 } %13, 0
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #32, !noalias !42
+  %16 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !42
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !noalias !42
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %3) #32, !noalias !42
   invoke void @__cxa_rethrow() #31
-          to label %23 unwind label %18, !noalias !42
+          to label %24 unwind label %19, !noalias !42
 
-18:                                               ; preds = %11
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %12
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %_ZNSt6vectorIN12_GLOBAL__N_110TestParamsESaIS1_EED2Ev.exit8.i unwind label %20, !noalias !42
+          to label %_ZNSt6vectorIN12_GLOBAL__N_110TestParamsESaIS1_EED2Ev.exit8.i unwind label %21, !noalias !42
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #35, !noalias !42
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #35, !noalias !42
   unreachable
 
-23:                                               ; preds = %11
+24:                                               ; preds = %12
   unreachable
 
-.body.i.i.i:                                      ; preds = %.noexc.i
-  %24 = landingpad { ptr, i32 }
+.body.i.i.i:                                      ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 32) #34, !noalias !42
   br label %_ZNSt6vectorIN12_GLOBAL__N_110TestParamsESaIS1_EED2Ev.exit8.i
 
-25:                                               ; preds = %1
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %1
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN12_GLOBAL__N_110TestParamsESaIS1_EED2Ev.exit8.i
 
-_ZNSt6vectorIN12_GLOBAL__N_110TestParamsESaIS1_EED2Ev.exit8.i: ; preds = %25, %.body.i.i.i, %18
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %.body.i.i.i ], [ %19, %18 ]
+_ZNSt6vectorIN12_GLOBAL__N_110TestParamsESaIS1_EED2Ev.exit8.i: ; preds = %26, %.body.i.i.i, %19
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %25, %.body.i.i.i ], [ %20, %19 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 60) #34, !noalias !30
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZNK7testing8internal10ValueArrayIJN12_GLOBAL__N_110TestParamsES3_S3_S3_S3_EEcvNS0_14ParamGeneratorIT_EEIS3_EEv.exit: ; preds = %.noexc6.i.i.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %27, align 8, !tbaa !54, !noalias !42
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 1, ptr %28, align 4, !tbaa !56, !noalias !42
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIN12_GLOBAL__N_110TestParamsEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !tbaa !18, !noalias !42
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %3, ptr %29, align 8, !tbaa !57, !noalias !42
-  store ptr %10, ptr %9, align 8, !tbaa !53, !alias.scope !42
+_ZNK7testing8internal10ValueArrayIJN12_GLOBAL__N_110TestParamsES3_S3_S3_S3_EEcvNS0_14ParamGeneratorIT_EEIS3_EEv.exit: ; preds = %6
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 1, ptr %28, align 8, !tbaa !54, !noalias !42
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 1, ptr %29, align 4, !tbaa !56, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIN12_GLOBAL__N_110TestParamsEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !tbaa !18, !noalias !42
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %3, ptr %30, align 8, !tbaa !57, !noalias !42
+  store ptr %11, ptr %10, align 8, !tbaa !53, !alias.scope !42
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 60) #34, !noalias !30
   ret void
 }

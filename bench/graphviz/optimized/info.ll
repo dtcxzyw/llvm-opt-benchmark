@@ -73,8 +73,8 @@ define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1
 
 select.unfold30.us:                               ; preds = %29, %22
   %32 = add nuw i64 %.02544.us, 1
-  %exitcond174.not = icmp eq i64 %32, %9
-  br i1 %exitcond174.not, label %select.unfold, label %.lr.ph.split.us, !llvm.loop !21
+  %exitcond175.not = icmp eq i64 %32, %9
+  br i1 %exitcond175.not, label %select.unfold, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %33 = fcmp ogt double %11, 0.000000e+00
@@ -118,8 +118,8 @@ select.unfold30.us:                               ; preds = %29, %22
 
 select.unfold30.us80:                             ; preds = %51, %46
   %54 = add nuw i64 %.02544.us78, 1
-  %exitcond173.not = icmp eq i64 %54, %9
-  br i1 %exitcond173.not, label %select.unfold, label %.lr.ph.split.split.us, !llvm.loop !21
+  %exitcond174.not = icmp eq i64 %54, %9
+  br i1 %exitcond174.not, label %select.unfold, label %.lr.ph.split.split.us, !llvm.loop !21
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %14, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.split
@@ -153,8 +153,8 @@ select.unfold30.us80:                             ; preds = %51, %46
 
 select.unfold30.us95.us:                          ; preds = %65, %67
   %70 = add nuw i64 %.02544.us93.us, 1
-  %exitcond172.not = icmp eq i64 %70, %9
-  br i1 %exitcond172.not, label %select.unfold, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !21
+  %exitcond173.not = icmp eq i64 %70, %9
+  br i1 %exitcond173.not, label %select.unfold, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !21
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %select.unfold30
   %.02544 = phi i64 [ %82, %select.unfold30 ], [ 0, %.lr.ph.split.split ]
@@ -207,7 +207,7 @@ select.unfold:                                    ; preds = %select.unfold30, %7
 94:                                               ; preds = %.thread, %89
   %95 = phi i64 [ 16, %.thread ], [ %91, %89 ]
   %96 = phi i64 [ 0, %.thread ], [ %90, %89 ]
-  %.025.lcssa197200 = phi i64 [ 0, %.thread ], [ %.025.lcssa, %89 ]
+  %.025.lcssa198201 = phi i64 [ 0, %.thread ], [ %.025.lcssa, %89 ]
   %97 = phi ptr [ %10, %.thread ], [ %83, %89 ]
   %98 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef range(i64 0, -15) %95) #11
   %99 = icmp eq ptr %98, null
@@ -229,14 +229,14 @@ select.unfold:                                    ; preds = %select.unfold30, %7
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %93, %103, %105
-  %.025.lcssa197199 = phi i64 [ %.025.lcssa, %93 ], [ %.025.lcssa197200, %105 ], [ %.025.lcssa197200, %103 ]
+  %.025.lcssa198200 = phi i64 [ %.025.lcssa, %93 ], [ %.025.lcssa198201, %105 ], [ %.025.lcssa198201, %103 ]
   %107 = phi ptr [ %83, %93 ], [ %97, %105 ], [ %97, %103 ]
   %.0.i.i = phi ptr [ null, %93 ], [ %98, %105 ], [ %98, %103 ]
   store ptr %.0.i.i, ptr %107, align 8, !tbaa !20
-  %108 = getelementptr %struct.pointf_s, ptr %.0.i.i, i64 %.025.lcssa197199
+  %108 = getelementptr %struct.pointf_s, ptr %.0.i.i, i64 %.025.lcssa198200
   %109 = getelementptr i8, ptr %108, i64 16
   %110 = load i64, ptr %8, align 8, !tbaa !14
-  %111 = sub i64 %110, %.025.lcssa197199
+  %111 = sub i64 %110, %.025.lcssa198200
   %112 = shl i64 %111, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %109, ptr align 8 %108, i64 %112, i1 false)
   store double %1, ptr %108, align 8, !tbaa !3

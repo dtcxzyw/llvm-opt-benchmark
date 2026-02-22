@@ -1383,8 +1383,8 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %0, -1
-  %.fr = freeze i32 %24
-  %26 = or i32 %.fr, %25
+  %26 = or i32 %24, %25
+  %.fr = freeze i32 %26
   %27 = add i32 %1, -8
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 30)
   switch i32 %28, label %.thread5 [
@@ -1410,15 +1410,15 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %33 = and i16 %32, -32768
   %34 = zext i16 %33 to i32
   %35 = or disjoint i32 %.sink, %34
-  %36 = or i32 %35, %26
+  %36 = or i32 %35, %.fr
   br label %43
 
 37:                                               ; preds = %22
-  %38 = icmp eq i32 %26, 0
+  %38 = icmp eq i32 %.fr, 0
   %39 = shl i16 %3, 10
   %40 = and i16 %39, -32768
   %41 = zext i16 %40 to i32
-  %42 = or i32 %26, %41
+  %42 = or i32 %.fr, %41
   br i1 %38, label %.thread5, label %43
 
 .thread5:                                         ; preds = %.preheader, %22, %16, %37

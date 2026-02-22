@@ -15652,7 +15652,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h08f21ea5408a6ee9E.exit.i:
   %106 = zext nneg i8 %105 to i32
   %107 = or disjoint i32 %104, %106
   %108 = or disjoint i32 %107, %101
-  %.not5.i = icmp eq i32 %108, 1114112
+  %.fr.i = freeze i32 %108
+  %.not5.i = icmp eq i32 %.fr.i, 1114112
   br i1 %.not5.i, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14215ee060ede1a6E.exit.thread14.i", label %_ZN4core4iter6traits8iterator12iter_compare17h1df820b0478af7f5E.exit
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14215ee060ede1a6E.exit.thread14.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14215ee060ede1a6E.exit.i", %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h08f21ea5408a6ee9E.exit.i
@@ -23810,13 +23811,12 @@ define hidden { i64, ptr } @_ZN9itertools9Itertools13find_position17he10950b1d2f
   %15 = load i32, ptr %14, align 4, !noalias !3510
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %17 = load i32, ptr %16, align 4, !noalias !3510
-  %.fr.i.i.i.i = freeze i32 %17
-  %.fr4.i.i.i.i = freeze i32 %15
-  %18 = add i32 %.fr.i.i.i.i, %.fr4.i.i.i.i
-  %.not.i.i.i.i.i.i.i = icmp ule i32 %.fr.i.i.i.i, %.val.i.i.i.i.i.i
+  %18 = add i32 %17, %15
+  %.not.i.i.i.i.i.i.i = icmp ule i32 %17, %.val.i.i.i.i.i.i
   %19 = icmp ult i32 %.val.i.i.i.i.i.i, %18
-  %.sroa.06.0.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i, %19
-  br i1 %.sroa.06.0.i.i.i.i.i.i.i, label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h6fc895fa964f3059E.exit.sink.split", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf000f68f524b5b15E.exit.i.i"
+  %.sroa.06.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %19, i1 false
+  %cond.fr.i.i.i.i = freeze i1 %.sroa.06.0.i.i.i.i.i.i.i
+  br i1 %cond.fr.i.i.i.i, label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h6fc895fa964f3059E.exit.sink.split", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf000f68f524b5b15E.exit.i.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf000f68f524b5b15E.exit.i.i": ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17h538127847b29a3aeE.exit.i.i.i.i", %.lr.ph.i.i
   %20 = add i64 %7, 1

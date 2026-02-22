@@ -1173,29 +1173,29 @@ define internal fastcc range(i32 0, 2) i32 @sane_layout(ptr noundef nonnull %0) 
 even.exit.thread:                                 ; preds = %16
   %19 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 1536) #12
   %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
-  %or.cond56 = icmp eq i64 %20, 1
-  br i1 %or.cond56, label %even.exit43.thread, label %even.exit28.thread
+  %or.cond57 = icmp eq i64 %20, 1
+  br i1 %or.cond57, label %even.exit43.thread, label %even.exit28.thread
 
 even.exit28.thread:                               ; preds = %even.exit.thread
   %21 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 48) #12
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
-  %or.cond57 = icmp eq i64 %22, 1
-  br i1 %or.cond57, label %even.exit43.thread, label %even.exit33.thread
+  %or.cond58 = icmp eq i64 %22, 1
+  br i1 %or.cond58, label %even.exit43.thread, label %even.exit33.thread
 
 even.exit33.thread:                               ; preds = %even.exit28.thread
   %23 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 192) #12
   %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
-  %or.cond58 = icmp eq i64 %24, 1
-  br i1 %or.cond58, label %even.exit43.thread, label %even.exit38.thread
+  %or.cond59 = icmp eq i64 %24, 1
+  br i1 %or.cond59, label %even.exit43.thread, label %even.exit38.thread
 
 even.exit38.thread:                               ; preds = %even.exit33.thread
   %25 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %0, i64 noundef 20480) #12
-  %.fr = freeze i64 %25
-  %.not.i39 = icmp eq i64 %.fr, 0
+  %.fr56 = freeze i64 %25
+  %.not.i39 = icmp eq i64 %.fr56, 0
   br i1 %.not.i39, label %even.exit43.thread, label %even.exit43
 
 even.exit43:                                      ; preds = %even.exit38.thread
-  %26 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr)
+  %26 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr56)
   %.not5.i40 = icmp samesign ugt i64 %26, 1
   %spec.select = zext i1 %.not5.i40 to i32
   br label %even.exit43.thread

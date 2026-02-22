@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 -22, 613566757) i32 @ata_dev_get_GTF(ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_addr #0 align 16 {
-  %.fr12 = freeze i32 %1
+  %.fr = freeze i32 %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 131072
@@ -1065,7 +1065,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
   br i1 %6, label %88, label %7
 
 7:                                                ; preds = %2
-  %8 = and i32 %.fr12, 1024
+  %8 = and i32 %.fr, 1024
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8256
   %11 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %10, i32 noundef 0) #8
@@ -1073,7 +1073,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
   br i1 %12, label %.thread8, label %13
 
 13:                                               ; preds = %7
-  %14 = and i32 %.fr12, 16
+  %14 = and i32 %.fr, 16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.split.us, label %.split
 
@@ -1208,7 +1208,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
   br i1 %98, label %.thread8, label %99
 
 99:                                               ; preds = %95
-  %100 = and i32 %.fr12, 16
+  %100 = and i32 %.fr, 16
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %104, label %102
 

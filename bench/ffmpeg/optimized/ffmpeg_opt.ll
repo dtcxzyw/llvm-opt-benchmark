@@ -3676,8 +3676,8 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   %.03643 = phi ptr [ @options, %1 ], [ %58, %57 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03643, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !27
-  %.fr = freeze i32 %8
-  %9 = and i32 %.fr, 256
+  %.fr52 = freeze i32 %8
+  %9 = and i32 %.fr52, 256
   %.not37 = icmp eq i32 %9, 0
   br i1 %.not37, label %57, label %10
 
@@ -3685,7 +3685,7 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   %11 = getelementptr inbounds nuw i8, ptr %.03643, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  %14 = and i32 %.fr, 512
+  %14 = and i32 %.fr52, 512
   %.not38 = icmp eq i32 %14, 0
   br i1 %.not38, label %52, label %.preheader40
 
@@ -3696,7 +3696,7 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader40
-  %18 = and i32 %.fr, 1024
+  %18 = and i32 %.fr52, 1024
   %.not39 = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %.03643, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !177
@@ -3707,51 +3707,51 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   br i1 %21, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
   %22 = load ptr, ptr %13, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %22, i64 %indvars.iv62
+  %23 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %22, i64 %indvars.iv63
   tail call void @av_freep(ptr noundef %23) #15
   %24 = load ptr, ptr %13, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %24, i64 %indvars.iv62
+  %25 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %24, i64 %indvars.iv63
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   tail call void @av_freep(ptr noundef nonnull %26) #15
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %27 = load i32, ptr %15, align 8, !tbaa !4
   %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next63, %28
+  %29 = icmp slt i64 %indvars.iv.next64, %28
   br i1 %29, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !178
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.preheader
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph.split.us.split.preheader ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph.split.us.split.preheader ], [ 0, %.lr.ph.split.us ]
   %30 = load ptr, ptr %13, align 8, !tbaa !13
-  %31 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %30, i64 %indvars.iv59
+  %31 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %30, i64 %indvars.iv60
   tail call void @av_freep(ptr noundef %31) #15
-  %.pre71 = load i32, ptr %15, align 8, !tbaa !4
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %32 = sext i32 %.pre71 to i64
-  %33 = icmp slt i64 %indvars.iv.next60, %32
+  %.pre72 = load i32, ptr %15, align 8, !tbaa !4
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %32 = sext i32 %.pre72 to i64
+  %33 = icmp slt i64 %indvars.iv.next61, %32
   br i1 %33, label %.lr.ph.split.us.split.preheader, label %._crit_edge, !llvm.loop !179
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %21, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %34 = load ptr, ptr %13, align 8, !tbaa !13
-  %35 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %34, i64 %indvars.iv56
+  %35 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %34, i64 %indvars.iv57
   tail call void @av_freep(ptr noundef %35) #15
   %36 = load ptr, ptr %13, align 8, !tbaa !13
-  %37 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %36, i64 %indvars.iv56
+  %37 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %36, i64 %indvars.iv57
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @stream_specifier_uninit(ptr noundef nonnull %38) #15
   %39 = load ptr, ptr %13, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %39, i64 %indvars.iv56
+  %40 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %39, i64 %indvars.iv57
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   tail call void @av_freep(ptr noundef nonnull %41) #15
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %42 = load i32, ptr %15, align 8, !tbaa !4
   %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next57, %43
+  %44 = icmp slt i64 %indvars.iv.next58, %43
   br i1 %44, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.preheader, %.lr.ph.split.split.us, %.lr.ph.split.us.split.preheader, %.lr.ph.split.us.split.us, %.preheader40
@@ -3803,15 +3803,15 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   br label %74
 
 65:                                               ; preds = %.lr.ph46, %65
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next66, %65 ]
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next67, %65 ]
   %66 = load ptr, ptr %5, align 8, !tbaa !136
-  %67 = getelementptr inbounds nuw %struct.StreamMap, ptr %66, i64 %indvars.iv65
+  %67 = getelementptr inbounds nuw %struct.StreamMap, ptr %66, i64 %indvars.iv66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   tail call void @av_freep(ptr noundef nonnull %68) #15
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %69 = load i32, ptr %2, align 8, !tbaa !135
   %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next66, %70
+  %71 = icmp slt i64 %indvars.iv.next67, %70
   br i1 %71, label %65, label %._crit_edge47, !llvm.loop !183
 
 ._crit_edge51:                                    ; preds = %74, %._crit_edge47
@@ -3822,14 +3822,14 @@ define internal fastcc void @uninit_options(ptr noundef nonnull %0) unnamed_addr
   ret void
 
 74:                                               ; preds = %.lr.ph50, %74
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next69, %74 ]
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next70, %74 ]
   %75 = load ptr, ptr %64, align 8, !tbaa !167
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv68
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv69
   tail call void @av_freep(ptr noundef %76) #15
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %77 = load i32, ptr %61, align 8, !tbaa !166
   %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next69, %78
+  %79 = icmp slt i64 %indvars.iv.next70, %78
   br i1 %79, label %74, label %._crit_edge51, !llvm.loop !184
 }
 

@@ -2467,21 +2467,20 @@ define internal fastcc range(i32 0, 32) i32 @detect_dvb_s2_modeadapt(ptr noundef
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %7
   %.011.i.i = phi i32 [ %9, %.lr.ph.i.i ], [ 0, %7 ]
-  %.0710.i.i = phi i8 [ %.fr, %.lr.ph.i.i ], [ 0, %7 ]
+  %.0710.i.i = phi i8 [ %14, %.lr.ph.i.i ], [ 0, %7 ]
   %9 = add nuw nsw i32 %.011.i.i, 1
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.011.i.i)
   %11 = xor i8 %10, %.0710.i.i
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr @crc8_table, i64 %12
   %14 = load i8, ptr %13, align 1
-  %.fr = freeze i8 %14
   %exitcond.not.i.i = icmp eq i32 %9, 9
   br i1 %exitcond.not.i.i, label %test_dvb_s2_crc.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 test_dvb_s2_crc.exit:                             ; preds = %.lr.ph.i.i
-  %.fr57 = freeze i8 %8
-  %.not.i = icmp eq i8 %.fr, %.fr57
-  %spec.select = select i1 %.not.i, i32 2, i32 0
+  %.not.i = icmp eq i8 %14, %8
+  %cond.fr = freeze i1 %.not.i
+  %spec.select = select i1 %cond.fr, i32 2, i32 0
   br label %test_dvb_s2_crc.exit.thread
 
 test_dvb_s2_crc.exit.thread:                      ; preds = %test_dvb_s2_crc.exit, %4
@@ -2501,7 +2500,7 @@ test_dvb_s2_crc.exit.thread:                      ; preds = %test_dvb_s2_crc.exi
 
 .lr.ph.i.i16:                                     ; preds = %.lr.ph.i.i16, %21
   %.011.i.i17 = phi i32 [ %23, %.lr.ph.i.i16 ], [ 2, %21 ]
-  %.0710.i.i18 = phi i8 [ %.fr58, %.lr.ph.i.i16 ], [ 0, %21 ]
+  %.0710.i.i18 = phi i8 [ %28, %.lr.ph.i.i16 ], [ 0, %21 ]
   %.089.i.i19 = phi i32 [ %29, %.lr.ph.i.i16 ], [ 0, %21 ]
   %23 = add nuw nsw i32 %.011.i.i17, 1
   %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.011.i.i17)
@@ -2509,16 +2508,15 @@ test_dvb_s2_crc.exit.thread:                      ; preds = %test_dvb_s2_crc.exi
   %26 = zext i8 %25 to i64
   %27 = getelementptr i8, ptr @crc8_table, i64 %26
   %28 = load i8, ptr %27, align 1
-  %.fr58 = freeze i8 %28
   %29 = add nuw nsw i32 %.089.i.i19, 1
   %exitcond.not.i.i20 = icmp eq i32 %29, 9
   br i1 %exitcond.not.i.i20, label %test_dvb_s2_crc.exit24, label %.lr.ph.i.i16, !llvm.loop !8
 
 test_dvb_s2_crc.exit24:                           ; preds = %.lr.ph.i.i16
-  %.fr59 = freeze i8 %22
-  %.not.i22 = icmp eq i8 %.fr58, %.fr59
+  %.not.i22 = icmp eq i8 %28, %22
   %30 = or disjoint i32 %15, 4
-  %spec.select54 = select i1 %.not.i22, i32 %30, i32 %15
+  %cond.fr45 = freeze i1 %.not.i22
+  %spec.select54 = select i1 %cond.fr45, i32 %30, i32 %15
   br label %test_dvb_s2_crc.exit24.thread
 
 test_dvb_s2_crc.exit24.thread:                    ; preds = %test_dvb_s2_crc.exit24, %18, %test_dvb_s2_crc.exit.thread
@@ -2533,7 +2531,7 @@ test_dvb_s2_crc.exit24.thread:                    ; preds = %test_dvb_s2_crc.exi
 
 .lr.ph.i.i25:                                     ; preds = %.lr.ph.i.i25, %33
   %.011.i.i26 = phi i32 [ %35, %.lr.ph.i.i25 ], [ 3, %33 ]
-  %.0710.i.i27 = phi i8 [ %.fr60, %.lr.ph.i.i25 ], [ 0, %33 ]
+  %.0710.i.i27 = phi i8 [ %40, %.lr.ph.i.i25 ], [ 0, %33 ]
   %.089.i.i28 = phi i32 [ %41, %.lr.ph.i.i25 ], [ 0, %33 ]
   %35 = add nuw nsw i32 %.011.i.i26, 1
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.011.i.i26)
@@ -2541,16 +2539,15 @@ test_dvb_s2_crc.exit24.thread:                    ; preds = %test_dvb_s2_crc.exi
   %38 = zext i8 %37 to i64
   %39 = getelementptr i8, ptr @crc8_table, i64 %38
   %40 = load i8, ptr %39, align 1
-  %.fr60 = freeze i8 %40
   %41 = add nuw nsw i32 %.089.i.i28, 1
   %exitcond.not.i.i29 = icmp eq i32 %41, 9
   br i1 %exitcond.not.i.i29, label %test_dvb_s2_crc.exit33, label %.lr.ph.i.i25, !llvm.loop !8
 
 test_dvb_s2_crc.exit33:                           ; preds = %.lr.ph.i.i25
-  %.fr61 = freeze i8 %34
-  %.not.i31 = icmp eq i8 %.fr60, %.fr61
+  %.not.i31 = icmp eq i8 %40, %34
   %42 = or i32 %.1, 16
-  %spec.select55 = select i1 %.not.i31, i32 %42, i32 %.1
+  %cond.fr48 = freeze i1 %.not.i31
+  %spec.select55 = select i1 %cond.fr48, i32 %42, i32 %.1
   br label %test_dvb_s2_crc.exit33.thread
 
 test_dvb_s2_crc.exit33.thread:                    ; preds = %test_dvb_s2_crc.exit33, %test_dvb_s2_crc.exit24.thread
@@ -2570,7 +2567,7 @@ test_dvb_s2_crc.exit33.thread:                    ; preds = %test_dvb_s2_crc.exi
 
 .lr.ph.i.i34:                                     ; preds = %.lr.ph.i.i34, %49
   %.011.i.i35 = phi i32 [ %51, %.lr.ph.i.i34 ], [ 4, %49 ]
-  %.0710.i.i36 = phi i8 [ %.fr62, %.lr.ph.i.i34 ], [ 0, %49 ]
+  %.0710.i.i36 = phi i8 [ %56, %.lr.ph.i.i34 ], [ 0, %49 ]
   %.089.i.i37 = phi i32 [ %57, %.lr.ph.i.i34 ], [ 0, %49 ]
   %51 = add nuw nsw i32 %.011.i.i35, 1
   %52 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.011.i.i35)
@@ -2578,16 +2575,15 @@ test_dvb_s2_crc.exit33.thread:                    ; preds = %test_dvb_s2_crc.exi
   %54 = zext i8 %53 to i64
   %55 = getelementptr i8, ptr @crc8_table, i64 %54
   %56 = load i8, ptr %55, align 1
-  %.fr62 = freeze i8 %56
   %57 = add nuw nsw i32 %.089.i.i37, 1
   %exitcond.not.i.i38 = icmp eq i32 %57, 9
   br i1 %exitcond.not.i.i38, label %test_dvb_s2_crc.exit42, label %.lr.ph.i.i34, !llvm.loop !8
 
 test_dvb_s2_crc.exit42:                           ; preds = %.lr.ph.i.i34
-  %.fr63 = freeze i8 %50
-  %.not.i40 = icmp eq i8 %.fr62, %.fr63
+  %.not.i40 = icmp eq i8 %56, %50
   %58 = or i32 %43, 8
-  %spec.select56 = select i1 %.not.i40, i32 %58, i32 %43
+  %cond.fr51 = freeze i1 %.not.i40
+  %spec.select56 = select i1 %cond.fr51, i32 %58, i32 %43
   br label %test_dvb_s2_crc.exit42.thread
 
 test_dvb_s2_crc.exit42.thread:                    ; preds = %test_dvb_s2_crc.exit42, %46, %test_dvb_s2_crc.exit33.thread, %1

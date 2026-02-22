@@ -7489,8 +7489,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6X86_MC18X86MCInstrAnalysis20clear
   %17 = load i8, ptr %16, align 1, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !98
-  %.fr95 = freeze i64 %19
-  %20 = and i64 %.fr95, 1610612736
+  %.fr = freeze i64 %19
+  %20 = and i64 %.fr, 1610612736
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !99
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 1128
@@ -7534,22 +7534,22 @@ _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %26, %27
   %35 = zext i16 %.sroa.1964.40.copyload to i32
   %36 = zext i16 %.sroa.2467.72.copyload to i32
   %37 = load i32, ptr %23, align 8
-  %.fr = freeze i32 %37
-  %38 = icmp ult i32 %.fr, 65
-  %wide.trip.count114 = zext i8 %13 to i64
+  %.fr96 = freeze i32 %37
+  %38 = icmp ult i32 %.fr96, 65
+  %wide.trip.count115 = zext i8 %13 to i64
   br i1 %34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %38, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %.pre121 = load ptr, ptr %32, align 8, !tbaa !17
+  %.pre122 = load ptr, ptr %32, align 8, !tbaa !17
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN4llvm5APInt6setBitEj.exit.us.us
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %_ZN4llvm5APInt6setBitEj.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %_ZN4llvm5APInt6setBitEj.exit.us.us ], [ 0, %.lr.ph.split.us ]
   %39 = load ptr, ptr %32, align 8, !tbaa !17
-  %40 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %39, i64 %indvars.iv111
+  %40 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %39, i64 %indvars.iv112
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !21
   %43 = lshr i32 %42, 3
@@ -7568,7 +7568,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us: ; preds = %.l
   br i1 %.not.i.us.us, label %_ZN4llvm5APInt6setBitEj.exit.us.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us.us"
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us.us": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us
-  %51 = and i64 %indvars.iv111, 63
+  %51 = and i64 %indvars.iv112, 63
   %52 = shl nuw i64 1, %51
   %53 = load i64, ptr %3, align 8, !tbaa !21
   %54 = or i64 %53, %52
@@ -7576,13 +7576,13 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us: ; preds = %.l
   br label %_ZN4llvm5APInt6setBitEj.exit.us.us
 
 _ZN4llvm5APInt6setBitEj.exit.us.us:               ; preds = %.lr.ph.split.us.split.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us.us"
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %.preheader, label %.lr.ph.split.us.split.us, !llvm.loop !101
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
+  br i1 %exitcond116.not, label %.preheader, label %.lr.ph.split.us.split.us, !llvm.loop !101
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %_ZN4llvm5APInt6setBitEj.exit.us
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next107, %_ZN4llvm5APInt6setBitEj.exit.us ]
-  %55 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.pre121, i64 %indvars.iv106
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next108, %_ZN4llvm5APInt6setBitEj.exit.us ]
+  %55 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.pre122, i64 %indvars.iv107
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !21
   %58 = lshr i32 %57, 3
@@ -7601,10 +7601,10 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us: ; preds = %.lr.p
   br i1 %.not.i.us, label %_ZN4llvm5APInt6setBitEj.exit.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us"
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us
-  %66 = and i64 %indvars.iv106, 63
+  %66 = and i64 %indvars.iv107, 63
   %67 = shl nuw i64 1, %66
   %68 = load ptr, ptr %3, align 8, !tbaa !21
-  %69 = lshr i64 %indvars.iv106, 6
+  %69 = lshr i64 %indvars.iv107, 6
   %70 = and i64 %69, 67108863
   %71 = getelementptr inbounds nuw i64, ptr %68, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !38
@@ -7613,9 +7613,9 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us: ; preds = %.lr.p
   br label %_ZN4llvm5APInt6setBitEj.exit.us
 
 _ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %.lr.ph.split.us.split, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us"
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count114
-  br i1 %exitcond110.not, label %.preheader, label %.lr.ph.split.us.split, !llvm.loop !101
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count115
+  br i1 %exitcond111.not, label %.preheader, label %.lr.ph.split.us.split, !llvm.loop !101
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %38, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
@@ -7625,9 +7625,9 @@ _ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %.lr.ph.split.us.spl
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN4llvm5APInt6setBitEj.exit.us89
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %_ZN4llvm5APInt6setBitEj.exit.us89 ], [ 0, %.lr.ph.split ]
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %_ZN4llvm5APInt6setBitEj.exit.us89 ], [ 0, %.lr.ph.split ]
   %74 = load ptr, ptr %32, align 8, !tbaa !17
-  %75 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %74, i64 %indvars.iv101
+  %75 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %74, i64 %indvars.iv102
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !21
   %78 = lshr i32 %77, 3
@@ -7676,7 +7676,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us: ; preds
   br i1 %.not81.us, label %_ZN4llvm5APInt6setBitEj.exit.us89, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us88"
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us88": ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us85
-  %100 = and i64 %indvars.iv101, 63
+  %100 = and i64 %indvars.iv102, 63
   %101 = shl nuw i64 1, %100
   %102 = load i64, ptr %3, align 8, !tbaa !21
   %103 = or i64 %102, %101
@@ -7684,23 +7684,23 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us: ; preds
   br label %_ZN4llvm5APInt6setBitEj.exit.us89
 
 _ZN4llvm5APInt6setBitEj.exit.us89:                ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us88", %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count114
-  br i1 %exitcond105.not, label %.preheader, label %.lr.ph.split.split.us, !llvm.loop !101
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count115
+  br i1 %exitcond106.not, label %.preheader, label %.lr.ph.split.split.us, !llvm.loop !101
 
 .preheader:                                       ; preds = %_ZN4llvm5APInt6setBitEj.exit, %_ZN4llvm5APInt6setBitEj.exit.us89, %_ZN4llvm5APInt6setBitEj.exit.us, %_ZN4llvm5APInt6setBitEj.exit.us.us, %_ZN4llvm5APInt12clearAllBitsEv.exit
-  %.not96 = icmp eq i8 %17, 0
-  %.pre123 = load i32, ptr %23, align 8, !tbaa !86
-  br i1 %.not96, label %._crit_edge, label %.lr.ph93
+  %.not97 = icmp eq i8 %17, 0
+  %.pre124 = load i32, ptr %23, align 8, !tbaa !86
+  br i1 %.not97, label %._crit_edge, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.preheader
   %104 = zext i16 %.sroa.557.0.copyload to i32
   %105 = icmp eq i64 %20, 0
   %106 = zext i16 %.sroa.1964.40.copyload to i32
   %107 = zext i16 %.sroa.2467.72.copyload to i32
-  %108 = icmp ult i32 %.pre123, 65
+  %108 = icmp ult i32 %.pre124, 65
   %109 = zext i8 %13 to i64
-  %wide.trip.count119 = zext i8 %17 to i64
+  %wide.trip.count120 = zext i8 %17 to i64
   br label %152
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %_ZN4llvm5APInt6setBitEj.exit
@@ -7767,15 +7767,15 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i: ; preds = 
 
 _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread", %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit"
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count114
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115
   br i1 %exitcond.not, label %.preheader, label %.lr.ph.split.split, !llvm.loop !101
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm5APInt6setBitEj.exit53
-  %.pre122 = load i32, ptr %23, align 8, !tbaa !86
+  %.pre123 = load i32, ptr %23, align 8, !tbaa !86
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %143 = phi i32 [ %.pre122, %._crit_edge.loopexit ], [ %.pre123, %.preheader ]
+  %143 = phi i32 [ %.pre123, %._crit_edge.loopexit ], [ %.pre124, %.preheader ]
   %144 = icmp ult i32 %143, 65
   br i1 %144, label %145, label %148
 
@@ -7795,7 +7795,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %145, %148
   ret i1 %151
 
 152:                                              ; preds = %.lr.ph93, %_ZN4llvm5APInt6setBitEj.exit53
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next117, %_ZN4llvm5APInt6setBitEj.exit53 ]
+  %indvars.iv117 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next118, %_ZN4llvm5APInt6setBitEj.exit53 ]
   %153 = load i16, ptr %11, align 8, !tbaa !102
   %154 = zext i16 %153 to i64
   %155 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %11, i64 %154
@@ -7806,7 +7806,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %145, %148
   %160 = load i8, ptr %15, align 8, !tbaa !104
   %161 = zext i8 %160 to i64
   %162 = getelementptr inbounds nuw i16, ptr %159, i64 %161
-  %163 = getelementptr inbounds nuw i16, ptr %162, i64 %indvars.iv116
+  %163 = getelementptr inbounds nuw i16, ptr %162, i64 %indvars.iv117
   %164 = load i16, ptr %163, align 2, !tbaa !54
   %165 = zext i16 %164 to i32
   %166 = lshr i32 %165, 3
@@ -7858,7 +7858,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46: ; preds 
   br i1 %.not, label %_ZN4llvm5APInt6setBitEj.exit53, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread"
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i48, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i50, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52"
-  %189 = add nuw nsw i64 %indvars.iv116, %109
+  %189 = add nuw nsw i64 %indvars.iv117, %109
   %190 = and i64 %189, 63
   %191 = shl nuw i64 1, %190
   br i1 %108, label %192, label %195
@@ -7880,9 +7880,9 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46: ; preds 
   br label %_ZN4llvm5APInt6setBitEj.exit53
 
 _ZN4llvm5APInt6setBitEj.exit53:                   ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46, %195, %192, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52"
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge.loopexit, label %152, !llvm.loop !105
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
+  br i1 %exitcond121.not, label %._crit_edge.loopexit, label %152, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

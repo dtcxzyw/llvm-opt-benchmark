@@ -1900,7 +1900,8 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %116
   %135 = fmul double %130, %130
   %136 = fcmp ugt double %135, %.sroa.057.0
   %or.cond91 = and i1 %136, %134
-  br i1 %or.cond91, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
+  %or.cond91.fr = freeze i1 %or.cond91
+  br i1 %or.cond91.fr, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us: ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, %.backedge.us
   %.sroa.074.0.us = phi double [ %.sroa.074.0.be.us, %.backedge.us ], [ 1.000000e+00, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ]

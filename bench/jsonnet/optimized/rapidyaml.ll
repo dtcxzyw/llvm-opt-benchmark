@@ -21749,11 +21749,11 @@ define noundef zeroext i1 @_ZN2c43yml6Parser16_handle_map_blckEv(ptr noundef non
   call void %51(ptr noundef nonnull %20, i64 noundef 30, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %21, ptr noundef %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.pre = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre271 = load i32, ptr %.pre, align 8, !tbaa !254
+  %.pre269 = load i32, ptr %.pre, align 8, !tbaa !254
   br label %57
 
 57:                                               ; preds = %1, %48
-  %58 = phi i32 [ %46, %1 ], [ %.pre271, %48 ]
+  %58 = phi i32 [ %46, %1 ], [ %.pre269, %48 ]
   %59 = and i32 %58, 16
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %70, label %61
@@ -21824,13 +21824,13 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %70, %_ZNK2c4
   %92 = load ptr, ptr %85, align 8, !tbaa !244
   call void %87(ptr noundef nonnull %24, i64 noundef 31, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %25, ptr noundef %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.pre272 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre273 = load i32, ptr %.pre272, align 8, !tbaa !254
+  %.pre270 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre271 = load i32, ptr %.pre270, align 8, !tbaa !254
   br label %93
 
 93:                                               ; preds = %81, %84
-  %94 = phi i32 [ %79, %81 ], [ %.pre273, %84 ]
-  %95 = phi ptr [ %78, %81 ], [ %.pre272, %84 ]
+  %94 = phi i32 [ %79, %81 ], [ %.pre271, %84 ]
+  %95 = phi ptr [ %78, %81 ], [ %.pre270, %84 ]
   %96 = and i32 %94, 128
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %107, label %98
@@ -21853,13 +21853,13 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %70, %_ZNK2c4
   %106 = load ptr, ptr %99, align 8, !tbaa !244
   call void %101(ptr noundef nonnull %26, i64 noundef 31, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %27, ptr noundef %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %.pre274 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre275 = load i32, ptr %.pre274, align 8, !tbaa !254
+  %.pre272 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre273 = load i32, ptr %.pre272, align 8, !tbaa !254
   br label %107
 
 107:                                              ; preds = %98, %93
-  %108 = phi i32 [ %.pre275, %98 ], [ %94, %93 ]
-  %109 = phi ptr [ %.pre274, %98 ], [ %95, %93 ]
+  %108 = phi i32 [ %.pre273, %98 ], [ %94, %93 ]
+  %109 = phi ptr [ %.pre272, %98 ], [ %95, %93 ]
   %110 = and i32 %108, -321
   %111 = or disjoint i32 %110, 64
   store i32 %111, ptr %109, align 8, !tbaa !254
@@ -21899,12 +21899,12 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %70, %_ZNK2c4
   %129 = load ptr, ptr %122, align 8, !tbaa !244
   call void %124(ptr noundef nonnull %28, i64 noundef 31, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %29, ptr noundef %129)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %.pre276 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre277 = load i32, ptr %.pre276, align 8, !tbaa !254
+  %.pre274 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre275 = load i32, ptr %.pre274, align 8, !tbaa !254
   br label %130
 
 130:                                              ; preds = %118, %121
-  %131 = phi i32 [ %116, %118 ], [ %.pre277, %121 ]
+  %131 = phi i32 [ %116, %118 ], [ %.pre275, %121 ]
   %132 = and i32 %131, 128
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %143, label %134
@@ -21978,13 +21978,13 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %70, %_ZNK2c4
 _ZN2c43yml6Parser20_append_key_val_nullEPKc.exit: ; preds = %150, %157
   %166 = call noundef ptr @_ZN2c43yml6Parser15_append_key_valENS_15basic_substringIKcEEi(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr null, i64 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.pre285 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre286 = load i32, ptr %.pre285, align 8, !tbaa !254
+  %.pre283 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre284 = load i32, ptr %.pre283, align 8, !tbaa !254
   br label %167
 
 167:                                              ; preds = %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit, %145
-  %168 = phi i32 [ %.pre286, %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit ], [ %147, %145 ]
-  %169 = phi ptr [ %.pre285, %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit ], [ %146, %145 ]
+  %168 = phi i32 [ %.pre284, %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit ], [ %147, %145 ]
+  %169 = phi ptr [ %.pre283, %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit ], [ %146, %145 ]
   %.sroa.211.0.copyload = load i64, ptr %71, align 8, !tbaa !68
   %170 = load i8, ptr %32, align 1, !tbaa !54, !range !38, !noundef !55
   %171 = zext nneg i8 %170 to i32
@@ -22061,11 +22061,11 @@ _ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit: ; preds = %167
 _ZN2c43yml6Parser20_append_key_val_nullEPKc.exit36: ; preds = %185, %191
   %200 = call noundef ptr @_ZN2c43yml6Parser15_append_key_valENS_15basic_substringIKcEEi(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr null, i64 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.pre287 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre285 = load ptr, ptr %43, align 8, !tbaa !261
   br label %201
 
 201:                                              ; preds = %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit36, %_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit
-  %202 = phi ptr [ %.pre287, %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit36 ], [ %178, %_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit ]
+  %202 = phi ptr [ %.pre285, %_ZN2c43yml6Parser20_append_key_val_nullEPKc.exit36 ], [ %178, %_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit ]
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false), !tbaa.struct !141
   %204 = load i64, ptr %71, align 8, !tbaa !56
@@ -22132,8 +22132,8 @@ _ZN2c43yml6Parser16_line_progressedEm.exit:       ; preds = %208, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %231, i64 16, i1 false), !tbaa.struct !141
   %237 = load i64, ptr %71, align 8, !tbaa !56
-  %.not257 = icmp eq i64 %237, 0
-  br i1 %.not257, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread, label %.lr.ph.i
+  %.not255 = icmp eq i64 %237, 0
+  br i1 %.not255, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN2c43yml6Parser16_line_progressedEm.exit
   %238 = load ptr, ptr %19, align 8, !tbaa !166
@@ -22216,8 +22216,7 @@ _ZNK2c415basic_substringIKcE7left_ofEm.exit:      ; preds = %_ZNK2c415basic_subs
 
 266:                                              ; preds = %143
   %267 = load i64, ptr %71, align 8, !tbaa !56
-  %.fr254 = freeze i64 %267
-  %.not250 = icmp eq i64 %.fr254, 0
+  %.not250 = icmp eq i64 %267, 0
   br i1 %.not250, label %.thread219, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %266
@@ -22255,7 +22254,7 @@ _ZNK2c415basic_substringIKcE7left_ofEm.exit:      ; preds = %_ZNK2c415basic_subs
 
 282:                                              ; preds = %278
   %283 = add nuw i64 %.01427.us.i52, 1
-  %exitcond30.not.i55 = icmp eq i64 %283, %.fr254
+  %exitcond30.not.i55 = icmp eq i64 %283, %267
   br i1 %exitcond30.not.i55, label %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56.thread, label %.preheader.us.i51, !llvm.loop !210
 
 _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56: ; preds = %277
@@ -22266,7 +22265,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56.thread: ; preds = %282, %
   br label %285
 
 285:                                              ; preds = %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56.thread
-  %286 = phi i64 [ %.fr254, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56.thread ], [ %.01427.us.i52, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56 ]
+  %286 = phi i64 [ %267, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56.thread ], [ %.01427.us.i52, %_ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %287 = load ptr, ptr %43, align 8, !tbaa !261
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 48
@@ -22321,15 +22320,15 @@ _ZNK2c415basic_substringIKcE7compareEc.exit:      ; preds = %270
   %.not5.i = icmp eq i8 %269, 63
   %313 = sext i8 %269 to i32
   %314 = add nsw i32 %313, -63
-  %315 = trunc i64 %.fr254 to i32
+  %315 = trunc i64 %267 to i32
   %316 = add nsw i32 %315, -1
   %317 = select i1 %.not5.i, i32 %316, i32 %314
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, label %_ZNK2c415basic_substringIKcE7compareEc.exit.thread
 
 _ZNK2c415basic_substringIKcE7compareEc.exit.thread: ; preds = %_ZNK2c415basic_substringIKcE7compareEc.exit
-  %319 = icmp eq i64 %.fr254, 1
-  br i1 %319, label %.loopexit261, label %.lr.ph.i62
+  %319 = icmp eq i64 %267, 1
+  br i1 %319, label %.loopexit259, label %.lr.ph.i62
 
 320:                                              ; preds = %.lr.ph.i62
   br i1 %exitcond.not.i64, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, label %.lr.ph.i62, !llvm.loop !66
@@ -22342,10 +22341,10 @@ _ZNK2c415basic_substringIKcE7compareEc.exit.thread: ; preds = %_ZNK2c415basic_su
   %323 = getelementptr inbounds nuw i8, ptr @.str.216, i64 %.068.i
   %324 = load i8, ptr %323, align 1, !tbaa !44
   %.not.i63 = icmp eq i8 %322, %324
-  br i1 %.not.i63, label %320, label %.loopexit261
+  br i1 %.not.i63, label %320, label %.loopexit259
 
 _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %320, %_ZNK2c415basic_substringIKcE7compareEc.exit
-  %325 = icmp eq i64 %.fr254, 1
+  %325 = icmp eq i64 %267, 1
   br i1 %325, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit71, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %_ZNK2c415basic_substringIKcE11begins_withES2_.exit, %.lr.ph.i66
@@ -22415,24 +22414,24 @@ _ZN2c43yml6Parser16_line_progressedEm.exit74:     ; preds = %_ZNK2c415basic_subs
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %357 = load i32, ptr %350, align 8, !tbaa !254
   %358 = and i32 %357, 512
-  %.not256 = icmp eq i32 %358, 0
-  br i1 %.not256, label %362, label %359
+  %.not254 = icmp eq i32 %358, 0
+  br i1 %.not254, label %362, label %359
 
 359:                                              ; preds = %_ZN2c43yml6Parser16_line_progressedEm.exit74
   %360 = getelementptr inbounds i8, ptr %268, i64 -1
   %361 = call noundef ptr @_ZN2c43yml6Parser20_append_key_val_nullEPKc(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull %360)
-  %.pre278 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre279 = load i32, ptr %.pre278, align 8, !tbaa !254
+  %.pre276 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre277 = load i32, ptr %.pre276, align 8, !tbaa !254
   br label %362
 
 362:                                              ; preds = %359, %_ZN2c43yml6Parser16_line_progressedEm.exit74
-  %363 = phi i32 [ %.pre279, %359 ], [ %357, %_ZN2c43yml6Parser16_line_progressedEm.exit74 ]
-  %364 = phi ptr [ %.pre278, %359 ], [ %350, %_ZN2c43yml6Parser16_line_progressedEm.exit74 ]
+  %363 = phi i32 [ %.pre277, %359 ], [ %357, %_ZN2c43yml6Parser16_line_progressedEm.exit74 ]
+  %364 = phi ptr [ %.pre276, %359 ], [ %350, %_ZN2c43yml6Parser16_line_progressedEm.exit74 ]
   %365 = or i32 %363, 32
   store i32 %365, ptr %364, align 8, !tbaa !254
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread
 
-.loopexit261:                                     ; preds = %.lr.ph.i62, %_ZNK2c415basic_substringIKcE7compareEc.exit.thread
+.loopexit259:                                     ; preds = %.lr.ph.i62, %_ZNK2c415basic_substringIKcE7compareEc.exit.thread
   %366 = load ptr, ptr %43, align 8, !tbaa !261
   %367 = load i32, ptr %366, align 8, !tbaa !254
   %368 = and i32 %367, 32
@@ -22441,20 +22440,20 @@ _ZN2c43yml6Parser16_line_progressedEm.exit74:     ; preds = %_ZNK2c415basic_subs
   %or.cond = and i1 %369, %370
   br i1 %or.cond, label %371, label %_ZNK2c415basic_substringIKcE7compareEc.exit87
 
-371:                                              ; preds = %.loopexit261
+371:                                              ; preds = %.loopexit259
   %372 = and i32 %367, 512
   %.not251 = icmp eq i32 %372, 0
   br i1 %.not251, label %373, label %374
 
 373:                                              ; preds = %371
   call void @_ZN2c43yml6Parser18_store_scalar_nullEPKc(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull %268)
-  %.pre280 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre281 = load i32, ptr %.pre280, align 8, !tbaa !254
+  %.pre278 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre279 = load i32, ptr %.pre278, align 8, !tbaa !254
   br label %374
 
 374:                                              ; preds = %373, %371
-  %375 = phi i32 [ %.pre281, %373 ], [ %367, %371 ]
-  %376 = phi ptr [ %.pre280, %373 ], [ %366, %371 ]
+  %375 = phi i32 [ %.pre279, %373 ], [ %367, %371 ]
+  %376 = phi ptr [ %.pre278, %373 ], [ %366, %371 ]
   %377 = and i32 %375, -225
   %378 = or disjoint i32 %377, 128
   store i32 %378, ptr %376, align 8, !tbaa !254
@@ -22497,11 +22496,11 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit78: ; preds = %374
   %398 = load ptr, ptr %391, align 8, !tbaa !244
   call void %393(ptr noundef nonnull %35, i64 noundef 35, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %36, ptr noundef %398)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %.pre282 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre280 = load ptr, ptr %43, align 8, !tbaa !261
   br label %399
 
 399:                                              ; preds = %390, %385
-  %400 = phi ptr [ %.pre282, %390 ], [ %379, %385 ]
+  %400 = phi ptr [ %.pre280, %390 ], [ %379, %385 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 128
   %402 = load i64, ptr %401, align 8, !tbaa !56
@@ -22533,15 +22532,15 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit80: ; preds = %399
   %415 = load ptr, ptr %408, align 8, !tbaa !244
   call void %410(ptr noundef nonnull %17, i64 noundef 58, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %18, ptr noundef %415)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre283 = load ptr, ptr %43, align 8, !tbaa !261
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre283, i64 128
-  %.pre284 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !56
-  %.not252 = icmp eq i64 %.pre284, 0
+  %.pre281 = load ptr, ptr %43, align 8, !tbaa !261
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre281, i64 128
+  %.pre282 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !56
+  %.not252 = icmp eq i64 %.pre282, 0
   br i1 %.not252, label %_ZN2c43yml6Parser10_skipcharsEc.exit, label %.lr.ph.i81
 
 .lr.ph.i81:                                       ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit80, %407
-  %416 = phi ptr [ %.pre283, %407 ], [ %400, %_ZNK2c415basic_substringIKcE11begins_withEc.exit80 ]
-  %417 = phi i64 [ %.pre284, %407 ], [ %402, %_ZNK2c415basic_substringIKcE11begins_withEc.exit80 ]
+  %416 = phi ptr [ %.pre281, %407 ], [ %400, %_ZNK2c415basic_substringIKcE11begins_withEc.exit80 ]
+  %417 = phi i64 [ %.pre282, %407 ], [ %402, %_ZNK2c415basic_substringIKcE11begins_withEc.exit80 ]
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 120
   %419 = load ptr, ptr %418, align 8, !tbaa !166
   br label %420
@@ -22560,20 +22559,20 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit80: ; preds = %399
 
 _ZNK2c415basic_substringIKcE12first_not_ofEcm.exit: ; preds = %420
   %425 = icmp eq i64 %.0811.i, -1
-  %spec.select329 = select i1 %425, i64 %417, i64 %.0811.i
+  %spec.select327 = select i1 %425, i64 %417, i64 %.0811.i
   br label %_ZN2c43yml6Parser10_skipcharsEc.exit
 
 _ZN2c43yml6Parser10_skipcharsEc.exit:             ; preds = %423, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit, %407
-  %.0.i = phi i64 [ %spec.select329, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ 0, %407 ], [ %417, %423 ]
+  %.0.i = phi i64 [ %spec.select327, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit ], [ 0, %407 ], [ %417, %423 ]
   call void @_ZN2c43yml6Parser16_line_progressedEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread
 
-_ZNK2c415basic_substringIKcE7compareEc.exit87:    ; preds = %.loopexit261
+_ZNK2c415basic_substringIKcE7compareEc.exit87:    ; preds = %.loopexit259
   %.not5.i86 = icmp eq i8 %269, 58
   %426 = sext i8 %269 to i32
   %427 = add nsw i32 %426, -58
-  %428 = trunc i64 %.fr254 to i32
+  %428 = trunc i64 %267 to i32
   %429 = add nsw i32 %428, -1
   %430 = select i1 %.not5.i86, i32 %429, i32 %427
   %431 = icmp eq i32 %430, 0
@@ -22615,20 +22614,20 @@ _ZNK2c415basic_substringIKcE7compareEc.exit98.thread: ; preds = %438, %_ZNK2c415
   %445 = or disjoint i32 %444, 128
   store i32 %445, ptr %443, align 8, !tbaa !254
   %446 = load i8, ptr %268, align 1, !tbaa !44
-  %.fr = freeze i8 %446
-  %.not5.i97 = icmp eq i8 %.fr, 58
-  %447 = trunc i64 %.fr254 to i32
-  %448 = add i32 %447, -1
-  %449 = sext i8 %.fr to i32
+  %.not5.i97 = icmp eq i8 %446, 58
+  %447 = trunc i64 %267 to i32
+  %448 = add nsw i32 %447, -1
+  %449 = sext i8 %446 to i32
   %450 = add nsw i32 %449, -58
   %451 = select i1 %.not5.i97, i32 %448, i32 %450
-  %452 = icmp eq i32 %451, 0
+  %.fr = freeze i32 %451
+  %452 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %452, i64 1, i64 2
   call void @_ZN2c43yml6Parser16_line_progressedEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %spec.select)
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread
 
 453:                                              ; preds = %.lr.ph.i89
-  %454 = icmp ult i64 %.fr254, 3
+  %454 = icmp ult i64 %267, 3
   br i1 %454, label %.thread219, label %.lr.ph.i100
 
 455:                                              ; preds = %.lr.ph.i100
@@ -22665,7 +22664,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit105: ; preds = %455
   br i1 %.not.i109, label %461, label %.thread219
 
 _ZNK2c415basic_substringIKcE11begins_withES2_.exit112: ; preds = %461
-  call void @_ZN2c43yml6Parser14_start_new_docENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull %268, i64 %.fr254)
+  call void @_ZN2c43yml6Parser14_start_new_docENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull %268, i64 %267)
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread
 
 .thread219:                                       ; preds = %.lr.ph.i107, %266, %_ZNK2c415basic_substringIKcE7compareEc.exit87.thread, %453
@@ -22694,7 +22693,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread: ; preds = %240, %374,
 473:                                              ; preds = %471
   %474 = and i32 %116, 256
   %475 = icmp eq i32 %474, 0
-  br i1 %475, label %.thread322, label %476
+  br i1 %475, label %.thread320, label %476
 
 476:                                              ; preds = %473
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -22714,11 +22713,11 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread: ; preds = %240, %374,
   %484 = load ptr, ptr %477, align 8, !tbaa !244
   call void %479(ptr noundef nonnull %37, i64 noundef 31, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %38, ptr noundef %484)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %.pre288 = load ptr, ptr %43, align 8, !tbaa !261
-  %.pre289 = load i32, ptr %.pre288, align 8, !tbaa !254
-  %.pre292 = and i32 %.pre289, 64
-  %485 = icmp eq i32 %.pre292, 0
-  br i1 %485, label %.thread322, label %486
+  %.pre286 = load ptr, ptr %43, align 8, !tbaa !261
+  %.pre287 = load i32, ptr %.pre286, align 8, !tbaa !254
+  %.pre290 = and i32 %.pre287, 64
+  %485 = icmp eq i32 %.pre290, 0
+  br i1 %485, label %.thread320, label %486
 
 486:                                              ; preds = %476
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -22738,16 +22737,16 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit38.thread: ; preds = %240, %374,
   %494 = load ptr, ptr %487, align 8, !tbaa !244
   call void %489(ptr noundef nonnull %39, i64 noundef 31, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %40, ptr noundef %494)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %.thread322
+  br label %.thread320
 
-.thread322:                                       ; preds = %473, %486, %476
+.thread320:                                       ; preds = %473, %486, %476
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %495 = call noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_map_blckEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull %41, ptr noundef nonnull %42)
   br i1 %495, label %496, label %538
 
-496:                                              ; preds = %.thread322
+496:                                              ; preds = %.thread320
   %497 = load ptr, ptr %43, align 8, !tbaa !261
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %498, i64 16, i1 false), !tbaa.struct !141
@@ -22837,11 +22836,11 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit121.thread: ; preds = %.loopexit
   store i32 %537, ptr %534, align 8, !tbaa !254
   br label %613
 
-538:                                              ; preds = %.thread322
+538:                                              ; preds = %.thread320
   %539 = load i64, ptr %71, align 8, !tbaa !56
   %540 = icmp ult i64 %539, 2
-  %.pre290 = load ptr, ptr %19, align 8, !tbaa !166
-  br i1 %540, label %.loopexit260, label %.lr.ph.i123
+  %.pre288 = load ptr, ptr %19, align 8, !tbaa !166
+  br i1 %540, label %.loopexit258, label %.lr.ph.i123
 
 541:                                              ; preds = %.lr.ph.i123
   br i1 %exitcond.not.i127, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit128, label %.lr.ph.i123, !llvm.loop !66
@@ -22849,12 +22848,12 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit121.thread: ; preds = %.loopexit
 .lr.ph.i123:                                      ; preds = %538, %541
   %exitcond.not.i127 = phi i1 [ true, %541 ], [ false, %538 ]
   %.068.i124 = phi i64 [ 1, %541 ], [ 0, %538 ]
-  %542 = getelementptr inbounds nuw i8, ptr %.pre290, i64 %.068.i124
+  %542 = getelementptr inbounds nuw i8, ptr %.pre288, i64 %.068.i124
   %543 = load i8, ptr %542, align 1, !tbaa !44
   %544 = getelementptr inbounds nuw i8, ptr @.str.215, i64 %.068.i124
   %545 = load i8, ptr %544, align 1, !tbaa !44
   %.not.i125 = icmp eq i8 %543, %545
-  br i1 %.not.i125, label %541, label %.loopexit260
+  br i1 %.not.i125, label %541, label %.loopexit258
 
 _ZNK2c415basic_substringIKcE11begins_withES2_.exit128: ; preds = %541
   %546 = load ptr, ptr %43, align 8, !tbaa !261
@@ -22869,14 +22868,14 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit128: ; preds = %541
   call void @_ZN2c43yml6Parser16_line_progressedEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef 2)
   br label %613
 
-.loopexit260:                                     ; preds = %.lr.ph.i123, %538
-  %.not.i129 = icmp ne ptr %.pre290, null
+.loopexit258:                                     ; preds = %.lr.ph.i123, %538
+  %.not.i129 = icmp ne ptr %.pre288, null
   %550 = icmp ne i64 %539, 0
   %551 = and i1 %550, %.not.i129
   br i1 %551, label %_ZNK2c415basic_substringIKcE7compareEc.exit132, label %560, !prof !52
 
-_ZNK2c415basic_substringIKcE7compareEc.exit132:   ; preds = %.loopexit260
-  %552 = load i8, ptr %.pre290, align 1, !tbaa !44
+_ZNK2c415basic_substringIKcE7compareEc.exit132:   ; preds = %.loopexit258
+  %552 = load i8, ptr %.pre288, align 1, !tbaa !44
   %.not5.i131 = icmp eq i8 %552, 45
   %553 = sext i8 %552 to i32
   %554 = add nsw i32 %553, -45
@@ -22892,16 +22891,16 @@ _ZNK2c415basic_substringIKcE7compareEc.exit132:   ; preds = %.loopexit260
   call void @_ZN2c43yml6Parser16_line_progressedEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef 1)
   br label %613
 
-560:                                              ; preds = %.loopexit260
+560:                                              ; preds = %.loopexit258
   %.not.i133 = icmp eq i64 %539, 0
   br i1 %.not.i133, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit138.thread, label %._ZNK2c415basic_substringIKcE11begins_withEc.exit134_crit_edge
 
 ._ZNK2c415basic_substringIKcE11begins_withEc.exit134_crit_edge: ; preds = %560
-  %.pre291 = load i8, ptr %.pre290, align 1, !tbaa !44
+  %.pre289 = load i8, ptr %.pre288, align 1, !tbaa !44
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit134
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit134: ; preds = %._ZNK2c415basic_substringIKcE11begins_withEc.exit134_crit_edge, %_ZNK2c415basic_substringIKcE7compareEc.exit132
-  %561 = phi i8 [ %.pre291, %._ZNK2c415basic_substringIKcE11begins_withEc.exit134_crit_edge ], [ %552, %_ZNK2c415basic_substringIKcE7compareEc.exit132 ]
+  %561 = phi i8 [ %.pre289, %._ZNK2c415basic_substringIKcE11begins_withEc.exit134_crit_edge ], [ %552, %_ZNK2c415basic_substringIKcE7compareEc.exit132 ]
   switch i8 %561, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit138.thread [
     i8 91, label %562
     i8 123, label %570
@@ -22943,7 +22942,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit134: ; preds = %._ZNK2c415basic_
 
 .lr.ph.i139:                                      ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit134, %581
   %.0811.i140 = phi i64 [ %582, %581 ], [ 0, %_ZNK2c415basic_substringIKcE11begins_withEc.exit134 ]
-  %579 = getelementptr inbounds nuw i8, ptr %.pre290, i64 %.0811.i140
+  %579 = getelementptr inbounds nuw i8, ptr %.pre288, i64 %.0811.i140
   %580 = load i8, ptr %579, align 1, !tbaa !44
   %.not.i141 = icmp eq i8 %580, 32
   br i1 %.not.i141, label %581, label %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit143
@@ -22984,7 +22983,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit138.thread: ; preds = %_ZNK2c415
 
 .lr.ph.i145:                                      ; preds = %586, %588
   %.068.i146 = phi i64 [ %589, %588 ], [ 0, %586 ]
-  %590 = getelementptr inbounds nuw i8, ptr %.pre290, i64 %.068.i146
+  %590 = getelementptr inbounds nuw i8, ptr %.pre288, i64 %.068.i146
   %591 = load i8, ptr %590, align 1, !tbaa !44
   %592 = getelementptr inbounds nuw i8, ptr @.str.210, i64 %.068.i146
   %593 = load i8, ptr %592, align 1, !tbaa !44
@@ -23008,7 +23007,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit138.thread: ; preds = %_ZNK2c415
 
 .lr.ph.i152:                                      ; preds = %594, %599
   %.068.i153 = phi i64 [ %600, %599 ], [ 0, %594 ]
-  %601 = getelementptr inbounds nuw i8, ptr %.pre290, i64 %.068.i153
+  %601 = getelementptr inbounds nuw i8, ptr %.pre288, i64 %.068.i153
   %602 = load i8, ptr %601, align 1, !tbaa !44
   %603 = getelementptr inbounds nuw i8, ptr @.str.263, i64 %.068.i153
   %604 = load i8, ptr %603, align 1, !tbaa !44
@@ -23016,7 +23015,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit138.thread: ; preds = %_ZNK2c415
   br i1 %.not.i154, label %599, label %.thread241
 
 _ZNK2c415basic_substringIKcE11begins_withES2_.exit150: ; preds = %588, %599, %.thread240, %594
-  call void @_ZN2c43yml6Parser14_start_new_docENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr %.pre290, i64 %539)
+  call void @_ZN2c43yml6Parser14_start_new_docENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr %.pre288, i64 %539)
   br label %613
 
 .thread241:                                       ; preds = %.lr.ph.i152, %.thread240
@@ -23030,7 +23029,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit150: ; preds = %588, %599, %.t
 
 .lr.ph.i159:                                      ; preds = %.thread241, %606
   %.068.i160 = phi i64 [ %607, %606 ], [ 0, %.thread241 ]
-  %608 = getelementptr inbounds nuw i8, ptr %.pre290, i64 %.068.i160
+  %608 = getelementptr inbounds nuw i8, ptr %.pre288, i64 %.068.i160
   %609 = load i8, ptr %608, align 1, !tbaa !44
   %610 = getelementptr inbounds nuw i8, ptr @.str.211, i64 %.068.i160
   %611 = load i8, ptr %610, align 1, !tbaa !44

@@ -102,12 +102,10 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 
 12:                                               ; preds = %9
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 1, !noalias !37
-  %.sroa.2.0.copyload.fr.i.i.i.i.i.i = freeze i8 %.sroa.2.0.copyload.i.i.i.i.i.i
   %.sroa.45.0.copyload.i.i.i.i.i.i = load ptr, ptr %.sroa.45.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !37
   %.sroa.56.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.56.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !37
   %.sroa.67.0.copyload.i.i.i.i.i.i = load ptr, ptr %.sroa.67.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !37
   %.sroa.78.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.78.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !37
-  %.sroa.411.0.copyload.fr.i.i.i.i.i.i = freeze i8 %.sroa.2.0.copyload.i.i.i.i
   %13 = icmp samesign ugt i8 %10, 5
   %14 = zext nneg i8 %10 to i64
   %15 = add nsw i64 %14, -5
@@ -163,9 +161,10 @@ default.unreachable:                              ; preds = %26
   br i1 %34, label %45, label %.loopexit.sink.split.i.i.i.i
 
 35:                                               ; preds = %26
-  %36 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i.i.i.i.i, %.sroa.2.0.copyload.fr.i.i.i.i.i.i
+  %36 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
-  br i1 %36, label %58, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
+  %cond.fr24.i.i.i.i.i.i = freeze i1 %36
+  br i1 %cond.fr24.i.i.i.i.i.i, label %58, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
 
 37:                                               ; preds = %26
   %38 = icmp ne ptr %.sroa.49.0.copyload.i.i.i.i, null
@@ -216,9 +215,10 @@ default.unreachable:                              ; preds = %26
   br label %58
 
 "_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h776a7fcbca795092E.exit.i.i.i.i.i.i": ; preds = %26
-  %57 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i.i.i.i.i, %.sroa.2.0.copyload.fr.i.i.i.i.i.i
+  %57 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37
-  br i1 %57, label %58, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
+  %cond.fr.i.i.i.i.i.i = freeze i1 %57
+  br i1 %cond.fr.i.i.i.i.i.i, label %58, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h46bb440cd83fc6b8E.exit.thread.i
 
 .loopexit.sink.split.i.i.i.i:                     ; preds = %41, %31, %24, %12, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !37

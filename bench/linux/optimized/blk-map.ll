@@ -1409,8 +1409,8 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
-  %.fr31 = freeze i32 %7
-  %8 = and i32 %.fr31, 1
+  %.fr = freeze i32 %7
+  %8 = and i32 %.fr, 1
   %9 = icmp eq i32 %8, 0
   %10 = ptrtoint ptr %2 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144

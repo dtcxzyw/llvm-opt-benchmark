@@ -8268,317 +8268,306 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %10 = alloca %"struct.ZXing::ConcentricPattern", align 8
   %.sroa.05.i.i9.i = alloca %"struct.ZXing::PointT", align 8
   %.sroa.06.i.i.i = alloca %"struct.ZXing::PointT", align 8
-  %.fr48.i = freeze ptr %0
-  %.fr = freeze ptr %1
-  %11 = ptrtoint ptr %.fr48.i to i64
-  %12 = ptrtoint ptr %.fr to i64
+  %11 = ptrtoint ptr %0 to i64
+  %12 = ptrtoint ptr %1 to i64
   %13 = sub i64 %12, %11
-  %14 = icmp sgt i64 %13, 384
+  %.fr47.i22 = freeze i64 %13
+  %14 = icmp sgt i64 %.fr47.i22, 384
   br i1 %14, label %.lr.ph, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr i8, ptr %.fr48.i, i64 24
-  %16 = getelementptr i8, ptr %.fr48.i, i64 40
-  %17 = getelementptr i8, ptr %.fr48.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr i8, ptr %0, i64 40
+  %17 = getelementptr i8, ptr %0, i64 16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit"
-  %19 = phi i64 [ %13, %.lr.ph ], [ %130, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit" ]
-  %.023 = phi i64 [ %2, %.lr.ph ], [ %100, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit" ]
-  %storemerge22 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.013.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit" ]
-  %20 = icmp eq i64 %.023, 0
-  br i1 %20, label %21, label %99
+  %.fr47.i25 = phi i64 [ %.fr47.i22, %.lr.ph ], [ %.fr47.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit" ]
+  %.024 = phi i64 [ %2, %.lr.ph ], [ %94, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit" ]
+  %storemerge23 = phi ptr [ %1, %.lr.ph ], [ %.sroa.013.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit" ]
+  %19 = icmp eq i64 %.024, 0
+  br i1 %19, label %20, label %93
 
-21:                                               ; preds = %18
-  %22 = ptrtoint ptr %storemerge22 to i64
-  %23 = sub i64 %22, %11
-  %24 = icmp slt i64 %23, 48
-  br i1 %24, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit.i", label %25
+20:                                               ; preds = %18
+  %21 = udiv exact i64 %.fr47.i25, 24
+  %22 = add nsw i64 %21, -2
+  %23 = lshr i64 %22, 1
+  %24 = add nsw i64 %21, -1
+  %25 = lshr i64 %24, 1
+  %26 = and i64 %21, 1
+  %27 = icmp eq i64 %26, 0
+  %28 = or disjoint i64 %22, 1
+  %29 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %28
+  %30 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %23
+  br label %31
 
-25:                                               ; preds = %21
-  %26 = udiv exact i64 %23, 24
-  %27 = add nsw i64 %26, -2
-  %28 = lshr i64 %27, 1
-  %29 = add nsw i64 %26, -1
-  %30 = lshr i64 %29, 1
-  %31 = and i64 %26, 1
-  %32 = icmp eq i64 %31, 0
-  %33 = or disjoint i64 %27, 1
-  %34 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %33
-  %35 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %28
-  br label %36
-
-36:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %25
-  %.08.i.i.i = phi i64 [ %28, %25 ], [ %61, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
-  %37 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.08.i.i.i
+31:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %20
+  %.08.i.i.i = phi i64 [ %23, %20 ], [ %56, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
+  %32 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.08.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
-  %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.sroa.49.0.copyload.i.i.i = load i32, ptr %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, align 8
-  %38 = icmp slt i64 %.08.i.i.i, %30
-  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %33 = icmp slt i64 %.08.i.i.i, %25
+  br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %36, %.lr.ph.i.i.i.i
-  %.039.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %36 ]
-  %39 = shl i64 %.039.i.i.i.i, 1
-  %40 = add i64 %39, 2
-  %41 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %40
-  %42 = or disjoint i64 %39, 1
-  %43 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %42
-  %44 = getelementptr i8, ptr %41, i64 16
-  %.val.i.i.i.i.i = load i32, ptr %44, align 8, !tbaa !58
-  %45 = getelementptr i8, ptr %43, i64 16
-  %.val1.i.i.i.i.i = load i32, ptr %45, align 8, !tbaa !58
-  %46 = icmp slt i32 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %46, i64 %42, i64 %40
-  %47 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %spec.select.i.i.i.i
-  %48 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.039.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, ptr noundef nonnull align 8 dereferenceable(20) %47, i64 20, i1 false)
-  %49 = icmp slt i64 %spec.select.i.i.i.i, %30
-  br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !291
+.lr.ph.i.i.i.i:                                   ; preds = %31, %.lr.ph.i.i.i.i
+  %.039.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %31 ]
+  %34 = shl i64 %.039.i.i.i.i, 1
+  %35 = add i64 %34, 2
+  %36 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %35
+  %37 = or disjoint i64 %34, 1
+  %38 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %37
+  %39 = getelementptr i8, ptr %36, i64 16
+  %.val.i.i.i.i.i = load i32, ptr %39, align 8, !tbaa !58
+  %40 = getelementptr i8, ptr %38, i64 16
+  %.val1.i.i.i.i.i = load i32, ptr %40, align 8, !tbaa !58
+  %41 = icmp slt i32 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %41, i64 %37, i64 %35
+  %42 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %spec.select.i.i.i.i
+  %43 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.039.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef nonnull align 8 dereferenceable(20) %42, i64 20, i1 false)
+  %44 = icmp slt i64 %spec.select.i.i.i.i, %25
+  br i1 %44, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !291
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %36
-  %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %36 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = icmp eq i64 %.0.lcssa.i.i.i.i, %28
-  %or.cond.i.i.i = select i1 %32, i1 %50, i1 false
-  br i1 %or.cond.i.i.i, label %51, label %52
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %31
+  %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %31 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %45 = icmp eq i64 %.0.lcssa.i.i.i.i, %23
+  %or.cond.i.i.i = select i1 %27, i1 %45, i1 false
+  br i1 %or.cond.i.i.i, label %46, label %47
 
-51:                                               ; preds = %._crit_edge.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(20) %34, i64 20, i1 false)
-  br label %52
+46:                                               ; preds = %._crit_edge.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, ptr noundef nonnull align 8 dereferenceable(20) %29, i64 20, i1 false)
+  br label %47
 
-52:                                               ; preds = %51, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %33, %51 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %53 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
-  br i1 %53, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+47:                                               ; preds = %46, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %28, %46 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %48 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
+  br i1 %48, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %52, %57
-  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %57 ], [ %.1.i.i.i.i, %52 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %47, %52
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %52 ], [ %.1.i.i.i.i, %47 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %54 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.0911.i.i.i.i.i
-  %55 = getelementptr i8, ptr %54, i64 16
-  %.val.i.i.i.i.i.i = load i32, ptr %55, align 8, !tbaa !58
-  %56 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.49.0.copyload.i.i.i
-  br i1 %56, label %57, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+  %49 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.0911.i.i.i.i.i
+  %50 = getelementptr i8, ptr %49, i64 16
+  %.val.i.i.i.i.i.i = load i32, ptr %50, align 8, !tbaa !58
+  %51 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.49.0.copyload.i.i.i
+  br i1 %51, label %52, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %58 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.010.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %58, ptr noundef nonnull align 8 dereferenceable(20) %54, i64 20, i1 false)
-  %59 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
-  br i1 %59, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !292
+52:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.010.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(20) %49, i64 20, i1 false)
+  %54 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
+  br i1 %54, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !292
 
-"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %57, %.lr.ph.i.i.i.i.i, %52
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %52 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %57 ]
-  %60 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.0.lcssa.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx36.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 16
+"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %52, %.lr.ph.i.i.i.i.i, %47
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %47 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %52 ]
+  %55 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx36.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i32 %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx36.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
-  %61 = add nsw i64 %.08.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit.i", label %36, !llvm.loop !293
+  %56 = add nsw i64 %.08.i.i.i, -1
+  br i1 %.not.i.i.i, label %.lr.ph.i10.i, label %31, !llvm.loop !293
 
-"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %21
-  %62 = icmp sgt i64 %23, 24
-  br i1 %62, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit"
-
-.lr.ph.i10.i:                                     ; preds = %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i"
-  %.sroa.0.03.i.i = phi ptr [ %63, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i" ], [ %storemerge22, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit.i" ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
+.lr.ph.i10.i:                                     ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i"
+  %.sroa.0.03.i.i = phi ptr [ %57, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i" ], [ %storemerge23, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05.i.i9.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
   %.sroa.48.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.48.0.copyload.i.i.i = load i32, ptr %.sroa.48.0..sroa.0.0..sroa_idx.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, i64 20, i1 false)
-  %64 = ptrtoint ptr %63 to i64
-  %65 = sub i64 %64, %11
-  %66 = sdiv exact i64 %65, 24
-  %67 = add nsw i64 %66, -1
-  %68 = sdiv i64 %67, 2
-  %69 = icmp sgt i64 %65, 48
-  br i1 %69, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i11.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false)
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %58, %11
+  %60 = sdiv exact i64 %59, 24
+  %61 = add nsw i64 %60, -1
+  %62 = sdiv i64 %61, 2
+  %63 = icmp sgt i64 %59, 48
+  br i1 %63, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i11.i
 
 .lr.ph.i.i.i26.i:                                 ; preds = %.lr.ph.i10.i, %.lr.ph.i.i.i26.i
   %.039.i.i.i27.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i26.i ], [ 0, %.lr.ph.i10.i ]
-  %70 = shl i64 %.039.i.i.i27.i, 1
-  %71 = add i64 %70, 2
-  %72 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %71
-  %73 = or disjoint i64 %70, 1
-  %74 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %73
-  %75 = getelementptr i8, ptr %72, i64 16
-  %.val.i.i.i.i28.i = load i32, ptr %75, align 8, !tbaa !58
-  %76 = getelementptr i8, ptr %74, i64 16
-  %.val1.i.i.i.i29.i = load i32, ptr %76, align 8, !tbaa !58
-  %77 = icmp slt i32 %.val.i.i.i.i28.i, %.val1.i.i.i.i29.i
-  %spec.select.i.i.i30.i = select i1 %77, i64 %73, i64 %71
-  %78 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %spec.select.i.i.i30.i
-  %79 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.039.i.i.i27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %79, ptr noundef nonnull align 8 dereferenceable(20) %78, i64 20, i1 false)
-  %80 = icmp slt i64 %spec.select.i.i.i30.i, %68
-  br i1 %80, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i11.i, !llvm.loop !291
+  %64 = shl i64 %.039.i.i.i27.i, 1
+  %65 = add i64 %64, 2
+  %66 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %65
+  %67 = or disjoint i64 %64, 1
+  %68 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %67
+  %69 = getelementptr i8, ptr %66, i64 16
+  %.val.i.i.i.i28.i = load i32, ptr %69, align 8, !tbaa !58
+  %70 = getelementptr i8, ptr %68, i64 16
+  %.val1.i.i.i.i29.i = load i32, ptr %70, align 8, !tbaa !58
+  %71 = icmp slt i32 %.val.i.i.i.i28.i, %.val1.i.i.i.i29.i
+  %spec.select.i.i.i30.i = select i1 %71, i64 %67, i64 %65
+  %72 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %spec.select.i.i.i30.i
+  %73 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.039.i.i.i27.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %73, ptr noundef nonnull align 8 dereferenceable(20) %72, i64 20, i1 false)
+  %74 = icmp slt i64 %spec.select.i.i.i30.i, %62
+  br i1 %74, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i11.i, !llvm.loop !291
 
 ._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i26.i, %.lr.ph.i10.i
   %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i26.i ]
-  %81 = and i64 %66, 1
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %91
+  %75 = and i64 %60, 1
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %77, label %85
 
-83:                                               ; preds = %._crit_edge.i.i.i11.i
-  %84 = add nsw i64 %66, -2
-  %85 = ashr exact i64 %84, 1
-  %86 = icmp eq i64 %.0.lcssa.i.i.i12.i, %85
-  br i1 %86, label %.thread.i.i25.i, label %91
+77:                                               ; preds = %._crit_edge.i.i.i11.i
+  %78 = add nsw i64 %60, -2
+  %79 = ashr exact i64 %78, 1
+  %80 = icmp eq i64 %.0.lcssa.i.i.i12.i, %79
+  br i1 %80, label %.thread.i.i25.i, label %85
 
-.thread.i.i25.i:                                  ; preds = %83
-  %87 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
-  %88 = or disjoint i64 %87, 1
-  %89 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %88
-  %90 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.0.lcssa.i.i.i12.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %90, ptr noundef nonnull align 8 dereferenceable(20) %89, i64 20, i1 false)
+.thread.i.i25.i:                                  ; preds = %77
+  %81 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+  %82 = or disjoint i64 %81, 1
+  %83 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %82
+  %84 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.0.lcssa.i.i.i12.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %84, ptr noundef nonnull align 8 dereferenceable(20) %83, i64 20, i1 false)
   br label %.lr.ph.i.i.i.i16.i.preheader
 
-91:                                               ; preds = %83, %._crit_edge.i.i.i11.i
+85:                                               ; preds = %77, %._crit_edge.i.i.i11.i
   %.not.i.i13.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
   br i1 %.not.i.i13.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i", label %.lr.ph.i.i.i.i16.i.preheader
 
-.lr.ph.i.i.i.i16.i.preheader:                     ; preds = %91, %.thread.i.i25.i
-  %.010.i.i.i.i17.i.ph = phi i64 [ %.0.lcssa.i.i.i12.i, %91 ], [ %88, %.thread.i.i25.i ]
+.lr.ph.i.i.i.i16.i.preheader:                     ; preds = %85, %.thread.i.i25.i
+  %.010.i.i.i.i17.i.ph = phi i64 [ %.0.lcssa.i.i.i12.i, %85 ], [ %82, %.thread.i.i25.i ]
   br label %.lr.ph.i.i.i.i16.i
 
-.lr.ph.i.i.i.i16.i:                               ; preds = %.lr.ph.i.i.i.i16.i.preheader, %95
-  %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i1011.i.i19.i, %95 ], [ %.010.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
+.lr.ph.i.i.i.i16.i:                               ; preds = %.lr.ph.i.i.i.i16.i.preheader, %89
+  %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i1011.i.i19.i, %89 ], [ %.010.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
   %.0911.in.i.i.i.i18.i = add nsw i64 %.010.i.i.i.i17.i, -1
   %.0911.i.i1011.i.i19.i = lshr i64 %.0911.in.i.i.i.i18.i, 1
-  %92 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.0911.i.i1011.i.i19.i
-  %93 = getelementptr i8, ptr %92, i64 16
-  %.val.i.i.i.i.i20.i = load i32, ptr %93, align 8, !tbaa !58
-  %94 = icmp slt i32 %.val.i.i.i.i.i20.i, %.sroa.48.0.copyload.i.i.i
-  br i1 %94, label %95, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i"
+  %86 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.0911.i.i1011.i.i19.i
+  %87 = getelementptr i8, ptr %86, i64 16
+  %.val.i.i.i.i.i20.i = load i32, ptr %87, align 8, !tbaa !58
+  %88 = icmp slt i32 %.val.i.i.i.i.i20.i, %.sroa.48.0.copyload.i.i.i
+  br i1 %88, label %89, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i"
 
-95:                                               ; preds = %.lr.ph.i.i.i.i16.i
-  %96 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.010.i.i.i.i17.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %96, ptr noundef nonnull align 8 dereferenceable(20) %92, i64 20, i1 false)
+89:                                               ; preds = %.lr.ph.i.i.i.i16.i
+  %90 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.010.i.i.i.i17.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %90, ptr noundef nonnull align 8 dereferenceable(20) %86, i64 20, i1 false)
   %.not12.i.i24.i = icmp eq i64 %.0911.i.i1011.i.i19.i, 0
   br i1 %.not12.i.i24.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i", label %.lr.ph.i.i.i.i16.i, !llvm.loop !292
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i": ; preds = %95, %.lr.ph.i.i.i.i16.i, %91
-  %.0.lcssa.i.i.i.i22.i = phi i64 [ 0, %91 ], [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %95 ]
-  %97 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %.0.lcssa.i.i.i.i22.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i9.i, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx36.i.i.i23.i = getelementptr inbounds nuw i8, ptr %97, i64 16
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i": ; preds = %89, %.lr.ph.i.i.i.i16.i, %85
+  %.0.lcssa.i.i.i.i22.i = phi i64 [ 0, %85 ], [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %89 ]
+  %91 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %0, i64 %.0.lcssa.i.i.i.i22.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i9.i, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx36.i.i.i23.i = getelementptr inbounds nuw i8, ptr %91, i64 16
   store i32 %.sroa.48.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx36.i.i.i23.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05.i.i9.i)
-  %98 = icmp sgt i64 %65, 24
-  br i1 %98, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !294
+  %92 = icmp sgt i64 %59, 24
+  br i1 %92, label %.lr.ph.i10.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !294
 
-99:                                               ; preds = %18
-  %100 = add nsw i64 %.023, -1
-  %101 = udiv i64 %19, 48
-  %102 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %.fr48.i, i64 %101
-  %103 = getelementptr inbounds i8, ptr %storemerge22, i64 -24
-  %.val.i.i.i16 = load i32, ptr %16, align 8, !tbaa !58
-  %104 = getelementptr i8, ptr %102, i64 16
-  %.val1.i.i.i17 = load i32, ptr %104, align 8, !tbaa !58
-  %105 = icmp slt i32 %.val.i.i.i16, %.val1.i.i.i17
-  %106 = getelementptr i8, ptr %storemerge22, i64 -8
-  %.val1.i27.i.i = load i32, ptr %106, align 8, !tbaa !58
-  br i1 %105, label %107, label %114
+93:                                               ; preds = %18
+  %94 = add nsw i64 %.024, -1
+  %95 = udiv i64 %.fr47.i25, 48
+  %96 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %0, i64 %95
+  %97 = getelementptr inbounds i8, ptr %storemerge23, i64 -24
+  %.val.i.i.i = load i32, ptr %16, align 8, !tbaa !58
+  %98 = getelementptr i8, ptr %96, i64 16
+  %.val1.i.i.i = load i32, ptr %98, align 8, !tbaa !58
+  %99 = icmp slt i32 %.val.i.i.i, %.val1.i.i.i
+  %100 = getelementptr i8, ptr %storemerge23, i64 -8
+  %.val1.i27.i.i = load i32, ptr %100, align 8, !tbaa !58
+  br i1 %99, label %101, label %108
 
-107:                                              ; preds = %99
-  %108 = icmp slt i32 %.val1.i.i.i17, %.val1.i27.i.i
-  br i1 %108, label %109, label %110
+101:                                              ; preds = %93
+  %102 = icmp slt i32 %.val1.i.i.i, %.val1.i27.i.i
+  br i1 %102, label %103, label %104
 
-109:                                              ; preds = %107
+103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.fr48.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, ptr noundef nonnull align 8 dereferenceable(20) %102, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %102, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %96, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %96, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-110:                                              ; preds = %107
-  %111 = icmp slt i32 %.val.i.i.i16, %.val1.i27.i.i
-  br i1 %111, label %112, label %113
+104:                                              ; preds = %101
+  %105 = icmp slt i32 %.val.i.i.i, %.val1.i27.i.i
+  br i1 %105, label %106, label %107
 
-112:                                              ; preds = %110
+106:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.fr48.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, ptr noundef nonnull align 8 dereferenceable(20) %103, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %103, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %97, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-113:                                              ; preds = %110
+107:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.fr48.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-114:                                              ; preds = %99
-  %115 = icmp slt i32 %.val.i.i.i16, %.val1.i27.i.i
-  br i1 %115, label %116, label %117
+108:                                              ; preds = %93
+  %109 = icmp slt i32 %.val.i.i.i, %.val1.i27.i.i
+  br i1 %109, label %110, label %111
 
-116:                                              ; preds = %114
+110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.fr48.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-117:                                              ; preds = %114
-  %118 = icmp slt i32 %.val1.i.i.i17, %.val1.i27.i.i
-  br i1 %118, label %119, label %120
+111:                                              ; preds = %108
+  %112 = icmp slt i32 %.val1.i.i.i, %.val1.i27.i.i
+  br i1 %112, label %113, label %114
 
-119:                                              ; preds = %117
+113:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.fr48.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, ptr noundef nonnull align 8 dereferenceable(20) %103, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %103, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %97, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-120:                                              ; preds = %117
+114:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.fr48.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.fr48.i, ptr noundef nonnull align 8 dereferenceable(20) %102, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %102, ptr noundef nonnull align 8 dereferenceable(20) %5, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %96, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %96, ptr noundef nonnull align 8 dereferenceable(20) %5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %120, %119, %116, %113, %112, %109
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %114, %113, %110, %107, %106, %103
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %128
-  %.sroa.013.0.i.i = phi ptr [ %124, %128 ], [ %15, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %128 ], [ %storemerge22, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %122
+  %.sroa.013.0.i.i = phi ptr [ %118, %122 ], [ %15, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %122 ], [ %storemerge23, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
   %.val1.i.i13.i = load i32, ptr %17, align 8, !tbaa !58
-  br label %121
+  br label %115
 
-121:                                              ; preds = %121, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i"
-  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %124, %121 ]
-  %122 = getelementptr i8, ptr %.sroa.013.1.i.i, i64 16
-  %.val.i.i14.i = load i32, ptr %122, align 8, !tbaa !58
-  %123 = icmp slt i32 %.val.i.i14.i, %.val1.i.i13.i
-  %124 = getelementptr i8, ptr %.sroa.013.1.i.i, i64 24
-  br i1 %123, label %121, label %.preheader.i.i, !llvm.loop !295
+115:                                              ; preds = %115, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i"
+  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %118, %115 ]
+  %116 = getelementptr i8, ptr %.sroa.013.1.i.i, i64 16
+  %.val.i.i14.i = load i32, ptr %116, align 8, !tbaa !58
+  %117 = icmp slt i32 %.val.i.i14.i, %.val1.i.i13.i
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 24
+  br i1 %117, label %115, label %.preheader.i.i, !llvm.loop !295
 
-.preheader.i.i:                                   ; preds = %121, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %121 ]
+.preheader.i.i:                                   ; preds = %115, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %115 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -24
-  %125 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %.val1.i10.i.i = load i32, ptr %125, align 8, !tbaa !58
-  %126 = icmp slt i32 %.val1.i.i13.i, %.val1.i10.i.i
-  br i1 %126, label %.preheader.i.i, label %127, !llvm.loop !296
+  %119 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %.val1.i10.i.i = load i32, ptr %119, align 8, !tbaa !58
+  %120 = icmp slt i32 %.val1.i.i13.i, %.val1.i10.i.i
+  br i1 %120, label %.preheader.i.i, label %121, !llvm.loop !296
 
-127:                                              ; preds = %.preheader.i.i
-  %.not.i.i18 = icmp ult ptr %.sroa.013.1.i.i, %.sroa.0.1.i.i
-  br i1 %.not.i.i18, label %128, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit"
+121:                                              ; preds = %.preheader.i.i
+  %.not.i.i = icmp ult ptr %.sroa.013.1.i.i, %.sroa.0.1.i.i
+  br i1 %.not.i.i, label %122, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit"
 
-128:                                              ; preds = %127
+122:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.013.1.i.i, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.1.i.i, i64 20, i1 false)
@@ -8586,14 +8575,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_SF_T0_.exit.i", !llvm.loop !297
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit": ; preds = %127
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_T0_T1_"(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge22, i64 noundef %100)
-  %129 = ptrtoint ptr %.sroa.013.1.i.i to i64
-  %130 = sub i64 %129, %11
-  %131 = icmp sgt i64 %130, 384
-  br i1 %131, label %18, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !298
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit": ; preds = %121
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_T0_T1_"(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge23, i64 noundef %94)
+  %123 = ptrtoint ptr %.sroa.013.1.i.i to i64
+  %124 = sub i64 %123, %11
+  %.fr47.i = freeze i64 %124
+  %125 = icmp sgt i64 %.fr47.i, 384
+  br i1 %125, label %18, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !298
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i", %3, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6QRCode25GenerateFinderPatternSetsERS7_E3$_0EEEvT_SF_SF_RT0_.exit.i21.i", %3
   ret void
 }
 

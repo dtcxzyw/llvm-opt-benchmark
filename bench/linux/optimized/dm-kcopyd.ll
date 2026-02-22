@@ -991,14 +991,14 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr i8, ptr %10, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit75, label %16
+  br i1 %15, label %.loopexit76, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %10, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit75, label %21
+  br i1 %20, label %.loopexit76, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr i8, ptr %10, i64 336
@@ -1016,9 +1016,9 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %23
   store i64 %33, ptr %30, align 8
-  br label %.loopexit75
+  br label %.loopexit76
 
-.loopexit75:                                      ; preds = %12, %16, %29
+.loopexit76:                                      ; preds = %12, %16, %29
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %10, align 8
@@ -1032,7 +1032,7 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %40
 
-40:                                               ; preds = %.loopexit75
+40:                                               ; preds = %.loopexit76
   %41 = tail call i32 %2(ptr noundef nonnull %38) #9, !callees !29
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.split17.us, label %43
@@ -1128,7 +1128,7 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %80) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %.loopexit75, %.thread, %.split20.us, %65
+.loopexit:                                        ; preds = %47, %.loopexit76, %.thread, %.split20.us, %65
   ret void
 }
 

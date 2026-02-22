@@ -16933,8 +16933,7 @@ _PyObject_HashFast.exit.thread.i:                 ; preds = %_PyObject_HashFast.
   %.1.i7.i = phi i64 [ %8, %_PyObject_HashFast.exit.i ], [ %7, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call i64 @_Py_dict_lookup(ptr noundef readonly %0, ptr noundef nonnull %1, i64 noundef %.1.i7.i, ptr noundef nonnull %3)
-  %.fr = freeze i64 %10
-  %11 = icmp eq i64 %.fr, -3
+  %11 = icmp eq i64 %10, -3
   br i1 %11, label %PyDict_Contains.exit.thread9, label %PyDict_Contains.exit
 
 PyDict_Contains.exit.thread9:                     ; preds = %_PyObject_HashFast.exit.thread.i
@@ -16942,13 +16941,13 @@ PyDict_Contains.exit.thread9:                     ; preds = %_PyObject_HashFast.
   br label %.thread
 
 PyDict_Contains.exit:                             ; preds = %_PyObject_HashFast.exit.thread.i
-  %12 = icmp eq i64 %.fr, -1
+  %12 = icmp eq i64 %10, -1
   %13 = load ptr, ptr %3, align 8
-  %.fr17 = freeze ptr %13
-  %14 = icmp eq ptr %.fr17, null
-  %or.cond.i.i.not = or i1 %12, %14
+  %14 = icmp eq ptr %13, null
+  %or.cond.i.i.not = select i1 %12, i1 true, i1 %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %spec.select = select i1 %or.cond.i.i.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
+  %cond.fr5 = freeze i1 %or.cond.i.i.not
+  %spec.select = select i1 %cond.fr5, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %.thread
 
 .thread:                                          ; preds = %PyDict_Contains.exit, %PyDict_Contains.exit.thread9, %_PyObject_HashFast.exit.i

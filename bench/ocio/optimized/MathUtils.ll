@@ -649,7 +649,8 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %2
   %15 = xor i32 %13, -2147483648
   %16 = icmp slt i32 %13, 0
   %17 = select i1 %16, i32 %15, i32 %14
-  %18 = icmp ult i32 %17, 3
+  %.fr = freeze i32 %17
+  %18 = icmp ult i32 %.fr, 3
   %19 = fdiv float 1.000000e+00, %0
   br i1 %18, label %20, label %21
 

@@ -3810,8 +3810,7 @@ define weak_odr noundef float @_ZNK7mitsuba10PrincipledIfN5drjit6MatrixINS_8Spec
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %12 = load float, ptr %11, align 8
-  %.fr341 = freeze float %12
-  %13 = fcmp contract une float %.fr341, 0.000000e+00
+  %13 = fcmp contract une float %12, 0.000000e+00
   br i1 %13, label %14, label %321
 
 14:                                               ; preds = %5
@@ -3891,17 +3890,17 @@ define weak_odr noundef float @_ZNK7mitsuba10PrincipledIfN5drjit6MatrixINS_8Spec
   %72 = fsub contract float 1.000000e+00, %45
   %73 = fmul contract float %72, %71
   %74 = fmul contract float %45, %71
-  %75 = fcmp contract ogt float %.fr341, 0.000000e+00
+  %75 = fcmp contract ogt float %12, 0.000000e+00
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %77 = load float, ptr %76, align 8
   %78 = fdiv contract float 1.000000e+00, %77
   %79 = select contract i1 %75, float %77, float %78
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %81 = load float, ptr %80, align 8
-  %.fr342 = freeze float %81
-  %82 = fmul contract float %.fr341, %.fr342
-  %83 = fcmp contract ogt float %82, 0.000000e+00
-  %84 = fcmp contract olt float %82, 0.000000e+00
+  %82 = fmul contract float %12, %81
+  %.fr342 = freeze float %82
+  %83 = fcmp contract ogt float %.fr342, 0.000000e+00
+  %84 = fcmp contract olt float %.fr342, 0.000000e+00
   %. = select contract i1 %83, float 1.000000e+00, float %79
   %85 = insertelement <4 x float> poison, float %., i64 0
   %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4067,7 +4066,7 @@ define weak_odr noundef float @_ZNK7mitsuba10PrincipledIfN5drjit6MatrixINS_8Spec
 198:                                              ; preds = %.thread334, %191
   %.sink = phi float [ %190, %.thread334 ], [ %197, %191 ]
   %199 = tail call contract noundef float @llvm.fabs.f32(float %.sink)
-  %200 = bitcast float %.fr341 to i32
+  %200 = bitcast float %12 to i32
   %201 = and i32 %200, -2147483648
   %202 = insertelement <4 x i32> poison, i32 %201, i64 0
   %203 = shufflevector <4 x i32> %202, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -4080,8 +4079,8 @@ define weak_odr noundef float @_ZNK7mitsuba10PrincipledIfN5drjit6MatrixINS_8Spec
 
 _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit: ; preds = %198
   %209 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %87, <4 x float> %205, i8 113)
-  %.fr = freeze <4 x float> %209
-  %210 = extractelement <4 x float> %.fr, i64 0
+  %.fr340 = freeze <4 x float> %209
+  %210 = extractelement <4 x float> %.fr340, i64 0
   %211 = fcmp contract ogt float %210, 0.000000e+00
   %212 = and i1 %211, %83
   br label %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit.thread
@@ -4116,7 +4115,7 @@ _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6Vector
   br i1 %231, label %233, label %.critedge
 
 233:                                              ; preds = %224
-  %234 = fcmp contract oge float %.fr341, 0.000000e+00
+  %234 = fcmp contract oge float %12, 0.000000e+00
   %235 = xor <4 x i32> %225, splat (i32 -2147483648)
   %236 = select i1 %234, i8 7, i8 0
   %237 = bitcast i8 %236 to <8 x i1>

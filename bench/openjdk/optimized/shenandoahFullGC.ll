@@ -2500,7 +2500,6 @@ define hidden void @_ZN16ShenandoahFullGC17distribute_slicesEPP23ShenandoahHeapR
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
-  %.fr169 = freeze i32 %7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
@@ -2512,9 +2511,9 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph:    ; preds = %2
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125
-  %.0146 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %.1, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125 ]
-  %.077145 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %21, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125 ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %.077145
+  %.0147 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %.1, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125 ]
+  %.077146 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %21, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125 ]
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %.077146
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
@@ -2535,27 +2534,25 @@ _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRe
 _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %19 = load volatile i64, ptr %18, align 8
-  %.fr = freeze i64 %19
-  %20 = add i64 %.fr, %.0146
+  %20 = add i64 %19, %.0147
   br label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125
 
 _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125: ; preds = %16, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread
-  %.1 = phi i64 [ %20, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread ], [ %.0146, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit ], [ %.0146, %16 ]
-  %21 = add nuw i64 %.077145, 1
+  %.1 = phi i64 [ %20, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread ], [ %.0147, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit ], [ %.0147, %16 ]
+  %21 = add nuw i64 %.077146, 1
   %exitcond.not = icmp eq i64 %21, %9
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK14ShenandoahHeap10get_regionEm.exit, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.1, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit.thread125 ]
-  %22 = zext i32 %.fr169 to i64
+  %22 = zext i32 %7 to i64
   %23 = udiv i64 %.0.lcssa, %22
   %24 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
-  %.fr168 = freeze i64 %24
-  %25 = udiv i64 %23, %.fr168
+  %25 = udiv i64 %23, %24
   %26 = mul i64 %25, %22
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 %9)
-  %.not167 = icmp eq i64 %27, 0
-  br i1 %.not167, label %._crit_edge149, label %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph
+  %.not168 = icmp eq i64 %27, 0
+  br i1 %.not168, label %._crit_edge150, label %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph
 
 _ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph:  ; preds = %._crit_edge
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 552
@@ -2563,9 +2560,9 @@ _ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph:  ; preds = %._crit_edge
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit96
 
 _ZNK14ShenandoahHeap10get_regionEm.exit96:        ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph, %38
-  %.086148 = phi i64 [ %27, %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph ], [ %39, %38 ]
-  %.089147 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph ], [ %40, %38 ]
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %.089147
+  %.086149 = phi i64 [ %27, %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph ], [ %39, %38 ]
+  %.089148 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit96.lr.ph ], [ %40, %38 ]
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %.089148
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8
@@ -2579,183 +2576,184 @@ _ZNK14ShenandoahHeap10get_regionEm.exit96:        ; preds = %_ZNK14ShenandoahHea
   ]
 
 _ZNK20ShenandoahHeapRegion19is_stw_move_allowedEv.exit.i101: ; preds = %34
-  %35 = add i64 %.086148, 1
+  %35 = add i64 %.086149, 1
   br label %38
 
 _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103: ; preds = %34, %34
   %36 = add nsw i32 %33, -6
   %switch.i.i99 = icmp ult i32 %36, -3
-  %37 = add i64 %.086148, 1
+  %37 = add i64 %.086149, 1
   br i1 %switch.i.i99, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103.thread, label %38
 
 _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103.thread: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit96, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103
   br label %38
 
 38:                                               ; preds = %_ZNK20ShenandoahHeapRegion19is_stw_move_allowedEv.exit.i101, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103.thread
-  %39 = phi i64 [ %.086148, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103.thread ], [ %37, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103 ], [ %35, %_ZNK20ShenandoahHeapRegion19is_stw_move_allowedEv.exit.i101 ]
-  %40 = add nuw i64 %.089147, 1
+  %39 = phi i64 [ %.086149, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103.thread ], [ %37, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit103 ], [ %35, %_ZNK20ShenandoahHeapRegion19is_stw_move_allowedEv.exit.i101 ]
+  %40 = add nuw i64 %.089148, 1
   %41 = icmp ult i64 %40, %27
-  br i1 %41, label %_ZNK14ShenandoahHeap10get_regionEm.exit96, label %._crit_edge149, !llvm.loop !18
+  br i1 %41, label %_ZNK14ShenandoahHeap10get_regionEm.exit96, label %._crit_edge150, !llvm.loop !18
 
-._crit_edge149:                                   ; preds = %38, %._crit_edge
+._crit_edge150:                                   ; preds = %38, %._crit_edge
   %.086.lcssa = phi i64 [ 0, %._crit_edge ], [ %39, %38 ]
   %42 = tail call noundef i64 @llvm.umin.i64(i64 %.086.lcssa, i64 %9)
   %43 = shl nuw nsw i64 %22, 3
   %44 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %43, i8 noundef zeroext 5, i32 noundef 0) #13
-  %.not170 = icmp ugt i64 %.fr168, %23
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 552
-  br i1 %.not170, label %.split.us.preheader, label %.split
+  %45 = icmp ule i64 %24, %23
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 552
+  %.fr = freeze i1 %45
+  br i1 %.fr, label %.split, label %.split.us.preheader
 
-.split.us.preheader:                              ; preds = %._crit_edge149
+.split.us.preheader:                              ; preds = %._crit_edge150
   tail call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %43, i1 false)
-  br label %.split159.us
+  br label %.split160.us
 
-.split:                                           ; preds = %._crit_edge149, %._crit_edge154
-  %.088157 = phi i64 [ %69, %._crit_edge154 ], [ 0, %._crit_edge149 ]
-  %.090156 = phi i64 [ %.191.lcssa, %._crit_edge154 ], [ 0, %._crit_edge149 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %.088157
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i64, ptr %44, i64 %.088157
-  store i64 0, ptr %48, align 8
-  %49 = icmp ult i64 %.090156, %42
-  br i1 %49, label %.lr.ph, label %._crit_edge154
+.split:                                           ; preds = %._crit_edge150, %._crit_edge155
+  %.088158 = phi i64 [ %70, %._crit_edge155 ], [ 0, %._crit_edge150 ]
+  %.090157 = phi i64 [ %.191.lcssa, %._crit_edge155 ], [ 0, %._crit_edge150 ]
+  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %.088158
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i64, ptr %44, i64 %.088158
+  store i64 0, ptr %49, align 8
+  %50 = icmp ult i64 %.090157, %42
+  br i1 %50, label %.lr.ph, label %._crit_edge155
 
 .lr.ph:                                           ; preds = %.split, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138
-  %.084152 = phi i64 [ %.185, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 ], [ 0, %.split ]
-  %.191151 = phi i64 [ %65, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 ], [ %.090156, %.split ]
-  %50 = load i64, ptr %8, align 8
-  %51 = icmp ult i64 %.191151, %50
-  br i1 %51, label %52, label %_ZNK14ShenandoahHeap10get_regionEm.exit105
+  %.084153 = phi i64 [ %.185, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 ], [ 0, %.split ]
+  %.191152 = phi i64 [ %66, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 ], [ %.090157, %.split ]
+  %51 = load i64, ptr %8, align 8
+  %52 = icmp ult i64 %.191152, %51
+  br i1 %52, label %53, label %_ZNK14ShenandoahHeap10get_regionEm.exit105
 
-52:                                               ; preds = %.lr.ph
-  %53 = load ptr, ptr %45, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.191151
-  %55 = load ptr, ptr %54, align 8
+53:                                               ; preds = %.lr.ph
+  %54 = load ptr, ptr %46, align 8
+  %55 = getelementptr inbounds ptr, ptr %54, i64 %.191152
+  %56 = load ptr, ptr %55, align 8
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit105
 
-_ZNK14ShenandoahHeap10get_regionEm.exit105:       ; preds = %.lr.ph, %52
-  %.0.i104 = phi ptr [ %55, %52 ], [ null, %.lr.ph ]
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i104, i64 40
-  %57 = load i32, ptr %56, align 8
-  %spec.select.i.i106 = icmp ult i32 %57, 2
-  br i1 %spec.select.i.i106, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread, label %58
+_ZNK14ShenandoahHeap10get_regionEm.exit105:       ; preds = %.lr.ph, %53
+  %.0.i104 = phi ptr [ %56, %53 ], [ null, %.lr.ph ]
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i104, i64 40
+  %58 = load i32, ptr %57, align 8
+  %spec.select.i.i106 = icmp ult i32 %58, 2
+  br i1 %spec.select.i.i106, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread, label %59
 
-58:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit105
-  switch i32 %57, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 [
+59:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit105
+  switch i32 %58, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 [
     i32 2, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112
     i32 6, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112
   ]
 
-_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112: ; preds = %58, %58
-  %59 = add nsw i32 %57, -6
-  %switch.i.i108 = icmp ult i32 %59, -3
+_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112: ; preds = %59, %59
+  %60 = add nsw i32 %58, -6
+  %switch.i.i108 = icmp ult i32 %60, -3
   br i1 %switch.i.i108, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138
 
 _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit105, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112
-  tail call void @_ZN23ShenandoahHeapRegionSet10add_regionEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull %.0.i104) #13
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i104, i64 72
-  %61 = load volatile i64, ptr %60, align 8
-  %62 = load i64, ptr %48, align 8
-  %63 = add i64 %62, %61
-  store i64 %63, ptr %48, align 8
-  %64 = add nuw i64 %.084152, 1
+  tail call void @_ZN23ShenandoahHeapRegionSet10add_regionEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull %.0.i104) #13
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i104, i64 72
+  %62 = load volatile i64, ptr %61, align 8
+  %63 = load i64, ptr %49, align 8
+  %64 = add i64 %63, %62
+  store i64 %64, ptr %49, align 8
+  %65 = add nuw i64 %.084153, 1
   br label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138
 
-_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138: ; preds = %58, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112
-  %.185 = phi i64 [ %64, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread ], [ %.084152, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112 ], [ %.084152, %58 ]
-  %65 = add nuw i64 %.191151, 1
-  %66 = icmp ult i64 %65, %42
-  %67 = icmp ult i64 %.185, %25
-  %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %.lr.ph, label %._crit_edge154, !llvm.loop !19
+_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138: ; preds = %59, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112
+  %.185 = phi i64 [ %65, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread ], [ %.084153, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112 ], [ %.084153, %59 ]
+  %66 = add nuw i64 %.191152, 1
+  %67 = icmp ult i64 %66, %42
+  %68 = icmp ult i64 %.185, %25
+  %69 = select i1 %67, i1 %68, i1 false
+  br i1 %69, label %.lr.ph, label %._crit_edge155, !llvm.loop !19
 
-._crit_edge154:                                   ; preds = %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138, %.split
-  %.191.lcssa = phi i64 [ %.090156, %.split ], [ %65, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 ]
-  %69 = add nuw nsw i64 %.088157, 1
-  %exitcond173.not = icmp eq i64 %69, %22
-  br i1 %exitcond173.not, label %.split159.us, label %.split, !llvm.loop !20
+._crit_edge155:                                   ; preds = %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138, %.split
+  %.191.lcssa = phi i64 [ %.090157, %.split ], [ %66, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit112.thread138 ]
+  %70 = add nuw nsw i64 %.088158, 1
+  %exitcond172.not = icmp eq i64 %70, %22
+  br i1 %exitcond172.not, label %.split160.us, label %.split, !llvm.loop !20
 
-.split159.us:                                     ; preds = %._crit_edge154, %.split.us.preheader
-  %70 = icmp ult i64 %.086.lcssa, %9
-  br i1 %70, label %.lr.ph165, label %._crit_edge166
+.split160.us:                                     ; preds = %._crit_edge155, %.split.us.preheader
+  %71 = icmp ult i64 %.086.lcssa, %9
+  br i1 %71, label %.lr.ph166, label %._crit_edge167
 
-.lr.ph165:                                        ; preds = %.split159.us
-  %71 = add i32 %.fr169, -1
-  %72 = zext i32 %71 to i64
-  br label %73
+.lr.ph166:                                        ; preds = %.split160.us
+  %72 = add i32 %7, -1
+  %73 = zext i32 %72 to i64
+  br label %74
 
-73:                                               ; preds = %.lr.ph165, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143
-  %.078163 = phi i64 [ %23, %.lr.ph165 ], [ %.2, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 ]
-  %.080162 = phi i64 [ %42, %.lr.ph165 ], [ %104, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 ]
-  %.081161 = phi i64 [ %72, %.lr.ph165 ], [ %.283, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 ]
-  %74 = load i64, ptr %8, align 8
-  %75 = icmp ult i64 %.080162, %74
-  br i1 %75, label %76, label %_ZNK14ShenandoahHeap10get_regionEm.exit114
+74:                                               ; preds = %.lr.ph166, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143
+  %.078164 = phi i64 [ %23, %.lr.ph166 ], [ %.2, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 ]
+  %.080163 = phi i64 [ %42, %.lr.ph166 ], [ %105, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 ]
+  %.081162 = phi i64 [ %73, %.lr.ph166 ], [ %.283, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 ]
+  %75 = load i64, ptr %8, align 8
+  %76 = icmp ult i64 %.080163, %75
+  br i1 %76, label %77, label %_ZNK14ShenandoahHeap10get_regionEm.exit114
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %45, align 8
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %.080162
-  %79 = load ptr, ptr %78, align 8
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %46, align 8
+  %79 = getelementptr inbounds ptr, ptr %78, i64 %.080163
+  %80 = load ptr, ptr %79, align 8
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit114
 
-_ZNK14ShenandoahHeap10get_regionEm.exit114:       ; preds = %73, %76
-  %.0.i113 = phi ptr [ %79, %76 ], [ null, %73 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 40
-  %81 = load i32, ptr %80, align 8
-  %spec.select.i.i115 = icmp ult i32 %81, 2
-  br i1 %spec.select.i.i115, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread, label %82
+_ZNK14ShenandoahHeap10get_regionEm.exit114:       ; preds = %74, %77
+  %.0.i113 = phi ptr [ %80, %77 ], [ null, %74 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 40
+  %82 = load i32, ptr %81, align 8
+  %spec.select.i.i115 = icmp ult i32 %82, 2
+  br i1 %spec.select.i.i115, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread, label %83
 
-82:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit114
-  switch i32 %81, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 [
+83:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit114
+  switch i32 %82, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143 [
     i32 2, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121
     i32 6, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121
   ]
 
-_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121: ; preds = %82, %82
-  %83 = add nsw i32 %81, -6
-  %switch.i.i117 = icmp ult i32 %83, -3
+_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121: ; preds = %83, %83
+  %84 = add nsw i32 %82, -6
+  %switch.i.i117 = icmp ult i32 %84, -3
   br i1 %switch.i.i117, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread, label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143
 
 _ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit114, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 72
-  %85 = load volatile i64, ptr %84, align 8
-  br label %86
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 72
+  %86 = load volatile i64, ptr %85, align 8
+  br label %87
 
-86:                                               ; preds = %86, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread
-  %.182 = phi i64 [ %.081161, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread ], [ %spec.store.select, %86 ]
-  %87 = add i64 %.182, 1
-  %88 = icmp eq i64 %87, %22
-  %spec.store.select = select i1 %88, i64 0, i64 %87
-  %89 = getelementptr inbounds i64, ptr %44, i64 %spec.store.select
-  %90 = load i64, ptr %89, align 8
-  %91 = add i64 %90, %85
-  %92 = icmp uge i64 %91, %.078163
-  %93 = icmp ne i64 %.081161, %spec.store.select
-  %94 = select i1 %92, i1 %93, i1 false
-  br i1 %94, label %86, label %95, !llvm.loop !21
+87:                                               ; preds = %87, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread
+  %.182 = phi i64 [ %.081162, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread ], [ %spec.store.select, %87 ]
+  %88 = add i64 %.182, 1
+  %89 = icmp eq i64 %88, %22
+  %spec.store.select = select i1 %89, i64 0, i64 %88
+  %90 = getelementptr inbounds i64, ptr %44, i64 %spec.store.select
+  %91 = load i64, ptr %90, align 8
+  %92 = add i64 %91, %86
+  %93 = icmp uge i64 %92, %.078164
+  %94 = icmp ne i64 %.081162, %spec.store.select
+  %95 = select i1 %93, i1 %94, i1 false
+  br i1 %95, label %87, label %96, !llvm.loop !21
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds i64, ptr %44, i64 %spec.store.select
-  %97 = icmp eq i64 %.081161, %spec.store.select
-  %98 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
-  %99 = select i1 %97, i64 %98, i64 0
-  %.179 = add i64 %99, %.078163
-  %100 = getelementptr inbounds ptr, ptr %1, i64 %spec.store.select
-  %101 = load ptr, ptr %100, align 8
-  tail call void @_ZN23ShenandoahHeapRegionSet10add_regionEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull %.0.i113) #13
-  %102 = load i64, ptr %96, align 8
-  %103 = add i64 %102, %85
-  store i64 %103, ptr %96, align 8
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds i64, ptr %44, i64 %spec.store.select
+  %98 = icmp eq i64 %.081162, %spec.store.select
+  %99 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
+  %100 = select i1 %98, i64 %99, i64 0
+  %.179 = add i64 %100, %.078164
+  %101 = getelementptr inbounds ptr, ptr %1, i64 %spec.store.select
+  %102 = load ptr, ptr %101, align 8
+  tail call void @_ZN23ShenandoahHeapRegionSet10add_regionEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull %.0.i113) #13
+  %103 = load i64, ptr %97, align 8
+  %104 = add i64 %103, %86
+  store i64 %104, ptr %97, align 8
   br label %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143
 
-_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143: ; preds = %82, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121, %95
-  %.283 = phi i64 [ %spec.store.select, %95 ], [ %.081161, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121 ], [ %.081161, %82 ]
-  %.2 = phi i64 [ %.179, %95 ], [ %.078163, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121 ], [ %.078163, %82 ]
-  %104 = add i64 %.080162, 1
-  %exitcond175.not = icmp eq i64 %104, %9
-  br i1 %exitcond175.not, label %._crit_edge166, label %73, !llvm.loop !22
+_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143: ; preds = %83, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121, %96
+  %.283 = phi i64 [ %spec.store.select, %96 ], [ %.081162, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121 ], [ %.081162, %83 ]
+  %.2 = phi i64 [ %.179, %96 ], [ %.078164, %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121 ], [ %.078164, %83 ]
+  %105 = add i64 %.080163, 1
+  %exitcond173.not = icmp eq i64 %105, %9
+  br i1 %exitcond173.not, label %._crit_edge167, label %74, !llvm.loop !22
 
-._crit_edge166:                                   ; preds = %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143, %.split159.us
+._crit_edge167:                                   ; preds = %_ZN34ShenandoahPrepareForCompactionTask19is_candidate_regionEP20ShenandoahHeapRegion.exit121.thread143, %.split160.us
   tail call void @_Z8FreeHeapPv(ptr noundef %44) #13
   ret void
 }

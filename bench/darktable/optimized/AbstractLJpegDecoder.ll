@@ -2445,9 +2445,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   %37 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::BaselineCodeTag>::CodeSymbol", ptr %22, i64 %.04669
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %39 = load i8, ptr %38, align 2, !tbaa !229
-  %.fr74 = freeze i8 %39
-  %40 = zext i8 %.fr74 to i32
-  %41 = icmp ult i8 %.fr74, 12
+  %.fr77 = freeze i8 %39
+  %40 = zext i8 %.fr77 to i32
+  %41 = icmp ult i8 %.fr77, 12
   br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %36

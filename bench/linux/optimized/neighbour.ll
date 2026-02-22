@@ -9768,7 +9768,6 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
-  %.fr37 = freeze ptr %18
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = load i32, ptr %1, align 4
   %20 = icmp ult i32 %19, 20
@@ -9861,26 +9860,26 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %80, label %76
+  br i1 %75, label %79, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr i8, ptr %74, i64 4
   %78 = load i32, ptr %77, align 4
-  %79 = freeze i32 %78
-  br label %80
+  br label %79
 
-80:                                               ; preds = %76, %72
-  %.fr38 = phi i32 [ %79, %76 ], [ 0, %72 ]
+79:                                               ; preds = %76, %72
+  %80 = phi i32 [ %78, %76 ], [ 0, %72 ]
   %81 = getelementptr inbounds nuw i8, ptr %39, i64 240
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, %81
   br i1 %83, label %.thread25, label %.preheader
 
-.preheader:                                       ; preds = %80
-  %84 = icmp eq ptr %.fr37, @init_net
-  %85 = icmp eq i32 %.fr38, 0
+.preheader:                                       ; preds = %79
+  %84 = icmp eq ptr %18, @init_net
+  %85 = icmp eq i32 %80, 0
   %86 = and i1 %84, %85
-  br i1 %86, label %.preheader.split.us, label %.preheader.split
+  %.fr = freeze i1 %86
+  br i1 %.fr, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.thread21.us
   %87 = phi ptr [ %99, %.thread21.us ], [ %82, %.preheader ]
@@ -9893,12 +9892,12 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
 92:                                               ; preds = %.preheader.split.us
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 216
   %94 = load i32, ptr %93, align 8
-  %95 = icmp eq i32 %94, 0
+  %95 = icmp eq i32 %94, %80
   br i1 %95, label %96, label %.thread21.us
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %88, align 8
-  %98 = icmp eq ptr %97, @init_net
+  %98 = icmp eq ptr %97, %18
   br i1 %98, label %.split.us, label %.thread21.us
 
 .thread21.us:                                     ; preds = %96, %92
@@ -9917,12 +9916,12 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
 106:                                              ; preds = %.preheader.split
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 216
   %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, %.fr38
+  %109 = icmp eq i32 %108, %80
   br i1 %109, label %110, label %.thread21
 
 110:                                              ; preds = %106
   %111 = load ptr, ptr %102, align 8
-  %112 = icmp eq ptr %111, %.fr37
+  %112 = icmp eq ptr %111, %18
   br i1 %112, label %.split.us, label %.thread21
 
 .thread21:                                        ; preds = %.preheader.split, %106, %110
@@ -10158,8 +10157,8 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %224 = icmp eq i64 %223, 20
   br i1 %224, label %225, label %134, !llvm.loop !183
 
-.thread25:                                        ; preds = %.thread21, %.thread21.us, %65, %.split.us, %80
-  %.ph = phi i32 [ %70, %65 ], [ -2, %.split.us ], [ -2, %80 ], [ -2, %.thread21.us ], [ -2, %.thread21 ]
+.thread25:                                        ; preds = %.thread21, %.thread21.us, %65, %.split.us, %79
+  %.ph = phi i32 [ %70, %65 ], [ -2, %.split.us ], [ -2, %79 ], [ -2, %.thread21.us ], [ -2, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %267
 
@@ -10183,8 +10182,8 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %239 = load ptr, ptr %238, align 16
   %240 = icmp eq ptr %239, null
   %241 = select i1 %237, i1 %240, i1 false
-  %242 = icmp eq ptr %.fr37, @init_net
-  %243 = or i1 %241, %242
+  %242 = icmp eq ptr %18, @init_net
+  %243 = select i1 %241, i1 true, i1 %242
   br i1 %243, label %244, label %267
 
 244:                                              ; preds = %226

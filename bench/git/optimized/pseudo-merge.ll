@@ -716,14 +716,14 @@ push_pseudo_merge.exit118.i:                      ; preds = %st_mult.exit.i117.i
   %148 = load i32, ptr %34, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %148, 0
   %.pre.i.i = load double, ptr %.phi.trans.insert.i.i, align 8, !tbaa !41
-  %.pre39.i.i = fptosi double %.pre.i.i to i32
-  %.fr.i.i = freeze i32 %.pre39.i.i
-  %.pre157.i = and i32 %.fr.i.i, 1
+  %.pre40.i.i = fptosi double %.pre.i.i to i32
+  %.fr30.i.i = freeze i32 %.pre40.i.i
+  %.pre157.i = and i32 %.fr30.i.i, 1
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %push_pseudo_merge.exit118.i
   %.not11.i.i.i = icmp eq i32 %.pre157.i, 0
-  %149 = ashr i32 %.fr.i.i, 1
+  %149 = ashr i32 %.fr30.i.i, 1
   %.not1013.i.i.i = icmp eq i32 %149, 0
   br i1 %.not1013.i.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
@@ -735,8 +735,8 @@ gitexp.exit.us.us.i.i:                            ; preds = %.lr.ph.split.us.i.i
   %.01022.us.us.i.i = phi double [ %151, %gitexp.exit.us.us.i.i ], [ 0.000000e+00, %.lr.ph.split.us.i.i ]
   %150 = add nuw i32 %.023.us.us.i.i, 1
   %151 = fadd double %.01022.us.us.i.i, 1.000000e+00
-  %exitcond38.not.i.i = icmp eq i32 %150, %148
-  br i1 %exitcond38.not.i.i, label %._crit_edge.i.thread.i, label %gitexp.exit.us.us.i.i, !llvm.loop !84
+  %exitcond39.not.i.i = icmp eq i32 %150, %148
+  br i1 %exitcond39.not.i.i, label %._crit_edge.i.thread.i, label %gitexp.exit.us.us.i.i, !llvm.loop !84
 
 gitexp.exit.us.i.i:                               ; preds = %.lr.ph.split.us.i.i, %gitexp.exit.us.i.i
   %.023.us.i.i = phi i32 [ %152, %gitexp.exit.us.i.i ], [ 0, %.lr.ph.split.us.i.i ]
@@ -745,8 +745,8 @@ gitexp.exit.us.i.i:                               ; preds = %.lr.ph.split.us.i.i
   %153 = uitofp i32 %152 to double
   %154 = fdiv double 1.000000e+00, %153
   %155 = fadd double %.01022.us.i.i, %154
-  %exitcond37.not.i.i = icmp eq i32 %152, %148
-  br i1 %exitcond37.not.i.i, label %._crit_edge.i.thread189.i, label %gitexp.exit.us.i.i, !llvm.loop !84
+  %exitcond38.not.i.i = icmp eq i32 %152, %148
+  br i1 %exitcond38.not.i.i, label %._crit_edge.i.thread189.i, label %gitexp.exit.us.i.i, !llvm.loop !84
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   br i1 %.not11.i.i.i, label %.lr.ph.i.preheader.us.i.i, label %.lr.ph.i.preheader.i.i
@@ -774,8 +774,8 @@ gitexp.exit.us.i.i:                               ; preds = %.lr.ph.split.us.i.i
 gitexp.exit.loopexit.us.i.i:                      ; preds = %.lr.ph.i.us.i.i
   %163 = fdiv double 1.000000e+00, %.1.i.us.i.i
   %164 = fadd double %.01022.us25.i.i, %163
-  %exitcond36.not.i.i = icmp eq i32 %156, %148
-  br i1 %exitcond36.not.i.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.preheader.us.i.i, !llvm.loop !84
+  %exitcond37.not.i.i = icmp eq i32 %156, %148
+  br i1 %exitcond37.not.i.i, label %._crit_edge.i.thread.i, label %.lr.ph.i.preheader.us.i.i, !llvm.loop !84
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph.split.i.i, %gitexp.exit.loopexit.i.i
   %.023.i.i = phi i32 [ %165, %gitexp.exit.loopexit.i.i ], [ 0, %.lr.ph.split.i.i ]
@@ -818,7 +818,7 @@ gitexp.exit.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
   br label %185
 
 ._crit_edge.i.i:                                  ; preds = %push_pseudo_merge.exit118.i
-  %.pre159.i = ashr i32 %.fr.i.i, 1
+  %.pre159.i = ashr i32 %.fr30.i.i, 1
   %180 = icmp eq i32 %.pre157.i, 0
   %181 = load i64, ptr %44, align 8, !tbaa !64
   %182 = add nuw i32 %.1.i, 1

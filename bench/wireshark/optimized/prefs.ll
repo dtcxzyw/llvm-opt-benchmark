@@ -4680,8 +4680,8 @@ define internal fastcc noundef ptr @register_preference(ptr noundef captures(add
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %.sink, ptr %25, align 8
   %26 = load i8, ptr %1, align 1
-  %.not86106 = icmp eq i8 %26, 0
-  br i1 %.not86106, label %._crit_edge, label %.lr.ph
+  %.not86107 = icmp eq i8 %26, 0
+  br i1 %.not86107, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %27 = load ptr, ptr @g_ascii_table, align 8
@@ -4689,12 +4689,12 @@ define internal fastcc noundef ptr @register_preference(ptr noundef captures(add
 
 28:                                               ; preds = %.lr.ph, %36
   %29 = phi i8 [ %26, %.lr.ph ], [ %38, %36 ]
-  %.076107 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
+  %.076108 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
   %30 = zext i8 %29 to i64
   %31 = getelementptr i16, ptr %27, i64 %30
   %32 = load i16, ptr %31, align 2
-  %.fr = freeze i16 %32
-  %33 = and i16 %.fr, 40
+  %.fr106 = freeze i16 %32
+  %33 = and i16 %.fr106, 40
   %or.cond.not = icmp eq i16 %33, 0
   br i1 %or.cond.not, label %switch.early.test, label %36
 
@@ -4710,7 +4710,7 @@ switch.early.test:                                ; preds = %28
   unreachable
 
 36:                                               ; preds = %switch.early.test, %switch.early.test, %28
-  %37 = getelementptr i8, ptr %.076107, i64 1
+  %37 = getelementptr i8, ptr %.076108, i64 1
   %38 = load i8, ptr %37, align 1
   %.not86 = icmp eq i8 %38, 0
   br i1 %.not86, label %._crit_edge, label %28, !llvm.loop !17
@@ -4816,17 +4816,17 @@ prefs_find_preference.exit:                       ; preds = %40, %49
 76:                                               ; preds = %72
   %77 = load ptr, ptr %15, align 8
   %78 = load i8, ptr %77, align 1
-  %.not96108 = icmp eq i8 %78, 0
-  br i1 %.not96108, label %.loopexit, label %.lr.ph111
+  %.not96109 = icmp eq i8 %78, 0
+  br i1 %.not96109, label %.loopexit, label %.lr.ph112
 
-.lr.ph111:                                        ; preds = %76
+.lr.ph112:                                        ; preds = %76
   %79 = load ptr, ptr @g_utf8_skip, align 8
   br label %80
 
-80:                                               ; preds = %.lr.ph111, %86
-  %81 = phi i8 [ %78, %.lr.ph111 ], [ %92, %86 ]
-  %.0109 = phi ptr [ %77, %.lr.ph111 ], [ %91, %86 ]
-  %82 = call i32 @g_utf8_get_char(ptr noundef %.0109) #30
+80:                                               ; preds = %.lr.ph112, %86
+  %81 = phi i8 [ %78, %.lr.ph112 ], [ %92, %86 ]
+  %.0110 = phi ptr [ %77, %.lr.ph112 ], [ %91, %86 ]
+  %82 = call i32 @g_utf8_get_char(ptr noundef %.0110) #30
   %83 = call i32 @g_unichar_isprint(i32 noundef %82) #31
   %.not99 = icmp eq i32 %83, 0
   br i1 %.not99, label %84, label %86
@@ -4841,7 +4841,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
   %88 = getelementptr i8, ptr %79, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = sext i8 %89 to i64
-  %91 = getelementptr i8, ptr %.0109, i64 %90
+  %91 = getelementptr i8, ptr %.0110, i64 %90
   %92 = load i8, ptr %91, align 1
   %.not96 = icmp eq i8 %92, 0
   br i1 %.not96, label %.loopexit, label %80, !llvm.loop !18

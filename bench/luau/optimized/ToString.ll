@@ -5767,11 +5767,11 @@ define linkonce_odr dso_local void @_ZN4Luau15TypeStringifier9stringifyERKSt6vec
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i: ; preds = %._crit_edge.i
   %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %.pre.i, ptr noundef nonnull @.str.94, i64 noundef 1)
   %.pre = load ptr, ptr %1, align 8, !tbaa !197
-  %.pre95 = load ptr, ptr %4, align 8, !tbaa !197
+  %.pre94 = load ptr, ptr %4, align 8, !tbaa !197
   br label %_ZN4Luau16StringifierState4emitEPKc.exit
 
 _ZN4Luau16StringifierState4emitEPKc.exit:         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i, %13
-  %22 = phi ptr [ %5, %13 ], [ %.pre95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i ]
+  %22 = phi ptr [ %5, %13 ], [ %.pre94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i ]
   %23 = phi ptr [ %6, %13 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i ]
   %.not82 = icmp eq ptr %23, %22
   br i1 %.not82, label %._crit_edge, label %.lr.ph
@@ -5780,17 +5780,16 @@ _ZN4Luau16StringifierState4emitEPKc.exit:         ; preds = %_ZNSt7__cxx1112basi
   %.0.lcssa = phi i8 [ 1, %_ZN4Luau16StringifierState4emitEPKc.exit ], [ 0, %_ZN4Luau16StringifierState4emitEPKc.exit36 ]
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !234
-  %.fr91 = freeze ptr %25
   %26 = load ptr, ptr %2, align 8, !tbaa !237
-  %.fr92 = freeze ptr %26
-  %.not8085 = icmp eq ptr %.fr92, %.fr91
+  %.not8085 = icmp eq ptr %26, %25
   br i1 %.not8085, label %._crit_edge90, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %._crit_edge
-  %27 = ptrtoint ptr %.fr91 to i64
-  %28 = ptrtoint ptr %.fr92 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
-  %30 = icmp eq i64 %29, 8
+  %.fr91 = freeze i64 %29
+  %30 = icmp eq i64 %.fr91, 8
   br i1 %30, label %.lr.ph89.split.us, label %.lr.ph89.split.preheader
 
 .lr.ph89.split.preheader:                         ; preds = %.lr.ph89
@@ -5799,7 +5798,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit:         ; preds = %_ZNSt7__cxx1112basi
 
 .lr.ph89.split.us:                                ; preds = %.lr.ph89, %_ZN4Luau16StringifierState4emitEPKc.exit63.us
   %.187.us = phi i8 [ %.2.us, %_ZN4Luau16StringifierState4emitEPKc.exit63.us ], [ %.0.lcssa, %.lr.ph89 ]
-  %.sroa.073.086.us = phi ptr [ %45, %_ZN4Luau16StringifierState4emitEPKc.exit63.us ], [ %.fr92, %.lr.ph89 ]
+  %.sroa.073.086.us = phi ptr [ %45, %_ZN4Luau16StringifierState4emitEPKc.exit63.us ], [ %26, %.lr.ph89 ]
   %32 = load ptr, ptr %.sroa.073.086.us, align 8, !tbaa !88
   %33 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %32)
   br i1 %33, label %_ZN4Luau16StringifierState4emitEPKc.exit63.us, label %34
@@ -5838,7 +5837,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit45.us:    ; preds = %_ZNSt7__cxx1112basi
 _ZN4Luau16StringifierState4emitEPKc.exit63.us:    ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit45.us, %.lr.ph89.split.us
   %.2.us = phi i8 [ %.187.us, %.lr.ph89.split.us ], [ 0, %_ZN4Luau16StringifierState4emitEPKc.exit45.us ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.073.086.us, i64 8
-  %.not80.us = icmp eq ptr %45, %.fr91
+  %.not80.us = icmp eq ptr %45, %25
   br i1 %.not80.us, label %._crit_edge90, label %.lr.ph89.split.us
 
 .lr.ph:                                           ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit, %_ZN4Luau16StringifierState4emitEPKc.exit36
@@ -5888,7 +5887,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit36:       ; preds = %_ZNSt7__cxx1112basi
 
 .lr.ph89.split:                                   ; preds = %.lr.ph89.split.preheader, %_ZN4Luau16StringifierState4emitEPKc.exit63
   %.187 = phi i1 [ false, %_ZN4Luau16StringifierState4emitEPKc.exit63 ], [ %31, %.lr.ph89.split.preheader ]
-  %.sroa.073.086 = phi ptr [ %91, %_ZN4Luau16StringifierState4emitEPKc.exit63 ], [ %.fr92, %.lr.ph89.split.preheader ]
+  %.sroa.073.086 = phi ptr [ %91, %_ZN4Luau16StringifierState4emitEPKc.exit63 ], [ %26, %.lr.ph89.split.preheader ]
   %60 = load ptr, ptr %.sroa.073.086, align 8, !tbaa !88
   %61 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %60)
   br i1 %.187, label %_ZN4Luau16StringifierState4emitEPKc.exit45, label %62
@@ -5989,7 +5988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i62: ; preds = 
 
 _ZN4Luau16StringifierState4emitEPKc.exit63:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i62, %_ZN4Luau16StringifierState4emitEPKc.exit54, %.critedge
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.073.086, i64 8
-  %.not80 = icmp eq ptr %91, %.fr91
+  %.not80 = icmp eq ptr %91, %25
   br i1 %.not80, label %._crit_edge90, label %.lr.ph89.split
 
 92:                                               ; preds = %._crit_edge90
@@ -6169,18 +6168,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %._c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEC2INS1_6detail14DenseHashTableIS4_SB_S0_IKS4_SA_ENSF_16ItemInterfaceMapIS4_SA_EENS1_16DenseHashPointerESt8equal_toIS4_EE8iteratorEvEET_SQ_RKSC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %5) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %.fr7.i.i.i = freeze ptr %3
-  %.fr.i.i.i = freeze ptr %1
-  %.not.i.i.i.i = icmp ne ptr %.fr.i.i.i, %.fr7.i.i.i
+  %.not.i.i.i.i = icmp ne ptr %1, %3
+  %.not.i.fr.i.i.i = freeze i1 %.not.i.i.i.i
   %7 = icmp ne i64 %2, %4
-  %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
+  %8 = select i1 %.not.i.fr.i.i.i, i1 true, i1 %7
   br i1 %8, label %.lr.ph.i.i.i, label %_ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EE11_M_allocateEm.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %.fr.i.i.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !159
-  %11 = getelementptr inbounds nuw i8, ptr %.fr.i.i.i, i64 24
-  %12 = xor i1 %.not.i.i.i.i, true
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = xor i1 %.not.i.fr.i.i.i, true
   tail call void @llvm.assume(i1 %12)
   br label %.lr.ph.split.i.i.i
 
@@ -6199,7 +6197,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIPKN4Luau4TypeENSt7__cxx
 
 17:                                               ; preds = %15
   %18 = add i64 %16, 1
-  %19 = load ptr, ptr %.fr.i.i.i, align 8, !tbaa !160
+  %19 = load ptr, ptr %1, align 8, !tbaa !160
   %20 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !158
   %22 = load ptr, ptr %11, align 8, !tbaa !158
@@ -6235,7 +6233,7 @@ _ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_tr
   %30 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %29, i64 %.0.lcssa.i.i1417.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !187
-  %32 = invoke noundef ptr @_ZSt16__do_uninit_copyIN4Luau6detail14DenseHashTableIPKNS0_4TypeESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEPSD_ET0_T_SP_SO_(ptr %.fr.i.i.i, i64 %2, ptr %.fr7.i.i.i, i64 %4, ptr noundef %29)
+  %32 = invoke noundef ptr @_ZSt16__do_uninit_copyIN4Luau6detail14DenseHashTableIPKNS0_4TypeESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEPSD_ET0_T_SP_SO_(ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef %29)
           to label %33 unwind label %35
 
 33:                                               ; preds = %_ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EE11_M_allocateEm.exit.i
@@ -6266,18 +6264,17 @@ _ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeENSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEC2INS1_6detail14DenseHashTableIS4_SB_S0_IKS4_SA_ENSF_16ItemInterfaceMapIS4_SA_EENS1_16DenseHashPointerESt8equal_toIS4_EE8iteratorEvEET_SQ_RKSC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %5) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %.fr7.i.i.i = freeze ptr %3
-  %.fr.i.i.i = freeze ptr %1
-  %.not.i.i.i.i = icmp ne ptr %.fr.i.i.i, %.fr7.i.i.i
+  %.not.i.i.i.i = icmp ne ptr %1, %3
+  %.not.i.fr.i.i.i = freeze i1 %.not.i.i.i.i
   %7 = icmp ne i64 %2, %4
-  %8 = select i1 %.not.i.i.i.i, i1 true, i1 %7
+  %8 = select i1 %.not.i.fr.i.i.i, i1 true, i1 %7
   br i1 %8, label %.lr.ph.i.i.i, label %_ZNSt12_Vector_baseISt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EE11_M_allocateEm.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %.fr.i.i.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !89
-  %11 = getelementptr inbounds nuw i8, ptr %.fr.i.i.i, i64 24
-  %12 = xor i1 %.not.i.i.i.i, true
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = xor i1 %.not.i.fr.i.i.i, true
   tail call void @llvm.assume(i1 %12)
   br label %.lr.ph.split.i.i.i
 
@@ -6296,7 +6293,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIPKN4Luau11TypePackVarEN
 
 17:                                               ; preds = %15
   %18 = add i64 %16, 1
-  %19 = load ptr, ptr %.fr.i.i.i, align 8, !tbaa !90
+  %19 = load ptr, ptr %1, align 8, !tbaa !90
   %20 = getelementptr inbounds nuw %"struct.std::pair.100", ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !88
   %22 = load ptr, ptr %11, align 8, !tbaa !88
@@ -6332,7 +6329,7 @@ _ZNSt12_Vector_baseISt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt1
   %30 = getelementptr inbounds nuw %"struct.std::pair.100", ptr %29, i64 %.0.lcssa.i.i1417.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !182
-  %32 = invoke noundef ptr @_ZSt16__do_uninit_copyIN4Luau6detail14DenseHashTableIPKNS0_11TypePackVarESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEPSD_ET0_T_SP_SO_(ptr %.fr.i.i.i, i64 %2, ptr %.fr7.i.i.i, i64 %4, ptr noundef %29)
+  %32 = invoke noundef ptr @_ZSt16__do_uninit_copyIN4Luau6detail14DenseHashTableIPKNS0_11TypePackVarESt4pairIS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_IKS5_SC_ENS1_16ItemInterfaceMapIS5_SC_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorEPSD_ET0_T_SP_SO_(ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef %29)
           to label %33 unwind label %35
 
 33:                                               ; preds = %_ZNSt12_Vector_baseISt4pairIPKN4Luau11TypePackVarENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EE11_M_allocateEm.exit.i

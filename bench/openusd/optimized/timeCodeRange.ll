@@ -510,12 +510,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 
 60:                                               ; preds = %53
   %61 = load double, ptr %5, align 8
-  %.fr5.i.i = freeze double %61
   br label %.invoke
 
 .invoke:                                          ; preds = %139, %136, %._crit_edge, %60
-  %62 = phi double [ %.fr5.i.i, %60 ], [ %121, %._crit_edge ], [ %121, %136 ], [ %121, %139 ]
-  %63 = phi double [ %.fr5.i.i, %60 ], [ %.pre, %._crit_edge ], [ %137, %136 ], [ %137, %139 ]
+  %62 = phi double [ %61, %60 ], [ %121, %._crit_edge ], [ %121, %136 ], [ %121, %139 ]
+  %63 = phi double [ %61, %60 ], [ %.pre, %._crit_edge ], [ %137, %136 ], [ %137, %139 ]
   %64 = phi double [ 1.000000e+00, %60 ], [ %.pre26, %._crit_edge ], [ 1.000000e+00, %136 ], [ -1.000000e+00, %139 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRangeC2ENS_11UsdTimeCodeES1_d(ptr noundef nonnull align 8 dereferenceable(24) %0, double %62, double %63, double noundef %64)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRangeC2ENS_11UsdTimeCodeE.exit unwind label %48

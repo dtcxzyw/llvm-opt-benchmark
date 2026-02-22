@@ -1989,18 +1989,17 @@ tuple_index.exit.us.i:                            ; preds = %.lr.ph.i.us.i
   %293 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %294 = getelementptr i8, ptr %284, i64 16
   %.val.us.i = load i64, ptr %294, align 8, !tbaa !4
-  %.val.fr.us.i = freeze i64 %.val.us.i
   %295 = load ptr, ptr %6, align 8, !tbaa !12
   %296 = getelementptr i8, ptr %295, i64 16
   %.val.i.us.i = load i64, ptr %296, align 8, !tbaa !4
-  %297 = add i64 %.val.fr.us.i, -1
+  %297 = add i64 %.val.us.i, -1
   %298 = add i64 %297, %.val.i.us.i
   %299 = call i32 @_PyTuple_Resize(ptr noundef nonnull %6, i64 noundef %298) #5
   %.not.i66.us.i = icmp eq i32 %299, 0
   br i1 %.not.i66.us.i, label %.preheader.i.us.i, label %Py_DECREF.exit.i
 
 .preheader.i.us.i:                                ; preds = %292
-  %300 = icmp sgt i64 %.val.fr.us.i, 0
+  %300 = icmp sgt i64 %.val.us.i, 0
   br i1 %300, label %.lr.ph.i67.us.i, label %tuple_extend.exit.us.i
 
 .lr.ph.i67.us.i:                                  ; preds = %.preheader.i.us.i, %_Py_NewRef.exit.i.us.i
@@ -2023,12 +2022,13 @@ _Py_NewRef.exit.i.us.i:                           ; preds = %306, %.lr.ph.i67.us
   %310 = getelementptr ptr, ptr %309, i64 %.01416.i.us.i
   store ptr %302, ptr %310, align 8, !tbaa !12
   %311 = add nuw nsw i64 %.01416.i.us.i, 1
-  %exitcond.not.i68.us.i = icmp eq i64 %311, %.val.fr.us.i
+  %exitcond.not.i68.us.i = icmp eq i64 %311, %.val.us.i
   br i1 %exitcond.not.i68.us.i, label %tuple_extend.exit.us.i, label %.lr.ph.i67.us.i, !llvm.loop !38
 
 tuple_extend.exit.us.i:                           ; preds = %_Py_NewRef.exit.i.us.i, %.preheader.i.us.i
-  %312 = add i64 %.val.fr.us.i, %.03891.us.i
-  %313 = icmp slt i64 %312, 0
+  %312 = add i64 %.val.us.i, %.03891.us.i
+  %.fr.us.i = freeze i64 %312
+  %313 = icmp slt i64 %.fr.us.i, 0
   br i1 %313, label %Py_DECREF.exit.i, label %322
 
 tuple_index.exit.thread.us.i:                     ; preds = %281, %288, %tuple_index.exit.us.i
@@ -2051,7 +2051,7 @@ tuple_index.exit.thread.us.i:                     ; preds = %281, %288, %tuple_i
   br label %322
 
 322:                                              ; preds = %.thread77.us.i, %tuple_extend.exit.us.i
-  %.34180.us.i = phi i64 [ %321, %.thread77.us.i ], [ %312, %tuple_extend.exit.us.i ]
+  %.34180.us.i = phi i64 [ %321, %.thread77.us.i ], [ %.fr.us.i, %tuple_extend.exit.us.i ]
   %323 = add nuw nsw i64 %.03792.us.i, 1
   %exitcond95.not.i = icmp eq i64 %323, %.val60.i150
   br i1 %exitcond95.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i.preheader.us.i, !llvm.loop !39

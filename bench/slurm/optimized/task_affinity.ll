@@ -268,13 +268,13 @@ define dso_local range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_u
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.fca.1.load.i, ptr %.sroa.4.0..sroa_idx, align 8
   %28 = load i32, ptr %21, align 8
-  %.fr = freeze i32 %28
-  %29 = and i32 %.fr, 2
+  %.fr15 = freeze i32 %28
+  %29 = and i32 %.fr15, 2
   %.not11.not = icmp eq i32 %29, 0
   br i1 %.not11.not, label %switch.early.test, label %46
 
 switch.early.test:                                ; preds = %26
-  switch i32 %.fr, label %30 [
+  switch i32 %.fr15, label %30 [
     i32 64, label %46
     i32 1, label %46
   ]

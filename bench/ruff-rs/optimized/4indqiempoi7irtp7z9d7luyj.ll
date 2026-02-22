@@ -62614,12 +62614,13 @@ _ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit: ; preds = %
   %232 = and i8 %228, 63
   %233 = zext nneg i8 %232 to i32
   %234 = or disjoint i32 %231, %233
-  %235 = or i32 %234, %230
-  %.not53 = icmp eq i32 %235, 1114112
+  %235 = or disjoint i32 %234, %230
+  %.fr = freeze i32 %235
+  %.not53 = icmp eq i32 %.fr, 1114112
   br i1 %.not53, label %.thread396, label %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread
 
 _ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit.thread: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i", %214, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h477a1d45356447fcE.exit91", %194
-  %.sroa.07.0 = phi i32 [ 1114112, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h477a1d45356447fcE.exit91" ], [ 1114112, %194 ], [ %235, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit ], [ %224, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i" ], [ %212, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i" ], [ %215, %214 ]
+  %.sroa.07.0 = phi i32 [ 1114112, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h477a1d45356447fcE.exit91" ], [ 1114112, %194 ], [ %.fr, %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit ], [ %224, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit14.i" ], [ %212, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b4efeb5cd3d1092E.exit12.i" ], [ %215, %214 ]
   br i1 %.not48, label %236, label %237
 
 .thread396:                                       ; preds = %_ZN4core3str11validations15next_code_point17h583bc8c2bf5779f2E.exit, %196

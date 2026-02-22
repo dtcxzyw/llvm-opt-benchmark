@@ -1933,7 +1933,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
   %199 = getelementptr %struct.vga_arb_user_card, ptr %196, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, %181
-  br i1 %201, label %.loopexit17, label %202
+  br i1 %201, label %.loopexit18, label %202
 
 202:                                              ; preds = %197
   %203 = icmp eq ptr %200, null
@@ -1945,7 +1945,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
   store i32 0, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i32 0, ptr %206, align 8
-  br label %.loopexit17
+  br label %.loopexit18
 
 207:                                              ; preds = %202
   %208 = add nuw nsw i64 %198, 1
@@ -1956,17 +1956,17 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
   call void @pci_dev_put(ptr noundef %181) #14
   br label %212
 
-.loopexit17:                                      ; preds = %197, %204
+.loopexit18:                                      ; preds = %197, %204
   %210 = and i64 %198, 4294967295
   %211 = icmp eq i64 %210, 16
   call void @pci_dev_put(ptr noundef %181) #14
   br i1 %211, label %212, label %213
 
-212:                                              ; preds = %.thread14, %.loopexit17
+212:                                              ; preds = %.thread14, %.loopexit18
   br label %213
 
-213:                                              ; preds = %212, %.loopexit17, %193, %.thread, %174, %171
-  %214 = phi i64 [ -71, %171 ], [ -19, %174 ], [ -19, %193 ], [ -19, %.thread ], [ -12, %212 ], [ %2, %.loopexit17 ]
+213:                                              ; preds = %212, %.loopexit18, %193, %.thread, %174, %171
+  %214 = phi i64 [ -71, %171 ], [ -19, %174 ], [ -19, %193 ], [ -19, %.thread ], [ -12, %212 ], [ %2, %.loopexit18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

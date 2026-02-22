@@ -200,8 +200,8 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #12, !srcloc !13
   %3 = inttoptr i64 %2 to ptr
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 490), align 2
-  %.fr6 = freeze i32 %4
-  %5 = and i32 %.fr6, 1
+  %.fr = freeze i32 %4
+  %5 = and i32 %.fr, 1
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
@@ -476,8 +476,8 @@ define dso_local void @intel_pmu_lbr_save(ptr noundef writeonly captures(none) %
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #12, !srcloc !16
   %3 = inttoptr i64 %2 to ptr
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 490), align 2
-  %.fr2 = freeze i32 %4
-  %5 = and i32 %.fr2, 1
+  %.fr = freeze i32 %4
+  %5 = and i32 %.fr, 1
   %6 = icmp eq i32 %5, 0
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %8 = add i32 %7, -1

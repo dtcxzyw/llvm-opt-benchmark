@@ -4443,18 +4443,17 @@ _ZN4llvm15isa_and_nonnullIJN5clang7VarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit: ; pr
 40:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang7VarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit
   %41 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %33) #27
   %42 = load ptr, ptr %41, align 8, !tbaa !25
-  %.fr = freeze ptr %42
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !26
-  %.fr109 = freeze i32 %44
-  %45 = zext i32 %.fr109 to i64
+  %45 = zext i32 %44 to i64
   %.idx.i.i = shl nuw nsw i64 %45, 3
-  %46 = getelementptr i8, ptr %.fr, i64 %.idx.i.i
-  %.not.i.i62 = icmp eq i32 %.fr109, 0
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i
+  %.fr = freeze ptr %46
+  %.not.i.i62 = icmp eq i32 %44, 0
   br i1 %.not.i.i62, label %_ZN4llvm15isa_and_nonnullIJN5clang7VarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit.thread, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %40, %51
-  %.sroa.07.1.i.i.i.i = phi ptr [ %52, %51 ], [ %.fr, %40 ]
+  %.sroa.07.1.i.i.i.i = phi ptr [ %52, %51 ], [ %42, %40 ]
   %47 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !983
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i16, ptr %48, align 8
@@ -4463,11 +4462,11 @@ _ZN4llvm15isa_and_nonnullIJN5clang7VarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit: ; pr
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %52, %46
+  %.not.i.i.i.i.i = icmp eq ptr %52, %.fr
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15isa_and_nonnullIJN5clang7VarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !985
 
 _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %46
+  %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %.fr
   %spec.select = select i1 %.not, ptr @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, ptr @_ZN5clang7CodeGen15CodeGenFunction23destroyARCStrongPreciseERS1_NS0_7AddressENS_8QualTypeE
   br label %_ZN4llvm15isa_and_nonnullIJN5clang7VarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit.thread
 
@@ -4536,7 +4535,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i._ZNK5clang4Type24getBaseElementTy
   %80 = getelementptr inbounds nuw i8, ptr %.05.i, i64 8
   %.sroa.0.0.copyload.i.i.i.i69.pre = load i64, ptr %80, align 8, !tbaa !669
   %.pre = and i64 %.sroa.0.0.copyload.i.i.i.i69.pre, -16
-  %.pre115 = inttoptr i64 %.pre to ptr
+  %.pre114 = inttoptr i64 %.pre to ptr
   br label %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread9.i: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i, %67
@@ -4545,13 +4544,13 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread9.i: ; preds = %_ZNK5clang4Ty
   br label %67
 
 _ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit: ; preds = %71, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i._ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit_crit_edge
-  %.pre-phi116 = phi ptr [ %.pre115, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i._ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit_crit_edge ], [ %74, %71 ]
-  %82 = load ptr, ptr %.pre-phi116, align 8, !tbaa !699
+  %.pre-phi115 = phi ptr [ %.pre114, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i._ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit_crit_edge ], [ %74, %71 ]
+  %82 = load ptr, ptr %.pre-phi115, align 8, !tbaa !699
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i8, ptr %83, align 16
   %85 = icmp ne i8 %84, 47
-  %.not60110 = icmp eq ptr %82, null
-  %.not60 = or i1 %.not60110, %85
+  %.not60109 = icmp eq ptr %82, null
+  %.not60 = or i1 %.not60109, %85
   br i1 %.not60, label %.thread, label %86
 
 86:                                               ; preds = %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit
@@ -4564,8 +4563,8 @@ _ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit: ; preds = %71, %_ZNK5clang4Typ
   %93 = load ptr, ptr %92, align 8, !tbaa !995
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 17592186044416
-  %.not111 = icmp eq i64 %95, 0
-  br i1 %.not111, label %96, label %.thread
+  %.not110 = icmp eq i64 %95, 0
+  br i1 %.not110, label %96, label %.thread
 
 96:                                               ; preds = %86
   %97 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl13getDestructorEv(ptr noundef nonnull align 8 dereferenceable(144) %87) #27
@@ -23553,8 +23552,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZN5clang7CodeGen15
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 184
   %126 = load ptr, ptr %125, align 8, !tbaa !859
   %127 = load i64, ptr %126, align 8
-  %.fr.i = freeze i64 %127
-  %128 = and i64 %.fr.i, 512
+  %.fr4.i = freeze i64 %127
+  %128 = and i64 %.fr4.i, 512
   %.not.i = icmp eq i64 %128, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %136
 
@@ -23567,10 +23566,10 @@ _ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKind
   %132 = load ptr, ptr %131, align 8, !tbaa !1016
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load i64, ptr %133, align 8
-  %.fr4.i = freeze i64 %134
-  %135 = and i64 %.fr4.i, 8796093022208
-  %.not5.i = icmp eq i64 %135, 0
-  br i1 %.not5.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %136
+  %.fr5.i = freeze i64 %134
+  %135 = and i64 %.fr5.i, 8796093022208
+  %.not6.i = icmp eq i64 %135, 0
+  br i1 %.not6.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %136
 
 136:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i, %124
   br label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit

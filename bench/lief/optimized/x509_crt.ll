@@ -1908,7 +1908,7 @@ x509_profile_check_key.exit.thread:               ; preds = %102, %107, %109, %x
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %127 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.not9497.i.i = icmp eq ptr %2, null
+  %.not9295.i.i = icmp eq ptr %2, null
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %130
 
@@ -2382,7 +2382,7 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
 
 362:                                              ; preds = %x509_profile_check_key.exit.thread.i, %x509_profile_check_key.exit.i, %344
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %.not9497.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.lr.ph.i.i
+  br i1 %.not9295.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %362
   %363 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 224
@@ -2394,25 +2394,25 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   br label %.lr.ph.i59.i
 
 .lr.ph.i59.i:                                     ; preds = %.outer.i.i, %.lr.ph.lr.ph.i.i
-  %.043.ph99.i.i = phi ptr [ %2, %.lr.ph.lr.ph.i.i ], [ %478, %.outer.i.i ]
-  %.044.ph98.i.i = phi i32 [ 0, %.lr.ph.lr.ph.i.i ], [ %.6.i.i, %.outer.i.i ]
+  %.043.ph97.i.i = phi ptr [ %2, %.lr.ph.lr.ph.i.i ], [ %478, %.outer.i.i ]
+  %.044.ph96.i.i = phi i32 [ 0, %.lr.ph.lr.ph.i.i ], [ %.6.i.i, %.outer.i.i ]
   br label %369
 
 369:                                              ; preds = %376, %.lr.ph.i59.i
-  %.04395.i.i = phi ptr [ %.043.ph99.i.i, %.lr.ph.i59.i ], [ %378, %376 ]
-  %370 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 48
+  %.04393.i.i = phi ptr [ %.043.ph97.i.i, %.lr.ph.i59.i ], [ %378, %376 ]
+  %370 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 48
   %371 = load i32, ptr %370, align 8, !tbaa !125
   %372 = icmp eq i32 %371, 0
   br i1 %372, label %376, label %373
 
 373:                                              ; preds = %369
-  %374 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 104
+  %374 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 104
   %375 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %374, ptr noundef nonnull %363)
   %.not45.i.i = icmp eq i32 %375, 0
   br i1 %.not45.i.i, label %379, label %376
 
 376:                                              ; preds = %373, %369
-  %377 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 408
+  %377 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 408
   %378 = load ptr, ptr %377, align 8, !tbaa !128
   %.not.i60.i = icmp eq ptr %378, null
   br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %369, !llvm.loop !129
@@ -2430,34 +2430,33 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   br i1 %or.cond.i.i, label %select.unfold.i.i, label %mbedtls_x509_crt_check_key_usage.exit.i.i
 
 mbedtls_x509_crt_check_key_usage.exit.i.i:        ; preds = %383
-  %386 = or i32 %.044.ph98.i.i, 16
+  %386 = or i32 %.044.ph96.i.i, 16
   br label %x509_crt_verifycrl.exit.i
 
 select.unfold.i.i:                                ; preds = %383, %379
-  %387 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 392
+  %387 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 392
   %388 = load i32, ptr %387, align 8, !tbaa !130
   %389 = icmp eq i32 %388, 0
   br i1 %389, label %x509_profile_check_md_alg.exit.thread.i.i, label %x509_profile_check_md_alg.exit.i.i
 
 x509_profile_check_md_alg.exit.thread.i.i:        ; preds = %select.unfold.i.i
-  %390 = or i32 %.044.ph98.i.i, 131072
+  %390 = or i32 %.044.ph96.i.i, 131072
   br label %396
 
 x509_profile_check_md_alg.exit.i.i:               ; preds = %select.unfold.i.i
   %391 = load i32, ptr %3, align 4, !tbaa !116
   %392 = add i32 %388, -1
   %393 = shl nuw i32 1, %392
-  %.fr.i.i = freeze i32 %391
-  %.fr82.i.i = freeze i32 %393
-  %394 = and i32 %.fr.i.i, %.fr82.i.i
-  %.not.i55.not.i.i = icmp eq i32 %394, 0
-  %395 = or i32 %.044.ph98.i.i, 131072
-  %spec.select.i.i = select i1 %.not.i55.not.i.i, i32 %395, i32 %.044.ph98.i.i
+  %394 = and i32 %391, %393
+  %.fr.i.i = freeze i32 %394
+  %.not.i55.not.i.i = icmp eq i32 %.fr.i.i, 0
+  %395 = or i32 %.044.ph96.i.i, 131072
+  %spec.select.i.i = select i1 %.not.i55.not.i.i, i32 %395, i32 %.044.ph96.i.i
   br label %396
 
 396:                                              ; preds = %x509_profile_check_md_alg.exit.i.i, %x509_profile_check_md_alg.exit.thread.i.i
   %397 = phi i32 [ %390, %x509_profile_check_md_alg.exit.thread.i.i ], [ %spec.select.i.i, %x509_profile_check_md_alg.exit.i.i ]
-  %398 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 396
+  %398 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 396
   %399 = load i32, ptr %398, align 4, !tbaa !131
   %400 = icmp eq i32 %399, 0
   br i1 %400, label %x509_profile_check_pk_alg.exit.thread.i.i, label %x509_profile_check_pk_alg.exit.i.i
@@ -2470,10 +2469,9 @@ x509_profile_check_pk_alg.exit.i.i:               ; preds = %396
   %402 = load i32, ptr %125, align 4, !tbaa !102
   %403 = add i32 %399, -1
   %404 = shl nuw i32 1, %403
-  %.fr83.i.i = freeze i32 %402
-  %.fr84.i.i = freeze i32 %404
-  %405 = and i32 %.fr83.i.i, %.fr84.i.i
-  %.not.i58.not.i.i = icmp eq i32 %405, 0
+  %405 = and i32 %402, %404
+  %.fr82.i.i = freeze i32 %405
+  %.not.i58.not.i.i = icmp eq i32 %.fr82.i.i, 0
   %406 = or i32 %397, 262144
   %spec.select80.i.i = select i1 %.not.i58.not.i.i, i32 %406, i32 %397
   br label %407
@@ -2483,9 +2481,9 @@ x509_profile_check_pk_alg.exit.i.i:               ; preds = %396
   %409 = call ptr @mbedtls_md_info_from_type(i32 noundef %388) #19
   %410 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %409) #19
   %411 = zext i8 %410 to i64
-  %412 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 40
+  %412 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 40
   %413 = load ptr, ptr %412, align 8, !tbaa !132
-  %414 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 32
+  %414 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 32
   %415 = load i64, ptr %414, align 8, !tbaa !133
   %416 = call i32 @mbedtls_md(ptr noundef %409, ptr noundef %413, i64 noundef %415, ptr noundef nonnull %11) #19
   %.not49.i.i43 = icmp eq i32 %416, 0
@@ -2549,12 +2547,12 @@ x509_profile_check_key.exit.i.i:                  ; preds = %432, %421
 439:                                              ; preds = %x509_profile_check_key.exit.i.i, %x509_profile_check_key.exit.thread.i.i
   %440 = phi i32 [ %437, %x509_profile_check_key.exit.thread.i.i ], [ %spec.select81.i.i, %x509_profile_check_key.exit.i.i ]
   %441 = load i32, ptr %398, align 4, !tbaa !131
-  %442 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 400
+  %442 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 400
   %443 = load ptr, ptr %442, align 8, !tbaa !134
   %444 = load i32, ptr %387, align 8, !tbaa !130
-  %445 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 384
+  %445 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 384
   %446 = load ptr, ptr %445, align 8, !tbaa !135
-  %447 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 376
+  %447 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 376
   %448 = load i64, ptr %447, align 8, !tbaa !136
   %449 = call i32 @mbedtls_pk_verify_ext(i32 noundef %441, ptr noundef %443, ptr noundef nonnull %342, i32 noundef %444, ptr noundef nonnull %11, i64 noundef %411, ptr noundef %446, i64 noundef %448) #19
   %.not51.i.i = icmp eq i32 %449, 0
@@ -2565,17 +2563,17 @@ x509_profile_check_key.exit.i.i:                  ; preds = %432, %421
   br label %x509_crt_verifycrl.exit.i
 
 452:                                              ; preds = %439
-  %453 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 192
+  %453 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 192
   %454 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %453, ptr noundef nonnull %14) #19
   %455 = lshr i32 %454, 26
   %456 = and i32 %455, 32
   %spec.select54.i.i = or i32 %456, %440
-  %457 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 168
+  %457 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 168
   %458 = call i32 @mbedtls_x509_time_cmp(ptr noundef nonnull %457, ptr noundef nonnull %14) #19
   %459 = icmp sgt i32 %458, 0
   %460 = or i32 %spec.select54.i.i, 1024
   %.6.i.i = select i1 %459, i32 %460, i32 %spec.select54.i.i
-  %461 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 216
+  %461 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 216
   br label %462
 
 462:                                              ; preds = %473, %452
@@ -2609,13 +2607,13 @@ mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %468
   br label %x509_crt_verifycrl.exit.i
 
 .outer.i.i:                                       ; preds = %473, %462
-  %477 = getelementptr inbounds nuw i8, ptr %.04395.i.i, i64 408
+  %477 = getelementptr inbounds nuw i8, ptr %.04393.i.i, i64 408
   %478 = load ptr, ptr %477, align 8, !tbaa !128
-  %.not94.i.i = icmp eq ptr %478, null
-  br i1 %.not94.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !129
+  %.not92.i.i = icmp eq ptr %478, null
+  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !129
 
 x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %376, %mbedtls_x509_crt_is_revoked.exit.i.i, %450, %417, %mbedtls_x509_crt_check_key_usage.exit.i.i, %362
-  %.0.i61.i = phi i32 [ 0, %362 ], [ %386, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %418, %417 ], [ %451, %450 ], [ %476, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.044.ph98.i.i, %376 ], [ %.6.i.i, %.outer.i.i ]
+  %.0.i61.i = phi i32 [ 0, %362 ], [ %386, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %418, %417 ], [ %451, %450 ], [ %476, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.044.ph96.i.i, %376 ], [ %.6.i.i, %.outer.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %479 = load i32, ptr %134, align 8, !tbaa !31
   %480 = or i32 %479, %.0.i61.i

@@ -6206,8 +6206,8 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   %51 = load ptr, ptr %39, align 8
   %52 = getelementptr i8, ptr %51, i64 46600
   %53 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52) #22, !srcloc !13
-  %.fr14 = freeze i32 %53
-  %54 = and i32 %.fr14, 16777215
+  %.fr = freeze i32 %53
+  %54 = and i32 %.fr, 16777215
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = icmp eq i32 %54, 0
   %57 = zext nneg i32 %54 to i64
@@ -16930,8 +16930,8 @@ define internal i64 @e1000e_cyclecounter_read(ptr noundef readonly captures(none
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr i8, ptr %31, i64 46600
   %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #22, !srcloc !13
-  %.fr3 = freeze i32 %33
-  %34 = and i32 %.fr3, 16777215
+  %.fr = freeze i32 %33
+  %34 = and i32 %.fr, 16777215
   %35 = icmp eq i32 %34, 0
   %36 = zext nneg i32 %34 to i64
   br i1 %35, label %.split.us, label %.split

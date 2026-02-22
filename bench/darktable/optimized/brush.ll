@@ -8868,10 +8868,8 @@ define internal fastcc ptr @_brush_ramer_douglas_peucker(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %4
   %7 = load float, ptr %0, align 4, !tbaa !93
-  %.fr99 = freeze float %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load float, ptr %8, align 4, !tbaa !93
-  %.fr97 = freeze float %9
   %10 = load float, ptr %2, align 4, !tbaa !93
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !93
@@ -8881,10 +8879,8 @@ define internal fastcc ptr @_brush_ramer_douglas_peucker(ptr noundef %0, i32 nou
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !93
-  %.fr98 = freeze float %18
   %19 = getelementptr i8, ptr %17, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !93
-  %.fr96 = freeze float %20
   %21 = shl nsw i32 %5, 2
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw float, ptr %2, i64 %22
@@ -8893,39 +8889,40 @@ define internal fastcc ptr @_brush_ramer_douglas_peucker(ptr noundef %0, i32 nou
   %26 = load float, ptr %25, align 4, !tbaa !93
   %27 = getelementptr i8, ptr %23, i64 8
   %28 = load float, ptr %27, align 4, !tbaa !93
-  %29 = fsub reassoc nsz arcp contract afn float %.fr98, %.fr99
-  %30 = fsub reassoc nsz arcp contract afn float %.fr96, %.fr97
+  %29 = fsub reassoc nsz arcp contract afn float %18, %7
+  %30 = fsub reassoc nsz arcp contract afn float %20, %9
   %31 = fsub reassoc nsz arcp contract afn float %24, %10
   %32 = fsub reassoc nsz arcp contract afn float %26, %12
   %33 = fsub reassoc nsz arcp contract afn float %28, %14
   %34 = fmul reassoc nsz arcp contract afn float %29, %29
   %35 = fmul reassoc nsz arcp contract afn float %30, %30
   %36 = fadd reassoc nsz arcp contract afn float %35, %34
-  %37 = fcmp reassoc nsz arcp contract afn oeq float %36, 0.000000e+00
+  %.fr96 = freeze float %36
+  %37 = fcmp reassoc nsz arcp contract afn oeq float %.fr96, 0.000000e+00
   br i1 %37, label %_brush_point_line_distance2.exit.us.preheader, label %.lr.ph.split
 
 _brush_point_line_distance2.exit.us.preheader:    ; preds = %.lr.ph
-  %wide.trip.count105 = zext nneg i32 %5 to i64
+  %wide.trip.count102 = zext nneg i32 %5 to i64
   br label %_brush_point_line_distance2.exit.us
 
 _brush_point_line_distance2.exit.us:              ; preds = %_brush_point_line_distance2.exit.us.preheader, %_brush_point_line_distance2.exit.us
-  %indvars.iv102 = phi i64 [ 1, %_brush_point_line_distance2.exit.us.preheader ], [ %indvars.iv.next103, %_brush_point_line_distance2.exit.us ]
+  %indvars.iv99 = phi i64 [ 1, %_brush_point_line_distance2.exit.us.preheader ], [ %indvars.iv.next100, %_brush_point_line_distance2.exit.us ]
   %.07185.us = phi float [ 0.000000e+00, %_brush_point_line_distance2.exit.us.preheader ], [ %.1.us, %_brush_point_line_distance2.exit.us ]
   %.07284.us = phi i32 [ 0, %_brush_point_line_distance2.exit.us.preheader ], [ %.173.us, %_brush_point_line_distance2.exit.us ]
-  %.idx110 = shl nuw nsw i64 %indvars.iv102, 3
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx110
+  %.idx106 = shl nuw nsw i64 %indvars.iv99, 3
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx106
   %39 = load float, ptr %38, align 4, !tbaa !93
   %40 = getelementptr i8, ptr %38, i64 4
   %41 = load float, ptr %40, align 4, !tbaa !93
-  %.idx111 = shl nsw i64 %indvars.iv102, 4
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx111
+  %.idx107 = shl nsw i64 %indvars.iv99, 4
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx107
   %43 = load float, ptr %42, align 4, !tbaa !93
   %44 = getelementptr i8, ptr %42, i64 4
   %45 = load float, ptr %44, align 4, !tbaa !93
   %46 = getelementptr i8, ptr %42, i64 8
   %47 = load float, ptr %46, align 4, !tbaa !93
-  %48 = fsub reassoc nsz arcp contract afn float %39, %.fr99
-  %49 = fsub reassoc nsz arcp contract afn float %41, %.fr97
+  %48 = fsub reassoc nsz arcp contract afn float %39, %7
+  %49 = fsub reassoc nsz arcp contract afn float %41, %9
   %.0.i.us = fsub reassoc nsz arcp contract afn float %47, %14
   %.0105.i.us = fsub reassoc nsz arcp contract afn float %45, %12
   %.0106.i.us = fsub reassoc nsz arcp contract afn float %43, %10
@@ -8940,15 +8937,15 @@ _brush_point_line_distance2.exit.us:              ; preds = %_brush_point_line_d
   %56 = fadd reassoc nsz arcp contract afn float %55, %52
   %57 = fadd reassoc nsz arcp contract afn float %56, %reass.mul.i.us
   %58 = fcmp reassoc nsz arcp contract afn ogt float %57, %.07185.us
-  %59 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv99 to i32
   %.173.us = select i1 %58, i32 %59, i32 %.07284.us
   %.1.us = select nsz i1 %58, float %57, float %.07185.us
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %_brush_point_line_distance2.exit.us
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
+  br i1 %exitcond103.not, label %._crit_edge, label %_brush_point_line_distance2.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %60 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %36
+  %60 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.fr96
   %factor.op.fmul92 = fmul reassoc nsz arcp contract afn float %29, %60
   %factor.op.fmul94 = fmul reassoc nsz arcp contract afn float %30, %60
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -8969,15 +8966,15 @@ _brush_point_line_distance2.exit.us:              ; preds = %_brush_point_line_d
   %64 = load float, ptr %63, align 4, !tbaa !93
   %65 = getelementptr i8, ptr %63, i64 4
   %66 = load float, ptr %65, align 4, !tbaa !93
-  %.idx109 = shl nsw i64 %indvars.iv, 4
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx109
+  %.idx105 = shl nsw i64 %indvars.iv, 4
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx105
   %68 = load float, ptr %67, align 4, !tbaa !93
   %69 = getelementptr i8, ptr %67, i64 4
   %70 = load float, ptr %69, align 4, !tbaa !93
   %71 = getelementptr i8, ptr %67, i64 8
   %72 = load float, ptr %71, align 4, !tbaa !93
-  %73 = fsub reassoc nsz arcp contract afn float %64, %.fr99
-  %74 = fsub reassoc nsz arcp contract afn float %66, %.fr97
+  %73 = fsub reassoc nsz arcp contract afn float %64, %7
+  %74 = fsub reassoc nsz arcp contract afn float %66, %9
   %.reass93 = fmul reassoc nsz arcp contract afn float %factor.op.fmul92, %73
   %.reass95 = fmul reassoc nsz arcp contract afn float %factor.op.fmul94, %74
   %75 = fadd reassoc nsz arcp contract afn float %.reass95, %.reass93
@@ -8989,16 +8986,16 @@ _brush_point_line_distance2.exit.us:              ; preds = %_brush_point_line_d
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %77
-  %80 = fsub reassoc nsz arcp contract afn float %64, %.fr98
-  %81 = fsub reassoc nsz arcp contract afn float %66, %.fr96
+  %80 = fsub reassoc nsz arcp contract afn float %64, %18
+  %81 = fsub reassoc nsz arcp contract afn float %66, %20
   br label %_brush_point_line_distance2.exit
 
 82:                                               ; preds = %77
   %83 = fmul reassoc nsz arcp contract afn float %29, %75
-  %84 = fadd reassoc nsz arcp contract afn float %.fr99, %83
+  %84 = fadd reassoc nsz arcp contract afn float %7, %83
   %85 = fsub reassoc nsz arcp contract afn float %64, %84
   %86 = fmul reassoc nsz arcp contract afn float %30, %75
-  %87 = fadd reassoc nsz arcp contract afn float %.fr97, %86
+  %87 = fadd reassoc nsz arcp contract afn float %9, %86
   %88 = fsub reassoc nsz arcp contract afn float %66, %87
   %89 = fmul reassoc nsz arcp contract afn float %75, %31
   %90 = fadd reassoc nsz arcp contract afn float %89, %10
@@ -9035,9 +9032,9 @@ _brush_point_line_distance2.exit:                 ; preds = %62, %79, %82
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %62
 
-common.ret115:                                    ; preds = %105, %common.ret
-  %common.ret115.op = phi ptr [ %165, %common.ret ], [ %119, %105 ]
-  ret ptr %common.ret115.op
+common.ret111:                                    ; preds = %105, %common.ret
+  %common.ret111.op = phi ptr [ %165, %common.ret ], [ %119, %105 ]
+  ret ptr %common.ret111.op
 
 105:                                              ; preds = %._crit_edge
   %106 = add nuw nsw i32 %.072.lcssa, 1
@@ -9055,7 +9052,7 @@ common.ret115:                                    ; preds = %105, %common.ret
   tail call void @free(ptr noundef %117) #20
   %118 = tail call ptr @g_list_delete_link(ptr noundef %107, ptr noundef nonnull %116) #20
   %119 = tail call ptr @g_list_concat(ptr noundef %118, ptr noundef %115) #20
-  br label %common.ret115
+  br label %common.ret111
 
 common.ret:                                       ; preds = %._crit_edge
   %120 = tail call noalias dereferenceable_or_null(44) ptr @malloc(i64 noundef 44) #21
@@ -9126,7 +9123,7 @@ common.ret:                                       ; preds = %._crit_edge
   %164 = getelementptr inbounds nuw i8, ptr %140, i64 40
   store i32 1, ptr %164, align 4, !tbaa !159
   %165 = tail call ptr @g_list_append(ptr noundef %139, ptr noundef nonnull %140) #20
-  br label %common.ret115
+  br label %common.ret111
 }
 
 declare void @dt_masks_gui_form_save_creation(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3

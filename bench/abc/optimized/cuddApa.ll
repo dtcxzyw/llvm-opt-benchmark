@@ -777,7 +777,7 @@ Cudd_ApaShortDivision.exit.thread.preheader:      ; preds = %Cudd_ApaCopy.exit.t
 
 .lr.ph.i54.us:                                    ; preds = %.lr.ph.i54.us.preheader, %Cudd_ApaShortDivision.exit.us
   %indvars.iv = phi i64 [ %24, %.lr.ph.i54.us.preheader ], [ %indvars.iv.next, %Cudd_ApaShortDivision.exit.us ]
-  %.04962.us = phi i32 [ %7, %.lr.ph.i54.us.preheader ], [ %spec.select, %Cudd_ApaShortDivision.exit.us ]
+  %.04963.us = phi i32 [ %7, %.lr.ph.i54.us.preheader ], [ %spec.select, %Cudd_ApaShortDivision.exit.us ]
   br label %25
 
 25:                                               ; preds = %25, %.lr.ph.i54.us
@@ -786,13 +786,13 @@ Cudd_ApaShortDivision.exit.thread.preheader:      ; preds = %Cudd_ApaCopy.exit.t
   %26 = shl nuw nsw i64 %.01213.i.us, 32
   %27 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i56.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
-  %.fr.us = freeze i32 %28
-  %29 = zext i32 %.fr.us to i64
+  %29 = zext i32 %28 to i64
   %30 = or disjoint i64 %26, %29
-  %31 = udiv i64 %30, 10
-  %32 = trunc nuw i64 %31 to i32
+  %.fr62.us = freeze i64 %30
+  %31 = udiv i64 %.fr62.us, 10
+  %32 = trunc i64 %31 to i32
   store i32 %32, ptr %27, align 4, !tbaa !3
-  %33 = urem i64 %30, 10
+  %33 = urem i64 %.fr62.us, 10
   %indvars.iv.next.i57.us = add nuw nsw i64 %indvars.iv.i56.us, 1
   %exitcond.not.i58.us = icmp eq i64 %indvars.iv.next.i57.us, %wide.trip.count.i55
   br i1 %exitcond.not.i58.us, label %Cudd_ApaShortDivision.exit.us, label %25, !llvm.loop !11
@@ -803,7 +803,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   store i8 %34, ptr %35, align 1, !tbaa !18
   %.not.us = icmp eq i64 %33, 0
   %36 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %.not.us, i32 %.04962.us, i32 %36
+  %spec.select = select i1 %.not.us, i32 %.04963.us, i32 %36
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %37 = icmp sgt i64 %indvars.iv, 0
   br i1 %37, label %.lr.ph.i54.us, label %._crit_edge, !llvm.loop !21
@@ -814,25 +814,25 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   %38 = add nsw i32 %.049.lcssa, %3
   %39 = tail call i32 @llvm.smin.i32(i32 %8, i32 %38)
   %40 = icmp slt i32 %.049.lcssa, %39
-  br i1 %40, label %.lr.ph67, label %._crit_edge68
+  br i1 %40, label %.lr.ph68, label %._crit_edge69
 
-.lr.ph67:                                         ; preds = %._crit_edge
+.lr.ph68:                                         ; preds = %._crit_edge
   %41 = add nsw i32 %.049.lcssa, 1
   %42 = sext i32 %.049.lcssa to i64
   %sext = sext i32 %41 to i64
   br label %44
 
 43:                                               ; preds = %44
-  %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next73 to i32
+  %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next74 to i32
   %exitcond.not = icmp eq i32 %39, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge68, label %44, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge69, label %44, !llvm.loop !22
 
-44:                                               ; preds = %.lr.ph67, %43
-  %indvars.iv72 = phi i64 [ %42, %.lr.ph67 ], [ %indvars.iv.next73, %43 ]
-  %45 = icmp eq i64 %indvars.iv72, %sext
+44:                                               ; preds = %.lr.ph68, %43
+  %indvars.iv73 = phi i64 [ %42, %.lr.ph68 ], [ %indvars.iv.next74, %43 ]
+  %45 = icmp eq i64 %indvars.iv73, %sext
   %46 = select i1 %45, ptr @.str.3, ptr @.str.4
-  %47 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv72
+  %47 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv73
   %48 = load i8, ptr %47, align 1, !tbaa !18
   %49 = zext i8 %48 to i32
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %46, i32 noundef %49) #19
@@ -843,7 +843,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   tail call void @free(ptr noundef nonnull %15) #19
   br label %56
 
-._crit_edge68:                                    ; preds = %43, %._crit_edge
+._crit_edge69:                                    ; preds = %43, %._crit_edge
   tail call void @free(ptr noundef nonnull %15) #19
   %53 = sub i32 %7, %.049.lcssa
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %53) #19
@@ -851,8 +851,8 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   %spec.select53 = zext i1 %55 to i32
   br label %56
 
-56:                                               ; preds = %._crit_edge68, %4, %52, %17
-  %.0 = phi i32 [ %spec.select53, %._crit_edge68 ], [ 0, %17 ], [ 0, %52 ], [ 0, %4 ]
+56:                                               ; preds = %._crit_edge69, %4, %52, %17
+  %.0 = phi i32 [ %spec.select53, %._crit_edge69 ], [ 0, %17 ], [ 0, %52 ], [ 0, %4 ]
   ret i32 %.0
 }
 

@@ -8464,9 +8464,7 @@ _node_reconfig_test.exit:                         ; preds = %59, %33, %.lr.ph
   %133 = getelementptr inbounds nuw i8, ptr %71, i64 144
   %134 = load i32, ptr %133, align 8
   %135 = load i32, ptr @gpu_plugin_id, align 4
-  %.fr = freeze i32 %134
-  %.fr89 = freeze i32 %135
-  %136 = icmp eq i32 %.fr, %.fr89
+  %136 = icmp eq i32 %134, %135
   %137 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %122, i64 noundef %97) #28
   %138 = getelementptr inbounds nuw i8, ptr %80, i64 64
   %139 = load i16, ptr %138, align 8
@@ -8514,7 +8512,8 @@ _node_reconfig_test.exit:                         ; preds = %59, %33, %.lr.ph
   br i1 %156, label %.lr.ph.splitthread-pre-split.i, label %_node_reconfig.exit, !llvm.loop !71
 
 _node_reconfig.exit:                              ; preds = %153, %132, %.lr.ph.i
-  %spec.select = select i1 %136, ptr %31, ptr %.03753
+  %cond.fr = freeze i1 %136
+  %spec.select = select i1 %cond.fr, ptr %31, ptr %.03753
   br label %_node_reconfig.exit.thread
 
 _node_reconfig.exit.thread:                       ; preds = %_node_reconfig.exit, %117, %115, %113, %119, %125, %121, %79
@@ -16334,7 +16333,7 @@ define dso_local void @gres_validate_node_cores(ptr noundef readonly captures(no
 .lr.ph:                                           ; preds = %7
   %11 = sext i32 %1 to i64
   %12 = icmp sgt i32 %1, 0
-  %wide.trip.count75.i = zext nneg i32 %1 to i64
+  %wide.trip.count76.i = zext nneg i32 %1 to i64
   br label %15
 
 13:                                               ; preds = %7
@@ -16375,8 +16374,8 @@ define dso_local void @gres_validate_node_cores(ptr noundef readonly captures(no
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @bit_alloc(i64 noundef %11) #28
   %33 = tail call i64 @bit_size(ptr noundef %31) #28
-  %.fr52.i = freeze i64 %33
-  %34 = trunc i64 %.fr52.i to i32
+  %.fr53.i = freeze i64 %33
+  %34 = trunc i64 %.fr53.i to i32
   %35 = icmp slt i32 %1, %34
   br i1 %35, label %36, label %46
 
@@ -16391,30 +16390,30 @@ define dso_local void @gres_validate_node_cores(ptr noundef readonly captures(no
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %..loopexit_crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv72.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next73.i, %..loopexit_crit_edge.us.i ]
-  %40 = mul nuw nsw i64 %indvars.iv72.i, %39
+  %indvars.iv73.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next74.i, %..loopexit_crit_edge.us.i ]
+  %40 = mul nuw nsw i64 %indvars.iv73.i, %39
   br label %42
 
 41:                                               ; preds = %42
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %39
-  br i1 %exitcond71.not.i, label %..loopexit_crit_edge.us.i, label %42, !llvm.loop !133
+  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %39
+  br i1 %exitcond72.not.i, label %..loopexit_crit_edge.us.i, label %42, !llvm.loop !133
 
 42:                                               ; preds = %41, %.preheader.us.i
-  %indvars.iv67.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next68.i, %41 ]
-  %43 = add nuw nsw i64 %indvars.iv67.i, %40
+  %indvars.iv68.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next69.i, %41 ]
+  %43 = add nuw nsw i64 %indvars.iv68.i, %40
   %44 = tail call i32 @slurm_bit_test(ptr noundef %31, i64 noundef %43) #28
   %.not40.us.i = icmp eq i32 %44, 0
   br i1 %.not40.us.i, label %41, label %45
 
 45:                                               ; preds = %42
-  tail call void @bit_set(ptr noundef %32, i64 noundef %indvars.iv72.i) #28
+  tail call void @bit_set(ptr noundef %32, i64 noundef %indvars.iv73.i) #28
   br label %..loopexit_crit_edge.us.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %41, %45
-  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
-  br i1 %exitcond76.not.i, label %_core_bitmap_rebuild.exit, label %.preheader.us.i, !llvm.loop !134
+  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
+  %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count76.i
+  br i1 %exitcond77.not.i, label %_core_bitmap_rebuild.exit, label %.preheader.us.i, !llvm.loop !134
 
 46:                                               ; preds = %28
   %47 = sdiv i32 %1, %34
@@ -16426,35 +16425,35 @@ define dso_local void @gres_validate_node_cores(ptr noundef readonly captures(no
   br i1 %49, label %.lr.ph48.split.us.preheader.i, label %.lr.ph48.split.preheader.i
 
 .lr.ph48.split.preheader.i:                       ; preds = %.lr.ph48.i
-  %wide.trip.count.i = and i64 %.fr52.i, 2147483647
+  %wide.trip.count.i = and i64 %.fr53.i, 2147483647
   br label %.lr.ph48.split.i
 
 .lr.ph48.split.us.preheader.i:                    ; preds = %.lr.ph48.i
   %50 = zext nneg i32 %47 to i64
-  %wide.trip.count65.i = and i64 %.fr52.i, 2147483647
+  %wide.trip.count66.i = and i64 %.fr53.i, 2147483647
   br label %.lr.ph48.split.us.i
 
 .lr.ph48.split.us.i:                              ; preds = %..loopexit43_crit_edge.us.i, %.lr.ph48.split.us.preheader.i
-  %indvars.iv62.i = phi i64 [ 0, %.lr.ph48.split.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit43_crit_edge.us.i ]
-  %51 = tail call i32 @slurm_bit_test(ptr noundef %31, i64 noundef %indvars.iv62.i) #28
+  %indvars.iv63.i = phi i64 [ 0, %.lr.ph48.split.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit43_crit_edge.us.i ]
+  %51 = tail call i32 @slurm_bit_test(ptr noundef %31, i64 noundef %indvars.iv63.i) #28
   %.not.us.i = icmp eq i32 %51, 0
   br i1 %.not.us.i, label %..loopexit43_crit_edge.us.i, label %.preheader42.us.i
 
 52:                                               ; preds = %.preheader42.us.i, %52
-  %indvars.iv57.i = phi i64 [ 0, %.preheader42.us.i ], [ %indvars.iv.next58.i, %52 ]
-  %53 = add nuw nsw i64 %indvars.iv57.i, %54
+  %indvars.iv58.i = phi i64 [ 0, %.preheader42.us.i ], [ %indvars.iv.next59.i, %52 ]
+  %53 = add nuw nsw i64 %indvars.iv58.i, %54
   tail call void @bit_set(ptr noundef %32, i64 noundef %53) #28
-  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
-  %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %50
-  br i1 %exitcond61.not.i, label %..loopexit43_crit_edge.us.i, label %52, !llvm.loop !135
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %50
+  br i1 %exitcond62.not.i, label %..loopexit43_crit_edge.us.i, label %52, !llvm.loop !135
 
 ..loopexit43_crit_edge.us.i:                      ; preds = %52, %.lr.ph48.split.us.i
-  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
-  br i1 %exitcond66.not.i, label %_core_bitmap_rebuild.exit, label %.lr.ph48.split.us.i, !llvm.loop !136
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
+  br i1 %exitcond67.not.i, label %_core_bitmap_rebuild.exit, label %.lr.ph48.split.us.i, !llvm.loop !136
 
 .preheader42.us.i:                                ; preds = %.lr.ph48.split.us.i
-  %54 = mul nuw nsw i64 %indvars.iv62.i, %50
+  %54 = mul nuw nsw i64 %indvars.iv63.i, %50
   br label %52
 
 .lr.ph48.split.i:                                 ; preds = %.lr.ph48.split.i, %.lr.ph48.split.preheader.i

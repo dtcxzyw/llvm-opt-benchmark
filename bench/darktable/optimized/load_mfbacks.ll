@@ -4246,26 +4246,24 @@ _ZN6LibRaw11ph1_bithuffEiPt.exit111:              ; preds = %122, %.noexc110
   %143 = sub nsw i32 64, %139
   %144 = zext nneg i32 %143 to i64
   %145 = shl i64 %140, %144
-  %.fr226 = freeze i64 %145
   %146 = sub nsw i32 64, %117
   %147 = zext nneg i32 %146 to i64
-  %148 = lshr i64 %.fr226, %147
-  %.fr227 = freeze i64 %148
-  %149 = trunc i64 %.fr227 to i32
+  %148 = lshr i64 %145, %147
+  %149 = trunc i64 %148 to i32
   %150 = sub nsw i32 %139, %117
   store i32 %150, ptr %142, align 8, !tbaa !160
   %gep215 = getelementptr inbounds nuw i32, ptr %invariant.gep214, i64 %indvars.iv166
   %151 = icmp sgt i32 %117, 0
-  %152 = icmp sgt i64 %.fr226, -1
-  %or.cond = and i1 %151, %152
+  %152 = icmp sgt i64 %145, -1
+  %or.cond = select i1 %151, i1 %152, i1 false
   %notmask = shl nsw i32 -1, %117
-  %notmask.fr = freeze i32 %notmask
-  %.neg103 = add i32 %notmask.fr, 1
+  %.neg103 = add nuw nsw i32 %notmask, 1
   %153 = select i1 %or.cond, i32 %.neg103, i32 0
   %storemerge = add i32 %153, %149
-  store i32 %storemerge, ptr %gep215, align 4, !tbaa !6
-  %154 = icmp eq i32 %storemerge, 65535
-  %spec.select = select i1 %154, i32 -32768, i32 %storemerge
+  %storemerge.fr = freeze i32 %storemerge
+  store i32 %storemerge.fr, ptr %gep215, align 4, !tbaa !6
+  %154 = icmp eq i32 %storemerge.fr, 65535
+  %spec.select = select i1 %154, i32 -32768, i32 %storemerge.fr
   br label %155
 
 155:                                              ; preds = %_ZN6LibRaw11ph1_bithuffEiPt.exit111, %.thread206

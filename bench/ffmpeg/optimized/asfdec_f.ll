@@ -3167,12 +3167,11 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = load i64, ptr %2, align 8, !tbaa !141
-  %.fr50 = freeze i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4, !tbaa !52
-  %.not58 = icmp eq i32 %11, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.preheader
+  %.not55 = icmp eq i32 %11, 0
+  br i1 %.not55, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext i32 %11 to i64
@@ -3181,7 +3180,7 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
-  store i64 %.fr50, ptr %12, align 8, !tbaa !141
+  store i64 %9, ptr %12, align 8, !tbaa !141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !174
@@ -3189,25 +3188,24 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load i32, ptr %13, align 8, !tbaa !51
-  %.fr51 = freeze i32 %14
-  %.not = icmp eq i32 %.fr51, 0
+  %.not = icmp eq i32 %14, 0
   br i1 %.not, label %25, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = zext i32 %.fr51 to i64
-  %17 = add i64 %.fr50, %16
+  %16 = zext i32 %14 to i64
+  %17 = add nsw i64 %9, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %19 = load i64, ptr %18, align 8, !tbaa !167
-  %.fr52 = freeze i64 %19
-  %20 = xor i64 %.fr52, -1
+  %20 = xor i64 %19, -1
   %21 = add i64 %17, %20
-  %22 = srem i64 %21, %16
-  %23 = sub i64 %.fr52, %22
-  %24 = add i64 %23, %21
+  %.fr = freeze i64 %21
+  %22 = srem i64 %.fr, %16
+  %23 = sub i64 %19, %22
+  %24 = add i64 %23, %.fr
   br label %25
 
 25:                                               ; preds = %15, %._crit_edge
-  %.047 = phi i64 [ %24, %15 ], [ %.fr50, %._crit_edge ]
+  %.047 = phi i64 [ %24, %15 ], [ %9, %._crit_edge ]
   store i64 %.047, ptr %2, align 8, !tbaa !141
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !26
@@ -3253,9 +3251,9 @@ asf_reset_header.exit:                            ; preds = %38
   store ptr null, ptr %44, align 8, !tbaa !136
   %45 = call i32 @av_read_frame(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
   %46 = icmp slt i32 %45, 0
-  br i1 %46, label %._crit_edge57, label %.lr.ph56
+  br i1 %46, label %._crit_edge54, label %.lr.ph53
 
-.lr.ph56:                                         ; preds = %asf_reset_header.exit
+.lr.ph53:                                         ; preds = %asf_reset_header.exit
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -3263,15 +3261,15 @@ asf_reset_header.exit:                            ; preds = %38
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %52
 
-._crit_edge57:                                    ; preds = %80, %asf_reset_header.exit
+._crit_edge54:                                    ; preds = %80, %asf_reset_header.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.70) #15
   br label %83
 
-52:                                               ; preds = %.lr.ph56, %80
+52:                                               ; preds = %.lr.ph53, %80
   %53 = load i32, ptr %48, align 8, !tbaa !175
   %54 = and i32 %53, 1
-  %.not53 = icmp eq i32 %54, 0
-  br i1 %.not53, label %80, label %55
+  %.not50 = icmp eq i32 %54, 0
+  br i1 %.not50, label %80, label %55
 
 55:                                               ; preds = %52
   %56 = load i64, ptr %47, align 8, !tbaa !176
@@ -3309,10 +3307,10 @@ asf_reset_header.exit:                            ; preds = %38
   call void @av_packet_unref(ptr noundef nonnull %5) #15
   %81 = call i32 @av_read_frame(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %._crit_edge57, label %52
+  br i1 %82, label %._crit_edge54, label %52
 
-83:                                               ; preds = %25, %79, %._crit_edge57
-  %.048 = phi i64 [ %56, %79 ], [ -9223372036854775808, %._crit_edge57 ], [ -9223372036854775808, %25 ]
+83:                                               ; preds = %25, %79, %._crit_edge54
+  %.048 = phi i64 [ %56, %79 ], [ -9223372036854775808, %._crit_edge54 ], [ -9223372036854775808, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.048

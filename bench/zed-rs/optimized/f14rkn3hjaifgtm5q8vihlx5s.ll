@@ -29241,9 +29241,9 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08f8ed2b75153621E.exit.i9.i.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i8.i.i
-  %rhsc18.i.i = load i8, ptr %9, align 1, !alias.scope !5853
-  %rhsc18.fr.i.i = freeze i8 %rhsc18.i.i
-  %10 = icmp eq i8 %rhsc18.fr.i.i, 13
+  %rhsc19.i.i = load i8, ptr %9, align 1, !alias.scope !5853
+  %rhsc19.fr.i.i = freeze i8 %rhsc19.i.i
+  %10 = icmp eq i8 %rhsc19.fr.i.i, 13
   %spec.select.i12.i.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h86e4d61477bc1927E.exit13.i.i"
 
@@ -48656,8 +48656,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread34: ; preds = %.crit
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit: ; preds = %21
   %29 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hefa91f9719f66b93E(i8 noundef %22, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %.fr = freeze { i64, i64 } %29
-  %30 = extractvalue { i64, i64 } %.fr, 0
+  %.fr40 = freeze { i64, i64 } %29
+  %30 = extractvalue { i64, i64 } %.fr40, 0
   %31 = icmp eq i64 %30, 1
   br i1 %31, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread34
 
@@ -59835,9 +59835,9 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08f8ed2b75153621E.exit.i9": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i8
-  %rhsc18 = load i8, ptr %9, align 1
-  %rhsc18.fr = freeze i8 %rhsc18
-  %10 = icmp eq i8 %rhsc18.fr, 13
+  %rhsc19 = load i8, ptr %9, align 1
+  %rhsc19.fr = freeze i8 %rhsc19
+  %10 = icmp eq i8 %rhsc19.fr, 13
   %spec.select.i12 = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h86e4d61477bc1927E.exit13"
 
@@ -92888,9 +92888,9 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08f8ed2b75153621E.exit.i9.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i8.i
-  %rhsc18.i = load i8, ptr %9, align 1, !alias.scope !24506
-  %rhsc18.fr.i = freeze i8 %rhsc18.i
-  %10 = icmp eq i8 %rhsc18.fr.i, 13
+  %rhsc19.i = load i8, ptr %9, align 1, !alias.scope !24506
+  %rhsc19.fr.i = freeze i8 %rhsc19.i
+  %10 = icmp eq i8 %rhsc19.fr.i, 13
   %spec.select.i12.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h86e4d61477bc1927E.exit13.i"
 

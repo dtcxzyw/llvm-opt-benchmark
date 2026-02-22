@@ -512,16 +512,16 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   br label %.preheader
 
 .preheader:                                       ; preds = %..preheader_crit_edge, %41
-  %.promoted49 = phi i64 [ %46, %..preheader_crit_edge ], [ %0, %41 ]
+  %.promoted50 = phi i64 [ %46, %..preheader_crit_edge ], [ %0, %41 ]
   %.032.lcssa = phi i64 [ %56, %..preheader_crit_edge ], [ %38, %41 ]
   %.0.lcssa = phi i1 [ %54, %..preheader_crit_edge ], [ %42, %41 ]
   %44 = select i1 %.0.lcssa, i64 366, i64 365
   %45 = icmp samesign ugt i64 %.032.lcssa, %44
-  br i1 %45, label %.lr.ph46, label %72
+  br i1 %45, label %.lr.ph47, label %72
 
 .lr.ph:                                           ; preds = %41, %.thread39
   %.fr = phi i64 [ %46, %.thread39 ], [ %0, %41 ]
-  %.03243 = phi i64 [ %56, %.thread39 ], [ %38, %41 ]
+  %.03244 = phi i64 [ %56, %.thread39 ], [ %38, %41 ]
   %46 = add i64 %.fr, -1
   %47 = and i64 %46, 3
   %48 = icmp eq i64 %47, 0
@@ -541,38 +541,38 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
 .thread39:                                        ; preds = %51, %49, %.lr.ph
   %54 = phi i1 [ true, %49 ], [ %53, %51 ], [ false, %.lr.ph ]
   %55 = phi i64 [ 366, %49 ], [ %spec.select41, %51 ], [ 365, %.lr.ph ]
-  %56 = add nsw i64 %55, %.03243
+  %56 = add nsw i64 %55, %.03244
   %57 = icmp slt i64 %56, 1
   br i1 %57, label %.lr.ph, label %..preheader_crit_edge
 
-.lr.ph46:                                         ; preds = %.preheader, %.thread75
-  %58 = phi i64 [ %61, %.thread75 ], [ %.promoted49, %.preheader ]
-  %59 = phi i64 [ %70, %.thread75 ], [ %44, %.preheader ]
-  %.13345 = phi i64 [ %60, %.thread75 ], [ %.032.lcssa, %.preheader ]
-  %60 = sub nuw nsw i64 %.13345, %59
+.lr.ph47:                                         ; preds = %.preheader, %.thread76
+  %58 = phi i64 [ %61, %.thread76 ], [ %.promoted50, %.preheader ]
+  %59 = phi i64 [ %70, %.thread76 ], [ %44, %.preheader ]
+  %.13346 = phi i64 [ %60, %.thread76 ], [ %.032.lcssa, %.preheader ]
+  %60 = sub nuw nsw i64 %.13346, %59
   %61 = add i64 %58, 1
   %62 = and i64 %61, 3
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %.thread75
+  br i1 %63, label %64, label %.thread76
 
-64:                                               ; preds = %.lr.ph46
+64:                                               ; preds = %.lr.ph47
   %65 = srem i64 %61, 100
   %.not36 = icmp eq i64 %65, 0
-  br i1 %.not36, label %66, label %.thread75
+  br i1 %.not36, label %66, label %.thread76
 
 66:                                               ; preds = %64
   %67 = srem i64 %61, 400
   %68 = icmp eq i64 %67, 0
-  %spec.select84 = select i1 %68, i64 366, i64 365
-  br label %.thread75
+  %spec.select85 = select i1 %68, i64 366, i64 365
+  br label %.thread76
 
-.thread75:                                        ; preds = %66, %64, %.lr.ph46
-  %69 = phi i1 [ true, %64 ], [ %68, %66 ], [ false, %.lr.ph46 ]
-  %70 = phi i64 [ 366, %64 ], [ %spec.select84, %66 ], [ 365, %.lr.ph46 ]
+.thread76:                                        ; preds = %66, %64, %.lr.ph47
+  %69 = phi i1 [ true, %64 ], [ %68, %66 ], [ false, %.lr.ph47 ]
+  %70 = phi i64 [ 366, %64 ], [ %spec.select85, %66 ], [ 365, %.lr.ph47 ]
   %71 = icmp sgt i64 %60, %70
-  br i1 %71, label %.lr.ph46, label %._crit_edge
+  br i1 %71, label %.lr.ph47, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread75
+._crit_edge:                                      ; preds = %.thread76
   store i64 %61, ptr %3, align 8, !tbaa !8
   br label %72
 
@@ -581,23 +581,23 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %.1.lcssa = phi i1 [ %69, %._crit_edge ], [ %.0.lcssa, %.preheader ]
   %73 = select i1 %.1.lcssa, ptr @ml_table_leap, ptr @ml_table_common
   %74 = icmp sgt i64 %.133.lcssa, 31
-  br i1 %74, label %.lr.ph54, label %._crit_edge55
+  br i1 %74, label %.lr.ph55, label %._crit_edge56
 
-.lr.ph54:                                         ; preds = %72, %.lr.ph54
-  %75 = phi i64 [ %80, %.lr.ph54 ], [ 31, %72 ]
-  %.252 = phi i64 [ %76, %.lr.ph54 ], [ %.133.lcssa, %72 ]
-  %storemerge51 = phi i64 [ %77, %.lr.ph54 ], [ 1, %72 ]
-  %76 = sub i64 %.252, %75
-  %77 = add i64 %storemerge51, 1
+.lr.ph55:                                         ; preds = %72, %.lr.ph55
+  %75 = phi i64 [ %80, %.lr.ph55 ], [ 31, %72 ]
+  %.253 = phi i64 [ %76, %.lr.ph55 ], [ %.133.lcssa, %72 ]
+  %storemerge52 = phi i64 [ %77, %.lr.ph55 ], [ 1, %72 ]
+  %76 = sub i64 %.253, %75
+  %77 = add i64 %storemerge52, 1
   %78 = getelementptr inbounds i32, ptr %73, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = sext i32 %79 to i64
   %81 = icmp sgt i64 %76, %80
-  br i1 %81, label %.lr.ph54, label %._crit_edge55
+  br i1 %81, label %.lr.ph55, label %._crit_edge56
 
-._crit_edge55:                                    ; preds = %.lr.ph54, %72
-  %storemerge.lcssa = phi i64 [ 1, %72 ], [ %77, %.lr.ph54 ]
-  %.2.lcssa = phi i64 [ %.133.lcssa, %72 ], [ %76, %.lr.ph54 ]
+._crit_edge56:                                    ; preds = %.lr.ph55, %72
+  %storemerge.lcssa = phi i64 [ 1, %72 ], [ %77, %.lr.ph55 ]
+  %.2.lcssa = phi i64 [ %.133.lcssa, %72 ], [ %76, %.lr.ph55 ]
   store i64 %storemerge.lcssa, ptr %4, align 8, !tbaa !8
   store i64 %.2.lcssa, ptr %5, align 8, !tbaa !8
   ret void

@@ -601,11 +601,11 @@ define void @_ZN3gmx22ComputeDebyeScattering16computeIntensityEv(ptr noundef non
   %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %20)
   %.pre = load ptr, ptr %4, align 8, !tbaa !27
-  %.pre65 = load ptr, ptr %3, align 8, !tbaa !28
-  %.pre68 = ptrtoint ptr %.pre to i64
-  %.pre69 = ptrtoint ptr %.pre65 to i64
-  %.pre71 = sub i64 %.pre68, %.pre69
-  %.pre73 = ashr exact i64 %.pre71, 3
+  %.pre63 = load ptr, ptr %3, align 8, !tbaa !28
+  %.pre66 = ptrtoint ptr %.pre to i64
+  %.pre67 = ptrtoint ptr %.pre63 to i64
+  %.pre69 = sub i64 %.pre66, %.pre67
+  %.pre71 = ashr exact i64 %.pre69, 3
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 21:                                               ; preds = %1
@@ -622,8 +622,8 @@ define void @_ZN3gmx22ComputeDebyeScattering16computeIntensityEv(ptr noundef non
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
-  %.pre-phi74 = phi i64 [ %.pre73, %19 ], [ %10, %21 ], [ %10, %23 ], [ %10, %25 ]
-  %26 = phi ptr [ %.pre65, %19 ], [ %6, %21 ], [ %6, %23 ], [ %6, %25 ]
+  %.pre-phi72 = phi i64 [ %.pre71, %19 ], [ %10, %21 ], [ %10, %23 ], [ %10, %25 ]
+  %26 = phi ptr [ %.pre63, %19 ], [ %6, %21 ], [ %6, %23 ], [ %6, %25 ]
   %27 = phi ptr [ %.pre, %19 ], [ %5, %21 ], [ %5, %23 ], [ %5, %25 ]
   %.not = icmp eq ptr %27, %26
   br i1 %.not, label %._crit_edge, label %.lr.ph24
@@ -642,15 +642,14 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %35, align 8
-  %.fr47 = freeze ptr %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load ptr, ptr %38, align 8
-  %.fr48 = freeze ptr %39
-  %.not5.i5.i = icmp eq ptr %.fr47, %.fr48
+  %.not5.i5.i = icmp eq ptr %37, %39
+  %.not5.i5.i.fr = freeze i1 %.not5.i5.i
   %40 = load ptr, ptr %36, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %2, align 8
-  %umax63 = tail call i64 @llvm.umax.i64(i64 %.pre-phi74, i64 1)
+  %umax61 = tail call i64 @llvm.umax.i64(i64 %.pre-phi72, i64 1)
   br i1 %.not46, label %.lr.ph24.split, label %.lr.ph24.split.us
 
 .lr.ph24.split.us:                                ; preds = %.lr.ph24, %..loopexit_crit_edge.us
@@ -661,7 +660,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   br i1 %45, label %58, label %.preheader.us
 
 .lr.ph.split.us27:                                ; preds = %.lr.ph.split.us27.preheader, %.lr.ph.split.us27
-  %46 = phi double [ %56, %.lr.ph.split.us27 ], [ %.pre66, %.lr.ph.split.us27.preheader ]
+  %46 = phi double [ %56, %.lr.ph.split.us27 ], [ %.pre64, %.lr.ph.split.us27.preheader ]
   %.01721.us25 = phi i64 [ %57, %.lr.ph.split.us27 ], [ 0, %.lr.ph.split.us27.preheader ]
   %47 = load double, ptr %43, align 8, !tbaa !35
   %48 = getelementptr inbounds nuw double, ptr %31, i64 %.01721.us25
@@ -682,15 +681,15 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   br i1 %34, label %63, label %59
 
 59:                                               ; preds = %58
-  br i1 %.not5.i5.i, label %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us, label %.lr.ph.i6.i.us
+  br i1 %.not5.i5.i.fr, label %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us, label %.lr.ph.i6.i.us
 
 .lr.ph.i6.i.us:                                   ; preds = %59, %.lr.ph.i6.i.us
   %.07.i7.i.us = phi double [ %61, %.lr.ph.i6.i.us ], [ 0.000000e+00, %59 ]
-  %.sroa.02.06.i8.i.us = phi ptr [ %62, %.lr.ph.i6.i.us ], [ %.fr47, %59 ]
+  %.sroa.02.06.i8.i.us = phi ptr [ %62, %.lr.ph.i6.i.us ], [ %37, %59 ]
   %60 = load double, ptr %.sroa.02.06.i8.i.us, align 8, !tbaa !35
   %61 = fadd double %.07.i7.i.us, %60
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i8.i.us, i64 8
-  %.not.i9.i.us = icmp eq ptr %62, %.fr48
+  %.not.i9.i.us = icmp eq ptr %62, %39
   br i1 %.not.i9.i.us, label %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us, label %.lr.ph.i6.i.us, !llvm.loop !51
 
 63:                                               ; preds = %58
@@ -716,8 +715,8 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us: ; preds = %.lr
 
 ..loopexit_crit_edge.us:                          ; preds = %.lr.ph.split.us27, %77, %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us
   %70 = add nuw i64 %.022.us, 1
-  %exitcond58.not = icmp eq i64 %70, %umax63
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph24.split.us, !llvm.loop !53
+  %exitcond56.not = icmp eq i64 %70, %umax61
+  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph24.split.us, !llvm.loop !53
 
 .preheader.us:                                    ; preds = %.lr.ph24.split.us
   %71 = load ptr, ptr %35, align 8
@@ -726,18 +725,18 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us: ; preds = %.lr
   br i1 %34, label %.lr.ph.split.us.us, label %.lr.ph.split.us27.preheader
 
 .lr.ph.split.us27.preheader:                      ; preds = %.preheader.us
-  %.pre66 = load double, ptr %73, align 8, !tbaa !35
+  %.pre64 = load double, ptr %73, align 8, !tbaa !35
   br label %.lr.ph.split.us27
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us
   %74 = load ptr, ptr %36, align 8
   %75 = getelementptr inbounds nuw %"class.std::vector", ptr %74, i64 %.022.us
   %76 = load ptr, ptr %75, align 8, !tbaa !28
-  %.pre67 = load double, ptr %73, align 8, !tbaa !35
+  %.pre65 = load double, ptr %73, align 8, !tbaa !35
   br label %77
 
 77:                                               ; preds = %77, %.lr.ph.split.us.us
-  %78 = phi double [ %.pre67, %.lr.ph.split.us.us ], [ %88, %77 ]
+  %78 = phi double [ %.pre65, %.lr.ph.split.us.us ], [ %88, %77 ]
   %.01721.us.us = phi i64 [ 0, %.lr.ph.split.us.us ], [ %89, %77 ]
   %79 = load double, ptr %43, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw double, ptr %31, i64 %.01721.us.us
@@ -751,8 +750,8 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us: ; preds = %.lr
   %88 = fadd double %78, %87
   store double %88, ptr %73, align 8, !tbaa !35
   %89 = add nuw i64 %.01721.us.us, 1
-  %exitcond57.not = icmp eq i64 %89, %.fr45
-  br i1 %exitcond57.not, label %..loopexit_crit_edge.us, label %77, !llvm.loop !50
+  %exitcond55.not = icmp eq i64 %89, %.fr45
+  br i1 %exitcond55.not, label %..loopexit_crit_edge.us, label %77, !llvm.loop !50
 
 .lr.ph24.split:                                   ; preds = %.lr.ph24
   br i1 %34, label %.lr.ph24.split.split.us, label %.lr.ph24.split.split
@@ -787,11 +786,11 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us34: ; preds = %.
 
 .preheader.us39:                                  ; preds = %.lr.ph24.split.split.us, %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us34
   %100 = add nuw i64 %.022.us28, 1
-  %exitcond64.not = icmp eq i64 %100, %umax63
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph24.split.split.us, !llvm.loop !53
+  %exitcond62.not = icmp eq i64 %100, %umax61
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph24.split.split.us, !llvm.loop !53
 
 .lr.ph24.split.split:                             ; preds = %.lr.ph24.split
-  br i1 %.not5.i5.i, label %.lr.ph24.split.split.split.us, label %.lr.ph24.split.split.split
+  br i1 %.not5.i5.i.fr, label %.lr.ph24.split.split.split.us, label %.lr.ph24.split.split.split
 
 .lr.ph24.split.split.split.us:                    ; preds = %.lr.ph24.split.split, %.preheader.us44
   %.022.us41 = phi i64 [ %105, %.preheader.us44 ], [ 0, %.lr.ph24.split.split ]
@@ -807,8 +806,8 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us42: ; preds = %.
 
 .preheader.us44:                                  ; preds = %.lr.ph24.split.split.split.us, %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us42
   %105 = add nuw i64 %.022.us41, 1
-  %exitcond62.not = icmp eq i64 %105, %umax63
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph24.split.split.split.us, !llvm.loop !53
+  %exitcond60.not = icmp eq i64 %105, %umax61
+  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph24.split.split.split.us, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader, %.preheader.us44, %.preheader.us39, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   ret void
@@ -822,11 +821,11 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.us42: ; preds = %.
 
 .lr.ph.i6.i:                                      ; preds = %.lr.ph24.split.split.split, %.lr.ph.i6.i
   %.07.i7.i = phi double [ %110, %.lr.ph.i6.i ], [ 0.000000e+00, %.lr.ph24.split.split.split ]
-  %.sroa.02.06.i8.i = phi ptr [ %111, %.lr.ph.i6.i ], [ %.fr47, %.lr.ph24.split.split.split ]
+  %.sroa.02.06.i8.i = phi ptr [ %111, %.lr.ph.i6.i ], [ %37, %.lr.ph24.split.split.split ]
   %109 = load double, ptr %.sroa.02.06.i8.i, align 8, !tbaa !35
   %110 = fadd double %.07.i7.i, %109
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i8.i, i64 8
-  %.not.i9.i = icmp eq ptr %111, %.fr48
+  %.not.i9.i = icmp eq ptr %111, %39
   br i1 %.not.i9.i, label %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.loopexit19, label %.lr.ph.i6.i, !llvm.loop !51
 
 _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.loopexit19: ; preds = %.lr.ph.i6.i
@@ -836,8 +835,8 @@ _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.loopexit19: ; pred
 
 .preheader:                                       ; preds = %.lr.ph24.split.split.split, %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit.loopexit19
   %113 = add nuw i64 %.022, 1
-  %exitcond60.not = icmp eq i64 %113, %umax63
-  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph24.split.split.split, !llvm.loop !53
+  %exitcond58.not = icmp eq i64 %113, %umax61
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph24.split.split.split, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

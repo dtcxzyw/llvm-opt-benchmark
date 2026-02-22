@@ -22446,29 +22446,26 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %33 = getelementptr inbounds %"struct.std::pair.272", ptr %0, i64 %32
   %34 = getelementptr i8, ptr %31, i64 8
   %.val1.i.i.i.i.i = load i64, ptr %34, align 8, !tbaa !223
-  %.val1.i.fr.i.i.i.i = freeze i64 %.val1.i.i.i.i.i
   %35 = getelementptr i8, ptr %33, i64 8
   %.val3.i.i.i.i.i = load i64, ptr %35, align 8, !tbaa !223
-  %.val3.i.fr.i.i.i.i = freeze i64 %.val3.i.i.i.i.i
-  %36 = icmp sgt i64 %.val1.i.fr.i.i.i.i, %.val3.i.fr.i.i.i.i
+  %36 = icmp sgt i64 %.val1.i.i.i.i.i, %.val3.i.i.i.i.i
   %.pre.pre.i.i.i.i = load i64, ptr %33, align 8, !tbaa !69
-  %.val2.i.fr.i.i.i.i = freeze i64 %.pre.pre.i.i.i.i
   br i1 %36, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.val.i.i.i.i.i = load i64, ptr %31, align 8
-  %.val.i.fr.i.i.i.i = freeze i64 %.val.i.i.i.i.i
-  %37 = icmp eq i64 %.val1.i.fr.i.i.i.i, %.val3.i.fr.i.i.i.i
-  %38 = icmp slt i64 %.val.i.fr.i.i.i.i, %.val2.i.fr.i.i.i.i
-  %spec.select.i.i.i.i.i.i = and i1 %37, %38
-  br i1 %spec.select.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i, label %39
+  %37 = icmp eq i64 %.val1.i.i.i.i.i, %.val3.i.i.i.i.i
+  %38 = icmp slt i64 %.val.i.i.i.i.i, %.pre.pre.i.i.i.i
+  %spec.select.i.i.i.i.i.i = select i1 %37, i1 %38, i1 false
+  %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i
+  br i1 %cond.fr.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i, label %39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i, %.lr.ph.i.i.i.i
   br label %39
 
 39:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i
-  %40 = phi i64 [ %.val3.i.fr.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i ], [ %.val1.i.fr.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i ]
-  %41 = phi i64 [ %.val2.i.fr.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i ], [ %.val.i.fr.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i ]
+  %40 = phi i64 [ %.val3.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i ], [ %.val1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i ]
+  %41 = phi i64 [ %.pre.pre.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i ], [ %.val.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i ]
   %42 = phi i64 [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i.i ], [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i.i ]
   %43 = getelementptr inbounds %"struct.std::pair.272", ptr %0, i64 %.038.i.i.i.i
   store i64 %41, ptr %43, align 8, !tbaa !226
@@ -22561,30 +22558,27 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIllESt6vectorIS3_SaIS3_
   %77 = getelementptr inbounds %"struct.std::pair.272", ptr %0, i64 %76
   %78 = getelementptr i8, ptr %75, i64 8
   %.val1.i.i.i.i30.i = load i64, ptr %78, align 8, !tbaa !223
-  %.val1.i.fr.i.i.i31.i = freeze i64 %.val1.i.i.i.i30.i
   %79 = getelementptr i8, ptr %77, i64 8
-  %.val3.i.i.i.i32.i = load i64, ptr %79, align 8, !tbaa !223
-  %.val3.i.fr.i.i.i33.i = freeze i64 %.val3.i.i.i.i32.i
-  %80 = icmp sgt i64 %.val1.i.fr.i.i.i31.i, %.val3.i.fr.i.i.i33.i
-  %.pre.pre.i.i.i34.i = load i64, ptr %77, align 8, !tbaa !69
-  %.val2.i.fr.i.i.i35.i = freeze i64 %.pre.pre.i.i.i34.i
-  br i1 %80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i
+  %.val3.i.i.i.i31.i = load i64, ptr %79, align 8, !tbaa !223
+  %80 = icmp sgt i64 %.val1.i.i.i.i30.i, %.val3.i.i.i.i31.i
+  %.pre.pre.i.i.i32.i = load i64, ptr %77, align 8, !tbaa !69
+  br i1 %80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i: ; preds = %.lr.ph.i.i.i28.i
-  %.val.i.i.i.i37.i = load i64, ptr %75, align 8
-  %.val.i.fr.i.i.i38.i = freeze i64 %.val.i.i.i.i37.i
-  %81 = icmp eq i64 %.val1.i.fr.i.i.i31.i, %.val3.i.fr.i.i.i33.i
-  %82 = icmp slt i64 %.val.i.fr.i.i.i38.i, %.val2.i.fr.i.i.i35.i
-  %spec.select.i.i.i.i.i39.i = and i1 %81, %82
-  br i1 %spec.select.i.i.i.i.i39.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i, label %83
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i: ; preds = %.lr.ph.i.i.i28.i
+  %.val.i.i.i.i34.i = load i64, ptr %75, align 8
+  %81 = icmp eq i64 %.val1.i.i.i.i30.i, %.val3.i.i.i.i31.i
+  %82 = icmp slt i64 %.val.i.i.i.i34.i, %.pre.pre.i.i.i32.i
+  %spec.select.i.i.i.i.i35.i = select i1 %81, i1 %82, i1 false
+  %cond.fr.i.i.i36.i = freeze i1 %spec.select.i.i.i.i.i35.i
+  br i1 %cond.fr.i.i.i36.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i, label %83
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i, %.lr.ph.i.i.i28.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i, %.lr.ph.i.i.i28.i
   br label %83
 
-83:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i
-  %84 = phi i64 [ %.val3.i.fr.i.i.i33.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i ], [ %.val1.i.fr.i.i.i31.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i ]
-  %85 = phi i64 [ %.val2.i.fr.i.i.i35.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i ], [ %.val.i.fr.i.i.i38.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i ]
-  %86 = phi i64 [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i40.i ], [ %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i36.i ]
+83:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i
+  %84 = phi i64 [ %.val3.i.i.i.i31.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i ], [ %.val1.i.i.i.i30.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i ]
+  %85 = phi i64 [ %.pre.pre.i.i.i32.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i ], [ %.val.i.i.i.i34.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i ]
+  %86 = phi i64 [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread.i.i.i37.i ], [ %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.i.i.i33.i ]
   %87 = getelementptr inbounds %"struct.std::pair.272", ptr %0, i64 %.038.i.i.i29.i
   store i64 %85, ptr %87, align 8, !tbaa !226
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -28856,11 +28850,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %13 = getelementptr inbounds %"struct.std::pair.316", ptr %0, i64 %12
   %14 = getelementptr i8, ptr %11, i64 8
   %.val1.i = load i64, ptr %14, align 8, !tbaa !256
-  %.val1.i.fr = freeze i64 %.val1.i
   %15 = getelementptr i8, ptr %13, i64 8
   %.val3.i = load i64, ptr %15, align 8, !tbaa !256
-  %.val3.i.fr = freeze i64 %.val3.i
-  %16 = icmp sgt i64 %.val1.i.fr, %.val3.i.fr
+  %16 = icmp sgt i64 %.val1.i, %.val3.i
   br i1 %16, label %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit
 
 .lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge: ; preds = %.lr.ph
@@ -28869,20 +28861,19 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit: ; preds = %.lr.ph
   %.val2.i = load i32, ptr %13, align 8
-  %.val2.i.fr = freeze i32 %.val2.i
   %.val.i = load i32, ptr %11, align 8
-  %.val.i.fr = freeze i32 %.val.i
-  %17 = icmp eq i64 %.val1.i.fr, %.val3.i.fr
-  %18 = icmp slt i32 %.val.i.fr, %.val2.i.fr
-  %spec.select.i.i = and i1 %17, %18
-  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread, label %19
+  %17 = icmp eq i64 %.val1.i, %.val3.i
+  %18 = icmp slt i32 %.val.i, %.val2.i
+  %spec.select.i.i = select i1 %17, i1 %18, i1 false
+  %cond.fr = freeze i1 %spec.select.i.i
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread, label %19
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit
   br label %19
 
 19:                                               ; preds = %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread
-  %20 = phi i64 [ %.val1.i.fr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit ], [ %.val3.i.fr, %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge ], [ %.val3.i.fr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread ]
-  %21 = phi i32 [ %.val.i.fr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit ], [ %.pre.pre, %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge ], [ %.val2.i.fr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread ]
+  %20 = phi i64 [ %.val1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit ], [ %.val3.i, %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge ], [ %.val3.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread ]
+  %21 = phi i32 [ %.val.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit ], [ %.pre.pre, %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge ], [ %.val2.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread ]
   %22 = phi i64 [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit ], [ %12, %.lr.ph._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread_crit_edge ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIiE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIilESt6vectorISI_SaISI_EEEESN_EEbS7_SA_.exit.thread ]
   %23 = getelementptr inbounds %"struct.std::pair.316", ptr %0, i64 %.039
   store i32 %21, ptr %23, align 8, !tbaa !259
@@ -30840,8 +30831,8 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i.i
-  %.040.i.i = phi i64 [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i.i ], [ 0, %9 ]
-  %20 = shl i64 %.040.i.i, 1
+  %.039.i.i = phi i64 [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i.i ], [ 0, %9 ]
+  %20 = shl i64 %.039.i.i, 1
   %21 = add i64 %20, 2
   %22 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
@@ -30860,10 +30851,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i.i: ; preds = %30
   %32 = load i32, ptr %22, align 4, !tbaa !354
   %33 = load i32, ptr %24, align 4, !tbaa !354
-  %.fr.i.i = freeze i32 %32
-  %.fr39.i.i = freeze i32 %33
-  %34 = icmp slt i32 %.fr.i.i, %.fr39.i.i
-  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i.i
+  %34 = icmp slt i32 %32, %33
+  %cond.fr.i.i = freeze i1 %34
+  br i1 %cond.fr.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i.i, %.lr.ph.i.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i.i
@@ -30872,7 +30862,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4p
   %35 = phi float [ %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i.i ], [ %26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i.i ], [ %26, %30 ]
   %36 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i.i ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i.i ], [ %21, %30 ]
   %37 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %.040.i.i
+  %38 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %.039.i.i
   %39 = load i32, ptr %37, align 4, !tbaa !95
   store i32 %39, ptr %38, align 4, !tbaa !354
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -30989,8 +30979,8 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i
-  %.040.i = phi i64 [ %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i ], [ %.010, %22 ]
-  %25 = shl i64 %.040.i, 1
+  %.039.i = phi i64 [ %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i ], [ %.010, %22 ]
+  %25 = shl i64 %.039.i, 1
   %26 = add i64 %25, 2
   %27 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %26
   %28 = or disjoint i64 %25, 1
@@ -31009,10 +30999,9 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i: ; preds = %35
   %37 = load i32, ptr %27, align 4, !tbaa !354
   %38 = load i32, ptr %29, align 4, !tbaa !354
-  %.fr.i = freeze i32 %37
-  %.fr39.i = freeze i32 %38
-  %39 = icmp slt i32 %.fr.i, %.fr39.i
-  br i1 %39, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i
+  %39 = icmp slt i32 %37, %38
+  %cond.fr.i = freeze i1 %39
+  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i, %.lr.ph.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread37.i
@@ -31021,7 +31010,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4p
   %40 = phi float [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i ], [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i ], [ %31, %35 ]
   %41 = phi i64 [ %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread.i ], [ %26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.i ], [ %26, %35 ]
   %42 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %41
-  %43 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %.040.i
+  %43 = getelementptr inbounds %"struct.std::pair.155", ptr %0, i64 %.039.i
   %44 = load i32, ptr %42, align 4, !tbaa !95
   store i32 %44, ptr %43, align 4, !tbaa !354
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -32355,8 +32344,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
-  %.042 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39 ], [ %1, %5 ]
-  %9 = shl i64 %.042, 1
+  %.041 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39 ], [ %1, %5 ]
+  %9 = shl i64 %.041, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.188", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -32375,10 +32364,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit: ; preds = %19
   %21 = load i32, ptr %11, align 8, !tbaa !376
   %22 = load i32, ptr %13, align 8, !tbaa !376
-  %.fr = freeze i32 %21
-  %.fr41 = freeze i32 %22
-  %23 = icmp ult i32 %.fr, %.fr41
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
+  %23 = icmp ult i32 %21, %22
+  %cond.fr = freeze i1 %23
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
@@ -32387,7 +32375,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4p
   %24 = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit ], [ %15, %19 ]
   %25 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit ], [ %10, %19 ]
   %26 = getelementptr inbounds %"struct.std::pair.188", ptr %0, i64 %25
-  %27 = getelementptr inbounds %"struct.std::pair.188", ptr %0, i64 %.042
+  %27 = getelementptr inbounds %"struct.std::pair.188", ptr %0, i64 %.041
   %28 = load i32, ptr %26, align 4, !tbaa !95
   store i32 %28, ptr %27, align 8, !tbaa !376
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8

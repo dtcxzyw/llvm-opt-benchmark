@@ -1019,10 +1019,9 @@ define hidden noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull reado
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i64, ptr @_ZN7Matcher15STACK_ONLY_maskE, i64 %14
   %18 = load i64, ptr %17, align 8
-  %.fr = freeze i64 %18
-  %.fr4 = freeze i64 %16
-  %19 = and i64 %.fr, %.fr4
-  %20 = or i64 %19, %.01113.i
+  %19 = and i64 %18, %16
+  %.fr4 = freeze i64 %19
+  %20 = or i64 %.fr4, %.01113.i
   %21 = add i32 %.014.i, 1
   %.not.i = icmp ugt i32 %21, %9
   br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !25

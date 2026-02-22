@@ -200,9 +200,9 @@ _ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit: ; preds = %29, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !7
   %32 = load i32, ptr %9, align 8, !tbaa !15
-  %.fr72 = freeze i32 %32
-  %.not73 = icmp eq i32 %.fr72, -1
-  br i1 %.not73, label %._crit_edge, label %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit
+  %.fr7073 = freeze i32 %32
+  %.not74 = icmp eq i32 %.fr7073, -1
+  br i1 %.not74, label %._crit_edge, label %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit
 
 ._crit_edge:                                      ; preds = %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit, %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit
   %.0.lcssa = phi i64 [ 1, %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit ], [ %50, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit ]
@@ -212,53 +212,53 @@ _ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit: ; preds = %29, %31
           to label %53 unwind label %89
 
 _ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit:         ; preds = %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit
-  %.fr75 = phi i32 [ %.fr, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit ], [ %.fr72, %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit ]
-  %.074 = phi i64 [ %50, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit ], [ 1, %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit ]
-  %34 = add i32 %.fr75, -4352
+  %.fr7076 = phi i32 [ %.fr70, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit ], [ %.fr7073, %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit ]
+  %.075 = phi i64 [ %50, %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit ], [ 1, %_ZN5vcpkg7Unicode11Utf8DecoderC2ENS_10StringViewE.exit ]
+  %34 = add i32 %.fr7076, -4352
   %or.cond.i = icmp ult i32 %34, 96
-  %35 = add i32 %.fr75, -9001
+  %35 = add i32 %.fr7076, -9001
   %or.cond3.i = icmp ult i32 %35, 2
   %or.cond53.i = or i1 %or.cond.i, %or.cond3.i
-  %36 = add i32 %.fr75, -11904
+  %36 = add i32 %.fr7076, -11904
   %or.cond5.i = icmp ult i32 %36, 447
   %or.cond54.i = or i1 %or.cond5.i, %or.cond53.i
-  %37 = add i32 %.fr75, -12352
+  %37 = add i32 %.fr7076, -12352
   %or.cond7.i = icmp ult i32 %37, 29840
   %or.cond55.i = or i1 %or.cond7.i, %or.cond54.i
-  %38 = add i32 %.fr75, -44032
+  %38 = add i32 %.fr7076, -44032
   %or.cond9.i = icmp ult i32 %38, 11172
   %or.cond56.i = or i1 %or.cond9.i, %or.cond55.i
-  %39 = add i32 %.fr75, -63744
+  %39 = add i32 %.fr7076, -63744
   %or.cond11.i = icmp ult i32 %39, 512
   %or.cond57.i = or i1 %or.cond11.i, %or.cond56.i
-  %40 = add i32 %.fr75, -65040
+  %40 = add i32 %.fr7076, -65040
   %or.cond13.i = icmp ult i32 %40, 10
   %or.cond58.i = or i1 %or.cond13.i, %or.cond57.i
-  %41 = add i32 %.fr75, -65072
+  %41 = add i32 %.fr7076, -65072
   %or.cond15.i = icmp ult i32 %41, 64
   %or.cond59.i = or i1 %or.cond15.i, %or.cond58.i
-  %42 = add i32 %.fr75, -65280
+  %42 = add i32 %.fr7076, -65280
   %or.cond17.i = icmp ult i32 %42, 97
   %or.cond60.i = or i1 %or.cond17.i, %or.cond59.i
-  %43 = add i32 %.fr75, -65504
+  %43 = add i32 %.fr7076, -65504
   %or.cond19.i = icmp ult i32 %43, 7
   %or.cond61.i = or i1 %or.cond19.i, %or.cond60.i
-  %44 = add i32 %.fr75, -127744
+  %44 = add i32 %.fr7076, -127744
   %or.cond21.i = icmp ult i32 %44, 848
   %or.cond62.i = or i1 %or.cond21.i, %or.cond61.i
-  %45 = and i32 %.fr75, -256
+  %45 = and i32 %.fr7076, -256
   %or.cond23.i = icmp eq i32 %45, 129280
   %or.cond63.i = or i1 %or.cond23.i, %or.cond62.i
-  %46 = and i32 %.fr75, -65538
+  %46 = and i32 %.fr7076, -65538
   %47 = add i32 %46, -131072
   %48 = icmp ult i32 %47, 65534
-  %or.cond71 = or i1 %48, %or.cond63.i
-  %49 = select i1 %or.cond71, i64 2, i64 1
-  %50 = add i64 %49, %.074
+  %or.cond72 = or i1 %48, %or.cond63.i
+  %49 = select i1 %or.cond72, i64 2, i64 1
+  %50 = add i64 %49, %.075
   %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %52 = load i32, ptr %9, align 8, !tbaa !15
-  %.fr = freeze i32 %52
-  %.not = icmp eq i32 %.fr, -1
+  %.fr70 = freeze i32 %52
+  %.not = icmp eq i32 %.fr70, -1
   br i1 %.not, label %._crit_edge, label %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit
 
 53:                                               ; preds = %._crit_edge
@@ -294,15 +294,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = 
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load ptr, ptr %65, align 8, !tbaa !23
   %68 = load ptr, ptr %66, align 8, !tbaa !23
-  %.not.i.i2076 = icmp eq ptr %67, %68
-  br i1 %.not.i.i2076, label %_ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit.lr.ph, label %._crit_edge77
+  %.not.i.i2077 = icmp eq ptr %67, %68
+  br i1 %.not.i.i2077, label %_ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit.lr.ph, label %._crit_edge78
 
 _ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit.lr.ph: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %_ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit
 
-._crit_edge77:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit
+._crit_edge78:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 174, ptr %5, align 8, !tbaa !29
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -310,10 +310,10 @@ _ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit.lr.ph: ; preds = %_ZNSt7__cxx11
   invoke void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
           to label %72 unwind label %73
 
-72:                                               ; preds = %._crit_edge77
+72:                                               ; preds = %._crit_edge78
   unreachable
 
-73:                                               ; preds = %._crit_edge77
+73:                                               ; preds = %._crit_edge78
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
@@ -517,7 +517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit54: ; preds 
   %148 = load ptr, ptr %65, align 8, !tbaa !23
   %149 = load ptr, ptr %66, align 8, !tbaa !23
   %.not.i.i20 = icmp eq ptr %148, %149
-  br i1 %.not.i.i20, label %_ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit, label %._crit_edge77, !llvm.loop !34
+  br i1 %.not.i.i20, label %_ZN5vcpkg7UnicodeneERKNS0_11Utf8DecoderES3_.exit, label %._crit_edge78, !llvm.loop !34
 
 150:                                              ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
   %151 = phi ptr [ %.pre.i, %.noexc ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]

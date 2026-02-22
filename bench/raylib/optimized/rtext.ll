@@ -11270,10 +11270,9 @@ GetCodepointNext.exit:                            ; preds = %GetCodepointNext.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
-  %.fr = freeze i8 %3
-  %4 = zext i8 %.fr to i32
+  %4 = zext i8 %3 to i32
   store i32 1, ptr %1, align 4
-  %5 = icmp sgt i8 %.fr, -1
+  %5 = icmp sgt i8 %3, -1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
@@ -11299,7 +11298,7 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   br label %.critedge
 
 16:                                               ; preds = %12
-  %17 = add nsw i8 %.fr, 62
+  %17 = add nsw i8 %3, 62
   %or.cond = icmp ult i8 %17, 30
   br i1 %or.cond, label %18, label %.critedge
 
@@ -11341,14 +11340,14 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   br label %.critedge
 
 36:                                               ; preds = %31
-  %37 = icmp ne i8 %.fr, -32
+  %37 = icmp ne i8 %3, -32
   %38 = and i8 %28, -32
   %or.cond6 = icmp eq i8 %38, -96
   %or.cond120 = or i1 %37, %or.cond6
   br i1 %or.cond120, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = icmp ne i8 %.fr, -19
+  %40 = icmp ne i8 %3, -19
   %or.cond9 = icmp slt i8 %28, -96
   %or.cond121 = or i1 %40, %or.cond9
   br i1 %or.cond121, label %42, label %41
@@ -11358,7 +11357,7 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   br label %.critedge
 
 42:                                               ; preds = %39
-  %43 = and i8 %.fr, -16
+  %43 = and i8 %3, -16
   %or.cond11 = icmp eq i8 %43, -32
   br i1 %or.cond11, label %44, label %.critedge
 
@@ -11376,15 +11375,14 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
 52:                                               ; preds = %23
   %53 = and i32 %4, 248
   %54 = icmp ne i32 %53, 240
-  %55 = icmp samesign ugt i8 %.fr, -12
+  %55 = icmp samesign ugt i8 %3, -12
   %or.cond132 = select i1 %54, i1 true, i1 %55
   br i1 %or.cond132, label %.critedge, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %58 = load i8, ptr %57, align 1
-  %.fr133 = freeze i8 %58
-  %59 = zext i8 %.fr133 to i32
+  %59 = zext i8 %58 to i32
   %.mask = and i32 %59, 192
   %.not = icmp eq i32 %.mask, 128
   br i1 %.not, label %61, label %60
@@ -11418,15 +11416,15 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   br label %.critedge
 
 71:                                               ; preds = %66
-  %72 = icmp ne i8 %.fr, -16
-  %73 = add i8 %.fr133, 112
+  %72 = icmp ne i8 %3, -16
+  %73 = add i8 %58, 112
   %or.cond14 = icmp ult i8 %73, 48
   %or.cond125 = or i1 %72, %or.cond14
   br i1 %or.cond125, label %74, label %76
 
 74:                                               ; preds = %71
-  %75 = icmp ne i8 %.fr, -12
-  %or.cond17 = icmp slt i8 %.fr133, -112
+  %75 = icmp ne i8 %3, -12
+  %or.cond17 = icmp slt i8 %58, -112
   %or.cond126 = or i1 %75, %or.cond17
   br i1 %or.cond126, label %77, label %76
 
@@ -11435,7 +11433,7 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   br label %.critedge
 
 77:                                               ; preds = %74
-  %78 = icmp samesign ugt i8 %.fr, -17
+  %78 = icmp samesign ugt i8 %3, -17
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %77
@@ -11444,13 +11442,14 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   %82 = shl nuw nsw i32 %59, 12
   %83 = and i32 %82, 258048
   %84 = or disjoint i32 %83, %81
+  %.fr = freeze i32 %84
   %85 = shl nuw nsw i32 %64, 6
   %86 = and i32 %85, 4032
   %87 = and i32 %69, 63
   %88 = or disjoint i32 %86, %87
-  %89 = or disjoint i32 %88, %84
+  %89 = or i32 %88, %.fr
   store i32 4, ptr %1, align 4
-  %90 = icmp samesign ugt i32 %84, 1114111
+  %90 = icmp ugt i32 %.fr, 1114111
   %spec.select = select i1 %90, i32 63, i32 %89
   br label %.critedge
 

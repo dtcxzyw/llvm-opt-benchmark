@@ -4568,24 +4568,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d14OrthonormalizeEb.exit: ; pred
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d19ExtractRotationQuatEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) local_unnamed_addr #12 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %4 = load double, ptr %1, align 8
-  %.fr = freeze double %4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load double, ptr %5, align 8
-  %.fr41 = freeze double %6
-  %7 = fcmp ule double %.fr, %.fr41
+  %7 = fcmp ule double %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load double, ptr %8, align 8
-  %.fr44 = freeze double %9
-  %. = select i1 %7, double %.fr41, double %.fr
+  %. = select i1 %7, double %6, double %4
   %.40 = zext i1 %7 to i32
-  %10 = fcmp ogt double %., %.fr44
+  %10 = fcmp ogt double %., %9
   %11 = select i1 %10, i32 %.40, i32 2
-  %12 = fadd double %.fr, %.fr41
-  %13 = fadd double %12, %.fr44
-  %14 = shl nuw nsw i32 %11, 2
+  %.0.fr = freeze i32 %11
+  %12 = fadd double %4, %6
+  %13 = fadd double %12, %9
+  %14 = shl nuw nsw i32 %.0.fr, 2
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw double, ptr %1, i64 %15
-  %17 = zext nneg i32 %11 to i64
+  %17 = zext nneg i32 %.0.fr to i64
   %18 = getelementptr inbounds nuw double, ptr %16, i64 %17
   %19 = load double, ptr %18, align 8
   %20 = fcmp ogt double %13, %19
@@ -4624,15 +4622,15 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d19ExtractRotation
   br label %95
 
 48:                                               ; preds = %2
-  %49 = add nuw nsw i32 %11, 1
+  %49 = add nuw nsw i32 %.0.fr, 1
   %50 = icmp eq i32 %49, 3
   %51 = select i1 %50, i32 0, i32 %49
-  %52 = add nuw nsw i32 %11, 2
+  %52 = add nuw nsw i32 %.0.fr, 2
   %53 = urem i32 %52, 3
-  %54 = shl nuw nsw i32 %51, 2
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw double, ptr %1, i64 %55
-  %57 = zext nneg i32 %51 to i64
+  %54 = shl nsw i32 %51, 2
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds double, ptr %1, i64 %55
+  %57 = sext i32 %51 to i64
   %58 = getelementptr inbounds nuw double, ptr %56, i64 %57
   %59 = load double, ptr %58, align 8
   %60 = fsub double %19, %59
@@ -4657,7 +4655,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d19ExtractRotation
   %78 = fadd double %75, %77
   %79 = fmul double %72, 4.000000e+00
   %80 = fdiv double %78, %79
-  %81 = getelementptr inbounds nuw double, ptr %3, i64 %57
+  %81 = getelementptr inbounds double, ptr %3, i64 %57
   store double %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw double, ptr %63, i64 %17
   %83 = load double, ptr %82, align 8

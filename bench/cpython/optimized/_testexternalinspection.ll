@@ -441,8 +441,8 @@ get_async_debug.exit.i:                           ; preds = %23
   store ptr %37, ptr %4, align 16, !tbaa !29
   store i64 %35, ptr %32, align 8, !tbaa !32
   %38 = call i64 @process_vm_readv(i32 noundef %24, ptr noundef nonnull %3, i64 noundef 1, ptr noundef nonnull %4, i64 noundef 1, i64 noundef 0) #9
-  %.fr.i = freeze i64 %38
-  %39 = icmp slt i64 %.fr.i, 0
+  %.fr11.i = freeze i64 %38
+  %39 = icmp slt i64 %.fr11.i, 0
   br i1 %39, label %read_memory.exit.thread.i, label %42
 
 read_memory.exit.thread.i:                        ; preds = %33
@@ -453,9 +453,9 @@ read_memory.exit.thread.i:                        ; preds = %33
   br label %Py_DECREF.exit48
 
 42:                                               ; preds = %33
-  %43 = add i64 %.fr.i, %.0.i.i
+  %43 = add i64 %.fr11.i, %.0.i.i
   %44 = load i64, ptr %31, align 8, !tbaa !32
-  %.not.i8.i = icmp eq i64 %.fr.i, %44
+  %.not.i8.i = icmp eq i64 %.fr11.i, %44
   br i1 %.not.i8.i, label %read_memory.exit.i, label %33, !llvm.loop !35
 
 read_memory.exit.i:                               ; preds = %42
@@ -768,8 +768,8 @@ get_py_runtime.exit:                              ; preds = %3
   store ptr %21, ptr %5, align 16, !tbaa !29
   store i64 %19, ptr %16, align 8, !tbaa !32
   %22 = call i64 @process_vm_readv(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 1, ptr noundef nonnull %5, i64 noundef 1, i64 noundef 0) #9
-  %.fr = freeze i64 %22
-  %23 = icmp slt i64 %.fr, 0
+  %.fr13 = freeze i64 %22
+  %23 = icmp slt i64 %.fr13, 0
   br i1 %23, label %read_memory.exit.thread, label %26
 
 read_memory.exit.thread:                          ; preds = %17
@@ -780,9 +780,9 @@ read_memory.exit.thread:                          ; preds = %17
   br label %30
 
 26:                                               ; preds = %17
-  %27 = add i64 %.fr, %.0.i8
+  %27 = add i64 %.fr13, %.0.i8
   %28 = load i64, ptr %15, align 8, !tbaa !32
-  %.not.i = icmp eq i64 %.fr, %28
+  %.not.i = icmp eq i64 %.fr13, %28
   br i1 %.not.i, label %read_memory.exit, label %17, !llvm.loop !35
 
 read_memory.exit:                                 ; preds = %26
@@ -934,8 +934,8 @@ read_memory.exit19:                               ; preds = %51
   store ptr %67, ptr %6, align 16, !tbaa !29
   store i64 %65, ptr %62, align 8, !tbaa !32
   %68 = call i64 @process_vm_readv(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %6, i64 noundef 1, i64 noundef 0) #9
-  %.fr = freeze i64 %68
-  %69 = icmp slt i64 %.fr, 0
+  %.fr27 = freeze i64 %68
+  %69 = icmp slt i64 %.fr27, 0
   br i1 %69, label %read_ptr.exit.thread, label %72
 
 read_ptr.exit.thread:                             ; preds = %63
@@ -946,9 +946,9 @@ read_ptr.exit.thread:                             ; preds = %63
   br label %76
 
 72:                                               ; preds = %63
-  %73 = add i64 %.fr, %.0.i.i
+  %73 = add i64 %.fr27, %.0.i.i
   %74 = load i64, ptr %61, align 8, !tbaa !32
-  %.not.i.i = icmp eq i64 %.fr, %74
+  %.not.i.i = icmp eq i64 %.fr27, %74
   br i1 %.not.i.i, label %read_ptr.exit, label %63, !llvm.loop !35
 
 read_ptr.exit:                                    ; preds = %72
@@ -1824,8 +1824,8 @@ read_ptr.exit.i:                                  ; preds = %77
   store ptr %95, ptr %7, align 16, !tbaa !29
   store i64 %93, ptr %90, align 8, !tbaa !32
   %96 = call i64 @process_vm_readv(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %7, i64 noundef 1, i64 noundef 0) #9
-  %.fr = freeze i64 %96
-  %97 = icmp slt i64 %.fr, 0
+  %.fr32 = freeze i64 %96
+  %97 = icmp slt i64 %.fr32, 0
   br i1 %97, label %read_ptr.exit.thread, label %100
 
 read_ptr.exit.thread:                             ; preds = %91
@@ -1836,9 +1836,9 @@ read_ptr.exit.thread:                             ; preds = %91
   br label %read_py_ptr.exit.thread
 
 100:                                              ; preds = %91
-  %101 = add i64 %.fr, %.0.i.i
+  %101 = add i64 %.fr32, %.0.i.i
   %102 = load i64, ptr %89, align 8, !tbaa !32
-  %.not.i.i = icmp eq i64 %.fr, %102
+  %.not.i.i = icmp eq i64 %.fr32, %102
   br i1 %.not.i.i, label %read_ptr.exit, label %91, !llvm.loop !35
 
 read_ptr.exit:                                    ; preds = %100

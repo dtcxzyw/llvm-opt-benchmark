@@ -121,8 +121,8 @@ define hidden void @_ZN11shellexpand18tilde_with_context17h652747be5e138578E(ptr
   br label %53
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit": ; preds = %15
-  %rhsc18 = load i8, ptr %14, align 1
-  %22 = icmp eq i8 %rhsc18, 47
+  %rhsc19 = load i8, ptr %14, align 1
+  %22 = icmp eq i8 %rhsc19, 47
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit", %15

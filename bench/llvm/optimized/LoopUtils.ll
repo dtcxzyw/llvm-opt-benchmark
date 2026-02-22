@@ -7051,8 +7051,8 @@ _ZL16canLoopBeDeletedPN4llvm4LoopERNS_11SmallVectorI10RewritePhiLj8EEE.exit: ; p
   %136 = load ptr, ptr %16, align 8, !tbaa !3
   %137 = load i32, ptr %24, align 8, !tbaa !9
   %138 = zext i32 %137 to i64
-  %.idx249 = mul nuw nsw i64 %138, 40
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx249
+  %.idx250 = mul nuw nsw i64 %138, 40
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx250
   %.not92244 = icmp eq i32 %137, 0
   br i1 %.not92244, label %._crit_edge248, label %.lr.ph247
 
@@ -7080,8 +7080,8 @@ _ZL16canLoopBeDeletedPN4llvm4LoopERNS_11SmallVectorI10RewritePhiLj8EEE.exit: ; p
 .lr.ph240:                                        ; preds = %146
   %152 = getelementptr inbounds i8, ptr %149, i64 -20
   %153 = load i32, ptr %152, align 4
-  %.fr = freeze i32 %153
-  %154 = and i32 %.fr, 134217727
+  %.fr249 = freeze i32 %153
+  %154 = and i32 %.fr249, 134217727
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !55
   %.not95234 = icmp eq i32 %154, 0
@@ -7725,11 +7725,11 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.
   br i1 %.not, label %._crit_edge, label %146
 
 ._crit_edge248.loopexit:                          ; preds = %523
-  %.pre257 = load ptr, ptr %16, align 8, !tbaa !3
+  %.pre258 = load ptr, ptr %16, align 8, !tbaa !3
   br label %._crit_edge248
 
 ._crit_edge248:                                   ; preds = %._crit_edge248.loopexit, %_ZL16canLoopBeDeletedPN4llvm4LoopERNS_11SmallVectorI10RewritePhiLj8EEE.exit
-  %439 = phi ptr [ %136, %_ZL16canLoopBeDeletedPN4llvm4LoopERNS_11SmallVectorI10RewritePhiLj8EEE.exit ], [ %.pre257, %._crit_edge248.loopexit ]
+  %439 = phi ptr [ %136, %_ZL16canLoopBeDeletedPN4llvm4LoopERNS_11SmallVectorI10RewritePhiLj8EEE.exit ], [ %.pre258, %._crit_edge248.loopexit ]
   %.085.lcssa = phi i32 [ 0, %_ZL16canLoopBeDeletedPN4llvm4LoopERNS_11SmallVectorI10RewritePhiLj8EEE.exit ], [ %.186, %._crit_edge248.loopexit ]
   %440 = getelementptr inbounds nuw i8, ptr %5, i64 504
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %440, i8 0, i64 18, i1 false)

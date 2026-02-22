@@ -2259,8 +2259,8 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
   %6 = shl nuw i32 1, %5
-  %.fr41.i = freeze i32 %6
-  %7 = select i1 %4, i32 1, i32 %.fr41.i
+  %.fr.i = freeze i32 %6
+  %7 = select i1 %4, i32 1, i32 %.fr.i
   %8 = icmp eq ptr %0, null
   br i1 %8, label %.loopexit, label %9
 

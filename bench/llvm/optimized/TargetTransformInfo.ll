@@ -3772,15 +3772,14 @@ define dso_local range(i64 0, 8589934596) i64 @_ZN4llvm19TargetTransformInfo14ge
   br i1 %4, label %5, label %47
 
 5:                                                ; preds = %1
-  %.not139 = icmp eq i8 %2, 17
-  br i1 %.not139, label %6, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit.thread
+  %.not136 = icmp eq i8 %2, 17
+  br i1 %.not136, label %6, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit.thread
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !215
-  %.fr140 = freeze i32 %9
-  %10 = icmp ult i32 %.fr140, 65
+  %10 = icmp ult i32 %9, 65
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %6
@@ -3796,39 +3795,37 @@ define dso_local range(i64 0, 8589934596) i64 @_ZN4llvm19TargetTransformInfo14ge
   br i1 %17, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit.thread, label %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge
 
 ._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge: ; preds = %15
-  %.pre152 = load ptr, ptr %7, align 8
+  %.pre146 = load ptr, ptr %7, align 8
   br label %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge, %11
-  %18 = phi ptr [ %.pre152, %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge ], [ %14, %11 ]
-  %19 = add i32 %.fr140, -1
+  %18 = phi ptr [ %.pre146, %._ZNK4llvm5APInt10isPowerOf2Ev.exit.thread_crit_edge ], [ %14, %11 ]
+  %19 = add i32 %9, -1
   %20 = and i32 %19, 63
   %21 = zext nneg i32 %20 to i64
   %22 = shl nuw i64 1, %21
-  %.fr141 = freeze ptr %18
   %23 = lshr i32 %19, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %.fr141, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %18, i64 %24
   %.in.i.i.i.i.i = select i1 %10, ptr %7, ptr %25
   %26 = load i64, ptr %.in.i.i.i.i.i, align 8, !tbaa !217
   %27 = and i64 %26, %22
   %.not.i.i = icmp eq i64 %27, 0
-  %28 = ptrtoint ptr %.fr141 to i64
+  %28 = ptrtoint ptr %18 to i64
   br i1 %.not.i.i, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit.thread, label %29
 
 29:                                               ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread
   br i1 %10, label %30, label %42
 
 30:                                               ; preds = %29
-  %31 = icmp eq i32 %.fr140, 0
+  %31 = icmp eq i32 %9, 0
   br i1 %31, label %39, label %32, !prof !228
 
 32:                                               ; preds = %30
-  %33 = sub nuw nsw i32 64, %.fr140
+  %33 = sub nuw nsw i32 64, %9
   %34 = zext nneg i32 %33 to i64
   %35 = shl i64 %28, %34
-  %.fr142 = freeze i64 %35
-  %36 = xor i64 %.fr142, -1
+  %36 = xor i64 %35, -1
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %36, i1 false)
   %38 = trunc nuw nsw i64 %37 to i32
   br label %39
@@ -3837,7 +3834,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit.thread:        ; preds = %._ZNK4llvm5APInt10i
   %.0.i.ph.i = phi i32 [ 0, %30 ], [ %38, %32 ]
   %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %28, i1 false)
   %41 = trunc nuw nsw i64 %40 to i32
-  %..i.i = tail call i32 @llvm.umin.i32(i32 %.fr140, i32 %41)
+  %..i.i = tail call i32 @llvm.umin.i32(i32 %9, i32 %41)
   br label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit
 
 42:                                               ; preds = %29
@@ -3849,8 +3846,9 @@ _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit:        ; preds = %39, %42
   %.0.i5.i = phi i32 [ %.0.i.ph.i, %39 ], [ %43, %42 ]
   %.0.i3.i = phi i32 [ %..i.i, %39 ], [ %44, %42 ]
   %45 = add i32 %.0.i3.i, %.0.i5.i
-  %46 = icmp eq i32 %45, %.fr140
-  %spec.select = select i1 %46, i64 2, i64 0
+  %46 = icmp eq i32 %45, %9
+  %cond.fr = freeze i1 %46
+  %spec.select = select i1 %cond.fr, i64 2, i64 0
   br label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit.thread
 
 47:                                               ; preds = %1
@@ -3899,8 +3897,7 @@ _ZNK4llvm17ShuffleVectorInst14isZeroEltSplatEv.exit.thread: ; preds = %_ZNK4llvm
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %69 = load i32, ptr %68, align 8, !tbaa !215
-  %.fr132 = freeze i32 %69
-  %70 = icmp ult i32 %.fr132, 65
+  %70 = icmp ult i32 %69, 65
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %66
@@ -3921,34 +3918,32 @@ _ZNK4llvm17ShuffleVectorInst14isZeroEltSplatEv.exit.thread: ; preds = %_ZNK4llvm
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit64.thread:      ; preds = %._ZNK4llvm5APInt10isPowerOf2Ev.exit64.thread_crit_edge, %71
   %78 = phi ptr [ %.pre, %._ZNK4llvm5APInt10isPowerOf2Ev.exit64.thread_crit_edge ], [ %74, %71 ]
-  %79 = add i32 %.fr132, -1
+  %79 = add i32 %69, -1
   %80 = and i32 %79, 63
   %81 = zext nneg i32 %80 to i64
   %82 = shl nuw i64 1, %81
-  %.fr133 = freeze ptr %78
   %83 = lshr i32 %79, 6
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i64, ptr %.fr133, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr %78, i64 %84
   %.in.i.i.i.i.i65 = select i1 %70, ptr %67, ptr %85
   %86 = load i64, ptr %.in.i.i.i.i.i65, align 8, !tbaa !217
   %87 = and i64 %86, %82
   %.not.i.i66 = icmp eq i64 %87, 0
-  %88 = ptrtoint ptr %.fr133 to i64
+  %88 = ptrtoint ptr %78 to i64
   br i1 %.not.i.i66, label %.thread117, label %89
 
 89:                                               ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit64.thread
   br i1 %70, label %90, label %102
 
 90:                                               ; preds = %89
-  %91 = icmp eq i32 %.fr132, 0
+  %91 = icmp eq i32 %69, 0
   br i1 %91, label %99, label %92, !prof !228
 
 92:                                               ; preds = %90
-  %93 = sub nuw nsw i32 64, %.fr132
+  %93 = sub nuw nsw i32 64, %69
   %94 = zext nneg i32 %93 to i64
   %95 = shl i64 %88, %94
-  %.fr134 = freeze i64 %95
-  %96 = xor i64 %.fr134, -1
+  %96 = xor i64 %95, -1
   %97 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %96, i1 false)
   %98 = trunc nuw nsw i64 %97 to i32
   br label %99
@@ -3957,7 +3952,7 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit64.thread:      ; preds = %._ZNK4llvm5APInt10i
   %.0.i.ph.i71 = phi i32 [ 0, %90 ], [ %98, %92 ]
   %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 false)
   %101 = trunc nuw nsw i64 %100 to i32
-  %..i.i72 = tail call i32 @llvm.umin.i32(i32 %.fr132, i32 %101)
+  %..i.i72 = tail call i32 @llvm.umin.i32(i32 %69, i32 %101)
   br label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit73
 
 102:                                              ; preds = %89
@@ -3969,8 +3964,9 @@ _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit73:      ; preds = %99, %102
   %.0.i5.i68 = phi i32 [ %.0.i.ph.i71, %99 ], [ %103, %102 ]
   %.0.i3.i69 = phi i32 [ %..i.i72, %99 ], [ %104, %102 ]
   %105 = add i32 %.0.i3.i69, %.0.i5.i68
-  %106 = icmp eq i32 %105, %.fr132
-  %spec.select127 = select i1 %106, i64 2, i64 0
+  %106 = icmp eq i32 %105, %69
+  %cond.fr103 = freeze i1 %106
+  %spec.select127 = select i1 %cond.fr103, i64 2, i64 0
   br label %.thread117
 
 107:                                              ; preds = %63
@@ -3979,11 +3975,11 @@ _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit73:      ; preds = %99, %102
 
 108:                                              ; preds = %107
   %109 = tail call noundef i32 @_ZNK4llvm22ConstantDataSequential14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  %.not51145 = icmp eq i32 %109, 0
-  br i1 %.not51145, label %.thread117, label %.lr.ph
+  %.not51139 = icmp eq i32 %109, 0
+  br i1 %.not51139, label %.thread117, label %.lr.ph
 
 110:                                              ; preds = %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit87
-  %111 = add nuw i32 %.0148, 1
+  %111 = add nuw i32 %.0142, 1
   %.not51 = icmp eq i32 %111, %109
   br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !231
 
@@ -3993,13 +3989,13 @@ _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit73:      ; preds = %99, %102
   br label %.thread
 
 .lr.ph:                                           ; preds = %108, %110
-  %.0148 = phi i32 [ %111, %110 ], [ 0, %108 ]
-  %.030147 = phi i1 [ %.0.i84, %110 ], [ true, %108 ]
-  %.031146 = phi i1 [ %131, %110 ], [ true, %108 ]
-  %114 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential20getElementAsConstantEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.0148) #26
+  %.0142 = phi i32 [ %111, %110 ], [ 0, %108 ]
+  %.030141 = phi i1 [ %.0.i84, %110 ], [ true, %108 ]
+  %.031140 = phi i1 [ %131, %110 ], [ true, %108 ]
+  %114 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential20getElementAsConstantEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.0142) #26
   %115 = load i8, ptr %114, align 8, !tbaa !110
-  %.not137 = icmp eq i8 %115, 17
-  br i1 %.not137, label %116, label %.thread
+  %.not134 = icmp eq i8 %115, 17
+  br i1 %.not134, label %116, label %.thread
 
 116:                                              ; preds = %.lr.ph
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -4022,13 +4018,13 @@ _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit73:      ; preds = %99, %102
 127:                                              ; preds = %116
   %128 = tail call noundef i32 @_ZNK4llvm5APInt23countPopulationSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %117) #28
   %129 = icmp eq i32 %128, 1
-  %.pre150 = load ptr, ptr %117, align 8
+  %.pre144 = load ptr, ptr %117, align 8
   br label %_ZNK4llvm5APInt10isPowerOf2Ev.exit78
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit78:             ; preds = %121, %124, %127
-  %130 = phi ptr [ %.pre150, %127 ], [ %123, %121 ], [ %123, %124 ]
+  %130 = phi ptr [ %.pre144, %127 ], [ %123, %121 ], [ %123, %124 ]
   %.0.i76 = phi i1 [ %129, %127 ], [ false, %121 ], [ %126, %124 ]
-  %131 = select i1 %.0.i76, i1 %.031146, i1 false
+  %131 = select i1 %.0.i76, i1 %.031140, i1 false
   %132 = add i32 %119, -1
   %133 = and i32 %132, 63
   %134 = zext nneg i32 %133 to i64
@@ -4076,7 +4072,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit.i81:          ; preds = %155, %152
   %.0.i3.i83 = phi i32 [ %..i.i86, %152 ], [ %157, %155 ]
   %158 = add i32 %.0.i3.i83, %.0.i5.i82
   %159 = icmp eq i32 %158, %119
-  %160 = select i1 %159, i1 %.030147, i1 false
+  %160 = select i1 %159, i1 %.030141, i1 false
   br label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit87
 
 _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit87:      ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit78, %_ZNK4llvm5APInt11countr_zeroEv.exit.i81

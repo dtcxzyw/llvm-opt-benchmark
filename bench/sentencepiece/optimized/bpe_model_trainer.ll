@@ -1942,9 +1942,9 @@ define void @_ZN13sentencepiece3bpe7Trainer9ResetFreqEiiiPKNS1_6SymbolE(ptr noun
 define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef nonnull align 8 dereferenceable(856) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.sentencepiece::error::Die", align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %.sroa.061.093 = load ptr, ptr %3, align 8, !tbaa !15
-  %.not94 = icmp eq ptr %.sroa.061.093, null
-  br i1 %.not94, label %._crit_edge, label %.lr.ph
+  %.sroa.061.092 = load ptr, ptr %3, align 8, !tbaa !15
+  %.not93 = icmp eq ptr %.sroa.061.092, null
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit, %1
   %.sroa.20.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.20.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
@@ -1958,14 +1958,14 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   %9 = ptrtoint ptr %.sroa.15.0.lcssa to i64
   %10 = ptrtoint ptr %.sroa.064.0.lcssa to i64
   %11 = sub i64 %9, %10
-  %12 = lshr i64 %11, 3
+  %12 = lshr exact i64 %11, 3
   %13 = trunc i64 %12 to i32
-  %.fr = freeze i32 %8
-  %.sroa.speculated51 = tail call i32 @llvm.smax.i32(i32 %.fr, i32 1000)
+  %.sroa.speculated51 = tail call i32 @llvm.smax.i32(i32 %8, i32 1000)
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated51, i32 %13)
-  %14 = sext i32 %.sroa.speculated to i64
+  %.sroa.speculated.fr = freeze i32 %.sroa.speculated
+  %14 = sext i32 %.sroa.speculated.fr to i64
   %15 = getelementptr ptr, ptr %.sroa.064.0.lcssa, i64 %14
-  %16 = icmp slt i32 %13, 2
+  %16 = icmp slt i32 %.sroa.speculated.fr, 2
   br i1 %16, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_RT0_.exit.i.i.i", label %17
 
 17:                                               ; preds = %._crit_edge
@@ -1973,7 +1973,7 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   %19 = lshr i64 %18, 1
   %20 = add nsw i64 %14, -1
   %21 = lshr i64 %20, 1
-  %22 = and i32 %.sroa.speculated, 1
+  %22 = and i32 %.sroa.speculated.fr, 1
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.split.preheader.i.i.i.i, label %.split.us.i.i.i.i
 
@@ -2123,8 +2123,8 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
 .lr.ph.i.i.i:                                     ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_RT0_.exit.i.i.i"
   %89 = add nsw i64 %14, -1
   %90 = sdiv i64 %89, 2
-  %91 = icmp sgt i32 %13, 2
-  %92 = and i32 %.sroa.speculated, 1
+  %91 = icmp sgt i32 %.sroa.speculated.fr, 2
+  %92 = and i32 %.sroa.speculated.fr, 1
   %93 = icmp eq i32 %92, 0
   %94 = add nsw i64 %14, -2
   %95 = ashr exact i64 %94, 1
@@ -2232,7 +2232,7 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   br i1 %132, label %.lr.ph.split.split.us.split.us.i.i.i, label %.lr.ph.split.split.us.split.preheader.i.i.i
 
 .lr.ph.split.split.us.split.preheader.i.i.i:      ; preds = %.lr.ph.split.split.us.i.i.i
-  %.pre47.i.i.i = load ptr, ptr %.sroa.064.0.lcssa, align 8, !tbaa !46
+  %.pre48.i.i.i = load ptr, ptr %.sroa.064.0.lcssa, align 8, !tbaa !46
   br label %.lr.ph.split.split.us.split.i.i.i
 
 .lr.ph.split.split.us.split.us.i.i.i:             ; preds = %.lr.ph.split.split.us.i.i.i, %142
@@ -2264,7 +2264,7 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   br i1 %144, label %.lr.ph.split.split.us.split.us.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_SG_T0_.exit.i.i", !llvm.loop !121
 
 .lr.ph.split.split.us.split.i.i.i:                ; preds = %150, %.lr.ph.split.split.us.split.preheader.i.i.i
-  %145 = phi ptr [ %151, %150 ], [ %.pre47.i.i.i, %.lr.ph.split.split.us.split.preheader.i.i.i ]
+  %145 = phi ptr [ %151, %150 ], [ %.pre48.i.i.i, %.lr.ph.split.split.us.split.preheader.i.i.i ]
   %.sroa.0.027.us28.i.i.i = phi ptr [ %152, %150 ], [ %15, %.lr.ph.split.split.us.split.preheader.i.i.i ]
   %146 = load ptr, ptr %.sroa.0.027.us28.i.i.i, align 8, !tbaa !46
   %147 = getelementptr i8, ptr %146, i64 56
@@ -2308,7 +2308,7 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   br i1 %162, label %.lr.ph.split.split.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_SG_T0_.exit.i.i", !llvm.loop !121
 
 "_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_SG_T0_.exit.i.i": ; preds = %159, %150, %142, %127, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_RT0_.exit.i.i.i"
-  %163 = icmp sgt i32 %13, 1
+  %163 = icmp sgt i32 %.sroa.speculated.fr, 1
   br i1 %163, label %.lr.ph.i9.i.i, label %"_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEEZNS4_19UpdateActiveSymbolsEvE3$_0EvT_SD_SD_T0_.exit"
 
 .lr.ph.i9.i.i:                                    ; preds = %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_SG_T0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19UpdateActiveSymbolsEvE3$_0EEEvT_SG_SG_RT0_.exit.i.i.i"
@@ -2403,11 +2403,11 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   br i1 %208, label %.lr.ph.i9.i.i, label %"_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece3bpe7Trainer6SymbolESt6vectorIS6_SaIS6_EEEEZNS4_19UpdateActiveSymbolsEvE3$_0EvT_SD_SD_T0_.exit", !llvm.loop !122
 
 .lr.ph:                                           ; preds = %1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit
-  %.sroa.061.098 = phi ptr [ %.sroa.061.0, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.061.093, %1 ]
-  %.sroa.064.097 = phi ptr [ %.sroa.064.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
-  %.sroa.15.096 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
-  %.sroa.20.095 = phi ptr [ %.sroa.20.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.061.098, i64 16
+  %.sroa.061.097 = phi ptr [ %.sroa.061.0, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.061.092, %1 ]
+  %.sroa.064.096 = phi ptr [ %.sroa.064.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
+  %.sroa.15.095 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
+  %.sroa.20.094 = phi ptr [ %.sroa.20.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.061.097, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !34
   %211 = load ptr, ptr %210, align 8, !tbaa !98
   %.not.i = icmp ne ptr %211, null
@@ -2419,17 +2419,17 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
 
 216:                                              ; preds = %.lr.ph
   tail call void @_ZNK13sentencepiece3bpe7Trainer11ComputeFreqEPNS1_6SymbolE(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull %210)
-  %.not.i25 = icmp eq ptr %.sroa.15.096, %.sroa.20.095
+  %.not.i25 = icmp eq ptr %.sroa.15.095, %.sroa.20.094
   br i1 %.not.i25, label %219, label %217
 
 217:                                              ; preds = %216
-  store ptr %210, ptr %.sroa.15.096, align 8, !tbaa !46
-  %218 = getelementptr i8, ptr %.sroa.15.096, i64 8
+  store ptr %210, ptr %.sroa.15.095, align 8, !tbaa !46
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.15.095, i64 8
   br label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit
 
 219:                                              ; preds = %216
-  %220 = ptrtoint ptr %.sroa.15.096 to i64
-  %221 = ptrtoint ptr %.sroa.064.097 to i64
+  %220 = ptrtoint ptr %.sroa.15.095 to i64
+  %221 = ptrtoint ptr %.sroa.064.096 to i64
   %222 = sub i64 %220, %221
   %223 = icmp eq i64 %222, 9223372036854775800
   br i1 %223, label %224, label %_ZNKSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -2461,16 +2461,16 @@ _ZNKSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE12_M_check_lenEmPKc.e
   br i1 %233, label %234, label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
 
 234:                                              ; preds = %.noexc26
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %231, ptr align 8 %.sroa.064.097, i64 %222, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %231, ptr align 8 %.sroa.064.096, i64 %222, i1 false)
   br label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
 
 _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i: ; preds = %234, %.noexc26
-  %235 = getelementptr i8, ptr %232, i64 8
-  %.not.i17.i.i = icmp eq ptr %.sroa.064.097, null
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %.not.i17.i.i = icmp eq ptr %.sroa.064.096, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %236
 
 236:                                              ; preds = %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.064.097, i64 noundef %222) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.064.096, i64 noundef %222) #27
   br label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %236, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
@@ -2488,10 +2488,10 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJR
   br label %281
 
 _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %217, %.lr.ph
-  %.sroa.20.1 = phi ptr [ %.sroa.20.095, %.lr.ph ], [ %237, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.20.095, %217 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.096, %.lr.ph ], [ %235, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %218, %217 ]
-  %.sroa.064.1 = phi ptr [ %.sroa.064.097, %.lr.ph ], [ %231, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.064.097, %217 ]
-  %.sroa.061.0 = load ptr, ptr %.sroa.061.098, align 8, !tbaa !15
+  %.sroa.20.1 = phi ptr [ %.sroa.20.094, %.lr.ph ], [ %237, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.20.094, %217 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.095, %.lr.ph ], [ %235, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %218, %217 ]
+  %.sroa.064.1 = phi ptr [ %.sroa.064.096, %.lr.ph ], [ %231, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.064.096, %217 ]
+  %.sroa.061.0 = load ptr, ptr %.sroa.061.097, align 8, !tbaa !15
   %.not = icmp eq ptr %.sroa.061.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2618,17 +2618,17 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EED2Ev.exit: ; preds = %
   br label %281
 
 281:                                              ; preds = %.loopexit, %.loopexit.split-lp, %275, %279, %277
-  %.sroa.20.091 = phi ptr [ %.sroa.20.0.lcssa, %275 ], [ %.sroa.20.0.lcssa, %279 ], [ %.sroa.20.0.lcssa, %277 ], [ %.sroa.15.096, %.loopexit ], [ %.sroa.15.096, %.loopexit.split-lp ]
-  %.sroa.064.085 = phi ptr [ %.sroa.064.0.lcssa, %275 ], [ %.sroa.064.0.lcssa, %279 ], [ %.sroa.064.0.lcssa, %277 ], [ %.sroa.064.097, %.loopexit ], [ %.sroa.064.097, %.loopexit.split-lp ]
+  %.sroa.20.090 = phi ptr [ %.sroa.20.0.lcssa, %275 ], [ %.sroa.20.0.lcssa, %279 ], [ %.sroa.20.0.lcssa, %277 ], [ %.sroa.15.095, %.loopexit ], [ %.sroa.15.095, %.loopexit.split-lp ]
+  %.sroa.064.084 = phi ptr [ %.sroa.064.0.lcssa, %275 ], [ %.sroa.064.0.lcssa, %279 ], [ %.sroa.064.0.lcssa, %277 ], [ %.sroa.064.096, %.loopexit ], [ %.sroa.064.096, %.loopexit.split-lp ]
   %.pn21 = phi { ptr, i32 } [ %276, %275 ], [ %280, %279 ], [ %278, %277 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i47 = icmp eq ptr %.sroa.064.085, null
+  %.not.i.i.i47 = icmp eq ptr %.sroa.064.084, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EED2Ev.exit48, label %282
 
 282:                                              ; preds = %281
-  %283 = ptrtoint ptr %.sroa.20.091 to i64
-  %284 = ptrtoint ptr %.sroa.064.085 to i64
+  %283 = ptrtoint ptr %.sroa.20.090 to i64
+  %284 = ptrtoint ptr %.sroa.064.084 to i64
   %285 = sub i64 %283, %284
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.064.085, i64 noundef %285) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.064.084, i64 noundef %285) #27
   br label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EED2Ev.exit48
 
 _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EED2Ev.exit48: ; preds = %281, %282
@@ -7860,8 +7860,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
-  %.042 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39 ], [ %1, %5 ]
-  %9 = shl i64 %.042, 1
+  %.041 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39 ], [ %1, %5 ]
+  %9 = shl i64 %.041, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.119", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -7880,10 +7880,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit: ; preds = %19
   %21 = load i32, ptr %11, align 8, !tbaa !199
   %22 = load i32, ptr %13, align 8, !tbaa !199
-  %.fr = freeze i32 %21
-  %.fr41 = freeze i32 %22
-  %23 = icmp ult i32 %.fr, %.fr41
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
+  %23 = icmp ult i32 %21, %22
+  %cond.fr = freeze i1 %23
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread39
@@ -7892,7 +7891,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4p
   %24 = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit ], [ %15, %19 ]
   %25 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjlEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IjlESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESN_EEbS6_S7_.exit ], [ %10, %19 ]
   %26 = getelementptr inbounds %"struct.std::pair.119", ptr %0, i64 %25
-  %27 = getelementptr inbounds %"struct.std::pair.119", ptr %0, i64 %.042
+  %27 = getelementptr inbounds %"struct.std::pair.119", ptr %0, i64 %.041
   %28 = load i32, ptr %26, align 4, !tbaa !16
   store i32 %28, ptr %27, align 8, !tbaa !199
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8

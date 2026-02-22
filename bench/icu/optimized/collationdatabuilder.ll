@@ -4376,14 +4376,13 @@ define noundef range(i32 -2147483648, 524288) i32 @_ZN6icu_7720CollationDataBuil
   %.034 = phi i32 [ %29, %33 ], [ -1, %11 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i16, ptr %37, align 8, !tbaa !74
-  %.fr48 = freeze i16 %38
-  %39 = icmp slt i16 %.fr48, 0
-  %40 = lshr i16 %.fr48, 5
-  %41 = zext nneg i16 %40 to i32
+  %39 = icmp slt i16 %38, 0
+  %40 = ashr i16 %38, 5
+  %41 = sext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %43 = load i32, ptr %42, align 4
-  %.fr49 = freeze i32 %43
-  %44 = select i1 %39, i32 %.fr49, i32 %41
+  %44 = select i1 %39, i32 %43, i32 %41
+  %.fr48 = freeze i32 %44
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store ptr %45, ptr %8, align 8, !tbaa !140
@@ -4398,9 +4397,9 @@ define noundef range(i32 -2147483648, 524288) i32 @_ZN6icu_7720CollationDataBuil
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 108
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %53 = icmp eq i32 %44, 0
-  %54 = icmp slt i32 %44, 1024
-  %.tr.i.i.i = trunc i32 %44 to i16
+  %53 = icmp eq i32 %.fr48, 0
+  %54 = icmp slt i32 %.fr48, 1024
+  %.tr.i.i.i = trunc i32 %.fr48 to i16
   %55 = shl i16 %.tr.i.i.i, 5
   br i1 %54, label %.split.us, label %.split
 
@@ -4456,7 +4455,7 @@ _ZNK6icu_7720CollationDataBuilder18getConditionalCE32Ei.exit.us: ; preds = %74
   %81 = sext i16 %80 to i32
   %82 = load i32, ptr %42, align 4
   %83 = select i1 %79, i32 %82, i32 %81
-  %84 = icmp ult i32 %44, %83
+  %84 = icmp ult i32 %.fr48, %83
   br i1 %84, label %85, label %.split.us.backedge
 
 85:                                               ; preds = %78
@@ -4553,13 +4552,13 @@ _ZNK6icu_7720CollationDataBuilder18getConditionalCE32Ei.exit: ; preds = %113
   %121 = sext i16 %120 to i32
   %122 = load i32, ptr %42, align 4
   %123 = select i1 %119, i32 %122, i32 %121
-  %124 = icmp ult i32 %44, %123
+  %124 = icmp ult i32 %.fr48, %123
   br i1 %124, label %125, label %.split.backedge
 
 125:                                              ; preds = %118
   %126 = or i16 %115, -32
   store i16 %126, ptr %37, align 8, !tbaa !74
-  store i32 %44, ptr %42, align 4, !tbaa !74
+  store i32 %.fr48, ptr %42, align 4, !tbaa !74
   br label %.split.backedge
 
 .split46.us:                                      ; preds = %104, %91, %57, %70

@@ -572,15 +572,15 @@ define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121
   %5 = fcmp olt double %3, 5.000000e-01
   br i1 %5, label %6, label %10
 
-common.ret194:                                    ; preds = %82, %114, %.loopexit, %92, %96, %6
-  %common.ret194.op = phi double [ %9, %6 ], [ %.1145163, %114 ], [ 0x7FF0000000000000, %82 ], [ %93, %92 ], [ %.1145163, %96 ], [ 0x7FF0000000000000, %.loopexit ]
-  ret double %common.ret194.op
+common.ret195:                                    ; preds = %82, %114, %.loopexit, %92, %96, %6
+  %common.ret195.op = phi double [ %9, %6 ], [ %.1145163, %114 ], [ 0x7FF0000000000000, %82 ], [ %93, %92 ], [ %.1145163, %96 ], [ 0x7FF0000000000000, %.loopexit ]
+  ret double %common.ret195.op
 
 6:                                                ; preds = %4
   %7 = fsub double 1.000000e+00, %3
   %8 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %1, double noundef %0, double noundef %2, double noundef %7)
   %9 = fsub double 1.000000e+00, %8
-  br label %common.ret194
+  br label %common.ret195
 
 10:                                               ; preds = %4
   %11 = fmul double %3, %3
@@ -680,11 +680,11 @@ common.ret194:                                    ; preds = %82, %114, %.loopexi
   %87 = fcmp olt double %.sroa.speculated132, 0.000000e+00
   %88 = fcmp ogt double %.sroa.speculated132, 1.000000e+00
   %or.cond3162 = or i1 %87, %88
-  br i1 %or.cond3162, label %common.ret194, label %.lr.ph
+  br i1 %or.cond3162, label %common.ret195, label %.lr.ph
 
 .loopexit:                                        ; preds = %116
   %89 = fcmp ogt double %111, 1.000000e+00
-  br i1 %89, label %common.ret194, label %.lr.ph
+  br i1 %89, label %common.ret195, label %.lr.ph
 
 .lr.ph:                                           ; preds = %82, %.loopexit
   %.1145163 = phi double [ %111, %.loopexit ], [ %.sroa.speculated132, %82 ]
@@ -697,27 +697,26 @@ common.ret194:                                    ; preds = %82, %114, %.loopexi
   %93 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %.1145163, double noundef %0, double noundef %1, double noundef %2)
   %94 = tail call double @llvm.fabs.f64(double %93)
   %95 = fcmp ueq double %94, 0x7FF0000000000000
-  br i1 %95, label %common.ret194, label %96
+  br i1 %95, label %common.ret195, label %96
 
 96:                                               ; preds = %.lr.ph, %92
   %.0116 = phi double [ %93, %92 ], [ %.1145163, %.lr.ph ]
-  %.0116.fr = freeze double %.0116
-  %97 = fsub double %.0116.fr, %3
+  %97 = fsub double %.0116, %3
   %98 = tail call double @log(double noundef %.1145163) #14, !tbaa !12
   %99 = tail call double @llvm.fmuladd.f64(double %85, double %98, double %2)
   %100 = fsub double 1.000000e+00, %.1145163
   %101 = tail call double @log(double noundef %100) #14, !tbaa !12
   %102 = tail call double @llvm.fmuladd.f64(double %86, double %101, double %99)
   %103 = tail call double @exp(double noundef %102) #14, !tbaa !12
-  %.fr = freeze double %103
-  %104 = fmul double %97, %.fr
-  %105 = fmul double %104, %104
+  %104 = fmul double %97, %103
+  %.fr180 = freeze double %104
+  %105 = fmul double %.fr180, %.fr180
   %106 = fcmp olt double %105, 0x3D06849B86A12B9B
-  br i1 %106, label %common.ret194, label %.split
+  br i1 %106, label %common.ret195, label %.split
 
 .split:                                           ; preds = %96, %119
   %.0104 = phi double [ %120, %119 ], [ 1.000000e+00, %96 ]
-  %107 = fmul double %104, %.0104
+  %107 = fmul double %.fr180, %.0104
   %108 = fmul double %107, %107
   %109 = fcmp ult double %108, 1.000000e+00
   br i1 %109, label %110, label %119, !llvm.loop !38
@@ -731,7 +730,7 @@ common.ret194:                                    ; preds = %82, %114, %.loopexi
 
 114:                                              ; preds = %110
   %115 = fcmp oeq double %111, %.1145163
-  br i1 %115, label %common.ret194, label %116
+  br i1 %115, label %common.ret195, label %116
 
 116:                                              ; preds = %114
   %117 = fcmp oeq double %111, 0.000000e+00

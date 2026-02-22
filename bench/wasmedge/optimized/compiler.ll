@@ -3675,21 +3675,20 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load ptr, ptr %23, align 8
-  %.fr204 = freeze ptr %24
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load ptr, ptr %25, align 8
-  %.fr203 = freeze ptr %26
   %27 = icmp eq ptr %22, %20
-  %28 = icmp eq ptr %.fr203, %.fr204
-  %or.cond = or i1 %27, %28
+  %28 = icmp eq ptr %26, %24
+  %or.cond = select i1 %27, i1 true, i1 %28
   br i1 %or.cond, label %.loopexit, label %.preheader172
 
 .preheader172:                                    ; preds = %3
-  %29 = ptrtoint ptr %.fr203 to i64
-  %30 = ptrtoint ptr %.fr204 to i64
+  %29 = ptrtoint ptr %26 to i64
+  %30 = ptrtoint ptr %24 to i64
   %31 = sub i64 %29, %30
-  %.off = add i64 %31, 79
-  %or.cond170182.not = icmp ult i64 %.off, 159
+  %.fr203 = freeze i64 %31
+  %.fr203.off = add i64 %.fr203, 79
+  %or.cond170182.not = icmp ult i64 %.fr203.off, 159
   br i1 %or.cond170182.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader172
@@ -3697,7 +3696,7 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2
   %33 = ptrtoint ptr %20 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 2
-  %36 = sdiv i64 %31, 80
+  %36 = sdiv i64 %.fr203, 80
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %35, i64 %36)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3707,7 +3706,7 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2
 39:                                               ; preds = %.lr.ph, %_ZNSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegmentEEESaIS8_EE12emplace_backIJRKjRS3_S7_EEERS8_DpOT_.exit
   %.052183 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZNSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegmentEEESaIS8_EE12emplace_backIJRKjRS3_S7_EEERS8_DpOT_.exit ]
   %40 = getelementptr inbounds i32, ptr %20, i64 %.052183
-  %41 = getelementptr inbounds %"class.WasmEdge::AST::CodeSegment", ptr %.fr204, i64 %.052183
+  %41 = getelementptr inbounds %"class.WasmEdge::AST::CodeSegment", ptr %24, i64 %.052183
   %42 = load i32, ptr %40, align 4
   %43 = zext i32 %42 to i64
   %44 = load ptr, ptr %37, align 8
@@ -3893,8 +3892,8 @@ _ZNSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegmentE
   %.sroa.5.0193 = phi ptr [ %.sroa.5.1.lcssa, %._crit_edge ], [ null, %160 ]
   %.sroa.10136.0192 = phi ptr [ %.sroa.10136.1.lcssa, %._crit_edge ], [ null, %160 ]
   %165 = load i32, ptr %.053195, align 4
-  %.not205 = icmp eq i32 %165, 0
-  br i1 %.not205, label %._crit_edge, label %.lr.ph188
+  %.not204 = icmp eq i32 %165, 0
+  br i1 %.not204, label %._crit_edge, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %.preheader
   %166 = getelementptr inbounds nuw i8, ptr %.053195, i64 4
@@ -39153,8 +39152,8 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %24 = alloca i32, align 4
   %25 = alloca i8, align 1
   %26 = alloca %class.anon.450, align 8
-  %.fr95 = freeze i64 %3
-  store i64 %.fr95, ptr %10, align 8
+  %.fr96 = freeze i64 %3
+  store i64 %.fr96, ptr %10, align 8
   %27 = load i32, ptr %1, align 4
   store i32 %27, ptr %11, align 4
   %28 = or i32 %27, 1
@@ -39169,7 +39168,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %37 = trunc nuw i64 %36 to i32
   store i32 %37, ptr %12, align 4
   store i8 48, ptr %13, align 1
-  %38 = lshr i64 %.fr95, 32
+  %38 = lshr i64 %.fr96, 32
   %39 = trunc nuw i64 %38 to i32
   %40 = lshr i32 %39, 8
   %41 = and i32 %40, 255
@@ -39180,7 +39179,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %44 = and i64 %43, 4294967295
   %45 = and i32 %39, 131072
   %.not58 = icmp eq i32 %45, 0
-  %46 = trunc i64 %.fr95 to i32
+  %46 = trunc i64 %.fr96 to i32
   br i1 %.not58, label %49, label %47
 
 47:                                               ; preds = %5
@@ -39542,11 +39541,11 @@ _ZNK3fmt2v86detail14digit_groupingIcE16count_separatorsEi.exit80: ; preds = %_ZN
 
 205:                                              ; preds = %198
   %206 = and i32 %39, 1048576
-  %.not87 = icmp eq i32 %206, 0
+  %.not88 = icmp eq i32 %206, 0
   %.lobit = lshr exact i32 %206, 20
   %207 = trunc nuw nsw i32 %.lobit to i8
   store i8 %207, ptr %25, align 1
-  br i1 %.not87, label %209, label %208
+  br i1 %.not88, label %209, label %208
 
 208:                                              ; preds = %.thread85, %205
   br label %209
@@ -41985,8 +41984,8 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %24 = alloca i32, align 4
   %25 = alloca i8, align 1
   %26 = alloca %class.anon.459, align 8
-  %.fr95 = freeze i64 %3
-  store i64 %.fr95, ptr %10, align 8
+  %.fr96 = freeze i64 %3
+  store i64 %.fr96, ptr %10, align 8
   %27 = load i64, ptr %1, align 8
   store i64 %27, ptr %11, align 8
   %28 = or i64 %27, 1
@@ -42003,7 +42002,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %38 = add nsw i32 %.neg.i.i.i, %33
   store i32 %38, ptr %12, align 4
   store i8 48, ptr %13, align 1
-  %39 = lshr i64 %.fr95, 32
+  %39 = lshr i64 %.fr96, 32
   %40 = trunc nuw i64 %39 to i32
   %41 = lshr i32 %40, 8
   %42 = and i32 %41, 255
@@ -42014,7 +42013,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dr
   %45 = zext i32 %44 to i64
   %46 = and i32 %40, 131072
   %.not58 = icmp eq i32 %46, 0
-  %47 = trunc i64 %.fr95 to i32
+  %47 = trunc i64 %.fr96 to i32
   br i1 %.not58, label %50, label %48
 
 48:                                               ; preds = %5
@@ -42376,11 +42375,11 @@ _ZNK3fmt2v86detail14digit_groupingIcE16count_separatorsEi.exit80: ; preds = %_ZN
 
 206:                                              ; preds = %199
   %207 = and i32 %40, 1048576
-  %.not87 = icmp eq i32 %207, 0
+  %.not88 = icmp eq i32 %207, 0
   %.lobit = lshr exact i32 %207, 20
   %208 = trunc nuw nsw i32 %.lobit to i8
   store i8 %208, ptr %25, align 1
-  br i1 %.not87, label %210, label %209
+  br i1 %.not88, label %210, label %209
 
 209:                                              ; preds = %.thread85, %206
   br label %210
@@ -45213,15 +45212,15 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14b
   %24 = alloca i32, align 4
   %25 = alloca i8, align 1
   %26 = alloca %class.anon.466, align 8
-  %.fr95 = freeze i64 %3
-  store i64 %.fr95, ptr %10, align 8
+  %.fr96 = freeze i64 %3
+  store i64 %.fr96, ptr %10, align 8
   %27 = load ptr, ptr %1, align 8
   store ptr %27, ptr %11, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %12, align 4
   store i8 48, ptr %13, align 1
-  %30 = lshr i64 %.fr95, 32
+  %30 = lshr i64 %.fr96, 32
   %31 = trunc nuw i64 %30 to i32
   %32 = lshr i32 %31, 8
   %33 = and i32 %32, 255
@@ -45232,7 +45231,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14b
   %36 = zext i32 %35 to i64
   %37 = and i32 %31, 131072
   %.not58 = icmp eq i32 %37, 0
-  %38 = trunc i64 %.fr95 to i32
+  %38 = trunc i64 %.fr96 to i32
   br i1 %.not58, label %41, label %39
 
 39:                                               ; preds = %5
@@ -45594,11 +45593,11 @@ _ZNK3fmt2v86detail14digit_groupingIcE16count_separatorsEi.exit80: ; preds = %_ZN
 
 197:                                              ; preds = %190
   %198 = and i32 %31, 1048576
-  %.not87 = icmp eq i32 %198, 0
+  %.not88 = icmp eq i32 %198, 0
   %.lobit = lshr exact i32 %198, 20
   %199 = trunc nuw nsw i32 %.lobit to i8
   store i8 %199, ptr %25, align 1
-  br i1 %.not87, label %201, label %200
+  br i1 %.not88, label %201, label %200
 
 200:                                              ; preds = %.thread85, %197
   br label %201

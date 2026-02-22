@@ -7883,21 +7883,21 @@ rb_class_of.exit:                                 ; preds = %21, %24, %25, %26, 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %rb_class_of.exit
   %36 = inttoptr i64 %.0.i to ptr
   %37 = load i64, ptr %36, align 8, !tbaa !25
-  %.fr = freeze i64 %37
-  %38 = and i64 %.fr, 31
+  %.fr26 = freeze i64 %37
+  %38 = and i64 %.fr26, 31
   %39 = icmp eq i64 %38, 2
   br i1 %39, label %RCLASS_SINGLETON_P.exit, label %.thread
 
 RCLASS_SINGLETON_P.exit:                          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %40 = and i64 %.fr, 8192
-  %.not26 = icmp eq i64 %40, 0
-  %spec.select = select i1 %.not26, i64 %.0.i, i64 %0
-  %spec.select27 = select i1 %.not26, i32 35, i32 46
+  %40 = and i64 %.fr26, 8192
+  %.not27 = icmp eq i64 %40, 0
+  %spec.select = select i1 %.not27, i64 %.0.i, i64 %0
+  %spec.select28 = select i1 %.not27, i32 35, i32 46
   br label %.thread
 
 .thread:                                          ; preds = %RCLASS_SINGLETON_P.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i, %rb_class_of.exit
   %41 = phi i64 [ %.0.i, %rb_class_of.exit ], [ %spec.select, %RCLASS_SINGLETON_P.exit ], [ %.0.i, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
-  %42 = phi i32 [ 35, %rb_class_of.exit ], [ %spec.select27, %RCLASS_SINGLETON_P.exit ], [ 35, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %42 = phi i32 [ 35, %rb_class_of.exit ], [ %spec.select28, %RCLASS_SINGLETON_P.exit ], [ 35, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
   tail call void (i32, ptr, ...) @rb_category_warning(i32 noundef 1, ptr noundef nonnull @.str.218, i64 noundef %41, i32 noundef %42) #28
   br label %.preheader
 

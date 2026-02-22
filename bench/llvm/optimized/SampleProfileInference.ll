@@ -935,12 +935,10 @@ define dso_local void @_ZN4llvm18applyFlowInferenceERKNS_11ProfiParamsERNS_12Flo
   %10 = alloca %"class.(anonymous namespace)::MinCostMaxFlow", align 8
   %11 = alloca %"class.(anonymous namespace)::FlowAdjuster", align 8
   %12 = load ptr, ptr %1, align 8, !tbaa !69
-  %.fr139 = freeze ptr %12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !69
-  %.fr = freeze ptr %14
-  %.not137164 = icmp eq ptr %.fr139, %.fr
-  br i1 %.not137164, label %._crit_edge, label %.lr.ph
+  %.not137163 = icmp eq ptr %12, %14
+  br i1 %.not137163, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i1 [ false, %2 ], [ %spec.select, %.lr.ph ]
@@ -948,46 +946,46 @@ define dso_local void @_ZN4llvm18applyFlowInferenceERKNS_11ProfiParamsERNS_12Flo
   %16 = load ptr, ptr %15, align 8, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %.not138167 = icmp eq ptr %16, %18
-  br i1 %.not138167, label %._crit_edge172, label %.lr.ph171
+  %.not138166 = icmp eq ptr %16, %18
+  br i1 %.not138166, label %._crit_edge171, label %.lr.ph170
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0166 = phi i1 [ %spec.select, %.lr.ph ], [ false, %2 ]
-  %.sroa.0134.0165 = phi ptr [ %22, %.lr.ph ], [ %.fr139, %2 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0165, i64 8
+  %.0165 = phi i1 [ %spec.select, %.lr.ph ], [ false, %2 ]
+  %.sroa.0134.0164 = phi ptr [ %22, %.lr.ph ], [ %12, %2 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0164, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !73
   %.not21 = icmp ne i64 %20, 0
-  %spec.select = select i1 %.not21, i1 true, i1 %.0166
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0165, i64 24
+  %spec.select = select i1 %.not21, i1 true, i1 %.0165
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0164, i64 24
   store i64 %20, ptr %21, align 8, !tbaa !80
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0165, i64 80
-  %.not137 = icmp eq ptr %22, %.fr
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0164, i64 80
+  %.not137 = icmp eq ptr %22, %14
   br i1 %.not137, label %._crit_edge, label %.lr.ph
 
-._crit_edge172:                                   ; preds = %.lr.ph171, %._crit_edge
-  %.2.lcssa = phi i1 [ %.0.lcssa, %._crit_edge ], [ %spec.select22, %.lr.ph171 ]
-  %23 = ptrtoint ptr %.fr to i64
-  %24 = ptrtoint ptr %.fr139 to i64
+._crit_edge171:                                   ; preds = %.lr.ph170, %._crit_edge
+  %.2.lcssa = phi i1 [ %.0.lcssa, %._crit_edge ], [ %spec.select22, %.lr.ph170 ]
+  %23 = ptrtoint ptr %14 to i64
+  %24 = ptrtoint ptr %12 to i64
   %25 = sub i64 %23, %24
-  %26 = sdiv i64 %25, 80
+  %26 = sdiv exact i64 %25, 80
   %27 = icmp ugt i64 %26, 1
   %or.cond = select i1 %27, i1 %.2.lcssa, i1 false
   br i1 %or.cond, label %32, label %2003
 
-.lr.ph171:                                        ; preds = %._crit_edge, %.lr.ph171
-  %.2169 = phi i1 [ %spec.select22, %.lr.ph171 ], [ %.0.lcssa, %._crit_edge ]
-  %.sroa.0130.0168 = phi ptr [ %31, %.lr.ph171 ], [ %16, %._crit_edge ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0168, i64 16
+.lr.ph170:                                        ; preds = %._crit_edge, %.lr.ph170
+  %.2168 = phi i1 [ %spec.select22, %.lr.ph170 ], [ %.0.lcssa, %._crit_edge ]
+  %.sroa.0130.0167 = phi ptr [ %31, %.lr.ph170 ], [ %16, %._crit_edge ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0167, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !81
   %.not = icmp ne i64 %29, 0
-  %spec.select22 = select i1 %.not, i1 true, i1 %.2169
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0168, i64 32
+  %spec.select22 = select i1 %.not, i1 true, i1 %.2168
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0167, i64 32
   store i64 %29, ptr %30, align 8, !tbaa !83
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0168, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0167, i64 40
   %.not138 = icmp eq ptr %31, %18
-  br i1 %.not138, label %._crit_edge172, label %.lr.ph171
+  br i1 %.not138, label %._crit_edge171, label %.lr.ph170
 
-32:                                               ; preds = %._crit_edge172
+32:                                               ; preds = %._crit_edge171
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
@@ -1063,33 +1061,33 @@ _ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread: 
   store ptr %66, ptr %68, align 8, !tbaa !114
   store ptr %scevgep.i.i, ptr %69, align 8, !tbaa !115
   store ptr %67, ptr %70, align 8, !tbaa !116
-  %.pre381 = load i8, ptr %0, align 8, !tbaa !109, !range !48
-  %71 = trunc nuw i8 %.pre381 to i1
-  br i1 %71, label %.lr.ph.i.i.i.i.i.split.us.i30.i.i, label %_ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i
+  %.pre382 = load i8, ptr %0, align 8, !tbaa !109, !range !48
+  %71 = trunc nuw i8 %.pre382 to i1
+  br i1 %71, label %.lr.ph.i.i.i.i.i.split.us.i28.i.i, label %_ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i
 
-.lr.ph.i.i.i.i.i.split.us.i30.i.i:                ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread
+.lr.ph.i.i.i.i.i.split.us.i28.i.i:                ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread
   %72 = mul nuw nsw i64 %43, 24
   %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %72) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %72, i1 false)
   %74 = getelementptr inbounds nuw %"class.std::vector.45", ptr %73, i64 %43
-  %scevgep72.i.i = getelementptr i8, ptr %73, i64 %72
+  %scevgep70.i.i = getelementptr i8, ptr %73, i64 %72
   br label %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
 
-_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i, %.lr.ph.i.i.i.i.i.split.us.i30.i.i
-  %75 = phi ptr [ %64, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ %57, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %76 = phi ptr [ %63, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ %56, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.0.i.i.i.i.i.i.i375383391 = phi ptr [ %54, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.sroa.068.0.i.i374385389 = phi ptr [ %50, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %77 = phi ptr [ %68, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ %58, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %78 = phi ptr [ %69, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ %59, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %79 = phi ptr [ %70, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ %60, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.sroa.055.0.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.sroa.14.0.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.0.lcssa.i.i.i.i.i.i28.i.i = phi ptr [ %scevgep72.i.i, %.lr.ph.i.i.i.i.i.split.us.i30.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i, %.lr.ph.i.i.i.i.i.split.us.i28.i.i
+  %75 = phi ptr [ %64, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ %57, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %76 = phi ptr [ %63, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ %56, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.0.i.i.i.i.i.i.i376384392 = phi ptr [ %54, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.sroa.066.0.i.i375386390 = phi ptr [ %50, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %77 = phi ptr [ %68, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ %58, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %78 = phi ptr [ %69, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ %59, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %79 = phi ptr [ %70, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ %60, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.sroa.053.0.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.sroa.14.0.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.0.lcssa.i.i.i.i.i.i26.i.i = phi ptr [ %scevgep70.i.i, %.lr.ph.i.i.i.i.i.split.us.i28.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store ptr %.sroa.055.0.i.i, ptr %33, align 8, !tbaa !117
-  store ptr %.0.lcssa.i.i.i.i.i.i28.i.i, ptr %80, align 8, !tbaa !118
+  store ptr %.sroa.053.0.i.i, ptr %33, align 8, !tbaa !117
+  store ptr %.0.lcssa.i.i.i.i.i.i26.i.i, ptr %80, align 8, !tbaa !118
   store ptr %.sroa.14.0.i.i, ptr %81, align 8, !tbaa !119
   br label %_ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i
 
@@ -1097,11 +1095,11 @@ _ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i: ; preds = %_ZNSt6vecto
   %82 = phi ptr [ %70, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %79, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ %60, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
   %83 = phi ptr [ %69, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %78, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ %59, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
   %84 = phi ptr [ %68, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %77, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ %58, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.sroa.068.0.i.i374384 = phi ptr [ %50, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %.sroa.068.0.i.i374385389, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  %.0.i.i.i.i.i.i.i375382 = phi ptr [ %54, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %.0.i.i.i.i.i.i.i375383391, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.sroa.066.0.i.i375385 = phi ptr [ %50, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %.sroa.066.0.i.i375386390, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
+  %.0.i.i.i.i.i.i.i376383 = phi ptr [ %54, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %.0.i.i.i.i.i.i.i376384392, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ null, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
   %85 = phi ptr [ %63, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %76, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ %56, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
   %86 = phi ptr [ %64, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i.thread ], [ %75, %_ZSt8_DestroyIPSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ %57, %_ZNSt6vectorIN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS2_EED2Ev.exit.i.i ]
-  br i1 %.not137164, label %.preheader.i, label %.lr.ph.i
+  br i1 %.not137163, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1114,7 +1112,7 @@ _ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i: ; preds = %_ZNSt6vecto
   br label %99
 
 .preheader.i:                                     ; preds = %148, %_ZN12_GLOBAL__N_114MinCostMaxFlow10initializeEmmm.exit.i
-  br i1 %.not138167, label %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit, label %.lr.ph85.i
+  br i1 %.not138166, label %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit, label %.lr.ph85.i
 
 .lr.ph85.i:                                       ; preds = %.preheader.i
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1292,18 +1290,18 @@ _ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowE
   call fastcc void @_ZN12_GLOBAL__N_114MinCostMaxFlow7addEdgeEmmll(ptr noundef nonnull readonly align 8 dereferenceable(96) %10, i64 noundef %40, i64 noundef %39, i64 noundef 1125899906842624, i64 noundef 0)
   br label %183
 
-.loopexit.i.i.loopexit187:                        ; preds = %_ZN12_GLOBAL__N_114MinCostMaxFlow20augmentFlowAlongPathEm.exit.i.i
+.loopexit.i.i.loopexit186:                        ; preds = %_ZN12_GLOBAL__N_114MinCostMaxFlow20augmentFlowAlongPathEm.exit.i.i
   %.val28.i.i.i.pre.pre = load ptr, ptr %10, align 8, !tbaa !140
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %819, %.loopexit.i.i.loopexit187, %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i
-  %.val28.i.i.i.pre = phi ptr [ %.val28.i.i.i.pre.pre, %.loopexit.i.i.loopexit187 ], [ %.val7.i.i.i, %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i ], [ %.val12.i.i.i, %819 ]
+.loopexit.i.i:                                    ; preds = %819, %.loopexit.i.i.loopexit186, %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i
+  %.val28.i.i.i.pre = phi ptr [ %.val28.i.i.i.pre.pre, %.loopexit.i.i.loopexit186 ], [ %.val7.i.i.i, %_ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i ], [ %.val12.i.i.i, %819 ]
   %.val29.i.i.i.pre = load ptr, ptr %85, align 8, !tbaa !140
   br label %183, !llvm.loop !141
 
 183:                                              ; preds = %.loopexit.i.i, %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit
-  %.val29.i.i.i = phi ptr [ %.val29.i.i.i.pre, %.loopexit.i.i ], [ %.0.i.i.i.i.i.i.i375382, %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit ]
-  %.val28.i.i.i = phi ptr [ %.val28.i.i.i.pre, %.loopexit.i.i ], [ %.sroa.068.0.i.i374384, %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit ]
+  %.val29.i.i.i = phi ptr [ %.val29.i.i.i.pre, %.loopexit.i.i ], [ %.0.i.i.i.i.i.i.i376383, %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit ]
+  %.val28.i.i.i = phi ptr [ %.val28.i.i.i.pre, %.loopexit.i.i ], [ %.sroa.066.0.i.i375385, %_ZN12_GLOBAL__N_117initializeNetworkERKN4llvm11ProfiParamsERNS_14MinCostMaxFlowERNS0_12FlowFunctionE.exit ]
   %.not53.i.i.i = icmp eq ptr %.val28.i.i.i, %.val29.i.i.i
   br i1 %.not53.i.i.i, label %.lr.ph62.i.i.i, label %.lr.ph.i.i.i
 
@@ -1764,7 +1762,8 @@ _ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i: ; p
 
 .lr.ph.i17.i.i:                                   ; preds = %365
   %.not.i18.i.i = icmp eq i64 %.046.i.i.i, %42
-  br i1 %.not.i18.i.i, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
+  %.not.fr.i.i.i = freeze i1 %.not.i18.i.i
+  br i1 %.not.fr.i.i.i, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i17.i.i, %.lr.ph.split.us.i.i.i
   %.sroa.039.045.us.i.i.i = phi ptr [ %369, %.lr.ph.split.us.i.i.i ], [ %.val27.i16.i.i, %.lr.ph.i17.i.i ]
@@ -2320,7 +2319,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE5clearEv.exit.i.i.i: 
   br i1 %.not94.i.i.i, label %._crit_edge107.i.i.i, label %.lr.ph106.i.i.i
 
 .lr.ph102.i.i.i:                                  ; preds = %.lr.ph102.i.i.i.preheader, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i
-  %.val16.i.i.i.i.i.i = phi ptr [ %.val16.i.i.i.i.i.i200, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i ], [ %609, %.lr.ph102.i.i.i.preheader ]
+  %.val16.i.i.i.i.i.i = phi ptr [ %.val16.i.i.i.i.i.i199, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i ], [ %609, %.lr.ph102.i.i.i.preheader ]
   %621 = phi ptr [ %664, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i ], [ %613, %.lr.ph102.i.i.i.preheader ]
   %.sroa.078.0101.i.i.i = phi ptr [ %665, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i ], [ %.val43.i.i.i, %.lr.ph102.i.i.i.preheader ]
   %622 = getelementptr inbounds nuw i8, ptr %.sroa.078.0101.i.i.i, i64 24
@@ -2409,7 +2408,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE17_M_realloc_insertIJ
   br label %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i
 
 _ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, %642, %635, %630, %627, %.lr.ph102.i.i.i
-  %.val16.i.i.i.i.i.i200 = phi ptr [ %657, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i ], [ %.val16.i.i.i.i.i.i, %642 ], [ %.val16.i.i.i.i.i.i, %635 ], [ %.val16.i.i.i.i.i.i, %630 ], [ %.val16.i.i.i.i.i.i, %627 ], [ %.val16.i.i.i.i.i.i, %.lr.ph102.i.i.i ]
+  %.val16.i.i.i.i.i.i199 = phi ptr [ %657, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i ], [ %.val16.i.i.i.i.i.i, %642 ], [ %.val16.i.i.i.i.i.i, %635 ], [ %.val16.i.i.i.i.i.i, %630 ], [ %.val16.i.i.i.i.i.i, %627 ], [ %.val16.i.i.i.i.i.i, %.lr.ph102.i.i.i ]
   %664 = phi ptr [ %661, %_ZNSt6vectorIPN12_GLOBAL__N_114MinCostMaxFlow4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i ], [ %643, %642 ], [ %621, %635 ], [ %621, %630 ], [ %621, %627 ], [ %621, %.lr.ph102.i.i.i ]
   %665 = getelementptr inbounds nuw i8, ptr %.sroa.078.0101.i.i.i, i64 56
   %.not95.i.i.i = icmp eq ptr %665, %.val42.i.i.i
@@ -2775,7 +2774,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %_ZN12_GLOBAL__N_114
 
 _ZN12_GLOBAL__N_114MinCostMaxFlow20augmentFlowAlongPathEm.exit.i.i: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i, %815
   %.not.i.i = icmp eq i64 %.sroa.speculated.i53.i.i, 0
-  br i1 %.not.i.i, label %.loopexit.i.i.loopexit187, label %.lr.ph.i.i, !llvm.loop !192
+  br i1 %.not.i.i, label %.loopexit.i.i.loopexit186, label %.lr.ph.i.i, !llvm.loop !192
 
 _ZN12_GLOBAL__N_114MinCostMaxFlow3runEv.exit:     ; preds = %_ZN12_GLOBAL__N_114MinCostMaxFlow18findAugmentingPathEv.exit.i.i
   %.val = load ptr, ptr %84, align 8
@@ -3005,7 +3004,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.i.i:                 ; preds = %_ZN4llvm9BitVectorC
   br label %_ZN12_GLOBAL__N_112FlowAdjuster22joinIsolatedComponentsEv.exit.i
 
 933:                                              ; preds = %.critedge.i.i, %.lr.ph29.i.i
-  %.val11.val12.i.i206 = phi ptr [ %.val11.val1225.i.i, %.lr.ph29.i.i ], [ %.val11.val12.i.i, %.critedge.i.i ]
+  %.val11.val12.i.i205 = phi ptr [ %.val11.val1225.i.i, %.lr.ph29.i.i ], [ %.val11.val12.i.i, %.critedge.i.i ]
   %.val11.val36.i.i = phi ptr [ %.val11.val24.i.i, %.lr.ph29.i.i ], [ %.val11.val.i.i, %.critedge.i.i ]
   %.026.i.i = phi i64 [ 0, %.lr.ph29.i.i ], [ %994, %.critedge.i.i ]
   %934 = getelementptr inbounds nuw %"struct.llvm::FlowBlock", ptr %.val11.val36.i.i, i64 %.026.i.i
@@ -3129,7 +3128,7 @@ _ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EED2Ev.exit.i.i: ; preds = %977, %._crit_edg
   br i1 %.not19.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i122
 
 .critedge.i.i:                                    ; preds = %_ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EED2Ev.exit.i.i, %937, %933
-  %.val11.val12.i.i = phi ptr [ %.val11.val12.i.i206, %933 ], [ %.val11.val12.i.i.pre, %_ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EED2Ev.exit.i.i ], [ %.val11.val12.i.i206, %937 ]
+  %.val11.val12.i.i = phi ptr [ %.val11.val12.i.i205, %933 ], [ %.val11.val12.i.i.pre, %_ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EED2Ev.exit.i.i ], [ %.val11.val12.i.i205, %937 ]
   %.val11.val.i.i = phi ptr [ %.val11.val36.i.i, %933 ], [ %.val11.val.pre.i.i, %_ZNSt6vectorIPN4llvm8FlowJumpESaIS2_EED2Ev.exit.i.i ], [ %.val11.val36.i.i, %937 ]
   %994 = add nuw i64 %.026.i.i, 1
   %995 = ptrtoint ptr %.val11.val12.i.i to i64
@@ -5317,7 +5316,7 @@ _ZN12_GLOBAL__N_114MinCostMaxFlowD2Ev.exit:       ; preds = %_ZNSt6vectorIS_IN12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2003
 
-2003:                                             ; preds = %._crit_edge172, %_ZN12_GLOBAL__N_114MinCostMaxFlowD2Ev.exit
+2003:                                             ; preds = %._crit_edge171, %_ZN12_GLOBAL__N_114MinCostMaxFlowD2Ev.exit
   ret void
 }
 

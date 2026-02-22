@@ -10670,23 +10670,22 @@ define dso_local noundef range(i32 1, 4) i32 @_ZNK4llvm12DIExpression11ExprOpera
 define dso_local noundef zeroext i1 @_ZNK4llvm12DIExpression7isValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !74
-  %.fr81 = freeze ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !77
-  %.fr80 = freeze ptr %5
-  %.not6063 = icmp eq ptr %.fr81, %.fr80
+  %.not6063 = icmp eq ptr %3, %5
   br i1 %.not6063, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = ptrtoint ptr %.fr80 to i64
-  %7 = ptrtoint ptr %.fr81 to i64
+  %6 = ptrtoint ptr %5 to i64
+  %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
-  %9 = and i64 %8, 34359738360
+  %.fr = freeze i64 %8
+  %9 = and i64 %.fr, 34359738360
   %10 = icmp eq i64 %9, 8
   br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28.us
-  %.sroa.038.064.us = phi ptr [ %26, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28.us ], [ %.fr81, %.lr.ph ]
+  %.sroa.038.064.us = phi ptr [ %26, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28.us ], [ %3, %.lr.ph ]
   %11 = load i64, ptr %.sroa.038.064.us, align 8, !tbaa !47
   %12 = add i64 %11, -112
   %or.cond.i.us = icmp ult i64 %12, 32
@@ -10718,7 +10717,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12DIExpression7isValidEv(ptr nound
 _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit.us: ; preds = %15, %14, %13, %13, %13, %13, %13, %.lr.ph.split.us
   %.0.i.us = phi i64 [ 2, %14 ], [ 1, %15 ], [ 2, %.lr.ph.split.us ], [ 3, %13 ], [ 3, %13 ], [ 3, %13 ], [ 3, %13 ], [ 3, %13 ]
   %16 = getelementptr inbounds nuw i64, ptr %.sroa.038.064.us, i64 %.0.i.us
-  %17 = icmp ugt ptr %16, %.fr80
+  %17 = icmp ugt ptr %16, %5
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit.us
@@ -10794,7 +10793,7 @@ _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit.us: ; preds = %15, %14, %13,
 
 _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit22.us: ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.038.064.us, i64 8
-  %24 = icmp eq ptr %23, %.fr80
+  %24 = icmp eq ptr %23, %5
   br i1 %24, label %.thread53.thread.us, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
 
 _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us: ; preds = %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit22.us
@@ -10808,11 +10807,11 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us: ; preds = %_ZNK4llvm12DIEx
 _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28.us: ; preds = %.thread53.thread.us, %22, %.thread53.us, %.thread53.us, %.thread53.us, %.thread53.us, %.thread53.us, %21
   %.0.i.i.i27.us = phi i64 [ 2, %22 ], [ 1, %.thread53.thread.us ], [ 2, %21 ], [ 3, %.thread53.us ], [ 3, %.thread53.us ], [ 3, %.thread53.us ], [ 3, %.thread53.us ], [ 3, %.thread53.us ]
   %26 = getelementptr inbounds nuw i64, ptr %.sroa.038.064.us, i64 %.0.i.i.i27.us
-  %.not60.us = icmp eq ptr %26, %.fr80
+  %.not60.us = icmp eq ptr %26, %5
   br i1 %.not60.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !677
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28
-  %.sroa.038.064 = phi ptr [ %55, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28 ], [ %.fr81, %.lr.ph ]
+  %.sroa.038.064 = phi ptr [ %55, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28 ], [ %3, %.lr.ph ]
   %27 = load i64, ptr %.sroa.038.064, align 8, !tbaa !47
   %28 = add i64 %27, -112
   %or.cond.i = icmp ult i64 %28, 32
@@ -10844,7 +10843,7 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28.us: ; preds = %.thread53.thr
 _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit: ; preds = %.lr.ph.split, %29, %29, %29, %29, %29, %30, %31
   %.0.i = phi i64 [ 2, %30 ], [ 1, %31 ], [ 2, %.lr.ph.split ], [ 3, %29 ], [ 3, %29 ], [ 3, %29 ], [ 3, %29 ], [ 3, %29 ]
   %32 = getelementptr inbounds nuw i64, ptr %.sroa.038.064, i64 %.0.i
-  %33 = icmp ugt ptr %32, %.fr80
+  %33 = icmp ugt ptr %32, %5
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit
@@ -10899,12 +10898,12 @@ _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit: ; preds = %.lr.ph.split, %2
 _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit19: ; preds = %36, %20
   %.us-phi75 = phi ptr [ %.sroa.038.064.us, %20 ], [ %.sroa.038.064, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %.us-phi75, i64 24
-  %38 = icmp eq ptr %37, %.fr80
+  %38 = icmp eq ptr %37, %5
   br label %.thread
 
 _ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit22: ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.064, i64 8
-  %40 = icmp eq ptr %39, %.fr80
+  %40 = icmp eq ptr %39, %5
   br i1 %40, label %.thread53.thread, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
 
 _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit22
@@ -10914,20 +10913,20 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %_ZNK4llvm12DIExpre
 
 .split.us:                                        ; preds = %36, %20
   %.us-phi76 = phi ptr [ %.sroa.038.064.us, %20 ], [ %.sroa.038.064, %36 ]
-  %42 = load i64, ptr %.fr81, align 8, !tbaa !47
+  %42 = load i64, ptr %3, align 8, !tbaa !47
   %43 = icmp eq i64 %42, 4101
   br i1 %43, label %44, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit25
 
 44:                                               ; preds = %.split.us
-  %45 = getelementptr inbounds nuw i8, ptr %.fr81, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !47
   %47 = icmp eq i64 %46, 0
   %spec.select59.idx = select i1 %47, i64 16, i64 0
-  %spec.select59 = getelementptr inbounds nuw i8, ptr %.fr81, i64 %spec.select59.idx
+  %spec.select59 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select59.idx
   br label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit25
 
 _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit25: ; preds = %44, %.split.us
-  %.sroa.0.0 = phi ptr [ %.fr81, %.split.us ], [ %spec.select59, %44 ]
+  %.sroa.0.0 = phi ptr [ %3, %.split.us ], [ %spec.select59, %44 ]
   %48 = icmp eq ptr %.us-phi76, %.sroa.0.0
   br i1 %48, label %49, label %.thread
 
@@ -10966,7 +10965,7 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit25: ; preds = %44, %.split.us
 _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28: ; preds = %53, %.thread53, %.thread53, %.thread53, %.thread53, %.thread53, %54, %.thread53.thread
   %.0.i.i.i27 = phi i64 [ 2, %54 ], [ 1, %.thread53.thread ], [ 2, %53 ], [ 3, %.thread53 ], [ 3, %.thread53 ], [ 3, %.thread53 ], [ 3, %.thread53 ], [ 3, %.thread53 ]
   %55 = getelementptr inbounds nuw i64, ptr %.sroa.038.064, i64 %.0.i.i.i27
-  %.not60 = icmp eq ptr %55, %.fr80
+  %.not60 = icmp eq ptr %55, %5
   br i1 %.not60, label %.thread, label %.lr.ph.split, !llvm.loop !677
 
 .thread:                                          ; preds = %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28, %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit, %34, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit, %36, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit28.us, %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit.us, %18, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us, %20, %1, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit25, %49, %_ZNK4llvm12DIExpression11ExprOperand7getSizeEv.exit19

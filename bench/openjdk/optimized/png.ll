@@ -2213,16 +2213,15 @@ png_muldiv.exit140.i:                             ; preds = %152, %141
 
 png_colorspace_endpoints_match.exit:              ; preds = %364
   %372 = load i32, ptr %24, align 4
-  %.fr = freeze i32 %372
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %374 = load i32, ptr %373, align 4
-  %.fr20 = freeze i32 %374
-  %375 = add i32 %.fr20, -5
-  %376 = icmp slt i32 %.fr, %375
-  %377 = add i32 %.fr20, 5
-  %378 = icmp sgt i32 %.fr, %377
-  %or.cond70.not.i.not = or i1 %376, %378
-  br i1 %or.cond70.not.i.not, label %png_colorspace_endpoints_match.exit.thread, label %png_XYZ_from_xy.exit.thread
+  %375 = add nsw i32 %374, -5
+  %376 = icmp slt i32 %372, %375
+  %377 = add nsw i32 %374, 5
+  %378 = icmp sgt i32 %372, %377
+  %or.cond70.not.i.not = select i1 %376, i1 true, i1 %378
+  %cond.fr = freeze i1 %or.cond70.not.i.not
+  br i1 %cond.fr, label %png_colorspace_endpoints_match.exit.thread, label %png_XYZ_from_xy.exit.thread
 
 png_colorspace_endpoints_match.exit.thread:       ; preds = %325, %333, %340, %348, %356, %364, %317, %png_colorspace_endpoints_match.exit
   br label %png_XYZ_from_xy.exit.thread
@@ -2711,8 +2710,8 @@ png_colorspace_endpoints_match.exit.thread:       ; preds = %248, %272, %268, %2
 png_colorspace_endpoints_match.exit:              ; preds = %272
   %278 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %279 = load i32, ptr %278, align 4, !noalias !50
-  %.fr = freeze i32 %279
-  %280 = add i32 %.fr, -7001
+  %.fr28 = freeze i32 %279
+  %280 = add i32 %.fr28, -7001
   %or.cond70.not.i = icmp ult i32 %280, -2001
   %281 = and i16 %171, 32701
   %282 = or disjoint i16 %281, 2

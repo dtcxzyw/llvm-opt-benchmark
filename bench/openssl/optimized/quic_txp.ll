@@ -820,8 +820,8 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
 98:                                               ; preds = %91
   %gep = getelementptr inbounds nuw [3 x %struct.archetype_data], ptr %invariant.gep, i64 %indvars.iv547
   %99 = load i32, ptr %gep, align 4, !tbaa !37
-  %.fr.i = freeze i32 %99
-  %100 = and i32 %.fr.i, 65536
+  %.fr136.i = freeze i32 %99
+  %100 = and i32 %.fr136.i, 65536
   %101 = icmp eq i32 %100, 0
   %or.cond.i = and i1 %55, %101
   br i1 %or.cond.i, label %1075, label %102
@@ -830,7 +830,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   %.not59.i = icmp eq i32 %.0179401, 3
   %103 = call i32 @llvm.umin.i32(i32 %.0179401, i32 %96)
   %spec.select238 = select i1 %.not59.i, i32 3, i32 %103
-  %104 = and i32 %.fr.i, 8192
+  %104 = and i32 %.fr136.i, 8192
   %.not60.i = icmp eq i32 %104, 0
   br i1 %.not60.i, label %.critedge.i, label %105
 
@@ -849,7 +849,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
 
 .thread:                                          ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %93, i64 276
-  store i32 %.fr.i, ptr %110, align 4, !tbaa !37
+  store i32 %.fr136.i, ptr %110, align 4, !tbaa !37
   br label %ossl_quic_enc_level_to_pkt_type.exit.i.i
 
 111:                                              ; preds = %105
@@ -860,7 +860,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
 
 .thread187:                                       ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %93, i64 276
-  store i32 %.fr.i, ptr %114, align 4, !tbaa !37
+  store i32 %.fr136.i, ptr %114, align 4, !tbaa !37
   br label %ossl_quic_enc_level_to_pkt_type.exit.i.i
 
 115:                                              ; preds = %111, %108, %105
@@ -872,7 +872,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br i1 %.not63.i, label %.critedge.i, label %.loopexit
 
 .critedge.i:                                      ; preds = %115, %102
-  %120 = and i32 %.fr.i, 4
+  %120 = and i32 %.fr136.i, 4
   %.not64.i = icmp eq i32 %120, 0
   br i1 %.not64.i, label %126, label %121
 
@@ -892,7 +892,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br i1 %.not65.i, label %126, label %.loopexit
 
 126:                                              ; preds = %121, %.critedge.i
-  %127 = and i32 %.fr.i, 1
+  %127 = and i32 %.fr136.i, 1
   %.not66.i = icmp eq i32 %127, 0
   br i1 %.not66.i, label %139, label %128
 
@@ -928,7 +928,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br i1 %.not70.i, label %148, label %.loopexit
 
 148:                                              ; preds = %140, %139
-  %149 = and i32 %.fr.i, 512
+  %149 = and i32 %.fr136.i, 512
   %.not71.i = icmp eq i32 %149, 0
   br i1 %.not71.i, label %.thread.i, label %150
 
@@ -969,7 +969,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br i1 %.not78.i, label %.thread.i, label %.loopexit
 
 .thread.i:                                        ; preds = %165, %148
-  %168 = and i32 %.fr.i, 8
+  %168 = and i32 %.fr136.i, 8
   %.not79.i = icmp eq i32 %168, 0
   br i1 %.not79.i, label %172, label %169
 
@@ -980,7 +980,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br i1 %.not80.i, label %172, label %.loopexit
 
 172:                                              ; preds = %169, %.thread.i
-  %173 = and i32 %.fr.i, 1024
+  %173 = and i32 %.fr136.i, 1024
   %.not81.i = icmp eq i32 %173, 0
   br i1 %.not81.i, label %179, label %174
 
@@ -1004,15 +1004,15 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br i1 %.not84110.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %180
-  %183 = and i32 %.fr.i, 32
+  %183 = and i32 %.fr136.i, 32
   %.not88.i = icmp eq i32 %183, 0
-  %184 = and i32 %.fr.i, 4096
+  %184 = and i32 %.fr136.i, 4096
   %.not89.i = icmp eq i32 %184, 0
-  %185 = and i32 %.fr.i, 128
+  %185 = and i32 %.fr136.i, 128
   %.not90.i = icmp eq i32 %185, 0
-  %186 = and i32 %.fr.i, 64
+  %186 = and i32 %.fr136.i, 64
   %.not91.i = icmp eq i32 %186, 0
-  %187 = and i32 %.fr.i, 2048
+  %187 = and i32 %.fr136.i, 2048
   %.not92.i = icmp eq i32 %187, 0
   br i1 %.not88.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1207,7 +1207,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
   br label %.loopexit
 
 .loopexit.i:                                      ; preds = %225, %222, %219, %216, %213, %210, %206, %203, %198, %193, %180, %179
-  %228 = and i32 %.fr.i, 256
+  %228 = and i32 %.fr136.i, 256
   %.not85.i = icmp eq i32 %228, 0
   br i1 %.not85.i, label %1075, label %229
 
@@ -1228,7 +1228,7 @@ txp_determine_archetype.exit:                     ; preds = %49, %38, %44, %52
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.split.us.i, %.lr.ph.split.split.split.split.us.split.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.split.us.split.us.i, %.lr.ph.split.split.split.us.split.split.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.split.us.i, %.lr.ph.split.split.split.us.split.us.split.i, %.lr.ph.split.split.split.us.split.us.split.us.i, %.lr.ph.split.split.split.us.split.us.split.us.i, %.lr.ph.split.split.us.split.i, %.lr.ph.split.split.us.split.i, %202, %201, %196, %.lr.ph.split.split.us.split.us.i, %197, %192, %189, %190, %191, %174, %159, %115, %121, %128, %140, %150, %156, %169, %232, %131, %153, %165, %162, %.lr.ph.split.split.split.split.split.i
   %235 = getelementptr inbounds nuw i8, ptr %93, i64 276
-  store i32 %.fr.i, ptr %235, align 4, !tbaa !37
+  store i32 %.fr136.i, ptr %235, align 4, !tbaa !37
   switch i32 %96, label %default.unreachable.i [
     i32 0, label %ossl_quic_enc_level_to_pkt_type.exit.i.i
     i32 2, label %236

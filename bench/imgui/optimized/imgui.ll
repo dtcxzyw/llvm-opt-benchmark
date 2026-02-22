@@ -27137,15 +27137,14 @@ define void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS5_(ptr nou
   %30 = load float, ptr %0, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load float, ptr %31, align 4
-  %.fr = freeze float %32
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 5048
   %34 = zext nneg i32 %17 to i64
   br label %35
 
 35:                                               ; preds = %.lr.ph, %.thread103
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %.thread103 ]
-  %.1132 = phi ptr [ %.0, %.lr.ph ], [ %.3108, %.thread103 ]
-  %.049130 = phi ptr [ null, %.lr.ph ], [ %.251107, %.thread103 ]
+  %.1129 = phi ptr [ %.0, %.lr.ph ], [ %.3108, %.thread103 ]
+  %.049127 = phi ptr [ null, %.lr.ph ], [ %.251107, %.thread103 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next
   %37 = load ptr, ptr %36, align 8, !tbaa !667
@@ -27186,7 +27185,7 @@ define void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS5_(ptr nou
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 524
   %60 = load float, ptr %59, align 4, !tbaa !402
   %61 = fsub float %60, %53
-  %62 = fcmp ult float %.fr, %61
+  %62 = fcmp ult float %32, %61
   br i1 %62, label %.thread103, label %63
 
 63:                                               ; preds = %58
@@ -27200,7 +27199,7 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %37, i64 532
   %69 = load float, ptr %68, align 4, !tbaa !403
   %70 = fadd float %69, %53
-  %71 = fcmp olt float %.fr, %70
+  %71 = fcmp olt float %32, %70
   br i1 %71, label %72, label %.thread103
 
 72:                                               ; preds = %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit
@@ -27220,14 +27219,11 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %63
   %83 = load float, ptr %82, align 4, !tbaa !858
   %84 = getelementptr inbounds nuw i8, ptr %37, i64 638
   %85 = load i16, ptr %84, align 2, !tbaa !859
-  %.fr126 = freeze i16 %85
-  %86 = sitofp i16 %.fr126 to float
-  %.fr125 = freeze float %83
-  %87 = fadd float %.fr125, %86
+  %86 = sitofp i16 %85 to float
+  %87 = fadd float %83, %86
   %88 = getelementptr inbounds nuw i8, ptr %37, i64 634
   %89 = load i16, ptr %88, align 2, !tbaa !860
-  %.fr127 = freeze i16 %89
-  %90 = sitofp i16 %.fr127 to float
+  %90 = sitofp i16 %89 to float
   %91 = fadd float %87, %90
   %92 = fcmp ult float %30, %81
   br i1 %92, label %.thread97, label %93
@@ -27235,7 +27231,7 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %63
 93:                                               ; preds = %75
   %94 = sitofp i16 %74 to float
   %95 = fadd float %81, %94
-  %96 = fcmp oge float %.fr, %87
+  %96 = fcmp oge float %32, %87
   %97 = fcmp olt float %30, %95
   %or.cond.i = and i1 %97, %96
   br i1 %or.cond.i, label %_ZNK6ImRect8ContainsERK6ImVec2.exit, label %.thread97
@@ -27244,8 +27240,9 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %63
   br i1 %1, label %.thread112, label %101
 
 _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %93
-  %98 = fcmp olt float %.fr, %91
-  br i1 %98, label %.thread103, label %99
+  %98 = fcmp olt float %32, %91
+  %cond.fr = freeze i1 %98
+  br i1 %cond.fr, label %.thread103, label %99
 
 99:                                               ; preds = %_ZNK6ImRect8ContainsERK6ImVec2.exit
   br i1 %1, label %.thread112, label %101
@@ -27254,9 +27251,9 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %93
   br i1 %1, label %.thread112, label %101
 
 101:                                              ; preds = %.thread97, %99, %100
-  %102 = icmp eq ptr %.1132, null
-  %spec.select65 = select i1 %102, ptr %37, ptr %.1132
-  %103 = icmp eq ptr %.049130, null
+  %102 = icmp eq ptr %.1129, null
+  %spec.select65 = select i1 %102, ptr %37, ptr %.1129
+  %103 = icmp eq ptr %.049127, null
   br i1 %103, label %104, label %111
 
 104:                                              ; preds = %101
@@ -27273,18 +27270,18 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %93
   br i1 %.not63, label %.thread103, label %111
 
 111:                                              ; preds = %104, %106, %101
-  %.453 = phi ptr [ %.049130, %101 ], [ %37, %106 ], [ %37, %104 ]
-  %.not128 = icmp eq ptr %spec.select65, null
-  br i1 %.not128, label %.thread103, label %.thread112
+  %.453 = phi ptr [ %.049127, %101 ], [ %37, %106 ], [ %37, %104 ]
+  %.not125 = icmp eq ptr %spec.select65, null
+  br i1 %.not125, label %.thread103, label %.thread112
 
 .thread103:                                       ; preds = %_ZNK6ImRect8ContainsERK6ImVec2.exit, %106, %49, %58, %63, %111, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit, %41, %35, %45
-  %.3108 = phi ptr [ %.1132, %49 ], [ %spec.select65, %106 ], [ %.1132, %45 ], [ null, %111 ], [ %.1132, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.1132, %41 ], [ %.1132, %35 ], [ %.1132, %63 ], [ %.1132, %58 ], [ %.1132, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
-  %.251107 = phi ptr [ %.049130, %49 ], [ null, %106 ], [ %.049130, %45 ], [ %.453, %111 ], [ %.049130, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.049130, %41 ], [ %.049130, %35 ], [ %.049130, %63 ], [ %.049130, %58 ], [ %.049130, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
+  %.3108 = phi ptr [ %.1129, %49 ], [ %spec.select65, %106 ], [ %.1129, %45 ], [ null, %111 ], [ %.1129, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.1129, %41 ], [ %.1129, %35 ], [ %.1129, %63 ], [ %.1129, %58 ], [ %.1129, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
+  %.251107 = phi ptr [ %.049127, %49 ], [ null, %106 ], [ %.049127, %45 ], [ %.453, %111 ], [ %.049127, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.049127, %41 ], [ %.049127, %35 ], [ %.049127, %63 ], [ %.049127, %58 ], [ %.049127, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
   %112 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %112, label %35, label %.thread112, !llvm.loop !861
 
 .thread112:                                       ; preds = %.thread103, %100, %.thread97, %111, %99, %13
-  %.150 = phi ptr [ null, %13 ], [ %.049130, %99 ], [ %.049130, %100 ], [ %.453, %111 ], [ %.049130, %.thread97 ], [ %.251107, %.thread103 ]
+  %.150 = phi ptr [ null, %13 ], [ %.049127, %99 ], [ %.049127, %100 ], [ %.453, %111 ], [ %.049127, %.thread97 ], [ %.251107, %.thread103 ]
   %.2 = phi ptr [ %.0, %13 ], [ %37, %99 ], [ %37, %100 ], [ %spec.select65, %111 ], [ %37, %.thread97 ], [ %.3108, %.thread103 ]
   store ptr %.2, ptr %2, align 8, !tbaa !667
   %.not64 = icmp eq ptr %3, null
@@ -76751,23 +76748,23 @@ _ZN14ImGuiTextIndex12get_line_endEPKci.exit:      ; preds = %262, %266
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %273, i64 7548
   %275 = getelementptr inbounds i8, ptr %270, i64 -10
   %276 = add nsw i64 %269, -10
-  %.not56.i = icmp slt i64 %276, %257
-  br i1 %.not56.i, label %_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_.exit, label %.lr.ph.i
+  %.not57.i = icmp slt i64 %276, %257
+  br i1 %.not57.i, label %_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %272
   %277 = fadd float %.sroa.5.0.copyload.i, 0.000000e+00
   br label %278
 
 278:                                              ; preds = %_ZL15ImCharIsXdigitAc.exit.thread.i, %.lr.ph.i
-  %.057.i = phi ptr [ %258, %.lr.ph.i ], [ %345, %_ZL15ImCharIsXdigitAc.exit.thread.i ]
+  %.058.i = phi ptr [ %258, %.lr.ph.i ], [ %345, %_ZL15ImCharIsXdigitAc.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !226
-  %279 = load i8, ptr %.057.i, align 1, !tbaa !210
+  %279 = load i8, ptr %.058.i, align 1, !tbaa !210
   %.not24.i = icmp eq i8 %279, 48
   br i1 %.not24.i, label %280, label %_ZL15ImCharIsXdigitAc.exit.thread.i
 
 280:                                              ; preds = %278
-  %281 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
+  %281 = getelementptr inbounds nuw i8, ptr %.058.i, i64 1
   %282 = load i8, ptr %281, align 1, !tbaa !210
   switch i8 %282, label %_ZL15ImCharIsXdigitAc.exit.thread.i [
     i8 120, label %283
@@ -76775,21 +76772,21 @@ _ZN14ImGuiTextIndex12get_line_endEPKci.exit:      ; preds = %262, %266
   ]
 
 283:                                              ; preds = %280, %280
-  %284 = getelementptr inbounds nuw i8, ptr %.057.i, i64 2
+  %284 = getelementptr inbounds nuw i8, ptr %.058.i, i64 2
   %285 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %284, ptr noundef nonnull @.str.503, ptr noundef nonnull %2) #44
   %.not27.i = icmp eq i32 %285, 1
   br i1 %.not27.i, label %286, label %_ZL15ImCharIsXdigitAc.exit.thread.i
 
 286:                                              ; preds = %283
-  %287 = getelementptr inbounds nuw i8, ptr %.057.i, i64 10
+  %287 = getelementptr inbounds nuw i8, ptr %.058.i, i64 10
   %288 = load i8, ptr %287, align 1, !tbaa !210
-  %.fr.i = freeze i8 %288
-  %289 = add i8 %.fr.i, -48
+  %.fr56.i = freeze i8 %288
+  %289 = add i8 %.fr56.i, -48
   %or.cond.i.i = icmp ult i8 %289, 10
   br i1 %or.cond.i.i, label %_ZL15ImCharIsXdigitAc.exit.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %286
-  switch i8 %.fr.i, label %290 [
+  switch i8 %.fr56.i, label %290 [
     i8 102, label %_ZL15ImCharIsXdigitAc.exit.thread.i
     i8 101, label %_ZL15ImCharIsXdigitAc.exit.thread.i
     i8 100, label %_ZL15ImCharIsXdigitAc.exit.thread.i
@@ -76808,7 +76805,7 @@ switch.early.test.i:                              ; preds = %286
   %291 = load ptr, ptr @GImGui, align 8, !tbaa !215
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 4272
   %293 = load float, ptr %292, align 8, !tbaa !453
-  %294 = icmp eq ptr %258, %.057.i
+  %294 = icmp eq ptr %258, %.058.i
   br i1 %294, label %295, label %296
 
 295:                                              ; preds = %290
@@ -76818,7 +76815,7 @@ switch.early.test.i:                              ; preds = %286
 296:                                              ; preds = %290
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 4264
   %298 = load ptr, ptr %297, align 8, !tbaa !452
-  %299 = invoke <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %298, float noundef %293, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %258, ptr noundef nonnull %.057.i, ptr noundef null)
+  %299 = invoke <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %298, float noundef %293, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %258, ptr noundef nonnull %.058.i, ptr noundef null)
           to label %.noexc46 unwind label %.loopexit
 
 .noexc46:                                         ; preds = %296
@@ -76829,16 +76826,16 @@ switch.early.test.i:                              ; preds = %286
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> %299, float %302, i64 0
   %.pre.i = load ptr, ptr @GImGui, align 8, !tbaa !215
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4272
-  %.pre58.i = load float, ptr %.phi.trans.insert.i, align 8, !tbaa !453
+  %.pre59.i = load float, ptr %.phi.trans.insert.i, align 8, !tbaa !453
   br label %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
 
 _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i:          ; preds = %.noexc46, %295
-  %303 = phi float [ %293, %295 ], [ %.pre58.i, %.noexc46 ]
+  %303 = phi float [ %293, %295 ], [ %.pre59.i, %.noexc46 ]
   %304 = phi ptr [ %291, %295 ], [ %.pre.i, %.noexc46 ]
   %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %295 ], [ %.sroa.0.0.vec.insert.i.i, %.noexc46 ]
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 4264
   %306 = load ptr, ptr %305, align 8, !tbaa !452
-  %307 = invoke <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %306, float noundef %303, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.057.i, ptr noundef nonnull %287, ptr noundef null)
+  %307 = invoke <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %306, float noundef %303, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.058.i, ptr noundef nonnull %287, ptr noundef null)
           to label %.noexc47 unwind label %.loopexit
 
 .noexc47:                                         ; preds = %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
@@ -76906,7 +76903,7 @@ _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i:          ; preds = %.noexc46, %295
           to label %_ZL15ImCharIsXdigitAc.exit.thread.i unwind label %.loopexit
 
 _ZL15ImCharIsXdigitAc.exit.thread.i:              ; preds = %343, %325, %.noexc47, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %286, %283, %280, %278
-  %.1.i = phi ptr [ %.057.i, %278 ], [ %.057.i, %280 ], [ %287, %.noexc47 ], [ %.057.i, %283 ], [ %.057.i, %switch.early.test.i ], [ %287, %325 ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %286 ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %287, %343 ]
+  %.1.i = phi ptr [ %.058.i, %278 ], [ %.058.i, %280 ], [ %287, %.noexc47 ], [ %.058.i, %283 ], [ %.058.i, %switch.early.test.i ], [ %287, %325 ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %286 ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %287, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %345 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.not.i44 = icmp ugt ptr %345, %275
@@ -81009,23 +81006,23 @@ define void @_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_(ptr noundef %0
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !87
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 7548
   %8 = getelementptr inbounds i8, ptr %1, i64 -10
-  %.not56 = icmp ugt ptr %0, %8
-  br i1 %.not56, label %.loopexit, label %.lr.ph
+  %.not57 = icmp ugt ptr %0, %8
+  br i1 %.not57, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = fadd float %.sroa.5.0.copyload, 0.000000e+00
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL15ImCharIsXdigitAc.exit.thread
-  %.057 = phi ptr [ %0, %.lr.ph ], [ %77, %_ZL15ImCharIsXdigitAc.exit.thread ]
+  %.058 = phi ptr [ %0, %.lr.ph ], [ %77, %_ZL15ImCharIsXdigitAc.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !226
-  %11 = load i8, ptr %.057, align 1, !tbaa !210
+  %11 = load i8, ptr %.058, align 1, !tbaa !210
   %.not24 = icmp eq i8 %11, 48
   br i1 %.not24, label %12, label %_ZL15ImCharIsXdigitAc.exit.thread
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.057, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !210
   switch i8 %14, label %_ZL15ImCharIsXdigitAc.exit.thread [
     i8 120, label %15
@@ -81033,21 +81030,21 @@ define void @_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_(ptr noundef %0
   ]
 
 15:                                               ; preds = %12, %12
-  %16 = getelementptr inbounds nuw i8, ptr %.057, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.058, i64 2
   %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %16, ptr noundef nonnull @.str.503, ptr noundef nonnull %3) #44
   %.not27 = icmp eq i32 %17, 1
   br i1 %.not27, label %18, label %_ZL15ImCharIsXdigitAc.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %.057, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %.058, i64 10
   %20 = load i8, ptr %19, align 1, !tbaa !210
-  %.fr = freeze i8 %20
-  %21 = add i8 %.fr, -48
+  %.fr56 = freeze i8 %20
+  %21 = add i8 %.fr56, -48
   %or.cond.i = icmp ult i8 %21, 10
   br i1 %or.cond.i, label %_ZL15ImCharIsXdigitAc.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
-  switch i8 %.fr, label %22 [
+  switch i8 %.fr56, label %22 [
     i8 102, label %_ZL15ImCharIsXdigitAc.exit.thread
     i8 101, label %_ZL15ImCharIsXdigitAc.exit.thread
     i8 100, label %_ZL15ImCharIsXdigitAc.exit.thread
@@ -81066,7 +81063,7 @@ switch.early.test:                                ; preds = %18
   %23 = load ptr, ptr @GImGui, align 8, !tbaa !215
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4272
   %25 = load float, ptr %24, align 8, !tbaa !453
-  %26 = icmp eq ptr %0, %.057
+  %26 = icmp eq ptr %0, %.058
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %22
@@ -81076,7 +81073,7 @@ switch.early.test:                                ; preds = %18
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 4264
   %30 = load ptr, ptr %29, align 8, !tbaa !452
-  %31 = call <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %30, float noundef %25, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef %0, ptr noundef nonnull %.057, ptr noundef null)
+  %31 = call <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %30, float noundef %25, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef %0, ptr noundef nonnull %.058, ptr noundef null)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %31, i64 0
   %32 = fadd float %.sroa.0.0.vec.extract.i, 0x3FEFFFEB00000000
   %33 = fptosi float %32 to i32
@@ -81084,16 +81081,16 @@ switch.early.test:                                ; preds = %18
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> %31, float %34, i64 0
   %.pre = load ptr, ptr @GImGui, align 8, !tbaa !215
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 4272
-  %.pre58 = load float, ptr %.phi.trans.insert, align 8, !tbaa !453
+  %.pre59 = load float, ptr %.phi.trans.insert, align 8, !tbaa !453
   br label %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit
 
 _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit:            ; preds = %27, %28
-  %35 = phi float [ %25, %27 ], [ %.pre58, %28 ]
+  %35 = phi float [ %25, %27 ], [ %.pre59, %28 ]
   %36 = phi ptr [ %23, %27 ], [ %.pre, %28 ]
   %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %27 ], [ %.sroa.0.0.vec.insert.i, %28 ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4264
   %38 = load ptr, ptr %37, align 8, !tbaa !452
-  %39 = call <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %38, float noundef %35, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.057, ptr noundef nonnull %19, ptr noundef null)
+  %39 = call <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(114) %38, float noundef %35, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.058, ptr noundef nonnull %19, ptr noundef null)
   %.sroa.0.0.vec.extract.i35 = extractelement <2 x float> %39, i64 0
   %40 = fadd float %.sroa.0.0.vec.extract.i35, 0x3FEFFFEB00000000
   %41 = fptosi float %40 to i32
@@ -81158,7 +81155,7 @@ _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit:            ; preds = %27, %28
   br label %_ZL15ImCharIsXdigitAc.exit.thread
 
 _ZL15ImCharIsXdigitAc.exit.thread:                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %18, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit, %57, %75, %10, %15, %12
-  %.1 = phi ptr [ %.057, %10 ], [ %.057, %12 ], [ %19, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit ], [ %.057, %15 ], [ %19, %75 ], [ %19, %57 ], [ %.057, %switch.early.test ], [ %.057, %18 ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ]
+  %.1 = phi ptr [ %.058, %10 ], [ %.058, %12 ], [ %19, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit ], [ %.058, %15 ], [ %19, %75 ], [ %19, %57 ], [ %.058, %switch.early.test ], [ %.058, %18 ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %77 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not = icmp ugt ptr %77, %8

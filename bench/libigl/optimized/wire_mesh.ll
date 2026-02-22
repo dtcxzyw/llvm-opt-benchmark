@@ -876,26 +876,20 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %221 = load i64, ptr %39, align 8, !tbaa !22
   %222 = load double, ptr %217, align 8, !tbaa !14
   %223 = load double, ptr %220, align 8, !tbaa !14
-  %.fr719 = freeze double %222
-  %.fr720 = freeze double %223
-  %224 = fsub double %.fr719, %.fr720
+  %224 = fsub double %222, %223
   %.sroa.0376.0.vec.insert = insertelement <2 x double> poison, double %224, i64 0
   %225 = getelementptr inbounds double, ptr %217, i64 %221
   %226 = load double, ptr %225, align 8, !tbaa !14
   %227 = getelementptr inbounds double, ptr %220, i64 %221
   %228 = load double, ptr %227, align 8, !tbaa !14
-  %.fr721 = freeze double %226
-  %.fr722 = freeze double %228
-  %229 = fsub double %.fr721, %.fr722
+  %229 = fsub double %226, %228
   %.sroa.0376.8.vec.insert = insertelement <2 x double> %.sroa.0376.0.vec.insert, double %229, i64 1
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %221, 4
   %230 = getelementptr inbounds i8, ptr %217, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %231 = load double, ptr %230, align 8, !tbaa !14
   %232 = getelementptr inbounds i8, ptr %220, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %233 = load double, ptr %232, align 8, !tbaa !14
-  %.fr = freeze double %231
-  %.fr717 = freeze double %233
-  %234 = fsub double %.fr, %.fr717
+  %234 = fsub double %231, %233
   %235 = fmul <2 x double> %.sroa.0376.8.vec.insert, %.sroa.0376.8.vec.insert
   %shift = shufflevector <2 x double> %235, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %235, %shift
@@ -923,13 +917,14 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %244 = fdiv double %234, %.scalar.i
   store double %244, ptr %.sroa.8379.0..sroa_idx, align 16, !tbaa !14, !alias.scope !92
   %.pre613 = fmul <2 x double> %243, %243
-  %shift728 = shufflevector <2 x double> %.pre613, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop729 = fadd <2 x double> %.pre613, %shift728
-  %.pre618 = extractelement <2 x double> %foldExtExtBinop729, i64 0
+  %shift720 = shufflevector <2 x double> %.pre613, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop721 = fadd <2 x double> %.pre613, %shift720
+  %.pre618 = extractelement <2 x double> %foldExtExtBinop721, i64 0
   %.pre620 = fmul double %244, %244
   %.pre622 = fadd double %.pre620, %.pre618
-  %.pre624 = call double @llvm.sqrt.f64(double %.pre622)
-  %245 = fcmp ogt double %.pre622, 0.000000e+00
+  %.pre622.fr = freeze double %.pre622
+  %.pre624 = call double @llvm.sqrt.f64(double %.pre622.fr)
+  %245 = fcmp ogt double %.pre622.fr, 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !89
   store <2 x double> zeroinitializer, ptr %9, align 16, !tbaa !88, !noalias !89
   store double 1.000000e+00, ptr %93, align 16, !tbaa !14, !noalias !89
@@ -946,9 +941,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %252 = phi <2 x double> [ %.sroa.0376.8.vec.insert, %.thread692 ], [ %243, %250 ], [ %248, %240 ]
   %253 = phi double [ %234, %.thread692 ], [ %244, %250 ], [ %249, %240 ]
   %254 = fmul <2 x double> %252, zeroinitializer
-  %shift731 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop732 = fadd <2 x double> %254, %shift731
-  %255 = extractelement <2 x double> %foldExtExtBinop732, i64 0
+  %shift723 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop724 = fadd <2 x double> %254, %shift723
+  %255 = extractelement <2 x double> %foldExtExtBinop724, i64 0
   %256 = fadd double %253, %255
   %257 = fcmp olt double %256, 0xBFEFFFFFFFFFDCD1
   br i1 %257, label %258, label %275
@@ -1500,8 +1495,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %483
   store i64 %469, ptr %472, align 8, !tbaa !22
   store i64 %471, ptr %473, align 8, !tbaa !145
   %490 = and i64 %478, 2305843009213693950
-  %.not725 = icmp eq i64 %478, 1
-  br i1 %.not725, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  %.not717 = icmp eq i64 %478, 1
+  br i1 %.not717, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread703, %.thread700, %489
   %491 = phi i64 [ 0, %.thread700 ], [ %482, %.thread703 ], [ %490, %489 ], [ %490, %.lr.ph.i.i.i.i.i.i.i ]
@@ -3706,10 +3701,10 @@ define linkonce_odr dso_local void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixId
   %9 = alloca %"class.Eigen::Block.1105", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !range !213
-  %.fr = freeze i8 %11
-  %12 = trunc i8 %.fr to i1
-  %or.cond67 = xor i1 %12, true
-  %spec.select = and i1 %3, %or.cond67
+  %.fr67 = freeze i8 %11
+  %12 = trunc i8 %.fr67 to i1
+  %or.cond68 = xor i1 %12, true
+  %spec.select = and i1 %3, %or.cond68
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !245
   %15 = icmp sgt i64 %14, 47

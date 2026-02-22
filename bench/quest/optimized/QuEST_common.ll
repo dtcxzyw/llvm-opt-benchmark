@@ -440,8 +440,8 @@ define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr no
 
 7:                                                ; preds = %5
   %8 = tail call double @genrand_real1() #22
-  %.fr = freeze double %8
-  %9 = fcmp ogt double %.fr, %0
+  %.fr15 = freeze double %8
+  %9 = fcmp ogt double %.fr15, %0
   %10 = zext i1 %9 to i32
   %spec.select = select i1 %9, double %4, double %0
   br label %.thread
@@ -831,8 +831,8 @@ define range(i32 0, 2) i32 @statevec_measureWithStats(ptr noundef readonly byval
 
 9:                                                ; preds = %7
   %10 = tail call double @genrand_real1() #22
-  %.fr.i = freeze double %10
-  %11 = fcmp ogt double %.fr.i, %4
+  %.fr15.i = freeze double %10
+  %11 = fcmp ogt double %.fr15.i, %4
   %12 = zext i1 %11 to i32
   %spec.select.i = select i1 %11, double %6, double %4
   br label %generateMeasurementOutcome.exit
@@ -862,8 +862,8 @@ define range(i32 0, 2) i32 @densmatr_measureWithStats(ptr noundef readonly byval
 
 9:                                                ; preds = %7
   %10 = tail call double @genrand_real1() #22
-  %.fr.i = freeze double %10
-  %11 = fcmp ogt double %.fr.i, %4
+  %.fr15.i = freeze double %10
+  %11 = fcmp ogt double %.fr15.i, %4
   %12 = zext i1 %11 to i32
   %spec.select.i = select i1 %11, double %6, double %4
   br label %generateMeasurementOutcome.exit

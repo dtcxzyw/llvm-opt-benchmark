@@ -7173,13 +7173,12 @@ _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.059.079, i64 36
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
-  %.fr = freeze i32 %39
-  %.not5475 = icmp ult i32 %.fr, %42
+  %.not5475 = icmp ult i32 %39, %42
   br i1 %.not5475, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %37, %.critedge5
   %.177 = phi ptr [ %.2, %.critedge5 ], [ %.080, %37 ]
-  %.03576 = phi i32 [ %100, %.critedge5 ], [ %.fr, %37 ]
+  %.03576 = phi i32 [ %100, %.critedge5 ], [ %39, %37 ]
   %43 = ptrtoint ptr %.177 to i64
   %44 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032) to i64), %43
   %45 = ashr exact i64 %44, 3
@@ -7192,8 +7191,7 @@ _ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i:  ; preds = %.lr.ph, %_ZSt7advan
   %47 = lshr i64 %.01125.i.i, 1
   %48 = getelementptr inbounds nuw %"struct.ue2::unicase", ptr %.026.i.i, i64 %47
   %.val.i.i.i = load i32, ptr %48, align 4
-  %.val.i.fr.i.i = freeze i32 %.val.i.i.i
-  %49 = icmp ult i32 %.val.i.fr.i.i, %.03576
+  %49 = icmp ult i32 %.val.i.i.i, %.03576
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = xor i64 %47, -1
   %52 = add nsw i64 %.01125.i.i, %51
@@ -7377,7 +7375,6 @@ _ZN3ue212CodePointSetD2Ev.exit:                   ; preds = %.critedge5.thread
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN3ue29flip_caseEPj(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
-  %.val3.i.fr.i.i = freeze i32 %2
   br label %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i:  ; preds = %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i, %1
@@ -7386,8 +7383,7 @@ _ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i:  ; preds = %_ZSt7advanceIPKN3ue
   %3 = lshr i64 %.01125.i.i, 1
   %4 = getelementptr inbounds nuw %"struct.ue2::unicase", ptr %.026.i.i, i64 %3
   %.val.i.i.i = load i32, ptr %4, align 4
-  %.val.i.fr.i.i = freeze i32 %.val.i.i.i
-  %5 = icmp ult i32 %.val.i.fr.i.i, %.val3.i.fr.i.i
+  %5 = icmp ult i32 %.val.i.i.i, %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = xor i64 %3, -1
   %8 = add nsw i64 %.01125.i.i, %7
@@ -7402,7 +7398,7 @@ _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %_ZSt7advanc
 
 12:                                               ; preds = %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit
   %13 = load i32, ptr %10, align 4
-  %14 = icmp eq i32 %13, %.val3.i.fr.i.i
+  %14 = icmp eq i32 %13, %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12

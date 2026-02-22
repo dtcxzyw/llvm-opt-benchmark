@@ -1010,8 +1010,8 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
 .thread46:                                        ; preds = %518
   %523 = getelementptr inbounds nuw i8, ptr %519, i64 40
   %524 = load i32, ptr %523, align 4
-  %.fr = freeze i32 %524
-  %525 = and i32 %.fr, 33554432
+  %.fr73 = freeze i32 %524
+  %525 = and i32 %.fr73, 33554432
   %.not502 = icmp eq i32 %525, 0
   %spec.select = select i1 %.not502, i32 4, i32 8
   %526 = or disjoint i32 %spec.select, 16
@@ -1204,7 +1204,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   %620 = sub i64 %612, %619
   %621 = trunc i64 %620 to i32
   %622 = call i32 %617(ptr noundef %0, ptr noundef %618, i32 noundef %2, i32 noundef %621, i32 noundef %598) #9
-  %.fr73 = freeze i32 %622
+  %.fr = freeze i32 %622
   %623 = icmp eq ptr %618, null
   br i1 %623, label %625, label %624
 
@@ -1213,7 +1213,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   br label %625
 
 625:                                              ; preds = %624, %616
-  %626 = icmp slt i32 %.fr73, 1
+  %626 = icmp slt i32 %.fr, 1
   br i1 %626, label %627, label %608
 
 .thread69:                                        ; preds = %608, %597, %603
@@ -1222,14 +1222,14 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
 
 627:                                              ; preds = %625
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %628 = icmp eq i32 %.fr73, 0
+  %628 = icmp eq i32 %.fr, 0
   br i1 %628, label %629, label %.thread66
 
 629:                                              ; preds = %.thread69, %627
   br label %.thread66
 
 .thread66:                                        ; preds = %584, %629, %627, %.thread71, %590
-  %630 = phi i32 [ %585, %590 ], [ %614, %.thread71 ], [ %585, %629 ], [ %.fr73, %627 ], [ %585, %584 ]
+  %630 = phi i32 [ %585, %590 ], [ %614, %.thread71 ], [ %585, %629 ], [ %.fr, %627 ], [ %585, %584 ]
   %631 = icmp ne i32 %48, 0
   %632 = icmp eq i32 %630, 0
   %633 = select i1 %631, i1 %632, i1 false

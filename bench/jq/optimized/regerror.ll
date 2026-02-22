@@ -479,11 +479,9 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !12
-  %.fr49 = freeze ptr %23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !13
-  %.fr = freeze ptr %25
-  %.not.i = icmp eq ptr %.fr49, null
+  %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %to_ascii.exit.thread, label %27
 
 to_ascii.exit.thread:                             ; preds = %18
@@ -501,14 +499,14 @@ to_ascii.exit.thread:                             ; preds = %18
   br label %32
 
 32:                                               ; preds = %75, %.preheader.i
-  %.059.i = phi ptr [ %79, %75 ], [ %.fr49, %.preheader.i ]
+  %.059.i = phi ptr [ %79, %75 ], [ %23, %.preheader.i ]
   %.1.i = phi i32 [ %.3.i, %75 ], [ 0, %.preheader.i ]
-  %33 = icmp ult ptr %.059.i, %.fr
+  %33 = icmp ult ptr %.059.i, %25
   br i1 %33, label %34, label %81
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %31, align 8, !tbaa !17
-  %36 = call i32 %35(ptr noundef %.059.i, ptr noundef nonnull %.fr) #9
+  %36 = call i32 %35(ptr noundef %.059.i, ptr noundef nonnull %25) #9
   %37 = icmp ugt i32 %36, 127
   br i1 %37, label %38, label %70
 
@@ -573,21 +571,22 @@ to_ascii.exit.thread:                             ; preds = %18
 81:                                               ; preds = %75, %58, %32
   %.160.i = phi ptr [ %79, %75 ], [ %.059.i, %58 ], [ %.059.i, %32 ]
   %.2.i = phi i32 [ %.3.i, %75 ], [ %.1.i, %58 ], [ %.1.i, %32 ]
-  %.160.i.fr = freeze ptr %.160.i
-  %82 = icmp ult ptr %.160.i.fr, %.fr
+  %82 = icmp ult ptr %.160.i, %25
   %83 = call ptr @onig_error_code_to_format(i32 noundef %1)
   %84 = sext i32 %.2.i to i64
-  br i1 %82, label %to_ascii.exit.split.us.preheader, label %to_ascii.exit.split.preheader
+  %.sink.shrunk.i.fr47 = freeze i1 %82
+  br i1 %.sink.shrunk.i.fr47, label %to_ascii.exit.split.us.preheader, label %to_ascii.exit.split.preheader
 
 to_ascii.exit:                                    ; preds = %27
-  %85 = ptrtoint ptr %.fr to i64
-  %86 = ptrtoint ptr %.fr49 to i64
+  %85 = ptrtoint ptr %25 to i64
+  %86 = ptrtoint ptr %23 to i64
   %87 = sub i64 %85, %86
-  %88 = trunc i64 %87 to i32
+  %.fr = freeze i64 %87
+  %88 = trunc i64 %.fr to i32
   %89 = call i32 @llvm.smin.i32(i32 %88, i32 27)
   %90 = sext i32 %89 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.fr49, i64 %90, i1 false)
-  %91 = icmp sgt i64 %87, 27
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %23, i64 %90, i1 false)
+  %91 = icmp sgt i64 %.fr, 27
   %92 = call ptr @onig_error_code_to_format(i32 noundef %1)
   %93 = sext i32 %89 to i64
   br i1 %91, label %to_ascii.exit.split.us.preheader, label %to_ascii.exit.split.preheader

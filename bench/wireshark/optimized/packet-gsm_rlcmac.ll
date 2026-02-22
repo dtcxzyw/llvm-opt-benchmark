@@ -6969,9 +6969,9 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %10 = load i8, ptr %9, align 2
-  %.fr73 = freeze i8 %10
-  %11 = zext i8 %.fr73 to i32
-  %.not = icmp eq i8 %.fr73, 0
+  %.fr72 = freeze i8 %10
+  %11 = zext i8 %.fr72 to i32
+  %.not = icmp eq i8 %.fr72, 0
   br i1 %.not, label %.loopexit, label %12
 
 12:                                               ; preds = %7

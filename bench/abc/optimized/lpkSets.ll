@@ -520,24 +520,24 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 .lr.ph117.split.us:                               ; preds = %.lr.ph117
   %20 = getelementptr i8, ptr %1, i64 8
   %.val108.us = load ptr, ptr %20, align 8, !tbaa !23
-  %wide.trip.count135 = zext nneg i32 %.val105 to i64
+  %wide.trip.count136 = zext nneg i32 %.val105 to i64
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %..critedge2_crit_edge.us, %.lr.ph117.split.us
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
   %.0116.us = phi i32 [ %.us-phi.us, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
-  %21 = getelementptr inbounds nuw i32, ptr %.val109, i64 %indvars.iv132
+  %21 = getelementptr inbounds nuw i32, ptr %.val109, i64 %indvars.iv133
   %22 = load i32, ptr %21, align 4, !tbaa !15
-  %.fr = freeze i32 %22
-  %23 = and i32 %.fr, 65535
+  %.fr128 = freeze i32 %22
+  %23 = and i32 %.fr128, 65535
   %24 = icmp eq i32 %23, 0
   %25 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %23)
   %26 = icmp samesign ugt i32 %25, 1
   br i1 %24, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121.preheader
 
 .lr.ph.split.us121.preheader:                     ; preds = %.lr.ph.us
-  %.sink158 = trunc i64 %indvars.iv132 to i32
+  %.sink159 = trunc i64 %indvars.iv133 to i32
   br label %.lr.ph.split.us121
 
 .lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %101
@@ -560,7 +560,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %or.cond111.us, label %37, label %101
 
 37:                                               ; preds = %34
-  %38 = or i32 %28, %.fr
+  %38 = or i32 %28, %.fr128
   %39 = and i32 %38, 21845
   %40 = lshr i32 %38, 1
   %41 = and i32 %40, 21845
@@ -642,7 +642,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %95, ptr %96, align 1, !tbaa !28
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = shl i32 %97, 16
-  %99 = or i32 %98, %.sink158
+  %99 = or i32 %98, %.sink159
   %100 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.Parents, i64 %76
   store i32 %99, ptr %100, align 4, !tbaa !15
   br label %101
@@ -655,42 +655,42 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 
 ..critedge2_crit_edge.us:                         ; preds = %101, %.lr.ph.us
   %.us-phi.us = phi i32 [ %.0116.us, %.lr.ph.us ], [ %.2.us, %101 ]
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !30
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
+  br i1 %exitcond137.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !30
 
 .critedge.preheader:                              ; preds = %..critedge2_crit_edge.us
   %102 = icmp sgt i32 %.us-phi.us, 0
-  br i1 %102, label %.critedge.preheader128, label %._crit_edge
+  br i1 %102, label %.critedge.preheader129, label %._crit_edge
 
-.critedge.preheader128:                           ; preds = %.critedge.preheader
-  %wide.trip.count140 = zext nneg i32 %.us-phi.us to i64
+.critedge.preheader129:                           ; preds = %.critedge.preheader
+  %wide.trip.count141 = zext nneg i32 %.us-phi.us to i64
   br label %.critedge
 
 .lr.ph126:                                        ; preds = %.critedge
   %103 = getelementptr i8, ptr %0, i64 8
   %104 = getelementptr i8, ptr %1, i64 8
   %105 = trunc i32 %3 to i8
-  %wide.trip.count145 = zext nneg i32 %.us-phi.us to i64
+  %wide.trip.count146 = zext nneg i32 %.us-phi.us to i64
   br label %112
 
-.critedge:                                        ; preds = %.critedge.preheader128, %.critedge
-  %indvars.iv137 = phi i64 [ 0, %.critedge.preheader128 ], [ %indvars.iv.next138, %.critedge ]
-  %.089124 = phi i32 [ 1000, %.critedge.preheader128 ], [ %spec.select, %.critedge ]
-  %106 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv137
+.critedge:                                        ; preds = %.critedge.preheader129, %.critedge
+  %indvars.iv138 = phi i64 [ 0, %.critedge.preheader129 ], [ %indvars.iv.next139, %.critedge ]
+  %.089124 = phi i32 [ 1000, %.critedge.preheader129 ], [ %spec.select, %.critedge ]
+  %106 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv138
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = zext i16 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !28
   %111 = sext i8 %110 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %111)
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %.lr.ph126, label %.critedge, !llvm.loop !31
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
+  br i1 %exitcond142.not, label %.lr.ph126, label %.critedge, !llvm.loop !31
 
 112:                                              ; preds = %.lr.ph126, %177
-  %indvars.iv142 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next143, %177 ]
-  %113 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv142
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %177 ]
+  %113 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv143
   %114 = load i16, ptr %113, align 2, !tbaa !14
   %115 = zext i16 %114 to i64
   %116 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %115
@@ -770,9 +770,9 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   br label %177
 
 177:                                              ; preds = %112, %123
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge, label %112, !llvm.loop !39
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %._crit_edge, label %112, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %120, %177, %.lr.ph117, %11, %.critedge.preheader
   ret void

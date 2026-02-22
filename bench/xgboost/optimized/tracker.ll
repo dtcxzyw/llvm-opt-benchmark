@@ -9058,212 +9058,210 @@ _ZNKSt4lessIvEclIRKN7xgboost10StringViewERKNSt7__cxx1112basic_stringIcSt11char_t
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common6detail22LexicographicalCompareINS1_12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEES7_NS1_4LessIRS5_EEEEbT_SB_T0_SC_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator") align 8 %6) local_unnamed_addr #3 comdat {
 .split:
-  %.fr84 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr83 = freeze ptr %4
-  %7 = icmp ne ptr %.fr, %.fr84
+  %7 = icmp ne ptr %0, %2
+  %.fr73 = freeze i1 %7
   %8 = icmp ne i64 %1, %3
-  %.not8.i49 = select i1 %7, i1 true, i1 %8
+  %.not8.i49 = select i1 %.fr73, i1 true, i1 %8
   br i1 %.not8.i49, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
   %.sroa.07.0.copyload = load ptr, ptr %6, align 8, !tbaa !426
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !20
-  %.sroa.07.0.copyload.fr = freeze ptr %.sroa.07.0.copyload
-  %.not = icmp eq ptr %.fr83, %.sroa.07.0.copyload.fr
-  %9 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %.fr83, i64 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %9 = icmp ne ptr %4, %.sroa.07.0.copyload
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.fr = freeze i1 %9
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %11 = load i64, ptr %.fr, align 8, !tbaa !428
-  br i1 %7, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
+  %12 = load i64, ptr %0, align 8, !tbaa !428
+  br i1 %.fr73, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %12 = add i64 %5, %3
-  %13 = sub i64 %12, %1
+  %13 = add i64 %5, %3
+  %14 = sub i64 %13, %1
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %14 = icmp ult i64 %1, %11
-  br i1 %14, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, label %.split57.us, !prof !430
+  %15 = icmp ult i64 %1, %12
+  br i1 %15, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, label %.split57.us, !prof !430
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %15 = load i64, ptr %.fr83, align 8, !tbaa !428
+  %16 = load i64, ptr %4, align 8, !tbaa !428
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us
-  %.sroa.6.050.us.us82 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %24, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us ]
-  %.sroa.634.051.us.us81 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us ]
-  %16 = icmp ult i64 %.sroa.6.050.us.us82, %15
-  br i1 %16, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us.us, label %.split59.us, !prof !424
+  %.sroa.6.050.us.us82 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %25, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us ]
+  %.sroa.634.051.us.us81 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %24, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us ]
+  %17 = icmp ult i64 %.sroa.6.050.us.us82, %16
+  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us.us, label %.split59.us, !prof !424
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us
-  %17 = load ptr, ptr %9, align 8, !tbaa !431
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.634.051.us.us81
-  %19 = load ptr, ptr %10, align 8, !tbaa !431
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.6.050.us.us82
-  %21 = load i8, ptr %18, align 1, !tbaa !32
-  %22 = load i8, ptr %20, align 1, !tbaa !32
-  %or.cond.not = icmp eq i8 %22, %21
-  br i1 %or.cond.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us, label %.loopexit.loopexit163
+  %18 = load ptr, ptr %10, align 8, !tbaa !431
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.634.051.us.us81
+  %20 = load ptr, ptr %11, align 8, !tbaa !431
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.6.050.us.us82
+  %22 = load i8, ptr %19, align 1, !tbaa !32
+  %23 = load i8, ptr %21, align 1, !tbaa !32
+  %or.cond.not = icmp eq i8 %23, %22
+  br i1 %or.cond.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us, label %.loopexit.loopexit
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us.us
-  %23 = add i64 %.sroa.634.051.us.us81, 1
-  %24 = add nuw i64 %.sroa.6.050.us.us82, 1
-  %exitcond.not = icmp eq i64 %23, %11
+  %24 = add i64 %.sroa.634.051.us.us81, 1
+  %25 = add nuw i64 %.sroa.6.050.us.us82, 1
+  %exitcond.not = icmp eq i64 %24, %12
   br i1 %exitcond.not, label %.split57.us, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us, !prof !432
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us
-  %.sroa.634.051.us = phi i64 [ %34, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ], [ %1, %.lr.ph.split.us.split.preheader ]
-  %.sroa.6.050.us = phi i64 [ %35, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ], [ %5, %.lr.ph.split.us.split.preheader ]
-  %25 = icmp ult i64 %.sroa.634.051.us, %11
-  br i1 %25, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split57.us, !prof !424
+  %.sroa.634.051.us = phi i64 [ %35, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ], [ %1, %.lr.ph.split.us.split.preheader ]
+  %.sroa.6.050.us = phi i64 [ %36, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ], [ %5, %.lr.ph.split.us.split.preheader ]
+  %26 = icmp ult i64 %.sroa.634.051.us, %12
+  br i1 %26, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split57.us, !prof !424
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %.lr.ph.split.us.split
-  %26 = load i64, ptr %.fr83, align 8, !tbaa !428
-  %27 = icmp ult i64 %.sroa.6.050.us, %26
-  br i1 %27, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us, label %.split59.us, !prof !424
+  %27 = load i64, ptr %4, align 8, !tbaa !428
+  %28 = icmp ult i64 %.sroa.6.050.us, %27
+  br i1 %28, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us, label %.split59.us, !prof !424
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us
-  %28 = load ptr, ptr %9, align 8, !tbaa !431
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.sroa.634.051.us
-  %30 = load ptr, ptr %10, align 8, !tbaa !431
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.6.050.us
-  %32 = load i8, ptr %29, align 1, !tbaa !32
-  %33 = load i8, ptr %31, align 1, !tbaa !32
-  %or.cond153.not = icmp eq i8 %33, %32
-  br i1 %or.cond153.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us, label %.loopexit.loopexit169
+  %29 = load ptr, ptr %10, align 8, !tbaa !431
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.634.051.us
+  %31 = load ptr, ptr %11, align 8, !tbaa !431
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.6.050.us
+  %33 = load i8, ptr %30, align 1, !tbaa !32
+  %34 = load i8, ptr %32, align 1, !tbaa !32
+  %or.cond150.not = icmp eq i8 %34, %33
+  br i1 %or.cond150.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us, label %.loopexit.loopexit156
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us
-  %34 = add nuw i64 %.sroa.634.051.us, 1
-  %35 = add nuw i64 %.sroa.6.050.us, 1
-  %.not89 = icmp eq i64 %34, %3
-  br i1 %.not89, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !433
+  %35 = add nuw i64 %.sroa.634.051.us, 1
+  %36 = add nuw i64 %.sroa.6.050.us, 1
+  %.not86 = icmp eq i64 %35, %3
+  br i1 %.not86, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !433
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %7, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
+  br i1 %.fr73, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  %36 = add i64 %5, %3
-  %37 = sub i64 %36, %1
-  %38 = add i64 %.sroa.28.0.copyload, %1
-  %39 = sub i64 %38, %5
+  %37 = add i64 %5, %3
+  %38 = sub i64 %37, %1
+  %39 = add i64 %.sroa.28.0.copyload, %1
+  %40 = sub i64 %39, %5
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not87 = icmp eq i64 %5, %.sroa.28.0.copyload
-  br i1 %.not87, label %.critedge, label %.lr.ph76
+  %.not84 = icmp eq i64 %5, %.sroa.28.0.copyload
+  br i1 %.not84, label %.critedge, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph.split.split.us
-  %40 = load i64, ptr %.fr, align 8, !tbaa !428
-  %41 = add i64 %.sroa.28.0.copyload, %1
-  %42 = sub i64 %41, %5
-  br label %43
+  %41 = load i64, ptr %0, align 8, !tbaa !428
+  %42 = add i64 %.sroa.28.0.copyload, %1
+  %43 = sub i64 %42, %5
+  br label %44
 
-43:                                               ; preds = %.lr.ph76, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67
-  %.sroa.6.050.us6375 = phi i64 [ %5, %.lr.ph76 ], [ %54, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ]
-  %.sroa.634.051.us6274 = phi i64 [ %1, %.lr.ph76 ], [ %53, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ]
-  %44 = icmp ult i64 %.sroa.634.051.us6274, %40
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64, label %.split57.us, !prof !424
+44:                                               ; preds = %.lr.ph76, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67
+  %.sroa.6.050.us6375 = phi i64 [ %5, %.lr.ph76 ], [ %55, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ]
+  %.sroa.634.051.us6274 = phi i64 [ %1, %.lr.ph76 ], [ %54, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ]
+  %45 = icmp ult i64 %.sroa.634.051.us6274, %41
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64, label %.split57.us, !prof !424
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64: ; preds = %43
-  %45 = load i64, ptr %.fr83, align 8, !tbaa !428
-  %46 = icmp ult i64 %.sroa.6.050.us6375, %45
-  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us65, label %.split59.us, !prof !424
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64: ; preds = %44
+  %46 = load i64, ptr %4, align 8, !tbaa !428
+  %47 = icmp ult i64 %.sroa.6.050.us6375, %46
+  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us65, label %.split59.us, !prof !424
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us65: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64
-  %47 = load ptr, ptr %9, align 8, !tbaa !431
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.634.051.us6274
-  %49 = load ptr, ptr %10, align 8, !tbaa !431
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.sroa.6.050.us6375
-  %51 = load i8, ptr %48, align 1, !tbaa !32
-  %52 = load i8, ptr %50, align 1, !tbaa !32
-  %or.cond154.not = icmp eq i8 %52, %51
-  br i1 %or.cond154.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67, label %.loopexit.loopexit
+  %48 = load ptr, ptr %10, align 8, !tbaa !431
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.sroa.634.051.us6274
+  %50 = load ptr, ptr %11, align 8, !tbaa !431
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.6.050.us6375
+  %52 = load i8, ptr %49, align 1, !tbaa !32
+  %53 = load i8, ptr %51, align 1, !tbaa !32
+  %or.cond151.not = icmp eq i8 %53, %52
+  br i1 %or.cond151.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67, label %.loopexit.loopexit161
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us65
-  %53 = add nuw i64 %.sroa.634.051.us6274, 1
-  %54 = add nuw i64 %.sroa.6.050.us6375, 1
-  %.not88 = icmp eq i64 %54, %.sroa.28.0.copyload
-  br i1 %.not88, label %.critedge, label %43
+  %54 = add nuw i64 %.sroa.634.051.us6274, 1
+  %55 = add nuw i64 %.sroa.6.050.us6375, 1
+  %.not85 = icmp eq i64 %55, %.sroa.28.0.copyload
+  br i1 %.not85, label %.critedge, label %44
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit
-  %.sroa.634.051 = phi i64 [ %66, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ], [ %1, %.lr.ph.split.split.preheader ]
-  %.sroa.6.050 = phi i64 [ %67, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ], [ %5, %.lr.ph.split.split.preheader ]
-  %.not85 = icmp eq i64 %.sroa.6.050, %.sroa.28.0.copyload
-  br i1 %.not85, label %.critedge, label %55
+  %.sroa.634.051 = phi i64 [ %67, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ], [ %1, %.lr.ph.split.split.preheader ]
+  %.sroa.6.050 = phi i64 [ %68, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ], [ %5, %.lr.ph.split.split.preheader ]
+  %.not = icmp eq i64 %.sroa.6.050, %.sroa.28.0.copyload
+  br i1 %.not, label %.critedge, label %56
 
-55:                                               ; preds = %.lr.ph.split.split
-  %56 = load i64, ptr %.fr, align 8, !tbaa !428
-  %57 = icmp ult i64 %.sroa.634.051, %56
-  br i1 %57, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit, label %.split57.us, !prof !424
+56:                                               ; preds = %.lr.ph.split.split
+  %57 = load i64, ptr %0, align 8, !tbaa !428
+  %58 = icmp ult i64 %.sroa.634.051, %57
+  br i1 %58, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit, label %.split57.us, !prof !424
 
-.split57.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us, %55, %43, %.lr.ph.split.us.split.us
+.split57.us:                                      ; preds = %56, %44, %.lr.ph.split.us.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #37
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %55
-  %58 = load i64, ptr %.fr83, align 8, !tbaa !428
-  %59 = icmp ult i64 %.sroa.6.050, %58
-  br i1 %59, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18, label %.split59.us, !prof !424
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %56
+  %59 = load i64, ptr %4, align 8, !tbaa !428
+  %60 = icmp ult i64 %.sroa.6.050, %59
+  br i1 %60, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18, label %.split59.us, !prof !424
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us64, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us
   tail call void @_ZSt9terminatev() #37
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit
-  %60 = load ptr, ptr %9, align 8, !tbaa !431
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.634.051
-  %62 = load ptr, ptr %10, align 8, !tbaa !431
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.6.050
-  %64 = load i8, ptr %61, align 1, !tbaa !32
-  %65 = load i8, ptr %63, align 1, !tbaa !32
-  %or.cond155.not = icmp eq i8 %65, %64
-  br i1 %or.cond155.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit, label %.loopexit.loopexit160
+  %61 = load ptr, ptr %10, align 8, !tbaa !431
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.634.051
+  %63 = load ptr, ptr %11, align 8, !tbaa !431
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.6.050
+  %65 = load i8, ptr %62, align 1, !tbaa !32
+  %66 = load i8, ptr %64, align 1, !tbaa !32
+  %or.cond152.not = icmp eq i8 %66, %65
+  br i1 %or.cond152.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit, label %.loopexit.loopexit168
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18
-  %66 = add nuw i64 %.sroa.634.051, 1
-  %67 = add nuw i64 %.sroa.6.050, 1
-  %.not86 = icmp eq i64 %66, %3
-  br i1 %.not86, label %.critedge, label %.lr.ph.split.split, !llvm.loop !433
+  %67 = add nuw i64 %.sroa.634.051, 1
+  %68 = add nuw i64 %.sroa.6.050, 1
+  %.not83 = icmp eq i64 %67, %3
+  br i1 %.not83, label %.critedge, label %.lr.ph.split.split, !llvm.loop !433
 
-.critedge:                                        ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us, %.lr.ph.split.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67, %.lr.ph.split.split.us, %.split
-  %.sroa.6.0.lcssa = phi i64 [ %5, %.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.28.0.copyload, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %37, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ], [ %.sroa.28.0.copyload, %.lr.ph.split.split ], [ %13, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ]
-  %.sroa.634.0.lcssa = phi i64 [ %1, %.split ], [ %1, %.lr.ph.split.split.us ], [ %42, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ], [ %39, %.lr.ph.split.split ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ]
-  %68 = icmp eq ptr %.fr, %.fr84
-  %69 = icmp eq i64 %.sroa.634.0.lcssa, %3
-  %70 = select i1 %68, i1 %69, i1 false
-  br i1 %70, label %71, label %.loopexit
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us, %.lr.ph.split.split.us, %.split
+  %.sroa.6.0.lcssa = phi i64 [ %5, %.split ], [ %5, %.lr.ph.split.split.us ], [ %14, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ], [ %.sroa.28.0.copyload, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %.sroa.28.0.copyload, %.lr.ph.split.split ], [ %38, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ]
+  %.sroa.634.0.lcssa = phi i64 [ %1, %.split ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us ], [ %43, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %40, %.lr.ph.split.split ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEppEv.exit ]
+  %69 = icmp eq ptr %0, %2
+  %70 = icmp eq i64 %.sroa.634.0.lcssa, %3
+  %71 = select i1 %69, i1 %70, i1 false
+  br i1 %71, label %72, label %.loopexit
 
-71:                                               ; preds = %.critedge
+72:                                               ; preds = %.critedge
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !426
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
-  %72 = icmp ne ptr %.fr83, %.sroa.0.0.copyload
-  %73 = icmp ne i64 %.sroa.6.0.lcssa, %.sroa.2.0.copyload
-  %.not8.i23 = select i1 %72, i1 true, i1 %73
+  %73 = icmp ne ptr %4, %.sroa.0.0.copyload
+  %74 = icmp ne i64 %.sroa.6.0.lcssa, %.sroa.2.0.copyload
+  %.not8.i23 = select i1 %73, i1 true, i1 %74
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us65
-  %74 = icmp slt i8 %51, %52
+.loopexit.loopexit:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us.us
+  %75 = icmp slt i8 %22, %23
   br label %.loopexit
 
-.loopexit.loopexit160:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18
-  %75 = icmp slt i8 %64, %65
+.loopexit.loopexit156:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us
+  %76 = icmp slt i8 %33, %34
   br label %.loopexit
 
-.loopexit.loopexit163:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us.us
-  %76 = icmp slt i8 %21, %22
+.loopexit.loopexit161:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us65
+  %77 = icmp slt i8 %52, %53
   br label %.loopexit
 
-.loopexit.loopexit169:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18.us
-  %77 = icmp slt i8 %32, %33
+.loopexit.loopexit168:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit18
+  %78 = icmp slt i8 %65, %66
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit169, %.loopexit.loopexit163, %.loopexit.loopexit160, %.loopexit.loopexit, %.critedge, %71
-  %.0 = phi i1 [ false, %.critedge ], [ %.not8.i23, %71 ], [ %75, %.loopexit.loopexit160 ], [ %74, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit163 ], [ %77, %.loopexit.loopexit169 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit168, %.loopexit.loopexit161, %.loopexit.loopexit156, %.loopexit.loopexit, %.critedge, %72
+  %.0 = phi i1 [ false, %.critedge ], [ %.not8.i23, %72 ], [ %76, %.loopexit.loopexit156 ], [ %77, %.loopexit.loopexit161 ], [ %75, %.loopexit.loopexit ], [ %78, %.loopexit.loopexit168 ]
   ret i1 %.0
 }
 

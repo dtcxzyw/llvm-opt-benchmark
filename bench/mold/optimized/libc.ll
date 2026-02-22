@@ -250,8 +250,8 @@ define hidden void @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef re
   %9 = getelementptr i8, ptr %0, i64 %1
   %10 = getelementptr i8, ptr %9, i64 -1
   store i8 0, ptr %10, align 1, !tbaa !3
-  %.not337 = icmp ult ptr %0, %10
-  br i1 %.not337, label %.lr.ph, label %mi_out_alignright.exit.thread321
+  %.not338 = icmp ult ptr %0, %10
+  br i1 %.not338, label %.lr.ph, label %mi_out_alignright.exit.thread321
 
 .lr.ph:                                           ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -260,33 +260,33 @@ define hidden void @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef re
   br label %14
 
 14:                                               ; preds = %.lr.ph, %mi_out_alignright.exit
-  %.0339 = phi ptr [ %2, %.lr.ph ], [ %.1, %mi_out_alignright.exit ]
-  %.0298338 = phi ptr [ %0, %.lr.ph ], [ %.2, %mi_out_alignright.exit ]
-  %15 = load i8, ptr %.0339, align 1, !tbaa !3
-  %.fr = freeze i8 %15
-  %16 = icmp eq i8 %.fr, 0
+  %.0340 = phi ptr [ %2, %.lr.ph ], [ %.1, %mi_out_alignright.exit ]
+  %.0298339 = phi ptr [ %0, %.lr.ph ], [ %.2, %mi_out_alignright.exit ]
+  %15 = load i8, ptr %.0340, align 1, !tbaa !3
+  %.fr325 = freeze i8 %15
+  %16 = icmp eq i8 %.fr325, 0
   br i1 %16, label %mi_out_alignright.exit.thread321, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.0339, i64 1
-  %.not242 = icmp eq i8 %.fr, 37
+  %18 = getelementptr inbounds nuw i8, ptr %.0340, i64 1
+  %.not242 = icmp eq i8 %.fr325, 37
   br i1 %.not242, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = add i8 %.fr, -32
+  %20 = add i8 %.fr325, -32
   %or.cond6 = icmp ult i8 %20, 95
   br i1 %or.cond6, label %mi_outc.exit, label %switch.early.test
 
 switch.early.test:                                ; preds = %19
-  switch i8 %.fr, label %mi_out_alignright.exit [
+  switch i8 %.fr325, label %mi_out_alignright.exit [
     i8 13, label %mi_outc.exit
     i8 10, label %mi_outc.exit
     i8 9, label %mi_outc.exit
   ]
 
 mi_outc.exit:                                     ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %19
-  store i8 %.fr, ptr %.0298338, align 1, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %.0298338, i64 1
+  store i8 %.fr325, ptr %.0298339, align 1, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %.0298339, i64 1
   br label %mi_out_alignright.exit
 
 22:                                               ; preds = %17
@@ -295,7 +295,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   br i1 %24, label %mi_out_alignright.exit.thread321, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.0339, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.0340, i64 2
   switch i8 %23, label %32 [
     i8 43, label %27
     i8 32, label %27
@@ -307,7 +307,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   br i1 %29, label %mi_out_alignright.exit.thread321, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %.0339, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %.0340, i64 3
   br label %32
 
 32:                                               ; preds = %25, %30
@@ -450,12 +450,12 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 96:                                               ; preds = %92
   %97 = load i8, ptr %94, align 1, !tbaa !3
-  %.not325 = icmp eq i8 %97, 0
-  br i1 %.not325, label %mi_outs.exit, label %.lr.ph.i
+  %.not326 = icmp eq i8 %97, 0
+  br i1 %.not326, label %mi_outs.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %96, %.lr.ph.i
   %98 = phi i8 [ %101, %.lr.ph.i ], [ %97, %96 ]
-  %.012.i = phi ptr [ %100, %.lr.ph.i ], [ %.0298338, %96 ]
+  %.012.i = phi ptr [ %100, %.lr.ph.i ], [ %.0298339, %96 ]
   %.0911.i = phi ptr [ %99, %.lr.ph.i ], [ %94, %96 ]
   %99 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 1
   %100 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
@@ -624,7 +624,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 .lr.ph.i252:                                      ; preds = %183, %.lr.ph.i252
   %186 = phi i8 [ %189, %.lr.ph.i252 ], [ 48, %183 ]
-  %.012.i253 = phi ptr [ %188, %.lr.ph.i252 ], [ %.0298338, %183 ]
+  %.012.i253 = phi ptr [ %188, %.lr.ph.i252 ], [ %.0298339, %183 ]
   %.0911.i254 = phi ptr [ %187, %.lr.ph.i252 ], [ @.str, %183 ]
   %187 = getelementptr inbounds nuw i8, ptr %.0911.i254, i64 1
   %188 = getelementptr inbounds nuw i8, ptr %.012.i253, i64 1
@@ -640,7 +640,7 @@ mi_outs.exit255:                                  ; preds = %.lr.ph.i252
   br label %194
 
 194:                                              ; preds = %mi_outs.exit255, %120, %144, %168, %156, %132
-  %.5302 = phi ptr [ %.0298338, %168 ], [ %.0298338, %120 ], [ %.0298338, %132 ], [ %.0298338, %144 ], [ %.0298338, %156 ], [ %188, %mi_outs.exit255 ]
+  %.5302 = phi ptr [ %.0298339, %168 ], [ %.0298339, %120 ], [ %.0298339, %132 ], [ %.0298339, %144 ], [ %.0298339, %156 ], [ %188, %mi_outs.exit255 ]
   %.4208 = phi i64 [ %.0204, %168 ], [ %.0204, %120 ], [ %.0204, %132 ], [ %.0204, %144 ], [ %.0204, %156 ], [ %193, %mi_outs.exit255 ]
   %.0191 = phi i64 [ %171, %168 ], [ %122, %120 ], [ %134, %132 ], [ %146, %144 ], [ %158, %156 ], [ %185, %mi_outs.exit255 ]
   %195 = icmp eq i64 %.4208, 0
@@ -897,12 +897,12 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
   br i1 %.not47.i272.not, label %mi_outc.exit.i276, label %310
 
 310:                                              ; preds = %309
-  store i8 %.0202, ptr %.0298338, align 1, !tbaa !3
-  %311 = getelementptr inbounds nuw i8, ptr %.0298338, i64 1
+  store i8 %.0202, ptr %.0298339, align 1, !tbaa !3
+  %311 = getelementptr inbounds nuw i8, ptr %.0298339, i64 1
   br label %mi_outc.exit.i276
 
 mi_outc.exit.i276:                                ; preds = %310, %309
-  %.18 = phi ptr [ %311, %310 ], [ %.0298338, %309 ]
+  %.18 = phi ptr [ %311, %310 ], [ %.0298339, %309 ]
   %.not.i48.i277 = icmp ult ptr %.18, %10
   br i1 %.not.i48.i277, label %312, label %mi_outs.exit
 
@@ -917,8 +917,8 @@ mi_outc.exit.i276:                                ; preds = %310, %309
   br label %.split.i267
 
 .split.i267:                                      ; preds = %314, %mi_outc.exit51.i270
-  %.16 = phi ptr [ %.0298338, %314 ], [ %.17, %mi_outc.exit51.i270 ]
-  %315 = phi ptr [ %.0298338, %314 ], [ %322, %mi_outc.exit51.i270 ]
+  %.16 = phi ptr [ %.0298339, %314 ], [ %.17, %mi_outc.exit51.i270 ]
+  %315 = phi ptr [ %.0298339, %314 ], [ %322, %mi_outc.exit51.i270 ]
   %.054.i268 = phi i64 [ %.1190312, %314 ], [ %316, %mi_outc.exit51.i270 ]
   %.not.i50.i269 = icmp ult ptr %315, %10
   %316 = udiv i64 %.054.i268, 10
@@ -953,14 +953,14 @@ mi_outc.exit53.i262:                              ; preds = %323, %.split56.us.i
   %.15 = phi ptr [ %324, %323 ], [ %.17, %.split56.us.i258 ]
   %325 = phi ptr [ %324, %323 ], [ %322, %.split56.us.i258 ]
   %326 = ptrtoint ptr %325 to i64
-  %327 = ptrtoint ptr %.0298338 to i64
+  %327 = ptrtoint ptr %.0298339 to i64
   %328 = sub i64 %326, %327
   %329 = lshr i64 %328, 1
   %.not58.i263 = icmp eq i64 %329, 0
   br i1 %.not58.i263, label %mi_outs.exit, label %.lr.ph.i264
 
 .lr.ph.i264:                                      ; preds = %mi_outc.exit53.i262
-  %330 = getelementptr i8, ptr %.0298338, i64 %328
+  %330 = getelementptr i8, ptr %.0298339, i64 %328
   br label %331
 
 331:                                              ; preds = %331, %.lr.ph.i264
@@ -968,7 +968,7 @@ mi_outc.exit53.i262:                              ; preds = %323, %.split56.us.i
   %332 = xor i64 %.04257.i265, -1
   %333 = getelementptr i8, ptr %330, i64 %332
   %334 = load i8, ptr %333, align 1, !tbaa !3
-  %335 = getelementptr inbounds nuw i8, ptr %.0298338, i64 %.04257.i265
+  %335 = getelementptr inbounds nuw i8, ptr %.0298339, i64 %.04257.i265
   %336 = load i8, ptr %335, align 1, !tbaa !3
   store i8 %336, ptr %333, align 1, !tbaa !3
   store i8 %334, ptr %335, align 1, !tbaa !3
@@ -982,21 +982,21 @@ mi_outc.exit53.i262:                              ; preds = %323, %.split56.us.i
   br i1 %or.cond45, label %mi_outc.exit280, label %mi_outs.exit
 
 mi_outc.exit280:                                  ; preds = %338
-  store i8 37, ptr %.0298338, align 1, !tbaa !3
-  %340 = getelementptr inbounds nuw i8, ptr %.0298338, i64 1
+  store i8 37, ptr %.0298339, align 1, !tbaa !3
+  %340 = getelementptr inbounds nuw i8, ptr %.0298339, i64 1
   %.not.i281 = icmp ult ptr %340, %10
   br i1 %.not.i281, label %341, label %mi_outs.exit
 
 341:                                              ; preds = %mi_outc.exit280
   store i8 %.6198, ptr %340, align 1, !tbaa !3
-  %342 = getelementptr inbounds nuw i8, ptr %.0298338, i64 2
+  %342 = getelementptr inbounds nuw i8, ptr %.0298339, i64 2
   br label %mi_outs.exit
 
 mi_outs.exit:                                     ; preds = %331, %233, %.lr.ph.i, %341, %mi_outc.exit280, %mi_outc.exit53.i262, %312, %mi_outc.exit.i276, %mi_outc.exit53.i, %209, %mi_outc.exit.i, %92, %96, %338
-  %.4301 = phi ptr [ %.9306, %233 ], [ %100, %.lr.ph.i ], [ %.0298338, %338 ], [ %340, %mi_outc.exit280 ], [ %.0298338, %92 ], [ %.0298338, %96 ], [ %210, %209 ], [ %.12, %mi_outc.exit.i ], [ %.9306, %mi_outc.exit53.i ], [ %313, %312 ], [ %.18, %mi_outc.exit.i276 ], [ %.15, %mi_outc.exit53.i262 ], [ %342, %341 ], [ %.15, %331 ]
+  %.4301 = phi ptr [ %.9306, %233 ], [ %100, %.lr.ph.i ], [ %.0298339, %338 ], [ %340, %mi_outc.exit280 ], [ %.0298339, %92 ], [ %.0298339, %96 ], [ %210, %209 ], [ %.12, %mi_outc.exit.i ], [ %.9306, %mi_outc.exit53.i ], [ %313, %312 ], [ %.18, %mi_outc.exit.i276 ], [ %.15, %mi_outc.exit53.i262 ], [ %342, %341 ], [ %.15, %331 ]
   %.1212 = phi i8 [ %.2213, %233 ], [ %.0211, %.lr.ph.i ], [ %.0211, %338 ], [ %.0211, %mi_outc.exit280 ], [ %.0211, %92 ], [ %.0211, %96 ], [ %.2213, %209 ], [ %.2213, %mi_outc.exit.i ], [ %.2213, %mi_outc.exit53.i ], [ %.0211, %312 ], [ %.0211, %mi_outc.exit.i276 ], [ %.0211, %mi_outc.exit53.i262 ], [ %.0211, %341 ], [ %.0211, %331 ]
   %.3207 = phi i64 [ %.5209, %233 ], [ %.0204, %.lr.ph.i ], [ %.0204, %338 ], [ %.0204, %mi_outc.exit280 ], [ %.0204, %92 ], [ %.0204, %96 ], [ %.5209, %209 ], [ %.5209, %mi_outc.exit.i ], [ %.5209, %mi_outc.exit53.i ], [ %.0204, %312 ], [ %.0204, %mi_outc.exit.i276 ], [ %.0204, %mi_outc.exit53.i262 ], [ %.0204, %341 ], [ %.0204, %331 ]
-  %.0199 = phi ptr [ %.5302, %233 ], [ %.0298338, %.lr.ph.i ], [ %.0298338, %338 ], [ %.0298338, %mi_outc.exit280 ], [ %.0298338, %92 ], [ %.0298338, %96 ], [ %.5302, %209 ], [ %.5302, %mi_outc.exit.i ], [ %.5302, %mi_outc.exit53.i ], [ %.0298338, %312 ], [ %.0298338, %mi_outc.exit.i276 ], [ %.0298338, %mi_outc.exit53.i262 ], [ %.0298338, %341 ], [ %.0298338, %331 ]
+  %.0199 = phi ptr [ %.5302, %233 ], [ %.0298339, %.lr.ph.i ], [ %.0298339, %338 ], [ %.0298339, %mi_outc.exit280 ], [ %.0298339, %92 ], [ %.0298339, %96 ], [ %.5302, %209 ], [ %.5302, %mi_outc.exit.i ], [ %.5302, %mi_outc.exit53.i ], [ %.0298339, %312 ], [ %.0298339, %mi_outc.exit.i276 ], [ %.0298339, %mi_outc.exit53.i262 ], [ %.0298339, %341 ], [ %.0298339, %331 ]
   %.fr.i = freeze ptr %.4301
   %343 = ptrtoint ptr %.fr.i to i64
   %344 = ptrtoint ptr %.0199 to i64
@@ -1049,14 +1049,14 @@ mi_out_fill.exit:                                 ; preds = %347, %.lr.ph.prehea
   br label %mi_out_alignright.exit
 
 mi_out_alignright.exit:                           ; preds = %mi_out_fill.exit, %mi_outs.exit, %354, %.preheader.preheader.i, %mi_outc.exit, %switch.early.test
-  %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %mi_outs.exit ], [ %.0298338, %switch.early.test ], [ %21, %mi_outc.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %mi_out_fill.exit ]
+  %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %mi_outs.exit ], [ %.0298339, %switch.early.test ], [ %21, %mi_outc.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %mi_out_fill.exit ]
   %.1 = phi ptr [ %.9, %.preheader.preheader.i ], [ %.9, %mi_outs.exit ], [ %18, %switch.early.test ], [ %18, %mi_outc.exit ], [ %.9, %354 ], [ %.9, %mi_out_fill.exit ]
   %.not = icmp ult ptr %.2, %10
   br i1 %.not, label %14, label %mi_out_alignright.exit.thread321
 
 mi_out_alignright.exit.thread321:                 ; preds = %mi_out_alignright.exit, %22, %14, %68, %27, %33, %40, %47, %74, %63, %56, %8
-  %.0298336 = phi ptr [ %.0298338, %56 ], [ %0, %8 ], [ %.2, %mi_out_alignright.exit ], [ %.0298338, %22 ], [ %.0298338, %14 ], [ %.0298338, %68 ], [ %.0298338, %27 ], [ %.0298338, %33 ], [ %.0298338, %40 ], [ %.0298338, %47 ], [ %.0298338, %74 ], [ %.0298338, %63 ]
-  store i8 0, ptr %.0298336, align 1, !tbaa !3
+  %.0298337 = phi ptr [ %.0298339, %56 ], [ %0, %8 ], [ %.2, %mi_out_alignright.exit ], [ %.0298339, %22 ], [ %.0298339, %14 ], [ %.0298339, %68 ], [ %.0298339, %27 ], [ %.0298339, %33 ], [ %.0298339, %40 ], [ %.0298339, %47 ], [ %.0298339, %74 ], [ %.0298339, %63 ]
+  store i8 0, ptr %.0298337, align 1, !tbaa !3
   br label %363
 
 363:                                              ; preds = %4, %mi_out_alignright.exit.thread321

@@ -152,8 +152,8 @@ define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr nound
   %.sroa.5.0.i = phi i32 [ %.sroa.5.1.i, %40 ], [ 0, %2 ]
   %.sroa.7.0.i = phi i32 [ %.sroa.7.1.i, %40 ], [ 0, %2 ]
   %.sroa.9.0.i = phi i32 [ %.sroa.9.1.i, %40 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.fr.i, %40 ], [ 0, %2 ]
-  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.fr.i, %40 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.i, %40 ], [ 0, %2 ]
+  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.i, %40 ], [ 0, %2 ]
   %5 = phi i32 [ %41, %40 ], [ 0, %2 ]
   %6 = phi i32 [ %42, %40 ], [ 0, %2 ]
   %7 = phi i32 [ %43, %40 ], [ 0, %2 ]
@@ -241,8 +241,6 @@ define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr nound
   %45 = phi i32 [ %9, %35 ], [ %9, %31 ], [ %9, %38 ], [ %9, %20 ], [ %9, %22 ], [ %25, %24 ], [ %9, %26 ]
   %46 = phi i32 [ %37, %35 ], [ %10, %31 ], [ %10, %38 ], [ %10, %20 ], [ %10, %22 ], [ %10, %24 ], [ %27, %26 ]
   %.2.i.i = phi i64 [ %.031.i.i, %35 ], [ %.031.i.i, %31 ], [ %.031.i.i, %38 ], [ %14, %20 ], [ %.031.i.i, %22 ], [ %.031.i.i, %24 ], [ %.031.i.i, %26 ]
-  %.sroa.14.1.fr.i = freeze i32 %.sroa.14.1.i
-  %.sroa.11.1.fr.i = freeze i32 %.sroa.11.1.i
   %47 = add nuw i64 %.2.i.i, 1
   %48 = icmp ult i64 %47, %1
   br i1 %48, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
@@ -257,39 +255,39 @@ convert_is_binary.exit.i:                         ; preds = %._crit_edge.i.i
   %49 = getelementptr i8, ptr %0, i64 %1
   %50 = getelementptr i8, ptr %49, i64 -1
   %51 = load i8, ptr %50, align 1, !tbaa !8
-  %.fr.i = freeze i8 %51
-  %52 = icmp eq i8 %.fr.i, 26
+  %52 = icmp eq i8 %51, 26
   %53 = add i32 %46, -1
-  %spec.select.i = select i1 %52, i32 %53, i32 %.sroa.14.1.fr.i
-  %54 = lshr i32 %.sroa.11.1.fr.i, 7
-  %.not.i = icmp ult i32 %54, %spec.select.i
-  %spec.select18.i = select i1 %.not.i, i32 4, i32 0
+  %spec.select.i = select i1 %52, i32 %53, i32 %.sroa.14.1.i
+  %54 = lshr i32 %.sroa.11.1.i, 7
+  %55 = icmp uge i32 %54, %spec.select.i
+  %cond.fr.i = freeze i1 %55
+  %spec.select18.i = select i1 %cond.fr.i, i32 0, i32 4
   br label %gather_convert_stats.exit
 
 gather_convert_stats.exit:                        ; preds = %._crit_edge.i.i, %convert_is_binary.exit.i
-  %55 = phi i32 [ 4, %._crit_edge.i.i ], [ %spec.select18.i, %convert_is_binary.exit.i ]
+  %56 = phi i32 [ 4, %._crit_edge.i.i ], [ %spec.select18.i, %convert_is_binary.exit.i ]
   %.not12.i = icmp eq i32 %.sroa.9.1.i, 0
-  %56 = or disjoint i32 %55, 2
-  %.1.i = select i1 %.not12.i, i32 %55, i32 %56
+  %57 = or disjoint i32 %56, 2
+  %.1.i = select i1 %.not12.i, i32 %56, i32 %57
   %.not = icmp samesign ult i32 %.1.i, 4
-  br i1 %.not, label %57, label %.thread
+  br i1 %.not, label %58, label %.thread
 
-57:                                               ; preds = %gather_convert_stats.exit
+58:                                               ; preds = %gather_convert_stats.exit
   %.not13.i = icmp ne i32 %.sroa.7.1.i, 0
-  %58 = zext i1 %.not13.i to i32
-  %.2.i = or disjoint i32 %.1.i, %58
+  %59 = zext i1 %.not13.i to i32
+  %.2.i = or disjoint i32 %.1.i, %59
   %switch.tableidx = add nsw i32 %.2.i, -1
-  %59 = icmp ult i32 %switch.tableidx, 3
-  br i1 %59, label %switch.lookup, label %.thread
+  %60 = icmp ult i32 %switch.tableidx, 3
+  br i1 %60, label %switch.lookup, label %.thread
 
-switch.lookup:                                    ; preds = %57
-  %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gather_convert_stats_ascii, i64 %60
+switch.lookup:                                    ; preds = %58
+  %61 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gather_convert_stats_ascii, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
-.thread:                                          ; preds = %2, %57, %switch.lookup, %gather_convert_stats.exit
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.11, %gather_convert_stats.exit ], [ @.str.20, %57 ], [ @.str.20, %2 ]
+.thread:                                          ; preds = %2, %58, %switch.lookup, %gather_convert_stats.exit
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.11, %gather_convert_stats.exit ], [ @.str.20, %58 ], [ @.str.20, %2 ]
   ret ptr %.0
 }
 
@@ -3794,7 +3792,7 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @read_blob_data_from_index(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #22
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %57, label %5
+  br i1 %.not, label %58, label %5
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %3, align 8, !tbaa !4
@@ -3808,8 +3806,8 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   %.sroa.0.0.i = phi i32 [ %.sroa.0.1.i, %40 ], [ 0, %5 ]
   %.sroa.5.0.i = phi i32 [ %.sroa.5.1.i, %40 ], [ 0, %5 ]
   %.sroa.9.0.i = phi i32 [ %.sroa.9.1.i, %40 ], [ 0, %5 ]
-  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.fr.i, %40 ], [ 0, %5 ]
-  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.fr.i, %40 ], [ 0, %5 ]
+  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.i, %40 ], [ 0, %5 ]
+  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.i, %40 ], [ 0, %5 ]
   %8 = phi i32 [ %41, %40 ], [ 0, %5 ]
   %9 = phi i32 [ %42, %40 ], [ 0, %5 ]
   %10 = phi i32 [ %43, %40 ], [ 0, %5 ]
@@ -3890,8 +3888,6 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   %44 = phi i32 [ %11, %35 ], [ %11, %31 ], [ %11, %38 ], [ %11, %22 ], [ %25, %24 ], [ %11, %26 ], [ %11, %.lr.ph.i.i ]
   %45 = phi i32 [ %37, %35 ], [ %12, %31 ], [ %12, %38 ], [ %12, %22 ], [ %12, %24 ], [ %27, %26 ], [ %12, %.lr.ph.i.i ]
   %.2.i.i = phi i64 [ %.031.i.i, %35 ], [ %.031.i.i, %31 ], [ %.031.i.i, %38 ], [ %16, %22 ], [ %.031.i.i, %24 ], [ %.031.i.i, %26 ], [ %.031.i.i, %.lr.ph.i.i ]
-  %.sroa.14.1.fr.i = freeze i32 %.sroa.14.1.i
-  %.sroa.11.1.fr.i = freeze i32 %.sroa.11.1.i
   %46 = add nuw i64 %.2.i.i, 1
   %47 = icmp ult i64 %46, %6
   br i1 %47, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
@@ -3906,27 +3902,27 @@ convert_is_binary.exit.i:                         ; preds = %._crit_edge.i.i
   %48 = getelementptr i8, ptr %4, i64 %6
   %49 = getelementptr i8, ptr %48, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !8
-  %.fr.i = freeze i8 %50
-  %51 = icmp eq i8 %.fr.i, 26
+  %51 = icmp eq i8 %50, 26
   %52 = add i32 %45, -1
-  %spec.select.i = select i1 %51, i32 %52, i32 %.sroa.14.1.fr.i
-  %53 = lshr i32 %.sroa.11.1.fr.i, 7
-  %.not.i = icmp uge i32 %53, %spec.select.i
+  %spec.select.i = select i1 %51, i32 %52, i32 %.sroa.14.1.i
+  %53 = lshr i32 %.sroa.11.1.i, 7
+  %54 = icmp uge i32 %53, %spec.select.i
+  %cond.fr.i = freeze i1 %54
   br label %convert_is_binary.exit.thread.i
 
 convert_is_binary.exit.thread.i:                  ; preds = %convert_is_binary.exit.i, %._crit_edge.i.i
-  %54 = phi i1 [ false, %._crit_edge.i.i ], [ %.not.i, %convert_is_binary.exit.i ]
+  %55 = phi i1 [ false, %._crit_edge.i.i ], [ %cond.fr.i, %convert_is_binary.exit.i ]
   %.not12.i = icmp ne i32 %.sroa.9.1.i, 0
-  %55 = select i1 %.not12.i, i1 %54, i1 false
-  %56 = zext i1 %55 to i32
+  %56 = and i1 %.not12.i, %55
+  %57 = zext i1 %56 to i32
   br label %gather_convert_stats.exit
 
 gather_convert_stats.exit:                        ; preds = %convert_is_binary.exit.thread.i, %5
-  %.010 = phi i32 [ 0, %5 ], [ %56, %convert_is_binary.exit.thread.i ]
+  %.010 = phi i32 [ 0, %5 ], [ %57, %convert_is_binary.exit.thread.i ]
   call void @free(ptr noundef nonnull %4) #22
-  br label %57
+  br label %58
 
-57:                                               ; preds = %2, %gather_convert_stats.exit
+58:                                               ; preds = %2, %gather_convert_stats.exit
   %.0 = phi i32 [ %.010, %gather_convert_stats.exit ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

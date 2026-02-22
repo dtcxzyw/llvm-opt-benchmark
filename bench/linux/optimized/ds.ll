@@ -2453,8 +2453,8 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, i8 0, i64 176, i1 false), !annotation !45
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %.fr27 = freeze i32 %47
-  %48 = and i32 %.fr27, 3840
+  %.fr = freeze i32 %47
+  %48 = and i32 %.fr, 3840
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.loopexit15, label %50
 
@@ -2467,7 +2467,7 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 2384
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 2424
-  %57 = and i32 %.fr27, 3072
+  %57 = and i32 %.fr, 3072
   %58 = icmp eq i32 %57, 0
   %59 = select i1 %58, i64 144, i64 16
   %60 = icmp samesign ugt i32 %48, 512
@@ -2565,8 +2565,8 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
   %110 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !71
   %111 = inttoptr i64 %110 to ptr
   %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %.fr = freeze i32 %112
-  %113 = and i32 %.fr, 3840
+  %.fr29 = freeze i32 %112
+  %113 = and i32 %.fr29, 3840
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %.loopexit, label %115
 
@@ -2579,7 +2579,7 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 2384
   %121 = getelementptr inbounds nuw i8, ptr %111, i64 2424
-  %122 = and i32 %.fr, 3072
+  %122 = and i32 %.fr29, 3072
   %123 = icmp eq i32 %122, 0
   %124 = select i1 %123, i64 144, i64 16
   %125 = icmp samesign ugt i32 %113, 512

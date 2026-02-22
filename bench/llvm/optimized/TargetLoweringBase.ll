@@ -3601,7 +3601,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12ge
 
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT8isVectorEv.exit
   %97 = call i64 @_ZNK4llvm3EVT29getExtendedVectorElementCountEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
-  %.fr = freeze i64 %97
+  %.fr288 = freeze i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %98 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
   %99 = extractvalue { i16, ptr } %98, 0
@@ -3609,7 +3609,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT8isVec
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %101 = extractvalue { i16, ptr } %98, 1
   store ptr %101, ptr %100, align 8
-  %102 = and i64 %.fr, 8589934591
+  %102 = and i64 %.fr288, 8589934591
   %.not274.not = icmp eq i64 %102, 1
   br i1 %.not274.not, label %103, label %105
 
@@ -3667,7 +3667,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %113, %119
   br i1 %.not.i81, label %145, label %122
 
 122:                                              ; preds = %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit
-  %123 = and i64 %.fr, 4294967295
+  %123 = and i64 %.fr288, 4294967295
   %124 = lshr i64 %123, 1
   %125 = or i64 %124, %123
   %126 = lshr i64 %125, 2
@@ -3679,11 +3679,11 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %113, %119
   %132 = lshr i64 %131, 16
   %133 = or i64 %132, %131
   %134 = add nuw nsw i64 %133, 1
-  %.sroa.2.0.insert.shift.i.i = and i64 %.fr, 1095216660480
+  %.sroa.2.0.insert.shift.i.i = and i64 %.fr288, 1095216660480
   %.sroa.0.0.insert.ext.i.i = and i64 %134, 4294967295
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i, %.sroa.2.0.insert.shift.i.i
   %.sroa.0.0.extract.trunc.i.i82 = trunc i64 %134 to i32
-  %135 = and i64 %.fr, 4294967296
+  %135 = and i64 %.fr288, 4294967296
   %.not.i.i83 = icmp eq i64 %135, 0
   br i1 %.not.i.i83, label %138, label %136
 
@@ -3750,8 +3750,8 @@ _ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit: ; preds 
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.2.0..sroa_idx.i114 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr to i32
-  %160 = and i64 %.fr, 4294967296
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr288 to i32
+  %160 = and i64 %.fr288, 4294967296
   %.not.i128 = icmp eq i64 %160, 0
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 400552
   br label %.critedge
@@ -3915,7 +3915,7 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit: ; preds = %201, %203
   br label %215
 
 210:                                              ; preds = %205
-  %.sroa.0193.0.insert.ext199.le = and i64 %.fr, 1099511627775
+  %.sroa.0193.0.insert.ext199.le = and i64 %.fr288, 1099511627775
   %.sroa.09.0.copyload = load i16, ptr %13, align 8, !tbaa !138
   %.sroa.211.0.copyload = load ptr, ptr %100, align 8, !tbaa !154
   %211 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(8) %2, i16 %.sroa.09.0.copyload, ptr %.sroa.211.0.copyload, i64 %.sroa.0193.0.insert.ext199.le)
@@ -3931,13 +3931,13 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit: ; preds = %201, %203
   br label %286
 
 215:                                              ; preds = %106, %.thread, %110
-  %216 = and i64 %.fr, 4294967296
+  %216 = and i64 %.fr288, 4294967296
   %.not.i134 = icmp eq i64 %216, 0
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 400552
   br i1 %.not.i134, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %215, %233
-  %.sroa.0193.0.off0.in.us = phi i64 [ %229, %233 ], [ %.fr, %215 ]
+  %.sroa.0193.0.off0.in.us = phi i64 [ %229, %233 ], [ %.fr288, %215 ]
   %218 = and i64 %.sroa.0193.0.off0.in.us, 4294967295
   %219 = lshr i64 %218, 1
   %220 = or i64 %219, %218
@@ -3968,7 +3968,7 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit136.us: ; preds = %.split.us
   br i1 %237, label %.thread262, label %.split.us
 
 .split:                                           ; preds = %215, %253
-  %.sroa.0193.0.off0.in = phi i64 [ %249, %253 ], [ %.fr, %215 ]
+  %.sroa.0193.0.off0.in = phi i64 [ %249, %253 ], [ %.fr288, %215 ]
   %238 = and i64 %.sroa.0193.0.off0.in, 4294967295
   %239 = lshr i64 %238, 1
   %240 = or i64 %239, %238
@@ -9797,13 +9797,13 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:
   %3 = load ptr, ptr %2, align 8, !tbaa !738
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
-  %.fr = freeze i32 %5
-  %trunc.i.i = trunc i32 %.fr to i8
+  %.fr2 = freeze i32 %5
+  %trunc.i.i = trunc i32 %.fr2 to i8
   %6 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %6, i1 %switch.lobit, i1 false
-  %7 = and i32 %.fr, 253
+  %7 = and i32 %.fr2, 253
   %spec.select.i = icmp eq i32 %7, 4
   %narrow = or i1 %or.cond, %spec.select.i
   %8 = zext i1 %narrow to i32
@@ -9824,13 +9824,13 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:
   %5 = load ptr, ptr %4, align 8, !tbaa !738
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.fr = freeze i32 %7
-  %trunc.i.i = trunc i32 %.fr to i8
+  %.fr2 = freeze i32 %7
+  %trunc.i.i = trunc i32 %.fr2 to i8
   %8 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %8, i1 %switch.lobit, i1 false
-  %9 = and i32 %.fr, 253
+  %9 = and i32 %.fr2, 253
   %spec.select.i = icmp eq i32 %9, 4
   %narrow = or i1 %or.cond, %spec.select.i
   %10 = zext i1 %narrow to i32

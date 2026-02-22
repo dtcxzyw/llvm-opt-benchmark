@@ -1367,12 +1367,12 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
   %8 = icmp eq i32 %7, 0
   %9 = trunc i32 %1 to i16
   %10 = trunc i32 %2 to i16
-  br i1 %8, label %11, label %..loopexit26_crit_edge
+  br i1 %8, label %11, label %..loopexit25_crit_edge
 
-..loopexit26_crit_edge:                           ; preds = %4
-  %.pre39 = and i16 %10, 255
-  %.pre41 = or disjoint i16 %.pre39, 768
-  br label %.loopexit26
+..loopexit25_crit_edge:                           ; preds = %4
+  %.pre38 = and i16 %10, 255
+  %.pre40 = or disjoint i16 %.pre38, 768
+  br label %.loopexit25
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %3, i64 1
@@ -1393,7 +1393,7 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
 
 21:                                               ; preds = %15
   %22 = icmp sgt i32 %20, 1
-  br i1 %22, label %23, label %.loopexit26
+  br i1 %22, label %23, label %.loopexit25
 
 23:                                               ; preds = %21
   %24 = load i8, ptr %12, align 1
@@ -1403,19 +1403,19 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
 26:                                               ; preds = %23, %15, %15
   %27 = add nuw nsw i32 %16, 1
   %28 = icmp eq i32 %27, 3
-  br i1 %28, label %.loopexit26, label %15, !llvm.loop !17
+  br i1 %28, label %.loopexit25, label %15, !llvm.loop !17
 
-.loopexit26:                                      ; preds = %21, %26, %..loopexit26_crit_edge
-  %.pre-phi42 = phi i16 [ %.pre41, %..loopexit26_crit_edge ], [ %14, %26 ], [ %14, %21 ]
+.loopexit25:                                      ; preds = %21, %26, %..loopexit25_crit_edge
+  %.pre-phi41 = phi i16 [ %.pre40, %..loopexit25_crit_edge ], [ %14, %26 ], [ %14, %21 ]
   %29 = getelementptr i8, ptr %3, i64 1
   br label %30
 
-30:                                               ; preds = %41, %.loopexit26
-  %31 = phi i32 [ 0, %.loopexit26 ], [ %43, %41 ]
+30:                                               ; preds = %41, %.loopexit25
+  %31 = phi i32 [ 0, %.loopexit25 ], [ %43, %41 ]
   %32 = load i32, ptr %0, align 8
   %33 = shl i32 %32, 8
   %34 = or i32 %33, -2147483520
-  %35 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %34, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi42, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext 2, i32 noundef 5000)
+  %35 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %34, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi41, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext 2, i32 noundef 5000)
   switch i32 %35, label %36 [
     i32 -32, label %41
     i32 0, label %41
@@ -1454,7 +1454,7 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
   %54 = load i32, ptr %0, align 8
   %55 = shl i32 %54, 8
   %56 = or i32 %55, -2147483520
-  %57 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %56, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi42, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext %51, i32 noundef 5000)
+  %57 = tail call i32 @usb_control_msg(ptr noundef %0, i32 noundef %56, i8 noundef zeroext 6, i8 noundef zeroext -128, i16 noundef zeroext %.pre-phi41, i16 noundef zeroext %9, ptr noundef nonnull %3, i16 noundef zeroext %51, i32 noundef 5000)
   switch i32 %57, label %58 [
     i32 -32, label %63
     i32 0, label %63
@@ -1478,8 +1478,8 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
 .loopexit:                                        ; preds = %23, %60, %45
   %67 = phi i32 [ %35, %45 ], [ %57, %60 ], [ %20, %23 ]
   %68 = load i8, ptr %3, align 1
-  %.fr23 = freeze i8 %68
-  %69 = zext i8 %.fr23 to i32
+  %.fr52 = freeze i8 %68
+  %69 = zext i8 %.fr52 to i32
   %70 = tail call i32 @llvm.umin.i32(i32 %67, i32 %69)
   %71 = and i32 %70, 254
   br label %.thread19

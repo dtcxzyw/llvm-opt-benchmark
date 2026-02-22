@@ -20999,7 +20999,7 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer14tryEachD
   %.sroa.058 = alloca [16 x i8], align 8
   %19 = alloca %"class.clang::ast_matchers::internal::Matcher.194", align 8
   %20 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
-  %.fr = freeze i64 %2
+  %.fr85 = freeze i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.075)
@@ -21548,9 +21548,9 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit54: ; preds = %247, 
 
 .lr.ph:                                           ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit54
   %257 = getelementptr inbounds i8, ptr %0, i64 %3
-  %258 = and i64 %.fr, 1
+  %258 = and i64 %.fr85, 1
   %.not28 = icmp eq i64 %258, 0
-  %259 = inttoptr i64 %.fr to ptr
+  %259 = inttoptr i64 %.fr85 to ptr
   br i1 %.not28, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %262
@@ -21574,7 +21574,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit54: ; preds = %247, 
   %.02581 = phi ptr [ %265, %264 ], [ %251, %.lr.ph ]
   %266 = call noundef ptr @_ZNK5clang12ast_matchers8internal13BoundNodesMap9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %.02581, ptr nonnull @.str.14, i64 4)
   %267 = load ptr, ptr %257, align 8, !tbaa !131
-  %268 = getelementptr i8, ptr %267, i64 %.fr
+  %268 = getelementptr i8, ptr %267, i64 %.fr85
   %269 = getelementptr i8, ptr %268, i64 -1
   %270 = load ptr, ptr %269, align 8, !nosanitize !215
   %271 = call noundef ptr %270(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef %266) #25
@@ -21608,7 +21608,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destr
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i: ; preds = %._crit_edge.thread, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i, %._crit_edge
-  %spec.select111 = phi ptr [ %spec.select.ph, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i ], [ %spec.select.ph, %._crit_edge ], [ null, %._crit_edge.thread ]
+  %spec.select112 = phi ptr [ %spec.select.ph, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i ], [ %spec.select.ph, %._crit_edge ], [ null, %._crit_edge.thread ]
   %278 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i ], [ %272, %._crit_edge ], [ %256, %._crit_edge.thread ]
   %279 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %280 = icmp eq ptr %278, %279
@@ -21620,7 +21620,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destr
 
 _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i, %281
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  ret ptr %spec.select111
+  ret ptr %spec.select112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

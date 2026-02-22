@@ -186,8 +186,8 @@ define i32 @Gia_ManClockDomainNum(ptr noundef readonly captures(none) %0) local_
 
 Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %9
   %.012.i = phi i32 [ %12, %9 ], [ %spec.select.i, %.lr.ph.i ]
-  %.not20 = icmp slt i32 %.012.i, 1
-  br i1 %.not20, label %.loopexit, label %.lr.ph
+  %.not21 = icmp slt i32 %.012.i, 1
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Vec_IntFindMax.exit
   %16 = icmp sgt i32 %7, 0
@@ -197,35 +197,33 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %9
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = add nuw i32 %.012.i, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %19, i32 2)
   br label %.lr.ph.i12.us
 
 .lr.ph.i12.us:                                    ; preds = %Vec_IntCountEntry.exit.us, %.lr.ph.split.us
-  %.022.us = phi i32 [ 0, %.lr.ph.split.us ], [ %spec.select.us, %Vec_IntCountEntry.exit.us ]
-  %.01021.us = phi i32 [ 1, %.lr.ph.split.us ], [ %27, %Vec_IntCountEntry.exit.us ]
-  br label %20
+  %.023.us = phi i32 [ 0, %.lr.ph.split.us ], [ %spec.select.us, %Vec_IntCountEntry.exit.us ]
+  %.01022.us = phi i32 [ 1, %.lr.ph.split.us ], [ %26, %Vec_IntCountEntry.exit.us ]
+  br label %19
 
-20:                                               ; preds = %20, %.lr.ph.i12.us
-  %indvars.iv.i14.us = phi i64 [ 0, %.lr.ph.i12.us ], [ %indvars.iv.next.i15.us, %20 ]
-  %.09.i.us = phi i32 [ 0, %.lr.ph.i12.us ], [ %25, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i14.us
-  %22 = load i32, ptr %21, align 4, !tbaa !33
-  %.fr.us = freeze i32 %22
-  %23 = icmp eq i32 %.fr.us, %.01021.us
-  %24 = zext i1 %23 to i32
-  %25 = add i32 %.09.i.us, %24
+19:                                               ; preds = %19, %.lr.ph.i12.us
+  %indvars.iv.i14.us = phi i64 [ 0, %.lr.ph.i12.us ], [ %indvars.iv.next.i15.us, %19 ]
+  %.09.i.us = phi i32 [ 0, %.lr.ph.i12.us ], [ %24, %19 ]
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i14.us
+  %21 = load i32, ptr %20, align 4, !tbaa !33
+  %22 = icmp eq i32 %21, %.01022.us
+  %.fr.us = freeze i1 %22
+  %23 = zext i1 %.fr.us to i32
+  %24 = add i32 %.09.i.us, %23
   %indvars.iv.next.i15.us = add nuw nsw i64 %indvars.iv.i14.us, 1
   %exitcond.not.i16.us = icmp eq i64 %indvars.iv.next.i15.us, %wide.trip.count.i13
-  br i1 %exitcond.not.i16.us, label %Vec_IntCountEntry.exit.us, label %20, !llvm.loop !36
+  br i1 %exitcond.not.i16.us, label %Vec_IntCountEntry.exit.us, label %19, !llvm.loop !36
 
-Vec_IntCountEntry.exit.us:                        ; preds = %20
-  %.not19.us = icmp ne i32 %25, 0
-  %26 = zext i1 %.not19.us to i32
-  %spec.select.us = add nuw nsw i32 %.022.us, %26
-  %27 = add nuw nsw i32 %.01021.us, 1
-  %exitcond = icmp eq i32 %27, %smax
-  br i1 %exitcond, label %.loopexit, label %.lr.ph.i12.us, !llvm.loop !37
+Vec_IntCountEntry.exit.us:                        ; preds = %19
+  %.not20.us = icmp ne i32 %24, 0
+  %25 = zext i1 %.not20.us to i32
+  %spec.select.us = add nuw nsw i32 %.023.us, %25
+  %26 = add nuw i32 %.01022.us, 1
+  %exitcond.not = icmp eq i32 %.01022.us, %.012.i
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i12.us, !llvm.loop !37
 
 .loopexit:                                        ; preds = %Vec_IntCountEntry.exit.us, %5, %.lr.ph, %Vec_IntFindMax.exit, %1
   %.09 = phi i32 [ 0, %1 ], [ 0, %Vec_IntFindMax.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ %spec.select.us, %Vec_IntCountEntry.exit.us ]

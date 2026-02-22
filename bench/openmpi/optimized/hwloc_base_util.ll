@@ -2693,11 +2693,10 @@ hwloc_get_nbobjs_by_type.exit.thread.i61:         ; preds = %hwloc_get_nbobjs_by
 
 prte_hwloc_base_get_nbobjs_by_type.exit64:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit60, %hwloc_get_nbobjs_by_type.exit.i63, %hwloc_get_nbobjs_by_type.exit.thread.i61
   %.0.i62 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit60 ], [ %28, %hwloc_get_nbobjs_by_type.exit.i63 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i61 ]
-  %.0.i58.fr = freeze i32 %.0.i58
-  %.0.i62.fr = freeze i32 %.0.i62
-  %30 = icmp ne i32 %.0.i58.fr, %.0.i62.fr
-  %or.cond = or i1 %1, %30
-  %31 = xor i1 %30, true
+  %30 = icmp ne i32 %.0.i58, %.0.i62
+  %.fr = freeze i1 %30
+  %or.cond = or i1 %1, %.fr
+  %31 = xor i1 %.fr, true
   %or.cond3 = or i1 %1, %31
   br i1 %or.cond3, label %34, label %32
 
@@ -2970,11 +2969,10 @@ hwloc_get_nbobjs_by_type.exit.thread.i58:         ; preds = %hwloc_get_nbobjs_by
 
 prte_hwloc_base_get_nbobjs_by_type.exit61:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit57, %hwloc_get_nbobjs_by_type.exit.i60, %hwloc_get_nbobjs_by_type.exit.thread.i58
   %.0.i59 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit57 ], [ %26, %hwloc_get_nbobjs_by_type.exit.i60 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i58 ]
-  %.0.i55.fr = freeze i32 %.0.i55
-  %.0.i59.fr = freeze i32 %.0.i59
-  %28 = icmp ne i32 %.0.i55.fr, %.0.i59.fr
-  %or.cond = or i1 %1, %28
-  %29 = xor i1 %28, true
+  %28 = icmp ne i32 %.0.i55, %.0.i59
+  %.fr = freeze i1 %28
+  %or.cond = or i1 %1, %.fr
+  %29 = xor i1 %.fr, true
   %or.cond3 = or i1 %1, %29
   br i1 %or.cond3, label %32, label %30
 

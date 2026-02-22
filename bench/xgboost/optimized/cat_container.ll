@@ -19390,232 +19390,228 @@ _ZNK7xgboost6common4SpanIKaLm18446744073709551615EE7subspanEmm.exit21: ; preds =
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common6detail22LexicographicalCompareINS1_12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEES7_NS1_4LessIRS5_EEEEbT_SB_T0_SC_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.215") align 8 %6) local_unnamed_addr #3 comdat {
 .split:
-  %.fr84 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr83 = freeze ptr %4
-  %7 = icmp ne ptr %.fr, %.fr84
+  %7 = icmp ne ptr %0, %2
+  %.fr73 = freeze i1 %7
   %8 = icmp ne i64 %1, %3
-  %.not8.i49 = select i1 %7, i1 true, i1 %8
+  %.not8.i49 = select i1 %.fr73, i1 true, i1 %8
   br i1 %.not8.i49, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
   %.sroa.07.0.copyload = load ptr, ptr %6, align 8, !tbaa !420
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !39
-  %.sroa.07.0.copyload.fr = freeze ptr %.sroa.07.0.copyload
-  %.not = icmp eq ptr %.fr83, %.sroa.07.0.copyload.fr
-  %9 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %.fr83, i64 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %9 = icmp ne ptr %4, %.sroa.07.0.copyload
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.fr = freeze i1 %9
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %11 = load i64, ptr %.fr, align 8, !tbaa !60
-  br i1 %7, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
+  %12 = load i64, ptr %0, align 8, !tbaa !60
+  br i1 %.fr73, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %12 = add i64 %5, %3
-  %13 = sub i64 %12, %1
+  %13 = add i64 %5, %3
+  %14 = sub i64 %13, %1
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %14 = icmp ult i64 %1, %11
-  br i1 %14, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, label %.split57.us, !prof !422
+  %15 = icmp ult i64 %1, %12
+  br i1 %15, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, label %.split57.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %15 = load i64, ptr %.fr83, align 8, !tbaa !60
+  %16 = load i64, ptr %4, align 8, !tbaa !60
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us
-  %.sroa.6.050.us.us82 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %24, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us ]
-  %.sroa.634.051.us.us81 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us ]
-  %16 = icmp ult i64 %.sroa.6.050.us.us82, %15
-  br i1 %16, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us.us, label %.split59.us, !prof !35
+  %.sroa.6.050.us.us82 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %25, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us ]
+  %.sroa.634.051.us.us81 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph ], [ %24, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us ]
+  %17 = icmp ult i64 %.sroa.6.050.us.us82, %16
+  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us
-  %17 = load ptr, ptr %9, align 8, !tbaa !62
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.634.051.us.us81
-  %19 = load ptr, ptr %10, align 8, !tbaa !62
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.6.050.us.us82
-  %21 = load i8, ptr %18, align 1, !tbaa !107
-  %22 = load i8, ptr %20, align 1, !tbaa !107
-  %or.cond.not = icmp eq i8 %22, %21
-  br i1 %or.cond.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us, label %.loopexit.loopexit163
+  %18 = load ptr, ptr %10, align 8, !tbaa !62
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.634.051.us.us81
+  %20 = load ptr, ptr %11, align 8, !tbaa !62
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.6.050.us.us82
+  %22 = load i8, ptr %19, align 1, !tbaa !107
+  %23 = load i8, ptr %21, align 1, !tbaa !107
+  %or.cond.not = icmp eq i8 %23, %22
+  br i1 %or.cond.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us, label %.loopexit.loopexit
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us.us
-  %23 = add i64 %.sroa.634.051.us.us81, 1
-  %24 = add nuw i64 %.sroa.6.050.us.us82, 1
-  %exitcond.not = icmp eq i64 %23, %11
+  %24 = add i64 %.sroa.634.051.us.us81, 1
+  %25 = add nuw i64 %.sroa.6.050.us.us82, 1
+  %exitcond.not = icmp eq i64 %24, %12
   br i1 %exitcond.not, label %.split57.us, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us, !prof !423
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us
-  %.sroa.634.051.us = phi i64 [ %34, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ], [ %1, %.lr.ph.split.us.split.preheader ]
-  %.sroa.6.050.us = phi i64 [ %35, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ], [ %5, %.lr.ph.split.us.split.preheader ]
-  %25 = icmp ult i64 %.sroa.634.051.us, %11
-  br i1 %25, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split57.us, !prof !35
+  %.sroa.634.051.us = phi i64 [ %35, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ], [ %1, %.lr.ph.split.us.split.preheader ]
+  %.sroa.6.050.us = phi i64 [ %36, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ], [ %5, %.lr.ph.split.us.split.preheader ]
+  %26 = icmp ult i64 %.sroa.634.051.us, %12
+  br i1 %26, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split57.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %.lr.ph.split.us.split
-  %26 = load i64, ptr %.fr83, align 8, !tbaa !60
-  %27 = icmp ult i64 %.sroa.6.050.us, %26
-  br i1 %27, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us, label %.split59.us, !prof !35
+  %27 = load i64, ptr %4, align 8, !tbaa !60
+  %28 = icmp ult i64 %.sroa.6.050.us, %27
+  br i1 %28, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us
-  %28 = load ptr, ptr %9, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.sroa.634.051.us
-  %30 = load ptr, ptr %10, align 8, !tbaa !62
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.6.050.us
-  %32 = load i8, ptr %29, align 1, !tbaa !107
-  %33 = load i8, ptr %31, align 1, !tbaa !107
-  %or.cond153.not = icmp eq i8 %33, %32
-  br i1 %or.cond153.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us, label %.loopexit.loopexit169
+  %29 = load ptr, ptr %10, align 8, !tbaa !62
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.634.051.us
+  %31 = load ptr, ptr %11, align 8, !tbaa !62
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.6.050.us
+  %33 = load i8, ptr %30, align 1, !tbaa !107
+  %34 = load i8, ptr %32, align 1, !tbaa !107
+  %or.cond150.not = icmp eq i8 %34, %33
+  br i1 %or.cond150.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us, label %.loopexit.loopexit156
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us
-  %34 = add nuw i64 %.sroa.634.051.us, 1
-  %35 = add nuw i64 %.sroa.6.050.us, 1
-  %.not89 = icmp eq i64 %34, %3
-  br i1 %.not89, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !424
+  %35 = add nuw i64 %.sroa.634.051.us, 1
+  %36 = add nuw i64 %.sroa.6.050.us, 1
+  %.not86 = icmp eq i64 %35, %3
+  br i1 %.not86, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !424
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %7, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
+  br i1 %.fr73, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  %36 = add i64 %5, %3
-  %37 = sub i64 %36, %1
-  %38 = add i64 %.sroa.28.0.copyload, %1
-  %39 = sub i64 %38, %5
+  %37 = add i64 %5, %3
+  %38 = sub i64 %37, %1
+  %39 = add i64 %.sroa.28.0.copyload, %1
+  %40 = sub i64 %39, %5
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not87 = icmp eq i64 %5, %.sroa.28.0.copyload
-  br i1 %.not87, label %.critedge, label %.lr.ph76
+  %.not84 = icmp eq i64 %5, %.sroa.28.0.copyload
+  br i1 %.not84, label %.critedge, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph.split.split.us
-  %40 = load i64, ptr %.fr, align 8, !tbaa !60
-  %41 = add i64 %.sroa.28.0.copyload, %1
-  %42 = sub i64 %41, %5
-  br label %43
+  %41 = load i64, ptr %0, align 8, !tbaa !60
+  %42 = add i64 %.sroa.28.0.copyload, %1
+  %43 = sub i64 %42, %5
+  br label %44
 
-43:                                               ; preds = %.lr.ph76, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67
-  %.sroa.6.050.us6375 = phi i64 [ %5, %.lr.ph76 ], [ %54, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ]
-  %.sroa.634.051.us6274 = phi i64 [ %1, %.lr.ph76 ], [ %53, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ]
-  %44 = icmp ult i64 %.sroa.634.051.us6274, %40
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64, label %.split57.us, !prof !35
+44:                                               ; preds = %.lr.ph76, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67
+  %.sroa.6.050.us6375 = phi i64 [ %5, %.lr.ph76 ], [ %55, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ]
+  %.sroa.634.051.us6274 = phi i64 [ %1, %.lr.ph76 ], [ %54, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ]
+  %45 = icmp ult i64 %.sroa.634.051.us6274, %41
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64, label %.split57.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64: ; preds = %43
-  %45 = load i64, ptr %.fr83, align 8, !tbaa !60
-  %46 = icmp ult i64 %.sroa.6.050.us6375, %45
-  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us65, label %.split59.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64: ; preds = %44
+  %46 = load i64, ptr %4, align 8, !tbaa !60
+  %47 = icmp ult i64 %.sroa.6.050.us6375, %46
+  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us65, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us65: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64
-  %47 = load ptr, ptr %9, align 8, !tbaa !62
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.634.051.us6274
-  %49 = load ptr, ptr %10, align 8, !tbaa !62
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.sroa.6.050.us6375
-  %51 = load i8, ptr %48, align 1, !tbaa !107
-  %52 = load i8, ptr %50, align 1, !tbaa !107
-  %or.cond154.not = icmp eq i8 %52, %51
-  br i1 %or.cond154.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67, label %.loopexit.loopexit
+  %48 = load ptr, ptr %10, align 8, !tbaa !62
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.sroa.634.051.us6274
+  %50 = load ptr, ptr %11, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.6.050.us6375
+  %52 = load i8, ptr %49, align 1, !tbaa !107
+  %53 = load i8, ptr %51, align 1, !tbaa !107
+  %or.cond151.not = icmp eq i8 %53, %52
+  br i1 %or.cond151.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67, label %.loopexit.loopexit161
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us65
-  %53 = add nuw i64 %.sroa.634.051.us6274, 1
-  %54 = add nuw i64 %.sroa.6.050.us6375, 1
-  %.not88 = icmp eq i64 %54, %.sroa.28.0.copyload
-  br i1 %.not88, label %.critedge, label %43
+  %54 = add nuw i64 %.sroa.634.051.us6274, 1
+  %55 = add nuw i64 %.sroa.6.050.us6375, 1
+  %.not85 = icmp eq i64 %55, %.sroa.28.0.copyload
+  br i1 %.not85, label %.critedge, label %44
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit
-  %.sroa.634.051 = phi i64 [ %66, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ], [ %1, %.lr.ph.split.split.preheader ]
-  %.sroa.6.050 = phi i64 [ %67, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ], [ %5, %.lr.ph.split.split.preheader ]
-  %.not85 = icmp eq i64 %.sroa.6.050, %.sroa.28.0.copyload
-  br i1 %.not85, label %.critedge, label %55
+  %.sroa.634.051 = phi i64 [ %67, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ], [ %1, %.lr.ph.split.split.preheader ]
+  %.sroa.6.050 = phi i64 [ %68, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ], [ %5, %.lr.ph.split.split.preheader ]
+  %.not = icmp eq i64 %.sroa.6.050, %.sroa.28.0.copyload
+  br i1 %.not, label %.critedge, label %56
 
-55:                                               ; preds = %.lr.ph.split.split
-  %56 = load i64, ptr %.fr, align 8, !tbaa !60
-  %57 = icmp ult i64 %.sroa.634.051, %56
-  br i1 %57, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit, label %.split57.us, !prof !35
+56:                                               ; preds = %.lr.ph.split.split
+  %57 = load i64, ptr %0, align 8, !tbaa !60
+  %58 = icmp ult i64 %.sroa.634.051, %57
+  br i1 %58, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit, label %.split57.us, !prof !35
 
-.split57.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us, %55, %43, %.lr.ph.split.us.split.us
+.split57.us:                                      ; preds = %56, %44, %.lr.ph.split.us.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %55
-  %58 = load i64, ptr %.fr83, align 8, !tbaa !60
-  %59 = icmp ult i64 %.sroa.6.050, %58
-  br i1 %59, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18, label %.split59.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %56
+  %59 = load i64, ptr %4, align 8, !tbaa !60
+  %60 = icmp ult i64 %.sroa.6.050, %59
+  br i1 %60, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us64, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit
-  %60 = load ptr, ptr %9, align 8, !tbaa !62
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.634.051
-  %62 = load ptr, ptr %10, align 8, !tbaa !62
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.6.050
-  %64 = load i8, ptr %61, align 1, !tbaa !107
-  %65 = load i8, ptr %63, align 1, !tbaa !107
-  %or.cond155.not = icmp eq i8 %65, %64
-  br i1 %or.cond155.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit, label %.loopexit.loopexit160
+  %61 = load ptr, ptr %10, align 8, !tbaa !62
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.634.051
+  %63 = load ptr, ptr %11, align 8, !tbaa !62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.6.050
+  %65 = load i8, ptr %62, align 1, !tbaa !107
+  %66 = load i8, ptr %64, align 1, !tbaa !107
+  %or.cond152.not = icmp eq i8 %66, %65
+  br i1 %or.cond152.not, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit, label %.loopexit.loopexit168
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18
-  %66 = add nuw i64 %.sroa.634.051, 1
-  %67 = add nuw i64 %.sroa.6.050, 1
-  %.not86 = icmp eq i64 %66, %3
-  br i1 %.not86, label %.critedge, label %.lr.ph.split.split, !llvm.loop !424
+  %67 = add nuw i64 %.sroa.634.051, 1
+  %68 = add nuw i64 %.sroa.6.050, 1
+  %.not83 = icmp eq i64 %67, %3
+  br i1 %.not83, label %.critedge, label %.lr.ph.split.split, !llvm.loop !424
 
-.critedge:                                        ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us, %.lr.ph.split.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67, %.lr.ph.split.split.us, %.split
-  %.sroa.6.0.lcssa = phi i64 [ %5, %.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.28.0.copyload, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %37, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ], [ %.sroa.28.0.copyload, %.lr.ph.split.split ], [ %13, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ]
-  %.sroa.634.0.lcssa = phi i64 [ %1, %.split ], [ %1, %.lr.ph.split.split.us ], [ %42, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ], [ %39, %.lr.ph.split.split ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ]
-  %68 = icmp eq ptr %.fr, %.fr84
-  %69 = icmp eq i64 %.sroa.634.0.lcssa, %3
-  %70 = select i1 %68, i1 %69, i1 false
-  br i1 %70, label %71, label %.loopexit
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us, %.lr.ph.split.split.us, %.split
+  %.sroa.6.0.lcssa = phi i64 [ %5, %.split ], [ %5, %.lr.ph.split.split.us ], [ %14, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ], [ %.sroa.28.0.copyload, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %.sroa.28.0.copyload, %.lr.ph.split.split ], [ %38, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ]
+  %.sroa.634.0.lcssa = phi i64 [ %1, %.split ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us ], [ %43, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit.us67 ], [ %40, %.lr.ph.split.split ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEppEv.exit ]
+  %69 = icmp eq ptr %0, %2
+  %70 = icmp eq i64 %.sroa.634.0.lcssa, %3
+  %71 = select i1 %69, i1 %70, i1 false
+  br i1 %71, label %72, label %.loopexit
 
-71:                                               ; preds = %.critedge
+72:                                               ; preds = %.critedge
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !420
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !39
-  %72 = icmp ne ptr %.fr83, %.sroa.0.0.copyload
-  %73 = icmp ne i64 %.sroa.6.0.lcssa, %.sroa.2.0.copyload
-  %.not8.i23 = select i1 %72, i1 true, i1 %73
+  %73 = icmp ne ptr %4, %.sroa.0.0.copyload
+  %74 = icmp ne i64 %.sroa.6.0.lcssa, %.sroa.2.0.copyload
+  %.not8.i23 = select i1 %73, i1 true, i1 %74
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us65
-  %74 = icmp slt i8 %51, %52
+.loopexit.loopexit:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us.us
+  %75 = icmp slt i8 %22, %23
   br label %.loopexit
 
-.loopexit.loopexit160:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18
-  %75 = icmp slt i8 %64, %65
+.loopexit.loopexit156:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us
+  %76 = icmp slt i8 %33, %34
   br label %.loopexit
 
-.loopexit.loopexit163:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us.us
-  %76 = icmp slt i8 %21, %22
+.loopexit.loopexit161:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us65
+  %77 = icmp slt i8 %52, %53
   br label %.loopexit
 
-.loopexit.loopexit169:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18.us
-  %77 = icmp slt i8 %32, %33
+.loopexit.loopexit168:                            ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKaLm18446744073709551615EEELb0EEdeEv.exit18
+  %78 = icmp slt i8 %65, %66
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit169, %.loopexit.loopexit163, %.loopexit.loopexit160, %.loopexit.loopexit, %.critedge, %71
-  %.0 = phi i1 [ false, %.critedge ], [ %.not8.i23, %71 ], [ %75, %.loopexit.loopexit160 ], [ %74, %.loopexit.loopexit ], [ %76, %.loopexit.loopexit163 ], [ %77, %.loopexit.loopexit169 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit168, %.loopexit.loopexit161, %.loopexit.loopexit156, %.loopexit.loopexit, %.critedge, %72
+  %.0 = phi i1 [ false, %.critedge ], [ %.not8.i23, %72 ], [ %76, %.loopexit.loopexit156 ], [ %77, %.loopexit.loopexit161 ], [ %75, %.loopexit.loopexit ], [ %78, %.loopexit.loopexit168 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i64 } @_ZNSt3_V28__rotateIN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #3 comdat {
-  %.fr29.i = freeze ptr %2
-  %.fr28.i = freeze ptr %0
-  %7 = icmp eq ptr %.fr28.i, %.fr29.i
+  %7 = icmp eq ptr %0, %2
   %8 = icmp eq i64 %1, %3
   %9 = select i1 %7, i1 %8, i1 false
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
-  %11 = icmp eq ptr %4, %.fr29.i
+  %11 = icmp eq ptr %4, %2
   %12 = icmp eq i64 %5, %3
   %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %10
-  %15 = icmp eq ptr %4, %.fr28.i
+  %15 = icmp eq ptr %4, %0
   br i1 %15, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit, label %16, !prof !35
 
 16:                                               ; preds = %14
@@ -19637,17 +19633,17 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   br i1 %21, label %22, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit68
 
 22:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit67
-  br i1 %8, label %.critedge, label %.lr.ph.i
+  br i1 %8, label %.critedge, label %.lr.ph.split.i.preheader
 
-.lr.ph.i:                                         ; preds = %22
-  %23 = load i64, ptr %.fr28.i, align 8, !tbaa !403
-  %24 = getelementptr inbounds nuw i8, ptr %.fr28.i, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.fr29.i, i64 8
+.lr.ph.split.i.preheader:                         ; preds = %22
+  %23 = load i64, ptr %0, align 8, !tbaa !403
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i
-  %.sroa.416.023.i = phi i64 [ %35, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %1, %.lr.ph.i ]
-  %.sroa.4.022.i = phi i64 [ %36, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %3, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i
+  %.sroa.416.023.i = phi i64 [ %35, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %1, %.lr.ph.split.i.preheader ]
+  %.sroa.4.022.i = phi i64 [ %36, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %3, %.lr.ph.split.i.preheader ]
   %26 = icmp ult i64 %.sroa.416.023.i, %23
   br i1 %26, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.i, label %.split.us.i, !prof !35
 
@@ -19656,7 +19652,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.i: ; preds = %.lr.ph.split.i
-  %27 = load i64, ptr %.fr29.i, align 8, !tbaa !403
+  %27 = load i64, ptr %2, align 8, !tbaa !403
   %28 = icmp ult i64 %.sroa.4.022.i, %27
   br i1 %28, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i, label %.split25.us.i, !prof !35
 
@@ -19681,12 +19677,12 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit68: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit67
   %37 = sub i64 %5, %3
   %38 = add i64 %37, %1
-  %39 = load i64, ptr %.fr28.i, align 8, !tbaa !403
+  %39 = load i64, ptr %0, align 8, !tbaa !403
   %.not.i.i = icmp ugt i64 %38, %39
   br i1 %.not.i.i, label %41, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit.preheader, !prof !91
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit.preheader: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit68
-  %40 = getelementptr inbounds nuw i8, ptr %.fr28.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit
 
 41:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit68
@@ -19737,8 +19733,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i
   %.020.i.i.i.i.i = phi i64 [ %61, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i.preheader ]
   %.sroa.413.019.i.i.i.i.i.in = phi i64 [ %.sroa.413.019.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i ], [ %.sroa.20.0, %.lr.ph.i.i.i.i.i.preheader ]
-  %exitcond315.not = icmp eq i64 %.sroa.413.019.i.i.i.i.i.in, %56
-  br i1 %exitcond315.not, label %57, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i, !prof !91
+  %exitcond317.not = icmp eq i64 %.sroa.413.019.i.i.i.i.i.in, %56
+  br i1 %exitcond317.not, label %57, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit6.i.i.i.i.i, !prof !91
 
 57:                                               ; preds = %.lr.ph.i.i.i.i.i
   tail call void @_ZSt9terminatev() #32
@@ -19811,8 +19807,8 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %.lr.ph284
-  %exitcond313.not = icmp eq i64 %.060283, %71
-  br i1 %exitcond313.not, label %76, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit107, !prof !91
+  %exitcond315.not = icmp eq i64 %.060283, %71
+  br i1 %exitcond315.not, label %76, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit107, !prof !91
 
 76:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
   tail call void @_ZSt9terminatev() #32
@@ -19829,8 +19825,8 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   %82 = add nuw i64 %.sroa.20.1282, 1
   %83 = add nuw i64 %.sroa.6.0281, 1
   %84 = add nuw nsw i64 %.060283, 1
-  %exitcond314.not = icmp eq i64 %84, %42
-  br i1 %exitcond314.not, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge, label %.lr.ph284, !llvm.loop !427
+  %exitcond316.not = icmp eq i64 %84, %42
+  br i1 %exitcond316.not, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge, label %.lr.ph284, !llvm.loop !427
 
 85:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge
   %86 = sub nsw i64 %.0242, %73
@@ -19975,7 +19971,7 @@ _ZSt9iter_swapIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709
   br i1 %exitcond.not, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit163._crit_edge, label %.lr.ph, !llvm.loop !429
 
 .critedge:                                        ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit163._crit_edge, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i, %22, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit149, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit97, %10, %6
-  %.sroa.053.0 = phi ptr [ %.fr28.i, %10 ], [ %4, %6 ], [ %.fr28.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit97 ], [ %.fr29.i, %22 ], [ %.fr29.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %.fr28.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit149 ], [ %.fr28.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge ], [ %.fr28.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit163._crit_edge ]
+  %.sroa.053.0 = phi ptr [ %0, %10 ], [ %4, %6 ], [ %0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit97 ], [ %2, %22 ], [ %2, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit149 ], [ %0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge ], [ %0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit163._crit_edge ]
   %.sroa.5.0 = phi i64 [ %1, %10 ], [ %5, %6 ], [ %38, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit97 ], [ %1, %22 ], [ %3, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit12.i ], [ %38, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit149 ], [ %38, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEplEl.exit104._crit_edge ], [ %38, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiEl.exit163._crit_edge ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.053.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
@@ -20669,390 +20665,388 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEES19_SJ_SJ_SJ_SJ_S19_S1A_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %8) local_unnamed_addr #3 comdat {
-  %.fr106 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr105 = freeze ptr %4
-  %10 = icmp ne ptr %.fr, %.fr106
+  %10 = icmp ne ptr %0, %2
+  %.fr93 = freeze i1 %10
   %11 = icmp ne i64 %1, %3
-  %.not8.i61 = select i1 %10, i1 true, i1 %11
+  %.not8.i61 = select i1 %.fr93, i1 true, i1 %11
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i61, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %9
-  %.not = icmp eq ptr %.fr105, %.sroa.011.0.copyload.fr
-  %12 = getelementptr inbounds nuw i8, ptr %.fr105, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %12 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %.fr = freeze i1 %12
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.fr93, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %18 = icmp ult i64 %5, %17
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split.us, !prof !422
+  %18 = load i64, ptr %4, align 8, !tbaa !403
+  %19 = icmp ult i64 %5, %18
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split.us, !prof !422
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %.lr.ph.split.us.split.us, %46
-  %.sroa.6.062.us.us104 = phi i64 [ %.sroa.6.1.us.us, %46 ], [ %5, %.lr.ph.split.us.split.us ]
-  %.sroa.643.063.us.us103 = phi i64 [ %.sroa.643.1.us.us, %46 ], [ %1, %.lr.ph.split.us.split.us ]
-  %.064.us.us102 = phi ptr [ %48, %46 ], [ %7, %.lr.ph.split.us.split.us ]
-  %19 = load i64, ptr %.fr, align 8, !tbaa !403
-  %20 = icmp ult i64 %.sroa.643.063.us.us103, %19
-  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us, label %.split72.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %.lr.ph.split.us.split.us, %47
+  %.sroa.6.062.us.us104 = phi i64 [ %.sroa.6.1.us.us, %47 ], [ %5, %.lr.ph.split.us.split.us ]
+  %.sroa.643.063.us.us103 = phi i64 [ %.sroa.643.1.us.us, %47 ], [ %1, %.lr.ph.split.us.split.us ]
+  %.064.us.us102 = phi ptr [ %49, %47 ], [ %7, %.lr.ph.split.us.split.us ]
+  %20 = load i64, ptr %0, align 8, !tbaa !403
+  %21 = icmp ult i64 %.sroa.643.063.us.us103, %20
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us, label %.split72.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %21 = load ptr, ptr %12, align 8, !tbaa !405
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.062.us.us104
-  %23 = load ptr, ptr %13, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.063.us.us103
-  %25 = load i32, ptr %22, align 4, !tbaa !97
-  %26 = sext i32 %25 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
-  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
-  %28 = load i32, ptr %24, align 4, !tbaa !97
-  %29 = sext i32 %28 to i64
-  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
-  %31 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %27, i64 noundef %30)
-  br i1 %31, label %39, label %32
+  %22 = load ptr, ptr %13, align 8, !tbaa !405
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.6.062.us.us104
+  %24 = load ptr, ptr %14, align 8, !tbaa !405
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.sroa.643.063.us.us103
+  %26 = load i32, ptr %23, align 4, !tbaa !97
+  %27 = sext i32 %26 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %17, align 8, !tbaa !39
+  %28 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %27
+  %29 = load i32, ptr %25, align 4, !tbaa !97
+  %30 = sext i32 %29 to i64
+  %31 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %30
+  %32 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %28, i64 noundef %31)
+  br i1 %32, label %40, label %33
 
-32:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us
-  %33 = load i64, ptr %.fr, align 8, !tbaa !403
-  %34 = icmp ult i64 %.sroa.643.063.us.us103, %33
-  br i1 %34, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us, label %.split74.us, !prof !35
+33:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us
+  %34 = load i64, ptr %0, align 8, !tbaa !403
+  %35 = icmp ult i64 %.sroa.643.063.us.us103, %34
+  br i1 %35, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us, label %.split74.us, !prof !35
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us: ; preds = %32
-  %35 = load ptr, ptr %13, align 8, !tbaa !405
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %.sroa.643.063.us.us103
-  %37 = load i32, ptr %36, align 4, !tbaa !97
-  store i32 %37, ptr %.064.us.us102, align 4, !tbaa !97
-  %38 = add nuw i64 %.sroa.643.063.us.us103, 1
-  %.pre = load i64, ptr %.fr105, align 8, !tbaa !403
-  br label %46
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us: ; preds = %33
+  %36 = load ptr, ptr %14, align 8, !tbaa !405
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %.sroa.643.063.us.us103
+  %38 = load i32, ptr %37, align 4, !tbaa !97
+  store i32 %38, ptr %.064.us.us102, align 4, !tbaa !97
+  %39 = add nuw i64 %.sroa.643.063.us.us103, 1
+  %.pre = load i64, ptr %4, align 8, !tbaa !403
+  br label %47
 
-39:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us
-  %40 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %41 = icmp ult i64 %.sroa.6.062.us.us104, %40
-  br i1 %41, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us, label %.split76.us, !prof !35
+40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us.us
+  %41 = load i64, ptr %4, align 8, !tbaa !403
+  %42 = icmp ult i64 %.sroa.6.062.us.us104, %41
+  br i1 %42, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us, label %.split76.us, !prof !35
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us: ; preds = %39
-  %42 = load ptr, ptr %12, align 8, !tbaa !405
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.sroa.6.062.us.us104
-  %44 = load i32, ptr %43, align 4, !tbaa !97
-  store i32 %44, ptr %.064.us.us102, align 4, !tbaa !97
-  %45 = add nuw i64 %.sroa.6.062.us.us104, 1
-  br label %46
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us: ; preds = %40
+  %43 = load ptr, ptr %13, align 8, !tbaa !405
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.sroa.6.062.us.us104
+  %45 = load i32, ptr %44, align 4, !tbaa !97
+  store i32 %45, ptr %.064.us.us102, align 4, !tbaa !97
+  %46 = add nuw i64 %.sroa.6.062.us.us104, 1
+  br label %47
 
-46:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us
-  %47 = phi i64 [ %40, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us ], [ %.pre, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us ]
-  %.sroa.6.1.us.us = phi i64 [ %45, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us ], [ %.sroa.6.062.us.us104, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us ]
-  %.sroa.643.1.us.us = phi i64 [ %.sroa.643.063.us.us103, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us ], [ %38, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us ]
-  %48 = getelementptr inbounds nuw i8, ptr %.064.us.us102, i64 4
-  %49 = icmp ult i64 %.sroa.6.1.us.us, %47
-  br i1 %49, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split.us, !prof !437
+47:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us
+  %48 = phi i64 [ %41, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us ], [ %.pre, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us ]
+  %.sroa.6.1.us.us = phi i64 [ %46, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us ], [ %.sroa.6.062.us.us104, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us ]
+  %.sroa.643.1.us.us = phi i64 [ %.sroa.643.063.us.us103, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us.us ], [ %39, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.064.us.us102, i64 4
+  %50 = icmp ult i64 %.sroa.6.1.us.us, %48
+  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split.us, !prof !437
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %79
-  %.064.us = phi ptr [ %80, %79 ], [ %7, %.lr.ph.split.us ]
-  %.sroa.643.063.us = phi i64 [ %.sroa.643.1.us, %79 ], [ %1, %.lr.ph.split.us ]
-  %.sroa.6.062.us = phi i64 [ %.sroa.6.1.us, %79 ], [ %5, %.lr.ph.split.us ]
-  %50 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %51 = icmp ult i64 %.sroa.6.062.us, %50
-  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split.us, !prof !35
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %80
+  %.064.us = phi ptr [ %81, %80 ], [ %7, %.lr.ph.split.us ]
+  %.sroa.643.063.us = phi i64 [ %.sroa.643.1.us, %80 ], [ %1, %.lr.ph.split.us ]
+  %.sroa.6.062.us = phi i64 [ %.sroa.6.1.us, %80 ], [ %5, %.lr.ph.split.us ]
+  %51 = load i64, ptr %4, align 8, !tbaa !403
+  %52 = icmp ult i64 %.sroa.6.062.us, %51
+  br i1 %52, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %52 = load i64, ptr %.fr, align 8, !tbaa !403
-  %53 = icmp ult i64 %.sroa.643.063.us, %52
-  br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us, label %.split72.us, !prof !35
+  %53 = load i64, ptr %0, align 8, !tbaa !403
+  %54 = icmp ult i64 %.sroa.643.063.us, %53
+  br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us, label %.split72.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %54 = load ptr, ptr %12, align 8, !tbaa !405
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %.sroa.6.062.us
-  %56 = load ptr, ptr %13, align 8, !tbaa !405
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.sroa.643.063.us
-  %58 = load i32, ptr %55, align 4, !tbaa !97
-  %59 = sext i32 %58 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
-  %60 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %59
-  %61 = load i32, ptr %57, align 4, !tbaa !97
-  %62 = sext i32 %61 to i64
-  %63 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %62
-  %64 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %60, i64 noundef %63)
-  br i1 %64, label %72, label %65
+  %55 = load ptr, ptr %13, align 8, !tbaa !405
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %.sroa.6.062.us
+  %57 = load ptr, ptr %14, align 8, !tbaa !405
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.643.063.us
+  %59 = load i32, ptr %56, align 4, !tbaa !97
+  %60 = sext i32 %59 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %17, align 8, !tbaa !39
+  %61 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %60
+  %62 = load i32, ptr %58, align 4, !tbaa !97
+  %63 = sext i32 %62 to i64
+  %64 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %63
+  %65 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %61, i64 noundef %64)
+  br i1 %65, label %73, label %66
 
-65:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us
-  %66 = load i64, ptr %.fr, align 8, !tbaa !403
-  %67 = icmp ult i64 %.sroa.643.063.us, %66
-  br i1 %67, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us, label %.split74.us, !prof !35
+66:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us
+  %67 = load i64, ptr %0, align 8, !tbaa !403
+  %68 = icmp ult i64 %.sroa.643.063.us, %67
+  br i1 %68, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us, label %.split74.us, !prof !35
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us: ; preds = %65
-  %68 = load ptr, ptr %13, align 8, !tbaa !405
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %.sroa.643.063.us
-  %70 = load i32, ptr %69, align 4, !tbaa !97
-  store i32 %70, ptr %.064.us, align 4, !tbaa !97
-  %71 = add nuw i64 %.sroa.643.063.us, 1
-  br label %79
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us: ; preds = %66
+  %69 = load ptr, ptr %14, align 8, !tbaa !405
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %.sroa.643.063.us
+  %71 = load i32, ptr %70, align 4, !tbaa !97
+  store i32 %71, ptr %.064.us, align 4, !tbaa !97
+  %72 = add nuw i64 %.sroa.643.063.us, 1
+  br label %80
 
-72:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us
-  %73 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %74 = icmp ult i64 %.sroa.6.062.us, %73
-  br i1 %74, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us, label %.split76.us, !prof !35
+73:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us
+  %74 = load i64, ptr %4, align 8, !tbaa !403
+  %75 = icmp ult i64 %.sroa.6.062.us, %74
+  br i1 %75, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us, label %.split76.us, !prof !35
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %72
-  %75 = load ptr, ptr %12, align 8, !tbaa !405
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.6.062.us
-  %77 = load i32, ptr %76, align 4, !tbaa !97
-  store i32 %77, ptr %.064.us, align 4, !tbaa !97
-  %78 = add nuw i64 %.sroa.6.062.us, 1
-  br label %79
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %73
+  %76 = load ptr, ptr %13, align 8, !tbaa !405
+  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.6.062.us
+  %78 = load i32, ptr %77, align 4, !tbaa !97
+  store i32 %78, ptr %.064.us, align 4, !tbaa !97
+  %79 = add nuw i64 %.sroa.6.062.us, 1
+  br label %80
 
-79:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us
-  %.sroa.6.1.us = phi i64 [ %78, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %.sroa.6.062.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us ]
-  %.sroa.643.1.us = phi i64 [ %.sroa.643.063.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %71, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us ]
-  %80 = getelementptr inbounds nuw i8, ptr %.064.us, i64 4
-  %.not111 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not111, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !438
+80:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us
+  %.sroa.6.1.us = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %.sroa.6.062.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us ]
+  %.sroa.643.1.us = phi i64 [ %.sroa.643.063.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %72, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us ]
+  %81 = getelementptr inbounds nuw i8, ptr %.064.us, i64 4
+  %.not108 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not108, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !438
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr93, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not109 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not109, label %.critedge, label %.lr.ph97
+  %.not106 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not106, label %.critedge, label %.lr.ph97
 
-.lr.ph97:                                         ; preds = %.lr.ph.split.split.us, %110
-  %.sroa.6.062.us8196 = phi i64 [ %.sroa.6.1.us87, %110 ], [ %5, %.lr.ph.split.split.us ]
-  %.sroa.643.063.us8095 = phi i64 [ %.sroa.643.1.us88, %110 ], [ %1, %.lr.ph.split.split.us ]
-  %.064.us7994 = phi ptr [ %111, %110 ], [ %7, %.lr.ph.split.split.us ]
-  %81 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %82 = icmp ult i64 %.sroa.6.062.us8196, %81
-  br i1 %82, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82, label %.split.us, !prof !35
+.lr.ph97:                                         ; preds = %.lr.ph.split.split.us, %111
+  %.sroa.6.062.us8196 = phi i64 [ %.sroa.6.1.us87, %111 ], [ %5, %.lr.ph.split.split.us ]
+  %.sroa.643.063.us8095 = phi i64 [ %.sroa.643.1.us88, %111 ], [ %1, %.lr.ph.split.split.us ]
+  %.064.us7994 = phi ptr [ %112, %111 ], [ %7, %.lr.ph.split.split.us ]
+  %82 = load i64, ptr %4, align 8, !tbaa !403
+  %83 = icmp ult i64 %.sroa.6.062.us8196, %82
+  br i1 %83, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82, label %.split.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82: ; preds = %.lr.ph97
-  %83 = load i64, ptr %.fr, align 8, !tbaa !403
-  %84 = icmp ult i64 %.sroa.643.063.us8095, %83
-  br i1 %84, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83, label %.split72.us, !prof !35
+  %84 = load i64, ptr %0, align 8, !tbaa !403
+  %85 = icmp ult i64 %.sroa.643.063.us8095, %84
+  br i1 %85, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83, label %.split72.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82
-  %85 = load ptr, ptr %12, align 8, !tbaa !405
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %.sroa.6.062.us8196
-  %87 = load ptr, ptr %13, align 8, !tbaa !405
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %.sroa.643.063.us8095
-  %89 = load i32, ptr %86, align 4, !tbaa !97
-  %90 = sext i32 %89 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us84 = load i64, ptr %16, align 8, !tbaa !39
-  %91 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us84, %90
-  %92 = load i32, ptr %88, align 4, !tbaa !97
-  %93 = sext i32 %92 to i64
-  %94 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us84, %93
-  %95 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %91, i64 noundef %94)
-  br i1 %95, label %103, label %96
+  %86 = load ptr, ptr %13, align 8, !tbaa !405
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %.sroa.6.062.us8196
+  %88 = load ptr, ptr %14, align 8, !tbaa !405
+  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %.sroa.643.063.us8095
+  %90 = load i32, ptr %87, align 4, !tbaa !97
+  %91 = sext i32 %90 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us84 = load i64, ptr %17, align 8, !tbaa !39
+  %92 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us84, %91
+  %93 = load i32, ptr %89, align 4, !tbaa !97
+  %94 = sext i32 %93 to i64
+  %95 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us84, %94
+  %96 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %92, i64 noundef %95)
+  br i1 %96, label %104, label %97
 
-96:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83
-  %97 = load i64, ptr %.fr, align 8, !tbaa !403
-  %98 = icmp ult i64 %.sroa.643.063.us8095, %97
-  br i1 %98, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85, label %.split74.us, !prof !35
+97:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83
+  %98 = load i64, ptr %0, align 8, !tbaa !403
+  %99 = icmp ult i64 %.sroa.643.063.us8095, %98
+  br i1 %99, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85, label %.split74.us, !prof !35
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85: ; preds = %96
-  %99 = load ptr, ptr %13, align 8, !tbaa !405
-  %100 = getelementptr inbounds nuw i32, ptr %99, i64 %.sroa.643.063.us8095
-  %101 = load i32, ptr %100, align 4, !tbaa !97
-  store i32 %101, ptr %.064.us7994, align 4, !tbaa !97
-  %102 = add nuw i64 %.sroa.643.063.us8095, 1
-  br label %110
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85: ; preds = %97
+  %100 = load ptr, ptr %14, align 8, !tbaa !405
+  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.sroa.643.063.us8095
+  %102 = load i32, ptr %101, align 4, !tbaa !97
+  store i32 %102, ptr %.064.us7994, align 4, !tbaa !97
+  %103 = add nuw i64 %.sroa.643.063.us8095, 1
+  br label %111
 
-103:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83
-  %104 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.6.062.us8196, %104
-  br i1 %105, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86, label %.split76.us, !prof !35
+104:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit.us83
+  %105 = load i64, ptr %4, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.6.062.us8196, %105
+  br i1 %106, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86, label %.split76.us, !prof !35
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86: ; preds = %103
-  %106 = load ptr, ptr %12, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.062.us8196
-  %108 = load i32, ptr %107, align 4, !tbaa !97
-  store i32 %108, ptr %.064.us7994, align 4, !tbaa !97
-  %109 = add nuw i64 %.sroa.6.062.us8196, 1
-  br label %110
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86: ; preds = %104
+  %107 = load ptr, ptr %13, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.062.us8196
+  %109 = load i32, ptr %108, align 4, !tbaa !97
+  store i32 %109, ptr %.064.us7994, align 4, !tbaa !97
+  %110 = add nuw i64 %.sroa.6.062.us8196, 1
+  br label %111
 
-110:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85
-  %.sroa.6.1.us87 = phi i64 [ %109, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86 ], [ %.sroa.6.062.us8196, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85 ]
-  %.sroa.643.1.us88 = phi i64 [ %.sroa.643.063.us8095, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86 ], [ %102, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.064.us7994, i64 4
-  %.not110 = icmp eq i64 %.sroa.6.1.us87, %.sroa.212.0.copyload
-  br i1 %.not110, label %.critedge, label %.lr.ph97
+111:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85
+  %.sroa.6.1.us87 = phi i64 [ %110, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86 ], [ %.sroa.6.062.us8196, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85 ]
+  %.sroa.643.1.us88 = phi i64 [ %.sroa.643.063.us8095, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us86 ], [ %103, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27.us85 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.064.us7994, i64 4
+  %.not107 = icmp eq i64 %.sroa.6.1.us87, %.sroa.212.0.copyload
+  br i1 %.not107, label %.critedge, label %.lr.ph97
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %142
-  %.064 = phi ptr [ %143, %142 ], [ %7, %.lr.ph.split ]
-  %.sroa.643.063 = phi i64 [ %.sroa.643.1, %142 ], [ %1, %.lr.ph.split ]
-  %.sroa.6.062 = phi i64 [ %.sroa.6.1, %142 ], [ %5, %.lr.ph.split ]
-  %.not107 = icmp eq i64 %.sroa.6.062, %.sroa.212.0.copyload
-  br i1 %.not107, label %.critedge, label %112
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %143
+  %.064 = phi ptr [ %144, %143 ], [ %7, %.lr.ph.split ]
+  %.sroa.643.063 = phi i64 [ %.sroa.643.1, %143 ], [ %1, %.lr.ph.split ]
+  %.sroa.6.062 = phi i64 [ %.sroa.6.1, %143 ], [ %5, %.lr.ph.split ]
+  %.not = icmp eq i64 %.sroa.6.062, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %113
 
-112:                                              ; preds = %.lr.ph.split.split
-  %113 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %114 = icmp ult i64 %.sroa.6.062, %113
-  br i1 %114, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split.us, !prof !35
+113:                                              ; preds = %.lr.ph.split.split
+  %114 = load i64, ptr %4, align 8, !tbaa !403
+  %115 = icmp ult i64 %.sroa.6.062, %114
+  br i1 %115, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split.us, !prof !35
 
-.split.us:                                        ; preds = %.lr.ph.split.us.split, %46, %112, %.lr.ph97, %.lr.ph.split.us.split.us
+.split.us:                                        ; preds = %113, %.lr.ph97, %.lr.ph.split.us.split, %47, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %112
-  %115 = load i64, ptr %.fr, align 8, !tbaa !403
-  %116 = icmp ult i64 %.sroa.643.063, %115
-  br i1 %116, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit, label %.split72.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %113
+  %116 = load i64, ptr %0, align 8, !tbaa !403
+  %117 = icmp ult i64 %.sroa.643.063, %116
+  br i1 %117, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit, label %.split72.us, !prof !35
 
-.split72.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82
+.split72.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us82, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %117 = load ptr, ptr %12, align 8, !tbaa !405
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %.sroa.6.062
-  %119 = load ptr, ptr %13, align 8, !tbaa !405
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %.sroa.643.063
-  %121 = load i32, ptr %118, align 4, !tbaa !97
-  %122 = sext i32 %121 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
-  %123 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %122
-  %124 = load i32, ptr %120, align 4, !tbaa !97
-  %125 = sext i32 %124 to i64
-  %126 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %125
-  %127 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %123, i64 noundef %126)
-  br i1 %127, label %128, label %135
+  %118 = load ptr, ptr %13, align 8, !tbaa !405
+  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %.sroa.6.062
+  %120 = load ptr, ptr %14, align 8, !tbaa !405
+  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %.sroa.643.063
+  %122 = load i32, ptr %119, align 4, !tbaa !97
+  %123 = sext i32 %122 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %17, align 8, !tbaa !39
+  %124 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %123
+  %125 = load i32, ptr %121, align 4, !tbaa !97
+  %126 = sext i32 %125 to i64
+  %127 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %126
+  %128 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %124, i64 noundef %127)
+  br i1 %128, label %129, label %136
 
-128:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit
-  %129 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %130 = icmp ult i64 %.sroa.6.062, %129
-  br i1 %130, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit, label %.split76.us, !prof !35
+129:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit
+  %130 = load i64, ptr %4, align 8, !tbaa !403
+  %131 = icmp ult i64 %.sroa.6.062, %130
+  br i1 %131, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit, label %.split76.us, !prof !35
 
-.split76.us:                                      ; preds = %72, %39, %128, %103
+.split76.us:                                      ; preds = %129, %104, %73, %40
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit: ; preds = %128
-  %131 = load ptr, ptr %12, align 8, !tbaa !405
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %.sroa.6.062
-  %133 = load i32, ptr %132, align 4, !tbaa !97
-  store i32 %133, ptr %.064, align 4, !tbaa !97
-  %134 = add nuw i64 %.sroa.6.062, 1
-  br label %142
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit: ; preds = %129
+  %132 = load ptr, ptr %13, align 8, !tbaa !405
+  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %.sroa.6.062
+  %134 = load i32, ptr %133, align 4, !tbaa !97
+  store i32 %134, ptr %.064, align 4, !tbaa !97
+  %135 = add nuw i64 %.sroa.6.062, 1
+  br label %143
 
-135:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit
-  %136 = load i64, ptr %.fr, align 8, !tbaa !403
-  %137 = icmp ult i64 %.sroa.643.063, %136
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27, label %.split74.us, !prof !35
+136:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_S12_EEbSC_S17_.exit
+  %137 = load i64, ptr %0, align 8, !tbaa !403
+  %138 = icmp ult i64 %.sroa.643.063, %137
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27, label %.split74.us, !prof !35
 
-.split74.us:                                      ; preds = %65, %32, %135, %96
+.split74.us:                                      ; preds = %136, %97, %66, %33
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27: ; preds = %135
-  %138 = load ptr, ptr %13, align 8, !tbaa !405
-  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %.sroa.643.063
-  %140 = load i32, ptr %139, align 4, !tbaa !97
-  store i32 %140, ptr %.064, align 4, !tbaa !97
-  %141 = add nuw i64 %.sroa.643.063, 1
-  br label %142
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27: ; preds = %136
+  %139 = load ptr, ptr %14, align 8, !tbaa !405
+  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.643.063
+  %141 = load i32, ptr %140, align 4, !tbaa !97
+  store i32 %141, ptr %.064, align 4, !tbaa !97
+  %142 = add nuw i64 %.sroa.643.063, 1
+  br label %143
 
-142:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
-  %.sroa.6.1 = phi i64 [ %134, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %.sroa.6.062, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27 ]
-  %.sroa.643.1 = phi i64 [ %.sroa.643.063, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %141, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.064, i64 4
-  %.not108 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not108, label %.critedge, label %.lr.ph.split.split, !llvm.loop !438
+143:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit
+  %.sroa.6.1 = phi i64 [ %135, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %.sroa.6.062, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27 ]
+  %.sroa.643.1 = phi i64 [ %.sroa.643.063, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit27 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.064, i64 4
+  %.not105 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not105, label %.critedge, label %.lr.ph.split.split, !llvm.loop !438
 
-.critedge:                                        ; preds = %79, %.lr.ph.split.split, %142, %110, %9, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %110 ], [ %.sroa.212.0.copyload, %9 ], [ %.sroa.212.0.copyload, %142 ], [ %.sroa.212.0.copyload, %79 ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %110 ], [ %5, %9 ], [ %.sroa.6.1, %142 ], [ %.sroa.6.1.us, %79 ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.063, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us88, %110 ], [ %1, %9 ], [ %3, %142 ], [ %3, %79 ]
-  %.0.lcssa = phi ptr [ %.064, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %111, %110 ], [ %7, %9 ], [ %143, %142 ], [ %80, %79 ]
-  %144 = icmp eq ptr %.fr106, %.fr
-  br i1 %144, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %145, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %143, %111, %80, %9, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %111 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %80 ], [ %.sroa.212.0.copyload, %9 ], [ %.sroa.212.0.copyload, %143 ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %111 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %80 ], [ %5, %9 ], [ %.sroa.6.1, %143 ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us88, %111 ], [ %1, %.lr.ph.split.split.us ], [ %3, %80 ], [ %1, %9 ], [ %3, %143 ], [ %.sroa.643.063, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %112, %111 ], [ %7, %.lr.ph.split.split.us ], [ %81, %80 ], [ %7, %9 ], [ %144, %143 ], [ %.064, %.lr.ph.split.split ]
+  %145 = icmp eq ptr %2, %0
+  br i1 %145, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %146, !prof !35
 
-145:                                              ; preds = %.critedge
+146:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %146 = sub i64 %3, %.sroa.643.0.lcssa
-  %147 = icmp sgt i64 %146, 0
-  br i1 %147, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %147 = sub i64 %3, %.sroa.643.0.lcssa
+  %148 = icmp sgt i64 %147, 0
+  br i1 %148, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %148 = load i64, ptr %.fr, align 8, !tbaa !403
-  %149 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %150
+  %149 = load i64, ptr %0, align 8, !tbaa !403
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %151
 
-150:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %157, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %146, %.lr.ph.i.i.i.i.i ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %156, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %151 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %148
-  br i1 %151, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %152, !prof !35
+151:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %147, %.lr.ph.i.i.i.i.i ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %157, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %152 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %149
+  br i1 %152, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %153, !prof !35
 
-152:                                              ; preds = %150
+153:                                              ; preds = %151
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %150
-  %153 = load ptr, ptr %149, align 8, !tbaa !405
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %.sroa.3.09.i.i.i.i.i
-  %155 = load i32, ptr %154, align 4, !tbaa !97
-  store i32 %155, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %156 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %157 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %158 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %159 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %159, label %150, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %151
+  %154 = load ptr, ptr %150, align 8, !tbaa !405
+  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %.sroa.3.09.i.i.i.i.i
+  %156 = load i32, ptr %155, align 4, !tbaa !97
+  store i32 %156, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %157 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %158 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %159 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %160 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %160, label %151, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %157, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %160 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr105
-  br i1 %160, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %161, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %161 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %161, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %162, !prof !35
 
-161:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+162:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %162 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %163 = icmp sgt i64 %162, 0
-  br i1 %163, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %163 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %164 = icmp sgt i64 %163, 0
+  br i1 %164, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %164 = load i64, ptr %.fr105, align 8, !tbaa !403
-  %165 = getelementptr inbounds nuw i8, ptr %.fr105, i64 8
-  br label %166
+  %165 = load i64, ptr %4, align 8, !tbaa !403
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %167
 
-166:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %173, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %162, %.lr.ph.i.i.i.i.i30 ], [ %174, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %172, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %167 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %164
-  br i1 %167, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %168, !prof !35
+167:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %174, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %163, %.lr.ph.i.i.i.i.i30 ], [ %175, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %173, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %168 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %165
+  br i1 %168, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %169, !prof !35
 
-168:                                              ; preds = %166
+169:                                              ; preds = %167
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %166
-  %169 = load ptr, ptr %165, align 8, !tbaa !405
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %.sroa.3.09.i.i.i.i.i33
-  %171 = load i32, ptr %170, align 4, !tbaa !97
-  store i32 %171, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %172 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %173 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %174 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %175 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %175, label %166, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %167
+  %170 = load ptr, ptr %166, align 8, !tbaa !405
+  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %.sroa.3.09.i.i.i.i.i33
+  %172 = load i32, ptr %171, align 4, !tbaa !97
+  store i32 %172, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %173 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %174 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %175 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %176 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %176, label %167, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %173, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %174, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -21208,211 +21202,209 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEEvSJ_SJ_S19_S19_S1A_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr57 = freeze ptr %2
   %.not35 = icmp eq ptr %0, %1
   br i1 %.not35, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %.fr58 = freeze ptr %4
-  %.not59 = icmp eq ptr %.fr57, %.fr58
-  %9 = getelementptr inbounds nuw i8, ptr %.fr57, i64 8
-  %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.promoted = load i64, ptr %13, align 8
-  br i1 %.not59, label %.lr.ph.split, label %.lr.ph.split.us
+  %9 = icmp ne ptr %2, %4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.promoted = load i64, ptr %14, align 8
+  %.fr = freeze i1 %9
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
-  %16 = phi i64 [ %46, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ], [ %.promoted, %.lr.ph ]
+  %17 = phi i64 [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ], [ %.promoted, %.lr.ph ]
   %.037.us = phi ptr [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ], [ %0, %.lr.ph ]
   %.sroa.5.036.us = phi i64 [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ], [ %3, %.lr.ph ]
-  %17 = load i64, ptr %.fr57, align 8, !tbaa !403
-  %18 = icmp ult i64 %.sroa.5.036.us, %17
-  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us, label %.split.us, !prof !35
+  %18 = load i64, ptr %2, align 8, !tbaa !403
+  %19 = icmp ult i64 %.sroa.5.036.us, %18
+  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us, label %.split.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us: ; preds = %.lr.ph.split.us
-  %19 = load ptr, ptr %9, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.036.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.037.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %23, i64 noundef %26)
-  br i1 %27, label %35, label %28
+  %20 = load ptr, ptr %10, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.036.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %13, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.037.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %24, i64 noundef %27)
+  br i1 %28, label %36, label %29
 
-28:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us
-  %29 = load i64, ptr %14, align 8, !tbaa !403
-  %30 = icmp ult i64 %16, %29
-  br i1 %30, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split45.us, !prof !35
+29:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us
+  %30 = load i64, ptr %15, align 8, !tbaa !403
+  %31 = icmp ult i64 %17, %30
+  br i1 %31, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split45.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %28
-  %31 = load i32, ptr %.037.us, align 4, !tbaa !97
-  %32 = load ptr, ptr %15, align 8, !tbaa !405
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %16
-  store i32 %31, ptr %33, align 4, !tbaa !97
-  %34 = getelementptr inbounds nuw i8, ptr %.037.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %29
+  %32 = load i32, ptr %.037.us, align 4, !tbaa !97
+  %33 = load ptr, ptr %16, align 8, !tbaa !405
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %17
+  store i32 %32, ptr %34, align 4, !tbaa !97
+  %35 = getelementptr inbounds nuw i8, ptr %.037.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
-35:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us
-  %36 = load i64, ptr %.fr57, align 8, !tbaa !403
-  %37 = icmp ult i64 %.sroa.5.036.us, %36
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split48.us, !prof !35
+36:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit.us
+  %37 = load i64, ptr %2, align 8, !tbaa !403
+  %38 = icmp ult i64 %.sroa.5.036.us, %37
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %35
-  %38 = load i64, ptr %14, align 8, !tbaa !403
-  %39 = icmp ult i64 %16, %38
-  br i1 %39, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us, label %.split51.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %36
+  %39 = load i64, ptr %15, align 8, !tbaa !403
+  %40 = icmp ult i64 %17, %39
+  br i1 %40, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us, label %.split51.us, !prof !35
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %40 = load ptr, ptr %9, align 8, !tbaa !405
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %.sroa.5.036.us
-  %42 = load i32, ptr %41, align 4, !tbaa !97
-  %43 = load ptr, ptr %15, align 8, !tbaa !405
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %16
-  store i32 %42, ptr %44, align 4, !tbaa !97
-  %45 = add nuw i64 %.sroa.5.036.us, 1
+  %41 = load ptr, ptr %10, align 8, !tbaa !405
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.sroa.5.036.us
+  %43 = load i32, ptr %42, align 4, !tbaa !97
+  %44 = load ptr, ptr %16, align 8, !tbaa !405
+  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
+  store i32 %43, ptr %45, align 4, !tbaa !97
+  %46 = add nuw i64 %.sroa.5.036.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us
-  %.sroa.5.1.us = phi i64 [ %45, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %.sroa.5.036.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.037.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %46 = add nuw i64 %16, 1
+  %.sroa.5.1.us = phi i64 [ %46, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %.sroa.5.036.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.037.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.us ], [ %35, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %47 = add nuw i64 %17, 1
   %.not.us = icmp eq ptr %.1.us, %1
   br i1 %.not.us, label %.critedge19, label %.lr.ph.split.us, !llvm.loop !439
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %77, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %78, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.037 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.036 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not60 = icmp eq i64 %.sroa.5.036, %5
-  br i1 %.not60, label %.critedge, label %47
+  %.not57 = icmp eq i64 %.sroa.5.036, %5
+  br i1 %.not57, label %.critedge, label %48
 
-47:                                               ; preds = %.lr.ph.split
-  %48 = load i64, ptr %.fr57, align 8, !tbaa !403
-  %49 = icmp ult i64 %.sroa.5.036, %48
-  br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit, label %.split.us, !prof !35
+48:                                               ; preds = %.lr.ph.split
+  %49 = load i64, ptr %2, align 8, !tbaa !403
+  %50 = icmp ult i64 %.sroa.5.036, %49
+  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit, label %.split.us, !prof !35
 
-.split.us:                                        ; preds = %.lr.ph.split.us, %47
+.split.us:                                        ; preds = %48, %.lr.ph.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit: ; preds = %47
-  %50 = load ptr, ptr %9, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.5.036
-  %52 = load i32, ptr %51, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %53
-  %55 = load i32, ptr %.037, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %56
-  %58 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %54, i64 noundef %57)
-  br i1 %58, label %59, label %70
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit: ; preds = %48
+  %51 = load ptr, ptr %10, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.036
+  %53 = load i32, ptr %52, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %13, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
+  %56 = load i32, ptr %.037, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
+  %59 = tail call noundef zeroext i1 @_ZZZN3enc8cpu_impl9SortNamesINS_6PolicyIJN7xgboost14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_6common4SpanIKaLm18446744073709551615EEENSC_IKsLm18446744073709551615EEENSC_IKiLm18446744073709551615EEENSC_IKlLm18446744073709551615EEENSC_IKfLm18446744073709551615EEENSC_IKdLm18446744073709551615EEEEENSC_IiLm18446744073709551615EEEENKUlRKSA_E_clESU_ENKUlmmE_clEmm(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %55, i64 noundef %58)
+  br i1 %59, label %60, label %71
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit
-  %60 = load i64, ptr %.fr57, align 8, !tbaa !403
-  %61 = icmp ult i64 %.sroa.5.036, %60
-  br i1 %61, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %.split48.us, !prof !35
+60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit
+  %61 = load i64, ptr %2, align 8, !tbaa !403
+  %62 = icmp ult i64 %.sroa.5.036, %61
+  br i1 %62, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %35, %59
+.split48.us:                                      ; preds = %60, %36
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %59
-  %62 = load i64, ptr %14, align 8, !tbaa !403
-  %63 = icmp ult i64 %.sroa.2.0.copyload, %62
-  br i1 %63, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit, label %.split51.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %60
+  %63 = load i64, ptr %15, align 8, !tbaa !403
+  %64 = icmp ult i64 %.sroa.2.0.copyload, %63
+  br i1 %64, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit, label %.split51.us, !prof !35
 
-.split51.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split51.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %64 = load ptr, ptr %9, align 8, !tbaa !405
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %.sroa.5.036
-  %66 = load i32, ptr %65, align 4, !tbaa !97
-  %67 = load ptr, ptr %15, align 8, !tbaa !405
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %.sroa.2.0.copyload
-  store i32 %66, ptr %68, align 4, !tbaa !97
-  %69 = add nuw i64 %.sroa.5.036, 1
+  %65 = load ptr, ptr %10, align 8, !tbaa !405
+  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %.sroa.5.036
+  %67 = load i32, ptr %66, align 4, !tbaa !97
+  %68 = load ptr, ptr %16, align 8, !tbaa !405
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %.sroa.2.0.copyload
+  store i32 %67, ptr %69, align 4, !tbaa !97
+  %70 = add nuw i64 %.sroa.5.036, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-70:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit
-  %71 = load i64, ptr %14, align 8, !tbaa !403
-  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
-  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split45.us, !prof !35
+71:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIS12_PiEEbSC_S17_.exit
+  %72 = load i64, ptr %15, align 8, !tbaa !403
+  %73 = icmp ult i64 %.sroa.2.0.copyload, %72
+  br i1 %73, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split45.us, !prof !35
 
-.split45.us:                                      ; preds = %28, %70
+.split45.us:                                      ; preds = %71, %29
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %70
-  %73 = load i32, ptr %.037, align 4, !tbaa !97
-  %74 = load ptr, ptr %15, align 8, !tbaa !405
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %.sroa.2.0.copyload
-  store i32 %73, ptr %75, align 4, !tbaa !97
-  %76 = getelementptr inbounds nuw i8, ptr %.037, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %71
+  %74 = load i32, ptr %.037, align 4, !tbaa !97
+  %75 = load ptr, ptr %16, align 8, !tbaa !405
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.2.0.copyload
+  store i32 %74, ptr %76, align 4, !tbaa !97
+  %77 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %69, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %.sroa.5.036, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.037, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %76, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %77 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %70, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %.sroa.5.036, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.037, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit ], [ %77, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %78 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !439
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %13, align 8
-  %78 = ptrtoint ptr %1 to i64
-  %79 = ptrtoint ptr %.037 to i64
-  %80 = sub i64 %78, %79
-  %81 = ashr exact i64 %80, 2
-  %82 = icmp sgt i64 %81, 0
-  br i1 %82, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %14, align 8
+  %79 = ptrtoint ptr %1 to i64
+  %80 = ptrtoint ptr %.037 to i64
+  %81 = sub i64 %79, %80
+  %82 = ashr exact i64 %81, 2
+  %83 = icmp sgt i64 %82, 0
+  br i1 %83, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %83 = load i64, ptr %14, align 8, !tbaa !403
-  br label %84
+  %84 = load i64, ptr %15, align 8, !tbaa !403
+  br label %85
 
-84:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %81, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.037, %.lr.ph.i.i.i.i.i ], [ %90, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %91, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %85 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %83
-  br i1 %85, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %86, !prof !35
+85:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %82, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.037, %.lr.ph.i.i.i.i.i ], [ %91, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %86 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %84
+  br i1 %86, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %87, !prof !35
 
-86:                                               ; preds = %84
+87:                                               ; preds = %85
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %84
-  %87 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %88 = load ptr, ptr %15, align 8, !tbaa !405
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %87, ptr %89, align 4, !tbaa !97
-  %90 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %91 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %92 = add nsw i64 %.012.i.i.i.i.i, -1
-  %93 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %93, label %84, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %85
+  %88 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %89 = load ptr, ptr %16, align 8, !tbaa !405
+  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %88, ptr %90, align 4, !tbaa !97
+  %91 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %92 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %93 = add nsw i64 %.012.i.i.i.i.i, -1
+  %94 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %94, label %85, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %8, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %8, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEEvSJ_SJ_S19_S19_S1A_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr95 = freeze ptr %2
-  %.fr94 = freeze ptr %0
-  %9 = icmp eq ptr %.fr94, %.fr95
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -21466,7 +21458,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr95, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -21481,7 +21473,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr95, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %7, align 8, !tbaa !411
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !413
@@ -21489,10 +21481,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.promoted = load i64, ptr %41, align 8
-  br i1 %9, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.outer, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer
+  br i1 %.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.outer, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer
-  %44 = phi i64 [ %.ph155, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer ], [ %73, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us ]
+  %44 = phi i64 [ %.ph153, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer ], [ %73, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us ]
   %.sroa.6.081.us = phi i64 [ %.sroa.6.081.us.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer ], [ %76, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit34.us ]
   %45 = load ptr, ptr %37, align 8, !tbaa !405
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.sroa.6.081.us
@@ -21526,18 +21518,18 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 62:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55.us
   %63 = getelementptr inbounds i8, ptr %.082.us.ph, i64 -4
-  %.pre = load i64, ptr %.fr95, align 8, !tbaa !403
+  %.pre = load i64, ptr %2, align 8, !tbaa !403
   %64 = icmp ult i64 %.sroa.6.081.us, %.pre
   br i1 %64, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer, label %._crit_edge, !prof !437, !llvm.loop !441
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us.outer: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph, %62
-  %.ph155 = phi i64 [ %58, %62 ], [ %.promoted, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph ]
+  %.ph153 = phi i64 [ %58, %62 ], [ %.promoted, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph ]
   %.082.us.ph = phi ptr [ %63, %62 ], [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph ]
   %.sroa.6.081.us.ph = phi i64 [ %.sroa.6.081.us, %62 ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph ]
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us
 
 65:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.us
-  %66 = load i64, ptr %.fr95, align 8, !tbaa !403
+  %66 = load i64, ptr %2, align 8, !tbaa !403
   %67 = icmp ult i64 %.sroa.6.081.us, %66
   br i1 %67, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %.split.us, !prof !35
 
@@ -21582,7 +21574,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18I
   br i1 %86, label %87, label %114
 
 87:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit
-  %88 = load i64, ptr %.fr95, align 8, !tbaa !403
+  %88 = load i64, ptr %2, align 8, !tbaa !403
   %89 = icmp ult i64 %.sroa.6.081, %88
   br i1 %89, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %.split.us, !prof !35
 
@@ -21678,8 +21670,8 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 122:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit55
   %123 = getelementptr inbounds i8, ptr %.082.ph, i64 -4
-  %.pre132 = load i64, ptr %.fr95, align 8, !tbaa !403
-  %124 = icmp ult i64 %.sroa.6.081, %.pre132
+  %.pre130 = load i64, ptr %2, align 8, !tbaa !403
+  %124 = icmp ult i64 %.sroa.6.081, %.pre130
   br i1 %124, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.outer, label %._crit_edge, !prof !437, !llvm.loop !441
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.outer: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlRKSG_E_clES14_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S19_E_EclIPiS12_EEbSC_S17_.exit.lr.ph, %122
@@ -23436,361 +23428,359 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.218") align 8 %8) local_unnamed_addr #3 comdat {
 .split:
-  %.fr116 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr115 = freeze ptr %4
-  %9 = icmp ne ptr %.fr, %.fr116
+  %9 = icmp ne ptr %0, %2
+  %.fr103 = freeze i1 %9
   %10 = icmp ne i64 %1, %3
-  %.not8.i67 = select i1 %9, i1 true, i1 %10
+  %.not8.i67 = select i1 %.fr103, i1 true, i1 %10
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
-  %.not = icmp eq ptr %.fr115, %.sroa.011.0.copyload.fr
-  %11 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.fr = freeze i1 %11
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %16 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  %17 = load i64, ptr %4, align 8, !tbaa !403
+  br i1 %.fr103, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = icmp ult i64 %5, %16
-  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
+  %18 = icmp ult i64 %5, %17
+  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %18 = load i64, ptr %.fr, align 8, !tbaa !403
+  %19 = load i64, ptr %0, align 8, !tbaa !403
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us
   %.sroa.6.068.us.us114 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.6.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
   %.sroa.643.069.us.us113 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.643.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %19 = icmp ult i64 %.sroa.643.069.us.us113, %18
-  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
+  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
+  %20 = icmp ult i64 %.sroa.643.069.us.us113, %19
+  br i1 %20, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %20 = load ptr, ptr %11, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.6.068.us.us114
-  %22 = load ptr, ptr %12, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.643.069.us.us113
-  %24 = load i32, ptr %21, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %15, align 8, !tbaa !39
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %25
-  %27 = load i32, ptr %23, align 4, !tbaa !97
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %28
-  %30 = load ptr, ptr %13, align 8, !tbaa !446
-  %31 = load i64, ptr %30, align 8, !tbaa !60
-  %32 = icmp ult i64 %26, %31
-  br i1 %32, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !405
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %23 = load ptr, ptr %13, align 8, !tbaa !405
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %25 = load i32, ptr %22, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
+  %28 = load i32, ptr %24, align 4, !tbaa !97
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
+  %31 = load ptr, ptr %14, align 8, !tbaa !446
+  %32 = load i64, ptr %31, align 8, !tbaa !60
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
-  %33 = icmp ult i64 %29, %31
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
+  %34 = icmp ult i64 %30, %32
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us.us
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !62
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %26
-  %37 = load i8, ptr %36, align 1, !tbaa !107
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %29
-  %39 = load i8, ptr %38, align 1, !tbaa !107
-  %40 = icmp slt i8 %37, %39
-  %.sink = select i1 %40, i32 %24, i32 %27
-  %41 = zext i1 %40 to i64
-  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %41
-  %not.178 = xor i1 %40, true
-  %42 = zext i1 %not.178 to i64
-  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %42
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !62
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %27
+  %38 = load i8, ptr %37, align 1, !tbaa !107
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %30
+  %40 = load i8, ptr %39, align 1, !tbaa !107
+  %41 = icmp slt i8 %38, %40
+  %.sink = select i1 %41, i32 %25, i32 %28
+  %42 = zext i1 %41 to i64
+  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %42
+  %not.179 = xor i1 %41, true
+  %43 = zext i1 %not.179 to i64
+  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %43
   store i32 %.sink, ptr %.070.us.us112, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
-  %44 = icmp ult i64 %.sroa.6.1.us.us, %16
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
+  %44 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
+  %45 = icmp ult i64 %.sroa.6.1.us.us, %17
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us
-  %.070.us = phi ptr [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
+  %.070.us = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.643.069.us = phi i64 [ %.sroa.643.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.lr.ph.split.us ]
   %.sroa.6.068.us = phi i64 [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.lr.ph.split.us ]
-  %45 = icmp ult i64 %.sroa.6.068.us, %16
-  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
+  %46 = icmp ult i64 %.sroa.6.068.us, %17
+  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %46 = load i64, ptr %.fr, align 8, !tbaa !403
-  %47 = icmp ult i64 %.sroa.643.069.us, %46
-  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
+  %47 = load i64, ptr %0, align 8, !tbaa !403
+  %48 = icmp ult i64 %.sroa.643.069.us, %47
+  br i1 %48, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %48 = load ptr, ptr %11, align 8, !tbaa !405
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.6.068.us
-  %50 = load ptr, ptr %12, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.643.069.us
-  %52 = load i32, ptr %49, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %15, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %53
-  %55 = load i32, ptr %51, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %56
-  %58 = load ptr, ptr %13, align 8, !tbaa !446
-  %59 = load i64, ptr %58, align 8, !tbaa !60
-  %60 = icmp ult i64 %54, %59
-  br i1 %60, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
+  %49 = load ptr, ptr %12, align 8, !tbaa !405
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %51 = load ptr, ptr %13, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %53 = load i32, ptr %50, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %54
+  %56 = load i32, ptr %52, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %57
+  %59 = load ptr, ptr %14, align 8, !tbaa !446
+  %60 = load i64, ptr %59, align 8, !tbaa !60
+  %61 = icmp ult i64 %55, %60
+  br i1 %61, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us
-  %61 = icmp ult i64 %57, %59
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
+  %62 = icmp ult i64 %58, %60
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %54
-  %65 = load i8, ptr %64, align 1, !tbaa !107
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %57
-  %67 = load i8, ptr %66, align 1, !tbaa !107
-  %68 = icmp slt i8 %65, %67
-  %.sink139 = select i1 %68, i32 %52, i32 %55
-  %69 = zext i1 %68 to i64
-  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %69
-  %not. = xor i1 %68, true
-  %70 = zext i1 %not. to i64
-  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %70
-  store i32 %.sink139, ptr %.070.us, align 4, !tbaa !97
-  %71 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
-  %.not121 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not121, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !459
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !62
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %55
+  %66 = load i8, ptr %65, align 1, !tbaa !107
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %58
+  %68 = load i8, ptr %67, align 1, !tbaa !107
+  %69 = icmp slt i8 %66, %68
+  %.sink136 = select i1 %69, i32 %53, i32 %56
+  %70 = zext i1 %69 to i64
+  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %70
+  %not.178 = xor i1 %69, true
+  %71 = zext i1 %not.178 to i64
+  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %71
+  store i32 %.sink136, ptr %.070.us, align 4, !tbaa !97
+  %72 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
+  %.not118 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not118, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !459
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr103, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not119 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not119, label %.critedge, label %.lr.ph107
+  %.not116 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not116, label %.critedge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph.split.split.us
-  %72 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br label %73
+  %73 = load i64, ptr %4, align 8, !tbaa !403
+  br label %74
 
-73:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
+74:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
   %.sroa.6.068.us89106 = phi i64 [ %5, %.lr.ph107 ], [ %.sroa.6.1.us97, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
   %.sroa.643.069.us88105 = phi i64 [ %1, %.lr.ph107 ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %74 = icmp ult i64 %.sroa.6.068.us89106, %72
-  br i1 %74, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
+  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
+  %75 = icmp ult i64 %.sroa.6.068.us89106, %73
+  br i1 %75, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %73
-  %75 = load i64, ptr %.fr, align 8, !tbaa !403
-  %76 = icmp ult i64 %.sroa.643.069.us88105, %75
-  br i1 %76, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %74
+  %76 = load i64, ptr %0, align 8, !tbaa !403
+  %77 = icmp ult i64 %.sroa.643.069.us88105, %76
+  br i1 %77, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
-  %77 = load ptr, ptr %11, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.068.us89106
-  %79 = load ptr, ptr %12, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.643.069.us88105
-  %81 = load i32, ptr %78, align 4, !tbaa !97
-  %82 = sext i32 %81 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %15, align 8, !tbaa !39
-  %83 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %82
-  %84 = load i32, ptr %80, align 4, !tbaa !97
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %85
-  %87 = load ptr, ptr %13, align 8, !tbaa !446
-  %88 = load i64, ptr %87, align 8, !tbaa !60
-  %89 = icmp ult i64 %83, %88
-  br i1 %89, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
+  %78 = load ptr, ptr %12, align 8, !tbaa !405
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %80 = load ptr, ptr %13, align 8, !tbaa !405
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %82 = load i32, ptr %79, align 4, !tbaa !97
+  %83 = sext i32 %82 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
+  %84 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %83
+  %85 = load i32, ptr %81, align 4, !tbaa !97
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %86
+  %88 = load ptr, ptr %14, align 8, !tbaa !446
+  %89 = load i64, ptr %88, align 8, !tbaa !60
+  %90 = icmp ult i64 %84, %89
+  br i1 %90, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
-  %90 = icmp ult i64 %86, %88
-  br i1 %90, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
+  %91 = icmp ult i64 %87, %89
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us93
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !62
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %83
-  %94 = load i8, ptr %93, align 1, !tbaa !107
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %86
-  %96 = load i8, ptr %95, align 1, !tbaa !107
-  %97 = icmp slt i8 %94, %96
-  %.sink140 = select i1 %97, i32 %81, i32 %84
-  %98 = zext i1 %97 to i64
-  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %98
-  %not.180 = xor i1 %97, true
-  %99 = zext i1 %not.180 to i64
-  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %99
-  store i32 %.sink140, ptr %.070.us87104, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
-  %.not120 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
-  br i1 %.not120, label %.critedge, label %73
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !62
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %84
+  %95 = load i8, ptr %94, align 1, !tbaa !107
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %87
+  %97 = load i8, ptr %96, align 1, !tbaa !107
+  %98 = icmp slt i8 %95, %97
+  %.sink137 = select i1 %98, i32 %82, i32 %85
+  %99 = zext i1 %98 to i64
+  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %99
+  %not.177 = xor i1 %98, true
+  %100 = zext i1 %not.177 to i64
+  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %100
+  store i32 %.sink137, ptr %.070.us87104, align 4, !tbaa !97
+  %101 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
+  %.not117 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
+  br i1 %.not117, label %.critedge, label %74
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit
-  %.070 = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
+  %.070 = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
   %.sroa.643.069 = phi i64 [ %.sroa.643.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %1, %.lr.ph.split ]
   %.sroa.6.068 = phi i64 [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %5, %.lr.ph.split ]
-  %.not117 = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
-  br i1 %.not117, label %.critedge, label %101
+  %.not = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %102
 
-101:                                              ; preds = %.lr.ph.split.split
-  %102 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %103 = icmp ult i64 %.sroa.6.068, %102
-  br i1 %103, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
+102:                                              ; preds = %.lr.ph.split.split
+  %103 = load i64, ptr %4, align 8, !tbaa !403
+  %104 = icmp ult i64 %.sroa.6.068, %103
+  br i1 %104, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
 
-.split78.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %101, %73, %.lr.ph.split.us.split.us
+.split78.us:                                      ; preds = %102, %74, %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %101
-  %104 = load i64, ptr %.fr, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.643.069, %104
-  br i1 %105, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %102
+  %105 = load i64, ptr %0, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.643.069, %105
+  br i1 %106, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
 
-.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
+.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.068
-  %108 = load ptr, ptr %12, align 8, !tbaa !405
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %.sroa.643.069
-  %110 = load i32, ptr %107, align 4, !tbaa !97
-  %111 = sext i32 %110 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %15, align 8, !tbaa !39
-  %112 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %111
-  %113 = load i32, ptr %109, align 4, !tbaa !97
-  %114 = sext i32 %113 to i64
-  %115 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %114
-  %116 = load ptr, ptr %13, align 8, !tbaa !446
-  %117 = load i64, ptr %116, align 8, !tbaa !60
-  %118 = icmp ult i64 %112, %117
-  br i1 %118, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
+  %107 = load ptr, ptr %12, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %109 = load ptr, ptr %13, align 8, !tbaa !405
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %111 = load i32, ptr %108, align 4, !tbaa !97
+  %112 = sext i32 %111 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
+  %113 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %112
+  %114 = load i32, ptr %110, align 4, !tbaa !97
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %115
+  %117 = load ptr, ptr %14, align 8, !tbaa !446
+  %118 = load i64, ptr %117, align 8, !tbaa !60
+  %119 = icmp ult i64 %113, %118
+  br i1 %119, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
 
-.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
+.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i
-  %119 = icmp ult i64 %115, %117
-  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
+  %120 = icmp ult i64 %116, %118
+  br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
 
-.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us.us, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us93
+.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us93, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !62
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %112
-  %123 = load i8, ptr %122, align 1, !tbaa !107
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %115
-  %125 = load i8, ptr %124, align 1, !tbaa !107
-  %126 = icmp slt i8 %123, %125
-  %.sink141 = select i1 %126, i32 %110, i32 %113
-  %127 = zext i1 %126 to i64
-  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %127
-  %not.179 = xor i1 %126, true
-  %128 = zext i1 %not.179 to i64
-  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %128
-  store i32 %.sink141, ptr %.070, align 4, !tbaa !97
-  %129 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %.not118 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not118, label %.critedge, label %.lr.ph.split.split, !llvm.loop !459
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !62
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %113
+  %124 = load i8, ptr %123, align 1, !tbaa !107
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 %116
+  %126 = load i8, ptr %125, align 1, !tbaa !107
+  %127 = icmp slt i8 %124, %126
+  %.sink138 = select i1 %127, i32 %111, i32 %114
+  %128 = zext i1 %127 to i64
+  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %128
+  %not. = xor i1 %127, true
+  %129 = zext i1 %not. to i64
+  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %129
+  store i32 %.sink138, ptr %.070, align 4, !tbaa !97
+  %130 = getelementptr inbounds nuw i8, ptr %.070, i64 4
+  %.not115 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not115, label %.critedge, label %.lr.ph.split.split, !llvm.loop !459
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %.split, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.069, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.0.lcssa = phi ptr [ %.070, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.split ], [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %130 = icmp eq ptr %.fr116, %.fr
-  br i1 %130, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %131, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.split, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.643.069, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.lr.ph.split.split.us ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.split ], [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.070, %.lr.ph.split.split ]
+  %131 = icmp eq ptr %2, %0
+  br i1 %131, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %132, !prof !35
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %132 = sub i64 %3, %.sroa.643.0.lcssa
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %133 = sub i64 %3, %.sroa.643.0.lcssa
+  %134 = icmp sgt i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %134 = load i64, ptr %.fr, align 8, !tbaa !403
-  %135 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %136
+  %135 = load i64, ptr %0, align 8, !tbaa !403
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %137
 
-136:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %132, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %137 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %134
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %138, !prof !35
+137:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i ], [ %145, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %138 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %135
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %139, !prof !35
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %136
-  %139 = load ptr, ptr %135, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.3.09.i.i.i.i.i
-  %141 = load i32, ptr %140, align 4, !tbaa !97
-  store i32 %141, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %142 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %144 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %145 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %145, label %136, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
+  %140 = load ptr, ptr %136, align 8, !tbaa !405
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %142 = load i32, ptr %141, align 4, !tbaa !97
+  store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %145 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %146 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %146, label %137, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %146 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr115
-  br i1 %146, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %147, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %147 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %147, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %148, !prof !35
 
-147:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+148:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %148 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %149 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %150 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %151 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  br label %152
+  %151 = load i64, ptr %4, align 8, !tbaa !403
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %153
 
-152:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %148, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %153 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %150
-  br i1 %153, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %154, !prof !35
+153:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %149, %.lr.ph.i.i.i.i.i30 ], [ %161, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %154 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %151
+  br i1 %154, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %155, !prof !35
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %152
-  %155 = load ptr, ptr %151, align 8, !tbaa !405
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %.sroa.3.09.i.i.i.i.i33
-  %157 = load i32, ptr %156, align 4, !tbaa !97
-  store i32 %157, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %158 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %160 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %161 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %161, label %152, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
+  %156 = load ptr, ptr %152, align 8, !tbaa !405
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %158 = load i32, ptr %157, align 4, !tbaa !97
+  store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %160 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %161 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %162 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %162, label %153, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -23969,228 +23959,226 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.218") align 8 %7) local_unnamed_addr #3 comdat {
 .split:
-  %.fr65 = freeze ptr %2
   %.not37 = icmp eq ptr %0, %1
   br i1 %.not37, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %.fr66 = freeze ptr %4
-  %.not67 = icmp eq ptr %.fr65, %.fr66
-  %8 = getelementptr inbounds nuw i8, ptr %.fr65, i64 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.promoted = load i64, ptr %12, align 8
-  br i1 %.not67, label %.lr.ph.split, label %.lr.ph.split.us
+  %8 = icmp ne ptr %2, %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.promoted = load i64, ptr %13, align 8
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load i64, ptr %.fr65, align 8, !tbaa !403
-  br label %16
+  %16 = load i64, ptr %2, align 8, !tbaa !403
+  br label %17
 
-16:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
-  %17 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
+17:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
+  %18 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %48, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.039.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.sroa.5.038.us = phi i64 [ %3, %.lr.ph.split.us ], [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
-  %18 = icmp ult i64 %.sroa.5.038.us, %15
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
+  %19 = icmp ult i64 %.sroa.5.038.us, %16
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %16
-  %19 = load ptr, ptr %8, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.038.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %11, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.039.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !446
-  %28 = load i64, ptr %27, align 8, !tbaa !60
-  %29 = icmp ult i64 %23, %28
-  br i1 %29, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
+  %20 = load ptr, ptr %9, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.039.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = load ptr, ptr %10, align 8, !tbaa !446
+  %29 = load i64, ptr %28, align 8, !tbaa !60
+  %30 = icmp ult i64 %24, %29
+  br i1 %30, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %30 = icmp ult i64 %26, %28
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
+  %31 = icmp ult i64 %27, %29
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !62
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %23
-  %34 = load i8, ptr %33, align 1, !tbaa !107
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %26
-  %36 = load i8, ptr %35, align 1, !tbaa !107
-  %37 = icmp slt i8 %34, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !403
-  %39 = icmp ult i64 %17, %38
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !62
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %24
+  %35 = load i8, ptr %34, align 1, !tbaa !107
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %27
+  %37 = load i8, ptr %36, align 1, !tbaa !107
+  %38 = icmp slt i8 %35, %37
+  %39 = load i64, ptr %14, align 8, !tbaa !403
+  %40 = icmp ult i64 %18, %39
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %41
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %40
-  %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %17
-  store i32 %24, ptr %42, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
+  %42 = load ptr, ptr %15, align 8, !tbaa !405
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  store i32 %25, ptr %43, align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %44 = load ptr, ptr %14, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
-  store i32 %21, ptr %45, align 4, !tbaa !97
-  %46 = add nuw i64 %.sroa.5.038.us, 1
+  %45 = load ptr, ptr %15, align 8, !tbaa !405
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  store i32 %22, ptr %46, align 4, !tbaa !97
+  %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us
-  %.sroa.5.1.us = phi i64 [ %46, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %47 = add nuw i64 %17, 1
+  %.sroa.5.1.us = phi i64 [ %47, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %44, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %48 = add nuw i64 %18, 1
   %.not.us = icmp eq ptr %.1.us, %1
-  br i1 %.not.us, label %.critedge19, label %16, !llvm.loop !460
+  br i1 %.not.us, label %.critedge19, label %17, !llvm.loop !460
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %80, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.039 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.038 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not68 = icmp eq i64 %.sroa.5.038, %5
-  br i1 %.not68, label %.critedge, label %48
+  %.not65 = icmp eq i64 %.sroa.5.038, %5
+  br i1 %.not65, label %.critedge, label %49
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = load i64, ptr %.fr65, align 8, !tbaa !403
-  %50 = icmp ult i64 %.sroa.5.038, %49
-  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i64, ptr %2, align 8, !tbaa !403
+  %51 = icmp ult i64 %.sroa.5.038, %50
+  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %16, %48
+.split48.us:                                      ; preds = %49, %17
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %48
-  %51 = load ptr, ptr %8, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.038
-  %53 = load i32, ptr %52, align 4, !tbaa !97
-  %54 = sext i32 %53 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %11, align 8, !tbaa !39
-  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
-  %56 = load i32, ptr %.039, align 4, !tbaa !97
-  %57 = sext i32 %56 to i64
-  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
-  %59 = load ptr, ptr %9, align 8, !tbaa !446
-  %60 = load i64, ptr %59, align 8, !tbaa !60
-  %61 = icmp ult i64 %55, %60
-  br i1 %61, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
+  %52 = load ptr, ptr %9, align 8, !tbaa !405
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %54 = load i32, ptr %53, align 4, !tbaa !97
+  %55 = sext i32 %54 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
+  %56 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %55
+  %57 = load i32, ptr %.039, align 4, !tbaa !97
+  %58 = sext i32 %57 to i64
+  %59 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %58
+  %60 = load ptr, ptr %10, align 8, !tbaa !446
+  %61 = load i64, ptr %60, align 8, !tbaa !60
+  %62 = icmp ult i64 %56, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
 
-.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
+.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %62 = icmp ult i64 %58, %60
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
+  %63 = icmp ult i64 %59, %61
+  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
 
-.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i
+.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKaLm18446744073709551615EEixEm.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !62
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %55
-  %66 = load i8, ptr %65, align 1, !tbaa !107
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %58
-  %68 = load i8, ptr %67, align 1, !tbaa !107
-  %69 = icmp slt i8 %66, %68
-  %70 = load i64, ptr %13, align 8, !tbaa !403
-  %71 = icmp ult i64 %.sroa.2.0.copyload, %70
-  br i1 %69, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %75
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !62
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %56
+  %67 = load i8, ptr %66, align 1, !tbaa !107
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %59
+  %69 = load i8, ptr %68, align 1, !tbaa !107
+  %70 = icmp slt i8 %67, %69
+  %71 = load i64, ptr %14, align 8, !tbaa !403
+  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
+  br i1 %70, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %76
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %72 = load ptr, ptr %14, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.sroa.2.0.copyload
-  store i32 %53, ptr %73, align 4, !tbaa !97
-  %74 = add nuw i64 %.sroa.5.038, 1
+  %73 = load ptr, ptr %15, align 8, !tbaa !405
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  store i32 %54, ptr %74, align 4, !tbaa !97
+  %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
+76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSJ_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
 
-.split56.us:                                      ; preds = %40, %75
+.split56.us:                                      ; preds = %76, %41
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %75
-  %76 = load ptr, ptr %14, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.2.0.copyload
-  store i32 %56, ptr %77, align 4, !tbaa !97
-  %78 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
+  %77 = load ptr, ptr %15, align 8, !tbaa !405
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  store i32 %57, ptr %78, align 4, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %74, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %78, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %79 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %79, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %80 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !460
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %12, align 8
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %.039 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %13, align 8
+  %81 = ptrtoint ptr %1 to i64
+  %82 = ptrtoint ptr %.039 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 2
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %85 = load i64, ptr %13, align 8, !tbaa !403
-  br label %86
+  %86 = load i64, ptr %14, align 8, !tbaa !403
+  br label %87
 
-86:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %87 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %85
-  br i1 %87, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %88, !prof !35
+87:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i ], [ %95, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %88 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %86
+  br i1 %88, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %89, !prof !35
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %90 = load ptr, ptr %14, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %89, ptr %91, align 4, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %93 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %94 = add nsw i64 %.012.i.i.i.i.i, -1
-  %95 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %95, label %86, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
+  %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %91 = load ptr, ptr %15, align 8, !tbaa !405
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %90, ptr %92, align 4, !tbaa !97
+  %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %87, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.split, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.split, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.218") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr100 = freeze ptr %2
-  %.fr99 = freeze ptr %0
-  %9 = icmp eq ptr %.fr99, %.fr100
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -24244,7 +24232,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr100, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -24259,7 +24247,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !405
   %39 = load ptr, ptr %7, align 8, !tbaa !448
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -24272,7 +24260,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.promoted = load i64, ptr %45, align 8
-  br i1 %9, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
+  br i1 %.fr, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
@@ -25907,361 +25895,359 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.223") align 8 %8) local_unnamed_addr #3 comdat {
 .split:
-  %.fr116 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr115 = freeze ptr %4
-  %9 = icmp ne ptr %.fr, %.fr116
+  %9 = icmp ne ptr %0, %2
+  %.fr103 = freeze i1 %9
   %10 = icmp ne i64 %1, %3
-  %.not8.i67 = select i1 %9, i1 true, i1 %10
+  %.not8.i67 = select i1 %.fr103, i1 true, i1 %10
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
-  %.not = icmp eq ptr %.fr115, %.sroa.011.0.copyload.fr
-  %11 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.fr = freeze i1 %11
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %16 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  %17 = load i64, ptr %4, align 8, !tbaa !403
+  br i1 %.fr103, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = icmp ult i64 %5, %16
-  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
+  %18 = icmp ult i64 %5, %17
+  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %18 = load i64, ptr %.fr, align 8, !tbaa !403
+  %19 = load i64, ptr %0, align 8, !tbaa !403
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us
   %.sroa.6.068.us.us114 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.6.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
   %.sroa.643.069.us.us113 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.643.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %19 = icmp ult i64 %.sroa.643.069.us.us113, %18
-  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
+  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
+  %20 = icmp ult i64 %.sroa.643.069.us.us113, %19
+  br i1 %20, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %20 = load ptr, ptr %11, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.6.068.us.us114
-  %22 = load ptr, ptr %12, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.643.069.us.us113
-  %24 = load i32, ptr %21, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %15, align 8, !tbaa !39
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %25
-  %27 = load i32, ptr %23, align 4, !tbaa !97
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %28
-  %30 = load ptr, ptr %13, align 8, !tbaa !463
-  %31 = load i64, ptr %30, align 8, !tbaa !63
-  %32 = icmp ult i64 %26, %31
-  br i1 %32, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !405
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %23 = load ptr, ptr %13, align 8, !tbaa !405
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %25 = load i32, ptr %22, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
+  %28 = load i32, ptr %24, align 4, !tbaa !97
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
+  %31 = load ptr, ptr %14, align 8, !tbaa !463
+  %32 = load i64, ptr %31, align 8, !tbaa !63
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
-  %33 = icmp ult i64 %29, %31
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
+  %34 = icmp ult i64 %30, %32
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !69
-  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %26
-  %37 = load i16, ptr %36, align 2, !tbaa !146
-  %38 = getelementptr inbounds nuw i16, ptr %35, i64 %29
-  %39 = load i16, ptr %38, align 2, !tbaa !146
-  %40 = icmp slt i16 %37, %39
-  %.sink = select i1 %40, i32 %24, i32 %27
-  %41 = zext i1 %40 to i64
-  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %41
-  %not.178 = xor i1 %40, true
-  %42 = zext i1 %not.178 to i64
-  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %42
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !69
+  %37 = getelementptr inbounds nuw i16, ptr %36, i64 %27
+  %38 = load i16, ptr %37, align 2, !tbaa !146
+  %39 = getelementptr inbounds nuw i16, ptr %36, i64 %30
+  %40 = load i16, ptr %39, align 2, !tbaa !146
+  %41 = icmp slt i16 %38, %40
+  %.sink = select i1 %41, i32 %25, i32 %28
+  %42 = zext i1 %41 to i64
+  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %42
+  %not.179 = xor i1 %41, true
+  %43 = zext i1 %not.179 to i64
+  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %43
   store i32 %.sink, ptr %.070.us.us112, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
-  %44 = icmp ult i64 %.sroa.6.1.us.us, %16
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
+  %44 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
+  %45 = icmp ult i64 %.sroa.6.1.us.us, %17
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us
-  %.070.us = phi ptr [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
+  %.070.us = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.643.069.us = phi i64 [ %.sroa.643.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.lr.ph.split.us ]
   %.sroa.6.068.us = phi i64 [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.lr.ph.split.us ]
-  %45 = icmp ult i64 %.sroa.6.068.us, %16
-  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
+  %46 = icmp ult i64 %.sroa.6.068.us, %17
+  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %46 = load i64, ptr %.fr, align 8, !tbaa !403
-  %47 = icmp ult i64 %.sroa.643.069.us, %46
-  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
+  %47 = load i64, ptr %0, align 8, !tbaa !403
+  %48 = icmp ult i64 %.sroa.643.069.us, %47
+  br i1 %48, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %48 = load ptr, ptr %11, align 8, !tbaa !405
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.6.068.us
-  %50 = load ptr, ptr %12, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.643.069.us
-  %52 = load i32, ptr %49, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %15, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %53
-  %55 = load i32, ptr %51, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %56
-  %58 = load ptr, ptr %13, align 8, !tbaa !463
-  %59 = load i64, ptr %58, align 8, !tbaa !63
-  %60 = icmp ult i64 %54, %59
-  br i1 %60, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
+  %49 = load ptr, ptr %12, align 8, !tbaa !405
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %51 = load ptr, ptr %13, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %53 = load i32, ptr %50, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %54
+  %56 = load i32, ptr %52, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %57
+  %59 = load ptr, ptr %14, align 8, !tbaa !463
+  %60 = load i64, ptr %59, align 8, !tbaa !63
+  %61 = icmp ult i64 %55, %60
+  br i1 %61, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us
-  %61 = icmp ult i64 %57, %59
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
+  %62 = icmp ult i64 %58, %60
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !69
-  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %54
-  %65 = load i16, ptr %64, align 2, !tbaa !146
-  %66 = getelementptr inbounds nuw i16, ptr %63, i64 %57
-  %67 = load i16, ptr %66, align 2, !tbaa !146
-  %68 = icmp slt i16 %65, %67
-  %.sink139 = select i1 %68, i32 %52, i32 %55
-  %69 = zext i1 %68 to i64
-  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %69
-  %not. = xor i1 %68, true
-  %70 = zext i1 %not. to i64
-  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %70
-  store i32 %.sink139, ptr %.070.us, align 4, !tbaa !97
-  %71 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
-  %.not121 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not121, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !477
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !69
+  %65 = getelementptr inbounds nuw i16, ptr %64, i64 %55
+  %66 = load i16, ptr %65, align 2, !tbaa !146
+  %67 = getelementptr inbounds nuw i16, ptr %64, i64 %58
+  %68 = load i16, ptr %67, align 2, !tbaa !146
+  %69 = icmp slt i16 %66, %68
+  %.sink136 = select i1 %69, i32 %53, i32 %56
+  %70 = zext i1 %69 to i64
+  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %70
+  %not.178 = xor i1 %69, true
+  %71 = zext i1 %not.178 to i64
+  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %71
+  store i32 %.sink136, ptr %.070.us, align 4, !tbaa !97
+  %72 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
+  %.not118 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not118, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !477
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr103, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not119 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not119, label %.critedge, label %.lr.ph107
+  %.not116 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not116, label %.critedge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph.split.split.us
-  %72 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br label %73
+  %73 = load i64, ptr %4, align 8, !tbaa !403
+  br label %74
 
-73:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
+74:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
   %.sroa.6.068.us89106 = phi i64 [ %5, %.lr.ph107 ], [ %.sroa.6.1.us97, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
   %.sroa.643.069.us88105 = phi i64 [ %1, %.lr.ph107 ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %74 = icmp ult i64 %.sroa.6.068.us89106, %72
-  br i1 %74, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
+  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
+  %75 = icmp ult i64 %.sroa.6.068.us89106, %73
+  br i1 %75, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %73
-  %75 = load i64, ptr %.fr, align 8, !tbaa !403
-  %76 = icmp ult i64 %.sroa.643.069.us88105, %75
-  br i1 %76, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %74
+  %76 = load i64, ptr %0, align 8, !tbaa !403
+  %77 = icmp ult i64 %.sroa.643.069.us88105, %76
+  br i1 %77, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
-  %77 = load ptr, ptr %11, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.068.us89106
-  %79 = load ptr, ptr %12, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.643.069.us88105
-  %81 = load i32, ptr %78, align 4, !tbaa !97
-  %82 = sext i32 %81 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %15, align 8, !tbaa !39
-  %83 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %82
-  %84 = load i32, ptr %80, align 4, !tbaa !97
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %85
-  %87 = load ptr, ptr %13, align 8, !tbaa !463
-  %88 = load i64, ptr %87, align 8, !tbaa !63
-  %89 = icmp ult i64 %83, %88
-  br i1 %89, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
+  %78 = load ptr, ptr %12, align 8, !tbaa !405
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %80 = load ptr, ptr %13, align 8, !tbaa !405
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %82 = load i32, ptr %79, align 4, !tbaa !97
+  %83 = sext i32 %82 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
+  %84 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %83
+  %85 = load i32, ptr %81, align 4, !tbaa !97
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %86
+  %88 = load ptr, ptr %14, align 8, !tbaa !463
+  %89 = load i64, ptr %88, align 8, !tbaa !63
+  %90 = icmp ult i64 %84, %89
+  br i1 %90, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
-  %90 = icmp ult i64 %86, %88
-  br i1 %90, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
+  %91 = icmp ult i64 %87, %89
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !69
-  %93 = getelementptr inbounds nuw i16, ptr %92, i64 %83
-  %94 = load i16, ptr %93, align 2, !tbaa !146
-  %95 = getelementptr inbounds nuw i16, ptr %92, i64 %86
-  %96 = load i16, ptr %95, align 2, !tbaa !146
-  %97 = icmp slt i16 %94, %96
-  %.sink140 = select i1 %97, i32 %81, i32 %84
-  %98 = zext i1 %97 to i64
-  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %98
-  %not.180 = xor i1 %97, true
-  %99 = zext i1 %not.180 to i64
-  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %99
-  store i32 %.sink140, ptr %.070.us87104, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
-  %.not120 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
-  br i1 %.not120, label %.critedge, label %73
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !69
+  %94 = getelementptr inbounds nuw i16, ptr %93, i64 %84
+  %95 = load i16, ptr %94, align 2, !tbaa !146
+  %96 = getelementptr inbounds nuw i16, ptr %93, i64 %87
+  %97 = load i16, ptr %96, align 2, !tbaa !146
+  %98 = icmp slt i16 %95, %97
+  %.sink137 = select i1 %98, i32 %82, i32 %85
+  %99 = zext i1 %98 to i64
+  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %99
+  %not.177 = xor i1 %98, true
+  %100 = zext i1 %not.177 to i64
+  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %100
+  store i32 %.sink137, ptr %.070.us87104, align 4, !tbaa !97
+  %101 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
+  %.not117 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
+  br i1 %.not117, label %.critedge, label %74
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit
-  %.070 = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
+  %.070 = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
   %.sroa.643.069 = phi i64 [ %.sroa.643.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %1, %.lr.ph.split ]
   %.sroa.6.068 = phi i64 [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %5, %.lr.ph.split ]
-  %.not117 = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
-  br i1 %.not117, label %.critedge, label %101
+  %.not = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %102
 
-101:                                              ; preds = %.lr.ph.split.split
-  %102 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %103 = icmp ult i64 %.sroa.6.068, %102
-  br i1 %103, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
+102:                                              ; preds = %.lr.ph.split.split
+  %103 = load i64, ptr %4, align 8, !tbaa !403
+  %104 = icmp ult i64 %.sroa.6.068, %103
+  br i1 %104, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
 
-.split78.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %101, %73, %.lr.ph.split.us.split.us
+.split78.us:                                      ; preds = %102, %74, %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %101
-  %104 = load i64, ptr %.fr, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.643.069, %104
-  br i1 %105, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %102
+  %105 = load i64, ptr %0, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.643.069, %105
+  br i1 %106, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
 
-.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
+.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.068
-  %108 = load ptr, ptr %12, align 8, !tbaa !405
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %.sroa.643.069
-  %110 = load i32, ptr %107, align 4, !tbaa !97
-  %111 = sext i32 %110 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %15, align 8, !tbaa !39
-  %112 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %111
-  %113 = load i32, ptr %109, align 4, !tbaa !97
-  %114 = sext i32 %113 to i64
-  %115 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %114
-  %116 = load ptr, ptr %13, align 8, !tbaa !463
-  %117 = load i64, ptr %116, align 8, !tbaa !63
-  %118 = icmp ult i64 %112, %117
-  br i1 %118, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
+  %107 = load ptr, ptr %12, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %109 = load ptr, ptr %13, align 8, !tbaa !405
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %111 = load i32, ptr %108, align 4, !tbaa !97
+  %112 = sext i32 %111 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
+  %113 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %112
+  %114 = load i32, ptr %110, align 4, !tbaa !97
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %115
+  %117 = load ptr, ptr %14, align 8, !tbaa !463
+  %118 = load i64, ptr %117, align 8, !tbaa !63
+  %119 = icmp ult i64 %113, %118
+  br i1 %119, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
 
-.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
+.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i
-  %119 = icmp ult i64 %115, %117
-  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
+  %120 = icmp ult i64 %116, %118
+  br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
 
-.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93
+.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us93, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !69
-  %122 = getelementptr inbounds nuw i16, ptr %121, i64 %112
-  %123 = load i16, ptr %122, align 2, !tbaa !146
-  %124 = getelementptr inbounds nuw i16, ptr %121, i64 %115
-  %125 = load i16, ptr %124, align 2, !tbaa !146
-  %126 = icmp slt i16 %123, %125
-  %.sink141 = select i1 %126, i32 %110, i32 %113
-  %127 = zext i1 %126 to i64
-  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %127
-  %not.179 = xor i1 %126, true
-  %128 = zext i1 %not.179 to i64
-  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %128
-  store i32 %.sink141, ptr %.070, align 4, !tbaa !97
-  %129 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %.not118 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not118, label %.critedge, label %.lr.ph.split.split, !llvm.loop !477
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !69
+  %123 = getelementptr inbounds nuw i16, ptr %122, i64 %113
+  %124 = load i16, ptr %123, align 2, !tbaa !146
+  %125 = getelementptr inbounds nuw i16, ptr %122, i64 %116
+  %126 = load i16, ptr %125, align 2, !tbaa !146
+  %127 = icmp slt i16 %124, %126
+  %.sink138 = select i1 %127, i32 %111, i32 %114
+  %128 = zext i1 %127 to i64
+  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %128
+  %not. = xor i1 %127, true
+  %129 = zext i1 %not. to i64
+  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %129
+  store i32 %.sink138, ptr %.070, align 4, !tbaa !97
+  %130 = getelementptr inbounds nuw i8, ptr %.070, i64 4
+  %.not115 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not115, label %.critedge, label %.lr.ph.split.split, !llvm.loop !477
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %.split, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.069, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.0.lcssa = phi ptr [ %.070, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.split ], [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %130 = icmp eq ptr %.fr116, %.fr
-  br i1 %130, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %131, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.split, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.643.069, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.lr.ph.split.split.us ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.split ], [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.070, %.lr.ph.split.split ]
+  %131 = icmp eq ptr %2, %0
+  br i1 %131, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %132, !prof !35
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %132 = sub i64 %3, %.sroa.643.0.lcssa
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %133 = sub i64 %3, %.sroa.643.0.lcssa
+  %134 = icmp sgt i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %134 = load i64, ptr %.fr, align 8, !tbaa !403
-  %135 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %136
+  %135 = load i64, ptr %0, align 8, !tbaa !403
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %137
 
-136:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %132, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %137 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %134
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %138, !prof !35
+137:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i ], [ %145, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %138 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %135
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %139, !prof !35
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %136
-  %139 = load ptr, ptr %135, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.3.09.i.i.i.i.i
-  %141 = load i32, ptr %140, align 4, !tbaa !97
-  store i32 %141, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %142 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %144 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %145 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %145, label %136, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
+  %140 = load ptr, ptr %136, align 8, !tbaa !405
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %142 = load i32, ptr %141, align 4, !tbaa !97
+  store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %145 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %146 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %146, label %137, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %146 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr115
-  br i1 %146, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %147, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %147 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %147, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %148, !prof !35
 
-147:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+148:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %148 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %149 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %150 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %151 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  br label %152
+  %151 = load i64, ptr %4, align 8, !tbaa !403
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %153
 
-152:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %148, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %153 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %150
-  br i1 %153, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %154, !prof !35
+153:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %149, %.lr.ph.i.i.i.i.i30 ], [ %161, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %154 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %151
+  br i1 %154, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %155, !prof !35
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %152
-  %155 = load ptr, ptr %151, align 8, !tbaa !405
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %.sroa.3.09.i.i.i.i.i33
-  %157 = load i32, ptr %156, align 4, !tbaa !97
-  store i32 %157, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %158 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %160 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %161 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %161, label %152, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
+  %156 = load ptr, ptr %152, align 8, !tbaa !405
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %158 = load i32, ptr %157, align 4, !tbaa !97
+  store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %160 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %161 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %162 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %162, label %153, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -26440,228 +26426,226 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.223") align 8 %7) local_unnamed_addr #3 comdat {
 .split:
-  %.fr65 = freeze ptr %2
   %.not37 = icmp eq ptr %0, %1
   br i1 %.not37, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %.fr66 = freeze ptr %4
-  %.not67 = icmp eq ptr %.fr65, %.fr66
-  %8 = getelementptr inbounds nuw i8, ptr %.fr65, i64 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.promoted = load i64, ptr %12, align 8
-  br i1 %.not67, label %.lr.ph.split, label %.lr.ph.split.us
+  %8 = icmp ne ptr %2, %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.promoted = load i64, ptr %13, align 8
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load i64, ptr %.fr65, align 8, !tbaa !403
-  br label %16
+  %16 = load i64, ptr %2, align 8, !tbaa !403
+  br label %17
 
-16:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
-  %17 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
+17:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
+  %18 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %48, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.039.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.sroa.5.038.us = phi i64 [ %3, %.lr.ph.split.us ], [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
-  %18 = icmp ult i64 %.sroa.5.038.us, %15
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
+  %19 = icmp ult i64 %.sroa.5.038.us, %16
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %16
-  %19 = load ptr, ptr %8, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.038.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %11, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.039.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !463
-  %28 = load i64, ptr %27, align 8, !tbaa !63
-  %29 = icmp ult i64 %23, %28
-  br i1 %29, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
+  %20 = load ptr, ptr %9, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.039.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = load ptr, ptr %10, align 8, !tbaa !463
+  %29 = load i64, ptr %28, align 8, !tbaa !63
+  %30 = icmp ult i64 %24, %29
+  br i1 %30, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %30 = icmp ult i64 %26, %28
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
+  %31 = icmp ult i64 %27, %29
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !69
-  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %23
-  %34 = load i16, ptr %33, align 2, !tbaa !146
-  %35 = getelementptr inbounds nuw i16, ptr %32, i64 %26
-  %36 = load i16, ptr %35, align 2, !tbaa !146
-  %37 = icmp slt i16 %34, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !403
-  %39 = icmp ult i64 %17, %38
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !69
+  %34 = getelementptr inbounds nuw i16, ptr %33, i64 %24
+  %35 = load i16, ptr %34, align 2, !tbaa !146
+  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %27
+  %37 = load i16, ptr %36, align 2, !tbaa !146
+  %38 = icmp slt i16 %35, %37
+  %39 = load i64, ptr %14, align 8, !tbaa !403
+  %40 = icmp ult i64 %18, %39
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %41
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %40
-  %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %17
-  store i32 %24, ptr %42, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
+  %42 = load ptr, ptr %15, align 8, !tbaa !405
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  store i32 %25, ptr %43, align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %44 = load ptr, ptr %14, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
-  store i32 %21, ptr %45, align 4, !tbaa !97
-  %46 = add nuw i64 %.sroa.5.038.us, 1
+  %45 = load ptr, ptr %15, align 8, !tbaa !405
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  store i32 %22, ptr %46, align 4, !tbaa !97
+  %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us
-  %.sroa.5.1.us = phi i64 [ %46, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %47 = add nuw i64 %17, 1
+  %.sroa.5.1.us = phi i64 [ %47, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %44, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %48 = add nuw i64 %18, 1
   %.not.us = icmp eq ptr %.1.us, %1
-  br i1 %.not.us, label %.critedge19, label %16, !llvm.loop !478
+  br i1 %.not.us, label %.critedge19, label %17, !llvm.loop !478
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %80, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.039 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.038 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not68 = icmp eq i64 %.sroa.5.038, %5
-  br i1 %.not68, label %.critedge, label %48
+  %.not65 = icmp eq i64 %.sroa.5.038, %5
+  br i1 %.not65, label %.critedge, label %49
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = load i64, ptr %.fr65, align 8, !tbaa !403
-  %50 = icmp ult i64 %.sroa.5.038, %49
-  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i64, ptr %2, align 8, !tbaa !403
+  %51 = icmp ult i64 %.sroa.5.038, %50
+  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %16, %48
+.split48.us:                                      ; preds = %49, %17
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %48
-  %51 = load ptr, ptr %8, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.038
-  %53 = load i32, ptr %52, align 4, !tbaa !97
-  %54 = sext i32 %53 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %11, align 8, !tbaa !39
-  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
-  %56 = load i32, ptr %.039, align 4, !tbaa !97
-  %57 = sext i32 %56 to i64
-  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
-  %59 = load ptr, ptr %9, align 8, !tbaa !463
-  %60 = load i64, ptr %59, align 8, !tbaa !63
-  %61 = icmp ult i64 %55, %60
-  br i1 %61, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
+  %52 = load ptr, ptr %9, align 8, !tbaa !405
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %54 = load i32, ptr %53, align 4, !tbaa !97
+  %55 = sext i32 %54 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
+  %56 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %55
+  %57 = load i32, ptr %.039, align 4, !tbaa !97
+  %58 = sext i32 %57 to i64
+  %59 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %58
+  %60 = load ptr, ptr %10, align 8, !tbaa !463
+  %61 = load i64, ptr %60, align 8, !tbaa !63
+  %62 = icmp ult i64 %56, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
 
-.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
+.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %62 = icmp ult i64 %58, %60
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
+  %63 = icmp ult i64 %59, %61
+  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
 
-.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
+.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKsLm18446744073709551615EEixEm.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !69
-  %65 = getelementptr inbounds nuw i16, ptr %64, i64 %55
-  %66 = load i16, ptr %65, align 2, !tbaa !146
-  %67 = getelementptr inbounds nuw i16, ptr %64, i64 %58
-  %68 = load i16, ptr %67, align 2, !tbaa !146
-  %69 = icmp slt i16 %66, %68
-  %70 = load i64, ptr %13, align 8, !tbaa !403
-  %71 = icmp ult i64 %.sroa.2.0.copyload, %70
-  br i1 %69, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %75
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !69
+  %66 = getelementptr inbounds nuw i16, ptr %65, i64 %56
+  %67 = load i16, ptr %66, align 2, !tbaa !146
+  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %59
+  %69 = load i16, ptr %68, align 2, !tbaa !146
+  %70 = icmp slt i16 %67, %69
+  %71 = load i64, ptr %14, align 8, !tbaa !403
+  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
+  br i1 %70, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %76
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %72 = load ptr, ptr %14, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.sroa.2.0.copyload
-  store i32 %53, ptr %73, align 4, !tbaa !97
-  %74 = add nuw i64 %.sroa.5.038, 1
+  %73 = load ptr, ptr %15, align 8, !tbaa !405
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  store i32 %54, ptr %74, align 4, !tbaa !97
+  %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
+76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSL_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
 
-.split56.us:                                      ; preds = %40, %75
+.split56.us:                                      ; preds = %76, %41
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %75
-  %76 = load ptr, ptr %14, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.2.0.copyload
-  store i32 %56, ptr %77, align 4, !tbaa !97
-  %78 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
+  %77 = load ptr, ptr %15, align 8, !tbaa !405
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  store i32 %57, ptr %78, align 4, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %74, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %78, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %79 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %79, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %80 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !478
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %12, align 8
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %.039 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %13, align 8
+  %81 = ptrtoint ptr %1 to i64
+  %82 = ptrtoint ptr %.039 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 2
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %85 = load i64, ptr %13, align 8, !tbaa !403
-  br label %86
+  %86 = load i64, ptr %14, align 8, !tbaa !403
+  br label %87
 
-86:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %87 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %85
-  br i1 %87, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %88, !prof !35
+87:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i ], [ %95, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %88 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %86
+  br i1 %88, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %89, !prof !35
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %90 = load ptr, ptr %14, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %89, ptr %91, align 4, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %93 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %94 = add nsw i64 %.012.i.i.i.i.i, -1
-  %95 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %95, label %86, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
+  %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %91 = load ptr, ptr %15, align 8, !tbaa !405
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %90, ptr %92, align 4, !tbaa !97
+  %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %87, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.split, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.split, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.223") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr100 = freeze ptr %2
-  %.fr99 = freeze ptr %0
-  %9 = icmp eq ptr %.fr99, %.fr100
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -26715,7 +26699,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr100, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -26730,7 +26714,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !405
   %39 = load ptr, ptr %7, align 8, !tbaa !466
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -26743,7 +26727,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.promoted = load i64, ptr %45, align 8
-  br i1 %9, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
+  br i1 %.fr, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
@@ -28378,361 +28362,359 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.228") align 8 %8) local_unnamed_addr #3 comdat {
 .split:
-  %.fr116 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr115 = freeze ptr %4
-  %9 = icmp ne ptr %.fr, %.fr116
+  %9 = icmp ne ptr %0, %2
+  %.fr103 = freeze i1 %9
   %10 = icmp ne i64 %1, %3
-  %.not8.i67 = select i1 %9, i1 true, i1 %10
+  %.not8.i67 = select i1 %.fr103, i1 true, i1 %10
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
-  %.not = icmp eq ptr %.fr115, %.sroa.011.0.copyload.fr
-  %11 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.fr = freeze i1 %11
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %16 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  %17 = load i64, ptr %4, align 8, !tbaa !403
+  br i1 %.fr103, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = icmp ult i64 %5, %16
-  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
+  %18 = icmp ult i64 %5, %17
+  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %18 = load i64, ptr %.fr, align 8, !tbaa !403
+  %19 = load i64, ptr %0, align 8, !tbaa !403
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us
   %.sroa.6.068.us.us114 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.6.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
   %.sroa.643.069.us.us113 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.643.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %19 = icmp ult i64 %.sroa.643.069.us.us113, %18
-  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
+  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
+  %20 = icmp ult i64 %.sroa.643.069.us.us113, %19
+  br i1 %20, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %20 = load ptr, ptr %11, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.6.068.us.us114
-  %22 = load ptr, ptr %12, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.643.069.us.us113
-  %24 = load i32, ptr %21, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %15, align 8, !tbaa !39
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %25
-  %27 = load i32, ptr %23, align 4, !tbaa !97
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %28
-  %30 = load ptr, ptr %13, align 8, !tbaa !481
-  %31 = load i64, ptr %30, align 8, !tbaa !31
-  %32 = icmp ult i64 %26, %31
-  br i1 %32, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !405
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %23 = load ptr, ptr %13, align 8, !tbaa !405
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %25 = load i32, ptr %22, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
+  %28 = load i32, ptr %24, align 4, !tbaa !97
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
+  %31 = load ptr, ptr %14, align 8, !tbaa !481
+  %32 = load i64, ptr %31, align 8, !tbaa !31
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
-  %33 = icmp ult i64 %29, %31
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
+  %34 = icmp ult i64 %30, %32
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !33
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %26
-  %37 = load i32, ptr %36, align 4, !tbaa !97
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %29
-  %39 = load i32, ptr %38, align 4, !tbaa !97
-  %40 = icmp slt i32 %37, %39
-  %.sink = select i1 %40, i32 %24, i32 %27
-  %41 = zext i1 %40 to i64
-  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %41
-  %not.178 = xor i1 %40, true
-  %42 = zext i1 %not.178 to i64
-  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %42
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %27
+  %38 = load i32, ptr %37, align 4, !tbaa !97
+  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %30
+  %40 = load i32, ptr %39, align 4, !tbaa !97
+  %41 = icmp slt i32 %38, %40
+  %.sink = select i1 %41, i32 %25, i32 %28
+  %42 = zext i1 %41 to i64
+  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %42
+  %not.179 = xor i1 %41, true
+  %43 = zext i1 %not.179 to i64
+  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %43
   store i32 %.sink, ptr %.070.us.us112, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
-  %44 = icmp ult i64 %.sroa.6.1.us.us, %16
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
+  %44 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
+  %45 = icmp ult i64 %.sroa.6.1.us.us, %17
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us
-  %.070.us = phi ptr [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
+  %.070.us = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.643.069.us = phi i64 [ %.sroa.643.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.lr.ph.split.us ]
   %.sroa.6.068.us = phi i64 [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.lr.ph.split.us ]
-  %45 = icmp ult i64 %.sroa.6.068.us, %16
-  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
+  %46 = icmp ult i64 %.sroa.6.068.us, %17
+  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %46 = load i64, ptr %.fr, align 8, !tbaa !403
-  %47 = icmp ult i64 %.sroa.643.069.us, %46
-  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
+  %47 = load i64, ptr %0, align 8, !tbaa !403
+  %48 = icmp ult i64 %.sroa.643.069.us, %47
+  br i1 %48, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %48 = load ptr, ptr %11, align 8, !tbaa !405
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.6.068.us
-  %50 = load ptr, ptr %12, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.643.069.us
-  %52 = load i32, ptr %49, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %15, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %53
-  %55 = load i32, ptr %51, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %56
-  %58 = load ptr, ptr %13, align 8, !tbaa !481
-  %59 = load i64, ptr %58, align 8, !tbaa !31
-  %60 = icmp ult i64 %54, %59
-  br i1 %60, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
+  %49 = load ptr, ptr %12, align 8, !tbaa !405
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %51 = load ptr, ptr %13, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %53 = load i32, ptr %50, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %54
+  %56 = load i32, ptr %52, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %57
+  %59 = load ptr, ptr %14, align 8, !tbaa !481
+  %60 = load i64, ptr %59, align 8, !tbaa !31
+  %61 = icmp ult i64 %55, %60
+  br i1 %61, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us
-  %61 = icmp ult i64 %57, %59
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
+  %62 = icmp ult i64 %58, %60
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !33
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %54
-  %65 = load i32, ptr %64, align 4, !tbaa !97
-  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %57
-  %67 = load i32, ptr %66, align 4, !tbaa !97
-  %68 = icmp slt i32 %65, %67
-  %.sink139 = select i1 %68, i32 %52, i32 %55
-  %69 = zext i1 %68 to i64
-  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %69
-  %not. = xor i1 %68, true
-  %70 = zext i1 %not. to i64
-  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %70
-  store i32 %.sink139, ptr %.070.us, align 4, !tbaa !97
-  %71 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
-  %.not121 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not121, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !495
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !33
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %55
+  %66 = load i32, ptr %65, align 4, !tbaa !97
+  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %58
+  %68 = load i32, ptr %67, align 4, !tbaa !97
+  %69 = icmp slt i32 %66, %68
+  %.sink136 = select i1 %69, i32 %53, i32 %56
+  %70 = zext i1 %69 to i64
+  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %70
+  %not.178 = xor i1 %69, true
+  %71 = zext i1 %not.178 to i64
+  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %71
+  store i32 %.sink136, ptr %.070.us, align 4, !tbaa !97
+  %72 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
+  %.not118 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not118, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !495
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr103, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not119 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not119, label %.critedge, label %.lr.ph107
+  %.not116 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not116, label %.critedge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph.split.split.us
-  %72 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br label %73
+  %73 = load i64, ptr %4, align 8, !tbaa !403
+  br label %74
 
-73:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
+74:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
   %.sroa.6.068.us89106 = phi i64 [ %5, %.lr.ph107 ], [ %.sroa.6.1.us97, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
   %.sroa.643.069.us88105 = phi i64 [ %1, %.lr.ph107 ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %74 = icmp ult i64 %.sroa.6.068.us89106, %72
-  br i1 %74, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
+  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
+  %75 = icmp ult i64 %.sroa.6.068.us89106, %73
+  br i1 %75, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %73
-  %75 = load i64, ptr %.fr, align 8, !tbaa !403
-  %76 = icmp ult i64 %.sroa.643.069.us88105, %75
-  br i1 %76, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %74
+  %76 = load i64, ptr %0, align 8, !tbaa !403
+  %77 = icmp ult i64 %.sroa.643.069.us88105, %76
+  br i1 %77, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
-  %77 = load ptr, ptr %11, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.068.us89106
-  %79 = load ptr, ptr %12, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.643.069.us88105
-  %81 = load i32, ptr %78, align 4, !tbaa !97
-  %82 = sext i32 %81 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %15, align 8, !tbaa !39
-  %83 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %82
-  %84 = load i32, ptr %80, align 4, !tbaa !97
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %85
-  %87 = load ptr, ptr %13, align 8, !tbaa !481
-  %88 = load i64, ptr %87, align 8, !tbaa !31
-  %89 = icmp ult i64 %83, %88
-  br i1 %89, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
+  %78 = load ptr, ptr %12, align 8, !tbaa !405
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %80 = load ptr, ptr %13, align 8, !tbaa !405
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %82 = load i32, ptr %79, align 4, !tbaa !97
+  %83 = sext i32 %82 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
+  %84 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %83
+  %85 = load i32, ptr %81, align 4, !tbaa !97
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %86
+  %88 = load ptr, ptr %14, align 8, !tbaa !481
+  %89 = load i64, ptr %88, align 8, !tbaa !31
+  %90 = icmp ult i64 %84, %89
+  br i1 %90, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
-  %90 = icmp ult i64 %86, %88
-  br i1 %90, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
+  %91 = icmp ult i64 %87, %89
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !33
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %83
-  %94 = load i32, ptr %93, align 4, !tbaa !97
-  %95 = getelementptr inbounds nuw i32, ptr %92, i64 %86
-  %96 = load i32, ptr %95, align 4, !tbaa !97
-  %97 = icmp slt i32 %94, %96
-  %.sink140 = select i1 %97, i32 %81, i32 %84
-  %98 = zext i1 %97 to i64
-  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %98
-  %not.180 = xor i1 %97, true
-  %99 = zext i1 %not.180 to i64
-  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %99
-  store i32 %.sink140, ptr %.070.us87104, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
-  %.not120 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
-  br i1 %.not120, label %.critedge, label %73
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !33
+  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %84
+  %95 = load i32, ptr %94, align 4, !tbaa !97
+  %96 = getelementptr inbounds nuw i32, ptr %93, i64 %87
+  %97 = load i32, ptr %96, align 4, !tbaa !97
+  %98 = icmp slt i32 %95, %97
+  %.sink137 = select i1 %98, i32 %82, i32 %85
+  %99 = zext i1 %98 to i64
+  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %99
+  %not.177 = xor i1 %98, true
+  %100 = zext i1 %not.177 to i64
+  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %100
+  store i32 %.sink137, ptr %.070.us87104, align 4, !tbaa !97
+  %101 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
+  %.not117 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
+  br i1 %.not117, label %.critedge, label %74
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit
-  %.070 = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
+  %.070 = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
   %.sroa.643.069 = phi i64 [ %.sroa.643.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %1, %.lr.ph.split ]
   %.sroa.6.068 = phi i64 [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %5, %.lr.ph.split ]
-  %.not117 = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
-  br i1 %.not117, label %.critedge, label %101
+  %.not = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %102
 
-101:                                              ; preds = %.lr.ph.split.split
-  %102 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %103 = icmp ult i64 %.sroa.6.068, %102
-  br i1 %103, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
+102:                                              ; preds = %.lr.ph.split.split
+  %103 = load i64, ptr %4, align 8, !tbaa !403
+  %104 = icmp ult i64 %.sroa.6.068, %103
+  br i1 %104, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
 
-.split78.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %101, %73, %.lr.ph.split.us.split.us
+.split78.us:                                      ; preds = %102, %74, %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %101
-  %104 = load i64, ptr %.fr, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.643.069, %104
-  br i1 %105, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %102
+  %105 = load i64, ptr %0, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.643.069, %105
+  br i1 %106, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
 
-.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
+.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.068
-  %108 = load ptr, ptr %12, align 8, !tbaa !405
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %.sroa.643.069
-  %110 = load i32, ptr %107, align 4, !tbaa !97
-  %111 = sext i32 %110 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %15, align 8, !tbaa !39
-  %112 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %111
-  %113 = load i32, ptr %109, align 4, !tbaa !97
-  %114 = sext i32 %113 to i64
-  %115 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %114
-  %116 = load ptr, ptr %13, align 8, !tbaa !481
-  %117 = load i64, ptr %116, align 8, !tbaa !31
-  %118 = icmp ult i64 %112, %117
-  br i1 %118, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
+  %107 = load ptr, ptr %12, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %109 = load ptr, ptr %13, align 8, !tbaa !405
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %111 = load i32, ptr %108, align 4, !tbaa !97
+  %112 = sext i32 %111 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
+  %113 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %112
+  %114 = load i32, ptr %110, align 4, !tbaa !97
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %115
+  %117 = load ptr, ptr %14, align 8, !tbaa !481
+  %118 = load i64, ptr %117, align 8, !tbaa !31
+  %119 = icmp ult i64 %113, %118
+  br i1 %119, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
 
-.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
+.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i
-  %119 = icmp ult i64 %115, %117
-  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
+  %120 = icmp ult i64 %116, %118
+  br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
 
-.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93
+.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us93, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !33
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %112
-  %123 = load i32, ptr %122, align 4, !tbaa !97
-  %124 = getelementptr inbounds nuw i32, ptr %121, i64 %115
-  %125 = load i32, ptr %124, align 4, !tbaa !97
-  %126 = icmp slt i32 %123, %125
-  %.sink141 = select i1 %126, i32 %110, i32 %113
-  %127 = zext i1 %126 to i64
-  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %127
-  %not.179 = xor i1 %126, true
-  %128 = zext i1 %not.179 to i64
-  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %128
-  store i32 %.sink141, ptr %.070, align 4, !tbaa !97
-  %129 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %.not118 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not118, label %.critedge, label %.lr.ph.split.split, !llvm.loop !495
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !33
+  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %113
+  %124 = load i32, ptr %123, align 4, !tbaa !97
+  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %116
+  %126 = load i32, ptr %125, align 4, !tbaa !97
+  %127 = icmp slt i32 %124, %126
+  %.sink138 = select i1 %127, i32 %111, i32 %114
+  %128 = zext i1 %127 to i64
+  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %128
+  %not. = xor i1 %127, true
+  %129 = zext i1 %not. to i64
+  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %129
+  store i32 %.sink138, ptr %.070, align 4, !tbaa !97
+  %130 = getelementptr inbounds nuw i8, ptr %.070, i64 4
+  %.not115 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not115, label %.critedge, label %.lr.ph.split.split, !llvm.loop !495
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %.split, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.069, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.0.lcssa = phi ptr [ %.070, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.split ], [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %130 = icmp eq ptr %.fr116, %.fr
-  br i1 %130, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %131, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.split, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.643.069, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.lr.ph.split.split.us ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.split ], [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.070, %.lr.ph.split.split ]
+  %131 = icmp eq ptr %2, %0
+  br i1 %131, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %132, !prof !35
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %132 = sub i64 %3, %.sroa.643.0.lcssa
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %133 = sub i64 %3, %.sroa.643.0.lcssa
+  %134 = icmp sgt i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %134 = load i64, ptr %.fr, align 8, !tbaa !403
-  %135 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %136
+  %135 = load i64, ptr %0, align 8, !tbaa !403
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %137
 
-136:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %132, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %137 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %134
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %138, !prof !35
+137:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i ], [ %145, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %138 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %135
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %139, !prof !35
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %136
-  %139 = load ptr, ptr %135, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.3.09.i.i.i.i.i
-  %141 = load i32, ptr %140, align 4, !tbaa !97
-  store i32 %141, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %142 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %144 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %145 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %145, label %136, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
+  %140 = load ptr, ptr %136, align 8, !tbaa !405
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %142 = load i32, ptr %141, align 4, !tbaa !97
+  store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %145 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %146 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %146, label %137, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %146 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr115
-  br i1 %146, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %147, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %147 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %147, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %148, !prof !35
 
-147:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+148:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %148 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %149 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %150 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %151 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  br label %152
+  %151 = load i64, ptr %4, align 8, !tbaa !403
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %153
 
-152:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %148, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %153 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %150
-  br i1 %153, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %154, !prof !35
+153:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %149, %.lr.ph.i.i.i.i.i30 ], [ %161, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %154 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %151
+  br i1 %154, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %155, !prof !35
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %152
-  %155 = load ptr, ptr %151, align 8, !tbaa !405
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %.sroa.3.09.i.i.i.i.i33
-  %157 = load i32, ptr %156, align 4, !tbaa !97
-  store i32 %157, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %158 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %160 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %161 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %161, label %152, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
+  %156 = load ptr, ptr %152, align 8, !tbaa !405
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %158 = load i32, ptr %157, align 4, !tbaa !97
+  store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %160 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %161 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %162 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %162, label %153, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -28911,228 +28893,226 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.228") align 8 %7) local_unnamed_addr #3 comdat {
 .split:
-  %.fr65 = freeze ptr %2
   %.not37 = icmp eq ptr %0, %1
   br i1 %.not37, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %.fr66 = freeze ptr %4
-  %.not67 = icmp eq ptr %.fr65, %.fr66
-  %8 = getelementptr inbounds nuw i8, ptr %.fr65, i64 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.promoted = load i64, ptr %12, align 8
-  br i1 %.not67, label %.lr.ph.split, label %.lr.ph.split.us
+  %8 = icmp ne ptr %2, %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.promoted = load i64, ptr %13, align 8
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load i64, ptr %.fr65, align 8, !tbaa !403
-  br label %16
+  %16 = load i64, ptr %2, align 8, !tbaa !403
+  br label %17
 
-16:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
-  %17 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
+17:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
+  %18 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %48, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.039.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.sroa.5.038.us = phi i64 [ %3, %.lr.ph.split.us ], [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
-  %18 = icmp ult i64 %.sroa.5.038.us, %15
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
+  %19 = icmp ult i64 %.sroa.5.038.us, %16
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %16
-  %19 = load ptr, ptr %8, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.038.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %11, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.039.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !481
-  %28 = load i64, ptr %27, align 8, !tbaa !31
-  %29 = icmp ult i64 %23, %28
-  br i1 %29, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
+  %20 = load ptr, ptr %9, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.039.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = load ptr, ptr %10, align 8, !tbaa !481
+  %29 = load i64, ptr %28, align 8, !tbaa !31
+  %30 = icmp ult i64 %24, %29
+  br i1 %30, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %30 = icmp ult i64 %26, %28
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
+  %31 = icmp ult i64 %27, %29
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !33
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %23
-  %34 = load i32, ptr %33, align 4, !tbaa !97
-  %35 = getelementptr inbounds nuw i32, ptr %32, i64 %26
-  %36 = load i32, ptr %35, align 4, !tbaa !97
-  %37 = icmp slt i32 %34, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !403
-  %39 = icmp ult i64 %17, %38
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %24
+  %35 = load i32, ptr %34, align 4, !tbaa !97
+  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %27
+  %37 = load i32, ptr %36, align 4, !tbaa !97
+  %38 = icmp slt i32 %35, %37
+  %39 = load i64, ptr %14, align 8, !tbaa !403
+  %40 = icmp ult i64 %18, %39
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %41
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %40
-  %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %17
-  store i32 %24, ptr %42, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
+  %42 = load ptr, ptr %15, align 8, !tbaa !405
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  store i32 %25, ptr %43, align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %44 = load ptr, ptr %14, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
-  store i32 %21, ptr %45, align 4, !tbaa !97
-  %46 = add nuw i64 %.sroa.5.038.us, 1
+  %45 = load ptr, ptr %15, align 8, !tbaa !405
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  store i32 %22, ptr %46, align 4, !tbaa !97
+  %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us
-  %.sroa.5.1.us = phi i64 [ %46, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %47 = add nuw i64 %17, 1
+  %.sroa.5.1.us = phi i64 [ %47, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %44, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %48 = add nuw i64 %18, 1
   %.not.us = icmp eq ptr %.1.us, %1
-  br i1 %.not.us, label %.critedge19, label %16, !llvm.loop !496
+  br i1 %.not.us, label %.critedge19, label %17, !llvm.loop !496
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %80, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.039 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.038 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not68 = icmp eq i64 %.sroa.5.038, %5
-  br i1 %.not68, label %.critedge, label %48
+  %.not65 = icmp eq i64 %.sroa.5.038, %5
+  br i1 %.not65, label %.critedge, label %49
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = load i64, ptr %.fr65, align 8, !tbaa !403
-  %50 = icmp ult i64 %.sroa.5.038, %49
-  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i64, ptr %2, align 8, !tbaa !403
+  %51 = icmp ult i64 %.sroa.5.038, %50
+  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %16, %48
+.split48.us:                                      ; preds = %49, %17
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %48
-  %51 = load ptr, ptr %8, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.038
-  %53 = load i32, ptr %52, align 4, !tbaa !97
-  %54 = sext i32 %53 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %11, align 8, !tbaa !39
-  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
-  %56 = load i32, ptr %.039, align 4, !tbaa !97
-  %57 = sext i32 %56 to i64
-  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
-  %59 = load ptr, ptr %9, align 8, !tbaa !481
-  %60 = load i64, ptr %59, align 8, !tbaa !31
-  %61 = icmp ult i64 %55, %60
-  br i1 %61, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
+  %52 = load ptr, ptr %9, align 8, !tbaa !405
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %54 = load i32, ptr %53, align 4, !tbaa !97
+  %55 = sext i32 %54 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
+  %56 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %55
+  %57 = load i32, ptr %.039, align 4, !tbaa !97
+  %58 = sext i32 %57 to i64
+  %59 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %58
+  %60 = load ptr, ptr %10, align 8, !tbaa !481
+  %61 = load i64, ptr %60, align 8, !tbaa !31
+  %62 = icmp ult i64 %56, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
 
-.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
+.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %62 = icmp ult i64 %58, %60
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
+  %63 = icmp ult i64 %59, %61
+  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
 
-.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
+.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKiLm18446744073709551615EEixEm.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !33
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %55
-  %66 = load i32, ptr %65, align 4, !tbaa !97
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %58
-  %68 = load i32, ptr %67, align 4, !tbaa !97
-  %69 = icmp slt i32 %66, %68
-  %70 = load i64, ptr %13, align 8, !tbaa !403
-  %71 = icmp ult i64 %.sroa.2.0.copyload, %70
-  br i1 %69, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %75
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !33
+  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %56
+  %67 = load i32, ptr %66, align 4, !tbaa !97
+  %68 = getelementptr inbounds nuw i32, ptr %65, i64 %59
+  %69 = load i32, ptr %68, align 4, !tbaa !97
+  %70 = icmp slt i32 %67, %69
+  %71 = load i64, ptr %14, align 8, !tbaa !403
+  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
+  br i1 %70, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %76
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %72 = load ptr, ptr %14, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.sroa.2.0.copyload
-  store i32 %53, ptr %73, align 4, !tbaa !97
-  %74 = add nuw i64 %.sroa.5.038, 1
+  %73 = load ptr, ptr %15, align 8, !tbaa !405
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  store i32 %54, ptr %74, align 4, !tbaa !97
+  %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
+76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSN_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
 
-.split56.us:                                      ; preds = %40, %75
+.split56.us:                                      ; preds = %76, %41
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %75
-  %76 = load ptr, ptr %14, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.2.0.copyload
-  store i32 %56, ptr %77, align 4, !tbaa !97
-  %78 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
+  %77 = load ptr, ptr %15, align 8, !tbaa !405
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  store i32 %57, ptr %78, align 4, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %74, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %78, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %79 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %79, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %80 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !496
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %12, align 8
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %.039 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %13, align 8
+  %81 = ptrtoint ptr %1 to i64
+  %82 = ptrtoint ptr %.039 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 2
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %85 = load i64, ptr %13, align 8, !tbaa !403
-  br label %86
+  %86 = load i64, ptr %14, align 8, !tbaa !403
+  br label %87
 
-86:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %87 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %85
-  br i1 %87, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %88, !prof !35
+87:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i ], [ %95, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %88 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %86
+  br i1 %88, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %89, !prof !35
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %90 = load ptr, ptr %14, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %89, ptr %91, align 4, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %93 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %94 = add nsw i64 %.012.i.i.i.i.i, -1
-  %95 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %95, label %86, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
+  %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %91 = load ptr, ptr %15, align 8, !tbaa !405
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %90, ptr %92, align 4, !tbaa !97
+  %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %87, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.split, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.split, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.228") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr100 = freeze ptr %2
-  %.fr99 = freeze ptr %0
-  %9 = icmp eq ptr %.fr99, %.fr100
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -29186,7 +29166,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr100, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -29201,7 +29181,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !405
   %39 = load ptr, ptr %7, align 8, !tbaa !484
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -29214,7 +29194,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.promoted = load i64, ptr %45, align 8
-  br i1 %9, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
+  br i1 %.fr, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
@@ -30849,361 +30829,359 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.233") align 8 %8) local_unnamed_addr #3 comdat {
 .split:
-  %.fr116 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr115 = freeze ptr %4
-  %9 = icmp ne ptr %.fr, %.fr116
+  %9 = icmp ne ptr %0, %2
+  %.fr103 = freeze i1 %9
   %10 = icmp ne i64 %1, %3
-  %.not8.i67 = select i1 %9, i1 true, i1 %10
+  %.not8.i67 = select i1 %.fr103, i1 true, i1 %10
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
-  %.not = icmp eq ptr %.fr115, %.sroa.011.0.copyload.fr
-  %11 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.fr = freeze i1 %11
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %16 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  %17 = load i64, ptr %4, align 8, !tbaa !403
+  br i1 %.fr103, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = icmp ult i64 %5, %16
-  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
+  %18 = icmp ult i64 %5, %17
+  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %18 = load i64, ptr %.fr, align 8, !tbaa !403
+  %19 = load i64, ptr %0, align 8, !tbaa !403
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us
   %.sroa.6.068.us.us114 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.6.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
   %.sroa.643.069.us.us113 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.643.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %19 = icmp ult i64 %.sroa.643.069.us.us113, %18
-  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
+  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
+  %20 = icmp ult i64 %.sroa.643.069.us.us113, %19
+  br i1 %20, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %20 = load ptr, ptr %11, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.6.068.us.us114
-  %22 = load ptr, ptr %12, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.643.069.us.us113
-  %24 = load i32, ptr %21, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %15, align 8, !tbaa !39
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %25
-  %27 = load i32, ptr %23, align 4, !tbaa !97
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %28
-  %30 = load ptr, ptr %13, align 8, !tbaa !499
-  %31 = load i64, ptr %30, align 8, !tbaa !70
-  %32 = icmp ult i64 %26, %31
-  br i1 %32, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !405
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %23 = load ptr, ptr %13, align 8, !tbaa !405
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %25 = load i32, ptr %22, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
+  %28 = load i32, ptr %24, align 4, !tbaa !97
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
+  %31 = load ptr, ptr %14, align 8, !tbaa !499
+  %32 = load i64, ptr %31, align 8, !tbaa !70
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
-  %33 = icmp ult i64 %29, %31
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
+  %34 = icmp ult i64 %30, %32
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !76
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %26
-  %37 = load i64, ptr %36, align 8, !tbaa !39
-  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %29
-  %39 = load i64, ptr %38, align 8, !tbaa !39
-  %40 = icmp slt i64 %37, %39
-  %.sink = select i1 %40, i32 %24, i32 %27
-  %41 = zext i1 %40 to i64
-  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %41
-  %not.178 = xor i1 %40, true
-  %42 = zext i1 %not.178 to i64
-  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %42
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %27
+  %38 = load i64, ptr %37, align 8, !tbaa !39
+  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %30
+  %40 = load i64, ptr %39, align 8, !tbaa !39
+  %41 = icmp slt i64 %38, %40
+  %.sink = select i1 %41, i32 %25, i32 %28
+  %42 = zext i1 %41 to i64
+  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %42
+  %not.179 = xor i1 %41, true
+  %43 = zext i1 %not.179 to i64
+  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %43
   store i32 %.sink, ptr %.070.us.us112, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
-  %44 = icmp ult i64 %.sroa.6.1.us.us, %16
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
+  %44 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
+  %45 = icmp ult i64 %.sroa.6.1.us.us, %17
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us
-  %.070.us = phi ptr [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
+  %.070.us = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.643.069.us = phi i64 [ %.sroa.643.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.lr.ph.split.us ]
   %.sroa.6.068.us = phi i64 [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.lr.ph.split.us ]
-  %45 = icmp ult i64 %.sroa.6.068.us, %16
-  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
+  %46 = icmp ult i64 %.sroa.6.068.us, %17
+  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %46 = load i64, ptr %.fr, align 8, !tbaa !403
-  %47 = icmp ult i64 %.sroa.643.069.us, %46
-  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
+  %47 = load i64, ptr %0, align 8, !tbaa !403
+  %48 = icmp ult i64 %.sroa.643.069.us, %47
+  br i1 %48, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %48 = load ptr, ptr %11, align 8, !tbaa !405
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.6.068.us
-  %50 = load ptr, ptr %12, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.643.069.us
-  %52 = load i32, ptr %49, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %15, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %53
-  %55 = load i32, ptr %51, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %56
-  %58 = load ptr, ptr %13, align 8, !tbaa !499
-  %59 = load i64, ptr %58, align 8, !tbaa !70
-  %60 = icmp ult i64 %54, %59
-  br i1 %60, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
+  %49 = load ptr, ptr %12, align 8, !tbaa !405
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %51 = load ptr, ptr %13, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %53 = load i32, ptr %50, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %54
+  %56 = load i32, ptr %52, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %57
+  %59 = load ptr, ptr %14, align 8, !tbaa !499
+  %60 = load i64, ptr %59, align 8, !tbaa !70
+  %61 = icmp ult i64 %55, %60
+  br i1 %61, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us
-  %61 = icmp ult i64 %57, %59
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
+  %62 = icmp ult i64 %58, %60
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !76
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %54
-  %65 = load i64, ptr %64, align 8, !tbaa !39
-  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %57
-  %67 = load i64, ptr %66, align 8, !tbaa !39
-  %68 = icmp slt i64 %65, %67
-  %.sink139 = select i1 %68, i32 %52, i32 %55
-  %69 = zext i1 %68 to i64
-  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %69
-  %not. = xor i1 %68, true
-  %70 = zext i1 %not. to i64
-  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %70
-  store i32 %.sink139, ptr %.070.us, align 4, !tbaa !97
-  %71 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
-  %.not121 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not121, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !513
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !76
+  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %55
+  %66 = load i64, ptr %65, align 8, !tbaa !39
+  %67 = getelementptr inbounds nuw i64, ptr %64, i64 %58
+  %68 = load i64, ptr %67, align 8, !tbaa !39
+  %69 = icmp slt i64 %66, %68
+  %.sink136 = select i1 %69, i32 %53, i32 %56
+  %70 = zext i1 %69 to i64
+  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %70
+  %not.178 = xor i1 %69, true
+  %71 = zext i1 %not.178 to i64
+  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %71
+  store i32 %.sink136, ptr %.070.us, align 4, !tbaa !97
+  %72 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
+  %.not118 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not118, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !513
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr103, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not119 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not119, label %.critedge, label %.lr.ph107
+  %.not116 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not116, label %.critedge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph.split.split.us
-  %72 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br label %73
+  %73 = load i64, ptr %4, align 8, !tbaa !403
+  br label %74
 
-73:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
+74:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
   %.sroa.6.068.us89106 = phi i64 [ %5, %.lr.ph107 ], [ %.sroa.6.1.us97, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
   %.sroa.643.069.us88105 = phi i64 [ %1, %.lr.ph107 ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %74 = icmp ult i64 %.sroa.6.068.us89106, %72
-  br i1 %74, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
+  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
+  %75 = icmp ult i64 %.sroa.6.068.us89106, %73
+  br i1 %75, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %73
-  %75 = load i64, ptr %.fr, align 8, !tbaa !403
-  %76 = icmp ult i64 %.sroa.643.069.us88105, %75
-  br i1 %76, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %74
+  %76 = load i64, ptr %0, align 8, !tbaa !403
+  %77 = icmp ult i64 %.sroa.643.069.us88105, %76
+  br i1 %77, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
-  %77 = load ptr, ptr %11, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.068.us89106
-  %79 = load ptr, ptr %12, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.643.069.us88105
-  %81 = load i32, ptr %78, align 4, !tbaa !97
-  %82 = sext i32 %81 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %15, align 8, !tbaa !39
-  %83 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %82
-  %84 = load i32, ptr %80, align 4, !tbaa !97
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %85
-  %87 = load ptr, ptr %13, align 8, !tbaa !499
-  %88 = load i64, ptr %87, align 8, !tbaa !70
-  %89 = icmp ult i64 %83, %88
-  br i1 %89, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
+  %78 = load ptr, ptr %12, align 8, !tbaa !405
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %80 = load ptr, ptr %13, align 8, !tbaa !405
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %82 = load i32, ptr %79, align 4, !tbaa !97
+  %83 = sext i32 %82 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
+  %84 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %83
+  %85 = load i32, ptr %81, align 4, !tbaa !97
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %86
+  %88 = load ptr, ptr %14, align 8, !tbaa !499
+  %89 = load i64, ptr %88, align 8, !tbaa !70
+  %90 = icmp ult i64 %84, %89
+  br i1 %90, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
-  %90 = icmp ult i64 %86, %88
-  br i1 %90, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
+  %91 = icmp ult i64 %87, %89
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !76
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %83
-  %94 = load i64, ptr %93, align 8, !tbaa !39
-  %95 = getelementptr inbounds nuw i64, ptr %92, i64 %86
-  %96 = load i64, ptr %95, align 8, !tbaa !39
-  %97 = icmp slt i64 %94, %96
-  %.sink140 = select i1 %97, i32 %81, i32 %84
-  %98 = zext i1 %97 to i64
-  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %98
-  %not.180 = xor i1 %97, true
-  %99 = zext i1 %not.180 to i64
-  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %99
-  store i32 %.sink140, ptr %.070.us87104, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
-  %.not120 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
-  br i1 %.not120, label %.critedge, label %73
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !76
+  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %84
+  %95 = load i64, ptr %94, align 8, !tbaa !39
+  %96 = getelementptr inbounds nuw i64, ptr %93, i64 %87
+  %97 = load i64, ptr %96, align 8, !tbaa !39
+  %98 = icmp slt i64 %95, %97
+  %.sink137 = select i1 %98, i32 %82, i32 %85
+  %99 = zext i1 %98 to i64
+  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %99
+  %not.177 = xor i1 %98, true
+  %100 = zext i1 %not.177 to i64
+  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %100
+  store i32 %.sink137, ptr %.070.us87104, align 4, !tbaa !97
+  %101 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
+  %.not117 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
+  br i1 %.not117, label %.critedge, label %74
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit
-  %.070 = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
+  %.070 = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
   %.sroa.643.069 = phi i64 [ %.sroa.643.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %1, %.lr.ph.split ]
   %.sroa.6.068 = phi i64 [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %5, %.lr.ph.split ]
-  %.not117 = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
-  br i1 %.not117, label %.critedge, label %101
+  %.not = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %102
 
-101:                                              ; preds = %.lr.ph.split.split
-  %102 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %103 = icmp ult i64 %.sroa.6.068, %102
-  br i1 %103, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
+102:                                              ; preds = %.lr.ph.split.split
+  %103 = load i64, ptr %4, align 8, !tbaa !403
+  %104 = icmp ult i64 %.sroa.6.068, %103
+  br i1 %104, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
 
-.split78.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %101, %73, %.lr.ph.split.us.split.us
+.split78.us:                                      ; preds = %102, %74, %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %101
-  %104 = load i64, ptr %.fr, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.643.069, %104
-  br i1 %105, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %102
+  %105 = load i64, ptr %0, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.643.069, %105
+  br i1 %106, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
 
-.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
+.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.068
-  %108 = load ptr, ptr %12, align 8, !tbaa !405
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %.sroa.643.069
-  %110 = load i32, ptr %107, align 4, !tbaa !97
-  %111 = sext i32 %110 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %15, align 8, !tbaa !39
-  %112 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %111
-  %113 = load i32, ptr %109, align 4, !tbaa !97
-  %114 = sext i32 %113 to i64
-  %115 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %114
-  %116 = load ptr, ptr %13, align 8, !tbaa !499
-  %117 = load i64, ptr %116, align 8, !tbaa !70
-  %118 = icmp ult i64 %112, %117
-  br i1 %118, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
+  %107 = load ptr, ptr %12, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %109 = load ptr, ptr %13, align 8, !tbaa !405
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %111 = load i32, ptr %108, align 4, !tbaa !97
+  %112 = sext i32 %111 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
+  %113 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %112
+  %114 = load i32, ptr %110, align 4, !tbaa !97
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %115
+  %117 = load ptr, ptr %14, align 8, !tbaa !499
+  %118 = load i64, ptr %117, align 8, !tbaa !70
+  %119 = icmp ult i64 %113, %118
+  br i1 %119, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
 
-.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
+.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i
-  %119 = icmp ult i64 %115, %117
-  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
+  %120 = icmp ult i64 %116, %118
+  br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
 
-.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93
+.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us93, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !76
-  %122 = getelementptr inbounds nuw i64, ptr %121, i64 %112
-  %123 = load i64, ptr %122, align 8, !tbaa !39
-  %124 = getelementptr inbounds nuw i64, ptr %121, i64 %115
-  %125 = load i64, ptr %124, align 8, !tbaa !39
-  %126 = icmp slt i64 %123, %125
-  %.sink141 = select i1 %126, i32 %110, i32 %113
-  %127 = zext i1 %126 to i64
-  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %127
-  %not.179 = xor i1 %126, true
-  %128 = zext i1 %not.179 to i64
-  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %128
-  store i32 %.sink141, ptr %.070, align 4, !tbaa !97
-  %129 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %.not118 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not118, label %.critedge, label %.lr.ph.split.split, !llvm.loop !513
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !76
+  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %113
+  %124 = load i64, ptr %123, align 8, !tbaa !39
+  %125 = getelementptr inbounds nuw i64, ptr %122, i64 %116
+  %126 = load i64, ptr %125, align 8, !tbaa !39
+  %127 = icmp slt i64 %124, %126
+  %.sink138 = select i1 %127, i32 %111, i32 %114
+  %128 = zext i1 %127 to i64
+  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %128
+  %not. = xor i1 %127, true
+  %129 = zext i1 %not. to i64
+  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %129
+  store i32 %.sink138, ptr %.070, align 4, !tbaa !97
+  %130 = getelementptr inbounds nuw i8, ptr %.070, i64 4
+  %.not115 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not115, label %.critedge, label %.lr.ph.split.split, !llvm.loop !513
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %.split, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.069, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.0.lcssa = phi ptr [ %.070, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.split ], [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %130 = icmp eq ptr %.fr116, %.fr
-  br i1 %130, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %131, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.split, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.643.069, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.lr.ph.split.split.us ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.split ], [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.070, %.lr.ph.split.split ]
+  %131 = icmp eq ptr %2, %0
+  br i1 %131, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %132, !prof !35
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %132 = sub i64 %3, %.sroa.643.0.lcssa
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %133 = sub i64 %3, %.sroa.643.0.lcssa
+  %134 = icmp sgt i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %134 = load i64, ptr %.fr, align 8, !tbaa !403
-  %135 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %136
+  %135 = load i64, ptr %0, align 8, !tbaa !403
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %137
 
-136:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %132, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %137 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %134
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %138, !prof !35
+137:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i ], [ %145, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %138 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %135
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %139, !prof !35
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %136
-  %139 = load ptr, ptr %135, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.3.09.i.i.i.i.i
-  %141 = load i32, ptr %140, align 4, !tbaa !97
-  store i32 %141, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %142 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %144 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %145 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %145, label %136, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
+  %140 = load ptr, ptr %136, align 8, !tbaa !405
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %142 = load i32, ptr %141, align 4, !tbaa !97
+  store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %145 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %146 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %146, label %137, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %146 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr115
-  br i1 %146, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %147, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %147 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %147, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %148, !prof !35
 
-147:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+148:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %148 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %149 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %150 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %151 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  br label %152
+  %151 = load i64, ptr %4, align 8, !tbaa !403
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %153
 
-152:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %148, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %153 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %150
-  br i1 %153, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %154, !prof !35
+153:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %149, %.lr.ph.i.i.i.i.i30 ], [ %161, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %154 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %151
+  br i1 %154, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %155, !prof !35
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %152
-  %155 = load ptr, ptr %151, align 8, !tbaa !405
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %.sroa.3.09.i.i.i.i.i33
-  %157 = load i32, ptr %156, align 4, !tbaa !97
-  store i32 %157, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %158 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %160 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %161 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %161, label %152, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
+  %156 = load ptr, ptr %152, align 8, !tbaa !405
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %158 = load i32, ptr %157, align 4, !tbaa !97
+  store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %160 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %161 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %162 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %162, label %153, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -31382,228 +31360,226 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.233") align 8 %7) local_unnamed_addr #3 comdat {
 .split:
-  %.fr65 = freeze ptr %2
   %.not37 = icmp eq ptr %0, %1
   br i1 %.not37, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %.fr66 = freeze ptr %4
-  %.not67 = icmp eq ptr %.fr65, %.fr66
-  %8 = getelementptr inbounds nuw i8, ptr %.fr65, i64 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.promoted = load i64, ptr %12, align 8
-  br i1 %.not67, label %.lr.ph.split, label %.lr.ph.split.us
+  %8 = icmp ne ptr %2, %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.promoted = load i64, ptr %13, align 8
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load i64, ptr %.fr65, align 8, !tbaa !403
-  br label %16
+  %16 = load i64, ptr %2, align 8, !tbaa !403
+  br label %17
 
-16:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
-  %17 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
+17:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
+  %18 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %48, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.039.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.sroa.5.038.us = phi i64 [ %3, %.lr.ph.split.us ], [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
-  %18 = icmp ult i64 %.sroa.5.038.us, %15
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
+  %19 = icmp ult i64 %.sroa.5.038.us, %16
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %16
-  %19 = load ptr, ptr %8, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.038.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %11, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.039.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !499
-  %28 = load i64, ptr %27, align 8, !tbaa !70
-  %29 = icmp ult i64 %23, %28
-  br i1 %29, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
+  %20 = load ptr, ptr %9, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.039.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = load ptr, ptr %10, align 8, !tbaa !499
+  %29 = load i64, ptr %28, align 8, !tbaa !70
+  %30 = icmp ult i64 %24, %29
+  br i1 %30, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %30 = icmp ult i64 %26, %28
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
+  %31 = icmp ult i64 %27, %29
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !76
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %23
-  %34 = load i64, ptr %33, align 8, !tbaa !39
-  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %26
-  %36 = load i64, ptr %35, align 8, !tbaa !39
-  %37 = icmp slt i64 %34, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !403
-  %39 = icmp ult i64 %17, %38
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %24
+  %35 = load i64, ptr %34, align 8, !tbaa !39
+  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %27
+  %37 = load i64, ptr %36, align 8, !tbaa !39
+  %38 = icmp slt i64 %35, %37
+  %39 = load i64, ptr %14, align 8, !tbaa !403
+  %40 = icmp ult i64 %18, %39
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %41
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %40
-  %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %17
-  store i32 %24, ptr %42, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
+  %42 = load ptr, ptr %15, align 8, !tbaa !405
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  store i32 %25, ptr %43, align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %44 = load ptr, ptr %14, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
-  store i32 %21, ptr %45, align 4, !tbaa !97
-  %46 = add nuw i64 %.sroa.5.038.us, 1
+  %45 = load ptr, ptr %15, align 8, !tbaa !405
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  store i32 %22, ptr %46, align 4, !tbaa !97
+  %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us
-  %.sroa.5.1.us = phi i64 [ %46, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %47 = add nuw i64 %17, 1
+  %.sroa.5.1.us = phi i64 [ %47, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %44, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %48 = add nuw i64 %18, 1
   %.not.us = icmp eq ptr %.1.us, %1
-  br i1 %.not.us, label %.critedge19, label %16, !llvm.loop !514
+  br i1 %.not.us, label %.critedge19, label %17, !llvm.loop !514
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %80, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.039 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.038 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not68 = icmp eq i64 %.sroa.5.038, %5
-  br i1 %.not68, label %.critedge, label %48
+  %.not65 = icmp eq i64 %.sroa.5.038, %5
+  br i1 %.not65, label %.critedge, label %49
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = load i64, ptr %.fr65, align 8, !tbaa !403
-  %50 = icmp ult i64 %.sroa.5.038, %49
-  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i64, ptr %2, align 8, !tbaa !403
+  %51 = icmp ult i64 %.sroa.5.038, %50
+  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %16, %48
+.split48.us:                                      ; preds = %49, %17
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %48
-  %51 = load ptr, ptr %8, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.038
-  %53 = load i32, ptr %52, align 4, !tbaa !97
-  %54 = sext i32 %53 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %11, align 8, !tbaa !39
-  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
-  %56 = load i32, ptr %.039, align 4, !tbaa !97
-  %57 = sext i32 %56 to i64
-  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
-  %59 = load ptr, ptr %9, align 8, !tbaa !499
-  %60 = load i64, ptr %59, align 8, !tbaa !70
-  %61 = icmp ult i64 %55, %60
-  br i1 %61, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
+  %52 = load ptr, ptr %9, align 8, !tbaa !405
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %54 = load i32, ptr %53, align 4, !tbaa !97
+  %55 = sext i32 %54 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
+  %56 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %55
+  %57 = load i32, ptr %.039, align 4, !tbaa !97
+  %58 = sext i32 %57 to i64
+  %59 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %58
+  %60 = load ptr, ptr %10, align 8, !tbaa !499
+  %61 = load i64, ptr %60, align 8, !tbaa !70
+  %62 = icmp ult i64 %56, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
 
-.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
+.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %62 = icmp ult i64 %58, %60
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
+  %63 = icmp ult i64 %59, %61
+  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
 
-.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
+.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !76
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %55
-  %66 = load i64, ptr %65, align 8, !tbaa !39
-  %67 = getelementptr inbounds nuw i64, ptr %64, i64 %58
-  %68 = load i64, ptr %67, align 8, !tbaa !39
-  %69 = icmp slt i64 %66, %68
-  %70 = load i64, ptr %13, align 8, !tbaa !403
-  %71 = icmp ult i64 %.sroa.2.0.copyload, %70
-  br i1 %69, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %75
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !76
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %56
+  %67 = load i64, ptr %66, align 8, !tbaa !39
+  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %59
+  %69 = load i64, ptr %68, align 8, !tbaa !39
+  %70 = icmp slt i64 %67, %69
+  %71 = load i64, ptr %14, align 8, !tbaa !403
+  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
+  br i1 %70, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %76
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %72 = load ptr, ptr %14, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.sroa.2.0.copyload
-  store i32 %53, ptr %73, align 4, !tbaa !97
-  %74 = add nuw i64 %.sroa.5.038, 1
+  %73 = load ptr, ptr %15, align 8, !tbaa !405
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  store i32 %54, ptr %74, align 4, !tbaa !97
+  %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
+76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSP_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
 
-.split56.us:                                      ; preds = %40, %75
+.split56.us:                                      ; preds = %76, %41
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %75
-  %76 = load ptr, ptr %14, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.2.0.copyload
-  store i32 %56, ptr %77, align 4, !tbaa !97
-  %78 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
+  %77 = load ptr, ptr %15, align 8, !tbaa !405
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  store i32 %57, ptr %78, align 4, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %74, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %78, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %79 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %79, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %80 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !514
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %12, align 8
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %.039 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %13, align 8
+  %81 = ptrtoint ptr %1 to i64
+  %82 = ptrtoint ptr %.039 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 2
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %85 = load i64, ptr %13, align 8, !tbaa !403
-  br label %86
+  %86 = load i64, ptr %14, align 8, !tbaa !403
+  br label %87
 
-86:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %87 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %85
-  br i1 %87, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %88, !prof !35
+87:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i ], [ %95, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %88 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %86
+  br i1 %88, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %89, !prof !35
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %90 = load ptr, ptr %14, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %89, ptr %91, align 4, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %93 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %94 = add nsw i64 %.012.i.i.i.i.i, -1
-  %95 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %95, label %86, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
+  %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %91 = load ptr, ptr %15, align 8, !tbaa !405
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %90, ptr %92, align 4, !tbaa !97
+  %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %87, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.split, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.split, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.233") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr100 = freeze ptr %2
-  %.fr99 = freeze ptr %0
-  %9 = icmp eq ptr %.fr99, %.fr100
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -31657,7 +31633,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr100, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -31672,7 +31648,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !405
   %39 = load ptr, ptr %7, align 8, !tbaa !502
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -31685,7 +31661,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.promoted = load i64, ptr %45, align 8
-  br i1 %9, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
+  br i1 %.fr, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
@@ -33320,361 +33296,359 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.238") align 8 %8) local_unnamed_addr #3 comdat {
 .split:
-  %.fr116 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr115 = freeze ptr %4
-  %9 = icmp ne ptr %.fr, %.fr116
+  %9 = icmp ne ptr %0, %2
+  %.fr103 = freeze i1 %9
   %10 = icmp ne i64 %1, %3
-  %.not8.i67 = select i1 %9, i1 true, i1 %10
+  %.not8.i67 = select i1 %.fr103, i1 true, i1 %10
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
-  %.not = icmp eq ptr %.fr115, %.sroa.011.0.copyload.fr
-  %11 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.fr = freeze i1 %11
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %16 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  %17 = load i64, ptr %4, align 8, !tbaa !403
+  br i1 %.fr103, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = icmp ult i64 %5, %16
-  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
+  %18 = icmp ult i64 %5, %17
+  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %18 = load i64, ptr %.fr, align 8, !tbaa !403
+  %19 = load i64, ptr %0, align 8, !tbaa !403
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us
   %.sroa.6.068.us.us114 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.6.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
   %.sroa.643.069.us.us113 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.643.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %19 = icmp ult i64 %.sroa.643.069.us.us113, %18
-  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
+  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
+  %20 = icmp ult i64 %.sroa.643.069.us.us113, %19
+  br i1 %20, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %20 = load ptr, ptr %11, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.6.068.us.us114
-  %22 = load ptr, ptr %12, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.643.069.us.us113
-  %24 = load i32, ptr %21, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %15, align 8, !tbaa !39
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %25
-  %27 = load i32, ptr %23, align 4, !tbaa !97
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %28
-  %30 = load ptr, ptr %13, align 8, !tbaa !517
-  %31 = load i64, ptr %30, align 8, !tbaa !77
-  %32 = icmp ult i64 %26, %31
-  br i1 %32, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !405
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %23 = load ptr, ptr %13, align 8, !tbaa !405
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %25 = load i32, ptr %22, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
+  %28 = load i32, ptr %24, align 4, !tbaa !97
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
+  %31 = load ptr, ptr %14, align 8, !tbaa !517
+  %32 = load i64, ptr %31, align 8, !tbaa !77
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
-  %33 = icmp ult i64 %29, %31
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
+  %34 = icmp ult i64 %30, %32
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !83
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %26
-  %37 = load float, ptr %36, align 4, !tbaa !150
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %29
-  %39 = load float, ptr %38, align 4, !tbaa !150
-  %40 = fcmp olt float %37, %39
-  %.sink = select i1 %40, i32 %24, i32 %27
-  %41 = zext i1 %40 to i64
-  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %41
-  %not.178 = xor i1 %40, true
-  %42 = zext i1 %not.178 to i64
-  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %42
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !83
+  %37 = getelementptr inbounds nuw float, ptr %36, i64 %27
+  %38 = load float, ptr %37, align 4, !tbaa !150
+  %39 = getelementptr inbounds nuw float, ptr %36, i64 %30
+  %40 = load float, ptr %39, align 4, !tbaa !150
+  %41 = fcmp olt float %38, %40
+  %.sink = select i1 %41, i32 %25, i32 %28
+  %42 = zext i1 %41 to i64
+  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %42
+  %not.179 = xor i1 %41, true
+  %43 = zext i1 %not.179 to i64
+  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %43
   store i32 %.sink, ptr %.070.us.us112, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
-  %44 = icmp ult i64 %.sroa.6.1.us.us, %16
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
+  %44 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
+  %45 = icmp ult i64 %.sroa.6.1.us.us, %17
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us
-  %.070.us = phi ptr [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
+  %.070.us = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.643.069.us = phi i64 [ %.sroa.643.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.lr.ph.split.us ]
   %.sroa.6.068.us = phi i64 [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.lr.ph.split.us ]
-  %45 = icmp ult i64 %.sroa.6.068.us, %16
-  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
+  %46 = icmp ult i64 %.sroa.6.068.us, %17
+  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %46 = load i64, ptr %.fr, align 8, !tbaa !403
-  %47 = icmp ult i64 %.sroa.643.069.us, %46
-  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
+  %47 = load i64, ptr %0, align 8, !tbaa !403
+  %48 = icmp ult i64 %.sroa.643.069.us, %47
+  br i1 %48, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %48 = load ptr, ptr %11, align 8, !tbaa !405
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.6.068.us
-  %50 = load ptr, ptr %12, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.643.069.us
-  %52 = load i32, ptr %49, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %15, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %53
-  %55 = load i32, ptr %51, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %56
-  %58 = load ptr, ptr %13, align 8, !tbaa !517
-  %59 = load i64, ptr %58, align 8, !tbaa !77
-  %60 = icmp ult i64 %54, %59
-  br i1 %60, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
+  %49 = load ptr, ptr %12, align 8, !tbaa !405
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %51 = load ptr, ptr %13, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %53 = load i32, ptr %50, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %54
+  %56 = load i32, ptr %52, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %57
+  %59 = load ptr, ptr %14, align 8, !tbaa !517
+  %60 = load i64, ptr %59, align 8, !tbaa !77
+  %61 = icmp ult i64 %55, %60
+  br i1 %61, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us
-  %61 = icmp ult i64 %57, %59
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
+  %62 = icmp ult i64 %58, %60
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !83
-  %64 = getelementptr inbounds nuw float, ptr %63, i64 %54
-  %65 = load float, ptr %64, align 4, !tbaa !150
-  %66 = getelementptr inbounds nuw float, ptr %63, i64 %57
-  %67 = load float, ptr %66, align 4, !tbaa !150
-  %68 = fcmp olt float %65, %67
-  %.sink139 = select i1 %68, i32 %52, i32 %55
-  %69 = zext i1 %68 to i64
-  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %69
-  %not. = xor i1 %68, true
-  %70 = zext i1 %not. to i64
-  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %70
-  store i32 %.sink139, ptr %.070.us, align 4, !tbaa !97
-  %71 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
-  %.not121 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not121, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !531
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !83
+  %65 = getelementptr inbounds nuw float, ptr %64, i64 %55
+  %66 = load float, ptr %65, align 4, !tbaa !150
+  %67 = getelementptr inbounds nuw float, ptr %64, i64 %58
+  %68 = load float, ptr %67, align 4, !tbaa !150
+  %69 = fcmp olt float %66, %68
+  %.sink136 = select i1 %69, i32 %53, i32 %56
+  %70 = zext i1 %69 to i64
+  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %70
+  %not.178 = xor i1 %69, true
+  %71 = zext i1 %not.178 to i64
+  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %71
+  store i32 %.sink136, ptr %.070.us, align 4, !tbaa !97
+  %72 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
+  %.not118 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not118, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !531
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr103, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not119 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not119, label %.critedge, label %.lr.ph107
+  %.not116 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not116, label %.critedge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph.split.split.us
-  %72 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br label %73
+  %73 = load i64, ptr %4, align 8, !tbaa !403
+  br label %74
 
-73:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
+74:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
   %.sroa.6.068.us89106 = phi i64 [ %5, %.lr.ph107 ], [ %.sroa.6.1.us97, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
   %.sroa.643.069.us88105 = phi i64 [ %1, %.lr.ph107 ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %74 = icmp ult i64 %.sroa.6.068.us89106, %72
-  br i1 %74, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
+  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
+  %75 = icmp ult i64 %.sroa.6.068.us89106, %73
+  br i1 %75, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %73
-  %75 = load i64, ptr %.fr, align 8, !tbaa !403
-  %76 = icmp ult i64 %.sroa.643.069.us88105, %75
-  br i1 %76, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %74
+  %76 = load i64, ptr %0, align 8, !tbaa !403
+  %77 = icmp ult i64 %.sroa.643.069.us88105, %76
+  br i1 %77, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
-  %77 = load ptr, ptr %11, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.068.us89106
-  %79 = load ptr, ptr %12, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.643.069.us88105
-  %81 = load i32, ptr %78, align 4, !tbaa !97
-  %82 = sext i32 %81 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %15, align 8, !tbaa !39
-  %83 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %82
-  %84 = load i32, ptr %80, align 4, !tbaa !97
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %85
-  %87 = load ptr, ptr %13, align 8, !tbaa !517
-  %88 = load i64, ptr %87, align 8, !tbaa !77
-  %89 = icmp ult i64 %83, %88
-  br i1 %89, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
+  %78 = load ptr, ptr %12, align 8, !tbaa !405
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %80 = load ptr, ptr %13, align 8, !tbaa !405
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %82 = load i32, ptr %79, align 4, !tbaa !97
+  %83 = sext i32 %82 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
+  %84 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %83
+  %85 = load i32, ptr %81, align 4, !tbaa !97
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %86
+  %88 = load ptr, ptr %14, align 8, !tbaa !517
+  %89 = load i64, ptr %88, align 8, !tbaa !77
+  %90 = icmp ult i64 %84, %89
+  br i1 %90, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
-  %90 = icmp ult i64 %86, %88
-  br i1 %90, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
+  %91 = icmp ult i64 %87, %89
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !83
-  %93 = getelementptr inbounds nuw float, ptr %92, i64 %83
-  %94 = load float, ptr %93, align 4, !tbaa !150
-  %95 = getelementptr inbounds nuw float, ptr %92, i64 %86
-  %96 = load float, ptr %95, align 4, !tbaa !150
-  %97 = fcmp olt float %94, %96
-  %.sink140 = select i1 %97, i32 %81, i32 %84
-  %98 = zext i1 %97 to i64
-  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %98
-  %not.180 = xor i1 %97, true
-  %99 = zext i1 %not.180 to i64
-  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %99
-  store i32 %.sink140, ptr %.070.us87104, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
-  %.not120 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
-  br i1 %.not120, label %.critedge, label %73
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !83
+  %94 = getelementptr inbounds nuw float, ptr %93, i64 %84
+  %95 = load float, ptr %94, align 4, !tbaa !150
+  %96 = getelementptr inbounds nuw float, ptr %93, i64 %87
+  %97 = load float, ptr %96, align 4, !tbaa !150
+  %98 = fcmp olt float %95, %97
+  %.sink137 = select i1 %98, i32 %82, i32 %85
+  %99 = zext i1 %98 to i64
+  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %99
+  %not.177 = xor i1 %98, true
+  %100 = zext i1 %not.177 to i64
+  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %100
+  store i32 %.sink137, ptr %.070.us87104, align 4, !tbaa !97
+  %101 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
+  %.not117 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
+  br i1 %.not117, label %.critedge, label %74
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit
-  %.070 = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
+  %.070 = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
   %.sroa.643.069 = phi i64 [ %.sroa.643.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %1, %.lr.ph.split ]
   %.sroa.6.068 = phi i64 [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %5, %.lr.ph.split ]
-  %.not117 = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
-  br i1 %.not117, label %.critedge, label %101
+  %.not = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %102
 
-101:                                              ; preds = %.lr.ph.split.split
-  %102 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %103 = icmp ult i64 %.sroa.6.068, %102
-  br i1 %103, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
+102:                                              ; preds = %.lr.ph.split.split
+  %103 = load i64, ptr %4, align 8, !tbaa !403
+  %104 = icmp ult i64 %.sroa.6.068, %103
+  br i1 %104, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
 
-.split78.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %101, %73, %.lr.ph.split.us.split.us
+.split78.us:                                      ; preds = %102, %74, %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %101
-  %104 = load i64, ptr %.fr, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.643.069, %104
-  br i1 %105, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %102
+  %105 = load i64, ptr %0, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.643.069, %105
+  br i1 %106, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
 
-.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
+.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.068
-  %108 = load ptr, ptr %12, align 8, !tbaa !405
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %.sroa.643.069
-  %110 = load i32, ptr %107, align 4, !tbaa !97
-  %111 = sext i32 %110 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %15, align 8, !tbaa !39
-  %112 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %111
-  %113 = load i32, ptr %109, align 4, !tbaa !97
-  %114 = sext i32 %113 to i64
-  %115 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %114
-  %116 = load ptr, ptr %13, align 8, !tbaa !517
-  %117 = load i64, ptr %116, align 8, !tbaa !77
-  %118 = icmp ult i64 %112, %117
-  br i1 %118, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
+  %107 = load ptr, ptr %12, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %109 = load ptr, ptr %13, align 8, !tbaa !405
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %111 = load i32, ptr %108, align 4, !tbaa !97
+  %112 = sext i32 %111 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
+  %113 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %112
+  %114 = load i32, ptr %110, align 4, !tbaa !97
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %115
+  %117 = load ptr, ptr %14, align 8, !tbaa !517
+  %118 = load i64, ptr %117, align 8, !tbaa !77
+  %119 = icmp ult i64 %113, %118
+  br i1 %119, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
 
-.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
+.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i
-  %119 = icmp ult i64 %115, %117
-  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
+  %120 = icmp ult i64 %116, %118
+  br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
 
-.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93
+.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us93, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !83
-  %122 = getelementptr inbounds nuw float, ptr %121, i64 %112
-  %123 = load float, ptr %122, align 4, !tbaa !150
-  %124 = getelementptr inbounds nuw float, ptr %121, i64 %115
-  %125 = load float, ptr %124, align 4, !tbaa !150
-  %126 = fcmp olt float %123, %125
-  %.sink141 = select i1 %126, i32 %110, i32 %113
-  %127 = zext i1 %126 to i64
-  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %127
-  %not.179 = xor i1 %126, true
-  %128 = zext i1 %not.179 to i64
-  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %128
-  store i32 %.sink141, ptr %.070, align 4, !tbaa !97
-  %129 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %.not118 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not118, label %.critedge, label %.lr.ph.split.split, !llvm.loop !531
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !83
+  %123 = getelementptr inbounds nuw float, ptr %122, i64 %113
+  %124 = load float, ptr %123, align 4, !tbaa !150
+  %125 = getelementptr inbounds nuw float, ptr %122, i64 %116
+  %126 = load float, ptr %125, align 4, !tbaa !150
+  %127 = fcmp olt float %124, %126
+  %.sink138 = select i1 %127, i32 %111, i32 %114
+  %128 = zext i1 %127 to i64
+  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %128
+  %not. = xor i1 %127, true
+  %129 = zext i1 %not. to i64
+  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %129
+  store i32 %.sink138, ptr %.070, align 4, !tbaa !97
+  %130 = getelementptr inbounds nuw i8, ptr %.070, i64 4
+  %.not115 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not115, label %.critedge, label %.lr.ph.split.split, !llvm.loop !531
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %.split, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.069, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.0.lcssa = phi ptr [ %.070, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.split ], [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %130 = icmp eq ptr %.fr116, %.fr
-  br i1 %130, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %131, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.split, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.643.069, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.lr.ph.split.split.us ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.split ], [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.070, %.lr.ph.split.split ]
+  %131 = icmp eq ptr %2, %0
+  br i1 %131, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %132, !prof !35
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %132 = sub i64 %3, %.sroa.643.0.lcssa
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %133 = sub i64 %3, %.sroa.643.0.lcssa
+  %134 = icmp sgt i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %134 = load i64, ptr %.fr, align 8, !tbaa !403
-  %135 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %136
+  %135 = load i64, ptr %0, align 8, !tbaa !403
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %137
 
-136:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %132, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %137 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %134
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %138, !prof !35
+137:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i ], [ %145, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %138 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %135
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %139, !prof !35
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %136
-  %139 = load ptr, ptr %135, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.3.09.i.i.i.i.i
-  %141 = load i32, ptr %140, align 4, !tbaa !97
-  store i32 %141, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %142 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %144 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %145 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %145, label %136, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
+  %140 = load ptr, ptr %136, align 8, !tbaa !405
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %142 = load i32, ptr %141, align 4, !tbaa !97
+  store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %145 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %146 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %146, label %137, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %146 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr115
-  br i1 %146, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %147, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %147 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %147, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %148, !prof !35
 
-147:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+148:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %148 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %149 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %150 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %151 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  br label %152
+  %151 = load i64, ptr %4, align 8, !tbaa !403
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %153
 
-152:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %148, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %153 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %150
-  br i1 %153, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %154, !prof !35
+153:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %149, %.lr.ph.i.i.i.i.i30 ], [ %161, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %154 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %151
+  br i1 %154, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %155, !prof !35
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %152
-  %155 = load ptr, ptr %151, align 8, !tbaa !405
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %.sroa.3.09.i.i.i.i.i33
-  %157 = load i32, ptr %156, align 4, !tbaa !97
-  store i32 %157, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %158 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %160 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %161 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %161, label %152, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
+  %156 = load ptr, ptr %152, align 8, !tbaa !405
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %158 = load i32, ptr %157, align 4, !tbaa !97
+  store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %160 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %161 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %162 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %162, label %153, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -33853,228 +33827,226 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.238") align 8 %7) local_unnamed_addr #3 comdat {
 .split:
-  %.fr65 = freeze ptr %2
   %.not37 = icmp eq ptr %0, %1
   br i1 %.not37, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %.fr66 = freeze ptr %4
-  %.not67 = icmp eq ptr %.fr65, %.fr66
-  %8 = getelementptr inbounds nuw i8, ptr %.fr65, i64 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.promoted = load i64, ptr %12, align 8
-  br i1 %.not67, label %.lr.ph.split, label %.lr.ph.split.us
+  %8 = icmp ne ptr %2, %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.promoted = load i64, ptr %13, align 8
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load i64, ptr %.fr65, align 8, !tbaa !403
-  br label %16
+  %16 = load i64, ptr %2, align 8, !tbaa !403
+  br label %17
 
-16:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
-  %17 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
+17:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
+  %18 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %48, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.039.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.sroa.5.038.us = phi i64 [ %3, %.lr.ph.split.us ], [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
-  %18 = icmp ult i64 %.sroa.5.038.us, %15
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
+  %19 = icmp ult i64 %.sroa.5.038.us, %16
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %16
-  %19 = load ptr, ptr %8, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.038.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %11, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.039.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !517
-  %28 = load i64, ptr %27, align 8, !tbaa !77
-  %29 = icmp ult i64 %23, %28
-  br i1 %29, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
+  %20 = load ptr, ptr %9, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.039.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = load ptr, ptr %10, align 8, !tbaa !517
+  %29 = load i64, ptr %28, align 8, !tbaa !77
+  %30 = icmp ult i64 %24, %29
+  br i1 %30, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %30 = icmp ult i64 %26, %28
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
+  %31 = icmp ult i64 %27, %29
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !83
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %23
-  %34 = load float, ptr %33, align 4, !tbaa !150
-  %35 = getelementptr inbounds nuw float, ptr %32, i64 %26
-  %36 = load float, ptr %35, align 4, !tbaa !150
-  %37 = fcmp olt float %34, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !403
-  %39 = icmp ult i64 %17, %38
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !83
+  %34 = getelementptr inbounds nuw float, ptr %33, i64 %24
+  %35 = load float, ptr %34, align 4, !tbaa !150
+  %36 = getelementptr inbounds nuw float, ptr %33, i64 %27
+  %37 = load float, ptr %36, align 4, !tbaa !150
+  %38 = fcmp olt float %35, %37
+  %39 = load i64, ptr %14, align 8, !tbaa !403
+  %40 = icmp ult i64 %18, %39
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %41
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %40
-  %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %17
-  store i32 %24, ptr %42, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
+  %42 = load ptr, ptr %15, align 8, !tbaa !405
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  store i32 %25, ptr %43, align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %44 = load ptr, ptr %14, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
-  store i32 %21, ptr %45, align 4, !tbaa !97
-  %46 = add nuw i64 %.sroa.5.038.us, 1
+  %45 = load ptr, ptr %15, align 8, !tbaa !405
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  store i32 %22, ptr %46, align 4, !tbaa !97
+  %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us
-  %.sroa.5.1.us = phi i64 [ %46, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %47 = add nuw i64 %17, 1
+  %.sroa.5.1.us = phi i64 [ %47, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %44, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %48 = add nuw i64 %18, 1
   %.not.us = icmp eq ptr %.1.us, %1
-  br i1 %.not.us, label %.critedge19, label %16, !llvm.loop !532
+  br i1 %.not.us, label %.critedge19, label %17, !llvm.loop !532
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %80, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.039 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.038 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not68 = icmp eq i64 %.sroa.5.038, %5
-  br i1 %.not68, label %.critedge, label %48
+  %.not65 = icmp eq i64 %.sroa.5.038, %5
+  br i1 %.not65, label %.critedge, label %49
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = load i64, ptr %.fr65, align 8, !tbaa !403
-  %50 = icmp ult i64 %.sroa.5.038, %49
-  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i64, ptr %2, align 8, !tbaa !403
+  %51 = icmp ult i64 %.sroa.5.038, %50
+  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %16, %48
+.split48.us:                                      ; preds = %49, %17
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %48
-  %51 = load ptr, ptr %8, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.038
-  %53 = load i32, ptr %52, align 4, !tbaa !97
-  %54 = sext i32 %53 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %11, align 8, !tbaa !39
-  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
-  %56 = load i32, ptr %.039, align 4, !tbaa !97
-  %57 = sext i32 %56 to i64
-  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
-  %59 = load ptr, ptr %9, align 8, !tbaa !517
-  %60 = load i64, ptr %59, align 8, !tbaa !77
-  %61 = icmp ult i64 %55, %60
-  br i1 %61, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
+  %52 = load ptr, ptr %9, align 8, !tbaa !405
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %54 = load i32, ptr %53, align 4, !tbaa !97
+  %55 = sext i32 %54 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
+  %56 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %55
+  %57 = load i32, ptr %.039, align 4, !tbaa !97
+  %58 = sext i32 %57 to i64
+  %59 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %58
+  %60 = load ptr, ptr %10, align 8, !tbaa !517
+  %61 = load i64, ptr %60, align 8, !tbaa !77
+  %62 = icmp ult i64 %56, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
 
-.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
+.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %62 = icmp ult i64 %58, %60
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
+  %63 = icmp ult i64 %59, %61
+  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
 
-.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
+.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !83
-  %65 = getelementptr inbounds nuw float, ptr %64, i64 %55
-  %66 = load float, ptr %65, align 4, !tbaa !150
-  %67 = getelementptr inbounds nuw float, ptr %64, i64 %58
-  %68 = load float, ptr %67, align 4, !tbaa !150
-  %69 = fcmp olt float %66, %68
-  %70 = load i64, ptr %13, align 8, !tbaa !403
-  %71 = icmp ult i64 %.sroa.2.0.copyload, %70
-  br i1 %69, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %75
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !83
+  %66 = getelementptr inbounds nuw float, ptr %65, i64 %56
+  %67 = load float, ptr %66, align 4, !tbaa !150
+  %68 = getelementptr inbounds nuw float, ptr %65, i64 %59
+  %69 = load float, ptr %68, align 4, !tbaa !150
+  %70 = fcmp olt float %67, %69
+  %71 = load i64, ptr %14, align 8, !tbaa !403
+  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
+  br i1 %70, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %76
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %72 = load ptr, ptr %14, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.sroa.2.0.copyload
-  store i32 %53, ptr %73, align 4, !tbaa !97
-  %74 = add nuw i64 %.sroa.5.038, 1
+  %73 = load ptr, ptr %15, align 8, !tbaa !405
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  store i32 %54, ptr %74, align 4, !tbaa !97
+  %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
+76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKSR_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
 
-.split56.us:                                      ; preds = %40, %75
+.split56.us:                                      ; preds = %76, %41
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %75
-  %76 = load ptr, ptr %14, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.2.0.copyload
-  store i32 %56, ptr %77, align 4, !tbaa !97
-  %78 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
+  %77 = load ptr, ptr %15, align 8, !tbaa !405
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  store i32 %57, ptr %78, align 4, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %74, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %78, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %79 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %79, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %80 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !532
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %12, align 8
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %.039 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %13, align 8
+  %81 = ptrtoint ptr %1 to i64
+  %82 = ptrtoint ptr %.039 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 2
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %85 = load i64, ptr %13, align 8, !tbaa !403
-  br label %86
+  %86 = load i64, ptr %14, align 8, !tbaa !403
+  br label %87
 
-86:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %87 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %85
-  br i1 %87, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %88, !prof !35
+87:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i ], [ %95, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %88 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %86
+  br i1 %88, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %89, !prof !35
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %90 = load ptr, ptr %14, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %89, ptr %91, align 4, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %93 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %94 = add nsw i64 %.012.i.i.i.i.i, -1
-  %95 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %95, label %86, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
+  %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %91 = load ptr, ptr %15, align 8, !tbaa !405
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %90, ptr %92, align 4, !tbaa !97
+  %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %87, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.split, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.split, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.238") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr100 = freeze ptr %2
-  %.fr99 = freeze ptr %0
-  %9 = icmp eq ptr %.fr99, %.fr100
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -34128,7 +34100,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr100, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -34143,7 +34115,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !405
   %39 = load ptr, ptr %7, align 8, !tbaa !520
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -34156,7 +34128,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.promoted = load i64, ptr %45, align 8
-  br i1 %9, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
+  br i1 %.fr, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]
@@ -35791,361 +35763,359 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt12__move_mergeIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEES1B_SJ_SJ_SJ_SJ_S1B_S1C_(ptr %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef %7, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.243") align 8 %8) local_unnamed_addr #3 comdat {
 .split:
-  %.fr116 = freeze ptr %2
-  %.fr = freeze ptr %0
-  %.fr115 = freeze ptr %4
-  %9 = icmp ne ptr %.fr, %.fr116
+  %9 = icmp ne ptr %0, %2
+  %.fr103 = freeze i1 %9
   %10 = icmp ne i64 %1, %3
-  %.not8.i67 = select i1 %9, i1 true, i1 %10
+  %.not8.i67 = select i1 %.fr103, i1 true, i1 %10
   %.sroa.03.0.copyload.pre = load ptr, ptr %6, align 8, !tbaa !398
-  %.sroa.011.0.copyload.fr = freeze ptr %.sroa.03.0.copyload.pre
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !39
   br i1 %.not8.i67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split
-  %.not = icmp eq ptr %.fr115, %.sroa.011.0.copyload.fr
-  %11 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8
-  br i1 %.not, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = icmp ne ptr %4, %.sroa.03.0.copyload.pre
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.fr = freeze i1 %11
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %16 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  %17 = load i64, ptr %4, align 8, !tbaa !403
+  br i1 %.fr103, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %17 = icmp ult i64 %5, %16
-  br i1 %17, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
+  %18 = icmp ult i64 %5, %17
+  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, label %.split78.us, !prof !422
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
-  %18 = load i64, ptr %.fr, align 8, !tbaa !403
+  %19 = load i64, ptr %0, align 8, !tbaa !403
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us
   %.sroa.6.068.us.us114 = phi i64 [ %5, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.6.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
   %.sroa.643.069.us.us113 = phi i64 [ %1, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %.sroa.643.1.us.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
-  %19 = icmp ult i64 %.sroa.643.069.us.us113, %18
-  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
+  %.070.us.us112 = phi ptr [ %7, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us.lr.ph ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us ]
+  %20 = icmp ult i64 %.sroa.643.069.us.us113, %19
+  br i1 %20, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
-  %20 = load ptr, ptr %11, align 8, !tbaa !405
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.6.068.us.us114
-  %22 = load ptr, ptr %12, align 8, !tbaa !405
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.643.069.us.us113
-  %24 = load i32, ptr %21, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %15, align 8, !tbaa !39
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %25
-  %27 = load i32, ptr %23, align 4, !tbaa !97
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %28
-  %30 = load ptr, ptr %13, align 8, !tbaa !535
-  %31 = load i64, ptr %30, align 8, !tbaa !84
-  %32 = icmp ult i64 %26, %31
-  br i1 %32, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !405
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.sroa.6.068.us.us114
+  %23 = load ptr, ptr %13, align 8, !tbaa !405
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.sroa.643.069.us.us113
+  %25 = load i32, ptr %22, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us.us = load i64, ptr %16, align 8, !tbaa !39
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %26
+  %28 = load i32, ptr %24, align 4, !tbaa !97
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us.us, %29
+  %31 = load ptr, ptr %14, align 8, !tbaa !535
+  %32 = load i64, ptr %31, align 8, !tbaa !84
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
-  %33 = icmp ult i64 %29, %31
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
+  %34 = icmp ult i64 %30, %32
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !90
-  %36 = getelementptr inbounds nuw double, ptr %35, i64 %26
-  %37 = load double, ptr %36, align 8, !tbaa !153
-  %38 = getelementptr inbounds nuw double, ptr %35, i64 %29
-  %39 = load double, ptr %38, align 8, !tbaa !153
-  %40 = fcmp olt double %37, %39
-  %.sink = select i1 %40, i32 %24, i32 %27
-  %41 = zext i1 %40 to i64
-  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %41
-  %not.178 = xor i1 %40, true
-  %42 = zext i1 %not.178 to i64
-  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %42
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !90
+  %37 = getelementptr inbounds nuw double, ptr %36, i64 %27
+  %38 = load double, ptr %37, align 8, !tbaa !153
+  %39 = getelementptr inbounds nuw double, ptr %36, i64 %30
+  %40 = load double, ptr %39, align 8, !tbaa !153
+  %41 = fcmp olt double %38, %40
+  %.sink = select i1 %41, i32 %25, i32 %28
+  %42 = zext i1 %41 to i64
+  %.sroa.6.1.us.us = add nuw i64 %.sroa.6.068.us.us114, %42
+  %not.179 = xor i1 %41, true
+  %43 = zext i1 %not.179 to i64
+  %.sroa.643.1.us.us = add nuw i64 %.sroa.643.069.us.us113, %43
   store i32 %.sink, ptr %.070.us.us112, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
-  %44 = icmp ult i64 %.sroa.6.1.us.us, %16
-  br i1 %44, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
+  %44 = getelementptr inbounds nuw i8, ptr %.070.us.us112, i64 4
+  %45 = icmp ult i64 %.sroa.6.1.us.us, %17
+  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, label %.split78.us, !prof !437
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us
-  %.070.us = phi ptr [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
+  %.070.us = phi ptr [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.lr.ph.split.us ]
   %.sroa.643.069.us = phi i64 [ %.sroa.643.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.lr.ph.split.us ]
   %.sroa.6.068.us = phi i64 [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.lr.ph.split.us ]
-  %45 = icmp ult i64 %.sroa.6.068.us, %16
-  br i1 %45, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
+  %46 = icmp ult i64 %.sroa.6.068.us, %17
+  br i1 %46, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split78.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %.lr.ph.split.us.split
-  %46 = load i64, ptr %.fr, align 8, !tbaa !403
-  %47 = icmp ult i64 %.sroa.643.069.us, %46
-  br i1 %47, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
+  %47 = load i64, ptr %0, align 8, !tbaa !403
+  %48 = icmp ult i64 %.sroa.643.069.us, %47
+  br i1 %48, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %48 = load ptr, ptr %11, align 8, !tbaa !405
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.sroa.6.068.us
-  %50 = load ptr, ptr %12, align 8, !tbaa !405
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.sroa.643.069.us
-  %52 = load i32, ptr %49, align 4, !tbaa !97
-  %53 = sext i32 %52 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %15, align 8, !tbaa !39
-  %54 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %53
-  %55 = load i32, ptr %51, align 4, !tbaa !97
-  %56 = sext i32 %55 to i64
-  %57 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %56
-  %58 = load ptr, ptr %13, align 8, !tbaa !535
-  %59 = load i64, ptr %58, align 8, !tbaa !84
-  %60 = icmp ult i64 %54, %59
-  br i1 %60, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
+  %49 = load ptr, ptr %12, align 8, !tbaa !405
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.sroa.6.068.us
+  %51 = load ptr, ptr %13, align 8, !tbaa !405
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.643.069.us
+  %53 = load i32, ptr %50, align 4, !tbaa !97
+  %54 = sext i32 %53 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %16, align 8, !tbaa !39
+  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %54
+  %56 = load i32, ptr %52, align 4, !tbaa !97
+  %57 = sext i32 %56 to i64
+  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %57
+  %59 = load ptr, ptr %14, align 8, !tbaa !535
+  %60 = load i64, ptr %59, align 8, !tbaa !84
+  %61 = icmp ult i64 %55, %60
+  br i1 %61, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us
-  %61 = icmp ult i64 %57, %59
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
+  %62 = icmp ult i64 %58, %60
+  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !90
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %54
-  %65 = load double, ptr %64, align 8, !tbaa !153
-  %66 = getelementptr inbounds nuw double, ptr %63, i64 %57
-  %67 = load double, ptr %66, align 8, !tbaa !153
-  %68 = fcmp olt double %65, %67
-  %.sink139 = select i1 %68, i32 %52, i32 %55
-  %69 = zext i1 %68 to i64
-  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %69
-  %not. = xor i1 %68, true
-  %70 = zext i1 %not. to i64
-  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %70
-  store i32 %.sink139, ptr %.070.us, align 4, !tbaa !97
-  %71 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
-  %.not121 = icmp eq i64 %.sroa.643.1.us, %3
-  br i1 %.not121, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !549
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !90
+  %65 = getelementptr inbounds nuw double, ptr %64, i64 %55
+  %66 = load double, ptr %65, align 8, !tbaa !153
+  %67 = getelementptr inbounds nuw double, ptr %64, i64 %58
+  %68 = load double, ptr %67, align 8, !tbaa !153
+  %69 = fcmp olt double %66, %68
+  %.sink136 = select i1 %69, i32 %53, i32 %56
+  %70 = zext i1 %69 to i64
+  %.sroa.6.1.us = add nuw i64 %.sroa.6.068.us, %70
+  %not.178 = xor i1 %69, true
+  %71 = zext i1 %not.178 to i64
+  %.sroa.643.1.us = add nuw i64 %.sroa.643.069.us, %71
+  store i32 %.sink136, ptr %.070.us, align 4, !tbaa !97
+  %72 = getelementptr inbounds nuw i8, ptr %.070.us, i64 4
+  %.not118 = icmp eq i64 %.sroa.643.1.us, %3
+  br i1 %.not118, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !549
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr103, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not119 = icmp eq i64 %5, %.sroa.212.0.copyload
-  br i1 %.not119, label %.critedge, label %.lr.ph107
+  %.not116 = icmp eq i64 %5, %.sroa.212.0.copyload
+  br i1 %.not116, label %.critedge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph.split.split.us
-  %72 = load i64, ptr %.fr115, align 8, !tbaa !403
-  br label %73
+  %73 = load i64, ptr %4, align 8, !tbaa !403
+  br label %74
 
-73:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
+74:                                               ; preds = %.lr.ph107, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94
   %.sroa.6.068.us89106 = phi i64 [ %5, %.lr.ph107 ], [ %.sroa.6.1.us97, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
   %.sroa.643.069.us88105 = phi i64 [ %1, %.lr.ph107 ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
-  %74 = icmp ult i64 %.sroa.6.068.us89106, %72
-  br i1 %74, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
+  %.070.us87104 = phi ptr [ %7, %.lr.ph107 ], [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ]
+  %75 = icmp ult i64 %.sroa.6.068.us89106, %73
+  br i1 %75, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, label %.split78.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %73
-  %75 = load i64, ptr %.fr, align 8, !tbaa !403
-  %76 = icmp ult i64 %.sroa.643.069.us88105, %75
-  br i1 %76, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90: ; preds = %74
+  %76 = load i64, ptr %0, align 8, !tbaa !403
+  %77 = icmp ult i64 %.sroa.643.069.us88105, %76
+  br i1 %77, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, label %.split80.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
-  %77 = load ptr, ptr %11, align 8, !tbaa !405
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.6.068.us89106
-  %79 = load ptr, ptr %12, align 8, !tbaa !405
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.sroa.643.069.us88105
-  %81 = load i32, ptr %78, align 4, !tbaa !97
-  %82 = sext i32 %81 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %15, align 8, !tbaa !39
-  %83 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %82
-  %84 = load i32, ptr %80, align 4, !tbaa !97
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %85
-  %87 = load ptr, ptr %13, align 8, !tbaa !535
-  %88 = load i64, ptr %87, align 8, !tbaa !84
-  %89 = icmp ult i64 %83, %88
-  br i1 %89, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
+  %78 = load ptr, ptr %12, align 8, !tbaa !405
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.6.068.us89106
+  %80 = load ptr, ptr %13, align 8, !tbaa !405
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.sroa.643.069.us88105
+  %82 = load i32, ptr %79, align 4, !tbaa !97
+  %83 = sext i32 %82 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us92 = load i64, ptr %16, align 8, !tbaa !39
+  %84 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %83
+  %85 = load i32, ptr %81, align 4, !tbaa !97
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us92, %86
+  %88 = load ptr, ptr %14, align 8, !tbaa !535
+  %89 = load i64, ptr %88, align 8, !tbaa !84
+  %90 = icmp ult i64 %84, %89
+  br i1 %90, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93, label %.split82.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
-  %90 = icmp ult i64 %86, %88
-  br i1 %90, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
+  %91 = icmp ult i64 %87, %89
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, label %.split84.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !90
-  %93 = getelementptr inbounds nuw double, ptr %92, i64 %83
-  %94 = load double, ptr %93, align 8, !tbaa !153
-  %95 = getelementptr inbounds nuw double, ptr %92, i64 %86
-  %96 = load double, ptr %95, align 8, !tbaa !153
-  %97 = fcmp olt double %94, %96
-  %.sink140 = select i1 %97, i32 %81, i32 %84
-  %98 = zext i1 %97 to i64
-  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %98
-  %not.180 = xor i1 %97, true
-  %99 = zext i1 %not.180 to i64
-  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %99
-  store i32 %.sink140, ptr %.070.us87104, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
-  %.not120 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
-  br i1 %.not120, label %.critedge, label %73
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !90
+  %94 = getelementptr inbounds nuw double, ptr %93, i64 %84
+  %95 = load double, ptr %94, align 8, !tbaa !153
+  %96 = getelementptr inbounds nuw double, ptr %93, i64 %87
+  %97 = load double, ptr %96, align 8, !tbaa !153
+  %98 = fcmp olt double %95, %97
+  %.sink137 = select i1 %98, i32 %82, i32 %85
+  %99 = zext i1 %98 to i64
+  %.sroa.6.1.us97 = add nuw i64 %.sroa.6.068.us89106, %99
+  %not.177 = xor i1 %98, true
+  %100 = zext i1 %not.177 to i64
+  %.sroa.643.1.us98 = add nuw i64 %.sroa.643.069.us88105, %100
+  store i32 %.sink137, ptr %.070.us87104, align 4, !tbaa !97
+  %101 = getelementptr inbounds nuw i8, ptr %.070.us87104, i64 4
+  %.not117 = icmp eq i64 %.sroa.6.1.us97, %.sroa.212.0.copyload
+  br i1 %.not117, label %.critedge, label %74
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit
-  %.070 = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
+  %.070 = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %7, %.lr.ph.split ]
   %.sroa.643.069 = phi i64 [ %.sroa.643.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %1, %.lr.ph.split ]
   %.sroa.6.068 = phi i64 [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %5, %.lr.ph.split ]
-  %.not117 = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
-  br i1 %.not117, label %.critedge, label %101
+  %.not = icmp eq i64 %.sroa.6.068, %.sroa.212.0.copyload
+  br i1 %.not, label %.critedge, label %102
 
-101:                                              ; preds = %.lr.ph.split.split
-  %102 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %103 = icmp ult i64 %.sroa.6.068, %102
-  br i1 %103, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
+102:                                              ; preds = %.lr.ph.split.split
+  %103 = load i64, ptr %4, align 8, !tbaa !403
+  %104 = icmp ult i64 %.sroa.6.068, %103
+  br i1 %104, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split78.us, !prof !35
 
-.split78.us:                                      ; preds = %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %101, %73, %.lr.ph.split.us.split.us
+.split78.us:                                      ; preds = %102, %74, %.lr.ph.split.us.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us.us, %.lr.ph.split.us.split.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %101
-  %104 = load i64, ptr %.fr, align 8, !tbaa !403
-  %105 = icmp ult i64 %.sroa.643.069, %104
-  br i1 %105, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %102
+  %105 = load i64, ptr %0, align 8, !tbaa !403
+  %106 = icmp ult i64 %.sroa.643.069, %105
+  br i1 %106, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, label %.split80.us, !prof !35
 
-.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90
+.split80.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us90, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !405
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.sroa.6.068
-  %108 = load ptr, ptr %12, align 8, !tbaa !405
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %.sroa.643.069
-  %110 = load i32, ptr %107, align 4, !tbaa !97
-  %111 = sext i32 %110 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %15, align 8, !tbaa !39
-  %112 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %111
-  %113 = load i32, ptr %109, align 4, !tbaa !97
-  %114 = sext i32 %113 to i64
-  %115 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %114
-  %116 = load ptr, ptr %13, align 8, !tbaa !535
-  %117 = load i64, ptr %116, align 8, !tbaa !84
-  %118 = icmp ult i64 %112, %117
-  br i1 %118, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
+  %107 = load ptr, ptr %12, align 8, !tbaa !405
+  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.sroa.6.068
+  %109 = load ptr, ptr %13, align 8, !tbaa !405
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.643.069
+  %111 = load i32, ptr %108, align 4, !tbaa !97
+  %112 = sext i32 %111 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %16, align 8, !tbaa !39
+  %113 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %112
+  %114 = load i32, ptr %110, align 4, !tbaa !97
+  %115 = sext i32 %114 to i64
+  %116 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %115
+  %117 = load ptr, ptr %14, align 8, !tbaa !535
+  %118 = load i64, ptr %117, align 8, !tbaa !84
+  %119 = icmp ult i64 %113, %118
+  br i1 %119, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, label %.split82.us, !prof !35
 
-.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91
+.split82.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us91, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit1.i
-  %119 = icmp ult i64 %115, %117
-  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
+  %120 = icmp ult i64 %116, %118
+  br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, label %.split84.us, !prof !35
 
-.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93
+.split84.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us93, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !90
-  %122 = getelementptr inbounds nuw double, ptr %121, i64 %112
-  %123 = load double, ptr %122, align 8, !tbaa !153
-  %124 = getelementptr inbounds nuw double, ptr %121, i64 %115
-  %125 = load double, ptr %124, align 8, !tbaa !153
-  %126 = fcmp olt double %123, %125
-  %.sink141 = select i1 %126, i32 %110, i32 %113
-  %127 = zext i1 %126 to i64
-  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %127
-  %not.179 = xor i1 %126, true
-  %128 = zext i1 %not.179 to i64
-  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %128
-  store i32 %.sink141, ptr %.070, align 4, !tbaa !97
-  %129 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %.not118 = icmp eq i64 %.sroa.643.1, %3
-  br i1 %.not118, label %.critedge, label %.lr.ph.split.split, !llvm.loop !549
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !90
+  %123 = getelementptr inbounds nuw double, ptr %122, i64 %113
+  %124 = load double, ptr %123, align 8, !tbaa !153
+  %125 = getelementptr inbounds nuw double, ptr %122, i64 %116
+  %126 = load double, ptr %125, align 8, !tbaa !153
+  %127 = fcmp olt double %124, %126
+  %.sink138 = select i1 %127, i32 %111, i32 %114
+  %128 = zext i1 %127 to i64
+  %.sroa.6.1 = add nuw i64 %.sroa.6.068, %128
+  %not. = xor i1 %127, true
+  %129 = zext i1 %not. to i64
+  %.sroa.643.1 = add nuw i64 %.sroa.643.069, %129
+  store i32 %.sink138, ptr %.070, align 4, !tbaa !97
+  %130 = getelementptr inbounds nuw i8, ptr %.070, i64 4
+  %.not115 = icmp eq i64 %.sroa.643.1, %3
+  br i1 %.not115, label %.critedge, label %.lr.ph.split.split, !llvm.loop !549
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %.split, %.lr.ph.split.split.us
-  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %.lr.ph.split.split ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.069, %.lr.ph.split.split ], [ %1, %.lr.ph.split.split.us ], [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %.0.lcssa = phi ptr [ %.070, %.lr.ph.split.split ], [ %7, %.lr.ph.split.split.us ], [ %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.split ], [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ]
-  %130 = icmp eq ptr %.fr116, %.fr
-  br i1 %130, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %131, !prof !35
+.critedge:                                        ; preds = %.lr.ph.split.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us, %.split, %.lr.ph.split.split.us
+  %.sroa.24.0.copyload = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %.sroa.212.0.copyload, %.split ], [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.212.0.copyload, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %5, %.lr.ph.split.split.us ], [ %.sroa.6.1.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %5, %.split ], [ %.sroa.6.1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.212.0.copyload, %.lr.ph.split.split ]
+  %.sroa.643.0.lcssa = phi i64 [ %.sroa.643.1.us98, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %1, %.lr.ph.split.split.us ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %1, %.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.sroa.643.069, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %101, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us94 ], [ %7, %.lr.ph.split.split.us ], [ %72, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit.us ], [ %7, %.split ], [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_S12_EEbSC_S19_.exit ], [ %.070, %.lr.ph.split.split ]
+  %131 = icmp eq ptr %2, %0
+  br i1 %131, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i, label %132, !prof !35
 
-131:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i: ; preds = %.critedge
-  %132 = sub i64 %3, %.sroa.643.0.lcssa
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+  %133 = sub i64 %3, %.sroa.643.0.lcssa
+  %134 = icmp sgt i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %134 = load i64, ptr %.fr, align 8, !tbaa !403
-  %135 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  br label %136
+  %135 = load i64, ptr %0, align 8, !tbaa !403
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %137
 
-136:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0410.i.i.i.i.i = phi i64 [ %132, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %142, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %137 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %134
-  br i1 %137, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %138, !prof !35
+137:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.011.i.i.i.i.i = phi ptr [ %.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0410.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i ], [ %145, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.3.09.i.i.i.i.i = phi i64 [ %.sroa.643.0.lcssa, %.lr.ph.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %138 = icmp ult i64 %.sroa.3.09.i.i.i.i.i, %135
+  br i1 %138, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %139, !prof !35
 
-138:                                              ; preds = %136
+139:                                              ; preds = %137
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %136
-  %139 = load ptr, ptr %135, align 8, !tbaa !405
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.sroa.3.09.i.i.i.i.i
-  %141 = load i32, ptr %140, align 4, !tbaa !97
-  store i32 %141, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
-  %142 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
-  %144 = add nsw i64 %.0410.i.i.i.i.i, -1
-  %145 = icmp sgt i64 %.0410.i.i.i.i.i, 1
-  br i1 %145, label %136, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %137
+  %140 = load ptr, ptr %136, align 8, !tbaa !405
+  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %.sroa.3.09.i.i.i.i.i
+  %142 = load i32, ptr %141, align 4, !tbaa !97
+  store i32 %142, ptr %.011.i.i.i.i.i, align 4, !tbaa !97
+  %143 = add nuw i64 %.sroa.3.09.i.i.i.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
+  %145 = add nsw i64 %.0410.i.i.i.i.i, -1
+  %146 = icmp sgt i64 %.0410.i.i.i.i.i, 1
+  br i1 %146, label %137, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %143, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %146 = icmp eq ptr %.sroa.011.0.copyload.fr, %.fr115
-  br i1 %146, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %147, !prof !35
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i ], [ %144, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %147 = icmp eq ptr %.sroa.03.0.copyload.pre, %4
+  br i1 %147, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28, label %148, !prof !35
 
-147:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
+148:                                              ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28: ; preds = %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit
-  %148 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
-  %149 = icmp sgt i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
+  %149 = sub i64 %.sroa.24.0.copyload, %.sroa.6.0.lcssa
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph.i.i.i.i.i30, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %150 = load i64, ptr %.fr115, align 8, !tbaa !403
-  %151 = getelementptr inbounds nuw i8, ptr %.fr115, i64 8
-  br label %152
+  %151 = load i64, ptr %4, align 8, !tbaa !403
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %153
 
-152:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
-  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.0410.i.i.i.i.i32 = phi i64 [ %148, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %158, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
-  %153 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %150
-  br i1 %153, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %154, !prof !35
+153:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %.lr.ph.i.i.i.i.i30
+  %.011.i.i.i.i.i31 = phi ptr [ %.0.lcssa.i.i.i.i.i, %.lr.ph.i.i.i.i.i30 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0410.i.i.i.i.i32 = phi i64 [ %149, %.lr.ph.i.i.i.i.i30 ], [ %161, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.sroa.3.09.i.i.i.i.i33 = phi i64 [ %.sroa.6.0.lcssa, %.lr.ph.i.i.i.i.i30 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %154 = icmp ult i64 %.sroa.3.09.i.i.i.i.i33, %151
+  br i1 %154, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, label %155, !prof !35
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %152
-  %155 = load ptr, ptr %151, align 8, !tbaa !405
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %.sroa.3.09.i.i.i.i.i33
-  %157 = load i32, ptr %156, align 4, !tbaa !97
-  store i32 %157, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
-  %158 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
-  %160 = add nsw i64 %.0410.i.i.i.i.i32, -1
-  %161 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
-  br i1 %161, label %152, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34: ; preds = %153
+  %156 = load ptr, ptr %152, align 8, !tbaa !405
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.3.09.i.i.i.i.i33
+  %158 = load i32, ptr %157, align 4, !tbaa !97
+  store i32 %158, ptr %.011.i.i.i.i.i31, align 4, !tbaa !97
+  %159 = add nuw i64 %.sroa.3.09.i.i.i.i.i33, 1
+  %160 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i31, i64 4
+  %161 = add nsw i64 %.0410.i.i.i.i.i32, -1
+  %162 = icmp sgt i64 %.0410.i.i.i.i.i32, 1
+  br i1 %162, label %153, label %_ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35, !llvm.loop !435
 
 _ZSt4moveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiET0_T_S9_S8_.exit35: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28
-  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %159, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i29 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmiES5_.exit.i.i.i.i.i28 ], [ %160, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i34 ]
   ret ptr %.0.lcssa.i.i.i.i.i29
 }
 
@@ -36324,228 +36294,226 @@ _ZSt4moveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt21__move_merge_adaptiveIPiN7xgboost6common6detail12SpanIteratorINS2_4SpanIiLm18446744073709551615EEELb0EEES7_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS2_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS1_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS5_IKaLm18446744073709551615EEENS5_IKsLm18446744073709551615EEENS5_IKiLm18446744073709551615EEENS5_IKlLm18446744073709551615EEENS5_IKfLm18446744073709551615EEENS5_IKdLm18446744073709551615EEEEES6_EUlSJ_E_EES7_ZZNSF_ISI_EEvSL_S12_S6_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.243") align 8 %7) local_unnamed_addr #3 comdat {
 .split:
-  %.fr65 = freeze ptr %2
   %.not37 = icmp eq ptr %0, %1
   br i1 %.not37, label %.critedge19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %.fr66 = freeze ptr %4
-  %.not67 = icmp eq ptr %.fr65, %.fr66
-  %8 = getelementptr inbounds nuw i8, ptr %.fr65, i64 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.promoted = load i64, ptr %12, align 8
-  br i1 %.not67, label %.lr.ph.split, label %.lr.ph.split.us
+  %8 = icmp ne ptr %2, %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.promoted = load i64, ptr %13, align 8
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %15 = load i64, ptr %.fr65, align 8, !tbaa !403
-  br label %16
+  %16 = load i64, ptr %2, align 8, !tbaa !403
+  br label %17
 
-16:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
-  %17 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %47, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
+17:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.lr.ph.split.us
+  %18 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %48, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.039.us = phi ptr [ %0, %.lr.ph.split.us ], [ %.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
   %.sroa.5.038.us = phi i64 [ %3, %.lr.ph.split.us ], [ %.sroa.5.1.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us ]
-  %18 = icmp ult i64 %.sroa.5.038.us, %15
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
+  %19 = icmp ult i64 %.sroa.5.038.us, %16
+  br i1 %19, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, label %.split48.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %16
-  %19 = load ptr, ptr %8, align 8, !tbaa !405
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.5.038.us
-  %21 = load i32, ptr %20, align 4, !tbaa !97
-  %22 = sext i32 %21 to i64
-  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %11, align 8, !tbaa !39
-  %23 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %22
-  %24 = load i32, ptr %.039.us, align 4, !tbaa !97
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !535
-  %28 = load i64, ptr %27, align 8, !tbaa !84
-  %29 = icmp ult i64 %23, %28
-  br i1 %29, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %17
+  %20 = load ptr, ptr %9, align 8, !tbaa !405
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.sroa.5.038.us
+  %22 = load i32, ptr %21, align 4, !tbaa !97
+  %23 = sext i32 %22 to i64
+  %.sroa.0.0.copyload1.i.i.i.i.us = load i64, ptr %12, align 8, !tbaa !39
+  %24 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %23
+  %25 = load i32, ptr %.039.us, align 4, !tbaa !97
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %.sroa.0.0.copyload1.i.i.i.i.us, %26
+  %28 = load ptr, ptr %10, align 8, !tbaa !535
+  %29 = load i64, ptr %28, align 8, !tbaa !84
+  %30 = icmp ult i64 %24, %29
+  br i1 %30, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, label %.split50.us, !prof !35
 
 _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
-  %30 = icmp ult i64 %26, %28
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
+  %31 = icmp ult i64 %27, %29
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us, label %.split53.us, !prof !35
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !90
-  %33 = getelementptr inbounds nuw double, ptr %32, i64 %23
-  %34 = load double, ptr %33, align 8, !tbaa !153
-  %35 = getelementptr inbounds nuw double, ptr %32, i64 %26
-  %36 = load double, ptr %35, align 8, !tbaa !153
-  %37 = fcmp olt double %34, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !403
-  %39 = icmp ult i64 %17, %38
-  br i1 %37, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !90
+  %34 = getelementptr inbounds nuw double, ptr %33, i64 %24
+  %35 = load double, ptr %34, align 8, !tbaa !153
+  %36 = getelementptr inbounds nuw double, ptr %33, i64 %27
+  %37 = load double, ptr %36, align 8, !tbaa !153
+  %38 = fcmp olt double %35, %37
+  %39 = load i64, ptr %14, align 8, !tbaa !403
+  %40 = icmp ult i64 %18, %39
+  br i1 %38, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, label %41
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, label %.split56.us, !prof !35
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %40
-  %41 = load ptr, ptr %14, align 8, !tbaa !405
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %17
-  store i32 %24, ptr %42, align 4, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us: ; preds = %41
+  %42 = load ptr, ptr %15, align 8, !tbaa !405
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %18
+  store i32 %25, ptr %43, align 4, !tbaa !97
+  %44 = getelementptr inbounds nuw i8, ptr %.039.us, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit.us
-  br i1 %39, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
+  br i1 %40, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us, label %.split59.us, !prof !35
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
-  %44 = load ptr, ptr %14, align 8, !tbaa !405
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %17
-  store i32 %21, ptr %45, align 4, !tbaa !97
-  %46 = add nuw i64 %.sroa.5.038.us, 1
+  %45 = load ptr, ptr %15, align 8, !tbaa !405
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %18
+  store i32 %22, ptr %46, align 4, !tbaa !97
+  %47 = add nuw i64 %.sroa.5.038.us, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us
-  %.sroa.5.1.us = phi i64 [ %46, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
-  %47 = add nuw i64 %17, 1
+  %.sroa.5.1.us = phi i64 [ %47, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %.sroa.5.038.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %.1.us = phi ptr [ %.039.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20.us ], [ %44, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21.us ]
+  %48 = add nuw i64 %18, 1
   %.not.us = icmp eq ptr %.1.us, %1
-  br i1 %.not.us, label %.critedge19, label %16, !llvm.loop !550
+  br i1 %.not.us, label %.critedge19, label %17, !llvm.loop !550
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
-  %.sroa.2.0.copyload = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
+  %.sroa.2.0.copyload = phi i64 [ %80, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %.promoted, %.lr.ph ]
   %.039 = phi ptr [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %0, %.lr.ph ]
   %.sroa.5.038 = phi i64 [ %.sroa.5.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23 ], [ %3, %.lr.ph ]
-  %.not68 = icmp eq i64 %.sroa.5.038, %5
-  br i1 %.not68, label %.critedge, label %48
+  %.not65 = icmp eq i64 %.sroa.5.038, %5
+  br i1 %.not65, label %.critedge, label %49
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = load i64, ptr %.fr65, align 8, !tbaa !403
-  %50 = icmp ult i64 %.sroa.5.038, %49
-  br i1 %50, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i64, ptr %2, align 8, !tbaa !403
+  %51 = icmp ult i64 %.sroa.5.038, %50
+  br i1 %51, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %.split48.us, !prof !35
 
-.split48.us:                                      ; preds = %16, %48
+.split48.us:                                      ; preds = %49, %17
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %48
-  %51 = load ptr, ptr %8, align 8, !tbaa !405
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.sroa.5.038
-  %53 = load i32, ptr %52, align 4, !tbaa !97
-  %54 = sext i32 %53 to i64
-  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %11, align 8, !tbaa !39
-  %55 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %54
-  %56 = load i32, ptr %.039, align 4, !tbaa !97
-  %57 = sext i32 %56 to i64
-  %58 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %57
-  %59 = load ptr, ptr %9, align 8, !tbaa !535
-  %60 = load i64, ptr %59, align 8, !tbaa !84
-  %61 = icmp ult i64 %55, %60
-  br i1 %61, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %49
+  %52 = load ptr, ptr %9, align 8, !tbaa !405
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.sroa.5.038
+  %54 = load i32, ptr %53, align 4, !tbaa !97
+  %55 = sext i32 %54 to i64
+  %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %12, align 8, !tbaa !39
+  %56 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %55
+  %57 = load i32, ptr %.039, align 4, !tbaa !97
+  %58 = sext i32 %57 to i64
+  %59 = add i64 %.sroa.0.0.copyload1.i.i.i.i, %58
+  %60 = load ptr, ptr %10, align 8, !tbaa !535
+  %61 = load i64, ptr %60, align 8, !tbaa !84
+  %62 = icmp ult i64 %56, %61
+  br i1 %62, label %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, label %.split50.us, !prof !35
 
-.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
+.split50.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i
-  %62 = icmp ult i64 %58, %60
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
+  %63 = icmp ult i64 %59, %61
+  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit, label %.split53.us, !prof !35
 
-.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
+.split53.us:                                      ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i, %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit: ; preds = %_ZNK7xgboost6common4SpanIKdLm18446744073709551615EEixEm.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !90
-  %65 = getelementptr inbounds nuw double, ptr %64, i64 %55
-  %66 = load double, ptr %65, align 8, !tbaa !153
-  %67 = getelementptr inbounds nuw double, ptr %64, i64 %58
-  %68 = load double, ptr %67, align 8, !tbaa !153
-  %69 = fcmp olt double %66, %68
-  %70 = load i64, ptr %13, align 8, !tbaa !403
-  %71 = icmp ult i64 %.sroa.2.0.copyload, %70
-  br i1 %69, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %75
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !90
+  %66 = getelementptr inbounds nuw double, ptr %65, i64 %56
+  %67 = load double, ptr %66, align 8, !tbaa !153
+  %68 = getelementptr inbounds nuw double, ptr %65, i64 %59
+  %69 = load double, ptr %68, align 8, !tbaa !153
+  %70 = fcmp olt double %67, %69
+  %71 = load i64, ptr %14, align 8, !tbaa !403
+  %72 = icmp ult i64 %.sroa.2.0.copyload, %71
+  br i1 %70, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, label %76
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, label %.split59.us, !prof !35
 
-.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
+.split59.us:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.us
   tail call void @_ZSt9terminatev() #32
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit
-  %72 = load ptr, ptr %14, align 8, !tbaa !405
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.sroa.2.0.copyload
-  store i32 %53, ptr %73, align 4, !tbaa !97
-  %74 = add nuw i64 %.sroa.5.038, 1
+  %73 = load ptr, ptr %15, align 8, !tbaa !405
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.sroa.2.0.copyload
+  store i32 %54, ptr %74, align 4, !tbaa !97
+  %75 = add nuw i64 %.sroa.5.038, 1
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
-  br i1 %71, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
+76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS3_9SortNamesINS2_6PolicyIJNS5_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS2_15CatStrArrayViewENS6_4SpanIKaLm18446744073709551615EEENSH_IKsLm18446744073709551615EEENSH_IKiLm18446744073709551615EEENSH_IKlLm18446744073709551615EEENSH_IKfLm18446744073709551615EEENSH_IKdLm18446744073709551615EEEEENSH_IiLm18446744073709551615EEEEUlSC_E_EENS6_6detail12SpanIteratorISX_Lb0EEEZZNS8_ISB_EEvSE_SW_SX_ENKUlOSC_E0_clIRKST_EEDaS13_EUlmmE_EEvSC_SC_T0_T1_EUlRSM_S1B_E_EclIS12_PiEEbSC_S19_.exit
+  br i1 %72, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21, label %.split56.us, !prof !35
 
-.split56.us:                                      ; preds = %40, %75
+.split56.us:                                      ; preds = %76, %41
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %75
-  %76 = load ptr, ptr %14, align 8, !tbaa !405
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.2.0.copyload
-  store i32 %56, ptr %77, align 4, !tbaa !97
-  %78 = getelementptr inbounds nuw i8, ptr %.039, i64 4
+_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21: ; preds = %76
+  %77 = load ptr, ptr %15, align 8, !tbaa !405
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.sroa.2.0.copyload
+  store i32 %57, ptr %78, align 4, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21
-  %.sroa.5.1 = phi i64 [ %74, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %78, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
-  %79 = add nuw i64 %.sroa.2.0.copyload, 1
+  %.sroa.5.1 = phi i64 [ %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %.sroa.5.038, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %.1 = phi ptr [ %.039, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit20 ], [ %79, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit21 ]
+  %80 = add nuw i64 %.sroa.2.0.copyload, 1
   %.not = icmp eq ptr %.1, %1
   br i1 %.not, label %.critedge19, label %.lr.ph.split, !llvm.loop !550
 
 .critedge:                                        ; preds = %.lr.ph.split
-  store i64 %.sroa.2.0.copyload, ptr %12, align 8
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %.039 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i, label %.critedge19
+  store i64 %.sroa.2.0.copyload, ptr %13, align 8
+  %81 = ptrtoint ptr %1 to i64
+  %82 = ptrtoint ptr %.039 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 2
+  %85 = icmp sgt i64 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i.i.i, label %.critedge19
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge
-  %85 = load i64, ptr %13, align 8, !tbaa !403
-  br label %86
+  %86 = load i64, ptr %14, align 8, !tbaa !403
+  br label %87
 
-86:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %92, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
-  %87 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %85
-  br i1 %87, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %88, !prof !35
+87:                                               ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i ], [ %95, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.0511.i.i.i.i.i = phi ptr [ %.039, %.lr.ph.i.i.i.i.i ], [ %93, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %.sroa.4.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i.i.i.i.i ], [ %94, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i ]
+  %88 = icmp ult i64 %.sroa.4.010.i.i.i.i.i, %86
+  br i1 %88, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, label %89, !prof !35
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @_ZSt9terminatev() #32
   unreachable
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
-  %90 = load ptr, ptr %14, align 8, !tbaa !405
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.sroa.4.010.i.i.i.i.i
-  store i32 %89, ptr %91, align 4, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
-  %93 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
-  %94 = add nsw i64 %.012.i.i.i.i.i, -1
-  %95 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %95, label %86, label %.critedge19, !llvm.loop !431
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i: ; preds = %87
+  %90 = load i32, ptr %.0511.i.i.i.i.i, align 4, !tbaa !97
+  %91 = load ptr, ptr %15, align 8, !tbaa !405
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %.sroa.4.010.i.i.i.i.i
+  store i32 %90, ptr %92, align 4, !tbaa !97
+  %93 = getelementptr inbounds nuw i8, ptr %.0511.i.i.i.i.i, i64 4
+  %94 = add nuw i64 %.sroa.4.010.i.i.i.i.i, 1
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %87, label %.critedge19, !llvm.loop !431
 
-.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %.split, %.critedge
+.critedge19:                                      ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit.i.i.i.i.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEppEv.exit23.us, %.split, %.critedge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPiS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1B_S1C_T2_(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef byval(%"class.xgboost::common::detail::SpanIterator.210") align 8 %6, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.243") align 8 %7) local_unnamed_addr #3 comdat {
-  %.fr100 = freeze ptr %2
-  %.fr99 = freeze ptr %0
-  %9 = icmp eq ptr %.fr99, %.fr100
+  %9 = icmp eq ptr %0, %2
+  %.fr = freeze i1 %9
   %10 = icmp eq i64 %1, %3
-  %11 = select i1 %9, i1 %10, i1 false
+  %11 = select i1 %.fr, i1 %10, i1 false
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
@@ -36599,7 +36567,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br i1 %.not.i, label %.critedge.i, label %32, !prof !91
 
 32:                                               ; preds = %31
-  %33 = load i64, ptr %.fr100, align 8, !tbaa !403
+  %33 = load i64, ptr %2, align 8, !tbaa !403
   %.not1.i = icmp ugt i64 %3, %33
   br i1 %.not1.i, label %.critedge.i, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit, !prof !91
 
@@ -36614,7 +36582,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 -4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !405
   %39 = load ptr, ptr %7, align 8, !tbaa !538
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -36627,7 +36595,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.promoted = load i64, ptr %45, align 8
-  br i1 %9, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
+  br i1 %.fr, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.us: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us
   %48 = phi i64 [ %79, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEmmEv.exit51.us ], [ %.promoted, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0EEdeEv.exit.i.lr.ph ]

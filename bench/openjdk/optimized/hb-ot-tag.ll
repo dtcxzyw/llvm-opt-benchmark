@@ -287,23 +287,23 @@ define hidden void @hb_ot_tags_from_script_and_language(i32 noundef %0, ptr noun
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 5
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 45
-  br i1 %46, label %47, label %.preheader57.i
+  br i1 %46, label %47, label %.preheader58.i
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 6
   br label %49
 
 49:                                               ; preds = %70, %47
-  %indvars.iv66.i = phi i64 [ 0, %47 ], [ %indvars.iv.next67.i, %70 ]
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv66.i
+  %indvars.iv67.i = phi i64 [ 0, %47 ], [ %indvars.iv.next68.i, %70 ]
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv67.i
   %51 = load i8, ptr %50, align 1
-  %.fr.i = freeze i8 %51
-  %52 = add i8 %.fr.i, -48
+  %.fr57.i = freeze i8 %51
+  %52 = add i8 %.fr57.i, -48
   %or.cond.i.i = icmp ult i8 %52, 10
   br i1 %or.cond.i.i, label %_ZL5ISHEXh.exit.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %49
-  switch i8 %.fr.i, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit [
+  switch i8 %.fr57.i, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit [
     i8 102, label %_ZL5ISHEXh.exit.thread.i
     i8 101, label %_ZL5ISHEXh.exit.thread.i
     i8 100, label %_ZL5ISHEXh.exit.thread.i
@@ -319,25 +319,25 @@ switch.early.test.i:                              ; preds = %49
   ]
 
 _ZL5ISHEXh.exit.thread.i:                         ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %49
-  %53 = add nsw i8 %.fr.i, -65
+  %53 = add nsw i8 %.fr57.i, -65
   %or.cond.i.i.i = icmp ult i8 %53, 26
   %54 = select i1 %or.cond.i.i.i, i8 -55, i8 -87
-  %55 = add nsw i8 %54, %.fr.i
+  %55 = add nsw i8 %54, %.fr57.i
   %56 = select i1 %or.cond.i.i, i8 %52, i8 %55
-  %57 = and i64 %indvars.iv66.i, 1
+  %57 = and i64 %indvars.iv67.i, 1
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %_ZL5ISHEXh.exit.thread.i
   %60 = shl i8 %56, 4
-  %61 = lshr exact i64 %indvars.iv66.i, 1
+  %61 = lshr exact i64 %indvars.iv67.i, 1
   %62 = and i64 %61, 2147483647
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 %62
   store i8 %60, ptr %63, align 1
   br label %70
 
 64:                                               ; preds = %_ZL5ISHEXh.exit.thread.i
-  %65 = lshr i64 %indvars.iv66.i, 1
+  %65 = lshr i64 %indvars.iv67.i, 1
   %66 = and i64 %65, 2147483647
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 %66
   %68 = load i8, ptr %67, align 1
@@ -346,11 +346,11 @@ _ZL5ISHEXh.exit.thread.i:                         ; preds = %switch.early.test.i
   br label %70
 
 70:                                               ; preds = %64, %59
-  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, 8
-  br i1 %exitcond69.not.i, label %.loopexit.i, label %49, !llvm.loop !8
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 8
+  br i1 %exitcond70.not.i, label %.loopexit.i, label %49, !llvm.loop !8
 
-.preheader57.i:                                   ; preds = %43, %78
+.preheader58.i:                                   ; preds = %43, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %43 ]
   %71 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv.i
   %72 = load i8, ptr %71, align 1
@@ -362,7 +362,7 @@ _ZL5ISHEXh.exit.thread.i:                         ; preds = %switch.early.test.i
   %77 = or i1 %76, %or.cond11.i53.i
   br i1 %77, label %78, label %.critedge5.i
 
-78:                                               ; preds = %.preheader57.i
+78:                                               ; preds = %.preheader58.i
   %79 = add i8 %72, -65
   %or.cond.i107 = icmp ult i8 %79, 26
   %80 = add nuw nsw i8 %72, 32
@@ -371,9 +371,9 @@ _ZL5ISHEXh.exit.thread.i:                         ; preds = %switch.early.test.i
   store i8 %81, ptr %82, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader57.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader58.i, !llvm.loop !9
 
-.critedge5.i:                                     ; preds = %.preheader57.i
+.critedge5.i:                                     ; preds = %.preheader58.i
   %.not50.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not50.i, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit, label %.preheader.i
 
@@ -437,23 +437,23 @@ _ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit: ; preds = %switch.early.test
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 5
   %113 = load i8, ptr %112, align 1
   %114 = icmp eq i8 %113, 45
-  br i1 %114, label %115, label %.preheader57.i75
+  br i1 %114, label %115, label %.preheader58.i75
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 6
   br label %117
 
 117:                                              ; preds = %138, %115
-  %indvars.iv66.i88 = phi i64 [ 0, %115 ], [ %indvars.iv.next67.i94, %138 ]
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv66.i88
+  %indvars.iv67.i88 = phi i64 [ 0, %115 ], [ %indvars.iv.next68.i94, %138 ]
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv67.i88
   %119 = load i8, ptr %118, align 1
-  %.fr.i89 = freeze i8 %119
-  %120 = add i8 %.fr.i89, -48
+  %.fr57.i89 = freeze i8 %119
+  %120 = add i8 %.fr57.i89, -48
   %or.cond.i.i90 = icmp ult i8 %120, 10
   br i1 %or.cond.i.i90, label %_ZL5ISHEXh.exit.thread.i92, label %switch.early.test.i91
 
 switch.early.test.i91:                            ; preds = %117
-  switch i8 %.fr.i89, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96 [
+  switch i8 %.fr57.i89, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96 [
     i8 102, label %_ZL5ISHEXh.exit.thread.i92
     i8 101, label %_ZL5ISHEXh.exit.thread.i92
     i8 100, label %_ZL5ISHEXh.exit.thread.i92
@@ -469,25 +469,25 @@ switch.early.test.i91:                            ; preds = %117
   ]
 
 _ZL5ISHEXh.exit.thread.i92:                       ; preds = %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %switch.early.test.i91, %117
-  %121 = add nsw i8 %.fr.i89, -65
+  %121 = add nsw i8 %.fr57.i89, -65
   %or.cond.i.i.i93 = icmp ult i8 %121, 26
   %122 = select i1 %or.cond.i.i.i93, i8 -55, i8 -87
-  %123 = add nsw i8 %122, %.fr.i89
+  %123 = add nsw i8 %122, %.fr57.i89
   %124 = select i1 %or.cond.i.i90, i8 %120, i8 %123
-  %125 = and i64 %indvars.iv66.i88, 1
+  %125 = and i64 %indvars.iv67.i88, 1
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %127, label %132
 
 127:                                              ; preds = %_ZL5ISHEXh.exit.thread.i92
   %128 = shl i8 %124, 4
-  %129 = lshr exact i64 %indvars.iv66.i88, 1
+  %129 = lshr exact i64 %indvars.iv67.i88, 1
   %130 = and i64 %129, 2147483647
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 %130
   store i8 %128, ptr %131, align 1
   br label %138
 
 132:                                              ; preds = %_ZL5ISHEXh.exit.thread.i92
-  %133 = lshr i64 %indvars.iv66.i88, 1
+  %133 = lshr i64 %indvars.iv67.i88, 1
   %134 = and i64 %133, 2147483647
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 %134
   %136 = load i8, ptr %135, align 1
@@ -496,11 +496,11 @@ _ZL5ISHEXh.exit.thread.i92:                       ; preds = %switch.early.test.i
   br label %138
 
 138:                                              ; preds = %132, %127
-  %indvars.iv.next67.i94 = add nuw nsw i64 %indvars.iv66.i88, 1
-  %exitcond69.not.i95 = icmp eq i64 %indvars.iv.next67.i94, 8
-  br i1 %exitcond69.not.i95, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96.thread, label %117, !llvm.loop !8
+  %indvars.iv.next68.i94 = add nuw nsw i64 %indvars.iv67.i88, 1
+  %exitcond70.not.i95 = icmp eq i64 %indvars.iv.next68.i94, 8
+  br i1 %exitcond70.not.i95, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96.thread, label %117, !llvm.loop !8
 
-.preheader57.i75:                                 ; preds = %111, %146
+.preheader58.i75:                                 ; preds = %111, %146
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i86, %146 ], [ 0, %111 ]
   %139 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i76
   %140 = load i8, ptr %139, align 1
@@ -512,7 +512,7 @@ _ZL5ISHEXh.exit.thread.i92:                       ; preds = %switch.early.test.i
   %145 = or i1 %144, %or.cond11.i53.i77
   br i1 %145, label %146, label %.critedge5.i78
 
-146:                                              ; preds = %.preheader57.i75
+146:                                              ; preds = %.preheader58.i75
   %147 = add i8 %140, -97
   %or.cond.i108 = icmp ult i8 %147, 26
   %148 = add nsw i8 %140, -32
@@ -521,9 +521,9 @@ _ZL5ISHEXh.exit.thread.i92:                       ; preds = %switch.early.test.i
   store i8 %149, ptr %150, align 1
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 4
-  br i1 %exitcond.not.i87, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96.thread, label %.preheader57.i75, !llvm.loop !9
+  br i1 %exitcond.not.i87, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96.thread, label %.preheader58.i75, !llvm.loop !9
 
-.critedge5.i78:                                   ; preds = %.preheader57.i75
+.critedge5.i78:                                   ; preds = %.preheader58.i75
   %.not50.i79 = icmp eq i64 %indvars.iv.i76, 0
   br i1 %.not50.i79, label %_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE.exit96, label %.preheader.i80
 

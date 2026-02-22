@@ -379,12 +379,11 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = load ptr, ptr %15, align 8, !tbaa !36
-  %.fr82 = freeze ptr %17
-  %19 = ptrtoint ptr %.fr82 to i64
-  %.fr83 = freeze ptr %18
-  %20 = ptrtoint ptr %.fr83 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %22 = lshr i64 %21, 3
+  %.fr83 = freeze i64 %21
+  %22 = lshr i64 %.fr83, 3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !29
   %.not6677 = icmp ne ptr %13, %24

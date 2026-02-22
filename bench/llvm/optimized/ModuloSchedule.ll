@@ -2136,7 +2136,7 @@ _ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit: ; preds 
 
 ._crit_edge86:                                    ; preds = %._crit_edge, %_ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit
   call void @_ZN4llvm22ModuloScheduleExpander16rewritePhiValuesEPNS_17MachineBasicBlockEjPNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEERNS3_IPNS_12MachineInstrESC_NS4_ISC_vEENS7_ISC_SC_EEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %46, i32 noundef %86, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(20) %9)
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge91, label %41, !llvm.loop !267
 
@@ -2156,7 +2156,7 @@ _ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit: ; preds 
   br label %99
 
 ._crit_edge:                                      ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %90
-  %indvars.iv.next110 = add i64 %indvars.iv109, -1
+  %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
   %98 = icmp sgt i64 %indvars.iv109, 0
   br i1 %98, label %90, label %._crit_edge86, !llvm.loop !268
 
@@ -2467,11 +2467,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEE
 _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findEPKS2_.exit.i.i
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %261 = load i32, ptr %260, align 8, !tbaa !73
-  %.fr = freeze i32 %261
-  %262 = sext i32 %.fr to i64
+  %262 = sext i32 %261 to i64
   %263 = icmp slt i64 %indvars.iv109, %262
   %264 = mul nsw i64 %.sroa.43.0.copyload.i, %95
-  %spec.select = select i1 %263, i64 %264, i64 0
+  %cond.fr = freeze i1 %263
+  %spec.select = select i1 %cond.fr, i64 %264, i64 0
   br label %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i.thread
 
 _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i.thread: ; preds = %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findEPKS2_.exit.i.i

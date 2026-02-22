@@ -963,7 +963,8 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %.06483.us = phi ptr [ %71, %._crit_edge.us ], [ %6, %.preheader.us.preheader ]
   %16 = icmp ne i32 %.087.us, 0
   %17 = icmp ne i32 %.087.us, %11
-  %18 = and i1 %17, %16
+  %.fr.us = freeze i1 %17
+  %18 = and i1 %.fr.us, %16
   br i1 %18, label %.lr.ph.split.us92.preheader, label %.lr.ph.split.us.us
 
 .lr.ph.split.us92.preheader:                      ; preds = %.preheader.us

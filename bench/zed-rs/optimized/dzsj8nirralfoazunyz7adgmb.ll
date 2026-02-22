@@ -45501,9 +45501,9 @@ switch.lookup:                                    ; preds = %"_ZN94_$LT$core..sl
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %189 = zext nneg i8 %182 to i64
-  %switch.gep4351 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN9zune_jpeg8mcu_prog58_$LT$impl$u20$zune_jpeg..decoder..JpegDecoder$LT$T$GT$$GT$28decode_mcu_ycbcr_progressive17h60adf1ea9dbd012bE.llvm.16247273651722951349", i64 %189
-  %switch.load4352 = load i64, ptr %switch.gep4351, align 8
-  store i64 %switch.load4352, ptr %163, align 8
+  %switch.gep4352 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN9zune_jpeg8mcu_prog58_$LT$impl$u20$zune_jpeg..decoder..JpegDecoder$LT$T$GT$$GT$28decode_mcu_ycbcr_progressive17h60adf1ea9dbd012bE.llvm.16247273651722951349", i64 %189
+  %switch.load4353 = load i64, ptr %switch.gep4352, align 8
+  store i64 %switch.load4353, ptr %163, align 8
   store ptr %178, ptr %164, align 8
   %.sroa.4301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17haf36fcc7f3e0aea2E", ptr %.sroa.4301.0..sroa_idx, align 8
@@ -45854,8 +45854,8 @@ switch.lookup:                                    ; preds = %"_ZN94_$LT$core..sl
   %256 = phi i32 [ %1929, %1928 ], [ %.promoted20512142.us, %.lr.ph2053.split.us2173.preheader ]
   %257 = add i64 %.sroa.0519.02052.us, 1
   %lftr.wideiv = trunc i64 %.sroa.0519.02052.us to i32
-  %exitcond2951.not = icmp eq i32 %1937, %lftr.wideiv
-  br i1 %exitcond2951.not, label %.split.us, label %1928
+  %exitcond2952.not = icmp eq i32 %1937, %lftr.wideiv
+  br i1 %exitcond2952.not, label %.split.us, label %1928
 
 258:                                              ; preds = %.split.us
   %259 = load ptr, ptr %169, align 8, !nonnull !15, !noundef !15
@@ -45903,7 +45903,7 @@ switch.lookup:                                    ; preds = %"_ZN94_$LT$core..sl
   br i1 %288, label %.split2179.us, label %289
 
 289:                                              ; preds = %285
-  %290 = icmp eq i8 %.fr, 0
+  %290 = icmp eq i8 %.fr2248, 0
   br i1 %290, label %1259, label %291
 
 291:                                              ; preds = %289
@@ -47729,9 +47729,9 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit288.i.us: ; pre
 
 _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit288.thread.i.us.sink.split: ; preds = %842, %1033
   %.sink = phi i8 [ %1035, %1033 ], [ %848, %842 ]
-  %.sink3722 = phi i64 [ %1000, %1033 ], [ %847, %842 ]
+  %.sink3723 = phi i64 [ %1000, %1033 ], [ %847, %842 ]
   %1036 = zext nneg i8 %.sink to i64
-  %1037 = shl i64 %.sink3722, %1036
+  %1037 = shl i64 %.sink3723, %1036
   store i64 %1037, ptr %249, align 8, !alias.scope !8413, !noalias !8414
   br label %_ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit288.thread.i.us
 
@@ -49083,7 +49083,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i.us: ;
   br i1 %1619, label %.split2214.us, label %1620
 
 1620:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$zune_jpeg..errors..DecodeErrors$GT$17h3ebfd42d8c8c2e5aE.exit.us"
-  %1621 = icmp eq i8 %.fr, 0
+  %1621 = icmp eq i8 %.fr2248, 0
   br i1 %1621, label %1626, label %1622
 
 1622:                                             ; preds = %1620
@@ -49629,10 +49629,10 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.us: ; preds 
   br label %_ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us.sink.split
 
 _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us.sink.split: ; preds = %1650, %1841
-  %.sink3727 = phi i8 [ %1843, %1841 ], [ %1656, %1650 ]
-  %.sink3725 = phi i64 [ %1808, %1841 ], [ %1655, %1650 ]
-  %1844 = zext nneg i8 %.sink3727 to i64
-  %1845 = shl i64 %.sink3725, %1844
+  %.sink3728 = phi i8 [ %1843, %1841 ], [ %1656, %1650 ]
+  %.sink3726 = phi i64 [ %1808, %1841 ], [ %1655, %1650 ]
+  %1844 = zext nneg i8 %.sink3728 to i64
+  %1845 = shl i64 %.sink3726, %1844
   store i64 %1845, ptr %249, align 8, !alias.scope !8819, !noalias !8820
   br label %_ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us
 
@@ -49663,25 +49663,25 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us: ;
   br label %.lr.ph2117.us
 
 .lr.ph2117.us:                                    ; preds = %.lr.ph2117.us.preheader, %1863
-  %indvars.iv2952 = phi i64 [ %1859, %.lr.ph2117.us.preheader ], [ %indvars.iv.next2953, %1863 ]
-  %1860 = getelementptr inbounds nuw i32, ptr %1616, i64 %indvars.iv2952
+  %indvars.iv2953 = phi i64 [ %1859, %.lr.ph2117.us.preheader ], [ %indvars.iv.next2954, %1863 ]
+  %1860 = getelementptr inbounds nuw i32, ptr %1616, i64 %indvars.iv2953
   %1861 = load i32, ptr %1860, align 4, !alias.scope !8807, !noalias !8941, !noundef !15
   %1862 = icmp sgt i32 %1861, %1857
   br i1 %1862, label %.thread1078.us, label %1863
 
 1863:                                             ; preds = %.lr.ph2117.us
-  %indvars.iv.next2953 = add nuw nsw i64 %indvars.iv2952, 1
-  %1864 = trunc nuw i64 %indvars.iv2952 to i32
+  %indvars.iv.next2954 = add nuw nsw i64 %indvars.iv2953, 1
+  %1864 = trunc nuw i64 %indvars.iv2953 to i32
   %1865 = icmp slt i32 %1864, 16
   br i1 %1865, label %.lr.ph2117.us, label %._crit_edge2118.thread
 
 .thread1078.us:                                   ; preds = %.lr.ph2117.us
-  %1866 = and i64 %indvars.iv2952, 4294967295
-  %1867 = icmp samesign ult i64 %indvars.iv2952, 18
+  %1866 = and i64 %indvars.iv2953, 4294967295
+  %1867 = icmp samesign ult i64 %indvars.iv2953, 18
   br i1 %1867, label %1868, label %.loopexit1383
 
 1868:                                             ; preds = %.thread1078.us
-  %1869 = trunc nuw i64 %indvars.iv2952 to i32
+  %1869 = trunc nuw i64 %indvars.iv2953 to i32
   %1870 = sub nsw i32 16, %1869
   %1871 = and i32 %1870, 31
   %1872 = lshr i32 %1857, %1871
@@ -49808,8 +49808,8 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us: ;
   %.sroa.30455.i.sroa.8.1.ph.lcssa1696.us = phi i64 [ %.sroa.30455.i.sroa.8.1.ph2138.us, %1928 ], [ %.sroa.30455.i.sroa.8.2.us, %.outer.us ]
   %.sroa.30455.i.sroa.9.1.ph.lcssa1671.us = phi ptr [ %.sroa.30455.i.sroa.9.1.ph2139.us, %1928 ], [ %.sroa.30455.i.sroa.9.2.us, %.outer.us ]
   %.sroa.30455.i.sroa.10.1.ph.lcssa1646.us = phi i64 [ %.sroa.30455.i.sroa.10.1.ph2140.us, %1928 ], [ %.sroa.30455.i.sroa.10.2.us, %.outer.us ]
-  %exitcond2955.not = icmp eq i64 %255, %.sroa.0518.0
-  br i1 %exitcond2955.not, label %._crit_edge2172, label %.lr.ph2053.lr.ph.us
+  %exitcond2956.not = icmp eq i64 %255, %.sroa.0518.0
+  br i1 %exitcond2956.not, label %._crit_edge2172, label %.lr.ph2053.lr.ph.us
 
 .lr.ph2053.us:                                    ; preds = %.lr.ph2053.lr.ph.us, %.outer.us
   %.sroa.0519.0.ph2141.us = phi i64 [ 0, %.lr.ph2053.lr.ph.us ], [ %.us-phi.us, %.outer.us ]
@@ -49829,8 +49829,8 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us: ;
   %1931 = load i8, ptr %193, align 1, !noundef !15
   %1932 = icmp ne i8 %1931, 0
   %1933 = load i8, ptr %242, align 1
-  %.fr = freeze i8 %1933
-  %1934 = icmp eq i8 %.fr, 0
+  %.fr2248 = freeze i8 %1933
+  %1934 = icmp eq i8 %.fr2248, 0
   %or.cond10.us = and i1 %1932, %1934
   br i1 %or.cond10.us, label %.lr.ph2053.split.us2173.preheader, label %.lr.ph2053.split.us.us
 
@@ -50235,8 +50235,8 @@ select.unfold:                                    ; preds = %269, %271
   br i1 %exitcond.not, label %2367, label %2364
 
 .loopexit1395:                                    ; preds = %2004, %.lr.ph2050.split
-  %exitcond2950.not = icmp eq i64 %1992, %1972
-  br i1 %exitcond2950.not, label %.thread1236, label %.lr.ph2050.splitthread-pre-split, !llvm.loop !9000
+  %exitcond2951.not = icmp eq i64 %1992, %1972
+  br i1 %exitcond2951.not, label %.thread1236, label %.lr.ph2050.splitthread-pre-split, !llvm.loop !9000
 
 .lr.ph2050.splitthread-pre-split:                 ; preds = %.loopexit1395
   %.pr = load i64, ptr %1973, align 8
@@ -50260,12 +50260,12 @@ select.unfold:                                    ; preds = %269, %271
   br i1 %.not2242, label %._crit_edge2044, label %.lr.ph2043.preheader
 
 .lr.ph2043.preheader:                             ; preds = %.lr.ph2047
-  %wide.trip.count2947 = zext i8 %1995 to i64
+  %wide.trip.count2948 = zext i8 %1995 to i64
   br label %.lr.ph2043
 
 .loopexit1394:                                    ; preds = %.loopexit1392, %.lr.ph2040, %2024
-  %exitcond2948.not = icmp eq i64 %indvars.iv.next2944, %wide.trip.count2947
-  br i1 %exitcond2948.not, label %._crit_edge2044, label %.lr.ph2043
+  %exitcond2949.not = icmp eq i64 %indvars.iv.next2945, %wide.trip.count2948
+  br i1 %exitcond2949.not, label %._crit_edge2044, label %.lr.ph2043
 
 ._crit_edge2044:                                  ; preds = %.loopexit1394, %.lr.ph2047
   %1996 = load i64, ptr %1988, align 8, !noundef !15
@@ -50275,10 +50275,10 @@ select.unfold:                                    ; preds = %269, %271
   br i1 %1998, label %1999, label %2004
 
 .lr.ph2043:                                       ; preds = %.lr.ph2043.preheader, %.loopexit1394
-  %indvars.iv2943 = phi i64 [ 0, %.lr.ph2043.preheader ], [ %indvars.iv.next2944, %.loopexit1394 ]
-  %indvars.iv.next2944 = add nuw nsw i64 %indvars.iv2943, 1
-  %exitcond2946.not = icmp eq i64 %indvars.iv2943, 4
-  br i1 %exitcond2946.not, label %2010, label %2005
+  %indvars.iv2944 = phi i64 [ 0, %.lr.ph2043.preheader ], [ %indvars.iv.next2945, %.loopexit1394 ]
+  %indvars.iv.next2945 = add nuw nsw i64 %indvars.iv2944, 1
+  %exitcond2947.not = icmp eq i64 %indvars.iv2944, 4
+  br i1 %exitcond2947.not, label %2010, label %2005
 
 1999:                                             ; preds = %._crit_edge2044
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
@@ -50300,11 +50300,11 @@ select.unfold:                                    ; preds = %269, %271
   br label %1993
 
 2004:                                             ; preds = %._crit_edge2044, %2002
-  %exitcond2949.not = icmp eq i64 %1994, %1991
-  br i1 %exitcond2949.not, label %.loopexit1395, label %.lr.ph2047
+  %exitcond2950.not = icmp eq i64 %1994, %1991
+  br i1 %exitcond2950.not, label %.loopexit1395, label %.lr.ph2047
 
 2005:                                             ; preds = %.lr.ph2043
-  %2006 = getelementptr inbounds nuw i64, ptr %1974, i64 %indvars.iv2943
+  %2006 = getelementptr inbounds nuw i64, ptr %1974, i64 %indvars.iv2944
   %2007 = load i64, ptr %2006, align 8, !noundef !15
   %2008 = load i64, ptr %171, align 8, !noundef !15
   %2009 = icmp ult i64 %2007, %2008
@@ -50379,15 +50379,15 @@ select.unfold:                                    ; preds = %269, %271
   br label %2363
 
 .loopexit1392:                                    ; preds = %2360, %.lr.ph2040.split
-  %exitcond2942.not = icmp eq i64 %2040, %2026
-  br i1 %exitcond2942.not, label %.loopexit1394, label %.lr.ph2040.splitthread-pre-split, !llvm.loop !9001
+  %exitcond2943.not = icmp eq i64 %2040, %2026
+  br i1 %exitcond2943.not, label %.loopexit1394, label %.lr.ph2040.splitthread-pre-split, !llvm.loop !9001
 
 .lr.ph2040.splitthread-pre-split:                 ; preds = %.loopexit1392
-  %.pr3100 = load i64, ptr %2027, align 8
+  %.pr3101 = load i64, ptr %2027, align 8
   br label %.lr.ph2040.split
 
 .lr.ph2040.split:                                 ; preds = %.lr.ph2040, %.lr.ph2040.splitthread-pre-split
-  %2039 = phi i64 [ %.pr3100, %.lr.ph2040.splitthread-pre-split ], [ %2037, %.lr.ph2040 ]
+  %2039 = phi i64 [ %.pr3101, %.lr.ph2040.splitthread-pre-split ], [ %2037, %.lr.ph2040 ]
   %.sroa.0530.02038 = phi i64 [ %2040, %.lr.ph2040.splitthread-pre-split ], [ 0, %.lr.ph2040 ]
   %2040 = add nuw i64 %.sroa.0530.02038, 1
   %.not2245 = icmp eq i64 %2039, 0
@@ -50957,10 +50957,10 @@ select.unfold:                                    ; preds = %269, %271
   br label %_ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626
 
 _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread.sink.split: ; preds = %2255, %2102
-  %.sink3731 = phi i8 [ %2108, %2102 ], [ %2257, %2255 ]
-  %.sink3729 = phi i64 [ %2107, %2102 ], [ %2223, %2255 ]
-  %2279 = zext nneg i8 %.sink3731 to i64
-  %2280 = shl i64 %.sink3729, %2279
+  %.sink3732 = phi i8 [ %2108, %2102 ], [ %2257, %2255 ]
+  %.sink3730 = phi i64 [ %2107, %2102 ], [ %2223, %2255 ]
+  %2279 = zext nneg i8 %.sink3732 to i64
+  %2280 = shl i64 %.sink3730, %2279
   store i64 %2280, ptr %1984, align 8, !alias.scope !9019, !noalias !9020
   br label %_ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread
 
@@ -51023,15 +51023,15 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread: ;
   br label %.loopexit1393
 
 .lr.ph2029:                                       ; preds = %.lr.ph2029.preheader, %2310
-  %indvars.iv2938 = phi i64 [ %2295, %.lr.ph2029.preheader ], [ %indvars.iv.next2939, %2310 ]
-  %2307 = getelementptr inbounds nuw i32, ptr %2019, i64 %indvars.iv2938
+  %indvars.iv2939 = phi i64 [ %2295, %.lr.ph2029.preheader ], [ %indvars.iv.next2940, %2310 ]
+  %2307 = getelementptr inbounds nuw i32, ptr %2019, i64 %indvars.iv2939
   %2308 = load i32, ptr %2307, align 4, !alias.scope !9007, !noalias !9141, !noundef !15
   %2309 = icmp sgt i32 %2308, %2293
   br i1 %2309, label %.thread1313, label %2310
 
 2310:                                             ; preds = %.lr.ph2029
-  %indvars.iv.next2939 = add nuw nsw i64 %indvars.iv2938, 1
-  %2311 = trunc nuw i64 %indvars.iv2938 to i32
+  %indvars.iv.next2940 = add nuw nsw i64 %indvars.iv2939, 1
+  %2311 = trunc nuw i64 %indvars.iv2939 to i32
   %2312 = icmp slt i32 %2311, 16
   br i1 %2312, label %.lr.ph2029, label %._crit_edge2030.thread
 
@@ -51058,8 +51058,8 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread: ;
   br label %2359
 
 .thread1313:                                      ; preds = %.lr.ph2029
-  %2313 = and i64 %indvars.iv2938, 4294967295
-  %2314 = icmp samesign ult i64 %indvars.iv2938, 18
+  %2313 = and i64 %indvars.iv2939, 4294967295
+  %2314 = icmp samesign ult i64 %indvars.iv2939, 18
   br i1 %2314, label %2316, label %.loopexit1393
 
 .loopexit1393:                                    ; preds = %.thread1313, %.thread1313.thread
@@ -51068,7 +51068,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread: ;
   unreachable
 
 2316:                                             ; preds = %.thread1313
-  %2317 = trunc nuw i64 %indvars.iv2938 to i32
+  %2317 = trunc nuw i64 %indvars.iv2939 to i32
   %2318 = sub nsw i32 16, %2317
   %2319 = and i32 %2318, 31
   %2320 = lshr i32 %2293, %2319
@@ -51142,8 +51142,8 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread: ;
   br label %1993
 
 2360:                                             ; preds = %2361, %2350
-  %exitcond2941.not = icmp eq i64 %2043, %2039
-  br i1 %exitcond2941.not, label %.loopexit1392, label %2042
+  %exitcond2942.not = icmp eq i64 %2043, %2039
+  br i1 %exitcond2942.not, label %.loopexit1392, label %2042
 
 2361:                                             ; preds = %2347
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
@@ -51245,8 +51245,8 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i626.thread: ;
 
 2381:                                             ; preds = %2374
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
-  %exitcond2937.not = icmp eq i64 %indvars.iv.next, %180
-  br i1 %exitcond2937.not, label %._crit_edge, label %1990
+  %exitcond2938.not = icmp eq i64 %indvars.iv.next, %180
+  br i1 %exitcond2938.not, label %._crit_edge, label %1990
 
 2382:                                             ; preds = %2374
   %2383 = getelementptr inbounds nuw i8, ptr %2370, i64 144

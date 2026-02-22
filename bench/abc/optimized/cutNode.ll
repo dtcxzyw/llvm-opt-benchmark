@@ -1679,9 +1679,9 @@ declare void @Cut_CutRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = load i32, ptr %2, align 8
-  %.fr = freeze i32 %4
-  %5 = lshr i32 %.fr, 28
-  %.not103 = icmp ult i32 %.fr, 536870912
+  %.fr116 = freeze i32 %4
+  %5 = lshr i32 %.fr116, 28
+  %.not103 = icmp ult i32 %.fr116, 536870912
   br i1 %.not103, label %.preheader, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %3
@@ -1697,14 +1697,14 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr
   br label %.lr.ph106.split
 
 .lr.ph106.split.us:                               ; preds = %.lr.ph106, %._crit_edge.split.us.us
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge.split.us.us ], [ 2, %.lr.ph106 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv124
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %._crit_edge.split.us.us ], [ 2, %.lr.ph106 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv125
   %.057100.us = load ptr, ptr %9, align 8, !tbaa !22
   %.not68101.us = icmp eq ptr %.057100.us, null
   br i1 %.not68101.us, label %._crit_edge.split.us.us, label %.lr.ph.us
 
 ._crit_edge.split.us.us:                          ; preds = %Cut_CutCheckDominance.exit.thread.us.us, %.lr.ph106.split.us
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   br label %.lr.ph106.split.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph106.split.us
@@ -1731,7 +1731,7 @@ Cut_CutCheckDominance.exit.thread.us.us:          ; preds = %15, %11
   br i1 %.not68.us.us, label %._crit_edge.split.us.us, label %11, !llvm.loop !99
 
 .preheader:                                       ; preds = %._crit_edge.split, %3
-  %18 = lshr i32 %.fr, 24
+  %18 = lshr i32 %.fr116, 24
   %19 = and i32 %18, 15
   %.not62.not113 = icmp samesign ult i32 %5, %19
   br i1 %.not62.not113, label %.lr.ph115, label %.loopexit93
@@ -1742,7 +1742,7 @@ Cut_CutCheckDominance.exit.thread.us.us:          ; preds = %15, %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %25 = lshr i32 %.fr, 28
+  %25 = lshr i32 %.fr116, 28
   %26 = zext nneg i32 %25 to i64
   br label %52
 
@@ -1827,20 +1827,20 @@ Cut_CutCheckDominance.exit.thread:                ; preds = %43, %29
   %49 = lshr i32 %48, 24
   %50 = and i32 %49, 15
   %51 = zext nneg i32 %50 to i64
-  %.not62.not = icmp samesign ult i64 %indvars.iv.next130, %51
+  %.not62.not = icmp samesign ult i64 %indvars.iv.next131, %51
   br i1 %.not62.not, label %52, label %.loopexit93, !llvm.loop !103
 
 52:                                               ; preds = %.lr.ph115, %.loopexit92
-  %53 = phi i32 [ %.fr, %.lr.ph115 ], [ %48, %.loopexit92 ]
-  %indvars.iv129 = phi i64 [ %26, %.lr.ph115 ], [ %indvars.iv.next130, %.loopexit92 ]
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next130
+  %53 = phi i32 [ %.fr116, %.lr.ph115 ], [ %48, %.loopexit92 ]
+  %indvars.iv130 = phi i64 [ %26, %.lr.ph115 ], [ %indvars.iv.next131, %.loopexit92 ]
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next131
   %55 = load ptr, ptr %54, align 8, !tbaa !22
   %.not63 = icmp eq ptr %55, null
   br i1 %.not63, label %.loopexit92, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %52
-  %56 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next130
+  %56 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next131
   br label %57
 
 57:                                               ; preds = %94, %.lr.ph111

@@ -9107,8 +9107,6 @@ return:                                           ; preds = %_ZN4llvh11ms_demang
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler14memorizeStringE10StringView(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr %S.coerce0, ptr %S.coerce1) unnamed_addr #2 align 2 {
 entry:
-  %S.coerce0.fr = freeze ptr %S.coerce0
-  %S.coerce1.fr = freeze ptr %S.coerce1
   %NamesCount = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i64, ptr %NamesCount, align 8
   %cmp = icmp ugt i64 %0, 9
@@ -9120,11 +9118,12 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %Names = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %S.coerce1.fr to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %S.coerce0.fr to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %S.coerce1 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %S.coerce0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i = icmp eq ptr %S.coerce1.fr, %S.coerce0.fr
-  br i1 %tobool.not.i.i.i.i.i, label %for.body.us, label %for.body
+  %tobool.not.i.i.i.i.i = icmp eq ptr %S.coerce1, %S.coerce0
+  %tobool.not.i.i.i.i.i.fr = freeze i1 %tobool.not.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.fr, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.07.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
@@ -9160,7 +9159,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %S.coerce0.fr, ptr %6, i64 %sub.ptr.sub.i.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %S.coerce0, ptr %6, i64 %sub.ptr.sub.i.i)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %return, label %for.inc
 
@@ -9215,9 +9214,9 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store ptr null, ptr %TemplateParams.i.i5.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %call2.i.sink9.i, align 8
   %Name.i6.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 24
-  store ptr %S.coerce0.fr, ptr %Name.i6.i, align 8
+  store ptr %S.coerce0, ptr %Name.i6.i, align 8
   %S.sroa.3.0.Name9.sroa_idx = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i, i64 32
-  store ptr %S.coerce1.fr, ptr %S.sroa.3.0.Name9.sroa_idx, align 8
+  store ptr %S.coerce1, ptr %S.sroa.3.0.Name9.sroa_idx, align 8
   %Names11 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %15 = load i64, ptr %NamesCount, align 8
   %inc14 = add i64 %15, 1

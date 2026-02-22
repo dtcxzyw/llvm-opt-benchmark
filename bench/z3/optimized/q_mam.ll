@@ -17097,29 +17097,29 @@ define linkonce_odr hidden noundef i32 @_ZN1q8compiler25get_compatibility_measur
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 
 _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %3, %10
-  %.049.in114 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.049115 = load ptr, ptr %.049.in114, align 8, !tbaa !165
-  %.not116 = icmp eq ptr %.049115, null
-  br i1 %.not116, label %.critedge.thread185, label %.lr.ph120
+  %.049.in111 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.049112 = load ptr, ptr %.049.in111, align 8, !tbaa !165
+  %.not113 = icmp eq ptr %.049112, null
+  br i1 %.not113, label %.critedge.thread183, label %.lr.ph117
 
-.lr.ph120:                                        ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit
+.lr.ph117:                                        ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
-16:                                               ; preds = %.lr.ph120, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
-  %.049119 = phi ptr [ %.049115, %.lr.ph120 ], [ %.049, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread ]
-  %.0118 = phi i32 [ 0, %.lr.ph120 ], [ %.1, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread ]
-  %.047117 = phi i32 [ 0, %.lr.ph120 ], [ %20, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread ]
-  %17 = load i32, ptr %.049119, align 8, !tbaa !82
+16:                                               ; preds = %.lr.ph117, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
+  %.049116 = phi ptr [ %.049112, %.lr.ph117 ], [ %.049, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread ]
+  %.0115 = phi i32 [ 0, %.lr.ph117 ], [ %.1, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread ]
+  %.047114 = phi i32 [ 0, %.lr.ph117 ], [ %20, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread ]
+  %17 = load i32, ptr %.049116, align 8, !tbaa !82
   %18 = and i32 %17, -2
   %switch = icmp eq i32 %18, 26
   br i1 %switch, label %.critedge.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = add i32 %.047117, 1
+  %20 = add i32 %.047114, 1
   switch i32 %17, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread [
     i32 7, label %21
     i32 8, label %21
@@ -17135,7 +17135,7 @@ _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %3, %10
   ]
 
 21:                                               ; preds = %19, %19, %19, %19, %19, %19, %19
-  %22 = getelementptr inbounds nuw i8, ptr %.049119, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %.049116, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !37
   %24 = load ptr, ptr %12, align 8, !tbaa !639
   %25 = zext i32 %23 to i64
@@ -17160,7 +17160,7 @@ _Z9is_groundPK4expr.exit.i:                       ; preds = %28
 36:                                               ; preds = %_Z9is_groundPK4expr.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !105
-  %39 = getelementptr inbounds nuw i8, ptr %.049119, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.049116, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !34
   %41 = icmp eq ptr %38, %40
   br i1 %41, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
@@ -17168,18 +17168,18 @@ _Z9is_groundPK4expr.exit.i:                       ; preds = %28
 _ZNK1q8compiler13is_compatibleEPNS_4bindE.exit:   ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !218
-  %44 = getelementptr inbounds nuw i8, ptr %.049119, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.049116, i64 24
   %45 = load i16, ptr %44, align 8, !tbaa !27
   %46 = zext i16 %45 to i32
   %47 = icmp eq i32 %43, %46
   br i1 %47, label %48, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 48:                                               ; preds = %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit
-  %49 = add i32 %.0118, 4
-  %50 = getelementptr inbounds nuw i8, ptr %.049119, i64 32
+  %49 = add i32 %.0115, 4
+  %50 = getelementptr inbounds nuw i8, ptr %.049116, i64 32
   %51 = load i32, ptr %50, align 8, !tbaa !38
-  %.not125 = icmp eq i16 %45, 0
-  br i1 %.not125, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread, label %.lr.ph
+  %.not122 = icmp eq i16 %45, 0
+  br i1 %.not122, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -17215,7 +17215,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIP4expr
 
 thread-pre-split.i.i.i.preheader:                 ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i.i
   %.ph = phi ptr [ %58, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i.i ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ]
-  %.ph214 = phi i32 [ %63, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i.i ], [ %62, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ]
+  %.ph212 = phi i32 [ %63, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i.i ], [ %62, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ]
   %.0.i17.i.i.i.ph = phi i32 [ %61, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread.i.i.i ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ]
   br label %thread-pre-split.i.i.i
 
@@ -17231,7 +17231,7 @@ thread-pre-split.i.i.i:                           ; preds = %thread-pre-split.i.
 _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i:   ; preds = %thread-pre-split.i.i.i
   %67 = getelementptr inbounds i8, ptr %65, i64 -8
   %68 = load i32, ptr %67, align 4, !tbaa !43
-  %69 = icmp ugt i32 %.ph214, %68
+  %69 = icmp ugt i32 %.ph212, %68
   br i1 %69, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i.i, label %114
 
 70:                                               ; preds = %thread-pre-split.i.i.i
@@ -17352,12 +17352,12 @@ thread-pre-split.i.i.i.backedge:                  ; preds = %109, %70
 
 114:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i
   %115 = getelementptr inbounds i8, ptr %65, i64 -4
-  store i32 %.ph214, ptr %115, align 4, !tbaa !43
-  %.not1319.i.i.i = icmp eq i32 %.0.i17.i.i.i.ph, %.ph214
+  store i32 %.ph212, ptr %115, align 4, !tbaa !43
+  %.not1319.i.i.i = icmp eq i32 %.0.i17.i.i.i.ph, %.ph212
   br i1 %.not1319.i.i.i, label %_ZN1q8compiler12set_registerEjP4expr.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %114
-  %116 = zext i32 %.ph214 to i64
+  %116 = zext i32 %.ph212 to i64
   %117 = zext i32 %.0.i17.i.i.i.ph to i64
   %118 = getelementptr ptr, ptr %65, i64 %117
   %119 = sub nsw i64 %116, %117
@@ -17508,32 +17508,31 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %126, %_ZN6vectorIjL
   br i1 %exitcond.not, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread, label %53, !llvm.loop !739
 
 181:                                              ; preds = %19
-  %182 = getelementptr inbounds nuw i8, ptr %.049119, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.049116, i64 16
   %183 = load i32, ptr %182, align 8, !tbaa !83
   %184 = load ptr, ptr %12, align 8, !tbaa !639
   %185 = zext i32 %183 to i64
   %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !219
-  %.fr100 = freeze ptr %187
-  %.not.i59 = icmp eq ptr %.fr100, null
+  %.not.i59 = icmp eq ptr %187, null
   br i1 %.not.i59, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread, label %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit
 
 _ZNK1q8compiler13is_compatibleEPNS_7compareE.exit: ; preds = %181
-  %188 = getelementptr inbounds nuw i8, ptr %.049119, i64 20
+  %188 = getelementptr inbounds nuw i8, ptr %.049116, i64 20
   %189 = load i32, ptr %188, align 4, !tbaa !85
   %190 = zext i32 %189 to i64
   %191 = getelementptr inbounds nuw ptr, ptr %184, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !219
-  %.fr101 = freeze ptr %192
-  %193 = icmp eq ptr %.fr100, %.fr101
-  %194 = add i32 %.0118, 2
-  %spec.select = select i1 %193, i32 %194, i32 %.0118
+  %193 = icmp eq ptr %187, %192
+  %194 = add i32 %.0115, 2
+  %cond.fr = freeze i1 %193
+  %spec.select = select i1 %cond.fr, i32 %194, i32 %.0115
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 195:                                              ; preds = %19
-  %196 = getelementptr inbounds nuw i8, ptr %.049119, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.049116, i64 16
   %197 = load i32, ptr %196, align 8, !tbaa !86
-  %198 = getelementptr inbounds nuw i8, ptr %.049119, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %.049116, i64 24
   %199 = load ptr, ptr %198, align 8, !tbaa !88
   %200 = load ptr, ptr %12, align 8, !tbaa !639
   %201 = zext i32 %197 to i64
@@ -17576,7 +17575,7 @@ _ZNK1q8compiler13is_compatibleEPNS_5checkE.exit:  ; preds = %209
   br i1 %226, label %227, label %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread
 
 227:                                              ; preds = %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit
-  %228 = add i32 %.0118, 2
+  %228 = add i32 %.0115, 2
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 _ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread: ; preds = %209, %195, %204, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit
@@ -17585,13 +17584,13 @@ _ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread: ; preds = %209, %195, %2
   br i1 %230, label %231, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 231:                                              ; preds = %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread
-  %232 = tail call noundef zeroext i1 @_ZNK1q8compiler18is_semi_compatibleEPNS_5checkE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.049119)
+  %232 = tail call noundef zeroext i1 @_ZNK1q8compiler18is_semi_compatibleEPNS_5checkE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.049116)
   %233 = zext i1 %232 to i32
-  %spec.select55 = add i32 %.0118, %233
+  %spec.select55 = add i32 %.0115, %233
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 234:                                              ; preds = %19
-  %235 = getelementptr inbounds nuw i8, ptr %.049119, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %.049116, i64 16
   %236 = load i32, ptr %235, align 8, !tbaa !80
   %237 = load ptr, ptr %12, align 8, !tbaa !639
   %238 = zext i32 %236 to i64
@@ -17648,21 +17647,20 @@ _ZNK3euf6egraph4findEP4expr.exit.i.i:             ; preds = %_ZNK6vectorIPN3euf5
 
 _ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit: ; preds = %_ZNK3euf6egraph4findEP4expr.exit.i.i, %264
   %.0.in.i.i = phi i8 [ %262, %_ZNK3euf6egraph4findEP4expr.exit.i.i ], [ %.pre.i.i, %264 ]
-  %265 = getelementptr inbounds nuw i8, ptr %.049119, i64 24
+  %265 = getelementptr inbounds nuw i8, ptr %.049116, i64 24
   %266 = load i64, ptr %265, align 8, !tbaa !150
   %267 = and i8 %.0.in.i.i, 63
   %268 = zext nneg i8 %267 to i64
   %269 = shl nuw i64 1, %268
-  %.fr97 = freeze i64 %269
-  %.fr98 = freeze i64 %266
-  %270 = and i64 %.fr97, %.fr98
-  %.not99 = icmp eq i64 %270, 0
-  %271 = add i32 %.0118, 2
-  %spec.select94 = select i1 %.not99, i32 %.0118, i32 %271
+  %270 = and i64 %269, %266
+  %.fr = freeze i64 %270
+  %.not98 = icmp eq i64 %.fr, 0
+  %271 = add i32 %.0115, 2
+  %spec.select94 = select i1 %.not98, i32 %.0115, i32 %271
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 272:                                              ; preds = %19
-  %273 = getelementptr inbounds nuw i8, ptr %.049119, i64 16
+  %273 = getelementptr inbounds nuw i8, ptr %.049116, i64 16
   %274 = load i32, ptr %273, align 8, !tbaa !80
   %275 = load ptr, ptr %12, align 8, !tbaa !639
   %276 = zext i32 %274 to i64
@@ -17689,7 +17687,7 @@ _ZNK1q8compiler13is_compatibleEPNS_6filterE.exit: ; preds = %_Z9is_groundPK4expr
   %288 = load ptr, ptr %287, align 8, !tbaa !105
   %289 = load ptr, ptr %13, align 8, !tbaa !721
   %290 = tail call noundef zeroext i8 @_ZN1q12label_hasherclEP9func_decl(ptr noundef nonnull align 8 dereferenceable(8) %289, ptr noundef %288)
-  %291 = getelementptr inbounds nuw i8, ptr %.049119, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %.049116, i64 24
   %292 = load i64, ptr %291, align 8, !tbaa !150
   %293 = and i8 %290, 63
   %294 = zext nneg i8 %293 to i64
@@ -17699,22 +17697,22 @@ _ZNK1q8compiler13is_compatibleEPNS_6filterE.exit: ; preds = %_Z9is_groundPK4expr
   br i1 %.not96, label %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread, label %297
 
 297:                                              ; preds = %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit
-  %298 = add i32 %.0118, 2
+  %298 = add i32 %.0115, 2
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 _ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread: ; preds = %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit
   %.pre = load i32, ptr %273, align 8, !tbaa !80
-  %.pre138 = load ptr, ptr %12, align 8, !tbaa !639
+  %.pre135 = load ptr, ptr %12, align 8, !tbaa !639
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert139 = getelementptr inbounds nuw ptr, ptr %.pre138, i64 %.phi.trans.insert
-  %.pre140 = load ptr, ptr %.phi.trans.insert139, align 8, !tbaa !219
-  %.not.i68 = icmp eq ptr %.pre140, null
+  %.phi.trans.insert136 = getelementptr inbounds nuw ptr, ptr %.pre135, i64 %.phi.trans.insert
+  %.pre137 = load ptr, ptr %.phi.trans.insert136, align 8, !tbaa !219
+  %.not.i68 = icmp eq ptr %.pre137, null
   br i1 %.not.i68, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread, label %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread.thread
 
 _ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread.thread: ; preds = %_Z9is_groundPK4expr.exit.i66, %279, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread
   %299 = phi i32 [ %.pre, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %274, %279 ], [ %274, %_Z9is_groundPK4expr.exit.i66 ]
-  %300 = phi ptr [ %.pre140, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %278, %279 ], [ %278, %_Z9is_groundPK4expr.exit.i66 ]
-  %.pre-phi181 = phi i64 [ %.phi.trans.insert, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %276, %279 ], [ %276, %_Z9is_groundPK4expr.exit.i66 ]
+  %300 = phi ptr [ %.pre137, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %278, %279 ], [ %278, %_Z9is_groundPK4expr.exit.i66 ]
+  %.pre-phi179 = phi i64 [ %.phi.trans.insert, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %276, %279 ], [ %276, %_Z9is_groundPK4expr.exit.i66 ]
   %301 = load ptr, ptr %14, align 8, !tbaa !637
   %302 = icmp eq ptr %301, null
   br i1 %302, label %_ZNK1q8compiler14get_check_markEj.exit.thread.i, label %_ZNK6vectorIN1q8compiler10check_markELb0EjE4sizeEv.exit.i.i.i
@@ -17727,7 +17725,7 @@ _ZNK6vectorIN1q8compiler10check_markELb0EjE4sizeEv.exit.i.i.i: ; preds = %_ZNK1q
   br i1 %305, label %_ZNK1q8compiler14get_check_markEj.exit.i, label %_ZNK1q8compiler14get_check_markEj.exit.thread.i
 
 _ZNK1q8compiler14get_check_markEj.exit.i:         ; preds = %_ZNK6vectorIN1q8compiler10check_markELb0EjE4sizeEv.exit.i.i.i
-  %306 = getelementptr inbounds nuw i32, ptr %301, i64 %.pre-phi181
+  %306 = getelementptr inbounds nuw i32, ptr %301, i64 %.pre-phi179
   %.pre.i.then.val.i71 = load i32, ptr %306, align 4, !tbaa !716
   %307 = icmp eq i32 %.pre.i.then.val.i71, 0
   br i1 %307, label %_ZNK1q8compiler14get_check_markEj.exit.thread.i, label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
@@ -17742,65 +17740,65 @@ _ZNK1q8compiler14get_check_markEj.exit.thread.i:  ; preds = %_ZNK1q8compiler14ge
 _ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit: ; preds = %_ZNK1q8compiler14get_check_markEj.exit.thread.i
   %312 = getelementptr inbounds nuw i8, ptr %300, i64 30
   %313 = load i8, ptr %312, align 2
-  %.fr = freeze i8 %313
-  %314 = and i8 %.fr, 1
+  %.fr97 = freeze i8 %313
+  %314 = and i8 %.fr97, 1
   %315 = xor i8 %314, 1
   %316 = zext nneg i8 %315 to i32
-  %spec.select95 = add i32 %.0118, %316
+  %spec.select95 = add i32 %.0115, %316
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 _ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread: ; preds = %_ZN6vectorIjLb0EjE9push_backEOj.exit, %272, %48, %_ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit, %_ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit, %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread, %_ZNK1q8compiler14get_check_markEj.exit.i, %_ZNK1q8compiler14get_check_markEj.exit.thread.i, %241, %234, %_Z9is_groundPK4expr.exit.i63, %181, %21, %28, %_Z9is_groundPK4expr.exit.i, %36, %231, %19, %297, %227, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit
-  %.1 = phi i32 [ %.0118, %19 ], [ %.0118, %21 ], [ %.0118, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit ], [ %.0118, %234 ], [ %.0118, %181 ], [ %228, %227 ], [ %.0118, %241 ], [ %298, %297 ], [ %.0118, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread ], [ %spec.select55, %231 ], [ %.0118, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %.0118, %_ZNK1q8compiler14get_check_markEj.exit.thread.i ], [ %spec.select, %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit ], [ %.0118, %_ZNK1q8compiler14get_check_markEj.exit.i ], [ %spec.select94, %_ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit ], [ %spec.select95, %_ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit ], [ %.0118, %36 ], [ %.0118, %_Z9is_groundPK4expr.exit.i ], [ %.0118, %28 ], [ %.0118, %_Z9is_groundPK4expr.exit.i63 ], [ %49, %48 ], [ %.0118, %272 ], [ %49, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
-  %.049.in = getelementptr inbounds nuw i8, ptr %.049119, i64 8
+  %.1 = phi i32 [ %.0115, %19 ], [ %.0115, %21 ], [ %.0115, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit ], [ %.0115, %234 ], [ %.0115, %181 ], [ %228, %227 ], [ %.0115, %241 ], [ %298, %297 ], [ %.0115, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread ], [ %spec.select55, %231 ], [ %.0115, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %.0115, %_ZNK1q8compiler14get_check_markEj.exit.thread.i ], [ %spec.select, %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit ], [ %.0115, %_ZNK1q8compiler14get_check_markEj.exit.i ], [ %spec.select94, %_ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit ], [ %spec.select95, %_ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit ], [ %.0115, %36 ], [ %.0115, %_Z9is_groundPK4expr.exit.i ], [ %.0115, %28 ], [ %.0115, %_Z9is_groundPK4expr.exit.i63 ], [ %49, %48 ], [ %.0115, %272 ], [ %49, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
+  %.049.in = getelementptr inbounds nuw i8, ptr %.049116, i64 8
   %.049 = load ptr, ptr %.049.in, align 8, !tbaa !165
   %.not = icmp eq ptr %.049, null
   br i1 %.not, label %.critedge, label %16, !llvm.loop !740
 
 .critedge:                                        ; preds = %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
   %317 = icmp ugt i32 %20, 4
-  br i1 %317, label %320, label %.critedge.thread185
+  br i1 %317, label %320, label %.critedge.thread183
 
 .critedge.thread:                                 ; preds = %16
-  %318 = icmp ugt i32 %.047117, 4
+  %318 = icmp ugt i32 %.047114, 4
   %319 = icmp eq i32 %17, 26
   %or.cond = or i1 %318, %319
-  br i1 %or.cond, label %320, label %.critedge.thread185
+  br i1 %or.cond, label %320, label %.critedge.thread183
 
 320:                                              ; preds = %.critedge.thread, %.critedge
-  %.0109 = phi i32 [ %.0118, %.critedge.thread ], [ %.1, %.critedge ]
+  %.0106 = phi i32 [ %.0115, %.critedge.thread ], [ %.1, %.critedge ]
   store i8 0, ptr %2, align 1, !tbaa !654
-  br label %.critedge.thread185
+  br label %.critedge.thread183
 
-.critedge.thread185:                              ; preds = %.critedge.thread, %_ZN6vectorIjLb0EjE5resetEv.exit, %.critedge, %320
-  %.0108 = phi i32 [ %.1, %.critedge ], [ %.0109, %320 ], [ %.0118, %.critedge.thread ], [ 0, %_ZN6vectorIjLb0EjE5resetEv.exit ]
+.critedge.thread183:                              ; preds = %.critedge.thread, %_ZN6vectorIjLb0EjE5resetEv.exit, %.critedge, %320
+  %.0105 = phi i32 [ %.1, %.critedge ], [ %.0106, %320 ], [ %.0115, %.critedge.thread ], [ 0, %_ZN6vectorIjLb0EjE5resetEv.exit ]
   %321 = load ptr, ptr %8, align 8, !tbaa !169
   %322 = icmp eq ptr %321, null
   br i1 %322, label %._crit_edge, label %_ZN6vectorIjLb0EjE3endEv.exit
 
-_ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %.critedge.thread185
+_ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %.critedge.thread183
   %323 = getelementptr inbounds i8, ptr %321, i64 -4
   %324 = load i32, ptr %323, align 4, !tbaa !43
   %325 = zext i32 %324 to i64
   %326 = shl nuw nsw i64 %325, 2
   %327 = getelementptr inbounds nuw i8, ptr %321, i64 %326
-  %.not54122 = icmp eq i32 %324, 0
-  br i1 %.not54122, label %._crit_edge, label %.lr.ph124
+  %.not54119 = icmp eq i32 %324, 0
+  br i1 %.not54119, label %._crit_edge, label %.lr.ph121
 
-.lr.ph124:                                        ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
+.lr.ph121:                                        ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %329 = load ptr, ptr %328, align 8, !tbaa !639
   br label %330
 
-._crit_edge:                                      ; preds = %330, %.critedge.thread185, %_ZN6vectorIjLb0EjE3endEv.exit
-  ret i32 %.0108
+._crit_edge:                                      ; preds = %330, %.critedge.thread183, %_ZN6vectorIjLb0EjE3endEv.exit
+  ret i32 %.0105
 
-330:                                              ; preds = %.lr.ph124, %330
-  %.048123 = phi ptr [ %321, %.lr.ph124 ], [ %334, %330 ]
-  %331 = load i32, ptr %.048123, align 4, !tbaa !43
+330:                                              ; preds = %.lr.ph121, %330
+  %.048120 = phi ptr [ %321, %.lr.ph121 ], [ %334, %330 ]
+  %331 = load i32, ptr %.048120, align 4, !tbaa !43
   %332 = zext i32 %331 to i64
   %333 = getelementptr inbounds nuw ptr, ptr %329, i64 %332
   store ptr null, ptr %333, align 8, !tbaa !219
-  %334 = getelementptr inbounds nuw i8, ptr %.048123, i64 4
+  %334 = getelementptr inbounds nuw i8, ptr %.048120, i64 4
   %.not54 = icmp eq ptr %334, %327
   br i1 %.not54, label %._crit_edge, label %330
 }
@@ -23401,44 +23399,44 @@ _ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader: ; preds = %_ZNK
   %.ph = phi i32 [ %49, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread ], [ %45, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit ]
   %.ph41 = phi ptr [ %42, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread ], [ null, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit ]
   %.0.i16.i.ph = phi i32 [ %47, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread ], [ 0, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit ]
-  %51 = freeze i32 %.0.i16.i.ph
   br label %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i: ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader, %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i
-  %52 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i ], [ %.ph41, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader ]
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
+  %51 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i ], [ %.ph41, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader ]
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
 
 _ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i: ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i
-  %54 = getelementptr inbounds i8, ptr %52, i64 -8
-  %55 = load i32, ptr %54, align 4, !tbaa !43
-  %56 = icmp ugt i32 %.ph, %55
-  br i1 %56, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %57
+  %53 = getelementptr inbounds i8, ptr %51, i64 -8
+  %54 = load i32, ptr %53, align 4, !tbaa !43
+  %55 = icmp ugt i32 %.ph, %54
+  br i1 %55, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %56
 
 _ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i
   tail call void @_ZN6vectorIN1q15backtrack_pointELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
   %.pr.pre.i = load ptr, ptr %41, align 8, !tbaa !154
   br label %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i, !llvm.loop !802
 
-57:                                               ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
-  %58 = getelementptr inbounds i8, ptr %52, i64 -4
-  store i32 %.ph, ptr %58, align 4, !tbaa !43
-  %.not1218.i = icmp eq i32 %51, %.ph
+56:                                               ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
+  %57 = getelementptr inbounds i8, ptr %51, i64 -4
+  store i32 %.ph, ptr %57, align 4, !tbaa !43
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph
   br i1 %.not1218.i, label %_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %57
-  %59 = zext i32 %.ph to i64
-  %60 = zext i32 %51 to i64
-  %61 = getelementptr %"struct.q::backtrack_point", ptr %52, i64 %60
-  %reass.add = sub nsw i64 %59, %60
-  %reass.mul = mul nsw i64 %reass.add, 40
-  %62 = add nsw i64 %reass.mul, -40
-  %63 = urem i64 %62, 40
-  %64 = sub nsw i64 %reass.mul, %63
-  tail call void @llvm.memset.p0.i64(ptr align 8 %61, i8 0, i64 %64, i1 false)
+.lr.ph.preheader.i:                               ; preds = %56
+  %58 = zext i32 %.ph to i64
+  %59 = zext i32 %.0.i16.i.ph to i64
+  %60 = getelementptr %"struct.q::backtrack_point", ptr %51, i64 %59
+  %reass.add = sub nsw i64 %58, %59
+  %reass.add.fr = freeze i64 %reass.add
+  %reass.mul = mul i64 %reass.add.fr, 40
+  %61 = add i64 %reass.mul, -40
+  %62 = urem i64 %61, 40
+  %63 = sub i64 %reass.mul, %62
+  tail call void @llvm.memset.p0.i64(ptr align 8 %60, i8 0, i64 %63, i1 false)
   br label %_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit
 
-_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit: ; preds = %.lr.ph.preheader.i, %57, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit
+_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit: ; preds = %.lr.ph.preheader.i, %56, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit
   ret void
 }
 

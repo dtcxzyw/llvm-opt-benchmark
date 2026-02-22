@@ -629,12 +629,12 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   %32 = shl i8 %.tr.i, 1
   %33 = and i8 %32, 6
   %34 = lshr i8 %31, %33
-  %.fr = freeze i8 %34
-  %35 = and i8 %.fr, 3
+  %35 = and i8 %34, 3
   %36 = icmp ne i8 %35, 3
   %37 = icmp samesign ugt i8 %35, 1
   %38 = and i1 %36, %37
-  %39 = select i1 %38, i8 -127, i8 1
+  %cond.fr = freeze i1 %38
+  %39 = select i1 %cond.fr, i8 -127, i8 1
   br label %.thread
 
 .thread:                                          ; preds = %3, %29

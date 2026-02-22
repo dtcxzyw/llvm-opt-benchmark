@@ -888,8 +888,8 @@ _ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868:  ; preds = %._crit_edge.i865, %
   %394 = zext i8 %391 to i64
   %395 = getelementptr inbounds nuw i16, ptr %393, i64 %394
   %396 = load i16, ptr %395, align 2, !tbaa !34
-  %.fr.i = freeze i16 %396
-  %397 = and i16 %.fr.i, 4096
+  %.fr13.i = freeze i16 %396
+  %397 = and i16 %.fr13.i, 4096
   %.not.i869 = icmp eq i16 %397, 0
   br i1 %.not.i869, label %switch.early.test.i, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
 
@@ -1922,8 +1922,8 @@ _ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959:  ; preds = %._crit_edge.i956, %
   %955 = zext i8 %952 to i64
   %956 = getelementptr inbounds nuw i16, ptr %954, i64 %955
   %957 = load i16, ptr %956, align 2, !tbaa !34
-  %.fr.i960 = freeze i16 %957
-  %958 = and i16 %.fr.i960, 4096
+  %.fr13.i960 = freeze i16 %957
+  %958 = and i16 %.fr13.i960, 4096
   %.not.i961 = icmp eq i16 %958, 0
   br i1 %.not.i961, label %switch.early.test.i963, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
 

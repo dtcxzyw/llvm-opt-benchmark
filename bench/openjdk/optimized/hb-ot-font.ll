@@ -16167,8 +16167,8 @@ define linkonce_odr hidden noundef float @_ZNK2OT20TupleVariationHeader16calcula
   %.sroa.2120.8.extract.trunc = trunc i64 %2 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
-  %.fr = freeze i8 %9
-  %10 = icmp slt i8 %.fr, 0
+  %.fr133 = freeze i8 %9
+  %10 = icmp slt i8 %.fr133, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
@@ -16177,7 +16177,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT20TupleVariationHeader16calcula
 
 13:                                               ; preds = %7
   %.sroa.2.8.extract.trunc = trunc i64 %5 to i32
-  %14 = zext nneg i8 %.fr to i32
+  %14 = zext nneg i8 %.fr133 to i32
   %15 = shl nuw nsw i32 %14, 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %17 = load i8, ptr %16, align 1
@@ -16231,7 +16231,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT20TupleVariationHeader16calcula
   %.075 = phi i32 [ %3, %11 ], [ %36, %35 ], [ %3, %23 ], [ %spec.select, %38 ]
   %.072 = phi i32 [ 0, %11 ], [ %.sroa.040.0.copyload, %35 ], [ 0, %23 ], [ %spec.select92, %38 ]
   %.pn122 = phi ptr [ %12, %11 ], [ %26, %35 ], [ %26, %23 ], [ %26, %38 ]
-  %42 = and i8 %.fr, 64
+  %42 = and i8 %.fr133, 64
   %.not123 = icmp eq i8 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = zext i32 %41 to i64

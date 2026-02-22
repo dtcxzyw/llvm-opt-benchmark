@@ -1087,7 +1087,7 @@ define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9g
   %19 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %20 = alloca %"class.absl::lts_20240722::Status", align 8
   %21 = alloca %"class.absl::lts_20240722::Status", align 8
-  %.fr.i.i = freeze i64 %3
+  %.fr18.i.i = freeze i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 1, ptr %18, align 8, !tbaa !36
@@ -1132,7 +1132,7 @@ define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9g
 
 26:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %.fr.i.i, ptr %14, align 8
+  store i64 %.fr18.i.i, ptr %14, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %28, label %27
 
@@ -1496,7 +1496,7 @@ _ZN9grpc_core7ExecCtx13InvalidateNowEv.exit.i:    ; preds = %_ZN9grpc_core15Scop
 164:                                              ; preds = %160
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %165 = icmp eq i64 %.fr.i.i, 9223372036854775807
+  %165 = icmp eq i64 %.fr18.i.i, 9223372036854775807
   br i1 %165, label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i, label %166
 
 166:                                              ; preds = %164
@@ -1522,7 +1522,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i.i:           ; preds = %167, %166
   ]
 
 173:                                              ; preds = %.noexc56
-  %.not12.i.i.i = icmp eq i64 %.fr.i.i, -9223372036854775808
+  %.not12.i.i.i = icmp eq i64 %.fr18.i.i, -9223372036854775808
   br i1 %.not12.i.i.i, label %.thread15.i.i, label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i
 
 .thread.i.i.i:                                    ; preds = %.noexc56
@@ -1531,25 +1531,25 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i.i:           ; preds = %167, %166
   br i1 %175, label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i, label %176
 
 176:                                              ; preds = %.thread.i.i.i
-  %177 = icmp eq i64 %.fr.i.i, -9223372036854775808
+  %177 = icmp eq i64 %.fr18.i.i, -9223372036854775808
   br i1 %177, label %.thread15.i.i, label %178
 
 178:                                              ; preds = %176
-  %179 = icmp sgt i64 %.fr.i.i, 0
+  %179 = icmp sgt i64 %.fr18.i.i, 0
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %178
-  %181 = sub nuw nsw i64 9223372036854775807, %.fr.i.i
+  %181 = sub nuw nsw i64 9223372036854775807, %.fr18.i.i
   %182 = icmp slt i64 %181, %174
   br i1 %182, label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i
 
 183:                                              ; preds = %178
-  %184 = sub nsw i64 -9223372036854775808, %.fr.i.i
+  %184 = sub nsw i64 -9223372036854775808, %.fr18.i.i
   %185 = icmp sgt i64 %184, %174
   br i1 %185, label %.thread15.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %183, %180
-  %186 = sub i64 %.fr.i.i, %172
+  %186 = sub i64 %.fr18.i.i, %172
   %187 = icmp sgt i64 %186, 2147483647
   br i1 %187, label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i, label %188
 

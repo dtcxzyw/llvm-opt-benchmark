@@ -9078,7 +9078,6 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -9086,7 +9085,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -9099,8 +9098,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread72
 
 .thread:                                          ; preds = %14, %5, %21
@@ -9109,8 +9109,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
 .thread72:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond87 = and i1 %or.cond52, %29
@@ -9359,7 +9359,6 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -9367,7 +9366,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -9380,8 +9379,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread72
 
 .thread:                                          ; preds = %14, %5, %21
@@ -9390,8 +9390,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
 .thread72:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond87 = and i1 %or.cond52, %29
@@ -9640,7 +9640,6 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -9648,7 +9647,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
   br i1 %trunc, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %15 = extractvalue { i64, i1 } %14, 0
   %16 = extractvalue { i64, i1 } %14, 1
   br i1 %16, label %.thread, label %17
@@ -9661,8 +9660,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 8192, %18
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
   br i1 %23, label %.thread, label %.thread75
 
 .thread:                                          ; preds = %13, %5, %20
@@ -9671,8 +9671,8 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
 .thread75:                                        ; preds = %17, %20, %.thread
   %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp eq i64 %3, 0
-  %26 = icmp eq i64 %.fr, 0
-  %or.cond55 = or i1 %.not, %26
+  %26 = icmp eq i64 %4, 0
+  %or.cond55 = select i1 %.not, i1 true, i1 %26
   %27 = sub i64 %12, %11
   %28 = icmp ult i64 %27, 32
   %or.cond90 = and i1 %or.cond55, %28
@@ -9922,7 +9922,6 @@ define hidden void @_ZN3std2io19default_read_to_end17h4bb6b338ad8eb2b6E(ptr noal
   %8 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
   %10 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !13
   %13 = load i64, ptr %2, align 8, !noundef !13
@@ -9930,7 +9929,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h4bb6b338ad8eb2b6E(ptr noal
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %17 = extractvalue { i64, i1 } %16, 0
   %18 = extractvalue { i64, i1 } %16, 1
   br i1 %18, label %.thread, label %19
@@ -9943,8 +9942,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h4bb6b338ad8eb2b6E(ptr noal
 22:                                               ; preds = %19
   %23 = sub nuw nsw i64 8192, %20
   %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %23)
-  %25 = extractvalue { i64, i1 } %24, 1
-  %26 = extractvalue { i64, i1 } %24, 0
+  %.fr = freeze { i64, i1 } %24
+  %25 = extractvalue { i64, i1 } %.fr, 1
+  %26 = extractvalue { i64, i1 } %.fr, 0
   br i1 %25, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %15, %5, %22
@@ -9953,8 +9953,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h4bb6b338ad8eb2b6E(ptr noal
 .thread65:                                        ; preds = %19, %22, %.thread
   %27 = phi i64 [ 8192, %.thread ], [ %26, %22 ], [ %17, %19 ]
   %.not = icmp ne i64 %3, 1
-  %28 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %28
+  %28 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %28
   %29 = sub i64 %13, %12
   %30 = icmp ult i64 %29, 32
   %or.cond71 = and i1 %or.cond52, %30
@@ -10309,7 +10309,6 @@ define hidden void @_ZN3std2io19default_read_to_end17h5b3f9e2e8cc1851aE(ptr noal
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -10317,7 +10316,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h5b3f9e2e8cc1851aE(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -10330,8 +10329,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h5b3f9e2e8cc1851aE(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %14, %5, %21
@@ -10340,8 +10340,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h5b3f9e2e8cc1851aE(ptr noal
 .thread65:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond70 = and i1 %or.cond52, %29
@@ -10592,7 +10592,6 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -10600,7 +10599,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
   br i1 %trunc, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %15 = extractvalue { i64, i1 } %14, 0
   %16 = extractvalue { i64, i1 } %14, 1
   br i1 %16, label %.thread, label %17
@@ -10613,8 +10612,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 8192, %18
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
   br i1 %23, label %.thread, label %.thread75
 
 .thread:                                          ; preds = %13, %5, %20
@@ -10623,8 +10623,8 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
 .thread75:                                        ; preds = %17, %20, %.thread
   %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp eq i64 %3, 0
-  %26 = icmp eq i64 %.fr, 0
-  %or.cond55 = or i1 %.not, %26
+  %26 = icmp eq i64 %4, 0
+  %or.cond55 = select i1 %.not, i1 true, i1 %26
   %27 = sub i64 %12, %11
   %28 = icmp ult i64 %27, 32
   %or.cond90 = and i1 %or.cond55, %28
@@ -10874,7 +10874,6 @@ define hidden void @_ZN3std2io19default_read_to_end17h9f2b9be87c8c03e4E(ptr noal
   %8 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
   %10 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !13
   %13 = load i64, ptr %2, align 8, !noundef !13
@@ -10882,7 +10881,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h9f2b9be87c8c03e4E(ptr noal
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %17 = extractvalue { i64, i1 } %16, 0
   %18 = extractvalue { i64, i1 } %16, 1
   br i1 %18, label %.thread, label %19
@@ -10895,8 +10894,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h9f2b9be87c8c03e4E(ptr noal
 22:                                               ; preds = %19
   %23 = sub nuw nsw i64 8192, %20
   %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %23)
-  %25 = extractvalue { i64, i1 } %24, 1
-  %26 = extractvalue { i64, i1 } %24, 0
+  %.fr = freeze { i64, i1 } %24
+  %25 = extractvalue { i64, i1 } %.fr, 1
+  %26 = extractvalue { i64, i1 } %.fr, 0
   br i1 %25, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %15, %5, %22
@@ -10905,8 +10905,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h9f2b9be87c8c03e4E(ptr noal
 .thread65:                                        ; preds = %19, %22, %.thread
   %27 = phi i64 [ 8192, %.thread ], [ %26, %22 ], [ %17, %19 ]
   %.not = icmp ne i64 %3, 1
-  %28 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %28
+  %28 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %28
   %29 = sub i64 %13, %12
   %30 = icmp ult i64 %29, 32
   %or.cond71 = and i1 %or.cond52, %30
@@ -11261,7 +11261,6 @@ define hidden void @_ZN3std2io19default_read_to_end17ha3db60d4a451a817E(ptr noal
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -11269,7 +11268,7 @@ define hidden void @_ZN3std2io19default_read_to_end17ha3db60d4a451a817E(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -11282,8 +11281,9 @@ define hidden void @_ZN3std2io19default_read_to_end17ha3db60d4a451a817E(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %14, %5, %21
@@ -11292,8 +11292,8 @@ define hidden void @_ZN3std2io19default_read_to_end17ha3db60d4a451a817E(ptr noal
 .thread65:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond70 = and i1 %or.cond52, %29
@@ -11544,7 +11544,6 @@ define hidden void @_ZN3std2io19default_read_to_end17ha95617e5d2498650E(ptr noal
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -11552,7 +11551,7 @@ define hidden void @_ZN3std2io19default_read_to_end17ha95617e5d2498650E(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -11565,8 +11564,9 @@ define hidden void @_ZN3std2io19default_read_to_end17ha95617e5d2498650E(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %14, %5, %21
@@ -11575,8 +11575,8 @@ define hidden void @_ZN3std2io19default_read_to_end17ha95617e5d2498650E(ptr noal
 .thread65:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond70 = and i1 %or.cond52, %29
@@ -11827,7 +11827,6 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -11835,7 +11834,7 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -11848,8 +11847,9 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread72
 
 .thread:                                          ; preds = %14, %5, %21
@@ -11858,8 +11858,8 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
 .thread72:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond87 = and i1 %or.cond52, %29
@@ -12108,7 +12108,6 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -12116,7 +12115,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
   br i1 %trunc, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %15 = extractvalue { i64, i1 } %14, 0
   %16 = extractvalue { i64, i1 } %14, 1
   br i1 %16, label %.thread, label %17
@@ -12129,8 +12128,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 8192, %18
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
   br i1 %23, label %.thread, label %.thread75
 
 .thread:                                          ; preds = %13, %5, %20
@@ -12139,8 +12139,8 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
 .thread75:                                        ; preds = %17, %20, %.thread
   %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp eq i64 %3, 0
-  %26 = icmp eq i64 %.fr, 0
-  %or.cond55 = or i1 %.not, %26
+  %26 = icmp eq i64 %4, 0
+  %or.cond55 = select i1 %.not, i1 true, i1 %26
   %27 = sub i64 %12, %11
   %28 = icmp ult i64 %27, 32
   %or.cond90 = and i1 %or.cond55, %28
@@ -12389,7 +12389,6 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -12397,7 +12396,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -12410,8 +12409,9 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread72
 
 .thread:                                          ; preds = %14, %5, %21
@@ -12420,8 +12420,8 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
 .thread72:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond87 = and i1 %or.cond52, %29
@@ -12670,7 +12670,6 @@ define hidden void @_ZN3std2io19default_read_to_end17hb8111d9e44b98decE(ptr noal
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -12678,7 +12677,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb8111d9e44b98decE(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -12691,8 +12690,9 @@ define hidden void @_ZN3std2io19default_read_to_end17hb8111d9e44b98decE(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %14, %5, %21
@@ -12701,8 +12701,8 @@ define hidden void @_ZN3std2io19default_read_to_end17hb8111d9e44b98decE(ptr noal
 .thread65:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond70 = and i1 %or.cond52, %29
@@ -12953,7 +12953,6 @@ define hidden void @_ZN3std2io19default_read_to_end17hba1eb250dd15d1feE(ptr noal
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -12961,7 +12960,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hba1eb250dd15d1feE(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -12974,8 +12973,9 @@ define hidden void @_ZN3std2io19default_read_to_end17hba1eb250dd15d1feE(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %14, %5, %21
@@ -12984,8 +12984,8 @@ define hidden void @_ZN3std2io19default_read_to_end17hba1eb250dd15d1feE(ptr noal
 .thread65:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond70 = and i1 %or.cond52, %29
@@ -13236,7 +13236,6 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hd64ab436f9769d79E
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -13244,7 +13243,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hd64ab436f9769d79E
   br i1 %trunc, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %15 = extractvalue { i64, i1 } %14, 0
   %16 = extractvalue { i64, i1 } %14, 1
   br i1 %16, label %.thread, label %17
@@ -13257,8 +13256,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hd64ab436f9769d79E
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 8192, %18
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
   br i1 %23, label %.thread, label %.thread68
 
 .thread:                                          ; preds = %13, %5, %20
@@ -13267,8 +13267,8 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hd64ab436f9769d79E
 .thread68:                                        ; preds = %17, %20, %.thread
   %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp eq i64 %3, 0
-  %26 = icmp eq i64 %.fr, 0
-  %or.cond55 = or i1 %.not, %26
+  %26 = icmp eq i64 %4, 0
+  %or.cond55 = select i1 %.not, i1 true, i1 %26
   %27 = sub i64 %12, %11
   %28 = icmp ult i64 %27, 32
   %or.cond73 = and i1 %or.cond55, %28
@@ -13519,7 +13519,6 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -13527,7 +13526,7 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %16 = extractvalue { i64, i1 } %15, 0
   %17 = extractvalue { i64, i1 } %15, 1
   br i1 %17, label %.thread, label %18
@@ -13540,8 +13539,9 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
 21:                                               ; preds = %18
   %22 = sub nuw nsw i64 8192, %19
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %22)
-  %24 = extractvalue { i64, i1 } %23, 1
-  %25 = extractvalue { i64, i1 } %23, 0
+  %.fr = freeze { i64, i1 } %23
+  %24 = extractvalue { i64, i1 } %.fr, 1
+  %25 = extractvalue { i64, i1 } %.fr, 0
   br i1 %24, label %.thread, label %.thread72
 
 .thread:                                          ; preds = %14, %5, %21
@@ -13550,8 +13550,8 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
 .thread72:                                        ; preds = %18, %21, %.thread
   %26 = phi i64 [ 8192, %.thread ], [ %25, %21 ], [ %16, %18 ]
   %.not = icmp ne i64 %3, 1
-  %27 = icmp eq i64 %.fr, 0
-  %or.cond52 = or i1 %.not, %27
+  %27 = icmp eq i64 %4, 0
+  %or.cond52 = select i1 %.not, i1 true, i1 %27
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   %or.cond87 = and i1 %or.cond52, %29
@@ -13800,7 +13800,6 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -13808,7 +13807,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
   br i1 %trunc, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %15 = extractvalue { i64, i1 } %14, 0
   %16 = extractvalue { i64, i1 } %14, 1
   br i1 %16, label %.thread, label %17
@@ -13821,8 +13820,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 8192, %18
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
   br i1 %23, label %.thread, label %.thread75
 
 .thread:                                          ; preds = %13, %5, %20
@@ -13831,8 +13831,8 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
 .thread75:                                        ; preds = %17, %20, %.thread
   %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp eq i64 %3, 0
-  %26 = icmp eq i64 %.fr, 0
-  %or.cond55 = or i1 %.not, %26
+  %26 = icmp eq i64 %4, 0
+  %or.cond55 = select i1 %.not, i1 true, i1 %26
   %27 = sub i64 %12, %11
   %28 = icmp ult i64 %27, 32
   %or.cond90 = and i1 %or.cond55, %28
@@ -14081,7 +14081,6 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hfa9e0c16f6ea9446E
   %7 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.fr = freeze i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = load i64, ptr %2, align 8, !noundef !13
@@ -14089,7 +14088,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hfa9e0c16f6ea9446E
   br i1 %trunc, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr, i64 1024)
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
   %15 = extractvalue { i64, i1 } %14, 0
   %16 = extractvalue { i64, i1 } %14, 1
   br i1 %16, label %.thread, label %17
@@ -14102,8 +14101,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hfa9e0c16f6ea9446E
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 8192, %18
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
   br i1 %23, label %.thread, label %.thread68
 
 .thread:                                          ; preds = %13, %5, %20
@@ -14112,8 +14112,8 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hfa9e0c16f6ea9446E
 .thread68:                                        ; preds = %17, %20, %.thread
   %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp eq i64 %3, 0
-  %26 = icmp eq i64 %.fr, 0
-  %or.cond55 = or i1 %.not, %26
+  %26 = icmp eq i64 %4, 0
+  %or.cond55 = select i1 %.not, i1 true, i1 %26
   %27 = sub i64 %12, %11
   %28 = icmp ult i64 %27, 32
   %or.cond73 = and i1 %or.cond55, %28

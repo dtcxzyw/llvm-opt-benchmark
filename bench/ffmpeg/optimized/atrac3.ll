@@ -1894,25 +1894,24 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
 
 .preheader.i75:                                   ; preds = %479
   %367 = getelementptr inbounds nuw i8, ptr %2, i64 7152
-  %.fr63.i = freeze i8 %350
-  %368 = zext i8 %.fr63.i to i32
+  %368 = zext i8 %350 to i32
   %369 = and i32 %346, 7
   %370 = lshr exact i32 128, %369
-  %.fr.i = freeze i32 %370
-  %371 = and i32 %.fr.i, %368
-  %.not.i.i76 = icmp eq i32 %371, 0
+  %371 = and i32 %370, %368
+  %.fr.i = freeze i32 %371
+  %.not.i.i76 = icmp eq i32 %.fr.i, 0
   br i1 %.not.i.i76, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i75, %.loopexit.us.i
   %372 = phi i16 [ %375, %.loopexit.us.i ], [ 0, %.preheader.i75 ]
-  %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %.loopexit.us.i ], [ 0, %.preheader.i75 ]
+  %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %.loopexit.us.i ], [ 0, %.preheader.i75 ]
   %373 = zext i16 %372 to i32
-  %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
-  %374 = getelementptr inbounds nuw i16, ptr @subband_tab, i64 %indvars.iv.next98.i
+  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
+  %374 = getelementptr inbounds nuw i16, ptr @subband_tab, i64 %indvars.iv.next97.i
   %375 = load i16, ptr %374, align 2, !tbaa !114
   %376 = zext i16 %375 to i32
   %377 = sub nsw i32 %376, %373
-  %378 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv97.i
+  %378 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv96.i
   %379 = load i32, ptr %378, align 4, !tbaa !43
   %.not48.us.i = icmp eq i32 %379, 0
   br i1 %.not48.us.i, label %459, label %380
@@ -2015,7 +2014,7 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   br i1 %exitcond85.not.i.us.i, label %read_quant_spectral_coeffs.exit.us.i, label %414, !llvm.loop !107
 
 read_quant_spectral_coeffs.exit.us.i:             ; preds = %390, %414, %.preheader.i.us.i, %.preheader54.i.us.i
-  %443 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv97.i
+  %443 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv96.i
   %444 = load i32, ptr %443, align 4, !tbaa !43
   %445 = sext i32 %444 to i64
   %446 = getelementptr inbounds float, ptr @ff_atrac_sf_table, i64 %445
@@ -2029,22 +2028,22 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %390, %414, %.prehea
 
 .lr.ph.us.preheader.i:                            ; preds = %read_quant_spectral_coeffs.exit.us.i
   %453 = zext i16 %372 to i64
-  %wide.trip.count95.i = zext i32 %377 to i64
+  %wide.trip.count94.i = zext i32 %377 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv90.i = phi i64 [ %453, %.lr.ph.us.preheader.i ], [ %indvars.iv.next91.i, %.lr.ph.us.i ]
-  %indvars.iv88.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next89.i, %.lr.ph.us.i ]
-  %454 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv88.i
+  %indvars.iv89.i = phi i64 [ %453, %.lr.ph.us.preheader.i ], [ %indvars.iv.next90.i, %.lr.ph.us.i ]
+  %indvars.iv87.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next88.i, %.lr.ph.us.i ]
+  %454 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv87.i
   %455 = load i32, ptr %454, align 4, !tbaa !43
   %456 = sitofp i32 %455 to float
   %457 = fmul nsz float %451, %456
-  %458 = getelementptr inbounds nuw float, ptr %367, i64 %indvars.iv90.i
+  %458 = getelementptr inbounds nuw float, ptr %367, i64 %indvars.iv89.i
   store float %457, ptr %458, align 4, !tbaa !28
-  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %exitcond96.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count95.i
-  br i1 %exitcond96.not.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !116
+  %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond95.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count94.i
+  br i1 %exitcond95.not.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !116
 
 459:                                              ; preds = %.preheader.split.us.i
   %460 = zext i16 %372 to i64
@@ -2055,13 +2054,13 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %390, %414, %.prehea
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %459, %read_quant_spectral_coeffs.exit.us.i
-  %exitcond101.not.i = icmp eq i64 %indvars.iv.next98.i, %wide.trip.count.i71
-  br i1 %exitcond101.not.i, label %decode_spectrum.exit, label %.preheader.split.us.i, !llvm.loop !117
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count.i71
+  br i1 %exitcond100.not.i, label %decode_spectrum.exit, label %.preheader.split.us.i, !llvm.loop !117
 
 .preheader53.i:                                   ; preds = %354, %479
   %464 = phi i32 [ %480, %479 ], [ %365, %354 ]
-  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %479 ], [ 0, %354 ]
-  %465 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv69.i
+  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %479 ], [ 0, %354 ]
+  %465 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv68.i
   %466 = load i32, ptr %465, align 4, !tbaa !43
   %.not49.i = icmp eq i32 %466, 0
   br i1 %.not49.i, label %479, label %467
@@ -2078,26 +2077,26 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %390, %414, %.prehea
   %476 = add i32 %464, 6
   %477 = tail call i32 @llvm.umin.i32(i32 %109, i32 %476)
   store i32 %477, ptr %45, align 8, !tbaa !66
-  %478 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv69.i
+  %478 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv68.i
   store i32 %475, ptr %478, align 4, !tbaa !43
   br label %479
 
 479:                                              ; preds = %467, %.preheader53.i
   %480 = phi i32 [ %464, %.preheader53.i ], [ %477, %467 ]
-  %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i71
-  br i1 %exitcond73.not.i, label %.preheader.i75, label %.preheader53.i, !llvm.loop !118
+  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i71
+  br i1 %exitcond72.not.i, label %.preheader.i75, label %.preheader53.i, !llvm.loop !118
 
 .preheader.split.i:                               ; preds = %.preheader.i75, %.loopexit.i78
   %481 = phi i16 [ %484, %.loopexit.i78 ], [ 0, %.preheader.i75 ]
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %.loopexit.i78 ], [ 0, %.preheader.i75 ]
+  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %.loopexit.i78 ], [ 0, %.preheader.i75 ]
   %482 = zext i16 %481 to i32
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %483 = getelementptr inbounds nuw i16, ptr @subband_tab, i64 %indvars.iv.next84.i
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
+  %483 = getelementptr inbounds nuw i16, ptr @subband_tab, i64 %indvars.iv.next83.i
   %484 = load i16, ptr %483, align 2, !tbaa !114
   %485 = zext i16 %484 to i32
   %486 = sub nsw i32 %485, %482
-  %487 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv83.i
+  %487 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv82.i
   %488 = load i32, ptr %487, align 4, !tbaa !43
   %.not48.i = icmp eq i32 %488, 0
   br i1 %.not48.i, label %557, label %489
@@ -2191,7 +2190,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %390, %414, %.prehea
   br i1 %exitcond.not.i.i, label %read_quant_spectral_coeffs.exit.i77, label %518, !llvm.loop !119
 
 read_quant_spectral_coeffs.exit.i77:              ; preds = %518, %505, %.preheader56.i.i81, %.preheader58.i.i
-  %542 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv83.i
+  %542 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv82.i
   %543 = load i32, ptr %542, align 4, !tbaa !43
   %544 = sext i32 %543 to i64
   %545 = getelementptr inbounds float, ptr @ff_atrac_sf_table, i64 %544
@@ -2204,22 +2203,22 @@ read_quant_spectral_coeffs.exit.i77:              ; preds = %518, %505, %.prehea
 
 .lr.ph.preheader.i79:                             ; preds = %read_quant_spectral_coeffs.exit.i77
   %551 = zext i16 %481 to i64
-  %wide.trip.count81.i = zext i32 %486 to i64
+  %wide.trip.count80.i = zext i32 %486 to i64
   br label %.lr.ph.i80
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i79
-  %indvars.iv76.i = phi i64 [ %551, %.lr.ph.preheader.i79 ], [ %indvars.iv.next77.i, %.lr.ph.i80 ]
-  %indvars.iv74.i = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next75.i, %.lr.ph.i80 ]
-  %552 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv74.i
+  %indvars.iv75.i = phi i64 [ %551, %.lr.ph.preheader.i79 ], [ %indvars.iv.next76.i, %.lr.ph.i80 ]
+  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next74.i, %.lr.ph.i80 ]
+  %552 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv73.i
   %553 = load i32, ptr %552, align 4, !tbaa !43
   %554 = sitofp i32 %553 to float
   %555 = fmul nsz float %549, %554
-  %556 = getelementptr inbounds nuw float, ptr %367, i64 %indvars.iv76.i
+  %556 = getelementptr inbounds nuw float, ptr %367, i64 %indvars.iv75.i
   store float %555, ptr %556, align 4, !tbaa !28
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %exitcond82.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count81.i
-  br i1 %exitcond82.not.i, label %.loopexit.i78, label %.lr.ph.i80, !llvm.loop !116
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
+  %exitcond81.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count80.i
+  br i1 %exitcond81.not.i, label %.loopexit.i78, label %.lr.ph.i80, !llvm.loop !116
 
 557:                                              ; preds = %.preheader.split.i
   %558 = zext i16 %481 to i64
@@ -2230,8 +2229,8 @@ read_quant_spectral_coeffs.exit.i77:              ; preds = %518, %505, %.prehea
   br label %.loopexit.i78
 
 .loopexit.i78:                                    ; preds = %.lr.ph.i80, %557, %read_quant_spectral_coeffs.exit.i77
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count.i71
-  br i1 %exitcond87.not.i, label %decode_spectrum.exit, label %.preheader.split.i, !llvm.loop !117
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count.i71
+  br i1 %exitcond86.not.i, label %decode_spectrum.exit, label %.preheader.split.i, !llvm.loop !117
 
 decode_spectrum.exit:                             ; preds = %.loopexit.i78, %.loopexit.us.i
   %562 = getelementptr inbounds nuw i16, ptr @subband_tab, i64 %wide.trip.count.i71

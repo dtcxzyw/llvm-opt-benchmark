@@ -2312,7 +2312,6 @@ _ZNSt6vectorIPKN4llvm4InitESaIS3_EED2Ev.exit.i:   ; preds = %943, %_ZNSt6vectorI
 
 _ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit: ; preds = %_ZNSt6vectorIPKN4llvm4InitESaIS3_EED2Ev.exit.i, %_ZN12_GLOBAL__N_115MapTableEmitterC2ERKN4llvm13CodeGenTargetERKNS1_12RecordKeeperEPKNS1_6RecordE.exit
   %.val.i78 = load ptr, ptr %417, align 8, !tbaa !134
-  %.val.fr.i = freeze ptr %.val.i78
   %947 = load ptr, ptr %437, align 8, !tbaa !135
   %948 = load ptr, ptr %438, align 8, !tbaa !135
   %.not40.i = icmp eq ptr %947, %948
@@ -2320,20 +2319,20 @@ _ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit: ; preds = %_ZNSt6ve
 
 .lr.ph43.i:                                       ; preds = %_ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit
   %.val10.i = load ptr, ptr %425, align 8, !tbaa !132
-  %.val10.fr.i = freeze ptr %.val10.i
-  %949 = ptrtoint ptr %.val10.fr.i to i64
-  %950 = ptrtoint ptr %.val.fr.i to i64
+  %949 = ptrtoint ptr %.val10.i to i64
+  %950 = ptrtoint ptr %.val.i78 to i64
   %951 = sub i64 %949, %950
-  %952 = lshr i64 %951, 3
+  %.fr58.i = freeze i64 %951
+  %952 = lshr i64 %.fr58.i, 3
   %953 = and i64 %952, 4294967295
   %.not.i.i.i.i.i79 = icmp eq i64 %953, 0
   %954 = shl nuw nsw i64 %953, 3
   %955 = add nsw i64 %953, -1
   %956 = icmp eq i64 %955, 0
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %955, 3
-  %957 = and i64 %951, 34359738360
-  %.not57.i = icmp eq i64 %957, 0
-  br i1 %.not57.i, label %.lr.ph43.split.i, label %.lr.ph43.split.us.i
+  %957 = and i64 %.fr58.i, 34359738360
+  %.not59.i = icmp eq i64 %957, 0
+  br i1 %.not59.i, label %.lr.ph43.split.i, label %.lr.ph43.split.us.i
 
 .lr.ph43.split.us.i:                              ; preds = %.lr.ph43.i, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i
   %.sroa.016.041.us.i = phi ptr [ %969, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i ], [ %947, %.lr.ph43.i ]
@@ -2383,7 +2382,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i: ; preds = %_ZNSt6vectorIPKN
 
 970:                                              ; preds = %_ZN12_GLOBAL__N_115MapTableEmitter17getInstrForColumnEPKN4llvm6RecordEPKNS1_8ListInitE.exit.us.i, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EEC2EmRKS4_.exit.us.i
   %indvars.iv.i81 = phi i64 [ 0, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EEC2EmRKS4_.exit.us.i ], [ %indvars.iv.next.i84, %_ZN12_GLOBAL__N_115MapTableEmitter17getInstrForColumnEPKN4llvm6RecordEPKNS1_8ListInitE.exit.us.i ]
-  %971 = getelementptr inbounds nuw ptr, ptr %.val.fr.i, i64 %indvars.iv.i81
+  %971 = getelementptr inbounds nuw ptr, ptr %.val.i78, i64 %indvars.iv.i81
   %972 = load ptr, ptr %971, align 8, !tbaa !46
   %973 = load ptr, ptr %27, align 8, !tbaa !23
   %.val.i.us.i = load ptr, ptr %422, align 8, !tbaa !117
@@ -3885,12 +3884,11 @@ _ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit.i.i: ; preds = %1611
   %1621 = extractvalue { ptr, i64 } %1619, 1
   %.val.i.i = load ptr, ptr %417, align 8, !tbaa !134
   %.val41.i.i = load ptr, ptr %425, align 8, !tbaa !132
-  %.val41.i.fr.i = freeze ptr %.val41.i.i
-  %1622 = ptrtoint ptr %.val41.i.fr.i to i64
-  %.val.i.fr.i = freeze ptr %.val.i.i
-  %1623 = ptrtoint ptr %.val.i.fr.i to i64
+  %1622 = ptrtoint ptr %.val41.i.i to i64
+  %1623 = ptrtoint ptr %.val.i.i to i64
   %1624 = sub i64 %1622, %1623
-  %1625 = lshr i64 %1624, 3
+  %.fr69.i = freeze i64 %1624
+  %1625 = lshr i64 %.fr69.i, 3
   %1626 = load ptr, ptr %70, align 8, !tbaa !3
   %1627 = load ptr, ptr %72, align 8, !tbaa !12
   %1628 = ptrtoint ptr %1626 to i64
@@ -3966,7 +3964,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49.i.i:           ; preds = %1664, %1662
   br i1 %.not117.i.i, label %._crit_edge115.thread.i.i, label %.lr.ph114.i.i
 
 .lr.ph114.i.i:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit49.i.i
-  %1668 = and i64 %1624, 34359738360
+  %1668 = and i64 %.fr69.i, 34359738360
   %.not118.i.i = icmp eq i64 %1668, 0
   %.not.i.i.i102 = icmp eq i64 %1621, 0
   %wide.trip.count123.i.i = and i64 %1618, 4294967295

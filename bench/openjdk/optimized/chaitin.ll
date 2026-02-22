@@ -1991,8 +1991,8 @@ define hidden void @_ZN12PhaseChaitin6de_ssaEv(ptr noundef nonnull align 8 deref
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
-  %.not34 = icmp eq i32 %5, 0
-  br i1 %.not34, label %._crit_edge32, label %.lr.ph
+  %.not35 = icmp eq i32 %5, 0
+  br i1 %.not35, label %._crit_edge33, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -2000,16 +2000,16 @@ define hidden void @_ZN12PhaseChaitin6de_ssaEv(ptr noundef nonnull align 8 deref
 
 7:                                                ; preds = %.lr.ph, %._crit_edge
   %8 = phi ptr [ %3, %.lr.ph ], [ %44, %._crit_edge ]
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next39, %._crit_edge ]
-  %.030 = phi i32 [ 1, %.lr.ph ], [ %.1.lcssa, %._crit_edge ]
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next40, %._crit_edge ]
+  %.031 = phi i32 [ 1, %.lr.ph ], [ %.1.lcssa, %._crit_edge ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv38
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv39
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 8
-  %.not35 = icmp eq i32 %14, 0
-  br i1 %.not35, label %._crit_edge, label %_ZNK5Block8get_nodeEj.exit.lr.ph
+  %.not36 = icmp eq i32 %14, 0
+  br i1 %.not36, label %._crit_edge, label %_ZNK5Block8get_nodeEj.exit.lr.ph
 
 _ZNK5Block8get_nodeEj.exit.lr.ph:                 ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -2019,7 +2019,7 @@ _ZNK5Block8get_nodeEj.exit.lr.ph:                 ; preds = %7
 
 _ZNK5Block8get_nodeEj.exit:                       ; preds = %_ZNK5Block8get_nodeEj.exit.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %_ZNK5Block8get_nodeEj.exit.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.128 = phi i32 [ %.030, %_ZNK5Block8get_nodeEj.exit.lr.ph ], [ %39, %.thread ]
+  %.129 = phi i32 [ %.031, %_ZNK5Block8get_nodeEj.exit.lr.ph ], [ %39, %.thread ]
   %17 = load i32, ptr %15, align 8
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv, %18
@@ -2046,8 +2046,8 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %_ZNK5Block8get_node
   %33 = zext i32 %.08.i to i64
   %34 = getelementptr inbounds nuw i64, ptr %26, i64 %33
   %35 = load i64, ptr %34, align 8
-  %.fr = freeze i64 %35
-  %36 = or i64 %.fr, %.057.i
+  %.fr26 = freeze i64 %35
+  %36 = or i64 %.fr26, %.057.i
   %37 = add i32 %.08.i, 1
   %.not.i = icmp ugt i32 %37, %32
   br i1 %.not.i, label %_ZNK7RegMask11is_NotEmptyEv.exit, label %.lr.ph.i, !llvm.loop !23
@@ -2055,13 +2055,13 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %_ZNK5Block8get_node
 _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   %.not = icmp ne i64 %36, 0
   %38 = zext i1 %.not to i32
-  %spec.select = add i32 %.128, %38
-  %spec.select26 = select i1 %.not, i32 %.128, i32 0
+  %spec.select = add i32 %.129, %38
+  %spec.select27 = select i1 %.not, i32 %.129, i32 0
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK7RegMask11is_NotEmptyEv.exit, %_ZNK5Block8get_nodeEj.exit
-  %39 = phi i32 [ %.128, %_ZNK5Block8get_nodeEj.exit ], [ %spec.select, %_ZNK7RegMask11is_NotEmptyEv.exit ]
-  %40 = phi i32 [ 0, %_ZNK5Block8get_nodeEj.exit ], [ %spec.select26, %_ZNK7RegMask11is_NotEmptyEv.exit ]
+  %39 = phi i32 [ %.129, %_ZNK5Block8get_nodeEj.exit ], [ %spec.select, %_ZNK7RegMask11is_NotEmptyEv.exit ]
+  %40 = phi i32 [ 0, %_ZNK5Block8get_nodeEj.exit ], [ %spec.select27, %_ZNK7RegMask11is_NotEmptyEv.exit ]
   %41 = load ptr, ptr %6, align 8
   %42 = sext i32 %28 to i64
   %43 = getelementptr inbounds i32, ptr %41, i64 %42
@@ -2076,15 +2076,15 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
   %44 = phi ptr [ %8, %7 ], [ %.pre, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.030, %7 ], [ %39, %._crit_edge.loopexit ]
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %.1.lcssa = phi i32 [ %.031, %7 ], [ %39, %._crit_edge.loopexit ]
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
-  %48 = icmp samesign ult i64 %indvars.iv.next39, %47
-  br i1 %48, label %7, label %._crit_edge32, !llvm.loop !25
+  %48 = icmp samesign ult i64 %indvars.iv.next40, %47
+  br i1 %48, label %7, label %._crit_edge33, !llvm.loop !25
 
-._crit_edge32:                                    ; preds = %._crit_edge, %1
+._crit_edge33:                                    ; preds = %._crit_edge, %1
   %.0.lcssa = phi i32 [ 1, %1 ], [ %.1.lcssa, %._crit_edge ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %.0.lcssa, ptr %49, align 8
@@ -2093,7 +2093,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   %.not.i.i = icmp slt i32 %.0.lcssa, %51
   br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE11at_put_growEiRKjS4_.exit.i, label %52
 
-52:                                               ; preds = %._crit_edge32
+52:                                               ; preds = %._crit_edge33
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %54 = load i32, ptr %53, align 4
   %.not12.i.i = icmp slt i32 %.0.lcssa, %54
@@ -2138,7 +2138,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   store i32 %71, ptr %50, align 8
   br label %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE11at_put_growEiRKjS4_.exit.i
 
-_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE11at_put_growEiRKjS4_.exit.i: ; preds = %._crit_edge.i.i, %._crit_edge32
+_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE11at_put_growEiRKjS4_.exit.i: ; preds = %._crit_edge.i.i, %._crit_edge33
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %73 = load ptr, ptr %72, align 8
   %74 = sext i32 %.0.lcssa to i64

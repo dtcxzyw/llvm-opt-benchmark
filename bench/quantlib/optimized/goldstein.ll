@@ -62,11 +62,10 @@ entry:
   store i8 1, ptr %succeed_, align 8, !tbaa !18
   %functionValue_.i = getelementptr inbounds nuw i8, ptr %P, i64 32
   %1 = load double, ptr %functionValue_.i, align 8, !tbaa !21
-  %.fr67 = freeze double %1
   %squaredNorm_.i = getelementptr inbounds nuw i8, ptr %P, i64 40
   %2 = load double, ptr %squaredNorm_.i, align 8, !tbaa !22
   %qt_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store double %.fr67, ptr %qt_, align 8, !tbaa !23
+  store double %1, ptr %qt_, align 8, !tbaa !23
   %gradient_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load i64, ptr %n_.i, align 8, !tbaa !24
@@ -161,33 +160,26 @@ while.cond:                                       ; preds = %_ZN8QuantLib5Arraya
   %tl.0 = phi double [ 0.000000e+00, %_ZN8QuantLib5ArrayaSERKS0_.exit ], [ %tl.0.t.0, %_ZN8QuantLib5ArrayaSERKS0_.exit42 ]
   %tr.0 = phi double [ 0.000000e+00, %_ZN8QuantLib5ArrayaSERKS0_.exit ], [ %t.0.tr.0, %_ZN8QuantLib5ArrayaSERKS0_.exit42 ]
   %18 = load double, ptr %qt_, align 8, !tbaa !23
-  %.fr = freeze double %18
-  %sub = fsub double %.fr, %.fr67
+  %sub = fsub double %18, %1
   %19 = load double, ptr %beta_, align 8, !tbaa !32
   %fneg20 = fneg double %19
   %mul = fmul double %t.0, %fneg20
   %20 = load double, ptr %qpt_, align 8, !tbaa !25
-  %.fr69 = freeze double %20
-  %mul22 = fmul double %mul, %.fr69
+  %mul22 = fmul double %mul, %20
   %cmp = fcmp olt double %sub, %mul22
   %.pre = load double, ptr %alpha_, align 8, !tbaa !34
-  %.fr68 = freeze double %.pre
-  br i1 %cmp, label %while.body, label %lor.rhs
+  %.pre69 = fneg double %.pre
+  %.pre70 = fmul double %t.0, %.pre69
+  %.pre71 = fmul double %20, %.pre70
+  %cmp29 = fcmp ogt double %sub, %.pre71
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp29
+  br i1 %or.cond, label %while.body, label %if.end60
 
-lor.rhs:                                          ; preds = %while.cond
-  %fneg25 = fneg double %.fr68
-  %mul26 = fmul double %t.0, %fneg25
-  %mul28 = fmul double %.fr69, %mul26
-  %cmp29 = fcmp ogt double %sub, %mul28
-  br i1 %cmp29, label %while.body, label %if.end60
-
-while.body:                                       ; preds = %while.cond, %lor.rhs
-  %fneg33 = fneg double %.fr68
-  %mul34 = fmul double %t.0, %fneg33
-  %mul36 = fmul double %.fr69, %mul34
-  %cmp37 = fcmp ogt double %sub, %mul36
-  %tl.0.t.0 = select i1 %cmp37, double %tl.0, double %t.0
-  %t.0.tr.0 = select i1 %cmp37, double %t.0, double %tr.0
+while.body:                                       ; preds = %while.cond
+  %cmp37 = fcmp ogt double %sub, %.pre71
+  %cmp37.fr = freeze i1 %cmp37
+  %tl.0.t.0 = select i1 %cmp37.fr, double %tl.0, double %t.0
+  %t.0.tr.0 = select i1 %cmp37.fr, double %t.0, double %tr.0
   %inc = add i64 %loopNumber.0, 1
   %cmp.i31 = fcmp oeq double %t.0.tr.0, 0.000000e+00
   br i1 %cmp.i31, label %_ZN8QuantLib12close_enoughEdd.exit.thread, label %_ZN8QuantLib12close_enoughEdd.exit
@@ -262,8 +254,8 @@ if.then58:                                        ; preds = %_ZN8QuantLib5Arraya
   store i8 0, ptr %succeed_, align 8, !tbaa !18
   br label %if.end60
 
-if.end60:                                         ; preds = %lor.rhs, %if.then58
-  %t.165 = phi double [ %call48, %if.then58 ], [ %t.0, %lor.rhs ]
+if.end60:                                         ; preds = %while.cond, %if.then58
+  %t.165 = phi double [ %call48, %if.then58 ], [ %t.0, %while.cond ]
   %39 = load i32, ptr %gradientEvaluation_.i, align 4, !tbaa !35
   %inc.i52 = add nsw i32 %39, 1
   store i32 %inc.i52, ptr %gradientEvaluation_.i, align 4, !tbaa !35

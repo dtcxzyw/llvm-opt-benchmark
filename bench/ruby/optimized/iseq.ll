@@ -9862,10 +9862,10 @@ vm_proc_iseq.exit:                                ; preds = %tailrecurse.i
 
 rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
   %22 = load i64, ptr %16, align 8, !tbaa !74
-  %.fr = freeze i64 %22
-  %23 = and i64 %.fr, 61471
-  %.not26 = icmp eq i64 %23, 28698
-  br i1 %.not26, label %.thread22, label %.thread
+  %.fr26 = freeze i64 %22
+  %23 = and i64 %.fr26, 61471
+  %.not27 = icmp eq i64 %23, 28698
+  br i1 %.not27, label %.thread22, label %.thread
 
 24:                                               ; preds = %6
   %25 = tail call i64 @rb_obj_is_method(i64 noundef %1) #21

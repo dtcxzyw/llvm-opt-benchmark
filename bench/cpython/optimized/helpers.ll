@@ -635,8 +635,8 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   br i1 %12, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %10, %15
-  %.05794.i = phi i64 [ %16, %15 ], [ 0, %10 ]
-  %13 = getelementptr i8, ptr %0, i64 %.05794.i
+  %.05795.i = phi i64 [ %16, %15 ], [ 0, %10 ]
+  %13 = getelementptr i8, ptr %0, i64 %.05795.i
   %14 = load i8, ptr %13, align 1, !tbaa !22
   switch i8 %14, label %.loopexit [
     i8 35, label %._crit_edge.i
@@ -646,23 +646,23 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   ]
 
 15:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %16 = add nuw nsw i64 %.05794.i, 1
+  %16 = add nuw nsw i64 %.05795.i, 1
   %exitcond.not.i = icmp eq i64 %16, %11
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
-  %.057.lcssa.i = phi i64 [ 0, %10 ], [ %.05794.i, %.lr.ph.i ]
+  %.057.lcssa.i = phi i64 [ 0, %10 ], [ %.05795.i, %.lr.ph.i ]
   %17 = icmp slt i64 %.057.lcssa.i, %11
-  br i1 %17, label %.lr.ph101.i, label %.loopexit
+  br i1 %17, label %.lr.ph102.i, label %.loopexit
 
-.lr.ph101.i:                                      ; preds = %._crit_edge.i, %.thread87.i
-  %.15899.i = phi i64 [ %75, %.thread87.i ], [ %.057.lcssa.i, %._crit_edge.i ]
-  %18 = getelementptr i8, ptr %0, i64 %.15899.i
+.lr.ph102.i:                                      ; preds = %._crit_edge.i, %.thread87.i
+  %.158100.i = phi i64 [ %75, %.thread87.i ], [ %.057.lcssa.i, %._crit_edge.i ]
+  %18 = getelementptr i8, ptr %0, i64 %.158100.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %18, ptr noundef nonnull dereferenceable(6) @.str.10, i64 6)
   %19 = icmp eq i32 %bcmp.i, 0
   br i1 %19, label %20, label %.thread87.i
 
-20:                                               ; preds = %.lr.ph101.i
+20:                                               ; preds = %.lr.ph102.i
   %21 = getelementptr i8, ptr %18, i64 6
   %22 = load i8, ptr %21, align 1, !tbaa !22
   switch i8 %22, label %.thread87.i [
@@ -691,8 +691,8 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   %26 = zext i8 %25 to i64
   %27 = getelementptr i32, ptr @_Py_ctype_table, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !38
-  %.fr.i = freeze i32 %28
-  %29 = and i32 %.fr.i, 7
+  %.fr89.i = freeze i32 %28
+  %29 = and i32 %.fr89.i, 7
   %.not71.not.i = icmp eq i32 %29, 0
   br i1 %.not71.not.i, label %switch.early.test.i, label %.critedge2.i
 
@@ -826,10 +826,10 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
   store i8 0, ptr %74, align 1, !tbaa !22
   br label %83
 
-.thread87.i:                                      ; preds = %31, %20, %.lr.ph101.i
-  %75 = add nuw nsw i64 %.15899.i, 1
-  %exitcond104.not.i = icmp eq i64 %75, %11
-  br i1 %exitcond104.not.i, label %.loopexit, label %.lr.ph101.i, !llvm.loop !41
+.thread87.i:                                      ; preds = %31, %20, %.lr.ph102.i
+  %75 = add nuw nsw i64 %.158100.i, 1
+  %exitcond105.not.i = icmp eq i64 %75, %11
+  br i1 %exitcond105.not.i, label %.loopexit, label %.lr.ph102.i, !llvm.loop !41
 
 .loopexit:                                        ; preds = %15, %.lr.ph.i, %.thread87.i, %._crit_edge.i
   %76 = icmp sgt i64 %1, 0

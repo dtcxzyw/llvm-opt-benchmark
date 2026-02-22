@@ -2526,23 +2526,23 @@ find_unique_prefixes.exit:                        ; preds = %extend_prefix_lengt
   %111 = select i1 %.not, ptr @.str.110, ptr @.str.111
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 237
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  br label %.tail149.thread.outer
+  br label %.tail150.thread.outer
 
-.tail149.thread.outer:                            ; preds = %.tail149.thread.outer.backedge, %find_unique_prefixes.exit
-  %.092.ph = phi i64 [ %11, %find_unique_prefixes.exit ], [ %.496.ph, %.tail149.thread.outer.backedge ]
-  br label %.tail149.thread
+.tail150.thread.outer:                            ; preds = %.tail150.thread.outer.backedge, %find_unique_prefixes.exit
+  %.092.ph = phi i64 [ %11, %find_unique_prefixes.exit ], [ %.496.ph, %.tail150.thread.outer.backedge ]
+  br label %.tail150.thread
 
-.tail149.thread:                                  ; preds = %.tail149.thread.outer, %136
+.tail150.thread:                                  ; preds = %.tail150.thread.outer, %136
   store i64 0, ptr %106, align 8, !tbaa !115
   %114 = load ptr, ptr %107, align 8, !tbaa !48
   %.not9.i = icmp eq ptr %114, @strbuf_slopbuf
   br i1 %.not9.i, label %strbuf_setlen.exit, label %115
 
-115:                                              ; preds = %.tail149.thread
+115:                                              ; preds = %.tail150.thread
   store i8 0, ptr %114, align 1, !tbaa !14
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit:                               ; preds = %.tail149.thread, %115
+strbuf_setlen.exit:                               ; preds = %.tail150.thread, %115
   %116 = load ptr, ptr %108, align 8, !tbaa !76
   call fastcc void @list(ptr noundef %0, ptr noundef %1, ptr noundef %116, ptr noundef %2)
   %117 = load ptr, ptr @stdout, align 8, !tbaa !18
@@ -2570,8 +2570,8 @@ strbuf_setlen.exit:                               ; preds = %.tail149.thread, %1
 sub_0:                                            ; preds = %129
   %131 = load ptr, ptr %107, align 8, !tbaa !48
   %132 = load i8, ptr %131, align 1
-  %.not161 = icmp eq i8 %132, 63
-  br i1 %.not161, label %.tail, label %.preheader.preheader
+  %.not162 = icmp eq i8 %132, 63
+  br i1 %.not162, label %.tail, label %.preheader.preheader
 
 .tail:                                            ; preds = %sub_0
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 1
@@ -2585,7 +2585,7 @@ sub_0:                                            ; preds = %129
 136:                                              ; preds = %.tail
   %137 = load ptr, ptr %113, align 8, !tbaa !28
   call void %137(ptr noundef nonnull %0) #18
-  br label %.tail149.thread
+  br label %.tail150.thread
 
 .preheader:                                       ; preds = %.preheader.outer, %140
   %.089 = phi ptr [ %141, %140 ], [ %.089.ph, %.preheader.outer ]
@@ -2652,7 +2652,7 @@ sub_0:                                            ; preds = %129
 
 170:                                              ; preds = %163
   %171 = call i64 @strtoul(ptr noundef nonnull %164, ptr noundef nonnull %5, i32 noundef 10) #18
-  %.pre169 = load ptr, ptr %5, align 8, !tbaa !12
+  %.pre170 = load ptr, ptr %5, align 8, !tbaa !12
   br label %174
 
 172:                                              ; preds = %163
@@ -2660,7 +2660,7 @@ sub_0:                                            ; preds = %129
   br label %174
 
 174:                                              ; preds = %172, %170
-  %175 = phi ptr [ %.pre169, %170 ], [ %164, %172 ]
+  %175 = phi ptr [ %.pre170, %170 ], [ %164, %172 ]
   %.2 = phi i64 [ %171, %170 ], [ %173, %172 ]
   %.not109 = icmp eq ptr %175, %158
   %spec.select116 = select i1 %.not109, i64 %156, i64 -1
@@ -2773,12 +2773,11 @@ find_unique.exit:                                 ; preds = %191, %223
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !35
   %226 = load ptr, ptr %1, align 8, !tbaa !73
-  %.0.i.fr = freeze ptr %.0.i
-  %227 = ptrtoint ptr %.0.i.fr to i64
-  %.fr = freeze ptr %226
-  %228 = ptrtoint ptr %.fr to i64
+  %227 = ptrtoint ptr %.0.i to i64
+  %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %227, %228
-  %230 = ashr i64 %229, 4
+  %.fr148 = freeze i64 %229
+  %230 = ashr i64 %.fr148, 4
   %231 = add nuw nsw i64 %230, 1
   %232 = icmp slt i64 %230, 0
   br i1 %232, label %.thread, label %.thread131
@@ -2793,8 +2792,8 @@ find_unique.exit:                                 ; preds = %191, %223
 234:                                              ; preds = %.thread131
   %235 = add nuw nsw i64 %.282134, 1
   %.not112 = icmp ne i64 %235, %.3135
-  %or.cond.not148 = select i1 %.not, i1 %.not112, i1 false
-  br i1 %or.cond.not148, label %.thread, label %241
+  %or.cond.not149 = select i1 %.not, i1 %.not112, i1 false
+  br i1 %or.cond.not149, label %.thread, label %241
 
 .thread:                                          ; preds = %209, %197, %218, %214, %234, %.thread131, %find_unique.exit
   %236 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -2825,21 +2824,21 @@ _.exit:                                           ; preds = %.thread, %238
   br label %246
 
 246:                                              ; preds = %.lr.ph, %251
-  %.383160 = phi i64 [ %.282134, %.lr.ph ], [ %252, %251 ]
-  %.5159 = phi i64 [ %.395.ph, %.lr.ph ], [ %.6, %251 ]
-  %247 = getelementptr inbounds nuw i32, ptr %244, i64 %.383160
+  %.383161 = phi i64 [ %.282134, %.lr.ph ], [ %252, %251 ]
+  %.5160 = phi i64 [ %.395.ph, %.lr.ph ], [ %.6, %251 ]
+  %247 = getelementptr inbounds nuw i32, ptr %244, i64 %.383161
   %248 = load i32, ptr %247, align 4, !tbaa !47
   %.not113 = icmp eq i32 %248, %.084
   br i1 %.not113, label %251, label %249
 
 249:                                              ; preds = %246
   store i32 %.084, ptr %247, align 4, !tbaa !47
-  %250 = add nsw i64 %.5159, %245
+  %250 = add nsw i64 %.5160, %245
   br label %251
 
 251:                                              ; preds = %246, %249
-  %.6 = phi i64 [ %250, %249 ], [ %.5159, %246 ]
-  %252 = add nuw nsw i64 %.383160, 1
+  %.6 = phi i64 [ %250, %249 ], [ %.5160, %246 ]
+  %252 = add nuw nsw i64 %.383161, 1
   %exitcond.not = icmp eq i64 %252, %spec.select118
   br i1 %exitcond.not, label %._crit_edge, label %246, !llvm.loop !140
 
@@ -2857,25 +2856,25 @@ select.unfold:                                    ; preds = %140, %241, %_.exit
   %.496.ph = phi i64 [ %.395.ph, %_.exit ], [ %.395.ph, %140 ], [ %.282134, %241 ]
   %254 = icmp ne i64 %.496.ph, -1
   %or.cond3 = select i1 %19, i1 %254, i1 false
-  br i1 %or.cond3, label %select.unfold141, label %sub_0150
+  br i1 %or.cond3, label %select.unfold141, label %sub_0151
 
-sub_0150:                                         ; preds = %select.unfold
+sub_0151:                                         ; preds = %select.unfold
   %255 = load ptr, ptr %107, align 8, !tbaa !48
   %256 = load i8, ptr %255, align 1
-  %.not162 = icmp eq i8 %256, 42
-  br i1 %.not162, label %.tail149, label %.tail149.thread.outer.backedge
+  %.not163 = icmp eq i8 %256, 42
+  br i1 %.not163, label %.tail150, label %.tail150.thread.outer.backedge
 
-.tail149:                                         ; preds = %sub_0150
+.tail150:                                         ; preds = %sub_0151
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 1
   %258 = load i8, ptr %257, align 1
   %259 = icmp eq i8 %258, 0
-  br i1 %259, label %select.unfold141, label %.tail149.thread.outer.backedge
+  br i1 %259, label %select.unfold141, label %.tail150.thread.outer.backedge
 
-.tail149.thread.outer.backedge:                   ; preds = %.tail149, %sub_0150
-  br label %.tail149.thread.outer
+.tail150.thread.outer.backedge:                   ; preds = %.tail150, %sub_0151
+  br label %.tail150.thread.outer
 
-select.unfold141:                                 ; preds = %129, %.tail149, %select.unfold, %126
-  %.294.ph = phi i64 [ %spec.select, %126 ], [ %.092.ph, %129 ], [ %.496.ph, %.tail149 ], [ %.496.ph, %select.unfold ]
+select.unfold141:                                 ; preds = %129, %.tail150, %select.unfold, %126
+  %.294.ph = phi i64 [ %spec.select, %126 ], [ %.092.ph, %129 ], [ %.496.ph, %.tail150 ], [ %.496.ph, %select.unfold ]
   call void @strbuf_release(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.294.ph

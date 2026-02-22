@@ -218,9 +218,9 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
 18:                                               ; preds = %15
   %19 = extractvalue { i64, i1 } %16, 0
   %20 = tail call { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$24checked_next_multiple_of17hbcd1ac878862b81fE"(i64 %19, i64 8192)
-  %.fr = freeze { i64, i64 } %20
-  %21 = extractvalue { i64, i64 } %.fr, 0
-  %22 = extractvalue { i64, i64 } %.fr, 1
+  %.fr69 = freeze { i64, i64 } %20
+  %21 = extractvalue { i64, i64 } %.fr69, 0
+  %22 = extractvalue { i64, i64 } %.fr69, 1
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %.thread, label %24
 
@@ -280,9 +280,9 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %or.cond58 = and i1 %51, %52
   br i1 %or.cond58, label %57, label %53
 
-53:                                               ; preds = %._crit_edge72, %48
-  %54 = phi i64 [ %.pre73, %._crit_edge72 ], [ %50, %48 ]
-  %55 = phi i64 [ %.pre, %._crit_edge72 ], [ %49, %48 ]
+53:                                               ; preds = %._crit_edge73, %48
+  %54 = phi i64 [ %.pre74, %._crit_edge73 ], [ %50, %48 ]
+  %55 = phi i64 [ %.pre, %._crit_edge73 ], [ %49, %48 ]
   %56 = icmp eq i64 %55, %54
   br i1 %56, label %69, label %75
 
@@ -296,10 +296,10 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %61 = load i64, ptr %33, align 8
   %62 = icmp eq i64 %61, 0
   %.pre = load i64, ptr %11, align 8
-  br i1 %62, label %66, label %._crit_edge72
+  br i1 %62, label %66, label %._crit_edge73
 
-._crit_edge72:                                    ; preds = %60
-  %.pre73 = load i64, ptr %2, align 8
+._crit_edge73:                                    ; preds = %60
+  %.pre74 = load i64, ptr %2, align 8
   br label %53
 
 63:                                               ; preds = %57
@@ -412,8 +412,8 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %119 = landingpad { ptr, i32 }
           cleanup
   %120 = load ptr, ptr %7, align 8, !noundef !3
-  %.not69 = icmp eq ptr %120, null
-  br i1 %.not69, label %129, label %130
+  %.not70 = icmp eq ptr %120, null
+  br i1 %.not70, label %129, label %130
 
 121:                                              ; preds = %.lr.ph
   %122 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3

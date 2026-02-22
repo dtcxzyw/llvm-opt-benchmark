@@ -115,91 +115,90 @@ define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr noundef
   %48 = load i16, ptr %47, align 2, !tbaa !50
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %50 = load i16, ptr %49, align 4, !tbaa !51
-  %.fr59.i = freeze i16 %48
-  %.fr60.i = freeze i16 %50
-  %51 = icmp ne i16 %.fr59.i, %.fr60.i
+  %51 = icmp ne i16 %48, %50
+  %52 = freeze i1 %51
   br label %_Z9PERTURBEDRK6t_atom.exit.i
 
 _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %46, %40, %34
-  %.fr.i = phi i1 [ true, %40 ], [ true, %34 ], [ %51, %46 ]
-  %52 = getelementptr i32, ptr %18, i64 %indvars.iv.i
-  %53 = load i32, ptr %52, align 4, !tbaa !52
-  %54 = getelementptr i8, ptr %52, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !52
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %27, i64 %56
-  %.not4042.i = icmp eq i32 %53, %55
+  %.fr.i = phi i1 [ true, %40 ], [ true, %34 ], [ %52, %46 ]
+  %53 = getelementptr i32, ptr %18, i64 %indvars.iv.i
+  %54 = load i32, ptr %53, align 4, !tbaa !52
+  %55 = getelementptr i8, ptr %53, i64 4
+  %56 = load i32, ptr %55, align 4, !tbaa !52
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %27, i64 %57
+  %.not4042.i = icmp eq i32 %54, %56
   br i1 %.not4042.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_Z9PERTURBEDRK6t_atom.exit.i
-  %58 = sext i32 %53 to i64
-  %59 = getelementptr inbounds i32, ptr %27, i64 %58
+  %59 = sext i32 %54 to i64
+  %60 = getelementptr inbounds i32, ptr %27, i64 %59
   br i1 %.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.144.us.i = phi i32 [ %spec.select.i, %.lr.ph.split.us.i ], [ %.02747.i, %.lr.ph.i ]
-  %.sroa.0.043.us.i = phi ptr [ %63, %.lr.ph.split.us.i ], [ %59, %.lr.ph.i ]
-  %60 = load i32, ptr %.sroa.0.043.us.i, align 4, !tbaa !52
-  %61 = sext i32 %60 to i64
-  %.not.us.i = icmp sle i64 %indvars.iv.i, %61
-  %62 = zext i1 %.not.us.i to i32
-  %spec.select.i = add nsw i32 %.144.us.i, %62
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.043.us.i, i64 4
-  %.not40.us.i = icmp eq ptr %63, %57
+  %.sroa.0.043.us.i = phi ptr [ %64, %.lr.ph.split.us.i ], [ %60, %.lr.ph.i ]
+  %61 = load i32, ptr %.sroa.0.043.us.i, align 4, !tbaa !52
+  %62 = sext i32 %61 to i64
+  %.not.us.i = icmp sle i64 %indvars.iv.i, %62
+  %63 = zext i1 %.not.us.i to i32
+  %spec.select.i = add nsw i32 %.144.us.i, %63
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.043.us.i, i64 4
+  %.not40.us.i = icmp eq ptr %64, %58
   br i1 %.not40.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
-._crit_edge.i:                                    ; preds = %83, %.lr.ph.split.us.i, %_Z9PERTURBEDRK6t_atom.exit.i
-  %.1.lcssa.i = phi i32 [ %.02747.i, %_Z9PERTURBEDRK6t_atom.exit.i ], [ %spec.select.i, %.lr.ph.split.us.i ], [ %.2.i, %83 ]
+._crit_edge.i:                                    ; preds = %84, %.lr.ph.split.us.i, %_Z9PERTURBEDRK6t_atom.exit.i
+  %.1.lcssa.i = phi i32 [ %.02747.i, %_Z9PERTURBEDRK6t_atom.exit.i ], [ %spec.select.i, %.lr.ph.split.us.i ], [ %.2.i, %84 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %28
   br i1 %exitcond.not.i, label %._crit_edge50.i, label %34, !llvm.loop !53
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %83
-  %.144.i = phi i32 [ %.2.i, %83 ], [ %.02747.i, %.lr.ph.i ]
-  %.sroa.0.043.i = phi ptr [ %84, %83 ], [ %59, %.lr.ph.i ]
-  %64 = load i32, ptr %.sroa.0.043.i, align 4, !tbaa !52
-  %65 = sext i32 %64 to i64
-  %.not.i = icmp sgt i64 %indvars.iv.i, %65
-  br i1 %.not.i, label %83, label %66
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %84
+  %.144.i = phi i32 [ %.2.i, %84 ], [ %.02747.i, %.lr.ph.i ]
+  %.sroa.0.043.i = phi ptr [ %85, %84 ], [ %60, %.lr.ph.i ]
+  %65 = load i32, ptr %.sroa.0.043.i, align 4, !tbaa !52
+  %66 = sext i32 %65 to i64
+  %.not.i = icmp sgt i64 %indvars.iv.i, %66
+  br i1 %.not.i, label %84, label %67
 
-66:                                               ; preds = %.lr.ph.split.i
-  %67 = getelementptr inbounds %struct.t_atom, ptr %25, i64 %65
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load float, ptr %68, align 4, !tbaa !42
-  %70 = load float, ptr %67, align 4, !tbaa !47
-  %71 = fcmp une float %69, %70
-  br i1 %71, label %_Z9PERTURBEDRK6t_atom.exit32.thread.i, label %72
+67:                                               ; preds = %.lr.ph.split.i
+  %68 = getelementptr inbounds %struct.t_atom, ptr %25, i64 %66
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load float, ptr %69, align 4, !tbaa !42
+  %71 = load float, ptr %68, align 4, !tbaa !47
+  %72 = fcmp une float %70, %71
+  br i1 %72, label %_Z9PERTURBEDRK6t_atom.exit32.thread.i, label %73
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  %74 = load float, ptr %73, align 4, !tbaa !48
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %76 = load float, ptr %75, align 4, !tbaa !49
-  %77 = fcmp une float %74, %76
-  br i1 %77, label %_Z9PERTURBEDRK6t_atom.exit32.thread.i, label %_Z9PERTURBEDRK6t_atom.exit32.i
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %75 = load float, ptr %74, align 4, !tbaa !48
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %77 = load float, ptr %76, align 4, !tbaa !49
+  %78 = fcmp une float %75, %77
+  br i1 %78, label %_Z9PERTURBEDRK6t_atom.exit32.thread.i, label %_Z9PERTURBEDRK6t_atom.exit32.i
 
-_Z9PERTURBEDRK6t_atom.exit32.i:                   ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %67, i64 18
-  %79 = load i16, ptr %78, align 2, !tbaa !50
-  %80 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %81 = load i16, ptr %80, align 4, !tbaa !51
-  %.not41.i = icmp eq i16 %79, %81
-  br i1 %.not41.i, label %83, label %_Z9PERTURBEDRK6t_atom.exit32.thread.i
+_Z9PERTURBEDRK6t_atom.exit32.i:                   ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 18
+  %80 = load i16, ptr %79, align 2, !tbaa !50
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %82 = load i16, ptr %81, align 4, !tbaa !51
+  %.not41.i = icmp eq i16 %80, %82
+  br i1 %.not41.i, label %84, label %_Z9PERTURBEDRK6t_atom.exit32.thread.i
 
-_Z9PERTURBEDRK6t_atom.exit32.thread.i:            ; preds = %_Z9PERTURBEDRK6t_atom.exit32.i, %72, %66
-  %82 = add nsw i32 %.144.i, 1
-  br label %83
+_Z9PERTURBEDRK6t_atom.exit32.thread.i:            ; preds = %_Z9PERTURBEDRK6t_atom.exit32.i, %73, %67
+  %83 = add nsw i32 %.144.i, 1
+  br label %84
 
-83:                                               ; preds = %_Z9PERTURBEDRK6t_atom.exit32.thread.i, %_Z9PERTURBEDRK6t_atom.exit32.i, %.lr.ph.split.i
-  %.2.i = phi i32 [ %82, %_Z9PERTURBEDRK6t_atom.exit32.thread.i ], [ %.144.i, %_Z9PERTURBEDRK6t_atom.exit32.i ], [ %.144.i, %.lr.ph.split.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.043.i, i64 4
-  %.not40.i = icmp eq ptr %84, %57
+84:                                               ; preds = %_Z9PERTURBEDRK6t_atom.exit32.thread.i, %_Z9PERTURBEDRK6t_atom.exit32.i, %.lr.ph.split.i
+  %.2.i = phi i32 [ %83, %_Z9PERTURBEDRK6t_atom.exit32.thread.i ], [ %.144.i, %_Z9PERTURBEDRK6t_atom.exit32.i ], [ %.144.i, %.lr.ph.split.i ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.043.i, i64 4
+  %.not40.i = icmp eq ptr %85, %58
   br i1 %.not40.i, label %._crit_edge.i, label %.lr.ph.split.i
 
 _ZL35computeNumGlobalPerturbedExclusionsRK10gmx_mtop_t.exit: ; preds = %._crit_edge50.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %32, %._crit_edge50.i ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.0.lcssa.i, ptr %85, align 8, !tbaa !55
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %.0.lcssa.i, ptr %86, align 8, !tbaa !55
   ret void
 }
 

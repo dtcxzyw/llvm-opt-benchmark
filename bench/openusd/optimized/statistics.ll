@@ -2363,17 +2363,16 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   %6 = alloca i32, align 4
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex12GetNodeRangeENS_12PcpRangeTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.103") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6)
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
-  %.sroa.0.0.copyload.i.fr = freeze ptr %.sroa.0.0.copyload.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload.i12 = load ptr, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.2.0.copyload.i14 = load i64, ptr %.sroa.2.0..sroa_idx.i13, align 8
-  %.sroa.0.0.copyload.i12.fr = freeze ptr %.sroa.0.0.copyload.i12
-  %8 = icmp ne ptr %.sroa.0.0.copyload.i.fr, %.sroa.0.0.copyload.i12.fr
+  %8 = icmp ne ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i12
+  %.fr = freeze i1 %8
   %9 = icmp ne i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i14
-  %.not3.i26 = or i1 %8, %9
+  %.not3.i26 = or i1 %.fr, %9
   br i1 %.not3.i26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -2383,11 +2382,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %35
   %.sroa.3.027.us.us = phi i64 [ %36, %35 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %5, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   store i64 %.sroa.3.027.us.us, ptr %10, align 8
   %13 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8IsCulledEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br i1 %13, label %14, label %35
@@ -2430,7 +2429,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %59
   %.sroa.3.027.us = phi i64 [ %60, %59 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %5, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   store i64 %.sroa.3.027.us, ptr %10, align 8
   %37 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8IsCulledEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br i1 %37, label %38, label %59
@@ -2473,11 +2472,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   br i1 %.not32, label %._crit_edge, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %81
   %.sroa.3.027.us28 = phi i64 [ %82, %81 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %5, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   store i64 %.sroa.3.027.us28, ptr %10, align 8
   %61 = load i64, ptr %1, align 8
   %62 = add i64 %61, 1
@@ -2516,7 +2515,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %103
   %.sroa.3.027 = phi i64 [ %104, %103 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %5, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   store i64 %.sroa.3.027, ptr %10, align 8
   %83 = load i64, ptr %1, align 8
   %84 = add i64 %83, 1

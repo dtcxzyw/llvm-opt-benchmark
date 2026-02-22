@@ -322,8 +322,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
   %19 = tail call i32 @llvm.usub.sat.i32(i32 %.0.lcssa.fr, i32 25)
   %20 = add nuw i32 %19, 12
   %21 = urem i32 %20, 13
-  %.neg75 = sub nsw i32 %21, %20
-  %22 = add nsw i32 %.neg75, %18
+  %.neg74 = sub i32 %21, %20
+  %22 = add i32 %.neg74, %18
   br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit
@@ -483,7 +483,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
 
 .preheader.i25:                                   ; preds = %87
   %.not18.i26 = icmp eq i64 %95, 0
-  br i1 %.not18.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76, label %.lr.ph20.i27
+  br i1 %.not18.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread75, label %.lr.ph20.i27
 
 87:                                               ; preds = %87, %.lr.ph.i19
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %87 ]
@@ -527,9 +527,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29, %77, %._crit_edge, %83
   %106 = phi i16 [ %.pr, %77 ], [ %.pr, %83 ], [ %.pr, %._crit_edge ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
   %107 = icmp eq i16 %106, 0
-  br i1 %107, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76
+  br i1 %107, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread75
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76: ; preds = %.preheader.i25, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread75: ; preds = %.preheader.i25, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31
   %108 = phi i16 [ %106, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31 ], [ %.pr, %.preheader.i25 ]
   %109 = sdiv i32 %1, 28
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -541,11 +541,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
   %115 = icmp sgt i16 %108, 127
   br i1 %115, label %116, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i32
 
-116:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76
+116:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread75
   tail call void @abort() #12
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i32: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i32: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread75
   %117 = icmp sgt i16 %108, 0
   br i1 %117, label %.lr.ph.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit
 

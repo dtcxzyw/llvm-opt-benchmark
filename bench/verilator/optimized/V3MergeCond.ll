@@ -9220,8 +9220,8 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread: ; preds =
   %58 = phi i32 [ %53, %_ZNK7AstNode8widthMinEv.exit99 ], [ %56, %54 ], [ 0, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread ]
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 152
   %60 = tail call noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %59)
-  %.fr = freeze i32 %58
-  %61 = add i32 %.fr, -1
+  %.fr155 = freeze i32 %58
+  %61 = add i32 %.fr155, -1
   %.not72 = icmp slt i32 %60, %61
   br i1 %.not72, label %.thread136, label %.thread131
 

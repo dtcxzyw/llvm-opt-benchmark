@@ -14580,11 +14580,9 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLe
   %11 = load ptr, ptr %10, align 8, !tbaa !515
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !518
-  %.fr15 = freeze i64 %13
-  %.not24.i = icmp eq i64 %.fr15, 0
-  %.fr16 = freeze i64 %3
-  %.fr17 = freeze i64 %5
-  %spec.select.i = select i1 %.not24.i, i64 %.fr16, i64 %.fr17
+  %.not24.i = icmp eq i64 %13, 0
+  %spec.select.i = select i1 %.not24.i, i64 %3, i64 %5
+  %spec.select.i.fr = freeze i64 %spec.select.i
   %spec.select23.i = select i1 %.not24.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !79
@@ -14595,7 +14593,7 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLe
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val.i = load ptr, ptr %17, align 8, !tbaa !10
-  %18 = icmp eq i64 %spec.select.i, 0
+  %18 = icmp eq i64 %spec.select.i.fr, 0
   br i1 %18, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us
@@ -14616,12 +14614,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us:  ; preds = %.lr.ph.i.split.us
   %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i, i64 %.01526.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !38
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !121
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select23.i, i64 %spec.select.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select23.i, i64 %spec.select.i.fr)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
@@ -14649,7 +14647,7 @@ _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE5parseERNS0_6OptionENS_9Stri
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select23.i, ptr %30, align 8, !tbaa !37, !alias.scope !520
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select.i, ptr %31, align 8, !tbaa !37, !alias.scope !520
+  store i64 %spec.select.i.fr, ptr %31, align 8, !tbaa !37, !alias.scope !520
   store ptr %8, ptr %7, align 8, !alias.scope !523
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.74, ptr %32, align 8, !alias.scope !523

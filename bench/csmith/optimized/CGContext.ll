@@ -2073,13 +2073,13 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %63, %_ZNSt6vectorIP
   br i1 %114, label %..critedge43.us_crit_edge, label %.split.us
 
 ..critedge43.us_crit_edge:                        ; preds = %115
-  %.pre69 = load ptr, ptr %25, align 8, !tbaa !80
-  %.pre70 = load ptr, ptr %5, align 8, !tbaa !4
+  %.pre70 = load ptr, ptr %25, align 8, !tbaa !80
+  %.pre71 = load ptr, ptr %5, align 8, !tbaa !4
   br label %.critedge43.us
 
 .critedge43.us:                                   ; preds = %..critedge43.us_crit_edge, %.lr.ph.split.us
-  %116 = phi ptr [ %.pre70, %..critedge43.us_crit_edge ], [ %103, %.lr.ph.split.us ]
-  %117 = phi ptr [ %.pre69, %..critedge43.us_crit_edge ], [ %104, %.lr.ph.split.us ]
+  %116 = phi ptr [ %.pre71, %..critedge43.us_crit_edge ], [ %103, %.lr.ph.split.us ]
+  %117 = phi ptr [ %.pre70, %..critedge43.us_crit_edge ], [ %104, %.lr.ph.split.us ]
   %118 = add nuw i64 %.02663.us, 1
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %116 to i64
@@ -2128,7 +2128,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %63, %_ZNSt6vectorIP
 
 ..critedge43_crit_edge:                           ; preds = %136
   %.pre = load ptr, ptr %25, align 8, !tbaa !80
-  %.pre68 = load ptr, ptr %5, align 8, !tbaa !4
+  %.pre69 = load ptr, ptr %5, align 8, !tbaa !4
   br label %.critedge43
 
 .split.us:                                        ; preds = %136, %115
@@ -2137,7 +2137,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %63, %_ZNSt6vectorIP
           to label %.loopexit52 unwind label %.loopexit.split-lp
 
 .critedge43:                                      ; preds = %..critedge43_crit_edge, %.lr.ph.split
-  %139 = phi ptr [ %.pre68, %..critedge43_crit_edge ], [ %124, %.lr.ph.split ]
+  %139 = phi ptr [ %.pre69, %..critedge43_crit_edge ], [ %124, %.lr.ph.split ]
   %140 = phi ptr [ %.pre, %..critedge43_crit_edge ], [ %125, %.lr.ph.split ]
   %141 = add nuw i64 %.02663, 1
   %142 = ptrtoint ptr %140 to i64

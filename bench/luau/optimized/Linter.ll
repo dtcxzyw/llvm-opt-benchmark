@@ -14235,77 +14235,76 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintUninitializedLoc
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !334
-  %.fr22 = freeze i32 %13
   %14 = load i32, ptr @_ZN4Luau7AstRttiINS_14AstExprVarargsEE5valueE, align 4, !tbaa !4
-  %15 = icmp eq i32 %.fr22, %14
+  %15 = icmp eq i32 %13, %14
   br i1 %15, label %.thread.thread, label %16
 
 16:                                               ; preds = %11
   %17 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4, !tbaa !4
-  %.fr23 = freeze i32 %17
-  %18 = icmp eq i32 %.fr22, %.fr23
+  %18 = icmp eq i32 %13, %17
+  %19 = freeze i1 %18
   br label %.thread
 
 .thread:                                          ; preds = %2, %16, %5
-  %.fr = phi i1 [ false, %5 ], [ false, %2 ], [ %18, %16 ]
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !415
-  %.not21 = icmp eq i64 %20, 0
+  %.fr = phi i1 [ false, %5 ], [ false, %2 ], [ %19, %16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %21 = load i64, ptr %20, align 8, !tbaa !415
+  %.not21 = icmp eq i64 %21, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .thread.thread:                                   ; preds = %11
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load i64, ptr %21, align 8, !tbaa !415
-  %.not2127 = icmp eq i64 %22, 0
-  br i1 %.not2127, label %._crit_edge, label %.lr.ph.thread
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = load i64, ptr %22, align 8, !tbaa !415
+  %.not2126 = icmp eq i64 %23, 0
+  br i1 %.not2126, label %._crit_edge, label %.lr.ph.thread
 
 .lr.ph.thread:                                    ; preds = %.thread.thread
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %.thread
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.fr, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph.thread, %.lr.ph
-  %27 = phi ptr [ %24, %.lr.ph.thread ], [ %26, %.lr.ph ]
-  %28 = phi ptr [ %23, %.lr.ph.thread ], [ %25, %.lr.ph ]
-  %29 = phi ptr [ %21, %.lr.ph.thread ], [ %19, %.lr.ph ]
+  %28 = phi ptr [ %25, %.lr.ph.thread ], [ %27, %.lr.ph ]
+  %29 = phi ptr [ %24, %.lr.ph.thread ], [ %26, %.lr.ph ]
+  %30 = phi ptr [ %22, %.lr.ph.thread ], [ %20, %.lr.ph ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.020.us = phi i64 [ %34, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %30 = load ptr, ptr %28, align 8, !tbaa !418
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.020.us
-  %32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(8) %31)
-  store i8 1, ptr %32, align 8, !tbaa !215
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 1, ptr %33, align 1, !tbaa !216
-  %34 = add nuw i64 %.020.us, 1
-  %35 = load i64, ptr %29, align 8, !tbaa !415
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !589
+  %.020.us = phi i64 [ %35, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %31 = load ptr, ptr %29, align 8, !tbaa !418
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.020.us
+  %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  store i8 1, ptr %33, align 8, !tbaa !215
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store i8 1, ptr %34, align 1, !tbaa !216
+  %35 = add nuw i64 %.020.us, 1
+  %36 = load i64, ptr %30, align 8, !tbaa !415
+  %37 = icmp ult i64 %35, %36
+  br i1 %37, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !589
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread.thread, %.thread
   ret i1 true
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.020 = phi i64 [ %44, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %37 = load ptr, ptr %25, align 8, !tbaa !418
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.020
-  %39 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(8) %38)
-  store i8 1, ptr %39, align 8, !tbaa !215
-  %40 = load i64, ptr %3, align 8, !tbaa !417
-  %41 = icmp ult i64 %.020, %40
-  %42 = zext i1 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 %42, ptr %43, align 1, !tbaa !216
-  %44 = add nuw i64 %.020, 1
-  %45 = load i64, ptr %19, align 8, !tbaa !415
-  %46 = icmp ult i64 %44, %45
-  br i1 %46, label %.lr.ph.split, label %._crit_edge, !llvm.loop !589
+  %.020 = phi i64 [ %45, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %38 = load ptr, ptr %26, align 8, !tbaa !418
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.020
+  %40 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_22LintUninitializedLocal5LocalENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(8) %39)
+  store i8 1, ptr %40, align 8, !tbaa !215
+  %41 = load i64, ptr %3, align 8, !tbaa !417
+  %42 = icmp ult i64 %.020, %41
+  %43 = zext i1 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  store i8 %43, ptr %44, align 1, !tbaa !216
+  %45 = add nuw i64 %.020, 1
+  %46 = load i64, ptr %20, align 8, !tbaa !415
+  %47 = icmp ult i64 %45, %46
+  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !589
 }
 
 ; Function Attrs: mustprogress uwtable

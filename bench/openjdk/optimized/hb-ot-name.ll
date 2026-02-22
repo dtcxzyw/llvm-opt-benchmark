@@ -3211,13 +3211,13 @@ define linkonce_odr hidden noundef i32 @_ZN2OT22hb_ot_name_convert_utfI13hb_utf1
   br i1 %16, label %.lr.ph, label %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit.thread
 
 .lr.ph:                                           ; preds = %9, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit
-  %.159 = phi ptr [ %.0.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ], [ %0, %9 ]
-  %.13358 = phi ptr [ %.014.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ], [ %3, %9 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.159, i64 2
-  %18 = load i8, ptr %.159, align 1
+  %.156 = phi ptr [ %.0.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ], [ %0, %9 ]
+  %.13355 = phi ptr [ %.014.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ], [ %3, %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.156, i64 2
+  %18 = load i8, ptr %.156, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 8
-  %21 = getelementptr inbounds nuw i8, ptr %.159, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.156, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
@@ -3240,14 +3240,14 @@ define linkonce_odr hidden noundef i32 @_ZN2OT22hb_ot_name_convert_utfI13hb_utf1
 
 35:                                               ; preds = %30
   %36 = shl nuw nsw i32 %32, 8
-  %37 = getelementptr inbounds nuw i8, ptr %.159, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %.156, i64 3
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = shl nuw nsw i32 %24, 10
   %42 = add nsw i32 %41, -56613888
   %43 = add nuw nsw i32 %42, %40
-  %44 = getelementptr inbounds nuw i8, ptr %.159, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.156, i64 4
   br label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit
 
 _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %27, %30, %.lr.ph, %35
@@ -3263,12 +3263,12 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %27, %
 
 49:                                               ; preds = %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit
   %50 = trunc nuw i32 %.0.i42 to i16
-  %51 = getelementptr inbounds nuw i8, ptr %.13358, i64 2
-  store i16 %50, ptr %.13358, align 2
+  %51 = getelementptr inbounds nuw i8, ptr %.13355, i64 2
+  store i16 %50, ptr %.13355, align 2
   br label %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit
 
 52:                                               ; preds = %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit
-  %53 = ptrtoint ptr %.13358 to i64
+  %53 = ptrtoint ptr %.13355 to i64
   %54 = sub i64 %13, %53
   %55 = icmp sgt i64 %54, 2
   br i1 %55, label %56, label %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit.thread
@@ -3278,12 +3278,12 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %27, %
   %58 = lshr i32 %57, 10
   %59 = trunc i32 %58 to i16
   %60 = add nuw nsw i16 %59, -10240
-  %61 = getelementptr inbounds nuw i8, ptr %.13358, i64 2
-  store i16 %60, ptr %.13358, align 2
+  %61 = getelementptr inbounds nuw i8, ptr %.13355, i64 2
+  store i16 %60, ptr %.13355, align 2
   %62 = trunc i32 %.0.i42 to i16
   %63 = and i16 %62, 1023
   %64 = or disjoint i16 %63, -9216
-  %65 = getelementptr inbounds nuw i8, ptr %.13358, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.13355, i64 4
   store i16 %64, ptr %61, align 2
   br label %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit
 
@@ -3295,8 +3295,8 @@ _ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit:         ; preds = %49, %56
   br i1 %68, label %.lr.ph, label %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit.thread
 
 _ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit.thread:  ; preds = %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit, %52, %9
-  %.133.lcssa = phi ptr [ %3, %9 ], [ %.13358, %52 ], [ %.014.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ]
-  %.1.lcssa = phi ptr [ %0, %9 ], [ %.159, %52 ], [ %.0.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ]
+  %.133.lcssa = phi ptr [ %3, %9 ], [ %.13355, %52 ], [ %.014.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ]
+  %.1.lcssa = phi ptr [ %0, %9 ], [ %.156, %52 ], [ %.0.i, %_ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit ]
   %69 = ptrtoint ptr %.133.lcssa to i64
   %70 = ptrtoint ptr %3 to i64
   %71 = sub i64 %69, %70
@@ -3315,43 +3315,60 @@ _ZN13hb_utf16_xe_tItE6encodeEPtPKtj.exit.thread:  ; preds = %_ZN13hb_utf16_xe_tI
   %78 = lshr exact i64 %77, 1
   %79 = trunc i64 %78 to i32
   %80 = icmp ult ptr %.031, %6
-  br i1 %80, label %.lr.ph66, label %._crit_edge
+  br i1 %80, label %.lr.ph63, label %._crit_edge
 
-.lr.ph66:                                         ; preds = %74, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
-  %.065 = phi i32 [ %94, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread ], [ %79, %74 ]
-  %.264 = phi ptr [ %.0.i4353, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread ], [ %.031, %74 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.264, i64 2
-  %82 = load i8, ptr %.264, align 1
-  %.fr = freeze i8 %82
-  %83 = and i8 %.fr, -8
-  %84 = icmp eq i8 %83, -40
-  br i1 %84, label %85, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
+.lr.ph63:                                         ; preds = %74, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
+  %.062 = phi i32 [ %110, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread ], [ %79, %74 ]
+  %.261 = phi ptr [ %.0.i4353, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread ], [ %.031, %74 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.261, i64 2
+  %82 = load i8, ptr %.261, align 1
+  %83 = zext i8 %82 to i32
+  %84 = getelementptr inbounds nuw i8, ptr %.261, i64 1
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = and i32 %83, 248
+  %88 = icmp eq i32 %87, 216
+  br i1 %88, label %89, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
 
-85:                                               ; preds = %.lr.ph66
-  %86 = icmp ult i8 %.fr, -36
-  %87 = icmp ult ptr %81, %6
-  %or.cond.i44 = select i1 %86, i1 %87, i1 false
-  br i1 %or.cond.i44, label %88, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
+89:                                               ; preds = %.lr.ph63
+  %90 = icmp ult i8 %82, -36
+  %91 = icmp ult ptr %81, %6
+  %or.cond.i44 = select i1 %90, i1 %91, i1 false
+  br i1 %or.cond.i44, label %92, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
 
-88:                                               ; preds = %85
-  %89 = load i8, ptr %81, align 1
-  %.fr56 = freeze i8 %89
-  %90 = and i8 %.fr56, -4
-  %91 = icmp eq i8 %90, -36
-  %92 = getelementptr inbounds nuw i8, ptr %.264, i64 4
-  %spec.select = select i1 %91, ptr %92, ptr %81
-  %spec.select72 = select i1 %91, i32 2, i32 1
+92:                                               ; preds = %89
+  %93 = load i8, ptr %81, align 1
+  %94 = zext i8 %93 to i32
+  %95 = and i32 %94, 252
+  %96 = icmp eq i32 %95, 220
+  br i1 %96, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
+
+_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45: ; preds = %92
+  %97 = shl nuw nsw i32 %94, 8
+  %98 = getelementptr inbounds nuw i8, ptr %.261, i64 3
+  %99 = load i8, ptr %98, align 1
+  %100 = zext i8 %99 to i32
+  %101 = or disjoint i32 %97, %100
+  %102 = shl nuw nsw i32 %83, 18
+  %103 = shl nuw nsw i32 %86, 10
+  %104 = or disjoint i32 %103, %102
+  %105 = add nsw i32 %104, -56613888
+  %106 = add nuw nsw i32 %105, %101
+  %107 = getelementptr inbounds nuw i8, ptr %.261, i64 4
+  %.fr = freeze i32 %106
+  %108 = icmp ult i32 %.fr, 65536
+  %spec.select = select i1 %108, i32 1, i32 2
   br label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread
 
-_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread: ; preds = %88, %85, %.lr.ph66
-  %.0.i4353 = phi ptr [ %spec.select, %88 ], [ %81, %85 ], [ %81, %.lr.ph66 ]
-  %93 = phi i32 [ %spec.select72, %88 ], [ 1, %85 ], [ 1, %.lr.ph66 ]
-  %94 = add i32 %93, %.065
-  %95 = icmp ult ptr %.0.i4353, %6
-  br i1 %95, label %.lr.ph66, label %._crit_edge, !llvm.loop !76
+_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread: ; preds = %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45, %89, %92, %.lr.ph63
+  %.0.i4353 = phi ptr [ %107, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45 ], [ %81, %89 ], [ %81, %.lr.ph63 ], [ %81, %92 ]
+  %109 = phi i32 [ %spec.select, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45 ], [ 1, %89 ], [ 1, %.lr.ph63 ], [ 1, %92 ]
+  %110 = add i32 %109, %.062
+  %111 = icmp ult ptr %.0.i4353, %6
+  br i1 %111, label %.lr.ph63, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread, %74
-  %.0.lcssa = phi i32 [ %79, %74 ], [ %94, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread ]
+  %.0.lcssa = phi i32 [ %79, %74 ], [ %110, %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45.thread ]
   ret i32 %.0.lcssa
 }
 

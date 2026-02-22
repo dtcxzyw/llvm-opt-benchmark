@@ -313,11 +313,10 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %_ZNK
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %78, 63
   %85 = shl nuw i64 1, %84
-  %.fr = freeze i64 %85
-  %.fr37 = freeze i64 %83
-  %86 = and i64 %.fr, %.fr37
-  %.not38 = icmp eq i64 %86, 0
-  br i1 %.not38, label %87, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
+  %86 = and i64 %85, %83
+  %.fr = freeze i64 %86
+  %.not37 = icmp eq i64 %.fr, 0
+  br i1 %.not37, label %87, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds = %_ZNK7oopDesc5klassEv.exit27, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit
   br label %87
@@ -351,11 +350,10 @@ _ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %87
   %108 = load i64, ptr %107, align 8
   %109 = and i64 %103, 63
   %110 = shl nuw i64 1, %109
-  %.fr39 = freeze i64 %110
-  %.fr40 = freeze i64 %108
-  %111 = and i64 %.fr39, %.fr40
-  %.not41 = icmp eq i64 %111, 0
-  br i1 %.not41, label %112, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
+  %111 = and i64 %110, %108
+  %.fr38 = freeze i64 %111
+  %.not39 = icmp eq i64 %.fr38, 0
+  br i1 %.not39, label %112, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread: ; preds = %87, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit
   br label %112

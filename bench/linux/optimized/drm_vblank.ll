@@ -3195,13 +3195,13 @@ define dso_local i32 @drm_wait_vblank_ioctl(ptr noundef %0, ptr noundef captures
   %35 = and i32 %32, 2
   %36 = and i32 %35, %34
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.loopexit21, label %38
+  br i1 %37, label %.loopexit22, label %38
 
 38:                                               ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
-  br i1 %41, label %.loopexit21, label %.preheader
+  br i1 %41, label %.loopexit22, label %.preheader
 
 .preheader:                                       ; preds = %38, %52
   %42 = phi ptr [ %55, %52 ], [ %40, %38 ]
@@ -3214,7 +3214,7 @@ define dso_local i32 @drm_wait_vblank_ioctl(ptr noundef %0, ptr noundef captures
 
 48:                                               ; preds = %.preheader
   %49 = icmp eq i32 %43, 0
-  br i1 %49, label %.loopexit21.loopexit, label %50
+  br i1 %49, label %.loopexit22.loopexit, label %50
 
 50:                                               ; preds = %48
   %51 = add nsw i32 %43, -1
@@ -3225,20 +3225,20 @@ define dso_local i32 @drm_wait_vblank_ioctl(ptr noundef %0, ptr noundef captures
   %54 = add i32 %44, 1
   %55 = load ptr, ptr %42, align 8
   %56 = icmp eq ptr %55, %39
-  br i1 %56, label %.loopexit21.loopexit, label %.preheader, !llvm.loop !180
+  br i1 %56, label %.loopexit22.loopexit, label %.preheader, !llvm.loop !180
 
-.loopexit21.loopexit:                             ; preds = %48, %52
-  %.ph30 = phi i32 [ %54, %52 ], [ %44, %48 ]
+.loopexit22.loopexit:                             ; preds = %48, %52
+  %.ph31 = phi i32 [ %54, %52 ], [ %44, %48 ]
   %.pre = load i32, ptr %5, align 4
-  br label %.loopexit21
+  br label %.loopexit22
 
-.loopexit21:                                      ; preds = %.loopexit21.loopexit, %38, %22
-  %57 = phi i32 [ %6, %22 ], [ %6, %38 ], [ %.pre, %.loopexit21.loopexit ]
-  %58 = phi i32 [ %28, %22 ], [ 0, %38 ], [ %.ph30, %.loopexit21.loopexit ]
+.loopexit22:                                      ; preds = %.loopexit22.loopexit, %38, %22
+  %57 = phi i32 [ %6, %22 ], [ %6, %38 ], [ %.pre, %.loopexit22.loopexit ]
+  %58 = phi i32 [ %28, %22 ], [ 0, %38 ], [ %.ph31, %.loopexit22.loopexit ]
   %59 = icmp ult i32 %58, %57
   br i1 %59, label %60, label %218
 
-60:                                               ; preds = %.loopexit21
+60:                                               ; preds = %.loopexit22
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %62 = load ptr, ptr %61, align 8
   %63 = zext i32 %58 to i64
@@ -3489,8 +3489,8 @@ drm_vblank_count.exit:                            ; preds = %104, %106
 .thread11:                                        ; preds = %197, %.loopexit
   %201 = phi i64 [ %.ph, %.loopexit ], [ %166, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.fr = freeze i64 %201
-  %202 = trunc i64 %.fr to i32
+  %.fr21 = freeze i64 %201
+  %202 = trunc i64 %.fr21 to i32
   switch i32 %202, label %.thread20.fold.split [
     i32 0, label %.thread20
     i32 -512, label %211
@@ -3533,8 +3533,8 @@ drm_vblank_count.exit:                            ; preds = %104, %106
   call void @drm_vblank_put(ptr noundef %0, i32 noundef %58)
   br label %218
 
-218:                                              ; preds = %216, %142, %89, %80, %.loopexit21, %20, %8, %3
-  %219 = phi i32 [ -22, %20 ], [ 0, %80 ], [ %82, %89 ], [ %143, %142 ], [ %217, %216 ], [ -95, %3 ], [ -22, %8 ], [ -22, %.loopexit21 ]
+218:                                              ; preds = %216, %142, %89, %80, %.loopexit22, %20, %8, %3
+  %219 = phi i32 [ -22, %20 ], [ 0, %80 ], [ %82, %89 ], [ %143, %142 ], [ %217, %216 ], [ -95, %3 ], [ -22, %8 ], [ -22, %.loopexit22 ]
   ret i32 %219
 }
 

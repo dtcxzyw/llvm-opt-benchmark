@@ -2734,9 +2734,8 @@ define hidden noundef zeroext i1 @_ZN3sat9lookahead6selectEj(ptr noundef nonnull
   %14 = phi i32 [ %12, %8 ], [ %4, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %16 = load i32, ptr %15, align 4, !tbaa !87
-  %.fr = freeze i32 %16
-  %.fr77 = freeze i32 %14
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.fr, i32 %.fr77)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %16, i32 %14)
+  %.sroa.speculated.fr = freeze i32 %.sroa.speculated
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   br label %18
 
@@ -2754,8 +2753,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit: ; preds = %18
   br i1 %24, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread, label %.critedge38.preheader
 
 .critedge38.preheader:                            ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit
-  %.mask = and i32 %.sroa.speculated, 2147483647
-  %25 = shl i32 %.sroa.speculated, 1
+  %.mask = and i32 %.sroa.speculated.fr, 2147483647
+  %25 = shl i32 %.sroa.speculated.fr, 1
   %.not32.not = icmp eq i32 %.mask, 0
   br i1 %.not32.not, label %.critedge38.preheader.split.us, label %.critedge38.preheader.split
 
@@ -2788,8 +2787,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread.us: ; preds = 
   %37 = load i32, ptr %36, align 4, !tbaa !87
   %38 = icmp uge i32 %.070.us, %37
   %.not33.us = icmp ult i32 %37, %25
-  %or.cond97 = or i1 %38, %.not33.us
-  br i1 %or.cond97, label %.critedge3.us, label %39
+  %or.cond96 = or i1 %38, %.not33.us
+  br i1 %or.cond96, label %.critedge3.us, label %39
 
 39:                                               ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread.us
   %40 = zext i32 %.070.us to i64
@@ -2865,8 +2864,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread: ; preds = %_Z
   %72 = load i32, ptr %71, align 4, !tbaa !87
   %73 = icmp uge i32 %.070, %72
   %.not33 = icmp ult i32 %72, %25
-  %or.cond98 = or i1 %73, %.not33
-  br i1 %or.cond98, label %.critedge3, label %76
+  %or.cond97 = or i1 %73, %.not33
+  br i1 %or.cond97, label %.critedge3, label %76
 
 .critedge3:                                       ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread, %92
   %74 = phi ptr [ %69, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread ], [ null, %92 ]
@@ -2917,11 +2916,11 @@ _ZN6vectorIN3sat9lookahead9candidateELb0EjE4backEv.exit: ; preds = %76
 _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.lr.ph: ; preds = %.critedge
   %97 = getelementptr inbounds i8, ptr %95, i64 -4
   %.promoted = load i32, ptr %97, align 4, !tbaa !87
-  %98 = icmp ugt i32 %.promoted, %.sroa.speculated
+  %98 = icmp ugt i32 %.promoted, %.sroa.speculated.fr
   br i1 %98, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.preheader, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.thread
 
 _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.preheader: ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.lr.ph
-  store i32 %.sroa.speculated, ptr %97, align 4, !tbaa !87
+  store i32 %.sroa.speculated.fr, ptr %97, align 4, !tbaa !87
   br label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.thread
 
 _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.thread: ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread, %.critedge, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.lr.ph, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.preheader

@@ -5838,9 +5838,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 
 21:                                               ; preds = %17
   %22 = tail call { ptr, i64 } @_ZNK5clang4ento14CheckerContext13getCalleeNameEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %16) #25
-  %.fr27.i = freeze { ptr, i64 } %22
-  %23 = extractvalue { ptr, i64 } %.fr27.i, 0
-  %24 = extractvalue { ptr, i64 } %.fr27.i, 1
+  %.fr.i = freeze { ptr, i64 } %22
+  %23 = extractvalue { ptr, i64 } %.fr.i, 0
+  %24 = extractvalue { ptr, i64 } %.fr.i, 1
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %_ZN4llvm9StringRefC2EPKc.exit.i.us.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
 

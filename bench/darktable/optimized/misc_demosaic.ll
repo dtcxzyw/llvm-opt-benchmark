@@ -590,8 +590,8 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %12 = load i32, ptr %11, align 4
-  %.fr = freeze i32 %12
-  %13 = add i32 %.fr, -1
+  %.fr44 = freeze i32 %12
+  %13 = add i32 %.fr44, -1
   %.not2933 = icmp eq i32 %13, 0
   %14 = load i16, ptr %9, align 2, !tbaa !79
   br i1 %.not2933, label %.preheader.lr.ph.split.us, label %.preheader
@@ -610,18 +610,18 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge40.split.us.us.us
-  %indvars.iv49 = phi i64 [ %19, %.preheader.us.us.preheader ], [ %indvars.iv.next50, %._crit_edge40.split.us.us.us ]
+  %indvars.iv50 = phi i64 [ %19, %.preheader.us.us.preheader ], [ %indvars.iv.next51, %._crit_edge40.split.us.us.us ]
   %.02441.us.us = phi i32 [ 1, %.preheader.us.us.preheader ], [ %50, %._crit_edge40.split.us.us.us ]
   %21 = srem i32 %.02441.us.us, %2
   %22 = shl i32 %21, 9
-  %23 = getelementptr inbounds nuw [4 x i16], ptr %10, i64 %indvars.iv49
+  %23 = getelementptr inbounds nuw [4 x i16], ptr %10, i64 %indvars.iv50
   br label %24
 
 24:                                               ; preds = %._crit_edge.us.us.us, %.preheader.us.us
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge.us.us.us ], [ 1, %.preheader.us.us ]
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge.us.us.us ], [ 1, %.preheader.us.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %25 = getelementptr inbounds nuw [4 x i16], ptr %23, i64 %indvars.iv46
-  %26 = trunc nuw nsw i64 %indvars.iv46 to i32
+  %25 = getelementptr inbounds nuw [4 x i16], ptr %23, i64 %indvars.iv47
+  %26 = trunc nuw nsw i64 %indvars.iv47 to i32
   %27 = srem i32 %26, %2
   %28 = shl i32 %27, 5
   %29 = add i32 %28, %22
@@ -661,15 +661,15 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
 
 ._crit_edge.us.us.us:                             ; preds = %.lr.ph.us.us.us, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge40.split.us.us.us, label %24, !llvm.loop !103
 
 ._crit_edge40.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %50 = add nuw nsw i32 %.02441.us.us, 1
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, %19
-  %exitcond52.not = icmp eq i32 %.02441.us.us, %20
-  br i1 %exitcond52.not, label %._crit_edge43, label %.preheader.us.us, !llvm.loop !104
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, %19
+  %exitcond53.not = icmp eq i32 %.02441.us.us, %20
+  br i1 %exitcond53.not, label %._crit_edge43, label %.preheader.us.us, !llvm.loop !104
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge40.split
   %51 = phi i16 [ %104, %._crit_edge40.split ], [ %6, %.preheader.lr.ph ]
@@ -759,11 +759,11 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   br i1 %103, label %57, label %._crit_edge40.split.loopexit, !llvm.loop !103
 
 ._crit_edge40.split.loopexit:                     ; preds = %._crit_edge37
-  %.pre53 = load i16, ptr %5, align 4, !tbaa !77
+  %.pre54 = load i16, ptr %5, align 4, !tbaa !77
   br label %._crit_edge40.split
 
 ._crit_edge40.split:                              ; preds = %._crit_edge40.split.loopexit, %.preheader
-  %104 = phi i16 [ %.pre53, %._crit_edge40.split.loopexit ], [ %51, %.preheader ]
+  %104 = phi i16 [ %.pre54, %._crit_edge40.split.loopexit ], [ %51, %.preheader ]
   %105 = phi i16 [ %100, %._crit_edge40.split.loopexit ], [ %52, %.preheader ]
   %106 = add nuw nsw i32 %.02441, 1
   %107 = zext i16 %104 to i32

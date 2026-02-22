@@ -7387,15 +7387,12 @@ declare float @cosf(float noundef) local_unnamed_addr #19
 define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [4 x float], align 16
   %4 = load float, ptr %0, align 4, !tbaa !138
-  %.fr36 = freeze float %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load float, ptr %5, align 4, !tbaa !138
-  %.fr37 = freeze float %6
-  %7 = fadd float %.fr36, %.fr37
+  %7 = fadd float %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load float, ptr %8, align 4, !tbaa !138
-  %.fr39 = freeze float %9
-  %10 = fadd float %7, %.fr39
+  %10 = fadd float %7, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = fcmp ogt float %10, 0.000000e+00
   br i1 %11, label %12, label %35
@@ -7423,85 +7420,85 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %32 = load float, ptr %31, align 4, !tbaa !138
   %33 = fsub float %30, %32
   %34 = fmul float %18, %33
-  br label %86
+  br label %87
 
 35:                                               ; preds = %2
-  %36 = fcmp olt float %.fr36, %.fr37
-  %37 = fcmp olt float %.fr37, %.fr39
+  %36 = fcmp olt float %4, %6
+  %37 = fcmp olt float %6, %9
   %38 = select i1 %37, i32 2, i32 1
-  %39 = fcmp olt float %.fr36, %.fr39
+  %39 = fcmp olt float %4, %9
   %40 = select i1 %39, i32 2, i32 0
   %41 = select i1 %36, i32 %38, i32 %40
-  %42 = add nuw nsw i32 %41, 1
+  %.fr = freeze i32 %41
+  %42 = add nuw nsw i32 %.fr, 1
   %43 = icmp eq i32 %42, 3
   %44 = select i1 %43, i32 0, i32 %42
-  %.urem = add nsw i32 %41, -1
-  %.cmp = icmp eq i32 %41, 0
-  %45 = select i1 %.cmp, i32 2, i32 %.urem
-  %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %46
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %46
-  %49 = load float, ptr %48, align 4, !tbaa !138
-  %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %50
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %50
-  %53 = load float, ptr %52, align 4, !tbaa !138
-  %54 = fsub float %49, %53
-  %55 = zext nneg i32 %45 to i64
-  %56 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %55
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %55
-  %58 = load float, ptr %57, align 4, !tbaa !138
-  %59 = fsub float %54, %58
-  %60 = fadd float %59, 1.000000e+00
-  %61 = tail call noundef float @sqrtf(float noundef %60) #27, !tbaa !169
-  %62 = fmul float %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
-  store float %62, ptr %63, align 4, !tbaa !138
-  %64 = fdiv float 5.000000e-01, %61
-  %65 = getelementptr inbounds nuw float, ptr %56, i64 %50
-  %66 = load float, ptr %65, align 4, !tbaa !138
-  %67 = getelementptr inbounds nuw float, ptr %51, i64 %55
-  %68 = load float, ptr %67, align 4, !tbaa !138
-  %69 = fsub float %66, %68
-  %70 = fmul float %64, %69
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %70, ptr %71, align 4, !tbaa !138
-  %72 = getelementptr inbounds nuw float, ptr %51, i64 %46
-  %73 = load float, ptr %72, align 4, !tbaa !138
-  %74 = getelementptr inbounds nuw float, ptr %47, i64 %50
-  %75 = load float, ptr %74, align 4, !tbaa !138
-  %76 = fadd float %73, %75
-  %77 = fmul float %64, %76
-  %78 = getelementptr inbounds nuw float, ptr %3, i64 %50
-  store float %77, ptr %78, align 4, !tbaa !138
-  %79 = getelementptr inbounds nuw float, ptr %56, i64 %46
-  %80 = load float, ptr %79, align 4, !tbaa !138
-  %81 = getelementptr inbounds nuw float, ptr %47, i64 %55
-  %82 = load float, ptr %81, align 4, !tbaa !138
-  %83 = fadd float %80, %82
-  %84 = fmul float %64, %83
-  %85 = getelementptr inbounds nuw float, ptr %3, i64 %55
-  store float %84, ptr %85, align 4, !tbaa !138
+  %45 = add nuw nsw i32 %.fr, 2
+  %46 = urem i32 %45, 3
+  %47 = zext nneg i32 %.fr to i64
+  %48 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %47
+  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %50 = load float, ptr %49, align 4, !tbaa !138
+  %51 = sext i32 %44 to i64
+  %52 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw float, ptr %52, i64 %51
+  %54 = load float, ptr %53, align 4, !tbaa !138
+  %55 = fsub float %50, %54
+  %56 = zext nneg i32 %46 to i64
+  %57 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw float, ptr %57, i64 %56
+  %59 = load float, ptr %58, align 4, !tbaa !138
+  %60 = fsub float %55, %59
+  %61 = fadd float %60, 1.000000e+00
+  %62 = tail call noundef float @sqrtf(float noundef %61) #27, !tbaa !169
+  %63 = fmul float %62, 5.000000e-01
+  %64 = getelementptr inbounds nuw float, ptr %3, i64 %47
+  store float %63, ptr %64, align 4, !tbaa !138
+  %65 = fdiv float 5.000000e-01, %62
+  %66 = getelementptr inbounds nuw float, ptr %57, i64 %51
+  %67 = load float, ptr %66, align 4, !tbaa !138
+  %68 = getelementptr inbounds nuw float, ptr %52, i64 %56
+  %69 = load float, ptr %68, align 4, !tbaa !138
+  %70 = fsub float %67, %69
+  %71 = fmul float %65, %70
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store float %71, ptr %72, align 4, !tbaa !138
+  %73 = getelementptr inbounds nuw float, ptr %52, i64 %47
+  %74 = load float, ptr %73, align 4, !tbaa !138
+  %75 = getelementptr inbounds nuw float, ptr %48, i64 %51
+  %76 = load float, ptr %75, align 4, !tbaa !138
+  %77 = fadd float %74, %76
+  %78 = fmul float %65, %77
+  %79 = getelementptr inbounds nuw float, ptr %3, i64 %51
+  store float %78, ptr %79, align 4, !tbaa !138
+  %80 = getelementptr inbounds nuw float, ptr %57, i64 %47
+  %81 = load float, ptr %80, align 4, !tbaa !138
+  %82 = getelementptr inbounds nuw float, ptr %48, i64 %56
+  %83 = load float, ptr %82, align 4, !tbaa !138
+  %84 = fadd float %81, %83
+  %85 = fmul float %65, %84
+  %86 = getelementptr inbounds nuw float, ptr %3, i64 %56
+  store float %85, ptr %86, align 4, !tbaa !138
   %.pre = load float, ptr %3, align 16, !tbaa !138
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.pre42 = load float, ptr %.phi.trans.insert, align 4, !tbaa !138
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre44 = load float, ptr %.phi.trans.insert43, align 8, !tbaa !138
-  %.pre46 = load float, ptr %71, align 4, !tbaa !138
-  br label %86
+  %.pre36 = load float, ptr %.phi.trans.insert, align 4, !tbaa !138
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.pre38 = load float, ptr %.phi.trans.insert37, align 8, !tbaa !138
+  %.pre40 = load float, ptr %72, align 4, !tbaa !138
+  br label %87
 
-86:                                               ; preds = %35, %12
-  %87 = phi float [ %.pre46, %35 ], [ %17, %12 ]
-  %88 = phi float [ %.pre44, %35 ], [ %34, %12 ]
-  %89 = phi float [ %.pre42, %35 ], [ %29, %12 ]
-  %90 = phi float [ %.pre, %35 ], [ %24, %12 ]
-  store float %90, ptr %1, align 4, !tbaa !138
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %89, ptr %91, align 4, !tbaa !138
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %88, ptr %92, align 4, !tbaa !138
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %87, ptr %93, align 4, !tbaa !138
+87:                                               ; preds = %35, %12
+  %88 = phi float [ %.pre40, %35 ], [ %17, %12 ]
+  %89 = phi float [ %.pre38, %35 ], [ %34, %12 ]
+  %90 = phi float [ %.pre36, %35 ], [ %29, %12 ]
+  %91 = phi float [ %.pre, %35 ], [ %24, %12 ]
+  store float %91, ptr %1, align 4, !tbaa !138
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store float %90, ptr %92, align 4, !tbaa !138
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store float %89, ptr %93, align 4, !tbaa !138
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store float %88, ptr %94, align 4, !tbaa !138
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

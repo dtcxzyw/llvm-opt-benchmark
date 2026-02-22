@@ -3512,10 +3512,10 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %.fr = freeze i64 %9
+  %.fr40 = freeze i64 %9
   %10 = load i8, ptr %3, align 1
-  %.fr39 = freeze i8 %10
-  %11 = zext i8 %.fr39 to i64
+  %.fr = freeze i8 %10
+  %11 = zext i8 %.fr to i64
   %12 = icmp ugt i64 %2, %11
   %13 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %11
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -3524,7 +3524,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split, !prof !590
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not11 = icmp eq i64 %.fr, 0
+  %.not11 = icmp eq i64 %.fr40, 0
   br i1 %.not11, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split, !prof !305
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -3546,7 +3546,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
   br i1 %18, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.us"
 
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.us": ; preds = %.lr.ph.split.us.split
-  %.0.sroa.speculated.i.i.us = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %.fr)
+  %.0.sroa.speculated.i.i.us = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %.fr40)
   %19 = getelementptr inbounds i8, ptr %16, i64 %.0.sroa.speculated.i.i.us
   %20 = sub nuw i64 %15, %.0.sroa.speculated.i.i.us
   store ptr %19, ptr %0, align 8, !alias.scope !594
@@ -3579,7 +3579,7 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_8bi
   br i1 %28, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit"
 
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit": ; preds = %.lr.ph.split
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.promoted30, i64 %.fr)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.promoted30, i64 %.fr40)
   %29 = getelementptr inbounds i8, ptr %.promoted, i64 %.0.sroa.speculated.i.i
   %30 = sub nuw i64 %.promoted30, %.0.sroa.speculated.i.i
   store ptr %29, ptr %0, align 8, !alias.scope !594
@@ -3774,14 +3774,14 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   %9 = load i64, ptr %8, align 8
   %.fr = freeze i64 %9
   %10 = load i8, ptr %3, align 1
-  %.fr100 = freeze i8 %10
-  %11 = lshr i8 %.fr100, 4
+  %.fr101 = freeze i8 %10
+  %11 = lshr i8 %.fr101, 4
   %12 = zext nneg i8 %11 to i64
   %13 = icmp ugt i64 %2, %12
   %14 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %12
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %15 = and i8 %.fr100, 15
+  %15 = and i8 %.fr101, 15
   %16 = zext nneg i8 %15 to i64
   %17 = icmp ugt i64 %2, %16
   %18 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %16
@@ -3844,8 +3844,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   br i1 %31, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %32
 
 32:                                               ; preds = %29
-  %.not103 = icmp ugt i64 %20, %.fr
-  br i1 %.not103, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit34.us.us", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread"
+  %.not105 = icmp ugt i64 %20, %.fr
+  br i1 %.not105, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit34.us.us", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread"
 
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit34.us.us": ; preds = %32
   %.0.sroa.speculated.i.i31.us.us = tail call noundef i64 @llvm.umin.i64(i64 %24, i64 %.fr)
@@ -3907,8 +3907,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs3bmp7decoder18set_4bi
   br i1 %51, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread", label %52
 
 52:                                               ; preds = %49
-  %.not101 = icmp ugt i64 %.promoted61, %.fr
-  br i1 %.not101, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit34.us", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread"
+  %.not103 = icmp ugt i64 %.promoted61, %.fr
+  br i1 %.not103, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit34.us", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.thread"
 
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit34.us": ; preds = %52
   %.0.sroa.speculated.i.i31.us = tail call noundef i64 @llvm.umin.i64(i64 %44, i64 %.fr)

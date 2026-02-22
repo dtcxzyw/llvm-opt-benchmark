@@ -2512,14 +2512,14 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23RE27ReplaceEPNSt7__cxx1112basi
   br i1 %.not.i, label %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.thread.i
-  %.027.i = phi i32 [ %.3.i, %.thread.i ], [ 0, %3 ]
-  %.01626.i = phi ptr [ %20, %.thread.i ], [ %7, %3 ]
-  %11 = load i8, ptr %.01626.i, align 1, !tbaa !26
+  %.028.i = phi i32 [ %.3.i, %.thread.i ], [ 0, %3 ]
+  %.01627.i = phi ptr [ %20, %.thread.i ], [ %7, %3 ]
+  %11 = load i8, ptr %.01627.i, align 1, !tbaa !26
   %12 = icmp eq i8 %11, 92
   br i1 %12, label %13, label %.thread.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.01626.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 1
   %15 = icmp ult ptr %14, %10
   br i1 %15, label %16, label %.thread.i
 
@@ -2529,13 +2529,13 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23RE27ReplaceEPNSt7__cxx1112basi
   %18 = sext i8 %.fr.i to i32
   %19 = add nsw i32 %18, -48
   %isdigit.i = icmp ult i32 %19, 10
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %19, i32 %.027.i)
-  %spec.select25.i = select i1 %isdigit.i, i32 %spec.select.i, i32 %.027.i
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %19, i32 %.028.i)
+  %spec.select25.i = select i1 %isdigit.i, i32 %spec.select.i, i32 %.028.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %16, %13, %.lr.ph.i
-  %.117.i = phi ptr [ %.01626.i, %.lr.ph.i ], [ %14, %13 ], [ %14, %16 ]
-  %.3.i = phi i32 [ %.027.i, %.lr.ph.i ], [ %.027.i, %13 ], [ %spec.select25.i, %16 ]
+  %.117.i = phi ptr [ %.01627.i, %.lr.ph.i ], [ %14, %13 ], [ %14, %16 ]
+  %.3.i = phi i32 [ %.028.i, %.lr.ph.i ], [ %.028.i, %13 ], [ %spec.select25.i, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
   %21 = icmp ult ptr %20, %10
   br i1 %21, label %.lr.ph.i, label %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, !llvm.loop !173
@@ -2651,14 +2651,14 @@ define hidden noundef range(i32 0, 80) i32 @_ZN10duckdb_re23RE211MaxSubmatchERKN
   ret i32 %.0.lcssa
 
 .lr.ph:                                           ; preds = %1, %.thread
-  %.027 = phi i32 [ %.3, %.thread ], [ 0, %1 ]
-  %.01626 = phi ptr [ %15, %.thread ], [ %2, %1 ]
-  %6 = load i8, ptr %.01626, align 1, !tbaa !26
+  %.028 = phi i32 [ %.3, %.thread ], [ 0, %1 ]
+  %.01627 = phi ptr [ %15, %.thread ], [ %2, %1 ]
+  %6 = load i8, ptr %.01627, align 1, !tbaa !26
   %7 = icmp eq i8 %6, 92
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.01626, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01627, i64 1
   %10 = icmp ult ptr %9, %5
   br i1 %10, label %11, label %.thread
 
@@ -2668,13 +2668,13 @@ define hidden noundef range(i32 0, 80) i32 @_ZN10duckdb_re23RE211MaxSubmatchERKN
   %13 = sext i8 %.fr to i32
   %14 = add nsw i32 %13, -48
   %isdigit = icmp ult i32 %14, 10
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %14, i32 %.027)
-  %spec.select25 = select i1 %isdigit, i32 %spec.select, i32 %.027
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %14, i32 %.028)
+  %spec.select25 = select i1 %isdigit, i32 %spec.select, i32 %.028
   br label %.thread
 
 .thread:                                          ; preds = %11, %8, %.lr.ph
-  %.117 = phi ptr [ %.01626, %.lr.ph ], [ %9, %8 ], [ %9, %11 ]
-  %.3 = phi i32 [ %.027, %.lr.ph ], [ %.027, %8 ], [ %spec.select25, %11 ]
+  %.117 = phi ptr [ %.01627, %.lr.ph ], [ %9, %8 ], [ %9, %11 ]
+  %.3 = phi i32 [ %.028, %.lr.ph ], [ %.028, %8 ], [ %spec.select25, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %.117, i64 1
   %16 = icmp ult ptr %15, %5
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !173
@@ -3979,14 +3979,14 @@ define hidden noundef i32 @_ZN10duckdb_re23RE213GlobalReplaceEPNSt7__cxx1112basi
   br i1 %.not.i, label %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.thread.i
-  %.027.i = phi i32 [ %.3.i, %.thread.i ], [ 0, %3 ]
-  %.01626.i = phi ptr [ %21, %.thread.i ], [ %8, %3 ]
-  %12 = load i8, ptr %.01626.i, align 1, !tbaa !26
+  %.028.i = phi i32 [ %.3.i, %.thread.i ], [ 0, %3 ]
+  %.01627.i = phi ptr [ %21, %.thread.i ], [ %8, %3 ]
+  %12 = load i8, ptr %.01627.i, align 1, !tbaa !26
   %13 = icmp eq i8 %12, 92
   br i1 %13, label %14, label %.thread.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.01626.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 1
   %16 = icmp ult ptr %15, %11
   br i1 %16, label %17, label %.thread.i
 
@@ -3996,13 +3996,13 @@ define hidden noundef i32 @_ZN10duckdb_re23RE213GlobalReplaceEPNSt7__cxx1112basi
   %19 = sext i8 %.fr.i to i32
   %20 = add nsw i32 %19, -48
   %isdigit.i = icmp ult i32 %20, 10
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %20, i32 %.027.i)
-  %spec.select25.i = select i1 %isdigit.i, i32 %spec.select.i, i32 %.027.i
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %20, i32 %.028.i)
+  %spec.select25.i = select i1 %isdigit.i, i32 %spec.select.i, i32 %.028.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %17, %14, %.lr.ph.i
-  %.117.i = phi ptr [ %.01626.i, %.lr.ph.i ], [ %15, %14 ], [ %15, %17 ]
-  %.3.i = phi i32 [ %.027.i, %.lr.ph.i ], [ %.027.i, %14 ], [ %spec.select25.i, %17 ]
+  %.117.i = phi ptr [ %.01627.i, %.lr.ph.i ], [ %15, %14 ], [ %15, %17 ]
+  %.3.i = phi i32 [ %.028.i, %.lr.ph.i ], [ %.028.i, %14 ], [ %spec.select25.i, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
   %22 = icmp ult ptr %21, %11
   br i1 %22, label %.lr.ph.i, label %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, !llvm.loop !173
@@ -4320,14 +4320,14 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23RE27ExtractERKNS_11StringPiece
   br i1 %.not.i, label %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.thread.i
-  %.027.i = phi i32 [ %.3.i, %.thread.i ], [ 0, %4 ]
-  %.01626.i = phi ptr [ %19, %.thread.i ], [ %6, %4 ]
-  %10 = load i8, ptr %.01626.i, align 1, !tbaa !26
+  %.028.i = phi i32 [ %.3.i, %.thread.i ], [ 0, %4 ]
+  %.01627.i = phi ptr [ %19, %.thread.i ], [ %6, %4 ]
+  %10 = load i8, ptr %.01627.i, align 1, !tbaa !26
   %11 = icmp eq i8 %10, 92
   br i1 %11, label %12, label %.thread.i
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %.01626.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 1
   %14 = icmp ult ptr %13, %9
   br i1 %14, label %15, label %.thread.i
 
@@ -4337,13 +4337,13 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23RE27ExtractERKNS_11StringPiece
   %17 = sext i8 %.fr.i to i32
   %18 = add nsw i32 %17, -48
   %isdigit.i = icmp ult i32 %18, 10
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %18, i32 %.027.i)
-  %spec.select25.i = select i1 %isdigit.i, i32 %spec.select.i, i32 %.027.i
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %18, i32 %.028.i)
+  %spec.select25.i = select i1 %isdigit.i, i32 %spec.select.i, i32 %.028.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %15, %12, %.lr.ph.i
-  %.117.i = phi ptr [ %.01626.i, %.lr.ph.i ], [ %13, %12 ], [ %13, %15 ]
-  %.3.i = phi i32 [ %.027.i, %.lr.ph.i ], [ %.027.i, %12 ], [ %spec.select25.i, %15 ]
+  %.117.i = phi ptr [ %.01627.i, %.lr.ph.i ], [ %13, %12 ], [ %13, %15 ]
+  %.3.i = phi i32 [ %.028.i, %.lr.ph.i ], [ %.028.i, %12 ], [ %spec.select25.i, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
   %20 = icmp ult ptr %19, %9
   br i1 %20, label %.lr.ph.i, label %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, !llvm.loop !173

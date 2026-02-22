@@ -1781,8 +1781,8 @@ define internal i64 @ossl_asn1cons_to_der(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = load i64, ptr @sivINDEFINITE_LENGTH, align 8, !tbaa !17
   %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #9
-  %.fr28 = freeze i64 %4
-  %5 = and i64 %.fr28, -5
+  %.fr = freeze i64 %4
+  %5 = and i64 %.fr, -5
   %6 = icmp ne i64 %5, 0
   %7 = load i64, ptr @sivVALUE, align 8, !tbaa !17
   %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #9

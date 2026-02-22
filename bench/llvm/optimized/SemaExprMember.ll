@@ -508,11 +508,10 @@ define dso_local i64 @_ZN5clang4Sema31BuildPossibleImplicitMemberExprERKNS_12CXX
 ._crit_edge.i:                                    ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i
   %.pre124.i = load i32, ptr %32, align 4, !tbaa !698
   %.pre125.i = load i32, ptr %33, align 8, !tbaa !699
-  %.pre124.fr.i = freeze i32 %.pre124.i
-  %.pre125.fr.i = freeze i32 %.pre125.i
-  %41 = icmp eq i32 %.pre124.fr.i, %.pre125.fr.i
-  %brmerge.i = or i1 %.043.i, %41
-  %..i = select i1 %41, i32 0, i32 7
+  %41 = icmp eq i32 %.pre124.i, %.pre125.i
+  %cond.fr.i = freeze i1 %41
+  %brmerge.i = or i1 %.043.i, %cond.fr.i
+  %..i = select i1 %cond.fr.i, i32 0, i32 7
   br i1 %brmerge.i, label %.critedge.i, label %84
 
 .lr.ph.i:                                         ; preds = %29, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i

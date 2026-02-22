@@ -4271,13 +4271,13 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
 .lr.ph.i.i:                                       ; preds = %56, %.critedge2.i.i
   %59 = phi i8 [ %62, %.critedge2.i.i ], [ %58, %56 ]
   %.083166.i.i = phi ptr [ %61, %.critedge2.i.i ], [ %57, %56 ]
-  %.fr.i.i = freeze i8 %59
-  %60 = add i8 %.fr.i.i, -48
+  %.fr172.i.i = freeze i8 %59
+  %60 = add i8 %.fr172.i.i, -48
   %or.cond128.i.i = icmp ult i8 %60, 10
   br i1 %or.cond128.i.i, label %.critedge2.i.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
-  switch i8 %.fr.i.i, label %.critedge4.i.i [
+  switch i8 %.fr172.i.i, label %.critedge4.i.i [
     i8 102, label %.critedge2.i.i
     i8 101, label %.critedge2.i.i
     i8 100, label %.critedge2.i.i
@@ -4306,8 +4306,8 @@ sub_1.i.i:                                        ; preds = %switch.early.test.i
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = sub nsw i32 50, %65
-  %.not173.i.i = icmp eq i8 %64, 50
-  br i1 %.not173.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not174.i.i = icmp eq i8 %64, 50
+  br i1 %.not174.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %67 = getelementptr inbounds nuw i8, ptr %.083166.i.i, i64 2
@@ -4375,7 +4375,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %.not120.i.i, label %.critedge4.thread.i.i, label %.lr.ph170.i.i, !llvm.loop !278
 
 .critedge4.i.i:                                   ; preds = %switch.early.test.i.i, %89
-  %.pr.i.i = phi i8 [ %85, %89 ], [ %.fr.i.i, %switch.early.test.i.i ]
+  %.pr.i.i = phi i8 [ %85, %89 ], [ %.fr172.i.i, %switch.early.test.i.i ]
   %.1.ph.i.i = phi ptr [ %.2169.i.i, %89 ], [ %.083166.i.i, %switch.early.test.i.i ]
   %91 = icmp eq i8 %.pr.i.i, 93
   br i1 %91, label %92, label %.critedge4.thread.i.i

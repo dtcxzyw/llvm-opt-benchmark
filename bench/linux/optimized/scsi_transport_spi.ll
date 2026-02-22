@@ -2860,13 +2860,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit4, label %11, !llvm.loop !15
+  br i1 %18, label %.loopexit5, label %11, !llvm.loop !15
 
 19:                                               ; preds = %11
   %20 = getelementptr i8, ptr %12, i64 -592
-  br label %.loopexit4
+  br label %.loopexit5
 
-.loopexit4:                                       ; preds = %15, %19
+.loopexit5:                                       ; preds = %15, %19
   %21 = phi ptr [ %20, %19 ], [ null, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
   %23 = load ptr, ptr %22, align 8
@@ -2877,7 +2877,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %28 = icmp eq ptr %27, null
   br i1 %28, label %74, label %29
 
-29:                                               ; preds = %.loopexit4
+29:                                               ; preds = %.loopexit5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !annotation !8
   %30 = call i64 @simple_strtoul(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #17
@@ -2949,8 +2949,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %73 = ashr exact i64 %72, 32
   br label %74
 
-74:                                               ; preds = %63, %.loopexit4
-  %75 = phi i64 [ %73, %63 ], [ -22, %.loopexit4 ]
+74:                                               ; preds = %63, %.loopexit5
+  %75 = phi i64 [ %73, %63 ], [ -22, %.loopexit5 ]
   ret i64 %75
 }
 

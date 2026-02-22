@@ -149,8 +149,8 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeInitialize(ptr nound
 define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i32, ptr %4, align 8
-  %.fr73 = freeze i32 %5
-  %6 = lshr i32 %.fr73, 3
+  %.fr = freeze i32 %5
+  %6 = lshr i32 %.fr, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
@@ -163,9 +163,9 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %
 .lr.ph70:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %10 = zext nneg i32 %6 to i64
-  %11 = and i32 %.fr73, 56
+  %11 = and i32 %.fr, 56
   %12 = icmp eq i32 %11, 0
-  %13 = lshr i32 %.fr73, 6
+  %13 = lshr i32 %.fr, 6
   br i1 %12, label %.lr.ph70.split.us, label %.lr.ph70.split
 
 .lr.ph70.split.us:                                ; preds = %.lr.ph70, %34
@@ -574,8 +574,8 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeInitialize(
 define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i32, ptr %4, align 8
-  %.fr73 = freeze i32 %5
-  %6 = lshr i32 %.fr73, 3
+  %.fr = freeze i32 %5
+  %6 = lshr i32 %.fr, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
@@ -588,9 +588,9 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr 
 .lr.ph70:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %10 = zext nneg i32 %6 to i64
-  %11 = and i32 %.fr73, 56
+  %11 = and i32 %.fr, 56
   %12 = icmp eq i32 %11, 0
-  %13 = lshr i32 %.fr73, 6
+  %13 = lshr i32 %.fr, 6
   br i1 %12, label %.lr.ph70.split.us, label %.lr.ph70.split
 
 .lr.ph70.split.us:                                ; preds = %.lr.ph70, %34

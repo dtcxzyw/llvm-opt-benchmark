@@ -538,12 +538,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %5 = alloca %struct.FileTag, align 8
   %6 = alloca %struct.FileTag, align 8
   %7 = alloca %struct.FileTag, align 8
-  %.fr94 = freeze i64 %1
+  %.fr = freeze i64 %1
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %.sroa.6.8.extract.trunc = trunc i64 %.fr94 to i32
-  %.sroa.11.8.extract.shift = lshr i64 %.fr94, 32
+  %.sroa.6.8.extract.trunc = trunc i64 %.fr to i32
+  %.sroa.11.8.extract.shift = lshr i64 %.fr, 32
   %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %8 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.11.8.extract.trunc, i32 noundef %2) #14
   %9 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4
@@ -616,15 +616,15 @@ do_truncate.exit:                                 ; preds = %14, %18, %25
 
 37:                                               ; preds = %34
   %38 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
-  br i1 %38, label %39, label %.critedge82.thread105
+  br i1 %38, label %39, label %.critedge82.thread104
 
 39:                                               ; preds = %37
   %40 = call i32 @errcode_for_file_access() #14
   %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %8) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 373, ptr noundef nonnull @__func__.mdunlinkfork) #14
-  br label %.critedge82.thread105
+  br label %.critedge82.thread104
 
-.critedge82.thread105:                            ; preds = %37, %39
+.critedge82.thread104:                            ; preds = %37, %39
   store i32 %36, ptr %35, align 4
   br label %.critedge84
 
@@ -668,10 +668,10 @@ do_truncate.exit86:                               ; preds = %42, %46, %53
   store i32 %54, ptr %45, align 4
   %58 = icmp slt i32 %43, 0
   %.not79 = icmp eq i32 %54, 2
-  %or.cond109 = select i1 %58, i1 %.not79, i1 false
-  br i1 %or.cond109, label %.critedge82.thread, label %.critedge84
+  %or.cond108 = select i1 %58, i1 %.not79, i1 false
+  br i1 %or.cond108, label %.critedge82.thread, label %.critedge84
 
-.critedge84:                                      ; preds = %.critedge82.thread105, %.critedge, %do_truncate.exit86
+.critedge84:                                      ; preds = %.critedge82.thread104, %.critedge, %do_truncate.exit86
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %60 = add i64 %59, 12
   %61 = call ptr @palloc(i64 noundef %60) #14

@@ -7829,28 +7829,27 @@ while.body.i.i.i5:                                ; preds = %.thread30.i.i.i, %i
   %shr.i.i.i = lshr i64 %__len.037.i.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.boost::re_detail_107400::character_pointer_range", ptr %__first.addr.038.i.i.i, i64 %shr.i.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %.fr11.i = freeze ptr %8
   %p2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %9 = load ptr, ptr %p2.i.i.i.i.i, align 8
-  %.fr.i = freeze ptr %9
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %.fr.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %.fr11.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.fr11.i, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %.fr.i
-  %cmp.not18.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr11.i, %cond.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %9
+  %cmp.not18.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %cond.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not18.i.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i.i.i.i:           ; preds = %while.body.i.i.i5
   %cond.i21.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %cond.i.i.i.i.i.i.i.i.i.i.i to i64
   %10 = sub i64 %cond.i21.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i
-  %scevgep.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %p1, i64 %10
+  %.fr.i = freeze i64 %10
+  %scevgep.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %p1, i64 %.fr.i
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i.i.i.i
   %__first2.addr.020.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr6.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ], [ %p1, %for.body.preheader.i.i.i.i.i.i.i.i.i.i ]
-  %__first1.addr.019.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ], [ %.fr11.i, %for.body.preheader.i.i.i.i.i.i.i.i.i.i ]
+  %__first1.addr.019.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ], [ %8, %for.body.preheader.i.i.i.i.i.i.i.i.i.i ]
   %11 = load i8, ptr %__first1.addr.019.i.i.i.i.i.i.i.i.i.i, align 1
   %12 = load i8, ptr %__first2.addr.020.i.i.i.i.i.i.i.i.i.i, align 1
   %cmp.i15.i.i.i.i.i.i.i.i.i.i = icmp slt i8 %11, %12
@@ -7874,12 +7873,12 @@ for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i5
   %__first2.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %p1, %while.body.i.i.i5 ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ]
-  %cmp9.i.i.i.i.i.i.i.not.i.i.i = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i, %p2
+  %cmp9.i.i.i.i.i.i.i.i.i.not.i = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i, %p2
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %14 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.037.i.i.i, %14
-  %spec.select.i.i.i = select i1 %cmp9.i.i.i.i.i.i.i.not.i.i.i, i64 %shr.i.i.i, i64 %sub2.i.i.i
-  %spec.select35.i.i.i = select i1 %cmp9.i.i.i.i.i.i.i.not.i.i.i, ptr %__first.addr.038.i.i.i, ptr %incdec.ptr.i.i.i
+  %spec.select.i.i.i = select i1 %cmp9.i.i.i.i.i.i.i.i.i.not.i, i64 %shr.i.i.i, i64 %sub2.i.i.i
+  %spec.select35.i.i.i = select i1 %cmp9.i.i.i.i.i.i.i.i.i.not.i, ptr %__first.addr.038.i.i.i, ptr %incdec.ptr.i.i.i
   br label %.thread30.i.i.i
 
 .thread30.i.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i, %.thread.i.i.i

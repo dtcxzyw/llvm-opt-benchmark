@@ -12931,21 +12931,20 @@ define internal fastcc noundef nonnull align 8 dereferenceable(80) ptr @"_ZN4cor
   %.sroa.5.0.copyload.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !1442, !nonnull !3, !noundef !3
   %.sroa.62.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.62.0.copyload.i.i.i = load ptr, ptr %.sroa.62.0..sroa_idx.i.i.i, align 8, !noalias !1442
-  %.sroa.62.0.copyload.fr.i.i.i = freeze ptr %.sroa.62.0.copyload.i.i.i
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.7.0.copyload.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !noalias !1442
-  %.sroa.7.0.copyload.fr.i.i.i = freeze ptr %.sroa.7.0.copyload.i.i.i
   %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.8.0.copyload.i.i.i = load ptr, ptr %.sroa.8.0..sroa_idx.i.i.i, align 8, !noalias !1442
   %.sroa.11.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %.sroa.11.0.copyload.i.i.i = load ptr, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !1442
-  %83 = icmp ne ptr %.sroa.62.0.copyload.fr.i.i.i, null
+  %83 = icmp ne ptr %.sroa.62.0.copyload.i.i.i, null
   %84 = icmp eq ptr %.sroa.01.0.copyload.i.i.i, %.sroa.5.0.copyload.i.i.i
   br i1 %84, label %select.unfold.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %82
-  %85 = icmp eq ptr %.sroa.62.0.copyload.fr.i.i.i, %.sroa.7.0.copyload.fr.i.i.i
-  br i1 %85, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
+  %85 = icmp eq ptr %.sroa.62.0.copyload.i.i.i, %.sroa.7.0.copyload.i.i.i
+  %.fr.i.i.i = freeze i1 %85
+  br i1 %.fr.i.i.i, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i.i.i
   %86 = icmp ne ptr %.sroa.11.0.copyload.i.i.i, null
@@ -12984,10 +12983,10 @@ define internal fastcc noundef nonnull align 8 dereferenceable(80) ptr @"_ZN4cor
   %99 = icmp ne ptr %.sroa.11.076.i.i.i, null
   call void @llvm.assume(i1 %99)
   %100 = icmp eq ptr %.sroa.8.077.i.i.i, %.sroa.11.076.i.i.i
-  %spec.select.i.i.i = select i1 %100, ptr %.sroa.7.0.copyload.fr.i.i.i, ptr %.sroa.11.076.i.i.i
-  %spec.select80.i.i.i = select i1 %100, ptr %.sroa.62.0.copyload.fr.i.i.i, ptr %.sroa.8.077.i.i.i
+  %spec.select.i.i.i = select i1 %100, ptr %.sroa.7.0.copyload.i.i.i, ptr %.sroa.11.076.i.i.i
+  %spec.select80.i.i.i = select i1 %100, ptr %.sroa.62.0.copyload.i.i.i, ptr %.sroa.8.077.i.i.i
   %101 = getelementptr inbounds nuw i8, ptr %spec.select80.i.i.i, i64 1
-  %102 = load i8, ptr %spec.select80.i.i.i, align 1, !noundef !3
+  %102 = load i8, ptr %spec.select80.i.i.i, align 1, !noalias !1460, !noundef !3
   %103 = load i8, ptr %.sroa.01.078.i.i.i, align 1, !noalias !1460, !noundef !3
   %104 = xor i8 %103, %102
   store i8 %104, ptr %.sroa.01.078.i.i.i, align 1, !noalias !1460

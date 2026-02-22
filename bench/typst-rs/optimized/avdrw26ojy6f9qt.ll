@@ -967,12 +967,10 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
 
 10:                                               ; preds = %6
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 1, !noalias !110
-  %.sroa.2.0.copyload.fr.i.i = freeze i8 %.sroa.2.0.copyload.i.i
   %.sroa.45.0.copyload.i.i = load ptr, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !noalias !110
   %.sroa.56.0.copyload.i.i = load i64, ptr %.sroa.56.0..sroa_idx.i.i, align 8, !noalias !110
   %.sroa.67.0.copyload.i.i = load ptr, ptr %.sroa.67.0..sroa_idx.i.i, align 8, !noalias !110
   %.sroa.78.0.copyload.i.i = load i64, ptr %.sroa.78.0..sroa_idx.i.i, align 8, !noalias !110
-  %.sroa.411.0.copyload.fr.i.i = freeze i8 %.sroa.2.0.copyload
   %11 = icmp samesign ugt i8 %7, 5
   %12 = zext nneg i8 %7 to i64
   %13 = add nsw i64 %12, -5
@@ -1040,8 +1038,9 @@ default.unreachable:                              ; preds = %24
   br i1 %or.cond.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he6de8c2c167a4535E.exit.i.i", label %61
 
 34:                                               ; preds = %24
-  %35 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i, %.sroa.2.0.copyload.fr.i.i
-  br i1 %35, label %59, label %61
+  %35 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
+  %cond.fr28.i.i = freeze i1 %35
+  br i1 %cond.fr28.i.i, label %59, label %61
 
 36:                                               ; preds = %24
   %.not.i7.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload, %.sroa.56.0.copyload.i.i
@@ -1073,8 +1072,9 @@ default.unreachable:                              ; preds = %24
   br i1 %or.cond26.i.i.i, label %47, label %61
 
 45:                                               ; preds = %24
-  %46 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i, %.sroa.2.0.copyload.fr.i.i
-  br i1 %46, label %59, label %61
+  %46 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
+  %cond.fr27.i.i = freeze i1 %46
+  br i1 %cond.fr27.i.i, label %59, label %61
 
 47:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit14.i.i.i.i.i.i"
   %48 = icmp ne ptr %.sroa.67.0.copyload.i.i, null

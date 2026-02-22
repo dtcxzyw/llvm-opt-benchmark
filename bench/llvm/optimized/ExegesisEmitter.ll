@@ -4395,310 +4395,307 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %13 = alloca %"struct.(anonymous namespace)::ValidationCounterInfo", align 8
   %14 = alloca %"struct.(anonymous namespace)::ValidationCounterInfo", align 8
   %15 = alloca %"struct.(anonymous namespace)::ValidationCounterInfo", align 8
-  %.fr38.i = freeze ptr %0
-  %.fr = freeze ptr %1
-  %16 = ptrtoint ptr %.fr38.i to i64
-  %17 = ptrtoint ptr %.fr to i64
+  %.fr32 = freeze ptr %1
+  %.fr25 = freeze ptr %0
+  %16 = ptrtoint ptr %.fr25 to i64
+  %17 = ptrtoint ptr %.fr32 to i64
   %18 = sub i64 %17, %16
   %19 = ashr exact i64 %18, 5
   %20 = icmp sgt i64 %19, 16
   br i1 %20, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit
 
 .lr.ph:                                           ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %.fr38.i, i64 32
-  br label %22
+  %21 = getelementptr inbounds nuw i8, ptr %.fr25, i64 32
+  %22 = icmp eq i64 %2, 0
+  br i1 %22, label %._crit_edge, label %.lr.ph41
 
-22:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
-  %23 = phi i64 [ %19, %.lr.ph ], [ %126, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit ]
-  %.019 = phi i64 [ %2, %.lr.ph ], [ %98, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit ]
-  %storemerge18 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.013.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit ]
-  %24 = icmp eq i64 %.019, 0
-  br i1 %24, label %25, label %97
+23:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
+  %24 = icmp eq i64 %93, 0
+  br i1 %24, label %._crit_edge, label %.lr.ph41, !llvm.loop !148
 
-25:                                               ; preds = %22
-  %26 = ptrtoint ptr %storemerge18 to i64
-  %27 = sub i64 %26, %16
-  %28 = ashr i64 %27, 5
-  %29 = icmp slt i64 %28, 2
-  br i1 %29, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit.i, label %30
+._crit_edge:                                      ; preds = %23, %.lr.ph
+  %.fr.i24.lcssa = phi i64 [ %18, %.lr.ph ], [ %120, %23 ]
+  %storemerge22.lcssa = phi ptr [ %.fr32, %.lr.ph ], [ %.sroa.013.1.i.i, %23 ]
+  %25 = lshr i64 %.fr.i24.lcssa, 5
+  %26 = add nsw i64 %25, -2
+  %27 = lshr i64 %26, 1
+  %28 = add nsw i64 %25, -1
+  %29 = lshr i64 %28, 1
+  %30 = and i64 %.fr.i24.lcssa, 32
+  %31 = icmp eq i64 %30, 0
+  %32 = or disjoint i64 %26, 1
+  %33 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %32
+  %34 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %27
+  br label %35
 
-30:                                               ; preds = %25
-  %31 = add nsw i64 %28, -2
-  %32 = lshr i64 %31, 1
-  %33 = add nsw i64 %28, -1
-  %34 = lshr i64 %33, 1
-  %35 = and i64 %27, 32
-  %36 = icmp eq i64 %35, 0
-  %37 = or disjoint i64 %31, 1
-  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %37
-  %39 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %32
-  br label %40
-
-40:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, %30
-  %.08.i.i.i = phi i64 [ %32, %30 ], [ %62, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i ]
-  %41 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.08.i.i.i
+35:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, %._crit_edge
+  %.08.i.i.i = phi i64 [ %27, %._crit_edge ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i ]
+  %36 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.08.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
-  %42 = icmp slt i64 %.08.i.i.i, %34
-  br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
+  %37 = icmp slt i64 %.08.i.i.i, %29
+  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %40, %.lr.ph.i.i.i.i
-  %.042.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %40 ]
-  %43 = shl i64 %.042.i.i.i.i, 1
-  %44 = add i64 %43, 2
-  %45 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %44
-  %46 = or disjoint i64 %43, 1
-  %47 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %46
-  %48 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %45, ptr noundef nonnull align 8 dereferenceable(28) %47) #18
-  %spec.select.i.i.i.i = select i1 %48, i64 %46, i64 %44
-  %49 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %spec.select.i.i.i.i
-  %50 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.042.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %50, ptr noundef nonnull align 8 dereferenceable(28) %49, i64 28, i1 false), !tbaa.struct !121
-  %51 = icmp slt i64 %spec.select.i.i.i.i, %34
-  br i1 %51, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !148
+.lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.i.i.i.i
+  %.042.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %35 ]
+  %38 = shl i64 %.042.i.i.i.i, 1
+  %39 = add i64 %38, 2
+  %40 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %39
+  %41 = or disjoint i64 %38, 1
+  %42 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %41
+  %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef nonnull align 8 dereferenceable(28) %42) #18
+  %spec.select.i.i.i.i = select i1 %43, i64 %41, i64 %39
+  %44 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %spec.select.i.i.i.i
+  %45 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.042.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %45, ptr noundef nonnull align 8 dereferenceable(28) %44, i64 28, i1 false), !tbaa.struct !121
+  %46 = icmp slt i64 %spec.select.i.i.i.i, %29
+  br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !149
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %40
-  %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %40 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %52 = icmp eq i64 %.0.lcssa.i.i.i.i, %32
-  %or.cond.i.i.i = select i1 %36, i1 %52, i1 false
-  br i1 %or.cond.i.i.i, label %53, label %54
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %35
+  %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %35 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %47 = icmp eq i64 %.0.lcssa.i.i.i.i, %27
+  %or.cond.i.i.i = select i1 %31, i1 %47, i1 false
+  br i1 %or.cond.i.i.i, label %48, label %49
 
-53:                                               ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %39, ptr noundef nonnull align 8 dereferenceable(28) %38, i64 28, i1 false), !tbaa.struct !121
-  br label %54
+48:                                               ; preds = %._crit_edge.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %34, ptr noundef nonnull align 8 dereferenceable(28) %33, i64 28, i1 false), !tbaa.struct !121
+  br label %49
 
-54:                                               ; preds = %53, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %37, %53 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+49:                                               ; preds = %48, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %32, %48 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 32, i1 false)
-  %55 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
-  br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i
+  %50 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
+  br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %54, %58
-  %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %58 ], [ %.1.i.i.i.i, %54 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %49, %53
+  %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %53 ], [ %.1.i.i.i.i, %49 ]
   %.097.in.i.i.i.i.i = add nsw i64 %.06.i.i.i.i.i, -1
   %.097.i.i.i.i.i = sdiv i64 %.097.in.i.i.i.i.i, 2
-  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.097.i.i.i.i.i
-  %57 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %56, ptr noundef nonnull align 8 dereferenceable(28) %14) #18
-  br i1 %57, label %58, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i
+  %51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.097.i.i.i.i.i
+  %52 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %51, ptr noundef nonnull align 8 dereferenceable(28) %14) #18
+  br i1 %52, label %53, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i
 
-58:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %59 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.06.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %59, ptr noundef nonnull align 8 dereferenceable(28) %56, i64 28, i1 false), !tbaa.struct !121
-  %60 = icmp sgt i64 %.097.i.i.i.i.i, %.08.i.i.i
-  br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, !llvm.loop !149
+53:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.06.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %54, ptr noundef nonnull align 8 dereferenceable(28) %51, i64 28, i1 false), !tbaa.struct !121
+  %55 = icmp sgt i64 %.097.i.i.i.i.i, %.08.i.i.i
+  br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, !llvm.loop !150
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i: ; preds = %58, %.lr.ph.i.i.i.i.i, %54
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %54 ], [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %58 ]
-  %61 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.0.lcssa.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %61, ptr noundef nonnull align 8 dereferenceable(28) %14, i64 28, i1 false), !tbaa.struct !121
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i, %49
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %53 ]
+  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.0.lcssa.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %56, ptr noundef nonnull align 8 dereferenceable(28) %14, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
-  %62 = add nsw i64 %.08.i.i.i, -1
-  br i1 %.not.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit.i, label %40, !llvm.loop !150
+  %57 = add nsw i64 %.08.i.i.i, -1
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit.i.i, label %35, !llvm.loop !151
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i, %25
-  %63 = icmp sgt i64 %27, 32
-  br i1 %63, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i.i
+  %58 = icmp sgt i64 %.fr.i24.lcssa, 32
+  br i1 %58, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i
-  %.sroa.0.02.i.i = phi ptr [ %64, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i ], [ %storemerge18, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit.i ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -32
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i
+  %.sroa.0.02.i.i = phi ptr [ %59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i ], [ %storemerge22.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit.i.i ]
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %64, ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, i64 28, i1 false), !tbaa.struct !121
-  %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 %65, %16
-  %67 = ashr exact i64 %66, 5
-  %68 = add nsw i64 %67, -1
-  %69 = sdiv i64 %68, 2
-  %70 = icmp sgt i64 %67, 2
-  br i1 %70, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i10.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %59, ptr noundef nonnull align 8 dereferenceable(28) %.fr25, i64 28, i1 false), !tbaa.struct !121
+  %60 = ptrtoint ptr %59 to i64
+  %61 = sub i64 %60, %16
+  %62 = ashr exact i64 %61, 5
+  %63 = add nsw i64 %62, -1
+  %64 = sdiv i64 %63, 2
+  %65 = icmp sgt i64 %62, 2
+  br i1 %65, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i10.i
 
 .lr.ph.i.i.i23.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i23.i
   %.042.i.i.i24.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i9.i ]
-  %71 = shl i64 %.042.i.i.i24.i, 1
-  %72 = add i64 %71, 2
-  %73 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %72
-  %74 = or disjoint i64 %71, 1
-  %75 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %74
-  %76 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %73, ptr noundef nonnull align 8 dereferenceable(28) %75) #18
-  %spec.select.i.i.i25.i = select i1 %76, i64 %74, i64 %72
-  %77 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %spec.select.i.i.i25.i
-  %78 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.042.i.i.i24.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %78, ptr noundef nonnull align 8 dereferenceable(28) %77, i64 28, i1 false), !tbaa.struct !121
-  %79 = icmp slt i64 %spec.select.i.i.i25.i, %69
-  br i1 %79, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i10.i, !llvm.loop !148
+  %66 = shl i64 %.042.i.i.i24.i, 1
+  %67 = add i64 %66, 2
+  %68 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %67
+  %69 = or disjoint i64 %66, 1
+  %70 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %69
+  %71 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %68, ptr noundef nonnull align 8 dereferenceable(28) %70) #18
+  %spec.select.i.i.i25.i = select i1 %71, i64 %69, i64 %67
+  %72 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %spec.select.i.i.i25.i
+  %73 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.042.i.i.i24.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %73, ptr noundef nonnull align 8 dereferenceable(28) %72, i64 28, i1 false), !tbaa.struct !121
+  %74 = icmp slt i64 %spec.select.i.i.i25.i, %64
+  br i1 %74, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i10.i, !llvm.loop !149
 
 ._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i23.i, %.lr.ph.i9.i
   %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i23.i ]
-  %80 = and i64 %66, 32
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %90
+  %75 = and i64 %61, 32
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %77, label %85
 
-82:                                               ; preds = %._crit_edge.i.i.i10.i
-  %83 = add nsw i64 %67, -2
-  %84 = ashr exact i64 %83, 1
-  %85 = icmp eq i64 %.0.lcssa.i.i.i11.i, %84
-  br i1 %85, label %.thread.i.i22.i, label %90
+77:                                               ; preds = %._crit_edge.i.i.i10.i
+  %78 = add nsw i64 %62, -2
+  %79 = ashr exact i64 %78, 1
+  %80 = icmp eq i64 %.0.lcssa.i.i.i11.i, %79
+  br i1 %80, label %.thread.i.i22.i, label %85
 
-.thread.i.i22.i:                                  ; preds = %82
-  %86 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
-  %87 = or disjoint i64 %86, 1
-  %88 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %87
-  %89 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.0.lcssa.i.i.i11.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %89, ptr noundef nonnull align 8 dereferenceable(28) %88, i64 28, i1 false), !tbaa.struct !121
+.thread.i.i22.i:                                  ; preds = %77
+  %81 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %82 = or disjoint i64 %81, 1
+  %83 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %82
+  %84 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.0.lcssa.i.i.i11.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef nonnull align 8 dereferenceable(28) %83, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i15.i.preheader
 
-90:                                               ; preds = %82, %._crit_edge.i.i.i10.i
+85:                                               ; preds = %77, %._crit_edge.i.i.i10.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
   %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
   br i1 %.not.i.i12.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i, label %.lr.ph.i.i.i.i15.i.preheader
 
-.lr.ph.i.i.i.i15.i.preheader:                     ; preds = %90, %.thread.i.i22.i
-  %.06.i.i.i.i16.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %90 ], [ %87, %.thread.i.i22.i ]
+.lr.ph.i.i.i.i15.i.preheader:                     ; preds = %85, %.thread.i.i22.i
+  %.06.i.i.i.i16.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %85 ], [ %82, %.thread.i.i22.i ]
   br label %.lr.ph.i.i.i.i15.i
 
-.lr.ph.i.i.i.i15.i:                               ; preds = %.lr.ph.i.i.i.i15.i.preheader, %93
-  %.06.i.i.i.i16.i = phi i64 [ %.097.i.i89.i.i18.i, %93 ], [ %.06.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
+.lr.ph.i.i.i.i15.i:                               ; preds = %.lr.ph.i.i.i.i15.i.preheader, %88
+  %.06.i.i.i.i16.i = phi i64 [ %.097.i.i89.i.i18.i, %88 ], [ %.06.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
   %.097.in.i.i.i.i17.i = add nsw i64 %.06.i.i.i.i16.i, -1
   %.097.i.i89.i.i18.i = lshr i64 %.097.in.i.i.i.i17.i, 1
-  %91 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.097.i.i89.i.i18.i
-  %92 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %91, ptr noundef nonnull align 8 dereferenceable(28) %12) #18
-  br i1 %92, label %93, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i
+  %86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.097.i.i89.i.i18.i
+  %87 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %86, ptr noundef nonnull align 8 dereferenceable(28) %12) #18
+  br i1 %87, label %88, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i
 
-93:                                               ; preds = %.lr.ph.i.i.i.i15.i
-  %94 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.06.i.i.i.i16.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %94, ptr noundef nonnull align 8 dereferenceable(28) %91, i64 28, i1 false), !tbaa.struct !121
+88:                                               ; preds = %.lr.ph.i.i.i.i15.i
+  %89 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.06.i.i.i.i16.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %89, ptr noundef nonnull align 8 dereferenceable(28) %86, i64 28, i1 false), !tbaa.struct !121
   %.not10.i.i21.i = icmp eq i64 %.097.i.i89.i.i18.i, 0
-  br i1 %.not10.i.i21.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !149
+  br i1 %.not10.i.i21.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !150
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i: ; preds = %93, %.lr.ph.i.i.i.i15.i, %90
-  %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %90 ], [ %.06.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %93 ]
-  %95 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %.0.lcssa.i.i.i.i20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %12, i64 28, i1 false), !tbaa.struct !121
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i: ; preds = %88, %.lr.ph.i.i.i.i15.i, %85
+  %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %85 ], [ %.06.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %88 ]
+  %90 = getelementptr inbounds %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %.0.lcssa.i.i.i.i20.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %90, ptr noundef nonnull align 8 dereferenceable(28) %12, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %96 = icmp sgt i64 %66, 32
-  br i1 %96, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !151
+  %91 = icmp sgt i64 %61, 32
+  br i1 %91, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !152
 
-97:                                               ; preds = %22
-  %98 = add nsw i64 %.019, -1
-  %99 = lshr i64 %23, 1
-  %100 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr38.i, i64 %99
-  %101 = getelementptr inbounds i8, ptr %storemerge18, i64 -32
-  %102 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %100) #18
-  br i1 %102, label %103, label %110
+.lr.ph41:                                         ; preds = %.lr.ph, %23
+  %storemerge2240 = phi ptr [ %.sroa.013.1.i.i, %23 ], [ %.fr32, %.lr.ph ]
+  %.02339 = phi i64 [ %93, %23 ], [ %2, %.lr.ph ]
+  %92 = phi i64 [ %121, %23 ], [ %19, %.lr.ph ]
+  %93 = add nsw i64 %.02339, -1
+  %94 = lshr i64 %92, 1
+  %95 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValidationCounterInfo", ptr %.fr25, i64 %94
+  %96 = getelementptr inbounds i8, ptr %storemerge2240, i64 -32
+  %97 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %95) #18
+  br i1 %97, label %98, label %105
 
-103:                                              ; preds = %97
-  %104 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %100, ptr noundef nonnull align 8 dereferenceable(28) %101) #18
-  br i1 %104, label %105, label %106
+98:                                               ; preds = %.lr.ph41
+  %99 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %96) #18
+  br i1 %99, label %100, label %101
 
-105:                                              ; preds = %103
+100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.fr38.i, i64 32, i1 false), !tbaa.struct !121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %100, i64 28, i1 false), !tbaa.struct !121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %100, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %.fr25, i64 32, i1 false), !tbaa.struct !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %95, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-106:                                              ; preds = %103
-  %107 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %101) #18
-  br i1 %107, label %108, label %109
+101:                                              ; preds = %98
+  %102 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %96) #18
+  br i1 %102, label %103, label %104
 
-108:                                              ; preds = %106
+103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.fr38.i, i64 32, i1 false), !tbaa.struct !121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %101, i64 28, i1 false), !tbaa.struct !121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %101, ptr noundef nonnull align 8 dereferenceable(28) %10, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.fr25, i64 32, i1 false), !tbaa.struct !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %96, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %96, ptr noundef nonnull align 8 dereferenceable(28) %10, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-109:                                              ; preds = %106
+104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.fr38.i, i64 32, i1 false), !tbaa.struct !121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %21, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.fr25, i64 32, i1 false), !tbaa.struct !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %21, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-110:                                              ; preds = %97
-  %111 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %101) #18
-  br i1 %111, label %112, label %113
+105:                                              ; preds = %.lr.ph41
+  %106 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %96) #18
+  br i1 %106, label %107, label %108
 
-112:                                              ; preds = %110
+107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.fr38.i, i64 32, i1 false), !tbaa.struct !121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %21, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.fr25, i64 32, i1 false), !tbaa.struct !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %21, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef nonnull align 8 dereferenceable(28) %8, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-113:                                              ; preds = %110
-  %114 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %100, ptr noundef nonnull align 8 dereferenceable(28) %101) #18
-  br i1 %114, label %115, label %116
+108:                                              ; preds = %105
+  %109 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %96) #18
+  br i1 %109, label %110, label %111
 
-115:                                              ; preds = %113
+110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.fr38.i, i64 32, i1 false), !tbaa.struct !121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %101, i64 28, i1 false), !tbaa.struct !121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %101, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.fr25, i64 32, i1 false), !tbaa.struct !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %96, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %96, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-116:                                              ; preds = %113
+111:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.fr38.i, i64 32, i1 false), !tbaa.struct !121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %100, i64 28, i1 false), !tbaa.struct !121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %100, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.fr25, i64 32, i1 false), !tbaa.struct !121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %95, i64 28, i1 false), !tbaa.struct !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader: ; preds = %116, %115, %112, %109, %108, %105
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader: ; preds = %111, %110, %107, %104, %103, %100
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader, %123
-  %.sroa.011.0.i.i = phi ptr [ %.sroa.011.1.i.i, %123 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
-  %.sroa.013.0.i.i = phi ptr [ %119, %123 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
-  br label %117
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader, %118
+  %.sroa.011.0.i.i = phi ptr [ %.sroa.011.1.i.i, %118 ], [ %storemerge2240, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
+  %.sroa.013.0.i.i = phi ptr [ %114, %118 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
+  br label %112
 
-117:                                              ; preds = %117, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i
-  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i ], [ %119, %117 ]
-  %118 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i) #18
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 32
-  br i1 %118, label %117, label %.preheader.i.i, !llvm.loop !152
+112:                                              ; preds = %112, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i
+  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i ], [ %114, %112 ]
+  %113 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.fr25) #18
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 32
+  br i1 %113, label %112, label %.preheader.i.i, !llvm.loop !153
 
-.preheader.i.i:                                   ; preds = %117, %.preheader.i.i
-  %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.1.i.i, %.preheader.i.i ], [ %.sroa.011.0.i.i, %117 ]
+.preheader.i.i:                                   ; preds = %112, %.preheader.i.i
+  %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.1.i.i, %.preheader.i.i ], [ %.sroa.011.0.i.i, %112 ]
   %.sroa.011.1.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -32
-  %120 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %.fr38.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.011.1.i.i) #18
-  br i1 %120, label %.preheader.i.i, label %121, !llvm.loop !153
+  %115 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %.fr25, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.011.1.i.i) #18
+  br i1 %115, label %.preheader.i.i, label %116, !llvm.loop !154
 
-121:                                              ; preds = %.preheader.i.i
-  %122 = icmp ult ptr %.sroa.013.1.i.i, %.sroa.011.1.i.i
-  br i1 %122, label %123, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
+116:                                              ; preds = %.preheader.i.i
+  %117 = icmp ult ptr %.sroa.013.1.i.i, %.sroa.011.1.i.i
+  br i1 %117, label %118, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
 
-123:                                              ; preds = %121
+118:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.1.i.i, i64 32, i1 false), !tbaa.struct !121
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.011.1.i.i, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.011.1.i.i, ptr noundef nonnull align 8 dereferenceable(28) %5, i64 28, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i, !llvm.loop !154
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i, !llvm.loop !155
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %121
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge18, i64 noundef %98, ptr %3)
-  %124 = ptrtoint ptr %.sroa.013.1.i.i to i64
-  %125 = sub i64 %124, %16
-  %126 = ashr exact i64 %125, 5
-  %127 = icmp sgt i64 %126, 16
-  br i1 %127, label %22, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !155
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %116
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge2240, i64 noundef %93, ptr %3)
+  %119 = ptrtoint ptr %.sroa.013.1.i.i to i64
+  %120 = sub i64 %119, %16
+  %121 = ashr exact i64 %120, 5
+  %122 = icmp sgt i64 %121, 16
+  br i1 %122, label %23, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !148
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i, %4, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i19.i, %4, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121ValidationCounterInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit.i.i
   ret void
 }
 

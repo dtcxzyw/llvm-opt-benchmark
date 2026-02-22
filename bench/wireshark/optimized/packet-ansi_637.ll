@@ -1963,8 +1963,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = load i32, ptr @hf_ansi_637_tele_cb_num_digit_mode, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
-  %.fr = freeze i8 %13
-  %.not = icmp sgt i8 %.fr, -1
+  %.not = icmp sgt i8 %13, -1
   br i1 %.not, label %40, label %14
 
 14:                                               ; preds = %10
@@ -2004,11 +2003,11 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
 40:                                               ; preds = %10
   %41 = add i32 %4, 1
   %42 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %41)
-  %.fr110 = freeze i8 %42
-  %43 = tail call i8 @llvm.fshl.i8(i8 %.fr, i8 %.fr110, i8 1)
+  %43 = tail call i8 @llvm.fshl.i8(i8 %13, i8 %42, i8 1)
+  %.fr110 = freeze i8 %43
   %44 = load i32, ptr @hf_ansi_637_tele_cb_num_num_fields07f8, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0)
-  %.not101 = icmp eq i8 %43, 0
+  %.not101 = icmp eq i8 %.fr110, 0
   br i1 %.not101, label %.thread, label %47
 
 .thread:                                          ; preds = %40
@@ -2016,7 +2015,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   br label %92
 
 47:                                               ; preds = %40
-  %48 = zext i8 %43 to i32
+  %48 = zext i8 %.fr110 to i32
   %49 = shl nuw nsw i32 %48, 2
   %50 = add nsw i32 %49, -4
   %51 = lshr i32 %50, 3
@@ -2032,16 +2031,16 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   br label %95
 
 58:                                               ; preds = %47
-  %59 = and i8 %43, 1
+  %59 = and i8 %.fr110, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @ansi_637_bigbuf, i8 noundef 0, i64 noundef 1024, i1 noundef false) #7
   %60 = add i32 %4, 2
-  %61 = zext i8 %43 to i64
+  %61 = zext i8 %.fr110 to i64
   br label %62
 
 62:                                               ; preds = %58, %71
   %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %71 ]
   %.1112 = phi i32 [ %60, %58 ], [ %73, %71 ]
-  %.092111 = phi i8 [ %.fr110, %58 ], [ %72, %71 ]
+  %.092111 = phi i8 [ %42, %58 ], [ %72, %71 ]
   %63 = zext i8 %.092111 to i32
   %64 = lshr i32 %63, 3
   %65 = and i32 %64, 15
@@ -3153,8 +3152,8 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   %97 = add i32 %4, 1
   %98 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %97)
   %99 = load i64, ptr %8, align 8
-  %.fr = freeze i64 %99
-  %.not125 = icmp eq i64 %.fr, 0
+  %.fr135 = freeze i64 %99
+  %.not125 = icmp eq i64 %.fr135, 0
   br i1 %.not125, label %.thread, label %101
 
 .thread:                                          ; preds = %92
@@ -3162,7 +3161,7 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   br label %148
 
 101:                                              ; preds = %92
-  %102 = trunc i64 %.fr to i32
+  %102 = trunc i64 %.fr135 to i32
   %103 = shl i32 %102, 2
   %104 = add i32 %103, -4
   %105 = lshr i32 %104, 3
@@ -3183,12 +3182,12 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %124
-  %113 = phi i64 [ %138, %124 ], [ %.fr, %.lr.ph.preheader ]
+  %113 = phi i64 [ %138, %124 ], [ %.fr135, %.lr.ph.preheader ]
   %114 = phi i64 [ %137, %124 ], [ 0, %.lr.ph.preheader ]
-  %.1137 = phi i32 [ %126, %124 ], [ %112, %.lr.ph.preheader ]
-  %.0114136 = phi i8 [ %125, %124 ], [ %98, %.lr.ph.preheader ]
-  %.0115135 = phi i32 [ %136, %124 ], [ 0, %.lr.ph.preheader ]
-  %115 = zext i8 %.0114136 to i32
+  %.1138 = phi i32 [ %126, %124 ], [ %112, %.lr.ph.preheader ]
+  %.0114137 = phi i8 [ %125, %124 ], [ %98, %.lr.ph.preheader ]
+  %.0115136 = phi i32 [ %136, %124 ], [ 0, %.lr.ph.preheader ]
+  %115 = zext i8 %.0114137 to i32
   %116 = lshr i32 %115, 2
   %117 = and i32 %116, 15
   %118 = zext nneg i32 %117 to i64
@@ -3196,14 +3195,14 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   %120 = load i8, ptr %119, align 1
   %121 = getelementptr i8, ptr @ansi_637_bigbuf, i64 %114
   store i8 %120, ptr %121, align 1
-  %122 = or disjoint i32 %.0115135, 1
+  %122 = or disjoint i32 %.0115136, 1
   %123 = zext i32 %122 to i64
   %.not127 = icmp ugt i64 %113, %123
   br i1 %.not127, label %124, label %._crit_edge
 
 124:                                              ; preds = %.lr.ph
-  %125 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1137)
-  %126 = add i32 %.1137, 1
+  %125 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1138)
+  %126 = add i32 %.1138, 1
   %127 = shl nuw nsw i32 %115, 2
   %128 = and i32 %127, 12
   %129 = lshr i8 %125, 6
@@ -3214,18 +3213,18 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   %134 = load i8, ptr %133, align 1
   %135 = getelementptr i8, ptr @ansi_637_bigbuf, i64 %123
   store i8 %134, ptr %135, align 1
-  %136 = add i32 %.0115135, 2
+  %136 = add i32 %.0115136, 2
   %137 = zext i32 %136 to i64
   %138 = load i64, ptr %8, align 8
   %139 = icmp ugt i64 %138, %137
   br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %124
-  %.1.lcssa.ph = phi i32 [ %.1137, %.lr.ph ], [ %126, %124 ]
+  %.1.lcssa.ph = phi i32 [ %.1138, %.lr.ph ], [ %126, %124 ]
   %140 = load i32, ptr @hf_ansi_637_trans_addr_param_number, align 4
   %141 = sub i32 %.1.lcssa.ph, %97
   %142 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %140, ptr noundef %0, i32 noundef %97, i32 noundef %141, ptr noundef nonnull @ansi_637_bigbuf, ptr noundef nonnull @.str.374, ptr noundef nonnull @ansi_637_bigbuf)
-  %143 = and i64 %.fr, 1
+  %143 = and i64 %.fr135, 1
   %144 = icmp eq i64 %143, 0
   %145 = add i32 %.1.lcssa.ph, -1
   %146 = load i32, ptr @hf_ansi_637_reserved_bits_8_03, align 4

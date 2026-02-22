@@ -19881,7 +19881,7 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit: ; preds = %42
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 624
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %70(ptr noundef nonnull align 8 dereferenceable(308) %2, ptr noundef nonnull align 8 dereferenceable(1065) %1) #24
-  %.fr219 = freeze i32 %71
+  %.fr = freeze i32 %71
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !1695
   %74 = load ptr, ptr %3, align 8, !tbaa !1696
@@ -19889,7 +19889,7 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit: ; preds = %42
   br i1 %.not218, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67
-  %75 = add i32 %.fr219, -1
+  %75 = add i32 %.fr, -1
   %76 = icmp ult i32 %75, 1073741823
   br i1 %76, label %.lr.ph.split, label %.lr.ph.split.us
 
@@ -19905,7 +19905,7 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit: ; preds = %42
   %.0127204.us = phi i32 [ 0, %.lr.ph.split.us ], [ %85, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173.us ]
   %83 = getelementptr inbounds nuw %"class.llvm::CalleeSavedInfo", ptr %74, i64 %82
   %.sroa.0.0.copyload.i.us = load i32, ptr %83, align 4, !tbaa !403
-  %84 = icmp eq i32 %.sroa.0.0.copyload.i.us, %.fr219
+  %84 = icmp eq i32 %.sroa.0.0.copyload.i.us, %.fr
   br i1 %84, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173.us
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173.us: ; preds = %81
@@ -19921,7 +19921,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173.us: ;
   %.0127204 = phi i32 [ %108, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173 ], [ 0, %.lr.ph ]
   %91 = getelementptr inbounds nuw %"class.llvm::CalleeSavedInfo", ptr %88, i64 %90
   %.sroa.0.0.copyload.i = load i32, ptr %91, align 4, !tbaa !403
-  %92 = icmp eq i32 %.sroa.0.0.copyload.i, %.fr219
+  %92 = icmp eq i32 %.sroa.0.0.copyload.i, %.fr
   br i1 %92, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %93
 
 93:                                               ; preds = %.lr.ph.split
@@ -19930,7 +19930,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173.us: ;
   br i1 %95, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit: ; preds = %93
-  %96 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %2, i32 %.sroa.0.0.copyload.i, i32 %.fr219) #24
+  %96 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %2, i32 %.sroa.0.0.copyload.i, i32 %.fr) #24
   %.pre229.pre = load ptr, ptr %3, align 8, !tbaa !656
   %.pre230.pre = load ptr, ptr %72, align 8, !tbaa !656
   br i1 %96, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread173
@@ -19983,8 +19983,8 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; pred
   %.val = load ptr, ptr %3, align 8, !tbaa !656
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val134 = load ptr, ptr %121, align 8, !tbaa !656
-  %.not8.i.i.i = icmp eq ptr %.val, %.val134
-  br i1 %.not8.i.i.i, label %"_ZN4llvm8count_ifIRSt6vectorINS_15CalleeSavedInfoESaIS2_EEZNKS_16X86FrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoES5_E3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i
+  %.not7.i.i.i = icmp eq ptr %.val, %.val134
+  br i1 %.not7.i.i.i, label %"_ZN4llvm8count_ifIRSt6vectorINS_15CalleeSavedInfoESaIS2_EEZNKS_16X86FrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoES5_E3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %120
   %122 = load ptr, ptr @_ZN4llvm3X8612GR64RegClassE, align 8
@@ -19993,9 +19993,9 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; pred
   br label %125
 
 125:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i", %.lr.ph.i.i.i
-  %.010.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %141, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i" ]
-  %.sroa.02.09.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i ], [ %142, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i" ]
-  %.val.i.i.i.i = load i32, ptr %.sroa.02.09.i.i.i, align 4, !tbaa !403
+  %.09.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %141, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i" ]
+  %.sroa.02.08.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i ], [ %142, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i" ]
+  %.val.i.i.i.i = load i32, ptr %.sroa.02.08.i.i.i, align 4, !tbaa !403
   %126 = add i32 %.val.i.i.i.i, -1
   %127 = icmp ult i32 %126, 1073741823
   br i1 %127, label %128, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i"
@@ -20013,19 +20013,18 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; pred
   %134 = zext nneg i32 %129 to i64
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !145
-  %.fr6.i.i.i = freeze i8 %136
-  %137 = zext i8 %.fr6.i.i.i to i32
+  %137 = zext i8 %136 to i32
   %138 = shl nuw nsw i32 1, %132
-  %.fr.i.i.i = freeze i32 %138
-  %139 = and i32 %.fr.i.i.i, %137
-  %.not7.i.i.i = icmp ne i32 %139, 0
-  %140 = zext i1 %.not7.i.i.i to i64
-  %spec.select.i.i.i = add nsw i64 %.010.i.i.i, %140
+  %139 = and i32 %138, %137
+  %.fr.i.i.i = freeze i32 %139
+  %.not6.i.i.i = icmp ne i32 %.fr.i.i.i, 0
+  %140 = zext i1 %.not6.i.i.i to i64
+  %spec.select.i.i.i = add nsw i64 %.09.i.i.i, %140
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.i.i.i", %128, %125
-  %141 = phi i64 [ %.010.i.i.i, %128 ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.i.i.i" ], [ %.010.i.i.i, %125 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.02.09.i.i.i, i64 12
+  %141 = phi i64 [ %.09.i.i.i, %128 ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16X86FrameLowering27assignCalleeSavedSpillSlotsERNS2_15MachineFunctionEPKNS2_18TargetRegisterInfoERSt6vectorINS2_15CalleeSavedInfoESaISA_EEE3$_0EclINS_17__normal_iteratorIPSA_SC_EEEEbT_.exit.i.i.i" ], [ %.09.i.i.i, %125 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.02.08.i.i.i, i64 12
   %.not.i.i.i = icmp eq ptr %142, %.val134
   br i1 %.not.i.i.i, label %"_ZN4llvm8count_ifIRSt6vectorINS_15CalleeSavedInfoESaIS2_EEZNKS_16X86FrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoES5_E3$_0EEDaOT_T0_.exit", label %125, !llvm.loop !1699
 

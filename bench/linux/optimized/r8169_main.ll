@@ -976,8 +976,8 @@ rtl_dash_is_enabled.exit:                         ; preds = %127, %149
   %183 = load ptr, ptr %9, align 8
   %184 = getelementptr i8, ptr %183, i64 176
   %185 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %184) #19, !srcloc !16
-  %.fr24 = freeze i32 %185
-  %186 = and i32 %.fr24, 32768
+  %.fr25 = freeze i32 %185
+  %186 = and i32 %.fr25, 32768
   %.not = icmp eq i32 %186, 0
   %187 = load i8, ptr %15, align 8
   br i1 %.not, label %190, label %188
@@ -4208,8 +4208,8 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
   %39 = load i32, ptr %35, align 4
   %invariant.op = sub i32 %38, %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.reass23 = sub i32 %invariant.op, %33
-  %40 = icmp slt i32 %.reass23, 4
+  %.reass21 = sub i32 %invariant.op, %33
+  %40 = icmp slt i32 %.reass21, 4
   br i1 %40, label %.thread6, label %.lr.ph, !prof !5
 
 .lr.ph:                                           ; preds = %.split.us
@@ -4482,12 +4482,12 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
 
 201:                                              ; preds = %175, %196
   %202 = phi i16 [ %178, %175 ], [ %200, %196 ]
-  %.fr18 = freeze i16 %202
-  %203 = icmp eq i16 %.fr18, 129
-  %204 = icmp eq i16 %.fr18, -22392
+  %203 = icmp eq i16 %202, 129
+  %204 = icmp eq i16 %202, -22392
   %205 = or i1 %203, %204
   %206 = and i64 %176, 35184372089065
-  %spec.select17 = select i1 %205, i64 %206, i64 %176
+  %cond.fr14 = freeze i1 %205
+  %spec.select17 = select i1 %cond.fr14, i64 %206, i64 %176
   br label %.thread15
 
 .thread15:                                        ; preds = %201, %182, %192, %190

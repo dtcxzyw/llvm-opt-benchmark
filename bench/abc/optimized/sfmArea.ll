@@ -88,8 +88,8 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   %21 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %0, i64 %indvars.iv261
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
-  %.fr219 = freeze i32 %23
-  %24 = lshr i32 %.fr219, 28
+  %.fr = freeze i32 %23
+  %24 = lshr i32 %.fr, 28
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %.not218 = icmp eq i32 %24, 0
   %26 = zext nneg i32 %24 to i64

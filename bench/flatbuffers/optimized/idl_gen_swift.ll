@@ -39423,8 +39423,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430: ; preds = %_Z
 
 229:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430
   %230 = load i32, ptr %146, align 8, !tbaa !458
-  %.fr = freeze i32 %230
-  %231 = add i32 %.fr, -1
+  %.fr1751 = freeze i32 %230
+  %231 = add i32 %.fr1751, -1
   %232 = icmp ult i32 %231, 12
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %spec.select = select i1 %232, ptr @.str.53, ptr @.str.283

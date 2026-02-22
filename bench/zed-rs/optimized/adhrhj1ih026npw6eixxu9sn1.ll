@@ -823,9 +823,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 .lr.ph.i25.i.i.i:                                 ; preds = %209
   %212 = load i64, ptr %62, align 8, !alias.scope !207, !noalias !214, !noundef !5
   %213 = load i64, ptr %53, align 8, !alias.scope !207, !noalias !214
-  %.fr.i.i = freeze i64 %213
+  %.fr53.i.i = freeze i64 %213
   %214 = load i64, ptr %55, align 8, !alias.scope !207, !noalias !214
-  %215 = add i64 %.fr.i.i, -1
+  %215 = add i64 %.fr53.i.i, -1
   %.first_iter.i.i.i = icmp ult i64 %215, %149
   br label %216
 
@@ -852,7 +852,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %231, label %216, label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i"
 
 .preheader6.i.i.i:                                ; preds = %216, %247
-  %.sroa.04.0.i.i.i.i = phi i64 [ %248, %247 ], [ %.fr.i.i, %216 ]
+  %.sroa.04.0.i.i.i.i = phi i64 [ %248, %247 ], [ %.fr53.i.i, %216 ]
   %232 = icmp ult i64 %.sroa.04.0.i.i.i.i, %149
   br i1 %232, label %243, label %.preheader.i.preheader.i.i
 
@@ -860,7 +860,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %.first_iter.i.i.i, label %.preheader.i.us.i.i, label %.preheader.i.i.i
 
 .preheader.i.us.i.i:                              ; preds = %.preheader.i.preheader.i.i, %237
-  %.sroa.59.0.i.i.us.i.i = phi i64 [ %234, %237 ], [ %.fr.i.i, %.preheader.i.preheader.i.i ]
+  %.sroa.59.0.i.i.us.i.i = phi i64 [ %234, %237 ], [ %.fr53.i.i, %.preheader.i.preheader.i.i ]
   %.not.i.us.i.i = icmp eq i64 %.sroa.59.0.i.i.us.i.i, 0
   br i1 %.not.i.us.i.i, label %.split.us.i.i, label %233
 
@@ -888,7 +888,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %245, label %247, label %253
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.preheader.i.i
-  %.not.i.i.i = icmp eq i64 %.fr.i.i, 0
+  %.not.i.i.i = icmp eq i64 %.fr53.i.i, 0
   br i1 %.not.i.i.i, label %.split.us.i.i, label %.invoke
 
 .split.us.i.i:                                    ; preds = %.preheader.i.us.i.i, %.preheader.i.i.i
@@ -905,12 +905,12 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %.not24.i.i.i.i, label %.preheader6.i.i.i, label %255
 
 253:                                              ; preds = %243
-  %254 = add i64 %217, %.fr.i.i
+  %254 = add i64 %217, %.fr53.i.i
   %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %147, i64 %254)
   br label %.invoke
 
 255:                                              ; preds = %247
-  %reass.sub107 = sub i64 %217, %.fr.i.i
+  %reass.sub107 = sub i64 %217, %.fr53.i.i
   %256 = add i64 %reass.sub107, 1
   %257 = add i64 %256, %.sroa.04.0.i.i.i.i
   br label %228

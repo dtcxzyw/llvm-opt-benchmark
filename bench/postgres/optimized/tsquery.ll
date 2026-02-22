@@ -2248,21 +2248,21 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
   %19 = tail call ptr @palloc0(i64 noundef %18) #11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %7, ptr %20, align 4
-  %.not138 = icmp eq i32 %7, 0
-  br i1 %.not138, label %._crit_edge131, label %.lr.ph130
+  %.not139 = icmp eq i32 %7, 0
+  br i1 %.not139, label %._crit_edge132, label %.lr.ph131
 
-.lr.ph130:                                        ; preds = %12
+.lr.ph131:                                        ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = add nsw i32 %7, -1
   br label %23
 
-23:                                               ; preds = %.lr.ph130, %98
-  %.0128 = phi i32 [ 0, %.lr.ph130 ], [ %100, %98 ]
-  %.095127 = phi ptr [ %21, %.lr.ph130 ], [ %99, %98 ]
-  %.097126 = phi i32 [ 0, %.lr.ph130 ], [ %.198, %98 ]
+23:                                               ; preds = %.lr.ph131, %98
+  %.0129 = phi i32 [ 0, %.lr.ph131 ], [ %100, %98 ]
+  %.095128 = phi ptr [ %21, %.lr.ph131 ], [ %99, %98 ]
+  %.097127 = phi i32 [ 0, %.lr.ph131 ], [ %.198, %98 ]
   %24 = tail call i32 @pq_getmsgint(ptr noundef %6, i32 noundef 1) #11
   %25 = trunc i32 %24 to i8
-  store i8 %25, ptr %.095127, align 4
+  store i8 %25, ptr %.095128, align 4
   switch i8 %25, label %93 [
     i8 1, label %26
     i8 2, label %73
@@ -2295,7 +2295,7 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
   unreachable
 
 41:                                               ; preds = %36
-  %42 = icmp sgt i32 %.097126, 1048575
+  %42 = icmp sgt i32 %.097127, 1048575
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
@@ -2306,23 +2306,23 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
 
 46:                                               ; preds = %41
   %47 = trunc nuw nsw i64 %31 to i32
-  %.not108122 = icmp eq i64 %31, 0
-  br i1 %.not108122, label %._crit_edge, label %.lr.ph
+  %.not108123 = icmp eq i64 %31, 0
+  br i1 %.not108123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
-  %.092125 = phi i32 [ %48, %.lr.ph ], [ %47, %46 ]
-  %.093124 = phi ptr [ %50, %.lr.ph ], [ %30, %46 ]
-  %.094123 = phi i32 [ %58, %.lr.ph ], [ -1, %46 ]
-  %48 = add i32 %.092125, -1
-  %49 = lshr i32 %.094123, 24
-  %50 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
-  %51 = load i8, ptr %.093124, align 1
+  %.092126 = phi i32 [ %48, %.lr.ph ], [ %47, %46 ]
+  %.093125 = phi ptr [ %50, %.lr.ph ], [ %30, %46 ]
+  %.094124 = phi i32 [ %58, %.lr.ph ], [ -1, %46 ]
+  %48 = add i32 %.092126, -1
+  %49 = lshr i32 %.094124, 24
+  %50 = getelementptr inbounds nuw i8, ptr %.093125, i64 1
+  %51 = load i8, ptr %.093125, align 1
   %52 = zext i8 %51 to i32
   %53 = xor i32 %49, %52
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i32, ptr @pg_crc32_table, i64 %54
   %56 = load i32, ptr %55, align 4
-  %57 = shl i32 %.094123, 8
+  %57 = shl i32 %.094124, 8
   %58 = xor i32 %56, %57
   %.not108 = icmp eq i32 %48, 0
   br i1 %.not108, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
@@ -2333,32 +2333,32 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
   %.094.lcssa = phi i32 [ 0, %46 ], [ %59, %._crit_edge.loopexit ]
-  %60 = getelementptr inbounds nuw i8, ptr %.095127, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.095128, i64 1
   store i8 %28, ptr %60, align 1
   %61 = and i32 %29, 255
   %62 = icmp ne i32 %61, 0
-  %63 = getelementptr inbounds nuw i8, ptr %.095127, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.095128, i64 2
   %64 = zext i1 %62 to i8
   store i8 %64, ptr %63, align 2
-  %65 = getelementptr inbounds nuw i8, ptr %.095127, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.095128, i64 4
   store i32 %.094.lcssa, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %.095127, i64 8
-  %67 = shl i32 %.097126, 12
+  %66 = getelementptr inbounds nuw i8, ptr %.095128, i64 8
+  %67 = shl i32 %.097127, 12
   %68 = or disjoint i32 %67, %47
   store i32 %68, ptr %66, align 4
-  %69 = sext i32 %.0128 to i64
+  %69 = sext i32 %.0129 to i64
   %70 = getelementptr inbounds ptr, ptr %15, i64 %69
   store ptr %30, ptr %70, align 8
-  %71 = add nsw i32 %.097126, 1
+  %71 = add nsw i32 %.097127, 1
   %72 = add nsw i32 %71, %47
   br label %98
 
 73:                                               ; preds = %23
   %74 = tail call i32 @pq_getmsgint(ptr noundef %6, i32 noundef 1) #11
-  %.fr = freeze i32 %74
-  %75 = trunc i32 %.fr to i8
-  %sext107 = shl i32 %.fr, 24
-  %76 = and i32 %.fr, 253
+  %.fr109 = freeze i32 %74
+  %75 = trunc i32 %.fr109 to i8
+  %sext107 = shl i32 %.fr109, 24
+  %76 = and i32 %.fr109, 253
   %or.cond.not = icmp eq i32 %76, 1
   br i1 %or.cond.not, label %81, label %switch.early.test
 
@@ -2376,7 +2376,7 @@ switch.early.test:                                ; preds = %73
   unreachable
 
 81:                                               ; preds = %switch.early.test, %switch.early.test, %73
-  %82 = icmp eq i32 %.0128, %22
+  %82 = icmp eq i32 %.0129, %22
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
@@ -2386,7 +2386,7 @@ switch.early.test:                                ; preds = %73
   unreachable
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i8, ptr %.095127, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.095128, i64 1
   store i8 %75, ptr %87, align 1
   %88 = icmp eq i32 %sext107, 67108864
   br i1 %88, label %89, label %98
@@ -2394,26 +2394,26 @@ switch.early.test:                                ; preds = %73
 89:                                               ; preds = %86
   %90 = tail call i32 @pq_getmsgint(ptr noundef %6, i32 noundef 2) #11
   %91 = trunc i32 %90 to i16
-  %92 = getelementptr inbounds nuw i8, ptr %.095127, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.095128, i64 2
   store i16 %91, ptr %92, align 2
   br label %98
 
 93:                                               ; preds = %23
   %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %95 = load i8, ptr %.095127, align 4
+  %95 = load i8, ptr %.095128, align 4
   %96 = sext i8 %95 to i32
   %97 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %96) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1318, ptr noundef nonnull @__func__.tsqueryrecv) #11
   unreachable
 
 98:                                               ; preds = %86, %89, %._crit_edge
-  %.198 = phi i32 [ %72, %._crit_edge ], [ %.097126, %89 ], [ %.097126, %86 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.095127, i64 12
-  %100 = add nuw i32 %.0128, 1
+  %.198 = phi i32 [ %72, %._crit_edge ], [ %.097127, %89 ], [ %.097127, %86 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.095128, i64 12
+  %100 = add nuw i32 %.0129, 1
   %exitcond.not = icmp eq i32 %100, %7
-  br i1 %exitcond.not, label %._crit_edge131, label %23, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge132, label %23, !llvm.loop !42
 
-._crit_edge131:                                   ; preds = %98, %12
+._crit_edge132:                                   ; preds = %98, %12
   %.097.lcssa = phi i32 [ 0, %12 ], [ %.198, %98 ]
   %101 = add i32 %.097.lcssa, %17
   %102 = sext i32 %101 to i64
@@ -2428,55 +2428,55 @@ switch.early.test:                                ; preds = %73
   %.not.i = icmp eq i32 %107, %7
   br i1 %.not.i, label %findoprnd.exit, label %108
 
-108:                                              ; preds = %._crit_edge131
+108:                                              ; preds = %._crit_edge132
   %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %110 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.findoprnd) #11
   unreachable
 
-findoprnd.exit:                                   ; preds = %._crit_edge131
+findoprnd.exit:                                   ; preds = %._crit_edge132
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not138, label %._crit_edge137, label %.lr.ph136.preheader
+  br i1 %.not139, label %._crit_edge138, label %.lr.ph137.preheader
 
-.lr.ph136.preheader:                              ; preds = %findoprnd.exit
+.lr.ph137.preheader:                              ; preds = %findoprnd.exit
   %111 = sext i32 %106 to i64
   %112 = mul nsw i64 %111, 12
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 %112
-  br label %.lr.ph136
+  br label %.lr.ph137
 
-.lr.ph136:                                        ; preds = %.lr.ph136.preheader, %130
-  %.1135 = phi i32 [ %132, %130 ], [ 0, %.lr.ph136.preheader ]
-  %.196134 = phi ptr [ %131, %130 ], [ %104, %.lr.ph136.preheader ]
-  %.099133 = phi ptr [ %.1100, %130 ], [ %113, %.lr.ph136.preheader ]
-  %114 = load i8, ptr %.196134, align 4
+.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %130
+  %.1136 = phi i32 [ %132, %130 ], [ 0, %.lr.ph137.preheader ]
+  %.196135 = phi ptr [ %131, %130 ], [ %104, %.lr.ph137.preheader ]
+  %.099134 = phi ptr [ %.1100, %130 ], [ %113, %.lr.ph137.preheader ]
+  %114 = load i8, ptr %.196135, align 4
   %115 = icmp eq i8 %114, 1
   br i1 %115, label %116, label %130
 
-116:                                              ; preds = %.lr.ph136
-  %117 = sext i32 %.1135 to i64
+116:                                              ; preds = %.lr.ph137
+  %117 = sext i32 %.1136 to i64
   %118 = getelementptr inbounds ptr, ptr %15, i64 %117
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %.196134, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.196135, i64 8
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 4095
   %123 = add nuw nsw i32 %122, 1
   %124 = zext nneg i32 %123 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.099133, ptr noundef nonnull align 1 dereferenceable(1) %119, i64 %124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.099134, ptr noundef nonnull align 1 dereferenceable(1) %119, i64 %124, i1 false)
   %125 = load i32, ptr %120, align 4
   %126 = and i32 %125, 4095
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %.099133, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %.099134, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
   br label %130
 
-130:                                              ; preds = %116, %.lr.ph136
-  %.1100 = phi ptr [ %129, %116 ], [ %.099133, %.lr.ph136 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.196134, i64 12
-  %132 = add nuw i32 %.1135, 1
-  %exitcond147.not = icmp eq i32 %132, %7
-  br i1 %exitcond147.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !43
+130:                                              ; preds = %116, %.lr.ph137
+  %.1100 = phi ptr [ %129, %116 ], [ %.099134, %.lr.ph137 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.196135, i64 12
+  %132 = add nuw i32 %.1136, 1
+  %exitcond148.not = icmp eq i32 %132, %7
+  br i1 %exitcond148.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !43
 
-._crit_edge137:                                   ; preds = %130, %findoprnd.exit
+._crit_edge138:                                   ; preds = %130, %findoprnd.exit
   tail call void @pfree(ptr noundef %15) #11
   %133 = shl i32 %101, 2
   store i32 %133, ptr %103, align 4

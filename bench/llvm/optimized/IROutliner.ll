@@ -12290,8 +12290,8 @@ _ZN4llvm11SmallVectorIPNS_10BranchInstELj2EED2Ev.exit.i: ; preds = %548, %._crit
   %550 = load ptr, ptr %.03290.i, align 8, !tbaa !656
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 4
   %552 = load i32, ptr %551, align 4
-  %.fr341 = freeze i32 %552
-  %553 = and i32 %.fr341, 134217727
+  %.fr = freeze i32 %552
+  %553 = and i32 %.fr, 134217727
   %554 = icmp eq i32 %553, 3
   %555 = getelementptr inbounds i8, ptr %550, i64 -32
   br i1 %554, label %.split, label %.split.us

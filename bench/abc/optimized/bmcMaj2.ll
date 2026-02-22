@@ -869,7 +869,7 @@ Vec_WecPush.exit139.i.i:                          ; preds = %376, %Vec_IntGrow.e
   br i1 %401, label %.lr.ph181.i.i, label %Maj_ManMarkup.exit.i
 
 ._crit_edge171.i.thread.i:                        ; preds = %394
-  %putchar.i128.i = call i32 @putchar(i32 10)
+  %putchar.i130.i = call i32 @putchar(i32 10)
   %402 = icmp sgt i32 %390, 0
   br i1 %402, label %.lr.ph181.i.thread.i, label %Maj_ManMarkup.exit.i
 
@@ -981,8 +981,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %428, %Maj_ManMarkup
   %436 = shl nsw i64 %435, 3
   call void @llvm.memset.p0.i64(ptr align 8 %432, i8 0, i64 %436, i1 false)
   %437 = load i32, ptr %25, align 8, !tbaa !11
-  %.fr33.i.i = freeze i32 %437
-  %438 = shl nuw i32 1, %.fr33.i.i
+  %438 = shl nuw i32 1, %437
   %439 = call noundef i32 @llvm.smax.i32(i32 %438, i32 64)
   %440 = icmp sgt i32 %423, 0
   br i1 %440, label %.lr.ph.preheader.i.i.i, label %Abc_TtFill.exit.i.i
@@ -995,29 +994,29 @@ Vec_WrdStart.exit.i.i:                            ; preds = %428, %Maj_ManMarkup
   br label %Abc_TtFill.exit.i.i
 
 Abc_TtFill.exit.i.i:                              ; preds = %.lr.ph.preheader.i.i.i, %Vec_WrdStart.exit.i.i
-  %444 = icmp sgt i32 %.fr33.i.i, 0
+  %444 = icmp sgt i32 %437, 0
   br i1 %444, label %.lr.ph.i32.i, label %.preheader.thread43.i.i
 
 .preheader.thread43.i.i:                          ; preds = %Abc_TtFill.exit.i.i
   %445 = mul nsw i32 %423, %390
   %446 = sext i32 %445 to i64
   %447 = getelementptr inbounds i64, ptr %432, i64 %446
-  %.not.i31.i = icmp slt i32 %.fr33.i.i, -1
+  %.not.i31.i = icmp slt i32 %437, -1
   br i1 %.not.i31.i, label %Maj_ManValue.exit.us31.i.i, label %Maj_ManAlloc.exit
 
 .lr.ph.i32.i:                                     ; preds = %Abc_TtFill.exit.i.i
-  %448 = icmp samesign ult i32 %.fr33.i.i, 7
-  %449 = add nsw i32 %.fr33.i.i, -6
+  %448 = icmp samesign ult i32 %437, 7
+  %449 = add nsw i32 %437, -6
   %450 = shl nuw i32 1, %449
-  %.fr34.i.i = freeze i32 %450
-  %451 = select i1 %448, i32 1, i32 %.fr34.i.i
-  %452 = icmp sgt i32 %451, 0
-  %wide.trip.count.i.i.i = zext nneg i32 %451 to i64
+  %451 = select i1 %448, i32 1, i32 %450
+  %.fr33.i.i = freeze i32 %451
+  %452 = icmp sgt i32 %.fr33.i.i, 0
+  %wide.trip.count.i.i.i = zext nneg i32 %.fr33.i.i to i64
   br i1 %452, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph.i26.preheader.us.preheader.i.i
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i32.i
   %453 = sext i32 %423 to i64
-  %wide.trip.count.i.i = zext nneg i32 %.fr33.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %437 to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %Abc_TtIthVar.exit.us.i.i, %.lr.ph.split.us.preheader.i.i
@@ -1065,7 +1064,7 @@ Abc_TtIthVar.exit.us.i.i:                         ; preds = %461, %467
   br i1 %exitcond.not.i36.i, label %.lr.ph.i26.preheader.us.preheader.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !61
 
 .lr.ph.i26.preheader.us.preheader.i.i:            ; preds = %Abc_TtIthVar.exit.us.i.i, %.lr.ph.i32.i
-  %469 = lshr i32 %.fr33.i.i, 1
+  %469 = lshr i32 %437, 1
   %.pn.in.i.i = mul nsw i32 %423, %390
   %.pn.i33.i = sext i32 %.pn.in.i.i to i64
   %470 = getelementptr inbounds i64, ptr %432, i64 %.pn.i33.i
@@ -1082,7 +1081,7 @@ Abc_TtIthVar.exit.us.i.i:                         ; preds = %461, %467
   %472 = and i32 %471, 1
   %473 = add nuw nsw i32 %472, %.011.i.us.i.i
   %474 = add nuw nsw i32 %.0810.i.us.i.i, 1
-  %exitcond.not.i27.us.i.i = icmp eq i32 %474, %.fr33.i.i
+  %exitcond.not.i27.us.i.i = icmp eq i32 %474, %437
   br i1 %exitcond.not.i27.us.i.i, label %Maj_ManValue.exit.loopexit.us.i.i, label %.lr.ph.i26.us.i.i, !llvm.loop !62
 
 475:                                              ; preds = %Maj_ManValue.exit.loopexit.us.i.i
@@ -1099,8 +1098,8 @@ Abc_TtIthVar.exit.us.i.i:                         ; preds = %461, %467
 
 484:                                              ; preds = %Maj_ManValue.exit.loopexit.us.i.i, %475
   %485 = add nuw nsw i32 %.130.us.i.i, 1
-  %exitcond41.not.i.i = icmp eq i32 %485, %439
-  br i1 %exitcond41.not.i.i, label %Maj_ManAlloc.exit, label %.lr.ph.i26.preheader.us.i.i, !llvm.loop !63
+  %exitcond40.not.i.i = icmp eq i32 %485, %439
+  br i1 %exitcond40.not.i.i, label %Maj_ManAlloc.exit, label %.lr.ph.i26.preheader.us.i.i, !llvm.loop !63
 
 Maj_ManValue.exit.loopexit.us.i.i:                ; preds = %.lr.ph.i26.us.i.i
   %.not.us.i.i = icmp samesign ugt i32 %473, %469
@@ -1118,8 +1117,8 @@ Maj_ManValue.exit.us31.i.i:                       ; preds = %.preheader.thread43
   %493 = or i64 %488, %492
   store i64 %493, ptr %491, align 8, !tbaa !58
   %494 = add nuw nsw i32 %.130.us32.i.i, 1
-  %exitcond40.not.i.i = icmp eq i32 %494, %439
-  br i1 %exitcond40.not.i.i, label %Maj_ManAlloc.exit, label %Maj_ManValue.exit.us31.i.i, !llvm.loop !63
+  %exitcond39.not.i.i = icmp eq i32 %494, %439
+  br i1 %exitcond39.not.i.i, label %Maj_ManAlloc.exit, label %Maj_ManValue.exit.us31.i.i, !llvm.loop !63
 
 Maj_ManAlloc.exit:                                ; preds = %Maj_ManValue.exit.us31.i.i, %484, %.preheader.thread43.i.i
   %495 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -2577,23 +2576,22 @@ Vec_WrdStart.exit.i.i:                            ; preds = %203, %Exa_ManMarkup
   %211 = shl nsw i64 %210, 3
   call void @llvm.memset.p0.i64(ptr align 8 %207, i8 0, i64 %211, i1 false)
   %212 = load i32, ptr %22, align 8, !tbaa !109
-  %.fr13.i.i = freeze i32 %212
-  %213 = icmp sgt i32 %.fr13.i.i, 0
+  %213 = icmp sgt i32 %212, 0
   br i1 %213, label %.lr.ph.i25.i, label %Exa_ManAlloc.exit
 
 .lr.ph.i25.i:                                     ; preds = %Vec_WrdStart.exit.i.i
-  %214 = icmp samesign ult i32 %.fr13.i.i, 7
-  %215 = add nsw i32 %.fr13.i.i, -6
+  %214 = icmp samesign ult i32 %212, 7
+  %215 = add nsw i32 %212, -6
   %216 = shl nuw i32 1, %215
-  %.fr14.i.i = freeze i32 %216
-  %217 = select i1 %214, i32 1, i32 %.fr14.i.i
-  %218 = icmp sgt i32 %217, 0
-  %wide.trip.count.i.i.i = zext nneg i32 %217 to i64
+  %217 = select i1 %214, i32 1, i32 %216
+  %.fr13.i.i = freeze i32 %217
+  %218 = icmp sgt i32 %.fr13.i.i, 0
+  %wide.trip.count.i.i.i = zext nneg i32 %.fr13.i.i to i64
   br i1 %218, label %.lr.ph.split.us.preheader.i.i, label %Exa_ManAlloc.exit
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i25.i
   %219 = sext i32 %198 to i64
-  %wide.trip.count.i.i = zext nneg i32 %.fr13.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %212 to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %Abc_TtIthVar.exit.us.i.i, %.lr.ph.split.us.preheader.i.i
@@ -4768,23 +4766,22 @@ Vec_WrdStart.exit.i.i:                            ; preds = %390, %Exa3_ManMarku
   %398 = shl nsw i64 %397, 3
   call void @llvm.memset.p0.i64(ptr align 8 %394, i8 0, i64 %398, i1 false)
   %399 = load i32, ptr %80, align 8, !tbaa !163
-  %.fr13.i.i = freeze i32 %399
-  %400 = icmp sgt i32 %.fr13.i.i, 0
+  %400 = icmp sgt i32 %399, 0
   br i1 %400, label %.lr.ph.i30.i, label %Exa3_ManAlloc.exit
 
 .lr.ph.i30.i:                                     ; preds = %Vec_WrdStart.exit.i.i
-  %401 = icmp samesign ult i32 %.fr13.i.i, 7
-  %402 = add nsw i32 %.fr13.i.i, -6
+  %401 = icmp samesign ult i32 %399, 7
+  %402 = add nsw i32 %399, -6
   %403 = shl nuw i32 1, %402
-  %.fr14.i.i = freeze i32 %403
-  %404 = select i1 %401, i32 1, i32 %.fr14.i.i
-  %405 = icmp sgt i32 %404, 0
-  %wide.trip.count.i.i.i = zext nneg i32 %404 to i64
+  %404 = select i1 %401, i32 1, i32 %403
+  %.fr13.i.i = freeze i32 %404
+  %405 = icmp sgt i32 %.fr13.i.i, 0
+  %wide.trip.count.i.i.i = zext nneg i32 %.fr13.i.i to i64
   br i1 %405, label %.lr.ph.split.us.preheader.i.i, label %Exa3_ManAlloc.exit
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i30.i
   %406 = sext i32 %385 to i64
-  %wide.trip.count.i.i = zext nneg i32 %.fr13.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %399 to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %Abc_TtIthVar.exit.us.i.i, %.lr.ph.split.us.preheader.i.i
@@ -5652,7 +5649,7 @@ Abc_TtConst0.exit.i.thread:                       ; preds = %._crit_edge.i87
 .lr.ph108.i.split.preheader:                      ; preds = %Abc_TtConst0.exit.i.thread
   %798 = load ptr, ptr %423, align 8, !tbaa !181
   %799 = getelementptr i8, ptr %798, i64 328
-  %.val.i88274 = load ptr, ptr %799, align 8, !tbaa !84
+  %.val.i88275 = load ptr, ptr %799, align 8, !tbaa !84
   %800 = trunc i64 %indvars.iv137.i to i32
   %801 = sub i32 %800, %757
   %802 = mul i32 %801, %760
@@ -5663,7 +5660,7 @@ Abc_TtConst0.exit.i.thread:                       ; preds = %._crit_edge.i87
   %803 = trunc nuw nsw i64 %indvars.iv132.i to i32
   %804 = add i32 %802, %803
   %805 = sext i32 %804 to i64
-  %806 = getelementptr inbounds i32, ptr %.val.i88274, i64 %805
+  %806 = getelementptr inbounds i32, ptr %.val.i88275, i64 %805
   %807 = load i32, ptr %806, align 4, !tbaa !3
   %.not92.i.not = icmp eq i32 %807, 1
   br i1 %.not92.i.not, label %Abc_TtConst1.exit.i, label %Abc_TtOr.exit.i

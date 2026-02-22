@@ -180,11 +180,11 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
   br i1 %94, label %.loopexit51.loopexit, label %52, !llvm.loop !10
 
 .loopexit51.loopexit:                             ; preds = %91
-  %.pre106 = load ptr, ptr %47, align 8
+  %.pre107 = load ptr, ptr %47, align 8
   br label %.loopexit51
 
 .loopexit51:                                      ; preds = %.loopexit51.loopexit, %45
-  %95 = phi ptr [ %.pre106, %.loopexit51.loopexit ], [ %1, %45 ]
+  %95 = phi ptr [ %.pre107, %.loopexit51.loopexit ], [ %1, %45 ]
   %96 = getelementptr i8, ptr %5, i64 -27
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -519,12 +519,12 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr noundef readonly ca
   %326 = zext i32 %325 to i64
   store i64 %326, ptr %153, align 8
   %327 = sub i32 %272, %325
-  %.pre107 = load i64, ptr %151, align 8
+  %.pre108 = load i64, ptr %151, align 8
   br label %328
 
 328:                                              ; preds = %317, %298
   %329 = phi i64 [ %301, %298 ], [ %326, %317 ]
-  %330 = phi i64 [ %299, %298 ], [ %.pre107, %317 ]
+  %330 = phi i64 [ %299, %298 ], [ %.pre108, %317 ]
   %331 = phi i32 [ %272, %298 ], [ %327, %317 ]
   %332 = phi i64 [ %267, %298 ], [ 0, %317 ]
   %333 = icmp ne i64 %330, 0
@@ -595,11 +595,11 @@ thread-pre-split:                                 ; preds = %.preheader
 
 367:                                              ; preds = %366, %363
   %368 = add nsw i32 %269, 1
-  %.pre108 = load i64, ptr %153, align 8
+  %.pre109 = load i64, ptr %153, align 8
   br label %369
 
 369:                                              ; preds = %367, %.loopexit45
-  %370 = phi i64 [ %353, %.loopexit45 ], [ %.pre108, %367 ]
+  %370 = phi i64 [ %353, %.loopexit45 ], [ %.pre109, %367 ]
   %371 = phi i32 [ %269, %.loopexit45 ], [ %368, %367 ]
   %372 = icmp eq i64 %370, 0
   %373 = zext i1 %372 to i32
@@ -662,8 +662,8 @@ thread-pre-split:                                 ; preds = %.preheader
   %400 = phi i32 [ %157, %.thread41 ], [ %398, %.loopexit46 ]
   %401 = phi i32 [ %.ph, %.thread41 ], [ %381, %.loopexit46 ]
   call void @__brelse(ptr noundef nonnull %174) #9
-  %.fr = freeze i32 %400
-  %402 = icmp slt i32 %.fr, 0
+  %.fr78 = freeze i32 %400
+  %402 = icmp slt i32 %.fr78, 0
   %403 = select i1 %402, i32 0, i32 %401
   br label %.thread43
 

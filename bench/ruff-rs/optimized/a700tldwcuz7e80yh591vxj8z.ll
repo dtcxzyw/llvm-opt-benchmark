@@ -1356,21 +1356,21 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !noalias !131, !noundef !3
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i", label %.lr.ph.split.i.preheader
+  br i1 %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i", label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !131, !nonnull !3, !noundef !3
   br label %.lr.ph.split.i
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i": ; preds = %.lr.ph.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i"
-  %.sroa.01.032.us.i = phi i64 [ %11, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i" ], [ %1, %.lr.ph.i ]
-  %9 = lshr i64 %.sroa.01.032.us.i, 1
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i": ; preds = %.lr.ph.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i"
+  %.sroa.01.031.us.i = phi i64 [ %11, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i" ], [ %1, %.lr.ph.i ]
+  %9 = lshr i64 %.sroa.01.031.us.i, 1
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = sub i64 %.sroa.01.032.us.i, %9
+  %11 = sub i64 %.sroa.01.031.us.i, %9
   %12 = icmp ugt i64 %11, 1
-  br i1 %12, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i"
+  br i1 %12, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i"
 
 ._crit_edge.i:                                    ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1384,32 +1384,30 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !131, !nonnull !3, !noundef !3
   %17 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %16), !noalias !131
-  %.fr.i.i = freeze { i32, i32 } %17
-  %18 = extractvalue { i32, i32 } %.fr.i.i, 0
+  %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !noalias !131
-  %.fr3.i.i = freeze { i32, i32 } %19
-  %20 = extractvalue { i32, i32 } %.fr3.i.i, 0
+  %20 = extractvalue { i32, i32 } %19, 0
   %21 = icmp ugt i32 %18, %20
-  %22 = zext i1 %21 to i64
+  %cond.fr.i.i = freeze i1 %21
+  %22 = zext i1 %cond.fr.i.i to i64
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i"
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
-  %.sroa.01.032.i = phi i64 [ %33, %.lr.ph.split.i ], [ %1, %.lr.ph.split.i.preheader ]
-  %.sroa.05.031.i = phi i64 [ %32, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader ]
-  %23 = lshr i64 %.sroa.01.032.i, 1
-  %24 = add i64 %23, %.sroa.05.031.i
+  %.sroa.01.031.i = phi i64 [ %33, %.lr.ph.split.i ], [ %1, %.lr.ph.split.i.preheader ]
+  %.sroa.05.030.i = phi i64 [ %32, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader ]
+  %23 = lshr i64 %.sroa.01.031.i, 1
+  %24 = add i64 %23, %.sroa.05.030.i
   %25 = icmp ult i64 %24, %1
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %24
   %27 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %8), !noalias !131
-  %.fr.i27.i = freeze { i32, i32 } %27
-  %28 = extractvalue { i32, i32 } %.fr.i27.i, 0
+  %28 = extractvalue { i32, i32 } %27, 0
   %29 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26), !noalias !131
-  %.fr3.i28.i = freeze { i32, i32 } %29
-  %30 = extractvalue { i32, i32 } %.fr3.i28.i, 0
+  %30 = extractvalue { i32, i32 } %29, 0
   %31 = icmp ugt i32 %28, %30
-  %32 = select i1 %31, i64 %24, i64 %.sroa.05.031.i
-  %33 = sub i64 %.sroa.01.032.i, %23
+  %cond.fr.i27.i = freeze i1 %31
+  %32 = select i1 %cond.fr.i27.i, i64 %24, i64 %.sroa.05.030.i
+  %33 = sub i64 %.sroa.01.031.i, %23
   %34 = icmp ugt i64 %33, 1
   br i1 %34, label %.lr.ph.split.i, label %._crit_edge.i.thread10, !llvm.loop !134
 
@@ -1418,9 +1416,9 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %35)
   br label %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i", %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i", %._crit_edge.i
-  %.sroa.05.0.lcssa.i9 = phi i64 [ 0, %._crit_edge.i ], [ %.sroa.05.0.lcssa.i13, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i" ]
-  %36 = phi i64 [ 0, %._crit_edge.i ], [ %22, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit30.us.i" ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i", %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i", %._crit_edge.i
+  %.sroa.05.0.lcssa.i9 = phi i64 [ 0, %._crit_edge.i ], [ %.sroa.05.0.lcssa.i13, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i" ]
+  %36 = phi i64 [ 0, %._crit_edge.i ], [ %22, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i" ]
   %37 = add nuw i64 %36, %.sroa.05.0.lcssa.i9
   %38 = icmp ule i64 %37, %1
   tail call void @llvm.assume(i1 %38)
@@ -1682,8 +1680,8 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 "_ZN189_$LT$ruff_python_formatter..pattern..pattern_match_mapping..FormatPatternMatchMapping$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..PatternMatchMapping$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h4b179c86ddc5cd03E.exit.i.i": ; preds = %._crit_edge.i
   %9 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6), !noalias !144
-  %.fr.i.i = freeze { i32, i32 } %9
-  %10 = extractvalue { i32, i32 } %.fr.i.i, 0
+  %.fr3.i.i = freeze { i32, i32 } %9
+  %10 = extractvalue { i32, i32 } %.fr3.i.i, 0
   %11 = load i32, ptr %2, align 4, !noalias !144, !noundef !3
   %12 = icmp ult i32 %10, %11
   %13 = zext i1 %12 to i64
@@ -1703,8 +1701,8 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 "_ZN189_$LT$ruff_python_formatter..pattern..pattern_match_mapping..FormatPatternMatchMapping$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..PatternMatchMapping$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h4b179c86ddc5cd03E.exit.i25.i": ; preds = %.lr.ph.i
   %20 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %17), !noalias !144
-  %.fr.i26.i = freeze { i32, i32 } %20
-  %21 = extractvalue { i32, i32 } %.fr.i26.i, 0
+  %.fr3.i26.i = freeze { i32, i32 } %20
+  %21 = extractvalue { i32, i32 } %.fr3.i26.i, 0
   %22 = icmp ult i32 %21, %4
   br i1 %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17h66cd10116da9fe7fE.exit28.i", label %23
 

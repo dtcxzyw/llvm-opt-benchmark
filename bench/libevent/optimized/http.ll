@@ -8432,161 +8432,158 @@ userinfo_ok.exit.thread:                          ; preds = %33, %24, %26, %29, 
 define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly captures(ret: address, provenance) %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.preheader, label %23
+  br i1 %.not, label %.preheader, label %25
 
 .preheader:                                       ; preds = %3
   %5 = load i8, ptr %0, align 1
-  %.fr56 = freeze i8 %5
-  %.not3657 = icmp eq i8 %.fr56, 0
-  br i1 %.not3657, label %.critedge, label %.lr.ph
+  %.not3655 = icmp eq i8 %5, 0
+  br i1 %.not3655, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.not64 = icmp eq i32 %1, 0
-  br i1 %.not64, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not61 = icmp eq i32 %1, 0
+  br i1 %.not61, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %20
-  %.fr59.us = phi i8 [ %.fr.us, %20 ], [ %.fr56, %.lr.ph ]
-  %.358.us = phi ptr [ %21, %20 ], [ %0, %.lr.ph ]
-  %6 = zext i8 %.fr59.us to i64
-  %7 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %6
-  %8 = load i8, ptr %7, align 1
-  %.not37.us = icmp eq i8 %8, 0
-  br i1 %.not37.us, label %9, label %20
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
+  %6 = phi i8 [ %24, %22 ], [ %5, %.lr.ph ]
+  %.356.us = phi ptr [ %23, %22 ], [ %0, %.lr.ph ]
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %7
+  %9 = load i8, ptr %8, align 1
+  %.not37.us = icmp eq i8 %9, 0
+  br i1 %.not37.us, label %10, label %22
 
-9:                                                ; preds = %.lr.ph.split.us
-  %memchr.bounds.us = icmp ult i8 %.fr59.us, 64
-  %10 = shl nuw i64 1, %6
-  %.fr51.us = freeze i64 %10
-  %11 = and i64 %.fr51.us, 2882338748320710657
-  %memchr.bits.us = icmp ne i64 %11, 0
-  %memchr38.not.not50.us = and i1 %memchr.bounds.us, %memchr.bits.us
-  br i1 %memchr38.not.not50.us, label %20, label %switch.early.test.us
+10:                                               ; preds = %.lr.ph.split.us
+  %memchr.bounds.us = icmp ult i8 %6, 64
+  %11 = shl nuw i64 1, %7
+  %12 = and i64 %11, 2882338748320710657
+  %memchr.bits.us = icmp ne i64 %12, 0
+  %memchr38.not.not50.us = select i1 %memchr.bounds.us, i1 %memchr.bits.us, i1 false
+  %13 = freeze i1 %memchr38.not.not50.us
+  br i1 %13, label %22, label %switch.early.test.us
 
-switch.early.test.us:                             ; preds = %9
-  switch i8 %.fr59.us, label %.critedge [
-    i8 64, label %20
-    i8 58, label %20
-    i8 47, label %20
-    i8 37, label %12
+switch.early.test.us:                             ; preds = %10
+  switch i8 %6, label %.critedge [
+    i8 64, label %22
+    i8 58, label %22
+    i8 47, label %22
+    i8 37, label %14
   ]
 
-12:                                               ; preds = %switch.early.test.us
-  %13 = getelementptr inbounds nuw i8, ptr %.358.us, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %14) #19
-  %.not40.us = icmp eq i32 %15, 0
-  br i1 %.not40.us, label %.critedge, label %16
+14:                                               ; preds = %switch.early.test.us
+  %15 = getelementptr inbounds nuw i8, ptr %.356.us, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %16) #19
+  %.not40.us = icmp eq i32 %17, 0
+  br i1 %.not40.us, label %.critedge, label %18
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.358.us, i64 2
-  %18 = load i8, ptr %17, align 1
-  %19 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %18) #19
-  %.not41.us = icmp eq i32 %19, 0
-  br i1 %.not41.us, label %.critedge, label %20
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %.356.us, i64 2
+  %20 = load i8, ptr %19, align 1
+  %21 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %20) #19
+  %.not41.us = icmp eq i32 %21, 0
+  br i1 %.not41.us, label %.critedge, label %22
 
-20:                                               ; preds = %.lr.ph.split.us, %9, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %16
-  %.sink = phi i64 [ 3, %16 ], [ 1, %switch.early.test.us ], [ 1, %switch.early.test.us ], [ 1, %switch.early.test.us ], [ 1, %9 ], [ 1, %.lr.ph.split.us ]
-  %21 = getelementptr inbounds nuw i8, ptr %.358.us, i64 %.sink
-  %22 = load i8, ptr %21, align 1
-  %.fr.us = freeze i8 %22
-  %.not36.us = icmp eq i8 %.fr.us, 0
+22:                                               ; preds = %.lr.ph.split.us, %10, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %18
+  %.sink = phi i64 [ 3, %18 ], [ 1, %switch.early.test.us ], [ 1, %switch.early.test.us ], [ 1, %switch.early.test.us ], [ 1, %10 ], [ 1, %.lr.ph.split.us ]
+  %23 = getelementptr inbounds nuw i8, ptr %.356.us, i64 %.sink
+  %24 = load i8, ptr %23, align 1
+  %.not36.us = icmp eq i8 %24, 0
   br i1 %.not36.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !39
 
-23:                                               ; preds = %3
+25:                                               ; preds = %3
   switch i32 %1, label %default.unreachable69 [
-    i32 0, label %.preheader52
-    i32 1, label %.preheader54
-    i32 2, label %30
+    i32 0, label %.preheader51
+    i32 1, label %.preheader53
+    i32 2, label %32
   ]
 
-.preheader52:                                     ; preds = %23, %25
-  %.1 = phi ptr [ %26, %25 ], [ %0, %23 ]
-  %24 = load i8, ptr %.1, align 1
-  switch i8 %24, label %25 [
+.preheader51:                                     ; preds = %25, %27
+  %.1 = phi ptr [ %28, %27 ], [ %0, %25 ]
+  %26 = load i8, ptr %.1, align 1
+  switch i8 %26, label %27 [
     i8 0, label %.critedge
     i8 35, label %.critedge
     i8 63, label %.critedge
   ]
 
-25:                                               ; preds = %.preheader52
-  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader52, !llvm.loop !40
+27:                                               ; preds = %.preheader51
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.preheader51, !llvm.loop !40
 
-.preheader54:                                     ; preds = %23, %28
-  %.2 = phi ptr [ %29, %28 ], [ %0, %23 ]
-  %27 = load i8, ptr %.2, align 1
-  switch i8 %27, label %28 [
+.preheader53:                                     ; preds = %25, %30
+  %.2 = phi ptr [ %31, %30 ], [ %0, %25 ]
+  %29 = load i8, ptr %.2, align 1
+  switch i8 %29, label %30 [
     i8 0, label %.critedge
     i8 35, label %.critedge
   ]
 
-28:                                               ; preds = %.preheader54
-  %29 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %.preheader54, !llvm.loop !41
+30:                                               ; preds = %.preheader53
+  %31 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  br label %.preheader53, !llvm.loop !41
 
-30:                                               ; preds = %23
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
+32:                                               ; preds = %25
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
   br label %.critedge
 
-default.unreachable69:                            ; preds = %23
+default.unreachable69:                            ; preds = %25
   unreachable
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %50
-  %.fr59 = phi i8 [ %.fr, %50 ], [ %.fr56, %.lr.ph ]
-  %.358 = phi ptr [ %51, %50 ], [ %0, %.lr.ph ]
-  %33 = zext i8 %.fr59 to i64
-  %34 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %.not37 = icmp eq i8 %35, 0
-  br i1 %.not37, label %36, label %50
+.lr.ph.split:                                     ; preds = %.lr.ph, %54
+  %35 = phi i8 [ %56, %54 ], [ %5, %.lr.ph ]
+  %.356 = phi ptr [ %55, %54 ], [ %0, %.lr.ph ]
+  %36 = zext i8 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %36
+  %38 = load i8, ptr %37, align 1
+  %.not37 = icmp eq i8 %38, 0
+  br i1 %.not37, label %39, label %54
 
-36:                                               ; preds = %.lr.ph.split
-  %memchr.bounds = icmp ult i8 %.fr59, 64
-  %37 = shl nuw i64 1, %33
-  %.fr51 = freeze i64 %37
-  %38 = and i64 %.fr51, 2882338748320710657
-  %memchr.bits = icmp ne i64 %38, 0
-  %memchr38.not.not50 = and i1 %memchr.bounds, %memchr.bits
-  br i1 %memchr38.not.not50, label %50, label %switch.early.test
+39:                                               ; preds = %.lr.ph.split
+  %memchr.bounds = icmp ult i8 %35, 64
+  %40 = shl nuw i64 1, %36
+  %41 = and i64 %40, 2882338748320710657
+  %memchr.bits = icmp ne i64 %41, 0
+  %memchr38.not.not50 = select i1 %memchr.bounds, i1 %memchr.bits, i1 false
+  %42 = freeze i1 %memchr38.not.not50
+  br i1 %42, label %54, label %switch.early.test
 
-switch.early.test:                                ; preds = %36
-  switch i8 %.fr59, label %47 [
-    i8 64, label %50
-    i8 58, label %50
-    i8 47, label %50
-    i8 37, label %39
+switch.early.test:                                ; preds = %39
+  switch i8 %35, label %51 [
+    i8 64, label %54
+    i8 58, label %54
+    i8 47, label %54
+    i8 37, label %43
   ]
 
-39:                                               ; preds = %switch.early.test
-  %40 = getelementptr inbounds nuw i8, ptr %.358, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %41) #19
-  %.not40 = icmp eq i32 %42, 0
-  br i1 %.not40, label %47, label %43
-
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.358, i64 2
+43:                                               ; preds = %switch.early.test
+  %44 = getelementptr inbounds nuw i8, ptr %.356, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %45) #19
-  %.not41 = icmp eq i32 %46, 0
-  br i1 %.not41, label %47, label %50
+  %.not40 = icmp eq i32 %46, 0
+  br i1 %.not40, label %51, label %47
 
-47:                                               ; preds = %switch.early.test, %43, %39
-  %48 = load i8, ptr %.358, align 1
-  %49 = icmp eq i8 %48, 63
-  br i1 %49, label %50, label %.critedge
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %.356, i64 2
+  %49 = load i8, ptr %48, align 1
+  %50 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %49) #19
+  %.not41 = icmp eq i32 %50, 0
+  br i1 %.not41, label %51, label %54
 
-50:                                               ; preds = %47, %43, %.lr.ph.split, %36, %switch.early.test, %switch.early.test, %switch.early.test
-  %.sink74 = phi i64 [ 1, %.lr.ph.split ], [ 3, %43 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %36 ], [ 1, %47 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.358, i64 %.sink74
-  %52 = load i8, ptr %51, align 1
-  %.fr = freeze i8 %52
-  %.not36 = icmp eq i8 %.fr, 0
+51:                                               ; preds = %switch.early.test, %47, %43
+  %52 = load i8, ptr %.356, align 1
+  %53 = icmp eq i8 %52, 63
+  br i1 %53, label %54, label %.critedge
+
+54:                                               ; preds = %51, %47, %.lr.ph.split, %39, %switch.early.test, %switch.early.test, %switch.early.test
+  %.sink74 = phi i64 [ 1, %.lr.ph.split ], [ 3, %47 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %39 ], [ 1, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.356, i64 %.sink74
+  %56 = load i8, ptr %55, align 1
+  %.not36 = icmp eq i8 %56, 0
   br i1 %.not36, label %.critedge, label %.lr.ph.split, !llvm.loop !39
 
-.critedge:                                        ; preds = %.preheader54, %.preheader54, %.preheader52, %.preheader52, %.preheader52, %47, %50, %16, %12, %switch.early.test.us, %20, %.preheader, %30
-  %.0 = phi ptr [ %.358.us, %switch.early.test.us ], [ %.1, %.preheader52 ], [ %32, %30 ], [ %0, %.preheader ], [ %51, %50 ], [ %.358.us, %16 ], [ %.358.us, %12 ], [ %21, %20 ], [ %.358, %47 ], [ %.1, %.preheader52 ], [ %.1, %.preheader52 ], [ %.2, %.preheader54 ], [ %.2, %.preheader54 ]
+.critedge:                                        ; preds = %.preheader53, %.preheader53, %.preheader51, %.preheader51, %.preheader51, %51, %54, %18, %14, %switch.early.test.us, %22, %.preheader, %32
+  %.0 = phi ptr [ %.356.us, %switch.early.test.us ], [ %.1, %.preheader51 ], [ %34, %32 ], [ %0, %.preheader ], [ %55, %54 ], [ %.356.us, %18 ], [ %.356.us, %14 ], [ %23, %22 ], [ %.356, %51 ], [ %.1, %.preheader51 ], [ %.1, %.preheader51 ], [ %.2, %.preheader53 ], [ %.2, %.preheader53 ]
   ret ptr %.0
 }
 
@@ -9695,7 +9692,7 @@ evhttp_handle_chunked_read.exit.thread80:         ; preds = %27
 
 33:                                               ; preds = %30
   call void @event_mm_free_(ptr noundef nonnull %28) #19
-  br label %.thread111.i
+  br label %.thread112.i
 
 34:                                               ; preds = %30
   %35 = tail call ptr @__ctype_b_loc() #20
@@ -9704,8 +9701,8 @@ evhttp_handle_chunked_read.exit.thread80:         ; preds = %27
   %38 = sext i8 %37 to i64
   %39 = getelementptr inbounds i16, ptr %36, i64 %38
   %40 = load i16, ptr %39, align 2
-  %.fr.i = freeze i16 %40
-  %41 = and i16 %.fr.i, 8192
+  %.fr84.i = freeze i16 %40
+  %41 = and i16 %.fr84.i, 8192
   %.not66.not.i = icmp eq i16 %41, 0
   br i1 %.not66.not.i, label %switch.early.test.i, label %evhttp_handle_chunked_read.exit.thread75.sink.split
 
@@ -9775,7 +9772,7 @@ switch.early.test.i:                              ; preds = %34
   store i64 %60, ptr %19, align 8
   store i64 %47, ptr %14, align 8
   %69 = icmp eq i64 %47, 0
-  br i1 %69, label %88, label %.thread111.i
+  br i1 %69, label %88, label %.thread112.i
 
 70:                                               ; preds = %24
   %71 = icmp samesign ult i64 %22, %25
@@ -9805,11 +9802,11 @@ switch.early.test.i:                              ; preds = %34
   %.not65.i = icmp eq i32 %85, 0
   br i1 %.not65.i, label %.backedge.i, label %98
 
-.thread111.i:                                     ; preds = %68, %33
+.thread112.i:                                     ; preds = %68, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.thread111.i, %76, %72
+.backedge.i:                                      ; preds = %.thread112.i, %76, %72
   %86 = call i64 @evbuffer_get_length(ptr noundef nonnull %6) #19
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %evhttp_handle_chunked_read.exit.thread, label %21

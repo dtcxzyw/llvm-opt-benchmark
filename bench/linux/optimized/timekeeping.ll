@@ -1125,23 +1125,21 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
 
 23:                                               ; preds = %19
   %24 = load i64, ptr %5, align 8
-  %.fr = freeze i64 %24
   %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 8), align 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 %26(ptr noundef %25) #11
-  %.fr20 = freeze i64 %27
   %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 24), align 8
-  %.fr18 = freeze i64 %28
-  %29 = icmp ugt i64 %.fr, %.fr18
-  %30 = icmp ult i64 %.fr, %.fr20
+  %29 = icmp ugt i64 %24, %28
+  %30 = icmp ult i64 %24, %27
   %31 = and i1 %30, %29
   br i1 %31, label %.thread8, label %32
 
 32:                                               ; preds = %23
-  %33 = icmp ult i64 %.fr, %.fr18
-  %34 = icmp ugt i64 %.fr18, %.fr20
+  %33 = icmp ult i64 %24, %28
+  %34 = icmp ugt i64 %28, %27
   %35 = and i1 %33, %34
-  br i1 %35, label %.thread8, label %36
+  %cond.fr6 = freeze i1 %35
+  br i1 %cond.fr6, label %.thread8, label %36
 
 36:                                               ; preds = %32
   %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 184), align 8
@@ -1183,7 +1181,7 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
   %67 = add i64 %66, %53
   %68 = zext nneg i32 %54 to i64
   %69 = lshr i64 %67, %68
-  %70 = sub i64 %45, %.fr18
+  %70 = sub i64 %45, %28
   %71 = and i64 %70, %46
   %72 = lshr i64 %46, 1
   %73 = xor i64 %72, -1
@@ -1212,13 +1210,13 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
   %90 = load i64, ptr %2, align 8
   %91 = load i64, ptr %5, align 8
   %92 = icmp ugt i64 %91, %90
-  %93 = icmp ult i64 %91, %.fr18
+  %93 = icmp ult i64 %91, %28
   %94 = and i1 %92, %93
   br i1 %94, label %99, label %95
 
 95:                                               ; preds = %89
   %96 = icmp ult i64 %91, %90
-  %97 = icmp ugt i64 %90, %.fr18
+  %97 = icmp ugt i64 %90, %28
   %98 = and i1 %97, %96
   br i1 %98, label %99, label %.thread11
 
@@ -1229,17 +1227,17 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
   br i1 %102, label %103, label %.thread11
 
 103:                                              ; preds = %99
-  %104 = sub i64 %.fr18, %90
+  %104 = sub i64 %28, %90
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, %39
-  %108 = icmp eq i64 %.fr18, %90
-  %109 = icmp eq i64 %.fr18, %91
+  %108 = icmp eq i64 %28, %90
+  %109 = icmp eq i64 %28, %91
   %110 = or i1 %108, %109
   br i1 %110, label %.thread11, label %111
 
 111:                                              ; preds = %103
-  %112 = sub i64 %.fr18, %91
+  %112 = sub i64 %28, %91
   %113 = lshr i64 %104, 1
   %114 = icmp ult i64 %113, %112
   %115 = sub i64 %104, %112

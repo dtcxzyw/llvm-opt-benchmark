@@ -3843,32 +3843,31 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %20
-  %.040 = phi i64 [ %21, %20 ], [ %1, %4 ]
-  %9 = shl i64 %.040, 1
+  %.038 = phi i64 [ %21, %20 ], [ %1, %4 ]
+  %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
   %13 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %12
   %14 = getelementptr i8, ptr %11, i64 104
   %.val.i = load i64, ptr %14, align 4
-  %.val.i.fr = freeze i64 %.val.i
   %15 = getelementptr i8, ptr %13, i64 104
   %.val1.i = load i64, ptr %15, align 4
-  %.val1.i.fr = freeze i64 %.val1.i
-  %.sroa.43.0.extract.shift.i.i = lshr i64 %.val.i.fr, 32
+  %.sroa.43.0.extract.shift.i.i = lshr i64 %.val.i, 32
   %.sroa.43.0.extract.trunc.i.i = trunc nuw i64 %.sroa.43.0.extract.shift.i.i to i32
-  %.sroa.4.0.extract.shift.i.i = lshr i64 %.val1.i.fr, 32
+  %.sroa.4.0.extract.shift.i.i = lshr i64 %.val1.i, 32
   %.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i to i32
   %16 = icmp slt i32 %.sroa.43.0.extract.trunc.i.i, %.sroa.4.0.extract.trunc.i.i
   br i1 %16, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit": ; preds = %.lr.ph
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.val1.i.fr to i32
-  %.sroa.02.0.extract.trunc.i.i = trunc i64 %.val.i.fr to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.val1.i to i32
+  %.sroa.02.0.extract.trunc.i.i = trunc i64 %.val.i to i32
   %17 = icmp eq i64 %.sroa.43.0.extract.shift.i.i, %.sroa.4.0.extract.shift.i.i
   %18 = icmp slt i32 %.sroa.02.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %19 = and i1 %17, %18
-  br i1 %19, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread", label %20
+  %cond.fr = freeze i1 %19
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread", label %20
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit"
   br label %20
@@ -3876,7 +3875,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 20:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread"
   %21 = phi i64 [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread" ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit" ]
   %22 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %21
-  %23 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.040
+  %23 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.038
   tail call void @_ZNSt6vectorIhSaIhEE14_M_move_assignEOS1_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(211) %23, ptr noundef nonnull align 8 dereferenceable(211) %22) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -4046,12 +4045,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.
   store ptr %118, ptr %115, align 8, !tbaa !47
   %126 = load i64, ptr %119, align 8, !tbaa !51
   store i64 %126, ptr %117, align 8, !tbaa !51
-  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !53
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !53
   br label %_ZN5ZXing6ResultC2EOS0_.exit
 
 _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %121, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i
-  %127 = phi i64 [ %123, %121 ], [ %.pre42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i ]
+  %127 = phi i64 [ %123, %121 ], [ %.pre40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6.i ]
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i64 %127, ptr %129, align 8, !tbaa !53
@@ -4119,15 +4118,15 @@ _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %121, %_ZNKSt7__cxx1
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i"
   %.0.lcssa.i.ph = phi i64 [ %.0911.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i" ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i" ]
-  %.pre43 = load ptr, ptr %5, align 8, !tbaa !37
-  %.pre44 = load ptr, ptr %76, align 8, !tbaa !41
-  %.pre45 = load ptr, ptr %79, align 8, !tbaa !40
+  %.pre41 = load ptr, ptr %5, align 8, !tbaa !37
+  %.pre42 = load ptr, ptr %76, align 8, !tbaa !41
+  %.pre43 = load ptr, ptr %79, align 8, !tbaa !40
   br label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit"
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit": ; preds = %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit", %_ZN5ZXing6ResultC2EOS0_.exit
-  %159 = phi ptr [ %81, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre45, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
-  %160 = phi ptr [ %78, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre44, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
-  %161 = phi ptr [ %75, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre43, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
+  %159 = phi ptr [ %81, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre43, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
+  %160 = phi ptr [ %78, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre42, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
+  %161 = phi ptr [ %75, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre41, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
   %.0.lcssa.i = phi i64 [ %.1, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.0.lcssa.i.ph, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
   %162 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.0.lcssa.i
   %163 = load ptr, ptr %162, align 8, !tbaa !37

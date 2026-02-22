@@ -15257,8 +15257,7 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %52 = load ptr, ptr %51, align 8, !nonnull !4, !align !973
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %54 = load i64, ptr %53, align 8
-  %.fr = freeze i64 %54
-  %.sroa.3.0 = select i1 %50, i64 0, i64 %.fr
+  %.sroa.3.0 = select i1 %50, i64 0, i64 %54
   %.sroa.018.0 = select i1 %50, ptr inttoptr (i64 1 to ptr), ptr %52
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -15302,7 +15301,6 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %.promoted.i = phi i8 [ %.promoted.i231, %.loopexit ], [ %.promoted.i.ph, %.split.split.i.preheader.outer ]
   %59 = phi i64 [ %88, %.loopexit ], [ %.ph, %.split.split.i.preheader.outer ]
   %.lcssa161190 = phi i64 [ %.lcssa161188, %.loopexit ], [ %.lcssa161190.ph, %.split.split.i.preheader.outer ]
-  %.promoted23.fr.i = freeze i64 %.lcssa161190
   call void @llvm.experimental.noalias.scope.decl(metadata !1423)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %55, ptr %4, align 8, !noalias !1426
@@ -15312,9 +15310,9 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
 .split.split.i:                                   ; preds = %.split.split.i.preheader, %select.unfold.i
   %.promoted.i232 = phi i8 [ %.promoted.i231, %select.unfold.i ], [ %.promoted.i, %.split.split.i.preheader ]
   %60 = phi i64 [ %88, %select.unfold.i ], [ %59, %.split.split.i.preheader ]
-  %.lcssa161189 = phi i64 [ %.lcssa161188, %select.unfold.i ], [ %.promoted23.fr.i, %.split.split.i.preheader ]
+  %.lcssa161189 = phi i64 [ %.lcssa161188, %select.unfold.i ], [ %.lcssa161190, %.split.split.i.preheader ]
   %61 = phi i64 [ %89, %select.unfold.i ], [ %59, %.split.split.i.preheader ]
-  %.lcssa1925.i = phi i64 [ %.lcssa1924.i, %select.unfold.i ], [ %.promoted23.fr.i, %.split.split.i.preheader ]
+  %.lcssa1925.i = phi i64 [ %.lcssa1924.i, %select.unfold.i ], [ %.lcssa161190, %.split.split.i.preheader ]
   %62 = phi i8 [ %90, %select.unfold.i ], [ %.promoted.i, %.split.split.i.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1429)
   call void @llvm.experimental.noalias.scope.decl(metadata !1432)

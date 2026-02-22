@@ -901,7 +901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %241
   %.0.v.i97 = select i1 %250, i64 112, i64 144
   %.0.i98 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.v.i97
   %251 = load ptr, ptr %.0.i98, align 8, !tbaa !10
-  %.fr.i = freeze ptr %251
+  %.fr16.i = freeze ptr %251
   %252 = getelementptr inbounds nuw i8, ptr %.0.i98, i64 8
   %253 = load i64, ptr %252, align 8, !tbaa !32
   %254 = shl i64 %196, 2
@@ -915,7 +915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %241
   br i1 %or.cond187.not, label %256, label %_ZNK5folly5RangeIPKcE4findERS1_m.exit.thread
 
 256:                                              ; preds = %.preheader
-  %257 = getelementptr i8, ptr %.fr.i, i64 %.034
+  %257 = getelementptr i8, ptr %.fr16.i, i64 %.034
   %gepdiff = sub nuw i64 %253, %.034
   %258 = call noundef ptr @memchr(ptr noundef %257, i32 noundef 10, i64 noundef %gepdiff) #25
   %259 = icmp eq ptr %258, null
@@ -953,7 +953,7 @@ _ZNK5folly5RangeIPKcE4findERS1_m.exit.thread:     ; preds = %256, %_ZN5folly5qfi
 
 271:                                              ; preds = %268
   %272 = sub i64 %.0, %.034
-  %273 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 %.034
+  %273 = getelementptr inbounds nuw i8, ptr %.fr16.i, i64 %.034
   %274 = sub nuw i64 %253, %.034
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %274, i64 %272)
   %275 = load i64, ptr %143, align 8, !tbaa !32

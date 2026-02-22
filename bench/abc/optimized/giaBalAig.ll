@@ -1089,12 +1089,11 @@ declare i32 @Gia_ManHashLookupInt(ptr noundef, i32 noundef, i32 noundef) local_u
 define void @Gia_ManPrepareLastTwo(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4, !tbaa !3
-  %.val.fr = freeze i32 %.val
-  %4 = icmp eq i32 %.val.fr, 2
+  %4 = icmp eq i32 %.val, 2
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = add nsw i32 %.val.fr, -2
+  %6 = add nsw i32 %.val, -2
   %7 = getelementptr i8, ptr %1, i64 8
   %.val69 = load ptr, ptr %7, align 8, !tbaa !10
   %8 = sext i32 %6 to i64
@@ -1197,8 +1196,8 @@ Gia_ObjLevelId.exit:                              ; preds = %5, %._crit_edge.i.i
   %51 = sext i32 %11 to i64
   %52 = getelementptr inbounds i32, ptr %.val.i.i, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !11
-  %54 = add nsw i32 %.val.fr, -3
-  %55 = icmp sgt i32 %.val.fr, 2
+  %54 = add nsw i32 %.val, -3
+  %55 = icmp sgt i32 %.val, 2
   br i1 %55, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %Gia_ObjLevelId.exit, %101
@@ -1317,30 +1316,31 @@ Gia_ObjLevelId.exit88._crit_edge:                 ; preds = %101, %Gia_ObjLevelI
   br i1 %104, label %.loopexit, label %105
 
 105:                                              ; preds = %Gia_ObjLevelId.exit88._crit_edge
-  %106 = add nsw i32 %.val.fr, -1
+  %106 = add nsw i32 %.val, -1
   %107 = icmp slt i32 %.057.lcssa, %106
   br i1 %107, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %105
-  %108 = add nsw i32 %.val.fr, -9
+  %108 = add nsw i32 %.val, -9
   %109 = tail call noundef i32 @llvm.smax.i32(i32 %.057.lcssa, i32 %108)
   %110 = zext nneg i32 %106 to i64
   %111 = sext i32 %109 to i64
-  %indvars.iv.next105129 = add nsw i64 %110, -1
-  %112 = icmp sgt i64 %indvars.iv.next105129, %111
+  %indvars.iv.next105127 = add nsw i64 %110, -1
+  %112 = icmp sgt i64 %indvars.iv.next105127, %111
   br i1 %112, label %.lr.ph93, label %.loopexit
 
 .lr.ph93:                                         ; preds = %.preheader.lr.ph, %._crit_edge94
-  %indvars.iv.next105132 = phi i64 [ %indvars.iv.next105, %._crit_edge94 ], [ %indvars.iv.next105129, %.preheader.lr.ph ]
-  %indvars.iv131 = phi i64 [ %indvars.iv.next, %._crit_edge94 ], [ %8, %.preheader.lr.ph ]
-  %indvars.iv104130 = phi i64 [ %indvars.iv.next105132, %._crit_edge94 ], [ %110, %.preheader.lr.ph ]
-  %113 = icmp eq i64 %indvars.iv104130, %110
-  br i1 %113, label %.lr.ph93.split.us, label %.lr.ph93.split
+  %indvars.iv.next105130 = phi i64 [ %indvars.iv.next105, %._crit_edge94 ], [ %indvars.iv.next105127, %.preheader.lr.ph ]
+  %indvars.iv129 = phi i64 [ %indvars.iv.next, %._crit_edge94 ], [ %8, %.preheader.lr.ph ]
+  %indvars.iv104128 = phi i64 [ %indvars.iv.next105130, %._crit_edge94 ], [ %110, %.preheader.lr.ph ]
+  %113 = icmp eq i64 %indvars.iv104128, %110
+  %.not64.fr = freeze i1 %113
+  br i1 %.not64.fr, label %.lr.ph93.split.us, label %.lr.ph93.split
 
 .lr.ph93.split.us:                                ; preds = %.lr.ph93, %127
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %127 ], [ %indvars.iv131, %.lr.ph93 ]
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %127 ], [ %indvars.iv129, %.lr.ph93 ]
   %.val67.us = load ptr, ptr %7, align 8, !tbaa !10
-  %114 = getelementptr inbounds nuw i32, ptr %.val67.us, i64 %110
+  %114 = getelementptr inbounds i32, ptr %.val67.us, i64 %indvars.iv104128
   %115 = load i32, ptr %114, align 4, !tbaa !11
   %116 = getelementptr inbounds i32, ptr %.val67.us, i64 %indvars.iv100
   %117 = load i32, ptr %116, align 4, !tbaa !11
@@ -1375,9 +1375,9 @@ Gia_ObjLevelId.exit88._crit_edge:                 ; preds = %101, %Gia_ObjLevelI
   br i1 %128, label %.lr.ph93.split.us, label %._crit_edge94, !llvm.loop !41
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93, %146
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %146 ], [ %indvars.iv131, %.lr.ph93 ]
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %146 ], [ %indvars.iv129, %.lr.ph93 ]
   %.val67 = load ptr, ptr %7, align 8, !tbaa !10
-  %129 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv104130
+  %129 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv104128
   %130 = load i32, ptr %129, align 4, !tbaa !11
   %131 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv97
   %132 = load i32, ptr %131, align 4, !tbaa !11
@@ -1392,14 +1392,14 @@ Gia_ObjLevelId.exit88._crit_edge:                 ; preds = %101, %Gia_ObjLevelI
 
 ._crit_edge:                                      ; preds = %133
   %.val72.pre = load ptr, ptr %7, align 8, !tbaa !10
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.val72.pre, i64 %indvars.iv104130
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.val72.pre, i64 %indvars.iv104128
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
   br label %135
 
 135:                                              ; preds = %._crit_edge, %.lr.ph93.split
   %136 = phi i32 [ %.pre, %._crit_edge ], [ %130, %.lr.ph93.split ]
   %.val72 = phi ptr [ %.val72.pre, %._crit_edge ], [ %.val67, %.lr.ph93.split ]
-  %137 = getelementptr inbounds i32, ptr %.val72, i64 %indvars.iv104130
+  %137 = getelementptr inbounds i32, ptr %.val72, i64 %indvars.iv104128
   %138 = getelementptr inbounds nuw i32, ptr %.val72, i64 %110
   %139 = load i32, ptr %138, align 4, !tbaa !11
   store i32 %139, ptr %137, align 4, !tbaa !11
@@ -1422,8 +1422,8 @@ Gia_ObjLevelId.exit88._crit_edge:                 ; preds = %101, %Gia_ObjLevelI
   br i1 %147, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !41
 
 ._crit_edge94:                                    ; preds = %146, %127
-  %indvars.iv.next = add nsw i64 %indvars.iv131, -1
-  %indvars.iv.next105 = add nsw i64 %indvars.iv.next105132, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv129, -1
+  %indvars.iv.next105 = add nsw i64 %indvars.iv.next105130, -1
   %148 = icmp sgt i64 %indvars.iv.next105, %111
   br i1 %148, label %.lr.ph93, label %.loopexit, !llvm.loop !42
 

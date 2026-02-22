@@ -7279,8 +7279,8 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments20TP
   %.val.i = load ptr, ptr %0, align 8, !tbaa !83
   %10 = getelementptr inbounds nuw i8, ptr %.0.val.i, i64 48
   %11 = load i64, ptr %10, align 8, !tbaa !106
-  %.fr53.i.i = freeze i64 %11
-  %.not.i.i.i = icmp eq i64 %.fr53.i.i, 0
+  %.fr.i.i = freeze i64 %11
+  %.not.i.i.i = icmp eq i64 %.fr.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i, label %12
 
 12:                                               ; preds = %.lr.ph.i
@@ -7290,7 +7290,7 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments20TP
   br i1 %.not2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i, label %15
 
 15:                                               ; preds = %12
-  %16 = trunc i64 %.fr53.i.i to i32
+  %16 = trunc i64 %.fr.i.i to i32
   %17 = icmp ugt i32 %16, 1
   br i1 %17, label %.lr.ph.split.us.split.i.i, label %18
 
@@ -7418,29 +7418,29 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPPKN5clang8comments20T
 define internal fastcc void @_ZSt22__merge_without_bufferIPPKN5clang8comments20TParamCommandCommentElN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_SC_T0_SD_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 {
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %4, 0
-  %or.cond82 = or i1 %6, %7
-  br i1 %or.cond82, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71, label %.lr.ph
+  %or.cond81 = or i1 %6, %7
+  br i1 %or.cond81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = ptrtoint ptr %2 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %tailrecurse
-  %.tr7887 = phi i64 [ %4, %.lr.ph ], [ %113, %tailrecurse ]
-  %.tr7786 = phi i64 [ %3, %.lr.ph ], [ %112, %tailrecurse ]
-  %.tr7584 = phi ptr [ %1, %.lr.ph ], [ %.067, %tailrecurse ]
-  %.tr83 = phi ptr [ %0, %.lr.ph ], [ %111, %tailrecurse ]
-  %10 = add nsw i64 %.tr7887, %.tr7786
+  %.tr7786 = phi i64 [ %4, %.lr.ph ], [ %113, %tailrecurse ]
+  %.tr7685 = phi i64 [ %3, %.lr.ph ], [ %112, %tailrecurse ]
+  %.tr7483 = phi ptr [ %1, %.lr.ph ], [ %.066, %tailrecurse ]
+  %.tr82 = phi ptr [ %0, %.lr.ph ], [ %111, %tailrecurse ]
+  %10 = add nsw i64 %.tr7786, %.tr7685
   %11 = icmp eq i64 %10, 2
   br i1 %11, label %12, label %32
 
 12:                                               ; preds = %9
-  %.val = load ptr, ptr %.tr7584, align 8, !tbaa !83
-  %.val39 = load ptr, ptr %.tr83, align 8, !tbaa !83
+  %.val = load ptr, ptr %.tr7483, align 8, !tbaa !83
+  %.val39 = load ptr, ptr %.tr82, align 8, !tbaa !83
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i64, ptr %13, align 8, !tbaa !106
   %.not.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71, label %15
+  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.val39, i64 48
@@ -7451,7 +7451,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPPKN5clang8comments20T
 18:                                               ; preds = %15
   %19 = trunc i64 %14 to i32
   %20 = icmp ugt i32 %19, 1
-  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71, label %21
+  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70, label %21
 
 21:                                               ; preds = %18
   %22 = icmp eq i32 %19, 1
@@ -7468,21 +7468,21 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompar
   %29 = load ptr, ptr %28, align 8, !tbaa !109
   %30 = load i32, ptr %29, align 4, !tbaa !110
   %31 = icmp ult i32 %27, %30
-  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread: ; preds = %21, %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit
-  store ptr %.val, ptr %.tr83, align 8, !tbaa !83
-  store ptr %.val39, ptr %.tr7584, align 8, !tbaa !83
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71
+  store ptr %.val, ptr %.tr82, align 8, !tbaa !83
+  store ptr %.val39, ptr %.tr7483, align 8, !tbaa !83
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70
 
 32:                                               ; preds = %9
-  %33 = icmp sgt i64 %.tr7786, %.tr7887
-  %34 = ptrtoint ptr %.tr7584 to i64
+  %33 = icmp sgt i64 %.tr7685, %.tr7786
+  %34 = ptrtoint ptr %.tr7483 to i64
   br i1 %33, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit: ; preds = %32
-  %35 = sdiv i64 %.tr7786, 2
-  %36 = getelementptr inbounds ptr, ptr %.tr83, i64 %35
+  %35 = sdiv i64 %.tr7685, 2
+  %36 = getelementptr inbounds ptr, ptr %.tr82, i64 %35
   %37 = sub i64 %8, %34
   %38 = ashr exact i64 %37, 3
   %39 = icmp sgt i64 %38, 0
@@ -7495,10 +7495,10 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i: ;
   br label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i: ; preds = %.thread15.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i
-  %.022.i = phi ptr [ %.tr7584, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %68, %.thread15.i ]
-  %.01121.i = phi i64 [ %38, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %67, %.thread15.i ]
-  %42 = lshr i64 %.01121.i, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %.022.i, i64 %42
+  %.021.i = phi ptr [ %.tr7483, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %68, %.thread15.i ]
+  %.01120.i = phi i64 [ %38, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %67, %.thread15.i ]
+  %42 = lshr i64 %.01120.i, 1
+  %43 = getelementptr inbounds nuw ptr, ptr %.021.i, i64 %42
   %.val.i = load ptr, ptr %43, align 8, !tbaa !83
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %45 = load i64, ptr %44, align 8, !tbaa !106
@@ -7525,7 +7525,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i: ; preds
 .thread.i:                                        ; preds = %51, %46
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %56 = xor i64 %42, -1
-  %57 = add nsw i64 %.01121.i, %56
+  %57 = add nsw i64 %.01120.i, %56
   br label %.thread15.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i: ; preds = %51
@@ -7534,19 +7534,18 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentCompare
   %60 = load i32, ptr %59, align 4, !tbaa !110
   %61 = load ptr, ptr %41, align 8, !tbaa !109
   %62 = load i32, ptr %61, align 4, !tbaa !110
-  %.fr.i = freeze i32 %60
-  %.fr19.i = freeze i32 %62
-  %63 = icmp ult i32 %.fr.i, %.fr19.i
+  %63 = icmp ult i32 %60, %62
+  %cond.fr4.i = freeze i1 %63
   %64 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %65 = xor i64 %42, -1
-  %66 = add nsw i64 %.01121.i, %65
-  %spec.select.i = select i1 %63, i64 %66, i64 %42
-  %spec.select20.i = select i1 %63, ptr %64, ptr %.022.i
+  %66 = add nsw i64 %.01120.i, %65
+  %spec.select.i = select i1 %cond.fr4.i, i64 %66, i64 %42
+  %spec.select19.i = select i1 %cond.fr4.i, ptr %64, ptr %.021.i
   br label %.thread15.i
 
 .thread15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i, %.thread.i, %48, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i
   %67 = phi i64 [ %42, %48 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %42, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %57, %.thread.i ]
-  %68 = phi ptr [ %.022.i, %48 ], [ %spec.select20.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.022.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %55, %.thread.i ]
+  %68 = phi ptr [ %.021.i, %48 ], [ %spec.select19.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.021.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %55, %.thread.i ]
   %69 = icmp sgt i64 %67, 0
   br i1 %69, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, !llvm.loop !560
 
@@ -7556,15 +7555,15 @@ _ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__o
 
 _ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %34, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %68, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr7584, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %68, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr7483, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit ]
   %70 = sub i64 %.pre-phi, %34
   %71 = ashr exact i64 %70, 3
   br label %tailrecurse
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45: ; preds = %32
-  %72 = sdiv i64 %.tr7887, 2
-  %73 = getelementptr inbounds ptr, ptr %.tr7584, i64 %72
-  %74 = ptrtoint ptr %.tr83 to i64
+  %72 = sdiv i64 %.tr7786, 2
+  %73 = getelementptr inbounds ptr, ptr %.tr7483, i64 %72
+  %74 = ptrtoint ptr %.tr82 to i64
   %75 = sub i64 %34, %74
   %76 = ashr exact i64 %75, 3
   %77 = icmp sgt i64 %76, 0
@@ -7582,12 +7581,12 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47:
   br label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49: ; preds = %.thread.i54, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47
-  %.021.i = phi ptr [ %.tr83, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %107, %.thread.i54 ]
-  %.01120.i = phi i64 [ %76, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %106, %.thread.i54 ]
-  %84 = lshr i64 %.01120.i, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %.021.i, i64 %84
+  %.020.i = phi ptr [ %.tr82, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %107, %.thread.i54 ]
+  %.01119.i = phi i64 [ %76, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %106, %.thread.i54 ]
+  %84 = lshr i64 %.01119.i, 1
+  %85 = getelementptr inbounds nuw ptr, ptr %.020.i, i64 %84
   %.val13.i = load ptr, ptr %85, align 8, !tbaa !83
-  br i1 %.not.i.i.i48, label %.thread15.i57, label %86
+  br i1 %.not.i.i.i48, label %.thread15.i56, label %86
 
 86:                                               ; preds = %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49
   %87 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 48
@@ -7596,7 +7595,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49: ; pre
   br i1 %.not2.i.i.i52, label %.thread.i54, label %89
 
 89:                                               ; preds = %86
-  br i1 %81, label %.thread15.i57, label %90
+  br i1 %81, label %.thread15.i56, label %90
 
 90:                                               ; preds = %89
   %91 = and i64 %88, 4294967295
@@ -7604,10 +7603,10 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49: ; pre
   %or.cond1.i.i.i53 = and i1 %82, %92
   br i1 %or.cond1.i.i.i53, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i, label %.thread.i54
 
-.thread15.i57:                                    ; preds = %89, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49
+.thread15.i56:                                    ; preds = %89, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %94 = xor i64 %84, -1
-  %95 = add nsw i64 %.01120.i, %94
+  %95 = add nsw i64 %.01119.i, %94
   br label %.thread.i54
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i: ; preds = %90
@@ -7616,49 +7615,48 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompare
   %98 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 40
   %99 = load ptr, ptr %98, align 8, !tbaa !109
   %100 = load i32, ptr %99, align 4, !tbaa !110
-  %.fr.i55 = freeze i32 %97
-  %.fr19.i56 = freeze i32 %100
-  %101 = icmp ult i32 %.fr.i55, %.fr19.i56
-  br i1 %101, label %.thread.i54, label %102
+  %101 = icmp ult i32 %97, %100
+  %cond.fr4.i55 = freeze i1 %101
+  br i1 %cond.fr4.i55, label %.thread.i54, label %102
 
 102:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i
   %103 = xor i64 %84, -1
-  %104 = add nsw i64 %.01120.i, %103
+  %104 = add nsw i64 %.01119.i, %103
   %105 = getelementptr inbounds nuw i8, ptr %85, i64 8
   br label %.thread.i54
 
-.thread.i54:                                      ; preds = %102, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i, %.thread15.i57, %90, %86
-  %106 = phi i64 [ %95, %.thread15.i57 ], [ %104, %102 ], [ %84, %86 ], [ %84, %90 ], [ %84, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
-  %107 = phi ptr [ %93, %.thread15.i57 ], [ %105, %102 ], [ %.021.i, %86 ], [ %.021.i, %90 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
+.thread.i54:                                      ; preds = %102, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i, %.thread15.i56, %90, %86
+  %106 = phi i64 [ %95, %.thread15.i56 ], [ %104, %102 ], [ %84, %86 ], [ %84, %90 ], [ %84, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
+  %107 = phi ptr [ %93, %.thread15.i56 ], [ %105, %102 ], [ %.020.i, %86 ], [ %.020.i, %90 ], [ %.020.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
   %108 = icmp sgt i64 %106, 0
   br i1 %108, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49, label %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, !llvm.loop !561
 
 _ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit: ; preds = %.thread.i54
-  %.pre91 = ptrtoint ptr %107 to i64
+  %.pre90 = ptrtoint ptr %107 to i64
   br label %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45
-  %.pre-phi92 = phi i64 [ %.pre91, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45 ]
-  %.0.lcssa.i46 = phi ptr [ %107, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr83, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45 ]
-  %109 = sub i64 %.pre-phi92, %74
+  %.pre-phi91 = phi i64 [ %.pre90, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45 ]
+  %.0.lcssa.i46 = phi ptr [ %107, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr82, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45 ]
+  %109 = sub i64 %.pre-phi91, %74
   %110 = ashr exact i64 %109, 3
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit
-  %.068 = phi ptr [ %36, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %.0.lcssa.i46, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
-  %.067 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %73, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
+  %.067 = phi ptr [ %36, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %.0.lcssa.i46, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
+  %.066 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %73, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
   %.036 = phi i64 [ %71, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %72, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
   %.0 = phi i64 [ %35, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %110, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
-  %111 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN5clang8comments20TParamCommandCommentEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.068, ptr noundef %.tr7584, ptr noundef %.067)
-  tail call fastcc void @_ZSt22__merge_without_bufferIPPKN5clang8comments20TParamCommandCommentElN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_SC_T0_SD_T1_(ptr noundef %.tr83, ptr noundef %.068, ptr noundef %111, i64 noundef %.0, i64 noundef %.036)
-  %112 = sub nsw i64 %.tr7786, %.0
-  %113 = sub nsw i64 %.tr7887, %.036
+  %111 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN5clang8comments20TParamCommandCommentEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.067, ptr noundef %.tr7483, ptr noundef %.066)
+  tail call fastcc void @_ZSt22__merge_without_bufferIPPKN5clang8comments20TParamCommandCommentElN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_SC_T0_SD_T1_(ptr noundef %.tr82, ptr noundef %.067, ptr noundef %111, i64 noundef %.0, i64 noundef %.036)
+  %112 = sub nsw i64 %.tr7685, %.0
+  %113 = sub nsw i64 %.tr7786, %.036
   %114 = icmp eq i64 %112, 0
   %115 = icmp eq i64 %113, 0
   %or.cond = or i1 %114, %115
-  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71, label %9
+  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70, label %9
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread71: ; preds = %tailrecurse, %5, %18, %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread70: ; preds = %tailrecurse, %5, %18, %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread
   ret void
 }
 
@@ -7847,8 +7845,8 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIPPKN5clang8comments2
   %.val.i.i = load ptr, ptr %.049.i, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %.0.val.i.i, i64 48
   %13 = load i64, ptr %12, align 8, !tbaa !106
-  %.fr53.i.i.i = freeze i64 %13
-  %.not.i.i.i.i = icmp eq i64 %.fr53.i.i.i, 0
+  %.fr.i.i.i = freeze i64 %13
+  %.not.i.i.i.i = icmp eq i64 %.fr.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i.i, label %14
 
 14:                                               ; preds = %11
@@ -7858,7 +7856,7 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIPPKN5clang8comments2
   br i1 %.not2.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i.i, label %17
 
 17:                                               ; preds = %14
-  %18 = trunc i64 %.fr53.i.i.i to i32
+  %18 = trunc i64 %.fr.i.i.i to i32
   %19 = icmp ugt i32 %18, 1
   br i1 %19, label %.lr.ph.split.us.split.i.i.i, label %20
 
@@ -7960,8 +7958,8 @@ _ZSt16__insertion_sortIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__o
   %.val.i17.i = load ptr, ptr %.0.lcssa.i, align 8, !tbaa !83
   %54 = getelementptr inbounds nuw i8, ptr %.0.val.i16.i, i64 48
   %55 = load i64, ptr %54, align 8, !tbaa !106
-  %.fr53.i.i18.i = freeze i64 %55
-  %.not.i.i.i19.i = icmp eq i64 %.fr53.i.i18.i, 0
+  %.fr.i.i18.i = freeze i64 %55
+  %.not.i.i.i19.i = icmp eq i64 %.fr.i.i18.i, 0
   br i1 %.not.i.i.i19.i, label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i23.i, label %56
 
 56:                                               ; preds = %.lr.ph.i.i
@@ -7971,7 +7969,7 @@ _ZSt16__insertion_sortIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__o
   br i1 %.not2.i.i.i20.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i22.i, label %59
 
 59:                                               ; preds = %56
-  %60 = trunc i64 %.fr53.i.i18.i to i32
+  %60 = trunc i64 %.fr.i.i18.i to i32
   %61 = icmp ugt i32 %60, 1
   br i1 %61, label %.lr.ph.split.us.split.i.i36.i, label %62
 
@@ -8069,22 +8067,22 @@ _ZSt22__chunk_insertion_sortIPPKN5clang8comments20TParamCommandCommentElN9__gnu_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZSt16__merge_adaptiveIPPKN5clang8comments20TParamCommandCommentElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_SC_T0_SD_T1_SD_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
-  %.not132 = icmp sgt i64 %3, %4
-  %.not70133 = icmp sgt i64 %3, %6
-  %or.cond134 = or i1 %.not70133, %.not132
-  br i1 %or.cond134, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not131 = icmp sgt i64 %3, %4
+  %.not70132 = icmp sgt i64 %3, %6
+  %or.cond133 = or i1 %.not70132, %.not131
+  br i1 %or.cond133, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %46
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i105, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr119.lcssa = phi ptr [ %1, %7 ], [ %.0115, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %9 = ptrtoint ptr %.tr119.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i104, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr118.lcssa = phi ptr [ %1, %7 ], [ %.0114, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %9 = ptrtoint ptr %.tr118.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr119.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr118.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -8093,15 +8091,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr119.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr119.lcssa, %2
+  %14 = icmp ne ptr %.tr118.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr118.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit, %38
   %.028.i = phi ptr [ %39, %38 ], [ %.tr.lcssa, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ]
   %.01827.i = phi ptr [ %.1.i, %38 ], [ %5, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ]
-  %.01926.i = phi ptr [ %.120.i, %38 ], [ %.tr119.lcssa, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ]
+  %.01926.i = phi ptr [ %.120.i, %38 ], [ %.tr118.lcssa, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit ]
   %.019.val.i = load ptr, ptr %.01926.i, align 8, !tbaa !83
   %.018.val.i = load ptr, ptr %.01827.i, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %.019.val.i, i64 48
@@ -8170,24 +8168,24 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i: ; pr
   br label %_ZSt21__move_merge_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_SD_T1_T2_.exit
 
 46:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
-  %.not140 = phi i1 [ %.not132, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr122139 = phi i64 [ %4, %.lr.ph ], [ %200, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr121138 = phi i64 [ %3, %.lr.ph ], [ %167, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr119136 = phi ptr [ %1, %.lr.ph ], [ %.0115, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr135 = phi ptr [ %0, %.lr.ph ], [ %.0.i105, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.not71 = icmp sgt i64 %.tr122139, %6
+  %.not139 = phi i1 [ %.not131, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr121138 = phi i64 [ %4, %.lr.ph ], [ %200, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr120137 = phi i64 [ %3, %.lr.ph ], [ %167, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr118135 = phi ptr [ %1, %.lr.ph ], [ %.0114, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr134 = phi ptr [ %0, %.lr.ph ], [ %.0.i104, %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.not71 = icmp sgt i64 %.tr121138, %6
   br i1 %.not71, label %88, label %47
 
 47:                                               ; preds = %46
-  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr119136
+  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr118135
   br i1 %.not.i.i.i.i.i73, label %_ZSt21__move_merge_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_SD_T1_T2_.exit, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit74.thread
 
 _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit74.thread: ; preds = %47
-  %48 = ptrtoint ptr %.tr119136 to i64
+  %48 = ptrtoint ptr %.tr118135 to i64
   %49 = sub i64 %8, %48
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr119136, i64 %49, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr118135, i64 %49, i1 false)
   %50 = getelementptr inbounds i8, ptr %5, i64 %49
-  %51 = icmp eq ptr %.tr135, %.tr119136
+  %51 = icmp eq ptr %.tr134, %.tr118135
   br i1 %51, label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.sink.split.i, label %52
 
 52:                                               ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit74.thread
@@ -8195,7 +8193,7 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit74.threa
   br label %.outer
 
 .outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78, %52
-  %.026.i.ph.pn = phi ptr [ %.tr119136, %52 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78 ]
+  %.026.i.ph.pn = phi ptr [ %.tr118135, %52 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78 ]
   %.024.i.ph = phi ptr [ %53, %52 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78 ]
   %.0.i.ph = phi ptr [ %2, %52 ], [ %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
@@ -8242,7 +8240,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompar
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.i80, %63, %57
   %74 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %.026.val.i, ptr %74, align 8, !tbaa !83
-  %75 = icmp eq ptr %.tr135, %.026.i.ph
+  %75 = icmp eq ptr %.tr134, %.026.i.ph
   br i1 %75, label %76, label %.outer, !llvm.loop !569
 
 76:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentESB_EEbT_T0_.exit.thread.i78
@@ -8273,12 +8271,12 @@ _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.ex
   br label %_ZSt21__move_merge_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_SD_T1_T2_.exit
 
 88:                                               ; preds = %46
-  %89 = ptrtoint ptr %.tr119136 to i64
-  br i1 %.not140, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89
+  %89 = ptrtoint ptr %.tr118135 to i64
+  br i1 %.not139, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit: ; preds = %88
-  %90 = sdiv i64 %.tr121138, 2
-  %91 = getelementptr inbounds ptr, ptr %.tr135, i64 %90
+  %90 = sdiv i64 %.tr120137, 2
+  %91 = getelementptr inbounds ptr, ptr %.tr134, i64 %90
   %92 = sub i64 %8, %89
   %93 = ashr exact i64 %92, 3
   %94 = icmp sgt i64 %93, 0
@@ -8291,10 +8289,10 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i: ;
   br label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i: ; preds = %.thread15.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i
-  %.022.i = phi ptr [ %.tr119136, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %123, %.thread15.i ]
-  %.01121.i = phi i64 [ %93, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %122, %.thread15.i ]
-  %97 = lshr i64 %.01121.i, 1
-  %98 = getelementptr inbounds nuw ptr, ptr %.022.i, i64 %97
+  %.021.i = phi ptr [ %.tr118135, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %123, %.thread15.i ]
+  %.01120.i = phi i64 [ %93, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %122, %.thread15.i ]
+  %97 = lshr i64 %.01120.i, 1
+  %98 = getelementptr inbounds nuw ptr, ptr %.021.i, i64 %97
   %.val.i = load ptr, ptr %98, align 8, !tbaa !83
   %99 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %100 = load i64, ptr %99, align 8, !tbaa !106
@@ -8321,7 +8319,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i: ; preds
 .thread.i:                                        ; preds = %106, %101
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %111 = xor i64 %97, -1
-  %112 = add nsw i64 %.01121.i, %111
+  %112 = add nsw i64 %.01120.i, %111
   br label %.thread15.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i: ; preds = %106
@@ -8330,19 +8328,18 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentCompare
   %115 = load i32, ptr %114, align 4, !tbaa !110
   %116 = load ptr, ptr %96, align 8, !tbaa !109
   %117 = load i32, ptr %116, align 4, !tbaa !110
-  %.fr.i = freeze i32 %115
-  %.fr19.i = freeze i32 %117
-  %118 = icmp ult i32 %.fr.i, %.fr19.i
+  %118 = icmp ult i32 %115, %117
+  %cond.fr4.i = freeze i1 %118
   %119 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %120 = xor i64 %97, -1
-  %121 = add nsw i64 %.01121.i, %120
-  %spec.select.i = select i1 %118, i64 %121, i64 %97
-  %spec.select20.i = select i1 %118, ptr %119, ptr %.022.i
+  %121 = add nsw i64 %.01120.i, %120
+  %spec.select.i = select i1 %cond.fr4.i, i64 %121, i64 %97
+  %spec.select19.i = select i1 %cond.fr4.i, ptr %119, ptr %.021.i
   br label %.thread15.i
 
 .thread15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i, %.thread.i, %103, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i
   %122 = phi i64 [ %97, %103 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %97, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %112, %.thread.i ]
-  %123 = phi ptr [ %.022.i, %103 ], [ %spec.select20.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.022.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %110, %.thread.i ]
+  %123 = phi ptr [ %.021.i, %103 ], [ %spec.select19.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIPPKN5clang8comments20TParamCommandCommentEKSA_EEbT_RT0_.exit.i ], [ %.021.i, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i ], [ %110, %.thread.i ]
   %124 = icmp sgt i64 %122, 0
   br i1 %124, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, !llvm.loop !560
 
@@ -8352,15 +8349,15 @@ _ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__o
 
 _ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %89, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit ]
-  %.0.lcssa.i82 = phi ptr [ %123, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr119136, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit ]
+  %.0.lcssa.i82 = phi ptr [ %123, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr118135, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit ]
   %125 = sub i64 %.pre-phi, %89
   %126 = ashr exact i64 %125, 3
   br label %166
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89: ; preds = %88
-  %127 = sdiv i64 %.tr122139, 2
-  %128 = getelementptr inbounds ptr, ptr %.tr119136, i64 %127
-  %129 = ptrtoint ptr %.tr135 to i64
+  %127 = sdiv i64 %.tr121138, 2
+  %128 = getelementptr inbounds ptr, ptr %.tr118135, i64 %127
+  %129 = ptrtoint ptr %.tr134 to i64
   %130 = sub i64 %89, %129
   %131 = ashr exact i64 %130, 3
   %132 = icmp sgt i64 %131, 0
@@ -8378,12 +8375,12 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92:
   br label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94: ; preds = %.thread.i99, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92
-  %.021.i = phi ptr [ %.tr135, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92 ], [ %162, %.thread.i99 ]
-  %.01120.i = phi i64 [ %131, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92 ], [ %161, %.thread.i99 ]
-  %139 = lshr i64 %.01120.i, 1
-  %140 = getelementptr inbounds nuw ptr, ptr %.021.i, i64 %139
+  %.020.i = phi ptr [ %.tr134, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92 ], [ %162, %.thread.i99 ]
+  %.01119.i = phi i64 [ %131, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92 ], [ %161, %.thread.i99 ]
+  %139 = lshr i64 %.01119.i, 1
+  %140 = getelementptr inbounds nuw ptr, ptr %.020.i, i64 %139
   %.val13.i = load ptr, ptr %140, align 8, !tbaa !83
-  br i1 %.not.i.i.i93, label %.thread15.i102, label %141
+  br i1 %.not.i.i.i93, label %.thread15.i101, label %141
 
 141:                                              ; preds = %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94
   %142 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 48
@@ -8392,7 +8389,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94: ; pre
   br i1 %.not2.i.i.i97, label %.thread.i99, label %144
 
 144:                                              ; preds = %141
-  br i1 %136, label %.thread15.i102, label %145
+  br i1 %136, label %.thread15.i101, label %145
 
 145:                                              ; preds = %144
   %146 = and i64 %143, 4294967295
@@ -8400,10 +8397,10 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94: ; pre
   %or.cond1.i.i.i98 = and i1 %137, %147
   br i1 %or.cond1.i.i.i98, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i, label %.thread.i99
 
-.thread15.i102:                                   ; preds = %144, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94
+.thread15.i101:                                   ; preds = %144, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %149 = xor i64 %139, -1
-  %150 = add nsw i64 %.01120.i, %149
+  %150 = add nsw i64 %.01119.i, %149
   br label %.thread.i99
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i: ; preds = %145
@@ -8412,40 +8409,39 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompare
   %153 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 40
   %154 = load ptr, ptr %153, align 8, !tbaa !109
   %155 = load i32, ptr %154, align 4, !tbaa !110
-  %.fr.i100 = freeze i32 %152
-  %.fr19.i101 = freeze i32 %155
-  %156 = icmp ult i32 %.fr.i100, %.fr19.i101
-  br i1 %156, label %.thread.i99, label %157
+  %156 = icmp ult i32 %152, %155
+  %cond.fr4.i100 = freeze i1 %156
+  br i1 %cond.fr4.i100, label %.thread.i99, label %157
 
 157:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i
   %158 = xor i64 %139, -1
-  %159 = add nsw i64 %.01120.i, %158
+  %159 = add nsw i64 %.01119.i, %158
   %160 = getelementptr inbounds nuw i8, ptr %140, i64 8
   br label %.thread.i99
 
-.thread.i99:                                      ; preds = %157, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i, %.thread15.i102, %145, %141
-  %161 = phi i64 [ %150, %.thread15.i102 ], [ %159, %157 ], [ %139, %141 ], [ %139, %145 ], [ %139, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
-  %162 = phi ptr [ %148, %.thread15.i102 ], [ %160, %157 ], [ %.021.i, %141 ], [ %.021.i, %145 ], [ %.021.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
+.thread.i99:                                      ; preds = %157, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i, %.thread15.i101, %145, %141
+  %161 = phi i64 [ %150, %.thread15.i101 ], [ %159, %157 ], [ %139, %141 ], [ %139, %145 ], [ %139, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
+  %162 = phi ptr [ %148, %.thread15.i101 ], [ %160, %157 ], [ %.020.i, %141 ], [ %.020.i, %145 ], [ %.020.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEclIKPKN5clang8comments20TParamCommandCommentEPSA_EEbRT_T0_.exit.i ]
   %163 = icmp sgt i64 %161, 0
   br i1 %163, label %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94, label %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, !llvm.loop !561
 
 _ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit: ; preds = %.thread.i99
-  %.pre149 = ptrtoint ptr %162 to i64
+  %.pre148 = ptrtoint ptr %162 to i64
   br label %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89
-  %.pre-phi150 = phi i64 [ %.pre149, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89 ]
-  %.0.lcssa.i91 = phi ptr [ %162, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr135, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89 ]
-  %164 = sub i64 %.pre-phi150, %129
+  %.pre-phi149 = phi i64 [ %.pre148, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89 ]
+  %.0.lcssa.i91 = phi ptr [ %162, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit.loopexit ], [ %.tr134, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89 ]
+  %164 = sub i64 %.pre-phi149, %129
   %165 = ashr exact i64 %164, 3
   br label %166
 
 166:                                              ; preds = %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit
-  %.0116 = phi ptr [ %91, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %.0.lcssa.i91, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
-  %.0115 = phi ptr [ %.0.lcssa.i82, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
+  %.0115 = phi ptr [ %91, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %.0.lcssa.i91, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
+  %.0114 = phi ptr [ %.0.lcssa.i82, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
   %.066 = phi i64 [ %126, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
   %.0 = phi i64 [ %90, %_ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ], [ %165, %_ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEET_SC_SC_RKT0_T1_.exit ]
-  %167 = sub nsw i64 %.tr121138, %.0
+  %167 = sub nsw i64 %.tr120137, %.0
   %168 = icmp sle i64 %167, %.066
   %.not.i = icmp sgt i64 %.066, %6
   %or.cond.i = or i1 %.not.i, %168
@@ -8456,38 +8452,38 @@ _ZSt13__upper_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__o
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, label %170
 
 170:                                              ; preds = %169
-  %171 = ptrtoint ptr %.0115 to i64
-  %172 = ptrtoint ptr %.tr119136 to i64
+  %171 = ptrtoint ptr %.0114 to i64
+  %172 = ptrtoint ptr %.tr118135 to i64
   %173 = sub i64 %171, %172
-  %.not.i.i.i.i.i.i103 = icmp eq ptr %.0115, %.tr119136
-  br i1 %.not.i.i.i.i.i.i103, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i104, label %174
+  %.not.i.i.i.i.i.i102 = icmp eq ptr %.0114, %.tr118135
+  br i1 %.not.i.i.i.i.i.i102, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i103, label %174
 
 174:                                              ; preds = %170
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr119136, i64 %173, i1 false)
-  br label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i104
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr118135, i64 %173, i1 false)
+  br label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i103
 
-_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i104: ; preds = %174, %170
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr119136, %.0116
+_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i103: ; preds = %174, %170
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr118135, %.0115
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i, label %175
 
-175:                                              ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i104
-  %176 = ptrtoint ptr %.0116 to i64
+175:                                              ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i103
+  %176 = ptrtoint ptr %.0115 to i64
   %177 = sub i64 %172, %176
   %178 = ashr exact i64 %177, 3
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds ptr, ptr %.0115, i64 %179
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %180, ptr align 8 %.0116, i64 %177, i1 false)
+  %180 = getelementptr inbounds ptr, ptr %.0114, i64 %179
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %180, ptr align 8 %.0115, i64 %177, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i
 
-_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i: ; preds = %175, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i104
-  br i1 %.not.i.i.i.i.i.i103, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i, label %181
+_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i: ; preds = %175, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i103
+  br i1 %.not.i.i.i.i.i.i102, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i, label %181
 
 181:                                              ; preds = %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0116, ptr align 8 %5, i64 %173, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0115, ptr align 8 %5, i64 %173, i1 false)
   br label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i
 
 _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i: ; preds = %181, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i
-  %182 = getelementptr inbounds i8, ptr %.0116, i64 %173
+  %182 = getelementptr inbounds i8, ptr %.0115, i64 %173
   br label %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
 183:                                              ; preds = %166
@@ -8495,28 +8491,28 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i: ; 
   br i1 %.not33.i, label %198, label %184
 
 184:                                              ; preds = %183
-  %.not34.i = icmp eq i64 %.tr121138, %.0
+  %.not34.i = icmp eq i64 %.tr120137, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, label %185
 
 185:                                              ; preds = %184
-  %186 = ptrtoint ptr %.tr119136 to i64
-  %187 = ptrtoint ptr %.0116 to i64
+  %186 = ptrtoint ptr %.tr118135 to i64
+  %187 = ptrtoint ptr %.0115 to i64
   %188 = sub i64 %186, %187
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr119136, %.0116
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr118135, %.0115
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit40.i, label %189
 
 189:                                              ; preds = %185
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0116, i64 %188, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0115, i64 %188, i1 false)
   br label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit40.i
 
 _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit40.i: ; preds = %189, %185
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0115, %.tr119136
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0114, %.tr118135
   br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i, label %190
 
 190:                                              ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit40.i
-  %191 = ptrtoint ptr %.0115 to i64
+  %191 = ptrtoint ptr %.0114 to i64
   %192 = sub i64 %191, %186
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0116, ptr align 8 %.tr119136, i64 %192, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0115, ptr align 8 %.tr118135, i64 %192, i1 false)
   br label %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
 
 _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i: ; preds = %190, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit40.i
@@ -8525,23 +8521,23 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i: ; 
 193:                                              ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
   %194 = ashr exact i64 %188, 3
   %195 = sub nsw i64 0, %194
-  %196 = getelementptr inbounds ptr, ptr %.0115, i64 %195
+  %196 = getelementptr inbounds ptr, ptr %.0114, i64 %195
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %196, ptr align 8 %5, i64 %188, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i
 
 _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i: ; preds = %193, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %195, %193 ], [ 0, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i ]
-  %197 = getelementptr inbounds ptr, ptr %.0115, i64 %.pre-phi.i.i.i.i.i44.i
+  %197 = getelementptr inbounds ptr, ptr %.0114, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
 198:                                              ; preds = %183
-  %199 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN5clang8comments20TParamCommandCommentEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.0116, ptr noundef %.tr119136, ptr noundef %.0115)
+  %199 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN5clang8comments20TParamCommandCommentEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.0115, ptr noundef %.tr118135, ptr noundef %.0114)
   br label %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
 _ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit: ; preds = %169, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i, %184, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i, %198
-  %.0.i105 = phi ptr [ %182, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i ], [ %199, %198 ], [ %197, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i ], [ %.0116, %169 ], [ %.0115, %184 ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIPPKN5clang8comments20TParamCommandCommentElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_SC_T0_SD_T1_SD_T2_(ptr noundef %.tr135, ptr noundef %.0116, ptr noundef %.0.i105, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %200 = sub nsw i64 %.tr122139, %.066
+  %.0.i104 = phi ptr [ %182, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit38.i ], [ %199, %198 ], [ %197, %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i ], [ %.0115, %169 ], [ %.0114, %184 ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIPPKN5clang8comments20TParamCommandCommentElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_SC_T0_SD_T1_SD_T2_(ptr noundef %.tr134, ptr noundef %.0115, ptr noundef %.0.i104, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %200 = sub nsw i64 %.tr121138, %.066
   %.not = icmp sgt i64 %167, %200
   %.not70 = icmp sgt i64 %167, %6
   %or.cond = or i1 %.not70, %.not

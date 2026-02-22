@@ -4872,8 +4872,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i3
   %17 = zext nneg i32 %1 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !30
-  %.fr = freeze ptr %19
-  %.not = icmp eq ptr %.fr, null
+  %.not = icmp eq ptr %19, null
   br i1 %.not, label %27, label %20
 
 20:                                               ; preds = %15
@@ -4883,7 +4882,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i3
   br i1 %.not138, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = ptrtoint ptr %.fr to i64
+  %24 = ptrtoint ptr %19 to i64
   %25 = ptrtoint ptr %22 to i64
   %26 = sub i64 %24, %25
   br label %27
@@ -4964,7 +4963,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i3
 .thread166:                                       ; preds = %57
   %67 = add nsw i32 %62, %47
   %68 = sext i32 %67 to i64
-  %69 = ptrtoint ptr %.fr to i64
+  %69 = ptrtoint ptr %19 to i64
   %70 = sub i64 %69, %59
   %71 = select i1 %.not, i64 0, i64 %70
   %.not146 = icmp slt i64 %71, %68
@@ -5000,11 +4999,11 @@ define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i3
   %91 = phi i32 [ %47, %56 ], [ %67, %.thread166 ], [ %47, %51 ]
   %spec.store.select158163 = phi i32 [ 0, %56 ], [ %62, %.thread166 ], [ 0, %51 ]
   %brmerge = select i1 %.not, i1 true, i1 %.not143165
-  %92 = ptrtoint ptr %.fr to i64
-  %.fr179 = freeze ptr %90
-  %93 = ptrtoint ptr %.fr179 to i64
+  %92 = ptrtoint ptr %19 to i64
+  %93 = ptrtoint ptr %90 to i64
   %94 = sub i64 %92, %93
-  %95 = trunc i64 %94 to i32
+  %.fr179 = freeze i64 %94
+  %95 = trunc i64 %.fr179 to i32
   %96 = icmp eq i32 %95, 0
   %or.cond = or i1 %brmerge, %96
   %97 = select i1 %or.cond, i32 1024, i32 %95

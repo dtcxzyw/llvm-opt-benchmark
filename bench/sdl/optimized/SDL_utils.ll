@@ -508,7 +508,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   br label %.lr.ph101.i
 
 .lr.ph101.i:                                      ; preds = %.loopexit.i, %.lr.ph101.preheader.i
-  %indvars.iv109.i = phi i64 [ 0, %.lr.ph101.preheader.i ], [ %indvars.iv.next110.i, %.loopexit.i ]
+  %indvars.iv110.i = phi i64 [ 0, %.lr.ph101.preheader.i ], [ %indvars.iv.next111.i, %.loopexit.i ]
   %.07898.i = phi i8 [ 0, %.lr.ph101.preheader.i ], [ %.1.i, %.loopexit.i ]
   %.07997.i = phi i32 [ 0, %.lr.ph101.preheader.i ], [ %.180.i, %.loopexit.i ]
   %.08296.i = phi i32 [ 0, %.lr.ph101.preheader.i ], [ %.183.i, %.loopexit.i ]
@@ -516,7 +516,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %.lr.ph101.i
-  %52 = getelementptr inbounds nuw i8, ptr %.5, i64 %indvars.iv109.i
+  %52 = getelementptr inbounds nuw i8, ptr %.5, i64 %indvars.iv110.i
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 37
   br i1 %54, label %.loopexit.i, label %55
@@ -530,19 +530,19 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
 
 59:                                               ; preds = %.lr.ph101.i
   %60 = icmp eq i32 %.07997.i, 2
-  %61 = getelementptr inbounds nuw i8, ptr %.5, i64 %indvars.iv109.i
+  %61 = getelementptr inbounds nuw i8, ptr %.5, i64 %indvars.iv110.i
   %62 = load i8, ptr %61, align 1
-  %.fr.i = freeze i8 %62
-  %63 = add i8 %.fr.i, -97
+  %.fr103.i = freeze i8 %62
+  %63 = add i8 %.fr103.i, -97
   %spec.select.i = icmp ult i8 %63, 6
-  %64 = add i8 %.fr.i, -65
+  %64 = add i8 %.fr103.i, -65
   %65 = icmp ult i8 %64, 6
-  %66 = add i8 %.fr.i, -48
+  %66 = add i8 %.fr103.i, -48
   %67 = icmp ult i8 %66, 10
   br i1 %67, label %75, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %59
-  switch i8 %.fr.i, label %.lr.ph.preheader.i [
+  switch i8 %.fr103.i, label %.lr.ph.preheader.i [
     i8 102, label %75
     i8 101, label %75
     i8 100, label %75
@@ -558,30 +558,30 @@ switch.early.test.i:                              ; preds = %59
   ]
 
 .lr.ph.preheader.i:                               ; preds = %switch.early.test.i
-  %68 = trunc nuw nsw i64 %indvars.iv109.i to i32
+  %68 = trunc nuw nsw i64 %indvars.iv110.i to i32
   %69 = sub i32 %68, %.07997.i
   %70 = sext i32 %69 to i64
   %71 = sext i32 %.08296.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv104.i = phi i64 [ %71, %.lr.ph.preheader.i ], [ %indvars.iv.next105.i, %.lr.ph.i ]
+  %indvars.iv105.i = phi i64 [ %71, %.lr.ph.preheader.i ], [ %indvars.iv.next106.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %70, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %72 = getelementptr inbounds i8, ptr %.5, i64 %indvars.iv.i
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv104.i
+  %74 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv105.i
   store i8 %73, ptr %74, align 1
-  %indvars.iv.next105.i = add nsw i64 %indvars.iv104.i, 1
+  %indvars.iv.next106.i = add nsw i64 %indvars.iv105.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %.not.not.i = icmp slt i64 %indvars.iv.i, %indvars.iv109.i
+  %.not.not.i = icmp slt i64 %indvars.iv.i, %indvars.iv110.i
   br i1 %.not.not.i, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !3
 
 75:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %59
-  %76 = icmp samesign ult i8 %.fr.i, 58
+  %76 = icmp samesign ult i8 %.fr103.i, 58
   %spec.select92.i = select i1 %65, i32 201, i32 0
   %.mux.i = select i1 %spec.select.i, i32 169, i32 %spec.select92.i
   %.077.i = select i1 %76, i32 208, i32 %.mux.i
-  %77 = zext nneg i8 %.fr.i to i32
+  %77 = zext nneg i8 %.fr103.i to i32
   %78 = add nuw nsw i32 %.077.i, %77
   %79 = shl nuw nsw i32 %.07997.i, 2
   %80 = sub nuw nsw i32 8, %79
@@ -598,15 +598,15 @@ switch.early.test.i:                              ; preds = %59
   br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
-  %88 = trunc nsw i64 %indvars.iv.next105.i to i32
+  %88 = trunc nsw i64 %indvars.iv.next106.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %84, %75, %55, %51
   %.183.i = phi i32 [ %88, %.loopexit.loopexit.i ], [ %58, %55 ], [ %.08296.i, %51 ], [ %.08296.i, %75 ], [ %87, %84 ]
   %.180.i = phi i32 [ 0, %.loopexit.loopexit.i ], [ 0, %55 ], [ 1, %51 ], [ 2, %75 ], [ 0, %84 ]
   %.1.i = phi i8 [ %.07898.i, %.loopexit.loopexit.i ], [ %.07898.i, %55 ], [ 0, %51 ], [ %83, %75 ], [ %83, %84 ]
-  %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
-  %89 = icmp samesign ult i64 %indvars.iv.next110.i, %49
+  %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
+  %89 = icmp samesign ult i64 %indvars.iv.next111.i, %49
   %90 = icmp slt i32 %.183.i, %47
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph101.i, label %._crit_edge.i, !llvm.loop !5

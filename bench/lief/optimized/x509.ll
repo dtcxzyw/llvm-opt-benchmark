@@ -1379,17 +1379,17 @@ declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext
 define hidden i32 @mbedtls_x509_serial_gets(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !14
-  %.fr59 = freeze i64 %5
-  %6 = icmp ult i64 %.fr59, 33
-  %spec.select = select i1 %6, i64 %.fr59, i64 28
-  %.not58 = icmp eq i64 %spec.select, 0
+  %6 = icmp ult i64 %5, 33
+  %spec.select = select i1 %6, i64 %5, i64 28
+  %spec.select.fr = freeze i64 %spec.select
+  %.not58 = icmp eq i64 %spec.select.fr, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.not61 = icmp eq i64 %spec.select, 1
+  %.not59 = icmp eq i64 %spec.select.fr, 1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = add nsw i64 %spec.select, -1
-  br i1 %.not61, label %.lr.ph.split.us, label %.lr.ph.split
+  %8 = add nsw i64 %spec.select.fr, -1
+  br i1 %.not59, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %9 = load ptr, ptr %7, align 8, !tbaa !13
@@ -1440,8 +1440,8 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr noundef writeonly captures(none)
 33:                                               ; preds = %17, %30
   %.140 = phi i64 [ %.03954, %17 ], [ %31, %30 ]
   %.1 = phi ptr [ %.055, %17 ], [ %32, %30 ]
-  %34 = add nuw nsw i64 %.04153, 1
-  %exitcond.not = icmp eq i64 %34, %spec.select
+  %34 = add nuw i64 %.04153, 1
+  %exitcond.not = icmp eq i64 %34, %spec.select.fr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %14
@@ -1453,7 +1453,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr noundef writeonly captures(none)
   %.039.lcssa = phi i64 [ %1, %3 ], [ %36, %._crit_edge.loopexit ], [ %.140, %33 ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %35, %._crit_edge.loopexit ], [ %.1, %33 ]
   %37 = load i64, ptr %4, align 8, !tbaa !14
-  %.not = icmp eq i64 %spec.select, %37
+  %.not = icmp eq i64 %spec.select.fr, %37
   br i1 %.not, label %45, label %38
 
 38:                                               ; preds = %._crit_edge

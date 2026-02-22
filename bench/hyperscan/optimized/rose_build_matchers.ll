@@ -6729,9 +6729,9 @@ define internal fastcc void @_ZN3ue2L14addLiteralMaskERKNS_15rose_literal_idERSt
   %26 = select i1 %25, i1 true, i1 %22
   %not..i = xor i1 %26, true
   %.13.i = select i1 %not..i, i1 true, i1 %.0220.i
-  %not.27.i = xor i1 %25, true
-  %not.25.i = select i1 %not.27.i, i1 %22, i1 false
-  %.1.i = select i1 %not.25.i, i1 true, i1 %.021.i
+  %not.25.i = xor i1 %25, true
+  %not.23.i = select i1 %not.25.i, i1 %22, i1 false
+  %.1.i = select i1 %not.23.i, i1 true, i1 %.021.i
   %27 = add i64 %.sroa.6.019.i, 1
   %.not.i = icmp eq i64 %27, %9
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.i, !llvm.loop !288

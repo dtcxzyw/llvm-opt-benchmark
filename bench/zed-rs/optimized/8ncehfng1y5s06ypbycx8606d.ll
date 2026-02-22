@@ -25575,10 +25575,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h05f60f49947b80d6E.exit: ; preds = %"_Z
   %.sroa.048.0.copyload = load i32, ptr %124, align 8
   %.sroa.449.sroa.4.0..sroa.449.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 32
   %.sroa.449.sroa.4.0.copyload = load i64, ptr %.sroa.449.sroa.4.0..sroa.449.0..sroa_idx.sroa_idx, align 8
-  %.sroa.449.sroa.4.0.copyload.fr = freeze i64 %.sroa.449.sroa.4.0.copyload
   %.sroa.449.sroa.5.0..sroa.449.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 40
   %.sroa.449.sroa.5.0.copyload = load i64, ptr %.sroa.449.sroa.5.0..sroa.449.0..sroa_idx.sroa_idx, align 8
-  %.sroa.449.sroa.5.0.copyload.fr = freeze i64 %.sroa.449.sroa.5.0.copyload
   %.sroa.449.sroa.6.0..sroa.449.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 48
   %.sroa.449.sroa.6.0.copyload = load i64, ptr %.sroa.449.sroa.6.0..sroa.449.0..sroa_idx.sroa_idx, align 8
   %125 = icmp eq i32 %.sroa.048.0.copyload, 0
@@ -26411,11 +26409,12 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf974a3af2f268212E.exit: ; preds = %.no
 
 378:                                              ; preds = %377
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.not67 = icmp ult i64 %.sroa.449.sroa.4.0.copyload.fr, %.sroa.449.sroa.5.0.copyload.fr
-  br i1 %.not67, label %.split.us, label %.split
+  %.not67 = icmp ult i64 %.sroa.449.sroa.4.0.copyload, %.sroa.449.sroa.5.0.copyload
+  %.not67.fr = freeze i1 %.not67
+  br i1 %.not67.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %378, %.split.us.backedge
-  %379 = invoke { i64, i64 } @_ZN11tree_sitter10TreeCursor25goto_first_child_for_byte17h9f512cadae87d92fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, i64 noundef %.sroa.449.sroa.4.0.copyload.fr)
+  %379 = invoke { i64, i64 } @_ZN11tree_sitter10TreeCursor25goto_first_child_for_byte17h9f512cadae87d92fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, i64 noundef %.sroa.449.sroa.4.0.copyload)
           to label %380 unwind label %.loopexit.split-lp.loopexit.split.us
 
 380:                                              ; preds = %.split.us
@@ -26433,7 +26432,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf974a3af2f268212E.exit: ; preds = %.no
           to label %386 unwind label %.loopexit.split-lp.loopexit.split.us
 
 386:                                              ; preds = %384
-  %387 = icmp eq i64 %385, %.sroa.449.sroa.4.0.copyload.fr
+  %387 = icmp eq i64 %385, %.sroa.449.sroa.4.0.copyload
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %387, label %388, label %.split.us.backedge
 
@@ -26450,7 +26449,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf974a3af2f268212E.exit: ; preds = %.no
   br label %.loopexit.split-lp
 
 .split:                                           ; preds = %378, %391
-  %390 = invoke { i64, i64 } @_ZN11tree_sitter10TreeCursor25goto_first_child_for_byte17h9f512cadae87d92fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, i64 noundef %.sroa.449.sroa.4.0.copyload.fr)
+  %390 = invoke { i64, i64 } @_ZN11tree_sitter10TreeCursor25goto_first_child_for_byte17h9f512cadae87d92fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, i64 noundef %.sroa.449.sroa.4.0.copyload)
           to label %391 unwind label %.loopexit.split-lp.loopexit.split
 
 .loopexit:                                        ; preds = %.preheader, %394, %401
@@ -26494,8 +26493,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf974a3af2f268212E.exit: ; preds = %.no
   %397 = extractvalue { i64, i64 } %395, 0
   %398 = extractvalue { i64, i64 } %395, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %399 = icmp ule i64 %397, %.sroa.449.sroa.4.0.copyload.fr
-  %400 = icmp uge i64 %398, %.sroa.449.sroa.5.0.copyload.fr
+  %399 = icmp ule i64 %397, %.sroa.449.sroa.4.0.copyload
+  %400 = icmp uge i64 %398, %.sroa.449.sroa.5.0.copyload
   %or.cond6 = select i1 %399, i1 %400, i1 false
   br i1 %or.cond6, label %404, label %401
 

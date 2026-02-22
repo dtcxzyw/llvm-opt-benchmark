@@ -645,20 +645,20 @@ _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsI
 define dso_local void @_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr %1, ptr readonly captures(none) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  %.fr16 = freeze ptr %5
-  %.not = icmp eq ptr %.fr16, null
+  %.fr18 = freeze ptr %5
+  %.not = icmp eq ptr %.fr18, null
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %.fr16, align 8, !tbaa !9
+  %7 = load i64, ptr %.fr18, align 8, !tbaa !9
   %8 = icmp ugt i64 %7, 3
   br i1 %8, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %6
-  %9 = ptrtoint ptr %.fr16 to i64
+  %9 = ptrtoint ptr %.fr18 to i64
   %10 = urem i64 %9, 13
   %11 = icmp samesign ugt i64 %10, 6
-  %12 = getelementptr inbounds nuw i8, ptr %.fr16, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.fr18, i64 8
   br i1 %11, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
@@ -666,11 +666,11 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_1
   br label %.lr.ph.split.us
 
 .thread:                                          ; preds = %6
-  %.not1519 = icmp ult i64 %7, 2
-  br i1 %.not1519, label %.loopexit, label %.lr.ph.thread
+  %.not1521 = icmp ult i64 %7, 2
+  br i1 %.not1521, label %.loopexit, label %.lr.ph.thread
 
 .lr.ph.thread:                                    ; preds = %.thread
-  %14 = getelementptr inbounds nuw i8, ptr %.fr16, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.fr18, i64 8
   br label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph.thread, %.lr.ph
@@ -693,7 +693,7 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_1
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
   tail call void %2(ptr %1, i64 %26, ptr %24, ptr noundef nonnull align 8 dereferenceable(16) %27)
   %28 = add nuw nsw i64 %.014.us, 1
-  %29 = load i64, ptr %.fr16, align 8, !tbaa !9
+  %29 = load i64, ptr %.fr18, align 8, !tbaa !9
   %30 = lshr i64 %29, 1
   %31 = icmp samesign ult i64 %28, %30
   br i1 %31, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !46
@@ -711,7 +711,7 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_1
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
   tail call void %2(ptr %1, i64 %39, ptr %37, ptr noundef nonnull align 8 dereferenceable(16) %40)
   %41 = add nuw nsw i64 %.014, 1
-  %42 = load i64, ptr %.fr16, align 8, !tbaa !9
+  %42 = load i64, ptr %.fr18, align 8, !tbaa !9
   %43 = lshr i64 %42, 1
   %44 = icmp samesign ult i64 %41, %43
   br i1 %44, label %.lr.ph.split, label %.loopexit, !llvm.loop !46
@@ -796,20 +796,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
   store ptr %0, ptr %35, align 8, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !4
-  %.fr16.i = freeze ptr %37
-  %.not.i = icmp eq ptr %.fr16.i, null
+  %.fr18.i = freeze ptr %37
+  %.not.i = icmp eq ptr %.fr18.i, null
   br i1 %.not.i, label %_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEE.exit, label %38
 
 38:                                               ; preds = %34
-  %39 = load i64, ptr %.fr16.i, align 8, !tbaa !9
+  %39 = load i64, ptr %.fr18.i, align 8, !tbaa !9
   %40 = icmp ugt i64 %39, 3
   br i1 %40, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %38
-  %41 = ptrtoint ptr %.fr16.i to i64
+  %41 = ptrtoint ptr %.fr18.i to i64
   %42 = urem i64 %41, 13
   %43 = icmp samesign ugt i64 %42, 6
-  %44 = getelementptr inbounds nuw i8, ptr %.fr16.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.fr18.i, i64 8
   br i1 %43, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i
@@ -817,11 +817,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
   br label %.lr.ph.split.us.i
 
 .thread.i:                                        ; preds = %38
-  %.not1519.i = icmp samesign ult i64 %39, 2
-  br i1 %.not1519.i, label %_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEE.exit, label %.lr.ph.thread.i
+  %.not1521.i = icmp samesign ult i64 %39, 2
+  br i1 %.not1521.i, label %_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEE.exit, label %.lr.ph.thread.i
 
 .lr.ph.thread.i:                                  ; preds = %.thread.i
-  %46 = getelementptr inbounds nuw i8, ptr %.fr16.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.fr18.i, i64 8
   br label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.thread.i, %.lr.ph.i
@@ -847,7 +847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
 
 .noexc:                                           ; preds = %.lr.ph.split.us.i
   %60 = add nuw nsw i64 %.014.us.i, 1
-  %61 = load i64, ptr %.fr16.i, align 8, !tbaa !9
+  %61 = load i64, ptr %.fr18.i, align 8, !tbaa !9
   %62 = lshr i64 %61, 1
   %63 = icmp samesign ult i64 %60, %62
   br i1 %63, label %.lr.ph.split.us.i, label %_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEE.exit, !llvm.loop !46
@@ -868,7 +868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
 
 .noexc14:                                         ; preds = %.lr.ph.split.i
   %73 = add nuw nsw i64 %.014.i, 1
-  %74 = load i64, ptr %.fr16.i, align 8, !tbaa !9
+  %74 = load i64, ptr %.fr18.i, align 8, !tbaa !9
   %75 = lshr i64 %74, 1
   %76 = icmp samesign ult i64 %73, %75
   br i1 %76, label %.lr.ph.split.i, label %_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_11FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKNS_4CordEEEE.exit, !llvm.loop !46

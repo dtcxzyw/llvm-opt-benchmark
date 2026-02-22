@@ -4423,12 +4423,12 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %.fr = freeze i32 %6
-  %7 = and i32 %.fr, 2
+  %.fr221 = freeze i32 %6
+  %7 = and i32 %.fr221, 2
   %.not = icmp eq i32 %7, 0
-  %8 = and i32 %.fr, 4
+  %8 = and i32 %.fr221, 4
   %.not148 = icmp eq i32 %8, 0
-  %9 = and i32 %.fr, 8
+  %9 = and i32 %.fr221, 8
   %.not149 = icmp eq i32 %9, 0
   br i1 %.not149, label %16, label %10
 
@@ -4448,7 +4448,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %21 = lshr i16 %20, 6
   %22 = and i16 %21, 15
   %23 = zext nneg i16 %22 to i32
-  %24 = and i32 %.fr, 1
+  %24 = and i32 %.fr221, 1
   %.not150 = icmp eq i32 %24, 0
   %25 = select i1 %.not150, i32 %23, i32 1
   %26 = add nuw nsw i32 %23, 1
@@ -4484,11 +4484,11 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br label %43
 
 43:                                               ; preds = %.lr.ph183, %.loopexit178
-  %indvars.iv224 = phi i64 [ %42, %.lr.ph183 ], [ %indvars.iv.next225, %.loopexit178 ]
+  %indvars.iv225 = phi i64 [ %42, %.lr.ph183 ], [ %indvars.iv.next226, %.loopexit178 ]
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %46, i64 %indvars.iv224
+  %47 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %46, i64 %indvars.iv225
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -4523,8 +4523,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %64 = load ptr, ptr %35, align 8
   store i32 %34, ptr %4, align 4
   call void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14pushPatchArrayENS1_15PatchDescriptorEiPiS4_S4_(ptr noundef nonnull align 8 dereferenceable(273) %64, ptr noundef nonnull %4, i32 noundef %spec.select, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null)
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit178, %33
@@ -4585,53 +4585,53 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %.not148, label %.lr.ph186.split.us, label %.lr.ph186.split
 
 .lr.ph186.split.us:                               ; preds = %.lr.ph186, %.lr.ph186.split.us
-  %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.lr.ph186.split.us ], [ 0, %.lr.ph186 ]
+  %indvars.iv231 = phi i64 [ %indvars.iv.next232, %.lr.ph186.split.us ], [ 0, %.lr.ph186 ]
   %101 = load ptr, ptr %35, align 8
-  %102 = trunc nuw nsw i64 %indvars.iv230 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv231 to i32
   %103 = call { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable13getFVarValuesEi(ptr noundef nonnull align 8 dereferenceable(273) %101, i32 noundef %102)
   %.fca.0.extract59.us = extractvalue { ptr, i32 } %103, 0
-  %104 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv230
+  %104 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv231
   store ptr %.fca.0.extract59.us, ptr %104, align 8
   %105 = load ptr, ptr %35, align 8
   %106 = call { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getFVarPatchParamsEi(ptr noundef nonnull align 8 dereferenceable(273) %105, i32 noundef %102)
   %.fca.0.extract55.us = extractvalue { ptr, i32 } %106, 0
-  %107 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv230
+  %107 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv231
   store ptr %.fca.0.extract55.us, ptr %107, align 8
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
+  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %108 = load ptr, ptr %88, align 8
   %109 = load ptr, ptr %87, align 8
   %110 = ptrtoint ptr %108 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
-  %sext266 = shl i64 %112, 30
-  %113 = ashr i64 %sext266, 32
-  %114 = icmp slt i64 %indvars.iv.next231, %113
+  %sext267 = shl i64 %112, 30
+  %113 = ashr i64 %sext267, 32
+  %114 = icmp slt i64 %indvars.iv.next232, %113
   br i1 %114, label %.lr.ph186.split.us, label %.loopexit176, !llvm.loop !32
 
 .lr.ph186.split:                                  ; preds = %.lr.ph186, %.lr.ph186.split
-  %indvars.iv227 = phi i64 [ %indvars.iv.next228, %.lr.ph186.split ], [ 0, %.lr.ph186 ]
+  %indvars.iv228 = phi i64 [ %indvars.iv.next229, %.lr.ph186.split ], [ 0, %.lr.ph186 ]
   %115 = load ptr, ptr %35, align 8
-  %116 = trunc nuw nsw i64 %indvars.iv227 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv228 to i32
   %117 = call { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable13getFVarValuesEi(ptr noundef nonnull align 8 dereferenceable(273) %115, i32 noundef %116)
   %.fca.0.extract59 = extractvalue { ptr, i32 } %117, 0
-  %118 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv227
+  %118 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv228
   store ptr %.fca.0.extract59, ptr %118, align 8
   %119 = load ptr, ptr %35, align 8
   %120 = call { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getFVarPatchParamsEi(ptr noundef nonnull align 8 dereferenceable(273) %119, i32 noundef %116)
   %.fca.0.extract55 = extractvalue { ptr, i32 } %120, 0
-  %121 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv227
+  %121 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv228
   store ptr %.fca.0.extract55, ptr %121, align 8
   %122 = load ptr, ptr %87, align 8
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv227
+  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv228
   %124 = load i32, ptr %123, align 4
   %125 = load ptr, ptr %0, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 96
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %127, align 8
   %129 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level16getNumFVarValuesEi(ptr noundef nonnull align 8 dereferenceable(480) %128, i32 noundef %124)
-  %130 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv227
+  %130 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv228
   store i32 %129, ptr %130, align 4
-  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %131 = load ptr, ptr %88, align 8
   %132 = load ptr, ptr %87, align 8
   %133 = ptrtoint ptr %131 to i64
@@ -4639,7 +4639,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %135 = sub i64 %133, %134
   %sext = shl i64 %135, 30
   %136 = ashr i64 %sext, 32
-  %137 = icmp slt i64 %indvars.iv.next228, %136
+  %137 = icmp slt i64 %indvars.iv.next229, %136
   br i1 %137, label %.lr.ph186.split, label %.loopexit176, !llvm.loop !32
 
 .loopexit176:                                     ; preds = %.lr.ph186.split, %.lr.ph186.split.us, %86, %82
@@ -4655,32 +4655,32 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %142 = zext nneg i32 %25 to i64
-  %wide.trip.count260 = zext nneg i32 %26 to i64
+  %wide.trip.count261 = zext nneg i32 %26 to i64
   br label %143
 
 143:                                              ; preds = %.lr.ph218, %.loopexit173
-  %indvars.iv257 = phi i64 [ 1, %.lr.ph218 ], [ %indvars.iv.next258, %.loopexit173 ]
+  %indvars.iv258 = phi i64 [ 1, %.lr.ph218 ], [ %indvars.iv.next259, %.loopexit173 ]
   %.0130216 = phi ptr [ %72, %.lr.ph218 ], [ %.1131, %.loopexit173 ]
   %.0134215 = phi ptr [ %74, %.lr.ph218 ], [ %.1135, %.loopexit173 ]
   %.0142214 = phi i32 [ %83, %.lr.ph218 ], [ %.1143, %.loopexit173 ]
   %144 = load ptr, ptr %0, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 96
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %146, i64 %indvars.iv257
+  %147 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %146, i64 %indvars.iv258
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %148, align 8
-  %.not155 = icmp samesign uge i64 %indvars.iv257, %142
+  %.not155 = icmp samesign uge i64 %indvars.iv258, %142
   %150 = icmp sgt i32 %149, 0
   %or.cond220 = select i1 %.not155, i1 %150, i1 false
   br i1 %or.cond220, label %.lr.ph206.preheader, label %.loopexit175
 
 .lr.ph206.preheader:                              ; preds = %143
-  %wide.trip.count252 = zext nneg i32 %149 to i64
-  %151 = trunc nuw nsw i64 %indvars.iv257 to i32
+  %wide.trip.count253 = zext nneg i32 %149 to i64
+  %151 = trunc nuw nsw i64 %indvars.iv258 to i32
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.loopexit
-  %indvars.iv249 = phi i64 [ 0, %.lr.ph206.preheader ], [ %indvars.iv.next250, %.loopexit ]
+  %indvars.iv250 = phi i64 [ 0, %.lr.ph206.preheader ], [ %indvars.iv.next251, %.loopexit ]
   %.2132205 = phi ptr [ %.0130216, %.lr.ph206.preheader ], [ %.3, %.loopexit ]
   %.2136204 = phi ptr [ %.0134215, %.lr.ph206.preheader ], [ %.3137, %.loopexit ]
   %152 = load ptr, ptr %0, align 8
@@ -4694,7 +4694,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
 156:                                              ; preds = %.lr.ph206
   %157 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %158, i64 %indvars.iv249
+  %159 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %158, i64 %indvars.iv250
   %160 = load i8, ptr %159, align 1
   %161 = trunc i8 %160 to i1
   br i1 %161, label %.loopexit, label %162
@@ -4703,7 +4703,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %163 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %164 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %165 = load ptr, ptr %164, align 8
-  %.idx = shl i64 %indvars.iv249, 3
+  %.idx = shl i64 %indvars.iv250, 3
   %166 = getelementptr i8, ptr %165, i64 %.idx
   %167 = getelementptr i8, ptr %166, i64 4
   %168 = load i32, ptr %167, align 4
@@ -4715,25 +4715,25 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %173, label %.lr.ph190.preheader, label %._crit_edge191
 
 .lr.ph190.preheader:                              ; preds = %162
-  %wide.trip.count236 = zext nneg i32 %172 to i64
+  %wide.trip.count237 = zext nneg i32 %172 to i64
   br label %.lr.ph190
 
 .lr.ph190:                                        ; preds = %.lr.ph190.preheader, %.lr.ph190
-  %indvars.iv233 = phi i64 [ 0, %.lr.ph190.preheader ], [ %indvars.iv.next234, %.lr.ph190 ]
+  %indvars.iv234 = phi i64 [ 0, %.lr.ph190.preheader ], [ %indvars.iv.next235, %.lr.ph190 ]
   %.4188 = phi ptr [ %.2132205, %.lr.ph190.preheader ], [ %177, %.lr.ph190 ]
-  %174 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv233
+  %174 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv234
   %175 = load i32, ptr %174, align 4
   %176 = add nsw i32 %175, %.0142214
   %177 = getelementptr inbounds nuw i8, ptr %.4188, i64 4
   store i32 %176, ptr %.4188, align 4
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !33
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
+  %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
+  br i1 %exitcond238.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !33
 
 ._crit_edge191:                                   ; preds = %.lr.ph190, %162
   %.4.lcssa = phi ptr [ %.2132205, %162 ], [ %177, %.lr.ph190 ]
   %178 = load ptr, ptr %138, align 8
-  %179 = trunc nuw nsw i64 %indvars.iv249 to i32
+  %179 = trunc nuw nsw i64 %indvars.iv250 to i32
   %180 = call i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1_11PtexIndicesEbib(ptr noundef nonnull align 8 dereferenceable(56) %178, i32 noundef %151, i32 noundef %179, ptr noundef nonnull align 8 dereferenceable(24) %139, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   %181 = getelementptr inbounds nuw i8, ptr %.2136204, i64 8
   store i64 %180, ptr %.2136204, align 4
@@ -4754,9 +4754,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %191, label %.lr.ph198, label %.loopexit171
 
 .lr.ph198:                                        ; preds = %.preheader170, %._crit_edge196
-  %indvars.iv243 = phi i64 [ %indvars.iv.next244, %._crit_edge196 ], [ 0, %.preheader170 ]
+  %indvars.iv244 = phi i64 [ %indvars.iv.next245, %._crit_edge196 ], [ 0, %.preheader170 ]
   %192 = phi ptr [ %215, %._crit_edge196 ], [ %185, %.preheader170 ]
-  %193 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv243
+  %193 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv244
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %147, align 8
   %196 = call { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level17getFaceFVarValuesEii(ptr noundef nonnull align 8 dereferenceable(480) %195, i32 noundef %179, i32 noundef %194)
@@ -4766,49 +4766,49 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %197, label %.lr.ph195, label %.lr.ph198.._crit_edge196_crit_edge
 
 .lr.ph198.._crit_edge196_crit_edge:               ; preds = %.lr.ph198
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv243
-  %.pre262 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv244
+  %.pre263 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge196
 
 .lr.ph195:                                        ; preds = %.lr.ph198
-  %198 = getelementptr inbounds nuw i32, ptr %.0144, i64 %indvars.iv243
+  %198 = getelementptr inbounds nuw i32, ptr %.0144, i64 %indvars.iv244
   %199 = load i32, ptr %198, align 4
-  %200 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv243
+  %200 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv244
   %201 = load ptr, ptr %200, align 8
-  %wide.trip.count241 = zext nneg i32 %.fca.1.extract to i64
+  %wide.trip.count242 = zext nneg i32 %.fca.1.extract to i64
   br label %202
 
 202:                                              ; preds = %.lr.ph195, %202
-  %indvars.iv238 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next239, %202 ]
-  %203 = getelementptr inbounds nuw i32, ptr %.fca.0.extract, i64 %indvars.iv238
+  %indvars.iv239 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next240, %202 ]
+  %203 = getelementptr inbounds nuw i32, ptr %.fca.0.extract, i64 %indvars.iv239
   %204 = load i32, ptr %203, align 4
   %205 = add nsw i32 %204, %199
-  %206 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv238
+  %206 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv239
   store i32 %205, ptr %206, align 4
-  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %._crit_edge196, label %202, !llvm.loop !34
+  %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
+  %exitcond243.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count242
+  br i1 %exitcond243.not, label %._crit_edge196, label %202, !llvm.loop !34
 
 ._crit_edge196:                                   ; preds = %202, %.lr.ph198.._crit_edge196_crit_edge
-  %207 = phi ptr [ %.pre262, %.lr.ph198.._crit_edge196_crit_edge ], [ %201, %202 ]
-  %208 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv243
+  %207 = phi ptr [ %.pre263, %.lr.ph198.._crit_edge196_crit_edge ], [ %201, %202 ]
+  %208 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv244
   %209 = sext i32 %.fca.1.extract to i64
   %210 = getelementptr inbounds i32, ptr %207, i64 %209
   store ptr %210, ptr %208, align 8
-  %211 = getelementptr inbounds nuw ptr, ptr %.0140, i64 %indvars.iv243
+  %211 = getelementptr inbounds nuw ptr, ptr %.0140, i64 %indvars.iv244
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %213, ptr %211, align 8
   store i64 %180, ptr %212, align 4
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %214 = load ptr, ptr %141, align 8
   %215 = load ptr, ptr %140, align 8
   %216 = ptrtoint ptr %214 to i64
   %217 = ptrtoint ptr %215 to i64
   %218 = sub i64 %216, %217
-  %sext267 = shl i64 %218, 30
-  %219 = ashr i64 %sext267, 32
-  %220 = icmp slt i64 %indvars.iv.next244, %219
+  %sext268 = shl i64 %218, 30
+  %219 = ashr i64 %sext268, 32
+  %220 = icmp slt i64 %indvars.iv.next245, %219
   br i1 %220, label %.lr.ph198, label %.loopexit171, !llvm.loop !35
 
 .loopexit171:                                     ; preds = %._crit_edge196, %.preheader170, %._crit_edge191
@@ -4842,8 +4842,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %238, label %.lr.ph200, label %.loopexit
 
 .lr.ph200:                                        ; preds = %.preheader, %.lr.ph200
-  %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.lr.ph200 ], [ 0, %.preheader ]
-  %239 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv246
+  %indvars.iv247 = phi i64 [ %indvars.iv.next248, %.lr.ph200 ], [ 0, %.preheader ]
+  %239 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv247
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 -16
   %242 = load i32, ptr %241, align 4
@@ -4854,28 +4854,28 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   store i32 %245, ptr %243, align 4
   %246 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store ptr %246, ptr %239, align 8
-  %247 = getelementptr inbounds nuw ptr, ptr %.0140, i64 %indvars.iv246
+  %247 = getelementptr inbounds nuw ptr, ptr %.0140, i64 %indvars.iv247
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr %249, ptr %247, align 8
   store i64 %180, ptr %248, align 4
-  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
+  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %250 = load ptr, ptr %141, align 8
   %251 = load ptr, ptr %140, align 8
   %252 = ptrtoint ptr %250 to i64
   %253 = ptrtoint ptr %251 to i64
   %254 = sub i64 %252, %253
-  %sext268 = shl i64 %254, 30
-  %255 = ashr i64 %sext268, 32
-  %256 = icmp slt i64 %indvars.iv.next247, %255
+  %sext269 = shl i64 %254, 30
+  %255 = ashr i64 %sext269, 32
+  %256 = icmp slt i64 %indvars.iv.next248, %255
   br i1 %256, label %.lr.ph200, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph200, %.preheader, %.loopexit171, %221, %156
   %.3137 = phi ptr [ %.2136204, %156 ], [ %181, %.loopexit171 ], [ %228, %221 ], [ %228, %.preheader ], [ %228, %.lr.ph200 ]
   %.3 = phi ptr [ %.2132205, %156 ], [ %.4.lcssa, %.loopexit171 ], [ %227, %221 ], [ %227, %.preheader ], [ %227, %.lr.ph200 ]
-  %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
-  br i1 %exitcond253.not, label %.loopexit175, label %.lr.ph206, !llvm.loop !37
+  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
+  %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
+  br i1 %exitcond254.not, label %.loopexit175, label %.lr.ph206, !llvm.loop !37
 
 .loopexit175:                                     ; preds = %.loopexit, %143
   %.1135 = phi ptr [ %.0134215, %143 ], [ %.3137, %.loopexit ]
@@ -4889,7 +4889,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %260 = load ptr, ptr %0, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 96
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %262, i64 %indvars.iv257
+  %263 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %262, i64 %indvars.iv258
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load i32, ptr %265, align 8
@@ -4911,36 +4911,36 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   br i1 %277, label %.lr.ph210, label %.loopexit173
 
 .lr.ph210:                                        ; preds = %.preheader172, %.lr.ph210
-  %indvars.iv254 = phi i64 [ %indvars.iv.next255, %.lr.ph210 ], [ 0, %.preheader172 ]
+  %indvars.iv255 = phi i64 [ %indvars.iv.next256, %.lr.ph210 ], [ 0, %.preheader172 ]
   %278 = phi ptr [ %291, %.lr.ph210 ], [ %271, %.preheader172 ]
-  %279 = getelementptr inbounds nuw i32, ptr %278, i64 %indvars.iv254
+  %279 = getelementptr inbounds nuw i32, ptr %278, i64 %indvars.iv255
   %280 = load i32, ptr %279, align 4
   %281 = load ptr, ptr %0, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 96
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %283, i64 %indvars.iv257
+  %284 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %283, i64 %indvars.iv258
   %285 = load ptr, ptr %284, align 8
   %286 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level16getNumFVarValuesEi(ptr noundef nonnull align 8 dereferenceable(480) %285, i32 noundef %280)
-  %287 = getelementptr inbounds nuw i32, ptr %.0144, i64 %indvars.iv254
+  %287 = getelementptr inbounds nuw i32, ptr %.0144, i64 %indvars.iv255
   %288 = load i32, ptr %287, align 4
   %289 = add nsw i32 %288, %286
   store i32 %289, ptr %287, align 4
-  %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %290 = load ptr, ptr %141, align 8
   %291 = load ptr, ptr %140, align 8
   %292 = ptrtoint ptr %290 to i64
   %293 = ptrtoint ptr %291 to i64
   %294 = sub i64 %292, %293
-  %sext269 = shl i64 %294, 30
-  %295 = ashr i64 %sext269, 32
-  %296 = icmp slt i64 %indvars.iv.next255, %295
+  %sext270 = shl i64 %294, 30
+  %295 = ashr i64 %sext270, 32
+  %296 = icmp slt i64 %indvars.iv.next256, %295
   br i1 %296, label %.lr.ph210, label %.loopexit173, !llvm.loop !38
 
 .loopexit173:                                     ; preds = %.lr.ph210, %.preheader172, %.loopexit175, %259
   %.1143 = phi i32 [ %.0142214, %.loopexit175 ], [ %267, %259 ], [ %267, %.preheader172 ], [ %267, %.lr.ph210 ]
-  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
-  %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
-  br i1 %exitcond261.not, label %._crit_edge219, label %143, !llvm.loop !39
+  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
+  %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
+  br i1 %exitcond262.not, label %._crit_edge219, label %143, !llvm.loop !39
 
 ._crit_edge219:                                   ; preds = %.loopexit173, %.loopexit176
   ret void

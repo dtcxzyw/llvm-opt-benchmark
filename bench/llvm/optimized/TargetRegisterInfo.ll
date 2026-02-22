@@ -1265,13 +1265,13 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegCl
   br i1 %.not26.i, label %_ZL22getMinimalPhysRegClassIN4llvm3MVTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterET_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %.fr37.i = freeze i32 %1
+  %.fr.i = freeze i32 %1
   %8 = icmp eq i16 %2, 1
-  %9 = lshr i32 %.fr37.i, 3
-  %10 = and i32 %.fr37.i, 7
+  %9 = lshr i32 %.fr.i, 3
+  %10 = and i32 %.fr.i, 7
   %11 = zext nneg i32 %9 to i64
   %12 = shl nuw nsw i32 1, %10
-  %.old.i = add i32 %.fr37.i, -1
+  %.old.i = add i32 %.fr.i, -1
   %.old24.i = icmp ult i32 %.old.i, 1073741823
   br i1 %8, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1437,8 +1437,6 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo28getCommonMinimalPhy
   br i1 %.not28.i, label %_ZL28getCommonMinimalPhysRegClassIN4llvm3MVTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterES8_T_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %.fr38.i = freeze i32 %2
-  %.fr.i = freeze i32 %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = ptrtoint ptr %9 to i64
@@ -1447,20 +1445,21 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo28getCommonMinimalPhy
   %15 = lshr exact i64 %14, 3
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %18 = add i32 %.fr.i, -1
+  %18 = add i32 %1, -1
   %19 = icmp ult i32 %18, 1073741823
-  %20 = add i32 %.fr38.i, -1
+  %20 = add i32 %2, -1
   %21 = icmp ult i32 %20, 1073741823
-  %or.cond.i.i = and i1 %19, %21
-  %22 = lshr i32 %.fr.i, 3
-  %23 = and i32 %.fr.i, 7
+  %or.cond.i.i = select i1 %19, i1 %21, i1 false
+  %22 = lshr i32 %1, 3
+  %23 = and i32 %1, 7
   %24 = zext nneg i32 %22 to i64
   %25 = shl nuw nsw i32 1, %23
-  %26 = lshr i32 %.fr38.i, 3
-  %27 = and i32 %.fr38.i, 7
+  %26 = lshr i32 %2, 3
+  %27 = and i32 %2, 7
   %28 = zext nneg i32 %26 to i64
   %29 = shl nuw nsw i32 1, %27
-  br i1 %or.cond.i.i, label %.lr.ph.split.us.i, label %_ZL28getCommonMinimalPhysRegClassIN4llvm3MVTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterES8_T_.exit
+  %or.cond.i.fr.i = freeze i1 %or.cond.i.i
+  br i1 %or.cond.i.fr.i, label %.lr.ph.split.us.i, label %_ZL28getCommonMinimalPhysRegClassIN4llvm3MVTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterES8_T_.exit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   br i1 %5, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
@@ -1636,16 +1635,16 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo25getMinimalPhysRegCl
   br i1 %.not25.i, label %_ZL22getMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterET_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %.fr43.i = freeze i32 %1
+  %.fr.i = freeze i32 %1
   %9 = and i64 %2, -7
   %spec.select.i.not.i.i = icmp eq i64 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %13 = add i32 %.fr43.i, -1
+  %13 = add i32 %.fr.i, -1
   %14 = icmp ult i32 %13, 1073741823
-  %15 = lshr i32 %.fr43.i, 3
-  %16 = and i32 %.fr43.i, 7
+  %15 = lshr i32 %.fr.i, 3
+  %16 = and i32 %.fr.i, 7
   %17 = zext nneg i32 %15 to i64
   %18 = shl nuw nsw i32 1, %16
   br i1 %spec.select.i.not.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -1871,25 +1870,24 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo31getCommonMinimalPhy
   br i1 %.not28.i, label %_ZL28getCommonMinimalPhysRegClassIN4llvm3LLTEEPKNS0_19TargetRegisterClassEPKNS0_18TargetRegisterInfoENS0_10MCRegisterES8_T_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %.fr40.i = freeze i32 %2
-  %.fr.i = freeze i32 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %14 = add i32 %.fr.i, -1
+  %14 = add i32 %1, -1
   %15 = icmp ult i32 %14, 1073741823
-  %16 = add i32 %.fr40.i, -1
+  %16 = add i32 %2, -1
   %17 = icmp ult i32 %16, 1073741823
-  %or.cond.i.i = and i1 %15, %17
-  %18 = lshr i32 %.fr.i, 3
-  %19 = and i32 %.fr.i, 7
+  %or.cond.i.i = select i1 %15, i1 %17, i1 false
+  %18 = lshr i32 %1, 3
+  %19 = and i32 %1, 7
   %20 = zext nneg i32 %18 to i64
   %21 = shl nuw nsw i32 1, %19
-  %22 = lshr i32 %.fr40.i, 3
-  %23 = and i32 %.fr40.i, 7
+  %22 = lshr i32 %2, 3
+  %23 = and i32 %2, 7
   %24 = zext nneg i32 %22 to i64
   %25 = shl nuw nsw i32 1, %23
-  br i1 %or.cond.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %or.cond.i.fr.i = freeze i1 %or.cond.i.i
+  br i1 %or.cond.i.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   br i1 %spec.select.i.not.i.i, label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3LLTE.exit.thread.us.us.i, label %.lr.ph.split.us.split.i

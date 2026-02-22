@@ -222,7 +222,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %parameter) local_unnamed_addr #7 align 2 {
 entry:
-  switch i32 %parameter, label %common.ret86 [
+  switch i32 %parameter, label %common.ret85 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb15
     i32 5, label %sw.bb24
@@ -251,7 +251,7 @@ sw.bb:                                            ; preds = %entry
   %div13 = sdiv i64 %sub12, 365
   %conv = trunc i64 %div13 to i32
   %add14 = add i32 %conv, 1
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb15:                                          ; preds = %entry
   %1 = load i64, ptr %this, align 8
@@ -292,12 +292,12 @@ for.body:                                         ; preds = %_ZN2EA4StdC10IsLeap
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %3 = load i32, ptr %gep, align 4
   %cmp20.not = icmp ugt i32 %call16, %3
-  br i1 %cmp20.not, label %for.inc, label %common.ret.loopexit.split.loop.exit81
+  br i1 %cmp20.not, label %for.inc, label %common.ret.loopexit.split.loop.exit80
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %common.ret86, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %common.ret85, label %for.body, !llvm.loop !6
 
 sw.bb24:                                          ; preds = %entry
   %4 = load i64, ptr %this, align 8
@@ -324,13 +324,12 @@ sw.bb24:                                          ; preds = %entry
   %conv44 = sub i32 %5, %add41
   %cmp45 = icmp eq i32 %add41, %5
   %spec.store.select1 = select i1 %cmp45, i32 1, i32 %conv44
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb48:                                          ; preds = %entry
   %6 = load i64, ptr %this, align 8
-  %.fr = freeze i64 %6
-  %div.i27 = sdiv i64 %.fr, 86400
-  %div2.i28 = sdiv i64 %.fr, 31536000
+  %div.i27 = sdiv i64 %6, 86400
+  %div2.i28 = sdiv i64 %6, 31536000
   %sub.i29 = add nsw i64 %div2.i28, -1
   %div3.neg.i30 = sdiv i64 %sub.i29, -4
   %div6.neg.neg.i31 = sdiv i64 %sub.i29, 100
@@ -339,7 +338,8 @@ sw.bb48:                                          ; preds = %entry
   %add.neg.i34 = add nsw i64 %sub7.neg.i32, %div3.neg.i30
   %sub11.i35 = add nsw i64 %add.neg.i34, %div6.neg.neg.i31
   %sub12.i36 = add nsw i64 %sub11.i35, %div10.neg.i33
-  %div13.i37 = sdiv i64 %sub12.i36, 365
+  %sub12.i36.fr = freeze i64 %sub12.i36
+  %div13.i37 = sdiv i64 %sub12.i36.fr, 365
   %conv.i38 = trunc i64 %div13.i37 to i32
   %add14.i39 = add i32 %conv.i38, 1
   %call52 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef 2)
@@ -375,7 +375,7 @@ _ZN2EA4StdC10IsLeapYearEj.exit48.thread:          ; preds = %sw.bb48, %_ZN2EA4St
   %arrayidx60 = getelementptr inbounds nuw i32, ptr @_ZN2EA4StdCL11kDaysInYearE, i64 %idxprom59
   %9 = load i32, ptr %arrayidx60, align 4
   %sub61 = sub i32 %spec.store.select1.i, %9
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb62:                                          ; preds = %entry
   %10 = load i64, ptr %this, align 8
@@ -383,32 +383,32 @@ sw.bb62:                                          ; preds = %entry
   %rem = srem i64 %div65, 7
   %conv66 = trunc nsw i64 %rem to i32
   %add67 = add nsw i32 %conv66, 1
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb68:                                          ; preds = %entry
   %11 = load i64, ptr %this, align 8
   %div70 = sdiv i64 %11, 3600
   %rem71 = srem i64 %div70, 24
   %conv72 = trunc nsw i64 %rem71 to i32
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb73:                                          ; preds = %entry
   %12 = load i64, ptr %this, align 8
   %div75 = sdiv i64 %12, 60
   %rem76 = srem i64 %div75, 60
   %conv77 = trunc nsw i64 %rem76 to i32
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb78:                                          ; preds = %entry
   %13 = load i64, ptr %this, align 8
   %rem80 = srem i64 %13, 60
   %conv81 = trunc nsw i64 %rem80 to i32
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb82:                                          ; preds = %entry
   %mnNanosecond = getelementptr inbounds nuw i8, ptr %this, i64 8
   %14 = load i32, ptr %mnNanosecond, align 8
-  br label %common.ret86
+  br label %common.ret85
 
 sw.bb83:                                          ; preds = %entry
   %15 = load i64, ptr %this, align 8
@@ -438,22 +438,22 @@ sw.bb83:                                          ; preds = %entry
   %19 = udiv i32 %18, 7
   %20 = add nuw nsw i32 %19, 1
   %add88 = select i1 %cmp45.i71, i32 1, i32 %20
-  br label %common.ret86
+  br label %common.ret85
 
-common.ret.loopexit.split.loop.exit81:            ; preds = %for.body
+common.ret.loopexit.split.loop.exit80:            ; preds = %for.body
   %21 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %common.ret86
+  br label %common.ret85
 
-common.ret86:                                     ; preds = %entry, %sw.bb83, %sw.bb82, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb62, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread, %sw.bb24, %sw.bb, %common.ret.loopexit.split.loop.exit81, %for.inc, %sw.bb89
-  %common.ret86.op = phi i32 [ %add93, %sw.bb89 ], [ %21, %common.ret.loopexit.split.loop.exit81 ], [ 0, %entry ], [ %add14, %sw.bb ], [ %add88, %sw.bb83 ], [ %spec.store.select1, %sw.bb24 ], [ %sub61, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread ], [ %add67, %sw.bb62 ], [ %conv72, %sw.bb68 ], [ %conv77, %sw.bb73 ], [ %conv81, %sw.bb78 ], [ %14, %sw.bb82 ], [ 1, %for.inc ]
-  ret i32 %common.ret86.op
+common.ret85:                                     ; preds = %entry, %sw.bb83, %sw.bb82, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb62, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread, %sw.bb24, %sw.bb, %common.ret.loopexit.split.loop.exit80, %for.inc, %sw.bb89
+  %common.ret85.op = phi i32 [ %add93, %sw.bb89 ], [ %21, %common.ret.loopexit.split.loop.exit80 ], [ 0, %entry ], [ %add14, %sw.bb ], [ %add88, %sw.bb83 ], [ %spec.store.select1, %sw.bb24 ], [ %sub61, %_ZN2EA4StdC10IsLeapYearEj.exit48.thread ], [ %add67, %sw.bb62 ], [ %conv72, %sw.bb68 ], [ %conv77, %sw.bb73 ], [ %conv81, %sw.bb78 ], [ %14, %sw.bb82 ], [ 1, %for.inc ]
+  ret i32 %common.ret85.op
 
 sw.bb89:                                          ; preds = %entry
   %call90 = tail call noundef i32 @_ZNK2EA4StdC8DateTime12GetParameterENS0_9ParameterE(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef 6)
   %sub91 = add i32 %call90, -1
   %div92 = udiv i32 %sub91, 7
   %add93 = add nuw nsw i32 %div92, 1
-  br label %common.ret86
+  br label %common.ret85
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

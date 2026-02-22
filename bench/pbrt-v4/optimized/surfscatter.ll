@@ -16298,17 +16298,17 @@ define linkonce_odr dso_local <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6Sample
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.017.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ %8, %4 ]
-  %.01516.i.i = phi i64 [ %19, %.lr.ph.i.i ], [ 1, %4 ]
+  %.01516.i.i = phi i64 [ %.fr.i.i, %.lr.ph.i.i ], [ 1, %4 ]
   %12 = lshr i64 %.017.i.i, 1
   %13 = add i64 %12, %.01516.i.i
   %sext.i.i = shl i64 %13, 32
   %14 = ashr exact i64 %sext.i.i, 30
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
   %16 = load float, ptr %15, align 4, !tbaa !199
-  %.fr.i.i = freeze float %16
-  %17 = fcmp ole float %.fr.i.i, %.sroa.024.4.vec.extract
+  %17 = fcmp ole float %16, %.sroa.024.4.vec.extract
   %18 = add i64 %13, 1
   %19 = select i1 %17, i64 %18, i64 %.01516.i.i
+  %.fr.i.i = freeze i64 %19
   %.neg.i.i = xor i64 %12, -1
   %20 = add nsw i64 %.017.i.i, %.neg.i.i
   %21 = select i1 %17, i64 %20, i64 %12
@@ -16316,9 +16316,9 @@ define linkonce_odr dso_local <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6Sample
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !768
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %23 = add nsw i64 %19, -1
+  %23 = add nsw i64 %.fr.i.i, -1
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 %8)
-  %.inv.i.i = icmp sgt i64 %19, 0
+  %.inv.i.i = icmp sgt i64 %.fr.i.i, 0
   %spec.select.i.i = select i1 %.inv.i.i, i64 %..i.i.i, i64 0
   br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i
 
@@ -16365,17 +16365,17 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
 
 .lr.ph.i.i12:                                     ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %.lr.ph.i.i12
   %.017.i.i13 = phi i64 [ %64, %.lr.ph.i.i12 ], [ %51, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %.01516.i.i14 = phi i64 [ %62, %.lr.ph.i.i12 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %.01516.i.i14 = phi i64 [ %.fr.i.i16, %.lr.ph.i.i12 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
   %55 = lshr i64 %.017.i.i13, 1
   %56 = add i64 %55, %.01516.i.i14
   %sext.i.i15 = shl i64 %56, 32
   %57 = ashr exact i64 %sext.i.i15, 30
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !199
-  %.fr.i.i16 = freeze float %59
-  %60 = fcmp ole float %.fr.i.i16, %.sroa.024.0.vec.extract
+  %60 = fcmp ole float %59, %.sroa.024.0.vec.extract
   %61 = add i64 %56, 1
   %62 = select i1 %60, i64 %61, i64 %.01516.i.i14
+  %.fr.i.i16 = freeze i64 %62
   %.neg.i.i17 = xor i64 %55, -1
   %63 = add nsw i64 %.017.i.i13, %.neg.i.i17
   %64 = select i1 %60, i64 %63, i64 %55
@@ -16383,9 +16383,9 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
   br i1 %65, label %.lr.ph.i.i12, label %._crit_edge.i.i18, !llvm.loop !768
 
 ._crit_edge.i.i18:                                ; preds = %.lr.ph.i.i12
-  %66 = add nsw i64 %62, -1
+  %66 = add nsw i64 %.fr.i.i16, -1
   %..i.i.i19 = tail call i64 @llvm.umin.i64(i64 %66, i64 %51)
-  %.inv.i.i20 = icmp sgt i64 %62, 0
+  %.inv.i.i20 = icmp sgt i64 %.fr.i.i16, 0
   %spec.select.i.i21 = select i1 %.inv.i.i20, i64 %..i.i.i19, i64 0
   br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
 

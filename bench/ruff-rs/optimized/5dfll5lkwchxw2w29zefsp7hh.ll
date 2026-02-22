@@ -9661,8 +9661,8 @@ _ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i.i.i9
   br i1 %348, label %350, label %351
 
 "_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h1434de233e9e5ad7E.exit.i": ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h73d802428353b9bcE.exit.i.i.i.i.i.i95"
-  %349 = icmp slt i8 %.sroa.0.0.i.i.i.i.i.i.i96, 0
-  br i1 %349, label %350, label %351
+  %349 = icmp sgt i8 %.sroa.0.0.i.i.i.i.i.i.i96, -1
+  br i1 %349, label %351, label %350
 
 350:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h1434de233e9e5ad7E.exit.i", %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i.i.i98
   br label %351

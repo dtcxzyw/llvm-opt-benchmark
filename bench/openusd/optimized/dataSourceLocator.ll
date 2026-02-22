@@ -3615,16 +3615,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet24_Ins
   %.ptr17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
-  %.fr41 = freeze i32 %8
-  %9 = icmp ult i32 %.fr41, 9
+  %9 = icmp ult i32 %8, 9
   %10 = load ptr, ptr %0, align 8
-  %.fr42 = freeze ptr %10
-  %spec.select.i.i = select i1 %9, ptr %0, ptr %.fr42
+  %spec.select.i.i = select i1 %9, ptr %0, ptr %10
   %spec.select.i.i37 = ptrtoint ptr %spec.select.i.i to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %12 = load i32, ptr %11, align 8
-  %.fr40 = freeze i32 %12
-  %13 = zext i32 %.fr40 to i64
+  %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", ptr %spec.select.i.i, i64 %13
   %.not25 = icmp eq ptr %.ptr17, %14
   br i1 %.not25, label %.critedge.thread, label %.lr.ph
@@ -3640,10 +3637,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet24_Ins
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %20 = mul nuw nsw i64 %13, 56
   %21 = add i64 %20, %spec.select.i.i37
-  %22 = add i64 %21, -112
+  %.fr = freeze i64 %21
+  %22 = add i64 %.fr, -112
   %23 = sub i64 %22, %6
   %24 = urem i64 %23, 56
-  %25 = sub i64 %23, %24
+  %25 = sub nuw i64 %23, %24
   %26 = add i64 %25, 112
   %scevgep = getelementptr i8, ptr %5, i64 %26
   br label %.critedge
@@ -3689,22 +3687,22 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet24_Ins
   %.0.add = add nuw nsw i64 %.0.idx26, 56
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add
   %.not = icmp eq ptr %.0.ptr, %14
-  br i1 %.not, label %.critedge.thread46, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not, label %.critedge.thread44, label %.lr.ph.split, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph.split, %39, %.lr.ph.split.us.preheader
   %.0.idx23 = phi i64 [ %26, %.lr.ph.split.us.preheader ], [ %.0.idx26, %39 ], [ %.0.idx26, %.lr.ph.split ]
   %.0.ptr21 = phi ptr [ %scevgep, %.lr.ph.split.us.preheader ], [ %.0.ptr27, %39 ], [ %.0.ptr27, %.lr.ph.split ]
   %.not16 = icmp eq i64 %.0.idx23, 56
-  br i1 %.not16, label %.critedge.thread, label %.critedge.thread46
+  br i1 %.not16, label %.critedge.thread, label %.critedge.thread44
 
-.critedge.thread46:                               ; preds = %.loopexit, %.critedge
-  %.0.ptr2150 = phi ptr [ %.0.ptr21, %.critedge ], [ %.0.ptr, %.loopexit ]
-  %48 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE5eraseEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull %.ptr17, ptr noundef nonnull %.0.ptr2150)
+.critedge.thread44:                               ; preds = %.loopexit, %.critedge
+  %.0.ptr2148 = phi ptr [ %.0.ptr21, %.critedge ], [ %.0.ptr, %.loopexit ]
+  %48 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE5eraseEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull %.ptr17, ptr noundef nonnull %.0.ptr2148)
   %49 = getelementptr inbounds i8, ptr %48, i64 -56
   store ptr %49, ptr %1, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %3, %.critedge.thread46, %.critedge
+.critedge.thread:                                 ; preds = %3, %.critedge.thread44, %.critedge
   ret void
 }
 

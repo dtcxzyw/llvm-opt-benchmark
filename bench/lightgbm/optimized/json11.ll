@@ -7840,7 +7840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %.no
 77:                                               ; preds = %.lr.ph, %.backedge
   %78 = phi i64 [ %24, %.lr.ph ], [ %476, %.backedge ]
   %79 = phi i64 [ %23, %.lr.ph ], [ %475, %.backedge ]
-  %.0316 = phi i64 [ -1, %.lr.ph ], [ %.1429, %.backedge ]
+  %.0316 = phi i64 [ -1, %.lr.ph ], [ %.1430, %.backedge ]
   %80 = load ptr, ptr %1, align 8, !tbaa !120
   %81 = add i64 %79, 1
   store i64 %81, ptr %21, align 8, !tbaa !125
@@ -7871,11 +7871,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store ptr %87, ptr %0, align 8, !tbaa !44
   %93 = load i64, ptr %19, align 8, !tbaa !32
   store i64 %93, ptr %33, align 8, !tbaa !32
-  %.pre340 = load i64, ptr %20, align 8, !tbaa !22
+  %.pre341 = load i64, ptr %20, align 8, !tbaa !22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %94 = phi i64 [ %90, %89 ], [ %.pre340, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %94 = phi i64 [ %90, %89 ], [ %.pre341, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   store i64 %94, ptr %34, align 8, !tbaa !22
   store ptr %19, ptr %9, align 8, !tbaa !44
   store i64 0, ptr %20, align 8, !tbaa !22
@@ -8114,11 +8114,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i102: ; preds 
   %174 = phi ptr [ %.pre.i.i105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i104 ], [ %153, %172 ], [ %134, %173 ], [ %145, %157 ]
   store i64 0, ptr %148, align 8, !tbaa !22
   store i8 0, ptr %174, align 1, !tbaa !32
-  %.pre339 = load ptr, ptr %11, align 8, !tbaa !44
+  %.pre340 = load ptr, ptr %11, align 8, !tbaa !44
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_.exit108
 
 _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_.exit108: ; preds = %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i102
-  %175 = phi ptr [ %145, %144 ], [ %.pre339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i102 ]
+  %175 = phi ptr [ %145, %144 ], [ %.pre340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i102 ]
   store i8 1, ptr %29, align 8, !tbaa !127
   store ptr %33, ptr %0, align 8, !tbaa !60
   store i64 0, ptr %34, align 8, !tbaa !22
@@ -8386,13 +8386,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %.n
   %.039315 = phi i64 [ 0, %250 ], [ %294, %293 ]
   %254 = getelementptr inbounds nuw i8, ptr %26, i64 %.039315
   %255 = load i8, ptr %254, align 1, !tbaa !32
-  %.fr = freeze i8 %255
-  %256 = add i8 %.fr, -48
+  %.fr317 = freeze i8 %255
+  %256 = add i8 %.fr317, -48
   %257 = icmp ult i8 %256, 10
   br i1 %257, label %293, label %switch.early.test
 
 switch.early.test:                                ; preds = %253
-  switch i8 %.fr, label %258 [
+  switch i8 %.fr317, label %258 [
     i8 102, label %293
     i8 101, label %293
     i8 100, label %293
@@ -9042,7 +9042,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i201
-  %.1429 = phi i64 [ %.2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i201 ], [ -1, %.backedge.sink.split ]
+  %.1430 = phi i64 [ %.2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i201 ], [ -1, %.backedge.sink.split ]
   %475 = load i64, ptr %21, align 8, !tbaa !125
   %476 = load i64, ptr %22, align 8, !tbaa !124
   %477 = icmp eq i64 %475, %476

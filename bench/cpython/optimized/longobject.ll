@@ -11842,8 +11842,7 @@ define internal fastcc ptr @k_mul(ptr noundef readonly captures(address) %0, ptr
   %20 = lshr i64 %.val101.i, 3
   %21 = getelementptr i8, ptr %.089, i64 16
   %.val100.i = load i64, ptr %21, align 8, !tbaa !30
-  %.val100.fr.i = freeze i64 %.val100.i
-  %22 = lshr i64 %.val100.fr.i, 3
+  %22 = lshr i64 %.val100.i, 3
   %23 = add nuw nsw i64 %22, %20
   %24 = tail call fastcc ptr @long_alloc(i64 noundef %23)
   %25 = icmp eq ptr %24, null
@@ -11864,10 +11863,11 @@ define internal fastcc ptr @k_mul(ptr noundef readonly captures(address) %0, ptr
 
 .lr.ph111.i:                                      ; preds = %.preheader103.i
   %31 = getelementptr inbounds nuw i8, ptr %.084, i64 24
-  %32 = getelementptr i8, ptr %.089, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.089, i64 24
   %33 = getelementptr i32, ptr %32, i64 %22
   %34 = icmp ult ptr %32, %33
-  br i1 %34, label %.lr.ph111.split.us.i, label %.lr.ph111.split.i
+  %.fr.i = freeze i1 %34
+  br i1 %.fr.i, label %.lr.ph111.split.us.i, label %.lr.ph111.split.i
 
 .lr.ph111.split.us.i:                             ; preds = %.lr.ph111.i, %Py_DECREF.exit.us.i
   %.178110.us.i = phi i64 [ %45, %Py_DECREF.exit.us.i ], [ 0, %.lr.ph111.i ]
@@ -15997,14 +15997,14 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37, %.lr.ph
-  %.0121230 = phi i64 [ %44, %.lr.ph ], [ %39, %37 ]
-  %.0129229 = phi double [ %48, %.lr.ph ], [ %42, %37 ]
-  %44 = add nsw i64 %.0121230, -1
+  %.0121227 = phi i64 [ %44, %.lr.ph ], [ %39, %37 ]
+  %.0129226 = phi double [ %48, %.lr.ph ], [ %42, %37 ]
+  %44 = add nsw i64 %.0121227, -1
   %45 = getelementptr i32, ptr %38, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !33
   %47 = uitofp i32 %46 to double
-  %48 = tail call double @llvm.fmuladd.f64(double %.0129229, double 0x41D0000000000000, double %47)
-  %49 = icmp samesign ugt i64 %.0121230, 1
+  %48 = tail call double @llvm.fmuladd.f64(double %.0129226, double 0x41D0000000000000, double %47)
+  %49 = icmp samesign ugt i64 %.0121227, 1
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !262
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37
@@ -16014,17 +16014,17 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   %52 = getelementptr i8, ptr %51, i64 -4
   %53 = load i32, ptr %52, align 4, !tbaa !33
   %54 = uitofp i32 %53 to double
-  %.not252 = icmp eq i64 %15, 1
-  br i1 %.not252, label %._crit_edge235, label %._crit_edge235.loopexit
+  %.not249 = icmp eq i64 %15, 1
+  br i1 %.not249, label %._crit_edge232, label %._crit_edge232.loopexit
 
-._crit_edge235.loopexit:                          ; preds = %._crit_edge
+._crit_edge232.loopexit:                          ; preds = %._crit_edge
   %55 = load i32, ptr %50, align 4, !tbaa !33
   %56 = uitofp i32 %55 to double
   %57 = tail call double @llvm.fmuladd.f64(double %54, double 0x41D0000000000000, double %56)
-  br label %._crit_edge235
+  br label %._crit_edge232
 
-._crit_edge235:                                   ; preds = %._crit_edge235.loopexit, %._crit_edge
-  %.0128.lcssa = phi double [ %54, %._crit_edge ], [ %57, %._crit_edge235.loopexit ]
+._crit_edge232:                                   ; preds = %._crit_edge232.loopexit, %._crit_edge
+  %.0128.lcssa = phi double [ %54, %._crit_edge ], [ %57, %._crit_edge232.loopexit ]
   %58 = fdiv double %.0129.lcssa, %.0128.lcssa
   br label %240
 
@@ -16079,17 +16079,17 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   br i1 %95, label %249, label %.preheader
 
 .preheader:                                       ; preds = %88
-  %.not253 = icmp ult i64 %89, 30
-  br i1 %.not253, label %.lr.ph.i, label %.lr.ph244
+  %.not250 = icmp ult i64 %89, 30
+  br i1 %.not250, label %.lr.ph.i, label %.lr.ph241
 
-.lr.ph244:                                        ; preds = %.preheader
+.lr.ph241:                                        ; preds = %.preheader
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %umax = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
   %97 = shl nuw nsw i64 %umax, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %96, i8 0, i64 %97, i1 false), !tbaa !33
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader, %.lr.ph244
+.lr.ph.i:                                         ; preds = %.preheader, %.lr.ph241
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %99 = getelementptr i32, ptr %98, i64 %90
   br label %100
@@ -16130,24 +16130,23 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   %121 = getelementptr i32, ptr %65, i64 %114
   %122 = trunc nuw nsw i64 %115 to i32
   %notmask.i = shl nsw i32 -1, %122
-  %notmask.i.fr = freeze i32 %notmask.i
-  %123 = xor i32 %notmask.i.fr, -1
+  %123 = xor i32 %notmask.i, -1
   %124 = icmp sgt i64 %116, 0
   br i1 %124, label %.lr.ph.i203, label %138
 
 .lr.ph.i203:                                      ; preds = %119, %.lr.ph.i203
   %.014.i = phi i64 [ %125, %.lr.ph.i203 ], [ %116, %119 ]
-  %.01213.i = phi i32 [ %133, %.lr.ph.i203 ], [ 0, %119 ]
+  %.01213.i = phi i32 [ %.fr, %.lr.ph.i203 ], [ 0, %119 ]
   %125 = add nsw i64 %.014.i, -1
-  %126 = zext i32 %.01213.i to i64
+  %126 = zext nneg i32 %.01213.i to i64
   %127 = shl nuw nsw i64 %126, 30
   %128 = getelementptr i32, ptr %121, i64 %125
   %129 = load i32, ptr %128, align 4, !tbaa !33
-  %.fr = freeze i32 %129
-  %130 = zext i32 %.fr to i64
+  %130 = zext i32 %129 to i64
   %131 = or i64 %127, %130
   %132 = trunc i64 %131 to i32
   %133 = and i32 %132, %123
+  %.fr = freeze i32 %133
   %134 = lshr i64 %131, %115
   %135 = trunc i64 %134 to i32
   %136 = getelementptr i32, ptr %120, i64 %125
@@ -16156,24 +16155,24 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   br i1 %137, label %.lr.ph.i203, label %v_rshift.exit, !llvm.loop !188
 
 v_rshift.exit:                                    ; preds = %.lr.ph.i203
-  %.not171 = icmp eq i32 %133, 0
+  %.not171 = icmp eq i32 %.fr, 0
   br i1 %.not171, label %138, label %.thread215
 
 138:                                              ; preds = %v_rshift.exit, %119
   %139 = icmp ugt i64 %86, 29
-  br i1 %139, label %.lr.ph241, label %.thread215
+  br i1 %139, label %.lr.ph238, label %.thread215
 
-.lr.ph241:                                        ; preds = %138, %.lr.ph241
-  %.0124239 = phi i64 [ %140, %.lr.ph241 ], [ %114, %138 ]
-  %140 = add nsw i64 %.0124239, -1
+.lr.ph238:                                        ; preds = %138, %.lr.ph238
+  %.0124236 = phi i64 [ %140, %.lr.ph238 ], [ %114, %138 ]
+  %140 = add nsw i64 %.0124236, -1
   %141 = getelementptr i32, ptr %65, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !33
   %.not173 = icmp ne i32 %142, 0
-  %143 = icmp ult i64 %.0124239, 2
-  %.not280 = or i1 %143, %.not173
-  br i1 %.not280, label %.thread215.loopexit, label %.lr.ph241, !llvm.loop !263
+  %143 = icmp ult i64 %.0124236, 2
+  %.not273 = or i1 %143, %.not173
+  br i1 %.not273, label %.thread215.loopexit, label %.lr.ph238, !llvm.loop !263
 
-.thread215.loopexit:                              ; preds = %.lr.ph241
+.thread215.loopexit:                              ; preds = %.lr.ph238
   %spec.select180 = zext i1 %.not173 to i32
   br label %.thread215
 
@@ -16201,31 +16200,30 @@ inplace_divrem1.exit.thread:                      ; preds = %151
 
 .lr.ph.i205:                                      ; preds = %151
   %155 = load i32, ptr %73, align 8, !tbaa !33
-  %.fr225 = freeze i32 %155
-  %156 = zext i32 %.fr225 to i64
+  %156 = zext i32 %155 to i64
   br label %157
 
 157:                                              ; preds = %157, %.lr.ph.i205
   %.014.i206 = phi i64 [ %149, %.lr.ph.i205 ], [ %158, %157 ]
-  %.01113.i = phi i64 [ 0, %.lr.ph.i205 ], [ %167, %157 ]
+  %.01113.i = phi i64 [ 0, %.lr.ph.i205 ], [ %.fr224, %157 ]
   %158 = add nsw i64 %.014.i206, -1
   %159 = shl nuw nsw i64 %.01113.i, 30
   %160 = and i64 %159, 4611686017353646080
   %161 = getelementptr i32, ptr %152, i64 %158
   %162 = load i32, ptr %161, align 4, !tbaa !33
-  %.fr224 = freeze i32 %162
-  %163 = zext i32 %.fr224 to i64
+  %163 = zext i32 %162 to i64
   %164 = or i64 %160, %163
   %165 = udiv i64 %164, %156
   %166 = trunc i64 %165 to i32
   %167 = urem i64 %164, %156
+  %.fr224 = freeze i64 %167
   store i32 %166, ptr %161, align 4, !tbaa !33
   %168 = icmp samesign ugt i64 %.014.i206, 1
   br i1 %168, label %157, label %inplace_divrem1.exit, !llvm.loop !202
 
 inplace_divrem1.exit:                             ; preds = %157
   %169 = tail call fastcc ptr @long_normalize(ptr noundef nonnull %.1156)
-  %.not174 = icmp eq i64 %167, 0
+  %.not174 = icmp eq i64 %.fr224, 0
   br i1 %.not174, label %170, label %189
 
 170:                                              ; preds = %inplace_divrem1.exit.thread, %inplace_divrem1.exit
@@ -16324,26 +16322,26 @@ Py_DECREF.exit189:                                ; preds = %Py_DECREF.exit191
   %216 = load i32, ptr %195, align 4, !tbaa !33
   %217 = uitofp i32 %216 to double
   %218 = icmp ugt i64 %.2157.val, 15
-  br i1 %218, label %.lr.ph249, label %._crit_edge250
+  br i1 %218, label %.lr.ph246, label %._crit_edge247
 
-.lr.ph249:                                        ; preds = %214, %.lr.ph249
-  %.0123247 = phi i64 [ %219, %.lr.ph249 ], [ %192, %214 ]
-  %.0134246 = phi double [ %223, %.lr.ph249 ], [ %217, %214 ]
-  %219 = add nsw i64 %.0123247, -1
+.lr.ph246:                                        ; preds = %214, %.lr.ph246
+  %.0123244 = phi i64 [ %219, %.lr.ph246 ], [ %192, %214 ]
+  %.0134243 = phi double [ %223, %.lr.ph246 ], [ %217, %214 ]
+  %219 = add nsw i64 %.0123244, -1
   %220 = getelementptr i32, ptr %194, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !33
   %222 = uitofp i32 %221 to double
-  %223 = tail call double @llvm.fmuladd.f64(double %.0134246, double 0x41D0000000000000, double %222)
-  %224 = icmp sgt i64 %.0123247, 1
-  br i1 %224, label %.lr.ph249, label %._crit_edge250, !llvm.loop !264
+  %223 = tail call double @llvm.fmuladd.f64(double %.0134243, double 0x41D0000000000000, double %222)
+  %224 = icmp sgt i64 %.0123244, 1
+  br i1 %224, label %.lr.ph246, label %._crit_edge247, !llvm.loop !264
 
-._crit_edge250:                                   ; preds = %.lr.ph249, %214
-  %.0134.lcssa = phi double [ %217, %214 ], [ %223, %.lr.ph249 ]
+._crit_edge247:                                   ; preds = %.lr.ph246, %214
+  %.0134.lcssa = phi double [ %217, %214 ], [ %223, %.lr.ph246 ]
   %225 = load i32, ptr %.2157, align 8, !tbaa !29
   %.not.i = icmp sgt i32 %225, -1
   br i1 %.not.i, label %226, label %Py_DECREF.exit
 
-226:                                              ; preds = %._crit_edge250
+226:                                              ; preds = %._crit_edge247
   %227 = add nsw i32 %225, -1
   store i32 %227, ptr %.2157, align 8, !tbaa !29
   %228 = icmp eq i32 %227, 0
@@ -16353,7 +16351,7 @@ Py_DECREF.exit189:                                ; preds = %Py_DECREF.exit191
   tail call void @_Py_Dealloc(ptr noundef nonnull %.2157) #18
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %._crit_edge250, %226, %229
+Py_DECREF.exit:                                   ; preds = %._crit_edge247, %226, %229
   %230 = add i64 %200, %86
   %231 = icmp sgt i64 %230, 1023
   br i1 %231, label %232, label %237
@@ -16373,8 +16371,8 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge250, %22
   %239 = tail call double @ldexp(double noundef %.0134.lcssa, i32 noundef %238) #18, !tbaa !33
   br label %240
 
-240:                                              ; preds = %._crit_edge235, %237
-  %.0133 = phi double [ %58, %._crit_edge235 ], [ %239, %237 ]
+240:                                              ; preds = %._crit_edge232, %237
+  %.0133 = phi double [ %58, %._crit_edge232 ], [ %239, %237 ]
   %241 = fneg double %.0133
   %242 = select i1 %20, double %241, double %.0133
   %243 = tail call ptr @PyFloat_FromDouble(double noundef %242) #18

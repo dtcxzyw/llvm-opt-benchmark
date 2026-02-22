@@ -823,10 +823,9 @@ _ZNK5XHeap23is_object_strongly_liveEm.exit:       ; preds = %72
   %85 = load volatile i64, ptr %84, align 8
   %86 = and i64 %66, 63
   %87 = shl nuw i64 1, %86
-  %.fr = freeze i64 %85
-  %.fr7 = freeze i64 %87
-  %88 = and i64 %.fr, %.fr7
-  %.not = icmp eq i64 %88, 0
+  %88 = and i64 %85, %87
+  %.fr = freeze i64 %88
+  %.not = icmp eq i64 %.fr, 0
   br i1 %.not, label %_ZNK5XHeap23is_object_strongly_liveEm.exit.thread, label %_ZNK5XHeap23is_object_strongly_liveEm.exit.thread5
 
 _ZNK5XHeap23is_object_strongly_liveEm.exit.thread5: ; preds = %_ZN8XBarrier34weak_load_barrier_on_oop_slow_pathEm.exit, %_ZNK5XHeap23is_object_strongly_liveEm.exit
@@ -967,10 +966,9 @@ _ZNK5XHeap14is_object_liveEm.exit:                ; preds = %71
   %84 = load volatile i64, ptr %83, align 8
   %85 = and i64 %64, 62
   %86 = shl nuw nsw i64 1, %85
-  %.fr = freeze i64 %84
-  %.fr7 = freeze i64 %86
-  %87 = and i64 %.fr, %.fr7
-  %.not = icmp eq i64 %87, 0
+  %87 = and i64 %84, %86
+  %.fr = freeze i64 %87
+  %.not = icmp eq i64 %.fr, 0
   br i1 %.not, label %_ZNK5XHeap14is_object_liveEm.exit.thread, label %_ZNK5XHeap14is_object_liveEm.exit.thread5
 
 _ZNK5XHeap14is_object_liveEm.exit.thread5:        ; preds = %_ZN8XBarrier34weak_load_barrier_on_oop_slow_pathEm.exit, %_ZNK5XHeap14is_object_liveEm.exit

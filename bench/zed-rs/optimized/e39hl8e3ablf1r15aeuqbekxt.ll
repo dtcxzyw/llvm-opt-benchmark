@@ -101961,8 +101961,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h69cd
   %.sroa.0.0.vec.insert.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.sroa.0.15.vec.insert.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i64, ptr %2, align 8, !range !12520
-  %.fr43 = freeze i64 %9
-  %10 = add i64 %.fr43, 9223372036854775807
+  %.fr = freeze i64 %9
+  %10 = add i64 %.fr, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 11)
   %12 = icmp ugt i64 %10, 10
   br i1 %12, label %.split.us, label %.split

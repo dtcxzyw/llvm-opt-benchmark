@@ -10372,18 +10372,17 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
-  %.fr = freeze ptr %13
   %14 = load ptr, ptr %2, align 8
-  %.fr30 = freeze ptr %14
-  %15 = ptrtoint ptr %.fr to i64
-  %16 = ptrtoint ptr %.fr30 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %.not.i.i.i.i.i = icmp eq ptr %.fr, %.fr30
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i = icmp eq ptr %13, %14
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us
-  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv53
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us ], [ 0, %.lr.ph ]
+  %18 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv52
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
@@ -10394,9 +10393,9 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
   br i1 %25, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us: ; preds = %.lr.ph.split.us
-  %indvars.iv.next54 = add nuw i64 %indvars.iv53, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %11
-  br i1 %exitcond57.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split.us, !llvm.loop !185
+  %indvars.iv.next53 = add nuw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %11
+  br i1 %exitcond56.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split.us, !llvm.loop !185
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7 ], [ 0, %.lr.ph ]
@@ -10411,14 +10410,14 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us: ; preds = %.lr.ph.split.us
   br i1 %33, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.split
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %.fr30, ptr %29, i64 %17)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %14, ptr %29, i64 %17)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %.lr.ph.split.us
   %.us-phi16 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %34 = phi ptr [ %21, %.lr.ph.split.us ], [ %29, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
-  %.us-phi19 = phi i64 [ %indvars.iv53, %.lr.ph.split.us ], [ %indvars.iv, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
+  %.us-phi19 = phi i64 [ %indvars.iv52, %.lr.ph.split.us ], [ %indvars.iv, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %35 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %.us-phi19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.us-phi16, %34

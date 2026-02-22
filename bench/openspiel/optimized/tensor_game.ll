@@ -1996,7 +1996,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not47.i, label %._crit_edge14.thread.i, label %.preheader1.us.us.i
 
 .preheader1.us.us.i:                              ; preds = %.preheader1.lr.ph.split.us.i, %.loopexit.us.us.i
-  %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %.loopexit.us.us.i ], [ 0, %.preheader1.lr.ph.split.us.i ]
+  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.loopexit.us.us.i ], [ 0, %.preheader1.lr.ph.split.us.i ]
   %.03112.us.us.i = phi i8 [ %.1.us.us.i, %.loopexit.us.us.i ], [ 1, %.preheader1.lr.ph.split.us.i ]
   %.03211.us.us.i = phi i8 [ %.133.us.us.i, %.loopexit.us.us.i ], [ 1, %.preheader1.lr.ph.split.us.i ]
   %.03410.us.us.i = phi double [ %.135.us.us.i, %.loopexit.us.us.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ]
@@ -2020,44 +2020,44 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %120, label %.preheader.us.us.i, label %.loopexit.us.us.i
 
 121:                                              ; preds = %122
-  %indvars.iv.next62.i = add nuw i64 %indvars.iv61.i, 1
-  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, %41
-  br i1 %exitcond64.not.i, label %.loopexit.us.us.i, label %122, !llvm.loop !40
+  %indvars.iv.next64.i = add nuw i64 %indvars.iv63.i, 1
+  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %41
+  br i1 %exitcond66.not.i, label %.loopexit.us.us.i, label %122, !llvm.loop !40
 
 122:                                              ; preds = %.preheader.us.us.i, %121
-  %indvars.iv61.i = phi i64 [ 1, %.preheader.us.us.i ], [ %indvars.iv.next62.i, %121 ]
-  %123 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv61.i
+  %indvars.iv63.i = phi i64 [ 1, %.preheader.us.us.i ], [ %indvars.iv.next64.i, %121 ]
+  %123 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv63.i
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv65.i
+  %125 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv67.i
   %126 = load double, ptr %125, align 8
   %127 = fcmp une double %135, %126
   br i1 %127, label %.loopexit.us.us.i, label %121
 
 .loopexit.us.us.i:                                ; preds = %122, %121, %119
   %.1.us.us.i = phi i8 [ 0, %119 ], [ 0, %122 ], [ 1, %121 ]
-  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond68.not.i = icmp eq i64 %indvars.iv.next66.i, %111
-  br i1 %exitcond68.not.i, label %._crit_edge14.i.loopexit, label %.preheader1.us.us.i, !llvm.loop !41
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %111
+  br i1 %exitcond70.not.i, label %._crit_edge14.i.loopexit, label %.preheader1.us.us.i, !llvm.loop !41
 
 128:                                              ; preds = %128, %.preheader1.us.us.i
-  %indvars.iv57.i = phi i64 [ 0, %.preheader1.us.us.i ], [ %indvars.iv.next58.i, %128 ]
+  %indvars.iv59.i = phi i64 [ 0, %.preheader1.us.us.i ], [ %indvars.iv.next60.i, %128 ]
   %.0292.us.us.i = phi double [ 0.000000e+00, %.preheader1.us.us.i ], [ %133, %128 ]
-  %129 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv57.i
+  %129 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv59.i
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv65.i
+  %131 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv67.i
   %132 = load double, ptr %131, align 8
   %133 = fadd double %.0292.us.us.i, %132
-  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
-  %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.i, %41
-  br i1 %exitcond60.not.i, label %._crit_edge.us.us.i, label %128, !llvm.loop !42
+  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, %41
+  br i1 %exitcond62.not.i, label %._crit_edge.us.us.i, label %128, !llvm.loop !42
 
 .preheader.us.us.i:                               ; preds = %119
-  %134 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv65.i
+  %134 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv67.i
   %135 = load double, ptr %134, align 8
   br label %122
 
 ._crit_edge.us.us.i:                              ; preds = %128
-  %136 = icmp eq i64 %indvars.iv65.i, 0
+  %136 = icmp eq i64 %indvars.iv67.i, 0
   br i1 %136, label %119, label %113
 
 .preheader1.lr.ph.split.i:                        ; preds = %.preheader1.lr.ph.i
@@ -2104,8 +2104,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %147, label %._crit_edge14.thread.i, label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit
 
 ._crit_edge14.thread.i:                           ; preds = %.preheader1.lr.ph.split.i, %.preheader1.lr.ph.split.us.i, %._crit_edge14.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread"
-  %.034.lcssa81.i = phi double [ %.034.lcssa.i, %._crit_edge14.i ], [ 0.000000e+00, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread" ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ]
-  %148 = call double @llvm.fabs.f64(double %.034.lcssa81.i)
+  %.034.lcssa83.i = phi double [ %.034.lcssa.i, %._crit_edge14.i ], [ 0.000000e+00, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread" ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ]
+  %148 = call double @llvm.fabs.f64(double %.034.lcssa83.i)
   %149 = fcmp ugt double %148, 0x3EB0C6F7A0000000
   %.mux.i = zext i1 %149 to i32
   br label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit

@@ -3893,12 +3893,12 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   %276 = shl i8 %.tr.i.i, 1
   %277 = and i8 %276, 6
   %278 = lshr i8 %275, %277
-  %.fr.i = freeze i8 %278
-  %279 = and i8 %.fr.i, 3
+  %279 = and i8 %278, 3
   %280 = icmp ne i8 %279, 3
   %281 = icmp samesign ugt i8 %279, 1
   %282 = and i1 %280, %281
-  %283 = select i1 %282, i8 -127, i8 1
+  %cond.fr.i = freeze i1 %282
+  %283 = select i1 %cond.fr.i, i8 -127, i8 1
   br label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set.exit
 
 _RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set.exit: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130, %273

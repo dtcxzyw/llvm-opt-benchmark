@@ -68,35 +68,35 @@ define hidden i64 @Curl_is_absolute_url(ptr noundef %0, ptr noundef %1, i64 %2, 
   %7 = load i8, ptr %0, align 1, !tbaa !3
   %8 = and i8 %7, -33
   %9 = add i8 %8, -65
-  %or.cond72 = icmp ult i8 %9, 26
-  br i1 %or.cond72, label %.preheader, label %.thread.thread
+  %or.cond73 = icmp ult i8 %9, 26
+  br i1 %or.cond73, label %.preheader, label %.thread.thread
 
 .preheader:                                       ; preds = %6, %17
-  %.174 = phi i64 [ %18, %17 ], [ 1, %6 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.174
+  %.175 = phi i64 [ %18, %17 ], [ 1, %6 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.175
   %11 = load i8, ptr %10, align 1, !tbaa !3
-  %.fr = freeze i8 %11
-  %.not61 = icmp eq i8 %.fr, 0
+  %.fr72 = freeze i8 %11
+  %.not61 = icmp eq i8 %.fr72, 0
   br i1 %.not61, label %.thread.thread, label %12
 
 12:                                               ; preds = %.preheader
-  %13 = add i8 %.fr, -48
+  %13 = add i8 %.fr72, -48
   %or.cond = icmp ult i8 %13, 10
-  %14 = and i8 %.fr, -33
+  %14 = and i8 %.fr72, -33
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
-  %or.cond73 = or i1 %or.cond, %16
-  br i1 %or.cond73, label %17, label %switch.early.test
+  %or.cond74 = or i1 %or.cond, %16
+  br i1 %or.cond74, label %17, label %switch.early.test
 
 switch.early.test:                                ; preds = %12
-  switch i8 %.fr, label %.thread [
+  switch i8 %.fr72, label %.thread [
     i8 46, label %17
     i8 45, label %17
     i8 43, label %17
   ]
 
 17:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %12
-  %18 = add nuw nsw i64 %.174, 1
+  %18 = add nuw nsw i64 %.175, 1
   %exitcond.not = icmp eq i64 %18, 40
   br i1 %exitcond.not, label %..thread_crit_edge, label %.preheader, !llvm.loop !6
 
@@ -106,8 +106,8 @@ switch.early.test:                                ; preds = %12
   br label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %switch.early.test, %..thread_crit_edge
-  %19 = phi i8 [ %.pre, %..thread_crit_edge ], [ %.fr, %switch.early.test ]
-  %.1.lcssa = phi i64 [ 40, %..thread_crit_edge ], [ %.174, %switch.early.test ]
+  %19 = phi i8 [ %.pre, %..thread_crit_edge ], [ %.fr72, %switch.early.test ]
+  %.1.lcssa = phi i64 [ 40, %..thread_crit_edge ], [ %.175, %switch.early.test ]
   %20 = icmp eq i8 %19, 58
   br i1 %20, label %21, label %.thread.thread
 
@@ -2229,13 +2229,13 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
 252:                                              ; preds = %250
   %253 = getelementptr inbounds nuw i8, ptr %.0223, i64 1
   %254 = load i8, ptr %253, align 1, !tbaa !3
-  %.fr = freeze i8 %254
-  %255 = add i8 %.fr, -48
+  %.fr401 = freeze i8 %254
+  %255 = add i8 %.fr401, -48
   %or.cond322 = icmp ult i8 %255, 10
   br i1 %or.cond322, label %256, label %switch.early.test
 
 switch.early.test:                                ; preds = %252
-  switch i8 %.fr, label %267 [
+  switch i8 %.fr401, label %267 [
     i8 102, label %256
     i8 101, label %256
     i8 100, label %256
@@ -2253,13 +2253,13 @@ switch.early.test:                                ; preds = %252
 256:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %252
   %257 = getelementptr inbounds nuw i8, ptr %.0223, i64 2
   %258 = load i8, ptr %257, align 1, !tbaa !3
-  %.fr401 = freeze i8 %258
-  %259 = add i8 %.fr401, -48
+  %.fr402 = freeze i8 %258
+  %259 = add i8 %.fr402, -48
   %or.cond325 = icmp ult i8 %259, 10
   br i1 %or.cond325, label %260, label %switch.early.test387
 
 switch.early.test387:                             ; preds = %256
-  switch i8 %.fr401, label %267 [
+  switch i8 %.fr402, label %267 [
     i8 102, label %260
     i8 101, label %260
     i8 100, label %260
@@ -2275,15 +2275,15 @@ switch.early.test387:                             ; preds = %256
   ]
 
 260:                                              ; preds = %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %switch.early.test387, %256
-  %261 = add nsw i8 %.fr, -65
+  %261 = add nsw i8 %.fr401, -65
   %or.cond328 = icmp ult i8 %261, 26
-  %262 = add nsw i8 %.fr401, -65
+  %262 = add nsw i8 %.fr402, -65
   %or.cond329 = icmp ult i8 %262, 26
   %or.cond386 = or i1 %or.cond328, %or.cond329
   br i1 %or.cond386, label %263, label %267
 
 263:                                              ; preds = %260
-  %264 = call signext i8 @Curl_raw_tolower(i8 noundef signext %.fr) #10
+  %264 = call signext i8 @Curl_raw_tolower(i8 noundef signext %.fr401) #10
   store i8 %264, ptr %253, align 1, !tbaa !3
   %265 = load i8, ptr %257, align 1, !tbaa !3
   %266 = call signext i8 @Curl_raw_tolower(i8 noundef signext %265) #10
@@ -2487,35 +2487,35 @@ junkscan.exit.i:                                  ; preds = %17, %15
   %21 = load i8, ptr %0, align 1, !tbaa !3
   %22 = and i8 %21, -33
   %23 = add i8 %22, -65
-  %or.cond72.i.i = icmp ult i8 %23, 26
-  br i1 %or.cond72.i.i, label %.preheader.i.i, label %.critedge.i
+  %or.cond73.i.i = icmp ult i8 %23, 26
+  br i1 %or.cond73.i.i, label %.preheader.i.i, label %.critedge.i
 
 .preheader.i.i:                                   ; preds = %junkscan.exit.i, %31
-  %.174.i.i = phi i64 [ %32, %31 ], [ 1, %junkscan.exit.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.174.i.i
+  %.175.i.i = phi i64 [ %32, %31 ], [ 1, %junkscan.exit.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.175.i.i
   %25 = load i8, ptr %24, align 1, !tbaa !3
-  %.fr.i.i = freeze i8 %25
-  %.not61.i.i = icmp eq i8 %.fr.i.i, 0
+  %.fr72.i.i = freeze i8 %25
+  %.not61.i.i = icmp eq i8 %.fr72.i.i, 0
   br i1 %.not61.i.i, label %.critedge.i, label %26
 
 26:                                               ; preds = %.preheader.i.i
-  %27 = add i8 %.fr.i.i, -48
+  %27 = add i8 %.fr72.i.i, -48
   %or.cond.i.i = icmp ult i8 %27, 10
-  %28 = and i8 %.fr.i.i, -33
+  %28 = and i8 %.fr72.i.i, -33
   %29 = add i8 %28, -65
   %30 = icmp ult i8 %29, 26
-  %or.cond73.i.i = or i1 %or.cond.i.i, %30
-  br i1 %or.cond73.i.i, label %31, label %switch.early.test.i.i
+  %or.cond74.i.i = or i1 %or.cond.i.i, %30
+  br i1 %or.cond74.i.i, label %31, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %26
-  switch i8 %.fr.i.i, label %.thread.i.i [
+  switch i8 %.fr72.i.i, label %.thread.i.i [
     i8 46, label %31
     i8 45, label %31
     i8 43, label %31
   ]
 
 31:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %26
-  %32 = add nuw nsw i64 %.174.i.i, 1
+  %32 = add nuw nsw i64 %.175.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %32, 40
   br i1 %exitcond.not.i.i, label %..thread_crit_edge.i.i, label %.preheader.i.i, !llvm.loop !6
 
@@ -2525,8 +2525,8 @@ switch.early.test.i.i:                            ; preds = %26
   br label %.thread.i.i, !llvm.loop !6
 
 .thread.i.i:                                      ; preds = %switch.early.test.i.i, %..thread_crit_edge.i.i
-  %33 = phi i8 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
-  %.1.lcssa.i.i = phi i64 [ 40, %..thread_crit_edge.i.i ], [ %.174.i.i, %switch.early.test.i.i ]
+  %33 = phi i8 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %.fr72.i.i, %switch.early.test.i.i ]
+  %.1.lcssa.i.i = phi i64 [ 40, %..thread_crit_edge.i.i ], [ %.175.i.i, %switch.early.test.i.i ]
   %34 = icmp eq i8 %33, 58
   br i1 %34, label %35, label %.critedge.i
 

@@ -16036,18 +16036,18 @@ entry:
   %1 = load <4 x i32>, ptr %ViewportX.i, align 8
   %2 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, i32 %width, i64 2
   %3 = insertelement <4 x i32> %2, i32 %height, i64 3
-  %.fr = freeze <4 x i32> %1
-  %4 = icmp ne <4 x i32> %.fr, %3
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit, label %if.then.i
+  %4 = icmp eq <4 x i32> %1, %3
+  %5 = freeze <4 x i1> %4
+  %6 = bitcast <4 x i1> %5 to i4
+  %7 = icmp eq i4 %6, -1
+  br i1 %7, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %ViewportHeight.i = getelementptr inbounds nuw i8, ptr %0, i64 188
   %ViewportWidth.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %ViewportY.i = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 432), align 8, !tbaa !446
-  tail call void %7(i32 noundef 0, i32 noundef 0, i32 noundef %width, i32 noundef %height) #25
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 432), align 8, !tbaa !446
+  tail call void %8(i32 noundef 0, i32 noundef 0, i32 noundef %width, i32 noundef %height) #25
   store i32 0, ptr %ViewportX.i, align 8, !tbaa !445
   store i32 0, ptr %ViewportY.i, align 4, !tbaa !447
   store i32 %width, ptr %ViewportWidth.i, align 8, !tbaa !448
@@ -16982,26 +16982,25 @@ entry:
   %ViewportX.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %2 = load <4 x i32>, ptr %ViewportX.i, align 8
   %3 = shufflevector <2 x i32> %1, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.fr2 = freeze <4 x i32> %3
-  %4 = shufflevector <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %.fr2, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %.fr = freeze <4 x i32> %2
-  %5 = icmp ne <4 x i32> %.fr, %4
-  %6 = bitcast <4 x i1> %5 to i4
-  %7 = icmp eq i4 %6, 0
-  br i1 %7, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit, label %if.then.i
+  %4 = shufflevector <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %3, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %5 = icmp eq <4 x i32> %2, %4
+  %6 = freeze <4 x i1> %5
+  %7 = bitcast <4 x i1> %6 to i4
+  %8 = icmp eq i4 %7, -1
+  br i1 %8, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %ViewportHeight.i = getelementptr inbounds nuw i8, ptr %0, i64 188
   %ViewportWidth.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %ViewportY.i = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 432), align 8, !tbaa !446
-  %9 = extractelement <2 x i32> %1, i64 0
-  %10 = extractelement <2 x i32> %1, i64 1
-  tail call void %8(i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef %10) #25
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 432), align 8, !tbaa !446
+  %10 = extractelement <2 x i32> %1, i64 0
+  %11 = extractelement <2 x i32> %1, i64 1
+  tail call void %9(i32 noundef 0, i32 noundef 0, i32 noundef %10, i32 noundef %11) #25
   store i32 0, ptr %ViewportX.i, align 8, !tbaa !445
   store i32 0, ptr %ViewportY.i, align 4, !tbaa !447
-  store i32 %9, ptr %ViewportWidth.i, align 8, !tbaa !448
-  store i32 %10, ptr %ViewportHeight.i, align 4, !tbaa !449
+  store i32 %10, ptr %ViewportWidth.i, align 8, !tbaa !448
+  store i32 %11, ptr %ViewportHeight.i, align 4, !tbaa !449
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit: ; preds = %if.then.i, %entry

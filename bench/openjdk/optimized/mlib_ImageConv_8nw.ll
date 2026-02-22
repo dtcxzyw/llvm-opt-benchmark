@@ -77,19 +77,17 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   %.val510.fr.i = freeze i32 %.val510.i
   %.val511.i = load i32, ptr %16, align 4
   %.val513.i = load i32, ptr %17, align 8
-  %.val513.fr.i = freeze i32 %.val513.i
-  %43 = sext i32 %.val513.fr.i to i64
+  %43 = sext i32 %.val513.i to i64
   %44 = sext i32 %.val1167 to i64
   %.val515.i = load ptr, ptr %21, align 8
-  %.val.fr.i = freeze i32 %.val.i
-  %reass.sub.i = sub i32 %.val.fr.i, %4
+  %reass.sub.i = sub i32 %.val.i, %4
   %45 = add i32 %reass.sub.i, 1
   %46 = mul nsw i32 %.val1167, %6
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %.val1168, i64 %47
   %49 = udiv i64 65536, %43
   %50 = trunc nuw nsw i64 %49 to i32
-  %.not.i = icmp ugt i32 %.val513.fr.i, 65536
+  %.not.i = icmp ugt i32 %.val513.i, 65536
   %spec.store.select.i = select i1 %.not.i, i32 1, i32 %50
   %51 = icmp samesign ugt i32 %spec.store.select.i, 1600
   br i1 %51, label %52, label %55
@@ -108,16 +106,16 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   %57 = icmp sgt i32 %.val511.i, 0
   %58 = add i32 %4, -4
   %59 = icmp sgt i32 %4, 4
-  %60 = shl nsw i32 %.val513.fr.i, 1
+  %60 = shl nsw i32 %.val513.i, 1
   %61 = sext i32 %60 to i64
-  %62 = mul nsw i32 %.val513.fr.i, 3
+  %62 = mul nsw i32 %.val513.i, 3
   %63 = sext i32 %62 to i64
-  %64 = shl i32 %.val513.fr.i, 2
+  %64 = shl i32 %.val513.i, 2
   %65 = sext i32 %64 to i64
   %66 = shl nsw i32 %.val1167, 1
   %67 = sext i32 %66 to i64
   %68 = sext i32 %.val511.i to i64
-  %69 = mul i32 %spec.store.select.i, %.val513.fr.i
+  %69 = mul i32 %spec.store.select.i, %.val513.i
   %70 = sext i32 %69 to i64
   %71 = mul nsw i32 %spec.store.select.i, %.val1167
   %72 = sext i32 %71 to i64
@@ -129,7 +127,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
 
 .lr.ph69.us.us.preheader.i:                       ; preds = %.lr.ph.split.us.i
   %74 = sext i32 %58 to i64
-  %wide.trip.count132.i = zext nneg i32 %.val511.i to i64
+  %wide.trip.count131.i = zext nneg i32 %.val511.i to i64
   %smax = tail call i64 @llvm.smax.i64(i64 %74, i64 4)
   %75 = add nsw i64 %smax, -1
   %76 = lshr i64 %75, 2
@@ -158,8 +156,8 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
 
 88:                                               ; preds = %..loopexit6_crit_edge.us.us.us.i, %.lr.ph69.us.us.i
   %indvars.iv1571 = phi ptr [ %scevgep1572, %..loopexit6_crit_edge.us.us.us.i ], [ %indvars.iv1569, %.lr.ph69.us.us.i ]
-  %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %..loopexit6_crit_edge.us.us.us.i ], [ 0, %.lr.ph69.us.us.i ]
-  %89 = trunc nuw nsw i64 %indvars.iv129.i to i32
+  %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %..loopexit6_crit_edge.us.us.us.i ], [ 0, %.lr.ph69.us.us.i ]
+  %89 = trunc nuw nsw i64 %indvars.iv128.i to i32
   %90 = xor i32 %89, -1
   %91 = add nsw i32 %.val511.i, %90
   %92 = shl nuw i32 1, %91
@@ -168,8 +166,8 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   br i1 %.not506.us.us.us.i, label %..loopexit6_crit_edge.us.us.us.i, label %94
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw i8, ptr %.046578.us.us.i, i64 %indvars.iv129.i
-  %96 = getelementptr inbounds nuw i8, ptr %.046480.us.us.i, i64 %indvars.iv129.i
+  %95 = getelementptr inbounds nuw i8, ptr %.046578.us.us.i, i64 %indvars.iv128.i
+  %96 = getelementptr inbounds nuw i8, ptr %.046480.us.us.i, i64 %indvars.iv128.i
   br i1 %82, label %.lr.ph.us.us.us.preheader.i, label %.preheader4.us.us.us.i.preheader
 
 .lr.ph.us.us.us.preheader.i:                      ; preds = %94
@@ -181,7 +179,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
 
 ._crit_edge17.us.us.us.loopexit.i:                ; preds = %._crit_edge.us.us.us.i.loopexit.us, %.lr.ph16.us.us.us.i.preheader
   %.us-phi1409 = phi ptr [ %indvars.iv1573, %.lr.ph16.us.us.us.i.preheader ], [ %372, %._crit_edge.us.us.us.i.loopexit.us ]
-  %.us-phi1410 = phi i64 [ %80, %.lr.ph16.us.us.us.i.preheader ], [ %indvars.iv.next113.i.us, %._crit_edge.us.us.us.i.loopexit.us ]
+  %.us-phi1410 = phi i64 [ %80, %.lr.ph16.us.us.us.i.preheader ], [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ]
   %97 = trunc nuw nsw i64 %.us-phi1410 to i32
   br label %._crit_edge17.us.us.us.i
 
@@ -211,7 +209,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   ]
 
 .lr.ph24.us.us.us.i:                              ; preds = %.preheader3.us.us.us.i, %149
-  %indvars.iv115.i = phi i64 [ %indvars.iv.next116.i, %149 ], [ 0, %.preheader3.us.us.us.i ]
+  %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %149 ], [ 0, %.preheader3.us.us.us.i ]
   %.247322.us.us.us.i = phi ptr [ %153, %149 ], [ %.047564.us.us.us.i, %.preheader3.us.us.us.i ]
   %.347921.us.us.us.i = phi ptr [ %152, %149 ], [ %109, %.preheader3.us.us.us.i ]
   %.349020.us.us.us.i = phi double [ %118, %149 ], [ %108, %.preheader3.us.us.us.i ]
@@ -222,7 +220,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   %118 = uitofp i8 %117 to double
   %119 = fmul double %102, %115
   %120 = tail call double @llvm.fmuladd.f64(double %.349020.us.us.us.i, double %100, double %119)
-  %121 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv115.i
+  %121 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv114.i
   %122 = load double, ptr %121, align 8
   %123 = fadd double %122, %120
   %124 = fadd double %123, 0xC1E0000000000000
@@ -269,13 +267,13 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   store i8 %150, ptr %151, align 1
   %152 = getelementptr inbounds i8, ptr %.347921.us.us.us.i, i64 %61
   %153 = getelementptr inbounds i8, ptr %.247322.us.us.us.i, i64 %67
-  %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 2
-  %.not507.us.us.us.i = icmp sgt i64 %indvars.iv.next116.i, %87
+  %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 2
+  %.not507.us.us.us.i = icmp sgt i64 %indvars.iv.next115.i, %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false)
   br i1 %.not507.us.us.us.i, label %._crit_edge25.us.us.us.loopexit.i, label %.lr.ph24.us.us.us.i, !llvm.loop !8
 
 ._crit_edge25.us.us.us.loopexit.i:                ; preds = %149
-  %154 = trunc nuw nsw i64 %indvars.iv.next116.i to i32
+  %154 = trunc nuw nsw i64 %indvars.iv.next115.i to i32
   br label %._crit_edge25.us.us.us.i
 
 ._crit_edge25.us.us.us.i:                         ; preds = %.preheader3.us.us.us.i, %._crit_edge25.us.us.us.loopexit.i
@@ -317,7 +315,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   br label %.loopexit.us.us.us.i
 
 .lr.ph36.us.us.us.i:                              ; preds = %.preheader2.us.us.us.i, %213
-  %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %213 ], [ 0, %.preheader2.us.us.us.i ]
+  %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %213 ], [ 0, %.preheader2.us.us.us.i ]
   %.147234.us.us.us.i = phi ptr [ %217, %213 ], [ %.047564.us.us.us.i, %.preheader2.us.us.us.i ]
   %.247833.us.us.us.i = phi ptr [ %216, %213 ], [ %112, %.preheader2.us.us.us.i ]
   %.248632.us.us.us.i = phi double [ %180, %213 ], [ %111, %.preheader2.us.us.us.i ]
@@ -330,7 +328,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   %181 = fmul double %102, %.248632.us.us.us.i
   %182 = tail call double @llvm.fmuladd.f64(double %.248931.us.us.us.i, double %100, double %181)
   %183 = tail call double @llvm.fmuladd.f64(double %177, double %104, double %182)
-  %184 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv118.i
+  %184 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv117.i
   %185 = load double, ptr %184, align 8
   %186 = fadd double %183, %185
   %187 = fadd double %186, 0xC1E0000000000000
@@ -378,13 +376,13 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   store i8 %214, ptr %215, align 1
   %216 = getelementptr inbounds i8, ptr %.247833.us.us.us.i, i64 %61
   %217 = getelementptr inbounds i8, ptr %.147234.us.us.us.i, i64 %67
-  %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 2
-  %.not508.us.us.us.i = icmp sgt i64 %indvars.iv.next119.i, %87
+  %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 2
+  %.not508.us.us.us.i = icmp sgt i64 %indvars.iv.next118.i, %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   br i1 %.not508.us.us.us.i, label %._crit_edge37.us.us.us.loopexit.i, label %.lr.ph36.us.us.us.i, !llvm.loop !9
 
 ._crit_edge37.us.us.us.loopexit.i:                ; preds = %213
-  %218 = trunc nuw nsw i64 %indvars.iv.next119.i to i32
+  %218 = trunc nuw nsw i64 %indvars.iv.next118.i to i32
   br label %._crit_edge37.us.us.us.i
 
 ._crit_edge37.us.us.us.i:                         ; preds = %.preheader2.us.us.us.i, %._crit_edge37.us.us.us.loopexit.i
@@ -434,7 +432,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   br i1 %.not50719.us.us.i, label %._crit_edge52.us.us.us.i, label %.lr.ph51.us.us.us.i
 
 .lr.ph51.us.us.us.i:                              ; preds = %241, %284
-  %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %284 ], [ 0, %241 ]
+  %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %284 ], [ 0, %241 ]
   %.047148.us.us.us.i = phi ptr [ %288, %284 ], [ %.047564.us.us.us.i, %241 ]
   %.147747.us.us.us.i = phi ptr [ %287, %284 ], [ %244, %241 ]
   %.148346.us.us.us.i = phi double [ %249, %284 ], [ %243, %241 ]
@@ -449,7 +447,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   %251 = tail call double @llvm.fmuladd.f64(double %.148844.us.us.us.i, double %100, double %250)
   %252 = tail call double @llvm.fmuladd.f64(double %.148346.us.us.us.i, double %104, double %251)
   %253 = tail call double @llvm.fmuladd.f64(double %246, double %106, double %252)
-  %254 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv121.i
+  %254 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv120.i
   %255 = load double, ptr %254, align 8
   %256 = fadd double %253, %255
   %257 = fadd double %256, 0xC1E0000000000000
@@ -498,13 +496,13 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   store i8 %285, ptr %286, align 1
   %287 = getelementptr inbounds i8, ptr %.147747.us.us.us.i, i64 %61
   %288 = getelementptr inbounds i8, ptr %.047148.us.us.us.i, i64 %67
-  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 2
-  %.not509.us.us.us.i = icmp sgt i64 %indvars.iv.next122.i, %87
+  %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 2
+  %.not509.us.us.us.i = icmp sgt i64 %indvars.iv.next121.i, %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false)
   br i1 %.not509.us.us.us.i, label %._crit_edge52.us.us.us.loopexit.i, label %.lr.ph51.us.us.us.i, !llvm.loop !10
 
 ._crit_edge52.us.us.us.loopexit.i:                ; preds = %284
-  %289 = trunc nuw nsw i64 %indvars.iv.next122.i to i32
+  %289 = trunc nuw nsw i64 %indvars.iv.next121.i to i32
   br label %._crit_edge52.us.us.us.i
 
 ._crit_edge52.us.us.us.i:                         ; preds = %._crit_edge52.us.us.us.loopexit.i, %241
@@ -553,17 +551,17 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   %313 = getelementptr inbounds nuw i8, ptr %.048163.us.us.us.i, i64 %68
   %314 = getelementptr inbounds nuw i8, ptr %.047564.us.us.us.i, i64 %68
   %315 = add nuw nsw i32 %.046866.us.us.us.i, 1
-  %exitcond128.not.i = icmp eq i32 %315, %.val510.fr.i
+  %exitcond127.not.i = icmp eq i32 %315, %.val510.fr.i
   %scevgep1574 = getelementptr i8, ptr %indvars.iv1573, i64 %68
-  br i1 %exitcond128.not.i, label %..loopexit6_crit_edge.us.us.us.i, label %.preheader4.us.us.us.i, !llvm.loop !11
+  br i1 %exitcond127.not.i, label %..loopexit6_crit_edge.us.us.us.i, label %.preheader4.us.us.us.i, !llvm.loop !11
 
 .lr.ph62.us.us.us.i:                              ; preds = %.preheader.us.us.us.i, %330
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %330 ], [ 0, %.preheader.us.us.us.i ]
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %330 ], [ 0, %.preheader.us.us.us.i ]
   %.347460.us.us.us.i = phi ptr [ %333, %330 ], [ %.047564.us.us.us.i, %.preheader.us.us.us.i ]
   %.448059.us.us.us.i = phi ptr [ %332, %330 ], [ %.0463.lcssa.us.us.us.i, %.preheader.us.us.us.i ]
   %316 = load i8, ptr %.448059.us.us.us.i, align 1
   %317 = uitofp i8 %316 to double
-  %318 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv124.i
+  %318 = getelementptr inbounds nuw double, ptr %.0470.i, i64 %indvars.iv123.i
   %319 = load double, ptr %318, align 8
   %320 = tail call double @llvm.fmuladd.f64(double %317, double %100, double %319)
   %321 = fadd double %320, 0xC1E0000000000000
@@ -587,15 +585,15 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   store double 0.000000e+00, ptr %318, align 8
   %332 = getelementptr inbounds i8, ptr %.448059.us.us.us.i, i64 %43
   %333 = getelementptr inbounds i8, ptr %.347460.us.us.us.i, i64 %44
-  %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
-  %exitcond127.not.i = icmp eq i64 %indvars.iv.next125.i, %84
-  br i1 %exitcond127.not.i, label %.loopexit.us.us.us.i, label %.lr.ph62.us.us.us.i, !llvm.loop !12
+  %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
+  %exitcond126.not.i = icmp eq i64 %indvars.iv.next124.i, %84
+  br i1 %exitcond126.not.i, label %.loopexit.us.us.us.i, label %.lr.ph62.us.us.us.i, !llvm.loop !12
 
 ..loopexit6_crit_edge.us.us.us.i:                 ; preds = %.loopexit.us.us.us.i, %88
-  %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
-  %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %wide.trip.count132.i
+  %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
+  %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count131.i
   %scevgep1572 = getelementptr i8, ptr %indvars.iv1571, i64 1
-  br i1 %exitcond133.not.i, label %._crit_edge70.split.us.us.us.i, label %88, !llvm.loop !13
+  br i1 %exitcond132.not.i, label %._crit_edge70.split.us.us.us.i, label %88, !llvm.loop !13
 
 .preheader.us.us.us.i:                            ; preds = %._crit_edge17.us.us.us.i
   br i1 %82, label %.lr.ph62.us.us.us.i, label %.loopexit.us.us.us.i
@@ -617,9 +615,9 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   br i1 %82, label %.lr.ph16.us.us.us.i.us, label %._crit_edge17.us.us.us.loopexit.i
 
 .lr.ph16.us.us.us.i.us:                           ; preds = %.lr.ph16.us.us.us.i.preheader, %._crit_edge.us.us.us.i.loopexit.us
-  %indvars.iv112.i.us = phi i64 [ %indvars.iv.next113.i.us, %._crit_edge.us.us.us.i.loopexit.us ], [ 0, %.lr.ph16.us.us.us.i.preheader ]
+  %indvars.iv111.i.us = phi i64 [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ], [ 0, %.lr.ph16.us.us.us.i.preheader ]
   %.046315.us.us.us.i.us = phi ptr [ %372, %._crit_edge.us.us.us.i.loopexit.us ], [ %.048163.us.us.us.i, %.lr.ph16.us.us.us.i.preheader ]
-  %334 = getelementptr inbounds nuw double, ptr %.010221614, i64 %indvars.iv112.i.us
+  %334 = getelementptr inbounds nuw double, ptr %.010221614, i64 %indvars.iv111.i.us
   %335 = load double, ptr %334, align 8
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %337 = load double, ptr %336, align 8
@@ -672,8 +670,8 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
 
 ._crit_edge.us.us.us.i.loopexit.us:               ; preds = %.lr.ph13.us.us.us.i.us
   %372 = getelementptr inbounds i8, ptr %.046315.us.us.us.i.us, i64 %65
-  %indvars.iv.next113.i.us = add nuw nsw i64 %indvars.iv112.i.us, 4
-  %373 = icmp slt i64 %indvars.iv.next113.i.us, %74
+  %indvars.iv.next112.i.us = add nuw nsw i64 %indvars.iv111.i.us, 4
+  %373 = icmp slt i64 %indvars.iv.next112.i.us, %74
   br i1 %373, label %.lr.ph16.us.us.us.i.us, label %._crit_edge17.us.us.us.loopexit.i, !llvm.loop !15
 
 ._crit_edge70.split.us.us.us.i:                   ; preds = %..loopexit6_crit_edge.us.us.us.i
@@ -686,18 +684,19 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
 
 .lr.ph69.us.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge70.split.us89.i
   %.046282.us.i = phi i32 [ %382, %._crit_edge70.split.us89.i ], [ 0, %.lr.ph.split.us.i ]
-  %378 = sub i32 %45, %.046282.us.i
+  %378 = sub nsw i32 %45, %.046282.us.i
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %378, i32 %spec.store.select.i)
-  %379 = icmp sgt i32 %spec.select.us.i, 0
+  %spec.select.us.fr.i = freeze i32 %spec.select.us.i
+  %379 = icmp sgt i32 %spec.select.us.fr.i, 0
   br i1 %379, label %.lr.ph69.split.split.us.us.preheader.i, label %._crit_edge70.split.us89.i
 
 .lr.ph69.split.split.us.us.preheader.i:           ; preds = %.lr.ph69.us.i
-  %380 = zext nneg i32 %spec.select.us.i to i64
+  %380 = zext nneg i32 %spec.select.us.fr.i to i64
   %381 = shl nuw nsw i64 %380, 3
   br label %.lr.ph69.split.split.us.us.i
 
 ._crit_edge70.split.us89.i:                       ; preds = %..preheader5_crit_edge.us76.us.i, %.lr.ph69.us.i
-  %382 = add i32 %spec.select.us.i, %.046282.us.i
+  %382 = add nsw i32 %spec.select.us.fr.i, %.046282.us.i
   %383 = icmp slt i32 %382, %45
   br i1 %383, label %.lr.ph69.us.i, label %._crit_edge.i, !llvm.loop !16
 
@@ -2031,15 +2030,15 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %63 = sext i32 %57 to i64
   %64 = sext i32 %24 to i64
   %65 = zext nneg i32 %.val929 to i64
-  %wide.trip.count1307 = zext nneg i32 %4 to i64
-  %wide.trip.count1319 = sext i32 %23 to i64
-  %wide.trip.count1314 = zext nneg i32 %4 to i64
+  %wide.trip.count1308 = zext nneg i32 %4 to i64
+  %wide.trip.count1320 = sext i32 %23 to i64
+  %wide.trip.count1315 = zext nneg i32 %4 to i64
   br label %.lr.ph1172.split.us
 
 .lr.ph1172.split.us:                              ; preds = %.lr.ph1172.split.us.preheader, %..loopexit965_crit_edge.us
-  %indvars.iv1322 = phi i64 [ 0, %.lr.ph1172.split.us.preheader ], [ %indvars.iv.next1323, %..loopexit965_crit_edge.us ]
+  %indvars.iv1323 = phi i64 [ 0, %.lr.ph1172.split.us.preheader ], [ %indvars.iv.next1324, %..loopexit965_crit_edge.us ]
   %.08031170.us = phi ptr [ null, %.lr.ph1172.split.us.preheader ], [ %.1804.us, %..loopexit965_crit_edge.us ]
-  %66 = trunc nuw nsw i64 %indvars.iv1322 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv1323 to i32
   %67 = xor i32 %66, -1
   %68 = add nsw i32 %.val929, %67
   %69 = shl nuw i32 1, %68
@@ -2048,8 +2047,8 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %.not891.us, label %..loopexit965_crit_edge.us, label %71
 
 71:                                               ; preds = %.lr.ph1172.split.us
-  %72 = getelementptr inbounds nuw i8, ptr %.val933, i64 %indvars.iv1322
-  %73 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv1322
+  %72 = getelementptr inbounds nuw i8, ptr %.val933, i64 %indvars.iv1323
+  %73 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv1323
   br i1 %47, label %.lr.ph969.us.preheader, label %.preheader963.us.preheader
 
 .lr.ph969.us.preheader:                           ; preds = %71
@@ -2066,14 +2065,14 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %74 = getelementptr inbounds i8, ptr %.08391159.us, i64 %16
   %75 = getelementptr inbounds i8, ptr %.08171162.us, i64 %18
   %76 = add nuw nsw i32 %.07961166.us, 1
-  %exitcond1321.not = icmp eq i32 %76, %25
-  br i1 %exitcond1321.not, label %..loopexit965_crit_edge.us, label %.preheader963.us, !llvm.loop !41
+  %exitcond1322.not = icmp eq i32 %76, %25
+  br i1 %exitcond1322.not, label %..loopexit965_crit_edge.us, label %.preheader963.us, !llvm.loop !41
 
 ..loopexit965_crit_edge.us:                       ; preds = %._crit_edge.us1184, %.lr.ph1172.split.us
   %.1804.us = phi ptr [ %.08031170.us, %.lr.ph1172.split.us ], [ %.13816.lcssa.us, %._crit_edge.us1184 ]
-  %indvars.iv.next1323 = add nuw nsw i64 %indvars.iv1322, 1
-  %exitcond1326.not = icmp eq i64 %indvars.iv.next1323, %51
-  br i1 %exitcond1326.not, label %._crit_edge1173, label %.lr.ph1172.split.us, !llvm.loop !42
+  %indvars.iv.next1324 = add nuw nsw i64 %indvars.iv1323, 1
+  %exitcond1327.not = icmp eq i64 %indvars.iv.next1324, %51
+  br i1 %exitcond1327.not, label %._crit_edge1173, label %.lr.ph1172.split.us, !llvm.loop !42
 
 .preheader961.us1175:                             ; preds = %.preheader962.us.thread, %.preheader961.us1175
   %.201149.us1176 = phi i32 [ %78, %.preheader961.us1175 ], [ %.21165.us, %.preheader962.us.thread ]
@@ -2081,8 +2080,8 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i8 0, ptr %.138161148.us1177, align 1
   %77 = getelementptr inbounds nuw i8, ptr %.138161148.us1177, i64 %51
   %78 = add nsw i32 %.201149.us1176, 1
-  %exitcond1309.not = icmp eq i32 %.201149.us1176, %reass.sub
-  br i1 %exitcond1309.not, label %._crit_edge.us1184, label %.preheader961.us1175, !llvm.loop !43
+  %exitcond1310.not = icmp eq i32 %.201149.us1176, %reass.sub
+  br i1 %exitcond1310.not, label %._crit_edge.us1184, label %.preheader961.us1175, !llvm.loop !43
 
 .preheader962.us:                                 ; preds = %._crit_edge.us.us
   %79 = icmp slt i32 %.7.us.us, %23
@@ -2108,11 +2107,11 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %50, label %.lr.ph1112.us.us, label %.preheader962.us.thread1380
 
 .lr.ph1112.us.us:                                 ; preds = %.lr.ph1122.us, %._crit_edge.us.us
-  %indvars.iv1304 = phi i64 [ %indvars.iv.next1305, %._crit_edge.us.us ], [ 0, %.lr.ph1122.us ]
+  %indvars.iv1305 = phi i64 [ %indvars.iv.next1306, %._crit_edge.us.us ], [ 0, %.lr.ph1122.us ]
   %.07911121.us.us = phi ptr [ %122, %._crit_edge.us.us ], [ %.07931371, %.lr.ph1122.us ]
-  %82 = mul nsw i64 %indvars.iv1304, %16
+  %82 = mul nsw i64 %indvars.iv1305, %16
   %83 = getelementptr inbounds i8, ptr %.08391159.us, i64 %82
-  %84 = icmp slt i64 %indvars.iv1304, %64
+  %84 = icmp slt i64 %indvars.iv1305, %64
   br label %85
 
 85:                                               ; preds = %.loopexit.us.us, %.lr.ph1112.us.us
@@ -2176,7 +2175,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond926.us.us, label %.preheader957.us.us, label %.preheader959.us.us
 
 .lr.ph975.us.us:                                  ; preds = %.preheader959.us.us, %.lr.ph975.us.us
-  %indvars.iv1262 = phi i64 [ %indvars.iv.next1263, %.lr.ph975.us.us ], [ 0, %.preheader959.us.us ]
+  %indvars.iv1263 = phi i64 [ %indvars.iv.next1264, %.lr.ph975.us.us ], [ 0, %.preheader959.us.us ]
   %.11814973.us.us = phi ptr [ %154, %.lr.ph975.us.us ], [ %.08171162.us, %.preheader959.us.us ]
   %.17835972.us.us = phi ptr [ %153, %.lr.ph975.us.us ], [ %126, %.preheader959.us.us ]
   %.11881971.us.us = phi i32 [ %133, %.lr.ph975.us.us ], [ %95, %.preheader959.us.us ]
@@ -2188,7 +2187,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %134 = mul nsw i32 %.11881971.us.us, %108
   %135 = mul nsw i32 %110, %130
   %136 = add nsw i32 %135, %134
-  %137 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1262
+  %137 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1263
   %138 = load i32, ptr %137, align 4
   %139 = add nsw i32 %136, %138
   %140 = mul nsw i32 %108, %130
@@ -2216,12 +2215,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %143, align 4
   %153 = getelementptr inbounds nuw i8, ptr %.17835972.us.us, i64 %52
   %154 = getelementptr inbounds nuw i8, ptr %.11814973.us.us, i64 %52
-  %indvars.iv.next1263 = add nuw nsw i64 %indvars.iv1262, 2
-  %.not897.us.us = icmp sgt i64 %indvars.iv.next1263, %63
-  br i1 %.not897.us.us, label %.loopexit.us.us.loopexit1204, label %.lr.ph975.us.us, !llvm.loop !44
+  %indvars.iv.next1264 = add nuw nsw i64 %indvars.iv1263, 2
+  %.not897.us.us = icmp sgt i64 %indvars.iv.next1264, %63
+  br i1 %.not897.us.us, label %.loopexit.us.us.loopexit1205, label %.lr.ph975.us.us, !llvm.loop !44
 
 .lr.ph983.us.us:                                  ; preds = %.preheader957.us.us, %.lr.ph983.us.us
-  %indvars.iv1265 = phi i64 [ %indvars.iv.next1266, %.lr.ph983.us.us ], [ 0, %.preheader957.us.us ]
+  %indvars.iv1266 = phi i64 [ %indvars.iv.next1267, %.lr.ph983.us.us ], [ 0, %.preheader957.us.us ]
   %.16834981.us.us = phi ptr [ %172, %.lr.ph983.us.us ], [ %126, %.preheader957.us.us ]
   %.10880980.us.us = phi i32 [ %159, %.lr.ph983.us.us ], [ %95, %.preheader957.us.us ]
   %155 = load i8, ptr %.16834981.us.us, align 1
@@ -2232,7 +2231,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %160 = mul nsw i32 %.10880980.us.us, %108
   %161 = mul nsw i32 %110, %156
   %162 = add nsw i32 %161, %160
-  %163 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1265
+  %163 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1266
   %164 = load i32, ptr %163, align 4
   %165 = add nsw i32 %162, %164
   store i32 %165, ptr %163, align 4
@@ -2244,9 +2243,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %171 = add nsw i32 %168, %170
   store i32 %171, ptr %169, align 4
   %172 = getelementptr inbounds nuw i8, ptr %.16834981.us.us, i64 %52
-  %indvars.iv.next1266 = add nuw nsw i64 %indvars.iv1265, 2
-  %.not900.us.us = icmp sgt i64 %indvars.iv.next1266, %63
-  br i1 %.not900.us.us, label %.loopexit.us.us.loopexit1203, label %.lr.ph983.us.us, !llvm.loop !45
+  %indvars.iv.next1267 = add nuw nsw i64 %indvars.iv1266, 2
+  %.not900.us.us = icmp sgt i64 %indvars.iv.next1267, %63
+  br i1 %.not900.us.us, label %.loopexit.us.us.loopexit1204, label %.lr.ph983.us.us, !llvm.loop !45
 
 173:                                              ; preds = %85
   %174 = icmp slt i32 %93, %3
@@ -2254,7 +2253,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond925.us.us, label %.preheader953.us.us, label %.preheader955.us.us
 
 .lr.ph992.us.us:                                  ; preds = %.preheader955.us.us, %.lr.ph992.us.us
-  %indvars.iv1268 = phi i64 [ %indvars.iv.next1269, %.lr.ph992.us.us ], [ 0, %.preheader955.us.us ]
+  %indvars.iv1269 = phi i64 [ %indvars.iv.next1270, %.lr.ph992.us.us ], [ 0, %.preheader955.us.us ]
   %.10813990.us.us = phi ptr [ %204, %.lr.ph992.us.us ], [ %.08171162.us, %.preheader955.us.us ]
   %.15833989.us.us = phi ptr [ %203, %.lr.ph992.us.us ], [ %126, %.preheader955.us.us ]
   %.9869988.us.us = phi i32 [ %179, %.lr.ph992.us.us ], [ %98, %.preheader955.us.us ]
@@ -2269,7 +2268,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %182 = add nsw i32 %181, %180
   %183 = mul nsw i32 %112, %176
   %184 = add nsw i32 %182, %183
-  %185 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1268
+  %185 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1269
   %186 = load i32, ptr %185, align 4
   %187 = add nsw i32 %184, %186
   %188 = mul nsw i32 %.9869988.us.us, %108
@@ -2299,12 +2298,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %193, align 4
   %203 = getelementptr inbounds nuw i8, ptr %.15833989.us.us, i64 %52
   %204 = getelementptr inbounds nuw i8, ptr %.10813990.us.us, i64 %52
-  %indvars.iv.next1269 = add nuw nsw i64 %indvars.iv1268, 2
-  %.not901.us.us = icmp sgt i64 %indvars.iv.next1269, %63
-  br i1 %.not901.us.us, label %.loopexit.us.us.loopexit1202, label %.lr.ph992.us.us, !llvm.loop !46
+  %indvars.iv.next1270 = add nuw nsw i64 %indvars.iv1269, 2
+  %.not901.us.us = icmp sgt i64 %indvars.iv.next1270, %63
+  br i1 %.not901.us.us, label %.loopexit.us.us.loopexit1203, label %.lr.ph992.us.us, !llvm.loop !46
 
 .lr.ph1001.us.us:                                 ; preds = %.preheader953.us.us, %.lr.ph1001.us.us
-  %indvars.iv1271 = phi i64 [ %indvars.iv.next1272, %.lr.ph1001.us.us ], [ 0, %.preheader953.us.us ]
+  %indvars.iv1272 = phi i64 [ %indvars.iv.next1273, %.lr.ph1001.us.us ], [ 0, %.preheader953.us.us ]
   %.14832999.us.us = phi ptr [ %226, %.lr.ph1001.us.us ], [ %126, %.preheader953.us.us ]
   %.8868998.us.us = phi i32 [ %209, %.lr.ph1001.us.us ], [ %98, %.preheader953.us.us ]
   %.8878997.us.us = phi i32 [ %206, %.lr.ph1001.us.us ], [ %95, %.preheader953.us.us ]
@@ -2318,7 +2317,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %212 = add nsw i32 %211, %210
   %213 = mul nsw i32 %112, %206
   %214 = add nsw i32 %212, %213
-  %215 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1271
+  %215 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1272
   %216 = load i32, ptr %215, align 4
   %217 = add nsw i32 %214, %216
   store i32 %217, ptr %215, align 4
@@ -2332,9 +2331,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %225 = add nsw i32 %222, %224
   store i32 %225, ptr %223, align 4
   %226 = getelementptr inbounds nuw i8, ptr %.14832999.us.us, i64 %52
-  %indvars.iv.next1272 = add nuw nsw i64 %indvars.iv1271, 2
-  %.not904.us.us = icmp sgt i64 %indvars.iv.next1272, %63
-  br i1 %.not904.us.us, label %.loopexit.us.us.loopexit1201, label %.lr.ph1001.us.us, !llvm.loop !47
+  %indvars.iv.next1273 = add nuw nsw i64 %indvars.iv1272, 2
+  %.not904.us.us = icmp sgt i64 %indvars.iv.next1273, %63
+  br i1 %.not904.us.us, label %.loopexit.us.us.loopexit1202, label %.lr.ph1001.us.us, !llvm.loop !47
 
 227:                                              ; preds = %85
   %228 = icmp slt i32 %93, %3
@@ -2342,7 +2341,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond924.us.us, label %.preheader949.us.us, label %.preheader951.us.us
 
 .lr.ph1011.us.us:                                 ; preds = %.preheader951.us.us, %.lr.ph1011.us.us
-  %indvars.iv1274 = phi i64 [ %indvars.iv.next1275, %.lr.ph1011.us.us ], [ 0, %.preheader951.us.us ]
+  %indvars.iv1275 = phi i64 [ %indvars.iv.next1276, %.lr.ph1011.us.us ], [ 0, %.preheader951.us.us ]
   %.98121009.us.us = phi ptr [ %262, %.lr.ph1011.us.us ], [ %.08171162.us, %.preheader951.us.us ]
   %.138311008.us.us = phi ptr [ %261, %.lr.ph1011.us.us ], [ %126, %.preheader951.us.us ]
   %.78591007.us.us = phi i32 [ %233, %.lr.ph1011.us.us ], [ %101, %.preheader951.us.us ]
@@ -2360,7 +2359,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %238 = add nsw i32 %236, %237
   %239 = mul nsw i32 %114, %230
   %240 = add nsw i32 %238, %239
-  %241 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1274
+  %241 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1275
   %242 = load i32, ptr %241, align 4
   %243 = add nsw i32 %240, %242
   %244 = mul nsw i32 %.78671006.us.us, %108
@@ -2392,12 +2391,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %251, align 4
   %261 = getelementptr inbounds nuw i8, ptr %.138311008.us.us, i64 %52
   %262 = getelementptr inbounds nuw i8, ptr %.98121009.us.us, i64 %52
-  %indvars.iv.next1275 = add nuw nsw i64 %indvars.iv1274, 2
-  %.not905.us.us = icmp sgt i64 %indvars.iv.next1275, %63
-  br i1 %.not905.us.us, label %.loopexit.us.us.loopexit1200, label %.lr.ph1011.us.us, !llvm.loop !48
+  %indvars.iv.next1276 = add nuw nsw i64 %indvars.iv1275, 2
+  %.not905.us.us = icmp sgt i64 %indvars.iv.next1276, %63
+  br i1 %.not905.us.us, label %.loopexit.us.us.loopexit1201, label %.lr.ph1011.us.us, !llvm.loop !48
 
 .lr.ph1021.us.us:                                 ; preds = %.preheader949.us.us, %.lr.ph1021.us.us
-  %indvars.iv1277 = phi i64 [ %indvars.iv.next1278, %.lr.ph1021.us.us ], [ 0, %.preheader949.us.us ]
+  %indvars.iv1278 = phi i64 [ %indvars.iv.next1279, %.lr.ph1021.us.us ], [ 0, %.preheader949.us.us ]
   %.128301019.us.us = phi ptr [ %288, %.lr.ph1021.us.us ], [ %126, %.preheader949.us.us ]
   %.68581018.us.us = phi i32 [ %267, %.lr.ph1021.us.us ], [ %101, %.preheader949.us.us ]
   %.68661017.us.us = phi i32 [ %264, %.lr.ph1021.us.us ], [ %98, %.preheader949.us.us ]
@@ -2414,7 +2413,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %272 = add nsw i32 %270, %271
   %273 = mul nsw i32 %114, %264
   %274 = add nsw i32 %272, %273
-  %275 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1277
+  %275 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1278
   %276 = load i32, ptr %275, align 4
   %277 = add nsw i32 %274, %276
   store i32 %277, ptr %275, align 4
@@ -2430,9 +2429,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %287 = add nsw i32 %284, %286
   store i32 %287, ptr %285, align 4
   %288 = getelementptr inbounds nuw i8, ptr %.128301019.us.us, i64 %52
-  %indvars.iv.next1278 = add nuw nsw i64 %indvars.iv1277, 2
-  %.not908.us.us = icmp sgt i64 %indvars.iv.next1278, %63
-  br i1 %.not908.us.us, label %.loopexit.us.us.loopexit1199, label %.lr.ph1021.us.us, !llvm.loop !49
+  %indvars.iv.next1279 = add nuw nsw i64 %indvars.iv1278, 2
+  %.not908.us.us = icmp sgt i64 %indvars.iv.next1279, %63
+  br i1 %.not908.us.us, label %.loopexit.us.us.loopexit1200, label %.lr.ph1021.us.us, !llvm.loop !49
 
 289:                                              ; preds = %85
   %290 = icmp slt i32 %93, %3
@@ -2440,7 +2439,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond923.us.us, label %.preheader945.us.us, label %.preheader947.us.us
 
 .lr.ph1032.us.us:                                 ; preds = %.preheader947.us.us, %.lr.ph1032.us.us
-  %indvars.iv1280 = phi i64 [ %indvars.iv.next1281, %.lr.ph1032.us.us ], [ 0, %.preheader947.us.us ]
+  %indvars.iv1281 = phi i64 [ %indvars.iv.next1282, %.lr.ph1032.us.us ], [ 0, %.preheader947.us.us ]
   %.88111030.us.us = phi ptr [ %328, %.lr.ph1032.us.us ], [ %.08171162.us, %.preheader947.us.us ]
   %.118291029.us.us = phi ptr [ %327, %.lr.ph1032.us.us ], [ %126, %.preheader947.us.us ]
   %.58511028.us.us = phi i32 [ %295, %.lr.ph1032.us.us ], [ %104, %.preheader947.us.us ]
@@ -2461,7 +2460,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %302 = add nsw i32 %300, %301
   %303 = mul nsw i32 %116, %292
   %304 = add nsw i32 %302, %303
-  %305 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1280
+  %305 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1281
   %306 = load i32, ptr %305, align 4
   %307 = add nsw i32 %304, %306
   %308 = mul nsw i32 %.58651026.us.us, %108
@@ -2495,12 +2494,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %317, align 4
   %327 = getelementptr inbounds nuw i8, ptr %.118291029.us.us, i64 %52
   %328 = getelementptr inbounds nuw i8, ptr %.88111030.us.us, i64 %52
-  %indvars.iv.next1281 = add nuw nsw i64 %indvars.iv1280, 2
-  %.not909.us.us = icmp sgt i64 %indvars.iv.next1281, %63
-  br i1 %.not909.us.us, label %.loopexit.us.us.loopexit1198, label %.lr.ph1032.us.us, !llvm.loop !50
+  %indvars.iv.next1282 = add nuw nsw i64 %indvars.iv1281, 2
+  %.not909.us.us = icmp sgt i64 %indvars.iv.next1282, %63
+  br i1 %.not909.us.us, label %.loopexit.us.us.loopexit1199, label %.lr.ph1032.us.us, !llvm.loop !50
 
 .lr.ph1043.us.us:                                 ; preds = %.preheader945.us.us, %.lr.ph1043.us.us
-  %indvars.iv1283 = phi i64 [ %indvars.iv.next1284, %.lr.ph1043.us.us ], [ 0, %.preheader945.us.us ]
+  %indvars.iv1284 = phi i64 [ %indvars.iv.next1285, %.lr.ph1043.us.us ], [ 0, %.preheader945.us.us ]
   %.108281041.us.us = phi ptr [ %358, %.lr.ph1043.us.us ], [ %126, %.preheader945.us.us ]
   %.48501040.us.us = phi i32 [ %333, %.lr.ph1043.us.us ], [ %104, %.preheader945.us.us ]
   %.48561039.us.us = phi i32 [ %330, %.lr.ph1043.us.us ], [ %101, %.preheader945.us.us ]
@@ -2520,7 +2519,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %340 = add nsw i32 %338, %339
   %341 = mul nsw i32 %116, %330
   %342 = add nsw i32 %340, %341
-  %343 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1283
+  %343 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1284
   %344 = load i32, ptr %343, align 4
   %345 = add nsw i32 %342, %344
   store i32 %345, ptr %343, align 4
@@ -2538,9 +2537,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %357 = add nsw i32 %354, %356
   store i32 %357, ptr %355, align 4
   %358 = getelementptr inbounds nuw i8, ptr %.108281041.us.us, i64 %52
-  %indvars.iv.next1284 = add nuw nsw i64 %indvars.iv1283, 2
-  %.not912.us.us = icmp sgt i64 %indvars.iv.next1284, %63
-  br i1 %.not912.us.us, label %.loopexit.us.us.loopexit1197, label %.lr.ph1043.us.us, !llvm.loop !51
+  %indvars.iv.next1285 = add nuw nsw i64 %indvars.iv1284, 2
+  %.not912.us.us = icmp sgt i64 %indvars.iv.next1285, %63
+  br i1 %.not912.us.us, label %.loopexit.us.us.loopexit1198, label %.lr.ph1043.us.us, !llvm.loop !51
 
 359:                                              ; preds = %85
   %360 = icmp slt i32 %93, %3
@@ -2548,7 +2547,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond922.us.us, label %.preheader941.us.us, label %.preheader943.us.us
 
 .lr.ph1055.us.us:                                 ; preds = %.preheader943.us.us, %.lr.ph1055.us.us
-  %indvars.iv1286 = phi i64 [ %indvars.iv.next1287, %.lr.ph1055.us.us ], [ 0, %.preheader943.us.us ]
+  %indvars.iv1287 = phi i64 [ %indvars.iv.next1288, %.lr.ph1055.us.us ], [ 0, %.preheader943.us.us ]
   %.78101053.us.us = phi ptr [ %402, %.lr.ph1055.us.us ], [ %.08171162.us, %.preheader943.us.us ]
   %.98271052.us.us = phi ptr [ %401, %.lr.ph1055.us.us ], [ %126, %.preheader943.us.us ]
   %.38451051.us.us = phi i32 [ %365, %.lr.ph1055.us.us ], [ %107, %.preheader943.us.us ]
@@ -2572,7 +2571,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %374 = add nsw i32 %372, %373
   %375 = mul nsw i32 %118, %362
   %376 = add nsw i32 %374, %375
-  %377 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1286
+  %377 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1287
   %378 = load i32, ptr %377, align 4
   %379 = add nsw i32 %376, %378
   %380 = mul nsw i32 %.38631048.us.us, %108
@@ -2608,12 +2607,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %391, align 4
   %401 = getelementptr inbounds nuw i8, ptr %.98271052.us.us, i64 %52
   %402 = getelementptr inbounds nuw i8, ptr %.78101053.us.us, i64 %52
-  %indvars.iv.next1287 = add nuw nsw i64 %indvars.iv1286, 2
-  %.not913.us.us = icmp sgt i64 %indvars.iv.next1287, %63
-  br i1 %.not913.us.us, label %.loopexit.us.us.loopexit1196, label %.lr.ph1055.us.us, !llvm.loop !52
+  %indvars.iv.next1288 = add nuw nsw i64 %indvars.iv1287, 2
+  %.not913.us.us = icmp sgt i64 %indvars.iv.next1288, %63
+  br i1 %.not913.us.us, label %.loopexit.us.us.loopexit1197, label %.lr.ph1055.us.us, !llvm.loop !52
 
 .lr.ph1067.us.us:                                 ; preds = %.preheader941.us.us, %.lr.ph1067.us.us
-  %indvars.iv1289 = phi i64 [ %indvars.iv.next1290, %.lr.ph1067.us.us ], [ 0, %.preheader941.us.us ]
+  %indvars.iv1290 = phi i64 [ %indvars.iv.next1291, %.lr.ph1067.us.us ], [ 0, %.preheader941.us.us ]
   %.88261065.us.us = phi ptr [ %436, %.lr.ph1067.us.us ], [ %126, %.preheader941.us.us ]
   %.28441064.us.us = phi i32 [ %407, %.lr.ph1067.us.us ], [ %107, %.preheader941.us.us ]
   %.28481063.us.us = phi i32 [ %404, %.lr.ph1067.us.us ], [ %104, %.preheader941.us.us ]
@@ -2636,7 +2635,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %416 = add nsw i32 %414, %415
   %417 = mul nsw i32 %118, %404
   %418 = add nsw i32 %416, %417
-  %419 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1289
+  %419 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1290
   %420 = load i32, ptr %419, align 4
   %421 = add nsw i32 %418, %420
   store i32 %421, ptr %419, align 4
@@ -2656,9 +2655,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %435 = add nsw i32 %432, %434
   store i32 %435, ptr %433, align 4
   %436 = getelementptr inbounds nuw i8, ptr %.88261065.us.us, i64 %52
-  %indvars.iv.next1290 = add nuw nsw i64 %indvars.iv1289, 2
-  %.not916.us.us = icmp sgt i64 %indvars.iv.next1290, %63
-  br i1 %.not916.us.us, label %.loopexit.us.us.loopexit1195, label %.lr.ph1067.us.us, !llvm.loop !53
+  %indvars.iv.next1291 = add nuw nsw i64 %indvars.iv1290, 2
+  %.not916.us.us = icmp sgt i64 %indvars.iv.next1291, %63
+  br i1 %.not916.us.us, label %.loopexit.us.us.loopexit1196, label %.lr.ph1067.us.us, !llvm.loop !53
 
 437:                                              ; preds = %85
   %438 = getelementptr inbounds nuw i8, ptr %88, i64 %59
@@ -2669,7 +2668,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond.us.us, label %.preheader937.us.us, label %.preheader939.us.us
 
 .lr.ph1080.us.us:                                 ; preds = %.preheader939.us.us, %.lr.ph1080.us.us
-  %indvars.iv1292 = phi i64 [ %indvars.iv.next1293, %.lr.ph1080.us.us ], [ 0, %.preheader939.us.us ]
+  %indvars.iv1293 = phi i64 [ %indvars.iv.next1294, %.lr.ph1080.us.us ], [ 0, %.preheader939.us.us ]
   %.58081078.us.us = phi ptr [ %487, %.lr.ph1080.us.us ], [ %.08171162.us, %.preheader939.us.us ]
   %.68241077.us.us = phi ptr [ %486, %.lr.ph1080.us.us ], [ %126, %.preheader939.us.us ]
   %.18411076.us.us = phi i32 [ %446, %.lr.ph1080.us.us ], [ %440, %.preheader939.us.us ]
@@ -2696,7 +2695,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %457 = add nsw i32 %455, %456
   %458 = mul nsw i32 %120, %443
   %459 = add nsw i32 %457, %458
-  %460 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1292
+  %460 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1293
   %461 = load i32, ptr %460, align 4
   %462 = add nsw i32 %459, %461
   %463 = mul nsw i32 %.18611072.us.us, %108
@@ -2734,12 +2733,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %476, align 4
   %486 = getelementptr inbounds nuw i8, ptr %.68241077.us.us, i64 %52
   %487 = getelementptr inbounds nuw i8, ptr %.58081078.us.us, i64 %52
-  %indvars.iv.next1293 = add nuw nsw i64 %indvars.iv1292, 2
-  %.not917.us.us = icmp sgt i64 %indvars.iv.next1293, %63
-  br i1 %.not917.us.us, label %.loopexit.us.us.loopexit1194, label %.lr.ph1080.us.us, !llvm.loop !54
+  %indvars.iv.next1294 = add nuw nsw i64 %indvars.iv1293, 2
+  %.not917.us.us = icmp sgt i64 %indvars.iv.next1294, %63
+  br i1 %.not917.us.us, label %.loopexit.us.us.loopexit1195, label %.lr.ph1080.us.us, !llvm.loop !54
 
 .lr.ph1093.us.us:                                 ; preds = %.preheader937.us.us, %.lr.ph1093.us.us
-  %indvars.iv1295 = phi i64 [ %indvars.iv.next1296, %.lr.ph1093.us.us ], [ 0, %.preheader937.us.us ]
+  %indvars.iv1296 = phi i64 [ %indvars.iv.next1297, %.lr.ph1093.us.us ], [ 0, %.preheader937.us.us ]
   %.58231091.us.us = phi ptr [ %525, %.lr.ph1093.us.us ], [ %126, %.preheader937.us.us ]
   %.08401090.us.us = phi i32 [ %492, %.lr.ph1093.us.us ], [ %440, %.preheader937.us.us ]
   %.08421089.us.us = phi i32 [ %489, %.lr.ph1093.us.us ], [ %107, %.preheader937.us.us ]
@@ -2765,7 +2764,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %503 = add nsw i32 %501, %502
   %504 = mul nsw i32 %120, %489
   %505 = add nsw i32 %503, %504
-  %506 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1295
+  %506 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1296
   %507 = load i32, ptr %506, align 4
   %508 = add nsw i32 %505, %507
   store i32 %508, ptr %506, align 4
@@ -2787,9 +2786,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %524 = add nsw i32 %521, %523
   store i32 %524, ptr %522, align 4
   %525 = getelementptr inbounds nuw i8, ptr %.58231091.us.us, i64 %52
-  %indvars.iv.next1296 = add nuw nsw i64 %indvars.iv1295, 2
-  %.not920.us.us = icmp sgt i64 %indvars.iv.next1296, %63
-  br i1 %.not920.us.us, label %.loopexit.us.us.loopexit1193, label %.lr.ph1093.us.us, !llvm.loop !55
+  %indvars.iv.next1297 = add nuw nsw i64 %indvars.iv1296, 2
+  %.not920.us.us = icmp sgt i64 %indvars.iv.next1297, %63
+  br i1 %.not920.us.us, label %.loopexit.us.us.loopexit1194, label %.lr.ph1093.us.us, !llvm.loop !55
 
 526:                                              ; preds = %85
   %527 = icmp slt i32 %93, %3
@@ -2797,7 +2796,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %or.cond927.us.us, label %.preheader.us.us, label %.preheader935.us.us
 
 .lr.ph1100.us.us:                                 ; preds = %.preheader935.us.us, %.lr.ph1100.us.us
-  %indvars.iv1298 = phi i64 [ %indvars.iv.next1299, %.lr.ph1100.us.us ], [ 0, %.preheader935.us.us ]
+  %indvars.iv1299 = phi i64 [ %indvars.iv.next1300, %.lr.ph1100.us.us ], [ 0, %.preheader935.us.us ]
   %.128151098.us.us = phi ptr [ %549, %.lr.ph1100.us.us ], [ %.08171162.us, %.preheader935.us.us ]
   %.198371097.us.us = phi ptr [ %548, %.lr.ph1100.us.us ], [ %126, %.preheader935.us.us ]
   %528 = load i8, ptr %.198371097.us.us, align 1
@@ -2806,7 +2805,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %531 = load i8, ptr %530, align 1
   %532 = zext i8 %531 to i32
   %533 = mul nsw i32 %108, %529
-  %534 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1298
+  %534 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1299
   %535 = load i32, ptr %534, align 4
   %536 = add nsw i32 %533, %535
   %537 = mul nsw i32 %108, %532
@@ -2832,12 +2831,12 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   store i32 0, ptr %538, align 4
   %548 = getelementptr inbounds nuw i8, ptr %.198371097.us.us, i64 %52
   %549 = getelementptr inbounds nuw i8, ptr %.128151098.us.us, i64 %52
-  %indvars.iv.next1299 = add nuw nsw i64 %indvars.iv1298, 2
-  %.not893.us.us = icmp sgt i64 %indvars.iv.next1299, %63
-  br i1 %.not893.us.us, label %.loopexit.us.us.loopexit1192, label %.lr.ph1100.us.us, !llvm.loop !56
+  %indvars.iv.next1300 = add nuw nsw i64 %indvars.iv1299, 2
+  %.not893.us.us = icmp sgt i64 %indvars.iv.next1300, %63
+  br i1 %.not893.us.us, label %.loopexit.us.us.loopexit1193, label %.lr.ph1100.us.us, !llvm.loop !56
 
 .lr.ph1107.us.us:                                 ; preds = %.preheader.us.us, %.lr.ph1107.us.us
-  %indvars.iv1301 = phi i64 [ %indvars.iv.next1302, %.lr.ph1107.us.us ], [ 0, %.preheader.us.us ]
+  %indvars.iv1302 = phi i64 [ %indvars.iv.next1303, %.lr.ph1107.us.us ], [ 0, %.preheader.us.us ]
   %.188361105.us.us = phi ptr [ %563, %.lr.ph1107.us.us ], [ %126, %.preheader.us.us ]
   %550 = load i8, ptr %.188361105.us.us, align 1
   %551 = zext i8 %550 to i32
@@ -2845,7 +2844,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %553 = load i8, ptr %552, align 1
   %554 = zext i8 %553 to i32
   %555 = mul nsw i32 %108, %551
-  %556 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1301
+  %556 = getelementptr inbounds nuw i32, ptr %.0794, i64 %indvars.iv1302
   %557 = load i32, ptr %556, align 4
   %558 = add nsw i32 %557, %555
   store i32 %558, ptr %556, align 4
@@ -2855,69 +2854,69 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %562 = add nsw i32 %561, %559
   store i32 %562, ptr %560, align 4
   %563 = getelementptr inbounds nuw i8, ptr %.188361105.us.us, i64 %52
-  %indvars.iv.next1302 = add nuw nsw i64 %indvars.iv1301, 2
-  %.not896.us.us = icmp sgt i64 %indvars.iv.next1302, %63
+  %indvars.iv.next1303 = add nuw nsw i64 %indvars.iv1302, 2
+  %.not896.us.us = icmp sgt i64 %indvars.iv.next1303, %63
   br i1 %.not896.us.us, label %.loopexit.us.us.loopexit, label %.lr.ph1107.us.us, !llvm.loop !57
 
 .loopexit.us.us.loopexit:                         ; preds = %.lr.ph1107.us.us
-  %564 = trunc nuw nsw i64 %indvars.iv.next1302 to i32
+  %564 = trunc nuw nsw i64 %indvars.iv.next1303 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1192:                     ; preds = %.lr.ph1100.us.us
-  %565 = trunc nuw nsw i64 %indvars.iv.next1299 to i32
+.loopexit.us.us.loopexit1193:                     ; preds = %.lr.ph1100.us.us
+  %565 = trunc nuw nsw i64 %indvars.iv.next1300 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1193:                     ; preds = %.lr.ph1093.us.us
-  %566 = trunc nuw nsw i64 %indvars.iv.next1296 to i32
+.loopexit.us.us.loopexit1194:                     ; preds = %.lr.ph1093.us.us
+  %566 = trunc nuw nsw i64 %indvars.iv.next1297 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1194:                     ; preds = %.lr.ph1080.us.us
-  %567 = trunc nuw nsw i64 %indvars.iv.next1293 to i32
+.loopexit.us.us.loopexit1195:                     ; preds = %.lr.ph1080.us.us
+  %567 = trunc nuw nsw i64 %indvars.iv.next1294 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1195:                     ; preds = %.lr.ph1067.us.us
-  %568 = trunc nuw nsw i64 %indvars.iv.next1290 to i32
+.loopexit.us.us.loopexit1196:                     ; preds = %.lr.ph1067.us.us
+  %568 = trunc nuw nsw i64 %indvars.iv.next1291 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1196:                     ; preds = %.lr.ph1055.us.us
-  %569 = trunc nuw nsw i64 %indvars.iv.next1287 to i32
+.loopexit.us.us.loopexit1197:                     ; preds = %.lr.ph1055.us.us
+  %569 = trunc nuw nsw i64 %indvars.iv.next1288 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1197:                     ; preds = %.lr.ph1043.us.us
-  %570 = trunc nuw nsw i64 %indvars.iv.next1284 to i32
+.loopexit.us.us.loopexit1198:                     ; preds = %.lr.ph1043.us.us
+  %570 = trunc nuw nsw i64 %indvars.iv.next1285 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1198:                     ; preds = %.lr.ph1032.us.us
-  %571 = trunc nuw nsw i64 %indvars.iv.next1281 to i32
+.loopexit.us.us.loopexit1199:                     ; preds = %.lr.ph1032.us.us
+  %571 = trunc nuw nsw i64 %indvars.iv.next1282 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1199:                     ; preds = %.lr.ph1021.us.us
-  %572 = trunc nuw nsw i64 %indvars.iv.next1278 to i32
+.loopexit.us.us.loopexit1200:                     ; preds = %.lr.ph1021.us.us
+  %572 = trunc nuw nsw i64 %indvars.iv.next1279 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1200:                     ; preds = %.lr.ph1011.us.us
-  %573 = trunc nuw nsw i64 %indvars.iv.next1275 to i32
+.loopexit.us.us.loopexit1201:                     ; preds = %.lr.ph1011.us.us
+  %573 = trunc nuw nsw i64 %indvars.iv.next1276 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1201:                     ; preds = %.lr.ph1001.us.us
-  %574 = trunc nuw nsw i64 %indvars.iv.next1272 to i32
+.loopexit.us.us.loopexit1202:                     ; preds = %.lr.ph1001.us.us
+  %574 = trunc nuw nsw i64 %indvars.iv.next1273 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1202:                     ; preds = %.lr.ph992.us.us
-  %575 = trunc nuw nsw i64 %indvars.iv.next1269 to i32
+.loopexit.us.us.loopexit1203:                     ; preds = %.lr.ph992.us.us
+  %575 = trunc nuw nsw i64 %indvars.iv.next1270 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1203:                     ; preds = %.lr.ph983.us.us
-  %576 = trunc nuw nsw i64 %indvars.iv.next1266 to i32
+.loopexit.us.us.loopexit1204:                     ; preds = %.lr.ph983.us.us
+  %576 = trunc nuw nsw i64 %indvars.iv.next1267 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us.loopexit1204:                     ; preds = %.lr.ph975.us.us
-  %577 = trunc nuw nsw i64 %indvars.iv.next1263 to i32
+.loopexit.us.us.loopexit1205:                     ; preds = %.lr.ph975.us.us
+  %577 = trunc nuw nsw i64 %indvars.iv.next1264 to i32
   br label %.loopexit.us.us
 
-.loopexit.us.us:                                  ; preds = %.loopexit.us.us.loopexit1204, %.loopexit.us.us.loopexit1203, %.loopexit.us.us.loopexit1202, %.loopexit.us.us.loopexit1201, %.loopexit.us.us.loopexit1200, %.loopexit.us.us.loopexit1199, %.loopexit.us.us.loopexit1198, %.loopexit.us.us.loopexit1197, %.loopexit.us.us.loopexit1196, %.loopexit.us.us.loopexit1195, %.loopexit.us.us.loopexit1194, %.loopexit.us.us.loopexit1193, %.loopexit.us.us.loopexit1192, %.loopexit.us.us.loopexit, %.preheader959.us.us, %.preheader957.us.us, %.preheader955.us.us, %.preheader953.us.us, %.preheader951.us.us, %.preheader949.us.us, %.preheader947.us.us, %.preheader945.us.us, %.preheader943.us.us, %.preheader941.us.us, %.preheader939.us.us, %.preheader937.us.us, %.preheader935.us.us, %.preheader.us.us
-  %.6809.us.us = phi ptr [ %.08171162.us, %.preheader.us.us ], [ %.08171162.us, %.preheader935.us.us ], [ %.08171162.us, %.preheader937.us.us ], [ %.08171162.us, %.preheader939.us.us ], [ %.08171162.us, %.preheader941.us.us ], [ %.08171162.us, %.preheader943.us.us ], [ %.08171162.us, %.preheader945.us.us ], [ %.08171162.us, %.preheader947.us.us ], [ %.08171162.us, %.preheader949.us.us ], [ %.08171162.us, %.preheader951.us.us ], [ %.08171162.us, %.preheader953.us.us ], [ %.08171162.us, %.preheader955.us.us ], [ %.08171162.us, %.preheader957.us.us ], [ %.08171162.us, %.loopexit.us.us.loopexit ], [ %549, %.loopexit.us.us.loopexit1192 ], [ %.08171162.us, %.loopexit.us.us.loopexit1193 ], [ %487, %.loopexit.us.us.loopexit1194 ], [ %.08171162.us, %.loopexit.us.us.loopexit1195 ], [ %402, %.loopexit.us.us.loopexit1196 ], [ %.08171162.us, %.loopexit.us.us.loopexit1197 ], [ %328, %.loopexit.us.us.loopexit1198 ], [ %.08171162.us, %.loopexit.us.us.loopexit1199 ], [ %262, %.loopexit.us.us.loopexit1200 ], [ %.08171162.us, %.loopexit.us.us.loopexit1201 ], [ %204, %.loopexit.us.us.loopexit1202 ], [ %.08171162.us, %.loopexit.us.us.loopexit1203 ], [ %.08171162.us, %.preheader959.us.us ], [ %154, %.loopexit.us.us.loopexit1204 ]
-  %.7.us.us = phi i32 [ 0, %.preheader.us.us ], [ 0, %.preheader935.us.us ], [ 0, %.preheader937.us.us ], [ 0, %.preheader939.us.us ], [ 0, %.preheader941.us.us ], [ 0, %.preheader943.us.us ], [ 0, %.preheader945.us.us ], [ 0, %.preheader947.us.us ], [ 0, %.preheader949.us.us ], [ 0, %.preheader951.us.us ], [ 0, %.preheader953.us.us ], [ 0, %.preheader955.us.us ], [ 0, %.preheader957.us.us ], [ %564, %.loopexit.us.us.loopexit ], [ %565, %.loopexit.us.us.loopexit1192 ], [ %566, %.loopexit.us.us.loopexit1193 ], [ %567, %.loopexit.us.us.loopexit1194 ], [ %568, %.loopexit.us.us.loopexit1195 ], [ %569, %.loopexit.us.us.loopexit1196 ], [ %570, %.loopexit.us.us.loopexit1197 ], [ %571, %.loopexit.us.us.loopexit1198 ], [ %572, %.loopexit.us.us.loopexit1199 ], [ %573, %.loopexit.us.us.loopexit1200 ], [ %574, %.loopexit.us.us.loopexit1201 ], [ %575, %.loopexit.us.us.loopexit1202 ], [ %576, %.loopexit.us.us.loopexit1203 ], [ 0, %.preheader959.us.us ], [ %577, %.loopexit.us.us.loopexit1204 ]
+.loopexit.us.us:                                  ; preds = %.loopexit.us.us.loopexit1205, %.loopexit.us.us.loopexit1204, %.loopexit.us.us.loopexit1203, %.loopexit.us.us.loopexit1202, %.loopexit.us.us.loopexit1201, %.loopexit.us.us.loopexit1200, %.loopexit.us.us.loopexit1199, %.loopexit.us.us.loopexit1198, %.loopexit.us.us.loopexit1197, %.loopexit.us.us.loopexit1196, %.loopexit.us.us.loopexit1195, %.loopexit.us.us.loopexit1194, %.loopexit.us.us.loopexit1193, %.loopexit.us.us.loopexit, %.preheader959.us.us, %.preheader957.us.us, %.preheader955.us.us, %.preheader953.us.us, %.preheader951.us.us, %.preheader949.us.us, %.preheader947.us.us, %.preheader945.us.us, %.preheader943.us.us, %.preheader941.us.us, %.preheader939.us.us, %.preheader937.us.us, %.preheader935.us.us, %.preheader.us.us
+  %.6809.us.us = phi ptr [ %.08171162.us, %.preheader.us.us ], [ %.08171162.us, %.preheader935.us.us ], [ %.08171162.us, %.preheader937.us.us ], [ %.08171162.us, %.preheader939.us.us ], [ %.08171162.us, %.preheader941.us.us ], [ %.08171162.us, %.preheader943.us.us ], [ %.08171162.us, %.preheader945.us.us ], [ %.08171162.us, %.preheader947.us.us ], [ %.08171162.us, %.preheader949.us.us ], [ %.08171162.us, %.preheader951.us.us ], [ %.08171162.us, %.preheader953.us.us ], [ %.08171162.us, %.preheader955.us.us ], [ %.08171162.us, %.preheader957.us.us ], [ %.08171162.us, %.loopexit.us.us.loopexit ], [ %549, %.loopexit.us.us.loopexit1193 ], [ %.08171162.us, %.loopexit.us.us.loopexit1194 ], [ %487, %.loopexit.us.us.loopexit1195 ], [ %.08171162.us, %.loopexit.us.us.loopexit1196 ], [ %402, %.loopexit.us.us.loopexit1197 ], [ %.08171162.us, %.loopexit.us.us.loopexit1198 ], [ %328, %.loopexit.us.us.loopexit1199 ], [ %.08171162.us, %.loopexit.us.us.loopexit1200 ], [ %262, %.loopexit.us.us.loopexit1201 ], [ %.08171162.us, %.loopexit.us.us.loopexit1202 ], [ %204, %.loopexit.us.us.loopexit1203 ], [ %.08171162.us, %.loopexit.us.us.loopexit1204 ], [ %.08171162.us, %.preheader959.us.us ], [ %154, %.loopexit.us.us.loopexit1205 ]
+  %.7.us.us = phi i32 [ 0, %.preheader.us.us ], [ 0, %.preheader935.us.us ], [ 0, %.preheader937.us.us ], [ 0, %.preheader939.us.us ], [ 0, %.preheader941.us.us ], [ 0, %.preheader943.us.us ], [ 0, %.preheader945.us.us ], [ 0, %.preheader947.us.us ], [ 0, %.preheader949.us.us ], [ 0, %.preheader951.us.us ], [ 0, %.preheader953.us.us ], [ 0, %.preheader955.us.us ], [ 0, %.preheader957.us.us ], [ %564, %.loopexit.us.us.loopexit ], [ %565, %.loopexit.us.us.loopexit1193 ], [ %566, %.loopexit.us.us.loopexit1194 ], [ %567, %.loopexit.us.us.loopexit1195 ], [ %568, %.loopexit.us.us.loopexit1196 ], [ %569, %.loopexit.us.us.loopexit1197 ], [ %570, %.loopexit.us.us.loopexit1198 ], [ %571, %.loopexit.us.us.loopexit1199 ], [ %572, %.loopexit.us.us.loopexit1200 ], [ %573, %.loopexit.us.us.loopexit1201 ], [ %574, %.loopexit.us.us.loopexit1202 ], [ %575, %.loopexit.us.us.loopexit1203 ], [ %576, %.loopexit.us.us.loopexit1204 ], [ 0, %.preheader959.us.us ], [ %577, %.loopexit.us.us.loopexit1205 ]
   %578 = icmp slt i32 %93, %3
   br i1 %578, label %85, label %._crit_edge.us.us, !llvm.loop !58
 
@@ -2964,9 +2963,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br i1 %.not897970, label %.loopexit.us.us, label %.lr.ph975.us.us
 
 ._crit_edge.us.us:                                ; preds = %.loopexit.us.us
-  %indvars.iv.next1305 = add nuw nsw i64 %indvars.iv1304, 1
-  %exitcond1308.not = icmp eq i64 %indvars.iv.next1305, %wide.trip.count1307
-  br i1 %exitcond1308.not, label %.preheader962.us, label %.lr.ph1112.us.us, !llvm.loop !59
+  %indvars.iv.next1306 = add nuw nsw i64 %indvars.iv1305, 1
+  %exitcond1309.not = icmp eq i64 %indvars.iv.next1306, %wide.trip.count1308
+  br i1 %exitcond1309.not, label %.preheader962.us, label %.lr.ph1112.us.us, !llvm.loop !59
 
 .preheader961.us.us.preheader:                    ; preds = %.preheader962.us, %.preheader962.us.thread1380
   %.3806.lcssa.us13741387 = phi ptr [ %.28051164.us, %.preheader962.us.thread1380 ], [ %.6809.us.us, %.preheader962.us ]
@@ -2975,9 +2974,9 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   br label %.preheader961.us.us
 
 .preheader961.us.us:                              ; preds = %.preheader961.us.us.preheader, %._crit_edge1140.us.us
-  %indvars.iv1316 = phi i64 [ %579, %.preheader961.us.us.preheader ], [ %indvars.iv.next1317, %._crit_edge1140.us.us ]
+  %indvars.iv1317 = phi i64 [ %579, %.preheader961.us.us.preheader ], [ %indvars.iv.next1318, %._crit_edge1140.us.us ]
   %.138161148.us.us = phi ptr [ %.3806.lcssa.us13741387, %.preheader961.us.us.preheader ], [ %584, %._crit_edge1140.us.us ]
-  %580 = mul nsw i64 %indvars.iv1316, %65
+  %580 = mul nsw i64 %indvars.iv1317, %65
   %invariant.gep.us.us = getelementptr i8, ptr %.08391159.us, i64 %580
   br i1 %50, label %.lr.ph1132.us.us.us, label %._crit_edge1140.us.us
 
@@ -2991,15 +2990,15 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %.sink1407 = select i1 %.not892.us.us, i8 %582, i8 %.1414
   store i8 %.sink1407, ptr %.138161148.us.us, align 1
   %584 = getelementptr inbounds nuw i8, ptr %.138161148.us.us, i64 %51
-  %indvars.iv.next1317 = add nsw i64 %indvars.iv1316, 1
-  %exitcond1320.not = icmp eq i64 %indvars.iv.next1317, %wide.trip.count1319
-  br i1 %exitcond1320.not, label %._crit_edge.us1184, label %.preheader961.us.us, !llvm.loop !43
+  %indvars.iv.next1318 = add nsw i64 %indvars.iv1317, 1
+  %exitcond1321.not = icmp eq i64 %indvars.iv.next1318, %wide.trip.count1320
+  br i1 %exitcond1321.not, label %._crit_edge.us1184, label %.preheader961.us.us, !llvm.loop !43
 
 .lr.ph1132.us.us.us:                              ; preds = %.preheader961.us.us, %._crit_edge.us1143.us.us
-  %indvars.iv1311 = phi i64 [ %indvars.iv.next1312, %._crit_edge.us1143.us.us ], [ 0, %.preheader961.us.us ]
+  %indvars.iv1312 = phi i64 [ %indvars.iv.next1313, %._crit_edge.us1143.us.us ], [ 0, %.preheader961.us.us ]
   %.07871138.us.us.us = phi i32 [ %591, %._crit_edge.us1143.us.us ], [ 0, %.preheader961.us.us ]
   %.07881137.us.us.us = phi ptr [ %593, %._crit_edge.us1143.us.us ], [ %.07931371, %.preheader961.us.us ]
-  %585 = mul nsw i64 %indvars.iv1311, %16
+  %585 = mul nsw i64 %indvars.iv1312, %16
   %gep.us.us.us = getelementptr i8, ptr %invariant.gep.us.us, i64 %585
   br label %586
 
@@ -3016,13 +3015,13 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
   %592 = getelementptr inbounds nuw i8, ptr %.221128.us.us.us, i64 %51
   %593 = getelementptr inbounds nuw i8, ptr %.17891129.us.us.us, i64 4
   %594 = add nuw nsw i32 %.01131.us.us.us, 1
-  %exitcond1310.not = icmp eq i32 %594, %3
-  br i1 %exitcond1310.not, label %._crit_edge.us1143.us.us, label %586, !llvm.loop !60
+  %exitcond1311.not = icmp eq i32 %594, %3
+  br i1 %exitcond1311.not, label %._crit_edge.us1143.us.us, label %586, !llvm.loop !60
 
 ._crit_edge.us1143.us.us:                         ; preds = %586
-  %indvars.iv.next1312 = add nuw nsw i64 %indvars.iv1311, 1
-  %exitcond1315.not = icmp eq i64 %indvars.iv.next1312, %wide.trip.count1314
-  br i1 %exitcond1315.not, label %._crit_edge1140.us.us, label %.lr.ph1132.us.us.us, !llvm.loop !61
+  %indvars.iv.next1313 = add nuw nsw i64 %indvars.iv1312, 1
+  %exitcond1316.not = icmp eq i64 %indvars.iv.next1313, %wide.trip.count1315
+  br i1 %exitcond1316.not, label %._crit_edge1140.us.us, label %.lr.ph1132.us.us.us, !llvm.loop !61
 
 .lr.ph1172.split:                                 ; preds = %.lr.ph1172
   br i1 %47, label %.lr.ph1172.split.split.us.preheader, label %._crit_edge1173
@@ -3047,8 +3046,8 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNnw_u8(ptr noundef readonly capt
 
 ..preheader964_crit_edge.us1190:                  ; preds = %.lr.ph969.us1189.preheader, %.lr.ph1172.split.split.us
   %601 = add nuw nsw i32 %.07951171.us1185, 1
-  %exitcond1256.not = icmp eq i32 %601, %.val929
-  br i1 %exitcond1256.not, label %._crit_edge1173, label %.lr.ph1172.split.split.us, !llvm.loop !42
+  %exitcond1257.not = icmp eq i32 %601, %.val929
+  br i1 %exitcond1257.not, label %._crit_edge1173, label %.lr.ph1172.split.split.us, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]

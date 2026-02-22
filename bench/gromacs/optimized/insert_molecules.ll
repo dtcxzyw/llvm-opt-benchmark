@@ -5979,22 +5979,21 @@ declare void @_Z11rotate_confiPA3_fS0_fff(i32 noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign_auxINS0_12ArrayRefIterIS2_EEEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.fr13.i = freeze ptr %2
-  %.fr14.i = freeze ptr %1
-  %4 = ptrtoint ptr %.fr13.i to i64
-  %5 = ptrtoint ptr %.fr14.i to i64
+  %4 = ptrtoint ptr %2 to i64
+  %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
+  %reass.sub.fr = freeze i64 %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !105
   %9 = load ptr, ptr %0, align 8, !tbaa !104
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ugt i64 %6, %12
+  %13 = icmp ugt i64 %reass.sub.fr, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %3
-  %15 = sdiv exact i64 %6, 12
+  %15 = sdiv exact i64 %reass.sub.fr, 12
   %16 = icmp ugt i64 %15, 768614336404564650
   br i1 %16, label %17, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i
 
@@ -6003,15 +6002,15 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign
   unreachable
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %14
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #26
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr) #26
+  %.not7.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyINS0_12ArrayRefIterIS2_EEEEPS2_mT_S9_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i
-  %19 = add i64 %6, -12
+  %19 = add i64 %reass.sub.fr, -12
   %20 = urem i64 %19, 12
-  %21 = sub i64 %6, %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %.fr14.i, i64 %21, i1 false)
+  %21 = sub i64 %reass.sub.fr, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %1, i64 %21, i1 false)
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyINS0_12ArrayRefIterIS2_EEEEPS2_mT_S9_.exit
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyINS0_12ArrayRefIterIS2_EEEEPS2_mT_S9_.exit: ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -6025,7 +6024,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyINS0_12ArrayRef
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyINS0_12ArrayRefIterIS2_EEEEPS2_mT_S9_.exit, %23
   store ptr %18, ptr %0, align 8, !tbaa !104
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %6
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %reass.sub.fr
   store ptr %24, ptr %22, align 8, !tbaa !187
   store ptr %24, ptr %7, align 8, !tbaa !105
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
@@ -6035,21 +6034,21 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %27 = load ptr, ptr %26, align 8, !tbaa !187
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %28, %11
-  %.not = icmp ult i64 %29, %6
+  %.not = icmp ult i64 %29, %reass.sub.fr
   br i1 %.not, label %_ZSt7advanceIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEmEvRT_T0_.exit, label %30
 
 30:                                               ; preds = %25
-  %31 = icmp sgt i64 %6, 0
+  %31 = icmp sgt i64 %reass.sub.fr, 0
   br i1 %31, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %30
-  %32 = udiv exact i64 %6, 12
+  %32 = udiv exact i64 %reass.sub.fr, 12
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %9, %.lr.ph.preheader.i.i.i.i.i ]
   %.048.i.i.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i.i.i ], [ %32, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sroa.05.07.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i ]
+  %.sroa.05.07.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %1, %.lr.ph.preheader.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.05.07.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !278
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i.i.i.i, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 12
@@ -6072,7 +6071,7 @@ _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit: ; pr
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 _ZSt7advanceIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEmEvRT_T0_.exit: ; preds = %25
-  %.sink.i.i = getelementptr inbounds i8, ptr %.fr14.i, i64 %29
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %29
   %39 = icmp sgt i64 %29, 0
   br i1 %39, label %.lr.ph.preheader.i.i.i.i.i20, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25
 
@@ -6083,7 +6082,7 @@ _ZSt7advanceIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEmEvRT_T0_.exit: ; preds 
 .lr.ph.i.i.i.i.i21:                               ; preds = %.lr.ph.i.i.i.i.i21, %.lr.ph.preheader.i.i.i.i.i20
   %.09.i.i.i.i.i22 = phi ptr [ %42, %.lr.ph.i.i.i.i.i21 ], [ %9, %.lr.ph.preheader.i.i.i.i.i20 ]
   %.048.i.i.i.i.i23 = phi i64 [ %43, %.lr.ph.i.i.i.i.i21 ], [ %40, %.lr.ph.preheader.i.i.i.i.i20 ]
-  %.sroa.05.07.i.i.i.i.i24 = phi ptr [ %41, %.lr.ph.i.i.i.i.i21 ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i20 ]
+  %.sroa.05.07.i.i.i.i.i24 = phi ptr [ %41, %.lr.ph.i.i.i.i.i21 ], [ %1, %.lr.ph.preheader.i.i.i.i.i20 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i.i22, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.05.07.i.i.i.i.i24, i64 12, i1 false), !tbaa.struct !278
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.05.07.i.i.i.i.i24, i64 12
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i22, i64 12
@@ -6097,7 +6096,7 @@ _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25.loo
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25: ; preds = %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25.loopexit, %_ZSt7advanceIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEmEvRT_T0_.exit
   %45 = phi ptr [ %.pre30, %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25.loopexit ], [ %27, %_ZSt7advanceIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEmEvRT_T0_.exit ]
-  %.not7.i.i.i.i = icmp eq ptr %.sink.i.i, %.fr13.i
+  %.not7.i.i.i.i = icmp eq ptr %.sink.i.i, %2
   br i1 %.not7.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25, %.lr.ph.i.i.i.i
@@ -6106,7 +6105,7 @@ _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.08.i.i.i.i, i64 12, i1 false), !tbaa.struct !278
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %46, %.fr13.i
+  %.not.i.i.i.i = icmp eq ptr %46, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !305
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEPS3_ET0_T_S7_S6_.exit25

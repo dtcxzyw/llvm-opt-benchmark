@@ -3091,7 +3091,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.._crit_edge_crit_edge: ; preds = %_ZN15N
   br i1 %76, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ 0, %.lr.ph ]
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ 0, %.lr.ph ]
   %.037.us = phi i32 [ %92, %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us ], [ %53, %.lr.ph ]
   %84 = icmp eq i32 %.037.us, %75
   br i1 %84, label %_Z15getShiftedBlockRK11BigUnsignedjj.exit.us, label %85
@@ -3105,10 +3105,10 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.._crit_edge_crit_edge: ; preds = %_ZN15N
 
 _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %85, %.lr.ph.split.us
   %90 = phi i64 [ %89, %85 ], [ 0, %.lr.ph.split.us ]
-  %91 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv40
+  %91 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv41
   store i64 %90, ptr %91, align 8, !tbaa !15
   %92 = add i32 %.037.us, 1
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %.not33.us = icmp ugt i32 %92, %75
   br i1 %.not33.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !46
 

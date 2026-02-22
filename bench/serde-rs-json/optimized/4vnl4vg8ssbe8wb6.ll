@@ -1364,7 +1364,6 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   %97 = load i64, ptr %96, align 8, !alias.scope !139, !noalias !146, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = load i64, ptr %98, align 8, !alias.scope !139, !noalias !146
-  %.fr = freeze i64 %99
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %102 = load i64, ptr %101, align 8, !alias.scope !139, !noalias !146
@@ -1375,7 +1374,6 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   %104 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %116, %.backedge.i ]
   %105 = phi i64 [ %.promoted61.i, %.lr.ph.i ], [ %115, %.backedge.i ]
   %106 = phi i64 [ %95, %.lr.ph.i ], [ %117, %.backedge.i ]
-  %.fr98 = freeze i64 %105
   %107 = getelementptr inbounds i8, ptr %87, i64 %106
   %108 = load i8, ptr %107, align 1, !alias.scope !142, !noalias !148, !noundef !4
   %109 = and i8 %108, 63
@@ -1394,21 +1392,22 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.split78.us, %149, %.backedge.sink.split.i, %114
-  %115 = phi i64 [ %.fr98, %114 ], [ %.fr98, %149 ], [ %.fr98, %.split78.us ], [ %.sink.i, %.backedge.sink.split.i ]
+  %115 = phi i64 [ %105, %114 ], [ %105, %149 ], [ %105, %.split78.us ], [ %.sink.i, %.backedge.sink.split.i ]
   %116 = phi i64 [ %106, %114 ], [ %150, %149 ], [ %132, %.split78.us ], [ %.ph106.i, %.backedge.sink.split.i ]
   %117 = sub i64 %116, %93
   %.not33.i = icmp ult i64 %117, %89
   br i1 %.not33.i, label %103, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i.thread38"
 
 118:                                              ; preds = %103
-  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %.fr98)
-  %.014.i = select i1 %85, i64 %.fr, i64 %.0.sroa.speculated.i.i
-  %119 = add i64 %.014.i, -1
+  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %99, i64 %105)
+  %.014.i = select i1 %85, i64 %99, i64 %.0.sroa.speculated.i.i
+  %.014.i.fr = freeze i64 %.014.i
+  %119 = add i64 %.014.i.fr, -1
   %.first_iter.i = icmp ult i64 %119, %93
   br i1 %.first_iter.i, label %.split.us, label %.split, !prof !149
 
 .split.us:                                        ; preds = %118, %124
-  %.sroa.5.0.i.us = phi i64 [ %121, %124 ], [ %.014.i, %118 ]
+  %.sroa.5.0.i.us = phi i64 [ %121, %124 ], [ %.014.i.fr, %118 ]
   %.not34.i.us = icmp eq i64 %.sroa.5.0.i.us, 0
   br i1 %.not34.i.us, label %.split74.us, label %120
 
@@ -1437,20 +1436,20 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   unreachable
 
 .split78.us:                                      ; preds = %124
-  %.neg.i = sub i64 %104, %.fr
+  %.neg.i = sub i64 %104, %99
   %132 = add i64 %.neg.i, %121
   br i1 %85, label %.backedge.i, label %.backedge.sink.split.i
 
 .split:                                           ; preds = %118
-  %.not34.i = icmp eq i64 %.014.i, 0
+  %.not34.i = icmp eq i64 %.014.i.fr, 0
   br i1 %.not34.i, label %.split74.us, label %.split76.us.invoke
 
 .split74.us:                                      ; preds = %.split.us, %.split
-  %.015.i = select i1 %85, i64 %93, i64 %.fr98
+  %.015.i = select i1 %85, i64 %93, i64 %105
   br label %133
 
 133:                                              ; preds = %142, %.split74.us
-  %.sroa.09.0.i = phi i64 [ %.fr, %.split74.us ], [ %136, %142 ]
+  %.sroa.09.0.i = phi i64 [ %99, %.split74.us ], [ %136, %142 ]
   %134 = icmp ult i64 %.sroa.09.0.i, %.015.i
   br i1 %134, label %135, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i.thread"
 
@@ -1465,7 +1464,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   br i1 %140, label %142, label %147, !prof !149
 
 141:                                              ; preds = %135
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %93)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %99, i64 %93)
   br label %.split76.us.invoke
 
 142:                                              ; preds = %138
@@ -1477,7 +1476,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   br i1 %.not26.i, label %133, label %149
 
 147:                                              ; preds = %138
-  %148 = add i64 %106, %.fr
+  %148 = add i64 %106, %99
   %umax83.i = tail call i64 @llvm.umax.i64(i64 %89, i64 %148)
   br label %.split76.us.invoke
 

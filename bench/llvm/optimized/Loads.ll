@@ -772,13 +772,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm34isDereferenceableAndAlignedPointe
   %11 = alloca %"class.llvm::TypeSize", align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
-  %.fr.i = freeze i32 %13
-  %14 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %13
+  %14 = and i32 %.fr8.i, 255
   %15 = icmp eq i32 %14, 12
   br i1 %15, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %16
 
 16:                                               ; preds = %8
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -788,7 +788,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm34isDereferenceableAndAlignedPointe
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %16
-  %17 = and i32 %.fr.i, 253
+  %17 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %17, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -2753,8 +2753,8 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i: ; pre
 _ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 36
   %101 = load i32, ptr %100, align 4, !tbaa !157
-  %.fr = freeze i32 %101
-  %102 = add i32 %.fr, -243
+  %.fr177 = freeze i32 %101
+  %102 = add i32 %.fr177, -243
   %switch.and.i.i.i.i.i.i.i.i.i = and i32 %102, -3
   %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp ne i32 %switch.and.i.i.i.i.i.i.i.i.i, 0
   %brmerge = or i1 %3, %switch.selectcmp.i.i.i.i.i.i.i.i.i

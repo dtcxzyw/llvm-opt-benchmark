@@ -9394,379 +9394,376 @@ _ZNK17QArrayDataPointerIhE5flagsEv.exit:          ; preds = %38, %_ZNK17QArrayDa
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_tE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #0 {
-  %.fr6.i.i.i = freeze ptr %0
-  %.fr = freeze ptr %1
-  %4 = ptrtoint ptr %.fr6.i.i.i to i64
-  %5 = ptrtoint ptr %.fr to i64
+  %.fr36 = freeze ptr %1
+  %.fr28 = freeze ptr %0
+  %4 = ptrtoint ptr %.fr28 to i64
+  %5 = ptrtoint ptr %.fr36 to i64
   %6 = sub i64 %5, %4
   %7 = ashr exact i64 %6, 3
   %8 = icmp sgt i64 %7, 16
   br i1 %8, label %.lr.ph, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr i8, ptr %.fr6.i.i.i, i64 8
-  br label %10
+  %9 = getelementptr i8, ptr %.fr28, i64 8
+  %10 = icmp eq i64 %2, 0
+  br i1 %10, label %._crit_edge, label %.lr.ph47
 
-10:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit"
-  %11 = phi i64 [ %7, %.lr.ph ], [ %190, %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit" ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %130, %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit" ]
-  %storemerge21 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.010.1.i.i, %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit" ]
-  %12 = icmp eq i64 %.022, 0
-  br i1 %12, label %13, label %129
+11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit"
+  %12 = icmp eq i64 %125, 0
+  br i1 %12, label %._crit_edge, label %.lr.ph47, !llvm.loop !103
 
-13:                                               ; preds = %10
-  %14 = ptrtoint ptr %storemerge21 to i64
-  %15 = sub i64 %14, %4
-  %16 = ashr i64 %15, 3
-  %17 = icmp slt i64 %16, 2
-  br i1 %17, label %"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i", label %18
+._crit_edge:                                      ; preds = %11, %.lr.ph
+  %.fr.i.i.i27.lcssa = phi i64 [ %6, %.lr.ph ], [ %184, %11 ]
+  %storemerge25.lcssa = phi ptr [ %.fr36, %.lr.ph ], [ %.sroa.010.1.i.i, %11 ]
+  %13 = lshr i64 %.fr.i.i.i27.lcssa, 3
+  %14 = add nsw i64 %13, -2
+  %15 = lshr i64 %14, 1
+  %16 = add nsw i64 %13, -1
+  %17 = lshr i64 %16, 1
+  %18 = and i64 %.fr.i.i.i27.lcssa, 8
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.split.preheader.i.i.i, label %.split.us.i.i.i
 
-18:                                               ; preds = %13
-  %19 = add nsw i64 %16, -2
-  %20 = lshr i64 %19, 1
-  %21 = add nsw i64 %16, -1
-  %22 = lshr i64 %21, 1
-  %23 = and i64 %15, 8
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.split.preheader.i.i.i, label %.split.us.i.i.i
-
-.split.preheader.i.i.i:                           ; preds = %18
-  %25 = or disjoint i64 %19, 1
-  %26 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %25
-  %27 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %20
+.split.preheader.i.i.i:                           ; preds = %._crit_edge
+  %20 = or disjoint i64 %14, 1
+  %21 = getelementptr ptr, ptr %.fr28, i64 %20
+  %22 = getelementptr ptr, ptr %.fr28, i64 %15
   br label %.split.i.i.i
 
-.split.us.i.i.i:                                  ; preds = %18, %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i"
-  %.011.us.i.i.i = phi i64 [ %53, %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i" ], [ %20, %18 ]
-  %28 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.011.us.i.i.i
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp slt i64 %.011.us.i.i.i, %22
-  br i1 %30, label %.lr.ph.i.us.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i"
+.split.us.i.i.i:                                  ; preds = %._crit_edge, %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i"
+  %.011.us.i.i.i = phi i64 [ %48, %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i" ], [ %15, %._crit_edge ]
+  %23 = getelementptr ptr, ptr %.fr28, i64 %.011.us.i.i.i
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp slt i64 %.011.us.i.i.i, %17
+  br i1 %25, label %.lr.ph.i.us.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i"
 
 .lr.ph.i.us.i.i.i:                                ; preds = %.split.us.i.i.i, %.lr.ph.i.us.i.i.i
   %.034.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ], [ %.011.us.i.i.i, %.split.us.i.i.i ]
-  %31 = shl i64 %.034.i.us.i.i.i, 1
-  %32 = add i64 %31, 2
-  %33 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %32
-  %34 = or disjoint i64 %31, 1
-  %35 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %34
-  %36 = load ptr, ptr %33, align 8
-  %37 = load ptr, ptr %35, align 8
-  %38 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %36, ptr noundef align 8 dereferenceable(24) %37)
-  %39 = icmp slt i32 %38, 0
-  %spec.select.i.us.i.i.i = select i1 %39, i64 %34, i64 %32
-  %40 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %spec.select.i.us.i.i.i
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.034.i.us.i.i.i
-  store ptr %41, ptr %42, align 8
-  %43 = icmp slt i64 %spec.select.i.us.i.i.i, %22
-  br i1 %43, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.us.i.i.i, !llvm.loop !103
+  %26 = shl i64 %.034.i.us.i.i.i, 1
+  %27 = add i64 %26, 2
+  %28 = getelementptr ptr, ptr %.fr28, i64 %27
+  %29 = or disjoint i64 %26, 1
+  %30 = getelementptr ptr, ptr %.fr28, i64 %29
+  %31 = load ptr, ptr %28, align 8
+  %32 = load ptr, ptr %30, align 8
+  %33 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %31, ptr noundef align 8 dereferenceable(24) %32)
+  %34 = icmp slt i32 %33, 0
+  %spec.select.i.us.i.i.i = select i1 %34, i64 %29, i64 %27
+  %35 = getelementptr ptr, ptr %.fr28, i64 %spec.select.i.us.i.i.i
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr ptr, ptr %.fr28, i64 %.034.i.us.i.i.i
+  store ptr %36, ptr %37, align 8
+  %38 = icmp slt i64 %spec.select.i.us.i.i.i, %17
+  br i1 %38, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.us.i.i.i, !llvm.loop !104
 
-.lr.ph.i.i.us.i.i.i:                              ; preds = %.lr.ph.i.us.i.i.i, %48
-  %.010.i.i.us.i.i.i = phi i64 [ %.0911.i.i.us.i.i.i, %48 ], [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ]
+.lr.ph.i.i.us.i.i.i:                              ; preds = %.lr.ph.i.us.i.i.i, %43
+  %.010.i.i.us.i.i.i = phi i64 [ %.0911.i.i.us.i.i.i, %43 ], [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ]
   %.0911.in.i.i.us.i.i.i = add nsw i64 %.010.i.i.us.i.i.i, -1
   %.0911.i.i.us.i.i.i = sdiv i64 %.0911.in.i.i.us.i.i.i, 2
-  %44 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0911.i.i.us.i.i.i
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %45, ptr noundef align 8 dereferenceable(24) %29)
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i"
+  %39 = getelementptr ptr, ptr %.fr28, i64 %.0911.i.i.us.i.i.i
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %40, ptr noundef align 8 dereferenceable(24) %24)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i"
 
-48:                                               ; preds = %.lr.ph.i.i.us.i.i.i
-  %49 = load ptr, ptr %44, align 8
-  %50 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.010.i.i.us.i.i.i
-  store ptr %49, ptr %50, align 8
-  %51 = icmp sgt i64 %.0911.i.i.us.i.i.i, %.011.us.i.i.i
-  br i1 %51, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", !llvm.loop !104
+43:                                               ; preds = %.lr.ph.i.i.us.i.i.i
+  %44 = load ptr, ptr %39, align 8
+  %45 = getelementptr ptr, ptr %.fr28, i64 %.010.i.i.us.i.i.i
+  store ptr %44, ptr %45, align 8
+  %46 = icmp sgt i64 %.0911.i.i.us.i.i.i, %.011.us.i.i.i
+  br i1 %46, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", !llvm.loop !105
 
-"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i": ; preds = %48, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
-  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.011.us.i.i.i, %.split.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %48 ], [ %.010.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ]
-  %52 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0.lcssa.i.i.us.i.i.i
-  store ptr %29, ptr %52, align 8
+"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i": ; preds = %43, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
+  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.011.us.i.i.i, %.split.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %43 ], [ %.010.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ]
+  %47 = getelementptr ptr, ptr %.fr28, i64 %.0.lcssa.i.i.us.i.i.i
+  store ptr %24, ptr %47, align 8
   %.not.us.i.i.i = icmp eq i64 %.011.us.i.i.i, 0
-  %53 = add nsw i64 %.011.us.i.i.i, -1
-  br i1 %.not.us.i.i.i, label %"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i", label %.split.us.i.i.i, !llvm.loop !105
+  %48 = add nsw i64 %.011.us.i.i.i, -1
+  br i1 %.not.us.i.i.i, label %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i", label %.split.us.i.i.i, !llvm.loop !106
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
-  %.011.i.i.i = phi i64 [ %84, %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i" ], [ %20, %.split.preheader.i.i.i ]
-  %54 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.011.i.i.i
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp slt i64 %.011.i.i.i, %22
-  br i1 %56, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.011.i.i.i = phi i64 [ %79, %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
+  %49 = getelementptr ptr, ptr %.fr28, i64 %.011.i.i.i
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp slt i64 %.011.i.i.i, %17
+  br i1 %51, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.011.i.i.i, %.split.i.i.i ]
-  %57 = shl i64 %.034.i.i.i.i, 1
-  %58 = add i64 %57, 2
-  %59 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %58
-  %60 = or disjoint i64 %57, 1
-  %61 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %60
-  %62 = load ptr, ptr %59, align 8
-  %63 = load ptr, ptr %61, align 8
-  %64 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %62, ptr noundef align 8 dereferenceable(24) %63)
-  %65 = icmp slt i32 %64, 0
-  %spec.select.i.i.i.i = select i1 %65, i64 %60, i64 %58
-  %66 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %spec.select.i.i.i.i
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.034.i.i.i.i
-  store ptr %67, ptr %68, align 8
-  %69 = icmp slt i64 %spec.select.i.i.i.i, %22
-  br i1 %69, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !103
+  %52 = shl i64 %.034.i.i.i.i, 1
+  %53 = add i64 %52, 2
+  %54 = getelementptr ptr, ptr %.fr28, i64 %53
+  %55 = or disjoint i64 %52, 1
+  %56 = getelementptr ptr, ptr %.fr28, i64 %55
+  %57 = load ptr, ptr %54, align 8
+  %58 = load ptr, ptr %56, align 8
+  %59 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %57, ptr noundef align 8 dereferenceable(24) %58)
+  %60 = icmp slt i32 %59, 0
+  %spec.select.i.i.i.i = select i1 %60, i64 %55, i64 %53
+  %61 = getelementptr ptr, ptr %.fr28, i64 %spec.select.i.i.i.i
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr ptr, ptr %.fr28, i64 %.034.i.i.i.i
+  store ptr %62, ptr %63, align 8
+  %64 = icmp slt i64 %spec.select.i.i.i.i, %17
+  br i1 %64, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !104
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.011.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %70 = icmp eq i64 %.0.lcssa.i.i.i.i, %20
-  br i1 %70, label %71, label %73
+  %65 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  br i1 %65, label %66, label %68
 
-71:                                               ; preds = %._crit_edge.i.i.i.i
-  %72 = load ptr, ptr %26, align 8
-  store ptr %72, ptr %27, align 8
-  br label %73
+66:                                               ; preds = %._crit_edge.i.i.i.i
+  %67 = load ptr, ptr %21, align 8
+  store ptr %67, ptr %22, align 8
+  br label %68
 
-73:                                               ; preds = %71, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %25, %71 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %74 = icmp sgt i64 %.1.i.i.i.i, %.011.i.i.i
-  br i1 %74, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
+68:                                               ; preds = %66, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %20, %66 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %69 = icmp sgt i64 %.1.i.i.i.i, %.011.i.i.i
+  br i1 %69, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %73, %79
-  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %79 ], [ %.1.i.i.i.i, %73 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %68, %74
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %74 ], [ %.1.i.i.i.i, %68 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %75 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0911.i.i.i.i.i
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %76, ptr noundef align 8 dereferenceable(24) %55)
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %79, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
+  %70 = getelementptr ptr, ptr %.fr28, i64 %.0911.i.i.i.i.i
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %71, ptr noundef align 8 dereferenceable(24) %50)
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
 
-79:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %80 = load ptr, ptr %75, align 8
-  %81 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.010.i.i.i.i.i
-  store ptr %80, ptr %81, align 8
-  %82 = icmp sgt i64 %.0911.i.i.i.i.i, %.011.i.i.i
-  br i1 %82, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !104
+74:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %75 = load ptr, ptr %70, align 8
+  %76 = getelementptr ptr, ptr %.fr28, i64 %.010.i.i.i.i.i
+  store ptr %75, ptr %76, align 8
+  %77 = icmp sgt i64 %.0911.i.i.i.i.i, %.011.i.i.i
+  br i1 %77, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !105
 
-"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i": ; preds = %79, %.lr.ph.i.i.i.i.i, %73
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %73 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %79 ]
-  %83 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0.lcssa.i.i.i.i.i
-  store ptr %55, ptr %83, align 8
+"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i": ; preds = %74, %.lr.ph.i.i.i.i.i, %68
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %68 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %74 ]
+  %78 = getelementptr ptr, ptr %.fr28, i64 %.0.lcssa.i.i.i.i.i
+  store ptr %50, ptr %78, align 8
   %.not.i.i.i = icmp eq i64 %.011.i.i.i, 0
-  %84 = add nsw i64 %.011.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i", label %.split.i.i.i, !llvm.loop !105
+  %79 = add nsw i64 %.011.i.i.i, -1
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i", label %.split.i.i.i, !llvm.loop !106
 
-"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i": ; preds = %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", %13
-  %85 = icmp sgt i64 %15, 8
-  br i1 %85, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit"
+"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
+  %80 = icmp sgt i64 %.fr.i.i.i27.lcssa, 8
+  br i1 %80, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i", %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
-  %.sroa.0.02.i.i = phi ptr [ %86, %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i" ], [ %storemerge21, %"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i" ]
-  %86 = getelementptr i8, ptr %.sroa.0.02.i.i, i64 -8
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %.fr6.i.i.i, align 8
-  store ptr %88, ptr %86, align 8
-  %89 = ptrtoint ptr %86 to i64
-  %90 = sub i64 %89, %4
-  %91 = ashr exact i64 %90, 3
-  %92 = add nsw i64 %91, -1
-  %93 = sdiv i64 %92, 2
-  %94 = icmp sgt i64 %91, 2
-  br i1 %94, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i10.i
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i", %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
+  %.sroa.0.02.i.i = phi ptr [ %81, %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i" ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i" ]
+  %81 = getelementptr i8, ptr %.sroa.0.02.i.i, i64 -8
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %.fr28, align 8
+  store ptr %83, ptr %81, align 8
+  %84 = ptrtoint ptr %81 to i64
+  %85 = sub i64 %84, %4
+  %86 = ashr exact i64 %85, 3
+  %87 = add nsw i64 %86, -1
+  %88 = sdiv i64 %87, 2
+  %89 = icmp sgt i64 %86, 2
+  br i1 %89, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i10.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i17.i
   %.034.i.i.i18.i = phi i64 [ %spec.select.i.i.i19.i, %.lr.ph.i.i.i17.i ], [ 0, %.lr.ph.i9.i ]
-  %95 = shl i64 %.034.i.i.i18.i, 1
-  %96 = add i64 %95, 2
-  %97 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %96
-  %98 = or disjoint i64 %95, 1
-  %99 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %98
-  %100 = load ptr, ptr %97, align 8
-  %101 = load ptr, ptr %99, align 8
-  %102 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %100, ptr noundef align 8 dereferenceable(24) %101)
-  %103 = icmp slt i32 %102, 0
-  %spec.select.i.i.i19.i = select i1 %103, i64 %98, i64 %96
-  %104 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %spec.select.i.i.i19.i
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.034.i.i.i18.i
-  store ptr %105, ptr %106, align 8
-  %107 = icmp slt i64 %spec.select.i.i.i19.i, %93
-  br i1 %107, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i10.i, !llvm.loop !103
+  %90 = shl i64 %.034.i.i.i18.i, 1
+  %91 = add i64 %90, 2
+  %92 = getelementptr ptr, ptr %.fr28, i64 %91
+  %93 = or disjoint i64 %90, 1
+  %94 = getelementptr ptr, ptr %.fr28, i64 %93
+  %95 = load ptr, ptr %92, align 8
+  %96 = load ptr, ptr %94, align 8
+  %97 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %95, ptr noundef align 8 dereferenceable(24) %96)
+  %98 = icmp slt i32 %97, 0
+  %spec.select.i.i.i19.i = select i1 %98, i64 %93, i64 %91
+  %99 = getelementptr ptr, ptr %.fr28, i64 %spec.select.i.i.i19.i
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr ptr, ptr %.fr28, i64 %.034.i.i.i18.i
+  store ptr %100, ptr %101, align 8
+  %102 = icmp slt i64 %spec.select.i.i.i19.i, %88
+  br i1 %102, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i10.i, !llvm.loop !104
 
 ._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i17.i, %.lr.ph.i9.i
   %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i19.i, %.lr.ph.i.i.i17.i ]
-  %108 = and i64 %90, 8
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %110, label %119
+  %103 = and i64 %85, 8
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %105, label %114
 
-110:                                              ; preds = %._crit_edge.i.i.i10.i
-  %111 = add nsw i64 %91, -2
-  %112 = ashr exact i64 %111, 1
-  %113 = icmp eq i64 %.0.lcssa.i.i.i11.i, %112
-  br i1 %113, label %.thread.i.i.i, label %119
+105:                                              ; preds = %._crit_edge.i.i.i10.i
+  %106 = add nsw i64 %86, -2
+  %107 = ashr exact i64 %106, 1
+  %108 = icmp eq i64 %.0.lcssa.i.i.i11.i, %107
+  br i1 %108, label %.thread.i.i.i, label %114
 
-.thread.i.i.i:                                    ; preds = %110
-  %114 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
-  %115 = or disjoint i64 %114, 1
-  %116 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %115
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0.lcssa.i.i.i11.i
-  store ptr %117, ptr %118, align 8
+.thread.i.i.i:                                    ; preds = %105
+  %109 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %110 = or disjoint i64 %109, 1
+  %111 = getelementptr ptr, ptr %.fr28, i64 %110
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr ptr, ptr %.fr28, i64 %.0.lcssa.i.i.i11.i
+  store ptr %112, ptr %113, align 8
   br label %.lr.ph.i.i.i.i13.i.preheader
 
-119:                                              ; preds = %110, %._crit_edge.i.i.i10.i
+114:                                              ; preds = %105, %._crit_edge.i.i.i10.i
   %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
   br i1 %.not.i.i12.i, label %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i.preheader
 
-.lr.ph.i.i.i.i13.i.preheader:                     ; preds = %119, %.thread.i.i.i
-  %.010.i.i.i.i14.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %119 ], [ %115, %.thread.i.i.i ]
+.lr.ph.i.i.i.i13.i.preheader:                     ; preds = %114, %.thread.i.i.i
+  %.010.i.i.i.i14.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %114 ], [ %110, %.thread.i.i.i ]
   br label %.lr.ph.i.i.i.i13.i
 
-.lr.ph.i.i.i.i13.i:                               ; preds = %.lr.ph.i.i.i.i13.i.preheader, %124
-  %.010.i.i.i.i14.i = phi i64 [ %.0911.i.i45.i.i.i, %124 ], [ %.010.i.i.i.i14.i.ph, %.lr.ph.i.i.i.i13.i.preheader ]
+.lr.ph.i.i.i.i13.i:                               ; preds = %.lr.ph.i.i.i.i13.i.preheader, %119
+  %.010.i.i.i.i14.i = phi i64 [ %.0911.i.i45.i.i.i, %119 ], [ %.010.i.i.i.i14.i.ph, %.lr.ph.i.i.i.i13.i.preheader ]
   %.0911.in.i.i.i.i15.i = add nsw i64 %.010.i.i.i.i14.i, -1
   %.0911.i.i45.i.i.i = lshr i64 %.0911.in.i.i.i.i15.i, 1
-  %120 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0911.i.i45.i.i.i
-  %121 = load ptr, ptr %120, align 8
-  %122 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %121, ptr noundef align 8 dereferenceable(24) %87)
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %124, label %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
+  %115 = getelementptr ptr, ptr %.fr28, i64 %.0911.i.i45.i.i.i
+  %116 = load ptr, ptr %115, align 8
+  %117 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %116, ptr noundef align 8 dereferenceable(24) %82)
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
 
-124:                                              ; preds = %.lr.ph.i.i.i.i13.i
-  %125 = load ptr, ptr %120, align 8
-  %126 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.010.i.i.i.i14.i
-  store ptr %125, ptr %126, align 8
+119:                                              ; preds = %.lr.ph.i.i.i.i13.i
+  %120 = load ptr, ptr %115, align 8
+  %121 = getelementptr ptr, ptr %.fr28, i64 %.010.i.i.i.i14.i
+  store ptr %120, ptr %121, align 8
   %.not6.i.i.i = icmp eq i64 %.0911.i.i45.i.i.i, 0
-  br i1 %.not6.i.i.i, label %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i, !llvm.loop !104
+  br i1 %.not6.i.i.i, label %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i, !llvm.loop !105
 
-"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %124, %.lr.ph.i.i.i.i13.i, %119
-  %.0.lcssa.i.i.i.i16.i = phi i64 [ 0, %119 ], [ %.010.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %124 ]
-  %127 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %.0.lcssa.i.i.i.i16.i
-  store ptr %87, ptr %127, align 8
-  %128 = icmp sgt i64 %90, 8
-  br i1 %128, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !106
+"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %119, %.lr.ph.i.i.i.i13.i, %114
+  %.0.lcssa.i.i.i.i16.i = phi i64 [ 0, %114 ], [ %.010.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %119 ]
+  %122 = getelementptr ptr, ptr %.fr28, i64 %.0.lcssa.i.i.i.i16.i
+  store ptr %82, ptr %122, align 8
+  %123 = icmp sgt i64 %85, 8
+  br i1 %123, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !107
 
-129:                                              ; preds = %10
-  %130 = add i64 %.022, -1
-  %131 = lshr i64 %11, 1
-  %132 = getelementptr ptr, ptr %.fr6.i.i.i, i64 %131
-  %133 = getelementptr i8, ptr %storemerge21, i64 -8
-  %134 = load ptr, ptr %9, align 8
-  %135 = load ptr, ptr %132, align 8
-  %136 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %134, ptr noundef align 8 dereferenceable(24) %135)
+.lr.ph47:                                         ; preds = %.lr.ph, %11
+  %storemerge2546 = phi ptr [ %.sroa.010.1.i.i, %11 ], [ %.fr36, %.lr.ph ]
+  %.02645 = phi i64 [ %125, %11 ], [ %2, %.lr.ph ]
+  %124 = phi i64 [ %185, %11 ], [ %7, %.lr.ph ]
+  %125 = add i64 %.02645, -1
+  %126 = lshr i64 %124, 1
+  %127 = getelementptr ptr, ptr %.fr28, i64 %126
+  %128 = getelementptr i8, ptr %storemerge2546, i64 -8
+  %129 = load ptr, ptr %9, align 8
+  %130 = load ptr, ptr %127, align 8
+  %131 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %129, ptr noundef align 8 dereferenceable(24) %130)
+  %132 = icmp slt i32 %131, 0
+  %133 = load ptr, ptr %128, align 8
+  br i1 %132, label %134, label %151
+
+134:                                              ; preds = %.lr.ph47
+  %135 = load ptr, ptr %127, align 8
+  %136 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %135, ptr noundef align 8 dereferenceable(24) %133)
   %137 = icmp slt i32 %136, 0
-  %138 = load ptr, ptr %133, align 8
-  br i1 %137, label %139, label %156
+  br i1 %137, label %138, label %141
 
-139:                                              ; preds = %129
-  %140 = load ptr, ptr %132, align 8
-  %141 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %140, ptr noundef align 8 dereferenceable(24) %138)
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %143, label %146
-
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %.fr6.i.i.i, align 8
-  %145 = load ptr, ptr %132, align 8
-  store ptr %145, ptr %.fr6.i.i.i, align 8
-  store ptr %144, ptr %132, align 8
+138:                                              ; preds = %134
+  %139 = load ptr, ptr %.fr28, align 8
+  %140 = load ptr, ptr %127, align 8
+  store ptr %140, ptr %.fr28, align 8
+  store ptr %139, ptr %127, align 8
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader"
 
-146:                                              ; preds = %139
-  %147 = load ptr, ptr %9, align 8
-  %148 = load ptr, ptr %133, align 8
-  %149 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %147, ptr noundef align 8 dereferenceable(24) %148)
-  %150 = icmp slt i32 %149, 0
-  %151 = load ptr, ptr %.fr6.i.i.i, align 8
-  br i1 %150, label %152, label %154
+141:                                              ; preds = %134
+  %142 = load ptr, ptr %9, align 8
+  %143 = load ptr, ptr %128, align 8
+  %144 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %142, ptr noundef align 8 dereferenceable(24) %143)
+  %145 = icmp slt i32 %144, 0
+  %146 = load ptr, ptr %.fr28, align 8
+  br i1 %145, label %147, label %149
 
-152:                                              ; preds = %146
-  %153 = load ptr, ptr %133, align 8
-  store ptr %153, ptr %.fr6.i.i.i, align 8
-  store ptr %151, ptr %133, align 8
+147:                                              ; preds = %141
+  %148 = load ptr, ptr %128, align 8
+  store ptr %148, ptr %.fr28, align 8
+  store ptr %146, ptr %128, align 8
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader"
 
-154:                                              ; preds = %146
-  %155 = load ptr, ptr %9, align 8
-  store ptr %155, ptr %.fr6.i.i.i, align 8
-  store ptr %151, ptr %9, align 8
+149:                                              ; preds = %141
+  %150 = load ptr, ptr %9, align 8
+  store ptr %150, ptr %.fr28, align 8
+  store ptr %146, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader"
 
-156:                                              ; preds = %129
+151:                                              ; preds = %.lr.ph47
+  %152 = load ptr, ptr %9, align 8
+  %153 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %152, ptr noundef align 8 dereferenceable(24) %133)
+  %154 = icmp slt i32 %153, 0
+  br i1 %154, label %155, label %158
+
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %.fr28, align 8
   %157 = load ptr, ptr %9, align 8
-  %158 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %157, ptr noundef align 8 dereferenceable(24) %138)
-  %159 = icmp slt i32 %158, 0
-  br i1 %159, label %160, label %163
-
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %.fr6.i.i.i, align 8
-  %162 = load ptr, ptr %9, align 8
-  store ptr %162, ptr %.fr6.i.i.i, align 8
-  store ptr %161, ptr %9, align 8
+  store ptr %157, ptr %.fr28, align 8
+  store ptr %156, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader"
 
-163:                                              ; preds = %156
-  %164 = load ptr, ptr %132, align 8
-  %165 = load ptr, ptr %133, align 8
-  %166 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %164, ptr noundef align 8 dereferenceable(24) %165)
-  %167 = icmp slt i32 %166, 0
-  %168 = load ptr, ptr %.fr6.i.i.i, align 8
-  br i1 %167, label %169, label %171
+158:                                              ; preds = %151
+  %159 = load ptr, ptr %127, align 8
+  %160 = load ptr, ptr %128, align 8
+  %161 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %159, ptr noundef align 8 dereferenceable(24) %160)
+  %162 = icmp slt i32 %161, 0
+  %163 = load ptr, ptr %.fr28, align 8
+  br i1 %162, label %164, label %166
 
-169:                                              ; preds = %163
-  %170 = load ptr, ptr %133, align 8
-  store ptr %170, ptr %.fr6.i.i.i, align 8
-  store ptr %168, ptr %133, align 8
+164:                                              ; preds = %158
+  %165 = load ptr, ptr %128, align 8
+  store ptr %165, ptr %.fr28, align 8
+  store ptr %163, ptr %128, align 8
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader"
 
-171:                                              ; preds = %163
-  %172 = load ptr, ptr %132, align 8
-  store ptr %172, ptr %.fr6.i.i.i, align 8
-  store ptr %168, ptr %132, align 8
+166:                                              ; preds = %158
+  %167 = load ptr, ptr %127, align 8
+  store ptr %167, ptr %.fr28, align 8
+  store ptr %163, ptr %127, align 8
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader": ; preds = %171, %169, %160, %154, %152, %143
+"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader": ; preds = %166, %164, %155, %149, %147, %138
   br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader", %185
-  %.sroa.010.0.i.i = phi ptr [ %178, %185 ], [ %9, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %185 ], [ %storemerge21, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader" ]
-  br label %173
+"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader", %180
+  %.sroa.010.0.i.i = phi ptr [ %173, %180 ], [ %9, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %180 ], [ %storemerge2546, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader" ]
+  br label %168
 
-173:                                              ; preds = %173, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i"
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i" ], [ %178, %173 ]
-  %174 = load ptr, ptr %.sroa.010.1.i.i, align 8
-  %175 = load ptr, ptr %.fr6.i.i.i, align 8
+168:                                              ; preds = %168, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i"
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i" ], [ %173, %168 ]
+  %169 = load ptr, ptr %.sroa.010.1.i.i, align 8
+  %170 = load ptr, ptr %.fr28, align 8
+  %171 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %169, ptr noundef align 8 dereferenceable(24) %170)
+  %172 = icmp slt i32 %171, 0
+  %173 = getelementptr i8, ptr %.sroa.010.1.i.i, i64 8
+  br i1 %172, label %168, label %.preheader.i.i, !llvm.loop !108
+
+.preheader.i.i:                                   ; preds = %168, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %168 ]
+  %.sroa.0.1.i.i = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %174 = load ptr, ptr %.fr28, align 8
+  %175 = load ptr, ptr %.sroa.0.1.i.i, align 8
   %176 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %174, ptr noundef align 8 dereferenceable(24) %175)
   %177 = icmp slt i32 %176, 0
-  %178 = getelementptr i8, ptr %.sroa.010.1.i.i, i64 8
-  br i1 %177, label %173, label %.preheader.i.i, !llvm.loop !107
+  br i1 %177, label %.preheader.i.i, label %178, !llvm.loop !109
 
-.preheader.i.i:                                   ; preds = %173, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %173 ]
-  %.sroa.0.1.i.i = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %179 = load ptr, ptr %.fr6.i.i.i, align 8
-  %180 = load ptr, ptr %.sroa.0.1.i.i, align 8
-  %181 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %179, ptr noundef align 8 dereferenceable(24) %180)
-  %182 = icmp slt i32 %181, 0
-  br i1 %182, label %.preheader.i.i, label %183, !llvm.loop !108
+178:                                              ; preds = %.preheader.i.i
+  %179 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %179, label %180, label %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit"
 
-183:                                              ; preds = %.preheader.i.i
-  %184 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %184, label %185, label %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit"
+180:                                              ; preds = %178
+  %181 = load ptr, ptr %.sroa.010.1.i.i, align 8
+  %182 = load ptr, ptr %.sroa.0.1.i.i, align 8
+  store ptr %182, ptr %.sroa.010.1.i.i, align 8
+  store ptr %181, ptr %.sroa.0.1.i.i, align 8
+  br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", !llvm.loop !110
 
-185:                                              ; preds = %183
-  %186 = load ptr, ptr %.sroa.010.1.i.i, align 8
-  %187 = load ptr, ptr %.sroa.0.1.i.i, align 8
-  store ptr %187, ptr %.sroa.010.1.i.i, align 8
-  store ptr %186, ptr %.sroa.0.1.i.i, align 8
-  br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", !llvm.loop !109
+"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %178
+  tail call fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_tE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_T0_T1_"(ptr %.sroa.010.1.i.i, ptr %storemerge2546, i64 noundef %125)
+  %183 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %184 = sub i64 %183, %4
+  %185 = ashr exact i64 %184, 3
+  %186 = icmp sgt i64 %185, 16
+  br i1 %186, label %11, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !103
 
-"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %183
-  tail call fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_tE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_T0_T1_"(ptr %.sroa.010.1.i.i, ptr %storemerge21, i64 noundef %130)
-  %188 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %189 = sub i64 %188, %4
-  %190 = ashr exact i64 %189, 3
-  %191 = icmp sgt i64 %190, 16
-  br i1 %191, label %10, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !110
-
-"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit", %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", %3, %"_ZSt13__heap_selectIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit.i"
+"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit", %"_ZSt10__pop_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i"
   ret void
 }
 

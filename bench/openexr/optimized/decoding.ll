@@ -197,8 +197,8 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !25
-  %.fr357 = freeze i32 %41
-  %42 = and i32 %.fr357, -2
+  %.fr = freeze i32 %41
+  %42 = and i32 %.fr, -2
   %spec.select = icmp eq i32 %42, 2
   %43 = zext i1 %spec.select to i32
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16

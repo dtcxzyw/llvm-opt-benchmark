@@ -103,11 +103,11 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 7:                                                ; preds = %3
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %._crit_edge191, label %8
+  br i1 %.not, label %._crit_edge192, label %8
 
-._crit_edge191:                                   ; preds = %7
+._crit_edge192:                                   ; preds = %7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre192 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !3
+  %.pre193 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %21
 
 8:                                                ; preds = %7
@@ -144,24 +144,24 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %.pre = load i32, ptr %2, align 4, !tbaa !16
   br label %21
 
-21:                                               ; preds = %._crit_edge191, %._crit_edge
-  %22 = phi i32 [ %12, %._crit_edge ], [ %.pre192, %._crit_edge191 ]
-  %23 = phi i32 [ %.pre, %._crit_edge ], [ %4, %._crit_edge191 ]
+21:                                               ; preds = %._crit_edge192, %._crit_edge
+  %22 = phi i32 [ %12, %._crit_edge ], [ %.pre193, %._crit_edge192 ]
+  %23 = phi i32 [ %.pre, %._crit_edge ], [ %4, %._crit_edge192 ]
   %24 = load ptr, ptr %0, align 8, !tbaa !10
-  %.fr = freeze i32 %23
-  %25 = sdiv i32 %.fr, 64
-  %26 = srem i32 %.fr, 64
+  %.fr169 = freeze i32 %23
+  %25 = sdiv i32 %.fr169, 64
+  %26 = srem i32 %.fr169, 64
   %27 = add nsw i32 %22, -1
   %28 = icmp sgt i32 %27, %25
   br i1 %28, label %.lr.ph127.lr.ph, label %..preheader_crit_edge
 
 ..preheader_crit_edge:                            ; preds = %21
-  %.pre193 = sext i32 %25 to i64
+  %.pre194 = sext i32 %25 to i64
   br label %.preheader
 
 .lr.ph127.lr.ph:                                  ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %30 = srem i32 %.fr, 64
+  %30 = srem i32 %.fr169, 64
   %31 = zext nneg i32 %30 to i64
   %.not118 = icmp eq i32 %30, 0
   %32 = sub nsw i32 64, %30
@@ -172,14 +172,14 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br i1 %.not118, label %.lr.ph127.split.us.split.us.us, label %.lr.ph127
 
 .split.us.us:                                     ; preds = %._crit_edge126.us.us.us, %.lr.ph142.split.us.us, %.lr.ph127.split.us.split.us.us
-  %indvars.iv.next186 = add nsw i64 %indvars.iv185, -1
-  %37 = icmp sgt i64 %indvars.iv.next186, %36
+  %indvars.iv.next187 = add nsw i64 %indvars.iv186, -1
+  %37 = icmp sgt i64 %indvars.iv.next187, %36
   br i1 %37, label %.lr.ph127.split.us.split.us.us, label %.preheader.loopexit, !llvm.loop !18
 
 .lr.ph127.split.us.split.us.us:                   ; preds = %.lr.ph127.lr.ph, %.split.us.us
-  %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split.us.us ], [ %35, %.lr.ph127.lr.ph ]
-  %38 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv185
-  %39 = sub nsw i64 %indvars.iv185, %36
+  %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.split.us.us ], [ %35, %.lr.ph127.lr.ph ]
+  %38 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv186
+  %39 = sub nsw i64 %indvars.iv186, %36
   %40 = getelementptr inbounds i64, ptr %24, i64 %39
   %41 = load i64, ptr %38, align 8, !tbaa !11
   %42 = icmp eq i64 %41, 0
@@ -191,9 +191,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br label %44
 
 44:                                               ; preds = %62, %.lr.ph125.us.us.us
-  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %62 ], [ 1, %.lr.ph125.us.us.us ]
+  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %62 ], [ 1, %.lr.ph125.us.us.us ]
   %45 = phi i32 [ %64, %62 ], [ %69, %.lr.ph125.us.us.us ]
-  %46 = sub nsw i32 %.fr, %45
+  %46 = sub nsw i32 %.fr169, %45
   %47 = srem i32 %46, 64
   %.neg.us.us.us = sdiv i32 %46, -64
   %48 = zext nneg i32 %47 to i64
@@ -218,8 +218,8 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br label %62
 
 62:                                               ; preds = %55, %44
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next183
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next184
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %.not117.us.us.us = icmp eq i32 %64, 0
   br i1 %.not117.us.us.us, label %._crit_edge126.us.us.us, label %44, !llvm.loop !19
@@ -238,7 +238,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br i1 %.not117122.us.us.us, label %.lr.ph142.split.us.us, label %.lr.ph125.us.us.us.preheader
 
 .lr.ph125.us.us.us.preheader:                     ; preds = %.lr.ph142.us
-  %70 = trunc nsw i64 %indvars.iv185 to i32
+  %70 = trunc nsw i64 %indvars.iv186 to i32
   br label %.lr.ph125.us.us.us
 
 .lr.ph142.split.us.us:                            ; preds = %.lr.ph142.us, %.lr.ph142.split.us.us
@@ -252,32 +252,32 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br i1 %75, label %.split.us.us, label %.lr.ph142.split.us.us
 
 .lr.ph127:                                        ; preds = %.lr.ph127.lr.ph, %.split
-  %indvars.iv179 = phi i64 [ %indvars.iv.next180, %.split ], [ %35, %.lr.ph127.lr.ph ]
-  %76 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv179
-  %77 = sub nsw i64 %indvars.iv179, %36
+  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.split ], [ %35, %.lr.ph127.lr.ph ]
+  %76 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv180
+  %77 = sub nsw i64 %indvars.iv180, %36
   %78 = getelementptr inbounds i64, ptr %24, i64 %77
   %79 = getelementptr i8, ptr %78, i64 -8
-  %80 = trunc nsw i64 %indvars.iv179 to i32
+  %80 = trunc nsw i64 %indvars.iv180 to i32
   %81 = load i64, ptr %76, align 8, !tbaa !11
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %.split, label %.lr.ph224.preheader
+  br i1 %82, label %.split, label %.lr.ph225.preheader
 
-.lr.ph224.preheader:                              ; preds = %.lr.ph127
+.lr.ph225.preheader:                              ; preds = %.lr.ph127
   %83 = load i32, ptr %29, align 4, !tbaa !16
   %.not117122 = icmp eq i32 %83, 0
-  br label %.lr.ph224
+  br label %.lr.ph225
 
 .preheader.loopexit:                              ; preds = %.split.us.us
-  %84 = trunc nsw i64 %indvars.iv.next186 to i32
+  %84 = trunc nsw i64 %indvars.iv.next187 to i32
   br label %.preheader
 
-.preheader.loopexit173:                           ; preds = %.split
-  %85 = trunc nsw i64 %indvars.iv.next180 to i32
+.preheader.loopexit174:                           ; preds = %.split
+  %85 = trunc nsw i64 %indvars.iv.next181 to i32
   br label %.preheader
 
-.preheader:                                       ; preds = %..preheader_crit_edge, %.preheader.loopexit173, %.preheader.loopexit
-  %.pre-phi = phi i64 [ %.pre193, %..preheader_crit_edge ], [ %36, %.preheader.loopexit173 ], [ %36, %.preheader.loopexit ]
-  %.1.ph.lcssa = phi i32 [ %27, %..preheader_crit_edge ], [ %85, %.preheader.loopexit173 ], [ %84, %.preheader.loopexit ]
+.preheader:                                       ; preds = %..preheader_crit_edge, %.preheader.loopexit174, %.preheader.loopexit
+  %.pre-phi = phi i64 [ %.pre194, %..preheader_crit_edge ], [ %36, %.preheader.loopexit174 ], [ %36, %.preheader.loopexit ]
+  %.1.ph.lcssa = phi i32 [ %27, %..preheader_crit_edge ], [ %85, %.preheader.loopexit174 ], [ %84, %.preheader.loopexit ]
   %86 = getelementptr inbounds i64, ptr %24, i64 %.pre-phi
   %87 = icmp eq i32 %.1.ph.lcssa, %25
   br i1 %87, label %.lr.ph165, label %._crit_edge166
@@ -337,7 +337,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br label %115
 
 115:                                              ; preds = %.lr.ph164.us, %133
-  %indvars.iv188 = phi i64 [ 1, %.lr.ph164.us ], [ %indvars.iv.next189, %133 ]
+  %indvars.iv189 = phi i64 [ 1, %.lr.ph164.us ], [ %indvars.iv.next190, %133 ]
   %116 = phi i32 [ %96, %.lr.ph164.us ], [ %135, %133 ]
   %117 = sdiv i32 %116, 64
   %118 = srem i32 %116, 64
@@ -366,8 +366,8 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br label %133
 
 133:                                              ; preds = %129, %125, %115
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %134 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next189
+  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
+  %134 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next190
   %135 = load i32, ptr %134, align 4, !tbaa !16
   %.not114.us = icmp eq i32 %135, 0
   br i1 %.not114.us, label %..loopexit_crit_edge.us, label %115, !llvm.loop !20
@@ -379,19 +379,19 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br i1 %138, label %._crit_edge166, label %.lr.ph164.us
 
 .split:                                           ; preds = %._crit_edge126, %.lr.ph127
-  %indvars.iv.next180 = add nsw i64 %indvars.iv179, -1
-  %139 = icmp sgt i64 %indvars.iv.next180, %36
-  br i1 %139, label %.lr.ph127, label %.preheader.loopexit173, !llvm.loop !18
+  %indvars.iv.next181 = add nsw i64 %indvars.iv180, -1
+  %139 = icmp sgt i64 %indvars.iv.next181, %36
+  br i1 %139, label %.lr.ph127, label %.preheader.loopexit174, !llvm.loop !18
 
-.lr.ph224:                                        ; preds = %.lr.ph224.preheader, %._crit_edge126
-  %140 = phi i64 [ %167, %._crit_edge126 ], [ %81, %.lr.ph224.preheader ]
+.lr.ph225:                                        ; preds = %.lr.ph225.preheader, %._crit_edge126
+  %140 = phi i64 [ %167, %._crit_edge126 ], [ %81, %.lr.ph225.preheader ]
   store i64 0, ptr %76, align 8, !tbaa !11
   br i1 %.not117122, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph125:                                        ; preds = %.lr.ph224, %158
-  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %158 ], [ 1, %.lr.ph224 ]
-  %141 = phi i32 [ %160, %158 ], [ %83, %.lr.ph224 ]
-  %142 = sub nsw i32 %.fr, %141
+.lr.ph125:                                        ; preds = %.lr.ph225, %158
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %158 ], [ 1, %.lr.ph225 ]
+  %141 = phi i32 [ %160, %158 ], [ %83, %.lr.ph225 ]
+  %142 = sub nsw i32 %.fr169, %141
   %143 = srem i32 %142, 64
   %.neg = sdiv i32 %142, -64
   %144 = zext nneg i32 %143 to i64
@@ -416,13 +416,13 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   br label %158
 
 158:                                              ; preds = %.lr.ph125, %151
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %159 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next177
+  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %159 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next178
   %160 = load i32, ptr %159, align 4, !tbaa !16
   %.not117 = icmp eq i32 %160, 0
   br i1 %.not117, label %._crit_edge126, label %.lr.ph125, !llvm.loop !19
 
-._crit_edge126:                                   ; preds = %158, %.lr.ph224
+._crit_edge126:                                   ; preds = %158, %.lr.ph225
   %161 = lshr i64 %140, %31
   %162 = load i64, ptr %78, align 8, !tbaa !11
   %163 = xor i64 %162, %161
@@ -433,7 +433,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   store i64 %166, ptr %79, align 8, !tbaa !11
   %167 = load i64, ptr %76, align 8, !tbaa !11
   %168 = icmp eq i64 %167, 0
-  br i1 %168, label %.split, label %.lr.ph224
+  br i1 %168, label %.split, label %.lr.ph225
 
 ._crit_edge166:                                   ; preds = %..loopexit_crit_edge.us, %.loopexit.us.us, %.loopexit.us.us.us, %.lr.ph165, %.preheader
   tail call void @bn_correct_top(ptr noundef nonnull %0) #5

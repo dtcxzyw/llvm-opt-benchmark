@@ -1059,11 +1059,10 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   %.not24 = icmp eq i32 %13, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !88
-  %.fr43 = freeze i32 %.pre
   br i1 %.not24, label %.thread, label %14
 
 14:                                               ; preds = %11
-  %.not25 = icmp ne i32 %.fr43, 0
+  %.not25 = icmp ne i32 %.pre, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp sgt i64 %16, 14999
@@ -1071,43 +1070,41 @@ define dso_local void @_ZN13StatusPrinter29RecalculateProgressPredictionEv(ptr n
   br i1 %or.cond, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = sitofp i32 %.fr43 to double
+  %19 = sitofp i32 %.pre to double
   %20 = sitofp i32 %13 to double
   %21 = fdiv double %19, %20
   %22 = fcmp ult double %21, 5.000000e-02
   br i1 %22, label %.thread, label %24
 
 .thread:                                          ; preds = %11, %18, %14
-  %23 = add nsw i32 %.fr43, %4
+  %23 = add nsw i32 %.pre, %4
   br label %41
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !89
-  %.fr42 = freeze i64 %26
-  %27 = sitofp i64 %.fr42 to double
+  %27 = sitofp i64 %26 to double
   %28 = fdiv double %27, %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8, !tbaa !11
-  %.fr = freeze i64 %30
-  %31 = sitofp i64 %.fr to double
+  %31 = sitofp i64 %30 to double
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8, !tbaa !63
-  %.fr41 = freeze i32 %33
-  %34 = sitofp i32 %.fr41 to double
+  %34 = sitofp i32 %33 to double
   %35 = fdiv double %31, %34
   %36 = fcmp olt double %35, %28
   %.sroa.speculated32 = select i1 %36, double %28, double %35
   %37 = fcmp olt double %28, %35
   %.sroa.speculated = select i1 %37, double %28, double %35
   %38 = fdiv double %.sroa.speculated32, %.sroa.speculated
-  %39 = fcmp olt double %38, 1.000000e+01
+  %.fr = freeze double %38
+  %39 = fcmp olt double %.fr, 1.000000e+01
   %40 = select i1 %39, i32 %4, i32 0
-  %spec.select = add nsw i32 %40, %.fr43
+  %spec.select = add nsw i32 %40, %.pre
   br label %41
 
 41:                                               ; preds = %24, %.thread, %.thread38
-  %42 = phi i32 [ %10, %.thread38 ], [ %.fr43, %24 ], [ %.fr43, %.thread ]
+  %42 = phi i32 [ %10, %.thread38 ], [ %.pre, %24 ], [ %.pre, %.thread ]
   %.0.in36 = phi i1 [ false, %.thread38 ], [ %39, %24 ], [ true, %.thread ]
   %43 = phi i32 [ %10, %.thread38 ], [ %spec.select, %24 ], [ %23, %.thread ]
   %44 = icmp eq i32 %43, 0

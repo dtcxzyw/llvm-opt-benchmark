@@ -1376,7 +1376,6 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %29 = load ptr, ptr %28, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %31 = load i32, ptr %30, align 8, !tbaa !66
-  %.fr = freeze i32 %31
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !70
   %34 = load ptr, ptr %8, align 8, !tbaa !87
@@ -1385,17 +1384,15 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %37 = load i32, ptr %36, align 4, !tbaa !119
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %39 = load i32, ptr %38, align 8, !tbaa !71
-  %.fr139 = freeze i32 %39
-  %40 = add i32 %.fr139, -1
+  %40 = add i32 %39, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load i32, ptr %14, align 4, !tbaa !27
-  %.fr142 = freeze i32 %41
   %42 = getelementptr inbounds float, ptr %35, i64 %13
   %43 = icmp sgt i32 %37, 0
   br i1 %43, label %.lr.ph.preheader, label %.preheader109.thread
 
 .lr.ph.preheader:                                 ; preds = %4
-  %44 = sext i32 %.fr139 to i64
+  %44 = sext i32 %39 to i64
   %wide.trip.count = zext nneg i32 %37 to i64
   br label %.lr.ph
 
@@ -1413,17 +1410,17 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
 
 .lr.ph121:                                        ; preds = %.preheader109
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %52 = sext i32 %.fr to i64
+  %52 = sext i32 %31 to i64
   %53 = shl nsw i64 %52, 2
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %55 = add nsw i32 %.fr, 31
+  %55 = add nsw i32 %31, 31
   %56 = and i32 %55, -32
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %58 = sext i32 %33 to i64
   %59 = zext nneg i32 %37 to i64
-  %wide.trip.count150 = zext nneg i32 %37 to i64
-  %wide.trip.count155 = zext nneg i32 %37 to i64
-  %wide.trip.count160 = zext nneg i32 %37 to i64
+  %wide.trip.count146 = zext nneg i32 %37 to i64
+  %wide.trip.count151 = zext nneg i32 %37 to i64
+  %wide.trip.count156 = zext nneg i32 %37 to i64
   br label %.lr.ph112.us
 
 60:                                               ; preds = %._crit_edge.us
@@ -1435,7 +1432,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
 63:                                               ; preds = %60, %._crit_edge.us
   %64 = getelementptr inbounds nuw i8, ptr %.098118.us, i64 8
   %65 = getelementptr inbounds nuw float, ptr %.0120.us, i64 %59
-  %66 = add i32 %.0102116.us, 1
+  %66 = add nsw i32 %.0102116.us, 1
   %67 = and i32 %66, %40
   %68 = add nuw nsw i32 %.0101117.us, 1
   %69 = load i32, ptr %45, align 8, !tbaa !99
@@ -1443,17 +1440,17 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   br i1 %70, label %.lr.ph112.us, label %._crit_edge122, !llvm.loop !120
 
 .lr.ph115.split.us128:                            ; preds = %.preheader.us, %99
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %99 ], [ 0, %.preheader.us ]
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %99 ], [ 0, %.preheader.us ]
   %.099114.us124 = phi ptr [ %100, %99 ], [ %18, %.preheader.us ]
   %71 = load i32, ptr %51, align 4, !tbaa !118
   %72 = zext i32 %71 to i64
-  %73 = icmp eq i64 %indvars.iv152, %72
+  %73 = icmp eq i64 %indvars.iv148, %72
   br i1 %73, label %90, label %74
 
 74:                                               ; preds = %.lr.ph115.split.us128
-  %75 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv152
+  %75 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv148
   %76 = load ptr, ptr %75, align 8, !tbaa !77
-  %77 = srem i32 %107, %.fr
+  %77 = srem i32 %107, %31
   %78 = sub nsw i32 %33, %77
   %..us = tail call i32 @llvm.smin.i32(i32 %78, i32 %110)
   %79 = getelementptr inbounds float, ptr %76, i64 %111
@@ -1486,37 +1483,38 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %storemerge.us126 = phi float [ %89, %74 ], [ %98, %90 ]
   store float %storemerge.us126, ptr %.098118.us, align 4, !tbaa !74
   %100 = getelementptr inbounds float, ptr %.099114.us124, i64 %58
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %._crit_edge.us, label %.lr.ph115.split.us128, !llvm.loop !121
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
+  br i1 %exitcond152.not, label %._crit_edge.us, label %.lr.ph115.split.us128, !llvm.loop !121
 
 101:                                              ; preds = %.lr.ph112.us, %101
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph112.us ], [ %indvars.iv.next148, %101 ]
-  %102 = getelementptr inbounds nuw float, ptr %.0120.us, i64 %indvars.iv147
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph112.us ], [ %indvars.iv.next144, %101 ]
+  %102 = getelementptr inbounds nuw float, ptr %.0120.us, i64 %indvars.iv143
   %103 = load float, ptr %102, align 4, !tbaa !74
-  %104 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv147
+  %104 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv143
   %105 = load ptr, ptr %104, align 8, !tbaa !77
   %106 = getelementptr inbounds float, ptr %105, i64 %112
   store float %103, ptr %106, align 4, !tbaa !74
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.preheader.us, label %101, !llvm.loop !122
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %.preheader.us, label %101, !llvm.loop !122
 
 .preheader.us:                                    ; preds = %101
-  %reass.sub = sub i32 %.0102116.us, %.fr
+  %reass.sub = sub i32 %.0102116.us, %31
   %.reass.reass.us = add i32 %reass.sub, 1
   %107 = and i32 %.reass.reass.us, %40
-  %108 = add i32 %107, %.fr
-  %109 = icmp slt i32 %108, %.fr139
-  %110 = sub nsw i32 %.fr139, %107
+  %108 = add nsw i32 %107, %31
+  %109 = icmp slt i32 %108, %39
+  %110 = sub nsw i32 %39, %107
   %111 = sext i32 %107 to i64
-  br i1 %109, label %.lr.ph115.split.us.us, label %.lr.ph115.split.us128
+  %.fr.us = freeze i1 %109
+  br i1 %.fr.us, label %.lr.ph115.split.us.us, label %.lr.ph115.split.us128
 
 .lr.ph112.us:                                     ; preds = %63, %.lr.ph121
   %.0120.us = phi ptr [ %65, %63 ], [ %34, %.lr.ph121 ]
   %.098118.us = phi ptr [ %64, %63 ], [ %42, %.lr.ph121 ]
   %.0101117.us = phi i32 [ %68, %63 ], [ 0, %.lr.ph121 ]
-  %.0102116.us = phi i32 [ %67, %63 ], [ %.fr142, %.lr.ph121 ]
+  %.0102116.us = phi i32 [ %67, %63 ], [ %41, %.lr.ph121 ]
   store float 0.000000e+00, ptr %.098118.us, align 4, !tbaa !74
   %112 = sext i32 %.0102116.us to i64
   br label %101
@@ -1528,15 +1526,15 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   br i1 %115, label %60, label %63
 
 .lr.ph115.split.us.us:                            ; preds = %.preheader.us, %136
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %136 ], [ 0, %.preheader.us ]
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %136 ], [ 0, %.preheader.us ]
   %.099114.us.us = phi ptr [ %137, %136 ], [ %18, %.preheader.us ]
   %116 = load i32, ptr %51, align 4, !tbaa !118
   %117 = zext i32 %116 to i64
-  %118 = icmp eq i64 %indvars.iv157, %117
+  %118 = icmp eq i64 %indvars.iv153, %117
   br i1 %118, label %127, label %119
 
 119:                                              ; preds = %.lr.ph115.split.us.us
-  %120 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv157
+  %120 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv153
   %121 = load ptr, ptr %120, align 8, !tbaa !77
   %122 = getelementptr inbounds float, ptr %121, i64 %111
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 %122, i64 %53, i1 false)
@@ -1561,9 +1559,9 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %storemerge.us.us = phi float [ %126, %119 ], [ %135, %127 ]
   store float %storemerge.us.us, ptr %.098118.us, align 4, !tbaa !74
   %137 = getelementptr inbounds float, ptr %.099114.us.us, i64 %58
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %._crit_edge.us, label %.lr.ph115.split.us.us, !llvm.loop !121
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
+  br i1 %exitcond157.not, label %._crit_edge.us, label %.lr.ph115.split.us.us, !llvm.loop !121
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1578,7 +1576,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
 .preheader.preheader:                             ; preds = %.preheader109.thread, %.preheader.preheader
   %.098118 = phi ptr [ %141, %.preheader.preheader ], [ %42, %.preheader109.thread ]
   %.0101117 = phi i32 [ %144, %.preheader.preheader ], [ 0, %.preheader109.thread ]
-  %.0102116 = phi i32 [ %143, %.preheader.preheader ], [ %.fr142, %.preheader109.thread ]
+  %.0102116 = phi i32 [ %143, %.preheader.preheader ], [ %41, %.preheader109.thread ]
   store float 0.000000e+00, ptr %.098118, align 4, !tbaa !74
   %141 = getelementptr inbounds nuw i8, ptr %.098118, i64 8
   %142 = add nsw i32 %.0102116, 1
@@ -1588,7 +1586,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   br i1 %145, label %.preheader.preheader, label %._crit_edge122, !llvm.loop !120
 
 ._crit_edge122:                                   ; preds = %.preheader.preheader, %63, %.preheader109.thread, %.preheader109
-  %.0102.lcssa = phi i32 [ %.fr142, %.preheader109 ], [ %.fr142, %.preheader109.thread ], [ %67, %63 ], [ %143, %.preheader.preheader ]
+  %.0102.lcssa = phi i32 [ %41, %.preheader109 ], [ %41, %.preheader109.thread ], [ %67, %63 ], [ %143, %.preheader.preheader ]
   store i32 %.0102.lcssa, ptr %14, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0

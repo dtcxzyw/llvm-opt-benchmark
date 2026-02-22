@@ -1037,11 +1037,11 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
   store i64 %add.i36, ptr %loc_.i, align 8
   %34 = load ptr, ptr %files_.i, align 8
   %35 = load i32, ptr %Size.i, align 8
-  %.fr70 = freeze i32 %35
-  %conv.i38 = zext i32 %.fr70 to i64
+  %.fr = freeze i32 %35
+  %conv.i38 = zext i32 %.fr to i64
   %add.ptr.i.idx = mul nuw nsw i64 %conv.i38, 12
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %34, i64 %add.ptr.i.idx
-  %cmp.not57 = icmp eq i32 %.fr70, 0
+  %cmp.not57 = icmp eq i32 %.fr, 0
   br i1 %cmp.not57, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit

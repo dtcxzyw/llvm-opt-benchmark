@@ -6753,8 +6753,8 @@ define linkonce_odr dso_local void @_ZZN3igl8copyleft4cgal13minkowski_sumIN5Eige
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !29
-  %.fr159 = freeze i64 %24
-  %25 = trunc i64 %.fr159 to i32
+  %.fr = freeze i64 %24
+  %25 = trunc i64 %.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -6924,7 +6924,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   %102 = icmp sgt i32 %22, 0
   %103 = load ptr, ptr %12, align 8
   %104 = load ptr, ptr %13, align 8
-  %105 = add i64 %.fr159, 4294967295
+  %105 = add i64 %.fr, 4294967295
   br i1 %102, label %.preheader131.lr.ph.split.us, label %._crit_edge
 
 .preheader131.lr.ph.split.us:                     ; preds = %.preheader131.lr.ph
@@ -7002,7 +7002,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   br i1 %125, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader131.lr.ph.split.us, %.preheader129
-  %126 = shl i64 %.fr159, 32
+  %126 = shl i64 %.fr, 32
   %sext126 = add i64 %126, -4294967296
   %127 = ashr exact i64 %sext126, 32
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7152,7 +7152,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
 _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit: ; preds = %169, %._crit_edge
   %.sroa.0114.0 = phi ptr [ null, %._crit_edge ], [ %calloc, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %sext90 = shl i64 %.fr159, 32
+  %sext90 = shl i64 %.fr, 32
   %175 = ashr exact i64 %sext90, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !56
@@ -7171,7 +7171,7 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
 .preheader128.lr.ph:                              ; preds = %177
   %.not160 = icmp eq i32 %25, 1
   %wide.trip.count189 = and i64 %21, 2147483647
-  %wide.trip.count184 = and i64 %.fr159, 2147483647
+  %wide.trip.count184 = and i64 %.fr, 2147483647
   %wide.trip.count194 = zext i32 %176 to i64
   br label %.preheader128
 
@@ -18560,8 +18560,8 @@ define linkonce_odr dso_local void @_ZZN3igl8copyleft4cgal13minkowski_sumIN5Eige
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !29
-  %.fr159 = freeze i64 %24
-  %25 = trunc i64 %.fr159 to i32
+  %.fr = freeze i64 %24
+  %25 = trunc i64 %.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -18731,7 +18731,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   %102 = icmp sgt i32 %22, 0
   %103 = load ptr, ptr %12, align 8
   %104 = load ptr, ptr %13, align 8
-  %105 = add i64 %.fr159, 4294967295
+  %105 = add i64 %.fr, 4294967295
   br i1 %102, label %.preheader131.lr.ph.split.us, label %._crit_edge
 
 .preheader131.lr.ph.split.us:                     ; preds = %.preheader131.lr.ph
@@ -18809,7 +18809,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   br i1 %125, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader131.lr.ph.split.us, %.preheader129
-  %126 = shl i64 %.fr159, 32
+  %126 = shl i64 %.fr, 32
   %sext126 = add i64 %126, -4294967296
   %127 = ashr exact i64 %sext126, 32
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -18959,7 +18959,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
 _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit: ; preds = %169, %._crit_edge
   %.sroa.0114.0 = phi ptr [ null, %._crit_edge ], [ %calloc, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %sext90 = shl i64 %.fr159, 32
+  %sext90 = shl i64 %.fr, 32
   %175 = ashr exact i64 %sext90, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !56
@@ -18978,7 +18978,7 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
 .preheader128.lr.ph:                              ; preds = %177
   %.not160 = icmp eq i32 %25, 1
   %wide.trip.count189 = and i64 %21, 2147483647
-  %wide.trip.count184 = and i64 %.fr159, 2147483647
+  %wide.trip.count184 = and i64 %.fr, 2147483647
   %wide.trip.count194 = zext i32 %176 to i64
   br label %.preheader128
 
@@ -47768,8 +47768,8 @@ define linkonce_odr dso_local void @_ZZN3igl8copyleft4cgal13minkowski_sumIN5Eige
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !29
-  %.fr159 = freeze i64 %24
-  %25 = trunc i64 %.fr159 to i32
+  %.fr = freeze i64 %24
+  %25 = trunc i64 %.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -47939,7 +47939,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   %102 = icmp sgt i32 %22, 0
   %103 = load ptr, ptr %12, align 8
   %104 = load ptr, ptr %13, align 8
-  %105 = add i64 %.fr159, 4294967295
+  %105 = add i64 %.fr, 4294967295
   br i1 %102, label %.preheader131.lr.ph.split.us, label %._crit_edge
 
 .preheader131.lr.ph.split.us:                     ; preds = %.preheader131.lr.ph
@@ -48017,7 +48017,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
   br i1 %125, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader131.lr.ph.split.us, %.preheader129
-  %126 = shl i64 %.fr159, 32
+  %126 = shl i64 %.fr, 32
   %sext126 = add i64 %126, -4294967296
   %127 = ashr exact i64 %sext126, 32
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -48167,7 +48167,7 @@ _ZNK5Eigen9DenseBaseINS_16PartialReduxExprINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EE
 _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit: ; preds = %169, %._crit_edge
   %.sroa.0114.0 = phi ptr [ null, %._crit_edge ], [ %calloc, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %sext90 = shl i64 %.fr159, 32
+  %sext90 = shl i64 %.fr, 32
   %175 = ashr exact i64 %sext90, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !56
@@ -48186,7 +48186,7 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
 .preheader128.lr.ph:                              ; preds = %177
   %.not160 = icmp eq i32 %25, 1
   %wide.trip.count189 = and i64 %21, 2147483647
-  %wide.trip.count184 = and i64 %.fr159, 2147483647
+  %wide.trip.count184 = and i64 %.fr, 2147483647
   %wide.trip.count194 = zext i32 %176 to i64
   br label %.preheader128
 

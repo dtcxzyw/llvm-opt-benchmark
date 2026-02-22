@@ -20851,8 +20851,8 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   %.fr18.i = freeze i64 %35
   %trunc.i.i.i.i.i.i.i.i = trunc i64 %.fr18.i to i1
   %36 = load ptr, ptr %31, align 8, !alias.scope !5717, !noalias !5730
-  %.fr.i = freeze ptr %36
-  %37 = icmp eq ptr %.fr.i, null
+  %.fr41.i = freeze ptr %36
+  %37 = icmp eq ptr %.fr41.i, null
   %38 = load ptr, ptr %32, align 8, !alias.scope !5717, !noalias !5730
   %39 = load ptr, ptr %33, align 8, !alias.scope !5717, !noalias !5730
   %.fr71 = freeze ptr %39
@@ -20978,7 +20978,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
 100:                                              ; preds = %.lr.ph.i.i.us.us54
   %101 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.us.us56, i64 16
   %102 = load ptr, ptr %101, align 8, !alias.scope !5744, !noalias !5745, !noundef !13
-  %103 = icmp eq ptr %.fr.i, %102
+  %103 = icmp eq ptr %.fr41.i, %102
   br i1 %103, label %104, label %.backedge.i.i.us.us58
 
 104:                                              ; preds = %100
@@ -20998,7 +20998,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   br i1 %.not.i.i.i.us.us59, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us.us54
 
 .split.us.i:                                      ; preds = %24
-  %111 = ptrtoint ptr %.fr.i to i64
+  %111 = ptrtoint ptr %.fr41.i to i64
   %112 = trunc i64 %111 to i8
   switch i8 %112, label %.split.us.split.i [
     i8 27, label %.split.us.split.us.i
@@ -21248,7 +21248,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   br i1 %229, label %232, label %.backedge.i.i
 
 230:                                              ; preds = %225
-  %231 = icmp eq ptr %.fr.i, %227
+  %231 = icmp eq ptr %.fr41.i, %227
   br i1 %231, label %232, label %.backedge.i.i
 
 232:                                              ; preds = %230, %228
@@ -51249,16 +51249,16 @@ define void @_ZN7hir_def8generics13GenericParams17find_type_by_name17h77a6fbb588
   br i1 %11, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %4
-  %.fr13 = freeze i64 %3
   %12 = load i8, ptr %2, align 8, !range !22
   %13 = icmp eq i8 %12, 26
   %14 = xor i1 %13, true
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = and i64 %.fr13, 4294967295
+  %17 = and i64 %3, 4294967295
   %18 = icmp eq i64 %17, 11
-  %spec.select.i.i = select i1 %18, i64 11, i64 %.fr13
-  %19 = trunc i64 %spec.select.i.i to i32
+  %spec.select.i.i = select i1 %18, i64 11, i64 %3
+  %spec.select.i.i.fr = freeze i64 %spec.select.i.i
+  %19 = trunc i64 %spec.select.i.i.fr to i32
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %.lr.ph.i.us, label %.lr.ph.i
 
@@ -51348,7 +51348,7 @@ define void @_ZN7hir_def8generics13GenericParams17find_type_by_name17h77a6fbb588
   br i1 %brmerge6.demorgan.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h655074e42abcd90cE.llvm.15602210471604820194.exit.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h655074e42abcd90cE.llvm.15602210471604820194.exit.thread.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h655074e42abcd90cE.llvm.15602210471604820194.exit.i": ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha17c6cf811e52ebaE.exit.i.i.i.i.i", %54
-  store i64 %spec.select.i.i, ptr %5, align 8, !alias.scope !13475, !noalias !13507
+  store i64 %spec.select.i.i.fr, ptr %5, align 8, !alias.scope !13475, !noalias !13507
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.7.0, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !13475, !noalias !13507
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -51386,16 +51386,16 @@ define void @_ZN7hir_def8generics13GenericParams18find_const_by_name17h55f124cf8
   br i1 %11, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %4
-  %.fr13 = freeze i64 %3
   %12 = load i8, ptr %2, align 8, !range !22
   %13 = icmp eq i8 %12, 26
   %14 = xor i1 %13, true
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = and i64 %.fr13, 4294967295
+  %17 = and i64 %3, 4294967295
   %18 = icmp eq i64 %17, 11
-  %spec.select.i.i = select i1 %18, i64 11, i64 %.fr13
-  %19 = trunc i64 %spec.select.i.i to i32
+  %spec.select.i.i = select i1 %18, i64 11, i64 %3
+  %spec.select.i.i.fr = freeze i64 %spec.select.i.i
+  %19 = trunc i64 %spec.select.i.i.fr to i32
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %.lr.ph.i.us, label %.lr.ph.i
 
@@ -51486,7 +51486,7 @@ define void @_ZN7hir_def8generics13GenericParams18find_const_by_name17h55f124cf8
   br i1 %brmerge4.i.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha13885fabb13794bE.llvm.15602210471604820194.exit.thread.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha13885fabb13794bE.llvm.15602210471604820194.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17ha13885fabb13794bE.llvm.15602210471604820194.exit.i": ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha17c6cf811e52ebaE.exit.i.i.i.i.i", %54
-  store i64 %spec.select.i.i, ptr %5, align 8, !alias.scope !13518, !noalias !13550
+  store i64 %spec.select.i.i.fr, ptr %5, align 8, !alias.scope !13518, !noalias !13550
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.7.0, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !13518, !noalias !13550
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -51561,16 +51561,16 @@ define void @_ZN7hir_def8generics13GenericParams21find_lifetime_by_name17h4fa731
   br i1 %11, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %4
-  %.fr14 = freeze i64 %3
   %12 = load i8, ptr %2, align 8, !range !22, !alias.scope !13573, !noalias !13576, !noundef !13
   %13 = icmp eq i8 %12, 26
   %14 = xor i1 %13, true
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = and i64 %.fr14, 4294967295
+  %17 = and i64 %3, 4294967295
   %18 = icmp eq i64 %17, 11
-  %spec.select.i.i = select i1 %18, i64 11, i64 %.fr14
-  %19 = trunc i64 %spec.select.i.i to i32
+  %spec.select.i.i = select i1 %18, i64 11, i64 %3
+  %spec.select.i.i.fr = freeze i64 %spec.select.i.i
+  %19 = trunc i64 %spec.select.i.i.fr to i32
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %.lr.ph.i.us, label %.lr.ph.i
 
@@ -51640,7 +51640,7 @@ define void @_ZN7hir_def8generics13GenericParams21find_lifetime_by_name17h4fa731
   br i1 %40, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd34b45fca49589e6E.llvm.15602210471604820194.exit.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd34b45fca49589e6E.llvm.15602210471604820194.exit.thread.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd34b45fca49589e6E.llvm.15602210471604820194.exit.i": ; preds = %"_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.15602210471604820194.exit.i.i.i.i.i", %36
-  store i64 %spec.select.i.i, ptr %5, align 8, !alias.scope !13596, !noalias !13605
+  store i64 %spec.select.i.i.fr, ptr %5, align 8, !alias.scope !13596, !noalias !13605
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.7.0, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !13596, !noalias !13605
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4

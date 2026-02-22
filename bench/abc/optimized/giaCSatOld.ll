@@ -1457,10 +1457,9 @@ Cbs0_ManCancelUntil.exit:                         ; preds = %.lr.ph.i21, %106, %
   store i32 0, ptr %113, align 4, !tbaa !40
   store i32 0, ptr %112, align 8, !tbaa !39
   %114 = load i32, ptr %4, align 8, !tbaa !45
-  %.fr = freeze i32 %114
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %116 = load i32, ptr %115, align 8, !tbaa !74
-  %117 = add nsw i32 %116, %.fr
+  %117 = add nsw i32 %116, %114
   store i32 %117, ptr %115, align 8, !tbaa !74
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %119 = load i32, ptr %118, align 4, !tbaa !75
@@ -1474,14 +1473,14 @@ Cbs0_ManCancelUntil.exit:                         ; preds = %.lr.ph.i21, %106, %
 
 Cbs0_ManCheckLimits.exit25:                       ; preds = %Cbs0_ManCancelUntil.exit
   %125 = load i32, ptr %0, align 8, !tbaa !46
-  %.fr29 = freeze i32 %125
-  %.not30 = icmp sgt i32 %.fr, %.fr29
-  %spec.select = select i1 %.not30, i32 -1, i32 %36
+  %126 = icmp sle i32 %114, %125
+  %cond.fr = freeze i1 %126
+  %spec.select = select i1 %cond.fr, i32 %36, i32 -1
   br label %Cbs0_ManCheckLimits.exit25.thread
 
 Cbs0_ManCheckLimits.exit25.thread:                ; preds = %Cbs0_ManCheckLimits.exit25, %Cbs0_ManCancelUntil.exit
-  %126 = phi i32 [ -1, %Cbs0_ManCancelUntil.exit ], [ %spec.select, %Cbs0_ManCheckLimits.exit25 ]
-  ret i32 %126
+  %127 = phi i32 [ -1, %Cbs0_ManCancelUntil.exit ], [ %spec.select, %Cbs0_ManCheckLimits.exit25 ]
+  ret i32 %127
 }
 
 ; Function Attrs: nounwind uwtable

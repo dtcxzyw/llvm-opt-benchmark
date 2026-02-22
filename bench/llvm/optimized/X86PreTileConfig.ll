@@ -4559,25 +4559,22 @@ _ZNK12_GLOBAL__N_15MIRefltERKS0_.exit.thread:     ; preds = %1635, %_ZNK12_GLOBA
   %1650 = getelementptr inbounds nuw i8, ptr %1649, i64 8
   %.val43.i = load ptr, ptr %1650, align 8
   %1651 = getelementptr inbounds nuw i8, ptr %1649, i64 16
-  %.8.val.fr.i.i.i.i = freeze ptr %.val43.i
-  %.not.i.i653 = icmp eq i32 %.val42.i, 0
-  br i1 %.not.i.i653, label %_ZN4llvm11lower_boundIRNS_15SmallVectorImplIN12_GLOBAL__N_15MIRefEEERS3_EEDaOT_OT0_.exit.i, label %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i.i
-
-_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_15MIRefltERKS0_.exit.thread
   %.val44.i = load i64, ptr %1651, align 8
+  %.not.i.i653 = icmp eq i32 %.val42.i, 0
+  br i1 %.not.i.i653, label %_ZN4llvm11lower_boundIRNS_15SmallVectorImplIN12_GLOBAL__N_15MIRefEEERS3_EEDaOT_OT0_.exit.i, label %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i.i
+
+_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_15MIRefltERKS0_.exit.thread
   %1652 = zext i32 %.val42.i to i64
-  %.16.val.fr.i.i.i.i = freeze i64 %.val44.i
   br label %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i.i: ; preds = %1666, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i.i
-  %.010.i.i.i.i = phi ptr [ %.val41.i, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %1668, %1666 ]
-  %.0119.i.i.i.i = phi i64 [ %1652, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %1667, %1666 ]
+_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i.i: ; preds = %1666, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i.i
+  %.010.i.i.i.i = phi ptr [ %1668, %1666 ], [ %.val41.i, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i.i ]
+  %.0119.i.i.i.i = phi i64 [ %1667, %1666 ], [ %1652, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i.i ]
   %1653 = lshr i64 %.0119.i.i.i.i, 1
   %1654 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MIRef", ptr %.010.i.i.i.i, i64 %1653
   %1655 = getelementptr i8, ptr %1654, i64 8
   %.val.i.i.i.i654 = load ptr, ptr %1655, align 8, !tbaa !329
-  %.val.fr.i.i.i.i = freeze ptr %.val.i.i.i.i654
-  %1656 = icmp ult ptr %.val.fr.i.i.i.i, %.8.val.fr.i.i.i.i
+  %1656 = icmp ult ptr %.val.i.i.i.i654, %.val43.i
   br i1 %1656, label %.thread.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_15MIRefEKS4_EEbT_RT0_.exit.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i.i
@@ -4589,15 +4586,15 @@ _ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i.i: ; preds = %1666, %_Z
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_15MIRefEKS4_EEbT_RT0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i.i
   %1660 = getelementptr i8, ptr %1654, i64 16
   %.val13.i.i.i.i = load i64, ptr %1660, align 8
-  %1661 = icmp eq ptr %.val.fr.i.i.i.i, %.8.val.fr.i.i.i.i
-  %.val13.fr.i.i.i.i = freeze i64 %.val13.i.i.i.i
-  %1662 = icmp ult i64 %.val13.fr.i.i.i.i, %.16.val.fr.i.i.i.i
-  %spec.select.i.i.i.i.i.i = and i1 %1661, %1662
+  %1661 = icmp eq ptr %.val.i.i.i.i654, %.val43.i
+  %1662 = icmp ult i64 %.val13.i.i.i.i, %.val44.i
+  %spec.select.i.i.i.i.i.i = select i1 %1661, i1 %1662, i1 false
+  %cond.fr4.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i
   %1663 = getelementptr inbounds nuw i8, ptr %1654, i64 24
   %1664 = xor i64 %1653, -1
   %1665 = add nsw i64 %.0119.i.i.i.i, %1664
-  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i.i, i64 %1665, i64 %1653
-  %spec.select8.i.i.i.i = select i1 %spec.select.i.i.i.i.i.i, ptr %1663, ptr %.010.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %cond.fr4.i.i.i.i, i64 %1665, i64 %1653
+  %spec.select8.i.i.i.i = select i1 %cond.fr4.i.i.i.i, ptr %1663, ptr %.010.i.i.i.i
   br label %1666
 
 1666:                                             ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_15MIRefEKS4_EEbT_RT0_.exit.i.i.i.i, %.thread.i.i.i.i
@@ -8080,35 +8077,34 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_116X86PreTileConfig16collectShape
   %.sroa.02.05.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %7, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !278
-  %12 = add i64 %.06.i.i.i, 1
+  %12 = add nuw nsw i64 %.06.i.i.i, 1
   %.not.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_15MIRefC2EPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit, label %.lr.ph.i.i.i, !llvm.loop !373
 
 _ZN12_GLOBAL__N_15MIRefC2EPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit: ; preds = %.lr.ph.i.i.i, %2
-  %.val9 = phi i64 [ 0, %2 ], [ %12, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %2 ], [ %12, %.lr.ph.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.val9, ptr %13, align 8, !tbaa !347
+  store i64 %.0.lcssa.i.i.i, ptr %13, align 8, !tbaa !347
   %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 184
   %15 = call fastcc noundef nonnull align 8 dereferenceable(208) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_11SmallVectorIN12_GLOBAL__N_15MIRefELj8EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.val6 = load ptr, ptr %15, align 8, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.val7 = load i32, ptr %16, align 8, !tbaa !246
   %.not.i = icmp eq i32 %.val7, 0
-  br i1 %.not.i, label %_ZN4llvm11lower_boundIRNS_11SmallVectorIN12_GLOBAL__N_15MIRefELj8EEERS3_EEDaOT_OT0_.exit, label %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i
+  br i1 %.not.i, label %_ZN4llvm11lower_boundIRNS_11SmallVectorIN12_GLOBAL__N_15MIRefELj8EEERS3_EEDaOT_OT0_.exit, label %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i
 
-_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i: ; preds = %_ZN12_GLOBAL__N_15MIRefC2EPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit
+_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i: ; preds = %_ZN12_GLOBAL__N_15MIRefC2EPN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit
   %17 = zext i32 %.val7 to i64
   br label %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i: ; preds = %31, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %.val6, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i ], [ %33, %31 ]
-  %.0119.i.i.i = phi i64 [ %17, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.lr.ph.i.i.i ], [ %32, %31 ]
+_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i: ; preds = %31, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i
+  %.010.i.i.i = phi ptr [ %33, %31 ], [ %.val6, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i ]
+  %.0119.i.i.i = phi i64 [ %32, %31 ], [ %17, %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.preheader.i.i.i ]
   %18 = lshr i64 %.0119.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MIRef", ptr %.010.i.i.i, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %.val.i.i.i = load ptr, ptr %20, align 8, !tbaa !329
-  %.val.fr.i.i.i = freeze ptr %.val.i.i.i
-  %21 = icmp ult ptr %.val.fr.i.i.i, %1
+  %21 = icmp ult ptr %.val.i.i.i, %1
   br i1 %21, label %.thread.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_15MIRefEKS4_EEbT_RT0_.exit.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i
@@ -8120,15 +8116,15 @@ _ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i: ; preds = %31, %_ZSt7a
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_15MIRefEKS4_EEbT_RT0_.exit.i.i.i: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_15MIRefElEvRT_T0_.exit.i.i.i
   %25 = getelementptr i8, ptr %19, i64 16
   %.val13.i.i.i = load i64, ptr %25, align 8
-  %26 = icmp eq ptr %.val.fr.i.i.i, %1
-  %.val13.fr.i.i.i = freeze i64 %.val13.i.i.i
-  %27 = icmp ult i64 %.val13.fr.i.i.i, %.val9
-  %spec.select.i.i.i.i.i = and i1 %26, %27
+  %26 = icmp eq ptr %.val.i.i.i, %1
+  %27 = icmp ult i64 %.val13.i.i.i, %.0.lcssa.i.i.i
+  %spec.select.i.i.i.i.i = select i1 %26, i1 %27, i1 false
+  %cond.fr4.i.i.i = freeze i1 %spec.select.i.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %29 = xor i64 %18, -1
   %30 = add nsw i64 %.0119.i.i.i, %29
-  %spec.select.i.i.i = select i1 %spec.select.i.i.i.i.i, i64 %30, i64 %18
-  %spec.select8.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %28, ptr %.010.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr4.i.i.i, i64 %30, i64 %18
+  %spec.select8.i.i.i = select i1 %cond.fr4.i.i.i, ptr %28, ptr %.010.i.i.i
   br label %31
 
 31:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_15MIRefEKS4_EEbT_RT0_.exit.i.i.i, %.thread.i.i.i

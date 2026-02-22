@@ -4687,17 +4687,16 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPlug
   %18 = load i64, ptr %4, align 8
   %19 = load ptr, ptr %2, align 8
   %20 = load i64, ptr %7, align 8
-  %.fr7.i.i.i = freeze ptr %17
-  %.fr8.i.i.i = freeze ptr %19
-  %21 = icmp ne ptr %.fr7.i.i.i, %.fr8.i.i.i
+  %21 = icmp ne ptr %17, %19
+  %.fr.i.i.i = freeze i1 %21
   %22 = icmp ne i64 %18, %20
-  %.not3.i8.i.i.i.i = select i1 %21, i1 true, i1 %22
+  %.not3.i8.i.i.i.i = select i1 %.fr.i.i.i, i1 true, i1 %22
   br i1 %.not3.i8.i.i.i.i, label %.lr.ph.i.preheader.i.i.i, label %_ZSt22__uninitialized_copy_aIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS5_10PlugPluginEEENS2_23cache_aligned_allocatorIS8_EEEES8_EEPS8_S8_ET0_T_SF_SE_RSaIT1_E.exit
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE11_M_allocateEm.exit
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.fr7.i.i.i, i64 16
-  br i1 %21, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  br i1 %.fr.i.i.i, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.us.i.i.i:                                ; preds = %.lr.ph.i.preheader.i.i.i, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEJRS3_EEvPT_DpOT0_.exit.i.us.i.i.i
   %.sroa.35.0.us.i.i.i = phi i64 [ %41, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEJRS3_EEvPT_DpOT0_.exit.i.us.i.i.i ], [ %18, %.lr.ph.i.preheader.i.i.i ]

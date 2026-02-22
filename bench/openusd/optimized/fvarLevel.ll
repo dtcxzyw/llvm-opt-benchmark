@@ -1407,23 +1407,22 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel30completeTopologyFrom
   %9 = load i8, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %11 = load i8, ptr %10, align 1
-  %.fr = freeze i8 %11
-  %12 = icmp eq i8 %.fr, 5
+  %12 = icmp eq i8 %11, 5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 4
-  %15 = and i8 %.fr, -2
+  %15 = and i8 %11, -2
   %16 = icmp eq i8 %15, 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %18 = zext i1 %16 to i8
   store i8 %18, ptr %17, align 1
-  %19 = icmp eq i8 %.fr, 3
+  %19 = icmp eq i8 %11, 3
   %20 = icmp eq i8 %15, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %22 = zext i1 %20 to i8
   store i8 %22, ptr %21, align 2
   %23 = icmp ne i8 %9, 2
-  %24 = icmp ne i8 %.fr, 0
+  %24 = icmp ne i8 %11, 0
   %25 = or i1 %19, %16
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -2325,7 +2324,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge.i.i.i._
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %503 = add i8 %.fr, -3
+  %503 = add i8 %11, -3
   %504 = icmp ult i8 %503, 3
   %.not375 = xor i1 %25, true
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2477,7 +2476,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge.i.i.i._
 
 607:                                              ; preds = %604
   %608 = icmp ugt i16 %524, 2
-  %brmerge = or i1 %608, %.not375
+  %brmerge = select i1 %608, i1 true, i1 %.not375
   br i1 %brmerge, label %614, label %611
 
 609:                                              ; preds = %604
@@ -2608,19 +2607,19 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge.i.i.i._
 
 670:                                              ; preds = %665
   %671 = load i16, ptr %660, align 2
-  %.fr672 = freeze i16 %671
-  %672 = icmp eq i16 %.fr672, 1
+  %672 = icmp eq i16 %671, 1
   %673 = and i1 %24, %672
-  %674 = zext i16 %.fr672 to i32
+  %cond.fr = freeze i1 %673
+  %674 = zext i16 %671 to i32
   %.not352 = icmp eq i32 %1, %674
   %675 = select i1 %.not352, i8 1, i8 3
-  %spec.select668 = select i1 %673, i8 1, i8 3
+  %spec.select668 = select i1 %cond.fr, i8 1, i8 3
   br label %676
 
 676:                                              ; preds = %670, %.thread652
   %677 = phi i8 [ %675, %670 ], [ %669, %.thread652 ]
-  %.in = phi i16 [ %.fr672, %670 ], [ %.pr, %.thread652 ]
-  %678 = phi i1 [ %673, %670 ], [ true, %.thread652 ]
+  %.in = phi i16 [ %671, %670 ], [ %.pr, %.thread652 ]
+  %678 = phi i1 [ %cond.fr, %670 ], [ true, %.thread652 ]
   %679 = phi i8 [ %spec.select668, %670 ], [ 1, %.thread652 ]
   %680 = icmp eq i16 %.in, 1
   %storemerge = select i1 %680, i8 %679, i8 %677
@@ -4328,18 +4327,18 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %34 = load ptr, ptr %32, align 8
   %35 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %34, i64 %33
   %36 = load i16, ptr %35, align 2
-  %.fr139 = freeze i16 %36
-  %37 = and i16 %.fr139, 4
+  %.fr140 = freeze i16 %36
+  %37 = and i16 %.fr140, 4
   %.not.not = icmp eq i16 %37, 0
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %39 = load i32, ptr %38, align 4
-  %.fr140 = freeze i32 %39
-  %40 = icmp eq i32 %.fr140, 0
+  %.fr141 = freeze i32 %39
+  %40 = icmp eq i32 %.fr141, 0
   %41 = icmp sgt i32 %16, 0
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %42 = and i16 %.fr139, 1
+  %42 = and i16 %.fr140, 1
   %.not86 = icmp eq i16 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4353,7 +4352,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
   %48 = zext nneg i32 %45 to i64
-  %wide.trip.count153 = zext nneg i32 %16 to i64
+  %wide.trip.count154 = zext nneg i32 %16 to i64
   %49 = add nsw i64 %48, -1
   %50 = getelementptr inbounds i32, ptr %28, i64 %49
   %51 = getelementptr inbounds i16, ptr %31, i64 %49
@@ -4361,12 +4360,12 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
-  %wide.trip.count158 = zext nneg i32 %16 to i64
+  %wide.trip.count159 = zext nneg i32 %16 to i64
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %101
-  %indvars.iv155 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next156, %101 ]
-  %53 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv155
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next157, %101 ]
+  %53 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv156
   %54 = load i32, ptr %53, align 4
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 120
@@ -4374,7 +4373,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %58 = sext i32 %57 to i64
   %59 = load ptr, ptr %56, align 8
   %60 = getelementptr inbounds i32, ptr %59, i64 %58
-  %61 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv155
+  %61 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv156
   %62 = load i16, ptr %61, align 2
   %.not87.us.us = icmp eq i16 %62, 0
   %63 = zext i1 %.not87.us.us to i64
@@ -4388,7 +4387,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   br i1 %70, label %93, label %71
 
 71:                                               ; preds = %.lr.ph.split.us.split.us
-  %72 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv155
+  %72 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv156
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %75 = shl nsw i32 %73, 1
@@ -4401,7 +4400,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %82 = sext i32 %81 to i64
   %83 = load ptr, ptr %44, align 8
   %84 = getelementptr inbounds i32, ptr %83, i64 %82
-  %85 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv155
+  %85 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv156
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = add nsw i32 %79, -1
@@ -4427,15 +4426,15 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
 101:                                              ; preds = %96, %93, %71
   %.sink.in = phi ptr [ %92, %71 ], [ %100, %96 ], [ %95, %93 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv155
+  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv156
   store i32 %.sink, ptr %102, align 4
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !43
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !43
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %177
-  %indvars.iv150 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next151, %177 ]
-  %103 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv150
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next152, %177 ]
+  %103 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv151
   %104 = load i32, ptr %103, align 4
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 120
@@ -4443,7 +4442,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %108 = sext i32 %107 to i64
   %109 = load ptr, ptr %106, align 8
   %110 = getelementptr inbounds i32, ptr %109, i64 %108
-  %111 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv150
+  %111 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv151
   %112 = load i16, ptr %111, align 2
   %.not87.us = icmp eq i16 %112, 0
   %113 = zext i1 %.not87.us to i64
@@ -4457,11 +4456,11 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   br i1 %120, label %166, label %121
 
 121:                                              ; preds = %.lr.ph.split.us.split
-  %122 = icmp eq i64 %indvars.iv150, %48
+  %122 = icmp eq i64 %indvars.iv151, %48
   br i1 %122, label %147, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv150
+  %124 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv151
   %125 = load i32, ptr %124, align 4
   %126 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %127 = shl nsw i32 %125, 1
@@ -4474,7 +4473,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %134 = sext i32 %133 to i64
   %135 = load ptr, ptr %44, align 8
   %136 = getelementptr inbounds i32, ptr %135, i64 %134
-  %137 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv150
+  %137 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv151
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
   %140 = add nsw i32 %131, -1
@@ -4484,7 +4483,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %143 = zext nneg i32 %spec.select134.us to i64
   %144 = getelementptr inbounds nuw i32, ptr %136, i64 %143
   %145 = load i32, ptr %144, align 4
-  %146 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv150
+  %146 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv151
   store i32 %145, ptr %146, align 4
   br label %177
 
@@ -4527,22 +4526,22 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
 174:                                              ; preds = %166, %169
   %.in.us = phi ptr [ %173, %169 ], [ %168, %166 ]
   %175 = load i32, ptr %.in.us, align 4
-  %176 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv150
+  %176 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv151
   store i32 %175, ptr %176, align 4
   br label %177
 
 177:                                              ; preds = %174, %147, %123
-  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !43
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
+  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %wide.trip.count148 = zext nneg i32 %16 to i64
+  %wide.trip.count149 = zext nneg i32 %16 to i64
   br i1 %40, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %246
-  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %246 ], [ 0, %.lr.ph.split ]
-  %178 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv145
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %246 ], [ 0, %.lr.ph.split ]
+  %178 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv146
   %179 = load i32, ptr %178, align 4
   %180 = load ptr, ptr %0, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 120
@@ -4550,7 +4549,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   %183 = sext i32 %182 to i64
   %184 = load ptr, ptr %181, align 8
   %185 = getelementptr inbounds i32, ptr %184, i64 %183
-  %186 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv145
+  %186 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv146
   %187 = load i16, ptr %186, align 2
   %.not87.us137 = icmp eq i16 %187, 0
   %188 = zext i1 %.not87.us137 to i64
@@ -4622,13 +4621,13 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   br label %246
 
 246:                                              ; preds = %239, %237, %228
-  %.sink165.in = phi ptr [ %245, %239 ], [ %238, %237 ], [ %236, %228 ]
-  %.sink165 = load i32, ptr %.sink165.in, align 4
-  %247 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv145
-  store i32 %.sink165, ptr %247, align 4
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !43
+  %.sink166.in = phi ptr [ %245, %239 ], [ %238, %237 ], [ %236, %228 ]
+  %.sink166 = load i32, ptr %.sink166.in, align 4
+  %247 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv146
+  store i32 %.sink166, ptr %247, align 4
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
+  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !43
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %312
   %indvars.iv = phi i64 [ %indvars.iv.next, %312 ], [ 0, %.lr.ph.split ]
@@ -4708,12 +4707,12 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel19getVertexEdgeValues
   br label %312
 
 312:                                              ; preds = %266, %301, %303
-  %.sink167.in = phi ptr [ %268, %266 ], [ %302, %301 ], [ %311, %303 ]
-  %.sink167 = load i32, ptr %.sink167.in, align 4
+  %.sink168.in = phi ptr [ %268, %266 ], [ %302, %301 ], [ %311, %303 ]
+  %.sink168 = load i32, ptr %.sink168.in, align 4
   %313 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %.sink167, ptr %313, align 4
+  store i32 %.sink168, ptr %313, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count149
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %312, %246, %177, %101, %3

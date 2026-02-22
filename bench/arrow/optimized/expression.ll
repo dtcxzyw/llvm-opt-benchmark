@@ -14674,11 +14674,9 @@ _ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
 358:                                              ; preds = %_ZN5arrow6ResultINS_5DatumEED2Ev.exit
   %359 = add nuw i64 %.090230, 1
   %360 = load ptr, ptr %351, align 8, !tbaa !416
-  %.fr287 = freeze ptr %360
   %361 = load ptr, ptr %37, align 8, !tbaa !445
-  %.fr = freeze ptr %361
-  %362 = ptrtoint ptr %.fr287 to i64
-  %363 = ptrtoint ptr %.fr to i64
+  %362 = ptrtoint ptr %360 to i64
+  %363 = ptrtoint ptr %361 to i64
   %364 = sub i64 %362, %363
   %365 = sdiv exact i64 %364, 24
   %.not116 = icmp ult i64 %359, %365
@@ -14765,10 +14763,9 @@ _ZN5arrow5DatumaSEOS0_.exit:                      ; preds = %382
   %393 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %392, i64 %.090230
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 16
   %395 = load i8, ptr %394, align 8, !tbaa !68
-  %.fr288 = freeze i8 %395
-  %396 = icmp eq i8 %.fr288, 1
+  %396 = icmp eq i8 %395, 1
   %397 = icmp ne i8 %.091229, 0
-  %398 = and i1 %396, %397
+  %398 = select i1 %396, i1 %397, i1 false
   %399 = zext i1 %398 to i8
   br label %400
 
@@ -14813,12 +14810,13 @@ _ZN5arrow6ResultINS_5DatumEED2Ev.exit:            ; preds = %_ZN5arrow6ResultINS
   br i1 %373, label %358, label %.thread221
 
 ._crit_edge:                                      ; preds = %358
-  %412 = icmp ne ptr %.fr, %.fr287
+  %412 = icmp ne ptr %361, %360
   %413 = trunc nuw i8 %.293 to i1
-  %414 = and i1 %412, %413
+  %414 = select i1 %412, i1 %413, i1 false
   %415 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %416 = load i64, ptr %415, align 8
-  %spec.select = select i1 %414, i64 1, i64 %416
+  %cond.fr = freeze i1 %414
+  %spec.select = select i1 %cond.fr, i64 1, i64 %416
   br label %417
 
 417:                                              ; preds = %._crit_edge, %._crit_edge.thread

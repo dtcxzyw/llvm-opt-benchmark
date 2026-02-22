@@ -3370,8 +3370,7 @@ define internal float @ppp_pvq_search_c(ptr noundef readonly captures(none) %0, 
   %.098112 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %6 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %7 = load float, ptr %6, align 4, !tbaa !19
-  %.fr188 = freeze float %7
-  %8 = tail call nsz float @llvm.fabs.f32(float %.fr188)
+  %8 = tail call nsz float @llvm.fabs.f32(float %7)
   %9 = fadd nsz float %.098112, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3389,8 +3388,8 @@ define internal float @ppp_pvq_search_c(ptr noundef readonly captures(none) %0, 
   br i1 %.not131, label %._crit_edge137, label %.lr.ph128.us.preheader
 
 .preheader.thread:                                ; preds = %4
-  %.not131193 = icmp eq i32 %2, 0
-  br i1 %.not131193, label %._crit_edge137, label %.lr.ph136.split
+  %.not131194 = icmp eq i32 %2, 0
+  br i1 %.not131194, label %._crit_edge137, label %.lr.ph136.split
 
 .lr.ph128.us.preheader:                           ; preds = %.preheader
   %wide.trip.count179 = zext nneg i32 %3 to i64
@@ -3526,16 +3525,16 @@ define internal float @ppp_pvq_search_c(ptr noundef readonly captures(none) %0, 
   %.099114 = phi i32 [ 0, %.lr.ph119.preheader ], [ %86, %.lr.ph119 ]
   %79 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv171
   %80 = load float, ptr %79, align 4, !tbaa !19
-  %.fr = freeze float %80
-  %81 = fmul nsz float %12, %.fr
-  %82 = tail call i64 @llvm.lrint.i64.f32(float %81)
+  %81 = fmul nsz float %12, %80
+  %.fr189 = freeze float %81
+  %82 = tail call i64 @llvm.lrint.i64.f32(float %.fr189)
   %83 = trunc i64 %82 to i32
   %84 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv171
   store i32 %83, ptr %84, align 4, !tbaa !22
   %85 = mul nsw i32 %83, %83
   %86 = add nuw nsw i32 %85, %.099114
   %87 = sitofp i32 %83 to float
-  %88 = tail call nsz float @llvm.fmuladd.f32(float %87, float %.fr, float %.096115)
+  %88 = tail call nsz float @llvm.fmuladd.f32(float %87, float %80, float %.096115)
   %89 = tail call i32 @llvm.abs.i32(i32 %83, i1 false)
   %90 = sub i32 %.0117, %89
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1

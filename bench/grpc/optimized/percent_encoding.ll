@@ -263,17 +263,17 @@ define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_
   %13 = and i64 %12, 255
   %14 = select i1 %.not.i, i64 %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 %14
-  %.not.not81 = icmp samesign eq i64 %14, 0
-  br i1 %.not.not81, label %.critedge, label %.lr.ph
+  %.not.not82 = icmp samesign eq i64 %14, 0
+  br i1 %.not.not82, label %.critedge, label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.03782, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.03783, i64 1
   %.not.not = icmp eq ptr %17, %15
   br i1 %.not.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %16
-  %.03782 = phi ptr [ %17, %16 ], [ %10, %2 ]
-  %18 = load i8, ptr %.03782, align 1, !tbaa !9
+  %.03783 = phi ptr [ %17, %16 ], [ %10, %2 ]
+  %18 = load i8, ptr %.03783, align 1, !tbaa !9
   %.not40 = icmp eq i8 %18, 37
   br i1 %.not40, label %19, label %16
 
@@ -320,30 +320,30 @@ define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_
   %34 = and i64 %33, 255
   %35 = select i1 %.not.i.i, i64 %34, i64 %33
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35
-  %.not4184 = icmp samesign eq i64 %35, 0
-  br i1 %.not4184, label %._crit_edge, label %.lr.ph87
+  %.not4185 = icmp samesign eq i64 %35, 0
+  br i1 %.not4185, label %._crit_edge, label %.lr.ph88
 
-.lr.ph87:                                         ; preds = %26, %72
-  %.02686 = phi ptr [ %.127, %72 ], [ %31, %26 ]
-  %.03585 = phi ptr [ %.136, %72 ], [ %31, %26 ]
-  %37 = load i8, ptr %.02686, align 1, !tbaa !9
+.lr.ph88:                                         ; preds = %26, %72
+  %.02687 = phi ptr [ %.127, %72 ], [ %31, %26 ]
+  %.03586 = phi ptr [ %.136, %72 ], [ %31, %26 ]
+  %37 = load i8, ptr %.02687, align 1, !tbaa !9
   %38 = icmp eq i8 %37, 37
-  %39 = getelementptr inbounds nuw i8, ptr %.02686, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.02687, i64 1
   br i1 %38, label %40, label %71
 
-40:                                               ; preds = %.lr.ph87
+40:                                               ; preds = %.lr.ph88
   %.not.i50 = icmp ult ptr %39, %36
   br i1 %.not.i50, label %41, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70
 
 41:                                               ; preds = %40
   %42 = load i8, ptr %39, align 1, !tbaa !9
-  %.fr = freeze i8 %42
-  %43 = add i8 %.fr, -48
+  %.fr77 = freeze i8 %42
+  %43 = add i8 %.fr77, -48
   %or.cond.i = icmp ult i8 %43, 10
   br i1 %or.cond.i, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %41
-  switch i8 %.fr, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70 [
+  switch i8 %.fr77, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70 [
     i8 102, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread
     i8 101, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread
     i8 100, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread
@@ -359,19 +359,19 @@ switch.early.test:                                ; preds = %41
   ]
 
 _ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread:       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %41
-  %44 = getelementptr inbounds nuw i8, ptr %.02686, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.02687, i64 2
   %.not.i51 = icmp ult ptr %44, %36
   br i1 %.not.i51, label %45, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70
 
 45:                                               ; preds = %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread
   %46 = load i8, ptr %44, align 1, !tbaa !9
-  %.fr77 = freeze i8 %46
-  %47 = add i8 %.fr77, -48
+  %.fr78 = freeze i8 %46
+  %47 = add i8 %.fr78, -48
   %or.cond.i53 = icmp ult i8 %47, 10
   br i1 %or.cond.i53, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread, label %switch.early.test76
 
 switch.early.test76:                              ; preds = %45
-  switch i8 %.fr77, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70 [
+  switch i8 %.fr78, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70 [
     i8 102, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
     i8 101, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
     i8 100, label %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
@@ -387,7 +387,7 @@ switch.early.test76:                              ; preds = %45
   ]
 
 _ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70:     ; preds = %switch.early.test76, %switch.early.test, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread, %40
-  store i8 37, ptr %.03585, align 1, !tbaa !9
+  store i8 37, ptr %.03586, align 1, !tbaa !9
   br label %72
 
 48:                                               ; preds = %.invoke
@@ -396,50 +396,50 @@ _ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70:     ; preds = %switch.early.test76
   br label %92
 
 _ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread:     ; preds = %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %45
-  %50 = add nsw i8 %.fr, -48
-  %or.cond.i58 = icmp slt i8 %.fr, 58
+  %50 = add nsw i8 %.fr77, -48
+  %or.cond.i58 = icmp slt i8 %.fr77, 58
   br i1 %or.cond.i58, label %_ZN9grpc_coreL5DeHexEh.exit, label %51
 
 51:                                               ; preds = %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
-  %52 = add nsw i8 %.fr, -65
+  %52 = add nsw i8 %.fr77, -65
   %or.cond5.i = icmp ult i8 %52, 6
   br i1 %or.cond5.i, label %53, label %55
 
 53:                                               ; preds = %51
-  %54 = add nsw i8 %.fr, -55
+  %54 = add nsw i8 %.fr77, -55
   br label %_ZN9grpc_coreL5DeHexEh.exit
 
 55:                                               ; preds = %51
-  %56 = add nsw i8 %.fr, -97
+  %56 = add nsw i8 %.fr77, -97
   %or.cond8.i = icmp ult i8 %56, 6
   br i1 %or.cond8.i, label %57, label %.invoke
 
 57:                                               ; preds = %55
-  %58 = add nsw i8 %.fr, -87
+  %58 = add nsw i8 %.fr77, -87
   br label %_ZN9grpc_coreL5DeHexEh.exit
 
 _ZN9grpc_coreL5DeHexEh.exit:                      ; preds = %57, %53, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
   %.0.i59 = phi i8 [ %58, %57 ], [ %54, %53 ], [ %50, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread ]
-  %59 = add nsw i8 %.fr77, -48
-  %or.cond.i60 = icmp slt i8 %.fr77, 58
+  %59 = add nsw i8 %.fr78, -48
+  %or.cond.i60 = icmp slt i8 %.fr78, 58
   br i1 %or.cond.i60, label %_ZN9grpc_coreL5DeHexEh.exit65, label %60
 
 60:                                               ; preds = %_ZN9grpc_coreL5DeHexEh.exit
-  %61 = add nsw i8 %.fr77, -65
+  %61 = add nsw i8 %.fr78, -65
   %or.cond5.i61 = icmp ult i8 %61, 6
   br i1 %or.cond5.i61, label %62, label %64
 
 62:                                               ; preds = %60
-  %63 = add nsw i8 %.fr77, -55
+  %63 = add nsw i8 %.fr78, -55
   br label %_ZN9grpc_coreL5DeHexEh.exit65
 
 64:                                               ; preds = %60
-  %65 = add nsw i8 %.fr77, -97
+  %65 = add nsw i8 %.fr78, -97
   %or.cond8.i62 = icmp ult i8 %65, 6
   br i1 %or.cond8.i62, label %66, label %.invoke
 
 66:                                               ; preds = %64
-  %67 = add nsw i8 %.fr77, -87
+  %67 = add nsw i8 %.fr78, -87
   br label %_ZN9grpc_coreL5DeHexEh.exit65
 
 .invoke:                                          ; preds = %64, %55
@@ -453,27 +453,27 @@ _ZN9grpc_coreL5DeHexEh.exit65:                    ; preds = %66, %62, %_ZN9grpc_
   %.0.i63 = phi i8 [ %67, %66 ], [ %63, %62 ], [ %59, %_ZN9grpc_coreL5DeHexEh.exit ]
   %68 = shl nuw i8 %.0.i59, 4
   %69 = add nuw nsw i8 %.0.i63, %68
-  store i8 %69, ptr %.03585, align 1, !tbaa !9
-  %70 = getelementptr inbounds nuw i8, ptr %.02686, i64 3
+  store i8 %69, ptr %.03586, align 1, !tbaa !9
+  %70 = getelementptr inbounds nuw i8, ptr %.02687, i64 3
   br label %72
 
-71:                                               ; preds = %.lr.ph87
-  store i8 %37, ptr %.03585, align 1, !tbaa !9
+71:                                               ; preds = %.lr.ph88
+  store i8 %37, ptr %.03586, align 1, !tbaa !9
   br label %72
 
 72:                                               ; preds = %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70, %_ZN9grpc_coreL5DeHexEh.exit65, %71
   %.127 = phi ptr [ %70, %_ZN9grpc_coreL5DeHexEh.exit65 ], [ %39, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70 ], [ %39, %71 ]
-  %.136 = getelementptr inbounds nuw i8, ptr %.03585, i64 1
+  %.136 = getelementptr inbounds nuw i8, ptr %.03586, i64 1
   %.not41 = icmp eq ptr %.127, %36
-  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph87, !llvm.loop !33
+  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph88, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %72
   %.pre = load ptr, ptr %4, align 8, !tbaa !15
-  %.pre88 = load ptr, ptr %28, align 8
+  %.pre89 = load ptr, ptr %28, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
-  %73 = phi ptr [ %29, %26 ], [ %.pre88, %._crit_edge.loopexit ]
+  %73 = phi ptr [ %29, %26 ], [ %.pre89, %._crit_edge.loopexit ]
   %74 = phi ptr [ %27, %26 ], [ %.pre, %._crit_edge.loopexit ]
   %.035.lcssa = phi ptr [ %31, %26 ], [ %.136, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

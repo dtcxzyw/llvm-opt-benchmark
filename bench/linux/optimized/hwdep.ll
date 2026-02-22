@@ -364,9 +364,8 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   %7 = tail call i64 @llvm.read_register.i64(metadata !0)
   %8 = inttoptr i64 %3 to ptr
   %9 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %8, i64 4, i64 %7) #11, !srcloc !9
-  %.fr = freeze { ptr, i32, i64 } %9
-  %10 = extractvalue { ptr, i32, i64 } %.fr, 0
-  %11 = extractvalue { ptr, i32, i64 } %.fr, 2
+  %10 = extractvalue { ptr, i32, i64 } %9, 0
+  %11 = extractvalue { ptr, i32, i64 } %9, 2
   %12 = ptrtoint ptr %10 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %11)
   %13 = and i64 %12, 4294967295
@@ -374,13 +373,14 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   br i1 %14, label %15, label %95
 
 15:                                               ; preds = %6
-  %16 = extractvalue { ptr, i32, i64 } %.fr, 1
+  %16 = extractvalue { ptr, i32, i64 } %9, 1
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #11
   %17 = icmp slt i32 %16, 0
-  %18 = tail call i32 @llvm.umin.i32(i32 %16, i32 3)
+  %18 = tail call i32 @llvm.smin.i32(i32 %16, i32 3)
   %19 = add nuw nsw i32 %18, 1
   %20 = select i1 %17, i32 0, i32 %19
-  %21 = icmp samesign ult i32 %20, 4
+  %.fr10 = freeze i32 %20
+  %21 = icmp slt i32 %.fr10, 4
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %15
@@ -389,7 +389,7 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   br i1 %24, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %22, %.critedge
-  %25 = phi i32 [ %41, %.critedge ], [ %20, %22 ]
+  %25 = phi i32 [ %41, %.critedge ], [ %.fr10, %22 ]
   br label %26
 
 26:                                               ; preds = %.preheader, %35
@@ -416,7 +416,7 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   br i1 %40, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %35, %38
-  %41 = add nuw nsw i32 %25, 1
+  %41 = add nsw i32 %25, 1
   %42 = icmp eq i32 %41, 4
   br i1 %42, label %.thread, label %.preheader, !llvm.loop !10
 
@@ -1221,7 +1221,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

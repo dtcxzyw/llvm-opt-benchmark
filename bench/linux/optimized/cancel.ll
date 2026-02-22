@@ -389,8 +389,8 @@ declare dso_local ptr @io_file_get_normal(ptr noundef, i32 noundef) local_unname
 define internal fastcc i32 @__io_async_cancel(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
-  %.fr9 = freeze i32 %5
-  %6 = and i32 %.fr9, 5
+  %.fr = freeze i32 %5
+  %6 = and i32 %.fr, 5
   %.not = icmp eq i32 %6, 0
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @io_try_cancel(ptr noundef %1, ptr noundef %0, i32 noundef %2)

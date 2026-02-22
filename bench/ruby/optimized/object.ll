@@ -2003,10 +2003,10 @@ define dso_local range(i64 0, 21) i64 @rb_obj_frozen_p(i64 noundef %0) local_unn
 RB_FL_ABLE.exit.i:                                ; preds = %1
   %6 = inttoptr i64 %0 to ptr
   %7 = load i64, ptr %6, align 8, !tbaa !24
-  %.fr = freeze i64 %7
-  %8 = and i64 %.fr, 31
+  %.fr3 = freeze i64 %7
+  %8 = and i64 %.fr3, 31
   %.not.i = icmp ne i64 %8, 27
-  %9 = and i64 %.fr, 2048
+  %9 = and i64 %.fr3, 2048
   %.not = icmp eq i64 %9, 0
   %or.cond = and i1 %.not.i, %.not
   br i1 %or.cond, label %10, label %RB_OBJ_FROZEN.exit.thread
@@ -3353,8 +3353,8 @@ convert_type_with_id.exit:                        ; preds = %convert_type.exit
 rb_integer_type_p.exit7:                          ; preds = %47
   %52 = inttoptr i64 %44 to ptr
   %53 = load i64, ptr %52, align 8, !tbaa !24
-  %.fr = freeze i64 %53
-  %54 = and i64 %.fr, 31
+  %.fr24 = freeze i64 %53
+  %54 = and i64 %.fr24, 31
   %55 = icmp eq i64 %54, 10
   %spec.select = select i1 %55, i64 %44, i64 4
   br label %rb_integer_type_p.exit.thread
@@ -3461,8 +3461,8 @@ convert_type_with_id.exit:                        ; preds = %rb_integer_type_p.e
 rb_integer_type_p.exit8:                          ; preds = %15
   %20 = inttoptr i64 %12 to ptr
   %21 = load i64, ptr %20, align 8, !tbaa !24
-  %.fr = freeze i64 %21
-  %22 = and i64 %.fr, 31
+  %.fr24 = freeze i64 %21
+  %22 = and i64 %.fr24, 31
   %23 = icmp eq i64 %22, 10
   %spec.select = select i1 %23, i64 %12, i64 4
   br label %rb_integer_type_p.exit.thread
@@ -6945,8 +6945,8 @@ rb_check_arity.exit:                              ; preds = %3
 9:                                                ; preds = %rb_check_arity.exit
   %10 = getelementptr i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !7
-  %.fr = freeze i64 %11
-  %12 = and i64 %.fr, -5
+  %.fr181 = freeze i64 %11
+  %12 = and i64 %.fr181, -5
   %13 = icmp eq i64 %12, 0
   br label %14
 
@@ -7174,9 +7174,9 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
 
 .critedge.thread:                                 ; preds = %108
   %112 = icmp eq ptr %.182150, %109
-  br i1 %112, label %.thread125, label %.thread245
+  br i1 %112, label %.thread125, label %.thread246
 
-.thread245:                                       ; preds = %.critedge.thread
+.thread246:                                       ; preds = %.critedge.thread
   %113 = ptrtoint ptr %109 to i64
   %114 = ptrtoint ptr %.182150 to i64
   %115 = sub i64 %113, %114
@@ -7203,12 +7203,12 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   %.not101 = icmp eq i8 %128, 58
   br i1 %.not101, label %129, label %.thread125
 
-129:                                              ; preds = %.thread245, %126, %117
-  %130 = phi i64 [ %116, %.thread245 ], [ %121, %117 ], [ %121, %126 ]
-  %131 = phi i64 [ %115, %.thread245 ], [ %120, %117 ], [ %120, %126 ]
-  %132 = phi i64 [ %114, %.thread245 ], [ %119, %117 ], [ %119, %126 ]
-  %.490 = phi ptr [ %109, %.thread245 ], [ %.288146, %117 ], [ %125, %126 ]
-  %.384 = phi ptr [ %.182150, %.thread245 ], [ %.182150, %117 ], [ %125, %126 ]
+129:                                              ; preds = %.thread246, %126, %117
+  %130 = phi i64 [ %116, %.thread246 ], [ %121, %117 ], [ %121, %126 ]
+  %131 = phi i64 [ %115, %.thread246 ], [ %120, %117 ], [ %120, %126 ]
+  %132 = phi i64 [ %114, %.thread246 ], [ %119, %117 ], [ %119, %126 ]
+  %.490 = phi ptr [ %109, %.thread246 ], [ %.288146, %117 ], [ %125, %126 ]
+  %.384 = phi ptr [ %.182150, %.thread246 ], [ %.182150, %117 ], [ %125, %126 ]
   %.not102 = icmp eq i64 %130, 0
   br i1 %.not102, label %.split.us, label %138
 
@@ -7282,8 +7282,8 @@ rbimpl_RB_TYPE_P_fastpath.exit112:                ; preds = %157
   %162 = inttoptr i64 %.4 to ptr
   %163 = load i64, ptr %162, align 8, !tbaa !24
   %164 = and i64 %163, 30
-  %switch290 = icmp eq i64 %164, 2
-  br i1 %switch290, label %.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
+  %switch291 = icmp eq i64 %164, 2
+  br i1 %switch291, label %.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit112, %157, %rbimpl_RB_TYPE_P_fastpath.exit112.us, %98
   %165 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
@@ -7709,13 +7709,13 @@ define internal range(i64 0, 21) i64 @rb_mod_singleton_p(i64 noundef %0) #4 {
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %1
   %6 = inttoptr i64 %0 to ptr
   %7 = load i64, ptr %6, align 8, !tbaa !24
-  %.fr = freeze i64 %7
-  %8 = and i64 %.fr, 31
+  %.fr2 = freeze i64 %7
+  %8 = and i64 %.fr2, 31
   %9 = icmp eq i64 %8, 2
   br i1 %9, label %RCLASS_SINGLETON_P.exit, label %RCLASS_SINGLETON_P.exit.thread
 
 RCLASS_SINGLETON_P.exit:                          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %10 = and i64 %.fr, 8192
+  %10 = and i64 %.fr2, 8192
   %.not = icmp eq i64 %10, 0
   %spec.select = select i1 %.not, i64 0, i64 20
   br label %RCLASS_SINGLETON_P.exit.thread
@@ -8046,10 +8046,10 @@ define internal range(i64 0, 21) i64 @builtin_inline_class_69(ptr readnone captu
 RB_FL_ABLE.exit.i.i:                              ; preds = %2
   %7 = inttoptr i64 %1 to ptr
   %8 = load i64, ptr %7, align 8, !tbaa !24
-  %.fr.i = freeze i64 %8
-  %9 = and i64 %.fr.i, 31
+  %.fr3.i = freeze i64 %8
+  %9 = and i64 %.fr3.i, 31
   %.not.i.i = icmp ne i64 %9, 27
-  %10 = and i64 %.fr.i, 2048
+  %10 = and i64 %.fr3.i, 2048
   %.not.i = icmp eq i64 %10, 0
   %or.cond.i = and i1 %.not.i.i, %.not.i
   br i1 %or.cond.i, label %rb_obj_frozen_p.exit, label %RB_OBJ_FROZEN.exit.thread.i
@@ -8471,8 +8471,8 @@ convert_type_with_id.exit:                        ; preds = %rb_integer_type_p.e
 rb_integer_type_p.exit8:                          ; preds = %15
   %20 = inttoptr i64 %12 to ptr
   %21 = load i64, ptr %20, align 8, !tbaa !24
-  %.fr = freeze i64 %21
-  %22 = and i64 %.fr, 31
+  %.fr24 = freeze i64 %21
+  %22 = and i64 %.fr24, 31
   %23 = icmp eq i64 %22, 10
   %spec.select = select i1 %23, i64 %12, i64 4
   br label %rb_integer_type_p.exit.thread

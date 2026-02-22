@@ -6096,19 +6096,17 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   %.050 = phi i64 [ %.151, %77 ], [ %.151, %78 ], [ %.151, %75 ], [ %30, %select.unfold ]
   %.048 = phi i64 [ %.149, %77 ], [ %.149, %78 ], [ %.149, %75 ], [ %34, %select.unfold ]
   %.0 = phi i64 [ %.1, %77 ], [ %.1, %78 ], [ %.1, %75 ], [ %38, %select.unfold ]
-  %.0.fr = freeze i64 %.0
-  %.050.fr = freeze i64 %.050
-  %.048.fr = freeze i64 %.048
   %.162.fr = freeze i64 %.162
-  %.not82 = icmp ne i64 %.0.fr, -1
-  %82 = icmp ult i64 %.050.fr, %.0.fr
-  %.267 = call i64 @llvm.umin.i64(i64 %.050.fr, i64 %.0.fr)
+  %.not82 = icmp ne i64 %.0, -1
+  %82 = icmp ult i64 %.050, %.0
+  %.267 = call i64 @llvm.umin.i64(i64 %.050, i64 %.0)
   %83 = or i1 %.not82, %82
-  %84 = icmp ult i64 %.048.fr, %.267
-  %spec.select87 = call i64 @llvm.umin.i64(i64 %.048.fr, i64 %.267)
+  %84 = icmp ult i64 %.048, %.267
+  %spec.select87 = call i64 @llvm.umin.i64(i64 %.048, i64 %.267)
+  %spec.select87.fr = freeze i64 %spec.select87
   %85 = or i1 %83, %84
-  %86 = icmp ult i64 %.162.fr, %spec.select87
-  %spec.select90 = call i64 @llvm.umin.i64(i64 %.162.fr, i64 %spec.select87)
+  %86 = icmp ult i64 %.162.fr, %spec.select87.fr
+  %spec.select90 = call i64 @llvm.umin.i64(i64 %.162.fr, i64 %spec.select87.fr)
   %87 = or i1 %85, %86
   br i1 %87, label %88, label %89
 
@@ -6121,7 +6119,7 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
 
 89:                                               ; preds = %81, %88
   %90 = icmp eq i64 %.162.fr, -1
-  %91 = icmp eq i64 %spec.select87, -1
+  %91 = icmp eq i64 %spec.select87.fr, -1
   %92 = freeze double %.2
   br label %acct_policy_set_qos_order.exit
 

@@ -1527,8 +1527,8 @@ define internal void @attr_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !74
-  %.fr = freeze i32 %4
-  %5 = and i32 %.fr, 1
+  %.fr28 = freeze i32 %4
+  %5 = and i32 %.fr28, 1
   %.not = icmp eq i32 %5, 0
   %6 = load ptr, ptr %2, align 8, !tbaa !88
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1601,8 +1601,8 @@ zend_string_release.exit22:                       ; preds = %zend_string_release
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %zend_string_release.exit25.us
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %zend_string_release.exit25.us ], [ 0, %.lr.ph ]
-  %36 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %35, i64 %indvars.iv30
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %zend_string_release.exit25.us ], [ 0, %.lr.ph ]
+  %36 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %35, i64 %indvars.iv31
   %37 = load ptr, ptr %36, align 8, !tbaa !75
   %.not19.us = icmp eq ptr %37, null
   br i1 %.not19.us, label %zend_string_release.exit25.us, label %38
@@ -1639,10 +1639,10 @@ zend_string_release.exit22:                       ; preds = %zend_string_release
 zend_string_release.exit25.us:                    ; preds = %50, %49, %42, %38, %.lr.ph.split.us
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %51) #16
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %52 = load i32, ptr %33, align 4, !tbaa !4
   %53 = zext i32 %52 to i64
-  %54 = icmp samesign ult i64 %indvars.iv.next31, %53
+  %54 = icmp samesign ult i64 %indvars.iv.next32, %53
   br i1 %54, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_string_release.exit25, %zend_string_release.exit25.us, %zend_string_release.exit22

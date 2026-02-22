@@ -431,7 +431,7 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %20 = phi i16 [ %12, %.preheader.lr.ph ], [ %89, %._crit_edge ]
   %21 = phi i16 [ %.pre, %.preheader.lr.ph ], [ %90, %._crit_edge ]
   %22 = phi i16 [ %.pre, %.preheader.lr.ph ], [ %91, %._crit_edge ]
-  %indvars.iv82 = phi i32 [ 3, %.preheader.lr.ph ], [ %indvars.iv.next83, %._crit_edge ]
+  %indvars.iv81 = phi i32 [ 3, %.preheader.lr.ph ], [ %indvars.iv.next82, %._crit_edge ]
   %.075 = phi i32 [ 0, %.preheader.lr.ph ], [ %92, %._crit_edge ]
   %.not78 = icmp eq i16 %22, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph
@@ -472,8 +472,7 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
 49:                                               ; preds = %27
   %50 = add nsw i32 %.04474, -2
   %51 = load i16, ptr %11, align 4
-  %.fr79 = freeze i16 %51
-  %52 = zext i16 %.fr79 to i32
+  %52 = zext i16 %51 to i32
   %invariant.gep = getelementptr inbounds nuw i16, ptr %15, i64 %45
   br label %53
 
@@ -486,14 +485,17 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %56 = and i32 %55, 14
   %57 = lshr i32 %.04673, %31
   %58 = mul nuw nsw i32 %57, %34
-  %59 = icmp ult i32 %.04673, %52
-  %or.cond = and i1 %54, %59
-  br i1 %or.cond, label %.split.us.split, label %.split67.us
+  br i1 %54, label %.split.us, label %.split67.us
 
-.split.us.split:                                  ; preds = %53, %77
-  %.04565.us = phi i32 [ %78, %77 ], [ %50, %53 ]
-  %.164.us = phi i32 [ %.2.us, %77 ], [ %.04772, %53 ]
-  %.14963.us = phi i32 [ %.250.us, %77 ], [ %.04871, %53 ]
+.split.us:                                        ; preds = %53
+  %59 = icmp samesign ult i32 %.04673, %52
+  %.fr = freeze i1 %59
+  br i1 %.fr, label %.split.us.split, label %.split67.us
+
+.split.us.split:                                  ; preds = %.split.us, %77
+  %.04565.us = phi i32 [ %78, %77 ], [ %50, %.split.us ]
+  %.164.us = phi i32 [ %.2.us, %77 ], [ %.04772, %.split.us ]
+  %.14963.us = phi i32 [ %.250.us, %77 ], [ %.04871, %.split.us ]
   %60 = icmp ult i32 %.04565.us, %29
   br i1 %60, label %61, label %77
 
@@ -528,12 +530,12 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %exitcond.not = icmp eq i32 %78, %indvars.iv
   br i1 %exitcond.not, label %.split67.us, label %.split.us.split, !llvm.loop !131
 
-.split67.us:                                      ; preds = %77, %53
-  %.us-phi = phi i32 [ %.04871, %53 ], [ %.250.us, %77 ]
-  %.us-phi68 = phi i32 [ %.04772, %53 ], [ %.2.us, %77 ]
+.split67.us:                                      ; preds = %77, %.split.us, %53
+  %.us-phi = phi i32 [ %.04871, %53 ], [ %.04871, %.split.us ], [ %.250.us, %77 ]
+  %.us-phi68 = phi i32 [ %.04772, %53 ], [ %.04772, %.split.us ], [ %.2.us, %77 ]
   %79 = add nsw i32 %.04673, 1
-  %exitcond84 = icmp eq i32 %79, %indvars.iv82
-  br i1 %exitcond84, label %80, label %53, !llvm.loop !132
+  %exitcond83.not = icmp eq i32 %79, %indvars.iv81
+  br i1 %exitcond83.not, label %80, label %53, !llvm.loop !132
 
 80:                                               ; preds = %.split67.us
   %.not57 = icmp eq i32 %.us-phi68, 0
@@ -543,11 +545,11 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %82 = udiv i32 %.us-phi, %.us-phi68
   %83 = trunc i32 %82 to i16
   store i16 %83, ptr %46, align 2, !tbaa !78
-  %.pre85 = load i16, ptr %14, align 2, !tbaa !128
+  %.pre84 = load i16, ptr %14, align 2, !tbaa !128
   br label %84
 
 84:                                               ; preds = %27, %81, %80
-  %85 = phi i16 [ %28, %27 ], [ %.pre85, %81 ], [ %28, %80 ]
+  %85 = phi i16 [ %28, %27 ], [ %.pre84, %81 ], [ %28, %80 ]
   %86 = add nuw nsw i32 %.04474, 1
   %87 = zext i16 %85 to i32
   %88 = icmp samesign ult i32 %86, %87
@@ -555,17 +557,17 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   br i1 %88, label %27, label %._crit_edge.loopexit, !llvm.loop !133
 
 ._crit_edge.loopexit:                             ; preds = %84
-  %.pre86 = load i16, ptr %11, align 4, !tbaa !127
+  %.pre85 = load i16, ptr %11, align 4, !tbaa !127
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %89 = phi i16 [ %.pre86, %._crit_edge.loopexit ], [ %20, %.preheader ]
+  %89 = phi i16 [ %.pre85, %._crit_edge.loopexit ], [ %20, %.preheader ]
   %90 = phi i16 [ %85, %._crit_edge.loopexit ], [ %21, %.preheader ]
   %91 = phi i16 [ %85, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %92 = add nuw nsw i32 %.075, 1
   %93 = zext i16 %89 to i32
   %94 = icmp samesign ult i32 %92, %93
-  %indvars.iv.next83 = add nuw nsw i32 %indvars.iv82, 1
+  %indvars.iv.next82 = add nuw nsw i32 %indvars.iv81, 1
   br i1 %94, label %.preheader, label %._crit_edge76, !llvm.loop !134
 
 ._crit_edge76:                                    ; preds = %._crit_edge, %10

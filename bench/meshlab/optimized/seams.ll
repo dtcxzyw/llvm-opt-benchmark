@@ -6748,14 +6748,13 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE10NeedUpdateEv.ex
   %83 = load ptr, ptr %82, align 8
   %84 = ptrtoint ptr %71 to i64
   %85 = load ptr, ptr %10, align 8
-  %.fr137 = freeze ptr %85
   br i1 %.not54, label %._crit_edge113, label %.preheader102.lr.ph.split
 
 .preheader102.lr.ph.split:                        ; preds = %.preheader102.lr.ph
   %86 = load ptr, ptr %12, align 8
-  %.fr138 = freeze ptr %86
-  %87 = icmp eq ptr %.fr137, %.fr138
-  br i1 %87, label %.preheader102.us114, label %.preheader102
+  %87 = icmp eq ptr %85, %86
+  %.fr = freeze i1 %87
+  br i1 %.fr, label %.preheader102.us114, label %.preheader102
 
 .preheader102.us114:                              ; preds = %.preheader102.lr.ph.split, %.split.split.us.us
   %.sroa.081.0112.us115 = phi ptr [ %101, %.split.split.us.us ], [ %78, %.preheader102.lr.ph.split ]
@@ -6782,8 +6781,8 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit
   %98 = phi ptr [ %90, %89 ], [ %97, %94 ]
   %99 = phi ptr [ %91, %89 ], [ %97, %94 ]
   %100 = add nuw nsw i32 %.0105.us106.us, 1
-  %exitcond147.not = icmp eq i32 %100, 3
-  br i1 %exitcond147.not, label %.split.split.us.us, label %89, !llvm.loop !84
+  %exitcond144.not = icmp eq i32 %100, 3
+  br i1 %exitcond144.not, label %.split.split.us.us, label %89, !llvm.loop !84
 
 .split.split.us.us:                               ; preds = %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit.us107.us
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.081.0112.us115, i64 1
@@ -6810,7 +6809,7 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit
   %111 = getelementptr inbounds i8, ptr %67, i64 %110
   store ptr %111, ptr @_ZZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9UsedTypesINS_3UseI10SeamVertexE12AsVertexTypeENS4_I8SeamEdgeE10AsEdgeTypeENS_14DefaultDeriverESB_SB_SB_SB_SB_EEEEE1VEiE2vp, align 8
   %112 = sdiv exact i64 %110, 11
-  %113 = getelementptr inbounds i8, ptr %.fr137, i64 %112
+  %113 = getelementptr inbounds i8, ptr %85, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr inbounds %class.SeamVertex, ptr %67, i64 %114
   store ptr %115, ptr @_ZZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9UsedTypesINS_3UseI10SeamVertexE12AsVertexTypeENS4_I8SeamEdgeE10AsEdgeTypeENS_14DefaultDeriverESB_SB_SB_SB_SB_EEEEE1VEiE2vp, align 8
@@ -6938,14 +6937,13 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit
   %187 = load ptr, ptr %2, align 8
   %188 = ptrtoint ptr %184 to i64
   %189 = load ptr, ptr %10, align 8
-  %.fr = freeze ptr %189
   br i1 %.not, label %.loopexit, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %190 = load ptr, ptr %12, align 8
-  %.fr139 = freeze ptr %190
-  %191 = icmp eq ptr %.fr, %.fr139
-  br i1 %191, label %.preheader.us134, label %.preheader
+  %191 = icmp eq ptr %189, %190
+  %.fr127 = freeze i1 %191
+  br i1 %.fr127, label %.preheader.us134, label %.preheader
 
 .preheader.us134:                                 ; preds = %.preheader.lr.ph.split, %.split.split126.us.us
   %.sroa.064.0132.us135 = phi ptr [ %205, %.split.split126.us.us ], [ %180, %.preheader.lr.ph.split ]
@@ -6972,8 +6970,8 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit
   %202 = phi ptr [ %194, %193 ], [ %201, %198 ]
   %203 = phi ptr [ %195, %193 ], [ %201, %198 ]
   %204 = add nuw nsw i32 %.052122.us123.us, 1
-  %exitcond149.not = icmp eq i32 %204, 4
-  br i1 %exitcond149.not, label %.split.split126.us.us, label %193, !llvm.loop !87
+  %exitcond146.not = icmp eq i32 %204, 4
+  br i1 %exitcond146.not, label %.split.split126.us.us, label %193, !llvm.loop !87
 
 .split.split126.us.us:                            ; preds = %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit63.us124.us
   %205 = getelementptr inbounds nuw i8, ptr %.sroa.064.0132.us135, i64 1
@@ -7000,7 +6998,7 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit
   %215 = getelementptr inbounds i8, ptr %187, i64 %214
   store ptr %215, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10SeamVertexE12AsVertexTypeENS4_I8SeamEdgeE10AsEdgeTypeENS_14DefaultDeriverESB_SB_SB_SB_SB_EEEEE1VEiE2vp, align 8
   %216 = sdiv exact i64 %214, 11
-  %217 = getelementptr inbounds i8, ptr %.fr, i64 %216
+  %217 = getelementptr inbounds i8, ptr %189, i64 %216
   %218 = load i64, ptr %217, align 8
   %219 = getelementptr inbounds %class.SeamVertex, ptr %187, i64 %218
   store ptr %219, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10SeamVertexE12AsVertexTypeENS4_I8SeamEdgeE10AsEdgeTypeENS_14DefaultDeriverESB_SB_SB_SB_SB_EEEEE1VEiE2vp, align 8
@@ -7010,8 +7008,8 @@ _ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit
   %220 = phi ptr [ %219, %212 ], [ %208, %207 ]
   %221 = phi ptr [ %219, %212 ], [ %209, %207 ]
   %222 = add nuw nsw i32 %.052122, 1
-  %exitcond148.not = icmp eq i32 %222, 4
-  br i1 %exitcond148.not, label %.split.split126, label %207, !llvm.loop !87
+  %exitcond145.not = icmp eq i32 %222, 4
+  br i1 %exitcond145.not, label %.split.split126, label %207, !llvm.loop !87
 
 .split.split126:                                  ; preds = %_ZN3vcg3tri9AllocatorI8SeamMeshE14PointerUpdaterIP10SeamVertexE6UpdateERS6_.exit63
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.064.0132, i64 1

@@ -242,8 +242,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm24RISCVELFTargetObjectFile22isGlob
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 67108864
-  %.not38 = icmp eq i32 %9, 0
-  br i1 %.not38, label %16, label %_ZNK4llvm12GlobalObject10getSectionEv.exit
+  %.not37 = icmp eq i32 %9, 0
+  br i1 %.not37, label %16, label %_ZNK4llvm12GlobalObject10getSectionEv.exit
 
 _ZNK4llvm12GlobalObject10getSectionEv.exit:       ; preds = %6
   %10 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject14getSectionImplEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #10
@@ -275,11 +275,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm12GlobalOb
 
 ._crit_edge:                                      ; preds = %19
   %.pre = load i32, ptr %7, align 8
-  %.pre39 = and i32 %.pre, 15
+  %.pre38 = and i32 %.pre, 15
   br label %21
 
 21:                                               ; preds = %._crit_edge, %16
-  %.pre-phi = phi i32 [ %.pre39, %._crit_edge ], [ %17, %16 ]
+  %.pre-phi = phi i32 [ %.pre38, %._crit_edge ], [ %17, %16 ]
   %22 = icmp eq i32 %.pre-phi, 10
   br i1 %22, label %_ZN4llvmeqENS_9StringRefES0_.exit24, label %23
 
@@ -288,13 +288,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm12GlobalOb
   %25 = load ptr, ptr %24, align 8, !tbaa !200
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
-  %.fr.i = freeze i32 %27
-  %28 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %27
+  %28 = and i32 %.fr8.i, 255
   %29 = icmp eq i32 %28, 12
   br i1 %29, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %30
 
 30:                                               ; preds = %23
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -304,7 +304,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm12GlobalOb
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %30
-  %31 = and i32 %.fr.i, 253
+  %31 = and i32 %.fr8.i, 253
   %spec.select.i.i26 = icmp eq i32 %31, 4
   br i1 %spec.select.i.i26, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -345,8 +345,8 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK
   %44 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #10
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %46 = load i32, ptr %45, align 8
-  %.fr.i28 = freeze i32 %46
-  %47 = zext i32 %.fr.i28 to i64
+  %.fr.i = freeze i32 %46
+  %47 = zext i32 %.fr.i to i64
   %48 = add i64 %44, -1
   %49 = icmp ult i64 %48, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

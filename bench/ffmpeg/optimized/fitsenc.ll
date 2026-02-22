@@ -54,17 +54,16 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %.045 = phi i32 [ 1, %8 ], [ %.53, %12 ], [ %.52, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4, !tbaa !28
-  %.fr49 = freeze i32 %18
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = load i32, ptr %19, align 8, !tbaa !29
-  %.fr50 = freeze i32 %20
-  %21 = mul nuw nsw i32 %.045, %.046
-  %22 = mul i32 %21, %.fr49
-  %23 = mul i32 %22, %.fr50
+  %19 = mul nsw i32 %18, %.046
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %21 = load i32, ptr %20, align 8, !tbaa !29
+  %22 = mul nsw i32 %19, %21
+  %.fr50 = freeze i32 %22
+  %23 = mul i32 %.fr50, %.045
   %24 = sext i32 %23 to i64
   %25 = add nsw i64 %24, 2879
   %26 = urem i64 %25, 2880
-  %27 = sub nsw i64 %25, %26
+  %27 = sub nuw nsw i64 %25, %26
   %28 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %27, i32 noundef 0) #5
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %95, label %30
@@ -95,14 +94,14 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
 
 .lr.ph65.split.preheader:                         ; preds = %.lr.ph65
   %.pre = load i32, ptr %39, align 4, !tbaa !27
-  %.pre78 = load i32, ptr %19, align 8, !tbaa !29
+  %.pre78 = load i32, ptr %20, align 8, !tbaa !29
   %40 = sext i32 %.pre to i64
   %41 = getelementptr inbounds ptr, ptr %2, i64 %40
   %42 = getelementptr inbounds i32, ptr %33, i64 %40
   br label %.lr.ph65.split
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65
-  %43 = load i32, ptr %19, align 8, !tbaa !29
+  %43 = load i32, ptr %20, align 8, !tbaa !29
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.preheader.us, label %._crit_edge
 
@@ -139,7 +138,7 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %62 = getelementptr inbounds nuw i8, ptr %.260.us, i64 2
   %63 = getelementptr inbounds nuw i8, ptr %.062.us, i64 2
   %64 = add nuw nsw i32 %.04361.us, 1
-  %65 = load i32, ptr %19, align 8, !tbaa !29
+  %65 = load i32, ptr %20, align 8, !tbaa !29
   %66 = icmp slt i32 %64, %65
   br i1 %66, label %.lr.ph.us, label %.loopexit.us.loopexit, !llvm.loop !34
 
@@ -169,7 +168,7 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %79 = getelementptr inbounds i8, ptr %73, i64 %78
   %80 = sext i32 %71 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.163, ptr align 1 %79, i64 %80, i1 false)
-  %81 = load i32, ptr %19, align 8, !tbaa !29
+  %81 = load i32, ptr %20, align 8, !tbaa !29
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %.163, i64 %82
   %84 = add nuw nsw i32 %.04464, 1

@@ -5572,14 +5572,14 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
 
 for.end.i:                                        ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit733, %if.end.i
   %29 = load ptr, ptr %repeated_foreign_message_, align 8
-  %.fr = freeze ptr %29
+  %.fr769 = freeze ptr %29
   %cmp7.i695742 = icmp slt i32 %sub.i, %10
   br i1 %cmp7.i695742, label %for.body8.i.lr.ph, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit
 
 for.body8.i.lr.ph:                                ; preds = %for.end.i
-  %cmp.i.i735 = icmp eq ptr %.fr, null
-  %hooks_cookie_.i.i = getelementptr inbounds nuw i8, ptr %.fr, i64 112
-  %30 = ptrtoint ptr %.fr to i64
+  %cmp.i.i735 = icmp eq ptr %.fr769, null
+  %hooks_cookie_.i.i = getelementptr inbounds nuw i8, ptr %.fr769, i64 112
+  %30 = ptrtoint ptr %.fr769 to i64
   %conv.i1.i.i.i = and i64 %30, 1
   %cmp.i.not.i.i.i = icmp eq i64 %conv.i1.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %for.body8.i.us.preheader, label %for.body8.i.lr.ph.split
@@ -5589,8 +5589,8 @@ for.body8.i.us.preheader:                         ; preds = %for.body8.i.lr.ph
   br label %for.body8.i.us
 
 for.body8.i.us:                                   ; preds = %for.body8.i.us.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us
-  %indvars.iv781 = phi i64 [ %31, %for.body8.i.us.preheader ], [ %indvars.iv.next782, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us ]
-  %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv781
+  %indvars.iv782 = phi i64 [ %31, %for.body8.i.us.preheader ], [ %indvars.iv.next783, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us ]
+  %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv782
   %32 = load ptr, ptr %arrayidx11.i.us, align 8
   br i1 %cmp.i.i735, label %if.then.i.i738.us, label %if.else.i.i.us
 
@@ -5600,11 +5600,11 @@ if.else.i.i.us:                                   ; preds = %for.body8.i.us
   br i1 %cmp.not.i.i736.us, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.us, label %if.then.i4.i.us
 
 if.then.i4.i.us:                                  ; preds = %if.else.i.i.us
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr769, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.us
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.us: ; preds = %if.then.i4.i.us, %if.else.i.i.us
-  %call2.i8.i.us = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr, i64 noundef 24)
+  %call2.i8.i.us = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr769, i64 noundef 24)
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto314ForeignMessageEJEEEPT_PS1_DpOT0_.exit.us
 
 if.then.i.i738.us:                                ; preds = %for.body8.i.us
@@ -5614,7 +5614,7 @@ if.then.i.i738.us:                                ; preds = %for.body8.i.us
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto314ForeignMessageEJEEEPT_PS1_DpOT0_.exit.us: ; preds = %if.then.i.i738.us, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.us
   %call.i.sink10.i.us = phi ptr [ %call.i.i739.us, %if.then.i.i738.us ], [ %call2.i8.i.us, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.us ]
   %_internal_metadata_.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.us, i64 8
-  store ptr %.fr, ptr %_internal_metadata_.i.i.i.i.i.us, align 8
+  store ptr %.fr769, ptr %_internal_metadata_.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %call.i.sink10.i.us, align 8
   %_cached_size_.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.us, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.us, align 4
@@ -5639,11 +5639,11 @@ if.else.i14.i.i.i.i.us:                           ; preds = %if.then.i17.i.i.us
   br i1 %cmp.not.i.i.i.i.i.us, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.us, label %if.then.i9.i.i.i.i.us
 
 if.then.i9.i.i.i.i.us:                            ; preds = %if.else.i14.i.i.i.i.us
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, i64 noundef 32)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr769, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, i64 noundef 32)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.us
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.us: ; preds = %if.then.i9.i.i.i.i.us, %if.else.i14.i.i.i.i.us
-  %call3.i26.i.i.i.i.us = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %.fr, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
+  %call3.i26.i.i.i.i.us = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %.fr769, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.us
 
 if.then.i15.i.i.i.i.us:                           ; preds = %if.then.i17.i.i.us
@@ -5658,7 +5658,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   %or.i.i.i.i.us = or i64 %39, 1
   %40 = inttoptr i64 %or.i.i.i.i.us to ptr
   store ptr %40, ptr %_internal_metadata_.i.i.i.i.i.us, align 8
-  store ptr %.fr, ptr %call.i.sink11.i.i.i.i.us, align 8
+  store ptr %.fr769, ptr %call.i.sink11.i.i.i.i.us, align 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.us)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i.us
 
@@ -5673,12 +5673,12 @@ if.then.i.i699.us:                                ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us: ; preds = %if.then.i.i699.us, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i.us
-  %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i689, i64 %indvars.iv781
+  %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i689, i64 %indvars.iv782
   store ptr %call.i.sink10.i.us, ptr %arrayidx15.i.us, align 8
-  %indvars.iv.next782 = add nsw i64 %indvars.iv781, 1
-  %lftr.wideiv784 = trunc i64 %indvars.iv.next782 to i32
-  %exitcond785.not = icmp eq i32 %10, %lftr.wideiv784
-  br i1 %exitcond785.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i.us, !llvm.loop !10
+  %indvars.iv.next783 = add nsw i64 %indvars.iv782, 1
+  %lftr.wideiv785 = trunc i64 %indvars.iv.next783 to i32
+  %exitcond786.not = icmp eq i32 %10, %lftr.wideiv785
+  br i1 %exitcond786.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i.us, !llvm.loop !10
 
 for.body8.i.lr.ph.split:                          ; preds = %for.body8.i.lr.ph
   %and.i.i.i.i = and i64 %30, -2
@@ -5688,8 +5688,8 @@ for.body8.i.lr.ph.split:                          ; preds = %for.body8.i.lr.ph
   br i1 %cmp.i.i735, label %for.body8.i.us744, label %for.body8.i
 
 for.body8.i.us744:                                ; preds = %for.body8.i.lr.ph.split, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us765
-  %indvars.iv776 = phi i64 [ %indvars.iv.next777, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us765 ], [ %43, %for.body8.i.lr.ph.split ]
-  %arrayidx11.i.us747 = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv776
+  %indvars.iv777 = phi i64 [ %indvars.iv.next778, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us765 ], [ %43, %for.body8.i.lr.ph.split ]
+  %arrayidx11.i.us747 = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv777
   %44 = load ptr, ptr %arrayidx11.i.us747, align 8
   %call.i.i739.us749 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %_internal_metadata_.i.i.i.i.i.us752 = getelementptr inbounds nuw i8, ptr %call.i.i739.us749, i64 8
@@ -5724,29 +5724,29 @@ if.then.i.i699.us764:                             ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us765
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us765: ; preds = %if.then.i.i699.us764, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i.us761
-  %arrayidx15.i.us766 = getelementptr inbounds ptr, ptr %call.i689, i64 %indvars.iv776
+  %arrayidx15.i.us766 = getelementptr inbounds ptr, ptr %call.i689, i64 %indvars.iv777
   store ptr %call.i.i739.us749, ptr %arrayidx15.i.us766, align 8
-  %indvars.iv.next777 = add nsw i64 %indvars.iv776, 1
-  %lftr.wideiv779 = trunc i64 %indvars.iv.next777 to i32
-  %exitcond780.not = icmp eq i32 %10, %lftr.wideiv779
-  br i1 %exitcond780.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i.us744, !llvm.loop !10
+  %indvars.iv.next778 = add nsw i64 %indvars.iv777, 1
+  %lftr.wideiv780 = trunc i64 %indvars.iv.next778 to i32
+  %exitcond781.not = icmp eq i32 %10, %lftr.wideiv780
+  br i1 %exitcond781.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i.us744, !llvm.loop !10
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph.split, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit
-  %indvars.iv772 = phi i64 [ %indvars.iv.next773, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit ], [ %43, %for.body8.i.lr.ph.split ]
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv772
+  %indvars.iv773 = phi i64 [ %indvars.iv.next774, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit ], [ %43, %for.body8.i.lr.ph.split ]
+  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv773
   %49 = load ptr, ptr %arrayidx11.i, align 8
   %50 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i736 = icmp eq ptr %50, null
   br i1 %cmp.not.i.i736, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %for.body8.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr769, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.i4.i, %for.body8.i
-  %call2.i8.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr, i64 noundef 24)
+  %call2.i8.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr769, i64 noundef 24)
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i8.i, i64 8
-  store ptr %.fr, ptr %_internal_metadata_.i.i.i.i.i, align 8
+  store ptr %.fr769, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %call2.i8.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i8.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i, align 4
@@ -5777,12 +5777,12 @@ if.then.i.i699:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i, %if.then.i.i699
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i689, i64 %indvars.iv772
+  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i689, i64 %indvars.iv773
   store ptr %call2.i8.i, ptr %arrayidx15.i, align 8
-  %indvars.iv.next773 = add nsw i64 %indvars.iv772, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next773 to i32
-  %exitcond775.not = icmp eq i32 %10, %lftr.wideiv
-  br i1 %exitcond775.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i, !llvm.loop !10
+  %indvars.iv.next774 = add nsw i64 %indvars.iv773, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next774 to i32
+  %exitcond776.not = icmp eq i32 %10, %lftr.wideiv
+  br i1 %exitcond776.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i, !llvm.loop !10
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto314ForeignMessageEE11TypeHandlerEEEvPPvSB_ii.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us765, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit.us, %for.end.i
   %55 = load i32, ptr %current_size_4.i, align 8
@@ -6303,11 +6303,11 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6p
   %c_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.i, i64 16
   store i32 0, ptr %c_.i.i.i.i.i, align 8
   store ptr %call.i.sink10.i.i, ptr %optional_foreign_message_.i, align 8
-  %.pre786 = load ptr, ptr %optional_foreign_message_.i.i, align 8
+  %.pre787 = load ptr, ptr %optional_foreign_message_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto342_internal_mutable_optional_foreign_messageEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto342_internal_mutable_optional_foreign_messageEv.exit: ; preds = %if.then120, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto314ForeignMessageEEEPT_PNS0_5ArenaE.exit
-  %99 = phi ptr [ %91, %if.then120 ], [ %.pre786, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto314ForeignMessageEEEPT_PNS0_5ArenaE.exit ]
+  %99 = phi ptr [ %91, %if.then120 ], [ %.pre787, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto314ForeignMessageEEEPT_PNS0_5ArenaE.exit ]
   %100 = phi ptr [ %93, %if.then120 ], [ %call.i.sink10.i.i, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto314ForeignMessageEEEPT_PNS0_5ArenaE.exit ]
   %cmp.not.i281 = icmp eq ptr %99, null
   %cond-lvalue.i282 = select i1 %cmp.not.i281, ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, ptr %99
@@ -6445,11 +6445,11 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i646: ; preds = %if.
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPT_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i649, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i646
   %retval.i.0.i.i648 = phi ptr [ %call2.i8.i.i647, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i646 ], [ %call.i.i.i650, %if.then.i.i.i649 ]
   store ptr %retval.i.0.i.i648, ptr %recursive_message_.i, align 8
-  %.pre787 = load ptr, ptr %recursive_message_.i.i, align 8
+  %.pre788 = load ptr, ptr %recursive_message_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto335_internal_mutable_recursive_messageEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto335_internal_mutable_recursive_messageEv.exit: ; preds = %if.then125, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPT_PNS0_5ArenaE.exit
-  %121 = phi ptr [ %112, %if.then125 ], [ %.pre787, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPT_PNS0_5ArenaE.exit ]
+  %121 = phi ptr [ %112, %if.then125 ], [ %.pre788, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPT_PNS0_5ArenaE.exit ]
   %122 = phi ptr [ %114, %if.then125 ], [ %retval.i.0.i.i648, %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPT_PNS0_5ArenaE.exit ]
   %cmp.not.i297 = icmp eq ptr %121, null
   %cond-lvalue.i298 = select i1 %cmp.not.i297, ptr @_ZN22protobuf_test_messages6proto337_TestAllTypesProto3_default_instance_E, ptr %121
@@ -6487,11 +6487,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %if.then.i.i.i306
   %retval.i.0.i.i308 = phi ptr [ %129, %if.then.i.i.i306 ], [ %126, %if.then.i302 ]
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_9BoolValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i308)
   store ptr %call.i.i, ptr %optional_bool_wrapper_.i, align 8
-  %.pre788 = load ptr, ptr %optional_bool_wrapper_.i.i, align 8
+  %.pre789 = load ptr, ptr %optional_bool_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto339_internal_mutable_optional_bool_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto339_internal_mutable_optional_bool_wrapperEv.exit: ; preds = %if.then130, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
-  %130 = phi ptr [ %.pre788, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i ], [ %123, %if.then130 ]
+  %130 = phi ptr [ %.pre789, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i ], [ %123, %if.then130 ]
   %131 = phi ptr [ %call.i.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i ], [ %125, %if.then130 ]
   %cmp.not.i310 = icmp eq ptr %130, null
   %cond-lvalue.i311 = select i1 %cmp.not.i310, ptr @_ZN6google8protobuf28_BoolValue_default_instance_E, ptr %130
@@ -6529,11 +6529,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i321: ; preds = %if.then.i.i.i
   %retval.i.0.i.i322 = phi ptr [ %138, %if.then.i.i.i319 ], [ %135, %if.then.i315 ]
   %call.i.i323 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_10Int32ValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i322)
   store ptr %call.i.i323, ptr %optional_int32_wrapper_.i, align 8
-  %.pre789 = load ptr, ptr %optional_int32_wrapper_.i.i, align 8
+  %.pre790 = load ptr, ptr %optional_int32_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_int32_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_int32_wrapperEv.exit: ; preds = %if.then135, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i321
-  %139 = phi ptr [ %.pre789, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i321 ], [ %132, %if.then135 ]
+  %139 = phi ptr [ %.pre790, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i321 ], [ %132, %if.then135 ]
   %140 = phi ptr [ %call.i.i323, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i321 ], [ %134, %if.then135 ]
   %cmp.not.i325 = icmp eq ptr %139, null
   %cond-lvalue.i326 = select i1 %cmp.not.i325, ptr @_ZN6google8protobuf29_Int32Value_default_instance_E, ptr %139
@@ -6571,11 +6571,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i336: ; preds = %if.then.i.i.i
   %retval.i.0.i.i337 = phi ptr [ %147, %if.then.i.i.i334 ], [ %144, %if.then.i330 ]
   %call.i.i338 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_10Int64ValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i337)
   store ptr %call.i.i338, ptr %optional_int64_wrapper_.i, align 8
-  %.pre790 = load ptr, ptr %optional_int64_wrapper_.i.i, align 8
+  %.pre791 = load ptr, ptr %optional_int64_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_int64_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_int64_wrapperEv.exit: ; preds = %if.then140, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i336
-  %148 = phi ptr [ %.pre790, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i336 ], [ %141, %if.then140 ]
+  %148 = phi ptr [ %.pre791, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i336 ], [ %141, %if.then140 ]
   %149 = phi ptr [ %call.i.i338, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i336 ], [ %143, %if.then140 ]
   %cmp.not.i340 = icmp eq ptr %148, null
   %cond-lvalue.i341 = select i1 %cmp.not.i340, ptr @_ZN6google8protobuf29_Int64Value_default_instance_E, ptr %148
@@ -6613,11 +6613,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i351: ; preds = %if.then.i.i.i
   %retval.i.0.i.i352 = phi ptr [ %156, %if.then.i.i.i349 ], [ %153, %if.then.i345 ]
   %call.i.i353 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_11UInt32ValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i352)
   store ptr %call.i.i353, ptr %optional_uint32_wrapper_.i, align 8
-  %.pre791 = load ptr, ptr %optional_uint32_wrapper_.i.i, align 8
+  %.pre792 = load ptr, ptr %optional_uint32_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_uint32_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_uint32_wrapperEv.exit: ; preds = %if.then145, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i351
-  %157 = phi ptr [ %.pre791, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i351 ], [ %150, %if.then145 ]
+  %157 = phi ptr [ %.pre792, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i351 ], [ %150, %if.then145 ]
   %158 = phi ptr [ %call.i.i353, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i351 ], [ %152, %if.then145 ]
   %cmp.not.i355 = icmp eq ptr %157, null
   %cond-lvalue.i356 = select i1 %cmp.not.i355, ptr @_ZN6google8protobuf30_UInt32Value_default_instance_E, ptr %157
@@ -6655,11 +6655,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i366: ; preds = %if.then.i.i.i
   %retval.i.0.i.i367 = phi ptr [ %165, %if.then.i.i.i364 ], [ %162, %if.then.i360 ]
   %call.i.i368 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_11UInt64ValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i367)
   store ptr %call.i.i368, ptr %optional_uint64_wrapper_.i, align 8
-  %.pre792 = load ptr, ptr %optional_uint64_wrapper_.i.i, align 8
+  %.pre793 = load ptr, ptr %optional_uint64_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_uint64_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_uint64_wrapperEv.exit: ; preds = %if.then150, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i366
-  %166 = phi ptr [ %.pre792, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i366 ], [ %159, %if.then150 ]
+  %166 = phi ptr [ %.pre793, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i366 ], [ %159, %if.then150 ]
   %167 = phi ptr [ %call.i.i368, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i366 ], [ %161, %if.then150 ]
   %cmp.not.i370 = icmp eq ptr %166, null
   %cond-lvalue.i371 = select i1 %cmp.not.i370, ptr @_ZN6google8protobuf30_UInt64Value_default_instance_E, ptr %166
@@ -6697,11 +6697,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i381: ; preds = %if.then.i.i.i
   %retval.i.0.i.i382 = phi ptr [ %174, %if.then.i.i.i379 ], [ %171, %if.then.i375 ]
   %call.i.i383 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_10FloatValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i382)
   store ptr %call.i.i383, ptr %optional_float_wrapper_.i, align 8
-  %.pre793 = load ptr, ptr %optional_float_wrapper_.i.i, align 8
+  %.pre794 = load ptr, ptr %optional_float_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_float_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_float_wrapperEv.exit: ; preds = %if.then155, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i381
-  %175 = phi ptr [ %.pre793, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i381 ], [ %168, %if.then155 ]
+  %175 = phi ptr [ %.pre794, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i381 ], [ %168, %if.then155 ]
   %176 = phi ptr [ %call.i.i383, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i381 ], [ %170, %if.then155 ]
   %cmp.not.i385 = icmp eq ptr %175, null
   %cond-lvalue.i386 = select i1 %cmp.not.i385, ptr @_ZN6google8protobuf29_FloatValue_default_instance_E, ptr %175
@@ -6739,11 +6739,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i396: ; preds = %if.then.i.i.i
   %retval.i.0.i.i397 = phi ptr [ %183, %if.then.i.i.i394 ], [ %180, %if.then.i390 ]
   %call.i.i398 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_11DoubleValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i397)
   store ptr %call.i.i398, ptr %optional_double_wrapper_.i, align 8
-  %.pre794 = load ptr, ptr %optional_double_wrapper_.i.i, align 8
+  %.pre795 = load ptr, ptr %optional_double_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_double_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_double_wrapperEv.exit: ; preds = %if.then160, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i396
-  %184 = phi ptr [ %.pre794, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i396 ], [ %177, %if.then160 ]
+  %184 = phi ptr [ %.pre795, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i396 ], [ %177, %if.then160 ]
   %185 = phi ptr [ %call.i.i398, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i396 ], [ %179, %if.then160 ]
   %cmp.not.i400 = icmp eq ptr %184, null
   %cond-lvalue.i401 = select i1 %cmp.not.i400, ptr @_ZN6google8protobuf30_DoubleValue_default_instance_E, ptr %184
@@ -6781,11 +6781,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i411: ; preds = %if.then.i.i.i
   %retval.i.0.i.i412 = phi ptr [ %192, %if.then.i.i.i409 ], [ %189, %if.then.i405 ]
   %call.i.i413 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_11StringValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i412)
   store ptr %call.i.i413, ptr %optional_string_wrapper_.i, align 8
-  %.pre795 = load ptr, ptr %optional_string_wrapper_.i.i, align 8
+  %.pre796 = load ptr, ptr %optional_string_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_string_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto341_internal_mutable_optional_string_wrapperEv.exit: ; preds = %if.then165, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i411
-  %193 = phi ptr [ %.pre795, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i411 ], [ %186, %if.then165 ]
+  %193 = phi ptr [ %.pre796, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i411 ], [ %186, %if.then165 ]
   %194 = phi ptr [ %call.i.i413, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i411 ], [ %188, %if.then165 ]
   %cmp.not.i415 = icmp eq ptr %193, null
   %cond-lvalue.i416 = select i1 %cmp.not.i415, ptr @_ZN6google8protobuf30_StringValue_default_instance_E, ptr %193
@@ -6823,11 +6823,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i426: ; preds = %if.then.i.i.i
   %retval.i.0.i.i427 = phi ptr [ %201, %if.then.i.i.i424 ], [ %198, %if.then.i420 ]
   %call.i.i428 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_10BytesValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i427)
   store ptr %call.i.i428, ptr %optional_bytes_wrapper_.i, align 8
-  %.pre796 = load ptr, ptr %optional_bytes_wrapper_.i.i, align 8
+  %.pre797 = load ptr, ptr %optional_bytes_wrapper_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_bytes_wrapperEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto340_internal_mutable_optional_bytes_wrapperEv.exit: ; preds = %if.then170, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i426
-  %202 = phi ptr [ %.pre796, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i426 ], [ %195, %if.then170 ]
+  %202 = phi ptr [ %.pre797, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i426 ], [ %195, %if.then170 ]
   %203 = phi ptr [ %call.i.i428, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i426 ], [ %197, %if.then170 ]
   %cmp.not.i430 = icmp eq ptr %202, null
   %cond-lvalue.i431 = select i1 %cmp.not.i430, ptr @_ZN6google8protobuf29_BytesValue_default_instance_E, ptr %202
@@ -6865,11 +6865,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i441: ; preds = %if.then.i.i.i
   %retval.i.0.i.i442 = phi ptr [ %210, %if.then.i.i.i439 ], [ %207, %if.then.i435 ]
   %call.i.i443 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_8DurationEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i442)
   store ptr %call.i.i443, ptr %optional_duration_.i, align 8
-  %.pre797 = load ptr, ptr %optional_duration_.i.i, align 8
+  %.pre798 = load ptr, ptr %optional_duration_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto335_internal_mutable_optional_durationEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto335_internal_mutable_optional_durationEv.exit: ; preds = %if.then175, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i441
-  %211 = phi ptr [ %.pre797, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i441 ], [ %204, %if.then175 ]
+  %211 = phi ptr [ %.pre798, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i441 ], [ %204, %if.then175 ]
   %212 = phi ptr [ %call.i.i443, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i441 ], [ %206, %if.then175 ]
   %cmp.not.i445 = icmp eq ptr %211, null
   %cond-lvalue.i446 = select i1 %cmp.not.i445, ptr @_ZN6google8protobuf27_Duration_default_instance_E, ptr %211
@@ -6907,11 +6907,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i456: ; preds = %if.then.i.i.i
   %retval.i.0.i.i457 = phi ptr [ %219, %if.then.i.i.i454 ], [ %216, %if.then.i450 ]
   %call.i.i458 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_9TimestampEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i457)
   store ptr %call.i.i458, ptr %optional_timestamp_.i, align 8
-  %.pre798 = load ptr, ptr %optional_timestamp_.i.i, align 8
+  %.pre799 = load ptr, ptr %optional_timestamp_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto336_internal_mutable_optional_timestampEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto336_internal_mutable_optional_timestampEv.exit: ; preds = %if.then180, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i456
-  %220 = phi ptr [ %.pre798, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i456 ], [ %213, %if.then180 ]
+  %220 = phi ptr [ %.pre799, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i456 ], [ %213, %if.then180 ]
   %221 = phi ptr [ %call.i.i458, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i456 ], [ %215, %if.then180 ]
   %cmp.not.i460 = icmp eq ptr %220, null
   %cond-lvalue.i461 = select i1 %cmp.not.i460, ptr @_ZN6google8protobuf28_Timestamp_default_instance_E, ptr %220
@@ -6949,11 +6949,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i471: ; preds = %if.then.i.i.i
   %retval.i.0.i.i472 = phi ptr [ %228, %if.then.i.i.i469 ], [ %225, %if.then.i465 ]
   %call.i.i473 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_9FieldMaskEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i472)
   store ptr %call.i.i473, ptr %optional_field_mask_.i, align 8
-  %.pre799 = load ptr, ptr %optional_field_mask_.i.i, align 8
+  %.pre800 = load ptr, ptr %optional_field_mask_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto337_internal_mutable_optional_field_maskEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto337_internal_mutable_optional_field_maskEv.exit: ; preds = %if.then185, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i471
-  %229 = phi ptr [ %.pre799, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i471 ], [ %222, %if.then185 ]
+  %229 = phi ptr [ %.pre800, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i471 ], [ %222, %if.then185 ]
   %230 = phi ptr [ %call.i.i473, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i471 ], [ %224, %if.then185 ]
   %cmp.not.i475 = icmp eq ptr %229, null
   %cond-lvalue.i476 = select i1 %cmp.not.i475, ptr @_ZN6google8protobuf28_FieldMask_default_instance_E, ptr %229
@@ -6991,11 +6991,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i486: ; preds = %if.then.i.i.i
   %retval.i.0.i.i487 = phi ptr [ %237, %if.then.i.i.i484 ], [ %234, %if.then.i480 ]
   %call.i.i488 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_6StructEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i487)
   store ptr %call.i.i488, ptr %optional_struct_.i, align 8
-  %.pre800 = load ptr, ptr %optional_struct_.i.i, align 8
+  %.pre801 = load ptr, ptr %optional_struct_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto333_internal_mutable_optional_structEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto333_internal_mutable_optional_structEv.exit: ; preds = %if.then190, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i486
-  %238 = phi ptr [ %.pre800, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i486 ], [ %231, %if.then190 ]
+  %238 = phi ptr [ %.pre801, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i486 ], [ %231, %if.then190 ]
   %239 = phi ptr [ %call.i.i488, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i486 ], [ %233, %if.then190 ]
   %cmp.not.i490 = icmp eq ptr %238, null
   %cond-lvalue.i491 = select i1 %cmp.not.i490, ptr @_ZN6google8protobuf25_Struct_default_instance_E, ptr %238
@@ -7033,11 +7033,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i501: ; preds = %if.then.i.i.i
   %retval.i.0.i.i502 = phi ptr [ %246, %if.then.i.i.i499 ], [ %243, %if.then.i495 ]
   %call.i.i503 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_3AnyEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i502)
   store ptr %call.i.i503, ptr %optional_any_.i, align 8
-  %.pre801 = load ptr, ptr %optional_any_.i.i, align 8
+  %.pre802 = load ptr, ptr %optional_any_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto330_internal_mutable_optional_anyEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto330_internal_mutable_optional_anyEv.exit: ; preds = %if.then195, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i501
-  %247 = phi ptr [ %.pre801, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i501 ], [ %240, %if.then195 ]
+  %247 = phi ptr [ %.pre802, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i501 ], [ %240, %if.then195 ]
   %248 = phi ptr [ %call.i.i503, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i501 ], [ %242, %if.then195 ]
   %cmp.not.i505 = icmp eq ptr %247, null
   %cond-lvalue.i506 = select i1 %cmp.not.i505, ptr @_ZN6google8protobuf22_Any_default_instance_E, ptr %247
@@ -7075,11 +7075,11 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i516: ; preds = %if.then.i.i.i
   %retval.i.0.i.i517 = phi ptr [ %255, %if.then.i.i.i514 ], [ %252, %if.then.i510 ]
   %call.i.i518 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_5ValueEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i.i517)
   store ptr %call.i.i518, ptr %optional_value_.i, align 8
-  %.pre802 = load ptr, ptr %optional_value_.i.i, align 8
+  %.pre803 = load ptr, ptr %optional_value_.i.i, align 8
   br label %_ZN22protobuf_test_messages6proto318TestAllTypesProto332_internal_mutable_optional_valueEv.exit
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto332_internal_mutable_optional_valueEv.exit: ; preds = %if.then200, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i516
-  %256 = phi ptr [ %.pre802, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i516 ], [ %249, %if.then200 ]
+  %256 = phi ptr [ %.pre803, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i516 ], [ %249, %if.then200 ]
   %257 = phi ptr [ %call.i.i518, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i516 ], [ %251, %if.then200 ]
   %cmp.not.i520 = icmp eq ptr %256, null
   %cond-lvalue.i521 = select i1 %cmp.not.i520, ptr @_ZN6google8protobuf24_Value_default_instance_E, ptr %256
@@ -7513,9 +7513,9 @@ sw.bb386:                                         ; preds = %if.end383
 
 _ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit.thread: ; preds = %sw.bb386
   %oneof_field_4.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 3632
-  %.pre803 = load ptr, ptr %oneof_field_4.i.phi.trans.insert, align 8
-  %oneof_field_.i568884 = getelementptr inbounds nuw i8, ptr %from, i64 3632
-  %297 = load ptr, ptr %oneof_field_.i568884, align 8
+  %.pre804 = load ptr, ptr %oneof_field_4.i.phi.trans.insert, align 8
+  %oneof_field_.i568885 = getelementptr inbounds nuw i8, ptr %from, i64 3632
+  %297 = load ptr, ptr %oneof_field_.i568885, align 8
   br label %304
 
 if.then.i563:                                     ; preds = %sw.bb386
@@ -7539,16 +7539,16 @@ _ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_
   %call.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i665)
   %oneof_field_.i565 = getelementptr inbounds nuw i8, ptr %this, i64 3632
   store ptr %call.i, ptr %oneof_field_.i565, align 8
-  %.pre804 = load i32, ptr %_oneof_case_.i, align 4
-  %.pre804.fr = freeze i32 %.pre804
-  %302 = icmp eq i32 %.pre804.fr, 112
+  %.pre805 = load i32, ptr %_oneof_case_.i, align 4
+  %.pre805.fr = freeze i32 %.pre805
+  %302 = icmp eq i32 %.pre805.fr, 112
   %oneof_field_.i568 = getelementptr inbounds nuw i8, ptr %from, i64 3632
   %303 = load ptr, ptr %oneof_field_.i568, align 8
   %spec.select = select i1 %302, ptr %303, ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E
   br label %304
 
 304:                                              ; preds = %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit.thread
-  %305 = phi ptr [ %call.i, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit ], [ %.pre803, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit.thread ]
+  %305 = phi ptr [ %call.i, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit ], [ %.pre804, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit.thread ]
   %306 = phi ptr [ %spec.select, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit ], [ %297, %_ZN22protobuf_test_messages6proto318TestAllTypesProto338_internal_mutable_oneof_nested_messageEv.exit.thread ]
   tail call void @_ZN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %306)
   br label %sw.epilog
@@ -150847,14 +150847,14 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
 
 for.end:                                          ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit, %entry
   %14 = load ptr, ptr %this, align 8
-  %.fr = freeze ptr %14
+  %.fr76 = freeze ptr %14
   %cmp749 = icmp slt i32 %already_allocated, %length
   br i1 %cmp749, label %for.body8.lr.ph, label %for.end18
 
 for.body8.lr.ph:                                  ; preds = %for.end
-  %cmp.i.i.i.i = icmp eq ptr %.fr, null
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.fr, i64 112
-  %15 = ptrtoint ptr %.fr to i64
+  %cmp.i.i.i.i = icmp eq ptr %.fr76, null
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.fr76, i64 112
+  %15 = ptrtoint ptr %.fr76 to i64
   %conv.i1.i.i.i22 = and i64 %15, 1
   %cmp.i.not.i.i.i23 = icmp eq i64 %conv.i1.i.i.i22, 0
   br i1 %cmp.i.not.i.i.i23, label %for.body8.us.preheader, label %for.body8.lr.ph.split
@@ -150864,8 +150864,8 @@ for.body8.us.preheader:                           ; preds = %for.body8.lr.ph
   br label %for.body8.us
 
 for.body8.us:                                     ; preds = %for.body8.us.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us
-  %indvars.iv88 = phi i64 [ %16, %for.body8.us.preheader ], [ %indvars.iv.next89, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us ]
-  %arrayidx11.us = getelementptr inbounds ptr, ptr %other_elems, i64 %indvars.iv88
+  %indvars.iv89 = phi i64 [ %16, %for.body8.us.preheader ], [ %indvars.iv.next90, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us ]
+  %arrayidx11.us = getelementptr inbounds ptr, ptr %other_elems, i64 %indvars.iv89
   %17 = load ptr, ptr %arrayidx11.us, align 8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i14.us, label %if.else.i.i.i.i.us
 
@@ -150875,11 +150875,11 @@ if.else.i.i.i.i.us:                               ; preds = %for.body8.us
   br i1 %cmp.not.i.i.i.i.us, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.us, label %if.then.i4.i.i.i.us
 
 if.then.i4.i.i.i.us:                              ; preds = %if.else.i.i.i.i.us
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr76, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.us
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.us: ; preds = %if.then.i4.i.i.i.us, %if.else.i.i.i.i.us
-  %call2.i8.i.i.i.us = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr, i64 noundef 24)
+  %call2.i8.i.i.i.us = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr76, i64 noundef 24)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit.us
 
 if.then.i.i.i.i14.us:                             ; preds = %for.body8.us
@@ -150889,7 +150889,7 @@ if.then.i.i.i.i14.us:                             ; preds = %for.body8.us
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit.us: ; preds = %if.then.i.i.i.i14.us, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.us
   %call.i.sink10.i.i.i.us = phi ptr [ %call.i.i.i.i.us, %if.then.i.i.i.i14.us ], [ %call2.i8.i.i.i.us, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.us ]
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.i.i.us, i64 8
-  store ptr %.fr, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
+  store ptr %.fr76, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %call.i.sink10.i.i.i.us, align 8
   %_cached_size_.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.i.i.us, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i.us, align 4
@@ -150914,11 +150914,11 @@ if.else.i14.i.i.i.i36.us:                         ; preds = %if.then.i17.i.i19.u
   br i1 %cmp.not.i.i.i.i.i38.us, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i40.us, label %if.then.i9.i.i.i.i39.us
 
 if.then.i9.i.i.i.i39.us:                          ; preds = %if.else.i14.i.i.i.i36.us
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, i64 noundef 32)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr76, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, i64 noundef 32)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i40.us
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i40.us: ; preds = %if.then.i9.i.i.i.i39.us, %if.else.i14.i.i.i.i36.us
-  %call3.i26.i.i.i.i41.us = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %.fr, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
+  %call3.i26.i.i.i.i41.us = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %.fr76, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i42.us
 
 if.then.i15.i.i.i.i45.us:                         ; preds = %if.then.i17.i.i19.us
@@ -150933,7 +150933,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   %or.i.i.i.i44.us = or i64 %24, 1
   %25 = inttoptr i64 %or.i.i.i.i44.us to ptr
   store ptr %25, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
-  store ptr %.fr, ptr %call.i.sink11.i.i.i.i43.us, align 8
+  store ptr %.fr76, ptr %call.i.sink11.i.i.i.i43.us, align 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i21.us)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i29.us
 
@@ -150948,12 +150948,12 @@ if.then.i.i32.us:                                 ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us: ; preds = %if.then.i.i32.us, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i29.us
-  %arrayidx15.us = getelementptr inbounds ptr, ptr %our_elems, i64 %indvars.iv88
+  %arrayidx15.us = getelementptr inbounds ptr, ptr %our_elems, i64 %indvars.iv89
   store ptr %call.i.sink10.i.i.i.us, ptr %arrayidx15.us, align 8
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
-  %lftr.wideiv91 = trunc i64 %indvars.iv.next89 to i32
-  %exitcond92.not = icmp eq i32 %length, %lftr.wideiv91
-  br i1 %exitcond92.not, label %for.end18, label %for.body8.us, !llvm.loop !10
+  %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
+  %lftr.wideiv92 = trunc i64 %indvars.iv.next90 to i32
+  %exitcond93.not = icmp eq i32 %length, %lftr.wideiv92
+  br i1 %exitcond93.not, label %for.end18, label %for.body8.us, !llvm.loop !10
 
 for.body8.lr.ph.split:                            ; preds = %for.body8.lr.ph
   %and.i.i.i.i25 = and i64 %15, -2
@@ -150963,8 +150963,8 @@ for.body8.lr.ph.split:                            ; preds = %for.body8.lr.ph
   br i1 %cmp.i.i.i.i, label %for.body8.us51, label %for.body8
 
 for.body8.us51:                                   ; preds = %for.body8.lr.ph.split, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us72
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us72 ], [ %28, %for.body8.lr.ph.split ]
-  %arrayidx11.us54 = getelementptr inbounds ptr, ptr %other_elems, i64 %indvars.iv83
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us72 ], [ %28, %for.body8.lr.ph.split ]
+  %arrayidx11.us54 = getelementptr inbounds ptr, ptr %other_elems, i64 %indvars.iv84
   %29 = load ptr, ptr %arrayidx11.us54, align 8
   %call.i.i.i.i.us56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %_internal_metadata_.i.i.i.i.i.i.i.us59 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.us56, i64 8
@@ -150999,29 +150999,29 @@ if.then.i.i32.us71:                               ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us72
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us72: ; preds = %if.then.i.i32.us71, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i29.us68
-  %arrayidx15.us73 = getelementptr inbounds ptr, ptr %our_elems, i64 %indvars.iv83
+  %arrayidx15.us73 = getelementptr inbounds ptr, ptr %our_elems, i64 %indvars.iv84
   store ptr %call.i.i.i.i.us56, ptr %arrayidx15.us73, align 8
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
-  %lftr.wideiv86 = trunc i64 %indvars.iv.next84 to i32
-  %exitcond87.not = icmp eq i32 %length, %lftr.wideiv86
-  br i1 %exitcond87.not, label %for.end18, label %for.body8.us51, !llvm.loop !10
+  %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
+  %lftr.wideiv87 = trunc i64 %indvars.iv.next85 to i32
+  %exitcond88.not = icmp eq i32 %length, %lftr.wideiv87
+  br i1 %exitcond88.not, label %for.end18, label %for.body8.us51, !llvm.loop !10
 
 for.body8:                                        ; preds = %for.body8.lr.ph.split, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47 ], [ %28, %for.body8.lr.ph.split ]
-  %arrayidx11 = getelementptr inbounds ptr, ptr %other_elems, i64 %indvars.iv79
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47 ], [ %28, %for.body8.lr.ph.split ]
+  %arrayidx11 = getelementptr inbounds ptr, ptr %other_elems, i64 %indvars.iv80
   %34 = load ptr, ptr %arrayidx11, align 8
   %35 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, label %if.then.i4.i.i.i
 
 if.then.i4.i.i.i:                                 ; preds = %for.body8
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %.fr76, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.then.i4.i.i.i, %for.body8
-  %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr, i64 noundef 24)
+  %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr76, i64 noundef 24)
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i8.i.i.i, i64 8
-  store ptr %.fr, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
+  store ptr %.fr76, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %call2.i8.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i8.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
@@ -151052,12 +151052,12 @@ if.then.i.i32:                                    ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i29, %if.then.i.i32
-  %arrayidx15 = getelementptr inbounds ptr, ptr %our_elems, i64 %indvars.iv79
+  %arrayidx15 = getelementptr inbounds ptr, ptr %our_elems, i64 %indvars.iv80
   store ptr %call2.i8.i.i.i, ptr %arrayidx15, align 8
-  %indvars.iv.next80 = add nsw i64 %indvars.iv79, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next80 to i32
-  %exitcond82.not = icmp eq i32 %length, %lftr.wideiv
-  br i1 %exitcond82.not, label %for.end18, label %for.body8, !llvm.loop !10
+  %indvars.iv.next81 = add nsw i64 %indvars.iv80, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next81 to i32
+  %exitcond83.not = icmp eq i32 %length, %lftr.wideiv
+  br i1 %exitcond83.not, label %for.end18, label %for.body8, !llvm.loop !10
 
 for.end18:                                        ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us72, %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS5_PS5_.exit47.us, %for.end
   ret void

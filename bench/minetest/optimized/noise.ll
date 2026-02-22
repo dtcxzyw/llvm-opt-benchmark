@@ -2457,9 +2457,9 @@ for.cond19.preheader.preheader:                   ; preds = %for.cond19.preheade
   %broadcast.splat = shufflevector <2 x i32> %5, <2 x i32> poison, <4 x i32> zeroinitializer
   %cmp.n = icmp eq i32 %18, %n.vec
   %23 = extractelement <2 x i32> %5, i64 0
-  br i1 %min.iters.check, label %for.cond19.preheader.us, label %for.cond19.preheader.preheader9
+  br i1 %min.iters.check, label %for.cond19.preheader.us, label %for.cond19.preheader.preheader10
 
-for.cond19.preheader.preheader9:                  ; preds = %for.cond19.preheader.preheader
+for.cond19.preheader.preheader10:                 ; preds = %for.cond19.preheader.preheader
   %24 = zext i32 %n.vec to i64
   br label %for.cond19.preheader
 
@@ -2516,9 +2516,9 @@ for.cond19.for.inc33_crit_edge.split.split.us.us: ; preds = %for.cond22.for.inc3
   %cmp.not.us = icmp eq i32 %inc34.us, %add18
   br i1 %cmp.not.us, label %for.cond36.preheader, label %for.cond19.preheader.us, !llvm.loop !79
 
-for.cond19.preheader:                             ; preds = %for.cond19.preheader.preheader9, %for.cond19.for.inc33_crit_edge.split.split
-  %k.0311 = phi i32 [ %inc34, %for.cond19.for.inc33_crit_edge.split.split ], [ 0, %for.cond19.preheader.preheader9 ]
-  %index.0310 = phi i32 [ %inc.lcssa, %for.cond19.for.inc33_crit_edge.split.split ], [ 0, %for.cond19.preheader.preheader9 ]
+for.cond19.preheader:                             ; preds = %for.cond19.preheader.preheader10, %for.cond19.for.inc33_crit_edge.split.split
+  %k.0311 = phi i32 [ %inc34, %for.cond19.for.inc33_crit_edge.split.split ], [ 0, %for.cond19.preheader.preheader10 ]
+  %index.0310 = phi i32 [ %inc.lcssa, %for.cond19.for.inc33_crit_edge.split.split ], [ 0, %for.cond19.preheader.preheader10 ]
   %add27 = add i32 %k.0311, %conv5
   %mul2.i = mul nsw i32 %add27, 52591
   %add.i = add i32 %mul2.i, %mul4.i

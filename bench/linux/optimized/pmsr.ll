@@ -434,11 +434,11 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %224 = getelementptr i8, ptr %186, i64 4
   %225 = load i16, ptr %224, align 2
   %226 = icmp ult i16 %225, 4
-  %.not52164 = icmp ult i16 %213, %225
-  %or.cond58165 = or i1 %226, %.not52164
-  br i1 %or.cond58165, label %.critedge56, label %.lr.ph166
+  %.not52165 = icmp ult i16 %213, %225
+  %or.cond58166 = or i1 %226, %.not52165
+  br i1 %or.cond58166, label %.critedge56, label %.lr.ph167
 
-.lr.ph166:                                        ; preds = %.lr.ph72.preheader
+.lr.ph167:                                        ; preds = %.lr.ph72.preheader
   %227 = zext i16 %213 to i32
   br label %233
 
@@ -452,9 +452,9 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %or.cond58 = or i1 %231, %.not52
   br i1 %or.cond58, label %.critedge56, label %233, !llvm.loop !10
 
-233:                                              ; preds = %.lr.ph166, %.lr.ph72
-  %234 = phi i32 [ %227, %.lr.ph166 ], [ %515, %.lr.ph72 ]
-  %235 = phi ptr [ %224, %.lr.ph166 ], [ %229, %.lr.ph72 ]
+233:                                              ; preds = %.lr.ph167, %.lr.ph72
+  %234 = phi i32 [ %227, %.lr.ph167 ], [ %515, %.lr.ph72 ]
+  %235 = phi ptr [ %224, %.lr.ph167 ], [ %229, %.lr.ph72 ]
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 2
   %237 = load i16, ptr %236, align 2
   %238 = and i16 %237, 16383
@@ -666,8 +666,8 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
 355:                                              ; preds = %352
   %356 = getelementptr i8, ptr %353, i64 4
   %357 = load i32, ptr %356, align 4
-  %.fr = freeze i32 %357
-  %358 = trunc i32 %.fr to i8
+  %.fr156 = freeze i32 %357
+  %358 = trunc i32 %.fr156 to i8
   store i8 %358, ptr %220, align 1
   %359 = add i8 %358, -1
   br label %360

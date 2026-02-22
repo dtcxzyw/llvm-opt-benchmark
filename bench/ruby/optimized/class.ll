@@ -4106,7 +4106,7 @@ rb_check_arity.exit:                              ; preds = %5
 
 .preheader:                                       ; preds = %13
   %.not.i39 = icmp eq i64 %2, 0
-  br i1 %.not.i39, label %particular_class_p.exit.thread37.thread, label %.lr.ph
+  br i1 %.not.i39, label %particular_class_p.exit.thread37, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %add_instance_method_list.exit
   %.140 = phi i64 [ %25, %add_instance_method_list.exit ], [ %2, %.preheader ]
@@ -4119,8 +4119,8 @@ rb_check_arity.exit:                              ; preds = %5
   %or.cond = select i1 %.not5.i, i1 %or.cond.i32, i1 false
   %19 = and i64 %.pre, 31
   %20 = icmp eq i64 %19, 28
-  %or.cond75 = select i1 %or.cond, i1 true, i1 %20
-  br i1 %or.cond75, label %particular_class_p.exit.thread, label %particular_class_p.exit.thread37.loopexit
+  %or.cond68 = select i1 %or.cond, i1 true, i1 %20
+  br i1 %or.cond68, label %particular_class_p.exit.thread, label %particular_class_p.exit.thread37
 
 particular_class_p.exit.thread:                   ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -4136,29 +4136,18 @@ add_instance_method_list.exit:                    ; preds = %particular_class_p.
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !34
   %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %particular_class_p.exit.thread37.loopexit, label %.lr.ph, !llvm.loop !87
+  br i1 %.not.i, label %particular_class_p.exit.thread37, label %.lr.ph, !llvm.loop !87
 
-particular_class_p.exit.thread37.loopexit:        ; preds = %.lr.ph, %add_instance_method_list.exit
-  %.023.ph = phi i64 [ 0, %add_instance_method_list.exit ], [ %.140, %.lr.ph ]
-  %26 = freeze i64 %.023.ph
-  br label %particular_class_p.exit.thread37
-
-particular_class_p.exit.thread37:                 ; preds = %particular_class_p.exit.thread37.loopexit, %13
-  %.023 = phi i64 [ %2, %13 ], [ %26, %particular_class_p.exit.thread37.loopexit ]
+particular_class_p.exit.thread37:                 ; preds = %add_instance_method_list.exit, %.lr.ph, %.preheader, %13
+  %.023 = phi i64 [ %2, %13 ], [ 0, %.preheader ], [ %.140, %.lr.ph ], [ 0, %add_instance_method_list.exit ]
   %.not48 = icmp eq i32 %.022, 0
-  br i1 %.not48, label %27, label %.thread
+  br i1 %.not48, label %26, label %.thread
 
-particular_class_p.exit.thread37.thread:          ; preds = %.preheader
-  %.not4867 = icmp eq i32 %.022, 0
-  br i1 %.not4867, label %27, label %add_instance_method_list.exit35._crit_edge
-
-27:                                               ; preds = %particular_class_p.exit.thread37.thread, %particular_class_p.exit.thread37
-  %.02368 = phi i64 [ 0, %particular_class_p.exit.thread37.thread ], [ %.023, %particular_class_p.exit.thread37 ]
-  %28 = inttoptr i64 %.02368 to ptr
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  %30 = load i64, ptr %29, align 8, !tbaa !46
-  %.fr = freeze i64 %30
-  %.not2742 = icmp eq i64 %.fr, 0
+26:                                               ; preds = %particular_class_p.exit.thread37
+  %27 = inttoptr i64 %.023 to ptr
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %29 = load i64, ptr %28, align 8, !tbaa !46
+  %.not2742 = icmp eq i64 %29, 0
   br i1 %.not2742, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split
 
 .thread:                                          ; preds = %particular_class_p.exit.thread37
@@ -4166,29 +4155,30 @@ particular_class_p.exit.thread37.thread:          ; preds = %.preheader
   br i1 %.not274260, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split.us
 
 .lr.ph44.split.us:                                ; preds = %.thread, %add_instance_method_list.exit35.us
-  %.343.us = phi i64 [ %36, %add_instance_method_list.exit35.us ], [ %.023, %.thread ]
-  %31 = inttoptr i64 %.343.us to ptr
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !33
-  %.not.i34.us = icmp eq ptr %33, null
-  br i1 %.not.i34.us, label %add_instance_method_list.exit35.us, label %34
+  %.343.us = phi i64 [ %35, %add_instance_method_list.exit35.us ], [ %.023, %.thread ]
+  %30 = inttoptr i64 %.343.us to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !33
+  %.not.i34.us = icmp eq ptr %32, null
+  br i1 %.not.i34.us, label %add_instance_method_list.exit35.us, label %33
 
-34:                                               ; preds = %.lr.ph44.split.us
-  call void @rb_id_table_foreach(ptr noundef nonnull %33, ptr noundef nonnull @method_entry_i, ptr noundef nonnull %6) #19
+33:                                               ; preds = %.lr.ph44.split.us
+  call void @rb_id_table_foreach(ptr noundef nonnull %32, ptr noundef nonnull @method_entry_i, ptr noundef nonnull %6) #19
   br label %add_instance_method_list.exit35.us
 
-add_instance_method_list.exit35.us:               ; preds = %34, %.lr.ph44.split.us
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !34
-  %.not27.us = icmp eq i64 %36, 0
+add_instance_method_list.exit35.us:               ; preds = %33, %.lr.ph44.split.us
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !34
+  %.not27.us = icmp eq i64 %35, 0
   br i1 %.not27.us, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split.us, !llvm.loop !88
 
-.lr.ph44.split:                                   ; preds = %27
-  %.not26 = icmp eq i64 %.fr, %.02368
-  br i1 %.not26, label %.lr.ph44.split.split, label %.lr.ph44.split.split.us
+.lr.ph44.split:                                   ; preds = %26
+  %.not26 = icmp eq i64 %29, %.023
+  %36 = freeze i1 %.not26
+  br i1 %36, label %.lr.ph44.split.split, label %.lr.ph44.split.split.us
 
 .lr.ph44.split.split.us:                          ; preds = %.lr.ph44.split
-  %37 = inttoptr i64 %.fr to ptr
+  %37 = inttoptr i64 %29 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !33
   %.not.i34.us46 = icmp eq ptr %39, null
@@ -4199,7 +4189,7 @@ add_instance_method_list.exit35.us:               ; preds = %34, %.lr.ph44.split
   br label %add_instance_method_list.exit35._crit_edge
 
 .lr.ph44.split.split:                             ; preds = %.lr.ph44.split, %48
-  %.343 = phi i64 [ %50, %48 ], [ %.fr, %.lr.ph44.split ]
+  %.343 = phi i64 [ %50, %48 ], [ %29, %.lr.ph44.split ]
   %41 = inttoptr i64 %.343 to ptr
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !33
@@ -4222,7 +4212,7 @@ add_instance_method_list.exit35:                  ; preds = %.lr.ph44.split.spli
   %.not27 = icmp eq i64 %50, 0
   br i1 %.not27, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split.split, !llvm.loop !88
 
-add_instance_method_list.exit35._crit_edge:       ; preds = %add_instance_method_list.exit35.us, %48, %add_instance_method_list.exit35, %particular_class_p.exit.thread37.thread, %.thread, %.lr.ph44.split.split.us, %40, %27
+add_instance_method_list.exit35._crit_edge:       ; preds = %add_instance_method_list.exit35.us, %48, %add_instance_method_list.exit35, %.thread, %.lr.ph44.split.split.us, %40, %26
   %51 = load ptr, ptr %6, align 8, !tbaa !83
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8, !tbaa !89
@@ -5413,8 +5403,8 @@ RB_SYMBOL_P.exit.thread8:                         ; preds = %7
 RB_SYMBOL_P.exit:                                 ; preds = %7
   %13 = inttoptr i64 %0 to ptr
   %14 = load i64, ptr %13, align 8, !tbaa !35
-  %.fr = freeze i64 %14
-  %15 = and i64 %.fr, 31
+  %.fr10 = freeze i64 %14
+  %15 = and i64 %.fr10, 31
   %16 = icmp eq i64 %15, 20
   %17 = getelementptr i8, ptr %4, i64 8
   br i1 %16, label %RB_SYMBOL_P.exit.thread, label %18

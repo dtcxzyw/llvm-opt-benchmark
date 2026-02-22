@@ -62,8 +62,8 @@ define void @If_Dec10Verify(ptr noundef %0, i32 noundef %1, ptr noundef readonly
   %7 = icmp slt i32 %1, 7
   %8 = add nsw i32 %1, -6
   %9 = shl nuw i32 1, %8
-  %.fr81.i = freeze i32 %9
-  %10 = select i1 %7, i32 1, i32 %.fr81.i
+  %.fr.i = freeze i32 %9
+  %10 = select i1 %7, i32 1, i32 %.fr.i
   %11 = icmp sgt i32 %1, 0
   br i1 %11, label %.preheader46.lr.ph, label %.preheader45
 

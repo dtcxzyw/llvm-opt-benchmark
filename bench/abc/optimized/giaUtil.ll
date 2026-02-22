@@ -19220,8 +19220,8 @@ define void @Gia_ManWriteResub(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %10 = icmp slt i32 %.val62.val, 7
   %11 = add nsw i32 %.val62.val, -6
   %12 = shl nuw i32 1, %11
-  %.fr44.i = freeze i32 %12
-  %13 = select i1 %10, i32 1, i32 %.fr44.i
+  %.fr.i = freeze i32 %12
+  %13 = select i1 %10, i32 1, i32 %.fr.i
   %14 = select i1 %10, i32 0, i32 %11
   %15 = shl i32 %.val62.val, %14
   %16 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #43
@@ -19407,10 +19407,10 @@ Abc_TtPrintBinary1.exit78.us:                     ; preds = %._crit_edge.us.i77.
   br label %89
 
 89:                                               ; preds = %Abc_TtAndCompl.exit.us.us, %.lr.ph89.us
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %Abc_TtAndCompl.exit.us.us ], [ 0, %.lr.ph89.us ]
-  %90 = mul nuw nsw i64 %indvars.iv102, %59
+  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %Abc_TtAndCompl.exit.us.us ], [ 0, %.lr.ph89.us ]
+  %90 = mul nuw nsw i64 %indvars.iv103, %59
   %91 = getelementptr inbounds nuw i64, ptr %.val63.us, i64 %90
-  %92 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv103 to i32
   %93 = shl nuw i32 1, %92
   %94 = and i32 %93, %.192.us
   %.not.i66.not.us.us = icmp eq i32 %94, 0
@@ -19442,8 +19442,8 @@ Abc_TtPrintBinary1.exit78.us:                     ; preds = %._crit_edge.us.i77.
   br i1 %exitcond.not.i68.us.us, label %Abc_TtAndCompl.exit.us.us, label %.lr.ph.i.us.us, !llvm.loop !266
 
 Abc_TtAndCompl.exit.us.us:                        ; preds = %.lr.ph42.i.us.us, %.lr.ph.i.us.us
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.split.us.us, label %89, !llvm.loop !267
 
 .lr.ph:                                           ; preds = %Vec_WrdStartTruthTables.exit, %Abc_TtPrintBinary1.exit

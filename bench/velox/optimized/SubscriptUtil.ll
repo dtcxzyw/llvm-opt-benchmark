@@ -50902,13 +50902,13 @@ if.then:                                          ; preds = %entry
   %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %values_.i, align 8
   %4 = load i64, ptr %key, align 8
-  %.fr = freeze i64 %4
-  %5 = trunc i64 %.fr to i32
+  %.fr98 = freeze i64 %4
+  %5 = trunc i64 %.fr98 to i32
   %cmp.i.i.i.i.i = icmp ult i32 %5, 13
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   %6 = load ptr, ptr %value_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %conv13.i.i.i = and i64 %.fr, 4294967295
+  %conv13.i.i.i = and i64 %.fr98, 4294967295
   %sub.i.i.i = add nsw i64 %conv13.i.i.i, -4
   %.cast = ptrtoint ptr %6 to i64
   br i1 %cmp.i.i.i.i.i, label %if.then.split.us, label %for.body.i
@@ -50937,8 +50937,8 @@ while.end.i.us.us:                                ; preds = %while.cond.i.backed
 if.end20.i.us.us:                                 ; preds = %while.end.i.us.us
   %add.i.us.us = add i64 %add.i24, %index.i.073.us.us
   %inc.i.us.us = add nuw nsw i64 %tries.i.072.us.us, 1
-  %exitcond106.not = icmp eq i64 %tries.i.072.us.us, %conv.i
-  br i1 %exitcond106.not, label %if.end7, label %for.body.i.us.us, !llvm.loop !923
+  %exitcond107.not = icmp eq i64 %tries.i.072.us.us, %conv.i
+  br i1 %exitcond107.not, label %if.end7, label %for.body.i.us.us, !llvm.loop !923
 
 while.body.i.lr.ph.us.us:                         ; preds = %for.body.i.us.us
   %and.i26.us.us = zext nneg i16 %9 to i32
@@ -50954,7 +50954,7 @@ while.body.i.us.us.us.us:                         ; preds = %while.cond.i.backed
   %idxprom.i.us.us.us.us = zext i32 %12 to i64
   %arrayidx.i.us.us.us.us = getelementptr inbounds nuw %"struct.std::pair.896", ptr %3, i64 %idxprom.i.us.us.us.us
   %13 = load i64, ptr %arrayidx.i.us.us.us.us, align 8
-  %cmp.not.i.i.i.us.us.us.us = icmp eq i64 %.fr, %13
+  %cmp.not.i.i.i.us.us.us.us = icmp eq i64 %.fr98, %13
   br i1 %cmp.not.i.i.i.us.us.us.us, label %if.then6, label %while.cond.i.backedge.us.us.us.us
 
 while.cond.i.backedge.us.us.us.us:                ; preds = %while.body.i.us.us.us.us
@@ -50983,8 +50983,8 @@ while.end.i.us:                                   ; preds = %while.cond.i.backed
 if.end20.i.us:                                    ; preds = %while.end.i.us
   %add.i.us = add i64 %add.i24, %index.i.073.us
   %inc.i.us = add nuw nsw i64 %tries.i.072.us, 1
-  %exitcond105.not = icmp eq i64 %tries.i.072.us, %conv.i
-  br i1 %exitcond105.not, label %if.end7, label %for.body.i.us, !llvm.loop !923
+  %exitcond106.not = icmp eq i64 %tries.i.072.us, %conv.i
+  br i1 %exitcond106.not, label %if.end7, label %for.body.i.us, !llvm.loop !923
 
 while.body.i.lr.ph.us:                            ; preds = %for.body.i.us
   %and.i26.us = zext nneg i16 %16 to i32
@@ -51002,7 +51002,7 @@ while.body.i.us.us74:                             ; preds = %while.body.i.lr.ph.
   %idxprom.i.us.us80 = zext i32 %19 to i64
   %arrayidx.i.us.us81 = getelementptr inbounds nuw %"struct.std::pair.896", ptr %3, i64 %idxprom.i.us.us80
   %20 = load i64, ptr %arrayidx.i.us.us81, align 8
-  %cmp.not.i.i.i.us.us82 = icmp eq i64 %.fr, %20
+  %cmp.not.i.i.i.us.us82 = icmp eq i64 %.fr98, %20
   br i1 %cmp.not.i.i.i.us.us82, label %if.end.i.i.i.us.us83, label %while.cond.i.backedge.us.us84
 
 if.end.i.i.i.us.us83:                             ; preds = %while.body.i.us.us74
@@ -51044,7 +51044,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %idxprom.i = zext i32 %27 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair.896", ptr %3, i64 %idxprom.i
   %28 = load i64, ptr %arrayidx.i, align 8
-  %cmp.not.i.i.i = icmp eq i64 %.fr, %28
+  %cmp.not.i.i.i = icmp eq i64 %.fr98, %28
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %while.cond.i.backedge
 
 if.end.i.i.i:                                     ; preds = %while.body.i
@@ -51110,11 +51110,11 @@ if.then.i:                                        ; preds = %do.body
   %inc.i36 = add nuw i8 %38, 1
   store i8 %inc.i36, ptr %outboundOverflowCount_.i35, align 1
   %.pre = load ptr, ptr %chunks_, align 8
-  %.pre107 = load i32, ptr %chunkMask_, align 8
+  %.pre108 = load i32, ptr %chunkMask_, align 8
   br label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit
 
 _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %do.body, %if.then.i
-  %39 = phi i32 [ %36, %do.body ], [ %.pre107, %if.then.i ]
+  %39 = phi i32 [ %36, %do.body ], [ %.pre108, %if.then.i ]
   %40 = phi ptr [ %37, %do.body ], [ %.pre, %if.then.i ]
   %add = add i64 %add.i34, %index.0
   %conv15 = zext i32 %39 to i64

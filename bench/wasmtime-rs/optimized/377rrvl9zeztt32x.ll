@@ -10324,8 +10324,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1d
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i32, ptr %2, align 4, !range !59
-  %.fr59 = freeze i32 %9
-  %10 = add i32 %.fr59, -13
+  %.fr = freeze i32 %9
+  %10 = add i32 %.fr, -13
   %narrow.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %10, i32 5)
   %11 = icmp ugt i32 %10, 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10335,7 +10335,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1d
   br i1 %11, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3
-  %16 = icmp eq i32 %.fr59, 12
+  %16 = icmp eq i32 %.fr, 12
   br i1 %16, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %22
@@ -10435,7 +10435,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1d
   %66 = getelementptr inbounds i8, ptr %58, i64 -32
   %67 = load i8, ptr %66, align 4, !range !68, !alias.scope !2930, !noalias !2933, !noundef !10
   %68 = icmp eq i8 %13, %67
-  %69 = icmp eq i32 %.fr59, %60
+  %69 = icmp eq i32 %.fr, %60
   %or.cond4.i.i.i.i.us = and i1 %69, %68
   br i1 %or.cond4.i.i.i.i.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h875726c7e9810623E.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h875726c7e9810623E.exit.us44"
 
@@ -10969,8 +10969,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb8b8
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i32, ptr %2, align 4, !range !59
-  %.fr52 = freeze i32 %9
-  %10 = add i32 %.fr52, -13
+  %.fr = freeze i32 %9
+  %10 = add i32 %.fr, -13
   %narrow3.i.i.i = tail call i32 @llvm.umin.i32(i32 %10, i32 5)
   %11 = icmp ugt i32 %10, 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10980,7 +10980,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb8b8
   br i1 %11, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %3
-  %16 = icmp eq i32 %.fr52, 12
+  %16 = icmp eq i32 %.fr, 12
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %46
@@ -11019,7 +11019,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb8b8
   %35 = getelementptr inbounds i8, ptr %27, i64 -32
   %36 = load i8, ptr %35, align 4, !range !68, !alias.scope !3062, !noalias !3065, !noundef !10
   %37 = icmp eq i8 %36, %13
-  %38 = icmp eq i32 %29, %.fr52
+  %38 = icmp eq i32 %29, %.fr
   %or.cond4.i.i.i.us = and i1 %38, %37
   br i1 %or.cond4.i.i.i.us, label %39, label %.backedge.us
 

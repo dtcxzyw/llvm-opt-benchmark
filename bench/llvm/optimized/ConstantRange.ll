@@ -3340,10 +3340,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %22, %19, %_ZN4llvm5
 
 28:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
   %29 = load i64, ptr %0, align 8, !tbaa !9
-  %.fr67 = freeze i64 %29
   %30 = load i64, ptr %25, align 8, !tbaa !9
-  %.fr68 = freeze i64 %30
-  %31 = icmp eq i64 %.fr67, %.fr68
+  %31 = icmp eq i64 %29, %30
   br i1 %31, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.exit
@@ -3358,11 +3356,11 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.
   %36 = sub nuw nsw i32 64, %.fr
   %37 = zext nneg i32 %36 to i64
   %38 = lshr i64 -1, %37
-  %39 = icmp eq i64 %.fr67, %38
-  %40 = or i64 %.fr68, %.fr67
+  %39 = icmp eq i64 %29, %38
+  %40 = or i64 %30, %29
   %spec.select.i = icmp eq i64 %40, 0
-  %or.cond83 = or i1 %39, %spec.select.i
-  br i1 %or.cond83, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
+  %or.cond81 = or i1 %39, %spec.select.i
+  br i1 %or.cond81, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
   %41 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
@@ -3386,11 +3384,12 @@ _ZNK4llvm5APInteqERKS0_.exit.i22:                 ; preds = %43, %_ZNK4llvm13Con
   br label %_ZN4llvm5APIntC2Ejmbb.exit25
 
 _ZNK4llvm13ConstantRange10isEmptySetEv.exit24:    ; preds = %33, %35
-  %49 = or i64 %.fr68, %.fr67
-  %spec.select.i23 = icmp eq i64 %49, 0
+  %49 = or i64 %30, %29
+  %.fr66 = freeze i64 %49
+  %spec.select.i23 = icmp eq i64 %.fr66, 0
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.85 = select i1 %spec.select.i23, i32 36, i32 35
-  store i32 %.85, ptr %1, align 4, !tbaa !135
+  %.83 = select i1 %spec.select.i23, i32 36, i32 35
+  store i32 %.83, ptr %1, align 4, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.fr, ptr %50, align 8, !tbaa !3
   store i64 0, ptr %6, align 8, !tbaa !9
@@ -3481,23 +3480,21 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %28, %35, %_ZNK4ll
 
 88:                                               ; preds = %74
   %89 = load i32, ptr %10, align 8, !tbaa !3
-  %.fr64 = freeze i32 %89
-  %90 = icmp ult i32 %.fr64, 65
+  %.fr65 = freeze i32 %89
+  %90 = icmp ult i32 %.fr65, 65
   br i1 %90, label %91, label %97
 
 91:                                               ; preds = %88
   %92 = load i64, ptr %0, align 8, !tbaa !9
-  %.fr65 = freeze i64 %92
-  %93 = add nsw i32 %.fr64, -1
+  %93 = add nsw i32 %.fr65, -1
   %94 = zext nneg i32 %93 to i64
   %95 = shl nuw i64 1, %94
-  %.fr66 = freeze i64 %95
-  %96 = and i64 %.fr65, %.fr66
-  %or.cond = icmp eq i64 %96, %.fr65
+  %96 = and i64 %92, %95
+  %or.cond = icmp eq i64 %96, %92
   br i1 %or.cond, label %114, label %131
 
 97:                                               ; preds = %88
-  %98 = add i32 %.fr64, -1
+  %98 = add i32 %.fr65, -1
   %99 = and i32 %98, 63
   %100 = zext nneg i32 %99 to i64
   %101 = shl nuw i64 1, %100
@@ -3517,17 +3514,18 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit:         ; preds = %97
 
 _ZNK4llvm5APInt10isMinValueEv.exit:               ; preds = %97
   %110 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
-  %111 = icmp eq i32 %110, %.fr64
+  %111 = icmp eq i32 %110, %.fr65
   br i1 %111, label %_ZNK4llvm5APInt16isMinSignedValueEv.exit31.thread, label %131
 
 _ZNK4llvm5APInt10isMinValueEv.exit.thread:        ; preds = %_ZNK4llvm5APInt16isMinSignedValueEv.exit
   %112 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
-  %113 = icmp eq i32 %112, %.fr64
+  %113 = icmp eq i32 %112, %.fr65
   br i1 %113, label %_ZNK4llvm5APInt16isMinSignedValueEv.exit31, label %131
 
 114:                                              ; preds = %91
-  %115 = icmp eq i64 %.fr65, %.fr66
-  br i1 %115, label %118, label %_ZNK4llvm5APInt16isMinSignedValueEv.exit31.thread
+  %115 = icmp eq i64 %92, %95
+  %cond.fr5861 = freeze i1 %115
+  br i1 %cond.fr5861, label %118, label %_ZNK4llvm5APInt16isMinSignedValueEv.exit31.thread
 
 _ZNK4llvm5APInt16isMinSignedValueEv.exit31:       ; preds = %_ZNK4llvm5APInt10isMinValueEv.exit.thread, %_ZNK4llvm5APInt16isMinSignedValueEv.exit
   %116 = call noundef i32 @_ZNK4llvm5APInt26countTrailingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
@@ -3623,9 +3621,9 @@ _ZN4llvm5APIntD2Ev.exit36.thread:                 ; preds = %_ZN4llvm5APIntC2ERK
 158:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %159 = load ptr, ptr %2, align 8, !tbaa !9
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %_ZN4llvm5APIntD2Ev.exit36.thread81, label %_ZN4llvm5APIntD2Ev.exit36
+  br i1 %160, label %_ZN4llvm5APIntD2Ev.exit36.thread79, label %_ZN4llvm5APIntD2Ev.exit36
 
-_ZN4llvm5APIntD2Ev.exit36.thread81:               ; preds = %158
+_ZN4llvm5APIntD2Ev.exit36.thread79:               ; preds = %158
   store i64 %154, ptr %2, align 8
   store i32 %153, ptr %155, align 8, !tbaa !3
   br label %_ZN4llvm5APIntD2Ev.exit37
@@ -3647,7 +3645,7 @@ _ZN4llvm5APIntD2Ev.exit36:                        ; preds = %158
   call void @_ZdaPv(ptr noundef nonnull %163) #17
   br label %_ZN4llvm5APIntD2Ev.exit37
 
-_ZN4llvm5APIntD2Ev.exit37:                        ; preds = %_ZN4llvm5APIntD2Ev.exit36.thread81, %_ZN4llvm5APIntD2Ev.exit36.thread, %_ZN4llvm5APIntD2Ev.exit36, %162, %165
+_ZN4llvm5APIntD2Ev.exit37:                        ; preds = %_ZN4llvm5APIntD2Ev.exit36.thread79, %_ZN4llvm5APIntD2Ev.exit36.thread, %_ZN4llvm5APIntD2Ev.exit36, %162, %165
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %166 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %167 = load i32, ptr %10, align 8, !tbaa !3

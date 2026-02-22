@@ -3793,17 +3793,17 @@ _ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread: 
   %138 = zext i32 %137 to i64
   %.idx.i = mul nuw nsw i64 %138, 24
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 %.idx.i
-  %.not12.i.i.i = icmp eq i32 %137, 0
-  br i1 %.not12.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
+  %.not13.i.i.i = icmp eq i32 %137, 0
+  br i1 %.not13.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %133, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i"
-  %.015.i.i.i = phi i32 [ %166, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i" ], [ 0, %133 ]
-  %.0513.i.i.i = phi ptr [ %167, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i" ], [ %135, %133 ]
-  %140 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %.0513.i.i.i) #16
+  %.016.i.i.i = phi i32 [ %166, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i" ], [ 0, %133 ]
+  %.0514.i.i.i = phi ptr [ %167, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i" ], [ %135, %133 ]
+  %140 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %.0514.i.i.i) #16
   br i1 %140, label %141, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i"
 
 141:                                              ; preds = %.lr.ph.i.i.i
-  %142 = load i32, ptr %.0513.i.i.i, align 8
+  %142 = load i32, ptr %.0514.i.i.i, align 8
   %143 = and i32 %142, 2147483647
   switch i32 %143, label %156 [
     i32 1, label %144
@@ -3811,7 +3811,7 @@ _ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread: 
   ]
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.0513.i.i.i, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.0514.i.i.i, i64 8
   %146 = load i64, ptr %145, align 8, !tbaa !148
   %147 = and i64 %146, -16
   %148 = inttoptr i64 %147 to ptr
@@ -3834,14 +3834,14 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i: ; preds = %
   br i1 %.not.not.i.not.i.i.i.i.i, label %164, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i"
 
 156:                                              ; preds = %141
-  %157 = tail call i64 @_ZNK5clang16TemplateArgument24getNumTemplateExpansionsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0513.i.i.i) #16
-  %.fr11.i.i.i = freeze i64 %157
-  %158 = and i64 %.fr11.i.i.i, 4294967296
+  %157 = tail call i64 @_ZNK5clang16TemplateArgument24getNumTemplateExpansionsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0514.i.i.i) #16
+  %.fr12.i.i.i = freeze i64 %157
+  %158 = and i64 %.fr12.i.i.i, 4294967296
   %.not.i.i.i.i.i = icmp eq i64 %158, 0
   br i1 %.not.i.i.i.i.i, label %164, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.i.i.i": ; preds = %141
-  %159 = getelementptr inbounds nuw i8, ptr %.0513.i.i.i, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.0514.i.i.i, i64 8
   %160 = load i64, ptr %159, align 8, !tbaa !148
   %161 = inttoptr i64 %160 to ptr
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 20
@@ -3851,12 +3851,12 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i: ; preds = %
   br i1 %.not.not.i7.not.i.i.i.i.i, label %164, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i"
 
 164:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.i.i.i", %156, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i
-  %165 = add i32 %.015.i.i.i, 1
+  %165 = add i32 %.016.i.i.i, 1
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.thread.i.i.i": ; preds = %164, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.i.i.i", %156, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i, %.lr.ph.i.i.i
-  %166 = phi i32 [ %165, %164 ], [ %.015.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.i.i.i" ], [ %.015.i.i.i, %156 ], [ %.015.i.i.i, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i ], [ %.015.i.i.i, %.lr.ph.i.i.i ]
-  %167 = getelementptr inbounds nuw i8, ptr %.0513.i.i.i, i64 24
+  %166 = phi i32 [ %165, %164 ], [ %.016.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema31CheckParameterPacksForExpansionENS2_14SourceLocationENS2_11SourceRangeEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEERKNS2_30MultiLevelTemplateArgumentListERbSN_RSt8optionalIjEE3$_0EclIPKNS2_16TemplateArgumentEEEbT_.exit.i.i.i" ], [ %.016.i.i.i, %156 ], [ %.016.i.i.i, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i ], [ %.016.i.i.i, %.lr.ph.i.i.i ]
+  %167 = getelementptr inbounds nuw i8, ptr %.0514.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %167, %139
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !908
 

@@ -127,13 +127,13 @@ _ZN10MutexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E5clearEv
 define dso_local void @_Z12getImagePathB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %path.coerce0, ptr %path.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  %path.coerce0.fr = freeze i64 %path.coerce0
+  %stripped_path.sroa.0.0.fr19 = freeze i64 %path.coerce0
   %path.coerce1.fr = freeze ptr %path.coerce1
-  %cmp2.i = icmp ult i64 %path.coerce0.fr, 4
+  %cmp2.i = icmp ult i64 %stripped_path.sroa.0.0.fr19, 4
   br i1 %cmp2.i, label %if.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %entry
-  %sub.i = add i64 %path.coerce0.fr, -4
+  %sub.i = add i64 %stripped_path.sroa.0.0.fr19, -4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %path.coerce1.fr, i64 %sub.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %cmp.i.i.i = icmp eq i32 %bcmp.i, 0
@@ -166,15 +166,15 @@ if.end.thread18:                                  ; preds = %_ZNSt11char_traitsI
 if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %cmp.i.i.i39 = icmp eq ptr %path.coerce1.fr, null
-  %cmp2.i.i.i = icmp ne i64 %path.coerce0.fr, 0
+  %cmp2.i.i.i = icmp ne i64 %stripped_path.sroa.0.0.fr19, 0
   %or.cond.i.i.i = and i1 %cmp2.i.i.i, %cmp.i.i.i39
   br i1 %or.cond.i.i.i, label %if.end3.us, label %if.end.split.thread
 
 if.end.split.thread:                              ; preds = %if.end
-  %_M_string_length.i.i.i.i.i.i1634 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i.i.i1633 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %0, ptr %agg.result, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
-  store i64 %path.coerce0.fr, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
+  store i64 %stripped_path.sroa.0.0.fr19, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
   br label %if.end3
 
 if.end3.us:                                       ; preds = %if.end
@@ -183,7 +183,7 @@ if.end3.us:                                       ; preds = %if.end
   unreachable
 
 if.end.split:                                     ; preds = %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3, %if.end.thread18
-  %stripped_path.sroa.0.0.fr15 = phi i64 [ %path.coerce0.fr, %if.end.thread18 ], [ %sub.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ], [ %sub.i, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit ]
+  %stripped_path.sroa.0.0.fr15 = phi i64 [ %stripped_path.sroa.0.0.fr19, %if.end.thread18 ], [ %sub.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3 ], [ %sub.i, %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit ]
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %_M_string_length.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %cmp.i.i.i.i = icmp ugt i64 %stripped_path.sroa.0.0.fr15, 15
@@ -357,8 +357,8 @@ lpad4.loopexit.split.us:                          ; preds = %invoke.cont5.us, %_
 if.end3.1:                                        ; preds = %nrvo.unused, %if.then.i.i47
   store ptr %32, ptr %agg.result, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
-  switch i64 %stripped_path.sroa.0.0.fr1536, label %if.end.i.i.i.i.i.i.i.1 [
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
+  switch i64 %stripped_path.sroa.0.0.fr1535, label %if.end.i.i.i.i.i.i.i.1 [
     i64 1, label %if.then.i.i.i.i.i.i.1
     i64 0, label %invoke.cont.1
   ]
@@ -369,11 +369,11 @@ if.then.i.i.i.i.i.i.1:                            ; preds = %if.end3.1
   br label %invoke.cont.1
 
 if.end.i.i.i.i.i.i.i.1:                           ; preds = %if.end3.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1536, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1535, i1 false)
   br label %invoke.cont.1
 
 invoke.cont.1:                                    ; preds = %if.end.i.i.i.i.i.i.i.1, %if.then.i.i.i.i.i.i.1, %if.end3.1
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %_M_string_length.i.i.i.i.i.i1638, align 8, !tbaa !21
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %_M_string_length.i.i.i.i.i.i1637, align 8, !tbaa !21
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i.i)
   %call2.i42.1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, i64 noundef 4)
@@ -398,8 +398,8 @@ if.then.i.i47.1:                                  ; preds = %nrvo.unused.1
 if.end3.2:                                        ; preds = %nrvo.unused.1, %if.then.i.i47.1
   store ptr %32, ptr %agg.result, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
-  switch i64 %stripped_path.sroa.0.0.fr1536, label %if.end.i.i.i.i.i.i.i.2 [
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
+  switch i64 %stripped_path.sroa.0.0.fr1535, label %if.end.i.i.i.i.i.i.i.2 [
     i64 1, label %if.then.i.i.i.i.i.i.2
     i64 0, label %invoke.cont.2
   ]
@@ -410,11 +410,11 @@ if.then.i.i.i.i.i.i.2:                            ; preds = %if.end3.2
   br label %invoke.cont.2
 
 if.end.i.i.i.i.i.i.i.2:                           ; preds = %if.end3.2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1536, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1535, i1 false)
   br label %invoke.cont.2
 
 invoke.cont.2:                                    ; preds = %if.end.i.i.i.i.i.i.i.2, %if.then.i.i.i.i.i.i.2, %if.end3.2
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %_M_string_length.i.i.i.i.i.i1638, align 8, !tbaa !21
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %_M_string_length.i.i.i.i.i.i1637, align 8, !tbaa !21
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i.i)
   %call2.i42.2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, i64 noundef 4)
@@ -439,8 +439,8 @@ if.then.i.i47.2:                                  ; preds = %nrvo.unused.2
 if.end3.3:                                        ; preds = %nrvo.unused.2, %if.then.i.i47.2
   store ptr %32, ptr %agg.result, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
-  switch i64 %stripped_path.sroa.0.0.fr1536, label %if.end.i.i.i.i.i.i.i.3 [
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %__dnew.i.i.i.i, align 8, !tbaa !17
+  switch i64 %stripped_path.sroa.0.0.fr1535, label %if.end.i.i.i.i.i.i.i.3 [
     i64 1, label %if.then.i.i.i.i.i.i.3
     i64 0, label %invoke.cont.3
   ]
@@ -451,11 +451,11 @@ if.then.i.i.i.i.i.i.3:                            ; preds = %if.end3.3
   br label %invoke.cont.3
 
 if.end.i.i.i.i.i.i.i.3:                           ; preds = %if.end3.3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1536, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1535, i1 false)
   br label %invoke.cont.3
 
 invoke.cont.3:                                    ; preds = %if.end.i.i.i.i.i.i.i.3, %if.then.i.i.i.i.i.i.3, %if.end3.3
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %_M_string_length.i.i.i.i.i.i1638, align 8, !tbaa !21
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %_M_string_length.i.i.i.i.i.i1637, align 8, !tbaa !21
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i.i)
   %call2.i42.3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.4, i64 noundef 4)
@@ -478,10 +478,10 @@ if.then.i.i47.3:                                  ; preds = %nrvo.unused.3
   br label %for.end
 
 if.end3:                                          ; preds = %if.end.split.thread, %if.end.split
-  %_M_string_length.i.i.i.i.i.i1638 = phi ptr [ %_M_string_length.i.i.i.i.i.i1634, %if.end.split.thread ], [ %_M_string_length.i.i.i.i.i.i16, %if.end.split ]
-  %stripped_path.sroa.0.0.fr1536 = phi i64 [ %path.coerce0.fr, %if.end.split.thread ], [ %stripped_path.sroa.0.0.fr15, %if.end.split ]
+  %_M_string_length.i.i.i.i.i.i1637 = phi ptr [ %_M_string_length.i.i.i.i.i.i1633, %if.end.split.thread ], [ %_M_string_length.i.i.i.i.i.i16, %if.end.split ]
+  %stripped_path.sroa.0.0.fr1535 = phi i64 [ %stripped_path.sroa.0.0.fr19, %if.end.split.thread ], [ %stripped_path.sroa.0.0.fr15, %if.end.split ]
   %32 = phi ptr [ %0, %if.end.split.thread ], [ %1, %if.end.split ]
-  switch i64 %stripped_path.sroa.0.0.fr1536, label %if.end.i.i.i.i.i.i.i [
+  switch i64 %stripped_path.sroa.0.0.fr1535, label %if.end.i.i.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i.i.i
     i64 0, label %invoke.cont
   ]
@@ -492,13 +492,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end3
   br label %invoke.cont
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1536, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %path.coerce1.fr, i64 %stripped_path.sroa.0.0.fr1535, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end3
   %34 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %stripped_path.sroa.0.0.fr1536, ptr %_M_string_length.i.i.i.i.i.i1638, align 8, !tbaa !21
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 %stripped_path.sroa.0.0.fr1536
+  store i64 %stripped_path.sroa.0.0.fr1535, ptr %_M_string_length.i.i.i.i.i.i1637, align 8, !tbaa !21
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 %stripped_path.sroa.0.0.fr1535
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i.i)
   %call2.i42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, i64 noundef 4)
@@ -549,10 +549,10 @@ if.then.i.i47:                                    ; preds = %nrvo.unused
   br label %if.end3.1
 
 for.end:                                          ; preds = %nrvo.unused.3, %nrvo.unused.us.3, %if.then.i.i47.3, %if.then.i.i47.us.3
-  %_M_string_length.i.i.i.i.i.i1639 = phi ptr [ %_M_string_length.i.i.i.i.i.i16, %nrvo.unused.us.3 ], [ %_M_string_length.i.i.i.i.i.i1638, %if.then.i.i47.3 ], [ %_M_string_length.i.i.i.i.i.i16, %if.then.i.i47.us.3 ], [ %_M_string_length.i.i.i.i.i.i1638, %nrvo.unused.3 ]
+  %_M_string_length.i.i.i.i.i.i1638 = phi ptr [ %_M_string_length.i.i.i.i.i.i16, %nrvo.unused.us.3 ], [ %_M_string_length.i.i.i.i.i.i1637, %if.then.i.i47.3 ], [ %_M_string_length.i.i.i.i.i.i16, %if.then.i.i47.us.3 ], [ %_M_string_length.i.i.i.i.i.i1637, %nrvo.unused.3 ]
   %38 = phi ptr [ %1, %nrvo.unused.us.3 ], [ %32, %if.then.i.i47.3 ], [ %1, %if.then.i.i47.us.3 ], [ %32, %nrvo.unused.3 ]
   store ptr %38, ptr %agg.result, align 8, !tbaa !15
-  store i64 0, ptr %_M_string_length.i.i.i.i.i.i1639, align 8, !tbaa !21
+  store i64 0, ptr %_M_string_length.i.i.i.i.i.i1638, align 8, !tbaa !21
   store i8 0, ptr %38, align 8, !tbaa !20
   br label %cleanup26
 

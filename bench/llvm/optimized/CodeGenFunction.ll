@@ -2391,18 +2391,17 @@ _ZNSt8optionalIN5clang7CodeGen18ApplyDebugLocationEEaSIS2_EENSt9enable_ifIX7__an
 99:                                               ; preds = %95
   %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %94) #24
   %101 = load ptr, ptr %100, align 8, !tbaa !602
-  %.fr.i = freeze ptr %101
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load i32, ptr %102, align 8, !tbaa !603
-  %.fr11.i = freeze i32 %103
-  %104 = zext i32 %.fr11.i to i64
+  %104 = zext i32 %103 to i64
   %.idx.i.i.i = shl nuw nsw i64 %104, 3
-  %105 = getelementptr i8, ptr %.fr.i, i64 %.idx.i.i.i
-  %.not.i.i.i = icmp eq i32 %.fr11.i, 0
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i.i.i
+  %.fr.i = freeze ptr %105
+  %.not.i.i.i = icmp eq i32 %103, 0
   br i1 %.not.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %99, %110
-  %.sroa.07.1.i.i.i.i.i = phi ptr [ %111, %110 ], [ %.fr.i, %99 ]
+  %.sroa.07.1.i.i.i.i.i = phi ptr [ %111, %110 ], [ %101, %99 ]
   %106 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !894
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i16, ptr %107, align 8
@@ -2411,11 +2410,11 @@ _ZNSt8optionalIN5clang7CodeGen18ApplyDebugLocationEEaSIS2_EENSt9enable_ifIX7__an
 
 110:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %111, %105
+  %.not.i.i.i.i.i.i = icmp eq ptr %111, %.fr.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !896
 
 _ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %105
+  %.not.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %.fr.i
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread214
 
 _ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread: ; preds = %110, %95, %99, %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit
@@ -3432,18 +3431,17 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction24ShouldI
 15:                                               ; preds = %11
   %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %10) #24
   %17 = load ptr, ptr %16, align 8, !tbaa !602
-  %.fr = freeze ptr %17
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !603
-  %.fr11 = freeze i32 %19
-  %20 = zext i32 %.fr11 to i64
+  %20 = zext i32 %19 to i64
   %.idx.i.i = shl nuw nsw i64 %20, 3
-  %21 = getelementptr i8, ptr %.fr, i64 %.idx.i.i
-  %.not.i.i = icmp eq i32 %.fr11, 0
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
+  %.fr = freeze ptr %21
+  %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_24NoInstrumentFunctionAttrEEEbv.exit.thread7, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %15, %26
-  %.sroa.07.1.i.i.i.i = phi ptr [ %27, %26 ], [ %.fr, %15 ]
+  %.sroa.07.1.i.i.i.i = phi ptr [ %27, %26 ], [ %17, %15 ]
   %22 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !894
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i16, ptr %23, align 8
@@ -3452,11 +3450,11 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction24ShouldI
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %27, %21
+  %.not.i.i.i.i.i = icmp eq ptr %27, %.fr
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_24NoInstrumentFunctionAttrEEEbv.exit.thread7, label %.lr.ph.i.i.i.i.i, !llvm.loop !896
 
 _ZNK5clang4Decl7hasAttrINS_24NoInstrumentFunctionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %21
+  %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %.fr
   br label %_ZNK5clang4Decl7hasAttrINS_24NoInstrumentFunctionAttrEEEbv.exit.thread7
 
 _ZNK5clang4Decl7hasAttrINS_24NoInstrumentFunctionAttrEEEbv.exit.thread7: ; preds = %26, %_ZNK5clang4Decl7hasAttrINS_24NoInstrumentFunctionAttrEEEbv.exit, %1, %15, %11, %8
@@ -8777,18 +8775,17 @@ _ZNK5clang7CodeGen15CodeGenFunction24requiresReturnValueCheckEv.exit.thread: ; p
 2007:                                             ; preds = %2003
   %2008 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %2002) #24
   %2009 = load ptr, ptr %2008, align 8, !tbaa !602
-  %.fr.i = freeze ptr %2009
   %2010 = getelementptr inbounds nuw i8, ptr %2008, i64 8
   %2011 = load i32, ptr %2010, align 8, !tbaa !603
-  %.fr11.i = freeze i32 %2011
-  %2012 = zext i32 %.fr11.i to i64
+  %2012 = zext i32 %2011 to i64
   %.idx.i.i.i1879 = shl nuw nsw i64 %2012, 3
-  %2013 = getelementptr i8, ptr %.fr.i, i64 %.idx.i.i.i1879
-  %.not.i.i.i1880 = icmp eq i32 %.fr11.i, 0
+  %2013 = getelementptr inbounds nuw i8, ptr %2009, i64 %.idx.i.i.i1879
+  %.fr.i = freeze ptr %2013
+  %.not.i.i.i1880 = icmp eq i32 %2011, 0
   br i1 %.not.i.i.i1880, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread, label %.lr.ph.i.i.i.i.i.i1881
 
 .lr.ph.i.i.i.i.i.i1881:                           ; preds = %2007, %2018
-  %.sroa.07.1.i.i.i.i.i1882 = phi ptr [ %2019, %2018 ], [ %.fr.i, %2007 ]
+  %.sroa.07.1.i.i.i.i.i1882 = phi ptr [ %2019, %2018 ], [ %2009, %2007 ]
   %2014 = load ptr, ptr %.sroa.07.1.i.i.i.i.i1882, align 8, !tbaa !894
   %2015 = getelementptr inbounds nuw i8, ptr %2014, i64 32
   %2016 = load i16, ptr %2015, align 8
@@ -8797,11 +8794,11 @@ _ZNK5clang7CodeGen15CodeGenFunction24requiresReturnValueCheckEv.exit.thread: ; p
 
 2018:                                             ; preds = %.lr.ph.i.i.i.i.i.i1881
   %2019 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i1882, i64 8
-  %.not.i.i.i.i.i.i1883 = icmp eq ptr %2019, %2013
+  %.not.i.i.i.i.i.i1883 = icmp eq ptr %2019, %.fr.i
   br i1 %.not.i.i.i.i.i.i1883, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread, label %.lr.ph.i.i.i.i.i.i1881, !llvm.loop !896
 
 _ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i1881
-  %.not.i1885 = icmp eq ptr %.sroa.07.1.i.i.i.i.i1882, %2013
+  %.not.i1885 = icmp eq ptr %.sroa.07.1.i.i.i.i.i1882, %.fr.i
   br i1 %.not.i1885, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread, label %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread2423
 
 _ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit.thread: ; preds = %2018, %2003, %2007, %_ZN5clang7CodeGen15CodeGenFunction24ShouldInstrumentFunctionEv.exit

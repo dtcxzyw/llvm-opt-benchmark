@@ -632,13 +632,13 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i64, ptr %8, align 8
-  %.fr3 = freeze i64 %9
-  %10 = and i64 %.fr3, 15
+  %.fr = freeze i64 %9
+  %10 = and i64 %.fr, 15
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %74, label %12
 
 12:                                               ; preds = %5
-  %13 = and i64 %.fr3, 16384
+  %13 = and i64 %.fr, 16384
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %.split.us, label %.split
 
@@ -647,7 +647,7 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
   %16 = trunc i64 %15 to i32
   %17 = shl nuw nsw i32 1, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = and i64 %.fr3, %18
+  %19 = and i64 %.fr, %18
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %39, label %21, !prof !9
 
@@ -689,7 +689,7 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
   %43 = trunc i64 %42 to i32
   %44 = shl nuw nsw i32 1, %43
   %45 = zext nneg i32 %44 to i64
-  %46 = and i64 %.fr3, %45
+  %46 = and i64 %.fr, %45
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %62, label %48, !prof !9
 
@@ -728,7 +728,7 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %68, 15
   %70 = icmp eq i64 %69, 0
-  %71 = icmp ult i64 %.fr3, 16
+  %71 = icmp ult i64 %.fr, 16
   %72 = and i1 %71, %70
   %73 = select i1 %72, i32 32769, i32 0
   br label %74

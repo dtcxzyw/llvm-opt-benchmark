@@ -382,11 +382,11 @@ define internal range(i32 -2147483648, 2) i32 @vp8_handle_packet(ptr noundef %0,
   br label %.critedge239
 
 .sink.split:                                      ; preds = %187, %157
-  %.sink311 = phi i64 [ 12, %157 ], [ 36, %187 ]
+  %.sink312 = phi i64 [ 12, %157 ], [ 36, %187 ]
   %.sink = phi i32 [ %163, %157 ], [ 1, %187 ]
   %.5199.ph = phi i1 [ %144, %157 ], [ true, %187 ]
   %.5193.ph = phi i32 [ %.0188, %157 ], [ 0, %187 ]
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink311
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink312
   store i32 %.sink, ptr %190, align 4, !tbaa !25
   br label %191
 

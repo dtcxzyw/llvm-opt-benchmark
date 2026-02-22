@@ -5442,7 +5442,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %.fr48 = freeze i64 %4
+  %.fr = freeze i64 %4
   %9 = add i64 %3, 4095
   %10 = and i64 %9, -4096
   %11 = add i64 %10, %1
@@ -5522,12 +5522,12 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %54 = and i64 %53, 511
   %55 = getelementptr %struct.pgd_t, ptr %50, i64 %54
   %56 = add i64 %11, -1
-  %57 = icmp ne i64 %.fr48, 0
-  %58 = and i64 %.fr48, 1
+  %57 = icmp ne i64 %.fr, 0
+  %58 = and i64 %.fr, 1
   %59 = icmp eq i64 %58, 0
   %60 = and i1 %57, %59
   %61 = sext i1 %60 to i64
-  %invariant.op = or i64 %.fr48, 512
+  %invariant.op = or i64 %.fr, 512
   br i1 %59, label %.split46.us, label %.split46
 
 .split46.us:                                      ; preds = %46, %.split45.us.us
@@ -5706,7 +5706,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   br i1 %176, label %177, label %.split.us, !prof !13
 
 177:                                              ; preds = %.preheader.us.us.us.us
-  %178 = call zeroext i1 @pfn_modify_allowed(i64 noundef %172, i64 %.fr48) #18
+  %178 = call zeroext i1 @pfn_modify_allowed(i64 noundef %172, i64 %.fr) #18
   br i1 %178, label %179, label %.split34.us.us.us.us.us
 
 179:                                              ; preds = %177
@@ -5924,7 +5924,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   unreachable
 
 307:                                              ; preds = %.preheader
-  %308 = call zeroext i1 @pfn_modify_allowed(i64 noundef %302, i64 %.fr48) #18
+  %308 = call zeroext i1 @pfn_modify_allowed(i64 noundef %302, i64 %.fr) #18
   br i1 %308, label %309, label %.split34
 
 309:                                              ; preds = %307
@@ -5932,7 +5932,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %311 = xor i64 %310, %61
   %312 = and i64 %311, 4503599627366400
   %313 = load i64, ptr @__supported_pte_mask, align 8
-  %314 = and i64 %313, %.fr48
+  %314 = and i64 %313, %.fr
   %315 = or i64 %312, %314
   %316 = or i64 %315, 512
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -24549,424 +24549,419 @@ declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #25 {
-  %.fr62.i.i = freeze ptr %0
-  %.fr = freeze ptr %1
-  %4 = ptrtoint ptr %.fr62.i.i to i64
-  %5 = ptrtoint ptr %.fr to i64
+  %.fr70 = freeze ptr %1
+  %.fr35 = freeze ptr %0
+  %4 = ptrtoint ptr %.fr35 to i64
+  %5 = ptrtoint ptr %.fr70 to i64
   %6 = sub i64 %5, %4
   %7 = ashr exact i64 %6, 2
   %8 = icmp sgt i64 %7, 16
   br i1 %8, label %.lr.ph, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.fr62.i.i, i64 4
-  br label %10
+  %9 = getelementptr inbounds nuw i8, ptr %.fr35, i64 4
+  %10 = icmp eq i64 %2, 0
+  br i1 %10, label %._crit_edge, label %.lr.ph95
 
-10:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
-  %11 = phi i64 [ %7, %.lr.ph ], [ %167, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit" ]
-  %.032 = phi i64 [ %2, %.lr.ph ], [ %116, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit" ]
-  %storemerge31 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.013.1.lcssa.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit" ]
-  %12 = icmp eq i64 %.032, 0
-  br i1 %12, label %13, label %115
+11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
+  %12 = icmp eq i64 %111, 0
+  br i1 %12, label %._crit_edge, label %.lr.ph95, !llvm.loop !859
 
-13:                                               ; preds = %10
-  %14 = ptrtoint ptr %storemerge31 to i64
-  %15 = sub i64 %14, %4
-  %16 = ashr i64 %15, 2
-  %17 = icmp slt i64 %16, 2
-  br i1 %17, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i", label %18
+._crit_edge:                                      ; preds = %11, %.lr.ph
+  %.fr.i.i34.lcssa = phi i64 [ %6, %.lr.ph ], [ %161, %11 ]
+  %storemerge32.lcssa = phi ptr [ %.fr70, %.lr.ph ], [ %.sroa.013.1.lcssa.i.i, %11 ]
+  %13 = lshr i64 %.fr.i.i34.lcssa, 2
+  %14 = add nsw i64 %13, -2
+  %15 = lshr i64 %14, 1
+  %16 = add nsw i64 %13, -1
+  %17 = lshr i64 %16, 1
+  %18 = and i64 %.fr.i.i34.lcssa, 4
+  %19 = icmp eq i64 %18, 0
+  %20 = or disjoint i64 %14, 1
+  %21 = getelementptr inbounds nuw float, ptr %.fr35, i64 %20
+  %22 = getelementptr inbounds nuw float, ptr %.fr35, i64 %15
+  br label %23
 
-18:                                               ; preds = %13
-  %19 = add nsw i64 %16, -2
-  %20 = lshr i64 %19, 1
-  %21 = add nsw i64 %16, -1
-  %22 = lshr i64 %21, 1
-  %23 = and i64 %15, 4
-  %24 = icmp eq i64 %23, 0
-  %25 = or disjoint i64 %19, 1
-  %26 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %25
-  %27 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %20
-  br label %28
+23:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %._crit_edge
+  %.09.i.i.i = phi i64 [ %15, %._crit_edge ], [ %59, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
+  %24 = getelementptr inbounds float, ptr %.fr35, i64 %.09.i.i.i
+  %25 = load float, ptr %24, align 4, !tbaa !837
+  %26 = icmp slt i64 %.09.i.i.i, %17
+  br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-28:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %18
-  %.09.i.i.i = phi i64 [ %20, %18 ], [ %64, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
-  %29 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.09.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %23, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
+  %.038.i.i.i.i = phi i64 [ %38, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %.09.i.i.i, %23 ]
+  %27 = shl i64 %.038.i.i.i.i, 1
+  %28 = add i64 %27, 2
+  %29 = getelementptr inbounds float, ptr %.fr35, i64 %28
   %30 = load float, ptr %29, align 4, !tbaa !837
-  %31 = icmp slt i64 %.09.i.i.i, %22
-  br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
-  %.040.i.i.i.i = phi i64 [ %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %.09.i.i.i, %28 ]
-  %32 = shl i64 %.040.i.i.i.i, 1
-  %33 = add i64 %32, 2
-  %34 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %33
-  %35 = load float, ptr %34, align 4, !tbaa !837
-  %.fr36.i.i.i.i = freeze float %35
-  %36 = fcmp uno float %.fr36.i.i.i.i, 0.000000e+00
-  br i1 %36, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i"
+  %31 = fcmp uno float %30, 0.000000e+00
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
-  %37 = or disjoint i64 %32, 1
-  %38 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %37
-  %39 = load float, ptr %38, align 4, !tbaa !837
-  %.fr.i.i.i.i = freeze float %39
-  %40 = fcmp uno float %.fr.i.i.i.i, 0.000000e+00
-  %41 = fcmp olt float %.fr36.i.i.i.i, %.fr.i.i.i.i
-  %spec.select.i.i.i.i.i.i = or i1 %40, %41
-  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i.i, i64 %37, i64 %33
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds float, ptr %.fr62.i.i, i64 %spec.select.i.i.i.i
+  %32 = or disjoint i64 %27, 1
+  %33 = getelementptr inbounds float, ptr %.fr35, i64 %32
+  %34 = load float, ptr %33, align 4, !tbaa !837
+  %35 = fcmp uno float %34, 0.000000e+00
+  %36 = fcmp olt float %30, %34
+  %spec.select.i.i.i.i.i.i = or i1 %35, %36
+  %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %cond.fr.i.i.i.i, i64 %32, i64 %28
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds float, ptr %.fr35, i64 %spec.select.i.i.i.i
   %.pre.i.i.i.i = load float, ptr %.phi.trans.insert.i.i.i.i, align 4, !tbaa !837
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  %42 = phi float [ %.fr36.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i" ]
-  %43 = phi i64 [ %33, %.lr.ph.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i" ]
-  %44 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.040.i.i.i.i
-  store float %42, ptr %44, align 4, !tbaa !837
-  %45 = icmp slt i64 %43, %22
-  br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !859
+  %37 = phi float [ %30, %.lr.ph.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i" ]
+  %38 = phi i64 [ %28, %.lr.ph.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i" ]
+  %39 = getelementptr inbounds float, ptr %.fr35, i64 %.038.i.i.i.i
+  store float %37, ptr %39, align 4, !tbaa !837
+  %40 = icmp slt i64 %38, %17
+  br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !860
 
-._crit_edge.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i", %28
-  %.0.lcssa.i.i.i.i = phi i64 [ %.09.i.i.i, %28 ], [ %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ]
-  %46 = icmp eq i64 %.0.lcssa.i.i.i.i, %20
-  %or.cond.i.i.i = select i1 %24, i1 %46, i1 false
-  br i1 %or.cond.i.i.i, label %47, label %49
+._crit_edge.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i", %23
+  %.0.lcssa.i.i.i.i = phi i64 [ %.09.i.i.i, %23 ], [ %38, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ]
+  %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  %or.cond.i.i.i = select i1 %19, i1 %41, i1 false
+  br i1 %or.cond.i.i.i, label %42, label %44
 
-47:                                               ; preds = %._crit_edge.i.i.i.i
-  %48 = load float, ptr %26, align 4, !tbaa !837
-  store float %48, ptr %27, align 4, !tbaa !837
-  br label %49
+42:                                               ; preds = %._crit_edge.i.i.i.i
+  %43 = load float, ptr %21, align 4, !tbaa !837
+  store float %43, ptr %22, align 4, !tbaa !837
+  br label %44
 
-49:                                               ; preds = %47, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %25, %47 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %50 = icmp sgt i64 %.1.i.i.i.i, %.09.i.i.i
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+44:                                               ; preds = %42, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %20, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %45 = icmp sgt i64 %.1.i.i.i.i, %.09.i.i.i
+  br i1 %45, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49
+.lr.ph.i.i.i.i.i:                                 ; preds = %44
   %.09.in8.i.i.i.i.i = add nsw i64 %.1.i.i.i.i, -1
   %.099.i.i.i.i.i = sdiv i64 %.09.in8.i.i.i.i.i, 2
-  %51 = fcmp uno float %30, 0.000000e+00
-  br i1 %51, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
+  %46 = fcmp uno float %25, 0.000000e+00
+  br i1 %46, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i"
   %.0911.us.i.i.i.i.i = phi i64 [ %.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.099.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.010.us.i.i.i.i.i = phi i64 [ %.0911.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %52 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %.0911.us.i.i.i.i.i
-  %53 = load float, ptr %52, align 4, !tbaa !837
-  %54 = fcmp uno float %53, 0.000000e+00
-  br i1 %54, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i"
+  %47 = getelementptr inbounds nuw float, ptr %.fr35, i64 %.0911.us.i.i.i.i.i
+  %48 = load float, ptr %47, align 4, !tbaa !837
+  %49 = fcmp uno float %48, 0.000000e+00
+  br i1 %49, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i": ; preds = %.lr.ph.split.us.i.i.i.i.i
-  %55 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.010.us.i.i.i.i.i
-  store float %53, ptr %55, align 4, !tbaa !837
+  %50 = getelementptr inbounds float, ptr %.fr35, i64 %.010.us.i.i.i.i.i
+  store float %48, ptr %50, align 4, !tbaa !837
   %.09.in.us.i.i.i.i.i = add nsw i64 %.0911.us.i.i.i.i.i, -1
   %.09.us.i.i.i.i.i = sdiv i64 %.09.in.us.i.i.i.i.i, 2
-  %56 = icmp sgt i64 %.0911.us.i.i.i.i.i, %.09.i.i.i
-  br i1 %56, label %.lr.ph.split.us.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !860
+  %51 = icmp sgt i64 %.0911.us.i.i.i.i.i, %.09.i.i.i
+  br i1 %51, label %.lr.ph.split.us.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !861
 
-.lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %60
-  %.0911.i.i.i.i.i = phi i64 [ %.09.i.i.i.i.i, %60 ], [ %.099.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %60 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %57 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %.0911.i.i.i.i.i
-  %58 = load float, ptr %57, align 4, !tbaa !837
-  %59 = fcmp olt float %58, %30
-  br i1 %59, label %60, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+.lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %55
+  %.0911.i.i.i.i.i = phi i64 [ %.09.i.i.i.i.i, %55 ], [ %.099.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %55 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %52 = getelementptr inbounds nuw float, ptr %.fr35, i64 %.0911.i.i.i.i.i
+  %53 = load float, ptr %52, align 4, !tbaa !837
+  %54 = fcmp olt float %53, %25
+  br i1 %54, label %55, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
-60:                                               ; preds = %.lr.ph.split.i.i.i.i.i
-  %61 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.010.i.i.i.i.i
-  store float %58, ptr %61, align 4, !tbaa !837
+55:                                               ; preds = %.lr.ph.split.i.i.i.i.i
+  %56 = getelementptr inbounds float, ptr %.fr35, i64 %.010.i.i.i.i.i
+  store float %53, ptr %56, align 4, !tbaa !837
   %.09.in.i.i.i.i.i = add nsw i64 %.0911.i.i.i.i.i, -1
   %.09.i.i.i.i.i = sdiv i64 %.09.in.i.i.i.i.i, 2
-  %62 = icmp sgt i64 %.0911.i.i.i.i.i, %.09.i.i.i
-  br i1 %62, label %.lr.ph.split.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !860
+  %57 = icmp sgt i64 %.0911.i.i.i.i.i, %.09.i.i.i
+  br i1 %57, label %.lr.ph.split.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !861
 
-"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %60, %.lr.ph.split.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i", %.lr.ph.split.us.i.i.i.i.i, %49
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.010.us.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i ], [ %.0911.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %60 ], [ %.010.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
-  %63 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.0.lcssa.i.i.i.i.i
-  store float %30, ptr %63, align 4, !tbaa !837
+"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %55, %.lr.ph.split.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i", %.lr.ph.split.us.i.i.i.i.i, %44
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.us.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i ], [ %.0911.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %55 ], [ %.010.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
+  %58 = getelementptr inbounds float, ptr %.fr35, i64 %.0.lcssa.i.i.i.i.i
+  store float %25, ptr %58, align 4, !tbaa !837
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
-  %64 = add nsw i64 %.09.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i", label %28, !llvm.loop !861
+  %59 = add nsw i64 %.09.i.i.i, -1
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %23, !llvm.loop !862
 
-"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %13
-  %65 = icmp sgt i64 %15, 4
-  br i1 %65, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+  %60 = icmp sgt i64 %.fr.i.i34.lcssa, 4
+  br i1 %60, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
-  %.sroa.0.05.i.i = phi ptr [ %66, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge31, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i" ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
-  %67 = load float, ptr %66, align 4, !tbaa !837
-  %68 = load float, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %68, ptr %66, align 4, !tbaa !837
-  %69 = ptrtoint ptr %66 to i64
-  %70 = sub i64 %69, %4
-  %71 = ashr exact i64 %70, 2
-  %72 = add nsw i64 %71, -1
-  %73 = sdiv i64 %72, 2
-  %74 = icmp sgt i64 %71, 2
-  br i1 %74, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+  %.sroa.0.05.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge32.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+  %61 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
+  %62 = load float, ptr %61, align 4, !tbaa !837
+  %63 = load float, ptr %.fr35, align 4, !tbaa !837
+  store float %63, ptr %61, align 4, !tbaa !837
+  %64 = ptrtoint ptr %61 to i64
+  %65 = sub i64 %64, %4
+  %66 = ashr exact i64 %65, 2
+  %67 = add nsw i64 %66, -1
+  %68 = sdiv i64 %67, 2
+  %69 = icmp sgt i64 %66, 2
+  br i1 %69, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i26.i:                                 ; preds = %.lr.ph.i9.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i"
-  %.040.i.i.i27.i = phi i64 [ %86, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i" ], [ 0, %.lr.ph.i9.i ]
-  %75 = shl i64 %.040.i.i.i27.i, 1
-  %76 = add i64 %75, 2
-  %77 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %76
-  %78 = load float, ptr %77, align 4, !tbaa !837
-  %.fr36.i.i.i28.i = freeze float %78
-  %79 = fcmp uno float %.fr36.i.i.i28.i, 0.000000e+00
-  br i1 %79, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i29.i"
+.lr.ph.i.i.i26.i:                                 ; preds = %.lr.ph.i9.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i"
+  %.038.i.i.i27.i = phi i64 [ %81, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i" ], [ 0, %.lr.ph.i9.i ]
+  %70 = shl i64 %.038.i.i.i27.i, 1
+  %71 = add i64 %70, 2
+  %72 = getelementptr inbounds float, ptr %.fr35, i64 %71
+  %73 = load float, ptr %72, align 4, !tbaa !837
+  %74 = fcmp uno float %73, 0.000000e+00
+  br i1 %74, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i28.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i29.i": ; preds = %.lr.ph.i.i.i26.i
-  %80 = or disjoint i64 %75, 1
-  %81 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !837
-  %.fr.i.i.i30.i = freeze float %82
-  %83 = fcmp uno float %.fr.i.i.i30.i, 0.000000e+00
-  %84 = fcmp olt float %.fr36.i.i.i28.i, %.fr.i.i.i30.i
-  %spec.select.i.i.i.i.i31.i = or i1 %83, %84
-  %spec.select.i.i.i32.i = select i1 %spec.select.i.i.i.i.i31.i, i64 %80, i64 %76
-  %.phi.trans.insert.i.i.i33.i = getelementptr inbounds float, ptr %.fr62.i.i, i64 %spec.select.i.i.i32.i
-  %.pre.i.i.i34.i = load float, ptr %.phi.trans.insert.i.i.i33.i, align 4, !tbaa !837
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i28.i": ; preds = %.lr.ph.i.i.i26.i
+  %75 = or disjoint i64 %70, 1
+  %76 = getelementptr inbounds float, ptr %.fr35, i64 %75
+  %77 = load float, ptr %76, align 4, !tbaa !837
+  %78 = fcmp uno float %77, 0.000000e+00
+  %79 = fcmp olt float %73, %77
+  %spec.select.i.i.i.i.i29.i = or i1 %78, %79
+  %cond.fr.i.i.i30.i = freeze i1 %spec.select.i.i.i.i.i29.i
+  %spec.select.i.i.i31.i = select i1 %cond.fr.i.i.i30.i, i64 %75, i64 %71
+  %.phi.trans.insert.i.i.i32.i = getelementptr inbounds float, ptr %.fr35, i64 %spec.select.i.i.i31.i
+  %.pre.i.i.i33.i = load float, ptr %.phi.trans.insert.i.i.i32.i, align 4, !tbaa !837
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i29.i", %.lr.ph.i.i.i26.i
-  %85 = phi float [ %.fr36.i.i.i28.i, %.lr.ph.i.i.i26.i ], [ %.pre.i.i.i34.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i29.i" ]
-  %86 = phi i64 [ %76, %.lr.ph.i.i.i26.i ], [ %spec.select.i.i.i32.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i29.i" ]
-  %87 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.040.i.i.i27.i
-  store float %85, ptr %87, align 4, !tbaa !837
-  %88 = icmp slt i64 %86, %73
-  br i1 %88, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i, !llvm.loop !859
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i28.i", %.lr.ph.i.i.i26.i
+  %80 = phi float [ %73, %.lr.ph.i.i.i26.i ], [ %.pre.i.i.i33.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i28.i" ]
+  %81 = phi i64 [ %71, %.lr.ph.i.i.i26.i ], [ %spec.select.i.i.i31.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i28.i" ]
+  %82 = getelementptr inbounds float, ptr %.fr35, i64 %.038.i.i.i27.i
+  store float %80, ptr %82, align 4, !tbaa !837
+  %83 = icmp slt i64 %81, %68
+  br i1 %83, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i, !llvm.loop !860
 
-._crit_edge.i.i.i10.i:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i", %.lr.ph.i9.i
-  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %86, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i35.i" ]
-  %89 = and i64 %70, 4
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %101
+._crit_edge.i.i.i10.i:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i", %.lr.ph.i9.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %81, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i34.i" ]
+  %84 = and i64 %65, 4
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %86, label %96
 
-91:                                               ; preds = %._crit_edge.i.i.i10.i
-  %92 = add nsw i64 %71, -2
-  %93 = ashr exact i64 %92, 1
-  %94 = icmp eq i64 %.0.lcssa.i.i.i11.i, %93
-  br i1 %94, label %95, label %101
+86:                                               ; preds = %._crit_edge.i.i.i10.i
+  %87 = add nsw i64 %66, -2
+  %88 = ashr exact i64 %87, 1
+  %89 = icmp eq i64 %.0.lcssa.i.i.i11.i, %88
+  br i1 %89, label %90, label %96
 
-95:                                               ; preds = %91
-  %96 = shl nsw i64 %.0.lcssa.i.i.i11.i, 1
-  %97 = or disjoint i64 %96, 1
-  %98 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %97
-  %99 = load float, ptr %98, align 4, !tbaa !837
-  %100 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.0.lcssa.i.i.i11.i
-  store float %99, ptr %100, align 4, !tbaa !837
-  br label %101
+90:                                               ; preds = %86
+  %91 = shl nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %92 = or disjoint i64 %91, 1
+  %93 = getelementptr inbounds float, ptr %.fr35, i64 %92
+  %94 = load float, ptr %93, align 4, !tbaa !837
+  %95 = getelementptr inbounds float, ptr %.fr35, i64 %.0.lcssa.i.i.i11.i
+  store float %94, ptr %95, align 4, !tbaa !837
+  br label %96
 
-101:                                              ; preds = %95, %91, %._crit_edge.i.i.i10.i
-  %.1.i.i.i12.i = phi i64 [ %97, %95 ], [ %.0.lcssa.i.i.i11.i, %91 ], [ %.0.lcssa.i.i.i11.i, %._crit_edge.i.i.i10.i ]
-  %102 = icmp sgt i64 %.1.i.i.i12.i, 0
-  br i1 %102, label %.lr.ph.i.i.i.i14.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+96:                                               ; preds = %90, %86, %._crit_edge.i.i.i10.i
+  %.1.i.i.i12.i = phi i64 [ %92, %90 ], [ %.0.lcssa.i.i.i11.i, %86 ], [ %.0.lcssa.i.i.i11.i, %._crit_edge.i.i.i10.i ]
+  %97 = icmp sgt i64 %.1.i.i.i12.i, 0
+  br i1 %97, label %.lr.ph.i.i.i.i14.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %101
+.lr.ph.i.i.i.i14.i:                               ; preds = %96
   %.09.in8.i.i.i.i15.i = add nsw i64 %.1.i.i.i12.i, -1
   %.099.i.i58.i.i.i = lshr i64 %.09.in8.i.i.i.i15.i, 1
-  %103 = fcmp uno float %67, 0.000000e+00
-  br i1 %103, label %.lr.ph.split.us.i.i.i.i21.i, label %.lr.ph.split.i.i.i.i16.i
+  %98 = fcmp uno float %62, 0.000000e+00
+  br i1 %98, label %.lr.ph.split.us.i.i.i.i21.i, label %.lr.ph.split.i.i.i.i16.i
 
 .lr.ph.split.us.i.i.i.i21.i:                      ; preds = %.lr.ph.i.i.i.i14.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i"
   %.0911.us.i.i.i.i22.i = phi i64 [ %.09.us.i.i610.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ %.099.i.i58.i.i.i, %.lr.ph.i.i.i.i14.i ]
   %.010.us.i.i.i.i23.i = phi i64 [ %.0911.us.i.i.i.i22.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ]
-  %104 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %.0911.us.i.i.i.i22.i
-  %105 = load float, ptr %104, align 4, !tbaa !837
-  %106 = fcmp uno float %105, 0.000000e+00
-  br i1 %106, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i"
+  %99 = getelementptr inbounds nuw float, ptr %.fr35, i64 %.0911.us.i.i.i.i22.i
+  %100 = load float, ptr %99, align 4, !tbaa !837
+  %101 = fcmp uno float %100, 0.000000e+00
+  br i1 %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i": ; preds = %.lr.ph.split.us.i.i.i.i21.i
-  %107 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %.010.us.i.i.i.i23.i
-  store float %105, ptr %107, align 4, !tbaa !837
+  %102 = getelementptr inbounds nuw float, ptr %.fr35, i64 %.010.us.i.i.i.i23.i
+  store float %100, ptr %102, align 4, !tbaa !837
   %.09.in.us.i.i.i.i25.i = add nsw i64 %.0911.us.i.i.i.i22.i, -1
   %.09.us.i.i610.i.i.i = lshr i64 %.09.in.us.i.i.i.i25.i, 1
   %.not11.i.i.i = icmp eq i64 %.0911.us.i.i.i.i22.i, 0
-  br i1 %.not11.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.us.i.i.i.i21.i, !llvm.loop !860
+  br i1 %.not11.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.us.i.i.i.i21.i, !llvm.loop !861
 
-.lr.ph.split.i.i.i.i16.i:                         ; preds = %.lr.ph.i.i.i.i14.i, %111
-  %.0911.i.i.i.i17.i = phi i64 [ %.09.i.i79.i.i.i, %111 ], [ %.099.i.i58.i.i.i, %.lr.ph.i.i.i.i14.i ]
-  %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i.i.i17.i, %111 ], [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ]
-  %108 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %.0911.i.i.i.i17.i
-  %109 = load float, ptr %108, align 4, !tbaa !837
-  %110 = fcmp olt float %109, %67
-  br i1 %110, label %111, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+.lr.ph.split.i.i.i.i16.i:                         ; preds = %.lr.ph.i.i.i.i14.i, %106
+  %.0911.i.i.i.i17.i = phi i64 [ %.09.i.i79.i.i.i, %106 ], [ %.099.i.i58.i.i.i, %.lr.ph.i.i.i.i14.i ]
+  %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i.i.i17.i, %106 ], [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ]
+  %103 = getelementptr inbounds nuw float, ptr %.fr35, i64 %.0911.i.i.i.i17.i
+  %104 = load float, ptr %103, align 4, !tbaa !837
+  %105 = fcmp olt float %104, %62
+  br i1 %105, label %106, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
-111:                                              ; preds = %.lr.ph.split.i.i.i.i16.i
-  %112 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %.010.i.i.i.i18.i
-  store float %109, ptr %112, align 4, !tbaa !837
+106:                                              ; preds = %.lr.ph.split.i.i.i.i16.i
+  %107 = getelementptr inbounds nuw float, ptr %.fr35, i64 %.010.i.i.i.i18.i
+  store float %104, ptr %107, align 4, !tbaa !837
   %.09.in.i.i.i.i19.i = add nsw i64 %.0911.i.i.i.i17.i, -1
   %.09.i.i79.i.i.i = lshr i64 %.09.in.i.i.i.i19.i, 1
   %.not.i.i20.i = icmp eq i64 %.0911.i.i.i.i17.i, 0
-  br i1 %.not.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.i.i.i.i16.i, !llvm.loop !860
+  br i1 %.not.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.i.i.i.i16.i, !llvm.loop !861
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %111, %.lr.ph.split.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i", %.lr.ph.split.us.i.i.i.i21.i, %101
-  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %101 ], [ %.010.us.i.i.i.i23.i, %.lr.ph.split.us.i.i.i.i21.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ 0, %111 ], [ %.010.i.i.i.i18.i, %.lr.ph.split.i.i.i.i16.i ]
-  %113 = getelementptr inbounds float, ptr %.fr62.i.i, i64 %.0.lcssa.i.i.i.i13.i
-  store float %67, ptr %113, align 4, !tbaa !837
-  %114 = icmp sgt i64 %70, 4
-  br i1 %114, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !862
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %106, %.lr.ph.split.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i", %.lr.ph.split.us.i.i.i.i21.i, %96
+  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %96 ], [ %.010.us.i.i.i.i23.i, %.lr.ph.split.us.i.i.i.i21.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ 0, %106 ], [ %.010.i.i.i.i18.i, %.lr.ph.split.i.i.i.i16.i ]
+  %108 = getelementptr inbounds float, ptr %.fr35, i64 %.0.lcssa.i.i.i.i13.i
+  store float %62, ptr %108, align 4, !tbaa !837
+  %109 = icmp sgt i64 %65, 4
+  br i1 %109, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !863
 
-115:                                              ; preds = %10
-  %116 = add nsw i64 %.032, -1
-  %117 = lshr i64 %11, 1
-  %118 = getelementptr inbounds nuw float, ptr %.fr62.i.i, i64 %117
-  %119 = getelementptr inbounds i8, ptr %storemerge31, i64 -4
-  %120 = load float, ptr %9, align 4, !tbaa !837
-  %121 = fcmp uno float %120, 0.000000e+00
-  %.pre42.i.i = load float, ptr %118, align 4, !tbaa !837
-  br i1 %121, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i16"
+.lr.ph95:                                         ; preds = %.lr.ph, %11
+  %storemerge3294 = phi ptr [ %.sroa.013.1.lcssa.i.i, %11 ], [ %.fr70, %.lr.ph ]
+  %.03393 = phi i64 [ %111, %11 ], [ %2, %.lr.ph ]
+  %110 = phi i64 [ %162, %11 ], [ %7, %.lr.ph ]
+  %111 = add nsw i64 %.03393, -1
+  %112 = lshr i64 %110, 1
+  %113 = getelementptr inbounds nuw float, ptr %.fr35, i64 %112
+  %114 = getelementptr inbounds i8, ptr %storemerge3294, i64 -4
+  %115 = load float, ptr %9, align 4, !tbaa !837
+  %116 = fcmp uno float %115, 0.000000e+00
+  %.pre42.i.i = load float, ptr %113, align 4, !tbaa !837
+  br i1 %116, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i16": ; preds = %115
-  %122 = fcmp uno float %.pre42.i.i, 0.000000e+00
-  %123 = fcmp olt float %120, %.pre42.i.i
-  %spec.select.i.i.i.i17 = or i1 %122, %123
-  %.pre.i.i = load float, ptr %119, align 4, !tbaa !837
-  br i1 %spec.select.i.i.i.i17, label %124, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i": ; preds = %.lr.ph95
+  %117 = fcmp uno float %.pre42.i.i, 0.000000e+00
+  %118 = fcmp olt float %115, %.pre42.i.i
+  %spec.select.i.i.i.i16 = or i1 %117, %118
+  %.pre.i.i = load float, ptr %114, align 4, !tbaa !837
+  br i1 %spec.select.i.i.i.i16, label %119, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i"
 
-124:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i16"
-  br i1 %122, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i"
+119:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i"
+  br i1 %117, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i": ; preds = %124
-  %125 = fcmp uno float %.pre.i.i, 0.000000e+00
-  %126 = fcmp olt float %.pre42.i.i, %.pre.i.i
-  %spec.select.i.i26.i.i = or i1 %125, %126
-  br i1 %spec.select.i.i26.i.i, label %127, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i": ; preds = %119
+  %120 = fcmp uno float %.pre.i.i, 0.000000e+00
+  %121 = fcmp olt float %.pre42.i.i, %.pre.i.i
+  %spec.select.i.i26.i.i = or i1 %120, %121
+  br i1 %spec.select.i.i26.i.i, label %122, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i"
 
-127:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i"
-  %128 = load float, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %.pre42.i.i, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %128, ptr %118, align 4, !tbaa !837
+122:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i"
+  %123 = load float, ptr %.fr35, align 4, !tbaa !837
+  store float %.pre42.i.i, ptr %.fr35, align 4, !tbaa !837
+  store float %123, ptr %113, align 4, !tbaa !837
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i", %124
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit28.i.i", %119
+  %124 = fcmp uno float %.pre.i.i, 0.000000e+00
+  %125 = fcmp olt float %115, %.pre.i.i
+  %spec.select.i.i29.i.i = or i1 %124, %125
+  %126 = load float, ptr %.fr35, align 4, !tbaa !837
+  br i1 %spec.select.i.i29.i.i, label %127, label %128
+
+127:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i"
+  store float %.pre.i.i, ptr %.fr35, align 4, !tbaa !837
+  store float %126, ptr %114, align 4, !tbaa !837
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
+
+128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i"
+  store float %115, ptr %.fr35, align 4, !tbaa !837
+  store float %126, ptr %9, align 4, !tbaa !837
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
+
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i"
   %129 = fcmp uno float %.pre.i.i, 0.000000e+00
-  %130 = fcmp olt float %120, %.pre.i.i
-  %spec.select.i.i29.i.i = or i1 %129, %130
-  %131 = load float, ptr %.fr62.i.i, align 4, !tbaa !837
-  br i1 %spec.select.i.i29.i.i, label %132, label %133
+  %130 = fcmp olt float %115, %.pre.i.i
+  %spec.select.i.i32.i.i = or i1 %129, %130
+  br i1 %spec.select.i.i32.i.i, label %131, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i"
 
-132:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i"
-  store float %.pre.i.i, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %131, ptr %119, align 4, !tbaa !837
+131:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i"
+  %132 = load float, ptr %.fr35, align 4, !tbaa !837
+  store float %115, ptr %.fr35, align 4, !tbaa !837
+  store float %132, ptr %9, align 4, !tbaa !837
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-133:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit31.i.i"
-  store float %120, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %131, ptr %9, align 4, !tbaa !837
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
-
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i16"
-  %134 = fcmp uno float %.pre.i.i, 0.000000e+00
-  %135 = fcmp olt float %120, %.pre.i.i
-  %spec.select.i.i32.i.i = or i1 %134, %135
-  br i1 %spec.select.i.i32.i.i, label %136, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i"
-
-136:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i"
-  %137 = load float, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %120, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %137, ptr %9, align 4, !tbaa !837
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
-
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i", %115
-  %138 = fcmp uno float %.pre42.i.i, 0.000000e+00
-  br i1 %138, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.i.i", %.lr.ph95
+  %133 = fcmp uno float %.pre42.i.i, 0.000000e+00
+  br i1 %133, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i"
-  %139 = load float, ptr %119, align 4, !tbaa !837
-  %140 = fcmp uno float %139, 0.000000e+00
-  %141 = fcmp olt float %.pre42.i.i, %139
-  %spec.select.i.i35.i.i = or i1 %140, %141
-  br i1 %spec.select.i.i35.i.i, label %142, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i"
+  %134 = load float, ptr %114, align 4, !tbaa !837
+  %135 = fcmp uno float %134, 0.000000e+00
+  %136 = fcmp olt float %.pre42.i.i, %134
+  %spec.select.i.i35.i.i = or i1 %135, %136
+  br i1 %spec.select.i.i35.i.i, label %137, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i"
 
-142:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.i.i"
-  %143 = load float, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %139, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %143, ptr %119, align 4, !tbaa !837
+137:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.i.i"
+  %138 = load float, ptr %.fr35, align 4, !tbaa !837
+  store float %134, ptr %.fr35, align 4, !tbaa !837
+  store float %138, ptr %114, align 4, !tbaa !837
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit34.thread.i.i"
-  %144 = load float, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %.pre42.i.i, ptr %.fr62.i.i, align 4, !tbaa !837
-  store float %144, ptr %118, align 4, !tbaa !837
+  %139 = load float, ptr %.fr35, align 4, !tbaa !837
+  store float %.pre42.i.i, ptr %.fr35, align 4, !tbaa !837
+  store float %139, ptr %113, align 4, !tbaa !837
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i", %142, %136, %133, %132, %127
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit37.thread.i.i", %137, %131, %128, %127, %122
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %162
-  %.sroa.013.0.i.i = phi ptr [ %164, %162 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.us-phi23.i.i, %162 ], [ %storemerge31, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
-  %145 = load float, ptr %.sroa.013.0.i.i, align 4, !tbaa !837
-  %146 = fcmp uno float %145, 0.000000e+00
-  %.pre.i13.i = load float, ptr %.fr62.i.i, align 4, !tbaa !837
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %157
+  %.sroa.013.0.i.i = phi ptr [ %159, %157 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.us-phi23.i.i, %157 ], [ %storemerge3294, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+  %140 = load float, ptr %.sroa.013.0.i.i, align 4, !tbaa !837
+  %141 = fcmp uno float %140, 0.000000e+00
+  %.pre.i13.i = load float, ptr %.fr35, align 4, !tbaa !837
   %.fr24.i.i = freeze float %.pre.i13.i
-  br i1 %146, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i"
+  br i1 %141, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
-  %147 = fcmp uno float %.fr24.i.i, 0.000000e+00
-  br i1 %147, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i"
+  %142 = fcmp uno float %.fr24.i.i, 0.000000e+00
+  br i1 %142, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19"
-  %.sroa.013.118.us.i.i = phi ptr [ %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19" ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.us.i.i, i64 4
-  %149 = load float, ptr %148, align 4, !tbaa !837
-  %150 = fcmp uno float %149, 0.000000e+00
-  br i1 %150, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19", !llvm.loop !863
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i"
+  %.sroa.013.118.us.i.i = phi ptr [ %143, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.us.i.i, i64 4
+  %144 = load float, ptr %143, align 4, !tbaa !837
+  %145 = fcmp uno float %144, 0.000000e+00
+  br i1 %145, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i", !llvm.loop !864
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i", %153
-  %151 = phi float [ %155, %153 ], [ %145, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
-  %.sroa.013.118.i.i = phi ptr [ %154, %153 ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
-  %152 = fcmp olt float %151, %.fr24.i.i
-  br i1 %152, label %153, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i", %148
+  %146 = phi float [ %150, %148 ], [ %140, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %.sroa.013.118.i.i = phi ptr [ %149, %148 ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %147 = fcmp olt float %146, %.fr24.i.i
+  br i1 %147, label %148, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i"
 
-153:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i"
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.i.i, i64 4
-  %155 = load float, ptr %154, align 4, !tbaa !837
-  %156 = fcmp uno float %155, 0.000000e+00
-  br i1 %156, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i", !llvm.loop !863
+148:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i"
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.i.i, i64 4
+  %150 = load float, ptr %149, align 4, !tbaa !837
+  %151 = fcmp uno float %150, 0.000000e+00
+  br i1 %151, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i", !llvm.loop !864
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18": ; preds = %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19", %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
-  %.sroa.013.1.lcssa.i.i = phi ptr [ %.sroa.013.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19" ], [ %.sroa.013.118.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i" ], [ %154, %153 ]
-  %.lcssa.i.i = phi float [ %145, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %149, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i19" ], [ %151, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i" ], [ %155, %153 ]
-  %157 = fcmp uno float %.fr24.i.i, 0.000000e+00
-  br i1 %157, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.split.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i": ; preds = %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i", %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
+  %.sroa.013.1.lcssa.i.i = phi ptr [ %.sroa.013.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %143, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.013.118.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i" ], [ %149, %148 ]
+  %.lcssa.i.i = phi float [ %140, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %144, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i" ], [ %146, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i14.i" ], [ %150, %148 ]
+  %152 = fcmp uno float %.fr24.i.i, 0.000000e+00
+  br i1 %152, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.split.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.split.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.split.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i"
   %.sroa.0.1.us.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 -4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i18" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
-  %158 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !837
-  %159 = fcmp uno float %158, 0.000000e+00
-  %160 = fcmp olt float %.fr24.i.i, %158
-  %spec.select.i.i8.i.i = or i1 %159, %160
-  br i1 %spec.select.i.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i", !llvm.loop !864
+  %153 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !837
+  %154 = fcmp uno float %153, 0.000000e+00
+  %155 = fcmp olt float %.fr24.i.i, %153
+  %spec.select.i.i8.i.i = or i1 %154, %155
+  br i1 %spec.select.i.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i", !llvm.loop !865
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.split.us.i.i"
   %.us-phi23.i.i = phi ptr [ %.sroa.0.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.split.us.i.i" ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i" ]
-  %161 = icmp ult ptr %.sroa.013.1.lcssa.i.i, %.us-phi23.i.i
-  br i1 %161, label %162, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
+  %156 = icmp ult ptr %.sroa.013.1.lcssa.i.i, %.us-phi23.i.i
+  br i1 %156, label %157, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
 
-162:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i"
-  %163 = load float, ptr %.us-phi23.i.i, align 4, !tbaa !837
-  store float %163, ptr %.sroa.013.1.lcssa.i.i, align 4, !tbaa !837
+157:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i"
+  %158 = load float, ptr %.us-phi23.i.i, align 4, !tbaa !837
+  store float %158, ptr %.sroa.013.1.lcssa.i.i, align 4, !tbaa !837
   store float %.lcssa.i.i, ptr %.us-phi23.i.i, align 4, !tbaa !837
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.lcssa.i.i, i64 4
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i", !llvm.loop !865
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.lcssa.i.i, i64 4
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i", !llvm.loop !866
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.thread.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %.sroa.013.1.lcssa.i.i, ptr %storemerge31, i64 noundef %116)
-  %165 = ptrtoint ptr %.sroa.013.1.lcssa.i.i to i64
-  %166 = sub i64 %165, %4
-  %167 = ashr exact i64 %166, 2
-  %168 = icmp sgt i64 %167, 16
-  br i1 %168, label %10, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !866
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %.sroa.013.1.lcssa.i.i, ptr %storemerge3294, i64 noundef %111)
+  %160 = ptrtoint ptr %.sroa.013.1.lcssa.i.i to i64
+  %161 = sub i64 %160, %4
+  %162 = ashr exact i64 %161, 2
+  %163 = icmp sgt i64 %162, 16
+  br i1 %163, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !859
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", %3, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
 }
 
@@ -27078,424 +27073,419 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #25 {
-  %.fr62.i.i = freeze ptr %0
-  %.fr = freeze ptr %1
-  %4 = ptrtoint ptr %.fr62.i.i to i64
-  %5 = ptrtoint ptr %.fr to i64
+  %.fr70 = freeze ptr %1
+  %.fr35 = freeze ptr %0
+  %4 = ptrtoint ptr %.fr35 to i64
+  %5 = ptrtoint ptr %.fr70 to i64
   %6 = sub i64 %5, %4
   %7 = ashr exact i64 %6, 3
   %8 = icmp sgt i64 %7, 16
   br i1 %8, label %.lr.ph, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.fr62.i.i, i64 8
-  br label %10
+  %9 = getelementptr inbounds nuw i8, ptr %.fr35, i64 8
+  %10 = icmp eq i64 %2, 0
+  br i1 %10, label %._crit_edge, label %.lr.ph95
 
-10:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
-  %11 = phi i64 [ %7, %.lr.ph ], [ %167, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit" ]
-  %.032 = phi i64 [ %2, %.lr.ph ], [ %116, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit" ]
-  %storemerge31 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.013.1.lcssa.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit" ]
-  %12 = icmp eq i64 %.032, 0
-  br i1 %12, label %13, label %115
+11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
+  %12 = icmp eq i64 %111, 0
+  br i1 %12, label %._crit_edge, label %.lr.ph95, !llvm.loop !886
 
-13:                                               ; preds = %10
-  %14 = ptrtoint ptr %storemerge31 to i64
-  %15 = sub i64 %14, %4
-  %16 = ashr i64 %15, 3
-  %17 = icmp slt i64 %16, 2
-  br i1 %17, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i", label %18
+._crit_edge:                                      ; preds = %11, %.lr.ph
+  %.fr.i.i34.lcssa = phi i64 [ %6, %.lr.ph ], [ %161, %11 ]
+  %storemerge32.lcssa = phi ptr [ %.fr70, %.lr.ph ], [ %.sroa.013.1.lcssa.i.i, %11 ]
+  %13 = lshr i64 %.fr.i.i34.lcssa, 3
+  %14 = add nsw i64 %13, -2
+  %15 = lshr i64 %14, 1
+  %16 = add nsw i64 %13, -1
+  %17 = lshr i64 %16, 1
+  %18 = and i64 %.fr.i.i34.lcssa, 8
+  %19 = icmp eq i64 %18, 0
+  %20 = or disjoint i64 %14, 1
+  %21 = getelementptr inbounds nuw double, ptr %.fr35, i64 %20
+  %22 = getelementptr inbounds nuw double, ptr %.fr35, i64 %15
+  br label %23
 
-18:                                               ; preds = %13
-  %19 = add nsw i64 %16, -2
-  %20 = lshr i64 %19, 1
-  %21 = add nsw i64 %16, -1
-  %22 = lshr i64 %21, 1
-  %23 = and i64 %15, 8
-  %24 = icmp eq i64 %23, 0
-  %25 = or disjoint i64 %19, 1
-  %26 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %25
-  %27 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %20
-  br label %28
+23:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %._crit_edge
+  %.09.i.i.i = phi i64 [ %15, %._crit_edge ], [ %59, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
+  %24 = getelementptr inbounds double, ptr %.fr35, i64 %.09.i.i.i
+  %25 = load double, ptr %24, align 8, !tbaa !867
+  %26 = icmp slt i64 %.09.i.i.i, %17
+  br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-28:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %18
-  %.09.i.i.i = phi i64 [ %20, %18 ], [ %64, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
-  %29 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.09.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %23, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
+  %.038.i.i.i.i = phi i64 [ %38, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %.09.i.i.i, %23 ]
+  %27 = shl i64 %.038.i.i.i.i, 1
+  %28 = add i64 %27, 2
+  %29 = getelementptr inbounds double, ptr %.fr35, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !867
-  %31 = icmp slt i64 %.09.i.i.i, %22
-  br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
-  %.040.i.i.i.i = phi i64 [ %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %.09.i.i.i, %28 ]
-  %32 = shl i64 %.040.i.i.i.i, 1
-  %33 = add i64 %32, 2
-  %34 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %33
-  %35 = load double, ptr %34, align 8, !tbaa !867
-  %.fr36.i.i.i.i = freeze double %35
-  %36 = fcmp uno double %.fr36.i.i.i.i, 0.000000e+00
-  br i1 %36, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i"
+  %31 = fcmp uno double %30, 0.000000e+00
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
-  %37 = or disjoint i64 %32, 1
-  %38 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %37
-  %39 = load double, ptr %38, align 8, !tbaa !867
-  %.fr.i.i.i.i = freeze double %39
-  %40 = fcmp uno double %.fr.i.i.i.i, 0.000000e+00
-  %41 = fcmp olt double %.fr36.i.i.i.i, %.fr.i.i.i.i
-  %spec.select.i.i.i.i.i.i = or i1 %40, %41
-  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i.i, i64 %37, i64 %33
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds double, ptr %.fr62.i.i, i64 %spec.select.i.i.i.i
+  %32 = or disjoint i64 %27, 1
+  %33 = getelementptr inbounds double, ptr %.fr35, i64 %32
+  %34 = load double, ptr %33, align 8, !tbaa !867
+  %35 = fcmp uno double %34, 0.000000e+00
+  %36 = fcmp olt double %30, %34
+  %spec.select.i.i.i.i.i.i = or i1 %35, %36
+  %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %cond.fr.i.i.i.i, i64 %32, i64 %28
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds double, ptr %.fr35, i64 %spec.select.i.i.i.i
   %.pre.i.i.i.i = load double, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !867
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  %42 = phi double [ %.fr36.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i" ]
-  %43 = phi i64 [ %33, %.lr.ph.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i" ]
-  %44 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.040.i.i.i.i
-  store double %42, ptr %44, align 8, !tbaa !867
-  %45 = icmp slt i64 %43, %22
-  br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !886
+  %37 = phi double [ %30, %.lr.ph.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i" ]
+  %38 = phi i64 [ %28, %.lr.ph.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i" ]
+  %39 = getelementptr inbounds double, ptr %.fr35, i64 %.038.i.i.i.i
+  store double %37, ptr %39, align 8, !tbaa !867
+  %40 = icmp slt i64 %38, %17
+  br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !887
 
-._crit_edge.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i", %28
-  %.0.lcssa.i.i.i.i = phi i64 [ %.09.i.i.i, %28 ], [ %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ]
-  %46 = icmp eq i64 %.0.lcssa.i.i.i.i, %20
-  %or.cond.i.i.i = select i1 %24, i1 %46, i1 false
-  br i1 %or.cond.i.i.i, label %47, label %49
+._crit_edge.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i", %23
+  %.0.lcssa.i.i.i.i = phi i64 [ %.09.i.i.i, %23 ], [ %38, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ]
+  %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  %or.cond.i.i.i = select i1 %19, i1 %41, i1 false
+  br i1 %or.cond.i.i.i, label %42, label %44
 
-47:                                               ; preds = %._crit_edge.i.i.i.i
-  %48 = load double, ptr %26, align 8, !tbaa !867
-  store double %48, ptr %27, align 8, !tbaa !867
-  br label %49
+42:                                               ; preds = %._crit_edge.i.i.i.i
+  %43 = load double, ptr %21, align 8, !tbaa !867
+  store double %43, ptr %22, align 8, !tbaa !867
+  br label %44
 
-49:                                               ; preds = %47, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %25, %47 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %50 = icmp sgt i64 %.1.i.i.i.i, %.09.i.i.i
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+44:                                               ; preds = %42, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %20, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %45 = icmp sgt i64 %.1.i.i.i.i, %.09.i.i.i
+  br i1 %45, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49
+.lr.ph.i.i.i.i.i:                                 ; preds = %44
   %.09.in8.i.i.i.i.i = add nsw i64 %.1.i.i.i.i, -1
   %.099.i.i.i.i.i = sdiv i64 %.09.in8.i.i.i.i.i, 2
-  %51 = fcmp uno double %30, 0.000000e+00
-  br i1 %51, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
+  %46 = fcmp uno double %25, 0.000000e+00
+  br i1 %46, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i"
   %.0911.us.i.i.i.i.i = phi i64 [ %.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.099.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.010.us.i.i.i.i.i = phi i64 [ %.0911.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %52 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %.0911.us.i.i.i.i.i
-  %53 = load double, ptr %52, align 8, !tbaa !867
-  %54 = fcmp uno double %53, 0.000000e+00
-  br i1 %54, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i"
+  %47 = getelementptr inbounds nuw double, ptr %.fr35, i64 %.0911.us.i.i.i.i.i
+  %48 = load double, ptr %47, align 8, !tbaa !867
+  %49 = fcmp uno double %48, 0.000000e+00
+  br i1 %49, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i": ; preds = %.lr.ph.split.us.i.i.i.i.i
-  %55 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.010.us.i.i.i.i.i
-  store double %53, ptr %55, align 8, !tbaa !867
+  %50 = getelementptr inbounds double, ptr %.fr35, i64 %.010.us.i.i.i.i.i
+  store double %48, ptr %50, align 8, !tbaa !867
   %.09.in.us.i.i.i.i.i = add nsw i64 %.0911.us.i.i.i.i.i, -1
   %.09.us.i.i.i.i.i = sdiv i64 %.09.in.us.i.i.i.i.i, 2
-  %56 = icmp sgt i64 %.0911.us.i.i.i.i.i, %.09.i.i.i
-  br i1 %56, label %.lr.ph.split.us.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !887
+  %51 = icmp sgt i64 %.0911.us.i.i.i.i.i, %.09.i.i.i
+  br i1 %51, label %.lr.ph.split.us.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !888
 
-.lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %60
-  %.0911.i.i.i.i.i = phi i64 [ %.09.i.i.i.i.i, %60 ], [ %.099.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %60 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %57 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %.0911.i.i.i.i.i
-  %58 = load double, ptr %57, align 8, !tbaa !867
-  %59 = fcmp olt double %58, %30
-  br i1 %59, label %60, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+.lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %55
+  %.0911.i.i.i.i.i = phi i64 [ %.09.i.i.i.i.i, %55 ], [ %.099.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %55 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %52 = getelementptr inbounds nuw double, ptr %.fr35, i64 %.0911.i.i.i.i.i
+  %53 = load double, ptr %52, align 8, !tbaa !867
+  %54 = fcmp olt double %53, %25
+  br i1 %54, label %55, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
-60:                                               ; preds = %.lr.ph.split.i.i.i.i.i
-  %61 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.010.i.i.i.i.i
-  store double %58, ptr %61, align 8, !tbaa !867
+55:                                               ; preds = %.lr.ph.split.i.i.i.i.i
+  %56 = getelementptr inbounds double, ptr %.fr35, i64 %.010.i.i.i.i.i
+  store double %53, ptr %56, align 8, !tbaa !867
   %.09.in.i.i.i.i.i = add nsw i64 %.0911.i.i.i.i.i, -1
   %.09.i.i.i.i.i = sdiv i64 %.09.in.i.i.i.i.i, 2
-  %62 = icmp sgt i64 %.0911.i.i.i.i.i, %.09.i.i.i
-  br i1 %62, label %.lr.ph.split.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !887
+  %57 = icmp sgt i64 %.0911.i.i.i.i.i, %.09.i.i.i
+  br i1 %57, label %.lr.ph.split.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !888
 
-"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %60, %.lr.ph.split.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i", %.lr.ph.split.us.i.i.i.i.i, %49
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.010.us.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i ], [ %.0911.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %60 ], [ %.010.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
-  %63 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.0.lcssa.i.i.i.i.i
-  store double %30, ptr %63, align 8, !tbaa !867
+"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %55, %.lr.ph.split.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i", %.lr.ph.split.us.i.i.i.i.i, %44
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.us.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i ], [ %.0911.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %55 ], [ %.010.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
+  %58 = getelementptr inbounds double, ptr %.fr35, i64 %.0.lcssa.i.i.i.i.i
+  store double %25, ptr %58, align 8, !tbaa !867
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
-  %64 = add nsw i64 %.09.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i", label %28, !llvm.loop !888
+  %59 = add nsw i64 %.09.i.i.i, -1
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %23, !llvm.loop !889
 
-"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %13
-  %65 = icmp sgt i64 %15, 8
-  br i1 %65, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+  %60 = icmp sgt i64 %.fr.i.i34.lcssa, 8
+  br i1 %60, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
-  %.sroa.0.05.i.i = phi ptr [ %66, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge31, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i" ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
-  %67 = load double, ptr %66, align 8, !tbaa !867
-  %68 = load double, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %68, ptr %66, align 8, !tbaa !867
-  %69 = ptrtoint ptr %66 to i64
-  %70 = sub i64 %69, %4
-  %71 = ashr exact i64 %70, 3
-  %72 = add nsw i64 %71, -1
-  %73 = sdiv i64 %72, 2
-  %74 = icmp sgt i64 %71, 2
-  br i1 %74, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+  %.sroa.0.05.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge32.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+  %61 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %62 = load double, ptr %61, align 8, !tbaa !867
+  %63 = load double, ptr %.fr35, align 8, !tbaa !867
+  store double %63, ptr %61, align 8, !tbaa !867
+  %64 = ptrtoint ptr %61 to i64
+  %65 = sub i64 %64, %4
+  %66 = ashr exact i64 %65, 3
+  %67 = add nsw i64 %66, -1
+  %68 = sdiv i64 %67, 2
+  %69 = icmp sgt i64 %66, 2
+  br i1 %69, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i26.i:                                 ; preds = %.lr.ph.i9.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i"
-  %.040.i.i.i27.i = phi i64 [ %86, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i" ], [ 0, %.lr.ph.i9.i ]
-  %75 = shl i64 %.040.i.i.i27.i, 1
-  %76 = add i64 %75, 2
-  %77 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %76
-  %78 = load double, ptr %77, align 8, !tbaa !867
-  %.fr36.i.i.i28.i = freeze double %78
-  %79 = fcmp uno double %.fr36.i.i.i28.i, 0.000000e+00
-  br i1 %79, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i29.i"
+.lr.ph.i.i.i26.i:                                 ; preds = %.lr.ph.i9.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i"
+  %.038.i.i.i27.i = phi i64 [ %81, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i" ], [ 0, %.lr.ph.i9.i ]
+  %70 = shl i64 %.038.i.i.i27.i, 1
+  %71 = add i64 %70, 2
+  %72 = getelementptr inbounds double, ptr %.fr35, i64 %71
+  %73 = load double, ptr %72, align 8, !tbaa !867
+  %74 = fcmp uno double %73, 0.000000e+00
+  br i1 %74, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i28.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i29.i": ; preds = %.lr.ph.i.i.i26.i
-  %80 = or disjoint i64 %75, 1
-  %81 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %80
-  %82 = load double, ptr %81, align 8, !tbaa !867
-  %.fr.i.i.i30.i = freeze double %82
-  %83 = fcmp uno double %.fr.i.i.i30.i, 0.000000e+00
-  %84 = fcmp olt double %.fr36.i.i.i28.i, %.fr.i.i.i30.i
-  %spec.select.i.i.i.i.i31.i = or i1 %83, %84
-  %spec.select.i.i.i32.i = select i1 %spec.select.i.i.i.i.i31.i, i64 %80, i64 %76
-  %.phi.trans.insert.i.i.i33.i = getelementptr inbounds double, ptr %.fr62.i.i, i64 %spec.select.i.i.i32.i
-  %.pre.i.i.i34.i = load double, ptr %.phi.trans.insert.i.i.i33.i, align 8, !tbaa !867
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i28.i": ; preds = %.lr.ph.i.i.i26.i
+  %75 = or disjoint i64 %70, 1
+  %76 = getelementptr inbounds double, ptr %.fr35, i64 %75
+  %77 = load double, ptr %76, align 8, !tbaa !867
+  %78 = fcmp uno double %77, 0.000000e+00
+  %79 = fcmp olt double %73, %77
+  %spec.select.i.i.i.i.i29.i = or i1 %78, %79
+  %cond.fr.i.i.i30.i = freeze i1 %spec.select.i.i.i.i.i29.i
+  %spec.select.i.i.i31.i = select i1 %cond.fr.i.i.i30.i, i64 %75, i64 %71
+  %.phi.trans.insert.i.i.i32.i = getelementptr inbounds double, ptr %.fr35, i64 %spec.select.i.i.i31.i
+  %.pre.i.i.i33.i = load double, ptr %.phi.trans.insert.i.i.i32.i, align 8, !tbaa !867
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i29.i", %.lr.ph.i.i.i26.i
-  %85 = phi double [ %.fr36.i.i.i28.i, %.lr.ph.i.i.i26.i ], [ %.pre.i.i.i34.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i29.i" ]
-  %86 = phi i64 [ %76, %.lr.ph.i.i.i26.i ], [ %spec.select.i.i.i32.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i29.i" ]
-  %87 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.040.i.i.i27.i
-  store double %85, ptr %87, align 8, !tbaa !867
-  %88 = icmp slt i64 %86, %73
-  br i1 %88, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i, !llvm.loop !886
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i28.i", %.lr.ph.i.i.i26.i
+  %80 = phi double [ %73, %.lr.ph.i.i.i26.i ], [ %.pre.i.i.i33.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i28.i" ]
+  %81 = phi i64 [ %71, %.lr.ph.i.i.i26.i ], [ %spec.select.i.i.i31.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i28.i" ]
+  %82 = getelementptr inbounds double, ptr %.fr35, i64 %.038.i.i.i27.i
+  store double %80, ptr %82, align 8, !tbaa !867
+  %83 = icmp slt i64 %81, %68
+  br i1 %83, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i, !llvm.loop !887
 
-._crit_edge.i.i.i10.i:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i", %.lr.ph.i9.i
-  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %86, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i35.i" ]
-  %89 = and i64 %70, 8
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %101
+._crit_edge.i.i.i10.i:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i", %.lr.ph.i9.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %81, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i34.i" ]
+  %84 = and i64 %65, 8
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %86, label %96
 
-91:                                               ; preds = %._crit_edge.i.i.i10.i
-  %92 = add nsw i64 %71, -2
-  %93 = ashr exact i64 %92, 1
-  %94 = icmp eq i64 %.0.lcssa.i.i.i11.i, %93
-  br i1 %94, label %95, label %101
+86:                                               ; preds = %._crit_edge.i.i.i10.i
+  %87 = add nsw i64 %66, -2
+  %88 = ashr exact i64 %87, 1
+  %89 = icmp eq i64 %.0.lcssa.i.i.i11.i, %88
+  br i1 %89, label %90, label %96
 
-95:                                               ; preds = %91
-  %96 = shl nsw i64 %.0.lcssa.i.i.i11.i, 1
-  %97 = or disjoint i64 %96, 1
-  %98 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %97
-  %99 = load double, ptr %98, align 8, !tbaa !867
-  %100 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.0.lcssa.i.i.i11.i
-  store double %99, ptr %100, align 8, !tbaa !867
-  br label %101
+90:                                               ; preds = %86
+  %91 = shl nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %92 = or disjoint i64 %91, 1
+  %93 = getelementptr inbounds double, ptr %.fr35, i64 %92
+  %94 = load double, ptr %93, align 8, !tbaa !867
+  %95 = getelementptr inbounds double, ptr %.fr35, i64 %.0.lcssa.i.i.i11.i
+  store double %94, ptr %95, align 8, !tbaa !867
+  br label %96
 
-101:                                              ; preds = %95, %91, %._crit_edge.i.i.i10.i
-  %.1.i.i.i12.i = phi i64 [ %97, %95 ], [ %.0.lcssa.i.i.i11.i, %91 ], [ %.0.lcssa.i.i.i11.i, %._crit_edge.i.i.i10.i ]
-  %102 = icmp sgt i64 %.1.i.i.i12.i, 0
-  br i1 %102, label %.lr.ph.i.i.i.i14.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+96:                                               ; preds = %90, %86, %._crit_edge.i.i.i10.i
+  %.1.i.i.i12.i = phi i64 [ %92, %90 ], [ %.0.lcssa.i.i.i11.i, %86 ], [ %.0.lcssa.i.i.i11.i, %._crit_edge.i.i.i10.i ]
+  %97 = icmp sgt i64 %.1.i.i.i12.i, 0
+  br i1 %97, label %.lr.ph.i.i.i.i14.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %101
+.lr.ph.i.i.i.i14.i:                               ; preds = %96
   %.09.in8.i.i.i.i15.i = add nsw i64 %.1.i.i.i12.i, -1
   %.099.i.i58.i.i.i = lshr i64 %.09.in8.i.i.i.i15.i, 1
-  %103 = fcmp uno double %67, 0.000000e+00
-  br i1 %103, label %.lr.ph.split.us.i.i.i.i21.i, label %.lr.ph.split.i.i.i.i16.i
+  %98 = fcmp uno double %62, 0.000000e+00
+  br i1 %98, label %.lr.ph.split.us.i.i.i.i21.i, label %.lr.ph.split.i.i.i.i16.i
 
 .lr.ph.split.us.i.i.i.i21.i:                      ; preds = %.lr.ph.i.i.i.i14.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i"
   %.0911.us.i.i.i.i22.i = phi i64 [ %.09.us.i.i610.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ %.099.i.i58.i.i.i, %.lr.ph.i.i.i.i14.i ]
   %.010.us.i.i.i.i23.i = phi i64 [ %.0911.us.i.i.i.i22.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ]
-  %104 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %.0911.us.i.i.i.i22.i
-  %105 = load double, ptr %104, align 8, !tbaa !867
-  %106 = fcmp uno double %105, 0.000000e+00
-  br i1 %106, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i"
+  %99 = getelementptr inbounds nuw double, ptr %.fr35, i64 %.0911.us.i.i.i.i22.i
+  %100 = load double, ptr %99, align 8, !tbaa !867
+  %101 = fcmp uno double %100, 0.000000e+00
+  br i1 %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i": ; preds = %.lr.ph.split.us.i.i.i.i21.i
-  %107 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %.010.us.i.i.i.i23.i
-  store double %105, ptr %107, align 8, !tbaa !867
+  %102 = getelementptr inbounds nuw double, ptr %.fr35, i64 %.010.us.i.i.i.i23.i
+  store double %100, ptr %102, align 8, !tbaa !867
   %.09.in.us.i.i.i.i25.i = add nsw i64 %.0911.us.i.i.i.i22.i, -1
   %.09.us.i.i610.i.i.i = lshr i64 %.09.in.us.i.i.i.i25.i, 1
   %.not11.i.i.i = icmp eq i64 %.0911.us.i.i.i.i22.i, 0
-  br i1 %.not11.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.us.i.i.i.i21.i, !llvm.loop !887
+  br i1 %.not11.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.us.i.i.i.i21.i, !llvm.loop !888
 
-.lr.ph.split.i.i.i.i16.i:                         ; preds = %.lr.ph.i.i.i.i14.i, %111
-  %.0911.i.i.i.i17.i = phi i64 [ %.09.i.i79.i.i.i, %111 ], [ %.099.i.i58.i.i.i, %.lr.ph.i.i.i.i14.i ]
-  %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i.i.i17.i, %111 ], [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ]
-  %108 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %.0911.i.i.i.i17.i
-  %109 = load double, ptr %108, align 8, !tbaa !867
-  %110 = fcmp olt double %109, %67
-  br i1 %110, label %111, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+.lr.ph.split.i.i.i.i16.i:                         ; preds = %.lr.ph.i.i.i.i14.i, %106
+  %.0911.i.i.i.i17.i = phi i64 [ %.09.i.i79.i.i.i, %106 ], [ %.099.i.i58.i.i.i, %.lr.ph.i.i.i.i14.i ]
+  %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i.i.i17.i, %106 ], [ %.1.i.i.i12.i, %.lr.ph.i.i.i.i14.i ]
+  %103 = getelementptr inbounds nuw double, ptr %.fr35, i64 %.0911.i.i.i.i17.i
+  %104 = load double, ptr %103, align 8, !tbaa !867
+  %105 = fcmp olt double %104, %62
+  br i1 %105, label %106, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
-111:                                              ; preds = %.lr.ph.split.i.i.i.i16.i
-  %112 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %.010.i.i.i.i18.i
-  store double %109, ptr %112, align 8, !tbaa !867
+106:                                              ; preds = %.lr.ph.split.i.i.i.i16.i
+  %107 = getelementptr inbounds nuw double, ptr %.fr35, i64 %.010.i.i.i.i18.i
+  store double %104, ptr %107, align 8, !tbaa !867
   %.09.in.i.i.i.i19.i = add nsw i64 %.0911.i.i.i.i17.i, -1
   %.09.i.i79.i.i.i = lshr i64 %.09.in.i.i.i.i19.i, 1
   %.not.i.i20.i = icmp eq i64 %.0911.i.i.i.i17.i, 0
-  br i1 %.not.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.i.i.i.i16.i, !llvm.loop !887
+  br i1 %.not.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.split.i.i.i.i16.i, !llvm.loop !888
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %111, %.lr.ph.split.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i", %.lr.ph.split.us.i.i.i.i21.i, %101
-  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %101 ], [ %.010.us.i.i.i.i23.i, %.lr.ph.split.us.i.i.i.i21.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ 0, %111 ], [ %.010.i.i.i.i18.i, %.lr.ph.split.i.i.i.i16.i ]
-  %113 = getelementptr inbounds double, ptr %.fr62.i.i, i64 %.0.lcssa.i.i.i.i13.i
-  store double %67, ptr %113, align 8, !tbaa !867
-  %114 = icmp sgt i64 %70, 8
-  br i1 %114, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !889
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %106, %.lr.ph.split.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i", %.lr.ph.split.us.i.i.i.i21.i, %96
+  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %96 ], [ %.010.us.i.i.i.i23.i, %.lr.ph.split.us.i.i.i.i21.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i24.i" ], [ 0, %106 ], [ %.010.i.i.i.i18.i, %.lr.ph.split.i.i.i.i16.i ]
+  %108 = getelementptr inbounds double, ptr %.fr35, i64 %.0.lcssa.i.i.i.i13.i
+  store double %62, ptr %108, align 8, !tbaa !867
+  %109 = icmp sgt i64 %65, 8
+  br i1 %109, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !890
 
-115:                                              ; preds = %10
-  %116 = add nsw i64 %.032, -1
-  %117 = lshr i64 %11, 1
-  %118 = getelementptr inbounds nuw double, ptr %.fr62.i.i, i64 %117
-  %119 = getelementptr inbounds i8, ptr %storemerge31, i64 -8
-  %120 = load double, ptr %9, align 8, !tbaa !867
-  %121 = fcmp uno double %120, 0.000000e+00
-  %.pre42.i.i = load double, ptr %118, align 8, !tbaa !867
-  br i1 %121, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i16"
+.lr.ph95:                                         ; preds = %.lr.ph, %11
+  %storemerge3294 = phi ptr [ %.sroa.013.1.lcssa.i.i, %11 ], [ %.fr70, %.lr.ph ]
+  %.03393 = phi i64 [ %111, %11 ], [ %2, %.lr.ph ]
+  %110 = phi i64 [ %162, %11 ], [ %7, %.lr.ph ]
+  %111 = add nsw i64 %.03393, -1
+  %112 = lshr i64 %110, 1
+  %113 = getelementptr inbounds nuw double, ptr %.fr35, i64 %112
+  %114 = getelementptr inbounds i8, ptr %storemerge3294, i64 -8
+  %115 = load double, ptr %9, align 8, !tbaa !867
+  %116 = fcmp uno double %115, 0.000000e+00
+  %.pre42.i.i = load double, ptr %113, align 8, !tbaa !867
+  br i1 %116, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i16": ; preds = %115
-  %122 = fcmp uno double %.pre42.i.i, 0.000000e+00
-  %123 = fcmp olt double %120, %.pre42.i.i
-  %spec.select.i.i.i.i17 = or i1 %122, %123
-  %.pre.i.i = load double, ptr %119, align 8, !tbaa !867
-  br i1 %spec.select.i.i.i.i17, label %124, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i": ; preds = %.lr.ph95
+  %117 = fcmp uno double %.pre42.i.i, 0.000000e+00
+  %118 = fcmp olt double %115, %.pre42.i.i
+  %spec.select.i.i.i.i16 = or i1 %117, %118
+  %.pre.i.i = load double, ptr %114, align 8, !tbaa !867
+  br i1 %spec.select.i.i.i.i16, label %119, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i"
 
-124:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i16"
-  br i1 %122, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i"
+119:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i"
+  br i1 %117, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i": ; preds = %124
-  %125 = fcmp uno double %.pre.i.i, 0.000000e+00
-  %126 = fcmp olt double %.pre42.i.i, %.pre.i.i
-  %spec.select.i.i26.i.i = or i1 %125, %126
-  br i1 %spec.select.i.i26.i.i, label %127, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i": ; preds = %119
+  %120 = fcmp uno double %.pre.i.i, 0.000000e+00
+  %121 = fcmp olt double %.pre42.i.i, %.pre.i.i
+  %spec.select.i.i26.i.i = or i1 %120, %121
+  br i1 %spec.select.i.i26.i.i, label %122, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i"
 
-127:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i"
-  %128 = load double, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %.pre42.i.i, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %128, ptr %118, align 8, !tbaa !867
+122:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i"
+  %123 = load double, ptr %.fr35, align 8, !tbaa !867
+  store double %.pre42.i.i, ptr %.fr35, align 8, !tbaa !867
+  store double %123, ptr %113, align 8, !tbaa !867
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i", %124
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit28.i.i", %119
+  %124 = fcmp uno double %.pre.i.i, 0.000000e+00
+  %125 = fcmp olt double %115, %.pre.i.i
+  %spec.select.i.i29.i.i = or i1 %124, %125
+  %126 = load double, ptr %.fr35, align 8, !tbaa !867
+  br i1 %spec.select.i.i29.i.i, label %127, label %128
+
+127:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i"
+  store double %.pre.i.i, ptr %.fr35, align 8, !tbaa !867
+  store double %126, ptr %114, align 8, !tbaa !867
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
+
+128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i"
+  store double %115, ptr %.fr35, align 8, !tbaa !867
+  store double %126, ptr %9, align 8, !tbaa !867
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
+
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i"
   %129 = fcmp uno double %.pre.i.i, 0.000000e+00
-  %130 = fcmp olt double %120, %.pre.i.i
-  %spec.select.i.i29.i.i = or i1 %129, %130
-  %131 = load double, ptr %.fr62.i.i, align 8, !tbaa !867
-  br i1 %spec.select.i.i29.i.i, label %132, label %133
+  %130 = fcmp olt double %115, %.pre.i.i
+  %spec.select.i.i32.i.i = or i1 %129, %130
+  br i1 %spec.select.i.i32.i.i, label %131, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i"
 
-132:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i"
-  store double %.pre.i.i, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %131, ptr %119, align 8, !tbaa !867
+131:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i"
+  %132 = load double, ptr %.fr35, align 8, !tbaa !867
+  store double %115, ptr %.fr35, align 8, !tbaa !867
+  store double %132, ptr %9, align 8, !tbaa !867
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-133:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit31.i.i"
-  store double %120, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %131, ptr %9, align 8, !tbaa !867
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
-
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i16"
-  %134 = fcmp uno double %.pre.i.i, 0.000000e+00
-  %135 = fcmp olt double %120, %.pre.i.i
-  %spec.select.i.i32.i.i = or i1 %134, %135
-  br i1 %spec.select.i.i32.i.i, label %136, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i"
-
-136:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i"
-  %137 = load double, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %120, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %137, ptr %9, align 8, !tbaa !867
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
-
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i", %115
-  %138 = fcmp uno double %.pre42.i.i, 0.000000e+00
-  br i1 %138, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.i.i", %.lr.ph95
+  %133 = fcmp uno double %.pre42.i.i, 0.000000e+00
+  br i1 %133, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i"
-  %139 = load double, ptr %119, align 8, !tbaa !867
-  %140 = fcmp uno double %139, 0.000000e+00
-  %141 = fcmp olt double %.pre42.i.i, %139
-  %spec.select.i.i35.i.i = or i1 %140, %141
-  br i1 %spec.select.i.i35.i.i, label %142, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i"
+  %134 = load double, ptr %114, align 8, !tbaa !867
+  %135 = fcmp uno double %134, 0.000000e+00
+  %136 = fcmp olt double %.pre42.i.i, %134
+  %spec.select.i.i35.i.i = or i1 %135, %136
+  br i1 %spec.select.i.i35.i.i, label %137, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i"
 
-142:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.i.i"
-  %143 = load double, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %139, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %143, ptr %119, align 8, !tbaa !867
+137:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.i.i"
+  %138 = load double, ptr %.fr35, align 8, !tbaa !867
+  store double %134, ptr %.fr35, align 8, !tbaa !867
+  store double %138, ptr %114, align 8, !tbaa !867
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit34.thread.i.i"
-  %144 = load double, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %.pre42.i.i, ptr %.fr62.i.i, align 8, !tbaa !867
-  store double %144, ptr %118, align 8, !tbaa !867
+  %139 = load double, ptr %.fr35, align 8, !tbaa !867
+  store double %.pre42.i.i, ptr %.fr35, align 8, !tbaa !867
+  store double %139, ptr %113, align 8, !tbaa !867
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i", %142, %136, %133, %132, %127
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit37.thread.i.i", %137, %131, %128, %127, %122
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %162
-  %.sroa.013.0.i.i = phi ptr [ %164, %162 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.us-phi23.i.i, %162 ], [ %storemerge31, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
-  %145 = load double, ptr %.sroa.013.0.i.i, align 8, !tbaa !867
-  %146 = fcmp uno double %145, 0.000000e+00
-  %.pre.i13.i = load double, ptr %.fr62.i.i, align 8, !tbaa !867
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %157
+  %.sroa.013.0.i.i = phi ptr [ %159, %157 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.us-phi23.i.i, %157 ], [ %storemerge3294, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+  %140 = load double, ptr %.sroa.013.0.i.i, align 8, !tbaa !867
+  %141 = fcmp uno double %140, 0.000000e+00
+  %.pre.i13.i = load double, ptr %.fr35, align 8, !tbaa !867
   %.fr24.i.i = freeze double %.pre.i13.i
-  br i1 %146, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i"
+  br i1 %141, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
-  %147 = fcmp uno double %.fr24.i.i, 0.000000e+00
-  br i1 %147, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i"
+  %142 = fcmp uno double %.fr24.i.i, 0.000000e+00
+  br i1 %142, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19"
-  %.sroa.013.118.us.i.i = phi ptr [ %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19" ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.us.i.i, i64 8
-  %149 = load double, ptr %148, align 8, !tbaa !867
-  %150 = fcmp uno double %149, 0.000000e+00
-  br i1 %150, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19", !llvm.loop !890
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i"
+  %.sroa.013.118.us.i.i = phi ptr [ %143, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.us.i.i, i64 8
+  %144 = load double, ptr %143, align 8, !tbaa !867
+  %145 = fcmp uno double %144, 0.000000e+00
+  br i1 %145, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i", !llvm.loop !891
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i", %153
-  %151 = phi double [ %155, %153 ], [ %145, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
-  %.sroa.013.118.i.i = phi ptr [ %154, %153 ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
-  %152 = fcmp olt double %151, %.fr24.i.i
-  br i1 %152, label %153, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i", %148
+  %146 = phi double [ %150, %148 ], [ %140, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %.sroa.013.118.i.i = phi ptr [ %149, %148 ], [ %.sroa.013.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %147 = fcmp olt double %146, %.fr24.i.i
+  br i1 %147, label %148, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i"
 
-153:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i"
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.i.i, i64 8
-  %155 = load double, ptr %154, align 8, !tbaa !867
-  %156 = fcmp uno double %155, 0.000000e+00
-  br i1 %156, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i", !llvm.loop !890
+148:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i"
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.013.118.i.i, i64 8
+  %150 = load double, ptr %149, align 8, !tbaa !867
+  %151 = fcmp uno double %150, 0.000000e+00
+  br i1 %151, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i", !llvm.loop !891
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18": ; preds = %153, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19", %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
-  %.sroa.013.1.lcssa.i.i = phi ptr [ %.sroa.013.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19" ], [ %.sroa.013.118.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i" ], [ %154, %153 ]
-  %.lcssa.i.i = phi double [ %145, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %149, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i19" ], [ %151, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i" ], [ %155, %153 ]
-  %157 = fcmp uno double %.fr24.i.i, 0.000000e+00
-  br i1 %157, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.split.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i": ; preds = %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i", %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
+  %.sroa.013.1.lcssa.i.i = phi ptr [ %.sroa.013.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %143, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.013.118.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i" ], [ %149, %148 ]
+  %.lcssa.i.i = phi double [ %140, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %144, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i" ], [ %146, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i14.i" ], [ %150, %148 ]
+  %152 = fcmp uno double %.fr24.i.i, 0.000000e+00
+  br i1 %152, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.split.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.split.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.split.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i"
   %.sroa.0.1.us.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 -8
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i18" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %158 = load double, ptr %.sroa.0.1.i.i, align 8, !tbaa !867
-  %159 = fcmp uno double %158, 0.000000e+00
-  %160 = fcmp olt double %.fr24.i.i, %158
-  %spec.select.i.i8.i.i = or i1 %159, %160
-  br i1 %spec.select.i.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i", !llvm.loop !891
+  %153 = load double, ptr %.sroa.0.1.i.i, align 8, !tbaa !867
+  %154 = fcmp uno double %153, 0.000000e+00
+  %155 = fcmp olt double %.fr24.i.i, %153
+  %spec.select.i.i8.i.i = or i1 %154, %155
+  br i1 %spec.select.i.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i", !llvm.loop !892
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.split.us.i.i"
   %.us-phi23.i.i = phi ptr [ %.sroa.0.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.split.us.i.i" ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i" ]
-  %161 = icmp ult ptr %.sroa.013.1.lcssa.i.i, %.us-phi23.i.i
-  br i1 %161, label %162, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
+  %156 = icmp ult ptr %.sroa.013.1.lcssa.i.i, %.us-phi23.i.i
+  br i1 %156, label %157, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit"
 
-162:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i"
-  %163 = load double, ptr %.us-phi23.i.i, align 8, !tbaa !867
-  store double %163, ptr %.sroa.013.1.lcssa.i.i, align 8, !tbaa !867
+157:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i"
+  %158 = load double, ptr %.us-phi23.i.i, align 8, !tbaa !867
+  store double %158, ptr %.sroa.013.1.lcssa.i.i, align 8, !tbaa !867
   store double %.lcssa.i.i, ptr %.us-phi23.i.i, align 8, !tbaa !867
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.lcssa.i.i, i64 8
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i", !llvm.loop !892
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.lcssa.i.i, i64 8
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i", !llvm.loop !893
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.thread.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %.sroa.013.1.lcssa.i.i, ptr %storemerge31, i64 noundef %116)
-  %165 = ptrtoint ptr %.sroa.013.1.lcssa.i.i to i64
-  %166 = sub i64 %165, %4
-  %167 = ashr exact i64 %166, 3
-  %168 = icmp sgt i64 %167, 16
-  br i1 %168, label %10, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !893
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %.sroa.013.1.lcssa.i.i, ptr %storemerge3294, i64 noundef %111)
+  %160 = ptrtoint ptr %.sroa.013.1.lcssa.i.i to i64
+  %161 = sub i64 %160, %4
+  %162 = ashr exact i64 %161, 3
+  %163 = icmp sgt i64 %162, 16
+  br i1 %163, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !886
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", %3, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
 }
 

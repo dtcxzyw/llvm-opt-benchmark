@@ -10130,13 +10130,11 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !75
-  %.fr = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !76
-  %.fr50 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr to i64
-  %9 = ptrtoint ptr %.fr50 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 3
+  %11 = ashr exact i64 %10, 3
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %13
 
@@ -10146,8 +10144,8 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE13
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not77 = icmp eq ptr %.fr, %.fr50
-  br i1 %.not77, label %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIP9my_entitySaIS1_EE11_M_allocateEm.exit.i
+  %.not74 = icmp eq ptr %6, %7
+  br i1 %.not74, label %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIP9my_entitySaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIP9my_entitySaIS1_EE11_M_allocateEm.exit.i: ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10163,17 +10161,17 @@ _ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   %19 = load ptr, ptr %18, align 8, !tbaa !77
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !77
-  %.not4752 = icmp eq ptr %19, %21
-  br i1 %.not4752, label %._crit_edge, label %.lr.ph
+  %.not4750 = icmp eq ptr %19, %21
+  br i1 %.not4750, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.thread42
-  %.054 = phi i64 [ 0, %.lr.ph ], [ %.446, %.thread42 ]
-  %.sroa.032.053 = phi ptr [ %19, %.lr.ph ], [ %50, %.thread42 ]
-  %24 = load i32, ptr %.sroa.032.053, align 4, !tbaa !63
+  %.052 = phi i64 [ 0, %.lr.ph ], [ %.446, %.thread42 ]
+  %.sroa.032.051 = phi ptr [ %19, %.lr.ph ], [ %51, %.thread42 ]
+  %24 = load i32, ptr %.sroa.032.051, align 4, !tbaa !63
   %25 = and i32 %24, 268369920
   %.not48 = icmp eq i32 %25, 268369920
   br i1 %.not48, label %.thread42, label %26
@@ -10204,135 +10202,136 @@ _ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   store ptr null, ptr %3, align 8, !tbaa !77
   %42 = sub nuw nsw i64 %41, %39
   invoke void @_ZNSt6vectorIP9my_entitySaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %34, i64 noundef %42, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit unwind label %80
+          to label %_ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit unwind label %81
 
 _ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit: ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %4, align 8, !tbaa !76
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %29
-  %.pre56 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !77
+  %.pre54 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !77
   br label %43
 
 43:                                               ; preds = %33, %_ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit
-  %44 = phi ptr [ %32, %33 ], [ %.pre56, %_ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit ]
+  %44 = phi ptr [ %32, %33 ], [ %.pre54, %_ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit ]
   %45 = phi ptr [ %30, %33 ], [ %.pre, %_ZNSt6vectorIP9my_entitySaIS1_EE6resizeEmRKS1_.exit ]
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %29
   store ptr null, ptr %46, align 8, !tbaa !77
   %47 = load ptr, ptr %2, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %29
   store ptr %44, ptr %48, align 8, !tbaa !77
-  %49 = add i64 %.054, 1
-  %.not51 = icmp eq i64 %49, %11
-  br i1 %.not51, label %._crit_edge.loopexit, label %.thread42
+  %49 = add i64 %.052, 1
+  %50 = icmp ne i64 %49, %11
+  %cond.fr = freeze i1 %50
+  br i1 %cond.fr, label %.thread42, label %._crit_edge.loopexit
 
 .thread42:                                        ; preds = %43, %26, %23
-  %.446 = phi i64 [ %49, %43 ], [ %.054, %26 ], [ %.054, %23 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.053, i64 4
-  %.not47 = icmp eq ptr %50, %21
+  %.446 = phi i64 [ %49, %43 ], [ %.052, %26 ], [ %.052, %23 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051, i64 4
+  %.not47 = icmp eq ptr %51, %21
   br i1 %.not47, label %._crit_edge.loopexit, label %23
 
 ._crit_edge.loopexit:                             ; preds = %43, %.thread42
-  %.pre57 = load ptr, ptr %4, align 8, !tbaa !77
-  %.pre58 = load ptr, ptr %5, align 8, !tbaa !77
+  %.pre55 = load ptr, ptr %4, align 8, !tbaa !77
+  %.pre56 = load ptr, ptr %5, align 8, !tbaa !77
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit
-  %51 = phi ptr [ %.pre58, %._crit_edge.loopexit ], [ %.fr, %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit ]
-  %52 = phi ptr [ %.pre57, %._crit_edge.loopexit ], [ %.fr50, %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit ]
-  %.not1314.i = icmp eq ptr %52, %51
+  %52 = phi ptr [ %.pre56, %._crit_edge.loopexit ], [ %6, %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit ]
+  %53 = phi ptr [ %.pre55, %._crit_edge.loopexit ], [ %7, %_ZNSt6vectorIP9my_entitySaIS1_EE7reserveEm.exit ]
+  %.not1314.i = icmp eq ptr %53, %52
   br i1 %.not1314.i, label %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %55
-  %.sroa.09.015.i = phi ptr [ %56, %55 ], [ %52, %._crit_edge ]
-  %53 = load ptr, ptr %.sroa.09.015.i, align 8, !tbaa !77
-  %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %55, label %54
+.lr.ph.i:                                         ; preds = %._crit_edge, %56
+  %.sroa.09.015.i = phi ptr [ %57, %56 ], [ %53, %._crit_edge ]
+  %54 = load ptr, ptr %.sroa.09.015.i, align 8, !tbaa !77
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %56, label %55
 
-54:                                               ; preds = %.lr.ph.i
-  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef 16384) #22
+55:                                               ; preds = %.lr.ph.i
+  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef 16384) #22
   store ptr null, ptr %.sroa.09.015.i, align 8, !tbaa !77
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %.lr.ph.i
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.09.015.i, i64 8
-  %.not13.i = icmp eq ptr %56, %51
+56:                                               ; preds = %55, %.lr.ph.i
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.09.015.i, i64 8
+  %.not13.i = icmp eq ptr %57, %52
   br i1 %.not13.i, label %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit, label %.lr.ph.i
 
-_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit: ; preds = %55
-  %.pre59 = load ptr, ptr %4, align 8, !tbaa !76
-  %.pre60 = load ptr, ptr %5, align 8, !tbaa !75
+_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit: ; preds = %56
+  %.pre57 = load ptr, ptr %4, align 8, !tbaa !76
+  %.pre58 = load ptr, ptr %5, align 8, !tbaa !75
   br label %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit
 
 _ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit: ; preds = %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit, %._crit_edge
-  %57 = phi ptr [ %.pre60, %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit ], [ %51, %._crit_edge ]
-  %58 = phi ptr [ %.pre59, %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit ], [ %52, %._crit_edge ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !203
-  %61 = load ptr, ptr %2, align 8, !tbaa !76
-  store ptr %61, ptr %4, align 8, !tbaa !76
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !75
-  store ptr %63, ptr %5, align 8, !tbaa !75
-  %64 = load ptr, ptr %14, align 8, !tbaa !203
-  store ptr %64, ptr %59, align 8, !tbaa !203
-  store ptr %58, ptr %2, align 8, !tbaa !76
-  store ptr %57, ptr %62, align 8, !tbaa !75
-  store ptr %60, ptr %14, align 8, !tbaa !203
-  %65 = icmp eq ptr %64, %63
-  br i1 %65, label %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit, label %66
+  %58 = phi ptr [ %.pre58, %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit ], [ %52, %._crit_edge ]
+  %59 = phi ptr [ %.pre57, %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit.loopexit ], [ %53, %._crit_edge ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !203
+  %62 = load ptr, ptr %2, align 8, !tbaa !76
+  store ptr %62, ptr %4, align 8, !tbaa !76
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !75
+  store ptr %64, ptr %5, align 8, !tbaa !75
+  %65 = load ptr, ptr %14, align 8, !tbaa !203
+  store ptr %65, ptr %60, align 8, !tbaa !203
+  store ptr %59, ptr %2, align 8, !tbaa !76
+  store ptr %58, ptr %63, align 8, !tbaa !75
+  store ptr %61, ptr %14, align 8, !tbaa !203
+  %66 = icmp eq ptr %65, %64
+  br i1 %66, label %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit, label %67
 
-66:                                               ; preds = %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit
-  %67 = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIP9my_entitySaIS2_EELb1EE8_S_do_itERS4_(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
+67:                                               ; preds = %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit
+  %68 = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIP9my_entitySaIS2_EELb1EE8_S_do_itERS4_(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   br label %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit
 
-_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit: ; preds = %66, %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %69 = load ptr, ptr %68, align 8, !tbaa !199
-  %70 = load ptr, ptr %20, align 8, !tbaa !33
-  %71 = icmp eq ptr %69, %70
-  br i1 %71, label %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit, label %72
+_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit: ; preds = %67, %_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE20release_sparse_pagesEv.exit
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = load ptr, ptr %69, align 8, !tbaa !199
+  %71 = load ptr, ptr %20, align 8, !tbaa !33
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit, label %73
 
-72:                                               ; preds = %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit
-  %73 = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorI9my_entitySaIS1_EELb1EE8_S_do_itERS3_(ptr noundef nonnull align 8 dereferenceable(24) %18) #21
+73:                                               ; preds = %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit
+  %74 = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorI9my_entitySaIS1_EELb1EE8_S_do_itERS3_(ptr noundef nonnull align 8 dereferenceable(24) %18) #21
   br label %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit
 
-_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit: ; preds = %72, %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit
-  %74 = load ptr, ptr %2, align 8, !tbaa !76
-  %.not.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit, label %75
+_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit: ; preds = %73, %_ZNSt6vectorIP9my_entitySaIS1_EE13shrink_to_fitEv.exit
+  %75 = load ptr, ptr %2, align 8, !tbaa !76
+  %.not.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit, label %76
 
-75:                                               ; preds = %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit
-  %76 = load ptr, ptr %14, align 8, !tbaa !203
-  %77 = ptrtoint ptr %76 to i64
-  %78 = ptrtoint ptr %74 to i64
-  %79 = sub i64 %77, %78
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %79) #22
+76:                                               ; preds = %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit
+  %77 = load ptr, ptr %14, align 8, !tbaa !203
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %75 to i64
+  %80 = sub i64 %78, %79
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %80) #22
   br label %_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit
 
-_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit, %75
+_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorI9my_entitySaIS0_EE13shrink_to_fitEv.exit, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-80:                                               ; preds = %40
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %40
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre61 = load ptr, ptr %2, align 8, !tbaa !76
-  %.not.i.i.i30 = icmp eq ptr %.pre61, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit31, label %82
+  %.pre59 = load ptr, ptr %2, align 8, !tbaa !76
+  %.not.i.i.i30 = icmp eq ptr %.pre59, null
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit31, label %83
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !203
-  %85 = ptrtoint ptr %84 to i64
-  %86 = ptrtoint ptr %.pre61 to i64
-  %87 = sub i64 %85, %86
-  call void @_ZdlPvm(ptr noundef nonnull %.pre61, i64 noundef %87) #22
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !203
+  %86 = ptrtoint ptr %85 to i64
+  %87 = ptrtoint ptr %.pre59 to i64
+  %88 = sub i64 %86, %87
+  call void @_ZdlPvm(ptr noundef nonnull %.pre59, i64 noundef %88) #22
   br label %_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit31
 
-_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit31:      ; preds = %80, %82
+_ZNSt6vectorIP9my_entitySaIS1_EED2Ev.exit31:      ; preds = %81, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %81
+  resume { ptr, i32 } %82
 }
 
 ; Function Attrs: mustprogress uwtable

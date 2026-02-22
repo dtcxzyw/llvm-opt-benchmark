@@ -2420,8 +2420,7 @@ invoke.cont195:                                   ; preds = %if.end183, %invoke.
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %j184.0518, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  %shl.i.i.i.fr = freeze i64 %shl.i.i.i
-  %not.i = xor i64 %shl.i.i.i.fr, -1
+  %not.i = xor i64 %shl.i.i.i, -1
   %105 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !8
   %and.i = and i64 %105, %not.i
   store i64 %and.i, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !8
@@ -2582,16 +2581,16 @@ _ZN8QuantLib5ArrayD2Ev.exit261:                   ; preds = %lpad248, %_ZNKSt14d
   br label %ehcleanup427
 
 invoke.cont264:                                   ; preds = %for.cond.cleanup235
-  %or.i = or i64 %.pre549.pre, %shl.i.i.i.fr
+  %or.i = or i64 %.pre549.pre, %shl.i.i.i
   store i64 %or.i, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !8
   br label %invoke.cont279
 
 invoke.cont279:                                   ; preds = %for.cond.cleanup235, %invoke.cont264
   %.pre549 = phi i64 [ %or.i, %invoke.cont264 ], [ %.pre549.pre, %for.cond.cleanup235 ]
   %inc269 = add i64 %k.0519, 1
-  %.pre549.fr = freeze i64 %.pre549
-  %136 = and i64 %.pre549.fr, %shl.i.i.i.fr
-  %137 = icmp eq i64 %136, 0
+  %136 = and i64 %.pre549, %shl.i.i.i
+  %.fr = freeze i64 %136
+  %137 = icmp eq i64 %.fr, 0
   %arrayidx.i286 = getelementptr inbounds nuw double, ptr %exercise.sroa.0.0, i64 %j184.0518
   %spec.select = select i1 %137, ptr %arrayidx.i223, ptr %arrayidx.i286
   br label %invoke.cont279.thread
@@ -4516,10 +4515,9 @@ for.body116.lr.ph:                                ; preds = %invoke.cont110
   %58 = load ptr, ptr %call104, align 8
   %columns_.i108 = getelementptr inbounds nuw i8, ptr %call104, i64 16
   %59 = load i64, ptr %columns_.i108, align 8
-  %__first1.coerce1.fr.i = freeze i64 %59
   %rows_.i112 = getelementptr inbounds nuw i8, ptr %call104, i64 8
   %60 = load i64, ptr %rows_.i112, align 8
-  %mul.i114 = mul i64 %__first1.coerce1.fr.i, %60
+  %mul.i114 = mul i64 %60, %59
   %add.ptr2.i.idx = shl nuw nsw i64 %mul.i114, 3
   %cmp.not.i7.i.not = icmp eq i64 %mul.i114, 0
   %61 = load ptr, ptr %call101, align 8
@@ -4548,7 +4546,7 @@ for.body.i:                                       ; preds = %invoke.cont125, %fo
   %66 = load double, ptr %__first1.sroa.0.08.i, align 8, !tbaa !27
   %67 = load double, ptr %__first2.sroa.0.09.i, align 8, !tbaa !27
   %68 = call double @llvm.fmuladd.f64(double %66, double %67, double %__init.addr.010.i)
-  %add.ptr.i.i = getelementptr inbounds double, ptr %__first1.sroa.0.08.i, i64 %__first1.coerce1.fr.i
+  %add.ptr.i.i = getelementptr inbounds double, ptr %__first1.sroa.0.08.i, i64 %59
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.not.i.not.i = icmp eq ptr %add.ptr.i.i, %add.ptr2.i
   br i1 %cmp.not.i.not.i, label %invoke.cont129, label %for.body.i, !llvm.loop !134

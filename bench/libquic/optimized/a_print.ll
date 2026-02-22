@@ -10,43 +10,43 @@ define hidden range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly ca
 
 .preheader:                                       ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !6
-  %.fr71 = freeze i8 %4
-  %.not72 = icmp eq i8 %.fr71, 0
-  br i1 %.not72, label %.critedge.thread, label %.lr.ph.preheader
+  %.fr6972 = freeze i8 %4
+  %.not73 = icmp eq i8 %.fr6972, 0
+  br i1 %.not73, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %5 = icmp slt i32 %1, 1
-  %spec.select86 = select i1 %5, i32 -1, i32 %1
+  %spec.select87 = select i1 %5, i32 -1, i32 %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %.fr77 = phi i8 [ %.fr, %16 ], [ %.fr71, %.lr.ph.preheader ]
-  %.076 = phi i32 [ %spec.select, %16 ], [ 0, %.lr.ph.preheader ]
-  %.05875 = phi i32 [ %.159, %16 ], [ 0, %.lr.ph.preheader ]
-  %.06174 = phi i32 [ %6, %16 ], [ %spec.select86, %.lr.ph.preheader ]
-  %.06273 = phi ptr [ %8, %16 ], [ %0, %.lr.ph.preheader ]
-  %6 = add nsw i32 %.06174, -1
-  %.not65 = icmp eq i32 %.06174, 0
+  %.fr6978 = phi i8 [ %.fr69, %16 ], [ %.fr6972, %.lr.ph.preheader ]
+  %.077 = phi i32 [ %spec.select, %16 ], [ 0, %.lr.ph.preheader ]
+  %.05876 = phi i32 [ %.159, %16 ], [ 0, %.lr.ph.preheader ]
+  %.06175 = phi i32 [ %6, %16 ], [ %spec.select87, %.lr.ph.preheader ]
+  %.06274 = phi ptr [ %8, %16 ], [ %0, %.lr.ph.preheader ]
+  %6 = add nsw i32 %.06175, -1
+  %.not65 = icmp eq i32 %.06175, 0
   br i1 %.not65, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.06273, i64 1
-  %9 = add i8 %.fr77, -97
+  %8 = getelementptr inbounds nuw i8, ptr %.06274, i64 1
+  %9 = add i8 %.fr6978, -97
   %or.cond = icmp ult i8 %9, 26
   br i1 %or.cond, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = add i8 %.fr77, -65
+  %11 = add i8 %.fr6978, -65
   %or.cond3 = icmp ult i8 %11, 26
-  %12 = icmp eq i8 %.fr77, 32
+  %12 = icmp eq i8 %.fr6978, 32
   %or.cond5 = or i1 %12, %or.cond3
-  %13 = add i8 %.fr77, -43
+  %13 = add i8 %.fr6978, -43
   %14 = icmp ult i8 %13, 16
-  %or.cond70 = or i1 %14, %or.cond5
-  br i1 %or.cond70, label %16, label %switch.early.test
+  %or.cond71 = or i1 %14, %or.cond5
+  br i1 %or.cond71, label %16, label %switch.early.test
 
 switch.early.test:                                ; preds = %10
-  switch i8 %.fr77, label %15 [
+  switch i8 %.fr6978, label %15 [
     i8 63, label %16
     i8 61, label %16
     i8 41, label %16
@@ -58,25 +58,25 @@ switch.early.test:                                ; preds = %10
   br label %16
 
 16:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %10, %7, %15
-  %.159 = phi i32 [ %.05875, %7 ], [ %.05875, %10 ], [ %.05875, %switch.early.test ], [ 1, %15 ], [ %.05875, %switch.early.test ], [ %.05875, %switch.early.test ], [ %.05875, %switch.early.test ], [ %.05875, %switch.early.test ]
-  %.not68 = icmp sgt i8 %.fr77, -1
-  %spec.select = select i1 %.not68, i32 %.076, i32 1
+  %.159 = phi i32 [ %.05876, %7 ], [ %.05876, %10 ], [ %.05876, %switch.early.test ], [ 1, %15 ], [ %.05876, %switch.early.test ], [ %.05876, %switch.early.test ], [ %.05876, %switch.early.test ], [ %.05876, %switch.early.test ]
+  %.not68 = icmp sgt i8 %.fr6978, -1
+  %spec.select = select i1 %.not68, i32 %.077, i32 1
   %17 = load i8, ptr %8, align 1, !tbaa !6
-  %.fr = freeze i8 %17
-  %.not = icmp eq i8 %.fr, 0
+  %.fr69 = freeze i8 %17
+  %.not = icmp eq i8 %.fr69, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %16
-  %.058.lcssa.ph = phi i32 [ %.05875, %.lr.ph ], [ %.159, %16 ]
-  %.0.lcssa.ph = phi i32 [ %.076, %.lr.ph ], [ %spec.select, %16 ]
+  %.058.lcssa.ph = phi i32 [ %.05876, %.lr.ph ], [ %.159, %16 ]
+  %.0.lcssa.ph = phi i32 [ %.077, %.lr.ph ], [ %spec.select, %16 ]
   %18 = icmp eq i32 %.0.lcssa.ph, 0
   %19 = icmp eq i32 %.058.lcssa.ph, 0
   %20 = select i1 %19, i32 19, i32 22
-  %spec.select87 = select i1 %18, i32 %20, i32 20
+  %spec.select88 = select i1 %18, i32 %20, i32 20
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.preheader, %2
-  %.060 = phi i32 [ %spec.select87, %.critedge ], [ 19, %2 ], [ 19, %.preheader ]
+  %.060 = phi i32 [ %spec.select88, %.critedge ], [ 19, %2 ], [ 19, %.preheader ]
   ret i32 %.060
 }
 
@@ -154,9 +154,9 @@ define hidden range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef ca
 
 .preheader.i:                                     ; preds = %._crit_edge
   %34 = load i8, ptr %32, align 1, !tbaa !6
-  %.fr71.i = freeze i8 %34
-  %.not72.i = icmp eq i8 %.fr71.i, 0
-  br i1 %.not72.i, label %ASN1_PRINTABLE_type.exit, label %.lr.ph.preheader.i
+  %.fr6972.i = freeze i8 %34
+  %.not73.i = icmp eq i8 %.fr6972.i, 0
+  br i1 %.not73.i, label %ASN1_PRINTABLE_type.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %35 = icmp slt i32 %30, 4
@@ -164,33 +164,33 @@ define hidden range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef ca
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %46
-  %.fr77.i = phi i8 [ %.fr.i, %46 ], [ %.fr71.i, %.lr.ph.preheader.i ]
-  %.076.i = phi i32 [ %spec.select.i, %46 ], [ 0, %.lr.ph.preheader.i ]
-  %.05875.i = phi i32 [ %.159.i, %46 ], [ 0, %.lr.ph.preheader.i ]
-  %.06174.i = phi i32 [ %36, %46 ], [ %spec.select, %.lr.ph.preheader.i ]
-  %.06273.i = phi ptr [ %38, %46 ], [ %32, %.lr.ph.preheader.i ]
-  %36 = add nsw i32 %.06174.i, -1
-  %.not65.i = icmp eq i32 %.06174.i, 0
+  %.fr6978.i = phi i8 [ %.fr69.i, %46 ], [ %.fr6972.i, %.lr.ph.preheader.i ]
+  %.077.i = phi i32 [ %spec.select.i, %46 ], [ 0, %.lr.ph.preheader.i ]
+  %.05876.i = phi i32 [ %.159.i, %46 ], [ 0, %.lr.ph.preheader.i ]
+  %.06175.i = phi i32 [ %36, %46 ], [ %spec.select, %.lr.ph.preheader.i ]
+  %.06274.i = phi ptr [ %38, %46 ], [ %32, %.lr.ph.preheader.i ]
+  %36 = add nsw i32 %.06175.i, -1
+  %.not65.i = icmp eq i32 %.06175.i, 0
   br i1 %.not65.i, label %.critedge.i, label %37
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds nuw i8, ptr %.06273.i, i64 1
-  %39 = add i8 %.fr77.i, -97
+  %38 = getelementptr inbounds nuw i8, ptr %.06274.i, i64 1
+  %39 = add i8 %.fr6978.i, -97
   %or.cond.i = icmp ult i8 %39, 26
   br i1 %or.cond.i, label %46, label %40
 
 40:                                               ; preds = %37
-  %41 = add i8 %.fr77.i, -65
+  %41 = add i8 %.fr6978.i, -65
   %or.cond3.i = icmp ult i8 %41, 26
-  %42 = icmp eq i8 %.fr77.i, 32
+  %42 = icmp eq i8 %.fr6978.i, 32
   %or.cond5.i = or i1 %42, %or.cond3.i
-  %43 = add i8 %.fr77.i, -43
+  %43 = add i8 %.fr6978.i, -43
   %44 = icmp ult i8 %43, 16
-  %or.cond70.i = or i1 %44, %or.cond5.i
-  br i1 %or.cond70.i, label %46, label %switch.early.test.i
+  %or.cond71.i = or i1 %44, %or.cond5.i
+  br i1 %or.cond71.i, label %46, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %40
-  switch i8 %.fr77.i, label %45 [
+  switch i8 %.fr6978.i, label %45 [
     i8 63, label %46
     i8 61, label %46
     i8 41, label %46
@@ -202,25 +202,25 @@ switch.early.test.i:                              ; preds = %40
   br label %46
 
 46:                                               ; preds = %45, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %40, %37
-  %.159.i = phi i32 [ %.05875.i, %37 ], [ %.05875.i, %40 ], [ %.05875.i, %switch.early.test.i ], [ 1, %45 ], [ %.05875.i, %switch.early.test.i ], [ %.05875.i, %switch.early.test.i ], [ %.05875.i, %switch.early.test.i ], [ %.05875.i, %switch.early.test.i ]
-  %.not68.i = icmp sgt i8 %.fr77.i, -1
-  %spec.select.i = select i1 %.not68.i, i32 %.076.i, i32 1
+  %.159.i = phi i32 [ %.05876.i, %37 ], [ %.05876.i, %40 ], [ %.05876.i, %switch.early.test.i ], [ 1, %45 ], [ %.05876.i, %switch.early.test.i ], [ %.05876.i, %switch.early.test.i ], [ %.05876.i, %switch.early.test.i ], [ %.05876.i, %switch.early.test.i ]
+  %.not68.i = icmp sgt i8 %.fr6978.i, -1
+  %spec.select.i = select i1 %.not68.i, i32 %.077.i, i32 1
   %47 = load i8, ptr %38, align 1, !tbaa !6
-  %.fr.i = freeze i8 %47
-  %.not.i = icmp eq i8 %.fr.i, 0
+  %.fr69.i = freeze i8 %47
+  %.not.i = icmp eq i8 %.fr69.i, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %46, %.lr.ph.i
-  %.058.lcssa.ph.i = phi i32 [ %.05875.i, %.lr.ph.i ], [ %.159.i, %46 ]
-  %.0.lcssa.ph.i = phi i32 [ %.076.i, %.lr.ph.i ], [ %spec.select.i, %46 ]
+  %.058.lcssa.ph.i = phi i32 [ %.05876.i, %.lr.ph.i ], [ %.159.i, %46 ]
+  %.0.lcssa.ph.i = phi i32 [ %.077.i, %.lr.ph.i ], [ %spec.select.i, %46 ]
   %48 = icmp eq i32 %.0.lcssa.ph.i, 0
   %49 = icmp eq i32 %.058.lcssa.ph.i, 0
   %50 = select i1 %49, i32 19, i32 22
-  %spec.select87.i = select i1 %48, i32 %50, i32 20
+  %spec.select88.i = select i1 %48, i32 %50, i32 20
   br label %ASN1_PRINTABLE_type.exit
 
 ASN1_PRINTABLE_type.exit:                         ; preds = %._crit_edge, %.preheader.i, %.critedge.i
-  %.060.i = phi i32 [ %spec.select87.i, %.critedge.i ], [ 19, %._crit_edge ], [ 19, %.preheader.i ]
+  %.060.i = phi i32 [ %spec.select88.i, %.critedge.i ], [ 19, %._crit_edge ], [ 19, %.preheader.i ]
   store i32 %.060.i, ptr %2, align 4, !tbaa !11
   br label %.thread
 

@@ -790,8 +790,8 @@ define internal range(i32 0, 2) i32 @is_rfc3986_unreserved(i8 noundef signext %0
   %2 = zext i8 %0 to i64
   %3 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !37
-  %.fr = freeze i8 %4
-  %5 = and i8 %.fr, 6
+  %.fr13 = freeze i8 %4
+  %5 = and i8 %.fr13, 6
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %switch.early.test, label %9
 
@@ -817,8 +817,8 @@ define internal range(i32 0, 2) i32 @is_rfc3986_reserved_or_unreserved(i8 nounde
   %2 = zext i8 %0 to i64
   %3 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !37
-  %.fr.i = freeze i8 %4
-  %5 = and i8 %.fr.i, 6
+  %.fr13.i = freeze i8 %4
+  %5 = and i8 %.fr13.i, 6
   %.not.i = icmp eq i8 %5, 0
   br i1 %.not.i, label %switch.early.test.i, label %is_rfc3986_unreserved.exit.thread
 

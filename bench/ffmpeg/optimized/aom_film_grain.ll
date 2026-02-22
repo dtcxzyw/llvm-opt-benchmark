@@ -4681,8 +4681,8 @@ define internal fastcc void @generate_scaling_16(ptr noundef readonly captures(n
   br label %.lr.ph100
 
 .loopexit96:                                      ; preds = %.lr.ph, %.lr.ph100
-  %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !146
+  %exitcond115.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %.loopexit96
   %30 = zext nneg i32 %12 to i64
@@ -4696,18 +4696,18 @@ define internal fastcc void @generate_scaling_16(ptr noundef readonly captures(n
   %37 = lshr i32 %36, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %36, i32 2)
   %38 = zext nneg i32 %36 to i64
-  %wide.trip.count126 = zext nneg i32 %7 to i64
-  %invariant.gep133 = getelementptr inbounds nuw i8, ptr %2, i64 %38
-  %wide.trip.count118 = zext nneg i32 %umax to i64
+  %wide.trip.count127 = zext nneg i32 %7 to i64
+  %invariant.gep134 = getelementptr inbounds nuw i8, ptr %2, i64 %38
+  %wide.trip.count119 = zext nneg i32 %umax to i64
   br label %.lr.ph111.split.us
 
 .lr.ph111.split.us:                               ; preds = %._crit_edge, %.loopexit.us
-  %indvars.iv123 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next124, %.loopexit.us ]
-  %39 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv123
+  %indvars.iv124 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next125, %.loopexit.us ]
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv124
   %40 = load i8, ptr %39, align 1, !tbaa !27
   %41 = zext i8 %40 to i32
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %42 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next124
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next125
   %43 = load i8, ptr %42, align 1, !tbaa !27
   %44 = zext i8 %43 to i32
   %45 = sub nsw i32 %44, %41
@@ -4722,14 +4722,14 @@ define internal fastcc void @generate_scaling_16(ptr noundef readonly captures(n
   br label %.lr.ph104.us.us
 
 .loopexit.us:                                     ; preds = %._crit_edge105.us.us, %.lr.ph111.split.us
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %.loopexit95, label %.lr.ph111.split.us, !llvm.loop !147
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %.loopexit95, label %.lr.ph111.split.us, !llvm.loop !147
 
 .lr.ph104.us.us:                                  ; preds = %.lr.ph104.us.us.preheader, %._crit_edge105.us.us
-  %indvars.iv120 = phi i64 [ 0, %.lr.ph104.us.us.preheader ], [ %indvars.iv.next121, %._crit_edge105.us.us ]
-  %51 = add nuw nsw i64 %indvars.iv120, %49
-  %gep134 = getelementptr inbounds nuw i8, ptr %invariant.gep133, i64 %51
-  %52 = load i8, ptr %gep134, align 1, !tbaa !27
+  %indvars.iv121 = phi i64 [ 0, %.lr.ph104.us.us.preheader ], [ %indvars.iv.next122, %._crit_edge105.us.us ]
+  %51 = add nuw nsw i64 %indvars.iv121, %49
+  %gep135 = getelementptr inbounds nuw i8, ptr %invariant.gep134, i64 %51
+  %52 = load i8, ptr %gep135, align 1, !tbaa !27
   %53 = zext i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %51
   %55 = load i8, ptr %54, align 1, !tbaa !27
@@ -4739,21 +4739,21 @@ define internal fastcc void @generate_scaling_16(ptr noundef readonly captures(n
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph104.us.us
-  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %58 ], [ 1, %.lr.ph104.us.us ]
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %58 ], [ 1, %.lr.ph104.us.us ]
   %.0102.us.us = phi i32 [ %59, %58 ], [ %37, %.lr.ph104.us.us ]
   %59 = add nsw i32 %.0102.us.us, %57
   %60 = ashr i32 %59, %5
   %61 = trunc i32 %60 to i8
   %62 = add i8 %55, %61
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv115
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv116
   store i8 %62, ptr %gep, align 1, !tbaa !27
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge105.us.us, label %58, !llvm.loop !148
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
+  br i1 %exitcond120.not, label %._crit_edge105.us.us, label %58, !llvm.loop !148
 
 ._crit_edge105.us.us:                             ; preds = %58
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, %38
-  %63 = icmp samesign ult i64 %indvars.iv.next121, %50
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, %38
+  %63 = icmp samesign ult i64 %indvars.iv.next122, %50
   br i1 %63, label %.lr.ph104.us.us, label %.loopexit.us, !llvm.loop !149
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.loopexit96

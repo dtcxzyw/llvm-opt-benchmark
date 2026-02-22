@@ -6229,8 +6229,8 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %41, %_ZN5cl
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
   %62 = load i32, ptr %59, align 16
-  %.fr = freeze i32 %62
-  %63 = lshr i32 %.fr, 19
+  %.fr46 = freeze i32 %62
+  %63 = lshr i32 %.fr46, 19
   %64 = and i32 %63, 511
   %65 = add nsw i32 %64, -479
   %or.cond.i = icmp ult i32 %65, -21

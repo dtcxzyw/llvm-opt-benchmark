@@ -4482,8 +4482,7 @@ _ZNK6vectorIN3smt10theory_lra3imp5scopeELb0EjE4sizeEv.exit.thread.i: ; preds = %
   store i32 %61, ptr %62, align 8, !tbaa !770
   %63 = getelementptr inbounds i8, ptr %53, i64 -4
   %64 = load i32, ptr %63, align 4, !tbaa !652
-  %.fr = freeze i32 %64
-  %.not15.i = icmp ugt i32 %11, %.fr
+  %.not15.i = icmp ugt i32 %11, %64
   br i1 %.not15.i, label %.preheader, label %65
 
 65:                                               ; preds = %_ZNK6vectorIN3smt10theory_lra3imp5scopeELb0EjE4sizeEv.exit.thread.i
@@ -4509,13 +4508,14 @@ _ZNK6vectorIN3smt10theory_lra3imp5scopeELb0EjE8capacityEv.exit.thread.i: ; preds
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN3smt10theory_lra3imp5scopeELb0EjE8capacityEv.exit.i
   %70 = getelementptr inbounds i8, ptr %.pr.i, i64 -4
   store i32 %11, ptr %70, align 4, !tbaa !652
-  %71 = zext i32 %.fr to i64
+  %71 = zext i32 %64 to i64
   %72 = getelementptr %"struct.smt::theory_lra::imp::scope", ptr %.pr.i, i64 %71
   %reass.add = sub nsw i64 %12, %71
-  %reass.mul = mul nsw i64 %reass.add, 12
-  %73 = add nsw i64 %reass.mul, -12
+  %reass.add.fr = freeze i64 %reass.add
+  %reass.mul = mul i64 %reass.add.fr, 12
+  %73 = add i64 %reass.mul, -12
   %74 = urem i64 %73, 12
-  %75 = sub nsw i64 %reass.mul, %74
+  %75 = sub i64 %reass.mul, %74
   tail call void @llvm.memset.p0.i64(ptr align 4 %72, i8 0, i64 %75, i1 false)
   br label %_ZN6vectorIN3smt10theory_lra3imp5scopeELb0EjE6resizeEj.exit
 
@@ -5079,19 +5079,18 @@ _ZNK3smt7context11is_relevantEP4expr.exit.thread: ; preds = %.lr.ph, %_ZNK3smt7c
 
 _ZNK17arith_recognizers8is_powerEPK4expr.exit.i:  ; preds = %114
   %119 = load i32, ptr %118, align 8, !tbaa !727
-  %.fr.i = freeze i32 %119
-  %120 = icmp eq i32 %.fr.i, 5
+  %120 = icmp eq i32 %119, 5
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %122 = load i32, ptr %121, align 4
-  %.fr7.i = freeze i32 %122
-  %123 = icmp eq i32 %.fr7.i, 22
-  %124 = and i1 %120, %123
+  %123 = icmp eq i32 %122, 22
+  %124 = select i1 %120, i1 %123, i1 false
   br i1 %124, label %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit, label %_ZNK17arith_recognizers9is_power0EPK4expr.exit.i
 
 _ZNK17arith_recognizers9is_power0EPK4expr.exit.i: ; preds = %_ZNK17arith_recognizers8is_powerEPK4expr.exit.i
-  %125 = icmp eq i32 %.fr7.i, 23
-  %126 = and i1 %120, %125
-  br i1 %126, label %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit.thread34, label %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit.thread
+  %125 = icmp eq i32 %122, 23
+  %126 = select i1 %120, i1 %125, i1 false
+  %cond.fr.i = freeze i1 %126
+  br i1 %cond.fr.i, label %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit.thread34, label %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit.thread
 
 _ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit: ; preds = %_ZNK17arith_recognizers8is_powerEPK4expr.exit.i
   %127 = tail call noundef i32 @_ZN3smt10theory_lra3imp10eval_powerEP4expr(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %99)

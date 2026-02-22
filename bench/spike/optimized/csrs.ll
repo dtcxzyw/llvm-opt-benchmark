@@ -6836,8 +6836,8 @@ define noundef i64 @_ZNK14base_atp_csr_t16compute_new_satpEm(ptr noundef nonnull
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4264
   %8 = load ptr, ptr %7, align 8, !tbaa !185
   %9 = load i64, ptr %8, align 8, !tbaa !152
-  %.fr = freeze i64 %9
-  %10 = and i64 %.fr, 128
+  %.fr36 = freeze i64 %9
+  %10 = and i64 %.fr36, 128
   %.not = icmp eq i64 %10, 0
   %11 = icmp eq i32 %6, 32
   %12 = select i1 %11, i64 2143289344, i64 1152903912420802560
@@ -6859,26 +6859,26 @@ define noundef i64 @_ZNK14base_atp_csr_t16compute_new_satpEm(ptr noundef nonnull
     i64 8, label %19
     i64 9, label %21
     i64 10, label %23
-    i64 0, label %.thread45
+    i64 0, label %.thread46
   ]
 
 19:                                               ; preds = %17
-  %20 = and i64 %.fr, 2
-  %.not38 = icmp eq i64 %20, 0
-  br i1 %.not38, label %.thread, label %.thread24
+  %20 = and i64 %.fr36, 2
+  %.not39 = icmp eq i64 %20, 0
+  br i1 %.not39, label %.thread, label %.thread24
 
 21:                                               ; preds = %17
-  %22 = and i64 %.fr, 4
-  %.not37 = icmp eq i64 %22, 0
-  br i1 %.not37, label %.thread, label %.thread24
+  %22 = and i64 %.fr36, 4
+  %.not38 = icmp eq i64 %22, 0
+  br i1 %.not38, label %.thread, label %.thread24
 
 23:                                               ; preds = %17
-  %24 = and i64 %.fr, 8
-  %.not36 = icmp eq i64 %24, 0
-  br i1 %.not36, label %.thread, label %.thread24
+  %24 = and i64 %.fr36, 8
+  %.not37 = icmp eq i64 %24, 0
+  br i1 %.not37, label %.thread, label %.thread24
 
 _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %14
-  %25 = trunc i64 %.fr to i1
+  %25 = trunc i64 %.fr36 to i1
   br i1 %25, label %.thread25, label %28
 
 .thread25:                                        ; preds = %_ZNK14base_atp_csr_t10satp_validEm.exit
@@ -6888,7 +6888,7 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %14
 .thread24:                                        ; preds = %23, %21, %19
   br label %.thread
 
-.thread45:                                        ; preds = %17
+.thread46:                                        ; preds = %17
   %27 = or i64 %13, -1152903912420802561
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
@@ -6907,22 +6907,22 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %14
   ]
 
 31:                                               ; preds = %.thread
-  %32 = and i64 %.fr, 2
-  %.not41 = icmp eq i64 %32, 0
-  br i1 %.not41, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
+  %32 = and i64 %.fr36, 2
+  %.not42 = icmp eq i64 %32, 0
+  br i1 %.not42, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
 33:                                               ; preds = %.thread
-  %34 = and i64 %.fr, 4
-  %.not40 = icmp eq i64 %34, 0
-  br i1 %.not40, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
+  %34 = and i64 %.fr36, 4
+  %.not41 = icmp eq i64 %34, 0
+  br i1 %.not41, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
 35:                                               ; preds = %.thread
-  %36 = and i64 %.fr, 8
-  %.not39 = icmp eq i64 %36, 0
-  br i1 %.not39, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
+  %36 = and i64 %.fr36, 8
+  %.not40 = icmp eq i64 %36, 0
+  br i1 %.not40, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
-_ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread25, %.thread26, %.thread45, %.thread, %31, %33, %35
-  %37 = phi i64 [ %30, %31 ], [ %16, %.thread26 ], [ %30, %35 ], [ %30, %33 ], [ %30, %.thread ], [ %27, %.thread45 ], [ %26, %.thread25 ]
+_ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread25, %.thread26, %.thread46, %.thread, %31, %33, %35
+  %37 = phi i64 [ %30, %31 ], [ %16, %.thread26 ], [ %30, %35 ], [ %30, %33 ], [ %30, %.thread ], [ %27, %.thread46 ], [ %26, %.thread25 ]
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
 _ZNK14base_atp_csr_t10satp_validEm.exit13.thread30: ; preds = %28, %.thread, %31, %33, %35, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread

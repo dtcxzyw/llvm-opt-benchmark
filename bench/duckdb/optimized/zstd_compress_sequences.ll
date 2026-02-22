@@ -439,8 +439,8 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   br label %_ZN11duckdb_zstdL28ZSTD_encodeSequences_defaultEPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDef_sEmi.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr i8, ptr %0, i64 %1
-  %17 = getelementptr i8, ptr %16, i64 -8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = icmp ugt i64 %1, 8
   br i1 %18, label %19, label %_ZN11duckdb_zstdL28ZSTD_encodeSequences_defaultEPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDef_sEmi.exit
 
@@ -449,10 +449,9 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !17
   %.val.i.i.i = load i16, ptr %2, align 1, !tbaa !3
-  %.val.i.i.fr.i = freeze i16 %.val.i.i.i
-  %23 = zext i16 %.val.i.i.fr.i to i32
+  %23 = zext i16 %.val.i.i.i to i32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.not.i.i.i = icmp eq i16 %.val.i.i.fr.i, 0
+  %.not.i.i.i = icmp eq i16 %.val.i.i.i, 0
   %25 = add nsw i32 %23, -1
   %26 = shl nuw i32 1, %25
   %27 = sext i32 %26 to i64
@@ -478,10 +477,9 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %44 = load i8, ptr %43, align 1, !tbaa !17
   %45 = zext i8 %44 to i32
   %.val.i.i11.i = load i16, ptr %4, align 1, !tbaa !3
-  %.val.i.i11.fr.i = freeze i16 %.val.i.i11.i
-  %46 = zext i16 %.val.i.i11.fr.i to i32
+  %46 = zext i16 %.val.i.i11.i to i32
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.not.i.i12.i = icmp eq i16 %.val.i.i11.fr.i, 0
+  %.not.i.i12.i = icmp eq i16 %.val.i.i11.i, 0
   %48 = add nsw i32 %46, -1
   %49 = shl nuw i32 1, %48
   %50 = sext i32 %49 to i64
@@ -506,10 +504,9 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 %20
   %67 = load i8, ptr %66, align 1, !tbaa !17
   %.val.i.i16.i = load i16, ptr %6, align 1, !tbaa !3
-  %.val.i.i16.fr.i = freeze i16 %.val.i.i16.i
-  %68 = zext i16 %.val.i.i16.fr.i to i32
+  %68 = zext i16 %.val.i.i16.i to i32
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.not.i.i17.i = icmp eq i16 %.val.i.i16.fr.i, 0
+  %.not.i.i17.i = icmp eq i16 %.val.i.i16.i, 0
   %70 = add nsw i32 %68, -1
   %71 = shl nuw i32 1, %70
   %72 = sext i32 %71 to i64
@@ -630,8 +627,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %.sroa.053.1.i = phi i64 [ %156, %148 ], [ %146, %.thread.i ]
   %.sroa.63.1.i = phi i32 [ %157, %148 ], [ %147, %.thread.i ]
   %.sroa.112.1.i = phi ptr [ %0, %148 ], [ %.sroa.112.0.i, %.thread.i ]
-  %.sroa.63.2.in.fr133.i = freeze i32 %.sroa.63.1.i
-  %159 = lshr i32 %.sroa.63.2.in.fr133.i, 3
+  %159 = lshr i32 %.sroa.63.1.i, 3
   %160 = zext nneg i32 %159 to i64
   store i64 %.sroa.053.1.i, ptr %.sroa.112.1.i, align 1, !tbaa !22
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.112.1.i, i64 %160
@@ -639,8 +635,8 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %spec.store.select.i21.i = select i1 %162, ptr %17, ptr %161
   %163 = shl nuw nsw i64 %160, 3
   %164 = lshr i64 %.sroa.053.1.i, %163
-  %.sroa.0.0132.i = zext i16 %87 to i64
-  %.sroa.63.2134.i = and i32 %.sroa.63.2.in.fr133.i, 7
+  %.sroa.0.0133.i = zext i16 %87 to i64
+  %.sroa.63.2134.i = and i32 %.sroa.63.1.i, 7
   %.sroa.047.0135.i = zext i16 %42 to i64
   %.sroa.041.0136.i = zext i16 %65 to i64
   %165 = icmp ugt i64 %9, 1
@@ -654,7 +650,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %.sroa.041.0143.i = phi i64 [ %.sroa.041.0.i, %328 ], [ %.sroa.041.0136.i, %.lr.ph.preheader.i ]
   %.sroa.047.0142.i = phi i64 [ %.sroa.047.0.i, %328 ], [ %.sroa.047.0135.i, %.lr.ph.preheader.i ]
   %.sroa.63.2141.i = phi i32 [ %.sroa.63.2.i, %328 ], [ %.sroa.63.2134.i, %.lr.ph.preheader.i ]
-  %.sroa.0.0140.i = phi i64 [ %.sroa.0.0.i, %328 ], [ %.sroa.0.0132.i, %.lr.ph.preheader.i ]
+  %.sroa.0.0140.i = phi i64 [ %.sroa.0.0.i, %328 ], [ %.sroa.0.0133.i, %.lr.ph.preheader.i ]
   %.086.i139.i = phi i64 [ %335, %328 ], [ %166, %.lr.ph.preheader.i ]
   %.sroa.112.2138.i = phi ptr [ %spec.store.select.i34.i, %328 ], [ %spec.store.select.i21.i, %.lr.ph.preheader.i ]
   %.sroa.053.2137.i = phi i64 [ %334, %328 ], [ %164, %.lr.ph.preheader.i ]
@@ -874,8 +870,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %.sroa.053.6.i = phi i64 [ %326, %318 ], [ %316, %.thread128.i ]
   %.sroa.63.6.i = phi i32 [ %327, %318 ], [ %317, %.thread128.i ]
   %.sroa.112.6.i = phi ptr [ %.sroa.112.4.i, %318 ], [ %.sroa.112.5.i, %.thread128.i ]
-  %.sroa.63.2.in.fr.i = freeze i32 %.sroa.63.6.i
-  %329 = lshr i32 %.sroa.63.2.in.fr.i, 3
+  %329 = lshr i32 %.sroa.63.6.i, 3
   %330 = zext nneg i32 %329 to i64
   store i64 %.sroa.053.6.i, ptr %.sroa.112.6.i, align 1, !tbaa !22
   %331 = getelementptr inbounds nuw i8, ptr %.sroa.112.6.i, i64 %330
@@ -885,7 +880,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %334 = lshr i64 %.sroa.053.6.i, %333
   %335 = add i64 %.086.i139.i, -1
   %.sroa.0.0.i = zext i16 %236 to i64
-  %.sroa.63.2.i = and i32 %.sroa.63.2.in.fr.i, 7
+  %.sroa.63.2.i = and i32 %.sroa.63.6.i, 7
   %.sroa.047.0.i = zext i16 %216 to i64
   %.sroa.041.0.i = zext i16 %199 to i64
   %336 = icmp ult i64 %335, %9
@@ -894,11 +889,11 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
 ._crit_edge.i:                                    ; preds = %328, %158
   %.sroa.053.2.lcssa.i = phi i64 [ %164, %158 ], [ %334, %328 ]
   %.sroa.112.2.lcssa.i = phi ptr [ %spec.store.select.i21.i, %158 ], [ %spec.store.select.i34.i, %328 ]
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0132.i, %158 ], [ %.sroa.0.0.i, %328 ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0133.i, %158 ], [ %.sroa.0.0.i, %328 ]
   %.sroa.63.2.lcssa.i = phi i32 [ %.sroa.63.2134.i, %158 ], [ %.sroa.63.2.i, %328 ]
   %.sroa.047.0.lcssa.i = phi i64 [ %.sroa.047.0135.i, %158 ], [ %.sroa.047.0.i, %328 ]
   %.sroa.041.0.lcssa.i = phi i64 [ %.sroa.041.0136.i, %158 ], [ %.sroa.041.0.i, %328 ]
-  %337 = zext i16 %.val.i.i.fr.i to i64
+  %337 = zext i16 %.val.i.i.i to i64
   %338 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %337
   %339 = load i32, ptr %338, align 4, !tbaa !10
   %340 = zext i32 %339 to i64
@@ -916,7 +911,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %350 = and i32 %345, 7
   %351 = shl nuw nsw i64 %347, 3
   %352 = lshr i64 %344, %351
-  %353 = zext i16 %.val.i.i11.fr.i to i64
+  %353 = zext i16 %.val.i.i11.i to i64
   %354 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !10
   %356 = zext i32 %355 to i64
@@ -934,7 +929,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %366 = and i32 %361, 7
   %367 = shl nuw nsw i64 %363, 3
   %368 = lshr i64 %360, %367
-  %369 = zext i16 %.val.i.i16.fr.i to i64
+  %369 = zext i16 %.val.i.i16.i to i64
   %370 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %369
   %371 = load i32, ptr %370, align 4, !tbaa !10
   %372 = zext i32 %371 to i64
@@ -959,7 +954,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %389 = lshr i32 %388, 3
   %390 = zext nneg i32 %389 to i64
   store i64 %387, ptr %spec.store.select.i.i36.i, align 1, !tbaa !22
-  %391 = getelementptr i8, ptr %spec.store.select.i.i36.i, i64 %390
+  %391 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i36.i, i64 %390
   %392 = icmp ugt ptr %391, %17
   %spec.store.select.i.i37.i = select i1 %392, ptr %17, ptr %391
   %.not.i38.i = icmp ult ptr %spec.store.select.i.i37.i, %17
@@ -971,8 +966,9 @@ _ZN11duckdb_zstdL16BIT_closeCStreamEPNS_13BIT_CStream_tE.exit.i: ; preds = %._cr
   %395 = ptrtoint ptr %0 to i64
   %396 = icmp ne i32 %393, 0
   %397 = zext i1 %396 to i64
-  %398 = sub i64 %397, %395
-  %399 = add i64 %398, %394
+  %398 = add i64 %394, %397
+  %.fr132.i = freeze i64 %398
+  %399 = sub i64 %.fr132.i, %395
   %400 = icmp eq i64 %399, 0
   br i1 %400, label %_ZN11duckdb_zstdL16BIT_closeCStreamEPNS_13BIT_CStream_tE.exit.thread.i, label %_ZN11duckdb_zstdL28ZSTD_encodeSequences_defaultEPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDef_sEmi.exit
 
@@ -986,8 +982,8 @@ _ZN11duckdb_zstdL28ZSTD_encodeSequences_defaultEPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_encodeSequences_bmi2EPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDef_sEmi(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, i64 noundef %9, i32 noundef %10) unnamed_addr #5 {
-  %12 = getelementptr i8, ptr %0, i64 %1
-  %13 = getelementptr i8, ptr %12, i64 -8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %13 = getelementptr inbounds i8, ptr %12, i64 -8
   %14 = icmp ugt i64 %1, 8
   br i1 %14, label %15, label %_ZN11duckdb_zstdL25ZSTD_encodeSequences_bodyEPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDef_sEmi.exit
 
@@ -996,10 +992,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !17
   %.val.i.i = load i16, ptr %2, align 1, !tbaa !3
-  %.val.i.i.fr = freeze i16 %.val.i.i
-  %19 = zext i16 %.val.i.i.fr to i32
+  %19 = zext i16 %.val.i.i to i32
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.not.i.i = icmp eq i16 %.val.i.i.fr, 0
+  %.not.i.i = icmp eq i16 %.val.i.i, 0
   %21 = add nsw i32 %19, -1
   %22 = shl nuw i32 1, %21
   %23 = sext i32 %22 to i64
@@ -1025,10 +1020,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %40 = load i8, ptr %39, align 1, !tbaa !17
   %41 = zext i8 %40 to i32
   %.val.i.i11 = load i16, ptr %4, align 1, !tbaa !3
-  %.val.i.i11.fr = freeze i16 %.val.i.i11
-  %42 = zext i16 %.val.i.i11.fr to i32
+  %42 = zext i16 %.val.i.i11 to i32
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.not.i.i12 = icmp eq i16 %.val.i.i11.fr, 0
+  %.not.i.i12 = icmp eq i16 %.val.i.i11, 0
   %44 = add nsw i32 %42, -1
   %45 = shl nuw i32 1, %44
   %46 = sext i32 %45 to i64
@@ -1053,10 +1047,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 %16
   %63 = load i8, ptr %62, align 1, !tbaa !17
   %.val.i.i16 = load i16, ptr %6, align 1, !tbaa !3
-  %.val.i.i16.fr = freeze i16 %.val.i.i16
-  %64 = zext i16 %.val.i.i16.fr to i32
+  %64 = zext i16 %.val.i.i16 to i32
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.not.i.i17 = icmp eq i16 %.val.i.i16.fr, 0
+  %.not.i.i17 = icmp eq i16 %.val.i.i16, 0
   %66 = add nsw i32 %64, -1
   %67 = shl nuw i32 1, %66
   %68 = sext i32 %67 to i64
@@ -1177,8 +1170,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %.sroa.053.1 = phi i64 [ %152, %144 ], [ %142, %.thread ]
   %.sroa.63.1 = phi i32 [ %153, %144 ], [ %143, %.thread ]
   %.sroa.112.1 = phi ptr [ %0, %144 ], [ %.sroa.112.0, %.thread ]
-  %.sroa.63.2.in.fr133 = freeze i32 %.sroa.63.1
-  %155 = lshr i32 %.sroa.63.2.in.fr133, 3
+  %155 = lshr i32 %.sroa.63.1, 3
   %156 = zext nneg i32 %155 to i64
   store i64 %.sroa.053.1, ptr %.sroa.112.1, align 1, !tbaa !22
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.112.1, i64 %156
@@ -1186,8 +1178,8 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %spec.store.select.i21 = select i1 %158, ptr %13, ptr %157
   %159 = shl nuw nsw i64 %156, 3
   %160 = lshr i64 %.sroa.053.1, %159
-  %.sroa.0.0132 = zext i16 %83 to i64
-  %.sroa.63.2134 = and i32 %.sroa.63.2.in.fr133, 7
+  %.sroa.0.0133 = zext i16 %83 to i64
+  %.sroa.63.2134 = and i32 %.sroa.63.1, 7
   %.sroa.047.0135 = zext i16 %38 to i64
   %.sroa.041.0136 = zext i16 %61 to i64
   %161 = icmp ugt i64 %9, 1
@@ -1201,7 +1193,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %.sroa.041.0143 = phi i64 [ %.sroa.041.0, %324 ], [ %.sroa.041.0136, %.lr.ph.preheader ]
   %.sroa.047.0142 = phi i64 [ %.sroa.047.0, %324 ], [ %.sroa.047.0135, %.lr.ph.preheader ]
   %.sroa.63.2141 = phi i32 [ %.sroa.63.2, %324 ], [ %.sroa.63.2134, %.lr.ph.preheader ]
-  %.sroa.0.0140 = phi i64 [ %.sroa.0.0, %324 ], [ %.sroa.0.0132, %.lr.ph.preheader ]
+  %.sroa.0.0140 = phi i64 [ %.sroa.0.0, %324 ], [ %.sroa.0.0133, %.lr.ph.preheader ]
   %.086.i139 = phi i64 [ %331, %324 ], [ %162, %.lr.ph.preheader ]
   %.sroa.112.2138 = phi ptr [ %spec.store.select.i34, %324 ], [ %spec.store.select.i21, %.lr.ph.preheader ]
   %.sroa.053.2137 = phi i64 [ %330, %324 ], [ %160, %.lr.ph.preheader ]
@@ -1421,8 +1413,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %.sroa.053.6 = phi i64 [ %322, %314 ], [ %312, %.thread128 ]
   %.sroa.63.6 = phi i32 [ %323, %314 ], [ %313, %.thread128 ]
   %.sroa.112.6 = phi ptr [ %.sroa.112.4, %314 ], [ %.sroa.112.5, %.thread128 ]
-  %.sroa.63.2.in.fr = freeze i32 %.sroa.63.6
-  %325 = lshr i32 %.sroa.63.2.in.fr, 3
+  %325 = lshr i32 %.sroa.63.6, 3
   %326 = zext nneg i32 %325 to i64
   store i64 %.sroa.053.6, ptr %.sroa.112.6, align 1, !tbaa !22
   %327 = getelementptr inbounds nuw i8, ptr %.sroa.112.6, i64 %326
@@ -1432,7 +1423,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %330 = lshr i64 %.sroa.053.6, %329
   %331 = add i64 %.086.i139, -1
   %.sroa.0.0 = zext i16 %232 to i64
-  %.sroa.63.2 = and i32 %.sroa.63.2.in.fr, 7
+  %.sroa.63.2 = and i32 %.sroa.63.6, 7
   %.sroa.047.0 = zext i16 %212 to i64
   %.sroa.041.0 = zext i16 %195 to i64
   %332 = icmp ult i64 %331, %9
@@ -1441,11 +1432,11 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
 ._crit_edge:                                      ; preds = %324, %154
   %.sroa.053.2.lcssa = phi i64 [ %160, %154 ], [ %330, %324 ]
   %.sroa.112.2.lcssa = phi ptr [ %spec.store.select.i21, %154 ], [ %spec.store.select.i34, %324 ]
-  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.0132, %154 ], [ %.sroa.0.0, %324 ]
+  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.0133, %154 ], [ %.sroa.0.0, %324 ]
   %.sroa.63.2.lcssa = phi i32 [ %.sroa.63.2134, %154 ], [ %.sroa.63.2, %324 ]
   %.sroa.047.0.lcssa = phi i64 [ %.sroa.047.0135, %154 ], [ %.sroa.047.0, %324 ]
   %.sroa.041.0.lcssa = phi i64 [ %.sroa.041.0136, %154 ], [ %.sroa.041.0, %324 ]
-  %333 = zext i16 %.val.i.i.fr to i64
+  %333 = zext i16 %.val.i.i to i64
   %334 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %333
   %335 = load i32, ptr %334, align 4, !tbaa !10
   %336 = zext i32 %335 to i64
@@ -1463,7 +1454,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %346 = and i32 %341, 7
   %347 = shl nuw nsw i64 %343, 3
   %348 = lshr i64 %340, %347
-  %349 = zext i16 %.val.i.i11.fr to i64
+  %349 = zext i16 %.val.i.i11 to i64
   %350 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %349
   %351 = load i32, ptr %350, align 4, !tbaa !10
   %352 = zext i32 %351 to i64
@@ -1481,7 +1472,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %362 = and i32 %357, 7
   %363 = shl nuw nsw i64 %359, 3
   %364 = lshr i64 %356, %363
-  %365 = zext i16 %.val.i.i16.fr to i64
+  %365 = zext i16 %.val.i.i16 to i64
   %366 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %365
   %367 = load i32, ptr %366, align 4, !tbaa !10
   %368 = zext i32 %367 to i64
@@ -1506,7 +1497,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %385 = lshr i32 %384, 3
   %386 = zext nneg i32 %385 to i64
   store i64 %383, ptr %spec.store.select.i.i36, align 1, !tbaa !22
-  %387 = getelementptr i8, ptr %spec.store.select.i.i36, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i36, i64 %386
   %388 = icmp ugt ptr %387, %13
   %spec.store.select.i.i37 = select i1 %388, ptr %13, ptr %387
   %.not.i38 = icmp ult ptr %spec.store.select.i.i37, %13
@@ -1518,8 +1509,9 @@ _ZN11duckdb_zstdL16BIT_closeCStreamEPNS_13BIT_CStream_tE.exit: ; preds = %._crit
   %391 = ptrtoint ptr %0 to i64
   %392 = icmp ne i32 %389, 0
   %393 = zext i1 %392 to i64
-  %394 = sub i64 %393, %391
-  %395 = add i64 %394, %390
+  %394 = add i64 %390, %393
+  %.fr132 = freeze i64 %394
+  %395 = sub i64 %.fr132, %391
   %396 = icmp eq i64 %395, 0
   br i1 %396, label %_ZN11duckdb_zstdL16BIT_closeCStreamEPNS_13BIT_CStream_tE.exit.thread, label %_ZN11duckdb_zstdL25ZSTD_encodeSequences_bodyEPvmPKjPKhS2_S4_S2_S4_PKNS_8seqDef_sEmi.exit
 

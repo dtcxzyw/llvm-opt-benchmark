@@ -5021,12 +5021,11 @@ _ZSt10__pop_heapIN5boost9container12vec_iteratorIPjLb0EEEN9__gnu_cxx5__ops15_Ite
 define linkonce_odr hidden void @_ZSt11__make_heapIN5boost9container12vec_iteratorIPjLb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_SB_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %0, align 8
-  %.fr13 = freeze ptr %4
-  %6 = ptrtoint ptr %.fr13 to i64
-  %.fr14 = freeze ptr %5
-  %7 = ptrtoint ptr %.fr14 to i64
+  %6 = ptrtoint ptr %4 to i64
+  %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = ashr exact i64 %8, 2
+  %.fr = freeze i64 %8
+  %9 = ashr exact i64 %.fr, 2
   %10 = icmp slt i64 %9, 2
   br i1 %10, label %.loopexit, label %11
 
@@ -5035,7 +5034,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN5boost9container12vec_iterat
   %13 = lshr i64 %12, 1
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = and i64 %8, 4
+  %16 = and i64 %.fr, 4
   %17 = icmp eq i64 %16, 0
   %18 = lshr exact i64 %12, 1
   br i1 %17, label %.split.preheader, label %.split.us

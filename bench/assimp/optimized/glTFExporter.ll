@@ -10790,7 +10790,6 @@ _ZNK10glTFCommon3RefIN4glTF8AccessorEEcvbEv.exit: ; preds = %._crit_edge207
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 320
   %81 = load i64, ptr %80, align 8
-  %.fr257 = freeze i64 %81
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 312
   br label %83
 
@@ -10812,8 +10811,7 @@ _ZNK10glTFCommon3RefIN4glTF8AccessorEEcvbEv.exit: ; preds = %._crit_edge207
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 320
   %94 = load i64, ptr %93, align 8
-  %.fr = freeze i64 %94
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.fr257, i64 %.fr)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %81, i64 %94)
   %95 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %95, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
@@ -10826,9 +10824,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %83
   br i1 %.not.i90, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit: ; preds = %83, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
-  %99 = icmp ne i64 %.fr, %.fr257
-  %spec.select = select i1 %99, i1 %.083190, i1 false
-  %spec.select256 = select i1 %99, i32 %.082191, i32 %.085189
+  %99 = icmp eq i64 %94, %81
+  %cond.fr = freeze i1 %99
+  %not..0.i = xor i1 %cond.fr, true
+  %spec.select = select i1 %not..0.i, i1 %.083190, i1 false
+  %spec.select256 = select i1 %cond.fr, i32 %.085189, i32 %.082191
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
@@ -13478,8 +13478,8 @@ define linkonce_odr hidden void @_Z20ExtractAnimationDataRN4glTF5AssetERNSt7__cx
   %.0154 = phi i64 [ 1, %6 ], [ %spec.select, %20 ]
   %21 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
-  %.fr179 = freeze i64 %22
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr179, i64 %.0154)
+  %.fr = freeze i64 %22
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.0154)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %19, label %20, !llvm.loop !158

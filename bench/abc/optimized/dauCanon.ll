@@ -4089,8 +4089,8 @@ define internal fastcc i32 @Abc_TtSemiCanonicize(ptr noundef captures(address) %
   %6 = icmp slt i32 %1, 7
   %7 = add nsw i32 %1, -6
   %8 = shl nuw i32 1, %7
-  %.fr239 = freeze i32 %8
-  %9 = select i1 %6, i32 1, i32 %.fr239
+  %.fr = freeze i32 %8
+  %9 = select i1 %6, i32 1, i32 %.fr
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -7828,18 +7828,17 @@ define internal fastcc void @Abc_TgCreateGroups(ptr noundef nonnull %0) unnamed_
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !114
-  %.fr54 = freeze i32 %4
-  %5 = icmp slt i32 %.fr54, 7
-  %6 = add nsw i32 %.fr54, -6
+  %5 = icmp slt i32 %4, 7
+  %6 = add nsw i32 %4, -6
   %7 = shl nuw i32 1, %6
-  %.fr55 = freeze i32 %7
-  %8 = select i1 %5, i32 1, i32 %.fr55
+  %8 = select i1 %5, i32 1, i32 %7
+  %.fr54 = freeze i32 %8
   %9 = load ptr, ptr %0, align 8, !tbaa !116
-  %10 = icmp sgt i32 %8, 0
+  %10 = icmp sgt i32 %.fr54, 0
   br i1 %10, label %.lr.ph.preheader.i, label %Abc_TtCountOnesInTruth.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %1
-  %wide.trip.count.i = zext nneg i32 %8 to i64
+  %wide.trip.count.i = zext nneg i32 %.fr54 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
@@ -7879,7 +7878,7 @@ define internal fastcc void @Abc_TgCreateGroups(ptr noundef nonnull %0) unnamed_
   br i1 %exitcond.not.i, label %Abc_TtCountOnesInTruth.exit, label %.lr.ph.i, !llvm.loop !9
 
 Abc_TtCountOnesInTruth.exit:                      ; preds = %33
-  %34 = shl nsw i32 %8, 5
+  %34 = shl nsw i32 %.fr54, 5
   %35 = icmp sgt i32 %.1.i, %34
   br i1 %35, label %.lr.ph.i37, label %Abc_TtCountOnesInTruth.exit.thread
 
@@ -7894,9 +7893,9 @@ Abc_TtCountOnesInTruth.exit:                      ; preds = %33
   br i1 %exitcond.not.i40, label %Abc_TtNot.exit, label %.lr.ph.i37, !llvm.loop !48
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i37
-  %39 = shl nsw i32 %8, 6
+  %39 = shl nsw i32 %.fr54, 6
   %40 = sub nsw i32 %39, %.1.i
-  %41 = shl nuw i32 1, %.fr54
+  %41 = shl nuw i32 1, %4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !117
   %44 = or i32 %43, %41
@@ -7905,26 +7904,26 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i37
 
 Abc_TtCountOnesInTruth.exit.thread:               ; preds = %1, %Abc_TtNot.exit, %Abc_TtCountOnesInTruth.exit
   %.033 = phi i32 [ %40, %Abc_TtNot.exit ], [ %.1.i, %Abc_TtCountOnesInTruth.exit ], [ 0, %1 ]
-  call fastcc void @Abc_TtCountOnesInCofs(ptr noundef %9, i32 noundef %.fr54, ptr noundef nonnull %2)
-  %45 = sext i32 %.fr54 to i64
+  call fastcc void @Abc_TtCountOnesInCofs(ptr noundef %9, i32 noundef %4, ptr noundef nonnull %2)
+  %45 = sext i32 %4 to i64
   %46 = getelementptr inbounds i32, ptr %2, i64 %45
   store i32 %.033, ptr %46, align 4, !tbaa !10
-  %47 = icmp sgt i32 %.fr54, 0
+  %47 = icmp sgt i32 %4, 0
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Abc_TtCountOnesInTruth.exit.thread
-  %48 = icmp eq i32 %8, 1
-  %49 = sext i32 %8 to i64
+  %48 = icmp eq i32 %.fr54, 1
+  %49 = sext i32 %.fr54 to i64
   %.idx.i = shl nsw i64 %49, 3
   %50 = getelementptr inbounds i8, ptr %9, i64 %.idx.i
-  %wide.trip.count59.i = zext nneg i32 %8 to i64
+  %wide.trip.count59.i = zext nneg i32 %.fr54 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %wide.trip.count62 = zext nneg i32 %.fr54 to i64
+  %wide.trip.count61 = zext nneg i32 %4 to i64
   br i1 %48, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %68
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %68 ], [ 0, %.lr.ph ]
-  %52 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %68 ], [ 0, %.lr.ph ]
+  %52 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv58
   %53 = load i32, ptr %52, align 4, !tbaa !10
   %54 = sub nsw i32 %.033, %53
   %.not.us = icmp slt i32 %53, %54
@@ -7932,11 +7931,11 @@ Abc_TtCountOnesInTruth.exit.thread:               ; preds = %1, %Abc_TtNot.exit,
 
 Abc_TtFlip.exit.us:                               ; preds = %.lr.ph.split.us
   %55 = load i64, ptr %9, align 8, !tbaa !3
-  %56 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv58 to i32
   %57 = shl nuw i32 1, %56
   %58 = zext i32 %57 to i64
   %59 = shl i64 %55, %58
-  %60 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv59
+  %60 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv58
   %61 = load i64, ptr %60, align 8, !tbaa !3
   %62 = and i64 %59, %61
   %63 = and i64 %61, %55
@@ -7950,9 +7949,9 @@ Abc_TtFlip.exit.us:                               ; preds = %.lr.ph.split.us
   br label %68
 
 68:                                               ; preds = %Abc_TtFlip.exit.us, %.lr.ph.split.us
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !133
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !133
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %105
   %indvars.iv = phi i64 [ %indvars.iv.next, %105 ], [ 0, %.lr.ph ]
@@ -8038,7 +8037,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
 
 105:                                              ; preds = %.lr.ph.split, %Abc_TtFlip.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %105, %68, %Abc_TtCountOnesInTruth.exit.thread

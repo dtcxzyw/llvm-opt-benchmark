@@ -273,14 +273,13 @@ _ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.lr.ph.i.i.i.i.i: ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %15 = load i8, ptr %7, align 8, !tbaa !63
   %16 = load i32, ptr %14, align 4
-  %.fr24.i.i.i.i.i = freeze i32 %16
   br label %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i
 
 _ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i: ; preds = %.thread21.i.i.i.i.i, %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.lr.ph.i.i.i.i.i
-  %.027.i.i.i.i.i = phi ptr [ %10, %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %33, %.thread21.i.i.i.i.i ]
-  %.01126.i.i.i.i.i = phi i64 [ %13, %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %32, %.thread21.i.i.i.i.i ]
-  %17 = lshr i64 %.01126.i.i.i.i.i, 1
-  %18 = getelementptr inbounds nuw %"class.llvm::MachO::Target", ptr %.027.i.i.i.i.i, i64 %17
+  %.026.i.i.i.i.i = phi ptr [ %10, %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %33, %.thread21.i.i.i.i.i ]
+  %.01125.i.i.i.i.i = phi i64 [ %13, %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.lr.ph.i.i.i.i.i ], [ %32, %.thread21.i.i.i.i.i ]
+  %17 = lshr i64 %.01125.i.i.i.i.i, 1
+  %18 = getelementptr inbounds nuw %"class.llvm::MachO::Target", ptr %.026.i.i.i.i.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i8, ptr %18, align 1, !tbaa !63
   %21 = icmp ult i8 %20, %15
@@ -289,7 +288,7 @@ _ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i: ; preds = %.thread21
 .thread.i.i.i.i.i:                                ; preds = %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %23 = xor i64 %17, -1
-  %24 = add nsw i64 %.01126.i.i.i.i.i, %23
+  %24 = add nsw i64 %.01125.i.i.i.i.i, %23
   br label %.thread21.i.i.i.i.i
 
 25:                                               ; preds = %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i
@@ -298,18 +297,18 @@ _ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i: ; preds = %.thread21
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5MachO8addEntryINS2_11SmallVectorINS3_6TargetELj5EEEEENT_8iteratorERS8_RKS6_EUlSC_SC_E_EclIPS6_SB_EEbS8_RT0_.exit.i.i.i.i.i: ; preds = %25
   %27 = load i32, ptr %19, align 4, !tbaa !65
-  %.fr.i.i.i.i.i = freeze i32 %27
-  %28 = icmp slt i32 %.fr.i.i.i.i.i, %.fr24.i.i.i.i.i
+  %28 = icmp slt i32 %27, %16
+  %cond.fr.i.i.i.i.i = freeze i1 %28
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %30 = xor i64 %17, -1
-  %31 = add nsw i64 %.01126.i.i.i.i.i, %30
-  %spec.select.i.i.i.i.i = select i1 %28, i64 %31, i64 %17
-  %spec.select25.i.i.i.i.i = select i1 %28, ptr %29, ptr %.027.i.i.i.i.i
+  %31 = add nsw i64 %.01125.i.i.i.i.i, %30
+  %spec.select.i.i.i.i.i = select i1 %cond.fr.i.i.i.i.i, i64 %31, i64 %17
+  %spec.select24.i.i.i.i.i = select i1 %cond.fr.i.i.i.i.i, ptr %29, ptr %.026.i.i.i.i.i
   br label %.thread21.i.i.i.i.i
 
 .thread21.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5MachO8addEntryINS2_11SmallVectorINS3_6TargetELj5EEEEENT_8iteratorERS8_RKS6_EUlSC_SC_E_EclIPS6_SB_EEbS8_RT0_.exit.i.i.i.i.i, %25, %.thread.i.i.i.i.i
   %32 = phi i64 [ %17, %25 ], [ %spec.select.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5MachO8addEntryINS2_11SmallVectorINS3_6TargetELj5EEEEENT_8iteratorERS8_RKS6_EUlSC_SC_E_EclIPS6_SB_EEbS8_RT0_.exit.i.i.i.i.i ], [ %24, %.thread.i.i.i.i.i ]
-  %33 = phi ptr [ %.027.i.i.i.i.i, %25 ], [ %spec.select25.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5MachO8addEntryINS2_11SmallVectorINS3_6TargetELj5EEEEENT_8iteratorERS8_RKS6_EUlSC_SC_E_EclIPS6_SB_EEbS8_RT0_.exit.i.i.i.i.i ], [ %22, %.thread.i.i.i.i.i ]
+  %33 = phi ptr [ %.026.i.i.i.i.i, %25 ], [ %spec.select24.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5MachO8addEntryINS2_11SmallVectorINS3_6TargetELj5EEEEENT_8iteratorERS8_RKS6_EUlSC_SC_E_EclIPS6_SB_EEbS8_RT0_.exit.i.i.i.i.i ], [ %22, %.thread.i.i.i.i.i ]
   %34 = icmp sgt i64 %32, 0
   br i1 %34, label %_ZSt7advanceIPN4llvm5MachO6TargetElEvRT_T0_.exit.i.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_11SmallVectorINS_5MachO6TargetELj5EEERKS3_ZNS2_8addEntryIS4_EENT_8iteratorERS9_S7_EUlS7_S7_E_EEDaOS9_OT0_T1_.exit.i.i, !llvm.loop !67
 

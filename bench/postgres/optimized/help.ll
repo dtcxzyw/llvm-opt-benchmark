@@ -726,8 +726,8 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %16 = load i16, ptr %15, align 2
-  %.fr = freeze i16 %16
-  %17 = zext i16 %.fr to i32
+  %.fr178 = freeze i16 %16
+  %17 = zext i16 %.fr178 to i32
   %18 = add nsw i32 %17, -3
   %19 = sdiv i32 %18, 33
   %20 = call i32 @llvm.umax.i32(i32 %19, i32 1)
@@ -778,8 +778,8 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %40, label %.lr.ph167.us, label %._crit_edge173, !llvm.loop !10
 
 41:                                               ; preds = %.lr.ph167.us, %41
-  %indvars.iv182 = phi i64 [ 0, %.lr.ph167.us ], [ %indvars.iv.next183, %41 ]
-  %42 = trunc nuw nsw i64 %indvars.iv182 to i32
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph167.us ], [ %indvars.iv.next185, %41 ]
+  %42 = trunc nuw nsw i64 %indvars.iv184 to i32
   %43 = mul i32 %42, %.zext
   %44 = add i32 %43, %.0111170.us
   %45 = sext i32 %44 to i64
@@ -788,9 +788,9 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %.not130.us = icmp eq ptr %47, null
   %spec.select.us = select i1 %.not130.us, ptr @.str.259, ptr %47
   %48 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.258, i32 noundef 33, ptr noundef nonnull %spec.select.us) #10
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %exitcond185.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count
-  br i1 %exitcond185.not, label %._crit_edge168.us, label %41, !llvm.loop !11
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond187.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count
+  br i1 %exitcond187.not, label %._crit_edge168.us, label %41, !llvm.loop !11
 
 ._crit_edge168.us:                                ; preds = %41
   %49 = add i32 %30, %.0111170.us
@@ -859,8 +859,8 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 69:                                               ; preds = %71
   %70 = add i64 %.297147, 1
   %.2100 = add i64 %.2100148, 1
-  %exitcond179.not = icmp eq i64 %70, %.0101158
-  br i1 %exitcond179.not, label %.critedge2, label %71, !llvm.loop !13
+  %exitcond181.not = icmp eq i64 %70, %.0101158
+  br i1 %exitcond181.not, label %.critedge2, label %71, !llvm.loop !13
 
 71:                                               ; preds = %.preheader, %69
   %.2100148 = phi i64 [ %.2100146, %.preheader ], [ %.2100, %69 ]
@@ -978,8 +978,8 @@ sub_0135:                                         ; preds = %.lr.ph162
 .critedge2.thread:                                ; preds = %66, %74, %._crit_edge, %.critedge2
   %.2103 = phi i64 [ %.0101158, %.critedge2 ], [ %.1102, %._crit_edge ], [ %.1102, %74 ], [ %.0101158, %66 ]
   %121 = add nuw nsw i32 %.0107156, 1
-  %exitcond180.not = icmp eq i32 %121, 4
-  br i1 %exitcond180.not, label %.thread, label %60, !llvm.loop !16
+  %exitcond182.not = icmp eq i32 %121, 4
+  br i1 %exitcond182.not, label %.thread, label %60, !llvm.loop !16
 
 ._crit_edge163:                                   ; preds = %.tail134.thread, %105
   %.not126 = icmp eq ptr %97, null

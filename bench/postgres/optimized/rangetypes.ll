@@ -2505,8 +2505,8 @@ range_cmp_bounds.exit.thread:                     ; preds = %38, %33, %69, %64, 
   %101 = load i64, ptr %5, align 8
   %102 = load i64, ptr %8, align 8
   %103 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %98, i32 noundef %100, i64 noundef %101, i64 noundef %102) #14
-  %.fr = freeze i64 %103
-  %104 = trunc i64 %.fr to i32
+  %.fr42 = freeze i64 %103
+  %104 = trunc i64 %.fr42 to i32
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %range_cmp_bounds.exit10
 
@@ -4959,8 +4959,8 @@ define dso_local ptr @range_union_internal(ptr noundef %0, ptr noundef %1, ptr n
   %59 = load i64, ptr %5, align 8
   %60 = load i64, ptr %6, align 8
   %61 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %56, i32 noundef %58, i64 noundef %59, i64 noundef %60) #14
-  %.fr = freeze i64 %61
-  %62 = trunc i64 %.fr to i32
+  %.fr58 = freeze i64 %61
+  %62 = trunc i64 %.fr58 to i32
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %range_cmp_bounds.exit
 
@@ -5048,8 +5048,8 @@ range_cmp_bounds.exit.thread:                     ; preds = %79, %51, %43, %74, 
   %112 = load i64, ptr %7, align 8
   %113 = load i64, ptr %8, align 8
   %114 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %111, i64 noundef %112, i64 noundef %113) #14
-  %.fr58 = freeze i64 %114
-  %115 = trunc i64 %.fr58 to i32
+  %.fr59 = freeze i64 %114
+  %115 = trunc i64 %.fr59 to i32
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %range_cmp_bounds.exit23
 
@@ -5355,8 +5355,8 @@ define dso_local ptr @range_intersect_internal(ptr noundef %0, ptr noundef %1, p
   %49 = load i64, ptr %6, align 8
   %50 = load i64, ptr %7, align 8
   %51 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %46, i32 noundef %48, i64 noundef %49, i64 noundef %50) #14
-  %.fr = freeze i64 %51
-  %52 = trunc i64 %.fr to i32
+  %.fr53 = freeze i64 %51
+  %52 = trunc i64 %.fr53 to i32
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %range_cmp_bounds.exit
 
@@ -5444,8 +5444,8 @@ range_cmp_bounds.exit.thread27:                   ; preds = %71, %64, %33, %38, 
   %102 = load i64, ptr %8, align 8
   %103 = load i64, ptr %9, align 8
   %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %99, i32 noundef %101, i64 noundef %102, i64 noundef %103) #14
-  %.fr53 = freeze i64 %104
-  %105 = trunc i64 %.fr53 to i32
+  %.fr54 = freeze i64 %104
+  %105 = trunc i64 %.fr54 to i32
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %range_cmp_bounds.exit18
 

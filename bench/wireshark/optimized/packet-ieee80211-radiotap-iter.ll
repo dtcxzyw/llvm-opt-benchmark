@@ -311,14 +311,14 @@ switch.lookup:                                    ; preds = %.thread
   %switch.shiftamt = shl nuw nsw i32 %switch.tableidx, 3
   %switch.downshift = lshr i32 16908548, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %switch.shiftamt324 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.downshift325 = lshr i32 393216, %switch.shiftamt324
-  %switch.masked326 = trunc i32 %switch.downshift325 to i8
+  %switch.shiftamt323 = shl nuw nsw i32 %switch.tableidx, 3
+  %switch.downshift324 = lshr i32 393216, %switch.shiftamt323
+  %switch.masked325 = trunc i32 %switch.downshift324 to i8
   br label %107
 
 107:                                              ; preds = %switch.lookup, %.thread289, %90
   %.3170.shrunk = phi i8 [ %95, %90 ], [ %switch.masked, %switch.lookup ], [ %83, %.thread289 ]
-  %.3162.shrunk = phi i8 [ %.4163.in, %90 ], [ %switch.masked326, %switch.lookup ], [ %.4163.in292, %.thread289 ]
+  %.3162.shrunk = phi i8 [ %.4163.in, %90 ], [ %switch.masked325, %switch.lookup ], [ %.4163.in292, %.thread289 ]
   %.3162 = zext nneg i8 %.3162.shrunk to i32
   %.3170 = zext nneg i8 %.3170.shrunk to i32
   %108 = load ptr, ptr %4, align 8
@@ -390,25 +390,25 @@ switch.lookup:                                    ; preds = %.thread
 .lr.ph.i148:                                      ; preds = %.preheader.i147
   %148 = load ptr, ptr %144, align 8
   %wide.trip.count.i149 = zext nneg i32 %146 to i64
-  %.fr312 = freeze ptr %148
   br label %149
 
 149:                                              ; preds = %156, %.lr.ph.i148
   %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.i148 ], [ %indvars.iv.next.i151, %156 ]
-  %150 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %.fr312, i64 %indvars.iv.i150
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 12
+  %150 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %148, i64 %indvars.iv.i150
+  %.fr312 = freeze ptr %150
+  %151 = getelementptr inbounds nuw i8, ptr %.fr312, i64 12
   %152 = load i32, ptr %151, align 4
   %.not13.i = icmp eq i32 %152, %141
   br i1 %.not13.i, label %153, label %156
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.fr312, i64 16
   %155 = load i8, ptr %154, align 8
   %.not14.i = icmp eq i8 %155, %143
   br i1 %.not14.i, label %find_ns.exit, label %156
 
 156:                                              ; preds = %153, %149
-  %indvars.iv.next.i151 = add i64 %indvars.iv.i150, 1
+  %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i150, 1
   %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, %wide.trip.count.i149
   br i1 %exitcond.not.i152, label %find_ns.exit.thread, label %149, !llvm.loop !9
 
@@ -422,8 +422,8 @@ find_ns.exit.thread:                              ; preds = %156, %129, %.prehea
   br label %166
 
 find_ns.exit:                                     ; preds = %153
-  store ptr %150, ptr %9, align 8
-  %161 = icmp eq ptr %150, null
+  store ptr %.fr312, ptr %9, align 8
+  %161 = icmp eq ptr %.fr312, null
   %162 = getelementptr i8, ptr %121, i64 4
   %.val = load i16, ptr %162, align 1
   %163 = zext i16 %.val to i64

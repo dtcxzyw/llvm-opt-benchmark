@@ -566,8 +566,8 @@ define void @ossl_curve448_scalar_encode(ptr noundef writeonly captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !tbaa !3
-  %.fr28 = freeze i64 %3
-  %4 = and i64 %.fr28, 1
+  %.fr = freeze i64 %3
+  %4 = and i64 %.fr, 1
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.split.us, label %.split
 

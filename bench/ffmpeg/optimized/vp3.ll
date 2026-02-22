@@ -4744,8 +4744,7 @@ vp3_dequant.exit303.i:                            ; preds = %2504, %.thread64.i3
 .preheader.lr.ph.i.i:                             ; preds = %2564
   %2579 = load i32, ptr %2218, align 4, !tbaa !42
   %2580 = icmp sgt i32 %2570, 0
-  %.fr.i.i = freeze i32 %2579
-  %2581 = add i32 %.fr.i.i, -1
+  %2581 = add nsw i32 %2579, -1
   %2582 = shl nsw i64 %spec.select.i.i335, 3
   br i1 %2580, label %.preheader.us.preheader.i.i, label %apply_loop_filter.exit.i
 
@@ -4774,8 +4773,9 @@ vp3_dequant.exit303.i:                            ; preds = %2504, %.thread64.i3
   %2598 = icmp sgt i32 %.06375.us.i.i, 0
   %2599 = icmp slt i32 %.06375.us.i.i, %2581
   %invariant.gep.us.i.i = getelementptr i8, ptr %.06473.us.i.i, i64 %2582
+  %.fr.us.i.i = freeze i1 %2599
   %2600 = sext i32 %.06672.us.i.i to i64
-  br i1 %2599, label %.lr.ph.split.us.us.i.i, label %.lr.ph.split.us83.i.i
+  br i1 %.fr.us.i.i, label %.lr.ph.split.us.us.i.i, label %.lr.ph.split.us83.i.i
 
 .lr.ph.split.us83.i.i:                            ; preds = %.preheader.us.i.i, %2628
   %indvars.iv87.i.i = phi i64 [ %indvars.iv.next88.i.i, %2628 ], [ %2600, %.preheader.us.i.i ]
@@ -4836,7 +4836,7 @@ vp3_dequant.exit303.i:                            ; preds = %2504, %.thread64.i3
 
 ._crit_edge.us.i.i:                               ; preds = %2628, %2666
   %.us-phi.us.i.i = add i32 %.06672.us.i.i, %2570
-  %2629 = add nsw i32 %.06375.us.i.i, 1
+  %2629 = add i32 %.06375.us.i.i, 1
   %exitcond101.not.i.i = icmp eq i32 %2629, %2569
   br i1 %exitcond101.not.i.i, label %apply_loop_filter.exit.i, label %.preheader.us.i.i, !llvm.loop !167
 
@@ -7744,8 +7744,7 @@ define internal fastcc void @apply_loop_filter(ptr noundef %0, i32 noundef range
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %.fr = freeze i32 %24
-  %29 = add i32 %.fr, -1
+  %29 = add nsw i32 %24, -1
   %30 = shl nsw i64 %spec.select, 3
   br i1 %25, label %.preheader.us.preheader, label %._crit_edge76
 
@@ -7780,8 +7779,9 @@ define internal fastcc void @apply_loop_filter(ptr noundef %0, i32 noundef range
   %50 = icmp sgt i32 %.06375.us, 0
   %51 = icmp slt i32 %.06375.us, %29
   %invariant.gep.us = getelementptr i8, ptr %.06473.us, i64 %30
+  %.fr.us = freeze i1 %51
   %52 = sext i32 %.06672.us to i64
-  br i1 %51, label %.lr.ph.split.us.us, label %.lr.ph.split.us83
+  br i1 %.fr.us, label %.lr.ph.split.us.us, label %.lr.ph.split.us83
 
 .lr.ph.split.us83:                                ; preds = %.preheader.us, %80
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %80 ], [ %52, %.preheader.us ]
@@ -7842,7 +7842,7 @@ define internal fastcc void @apply_loop_filter(ptr noundef %0, i32 noundef range
 
 ._crit_edge.us:                                   ; preds = %80, %118
   %.us-phi.us = add i32 %10, %.06672.us
-  %81 = add nsw i32 %.06375.us, 1
+  %81 = add i32 %.06375.us, 1
   %exitcond101.not = icmp eq i32 %81, %3
   br i1 %exitcond101.not, label %._crit_edge76, label %.preheader.us, !llvm.loop !167
 

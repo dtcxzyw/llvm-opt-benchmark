@@ -207,8 +207,8 @@ define i32 @DH_generate_parameters_ex(ptr noundef %0, i32 noundef %1, i32 nounde
 
 66:                                               ; preds = %63
   %67 = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %1) #5
-  %.fr52.i = freeze i16 %67
-  %68 = zext i16 %.fr52.i to i32
+  %.fr53.i = freeze i16 %67
+  %68 = zext i16 %.fr53.i to i32
   %69 = shl nuw nsw i32 %68, 1
   %70 = add nuw nsw i32 %69, 24
   %71 = urem i32 %70, 25

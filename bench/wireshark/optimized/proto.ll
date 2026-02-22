@@ -2273,53 +2273,55 @@ define internal i32 @prefix_hash(ptr noundef %0) #0 {
 define internal range(i32 0, 2) i32 @prefix_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   br label %3
 
-3:                                                ; preds = %11, %2
-  %.044 = phi ptr [ %1, %2 ], [ %6, %11 ]
-  %.043 = phi ptr [ %0, %2 ], [ %4, %11 ]
+3:                                                ; preds = %14, %2
+  %.044 = phi ptr [ %1, %2 ], [ %6, %14 ]
+  %.043 = phi ptr [ %0, %2 ], [ %4, %14 ]
   %4 = getelementptr i8, ptr %.043, i64 1
   %5 = load i8, ptr %.043, align 1
   %6 = getelementptr i8, ptr %.044, i64 1
   %7 = load i8, ptr %.044, align 1
-  %.fr = freeze i8 %7
-  switch i8 %5, label %10 [
+  switch i8 %5, label %9 [
     i8 46, label %8
     i8 0, label %8
   ]
 
 8:                                                ; preds = %3, %3
-  switch i8 %.fr, label %9 [
+  switch i8 %7, label %9 [
     i8 46, label %.thread
     i8 0, label %.thread
   ]
 
-9:                                                ; preds = %8
-  switch i8 %5, label %10 [
+9:                                                ; preds = %8, %3
+  %10 = icmp ne i8 %7, 46
+  %11 = icmp ne i8 %7, 0
+  switch i8 %5, label %12 [
     i8 46, label %switch.early.test
     i8 0, label %switch.early.test
   ]
 
 switch.early.test:                                ; preds = %9, %9
-  %cond = icmp eq i8 %.fr, 46
-  br i1 %cond, label %switch.early.test45, label %.thread
-
-10:                                               ; preds = %3, %9
-  switch i8 %.fr, label %11 [
-    i8 46, label %switch.early.test45
-    i8 0, label %switch.early.test45
+  switch i8 %7, label %.thread [
+    i8 46, label %12
+    i8 0, label %12
   ]
 
-switch.early.test45:                              ; preds = %switch.early.test, %10, %10
+12:                                               ; preds = %9, %switch.early.test, %switch.early.test
+  %or.cond17.not53 = and i1 %10, %11
+  %13 = freeze i1 %or.cond17.not53
+  br i1 %13, label %14, label %switch.early.test45
+
+switch.early.test45:                              ; preds = %12
   switch i8 %5, label %.thread [
-    i8 46, label %11
-    i8 0, label %11
+    i8 46, label %14
+    i8 0, label %14
   ]
 
-11:                                               ; preds = %10, %switch.early.test45, %switch.early.test45
-  %.not = icmp eq i8 %5, %.fr
+14:                                               ; preds = %12, %switch.early.test45, %switch.early.test45
+  %.not = icmp eq i8 %5, %7
   br i1 %.not, label %3, label %.thread
 
-.thread:                                          ; preds = %switch.early.test, %switch.early.test45, %8, %8, %11
-  %.148 = phi i32 [ 0, %11 ], [ 1, %8 ], [ 0, %switch.early.test ], [ 0, %switch.early.test45 ], [ 1, %8 ]
+.thread:                                          ; preds = %switch.early.test, %switch.early.test45, %8, %8, %14
+  %.148 = phi i32 [ 0, %14 ], [ 1, %8 ], [ 0, %switch.early.test ], [ 0, %switch.early.test45 ], [ 1, %8 ]
   ret i32 %.148
 }
 

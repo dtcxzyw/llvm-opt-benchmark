@@ -48605,15 +48605,14 @@ _ZNSt8multimapImmSt4lessImESaISt4pairIKmmEEE11equal_rangeERS3_.exit: ; preds = %
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 3264
   %44 = load ptr, ptr %43, align 8, !tbaa !217
   %45 = load ptr, ptr %15, align 8, !tbaa !174
-  %.fr86 = freeze ptr %45
   %46 = load ptr, ptr %1, align 8, !tbaa !172
-  %.fr87 = freeze ptr %46
-  %47 = ptrtoint ptr %.fr86 to i64
-  %48 = ptrtoint ptr %.fr87 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 5
-  %51 = icmp eq ptr %.fr86, %.fr87
-  br i1 %51, label %.lr.ph.split.us, label %.lr.ph.split
+  %51 = icmp eq ptr %45, %46
+  %.fr = freeze i1 %51
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %61
   %.sroa.048.083.us = phi ptr [ %62, %61 ], [ %.08.lcssa.i.i.i, %.lr.ph ]
@@ -48650,7 +48649,7 @@ _ZNSt8multimapImmSt4lessImESaISt4pairIKmmEEE11equal_rangeERS3_.exit: ; preds = %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread12.i
   %.01014.i = phi i64 [ %83, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread12.i ], [ 0, %.lr.ph.split ]
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.fr87, i64 %.01014.i
+  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %46, i64 %.01014.i
   %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %68, i64 %.01014.i
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !9

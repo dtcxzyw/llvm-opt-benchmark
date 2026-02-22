@@ -6102,56 +6102,56 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPN3sls10arith_base
   %9 = alloca %"struct.sls::arith_base<checked_int64<true>>::var_change", align 8
   %10 = icmp eq i64 %3, 0
   %11 = icmp eq i64 %4, 0
-  %or.cond75 = or i1 %10, %11
-  br i1 %or.cond75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread63, label %.lr.ph
+  %or.cond74 = or i1 %10, %11
+  br i1 %or.cond74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %12 = ptrtoint ptr %2 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit
-  %.tr6979 = phi i64 [ %4, %.lr.ph ], [ %129, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
-  %.tr6878 = phi i64 [ %3, %.lr.ph ], [ %128, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
-  %.tr6677 = phi ptr [ %1, %.lr.ph ], [ %.061, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
-  %.tr76 = phi ptr [ %0, %.lr.ph ], [ %.041.i.i, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
-  %14 = add nsw i64 %.tr6979, %.tr6878
+  %.tr6878 = phi i64 [ %4, %.lr.ph ], [ %129, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
+  %.tr6777 = phi i64 [ %3, %.lr.ph ], [ %128, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
+  %.tr6576 = phi ptr [ %1, %.lr.ph ], [ %.060, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
+  %.tr75 = phi ptr [ %0, %.lr.ph ], [ %.041.i.i, %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit ]
+  %14 = add nsw i64 %.tr6878, %.tr6777
   %15 = icmp eq i64 %14, 2
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr %.tr6677, align 8, !tbaa !134
-  %18 = load i32, ptr %.tr76, align 8, !tbaa !134
+  %17 = load i32, ptr %.tr6576, align 8, !tbaa !134
+  %18 = load i32, ptr %.tr75, align 8, !tbaa !134
   %19 = icmp ult i32 %17, %18
   br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread, label %20
 
 20:                                               ; preds = %16
   %21 = icmp eq i32 %17, %18
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread63
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread62
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit: ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %.tr6677, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.tr76, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.tr6576, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.tr75, i64 8
   %24 = load i64, ptr %22, align 8, !tbaa !80
   %25 = load i64, ptr %23, align 8, !tbaa !80
   %26 = icmp slt i64 %24, %25
-  br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread63
+  br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread62
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread: ; preds = %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.tr76, i64 24, i1 false), !tbaa.struct !137
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.tr76, ptr noundef nonnull align 8 dereferenceable(24) %.tr6677, i64 24, i1 false), !tbaa.struct !137
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.tr6677, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !137
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.tr75, i64 24, i1 false), !tbaa.struct !137
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.tr75, ptr noundef nonnull align 8 dereferenceable(24) %.tr6576, i64 24, i1 false), !tbaa.struct !137
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.tr6576, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !137
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread63
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread62
 
 27:                                               ; preds = %13
-  %28 = icmp sgt i64 %.tr6878, %.tr6979
-  %29 = ptrtoint ptr %.tr6677 to i64
+  %28 = icmp sgt i64 %.tr6777, %.tr6878
+  %29 = ptrtoint ptr %.tr6576 to i64
   br i1 %28, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit: ; preds = %27
-  %30 = sdiv i64 %.tr6878, 2
-  %31 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr76, i64 %30
+  %30 = sdiv i64 %.tr6777, 2
+  %31 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr75, i64 %30
   %32 = sub i64 %12, %29
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
@@ -6161,14 +6161,13 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %35 = load i32, ptr %31, align 8, !tbaa !134
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load i64, ptr %36, align 8
-  %.fr24.i = freeze i64 %37
   br label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i: ; preds = %.thread21.i, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i
-  %.027.i = phi ptr [ %.tr6677, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %54, %.thread21.i ]
-  %.01126.i = phi i64 [ %34, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %53, %.thread21.i ]
-  %38 = lshr i64 %.01126.i, 1
-  %39 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.027.i, i64 %38
+  %.026.i = phi ptr [ %.tr6576, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %54, %.thread21.i ]
+  %.01125.i = phi i64 [ %34, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %53, %.thread21.i ]
+  %38 = lshr i64 %.01125.i, 1
+  %39 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.026.i, i64 %38
   %40 = load i32, ptr %39, align 8, !tbaa !134
   %41 = icmp ult i32 %40, %35
   br i1 %41, label %.thread.i, label %45
@@ -6176,7 +6175,7 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
 .thread.i:                                        ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %43 = xor i64 %38, -1
-  %44 = add nsw i64 %.01126.i, %43
+  %44 = add nsw i64 %.01125.i, %43
   br label %.thread21.i
 
 45:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i
@@ -6186,18 +6185,18 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i: ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !80
-  %.fr.i = freeze i64 %48
-  %49 = icmp slt i64 %.fr.i, %.fr24.i
+  %49 = icmp slt i64 %48, %37
+  %cond.fr.i = freeze i1 %49
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %51 = xor i64 %38, -1
-  %52 = add nsw i64 %.01126.i, %51
-  %spec.select.i = select i1 %49, i64 %52, i64 %38
-  %spec.select25.i = select i1 %49, ptr %50, ptr %.027.i
+  %52 = add nsw i64 %.01125.i, %51
+  %spec.select.i = select i1 %cond.fr.i, i64 %52, i64 %38
+  %spec.select24.i = select i1 %cond.fr.i, ptr %50, ptr %.026.i
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i, %45, %.thread.i
   %53 = phi i64 [ %38, %45 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %44, %.thread.i ]
-  %54 = phi ptr [ %.027.i, %45 ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %42, %.thread.i ]
+  %54 = phi ptr [ %.026.i, %45 ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %42, %.thread.i ]
   %55 = icmp sgt i64 %53, 0
   br i1 %55, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !264
 
@@ -6207,15 +6206,15 @@ _ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
 
 _ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit: ; preds = %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %29, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %54, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %.tr6677, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %54, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %.tr6576, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit ]
   %56 = sub i64 %.pre-phi, %29
   %57 = sdiv exact i64 %56, 24
   br label %88
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42: ; preds = %27
-  %58 = sdiv i64 %.tr6979, 2
-  %59 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr6677, i64 %58
-  %60 = ptrtoint ptr %.tr76 to i64
+  %58 = sdiv i64 %.tr6878, 2
+  %59 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr6576, i64 %58
+  %60 = ptrtoint ptr %.tr75 to i64
   %61 = sub i64 %29, %60
   %62 = icmp sgt i64 %61, 0
   br i1 %62, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
@@ -6225,76 +6224,75 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %64 = load i32, ptr %59, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %66 = load i64, ptr %65, align 8
-  %.fr.i45 = freeze i64 %66
-  br label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46
+  br label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45
 
-_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46: ; preds = %.thread.i50, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44
-  %.026.i = phi ptr [ %.tr76, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44 ], [ %84, %.thread.i50 ]
-  %.01125.i = phi i64 [ %63, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44 ], [ %83, %.thread.i50 ]
-  %67 = lshr i64 %.01125.i, 1
-  %68 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.026.i, i64 %67
+_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45: ; preds = %.thread.i49, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44
+  %.025.i = phi ptr [ %.tr75, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44 ], [ %84, %.thread.i49 ]
+  %.01124.i = phi i64 [ %63, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44 ], [ %83, %.thread.i49 ]
+  %67 = lshr i64 %.01124.i, 1
+  %68 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.025.i, i64 %67
   %69 = load i32, ptr %68, align 8, !tbaa !134
   %70 = icmp ult i32 %64, %69
-  br i1 %70, label %.thread.i50, label %71
+  br i1 %70, label %.thread.i49, label %71
 
-71:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46
+71:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45
   %72 = icmp eq i32 %64, %69
-  br i1 %72, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, label %.thread21.i49
+  br i1 %72, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, label %.thread21.i48
 
-.thread21.i49:                                    ; preds = %71
+.thread21.i48:                                    ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %74 = xor i64 %67, -1
-  %75 = add nsw i64 %.01125.i, %74
-  br label %.thread.i50
+  %75 = add nsw i64 %.01124.i, %74
+  br label %.thread.i49
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i: ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !80
-  %.fr24.i51 = freeze i64 %77
-  %78 = icmp slt i64 %.fr.i45, %.fr24.i51
-  br i1 %78, label %.thread.i50, label %79
+  %78 = icmp slt i64 %66, %77
+  %cond.fr.i50 = freeze i1 %78
+  br i1 %cond.fr.i50, label %.thread.i49, label %79
 
 79:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i
   %80 = xor i64 %67, -1
-  %81 = add nsw i64 %.01125.i, %80
+  %81 = add nsw i64 %.01124.i, %80
   %82 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  br label %.thread.i50
+  br label %.thread.i49
 
-.thread.i50:                                      ; preds = %79, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, %.thread21.i49, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46
-  %83 = phi i64 [ %75, %.thread21.i49 ], [ %81, %79 ], [ %67, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46 ], [ %67, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
-  %84 = phi ptr [ %73, %.thread21.i49 ], [ %82, %79 ], [ %.026.i, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46 ], [ %.026.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
+.thread.i49:                                      ; preds = %79, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, %.thread21.i48, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45
+  %83 = phi i64 [ %75, %.thread21.i48 ], [ %81, %79 ], [ %67, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45 ], [ %67, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
+  %84 = phi ptr [ %73, %.thread21.i48 ], [ %82, %79 ], [ %.025.i, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45 ], [ %.025.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
   %85 = icmp sgt i64 %83, 0
-  br i1 %85, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !265
+  br i1 %85, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !265
 
-_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit: ; preds = %.thread.i50
-  %.pre85 = ptrtoint ptr %84 to i64
+_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit: ; preds = %.thread.i49
+  %.pre84 = ptrtoint ptr %84 to i64
   br label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
 
 _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit: ; preds = %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42
-  %.pre-phi86 = phi i64 [ %.pre85, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %60, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42 ]
-  %.0.lcssa.i43 = phi ptr [ %84, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %.tr76, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42 ]
-  %86 = sub i64 %.pre-phi86, %60
+  %.pre-phi85 = phi i64 [ %.pre84, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %60, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42 ]
+  %.0.lcssa.i43 = phi ptr [ %84, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %.tr75, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42 ]
+  %86 = sub i64 %.pre-phi85, %60
   %87 = sdiv exact i64 %86, 24
   br label %88
 
 88:                                               ; preds = %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
-  %.062 = phi ptr [ %31, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %.0.lcssa.i43, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
-  %.061 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %59, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
+  %.061 = phi ptr [ %31, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %.0.lcssa.i43, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
+  %.060 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %59, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
   %.036 = phi i64 [ %57, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %58, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
   %.0 = phi i64 [ %30, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %87, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
-  %89 = icmp eq ptr %.062, %.tr6677
+  %89 = icmp eq ptr %.061, %.tr6576
   br i1 %89, label %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp eq ptr %.061, %.tr6677
+  %91 = icmp eq ptr %.060, %.tr6576
   br i1 %91, label %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit, label %92
 
 92:                                               ; preds = %90
-  %93 = ptrtoint ptr %.061 to i64
-  %94 = ptrtoint ptr %.062 to i64
+  %93 = ptrtoint ptr %.060 to i64
+  %94 = ptrtoint ptr %.061 to i64
   %95 = sub i64 %93, %94
   %96 = sdiv exact i64 %95, 24
-  %97 = ptrtoint ptr %.tr6677 to i64
+  %97 = ptrtoint ptr %.tr6576 to i64
   %98 = sub i64 %97, %94
   %99 = sdiv exact i64 %98, 24
   %100 = sub nsw i64 %96, %99
@@ -6302,8 +6300,8 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   br i1 %101, label %.lr.ph.i.i.i, label %104
 
 .lr.ph.i.i.i:                                     ; preds = %92, %.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %103, %.lr.ph.i.i.i ], [ %.tr6677, %92 ]
-  %.079.i.i.i = phi ptr [ %102, %.lr.ph.i.i.i ], [ %.062, %92 ]
+  %.010.i.i.i = phi ptr [ %103, %.lr.ph.i.i.i ], [ %.tr6576, %92 ]
+  %.079.i.i.i = phi ptr [ %102, %.lr.ph.i.i.i ], [ %.061, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.079.i.i.i, i64 24, i1 false), !tbaa.struct !137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.079.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.010.i.i.i, i64 24, i1 false), !tbaa.struct !137
@@ -6311,18 +6309,18 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %102 = getelementptr inbounds nuw i8, ptr %.079.i.i.i, i64 24
   %103 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %102, %.tr6677
+  %.not.i.i.i = icmp eq ptr %102, %.tr6576
   br i1 %.not.i.i.i, label %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit, label %.lr.ph.i.i.i, !llvm.loop !266
 
 104:                                              ; preds = %92
   %105 = sub i64 %93, %97
-  %106 = getelementptr inbounds i8, ptr %.062, i64 %105
+  %106 = getelementptr inbounds i8, ptr %.061, i64 %105
   br label %107
 
 107:                                              ; preds = %.backedge, %104
   %.070.i.i = phi i64 [ %96, %104 ], [ %.070.i.i.be, %.backedge ]
   %.066.i.i = phi i64 [ %99, %104 ], [ %.066.i.i.be, %.backedge ]
-  %.042.i.i = phi ptr [ %.062, %104 ], [ %.042.i.i.be, %.backedge ]
+  %.042.i.i = phi ptr [ %.061, %104 ], [ %.042.i.i.be, %.backedge ]
   %108 = sub nsw i64 %.070.i.i, %.066.i.i
   %109 = icmp slt i64 %.066.i.i, %108
   br i1 %109, label %110, label %119
@@ -6395,16 +6393,16 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !269
 
 _ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit: ; preds = %._crit_edge90.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %88, %90
-  %.041.i.i = phi ptr [ %.062, %90 ], [ %.061, %88 ], [ %.tr6677, %.lr.ph.i.i.i ], [ %106, %._crit_edge.i.i ], [ %106, %._crit_edge90.i.i ]
-  tail call void @_ZSt22__merge_without_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SD_SG_SG_T1_(ptr noundef %.tr76, ptr noundef %.062, ptr noundef %.041.i.i, i64 noundef %.0, i64 noundef %.036)
-  %128 = sub nsw i64 %.tr6878, %.0
-  %129 = sub nsw i64 %.tr6979, %.036
+  %.041.i.i = phi ptr [ %.061, %90 ], [ %.060, %88 ], [ %.tr6576, %.lr.ph.i.i.i ], [ %106, %._crit_edge.i.i ], [ %106, %._crit_edge90.i.i ]
+  tail call void @_ZSt22__merge_without_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SD_SG_SG_T1_(ptr noundef %.tr75, ptr noundef %.061, ptr noundef %.041.i.i, i64 noundef %.0, i64 noundef %.036)
+  %128 = sub nsw i64 %.tr6777, %.0
+  %129 = sub nsw i64 %.tr6878, %.036
   %130 = icmp eq i64 %128, 0
   %131 = icmp eq i64 %129, 0
   %or.cond = or i1 %130, %131
-  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread63, label %13
+  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread62, label %13
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread63: ; preds = %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit, %5, %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread62: ; preds = %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit, %5, %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeESK_EEbS8_SB_.exit.thread
   ret void
 }
 
@@ -6581,7 +6579,7 @@ _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0
 
 68:                                               ; preds = %37
   %69 = ptrtoint ptr %.tr107124 to i64
-  br i1 %.not127, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit82
+  br i1 %.not127, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit: ; preds = %68
   %70 = sdiv i64 %.tr109125, 2
@@ -6595,14 +6593,13 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %75 = load i32, ptr %71, align 8, !tbaa !134
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %77 = load i64, ptr %76, align 8
-  %.fr24.i = freeze i64 %77
   br label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i: ; preds = %.thread21.i, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i
-  %.027.i = phi ptr [ %.tr107124, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %94, %.thread21.i ]
-  %.01126.i = phi i64 [ %74, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %93, %.thread21.i ]
-  %78 = lshr i64 %.01126.i, 1
-  %79 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.027.i, i64 %78
+  %.026.i79 = phi ptr [ %.tr107124, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %94, %.thread21.i ]
+  %.01125.i = phi i64 [ %74, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %93, %.thread21.i ]
+  %78 = lshr i64 %.01125.i, 1
+  %79 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.026.i79, i64 %78
   %80 = load i32, ptr %79, align 8, !tbaa !134
   %81 = icmp ult i32 %80, %75
   br i1 %81, label %.thread.i, label %85
@@ -6610,7 +6607,7 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
 .thread.i:                                        ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = xor i64 %78, -1
-  %84 = add nsw i64 %.01126.i, %83
+  %84 = add nsw i64 %.01125.i, %83
   br label %.thread21.i
 
 85:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i
@@ -6620,18 +6617,18 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i: ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !80
-  %.fr.i = freeze i64 %88
-  %89 = icmp slt i64 %.fr.i, %.fr24.i
+  %89 = icmp slt i64 %88, %77
+  %cond.fr.i = freeze i1 %89
   %90 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %91 = xor i64 %78, -1
-  %92 = add nsw i64 %.01126.i, %91
-  %spec.select.i = select i1 %89, i64 %92, i64 %78
-  %spec.select25.i = select i1 %89, ptr %90, ptr %.027.i
+  %92 = add nsw i64 %.01125.i, %91
+  %spec.select.i = select i1 %cond.fr.i, i64 %92, i64 %78
+  %spec.select24.i = select i1 %cond.fr.i, ptr %90, ptr %.026.i79
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i, %85, %.thread.i
   %93 = phi i64 [ %78, %85 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %84, %.thread.i ]
-  %94 = phi ptr [ %.027.i, %85 ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %82, %.thread.i ]
+  %94 = phi ptr [ %.026.i79, %85 ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %82, %.thread.i ]
   %95 = icmp sgt i64 %93, 0
   br i1 %95, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !264
 
@@ -6646,27 +6643,26 @@ _ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   %97 = sdiv exact i64 %96, 24
   br label %tailrecurse
 
-_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit82: ; preds = %68
+_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83: ; preds = %68
   %98 = sdiv i64 %.tr110126, 2
   %99 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr107124, i64 %98
   %100 = ptrtoint ptr %.tr123 to i64
   %101 = sub i64 %69, %100
   %102 = icmp sgt i64 %101, 0
-  br i1 %102, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i85, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
+  br i1 %102, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
 
-_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i85: ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit82
+_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86: ; preds = %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83
   %103 = udiv exact i64 %101, 24
   %104 = load i32, ptr %99, align 8, !tbaa !134
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %106 = load i64, ptr %105, align 8
-  %.fr.i86 = freeze i64 %106
   br label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87
 
-_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87: ; preds = %.thread.i92, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i85
-  %.026.i88 = phi ptr [ %.tr123, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i85 ], [ %124, %.thread.i92 ]
-  %.01125.i = phi i64 [ %103, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i85 ], [ %123, %.thread.i92 ]
-  %107 = lshr i64 %.01125.i, 1
-  %108 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.026.i88, i64 %107
+_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87: ; preds = %.thread.i92, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86
+  %.025.i88 = phi ptr [ %.tr123, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86 ], [ %124, %.thread.i92 ]
+  %.01124.i = phi i64 [ %103, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86 ], [ %123, %.thread.i92 ]
+  %107 = lshr i64 %.01124.i, 1
+  %108 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.025.i88, i64 %107
   %109 = load i32, ptr %108, align 8, !tbaa !134
   %110 = icmp ult i32 %104, %109
   br i1 %110, label %.thread.i92, label %111
@@ -6678,25 +6674,25 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
 .thread21.i91:                                    ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %114 = xor i64 %107, -1
-  %115 = add nsw i64 %.01125.i, %114
+  %115 = add nsw i64 %.01124.i, %114
   br label %.thread.i92
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i: ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %117 = load i64, ptr %116, align 8, !tbaa !80
-  %.fr24.i93 = freeze i64 %117
-  %118 = icmp slt i64 %.fr.i86, %.fr24.i93
-  br i1 %118, label %.thread.i92, label %119
+  %118 = icmp slt i64 %106, %117
+  %cond.fr.i93 = freeze i1 %118
+  br i1 %cond.fr.i93, label %.thread.i92, label %119
 
 119:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i
   %120 = xor i64 %107, -1
-  %121 = add nsw i64 %.01125.i, %120
+  %121 = add nsw i64 %.01124.i, %120
   %122 = getelementptr inbounds nuw i8, ptr %108, i64 24
   br label %.thread.i92
 
 .thread.i92:                                      ; preds = %119, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, %.thread21.i91, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87
   %123 = phi i64 [ %115, %.thread21.i91 ], [ %121, %119 ], [ %107, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %107, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
-  %124 = phi ptr [ %113, %.thread21.i91 ], [ %122, %119 ], [ %.026.i88, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %.026.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
+  %124 = phi ptr [ %113, %.thread21.i91 ], [ %122, %119 ], [ %.025.i88, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %.025.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
   %125 = icmp sgt i64 %123, 0
   br i1 %125, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !265
 
@@ -6704,15 +6700,15 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   %.pre137 = ptrtoint ptr %124 to i64
   br label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
 
-_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit: ; preds = %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit82
-  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %100, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit82 ]
-  %.0.lcssa.i84 = phi ptr [ %124, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %.tr123, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit82 ]
+_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit: ; preds = %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83
+  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %100, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83 ]
+  %.0.lcssa.i85 = phi ptr [ %124, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit ], [ %.tr123, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83 ]
   %126 = sub i64 %.pre-phi138, %100
   %127 = sdiv exact i64 %126, 24
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
-  %.0104 = phi ptr [ %71, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %.0.lcssa.i84, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
+  %.0104 = phi ptr [ %71, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %.0.lcssa.i85, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
   %.0103 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %99, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
   %.066 = phi i64 [ %97, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %98, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
   %.0 = phi i64 [ %70, %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ], [ %127, %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit ]
@@ -8518,10 +8514,10 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph: ; p
   br label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph, %.thread
-  %.030 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %58, %.thread ]
-  %.01129 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %57, %.thread ]
-  %13 = lshr i64 %.01129, 1
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.030, i64 %13
+  %.029 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %58, %.thread ]
+  %.01128 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %57, %.thread ]
+  %13 = lshr i64 %.01128, 1
+  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.029, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !230
   %16 = load i32, ptr %2, align 8, !tbaa !230
   %17 = icmp ult i32 %15, %16
@@ -8578,20 +8574,19 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit: ; preds = %43
   %52 = load i32, ptr %21, align 8, !tbaa !211
   %53 = load i32, ptr %9, align 8, !tbaa !211
-  %.fr = freeze i32 %52
-  %.fr28 = freeze i32 %53
-  %54 = icmp slt i32 %.fr, %.fr28
-  br i1 %54, label %.thread26, label %.thread
+  %54 = icmp slt i32 %52, %53
+  %cond.fr = freeze i1 %54
+  br i1 %cond.fr, label %.thread26, label %.thread
 
 .thread26:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, %50, %47
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %.pn = xor i64 %13, -1
-  %56 = add nsw i64 %.01129, %.pn
+  %56 = add nsw i64 %.01128, %.pn
   br label %.thread
 
 .thread:                                          ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit, %18, %50, %47, %.thread26
   %57 = phi i64 [ %56, %.thread26 ], [ %13, %50 ], [ %13, %18 ], [ %13, %47 ], [ %13, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ]
-  %58 = phi ptr [ %55, %.thread26 ], [ %.030, %50 ], [ %.030, %18 ], [ %.030, %47 ], [ %.030, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ]
+  %58 = phi ptr [ %55, %.thread26 ], [ %.029, %50 ], [ %.029, %18 ], [ %.029, %47 ], [ %.029, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ]
   %59 = icmp sgt i64 %57, 0
   br i1 %59, label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !286
 
@@ -8617,10 +8612,10 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph: ; p
   br label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph, %.thread
-  %.031 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %69, %.thread ]
-  %.01130 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %68, %.thread ]
-  %13 = lshr i64 %.01130, 1
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.031, i64 %13
+  %.030 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %69, %.thread ]
+  %.01129 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %68, %.thread ]
+  %13 = lshr i64 %.01129, 1
+  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.030, i64 %13
   %15 = load i32, ptr %2, align 8, !tbaa !230
   %16 = load i32, ptr %14, align 8, !tbaa !230
   %17 = icmp ult i32 %15, %16
@@ -8633,7 +8628,7 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17: ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %21 = xor i64 %13, -1
-  %22 = add nsw i64 %.01130, %21
+  %22 = add nsw i64 %.01129, %21
   br label %.thread
 
 23:                                               ; preds = %18
@@ -8676,28 +8671,27 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_m
   %52 = icmp slt i32 %51, 0
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %54 = xor i64 %13, -1
-  %55 = add nsw i64 %.01130, %54
+  %55 = add nsw i64 %.01129, %54
   br i1 %52, label %.thread27, label %.thread
 
 56:                                               ; preds = %32, %23
   %57 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %59 = xor i64 %13, -1
-  %60 = add nsw i64 %.01130, %59
+  %60 = add nsw i64 %.01129, %59
   br i1 %57, label %.thread27, label %.thread
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit: ; preds = %45
   %61 = load i32, ptr %9, align 8, !tbaa !211
   %62 = load i32, ptr %24, align 8, !tbaa !211
-  %.fr = freeze i32 %61
-  %.fr29 = freeze i32 %62
-  %63 = icmp slt i32 %.fr, %.fr29
-  br i1 %63, label %.thread27, label %64
+  %63 = icmp slt i32 %61, %62
+  %cond.fr = freeze i1 %63
+  br i1 %cond.fr, label %.thread27, label %64
 
 64:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %66 = xor i64 %13, -1
-  %67 = add nsw i64 %.01130, %66
+  %67 = add nsw i64 %.01129, %66
   br label %.thread
 
 .thread27:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, %56, %50
@@ -8705,7 +8699,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_m
 
 .thread:                                          ; preds = %64, %56, %50, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17, %.thread27
   %68 = phi i64 [ %13, %.thread27 ], [ %67, %64 ], [ %22, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ], [ %60, %56 ], [ %55, %50 ]
-  %69 = phi ptr [ %.031, %.thread27 ], [ %65, %64 ], [ %20, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ], [ %58, %56 ], [ %53, %50 ]
+  %69 = phi ptr [ %.030, %.thread27 ], [ %65, %64 ], [ %20, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ], [ %58, %56 ], [ %53, %50 ]
   %70 = icmp sgt i64 %68, 0
   br i1 %70, label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !287
 

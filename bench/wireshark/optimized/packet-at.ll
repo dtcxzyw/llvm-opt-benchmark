@@ -1755,13 +1755,13 @@ define internal noundef zeroext i1 @heur_dissect_at(ptr noundef %0, ptr noundef 
   br label %17
 
 17:                                               ; preds = %23, %.lr.ph.i
-  %.01517.i = phi i32 [ 0, %.lr.ph.i ], [ %24, %23 ]
-  %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.01517.i)
+  %.01518.i = phi i32 [ 0, %.lr.ph.i ], [ %24, %23 ]
+  %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.01518.i)
   %19 = zext i8 %18 to i64
   %20 = getelementptr i16, ptr %16, i64 %19
   %21 = load i16, ptr %20, align 2
-  %.fr.i = freeze i16 %21
-  %22 = and i16 %.fr.i, 64
+  %.fr17.i = freeze i16 %21
+  %22 = and i16 %.fr17.i, 64
   %.not.i = icmp eq i16 %22, 0
   br i1 %.not.i, label %switch.early.test.i, label %23
 
@@ -1772,13 +1772,13 @@ switch.early.test.i:                              ; preds = %17
   ]
 
 23:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %17
-  %24 = add nuw nsw i32 %.01517.i, 1
+  %24 = add nuw nsw i32 %.01518.i, 1
   %exitcond.not.i = icmp eq i32 %24, %14
   br i1 %exitcond.not.i, label %is_padded.exit.sink.split, label %17, !llvm.loop !16
 
 allowed_chars_len.exit:                           ; preds = %switch.early.test.i
-  %25 = icmp slt i32 %.01517.i, %14
-  %26 = icmp samesign ugt i32 %.01517.i, 4
+  %25 = icmp slt i32 %.01518.i, %14
+  %26 = icmp samesign ugt i32 %.01518.i, 4
   %or.cond = and i1 %25, %26
   br i1 %or.cond, label %.lr.ph.i27, label %32
 
@@ -1788,17 +1788,17 @@ allowed_chars_len.exit:                           ; preds = %switch.early.test.i
   br i1 %exitcond.not.i29, label %30, label %.lr.ph.i27, !llvm.loop !17
 
 .lr.ph.i27:                                       ; preds = %allowed_chars_len.exit, %27
-  %.078.i = phi i32 [ %28, %27 ], [ %.01517.i, %allowed_chars_len.exit ]
+  %.078.i = phi i32 [ %28, %27 ], [ %.01518.i, %allowed_chars_len.exit ]
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.078.i)
   %.not.i28 = icmp eq i8 %29, 0
   br i1 %.not.i28, label %27, label %is_padded.exit
 
 30:                                               ; preds = %27
-  %31 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %.01517.i)
+  %31 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %.01518.i)
   br label %is_padded.exit.sink.split
 
 32:                                               ; preds = %allowed_chars_len.exit
-  %33 = icmp eq i32 %.01517.i, %14
+  %33 = icmp eq i32 %.01518.i, %14
   br i1 %33, label %is_padded.exit.sink.split, label %is_padded.exit
 
 is_padded.exit.sink.split:                        ; preds = %23, %32, %13, %30

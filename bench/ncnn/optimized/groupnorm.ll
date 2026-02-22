@@ -362,16 +362,16 @@ _ZN4ncnn3MatD2Ev.exit8:                           ; preds = %93, %90, %100, %104
   call void %113(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %110, i32 noundef 1)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %115 = icmp eq ptr %114, %4
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !7
+  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !7
   br i1 %115, label %_ZN4ncnn3MataSERKS0_.exit39, label %116
 
 116:                                              ; preds = %109
-  %.not.i32 = icmp eq ptr %.pre44, null
+  %.not.i32 = icmp eq ptr %.pre43, null
   br i1 %.not.i32, label %119, label %117
 
 117:                                              ; preds = %116
-  %118 = atomicrmw add ptr %.pre44, i32 1 acq_rel, align 4
+  %118 = atomicrmw add ptr %.pre43, i32 1 acq_rel, align 4
   br label %119
 
 119:                                              ; preds = %117, %116
@@ -418,7 +418,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i34:                  ; preds = %133, %134, %129, %1
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %143 = load ptr, ptr %4, align 8, !tbaa !16
   store ptr %143, ptr %114, align 8, !tbaa !16
-  %144 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !7
+  %144 = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !7
   store ptr %144, ptr %120, align 8, !tbaa !7
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %146 = load i64, ptr %145, align 8, !tbaa !38
@@ -451,7 +451,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i34:                  ; preds = %133, %134, %129, %1
   br label %_ZN4ncnn3MataSERKS0_.exit39
 
 _ZN4ncnn3MataSERKS0_.exit39:                      ; preds = %109, %_ZN4ncnn3Mat7releaseEv.exit.i34
-  %164 = phi ptr [ %144, %_ZN4ncnn3Mat7releaseEv.exit.i34 ], [ %.pre44, %109 ]
+  %164 = phi ptr [ %144, %_ZN4ncnn3Mat7releaseEv.exit.i34 ], [ %.pre43, %109 ]
   %.not.i11 = icmp eq ptr %164, null
   br i1 %.not.i11, label %_ZN4ncnn3MatD2Ev.exit9, label %165
 
@@ -500,11 +500,10 @@ _ZNK4ncnn3Mat5emptyEv.exit40:                     ; preds = %_ZN4ncnn3MatD2Ev.ex
   %184 = load i64, ptr %183, align 8, !tbaa !17
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %186 = load i32, ptr %185, align 8, !tbaa !44
-  %.fr42 = freeze i32 %186
-  %187 = sext i32 %.fr42 to i64
-  %.fr = freeze i64 %184
-  %188 = mul i64 %.fr, %187
-  %189 = icmp eq i64 %188, 0
+  %187 = sext i32 %186 to i64
+  %188 = mul i64 %184, %187
+  %.fr = freeze i64 %188
+  %189 = icmp eq i64 %.fr, 0
   br i1 %189, label %_ZNK4ncnn3Mat5emptyEv.exit40.thread, label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit40.thread:              ; preds = %_ZN4ncnn3MatD2Ev.exit9, %_ZNK4ncnn3Mat5emptyEv.exit40
@@ -513,7 +512,7 @@ _ZNK4ncnn3Mat5emptyEv.exit40.thread:              ; preds = %_ZN4ncnn3MatD2Ev.ex
 190:                                              ; preds = %129
   %191 = landingpad { ptr, i32 }
           cleanup
-  %192 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !7
+  %192 = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !7
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN4ncnn3MatD2Ev.exit10, label %193
 
@@ -1115,18 +1114,15 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
   %29 = load i64, ptr %28, align 8, !tbaa !17, !noalias !81
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !38, !noalias !81
-  %.fr285 = freeze i64 %31
-  %factor.op.mul = mul i64 %29, %.fr285
-  %.fr283 = freeze i32 %22
-  %32 = sext i32 %.fr283 to i64
-  %.fr282 = freeze i32 %24
-  %33 = sext i32 %.fr282 to i64
+  %factor.op.mul = mul i64 %29, %31
+  %32 = sext i32 %22 to i64
+  %33 = sext i32 %24 to i64
   %34 = mul nsw i64 %33, %32
-  %.fr284 = freeze i32 %26
-  %35 = sext i32 %.fr284 to i64
+  %35 = sext i32 %26 to i64
   %36 = mul i64 %34, %35
-  %37 = mul i64 %36, %.fr285
-  %38 = add i64 %37, 15
+  %37 = mul i64 %36, %31
+  %.fr = freeze i64 %37
+  %38 = add i64 %.fr, 15
   %39 = and i64 %38, -16
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %41 = load ptr, ptr %40, align 8, !tbaa !16, !noalias !84
@@ -1137,8 +1133,8 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %47 = load i64, ptr %46, align 8, !tbaa !38, !noalias !87
   %48 = icmp sgt i32 %20, 0
-  %49 = urem i64 %39, %.fr285
-  %50 = sub i64 %39, %49
+  %49 = urem i64 %39, %31
+  %50 = sub nuw i64 %39, %49
   %51 = load i32, ptr %5, align 4
   %52 = icmp sgt i32 %51, 0
   %53 = mul nsw i32 %51, %20

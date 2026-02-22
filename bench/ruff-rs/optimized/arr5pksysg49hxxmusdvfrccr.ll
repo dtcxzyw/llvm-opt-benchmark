@@ -39906,8 +39906,8 @@ define hidden void @_ZN18ty_python_semantic5types5slots17check_class_slots17hcc0
 
 _ZN18ty_python_semantic5types5slots9SlotsKind4from17h2308107efb3baf13E.exit.i.i.i: ; preds = %51
   %52 = call { ptr, i64 } @"_ZN18ty_python_semantic5types1_54_$LT$impl$u20$ty_python_semantic..types..TupleType$GT$8elements17h64dda1d17fad637bE"(i32 noundef %.sroa.62.0.copyload.i.i.i.i, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %8)
-  %.fr.i.i.i = freeze { ptr, i64 } %52
-  %53 = extractvalue { ptr, i64 } %.fr.i.i.i, 1
+  %.fr15.i.i.i = freeze { ptr, i64 } %52
+  %53 = extractvalue { ptr, i64 } %.fr15.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %53, 0
   br i1 %.not.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he3556991ae2a514bE.exit.i", label %"_ZN18ty_python_semantic5types5slots17check_class_slots28_$u7b$$u7b$closure$u7d$$u7d$17hb881a782a9835419E.exit.i.i"
 

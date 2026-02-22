@@ -43553,13 +43553,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %11 = load ptr, ptr %10, align 8, !tbaa !413
   %12 = load i32, ptr %11, align 4, !tbaa !48
-  %.022.fr64 = freeze i32 %12
   br i1 %9, label %13, label %.lr.ph37
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.022 = load i32, ptr %14, align 4, !tbaa !48
-  %.022.fr = freeze i32 %.022
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -43569,27 +43567,24 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge:                                      ; preds = %70, %13
   %.031.lcssa = phi i64 [ 1, %13 ], [ %74, %70 ]
-  %15 = icmp sgt i32 %.022.fr64, 0
+  %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph37, label %._crit_edge38
 
 .lr.ph37:                                         ; preds = %2, %._crit_edge
-  %.031.lcssa72 = phi i64 [ %.031.lcssa, %._crit_edge ], [ 1, %2 ]
-  %.06571 = phi i32 [ %.022.fr64, %._crit_edge ], [ 1, %2 ]
-  %.022.fr6670 = phi i32 [ %.022.fr, %._crit_edge ], [ %.022.fr64, %2 ]
-  %.fr = freeze i32 %4
-  %16 = sext i32 %.fr to i64
+  %.031.lcssa67 = phi i64 [ %.031.lcssa, %._crit_edge ], [ 1, %2 ]
+  %.06066 = phi i32 [ %12, %._crit_edge ], [ 1, %2 ]
+  %.0226165 = phi i32 [ %.022, %._crit_edge ], [ %12, %2 ]
+  %16 = sext i32 %4 to i64
   %17 = add nsw i64 %16, -1
-  %18 = add i64 %17, %.031.lcssa72
+  %18 = add i64 %17, %.031.lcssa67
   %19 = udiv i64 %18, %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !397
-  %.fr45 = freeze i32 %21
-  %22 = sext i32 %.fr45 to i64
+  %22 = sext i32 %21 to i64
   %23 = mul i64 %19, %22
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.031.lcssa72, i64 %23)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.031.lcssa67, i64 %23)
   %24 = load i32, ptr %1, align 4, !tbaa !395
-  %.fr46 = freeze i32 %24
-  %25 = sext i32 %.fr46 to i64
+  %25 = sext i32 %24 to i64
   %26 = mul i64 %19, %25
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !297
@@ -43611,21 +43606,22 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %45 = icmp sgt i32 %.022.fr6670, 0
+  %45 = icmp sgt i32 %.0226165, 0
   %46 = icmp sgt i32 %42, 0
   %or.cond77.i = and i1 %45, %46
   %wide.trip.count.i = and i64 %41, 2147483647
-  br i1 %or.cond77.i, label %.lr.ph37.split.us.preheader, label %._crit_edge38
+  %or.cond77.i.fr = freeze i1 %or.cond77.i
+  br i1 %or.cond77.i.fr, label %.lr.ph37.split.us.preheader, label %._crit_edge38
 
 .lr.ph37.split.us.preheader:                      ; preds = %.lr.ph37
-  %wide.trip.count54 = zext nneg i32 %.06571 to i64
+  %wide.trip.count51 = zext nneg i32 %.06066 to i64
   br label %.lr.ph37.split.us
 
 .lr.ph37.split.us:                                ; preds = %.lr.ph37.split.us.preheader, %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph37.split.us.preheader ], [ %indvars.iv.next52, %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us ]
-  %47 = mul i64 %31, %indvars.iv51
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph37.split.us.preheader ], [ %indvars.iv.next49, %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us ]
+  %47 = mul i64 %31, %indvars.iv48
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %47
-  %48 = mul i64 %38, %indvars.iv51
+  %48 = mul i64 %38, %indvars.iv48
   %gep40.us = getelementptr i8, ptr %invariant.gep39, i64 %48
   %49 = load float, ptr %43, align 4, !tbaa !902
   %50 = load float, ptr %44, align 4, !tbaa !904
@@ -43653,9 +43649,9 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %53
   %59 = add nuw nsw i32 %.03951.us.i.us, 1
-  %60 = getelementptr inbounds nuw float, ptr %.152.us.i.us, i64 %.031.lcssa72
-  %61 = getelementptr inbounds nuw float, ptr %.14150.us.i.us, i64 %.031.lcssa72
-  %exitcond62.not.i.us = icmp eq i32 %59, %.022.fr6670
+  %60 = getelementptr inbounds nuw float, ptr %.152.us.i.us, i64 %.031.lcssa67
+  %61 = getelementptr inbounds nuw float, ptr %.14150.us.i.us, i64 %.031.lcssa67
+  %exitcond62.not.i.us = icmp eq i32 %59, %.0226165
   br i1 %exitcond62.not.i.us, label %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us, label %.preheader46.us.i.us, !llvm.loop !914
 
 .preheader.us.i.us:                               ; preds = %.lr.ph37.split.us, %._crit_edge.us57.i.us
@@ -43677,23 +43673,22 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge.us57.i.us:                            ; preds = %62
   %67 = add nuw nsw i32 %.04354.us.i.us, 1
-  %68 = getelementptr inbounds nuw float, ptr %.056.us.i.us, i64 %.031.lcssa72
-  %69 = getelementptr inbounds nuw float, ptr %.04055.us.i.us, i64 %.031.lcssa72
-  %exitcond68.not.i.us = icmp eq i32 %67, %.022.fr6670
+  %68 = getelementptr inbounds nuw float, ptr %.056.us.i.us, i64 %.031.lcssa67
+  %69 = getelementptr inbounds nuw float, ptr %.04055.us.i.us, i64 %.031.lcssa67
+  %exitcond68.not.i.us = icmp eq i32 %67, %.0226165
   br i1 %exitcond68.not.i.us, label %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us, label %.preheader.us.i.us, !llvm.loop !916
 
 _ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us: ; preds = %._crit_edge.us.i.us, %._crit_edge.us57.i.us
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge38, label %.lr.ph37.split.us, !llvm.loop !917
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
+  br i1 %exitcond52.not, label %._crit_edge38, label %.lr.ph37.split.us, !llvm.loop !917
 
 70:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %.03133 = phi i64 [ 1, %.lr.ph ], [ %74, %70 ]
   %71 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !48
-  %.fr60 = freeze i32 %72
-  %73 = sext i32 %.fr60 to i64
+  %73 = sext i32 %72 to i64
   %74 = mul i64 %.03133, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

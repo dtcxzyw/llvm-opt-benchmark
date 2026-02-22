@@ -4725,8 +4725,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   br i1 %9, label %.lr.ph.i.i.us, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread
 
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.us
-  %.045.us = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.us ], [ %1, %.lr.ph ]
-  %10 = shl i64 %.045.us, 1
+  %.046.us = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.us ], [ %1, %.lr.ph ]
+  %10 = shl i64 %.046.us, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds ptr, ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -4741,16 +4741,15 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.i.i.us ], [ %indvars.iv.next.i.i.us, %25 ]
   %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.us
   %21 = load i32, ptr %20, align 4, !tbaa !33
-  %.fr.us = freeze i32 %21
   %22 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i.us
   %23 = load i32, ptr %22, align 4, !tbaa !33
-  %.fr37.us = freeze i32 %23
-  %.not.i.i.us = icmp eq i32 %.fr.us, %.fr37.us
+  %.not.i.i.us = icmp eq i32 %21, %23
   br i1 %.not.i.i.us, label %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.us
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.us: ; preds = %19
-  %24 = icmp slt i32 %.fr.us, %.fr37.us
-  %spec.select.us = select i1 %24, i64 %13, i64 %11
+  %24 = icmp slt i32 %21, %23
+  %cond.fr.us = freeze i1 %24
+  %spec.select.us = select i1 %cond.fr.us, i64 %13, i64 %11
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %0, i64 %spec.select.us
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !68
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.us
@@ -4763,18 +4762,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_itera
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.us: ; preds = %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.us
   %26 = phi ptr [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.us ], [ %14, %25 ]
   %27 = phi i64 [ %spec.select.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.us ], [ %11, %25 ]
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %.045.us
+  %28 = getelementptr inbounds ptr, ptr %0, i64 %.046.us
   store ptr %26, ptr %28, align 8, !tbaa !68
   %29 = icmp slt i64 %27, %7
   br i1 %29, label %.lr.ph.i.i.us, label %._crit_edge, !llvm.loop !151
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread
-  %.045 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread ], [ %1, %.lr.ph ]
-  %30 = shl i64 %.045, 1
+  %.046 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread ], [ %1, %.lr.ph ]
+  %30 = shl i64 %.046, 1
   %31 = add i64 %30, 2
   %32 = getelementptr inbounds ptr, ptr %0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !68
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.045
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %.046
   store ptr %33, ptr %34, align 8, !tbaa !68
   %35 = icmp slt i64 %31, %7
   br i1 %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %._crit_edge, !llvm.loop !151

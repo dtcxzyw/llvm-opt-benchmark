@@ -187,13 +187,13 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
 
 35:                                               ; preds = %33
   %36 = load i8, ptr %.0196299, align 1, !tbaa !15
-  %.fr = freeze i8 %36
-  %37 = add i8 %.fr, -48
+  %.fr302 = freeze i8 %36
+  %37 = add i8 %.fr302, -48
   %or.cond254 = icmp ult i8 %37, 10
   br i1 %or.cond254, label %38, label %switch.early.test
 
 switch.early.test:                                ; preds = %35
-  switch i8 %.fr, label %50 [
+  switch i8 %.fr302, label %50 [
     i8 102, label %38
     i8 101, label %38
     i8 100, label %38
@@ -224,7 +224,7 @@ switch.early.test:                                ; preds = %35
   store i8 %43, ptr %29, align 8, !tbaa !3
   %44 = zext nneg i8 %39 to i64
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 %44
-  store i8 %.fr, ptr %45, align 1, !tbaa !15
+  store i8 %.fr302, ptr %45, align 1, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %.0196299, i64 1
   %47 = add i64 %.0199298, -1
   %48 = load i64, ptr %5, align 8, !tbaa !14
@@ -238,7 +238,7 @@ switch.early.test:                                ; preds = %35
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = sext i8 %.fr to i32
+  %54 = sext i8 %.fr302 to i32
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %54) #8
   store i32 9, ptr %7, align 8, !tbaa !12
   store i32 2, ptr %30, align 4, !tbaa !13

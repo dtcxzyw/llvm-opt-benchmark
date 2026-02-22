@@ -2848,8 +2848,8 @@ define void @Gia_ManTestXor(ptr noundef %0) local_unnamed_addr #0 {
   %5 = icmp slt i32 %.val38.val, 7
   %6 = add nsw i32 %.val38.val, -6
   %7 = shl nuw i32 1, %6
-  %.fr44.i = freeze i32 %7
-  %8 = select i1 %5, i32 1, i32 %.fr44.i
+  %.fr.i = freeze i32 %7
+  %8 = select i1 %5, i32 1, i32 %.fr.i
   %9 = select i1 %5, i32 0, i32 %6
   %10 = shl i32 %.val38.val, %9
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21

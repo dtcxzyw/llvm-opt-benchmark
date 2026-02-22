@@ -2094,11 +2094,11 @@ define internal void @process_srcu(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "759: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 759b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 759) #14, !srcloc !99
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1651, i32 2307, i64 12) #14, !srcloc !100
   tail call void asm sideeffect "760: nop\0A\09.pushsection .discard.instr_end\0A\09.long 760b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 760) #14, !srcloc !101
-  %.pre20 = load ptr, ptr %4, align 8
+  %.pre19 = load ptr, ptr %4, align 8
   br label %26
 
 26:                                               ; preds = %25, %22
-  %27 = phi ptr [ %.pre20, %25 ], [ %15, %22 ]
+  %27 = phi ptr [ %.pre19, %25 ], [ %15, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %28) #14
   %29 = load ptr, ptr %4, align 8
@@ -2221,11 +2221,11 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %92 = load ptr, ptr %4, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %93) #14
-  %.pre16 = load ptr, ptr %4, align 8
+  %.pre15 = load ptr, ptr %4, align 8
   br label %94
 
 94:                                               ; preds = %80, %66
-  %95 = phi ptr [ %.pre16, %80 ], [ %67, %66 ]
+  %95 = phi ptr [ %.pre15, %80 ], [ %67, %66 ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 112
   %97 = load volatile i64, ptr %96, align 8
   %98 = and i64 %97, 3
@@ -2269,10 +2269,9 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %119 = load volatile i64, ptr %113, align 8
   %120 = getelementptr inbounds nuw i8, ptr %110, i64 128
   %121 = load volatile i64, ptr %120, align 8
-  %.fr13 = freeze i64 %119
-  %.fr14 = freeze i64 %121
-  %122 = sub i64 %.fr13, %.fr14
-  %123 = icmp slt i64 %122, 0
+  %122 = sub i64 %119, %121
+  %.fr13 = freeze i64 %122
+  %123 = icmp slt i64 %.fr13, 0
   %124 = tail call i64 @ktime_get_mono_fast_ns() #14
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 144
   store volatile i64 %124, ptr %125, align 8
@@ -2286,11 +2285,11 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   tail call void asm sideeffect "627: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 627b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 627) #14, !srcloc !90
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 111, i32 2307, i64 12) #14, !srcloc !91
   tail call void asm sideeffect "628: nop\0A\09.pushsection .discard.instr_end\0A\09.long 628b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 628) #14, !srcloc !92
-  %.pre17 = load i64, ptr %113, align 8
+  %.pre16 = load i64, ptr %113, align 8
   br label %130
 
 130:                                              ; preds = %129, %118
-  %131 = phi i64 [ %.pre17, %129 ], [ %126, %118 ]
+  %131 = phi i64 [ %.pre16, %129 ], [ %126, %118 ]
   %132 = or i64 %131, 3
   %133 = add i64 %132, 1
   store volatile i64 %133, ptr %113, align 8
@@ -2456,11 +2455,11 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %245 = load ptr, ptr @rcu_gp_wq, align 8
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 256
   %247 = tail call zeroext i1 @queue_work_on(i32 noundef %244, ptr noundef %245, ptr noundef nonnull %246) #14
-  %.pre19 = load i32, ptr %217, align 4
+  %.pre18 = load i32, ptr %217, align 4
   br label %248
 
 248:                                              ; preds = %235, %.preheader.us
-  %249 = phi i32 [ %.pre19, %235 ], [ %227, %.preheader.us ]
+  %249 = phi i32 [ %.pre18, %235 ], [ %227, %.preheader.us ]
   %250 = add i32 %228, 1
   %251 = icmp sgt i32 %250, %249
   br i1 %251, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !109
@@ -2550,11 +2549,11 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %309 = load volatile i64, ptr @jiffies, align 64
   %310 = add i64 %309, 1
   %311 = tail call i32 @timer_reduce(ptr noundef nonnull %308, i64 noundef %310) #14
-  %.pre18 = load i32, ptr %289, align 4
+  %.pre17 = load i32, ptr %289, align 4
   br label %312
 
 312:                                              ; preds = %300, %.preheader
-  %313 = phi i32 [ %.pre18, %300 ], [ %292, %.preheader ]
+  %313 = phi i32 [ %.pre17, %300 ], [ %292, %.preheader ]
   %314 = add i32 %293, 1
   %315 = icmp sgt i32 %314, %313
   br i1 %315, label %.loopexit.split, label %.preheader, !llvm.loop !109

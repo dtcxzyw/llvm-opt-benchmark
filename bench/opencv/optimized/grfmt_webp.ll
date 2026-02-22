@@ -3166,8 +3166,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %147
   %155 = load i32, ptr %148, align 8, !tbaa !110
-  %.fr165 = freeze i32 %155
-  %156 = and i32 %.fr165, 4088
+  %.fr = freeze i32 %155
+  %156 = and i32 %.fr, 4088
   %157 = icmp eq i32 %156, 24
   %158 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %13, i64 20

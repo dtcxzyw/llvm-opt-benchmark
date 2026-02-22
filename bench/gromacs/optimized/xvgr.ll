@@ -1903,8 +1903,8 @@ define noundef i32 @_Z8read_xvgRKNSt10filesystem7__cxx114pathEPPPdPi(ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = trunc i64 %6 to i32
   %9 = load i64, ptr %7, align 8
-  %.fr32 = freeze i64 %9
-  %10 = trunc i64 %.fr32 to i32
+  %.fr = freeze i64 %9
+  %10 = trunc i64 %.fr to i32
   %sext = shl i64 %6, 32
   %11 = ashr exact i64 %sext, 32
   %12 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.22, i32 noundef 709, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 8)
@@ -1915,14 +1915,14 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.preheader: ; preds = %3
   br i1 %13, label %.lr.ph31, label %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit._crit_edge
 
 .lr.ph31:                                         ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.preheader
-  %sext19 = shl i64 %.fr32, 32
+  %sext19 = shl i64 %.fr, 32
   %14 = ashr exact i64 %sext19, 32
   %15 = icmp sgt i32 %10, 0
   %wide.trip.count43 = and i64 %6, 2147483647
   br i1 %15, label %.lr.ph31.split.us.preheader, label %.lr.ph31.split
 
 .lr.ph31.split.us.preheader:                      ; preds = %.lr.ph31
-  %wide.trip.count38 = and i64 %.fr32, 2147483647
+  %wide.trip.count38 = and i64 %.fr, 2147483647
   br label %.lr.ph31.split.us
 
 .lr.ph31.split.us:                                ; preds = %.lr.ph31.split.us.preheader, %._crit_edge.us
@@ -3023,13 +3023,13 @@ define void @_Z17readXvgTimeSeriesRKNSt10filesystem7__cxx114pathESt8optionalIfES
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %26 = load i64, ptr %25, align 8
-  %.fr67 = freeze i64 %26
+  %.fr = freeze i64 %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %sext44 = shl i64 %24, 32
   %28 = ashr exact i64 %sext44, 32
-  %sext45 = shl i64 %.fr67, 32
+  %sext45 = shl i64 %.fr, 32
   %29 = ashr exact i64 %sext45, 32
   br label %30
 

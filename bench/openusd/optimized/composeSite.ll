@@ -8707,8 +8707,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
 
 .lr.ph:                                           ; preds = %2
   %14 = load i64, ptr %9, align 8
-  %.fr20 = freeze i64 %14
-  %15 = add i64 %.fr20, -1
+  %.fr = freeze i64 %14
+  %15 = add i64 %.fr, -1
   %16 = icmp ult i64 %15, 4294967296
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split

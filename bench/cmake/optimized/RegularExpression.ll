@@ -2475,8 +2475,8 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef no
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 0, ptr %41, align 1, !tbaa !14
   store ptr %42, ptr %32, align 8, !tbaa !30
-  %.pre105 = load i32, ptr %1, align 4, !tbaa !33
-  %43 = or i32 %.pre105, 3
+  %.pre106 = load i32, ptr %1, align 4, !tbaa !33
+  %43 = or i32 %.pre106, 3
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit61
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit61:        ; preds = %35, %39
@@ -2510,12 +2510,12 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit61:        ; preds = %35, %39
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 0, ptr %58, align 1, !tbaa !14
   store ptr %59, ptr %48, align 8, !tbaa !30
-  %.pre101 = load ptr, ptr %0, align 8, !tbaa !27
+  %.pre102 = load ptr, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit62
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit62:        ; preds = %52, %56
   %60 = phi ptr [ @_ZN5cmsysL8regdummyE, %52 ], [ %59, %56 ]
-  %61 = phi ptr [ %5, %52 ], [ %.pre101, %56 ]
+  %61 = phi ptr [ %5, %52 ], [ %.pre102, %56 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %62, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
@@ -2538,12 +2538,12 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit62:        ; preds = %52, %56
   %71 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 0, ptr %70, align 1, !tbaa !14
   store ptr %71, ptr %48, align 8, !tbaa !30
-  %.pre102 = load ptr, ptr %0, align 8, !tbaa !27
+  %.pre103 = load ptr, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit63:        ; preds = %68, %64, %_ZN5cmsys13RegExpCompile7regnodeEc.exit62
   %72 = phi ptr [ %60, %_ZN5cmsys13RegExpCompile7regnodeEc.exit62 ], [ @_ZN5cmsysL8regdummyE, %64 ], [ %71, %68 ]
-  %73 = phi ptr [ %62, %_ZN5cmsys13RegExpCompile7regnodeEc.exit62 ], [ %5, %64 ], [ %.pre102, %68 ]
+  %73 = phi ptr [ %62, %_ZN5cmsys13RegExpCompile7regnodeEc.exit62 ], [ %5, %64 ], [ %.pre103, %68 ]
   %.139 = phi ptr [ %49, %_ZN5cmsys13RegExpCompile7regnodeEc.exit62 ], [ @_ZN5cmsysL8regdummyE, %64 ], [ %49, %68 ]
   %74 = load i8, ptr %73, align 1, !tbaa !14
   switch i8 %74, label %_ZN5cmsys13RegExpCompile4regcEc.exit [
@@ -2621,8 +2621,8 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
   br i1 %104, label %112, label %.preheader
 
 .preheader:                                       ; preds = %99
-  %.not53.not89 = icmp ult i8 %101, %91
-  br i1 %.not53.not89, label %.lr.ph, label %._crit_edge
+  %.not53.not90 = icmp ult i8 %101, %91
+  br i1 %.not53.not90, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %105 = load ptr, ptr %85, align 8, !tbaa !30
@@ -2649,8 +2649,8 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %113 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %105, %.lr.ph ]
-  %.041.in90 = phi i32 [ %.041, %.lr.ph.splitthread-pre-split ], [ %102, %.lr.ph ]
-  %.041 = add nuw nsw i32 %.041.in90, 1
+  %.041.in91 = phi i32 [ %.041, %.lr.ph.splitthread-pre-split ], [ %102, %.lr.ph ]
+  %.041 = add nuw nsw i32 %.041.in91, 1
   %.not.i66 = icmp eq ptr %113, @_ZN5cmsysL8regdummyE
   br i1 %.not.i66, label %117, label %114
 
@@ -2672,11 +2672,11 @@ _ZN5cmsys13RegExpCompile4regcEc.exit67:           ; preds = %114, %117
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit67
-  %.pre103 = load ptr, ptr %0, align 8, !tbaa !27
+  %.pre104 = load ptr, ptr %0, align 8, !tbaa !27
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.split.us, %.preheader
-  %120 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %90, %.lr.ph.split.us ], [ %90, %.preheader ]
+  %120 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %90, %.lr.ph.split.us ], [ %90, %.preheader ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
   store ptr %121, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge
@@ -2713,7 +2713,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65.backedge:  ; preds = %128, %125, %96, %94
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 1
   store ptr %133, ptr %85, align 8, !tbaa !30
   store i8 0, ptr %131, align 1, !tbaa !14
-  %.pre104 = load ptr, ptr %0, align 8, !tbaa !27
+  %.pre105 = load ptr, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit71
 
 134:                                              ; preds = %.critedge
@@ -2723,7 +2723,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65.backedge:  ; preds = %128, %125, %96, %94
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit71
 
 _ZN5cmsys13RegExpCompile4regcEc.exit71:           ; preds = %132, %134
-  %137 = phi ptr [ %.pre104, %132 ], [ %87, %134 ]
+  %137 = phi ptr [ %.pre105, %132 ], [ %87, %134 ]
   %138 = load i8, ptr %137, align 1, !tbaa !14
   %.not51 = icmp eq i8 %138, 93
   br i1 %.not51, label %140, label %139
@@ -2811,14 +2811,14 @@ _ZN5cmsys13RegExpCompile4regcEc.exit74:           ; preds = %_ZN5cmsys13RegExpCo
   %173 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store ptr %173, ptr %158, align 8, !tbaa !30
   store i8 %172, ptr %167, align 1, !tbaa !14
-  %.pre100 = load ptr, ptr %158, align 8, !tbaa !30
-  %.not.i75 = icmp eq ptr %.pre100, @_ZN5cmsysL8regdummyE
+  %.pre101 = load ptr, ptr %158, align 8, !tbaa !30
+  %.not.i75 = icmp eq ptr %.pre101, @_ZN5cmsysL8regdummyE
   br i1 %.not.i75, label %176, label %174
 
 174:                                              ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit74
-  %175 = getelementptr inbounds nuw i8, ptr %.pre100, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %.pre101, i64 1
   store ptr %175, ptr %158, align 8, !tbaa !30
-  store i8 0, ptr %.pre100, align 1, !tbaa !14
+  store i8 0, ptr %.pre101, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit76
 
 176:                                              ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit74.thread, %_ZN5cmsys13RegExpCompile4regcEc.exit74
@@ -2873,17 +2873,17 @@ _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %197 = load ptr, ptr %196, align 8, !tbaa !30
   %198 = icmp eq ptr %197, @_ZN5cmsysL8regdummyE
-  br i1 %198, label %.lr.ph92.thread, label %.lr.ph92
+  br i1 %198, label %.lr.ph93.thread, label %.lr.ph93
 
-.lr.ph92.thread:                                  ; preds = %.thread
+.lr.ph93.thread:                                  ; preds = %.thread
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %200 = load i64, ptr %199, align 8, !tbaa !31
   %201 = add nsw i64 %200, 3
   store i64 %201, ptr %199, align 8, !tbaa !31
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %._crit_edge93.thread
+  br label %._crit_edge94.thread
 
-.lr.ph92:                                         ; preds = %.thread
+.lr.ph93:                                         ; preds = %.thread
   %203 = getelementptr inbounds nuw i8, ptr %197, i64 1
   store i8 8, ptr %197, align 1, !tbaa !14
   %204 = getelementptr inbounds nuw i8, ptr %197, i64 2
@@ -2893,61 +2893,61 @@ _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
   store ptr %205, ptr %196, align 8, !tbaa !30
   %206 = icmp eq ptr %205, @_ZN5cmsysL8regdummyE
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %206, label %._crit_edge93.thread, label %.lr.ph92.split
+  br i1 %206, label %._crit_edge94.thread, label %.lr.ph93.split
 
-._crit_edge93.thread:                             ; preds = %.lr.ph92, %.lr.ph92.thread
-  %208 = phi ptr [ %202, %.lr.ph92.thread ], [ %207, %.lr.ph92 ]
-  %.promoted94 = load ptr, ptr %0, align 8, !tbaa !27
-  %.promoted96 = load i64, ptr %208, align 8, !tbaa !31
+._crit_edge94.thread:                             ; preds = %.lr.ph93, %.lr.ph93.thread
+  %208 = phi ptr [ %202, %.lr.ph93.thread ], [ %207, %.lr.ph93 ]
+  %.promoted95 = load ptr, ptr %0, align 8, !tbaa !27
+  %.promoted97 = load i64, ptr %208, align 8, !tbaa !31
   %209 = add nsw i32 %.03484, -1
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr i8, ptr %.promoted94, i64 %210
+  %211 = getelementptr i8, ptr %.promoted95, i64 %210
   %scevgep = getelementptr i8, ptr %211, i64 1
-  %212 = add i64 %.promoted96, %210
+  %212 = add i64 %.promoted97, %210
   %213 = add i64 %212, 1
   store ptr %scevgep, ptr %0, align 8, !tbaa !27
   store i64 %213, ptr %208, align 8, !tbaa !31
   br label %227
 
-.lr.ph92.split:                                   ; preds = %.lr.ph92, %_ZN5cmsys13RegExpCompile4regcEc.exit79
-  %214 = phi ptr [ %.pr128, %_ZN5cmsys13RegExpCompile4regcEc.exit79 ], [ %205, %.lr.ph92 ]
-  %.13591 = phi i32 [ %223, %_ZN5cmsys13RegExpCompile4regcEc.exit79 ], [ %.03484, %.lr.ph92 ]
+.lr.ph93.split:                                   ; preds = %.lr.ph93, %_ZN5cmsys13RegExpCompile4regcEc.exit79
+  %214 = phi ptr [ %.pr129, %_ZN5cmsys13RegExpCompile4regcEc.exit79 ], [ %205, %.lr.ph93 ]
+  %.13592 = phi i32 [ %223, %_ZN5cmsys13RegExpCompile4regcEc.exit79 ], [ %.03484, %.lr.ph93 ]
   %215 = load ptr, ptr %0, align 8, !tbaa !27
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 1
   store ptr %216, ptr %0, align 8, !tbaa !27
   %.not.i78 = icmp eq ptr %214, @_ZN5cmsysL8regdummyE
   br i1 %.not.i78, label %220, label %217
 
-217:                                              ; preds = %.lr.ph92.split
+217:                                              ; preds = %.lr.ph93.split
   %218 = load i8, ptr %215, align 1, !tbaa !14
   %219 = getelementptr inbounds nuw i8, ptr %214, i64 1
   store ptr %219, ptr %196, align 8, !tbaa !30
   store i8 %218, ptr %214, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit79
 
-220:                                              ; preds = %.lr.ph92.split
+220:                                              ; preds = %.lr.ph93.split
   %221 = load i64, ptr %207, align 8, !tbaa !31
   %222 = add nsw i64 %221, 1
   store i64 %222, ptr %207, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit79
 
 _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
-  %223 = add nsw i32 %.13591, -1
-  %224 = icmp sgt i32 %.13591, 1
-  %.pr128 = load ptr, ptr %196, align 8, !tbaa !30
-  br i1 %224, label %.lr.ph92.split, label %._crit_edge93, !llvm.loop !43
+  %223 = add nsw i32 %.13592, -1
+  %224 = icmp sgt i32 %.13592, 1
+  %.pr129 = load ptr, ptr %196, align 8, !tbaa !30
+  br i1 %224, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !43
 
-._crit_edge93:                                    ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit79
-  %.not.i80 = icmp eq ptr %.pr128, @_ZN5cmsysL8regdummyE
+._crit_edge94:                                    ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit79
+  %.not.i80 = icmp eq ptr %.pr129, @_ZN5cmsysL8regdummyE
   br i1 %.not.i80, label %227, label %225
 
-225:                                              ; preds = %._crit_edge93
-  %226 = getelementptr inbounds nuw i8, ptr %.pr128, i64 1
+225:                                              ; preds = %._crit_edge94
+  %226 = getelementptr inbounds nuw i8, ptr %.pr129, i64 1
   store ptr %226, ptr %196, align 8, !tbaa !30
-  store i8 0, ptr %.pr128, align 1, !tbaa !14
+  store i8 0, ptr %.pr129, align 1, !tbaa !14
   br label %.critedge58
 
-227:                                              ; preds = %._crit_edge93.thread, %._crit_edge93
+227:                                              ; preds = %._crit_edge94.thread, %._crit_edge94
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %229 = load i64, ptr %228, align 8, !tbaa !31
   %230 = add nsw i64 %229, 1

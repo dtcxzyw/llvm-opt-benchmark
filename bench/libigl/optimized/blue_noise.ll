@@ -5212,15 +5212,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   %.idx.i.i.i = mul nsw i64 %7, 12
   %9 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !40
-  %.fr181 = freeze i32 %10
   %11 = getelementptr i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !40
-  %.fr182 = freeze i32 %12
   %13 = getelementptr i8, ptr %9, i64 8
   %14 = load i32, ptr %13, align 4, !tbaa !40
-  %15 = tail call i32 @llvm.smax.i32(i32 %.fr181, i32 2)
+  %15 = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
   %.sroa.speculated124 = add nsw i32 %15, -2
-  %16 = add nsw i32 %.fr181, 2
+  %16 = add nsw i32 %10, 2
   %17 = load i32, ptr %4, align 4, !tbaa !40
   %18 = add nsw i32 %17, -1
   %.sroa.speculated119 = tail call i32 @llvm.smin.i32(i32 %18, i32 %16)
@@ -5228,9 +5226,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   br i1 %.not147, label %.critedge74, label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %6
-  %19 = tail call i32 @llvm.smax.i32(i32 %.fr182, i32 2)
+  %19 = tail call i32 @llvm.smax.i32(i32 %12, i32 2)
   %.sroa.speculated114 = add nsw i32 %19, -2
-  %20 = add nsw i32 %.fr182, 2
+  %20 = add nsw i32 %12, 2
   %.sroa.speculated109 = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   %.not61140 = icmp sgt i32 %.sroa.speculated114, %.sroa.speculated109
   %21 = tail call i32 @llvm.smax.i32(i32 %14, i32 2)
@@ -5245,8 +5243,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   %28 = load double, ptr %3, align 8
   %.sroa.speculated104 = add nsw i32 %21, -2
   %.not62138 = icmp sgt i32 %.sroa.speculated104, %.sroa.speculated
-  %or.cond231 = select i1 %.not61140, i1 true, i1 %.not62138
-  br i1 %or.cond231, label %.critedge74, label %.lr.ph150.split.split
+  %or.cond223 = select i1 %.not61140, i1 true, i1 %.not62138
+  br i1 %or.cond223, label %.critedge74, label %.lr.ph150.split.split
 
 .lr.ph150.split.split:                            ; preds = %.lr.ph150
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5257,263 +5255,260 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   %32 = add nsw i64 %31, -2
   %33 = zext nneg i32 %19 to i64
   %34 = add nsw i64 %33, -2
-  %35 = zext i32 %.fr182 to i64
-  %36 = zext nneg i32 %15 to i64
-  %37 = add nsw i64 %36, -2
-  %38 = zext i32 %.fr181 to i64
+  %35 = zext i32 %12 to i64
+  %36 = zext nneg i32 %.sroa.speculated109 to i64
+  %37 = zext nneg i32 %15 to i64
+  %38 = add nsw i64 %37, -2
+  %39 = zext i32 %10 to i64
+  %40 = zext nneg i32 %.sroa.speculated119 to i64
   br i1 %.not.not.i.i, label %.lr.ph142.us157.preheader, label %.lr.ph142.preheader
 
 .lr.ph142.preheader:                              ; preds = %.lr.ph150.split.split
-  %39 = zext i32 %14 to i64
-  %40 = zext nneg i32 %.sroa.speculated to i64
-  %41 = zext nneg i32 %.sroa.speculated109 to i64
-  %42 = zext nneg i32 %.sroa.speculated119 to i64
+  %41 = zext i32 %14 to i64
+  %42 = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph142
 
 .lr.ph142.us157.preheader:                        ; preds = %.lr.ph150.split.split
   %43 = zext nneg i32 %.sroa.speculated to i64
   %44 = zext i32 %14 to i64
-  %45 = add nuw nsw i32 %.sroa.speculated109, 1
-  %46 = add nuw nsw i32 %.sroa.speculated119, 1
   br label %.lr.ph142.us157
 
 .lr.ph142.us157:                                  ; preds = %.lr.ph142.us157.preheader, %..critedge72_crit_edge.split.split.us.us
-  %indvars.iv210 = phi i64 [ %37, %.lr.ph142.us157.preheader ], [ %indvars.iv.next211, %..critedge72_crit_edge.split.split.us.us ]
-  %.not63.us160 = icmp eq i64 %indvars.iv210, %38
+  %indvars.iv206 = phi i64 [ %38, %.lr.ph142.us157.preheader ], [ %indvars.iv.next207, %..critedge72_crit_edge.split.split.us.us ]
+  %.not63.us160 = icmp eq i64 %indvars.iv206, %39
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %..critedge70_crit_edge.split.us.us.us, %.lr.ph142.us157
-  %indvars.iv207 = phi i64 [ %indvars.iv.next208, %..critedge70_crit_edge.split.us.us.us ], [ %34, %.lr.ph142.us157 ]
-  %.not64.us.us = icmp eq i64 %indvars.iv207, %35
-  %or.cond.us.us = and i1 %.not63.us160, %.not64.us.us
-  br i1 %or.cond.us.us, label %.lr.ph.split.us.us.split.us173, label %.lr.ph.split.us.us.split.us.us
+  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %..critedge70_crit_edge.split.us.us.us ], [ %34, %.lr.ph142.us157 ]
+  %.not64.us.us = icmp eq i64 %indvars.iv203, %35
+  %or.cond.us.us = select i1 %.not63.us160, i1 %.not64.us.us, i1 false
+  %or.cond.us.fr.us = freeze i1 %or.cond.us.us
+  br i1 %or.cond.us.fr.us, label %.lr.ph.split.us.us.split.us173, label %.lr.ph.split.us.us.split.us.us
 
 .lr.ph.split.us.us.split.us173:                   ; preds = %.lr.ph.us.us, %.critedge68.us.us.us167
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.critedge68.us.us.us167 ], [ %32, %.lr.ph.us.us ]
-  %.not65.us.us.us = icmp eq i64 %indvars.iv204, %44
-  br i1 %.not65.us.us.us, label %.critedge68.us.us.us167, label %47
+  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.critedge68.us.us.us167 ], [ %32, %.lr.ph.us.us ]
+  %.not65.us.us.us = icmp eq i64 %indvars.iv200, %44
+  br i1 %.not65.us.us.us, label %.critedge68.us.us.us167, label %45
 
-47:                                               ; preds = %.lr.ph.split.us.us.split.us173
-  %48 = mul nsw i64 %indvars.iv204, %23
-  %49 = add nsw i64 %48, %35
-  %50 = mul nsw i64 %49, %23
-  %51 = add nsw i64 %50, %38
-  br label %52
+45:                                               ; preds = %.lr.ph.split.us.us.split.us173
+  %46 = mul nsw i64 %indvars.iv200, %23
+  %47 = add nsw i64 %46, %indvars.iv203
+  %48 = mul nsw i64 %47, %23
+  %49 = add nsw i64 %48, %indvars.iv206
+  br label %50
 
-52:                                               ; preds = %53, %47
-  %.sroa.06.0.in.i.i.us.us.us163 = phi ptr [ %27, %47 ], [ %.sroa.06.0.i.i.us.us.us164, %53 ]
+50:                                               ; preds = %51, %45
+  %.sroa.06.0.in.i.i.us.us.us163 = phi ptr [ %27, %45 ], [ %.sroa.06.0.i.i.us.us.us164, %51 ]
   %.sroa.06.0.i.i.us.us.us164 = load ptr, ptr %.sroa.06.0.in.i.i.us.us.us163, align 8, !tbaa !94
   %.not.i.i.us.us.us165 = icmp eq ptr %.sroa.06.0.i.i.us.us.us164, null
-  br i1 %.not.i.i.us.us.us165, label %.critedge68.us.us.us167, label %53
+  br i1 %.not.i.i.us.us.us165, label %.critedge68.us.us.us167, label %51
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us164, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !92
-  %56 = icmp eq i64 %51, %55
-  br i1 %56, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170, label %52, !llvm.loop !228
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us164, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !92
+  %54 = icmp eq i64 %49, %53
+  br i1 %54, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170, label %50, !llvm.loop !228
 
-57:                                               ; preds = %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170
-  %58 = load ptr, ptr %0, align 8, !tbaa !55, !noalias !229
-  %59 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i.i.i
-  %60 = zext nneg i32 %76 to i64
-  %.idx.i.i.i.i82.us.us.us166 = mul nuw nsw i64 %60, 24
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i82.us.us.us166
-  %62 = load <2 x double>, ptr %59, align 1, !tbaa !12
-  %63 = load <2 x double>, ptr %61, align 1, !tbaa !12
-  %64 = fsub <2 x double> %62, %63
-  %65 = fmul <2 x double> %64, %64
-  %shift = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop = fadd <2 x double> %65, %shift
-  %66 = extractelement <2 x double> %foldExtExtBinop, i64 0
+55:                                               ; preds = %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170
+  %56 = load ptr, ptr %0, align 8, !tbaa !55, !noalias !229
+  %57 = getelementptr inbounds i8, ptr %56, i64 %.idx.i.i.i.i
+  %58 = zext nneg i32 %74 to i64
+  %.idx.i.i.i.i82.us.us.us166 = mul nuw nsw i64 %58, 24
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i82.us.us.us166
+  %60 = load <2 x double>, ptr %57, align 1, !tbaa !12
+  %61 = load <2 x double>, ptr %59, align 1, !tbaa !12
+  %62 = fsub <2 x double> %60, %61
+  %63 = fmul <2 x double> %62, %62
+  %shift = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop = fadd <2 x double> %63, %shift
+  %64 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %65 = getelementptr i8, ptr %57, i64 16
+  %66 = load double, ptr %65, align 8, !tbaa !15
   %67 = getelementptr i8, ptr %59, i64 16
   %68 = load double, ptr %67, align 8, !tbaa !15
-  %69 = getelementptr i8, ptr %61, i64 16
-  %70 = load double, ptr %69, align 8, !tbaa !15
-  %71 = fsub double %68, %70
-  %72 = fmul double %71, %71
-  %73 = fadd double %66, %72
-  %74 = fcmp uge double %73, %28
-  br i1 %74, label %.critedge68.us.us.us167, label %.critedge74
+  %69 = fsub double %66, %68
+  %70 = fmul double %69, %69
+  %71 = fadd double %64, %70
+  %72 = fcmp uge double %71, %28
+  br i1 %72, label %.critedge68.us.us.us167, label %.critedge74
 
-.critedge68.us.us.us167:                          ; preds = %52, %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170, %57, %.lr.ph.split.us.us.split.us173
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %.not62.us.us.us168.not = icmp slt i64 %indvars.iv204, %43
+.critedge68.us.us.us167:                          ; preds = %50, %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170, %55, %.lr.ph.split.us.us.split.us173
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %.not62.us.us.us168.not = icmp slt i64 %indvars.iv200, %43
   br i1 %.not62.us.us.us168.not, label %.lr.ph.split.us.us.split.us173, label %..critedge70_crit_edge.split.us.us.us, !llvm.loop !232
 
-_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170: ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us164, i64 16
-  %76 = load i32, ptr %75, align 8, !tbaa !158
-  %77 = icmp sgt i32 %76, -1
-  br i1 %77, label %57, label %.critedge68.us.us.us167
+_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us170: ; preds = %51
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us164, i64 16
+  %74 = load i32, ptr %73, align 8, !tbaa !158
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %55, label %.critedge68.us.us.us167
 
 ..critedge72_crit_edge.split.split.us.us:         ; preds = %..critedge70_crit_edge.split.us.us.us
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %lftr.wideiv213 = trunc i64 %indvars.iv.next211 to i32
-  %exitcond214 = icmp eq i32 %46, %lftr.wideiv213
-  br i1 %exitcond214, label %.critedge74, label %.lr.ph142.us157, !llvm.loop !233
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %.not.us161.not = icmp slt i64 %indvars.iv206, %40
+  br i1 %.not.us161.not, label %.lr.ph142.us157, label %.critedge74, !llvm.loop !233
 
 ..critedge70_crit_edge.split.us.us.us:            ; preds = %.critedge68.us.us.us.us, %.critedge68.us.us.us167
-  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next208 to i32
-  %exitcond = icmp eq i32 %45, %lftr.wideiv
-  br i1 %exitcond, label %..critedge72_crit_edge.split.split.us.us, label %.lr.ph.us.us, !llvm.loop !234
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %.not61.us144.us.not = icmp slt i64 %indvars.iv203, %36
+  br i1 %.not61.us144.us.not, label %.lr.ph.us.us, label %..critedge72_crit_edge.split.split.us.us, !llvm.loop !234
 
 .lr.ph.split.us.us.split.us.us:                   ; preds = %.lr.ph.us.us, %.critedge68.us.us.us.us
-  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.critedge68.us.us.us.us ], [ %32, %.lr.ph.us.us ]
-  %78 = mul nsw i64 %indvars.iv201, %23
-  %79 = add nsw i64 %78, %indvars.iv207
-  %80 = mul nsw i64 %79, %23
-  %81 = add nsw i64 %80, %indvars.iv210
-  br label %82
+  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.critedge68.us.us.us.us ], [ %32, %.lr.ph.us.us ]
+  %76 = mul nsw i64 %indvars.iv197, %23
+  %77 = add nsw i64 %76, %indvars.iv203
+  %78 = mul nsw i64 %77, %23
+  %79 = add nsw i64 %78, %indvars.iv206
+  br label %80
 
-82:                                               ; preds = %83, %.lr.ph.split.us.us.split.us.us
-  %.sroa.06.0.in.i.i.us.us.us.us = phi ptr [ %27, %.lr.ph.split.us.us.split.us.us ], [ %.sroa.06.0.i.i.us.us.us.us, %83 ]
+80:                                               ; preds = %81, %.lr.ph.split.us.us.split.us.us
+  %.sroa.06.0.in.i.i.us.us.us.us = phi ptr [ %27, %.lr.ph.split.us.us.split.us.us ], [ %.sroa.06.0.i.i.us.us.us.us, %81 ]
   %.sroa.06.0.i.i.us.us.us.us = load ptr, ptr %.sroa.06.0.in.i.i.us.us.us.us, align 8, !tbaa !94
   %.not.i.i.us.us.us.us = icmp eq ptr %.sroa.06.0.i.i.us.us.us.us, null
-  br i1 %.not.i.i.us.us.us.us, label %.critedge68.us.us.us.us, label %83
+  br i1 %.not.i.i.us.us.us.us, label %.critedge68.us.us.us.us, label %81
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us.us, i64 8
-  %85 = load i64, ptr %84, align 8, !tbaa !92
-  %86 = icmp eq i64 %81, %85
-  br i1 %86, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us, label %82, !llvm.loop !228
+81:                                               ; preds = %80
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us.us, i64 8
+  %83 = load i64, ptr %82, align 8, !tbaa !92
+  %84 = icmp eq i64 %79, %83
+  br i1 %84, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us, label %80, !llvm.loop !228
 
-87:                                               ; preds = %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us
-  %88 = load ptr, ptr %0, align 8, !tbaa !55, !noalias !229
-  %89 = getelementptr inbounds i8, ptr %88, i64 %.idx.i.i.i.i
-  %90 = zext nneg i32 %106 to i64
-  %.idx.i.i.i.i82.us.us.us.us = mul nuw nsw i64 %90, 24
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i.i.i.i82.us.us.us.us
-  %92 = load <2 x double>, ptr %89, align 1, !tbaa !12
-  %93 = load <2 x double>, ptr %91, align 1, !tbaa !12
-  %94 = fsub <2 x double> %92, %93
-  %95 = fmul <2 x double> %94, %94
-  %shift242 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop243 = fadd <2 x double> %95, %shift242
-  %96 = extractelement <2 x double> %foldExtExtBinop243, i64 0
+85:                                               ; preds = %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us
+  %86 = load ptr, ptr %0, align 8, !tbaa !55, !noalias !229
+  %87 = getelementptr inbounds i8, ptr %86, i64 %.idx.i.i.i.i
+  %88 = zext nneg i32 %104 to i64
+  %.idx.i.i.i.i82.us.us.us.us = mul nuw nsw i64 %88, 24
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i.i.i82.us.us.us.us
+  %90 = load <2 x double>, ptr %87, align 1, !tbaa !12
+  %91 = load <2 x double>, ptr %89, align 1, !tbaa !12
+  %92 = fsub <2 x double> %90, %91
+  %93 = fmul <2 x double> %92, %92
+  %shift234 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop235 = fadd <2 x double> %93, %shift234
+  %94 = extractelement <2 x double> %foldExtExtBinop235, i64 0
+  %95 = getelementptr i8, ptr %87, i64 16
+  %96 = load double, ptr %95, align 8, !tbaa !15
   %97 = getelementptr i8, ptr %89, i64 16
   %98 = load double, ptr %97, align 8, !tbaa !15
-  %99 = getelementptr i8, ptr %91, i64 16
-  %100 = load double, ptr %99, align 8, !tbaa !15
-  %101 = fsub double %98, %100
-  %102 = fmul double %101, %101
-  %103 = fadd double %96, %102
-  %104 = fcmp uge double %103, %28
-  br i1 %104, label %.critedge68.us.us.us.us, label %.critedge74
+  %99 = fsub double %96, %98
+  %100 = fmul double %99, %99
+  %101 = fadd double %94, %100
+  %102 = fcmp uge double %101, %28
+  br i1 %102, label %.critedge68.us.us.us.us, label %.critedge74
 
-.critedge68.us.us.us.us:                          ; preds = %82, %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us, %87
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %.not62.us.us.us.us.not = icmp slt i64 %indvars.iv201, %43
+.critedge68.us.us.us.us:                          ; preds = %80, %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us, %85
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+  %.not62.us.us.us.us.not = icmp slt i64 %indvars.iv197, %43
   br i1 %.not62.us.us.us.us.not, label %.lr.ph.split.us.us.split.us.us, label %..critedge70_crit_edge.split.us.us.us, !llvm.loop !232
 
-_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us: ; preds = %83
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us.us, i64 16
-  %106 = load i32, ptr %105, align 8, !tbaa !158
-  %107 = icmp sgt i32 %106, -1
-  br i1 %107, label %87, label %.critedge68.us.us.us.us
+_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit.loopexit.us.us.us.us: ; preds = %81
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.us.us.us.us, i64 16
+  %104 = load i32, ptr %103, align 8, !tbaa !158
+  %105 = icmp sgt i32 %104, -1
+  br i1 %105, label %85, label %.critedge68.us.us.us.us
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %..critedge72_crit_edge.split.split
-  %indvars.iv198 = phi i64 [ %37, %.lr.ph142.preheader ], [ %indvars.iv.next199, %..critedge72_crit_edge.split.split ]
-  %.not63 = icmp eq i64 %indvars.iv198, %38
+  %indvars.iv194 = phi i64 [ %38, %.lr.ph142.preheader ], [ %indvars.iv.next195, %..critedge72_crit_edge.split.split ]
+  %.not63 = icmp eq i64 %indvars.iv194, %39
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph142, %..critedge70_crit_edge.split
-  %indvars.iv195 = phi i64 [ %34, %.lr.ph142 ], [ %indvars.iv.next196, %..critedge70_crit_edge.split ]
-  %.not64 = icmp eq i64 %indvars.iv195, %35
+  %indvars.iv191 = phi i64 [ %34, %.lr.ph142 ], [ %indvars.iv.next192, %..critedge70_crit_edge.split ]
+  %.not64 = icmp eq i64 %indvars.iv191, %35
   %or.cond = select i1 %.not63, i1 %.not64, i1 false
-  br label %108
+  br label %106
 
-108:                                              ; preds = %.lr.ph, %.critedge68
+106:                                              ; preds = %.lr.ph, %.critedge68
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %.critedge68 ]
-  %.not65 = icmp eq i64 %indvars.iv, %39
+  %.not65 = icmp eq i64 %indvars.iv, %41
   %or.cond66 = select i1 %or.cond, i1 %.not65, i1 false
-  br i1 %or.cond66, label %.critedge68, label %109
+  br i1 %or.cond66, label %.critedge68, label %107
 
-109:                                              ; preds = %108
-  %110 = mul nsw i64 %indvars.iv, %23
-  %111 = add nsw i64 %110, %indvars.iv195
-  %112 = mul nsw i64 %111, %23
-  %113 = add nsw i64 %112, %indvars.iv198
-  %114 = urem i64 %113, %25
-  %115 = getelementptr inbounds nuw ptr, ptr %26, i64 %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !96
-  %.not.i.i.i.i = icmp eq ptr %116, null
-  br i1 %.not.i.i.i.i, label %.critedge68, label %117
+107:                                              ; preds = %106
+  %108 = mul nsw i64 %indvars.iv, %23
+  %109 = add nsw i64 %108, %indvars.iv191
+  %110 = mul nsw i64 %109, %23
+  %111 = add nsw i64 %110, %indvars.iv194
+  %112 = urem i64 %111, %25
+  %113 = getelementptr inbounds nuw ptr, ptr %26, i64 %112
+  %114 = load ptr, ptr %113, align 8, !tbaa !96
+  %.not.i.i.i.i = icmp eq ptr %114, null
+  br i1 %.not.i.i.i.i, label %.critedge68, label %115
 
-117:                                              ; preds = %109
-  %118 = load ptr, ptr %116, align 8, !tbaa !94
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i64, ptr %119, align 8, !tbaa !92
-  %121 = icmp eq i64 %113, %120
-  br i1 %121, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit, label %.lr.ph.i.i.i.i
+115:                                              ; preds = %107
+  %116 = load ptr, ptr %114, align 8, !tbaa !94
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load i64, ptr %117, align 8, !tbaa !92
+  %119 = icmp eq i64 %111, %118
+  br i1 %119, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit, label %.lr.ph.i.i.i.i
 
-122:                                              ; preds = %125
-  %123 = icmp eq i64 %113, %127
-  br i1 %123, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !155
+120:                                              ; preds = %123
+  %121 = icmp eq i64 %111, %125
+  br i1 %121, label %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !155
 
-.lr.ph.i.i.i.i:                                   ; preds = %117, %122
-  %.020.i.i.i.i = phi ptr [ %124, %122 ], [ %118, %117 ]
-  %124 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !94
-  %.not18.i.i.i.i = icmp eq ptr %124, null
-  br i1 %.not18.i.i.i.i, label %.critedge68, label %125
+.lr.ph.i.i.i.i:                                   ; preds = %115, %120
+  %.020.i.i.i.i = phi ptr [ %122, %120 ], [ %116, %115 ]
+  %122 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !94
+  %.not18.i.i.i.i = icmp eq ptr %122, null
+  br i1 %.not18.i.i.i.i, label %.critedge68, label %123
 
-125:                                              ; preds = %.lr.ph.i.i.i.i
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %127 = load i64, ptr %126, align 8, !tbaa !92
-  %128 = urem i64 %127, %25
-  %.not19.i.i.i.i = icmp eq i64 %128, %114
-  br i1 %.not19.i.i.i.i, label %122, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !155
+123:                                              ; preds = %.lr.ph.i.i.i.i
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %125 = load i64, ptr %124, align 8, !tbaa !92
+  %126 = urem i64 %125, %25
+  %.not19.i.i.i.i = icmp eq i64 %126, %112
+  br i1 %.not19.i.i.i.i, label %120, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !155
 
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %125
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %123
   br label %.critedge68, !llvm.loop !155
 
-_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit: ; preds = %122, %117
-  %.sroa.06.1.i.i = phi ptr [ %118, %117 ], [ %124, %122 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
-  %130 = load i32, ptr %129, align 8, !tbaa !158
-  %131 = icmp sgt i32 %130, -1
-  br i1 %131, label %132, label %.critedge68
+_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit: ; preds = %120, %115
+  %.sroa.06.1.i.i = phi ptr [ %116, %115 ], [ %122, %120 ]
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
+  %128 = load i32, ptr %127, align 8, !tbaa !158
+  %129 = icmp sgt i32 %128, -1
+  br i1 %129, label %130, label %.critedge68
 
-132:                                              ; preds = %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit
-  %133 = load ptr, ptr %0, align 8, !tbaa !55, !noalias !229
-  %134 = getelementptr inbounds i8, ptr %133, i64 %.idx.i.i.i.i
-  %135 = zext nneg i32 %130 to i64
-  %.idx.i.i.i.i82 = mul nuw nsw i64 %135, 24
-  %136 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx.i.i.i.i82
-  %137 = load <2 x double>, ptr %134, align 1, !tbaa !12
-  %138 = load <2 x double>, ptr %136, align 1, !tbaa !12
-  %139 = fsub <2 x double> %137, %138
-  %140 = fmul <2 x double> %139, %139
-  %shift245 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop246 = fadd <2 x double> %140, %shift245
-  %141 = extractelement <2 x double> %foldExtExtBinop246, i64 0
+130:                                              ; preds = %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit
+  %131 = load ptr, ptr %0, align 8, !tbaa !55, !noalias !229
+  %132 = getelementptr inbounds i8, ptr %131, i64 %.idx.i.i.i.i
+  %133 = zext nneg i32 %128 to i64
+  %.idx.i.i.i.i82 = mul nuw nsw i64 %133, 24
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i.i.i.i82
+  %135 = load <2 x double>, ptr %132, align 1, !tbaa !12
+  %136 = load <2 x double>, ptr %134, align 1, !tbaa !12
+  %137 = fsub <2 x double> %135, %136
+  %138 = fmul <2 x double> %137, %137
+  %shift237 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop238 = fadd <2 x double> %138, %shift237
+  %139 = extractelement <2 x double> %foldExtExtBinop238, i64 0
+  %140 = getelementptr i8, ptr %132, i64 16
+  %141 = load double, ptr %140, align 8, !tbaa !15
   %142 = getelementptr i8, ptr %134, i64 16
   %143 = load double, ptr %142, align 8, !tbaa !15
-  %144 = getelementptr i8, ptr %136, i64 16
-  %145 = load double, ptr %144, align 8, !tbaa !15
-  %146 = fsub double %143, %145
-  %147 = fmul double %146, %146
-  %148 = fadd double %141, %147
-  %149 = fcmp uge double %148, %28
-  br i1 %149, label %.critedge68, label %.critedge74
+  %144 = fsub double %141, %143
+  %145 = fmul double %144, %144
+  %146 = fadd double %139, %145
+  %147 = fcmp uge double %146, %28
+  br i1 %147, label %.critedge68, label %.critedge74
 
-.critedge68:                                      ; preds = %.lr.ph.i.i.i.i, %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit, %132, %..loopexit_crit_edge21.i.i.i.i, %109, %108
+.critedge68:                                      ; preds = %.lr.ph.i.i.i.i, %_ZNKSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit, %130, %..loopexit_crit_edge21.i.i.i.i, %107, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not62.not = icmp slt i64 %indvars.iv, %40
-  br i1 %.not62.not, label %108, label %..critedge70_crit_edge.split, !llvm.loop !232
+  %.not62.not = icmp slt i64 %indvars.iv, %42
+  br i1 %.not62.not, label %106, label %..critedge70_crit_edge.split, !llvm.loop !232
 
 ..critedge70_crit_edge.split:                     ; preds = %.critedge68
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %.not61.not = icmp slt i64 %indvars.iv195, %41
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %.not61.not = icmp slt i64 %indvars.iv191, %36
   br i1 %.not61.not, label %.lr.ph, label %..critedge72_crit_edge.split.split, !llvm.loop !234
 
 ..critedge72_crit_edge.split.split:               ; preds = %..critedge70_crit_edge.split
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %.not.not = icmp slt i64 %indvars.iv198, %42
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %.not.not = icmp slt i64 %indvars.iv194, %40
   br i1 %.not.not, label %.lr.ph142, label %.critedge74, !llvm.loop !233
 
-.critedge74:                                      ; preds = %..critedge72_crit_edge.split.split, %132, %..critedge72_crit_edge.split.split.us.us, %87, %57, %.lr.ph150, %6
-  %.not137 = phi i1 [ true, %..critedge72_crit_edge.split.split.us.us ], [ true, %.lr.ph150 ], [ false, %132 ], [ true, %6 ], [ false, %57 ], [ false, %87 ], [ true, %..critedge72_crit_edge.split.split ]
+.critedge74:                                      ; preds = %..critedge72_crit_edge.split.split, %130, %..critedge72_crit_edge.split.split.us.us, %85, %55, %.lr.ph150, %6
+  %.not137 = phi i1 [ true, %..critedge72_crit_edge.split.split.us.us ], [ true, %.lr.ph150 ], [ false, %130 ], [ true, %6 ], [ false, %55 ], [ false, %85 ], [ true, %..critedge72_crit_edge.split.split ]
   ret i1 %.not137
 }
 

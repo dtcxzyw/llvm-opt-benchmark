@@ -747,7 +747,6 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %.sroa.0.0.copyload.i70.i = load i32, ptr %106, align 8, !alias.scope !46, !noalias !49
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.sroa.10.0.copyload.i.i = load i32, ptr %.sroa.10.0..sroa_idx.i.i, align 4, !alias.scope !46, !noalias !49
-  %.sroa.7.0.copyload.fr.i.i = freeze i32 %.sroa.10.0.copyload.i.i
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.21.0.copyload.i.i = load i32, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !alias.scope !46, !noalias !49
   %107 = load i64, ptr %0, align 8, !range !60, !alias.scope !46, !noalias !49
@@ -880,7 +879,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %178 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %179 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %180 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %181 = icmp ugt i32 %.sroa.7.0.copyload.fr.i.i, 43199
+  %181 = icmp ugt i32 %.sroa.10.0.copyload.i.i, 43199
   %anon.83dd8536bdca2e5c8688614313edd3af.86.anon.83dd8536bdca2e5c8688614313edd3af.85.i.i = select i1 %181, ptr @anon.83dd8536bdca2e5c8688614313edd3af.86, ptr @anon.83dd8536bdca2e5c8688614313edd3af.85
   %182 = select i1 %181, ptr getelementptr inbounds nuw (i8, ptr @anon.83dd8536bdca2e5c8688614313edd3af.86, i64 2), ptr getelementptr inbounds nuw (i8, ptr @anon.83dd8536bdca2e5c8688614313edd3af.85, i64 2)
   %.sroa.052.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -950,8 +949,8 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %228 = urem i8 %224, 10
   %229 = or disjoint i8 %228, 48
   %230 = zext nneg i8 %229 to i32
-  %231 = urem i32 %.sroa.7.0.copyload.fr.i.i, 60
-  %232 = udiv i32 %.sroa.7.0.copyload.fr.i.i, 3600
+  %231 = urem i32 %.sroa.10.0.copyload.i.i, 60
+  %232 = udiv i32 %.sroa.10.0.copyload.i.i, 3600
   %233 = icmp ugt i32 %.sroa.21.0.copyload.i.i, 999999999
   %234 = add i32 %.sroa.21.0.copyload.i.i, -1000000000
   %storemerge.i.i = select i1 %233, i32 %234, i32 %.sroa.21.0.copyload.i.i
@@ -959,7 +958,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %.0.i.i = add nuw nsw i32 %231, %235
   %236 = trunc i32 %232 to i8
   %237 = icmp ugt i8 %236, 99
-  %238 = udiv i32 %.sroa.7.0.copyload.fr.i.i, 60
+  %238 = udiv i32 %.sroa.10.0.copyload.i.i, 60
   %239 = urem i32 %238, 60
   %240 = udiv i8 %236, 10
   %241 = or disjoint i8 %240, 48
@@ -1040,7 +1039,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %297 = add nuw nsw i32 %296, 1
   %298 = mul nuw nsw i32 %297, 400
   %.neg.i.i.i = mul nsw i32 %297, -146097
-  %299 = zext i32 %.sroa.7.0.copyload.fr.i.i to i64
+  %299 = zext i32 %.sroa.10.0.copyload.i.i to i64
   %300 = add nuw nsw i32 %188, -719163
   %301 = sub nsw i64 %299, %..sroa.379.0.i.i
   %302 = zext nneg i32 %110 to i64
@@ -1062,11 +1061,12 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %318 = icmp eq i32 %317, 0
   %319 = trunc nuw nsw i32 %317 to i8
   %320 = select i1 %318, i8 12, i8 %319
-  %.cmp6.i.i = icmp samesign ugt i8 %320, 9
-  %321 = icmp samesign ult i8 %320, 10
+  %.frozen7.i.i = freeze i8 %320
+  %.cmp6.i.i = icmp samesign ugt i8 %.frozen7.i.i, 9
+  %321 = icmp ult i8 %.frozen7.i.i, 10
   %322 = select i1 %.cmp6.i.i, i32 49, i32 48
-  %.urem8.i.i = add nsw i8 %320, -10
-  %323 = select i1 %321, i8 %320, i8 %.urem8.i.i
+  %.urem8.i.i = add i8 %.frozen7.i.i, -10
+  %323 = select i1 %321, i8 %.frozen7.i.i, i8 %.urem8.i.i
   %324 = or disjoint i8 %323, 48
   %325 = zext nneg i8 %324 to i32
   %326 = icmp ult i8 %236, 10

@@ -2083,8 +2083,8 @@ define internal fastcc noundef zeroext i1 @findPartialMatch(ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.fr26 = freeze i32 %6
-  %15 = add i32 %.fr26, -1
+  %.fr = freeze i32 %6
+  %15 = add i32 %.fr, -1
   %16 = icmp sgt i32 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32

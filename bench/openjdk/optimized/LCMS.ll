@@ -116,25 +116,25 @@ define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1368
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef %2) #8
-  %.fr = freeze i32 %12
+  %.fr76 = freeze i32 %12
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1504
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %69, label %18
+  br i1 %17, label %76, label %18
 
 18:                                               ; preds = %7
-  %19 = icmp sgt i32 %.fr, 16
+  %19 = icmp sgt i32 %.fr76, 16
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %18
-  %21 = shl nuw nsw i32 %.fr, 1
+  %21 = shl nuw nsw i32 %.fr76, 1
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #9
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %.lr.ph
+  br i1 %25, label %26, label %.lr.ph.split.preheader
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
@@ -142,106 +142,128 @@ define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, 
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %16, i32 noundef 0) #8
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.2) #8
-  br label %69
+  br label %76
 
 30:                                               ; preds = %18
-  %31 = icmp sgt i32 %.fr, 0
+  %31 = icmp sgt i32 %.fr76, 0
   br i1 %31, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %20, %30
-  %.06286 = phi ptr [ %8, %30 ], [ %24, %20 ]
-  %32 = icmp samesign ult i32 %.fr, 3
-  %33 = add nsw i32 %.fr, -1
+.lr.ph:                                           ; preds = %30
+  %32 = icmp samesign ugt i32 %.fr76, 2
+  br i1 %32, label %.lr.ph.split.preheader, label %.lr.ph.split.us.preheader
+
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  %wide.trip.count = zext nneg i32 %.fr76 to i64
+  br label %.lr.ph.split.us
+
+.lr.ph.split.preheader:                           ; preds = %20, %.lr.ph
+  %.0629194 = phi ptr [ %8, %.lr.ph ], [ %24, %20 ]
+  %33 = add nsw i32 %.fr76, -1
   %34 = zext nneg i32 %33 to i64
-  %wide.trip.count = zext nneg i32 %.fr to i64
-  br label %35
+  %wide.trip.count85 = zext nneg i32 %.fr76 to i64
+  br label %.lr.ph.split
 
-35:                                               ; preds = %.lr.ph, %49
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.06476 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
-  %36 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
-  %37 = load i64, ptr %36, align 8
-  %38 = inttoptr i64 %37 to ptr
-  %39 = load ptr, ptr %38, align 8
-  %40 = add nsw i32 %.06476, 1
-  %41 = sext i32 %.06476 to i64
-  %42 = getelementptr inbounds ptr, ptr %.06286, i64 %41
-  store ptr %39, ptr %42, align 8
-  %43 = tail call i32 @cmsGetColorSpace(ptr noundef %39) #8
-  %44 = icmp eq i64 %indvars.iv, 0
-  %or.cond.not80 = or i1 %32, %44
-  %.not74 = icmp eq i64 %indvars.iv, %34
-  %or.cond75 = select i1 %or.cond.not80, i1 true, i1 %.not74
-  br i1 %or.cond75, label %49, label %switch.early.test
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us ]
+  %35 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %36 = load i64, ptr %35, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %38 = load ptr, ptr %37, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %39 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  store ptr %38, ptr %39, align 8
+  %40 = tail call i32 @cmsGetColorSpace(ptr noundef %38) #8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
-switch.early.test:                                ; preds = %35
-  switch i32 %43, label %45 [
-    i32 1482250784, label %49
-    i32 1281450528, label %49
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %56
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next83, %56 ]
+  %.06474 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %56 ]
+  %41 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv82
+  %42 = load i64, ptr %41, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = load ptr, ptr %43, align 8
+  %45 = add nsw i32 %.06474, 1
+  %46 = sext i32 %.06474 to i64
+  %47 = getelementptr inbounds ptr, ptr %.0629194, i64 %46
+  store ptr %44, ptr %47, align 8
+  %48 = tail call i32 @cmsGetColorSpace(ptr noundef %44) #8
+  %.not77 = icmp eq i64 %indvars.iv82, 0
+  br i1 %.not77, label %56, label %49
+
+49:                                               ; preds = %.lr.ph.split
+  %50 = icmp ne i64 %indvars.iv82, %34
+  %51 = freeze i1 %50
+  br i1 %51, label %switch.early.test, label %56
+
+switch.early.test:                                ; preds = %49
+  switch i32 %48, label %52 [
+    i32 1482250784, label %56
+    i32 1281450528, label %56
   ]
 
-45:                                               ; preds = %switch.early.test
-  %46 = add nsw i32 %.06476, 2
-  %47 = sext i32 %40 to i64
-  %48 = getelementptr inbounds ptr, ptr %.06286, i64 %47
-  store ptr %39, ptr %48, align 8
-  br label %49
+52:                                               ; preds = %switch.early.test
+  %53 = add nsw i32 %.06474, 2
+  %54 = sext i32 %45 to i64
+  %55 = getelementptr inbounds ptr, ptr %.0629194, i64 %54
+  store ptr %44, ptr %55, align 8
+  br label %56
 
-49:                                               ; preds = %switch.early.test, %switch.early.test, %35, %45
-  %.1 = phi i32 [ %46, %45 ], [ %40, %switch.early.test ], [ %40, %35 ], [ %40, %switch.early.test ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !6
+56:                                               ; preds = %switch.early.test, %switch.early.test, %49, %.lr.ph.split, %52
+  %.1 = phi i32 [ %53, %52 ], [ %45, %switch.early.test ], [ %45, %.lr.ph.split ], [ %45, %49 ], [ %45, %switch.early.test ]
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
+  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %49, %30
-  %.06287 = phi ptr [ %8, %30 ], [ %.06286, %49 ]
-  %.064.lcssa = phi i32 [ 0, %30 ], [ %.1, %49 ]
-  %50 = and i32 %4, 896
-  %.not = icmp eq i32 %50, 0
-  %51 = and i32 %5, 896
-  %.not70 = icmp eq i32 %51, 0
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %56, %30
+  %.06292 = phi ptr [ %8, %30 ], [ %.0629194, %56 ], [ %8, %.lr.ph.split.us ]
+  %.064.lcssa = phi i32 [ 0, %30 ], [ %.1, %56 ], [ %.fr76, %.lr.ph.split.us ]
+  %57 = and i32 %4, 896
+  %.not = icmp eq i32 %57, 0
+  %58 = and i32 %5, 896
+  %.not70 = icmp eq i32 %58, 0
   %or.cond73 = or i1 %.not, %.not70
   %.0 = select i1 %or.cond73, i32 0, i32 67108864
-  %52 = call ptr @cmsCreateMultiprofileTransform(ptr noundef nonnull %.06287, i32 noundef %.064.lcssa, i32 noundef %4, i32 noundef %5, i32 noundef %3, i32 noundef %.0) #8
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1568
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %16, i32 noundef 0) #8
-  %56 = icmp eq ptr %52, null
-  br i1 %56, label %57, label %63
+  %59 = call ptr @cmsCreateMultiprofileTransform(ptr noundef nonnull %.06292, i32 noundef %.064.lcssa, i32 noundef %4, i32 noundef %5, i32 noundef %3, i32 noundef %.0) #8
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1568
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %16, i32 noundef 0) #8
+  %63 = icmp eq ptr %59, null
+  br i1 %63, label %64, label %70
 
-57:                                               ; preds = %._crit_edge
+64:                                               ; preds = %._crit_edge
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.3) #8
-  %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1824
-  %60 = load ptr, ptr %59, align 8
-  %61 = call zeroext i8 %60(ptr noundef nonnull %0) #8
-  %.not71 = icmp eq i8 %61, 0
-  br i1 %.not71, label %62, label %65
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1824
+  %67 = load ptr, ptr %66, align 8
+  %68 = call zeroext i8 %67(ptr noundef nonnull %0) #8
+  %.not71 = icmp eq i8 %68, 0
+  br i1 %.not71, label %69, label %72
 
-62:                                               ; preds = %57
+69:                                               ; preds = %64
   call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #8
-  br label %65
+  br label %72
 
-63:                                               ; preds = %._crit_edge
-  %64 = ptrtoint ptr %52 to i64
-  call void @Disposer_AddRecord(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull @LCMS_freeTransform, i64 noundef %64) #8
-  br label %65
+70:                                               ; preds = %._crit_edge
+  %71 = ptrtoint ptr %59 to i64
+  call void @Disposer_AddRecord(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull @LCMS_freeTransform, i64 noundef %71) #8
+  br label %72
 
-65:                                               ; preds = %57, %62, %63
-  %.not72 = icmp eq ptr %.06287, %8
-  br i1 %.not72, label %67, label %66
+72:                                               ; preds = %64, %69, %70
+  %.not72 = icmp eq ptr %.06292, %8
+  br i1 %.not72, label %74, label %73
 
-66:                                               ; preds = %65
-  call void @free(ptr noundef nonnull %.06287) #8
-  br label %67
+73:                                               ; preds = %72
+  call void @free(ptr noundef nonnull %.06292) #8
+  br label %74
 
-67:                                               ; preds = %66, %65
-  %68 = ptrtoint ptr %52 to i64
-  br label %69
+74:                                               ; preds = %73, %72
+  %75 = ptrtoint ptr %59 to i64
+  br label %76
 
-69:                                               ; preds = %7, %67, %26
-  %.061 = phi i64 [ %68, %67 ], [ 0, %26 ], [ 0, %7 ]
+76:                                               ; preds = %7, %74, %26
+  %.061 = phi i64 [ %75, %74 ], [ 0, %26 ], [ 0, %7 ]
   ret i64 %.061
 }
 

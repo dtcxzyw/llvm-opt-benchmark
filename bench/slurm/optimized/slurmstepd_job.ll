@@ -974,15 +974,15 @@ define dso_local void @stepd_step_rec_destroy(ptr noundef %0) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %14 = load i32, ptr %13, align 8
-  %.fr.i = freeze i32 %14
-  %15 = and i32 %.fr.i, 2
+  %.fr23.i = freeze i32 %14
+  %15 = and i32 %.fr23.i, 2
   %.not9.i = icmp eq i32 %15, 0
   br i1 %.not9.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_task_info_destroy.exit.us.i
-  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %_task_info_destroy.exit.us.i ], [ 0, %.lr.ph.i ]
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %_task_info_destroy.exit.us.i ], [ 0, %.lr.ph.i ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv45.i
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv46.i
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %18, ptr %2, align 8
@@ -1009,10 +1009,10 @@ _task_info_destroy.exit.us.i:                     ; preds = %22
   call void @slurm_xfree(ptr noundef nonnull %26) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %27 = load i32, ptr %11, align 4
   %28 = zext i32 %27 to i64
-  %29 = icmp samesign ult i64 %indvars.iv.next46.i, %28
+  %29 = icmp samesign ult i64 %indvars.iv.next47.i, %28
   br i1 %29, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %_task_info_destroy.exit.i, %_task_info_destroy.exit.us.i, %10

@@ -340,11 +340,11 @@ define weak_odr dso_local void @_ZN3igl13fit_rotationsIN5Eigen6MatrixIdLin1ELin1
   %9 = alloca %"class.Eigen::Matrix.66", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !36
-  %.fr69 = freeze i64 %11
-  %12 = trunc i64 %.fr69 to i32
+  %.fr = freeze i64 %11
+  %12 = trunc i64 %.fr to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !33
-  %sext = shl i64 %.fr69, 32
+  %sext = shl i64 %.fr, 32
   %15 = ashr exact i64 %sext, 32
   %16 = sdiv i64 %14, %15
   %17 = trunc i64 %16 to i32
@@ -379,7 +379,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .preheader47.us.preheader:                        ; preds = %.preheader47.lr.ph
   %30 = and i64 %16, 2147483647
-  %31 = and i64 %.fr69, 2147483647
+  %31 = and i64 %.fr, 2147483647
   br label %.preheader47.us
 
 .preheader47.us:                                  ; preds = %.preheader47.us.preheader, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IdLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us
@@ -936,11 +936,11 @@ define weak_odr dso_local void @_ZN3igl13fit_rotationsIN5Eigen6MatrixIfLin1ELin1
   %9 = alloca %"class.Eigen::Matrix.208", align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !32
-  %.fr69 = freeze i64 %11
-  %12 = trunc i64 %.fr69 to i32
+  %.fr = freeze i64 %11
+  %12 = trunc i64 %.fr to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !4
-  %sext = shl i64 %.fr69, 32
+  %sext = shl i64 %.fr, 32
   %15 = ashr exact i64 %sext, 32
   %16 = sdiv i64 %14, %15
   %17 = trunc i64 %16 to i32
@@ -975,7 +975,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .preheader47.us.preheader:                        ; preds = %.preheader47.lr.ph
   %30 = and i64 %16, 2147483647
-  %31 = and i64 %.fr69, 2147483647
+  %31 = and i64 %.fr, 2147483647
   br label %.preheader47.us
 
 .preheader47.us:                                  ; preds = %.preheader47.us.preheader, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us

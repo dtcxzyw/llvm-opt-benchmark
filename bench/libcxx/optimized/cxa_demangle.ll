@@ -18906,12 +18906,11 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 
 _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfoltEPKc.exit.i: ; preds = %28
   %30 = load i8, ptr %20, align 1, !tbaa !210
-  %.val16.fr.i = freeze i8 %.val16.i
-  %.fr.i = freeze i8 %30
-  %31 = icmp slt i8 %.val16.fr.i, %.fr.i
+  %31 = icmp slt i8 %.val16.i, %30
+  %cond.fr19.i = freeze i1 %31
   %32 = add nuw i64 %23, 1
-  %spec.select.i = select i1 %31, i64 %32, i64 %.01229.i
-  %spec.select28.i = select i1 %31, i64 %.01030.i, i64 %23
+  %spec.select.i = select i1 %cond.fr19.i, i64 %32, i64 %.01229.i
+  %spec.select28.i = select i1 %cond.fr19.i, i64 %.01030.i, i64 %23
   br label %.thread24.i
 
 .thread24.i:                                      ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfoltEPKc.exit.i, %28, %.thread.i
@@ -21959,12 +21958,11 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
 
 _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfoltEPKc.exit.i: ; preds = %29
   %31 = load i8, ptr %21, align 1, !tbaa !210
-  %.val16.fr.i = freeze i8 %.val16.i
-  %.fr.i = freeze i8 %31
-  %32 = icmp slt i8 %.val16.fr.i, %.fr.i
+  %32 = icmp slt i8 %.val16.i, %31
+  %cond.fr19.i = freeze i1 %32
   %33 = add nuw i64 %24, 1
-  %spec.select.i = select i1 %32, i64 %33, i64 %.01229.i
-  %spec.select28.i = select i1 %32, i64 %.01030.i, i64 %24
+  %spec.select.i = select i1 %cond.fr19.i, i64 %33, i64 %.01229.i
+  %spec.select28.i = select i1 %cond.fr19.i, i64 %.01030.i, i64 %24
   br label %.thread24.i
 
 .thread24.i:                                      ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfoltEPKc.exit.i, %29, %.thread.i
@@ -35517,12 +35515,11 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116itanium_demangle22Abstrac
 
 _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfoltEPKc.exit.i: ; preds = %17
   %19 = load i8, ptr %9, align 1, !tbaa !210
-  %.val16.fr.i = freeze i8 %.val16.i
-  %.fr.i = freeze i8 %19
-  %20 = icmp slt i8 %.val16.fr.i, %.fr.i
+  %20 = icmp slt i8 %.val16.i, %19
+  %cond.fr19.i = freeze i1 %20
   %21 = add nuw i64 %12, 1
-  %spec.select.i = select i1 %20, i64 %21, i64 %.01229.i
-  %spec.select28.i = select i1 %20, i64 %.01030.i, i64 %12
+  %spec.select.i = select i1 %cond.fr19.i, i64 %21, i64 %.01229.i
+  %spec.select28.i = select i1 %cond.fr19.i, i64 %.01030.i, i64 %12
   br label %.thread24.i
 
 .thread24.i:                                      ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfoltEPKc.exit.i, %17, %.thread.i
@@ -43703,22 +43700,22 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN12_
   br i1 %.not94307.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39, %46
-  %.084.fr309.i = phi i32 [ %50, %46 ], [ 0, %39 ]
+  %.084.fr309.i = phi i32 [ %.084.fr.i, %46 ], [ 0, %39 ]
   %.082308.i = phi ptr [ %51, %46 ], [ %.val109.i, %39 ]
   %43 = load i8, ptr %.082308.i, align 1, !tbaa !210
-  %.fr.i = freeze i8 %43
-  %44 = add i8 %.fr.i, -48
+  %44 = add i8 %43, -48
   %or.cond.i = icmp ult i8 %44, 10
   %45 = icmp slt i32 %.084.fr309.i, 26
   %or.cond8.not.i = and i1 %45, %or.cond.i
   br i1 %or.cond8.not.i, label %46, label %52
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = zext nneg i8 %.fr.i to i32
-  %48 = mul i32 %.084.fr309.i, 10
+  %47 = zext nneg i8 %43 to i32
+  %48 = mul nsw i32 %.084.fr309.i, 10
   %49 = add i32 %48, -48
   %50 = add i32 %49, %47
   %51 = getelementptr inbounds nuw i8, ptr %.082308.i, i64 1
+  %.084.fr.i = freeze i32 %50
   %.not94.i = icmp eq ptr %51, %42
   br i1 %.not94.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -43732,7 +43729,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN12_
   br label %_ZNK12_GLOBAL__N_116itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.exit
 
 ._crit_edge.i:                                    ; preds = %46
-  %57 = icmp sgt i32 %50, 255
+  %57 = icmp sgt i32 %.084.fr.i, 255
   br i1 %57, label %58, label %._crit_edge.thread.i
 
 58:                                               ; preds = %._crit_edge.i
@@ -43745,16 +43742,16 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN12_
   br label %_ZNK12_GLOBAL__N_116itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %39
-  %.084.fr.lcssa359.i = phi i32 [ %50, %._crit_edge.i ], [ 0, %39 ]
+  %.084.fr.lcssa360.i = phi i32 [ %.084.fr.i, %._crit_edge.i ], [ 0, %39 ]
   br i1 %.078312.i, label %63, label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit.i
 
 63:                                               ; preds = %._crit_edge.thread.i
-  %64 = add i32 %.084.fr.lcssa359.i, -48
+  %64 = add i32 %.084.fr.lcssa360.i, -48
   %or.cond10.i = icmp ult i32 %64, 10
   br i1 %or.cond10.i, label %65, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %63
-  switch i32 %.084.fr.lcssa359.i, label %235 [
+  switch i32 %.084.fr.lcssa360.i, label %235 [
     i32 102, label %65
     i32 101, label %65
     i32 100, label %65
@@ -43819,7 +43816,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit.i
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit.i: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i, %._crit_edge.thread.i
-  switch i32 %.084.fr.lcssa359.i, label %235 [
+  switch i32 %.084.fr.lcssa360.i, label %235 [
     i32 7, label %82
     i32 8, label %99
     i32 12, label %116
@@ -44192,8 +44189,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i191.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit123.i
 
 235:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit.i, %switch.early.test.i
-  %236 = icmp slt i32 %.084.fr.lcssa359.i, 32
-  %237 = icmp eq i32 %.084.fr.lcssa359.i, 127
+  %236 = icmp slt i32 %.084.fr.lcssa360.i, 32
+  %237 = icmp eq i32 %.084.fr.lcssa360.i, 127
   %or.cond16.i = or i1 %236, %237
   br i1 %or.cond16.i, label %238, label %308
 
@@ -44235,7 +44232,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN
   store i64 %.pre-phi.i200.i, ptr %13, align 8, !tbaa !224
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 %250
   store i8 92, ptr %252, align 1, !tbaa !210
-  %253 = icmp sgt i32 %.084.fr.lcssa359.i, 7
+  %253 = icmp sgt i32 %.084.fr.lcssa360.i, 7
   br i1 %253, label %254, label %.thread284.i
 
 254:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i
@@ -44276,11 +44273,11 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN
   store i64 %.pre-phi.i210.i, ptr %13, align 8, !tbaa !224
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 %267
   store i8 120, ptr %269, align 1, !tbaa !210
-  %270 = icmp samesign ugt i32 %.084.fr.lcssa359.i, 15
+  %270 = icmp samesign ugt i32 %.084.fr.lcssa360.i, 15
   br i1 %270, label %271, label %.thread284.i
 
 271:                                              ; preds = %266
-  %272 = lshr i32 %.084.fr.lcssa359.i, 4
+  %272 = lshr i32 %.084.fr.lcssa360.i, 4
   %273 = zext nneg i32 %272 to i64
   %274 = getelementptr inbounds nuw i8, ptr @__const._ZNK12_GLOBAL__N_116itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.Hex, i64 %273
   %275 = load i8, ptr %274, align 1, !tbaa !210
@@ -44324,7 +44321,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit225.i: ; preds = %._ZN
   br label %.thread284.i
 
 .thread284.i:                                     ; preds = %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit225.i, %266, %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i
-  %290 = and i32 %.084.fr.lcssa359.i, 15
+  %290 = and i32 %.084.fr.lcssa360.i, 15
   %291 = zext nneg i32 %290 to i64
   %292 = getelementptr inbounds nuw i8, ptr @__const._ZNK12_GLOBAL__N_116itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.Hex, i64 %291
   %293 = load i8, ptr %292, align 1, !tbaa !210
@@ -44368,7 +44365,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit235.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit123.i
 
 308:                                              ; preds = %235
-  %309 = trunc nuw i32 %.084.fr.lcssa359.i to i8
+  %309 = trunc nuw i32 %.084.fr.lcssa360.i to i8
   %310 = load i64, ptr %13, align 8, !tbaa !224
   %311 = add i64 %310, 1
   %312 = load i64, ptr %15, align 8, !tbaa !225

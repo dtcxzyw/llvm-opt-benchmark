@@ -274,14 +274,13 @@ _ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit: ; preds = %8
   %91 = load i32, ptr %90, align 4, !tbaa !67
   %92 = getelementptr inbounds nuw i8, ptr %75, i64 72
   %93 = load i32, ptr %92, align 8, !tbaa !68
-  %.fr = freeze i32 %91
-  %.fr106 = freeze i32 %93
-  %94 = icmp eq i32 %.fr, %.fr106
-  %spec.select = select i1 %94, i64 256, i64 0
+  %94 = icmp eq i32 %91, %93
+  %cond.fr = freeze i1 %94
+  %spec.select = select i1 %cond.fr, i64 256, i64 0
   br label %_ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit.thread
 
 _ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit.thread: ; preds = %_ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit, %.lr.ph76, %84
-  %95 = phi i1 [ false, %.lr.ph76 ], [ %94, %_ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit ], [ false, %84 ]
+  %95 = phi i1 [ false, %.lr.ph76 ], [ %cond.fr, %_ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit ], [ false, %84 ]
   %96 = phi i64 [ 0, %.lr.ph76 ], [ %spec.select, %_ZN4llvm13LoopTraversal11isBlockDoneEPNS_17MachineBasicBlockE.exit ], [ 0, %84 ]
   %.sroa.254.8.insert.ext = zext i1 %.075 to i64
   %.sroa.254.8.insert.insert = or disjoint i64 %96, %.sroa.254.8.insert.ext

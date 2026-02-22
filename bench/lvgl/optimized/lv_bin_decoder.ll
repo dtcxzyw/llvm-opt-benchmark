@@ -531,8 +531,8 @@ declare void @lv_image_decoder_set_get_area_cb(ptr noundef, ptr noundef) local_u
 define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8
-  %.fr = freeze i64 %6
-  %7 = trunc i64 %.fr to i32
+  %.fr180 = freeze i64 %6
+  %7 = trunc i64 %.fr180 to i32
   %8 = lshr i32 %7, 8
   %9 = and i32 %8, 255
   %10 = add nsw i32 %9, -7
@@ -541,11 +541,11 @@ define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) 
   %12 = and i32 %7, 64512
   %13 = icmp eq i32 %12, 4096
   %14 = icmp eq i32 %9, 20
-  br i1 %13, label %15, label %switch.early.test179
+  br i1 %13, label %15, label %switch.early.test181
 
-switch.early.test179:                             ; preds = %4
-  %trunc180 = trunc i32 %8 to i8
-  switch i8 %trunc180, label %.critedge [
+switch.early.test181:                             ; preds = %4
+  %trunc182 = trunc i32 %8 to i8
+  switch i8 %trunc182, label %.critedge [
     i8 20, label %15
     i8 15, label %15
     i8 10, label %15
@@ -554,7 +554,7 @@ switch.early.test179:                             ; preds = %4
     i8 7, label %15
   ]
 
-15:                                               ; preds = %switch.early.test179, %switch.early.test179, %switch.early.test179, %switch.early.test179, %switch.early.test179, %switch.early.test179, %4
+15:                                               ; preds = %switch.early.test181, %switch.early.test181, %switch.early.test181, %switch.early.test181, %switch.early.test181, %switch.early.test181, %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = icmp eq ptr %17, null
@@ -791,7 +791,7 @@ decode_indexed_line.exit:                         ; preds = %125, %120
   br i1 %11, label %144, label %switch.early.test
 
 switch.early.test:                                ; preds = %142
-  %143 = trunc i64 %.fr to i16
+  %143 = trunc i64 %.fr180 to i16
   %trunc = and i16 %143, -512
   switch i16 %trunc, label %160 [
     i16 4608, label %144
@@ -869,8 +869,8 @@ fs_read_file_at.exit174:                          ; preds = %144
   store ptr %.2156, ptr %193, align 8, !tbaa !34
   br label %.critedge
 
-.critedge:                                        ; preds = %switch.early.test179, %144, %15, %40, %160, %192, %161, %175, %158, %fs_read_file_at.exit174, %fs_read_file_at.exit.thread, %140, %54
-  %.0 = phi i32 [ 0, %switch.early.test179 ], [ 0, %15 ], [ 0, %160 ], [ 0, %54 ], [ 0, %fs_read_file_at.exit.thread ], [ 0, %fs_read_file_at.exit174 ], [ 0, %175 ], [ 1, %140 ], [ 1, %158 ], [ 1, %192 ], [ 0, %161 ], [ 0, %40 ], [ 0, %144 ]
+.critedge:                                        ; preds = %switch.early.test181, %144, %15, %40, %160, %192, %161, %175, %158, %fs_read_file_at.exit174, %fs_read_file_at.exit.thread, %140, %54
+  %.0 = phi i32 [ 0, %switch.early.test181 ], [ 0, %15 ], [ 0, %160 ], [ 0, %54 ], [ 0, %fs_read_file_at.exit.thread ], [ 0, %fs_read_file_at.exit174 ], [ 0, %175 ], [ 1, %140 ], [ 1, %158 ], [ 1, %192 ], [ 0, %161 ], [ 0, %40 ], [ 0, %144 ]
   ret i32 %.0
 }
 

@@ -2841,7 +2841,6 @@ _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8proto
 if.end:                                           ; preds = %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE18new_leaf_root_nodeEh.exit, %entry
   %integral1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   %2 = load i64, ptr %integral1.i.i.i.i.i.i.i, align 8
-  %.fr21.i.i.i.i = freeze i64 %2
   %3 = load ptr, ptr %key, align 8
   br label %for.cond.i
 
@@ -2850,8 +2849,8 @@ for.cond.i:                                       ; preds = %if.end.i, %if.end
   %iter.sroa.0.0.i = load ptr, ptr %iter.sroa.0.0.in.i, align 8
   %arrayidx.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i, i64 10
   %4 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.not22.i.i.i.i = icmp eq i8 %4, 0
-  br i1 %cmp.not22.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11lower_boundIS7_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISB_S7_E15checked_compareE.exit.i, label %while.body.lr.ph.i.i.i.i
+  %cmp.not21.i.i.i.i = icmp eq i8 %4, 0
+  br i1 %cmp.not21.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11lower_boundIS7_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISB_S7_E15checked_compareE.exit.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   %conv3.i.i.i = zext i8 %4 to i64
@@ -2859,20 +2858,20 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.thread.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %s.addr.024.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %9, %.thread.i.i.i.i ]
-  %e.addr.023.i.i.i.i = phi i64 [ %conv3.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %8, %.thread.i.i.i.i ]
-  %add.i.i.i.i = add i64 %e.addr.023.i.i.i.i, %s.addr.024.i.i.i.i
+  %s.addr.023.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %9, %.thread.i.i.i.i ]
+  %e.addr.022.i.i.i.i = phi i64 [ %conv3.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %8, %.thread.i.i.i.i ]
+  %add.i.i.i.i = add i64 %e.addr.022.i.i.i.i, %s.addr.023.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i
   %integral.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   %5 = load i64, ptr %integral.i.i.i.i.i.i.i, align 8
-  %.fr.i.i.i.i = freeze i64 %5
-  %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %.fr.i.i.i.i, %.fr21.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %5, %2
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i
-  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %.fr.i.i.i.i, %.fr21.i.i.i.i
-  br i1 %cmp4.i.i.i.i.i.i.i, label %7, label %.thread.i.i.i.i
+  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %5, %2
+  %cond.fr12.i.i.i.i = freeze i1 %cmp4.i.i.i.i.i.i.i
+  br i1 %cond.fr12.i.i.i.i, label %7, label %.thread.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -2880,7 +2879,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i
   br i1 %cmp5.i.i.i.i.i.i.i, label %.thread.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i
 
 _ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i
-  %call11.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.fr21.i.i.i.i) #23
+  %call11.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %2) #23
   %call11.i.i.i.fr.i.i.i.i = freeze i32 %call11.i.i.i.i.i.i.i
   %cmp12.i.i.i.i.i.i.i = icmp slt i32 %call11.i.i.i.fr.i.i.i.i, 0
   br i1 %cmp12.i.i.i.i.i.i.i, label %7, label %.thread.i.i.i.i
@@ -2890,8 +2889,8 @@ _ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6googl
   br label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %7, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %8 = phi i64 [ %e.addr.023.i.i.i.i, %7 ], [ %shr.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
-  %9 = phi i64 [ %add314.i.i.i.i, %7 ], [ %s.addr.024.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.024.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %s.addr.024.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
+  %8 = phi i64 [ %e.addr.022.i.i.i.i, %7 ], [ %shr.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
+  %9 = phi i64 [ %add314.i.i.i.i, %7 ], [ %s.addr.023.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.023.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %s.addr.023.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
   %cmp.not.i.i.i.i = icmp eq i64 %9, %8
   br i1 %cmp.not.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11lower_boundIS7_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISB_S7_E15checked_compareE.exit.i, label %while.body.i.i.i.i, !llvm.loop !67
 
@@ -2937,11 +2936,11 @@ land.lhs.true:                                    ; preds = %while.cond.i
   %arrayidx.i.i.i14 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i13, i64 %conv.i12
   %integral1.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i14, i64 8
   %15 = load i64, ptr %integral1.i.i.i.i, align 8
-  %cmp.not.i.i.i.i15 = icmp eq i64 %.fr21.i.i.i.i, %15
+  %cmp.not.i.i.i.i15 = icmp eq i64 %2, %15
   br i1 %cmp.not.i.i.i.i15, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true
-  %cmp4.i.i.i.i = icmp ult i64 %.fr21.i.i.i.i, %15
+  %cmp4.i.i.i.i = icmp ult i64 %2, %15
   br i1 %cmp4.i.i.i.i, label %if.end14, label %return
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true
@@ -2950,7 +2949,7 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true
 
 _ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit: ; preds = %if.end.i.i.i.i
   %16 = load ptr, ptr %arrayidx.i.i.i14, align 8
-  %call11.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef %16, i64 noundef %.fr21.i.i.i.i) #23
+  %call11.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef %16, i64 noundef %2) #23
   %cmp12.i.i.i.i = icmp slt i32 %call11.i.i.i.i, 0
   br i1 %cmp12.i.i.i.i, label %if.end14, label %return
 
@@ -2961,12 +2960,12 @@ if.end14:                                         ; preds = %while.body.i, %if.t
   br label %return
 
 return:                                           ; preds = %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit, %if.then.i.i.i.i, %if.end.i.i.i.i, %if.end14
-  %.sink37 = phi ptr [ %17, %if.end14 ], [ %iter.sroa.0.0.i3, %if.end.i.i.i.i ], [ %iter.sroa.0.0.i3, %if.then.i.i.i.i ], [ %iter.sroa.0.0.i3, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
-  %.sink36 = phi i32 [ %18, %if.end14 ], [ %iter.sroa.7.0.i, %if.end.i.i.i.i ], [ %iter.sroa.7.0.i, %if.then.i.i.i.i ], [ %iter.sroa.7.0.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
+  %.sink40 = phi ptr [ %17, %if.end14 ], [ %iter.sroa.0.0.i3, %if.end.i.i.i.i ], [ %iter.sroa.0.0.i3, %if.then.i.i.i.i ], [ %iter.sroa.0.0.i3, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
+  %.sink39 = phi i32 [ %18, %if.end14 ], [ %iter.sroa.7.0.i, %if.end.i.i.i.i ], [ %iter.sroa.7.0.i, %if.then.i.i.i.i ], [ %iter.sroa.7.0.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
   %.sink = phi i8 [ 1, %if.end14 ], [ 0, %if.end.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ 0, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
-  store ptr %.sink37, ptr %agg.result, align 8
+  store ptr %.sink40, ptr %agg.result, align 8
   %ref.tmp15.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 %.sink36, ptr %ref.tmp15.sroa.2.0.agg.result.sroa_idx, align 8
+  store i32 %.sink39, ptr %ref.tmp15.sroa.2.0.agg.result.sroa_idx, align 8
   %second.i16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %second.i16, align 8
   ret void
@@ -3673,7 +3672,6 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK4absl12lts_2023080218container_inte
 entry:
   %integral1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   %0 = load i64, ptr %integral1.i.i.i.i.i.i.i, align 8
-  %.fr21.i.i.i.i = freeze i64 %0
   %1 = load ptr, ptr %key, align 8
   br label %for.cond.i
 
@@ -3682,8 +3680,8 @@ for.cond.i:                                       ; preds = %if.end.i, %entry
   %iter.sroa.0.0.i = load ptr, ptr %iter.sroa.0.0.in.i, align 8
   %arrayidx.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i, i64 10
   %2 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.not22.i.i.i.i = icmp eq i8 %2, 0
-  br i1 %cmp.not22.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11lower_boundIS7_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISB_S7_E15checked_compareE.exit.i, label %while.body.lr.ph.i.i.i.i
+  %cmp.not21.i.i.i.i = icmp eq i8 %2, 0
+  br i1 %cmp.not21.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11lower_boundIS7_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISB_S7_E15checked_compareE.exit.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   %conv3.i.i.i = zext i8 %2 to i64
@@ -3691,20 +3689,20 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.thread.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %s.addr.024.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %7, %.thread.i.i.i.i ]
-  %e.addr.023.i.i.i.i = phi i64 [ %conv3.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %6, %.thread.i.i.i.i ]
-  %add.i.i.i.i = add i64 %e.addr.023.i.i.i.i, %s.addr.024.i.i.i.i
+  %s.addr.023.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %7, %.thread.i.i.i.i ]
+  %e.addr.022.i.i.i.i = phi i64 [ %conv3.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %6, %.thread.i.i.i.i ]
+  %add.i.i.i.i = add i64 %e.addr.022.i.i.i.i, %s.addr.023.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i
   %integral.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   %3 = load i64, ptr %integral.i.i.i.i.i.i.i, align 8
-  %.fr.i.i.i.i = freeze i64 %3
-  %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %.fr.i.i.i.i, %.fr21.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %3, %0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i
-  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %.fr.i.i.i.i, %.fr21.i.i.i.i
-  br i1 %cmp4.i.i.i.i.i.i.i, label %5, label %.thread.i.i.i.i
+  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %3, %0
+  %cond.fr12.i.i.i.i = freeze i1 %cmp4.i.i.i.i.i.i.i
+  br i1 %cond.fr12.i.i.i.i, label %5, label %.thread.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -3712,7 +3710,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i
   br i1 %cmp5.i.i.i.i.i.i.i, label %.thread.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i
 
 _ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i
-  %call11.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %.fr21.i.i.i.i) #23
+  %call11.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %0) #23
   %call11.i.i.i.fr.i.i.i.i = freeze i32 %call11.i.i.i.i.i.i.i
   %cmp12.i.i.i.i.i.i.i = icmp slt i32 %call11.i.i.i.fr.i.i.i.i, 0
   br i1 %cmp12.i.i.i.i.i.i.i, label %5, label %.thread.i.i.i.i
@@ -3722,8 +3720,8 @@ _ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6googl
   br label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %5, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %6 = phi i64 [ %e.addr.023.i.i.i.i, %5 ], [ %shr.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
-  %7 = phi i64 [ %add314.i.i.i.i, %5 ], [ %s.addr.024.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.024.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %s.addr.024.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
+  %6 = phi i64 [ %e.addr.022.i.i.i.i, %5 ], [ %shr.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %shr.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
+  %7 = phi i64 [ %add314.i.i.i.i, %5 ], [ %s.addr.023.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %s.addr.023.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %s.addr.023.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessIN6google8protobuf8internal10VariantKeyEES7_E15checked_compareclIS7_S7_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS8_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i ]
   %cmp.not.i.i.i.i = icmp eq i64 %7, %6
   br i1 %cmp.not.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11lower_boundIS7_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISB_S7_E15checked_compareE.exit.i, label %while.body.i.i.i.i, !llvm.loop !67
 
@@ -3769,11 +3767,11 @@ land.lhs.true:                                    ; preds = %while.cond.i
   %arrayidx.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv.i10
   %integral1.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %13 = load i64, ptr %integral1.i.i.i.i, align 8
-  %cmp.not.i.i.i.i11 = icmp eq i64 %.fr21.i.i.i.i, %13
+  %cmp.not.i.i.i.i11 = icmp eq i64 %0, %13
   br i1 %cmp.not.i.i.i.i11, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true
-  %cmp4.i.i.i.i = icmp ult i64 %.fr21.i.i.i.i, %13
+  %cmp4.i.i.i.i = icmp ult i64 %0, %13
   br i1 %cmp4.i.i.i.i, label %if.end, label %return
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true
@@ -3782,7 +3780,7 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true
 
 _ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit: ; preds = %if.end.i.i.i.i
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %call11.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %1, ptr noundef %14, i64 noundef %.fr21.i.i.i.i) #23
+  %call11.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %1, ptr noundef %14, i64 noundef %0) #23
   %cmp12.i.i.i.i = icmp slt i32 %call11.i.i.i.i, 0
   br i1 %cmp12.i.i.i.i, label %if.end, label %return
 

@@ -101,15 +101,15 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %.sroa.12.0.i = phi i32 [ 0, %17 ], [ %.sroa.12.2.i, %.thread.i ]
   %.sroa.18.0.i = phi i32 [ 0, %17 ], [ %.sroa.18.2.i, %.thread.i ]
   %.056.i = phi i64 [ 0, %17 ], [ %91, %.thread.i ]
-  %.054.i = phi i64 [ 0, %17 ], [ %.fr63.i, %.thread.i ]
+  %.054.i = phi i64 [ 0, %17 ], [ %38, %.thread.i ]
   %38 = call i64 @clock() #7
-  %.fr63.i = freeze i64 %38
-  %39 = sub i64 %.fr63.i, %.054.i
-  %40 = trunc i64 %39 to i32
+  %39 = sub nsw i64 %38, %.054.i
+  %.fr63.i = freeze i64 %39
+  %40 = trunc i64 %.fr63.i to i32
   %41 = shl nsw i64 %.056.i, 1
   %42 = or disjoint i64 %41, 1
   %43 = add i64 %42, %.054.i
-  %44 = icmp slt i64 %43, %.fr63.i
+  %44 = icmp slt i64 %43, %38
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %37
@@ -127,7 +127,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   br label %.critedge.i
 
 55:                                               ; preds = %37
-  %56 = icmp eq i64 %.fr63.i, %.054.i
+  %56 = icmp eq i64 %38, %.054.i
   %57 = icmp slt i32 %.sroa.0.0.i, 1
   %or.cond.not84.i = select i1 %56, i1 true, i1 %57
   %58 = icmp slt i32 %.sroa.12.0.i, 1
@@ -168,7 +168,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
 
 .critedge.i:                                      ; preds = %60, %45
   %79 = phi i64 [ %64, %60 ], [ %50, %45 ]
-  %80 = sub nsw i64 %.fr63.i, %.058.i
+  %80 = sub nsw i64 %38, %.058.i
   %81 = icmp sgt i64 %80, 31249
   br i1 %81, label %82, label %.thread.i
 
@@ -185,17 +185,17 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   br i1 %87, label %get_generic_seed.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %86, %83, %.critedge.i, %69
-  %88 = icmp eq i64 %.fr63.i, %.054.i
+  %88 = icmp eq i64 %38, %.054.i
   %89 = add nsw i32 %.sroa.0.0.i, 1
   %.not66.i = icmp eq i32 %.sroa.0.0.i, %.sroa.12.0.i
   %.sroa.0.2.i = select i1 %88, i32 %89, i32 0
   %.sroa.12.2.i = select i1 %88, i32 %.sroa.12.0.i, i32 %.sroa.0.0.i
   %90 = select i1 %88, i1 true, i1 %.not66.i
   %.sroa.18.2.i = select i1 %90, i32 %.sroa.18.0.i, i32 %.sroa.12.0.i
-  %sext.i = shl i64 %39, 32
+  %sext.i = shl i64 %.fr63.i, 32
   %91 = ashr exact i64 %sext.i, 32
   %.not67.i = icmp eq i64 %.058.i, 0
-  %.2.i = select i1 %.not67.i, i64 %.fr63.i, i64 %.058.i
+  %.2.i = select i1 %.not67.i, i64 %38, i64 %.058.i
   br label %37
 
 get_generic_seed.exit:                            ; preds = %83, %86

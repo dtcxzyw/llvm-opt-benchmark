@@ -9229,13 +9229,13 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %20 = load i32, ptr %19, align 4
-  %.fr = freeze i32 %20
-  %21 = lshr i32 %.fr, 24
-  %22 = and i32 %.fr, 65536
+  %.fr6 = freeze i32 %20
+  %21 = lshr i32 %.fr6, 24
+  %22 = and i32 %.fr6, 65536
   %.not60 = icmp eq i32 %22, 0
-  %23 = lshr i32 %.fr, 8
+  %23 = lshr i32 %.fr6, 8
   %24 = and i32 %23, 255
-  %25 = and i32 %.fr, 255
+  %25 = and i32 %.fr6, 255
   %26 = select i1 %.not60, i32 %25, i32 %24
   %27 = icmp ne i32 %22, 0
   br label %28
@@ -9281,8 +9281,8 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %44, ptr noundef nonnull @.str.2331)
   %45 = add i32 %.11.us, 1
   %46 = add nuw nsw i32 %.0552.us, 1
-  %exitcond8.not = icmp eq i32 %46, 32
-  br i1 %exitcond8.not, label %37, label %40, !llvm.loop !37
+  %exitcond9.not = icmp eq i32 %46, 32
+  br i1 %exitcond9.not, label %37, label %40, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
   %.0544 = phi i32 [ %57, %56 ], [ %.050, %.lr.ph ]

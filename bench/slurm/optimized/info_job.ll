@@ -772,8 +772,8 @@ define dso_local void @scontrol_print_job(ptr noundef %0, i32 noundef %1, ptr no
 
 .preheader:                                       ; preds = %3
   %23 = load i8, ptr %0, align 1
-  %.not75111 = icmp eq i8 %23, 0
-  br i1 %.not75111, label %._crit_edge, label %.lr.ph
+  %.not75112 = icmp eq i8 %23, 0
+  br i1 %.not75112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %24 = tail call ptr @__ctype_b_loc() #17
@@ -782,12 +782,12 @@ define dso_local void @scontrol_print_job(ptr noundef %0, i32 noundef %1, ptr no
 
 26:                                               ; preds = %.lr.ph, %36
   %27 = phi i8 [ %23, %.lr.ph ], [ %38, %36 ]
-  %.055112 = phi ptr [ %0, %.lr.ph ], [ %37, %36 ]
+  %.055113 = phi ptr [ %0, %.lr.ph ], [ %37, %36 ]
   %28 = sext i8 %27 to i64
   %29 = getelementptr inbounds i16, ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2
-  %.fr = freeze i16 %30
-  %31 = and i16 %.fr, 2048
+  %.fr110 = freeze i16 %30
+  %31 = and i16 %.fr110, 2048
   %.not76.not = icmp eq i16 %31, 0
   br i1 %.not76.not, label %switch.early.test, label %36
 
@@ -810,7 +810,7 @@ switch.early.test:                                ; preds = %26
   br label %924
 
 36:                                               ; preds = %switch.early.test, %switch.early.test, %26
-  %37 = getelementptr inbounds nuw i8, ptr %.055112, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.055113, i64 1
   %38 = load i8, ptr %37, align 1
   %.not75 = icmp eq i8 %38, 0
   br i1 %.not75, label %._crit_edge, label %26, !llvm.loop !13
@@ -828,11 +828,11 @@ switch.early.test:                                ; preds = %26
   %46 = call i64 @strtol(ptr noundef nonnull %45, ptr noundef nonnull %19, i32 noundef 10) #16
   %47 = trunc i64 %46 to i32
   %.pre = load ptr, ptr %19, align 8
-  %.pre131 = load i8, ptr %.pre, align 1
+  %.pre132 = load i8, ptr %.pre, align 1
   br label %48
 
 48:                                               ; preds = %44, %._crit_edge
-  %49 = phi i8 [ %.pre131, %44 ], [ %42, %._crit_edge ]
+  %49 = phi i8 [ %.pre132, %44 ], [ %42, %._crit_edge ]
   %50 = phi ptr [ %.pre, %44 ], [ %41, %._crit_edge ]
   %.260 = phi i32 [ %47, %44 ], [ -2, %._crit_edge ]
   %51 = icmp eq i8 %49, 43
@@ -947,42 +947,42 @@ switch.early.test:                                ; preds = %26
 95:                                               ; preds = %91
   %96 = load i32, ptr @quiet_flag, align 4
   %97 = icmp eq i32 %96, -1
-  %.pre133 = load ptr, ptr %18, align 8
+  %.pre134 = load ptr, ptr %18, align 8
   br i1 %97, label %98, label %103
 
 98:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %99 = getelementptr inbounds nuw i8, ptr %.pre133, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.pre134, i64 8
   call void @slurm_make_time_str(ptr noundef nonnull %99, ptr noundef nonnull %22, i32 noundef 256) #16
-  %100 = getelementptr inbounds nuw i8, ptr %.pre133, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.pre134, i64 16
   %101 = load i32, ptr %100, align 8
   %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %22, i32 noundef %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %103
 
 103:                                              ; preds = %98, %95
-  %104 = getelementptr inbounds nuw i8, ptr %.pre133, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.pre134, i64 16
   %105 = load i32, ptr %104, align 8
-  %.not128 = icmp eq i32 %105, 0
-  br i1 %.not128, label %._crit_edge127.thread, label %.lr.ph126
+  %.not129 = icmp eq i32 %105, 0
+  br i1 %.not129, label %._crit_edge128.thread, label %.lr.ph127
 
-.lr.ph126:                                        ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %.pre133, i64 24
+.lr.ph127:                                        ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %.pre134, i64 24
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq i32 %.057, -2
   %109 = icmp eq i32 %.058, -2
   %110 = zext i32 %.058 to i64
   br label %111
 
-111:                                              ; preds = %.lr.ph126, %_task_id_in_job.exit.thread106
-  %112 = phi ptr [ %.pre133, %.lr.ph126 ], [ %904, %_task_id_in_job.exit.thread106 ]
-  %.056116 = phi ptr [ %107, %.lr.ph126 ], [ %906, %_task_id_in_job.exit.thread106 ]
-  %.063114 = phi i32 [ 0, %.lr.ph126 ], [ %.164, %_task_id_in_job.exit.thread106 ]
-  %.065113 = phi i32 [ 0, %.lr.ph126 ], [ %905, %_task_id_in_job.exit.thread106 ]
+111:                                              ; preds = %.lr.ph127, %_task_id_in_job.exit.thread106
+  %112 = phi ptr [ %.pre134, %.lr.ph127 ], [ %904, %_task_id_in_job.exit.thread106 ]
+  %.056117 = phi ptr [ %107, %.lr.ph127 ], [ %906, %_task_id_in_job.exit.thread106 ]
+  %.063115 = phi i32 [ 0, %.lr.ph127 ], [ %.164, %_task_id_in_job.exit.thread106 ]
+  %.065114 = phi i32 [ 0, %.lr.ph127 ], [ %905, %_task_id_in_job.exit.thread106 ]
   br i1 %108, label %_het_job_offset_match.exit.thread, label %_het_job_offset_match.exit
 
 _het_job_offset_match.exit:                       ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %.056116, i64 408
+  %113 = getelementptr inbounds nuw i8, ptr %.056117, i64 408
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %.057, %114
   br i1 %115, label %_het_job_offset_match.exit.thread, label %_task_id_in_job.exit.thread106
@@ -991,13 +991,13 @@ _het_job_offset_match.exit.thread:                ; preds = %111, %_het_job_offs
   br i1 %109, label %.thread109, label %116
 
 116:                                              ; preds = %_het_job_offset_match.exit.thread
-  %117 = getelementptr inbounds nuw i8, ptr %.056116, i64 52
+  %117 = getelementptr inbounds nuw i8, ptr %.056117, i64 52
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %.058, %118
   br i1 %119, label %.thread108, label %120
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %.056116, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.056117, i64 40
   %122 = load ptr, ptr %121, align 8
   %.not.i = icmp eq ptr %122, null
   br i1 %.not.i, label %_task_id_in_job.exit.thread106, label %123
@@ -1015,7 +1015,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br i1 %.not12.i.not, label %_task_id_in_job.exit.thread106, label %.thread108
 
 .thread108:                                       ; preds = %_task_id_in_job.exit, %116
-  %128 = getelementptr inbounds nuw i8, ptr %.056116, i64 64
+  %128 = getelementptr inbounds nuw i8, ptr %.056117, i64 64
   %129 = load ptr, ptr %128, align 8
   %.not87 = icmp eq ptr %129, null
   br i1 %.not87, label %.thread109, label %130
@@ -1038,7 +1038,7 @@ _task_id_in_job.exit:                             ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %133 = getelementptr inbounds nuw i8, ptr %.056116, i64 416
+  %133 = getelementptr inbounds nuw i8, ptr %.056117, i64 416
   %134 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
@@ -1049,20 +1049,20 @@ _task_id_in_job.exit:                             ; preds = %123
   %135 = load i32, ptr @one_liner, align 4
   %.not.i.i = icmp eq i32 %135, 0
   %136 = select i1 %.not.i.i, ptr @.str.71, ptr @.str.70
-  %137 = getelementptr inbounds nuw i8, ptr %.056116, i64 412
+  %137 = getelementptr inbounds nuw i8, ptr %.056117, i64 412
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %_sprint_job_info.exit.thread.i, label %140
 
 140:                                              ; preds = %.thread109
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.6, i32 noundef %138) #16
-  %141 = getelementptr inbounds nuw i8, ptr %.056116, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %.056117, i64 48
   %142 = load i32, ptr %141, align 8
   %.not490.i.i = icmp eq i32 %142, 0
   br i1 %.not490.i.i, label %154, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %.056116, i64 64
+  %144 = getelementptr inbounds nuw i8, ptr %.056117, i64 64
   %145 = load ptr, ptr %144, align 8
   %.not492.i.i = icmp eq ptr %145, null
   br i1 %.not492.i.i, label %147, label %146
@@ -1072,13 +1072,13 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %150
 
 147:                                              ; preds = %143
-  %148 = getelementptr inbounds nuw i8, ptr %.056116, i64 52
+  %148 = getelementptr inbounds nuw i8, ptr %.056117, i64 52
   %149 = load i32, ptr %148, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.73, i32 noundef %142, i32 noundef %149) #16
   br label %150
 
 150:                                              ; preds = %147, %146
-  %151 = getelementptr inbounds nuw i8, ptr %.056116, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %.056117, i64 56
   %152 = load i32, ptr %151, align 8
   %.not493.i.i = icmp eq i32 %152, 0
   br i1 %.not493.i.i, label %160, label %153
@@ -1088,23 +1088,23 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %160
 
 154:                                              ; preds = %140
-  %155 = getelementptr inbounds nuw i8, ptr %.056116, i64 396
+  %155 = getelementptr inbounds nuw i8, ptr %.056117, i64 396
   %156 = load i32, ptr %155, align 4
   %.not491.i.i = icmp eq i32 %156, 0
   br i1 %.not491.i.i, label %160, label %157
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds nuw i8, ptr %.056116, i64 408
+  %158 = getelementptr inbounds nuw i8, ptr %.056117, i64 408
   %159 = load i32, ptr %158, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.75, i32 noundef %156, i32 noundef %159) #16
   br label %160
 
 160:                                              ; preds = %157, %154, %153, %150
-  %161 = getelementptr inbounds nuw i8, ptr %.056116, i64 496
+  %161 = getelementptr inbounds nuw i8, ptr %.056117, i64 496
   %162 = load ptr, ptr %161, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.76, ptr noundef %162) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %163 = getelementptr inbounds nuw i8, ptr %.056116, i64 400
+  %163 = getelementptr inbounds nuw i8, ptr %.056117, i64 400
   %164 = load ptr, ptr %163, align 8
   %.not494.i.i = icmp eq ptr %164, null
   br i1 %.not494.i.i, label %166, label %165
@@ -1115,18 +1115,18 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %166
 
 166:                                              ; preds = %165, %160
-  %167 = getelementptr inbounds nuw i8, ptr %.056116, i64 928
+  %167 = getelementptr inbounds nuw i8, ptr %.056117, i64 928
   %168 = load i32, ptr %167, align 8
   %169 = call ptr @uid_to_string(i32 noundef %168) #16
   store ptr %169, ptr %7, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %.056116, i64 392
+  %170 = getelementptr inbounds nuw i8, ptr %.056117, i64 392
   %171 = load i32, ptr %170, align 8
   %172 = call ptr @gid_to_string(i32 noundef %171) #16
   store ptr %172, ptr %6, align 8
   %173 = load ptr, ptr %7, align 8
   %174 = load i32, ptr %167, align 8
   %175 = load i32, ptr %170, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %.056116, i64 480
+  %176 = getelementptr inbounds nuw i8, ptr %.056117, i64 480
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %177, null
   %spec.select.i.i = select i1 %178, ptr @.str.79, ptr %177
@@ -1134,14 +1134,14 @@ _task_id_in_job.exit:                             ; preds = %123
   call void @slurm_xfree(ptr noundef nonnull %7) #16
   call void @slurm_xfree(ptr noundef nonnull %6) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %179 = getelementptr inbounds nuw i8, ptr %.056116, i64 520
+  %179 = getelementptr inbounds nuw i8, ptr %.056117, i64 520
   %180 = load i32, ptr %179, align 8
   %181 = zext i32 %180 to i64
   %182 = add nsw i64 %181, -2147483648
-  %183 = getelementptr inbounds nuw i8, ptr %.056116, i64 624
+  %183 = getelementptr inbounds nuw i8, ptr %.056117, i64 624
   %184 = load i32, ptr %183, align 8
-  %185 = load ptr, ptr %.056116, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %.056116, i64 656
+  %185 = load ptr, ptr %.056117, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %.056117, i64 656
   %187 = load ptr, ptr %186, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.80, i32 noundef %184, i64 noundef %182, ptr noundef %185, ptr noundef %187) #16
   %188 = call zeroext i16 @slurm_get_track_wckey() #16
@@ -1149,18 +1149,18 @@ _task_id_in_job.exit:                             ; preds = %123
   br i1 %.not495.i.i, label %192, label %189
 
 189:                                              ; preds = %166
-  %190 = getelementptr inbounds nuw i8, ptr %.056116, i64 952
+  %190 = getelementptr inbounds nuw i8, ptr %.056117, i64 952
   %191 = load ptr, ptr %190, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.81, ptr noundef %191) #16
   br label %192
 
 192:                                              ; preds = %189, %166
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %193 = getelementptr inbounds nuw i8, ptr %.056116, i64 432
+  %193 = getelementptr inbounds nuw i8, ptr %.056117, i64 432
   %194 = load i32, ptr %193, align 8
   %195 = call ptr @job_state_string(i32 noundef %194) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.82, ptr noundef %195) #16
-  %196 = getelementptr inbounds nuw i8, ptr %.056116, i64 776
+  %196 = getelementptr inbounds nuw i8, ptr %.056117, i64 776
   %197 = load ptr, ptr %196, align 8
   %.not496.i.i = icmp eq ptr %197, null
   br i1 %.not496.i.i, label %214, label %.preheader615.i.i
@@ -1201,7 +1201,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br i1 %.not497.i.i, label %._crit_edge.i.i, label %200, !llvm.loop !14
 
 214:                                              ; preds = %192
-  %215 = getelementptr inbounds nuw i8, ptr %.056116, i64 784
+  %215 = getelementptr inbounds nuw i8, ptr %.056117, i64 784
   %216 = load i32, ptr %215, align 8
   %217 = call ptr @job_state_reason_string(i32 noundef %216) #16
   br label %._crit_edge.i.i
@@ -1209,7 +1209,7 @@ _task_id_in_job.exit:                             ; preds = %123
 ._crit_edge.i.i:                                  ; preds = %210, %214, %.preheader615.i.i
   %.sink.i.i = phi ptr [ %217, %214 ], [ %197, %.preheader615.i.i ], [ %211, %210 ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.83, ptr noundef %.sink.i.i) #16
-  %218 = getelementptr inbounds nuw i8, ptr %.056116, i64 312
+  %218 = getelementptr inbounds nuw i8, ptr %.056117, i64 312
   %219 = load ptr, ptr %218, align 8
   %.not498.i.i = icmp eq ptr %219, null
   br i1 %.not498.i.i, label %221, label %220
@@ -1219,24 +1219,24 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %221
 
 221:                                              ; preds = %220, %._crit_edge.i.i
-  %222 = getelementptr inbounds nuw i8, ptr %.056116, i64 248
+  %222 = getelementptr inbounds nuw i8, ptr %.056117, i64 248
   %223 = load ptr, ptr %222, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.85, ptr noundef %223) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %224 = getelementptr inbounds nuw i8, ptr %.056116, i64 692
+  %224 = getelementptr inbounds nuw i8, ptr %.056117, i64 692
   %225 = load i16, ptr %224, align 4
   %226 = zext i16 %225 to i32
-  %227 = getelementptr inbounds nuw i8, ptr %.056116, i64 704
+  %227 = getelementptr inbounds nuw i8, ptr %.056117, i64 704
   %228 = load i16, ptr %227, align 8
   %229 = zext i16 %228 to i32
-  %230 = getelementptr inbounds nuw i8, ptr %.056116, i64 88
+  %230 = getelementptr inbounds nuw i8, ptr %.056117, i64 88
   %231 = load i16, ptr %230, align 8
   %232 = zext i16 %231 to i32
-  %233 = getelementptr inbounds nuw i8, ptr %.056116, i64 664
+  %233 = getelementptr inbounds nuw i8, ptr %.056117, i64 664
   %234 = load i8, ptr %233, align 8
   %235 = zext i8 %234 to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.86, i32 noundef %226, i32 noundef %229, i32 noundef %232, i32 noundef %235) #16
-  %236 = getelementptr inbounds nuw i8, ptr %.056116, i64 296
+  %236 = getelementptr inbounds nuw i8, ptr %.056117, i64 296
   %237 = load i32, ptr %236, align 8
   %238 = and i32 %237, 127
   %239 = shl nuw nsw i32 %238, 24
@@ -1263,7 +1263,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br i1 %.not499.i.i, label %260, label %248
 
 248:                                              ; preds = %246
-  %249 = getelementptr inbounds nuw i8, ptr %.056116, i64 256
+  %249 = getelementptr inbounds nuw i8, ptr %.056117, i64 256
   %250 = load i32, ptr %249, align 8
   %251 = and i32 %250, 127
   %252 = shl nuw nsw i32 %251, 24
@@ -1294,7 +1294,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br i1 %263, label %290, label %264
 
 264:                                              ; preds = %260
-  %265 = getelementptr inbounds nuw i8, ptr %.056116, i64 760
+  %265 = getelementptr inbounds nuw i8, ptr %.056117, i64 760
   %266 = load i64, ptr %265, align 8
   %.not501.i.i = icmp eq i64 %266, 0
   br i1 %.not501.i.i, label %290, label %267
@@ -1307,12 +1307,12 @@ _task_id_in_job.exit:                             ; preds = %123
   ]
 
 268:                                              ; preds = %267
-  %269 = getelementptr inbounds nuw i8, ptr %.056116, i64 616
+  %269 = getelementptr inbounds nuw i8, ptr %.056117, i64 616
   %270 = load i64, ptr %269, align 8
   br label %290
 
 271:                                              ; preds = %267
-  %272 = getelementptr inbounds nuw i8, ptr %.056116, i64 272
+  %272 = getelementptr inbounds nuw i8, ptr %.056117, i64 272
   %273 = load i64, ptr %272, align 8
   %274 = icmp eq i64 %273, 0
   br i1 %274, label %275, label %277
@@ -1323,14 +1323,14 @@ _task_id_in_job.exit:                             ; preds = %123
 
 277:                                              ; preds = %275, %271
   %.0409.i.i = phi i64 [ %276, %275 ], [ %273, %271 ]
-  %278 = getelementptr inbounds nuw i8, ptr %.056116, i64 832
+  %278 = getelementptr inbounds nuw i8, ptr %.056117, i64 832
   %279 = load i64, ptr %278, align 8
   %.not502.i.i = icmp eq i64 %279, 0
   br i1 %.not502.i.i, label %286, label %280
 
 280:                                              ; preds = %277
   %281 = call double @difftime(i64 noundef %.0409.i.i, i64 noundef %279) #17
-  %282 = getelementptr inbounds nuw i8, ptr %.056116, i64 616
+  %282 = getelementptr inbounds nuw i8, ptr %.056117, i64 616
   %283 = load i64, ptr %282, align 8
   %284 = sitofp i64 %283 to double
   %285 = fadd double %281, %284
@@ -1350,7 +1350,7 @@ _task_id_in_job.exit:                             ; preds = %123
   %.0443.i.i = phi i64 [ %.1444.i.i, %289 ], [ %270, %268 ], [ 0, %264 ], [ 0, %260 ]
   call void @secs2time_str(i64 noundef %.0443.i.i, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.89, ptr noundef nonnull %5) #16
-  %291 = getelementptr inbounds nuw i8, ptr %.056116, i64 848
+  %291 = getelementptr inbounds nuw i8, ptr %.056117, i64 848
   %292 = load i32, ptr %291, align 8
   %293 = icmp eq i32 %292, -2
   br i1 %293, label %294, label %295
@@ -1365,7 +1365,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %296
 
 296:                                              ; preds = %295, %294
-  %297 = getelementptr inbounds nuw i8, ptr %.056116, i64 852
+  %297 = getelementptr inbounds nuw i8, ptr %.056117, i64 852
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %300, label %301
@@ -1381,18 +1381,18 @@ _task_id_in_job.exit:                             ; preds = %123
 
 302:                                              ; preds = %301, %300
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %303 = getelementptr inbounds nuw i8, ptr %.056116, i64 824
+  %303 = getelementptr inbounds nuw i8, ptr %.056117, i64 824
   call void @slurm_make_time_str(ptr noundef nonnull %303, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.94, ptr noundef nonnull %5) #16
-  %304 = getelementptr inbounds nuw i8, ptr %.056116, i64 264
+  %304 = getelementptr inbounds nuw i8, ptr %.056117, i64 264
   call void @slurm_make_time_str(ptr noundef nonnull %304, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.95, ptr noundef nonnull %5) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %305 = getelementptr inbounds nuw i8, ptr %.056116, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %.056117, i64 8
   call void @slurm_make_time_str(ptr noundef nonnull %305, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.96, ptr noundef nonnull %5) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %306 = getelementptr inbounds nuw i8, ptr %.056116, i64 696
+  %306 = getelementptr inbounds nuw i8, ptr %.056117, i64 696
   %307 = load i64, ptr %306, align 8
   %.not503.i.i = icmp eq i64 %307, 0
   br i1 %.not503.i.i, label %309, label %308
@@ -1404,7 +1404,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %309
 
 309:                                              ; preds = %308, %302
-  %310 = getelementptr inbounds nuw i8, ptr %.056116, i64 760
+  %310 = getelementptr inbounds nuw i8, ptr %.056117, i64 760
   call void @slurm_make_time_str(ptr noundef nonnull %310, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.98, ptr noundef nonnull %5) #16
   %311 = load i32, ptr %291, align 8
@@ -1412,7 +1412,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br i1 %312, label %313, label %319
 
 313:                                              ; preds = %309
-  %314 = getelementptr inbounds nuw i8, ptr %.056116, i64 272
+  %314 = getelementptr inbounds nuw i8, ptr %.056117, i64 272
   %315 = load i64, ptr %314, align 8
   %316 = call i64 @time(ptr noundef null) #16
   %317 = icmp sgt i64 %315, %316
@@ -1423,13 +1423,13 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %321
 
 319:                                              ; preds = %313, %309
-  %320 = getelementptr inbounds nuw i8, ptr %.056116, i64 272
+  %320 = getelementptr inbounds nuw i8, ptr %.056117, i64 272
   call void @slurm_make_time_str(ptr noundef nonnull %320, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #16
   br label %321
 
 321:                                              ; preds = %319, %318
-  %322 = getelementptr inbounds nuw i8, ptr %.056116, i64 232
+  %322 = getelementptr inbounds nuw i8, ptr %.056117, i64 232
   %323 = load i64, ptr %322, align 8
   %.not504.i.i = icmp eq i64 %323, 0
   br i1 %.not504.i.i, label %325, label %324
@@ -1445,21 +1445,21 @@ _task_id_in_job.exit:                             ; preds = %123
 
 326:                                              ; preds = %325, %324
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %327 = getelementptr inbounds nuw i8, ptr %.056116, i64 104
+  %327 = getelementptr inbounds nuw i8, ptr %.056117, i64 104
   %328 = load i64, ptr %327, align 8
   %329 = and i64 %328, 4194304
   %.not505.i.i = icmp eq i64 %329, 0
   br i1 %.not505.i.i, label %330, label %333
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds nuw i8, ptr %.056116, i64 224
+  %331 = getelementptr inbounds nuw i8, ptr %.056117, i64 224
   %332 = load ptr, ptr %331, align 8
   %.not506.i.i = icmp eq ptr %332, null
   br i1 %.not506.i.i, label %335, label %.thread.i.i
 
 333:                                              ; preds = %326
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.102) #16
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.056116, i64 224
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.056117, i64 224
   %.pre671.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %.thread.i.i
 
@@ -1470,7 +1470,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %335
 
 335:                                              ; preds = %.thread.i.i, %330
-  %336 = getelementptr inbounds nuw i8, ptr %.056116, i64 608
+  %336 = getelementptr inbounds nuw i8, ptr %.056117, i64 608
   %337 = load i64, ptr %336, align 8
   %.not508.i.i = icmp eq i64 %337, 0
   br i1 %.not508.i.i, label %345, label %338
@@ -1478,7 +1478,7 @@ _task_id_in_job.exit:                             ; preds = %123
 338:                                              ; preds = %335
   call void @slurm_make_time_str(ptr noundef nonnull %336, ptr noundef nonnull %5, i32 noundef 256) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.104, ptr noundef nonnull %5) #16
-  %339 = getelementptr inbounds nuw i8, ptr %.056116, i64 600
+  %339 = getelementptr inbounds nuw i8, ptr %.056117, i64 600
   %340 = load i64, ptr %339, align 8
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %342, label %343
@@ -1497,7 +1497,7 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %345
 
 345:                                              ; preds = %344, %335
-  %346 = getelementptr inbounds nuw i8, ptr %.056116, i64 832
+  %346 = getelementptr inbounds nuw i8, ptr %.056117, i64 832
   %347 = load i64, ptr %346, align 8
   %.not509.i.i = icmp eq i64 %347, 0
   br i1 %.not509.i.i, label %349, label %348
@@ -1512,10 +1512,10 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %350
 
 350:                                              ; preds = %349, %348
-  %351 = getelementptr inbounds nuw i8, ptr %.056116, i64 616
+  %351 = getelementptr inbounds nuw i8, ptr %.056117, i64 616
   %352 = load i64, ptr %351, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.109, i64 noundef %352) #16
-  %353 = getelementptr inbounds nuw i8, ptr %.056116, i64 440
+  %353 = getelementptr inbounds nuw i8, ptr %.056117, i64 440
   call void @slurm_make_time_str(ptr noundef nonnull %353, ptr noundef nonnull %5, i32 noundef 256) #16
   %354 = load i64, ptr %327, align 8
   %355 = and i64 %354, 4294967296
@@ -1526,27 +1526,27 @@ _task_id_in_job.exit:                             ; preds = %123
   %358 = select i1 %.not511.i.i, ptr @.str.39, ptr @.str.113
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.110, ptr noundef nonnull %5, ptr noundef nonnull %356, ptr noundef nonnull %358) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %359 = getelementptr inbounds nuw i8, ptr %.056116, i64 568
+  %359 = getelementptr inbounds nuw i8, ptr %.056117, i64 568
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %.056116, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %.056117, i64 24
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds nuw i8, ptr %.056116, i64 32
+  %363 = getelementptr inbounds nuw i8, ptr %.056117, i64 32
   %364 = load i32, ptr %363, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.114, ptr noundef %360, ptr noundef %362, i32 noundef %364) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %365 = getelementptr inbounds nuw i8, ptr %.056116, i64 672
+  %365 = getelementptr inbounds nuw i8, ptr %.056117, i64 672
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %.056116, i64 280
+  %367 = getelementptr inbounds nuw i8, ptr %.056117, i64 280
   %368 = load ptr, ptr %367, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.69, ptr noundef %366, ptr noundef nonnull @.str.69, ptr noundef %368) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %369 = getelementptr inbounds nuw i8, ptr %.056116, i64 512
+  %369 = getelementptr inbounds nuw i8, ptr %.056117, i64 512
   %370 = load ptr, ptr %369, align 8
   %371 = call ptr @slurm_sort_node_list_str(ptr noundef %370) #16
   store ptr %371, ptr %13, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.69, ptr noundef %371) #16
   call void @slurm_xfree(ptr noundef nonnull %13) #16
-  %372 = getelementptr inbounds nuw i8, ptr %.056116, i64 728
+  %372 = getelementptr inbounds nuw i8, ptr %.056117, i64 728
   %373 = load ptr, ptr %372, align 8
   %.not512.i.i = icmp eq ptr %373, null
   br i1 %.not512.i.i, label %375, label %374
@@ -1557,7 +1557,7 @@ _task_id_in_job.exit:                             ; preds = %123
 
 375:                                              ; preds = %374, %350
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %376 = getelementptr inbounds nuw i8, ptr %.056116, i64 80
+  %376 = getelementptr inbounds nuw i8, ptr %.056117, i64 80
   %377 = load ptr, ptr %376, align 8
   %.not513.i.i = icmp eq ptr %377, null
   br i1 %.not513.i.i, label %379, label %378
@@ -1569,7 +1569,7 @@ _task_id_in_job.exit:                             ; preds = %123
 
 379:                                              ; preds = %378, %375
   %.pre673.i.i = phi ptr [ %.pre673.pre.i.i, %378 ], [ null, %375 ]
-  %380 = getelementptr inbounds nuw i8, ptr %.056116, i64 96
+  %380 = getelementptr inbounds nuw i8, ptr %.056117, i64 96
   %381 = load ptr, ptr %380, align 8
   %.not514.i.i = icmp eq ptr %381, null
   br i1 %.not514.i.i, label %383, label %382
@@ -1607,23 +1607,23 @@ _task_id_in_job.exit:                             ; preds = %123
   br label %392
 
 392:                                              ; preds = %391, %388
-  %393 = getelementptr inbounds nuw i8, ptr %.056116, i64 336
+  %393 = getelementptr inbounds nuw i8, ptr %.056117, i64 336
   %394 = load i64, ptr %393, align 8
   %.not519.i.i = icmp eq i64 %394, 0
   br i1 %.not519.i.i, label %395, label %398
 
 395:                                              ; preds = %392
-  %396 = getelementptr inbounds nuw i8, ptr %.056116, i64 352
+  %396 = getelementptr inbounds nuw i8, ptr %.056117, i64 352
   %397 = load i64, ptr %396, align 8
   %.not520.i.i = icmp eq i64 %397, 0
   br i1 %.not520.i.i, label %405, label %398
 
 398:                                              ; preds = %395, %392
-  %399 = getelementptr inbounds nuw i8, ptr %.056116, i64 328
+  %399 = getelementptr inbounds nuw i8, ptr %.056117, i64 328
   %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %.056116, i64 360
+  %401 = getelementptr inbounds nuw i8, ptr %.056117, i64 360
   %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds nuw i8, ptr %.056116, i64 344
+  %403 = getelementptr inbounds nuw i8, ptr %.056117, i64 344
   %404 = load ptr, ptr %403, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.121, ptr noundef %400, ptr noundef %402, ptr noundef %404) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
@@ -1633,14 +1633,14 @@ _task_id_in_job.exit:                             ; preds = %123
   %406 = load i32, ptr %193, align 8
   %407 = and i32 %406, 255
   %408 = icmp eq i32 %407, 0
-  %409 = getelementptr inbounds nuw i8, ptr %.056116, i64 552
+  %409 = getelementptr inbounds nuw i8, ptr %.056117, i64 552
   %410 = load i32, ptr %409, align 8
   br i1 %408, label %411, label %.thread605.i.i
 
 411:                                              ; preds = %405
-  %412 = getelementptr inbounds nuw i8, ptr %.056116, i64 476
+  %412 = getelementptr inbounds nuw i8, ptr %.056117, i64 476
   %413 = load i32, ptr %412, align 4
-  %414 = getelementptr inbounds nuw i8, ptr %.056116, i64 424
+  %414 = getelementptr inbounds nuw i8, ptr %.056117, i64 424
   %415 = load ptr, ptr %414, align 8
   %spec.select588.i.i = call i32 @llvm.umin.i32(i32 %413, i32 %410)
   %.not522.i.i = icmp eq ptr %415, null
@@ -1664,9 +1664,9 @@ _task_id_in_job.exit:                             ; preds = %123
 
 _sprint_range.exit.i.i:                           ; preds = %.thread605.i.i, %419, %416
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.122, ptr noundef nonnull %10) #16
-  %422 = getelementptr inbounds nuw i8, ptr %.056116, i64 548
+  %422 = getelementptr inbounds nuw i8, ptr %.056117, i64 548
   %423 = load i32, ptr %422, align 4
-  %424 = getelementptr inbounds nuw i8, ptr %.056116, i64 472
+  %424 = getelementptr inbounds nuw i8, ptr %.056117, i64 472
   %425 = load i32, ptr %424, align 8
   %.not.i595.i.i = icmp eq i32 %425, 0
   br i1 %.not.i595.i.i, label %428, label %426
@@ -1681,7 +1681,7 @@ _sprint_range.exit.i.i:                           ; preds = %.thread605.i.i, %41
 
 _sprint_range.exit596.i.i:                        ; preds = %428, %426
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.123, ptr noundef nonnull %10) #16
-  %430 = getelementptr inbounds nuw i8, ptr %.056116, i64 556
+  %430 = getelementptr inbounds nuw i8, ptr %.056117, i64 556
   %431 = load i32, ptr %430, align 4
   %432 = icmp eq i32 %431, -2
   br i1 %432, label %433, label %434
@@ -1695,7 +1695,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %435
 
 435:                                              ; preds = %434, %433
-  %436 = getelementptr inbounds nuw i8, ptr %.056116, i64 200
+  %436 = getelementptr inbounds nuw i8, ptr %.056117, i64 200
   %437 = load i16, ptr %436, align 8
   %438 = icmp eq i16 %437, -2
   br i1 %438, label %439, label %440
@@ -1710,7 +1710,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %442
 
 442:                                              ; preds = %440, %439
-  %443 = getelementptr inbounds nuw i8, ptr %.056116, i64 112
+  %443 = getelementptr inbounds nuw i8, ptr %.056117, i64 112
   %444 = load i16, ptr %443, align 8
   %445 = icmp eq i16 %444, -2
   br i1 %445, label %446, label %447
@@ -1725,7 +1725,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %449
 
 449:                                              ; preds = %447, %446
-  %450 = getelementptr inbounds nuw i8, ptr %.056116, i64 752
+  %450 = getelementptr inbounds nuw i8, ptr %.056117, i64 752
   %451 = load i16, ptr %450, align 8
   %452 = icmp eq i16 %451, -2
   br i1 %452, label %453, label %454
@@ -1740,7 +1740,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %456
 
 456:                                              ; preds = %454, %453
-  %457 = getelementptr inbounds nuw i8, ptr %.056116, i64 188
+  %457 = getelementptr inbounds nuw i8, ptr %.056117, i64 188
   %458 = load i16, ptr %457, align 4
   %459 = icmp eq i16 %458, -2
   br i1 %459, label %460, label %461
@@ -1755,7 +1755,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %463
 
 463:                                              ; preds = %461, %460
-  %464 = getelementptr inbounds nuw i8, ptr %.056116, i64 856
+  %464 = getelementptr inbounds nuw i8, ptr %.056117, i64 856
   %465 = load i16, ptr %464, align 8
   %466 = icmp eq i16 %465, -2
   br i1 %466, label %467, label %468
@@ -1771,15 +1771,15 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
 
 470:                                              ; preds = %468, %467
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %471 = getelementptr inbounds nuw i8, ptr %.056116, i64 912
+  %471 = getelementptr inbounds nuw i8, ptr %.056117, i64 912
   %472 = load ptr, ptr %471, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.134, ptr noundef %472) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %473 = getelementptr inbounds nuw i8, ptr %.056116, i64 920
+  %473 = getelementptr inbounds nuw i8, ptr %.056117, i64 920
   %474 = load ptr, ptr %473, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.135, ptr noundef %474) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %475 = getelementptr inbounds nuw i8, ptr %.056116, i64 754
+  %475 = getelementptr inbounds nuw i8, ptr %.056117, i64 754
   %476 = load i16, ptr %475, align 2
   %477 = icmp eq i16 %476, -2
   br i1 %477, label %478, label %479
@@ -1794,7 +1794,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %481
 
 481:                                              ; preds = %479, %478
-  %482 = getelementptr inbounds nuw i8, ptr %.056116, i64 540
+  %482 = getelementptr inbounds nuw i8, ptr %.056117, i64 540
   %483 = load i16, ptr %482, align 4
   %484 = icmp eq i16 %483, -2
   br i1 %484, label %485, label %486
@@ -1809,7 +1809,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %488
 
 488:                                              ; preds = %486, %485
-  %489 = getelementptr inbounds nuw i8, ptr %.056116, i64 544
+  %489 = getelementptr inbounds nuw i8, ptr %.056117, i64 544
   %490 = load i16, ptr %489, align 8
   %491 = icmp eq i16 %490, -2
   br i1 %491, label %492, label %493
@@ -1824,7 +1824,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %495
 
 495:                                              ; preds = %493, %492
-  %496 = getelementptr inbounds nuw i8, ptr %.056116, i64 542
+  %496 = getelementptr inbounds nuw i8, ptr %.056117, i64 542
   %497 = load i16, ptr %496, align 2
   %switch.i.i = icmp ugt i16 %497, -3
   br i1 %switch.i.i, label %498, label %499
@@ -1839,7 +1839,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %501
 
 501:                                              ; preds = %499, %498
-  %502 = getelementptr inbounds nuw i8, ptr %.056116, i64 536
+  %502 = getelementptr inbounds nuw i8, ptr %.056117, i64 536
   %503 = load i16, ptr %502, align 8
   %switch592.i.i = icmp ugt i16 %503, -3
   br i1 %switch592.i.i, label %504, label %505
@@ -1854,7 +1854,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br label %507
 
 507:                                              ; preds = %505, %504
-  %508 = getelementptr inbounds nuw i8, ptr %.056116, i64 186
+  %508 = getelementptr inbounds nuw i8, ptr %.056117, i64 186
   %509 = load i16, ptr %508, align 2
   %510 = zext i16 %509 to i32
   %511 = icmp eq i16 %509, -2
@@ -1894,7 +1894,7 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   br i1 %.not526.i.i, label %668, label %523
 
 523:                                              ; preds = %520
-  %524 = getelementptr inbounds nuw i8, ptr %.056116, i64 384
+  %524 = getelementptr inbounds nuw i8, ptr %.056117, i64 384
   %525 = load ptr, ptr %524, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.145, ptr noundef %525) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
@@ -1930,8 +1930,8 @@ _sprint_range.exit596.i.i:                        ; preds = %428, %426
   %539 = getelementptr inbounds nuw i8, ptr %134, i64 128
   %540 = getelementptr inbounds nuw i8, ptr %134, i64 136
   %541 = getelementptr inbounds nuw i8, ptr %134, i64 56
-  %542 = getelementptr inbounds nuw i8, ptr %.056116, i64 368
-  %543 = getelementptr inbounds nuw i8, ptr %.056116, i64 376
+  %542 = getelementptr inbounds nuw i8, ptr %.056117, i64 368
+  %543 = getelementptr inbounds nuw i8, ptr %.056117, i64 376
   %544 = getelementptr inbounds nuw i8, ptr %134, i64 72
   br label %545
 
@@ -2254,13 +2254,13 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %668
 
 668:                                              ; preds = %667, %520, %518, %517
-  %669 = getelementptr inbounds nuw i8, ptr %.056116, i64 488
+  %669 = getelementptr inbounds nuw i8, ptr %.056117, i64 488
   %670 = load ptr, ptr %669, align 8
   %.not541.i.i = icmp eq ptr %670, null
   br i1 %.not541.i.i, label %671, label %676
 
 671:                                              ; preds = %668
-  %672 = getelementptr inbounds nuw i8, ptr %.056116, i64 584
+  %672 = getelementptr inbounds nuw i8, ptr %.056117, i64 584
   %673 = load i64, ptr %672, align 8
   %.not542.i.i = icmp sgt i64 %673, -1
   br i1 %.not542.i.i, label %676, label %674
@@ -2272,31 +2272,31 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
 
 676:                                              ; preds = %674, %671, %668
   %.0428.i.i = phi ptr [ @.str.149, %668 ], [ @.str.150, %674 ], [ @.str.151, %671 ]
-  %677 = getelementptr inbounds nuw i8, ptr %.056116, i64 592
+  %677 = getelementptr inbounds nuw i8, ptr %.056117, i64 592
   %678 = load i16, ptr %677, align 8
   %679 = zext i16 %678 to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.152, i32 noundef %679) #16
-  %680 = getelementptr inbounds nuw i8, ptr %.056116, i64 584
+  %680 = getelementptr inbounds nuw i8, ptr %.056117, i64 584
   %681 = load i64, ptr %680, align 8
   %682 = uitofp i64 %681 to float
   %683 = fpext float %682 to double
   call void @convert_num_unit(double noundef %683, ptr noundef nonnull %8, i32 noundef 128, i32 noundef 2, i32 noundef -2, i32 noundef 1) #16
-  %684 = getelementptr inbounds nuw i8, ptr %.056116, i64 596
+  %684 = getelementptr inbounds nuw i8, ptr %.056117, i64 596
   %685 = load i32, ptr %684, align 4
   %686 = uitofp i32 %685 to float
   %687 = fpext float %686 to double
   call void @convert_num_unit(double noundef %687, ptr noundef nonnull %9, i32 noundef 128, i32 noundef 2, i32 noundef -2, i32 noundef 1) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.153, ptr noundef nonnull %.0428.i.i, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %688 = getelementptr inbounds nuw i8, ptr %.056116, i64 240
+  %688 = getelementptr inbounds nuw i8, ptr %.056117, i64 240
   %689 = load i32, ptr %688, align 8
   %690 = zext i32 %689 to i64
   call void @secs2time_str(i64 noundef %690, ptr noundef nonnull %8, i32 noundef 128) #16
-  %691 = getelementptr inbounds nuw i8, ptr %.056116, i64 320
+  %691 = getelementptr inbounds nuw i8, ptr %.056117, i64 320
   %692 = load ptr, ptr %691, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.154, ptr noundef %692, ptr noundef nonnull %8) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %693 = getelementptr inbounds nuw i8, ptr %.056116, i64 144
+  %693 = getelementptr inbounds nuw i8, ptr %.056117, i64 144
   %694 = load ptr, ptr %693, align 8
   %.not543.i.i = icmp eq ptr %694, null
   br i1 %.not543.i.i, label %696, label %695
@@ -2307,7 +2307,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %696
 
 696:                                              ; preds = %695, %676
-  %697 = getelementptr inbounds nuw i8, ptr %.056116, i64 576
+  %697 = getelementptr inbounds nuw i8, ptr %.056117, i64 576
   %698 = load ptr, ptr %697, align 8
   %.not544.i.i = icmp eq ptr %698, null
   br i1 %.not544.i.i, label %700, label %699
@@ -2318,7 +2318,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %700
 
 700:                                              ; preds = %699, %696
-  %701 = getelementptr inbounds nuw i8, ptr %.056116, i64 712
+  %701 = getelementptr inbounds nuw i8, ptr %.056117, i64 712
   %702 = load ptr, ptr %701, align 8
   %.not545.i.i = icmp eq ptr %702, null
   br i1 %.not545.i.i, label %704, label %703
@@ -2329,26 +2329,26 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %704
 
 704:                                              ; preds = %703, %700
-  %705 = getelementptr inbounds nuw i8, ptr %.056116, i64 744
+  %705 = getelementptr inbounds nuw i8, ptr %.056117, i64 744
   %706 = load i16, ptr %705, align 8
   %707 = call ptr @job_share_string(i16 noundef zeroext %706) #16
-  %708 = getelementptr inbounds nuw i8, ptr %.056116, i64 184
+  %708 = getelementptr inbounds nuw i8, ptr %.056117, i64 184
   %709 = load i16, ptr %708, align 8
   %710 = zext i16 %709 to i32
-  %711 = getelementptr inbounds nuw i8, ptr %.056116, i64 448
+  %711 = getelementptr inbounds nuw i8, ptr %.056117, i64 448
   %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds nuw i8, ptr %.056116, i64 504
+  %713 = getelementptr inbounds nuw i8, ptr %.056117, i64 504
   %714 = load ptr, ptr %713, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.158, ptr noundef %707, i32 noundef %710, ptr noundef %712, ptr noundef %714) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %715 = getelementptr inbounds nuw i8, ptr %.056116, i64 152
+  %715 = getelementptr inbounds nuw i8, ptr %.056117, i64 152
   %716 = load ptr, ptr %715, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.159, ptr noundef %716) #16
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %717 = getelementptr inbounds nuw i8, ptr %.056116, i64 960
+  %717 = getelementptr inbounds nuw i8, ptr %.056117, i64 960
   %718 = load ptr, ptr %717, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.160, ptr noundef %718) #16
-  %719 = getelementptr inbounds nuw i8, ptr %.056116, i64 16
+  %719 = getelementptr inbounds nuw i8, ptr %.056117, i64 16
   %720 = load ptr, ptr %719, align 8
   %.not546.i.i = icmp eq ptr %720, null
   br i1 %.not546.i.i, label %723, label %721
@@ -2360,7 +2360,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %723
 
 723:                                              ; preds = %721, %704
-  %724 = getelementptr inbounds nuw i8, ptr %.056116, i64 840
+  %724 = getelementptr inbounds nuw i8, ptr %.056117, i64 840
   %725 = load ptr, ptr %724, align 8
   %.not547.i.i = icmp eq ptr %725, null
   br i1 %.not547.i.i, label %728, label %726
@@ -2372,7 +2372,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %728
 
 728:                                              ; preds = %726, %723
-  %729 = getelementptr inbounds nuw i8, ptr %.056116, i64 160
+  %729 = getelementptr inbounds nuw i8, ptr %.056117, i64 160
   %730 = load ptr, ptr %729, align 8
   %.not548.i.i = icmp eq ptr %730, null
   br i1 %.not548.i.i, label %733, label %731
@@ -2384,7 +2384,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %733
 
 733:                                              ; preds = %731, %728
-  %734 = getelementptr inbounds nuw i8, ptr %.056116, i64 304
+  %734 = getelementptr inbounds nuw i8, ptr %.056117, i64 304
   %735 = load ptr, ptr %734, align 8
   %.not549.i.i = icmp eq ptr %735, null
   br i1 %.not549.i.i, label %738, label %736
@@ -2402,7 +2402,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
 
 740:                                              ; preds = %738
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  call void @slurm_get_job_stderr(ptr noundef nonnull %11, i32 noundef 4096, ptr noundef nonnull %.056116) #16
+  call void @slurm_get_job_stderr(ptr noundef nonnull %11, i32 noundef 4096, ptr noundef nonnull %.056117) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.165, ptr noundef nonnull %11) #16
   %.pr.i.i = load i16, ptr %230, align 8
   %.not551.i.i = icmp eq i16 %.pr.i.i, 0
@@ -2410,7 +2410,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
 
 741:                                              ; preds = %740
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  call void @slurm_get_job_stdin(ptr noundef nonnull %11, i32 noundef 4096, ptr noundef nonnull %.056116) #16
+  call void @slurm_get_job_stdin(ptr noundef nonnull %11, i32 noundef 4096, ptr noundef nonnull %.056117) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.166, ptr noundef nonnull %11) #16
   %.pr612.i.i = load i16, ptr %230, align 8
   %.not552.i.i = icmp eq i16 %.pr612.i.i, 0
@@ -2418,12 +2418,12 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
 
 742:                                              ; preds = %741
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  call void @slurm_get_job_stdout(ptr noundef nonnull %11, i32 noundef 4096, ptr noundef nonnull %.056116) #16
+  call void @slurm_get_job_stdout(ptr noundef nonnull %11, i32 noundef 4096, ptr noundef nonnull %.056117) #16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.167, ptr noundef nonnull %11) #16
   br label %.thread613.i.i
 
 .thread613.i.i:                                   ; preds = %742, %741, %740, %738
-  %743 = getelementptr inbounds nuw i8, ptr %.056116, i64 816
+  %743 = getelementptr inbounds nuw i8, ptr %.056117, i64 816
   %744 = load i16, ptr %743, align 8
   %.not553.i.i = icmp eq i16 %744, 0
   br i1 %.not553.i.i, label %748, label %745
@@ -2436,7 +2436,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %748
 
 748:                                              ; preds = %745, %.thread613.i.i
-  %749 = getelementptr inbounds nuw i8, ptr %.056116, i64 688
+  %749 = getelementptr inbounds nuw i8, ptr %.056117, i64 688
   %750 = load i32, ptr %749, align 8
   %.not554.i.i = icmp eq i32 %750, 0
   br i1 %.not554.i.i, label %756, label %751
@@ -2444,7 +2444,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
 751:                                              ; preds = %748
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
-  %752 = getelementptr inbounds nuw i8, ptr %.056116, i64 944
+  %752 = getelementptr inbounds nuw i8, ptr %.056117, i64 944
   %753 = load i32, ptr %752, align 8
   %754 = zext i32 %753 to i64
   call void @secs2time_str(i64 noundef %754, ptr noundef nonnull %16, i32 noundef 32) #16
@@ -2454,7 +2454,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %756
 
 756:                                              ; preds = %751, %748
-  %757 = getelementptr inbounds nuw i8, ptr %.056116, i64 120
+  %757 = getelementptr inbounds nuw i8, ptr %.056117, i64 120
   %758 = load ptr, ptr %757, align 8
   %.not555.i.i = icmp eq ptr %758, null
   br i1 %.not555.i.i, label %761, label %759
@@ -2466,7 +2466,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %761
 
 761:                                              ; preds = %759, %756
-  %762 = getelementptr inbounds nuw i8, ptr %.056116, i64 128
+  %762 = getelementptr inbounds nuw i8, ptr %.056117, i64 128
   %763 = load ptr, ptr %762, align 8
   %.not556.i.i = icmp eq ptr %763, null
   br i1 %.not556.i.i, label %766, label %764
@@ -2478,11 +2478,11 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %766
 
 766:                                              ; preds = %764, %761
-  %767 = getelementptr inbounds nuw i8, ptr %.056116, i64 212
+  %767 = getelementptr inbounds nuw i8, ptr %.056117, i64 212
   %768 = load i32, ptr %767, align 4
-  %769 = getelementptr inbounds nuw i8, ptr %.056116, i64 204
+  %769 = getelementptr inbounds nuw i8, ptr %.056117, i64 204
   %770 = load i32, ptr %769, align 4
-  %771 = getelementptr inbounds nuw i8, ptr %.056116, i64 208
+  %771 = getelementptr inbounds nuw i8, ptr %.056117, i64 208
   %772 = load i32, ptr %771, align 8
   %773 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %8, i32 noundef 128, i32 noundef %768, i32 noundef %770, i32 noundef %772, i32 noundef -2) #16
   %.not557.i.i = icmp eq i32 %773, 0
@@ -2596,7 +2596,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %815
 
 815:                                              ; preds = %810, %775
-  %816 = getelementptr inbounds nuw i8, ptr %.056116, i64 560
+  %816 = getelementptr inbounds nuw i8, ptr %.056117, i64 560
   %817 = load i16, ptr %816, align 8
   %.not567.i.i = icmp eq i16 %817, -2
   br i1 %.not567.i.i, label %821, label %818
@@ -2609,7 +2609,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %821
 
 821:                                              ; preds = %818, %815
-  %822 = getelementptr inbounds nuw i8, ptr %.056116, i64 216
+  %822 = getelementptr inbounds nuw i8, ptr %.056117, i64 216
   %823 = load ptr, ptr %822, align 8
   %.not568.i.i = icmp eq ptr %823, null
   br i1 %.not568.i.i, label %826, label %824
@@ -2632,7 +2632,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %830
 
 830:                                              ; preds = %828, %826
-  %831 = getelementptr inbounds nuw i8, ptr %.056116, i64 864
+  %831 = getelementptr inbounds nuw i8, ptr %.056117, i64 864
   %832 = load ptr, ptr %831, align 8
   %.not570.i.i = icmp eq ptr %832, null
   br i1 %.not570.i.i, label %835, label %833
@@ -2644,7 +2644,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %835
 
 835:                                              ; preds = %833, %830
-  %836 = getelementptr inbounds nuw i8, ptr %.056116, i64 872
+  %836 = getelementptr inbounds nuw i8, ptr %.056117, i64 872
   %837 = load ptr, ptr %836, align 8
   %.not571.i.i = icmp eq ptr %837, null
   br i1 %.not571.i.i, label %840, label %838
@@ -2656,7 +2656,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %840
 
 840:                                              ; preds = %838, %835
-  %841 = getelementptr inbounds nuw i8, ptr %.056116, i64 880
+  %841 = getelementptr inbounds nuw i8, ptr %.056117, i64 880
   %842 = load ptr, ptr %841, align 8
   %.not572.i.i = icmp eq ptr %842, null
   br i1 %.not572.i.i, label %845, label %843
@@ -2668,7 +2668,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %845
 
 845:                                              ; preds = %843, %840
-  %846 = getelementptr inbounds nuw i8, ptr %.056116, i64 888
+  %846 = getelementptr inbounds nuw i8, ptr %.056117, i64 888
   %847 = load ptr, ptr %846, align 8
   %.not573.i.i = icmp eq ptr %847, null
   br i1 %.not573.i.i, label %850, label %848
@@ -2680,7 +2680,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %850
 
 850:                                              ; preds = %848, %845
-  %851 = getelementptr inbounds nuw i8, ptr %.056116, i64 896
+  %851 = getelementptr inbounds nuw i8, ptr %.056117, i64 896
   %852 = load ptr, ptr %851, align 8
   %.not574.i.i = icmp eq ptr %852, null
   br i1 %.not574.i.i, label %855, label %853
@@ -2692,7 +2692,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %855
 
 855:                                              ; preds = %853, %850
-  %856 = getelementptr inbounds nuw i8, ptr %.056116, i64 904
+  %856 = getelementptr inbounds nuw i8, ptr %.056117, i64 904
   %857 = load ptr, ptr %856, align 8
   %.not575.i.i = icmp eq ptr %857, null
   br i1 %.not575.i.i, label %860, label %858
@@ -2704,13 +2704,13 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %860
 
 860:                                              ; preds = %858, %855
-  %861 = getelementptr inbounds nuw i8, ptr %.056116, i64 456
+  %861 = getelementptr inbounds nuw i8, ptr %.056117, i64 456
   %862 = load i16, ptr %861, align 8
   %.not576.i.i = icmp eq i16 %862, 0
   br i1 %.not576.i.i, label %870, label %863
 
 863:                                              ; preds = %860
-  %864 = getelementptr inbounds nuw i8, ptr %.056116, i64 464
+  %864 = getelementptr inbounds nuw i8, ptr %.056117, i64 464
   %865 = load ptr, ptr %864, align 8
   %.not577.i.i = icmp eq ptr %865, null
   br i1 %.not577.i.i, label %870, label %866
@@ -2724,7 +2724,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %870
 
 870:                                              ; preds = %866, %863, %860
-  %871 = getelementptr inbounds nuw i8, ptr %.056116, i64 538
+  %871 = getelementptr inbounds nuw i8, ptr %.056117, i64 538
   %872 = load i16, ptr %871, align 2
   %.off593.i.i = add i16 %872, -1
   %switch594.i.i = icmp ult i16 %.off593.i.i, -3
@@ -2738,13 +2738,13 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %876
 
 876:                                              ; preds = %873, %870
-  %877 = getelementptr inbounds nuw i8, ptr %.056116, i64 168
+  %877 = getelementptr inbounds nuw i8, ptr %.056117, i64 168
   %878 = load ptr, ptr %877, align 8
   %.not581.i.i = icmp eq ptr %878, null
   br i1 %.not581.i.i, label %879, label %882
 
 879:                                              ; preds = %876
-  %880 = getelementptr inbounds nuw i8, ptr %.056116, i64 176
+  %880 = getelementptr inbounds nuw i8, ptr %.056117, i64 176
   %881 = load ptr, ptr %880, align 8
   %.not582.i.i = icmp eq ptr %881, null
   br i1 %.not582.i.i, label %886, label %882
@@ -2752,13 +2752,13 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
 882:                                              ; preds = %879, %876
   call void @_xstrcat(ptr noundef nonnull %12, ptr noundef nonnull %136) #16
   %883 = load ptr, ptr %877, align 8
-  %884 = getelementptr inbounds nuw i8, ptr %.056116, i64 176
+  %884 = getelementptr inbounds nuw i8, ptr %.056117, i64 176
   %885 = load ptr, ptr %884, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %12, ptr noundef nonnull @.str.191, ptr noundef %883, ptr noundef %885) #16
   br label %886
 
 886:                                              ; preds = %882, %879
-  %887 = getelementptr inbounds nuw i8, ptr %.056116, i64 736
+  %887 = getelementptr inbounds nuw i8, ptr %.056117, i64 736
   %888 = load ptr, ptr %887, align 8
   %.not583.i.i = icmp eq ptr %888, null
   br i1 %.not583.i.i, label %891, label %889
@@ -2770,7 +2770,7 @@ _threads_per_core.exit.i.i:                       ; preds = %592, %586, %.prehea
   br label %891
 
 891:                                              ; preds = %889, %886
-  %892 = getelementptr inbounds nuw i8, ptr %.056116, i64 720
+  %892 = getelementptr inbounds nuw i8, ptr %.056117, i64 720
   %893 = load ptr, ptr %892, align 8
   %.not584.i.i = icmp eq ptr %893, null
   br i1 %.not584.i.i, label %_sprint_job_info.exit.i, label %894
@@ -2828,35 +2828,35 @@ _print_job_info.exit:                             ; preds = %_sprint_job_info.ex
   br i1 %.not88, label %902, label %899
 
 899:                                              ; preds = %_print_job_info.exit
-  %900 = getelementptr inbounds nuw i8, ptr %.056116, i64 64
+  %900 = getelementptr inbounds nuw i8, ptr %.056117, i64 64
   store ptr %.053, ptr %900, align 8
-  %901 = getelementptr inbounds nuw i8, ptr %.056116, i64 52
+  %901 = getelementptr inbounds nuw i8, ptr %.056117, i64 52
   store i32 %.0, ptr %901, align 4
   br label %902
 
 902:                                              ; preds = %899, %_print_job_info.exit
-  %903 = add nsw i32 %.063114, 1
-  %.pre134 = load ptr, ptr %18, align 8
+  %903 = add nsw i32 %.063115, 1
+  %.pre135 = load ptr, ptr %18, align 8
   br label %_task_id_in_job.exit.thread106
 
 _task_id_in_job.exit.thread106:                   ; preds = %120, %123, %_task_id_in_job.exit, %_het_job_offset_match.exit, %902
-  %904 = phi ptr [ %.pre134, %902 ], [ %112, %_het_job_offset_match.exit ], [ %112, %_task_id_in_job.exit ], [ %112, %123 ], [ %112, %120 ]
-  %.164 = phi i32 [ %903, %902 ], [ %.063114, %_het_job_offset_match.exit ], [ %.063114, %_task_id_in_job.exit ], [ %.063114, %123 ], [ %.063114, %120 ]
-  %905 = add nuw nsw i32 %.065113, 1
-  %906 = getelementptr inbounds nuw i8, ptr %.056116, i64 968
+  %904 = phi ptr [ %.pre135, %902 ], [ %112, %_het_job_offset_match.exit ], [ %112, %_task_id_in_job.exit ], [ %112, %123 ], [ %112, %120 ]
+  %.164 = phi i32 [ %903, %902 ], [ %.063115, %_het_job_offset_match.exit ], [ %.063115, %_task_id_in_job.exit ], [ %.063115, %123 ], [ %.063115, %120 ]
+  %905 = add nuw nsw i32 %.065114, 1
+  %906 = getelementptr inbounds nuw i8, ptr %.056117, i64 968
   %907 = getelementptr inbounds nuw i8, ptr %904, i64 16
   %908 = load i32, ptr %907, align 8
   %909 = icmp ult i32 %905, %908
-  br i1 %909, label %111, label %._crit_edge127, !llvm.loop !19
+  br i1 %909, label %111, label %._crit_edge128, !llvm.loop !19
 
-._crit_edge127:                                   ; preds = %_task_id_in_job.exit.thread106
+._crit_edge128:                                   ; preds = %_task_id_in_job.exit.thread106
   %910 = icmp eq i32 %.164, 0
-  br i1 %910, label %._crit_edge127.thread, label %924
+  br i1 %910, label %._crit_edge128.thread, label %924
 
-._crit_edge127.thread:                            ; preds = %103, %._crit_edge127
+._crit_edge128.thread:                            ; preds = %103, %._crit_edge128
   br i1 %.not, label %921, label %911
 
-911:                                              ; preds = %._crit_edge127.thread
+911:                                              ; preds = %._crit_edge128.thread
   store i32 1, ptr @exit_code, align 4
   %912 = load i32, ptr @quiet_flag, align 4
   %.not83 = icmp eq i32 %912, 1
@@ -2882,7 +2882,7 @@ _task_id_in_job.exit.thread106:                   ; preds = %120, %123, %_task_i
   %920 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.061)
   br label %924
 
-921:                                              ; preds = %._crit_edge127.thread
+921:                                              ; preds = %._crit_edge128.thread
   %922 = load i32, ptr @quiet_flag, align 4
   %.not82 = icmp eq i32 %922, 1
   br i1 %.not82, label %924, label %923
@@ -2891,7 +2891,7 @@ _task_id_in_job.exit.thread106:                   ; preds = %120, %123, %_task_i
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %924
 
-924:                                              ; preds = %35, %32, %._crit_edge127, %921, %923, %911, %917, %919, %914, %92, %94, %90
+924:                                              ; preds = %35, %32, %._crit_edge128, %921, %923, %911, %917, %919, %914, %92, %94, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
@@ -4933,8 +4933,8 @@ define dso_local range(i32 -1, 1) i32 @scontrol_callerid(i32 noundef %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = call i64 @strtoul(ptr noundef %12, ptr noundef nonnull %8, i32 noundef 0) #16
-  %.fr = freeze i64 %13
-  %14 = trunc i64 %.fr to i32
+  %.fr37 = freeze i64 %13
+  %14 = trunc i64 %.fr37 to i32
   %15 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %20, label %16

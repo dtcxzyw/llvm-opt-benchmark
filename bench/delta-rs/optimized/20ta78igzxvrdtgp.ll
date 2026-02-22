@@ -2506,8 +2506,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %11 = trunc nuw nsw i64 %10 to i8
   %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %11, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %.fr45.i.i = freeze i8 %.val6
-  %12 = add i8 %.fr45.i.i, -16
+  %.fr.i.i = freeze i8 %.val6
+  %12 = add i8 %.fr.i.i, -16
   %narrow.i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %12, i8 18)
   %13 = icmp ult i8 %12, 18
   br i1 %13, label %.split40.us.i.i, label %.split40.i.i
@@ -2591,7 +2591,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 
 49:                                               ; preds = %.lr.ph.i.i
   %50 = icmp ult i8 %47, 18
-  %51 = icmp eq i8 %.fr45.i.i, %.val4.i.i.i
+  %51 = icmp eq i8 %.fr.i.i, %.val4.i.i.i
   %spec.select.i.i.i.i.i.i = or i1 %51, %50
   br i1 %spec.select.i.i.i.i.i.i, label %.split.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha7374d6d6f1e3c9cE.exit.backedge.i.i"
 

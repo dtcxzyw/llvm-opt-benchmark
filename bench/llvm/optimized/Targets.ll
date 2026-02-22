@@ -39632,10 +39632,10 @@ define linkonce_odr hidden void @_ZN5clang7targets18BaseSPIRTargetInfo6adjustERN
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %12 = load i64, ptr %11, align 8
-  %.fr = freeze i64 %12
-  %13 = and i64 %.fr, 1024
-  %.not8 = icmp eq i64 %13, 0
-  br i1 %.not8, label %.thread6, label %.thread
+  %.fr8 = freeze i64 %12
+  %13 = and i64 %.fr8, 1024
+  %.not9 = icmp eq i64 %13, 0
+  br i1 %.not9, label %.thread6, label %.thread
 
 .thread:                                          ; preds = %3, %10
   br label %.thread6

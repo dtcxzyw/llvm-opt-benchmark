@@ -387,7 +387,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 13:                                               ; preds = %9
   %14 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %1)
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %.fr72 = freeze i64 %15
+  %.fr = freeze i64 %15
   %16 = icmp slt i32 %3, 1
   %spec.store.select = select i1 %16, i32 2147483647, i32 %3
   %17 = icmp samesign ugt i32 %spec.store.select, 1
@@ -399,7 +399,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %.critedge3
 
 .lr.ph:                                           ; preds = %13
-  %19 = and i64 %.fr72, 4294967295
+  %19 = and i64 %.fr, 4294967295
   br label %20
 
 20:                                               ; preds = %.lr.ph, %22
@@ -422,13 +422,13 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   %27 = shl nuw nsw i64 %26, 3
   %28 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %27) #24
   store ptr %14, ptr %28, align 8
-  %29 = and i64 %.fr72, 4294967295
+  %29 = and i64 %.fr, 4294967295
   %.not73 = icmp eq i64 %29, 0
-  %30 = and i64 %.fr72, 4294967295
+  %30 = and i64 %.fr, 4294967295
   br i1 %.not73, label %.lr.ph67.split.preheader, label %.lr.ph67.split.us.preheader
 
 .lr.ph67.split.us.preheader:                      ; preds = %.critedge
-  %31 = and i64 %.fr72, 4294967295
+  %31 = and i64 %.fr, 4294967295
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %.lr.ph67.split.us
 

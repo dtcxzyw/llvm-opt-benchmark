@@ -9995,7 +9995,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_T1_(ptr %0, ptr %1, i64 noundef %2, i64 %3, i64 %4) local_unnamed_addr #1 comdat {
-  %.fr = freeze i64 %3
+  %.fr33 = freeze i64 %3
   %6 = ptrtoint ptr %0 to i64
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %7, %6
@@ -10005,9 +10005,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = and i64 %.fr, 1
+  %12 = and i64 %.fr33, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %12, 0
-  %13 = inttoptr i64 %.fr to ptr
+  %13 = inttoptr i64 %.fr33 to ptr
   br i1 %.not.i.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEET_SJ_SJ_T0_.exit.loopexit.us
@@ -10021,7 +10021,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %16 = lshr i64 %14, 1
   %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %18 = getelementptr inbounds i8, ptr %storemerge29.us, i64 -8
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %17, ptr nonnull %18, i64 %.fr, i64 %4)
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %17, ptr nonnull %18, i64 %.fr33, i64 %4)
   br label %.split.us.us.i.i.us
 
 .split.us.us.i.i.us:                              ; preds = %.split.us.us.i.i.preheader.us, %29
@@ -10060,7 +10060,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEET_SJ_SJ_T0_.exit.loopexit.us: ; preds = %.split24.us.us.i.i.us
   %32 = add nsw i64 %.030.us, -1
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_T1_(ptr nonnull %.sroa.018.1.us.us.i.i.us, ptr %storemerge29.us, i64 noundef %32, i64 %.fr, i64 %4)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_T1_(ptr nonnull %.sroa.018.1.us.us.i.i.us, ptr %storemerge29.us, i64 noundef %32, i64 %.fr33, i64 %4)
   %33 = ptrtoint ptr %.sroa.018.1.us.us.i.i.us to i64
   %34 = sub i64 %33, %6
   %35 = ashr exact i64 %34, 3
@@ -10085,7 +10085,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX
   %.09.i.i = phi i64 [ %40, %.split.us ], [ %44, %41 ]
   %42 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i
   %43 = load ptr, ptr %42, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_T2_(ptr %0, i64 noundef %.09.i.i, i64 noundef %.us-phi32, ptr noundef %43, i64 %.fr, i64 %4)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_T2_(ptr %0, i64 noundef %.09.i.i, i64 noundef %.us-phi32, ptr noundef %43, i64 %.fr33, i64 %4)
   %.not.i.i = icmp eq i64 %.09.i.i, 0
   %44 = add nsw i64 %.09.i.i, -1
   br i1 %.not.i.i, label %.lr.ph.i.i, label %41, !llvm.loop !85
@@ -10099,7 +10099,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX
   %48 = ptrtoint ptr %45 to i64
   %49 = sub i64 %48, %6
   %50 = ashr exact i64 %49, 3
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %50, ptr noundef %46, i64 %.fr, i64 %4)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %50, ptr noundef %46, i64 %.fr33, i64 %4)
   %51 = icmp sgt i64 %49, 8
   br i1 %51, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_T0_.exit, !llvm.loop !86
 
@@ -10107,7 +10107,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX
   %52 = lshr i64 %37, 1
   %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
   %54 = getelementptr inbounds i8, ptr %storemerge29, i64 -8
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %53, ptr nonnull %54, i64 %.fr, i64 %4)
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %53, ptr nonnull %54, i64 %.fr33, i64 %4)
   br label %.split.i.i
 
 .split.i.i:                                       ; preds = %.split.i.i.preheader, %73
@@ -10120,7 +10120,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %55 = load ptr, ptr %.sroa.018.1.i.i, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 %4
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr i8, ptr %57, i64 %.fr
+  %58 = getelementptr i8, ptr %57, i64 %.fr33
   %59 = getelementptr i8, ptr %58, i64 -1
   %60 = load ptr, ptr %59, align 8, !nosanitize !18
   %61 = load ptr, ptr %0, align 8
@@ -10134,7 +10134,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 %4
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr i8, ptr %66, i64 %.fr
+  %67 = getelementptr i8, ptr %66, i64 %.fr33
   %68 = getelementptr i8, ptr %67, i64 -1
   %69 = load ptr, ptr %68, align 8, !nosanitize !18
   %70 = load ptr, ptr %.sroa.015.1.i.i, align 8
@@ -10154,7 +10154,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEET_SJ_SJ_T0_.exit.loopexit21: ; preds = %.split24.i.i
   %76 = add nsw i64 %.030, -1
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_T1_(ptr nonnull %.sroa.018.1.i.i, ptr %storemerge29, i64 noundef %76, i64 %.fr, i64 %4)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_T1_(ptr nonnull %.sroa.018.1.i.i, ptr %storemerge29, i64 noundef %76, i64 %.fr33, i64 %4)
   %77 = ptrtoint ptr %.sroa.018.1.i.i to i64
   %78 = sub i64 %77, %6
   %79 = ashr exact i64 %78, 3
@@ -10533,7 +10533,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_(ptr %0, ptr %1, i64 %2, i64 %3) local_unnamed_addr #1 comdat {
-  %.fr = freeze i64 %2
+  %.fr28 = freeze i64 %2
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -10543,9 +10543,9 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = and i64 %.fr, 1
+  %6 = and i64 %.fr28, 1
   %.not.i.i.i.i = icmp eq i64 %6, 0
-  %7 = inttoptr i64 %.fr to ptr
+  %7 = inttoptr i64 %.fr28 to ptr
   %8 = ptrtoint ptr %0 to i64
   br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit.us, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit
 
@@ -10598,7 +10598,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %26 = load ptr, ptr %.sroa.0.026, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %3
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr i8, ptr %28, i64 %.fr
+  %29 = getelementptr i8, ptr %28, i64 %.fr28
   %30 = getelementptr i8, ptr %29, i64 -1
   %31 = load ptr, ptr %30, align 8, !nosanitize !18
   %32 = load ptr, ptr %0, align 8
@@ -10619,7 +10619,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionES
 .split.i:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit
   %41 = getelementptr inbounds i8, ptr %34, i64 %3
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i8, ptr %42, i64 %.fr
+  %43 = getelementptr i8, ptr %42, i64 %.fr28
   %44 = getelementptr i8, ptr %43, i64 -1
   %45 = load ptr, ptr %44, align 8, !nosanitize !18
   %46 = load ptr, ptr %.pn25, align 8
@@ -10633,7 +10633,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5
   store ptr %48, ptr %.sroa.05.011.i, align 8
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.012.i, i64 -8
   %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr i8, ptr %49, i64 %.fr
+  %50 = getelementptr i8, ptr %49, i64 %.fr28
   %51 = getelementptr i8, ptr %50, i64 -1
   %52 = load ptr, ptr %51, align 8, !nosanitize !18
   %53 = load ptr, ptr %.sroa.0.0.i, align 8
@@ -10641,8 +10641,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5
   br i1 %54, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclIS7_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_.exit, !llvm.loop !87
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclIS7_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i, %.split.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit
-  %.sink31 = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit ], [ %.sroa.0.026, %.split.i ], [ %.sroa.0.012.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclIS7_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i ]
-  store ptr %34, ptr %.sink31, align 8
+  %.sink32 = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit ], [ %.sroa.0.026, %.split.i ], [ %.sroa.0.012.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclIS7_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i ]
+  store ptr %34, ptr %.sink32, align 8
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit, !llvm.loop !91

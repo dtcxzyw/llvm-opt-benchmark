@@ -56125,10 +56125,9 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
           to label %.critedge39 unwind label %232, !noalias !7052
 
 117:                                              ; preds = %113
-  %.fr.i = freeze { i32, i32 } %114
-  %118 = extractvalue { i32, i32 } %.fr.i, 0
+  %118 = extractvalue { i32, i32 } %114, 0
   %119 = trunc i32 %118 to i1
-  %120 = extractvalue { i32, i32 } %.fr.i, 1
+  %120 = extractvalue { i32, i32 } %114, 1
   br i1 %119, label %122, label %121
 
 121:                                              ; preds = %117
@@ -56179,10 +56178,10 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
           to label %.critedge39 unwind label %232, !noalias !7052
 
 134:                                              ; preds = %130
-  %.fr283.i = freeze { i32, i32 } %131
-  %135 = extractvalue { i32, i32 } %.fr283.i, 0
+  %.fr282.i = freeze { i32, i32 } %131
+  %135 = extractvalue { i32, i32 } %.fr282.i, 0
   %136 = trunc i32 %135 to i1
-  %137 = extractvalue { i32, i32 } %.fr283.i, 1
+  %137 = extractvalue { i32, i32 } %.fr282.i, 1
   br i1 %136, label %139, label %138
 
 138:                                              ; preds = %134
@@ -56325,8 +56324,7 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
 
 177:                                              ; preds = %.noexc77
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %179 = load i32, ptr %178, align 4, !noalias !7052
-  %.fr282.i = freeze i32 %179
+  %179 = load i64, ptr %178, align 4, !noalias !7052
   %180 = invoke fastcc noundef i32 @"_ZN75_$LT$chrono..naive..date..NaiveDate$u20$as$u20$chrono..traits..Datelike$GT$10with_month17h9c265210d8dec85cE"(i32 %176, i32 noundef %86)
           to label %.noexc78 unwind label %234
 
@@ -56347,22 +56345,28 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
   %185 = icmp ugt i32 %137, 59
   %or.cond.i = or i1 %184, %185
   %186 = icmp ugt i32 %154, 59
-  %or.cond284.i = select i1 %or.cond.i, i1 true, i1 %186
-  br i1 %or.cond284.i, label %.thread267.i, label %187
+  %or.cond279.i = select i1 %or.cond.i, i1 true, i1 %186
+  br i1 %or.cond279.i, label %.thread267.i, label %187
 
 187:                                              ; preds = %183
+  %.sroa.4200.8.extract.shift.i = and i64 %179, -4294967296
   %188 = mul nuw nsw i32 %120, 3600
-  %189 = urem i32 %.fr282.i, 3600
+  %.sroa.4200.4.extract.trunc.i = trunc i64 %179 to i32
+  %189 = urem i32 %.sroa.4200.4.extract.trunc.i, 3600
   %190 = add nuw nsw i32 %189, %188
-  %191 = urem i32 %190, 3600
+  %.sroa.4202.4.insert.ext.i = zext nneg i32 %190 to i64
+  %.sroa.4202.8.insert.insert.i = or disjoint i64 %.sroa.4200.8.extract.shift.i, %.sroa.4202.4.insert.ext.i
+  %.sroa.799.0.fr.i = freeze i64 %.sroa.4202.8.insert.insert.i
+  %.sroa.4204.4.extract.trunc.i = trunc i64 %.sroa.799.0.fr.i to i32
+  %191 = urem i32 %.sroa.4204.4.extract.trunc.i, 3600
   %192 = mul nuw nsw i32 %137, 60
-  %193 = urem i32 %190, 60
-  %194 = add nuw nsw i32 %190, %192
-  %195 = sub nsw i32 %194, %191
-  %196 = add nuw nsw i32 %195, %193
+  %193 = add i32 %192, %.sroa.4204.4.extract.trunc.i
+  %194 = sub i32 %193, %191
+  %195 = urem i32 %.sroa.4204.4.extract.trunc.i, 60
+  %196 = add i32 %194, %195
   %197 = urem i32 %196, 60
-  %198 = add nsw i32 %196, %154
-  %199 = sub nsw i32 %198, %197
+  %198 = add i32 %196, %154
+  %199 = sub i32 %198, %197
   %200 = zext i32 %199 to i64
   %201 = icmp ugt i32 %173, 1999999999
   %.sroa.4214.8.insert.ext.i = zext nneg i32 %173 to i64

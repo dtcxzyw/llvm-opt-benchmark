@@ -5865,8 +5865,9 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i.i910.i:     ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit917.i: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i.i910.i
   %2159 = icmp ult i32 %.05.lcssa.i.i.i890.i, %2158
-  %spec.select.i = select i1 %2159, i32 %2084, i32 %2087
-  %spec.select467.i = select i1 %2159, i32 %2079, i32 %2078
+  %cond.fr.i = freeze i1 %2159
+  %spec.select.i = select i1 %cond.fr.i, i32 %2084, i32 %2087
+  %spec.select467.i = select i1 %cond.fr.i, i32 %2079, i32 %2078
   br label %.thread426.i
 
 .thread426.i:                                     ; preds = %_ZNK4heapIN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS1_4softELb1EjER8rationalE11neg_literalE14compare_degreeEE9less_thanEii.exit917.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i.i906.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i.i904.i, %._crit_edge44.i.i.i
@@ -18243,7 +18244,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i61.i.i.i:    ; preds = %_ZNK6vectorIjLb0EjE
 _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit68.i.i.i: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i61.i.i.i
   %106 = icmp ult i32 %.05.lcssa.i.i41.i.i.i, %105
   %107 = or disjoint i64 %30, 1
-  %spec.select.i.i.i = select i1 %106, i64 %107, i64 %31
+  %cond.fr.i.i.i = freeze i1 %106
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i64 %107, i64 %31
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i.i.i
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !22
   br label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit68.thread.i.i.i
@@ -18686,14 +18688,15 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i52.i.i:      ; preds = %_ZNK6vectorIjLb0EjE
 _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.i.i: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i52.i.i
   %282 = icmp ult i32 %.05.lcssa.i.i32.i.i, %281
   %283 = or disjoint i64 %206, 1
-  %spec.select.i78.i = select i1 %282, i64 %283, i64 %207
-  %.phi.trans.insert.i79.i = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i78.i
-  %.pre.i80.i = load i32, ptr %.phi.trans.insert.i79.i, align 4, !tbaa !22
+  %cond.fr.i78.i = freeze i1 %282
+  %spec.select.i79.i = select i1 %cond.fr.i78.i, i64 %283, i64 %207
+  %.phi.trans.insert.i80.i = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i79.i
+  %.pre.i81.i = load i32, ptr %.phi.trans.insert.i80.i, align 4, !tbaa !22
   br label %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.thread.i.i
 
 _ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.thread.i.i: ; preds = %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i48.i.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i46.i.i
-  %284 = phi i32 [ %.val29.i.i.i75.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i48.i.i ], [ %.pre.i80.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.i.i ], [ %.val29.i.i.i75.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i46.i.i ]
-  %285 = phi i64 [ %207, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i48.i.i ], [ %spec.select.i78.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.i.i ], [ %207, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i46.i.i ]
+  %284 = phi i32 [ %.val29.i.i.i75.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i48.i.i ], [ %.pre.i81.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.i.i ], [ %.val29.i.i.i75.i, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i46.i.i ]
+  %285 = phi i64 [ %207, %_ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i16.i48.i.i ], [ %spec.select.i79.i, %_ZZN11max_cliquesIZN3opt10preprocess12prop_mutexesER6vectorINS0_4softELb1EjER8rationalE11neg_literalE7cliquesERK7svectorIjjER5u_mapI8uint_setERS2_ISB_Lb1EjEENKUljjE_clEjj.exit59.i.i ], [ %207, %_ZN9table2mapI17default_map_entryIj8uint_setE6u_hash4u_eqEixERKj.exit15.i46.i.i ]
   %286 = getelementptr inbounds nuw i32, ptr %0, i64 %.035.i.i.i74.i
   store i32 %284, ptr %286, align 4, !tbaa !22
   %287 = icmp slt i64 %285, %203

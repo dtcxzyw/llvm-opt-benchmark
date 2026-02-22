@@ -687,8 +687,8 @@ define hidden noundef zeroext i1 @_ZN2cv16SunRasterDecoder8readDataERNS_3MatE(pt
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = load i32, ptr %1, align 8, !tbaa !96
-  %.fr = freeze i32 %11
-  %12 = and i32 %.fr, 4088
+  %.fr244 = freeze i32 %11
+  %12 = and i32 %.fr244, 4088
   %.not204 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !97
@@ -755,8 +755,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %34, %39
   %51 = load ptr, ptr %5, align 8, !tbaa !99
   %.not.i.i168 = icmp eq ptr %51, %37
   %52 = icmp eq ptr %51, null
-  %or.cond278 = or i1 %.not.i.i168, %52
-  br i1 %or.cond278, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %53
+  %or.cond279 = or i1 %.not.i.i168, %52
+  br i1 %or.cond279, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %53
 
 53:                                               ; preds = %49
   call void @_ZdaPv(ptr noundef nonnull %51) #16
@@ -915,12 +915,12 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br label %.loopexit206
 
 .loopexit.split-lp.loopexit:                      ; preds = %113
-  %lpad.loopexit290 = landingpad { ptr, i32 }
+  %lpad.loopexit291 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit206
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %139, %137
-  %lpad.loopexit.split-lp291 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp292 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit206
 
@@ -1434,7 +1434,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %32
   br label %.loopexit206
 
 .loopexit206:                                     ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit, %.loopexit206.split.us, %.loopexit206.split, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp207.loopexit.split, %.loopexit.split-lp207.loopexit.split.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171, %193
-  %.pn160.pn = phi { ptr, i32 } [ %.pn160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ], [ %lpad.loopexit225.us, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.phi215, %193 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %lpad.loopexit208.us, %.loopexit206.split.us ], [ %lpad.loopexit208, %.loopexit206.split ], [ %lpad.loopexit217.us, %.loopexit.split-lp207.loopexit.split.us ], [ %lpad.loopexit217, %.loopexit.split-lp207.loopexit.split ], [ %lpad.loopexit221.us, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit221, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit225, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit290, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp291, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn160.pn = phi { ptr, i32 } [ %.pn160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ], [ %lpad.loopexit225.us, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.phi215, %193 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %lpad.loopexit208.us, %.loopexit206.split.us ], [ %lpad.loopexit208, %.loopexit206.split ], [ %lpad.loopexit217.us, %.loopexit.split-lp207.loopexit.split.us ], [ %lpad.loopexit217, %.loopexit.split-lp207.loopexit.split ], [ %lpad.loopexit221.us, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit221, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit225, %.loopexit.split-lp207.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp.loopexit.split-lp ]
   %.0138 = extractvalue { ptr, i32 } %.pn160.pn, 0
   %330 = call ptr @__cxa_begin_catch(ptr %.0138) #15
   invoke void @__cxa_end_catch()
@@ -1445,8 +1445,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %32
   %331 = load ptr, ptr %5, align 8, !tbaa !99
   %.not.i.i172 = icmp eq ptr %331, %37
   %332 = icmp eq ptr %331, null
-  %or.cond279 = or i1 %.not.i.i172, %332
-  br i1 %or.cond279, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit173, label %333
+  %or.cond280 = or i1 %.not.i.i172, %332
+  br i1 %or.cond280, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit173, label %333
 
 333:                                              ; preds = %.thread193
   call void @_ZdaPv(ptr noundef nonnull %331) #16

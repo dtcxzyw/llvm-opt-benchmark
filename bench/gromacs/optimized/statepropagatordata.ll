@@ -6165,12 +6165,12 @@ _Z11do_per_stepll.exit.thread:                    ; preds = %_Z11do_per_stepll.e
   %47 = phi i32 [ 0, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ], [ %spec.select, %_Z11do_per_stepll.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %49 = load i32, ptr %48, align 4, !tbaa !507
-  %.fr80 = freeze i32 %49
-  %.not.i32 = icmp eq i32 %.fr80, 0
+  %.fr83 = freeze i32 %49
+  %.not.i32 = icmp eq i32 %.fr83, 0
   br i1 %.not.i32, label %_Z11do_per_stepll.exit34.thread, label %_Z11do_per_stepll.exit34
 
 _Z11do_per_stepll.exit34:                         ; preds = %_Z11do_per_stepll.exit.thread
-  %50 = sext i32 %.fr80 to i64
+  %50 = sext i32 %.fr83 to i64
   %51 = srem i64 %2, %50
   %52 = icmp eq i64 %51, 0
   %53 = or disjoint i32 %47, 2
@@ -6181,12 +6181,12 @@ _Z11do_per_stepll.exit34.thread:                  ; preds = %_Z11do_per_stepll.e
   %54 = phi i32 [ %47, %_Z11do_per_stepll.exit.thread ], [ %spec.select74, %_Z11do_per_stepll.exit34 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i32, ptr %55, align 8, !tbaa !508
-  %.fr81 = freeze i32 %56
-  %.not.i35 = icmp eq i32 %.fr81, 0
+  %.fr86 = freeze i32 %56
+  %.not.i35 = icmp eq i32 %.fr86, 0
   br i1 %.not.i35, label %_Z11do_per_stepll.exit37.thread, label %_Z11do_per_stepll.exit37
 
 _Z11do_per_stepll.exit37:                         ; preds = %_Z11do_per_stepll.exit34.thread
-  %57 = sext i32 %.fr81 to i64
+  %57 = sext i32 %.fr86 to i64
   %58 = srem i64 %2, %57
   %59 = icmp eq i64 %58, 0
   %60 = or i32 %54, 4
@@ -6197,12 +6197,12 @@ _Z11do_per_stepll.exit37.thread:                  ; preds = %_Z11do_per_stepll.e
   %61 = phi i32 [ %54, %_Z11do_per_stepll.exit34.thread ], [ %spec.select75, %_Z11do_per_stepll.exit37 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %63 = load i32, ptr %62, align 4, !tbaa !509
-  %.fr82 = freeze i32 %63
-  %.not.i38 = icmp eq i32 %.fr82, 0
+  %.fr89 = freeze i32 %63
+  %.not.i38 = icmp eq i32 %.fr89, 0
   br i1 %.not.i38, label %_Z11do_per_stepll.exit40.thread, label %_Z11do_per_stepll.exit40
 
 _Z11do_per_stepll.exit40:                         ; preds = %_Z11do_per_stepll.exit37.thread
-  %64 = sext i32 %.fr82 to i64
+  %64 = sext i32 %.fr89 to i64
   %65 = srem i64 %2, %64
   %66 = icmp eq i64 %65, 0
   %67 = or i32 %61, 8
@@ -6415,11 +6415,11 @@ _Z11do_per_stepll.exit52.thread:                  ; preds = %_Z11do_per_stepll.e
   br i1 %189, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.sink.split, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.sink.split: ; preds = %185, %122
-  %.sink98 = phi ptr [ %94, %122 ], [ %157, %185 ]
+  %.sink105 = phi ptr [ %94, %122 ], [ %157, %185 ]
   %.sink = phi i64 [ %103, %122 ], [ %166, %185 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.sink98, i64 2612
+  %190 = getelementptr inbounds nuw i8, ptr %.sink105, i64 2612
   store i32 47, ptr %190, align 4, !tbaa !192
-  %191 = getelementptr inbounds nuw i8, ptr %.sink98, i64 2616
+  %191 = getelementptr inbounds nuw i8, ptr %.sink105, i64 2616
   store i64 %.sink, ptr %191, align 8, !tbaa !194
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 

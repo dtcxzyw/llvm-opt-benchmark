@@ -11424,51 +11424,45 @@ declare void @_ZNK6google8protobuf10Reflection10ListFieldsERKNS0_7MessageEPSt6ve
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SX_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #17 {
 entry:
-  %__first.coerce.fr.i.i.i = freeze ptr %__first.coerce
   %__last.coerce.fr = freeze ptr %__last.coerce
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr.i.i.i to i64
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %__last.coerce.fr to i64
-  %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 3
-  %cmp22 = icmp sgt i64 %sub.ptr.div.i21, 16
-  br i1 %cmp22, label %while.body.lr.ph, label %while.end
+  %__first.coerce.fr = freeze ptr %__first.coerce
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr to i64
+  %sub.ptr.lhs.cast.i15 = ptrtoint ptr %__last.coerce.fr to i64
+  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i16, 3
+  %cmp19 = icmp sgt i64 %sub.ptr.div.i18, 16
+  br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr.i.i.i, i64 8
-  br label %while.body
+  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 8
+  %cmp236 = icmp eq i64 %__depth_limit, 0
+  br i1 %cmp236, label %if.then, label %if.end
 
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit
-  %sub.ptr.div.i25 = phi i64 [ %sub.ptr.div.i21, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit ]
-  %__depth_limit.addr.024 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit ]
-  %storemerge23 = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.024, 0
-  br i1 %cmp2, label %if.then, label %if.end
+while.body:                                       ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit
+  %cmp2 = icmp eq i64 %dec, 0
+  br i1 %cmp2, label %if.then, label %if.end, !llvm.loop !482
 
-if.then:                                          ; preds = %while.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %storemerge23 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i, 3
-  %cmp.i.i.i = icmp slt i64 %sub.ptr.div.i.i.i.i, 2
-  br i1 %cmp.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then
+if.then:                                          ; preds = %while.body, %while.body.lr.ph
+  %sub.ptr.sub.i.fr.i.i.i22.lcssa = phi i64 [ %sub.ptr.sub.i16, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
+  %storemerge20.lcssa = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+  %sub.ptr.div.i.i.i.i = lshr i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 3
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -2
   %div56.i.i.i = lshr i64 %sub.i.i.i, 1
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %div.i8.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %0 = and i64 %sub.ptr.sub.i.i.i.i, 8
+  %0 = and i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 8
   %cmp16.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp16.i.i.i.i, label %while.body.preheader.i.i.i, label %while.body.us.i.i.i
 
-while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
+while.body.preheader.i.i.i:                       ; preds = %if.then
   %sub24.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub24.i.i.i.i
-  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %div56.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %sub24.i.i.i.i
+  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %div56.i.i.i
   br label %while.body.i.i.i
 
-while.body.us.i.i.i:                              ; preds = %if.end.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i
-  %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i ], [ %div56.i.i.i, %if.end.i.i.i ]
-  %phi.call.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.0.us.i.i.i
+while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i
+  %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i ], [ %div56.i.i.i, %if.then ]
+  %phi.call.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.us.i.i.i
   %1 = load ptr, ptr %phi.call.us.i.i.i, align 8
   %cmp27.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i8.i.i.i
   br i1 %cmp27.i.us.i.i.i, label %while.body.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i
@@ -11477,9 +11471,9 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i
   %__holeIndex.addr.028.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ]
   %add.i.us.i.i.i = shl i64 %__holeIndex.addr.028.i.us.i.i.i, 1
   %mul.i.us.i.i.i = add i64 %add.i.us.i.i.i, 2
-  %add.ptr.i.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %mul.i.us.i.i.i
+  %add.ptr.i.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %mul.i.us.i.i.i
   %sub3.i.us.i.i.i = or disjoint i64 %add.i.us.i.i.i, 1
-  %add.ptr.i17.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub3.i.us.i.i.i
+  %add.ptr.i17.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub3.i.us.i.i.i
   %call.val.i.i.us.i.i.i = load ptr, ptr %add.ptr.i.i.us.i.i.i, align 8
   %call3.val.i.i.us.i.i.i = load ptr, ptr %add.ptr.i17.i.us.i.i.i, align 8
   %2 = getelementptr i8, ptr %call.val.i.i.us.i.i.i, i64 4
@@ -11488,12 +11482,12 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i
   %call3.val.val.i.i.us.i.i.i = load i32, ptr %3, align 4
   %cmp.i.i.i.us.i.i.i = icmp slt i32 %call.val.val.i.i.us.i.i.i, %call3.val.val.i.i.us.i.i.i
   %spec.select.i.us.i.i.i = select i1 %cmp.i.i.i.us.i.i.i, i64 %sub3.i.us.i.i.i, i64 %mul.i.us.i.i.i
-  %add.ptr.i18.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %spec.select.i.us.i.i.i
+  %add.ptr.i18.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %spec.select.i.us.i.i.i
   %4 = load ptr, ptr %add.ptr.i18.i.us.i.i.i, align 8
-  %add.ptr.i19.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.028.i.us.i.i.i
+  %add.ptr.i19.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.us.i.i.i
   store ptr %4, ptr %add.ptr.i19.i.us.i.i.i, align 8
   %cmp.i.us.i.i.i = icmp slt i64 %spec.select.i.us.i.i.i, %div.i8.i.i.i
-  br i1 %cmp.i.us.i.i.i, label %while.body.i.us.i.i.i, label %while.end.i.us.i.i.i, !llvm.loop !482
+  br i1 %cmp.i.us.i.i.i, label %while.body.i.us.i.i.i, label %while.end.i.us.i.i.i, !llvm.loop !483
 
 while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i.i
   %5 = getelementptr i8, ptr %1, i64 4
@@ -11503,7 +11497,7 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   %__holeIndex.addr.07.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
   %__parent.08.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.us.i.i.i, -1
   %__parent.08.i.i.us.i.i.i = sdiv i64 %__parent.08.in.i.i.us.i.i.i, 2
-  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.08.i.i.us.i.i.i
+  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__parent.08.i.i.us.i.i.i
   %__value.addr.val.val.i.i.us.i.i.i = load i32, ptr %5, align 4
   %call.val.i.i.i.us.i.i.i = load ptr, ptr %add.ptr.i.i.i.us.i.i.i, align 8
   %6 = getelementptr i8, ptr %call.val.i.i.i.us.i.i.i, i64 4
@@ -11512,22 +11506,22 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   br i1 %cmp.i.i.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i
 
 while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i.i
-  %add.ptr.i8.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.us.i.i.i
+  %add.ptr.i8.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.us.i.i.i
   store ptr %call.val.i.i.i.us.i.i.i, ptr %add.ptr.i8.i.i.us.i.i.i, align 8
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.08.i.i.us.i.i.i, %__parent.0.us.i.i.i
-  br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i, !llvm.loop !483
+  br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i, !llvm.loop !484
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.body.us.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ]
-  %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
+  %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   store ptr %1, ptr %add.ptr.i9.i.i.us.i.i.i, align 8
   %cmp8.us.i.i.i = icmp eq i64 %__parent.0.us.i.i.i, 0
   %dec.us.i.i.i = add nsw i64 %__parent.0.us.i.i.i, -1
-  br i1 %cmp8.us.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i, label %while.body.us.i.i.i, !llvm.loop !484
+  br i1 %cmp8.us.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_RSX_.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !485
 
 while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i, %while.body.preheader.i.i.i
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i ], [ %div56.i.i.i, %while.body.preheader.i.i.i ]
-  %phi.call.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.0.i.i.i
+  %phi.call.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.i.i.i
   %7 = load ptr, ptr %phi.call.i.i.i, align 8
   %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i8.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
@@ -11536,9 +11530,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__holeIndex.addr.028.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.028.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i17.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub3.i.i.i.i
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub3.i.i.i.i
   %call.val.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %call3.val.i.i.i.i.i = load ptr, ptr %add.ptr.i17.i.i.i.i, align 8
   %8 = getelementptr i8, ptr %call.val.i.i.i.i.i, i64 4
@@ -11547,12 +11541,12 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %call3.val.val.i.i.i.i.i = load i32, ptr %9, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.val.val.i.i.i.i.i, %call3.val.val.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i18.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %spec.select.i.i.i.i
+  %add.ptr.i18.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
   %10 = load ptr, ptr %add.ptr.i18.i.i.i.i, align 8
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.028.i.i.i.i
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i.i
   store ptr %10, ptr %add.ptr.i19.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i8.i.i.i
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !482
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !483
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
@@ -11577,7 +11571,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %__holeIndex.addr.07.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__parent.08.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i.i, -1
   %__parent.08.i.i.i.i.i = sdiv i64 %__parent.08.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.08.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__parent.08.i.i.i.i.i
   %__value.addr.val.val.i.i.i.i.i = load i32, ptr %12, align 4
   %call.val.i.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %13 = getelementptr i8, ptr %call.val.i.i.i.i.i.i, i64 4
@@ -11586,28 +11580,28 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i.i
   store ptr %call.val.i.i.i.i.i.i, ptr %add.ptr.i8.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.08.i.i.i.i.i, %__parent.0.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i, !llvm.loop !483
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i, !llvm.loop !484
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__holeIndex.addr.07.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %7, ptr %add.ptr.i9.i.i.i.i.i, align 8
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp8.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i, label %while.body.i.i.i, !llvm.loop !484
+  br i1 %cmp8.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_RSX_.exit.i.i, label %while.body.i.i.i, !llvm.loop !485
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i, %if.then
-  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 8
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_RSX_.exit.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i
+  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 8
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i ], [ %storemerge23, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i ]
+while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_RSX_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i ], [ %storemerge20.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_RSX_.exit.i.i ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   %14 = load ptr, ptr %incdec.ptr.i.i1.i, align 8
-  %15 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+  %15 = load ptr, ptr %__first.coerce.fr, align 8
   store ptr %15, ptr %incdec.ptr.i.i1.i, align 8
   %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
   %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
@@ -11621,9 +11615,9 @@ while.body.i.i.i30.i:                             ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.028.i.i.i31.i = phi i64 [ %spec.select.i.i.i42.i, %while.body.i.i.i30.i ], [ 0, %while.body.i.i ]
   %add.i.i.i32.i = shl i64 %__holeIndex.addr.028.i.i.i31.i, 1
   %mul.i.i.i33.i = add i64 %add.i.i.i32.i, 2
-  %add.ptr.i.i.i.i34.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %mul.i.i.i33.i
+  %add.ptr.i.i.i.i34.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %mul.i.i.i33.i
   %sub3.i.i.i35.i = or disjoint i64 %add.i.i.i32.i, 1
-  %add.ptr.i17.i.i.i36.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub3.i.i.i35.i
+  %add.ptr.i17.i.i.i36.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub3.i.i.i35.i
   %call.val.i.i.i.i37.i = load ptr, ptr %add.ptr.i.i.i.i34.i, align 8
   %call3.val.i.i.i.i38.i = load ptr, ptr %add.ptr.i17.i.i.i36.i, align 8
   %16 = getelementptr i8, ptr %call.val.i.i.i.i37.i, i64 4
@@ -11632,12 +11626,12 @@ while.body.i.i.i30.i:                             ; preds = %while.body.i.i, %wh
   %call3.val.val.i.i.i.i40.i = load i32, ptr %17, align 4
   %cmp.i.i.i.i.i41.i = icmp slt i32 %call.val.val.i.i.i.i39.i, %call3.val.val.i.i.i.i40.i
   %spec.select.i.i.i42.i = select i1 %cmp.i.i.i.i.i41.i, i64 %sub3.i.i.i35.i, i64 %mul.i.i.i33.i
-  %add.ptr.i18.i.i.i43.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %spec.select.i.i.i42.i
+  %add.ptr.i18.i.i.i43.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %spec.select.i.i.i42.i
   %18 = load ptr, ptr %add.ptr.i18.i.i.i43.i, align 8
-  %add.ptr.i19.i.i.i44.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.028.i.i.i31.i
+  %add.ptr.i19.i.i.i44.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i31.i
   store ptr %18, ptr %add.ptr.i19.i.i.i44.i, align 8
   %cmp.i.i.i45.i = icmp slt i64 %spec.select.i.i.i42.i, %div.i.i.i6.i
-  br i1 %cmp.i.i.i45.i, label %while.body.i.i.i30.i, label %while.end.i.i.i8.i, !llvm.loop !482
+  br i1 %cmp.i.i.i45.i, label %while.body.i.i.i30.i, label %while.end.i.i.i8.i, !llvm.loop !483
 
 while.end.i.i.i8.i:                               ; preds = %while.body.i.i.i30.i, %while.body.i.i
   %__holeIndex.addr.0.lcssa.i.i.i9.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i42.i, %while.body.i.i.i30.i ]
@@ -11654,9 +11648,9 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i8.i
 if.end33.i.thread.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 1
   %sub24.i.i.i27.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i20.i.i.i28.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub24.i.i.i27.i
+  %add.ptr.i20.i.i.i28.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %sub24.i.i.i27.i
   %20 = load ptr, ptr %add.ptr.i20.i.i.i28.i, align 8
-  %add.ptr.i21.i.i.i29.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.i9.i
+  %add.ptr.i21.i.i.i29.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i9.i
   store ptr %20, ptr %add.ptr.i21.i.i.i29.i, align 8
   br label %land.rhs.lr.ph.i.i.i.i12.i
 
@@ -11673,7 +11667,7 @@ land.rhs.i.i.i.i13.i:                             ; preds = %while.body.i.i.i.i2
   %__holeIndex.addr.07.i.i.i.i14.i = phi i64 [ %__holeIndex.addr.1.i5.i.i.i, %land.rhs.lr.ph.i.i.i.i12.i ], [ %__parent.08.i.i67.i.i.i, %while.body.i.i.i.i23.i ]
   %__parent.08.in.i.i.i.i15.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i14.i, -1
   %__parent.08.i.i67.i.i.i = lshr i64 %__parent.08.in.i.i.i.i15.i, 1
-  %add.ptr.i.i.i.i.i16.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.08.i.i67.i.i.i
+  %add.ptr.i.i.i.i.i16.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__parent.08.i.i67.i.i.i
   %__value.addr.val.val.i.i.i.i17.i = load i32, ptr %21, align 4
   %call.val.i.i.i.i.i18.i = load ptr, ptr %add.ptr.i.i.i.i.i16.i, align 8
   %22 = getelementptr i8, ptr %call.val.i.i.i.i.i18.i, i64 4
@@ -11682,104 +11676,107 @@ land.rhs.i.i.i.i13.i:                             ; preds = %while.body.i.i.i.i2
   br i1 %cmp.i.i.i.i.i.i20.i, label %while.body.i.i.i.i23.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i
 
 while.body.i.i.i.i23.i:                           ; preds = %land.rhs.i.i.i.i13.i
-  %add.ptr.i8.i.i.i.i24.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.i.i14.i
+  %add.ptr.i8.i.i.i.i24.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i14.i
   store ptr %call.val.i.i.i.i.i18.i, ptr %add.ptr.i8.i.i.i.i24.i, align 8
   %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.08.i.i67.i.i.i, 0
-  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i, label %land.rhs.i.i.i.i13.i, !llvm.loop !483
+  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i, label %land.rhs.i.i.i.i13.i, !llvm.loop !484
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i: ; preds = %while.body.i.i.i.i23.i, %land.rhs.i.i.i.i13.i, %if.end33.i.i.i11.i
   %__holeIndex.addr.0.lcssa.i.i.i.i21.i = phi i64 [ 0, %if.end33.i.i.i11.i ], [ %__holeIndex.addr.07.i.i.i.i14.i, %land.rhs.i.i.i.i13.i ], [ 0, %while.body.i.i.i.i23.i ]
-  %add.ptr.i9.i.i.i.i22.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i21.i
+  %add.ptr.i9.i.i.i.i22.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i21.i
   store ptr %14, ptr %add.ptr.i9.i.i.i.i22.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !485
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !486
 
-if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.024, -1
-  %div.i1415 = lshr i64 %sub.ptr.div.i25, 1
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %div.i1415
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge23, i64 -8
-  %call.val.i.i.i5 = load ptr, ptr %add.ptr.i2.i, align 8
-  %call3.val.i.i.i6 = load ptr, ptr %add.ptr.i.i, align 8
-  %23 = getelementptr i8, ptr %call.val.i.i.i5, i64 4
-  %call.val.val.i.i.i7 = load i32, ptr %23, align 4
-  %24 = getelementptr i8, ptr %call3.val.i.i.i6, i64 4
-  %call3.val.val.i.i.i8 = load i32, ptr %24, align 4
-  %cmp.i.i.i.i9 = icmp slt i32 %call.val.val.i.i.i7, %call3.val.val.i.i.i8
+if.end:                                           ; preds = %while.body.lr.ph, %while.body
+  %storemerge2039 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce.fr, %while.body.lr.ph ]
+  %__depth_limit.addr.02138 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
+  %sub.ptr.div.i2337 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i18, %while.body.lr.ph ]
+  %dec = add nsw i64 %__depth_limit.addr.02138, -1
+  %div.i89 = lshr i64 %sub.ptr.div.i2337, 1
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %div.i89
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge2039, i64 -8
+  %call.val.i.i.i = load ptr, ptr %add.ptr.i2.i, align 8
+  %call3.val.i.i.i = load ptr, ptr %add.ptr.i.i, align 8
+  %23 = getelementptr i8, ptr %call.val.i.i.i, i64 4
+  %call.val.val.i.i.i = load i32, ptr %23, align 4
+  %24 = getelementptr i8, ptr %call3.val.i.i.i, i64 4
+  %call3.val.val.i.i.i = load i32, ptr %24, align 4
+  %cmp.i.i.i.i5 = icmp slt i32 %call.val.val.i.i.i, %call3.val.val.i.i.i
   %call3.val.i2.i.i = load ptr, ptr %add.ptr.i3.i, align 8
   %25 = getelementptr i8, ptr %call3.val.i2.i.i, i64 4
   %call3.val.val.i4.i.i = load i32, ptr %25, align 4
-  br i1 %cmp.i.i.i.i9, label %if.then.i.i13, label %if.else33.i.i
+  br i1 %cmp.i.i.i.i5, label %if.then.i.i, label %if.else33.i.i
 
-if.then.i.i13:                                    ; preds = %if.end
-  %cmp.i.i5.i.i = icmp slt i32 %call3.val.val.i.i.i8, %call3.val.val.i4.i.i
+if.then.i.i:                                      ; preds = %if.end
+  %cmp.i.i5.i.i = icmp slt i32 %call3.val.val.i.i.i, %call3.val.val.i4.i.i
   br i1 %cmp.i.i5.i.i, label %if.then12.i.i, label %if.else.i.i
 
-if.then12.i.i:                                    ; preds = %if.then.i.i13
-  %26 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
-  store ptr %call3.val.i.i.i6, ptr %__first.coerce.fr.i.i.i, align 8
+if.then12.i.i:                                    ; preds = %if.then.i.i
+  %26 = load ptr, ptr %__first.coerce.fr, align 8
+  store ptr %call3.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %26, ptr %add.ptr.i.i, align 8
-  br label %while.body.i.i10.preheader
+  br label %while.body.i.i6.preheader
 
-if.else.i.i:                                      ; preds = %if.then.i.i13
-  %cmp.i.i10.i.i = icmp slt i32 %call.val.val.i.i.i7, %call3.val.val.i4.i.i
-  %27 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+if.else.i.i:                                      ; preds = %if.then.i.i
+  %cmp.i.i10.i.i = icmp slt i32 %call.val.val.i.i.i, %call3.val.val.i4.i.i
+  %27 = load ptr, ptr %__first.coerce.fr, align 8
   br i1 %cmp.i.i10.i.i, label %if.then22.i.i, label %if.else27.i.i
 
 if.then22.i.i:                                    ; preds = %if.else.i.i
-  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr, align 8
   store ptr %27, ptr %add.ptr.i3.i, align 8
-  br label %while.body.i.i10.preheader
+  br label %while.body.i.i6.preheader
 
 if.else27.i.i:                                    ; preds = %if.else.i.i
-  store ptr %call.val.i.i.i5, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %27, ptr %add.ptr.i2.i, align 8
-  br label %while.body.i.i10.preheader
+  br label %while.body.i.i6.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
-  %cmp.i.i15.i.i = icmp slt i32 %call.val.val.i.i.i7, %call3.val.val.i4.i.i
+  %cmp.i.i15.i.i = icmp slt i32 %call.val.val.i.i.i, %call3.val.val.i4.i.i
   br i1 %cmp.i.i15.i.i, label %if.then39.i.i, label %if.else44.i.i
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
-  %28 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
-  store ptr %call.val.i.i.i5, ptr %__first.coerce.fr.i.i.i, align 8
+  %28 = load ptr, ptr %__first.coerce.fr, align 8
+  store ptr %call.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %28, ptr %add.ptr.i2.i, align 8
-  br label %while.body.i.i10.preheader
+  br label %while.body.i.i6.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
-  %cmp.i.i20.i.i = icmp slt i32 %call3.val.val.i.i.i8, %call3.val.val.i4.i.i
-  %29 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+  %cmp.i.i20.i.i = icmp slt i32 %call3.val.val.i.i.i, %call3.val.val.i4.i.i
+  %29 = load ptr, ptr %__first.coerce.fr, align 8
   br i1 %cmp.i.i20.i.i, label %if.then50.i.i, label %if.else55.i.i
 
 if.then50.i.i:                                    ; preds = %if.else44.i.i
-  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr, align 8
   store ptr %29, ptr %add.ptr.i3.i, align 8
-  br label %while.body.i.i10.preheader
+  br label %while.body.i.i6.preheader
 
 if.else55.i.i:                                    ; preds = %if.else44.i.i
-  store ptr %call3.val.i.i.i6, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call3.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %29, ptr %add.ptr.i.i, align 8
-  br label %while.body.i.i10.preheader
+  br label %while.body.i.i6.preheader
 
-while.body.i.i10.preheader:                       ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
-  br label %while.body.i.i10
+while.body.i.i6.preheader:                        ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
+  br label %while.body.i.i6
 
-while.body.i.i10:                                 ; preds = %while.body.i.i10.preheader, %if.end.i.i
-  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i11, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i10.preheader ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge23, %while.body.i.i10.preheader ]
-  %call3.val.i.i5.i = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+while.body.i.i6:                                  ; preds = %while.body.i.i6.preheader, %if.end.i.i
+  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i6.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2039, %while.body.i.i6.preheader ]
+  %call3.val.i.i5.i = load ptr, ptr %__first.coerce.fr, align 8
   %30 = getelementptr i8, ptr %call3.val.i.i5.i, i64 4
   %call3.val.val.i.i6.i = load i32, ptr %30, align 4
   br label %while.cond3.i.i
 
-while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i10
-  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i10 ], [ %incdec.ptr.i.i.i11, %while.cond3.i.i ]
+while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i6
+  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i6 ], [ %incdec.ptr.i.i.i, %while.cond3.i.i ]
   %call.val.i.i7.i = load ptr, ptr %__first.sroa.0.1.i.i, align 8
   %31 = getelementptr i8, ptr %call.val.i.i7.i, i64 4
   %call.val.val.i.i8.i = load i32, ptr %31, align 4
   %cmp.i.i.i9.i = icmp slt i32 %call.val.val.i.i8.i, %call3.val.val.i.i6.i
-  %incdec.ptr.i.i.i11 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
-  br i1 %cmp.i.i.i9.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !486
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
+  br i1 %cmp.i.i.i9.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !487
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
@@ -11788,26 +11785,26 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   %32 = getelementptr i8, ptr %call3.val.i3.i.i, i64 4
   %call3.val.val.i5.i.i = load i32, ptr %32, align 4
   %cmp.i.i6.i.i = icmp slt i32 %call3.val.val.i.i6.i, %call3.val.val.i5.i.i
-  br i1 %cmp.i.i6.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !487
+  br i1 %cmp.i.i6.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !488
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
-  %cmp.i.i.i12 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
-  br i1 %cmp.i.i.i12, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit
+  %cmp.i.i.i7 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
+  br i1 %cmp.i.i.i7, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
   store ptr %call3.val.i3.i.i, ptr %__first.sroa.0.1.i.i, align 8
   store ptr %call.val.i.i7.i, ptr %__last.sroa.0.1.i.i, align 8
-  br label %while.body.i.i10, !llvm.loop !488
+  br label %while.body.i.i6, !llvm.loop !489
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit: ; preds = %while.end18.i.i
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SX_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge23, i64 noundef %dec)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SX_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge2039, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !489
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !482
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i, %entry, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_SX_.exit.i
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEESN_SN_SN_SX_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_RSX_.exit.i.i
   ret void
 }
 
@@ -19688,51 +19685,45 @@ return:                                           ; preds = %cleanup19, %cleanup
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SY_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #17 {
 entry:
-  %__first.coerce.fr.i.i.i = freeze ptr %__first.coerce
   %__last.coerce.fr = freeze ptr %__last.coerce
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr.i.i.i to i64
-  %sub.ptr.lhs.cast.i21 = ptrtoint ptr %__last.coerce.fr to i64
-  %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp24 = icmp sgt i64 %sub.ptr.div.i23, 16
-  br i1 %cmp24, label %while.body.lr.ph, label %while.end
+  %__first.coerce.fr = freeze ptr %__first.coerce
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr to i64
+  %sub.ptr.lhs.cast.i15 = ptrtoint ptr %__last.coerce.fr to i64
+  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i16, 3
+  %cmp19 = icmp sgt i64 %sub.ptr.div.i18, 16
+  br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr.i.i.i, i64 8
-  br label %while.body
+  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 8
+  %cmp236 = icmp eq i64 %__depth_limit, 0
+  br i1 %cmp236, label %if.then, label %if.end
 
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit
-  %sub.ptr.div.i27 = phi i64 [ %sub.ptr.div.i23, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit ]
-  %__depth_limit.addr.026 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit ]
-  %storemerge25 = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.026, 0
-  br i1 %cmp2, label %if.then, label %if.end
+while.body:                                       ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit
+  %cmp2 = icmp eq i64 %dec, 0
+  br i1 %cmp2, label %if.then, label %if.end, !llvm.loop !715
 
-if.then:                                          ; preds = %while.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %storemerge25 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i, 3
-  %cmp.i.i.i = icmp slt i64 %sub.ptr.div.i.i.i.i, 2
-  br i1 %cmp.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then
+if.then:                                          ; preds = %while.body, %while.body.lr.ph
+  %sub.ptr.sub.i.fr.i.i.i22.lcssa = phi i64 [ %sub.ptr.sub.i16, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
+  %storemerge20.lcssa = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+  %sub.ptr.div.i.i.i.i = lshr i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 3
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -2
   %div56.i.i.i = lshr i64 %sub.i.i.i, 1
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %div.i8.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %0 = and i64 %sub.ptr.sub.i.i.i.i, 8
+  %0 = and i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 8
   %cmp16.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp16.i.i.i.i, label %while.body.preheader.i.i.i, label %while.body.us.i.i.i
 
-while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
+while.body.preheader.i.i.i:                       ; preds = %if.then
   %sub24.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub24.i.i.i.i
-  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %div56.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %sub24.i.i.i.i
+  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %div56.i.i.i
   br label %while.body.i.i.i
 
-while.body.us.i.i.i:                              ; preds = %if.end.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i
-  %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i ], [ %div56.i.i.i, %if.end.i.i.i ]
-  %phi.call.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.0.us.i.i.i
+while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i
+  %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i ], [ %div56.i.i.i, %if.then ]
+  %phi.call.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.us.i.i.i
   %1 = load ptr, ptr %phi.call.us.i.i.i, align 8
   %cmp27.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i8.i.i.i
   br i1 %cmp27.i.us.i.i.i, label %while.body.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i
@@ -19741,9 +19732,9 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i
   %__holeIndex.addr.028.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ]
   %add.i.us.i.i.i = shl i64 %__holeIndex.addr.028.i.us.i.i.i, 1
   %mul.i.us.i.i.i = add i64 %add.i.us.i.i.i, 2
-  %add.ptr.i.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %mul.i.us.i.i.i
+  %add.ptr.i.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %mul.i.us.i.i.i
   %sub3.i.us.i.i.i = or disjoint i64 %add.i.us.i.i.i, 1
-  %add.ptr.i17.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub3.i.us.i.i.i
+  %add.ptr.i17.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub3.i.us.i.i.i
   %call.val.i.i.us.i.i.i = load ptr, ptr %add.ptr.i.i.us.i.i.i, align 8
   %call3.val.i.i.us.i.i.i = load ptr, ptr %add.ptr.i17.i.us.i.i.i, align 8
   %2 = getelementptr i8, ptr %call.val.i.i.us.i.i.i, i64 8
@@ -19756,12 +19747,12 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i
   %call3.val.val.val.i.i.us.i.i.i = load i32, ptr %5, align 8
   %cmp.i.i.i.us.i.i.i = icmp slt i32 %call.val.val.val.i.i.us.i.i.i, %call3.val.val.val.i.i.us.i.i.i
   %spec.select.i.us.i.i.i = select i1 %cmp.i.i.i.us.i.i.i, i64 %sub3.i.us.i.i.i, i64 %mul.i.us.i.i.i
-  %add.ptr.i18.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %spec.select.i.us.i.i.i
+  %add.ptr.i18.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %spec.select.i.us.i.i.i
   %6 = load ptr, ptr %add.ptr.i18.i.us.i.i.i, align 8
-  %add.ptr.i19.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.028.i.us.i.i.i
+  %add.ptr.i19.i.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.us.i.i.i
   store ptr %6, ptr %add.ptr.i19.i.us.i.i.i, align 8
   %cmp.i.us.i.i.i = icmp slt i64 %spec.select.i.us.i.i.i, %div.i8.i.i.i
-  br i1 %cmp.i.us.i.i.i, label %while.body.i.us.i.i.i, label %while.end.i.us.i.i.i, !llvm.loop !715
+  br i1 %cmp.i.us.i.i.i, label %while.body.i.us.i.i.i, label %while.end.i.us.i.i.i, !llvm.loop !716
 
 while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i.i
   %7 = getelementptr i8, ptr %1, i64 8
@@ -19771,7 +19762,7 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   %__holeIndex.addr.07.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
   %__parent.08.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.us.i.i.i, -1
   %__parent.08.i.i.us.i.i.i = sdiv i64 %__parent.08.in.i.i.us.i.i.i, 2
-  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.08.i.i.us.i.i.i
+  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__parent.08.i.i.us.i.i.i
   %__value.addr.val.val.i.i.us.i.i.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %__value.addr.val.val.i.i.us.i.i.i, i64 80
   %__value.addr.val.val.val.i.i.us.i.i.i = load i32, ptr %8, align 8
@@ -19784,22 +19775,22 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   br i1 %cmp.i.i.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i
 
 while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i.i
-  %add.ptr.i8.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.us.i.i.i
+  %add.ptr.i8.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.us.i.i.i
   store ptr %call.val.i.i.i.us.i.i.i, ptr %add.ptr.i8.i.i.us.i.i.i, align 8
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.08.i.i.us.i.i.i, %__parent.0.us.i.i.i
-  br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i, !llvm.loop !716
+  br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i, !llvm.loop !717
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.body.us.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ]
-  %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
+  %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   store ptr %1, ptr %add.ptr.i9.i.i.us.i.i.i, align 8
   %cmp8.us.i.i.i = icmp eq i64 %__parent.0.us.i.i.i, 0
   %dec.us.i.i.i = add nsw i64 %__parent.0.us.i.i.i, -1
-  br i1 %cmp8.us.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i, label %while.body.us.i.i.i, !llvm.loop !717
+  br i1 %cmp8.us.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_RSY_.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !718
 
 while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i, %while.body.preheader.i.i.i
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i ], [ %div56.i.i.i, %while.body.preheader.i.i.i ]
-  %phi.call.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.0.i.i.i
+  %phi.call.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.i.i.i
   %11 = load ptr, ptr %phi.call.i.i.i, align 8
   %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i8.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
@@ -19808,9 +19799,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__holeIndex.addr.028.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.028.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i17.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub3.i.i.i.i
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub3.i.i.i.i
   %call.val.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %call3.val.i.i.i.i.i = load ptr, ptr %add.ptr.i17.i.i.i.i, align 8
   %12 = getelementptr i8, ptr %call.val.i.i.i.i.i, i64 8
@@ -19823,12 +19814,12 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %call3.val.val.val.i.i.i.i.i = load i32, ptr %15, align 8
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.val.val.val.i.i.i.i.i, %call3.val.val.val.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i18.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %spec.select.i.i.i.i
+  %add.ptr.i18.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
   %16 = load ptr, ptr %add.ptr.i18.i.i.i.i, align 8
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.028.i.i.i.i
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i.i
   store ptr %16, ptr %add.ptr.i19.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i8.i.i.i
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !715
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !716
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
@@ -19853,7 +19844,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %__holeIndex.addr.07.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__parent.08.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i.i, -1
   %__parent.08.i.i.i.i.i = sdiv i64 %__parent.08.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.08.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__parent.08.i.i.i.i.i
   %__value.addr.val.val.i.i.i.i.i = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %__value.addr.val.val.i.i.i.i.i, i64 80
   %__value.addr.val.val.val.i.i.i.i.i = load i32, ptr %19, align 8
@@ -19866,28 +19857,28 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i.i
   store ptr %call.val.i.i.i.i.i.i, ptr %add.ptr.i8.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.08.i.i.i.i.i, %__parent.0.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i, !llvm.loop !716
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i, !llvm.loop !717
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__holeIndex.addr.07.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %11, ptr %add.ptr.i9.i.i.i.i.i, align 8
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp8.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i, label %while.body.i.i.i, !llvm.loop !717
+  br i1 %cmp8.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_RSY_.exit.i.i, label %while.body.i.i.i, !llvm.loop !718
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i, %if.then
-  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 8
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_RSY_.exit.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i
+  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.fr.i.i.i22.lcssa, 8
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i ], [ %storemerge25, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i ]
+while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_RSY_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i ], [ %storemerge20.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_RSY_.exit.i.i ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   %22 = load ptr, ptr %incdec.ptr.i.i1.i, align 8
-  %23 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+  %23 = load ptr, ptr %__first.coerce.fr, align 8
   store ptr %23, ptr %incdec.ptr.i.i1.i, align 8
   %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
   %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
@@ -19901,9 +19892,9 @@ while.body.i.i.i32.i:                             ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.028.i.i.i33.i = phi i64 [ %spec.select.i.i.i46.i, %while.body.i.i.i32.i ], [ 0, %while.body.i.i ]
   %add.i.i.i34.i = shl i64 %__holeIndex.addr.028.i.i.i33.i, 1
   %mul.i.i.i35.i = add i64 %add.i.i.i34.i, 2
-  %add.ptr.i.i.i.i36.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %mul.i.i.i35.i
+  %add.ptr.i.i.i.i36.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %mul.i.i.i35.i
   %sub3.i.i.i37.i = or disjoint i64 %add.i.i.i34.i, 1
-  %add.ptr.i17.i.i.i38.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub3.i.i.i37.i
+  %add.ptr.i17.i.i.i38.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %sub3.i.i.i37.i
   %call.val.i.i.i.i39.i = load ptr, ptr %add.ptr.i.i.i.i36.i, align 8
   %call3.val.i.i.i.i40.i = load ptr, ptr %add.ptr.i17.i.i.i38.i, align 8
   %24 = getelementptr i8, ptr %call.val.i.i.i.i39.i, i64 8
@@ -19916,12 +19907,12 @@ while.body.i.i.i32.i:                             ; preds = %while.body.i.i, %wh
   %call3.val.val.val.i.i.i.i44.i = load i32, ptr %27, align 8
   %cmp.i.i.i.i.i45.i = icmp slt i32 %call.val.val.val.i.i.i.i43.i, %call3.val.val.val.i.i.i.i44.i
   %spec.select.i.i.i46.i = select i1 %cmp.i.i.i.i.i45.i, i64 %sub3.i.i.i37.i, i64 %mul.i.i.i35.i
-  %add.ptr.i18.i.i.i47.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %spec.select.i.i.i46.i
+  %add.ptr.i18.i.i.i47.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %spec.select.i.i.i46.i
   %28 = load ptr, ptr %add.ptr.i18.i.i.i47.i, align 8
-  %add.ptr.i19.i.i.i48.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.028.i.i.i33.i
+  %add.ptr.i19.i.i.i48.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i33.i
   store ptr %28, ptr %add.ptr.i19.i.i.i48.i, align 8
   %cmp.i.i.i49.i = icmp slt i64 %spec.select.i.i.i46.i, %div.i.i.i6.i
-  br i1 %cmp.i.i.i49.i, label %while.body.i.i.i32.i, label %while.end.i.i.i8.i, !llvm.loop !715
+  br i1 %cmp.i.i.i49.i, label %while.body.i.i.i32.i, label %while.end.i.i.i8.i, !llvm.loop !716
 
 while.end.i.i.i8.i:                               ; preds = %while.body.i.i.i32.i, %while.body.i.i
   %__holeIndex.addr.0.lcssa.i.i.i9.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i46.i, %while.body.i.i.i32.i ]
@@ -19938,9 +19929,9 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i8.i
 if.end33.i.thread.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 1
   %sub24.i.i.i29.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i20.i.i.i30.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %sub24.i.i.i29.i
+  %add.ptr.i20.i.i.i30.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %sub24.i.i.i29.i
   %30 = load ptr, ptr %add.ptr.i20.i.i.i30.i, align 8
-  %add.ptr.i21.i.i.i31.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.i9.i
+  %add.ptr.i21.i.i.i31.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i9.i
   store ptr %30, ptr %add.ptr.i21.i.i.i31.i, align 8
   br label %land.rhs.lr.ph.i.i.i.i12.i
 
@@ -19957,7 +19948,7 @@ land.rhs.i.i.i.i13.i:                             ; preds = %while.body.i.i.i.i2
   %__holeIndex.addr.07.i.i.i.i14.i = phi i64 [ %__holeIndex.addr.1.i5.i.i.i, %land.rhs.lr.ph.i.i.i.i12.i ], [ %__parent.08.i.i67.i.i.i, %while.body.i.i.i.i25.i ]
   %__parent.08.in.i.i.i.i15.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i14.i, -1
   %__parent.08.i.i67.i.i.i = lshr i64 %__parent.08.in.i.i.i.i15.i, 1
-  %add.ptr.i.i.i.i.i16.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__parent.08.i.i67.i.i.i
+  %add.ptr.i.i.i.i.i16.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %__parent.08.i.i67.i.i.i
   %__value.addr.val.val.i.i.i.i17.i = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %__value.addr.val.val.i.i.i.i17.i, i64 80
   %__value.addr.val.val.val.i.i.i.i18.i = load i32, ptr %32, align 8
@@ -19970,114 +19961,117 @@ land.rhs.i.i.i.i13.i:                             ; preds = %while.body.i.i.i.i2
   br i1 %cmp.i.i.i.i.i.i22.i, label %while.body.i.i.i.i25.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i
 
 while.body.i.i.i.i25.i:                           ; preds = %land.rhs.i.i.i.i13.i
-  %add.ptr.i8.i.i.i.i26.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.i.i14.i
+  %add.ptr.i8.i.i.i.i26.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i14.i
   store ptr %call.val.i.i.i.i.i19.i, ptr %add.ptr.i8.i.i.i.i26.i, align 8
   %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.08.i.i67.i.i.i, 0
-  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i, label %land.rhs.i.i.i.i13.i, !llvm.loop !716
+  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i, label %land.rhs.i.i.i.i13.i, !llvm.loop !717
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i: ; preds = %while.body.i.i.i.i25.i, %land.rhs.i.i.i.i13.i, %if.end33.i.i.i11.i
   %__holeIndex.addr.0.lcssa.i.i.i.i23.i = phi i64 [ 0, %if.end33.i.i.i11.i ], [ %__holeIndex.addr.07.i.i.i.i14.i, %land.rhs.i.i.i.i13.i ], [ 0, %while.body.i.i.i.i25.i ]
-  %add.ptr.i9.i.i.i.i24.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i23.i
+  %add.ptr.i9.i.i.i.i24.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i23.i
   store ptr %22, ptr %add.ptr.i9.i.i.i.i24.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !718
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !719
 
-if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.026, -1
-  %div.i1617 = lshr i64 %sub.ptr.div.i27, 1
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %div.i1617
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge25, i64 -8
-  %call.val.i.i.i5 = load ptr, ptr %add.ptr.i2.i, align 8
-  %call3.val.i.i.i6 = load ptr, ptr %add.ptr.i.i, align 8
-  %35 = getelementptr i8, ptr %call.val.i.i.i5, i64 8
-  %call.val.val.i.i.i7 = load ptr, ptr %35, align 8
-  %36 = getelementptr i8, ptr %call3.val.i.i.i6, i64 8
-  %call3.val.val.i.i.i8 = load ptr, ptr %36, align 8
-  %37 = getelementptr i8, ptr %call.val.val.i.i.i7, i64 80
-  %call.val.val.val.i.i.i9 = load i32, ptr %37, align 8
-  %38 = getelementptr i8, ptr %call3.val.val.i.i.i8, i64 80
-  %call3.val.val.val.i.i.i10 = load i32, ptr %38, align 8
-  %cmp.i.i.i.i11 = icmp slt i32 %call.val.val.val.i.i.i9, %call3.val.val.val.i.i.i10
+if.end:                                           ; preds = %while.body.lr.ph, %while.body
+  %storemerge2039 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce.fr, %while.body.lr.ph ]
+  %__depth_limit.addr.02138 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
+  %sub.ptr.div.i2337 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i18, %while.body.lr.ph ]
+  %dec = add nsw i64 %__depth_limit.addr.02138, -1
+  %div.i89 = lshr i64 %sub.ptr.div.i2337, 1
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr, i64 %div.i89
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge2039, i64 -8
+  %call.val.i.i.i = load ptr, ptr %add.ptr.i2.i, align 8
+  %call3.val.i.i.i = load ptr, ptr %add.ptr.i.i, align 8
+  %35 = getelementptr i8, ptr %call.val.i.i.i, i64 8
+  %call.val.val.i.i.i = load ptr, ptr %35, align 8
+  %36 = getelementptr i8, ptr %call3.val.i.i.i, i64 8
+  %call3.val.val.i.i.i = load ptr, ptr %36, align 8
+  %37 = getelementptr i8, ptr %call.val.val.i.i.i, i64 80
+  %call.val.val.val.i.i.i = load i32, ptr %37, align 8
+  %38 = getelementptr i8, ptr %call3.val.val.i.i.i, i64 80
+  %call3.val.val.val.i.i.i = load i32, ptr %38, align 8
+  %cmp.i.i.i.i5 = icmp slt i32 %call.val.val.val.i.i.i, %call3.val.val.val.i.i.i
   %call3.val.i2.i.i = load ptr, ptr %add.ptr.i3.i, align 8
   %39 = getelementptr i8, ptr %call3.val.i2.i.i, i64 8
   %call3.val.val.i4.i.i = load ptr, ptr %39, align 8
   %40 = getelementptr i8, ptr %call3.val.val.i4.i.i, i64 80
   %call3.val.val.val.i6.i.i = load i32, ptr %40, align 8
-  br i1 %cmp.i.i.i.i11, label %if.then.i.i15, label %if.else33.i.i
+  br i1 %cmp.i.i.i.i5, label %if.then.i.i, label %if.else33.i.i
 
-if.then.i.i15:                                    ; preds = %if.end
-  %cmp.i.i7.i.i = icmp slt i32 %call3.val.val.val.i.i.i10, %call3.val.val.val.i6.i.i
+if.then.i.i:                                      ; preds = %if.end
+  %cmp.i.i7.i.i = icmp slt i32 %call3.val.val.val.i.i.i, %call3.val.val.val.i6.i.i
   br i1 %cmp.i.i7.i.i, label %if.then12.i.i, label %if.else.i.i
 
-if.then12.i.i:                                    ; preds = %if.then.i.i15
-  %41 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
-  store ptr %call3.val.i.i.i6, ptr %__first.coerce.fr.i.i.i, align 8
+if.then12.i.i:                                    ; preds = %if.then.i.i
+  %41 = load ptr, ptr %__first.coerce.fr, align 8
+  store ptr %call3.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %41, ptr %add.ptr.i.i, align 8
-  br label %while.body.i.i12.preheader
+  br label %while.body.i.i6.preheader
 
-if.else.i.i:                                      ; preds = %if.then.i.i15
-  %cmp.i.i14.i.i = icmp slt i32 %call.val.val.val.i.i.i9, %call3.val.val.val.i6.i.i
-  %42 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+if.else.i.i:                                      ; preds = %if.then.i.i
+  %cmp.i.i14.i.i = icmp slt i32 %call.val.val.val.i.i.i, %call3.val.val.val.i6.i.i
+  %42 = load ptr, ptr %__first.coerce.fr, align 8
   br i1 %cmp.i.i14.i.i, label %if.then22.i.i, label %if.else27.i.i
 
 if.then22.i.i:                                    ; preds = %if.else.i.i
-  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr, align 8
   store ptr %42, ptr %add.ptr.i3.i, align 8
-  br label %while.body.i.i12.preheader
+  br label %while.body.i.i6.preheader
 
 if.else27.i.i:                                    ; preds = %if.else.i.i
-  store ptr %call.val.i.i.i5, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %42, ptr %add.ptr.i2.i, align 8
-  br label %while.body.i.i12.preheader
+  br label %while.body.i.i6.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
-  %cmp.i.i21.i.i = icmp slt i32 %call.val.val.val.i.i.i9, %call3.val.val.val.i6.i.i
+  %cmp.i.i21.i.i = icmp slt i32 %call.val.val.val.i.i.i, %call3.val.val.val.i6.i.i
   br i1 %cmp.i.i21.i.i, label %if.then39.i.i, label %if.else44.i.i
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
-  %43 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
-  store ptr %call.val.i.i.i5, ptr %__first.coerce.fr.i.i.i, align 8
+  %43 = load ptr, ptr %__first.coerce.fr, align 8
+  store ptr %call.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %43, ptr %add.ptr.i2.i, align 8
-  br label %while.body.i.i12.preheader
+  br label %while.body.i.i6.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
-  %cmp.i.i28.i.i = icmp slt i32 %call3.val.val.val.i.i.i10, %call3.val.val.val.i6.i.i
-  %44 = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+  %cmp.i.i28.i.i = icmp slt i32 %call3.val.val.val.i.i.i, %call3.val.val.val.i6.i.i
+  %44 = load ptr, ptr %__first.coerce.fr, align 8
   br i1 %cmp.i.i28.i.i, label %if.then50.i.i, label %if.else55.i.i
 
 if.then50.i.i:                                    ; preds = %if.else44.i.i
-  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call3.val.i2.i.i, ptr %__first.coerce.fr, align 8
   store ptr %44, ptr %add.ptr.i3.i, align 8
-  br label %while.body.i.i12.preheader
+  br label %while.body.i.i6.preheader
 
 if.else55.i.i:                                    ; preds = %if.else44.i.i
-  store ptr %call3.val.i.i.i6, ptr %__first.coerce.fr.i.i.i, align 8
+  store ptr %call3.val.i.i.i, ptr %__first.coerce.fr, align 8
   store ptr %44, ptr %add.ptr.i.i, align 8
-  br label %while.body.i.i12.preheader
+  br label %while.body.i.i6.preheader
 
-while.body.i.i12.preheader:                       ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
-  br label %while.body.i.i12
+while.body.i.i6.preheader:                        ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
+  br label %while.body.i.i6
 
-while.body.i.i12:                                 ; preds = %while.body.i.i12.preheader, %if.end.i.i
-  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i13, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i12.preheader ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge25, %while.body.i.i12.preheader ]
-  %call3.val.i.i5.i = load ptr, ptr %__first.coerce.fr.i.i.i, align 8
+while.body.i.i6:                                  ; preds = %while.body.i.i6.preheader, %if.end.i.i
+  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i6.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2039, %while.body.i.i6.preheader ]
+  %call3.val.i.i5.i = load ptr, ptr %__first.coerce.fr, align 8
   %45 = getelementptr i8, ptr %call3.val.i.i5.i, i64 8
   %call3.val.val.i.i6.i = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %call3.val.val.i.i6.i, i64 80
   %call3.val.val.val.i.i7.i = load i32, ptr %46, align 8
   br label %while.cond3.i.i
 
-while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i12
-  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i12 ], [ %incdec.ptr.i.i.i13, %while.cond3.i.i ]
+while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i6
+  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i6 ], [ %incdec.ptr.i.i.i, %while.cond3.i.i ]
   %call.val.i.i8.i = load ptr, ptr %__first.sroa.0.1.i.i, align 8
   %47 = getelementptr i8, ptr %call.val.i.i8.i, i64 8
   %call.val.val.i.i9.i = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %call.val.val.i.i9.i, i64 80
   %call.val.val.val.i.i10.i = load i32, ptr %48, align 8
   %cmp.i.i.i11.i = icmp slt i32 %call.val.val.val.i.i10.i, %call3.val.val.val.i.i7.i
-  %incdec.ptr.i.i.i13 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
-  br i1 %cmp.i.i.i11.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !719
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
+  br i1 %cmp.i.i.i11.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !720
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
@@ -20088,26 +20082,26 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   %50 = getelementptr i8, ptr %call3.val.val.i5.i.i, i64 80
   %call3.val.val.val.i7.i.i = load i32, ptr %50, align 8
   %cmp.i.i8.i.i = icmp slt i32 %call3.val.val.val.i.i7.i, %call3.val.val.val.i7.i.i
-  br i1 %cmp.i.i8.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !720
+  br i1 %cmp.i.i8.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !721
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
-  %cmp.i.i.i14 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
-  br i1 %cmp.i.i.i14, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit
+  %cmp.i.i.i7 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
+  br i1 %cmp.i.i.i7, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
   store ptr %call3.val.i3.i.i, ptr %__first.sroa.0.1.i.i, align 8
   store ptr %call.val.i.i8.i, ptr %__last.sroa.0.1.i.i, align 8
-  br label %while.body.i.i12, !llvm.loop !721
+  br label %while.body.i.i6, !llvm.loop !722
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit: ; preds = %while.end18.i.i
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SY_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge25, i64 noundef %dec)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SY_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge2039, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !722
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !715
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i, %entry, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_SY_.exit.i
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEESO_SO_SO_SY_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_RSY_.exit.i.i
   ret void
 }
 

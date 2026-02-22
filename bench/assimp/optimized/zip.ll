@@ -2053,7 +2053,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   store ptr %43, ptr %44, align 16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4
-  %.2839.fr1973 = freeze i32 %46
+  %.2839.fr1975 = freeze i32 %46
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2070,32 +2070,32 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
     i32 1, label %64
     i32 2, label %72
     i32 36, label %990
-    i32 3, label %.preheader2150
+    i32 3, label %.preheader2152
     i32 5, label %123
-    i32 6, label %.preheader2039
+    i32 6, label %.preheader2041
     i32 7, label %162
     i32 39, label %990
-    i32 51, label %.preheader2047
+    i32 51, label %.preheader2049
     i32 52, label %202
     i32 9, label %208
     i32 38, label %209
     i32 10, label %990
-    i32 11, label %.preheader2131
-    i32 14, label %.preheader2142
+    i32 11, label %.preheader2133
+    i32 14, label %.preheader2144
     i32 35, label %990
     i32 16, label %444
     i32 17, label %990
-    i32 18, label %.preheader2063
+    i32 18, label %.preheader2065
     i32 21, label %990
     i32 23, label %599
     i32 24, label %651
-    i32 25, label %.preheader2094
+    i32 25, label %.preheader2096
     i32 26, label %789
-    i32 27, label %.preheader2083
+    i32 27, label %.preheader2085
     i32 37, label %990
     i32 53, label %888
     i32 32, label %922
-    i32 41, label %.preheader2055
+    i32 41, label %.preheader2057
     i32 42, label %976
     i32 34, label %989
   ]
@@ -2118,7 +2118,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.11009 = phi i32 [ 0, %58 ], [ %54, %34 ]
   %.1920 = phi i32 [ 0, %58 ], [ %52, %34 ]
   %.1841 = phi i32 [ 0, %58 ], [ %50, %34 ]
-  %.1838 = phi i32 [ 0, %58 ], [ %.2839.fr1973, %34 ]
+  %.1838 = phi i32 [ 0, %58 ], [ %.2839.fr1975, %34 ]
   %.not1550.not = icmp eq i64 %13, 0
   br i1 %.not1550.not, label %65, label %67
 
@@ -2143,7 +2143,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.31011 = phi i32 [ %.11009, %67 ], [ %54, %34 ]
   %.3922 = phi i32 [ %.1920, %67 ], [ %52, %34 ]
   %.3843 = phi i32 [ %.1841, %67 ], [ %50, %34 ]
-  %.3 = phi i32 [ %.1838, %67 ], [ %.2839.fr1973, %34 ]
+  %.3 = phi i32 [ %.1838, %67 ], [ %.2839.fr1975, %34 ]
   %.not1551 = icmp ult ptr %.21183, %14
   br i1 %.not1551, label %75, label %73
 
@@ -2207,9 +2207,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.5845 = phi i32 [ %.68908, %918 ], [ %.3843, %101 ], [ 0, %58 ]
   %.5 = phi i32 [ %.73, %918 ], [ %.3, %101 ], [ 0, %58 ]
   %103 = icmp ult i32 %.5, 3
-  br i1 %103, label %.preheader2150, label %.loopexit2151
+  br i1 %103, label %.preheader2152, label %.loopexit2153
 
-.preheader2150:                                   ; preds = %34, %102
+.preheader2152:                                   ; preds = %34, %102
   %.41358.ph = phi i64 [ %.11355, %102 ], [ %56, %34 ]
   %.41277.ph = phi ptr [ %.11274, %102 ], [ %4, %34 ]
   %.71188.ph = phi ptr [ %.41185, %102 ], [ %1, %34 ]
@@ -2217,13 +2217,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.81016.ph = phi i32 [ %.51013, %102 ], [ %54, %34 ]
   %.9928.ph = phi i32 [ %.6925, %102 ], [ %52, %34 ]
   %.8848.ph = phi i32 [ %.5845, %102 ], [ %50, %34 ]
-  %.8.ph = phi i32 [ %.5, %102 ], [ %.2839.fr1973, %34 ]
+  %.8.ph = phi i32 [ %.5, %102 ], [ %.2839.fr1975, %34 ]
   br label %104
 
-104:                                              ; preds = %.preheader2150, %107
-  %.71188 = phi ptr [ %108, %107 ], [ %.71188.ph, %.preheader2150 ]
-  %.81097 = phi i64 [ %113, %107 ], [ %.81097.ph, %.preheader2150 ]
-  %.8 = phi i32 [ %114, %107 ], [ %.8.ph, %.preheader2150 ]
+104:                                              ; preds = %.preheader2152, %107
+  %.71188 = phi ptr [ %108, %107 ], [ %.71188.ph, %.preheader2152 ]
+  %.81097 = phi i64 [ %113, %107 ], [ %.81097.ph, %.preheader2152 ]
+  %.8 = phi i32 [ %114, %107 ], [ %.8.ph, %.preheader2152 ]
   %.not1555 = icmp ult ptr %.71188, %14
   br i1 %.not1555, label %107, label %105
 
@@ -2243,9 +2243,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %113 = or i64 %112, %.81097
   %114 = add i32 %.8, 8
   %115 = icmp ult i32 %114, 3
-  br i1 %115, label %104, label %.loopexit2151
+  br i1 %115, label %104, label %.loopexit2153
 
-.loopexit2151:                                    ; preds = %107, %102
+.loopexit2153:                                    ; preds = %107, %102
   %.21356 = phi i64 [ %.11355, %102 ], [ %.41358.ph, %107 ]
   %.21275 = phi ptr [ %.11274, %102 ], [ %.41277.ph, %107 ]
   %.51186 = phi ptr [ %.41185, %102 ], [ %108, %107 ]
@@ -2285,20 +2285,20 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %128 = load i8, ptr %1, align 1
   %129 = zext i8 %128 to i64
-  %130 = zext nneg i32 %.2839.fr1973 to i64
+  %130 = zext nneg i32 %.2839.fr1975 to i64
   %131 = shl i64 %129, %130
   %132 = or i64 %131, %48
-  %133 = add i32 %.2839.fr1973, 8
+  %133 = add i32 %.2839.fr1975, 8
   br label %134
 
-134:                                              ; preds = %.loopexit2151, %126
-  %.51359 = phi i64 [ %56, %126 ], [ %.21356, %.loopexit2151 ]
-  %.51278 = phi ptr [ %4, %126 ], [ %.21275, %.loopexit2151 ]
-  %.81189 = phi ptr [ %127, %126 ], [ %.51186, %.loopexit2151 ]
-  %.91098 = phi i64 [ %132, %126 ], [ %119, %.loopexit2151 ]
-  %.91017 = phi i32 [ %54, %126 ], [ %.61014, %.loopexit2151 ]
-  %.9849 = phi i32 [ %50, %126 ], [ %.6846, %.loopexit2151 ]
-  %.9 = phi i32 [ %133, %126 ], [ %120, %.loopexit2151 ]
+134:                                              ; preds = %.loopexit2153, %126
+  %.51359 = phi i64 [ %56, %126 ], [ %.21356, %.loopexit2153 ]
+  %.51278 = phi ptr [ %4, %126 ], [ %.21275, %.loopexit2153 ]
+  %.81189 = phi ptr [ %127, %126 ], [ %.51186, %.loopexit2153 ]
+  %.91098 = phi i64 [ %132, %126 ], [ %119, %.loopexit2153 ]
+  %.91017 = phi i32 [ %54, %126 ], [ %.61014, %.loopexit2153 ]
+  %.9849 = phi i32 [ %50, %126 ], [ %.6846, %.loopexit2153 ]
+  %.9 = phi i32 [ %133, %126 ], [ %120, %.loopexit2153 ]
   %135 = and i32 %.9, 7
   %136 = zext nneg i32 %135 to i64
   %137 = lshr i64 %.91098, %136
@@ -2323,9 +2323,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 142:                                              ; preds = %141
   %143 = icmp ult i32 %.12, 8
-  br i1 %143, label %.preheader2039, label %.loopexit2040
+  br i1 %143, label %.preheader2041, label %.loopexit2042
 
-.preheader2039:                                   ; preds = %34, %142
+.preheader2041:                                   ; preds = %34, %142
   %.111365.ph = phi i64 [ %.81362, %142 ], [ %56, %34 ]
   %.111284.ph = phi ptr [ %.81281, %142 ], [ %4, %34 ]
   %.141195.ph = phi ptr [ %.111192, %142 ], [ %1, %34 ]
@@ -2333,13 +2333,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.151023.ph = phi i32 [ %.121020, %142 ], [ %54, %34 ]
   %.15934.ph = phi i32 [ %.12931, %142 ], [ %52, %34 ]
   %.15855.ph = phi i32 [ %.12852, %142 ], [ %50, %34 ]
-  %.15.ph = phi i32 [ %.12, %142 ], [ %.2839.fr1973, %34 ]
+  %.15.ph = phi i32 [ %.12, %142 ], [ %.2839.fr1975, %34 ]
   br label %144
 
-144:                                              ; preds = %.preheader2039, %147
-  %.141195 = phi ptr [ %148, %147 ], [ %.141195.ph, %.preheader2039 ]
-  %.151104 = phi i64 [ %153, %147 ], [ %.151104.ph, %.preheader2039 ]
-  %.15 = phi i32 [ %154, %147 ], [ %.15.ph, %.preheader2039 ]
+144:                                              ; preds = %.preheader2041, %147
+  %.141195 = phi ptr [ %148, %147 ], [ %.141195.ph, %.preheader2041 ]
+  %.151104 = phi i64 [ %153, %147 ], [ %.151104.ph, %.preheader2041 ]
+  %.15 = phi i32 [ %154, %147 ], [ %.15.ph, %.preheader2041 ]
   %.not1613 = icmp ult ptr %.141195, %14
   br i1 %.not1613, label %147, label %145
 
@@ -2359,9 +2359,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %153 = or i64 %152, %.151104
   %154 = add i32 %.15, 8
   %155 = icmp ugt i32 %.15, -9
-  br i1 %155, label %144, label %.loopexit2040
+  br i1 %155, label %144, label %.loopexit2042
 
-.loopexit2040:                                    ; preds = %147, %142
+.loopexit2042:                                    ; preds = %147, %142
   %.91363 = phi i64 [ %.81362, %142 ], [ %.111365.ph, %147 ]
   %.91282 = phi ptr [ %.81281, %142 ], [ %.111284.ph, %147 ]
   %.121193 = phi ptr [ %.111192, %142 ], [ %148, %147 ]
@@ -2387,7 +2387,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.161024 = phi i32 [ %.121020, %141 ], [ %54, %34 ]
   %.16935 = phi i32 [ %.12931, %141 ], [ %52, %34 ]
   %.16856 = phi i32 [ %.12852, %141 ], [ %50, %34 ]
-  %.16 = phi i32 [ 0, %141 ], [ %.2839.fr1973, %34 ]
+  %.16 = phi i32 [ 0, %141 ], [ %.2839.fr1975, %34 ]
   %.not1611 = icmp ult ptr %.151196, %14
   br i1 %.not1611, label %165, label %163
 
@@ -2407,15 +2407,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   store i8 %167, ptr %170, align 1
   br label %171
 
-171:                                              ; preds = %.loopexit2040, %165
-  %.131367 = phi i64 [ %.91363, %.loopexit2040 ], [ %.121366, %165 ]
-  %.131286 = phi ptr [ %.91282, %.loopexit2040 ], [ %.121285, %165 ]
-  %.161197 = phi ptr [ %.121193, %.loopexit2040 ], [ %166, %165 ]
-  %.171106 = phi i64 [ %160, %.loopexit2040 ], [ %.161105, %165 ]
-  %.171025 = phi i32 [ %.131021, %.loopexit2040 ], [ %.161024, %165 ]
-  %.17936 = phi i32 [ %.13932, %.loopexit2040 ], [ %.16935, %165 ]
-  %.17857 = phi i32 [ %.13853, %.loopexit2040 ], [ %.16856, %165 ]
-  %.17 = phi i32 [ %161, %.loopexit2040 ], [ %.16, %165 ]
+171:                                              ; preds = %.loopexit2042, %165
+  %.131367 = phi i64 [ %.91363, %.loopexit2042 ], [ %.121366, %165 ]
+  %.131286 = phi ptr [ %.91282, %.loopexit2042 ], [ %.121285, %165 ]
+  %.161197 = phi ptr [ %.121193, %.loopexit2042 ], [ %166, %165 ]
+  %.171106 = phi i64 [ %160, %.loopexit2042 ], [ %.161105, %165 ]
+  %.171025 = phi i32 [ %.131021, %.loopexit2042 ], [ %.161024, %165 ]
+  %.17936 = phi i32 [ %.13932, %.loopexit2042 ], [ %.16935, %165 ]
+  %.17857 = phi i32 [ %.13853, %.loopexit2042 ], [ %.16856, %165 ]
+  %.17 = phi i32 [ %161, %.loopexit2042 ], [ %.16, %165 ]
   %172 = add i32 %.17936, 1
   br label %139
 
@@ -2445,9 +2445,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 184:                                              ; preds = %180
   %185 = icmp ult i32 %.19, 8
-  br i1 %185, label %.preheader2047, label %.loopexit2048
+  br i1 %185, label %.preheader2049, label %.loopexit2050
 
-.preheader2047:                                   ; preds = %34, %184
+.preheader2049:                                   ; preds = %34, %184
   %.181372.ph = phi i64 [ %.151369, %184 ], [ %56, %34 ]
   %.181291.ph = phi ptr [ %.151288, %184 ], [ %4, %34 ]
   %.211202.ph = phi ptr [ %.181199, %184 ], [ %1, %34 ]
@@ -2455,13 +2455,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.221030.ph = phi i32 [ %.191027, %184 ], [ %54, %34 ]
   %.22941.ph = phi i32 [ %.19938, %184 ], [ %52, %34 ]
   %.21861.ph = phi i32 [ %.19859, %184 ], [ %50, %34 ]
-  %.22.ph = phi i32 [ %.19, %184 ], [ %.2839.fr1973, %34 ]
+  %.22.ph = phi i32 [ %.19, %184 ], [ %.2839.fr1975, %34 ]
   br label %186
 
-186:                                              ; preds = %.preheader2047, %189
-  %.211202 = phi ptr [ %190, %189 ], [ %.211202.ph, %.preheader2047 ]
-  %.221111 = phi i64 [ %195, %189 ], [ %.221111.ph, %.preheader2047 ]
-  %.22 = phi i32 [ %196, %189 ], [ %.22.ph, %.preheader2047 ]
+186:                                              ; preds = %.preheader2049, %189
+  %.211202 = phi ptr [ %190, %189 ], [ %.211202.ph, %.preheader2049 ]
+  %.221111 = phi i64 [ %195, %189 ], [ %.221111.ph, %.preheader2049 ]
+  %.22 = phi i32 [ %196, %189 ], [ %.22.ph, %.preheader2049 ]
   %.not1607 = icmp ult ptr %.211202, %14
   br i1 %.not1607, label %189, label %187
 
@@ -2481,9 +2481,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %195 = or i64 %194, %.221111
   %196 = add i32 %.22, 8
   %197 = icmp ugt i32 %.22, -9
-  br i1 %197, label %186, label %.loopexit2048
+  br i1 %197, label %186, label %.loopexit2050
 
-.loopexit2048:                                    ; preds = %189, %184
+.loopexit2050:                                    ; preds = %189, %184
   %.161370 = phi i64 [ %.151369, %184 ], [ %.181372.ph, %189 ]
   %.161289 = phi ptr [ %.151288, %184 ], [ %.181291.ph, %189 ]
   %.191200 = phi ptr [ %.181199, %184 ], [ %190, %189 ]
@@ -2497,15 +2497,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %201 = add i32 %.20, -8
   br label %202
 
-202:                                              ; preds = %34, %.loopexit2048
-  %.191373 = phi i64 [ %.161370, %.loopexit2048 ], [ %56, %34 ]
-  %.191292 = phi ptr [ %.161289, %.loopexit2048 ], [ %4, %34 ]
-  %.221203 = phi ptr [ %.191200, %.loopexit2048 ], [ %1, %34 ]
-  %.231112 = phi i64 [ %200, %.loopexit2048 ], [ %48, %34 ]
-  %.231031 = phi i32 [ %.201028, %.loopexit2048 ], [ %54, %34 ]
-  %.23942 = phi i32 [ %.20939, %.loopexit2048 ], [ %52, %34 ]
-  %.22862 = phi i32 [ %199, %.loopexit2048 ], [ %50, %34 ]
-  %.23 = phi i32 [ %201, %.loopexit2048 ], [ %.2839.fr1973, %34 ]
+202:                                              ; preds = %34, %.loopexit2050
+  %.191373 = phi i64 [ %.161370, %.loopexit2050 ], [ %56, %34 ]
+  %.191292 = phi ptr [ %.161289, %.loopexit2050 ], [ %4, %34 ]
+  %.221203 = phi ptr [ %.191200, %.loopexit2050 ], [ %1, %34 ]
+  %.231112 = phi i64 [ %200, %.loopexit2050 ], [ %48, %34 ]
+  %.231031 = phi i32 [ %.201028, %.loopexit2050 ], [ %54, %34 ]
+  %.23942 = phi i32 [ %.20939, %.loopexit2050 ], [ %52, %34 ]
+  %.22862 = phi i32 [ %199, %.loopexit2050 ], [ %50, %34 ]
+  %.23 = phi i32 [ %201, %.loopexit2050 ], [ %.2839.fr1975, %34 ]
   %.not1608 = icmp ult ptr %.191292, %19
   br i1 %.not1608, label %203, label %990
 
@@ -2536,7 +2536,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.251033 = phi i32 [ %.241032, %207 ], [ %54, %34 ]
   %.25944 = phi i32 [ %.24943, %207 ], [ %52, %34 ]
   %.24864 = phi i32 [ %.23863, %207 ], [ %50, %34 ]
-  %.25 = phi i32 [ %.24, %207 ], [ %.2839.fr1973, %34 ]
+  %.25 = phi i32 [ %.24, %207 ], [ %.2839.fr1975, %34 ]
   %.not1604 = icmp ult ptr %.211294, %19
   br i1 %.not1604, label %209, label %990
 
@@ -2548,7 +2548,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.261034 = phi i32 [ %.251033, %208 ], [ %54, %34 ]
   %.26945 = phi i32 [ %.25944, %208 ], [ %52, %34 ]
   %.25865 = phi i32 [ %.24864, %208 ], [ %50, %34 ]
-  %.26 = phi i32 [ %.25, %208 ], [ %.2839.fr1973, %34 ]
+  %.26 = phi i32 [ %.25, %208 ], [ %.2839.fr1975, %34 ]
   %.not1605 = icmp ult ptr %.251206, %14
   br i1 %.not1605, label %212, label %210
 
@@ -2576,7 +2576,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %224 = sub i32 %.26945, %223
   br label %207
 
-.lr.ph1763.preheader:                             ; preds = %.loopexit2151
+.lr.ph1763.preheader:                             ; preds = %.loopexit2153
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 288, ptr %225, align 4
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2591,18 +2591,18 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   store i64 578721382704613384, ptr %scevgep1883, align 4
   br label %.loopexit1734
 
-default.unreachable:                              ; preds = %.loopexit2151
+default.unreachable:                              ; preds = %.loopexit2153
   unreachable
 
-227:                                              ; preds = %.loopexit2151, %.loopexit2132
-  %.251379 = phi i64 [ %.261380, %.loopexit2132 ], [ %.21356, %.loopexit2151 ]
-  %.251298 = phi ptr [ %.261299, %.loopexit2132 ], [ %.21275, %.loopexit2151 ]
-  %.281209 = phi ptr [ %.291210, %.loopexit2132 ], [ %.51186, %.loopexit2151 ]
-  %.291118 = phi i64 [ %259, %.loopexit2132 ], [ %119, %.loopexit2151 ]
-  %.291037 = phi i32 [ %.301038, %.loopexit2132 ], [ %.61014, %.loopexit2151 ]
-  %.29948 = phi i32 [ %265, %.loopexit2132 ], [ 0, %.loopexit2151 ]
-  %.28868 = phi i32 [ %.29869, %.loopexit2132 ], [ %.6846, %.loopexit2151 ]
-  %.29 = phi i32 [ %260, %.loopexit2132 ], [ %120, %.loopexit2151 ]
+227:                                              ; preds = %.loopexit2153, %.loopexit2134
+  %.251379 = phi i64 [ %.261380, %.loopexit2134 ], [ %.21356, %.loopexit2153 ]
+  %.251298 = phi ptr [ %.261299, %.loopexit2134 ], [ %.21275, %.loopexit2153 ]
+  %.281209 = phi ptr [ %.291210, %.loopexit2134 ], [ %.51186, %.loopexit2153 ]
+  %.291118 = phi i64 [ %259, %.loopexit2134 ], [ %119, %.loopexit2153 ]
+  %.291037 = phi i32 [ %.301038, %.loopexit2134 ], [ %.61014, %.loopexit2153 ]
+  %.29948 = phi i32 [ %265, %.loopexit2134 ], [ 0, %.loopexit2153 ]
+  %.28868 = phi i32 [ %.29869, %.loopexit2134 ], [ %.6846, %.loopexit2153 ]
+  %.29 = phi i32 [ %260, %.loopexit2134 ], [ %120, %.loopexit2153 ]
   %228 = icmp ult i32 %.29948, 3
   br i1 %228, label %229, label %266
 
@@ -2612,9 +2612,9 @@ default.unreachable:                              ; preds = %.loopexit2151
   %232 = load i8, ptr %231, align 1
   %233 = sext i8 %232 to i32
   %234 = icmp ult i32 %.29, %233
-  br i1 %234, label %.preheader2131, label %.loopexit2132
+  br i1 %234, label %.preheader2133, label %.loopexit2134
 
-.preheader2131:                                   ; preds = %34, %229
+.preheader2133:                                   ; preds = %34, %229
   %.281382.ph = phi i64 [ %.251379, %229 ], [ %56, %34 ]
   %.281301.ph = phi ptr [ %.251298, %229 ], [ %4, %34 ]
   %.311212.ph = phi ptr [ %.281209, %229 ], [ %1, %34 ]
@@ -2622,15 +2622,15 @@ default.unreachable:                              ; preds = %.loopexit2151
   %.321040.ph = phi i32 [ %.291037, %229 ], [ %54, %34 ]
   %.32951.ph = phi i32 [ %.29948, %229 ], [ %52, %34 ]
   %.31871.ph = phi i32 [ %.28868, %229 ], [ %50, %34 ]
-  %.32.ph = phi i32 [ %.29, %229 ], [ %.2839.fr1973, %34 ]
+  %.32.ph = phi i32 [ %.29, %229 ], [ %.2839.fr1975, %34 ]
   %235 = zext i32 %.32951.ph to i64
   %236 = getelementptr inbounds nuw i8, ptr @.str.12, i64 %235
   br label %237
 
-237:                                              ; preds = %.preheader2131, %240
-  %.311212 = phi ptr [ %241, %240 ], [ %.311212.ph, %.preheader2131 ]
-  %.321121 = phi i64 [ %246, %240 ], [ %.321121.ph, %.preheader2131 ]
-  %.32 = phi i32 [ %247, %240 ], [ %.32.ph, %.preheader2131 ]
+237:                                              ; preds = %.preheader2133, %240
+  %.311212 = phi ptr [ %241, %240 ], [ %.311212.ph, %.preheader2133 ]
+  %.321121 = phi i64 [ %246, %240 ], [ %.321121.ph, %.preheader2133 ]
+  %.32 = phi i32 [ %247, %240 ], [ %.32.ph, %.preheader2133 ]
   %.not1558 = icmp ult ptr %.311212, %14
   br i1 %.not1558, label %240, label %238
 
@@ -2652,9 +2652,9 @@ default.unreachable:                              ; preds = %.loopexit2151
   %248 = load i8, ptr %236, align 1
   %249 = sext i8 %248 to i32
   %250 = icmp ult i32 %247, %249
-  br i1 %250, label %237, label %.loopexit2132
+  br i1 %250, label %237, label %.loopexit2134
 
-.loopexit2132:                                    ; preds = %240, %229
+.loopexit2134:                                    ; preds = %240, %229
   %.pre-phi1909 = phi i32 [ %233, %229 ], [ %249, %240 ]
   %251 = phi i8 [ %232, %229 ], [ %248, %240 ]
   %.pre-phi = phi i64 [ %230, %229 ], [ %235, %240 ]
@@ -2688,15 +2688,15 @@ default.unreachable:                              ; preds = %.loopexit2151
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %43, i8 0, i64 19, i1 false)
   br label %267
 
-267:                                              ; preds = %.loopexit2143, %266
-  %.291383 = phi i64 [ %.251379, %266 ], [ %.301384, %.loopexit2143 ]
-  %.291302 = phi ptr [ %.251298, %266 ], [ %.301303, %.loopexit2143 ]
-  %.321213 = phi ptr [ %.281209, %266 ], [ %.331214, %.loopexit2143 ]
-  %.331122 = phi i64 [ %.291118, %266 ], [ %287, %.loopexit2143 ]
-  %.331041 = phi i32 [ %.291037, %266 ], [ %.341042, %.loopexit2143 ]
-  %.33952 = phi i32 [ 0, %266 ], [ %294, %.loopexit2143 ]
-  %.32872 = phi i32 [ %.28868, %266 ], [ %.33873, %.loopexit2143 ]
-  %.33 = phi i32 [ %.29, %266 ], [ %288, %.loopexit2143 ]
+267:                                              ; preds = %.loopexit2145, %266
+  %.291383 = phi i64 [ %.251379, %266 ], [ %.301384, %.loopexit2145 ]
+  %.291302 = phi ptr [ %.251298, %266 ], [ %.301303, %.loopexit2145 ]
+  %.321213 = phi ptr [ %.281209, %266 ], [ %.331214, %.loopexit2145 ]
+  %.331122 = phi i64 [ %.291118, %266 ], [ %287, %.loopexit2145 ]
+  %.331041 = phi i32 [ %.291037, %266 ], [ %.341042, %.loopexit2145 ]
+  %.33952 = phi i32 [ 0, %266 ], [ %294, %.loopexit2145 ]
+  %.32872 = phi i32 [ %.28868, %266 ], [ %.33873, %.loopexit2145 ]
+  %.33 = phi i32 [ %.29, %266 ], [ %288, %.loopexit2145 ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %269 = load i32, ptr %268, align 4
   %270 = icmp ult i32 %.33952, %269
@@ -2704,9 +2704,9 @@ default.unreachable:                              ; preds = %.loopexit2151
 
 271:                                              ; preds = %267
   %272 = icmp ult i32 %.33, 3
-  br i1 %272, label %.preheader2142, label %.loopexit2143
+  br i1 %272, label %.preheader2144, label %.loopexit2145
 
-.preheader2142:                                   ; preds = %34, %271
+.preheader2144:                                   ; preds = %34, %271
   %.321386.ph = phi i64 [ %.291383, %271 ], [ %56, %34 ]
   %.321305.ph = phi ptr [ %.291302, %271 ], [ %4, %34 ]
   %.351216.ph = phi ptr [ %.321213, %271 ], [ %1, %34 ]
@@ -2714,13 +2714,13 @@ default.unreachable:                              ; preds = %.loopexit2151
   %.361044.ph = phi i32 [ %.331041, %271 ], [ %54, %34 ]
   %.36955.ph = phi i32 [ %.33952, %271 ], [ %52, %34 ]
   %.35875.ph = phi i32 [ %.32872, %271 ], [ %50, %34 ]
-  %.36.ph = phi i32 [ %.33, %271 ], [ %.2839.fr1973, %34 ]
+  %.36.ph = phi i32 [ %.33, %271 ], [ %.2839.fr1975, %34 ]
   br label %273
 
-273:                                              ; preds = %.preheader2142, %276
-  %.351216 = phi ptr [ %277, %276 ], [ %.351216.ph, %.preheader2142 ]
-  %.361125 = phi i64 [ %282, %276 ], [ %.361125.ph, %.preheader2142 ]
-  %.36 = phi i32 [ %283, %276 ], [ %.36.ph, %.preheader2142 ]
+273:                                              ; preds = %.preheader2144, %276
+  %.351216 = phi ptr [ %277, %276 ], [ %.351216.ph, %.preheader2144 ]
+  %.361125 = phi i64 [ %282, %276 ], [ %.361125.ph, %.preheader2144 ]
+  %.36 = phi i32 [ %283, %276 ], [ %.36.ph, %.preheader2144 ]
   %.not1556 = icmp ult ptr %.351216, %14
   br i1 %.not1556, label %276, label %274
 
@@ -2740,9 +2740,9 @@ default.unreachable:                              ; preds = %.loopexit2151
   %282 = or i64 %281, %.361125
   %283 = add i32 %.36, 8
   %284 = icmp ult i32 %283, 3
-  br i1 %284, label %273, label %.loopexit2143
+  br i1 %284, label %273, label %.loopexit2145
 
-.loopexit2143:                                    ; preds = %276, %271
+.loopexit2145:                                    ; preds = %276, %271
   %.301384 = phi i64 [ %.291383, %271 ], [ %.321386.ph, %276 ]
   %.301303 = phi ptr [ %.291302, %271 ], [ %.321305.ph, %276 ]
   %.331214 = phi ptr [ %.321213, %271 ], [ %277, %276 ]
@@ -2782,7 +2782,7 @@ default.unreachable:                              ; preds = %.loopexit2151
   %.37 = phi i32 [ %.48, %555 ], [ %.33, %295 ], [ %120, %.lr.ph1763.preheader ]
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %298 = icmp sgt i32 %296, -1
-  br i1 %298, label %299, label %.preheader2105
+  br i1 %298, label %299, label %.preheader2107
 
 299:                                              ; preds = %.loopexit1734
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3095,7 +3095,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.421050 = phi i32 [ %54, %34 ], [ %.411049, %423 ], [ %.411049, %442 ], [ %.411049, %426 ]
   %.42961 = phi i32 [ %52, %34 ], [ %.41960, %423 ], [ %.41960, %442 ], [ %.41960, %426 ]
   %.40880 = phi i32 [ %50, %34 ], [ %.39879, %423 ], [ %.39879, %442 ], [ %.39879, %426 ]
-  %.42 = phi i32 [ %.2839.fr1973, %34 ], [ %416, %423 ], [ %416, %442 ], [ %416, %426 ]
+  %.42 = phi i32 [ %.2839.fr1975, %34 ], [ %416, %423 ], [ %416, %442 ], [ %416, %426 ]
   %.not1585 = icmp ult ptr %.411222, %14
   br i1 %.not1585, label %447, label %445
 
@@ -3202,9 +3202,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %509 = load i8, ptr %508, align 1
   %510 = sext i8 %509 to i32
   %511 = icmp ult i32 %494, %510
-  br i1 %511, label %.preheader2063, label %.loopexit2064
+  br i1 %511, label %.preheader2065, label %.loopexit2066
 
-.preheader2063:                                   ; preds = %34, %505
+.preheader2065:                                   ; preds = %34, %505
   %.421396.ph = phi i64 [ %.361390, %505 ], [ %56, %34 ]
   %.421315.ph = phi ptr [ %.361309, %505 ], [ %4, %34 ]
   %.451226.ph = phi ptr [ %.391220, %505 ], [ %1, %34 ]
@@ -3212,13 +3212,13 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.461054.ph = phi i32 [ %510, %505 ], [ %54, %34 ]
   %.46965.ph = phi i32 [ %.40959, %505 ], [ %52, %34 ]
   %.44884.ph = phi i32 [ %.11434, %505 ], [ %50, %34 ]
-  %.46.ph = phi i32 [ %494, %505 ], [ %.2839.fr1973, %34 ]
+  %.46.ph = phi i32 [ %494, %505 ], [ %.2839.fr1975, %34 ]
   br label %512
 
-512:                                              ; preds = %.preheader2063, %515
-  %.451226 = phi ptr [ %516, %515 ], [ %.451226.ph, %.preheader2063 ]
-  %.461135 = phi i64 [ %521, %515 ], [ %.461135.ph, %.preheader2063 ]
-  %.46 = phi i32 [ %522, %515 ], [ %.46.ph, %.preheader2063 ]
+512:                                              ; preds = %.preheader2065, %515
+  %.451226 = phi ptr [ %516, %515 ], [ %.451226.ph, %.preheader2065 ]
+  %.461135 = phi i64 [ %521, %515 ], [ %.461135.ph, %.preheader2065 ]
+  %.46 = phi i32 [ %522, %515 ], [ %.46.ph, %.preheader2065 ]
   %.not1587 = icmp ult ptr %.451226, %14
   br i1 %.not1587, label %515, label %513
 
@@ -3238,9 +3238,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %521 = or i64 %520, %.461135
   %522 = add i32 %.46, 8
   %523 = icmp ult i32 %522, %.461054.ph
-  br i1 %523, label %512, label %.loopexit2064
+  br i1 %523, label %512, label %.loopexit2066
 
-.loopexit2064:                                    ; preds = %515, %505
+.loopexit2066:                                    ; preds = %515, %505
   %.401394 = phi i64 [ %.361390, %505 ], [ %.421396.ph, %515 ]
   %.401313 = phi ptr [ %.361309, %505 ], [ %.421315.ph, %515 ]
   %.431224 = phi ptr [ %.391220, %505 ], [ %516, %515 ]
@@ -3268,15 +3268,15 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %539 = icmp eq i32 %.42882, 16
   br i1 %539, label %540, label %545
 
-540:                                              ; preds = %.loopexit2064
+540:                                              ; preds = %.loopexit2066
   %541 = add i32 %.44963, -1
   %542 = zext i32 %541 to i64
   %543 = getelementptr inbounds nuw i8, ptr %536, i64 %542
   %544 = load i8, ptr %543, align 1
   br label %545
 
-545:                                              ; preds = %.loopexit2064, %540
-  %546 = phi i8 [ %544, %540 ], [ 0, %.loopexit2064 ]
+545:                                              ; preds = %.loopexit2066, %540
+  %546 = phi i8 [ %544, %540 ], [ 0, %.loopexit2066 ]
   %547 = zext i32 %535 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %538, i8 %546, i64 %547, i1 false)
   %548 = add i32 %535, %.44963
@@ -3312,12 +3312,12 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   store i32 %558, ptr %557, align 8
   br label %.loopexit1734
 
-559:                                              ; preds = %.preheader2105, %717
-  %.461319 = phi ptr [ %720, %717 ], [ %.461319.ph, %.preheader2105 ]
-  %.491230 = phi ptr [ %.561237, %717 ], [ %.491230.ph, %.preheader2105 ]
-  %.501139 = phi i64 [ %711, %717 ], [ %.501139.ph, %.preheader2105 ]
-  %.50969 = phi i32 [ %.01177, %717 ], [ %.50969.ph, %.preheader2105 ]
-  %.50 = phi i32 [ %712, %717 ], [ %.50.ph, %.preheader2105 ]
+559:                                              ; preds = %.preheader2107, %717
+  %.461319 = phi ptr [ %720, %717 ], [ %.461319.ph, %.preheader2107 ]
+  %.491230 = phi ptr [ %.561237, %717 ], [ %.491230.ph, %.preheader2107 ]
+  %.501139 = phi i64 [ %711, %717 ], [ %.501139.ph, %.preheader2107 ]
+  %.50969 = phi i32 [ %.01177, %717 ], [ %.50969.ph, %.preheader2107 ]
+  %.50 = phi i32 [ %712, %717 ], [ %.50.ph, %.preheader2107 ]
   %560 = ptrtoint ptr %.491230 to i64
   %561 = sub i64 %655, %560
   %562 = icmp slt i64 %561, 4
@@ -3394,7 +3394,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.531061 = phi i32 [ %54, %34 ], [ %.521060, %578 ], [ %.521060, %597 ], [ %.521060, %581 ]
   %.52971 = phi i32 [ %52, %34 ], [ %.51970, %578 ], [ %.51970, %597 ], [ %.51970, %581 ]
   %.51891 = phi i32 [ %50, %34 ], [ %.50890, %578 ], [ %.50890, %597 ], [ %.50890, %581 ]
-  %.53 = phi i32 [ %.2839.fr1973, %34 ], [ %571, %578 ], [ %571, %597 ], [ %571, %581 ]
+  %.53 = phi i32 [ %.2839.fr1975, %34 ], [ %571, %578 ], [ %571, %597 ], [ %571, %581 ]
   %.not1564 = icmp ult ptr %.521233, %14
   br i1 %.not1564, label %602, label %600
 
@@ -3487,7 +3487,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.551063 = phi i32 [ %.511059, %.loopexit1727 ], [ %54, %34 ]
   %.54973 = phi i32 [ %.11270, %.loopexit1727 ], [ %52, %34 ]
   %.53893 = phi i32 [ %.49889, %.loopexit1727 ], [ %50, %34 ]
-  %.55 = phi i32 [ %649, %.loopexit1727 ], [ %.2839.fr1973, %34 ]
+  %.55 = phi i32 [ %649, %.loopexit1727 ], [ %.2839.fr1975, %34 ]
   %.not1566 = icmp ult ptr %.511324, %19
   br i1 %.not1566, label %652, label %990
 
@@ -3495,9 +3495,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %653 = trunc i32 %.54973 to i8
   %654 = getelementptr inbounds nuw i8, ptr %.511324, i64 1
   store i8 %653, ptr %.511324, align 1
-  br label %.preheader2105
+  br label %.preheader2107
 
-.preheader2105:                                   ; preds = %886, %.loopexit1734, %652, %915, %._crit_edge
+.preheader2107:                                   ; preds = %886, %.loopexit1734, %652, %915, %._crit_edge
   %.461400.ph = phi i64 [ %872, %._crit_edge ], [ %872, %915 ], [ %.511405, %652 ], [ %.631417, %886 ], [ %.331387, %.loopexit1734 ]
   %.461319.ph = phi ptr [ %.681341.lcssa, %._crit_edge ], [ %917, %915 ], [ %654, %652 ], [ %.661339, %886 ], [ %.331306, %.loopexit1734 ]
   %.491230.ph = phi ptr [ %.641245, %._crit_edge ], [ %.641245, %915 ], [ %.541235, %652 ], [ %.691250, %886 ], [ %.361217, %.loopexit1734 ]
@@ -3645,9 +3645,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %732 = load i8, ptr %731, align 1
   %733 = zext i8 %732 to i32
   %734 = icmp ult i32 %.54, %733
-  br i1 %734, label %.preheader2094, label %.loopexit2095
+  br i1 %734, label %.preheader2096, label %.loopexit2097
 
-.preheader2094:                                   ; preds = %34, %730
+.preheader2096:                                   ; preds = %34, %730
   %.551409.ph = phi i64 [ %.501404, %730 ], [ %56, %34 ]
   %.561329.ph = phi ptr [ %.501323, %730 ], [ %4, %34 ]
   %.591240.ph = phi ptr [ %.531234, %730 ], [ %1, %34 ]
@@ -3655,13 +3655,13 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.591067.ph = phi i32 [ %733, %730 ], [ %54, %34 ]
   %.59978.ph = phi i32 [ %728, %730 ], [ %52, %34 ]
   %.57897.ph = phi i32 [ %.52892, %730 ], [ %50, %34 ]
-  %.61.ph = phi i32 [ %.54, %730 ], [ %.2839.fr1973, %34 ]
+  %.61.ph = phi i32 [ %.54, %730 ], [ %.2839.fr1975, %34 ]
   br label %735
 
-735:                                              ; preds = %.preheader2094, %738
-  %.591240 = phi ptr [ %739, %738 ], [ %.591240.ph, %.preheader2094 ]
-  %.611150 = phi i64 [ %744, %738 ], [ %.611150.ph, %.preheader2094 ]
-  %.61 = phi i32 [ %745, %738 ], [ %.61.ph, %.preheader2094 ]
+735:                                              ; preds = %.preheader2096, %738
+  %.591240 = phi ptr [ %739, %738 ], [ %.591240.ph, %.preheader2096 ]
+  %.611150 = phi i64 [ %744, %738 ], [ %.611150.ph, %.preheader2096 ]
+  %.61 = phi i32 [ %745, %738 ], [ %.61.ph, %.preheader2096 ]
   %.not1568 = icmp ult ptr %.591240, %14
   br i1 %.not1568, label %738, label %736
 
@@ -3681,9 +3681,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %744 = or i64 %743, %.611150
   %745 = add i32 %.61, 8
   %746 = icmp ult i32 %745, %.591067.ph
-  br i1 %746, label %735, label %.loopexit2095
+  br i1 %746, label %735, label %.loopexit2097
 
-.loopexit2095:                                    ; preds = %738, %730
+.loopexit2097:                                    ; preds = %738, %730
   %.531407 = phi i64 [ %.501404, %730 ], [ %.551409.ph, %738 ]
   %.541327 = phi ptr [ %.501323, %730 ], [ %.561329.ph, %738 ]
   %.571238 = phi ptr [ %.531234, %730 ], [ %739, %738 ]
@@ -3702,15 +3702,15 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %753 = add i32 %749, %.57976
   br label %754
 
-754:                                              ; preds = %723, %.loopexit2095
-  %.561410 = phi i64 [ %.531407, %.loopexit2095 ], [ %.501404, %723 ]
-  %.571330 = phi ptr [ %.541327, %.loopexit2095 ], [ %.501323, %723 ]
-  %.601241 = phi ptr [ %.571238, %.loopexit2095 ], [ %.531234, %723 ]
-  %.621151 = phi i64 [ %751, %.loopexit2095 ], [ %.541143, %723 ]
-  %.601068 = phi i32 [ %.571065, %.loopexit2095 ], [ 0, %723 ]
-  %.60979 = phi i32 [ %753, %.loopexit2095 ], [ %728, %723 ]
-  %.58898 = phi i32 [ %.55895, %.loopexit2095 ], [ %.52892, %723 ]
-  %.62 = phi i32 [ %752, %.loopexit2095 ], [ %.54, %723 ]
+754:                                              ; preds = %723, %.loopexit2097
+  %.561410 = phi i64 [ %.531407, %.loopexit2097 ], [ %.501404, %723 ]
+  %.571330 = phi ptr [ %.541327, %.loopexit2097 ], [ %.501323, %723 ]
+  %.601241 = phi ptr [ %.571238, %.loopexit2097 ], [ %.531234, %723 ]
+  %.621151 = phi i64 [ %751, %.loopexit2097 ], [ %.541143, %723 ]
+  %.601068 = phi i32 [ %.571065, %.loopexit2097 ], [ 0, %723 ]
+  %.60979 = phi i32 [ %753, %.loopexit2097 ], [ %728, %723 ]
+  %.58898 = phi i32 [ %.55895, %.loopexit2097 ], [ %.52892, %723 ]
+  %.62 = phi i32 [ %752, %.loopexit2097 ], [ %.54, %723 ]
   %755 = icmp ult i32 %.62, 15
   br i1 %755, label %756, label %816
 
@@ -3779,7 +3779,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.621070 = phi i32 [ %54, %34 ], [ %.611069, %768 ], [ %.611069, %787 ], [ %.611069, %771 ]
   %.63982 = phi i32 [ %52, %34 ], [ %.62981, %768 ], [ %.62981, %787 ], [ %.62981, %771 ]
   %.60900 = phi i32 [ %50, %34 ], [ %.59899, %768 ], [ %.59899, %787 ], [ %.59899, %771 ]
-  %.65 = phi i32 [ %.2839.fr1973, %34 ], [ %.64, %768 ], [ %.64, %787 ], [ %.64, %771 ]
+  %.65 = phi i32 [ %.2839.fr1975, %34 ], [ %.64, %768 ], [ %.64, %787 ], [ %.64, %771 ]
   %.not1572 = icmp ult ptr %.631244, %14
   br i1 %.not1572, label %792, label %790
 
@@ -3873,9 +3873,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %847 = load i8, ptr %846, align 1
   %848 = zext i8 %847 to i32
   %849 = icmp ult i32 %839, %848
-  br i1 %849, label %.preheader2083, label %.loopexit2084
+  br i1 %849, label %.preheader2085, label %.loopexit2086
 
-.preheader2083:                                   ; preds = %34, %845
+.preheader2085:                                   ; preds = %34, %845
   %.611415.ph = phi i64 [ %.571411, %845 ], [ %56, %34 ]
   %.641337.ph = phi ptr [ %.581331, %845 ], [ %4, %34 ]
   %.671248.ph = phi ptr [ %.611242, %845 ], [ %1, %34 ]
@@ -3883,13 +3883,13 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.661074.ph = phi i32 [ %848, %845 ], [ %54, %34 ]
   %.67986.ph = phi i32 [ %.61980, %845 ], [ %52, %34 ]
   %.64904.ph = phi i32 [ %843, %845 ], [ %50, %34 ]
-  %.69.ph = phi i32 [ %839, %845 ], [ %.2839.fr1973, %34 ]
+  %.69.ph = phi i32 [ %839, %845 ], [ %.2839.fr1975, %34 ]
   br label %850
 
-850:                                              ; preds = %.preheader2083, %853
-  %.671248 = phi ptr [ %854, %853 ], [ %.671248.ph, %.preheader2083 ]
-  %.691158 = phi i64 [ %859, %853 ], [ %.691158.ph, %.preheader2083 ]
-  %.69 = phi i32 [ %860, %853 ], [ %.69.ph, %.preheader2083 ]
+850:                                              ; preds = %.preheader2085, %853
+  %.671248 = phi ptr [ %854, %853 ], [ %.671248.ph, %.preheader2085 ]
+  %.691158 = phi i64 [ %859, %853 ], [ %.691158.ph, %.preheader2085 ]
+  %.69 = phi i32 [ %860, %853 ], [ %.69.ph, %.preheader2085 ]
   %.not1575 = icmp ult ptr %.671248, %14
   br i1 %.not1575, label %853, label %851
 
@@ -3909,9 +3909,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %859 = or i64 %858, %.691158
   %860 = add i32 %.69, 8
   %861 = icmp ult i32 %860, %.661074.ph
-  br i1 %861, label %850, label %.loopexit2084
+  br i1 %861, label %850, label %.loopexit2086
 
-.loopexit2084:                                    ; preds = %853, %845
+.loopexit2086:                                    ; preds = %853, %845
   %.621335 = phi ptr [ %.581331, %845 ], [ %.641337.ph, %853 ]
   %.651246 = phi ptr [ %.611242, %845 ], [ %854, %853 ]
   %.671156 = phi i64 [ %838, %845 ], [ %859, %853 ]
@@ -3929,14 +3929,14 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %868 = add i32 %.62902, %864
   br label %869
 
-869:                                              ; preds = %.loopexit2084, %.loopexit1724
-  %.611334 = phi ptr [ %.621335, %.loopexit2084 ], [ %.581331, %.loopexit1724 ]
-  %.641245 = phi ptr [ %.651246, %.loopexit2084 ], [ %.611242, %.loopexit1724 ]
-  %.661155 = phi i64 [ %866, %.loopexit2084 ], [ %838, %.loopexit1724 ]
-  %.631071 = phi i32 [ %.641072, %.loopexit2084 ], [ 0, %.loopexit1724 ]
-  %.64983 = phi i32 [ %.65984, %.loopexit2084 ], [ %.61980, %.loopexit1724 ]
-  %.61901 = phi i32 [ %868, %.loopexit2084 ], [ %843, %.loopexit1724 ]
-  %.66 = phi i32 [ %867, %.loopexit2084 ], [ %839, %.loopexit1724 ]
+869:                                              ; preds = %.loopexit2086, %.loopexit1724
+  %.611334 = phi ptr [ %.621335, %.loopexit2086 ], [ %.581331, %.loopexit1724 ]
+  %.641245 = phi ptr [ %.651246, %.loopexit2086 ], [ %.611242, %.loopexit1724 ]
+  %.661155 = phi i64 [ %866, %.loopexit2086 ], [ %838, %.loopexit1724 ]
+  %.631071 = phi i32 [ %.641072, %.loopexit2086 ], [ 0, %.loopexit1724 ]
+  %.64983 = phi i32 [ %.65984, %.loopexit2086 ], [ %.61980, %.loopexit1724 ]
+  %.61901 = phi i32 [ %868, %.loopexit2086 ], [ %843, %.loopexit1724 ]
+  %.66 = phi i32 [ %867, %.loopexit2086 ], [ %839, %.loopexit1724 ]
   %870 = ptrtoint ptr %.611334 to i64
   %871 = ptrtoint ptr %3 to i64
   %872 = sub i64 %870, %871
@@ -3973,7 +3973,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.71 = phi i32 [ %.66, %876 ], [ %.72, %889 ]
   %887 = add i32 %.69988, -1
   %.not1578 = icmp eq i32 %.69988, 0
-  br i1 %.not1578, label %.preheader2105, label %888
+  br i1 %.not1578, label %.preheader2107, label %888
 
 888:                                              ; preds = %34, %886
   %.641418 = phi i64 [ %.631417, %886 ], [ %56, %34 ]
@@ -3983,7 +3983,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.691077 = phi i32 [ %.681076, %886 ], [ %54, %34 ]
   %.70989 = phi i32 [ %887, %886 ], [ %52, %34 ]
   %.67907 = phi i32 [ %.66906, %886 ], [ %50, %34 ]
-  %.72 = phi i32 [ %.71, %886 ], [ %.2839.fr1973, %34 ]
+  %.72 = phi i32 [ %.71, %886 ], [ %.2839.fr1975, %34 ]
   %.not1579 = icmp ult ptr %.671340, %19
   br i1 %.not1579, label %889, label %990
 
@@ -4023,7 +4023,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.01272.lcssa = phi ptr [ %879, %.preheader1722 ], [ %905, %.lr.ph1767 ]
   %.71990.lcssa = phi i32 [ %.64983, %.preheader1722 ], [ %906, %.lr.ph1767 ]
   %.not1577 = icmp eq i32 %.71990.lcssa, 0
-  br i1 %.not1577, label %.preheader2105, label %908
+  br i1 %.not1577, label %.preheader2107, label %908
 
 908:                                              ; preds = %._crit_edge
   %909 = load i8, ptr %.01272.lcssa, align 1
@@ -4041,7 +4041,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
 915:                                              ; preds = %911, %908
   %916 = zext nneg i32 %.71990.lcssa to i64
   %917 = getelementptr inbounds nuw i8, ptr %.681341.lcssa, i64 %916
-  br label %.preheader2105
+  br label %.preheader2107
 
 918:                                              ; preds = %207, %.thread
   %.651419 = phi i64 [ %.201374, %207 ], [ %.501404, %.thread ]
@@ -4073,10 +4073,10 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %926 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %927 = load i8, ptr %1, align 1
   %928 = zext i8 %927 to i64
-  %929 = zext nneg i32 %.2839.fr1973 to i64
+  %929 = zext nneg i32 %.2839.fr1975 to i64
   %930 = shl i64 %928, %929
   %931 = or i64 %930, %48
-  %932 = add i32 %.2839.fr1973, 8
+  %932 = add i32 %.2839.fr1975, 8
   br label %933
 
 933:                                              ; preds = %918, %925
@@ -4142,9 +4142,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
 
 958:                                              ; preds = %957
   %959 = icmp ult i32 %.78, 8
-  br i1 %959, label %.preheader2055, label %.loopexit2056
+  br i1 %959, label %.preheader2057, label %.loopexit2058
 
-.preheader2055:                                   ; preds = %34, %958
+.preheader2057:                                   ; preds = %34, %958
   %.721426.ph = phi i64 [ %.691423, %958 ], [ %56, %34 ]
   %.771350.ph = phi ptr [ %.741347, %958 ], [ %4, %34 ]
   %.791260.ph = phi ptr [ %.761257, %958 ], [ %1, %34 ]
@@ -4152,13 +4152,13 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.771085.ph = phi i32 [ %.741082, %958 ], [ %54, %34 ]
   %.79998.ph = phi i32 [ %.76995, %958 ], [ %52, %34 ]
   %.75915.ph = phi i32 [ %.72912, %958 ], [ %50, %34 ]
-  %.81.ph = phi i32 [ %.78, %958 ], [ %.2839.fr1973, %34 ]
+  %.81.ph = phi i32 [ %.78, %958 ], [ %.2839.fr1975, %34 ]
   br label %960
 
-960:                                              ; preds = %.preheader2055, %963
-  %.791260 = phi ptr [ %964, %963 ], [ %.791260.ph, %.preheader2055 ]
-  %.801169 = phi i64 [ %969, %963 ], [ %.801169.ph, %.preheader2055 ]
-  %.81 = phi i32 [ %970, %963 ], [ %.81.ph, %.preheader2055 ]
+960:                                              ; preds = %.preheader2057, %963
+  %.791260 = phi ptr [ %964, %963 ], [ %.791260.ph, %.preheader2057 ]
+  %.801169 = phi i64 [ %969, %963 ], [ %.801169.ph, %.preheader2057 ]
+  %.81 = phi i32 [ %970, %963 ], [ %.81.ph, %.preheader2057 ]
   %.not1602 = icmp ult ptr %.791260, %14
   br i1 %.not1602, label %963, label %961
 
@@ -4178,9 +4178,9 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %969 = or i64 %968, %.801169
   %970 = add i32 %.81, 8
   %971 = icmp ugt i32 %.81, -9
-  br i1 %971, label %960, label %.loopexit2056
+  br i1 %971, label %960, label %.loopexit2058
 
-.loopexit2056:                                    ; preds = %963, %958
+.loopexit2058:                                    ; preds = %963, %958
   %.701424 = phi i64 [ %.691423, %958 ], [ %.721426.ph, %963 ]
   %.751348 = phi ptr [ %.741347, %958 ], [ %.771350.ph, %963 ]
   %.771258 = phi ptr [ %.761257, %958 ], [ %964, %963 ]
@@ -4203,7 +4203,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.791087 = phi i32 [ %.741082, %957 ], [ %54, %34 ]
   %.811000 = phi i32 [ %.76995, %957 ], [ %52, %34 ]
   %.77917 = phi i32 [ %.72912, %957 ], [ %50, %34 ]
-  %.83 = phi i32 [ 0, %957 ], [ %.2839.fr1973, %34 ]
+  %.83 = phi i32 [ 0, %957 ], [ %.2839.fr1975, %34 ]
   %.not1600 = icmp ult ptr %.811262, %14
   br i1 %.not1600, label %979, label %977
 
@@ -4220,16 +4220,16 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %982 = zext i8 %981 to i32
   br label %983
 
-983:                                              ; preds = %979, %.loopexit2056
-  %.731427 = phi i64 [ %.701424, %.loopexit2056 ], [ %.741428, %979 ]
-  %.781351 = phi ptr [ %.751348, %.loopexit2056 ], [ %.791352, %979 ]
-  %.801261 = phi ptr [ %.771258, %.loopexit2056 ], [ %980, %979 ]
-  %.811170 = phi i64 [ %974, %.loopexit2056 ], [ %.821171, %979 ]
-  %.781086 = phi i32 [ %.751083, %.loopexit2056 ], [ %.791087, %979 ]
-  %.80999 = phi i32 [ %.77996, %.loopexit2056 ], [ %.811000, %979 ]
-  %.76916 = phi i32 [ %.73913, %.loopexit2056 ], [ %.77917, %979 ]
-  %.82 = phi i32 [ %975, %.loopexit2056 ], [ %.83, %979 ]
-  %.0833 = phi i32 [ %973, %.loopexit2056 ], [ %982, %979 ]
+983:                                              ; preds = %979, %.loopexit2058
+  %.731427 = phi i64 [ %.701424, %.loopexit2058 ], [ %.741428, %979 ]
+  %.781351 = phi ptr [ %.751348, %.loopexit2058 ], [ %.791352, %979 ]
+  %.801261 = phi ptr [ %.771258, %.loopexit2058 ], [ %980, %979 ]
+  %.811170 = phi i64 [ %974, %.loopexit2058 ], [ %.821171, %979 ]
+  %.781086 = phi i32 [ %.751083, %.loopexit2058 ], [ %.791087, %979 ]
+  %.80999 = phi i32 [ %.77996, %.loopexit2058 ], [ %.811000, %979 ]
+  %.76916 = phi i32 [ %.73913, %.loopexit2058 ], [ %.77917, %979 ]
+  %.82 = phi i32 [ %975, %.loopexit2058 ], [ %.83, %979 ]
+  %.0833 = phi i32 [ %973, %.loopexit2058 ], [ %982, %979 ]
   %984 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %985 = load i32, ptr %984, align 8
   %986 = shl i32 %985, 8
@@ -4241,17 +4241,17 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
 989:                                              ; preds = %34
   br label %990
 
-990:                                              ; preds = %34, %34, %34, %34, %34, %34, %955, %._crit_edge1803, %888, %869, %651, %549, %502, %327, %.loopexit2151, %208, %202, %173, %101, %34, %989
-  %.sink = phi i32 [ 53, %888 ], [ %57, %34 ], [ 24, %651 ], [ %57, %34 ], [ %57, %34 ], [ %57, %34 ], [ %57, %34 ], [ 9, %208 ], [ 52, %202 ], [ %57, %989 ], [ 36, %101 ], [ %57, %34 ], [ 39, %173 ], [ 10, %.loopexit2151 ], [ 35, %327 ], [ 17, %502 ], [ 21, %549 ], [ 37, %869 ], [ 34, %._crit_edge1803 ], [ 34, %955 ], [ %57, %34 ]
-  %.01354 = phi i64 [ %.641418, %888 ], [ %56, %34 ], [ %.511405, %651 ], [ %56, %34 ], [ %56, %34 ], [ %56, %34 ], [ %56, %34 ], [ %.211375, %208 ], [ %.191373, %202 ], [ %56, %989 ], [ %56, %101 ], [ %56, %34 ], [ %.81362, %173 ], [ %.21356, %.loopexit2151 ], [ %.331387, %327 ], [ %.361390, %502 ], [ %.351389, %549 ], [ %872, %869 ], [ %.661420, %._crit_edge1803 ], [ %.691423, %955 ], [ %56, %34 ]
-  %.01273 = phi ptr [ %.671340, %888 ], [ %4, %34 ], [ %.511324, %651 ], [ %4, %34 ], [ %4, %34 ], [ %4, %34 ], [ %4, %34 ], [ %.211294, %208 ], [ %.191292, %202 ], [ %4, %989 ], [ %4, %101 ], [ %4, %34 ], [ %.81281, %173 ], [ %.21275, %.loopexit2151 ], [ %.331306, %327 ], [ %.361309, %502 ], [ %.351308, %549 ], [ %.611334, %869 ], [ %.711344, %._crit_edge1803 ], [ %.741347, %955 ], [ %4, %34 ]
-  %.11182 = phi ptr [ %.701251, %888 ], [ %1, %34 ], [ %.541235, %651 ], [ %1, %34 ], [ %1, %34 ], [ %1, %34 ], [ %1, %34 ], [ %.241205, %208 ], [ %.221203, %202 ], [ %1, %989 ], [ %76, %101 ], [ %1, %34 ], [ %.111192, %173 ], [ %.51186, %.loopexit2151 ], [ %.361217, %327 ], [ %.391220, %502 ], [ %.381219, %549 ], [ %.641245, %869 ], [ %.751256.lcssa, %._crit_edge1803 ], [ %.761257, %955 ], [ %1, %34 ]
-  %.21091 = phi i64 [ %.721161, %888 ], [ %48, %34 ], [ %.551144, %651 ], [ %48, %34 ], [ %48, %34 ], [ %48, %34 ], [ %48, %34 ], [ %.251114, %208 ], [ %.231112, %202 ], [ %48, %989 ], [ %.31092, %101 ], [ %48, %34 ], [ %.121101, %173 ], [ %119, %.loopexit2151 ], [ %.371126, %327 ], [ %493, %502 ], [ %.391128, %549 ], [ %.661155, %869 ], [ %953, %._crit_edge1803 ], [ %.771166, %955 ], [ %48, %34 ]
-  %.21010 = phi i32 [ %.691077, %888 ], [ %54, %34 ], [ %.551063, %651 ], [ %54, %34 ], [ %54, %34 ], [ %54, %34 ], [ %54, %34 ], [ %.251033, %208 ], [ %.231031, %202 ], [ %54, %989 ], [ %.31011, %101 ], [ %54, %34 ], [ %.121020, %173 ], [ %.61014, %.loopexit2151 ], [ %.371045, %327 ], [ %.401048, %502 ], [ %.391047, %549 ], [ %.631071, %869 ], [ %.711079, %._crit_edge1803 ], [ %.741082, %955 ], [ %54, %34 ]
-  %.2921 = phi i32 [ %.70989, %888 ], [ %52, %34 ], [ %.54973, %651 ], [ %52, %34 ], [ %52, %34 ], [ %52, %34 ], [ %52, %34 ], [ %.25944, %208 ], [ %.23942, %202 ], [ %52, %989 ], [ 1, %101 ], [ %52, %34 ], [ %176, %173 ], [ %.7926, %.loopexit2151 ], [ %.37956, %327 ], [ 0, %502 ], [ %.39958, %549 ], [ %.64983, %869 ], [ %.73992, %._crit_edge1803 ], [ %.76995, %955 ], [ %52, %34 ]
-  %.2842 = phi i32 [ %.67907, %888 ], [ %50, %34 ], [ %.53893, %651 ], [ %50, %34 ], [ %50, %34 ], [ %50, %34 ], [ %50, %34 ], [ %.24864, %208 ], [ %.22862, %202 ], [ %50, %989 ], [ %.3843, %101 ], [ %50, %34 ], [ %.12852, %173 ], [ %.6846, %.loopexit2151 ], [ %.36876, %327 ], [ 16, %502 ], [ %.38878, %549 ], [ %.61901, %869 ], [ %.69909, %._crit_edge1803 ], [ %.72912, %955 ], [ %50, %34 ]
-  %.2839 = phi i32 [ %.72, %888 ], [ %.2839.fr1973, %34 ], [ %.55, %651 ], [ %.2839.fr1973, %34 ], [ %.2839.fr1973, %34 ], [ %.2839.fr1973, %34 ], [ %.2839.fr1973, %34 ], [ %.25, %208 ], [ %.23, %202 ], [ %.2839.fr1973, %989 ], [ %.3, %101 ], [ %.2839.fr1973, %34 ], [ %.12, %173 ], [ %120, %.loopexit2151 ], [ %.37, %327 ], [ %494, %502 ], [ %.39, %549 ], [ %.66, %869 ], [ %.77.lcssa, %._crit_edge1803 ], [ %.78, %955 ], [ %.2839.fr1973, %34 ]
-  %.0834 = phi i32 [ 2, %888 ], [ -1, %34 ], [ 2, %651 ], [ -1, %34 ], [ -1, %34 ], [ -1, %34 ], [ -1, %34 ], [ 2, %208 ], [ 2, %202 ], [ 0, %989 ], [ -1, %101 ], [ -1, %34 ], [ -1, %173 ], [ -1, %.loopexit2151 ], [ -1, %327 ], [ -1, %502 ], [ -1, %549 ], [ -1, %869 ], [ 0, %._crit_edge1803 ], [ 0, %955 ], [ -1, %34 ]
+990:                                              ; preds = %34, %34, %34, %34, %34, %34, %955, %._crit_edge1803, %888, %869, %651, %549, %502, %327, %.loopexit2153, %208, %202, %173, %101, %34, %989
+  %.sink = phi i32 [ 53, %888 ], [ %57, %34 ], [ 24, %651 ], [ %57, %34 ], [ %57, %34 ], [ %57, %34 ], [ %57, %34 ], [ 9, %208 ], [ 52, %202 ], [ %57, %989 ], [ 36, %101 ], [ %57, %34 ], [ 39, %173 ], [ 10, %.loopexit2153 ], [ 35, %327 ], [ 17, %502 ], [ 21, %549 ], [ 37, %869 ], [ 34, %._crit_edge1803 ], [ 34, %955 ], [ %57, %34 ]
+  %.01354 = phi i64 [ %.641418, %888 ], [ %56, %34 ], [ %.511405, %651 ], [ %56, %34 ], [ %56, %34 ], [ %56, %34 ], [ %56, %34 ], [ %.211375, %208 ], [ %.191373, %202 ], [ %56, %989 ], [ %56, %101 ], [ %56, %34 ], [ %.81362, %173 ], [ %.21356, %.loopexit2153 ], [ %.331387, %327 ], [ %.361390, %502 ], [ %.351389, %549 ], [ %872, %869 ], [ %.661420, %._crit_edge1803 ], [ %.691423, %955 ], [ %56, %34 ]
+  %.01273 = phi ptr [ %.671340, %888 ], [ %4, %34 ], [ %.511324, %651 ], [ %4, %34 ], [ %4, %34 ], [ %4, %34 ], [ %4, %34 ], [ %.211294, %208 ], [ %.191292, %202 ], [ %4, %989 ], [ %4, %101 ], [ %4, %34 ], [ %.81281, %173 ], [ %.21275, %.loopexit2153 ], [ %.331306, %327 ], [ %.361309, %502 ], [ %.351308, %549 ], [ %.611334, %869 ], [ %.711344, %._crit_edge1803 ], [ %.741347, %955 ], [ %4, %34 ]
+  %.11182 = phi ptr [ %.701251, %888 ], [ %1, %34 ], [ %.541235, %651 ], [ %1, %34 ], [ %1, %34 ], [ %1, %34 ], [ %1, %34 ], [ %.241205, %208 ], [ %.221203, %202 ], [ %1, %989 ], [ %76, %101 ], [ %1, %34 ], [ %.111192, %173 ], [ %.51186, %.loopexit2153 ], [ %.361217, %327 ], [ %.391220, %502 ], [ %.381219, %549 ], [ %.641245, %869 ], [ %.751256.lcssa, %._crit_edge1803 ], [ %.761257, %955 ], [ %1, %34 ]
+  %.21091 = phi i64 [ %.721161, %888 ], [ %48, %34 ], [ %.551144, %651 ], [ %48, %34 ], [ %48, %34 ], [ %48, %34 ], [ %48, %34 ], [ %.251114, %208 ], [ %.231112, %202 ], [ %48, %989 ], [ %.31092, %101 ], [ %48, %34 ], [ %.121101, %173 ], [ %119, %.loopexit2153 ], [ %.371126, %327 ], [ %493, %502 ], [ %.391128, %549 ], [ %.661155, %869 ], [ %953, %._crit_edge1803 ], [ %.771166, %955 ], [ %48, %34 ]
+  %.21010 = phi i32 [ %.691077, %888 ], [ %54, %34 ], [ %.551063, %651 ], [ %54, %34 ], [ %54, %34 ], [ %54, %34 ], [ %54, %34 ], [ %.251033, %208 ], [ %.231031, %202 ], [ %54, %989 ], [ %.31011, %101 ], [ %54, %34 ], [ %.121020, %173 ], [ %.61014, %.loopexit2153 ], [ %.371045, %327 ], [ %.401048, %502 ], [ %.391047, %549 ], [ %.631071, %869 ], [ %.711079, %._crit_edge1803 ], [ %.741082, %955 ], [ %54, %34 ]
+  %.2921 = phi i32 [ %.70989, %888 ], [ %52, %34 ], [ %.54973, %651 ], [ %52, %34 ], [ %52, %34 ], [ %52, %34 ], [ %52, %34 ], [ %.25944, %208 ], [ %.23942, %202 ], [ %52, %989 ], [ 1, %101 ], [ %52, %34 ], [ %176, %173 ], [ %.7926, %.loopexit2153 ], [ %.37956, %327 ], [ 0, %502 ], [ %.39958, %549 ], [ %.64983, %869 ], [ %.73992, %._crit_edge1803 ], [ %.76995, %955 ], [ %52, %34 ]
+  %.2842 = phi i32 [ %.67907, %888 ], [ %50, %34 ], [ %.53893, %651 ], [ %50, %34 ], [ %50, %34 ], [ %50, %34 ], [ %50, %34 ], [ %.24864, %208 ], [ %.22862, %202 ], [ %50, %989 ], [ %.3843, %101 ], [ %50, %34 ], [ %.12852, %173 ], [ %.6846, %.loopexit2153 ], [ %.36876, %327 ], [ 16, %502 ], [ %.38878, %549 ], [ %.61901, %869 ], [ %.69909, %._crit_edge1803 ], [ %.72912, %955 ], [ %50, %34 ]
+  %.2839 = phi i32 [ %.72, %888 ], [ %.2839.fr1975, %34 ], [ %.55, %651 ], [ %.2839.fr1975, %34 ], [ %.2839.fr1975, %34 ], [ %.2839.fr1975, %34 ], [ %.2839.fr1975, %34 ], [ %.25, %208 ], [ %.23, %202 ], [ %.2839.fr1975, %989 ], [ %.3, %101 ], [ %.2839.fr1975, %34 ], [ %.12, %173 ], [ %120, %.loopexit2153 ], [ %.37, %327 ], [ %494, %502 ], [ %.39, %549 ], [ %.66, %869 ], [ %.77.lcssa, %._crit_edge1803 ], [ %.78, %955 ], [ %.2839.fr1975, %34 ]
+  %.0834 = phi i32 [ 2, %888 ], [ -1, %34 ], [ 2, %651 ], [ -1, %34 ], [ -1, %34 ], [ -1, %34 ], [ -1, %34 ], [ 2, %208 ], [ 2, %202 ], [ 0, %989 ], [ -1, %101 ], [ -1, %34 ], [ -1, %173 ], [ -1, %.loopexit2153 ], [ -1, %327 ], [ -1, %502 ], [ -1, %549 ], [ -1, %869 ], [ 0, %._crit_edge1803 ], [ 0, %955 ], [ -1, %34 ]
   store i32 %.sink, ptr %0, align 8
   %.2839.fr = freeze i32 %.2839
   %991 = icmp ugt ptr %.11182, %1
@@ -4283,7 +4283,7 @@ tinfl_clear_tree.exit:                            ; preds = %307, %308, %309
   %.012731668 = phi ptr [ %4, %65 ], [ %.491322, %600 ], [ %.381311, %445 ], [ %.601333, %790 ], [ %.641337.ph, %851 ], [ %.561329.ph, %736 ], [ %.321305.ph, %274 ], [ %.421315.ph, %513 ], [ %.791352, %977 ], [ %.281301.ph, %238 ], [ %4, %923 ], [ %.221295, %210 ], [ %.181291.ph, %187 ], [ %.121285, %163 ], [ %.111284.ph, %145 ], [ %4, %124 ], [ %.41277.ph, %105 ], [ %4, %73 ], [ %.771350.ph, %961 ], [ %.01273, %990 ], [ %.01273, %.lr.ph1809.preheader ], [ %4, %34 ]
   %.013541667 = phi i64 [ %56, %65 ], [ %.491403, %600 ], [ %.381392, %445 ], [ %.591413, %790 ], [ %.611415.ph, %851 ], [ %.551409.ph, %736 ], [ %.321386.ph, %274 ], [ %.421396.ph, %513 ], [ %.741428, %977 ], [ %.281382.ph, %238 ], [ %56, %923 ], [ %.221376, %210 ], [ %.181372.ph, %187 ], [ %.121366, %163 ], [ %.111365.ph, %145 ], [ %56, %124 ], [ %.41358.ph, %105 ], [ %56, %73 ], [ %.721426.ph, %961 ], [ %.01354, %990 ], [ %.01354, %.lr.ph1809.preheader ], [ %56, %34 ]
   %.831264 = phi ptr [ %1, %65 ], [ %.521233, %600 ], [ %.411222, %445 ], [ %.631244, %790 ], [ %.671248, %851 ], [ %.591240, %736 ], [ %.351216, %274 ], [ %.451226, %513 ], [ %.811262, %977 ], [ %.311212, %238 ], [ %1, %923 ], [ %.251206, %210 ], [ %.211202, %187 ], [ %.151196, %163 ], [ %.141195, %145 ], [ %1, %124 ], [ %.71188, %105 ], [ %.21183, %73 ], [ %.791260, %961 ], [ %.11182, %990 ], [ %scevgep1899, %.lr.ph1809.preheader ], [ %1, %34 ]
-  %.85 = phi i32 [ %.1838, %65 ], [ %.53, %600 ], [ %.42, %445 ], [ %.65, %790 ], [ %.69, %851 ], [ %.61, %736 ], [ %.36, %274 ], [ %.46, %513 ], [ %.83, %977 ], [ %.32, %238 ], [ %.2839.fr1973, %923 ], [ %.26, %210 ], [ %.22, %187 ], [ %.16, %163 ], [ %.15, %145 ], [ %.2839.fr1973, %124 ], [ %.8, %105 ], [ %.3, %73 ], [ %.81, %961 ], [ %.2839.fr, %990 ], [ %1002, %.lr.ph1809.preheader ], [ %.2839.fr1973, %34 ]
+  %.85 = phi i32 [ %.1838, %65 ], [ %.53, %600 ], [ %.42, %445 ], [ %.65, %790 ], [ %.69, %851 ], [ %.61, %736 ], [ %.36, %274 ], [ %.46, %513 ], [ %.83, %977 ], [ %.32, %238 ], [ %.2839.fr1975, %923 ], [ %.26, %210 ], [ %.22, %187 ], [ %.16, %163 ], [ %.15, %145 ], [ %.2839.fr1975, %124 ], [ %.8, %105 ], [ %.3, %73 ], [ %.81, %961 ], [ %.2839.fr, %990 ], [ %1002, %.lr.ph1809.preheader ], [ %.2839.fr1975, %34 ]
   store i32 %.85, ptr %45, align 4
   %1003 = zext nneg i32 %.85 to i64
   %1004 = shl nsw i64 -1, %1003

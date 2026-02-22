@@ -9832,11 +9832,10 @@ _ZN8AstCCall8addArgspEP11AstNodeExpr.exit.i:      ; preds = %136, %131, %_ZN16VS
   %.pre.i = load i32, ptr %38, align 4, !tbaa !264
   %.pre64.i = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !135
   %.pre65.i = load i64, ptr %42, align 8
-  %.pre.fr.i = freeze i32 %.pre.i
-  %.pre64.fr.i = freeze i32 %.pre64.i
-  %153 = icmp eq i32 %.pre.fr.i, %.pre64.fr.i
+  %153 = icmp eq i32 %.pre.i, %.pre64.i
   %154 = inttoptr i64 %.pre65.i to ptr
-  br i1 %153, label %155, label %_ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit.i
+  %cond.fr.i = freeze i1 %153
+  br i1 %cond.fr.i, label %155, label %_ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit.i
 
 155:                                              ; preds = %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.i, %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.thread.i
   %156 = phi ptr [ %44, %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.thread.i ], [ %154, %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.i ]

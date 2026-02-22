@@ -599,34 +599,30 @@ define internal noundef i32 @filter_mono(ptr noundef readonly captures(none) %0,
   %17 = load i32, ptr %16, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !66
-  %.fr92 = freeze i32 %19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %23 = load i32, ptr %22, align 4, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !41
-  %.fr90 = freeze i32 %23
-  %.fr91 = freeze i32 %25
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr90, i32 %.fr91)
+  %. = tail call i32 @llvm.smax.i32(i32 %23, i32 %25)
+  %..fr = freeze i32 %.
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %27 = load i32, ptr %26, align 4, !tbaa !48
-  %.fr93 = freeze i32 %27
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %29 = load i32, ptr %28, align 8, !tbaa !42
-  %.fr = freeze i32 %29
-  %30 = sub i32 %.fr, %.fr92
-  %31 = mul i32 %.fr93, 10
+  %30 = sub nsw i32 %29, %19
+  %31 = mul i32 %27, 10
   %32 = sdiv i32 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %34 = load i32, ptr %33, align 4, !tbaa !43
   %35 = sub nsw i32 %34, %21
   %36 = mul i32 %17, 12
   %37 = sdiv i32 %35, %36
-  %38 = mul i32 %32, %2
+  %38 = mul nsw i32 %32, %2
   %39 = sdiv i32 %38, %3
-  %40 = add i32 %2, 1
-  %41 = mul i32 %32, %40
+  %40 = add nsw i32 %2, 1
+  %41 = mul nsw i32 %32, %40
   %42 = sdiv i32 %41, %3
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %44 = icmp sgt i32 %37, 0
@@ -635,7 +631,7 @@ define internal noundef i32 @filter_mono(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !76
-  %47 = sub nsw i32 %.fr93, %46
+  %47 = sub nsw i32 %27, %46
   %48 = ashr i32 %47, 2
   %49 = shl nsw i32 %46, 1
   %50 = add nsw i32 %48, %49
@@ -652,19 +648,20 @@ define internal noundef i32 @filter_mono(ptr noundef readonly captures(none) %0,
   %61 = sext i32 %50 to i64
   %62 = getelementptr inbounds ptr, ptr @__const.filter_color2.format, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 252
-  %64 = add i32 %.fr92, 2
+  %64 = add i32 %19, 2
   %65 = add i32 %21, 2
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 108
-  br i1 %56, label %.lr.ph.split.us, label %.critedge
+  %.fr88 = freeze i1 %56
+  br i1 %.fr88, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %69 = icmp sgt i32 %., 0
+  %69 = icmp sgt i32 %..fr, 0
   br i1 %69, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
-  %wide.trip.count = zext nneg i32 %. to i64
+  %wide.trip.count = zext nneg i32 %..fr to i64
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.critedge2.us.us
@@ -677,8 +674,8 @@ define internal noundef i32 @filter_mono(ptr noundef readonly captures(none) %0,
 
 .critedge2.us.us:                                 ; preds = %._crit_edge.us.us.us, %76
   %74 = add nuw nsw i32 %.06981.us.us, 1
-  %exitcond100.not = icmp eq i32 %74, %37
-  br i1 %exitcond100.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !82
+  %exitcond94.not = icmp eq i32 %74, %37
+  br i1 %exitcond94.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !82
 
 .preheader.us.us:                                 ; preds = %.lr.ph.split.us.split.us
   %factor.op.mul73.reass.us.us = mul i32 %36, %.06981.us.us
@@ -764,51 +761,51 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %.1.us.us.us = phi i32 [ %100, %draw_text.exit.us.us.us ], [ %.076.us.us.us, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond98.not, label %._crit_edge.us.us.us, label %85, !llvm.loop !85
+  %exitcond93.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond93.not, label %._crit_edge.us.us.us, label %85, !llvm.loop !85
 
 ._crit_edge.us.us.us:                             ; preds = %110
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %111 = add nsw i32 %.07078.us.us.us, 1
-  %exitcond99.not = icmp eq i32 %111, %42
-  br i1 %exitcond99.not, label %.critedge2.us.us, label %76, !llvm.loop !86
+  %112 = icmp slt i32 %111, %42
+  br i1 %112, label %76, label %.critedge2.us.us, !llvm.loop !86
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge2.us
-  %.06981.us = phi i32 [ %120, %.critedge2.us ], [ 0, %.lr.ph.split.us ]
-  %112 = load i32, ptr %43, align 4, !tbaa !49
-  %113 = add nsw i32 %112, %.06981.us
-  %114 = load i32, ptr %54, align 4, !tbaa !43
-  %115 = icmp slt i32 %113, %114
-  br i1 %115, label %.preheader.us, label %.critedge
+  %.06981.us = phi i32 [ %121, %.critedge2.us ], [ 0, %.lr.ph.split.us ]
+  %113 = load i32, ptr %43, align 4, !tbaa !49
+  %114 = add nsw i32 %113, %.06981.us
+  %115 = load i32, ptr %54, align 4, !tbaa !43
+  %116 = icmp slt i32 %114, %115
+  br i1 %116, label %.preheader.us, label %.critedge
 
-.preheader.us:                                    ; preds = %.lr.ph.split.us.split, %121
-  %.07078.us84 = phi i32 [ %125, %121 ], [ %39, %.lr.ph.split.us.split ]
-  %116 = load i32, ptr %55, align 8, !tbaa !50
-  %117 = add nsw i32 %116, %.07078.us84
-  %118 = load i32, ptr %57, align 8, !tbaa !42
-  %119 = icmp slt i32 %117, %118
-  br i1 %119, label %121, label %.critedge2.us
+.preheader.us:                                    ; preds = %.lr.ph.split.us.split, %122
+  %.07078.us84 = phi i32 [ %126, %122 ], [ %39, %.lr.ph.split.us.split ]
+  %117 = load i32, ptr %55, align 8, !tbaa !50
+  %118 = add nsw i32 %117, %.07078.us84
+  %119 = load i32, ptr %57, align 8, !tbaa !42
+  %120 = icmp slt i32 %118, %119
+  br i1 %120, label %122, label %.critedge2.us
 
-.critedge2.us:                                    ; preds = %121, %.preheader.us
-  %120 = add nuw nsw i32 %.06981.us, 1
-  %exitcond96.not = icmp eq i32 %120, %37
-  br i1 %exitcond96.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !82
+.critedge2.us:                                    ; preds = %122, %.preheader.us
+  %121 = add nuw nsw i32 %.06981.us, 1
+  %exitcond.not = icmp eq i32 %121, %37
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !82
 
-121:                                              ; preds = %.preheader.us
+122:                                              ; preds = %.preheader.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %122 = load ptr, ptr %58, align 8, !tbaa !80
-  %123 = load i32, ptr %43, align 4, !tbaa !49
-  %124 = add nsw i32 %123, %.06981.us
-  call void %122(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %117, i32 noundef %124, ptr noundef nonnull %6) #16
+  %123 = load ptr, ptr %58, align 8, !tbaa !80
+  %124 = load i32, ptr %43, align 4, !tbaa !49
+  %125 = add nsw i32 %124, %.06981.us
+  call void %123(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %118, i32 noundef %125, ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %125 = add i32 %.07078.us84, 1
-  %exitcond.not = icmp eq i32 %125, %42
-  br i1 %exitcond.not, label %.critedge2.us, label %.preheader.us, !llvm.loop !86
+  %126 = add nsw i32 %.07078.us84, 1
+  %127 = icmp slt i32 %126, %42
+  br i1 %127, label %.preheader.us, label %.critedge2.us, !llvm.loop !86
 
 .critedge:                                        ; preds = %.lr.ph.split.us.split, %.critedge2.us, %.lr.ph.split.us.split.us, %.critedge2.us.us, %.lr.ph, %4
   ret i32 0
@@ -831,34 +828,30 @@ define internal noundef i32 @filter_color(ptr noundef readonly captures(none) %0
   %17 = load i32, ptr %16, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !66
-  %.fr91 = freeze i32 %19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !65
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %23 = load i32, ptr %22, align 4, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !41
-  %.fr89 = freeze i32 %23
-  %.fr90 = freeze i32 %25
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr89, i32 %.fr90)
+  %. = tail call i32 @llvm.smax.i32(i32 %23, i32 %25)
+  %..fr = freeze i32 %.
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %27 = load i32, ptr %26, align 4, !tbaa !48
-  %.fr92 = freeze i32 %27
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %29 = load i32, ptr %28, align 8, !tbaa !42
-  %.fr = freeze i32 %29
-  %30 = sub i32 %.fr, %.fr91
-  %31 = mul i32 %.fr92, 10
+  %30 = sub nsw i32 %29, %19
+  %31 = mul i32 %27, 10
   %32 = sdiv i32 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %34 = load i32, ptr %33, align 4, !tbaa !43
   %35 = sub nsw i32 %34, %21
   %36 = mul i32 %17, 12
   %37 = sdiv i32 %35, %36
-  %38 = mul i32 %32, %2
+  %38 = mul nsw i32 %32, %2
   %39 = sdiv i32 %38, %3
-  %40 = add i32 %2, 1
-  %41 = mul i32 %32, %40
+  %40 = add nsw i32 %2, 1
+  %41 = mul nsw i32 %32, %40
   %42 = sdiv i32 %41, %3
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %44 = icmp sgt i32 %37, 0
@@ -867,7 +860,7 @@ define internal noundef i32 @filter_color(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !76
-  %47 = sub nsw i32 %.fr92, %46
+  %47 = sub nsw i32 %27, %46
   %48 = ashr i32 %47, 2
   %49 = shl nsw i32 %46, 1
   %50 = add nsw i32 %48, %49
@@ -883,19 +876,20 @@ define internal noundef i32 @filter_color(ptr noundef readonly captures(none) %0
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %61 = sext i32 %50 to i64
   %62 = getelementptr inbounds ptr, ptr @__const.filter_color2.format, i64 %61
-  %63 = add i32 %.fr91, 2
+  %63 = add i32 %19, 2
   %64 = add i32 %21, 2
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 108
-  br i1 %56, label %.lr.ph.split.us, label %.critedge
+  %.fr87 = freeze i1 %56
+  br i1 %.fr87, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %68 = icmp sgt i32 %., 0
+  %68 = icmp sgt i32 %..fr, 0
   br i1 %68, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
-  %wide.trip.count = zext nneg i32 %. to i64
+  %wide.trip.count = zext nneg i32 %..fr to i64
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.critedge2.us.us
@@ -908,8 +902,8 @@ define internal noundef i32 @filter_color(ptr noundef readonly captures(none) %0
 
 .critedge2.us.us:                                 ; preds = %._crit_edge.us.us.us, %75
   %73 = add nuw nsw i32 %.06880.us.us, 1
-  %exitcond99.not = icmp eq i32 %73, %37
-  br i1 %exitcond99.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !87
+  %exitcond93.not = icmp eq i32 %73, %37
+  br i1 %exitcond93.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !87
 
 .preheader.us.us:                                 ; preds = %.lr.ph.split.us.split.us
   %factor.op.mul72.reass.us.us = mul i32 %36, %.06880.us.us
@@ -995,51 +989,51 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %.1.us.us.us = phi i32 [ %99, %draw_text.exit.us.us.us ], [ %.075.us.us.us, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond97.not, label %._crit_edge.us.us.us, label %84, !llvm.loop !88
+  %exitcond92.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond92.not, label %._crit_edge.us.us.us, label %84, !llvm.loop !88
 
 ._crit_edge.us.us.us:                             ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %110 = add nsw i32 %.06977.us.us.us, 1
-  %exitcond98.not = icmp eq i32 %110, %42
-  br i1 %exitcond98.not, label %.critedge2.us.us, label %75, !llvm.loop !89
+  %111 = icmp slt i32 %110, %42
+  br i1 %111, label %75, label %.critedge2.us.us, !llvm.loop !89
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge2.us
-  %.06880.us = phi i32 [ %119, %.critedge2.us ], [ 0, %.lr.ph.split.us ]
-  %111 = load i32, ptr %43, align 4, !tbaa !49
-  %112 = add nsw i32 %111, %.06880.us
-  %113 = load i32, ptr %54, align 4, !tbaa !43
-  %114 = icmp slt i32 %112, %113
-  br i1 %114, label %.preheader.us, label %.critedge
+  %.06880.us = phi i32 [ %120, %.critedge2.us ], [ 0, %.lr.ph.split.us ]
+  %112 = load i32, ptr %43, align 4, !tbaa !49
+  %113 = add nsw i32 %112, %.06880.us
+  %114 = load i32, ptr %54, align 4, !tbaa !43
+  %115 = icmp slt i32 %113, %114
+  br i1 %115, label %.preheader.us, label %.critedge
 
-.preheader.us:                                    ; preds = %.lr.ph.split.us.split, %120
-  %.06977.us83 = phi i32 [ %124, %120 ], [ %39, %.lr.ph.split.us.split ]
-  %115 = load i32, ptr %55, align 8, !tbaa !50
-  %116 = add nsw i32 %115, %.06977.us83
-  %117 = load i32, ptr %57, align 8, !tbaa !42
-  %118 = icmp slt i32 %116, %117
-  br i1 %118, label %120, label %.critedge2.us
+.preheader.us:                                    ; preds = %.lr.ph.split.us.split, %121
+  %.06977.us83 = phi i32 [ %125, %121 ], [ %39, %.lr.ph.split.us.split ]
+  %116 = load i32, ptr %55, align 8, !tbaa !50
+  %117 = add nsw i32 %116, %.06977.us83
+  %118 = load i32, ptr %57, align 8, !tbaa !42
+  %119 = icmp slt i32 %117, %118
+  br i1 %119, label %121, label %.critedge2.us
 
-.critedge2.us:                                    ; preds = %120, %.preheader.us
-  %119 = add nuw nsw i32 %.06880.us, 1
-  %exitcond95.not = icmp eq i32 %119, %37
-  br i1 %exitcond95.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !87
+.critedge2.us:                                    ; preds = %121, %.preheader.us
+  %120 = add nuw nsw i32 %.06880.us, 1
+  %exitcond.not = icmp eq i32 %120, %37
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !87
 
-120:                                              ; preds = %.preheader.us
+121:                                              ; preds = %.preheader.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %121 = load ptr, ptr %58, align 8, !tbaa !80
-  %122 = load i32, ptr %43, align 4, !tbaa !49
-  %123 = add nsw i32 %122, %.06880.us
-  call void %121(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %116, i32 noundef %123, ptr noundef nonnull %6) #16
+  %122 = load ptr, ptr %58, align 8, !tbaa !80
+  %123 = load i32, ptr %43, align 4, !tbaa !49
+  %124 = add nsw i32 %123, %.06880.us
+  call void %122(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %117, i32 noundef %124, ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %124 = add i32 %.06977.us83, 1
-  %exitcond.not = icmp eq i32 %124, %42
-  br i1 %exitcond.not, label %.critedge2.us, label %.preheader.us, !llvm.loop !89
+  %125 = add nsw i32 %.06977.us83, 1
+  %126 = icmp slt i32 %125, %42
+  br i1 %126, label %.preheader.us, label %.critedge2.us, !llvm.loop !89
 
 .critedge:                                        ; preds = %.lr.ph.split.us.split, %.critedge2.us, %.lr.ph.split.us.split.us, %.critedge2.us.us, %.lr.ph, %4
   ret i32 0
@@ -1063,34 +1057,30 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
   %18 = load i32, ptr %17, align 8, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !66
-  %.fr102 = freeze i32 %20
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %26 = load i32, ptr %25, align 8, !tbaa !41
-  %.fr100 = freeze i32 %24
-  %.fr101 = freeze i32 %26
-  %. = tail call i32 @llvm.smax.i32(i32 %.fr100, i32 %.fr101)
+  %. = tail call i32 @llvm.smax.i32(i32 %24, i32 %26)
+  %..fr = freeze i32 %.
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %28 = load i32, ptr %27, align 4, !tbaa !48
-  %.fr103 = freeze i32 %28
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %30 = load i32, ptr %29, align 8, !tbaa !42
-  %.fr = freeze i32 %30
-  %31 = sub i32 %.fr, %.fr102
-  %32 = mul i32 %.fr103, 10
+  %31 = sub nsw i32 %30, %20
+  %32 = mul i32 %28, 10
   %33 = sdiv i32 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !43
   %36 = sub nsw i32 %35, %22
   %37 = mul i32 %18, 12
   %38 = sdiv i32 %36, %37
-  %39 = mul i32 %33, %2
+  %39 = mul nsw i32 %33, %2
   %40 = sdiv i32 %39, %3
-  %41 = add i32 %2, 1
-  %42 = mul i32 %33, %41
+  %41 = add nsw i32 %2, 1
+  %42 = mul nsw i32 %33, %41
   %43 = sdiv i32 %42, %3
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %45 = icmp sgt i32 %38, 0
@@ -1099,7 +1089,7 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %4
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %47 = load i32, ptr %46, align 4, !tbaa !76
-  %48 = sub nsw i32 %.fr103, %47
+  %48 = sub nsw i32 %28, %47
   %49 = ashr i32 %48, 2
   %50 = shl nsw i32 %47, 1
   %51 = add nsw i32 %49, %50
@@ -1119,14 +1109,15 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
   %65 = getelementptr inbounds ptr, ptr @__const.filter_color2.format, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  br i1 %57, label %.lr.ph.split.us, label %.critedge
+  %.fr98 = freeze i1 %57
+  br i1 %.fr98, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %68 = icmp sgt i32 %., 0
+  %68 = icmp sgt i32 %..fr, 0
   br i1 %68, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
-  %wide.trip.count = zext nneg i32 %. to i64
+  %wide.trip.count = zext nneg i32 %..fr to i64
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.critedge2.us.us
@@ -1139,8 +1130,8 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
 
 .critedge2.us.us:                                 ; preds = %._crit_edge.us.us.us, %76
   %73 = add nuw nsw i32 %.08191.us.us, 1
-  %exitcond110.not = icmp eq i32 %73, %38
-  br i1 %exitcond110.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !90
+  %exitcond104.not = icmp eq i32 %73, %38
+  br i1 %exitcond104.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !90
 
 .preheader.us.us:                                 ; preds = %.lr.ph.split.us.split.us
   %factor.op.mul.reass.us.us = mul i32 %37, %.08191.us.us
@@ -1170,7 +1161,7 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
   %84 = load ptr, ptr %61, align 8, !tbaa !81
   call void %84(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %85 = mul i32 %32, %.08287.us.us.us
-  %86 = add nsw i32 %85, %.fr102
+  %86 = add nsw i32 %85, %20
   call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %86, i32 noundef %74, i32 noundef %32, i32 noundef %37) #16
   %87 = add nsw i32 %86, 2
   br label %88
@@ -1233,65 +1224,65 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %.1.us.us.us = phi i32 [ %103, %draw_text.exit.us.us.us ], [ %.086.us.us.us, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond108.not, label %._crit_edge.us.us.us, label %88, !llvm.loop !91
+  %exitcond103.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond103.not, label %._crit_edge.us.us.us, label %88, !llvm.loop !91
 
 ._crit_edge.us.us.us:                             ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = add nsw i32 %.08287.us.us.us, 1
-  %exitcond109.not = icmp eq i32 %114, %43
-  br i1 %exitcond109.not, label %.critedge2.us.us, label %76, !llvm.loop !92
+  %115 = icmp slt i32 %114, %43
+  br i1 %115, label %76, label %.critedge2.us.us, !llvm.loop !92
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge2.us
-  %.08191.us = phi i32 [ %124, %.critedge2.us ], [ 0, %.lr.ph.split.us ]
-  %115 = load i32, ptr %44, align 4, !tbaa !49
-  %116 = add nsw i32 %115, %.08191.us
-  %117 = load i32, ptr %55, align 4, !tbaa !43
-  %118 = icmp slt i32 %116, %117
-  br i1 %118, label %.preheader.us, label %.critedge
+  %.08191.us = phi i32 [ %125, %.critedge2.us ], [ 0, %.lr.ph.split.us ]
+  %116 = load i32, ptr %44, align 4, !tbaa !49
+  %117 = add nsw i32 %116, %.08191.us
+  %118 = load i32, ptr %55, align 4, !tbaa !43
+  %119 = icmp slt i32 %117, %118
+  br i1 %119, label %.preheader.us, label %.critedge
 
-119:                                              ; preds = %.preheader.us, %125
-  %.08287.us94 = phi i32 [ %40, %.preheader.us ], [ %132, %125 ]
-  %120 = load i32, ptr %56, align 8, !tbaa !50
-  %121 = add nsw i32 %120, %.08287.us94
-  %122 = load i32, ptr %58, align 8, !tbaa !42
-  %123 = icmp slt i32 %121, %122
-  br i1 %123, label %125, label %.critedge2.us
+120:                                              ; preds = %.preheader.us, %126
+  %.08287.us94 = phi i32 [ %40, %.preheader.us ], [ %133, %126 ]
+  %121 = load i32, ptr %56, align 8, !tbaa !50
+  %122 = add nsw i32 %121, %.08287.us94
+  %123 = load i32, ptr %58, align 8, !tbaa !42
+  %124 = icmp slt i32 %122, %123
+  br i1 %124, label %126, label %.critedge2.us
 
-.critedge2.us:                                    ; preds = %125, %119
-  %124 = add nuw nsw i32 %.08191.us, 1
-  %exitcond106.not = icmp eq i32 %124, %38
-  br i1 %exitcond106.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !90
+.critedge2.us:                                    ; preds = %126, %120
+  %125 = add nuw nsw i32 %.08191.us, 1
+  %exitcond.not = icmp eq i32 %125, %38
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !90
 
-125:                                              ; preds = %119
+126:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %6, i8 0, i64 68, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %126 = load ptr, ptr %59, align 8, !tbaa !80
-  %127 = load i32, ptr %44, align 4, !tbaa !49
-  %128 = add nsw i32 %127, %.08191.us
-  call void %126(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %14, i32 noundef %121, i32 noundef %128, ptr noundef nonnull %7) #16
-  %129 = load ptr, ptr %61, align 8, !tbaa !81
-  call void %129(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
-  %130 = mul i32 %32, %.08287.us94
-  %131 = add nsw i32 %130, %.fr102
-  call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %131, i32 noundef %133, i32 noundef %32, i32 noundef %37) #16
+  %127 = load ptr, ptr %59, align 8, !tbaa !80
+  %128 = load i32, ptr %44, align 4, !tbaa !49
+  %129 = add nsw i32 %128, %.08191.us
+  call void %127(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %14, i32 noundef %122, i32 noundef %129, ptr noundef nonnull %7) #16
+  %130 = load ptr, ptr %61, align 8, !tbaa !81
+  call void %130(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %131 = mul i32 %32, %.08287.us94
+  %132 = add nsw i32 %131, %20
+  call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %132, i32 noundef %135, i32 noundef %32, i32 noundef %37) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %132 = add i32 %.08287.us94, 1
-  %exitcond.not = icmp eq i32 %132, %43
-  br i1 %exitcond.not, label %.critedge2.us, label %119, !llvm.loop !92
+  %133 = add nsw i32 %.08287.us94, 1
+  %134 = icmp slt i32 %133, %43
+  br i1 %134, label %120, label %.critedge2.us, !llvm.loop !92
 
 .preheader.us:                                    ; preds = %.lr.ph.split.us.split
   %factor.op.mul.reass.us = mul i32 %37, %.08191.us
-  %133 = add nsw i32 %factor.op.mul.reass.us, %22
-  br label %119
+  %135 = add nsw i32 %factor.op.mul.reass.us, %22
+  br label %120
 
 .critedge:                                        ; preds = %.lr.ph.split.us.split, %.critedge2.us, %.lr.ph.split.us.split.us, %.critedge2.us.us, %.lr.ph, %4
   ret i32 0

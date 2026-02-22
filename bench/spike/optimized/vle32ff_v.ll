@@ -264,7 +264,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle32ff_vP
   %103 = and i64 %102, 31
   %104 = getelementptr inbounds nuw i64, ptr %101, i64 %103
   %105 = load i64, ptr %104, align 8, !tbaa !144
-  %.fr = freeze i64 %105
+  %.fr181 = freeze i64 %105
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %107 = load ptr, ptr %106, align 8, !tbaa !150
   %108 = load ptr, ptr %107, align 8, !tbaa !139
@@ -276,7 +276,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle32ff_vP
 
 .lr.ph:                                           ; preds = %94
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = and i64 %.fr, 3
+  %114 = and i64 %.fr181, 3
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -317,7 +317,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle32ff_vP
   %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 2
-  %137 = add i64 %136, %.fr
+  %137 = add i64 %136, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %138 = lshr i64 %137, 12
@@ -374,14 +374,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle32ff_vP
   %161 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %160, i64 noundef %.095166.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us174, ptr %161, align 4, !tbaa !183
   %162 = add nuw nsw i64 %.091163.us170, 1
-  %exitcond185.not = icmp eq i64 %.091163.us170, %8
-  br i1 %exitcond185.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !184
+  %exitcond186.not = icmp eq i64 %.091163.us170, %8
+  br i1 %exitcond186.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !184
 
 .thread142.us:                                    ; preds = %158, %124, %.lr.ph.split.us
   %.sroa.03.1147.us = phi i8 [ %.sroa.03.0168.us, %.lr.ph.split.us ], [ %.sroa.03.0168.us, %124 ], [ %133, %158 ]
   %163 = add nuw i64 %.095166.us, 1
-  %exitcond186.not = icmp eq i64 %163, %100
-  br i1 %exitcond186.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !186
+  %exitcond187.not = icmp eq i64 %163, %100
+  br i1 %exitcond187.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !186
 
 .split.split.us:                                  ; preds = %156, %.critedge.i.us
   %164 = landingpad { ptr, i32 }
@@ -424,7 +424,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle32ff_vP
   %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 2
-  %185 = add i64 %184, %.fr
+  %185 = add i64 %184, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 4, ptr noundef nonnull %4, i8 %181)
@@ -505,8 +505,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle32ff_vP
 .thread142:                                       ; preds = %194, %172, %.lr.ph.split
   %.sroa.03.1147 = phi i8 [ %.sroa.03.0168, %.lr.ph.split ], [ %.sroa.03.0168, %172 ], [ %181, %194 ]
   %212 = add nuw i64 %.095166, 1
-  %exitcond184.not = icmp eq i64 %212, %100
-  br i1 %exitcond184.not, label %.thread148, label %.lr.ph.split, !llvm.loop !186
+  %exitcond185.not = icmp eq i64 %212, %100
+  br i1 %exitcond185.not, label %.thread148, label %.lr.ph.split, !llvm.loop !186
 
 .thread148:                                       ; preds = %.thread142, %.thread142.us, %94, %.thread152
   %213 = shl i64 %2, 32
@@ -844,7 +844,7 @@ define noundef i64 @_Z20fast_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %103 = and i64 %102, 31
   %104 = getelementptr inbounds nuw i64, ptr %101, i64 %103
   %105 = load i64, ptr %104, align 8, !tbaa !144
-  %.fr = freeze i64 %105
+  %.fr181 = freeze i64 %105
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %107 = load ptr, ptr %106, align 8, !tbaa !150
   %108 = load ptr, ptr %107, align 8, !tbaa !139
@@ -856,7 +856,7 @@ define noundef i64 @_Z20fast_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef %
 
 .lr.ph:                                           ; preds = %94
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = and i64 %.fr, 3
+  %114 = and i64 %.fr181, 3
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -897,7 +897,7 @@ define noundef i64 @_Z20fast_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 2
-  %137 = add i64 %136, %.fr
+  %137 = add i64 %136, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %138 = lshr i64 %137, 12
@@ -954,14 +954,14 @@ define noundef i64 @_Z20fast_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %161 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %160, i64 noundef %.095166.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us174, ptr %161, align 4, !tbaa !183
   %162 = add nuw nsw i64 %.091163.us170, 1
-  %exitcond185.not = icmp eq i64 %.091163.us170, %8
-  br i1 %exitcond185.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !194
+  %exitcond186.not = icmp eq i64 %.091163.us170, %8
+  br i1 %exitcond186.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !194
 
 .thread142.us:                                    ; preds = %158, %124, %.lr.ph.split.us
   %.sroa.03.1147.us = phi i8 [ %.sroa.03.0168.us, %.lr.ph.split.us ], [ %.sroa.03.0168.us, %124 ], [ %133, %158 ]
   %163 = add nuw i64 %.095166.us, 1
-  %exitcond186.not = icmp eq i64 %163, %100
-  br i1 %exitcond186.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !195
+  %exitcond187.not = icmp eq i64 %163, %100
+  br i1 %exitcond187.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !195
 
 .split.split.us:                                  ; preds = %156, %.critedge.i.us
   %164 = landingpad { ptr, i32 }
@@ -1004,7 +1004,7 @@ define noundef i64 @_Z20fast_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 2
-  %185 = add i64 %184, %.fr
+  %185 = add i64 %184, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 4, ptr noundef nonnull %4, i8 %181)
@@ -1085,8 +1085,8 @@ define noundef i64 @_Z20fast_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef %
 .thread142:                                       ; preds = %194, %172, %.lr.ph.split
   %.sroa.03.1147 = phi i8 [ %.sroa.03.0168, %.lr.ph.split ], [ %.sroa.03.0168, %172 ], [ %181, %194 ]
   %212 = add nuw i64 %.095166, 1
-  %exitcond184.not = icmp eq i64 %212, %100
-  br i1 %exitcond184.not, label %.thread148, label %.lr.ph.split, !llvm.loop !195
+  %exitcond185.not = icmp eq i64 %212, %100
+  br i1 %exitcond185.not, label %.thread148, label %.lr.ph.split, !llvm.loop !195
 
 .thread148:                                       ; preds = %.thread142, %.thread142.us, %94, %.thread152
   %213 = add i64 %2, 4
@@ -1288,7 +1288,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle32ff_
   %103 = and i64 %102, 31
   %104 = getelementptr inbounds nuw i64, ptr %101, i64 %103
   %105 = load i64, ptr %104, align 8, !tbaa !144
-  %.fr = freeze i64 %105
+  %.fr181 = freeze i64 %105
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %107 = load ptr, ptr %106, align 8, !tbaa !150
   %108 = load ptr, ptr %107, align 8, !tbaa !139
@@ -1300,7 +1300,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle32ff_
 
 .lr.ph:                                           ; preds = %94
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = and i64 %.fr, 3
+  %114 = and i64 %.fr181, 3
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1341,7 +1341,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle32ff_
   %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 2
-  %137 = add i64 %136, %.fr
+  %137 = add i64 %136, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %138 = lshr i64 %137, 12
@@ -1398,14 +1398,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle32ff_
   %161 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %160, i64 noundef %.095166.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us174, ptr %161, align 4, !tbaa !183
   %162 = add nuw nsw i64 %.091163.us170, 1
-  %exitcond185.not = icmp eq i64 %.091163.us170, %8
-  br i1 %exitcond185.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !196
+  %exitcond186.not = icmp eq i64 %.091163.us170, %8
+  br i1 %exitcond186.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !196
 
 .thread142.us:                                    ; preds = %158, %124, %.lr.ph.split.us
   %.sroa.03.1147.us = phi i8 [ %.sroa.03.0168.us, %.lr.ph.split.us ], [ %.sroa.03.0168.us, %124 ], [ %133, %158 ]
   %163 = add nuw i64 %.095166.us, 1
-  %exitcond186.not = icmp eq i64 %163, %100
-  br i1 %exitcond186.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !197
+  %exitcond187.not = icmp eq i64 %163, %100
+  br i1 %exitcond187.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !197
 
 .split.split.us:                                  ; preds = %156, %.critedge.i.us
   %164 = landingpad { ptr, i32 }
@@ -1448,7 +1448,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle32ff_
   %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 2
-  %185 = add i64 %184, %.fr
+  %185 = add i64 %184, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 4, ptr noundef nonnull %4, i8 %181)
@@ -1529,8 +1529,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle32ff_
 .thread142:                                       ; preds = %194, %172, %.lr.ph.split
   %.sroa.03.1147 = phi i8 [ %.sroa.03.0168, %.lr.ph.split ], [ %.sroa.03.0168, %172 ], [ %181, %194 ]
   %212 = add nuw i64 %.095166, 1
-  %exitcond184.not = icmp eq i64 %212, %100
-  br i1 %exitcond184.not, label %.thread148, label %.lr.ph.split, !llvm.loop !197
+  %exitcond185.not = icmp eq i64 %212, %100
+  br i1 %exitcond185.not, label %.thread148, label %.lr.ph.split, !llvm.loop !197
 
 .thread148:                                       ; preds = %.thread142, %.thread142.us, %94, %.thread152
   %213 = shl i64 %2, 32
@@ -1734,7 +1734,7 @@ define noundef i64 @_Z22logged_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %103 = and i64 %102, 31
   %104 = getelementptr inbounds nuw i64, ptr %101, i64 %103
   %105 = load i64, ptr %104, align 8, !tbaa !144
-  %.fr = freeze i64 %105
+  %.fr181 = freeze i64 %105
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %107 = load ptr, ptr %106, align 8, !tbaa !150
   %108 = load ptr, ptr %107, align 8, !tbaa !139
@@ -1746,7 +1746,7 @@ define noundef i64 @_Z22logged_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef
 
 .lr.ph:                                           ; preds = %94
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = and i64 %.fr, 3
+  %114 = and i64 %.fr181, 3
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1787,7 +1787,7 @@ define noundef i64 @_Z22logged_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 2
-  %137 = add i64 %136, %.fr
+  %137 = add i64 %136, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %138 = lshr i64 %137, 12
@@ -1844,14 +1844,14 @@ define noundef i64 @_Z22logged_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %161 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %160, i64 noundef %.095166.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us174, ptr %161, align 4, !tbaa !183
   %162 = add nuw nsw i64 %.091163.us170, 1
-  %exitcond185.not = icmp eq i64 %.091163.us170, %8
-  br i1 %exitcond185.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !198
+  %exitcond186.not = icmp eq i64 %.091163.us170, %8
+  br i1 %exitcond186.not, label %.thread142.us, label %.noexc.us169, !llvm.loop !198
 
 .thread142.us:                                    ; preds = %158, %124, %.lr.ph.split.us
   %.sroa.03.1147.us = phi i8 [ %.sroa.03.0168.us, %.lr.ph.split.us ], [ %.sroa.03.0168.us, %124 ], [ %133, %158 ]
   %163 = add nuw i64 %.095166.us, 1
-  %exitcond186.not = icmp eq i64 %163, %100
-  br i1 %exitcond186.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !199
+  %exitcond187.not = icmp eq i64 %163, %100
+  br i1 %exitcond187.not, label %.thread148, label %.lr.ph.split.us, !llvm.loop !199
 
 .split.split.us:                                  ; preds = %156, %.critedge.i.us
   %164 = landingpad { ptr, i32 }
@@ -1894,7 +1894,7 @@ define noundef i64 @_Z22logged_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 2
-  %185 = add i64 %184, %.fr
+  %185 = add i64 %184, %.fr181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 4, ptr noundef nonnull %4, i8 %181)
@@ -1975,8 +1975,8 @@ define noundef i64 @_Z22logged_rv64i_vle32ff_vP11processor_t6insn_tm(ptr noundef
 .thread142:                                       ; preds = %194, %172, %.lr.ph.split
   %.sroa.03.1147 = phi i8 [ %.sroa.03.0168, %.lr.ph.split ], [ %.sroa.03.0168, %172 ], [ %181, %194 ]
   %212 = add nuw i64 %.095166, 1
-  %exitcond184.not = icmp eq i64 %212, %100
-  br i1 %exitcond184.not, label %.thread148, label %.lr.ph.split, !llvm.loop !199
+  %exitcond185.not = icmp eq i64 %212, %100
+  br i1 %exitcond185.not, label %.thread148, label %.lr.ph.split, !llvm.loop !199
 
 .thread148:                                       ; preds = %.thread142, %.thread142.us, %94, %.thread152
   %213 = add i64 %2, 4
@@ -2194,7 +2194,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle32ff_vP
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %111 = getelementptr inbounds nuw i64, ptr %110, i64 %102
   %112 = load i64, ptr %111, align 8, !tbaa !144
-  %.fr = freeze i64 %112
+  %.fr188 = freeze i64 %112
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %114 = load ptr, ptr %113, align 8, !tbaa !150
   %115 = load ptr, ptr %114, align 8, !tbaa !139
@@ -2206,7 +2206,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle32ff_vP
 
 .lr.ph:                                           ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %121 = and i64 %.fr, 3
+  %121 = and i64 %.fr188, 3
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2247,7 +2247,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle32ff_vP
   %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 2
-  %144 = add i64 %143, %.fr
+  %144 = add i64 %143, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %145 = lshr i64 %144, 12
@@ -2304,14 +2304,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle32ff_vP
   %168 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %167, i64 noundef %.099173.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us181, ptr %168, align 4, !tbaa !183
   %169 = add nuw nsw i64 %.094170.us177, 1
-  %exitcond192.not = icmp eq i64 %.094170.us177, %8
-  br i1 %exitcond192.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !200
+  %exitcond193.not = icmp eq i64 %.094170.us177, %8
+  br i1 %exitcond193.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !200
 
 .thread149.us:                                    ; preds = %165, %131, %.lr.ph.split.us
   %.sroa.03.1154.us = phi i8 [ %.sroa.03.0175.us, %.lr.ph.split.us ], [ %.sroa.03.0175.us, %131 ], [ %140, %165 ]
   %170 = add nuw i64 %.099173.us, 1
-  %exitcond193.not = icmp eq i64 %170, %100
-  br i1 %exitcond193.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !201
+  %exitcond194.not = icmp eq i64 %170, %100
+  br i1 %exitcond194.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !201
 
 .split.split.us:                                  ; preds = %163, %.critedge.i.us
   %171 = landingpad { ptr, i32 }
@@ -2354,7 +2354,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle32ff_vP
   %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 2
-  %192 = add i64 %191, %.fr
+  %192 = add i64 %191, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 4, ptr noundef nonnull %4, i8 %188)
@@ -2435,8 +2435,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle32ff_vP
 .thread149:                                       ; preds = %201, %179, %.lr.ph.split
   %.sroa.03.1154 = phi i8 [ %.sroa.03.0175, %.lr.ph.split ], [ %.sroa.03.0175, %179 ], [ %188, %201 ]
   %219 = add nuw i64 %.099173, 1
-  %exitcond191.not = icmp eq i64 %219, %100
-  br i1 %exitcond191.not, label %.thread155, label %.lr.ph.split, !llvm.loop !201
+  %exitcond192.not = icmp eq i64 %219, %100
+  br i1 %exitcond192.not, label %.thread155, label %.lr.ph.split, !llvm.loop !201
 
 .thread155:                                       ; preds = %.thread149, %.thread149.us, %109, %.thread159
   %220 = shl i64 %2, 32
@@ -2656,7 +2656,7 @@ define noundef i64 @_Z20fast_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %111 = getelementptr inbounds nuw i64, ptr %110, i64 %102
   %112 = load i64, ptr %111, align 8, !tbaa !144
-  %.fr = freeze i64 %112
+  %.fr188 = freeze i64 %112
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %114 = load ptr, ptr %113, align 8, !tbaa !150
   %115 = load ptr, ptr %114, align 8, !tbaa !139
@@ -2668,7 +2668,7 @@ define noundef i64 @_Z20fast_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef %
 
 .lr.ph:                                           ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %121 = and i64 %.fr, 3
+  %121 = and i64 %.fr188, 3
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2709,7 +2709,7 @@ define noundef i64 @_Z20fast_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 2
-  %144 = add i64 %143, %.fr
+  %144 = add i64 %143, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %145 = lshr i64 %144, 12
@@ -2766,14 +2766,14 @@ define noundef i64 @_Z20fast_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %168 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %167, i64 noundef %.099173.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us181, ptr %168, align 4, !tbaa !183
   %169 = add nuw nsw i64 %.094170.us177, 1
-  %exitcond192.not = icmp eq i64 %.094170.us177, %8
-  br i1 %exitcond192.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !202
+  %exitcond193.not = icmp eq i64 %.094170.us177, %8
+  br i1 %exitcond193.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !202
 
 .thread149.us:                                    ; preds = %165, %131, %.lr.ph.split.us
   %.sroa.03.1154.us = phi i8 [ %.sroa.03.0175.us, %.lr.ph.split.us ], [ %.sroa.03.0175.us, %131 ], [ %140, %165 ]
   %170 = add nuw i64 %.099173.us, 1
-  %exitcond193.not = icmp eq i64 %170, %100
-  br i1 %exitcond193.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !203
+  %exitcond194.not = icmp eq i64 %170, %100
+  br i1 %exitcond194.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !203
 
 .split.split.us:                                  ; preds = %163, %.critedge.i.us
   %171 = landingpad { ptr, i32 }
@@ -2816,7 +2816,7 @@ define noundef i64 @_Z20fast_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef %
   %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 2
-  %192 = add i64 %191, %.fr
+  %192 = add i64 %191, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 4, ptr noundef nonnull %4, i8 %188)
@@ -2897,8 +2897,8 @@ define noundef i64 @_Z20fast_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef %
 .thread149:                                       ; preds = %201, %179, %.lr.ph.split
   %.sroa.03.1154 = phi i8 [ %.sroa.03.0175, %.lr.ph.split ], [ %.sroa.03.0175, %179 ], [ %188, %201 ]
   %219 = add nuw i64 %.099173, 1
-  %exitcond191.not = icmp eq i64 %219, %100
-  br i1 %exitcond191.not, label %.thread155, label %.lr.ph.split, !llvm.loop !203
+  %exitcond192.not = icmp eq i64 %219, %100
+  br i1 %exitcond192.not, label %.thread155, label %.lr.ph.split, !llvm.loop !203
 
 .thread155:                                       ; preds = %.thread149, %.thread149.us, %109, %.thread159
   %220 = add i64 %2, 4
@@ -3116,7 +3116,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle32ff_
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %111 = getelementptr inbounds nuw i64, ptr %110, i64 %102
   %112 = load i64, ptr %111, align 8, !tbaa !144
-  %.fr = freeze i64 %112
+  %.fr188 = freeze i64 %112
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %114 = load ptr, ptr %113, align 8, !tbaa !150
   %115 = load ptr, ptr %114, align 8, !tbaa !139
@@ -3128,7 +3128,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle32ff_
 
 .lr.ph:                                           ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %121 = and i64 %.fr, 3
+  %121 = and i64 %.fr188, 3
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3169,7 +3169,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle32ff_
   %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 2
-  %144 = add i64 %143, %.fr
+  %144 = add i64 %143, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %145 = lshr i64 %144, 12
@@ -3226,14 +3226,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle32ff_
   %168 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %167, i64 noundef %.099173.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us181, ptr %168, align 4, !tbaa !183
   %169 = add nuw nsw i64 %.094170.us177, 1
-  %exitcond192.not = icmp eq i64 %.094170.us177, %8
-  br i1 %exitcond192.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !204
+  %exitcond193.not = icmp eq i64 %.094170.us177, %8
+  br i1 %exitcond193.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !204
 
 .thread149.us:                                    ; preds = %165, %131, %.lr.ph.split.us
   %.sroa.03.1154.us = phi i8 [ %.sroa.03.0175.us, %.lr.ph.split.us ], [ %.sroa.03.0175.us, %131 ], [ %140, %165 ]
   %170 = add nuw i64 %.099173.us, 1
-  %exitcond193.not = icmp eq i64 %170, %100
-  br i1 %exitcond193.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !205
+  %exitcond194.not = icmp eq i64 %170, %100
+  br i1 %exitcond194.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !205
 
 .split.split.us:                                  ; preds = %163, %.critedge.i.us
   %171 = landingpad { ptr, i32 }
@@ -3276,7 +3276,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle32ff_
   %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 2
-  %192 = add i64 %191, %.fr
+  %192 = add i64 %191, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 4, ptr noundef nonnull %4, i8 %188)
@@ -3357,8 +3357,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle32ff_
 .thread149:                                       ; preds = %201, %179, %.lr.ph.split
   %.sroa.03.1154 = phi i8 [ %.sroa.03.0175, %.lr.ph.split ], [ %.sroa.03.0175, %179 ], [ %188, %201 ]
   %219 = add nuw i64 %.099173, 1
-  %exitcond191.not = icmp eq i64 %219, %100
-  br i1 %exitcond191.not, label %.thread155, label %.lr.ph.split, !llvm.loop !205
+  %exitcond192.not = icmp eq i64 %219, %100
+  br i1 %exitcond192.not, label %.thread155, label %.lr.ph.split, !llvm.loop !205
 
 .thread155:                                       ; preds = %.thread149, %.thread149.us, %109, %.thread159
   %220 = shl i64 %2, 32
@@ -3578,7 +3578,7 @@ define noundef i64 @_Z22logged_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %111 = getelementptr inbounds nuw i64, ptr %110, i64 %102
   %112 = load i64, ptr %111, align 8, !tbaa !144
-  %.fr = freeze i64 %112
+  %.fr188 = freeze i64 %112
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 266736
   %114 = load ptr, ptr %113, align 8, !tbaa !150
   %115 = load ptr, ptr %114, align 8, !tbaa !139
@@ -3590,7 +3590,7 @@ define noundef i64 @_Z22logged_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef
 
 .lr.ph:                                           ; preds = %109
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %121 = and i64 %.fr, 3
+  %121 = and i64 %.fr188, 3
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3631,7 +3631,7 @@ define noundef i64 @_Z22logged_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 2
-  %144 = add i64 %143, %.fr
+  %144 = add i64 %143, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   %145 = lshr i64 %144, 12
@@ -3688,14 +3688,14 @@ define noundef i64 @_Z22logged_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %168 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIiEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %22, i64 noundef %167, i64 noundef %.099173.us, i1 noundef zeroext true)
   store i32 %.sroa.0.0.copyload.i.us181, ptr %168, align 4, !tbaa !183
   %169 = add nuw nsw i64 %.094170.us177, 1
-  %exitcond192.not = icmp eq i64 %.094170.us177, %8
-  br i1 %exitcond192.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !206
+  %exitcond193.not = icmp eq i64 %.094170.us177, %8
+  br i1 %exitcond193.not, label %.thread149.us, label %.noexc.us176, !llvm.loop !206
 
 .thread149.us:                                    ; preds = %165, %131, %.lr.ph.split.us
   %.sroa.03.1154.us = phi i8 [ %.sroa.03.0175.us, %.lr.ph.split.us ], [ %.sroa.03.0175.us, %131 ], [ %140, %165 ]
   %170 = add nuw i64 %.099173.us, 1
-  %exitcond193.not = icmp eq i64 %170, %100
-  br i1 %exitcond193.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !207
+  %exitcond194.not = icmp eq i64 %170, %100
+  br i1 %exitcond194.not, label %.thread155, label %.lr.ph.split.us, !llvm.loop !207
 
 .split.split.us:                                  ; preds = %163, %.critedge.i.us
   %171 = landingpad { ptr, i32 }
@@ -3738,7 +3738,7 @@ define noundef i64 @_Z22logged_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef
   %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 2
-  %192 = add i64 %191, %.fr
+  %192 = add i64 %191, %.fr188
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 4, ptr noundef nonnull %4, i8 %188)
@@ -3819,8 +3819,8 @@ define noundef i64 @_Z22logged_rv64e_vle32ff_vP11processor_t6insn_tm(ptr noundef
 .thread149:                                       ; preds = %201, %179, %.lr.ph.split
   %.sroa.03.1154 = phi i8 [ %.sroa.03.0175, %.lr.ph.split ], [ %.sroa.03.0175, %179 ], [ %188, %201 ]
   %219 = add nuw i64 %.099173, 1
-  %exitcond191.not = icmp eq i64 %219, %100
-  br i1 %exitcond191.not, label %.thread155, label %.lr.ph.split, !llvm.loop !207
+  %exitcond192.not = icmp eq i64 %219, %100
+  br i1 %exitcond192.not, label %.thread155, label %.lr.ph.split, !llvm.loop !207
 
 .thread155:                                       ; preds = %.thread149, %.thread149.us, %109, %.thread159
   %220 = add i64 %2, 4

@@ -1912,8 +1912,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN1q4eval11compare_recEjPKPN3euf5en
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 17
   %38 = load i16, ptr %37, align 1
-  %.fr77 = freeze i16 %38
-  %39 = and i16 %.fr77, 64
+  %.fr78 = freeze i16 %38
+  %39 = and i16 %.fr78, 64
   %40 = icmp ne i16 %39, 0
   br label %_ZNK9func_decl12is_injectiveEv.exit
 
@@ -1941,12 +1941,12 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit: ; preds = %_ZNK9func_de
   br i1 %.fr, label %.lr.ph.split.us.outer, label %.lr.ph.split
 
 .lr.ph.split.us.outer:                            ; preds = %.lr.ph, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us.thread
-  %indvars.iv83.ph = phi i64 [ %indvars.iv.next84104, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us.thread ], [ %49, %.lr.ph ]
+  %indvars.iv84.ph = phi i64 [ %indvars.iv.next85105, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us.thread ], [ %49, %.lr.ph ]
   %.04773.us.ph = phi i1 [ true, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us.thread ], [ false, %.lr.ph ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.outer, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us ], [ %indvars.iv83.ph, %.lr.ph.split.us.outer ]
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us ], [ %indvars.iv84.ph, %.lr.ph.split.us.outer ]
   %50 = load ptr, ptr %5, align 8, !tbaa !434
   %51 = icmp eq ptr %50, null
   br i1 %51, label %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57.us, label %52
@@ -1958,9 +1958,9 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit: ; preds = %_ZNK9func_de
 
 _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57.us: ; preds = %52, %.lr.ph.split.us
   %.0.i56.us = phi i32 [ %54, %52 ], [ 0, %.lr.ph.split.us ]
-  %55 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv83
+  %55 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv84
   %56 = load ptr, ptr %55, align 8, !tbaa !451
-  %57 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv83
+  %57 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv84
   %58 = load ptr, ptr %57, align 8, !tbaa !451
   %59 = tail call noundef i32 @_ZN1q4eval7compareEjPKPN3euf5enodeEP4exprS7_R7svectorISt4pairIS3_S3_EjE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, ptr noundef %2, ptr noundef %56, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %5)
   switch i32 %59, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us [
@@ -1969,14 +1969,14 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57.us: ; preds = %52, %.l
   ]
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us: ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57.us
-  %.not55.us = icmp eq i64 %indvars.iv83, 0
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, -1
+  %.not55.us = icmp eq i64 %indvars.iv84, 0
+  %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
   br i1 %.not55.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !469
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us.thread: ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57.us
-  %.not55.us103 = icmp eq i64 %indvars.iv83, 0
-  %indvars.iv.next84104 = add nsw i64 %indvars.iv83, -1
-  br i1 %.not55.us103, label %.thread.thread, label %.lr.ph.split.us.outer, !llvm.loop !469
+  %.not55.us104 = icmp eq i64 %indvars.iv84, 0
+  %indvars.iv.next85105 = add nsw i64 %indvars.iv84, -1
+  br i1 %.not55.us104, label %.thread.thread, label %.lr.ph.split.us.outer, !llvm.loop !469
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit ], [ %49, %.lr.ph ]
@@ -2011,30 +2011,30 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57: ; preds = %.lr.ph.spl
   br i1 %72, label %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59, label %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread
 
 _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59: ; preds = %70
-  %.not78 = icmp eq i32 %.us-phi, 0
-  br i1 %.not78, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62, label %.lr.ph76.preheader
+  %.not79 = icmp eq i32 %.us-phi, 0
+  br i1 %.not79, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62, label %.lr.ph76.preheader
 
 _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread: ; preds = %70
   %73 = getelementptr inbounds i8, ptr %71, i64 -4
   %74 = load i32, ptr %73, align 4, !tbaa !393
-  %.not7896 = icmp eq i32 %74, %.us-phi
-  br i1 %.not7896, label %._crit_edge.thread, label %.lr.ph76.preheader
+  %.not7997 = icmp eq i32 %74, %.us-phi
+  br i1 %.not7997, label %._crit_edge.thread, label %.lr.ph76.preheader
 
 .lr.ph76.preheader:                               ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59
-  %.0.i5897 = phi i32 [ %74, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread ], [ 0, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59 ]
-  %75 = sub i32 %.0.i5897, %.us-phi
+  %.0.i5898 = phi i32 [ %74, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread ], [ 0, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59 ]
+  %75 = sub i32 %.0.i5898, %.us-phi
   %wide.trip.count = zext i32 %75 to i64
   br label %.lr.ph76
 
 ._crit_edge.thread:                               ; preds = %.lr.ph76, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread
-  %.0.i5898 = phi i32 [ %74, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread ], [ %.0.i5897, %.lr.ph76 ]
+  %.0.i5899 = phi i32 [ %74, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread ], [ %.0.i5898, %.lr.ph76 ]
   %76 = sub i32 %.0.i, %.us-phi
-  %77 = add i32 %76, %.0.i5898
+  %77 = add i32 %76, %.0.i5899
   br label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
-  %78 = trunc nuw i64 %indvars.iv85 to i32
+  %indvars.iv86 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
+  %78 = trunc nuw i64 %indvars.iv86 to i32
   %79 = add i32 %.us-phi, %78
   %80 = zext i32 %79 to i64
   %81 = getelementptr inbounds nuw %"struct.std::pair", ptr %71, i64 %80
@@ -2047,8 +2047,8 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59.thread: ; preds = %70
   %87 = load ptr, ptr %86, align 8, !tbaa !437
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %87, ptr %88, align 8, !tbaa !437
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph76, !llvm.loop !470
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit: ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57
@@ -2065,10 +2065,10 @@ _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit: ; preds = %_ZNK6vector
   br i1 %.not.i61, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split: ; preds = %.thread.thread, %._crit_edge.thread
-  %.sink116 = phi ptr [ %71, %._crit_edge.thread ], [ %89, %.thread.thread ]
+  %.sink117 = phi ptr [ %71, %._crit_edge.thread ], [ %89, %.thread.thread ]
   %.sink = phi i32 [ %77, %._crit_edge.thread ], [ %.0.i, %.thread.thread ]
   %.046.ph = phi i32 [ -1, %._crit_edge.thread ], [ 0, %.thread.thread ]
-  %90 = getelementptr inbounds i8, ptr %.sink116, i64 -4
+  %90 = getelementptr inbounds i8, ptr %.sink117, i64 -4
   store i32 %.sink, ptr %90, align 4, !tbaa !393
   br label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62
 

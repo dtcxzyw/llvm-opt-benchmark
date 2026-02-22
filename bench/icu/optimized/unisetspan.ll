@@ -1771,7 +1771,7 @@ define noundef i32 @_ZNK6icu_7720UnicodeSetStringSpan7spanNotEPKDsi(ptr noundef 
 
 .split.us.preheader:                              ; preds = %3
   %wide.trip.count = zext nneg i32 %.fr to i64
-  %wide.trip.count105 = zext nneg i32 %.fr to i64
+  %wide.trip.count106 = zext nneg i32 %.fr to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %._crit_edge.us
@@ -1866,9 +1866,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.us75: ; preds = %57, %55, %46
   %64 = load i32, ptr %63, align 4
   %65 = select i1 %60, i32 %64, i32 %62
   %.not.us77 = icmp sgt i32 %65, %19
-  br i1 %.not.us77, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85, label %.preheader94
+  br i1 %.not.us77, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85, label %.preheader95
 
-.preheader94:                                     ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75, %68
+.preheader95:                                     ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75, %68
   %.04.i.i.us78 = phi ptr [ %70, %68 ], [ %21, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75 ]
   %.03.i.i.us79 = phi ptr [ %69, %68 ], [ %.0.i54.us76, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75 ]
   %.0.i.i.us80 = phi i32 [ %71, %68 ], [ %65, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75 ]
@@ -1877,12 +1877,12 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.us75: ; preds = %57, %55, %46
   %.not.i.i.us81 = icmp eq i16 %66, %67
   br i1 %.not.i.i.us81, label %68, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85
 
-68:                                               ; preds = %.preheader94
+68:                                               ; preds = %.preheader95
   %69 = getelementptr inbounds nuw i8, ptr %.03.i.i.us79, i64 2
   %70 = getelementptr inbounds nuw i8, ptr %.04.i.i.us78, i64 2
   %71 = add nsw i32 %.0.i.i.us80, -1
   %72 = icmp sgt i32 %.0.i.i.us80, 1
-  br i1 %72, label %.preheader94, label %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82, !llvm.loop !47
+  br i1 %72, label %.preheader95, label %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82, !llvm.loop !47
 
 _ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82:       ; preds = %68
   %73 = icmp slt i32 %65, %39
@@ -1903,7 +1903,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83:   ; preds = %74
   %.not69.us84 = icmp eq i16 %82, -9216
   br i1 %.not69.us84, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85, label %.thread64
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85: ; preds = %.preheader94, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75, %.lr.ph.split.us88
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85: ; preds = %.preheader95, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us75, %.lr.ph.split.us88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us88, !llvm.loop !55
@@ -1915,16 +1915,16 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us85: ; preds = %.preheader94, 
   br i1 %.not52.us, label %.thread64, label %.split.us, !llvm.loop !56
 
 .lr.ph.split.us.us:                               ; preds = %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit.us, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us ], [ 0, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit.us ]
+  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us ], [ 0, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit.us ]
   %85 = load ptr, ptr %11, align 8, !tbaa !37
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv102
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv103
   %87 = load i8, ptr %86, align 1, !tbaa !27
   %88 = icmp eq i8 %87, -1
   br i1 %88, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us, label %89
 
 89:                                               ; preds = %.lr.ph.split.us.us
   %90 = load ptr, ptr %4, align 8, !tbaa !23
-  %91 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv103 to i32
   %92 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %90, i32 noundef %91)
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i16, ptr %93, align 8, !tbaa !27
@@ -2005,9 +2005,9 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us:  ; preds = %125
   br i1 %.not69.us.us, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us, label %.thread64
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us: ; preds = %.preheader, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us, %119, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us.us, %.lr.ph.split.us.us
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !55
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
+  br i1 %exitcond107.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !55
 
 .split:                                           ; preds = %3, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit
   %.043 = phi i32 [ %162, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit ], [ %2, %3 ]

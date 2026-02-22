@@ -4545,8 +4545,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %14 = uitofp i64 %.sroa.4.0.copyload to double
   %15 = fdiv double %13, %14
   %16 = trunc i64 %.sroa.01.0.copyload to i1
-  %.fr.i = freeze i8 %.sroa.52.0.copyload
-  %17 = trunc i8 %.fr.i to i1
+  %.fr23.i = freeze i8 %.sroa.52.0.copyload
+  %17 = trunc i8 %.fr23.i to i1
   %or.cond.i.i.i = and i1 %16, %17
   br i1 %or.cond.i.i.i, label %.split.us.i, label %.split.i
 
@@ -65075,8 +65075,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %18 = trunc i64 %12 to i1
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i8, ptr %19, align 8, !range !729, !alias.scope !17728, !noalias !17733
-  %.fr = freeze i8 %20
-  %21 = trunc i8 %.fr to i1
+  %.fr23 = freeze i8 %20
+  %21 = trunc i8 %.fr23 to i1
   %or.cond.i.i = and i1 %18, %21
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8, !alias.scope !17737, !noalias !17742, !noundef !4

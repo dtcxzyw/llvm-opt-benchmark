@@ -1675,11 +1675,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 648, i32 2313, i64 12) #11, !srcloc !47
   call void asm sideeffect "437: nop\0A\09.pushsection .discard.instr_end\0A\09.long 437b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 437) #11, !srcloc !48
   call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #11, !srcloc !49
-  %.pre70 = load i64, ptr @__supported_pte_mask, align 8
+  %.pre68 = load i64, ptr @__supported_pte_mask, align 8
   br label %129
 
 129:                                              ; preds = %127, %125, %118, %104
-  %130 = phi i64 [ %.pre70, %127 ], [ %116, %125 ], [ %116, %118 ], [ %116, %104 ]
+  %130 = phi i64 [ %.pre68, %127 ], [ %116, %125 ], [ %116, %118 ], [ %116, %104 ]
   %131 = and i64 %115, 1
   %132 = icmp eq i64 %131, 0
   %133 = and i64 %115, -258
@@ -1749,12 +1749,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br label %168
 
 168:                                              ; preds = %165, %167
-  %.sink123 = phi i64 [ -4503598553628673, %167 ], [ -4503599625273345, %165 ]
-  %.sink114 = phi i64 [ 4503598553628672, %167 ], [ 4503599625273344, %165 ]
+  %.sink120 = phi i64 [ -4503598553628673, %167 ], [ -4503599625273345, %165 ]
+  %.sink111 = phi i64 [ 4503598553628672, %167 ], [ 4503599625273344, %165 ]
   %169 = load i64, ptr %95, align 8
   %170 = and i64 %169, 128
   %171 = icmp eq i64 %170, 0
-  %172 = select i1 %171, i64 -4503599627366401, i64 %.sink123
+  %172 = select i1 %171, i64 -4503599627366401, i64 %.sink120
   %173 = and i64 %172, %169
   %174 = icmp ne i64 %169, 0
   %175 = and i64 %169, 1
@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %177 = and i1 %174, %176
   %178 = sext i1 %177 to i64
   %179 = xor i64 %169, %178
-  %180 = select i1 %171, i64 4503599627366400, i64 %.sink114
+  %180 = select i1 %171, i64 4503599627366400, i64 %.sink111
   %181 = and i64 %179, %180
   %182 = lshr exact i64 %181, 12
   %183 = mul nuw nsw i32 %166, 9
@@ -1848,12 +1848,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %241 = and i1 %91, %240
   %242 = select i1 %241, i64 -9223372036854775808, i64 0
   %243 = icmp eq i64 %217, 0
-  %.pre69 = load i32, ptr @kernel_set_to_readonly, align 4
+  %.pre67 = load i32, ptr @kernel_set_to_readonly, align 4
   br i1 %243, label %264, label %244
 
 244:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %245 = icmp ne i32 %.pre69, 0
+  %245 = icmp ne i32 %.pre67, 0
   %246 = and i1 %92, %245
   %247 = and i1 %240, %246
   br i1 %247, label %248, label %262
@@ -1876,13 +1876,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br label %262
 
 262:                                              ; preds = %248, %244
-  %.pre = phi i32 [ %.pre69, %244 ], [ %.pre.pre, %248 ]
+  %.pre = phi i32 [ %.pre67, %244 ], [ %.pre.pre, %248 ]
   %263 = phi i64 [ %242, %244 ], [ %261, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %264
 
 264:                                              ; preds = %262, %237
-  %265 = phi i32 [ %.pre, %262 ], [ %.pre69, %237 ]
+  %265 = phi i32 [ %.pre, %262 ], [ %.pre67, %237 ]
   %266 = phi i64 [ %263, %262 ], [ %242, %237 ]
   %267 = icmp eq i32 %265, 0
   br i1 %267, label %280, label %268
@@ -2066,21 +2066,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %378 = phi i1 [ true, %340 ], [ false, %358 ]
   %379 = phi i64 [ 4096, %340 ], [ 2097152, %358 ]
   %380 = phi i64 [ %76, %340 ], [ %75, %358 ]
-  %.fr49 = freeze i64 %375
   %381 = lshr exact i64 %377, 12
-  %382 = and i64 %.fr49, 1
+  %382 = and i64 %375, 1
   %383 = icmp eq i64 %382, 0
-  %384 = and i64 %.fr49, -258
-  %385 = select i1 %383, i64 %384, i64 %.fr49
+  %384 = and i64 %375, -258
+  %385 = select i1 %383, i64 %384, i64 %375
+  %.fr = freeze i64 %385
   %386 = lshr exact i64 %379, 12
-  %387 = and i64 %385, 1
+  %387 = and i64 %.fr, 1
   %388 = icmp eq i64 %387, 0
   %389 = add nsw i64 %379, -1
   %390 = add nsw i64 %386, -1
   br i1 %388, label %static_protections.exit.thread.us.us.preheader, label %.split
 
 static_protections.exit.thread.us.us.preheader:   ; preds = %374
-  %391 = icmp ne i64 %385, 0
+  %391 = icmp ne i64 %.fr, 0
   %392 = sext i1 %391 to i64
   br label %static_protections.exit.thread.us.us
 
@@ -2091,7 +2091,7 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
   %396 = shl i64 %394, 12
   %397 = xor i64 %396, %392
   %398 = and i64 %397, 4503599627366400
-  %399 = or i64 %398, %385
+  %399 = or i64 %398, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %399, ptr %8, align 8
   %.0..0..0..0.2.us.us = load volatile i64, ptr %8, align 8
@@ -2118,12 +2118,12 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
   %413 = icmp uge i64 %411, ptrtoint (ptr @_text to i64)
   %414 = and i1 %412, %413
   %415 = select i1 %414, i64 -9223372036854775808, i64 0
-  %416 = and i64 %415, %385
+  %416 = and i64 %415, %.fr
   %417 = icmp eq i64 %416, 0
   br i1 %417, label %420, label %418
 
 418:                                              ; preds = %410
-  %419 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i64 noundef %404, i64 noundef %411, i64 noundef %405, i64 noundef %385, i64 noundef %415) #12
+  %419 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i64 noundef %404, i64 noundef %411, i64 noundef %405, i64 noundef %.fr, i64 noundef %415) #12
   br label %420
 
 420:                                              ; preds = %418, %410
@@ -2153,12 +2153,12 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
 439:                                              ; preds = %426, %420
   %440 = phi i64 [ 0, %420 ], [ %438, %426 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %441 = and i64 %440, %385
+  %441 = and i64 %440, %.fr
   %442 = icmp eq i64 %441, 0
   br i1 %442, label %445, label %443
 
 443:                                              ; preds = %439
-  %444 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9, i64 noundef %404, i64 noundef %411, i64 noundef %405, i64 noundef %385, i64 noundef %440) #12
+  %444 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.9, i64 noundef %404, i64 noundef %411, i64 noundef %405, i64 noundef %.fr, i64 noundef %440) #12
   br label %445
 
 445:                                              ; preds = %443, %439
@@ -2185,19 +2185,19 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
 
 461:                                              ; preds = %460, %449
   %462 = phi i64 [ 0, %460 ], [ 2, %449 ]
-  %463 = and i64 %462, %385
+  %463 = and i64 %462, %.fr
   %464 = icmp eq i64 %463, 0
   br i1 %464, label %static_protections.exit, label %465
 
 465:                                              ; preds = %461
-  %466 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i64 noundef %404, i64 noundef %411, i64 noundef %405, i64 noundef %385, i64 noundef %462) #12
+  %466 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i64 noundef %404, i64 noundef %411, i64 noundef %405, i64 noundef %.fr, i64 noundef %462) #12
   br label %static_protections.exit
 
 static_protections.exit:                          ; preds = %461, %465
   %467 = or i64 %446, %462
   %468 = xor i64 %467, -1
-  %469 = and i64 %385, %468
-  %470 = icmp eq i64 %469, %385
+  %469 = and i64 %.fr, %468
+  %470 = icmp eq i64 %469, %.fr
   %471 = or i1 %378, %470
   br i1 %471, label %static_protections.exit.thread, label %472
 
@@ -2211,7 +2211,7 @@ static_protections.exit:                          ; preds = %461, %465
   br label %static_protections.exit.thread
 
 static_protections.exit.thread:                   ; preds = %static_protections.exit, %474, %472, %.split
-  %476 = phi i64 [ %385, %474 ], [ %385, %.split ], [ %385, %472 ], [ %469, %static_protections.exit ]
+  %476 = phi i64 [ %.fr, %474 ], [ %.fr, %.split ], [ %.fr, %472 ], [ %469, %static_protections.exit ]
   %477 = shl i64 %405, 12
   %478 = and i64 %477, 4503599627366400
   %479 = load i64, ptr @__supported_pte_mask, align 8
@@ -2801,13 +2801,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
 74:                                               ; preds = %73, %50
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load i64, ptr %75, align 8
-  %.fr34 = freeze i64 %76
-  %77 = and i64 %.fr34, 99
+  %77 = and i64 %76, 99
   %78 = xor i64 %77, 99
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i64, ptr %79, align 8
-  %.fr35 = freeze i64 %80
-  %81 = or i64 %78, %.fr35
+  %81 = or i64 %78, %80
+  %.fr = freeze i64 %81
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load i64, ptr %82, align 8
   %84 = shl i64 %83, 12
@@ -2860,7 +2859,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br label %120
 
 120:                                              ; preds = %111, %88
-  %121 = tail call fastcc i64 @populate_pmd(ptr noundef %0, i64 noundef %1, i64 noundef %91, i32 noundef %96, ptr noundef %104, i64 %81), !range !65
+  %121 = tail call fastcc i64 @populate_pmd(ptr noundef %0, i64 noundef %1, i64 noundef %91, i32 noundef %96, ptr noundef %104, i64 %.fr), !range !65
   %122 = icmp sgt i64 %121, -1
   br i1 %122, label %._crit_edge, label %.critedge.thread
 
@@ -2878,8 +2877,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
 128:                                              ; preds = %123
   %129 = load i64, ptr %51, align 8
   %130 = load i64, ptr @page_offset_base, align 8
-  %131 = and i64 %81, -4225
-  %132 = shl i64 %.fr35, 5
+  %131 = and i64 %.fr, -4225
+  %132 = shl i64 %80, 5
   %133 = and i64 %132, 4096
   %134 = or disjoint i64 %131, %133
   %135 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), align 8
@@ -2898,23 +2897,23 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %146 = and i64 %145, 511
   %147 = getelementptr %struct.pud_t, ptr %144, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %149 = and i64 %81, 1
+  %149 = and i64 %.fr, 1
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %.split.us.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %141
-  %.pre43 = load i64, ptr %148, align 8
+  %.pre42 = load i64, ptr %148, align 8
   br label %.split
 
 .split.us.split.us:                               ; preds = %141
   %151 = icmp ne i64 %134, 0
   %152 = sext i1 %151 to i64
-  %.pre44 = load i64, ptr %148, align 8
+  %.pre43 = load i64, ptr %148, align 8
   %invariant.op = or disjoint i64 %134, 128
   br label %153
 
 153:                                              ; preds = %153, %.split.us.split.us
-  %154 = phi i64 [ %.pre44, %.split.us.split.us ], [ %163, %153 ]
+  %154 = phi i64 [ %.pre43, %.split.us.split.us ], [ %163, %153 ]
   %155 = phi i64 [ %126, %.split.us.split.us ], [ %161, %153 ]
   %156 = phi ptr [ %147, %.split.us.split.us ], [ %165, %153 ]
   %157 = phi i64 [ %125, %.split.us.split.us ], [ %164, %153 ]
@@ -2942,7 +2941,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br i1 %171, label %153, label %.loopexit26, !llvm.loop !66
 
 .split:                                           ; preds = %.split.preheader, %.split
-  %172 = phi i64 [ %190, %.split ], [ %.pre43, %.split.preheader ]
+  %172 = phi i64 [ %190, %.split ], [ %.pre42, %.split.preheader ]
   %173 = phi i64 [ %188, %.split ], [ %126, %.split.preheader ]
   %174 = phi ptr [ %192, %.split ], [ %147, %.split.preheader ]
   %175 = phi i64 [ %191, %.split ], [ %125, %.split.preheader ]
@@ -3022,7 +3021,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %227 = load i64, ptr %82, align 8
   %228 = sub i64 %227, %199
   %229 = trunc i64 %228 to i32
-  %230 = tail call fastcc i64 @populate_pmd(ptr noundef %0, i64 noundef %200, i64 noundef %85, i32 noundef %229, ptr noundef %210, i64 %81), !range !65
+  %230 = tail call fastcc i64 @populate_pmd(ptr noundef %0, i64 noundef %200, i64 noundef %85, i32 noundef %229, ptr noundef %210, i64 %.fr), !range !65
   %231 = tail call i64 @llvm.smax.i64(i64 %230, i64 0)
   %spec.select = add i64 %199, %231
   br label %.critedge
@@ -3077,7 +3076,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %.0..0..0..0.7 = load volatile i64, ptr %4, align 8
   store volatile i64 %.0..0..0..0.7, ptr %257, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre45 = add i64 %256, 1073741824
+  %.pre44 = add i64 %256, 1073741824
   br label %264
 
 262:                                              ; preds = %.preheader
@@ -3086,7 +3085,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br label %264
 
 264:                                              ; preds = %262, %261
-  %.pre-phi = phi i64 [ %263, %262 ], [ %.pre45, %261 ]
+  %.pre-phi = phi i64 [ %263, %262 ], [ %.pre44, %261 ]
   %265 = getelementptr i8, ptr %257, i64 8
   %266 = sub i64 %237, %.pre-phi
   %267 = icmp ugt i64 %266, 1073741823
@@ -3312,7 +3311,6 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
-  %.fr21 = freeze i64 %5
   %13 = and i64 %1, 2097151
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %.loopexit17, label %15
@@ -3367,10 +3365,11 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
 
 52:                                               ; preds = %43, %15
   %53 = phi i64 [ %.0..0..0..0., %43 ], [ %37, %15 ]
-  %54 = and i64 %.fr21, 1
+  %54 = and i64 %5, 1
   %55 = icmp eq i64 %54, 0
-  %56 = and i64 %.fr21, -258
-  %57 = select i1 %55, i64 %56, i64 %.fr21
+  %56 = and i64 %5, -258
+  %57 = select i1 %55, i64 %56, i64 %5
+  %.fr = freeze i64 %57
   %58 = icmp ne i32 %25, 0
   %59 = icmp ugt i64 %21, %1
   %60 = and i1 %59, %58
@@ -3388,8 +3387,8 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %70 = and i64 %69, 511
   %71 = getelementptr %struct.pte_t, ptr %68, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %73 = icmp ne i64 %57, 0
-  %74 = and i64 %57, 1
+  %73 = icmp ne i64 %.fr, 0
+  %74 = and i64 %.fr, 1
   %75 = icmp eq i64 %74, 0
   %76 = and i1 %73, %75
   %77 = sext i1 %76 to i64
@@ -3405,7 +3404,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %83 = shl i64 %78, 12
   %84 = xor i64 %83, %77
   %85 = and i64 %84, 4503599627366400
-  %86 = or i64 %57, %85
+  %86 = or i64 %.fr, %85
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %86, ptr %11, align 8
   %.0..0..0..0.1.us = load volatile i64, ptr %11, align 8
@@ -3431,7 +3430,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %100 = xor i64 %99, %77
   %101 = and i64 %100, 4503599627366400
   %102 = load i64, ptr @__supported_pte_mask, align 8
-  %103 = and i64 %102, %57
+  %103 = and i64 %102, %.fr
   %104 = or i64 %103, %101
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %104, ptr %11, align 8
@@ -3457,8 +3456,8 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   br i1 %115, label %.critedge, label %116
 
 116:                                              ; preds = %.loopexit17
-  %117 = and i64 %.fr21, -4225
-  %118 = shl i64 %.fr21, 5
+  %117 = and i64 %5, -4225
+  %118 = shl i64 %5, 5
   %119 = and i64 %118, 4096
   %120 = or disjoint i64 %119, %117
   %121 = sub i64 %2, %112
@@ -3467,7 +3466,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
 
 123:                                              ; preds = %116
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %125 = and i64 %.fr21, 1
+  %125 = and i64 %5, 1
   %126 = icmp eq i64 %125, 0
   br label %127
 
@@ -3589,10 +3588,11 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
 209:                                              ; preds = %200, %182
   %210 = phi i64 [ %.0..0..0..0.4, %200 ], [ %194, %182 ]
   %211 = sub i32 %3, %179
-  %212 = and i64 %.fr21, 1
+  %212 = and i64 %5, 1
   %213 = icmp eq i64 %212, 0
-  %214 = and i64 %.fr21, -258
-  %215 = select i1 %213, i64 %214, i64 %.fr21
+  %214 = and i64 %5, -258
+  %215 = select i1 %213, i64 %214, i64 %5
+  %.fr23 = freeze i64 %215
   %216 = icmp eq i32 %211, 0
   br i1 %216, label %.critedge, label %217
 
@@ -3608,8 +3608,8 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %226 = and i64 %225, 511
   %227 = getelementptr %struct.pte_t, ptr %224, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %229 = icmp ne i64 %215, 0
-  %230 = and i64 %215, 1
+  %229 = icmp ne i64 %.fr23, 0
+  %230 = and i64 %.fr23, 1
   %231 = icmp eq i64 %230, 0
   %232 = and i1 %229, %231
   %233 = sext i1 %232 to i64
@@ -3625,7 +3625,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %239 = shl i64 %234, 12
   %240 = xor i64 %239, %233
   %241 = and i64 %240, 4503599627366400
-  %242 = or i64 %215, %241
+  %242 = or i64 %.fr23, %241
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %242, ptr %7, align 8
   %.0..0..0..0.5.us = load volatile i64, ptr %7, align 8
@@ -3651,7 +3651,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   %256 = xor i64 %255, %233
   %257 = and i64 %256, 4503599627366400
   %258 = load i64, ptr @__supported_pte_mask, align 8
-  %259 = and i64 %258, %215
+  %259 = and i64 %258, %.fr23
   %260 = or i64 %259, %257
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %260, ptr %7, align 8

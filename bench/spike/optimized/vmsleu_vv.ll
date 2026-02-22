@@ -304,12 +304,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vmsleu_vvP
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -797,12 +797,12 @@ define noundef i64 @_Z20fast_rv64i_vmsleu_vvP11processor_t6insn_tm(ptr noundef %
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -1172,12 +1172,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vmsleu_v
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -1549,12 +1549,12 @@ define noundef i64 @_Z22logged_rv64i_vmsleu_vvP11processor_t6insn_tm(ptr noundef
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -1924,12 +1924,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vmsleu_vvP
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -2301,12 +2301,12 @@ define noundef i64 @_Z20fast_rv64e_vmsleu_vvP11processor_t6insn_tm(ptr noundef %
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -2676,12 +2676,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vmsleu_v
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172
@@ -3053,12 +3053,12 @@ define noundef i64 @_Z22logged_rv64e_vmsleu_vvP11processor_t6insn_tm(ptr noundef
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %110
-  %.fr139 = freeze i64 %120
+  %.fr = freeze i64 %120
   %128 = and i64 %1, 33554432
   %129 = icmp eq i64 %128, 0
-  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr139)
+  %130 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr)
   %131 = icmp eq i64 %130, 1
-  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr139, i1 true)
+  %132 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.fr, i1 true)
   br i1 %131, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %172

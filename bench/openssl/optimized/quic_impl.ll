@@ -8447,8 +8447,8 @@ test_poll_event_ew.exit:                          ; preds = %118
   %123 = load ptr, ptr %122, align 8, !tbaa !136
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 336
   %125 = load i16, ptr %124, align 8
-  %.fr151 = freeze i16 %125
-  %126 = and i16 %.fr151, 32
+  %.fr152 = freeze i16 %125
+  %126 = and i16 %.fr152, 32
   %.not6.i94.not = icmp eq i16 %126, 0
   %127 = or i64 %.4, 32
   br i1 %.not6.i94.not, label %128, label %test_poll_event_ew.exit.thread
@@ -8553,8 +8553,8 @@ test_poll_event_ew.exit.thread:                   ; preds = %112, %118, %test_po
 test_poll_event_os.exit:                          ; preds = %167
   %170 = load ptr, ptr %164, align 8, !tbaa !113
   %171 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %170, i32 noundef 0) #12
-  %.fr152 = freeze i64 %171
-  %.not = icmp eq i64 %.fr152, 0
+  %.fr153 = freeze i64 %171
+  %.not = icmp eq i64 %.fr153, 0
   %172 = or i64 %.9, 2048
   br i1 %.not, label %test_poll_event_os.exit.thread, label %173
 
@@ -8590,10 +8590,10 @@ test_poll_event_os.exit.thread:                   ; preds = %167, %163, %159, %t
 test_poll_event_os.exit102:                       ; preds = %183
   %186 = load ptr, ptr %180, align 8, !tbaa !113
   %187 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %186, i32 noundef 1) #12
-  %.fr154 = freeze i64 %187
-  %.not153 = icmp eq i64 %.fr154, 0
+  %.fr155 = freeze i64 %187
+  %.not154 = icmp eq i64 %.fr155, 0
   %188 = or i64 %.10, 4096
-  br i1 %.not153, label %test_poll_event_os.exit102.thread, label %189
+  br i1 %.not154, label %test_poll_event_os.exit102.thread, label %189
 
 test_poll_event_os.exit102.thread:                ; preds = %183, %179, %175, %test_poll_event_os.exit102
   br label %189
@@ -8626,9 +8626,9 @@ test_poll_event_os.exit102.thread:                ; preds = %183, %179, %175, %t
   %199 = getelementptr i8, ptr %.sroa.12.1, i64 136
   %.val85 = load ptr, ptr %199, align 8, !tbaa !139
   %200 = call i64 @ossl_quic_port_get_num_incoming_channels(ptr noundef %.val85) #12
-  %.not155 = icmp eq i64 %200, 0
+  %.not156 = icmp eq i64 %200, 0
   %201 = or i64 %.11, 256
-  %spec.select77 = select i1 %.not155, i64 %.11, i64 %201
+  %spec.select77 = select i1 %.not156, i64 %.11, i64 %201
   br label %202
 
 202:                                              ; preds = %198, %30, %189, %196

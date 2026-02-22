@@ -2425,43 +2425,43 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   br i1 %9, label %.split.us.preheader.i, label %.split.i
 
 .split.us.preheader.i:                            ; preds = %2
-  %wide.trip.count31.i = zext nneg i32 %8 to i64
+  %wide.trip.count32.i = zext nneg i32 %8 to i64
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %.critedge..loopexit_crit_edge.us.i, %.split.us.preheader.i
-  %indvars.iv33.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next34.i, %.critedge..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv33.i
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv33.i
+  %indvars.iv34.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next35.i, %.critedge..loopexit_crit_edge.us.i ]
+  %10 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv34.i
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv34.i
   store ptr %10, ptr %11, align 8, !tbaa !119
-  %.not10.i = icmp eq i64 %indvars.iv33.i, 0
-  br i1 %.not10.i, label %.critedge.preheader.us.i, label %.lr.ph.us.i
+  %.not11.i = icmp eq i64 %indvars.iv34.i, 0
+  br i1 %.not11.i, label %.critedge.preheader.us.i, label %.lr.ph.us.i
 
 12:                                               ; preds = %43
-  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, %indvars.iv33.i
-  br i1 %exitcond23.not.i, label %.critedge.preheader.us.i, label %43, !llvm.loop !120
+  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
+  %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, %indvars.iv34.i
+  br i1 %exitcond24.not.i, label %.critedge.preheader.us.i, label %43, !llvm.loop !120
 
 13:                                               ; preds = %.critedge.preheader.us.i, %.critedge.us.i
-  %indvars.iv28.i = phi i64 [ 0, %.critedge.preheader.us.i ], [ %indvars.iv.next29.i, %.critedge.us.i ]
-  %14 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_div6, i64 %indvars.iv28.i
+  %indvars.iv29.i = phi i64 [ 0, %.critedge.preheader.us.i ], [ %indvars.iv.next30.i, %.critedge.us.i ]
+  %14 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_div6, i64 %indvars.iv29.i
   %15 = load i8, ptr %14, align 1, !tbaa !27
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %16, 2
-  %18 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_rem6, i64 %indvars.iv28.i
+  %18 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_rem6, i64 %indvars.iv29.i
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw [3 x i8], ptr @ff_h264_dequant4_coeff_init, i64 %20
-  %22 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 %indvars.iv28.i
+  %22 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 %indvars.iv29.i
   br label %23
 
 .critedge.us.i:                                   ; preds = %23
-  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %.critedge..loopexit_crit_edge.us.i, label %13, !llvm.loop !121
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
+  br i1 %exitcond33.not.i, label %.critedge..loopexit_crit_edge.us.i, label %13, !llvm.loop !121
 
 23:                                               ; preds = %23, %13
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %23 ], [ 0, %13 ]
-  %24 = trunc nuw nsw i64 %indvars.iv24.i to i32
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %23 ], [ 0, %13 ]
+  %24 = trunc nuw nsw i64 %indvars.iv25.i to i32
   %25 = and i32 %24, 1
   %26 = lshr i32 %24, 2
   %27 = and i32 %26, 1
@@ -2470,7 +2470,7 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !27
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv24.i
+  %33 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv25.i
   %34 = load i8, ptr %33, align 1, !tbaa !27
   %35 = zext i8 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -2481,50 +2481,50 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i32, ptr %22, i64 %41
   store i32 %37, ptr %42, align 4, !tbaa !51
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, 16
-  br i1 %exitcond27.not.i, label %.critedge.us.i, label %23, !llvm.loop !122
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 16
+  br i1 %exitcond28.not.i, label %.critedge.us.i, label %23, !llvm.loop !122
 
 43:                                               ; preds = %.lr.ph.us.i, %12
-  %indvars.iv20.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next21.i, %12 ]
-  %44 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv20.i
+  %indvars.iv21.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next22.i, %12 ]
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv21.i
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %44, ptr noundef nonnull dereferenceable(16) %48, i64 16)
   %.not.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not.us.i, label %45, label %12
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv20.i
+  %46 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv21.i
   store ptr %46, ptr %11, align 8, !tbaa !119
   br label %.critedge..loopexit_crit_edge.us.i
 
 .critedge..loopexit_crit_edge.us.i:               ; preds = %.critedge.us.i, %45
-  %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, 6
-  br i1 %exitcond36.not.i, label %init_dequant4_coeff_table.exit, label %.split.us.i, !llvm.loop !123
+  %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
+  %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 6
+  br i1 %exitcond37.not.i, label %init_dequant4_coeff_table.exit, label %.split.us.i, !llvm.loop !123
 
 .critedge.preheader.us.i:                         ; preds = %12, %.split.us.i
-  %47 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv33.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv34.i
   br label %13
 
 .lr.ph.us.i:                                      ; preds = %.split.us.i
-  %48 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv33.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv34.i
   br label %43
 
 .split.i:                                         ; preds = %2, %.critedge.preheader.i
-  %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.critedge.preheader.i ], [ 0, %2 ]
-  %49 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv16.i
-  %50 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv16.i
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.critedge.preheader.i ], [ 0, %2 ]
+  %49 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv17.i
+  %50 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv17.i
   store ptr %49, ptr %50, align 8, !tbaa !119
-  %.not9.i = icmp eq i64 %indvars.iv16.i, 0
-  br i1 %.not9.i, label %.critedge.preheader.i, label %.lr.ph.i
+  %.not10.i = icmp eq i64 %indvars.iv17.i, 0
+  br i1 %.not10.i, label %.critedge.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split.i
-  %51 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv16.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv17.i
   br label %53
 
 52:                                               ; preds = %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv16.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv17.i
   br i1 %exitcond.not.i, label %.critedge.preheader.i, label %53, !llvm.loop !120
 
 53:                                               ; preds = %52, %.lr.ph.i
@@ -2540,9 +2540,9 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   br label %.critedge.preheader.i
 
 .critedge.preheader.i:                            ; preds = %52, %55, %.split.i
-  %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
-  %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 6
-  br i1 %exitcond19.not.i, label %init_dequant4_coeff_table.exit, label %.split.i, !llvm.loop !123
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 6
+  br i1 %exitcond20.not.i, label %init_dequant4_coeff_table.exit, label %.split.i, !llvm.loop !123
 
 init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader.i, %.critedge..loopexit_crit_edge.us.i
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 173856
@@ -2563,45 +2563,45 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   br i1 %65, label %.split.us.preheader.i39, label %.split.i27
 
 .split.us.preheader.i39:                          ; preds = %60
-  %wide.trip.count31.i40 = zext nneg i32 %64 to i64
+  %wide.trip.count32.i40 = zext nneg i32 %64 to i64
   br label %.split.us.i41
 
 .split.us.i41:                                    ; preds = %.critedge..loopexit_crit_edge.us.i59, %.split.us.preheader.i39
-  %indvars.iv33.i42 = phi i64 [ 0, %.split.us.preheader.i39 ], [ %indvars.iv.next34.i60, %.critedge..loopexit_crit_edge.us.i59 ]
-  %66 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv33.i42
-  %67 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv33.i42
+  %indvars.iv34.i42 = phi i64 [ 0, %.split.us.preheader.i39 ], [ %indvars.iv.next35.i60, %.critedge..loopexit_crit_edge.us.i59 ]
+  %66 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv34.i42
+  %67 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv34.i42
   store ptr %66, ptr %67, align 8, !tbaa !119
-  %.not10.i43 = icmp eq i64 %indvars.iv33.i42, 0
-  br i1 %.not10.i43, label %.critedge.preheader.us.i50, label %.lr.ph.us.i44
+  %.not11.i43 = icmp eq i64 %indvars.iv34.i42, 0
+  br i1 %.not11.i43, label %.critedge.preheader.us.i50, label %.lr.ph.us.i44
 
 68:                                               ; preds = %101
-  %indvars.iv.next21.i48 = add nuw nsw i64 %indvars.iv20.i45, 1
-  %exitcond23.not.i49 = icmp eq i64 %indvars.iv.next21.i48, %indvars.iv33.i42
-  br i1 %exitcond23.not.i49, label %.critedge.preheader.us.i50, label %101, !llvm.loop !124
+  %indvars.iv.next22.i48 = add nuw nsw i64 %indvars.iv21.i45, 1
+  %exitcond24.not.i49 = icmp eq i64 %indvars.iv.next22.i48, %indvars.iv34.i42
+  br i1 %exitcond24.not.i49, label %.critedge.preheader.us.i50, label %101, !llvm.loop !124
 
 69:                                               ; preds = %.critedge.preheader.us.i50, %.critedge.us.i56
-  %indvars.iv28.i51 = phi i64 [ 0, %.critedge.preheader.us.i50 ], [ %indvars.iv.next29.i57, %.critedge.us.i56 ]
-  %70 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_div6, i64 %indvars.iv28.i51
+  %indvars.iv29.i51 = phi i64 [ 0, %.critedge.preheader.us.i50 ], [ %indvars.iv.next30.i57, %.critedge.us.i56 ]
+  %70 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_div6, i64 %indvars.iv29.i51
   %71 = load i8, ptr %70, align 1, !tbaa !27
   %72 = zext nneg i8 %71 to i32
-  %73 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_rem6, i64 %indvars.iv28.i51
+  %73 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_rem6, i64 %indvars.iv29.i51
   %74 = load i8, ptr %73, align 1, !tbaa !27
   %75 = zext i8 %74 to i64
   %76 = getelementptr inbounds nuw [6 x i8], ptr @ff_h264_dequant8_coeff_init, i64 %75
-  %77 = getelementptr inbounds nuw [64 x i32], ptr %66, i64 %indvars.iv28.i51
+  %77 = getelementptr inbounds nuw [64 x i32], ptr %66, i64 %indvars.iv29.i51
   br label %78
 
 .critedge.us.i56:                                 ; preds = %78
-  %indvars.iv.next29.i57 = add nuw nsw i64 %indvars.iv28.i51, 1
-  %exitcond32.not.i58 = icmp eq i64 %indvars.iv.next29.i57, %wide.trip.count31.i40
-  br i1 %exitcond32.not.i58, label %.critedge..loopexit_crit_edge.us.i59, label %69, !llvm.loop !125
+  %indvars.iv.next30.i57 = add nuw nsw i64 %indvars.iv29.i51, 1
+  %exitcond33.not.i58 = icmp eq i64 %indvars.iv.next30.i57, %wide.trip.count32.i40
+  br i1 %exitcond33.not.i58, label %.critedge..loopexit_crit_edge.us.i59, label %69, !llvm.loop !125
 
 78:                                               ; preds = %78, %69
-  %indvars.iv24.i52 = phi i64 [ %indvars.iv.next25.i54, %78 ], [ 0, %69 ]
-  %79 = trunc nuw nsw i64 %indvars.iv24.i52 to i32
-  %80 = lshr i64 %indvars.iv24.i52, 1
+  %indvars.iv25.i52 = phi i64 [ %indvars.iv.next26.i54, %78 ], [ 0, %69 ]
+  %79 = trunc nuw nsw i64 %indvars.iv25.i52 to i32
+  %80 = lshr i64 %indvars.iv25.i52, 1
   %81 = and i64 %80, 12
-  %82 = and i64 %indvars.iv24.i52, 3
+  %82 = and i64 %indvars.iv25.i52, 3
   %83 = getelementptr inbounds nuw i8, ptr @ff_h264_dequant8_coeff_init_scan, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !27
@@ -2609,7 +2609,7 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   %87 = getelementptr inbounds nuw i8, ptr %76, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !27
   %89 = zext i8 %88 to i32
-  %90 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv24.i52
+  %90 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv25.i52
   %91 = load i8, ptr %90, align 1, !tbaa !27
   %92 = zext i8 %91 to i32
   %93 = mul nuw nsw i32 %92, %89
@@ -2621,50 +2621,50 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i32, ptr %77, i64 %99
   store i32 %94, ptr %100, align 4, !tbaa !51
-  %indvars.iv.next25.i54 = add nuw nsw i64 %indvars.iv24.i52, 1
-  %exitcond27.not.i55 = icmp eq i64 %indvars.iv.next25.i54, 64
-  br i1 %exitcond27.not.i55, label %.critedge.us.i56, label %78, !llvm.loop !126
+  %indvars.iv.next26.i54 = add nuw nsw i64 %indvars.iv25.i52, 1
+  %exitcond28.not.i55 = icmp eq i64 %indvars.iv.next26.i54, 64
+  br i1 %exitcond28.not.i55, label %.critedge.us.i56, label %78, !llvm.loop !126
 
 101:                                              ; preds = %.lr.ph.us.i44, %68
-  %indvars.iv20.i45 = phi i64 [ 0, %.lr.ph.us.i44 ], [ %indvars.iv.next21.i48, %68 ]
-  %102 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv20.i45
+  %indvars.iv21.i45 = phi i64 [ 0, %.lr.ph.us.i44 ], [ %indvars.iv.next22.i48, %68 ]
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv21.i45
   %bcmp.us.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %102, ptr noundef nonnull dereferenceable(64) %106, i64 64)
   %.not.us.i47 = icmp eq i32 %bcmp.us.i46, 0
   br i1 %.not.us.i47, label %103, label %68
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv20.i45
+  %104 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv21.i45
   store ptr %104, ptr %67, align 8, !tbaa !119
   br label %.critedge..loopexit_crit_edge.us.i59
 
 .critedge..loopexit_crit_edge.us.i59:             ; preds = %.critedge.us.i56, %103
-  %indvars.iv.next34.i60 = add nuw nsw i64 %indvars.iv33.i42, 1
-  %exitcond36.not.i61 = icmp eq i64 %indvars.iv.next34.i60, 6
-  br i1 %exitcond36.not.i61, label %init_dequant8_coeff_table.exit, label %.split.us.i41, !llvm.loop !127
+  %indvars.iv.next35.i60 = add nuw nsw i64 %indvars.iv34.i42, 1
+  %exitcond37.not.i61 = icmp eq i64 %indvars.iv.next35.i60, 6
+  br i1 %exitcond37.not.i61, label %init_dequant8_coeff_table.exit, label %.split.us.i41, !llvm.loop !127
 
 .critedge.preheader.us.i50:                       ; preds = %68, %.split.us.i41
-  %105 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv33.i42
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv34.i42
   br label %69
 
 .lr.ph.us.i44:                                    ; preds = %.split.us.i41
-  %106 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv33.i42
+  %106 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv34.i42
   br label %101
 
 .split.i27:                                       ; preds = %60, %.critedge.preheader.i36
-  %indvars.iv16.i28 = phi i64 [ %indvars.iv.next17.i37, %.critedge.preheader.i36 ], [ 0, %60 ]
-  %107 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv16.i28
-  %108 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv16.i28
+  %indvars.iv17.i28 = phi i64 [ %indvars.iv.next18.i37, %.critedge.preheader.i36 ], [ 0, %60 ]
+  %107 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv17.i28
+  %108 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv17.i28
   store ptr %107, ptr %108, align 8, !tbaa !119
-  %.not9.i29 = icmp eq i64 %indvars.iv16.i28, 0
-  br i1 %.not9.i29, label %.critedge.preheader.i36, label %.lr.ph.i30
+  %.not10.i29 = icmp eq i64 %indvars.iv17.i28, 0
+  br i1 %.not10.i29, label %.critedge.preheader.i36, label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.split.i27
-  %109 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv16.i28
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv17.i28
   br label %111
 
 110:                                              ; preds = %111
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i31, 1
-  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %indvars.iv16.i28
+  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %indvars.iv17.i28
   br i1 %exitcond.not.i35, label %.critedge.preheader.i36, label %111, !llvm.loop !124
 
 111:                                              ; preds = %110, %.lr.ph.i30
@@ -2680,9 +2680,9 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   br label %.critedge.preheader.i36
 
 .critedge.preheader.i36:                          ; preds = %110, %113, %.split.i27
-  %indvars.iv.next17.i37 = add nuw nsw i64 %indvars.iv16.i28, 1
-  %exitcond19.not.i38 = icmp eq i64 %indvars.iv.next17.i37, 6
-  br i1 %exitcond19.not.i38, label %init_dequant8_coeff_table.exit, label %.split.i27, !llvm.loop !127
+  %indvars.iv.next18.i37 = add nuw nsw i64 %indvars.iv17.i28, 1
+  %exitcond20.not.i38 = icmp eq i64 %indvars.iv.next18.i37, 6
+  br i1 %exitcond20.not.i38, label %init_dequant8_coeff_table.exit, label %.split.i27, !llvm.loop !127
 
 init_dequant8_coeff_table.exit:                   ; preds = %.critedge.preheader.i36, %.critedge..loopexit_crit_edge.us.i59, %init_dequant4_coeff_table.exit
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 16

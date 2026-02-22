@@ -1576,7 +1576,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
 
 151:                                              ; preds = %99
   %152 = and i64 %102, 65536
-  %.not11 = icmp eq i64 %152, 0
+  %.not12 = icmp eq i64 %152, 0
   %153 = getelementptr inbounds nuw i8, ptr %.fr10, i64 2624
   %154 = getelementptr inbounds nuw i8, ptr %.fr10, i64 7368
   %155 = icmp eq ptr %.fr10, null
@@ -1584,7 +1584,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
   br i1 %155, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %151
-  br i1 %.not11, label %.split.us.split.us, label %.split.us.split
+  br i1 %.not12, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us
   tail call void @i915_hotplug_interrupt_update(ptr noundef null, i32 noundef 8, i32 noundef 8) #5
@@ -1615,7 +1615,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
   br i1 %163, label %.split.us.split, label %.split7.us, !llvm.loop !33
 
 .split:                                           ; preds = %151
-  br i1 %.not11, label %.split.split.us, label %.split.split
+  br i1 %.not12, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
   tail call void @i915_hotplug_interrupt_update(ptr noundef nonnull %.fr10, i32 noundef 8, i32 noundef 8) #5

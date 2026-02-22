@@ -3336,7 +3336,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Nf_ManPrepareCuts.e
   br i1 %457, label %Nf_SetAddCut.exit.us.us.us, label %458
 
 458:                                              ; preds = %456
-  %indvars.iv.next.i286.us.us.us = add i64 %indvars.iv.i285.us.us.us, 1
+  %indvars.iv.next.i286.us.us.us = add nuw nsw i64 %indvars.iv.i285.us.us.us, 1
   %459 = getelementptr inbounds nuw i32, ptr %430, i64 %indvars.iv.i285.us.us.us
   store i32 %454, ptr %459, align 4, !tbaa !13
   %460 = icmp eq i32 %438, %454
@@ -3351,14 +3351,14 @@ Gia_ObjFaninC2.exit:                              ; preds = %Nf_ManPrepareCuts.e
   br label %431
 
 465:                                              ; preds = %451
-  %466 = trunc i64 %indvars.iv.i285.us.us.us to i32
+  %466 = trunc nuw nsw i64 %indvars.iv.i285.us.us.us to i32
   %467 = getelementptr inbounds nuw i8, ptr %421, i64 16
   %468 = load i32, ptr %467, align 8
   %469 = shl i32 %466, 27
-  %.fr = freeze i32 %468
-  %470 = and i32 %.fr, 67108864
+  %470 = and i32 %468, 67108864
   %471 = or disjoint i32 %470, %469
-  %472 = or disjoint i32 %471, 67108863
+  %.fr = freeze i32 %471
+  %472 = or i32 %.fr, 67108863
   store i32 %472, ptr %467, align 8
   store i64 %412, ptr %421, align 8, !tbaa !140
   %473 = icmp sgt i32 %.4590.us.us.us, 0
@@ -3366,8 +3366,8 @@ Gia_ObjFaninC2.exit:                              ; preds = %Nf_ManPrepareCuts.e
 
 .lr.ph.i289.us.us.us:                             ; preds = %465
   %474 = zext nneg i32 %.4590.us.us.us to i64
-  %475 = and i32 %466, 31
-  %wide.trip.count.i.i290.us.us.us = and i64 %indvars.iv.i285.us.us.us, 31
+  %475 = lshr i32 %.fr, 27
+  %wide.trip.count.i.i290.us.us.us = zext nneg i32 %475 to i64
   %.not49.i.i.us.us.us = icmp eq i32 %475, 0
   br i1 %.not49.i.i.us.us.us, label %.lr.ph.split.us.i.us.us.us, label %.lr.ph.split.i.us.us.us
 
@@ -3449,8 +3449,8 @@ Nf_SetCutIsContainedOrder.exit.thread.i.us.us.us: ; preds = %490, %502, %504, %4
   br i1 %exitcond.not.i294.us.us.us, label %Nf_SetLastCutIsContained.exit.us.us.us, label %.lr.ph.split.i.us.us.us, !llvm.loop !155
 
 .lr.ph.split.us.i.us.us.us:                       ; preds = %.lr.ph.i289.us.us.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i.us.us.us
-  %indvars.iv38.i.us.us.us = phi i64 [ %indvars.iv.next39.i.us.us.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i.us.us.us ], [ 0, %.lr.ph.i289.us.us.us ]
-  %510 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv38.i.us.us.us
+  %indvars.iv39.i.us.us.us = phi i64 [ %indvars.iv.next40.i.us.us.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i.us.us.us ], [ 0, %.lr.ph.i289.us.us.us ]
+  %510 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv39.i.us.us.us
   %511 = load ptr, ptr %510, align 8, !tbaa !142
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %513 = load i32, ptr %512, align 8
@@ -3464,9 +3464,9 @@ Nf_SetCutIsContainedOrder.exit.thread.i.us.us.us: ; preds = %490, %502, %504, %4
   br i1 %517, label %Nf_SetAddCut.exit.us.us.us, label %Nf_SetCutIsContainedOrder.exit.thread.us.i.us.us.us
 
 Nf_SetCutIsContainedOrder.exit.thread.us.i.us.us.us: ; preds = %514, %.lr.ph.split.us.i.us.us.us
-  %indvars.iv.next39.i.us.us.us = add nuw nsw i64 %indvars.iv38.i.us.us.us, 1
-  %exitcond42.not.i.us.us.us = icmp eq i64 %indvars.iv.next39.i.us.us.us, %474
-  br i1 %exitcond42.not.i.us.us.us, label %Nf_SetLastCutIsContained.exit.us.us.us, label %.lr.ph.split.us.i.us.us.us, !llvm.loop !155
+  %indvars.iv.next40.i.us.us.us = add nuw nsw i64 %indvars.iv39.i.us.us.us, 1
+  %exitcond43.not.i.us.us.us = icmp eq i64 %indvars.iv.next40.i.us.us.us, %474
+  br i1 %exitcond43.not.i.us.us.us, label %Nf_SetLastCutIsContained.exit.us.us.us, label %.lr.ph.split.us.i.us.us.us, !llvm.loop !155
 
 Nf_SetLastCutIsContained.exit.us.us.us:           ; preds = %Nf_SetCutIsContainedOrder.exit.thread.i.us.us.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i.us.us.us, %465
   %518 = load double, ptr %396, align 8, !tbaa !151
@@ -3929,8 +3929,8 @@ Nf_CutParams.exit330.us.us.us:                    ; preds = %769, %._crit_edge.i
   %782 = load ptr, ptr %780, align 8, !tbaa !142
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 16
   %784 = load i32, ptr %783, align 8
-  %.fr31.i.us.us.us = freeze i32 %784
-  %785 = lshr i32 %.fr31.i.us.us.us, 27
+  %.fr.i.us.us.us = freeze i32 %784
+  %785 = lshr i32 %.fr.i.us.us.us, 27
   %786 = icmp eq i32 %785, 0
   %787 = getelementptr inbounds nuw i8, ptr %782, i64 20
   br i1 %786, label %.outer.i.split.us.i.us.us.us, label %.outer.i.split.i.us.us.us
@@ -4400,12 +4400,11 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %.5.lcssa.sink.i.us = phi i32 [ %983, %.lr.ph127.preheader.i.us ], [ 0, %.preheader.i.us ], [ %996, %.lr.ph130.preheader.i.us ], [ %.1.i344.us, %.preheader117.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %25, %1001 ]
   %1003 = getelementptr inbounds nuw i8, ptr %942, i64 16
   %1004 = load i32, ptr %1003, align 8
-  %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
-  %1005 = shl i32 %.5.lcssa.sink.i.us.fr, 27
-  %.fr831 = freeze i32 %1004
-  %1006 = and i32 %.fr831, 67108864
+  %1005 = shl i32 %.5.lcssa.sink.i.us, 27
+  %1006 = and i32 %1004, 67108864
   %1007 = or disjoint i32 %1006, %1005
-  %1008 = or disjoint i32 %1007, 67108863
+  %.fr831 = freeze i32 %1007
+  %1008 = or i32 %.fr831, 67108863
   store i32 %1008, ptr %1003, align 8
   %1009 = load i64, ptr %.1618.us, align 8, !tbaa !140
   %1010 = load i64, ptr %.1152613.us, align 8, !tbaa !140
@@ -4416,7 +4415,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 
 .lr.ph.i350.us:                                   ; preds = %.loopexit.us
   %1013 = zext nneg i32 %.8609.us to i64
-  %1014 = and i32 %.5.lcssa.sink.i.us.fr, 31
+  %1014 = lshr i32 %.fr831, 27
   %wide.trip.count.i.i352.us = zext nneg i32 %1014 to i64
   %.not49.i.i353.us = icmp eq i32 %1014, 0
   br i1 %.not49.i.i353.us, label %.lr.ph.split.us.i371.us, label %.lr.ph.split.i354.us
@@ -4499,8 +4498,8 @@ Nf_SetCutIsContainedOrder.exit.thread.i357.us:    ; preds = %1029, %1041, %1043,
   br i1 %exitcond.not.i359.us, label %Nf_SetLastCutIsContained.exit377.us, label %.lr.ph.split.i354.us, !llvm.loop !155
 
 .lr.ph.split.us.i371.us:                          ; preds = %.lr.ph.i350.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i374.us
-  %indvars.iv38.i372.us = phi i64 [ %indvars.iv.next39.i375.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i374.us ], [ 0, %.lr.ph.i350.us ]
-  %1049 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv38.i372.us
+  %indvars.iv39.i372.us = phi i64 [ %indvars.iv.next40.i375.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i374.us ], [ 0, %.lr.ph.i350.us ]
+  %1049 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv39.i372.us
   %1050 = load ptr, ptr %1049, align 8, !tbaa !142
   %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 16
   %1052 = load i32, ptr %1051, align 8
@@ -4514,9 +4513,9 @@ Nf_SetCutIsContainedOrder.exit.thread.i357.us:    ; preds = %1029, %1041, %1043,
   br i1 %1056, label %Nf_SetAddCut.exit479.us, label %Nf_SetCutIsContainedOrder.exit.thread.us.i374.us
 
 Nf_SetCutIsContainedOrder.exit.thread.us.i374.us: ; preds = %1053, %.lr.ph.split.us.i371.us
-  %indvars.iv.next39.i375.us = add nuw nsw i64 %indvars.iv38.i372.us, 1
-  %exitcond42.not.i376.us = icmp eq i64 %indvars.iv.next39.i375.us, %1013
-  br i1 %exitcond42.not.i376.us, label %Nf_SetLastCutIsContained.exit377.us, label %.lr.ph.split.us.i371.us, !llvm.loop !155
+  %indvars.iv.next40.i375.us = add nuw nsw i64 %indvars.iv39.i372.us, 1
+  %exitcond43.not.i376.us = icmp eq i64 %indvars.iv.next40.i375.us, %1013
+  br i1 %exitcond43.not.i376.us, label %Nf_SetLastCutIsContained.exit377.us, label %.lr.ph.split.us.i371.us, !llvm.loop !155
 
 Nf_SetLastCutIsContained.exit377.us:              ; preds = %Nf_SetCutIsContainedOrder.exit.thread.i357.us, %Nf_SetCutIsContainedOrder.exit.thread.us.i374.us, %.loopexit.us
   %1057 = load double, ptr %910, align 8, !tbaa !151
@@ -4900,8 +4899,8 @@ Nf_CutParams.exit433.us:                          ; preds = %1257, %._crit_edge.
   %1270 = load ptr, ptr %1268, align 8, !tbaa !142
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 16
   %1272 = load i32, ptr %1271, align 8
-  %.fr31.i440.us = freeze i32 %1272
-  %1273 = lshr i32 %.fr31.i440.us, 27
+  %.fr.i440.us = freeze i32 %1272
+  %1273 = lshr i32 %.fr.i440.us, 27
   %1274 = icmp eq i32 %1273, 0
   %1275 = getelementptr inbounds nuw i8, ptr %1270, i64 20
   br i1 %1274, label %.outer.i.split.us.i473.us, label %.outer.i.split.i441.us
@@ -5432,8 +5431,8 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @Nf_SetAddCut(ptr 
   %10 = load ptr, ptr %8, align 8, !tbaa !142
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
-  %.fr31 = freeze i32 %12
-  %13 = lshr i32 %.fr31, 27
+  %.fr = freeze i32 %12
+  %13 = lshr i32 %.fr, 27
   %14 = icmp eq i32 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br i1 %14, label %.outer.i.split.us, label %.outer.i.split

@@ -25,8 +25,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %29 = fsub double %27, %28
   %30 = fdiv double %29, 0x3FE62E42FEFA39EF
   %31 = fptosi double %30 to i32
-  %.fr340 = freeze i32 %31
-  %32 = add i32 %.fr340, 2
+  %32 = add nsw i32 %31, 2
   %33 = load i32, ptr %3, align 4, !tbaa !3
   %34 = load i32, ptr %4, align 4, !tbaa !3
   %.not304 = icmp sgt i32 %33, %34
@@ -44,15 +43,15 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %137
 
 .lr.ph312:                                        ; preds = %.lr.ph312.preheader, %134
-  %indvars.iv352 = phi i64 [ %35, %.lr.ph312.preheader ], [ %indvars.iv.next353.pre-phi, %134 ]
+  %indvars.iv351 = phi i64 [ %35, %.lr.ph312.preheader ], [ %indvars.iv.next352.pre-phi, %134 ]
   %.0224310 = phi i32 [ %33, %.lr.ph312.preheader ], [ %.2226, %134 ]
   %.0244306 = phi i32 [ 0, %.lr.ph312.preheader ], [ %.1245, %134 ]
   %.0248305 = phi i32 [ 0, %.lr.ph312.preheader ], [ %.1249, %134 ]
-  %38 = trunc nsw i64 %indvars.iv352 to i32
+  %38 = trunc nsw i64 %indvars.iv351 to i32
   %39 = shl i32 %38, 1
   %40 = load i32, ptr %6, align 4, !tbaa !3
   %41 = sext i32 %40 to i64
-  %42 = sub nsw i64 %indvars.iv352, %41
+  %42 = sub nsw i64 %indvars.iv351, %41
   %43 = getelementptr inbounds double, ptr %18, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !7
   %45 = getelementptr inbounds double, ptr %17, i64 %42
@@ -88,7 +87,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .preheader271.split.us:                           ; preds = %.preheader271
   %65 = fcmp olt double %61, %47
   %66 = zext i1 %65 to i64
-  %.not265.us280 = icmp sgt i64 %indvars.iv352, %66
+  %.not265.us280 = icmp sgt i64 %indvars.iv351, %66
   br i1 %.not265.us280, label %.preheader270.split295.us, label %.lr.ph283
 
 .lr.ph283:                                        ; preds = %.preheader271.split.us, %.lr.ph283
@@ -98,7 +97,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %68 = fmul double %.0222.us282, 2.000000e+00
   %69 = fcmp olt double %61, %67
   %70 = zext i1 %69 to i64
-  %.not265.us = icmp sgt i64 %indvars.iv352, %70
+  %.not265.us = icmp sgt i64 %indvars.iv351, %70
   br i1 %.not265.us, label %.preheader270.split295.us, label %.lr.ph283
 
 71:                                               ; preds = %.lr.ph312
@@ -107,9 +106,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %74 = getelementptr i8, ptr %73, i64 -4
   store i32 -1, ptr %74, align 4, !tbaa !3
   %75 = icmp eq i32 %.0224310, %38
-  %76 = icmp slt i64 %indvars.iv352, %36
+  %76 = icmp slt i64 %indvars.iv351, %36
   %or.cond = and i1 %76, %75
-  %77 = add nsw i64 %indvars.iv352, 1
+  %77 = add nsw i64 %indvars.iv351, 1
   %78 = trunc i64 %77 to i32
   %.1225 = select i1 %or.cond, i32 %78, i32 %.0224310
   %.not267 = icmp slt i32 %.0244306, %.1225
@@ -152,20 +151,20 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge:                                      ; preds = %86
   %97 = zext nneg i32 %.2 to i64
-  %.not265 = icmp sgt i64 %indvars.iv352, %97
+  %.not265 = icmp sgt i64 %indvars.iv351, %97
   br i1 %.not265, label %.lr.ph292.preheader, label %107
 
 .lr.ph292.preheader:                              ; preds = %._crit_edge
   %98 = add nuw i32 %62, 1
-  %wide.trip.count350 = zext i32 %98 to i64
+  %wide.trip.count349 = zext i32 %98 to i64
   br label %.lr.ph292
 
 .preheader270.split295.us:                        ; preds = %.lr.ph283, %.preheader271.split.us
-  %.us-phi378 = phi double [ %47, %.preheader271.split.us ], [ %67, %.lr.ph283 ]
+  %.us-phi377 = phi double [ %47, %.preheader271.split.us ], [ %67, %.lr.ph283 ]
   %99 = fcmp olt double %61, %48
   %.3.us298 = zext i1 %99 to i32
   %100 = zext i1 %99 to i64
-  %101 = icmp samesign ugt i64 %indvars.iv352, %100
+  %101 = icmp samesign ugt i64 %indvars.iv351, %100
   br i1 %101, label %.lr.ph301, label %.split.us
 
 .lr.ph301:                                        ; preds = %.preheader270.split295.us, %.lr.ph301
@@ -175,7 +174,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %103 = fmul double %.1223.us300, 2.000000e+00
   %104 = fcmp olt double %61, %102
   %105 = zext i1 %104 to i64
-  %106 = icmp samesign ugt i64 %indvars.iv352, %105
+  %106 = icmp samesign ugt i64 %indvars.iv351, %105
   br i1 %106, label %.lr.ph301, label %.split.us.loopexit
 
 107:                                              ; preds = %._crit_edge
@@ -192,13 +191,13 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %112
 
 112:                                              ; preds = %.lr.ph292, %112
-  %indvars.iv347 = phi i64 [ 2, %.lr.ph292 ], [ %indvars.iv.next348, %112 ]
+  %indvars.iv346 = phi i64 [ 2, %.lr.ph292 ], [ %indvars.iv.next347, %112 ]
   %.4290 = phi i32 [ %.3, %.lr.ph292 ], [ %.5, %112 ]
   %.1232289 = phi double [ %110, %.lr.ph292 ], [ %120, %112 ]
-  %113 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv347
+  %113 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv346
   %114 = load double, ptr %113, align 8, !tbaa !7
   %115 = fsub double %114, %.1235
-  %116 = getelementptr double, ptr %19, i64 %indvars.iv347
+  %116 = getelementptr double, ptr %19, i64 %indvars.iv346
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load double, ptr %117, align 8, !tbaa !7
   %119 = fdiv double %118, %.1232289
@@ -206,13 +205,13 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %121 = fcmp olt double %120, 0.000000e+00
   %122 = zext i1 %121 to i32
   %.5 = add nuw nsw i32 %.4290, %122
-  %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
-  %exitcond351.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count350
-  br i1 %exitcond351.not, label %._crit_edge293, label %112, !llvm.loop !11
+  %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
+  %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
+  br i1 %exitcond350.not, label %._crit_edge293, label %112, !llvm.loop !11
 
 ._crit_edge293:                                   ; preds = %112
   %123 = zext nneg i32 %.5 to i64
-  %124 = icmp samesign ugt i64 %indvars.iv352, %123
+  %124 = icmp samesign ugt i64 %indvars.iv351, %123
   br i1 %124, label %125, label %.split.us
 
 125:                                              ; preds = %._crit_edge293
@@ -225,11 +224,11 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge293, %.split.us.loopexit, %.preheader270.split295.us
-  %.us-phi377 = phi double [ %.us-phi378, %.split.us.loopexit ], [ %.us-phi378, %.preheader270.split295.us ], [ %.1255, %._crit_edge293 ]
+  %.us-phi376 = phi double [ %.us-phi377, %.split.us.loopexit ], [ %.us-phi377, %.preheader270.split295.us ], [ %.1255, %._crit_edge293 ]
   %.us-phi296 = phi double [ %102, %.split.us.loopexit ], [ %48, %.preheader270.split295.us ], [ %.1235, %._crit_edge293 ]
   %.us-phi297 = phi i32 [ %.3.us, %.split.us.loopexit ], [ %.3.us298, %.preheader270.split295.us ], [ %.5, %._crit_edge293 ]
   %128 = add nsw i32 %.0248305, 1
-  %129 = add nuw nsw i64 %indvars.iv352, 1
+  %129 = add nuw nsw i64 %indvars.iv351, 1
   %130 = sext i32 %39 to i64
   %131 = getelementptr i32, ptr %15, i64 %130
   %132 = getelementptr i8, ptr %131, i64 -4
@@ -240,9 +239,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 134:                                              ; preds = %71, %79, %.split.us
   %lftr.wideiv.pre-phi = phi i32 [ %78, %71 ], [ %78, %79 ], [ %133, %.split.us ]
-  %indvars.iv.next353.pre-phi = phi i64 [ %77, %71 ], [ %77, %79 ], [ %129, %.split.us ]
+  %indvars.iv.next352.pre-phi = phi i64 [ %77, %71 ], [ %77, %79 ], [ %129, %.split.us ]
   %.pre-phi = phi i64 [ %72, %71 ], [ %72, %79 ], [ %130, %.split.us ]
-  %.0254 = phi double [ %47, %71 ], [ %47, %79 ], [ %.us-phi377, %.split.us ]
+  %.0254 = phi double [ %47, %71 ], [ %47, %79 ], [ %.us-phi376, %.split.us ]
   %.1249 = phi i32 [ %.0248305, %71 ], [ %.0248305, %79 ], [ %128, %.split.us ]
   %.1245 = phi i32 [ %.0244306, %71 ], [ %.0244306, %79 ], [ %38, %.split.us ]
   %.0234 = phi double [ %48, %71 ], [ %48, %79 ], [ %.us-phi296, %.split.us ]
@@ -251,8 +250,8 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %136 = getelementptr i8, ptr %135, i64 -8
   store double %.0254, ptr %136, align 8, !tbaa !7
   store double %.0234, ptr %135, align 8, !tbaa !7
-  %exitcond355.not = icmp eq i32 %lftr.wideiv.pre-phi, %37
-  br i1 %exitcond355.not, label %.preheader, label %.lr.ph312, !llvm.loop !12
+  %exitcond354.not = icmp eq i32 %lftr.wideiv.pre-phi, %37
+  br i1 %exitcond354.not, label %.preheader, label %.lr.ph312, !llvm.loop !12
 
 137:                                              ; preds = %.preheader, %._crit_edge331
   %.0253 = phi i32 [ %209, %._crit_edge331 ], [ 0, %.preheader ]
@@ -264,7 +263,8 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph330:                                        ; preds = %137
   %138 = add nsw i32 %.3227, -1
   %139 = icmp eq i32 %.0253, %32
-  br i1 %139, label %.lr.ph330.split.us, label %.lr.ph330.split
+  %.fr = freeze i1 %139
+  br i1 %.fr, label %.lr.ph330.split.us, label %.lr.ph330.split
 
 .lr.ph330.split.us:                               ; preds = %.lr.ph330
   %140 = shl i32 %138, 1
@@ -297,8 +297,8 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 153:                                              ; preds = %152, %151, %144
   %.6230.us = phi i32 [ %.4228328.us, %152 ], [ %149, %144 ], [ %.4228328.us, %151 ]
   %154 = add nuw i32 %.0236327.us, 1
-  %exitcond362.not = icmp eq i32 %.0236327.us, %.2250
-  br i1 %exitcond362.not, label %._crit_edge331.thread, label %144, !llvm.loop !13
+  %exitcond361.not = icmp eq i32 %.0236327.us, %.2250
+  br i1 %exitcond361.not, label %._crit_edge331.thread, label %144, !llvm.loop !13
 
 .lr.ph330.split:                                  ; preds = %.lr.ph330, %206
   %.4228328 = phi i32 [ %.6230, %206 ], [ %.3227, %.lr.ph330 ]
@@ -361,17 +361,17 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph320.preheader:                              ; preds = %188
   %193 = add nuw i32 %192, 1
-  %wide.trip.count359 = zext i32 %193 to i64
+  %wide.trip.count358 = zext i32 %193 to i64
   br label %.lr.ph320
 
 .lr.ph320:                                        ; preds = %.lr.ph320.preheader, %.lr.ph320
-  %indvars.iv356 = phi i64 [ 2, %.lr.ph320.preheader ], [ %indvars.iv.next357, %.lr.ph320 ]
+  %indvars.iv355 = phi i64 [ 2, %.lr.ph320.preheader ], [ %indvars.iv.next356, %.lr.ph320 ]
   %.7318 = phi i32 [ %.6, %.lr.ph320.preheader ], [ %.8, %.lr.ph320 ]
   %.2233317 = phi double [ %190, %.lr.ph320.preheader ], [ %201, %.lr.ph320 ]
-  %194 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv356
+  %194 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv355
   %195 = load double, ptr %194, align 8, !tbaa !7
   %196 = fsub double %195, %166
-  %197 = getelementptr double, ptr %19, i64 %indvars.iv356
+  %197 = getelementptr double, ptr %19, i64 %indvars.iv355
   %198 = getelementptr i8, ptr %197, i64 -8
   %199 = load double, ptr %198, align 8, !tbaa !7
   %200 = fdiv double %199, %.2233317
@@ -379,9 +379,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %202 = fcmp olt double %201, 0.000000e+00
   %203 = zext i1 %202 to i32
   %.8 = add nuw nsw i32 %.7318, %203
-  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
-  %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
-  br i1 %exitcond360.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !14
+  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
+  %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
+  br i1 %exitcond359.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !14
 
 ._crit_edge321:                                   ; preds = %.lr.ph320, %188
   %.7.lcssa = phi i32 [ %.6, %188 ], [ %.8, %.lr.ph320 ]
@@ -401,8 +401,8 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.3247 = phi i32 [ %.2246325, %183 ], [ %.2246325, %179 ], [ %.2246325, %182 ], [ %.1241326, %205 ], [ %.1241326, %204 ]
   %.6230 = phi i32 [ %.4228328, %183 ], [ %159, %179 ], [ %.4228328, %182 ], [ %.4228328, %205 ], [ %.4228328, %204 ]
   %207 = add nuw i32 %.0236327, 1
-  %exitcond361.not = icmp eq i32 %.0236327, %.2250
-  br i1 %exitcond361.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !13
+  %exitcond360.not = icmp eq i32 %.0236327, %.2250
+  br i1 %exitcond360.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !13
 
 ._crit_edge331:                                   ; preds = %206
   %208 = icmp sgt i32 %.4252, 0
@@ -422,8 +422,8 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.lr.ph339
 
 .lr.ph339:                                        ; preds = %.lr.ph339.preheader, %235
-  %indvars.iv363 = phi i64 [ %211, %.lr.ph339.preheader ], [ %indvars.iv.next364, %235 ]
-  %213 = trunc nsw i64 %indvars.iv363 to i32
+  %indvars.iv362 = phi i64 [ %211, %.lr.ph339.preheader ], [ %indvars.iv.next363, %235 ]
+  %213 = trunc nsw i64 %indvars.iv362 to i32
   %214 = shl i32 %213, 1
   %215 = add nsw i32 %214, -1
   %216 = sext i32 %215 to i64
@@ -435,7 +435,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 220:                                              ; preds = %.lr.ph339
   %221 = load i32, ptr %6, align 4, !tbaa !3
   %222 = sext i32 %221 to i64
-  %223 = sub nsw i64 %indvars.iv363, %222
+  %223 = sub nsw i64 %indvars.iv362, %222
   %224 = getelementptr inbounds double, ptr %16, i64 %216
   %225 = load double, ptr %224, align 8, !tbaa !7
   %226 = sext i32 %214 to i64
@@ -452,10 +452,10 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %235
 
 235:                                              ; preds = %.lr.ph339, %220
-  %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
-  %lftr.wideiv366 = trunc i64 %indvars.iv.next364 to i32
-  %exitcond367.not = icmp eq i32 %212, %lftr.wideiv366
-  br i1 %exitcond367.not, label %.loopexit, label %.lr.ph339, !llvm.loop !15
+  %indvars.iv.next363 = add nsw i64 %indvars.iv362, 1
+  %lftr.wideiv365 = trunc i64 %indvars.iv.next363 to i32
+  %exitcond366.not = icmp eq i32 %212, %lftr.wideiv365
+  br i1 %exitcond366.not, label %.loopexit, label %.lr.ph339, !llvm.loop !15
 
 .loopexit:                                        ; preds = %235, %._crit_edge331.thread, %14
   ret void

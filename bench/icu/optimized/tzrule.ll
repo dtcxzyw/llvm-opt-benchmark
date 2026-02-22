@@ -537,10 +537,9 @@ _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %_ZNKSt9type_inf
   %28 = load i32, ptr %27, align 4, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %30 = load i32, ptr %29, align 4, !tbaa !13
-  %.fr = freeze i32 %28
-  %.fr12 = freeze i32 %30
-  %.not13 = icmp eq i32 %.fr, %.fr12
-  br i1 %.not13, label %_ZNKSt9type_infoneERKS_.exit.thread, label %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread
+  %31 = icmp ne i32 %28, %30
+  %cond.fr = freeze i1 %31
+  br i1 %cond.fr, label %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread, label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread: ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit
   br label %_ZNKSt9type_infoneERKS_.exit.thread

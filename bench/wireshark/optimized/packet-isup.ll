@@ -9088,12 +9088,12 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %6, i64 noundef 33)
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.fr12 = freeze i8 %8
-  %9 = zext i8 %.fr12 to i32
+  %.fr13 = freeze i8 %8
+  %9 = zext i8 %.fr13 to i32
   %10 = and i32 %9, 127
   %11 = and i32 %9, 128
   %12 = load i32, ptr @hf_isup_odd_even_indicator, align 4
-  %13 = zext i8 %.fr12 to i64
+  %13 = zext i8 %.fr13 to i64
   %14 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i64 noundef %13)
   %15 = load i32, ptr @hf_japan_isup_charge_area_nat_of_info_value, align 4
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %9)
@@ -9222,12 +9222,12 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
 
 .lr.ph11.split.us:                                ; preds = %.lr.ph11.split.us.preheader, %.lr.ph11.split.us
   %86 = phi i32 [ %93, %.lr.ph11.split.us ], [ %83, %.lr.ph11.split.us.preheader ]
-  %.1879.us38 = phi i32 [ %90, %.lr.ph11.split.us ], [ %78, %.lr.ph11.split.us.preheader ]
-  %.210.us37 = phi i32 [ %89, %.lr.ph11.split.us ], [ %77, %.lr.ph11.split.us.preheader ]
+  %.1879.us39 = phi i32 [ %90, %.lr.ph11.split.us ], [ %78, %.lr.ph11.split.us.preheader ]
+  %.210.us38 = phi i32 [ %89, %.lr.ph11.split.us ], [ %77, %.lr.ph11.split.us.preheader ]
   %87 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
   %88 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %87, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %86)
-  %89 = add i32 %.210.us37, 1
-  %90 = add nsw i32 %.1879.us38, -1
+  %89 = add i32 %.210.us38, 1
+  %90 = add nsw i32 %.1879.us39, -1
   %91 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %89)
   %92 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
   %93 = zext i8 %91 to i32
@@ -9237,12 +9237,12 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
 
 .lr.ph11.split:                                   ; preds = %.lr.ph11.split.preheader, %.lr.ph11.split
   %96 = phi i32 [ %103, %.lr.ph11.split ], [ %83, %.lr.ph11.split.preheader ]
-  %.187935 = phi i32 [ %100, %.lr.ph11.split ], [ %78, %.lr.ph11.split.preheader ]
-  %.21034 = phi i32 [ %99, %.lr.ph11.split ], [ %77, %.lr.ph11.split.preheader ]
+  %.187936 = phi i32 [ %100, %.lr.ph11.split ], [ %78, %.lr.ph11.split.preheader ]
+  %.21035 = phi i32 [ %99, %.lr.ph11.split ], [ %77, %.lr.ph11.split.preheader ]
   %97 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
   %98 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %97, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %96)
-  %99 = add i32 %.21034, 1
-  %100 = add nsw i32 %.187935, -1
+  %99 = add i32 %.21035, 1
+  %100 = add nsw i32 %.187936, -1
   %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %99)
   %102 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
   %103 = zext i8 %101 to i32

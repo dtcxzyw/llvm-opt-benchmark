@@ -3464,122 +3464,122 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
   br i1 %or.cond42, label %48, label %.preheader, !llvm.loop !36
 
 48:                                               ; preds = %.preheader
-  br i1 %44, label %54, label %49
+  br i1 %44, label %55, label %49
 
 49:                                               ; preds = %48
   %50 = zext nneg i32 %storemerge36 to i64
   %51 = getelementptr inbounds nuw i32, ptr @mcdram_pct, i64 %50
   %52 = load i32, ptr %51, align 4
-  %.fr = freeze i32 %52
-  %53 = icmp eq i32 %.fr, -1
+  %53 = icmp eq i32 %52, -1
   %spec.select = select i1 %53, i32 -1, i32 %storemerge36
-  br label %54
+  %54 = freeze i32 %spec.select
+  br label %55
 
-54:                                               ; preds = %49, %48
-  %.227 = phi i32 [ -1, %48 ], [ %spec.select, %49 ]
+55:                                               ; preds = %49, %48
+  %.227 = phi i32 [ -1, %48 ], [ %54, %49 ]
   store i32 0, ptr %3, align 4
-  %55 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
-  %.not3853 = icmp eq ptr %55, null
+  %56 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
+  %.not3853 = icmp eq ptr %56, null
   br i1 %.not3853, label %._crit_edge56, label %.lr.ph55
 
-.lr.ph55:                                         ; preds = %54
-  %56 = icmp sgt i32 %.024, -1
-  %57 = zext nneg i32 %.024 to i64
-  %58 = getelementptr inbounds nuw i32, ptr @cpu_bind, i64 %57
-  %59 = icmp sgt i32 %.227, -1
-  %60 = zext nneg i32 %.227 to i64
-  %61 = getelementptr inbounds nuw i32, ptr @mcdram_pct, i64 %60
-  br i1 %59, label %.lr.ph55.split, label %.lr.ph55.split.us
+.lr.ph55:                                         ; preds = %55
+  %57 = icmp sgt i32 %.024, -1
+  %58 = zext nneg i32 %.024 to i64
+  %59 = getelementptr inbounds nuw i32, ptr @cpu_bind, i64 %58
+  %60 = icmp sgt i32 %.227, -1
+  %61 = zext nneg i32 %.227 to i64
+  %62 = getelementptr inbounds nuw i32, ptr @mcdram_pct, i64 %61
+  br i1 %60, label %.lr.ph55.split, label %.lr.ph55.split.us
 
 .lr.ph55.split.us:                                ; preds = %.lr.ph55
-  br i1 %56, label %.lr.ph55.split.us.split.us, label %.lr.ph55.split.us.split
+  br i1 %57, label %.lr.ph55.split.us.split.us, label %.lr.ph55.split.us.split
 
-.lr.ph55.split.us.split.us:                       ; preds = %.lr.ph55.split.us, %66
-  %62 = phi ptr [ %69, %66 ], [ %55, %.lr.ph55.split.us ]
-  %63 = load i32, ptr %58, align 4
-  %.not39.us.us = icmp eq i32 %63, 0
-  br i1 %.not39.us.us, label %66, label %64
+.lr.ph55.split.us.split.us:                       ; preds = %.lr.ph55.split.us, %67
+  %63 = phi ptr [ %70, %67 ], [ %56, %.lr.ph55.split.us ]
+  %64 = load i32, ptr %59, align 4
+  %.not39.us.us = icmp eq i32 %64, 0
+  br i1 %.not39.us.us, label %67, label %65
 
-64:                                               ; preds = %.lr.ph55.split.us.split.us
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 84
-  store i32 %63, ptr %65, align 4
-  br label %66
+65:                                               ; preds = %.lr.ph55.split.us.split.us
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 84
+  store i32 %64, ptr %66, align 4
+  br label %67
 
-66:                                               ; preds = %64, %.lr.ph55.split.us.split.us
-  %67 = load i32, ptr %3, align 4
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %3, align 4
-  %69 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
-  %.not38.us.us = icmp eq ptr %69, null
+67:                                               ; preds = %65, %.lr.ph55.split.us.split.us
+  %68 = load i32, ptr %3, align 4
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %3, align 4
+  %70 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
+  %.not38.us.us = icmp eq ptr %70, null
   br i1 %.not38.us.us, label %._crit_edge56, label %.lr.ph55.split.us.split.us, !llvm.loop !37
 
 .lr.ph55.split.us.split:                          ; preds = %.lr.ph55.split.us, %.lr.ph55.split.us.split
-  %70 = load i32, ptr %3, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %3, align 4
-  %72 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
-  %.not38.us = icmp eq ptr %72, null
+  %71 = load i32, ptr %3, align 4
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %3, align 4
+  %73 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
+  %.not38.us = icmp eq ptr %73, null
   br i1 %.not38.us, label %._crit_edge56, label %.lr.ph55.split.us.split, !llvm.loop !37
 
-.lr.ph55.split:                                   ; preds = %.lr.ph55, %102
-  %73 = phi ptr [ %105, %102 ], [ %55, %.lr.ph55 ]
-  br i1 %56, label %74, label %78
+.lr.ph55.split:                                   ; preds = %.lr.ph55, %103
+  %74 = phi ptr [ %106, %103 ], [ %56, %.lr.ph55 ]
+  br i1 %57, label %75, label %79
 
-74:                                               ; preds = %.lr.ph55.split
-  %75 = load i32, ptr %58, align 4
-  %.not39 = icmp eq i32 %75, 0
-  br i1 %.not39, label %78, label %76
+75:                                               ; preds = %.lr.ph55.split
+  %76 = load i32, ptr %59, align 4
+  %.not39 = icmp eq i32 %76, 0
+  br i1 %.not39, label %79, label %77
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 84
-  store i32 %75, ptr %77, align 4
-  br label %78
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 84
+  store i32 %76, ptr %78, align 4
+  br label %79
 
-78:                                               ; preds = %76, %74, %.lr.ph55.split
-  %79 = load ptr, ptr @mcdram_per_node, align 8
-  %.not57 = icmp eq ptr %79, null
-  br i1 %.not57, label %102, label %80
+79:                                               ; preds = %77, %75, %.lr.ph55.split
+  %80 = load ptr, ptr @mcdram_per_node, align 8
+  %.not57 = icmp eq ptr %80, null
+  br i1 %.not57, label %103, label %81
 
-80:                                               ; preds = %78
-  %81 = load i32, ptr %3, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i64, ptr %79, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = load i32, ptr %61, align 4
-  %86 = sub nsw i32 100, %85
-  %87 = sext i32 %86 to i64
-  %88 = mul i64 %84, %87
-  %89 = udiv i64 %88, 100
-  %90 = getelementptr inbounds nuw i8, ptr %73, i64 192
-  %91 = load ptr, ptr %90, align 8
-  %.not40 = icmp eq ptr %91, null
-  br i1 %.not40, label %92, label %98
+81:                                               ; preds = %79
+  %82 = load i32, ptr %3, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i64, ptr %80, i64 %83
+  %85 = load i64, ptr %84, align 8
+  %86 = load i32, ptr %62, align 4
+  %87 = sub nsw i32 100, %86
+  %88 = sext i32 %87 to i64
+  %89 = mul i64 %85, %88
+  %90 = udiv i64 %89, 100
+  %91 = getelementptr inbounds nuw i8, ptr %74, i64 192
+  %92 = load ptr, ptr %91, align 8
+  %.not40 = icmp eq ptr %92, null
+  br i1 %.not40, label %93, label %99
 
-92:                                               ; preds = %80
-  %93 = getelementptr inbounds nuw i8, ptr %73, i64 72
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = call ptr @xstrdup(ptr noundef %96) #14
-  store ptr %97, ptr %90, align 8
-  br label %98
+93:                                               ; preds = %81
+  %94 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %97 = load ptr, ptr %96, align 8
+  %98 = call ptr @xstrdup(ptr noundef %97) #14
+  store ptr %98, ptr %91, align 8
+  br label %99
 
-98:                                               ; preds = %92, %80
-  %99 = getelementptr inbounds nuw i8, ptr %73, i64 272
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %73, i64 200
-  call void @gres_node_feature(ptr noundef %100, ptr noundef nonnull @.str.39, i64 noundef %89, ptr noundef nonnull %90, ptr noundef nonnull %101) #14
-  br label %102
+99:                                               ; preds = %93, %81
+  %100 = getelementptr inbounds nuw i8, ptr %74, i64 272
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %74, i64 200
+  call void @gres_node_feature(ptr noundef %101, ptr noundef nonnull @.str.39, i64 noundef %90, ptr noundef nonnull %91, ptr noundef nonnull %102) #14
+  br label %103
 
-102:                                              ; preds = %78, %98
-  %103 = load i32, ptr %3, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %3, align 4
-  %105 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
-  %.not38 = icmp eq ptr %105, null
+103:                                              ; preds = %79, %99
+  %104 = load i32, ptr %3, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %3, align 4
+  %106 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %3) #14
+  %.not38 = icmp eq ptr %106, null
   br i1 %.not38, label %._crit_edge56, label %.lr.ph55.split, !llvm.loop !37
 
-._crit_edge56:                                    ; preds = %.lr.ph55.split.us.split, %66, %102, %54
+._crit_edge56:                                    ; preds = %.lr.ph55.split.us.split, %67, %103, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

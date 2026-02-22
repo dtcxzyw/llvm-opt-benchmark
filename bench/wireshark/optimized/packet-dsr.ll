@@ -196,7 +196,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp ult i32 %7, 4
-  br i1 %8, label %315, label %9
+  br i1 %8, label %316, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -216,7 +216,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %23 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 8, i32 noundef 1)
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %24, label %303
+  br i1 %.not, label %24, label %304
 
 24:                                               ; preds = %9
   %25 = load i32, ptr @hf_dsr_reserved, align 4
@@ -224,13 +224,12 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = load i32, ptr @hf_dsr_length, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %29 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
-  %.fr = freeze i16 %29
-  %30 = zext i16 %.fr to i32
+  %30 = zext i16 %29 to i32
   %31 = add nuw nsw i32 %30, 4
   tail call void @proto_item_set_len(ptr noundef %14, i32 noundef %31)
   %32 = load i32, ptr @ett_dsr_options, align 4
   %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef %30, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.91)
-  %.not394 = icmp eq i16 %.fr, 0
+  %.not394 = icmp eq i16 %29, 0
   br i1 %.not394, label %.loopexit383, label %.lr.ph393
 
 .lr.ph393:                                        ; preds = %24
@@ -605,53 +604,53 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph388, %.lr.ph391, %232, %93, %60, %202, %153, %173, %107, %138, %141, %144, %150, %74, %37, %279, %263, %258, %246, %177, %35
   %.0366 = phi i32 [ 0, %35 ], [ %289, %279 ], [ %47, %37 ], [ %84, %93 ], [ %84, %74 ], [ %117, %107 ], [ %117, %138 ], [ %117, %150 ], [ %117, %141 ], [ %117, %144 ], [ %163, %173 ], [ %163, %153 ], [ %187, %177 ], [ %47, %60 ], [ %212, %202 ], [ %255, %246 ], [ 0, %258 ], [ %273, %263 ], [ %212, %232 ], [ %84, %.lr.ph388 ], [ %47, %.lr.ph391 ], [ %212, %.lr.ph ]
   %.not380 = icmp eq i8 %36, -32
-  %.0366.fr = freeze i32 %.0366
-  %298 = add nuw nsw i32 %.0366.fr, 2
+  %298 = add nuw nsw i32 %.0366, 2
   %.pn = select i1 %.not380, i32 1, i32 %298
   %.1364 = add i32 %.pn, %.0363392
   %299 = add i32 %.1364, -4
   %300 = icmp ult i32 %299, %30
-  br i1 %300, label %switch.early.test, label %.loopexit383
+  %301 = freeze i1 %300
+  br i1 %301, label %switch.early.test, label %.loopexit383
 
 switch.early.test:                                ; preds = %.loopexit
-  switch i8 %36, label %301 [
+  switch i8 %36, label %302 [
     i8 -32, label %.backedge
     i8 0, label %.backedge
   ]
 
-.backedge:                                        ; preds = %switch.early.test, %switch.early.test, %301
+.backedge:                                        ; preds = %switch.early.test, %switch.early.test, %302
   br label %35, !llvm.loop !10
 
-301:                                              ; preds = %switch.early.test
-  %302 = load ptr, ptr %10, align 8
-  call void @col_append_str(ptr noundef %302, i32 noundef 25, ptr noundef nonnull @.str.102)
+302:                                              ; preds = %switch.early.test
+  %303 = load ptr, ptr %10, align 8
+  call void @col_append_str(ptr noundef %303, i32 noundef 25, ptr noundef nonnull @.str.102)
   br label %.backedge
 
-303:                                              ; preds = %9
-  %304 = load i32, ptr @hf_dsr_fs_hopcount, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %304, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %306 = load i32, ptr @hf_dsr_fs_id, align 4
-  %307 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %306, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+304:                                              ; preds = %9
+  %305 = load i32, ptr @hf_dsr_fs_hopcount, align 4
+  %306 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %305, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %307 = load i32, ptr @hf_dsr_fs_id, align 4
+  %308 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %307, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit383
 
-.loopexit383:                                     ; preds = %.loopexit, %24, %303
-  %.2365 = phi i32 [ 4, %303 ], [ 4, %24 ], [ %.1364, %.loopexit ]
-  %308 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2365)
-  %309 = load ptr, ptr @ip_dissector_table, align 8
-  %310 = call i32 @dissector_try_uint(ptr noundef %309, i32 noundef %20, ptr noundef %308, ptr noundef %1, ptr noundef %2)
-  %.not379 = icmp eq i32 %310, 0
-  br i1 %.not379, label %311, label %313
+.loopexit383:                                     ; preds = %.loopexit, %24, %304
+  %.2365 = phi i32 [ 4, %304 ], [ 4, %24 ], [ %.1364, %.loopexit ]
+  %309 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2365)
+  %310 = load ptr, ptr @ip_dissector_table, align 8
+  %311 = call i32 @dissector_try_uint(ptr noundef %310, i32 noundef %20, ptr noundef %309, ptr noundef %1, ptr noundef %2)
+  %.not379 = icmp eq i32 %311, 0
+  br i1 %.not379, label %312, label %314
 
-311:                                              ; preds = %.loopexit383
-  %312 = call i32 @call_data_dissector(ptr noundef %308, ptr noundef %1, ptr noundef %2)
-  br label %313
+312:                                              ; preds = %.loopexit383
+  %313 = call i32 @call_data_dissector(ptr noundef %309, ptr noundef %1, ptr noundef %2)
+  br label %314
 
-313:                                              ; preds = %311, %.loopexit383
-  %314 = add i32 %.2365, 4
-  br label %315
+314:                                              ; preds = %312, %.loopexit383
+  %315 = add i32 %.2365, 4
+  br label %316
 
-315:                                              ; preds = %4, %313
-  %.0 = phi i32 [ %314, %313 ], [ 0, %4 ]
+316:                                              ; preds = %4, %314
+  %.0 = phi i32 [ %315, %314 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

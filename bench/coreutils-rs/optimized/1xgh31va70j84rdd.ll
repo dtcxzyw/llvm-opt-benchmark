@@ -2061,7 +2061,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   ret void
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit119": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i"
-  %.pn171 = add i64 %13, -1
+  %.pn174 = add i64 %13, -1
   %.sroa.027.0 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %18 = getelementptr i8, ptr %11, i64 %13
   br label %19
@@ -2137,12 +2137,12 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br i1 %.0.i.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit", label %19
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hf22d089977539b83E.exit.i.i", %50, %19
-  %66 = phi i64 [ %.pn171, %50 ], [ %.pn171, %19 ], [ %20, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hf22d089977539b83E.exit.i.i" ]
+  %66 = phi i64 [ %.pn174, %50 ], [ %.pn174, %19 ], [ %20, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hf22d089977539b83E.exit.i.i" ]
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %.thread154, label %68
 
 68:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit"
-  %.not.i.i120 = icmp ult i64 %66, %.pn171
+  %.not.i.i120 = icmp ult i64 %66, %.pn174
   br i1 %.not.i.i120, label %69, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
 69:                                               ; preds = %68
@@ -2152,7 +2152,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br i1 %72, label %76, label %75
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %68
-  %73 = icmp eq i64 %66, %.pn171
+  %73 = icmp eq i64 %66, %.pn174
   br i1 %73, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i122", label %75
 
 .thread:                                          ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i", %15
@@ -2161,7 +2161,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br label %17
 
 75:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %69
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.027.0, i64 noundef %.pn171, i64 noundef 0, i64 noundef %66, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb5ddca35a51115322a2332cb7727d51.47) #25
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.027.0, i64 noundef %.pn174, i64 noundef 0, i64 noundef %66, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb5ddca35a51115322a2332cb7727d51.47) #25
   unreachable
 
 76:                                               ; preds = %69
@@ -2185,11 +2185,11 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   %84 = getelementptr inbounds i8, ptr %.sroa.027.0, i64 %66
   %85 = load i8, ptr %84, align 1, !alias.scope !273, !noundef !4
   %86 = icmp sgt i8 %85, -65
-  %87 = sub nuw i64 %.pn171, %66
+  %87 = sub nuw i64 %.pn174, %66
   br i1 %86, label %.thread154, label %95
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i126": ; preds = %80
-  %88 = icmp eq i64 %66, %.pn171
+  %88 = icmp eq i64 %66, %.pn174
   br i1 %88, label %.thread154.thread, label %95
 
 .thread154.thread:                                ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i126"
@@ -2197,7 +2197,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146"
 
 90:                                               ; preds = %76
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.027.0, i64 noundef %.pn171, i64 noundef 0, i64 noundef %66, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb5ddca35a51115322a2332cb7727d51.48) #25
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.027.0, i64 noundef %.pn174, i64 noundef 0, i64 noundef %66, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb5ddca35a51115322a2332cb7727d51.48) #25
   unreachable
 
 91:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i122", %76
@@ -2214,20 +2214,20 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br label %17
 
 95:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i126", %83
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.027.0, i64 noundef %.pn171, i64 noundef %66, i64 noundef %.pn171, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb5ddca35a51115322a2332cb7727d51.49) #25
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.027.0, i64 noundef %.pn174, i64 noundef %66, i64 noundef %.pn174, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb5ddca35a51115322a2332cb7727d51.49) #25
   unreachable
 
 .thread154:                                       ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit", %83
   %.0106157 = phi i64 [ %82, %83 ], [ 10, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit" ]
-  %96 = phi i64 [ %87, %83 ], [ %.pn171, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit" ]
+  %96 = phi i64 [ %87, %83 ], [ %.pn174, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit" ]
   %97 = getelementptr inbounds i8, ptr %.sroa.027.0, i64 %66
   %.not.i.i128 = icmp eq i64 %96, 0
   br i1 %.not.i.i128, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i129"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i129": ; preds = %.thread154
-  %rhsc175 = load i8, ptr %97, align 1
-  %rhsc175.fr = freeze i8 %rhsc175
-  %98 = icmp eq i8 %rhsc175.fr, 108
+  %rhsc179 = load i8, ptr %97, align 1
+  %rhsc179.fr = freeze i8 %rhsc179
+  %98 = icmp eq i8 %rhsc179.fr, 108
   br i1 %98, label %99, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i135"
 
 99:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i129"
@@ -2237,11 +2237,11 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i135": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i129"
   %102 = add i64 %96, -1
-  %103 = icmp eq i8 %rhsc175.fr, 99
+  %103 = icmp eq i8 %rhsc179.fr, 99
   br i1 %103, label %159, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142"
 
 104:                                              ; preds = %159, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146", %99
-  %.0106157196 = phi i64 [ %.0106157, %99 ], [ %.0106157, %159 ], [ %.0106157197, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146" ]
+  %.0106157208 = phi i64 [ %.0106157, %99 ], [ %.0106157, %159 ], [ %.0106157209, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146" ]
   %.sroa.027.1 = phi ptr [ %100, %99 ], [ %160, %159 ], [ %.sroa.027.3, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146" ]
   %.sroa.21.1 = phi i64 [ %101, %99 ], [ %102, %159 ], [ %.sroa.21.3, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146" ]
   %.0103 = phi i32 [ 108, %99 ], [ 99, %159 ], [ %.2, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146" ]
@@ -2345,7 +2345,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br label %104
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i135"
-  %161 = icmp eq i8 %rhsc175.fr, 98
+  %161 = icmp eq i8 %rhsc179.fr, 98
   %162 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %spec.select.i145 = select i1 %161, ptr %162, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146"
@@ -2353,7 +2353,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit146": ; preds = %.thread154, %.thread154.thread, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142"
   %163 = phi ptr [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142" ], [ %89, %.thread154.thread ], [ %97, %.thread154 ]
   %164 = phi i64 [ %96, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142" ], [ 0, %.thread154.thread ], [ 0, %.thread154 ]
-  %.0106157197 = phi i64 [ %.0106157, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142" ], [ %82, %.thread154.thread ], [ %.0106157, %.thread154 ]
+  %.0106157209 = phi i64 [ %.0106157, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142" ], [ %82, %.thread154.thread ], [ %.0106157, %.thread154 ]
   %.ph167 = phi i64 [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142" ], [ -1, %.thread154.thread ], [ -1, %.thread154 ]
   %165 = phi ptr [ %spec.select.i145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i142" ], [ null, %.thread154.thread ], [ null, %.thread154 ]
   %.not111 = icmp eq ptr %165, null
@@ -2369,7 +2369,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
 167:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", %118
   %168 = icmp eq i32 %.0103, 98
   %. = select i1 %168, i64 512, i64 1
-  %169 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0106157196, i64 %.)
+  %169 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0106157208, i64 %.)
   %170 = extractvalue { i64, i1 } %169, 1
   br i1 %170, label %174, label %175
 

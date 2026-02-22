@@ -2103,8 +2103,8 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
 .critedge:                                        ; preds = %34, %.critedge.fold.split, %23, %33
   %.1181 = phi ptr [ null, %33 ], [ null, %23 ], [ %35, %34 ], [ null, %.critedge.fold.split ]
   %39 = load i64, ptr %4, align 8, !tbaa !24
-  %.fr235 = freeze i64 %39
-  %40 = and i64 %.fr235, -24
+  %.fr236 = freeze i64 %39
+  %40 = and i64 %.fr236, -24
   %.not145 = icmp eq i64 %40, 0
   br i1 %.not145, label %42, label %41
 
@@ -2113,10 +2113,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br label %143
 
 42:                                               ; preds = %.critedge
-  %.not146 = trunc nuw nsw i64 %.fr235 to i32
-  %43 = and i64 %.fr235, 2
+  %.not146 = trunc nuw nsw i64 %.fr236 to i32
+  %43 = and i64 %.fr236, 2
   %.not147 = icmp eq i64 %43, 0
-  %44 = and i64 %.fr235, 4
+  %44 = and i64 %.fr236, 4
   %.not148.not = icmp eq i64 %44, 0
   %.not149 = icmp eq ptr %.1181, null
   br i1 %.not149, label %48, label %45
@@ -2127,7 +2127,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br label %53
 
 48:                                               ; preds = %42
-  %.not150 = icmp samesign ult i64 %.fr235, 16
+  %.not150 = icmp samesign ult i64 %.fr236, 16
   br i1 %.not150, label %49, label %53
 
 49:                                               ; preds = %48
@@ -2174,8 +2174,8 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 116
   %72 = load i32, ptr %71, align 4, !tbaa !69
-  %.fr = freeze i32 %72
-  %73 = and i32 %.fr, 8
+  %.fr235 = freeze i32 %72
+  %73 = and i32 %.fr235, 8
   %.not155 = icmp eq i32 %73, 0
   %spec.select = select i1 %.not155, i8 10, i8 13
   br i1 %.not147, label %104, label %.preheader
@@ -2202,7 +2202,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   %80 = sub i64 %75, %79
   %81 = call ptr @memchr(ptr noundef nonnull %.3.us.us, i32 noundef %74, i64 noundef %80) #20
   %.not157.us.us = icmp eq ptr %81, null
-  br i1 %.not157.us.us, label %.loopexit.loopexit239, label %.preheader.split.us.split.us
+  br i1 %.not157.us.us, label %.loopexit.loopexit240, label %.preheader.split.us.split.us
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us, %88
   %.3125.us = phi i32 [ %.4126.us, %88 ], [ 0, %.preheader.split.us ]
@@ -2233,11 +2233,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br i1 %.not148.not, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %96
-  %indvars.iv243 = phi i64 [ %indvars.iv.next244, %96 ], [ 0, %.preheader.split ]
+  %indvars.iv244 = phi i64 [ %indvars.iv.next245, %96 ], [ 0, %.preheader.split ]
   %.3119.us220 = phi ptr [ %.3.us226, %96 ], [ %65, %.preheader.split ]
   %.2.us221 = phi ptr [ %103, %96 ], [ %69, %.preheader.split ]
-  %.not236 = icmp eq ptr %.2.us221, %65
-  br i1 %.not236, label %96, label %92
+  %.not237 = icmp eq ptr %.2.us221, %65
+  br i1 %.not237, label %96, label %92
 
 92:                                               ; preds = %.preheader.split.split.us
   %93 = getelementptr inbounds i8, ptr %.2.us221, i64 -1
@@ -2251,9 +2251,9 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   %97 = ptrtoint ptr %.2.us221 to i64
   %98 = ptrtoint ptr %.3119.us220 to i64
   %99 = add i64 %.0.us222, %98
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %100 = sub i64 %97, %99
-  call void @add_index_stringl(ptr noundef nonnull %1, i64 noundef %indvars.iv243, ptr noundef nonnull %.3119.us220, i64 noundef %100) #18
+  call void @add_index_stringl(ptr noundef nonnull %1, i64 noundef %indvars.iv244, ptr noundef nonnull %.3119.us220, i64 noundef %100) #18
   %.3.us226 = getelementptr inbounds nuw i8, ptr %.2.us221, i64 1
   %101 = ptrtoint ptr %.3.us226 to i64
   %102 = sub i64 %75, %101
@@ -2291,8 +2291,8 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   %.3125 = phi i32 [ %.4126, %128 ], [ 0, %.preheader.split ]
   %.3119 = phi ptr [ %.3, %128 ], [ %65, %.preheader.split ]
   %.2 = phi ptr [ %131, %128 ], [ %69, %.preheader.split ]
-  %.not237 = icmp eq ptr %.2, %65
-  br i1 %.not237, label %120, label %116
+  %.not238 = icmp eq ptr %.2, %65
+  br i1 %.not238, label %120, label %116
 
 116:                                              ; preds = %.preheader.split.split
   %117 = getelementptr inbounds i8, ptr %.2, i64 -1
@@ -2326,17 +2326,17 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br i1 %.not157, label %.loopexit, label %.preheader.split.split
 
 .loopexit.loopexit:                               ; preds = %96
-  %132 = trunc nuw i64 %indvars.iv.next244 to i32
+  %132 = trunc nuw i64 %indvars.iv.next245 to i32
   br label %.loopexit
 
-.loopexit.loopexit239:                            ; preds = %.preheader.split.us.split.us
+.loopexit.loopexit240:                            ; preds = %.preheader.split.us.split.us
   %133 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %128, %.loopexit.loopexit239, %.loopexit.loopexit, %106
-  %.3133 = phi i8 [ %.0130, %106 ], [ 13, %.loopexit.loopexit239 ], [ %spec.select, %.loopexit.loopexit ], [ %spec.select, %128 ], [ %spec.select, %88 ]
-  %.2124 = phi i32 [ %107, %106 ], [ %133, %.loopexit.loopexit239 ], [ %132, %.loopexit.loopexit ], [ %.4126, %128 ], [ %.4126.us, %88 ]
-  %.2118 = phi ptr [ %.0115, %106 ], [ %.3.us.us, %.loopexit.loopexit239 ], [ %.3.us226, %.loopexit.loopexit ], [ %.3, %128 ], [ %.3.us, %88 ]
+.loopexit:                                        ; preds = %88, %128, %.loopexit.loopexit240, %.loopexit.loopexit, %106
+  %.3133 = phi i8 [ %.0130, %106 ], [ 13, %.loopexit.loopexit240 ], [ %spec.select, %.loopexit.loopexit ], [ %spec.select, %128 ], [ %spec.select, %88 ]
+  %.2124 = phi i32 [ %107, %106 ], [ %133, %.loopexit.loopexit240 ], [ %132, %.loopexit.loopexit ], [ %.4126, %128 ], [ %.4126.us, %88 ]
+  %.2118 = phi ptr [ %.0115, %106 ], [ %.3.us.us, %.loopexit.loopexit240 ], [ %.3.us226, %.loopexit.loopexit ], [ %.3, %128 ], [ %.3.us, %88 ]
   %.not159 = icmp eq ptr %.2118, %68
   br i1 %.not159, label %134, label %106
 

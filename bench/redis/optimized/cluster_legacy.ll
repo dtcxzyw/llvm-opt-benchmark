@@ -13600,15 +13600,15 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
   %.not = icmp ne i32 %7, 0
   %8 = icmp eq ptr %4, null
   %or.cond71 = select i1 %.not, i1 true, i1 %8
-  br i1 %or.cond71, label %90, label %.preheader80
+  br i1 %or.cond71, label %90, label %.preheader82
 
-.preheader80:                                     ; preds = %1
+.preheader82:                                     ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 2168
   %10 = load i32, ptr %9, align 8, !tbaa !39
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader80
+.lr.ph:                                           ; preds = %.preheader82
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2176
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %wide.trip.count = zext nneg i32 %10 to i64
@@ -13616,7 +13616,7 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.04381 = phi i32 [ 0, %.lr.ph ], [ %.144, %14 ]
+  %.04383 = phi i32 [ 0, %.lr.ph ], [ %.144, %14 ]
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
@@ -13624,13 +13624,13 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
   %19 = and i32 %18, 12
   %or.cond = icmp eq i32 %19, 0
   %20 = zext i1 %or.cond to i32
-  %.144 = add nuw nsw i32 %.04381, %20
+  %.144 = add nuw nsw i32 %.04383, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !279
 
-._crit_edge:                                      ; preds = %14, %.preheader80
-  %.043.lcssa = phi i32 [ 0, %.preheader80 ], [ %.144, %14 ]
+._crit_edge:                                      ; preds = %14, %.preheader82
+  %.043.lcssa = phi i32 [ 0, %.preheader82 ], [ %.144, %14 ]
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7928), align 8, !tbaa !280
   %.not53 = icmp sgt i32 %.043.lcssa, %21
   br i1 %.not53, label %22, label %90
@@ -13640,13 +13640,13 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
   %24 = load ptr, ptr %23, align 8, !tbaa !72
   %25 = tail call ptr @dictGetSafeIterator(ptr noundef %24) #33
   %26 = tail call ptr @dictNext(ptr noundef %25) #33
-  %.not5487 = icmp eq ptr %26, null
-  br i1 %.not5487, label %._crit_edge92, label %.lr.ph91
+  %.not5489 = icmp eq ptr %26, null
+  br i1 %.not5489, label %._crit_edge94, label %.lr.ph93
 
-.lr.ph91:                                         ; preds = %22, %.loopexit
+.lr.ph93:                                         ; preds = %22, %.loopexit
   %27 = phi ptr [ %72, %.loopexit ], [ %26, %22 ]
-  %.04589 = phi ptr [ %.247, %.loopexit ], [ null, %22 ]
-  %.04888 = phi ptr [ %.149, %.loopexit ], [ %2, %22 ]
+  %.04591 = phi ptr [ %.247, %.loopexit ], [ null, %22 ]
+  %.04890 = phi ptr [ %.149, %.loopexit ], [ %2, %22 ]
   %28 = tail call ptr @dictGetVal(ptr noundef nonnull %27) #33
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %30 = load i32, ptr %29, align 8, !tbaa !82
@@ -13656,7 +13656,7 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
   %.not60 = icmp eq i32 %32, 0
   br i1 %.not60, label %clusterCountNonFailingSlaves.exit.thread, label %33
 
-33:                                               ; preds = %.lr.ph91
+33:                                               ; preds = %.lr.ph93
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 2168
   %35 = load i32, ptr %34, align 8, !tbaa !39
   %36 = icmp sgt i32 %35, 0
@@ -13675,8 +13675,8 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %43 = load i32, ptr %42, align 8, !tbaa !82
-  %.fr = freeze i32 %43
-  %44 = lshr i32 %.fr, 3
+  %.fr80 = freeze i32 %43
+  %44 = lshr i32 %.fr80, 3
   %45 = and i32 %44, 1
   %46 = xor i32 %45, 1
   %spec.select.i = add i32 %46, %.08.i
@@ -13685,15 +13685,15 @@ define dso_local void @clusterHandleSlaveMigration(i32 noundef %0) local_unnamed
   br i1 %exitcond.not.i, label %clusterCountNonFailingSlaves.exit, label %39, !llvm.loop !184
 
 clusterCountNonFailingSlaves.exit:                ; preds = %39
-  %.not79 = icmp ne i32 %spec.select.i, 0
-  %brmerge = or i1 %.not79, %narrow.not
+  %.not81 = icmp ne i32 %spec.select.i, 0
+  %brmerge = or i1 %.not81, %narrow.not
   br i1 %brmerge, label %.thread, label %47
 
-clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph91
+clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph93
   br i1 %narrow.not, label %.thread, label %47
 
 47:                                               ; preds = %clusterCountNonFailingSlaves.exit, %clusterCountNonFailingSlaves.exit.thread
-  %.not62 = icmp eq ptr %.04589, null
+  %.not62 = icmp eq ptr %.04591, null
   br i1 %.not62, label %48, label %52
 
 48:                                               ; preds = %47
@@ -13704,7 +13704,7 @@ clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph91
   br label %52
 
 52:                                               ; preds = %48, %47
-  %.146 = phi ptr [ %.04589, %47 ], [ %spec.select67, %48 ]
+  %.146 = phi ptr [ %.04591, %47 ], [ %spec.select67, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 2248
   %54 = load i64, ptr %53, align 8, !tbaa !281
   %.not63 = icmp eq i64 %54, 0
@@ -13723,7 +13723,7 @@ clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph91
 
 58:                                               ; preds = %52, %55, %.thread
   %.0407477 = phi i32 [ 0, %52 ], [ 0, %55 ], [ %.0407478, %.thread ]
-  %.247 = phi ptr [ %.146, %52 ], [ %.146, %55 ], [ %.04589, %.thread ]
+  %.247 = phi ptr [ %.146, %52 ], [ %.146, %55 ], [ %.04591, %.thread ]
   %59 = icmp eq i32 %.0407477, %0
   br i1 %59, label %.preheader, label %.loopexit
 
@@ -13731,35 +13731,35 @@ clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph91
   %60 = getelementptr inbounds nuw i8, ptr %28, i64 2168
   %61 = load i32, ptr %60, align 8, !tbaa !39
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph85, label %.loopexit
+  br i1 %62, label %.lr.ph87, label %.loopexit
 
-.lr.ph85:                                         ; preds = %.preheader
+.lr.ph87:                                         ; preds = %.preheader
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 2176
   %64 = load ptr, ptr %63, align 8, !tbaa !45
-  %wide.trip.count99 = zext nneg i32 %61 to i64
+  %wide.trip.count101 = zext nneg i32 %61 to i64
   br label %65
 
-65:                                               ; preds = %.lr.ph85, %65
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next97, %65 ]
-  %.25083 = phi ptr [ %.04888, %.lr.ph85 ], [ %spec.select68, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv96
+65:                                               ; preds = %.lr.ph87, %65
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next99, %65 ]
+  %.25085 = phi ptr [ %.04890, %.lr.ph87 ], [ %spec.select68, %65 ]
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv98
   %67 = load ptr, ptr %66, align 8, !tbaa !46
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %.25083, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.25085, i64 8
   %70 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(40) %68, ptr noundef nonnull dereferenceable(40) %69, i64 noundef 40) #34
   %71 = icmp slt i32 %70, 0
-  %spec.select68 = select i1 %71, ptr %67, ptr %.25083
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %65, !llvm.loop !282
+  %spec.select68 = select i1 %71, ptr %67, ptr %.25085
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
+  br i1 %exitcond102.not, label %.loopexit, label %65, !llvm.loop !282
 
 .loopexit:                                        ; preds = %65, %.preheader, %58
-  %.149 = phi ptr [ %.04888, %58 ], [ %.04888, %.preheader ], [ %spec.select68, %65 ]
+  %.149 = phi ptr [ %.04890, %58 ], [ %.04890, %.preheader ], [ %spec.select68, %65 ]
   %72 = tail call ptr @dictNext(ptr noundef %25) #33
   %.not54 = icmp eq ptr %72, null
-  br i1 %.not54, label %._crit_edge92, label %.lr.ph91, !llvm.loop !283
+  br i1 %.not54, label %._crit_edge94, label %.lr.ph93, !llvm.loop !283
 
-._crit_edge92:                                    ; preds = %.loopexit, %22
+._crit_edge94:                                    ; preds = %.loopexit, %22
   %.048.lcssa = phi ptr [ %2, %22 ], [ %.149, %.loopexit ]
   %.045.lcssa = phi ptr [ null, %22 ], [ %.247, %.loopexit ]
   tail call void @dictReleaseIterator(ptr noundef %25) #33
@@ -13769,7 +13769,7 @@ clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph91
   %or.cond70 = select i1 %.not55, i1 %74, i1 false
   br i1 %or.cond70, label %75, label %90
 
-75:                                               ; preds = %._crit_edge92
+75:                                               ; preds = %._crit_edge94
   %76 = tail call i64 @mstime() #33
   %77 = getelementptr inbounds nuw i8, ptr %.045.lcssa, i64 2248
   %78 = load i64, ptr %77, align 8, !tbaa !281
@@ -13797,7 +13797,7 @@ clusterCountNonFailingSlaves.exit.thread:         ; preds = %33, %.lr.ph91
   tail call void @clusterSetMaster(ptr noundef nonnull %.045.lcssa)
   br label %90
 
-90:                                               ; preds = %._crit_edge92, %75, %81, %89, %._crit_edge, %1
+90:                                               ; preds = %._crit_edge94, %75, %81, %89, %._crit_edge, %1
   ret void
 }
 

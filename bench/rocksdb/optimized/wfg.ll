@@ -240,109 +240,107 @@ define noundef ptr @_ZN4toku3wfg16find_create_nodeEm(ptr noundef nonnull align 8
   %6 = load i8, ptr %0, align 8, !tbaa !4, !range !12, !noundef !13
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %7, label %9, label %35
+  br i1 %7, label %9, label %36
 
 9:                                                ; preds = %2
   %10 = load i32, ptr %8, align 8, !tbaa !11
-  %.fr56.i.i = freeze i32 %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !11
-  %.fr58.i.i = freeze i32 %12
-  %.not38.i.i = icmp eq i32 %.fr58.i.i, 0
+  %.not38.i.i = icmp eq i32 %12, 0
   br i1 %.not38.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
-  %13 = add i32 %.fr58.i.i, %.fr56.i.i
+  %13 = add i32 %12, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   br label %16
 
-16:                                               ; preds = %27, %.lr.ph.i.i
-  %.02442.i.i = phi i32 [ %.fr56.i.i, %.lr.ph.i.i ], [ %.1.i.i, %27 ]
-  %.02541.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.126.i.i, %27 ]
-  %.02740.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.128.i.i, %27 ]
-  %.02939.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %.130.i.i, %27 ]
+16:                                               ; preds = %28, %.lr.ph.i.i
+  %.02442.i.i = phi i32 [ %10, %.lr.ph.i.i ], [ %.1.i.i, %28 ]
+  %.02541.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.126.i.i, %28 ]
+  %.02740.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.128.i.i, %28 ]
+  %.02939.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %.130.i.i, %28 ]
   %17 = add i32 %.02939.i.i, %.02442.i.i
   %18 = lshr i32 %17, 1
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = load i64, ptr %21, align 8, !tbaa !23
-  %.fr.i.i = freeze i64 %22
-  %23 = icmp ult i64 %.fr.i.i, %1
+  %23 = icmp ult i64 %22, %1
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %16
   %25 = add nuw i32 %18, 1
-  br label %27
+  br label %28
 
 26:                                               ; preds = %16
-  %.not37.i.i = icmp eq i64 %.fr.i.i, %1
+  %.not37.i.i = icmp eq i64 %22, %1
   %.027..i.i = select i1 %.not37.i.i, i32 %.02740.i.i, i32 %18
   %..025.i.i = select i1 %.not37.i.i, i32 %18, i32 %.02541.i.i
-  br label %27
+  %27 = freeze i32 %.027..i.i
+  br label %28
 
-27:                                               ; preds = %26, %24
+28:                                               ; preds = %26, %24
   %.130.i.i = phi i32 [ %.02939.i.i, %24 ], [ %18, %26 ]
-  %.128.i.i = phi i32 [ %.02740.i.i, %24 ], [ %.027..i.i, %26 ]
+  %.128.i.i = phi i32 [ %.02740.i.i, %24 ], [ %27, %26 ]
   %.126.i.i = phi i32 [ %.02541.i.i, %24 ], [ %..025.i.i, %26 ]
   %.1.i.i = phi i32 [ %25, %24 ], [ %.02442.i.i, %26 ]
   %.not.i.i = icmp eq i32 %.1.i.i, %.130.i.i
   br i1 %.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !29
 
-._crit_edge.i.i:                                  ; preds = %27
+._crit_edge.i.i:                                  ; preds = %28
   %.not33.i.i = icmp eq i32 %.126.i.i, -1
-  br i1 %.not33.i.i, label %33, label %28
+  br i1 %.not33.i.i, label %34, label %29
 
-28:                                               ; preds = %._crit_edge.i.i
-  %29 = zext nneg i32 %.126.i.i to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !20
-  store ptr %31, ptr %4, align 8, !tbaa !20
-  %32 = sub i32 %.126.i.i, %.fr56.i.i
+29:                                               ; preds = %._crit_edge.i.i
+  %30 = zext nneg i32 %.126.i.i to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
+  store ptr %32, ptr %4, align 8, !tbaa !20
+  %33 = sub i32 %.126.i.i, %10
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
 
-33:                                               ; preds = %._crit_edge.i.i
+34:                                               ; preds = %._crit_edge.i.i
   %.not34.i.i = icmp eq i32 %.128.i.i, -1
-  %34 = sub i32 %.128.i.i, %.fr56.i.i
+  %35 = sub i32 %.128.i.i, %10
   br i1 %.not34.i.i, label %.thread.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
 
-.thread.i.i:                                      ; preds = %33, %9
+.thread.i.i:                                      ; preds = %34, %9
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i: ; preds = %.thread.i.i, %33, %28
-  %storemerge35.i.i = phi i32 [ %32, %28 ], [ %.fr58.i.i, %.thread.i.i ], [ %34, %33 ]
-  %.0.i.i = phi i32 [ 0, %28 ], [ -30989, %.thread.i.i ], [ -30989, %33 ]
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i: ; preds = %.thread.i.i, %34, %29
+  %storemerge35.i.i = phi i32 [ %33, %29 ], [ %12, %.thread.i.i ], [ %35, %34 ]
+  %.0.i.i = phi i32 [ 0, %29 ], [ -30989, %.thread.i.i ], [ -30989, %34 ]
   store i32 %storemerge35.i.i, ptr %5, align 4, !tbaa !30
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
-35:                                               ; preds = %2
-  %36 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+36:                                               ; preds = %2
+  %37 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i, %35
-  %.0.i = phi i32 [ %.0.i.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i ], [ %36, %35 ]
-  %37 = icmp eq i32 %.0.i, -30989
-  br i1 %37, label %38, label %45
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i, %36
+  %.0.i = phi i32 [ %.0.i.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i ], [ %37, %36 ]
+  %38 = icmp eq i32 %.0.i, -30989
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
-  %39 = load i64, ptr %3, align 8, !tbaa !28
-  %40 = call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 40)
-  store i64 %39, ptr %40, align 8, !tbaa !23
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i8 0, ptr %41, align 8, !tbaa !31
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  call void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24) %42)
-  store ptr %40, ptr %4, align 8, !tbaa !20
-  %43 = load i32, ptr %5, align 4, !tbaa !30
-  %44 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %43)
-  br label %45
+39:                                               ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
+  %40 = load i64, ptr %3, align 8, !tbaa !28
+  %41 = call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 40)
+  store i64 %40, ptr %41, align 8, !tbaa !23
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store i8 0, ptr %42, align 8, !tbaa !31
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  call void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24) %43)
+  store ptr %41, ptr %4, align 8, !tbaa !20
+  %44 = load i32, ptr %5, align 4, !tbaa !30
+  %45 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %44)
+  br label %46
 
-45:                                               ; preds = %38, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
-  %46 = load ptr, ptr %4, align 8, !tbaa !20
+46:                                               ; preds = %39, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
+  %47 = load ptr, ptr %4, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %46
+  ret ptr %47
 }
 
 declare void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #1
@@ -365,20 +363,18 @@ define noundef zeroext i1 @_ZN4toku3wfg11node_existsEm(ptr noundef nonnull align
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !11
-  %.fr58.i.i.i = freeze i32 %11
-  %.not38.i.i.i = icmp eq i32 %.fr58.i.i.i, 0
+  %.not38.i.i.i = icmp eq i32 %11, 0
   br i1 %.not38.i.i.i, label %_ZN4toku3wfg9find_nodeEm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9
   %12 = load i32, ptr %8, align 8, !tbaa !11
-  %.fr56.i.i.i = freeze i32 %12
-  %13 = add i32 %.fr56.i.i.i, %.fr58.i.i.i
+  %13 = add i32 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
-  %.02442.i.i.i = phi i32 [ %.fr56.i.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %16 ]
+  %.02442.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i ], [ %.1.i.i.i, %16 ]
   %.02541.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.126.i.i.i, %16 ]
   %.02939.i.i.i = phi i32 [ %13, %.lr.ph.i.i.i ], [ %.130.i.i.i, %16 ]
   %17 = add i32 %.02939.i.i.i, %.02442.i.i.i
@@ -387,10 +383,9 @@ define noundef zeroext i1 @_ZN4toku3wfg11node_existsEm(ptr noundef nonnull align
   %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = load i64, ptr %21, align 8, !tbaa !23
-  %.fr.i.i.i = freeze i64 %22
-  %23 = icmp ult i64 %.fr.i.i.i, %1
+  %23 = icmp ult i64 %22, %1
   %24 = add nuw i32 %18, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %1
+  %.not37.i.i.i.not = icmp eq i64 %22, %1
   %.130.i.i.i = select i1 %23, i32 %.02939.i.i.i, i32 %18
   %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %18, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %23, i32 %24, i32 %.02442.i.i.i
@@ -433,76 +428,74 @@ define noundef ptr @_ZN4toku3wfg9find_nodeEm(ptr noundef nonnull align 8 derefer
   %6 = load i8, ptr %0, align 8, !tbaa !4, !range !12, !noundef !13
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %7, label %9, label %32
+  br i1 %7, label %9, label %33
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !11
-  %.fr58.i.i = freeze i32 %11
-  %.not38.i.i = icmp eq i32 %.fr58.i.i, 0
+  %.not38.i.i = icmp eq i32 %11, 0
   br i1 %.not38.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %12 = load i32, ptr %8, align 8, !tbaa !11
-  %.fr56.i.i = freeze i32 %12
-  %13 = add i32 %.fr58.i.i, %.fr56.i.i
+  %13 = add i32 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   br label %16
 
-16:                                               ; preds = %27, %.lr.ph.i.i
-  %.02442.i.i = phi i32 [ %.fr56.i.i, %.lr.ph.i.i ], [ %.1.i.i, %27 ]
-  %.02541.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.126.i.i, %27 ]
-  %.02740.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.128.i.i, %27 ]
-  %.02939.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %.130.i.i, %27 ]
+16:                                               ; preds = %28, %.lr.ph.i.i
+  %.02442.i.i = phi i32 [ %12, %.lr.ph.i.i ], [ %.1.i.i, %28 ]
+  %.02541.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.126.i.i, %28 ]
+  %.02740.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.128.i.i, %28 ]
+  %.02939.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %.130.i.i, %28 ]
   %17 = add i32 %.02939.i.i, %.02442.i.i
   %18 = lshr i32 %17, 1
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = load i64, ptr %21, align 8, !tbaa !23
-  %.fr.i.i = freeze i64 %22
-  %23 = icmp ult i64 %.fr.i.i, %1
+  %23 = icmp ult i64 %22, %1
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %16
   %25 = add nuw i32 %18, 1
-  br label %27
+  br label %28
 
 26:                                               ; preds = %16
-  %.not37.i.i = icmp eq i64 %.fr.i.i, %1
+  %.not37.i.i = icmp eq i64 %22, %1
   %.027..i.i = select i1 %.not37.i.i, i32 %.02740.i.i, i32 %18
   %..025.i.i = select i1 %.not37.i.i, i32 %18, i32 %.02541.i.i
-  br label %27
+  %27 = freeze i32 %.027..i.i
+  br label %28
 
-27:                                               ; preds = %26, %24
+28:                                               ; preds = %26, %24
   %.130.i.i = phi i32 [ %.02939.i.i, %24 ], [ %18, %26 ]
-  %.128.i.i = phi i32 [ %.02740.i.i, %24 ], [ %.027..i.i, %26 ]
+  %.128.i.i = phi i32 [ %.02740.i.i, %24 ], [ %27, %26 ]
   %.126.i.i = phi i32 [ %.02541.i.i, %24 ], [ %..025.i.i, %26 ]
   %.1.i.i = phi i32 [ %25, %24 ], [ %.02442.i.i, %26 ]
   %.not.i.i = icmp eq i32 %.1.i.i, %.130.i.i
   br i1 %.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !29
 
-._crit_edge.i.i:                                  ; preds = %27
+._crit_edge.i.i:                                  ; preds = %28
   %.not33.i.i = icmp eq i32 %.126.i.i, -1
-  br i1 %.not33.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit, label %28
+  br i1 %.not33.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit, label %29
 
-28:                                               ; preds = %._crit_edge.i.i
-  %29 = zext nneg i32 %.126.i.i to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !20
+29:                                               ; preds = %._crit_edge.i.i
+  %30 = zext nneg i32 %.126.i.i to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
-32:                                               ; preds = %2
-  %33 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, ptr noundef nonnull %3)
+33:                                               ; preds = %2
+  %34 = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, ptr noundef nonnull %3)
   %.pre = load ptr, ptr %5, align 8, !tbaa !20
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %._crit_edge.i.i, %28, %9, %32
-  %34 = phi ptr [ %.pre, %32 ], [ %31, %28 ], [ null, %9 ], [ null, %._crit_edge.i.i ]
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %._crit_edge.i.i, %29, %9, %33
+  %35 = phi ptr [ %.pre, %33 ], [ %32, %29 ], [ null, %9 ], [ null, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %34
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -567,19 +560,17 @@ _ZNKSt8functionIFvmEEclEm.exit:                   ; preds = %26
 
 32:                                               ; preds = %29
   %33 = load i32, ptr %16, align 4, !tbaa !11
-  %.fr58.i.i.i = freeze i32 %33
-  %.not38.i.i.i = icmp eq i32 %.fr58.i.i.i, 0
+  %.not38.i.i.i = icmp eq i32 %33, 0
   br i1 %.not38.i.i.i, label %_ZN4toku3wfg9find_nodeEm.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %32
   %34 = load i32, ptr %15, align 8, !tbaa !11
-  %.fr56.i.i.i = freeze i32 %34
-  %35 = add i32 %.fr56.i.i.i, %.fr58.i.i.i
+  %35 = add i32 %34, %33
   %36 = load ptr, ptr %17, align 8, !tbaa !11
   br label %37
 
 37:                                               ; preds = %37, %.lr.ph.i.i.i
-  %.02442.i.i.i = phi i32 [ %.fr56.i.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %37 ]
+  %.02442.i.i.i = phi i32 [ %34, %.lr.ph.i.i.i ], [ %.1.i.i.i, %37 ]
   %.02541.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.126.i.i.i, %37 ]
   %.02939.i.i.i = phi i32 [ %35, %.lr.ph.i.i.i ], [ %.130.i.i.i, %37 ]
   %38 = add i32 %.02939.i.i.i, %.02442.i.i.i
@@ -588,10 +579,9 @@ _ZNKSt8functionIFvmEEclEm.exit:                   ; preds = %26
   %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %43 = load i64, ptr %42, align 8, !tbaa !23
-  %.fr.i.i.i = freeze i64 %43
-  %44 = icmp ult i64 %.fr.i.i.i, %23
+  %44 = icmp ult i64 %43, %23
   %45 = add nuw i32 %39, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %23
+  %.not37.i.i.i.not = icmp eq i64 %43, %23
   %.130.i.i.i = select i1 %44, i32 %.02939.i.i.i, i32 %39
   %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %39, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %44, i32 %45, i32 %.02442.i.i.i
@@ -727,8 +717,8 @@ _ZNKSt8functionIFvmEEclEm.exit31:                 ; preds = %79
 
 90:                                               ; preds = %_ZN4toku3wfg9find_nodeEm.exit.thread, %_ZN4toku3wfg9find_nodeEm.exit, %52, %_ZNSt14_Function_baseD2Ev.exit
   %91 = add nuw i32 %.02240, 1
-  %.not57 = icmp ult i32 %91, %13
-  br i1 %.not57, label %22, label %._crit_edge, !llvm.loop !36
+  %.not59 = icmp ult i32 %91, %13
+  br i1 %.not59, label %22, label %._crit_edge, !llvm.loop !36
 }
 
 declare noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
@@ -756,20 +746,18 @@ define noundef zeroext i1 @_ZN4toku3wfg23cycle_exists_from_txnidEmSt8functionIFv
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !11
-  %.fr58.i.i.i = freeze i32 %13
-  %.not38.i.i.i = icmp eq i32 %.fr58.i.i.i, 0
+  %.not38.i.i.i = icmp eq i32 %13, 0
   br i1 %.not38.i.i.i, label %_ZN4toku3wfg9find_nodeEm.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %11
   %14 = load i32, ptr %10, align 8, !tbaa !11
-  %.fr56.i.i.i = freeze i32 %14
-  %15 = add i32 %.fr56.i.i.i, %.fr58.i.i.i
+  %15 = add i32 %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i.i.i
-  %.02442.i.i.i = phi i32 [ %.fr56.i.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %18 ]
+  %.02442.i.i.i = phi i32 [ %14, %.lr.ph.i.i.i ], [ %.1.i.i.i, %18 ]
   %.02541.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.126.i.i.i, %18 ]
   %.02939.i.i.i = phi i32 [ %15, %.lr.ph.i.i.i ], [ %.130.i.i.i, %18 ]
   %19 = add i32 %.02939.i.i.i, %.02442.i.i.i
@@ -778,10 +766,9 @@ define noundef zeroext i1 @_ZN4toku3wfg23cycle_exists_from_txnidEmSt8functionIFv
   %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = load i64, ptr %23, align 8, !tbaa !23
-  %.fr.i.i.i = freeze i64 %24
-  %25 = icmp ult i64 %.fr.i.i.i, %1
+  %25 = icmp ult i64 %24, %1
   %26 = add nuw i32 %20, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %1
+  %.not37.i.i.i.not = icmp eq i64 %24, %1
   %.130.i.i.i = select i1 %25, i32 %.02939.i.i.i, i32 %20
   %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %20, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %25, i32 %26, i32 %.02442.i.i.i
@@ -1038,20 +1025,18 @@ define void @_ZN4toku3wfg11apply_edgesEmPFimmPvES1_(ptr noundef nonnull align 8 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !11
-  %.fr58.i.i.i = freeze i32 %13
-  %.not38.i.i.i = icmp eq i32 %.fr58.i.i.i, 0
+  %.not38.i.i.i = icmp eq i32 %13, 0
   br i1 %.not38.i.i.i, label %_ZN4toku3wfg9find_nodeEm.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %11
   %14 = load i32, ptr %10, align 8, !tbaa !11
-  %.fr56.i.i.i = freeze i32 %14
-  %15 = add i32 %.fr56.i.i.i, %.fr58.i.i.i
+  %15 = add i32 %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i.i.i
-  %.02442.i.i.i = phi i32 [ %.fr56.i.i.i, %.lr.ph.i.i.i ], [ %.1.i.i.i, %18 ]
+  %.02442.i.i.i = phi i32 [ %14, %.lr.ph.i.i.i ], [ %.1.i.i.i, %18 ]
   %.02541.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.126.i.i.i, %18 ]
   %.02939.i.i.i = phi i32 [ %15, %.lr.ph.i.i.i ], [ %.130.i.i.i, %18 ]
   %19 = add i32 %.02939.i.i.i, %.02442.i.i.i
@@ -1060,10 +1045,9 @@ define void @_ZN4toku3wfg11apply_edgesEmPFimmPvES1_(ptr noundef nonnull align 8 
   %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = load i64, ptr %23, align 8, !tbaa !23
-  %.fr.i.i.i = freeze i64 %24
-  %25 = icmp ult i64 %.fr.i.i.i, %1
+  %25 = icmp ult i64 %24, %1
   %26 = add nuw i32 %20, 1
-  %.not37.i.i.i.not = icmp eq i64 %.fr.i.i.i, %1
+  %.not37.i.i.i.not = icmp eq i64 %24, %1
   %.130.i.i.i = select i1 %25, i32 %.02939.i.i.i, i32 %20
   %.126.i.i.i = select i1 %.not37.i.i.i.not, i32 %20, i32 %.02541.i.i.i
   %.1.i.i.i = select i1 %25, i32 %26, i32 %.02442.i.i.i

@@ -6318,9 +6318,9 @@ define internal noundef i32 @hq4x(ptr readnone captures(none) %0, ptr noundef re
   %18 = load i32, ptr %17, align 8, !tbaa !20
   %19 = ashr i32 %18, 2
   %20 = icmp slt i32 %13, %16
-  br i1 %20, label %.lr.ph400, label %hqx_filter.exit
+  br i1 %20, label %.lr.ph388, label %hqx_filter.exit
 
-.lr.ph400:                                        ; preds = %4
+.lr.ph388:                                        ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
@@ -6340,7 +6340,7 @@ define internal noundef i32 @hq4x(ptr readnone captures(none) %0, ptr noundef re
   %37 = sext i32 %36 to i64
   br i1 %28, label %.lr.ph.us.preheader, label %hqx_filter.exit
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph400
+.lr.ph.us.preheader:                              ; preds = %.lr.ph388
   %38 = load ptr, ptr %22, align 8, !tbaa !60
   %39 = shl i32 %13, 2
   %40 = mul i32 %39, %24
@@ -6353,57 +6353,56 @@ define internal noundef i32 @hq4x(ptr readnone captures(none) %0, ptr noundef re
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.0141.i398.us = phi i32 [ %4337, %._crit_edge.us ], [ %13, %.lr.ph.us.preheader ]
-  %.0142.i397.us = phi ptr [ %4336, %._crit_edge.us ], [ %42, %.lr.ph.us.preheader ]
-  %.0143.i396.us = phi ptr [ %4335, %._crit_edge.us ], [ %46, %.lr.ph.us.preheader ]
-  %47 = icmp sgt i32 %.0141.i398.us, 0
+  %.0141.i386.us = phi i32 [ %4345, %._crit_edge.us ], [ %13, %.lr.ph.us.preheader ]
+  %.0142.i385.us = phi ptr [ %4344, %._crit_edge.us ], [ %42, %.lr.ph.us.preheader ]
+  %.0143.i384.us = phi ptr [ %4343, %._crit_edge.us ], [ %46, %.lr.ph.us.preheader ]
+  %47 = icmp sgt i32 %.0141.i386.us, 0
   %48 = select i1 %47, i32 %26, i32 0
-  %49 = icmp slt i32 %.0141.i398.us, %27
+  %49 = icmp slt i32 %.0141.i386.us, %27
   %50 = select i1 %49, i32 %19, i32 0
   %51 = sext i32 %48 to i64
   %52 = sext i32 %50 to i64
   br label %53
 
 53:                                               ; preds = %.lr.ph.us, %hq4x_interp_2x2.exit.us
-  %.0.i395.us = phi i32 [ 0, %.lr.ph.us ], [ %4334, %hq4x_interp_2x2.exit.us ]
-  %.0144.i394.us = phi ptr [ %.0143.i396.us, %.lr.ph.us ], [ %4332, %hq4x_interp_2x2.exit.us ]
-  %.0145.i393.us = phi ptr [ %.0142.i397.us, %.lr.ph.us ], [ %4333, %hq4x_interp_2x2.exit.us ]
-  %.not.i.us = icmp ne i32 %.0.i395.us, 0
+  %.0.i383.us = phi i32 [ 0, %.lr.ph.us ], [ %4342, %hq4x_interp_2x2.exit.us ]
+  %.0144.i382.us = phi ptr [ %.0143.i384.us, %.lr.ph.us ], [ %4340, %hq4x_interp_2x2.exit.us ]
+  %.0145.i381.us = phi ptr [ %.0142.i385.us, %.lr.ph.us ], [ %4341, %hq4x_interp_2x2.exit.us ]
+  %.not.i.us = icmp ne i32 %.0.i383.us, 0
   %54 = sext i1 %.not.i.us to i32
-  %55 = icmp slt i32 %.0.i395.us, %29
+  %55 = icmp slt i32 %.0.i383.us, %29
   %56 = zext i1 %55 to i32
   %57 = add nsw i32 %48, %54
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %58
+  %59 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !20
-  %61 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %51
+  %61 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %51
   %62 = load i32, ptr %61, align 4, !tbaa !20
   %63 = add nsw i32 %48, %56
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %64
+  %65 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !20
   %67 = sext i1 %.not.i.us to i64
-  %68 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %67
+  %68 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !20
-  %70 = load i32, ptr %.0144.i394.us, align 4, !tbaa !20
+  %70 = load i32, ptr %.0144.i382.us, align 4, !tbaa !20
   %71 = zext i1 %55 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %.0144.i394.us, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %.0144.i382.us, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !20
   %74 = add nsw i32 %50, %54
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %75
+  %76 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !20
-  %78 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %52
+  %78 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %52
   %79 = load i32, ptr %78, align 4, !tbaa !20
   %80 = add nsw i32 %50, %56
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %.0144.i394.us, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.0144.i382.us, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !20
   %84 = and i32 %70, 16777215
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i32, ptr %7, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !20
-  %.fr264.us = freeze i32 %87
   %.not156.i.us = icmp eq i32 %70, %60
   br i1 %.not156.i.us, label %yuv_diff.exit8.us, label %88
 
@@ -6412,25 +6411,24 @@ define internal noundef i32 @hq4x(ptr readnone captures(none) %0, ptr noundef re
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i32, ptr %7, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !20
-  %.fr272.us = freeze i32 %92
-  %93 = and i32 %.fr264.us, 16711680
-  %94 = and i32 %.fr272.us, 16711680
+  %93 = and i32 %87, 16711680
+  %94 = and i32 %92, 16711680
   %95 = add nsw i32 %93, -3145729
   %96 = sub nsw i32 %95, %94
   %97 = icmp ult i32 %96, -6291457
   br i1 %97, label %yuv_diff.exit8.us, label %98
 
 98:                                               ; preds = %88
-  %99 = and i32 %.fr264.us, 65280
-  %100 = and i32 %.fr272.us, 65280
+  %99 = and i32 %87, 65280
+  %100 = and i32 %92, 65280
   %101 = add nsw i32 %99, -1793
   %102 = sub nsw i32 %101, %100
   %103 = icmp ult i32 %102, -3585
   br i1 %103, label %yuv_diff.exit8.us, label %104
 
 104:                                              ; preds = %98
-  %105 = and i32 %.fr264.us, 255
-  %106 = and i32 %.fr272.us, 255
+  %105 = and i32 %87, 255
+  %106 = and i32 %92, 255
   %107 = add nsw i32 %105, -7
   %108 = sub nsw i32 %107, %106
   %109 = icmp ult i32 %108, -13
@@ -6438,5774 +6436,5772 @@ define internal noundef i32 @hq4x(ptr readnone captures(none) %0, ptr noundef re
   br label %yuv_diff.exit8.us
 
 yuv_diff.exit8.us:                                ; preds = %104, %98, %88, %53
-  %.fr263.us = phi i32 [ 0, %53 ], [ 1, %98 ], [ 1, %88 ], [ %110, %104 ]
+  %111 = phi i32 [ 0, %53 ], [ 1, %98 ], [ 1, %88 ], [ %110, %104 ]
   %.not157.i.us = icmp eq i32 %70, %62
-  br i1 %.not157.i.us, label %yuv_diff.exit7.us, label %111
+  br i1 %.not157.i.us, label %yuv_diff.exit7.us, label %112
 
-111:                                              ; preds = %yuv_diff.exit8.us
-  %112 = and i32 %62, 16777215
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %7, i64 %113
-  %115 = load i32, ptr %114, align 4, !tbaa !20
-  %.fr265.us = freeze i32 %115
-  %116 = and i32 %.fr264.us, 16711680
-  %117 = and i32 %.fr265.us, 16711680
-  %118 = add nsw i32 %116, -3145729
-  %119 = sub nsw i32 %118, %117
-  %120 = icmp ult i32 %119, -6291457
-  br i1 %120, label %yuv_diff.exit7.us, label %121
+112:                                              ; preds = %yuv_diff.exit8.us
+  %113 = and i32 %62, 16777215
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds nuw i32, ptr %7, i64 %114
+  %116 = load i32, ptr %115, align 4, !tbaa !20
+  %117 = and i32 %87, 16711680
+  %118 = and i32 %116, 16711680
+  %119 = add nsw i32 %117, -3145729
+  %120 = sub nsw i32 %119, %118
+  %121 = icmp ult i32 %120, -6291457
+  br i1 %121, label %yuv_diff.exit7.us, label %122
 
-121:                                              ; preds = %111
-  %122 = and i32 %.fr264.us, 65280
-  %123 = and i32 %.fr265.us, 65280
-  %124 = add nsw i32 %122, -1793
-  %125 = sub nsw i32 %124, %123
-  %126 = icmp ult i32 %125, -3585
-  br i1 %126, label %yuv_diff.exit7.us, label %127
+122:                                              ; preds = %112
+  %123 = and i32 %87, 65280
+  %124 = and i32 %116, 65280
+  %125 = add nsw i32 %123, -1793
+  %126 = sub nsw i32 %125, %124
+  %127 = icmp ult i32 %126, -3585
+  br i1 %127, label %yuv_diff.exit7.us, label %128
 
-127:                                              ; preds = %121
-  %128 = and i32 %.fr264.us, 255
-  %129 = and i32 %.fr265.us, 255
-  %130 = add nsw i32 %128, -7
-  %131 = sub nsw i32 %130, %129
-  %132 = icmp ult i32 %131, -13
-  %133 = select i1 %132, i32 2, i32 0
+128:                                              ; preds = %122
+  %129 = and i32 %87, 255
+  %130 = and i32 %116, 255
+  %131 = add nsw i32 %129, -7
+  %132 = sub nsw i32 %131, %130
+  %133 = icmp ult i32 %132, -13
+  %134 = select i1 %133, i32 2, i32 0
   br label %yuv_diff.exit7.us
 
-yuv_diff.exit7.us:                                ; preds = %127, %121, %111, %yuv_diff.exit8.us
-  %.fr.us = phi i32 [ 0, %yuv_diff.exit8.us ], [ 2, %121 ], [ 2, %111 ], [ %133, %127 ]
+yuv_diff.exit7.us:                                ; preds = %128, %122, %112, %yuv_diff.exit8.us
+  %135 = phi i32 [ 0, %yuv_diff.exit8.us ], [ 2, %122 ], [ 2, %112 ], [ %134, %128 ]
   %.not158.i.us = icmp eq i32 %70, %66
-  br i1 %.not158.i.us, label %yuv_diff.exit6.us, label %134
+  br i1 %.not158.i.us, label %yuv_diff.exit6.us, label %136
 
-134:                                              ; preds = %yuv_diff.exit7.us
-  %135 = and i32 %66, 16777215
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %7, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !20
-  %.fr266.us = freeze i32 %138
-  %139 = and i32 %.fr264.us, 16711680
-  %140 = and i32 %.fr266.us, 16711680
-  %141 = add nsw i32 %139, -3145729
-  %142 = sub nsw i32 %141, %140
-  %143 = icmp ult i32 %142, -6291457
-  br i1 %143, label %yuv_diff.exit6.us, label %144
+136:                                              ; preds = %yuv_diff.exit7.us
+  %137 = and i32 %66, 16777215
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds nuw i32, ptr %7, i64 %138
+  %140 = load i32, ptr %139, align 4, !tbaa !20
+  %141 = and i32 %87, 16711680
+  %142 = and i32 %140, 16711680
+  %143 = add nsw i32 %141, -3145729
+  %144 = sub nsw i32 %143, %142
+  %145 = icmp ult i32 %144, -6291457
+  br i1 %145, label %yuv_diff.exit6.us, label %146
 
-144:                                              ; preds = %134
-  %145 = and i32 %.fr264.us, 65280
-  %146 = and i32 %.fr266.us, 65280
-  %147 = add nsw i32 %145, -1793
-  %148 = sub nsw i32 %147, %146
-  %149 = icmp ult i32 %148, -3585
-  br i1 %149, label %yuv_diff.exit6.us, label %150
+146:                                              ; preds = %136
+  %147 = and i32 %87, 65280
+  %148 = and i32 %140, 65280
+  %149 = add nsw i32 %147, -1793
+  %150 = sub nsw i32 %149, %148
+  %151 = icmp ult i32 %150, -3585
+  br i1 %151, label %yuv_diff.exit6.us, label %152
 
-150:                                              ; preds = %144
-  %151 = and i32 %.fr264.us, 255
-  %152 = and i32 %.fr266.us, 255
-  %153 = add nsw i32 %151, -7
-  %154 = sub nsw i32 %153, %152
-  %155 = icmp ult i32 %154, -13
-  %156 = select i1 %155, i32 4, i32 0
+152:                                              ; preds = %146
+  %153 = and i32 %87, 255
+  %154 = and i32 %140, 255
+  %155 = add nsw i32 %153, -7
+  %156 = sub nsw i32 %155, %154
+  %157 = icmp ult i32 %156, -13
+  %158 = select i1 %157, i32 4, i32 0
   br label %yuv_diff.exit6.us
 
-yuv_diff.exit6.us:                                ; preds = %150, %144, %134, %yuv_diff.exit7.us
-  %.fr257.us = phi i32 [ 0, %yuv_diff.exit7.us ], [ 4, %144 ], [ 4, %134 ], [ %156, %150 ]
+yuv_diff.exit6.us:                                ; preds = %152, %146, %136, %yuv_diff.exit7.us
+  %159 = phi i32 [ 0, %yuv_diff.exit7.us ], [ 4, %146 ], [ 4, %136 ], [ %158, %152 ]
   %.not159.i.us = icmp eq i32 %70, %69
-  br i1 %.not159.i.us, label %yuv_diff.exit5.us, label %157
+  br i1 %.not159.i.us, label %yuv_diff.exit5.us, label %160
 
-157:                                              ; preds = %yuv_diff.exit6.us
-  %158 = and i32 %69, 16777215
-  %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr %7, i64 %159
-  %161 = load i32, ptr %160, align 4, !tbaa !20
-  %.fr267.us = freeze i32 %161
-  %162 = and i32 %.fr264.us, 16711680
-  %163 = and i32 %.fr267.us, 16711680
-  %164 = add nsw i32 %162, -3145729
-  %165 = sub nsw i32 %164, %163
-  %166 = icmp ult i32 %165, -6291457
-  br i1 %166, label %yuv_diff.exit5.us, label %167
+160:                                              ; preds = %yuv_diff.exit6.us
+  %161 = and i32 %69, 16777215
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds nuw i32, ptr %7, i64 %162
+  %164 = load i32, ptr %163, align 4, !tbaa !20
+  %165 = and i32 %87, 16711680
+  %166 = and i32 %164, 16711680
+  %167 = add nsw i32 %165, -3145729
+  %168 = sub nsw i32 %167, %166
+  %169 = icmp ult i32 %168, -6291457
+  br i1 %169, label %yuv_diff.exit5.us, label %170
 
-167:                                              ; preds = %157
-  %168 = and i32 %.fr264.us, 65280
-  %169 = and i32 %.fr267.us, 65280
-  %170 = add nsw i32 %168, -1793
-  %171 = sub nsw i32 %170, %169
-  %172 = icmp ult i32 %171, -3585
-  br i1 %172, label %yuv_diff.exit5.us, label %173
+170:                                              ; preds = %160
+  %171 = and i32 %87, 65280
+  %172 = and i32 %164, 65280
+  %173 = add nsw i32 %171, -1793
+  %174 = sub nsw i32 %173, %172
+  %175 = icmp ult i32 %174, -3585
+  br i1 %175, label %yuv_diff.exit5.us, label %176
 
-173:                                              ; preds = %167
-  %174 = and i32 %.fr264.us, 255
-  %175 = and i32 %.fr267.us, 255
-  %176 = add nsw i32 %174, -7
-  %177 = sub nsw i32 %176, %175
-  %178 = icmp ult i32 %177, -13
-  %179 = select i1 %178, i32 8, i32 0
+176:                                              ; preds = %170
+  %177 = and i32 %87, 255
+  %178 = and i32 %164, 255
+  %179 = add nsw i32 %177, -7
+  %180 = sub nsw i32 %179, %178
+  %181 = icmp ult i32 %180, -13
+  %182 = select i1 %181, i32 8, i32 0
   br label %yuv_diff.exit5.us
 
-yuv_diff.exit5.us:                                ; preds = %173, %167, %157, %yuv_diff.exit6.us
-  %.fr258.us = phi i32 [ 0, %yuv_diff.exit6.us ], [ 8, %167 ], [ 8, %157 ], [ %179, %173 ]
+yuv_diff.exit5.us:                                ; preds = %176, %170, %160, %yuv_diff.exit6.us
+  %183 = phi i32 [ 0, %yuv_diff.exit6.us ], [ 8, %170 ], [ 8, %160 ], [ %182, %176 ]
   %.not160.i.us = icmp eq i32 %70, %73
-  br i1 %.not160.i.us, label %yuv_diff.exit4.us, label %180
+  br i1 %.not160.i.us, label %yuv_diff.exit4.us, label %184
 
-180:                                              ; preds = %yuv_diff.exit5.us
-  %181 = and i32 %73, 16777215
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw i32, ptr %7, i64 %182
-  %184 = load i32, ptr %183, align 4, !tbaa !20
-  %.fr268.us = freeze i32 %184
-  %185 = and i32 %.fr264.us, 16711680
-  %186 = and i32 %.fr268.us, 16711680
-  %187 = add nsw i32 %185, -3145729
-  %188 = sub nsw i32 %187, %186
-  %189 = icmp ult i32 %188, -6291457
-  br i1 %189, label %yuv_diff.exit4.us, label %190
+184:                                              ; preds = %yuv_diff.exit5.us
+  %185 = and i32 %73, 16777215
+  %186 = zext nneg i32 %185 to i64
+  %187 = getelementptr inbounds nuw i32, ptr %7, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !20
+  %189 = and i32 %87, 16711680
+  %190 = and i32 %188, 16711680
+  %191 = add nsw i32 %189, -3145729
+  %192 = sub nsw i32 %191, %190
+  %193 = icmp ult i32 %192, -6291457
+  br i1 %193, label %yuv_diff.exit4.us, label %194
 
-190:                                              ; preds = %180
-  %191 = and i32 %.fr264.us, 65280
-  %192 = and i32 %.fr268.us, 65280
-  %193 = add nsw i32 %191, -1793
-  %194 = sub nsw i32 %193, %192
-  %195 = icmp ult i32 %194, -3585
-  br i1 %195, label %yuv_diff.exit4.us, label %196
+194:                                              ; preds = %184
+  %195 = and i32 %87, 65280
+  %196 = and i32 %188, 65280
+  %197 = add nsw i32 %195, -1793
+  %198 = sub nsw i32 %197, %196
+  %199 = icmp ult i32 %198, -3585
+  br i1 %199, label %yuv_diff.exit4.us, label %200
 
-196:                                              ; preds = %190
-  %197 = and i32 %.fr264.us, 255
-  %198 = and i32 %.fr268.us, 255
-  %199 = add nsw i32 %197, -7
-  %200 = sub nsw i32 %199, %198
-  %201 = icmp ult i32 %200, -13
-  %202 = select i1 %201, i32 16, i32 0
+200:                                              ; preds = %194
+  %201 = and i32 %87, 255
+  %202 = and i32 %188, 255
+  %203 = add nsw i32 %201, -7
+  %204 = sub nsw i32 %203, %202
+  %205 = icmp ult i32 %204, -13
+  %206 = select i1 %205, i32 16, i32 0
   br label %yuv_diff.exit4.us
 
-yuv_diff.exit4.us:                                ; preds = %196, %190, %180, %yuv_diff.exit5.us
-  %.fr259.us = phi i32 [ 0, %yuv_diff.exit5.us ], [ 16, %190 ], [ 16, %180 ], [ %202, %196 ]
+yuv_diff.exit4.us:                                ; preds = %200, %194, %184, %yuv_diff.exit5.us
+  %207 = phi i32 [ 0, %yuv_diff.exit5.us ], [ 16, %194 ], [ 16, %184 ], [ %206, %200 ]
   %.not161.i.us = icmp eq i32 %70, %77
-  br i1 %.not161.i.us, label %yuv_diff.exit3.us, label %203
+  br i1 %.not161.i.us, label %yuv_diff.exit3.us, label %208
 
-203:                                              ; preds = %yuv_diff.exit4.us
-  %204 = and i32 %77, 16777215
-  %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw i32, ptr %7, i64 %205
-  %207 = load i32, ptr %206, align 4, !tbaa !20
-  %.fr269.us = freeze i32 %207
-  %208 = and i32 %.fr264.us, 16711680
-  %209 = and i32 %.fr269.us, 16711680
-  %210 = add nsw i32 %208, -3145729
-  %211 = sub nsw i32 %210, %209
-  %212 = icmp ult i32 %211, -6291457
-  br i1 %212, label %yuv_diff.exit3.us, label %213
+208:                                              ; preds = %yuv_diff.exit4.us
+  %209 = and i32 %77, 16777215
+  %210 = zext nneg i32 %209 to i64
+  %211 = getelementptr inbounds nuw i32, ptr %7, i64 %210
+  %212 = load i32, ptr %211, align 4, !tbaa !20
+  %213 = and i32 %87, 16711680
+  %214 = and i32 %212, 16711680
+  %215 = add nsw i32 %213, -3145729
+  %216 = sub nsw i32 %215, %214
+  %217 = icmp ult i32 %216, -6291457
+  br i1 %217, label %yuv_diff.exit3.us, label %218
 
-213:                                              ; preds = %203
-  %214 = and i32 %.fr264.us, 65280
-  %215 = and i32 %.fr269.us, 65280
-  %216 = add nsw i32 %214, -1793
-  %217 = sub nsw i32 %216, %215
-  %218 = icmp ult i32 %217, -3585
-  br i1 %218, label %yuv_diff.exit3.us, label %219
+218:                                              ; preds = %208
+  %219 = and i32 %87, 65280
+  %220 = and i32 %212, 65280
+  %221 = add nsw i32 %219, -1793
+  %222 = sub nsw i32 %221, %220
+  %223 = icmp ult i32 %222, -3585
+  br i1 %223, label %yuv_diff.exit3.us, label %224
 
-219:                                              ; preds = %213
-  %220 = and i32 %.fr264.us, 255
-  %221 = and i32 %.fr269.us, 255
-  %222 = add nsw i32 %220, -7
-  %223 = sub nsw i32 %222, %221
-  %224 = icmp ult i32 %223, -13
-  %225 = select i1 %224, i32 32, i32 0
+224:                                              ; preds = %218
+  %225 = and i32 %87, 255
+  %226 = and i32 %212, 255
+  %227 = add nsw i32 %225, -7
+  %228 = sub nsw i32 %227, %226
+  %229 = icmp ult i32 %228, -13
+  %230 = select i1 %229, i32 32, i32 0
   br label %yuv_diff.exit3.us
 
-yuv_diff.exit3.us:                                ; preds = %219, %213, %203, %yuv_diff.exit4.us
-  %.fr260.us = phi i32 [ 0, %yuv_diff.exit4.us ], [ 32, %213 ], [ 32, %203 ], [ %225, %219 ]
-  %226 = or disjoint i32 %.fr258.us, %.fr260.us
-  %227 = or disjoint i32 %226, %.fr257.us
-  %228 = or disjoint i32 %227, %.fr.us
-  %229 = or disjoint i32 %228, %.fr259.us
+yuv_diff.exit3.us:                                ; preds = %224, %218, %208, %yuv_diff.exit4.us
+  %231 = phi i32 [ 0, %yuv_diff.exit4.us ], [ 32, %218 ], [ 32, %208 ], [ %230, %224 ]
+  %232 = or disjoint i32 %183, %231
+  %233 = or disjoint i32 %232, %159
+  %234 = or disjoint i32 %233, %135
+  %235 = or disjoint i32 %234, %207
   %.not162.i.us = icmp eq i32 %70, %79
-  br i1 %.not162.i.us, label %yuv_diff.exit2.us, label %230
+  br i1 %.not162.i.us, label %yuv_diff.exit2.us, label %236
 
-230:                                              ; preds = %yuv_diff.exit3.us
-  %231 = and i32 %79, 16777215
-  %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw i32, ptr %7, i64 %232
-  %234 = load i32, ptr %233, align 4, !tbaa !20
-  %.fr270.us = freeze i32 %234
-  %235 = and i32 %.fr264.us, 16711680
-  %236 = and i32 %.fr270.us, 16711680
-  %237 = add nsw i32 %235, -3145729
-  %238 = sub nsw i32 %237, %236
-  %239 = icmp ult i32 %238, -6291457
-  br i1 %239, label %yuv_diff.exit2.us, label %240
-
-240:                                              ; preds = %230
-  %241 = and i32 %.fr264.us, 65280
-  %242 = and i32 %.fr270.us, 65280
-  %243 = add nsw i32 %241, -1793
+236:                                              ; preds = %yuv_diff.exit3.us
+  %237 = and i32 %79, 16777215
+  %238 = zext nneg i32 %237 to i64
+  %239 = getelementptr inbounds nuw i32, ptr %7, i64 %238
+  %240 = load i32, ptr %239, align 4, !tbaa !20
+  %241 = and i32 %87, 16711680
+  %242 = and i32 %240, 16711680
+  %243 = add nsw i32 %241, -3145729
   %244 = sub nsw i32 %243, %242
-  %245 = icmp ult i32 %244, -3585
+  %245 = icmp ult i32 %244, -6291457
   br i1 %245, label %yuv_diff.exit2.us, label %246
 
-246:                                              ; preds = %240
-  %247 = and i32 %.fr264.us, 255
-  %248 = and i32 %.fr270.us, 255
-  %249 = add nsw i32 %247, -7
+246:                                              ; preds = %236
+  %247 = and i32 %87, 65280
+  %248 = and i32 %240, 65280
+  %249 = add nsw i32 %247, -1793
   %250 = sub nsw i32 %249, %248
-  %251 = icmp ult i32 %250, -13
-  %252 = select i1 %251, i32 64, i32 0
+  %251 = icmp ult i32 %250, -3585
+  br i1 %251, label %yuv_diff.exit2.us, label %252
+
+252:                                              ; preds = %246
+  %253 = and i32 %87, 255
+  %254 = and i32 %240, 255
+  %255 = add nsw i32 %253, -7
+  %256 = sub nsw i32 %255, %254
+  %257 = icmp ult i32 %256, -13
+  %258 = select i1 %257, i32 64, i32 0
   br label %yuv_diff.exit2.us
 
-yuv_diff.exit2.us:                                ; preds = %246, %240, %230, %yuv_diff.exit3.us
-  %.fr261.us = phi i32 [ 0, %yuv_diff.exit3.us ], [ 64, %240 ], [ 64, %230 ], [ %252, %246 ]
+yuv_diff.exit2.us:                                ; preds = %252, %246, %236, %yuv_diff.exit3.us
+  %259 = phi i32 [ 0, %yuv_diff.exit3.us ], [ 64, %246 ], [ 64, %236 ], [ %258, %252 ]
   %.not163.i.us = icmp eq i32 %70, %83
-  br i1 %.not163.i.us, label %yuv_diff.exit.us, label %253
+  br i1 %.not163.i.us, label %yuv_diff.exit.us, label %260
 
-253:                                              ; preds = %yuv_diff.exit2.us
-  %254 = and i32 %83, 16777215
-  %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw i32, ptr %7, i64 %255
-  %257 = load i32, ptr %256, align 4, !tbaa !20
-  %.fr271.us = freeze i32 %257
-  %258 = and i32 %.fr264.us, 16711680
-  %259 = and i32 %.fr271.us, 16711680
-  %260 = add nsw i32 %258, -3145729
-  %261 = sub nsw i32 %260, %259
-  %262 = icmp ult i32 %261, -6291457
-  br i1 %262, label %yuv_diff.exit.us, label %263
+260:                                              ; preds = %yuv_diff.exit2.us
+  %261 = and i32 %83, 16777215
+  %262 = zext nneg i32 %261 to i64
+  %263 = getelementptr inbounds nuw i32, ptr %7, i64 %262
+  %264 = load i32, ptr %263, align 4, !tbaa !20
+  %265 = and i32 %87, 16711680
+  %266 = and i32 %264, 16711680
+  %267 = add nsw i32 %265, -3145729
+  %268 = sub nsw i32 %267, %266
+  %269 = icmp ult i32 %268, -6291457
+  br i1 %269, label %yuv_diff.exit.us, label %270
 
-263:                                              ; preds = %253
-  %264 = and i32 %.fr264.us, 65280
-  %265 = and i32 %.fr271.us, 65280
-  %266 = add nsw i32 %264, -1793
-  %267 = sub nsw i32 %266, %265
-  %268 = icmp ult i32 %267, -3585
-  br i1 %268, label %yuv_diff.exit.us, label %269
+270:                                              ; preds = %260
+  %271 = and i32 %87, 65280
+  %272 = and i32 %264, 65280
+  %273 = add nsw i32 %271, -1793
+  %274 = sub nsw i32 %273, %272
+  %275 = icmp ult i32 %274, -3585
+  br i1 %275, label %yuv_diff.exit.us, label %276
 
-269:                                              ; preds = %263
-  %270 = and i32 %.fr264.us, 255
-  %271 = and i32 %.fr271.us, 255
-  %272 = add nsw i32 %270, -7
-  %273 = sub nsw i32 %272, %271
-  %274 = icmp ult i32 %273, -13
-  %275 = select i1 %274, i32 128, i32 0
+276:                                              ; preds = %270
+  %277 = and i32 %87, 255
+  %278 = and i32 %264, 255
+  %279 = add nsw i32 %277, -7
+  %280 = sub nsw i32 %279, %278
+  %281 = icmp ult i32 %280, -13
+  %282 = select i1 %281, i32 128, i32 0
   br label %yuv_diff.exit.us
 
-yuv_diff.exit.us:                                 ; preds = %269, %263, %253, %yuv_diff.exit2.us
-  %.fr262.us = phi i32 [ 0, %yuv_diff.exit2.us ], [ 128, %263 ], [ 128, %253 ], [ %275, %269 ]
-  %276 = or disjoint i32 %.fr261.us, %.fr262.us
-  %277 = or i32 %276, %229
-  %278 = lshr exact i32 %.fr257.us, 2
-  %279 = lshr exact i32 %.fr259.us, 1
-  %280 = lshr exact i32 %.fr260.us, 5
-  %281 = lshr i32 %277, 6
-  %282 = and i32 %281, 1
-  %283 = shl nuw nsw i32 %282, 6
-  %284 = lshr i32 %277, 7
-  %285 = and i32 %277, -128
-  %286 = or disjoint i32 %285, %.fr258.us
-  %287 = or disjoint i32 %286, %.fr.us
-  %288 = or disjoint i32 %287, %.fr263.us
-  %289 = or disjoint i32 %288, %.fr257.us
-  %290 = or i32 %289, %.fr260.us
-  %291 = or i32 %290, %.fr259.us
-  %292 = or i32 %291, %283
-  %293 = getelementptr inbounds nuw i8, ptr %.0145.i393.us, i64 4
-  %294 = getelementptr inbounds i32, ptr %.0145.i393.us, i64 %30
-  %295 = getelementptr inbounds i32, ptr %.0145.i393.us, i64 %32
-  %296 = and i32 %291, 191
-  %297 = icmp eq i32 %296, 55
-  %298 = and i32 %292, 219
-  %299 = icmp eq i32 %298, 19
-  %or.cond.i128.us = or i1 %297, %299
-  br i1 %or.cond.i128.us, label %300, label %yuv_diff.exit453.i185.us
+yuv_diff.exit.us:                                 ; preds = %276, %270, %260, %yuv_diff.exit2.us
+  %283 = phi i32 [ 0, %yuv_diff.exit2.us ], [ 128, %270 ], [ 128, %260 ], [ %282, %276 ]
+  %284 = or disjoint i32 %259, %283
+  %285 = or disjoint i32 %284, %235
+  %.fr392 = freeze i32 %285
+  %286 = lshr exact i32 %159, 2
+  %287 = lshr exact i32 %207, 1
+  %288 = lshr exact i32 %231, 5
+  %289 = lshr i32 %.fr392, 6
+  %290 = and i32 %289, 1
+  %291 = shl nuw nsw i32 %290, 6
+  %292 = lshr i32 %.fr392, 7
+  %293 = and i32 %.fr392, -128
+  %294 = or disjoint i32 %231, %293
+  %295 = or disjoint i32 %294, %159
+  %296 = or disjoint i32 %295, %135
+  %297 = or disjoint i32 %296, %111
+  %298 = or disjoint i32 %297, %183
+  %299 = or i32 %298, %207
+  %300 = or i32 %299, %291
+  %.fr257.us = freeze i32 %300
+  %301 = getelementptr inbounds nuw i8, ptr %.0145.i381.us, i64 4
+  %302 = getelementptr inbounds i32, ptr %.0145.i381.us, i64 %30
+  %303 = getelementptr inbounds i32, ptr %.0145.i381.us, i64 %32
+  %304 = and i32 %299, 191
+  %305 = icmp eq i32 %304, 55
+  %306 = and i32 %.fr257.us, 219
+  %307 = icmp eq i32 %306, 19
+  %or.cond.i128.us = or i1 %305, %307
+  br i1 %or.cond.i128.us, label %308, label %yuv_diff.exit453.i185.us
 
-300:                                              ; preds = %yuv_diff.exit.us
-  %301 = and i32 %62, 16777215
-  %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw i32, ptr %7, i64 %302
-  %304 = load i32, ptr %303, align 4, !tbaa !20
-  %305 = and i32 %73, 16777215
-  %306 = zext nneg i32 %305 to i64
-  %307 = getelementptr inbounds nuw i32, ptr %7, i64 %306
-  %308 = load i32, ptr %307, align 4, !tbaa !20
-  %309 = and i32 %304, 16711680
-  %310 = and i32 %308, 16711680
-  %311 = add nsw i32 %309, -3145729
-  %312 = sub nsw i32 %311, %310
-  %313 = icmp ult i32 %312, -6291457
-  br i1 %313, label %yuv_diff.exit453.i185.us, label %314
+308:                                              ; preds = %yuv_diff.exit.us
+  %309 = and i32 %62, 16777215
+  %310 = zext nneg i32 %309 to i64
+  %311 = getelementptr inbounds nuw i32, ptr %7, i64 %310
+  %312 = load i32, ptr %311, align 4, !tbaa !20
+  %313 = and i32 %73, 16777215
+  %314 = zext nneg i32 %313 to i64
+  %315 = getelementptr inbounds nuw i32, ptr %7, i64 %314
+  %316 = load i32, ptr %315, align 4, !tbaa !20
+  %317 = and i32 %312, 16711680
+  %318 = and i32 %316, 16711680
+  %319 = add nsw i32 %317, -3145729
+  %320 = sub nsw i32 %319, %318
+  %321 = icmp ult i32 %320, -6291457
+  br i1 %321, label %yuv_diff.exit453.i185.us, label %322
 
-314:                                              ; preds = %300
-  %315 = and i32 %304, 65280
-  %316 = and i32 %308, 65280
-  %317 = add nsw i32 %315, -1793
-  %318 = sub nsw i32 %317, %316
-  %319 = icmp ult i32 %318, -3585
-  br i1 %319, label %yuv_diff.exit453.i185.us, label %320
+322:                                              ; preds = %308
+  %323 = and i32 %312, 65280
+  %324 = and i32 %316, 65280
+  %325 = add nsw i32 %323, -1793
+  %326 = sub nsw i32 %325, %324
+  %327 = icmp ult i32 %326, -3585
+  br i1 %327, label %yuv_diff.exit453.i185.us, label %328
 
-320:                                              ; preds = %314
-  %321 = and i32 %304, 255
-  %322 = and i32 %308, 255
-  %323 = add nsw i32 %321, -7
-  %324 = sub nsw i32 %323, %322
-  %325 = icmp ult i32 %324, -13
+328:                                              ; preds = %322
+  %329 = and i32 %312, 255
+  %330 = and i32 %316, 255
+  %331 = add nsw i32 %329, -7
+  %332 = sub nsw i32 %331, %330
+  %333 = icmp ult i32 %332, -13
   br label %yuv_diff.exit453.i185.us
 
-yuv_diff.exit453.i185.us:                         ; preds = %320, %314, %300, %yuv_diff.exit.us
-  %326 = phi i1 [ false, %yuv_diff.exit.us ], [ true, %314 ], [ true, %300 ], [ %325, %320 ]
-  %327 = icmp eq i32 %298, 73
-  %328 = and i32 %292, 239
-  %329 = icmp eq i32 %328, 109
-  %or.cond367.i129.us = or i1 %327, %329
-  br i1 %or.cond367.i129.us, label %330, label %yuv_diff.exit452.i184.us
+yuv_diff.exit453.i185.us:                         ; preds = %328, %322, %308, %yuv_diff.exit.us
+  %334 = phi i1 [ false, %yuv_diff.exit.us ], [ true, %322 ], [ true, %308 ], [ %333, %328 ]
+  %335 = icmp eq i32 %306, 73
+  %336 = and i32 %.fr257.us, 239
+  %337 = icmp eq i32 %336, 109
+  %or.cond367.i129.us = or i1 %335, %337
+  br i1 %or.cond367.i129.us, label %338, label %yuv_diff.exit452.i184.us
 
-330:                                              ; preds = %yuv_diff.exit453.i185.us
-  %331 = and i32 %79, 16777215
-  %332 = zext nneg i32 %331 to i64
-  %333 = getelementptr inbounds nuw i32, ptr %7, i64 %332
-  %334 = load i32, ptr %333, align 4, !tbaa !20
-  %335 = and i32 %69, 16777215
-  %336 = zext nneg i32 %335 to i64
-  %337 = getelementptr inbounds nuw i32, ptr %7, i64 %336
-  %338 = load i32, ptr %337, align 4, !tbaa !20
-  %339 = and i32 %334, 16711680
-  %340 = and i32 %338, 16711680
-  %341 = add nsw i32 %339, -3145729
-  %342 = sub nsw i32 %341, %340
-  %343 = icmp ult i32 %342, -6291457
-  br i1 %343, label %yuv_diff.exit452.i184.us, label %344
+338:                                              ; preds = %yuv_diff.exit453.i185.us
+  %339 = and i32 %79, 16777215
+  %340 = zext nneg i32 %339 to i64
+  %341 = getelementptr inbounds nuw i32, ptr %7, i64 %340
+  %342 = load i32, ptr %341, align 4, !tbaa !20
+  %343 = and i32 %69, 16777215
+  %344 = zext nneg i32 %343 to i64
+  %345 = getelementptr inbounds nuw i32, ptr %7, i64 %344
+  %346 = load i32, ptr %345, align 4, !tbaa !20
+  %347 = and i32 %342, 16711680
+  %348 = and i32 %346, 16711680
+  %349 = add nsw i32 %347, -3145729
+  %350 = sub nsw i32 %349, %348
+  %351 = icmp ult i32 %350, -6291457
+  br i1 %351, label %yuv_diff.exit452.i184.us, label %352
 
-344:                                              ; preds = %330
-  %345 = and i32 %334, 65280
-  %346 = and i32 %338, 65280
-  %347 = add nsw i32 %345, -1793
-  %348 = sub nsw i32 %347, %346
-  %349 = icmp ult i32 %348, -3585
-  br i1 %349, label %yuv_diff.exit452.i184.us, label %350
+352:                                              ; preds = %338
+  %353 = and i32 %342, 65280
+  %354 = and i32 %346, 65280
+  %355 = add nsw i32 %353, -1793
+  %356 = sub nsw i32 %355, %354
+  %357 = icmp ult i32 %356, -3585
+  br i1 %357, label %yuv_diff.exit452.i184.us, label %358
 
-350:                                              ; preds = %344
-  %351 = and i32 %334, 255
-  %352 = and i32 %338, 255
-  %353 = add nsw i32 %351, -7
-  %354 = sub nsw i32 %353, %352
-  %355 = icmp ult i32 %354, -13
+358:                                              ; preds = %352
+  %359 = and i32 %342, 255
+  %360 = and i32 %346, 255
+  %361 = add nsw i32 %359, -7
+  %362 = sub nsw i32 %361, %360
+  %363 = icmp ult i32 %362, -13
   br label %yuv_diff.exit452.i184.us
 
-yuv_diff.exit452.i184.us:                         ; preds = %350, %344, %330, %yuv_diff.exit453.i185.us
-  %356 = phi i1 [ false, %yuv_diff.exit453.i185.us ], [ true, %344 ], [ true, %330 ], [ %355, %350 ]
-  %357 = and i32 %292, 111
-  %358 = icmp eq i32 %357, 42
-  %359 = and i32 %292, 91
-  %360 = icmp eq i32 %359, 10
-  %or.cond369.i130.us = or i1 %358, %360
-  %361 = icmp eq i32 %296, 58
-  %or.cond370.i131.us = or i1 %361, %or.cond369.i130.us
-  %362 = and i32 %292, 223
-  %363 = icmp eq i32 %362, 90
-  %or.cond372.i132.us = or i1 %363, %or.cond370.i131.us
-  %364 = and i32 %291, 159
-  %365 = icmp eq i32 %364, 138
-  %or.cond374.i133.us = or i1 %365, %or.cond372.i132.us
-  %366 = and i32 %292, 207
-  %367 = icmp eq i32 %366, 138
-  %or.cond376.i134.us = or i1 %367, %or.cond374.i133.us
-  %368 = icmp eq i32 %328, 78
-  %or.cond378.i135.us = or i1 %368, %or.cond376.i134.us
-  %369 = and i32 %291, 63
-  %370 = icmp eq i32 %369, 14
-  %or.cond380.i136.us = or i1 %370, %or.cond378.i135.us
-  %371 = and i32 %292, 251
-  %372 = icmp eq i32 %371, 90
-  %or.cond382.i137.us = or i1 %372, %or.cond380.i136.us
-  %373 = and i32 %291, 187
-  %374 = icmp eq i32 %373, 138
-  %or.cond384.i138.us = or i1 %374, %or.cond382.i137.us
-  %375 = and i32 %292, 127
-  %376 = icmp eq i32 %375, 90
-  %or.cond386.i139.us = or i1 %376, %or.cond384.i138.us
-  %377 = and i32 %290, 175
-  %378 = icmp eq i32 %377, 138
-  %or.cond388.i140.us = or i1 %378, %or.cond386.i139.us
-  %379 = and i32 %292, 235
-  %380 = icmp eq i32 %379, 138
-  %or.cond390.i141.us = or i1 %380, %or.cond388.i140.us
-  br i1 %or.cond390.i141.us, label %381, label %yuv_diff.exit451.i183.us
+yuv_diff.exit452.i184.us:                         ; preds = %358, %352, %338, %yuv_diff.exit453.i185.us
+  %364 = phi i1 [ false, %yuv_diff.exit453.i185.us ], [ true, %352 ], [ true, %338 ], [ %363, %358 ]
+  %365 = and i32 %.fr257.us, 111
+  %366 = icmp eq i32 %365, 42
+  %367 = and i32 %.fr257.us, 91
+  %368 = icmp eq i32 %367, 10
+  %or.cond369.i130.us = or i1 %366, %368
+  %369 = icmp eq i32 %304, 58
+  %or.cond370.i131.us = or i1 %369, %or.cond369.i130.us
+  %370 = and i32 %.fr257.us, 223
+  %371 = icmp eq i32 %370, 90
+  %or.cond372.i132.us = or i1 %371, %or.cond370.i131.us
+  %372 = and i32 %299, 159
+  %373 = icmp eq i32 %372, 138
+  %or.cond374.i133.us = or i1 %373, %or.cond372.i132.us
+  %374 = and i32 %.fr257.us, 207
+  %375 = icmp eq i32 %374, 138
+  %or.cond376.i134.us = or i1 %375, %or.cond374.i133.us
+  %376 = icmp eq i32 %336, 78
+  %or.cond378.i135.us = or i1 %376, %or.cond376.i134.us
+  %377 = and i32 %299, 63
+  %378 = icmp eq i32 %377, 14
+  %or.cond380.i136.us = or i1 %378, %or.cond378.i135.us
+  %379 = and i32 %.fr257.us, 251
+  %380 = icmp eq i32 %379, 90
+  %or.cond382.i137.us = or i1 %380, %or.cond380.i136.us
+  %381 = and i32 %299, 187
+  %382 = icmp eq i32 %381, 138
+  %or.cond384.i138.us = or i1 %382, %or.cond382.i137.us
+  %383 = and i32 %.fr257.us, 127
+  %384 = icmp eq i32 %383, 90
+  %or.cond386.i139.us = or i1 %384, %or.cond384.i138.us
+  %385 = and i32 %298, 175
+  %386 = icmp eq i32 %385, 138
+  %or.cond388.i140.us = or i1 %386, %or.cond386.i139.us
+  %387 = and i32 %.fr257.us, 235
+  %388 = icmp eq i32 %387, 138
+  %or.cond390.i141.us = or i1 %388, %or.cond388.i140.us
+  br i1 %or.cond390.i141.us, label %389, label %yuv_diff.exit451.i183.us
 
-381:                                              ; preds = %yuv_diff.exit452.i184.us
-  %382 = and i32 %69, 16777215
-  %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds nuw i32, ptr %7, i64 %383
-  %385 = load i32, ptr %384, align 4, !tbaa !20
-  %386 = and i32 %62, 16777215
-  %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds nuw i32, ptr %7, i64 %387
-  %389 = load i32, ptr %388, align 4, !tbaa !20
-  %390 = and i32 %385, 16711680
-  %391 = and i32 %389, 16711680
-  %392 = add nsw i32 %390, -3145729
-  %393 = sub nsw i32 %392, %391
-  %394 = icmp ult i32 %393, -6291457
-  br i1 %394, label %yuv_diff.exit451.i183.us, label %395
+389:                                              ; preds = %yuv_diff.exit452.i184.us
+  %390 = and i32 %69, 16777215
+  %391 = zext nneg i32 %390 to i64
+  %392 = getelementptr inbounds nuw i32, ptr %7, i64 %391
+  %393 = load i32, ptr %392, align 4, !tbaa !20
+  %394 = and i32 %62, 16777215
+  %395 = zext nneg i32 %394 to i64
+  %396 = getelementptr inbounds nuw i32, ptr %7, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !20
+  %398 = and i32 %393, 16711680
+  %399 = and i32 %397, 16711680
+  %400 = add nsw i32 %398, -3145729
+  %401 = sub nsw i32 %400, %399
+  %402 = icmp ult i32 %401, -6291457
+  br i1 %402, label %yuv_diff.exit451.i183.us, label %403
 
-395:                                              ; preds = %381
-  %396 = and i32 %385, 65280
-  %397 = and i32 %389, 65280
-  %398 = add nsw i32 %396, -1793
-  %399 = sub nsw i32 %398, %397
-  %400 = icmp ult i32 %399, -3585
-  br i1 %400, label %yuv_diff.exit451.i183.us, label %401
+403:                                              ; preds = %389
+  %404 = and i32 %393, 65280
+  %405 = and i32 %397, 65280
+  %406 = add nsw i32 %404, -1793
+  %407 = sub nsw i32 %406, %405
+  %408 = icmp ult i32 %407, -3585
+  br i1 %408, label %yuv_diff.exit451.i183.us, label %409
 
-401:                                              ; preds = %395
-  %402 = and i32 %385, 255
-  %403 = and i32 %389, 255
-  %404 = add nsw i32 %402, -7
-  %405 = sub nsw i32 %404, %403
-  %406 = icmp ult i32 %405, -13
+409:                                              ; preds = %403
+  %410 = and i32 %393, 255
+  %411 = and i32 %397, 255
+  %412 = add nsw i32 %410, -7
+  %413 = sub nsw i32 %412, %411
+  %414 = icmp ult i32 %413, -13
   br label %yuv_diff.exit451.i183.us
 
-yuv_diff.exit451.i183.us:                         ; preds = %401, %395, %381, %yuv_diff.exit452.i184.us
-  %407 = phi i1 [ false, %yuv_diff.exit452.i184.us ], [ true, %395 ], [ true, %381 ], [ %406, %401 ]
-  %408 = and i32 %291, 27
-  %409 = icmp eq i32 %408, 3
-  %410 = and i32 %292, 79
-  %411 = icmp eq i32 %410, 67
-  %or.cond392.i142.us = or i1 %409, %411
-  %412 = and i32 %288, 139
-  %413 = icmp eq i32 %412, 131
-  %or.cond394.i143.us = or i1 %413, %or.cond392.i142.us
-  br i1 %or.cond394.i143.us, label %417, label %414
+yuv_diff.exit451.i183.us:                         ; preds = %409, %403, %389, %yuv_diff.exit452.i184.us
+  %415 = phi i1 [ false, %yuv_diff.exit452.i184.us ], [ true, %403 ], [ true, %389 ], [ %414, %409 ]
+  %416 = and i32 %299, 27
+  %417 = icmp eq i32 %416, 3
+  %418 = and i32 %.fr257.us, 79
+  %419 = icmp eq i32 %418, 67
+  %or.cond392.i142.us = or i1 %417, %419
+  %420 = and i32 %298, 139
+  %421 = icmp eq i32 %420, 131
+  %or.cond394.i143.us = or i1 %421, %or.cond392.i142.us
+  br i1 %or.cond394.i143.us, label %425, label %422
 
-414:                                              ; preds = %yuv_diff.exit451.i183.us
-  %415 = and i32 %292, 107
-  %416 = icmp eq i32 %415, 67
-  br label %417
+422:                                              ; preds = %yuv_diff.exit451.i183.us
+  %423 = and i32 %.fr257.us, 107
+  %424 = icmp eq i32 %423, 67
+  br label %425
 
-417:                                              ; preds = %414, %yuv_diff.exit451.i183.us
-  %418 = phi i1 [ true, %yuv_diff.exit451.i183.us ], [ %416, %414 ]
-  %419 = and i32 %292, 75
-  %420 = icmp eq i32 %419, 9
-  %421 = icmp eq i32 %412, 137
-  %or.cond396.i144.us = or i1 %421, %420
-  %422 = and i32 %291, 31
-  %423 = icmp eq i32 %422, 25
-  %or.cond398.i145.us = or i1 %423, %or.cond396.i144.us
-  br i1 %or.cond398.i145.us, label %427, label %424
+425:                                              ; preds = %422, %yuv_diff.exit451.i183.us
+  %426 = phi i1 [ true, %yuv_diff.exit451.i183.us ], [ %424, %422 ]
+  %427 = and i32 %.fr257.us, 75
+  %428 = icmp eq i32 %427, 9
+  %429 = icmp eq i32 %420, 137
+  %or.cond396.i144.us = or i1 %429, %428
+  %430 = and i32 %299, 31
+  %431 = icmp eq i32 %430, 25
+  %or.cond398.i145.us = or i1 %431, %or.cond396.i144.us
+  br i1 %or.cond398.i145.us, label %435, label %432
 
-424:                                              ; preds = %417
-  %425 = and i32 %291, 59
-  %426 = icmp eq i32 %425, 25
-  br label %427
+432:                                              ; preds = %425
+  %433 = and i32 %299, 59
+  %434 = icmp eq i32 %433, 25
+  br label %435
 
-427:                                              ; preds = %424, %417
-  %428 = phi i1 [ true, %417 ], [ %426, %424 ]
-  %429 = and i32 %288, 11
-  %430 = icmp eq i32 %429, 8
-  br i1 %430, label %450, label %431
+435:                                              ; preds = %432, %425
+  %436 = phi i1 [ true, %425 ], [ %434, %432 ]
+  %437 = and i32 %298, 11
+  %438 = icmp eq i32 %437, 8
+  br i1 %438, label %458, label %439
 
-431:                                              ; preds = %427
-  %432 = and i32 %292, 249
-  %433 = icmp eq i32 %432, 104
-  br i1 %433, label %450, label %434
+439:                                              ; preds = %435
+  %440 = and i32 %.fr257.us, 249
+  %441 = icmp eq i32 %440, 104
+  br i1 %441, label %458, label %442
 
-434:                                              ; preds = %431
-  %435 = and i32 %292, 243
-  %436 = icmp eq i32 %435, 98
-  %437 = and i32 %292, 109
-  %438 = icmp eq i32 %437, 108
-  %or.cond400.i146.us = or i1 %436, %438
-  %439 = and i32 %292, 103
-  %440 = icmp eq i32 %439, 102
-  %or.cond402.i147.us = or i1 %440, %or.cond400.i146.us
-  %441 = and i32 %291, 61
-  %442 = icmp eq i32 %441, 60
-  %or.cond404.i148.us = or i1 %442, %or.cond402.i147.us
-  %443 = and i32 %291, 55
-  %444 = icmp eq i32 %443, 54
-  %or.cond406.i149.us = or i1 %444, %or.cond404.i148.us
-  %445 = icmp eq i32 %432, 248
-  %or.cond407.i150.us = or i1 %445, %or.cond406.i149.us
-  %446 = icmp eq i32 %435, 242
-  %or.cond = or i1 %or.cond407.i150.us, %446
-  br i1 %or.cond, label %450, label %switch.early.test.us
+442:                                              ; preds = %439
+  %443 = and i32 %.fr257.us, 243
+  %444 = icmp eq i32 %443, 98
+  %445 = and i32 %.fr257.us, 109
+  %446 = icmp eq i32 %445, 108
+  %or.cond400.i146.us = or i1 %444, %446
+  %447 = and i32 %.fr257.us, 103
+  %448 = icmp eq i32 %447, 102
+  %or.cond402.i147.us = or i1 %448, %or.cond400.i146.us
+  %449 = and i32 %299, 61
+  %450 = icmp eq i32 %449, 60
+  %or.cond404.i148.us = or i1 %450, %or.cond402.i147.us
+  %451 = and i32 %299, 55
+  %452 = icmp eq i32 %451, 54
+  %or.cond406.i149.us = or i1 %452, %or.cond404.i148.us
+  %453 = icmp eq i32 %440, 248
+  %or.cond407.i150.us = or i1 %453, %or.cond406.i149.us
+  %454 = icmp eq i32 %443, 242
+  %or.cond = or i1 %or.cond407.i150.us, %454
+  br i1 %or.cond, label %458, label %switch.early.test.us
 
-switch.early.test.us:                             ; preds = %434
-  %447 = trunc nuw i32 %292 to i8
-  %trunc = and i8 %447, -35
+switch.early.test.us:                             ; preds = %442
+  %455 = trunc i32 %.fr257.us to i8
+  %trunc = and i8 %455, -35
   switch i8 %trunc, label %switch.early.test.i152.us [
-    i8 -36, label %450
-    i8 28, label %450
+    i8 -36, label %458
+    i8 28, label %458
   ]
 
 switch.early.test.i152.us:                        ; preds = %switch.early.test.us
-  %trunc.us = and i8 %447, -41
-  switch i8 %trunc.us, label %448 [
-    i8 -42, label %450
-    i8 22, label %450
+  %trunc.us = and i8 %455, -41
+  switch i8 %trunc.us, label %456 [
+    i8 -42, label %458
+    i8 22, label %458
   ]
 
-448:                                              ; preds = %switch.early.test.i152.us
-  %449 = icmp eq i32 %429, 2
-  br label %450
+456:                                              ; preds = %switch.early.test.i152.us
+  %457 = icmp eq i32 %437, 2
+  br label %458
 
-450:                                              ; preds = %448, %switch.early.test.i152.us, %switch.early.test.i152.us, %switch.early.test.us, %switch.early.test.us, %434, %431, %427
-  %451 = phi i1 [ true, %434 ], [ true, %431 ], [ true, %switch.early.test.i152.us ], [ true, %427 ], [ true, %switch.early.test.us ], [ %449, %448 ], [ true, %switch.early.test.i152.us ], [ true, %switch.early.test.us ]
-  %452 = and i32 %289, 15
-  %453 = icmp eq i32 %452, 11
-  %454 = and i32 %290, 43
-  %455 = icmp eq i32 %454, 11
-  %or.cond412.i153.us = or i1 %453, %455
-  br i1 %or.cond412.i153.us, label %458, label %456
+458:                                              ; preds = %456, %switch.early.test.i152.us, %switch.early.test.i152.us, %switch.early.test.us, %switch.early.test.us, %442, %439, %435
+  %459 = phi i1 [ true, %442 ], [ true, %439 ], [ true, %switch.early.test.i152.us ], [ true, %435 ], [ true, %switch.early.test.us ], [ %457, %456 ], [ true, %switch.early.test.i152.us ], [ true, %switch.early.test.us ]
+  %460 = and i32 %.fr257.us, 15
+  %461 = icmp eq i32 %460, 11
+  %462 = and i32 %.fr257.us, 43
+  %463 = icmp eq i32 %462, 11
+  %or.cond412.i153.us = or i1 %461, %463
+  br i1 %or.cond412.i153.us, label %466, label %464
 
-456:                                              ; preds = %450
-  %457 = trunc nuw i32 %292 to i8
-  %trunc273.us = and i8 %457, -2
-  switch i8 %trunc273.us, label %yuv_diff.exit450.i154.us [
-    i8 74, label %458
-    i8 26, label %458
+464:                                              ; preds = %458
+  %465 = trunc i32 %.fr257.us to i8
+  %trunc258.us = and i8 %465, -2
+  switch i8 %trunc258.us, label %yuv_diff.exit450.i154.us [
+    i8 74, label %466
+    i8 26, label %466
   ]
 
-458:                                              ; preds = %456, %456, %450
-  %459 = and i32 %69, 16777215
-  %460 = zext nneg i32 %459 to i64
-  %461 = getelementptr inbounds nuw i32, ptr %7, i64 %460
-  %462 = load i32, ptr %461, align 4, !tbaa !20
-  %463 = and i32 %62, 16777215
-  %464 = zext nneg i32 %463 to i64
-  %465 = getelementptr inbounds nuw i32, ptr %7, i64 %464
-  %466 = load i32, ptr %465, align 4, !tbaa !20
-  %467 = and i32 %462, 16711680
-  %468 = and i32 %466, 16711680
-  %469 = add nsw i32 %467, -3145729
-  %470 = sub nsw i32 %469, %468
-  %471 = icmp ult i32 %470, -6291457
-  br i1 %471, label %yuv_diff.exit450.i154.us, label %472
+466:                                              ; preds = %464, %464, %458
+  %467 = and i32 %69, 16777215
+  %468 = zext nneg i32 %467 to i64
+  %469 = getelementptr inbounds nuw i32, ptr %7, i64 %468
+  %470 = load i32, ptr %469, align 4, !tbaa !20
+  %471 = and i32 %62, 16777215
+  %472 = zext nneg i32 %471 to i64
+  %473 = getelementptr inbounds nuw i32, ptr %7, i64 %472
+  %474 = load i32, ptr %473, align 4, !tbaa !20
+  %475 = and i32 %470, 16711680
+  %476 = and i32 %474, 16711680
+  %477 = add nsw i32 %475, -3145729
+  %478 = sub nsw i32 %477, %476
+  %479 = icmp ult i32 %478, -6291457
+  br i1 %479, label %yuv_diff.exit450.i154.us, label %480
 
-472:                                              ; preds = %458
-  %473 = and i32 %462, 65280
-  %474 = and i32 %466, 65280
-  %475 = add nsw i32 %473, -1793
-  %476 = sub nsw i32 %475, %474
-  %477 = icmp ult i32 %476, -3585
-  br i1 %477, label %yuv_diff.exit450.i154.us, label %478
+480:                                              ; preds = %466
+  %481 = and i32 %470, 65280
+  %482 = and i32 %474, 65280
+  %483 = add nsw i32 %481, -1793
+  %484 = sub nsw i32 %483, %482
+  %485 = icmp ult i32 %484, -3585
+  br i1 %485, label %yuv_diff.exit450.i154.us, label %486
 
-478:                                              ; preds = %472
-  %479 = and i32 %462, 255
-  %480 = and i32 %466, 255
-  %481 = add nsw i32 %479, -7
-  %482 = sub nsw i32 %481, %480
-  %483 = icmp ult i32 %482, -13
+486:                                              ; preds = %480
+  %487 = and i32 %470, 255
+  %488 = and i32 %474, 255
+  %489 = add nsw i32 %487, -7
+  %490 = sub nsw i32 %489, %488
+  %491 = icmp ult i32 %490, -13
   br label %yuv_diff.exit450.i154.us
 
-yuv_diff.exit450.i154.us:                         ; preds = %478, %472, %458, %456
-  %484 = phi i1 [ false, %456 ], [ true, %472 ], [ true, %458 ], [ %483, %478 ]
-  %485 = and i32 %290, 47
-  %486 = icmp eq i32 %485, 47
-  %487 = and i32 %287, 10
-  %488 = icmp eq i32 %487, 0
-  %489 = icmp eq i32 %429, 9
-  %490 = and i32 %292, 126
-  %491 = icmp eq i32 %490, 42
-  %492 = icmp eq i32 %328, 171
-  %493 = or i1 %491, %492
-  %494 = icmp eq i32 %296, 143
-  %495 = icmp eq i32 %490, 14
-  %496 = or i1 %494, %495
-  %497 = icmp eq i32 %410, 75
-  %498 = icmp eq i32 %364, 27
-  %or.cond414.i155.us = or i1 %498, %497
-  %499 = icmp eq i32 %485, 11
-  %or.cond415.i156.us = or i1 %499, %or.cond414.i155.us
-  %500 = and i32 %291, 190
-  %501 = icmp eq i32 %500, 10
-  %502 = and i32 %292, 238
-  %503 = icmp eq i32 %502, 10
-  %504 = icmp eq i32 %490, 10
-  %505 = or i1 %504, %or.cond415.i156.us
-  %506 = icmp eq i32 %379, 75
-  %507 = or i1 %506, %505
-  %508 = or i1 %501, %507
-  %or.cond422.i160.us = or i1 %503, %508
-  br i1 %or.cond422.i160.us, label %512, label %509
+yuv_diff.exit450.i154.us:                         ; preds = %486, %480, %466, %464
+  %492 = phi i1 [ false, %464 ], [ true, %480 ], [ true, %466 ], [ %491, %486 ]
+  %493 = and i32 %.fr257.us, 47
+  %494 = icmp eq i32 %493, 47
+  %495 = and i32 %.fr257.us, 10
+  %496 = icmp eq i32 %495, 0
+  %497 = icmp eq i32 %437, 9
+  %498 = and i32 %.fr257.us, 126
+  %499 = icmp eq i32 %498, 42
+  %500 = icmp eq i32 %336, 171
+  %501 = or i1 %499, %500
+  %502 = icmp eq i32 %304, 143
+  %503 = icmp eq i32 %498, 14
+  %504 = or i1 %502, %503
+  %505 = icmp eq i32 %418, 75
+  %506 = icmp eq i32 %372, 27
+  %or.cond414.i155.us = or i1 %506, %505
+  %507 = icmp eq i32 %493, 11
+  %or.cond415.i156.us = or i1 %507, %or.cond414.i155.us
+  %508 = and i32 %.fr257.us, 190
+  %509 = icmp eq i32 %508, 10
+  %510 = and i32 %.fr257.us, 238
+  %511 = icmp eq i32 %510, 10
+  %512 = icmp eq i32 %498, 10
+  %513 = or i1 %512, %or.cond415.i156.us
+  %514 = icmp eq i32 %387, 75
+  %515 = or i1 %514, %513
+  %516 = or i1 %509, %515
+  %or.cond422.i160.us = or i1 %511, %516
+  br i1 %or.cond422.i160.us, label %520, label %517
 
-509:                                              ; preds = %yuv_diff.exit450.i154.us
-  %510 = and i32 %291, 59
-  %511 = icmp eq i32 %510, 27
-  br label %512
+517:                                              ; preds = %yuv_diff.exit450.i154.us
+  %518 = and i32 %.fr257.us, 59
+  %519 = icmp eq i32 %518, 27
+  br label %520
 
-512:                                              ; preds = %509, %yuv_diff.exit450.i154.us
-  %513 = phi i1 [ true, %yuv_diff.exit450.i154.us ], [ %511, %509 ]
-  %514 = icmp eq i32 %429, 3
-  br i1 %326, label %921, label %515
+520:                                              ; preds = %517, %yuv_diff.exit450.i154.us
+  %521 = phi i1 [ true, %yuv_diff.exit450.i154.us ], [ %519, %517 ]
+  %522 = icmp eq i32 %437, 3
+  br i1 %334, label %929, label %523
 
-515:                                              ; preds = %512
-  br i1 %356, label %.thread249.us, label %516
+523:                                              ; preds = %520
+  br i1 %364, label %.thread249.us, label %524
 
-516:                                              ; preds = %515
-  %517 = icmp eq i32 %429, 11
-  br i1 %517, label %520, label %518
+524:                                              ; preds = %523
+  %525 = icmp eq i32 %437, 11
+  br i1 %525, label %528, label %526
 
-518:                                              ; preds = %516
-  %519 = trunc nuw i32 %292 to i8
-  %trunc274.us = and i8 %519, -2
-  switch i8 %trunc274.us, label %545 [
-    i8 74, label %520
-    i8 26, label %520
+526:                                              ; preds = %524
+  %527 = trunc i32 %.fr257.us to i8
+  %trunc259.us = and i8 %527, -2
+  switch i8 %trunc259.us, label %553 [
+    i8 74, label %528
+    i8 26, label %528
   ]
 
-520:                                              ; preds = %518, %518, %516
-  %521 = and i32 %69, 16777215
-  %522 = zext nneg i32 %521 to i64
-  %523 = getelementptr inbounds nuw i32, ptr %7, i64 %522
-  %524 = load i32, ptr %523, align 4, !tbaa !20
-  %525 = and i32 %62, 16777215
-  %526 = zext nneg i32 %525 to i64
-  %527 = getelementptr inbounds nuw i32, ptr %7, i64 %526
-  %528 = load i32, ptr %527, align 4, !tbaa !20
-  %529 = and i32 %524, 16711680
-  %530 = and i32 %528, 16711680
-  %531 = add nsw i32 %529, -3145729
-  %532 = sub nsw i32 %531, %530
-  %533 = icmp ult i32 %532, -6291457
-  br i1 %533, label %yuv_diff.exit449.i161.thread.us, label %534
+528:                                              ; preds = %526, %526, %524
+  %529 = and i32 %69, 16777215
+  %530 = zext nneg i32 %529 to i64
+  %531 = getelementptr inbounds nuw i32, ptr %7, i64 %530
+  %532 = load i32, ptr %531, align 4, !tbaa !20
+  %533 = and i32 %62, 16777215
+  %534 = zext nneg i32 %533 to i64
+  %535 = getelementptr inbounds nuw i32, ptr %7, i64 %534
+  %536 = load i32, ptr %535, align 4, !tbaa !20
+  %537 = and i32 %532, 16711680
+  %538 = and i32 %536, 16711680
+  %539 = add nsw i32 %537, -3145729
+  %540 = sub nsw i32 %539, %538
+  %541 = icmp ult i32 %540, -6291457
+  br i1 %541, label %yuv_diff.exit449.i161.thread.us, label %542
 
-534:                                              ; preds = %520
-  %535 = and i32 %524, 65280
-  %536 = and i32 %528, 65280
-  %537 = add nsw i32 %535, -1793
-  %538 = sub nsw i32 %537, %536
-  %539 = icmp ult i32 %538, -3585
-  br i1 %539, label %yuv_diff.exit449.i161.thread.us, label %yuv_diff.exit449.i161.us
+542:                                              ; preds = %528
+  %543 = and i32 %532, 65280
+  %544 = and i32 %536, 65280
+  %545 = add nsw i32 %543, -1793
+  %546 = sub nsw i32 %545, %544
+  %547 = icmp ult i32 %546, -3585
+  br i1 %547, label %yuv_diff.exit449.i161.thread.us, label %yuv_diff.exit449.i161.us
 
-yuv_diff.exit449.i161.us:                         ; preds = %534
-  %540 = and i32 %524, 255
-  %541 = and i32 %528, 255
-  %542 = add nuw nsw i32 %540, 6
-  %543 = sub nsw i32 %542, %541
-  %544 = icmp ult i32 %543, 13
-  br i1 %544, label %545, label %yuv_diff.exit449.i161.thread.us
+yuv_diff.exit449.i161.us:                         ; preds = %542
+  %548 = and i32 %532, 255
+  %549 = and i32 %536, 255
+  %550 = add nuw nsw i32 %548, 6
+  %551 = sub nsw i32 %550, %549
+  %552 = icmp ult i32 %551, 13
+  br i1 %552, label %553, label %yuv_diff.exit449.i161.thread.us
 
-545:                                              ; preds = %yuv_diff.exit449.i161.us, %518
-  br i1 %407, label %.thread220.us, label %546
+553:                                              ; preds = %yuv_diff.exit449.i161.us, %526
+  br i1 %415, label %.thread220.us, label %554
 
-546:                                              ; preds = %545
-  br i1 %or.cond367.i129.us, label %663, label %547
+554:                                              ; preds = %553
+  br i1 %or.cond367.i129.us, label %671, label %555
 
-547:                                              ; preds = %546
-  br i1 %or.cond.i128.us, label %647, label %548
+555:                                              ; preds = %554
+  br i1 %or.cond.i128.us, label %655, label %556
 
-548:                                              ; preds = %547
-  br i1 %418, label %629, label %549
+556:                                              ; preds = %555
+  br i1 %426, label %637, label %557
 
-549:                                              ; preds = %548
-  br i1 %428, label %611, label %550
+557:                                              ; preds = %556
+  br i1 %436, label %619, label %558
 
-550:                                              ; preds = %549
-  %551 = and i32 %292, 94
-  %552 = icmp eq i32 %551, 10
-  %553 = and i32 %292, 122
-  %554 = icmp eq i32 %553, 10
-  %555 = or i1 %552, %554
-  %556 = or i1 %453, %555
-  %557 = or i1 %455, %556
-  %or.cond430.i181.us = or i1 %501, %557
-  %or.cond432.i182.us = or i1 %503, %or.cond430.i181.us
-  br i1 %or.cond432.i182.us, label %597, label %558
+558:                                              ; preds = %557
+  %559 = and i32 %.fr257.us, 94
+  %560 = icmp eq i32 %559, 10
+  %561 = and i32 %.fr257.us, 122
+  %562 = icmp eq i32 %561, 10
+  %563 = or i1 %560, %562
+  %564 = or i1 %461, %563
+  %565 = or i1 %463, %564
+  %or.cond430.i181.us = or i1 %509, %565
+  %or.cond432.i182.us = or i1 %511, %or.cond430.i181.us
+  br i1 %or.cond432.i182.us, label %605, label %566
 
-558:                                              ; preds = %550
-  br i1 %451, label %579, label %559
+566:                                              ; preds = %558
+  br i1 %459, label %587, label %567
 
-559:                                              ; preds = %558
-  %560 = lshr i32 %70, 7
-  %561 = and i32 %560, 33423870
-  %562 = lshr i32 %62, 8
-  %563 = and i32 %562, 16711935
-  %564 = lshr i32 %69, 8
-  %565 = and i32 %564, 16711935
-  %566 = add nuw nsw i32 %565, %563
-  %567 = add nuw nsw i32 %566, %561
-  %568 = shl nuw i32 %567, 6
-  %569 = and i32 %568, -16711936
-  %570 = shl i32 %70, 1
-  %571 = and i32 %570, 33423870
-  %572 = and i32 %62, 16711935
-  %573 = and i32 %69, 16711935
-  %574 = add nuw nsw i32 %573, %572
-  %575 = add nuw nsw i32 %574, %571
-  %576 = lshr i32 %575, 2
-  %577 = and i32 %576, 16711935
-  %578 = or disjoint i32 %569, %577
+567:                                              ; preds = %566
+  %568 = lshr i32 %70, 7
+  %569 = and i32 %568, 33423870
+  %570 = lshr i32 %62, 8
+  %571 = and i32 %570, 16711935
+  %572 = lshr i32 %69, 8
+  %573 = and i32 %572, 16711935
+  %574 = add nuw nsw i32 %573, %571
+  %575 = add nuw nsw i32 %574, %569
+  %576 = shl nuw i32 %575, 6
+  %577 = and i32 %576, -16711936
+  %578 = shl i32 %70, 1
+  %579 = and i32 %578, 33423870
+  %580 = and i32 %62, 16711935
+  %581 = and i32 %69, 16711935
+  %582 = add nuw nsw i32 %581, %580
+  %583 = add nuw nsw i32 %582, %579
+  %584 = lshr i32 %583, 2
+  %585 = and i32 %584, 16711935
+  %586 = or disjoint i32 %577, %585
   br label %yuv_diff.exit449.i161.thread.us
 
-579:                                              ; preds = %558
-  %580 = lshr i32 %70, 8
-  %581 = and i32 %580, 16711935
-  %582 = mul nuw nsw i32 %581, 5
-  %583 = lshr i32 %60, 8
-  %584 = and i32 %583, 16711935
-  %585 = mul nuw nsw i32 %584, 3
-  %586 = add nuw nsw i32 %582, %585
-  %587 = shl nuw i32 %586, 5
-  %588 = and i32 %587, -16711936
-  %589 = and i32 %70, 16711935
+587:                                              ; preds = %566
+  %588 = lshr i32 %70, 8
+  %589 = and i32 %588, 16711935
   %590 = mul nuw nsw i32 %589, 5
-  %591 = and i32 %60, 16711935
-  %592 = mul nuw nsw i32 %591, 3
-  %593 = add nuw nsw i32 %590, %592
-  %594 = lshr i32 %593, 3
-  %595 = and i32 %594, 16711935
-  %596 = or disjoint i32 %588, %595
+  %591 = lshr i32 %60, 8
+  %592 = and i32 %591, 16711935
+  %593 = mul nuw nsw i32 %592, 3
+  %594 = add nuw nsw i32 %590, %593
+  %595 = shl nuw i32 %594, 5
+  %596 = and i32 %595, -16711936
+  %597 = and i32 %70, 16711935
+  %598 = mul nuw nsw i32 %597, 5
+  %599 = and i32 %60, 16711935
+  %600 = mul nuw nsw i32 %599, 3
+  %601 = add nuw nsw i32 %598, %600
+  %602 = lshr i32 %601, 3
+  %603 = and i32 %602, 16711935
+  %604 = or disjoint i32 %596, %603
   br label %yuv_diff.exit449.i161.thread.us
 
-597:                                              ; preds = %550
-  %598 = lshr i32 %62, 8
-  %599 = and i32 %598, 16711935
-  %600 = lshr i32 %69, 8
-  %601 = and i32 %600, 16711935
-  %602 = add nuw nsw i32 %601, %599
-  %603 = shl nuw i32 %602, 7
-  %604 = and i32 %603, -16711936
-  %605 = and i32 %62, 16711935
-  %606 = and i32 %69, 16711935
-  %607 = add nuw nsw i32 %606, %605
-  %608 = lshr i32 %607, 1
+605:                                              ; preds = %558
+  %606 = lshr i32 %62, 8
+  %607 = and i32 %606, 16711935
+  %608 = lshr i32 %69, 8
   %609 = and i32 %608, 16711935
-  %610 = or disjoint i32 %604, %609
+  %610 = add nuw nsw i32 %609, %607
+  %611 = shl nuw i32 %610, 7
+  %612 = and i32 %611, -16711936
+  %613 = and i32 %62, 16711935
+  %614 = and i32 %69, 16711935
+  %615 = add nuw nsw i32 %614, %613
+  %616 = lshr i32 %615, 1
+  %617 = and i32 %616, 16711935
+  %618 = or disjoint i32 %612, %617
   br label %yuv_diff.exit449.i161.thread.us
 
-611:                                              ; preds = %549
-  %612 = lshr i32 %70, 8
-  %613 = and i32 %612, 16711935
-  %614 = mul nuw nsw i32 %613, 5
-  %615 = lshr i32 %62, 8
-  %616 = and i32 %615, 16711935
-  %617 = mul nuw nsw i32 %616, 3
-  %618 = add nuw nsw i32 %614, %617
-  %619 = shl nuw i32 %618, 5
-  %620 = and i32 %619, -16711936
-  %621 = and i32 %70, 16711935
+619:                                              ; preds = %557
+  %620 = lshr i32 %70, 8
+  %621 = and i32 %620, 16711935
   %622 = mul nuw nsw i32 %621, 5
-  %623 = and i32 %62, 16711935
-  %624 = mul nuw nsw i32 %623, 3
-  %625 = add nuw nsw i32 %622, %624
-  %626 = lshr i32 %625, 3
-  %627 = and i32 %626, 16711935
-  %628 = or disjoint i32 %620, %627
+  %623 = lshr i32 %62, 8
+  %624 = and i32 %623, 16711935
+  %625 = mul nuw nsw i32 %624, 3
+  %626 = add nuw nsw i32 %622, %625
+  %627 = shl nuw i32 %626, 5
+  %628 = and i32 %627, -16711936
+  %629 = and i32 %70, 16711935
+  %630 = mul nuw nsw i32 %629, 5
+  %631 = and i32 %62, 16711935
+  %632 = mul nuw nsw i32 %631, 3
+  %633 = add nuw nsw i32 %630, %632
+  %634 = lshr i32 %633, 3
+  %635 = and i32 %634, 16711935
+  %636 = or disjoint i32 %628, %635
   br label %yuv_diff.exit449.i161.thread.us
 
-629:                                              ; preds = %548
-  %630 = lshr i32 %70, 8
-  %631 = and i32 %630, 16711935
-  %632 = mul nuw nsw i32 %631, 5
-  %633 = lshr i32 %69, 8
-  %634 = and i32 %633, 16711935
-  %635 = mul nuw nsw i32 %634, 3
-  %636 = add nuw nsw i32 %632, %635
-  %637 = shl nuw i32 %636, 5
-  %638 = and i32 %637, -16711936
-  %639 = and i32 %70, 16711935
+637:                                              ; preds = %556
+  %638 = lshr i32 %70, 8
+  %639 = and i32 %638, 16711935
   %640 = mul nuw nsw i32 %639, 5
-  %641 = and i32 %69, 16711935
-  %642 = mul nuw nsw i32 %641, 3
-  %643 = add nuw nsw i32 %640, %642
-  %644 = lshr i32 %643, 3
-  %645 = and i32 %644, 16711935
-  %646 = or disjoint i32 %638, %645
-  br label %yuv_diff.exit449.i161.thread.us
-
-647:                                              ; preds = %547
-  %648 = lshr i32 %70, 8
-  %649 = and i32 %648, 16711935
+  %641 = lshr i32 %69, 8
+  %642 = and i32 %641, 16711935
+  %643 = mul nuw nsw i32 %642, 3
+  %644 = add nuw nsw i32 %640, %643
+  %645 = shl nuw i32 %644, 5
+  %646 = and i32 %645, -16711936
+  %647 = and i32 %70, 16711935
+  %648 = mul nuw nsw i32 %647, 5
+  %649 = and i32 %69, 16711935
   %650 = mul nuw nsw i32 %649, 3
-  %651 = lshr i32 %62, 8
-  %652 = and i32 %651, 16711935
-  %653 = add nuw nsw i32 %650, %652
-  %654 = shl nuw i32 %653, 6
-  %655 = and i32 %654, -16711936
-  %656 = and i32 %70, 16711935
-  %657 = mul nuw nsw i32 %656, 3
-  %658 = and i32 %62, 16711935
-  %659 = add nuw nsw i32 %657, %658
-  %660 = lshr i32 %659, 2
-  %661 = and i32 %660, 16711935
-  %662 = or disjoint i32 %655, %661
+  %651 = add nuw nsw i32 %648, %650
+  %652 = lshr i32 %651, 3
+  %653 = and i32 %652, 16711935
+  %654 = or disjoint i32 %646, %653
   br label %yuv_diff.exit449.i161.thread.us
 
-663:                                              ; preds = %546
-  %664 = lshr i32 %70, 8
-  %665 = and i32 %664, 16711935
-  %666 = mul nuw nsw i32 %665, 3
-  %667 = lshr i32 %69, 8
-  %668 = and i32 %667, 16711935
-  %669 = add nuw nsw i32 %666, %668
-  %670 = shl nuw i32 %669, 6
-  %671 = and i32 %670, -16711936
-  %672 = and i32 %70, 16711935
-  %673 = mul nuw nsw i32 %672, 3
-  %674 = and i32 %69, 16711935
-  %675 = add nuw nsw i32 %673, %674
-  %676 = lshr i32 %675, 2
-  %677 = and i32 %676, 16711935
-  %678 = or disjoint i32 %671, %677
+655:                                              ; preds = %555
+  %656 = lshr i32 %70, 8
+  %657 = and i32 %656, 16711935
+  %658 = mul nuw nsw i32 %657, 3
+  %659 = lshr i32 %62, 8
+  %660 = and i32 %659, 16711935
+  %661 = add nuw nsw i32 %658, %660
+  %662 = shl nuw i32 %661, 6
+  %663 = and i32 %662, -16711936
+  %664 = and i32 %70, 16711935
+  %665 = mul nuw nsw i32 %664, 3
+  %666 = and i32 %62, 16711935
+  %667 = add nuw nsw i32 %665, %666
+  %668 = lshr i32 %667, 2
+  %669 = and i32 %668, 16711935
+  %670 = or disjoint i32 %663, %669
   br label %yuv_diff.exit449.i161.thread.us
 
-.thread220.us:                                    ; preds = %545
-  %679 = lshr i32 %70, 8
-  %680 = and i32 %679, 16711935
-  %681 = mul nuw nsw i32 %680, 5
-  %682 = lshr i32 %60, 8
-  %683 = and i32 %682, 16711935
-  %684 = mul nuw nsw i32 %683, 3
-  %685 = add nuw nsw i32 %681, %684
-  %686 = shl nuw i32 %685, 5
-  %687 = and i32 %686, -16711936
-  %688 = and i32 %70, 16711935
+671:                                              ; preds = %554
+  %672 = lshr i32 %70, 8
+  %673 = and i32 %672, 16711935
+  %674 = mul nuw nsw i32 %673, 3
+  %675 = lshr i32 %69, 8
+  %676 = and i32 %675, 16711935
+  %677 = add nuw nsw i32 %674, %676
+  %678 = shl nuw i32 %677, 6
+  %679 = and i32 %678, -16711936
+  %680 = and i32 %70, 16711935
+  %681 = mul nuw nsw i32 %680, 3
+  %682 = and i32 %69, 16711935
+  %683 = add nuw nsw i32 %681, %682
+  %684 = lshr i32 %683, 2
+  %685 = and i32 %684, 16711935
+  %686 = or disjoint i32 %679, %685
+  br label %yuv_diff.exit449.i161.thread.us
+
+.thread220.us:                                    ; preds = %553
+  %687 = lshr i32 %70, 8
+  %688 = and i32 %687, 16711935
   %689 = mul nuw nsw i32 %688, 5
-  %690 = and i32 %60, 16711935
-  %691 = mul nuw nsw i32 %690, 3
-  %692 = add nuw nsw i32 %689, %691
-  %693 = lshr i32 %692, 3
-  %694 = and i32 %693, 16711935
-  %695 = or disjoint i32 %687, %694
-  store i32 %695, ptr %.0145.i393.us, align 4, !tbaa !20
-  br i1 %484, label %.thread223.us.sink.split, label %.thread221.us
+  %690 = lshr i32 %60, 8
+  %691 = and i32 %690, 16711935
+  %692 = mul nuw nsw i32 %691, 3
+  %693 = add nuw nsw i32 %689, %692
+  %694 = shl nuw i32 %693, 5
+  %695 = and i32 %694, -16711936
+  %696 = and i32 %70, 16711935
+  %697 = mul nuw nsw i32 %696, 5
+  %698 = and i32 %60, 16711935
+  %699 = mul nuw nsw i32 %698, 3
+  %700 = add nuw nsw i32 %697, %699
+  %701 = lshr i32 %700, 3
+  %702 = and i32 %701, 16711935
+  %703 = or disjoint i32 %695, %702
+  store i32 %703, ptr %.0145.i381.us, align 4, !tbaa !20
+  br i1 %492, label %.thread223.us.sink.split, label %.thread221.us
 
-yuv_diff.exit449.i161.thread.us:                  ; preds = %520, %534, %yuv_diff.exit449.i161.us, %663, %647, %629, %611, %597, %579, %559
-  %.sink = phi i32 [ %578, %559 ], [ %678, %663 ], [ %662, %647 ], [ %646, %629 ], [ %628, %611 ], [ %610, %597 ], [ %596, %579 ], [ %70, %yuv_diff.exit449.i161.us ], [ %70, %534 ], [ %70, %520 ]
-  store i32 %.sink, ptr %.0145.i393.us, align 4, !tbaa !20
-  br i1 %484, label %.thread223.us.sink.split, label %713
+yuv_diff.exit449.i161.thread.us:                  ; preds = %528, %542, %yuv_diff.exit449.i161.us, %671, %655, %637, %619, %605, %587, %567
+  %.sink = phi i32 [ %586, %567 ], [ %686, %671 ], [ %670, %655 ], [ %654, %637 ], [ %636, %619 ], [ %618, %605 ], [ %604, %587 ], [ %70, %yuv_diff.exit449.i161.us ], [ %70, %542 ], [ %70, %528 ]
+  store i32 %.sink, ptr %.0145.i381.us, align 4, !tbaa !20
+  br i1 %492, label %.thread223.us.sink.split, label %721
 
-.thread249.us:                                    ; preds = %515
-  %696 = lshr i32 %70, 8
-  %697 = and i32 %696, 16711935
-  %698 = mul nuw nsw i32 %697, 5
-  %699 = lshr i32 %62, 8
-  %700 = and i32 %699, 16711935
-  %701 = mul nuw nsw i32 %700, 3
-  %702 = add nuw nsw i32 %698, %701
-  %703 = shl nuw i32 %702, 5
-  %704 = and i32 %703, -16711936
-  %705 = and i32 %70, 16711935
+.thread249.us:                                    ; preds = %523
+  %704 = lshr i32 %70, 8
+  %705 = and i32 %704, 16711935
   %706 = mul nuw nsw i32 %705, 5
-  %707 = and i32 %62, 16711935
-  %708 = mul nuw nsw i32 %707, 3
-  %709 = add nuw nsw i32 %706, %708
-  %710 = lshr i32 %709, 3
-  %711 = and i32 %710, 16711935
-  %712 = or disjoint i32 %704, %711
-  store i32 %712, ptr %.0145.i393.us, align 4, !tbaa !20
-  br i1 %484, label %.thread222.thread250.us, label %713
+  %707 = lshr i32 %62, 8
+  %708 = and i32 %707, 16711935
+  %709 = mul nuw nsw i32 %708, 3
+  %710 = add nuw nsw i32 %706, %709
+  %711 = shl nuw i32 %710, 5
+  %712 = and i32 %711, -16711936
+  %713 = and i32 %70, 16711935
+  %714 = mul nuw nsw i32 %713, 5
+  %715 = and i32 %62, 16711935
+  %716 = mul nuw nsw i32 %715, 3
+  %717 = add nuw nsw i32 %714, %716
+  %718 = lshr i32 %717, 3
+  %719 = and i32 %718, 16711935
+  %720 = or disjoint i32 %712, %719
+  store i32 %720, ptr %.0145.i381.us, align 4, !tbaa !20
+  br i1 %492, label %.thread222.thread250.us, label %721
 
-713:                                              ; preds = %.thread249.us, %yuv_diff.exit449.i161.thread.us
-  br i1 %407, label %..thread221.us_crit_edge, label %714
+721:                                              ; preds = %.thread249.us, %yuv_diff.exit449.i161.thread.us
+  br i1 %415, label %..thread221.us_crit_edge, label %722
 
-..thread221.us_crit_edge:                         ; preds = %713
-  %.pre511 = lshr i32 %70, 8
-  %.pre513 = and i32 %.pre511, 16711935
-  %.pre515 = lshr i32 %60, 8
-  %.pre517 = and i32 %.pre515, 16711935
-  %.pre519 = and i32 %70, 16711935
-  %.pre521 = and i32 %60, 16711935
+..thread221.us_crit_edge:                         ; preds = %721
+  %.pre482 = lshr i32 %70, 8
+  %.pre484 = and i32 %.pre482, 16711935
+  %.pre486 = lshr i32 %60, 8
+  %.pre488 = and i32 %.pre486, 16711935
+  %.pre490 = and i32 %70, 16711935
+  %.pre492 = and i32 %60, 16711935
   br label %.thread221.us
 
-714:                                              ; preds = %713
-  br i1 %486, label %948, label %715
-
-715:                                              ; preds = %714
-  br i1 %488, label %890, label %716
-
-716:                                              ; preds = %715
-  br i1 %430, label %868, label %717
-
-717:                                              ; preds = %716
-  br i1 %489, label %850, label %718
-
-718:                                              ; preds = %717
-  br i1 %or.cond.i128.us, label %834, label %719
-
-719:                                              ; preds = %718
-  br i1 %493, label %814, label %720
-
-720:                                              ; preds = %719
-  br i1 %496, label %796, label %721
-
-721:                                              ; preds = %720
-  br i1 %418, label %780, label %722
-
 722:                                              ; preds = %721
-  %723 = and i32 %292, 243
-  %724 = icmp eq i32 %723, 98
-  %725 = and i32 %292, 103
-  %726 = icmp eq i32 %725, 102
-  %or.cond434.i163.us = or i1 %724, %726
-  %727 = and i32 %291, 55
-  %728 = icmp eq i32 %727, 54
-  %or.cond436.i164.us = or i1 %728, %or.cond434.i163.us
-  %729 = icmp eq i32 %723, 242
-  %or.cond437.i165.us = or i1 %729, %or.cond436.i164.us
-  br i1 %or.cond437.i165.us, label %764, label %730
+  br i1 %494, label %956, label %723
 
-730:                                              ; preds = %722
-  %731 = trunc nuw i32 %292 to i8
-  %trunc275.us = and i8 %731, -41
-  switch i8 %trunc275.us, label %732 [
-    i8 -42, label %764
-    i8 22, label %764
+723:                                              ; preds = %722
+  br i1 %496, label %898, label %724
+
+724:                                              ; preds = %723
+  br i1 %438, label %876, label %725
+
+725:                                              ; preds = %724
+  br i1 %497, label %858, label %726
+
+726:                                              ; preds = %725
+  br i1 %or.cond.i128.us, label %842, label %727
+
+727:                                              ; preds = %726
+  br i1 %501, label %822, label %728
+
+728:                                              ; preds = %727
+  br i1 %504, label %804, label %729
+
+729:                                              ; preds = %728
+  br i1 %426, label %788, label %730
+
+730:                                              ; preds = %729
+  %731 = and i32 %.fr257.us, 243
+  %732 = icmp eq i32 %731, 98
+  %733 = and i32 %.fr257.us, 103
+  %734 = icmp eq i32 %733, 102
+  %or.cond434.i163.us = or i1 %732, %734
+  %735 = and i32 %.fr257.us, 55
+  %736 = icmp eq i32 %735, 54
+  %or.cond436.i164.us = or i1 %736, %or.cond434.i163.us
+  %737 = icmp eq i32 %731, 242
+  %or.cond437.i165.us = or i1 %737, %or.cond436.i164.us
+  br i1 %or.cond437.i165.us, label %772, label %738
+
+738:                                              ; preds = %730
+  %739 = trunc i32 %.fr257.us to i8
+  %trunc260.us = and i8 %739, -41
+  switch i8 %trunc260.us, label %740 [
+    i8 -42, label %772
+    i8 22, label %772
   ]
 
-732:                                              ; preds = %730
-  %733 = icmp eq i32 %429, 2
-  br i1 %733, label %764, label %734
+740:                                              ; preds = %738
+  %741 = icmp eq i32 %437, 2
+  br i1 %741, label %772, label %742
 
-734:                                              ; preds = %732
-  %735 = and i32 %70, 16711935
-  br i1 %513, label %751, label %736
+742:                                              ; preds = %740
+  %743 = and i32 %70, 16711935
+  br i1 %521, label %759, label %744
 
-736:                                              ; preds = %734
-  %737 = lshr i32 %70, 8
-  %738 = and i32 %737, 16711935
-  %739 = mul nuw nsw i32 %738, 3
-  %740 = lshr i32 %62, 8
-  %741 = and i32 %740, 16711935
-  %742 = add nuw nsw i32 %739, %741
-  %743 = shl nuw i32 %742, 6
-  %744 = and i32 %743, -16711936
-  %745 = mul nuw nsw i32 %735, 3
-  %746 = and i32 %62, 16711935
-  %747 = add nuw nsw i32 %745, %746
-  %748 = lshr i32 %747, 2
+744:                                              ; preds = %742
+  %745 = lshr i32 %70, 8
+  %746 = and i32 %745, 16711935
+  %747 = mul nuw nsw i32 %746, 3
+  %748 = lshr i32 %62, 8
   %749 = and i32 %748, 16711935
-  %750 = or disjoint i32 %744, %749
-  br label %948
+  %750 = add nuw nsw i32 %747, %749
+  %751 = shl nuw i32 %750, 6
+  %752 = and i32 %751, -16711936
+  %753 = mul nuw nsw i32 %743, 3
+  %754 = and i32 %62, 16711935
+  %755 = add nuw nsw i32 %753, %754
+  %756 = lshr i32 %755, 2
+  %757 = and i32 %756, 16711935
+  %758 = or disjoint i32 %752, %757
+  br label %956
 
-751:                                              ; preds = %734
-  %752 = lshr i32 %62, 8
-  %753 = and i32 %752, 16711935
-  %754 = lshr i32 %70, 8
-  %755 = and i32 %754, 16711935
-  %756 = add nuw nsw i32 %755, %753
-  %757 = shl nuw i32 %756, 7
-  %758 = and i32 %757, -16711936
-  %759 = and i32 %62, 16711935
-  %760 = add nuw nsw i32 %735, %759
-  %761 = lshr i32 %760, 1
-  %762 = and i32 %761, 16711935
-  %763 = or disjoint i32 %758, %762
-  br label %948
+759:                                              ; preds = %742
+  %760 = lshr i32 %62, 8
+  %761 = and i32 %760, 16711935
+  %762 = lshr i32 %70, 8
+  %763 = and i32 %762, 16711935
+  %764 = add nuw nsw i32 %763, %761
+  %765 = shl nuw i32 %764, 7
+  %766 = and i32 %765, -16711936
+  %767 = and i32 %62, 16711935
+  %768 = add nuw nsw i32 %743, %767
+  %769 = lshr i32 %768, 1
+  %770 = and i32 %769, 16711935
+  %771 = or disjoint i32 %766, %770
+  br label %956
 
-764:                                              ; preds = %732, %730, %730, %722
-  %765 = lshr i32 %70, 8
-  %766 = and i32 %765, 16711935
-  %767 = mul nuw nsw i32 %766, 3
-  %768 = lshr i32 %60, 8
-  %769 = and i32 %768, 16711935
-  %770 = add nuw nsw i32 %767, %769
-  %771 = shl nuw i32 %770, 6
-  %772 = and i32 %771, -16711936
-  %773 = and i32 %70, 16711935
-  %774 = mul nuw nsw i32 %773, 3
-  %775 = and i32 %60, 16711935
-  %776 = add nuw nsw i32 %774, %775
-  %777 = lshr i32 %776, 2
-  %778 = and i32 %777, 16711935
-  %779 = or disjoint i32 %772, %778
-  br label %948
+772:                                              ; preds = %740, %738, %738, %730
+  %773 = lshr i32 %70, 8
+  %774 = and i32 %773, 16711935
+  %775 = mul nuw nsw i32 %774, 3
+  %776 = lshr i32 %60, 8
+  %777 = and i32 %776, 16711935
+  %778 = add nuw nsw i32 %775, %777
+  %779 = shl nuw i32 %778, 6
+  %780 = and i32 %779, -16711936
+  %781 = and i32 %70, 16711935
+  %782 = mul nuw nsw i32 %781, 3
+  %783 = and i32 %60, 16711935
+  %784 = add nuw nsw i32 %782, %783
+  %785 = lshr i32 %784, 2
+  %786 = and i32 %785, 16711935
+  %787 = or disjoint i32 %780, %786
+  br label %956
 
-780:                                              ; preds = %721
-  %781 = lshr i32 %70, 8
-  %782 = and i32 %781, 16711935
-  %783 = mul nuw nsw i32 %782, 7
-  %784 = lshr i32 %69, 8
-  %785 = and i32 %784, 16711935
-  %786 = add nuw nsw i32 %783, %785
-  %787 = shl nuw i32 %786, 5
-  %788 = and i32 %787, -16711936
-  %789 = and i32 %70, 16711935
-  %790 = mul nuw nsw i32 %789, 7
-  %791 = and i32 %69, 16711935
-  %792 = add nuw nsw i32 %790, %791
-  %793 = lshr i32 %792, 3
-  %794 = and i32 %793, 16711935
-  %795 = or disjoint i32 %788, %794
-  br label %948
+788:                                              ; preds = %729
+  %789 = lshr i32 %70, 8
+  %790 = and i32 %789, 16711935
+  %791 = mul nuw nsw i32 %790, 7
+  %792 = lshr i32 %69, 8
+  %793 = and i32 %792, 16711935
+  %794 = add nuw nsw i32 %791, %793
+  %795 = shl nuw i32 %794, 5
+  %796 = and i32 %795, -16711936
+  %797 = and i32 %70, 16711935
+  %798 = mul nuw nsw i32 %797, 7
+  %799 = and i32 %69, 16711935
+  %800 = add nuw nsw i32 %798, %799
+  %801 = lshr i32 %800, 3
+  %802 = and i32 %801, 16711935
+  %803 = or disjoint i32 %796, %802
+  br label %956
 
-796:                                              ; preds = %720
-  %797 = lshr i32 %62, 8
-  %798 = and i32 %797, 16711935
-  %799 = mul nuw nsw i32 %798, 5
-  %800 = lshr i32 %69, 8
-  %801 = and i32 %800, 16711935
-  %802 = mul nuw nsw i32 %801, 3
-  %803 = add nuw nsw i32 %802, %799
-  %804 = shl nuw i32 %803, 5
-  %805 = and i32 %804, -16711936
-  %806 = and i32 %62, 16711935
+804:                                              ; preds = %728
+  %805 = lshr i32 %62, 8
+  %806 = and i32 %805, 16711935
   %807 = mul nuw nsw i32 %806, 5
-  %808 = and i32 %69, 16711935
-  %809 = mul nuw nsw i32 %808, 3
-  %810 = add nuw nsw i32 %809, %807
-  %811 = lshr i32 %810, 3
-  %812 = and i32 %811, 16711935
-  %813 = or disjoint i32 %805, %812
-  br label %948
-
-814:                                              ; preds = %719
-  %815 = lshr i32 %62, 7
-  %816 = and i32 %815, 33423870
-  %817 = lshr i32 %70, 8
-  %818 = and i32 %817, 16711935
-  %819 = lshr i32 %69, 8
+  %808 = lshr i32 %69, 8
+  %809 = and i32 %808, 16711935
+  %810 = mul nuw nsw i32 %809, 3
+  %811 = add nuw nsw i32 %810, %807
+  %812 = shl nuw i32 %811, 5
+  %813 = and i32 %812, -16711936
+  %814 = and i32 %62, 16711935
+  %815 = mul nuw nsw i32 %814, 5
+  %816 = and i32 %69, 16711935
+  %817 = mul nuw nsw i32 %816, 3
+  %818 = add nuw nsw i32 %817, %815
+  %819 = lshr i32 %818, 3
   %820 = and i32 %819, 16711935
-  %821 = add nuw nsw i32 %820, %816
-  %822 = add nuw nsw i32 %821, %818
-  %823 = shl nuw i32 %822, 6
-  %824 = and i32 %823, -16711936
-  %825 = shl i32 %62, 1
-  %826 = and i32 %825, 33423870
-  %827 = and i32 %70, 16711935
-  %828 = and i32 %69, 16711935
-  %829 = add nuw nsw i32 %828, %826
-  %830 = add nuw nsw i32 %829, %827
-  %831 = lshr i32 %830, 2
-  %832 = and i32 %831, 16711935
-  %833 = or disjoint i32 %824, %832
-  br label %948
+  %821 = or disjoint i32 %813, %820
+  br label %956
 
-834:                                              ; preds = %718
-  %835 = lshr i32 %62, 8
-  %836 = and i32 %835, 16711935
-  %837 = mul nuw nsw i32 %836, 3
-  %838 = lshr i32 %70, 8
-  %839 = and i32 %838, 16711935
-  %840 = add nuw nsw i32 %839, %837
-  %841 = shl nuw i32 %840, 6
-  %842 = and i32 %841, -16711936
-  %843 = and i32 %62, 16711935
-  %844 = mul nuw nsw i32 %843, 3
-  %845 = and i32 %70, 16711935
-  %846 = add nuw nsw i32 %845, %844
-  %847 = lshr i32 %846, 2
-  %848 = and i32 %847, 16711935
-  %849 = or disjoint i32 %842, %848
-  br label %948
+822:                                              ; preds = %727
+  %823 = lshr i32 %62, 7
+  %824 = and i32 %823, 33423870
+  %825 = lshr i32 %70, 8
+  %826 = and i32 %825, 16711935
+  %827 = lshr i32 %69, 8
+  %828 = and i32 %827, 16711935
+  %829 = add nuw nsw i32 %828, %824
+  %830 = add nuw nsw i32 %829, %826
+  %831 = shl nuw i32 %830, 6
+  %832 = and i32 %831, -16711936
+  %833 = shl i32 %62, 1
+  %834 = and i32 %833, 33423870
+  %835 = and i32 %70, 16711935
+  %836 = and i32 %69, 16711935
+  %837 = add nuw nsw i32 %836, %834
+  %838 = add nuw nsw i32 %837, %835
+  %839 = lshr i32 %838, 2
+  %840 = and i32 %839, 16711935
+  %841 = or disjoint i32 %832, %840
+  br label %956
 
-850:                                              ; preds = %717
-  %851 = lshr i32 %70, 8
-  %852 = and i32 %851, 16711935
-  %853 = mul nuw nsw i32 %852, 5
-  %854 = lshr i32 %62, 8
-  %855 = and i32 %854, 16711935
-  %856 = mul nuw nsw i32 %855, 3
-  %857 = add nuw nsw i32 %853, %856
-  %858 = shl nuw i32 %857, 5
-  %859 = and i32 %858, -16711936
-  %860 = and i32 %70, 16711935
+842:                                              ; preds = %726
+  %843 = lshr i32 %62, 8
+  %844 = and i32 %843, 16711935
+  %845 = mul nuw nsw i32 %844, 3
+  %846 = lshr i32 %70, 8
+  %847 = and i32 %846, 16711935
+  %848 = add nuw nsw i32 %847, %845
+  %849 = shl nuw i32 %848, 6
+  %850 = and i32 %849, -16711936
+  %851 = and i32 %62, 16711935
+  %852 = mul nuw nsw i32 %851, 3
+  %853 = and i32 %70, 16711935
+  %854 = add nuw nsw i32 %853, %852
+  %855 = lshr i32 %854, 2
+  %856 = and i32 %855, 16711935
+  %857 = or disjoint i32 %850, %856
+  br label %956
+
+858:                                              ; preds = %725
+  %859 = lshr i32 %70, 8
+  %860 = and i32 %859, 16711935
   %861 = mul nuw nsw i32 %860, 5
-  %862 = and i32 %62, 16711935
-  %863 = mul nuw nsw i32 %862, 3
-  %864 = add nuw nsw i32 %861, %863
-  %865 = lshr i32 %864, 3
-  %866 = and i32 %865, 16711935
-  %867 = or disjoint i32 %859, %866
-  br label %948
+  %862 = lshr i32 %62, 8
+  %863 = and i32 %862, 16711935
+  %864 = mul nuw nsw i32 %863, 3
+  %865 = add nuw nsw i32 %861, %864
+  %866 = shl nuw i32 %865, 5
+  %867 = and i32 %866, -16711936
+  %868 = and i32 %70, 16711935
+  %869 = mul nuw nsw i32 %868, 5
+  %870 = and i32 %62, 16711935
+  %871 = mul nuw nsw i32 %870, 3
+  %872 = add nuw nsw i32 %869, %871
+  %873 = lshr i32 %872, 3
+  %874 = and i32 %873, 16711935
+  %875 = or disjoint i32 %867, %874
+  br label %956
 
-868:                                              ; preds = %716
-  %869 = lshr i32 %70, 8
-  %870 = and i32 %869, 16711935
-  %871 = mul nuw nsw i32 %870, 5
-  %872 = lshr i32 %62, 7
-  %873 = and i32 %872, 33423870
-  %874 = lshr i32 %60, 8
-  %875 = and i32 %874, 16711935
-  %876 = add nuw nsw i32 %873, %875
-  %877 = add nuw nsw i32 %876, %871
-  %878 = shl nuw i32 %877, 5
-  %879 = and i32 %878, -16711936
-  %880 = and i32 %70, 16711935
-  %881 = mul nuw nsw i32 %880, 5
-  %882 = shl i32 %62, 1
-  %883 = and i32 %882, 33423870
-  %884 = and i32 %60, 16711935
-  %885 = add nuw nsw i32 %883, %884
-  %886 = add nuw nsw i32 %885, %881
-  %887 = lshr i32 %886, 3
-  %888 = and i32 %887, 16711935
-  %889 = or disjoint i32 %879, %888
-  br label %948
+876:                                              ; preds = %724
+  %877 = lshr i32 %70, 8
+  %878 = and i32 %877, 16711935
+  %879 = mul nuw nsw i32 %878, 5
+  %880 = lshr i32 %62, 7
+  %881 = and i32 %880, 33423870
+  %882 = lshr i32 %60, 8
+  %883 = and i32 %882, 16711935
+  %884 = add nuw nsw i32 %881, %883
+  %885 = add nuw nsw i32 %884, %879
+  %886 = shl nuw i32 %885, 5
+  %887 = and i32 %886, -16711936
+  %888 = and i32 %70, 16711935
+  %889 = mul nuw nsw i32 %888, 5
+  %890 = shl i32 %62, 1
+  %891 = and i32 %890, 33423870
+  %892 = and i32 %60, 16711935
+  %893 = add nuw nsw i32 %891, %892
+  %894 = add nuw nsw i32 %893, %889
+  %895 = lshr i32 %894, 3
+  %896 = and i32 %895, 16711935
+  %897 = or disjoint i32 %887, %896
+  br label %956
 
-890:                                              ; preds = %715
-  %891 = lshr i32 %70, 8
-  %892 = and i32 %891, 16711935
-  %893 = mul nuw nsw i32 %892, 5
-  %894 = lshr i32 %62, 7
-  %895 = and i32 %894, 33423870
-  %896 = lshr i32 %69, 8
-  %897 = and i32 %896, 16711935
-  %898 = add nuw nsw i32 %897, %895
-  %899 = add nuw nsw i32 %898, %893
-  %900 = shl nuw i32 %899, 5
-  %901 = and i32 %900, -16711936
-  %902 = and i32 %70, 16711935
-  %903 = mul nuw nsw i32 %902, 5
-  %904 = shl i32 %62, 1
-  %905 = and i32 %904, 33423870
-  %906 = and i32 %69, 16711935
-  %907 = add nuw nsw i32 %906, %905
-  %908 = add nuw nsw i32 %907, %903
-  %909 = lshr i32 %908, 3
-  %910 = and i32 %909, 16711935
-  %911 = or disjoint i32 %901, %910
-  br label %948
+898:                                              ; preds = %723
+  %899 = lshr i32 %70, 8
+  %900 = and i32 %899, 16711935
+  %901 = mul nuw nsw i32 %900, 5
+  %902 = lshr i32 %62, 7
+  %903 = and i32 %902, 33423870
+  %904 = lshr i32 %69, 8
+  %905 = and i32 %904, 16711935
+  %906 = add nuw nsw i32 %905, %903
+  %907 = add nuw nsw i32 %906, %901
+  %908 = shl nuw i32 %907, 5
+  %909 = and i32 %908, -16711936
+  %910 = and i32 %70, 16711935
+  %911 = mul nuw nsw i32 %910, 5
+  %912 = shl i32 %62, 1
+  %913 = and i32 %912, 33423870
+  %914 = and i32 %69, 16711935
+  %915 = add nuw nsw i32 %914, %913
+  %916 = add nuw nsw i32 %915, %911
+  %917 = lshr i32 %916, 3
+  %918 = and i32 %917, 16711935
+  %919 = or disjoint i32 %909, %918
+  br label %956
 
 .thread221.us:                                    ; preds = %..thread221.us_crit_edge, %.thread220.us
-  %.pre-phi522 = phi i32 [ %.pre521, %..thread221.us_crit_edge ], [ %690, %.thread220.us ]
-  %.pre-phi520 = phi i32 [ %.pre519, %..thread221.us_crit_edge ], [ %688, %.thread220.us ]
-  %.pre-phi518 = phi i32 [ %.pre517, %..thread221.us_crit_edge ], [ %683, %.thread220.us ]
-  %.pre-phi514 = phi i32 [ %.pre513, %..thread221.us_crit_edge ], [ %680, %.thread220.us ]
-  %912 = mul nuw nsw i32 %.pre-phi514, 3
-  %913 = add nuw nsw i32 %912, %.pre-phi518
-  %914 = shl nuw i32 %913, 6
-  %915 = and i32 %914, -16711936
-  %916 = mul nuw nsw i32 %.pre-phi520, 3
-  %917 = add nuw nsw i32 %916, %.pre-phi522
-  %918 = lshr i32 %917, 2
-  %919 = and i32 %918, 16711935
-  %920 = or disjoint i32 %915, %919
-  br label %948
+  %.pre-phi493 = phi i32 [ %.pre492, %..thread221.us_crit_edge ], [ %698, %.thread220.us ]
+  %.pre-phi491 = phi i32 [ %.pre490, %..thread221.us_crit_edge ], [ %696, %.thread220.us ]
+  %.pre-phi489 = phi i32 [ %.pre488, %..thread221.us_crit_edge ], [ %691, %.thread220.us ]
+  %.pre-phi485 = phi i32 [ %.pre484, %..thread221.us_crit_edge ], [ %688, %.thread220.us ]
+  %920 = mul nuw nsw i32 %.pre-phi485, 3
+  %921 = add nuw nsw i32 %920, %.pre-phi489
+  %922 = shl nuw i32 %921, 6
+  %923 = and i32 %922, -16711936
+  %924 = mul nuw nsw i32 %.pre-phi491, 3
+  %925 = add nuw nsw i32 %924, %.pre-phi493
+  %926 = lshr i32 %925, 2
+  %927 = and i32 %926, 16711935
+  %928 = or disjoint i32 %923, %927
+  br label %956
 
 .thread222.thread250.us:                          ; preds = %.thread249.us
-  store i32 %70, ptr %293, align 4, !tbaa !20
-  br label %1165
+  store i32 %70, ptr %301, align 4, !tbaa !20
+  br label %1173
 
-921:                                              ; preds = %512
-  %922 = lshr i32 %70, 8
-  %923 = and i32 %922, 16711935
-  %924 = mul nuw nsw i32 %923, 5
-  %925 = lshr i32 %69, 8
-  %926 = and i32 %925, 16711935
-  %927 = mul nuw nsw i32 %926, 3
-  %928 = add nuw nsw i32 %924, %927
-  %929 = shl nuw i32 %928, 5
-  %930 = and i32 %929, -16711936
-  %931 = and i32 %70, 16711935
+929:                                              ; preds = %520
+  %930 = lshr i32 %70, 8
+  %931 = and i32 %930, 16711935
   %932 = mul nuw nsw i32 %931, 5
-  %933 = and i32 %69, 16711935
-  %934 = mul nuw nsw i32 %933, 3
-  %935 = add nuw nsw i32 %932, %934
-  %936 = lshr i32 %935, 3
-  %937 = and i32 %936, 16711935
-  %938 = or disjoint i32 %930, %937
-  store i32 %938, ptr %.0145.i393.us, align 4, !tbaa !20
-  %939 = mul nuw nsw i32 %923, 7
-  %940 = add nuw nsw i32 %939, %926
-  %941 = shl nuw i32 %940, 5
-  %942 = and i32 %941, -16711936
-  %943 = mul nuw nsw i32 %931, 7
-  %944 = add nuw nsw i32 %943, %933
-  %945 = lshr i32 %944, 3
-  %946 = and i32 %945, 16711935
-  %947 = or disjoint i32 %942, %946
-  br label %948
+  %933 = lshr i32 %69, 8
+  %934 = and i32 %933, 16711935
+  %935 = mul nuw nsw i32 %934, 3
+  %936 = add nuw nsw i32 %932, %935
+  %937 = shl nuw i32 %936, 5
+  %938 = and i32 %937, -16711936
+  %939 = and i32 %70, 16711935
+  %940 = mul nuw nsw i32 %939, 5
+  %941 = and i32 %69, 16711935
+  %942 = mul nuw nsw i32 %941, 3
+  %943 = add nuw nsw i32 %940, %942
+  %944 = lshr i32 %943, 3
+  %945 = and i32 %944, 16711935
+  %946 = or disjoint i32 %938, %945
+  store i32 %946, ptr %.0145.i381.us, align 4, !tbaa !20
+  %947 = mul nuw nsw i32 %931, 7
+  %948 = add nuw nsw i32 %947, %934
+  %949 = shl nuw i32 %948, 5
+  %950 = and i32 %949, -16711936
+  %951 = mul nuw nsw i32 %939, 7
+  %952 = add nuw nsw i32 %951, %941
+  %953 = lshr i32 %952, 3
+  %954 = and i32 %953, 16711935
+  %955 = or disjoint i32 %950, %954
+  br label %956
 
-948:                                              ; preds = %714, %921, %.thread221.us, %890, %868, %850, %834, %814, %796, %780, %764, %751, %736
-  %.sink546 = phi i32 [ %947, %921 ], [ %920, %.thread221.us ], [ %750, %736 ], [ %911, %890 ], [ %889, %868 ], [ %867, %850 ], [ %849, %834 ], [ %833, %814 ], [ %813, %796 ], [ %795, %780 ], [ %779, %764 ], [ %763, %751 ], [ %70, %714 ]
-  store i32 %.sink546, ptr %293, align 4, !tbaa !20
-  br i1 %356, label %._crit_edge428, label %949
+956:                                              ; preds = %722, %929, %.thread221.us, %898, %876, %858, %842, %822, %804, %788, %772, %759, %744
+  %.sink517 = phi i32 [ %955, %929 ], [ %928, %.thread221.us ], [ %758, %744 ], [ %919, %898 ], [ %897, %876 ], [ %875, %858 ], [ %857, %842 ], [ %841, %822 ], [ %821, %804 ], [ %803, %788 ], [ %787, %772 ], [ %771, %759 ], [ %70, %722 ]
+  store i32 %.sink517, ptr %301, align 4, !tbaa !20
+  br i1 %364, label %._crit_edge399, label %957
 
-._crit_edge428:                                   ; preds = %948
+._crit_edge399:                                   ; preds = %956
   %.pre = lshr i32 %70, 8
-  %.pre429 = and i32 %.pre, 16711935
-  %.pre431 = lshr i32 %62, 8
-  %.pre433 = and i32 %.pre431, 16711935
-  %.pre435 = and i32 %70, 16711935
-  %.pre437 = and i32 %62, 16711935
-  br label %1165
-
-949:                                              ; preds = %948
-  br i1 %484, label %.thread223.us, label %950
-
-950:                                              ; preds = %949
-  br i1 %407, label %1149, label %951
-
-951:                                              ; preds = %950
-  br i1 %486, label %.thread223.us, label %952
-
-952:                                              ; preds = %951
-  br i1 %488, label %1127, label %953
-
-953:                                              ; preds = %952
-  %954 = icmp eq i32 %429, 2
-  br i1 %954, label %1105, label %955
-
-955:                                              ; preds = %953
-  br i1 %514, label %1087, label %956
-
-956:                                              ; preds = %955
-  br i1 %or.cond367.i129.us, label %1071, label %957
+  %.pre400 = and i32 %.pre, 16711935
+  %.pre402 = lshr i32 %62, 8
+  %.pre404 = and i32 %.pre402, 16711935
+  %.pre406 = and i32 %70, 16711935
+  %.pre408 = and i32 %62, 16711935
+  br label %1173
 
 957:                                              ; preds = %956
-  br i1 %496, label %1051, label %958
+  br i1 %492, label %.thread223.us, label %958
 
 958:                                              ; preds = %957
-  br i1 %493, label %1033, label %959
+  br i1 %415, label %1157, label %959
 
 959:                                              ; preds = %958
-  br i1 %428, label %1017, label %960
+  br i1 %494, label %.thread223.us, label %960
 
 960:                                              ; preds = %959
-  br i1 %430, label %1001, label %961
+  br i1 %496, label %1135, label %961
 
 961:                                              ; preds = %960
-  %962 = and i32 %292, 249
-  %963 = icmp eq i32 %962, 104
-  %964 = and i32 %292, 109
-  %965 = icmp eq i32 %964, 108
-  %or.cond439.i166.us = or i1 %963, %965
-  %966 = and i32 %291, 61
-  %967 = icmp eq i32 %966, 60
-  %or.cond441.i167.us = or i1 %967, %or.cond439.i166.us
-  %968 = icmp eq i32 %962, 248
-  %or.cond442.i168.us = or i1 %968, %or.cond441.i167.us
-  br i1 %or.cond442.i168.us, label %1001, label %969
+  %962 = icmp eq i32 %437, 2
+  br i1 %962, label %1113, label %963
 
-969:                                              ; preds = %961
-  %970 = trunc nuw i32 %292 to i8
-  %trunc276.us = and i8 %970, -35
-  switch i8 %trunc276.us, label %971 [
-    i8 -36, label %1001
-    i8 28, label %1001
+963:                                              ; preds = %961
+  br i1 %522, label %1095, label %964
+
+964:                                              ; preds = %963
+  br i1 %or.cond367.i129.us, label %1079, label %965
+
+965:                                              ; preds = %964
+  br i1 %504, label %1059, label %966
+
+966:                                              ; preds = %965
+  br i1 %501, label %1041, label %967
+
+967:                                              ; preds = %966
+  br i1 %436, label %1025, label %968
+
+968:                                              ; preds = %967
+  br i1 %438, label %1009, label %969
+
+969:                                              ; preds = %968
+  %970 = and i32 %.fr257.us, 249
+  %971 = icmp eq i32 %970, 104
+  %972 = and i32 %.fr257.us, 109
+  %973 = icmp eq i32 %972, 108
+  %or.cond439.i166.us = or i1 %971, %973
+  %974 = and i32 %.fr257.us, 61
+  %975 = icmp eq i32 %974, 60
+  %or.cond441.i167.us = or i1 %975, %or.cond439.i166.us
+  %976 = icmp eq i32 %970, 248
+  %or.cond442.i168.us = or i1 %976, %or.cond441.i167.us
+  br i1 %or.cond442.i168.us, label %1009, label %977
+
+977:                                              ; preds = %969
+  %978 = trunc i32 %.fr257.us to i8
+  %trunc261.us = and i8 %978, -35
+  switch i8 %trunc261.us, label %979 [
+    i8 -36, label %1009
+    i8 28, label %1009
   ]
 
-971:                                              ; preds = %969
-  %972 = and i32 %70, 16711935
-  br i1 %513, label %988, label %973
+979:                                              ; preds = %977
+  %980 = and i32 %70, 16711935
+  br i1 %521, label %996, label %981
 
-973:                                              ; preds = %971
-  %974 = lshr i32 %70, 8
-  %975 = and i32 %974, 16711935
-  %976 = mul nuw nsw i32 %975, 3
-  %977 = lshr i32 %69, 8
-  %978 = and i32 %977, 16711935
-  %979 = add nuw nsw i32 %976, %978
-  %980 = shl nuw i32 %979, 6
-  %981 = and i32 %980, -16711936
-  %982 = mul nuw nsw i32 %972, 3
-  %983 = and i32 %69, 16711935
-  %984 = add nuw nsw i32 %982, %983
-  %985 = lshr i32 %984, 2
+981:                                              ; preds = %979
+  %982 = lshr i32 %70, 8
+  %983 = and i32 %982, 16711935
+  %984 = mul nuw nsw i32 %983, 3
+  %985 = lshr i32 %69, 8
   %986 = and i32 %985, 16711935
-  %987 = or disjoint i32 %981, %986
+  %987 = add nuw nsw i32 %984, %986
+  %988 = shl nuw i32 %987, 6
+  %989 = and i32 %988, -16711936
+  %990 = mul nuw nsw i32 %980, 3
+  %991 = and i32 %69, 16711935
+  %992 = add nuw nsw i32 %990, %991
+  %993 = lshr i32 %992, 2
+  %994 = and i32 %993, 16711935
+  %995 = or disjoint i32 %989, %994
   br label %.thread223.us
 
-988:                                              ; preds = %971
-  %989 = lshr i32 %69, 8
-  %990 = and i32 %989, 16711935
-  %991 = lshr i32 %70, 8
-  %992 = and i32 %991, 16711935
-  %993 = add nuw nsw i32 %992, %990
-  %994 = shl nuw i32 %993, 7
-  %995 = and i32 %994, -16711936
-  %996 = and i32 %69, 16711935
-  %997 = add nuw nsw i32 %972, %996
-  %998 = lshr i32 %997, 1
-  %999 = and i32 %998, 16711935
-  %1000 = or disjoint i32 %995, %999
+996:                                              ; preds = %979
+  %997 = lshr i32 %69, 8
+  %998 = and i32 %997, 16711935
+  %999 = lshr i32 %70, 8
+  %1000 = and i32 %999, 16711935
+  %1001 = add nuw nsw i32 %1000, %998
+  %1002 = shl nuw i32 %1001, 7
+  %1003 = and i32 %1002, -16711936
+  %1004 = and i32 %69, 16711935
+  %1005 = add nuw nsw i32 %980, %1004
+  %1006 = lshr i32 %1005, 1
+  %1007 = and i32 %1006, 16711935
+  %1008 = or disjoint i32 %1003, %1007
   br label %.thread223.us
 
-1001:                                             ; preds = %969, %969, %961, %960
-  %1002 = lshr i32 %70, 8
-  %1003 = and i32 %1002, 16711935
-  %1004 = mul nuw nsw i32 %1003, 3
-  %1005 = lshr i32 %60, 8
-  %1006 = and i32 %1005, 16711935
-  %1007 = add nuw nsw i32 %1004, %1006
-  %1008 = shl nuw i32 %1007, 6
-  %1009 = and i32 %1008, -16711936
-  %1010 = and i32 %70, 16711935
-  %1011 = mul nuw nsw i32 %1010, 3
-  %1012 = and i32 %60, 16711935
-  %1013 = add nuw nsw i32 %1011, %1012
-  %1014 = lshr i32 %1013, 2
-  %1015 = and i32 %1014, 16711935
-  %1016 = or disjoint i32 %1009, %1015
+1009:                                             ; preds = %977, %977, %969, %968
+  %1010 = lshr i32 %70, 8
+  %1011 = and i32 %1010, 16711935
+  %1012 = mul nuw nsw i32 %1011, 3
+  %1013 = lshr i32 %60, 8
+  %1014 = and i32 %1013, 16711935
+  %1015 = add nuw nsw i32 %1012, %1014
+  %1016 = shl nuw i32 %1015, 6
+  %1017 = and i32 %1016, -16711936
+  %1018 = and i32 %70, 16711935
+  %1019 = mul nuw nsw i32 %1018, 3
+  %1020 = and i32 %60, 16711935
+  %1021 = add nuw nsw i32 %1019, %1020
+  %1022 = lshr i32 %1021, 2
+  %1023 = and i32 %1022, 16711935
+  %1024 = or disjoint i32 %1017, %1023
   br label %.thread223.us
 
-1017:                                             ; preds = %959
-  %1018 = lshr i32 %70, 8
-  %1019 = and i32 %1018, 16711935
-  %1020 = mul nuw nsw i32 %1019, 7
-  %1021 = lshr i32 %62, 8
-  %1022 = and i32 %1021, 16711935
-  %1023 = add nuw nsw i32 %1020, %1022
-  %1024 = shl nuw i32 %1023, 5
-  %1025 = and i32 %1024, -16711936
-  %1026 = and i32 %70, 16711935
-  %1027 = mul nuw nsw i32 %1026, 7
-  %1028 = and i32 %62, 16711935
-  %1029 = add nuw nsw i32 %1027, %1028
-  %1030 = lshr i32 %1029, 3
-  %1031 = and i32 %1030, 16711935
-  %1032 = or disjoint i32 %1025, %1031
+1025:                                             ; preds = %967
+  %1026 = lshr i32 %70, 8
+  %1027 = and i32 %1026, 16711935
+  %1028 = mul nuw nsw i32 %1027, 7
+  %1029 = lshr i32 %62, 8
+  %1030 = and i32 %1029, 16711935
+  %1031 = add nuw nsw i32 %1028, %1030
+  %1032 = shl nuw i32 %1031, 5
+  %1033 = and i32 %1032, -16711936
+  %1034 = and i32 %70, 16711935
+  %1035 = mul nuw nsw i32 %1034, 7
+  %1036 = and i32 %62, 16711935
+  %1037 = add nuw nsw i32 %1035, %1036
+  %1038 = lshr i32 %1037, 3
+  %1039 = and i32 %1038, 16711935
+  %1040 = or disjoint i32 %1033, %1039
   br label %.thread223.us
 
-1033:                                             ; preds = %958
-  %1034 = lshr i32 %69, 8
-  %1035 = and i32 %1034, 16711935
-  %1036 = mul nuw nsw i32 %1035, 5
-  %1037 = lshr i32 %62, 8
-  %1038 = and i32 %1037, 16711935
-  %1039 = mul nuw nsw i32 %1038, 3
-  %1040 = add nuw nsw i32 %1036, %1039
-  %1041 = shl nuw i32 %1040, 5
-  %1042 = and i32 %1041, -16711936
-  %1043 = and i32 %69, 16711935
+1041:                                             ; preds = %966
+  %1042 = lshr i32 %69, 8
+  %1043 = and i32 %1042, 16711935
   %1044 = mul nuw nsw i32 %1043, 5
-  %1045 = and i32 %62, 16711935
-  %1046 = mul nuw nsw i32 %1045, 3
-  %1047 = add nuw nsw i32 %1044, %1046
-  %1048 = lshr i32 %1047, 3
-  %1049 = and i32 %1048, 16711935
-  %1050 = or disjoint i32 %1042, %1049
-  br label %.thread223.us
-
-1051:                                             ; preds = %957
-  %1052 = lshr i32 %69, 7
-  %1053 = and i32 %1052, 33423870
-  %1054 = lshr i32 %70, 8
-  %1055 = and i32 %1054, 16711935
-  %1056 = lshr i32 %62, 8
+  %1045 = lshr i32 %62, 8
+  %1046 = and i32 %1045, 16711935
+  %1047 = mul nuw nsw i32 %1046, 3
+  %1048 = add nuw nsw i32 %1044, %1047
+  %1049 = shl nuw i32 %1048, 5
+  %1050 = and i32 %1049, -16711936
+  %1051 = and i32 %69, 16711935
+  %1052 = mul nuw nsw i32 %1051, 5
+  %1053 = and i32 %62, 16711935
+  %1054 = mul nuw nsw i32 %1053, 3
+  %1055 = add nuw nsw i32 %1052, %1054
+  %1056 = lshr i32 %1055, 3
   %1057 = and i32 %1056, 16711935
-  %1058 = add nuw nsw i32 %1053, %1057
-  %1059 = add nuw nsw i32 %1058, %1055
-  %1060 = shl nuw i32 %1059, 6
-  %1061 = and i32 %1060, -16711936
-  %1062 = shl i32 %69, 1
-  %1063 = and i32 %1062, 33423870
-  %1064 = and i32 %70, 16711935
-  %1065 = and i32 %62, 16711935
-  %1066 = add nuw nsw i32 %1064, %1065
+  %1058 = or disjoint i32 %1050, %1057
+  br label %.thread223.us
+
+1059:                                             ; preds = %965
+  %1060 = lshr i32 %69, 7
+  %1061 = and i32 %1060, 33423870
+  %1062 = lshr i32 %70, 8
+  %1063 = and i32 %1062, 16711935
+  %1064 = lshr i32 %62, 8
+  %1065 = and i32 %1064, 16711935
+  %1066 = add nuw nsw i32 %1061, %1065
   %1067 = add nuw nsw i32 %1066, %1063
-  %1068 = lshr i32 %1067, 2
-  %1069 = and i32 %1068, 16711935
-  %1070 = or disjoint i32 %1061, %1069
+  %1068 = shl nuw i32 %1067, 6
+  %1069 = and i32 %1068, -16711936
+  %1070 = shl i32 %69, 1
+  %1071 = and i32 %1070, 33423870
+  %1072 = and i32 %70, 16711935
+  %1073 = and i32 %62, 16711935
+  %1074 = add nuw nsw i32 %1072, %1073
+  %1075 = add nuw nsw i32 %1074, %1071
+  %1076 = lshr i32 %1075, 2
+  %1077 = and i32 %1076, 16711935
+  %1078 = or disjoint i32 %1069, %1077
   br label %.thread223.us
 
-1071:                                             ; preds = %956
-  %1072 = lshr i32 %69, 8
-  %1073 = and i32 %1072, 16711935
-  %1074 = mul nuw nsw i32 %1073, 3
-  %1075 = lshr i32 %70, 8
-  %1076 = and i32 %1075, 16711935
-  %1077 = add nuw nsw i32 %1074, %1076
-  %1078 = shl nuw i32 %1077, 6
-  %1079 = and i32 %1078, -16711936
-  %1080 = and i32 %69, 16711935
-  %1081 = mul nuw nsw i32 %1080, 3
-  %1082 = and i32 %70, 16711935
-  %1083 = add nuw nsw i32 %1081, %1082
-  %1084 = lshr i32 %1083, 2
-  %1085 = and i32 %1084, 16711935
-  %1086 = or disjoint i32 %1079, %1085
+1079:                                             ; preds = %964
+  %1080 = lshr i32 %69, 8
+  %1081 = and i32 %1080, 16711935
+  %1082 = mul nuw nsw i32 %1081, 3
+  %1083 = lshr i32 %70, 8
+  %1084 = and i32 %1083, 16711935
+  %1085 = add nuw nsw i32 %1082, %1084
+  %1086 = shl nuw i32 %1085, 6
+  %1087 = and i32 %1086, -16711936
+  %1088 = and i32 %69, 16711935
+  %1089 = mul nuw nsw i32 %1088, 3
+  %1090 = and i32 %70, 16711935
+  %1091 = add nuw nsw i32 %1089, %1090
+  %1092 = lshr i32 %1091, 2
+  %1093 = and i32 %1092, 16711935
+  %1094 = or disjoint i32 %1087, %1093
   br label %.thread223.us
 
-1087:                                             ; preds = %955
-  %1088 = lshr i32 %70, 8
-  %1089 = and i32 %1088, 16711935
-  %1090 = mul nuw nsw i32 %1089, 5
-  %1091 = lshr i32 %69, 8
-  %1092 = and i32 %1091, 16711935
-  %1093 = mul nuw nsw i32 %1092, 3
-  %1094 = add nuw nsw i32 %1090, %1093
-  %1095 = shl nuw i32 %1094, 5
-  %1096 = and i32 %1095, -16711936
-  %1097 = and i32 %70, 16711935
+1095:                                             ; preds = %963
+  %1096 = lshr i32 %70, 8
+  %1097 = and i32 %1096, 16711935
   %1098 = mul nuw nsw i32 %1097, 5
-  %1099 = and i32 %69, 16711935
-  %1100 = mul nuw nsw i32 %1099, 3
-  %1101 = add nuw nsw i32 %1098, %1100
-  %1102 = lshr i32 %1101, 3
-  %1103 = and i32 %1102, 16711935
-  %1104 = or disjoint i32 %1096, %1103
+  %1099 = lshr i32 %69, 8
+  %1100 = and i32 %1099, 16711935
+  %1101 = mul nuw nsw i32 %1100, 3
+  %1102 = add nuw nsw i32 %1098, %1101
+  %1103 = shl nuw i32 %1102, 5
+  %1104 = and i32 %1103, -16711936
+  %1105 = and i32 %70, 16711935
+  %1106 = mul nuw nsw i32 %1105, 5
+  %1107 = and i32 %69, 16711935
+  %1108 = mul nuw nsw i32 %1107, 3
+  %1109 = add nuw nsw i32 %1106, %1108
+  %1110 = lshr i32 %1109, 3
+  %1111 = and i32 %1110, 16711935
+  %1112 = or disjoint i32 %1104, %1111
   br label %.thread223.us
 
-1105:                                             ; preds = %953
-  %1106 = lshr i32 %70, 8
-  %1107 = and i32 %1106, 16711935
-  %1108 = mul nuw nsw i32 %1107, 5
-  %1109 = lshr i32 %69, 7
-  %1110 = and i32 %1109, 33423870
-  %1111 = lshr i32 %60, 8
-  %1112 = and i32 %1111, 16711935
-  %1113 = add nuw nsw i32 %1110, %1112
-  %1114 = add nuw nsw i32 %1113, %1108
-  %1115 = shl nuw i32 %1114, 5
-  %1116 = and i32 %1115, -16711936
-  %1117 = and i32 %70, 16711935
-  %1118 = mul nuw nsw i32 %1117, 5
-  %1119 = shl i32 %69, 1
-  %1120 = and i32 %1119, 33423870
-  %1121 = and i32 %60, 16711935
-  %1122 = add nuw nsw i32 %1120, %1121
-  %1123 = add nuw nsw i32 %1122, %1118
-  %1124 = lshr i32 %1123, 3
-  %1125 = and i32 %1124, 16711935
-  %1126 = or disjoint i32 %1116, %1125
+1113:                                             ; preds = %961
+  %1114 = lshr i32 %70, 8
+  %1115 = and i32 %1114, 16711935
+  %1116 = mul nuw nsw i32 %1115, 5
+  %1117 = lshr i32 %69, 7
+  %1118 = and i32 %1117, 33423870
+  %1119 = lshr i32 %60, 8
+  %1120 = and i32 %1119, 16711935
+  %1121 = add nuw nsw i32 %1118, %1120
+  %1122 = add nuw nsw i32 %1121, %1116
+  %1123 = shl nuw i32 %1122, 5
+  %1124 = and i32 %1123, -16711936
+  %1125 = and i32 %70, 16711935
+  %1126 = mul nuw nsw i32 %1125, 5
+  %1127 = shl i32 %69, 1
+  %1128 = and i32 %1127, 33423870
+  %1129 = and i32 %60, 16711935
+  %1130 = add nuw nsw i32 %1128, %1129
+  %1131 = add nuw nsw i32 %1130, %1126
+  %1132 = lshr i32 %1131, 3
+  %1133 = and i32 %1132, 16711935
+  %1134 = or disjoint i32 %1124, %1133
   br label %.thread223.us
 
-1127:                                             ; preds = %952
-  %1128 = lshr i32 %70, 8
-  %1129 = and i32 %1128, 16711935
-  %1130 = mul nuw nsw i32 %1129, 5
-  %1131 = lshr i32 %69, 7
-  %1132 = and i32 %1131, 33423870
-  %1133 = lshr i32 %62, 8
-  %1134 = and i32 %1133, 16711935
-  %1135 = add nuw nsw i32 %1132, %1134
-  %1136 = add nuw nsw i32 %1135, %1130
-  %1137 = shl nuw i32 %1136, 5
-  %1138 = and i32 %1137, -16711936
-  %1139 = and i32 %70, 16711935
-  %1140 = mul nuw nsw i32 %1139, 5
-  %1141 = shl i32 %69, 1
-  %1142 = and i32 %1141, 33423870
-  %1143 = and i32 %62, 16711935
-  %1144 = add nuw nsw i32 %1142, %1143
-  %1145 = add nuw nsw i32 %1144, %1140
-  %1146 = lshr i32 %1145, 3
-  %1147 = and i32 %1146, 16711935
-  %1148 = or disjoint i32 %1138, %1147
+1135:                                             ; preds = %960
+  %1136 = lshr i32 %70, 8
+  %1137 = and i32 %1136, 16711935
+  %1138 = mul nuw nsw i32 %1137, 5
+  %1139 = lshr i32 %69, 7
+  %1140 = and i32 %1139, 33423870
+  %1141 = lshr i32 %62, 8
+  %1142 = and i32 %1141, 16711935
+  %1143 = add nuw nsw i32 %1140, %1142
+  %1144 = add nuw nsw i32 %1143, %1138
+  %1145 = shl nuw i32 %1144, 5
+  %1146 = and i32 %1145, -16711936
+  %1147 = and i32 %70, 16711935
+  %1148 = mul nuw nsw i32 %1147, 5
+  %1149 = shl i32 %69, 1
+  %1150 = and i32 %1149, 33423870
+  %1151 = and i32 %62, 16711935
+  %1152 = add nuw nsw i32 %1150, %1151
+  %1153 = add nuw nsw i32 %1152, %1148
+  %1154 = lshr i32 %1153, 3
+  %1155 = and i32 %1154, 16711935
+  %1156 = or disjoint i32 %1146, %1155
   br label %.thread223.us
 
-1149:                                             ; preds = %950
-  %1150 = lshr i32 %70, 8
-  %1151 = and i32 %1150, 16711935
-  %1152 = mul nuw nsw i32 %1151, 3
-  %1153 = lshr i32 %60, 8
-  %1154 = and i32 %1153, 16711935
-  %1155 = add nuw nsw i32 %1152, %1154
-  %1156 = shl nuw i32 %1155, 6
-  %1157 = and i32 %1156, -16711936
-  %1158 = and i32 %70, 16711935
-  %1159 = mul nuw nsw i32 %1158, 3
-  %1160 = and i32 %60, 16711935
-  %1161 = add nuw nsw i32 %1159, %1160
-  %1162 = lshr i32 %1161, 2
-  %1163 = and i32 %1162, 16711935
-  %1164 = or disjoint i32 %1157, %1163
+1157:                                             ; preds = %958
+  %1158 = lshr i32 %70, 8
+  %1159 = and i32 %1158, 16711935
+  %1160 = mul nuw nsw i32 %1159, 3
+  %1161 = lshr i32 %60, 8
+  %1162 = and i32 %1161, 16711935
+  %1163 = add nuw nsw i32 %1160, %1162
+  %1164 = shl nuw i32 %1163, 6
+  %1165 = and i32 %1164, -16711936
+  %1166 = and i32 %70, 16711935
+  %1167 = mul nuw nsw i32 %1166, 3
+  %1168 = and i32 %60, 16711935
+  %1169 = add nuw nsw i32 %1167, %1168
+  %1170 = lshr i32 %1169, 2
+  %1171 = and i32 %1170, 16711935
+  %1172 = or disjoint i32 %1165, %1171
   br label %.thread223.us
 
 .thread223.us.sink.split:                         ; preds = %yuv_diff.exit449.i161.thread.us, %.thread220.us
-  store i32 %70, ptr %293, align 4, !tbaa !20
+  store i32 %70, ptr %301, align 4, !tbaa !20
   br label %.thread223.us
 
-1165:                                             ; preds = %._crit_edge428, %.thread222.thread250.us
-  %.pre-phi438 = phi i32 [ %.pre437, %._crit_edge428 ], [ %707, %.thread222.thread250.us ]
-  %.pre-phi436 = phi i32 [ %.pre435, %._crit_edge428 ], [ %705, %.thread222.thread250.us ]
-  %.pre-phi434 = phi i32 [ %.pre433, %._crit_edge428 ], [ %700, %.thread222.thread250.us ]
-  %.pre-phi430 = phi i32 [ %.pre429, %._crit_edge428 ], [ %697, %.thread222.thread250.us ]
-  %1166 = mul nuw nsw i32 %.pre-phi430, 7
-  %1167 = add nuw nsw i32 %1166, %.pre-phi434
-  %1168 = shl nuw i32 %1167, 5
-  %1169 = and i32 %1168, -16711936
-  %1170 = mul nuw nsw i32 %.pre-phi436, 7
-  %1171 = add nuw nsw i32 %1170, %.pre-phi438
-  %1172 = lshr i32 %1171, 3
-  %1173 = and i32 %1172, 16711935
-  %1174 = or disjoint i32 %1169, %1173
+1173:                                             ; preds = %._crit_edge399, %.thread222.thread250.us
+  %.pre-phi409 = phi i32 [ %.pre408, %._crit_edge399 ], [ %715, %.thread222.thread250.us ]
+  %.pre-phi407 = phi i32 [ %.pre406, %._crit_edge399 ], [ %713, %.thread222.thread250.us ]
+  %.pre-phi405 = phi i32 [ %.pre404, %._crit_edge399 ], [ %708, %.thread222.thread250.us ]
+  %.pre-phi401 = phi i32 [ %.pre400, %._crit_edge399 ], [ %705, %.thread222.thread250.us ]
+  %1174 = mul nuw nsw i32 %.pre-phi401, 7
+  %1175 = add nuw nsw i32 %1174, %.pre-phi405
+  %1176 = shl nuw i32 %1175, 5
+  %1177 = and i32 %1176, -16711936
+  %1178 = mul nuw nsw i32 %.pre-phi407, 7
+  %1179 = add nuw nsw i32 %1178, %.pre-phi409
+  %1180 = lshr i32 %1179, 3
+  %1181 = and i32 %1180, 16711935
+  %1182 = or disjoint i32 %1177, %1181
   br label %.thread223.us
 
-.thread223.us:                                    ; preds = %949, %.thread223.us.sink.split, %951, %1165, %1149, %1127, %1105, %1087, %1071, %1051, %1033, %1017, %1001, %988, %973
-  %.sink547 = phi i32 [ %1174, %1165 ], [ %70, %951 ], [ %1164, %1149 ], [ %987, %973 ], [ %1148, %1127 ], [ %1126, %1105 ], [ %1104, %1087 ], [ %1086, %1071 ], [ %1070, %1051 ], [ %1050, %1033 ], [ %1032, %1017 ], [ %1016, %1001 ], [ %1000, %988 ], [ %70, %.thread223.us.sink.split ], [ %70, %949 ]
-  store i32 %.sink547, ptr %294, align 4, !tbaa !20
-  %1175 = icmp eq i32 %375, 43
-  %1176 = icmp eq i32 %375, 15
-  %1177 = or i1 %1175, %1176
-  %1178 = or i1 %492, %1177
-  %or.cond444.i171.us = or i1 %494, %1178
-  br i1 %or.cond444.i171.us, label %1179, label %1204
+.thread223.us:                                    ; preds = %957, %.thread223.us.sink.split, %959, %1173, %1157, %1135, %1113, %1095, %1079, %1059, %1041, %1025, %1009, %996, %981
+  %.sink518 = phi i32 [ %1182, %1173 ], [ %70, %959 ], [ %1172, %1157 ], [ %995, %981 ], [ %1156, %1135 ], [ %1134, %1113 ], [ %1112, %1095 ], [ %1094, %1079 ], [ %1078, %1059 ], [ %1058, %1041 ], [ %1040, %1025 ], [ %1024, %1009 ], [ %1008, %996 ], [ %70, %.thread223.us.sink.split ], [ %70, %957 ]
+  store i32 %.sink518, ptr %302, align 4, !tbaa !20
+  %1183 = icmp eq i32 %383, 43
+  %1184 = icmp eq i32 %383, 15
+  %1185 = or i1 %1183, %1184
+  %1186 = or i1 %500, %1185
+  %or.cond444.i171.us = or i1 %502, %1186
+  br i1 %or.cond444.i171.us, label %1187, label %1212
 
-1179:                                             ; preds = %.thread223.us
-  %1180 = and i32 %69, 16777215
-  %1181 = zext nneg i32 %1180 to i64
-  %1182 = getelementptr inbounds nuw i32, ptr %7, i64 %1181
-  %1183 = load i32, ptr %1182, align 4, !tbaa !20
-  %1184 = and i32 %62, 16777215
-  %1185 = zext nneg i32 %1184 to i64
-  %1186 = getelementptr inbounds nuw i32, ptr %7, i64 %1185
-  %1187 = load i32, ptr %1186, align 4, !tbaa !20
-  %1188 = and i32 %1183, 16711680
-  %1189 = and i32 %1187, 16711680
-  %1190 = add nsw i32 %1188, -3145729
-  %1191 = sub nsw i32 %1190, %1189
-  %1192 = icmp ult i32 %1191, -6291457
-  br i1 %1192, label %hq4x_interp_2x2.exit186.us, label %1193
+1187:                                             ; preds = %.thread223.us
+  %1188 = and i32 %69, 16777215
+  %1189 = zext nneg i32 %1188 to i64
+  %1190 = getelementptr inbounds nuw i32, ptr %7, i64 %1189
+  %1191 = load i32, ptr %1190, align 4, !tbaa !20
+  %1192 = and i32 %62, 16777215
+  %1193 = zext nneg i32 %1192 to i64
+  %1194 = getelementptr inbounds nuw i32, ptr %7, i64 %1193
+  %1195 = load i32, ptr %1194, align 4, !tbaa !20
+  %1196 = and i32 %1191, 16711680
+  %1197 = and i32 %1195, 16711680
+  %1198 = add nsw i32 %1196, -3145729
+  %1199 = sub nsw i32 %1198, %1197
+  %1200 = icmp ult i32 %1199, -6291457
+  br i1 %1200, label %hq4x_interp_2x2.exit186.us, label %1201
 
-1193:                                             ; preds = %1179
-  %1194 = and i32 %1183, 65280
-  %1195 = and i32 %1187, 65280
-  %1196 = add nsw i32 %1194, -1793
-  %1197 = sub nsw i32 %1196, %1195
-  %1198 = icmp ult i32 %1197, -3585
-  br i1 %1198, label %hq4x_interp_2x2.exit186.us, label %yuv_diff.exit.i176.us
+1201:                                             ; preds = %1187
+  %1202 = and i32 %1191, 65280
+  %1203 = and i32 %1195, 65280
+  %1204 = add nsw i32 %1202, -1793
+  %1205 = sub nsw i32 %1204, %1203
+  %1206 = icmp ult i32 %1205, -3585
+  br i1 %1206, label %hq4x_interp_2x2.exit186.us, label %yuv_diff.exit.i176.us
 
-yuv_diff.exit.i176.us:                            ; preds = %1193
-  %1199 = and i32 %1183, 255
-  %1200 = and i32 %1187, 255
-  %1201 = add nuw nsw i32 %1199, 6
-  %1202 = sub nsw i32 %1201, %1200
-  %1203 = icmp ult i32 %1202, 13
-  br i1 %1203, label %1204, label %hq4x_interp_2x2.exit186.us
+yuv_diff.exit.i176.us:                            ; preds = %1201
+  %1207 = and i32 %1191, 255
+  %1208 = and i32 %1195, 255
+  %1209 = add nuw nsw i32 %1207, 6
+  %1210 = sub nsw i32 %1209, %1208
+  %1211 = icmp ult i32 %1210, 13
+  br i1 %1211, label %1212, label %hq4x_interp_2x2.exit186.us
 
-1204:                                             ; preds = %yuv_diff.exit.i176.us, %.thread223.us
-  br i1 %407, label %1278, label %1205
+1212:                                             ; preds = %yuv_diff.exit.i176.us, %.thread223.us
+  br i1 %415, label %1286, label %1213
 
-1205:                                             ; preds = %1204
-  br i1 %514, label %1262, label %1206
+1213:                                             ; preds = %1212
+  br i1 %522, label %1270, label %1214
 
-1206:                                             ; preds = %1205
-  br i1 %489, label %1246, label %1207
+1214:                                             ; preds = %1213
+  br i1 %497, label %1254, label %1215
 
-1207:                                             ; preds = %1206
-  %brmerge445.i172.us = or i1 %488, %491
-  %brmerge446.i173.us = or i1 %492, %brmerge445.i172.us
-  %brmerge447.i174.us = or i1 %494, %brmerge446.i173.us
-  %brmerge448.i175.us = or i1 %495, %brmerge447.i174.us
-  br i1 %brmerge448.i175.us, label %1225, label %1208
+1215:                                             ; preds = %1214
+  %brmerge445.i172.us = or i1 %496, %499
+  %brmerge446.i173.us = or i1 %500, %brmerge445.i172.us
+  %brmerge447.i174.us = or i1 %502, %brmerge446.i173.us
+  %brmerge448.i175.us = or i1 %503, %brmerge447.i174.us
+  br i1 %brmerge448.i175.us, label %1233, label %1216
 
-1208:                                             ; preds = %1207
-  br i1 %451, label %1209, label %hq4x_interp_2x2.exit186.us
+1216:                                             ; preds = %1215
+  br i1 %459, label %1217, label %hq4x_interp_2x2.exit186.us
 
-1209:                                             ; preds = %1208
-  %1210 = lshr i32 %70, 8
-  %1211 = and i32 %1210, 16711935
-  %1212 = mul nuw nsw i32 %1211, 7
-  %1213 = lshr i32 %60, 8
-  %1214 = and i32 %1213, 16711935
-  %1215 = add nuw nsw i32 %1212, %1214
-  %1216 = shl nuw i32 %1215, 5
-  %1217 = and i32 %1216, -16711936
-  %1218 = and i32 %70, 16711935
-  %1219 = mul nuw nsw i32 %1218, 7
-  %1220 = and i32 %60, 16711935
-  %1221 = add nuw nsw i32 %1219, %1220
-  %1222 = lshr i32 %1221, 3
-  %1223 = and i32 %1222, 16711935
-  %1224 = or disjoint i32 %1217, %1223
+1217:                                             ; preds = %1216
+  %1218 = lshr i32 %70, 8
+  %1219 = and i32 %1218, 16711935
+  %1220 = mul nuw nsw i32 %1219, 7
+  %1221 = lshr i32 %60, 8
+  %1222 = and i32 %1221, 16711935
+  %1223 = add nuw nsw i32 %1220, %1222
+  %1224 = shl nuw i32 %1223, 5
+  %1225 = and i32 %1224, -16711936
+  %1226 = and i32 %70, 16711935
+  %1227 = mul nuw nsw i32 %1226, 7
+  %1228 = and i32 %60, 16711935
+  %1229 = add nuw nsw i32 %1227, %1228
+  %1230 = lshr i32 %1229, 3
+  %1231 = and i32 %1230, 16711935
+  %1232 = or disjoint i32 %1225, %1231
   br label %hq4x_interp_2x2.exit186.us
 
-1225:                                             ; preds = %1207
-  %1226 = lshr i32 %70, 8
-  %1227 = and i32 %1226, 16711935
-  %1228 = mul nuw nsw i32 %1227, 6
-  %1229 = lshr i32 %69, 8
-  %1230 = and i32 %1229, 16711935
-  %1231 = lshr i32 %62, 8
-  %1232 = and i32 %1231, 16711935
-  %1233 = add nuw nsw i32 %1230, %1232
-  %1234 = add nuw nsw i32 %1233, %1228
-  %1235 = shl nuw i32 %1234, 5
-  %1236 = and i32 %1235, -16711936
-  %1237 = and i32 %70, 16711935
-  %1238 = mul nuw nsw i32 %1237, 6
-  %1239 = and i32 %69, 16711935
-  %1240 = and i32 %62, 16711935
-  %1241 = add nuw nsw i32 %1239, %1240
-  %1242 = add nuw nsw i32 %1241, %1238
-  %1243 = lshr i32 %1242, 3
-  %1244 = and i32 %1243, 16711935
-  %1245 = or disjoint i32 %1236, %1244
+1233:                                             ; preds = %1215
+  %1234 = lshr i32 %70, 8
+  %1235 = and i32 %1234, 16711935
+  %1236 = mul nuw nsw i32 %1235, 6
+  %1237 = lshr i32 %69, 8
+  %1238 = and i32 %1237, 16711935
+  %1239 = lshr i32 %62, 8
+  %1240 = and i32 %1239, 16711935
+  %1241 = add nuw nsw i32 %1238, %1240
+  %1242 = add nuw nsw i32 %1241, %1236
+  %1243 = shl nuw i32 %1242, 5
+  %1244 = and i32 %1243, -16711936
+  %1245 = and i32 %70, 16711935
+  %1246 = mul nuw nsw i32 %1245, 6
+  %1247 = and i32 %69, 16711935
+  %1248 = and i32 %62, 16711935
+  %1249 = add nuw nsw i32 %1247, %1248
+  %1250 = add nuw nsw i32 %1249, %1246
+  %1251 = lshr i32 %1250, 3
+  %1252 = and i32 %1251, 16711935
+  %1253 = or disjoint i32 %1244, %1252
   br label %hq4x_interp_2x2.exit186.us
 
-1246:                                             ; preds = %1206
-  %1247 = lshr i32 %70, 8
-  %1248 = and i32 %1247, 16711935
-  %1249 = mul nuw nsw i32 %1248, 7
-  %1250 = lshr i32 %62, 8
-  %1251 = and i32 %1250, 16711935
-  %1252 = add nuw nsw i32 %1249, %1251
-  %1253 = shl nuw i32 %1252, 5
-  %1254 = and i32 %1253, -16711936
-  %1255 = and i32 %70, 16711935
-  %1256 = mul nuw nsw i32 %1255, 7
-  %1257 = and i32 %62, 16711935
-  %1258 = add nuw nsw i32 %1256, %1257
-  %1259 = lshr i32 %1258, 3
-  %1260 = and i32 %1259, 16711935
-  %1261 = or disjoint i32 %1254, %1260
+1254:                                             ; preds = %1214
+  %1255 = lshr i32 %70, 8
+  %1256 = and i32 %1255, 16711935
+  %1257 = mul nuw nsw i32 %1256, 7
+  %1258 = lshr i32 %62, 8
+  %1259 = and i32 %1258, 16711935
+  %1260 = add nuw nsw i32 %1257, %1259
+  %1261 = shl nuw i32 %1260, 5
+  %1262 = and i32 %1261, -16711936
+  %1263 = and i32 %70, 16711935
+  %1264 = mul nuw nsw i32 %1263, 7
+  %1265 = and i32 %62, 16711935
+  %1266 = add nuw nsw i32 %1264, %1265
+  %1267 = lshr i32 %1266, 3
+  %1268 = and i32 %1267, 16711935
+  %1269 = or disjoint i32 %1262, %1268
   br label %hq4x_interp_2x2.exit186.us
 
-1262:                                             ; preds = %1205
-  %1263 = lshr i32 %70, 8
-  %1264 = and i32 %1263, 16711935
-  %1265 = mul nuw nsw i32 %1264, 7
-  %1266 = lshr i32 %69, 8
-  %1267 = and i32 %1266, 16711935
-  %1268 = add nuw nsw i32 %1265, %1267
-  %1269 = shl nuw i32 %1268, 5
-  %1270 = and i32 %1269, -16711936
-  %1271 = and i32 %70, 16711935
-  %1272 = mul nuw nsw i32 %1271, 7
-  %1273 = and i32 %69, 16711935
-  %1274 = add nuw nsw i32 %1272, %1273
-  %1275 = lshr i32 %1274, 3
-  %1276 = and i32 %1275, 16711935
-  %1277 = or disjoint i32 %1270, %1276
+1270:                                             ; preds = %1213
+  %1271 = lshr i32 %70, 8
+  %1272 = and i32 %1271, 16711935
+  %1273 = mul nuw nsw i32 %1272, 7
+  %1274 = lshr i32 %69, 8
+  %1275 = and i32 %1274, 16711935
+  %1276 = add nuw nsw i32 %1273, %1275
+  %1277 = shl nuw i32 %1276, 5
+  %1278 = and i32 %1277, -16711936
+  %1279 = and i32 %70, 16711935
+  %1280 = mul nuw nsw i32 %1279, 7
+  %1281 = and i32 %69, 16711935
+  %1282 = add nuw nsw i32 %1280, %1281
+  %1283 = lshr i32 %1282, 3
+  %1284 = and i32 %1283, 16711935
+  %1285 = or disjoint i32 %1278, %1284
   br label %hq4x_interp_2x2.exit186.us
 
-1278:                                             ; preds = %1204
-  %1279 = lshr i32 %70, 8
-  %1280 = and i32 %1279, 16711935
-  %1281 = mul nuw nsw i32 %1280, 7
-  %1282 = lshr i32 %60, 8
-  %1283 = and i32 %1282, 16711935
-  %1284 = add nuw nsw i32 %1281, %1283
-  %1285 = shl nuw i32 %1284, 5
-  %1286 = and i32 %1285, -16711936
-  %1287 = and i32 %70, 16711935
-  %1288 = mul nuw nsw i32 %1287, 7
-  %1289 = and i32 %60, 16711935
-  %1290 = add nuw nsw i32 %1288, %1289
-  %1291 = lshr i32 %1290, 3
-  %1292 = and i32 %1291, 16711935
-  %1293 = or disjoint i32 %1286, %1292
+1286:                                             ; preds = %1212
+  %1287 = lshr i32 %70, 8
+  %1288 = and i32 %1287, 16711935
+  %1289 = mul nuw nsw i32 %1288, 7
+  %1290 = lshr i32 %60, 8
+  %1291 = and i32 %1290, 16711935
+  %1292 = add nuw nsw i32 %1289, %1291
+  %1293 = shl nuw i32 %1292, 5
+  %1294 = and i32 %1293, -16711936
+  %1295 = and i32 %70, 16711935
+  %1296 = mul nuw nsw i32 %1295, 7
+  %1297 = and i32 %60, 16711935
+  %1298 = add nuw nsw i32 %1296, %1297
+  %1299 = lshr i32 %1298, 3
+  %1300 = and i32 %1299, 16711935
+  %1301 = or disjoint i32 %1294, %1300
   br label %hq4x_interp_2x2.exit186.us
 
-hq4x_interp_2x2.exit186.us:                       ; preds = %1179, %1193, %yuv_diff.exit.i176.us, %1208, %1278, %1262, %1246, %1225, %1209
-  %.sink548 = phi i32 [ %70, %1208 ], [ %1293, %1278 ], [ %1277, %1262 ], [ %1261, %1246 ], [ %1245, %1225 ], [ %1224, %1209 ], [ %70, %yuv_diff.exit.i176.us ], [ %70, %1193 ], [ %70, %1179 ]
-  store i32 %.sink548, ptr %295, align 4, !tbaa !20
-  %1294 = getelementptr inbounds nuw i8, ptr %.0145.i393.us, i64 8
-  %1295 = shl nuw nsw i32 %.fr258.us, 1
-  %1296 = or disjoint i32 %.fr260.us, %.fr263.us
-  %1297 = shl nuw nsw i32 %1296, 2
-  %1298 = shl nuw nsw i32 %284, 5
-  %1299 = or i32 %1298, %1297
-  %1300 = or disjoint i32 %1299, %278
-  %1301 = or disjoint i32 %1300, %.fr.us
-  %1302 = or i32 %1301, %1295
-  %1303 = or i32 %1302, %279
-  %1304 = or i32 %1303, %283
-  %1305 = getelementptr inbounds nuw i8, ptr %.0145.i393.us, i64 12
-  %1306 = getelementptr inbounds i32, ptr %1294, i64 %32
-  %1307 = getelementptr inbounds i32, ptr %1294, i64 %30
-  %1308 = and i32 %1303, 191
-  %1309 = icmp eq i32 %1308, 55
-  %1310 = and i32 %1304, 219
-  %1311 = icmp eq i32 %1310, 19
-  %or.cond.i69.us = or i1 %1309, %1311
-  br i1 %or.cond.i69.us, label %1312, label %yuv_diff.exit453.i126.us
+hq4x_interp_2x2.exit186.us:                       ; preds = %1187, %1201, %yuv_diff.exit.i176.us, %1216, %1286, %1270, %1254, %1233, %1217
+  %.sink519 = phi i32 [ %70, %1216 ], [ %1301, %1286 ], [ %1285, %1270 ], [ %1269, %1254 ], [ %1253, %1233 ], [ %1232, %1217 ], [ %70, %yuv_diff.exit.i176.us ], [ %70, %1201 ], [ %70, %1187 ]
+  store i32 %.sink519, ptr %303, align 4, !tbaa !20
+  %1302 = getelementptr inbounds nuw i8, ptr %.0145.i381.us, i64 8
+  %1303 = shl nuw nsw i32 %183, 1
+  %1304 = or disjoint i32 %231, %111
+  %1305 = shl nuw nsw i32 %1304, 2
+  %1306 = shl nuw nsw i32 %292, 5
+  %1307 = or i32 %1306, %1305
+  %1308 = or disjoint i32 %1307, %286
+  %1309 = or disjoint i32 %1308, %135
+  %1310 = or i32 %1309, %1303
+  %1311 = or i32 %1310, %287
+  %1312 = or i32 %1311, %291
+  %.fr262.us = freeze i32 %1312
+  %1313 = getelementptr inbounds nuw i8, ptr %.0145.i381.us, i64 12
+  %1314 = getelementptr inbounds i32, ptr %1302, i64 %32
+  %1315 = getelementptr inbounds i32, ptr %1302, i64 %30
+  %1316 = and i32 %1311, 191
+  %1317 = icmp eq i32 %1316, 55
+  %1318 = and i32 %.fr262.us, 219
+  %1319 = icmp eq i32 %1318, 19
+  %or.cond.i69.us = or i1 %1317, %1319
+  br i1 %or.cond.i69.us, label %1320, label %yuv_diff.exit453.i126.us
 
-1312:                                             ; preds = %hq4x_interp_2x2.exit186.us
-  %1313 = and i32 %62, 16777215
-  %1314 = zext nneg i32 %1313 to i64
-  %1315 = getelementptr inbounds nuw i32, ptr %7, i64 %1314
-  %1316 = load i32, ptr %1315, align 4, !tbaa !20
-  %1317 = and i32 %69, 16777215
-  %1318 = zext nneg i32 %1317 to i64
-  %1319 = getelementptr inbounds nuw i32, ptr %7, i64 %1318
-  %1320 = load i32, ptr %1319, align 4, !tbaa !20
-  %1321 = and i32 %1316, 16711680
-  %1322 = and i32 %1320, 16711680
-  %1323 = add nsw i32 %1321, -3145729
-  %1324 = sub nsw i32 %1323, %1322
-  %1325 = icmp ult i32 %1324, -6291457
-  br i1 %1325, label %yuv_diff.exit453.i126.us, label %1326
+1320:                                             ; preds = %hq4x_interp_2x2.exit186.us
+  %1321 = and i32 %62, 16777215
+  %1322 = zext nneg i32 %1321 to i64
+  %1323 = getelementptr inbounds nuw i32, ptr %7, i64 %1322
+  %1324 = load i32, ptr %1323, align 4, !tbaa !20
+  %1325 = and i32 %69, 16777215
+  %1326 = zext nneg i32 %1325 to i64
+  %1327 = getelementptr inbounds nuw i32, ptr %7, i64 %1326
+  %1328 = load i32, ptr %1327, align 4, !tbaa !20
+  %1329 = and i32 %1324, 16711680
+  %1330 = and i32 %1328, 16711680
+  %1331 = add nsw i32 %1329, -3145729
+  %1332 = sub nsw i32 %1331, %1330
+  %1333 = icmp ult i32 %1332, -6291457
+  br i1 %1333, label %yuv_diff.exit453.i126.us, label %1334
 
-1326:                                             ; preds = %1312
-  %1327 = and i32 %1316, 65280
-  %1328 = and i32 %1320, 65280
-  %1329 = add nsw i32 %1327, -1793
-  %1330 = sub nsw i32 %1329, %1328
-  %1331 = icmp ult i32 %1330, -3585
-  br i1 %1331, label %yuv_diff.exit453.i126.us, label %1332
+1334:                                             ; preds = %1320
+  %1335 = and i32 %1324, 65280
+  %1336 = and i32 %1328, 65280
+  %1337 = add nsw i32 %1335, -1793
+  %1338 = sub nsw i32 %1337, %1336
+  %1339 = icmp ult i32 %1338, -3585
+  br i1 %1339, label %yuv_diff.exit453.i126.us, label %1340
 
-1332:                                             ; preds = %1326
-  %1333 = and i32 %1316, 255
-  %1334 = and i32 %1320, 255
-  %1335 = add nsw i32 %1333, -7
-  %1336 = sub nsw i32 %1335, %1334
-  %1337 = icmp ult i32 %1336, -13
+1340:                                             ; preds = %1334
+  %1341 = and i32 %1324, 255
+  %1342 = and i32 %1328, 255
+  %1343 = add nsw i32 %1341, -7
+  %1344 = sub nsw i32 %1343, %1342
+  %1345 = icmp ult i32 %1344, -13
   br label %yuv_diff.exit453.i126.us
 
-yuv_diff.exit453.i126.us:                         ; preds = %1332, %1326, %1312, %hq4x_interp_2x2.exit186.us
-  %1338 = phi i1 [ false, %hq4x_interp_2x2.exit186.us ], [ true, %1326 ], [ true, %1312 ], [ %1337, %1332 ]
-  %1339 = icmp eq i32 %1310, 73
-  %1340 = and i32 %1304, 239
-  %1341 = icmp eq i32 %1340, 109
-  %or.cond367.i70.us = or i1 %1339, %1341
-  br i1 %or.cond367.i70.us, label %1342, label %yuv_diff.exit452.i125.us
+yuv_diff.exit453.i126.us:                         ; preds = %1340, %1334, %1320, %hq4x_interp_2x2.exit186.us
+  %1346 = phi i1 [ false, %hq4x_interp_2x2.exit186.us ], [ true, %1334 ], [ true, %1320 ], [ %1345, %1340 ]
+  %1347 = icmp eq i32 %1318, 73
+  %1348 = and i32 %.fr262.us, 239
+  %1349 = icmp eq i32 %1348, 109
+  %or.cond367.i70.us = or i1 %1347, %1349
+  br i1 %or.cond367.i70.us, label %1350, label %yuv_diff.exit452.i125.us
 
-1342:                                             ; preds = %yuv_diff.exit453.i126.us
-  %1343 = and i32 %79, 16777215
-  %1344 = zext nneg i32 %1343 to i64
-  %1345 = getelementptr inbounds nuw i32, ptr %7, i64 %1344
-  %1346 = load i32, ptr %1345, align 4, !tbaa !20
-  %1347 = and i32 %73, 16777215
-  %1348 = zext nneg i32 %1347 to i64
-  %1349 = getelementptr inbounds nuw i32, ptr %7, i64 %1348
-  %1350 = load i32, ptr %1349, align 4, !tbaa !20
-  %1351 = and i32 %1346, 16711680
-  %1352 = and i32 %1350, 16711680
-  %1353 = add nsw i32 %1351, -3145729
-  %1354 = sub nsw i32 %1353, %1352
-  %1355 = icmp ult i32 %1354, -6291457
-  br i1 %1355, label %yuv_diff.exit452.i125.us, label %1356
+1350:                                             ; preds = %yuv_diff.exit453.i126.us
+  %1351 = and i32 %79, 16777215
+  %1352 = zext nneg i32 %1351 to i64
+  %1353 = getelementptr inbounds nuw i32, ptr %7, i64 %1352
+  %1354 = load i32, ptr %1353, align 4, !tbaa !20
+  %1355 = and i32 %73, 16777215
+  %1356 = zext nneg i32 %1355 to i64
+  %1357 = getelementptr inbounds nuw i32, ptr %7, i64 %1356
+  %1358 = load i32, ptr %1357, align 4, !tbaa !20
+  %1359 = and i32 %1354, 16711680
+  %1360 = and i32 %1358, 16711680
+  %1361 = add nsw i32 %1359, -3145729
+  %1362 = sub nsw i32 %1361, %1360
+  %1363 = icmp ult i32 %1362, -6291457
+  br i1 %1363, label %yuv_diff.exit452.i125.us, label %1364
 
-1356:                                             ; preds = %1342
-  %1357 = and i32 %1346, 65280
-  %1358 = and i32 %1350, 65280
-  %1359 = add nsw i32 %1357, -1793
-  %1360 = sub nsw i32 %1359, %1358
-  %1361 = icmp ult i32 %1360, -3585
-  br i1 %1361, label %yuv_diff.exit452.i125.us, label %1362
+1364:                                             ; preds = %1350
+  %1365 = and i32 %1354, 65280
+  %1366 = and i32 %1358, 65280
+  %1367 = add nsw i32 %1365, -1793
+  %1368 = sub nsw i32 %1367, %1366
+  %1369 = icmp ult i32 %1368, -3585
+  br i1 %1369, label %yuv_diff.exit452.i125.us, label %1370
 
-1362:                                             ; preds = %1356
-  %1363 = and i32 %1346, 255
-  %1364 = and i32 %1350, 255
-  %1365 = add nsw i32 %1363, -7
-  %1366 = sub nsw i32 %1365, %1364
-  %1367 = icmp ult i32 %1366, -13
+1370:                                             ; preds = %1364
+  %1371 = and i32 %1354, 255
+  %1372 = and i32 %1358, 255
+  %1373 = add nsw i32 %1371, -7
+  %1374 = sub nsw i32 %1373, %1372
+  %1375 = icmp ult i32 %1374, -13
   br label %yuv_diff.exit452.i125.us
 
-yuv_diff.exit452.i125.us:                         ; preds = %1362, %1356, %1342, %yuv_diff.exit453.i126.us
-  %1368 = phi i1 [ false, %yuv_diff.exit453.i126.us ], [ true, %1356 ], [ true, %1342 ], [ %1367, %1362 ]
-  %1369 = and i32 %1304, 111
-  %1370 = icmp eq i32 %1369, 42
-  %1371 = and i32 %1304, 91
-  %1372 = icmp eq i32 %1371, 10
-  %or.cond369.i71.us = or i1 %1370, %1372
-  %1373 = icmp eq i32 %1308, 58
-  %or.cond370.i72.us = or i1 %1373, %or.cond369.i71.us
-  %1374 = and i32 %1304, 223
-  %1375 = icmp eq i32 %1374, 90
-  %or.cond372.i73.us = or i1 %1375, %or.cond370.i72.us
-  %1376 = and i32 %1303, 159
-  %1377 = icmp eq i32 %1376, 138
-  %or.cond374.i74.us = or i1 %1377, %or.cond372.i73.us
-  %1378 = and i32 %1304, 207
-  %1379 = icmp eq i32 %1378, 138
-  %or.cond376.i75.us = or i1 %1379, %or.cond374.i74.us
-  %1380 = icmp eq i32 %1340, 78
-  %or.cond378.i76.us = or i1 %1380, %or.cond376.i75.us
-  %1381 = and i32 %1303, 63
-  %1382 = icmp eq i32 %1381, 14
-  %or.cond380.i77.us = or i1 %1382, %or.cond378.i76.us
-  %1383 = and i32 %1304, 251
-  %1384 = icmp eq i32 %1383, 90
-  %or.cond382.i78.us = or i1 %1384, %or.cond380.i77.us
-  %1385 = and i32 %1303, 187
-  %1386 = icmp eq i32 %1385, 138
-  %or.cond384.i79.us = or i1 %1386, %or.cond382.i78.us
-  %1387 = and i32 %1304, 127
-  %1388 = icmp eq i32 %1387, 90
-  %or.cond386.i80.us = or i1 %1388, %or.cond384.i79.us
-  %1389 = and i32 %1303, 175
-  %1390 = icmp eq i32 %1389, 138
-  %or.cond388.i81.us = or i1 %1390, %or.cond386.i80.us
-  %1391 = and i32 %1304, 235
-  %1392 = icmp eq i32 %1391, 138
-  %or.cond390.i82.us = or i1 %1392, %or.cond388.i81.us
-  br i1 %or.cond390.i82.us, label %1393, label %yuv_diff.exit451.i124.us
+yuv_diff.exit452.i125.us:                         ; preds = %1370, %1364, %1350, %yuv_diff.exit453.i126.us
+  %1376 = phi i1 [ false, %yuv_diff.exit453.i126.us ], [ true, %1364 ], [ true, %1350 ], [ %1375, %1370 ]
+  %1377 = and i32 %.fr262.us, 111
+  %1378 = icmp eq i32 %1377, 42
+  %1379 = and i32 %.fr262.us, 91
+  %1380 = icmp eq i32 %1379, 10
+  %or.cond369.i71.us = or i1 %1378, %1380
+  %1381 = icmp eq i32 %1316, 58
+  %or.cond370.i72.us = or i1 %1381, %or.cond369.i71.us
+  %1382 = and i32 %.fr262.us, 223
+  %1383 = icmp eq i32 %1382, 90
+  %or.cond372.i73.us = or i1 %1383, %or.cond370.i72.us
+  %1384 = and i32 %1311, 159
+  %1385 = icmp eq i32 %1384, 138
+  %or.cond374.i74.us = or i1 %1385, %or.cond372.i73.us
+  %1386 = and i32 %.fr262.us, 207
+  %1387 = icmp eq i32 %1386, 138
+  %or.cond376.i75.us = or i1 %1387, %or.cond374.i74.us
+  %1388 = icmp eq i32 %1348, 78
+  %or.cond378.i76.us = or i1 %1388, %or.cond376.i75.us
+  %1389 = and i32 %1311, 63
+  %1390 = icmp eq i32 %1389, 14
+  %or.cond380.i77.us = or i1 %1390, %or.cond378.i76.us
+  %1391 = and i32 %.fr262.us, 251
+  %1392 = icmp eq i32 %1391, 90
+  %or.cond382.i78.us = or i1 %1392, %or.cond380.i77.us
+  %1393 = and i32 %1311, 187
+  %1394 = icmp eq i32 %1393, 138
+  %or.cond384.i79.us = or i1 %1394, %or.cond382.i78.us
+  %1395 = and i32 %.fr262.us, 127
+  %1396 = icmp eq i32 %1395, 90
+  %or.cond386.i80.us = or i1 %1396, %or.cond384.i79.us
+  %1397 = and i32 %1311, 175
+  %1398 = icmp eq i32 %1397, 138
+  %or.cond388.i81.us = or i1 %1398, %or.cond386.i80.us
+  %1399 = and i32 %.fr262.us, 235
+  %1400 = icmp eq i32 %1399, 138
+  %or.cond390.i82.us = or i1 %1400, %or.cond388.i81.us
+  br i1 %or.cond390.i82.us, label %1401, label %yuv_diff.exit451.i124.us
 
-1393:                                             ; preds = %yuv_diff.exit452.i125.us
-  %1394 = and i32 %73, 16777215
-  %1395 = zext nneg i32 %1394 to i64
-  %1396 = getelementptr inbounds nuw i32, ptr %7, i64 %1395
-  %1397 = load i32, ptr %1396, align 4, !tbaa !20
-  %1398 = and i32 %62, 16777215
-  %1399 = zext nneg i32 %1398 to i64
-  %1400 = getelementptr inbounds nuw i32, ptr %7, i64 %1399
-  %1401 = load i32, ptr %1400, align 4, !tbaa !20
-  %1402 = and i32 %1397, 16711680
-  %1403 = and i32 %1401, 16711680
-  %1404 = add nsw i32 %1402, -3145729
-  %1405 = sub nsw i32 %1404, %1403
-  %1406 = icmp ult i32 %1405, -6291457
-  br i1 %1406, label %yuv_diff.exit451.i124.us, label %1407
+1401:                                             ; preds = %yuv_diff.exit452.i125.us
+  %1402 = and i32 %73, 16777215
+  %1403 = zext nneg i32 %1402 to i64
+  %1404 = getelementptr inbounds nuw i32, ptr %7, i64 %1403
+  %1405 = load i32, ptr %1404, align 4, !tbaa !20
+  %1406 = and i32 %62, 16777215
+  %1407 = zext nneg i32 %1406 to i64
+  %1408 = getelementptr inbounds nuw i32, ptr %7, i64 %1407
+  %1409 = load i32, ptr %1408, align 4, !tbaa !20
+  %1410 = and i32 %1405, 16711680
+  %1411 = and i32 %1409, 16711680
+  %1412 = add nsw i32 %1410, -3145729
+  %1413 = sub nsw i32 %1412, %1411
+  %1414 = icmp ult i32 %1413, -6291457
+  br i1 %1414, label %yuv_diff.exit451.i124.us, label %1415
 
-1407:                                             ; preds = %1393
-  %1408 = and i32 %1397, 65280
-  %1409 = and i32 %1401, 65280
-  %1410 = add nsw i32 %1408, -1793
-  %1411 = sub nsw i32 %1410, %1409
-  %1412 = icmp ult i32 %1411, -3585
-  br i1 %1412, label %yuv_diff.exit451.i124.us, label %1413
+1415:                                             ; preds = %1401
+  %1416 = and i32 %1405, 65280
+  %1417 = and i32 %1409, 65280
+  %1418 = add nsw i32 %1416, -1793
+  %1419 = sub nsw i32 %1418, %1417
+  %1420 = icmp ult i32 %1419, -3585
+  br i1 %1420, label %yuv_diff.exit451.i124.us, label %1421
 
-1413:                                             ; preds = %1407
-  %1414 = and i32 %1397, 255
-  %1415 = and i32 %1401, 255
-  %1416 = add nsw i32 %1414, -7
-  %1417 = sub nsw i32 %1416, %1415
-  %1418 = icmp ult i32 %1417, -13
+1421:                                             ; preds = %1415
+  %1422 = and i32 %1405, 255
+  %1423 = and i32 %1409, 255
+  %1424 = add nsw i32 %1422, -7
+  %1425 = sub nsw i32 %1424, %1423
+  %1426 = icmp ult i32 %1425, -13
   br label %yuv_diff.exit451.i124.us
 
-yuv_diff.exit451.i124.us:                         ; preds = %1413, %1407, %1393, %yuv_diff.exit452.i125.us
-  %1419 = phi i1 [ false, %yuv_diff.exit452.i125.us ], [ true, %1407 ], [ true, %1393 ], [ %1418, %1413 ]
-  %1420 = and i32 %1303, 27
-  %1421 = icmp eq i32 %1420, 3
-  %1422 = and i32 %1304, 79
-  %1423 = icmp eq i32 %1422, 67
-  %or.cond392.i83.us = or i1 %1421, %1423
-  %1424 = and i32 %1303, 139
-  %1425 = icmp eq i32 %1424, 131
-  %or.cond394.i84.us = or i1 %1425, %or.cond392.i83.us
-  br i1 %or.cond394.i84.us, label %1429, label %1426
+yuv_diff.exit451.i124.us:                         ; preds = %1421, %1415, %1401, %yuv_diff.exit452.i125.us
+  %1427 = phi i1 [ false, %yuv_diff.exit452.i125.us ], [ true, %1415 ], [ true, %1401 ], [ %1426, %1421 ]
+  %1428 = and i32 %1311, 27
+  %1429 = icmp eq i32 %1428, 3
+  %1430 = and i32 %.fr262.us, 79
+  %1431 = icmp eq i32 %1430, 67
+  %or.cond392.i83.us = or i1 %1429, %1431
+  %1432 = and i32 %1311, 139
+  %1433 = icmp eq i32 %1432, 131
+  %or.cond394.i84.us = or i1 %1433, %or.cond392.i83.us
+  br i1 %or.cond394.i84.us, label %1437, label %1434
 
-1426:                                             ; preds = %yuv_diff.exit451.i124.us
-  %1427 = and i32 %1304, 107
-  %1428 = icmp eq i32 %1427, 67
-  br label %1429
+1434:                                             ; preds = %yuv_diff.exit451.i124.us
+  %1435 = and i32 %.fr262.us, 107
+  %1436 = icmp eq i32 %1435, 67
+  br label %1437
 
-1429:                                             ; preds = %1426, %yuv_diff.exit451.i124.us
-  %1430 = phi i1 [ true, %yuv_diff.exit451.i124.us ], [ %1428, %1426 ]
-  %1431 = and i32 %1304, 75
-  %1432 = icmp eq i32 %1431, 9
-  %1433 = icmp eq i32 %1424, 137
-  %or.cond396.i85.us = or i1 %1433, %1432
-  %1434 = and i32 %1303, 31
-  %1435 = icmp eq i32 %1434, 25
-  %or.cond398.i86.us = or i1 %1435, %or.cond396.i85.us
-  br i1 %or.cond398.i86.us, label %1439, label %1436
+1437:                                             ; preds = %1434, %yuv_diff.exit451.i124.us
+  %1438 = phi i1 [ true, %yuv_diff.exit451.i124.us ], [ %1436, %1434 ]
+  %1439 = and i32 %.fr262.us, 75
+  %1440 = icmp eq i32 %1439, 9
+  %1441 = icmp eq i32 %1432, 137
+  %or.cond396.i85.us = or i1 %1441, %1440
+  %1442 = and i32 %1311, 31
+  %1443 = icmp eq i32 %1442, 25
+  %or.cond398.i86.us = or i1 %1443, %or.cond396.i85.us
+  br i1 %or.cond398.i86.us, label %1447, label %1444
 
-1436:                                             ; preds = %1429
-  %1437 = and i32 %1303, 59
-  %1438 = icmp eq i32 %1437, 25
-  br label %1439
+1444:                                             ; preds = %1437
+  %1445 = and i32 %1311, 59
+  %1446 = icmp eq i32 %1445, 25
+  br label %1447
 
-1439:                                             ; preds = %1436, %1429
-  %1440 = phi i1 [ true, %1429 ], [ %1438, %1436 ]
-  %1441 = and i32 %1303, 11
-  %1442 = icmp eq i32 %1441, 8
-  br i1 %1442, label %1462, label %1443
+1447:                                             ; preds = %1444, %1437
+  %1448 = phi i1 [ true, %1437 ], [ %1446, %1444 ]
+  %1449 = and i32 %1311, 11
+  %1450 = icmp eq i32 %1449, 8
+  br i1 %1450, label %1470, label %1451
 
-1443:                                             ; preds = %1439
-  %1444 = and i32 %1304, 249
-  %1445 = icmp eq i32 %1444, 104
-  br i1 %1445, label %1462, label %1446
+1451:                                             ; preds = %1447
+  %1452 = and i32 %.fr262.us, 249
+  %1453 = icmp eq i32 %1452, 104
+  br i1 %1453, label %1470, label %1454
 
-1446:                                             ; preds = %1443
-  %1447 = and i32 %1304, 243
-  %1448 = icmp eq i32 %1447, 98
-  %1449 = and i32 %1304, 109
-  %1450 = icmp eq i32 %1449, 108
-  %or.cond400.i87.us = or i1 %1448, %1450
-  %1451 = and i32 %1304, 103
-  %1452 = icmp eq i32 %1451, 102
-  %or.cond402.i88.us = or i1 %1452, %or.cond400.i87.us
-  %1453 = and i32 %1303, 61
-  %1454 = icmp eq i32 %1453, 60
-  %or.cond404.i89.us = or i1 %1454, %or.cond402.i88.us
-  %1455 = and i32 %1302, 55
-  %1456 = icmp eq i32 %1455, 54
-  %or.cond406.i90.us = or i1 %1456, %or.cond404.i89.us
-  %1457 = icmp eq i32 %1444, 248
-  %or.cond407.i91.us = or i1 %1457, %or.cond406.i90.us
-  %1458 = icmp eq i32 %1447, 242
-  %or.cond549 = or i1 %or.cond407.i91.us, %1458
-  br i1 %or.cond549, label %1462, label %switch.early.test295.us
+1454:                                             ; preds = %1451
+  %1455 = and i32 %.fr262.us, 243
+  %1456 = icmp eq i32 %1455, 98
+  %1457 = and i32 %.fr262.us, 109
+  %1458 = icmp eq i32 %1457, 108
+  %or.cond400.i87.us = or i1 %1456, %1458
+  %1459 = and i32 %.fr262.us, 103
+  %1460 = icmp eq i32 %1459, 102
+  %or.cond402.i88.us = or i1 %1460, %or.cond400.i87.us
+  %1461 = and i32 %1311, 61
+  %1462 = icmp eq i32 %1461, 60
+  %or.cond404.i89.us = or i1 %1462, %or.cond402.i88.us
+  %1463 = and i32 %1310, 55
+  %1464 = icmp eq i32 %1463, 54
+  %or.cond406.i90.us = or i1 %1464, %or.cond404.i89.us
+  %1465 = icmp eq i32 %1452, 248
+  %or.cond407.i91.us = or i1 %1465, %or.cond406.i90.us
+  %1466 = icmp eq i32 %1455, 242
+  %or.cond520 = or i1 %or.cond407.i91.us, %1466
+  br i1 %or.cond520, label %1470, label %switch.early.test283.us
 
-switch.early.test295.us:                          ; preds = %1446
-  %1459 = trunc nuw i32 %1304 to i8
-  %trunc411 = and i8 %1459, -35
-  switch i8 %trunc411, label %switch.early.test.i93.us [
-    i8 -36, label %1462
-    i8 28, label %1462
+switch.early.test283.us:                          ; preds = %1454
+  %1467 = trunc i32 %.fr262.us to i8
+  %trunc389 = and i8 %1467, -35
+  switch i8 %trunc389, label %switch.early.test.i93.us [
+    i8 -36, label %1470
+    i8 28, label %1470
   ]
 
-switch.early.test.i93.us:                         ; preds = %switch.early.test295.us
-  %trunc277.us = and i8 %1459, -41
-  switch i8 %trunc277.us, label %1460 [
-    i8 -42, label %1462
-    i8 22, label %1462
+switch.early.test.i93.us:                         ; preds = %switch.early.test283.us
+  %trunc263.us = and i8 %1467, -41
+  switch i8 %trunc263.us, label %1468 [
+    i8 -42, label %1470
+    i8 22, label %1470
   ]
 
-1460:                                             ; preds = %switch.early.test.i93.us
-  %1461 = icmp eq i32 %1441, 2
-  br label %1462
+1468:                                             ; preds = %switch.early.test.i93.us
+  %1469 = icmp eq i32 %1449, 2
+  br label %1470
 
-1462:                                             ; preds = %1460, %switch.early.test.i93.us, %switch.early.test.i93.us, %switch.early.test295.us, %switch.early.test295.us, %1446, %1443, %1439
-  %1463 = phi i1 [ true, %1446 ], [ true, %1443 ], [ true, %switch.early.test.i93.us ], [ true, %1439 ], [ true, %switch.early.test295.us ], [ %1461, %1460 ], [ true, %switch.early.test.i93.us ], [ true, %switch.early.test295.us ]
-  %1464 = and i32 %1303, 15
-  %1465 = icmp eq i32 %1464, 11
-  %1466 = and i32 %1303, 43
-  %1467 = icmp eq i32 %1466, 11
-  %or.cond412.i94.us = or i1 %1465, %1467
-  br i1 %or.cond412.i94.us, label %1470, label %1468
+1470:                                             ; preds = %1468, %switch.early.test.i93.us, %switch.early.test.i93.us, %switch.early.test283.us, %switch.early.test283.us, %1454, %1451, %1447
+  %1471 = phi i1 [ true, %1454 ], [ true, %1451 ], [ true, %switch.early.test.i93.us ], [ true, %1447 ], [ true, %switch.early.test283.us ], [ %1469, %1468 ], [ true, %switch.early.test.i93.us ], [ true, %switch.early.test283.us ]
+  %1472 = and i32 %.fr262.us, 15
+  %1473 = icmp eq i32 %1472, 11
+  %1474 = and i32 %.fr262.us, 43
+  %1475 = icmp eq i32 %1474, 11
+  %or.cond412.i94.us = or i1 %1473, %1475
+  br i1 %or.cond412.i94.us, label %1478, label %1476
 
-1468:                                             ; preds = %1462
-  %1469 = trunc nuw i32 %1304 to i8
-  %trunc278.us = and i8 %1469, -2
-  switch i8 %trunc278.us, label %yuv_diff.exit450.i95.us [
-    i8 74, label %1470
-    i8 26, label %1470
+1476:                                             ; preds = %1470
+  %1477 = trunc i32 %.fr262.us to i8
+  %trunc264.us = and i8 %1477, -2
+  switch i8 %trunc264.us, label %yuv_diff.exit450.i95.us [
+    i8 74, label %1478
+    i8 26, label %1478
   ]
 
-1470:                                             ; preds = %1468, %1468, %1462
-  %1471 = and i32 %73, 16777215
-  %1472 = zext nneg i32 %1471 to i64
-  %1473 = getelementptr inbounds nuw i32, ptr %7, i64 %1472
-  %1474 = load i32, ptr %1473, align 4, !tbaa !20
-  %1475 = and i32 %62, 16777215
-  %1476 = zext nneg i32 %1475 to i64
-  %1477 = getelementptr inbounds nuw i32, ptr %7, i64 %1476
-  %1478 = load i32, ptr %1477, align 4, !tbaa !20
-  %1479 = and i32 %1474, 16711680
-  %1480 = and i32 %1478, 16711680
-  %1481 = add nsw i32 %1479, -3145729
-  %1482 = sub nsw i32 %1481, %1480
-  %1483 = icmp ult i32 %1482, -6291457
-  br i1 %1483, label %yuv_diff.exit450.i95.us, label %1484
+1478:                                             ; preds = %1476, %1476, %1470
+  %1479 = and i32 %73, 16777215
+  %1480 = zext nneg i32 %1479 to i64
+  %1481 = getelementptr inbounds nuw i32, ptr %7, i64 %1480
+  %1482 = load i32, ptr %1481, align 4, !tbaa !20
+  %1483 = and i32 %62, 16777215
+  %1484 = zext nneg i32 %1483 to i64
+  %1485 = getelementptr inbounds nuw i32, ptr %7, i64 %1484
+  %1486 = load i32, ptr %1485, align 4, !tbaa !20
+  %1487 = and i32 %1482, 16711680
+  %1488 = and i32 %1486, 16711680
+  %1489 = add nsw i32 %1487, -3145729
+  %1490 = sub nsw i32 %1489, %1488
+  %1491 = icmp ult i32 %1490, -6291457
+  br i1 %1491, label %yuv_diff.exit450.i95.us, label %1492
 
-1484:                                             ; preds = %1470
-  %1485 = and i32 %1474, 65280
-  %1486 = and i32 %1478, 65280
-  %1487 = add nsw i32 %1485, -1793
-  %1488 = sub nsw i32 %1487, %1486
-  %1489 = icmp ult i32 %1488, -3585
-  br i1 %1489, label %yuv_diff.exit450.i95.us, label %1490
+1492:                                             ; preds = %1478
+  %1493 = and i32 %1482, 65280
+  %1494 = and i32 %1486, 65280
+  %1495 = add nsw i32 %1493, -1793
+  %1496 = sub nsw i32 %1495, %1494
+  %1497 = icmp ult i32 %1496, -3585
+  br i1 %1497, label %yuv_diff.exit450.i95.us, label %1498
 
-1490:                                             ; preds = %1484
-  %1491 = and i32 %1474, 255
-  %1492 = and i32 %1478, 255
-  %1493 = add nsw i32 %1491, -7
-  %1494 = sub nsw i32 %1493, %1492
-  %1495 = icmp ult i32 %1494, -13
+1498:                                             ; preds = %1492
+  %1499 = and i32 %1482, 255
+  %1500 = and i32 %1486, 255
+  %1501 = add nsw i32 %1499, -7
+  %1502 = sub nsw i32 %1501, %1500
+  %1503 = icmp ult i32 %1502, -13
   br label %yuv_diff.exit450.i95.us
 
-yuv_diff.exit450.i95.us:                          ; preds = %1490, %1484, %1470, %1468
-  %1496 = phi i1 [ false, %1468 ], [ true, %1484 ], [ true, %1470 ], [ %1495, %1490 ]
-  %1497 = and i32 %1303, 47
-  %1498 = icmp eq i32 %1497, 47
-  %1499 = and i32 %1303, 10
-  %1500 = icmp eq i32 %1499, 0
-  %1501 = icmp eq i32 %1441, 9
-  %1502 = and i32 %1304, 126
-  %1503 = icmp eq i32 %1502, 42
-  %1504 = icmp eq i32 %1340, 171
-  %1505 = or i1 %1503, %1504
-  %1506 = icmp eq i32 %1308, 143
-  %1507 = icmp eq i32 %1502, 14
-  %1508 = or i1 %1506, %1507
-  %1509 = icmp eq i32 %1422, 75
-  %1510 = icmp eq i32 %1376, 27
-  %or.cond414.i96.us = or i1 %1510, %1509
-  %1511 = icmp eq i32 %1497, 11
-  %or.cond415.i97.us = or i1 %1511, %or.cond414.i96.us
-  %1512 = and i32 %1303, 190
-  %1513 = icmp eq i32 %1512, 10
-  %1514 = and i32 %1304, 238
-  %1515 = icmp eq i32 %1514, 10
-  %1516 = icmp eq i32 %1502, 10
-  %1517 = or i1 %1516, %or.cond415.i97.us
-  %1518 = icmp eq i32 %1391, 75
-  %1519 = or i1 %1518, %1517
-  %1520 = or i1 %1513, %1519
-  %or.cond422.i101.us = or i1 %1515, %1520
-  br i1 %or.cond422.i101.us, label %1524, label %1521
+yuv_diff.exit450.i95.us:                          ; preds = %1498, %1492, %1478, %1476
+  %1504 = phi i1 [ false, %1476 ], [ true, %1492 ], [ true, %1478 ], [ %1503, %1498 ]
+  %1505 = and i32 %.fr262.us, 47
+  %1506 = icmp eq i32 %1505, 47
+  %1507 = and i32 %.fr262.us, 10
+  %1508 = icmp eq i32 %1507, 0
+  %1509 = icmp eq i32 %1449, 9
+  %1510 = and i32 %.fr262.us, 126
+  %1511 = icmp eq i32 %1510, 42
+  %1512 = icmp eq i32 %1348, 171
+  %1513 = or i1 %1511, %1512
+  %1514 = icmp eq i32 %1316, 143
+  %1515 = icmp eq i32 %1510, 14
+  %1516 = or i1 %1514, %1515
+  %1517 = icmp eq i32 %1430, 75
+  %1518 = icmp eq i32 %1384, 27
+  %or.cond414.i96.us = or i1 %1518, %1517
+  %1519 = icmp eq i32 %1505, 11
+  %or.cond415.i97.us = or i1 %1519, %or.cond414.i96.us
+  %1520 = and i32 %.fr262.us, 190
+  %1521 = icmp eq i32 %1520, 10
+  %1522 = and i32 %.fr262.us, 238
+  %1523 = icmp eq i32 %1522, 10
+  %1524 = icmp eq i32 %1510, 10
+  %1525 = or i1 %1524, %or.cond415.i97.us
+  %1526 = icmp eq i32 %1399, 75
+  %1527 = or i1 %1526, %1525
+  %1528 = or i1 %1521, %1527
+  %or.cond422.i101.us = or i1 %1523, %1528
+  br i1 %or.cond422.i101.us, label %1532, label %1529
 
-1521:                                             ; preds = %yuv_diff.exit450.i95.us
-  %1522 = and i32 %1303, 59
-  %1523 = icmp eq i32 %1522, 27
-  br label %1524
+1529:                                             ; preds = %yuv_diff.exit450.i95.us
+  %1530 = and i32 %.fr262.us, 59
+  %1531 = icmp eq i32 %1530, 27
+  br label %1532
 
-1524:                                             ; preds = %1521, %yuv_diff.exit450.i95.us
-  %1525 = phi i1 [ true, %yuv_diff.exit450.i95.us ], [ %1523, %1521 ]
-  %1526 = icmp eq i32 %1441, 3
-  br i1 %1338, label %1933, label %1527
+1532:                                             ; preds = %1529, %yuv_diff.exit450.i95.us
+  %1533 = phi i1 [ true, %yuv_diff.exit450.i95.us ], [ %1531, %1529 ]
+  %1534 = icmp eq i32 %1449, 3
+  br i1 %1346, label %1941, label %1535
 
-1527:                                             ; preds = %1524
-  br i1 %1368, label %.thread251.us, label %1528
+1535:                                             ; preds = %1532
+  br i1 %1376, label %.thread251.us, label %1536
 
-1528:                                             ; preds = %1527
-  %1529 = icmp eq i32 %1441, 11
-  br i1 %1529, label %1532, label %1530
+1536:                                             ; preds = %1535
+  %1537 = icmp eq i32 %1449, 11
+  br i1 %1537, label %1540, label %1538
 
-1530:                                             ; preds = %1528
-  %1531 = trunc nuw i32 %1304 to i8
-  %trunc279.us = and i8 %1531, -2
-  switch i8 %trunc279.us, label %1557 [
-    i8 74, label %1532
-    i8 26, label %1532
+1538:                                             ; preds = %1536
+  %1539 = trunc i32 %.fr262.us to i8
+  %trunc265.us = and i8 %1539, -2
+  switch i8 %trunc265.us, label %1565 [
+    i8 74, label %1540
+    i8 26, label %1540
   ]
 
-1532:                                             ; preds = %1530, %1530, %1528
-  %1533 = and i32 %73, 16777215
-  %1534 = zext nneg i32 %1533 to i64
-  %1535 = getelementptr inbounds nuw i32, ptr %7, i64 %1534
-  %1536 = load i32, ptr %1535, align 4, !tbaa !20
-  %1537 = and i32 %62, 16777215
-  %1538 = zext nneg i32 %1537 to i64
-  %1539 = getelementptr inbounds nuw i32, ptr %7, i64 %1538
-  %1540 = load i32, ptr %1539, align 4, !tbaa !20
-  %1541 = and i32 %1536, 16711680
-  %1542 = and i32 %1540, 16711680
-  %1543 = add nsw i32 %1541, -3145729
-  %1544 = sub nsw i32 %1543, %1542
-  %1545 = icmp ult i32 %1544, -6291457
-  br i1 %1545, label %yuv_diff.exit449.i102.thread.us, label %1546
+1540:                                             ; preds = %1538, %1538, %1536
+  %1541 = and i32 %73, 16777215
+  %1542 = zext nneg i32 %1541 to i64
+  %1543 = getelementptr inbounds nuw i32, ptr %7, i64 %1542
+  %1544 = load i32, ptr %1543, align 4, !tbaa !20
+  %1545 = and i32 %62, 16777215
+  %1546 = zext nneg i32 %1545 to i64
+  %1547 = getelementptr inbounds nuw i32, ptr %7, i64 %1546
+  %1548 = load i32, ptr %1547, align 4, !tbaa !20
+  %1549 = and i32 %1544, 16711680
+  %1550 = and i32 %1548, 16711680
+  %1551 = add nsw i32 %1549, -3145729
+  %1552 = sub nsw i32 %1551, %1550
+  %1553 = icmp ult i32 %1552, -6291457
+  br i1 %1553, label %yuv_diff.exit449.i102.thread.us, label %1554
 
-1546:                                             ; preds = %1532
-  %1547 = and i32 %1536, 65280
-  %1548 = and i32 %1540, 65280
-  %1549 = add nsw i32 %1547, -1793
-  %1550 = sub nsw i32 %1549, %1548
-  %1551 = icmp ult i32 %1550, -3585
-  br i1 %1551, label %yuv_diff.exit449.i102.thread.us, label %yuv_diff.exit449.i102.us
+1554:                                             ; preds = %1540
+  %1555 = and i32 %1544, 65280
+  %1556 = and i32 %1548, 65280
+  %1557 = add nsw i32 %1555, -1793
+  %1558 = sub nsw i32 %1557, %1556
+  %1559 = icmp ult i32 %1558, -3585
+  br i1 %1559, label %yuv_diff.exit449.i102.thread.us, label %yuv_diff.exit449.i102.us
 
-yuv_diff.exit449.i102.us:                         ; preds = %1546
-  %1552 = and i32 %1536, 255
-  %1553 = and i32 %1540, 255
-  %1554 = add nuw nsw i32 %1552, 6
-  %1555 = sub nsw i32 %1554, %1553
-  %1556 = icmp ult i32 %1555, 13
-  br i1 %1556, label %1557, label %yuv_diff.exit449.i102.thread.us
+yuv_diff.exit449.i102.us:                         ; preds = %1554
+  %1560 = and i32 %1544, 255
+  %1561 = and i32 %1548, 255
+  %1562 = add nuw nsw i32 %1560, 6
+  %1563 = sub nsw i32 %1562, %1561
+  %1564 = icmp ult i32 %1563, 13
+  br i1 %1564, label %1565, label %yuv_diff.exit449.i102.thread.us
 
-1557:                                             ; preds = %yuv_diff.exit449.i102.us, %1530
-  br i1 %1419, label %.thread228.us, label %1558
+1565:                                             ; preds = %yuv_diff.exit449.i102.us, %1538
+  br i1 %1427, label %.thread228.us, label %1566
 
-1558:                                             ; preds = %1557
-  br i1 %or.cond367.i70.us, label %1675, label %1559
+1566:                                             ; preds = %1565
+  br i1 %or.cond367.i70.us, label %1683, label %1567
 
-1559:                                             ; preds = %1558
-  br i1 %or.cond.i69.us, label %1659, label %1560
+1567:                                             ; preds = %1566
+  br i1 %or.cond.i69.us, label %1667, label %1568
 
-1560:                                             ; preds = %1559
-  br i1 %1430, label %1641, label %1561
+1568:                                             ; preds = %1567
+  br i1 %1438, label %1649, label %1569
 
-1561:                                             ; preds = %1560
-  br i1 %1440, label %1623, label %1562
+1569:                                             ; preds = %1568
+  br i1 %1448, label %1631, label %1570
 
-1562:                                             ; preds = %1561
-  %1563 = and i32 %1304, 94
-  %1564 = icmp eq i32 %1563, 10
-  %1565 = and i32 %1304, 122
-  %1566 = icmp eq i32 %1565, 10
-  %1567 = or i1 %1564, %1566
-  %1568 = or i1 %1465, %1567
-  %1569 = or i1 %1467, %1568
-  %or.cond430.i122.us = or i1 %1513, %1569
-  %or.cond432.i123.us = or i1 %1515, %or.cond430.i122.us
-  br i1 %or.cond432.i123.us, label %1609, label %1570
+1570:                                             ; preds = %1569
+  %1571 = and i32 %.fr262.us, 94
+  %1572 = icmp eq i32 %1571, 10
+  %1573 = and i32 %.fr262.us, 122
+  %1574 = icmp eq i32 %1573, 10
+  %1575 = or i1 %1572, %1574
+  %1576 = or i1 %1473, %1575
+  %1577 = or i1 %1475, %1576
+  %or.cond430.i122.us = or i1 %1521, %1577
+  %or.cond432.i123.us = or i1 %1523, %or.cond430.i122.us
+  br i1 %or.cond432.i123.us, label %1617, label %1578
 
-1570:                                             ; preds = %1562
-  br i1 %1463, label %1591, label %1571
+1578:                                             ; preds = %1570
+  br i1 %1471, label %1599, label %1579
 
-1571:                                             ; preds = %1570
-  %1572 = lshr i32 %70, 7
-  %1573 = and i32 %1572, 33423870
-  %1574 = lshr i32 %62, 8
-  %1575 = and i32 %1574, 16711935
-  %1576 = add nuw nsw i32 %1573, %1575
-  %1577 = lshr i32 %73, 8
-  %1578 = and i32 %1577, 16711935
-  %1579 = add nuw nsw i32 %1576, %1578
-  %1580 = shl nuw i32 %1579, 6
-  %1581 = and i32 %1580, -16711936
-  %1582 = shl i32 %70, 1
-  %1583 = and i32 %1582, 33423870
-  %1584 = and i32 %62, 16711935
-  %1585 = add nuw nsw i32 %1583, %1584
-  %1586 = and i32 %73, 16711935
-  %1587 = add nuw nsw i32 %1585, %1586
-  %1588 = lshr i32 %1587, 2
-  %1589 = and i32 %1588, 16711935
-  %1590 = or disjoint i32 %1581, %1589
+1579:                                             ; preds = %1578
+  %1580 = lshr i32 %70, 7
+  %1581 = and i32 %1580, 33423870
+  %1582 = lshr i32 %62, 8
+  %1583 = and i32 %1582, 16711935
+  %1584 = add nuw nsw i32 %1581, %1583
+  %1585 = lshr i32 %73, 8
+  %1586 = and i32 %1585, 16711935
+  %1587 = add nuw nsw i32 %1584, %1586
+  %1588 = shl nuw i32 %1587, 6
+  %1589 = and i32 %1588, -16711936
+  %1590 = shl i32 %70, 1
+  %1591 = and i32 %1590, 33423870
+  %1592 = and i32 %62, 16711935
+  %1593 = add nuw nsw i32 %1591, %1592
+  %1594 = and i32 %73, 16711935
+  %1595 = add nuw nsw i32 %1593, %1594
+  %1596 = lshr i32 %1595, 2
+  %1597 = and i32 %1596, 16711935
+  %1598 = or disjoint i32 %1589, %1597
   br label %yuv_diff.exit449.i102.thread.us
 
-1591:                                             ; preds = %1570
-  %1592 = lshr i32 %70, 8
-  %1593 = and i32 %1592, 16711935
-  %1594 = mul nuw nsw i32 %1593, 5
-  %1595 = lshr i32 %66, 8
-  %1596 = and i32 %1595, 16711935
-  %1597 = mul nuw nsw i32 %1596, 3
-  %1598 = add nuw nsw i32 %1594, %1597
-  %1599 = shl nuw i32 %1598, 5
-  %1600 = and i32 %1599, -16711936
-  %1601 = and i32 %70, 16711935
+1599:                                             ; preds = %1578
+  %1600 = lshr i32 %70, 8
+  %1601 = and i32 %1600, 16711935
   %1602 = mul nuw nsw i32 %1601, 5
-  %1603 = and i32 %66, 16711935
-  %1604 = mul nuw nsw i32 %1603, 3
-  %1605 = add nuw nsw i32 %1602, %1604
-  %1606 = lshr i32 %1605, 3
-  %1607 = and i32 %1606, 16711935
-  %1608 = or disjoint i32 %1600, %1607
+  %1603 = lshr i32 %66, 8
+  %1604 = and i32 %1603, 16711935
+  %1605 = mul nuw nsw i32 %1604, 3
+  %1606 = add nuw nsw i32 %1602, %1605
+  %1607 = shl nuw i32 %1606, 5
+  %1608 = and i32 %1607, -16711936
+  %1609 = and i32 %70, 16711935
+  %1610 = mul nuw nsw i32 %1609, 5
+  %1611 = and i32 %66, 16711935
+  %1612 = mul nuw nsw i32 %1611, 3
+  %1613 = add nuw nsw i32 %1610, %1612
+  %1614 = lshr i32 %1613, 3
+  %1615 = and i32 %1614, 16711935
+  %1616 = or disjoint i32 %1608, %1615
   br label %yuv_diff.exit449.i102.thread.us
 
-1609:                                             ; preds = %1562
-  %1610 = lshr i32 %62, 8
-  %1611 = and i32 %1610, 16711935
-  %1612 = lshr i32 %73, 8
-  %1613 = and i32 %1612, 16711935
-  %1614 = add nuw nsw i32 %1613, %1611
-  %1615 = shl nuw i32 %1614, 7
-  %1616 = and i32 %1615, -16711936
-  %1617 = and i32 %62, 16711935
-  %1618 = and i32 %73, 16711935
-  %1619 = add nuw nsw i32 %1618, %1617
-  %1620 = lshr i32 %1619, 1
+1617:                                             ; preds = %1570
+  %1618 = lshr i32 %62, 8
+  %1619 = and i32 %1618, 16711935
+  %1620 = lshr i32 %73, 8
   %1621 = and i32 %1620, 16711935
-  %1622 = or disjoint i32 %1616, %1621
+  %1622 = add nuw nsw i32 %1621, %1619
+  %1623 = shl nuw i32 %1622, 7
+  %1624 = and i32 %1623, -16711936
+  %1625 = and i32 %62, 16711935
+  %1626 = and i32 %73, 16711935
+  %1627 = add nuw nsw i32 %1626, %1625
+  %1628 = lshr i32 %1627, 1
+  %1629 = and i32 %1628, 16711935
+  %1630 = or disjoint i32 %1624, %1629
   br label %yuv_diff.exit449.i102.thread.us
 
-1623:                                             ; preds = %1561
-  %1624 = lshr i32 %70, 8
-  %1625 = and i32 %1624, 16711935
-  %1626 = mul nuw nsw i32 %1625, 5
-  %1627 = lshr i32 %62, 8
-  %1628 = and i32 %1627, 16711935
-  %1629 = mul nuw nsw i32 %1628, 3
-  %1630 = add nuw nsw i32 %1626, %1629
-  %1631 = shl nuw i32 %1630, 5
-  %1632 = and i32 %1631, -16711936
-  %1633 = and i32 %70, 16711935
+1631:                                             ; preds = %1569
+  %1632 = lshr i32 %70, 8
+  %1633 = and i32 %1632, 16711935
   %1634 = mul nuw nsw i32 %1633, 5
-  %1635 = and i32 %62, 16711935
-  %1636 = mul nuw nsw i32 %1635, 3
-  %1637 = add nuw nsw i32 %1634, %1636
-  %1638 = lshr i32 %1637, 3
-  %1639 = and i32 %1638, 16711935
-  %1640 = or disjoint i32 %1632, %1639
+  %1635 = lshr i32 %62, 8
+  %1636 = and i32 %1635, 16711935
+  %1637 = mul nuw nsw i32 %1636, 3
+  %1638 = add nuw nsw i32 %1634, %1637
+  %1639 = shl nuw i32 %1638, 5
+  %1640 = and i32 %1639, -16711936
+  %1641 = and i32 %70, 16711935
+  %1642 = mul nuw nsw i32 %1641, 5
+  %1643 = and i32 %62, 16711935
+  %1644 = mul nuw nsw i32 %1643, 3
+  %1645 = add nuw nsw i32 %1642, %1644
+  %1646 = lshr i32 %1645, 3
+  %1647 = and i32 %1646, 16711935
+  %1648 = or disjoint i32 %1640, %1647
   br label %yuv_diff.exit449.i102.thread.us
 
-1641:                                             ; preds = %1560
-  %1642 = lshr i32 %70, 8
-  %1643 = and i32 %1642, 16711935
-  %1644 = mul nuw nsw i32 %1643, 5
-  %1645 = lshr i32 %73, 8
-  %1646 = and i32 %1645, 16711935
-  %1647 = mul nuw nsw i32 %1646, 3
-  %1648 = add nuw nsw i32 %1647, %1644
-  %1649 = shl nuw i32 %1648, 5
-  %1650 = and i32 %1649, -16711936
-  %1651 = and i32 %70, 16711935
+1649:                                             ; preds = %1568
+  %1650 = lshr i32 %70, 8
+  %1651 = and i32 %1650, 16711935
   %1652 = mul nuw nsw i32 %1651, 5
-  %1653 = and i32 %73, 16711935
-  %1654 = mul nuw nsw i32 %1653, 3
-  %1655 = add nuw nsw i32 %1654, %1652
-  %1656 = lshr i32 %1655, 3
-  %1657 = and i32 %1656, 16711935
-  %1658 = or disjoint i32 %1650, %1657
-  br label %yuv_diff.exit449.i102.thread.us
-
-1659:                                             ; preds = %1559
-  %1660 = lshr i32 %70, 8
-  %1661 = and i32 %1660, 16711935
+  %1653 = lshr i32 %73, 8
+  %1654 = and i32 %1653, 16711935
+  %1655 = mul nuw nsw i32 %1654, 3
+  %1656 = add nuw nsw i32 %1655, %1652
+  %1657 = shl nuw i32 %1656, 5
+  %1658 = and i32 %1657, -16711936
+  %1659 = and i32 %70, 16711935
+  %1660 = mul nuw nsw i32 %1659, 5
+  %1661 = and i32 %73, 16711935
   %1662 = mul nuw nsw i32 %1661, 3
-  %1663 = lshr i32 %62, 8
-  %1664 = and i32 %1663, 16711935
-  %1665 = add nuw nsw i32 %1662, %1664
-  %1666 = shl nuw i32 %1665, 6
-  %1667 = and i32 %1666, -16711936
-  %1668 = and i32 %70, 16711935
-  %1669 = mul nuw nsw i32 %1668, 3
-  %1670 = and i32 %62, 16711935
-  %1671 = add nuw nsw i32 %1669, %1670
-  %1672 = lshr i32 %1671, 2
-  %1673 = and i32 %1672, 16711935
-  %1674 = or disjoint i32 %1667, %1673
+  %1663 = add nuw nsw i32 %1662, %1660
+  %1664 = lshr i32 %1663, 3
+  %1665 = and i32 %1664, 16711935
+  %1666 = or disjoint i32 %1658, %1665
   br label %yuv_diff.exit449.i102.thread.us
 
-1675:                                             ; preds = %1558
-  %1676 = lshr i32 %70, 8
-  %1677 = and i32 %1676, 16711935
-  %1678 = mul nuw nsw i32 %1677, 3
-  %1679 = lshr i32 %73, 8
-  %1680 = and i32 %1679, 16711935
-  %1681 = add nuw nsw i32 %1678, %1680
-  %1682 = shl nuw i32 %1681, 6
-  %1683 = and i32 %1682, -16711936
-  %1684 = and i32 %70, 16711935
-  %1685 = mul nuw nsw i32 %1684, 3
-  %1686 = and i32 %73, 16711935
-  %1687 = add nuw nsw i32 %1685, %1686
-  %1688 = lshr i32 %1687, 2
-  %1689 = and i32 %1688, 16711935
-  %1690 = or disjoint i32 %1683, %1689
+1667:                                             ; preds = %1567
+  %1668 = lshr i32 %70, 8
+  %1669 = and i32 %1668, 16711935
+  %1670 = mul nuw nsw i32 %1669, 3
+  %1671 = lshr i32 %62, 8
+  %1672 = and i32 %1671, 16711935
+  %1673 = add nuw nsw i32 %1670, %1672
+  %1674 = shl nuw i32 %1673, 6
+  %1675 = and i32 %1674, -16711936
+  %1676 = and i32 %70, 16711935
+  %1677 = mul nuw nsw i32 %1676, 3
+  %1678 = and i32 %62, 16711935
+  %1679 = add nuw nsw i32 %1677, %1678
+  %1680 = lshr i32 %1679, 2
+  %1681 = and i32 %1680, 16711935
+  %1682 = or disjoint i32 %1675, %1681
   br label %yuv_diff.exit449.i102.thread.us
 
-.thread228.us:                                    ; preds = %1557
-  %1691 = lshr i32 %70, 8
-  %1692 = and i32 %1691, 16711935
-  %1693 = mul nuw nsw i32 %1692, 5
-  %1694 = lshr i32 %66, 8
-  %1695 = and i32 %1694, 16711935
-  %1696 = mul nuw nsw i32 %1695, 3
-  %1697 = add nuw nsw i32 %1693, %1696
-  %1698 = shl nuw i32 %1697, 5
-  %1699 = and i32 %1698, -16711936
-  %1700 = and i32 %70, 16711935
+1683:                                             ; preds = %1566
+  %1684 = lshr i32 %70, 8
+  %1685 = and i32 %1684, 16711935
+  %1686 = mul nuw nsw i32 %1685, 3
+  %1687 = lshr i32 %73, 8
+  %1688 = and i32 %1687, 16711935
+  %1689 = add nuw nsw i32 %1686, %1688
+  %1690 = shl nuw i32 %1689, 6
+  %1691 = and i32 %1690, -16711936
+  %1692 = and i32 %70, 16711935
+  %1693 = mul nuw nsw i32 %1692, 3
+  %1694 = and i32 %73, 16711935
+  %1695 = add nuw nsw i32 %1693, %1694
+  %1696 = lshr i32 %1695, 2
+  %1697 = and i32 %1696, 16711935
+  %1698 = or disjoint i32 %1691, %1697
+  br label %yuv_diff.exit449.i102.thread.us
+
+.thread228.us:                                    ; preds = %1565
+  %1699 = lshr i32 %70, 8
+  %1700 = and i32 %1699, 16711935
   %1701 = mul nuw nsw i32 %1700, 5
-  %1702 = and i32 %66, 16711935
-  %1703 = mul nuw nsw i32 %1702, 3
-  %1704 = add nuw nsw i32 %1701, %1703
-  %1705 = lshr i32 %1704, 3
-  %1706 = and i32 %1705, 16711935
-  %1707 = or disjoint i32 %1699, %1706
-  store i32 %1707, ptr %1305, align 4, !tbaa !20
-  br i1 %1496, label %.thread231.us.sink.split, label %.thread229.us
+  %1702 = lshr i32 %66, 8
+  %1703 = and i32 %1702, 16711935
+  %1704 = mul nuw nsw i32 %1703, 3
+  %1705 = add nuw nsw i32 %1701, %1704
+  %1706 = shl nuw i32 %1705, 5
+  %1707 = and i32 %1706, -16711936
+  %1708 = and i32 %70, 16711935
+  %1709 = mul nuw nsw i32 %1708, 5
+  %1710 = and i32 %66, 16711935
+  %1711 = mul nuw nsw i32 %1710, 3
+  %1712 = add nuw nsw i32 %1709, %1711
+  %1713 = lshr i32 %1712, 3
+  %1714 = and i32 %1713, 16711935
+  %1715 = or disjoint i32 %1707, %1714
+  store i32 %1715, ptr %1313, align 4, !tbaa !20
+  br i1 %1504, label %.thread231.us.sink.split, label %.thread229.us
 
-yuv_diff.exit449.i102.thread.us:                  ; preds = %1532, %1546, %yuv_diff.exit449.i102.us, %1675, %1659, %1641, %1623, %1609, %1591, %1571
-  %.sink550 = phi i32 [ %1590, %1571 ], [ %1690, %1675 ], [ %1674, %1659 ], [ %1658, %1641 ], [ %1640, %1623 ], [ %1622, %1609 ], [ %1608, %1591 ], [ %70, %yuv_diff.exit449.i102.us ], [ %70, %1546 ], [ %70, %1532 ]
-  store i32 %.sink550, ptr %1305, align 4, !tbaa !20
-  br i1 %1496, label %.thread231.us.sink.split, label %1725
+yuv_diff.exit449.i102.thread.us:                  ; preds = %1540, %1554, %yuv_diff.exit449.i102.us, %1683, %1667, %1649, %1631, %1617, %1599, %1579
+  %.sink521 = phi i32 [ %1598, %1579 ], [ %1698, %1683 ], [ %1682, %1667 ], [ %1666, %1649 ], [ %1648, %1631 ], [ %1630, %1617 ], [ %1616, %1599 ], [ %70, %yuv_diff.exit449.i102.us ], [ %70, %1554 ], [ %70, %1540 ]
+  store i32 %.sink521, ptr %1313, align 4, !tbaa !20
+  br i1 %1504, label %.thread231.us.sink.split, label %1733
 
-.thread251.us:                                    ; preds = %1527
-  %1708 = lshr i32 %70, 8
-  %1709 = and i32 %1708, 16711935
-  %1710 = mul nuw nsw i32 %1709, 5
-  %1711 = lshr i32 %62, 8
-  %1712 = and i32 %1711, 16711935
-  %1713 = mul nuw nsw i32 %1712, 3
-  %1714 = add nuw nsw i32 %1710, %1713
-  %1715 = shl nuw i32 %1714, 5
-  %1716 = and i32 %1715, -16711936
-  %1717 = and i32 %70, 16711935
+.thread251.us:                                    ; preds = %1535
+  %1716 = lshr i32 %70, 8
+  %1717 = and i32 %1716, 16711935
   %1718 = mul nuw nsw i32 %1717, 5
-  %1719 = and i32 %62, 16711935
-  %1720 = mul nuw nsw i32 %1719, 3
-  %1721 = add nuw nsw i32 %1718, %1720
-  %1722 = lshr i32 %1721, 3
-  %1723 = and i32 %1722, 16711935
-  %1724 = or disjoint i32 %1716, %1723
-  store i32 %1724, ptr %1305, align 4, !tbaa !20
-  br i1 %1496, label %.thread230.thread252.us, label %1725
+  %1719 = lshr i32 %62, 8
+  %1720 = and i32 %1719, 16711935
+  %1721 = mul nuw nsw i32 %1720, 3
+  %1722 = add nuw nsw i32 %1718, %1721
+  %1723 = shl nuw i32 %1722, 5
+  %1724 = and i32 %1723, -16711936
+  %1725 = and i32 %70, 16711935
+  %1726 = mul nuw nsw i32 %1725, 5
+  %1727 = and i32 %62, 16711935
+  %1728 = mul nuw nsw i32 %1727, 3
+  %1729 = add nuw nsw i32 %1726, %1728
+  %1730 = lshr i32 %1729, 3
+  %1731 = and i32 %1730, 16711935
+  %1732 = or disjoint i32 %1724, %1731
+  store i32 %1732, ptr %1313, align 4, !tbaa !20
+  br i1 %1504, label %.thread230.thread252.us, label %1733
 
-1725:                                             ; preds = %.thread251.us, %yuv_diff.exit449.i102.thread.us
-  br i1 %1419, label %..thread229.us_crit_edge, label %1726
+1733:                                             ; preds = %.thread251.us, %yuv_diff.exit449.i102.thread.us
+  br i1 %1427, label %..thread229.us_crit_edge, label %1734
 
-..thread229.us_crit_edge:                         ; preds = %1725
-  %.pre499 = lshr i32 %70, 8
-  %.pre501 = and i32 %.pre499, 16711935
-  %.pre503 = lshr i32 %66, 8
-  %.pre505 = and i32 %.pre503, 16711935
-  %.pre507 = and i32 %70, 16711935
-  %.pre509 = and i32 %66, 16711935
+..thread229.us_crit_edge:                         ; preds = %1733
+  %.pre470 = lshr i32 %70, 8
+  %.pre472 = and i32 %.pre470, 16711935
+  %.pre474 = lshr i32 %66, 8
+  %.pre476 = and i32 %.pre474, 16711935
+  %.pre478 = and i32 %70, 16711935
+  %.pre480 = and i32 %66, 16711935
   br label %.thread229.us
 
-1726:                                             ; preds = %1725
-  br i1 %1498, label %1960, label %1727
-
-1727:                                             ; preds = %1726
-  br i1 %1500, label %1902, label %1728
-
-1728:                                             ; preds = %1727
-  br i1 %1442, label %1880, label %1729
-
-1729:                                             ; preds = %1728
-  br i1 %1501, label %1862, label %1730
-
-1730:                                             ; preds = %1729
-  br i1 %or.cond.i69.us, label %1846, label %1731
-
-1731:                                             ; preds = %1730
-  br i1 %1505, label %1826, label %1732
-
-1732:                                             ; preds = %1731
-  br i1 %1508, label %1808, label %1733
-
-1733:                                             ; preds = %1732
-  br i1 %1430, label %1792, label %1734
-
 1734:                                             ; preds = %1733
-  %1735 = and i32 %1304, 243
-  %1736 = icmp eq i32 %1735, 98
-  %1737 = and i32 %1304, 103
-  %1738 = icmp eq i32 %1737, 102
-  %or.cond434.i104.us = or i1 %1736, %1738
-  %1739 = and i32 %1302, 55
-  %1740 = icmp eq i32 %1739, 54
-  %or.cond436.i105.us = or i1 %1740, %or.cond434.i104.us
-  %1741 = icmp eq i32 %1735, 242
-  %or.cond437.i106.us = or i1 %1741, %or.cond436.i105.us
-  br i1 %or.cond437.i106.us, label %1776, label %1742
+  br i1 %1506, label %1968, label %1735
 
-1742:                                             ; preds = %1734
-  %1743 = trunc nuw i32 %1304 to i8
-  %trunc280.us = and i8 %1743, -41
-  switch i8 %trunc280.us, label %1744 [
-    i8 -42, label %1776
-    i8 22, label %1776
+1735:                                             ; preds = %1734
+  br i1 %1508, label %1910, label %1736
+
+1736:                                             ; preds = %1735
+  br i1 %1450, label %1888, label %1737
+
+1737:                                             ; preds = %1736
+  br i1 %1509, label %1870, label %1738
+
+1738:                                             ; preds = %1737
+  br i1 %or.cond.i69.us, label %1854, label %1739
+
+1739:                                             ; preds = %1738
+  br i1 %1513, label %1834, label %1740
+
+1740:                                             ; preds = %1739
+  br i1 %1516, label %1816, label %1741
+
+1741:                                             ; preds = %1740
+  br i1 %1438, label %1800, label %1742
+
+1742:                                             ; preds = %1741
+  %1743 = and i32 %.fr262.us, 243
+  %1744 = icmp eq i32 %1743, 98
+  %1745 = and i32 %.fr262.us, 103
+  %1746 = icmp eq i32 %1745, 102
+  %or.cond434.i104.us = or i1 %1744, %1746
+  %1747 = and i32 %.fr262.us, 55
+  %1748 = icmp eq i32 %1747, 54
+  %or.cond436.i105.us = or i1 %1748, %or.cond434.i104.us
+  %1749 = icmp eq i32 %1743, 242
+  %or.cond437.i106.us = or i1 %1749, %or.cond436.i105.us
+  br i1 %or.cond437.i106.us, label %1784, label %1750
+
+1750:                                             ; preds = %1742
+  %1751 = trunc i32 %.fr262.us to i8
+  %trunc266.us = and i8 %1751, -41
+  switch i8 %trunc266.us, label %1752 [
+    i8 -42, label %1784
+    i8 22, label %1784
   ]
 
-1744:                                             ; preds = %1742
-  %1745 = icmp eq i32 %1441, 2
-  br i1 %1745, label %1776, label %1746
+1752:                                             ; preds = %1750
+  %1753 = icmp eq i32 %1449, 2
+  br i1 %1753, label %1784, label %1754
 
-1746:                                             ; preds = %1744
-  %1747 = and i32 %70, 16711935
-  br i1 %1525, label %1763, label %1748
+1754:                                             ; preds = %1752
+  %1755 = and i32 %70, 16711935
+  br i1 %1533, label %1771, label %1756
 
-1748:                                             ; preds = %1746
-  %1749 = lshr i32 %70, 8
-  %1750 = and i32 %1749, 16711935
-  %1751 = mul nuw nsw i32 %1750, 3
-  %1752 = lshr i32 %62, 8
-  %1753 = and i32 %1752, 16711935
-  %1754 = add nuw nsw i32 %1751, %1753
-  %1755 = shl nuw i32 %1754, 6
-  %1756 = and i32 %1755, -16711936
-  %1757 = mul nuw nsw i32 %1747, 3
-  %1758 = and i32 %62, 16711935
-  %1759 = add nuw nsw i32 %1757, %1758
-  %1760 = lshr i32 %1759, 2
+1756:                                             ; preds = %1754
+  %1757 = lshr i32 %70, 8
+  %1758 = and i32 %1757, 16711935
+  %1759 = mul nuw nsw i32 %1758, 3
+  %1760 = lshr i32 %62, 8
   %1761 = and i32 %1760, 16711935
-  %1762 = or disjoint i32 %1756, %1761
-  br label %1960
+  %1762 = add nuw nsw i32 %1759, %1761
+  %1763 = shl nuw i32 %1762, 6
+  %1764 = and i32 %1763, -16711936
+  %1765 = mul nuw nsw i32 %1755, 3
+  %1766 = and i32 %62, 16711935
+  %1767 = add nuw nsw i32 %1765, %1766
+  %1768 = lshr i32 %1767, 2
+  %1769 = and i32 %1768, 16711935
+  %1770 = or disjoint i32 %1764, %1769
+  br label %1968
 
-1763:                                             ; preds = %1746
-  %1764 = lshr i32 %62, 8
-  %1765 = and i32 %1764, 16711935
-  %1766 = lshr i32 %70, 8
-  %1767 = and i32 %1766, 16711935
-  %1768 = add nuw nsw i32 %1767, %1765
-  %1769 = shl nuw i32 %1768, 7
-  %1770 = and i32 %1769, -16711936
-  %1771 = and i32 %62, 16711935
-  %1772 = add nuw nsw i32 %1747, %1771
-  %1773 = lshr i32 %1772, 1
-  %1774 = and i32 %1773, 16711935
-  %1775 = or disjoint i32 %1770, %1774
-  br label %1960
+1771:                                             ; preds = %1754
+  %1772 = lshr i32 %62, 8
+  %1773 = and i32 %1772, 16711935
+  %1774 = lshr i32 %70, 8
+  %1775 = and i32 %1774, 16711935
+  %1776 = add nuw nsw i32 %1775, %1773
+  %1777 = shl nuw i32 %1776, 7
+  %1778 = and i32 %1777, -16711936
+  %1779 = and i32 %62, 16711935
+  %1780 = add nuw nsw i32 %1755, %1779
+  %1781 = lshr i32 %1780, 1
+  %1782 = and i32 %1781, 16711935
+  %1783 = or disjoint i32 %1778, %1782
+  br label %1968
 
-1776:                                             ; preds = %1744, %1742, %1742, %1734
-  %1777 = lshr i32 %70, 8
-  %1778 = and i32 %1777, 16711935
-  %1779 = mul nuw nsw i32 %1778, 3
-  %1780 = lshr i32 %66, 8
-  %1781 = and i32 %1780, 16711935
-  %1782 = add nuw nsw i32 %1779, %1781
-  %1783 = shl nuw i32 %1782, 6
-  %1784 = and i32 %1783, -16711936
-  %1785 = and i32 %70, 16711935
-  %1786 = mul nuw nsw i32 %1785, 3
-  %1787 = and i32 %66, 16711935
-  %1788 = add nuw nsw i32 %1786, %1787
-  %1789 = lshr i32 %1788, 2
-  %1790 = and i32 %1789, 16711935
-  %1791 = or disjoint i32 %1784, %1790
-  br label %1960
+1784:                                             ; preds = %1752, %1750, %1750, %1742
+  %1785 = lshr i32 %70, 8
+  %1786 = and i32 %1785, 16711935
+  %1787 = mul nuw nsw i32 %1786, 3
+  %1788 = lshr i32 %66, 8
+  %1789 = and i32 %1788, 16711935
+  %1790 = add nuw nsw i32 %1787, %1789
+  %1791 = shl nuw i32 %1790, 6
+  %1792 = and i32 %1791, -16711936
+  %1793 = and i32 %70, 16711935
+  %1794 = mul nuw nsw i32 %1793, 3
+  %1795 = and i32 %66, 16711935
+  %1796 = add nuw nsw i32 %1794, %1795
+  %1797 = lshr i32 %1796, 2
+  %1798 = and i32 %1797, 16711935
+  %1799 = or disjoint i32 %1792, %1798
+  br label %1968
 
-1792:                                             ; preds = %1733
-  %1793 = lshr i32 %70, 8
-  %1794 = and i32 %1793, 16711935
-  %1795 = mul nuw nsw i32 %1794, 7
-  %1796 = lshr i32 %73, 8
-  %1797 = and i32 %1796, 16711935
-  %1798 = add nuw nsw i32 %1795, %1797
-  %1799 = shl nuw i32 %1798, 5
-  %1800 = and i32 %1799, -16711936
-  %1801 = and i32 %70, 16711935
-  %1802 = mul nuw nsw i32 %1801, 7
-  %1803 = and i32 %73, 16711935
-  %1804 = add nuw nsw i32 %1802, %1803
-  %1805 = lshr i32 %1804, 3
-  %1806 = and i32 %1805, 16711935
-  %1807 = or disjoint i32 %1800, %1806
-  br label %1960
+1800:                                             ; preds = %1741
+  %1801 = lshr i32 %70, 8
+  %1802 = and i32 %1801, 16711935
+  %1803 = mul nuw nsw i32 %1802, 7
+  %1804 = lshr i32 %73, 8
+  %1805 = and i32 %1804, 16711935
+  %1806 = add nuw nsw i32 %1803, %1805
+  %1807 = shl nuw i32 %1806, 5
+  %1808 = and i32 %1807, -16711936
+  %1809 = and i32 %70, 16711935
+  %1810 = mul nuw nsw i32 %1809, 7
+  %1811 = and i32 %73, 16711935
+  %1812 = add nuw nsw i32 %1810, %1811
+  %1813 = lshr i32 %1812, 3
+  %1814 = and i32 %1813, 16711935
+  %1815 = or disjoint i32 %1808, %1814
+  br label %1968
 
-1808:                                             ; preds = %1732
-  %1809 = lshr i32 %62, 8
-  %1810 = and i32 %1809, 16711935
-  %1811 = mul nuw nsw i32 %1810, 5
-  %1812 = lshr i32 %73, 8
-  %1813 = and i32 %1812, 16711935
-  %1814 = mul nuw nsw i32 %1813, 3
-  %1815 = add nuw nsw i32 %1814, %1811
-  %1816 = shl nuw i32 %1815, 5
-  %1817 = and i32 %1816, -16711936
-  %1818 = and i32 %62, 16711935
+1816:                                             ; preds = %1740
+  %1817 = lshr i32 %62, 8
+  %1818 = and i32 %1817, 16711935
   %1819 = mul nuw nsw i32 %1818, 5
-  %1820 = and i32 %73, 16711935
-  %1821 = mul nuw nsw i32 %1820, 3
-  %1822 = add nuw nsw i32 %1821, %1819
-  %1823 = lshr i32 %1822, 3
-  %1824 = and i32 %1823, 16711935
-  %1825 = or disjoint i32 %1817, %1824
-  br label %1960
+  %1820 = lshr i32 %73, 8
+  %1821 = and i32 %1820, 16711935
+  %1822 = mul nuw nsw i32 %1821, 3
+  %1823 = add nuw nsw i32 %1822, %1819
+  %1824 = shl nuw i32 %1823, 5
+  %1825 = and i32 %1824, -16711936
+  %1826 = and i32 %62, 16711935
+  %1827 = mul nuw nsw i32 %1826, 5
+  %1828 = and i32 %73, 16711935
+  %1829 = mul nuw nsw i32 %1828, 3
+  %1830 = add nuw nsw i32 %1829, %1827
+  %1831 = lshr i32 %1830, 3
+  %1832 = and i32 %1831, 16711935
+  %1833 = or disjoint i32 %1825, %1832
+  br label %1968
 
-1826:                                             ; preds = %1731
-  %1827 = lshr i32 %62, 7
-  %1828 = and i32 %1827, 33423870
-  %1829 = lshr i32 %70, 8
-  %1830 = and i32 %1829, 16711935
-  %1831 = add nuw nsw i32 %1830, %1828
-  %1832 = lshr i32 %73, 8
-  %1833 = and i32 %1832, 16711935
-  %1834 = add nuw nsw i32 %1831, %1833
-  %1835 = shl nuw i32 %1834, 6
-  %1836 = and i32 %1835, -16711936
-  %1837 = shl i32 %62, 1
-  %1838 = and i32 %1837, 33423870
-  %1839 = and i32 %70, 16711935
-  %1840 = add nuw nsw i32 %1839, %1838
-  %1841 = and i32 %73, 16711935
-  %1842 = add nuw nsw i32 %1840, %1841
-  %1843 = lshr i32 %1842, 2
-  %1844 = and i32 %1843, 16711935
-  %1845 = or disjoint i32 %1836, %1844
-  br label %1960
+1834:                                             ; preds = %1739
+  %1835 = lshr i32 %62, 7
+  %1836 = and i32 %1835, 33423870
+  %1837 = lshr i32 %70, 8
+  %1838 = and i32 %1837, 16711935
+  %1839 = add nuw nsw i32 %1838, %1836
+  %1840 = lshr i32 %73, 8
+  %1841 = and i32 %1840, 16711935
+  %1842 = add nuw nsw i32 %1839, %1841
+  %1843 = shl nuw i32 %1842, 6
+  %1844 = and i32 %1843, -16711936
+  %1845 = shl i32 %62, 1
+  %1846 = and i32 %1845, 33423870
+  %1847 = and i32 %70, 16711935
+  %1848 = add nuw nsw i32 %1847, %1846
+  %1849 = and i32 %73, 16711935
+  %1850 = add nuw nsw i32 %1848, %1849
+  %1851 = lshr i32 %1850, 2
+  %1852 = and i32 %1851, 16711935
+  %1853 = or disjoint i32 %1844, %1852
+  br label %1968
 
-1846:                                             ; preds = %1730
-  %1847 = lshr i32 %62, 8
-  %1848 = and i32 %1847, 16711935
-  %1849 = mul nuw nsw i32 %1848, 3
-  %1850 = lshr i32 %70, 8
-  %1851 = and i32 %1850, 16711935
-  %1852 = add nuw nsw i32 %1851, %1849
-  %1853 = shl nuw i32 %1852, 6
-  %1854 = and i32 %1853, -16711936
-  %1855 = and i32 %62, 16711935
-  %1856 = mul nuw nsw i32 %1855, 3
-  %1857 = and i32 %70, 16711935
-  %1858 = add nuw nsw i32 %1857, %1856
-  %1859 = lshr i32 %1858, 2
-  %1860 = and i32 %1859, 16711935
-  %1861 = or disjoint i32 %1854, %1860
-  br label %1960
+1854:                                             ; preds = %1738
+  %1855 = lshr i32 %62, 8
+  %1856 = and i32 %1855, 16711935
+  %1857 = mul nuw nsw i32 %1856, 3
+  %1858 = lshr i32 %70, 8
+  %1859 = and i32 %1858, 16711935
+  %1860 = add nuw nsw i32 %1859, %1857
+  %1861 = shl nuw i32 %1860, 6
+  %1862 = and i32 %1861, -16711936
+  %1863 = and i32 %62, 16711935
+  %1864 = mul nuw nsw i32 %1863, 3
+  %1865 = and i32 %70, 16711935
+  %1866 = add nuw nsw i32 %1865, %1864
+  %1867 = lshr i32 %1866, 2
+  %1868 = and i32 %1867, 16711935
+  %1869 = or disjoint i32 %1862, %1868
+  br label %1968
 
-1862:                                             ; preds = %1729
-  %1863 = lshr i32 %70, 8
-  %1864 = and i32 %1863, 16711935
-  %1865 = mul nuw nsw i32 %1864, 5
-  %1866 = lshr i32 %62, 8
-  %1867 = and i32 %1866, 16711935
-  %1868 = mul nuw nsw i32 %1867, 3
-  %1869 = add nuw nsw i32 %1865, %1868
-  %1870 = shl nuw i32 %1869, 5
-  %1871 = and i32 %1870, -16711936
-  %1872 = and i32 %70, 16711935
+1870:                                             ; preds = %1737
+  %1871 = lshr i32 %70, 8
+  %1872 = and i32 %1871, 16711935
   %1873 = mul nuw nsw i32 %1872, 5
-  %1874 = and i32 %62, 16711935
-  %1875 = mul nuw nsw i32 %1874, 3
-  %1876 = add nuw nsw i32 %1873, %1875
-  %1877 = lshr i32 %1876, 3
-  %1878 = and i32 %1877, 16711935
-  %1879 = or disjoint i32 %1871, %1878
-  br label %1960
+  %1874 = lshr i32 %62, 8
+  %1875 = and i32 %1874, 16711935
+  %1876 = mul nuw nsw i32 %1875, 3
+  %1877 = add nuw nsw i32 %1873, %1876
+  %1878 = shl nuw i32 %1877, 5
+  %1879 = and i32 %1878, -16711936
+  %1880 = and i32 %70, 16711935
+  %1881 = mul nuw nsw i32 %1880, 5
+  %1882 = and i32 %62, 16711935
+  %1883 = mul nuw nsw i32 %1882, 3
+  %1884 = add nuw nsw i32 %1881, %1883
+  %1885 = lshr i32 %1884, 3
+  %1886 = and i32 %1885, 16711935
+  %1887 = or disjoint i32 %1879, %1886
+  br label %1968
 
-1880:                                             ; preds = %1728
-  %1881 = lshr i32 %70, 8
-  %1882 = and i32 %1881, 16711935
-  %1883 = mul nuw nsw i32 %1882, 5
-  %1884 = lshr i32 %62, 7
-  %1885 = and i32 %1884, 33423870
-  %1886 = lshr i32 %66, 8
-  %1887 = and i32 %1886, 16711935
-  %1888 = add nuw nsw i32 %1887, %1885
-  %1889 = add nuw nsw i32 %1888, %1883
-  %1890 = shl nuw i32 %1889, 5
-  %1891 = and i32 %1890, -16711936
-  %1892 = and i32 %70, 16711935
-  %1893 = mul nuw nsw i32 %1892, 5
-  %1894 = shl i32 %62, 1
-  %1895 = and i32 %1894, 33423870
-  %1896 = and i32 %66, 16711935
-  %1897 = add nuw nsw i32 %1896, %1895
-  %1898 = add nuw nsw i32 %1897, %1893
-  %1899 = lshr i32 %1898, 3
-  %1900 = and i32 %1899, 16711935
-  %1901 = or disjoint i32 %1891, %1900
-  br label %1960
+1888:                                             ; preds = %1736
+  %1889 = lshr i32 %70, 8
+  %1890 = and i32 %1889, 16711935
+  %1891 = mul nuw nsw i32 %1890, 5
+  %1892 = lshr i32 %62, 7
+  %1893 = and i32 %1892, 33423870
+  %1894 = lshr i32 %66, 8
+  %1895 = and i32 %1894, 16711935
+  %1896 = add nuw nsw i32 %1895, %1893
+  %1897 = add nuw nsw i32 %1896, %1891
+  %1898 = shl nuw i32 %1897, 5
+  %1899 = and i32 %1898, -16711936
+  %1900 = and i32 %70, 16711935
+  %1901 = mul nuw nsw i32 %1900, 5
+  %1902 = shl i32 %62, 1
+  %1903 = and i32 %1902, 33423870
+  %1904 = and i32 %66, 16711935
+  %1905 = add nuw nsw i32 %1904, %1903
+  %1906 = add nuw nsw i32 %1905, %1901
+  %1907 = lshr i32 %1906, 3
+  %1908 = and i32 %1907, 16711935
+  %1909 = or disjoint i32 %1899, %1908
+  br label %1968
 
-1902:                                             ; preds = %1727
-  %1903 = lshr i32 %70, 8
-  %1904 = and i32 %1903, 16711935
-  %1905 = mul nuw nsw i32 %1904, 5
-  %1906 = lshr i32 %62, 7
-  %1907 = and i32 %1906, 33423870
-  %1908 = add nuw nsw i32 %1905, %1907
-  %1909 = lshr i32 %73, 8
-  %1910 = and i32 %1909, 16711935
-  %1911 = add nuw nsw i32 %1908, %1910
-  %1912 = shl nuw i32 %1911, 5
-  %1913 = and i32 %1912, -16711936
-  %1914 = and i32 %70, 16711935
-  %1915 = mul nuw nsw i32 %1914, 5
-  %1916 = shl i32 %62, 1
-  %1917 = and i32 %1916, 33423870
-  %1918 = add nuw nsw i32 %1915, %1917
-  %1919 = and i32 %73, 16711935
-  %1920 = add nuw nsw i32 %1918, %1919
-  %1921 = lshr i32 %1920, 3
-  %1922 = and i32 %1921, 16711935
-  %1923 = or disjoint i32 %1913, %1922
-  br label %1960
+1910:                                             ; preds = %1735
+  %1911 = lshr i32 %70, 8
+  %1912 = and i32 %1911, 16711935
+  %1913 = mul nuw nsw i32 %1912, 5
+  %1914 = lshr i32 %62, 7
+  %1915 = and i32 %1914, 33423870
+  %1916 = add nuw nsw i32 %1913, %1915
+  %1917 = lshr i32 %73, 8
+  %1918 = and i32 %1917, 16711935
+  %1919 = add nuw nsw i32 %1916, %1918
+  %1920 = shl nuw i32 %1919, 5
+  %1921 = and i32 %1920, -16711936
+  %1922 = and i32 %70, 16711935
+  %1923 = mul nuw nsw i32 %1922, 5
+  %1924 = shl i32 %62, 1
+  %1925 = and i32 %1924, 33423870
+  %1926 = add nuw nsw i32 %1923, %1925
+  %1927 = and i32 %73, 16711935
+  %1928 = add nuw nsw i32 %1926, %1927
+  %1929 = lshr i32 %1928, 3
+  %1930 = and i32 %1929, 16711935
+  %1931 = or disjoint i32 %1921, %1930
+  br label %1968
 
 .thread229.us:                                    ; preds = %..thread229.us_crit_edge, %.thread228.us
-  %.pre-phi510 = phi i32 [ %.pre509, %..thread229.us_crit_edge ], [ %1702, %.thread228.us ]
-  %.pre-phi508 = phi i32 [ %.pre507, %..thread229.us_crit_edge ], [ %1700, %.thread228.us ]
-  %.pre-phi506 = phi i32 [ %.pre505, %..thread229.us_crit_edge ], [ %1695, %.thread228.us ]
-  %.pre-phi502 = phi i32 [ %.pre501, %..thread229.us_crit_edge ], [ %1692, %.thread228.us ]
-  %1924 = mul nuw nsw i32 %.pre-phi502, 3
-  %1925 = add nuw nsw i32 %1924, %.pre-phi506
-  %1926 = shl nuw i32 %1925, 6
-  %1927 = and i32 %1926, -16711936
-  %1928 = mul nuw nsw i32 %.pre-phi508, 3
-  %1929 = add nuw nsw i32 %1928, %.pre-phi510
-  %1930 = lshr i32 %1929, 2
-  %1931 = and i32 %1930, 16711935
-  %1932 = or disjoint i32 %1927, %1931
-  br label %1960
+  %.pre-phi481 = phi i32 [ %.pre480, %..thread229.us_crit_edge ], [ %1710, %.thread228.us ]
+  %.pre-phi479 = phi i32 [ %.pre478, %..thread229.us_crit_edge ], [ %1708, %.thread228.us ]
+  %.pre-phi477 = phi i32 [ %.pre476, %..thread229.us_crit_edge ], [ %1703, %.thread228.us ]
+  %.pre-phi473 = phi i32 [ %.pre472, %..thread229.us_crit_edge ], [ %1700, %.thread228.us ]
+  %1932 = mul nuw nsw i32 %.pre-phi473, 3
+  %1933 = add nuw nsw i32 %1932, %.pre-phi477
+  %1934 = shl nuw i32 %1933, 6
+  %1935 = and i32 %1934, -16711936
+  %1936 = mul nuw nsw i32 %.pre-phi479, 3
+  %1937 = add nuw nsw i32 %1936, %.pre-phi481
+  %1938 = lshr i32 %1937, 2
+  %1939 = and i32 %1938, 16711935
+  %1940 = or disjoint i32 %1935, %1939
+  br label %1968
 
 .thread230.thread252.us:                          ; preds = %.thread251.us
-  store i32 %70, ptr %1294, align 4, !tbaa !20
-  br label %2177
+  store i32 %70, ptr %1302, align 4, !tbaa !20
+  br label %2185
 
-1933:                                             ; preds = %1524
-  %1934 = lshr i32 %70, 8
-  %1935 = and i32 %1934, 16711935
-  %1936 = mul nuw nsw i32 %1935, 5
-  %1937 = lshr i32 %73, 8
-  %1938 = and i32 %1937, 16711935
-  %1939 = mul nuw nsw i32 %1938, 3
-  %1940 = add nuw nsw i32 %1939, %1936
-  %1941 = shl nuw i32 %1940, 5
-  %1942 = and i32 %1941, -16711936
-  %1943 = and i32 %70, 16711935
+1941:                                             ; preds = %1532
+  %1942 = lshr i32 %70, 8
+  %1943 = and i32 %1942, 16711935
   %1944 = mul nuw nsw i32 %1943, 5
-  %1945 = and i32 %73, 16711935
-  %1946 = mul nuw nsw i32 %1945, 3
-  %1947 = add nuw nsw i32 %1946, %1944
-  %1948 = lshr i32 %1947, 3
-  %1949 = and i32 %1948, 16711935
-  %1950 = or disjoint i32 %1942, %1949
-  store i32 %1950, ptr %1305, align 4, !tbaa !20
-  %1951 = mul nuw nsw i32 %1935, 7
-  %1952 = add nuw nsw i32 %1951, %1938
-  %1953 = shl nuw i32 %1952, 5
-  %1954 = and i32 %1953, -16711936
-  %1955 = mul nuw nsw i32 %1943, 7
-  %1956 = add nuw nsw i32 %1955, %1945
-  %1957 = lshr i32 %1956, 3
-  %1958 = and i32 %1957, 16711935
-  %1959 = or disjoint i32 %1954, %1958
-  br label %1960
+  %1945 = lshr i32 %73, 8
+  %1946 = and i32 %1945, 16711935
+  %1947 = mul nuw nsw i32 %1946, 3
+  %1948 = add nuw nsw i32 %1947, %1944
+  %1949 = shl nuw i32 %1948, 5
+  %1950 = and i32 %1949, -16711936
+  %1951 = and i32 %70, 16711935
+  %1952 = mul nuw nsw i32 %1951, 5
+  %1953 = and i32 %73, 16711935
+  %1954 = mul nuw nsw i32 %1953, 3
+  %1955 = add nuw nsw i32 %1954, %1952
+  %1956 = lshr i32 %1955, 3
+  %1957 = and i32 %1956, 16711935
+  %1958 = or disjoint i32 %1950, %1957
+  store i32 %1958, ptr %1313, align 4, !tbaa !20
+  %1959 = mul nuw nsw i32 %1943, 7
+  %1960 = add nuw nsw i32 %1959, %1946
+  %1961 = shl nuw i32 %1960, 5
+  %1962 = and i32 %1961, -16711936
+  %1963 = mul nuw nsw i32 %1951, 7
+  %1964 = add nuw nsw i32 %1963, %1953
+  %1965 = lshr i32 %1964, 3
+  %1966 = and i32 %1965, 16711935
+  %1967 = or disjoint i32 %1962, %1966
+  br label %1968
 
-1960:                                             ; preds = %1726, %1933, %.thread229.us, %1902, %1880, %1862, %1846, %1826, %1808, %1792, %1776, %1763, %1748
-  %.sink551 = phi i32 [ %1959, %1933 ], [ %1932, %.thread229.us ], [ %1762, %1748 ], [ %1923, %1902 ], [ %1901, %1880 ], [ %1879, %1862 ], [ %1861, %1846 ], [ %1845, %1826 ], [ %1825, %1808 ], [ %1807, %1792 ], [ %1791, %1776 ], [ %1775, %1763 ], [ %70, %1726 ]
-  store i32 %.sink551, ptr %1294, align 4, !tbaa !20
-  br i1 %1368, label %._crit_edge427, label %1961
+1968:                                             ; preds = %1734, %1941, %.thread229.us, %1910, %1888, %1870, %1854, %1834, %1816, %1800, %1784, %1771, %1756
+  %.sink522 = phi i32 [ %1967, %1941 ], [ %1940, %.thread229.us ], [ %1770, %1756 ], [ %1931, %1910 ], [ %1909, %1888 ], [ %1887, %1870 ], [ %1869, %1854 ], [ %1853, %1834 ], [ %1833, %1816 ], [ %1815, %1800 ], [ %1799, %1784 ], [ %1783, %1771 ], [ %70, %1734 ]
+  store i32 %.sink522, ptr %1302, align 4, !tbaa !20
+  br i1 %1376, label %._crit_edge398, label %1969
 
-._crit_edge427:                                   ; preds = %1960
-  %.pre439 = lshr i32 %70, 8
-  %.pre441 = and i32 %.pre439, 16711935
-  %.pre443 = lshr i32 %62, 8
-  %.pre445 = and i32 %.pre443, 16711935
-  %.pre447 = and i32 %70, 16711935
-  %.pre449 = and i32 %62, 16711935
-  br label %2177
-
-1961:                                             ; preds = %1960
-  br i1 %1496, label %.thread231.us, label %1962
-
-1962:                                             ; preds = %1961
-  br i1 %1419, label %2161, label %1963
-
-1963:                                             ; preds = %1962
-  br i1 %1498, label %.thread231.us, label %1964
-
-1964:                                             ; preds = %1963
-  br i1 %1500, label %2139, label %1965
-
-1965:                                             ; preds = %1964
-  %1966 = icmp eq i32 %1441, 2
-  br i1 %1966, label %2117, label %1967
-
-1967:                                             ; preds = %1965
-  br i1 %1526, label %2099, label %1968
-
-1968:                                             ; preds = %1967
-  br i1 %or.cond367.i70.us, label %2083, label %1969
+._crit_edge398:                                   ; preds = %1968
+  %.pre410 = lshr i32 %70, 8
+  %.pre412 = and i32 %.pre410, 16711935
+  %.pre414 = lshr i32 %62, 8
+  %.pre416 = and i32 %.pre414, 16711935
+  %.pre418 = and i32 %70, 16711935
+  %.pre420 = and i32 %62, 16711935
+  br label %2185
 
 1969:                                             ; preds = %1968
-  br i1 %1508, label %2063, label %1970
+  br i1 %1504, label %.thread231.us, label %1970
 
 1970:                                             ; preds = %1969
-  br i1 %1505, label %2045, label %1971
+  br i1 %1427, label %2169, label %1971
 
 1971:                                             ; preds = %1970
-  br i1 %1440, label %2029, label %1972
+  br i1 %1506, label %.thread231.us, label %1972
 
 1972:                                             ; preds = %1971
-  br i1 %1442, label %2013, label %1973
+  br i1 %1508, label %2147, label %1973
 
 1973:                                             ; preds = %1972
-  %1974 = and i32 %1304, 249
-  %1975 = icmp eq i32 %1974, 104
-  %1976 = and i32 %1304, 109
-  %1977 = icmp eq i32 %1976, 108
-  %or.cond439.i107.us = or i1 %1975, %1977
-  %1978 = and i32 %1303, 61
-  %1979 = icmp eq i32 %1978, 60
-  %or.cond441.i108.us = or i1 %1979, %or.cond439.i107.us
-  %1980 = icmp eq i32 %1974, 248
-  %or.cond442.i109.us = or i1 %1980, %or.cond441.i108.us
-  br i1 %or.cond442.i109.us, label %2013, label %1981
+  %1974 = icmp eq i32 %1449, 2
+  br i1 %1974, label %2125, label %1975
 
-1981:                                             ; preds = %1973
-  %1982 = trunc nuw i32 %1304 to i8
-  %trunc281.us = and i8 %1982, -35
-  switch i8 %trunc281.us, label %1983 [
-    i8 -36, label %2013
-    i8 28, label %2013
+1975:                                             ; preds = %1973
+  br i1 %1534, label %2107, label %1976
+
+1976:                                             ; preds = %1975
+  br i1 %or.cond367.i70.us, label %2091, label %1977
+
+1977:                                             ; preds = %1976
+  br i1 %1516, label %2071, label %1978
+
+1978:                                             ; preds = %1977
+  br i1 %1513, label %2053, label %1979
+
+1979:                                             ; preds = %1978
+  br i1 %1448, label %2037, label %1980
+
+1980:                                             ; preds = %1979
+  br i1 %1450, label %2021, label %1981
+
+1981:                                             ; preds = %1980
+  %1982 = and i32 %.fr262.us, 249
+  %1983 = icmp eq i32 %1982, 104
+  %1984 = and i32 %.fr262.us, 109
+  %1985 = icmp eq i32 %1984, 108
+  %or.cond439.i107.us = or i1 %1983, %1985
+  %1986 = and i32 %.fr262.us, 61
+  %1987 = icmp eq i32 %1986, 60
+  %or.cond441.i108.us = or i1 %1987, %or.cond439.i107.us
+  %1988 = icmp eq i32 %1982, 248
+  %or.cond442.i109.us = or i1 %1988, %or.cond441.i108.us
+  br i1 %or.cond442.i109.us, label %2021, label %1989
+
+1989:                                             ; preds = %1981
+  %1990 = trunc i32 %.fr262.us to i8
+  %trunc267.us = and i8 %1990, -35
+  switch i8 %trunc267.us, label %1991 [
+    i8 -36, label %2021
+    i8 28, label %2021
   ]
 
-1983:                                             ; preds = %1981
-  %1984 = and i32 %70, 16711935
-  br i1 %1525, label %2000, label %1985
+1991:                                             ; preds = %1989
+  %1992 = and i32 %70, 16711935
+  br i1 %1533, label %2008, label %1993
 
-1985:                                             ; preds = %1983
-  %1986 = lshr i32 %70, 8
-  %1987 = and i32 %1986, 16711935
-  %1988 = mul nuw nsw i32 %1987, 3
-  %1989 = lshr i32 %73, 8
-  %1990 = and i32 %1989, 16711935
-  %1991 = add nuw nsw i32 %1988, %1990
-  %1992 = shl nuw i32 %1991, 6
-  %1993 = and i32 %1992, -16711936
-  %1994 = mul nuw nsw i32 %1984, 3
-  %1995 = and i32 %73, 16711935
-  %1996 = add nuw nsw i32 %1994, %1995
-  %1997 = lshr i32 %1996, 2
+1993:                                             ; preds = %1991
+  %1994 = lshr i32 %70, 8
+  %1995 = and i32 %1994, 16711935
+  %1996 = mul nuw nsw i32 %1995, 3
+  %1997 = lshr i32 %73, 8
   %1998 = and i32 %1997, 16711935
-  %1999 = or disjoint i32 %1993, %1998
+  %1999 = add nuw nsw i32 %1996, %1998
+  %2000 = shl nuw i32 %1999, 6
+  %2001 = and i32 %2000, -16711936
+  %2002 = mul nuw nsw i32 %1992, 3
+  %2003 = and i32 %73, 16711935
+  %2004 = add nuw nsw i32 %2002, %2003
+  %2005 = lshr i32 %2004, 2
+  %2006 = and i32 %2005, 16711935
+  %2007 = or disjoint i32 %2001, %2006
   br label %.thread231.us
 
-2000:                                             ; preds = %1983
-  %2001 = lshr i32 %73, 8
-  %2002 = and i32 %2001, 16711935
-  %2003 = lshr i32 %70, 8
-  %2004 = and i32 %2003, 16711935
-  %2005 = add nuw nsw i32 %2002, %2004
-  %2006 = shl nuw i32 %2005, 7
-  %2007 = and i32 %2006, -16711936
-  %2008 = and i32 %73, 16711935
-  %2009 = add nuw nsw i32 %2008, %1984
-  %2010 = lshr i32 %2009, 1
-  %2011 = and i32 %2010, 16711935
-  %2012 = or disjoint i32 %2007, %2011
+2008:                                             ; preds = %1991
+  %2009 = lshr i32 %73, 8
+  %2010 = and i32 %2009, 16711935
+  %2011 = lshr i32 %70, 8
+  %2012 = and i32 %2011, 16711935
+  %2013 = add nuw nsw i32 %2010, %2012
+  %2014 = shl nuw i32 %2013, 7
+  %2015 = and i32 %2014, -16711936
+  %2016 = and i32 %73, 16711935
+  %2017 = add nuw nsw i32 %2016, %1992
+  %2018 = lshr i32 %2017, 1
+  %2019 = and i32 %2018, 16711935
+  %2020 = or disjoint i32 %2015, %2019
   br label %.thread231.us
 
-2013:                                             ; preds = %1981, %1981, %1973, %1972
-  %2014 = lshr i32 %70, 8
-  %2015 = and i32 %2014, 16711935
-  %2016 = mul nuw nsw i32 %2015, 3
-  %2017 = lshr i32 %66, 8
-  %2018 = and i32 %2017, 16711935
-  %2019 = add nuw nsw i32 %2016, %2018
-  %2020 = shl nuw i32 %2019, 6
-  %2021 = and i32 %2020, -16711936
-  %2022 = and i32 %70, 16711935
-  %2023 = mul nuw nsw i32 %2022, 3
-  %2024 = and i32 %66, 16711935
-  %2025 = add nuw nsw i32 %2023, %2024
-  %2026 = lshr i32 %2025, 2
-  %2027 = and i32 %2026, 16711935
-  %2028 = or disjoint i32 %2021, %2027
+2021:                                             ; preds = %1989, %1989, %1981, %1980
+  %2022 = lshr i32 %70, 8
+  %2023 = and i32 %2022, 16711935
+  %2024 = mul nuw nsw i32 %2023, 3
+  %2025 = lshr i32 %66, 8
+  %2026 = and i32 %2025, 16711935
+  %2027 = add nuw nsw i32 %2024, %2026
+  %2028 = shl nuw i32 %2027, 6
+  %2029 = and i32 %2028, -16711936
+  %2030 = and i32 %70, 16711935
+  %2031 = mul nuw nsw i32 %2030, 3
+  %2032 = and i32 %66, 16711935
+  %2033 = add nuw nsw i32 %2031, %2032
+  %2034 = lshr i32 %2033, 2
+  %2035 = and i32 %2034, 16711935
+  %2036 = or disjoint i32 %2029, %2035
   br label %.thread231.us
 
-2029:                                             ; preds = %1971
-  %2030 = lshr i32 %70, 8
-  %2031 = and i32 %2030, 16711935
-  %2032 = mul nuw nsw i32 %2031, 7
-  %2033 = lshr i32 %62, 8
-  %2034 = and i32 %2033, 16711935
-  %2035 = add nuw nsw i32 %2032, %2034
-  %2036 = shl nuw i32 %2035, 5
-  %2037 = and i32 %2036, -16711936
-  %2038 = and i32 %70, 16711935
-  %2039 = mul nuw nsw i32 %2038, 7
-  %2040 = and i32 %62, 16711935
-  %2041 = add nuw nsw i32 %2039, %2040
-  %2042 = lshr i32 %2041, 3
-  %2043 = and i32 %2042, 16711935
-  %2044 = or disjoint i32 %2037, %2043
+2037:                                             ; preds = %1979
+  %2038 = lshr i32 %70, 8
+  %2039 = and i32 %2038, 16711935
+  %2040 = mul nuw nsw i32 %2039, 7
+  %2041 = lshr i32 %62, 8
+  %2042 = and i32 %2041, 16711935
+  %2043 = add nuw nsw i32 %2040, %2042
+  %2044 = shl nuw i32 %2043, 5
+  %2045 = and i32 %2044, -16711936
+  %2046 = and i32 %70, 16711935
+  %2047 = mul nuw nsw i32 %2046, 7
+  %2048 = and i32 %62, 16711935
+  %2049 = add nuw nsw i32 %2047, %2048
+  %2050 = lshr i32 %2049, 3
+  %2051 = and i32 %2050, 16711935
+  %2052 = or disjoint i32 %2045, %2051
   br label %.thread231.us
 
-2045:                                             ; preds = %1970
-  %2046 = lshr i32 %73, 8
-  %2047 = and i32 %2046, 16711935
-  %2048 = mul nuw nsw i32 %2047, 5
-  %2049 = lshr i32 %62, 8
-  %2050 = and i32 %2049, 16711935
-  %2051 = mul nuw nsw i32 %2050, 3
-  %2052 = add nuw nsw i32 %2048, %2051
-  %2053 = shl nuw i32 %2052, 5
-  %2054 = and i32 %2053, -16711936
-  %2055 = and i32 %73, 16711935
+2053:                                             ; preds = %1978
+  %2054 = lshr i32 %73, 8
+  %2055 = and i32 %2054, 16711935
   %2056 = mul nuw nsw i32 %2055, 5
-  %2057 = and i32 %62, 16711935
-  %2058 = mul nuw nsw i32 %2057, 3
-  %2059 = add nuw nsw i32 %2056, %2058
-  %2060 = lshr i32 %2059, 3
-  %2061 = and i32 %2060, 16711935
-  %2062 = or disjoint i32 %2054, %2061
-  br label %.thread231.us
-
-2063:                                             ; preds = %1969
-  %2064 = lshr i32 %73, 7
-  %2065 = and i32 %2064, 33423870
-  %2066 = lshr i32 %70, 8
-  %2067 = and i32 %2066, 16711935
-  %2068 = lshr i32 %62, 8
+  %2057 = lshr i32 %62, 8
+  %2058 = and i32 %2057, 16711935
+  %2059 = mul nuw nsw i32 %2058, 3
+  %2060 = add nuw nsw i32 %2056, %2059
+  %2061 = shl nuw i32 %2060, 5
+  %2062 = and i32 %2061, -16711936
+  %2063 = and i32 %73, 16711935
+  %2064 = mul nuw nsw i32 %2063, 5
+  %2065 = and i32 %62, 16711935
+  %2066 = mul nuw nsw i32 %2065, 3
+  %2067 = add nuw nsw i32 %2064, %2066
+  %2068 = lshr i32 %2067, 3
   %2069 = and i32 %2068, 16711935
-  %2070 = add nuw nsw i32 %2067, %2069
-  %2071 = add nuw nsw i32 %2070, %2065
-  %2072 = shl nuw i32 %2071, 6
-  %2073 = and i32 %2072, -16711936
-  %2074 = shl i32 %73, 1
-  %2075 = and i32 %2074, 33423870
-  %2076 = and i32 %70, 16711935
-  %2077 = and i32 %62, 16711935
-  %2078 = add nuw nsw i32 %2076, %2077
-  %2079 = add nuw nsw i32 %2078, %2075
-  %2080 = lshr i32 %2079, 2
-  %2081 = and i32 %2080, 16711935
-  %2082 = or disjoint i32 %2073, %2081
+  %2070 = or disjoint i32 %2062, %2069
   br label %.thread231.us
 
-2083:                                             ; preds = %1968
-  %2084 = lshr i32 %73, 8
-  %2085 = and i32 %2084, 16711935
-  %2086 = mul nuw nsw i32 %2085, 3
-  %2087 = lshr i32 %70, 8
-  %2088 = and i32 %2087, 16711935
-  %2089 = add nuw nsw i32 %2086, %2088
-  %2090 = shl nuw i32 %2089, 6
-  %2091 = and i32 %2090, -16711936
-  %2092 = and i32 %73, 16711935
-  %2093 = mul nuw nsw i32 %2092, 3
-  %2094 = and i32 %70, 16711935
-  %2095 = add nuw nsw i32 %2093, %2094
-  %2096 = lshr i32 %2095, 2
-  %2097 = and i32 %2096, 16711935
-  %2098 = or disjoint i32 %2091, %2097
+2071:                                             ; preds = %1977
+  %2072 = lshr i32 %73, 7
+  %2073 = and i32 %2072, 33423870
+  %2074 = lshr i32 %70, 8
+  %2075 = and i32 %2074, 16711935
+  %2076 = lshr i32 %62, 8
+  %2077 = and i32 %2076, 16711935
+  %2078 = add nuw nsw i32 %2075, %2077
+  %2079 = add nuw nsw i32 %2078, %2073
+  %2080 = shl nuw i32 %2079, 6
+  %2081 = and i32 %2080, -16711936
+  %2082 = shl i32 %73, 1
+  %2083 = and i32 %2082, 33423870
+  %2084 = and i32 %70, 16711935
+  %2085 = and i32 %62, 16711935
+  %2086 = add nuw nsw i32 %2084, %2085
+  %2087 = add nuw nsw i32 %2086, %2083
+  %2088 = lshr i32 %2087, 2
+  %2089 = and i32 %2088, 16711935
+  %2090 = or disjoint i32 %2081, %2089
   br label %.thread231.us
 
-2099:                                             ; preds = %1967
-  %2100 = lshr i32 %70, 8
-  %2101 = and i32 %2100, 16711935
-  %2102 = mul nuw nsw i32 %2101, 5
-  %2103 = lshr i32 %73, 8
-  %2104 = and i32 %2103, 16711935
-  %2105 = mul nuw nsw i32 %2104, 3
-  %2106 = add nuw nsw i32 %2105, %2102
-  %2107 = shl nuw i32 %2106, 5
-  %2108 = and i32 %2107, -16711936
-  %2109 = and i32 %70, 16711935
+2091:                                             ; preds = %1976
+  %2092 = lshr i32 %73, 8
+  %2093 = and i32 %2092, 16711935
+  %2094 = mul nuw nsw i32 %2093, 3
+  %2095 = lshr i32 %70, 8
+  %2096 = and i32 %2095, 16711935
+  %2097 = add nuw nsw i32 %2094, %2096
+  %2098 = shl nuw i32 %2097, 6
+  %2099 = and i32 %2098, -16711936
+  %2100 = and i32 %73, 16711935
+  %2101 = mul nuw nsw i32 %2100, 3
+  %2102 = and i32 %70, 16711935
+  %2103 = add nuw nsw i32 %2101, %2102
+  %2104 = lshr i32 %2103, 2
+  %2105 = and i32 %2104, 16711935
+  %2106 = or disjoint i32 %2099, %2105
+  br label %.thread231.us
+
+2107:                                             ; preds = %1975
+  %2108 = lshr i32 %70, 8
+  %2109 = and i32 %2108, 16711935
   %2110 = mul nuw nsw i32 %2109, 5
-  %2111 = and i32 %73, 16711935
-  %2112 = mul nuw nsw i32 %2111, 3
-  %2113 = add nuw nsw i32 %2112, %2110
-  %2114 = lshr i32 %2113, 3
-  %2115 = and i32 %2114, 16711935
-  %2116 = or disjoint i32 %2108, %2115
+  %2111 = lshr i32 %73, 8
+  %2112 = and i32 %2111, 16711935
+  %2113 = mul nuw nsw i32 %2112, 3
+  %2114 = add nuw nsw i32 %2113, %2110
+  %2115 = shl nuw i32 %2114, 5
+  %2116 = and i32 %2115, -16711936
+  %2117 = and i32 %70, 16711935
+  %2118 = mul nuw nsw i32 %2117, 5
+  %2119 = and i32 %73, 16711935
+  %2120 = mul nuw nsw i32 %2119, 3
+  %2121 = add nuw nsw i32 %2120, %2118
+  %2122 = lshr i32 %2121, 3
+  %2123 = and i32 %2122, 16711935
+  %2124 = or disjoint i32 %2116, %2123
   br label %.thread231.us
 
-2117:                                             ; preds = %1965
-  %2118 = lshr i32 %70, 8
-  %2119 = and i32 %2118, 16711935
-  %2120 = mul nuw nsw i32 %2119, 5
-  %2121 = lshr i32 %73, 7
-  %2122 = and i32 %2121, 33423870
-  %2123 = lshr i32 %66, 8
-  %2124 = and i32 %2123, 16711935
-  %2125 = add nuw nsw i32 %2122, %2124
-  %2126 = add nuw nsw i32 %2125, %2120
-  %2127 = shl nuw i32 %2126, 5
-  %2128 = and i32 %2127, -16711936
-  %2129 = and i32 %70, 16711935
-  %2130 = mul nuw nsw i32 %2129, 5
-  %2131 = shl i32 %73, 1
-  %2132 = and i32 %2131, 33423870
-  %2133 = and i32 %66, 16711935
-  %2134 = add nuw nsw i32 %2130, %2133
-  %2135 = add nuw nsw i32 %2134, %2132
-  %2136 = lshr i32 %2135, 3
-  %2137 = and i32 %2136, 16711935
-  %2138 = or disjoint i32 %2128, %2137
+2125:                                             ; preds = %1973
+  %2126 = lshr i32 %70, 8
+  %2127 = and i32 %2126, 16711935
+  %2128 = mul nuw nsw i32 %2127, 5
+  %2129 = lshr i32 %73, 7
+  %2130 = and i32 %2129, 33423870
+  %2131 = lshr i32 %66, 8
+  %2132 = and i32 %2131, 16711935
+  %2133 = add nuw nsw i32 %2130, %2132
+  %2134 = add nuw nsw i32 %2133, %2128
+  %2135 = shl nuw i32 %2134, 5
+  %2136 = and i32 %2135, -16711936
+  %2137 = and i32 %70, 16711935
+  %2138 = mul nuw nsw i32 %2137, 5
+  %2139 = shl i32 %73, 1
+  %2140 = and i32 %2139, 33423870
+  %2141 = and i32 %66, 16711935
+  %2142 = add nuw nsw i32 %2138, %2141
+  %2143 = add nuw nsw i32 %2142, %2140
+  %2144 = lshr i32 %2143, 3
+  %2145 = and i32 %2144, 16711935
+  %2146 = or disjoint i32 %2136, %2145
   br label %.thread231.us
 
-2139:                                             ; preds = %1964
-  %2140 = lshr i32 %70, 8
-  %2141 = and i32 %2140, 16711935
-  %2142 = mul nuw nsw i32 %2141, 5
-  %2143 = lshr i32 %73, 7
-  %2144 = and i32 %2143, 33423870
-  %2145 = lshr i32 %62, 8
-  %2146 = and i32 %2145, 16711935
-  %2147 = add nuw nsw i32 %2144, %2146
-  %2148 = add nuw nsw i32 %2147, %2142
-  %2149 = shl nuw i32 %2148, 5
-  %2150 = and i32 %2149, -16711936
-  %2151 = and i32 %70, 16711935
-  %2152 = mul nuw nsw i32 %2151, 5
-  %2153 = shl i32 %73, 1
-  %2154 = and i32 %2153, 33423870
-  %2155 = and i32 %62, 16711935
-  %2156 = add nuw nsw i32 %2152, %2155
-  %2157 = add nuw nsw i32 %2156, %2154
-  %2158 = lshr i32 %2157, 3
-  %2159 = and i32 %2158, 16711935
-  %2160 = or disjoint i32 %2150, %2159
+2147:                                             ; preds = %1972
+  %2148 = lshr i32 %70, 8
+  %2149 = and i32 %2148, 16711935
+  %2150 = mul nuw nsw i32 %2149, 5
+  %2151 = lshr i32 %73, 7
+  %2152 = and i32 %2151, 33423870
+  %2153 = lshr i32 %62, 8
+  %2154 = and i32 %2153, 16711935
+  %2155 = add nuw nsw i32 %2152, %2154
+  %2156 = add nuw nsw i32 %2155, %2150
+  %2157 = shl nuw i32 %2156, 5
+  %2158 = and i32 %2157, -16711936
+  %2159 = and i32 %70, 16711935
+  %2160 = mul nuw nsw i32 %2159, 5
+  %2161 = shl i32 %73, 1
+  %2162 = and i32 %2161, 33423870
+  %2163 = and i32 %62, 16711935
+  %2164 = add nuw nsw i32 %2160, %2163
+  %2165 = add nuw nsw i32 %2164, %2162
+  %2166 = lshr i32 %2165, 3
+  %2167 = and i32 %2166, 16711935
+  %2168 = or disjoint i32 %2158, %2167
   br label %.thread231.us
 
-2161:                                             ; preds = %1962
-  %2162 = lshr i32 %70, 8
-  %2163 = and i32 %2162, 16711935
-  %2164 = mul nuw nsw i32 %2163, 3
-  %2165 = lshr i32 %66, 8
-  %2166 = and i32 %2165, 16711935
-  %2167 = add nuw nsw i32 %2164, %2166
-  %2168 = shl nuw i32 %2167, 6
-  %2169 = and i32 %2168, -16711936
-  %2170 = and i32 %70, 16711935
-  %2171 = mul nuw nsw i32 %2170, 3
-  %2172 = and i32 %66, 16711935
-  %2173 = add nuw nsw i32 %2171, %2172
-  %2174 = lshr i32 %2173, 2
-  %2175 = and i32 %2174, 16711935
-  %2176 = or disjoint i32 %2169, %2175
+2169:                                             ; preds = %1970
+  %2170 = lshr i32 %70, 8
+  %2171 = and i32 %2170, 16711935
+  %2172 = mul nuw nsw i32 %2171, 3
+  %2173 = lshr i32 %66, 8
+  %2174 = and i32 %2173, 16711935
+  %2175 = add nuw nsw i32 %2172, %2174
+  %2176 = shl nuw i32 %2175, 6
+  %2177 = and i32 %2176, -16711936
+  %2178 = and i32 %70, 16711935
+  %2179 = mul nuw nsw i32 %2178, 3
+  %2180 = and i32 %66, 16711935
+  %2181 = add nuw nsw i32 %2179, %2180
+  %2182 = lshr i32 %2181, 2
+  %2183 = and i32 %2182, 16711935
+  %2184 = or disjoint i32 %2177, %2183
   br label %.thread231.us
 
 .thread231.us.sink.split:                         ; preds = %yuv_diff.exit449.i102.thread.us, %.thread228.us
-  store i32 %70, ptr %1294, align 4, !tbaa !20
+  store i32 %70, ptr %1302, align 4, !tbaa !20
   br label %.thread231.us
 
-2177:                                             ; preds = %._crit_edge427, %.thread230.thread252.us
-  %.pre-phi450 = phi i32 [ %.pre449, %._crit_edge427 ], [ %1719, %.thread230.thread252.us ]
-  %.pre-phi448 = phi i32 [ %.pre447, %._crit_edge427 ], [ %1717, %.thread230.thread252.us ]
-  %.pre-phi446 = phi i32 [ %.pre445, %._crit_edge427 ], [ %1712, %.thread230.thread252.us ]
-  %.pre-phi442 = phi i32 [ %.pre441, %._crit_edge427 ], [ %1709, %.thread230.thread252.us ]
-  %2178 = mul nuw nsw i32 %.pre-phi442, 7
-  %2179 = add nuw nsw i32 %2178, %.pre-phi446
-  %2180 = shl nuw i32 %2179, 5
-  %2181 = and i32 %2180, -16711936
-  %2182 = mul nuw nsw i32 %.pre-phi448, 7
-  %2183 = add nuw nsw i32 %2182, %.pre-phi450
-  %2184 = lshr i32 %2183, 3
-  %2185 = and i32 %2184, 16711935
-  %2186 = or disjoint i32 %2181, %2185
+2185:                                             ; preds = %._crit_edge398, %.thread230.thread252.us
+  %.pre-phi421 = phi i32 [ %.pre420, %._crit_edge398 ], [ %1727, %.thread230.thread252.us ]
+  %.pre-phi419 = phi i32 [ %.pre418, %._crit_edge398 ], [ %1725, %.thread230.thread252.us ]
+  %.pre-phi417 = phi i32 [ %.pre416, %._crit_edge398 ], [ %1720, %.thread230.thread252.us ]
+  %.pre-phi413 = phi i32 [ %.pre412, %._crit_edge398 ], [ %1717, %.thread230.thread252.us ]
+  %2186 = mul nuw nsw i32 %.pre-phi413, 7
+  %2187 = add nuw nsw i32 %2186, %.pre-phi417
+  %2188 = shl nuw i32 %2187, 5
+  %2189 = and i32 %2188, -16711936
+  %2190 = mul nuw nsw i32 %.pre-phi419, 7
+  %2191 = add nuw nsw i32 %2190, %.pre-phi421
+  %2192 = lshr i32 %2191, 3
+  %2193 = and i32 %2192, 16711935
+  %2194 = or disjoint i32 %2189, %2193
   br label %.thread231.us
 
-.thread231.us:                                    ; preds = %1961, %.thread231.us.sink.split, %1963, %2177, %2161, %2139, %2117, %2099, %2083, %2063, %2045, %2029, %2013, %2000, %1985
-  %.sink552 = phi i32 [ %2186, %2177 ], [ %70, %1963 ], [ %2176, %2161 ], [ %1999, %1985 ], [ %2160, %2139 ], [ %2138, %2117 ], [ %2116, %2099 ], [ %2098, %2083 ], [ %2082, %2063 ], [ %2062, %2045 ], [ %2044, %2029 ], [ %2028, %2013 ], [ %2012, %2000 ], [ %70, %.thread231.us.sink.split ], [ %70, %1961 ]
-  store i32 %.sink552, ptr %1306, align 4, !tbaa !20
-  %2187 = icmp eq i32 %1387, 43
-  %2188 = icmp eq i32 %1387, 15
-  %2189 = or i1 %2187, %2188
-  %2190 = or i1 %1504, %2189
-  %or.cond444.i112.us = or i1 %1506, %2190
-  br i1 %or.cond444.i112.us, label %2191, label %2216
+.thread231.us:                                    ; preds = %1969, %.thread231.us.sink.split, %1971, %2185, %2169, %2147, %2125, %2107, %2091, %2071, %2053, %2037, %2021, %2008, %1993
+  %.sink523 = phi i32 [ %2194, %2185 ], [ %70, %1971 ], [ %2184, %2169 ], [ %2007, %1993 ], [ %2168, %2147 ], [ %2146, %2125 ], [ %2124, %2107 ], [ %2106, %2091 ], [ %2090, %2071 ], [ %2070, %2053 ], [ %2052, %2037 ], [ %2036, %2021 ], [ %2020, %2008 ], [ %70, %.thread231.us.sink.split ], [ %70, %1969 ]
+  store i32 %.sink523, ptr %1314, align 4, !tbaa !20
+  %2195 = icmp eq i32 %1395, 43
+  %2196 = icmp eq i32 %1395, 15
+  %2197 = or i1 %2195, %2196
+  %2198 = or i1 %1512, %2197
+  %or.cond444.i112.us = or i1 %1514, %2198
+  br i1 %or.cond444.i112.us, label %2199, label %2224
 
-2191:                                             ; preds = %.thread231.us
-  %2192 = and i32 %73, 16777215
-  %2193 = zext nneg i32 %2192 to i64
-  %2194 = getelementptr inbounds nuw i32, ptr %7, i64 %2193
-  %2195 = load i32, ptr %2194, align 4, !tbaa !20
-  %2196 = and i32 %62, 16777215
-  %2197 = zext nneg i32 %2196 to i64
-  %2198 = getelementptr inbounds nuw i32, ptr %7, i64 %2197
-  %2199 = load i32, ptr %2198, align 4, !tbaa !20
-  %2200 = and i32 %2195, 16711680
-  %2201 = and i32 %2199, 16711680
-  %2202 = add nsw i32 %2200, -3145729
-  %2203 = sub nsw i32 %2202, %2201
-  %2204 = icmp ult i32 %2203, -6291457
-  br i1 %2204, label %hq4x_interp_2x2.exit127.us, label %2205
+2199:                                             ; preds = %.thread231.us
+  %2200 = and i32 %73, 16777215
+  %2201 = zext nneg i32 %2200 to i64
+  %2202 = getelementptr inbounds nuw i32, ptr %7, i64 %2201
+  %2203 = load i32, ptr %2202, align 4, !tbaa !20
+  %2204 = and i32 %62, 16777215
+  %2205 = zext nneg i32 %2204 to i64
+  %2206 = getelementptr inbounds nuw i32, ptr %7, i64 %2205
+  %2207 = load i32, ptr %2206, align 4, !tbaa !20
+  %2208 = and i32 %2203, 16711680
+  %2209 = and i32 %2207, 16711680
+  %2210 = add nsw i32 %2208, -3145729
+  %2211 = sub nsw i32 %2210, %2209
+  %2212 = icmp ult i32 %2211, -6291457
+  br i1 %2212, label %hq4x_interp_2x2.exit127.us, label %2213
 
-2205:                                             ; preds = %2191
-  %2206 = and i32 %2195, 65280
-  %2207 = and i32 %2199, 65280
-  %2208 = add nsw i32 %2206, -1793
-  %2209 = sub nsw i32 %2208, %2207
-  %2210 = icmp ult i32 %2209, -3585
-  br i1 %2210, label %hq4x_interp_2x2.exit127.us, label %yuv_diff.exit.i117.us
+2213:                                             ; preds = %2199
+  %2214 = and i32 %2203, 65280
+  %2215 = and i32 %2207, 65280
+  %2216 = add nsw i32 %2214, -1793
+  %2217 = sub nsw i32 %2216, %2215
+  %2218 = icmp ult i32 %2217, -3585
+  br i1 %2218, label %hq4x_interp_2x2.exit127.us, label %yuv_diff.exit.i117.us
 
-yuv_diff.exit.i117.us:                            ; preds = %2205
-  %2211 = and i32 %2195, 255
-  %2212 = and i32 %2199, 255
-  %2213 = add nuw nsw i32 %2211, 6
-  %2214 = sub nsw i32 %2213, %2212
-  %2215 = icmp ult i32 %2214, 13
-  br i1 %2215, label %2216, label %hq4x_interp_2x2.exit127.us
+yuv_diff.exit.i117.us:                            ; preds = %2213
+  %2219 = and i32 %2203, 255
+  %2220 = and i32 %2207, 255
+  %2221 = add nuw nsw i32 %2219, 6
+  %2222 = sub nsw i32 %2221, %2220
+  %2223 = icmp ult i32 %2222, 13
+  br i1 %2223, label %2224, label %hq4x_interp_2x2.exit127.us
 
-2216:                                             ; preds = %yuv_diff.exit.i117.us, %.thread231.us
-  br i1 %1419, label %2290, label %2217
+2224:                                             ; preds = %yuv_diff.exit.i117.us, %.thread231.us
+  br i1 %1427, label %2298, label %2225
 
-2217:                                             ; preds = %2216
-  br i1 %1526, label %2274, label %2218
+2225:                                             ; preds = %2224
+  br i1 %1534, label %2282, label %2226
 
-2218:                                             ; preds = %2217
-  br i1 %1501, label %2258, label %2219
+2226:                                             ; preds = %2225
+  br i1 %1509, label %2266, label %2227
 
-2219:                                             ; preds = %2218
-  %brmerge445.i113.us = or i1 %1500, %1503
-  %brmerge446.i114.us = or i1 %1504, %brmerge445.i113.us
-  %brmerge447.i115.us = or i1 %1506, %brmerge446.i114.us
-  %brmerge448.i116.us = or i1 %1507, %brmerge447.i115.us
-  br i1 %brmerge448.i116.us, label %2237, label %2220
+2227:                                             ; preds = %2226
+  %brmerge445.i113.us = or i1 %1508, %1511
+  %brmerge446.i114.us = or i1 %1512, %brmerge445.i113.us
+  %brmerge447.i115.us = or i1 %1514, %brmerge446.i114.us
+  %brmerge448.i116.us = or i1 %1515, %brmerge447.i115.us
+  br i1 %brmerge448.i116.us, label %2245, label %2228
 
-2220:                                             ; preds = %2219
-  br i1 %1463, label %2221, label %hq4x_interp_2x2.exit127.us
+2228:                                             ; preds = %2227
+  br i1 %1471, label %2229, label %hq4x_interp_2x2.exit127.us
 
-2221:                                             ; preds = %2220
-  %2222 = lshr i32 %70, 8
-  %2223 = and i32 %2222, 16711935
-  %2224 = mul nuw nsw i32 %2223, 7
-  %2225 = lshr i32 %66, 8
-  %2226 = and i32 %2225, 16711935
-  %2227 = add nuw nsw i32 %2224, %2226
-  %2228 = shl nuw i32 %2227, 5
-  %2229 = and i32 %2228, -16711936
-  %2230 = and i32 %70, 16711935
-  %2231 = mul nuw nsw i32 %2230, 7
-  %2232 = and i32 %66, 16711935
-  %2233 = add nuw nsw i32 %2231, %2232
-  %2234 = lshr i32 %2233, 3
-  %2235 = and i32 %2234, 16711935
-  %2236 = or disjoint i32 %2229, %2235
+2229:                                             ; preds = %2228
+  %2230 = lshr i32 %70, 8
+  %2231 = and i32 %2230, 16711935
+  %2232 = mul nuw nsw i32 %2231, 7
+  %2233 = lshr i32 %66, 8
+  %2234 = and i32 %2233, 16711935
+  %2235 = add nuw nsw i32 %2232, %2234
+  %2236 = shl nuw i32 %2235, 5
+  %2237 = and i32 %2236, -16711936
+  %2238 = and i32 %70, 16711935
+  %2239 = mul nuw nsw i32 %2238, 7
+  %2240 = and i32 %66, 16711935
+  %2241 = add nuw nsw i32 %2239, %2240
+  %2242 = lshr i32 %2241, 3
+  %2243 = and i32 %2242, 16711935
+  %2244 = or disjoint i32 %2237, %2243
   br label %hq4x_interp_2x2.exit127.us
 
-2237:                                             ; preds = %2219
-  %2238 = lshr i32 %70, 8
-  %2239 = and i32 %2238, 16711935
-  %2240 = mul nuw nsw i32 %2239, 6
-  %2241 = lshr i32 %73, 8
-  %2242 = and i32 %2241, 16711935
-  %2243 = lshr i32 %62, 8
-  %2244 = and i32 %2243, 16711935
-  %2245 = add nuw nsw i32 %2242, %2244
-  %2246 = add nuw nsw i32 %2245, %2240
-  %2247 = shl nuw i32 %2246, 5
-  %2248 = and i32 %2247, -16711936
-  %2249 = and i32 %70, 16711935
-  %2250 = mul nuw nsw i32 %2249, 6
-  %2251 = and i32 %73, 16711935
-  %2252 = and i32 %62, 16711935
-  %2253 = add nuw nsw i32 %2251, %2252
-  %2254 = add nuw nsw i32 %2253, %2250
-  %2255 = lshr i32 %2254, 3
-  %2256 = and i32 %2255, 16711935
-  %2257 = or disjoint i32 %2248, %2256
+2245:                                             ; preds = %2227
+  %2246 = lshr i32 %70, 8
+  %2247 = and i32 %2246, 16711935
+  %2248 = mul nuw nsw i32 %2247, 6
+  %2249 = lshr i32 %73, 8
+  %2250 = and i32 %2249, 16711935
+  %2251 = lshr i32 %62, 8
+  %2252 = and i32 %2251, 16711935
+  %2253 = add nuw nsw i32 %2250, %2252
+  %2254 = add nuw nsw i32 %2253, %2248
+  %2255 = shl nuw i32 %2254, 5
+  %2256 = and i32 %2255, -16711936
+  %2257 = and i32 %70, 16711935
+  %2258 = mul nuw nsw i32 %2257, 6
+  %2259 = and i32 %73, 16711935
+  %2260 = and i32 %62, 16711935
+  %2261 = add nuw nsw i32 %2259, %2260
+  %2262 = add nuw nsw i32 %2261, %2258
+  %2263 = lshr i32 %2262, 3
+  %2264 = and i32 %2263, 16711935
+  %2265 = or disjoint i32 %2256, %2264
   br label %hq4x_interp_2x2.exit127.us
 
-2258:                                             ; preds = %2218
-  %2259 = lshr i32 %70, 8
-  %2260 = and i32 %2259, 16711935
-  %2261 = mul nuw nsw i32 %2260, 7
-  %2262 = lshr i32 %62, 8
-  %2263 = and i32 %2262, 16711935
-  %2264 = add nuw nsw i32 %2261, %2263
-  %2265 = shl nuw i32 %2264, 5
-  %2266 = and i32 %2265, -16711936
-  %2267 = and i32 %70, 16711935
-  %2268 = mul nuw nsw i32 %2267, 7
-  %2269 = and i32 %62, 16711935
-  %2270 = add nuw nsw i32 %2268, %2269
-  %2271 = lshr i32 %2270, 3
-  %2272 = and i32 %2271, 16711935
-  %2273 = or disjoint i32 %2266, %2272
+2266:                                             ; preds = %2226
+  %2267 = lshr i32 %70, 8
+  %2268 = and i32 %2267, 16711935
+  %2269 = mul nuw nsw i32 %2268, 7
+  %2270 = lshr i32 %62, 8
+  %2271 = and i32 %2270, 16711935
+  %2272 = add nuw nsw i32 %2269, %2271
+  %2273 = shl nuw i32 %2272, 5
+  %2274 = and i32 %2273, -16711936
+  %2275 = and i32 %70, 16711935
+  %2276 = mul nuw nsw i32 %2275, 7
+  %2277 = and i32 %62, 16711935
+  %2278 = add nuw nsw i32 %2276, %2277
+  %2279 = lshr i32 %2278, 3
+  %2280 = and i32 %2279, 16711935
+  %2281 = or disjoint i32 %2274, %2280
   br label %hq4x_interp_2x2.exit127.us
 
-2274:                                             ; preds = %2217
-  %2275 = lshr i32 %70, 8
-  %2276 = and i32 %2275, 16711935
-  %2277 = mul nuw nsw i32 %2276, 7
-  %2278 = lshr i32 %73, 8
-  %2279 = and i32 %2278, 16711935
-  %2280 = add nuw nsw i32 %2277, %2279
-  %2281 = shl nuw i32 %2280, 5
-  %2282 = and i32 %2281, -16711936
-  %2283 = and i32 %70, 16711935
-  %2284 = mul nuw nsw i32 %2283, 7
-  %2285 = and i32 %73, 16711935
-  %2286 = add nuw nsw i32 %2284, %2285
-  %2287 = lshr i32 %2286, 3
-  %2288 = and i32 %2287, 16711935
-  %2289 = or disjoint i32 %2282, %2288
+2282:                                             ; preds = %2225
+  %2283 = lshr i32 %70, 8
+  %2284 = and i32 %2283, 16711935
+  %2285 = mul nuw nsw i32 %2284, 7
+  %2286 = lshr i32 %73, 8
+  %2287 = and i32 %2286, 16711935
+  %2288 = add nuw nsw i32 %2285, %2287
+  %2289 = shl nuw i32 %2288, 5
+  %2290 = and i32 %2289, -16711936
+  %2291 = and i32 %70, 16711935
+  %2292 = mul nuw nsw i32 %2291, 7
+  %2293 = and i32 %73, 16711935
+  %2294 = add nuw nsw i32 %2292, %2293
+  %2295 = lshr i32 %2294, 3
+  %2296 = and i32 %2295, 16711935
+  %2297 = or disjoint i32 %2290, %2296
   br label %hq4x_interp_2x2.exit127.us
 
-2290:                                             ; preds = %2216
-  %2291 = lshr i32 %70, 8
-  %2292 = and i32 %2291, 16711935
-  %2293 = mul nuw nsw i32 %2292, 7
-  %2294 = lshr i32 %66, 8
-  %2295 = and i32 %2294, 16711935
-  %2296 = add nuw nsw i32 %2293, %2295
-  %2297 = shl nuw i32 %2296, 5
-  %2298 = and i32 %2297, -16711936
-  %2299 = and i32 %70, 16711935
-  %2300 = mul nuw nsw i32 %2299, 7
-  %2301 = and i32 %66, 16711935
-  %2302 = add nuw nsw i32 %2300, %2301
-  %2303 = lshr i32 %2302, 3
-  %2304 = and i32 %2303, 16711935
-  %2305 = or disjoint i32 %2298, %2304
+2298:                                             ; preds = %2224
+  %2299 = lshr i32 %70, 8
+  %2300 = and i32 %2299, 16711935
+  %2301 = mul nuw nsw i32 %2300, 7
+  %2302 = lshr i32 %66, 8
+  %2303 = and i32 %2302, 16711935
+  %2304 = add nuw nsw i32 %2301, %2303
+  %2305 = shl nuw i32 %2304, 5
+  %2306 = and i32 %2305, -16711936
+  %2307 = and i32 %70, 16711935
+  %2308 = mul nuw nsw i32 %2307, 7
+  %2309 = and i32 %66, 16711935
+  %2310 = add nuw nsw i32 %2308, %2309
+  %2311 = lshr i32 %2310, 3
+  %2312 = and i32 %2311, 16711935
+  %2313 = or disjoint i32 %2306, %2312
   br label %hq4x_interp_2x2.exit127.us
 
-hq4x_interp_2x2.exit127.us:                       ; preds = %2191, %2205, %yuv_diff.exit.i117.us, %2220, %2290, %2274, %2258, %2237, %2221
-  %.sink553 = phi i32 [ %70, %2220 ], [ %2305, %2290 ], [ %2289, %2274 ], [ %2273, %2258 ], [ %2257, %2237 ], [ %2236, %2221 ], [ %70, %yuv_diff.exit.i117.us ], [ %70, %2205 ], [ %70, %2191 ]
-  store i32 %.sink553, ptr %1307, align 4, !tbaa !20
-  %2306 = getelementptr inbounds i32, ptr %.0145.i393.us, i64 %34
-  %2307 = shl nuw nsw i32 %.fr.us, 5
-  %2308 = or disjoint i32 %.fr257.us, %.fr263.us
-  %2309 = shl nuw nsw i32 %2308, 5
-  %2310 = shl nuw nsw i32 %282, 1
-  %2311 = shl nuw nsw i32 %284, 2
-  %2312 = or i32 %2311, %2309
-  %2313 = or disjoint i32 %2312, %280
-  %2314 = or i32 %2313, %.fr258.us
-  %2315 = or i32 %2314, %2307
-  %2316 = or i32 %2315, %.fr259.us
-  %2317 = or i32 %2316, %2310
-  %2318 = getelementptr inbounds i32, ptr %2306, i64 %30
-  %2319 = getelementptr inbounds i32, ptr %2306, i64 %32
-  %2320 = getelementptr inbounds nuw i8, ptr %2306, i64 4
-  %2321 = and i32 %2317, 191
-  %2322 = icmp eq i32 %2321, 55
-  %2323 = and i32 %2317, 219
-  %2324 = icmp eq i32 %2323, 19
-  %or.cond.i10.us = or i1 %2322, %2324
-  br i1 %or.cond.i10.us, label %2325, label %yuv_diff.exit453.i67.us
+hq4x_interp_2x2.exit127.us:                       ; preds = %2199, %2213, %yuv_diff.exit.i117.us, %2228, %2298, %2282, %2266, %2245, %2229
+  %.sink524 = phi i32 [ %70, %2228 ], [ %2313, %2298 ], [ %2297, %2282 ], [ %2281, %2266 ], [ %2265, %2245 ], [ %2244, %2229 ], [ %70, %yuv_diff.exit.i117.us ], [ %70, %2213 ], [ %70, %2199 ]
+  store i32 %.sink524, ptr %1315, align 4, !tbaa !20
+  %2314 = getelementptr inbounds i32, ptr %.0145.i381.us, i64 %34
+  %2315 = shl nuw nsw i32 %135, 5
+  %2316 = or disjoint i32 %159, %111
+  %2317 = shl nuw nsw i32 %2316, 5
+  %2318 = shl nuw nsw i32 %290, 1
+  %2319 = shl nuw nsw i32 %292, 2
+  %2320 = or i32 %2319, %2317
+  %2321 = or disjoint i32 %2320, %288
+  %2322 = or i32 %2321, %2315
+  %2323 = or i32 %2322, %183
+  %2324 = or i32 %2323, %207
+  %.fr268.us = freeze i32 %2324
+  %2325 = or i32 %.fr268.us, %2318
+  %2326 = getelementptr inbounds i32, ptr %2314, i64 %30
+  %2327 = getelementptr inbounds i32, ptr %2314, i64 %32
+  %2328 = getelementptr inbounds nuw i8, ptr %2314, i64 4
+  %2329 = and i32 %2325, 191
+  %2330 = icmp eq i32 %2329, 55
+  %2331 = and i32 %2325, 219
+  %2332 = icmp eq i32 %2331, 19
+  %or.cond.i10.us = or i1 %2330, %2332
+  br i1 %or.cond.i10.us, label %2333, label %yuv_diff.exit453.i67.us
 
-2325:                                             ; preds = %hq4x_interp_2x2.exit127.us
-  %2326 = and i32 %79, 16777215
-  %2327 = zext nneg i32 %2326 to i64
-  %2328 = getelementptr inbounds nuw i32, ptr %7, i64 %2327
-  %2329 = load i32, ptr %2328, align 4, !tbaa !20
-  %2330 = and i32 %73, 16777215
-  %2331 = zext nneg i32 %2330 to i64
-  %2332 = getelementptr inbounds nuw i32, ptr %7, i64 %2331
-  %2333 = load i32, ptr %2332, align 4, !tbaa !20
-  %2334 = and i32 %2329, 16711680
-  %2335 = and i32 %2333, 16711680
-  %2336 = add nsw i32 %2334, -3145729
-  %2337 = sub nsw i32 %2336, %2335
-  %2338 = icmp ult i32 %2337, -6291457
-  br i1 %2338, label %yuv_diff.exit453.i67.us, label %2339
+2333:                                             ; preds = %hq4x_interp_2x2.exit127.us
+  %2334 = and i32 %79, 16777215
+  %2335 = zext nneg i32 %2334 to i64
+  %2336 = getelementptr inbounds nuw i32, ptr %7, i64 %2335
+  %2337 = load i32, ptr %2336, align 4, !tbaa !20
+  %2338 = and i32 %73, 16777215
+  %2339 = zext nneg i32 %2338 to i64
+  %2340 = getelementptr inbounds nuw i32, ptr %7, i64 %2339
+  %2341 = load i32, ptr %2340, align 4, !tbaa !20
+  %2342 = and i32 %2337, 16711680
+  %2343 = and i32 %2341, 16711680
+  %2344 = add nsw i32 %2342, -3145729
+  %2345 = sub nsw i32 %2344, %2343
+  %2346 = icmp ult i32 %2345, -6291457
+  br i1 %2346, label %yuv_diff.exit453.i67.us, label %2347
 
-2339:                                             ; preds = %2325
-  %2340 = and i32 %2329, 65280
-  %2341 = and i32 %2333, 65280
-  %2342 = add nsw i32 %2340, -1793
-  %2343 = sub nsw i32 %2342, %2341
-  %2344 = icmp ult i32 %2343, -3585
-  br i1 %2344, label %yuv_diff.exit453.i67.us, label %2345
+2347:                                             ; preds = %2333
+  %2348 = and i32 %2337, 65280
+  %2349 = and i32 %2341, 65280
+  %2350 = add nsw i32 %2348, -1793
+  %2351 = sub nsw i32 %2350, %2349
+  %2352 = icmp ult i32 %2351, -3585
+  br i1 %2352, label %yuv_diff.exit453.i67.us, label %2353
 
-2345:                                             ; preds = %2339
-  %2346 = and i32 %2329, 255
-  %2347 = and i32 %2333, 255
-  %2348 = add nsw i32 %2346, -7
-  %2349 = sub nsw i32 %2348, %2347
-  %2350 = icmp ult i32 %2349, -13
+2353:                                             ; preds = %2347
+  %2354 = and i32 %2337, 255
+  %2355 = and i32 %2341, 255
+  %2356 = add nsw i32 %2354, -7
+  %2357 = sub nsw i32 %2356, %2355
+  %2358 = icmp ult i32 %2357, -13
   br label %yuv_diff.exit453.i67.us
 
-yuv_diff.exit453.i67.us:                          ; preds = %2345, %2339, %2325, %hq4x_interp_2x2.exit127.us
-  %2351 = phi i1 [ false, %hq4x_interp_2x2.exit127.us ], [ true, %2339 ], [ true, %2325 ], [ %2350, %2345 ]
-  %2352 = icmp eq i32 %2323, 73
-  %2353 = and i32 %2317, 239
-  %2354 = icmp eq i32 %2353, 109
-  %or.cond367.i11.us = or i1 %2352, %2354
-  br i1 %or.cond367.i11.us, label %2355, label %yuv_diff.exit452.i66.us
+yuv_diff.exit453.i67.us:                          ; preds = %2353, %2347, %2333, %hq4x_interp_2x2.exit127.us
+  %2359 = phi i1 [ false, %hq4x_interp_2x2.exit127.us ], [ true, %2347 ], [ true, %2333 ], [ %2358, %2353 ]
+  %2360 = icmp eq i32 %2331, 73
+  %2361 = and i32 %2325, 239
+  %2362 = icmp eq i32 %2361, 109
+  %or.cond367.i11.us = or i1 %2360, %2362
+  br i1 %or.cond367.i11.us, label %2363, label %yuv_diff.exit452.i66.us
 
-2355:                                             ; preds = %yuv_diff.exit453.i67.us
-  %2356 = and i32 %62, 16777215
-  %2357 = zext nneg i32 %2356 to i64
-  %2358 = getelementptr inbounds nuw i32, ptr %7, i64 %2357
-  %2359 = load i32, ptr %2358, align 4, !tbaa !20
-  %2360 = and i32 %69, 16777215
-  %2361 = zext nneg i32 %2360 to i64
-  %2362 = getelementptr inbounds nuw i32, ptr %7, i64 %2361
-  %2363 = load i32, ptr %2362, align 4, !tbaa !20
-  %2364 = and i32 %2359, 16711680
-  %2365 = and i32 %2363, 16711680
-  %2366 = add nsw i32 %2364, -3145729
-  %2367 = sub nsw i32 %2366, %2365
-  %2368 = icmp ult i32 %2367, -6291457
-  br i1 %2368, label %yuv_diff.exit452.i66.us, label %2369
+2363:                                             ; preds = %yuv_diff.exit453.i67.us
+  %2364 = and i32 %62, 16777215
+  %2365 = zext nneg i32 %2364 to i64
+  %2366 = getelementptr inbounds nuw i32, ptr %7, i64 %2365
+  %2367 = load i32, ptr %2366, align 4, !tbaa !20
+  %2368 = and i32 %69, 16777215
+  %2369 = zext nneg i32 %2368 to i64
+  %2370 = getelementptr inbounds nuw i32, ptr %7, i64 %2369
+  %2371 = load i32, ptr %2370, align 4, !tbaa !20
+  %2372 = and i32 %2367, 16711680
+  %2373 = and i32 %2371, 16711680
+  %2374 = add nsw i32 %2372, -3145729
+  %2375 = sub nsw i32 %2374, %2373
+  %2376 = icmp ult i32 %2375, -6291457
+  br i1 %2376, label %yuv_diff.exit452.i66.us, label %2377
 
-2369:                                             ; preds = %2355
-  %2370 = and i32 %2359, 65280
-  %2371 = and i32 %2363, 65280
-  %2372 = add nsw i32 %2370, -1793
-  %2373 = sub nsw i32 %2372, %2371
-  %2374 = icmp ult i32 %2373, -3585
-  br i1 %2374, label %yuv_diff.exit452.i66.us, label %2375
+2377:                                             ; preds = %2363
+  %2378 = and i32 %2367, 65280
+  %2379 = and i32 %2371, 65280
+  %2380 = add nsw i32 %2378, -1793
+  %2381 = sub nsw i32 %2380, %2379
+  %2382 = icmp ult i32 %2381, -3585
+  br i1 %2382, label %yuv_diff.exit452.i66.us, label %2383
 
-2375:                                             ; preds = %2369
-  %2376 = and i32 %2359, 255
-  %2377 = and i32 %2363, 255
-  %2378 = add nsw i32 %2376, -7
-  %2379 = sub nsw i32 %2378, %2377
-  %2380 = icmp ult i32 %2379, -13
+2383:                                             ; preds = %2377
+  %2384 = and i32 %2367, 255
+  %2385 = and i32 %2371, 255
+  %2386 = add nsw i32 %2384, -7
+  %2387 = sub nsw i32 %2386, %2385
+  %2388 = icmp ult i32 %2387, -13
   br label %yuv_diff.exit452.i66.us
 
-yuv_diff.exit452.i66.us:                          ; preds = %2375, %2369, %2355, %yuv_diff.exit453.i67.us
-  %2381 = phi i1 [ false, %yuv_diff.exit453.i67.us ], [ true, %2369 ], [ true, %2355 ], [ %2380, %2375 ]
-  %2382 = and i32 %2317, 111
-  %2383 = icmp eq i32 %2382, 42
-  %2384 = and i32 %2317, 91
-  %2385 = icmp eq i32 %2384, 10
-  %or.cond369.i12.us = or i1 %2383, %2385
-  %2386 = icmp eq i32 %2321, 58
-  %or.cond370.i13.us = or i1 %2386, %or.cond369.i12.us
-  %2387 = and i32 %2317, 223
-  %2388 = icmp eq i32 %2387, 90
-  %or.cond372.i14.us = or i1 %2388, %or.cond370.i13.us
-  %2389 = and i32 %2317, 159
-  %2390 = icmp eq i32 %2389, 138
-  %or.cond374.i15.us = or i1 %2390, %or.cond372.i14.us
-  %2391 = and i32 %2317, 207
-  %2392 = icmp eq i32 %2391, 138
-  %or.cond376.i16.us = or i1 %2392, %or.cond374.i15.us
-  %2393 = icmp eq i32 %2353, 78
-  %or.cond378.i17.us = or i1 %2393, %or.cond376.i16.us
-  %2394 = and i32 %2317, 63
-  %2395 = icmp eq i32 %2394, 14
-  %or.cond380.i18.us = or i1 %2395, %or.cond378.i17.us
-  %2396 = and i32 %2317, 251
-  %2397 = icmp eq i32 %2396, 90
-  %or.cond382.i19.us = or i1 %2397, %or.cond380.i18.us
-  %2398 = and i32 %2317, 187
-  %2399 = icmp eq i32 %2398, 138
-  %or.cond384.i20.us = or i1 %2399, %or.cond382.i19.us
-  %2400 = and i32 %2317, 127
-  %2401 = icmp eq i32 %2400, 90
-  %or.cond386.i21.us = or i1 %2401, %or.cond384.i20.us
-  %2402 = and i32 %2317, 175
-  %2403 = icmp eq i32 %2402, 138
-  %or.cond388.i22.us = or i1 %2403, %or.cond386.i21.us
-  %2404 = and i32 %2317, 235
-  %2405 = icmp eq i32 %2404, 138
-  %or.cond390.i23.us = or i1 %2405, %or.cond388.i22.us
-  br i1 %or.cond390.i23.us, label %2406, label %yuv_diff.exit451.i65.us
+yuv_diff.exit452.i66.us:                          ; preds = %2383, %2377, %2363, %yuv_diff.exit453.i67.us
+  %2389 = phi i1 [ false, %yuv_diff.exit453.i67.us ], [ true, %2377 ], [ true, %2363 ], [ %2388, %2383 ]
+  %2390 = and i32 %2325, 111
+  %2391 = icmp eq i32 %2390, 42
+  %2392 = and i32 %2325, 91
+  %2393 = icmp eq i32 %2392, 10
+  %or.cond369.i12.us = or i1 %2391, %2393
+  %2394 = icmp eq i32 %2329, 58
+  %or.cond370.i13.us = or i1 %2394, %or.cond369.i12.us
+  %2395 = and i32 %2325, 223
+  %2396 = icmp eq i32 %2395, 90
+  %or.cond372.i14.us = or i1 %2396, %or.cond370.i13.us
+  %2397 = and i32 %2325, 159
+  %2398 = icmp eq i32 %2397, 138
+  %or.cond374.i15.us = or i1 %2398, %or.cond372.i14.us
+  %2399 = and i32 %2325, 207
+  %2400 = icmp eq i32 %2399, 138
+  %or.cond376.i16.us = or i1 %2400, %or.cond374.i15.us
+  %2401 = icmp eq i32 %2361, 78
+  %or.cond378.i17.us = or i1 %2401, %or.cond376.i16.us
+  %2402 = and i32 %2325, 63
+  %2403 = icmp eq i32 %2402, 14
+  %or.cond380.i18.us = or i1 %2403, %or.cond378.i17.us
+  %2404 = and i32 %2325, 251
+  %2405 = icmp eq i32 %2404, 90
+  %or.cond382.i19.us = or i1 %2405, %or.cond380.i18.us
+  %2406 = and i32 %2325, 187
+  %2407 = icmp eq i32 %2406, 138
+  %or.cond384.i20.us = or i1 %2407, %or.cond382.i19.us
+  %2408 = and i32 %2325, 127
+  %2409 = icmp eq i32 %2408, 90
+  %or.cond386.i21.us = or i1 %2409, %or.cond384.i20.us
+  %2410 = and i32 %2325, 175
+  %2411 = icmp eq i32 %2410, 138
+  %or.cond388.i22.us = or i1 %2411, %or.cond386.i21.us
+  %2412 = and i32 %2325, 235
+  %2413 = icmp eq i32 %2412, 138
+  %or.cond390.i23.us = or i1 %2413, %or.cond388.i22.us
+  br i1 %or.cond390.i23.us, label %2414, label %yuv_diff.exit451.i65.us
 
-2406:                                             ; preds = %yuv_diff.exit452.i66.us
-  %2407 = and i32 %69, 16777215
-  %2408 = zext nneg i32 %2407 to i64
-  %2409 = getelementptr inbounds nuw i32, ptr %7, i64 %2408
-  %2410 = load i32, ptr %2409, align 4, !tbaa !20
-  %2411 = and i32 %79, 16777215
-  %2412 = zext nneg i32 %2411 to i64
-  %2413 = getelementptr inbounds nuw i32, ptr %7, i64 %2412
-  %2414 = load i32, ptr %2413, align 4, !tbaa !20
-  %2415 = and i32 %2410, 16711680
-  %2416 = and i32 %2414, 16711680
-  %2417 = add nsw i32 %2415, -3145729
-  %2418 = sub nsw i32 %2417, %2416
-  %2419 = icmp ult i32 %2418, -6291457
-  br i1 %2419, label %yuv_diff.exit451.i65.us, label %2420
+2414:                                             ; preds = %yuv_diff.exit452.i66.us
+  %2415 = and i32 %69, 16777215
+  %2416 = zext nneg i32 %2415 to i64
+  %2417 = getelementptr inbounds nuw i32, ptr %7, i64 %2416
+  %2418 = load i32, ptr %2417, align 4, !tbaa !20
+  %2419 = and i32 %79, 16777215
+  %2420 = zext nneg i32 %2419 to i64
+  %2421 = getelementptr inbounds nuw i32, ptr %7, i64 %2420
+  %2422 = load i32, ptr %2421, align 4, !tbaa !20
+  %2423 = and i32 %2418, 16711680
+  %2424 = and i32 %2422, 16711680
+  %2425 = add nsw i32 %2423, -3145729
+  %2426 = sub nsw i32 %2425, %2424
+  %2427 = icmp ult i32 %2426, -6291457
+  br i1 %2427, label %yuv_diff.exit451.i65.us, label %2428
 
-2420:                                             ; preds = %2406
-  %2421 = and i32 %2410, 65280
-  %2422 = and i32 %2414, 65280
-  %2423 = add nsw i32 %2421, -1793
-  %2424 = sub nsw i32 %2423, %2422
-  %2425 = icmp ult i32 %2424, -3585
-  br i1 %2425, label %yuv_diff.exit451.i65.us, label %2426
+2428:                                             ; preds = %2414
+  %2429 = and i32 %2418, 65280
+  %2430 = and i32 %2422, 65280
+  %2431 = add nsw i32 %2429, -1793
+  %2432 = sub nsw i32 %2431, %2430
+  %2433 = icmp ult i32 %2432, -3585
+  br i1 %2433, label %yuv_diff.exit451.i65.us, label %2434
 
-2426:                                             ; preds = %2420
-  %2427 = and i32 %2410, 255
-  %2428 = and i32 %2414, 255
-  %2429 = add nsw i32 %2427, -7
-  %2430 = sub nsw i32 %2429, %2428
-  %2431 = icmp ult i32 %2430, -13
+2434:                                             ; preds = %2428
+  %2435 = and i32 %2418, 255
+  %2436 = and i32 %2422, 255
+  %2437 = add nsw i32 %2435, -7
+  %2438 = sub nsw i32 %2437, %2436
+  %2439 = icmp ult i32 %2438, -13
   br label %yuv_diff.exit451.i65.us
 
-yuv_diff.exit451.i65.us:                          ; preds = %2426, %2420, %2406, %yuv_diff.exit452.i66.us
-  %2432 = phi i1 [ false, %yuv_diff.exit452.i66.us ], [ true, %2420 ], [ true, %2406 ], [ %2431, %2426 ]
-  %2433 = and i32 %2317, 27
-  %2434 = icmp eq i32 %2433, 3
-  %2435 = and i32 %2317, 79
-  %2436 = icmp eq i32 %2435, 67
-  %or.cond392.i24.us = or i1 %2434, %2436
-  %2437 = and i32 %2317, 139
-  %2438 = icmp eq i32 %2437, 131
-  %or.cond394.i25.us = or i1 %2438, %or.cond392.i24.us
-  br i1 %or.cond394.i25.us, label %2442, label %2439
+yuv_diff.exit451.i65.us:                          ; preds = %2434, %2428, %2414, %yuv_diff.exit452.i66.us
+  %2440 = phi i1 [ false, %yuv_diff.exit452.i66.us ], [ true, %2428 ], [ true, %2414 ], [ %2439, %2434 ]
+  %2441 = and i32 %2325, 27
+  %2442 = icmp eq i32 %2441, 3
+  %2443 = and i32 %2325, 79
+  %2444 = icmp eq i32 %2443, 67
+  %or.cond392.i24.us = or i1 %2442, %2444
+  %2445 = and i32 %2325, 139
+  %2446 = icmp eq i32 %2445, 131
+  %or.cond394.i25.us = or i1 %2446, %or.cond392.i24.us
+  br i1 %or.cond394.i25.us, label %2450, label %2447
 
-2439:                                             ; preds = %yuv_diff.exit451.i65.us
-  %2440 = and i32 %2317, 107
-  %2441 = icmp eq i32 %2440, 67
-  br label %2442
+2447:                                             ; preds = %yuv_diff.exit451.i65.us
+  %2448 = and i32 %2325, 107
+  %2449 = icmp eq i32 %2448, 67
+  br label %2450
 
-2442:                                             ; preds = %2439, %yuv_diff.exit451.i65.us
-  %2443 = phi i1 [ true, %yuv_diff.exit451.i65.us ], [ %2441, %2439 ]
-  %2444 = and i32 %2317, 75
-  %2445 = icmp eq i32 %2444, 9
-  %2446 = icmp eq i32 %2437, 137
-  %or.cond396.i26.us = or i1 %2445, %2446
-  %2447 = and i32 %2317, 31
-  %2448 = icmp eq i32 %2447, 25
-  %or.cond398.i27.us = or i1 %2448, %or.cond396.i26.us
-  br i1 %or.cond398.i27.us, label %2452, label %2449
+2450:                                             ; preds = %2447, %yuv_diff.exit451.i65.us
+  %2451 = phi i1 [ true, %yuv_diff.exit451.i65.us ], [ %2449, %2447 ]
+  %2452 = and i32 %2325, 75
+  %2453 = icmp eq i32 %2452, 9
+  %2454 = icmp eq i32 %2445, 137
+  %or.cond396.i26.us = or i1 %2453, %2454
+  %2455 = and i32 %2325, 31
+  %2456 = icmp eq i32 %2455, 25
+  %or.cond398.i27.us = or i1 %2456, %or.cond396.i26.us
+  br i1 %or.cond398.i27.us, label %2460, label %2457
 
-2449:                                             ; preds = %2442
-  %2450 = and i32 %2317, 59
-  %2451 = icmp eq i32 %2450, 25
-  br label %2452
+2457:                                             ; preds = %2450
+  %2458 = and i32 %2325, 59
+  %2459 = icmp eq i32 %2458, 25
+  br label %2460
 
-2452:                                             ; preds = %2449, %2442
-  %2453 = phi i1 [ true, %2442 ], [ %2451, %2449 ]
-  %2454 = and i32 %2317, 11
-  %2455 = icmp eq i32 %2454, 8
-  br i1 %2455, label %2476, label %2456
+2460:                                             ; preds = %2457, %2450
+  %2461 = phi i1 [ true, %2450 ], [ %2459, %2457 ]
+  %2462 = and i32 %2325, 11
+  %2463 = icmp eq i32 %2462, 8
+  br i1 %2463, label %2484, label %2464
 
-2456:                                             ; preds = %2452
-  %2457 = and i32 %2316, 249
-  %2458 = icmp eq i32 %2457, 104
-  br i1 %2458, label %2476, label %2459
+2464:                                             ; preds = %2460
+  %2465 = and i32 %.fr268.us, 249
+  %2466 = icmp eq i32 %2465, 104
+  br i1 %2466, label %2484, label %2467
 
-2459:                                             ; preds = %2456
-  %2460 = and i32 %2317, 243
-  %2461 = icmp eq i32 %2460, 98
-  %2462 = and i32 %2315, 109
-  %2463 = icmp eq i32 %2462, 108
-  %or.cond400.i28.us = or i1 %2463, %2461
-  %2464 = and i32 %2317, 103
-  %2465 = icmp eq i32 %2464, 102
-  %or.cond402.i29.us = or i1 %2465, %or.cond400.i28.us
-  %2466 = and i32 %2316, 61
-  %2467 = icmp eq i32 %2466, 60
-  %or.cond404.i30.us = or i1 %2467, %or.cond402.i29.us
-  %2468 = and i32 %2317, 55
-  %2469 = icmp eq i32 %2468, 54
-  %or.cond406.i31.us = or i1 %2469, %or.cond404.i30.us
-  %2470 = icmp eq i32 %2457, 248
-  %or.cond407.i32.us = or i1 %2470, %or.cond406.i31.us
-  %2471 = icmp eq i32 %2460, 242
-  %or.cond554 = or i1 %or.cond407.i32.us, %2471
-  br i1 %or.cond554, label %2476, label %switch.early.test296.us
+2467:                                             ; preds = %2464
+  %2468 = and i32 %2325, 243
+  %2469 = icmp eq i32 %2468, 98
+  %2470 = and i32 %.fr268.us, 109
+  %2471 = icmp eq i32 %2470, 108
+  %or.cond400.i28.us = or i1 %2471, %2469
+  %2472 = and i32 %2325, 103
+  %2473 = icmp eq i32 %2472, 102
+  %or.cond402.i29.us = or i1 %2473, %or.cond400.i28.us
+  %2474 = and i32 %.fr268.us, 61
+  %2475 = icmp eq i32 %2474, 60
+  %or.cond404.i30.us = or i1 %2475, %or.cond402.i29.us
+  %2476 = and i32 %2325, 55
+  %2477 = icmp eq i32 %2476, 54
+  %or.cond406.i31.us = or i1 %2477, %or.cond404.i30.us
+  %2478 = icmp eq i32 %2465, 248
+  %or.cond407.i32.us = or i1 %2478, %or.cond406.i31.us
+  %2479 = icmp eq i32 %2468, 242
+  %or.cond525 = or i1 %or.cond407.i32.us, %2479
+  br i1 %or.cond525, label %2484, label %switch.early.test284.us
 
-switch.early.test296.us:                          ; preds = %2459
-  %2472 = trunc nuw i32 %2316 to i8
-  %trunc417 = and i8 %2472, -35
-  switch i8 %trunc417, label %switch.early.test.i34.us [
-    i8 -36, label %2476
-    i8 28, label %2476
+switch.early.test284.us:                          ; preds = %2467
+  %2480 = trunc i32 %.fr268.us to i8
+  %trunc393 = and i8 %2480, -35
+  switch i8 %trunc393, label %switch.early.test.i34.us [
+    i8 -36, label %2484
+    i8 28, label %2484
   ]
 
-switch.early.test.i34.us:                         ; preds = %switch.early.test296.us
-  %2473 = trunc nuw i32 %2317 to i8
-  %trunc282.us = and i8 %2473, -41
-  switch i8 %trunc282.us, label %2474 [
-    i8 -42, label %2476
-    i8 22, label %2476
+switch.early.test.i34.us:                         ; preds = %switch.early.test284.us
+  %2481 = trunc i32 %2325 to i8
+  %trunc269.us = and i8 %2481, -41
+  switch i8 %trunc269.us, label %2482 [
+    i8 -42, label %2484
+    i8 22, label %2484
   ]
 
-2474:                                             ; preds = %switch.early.test.i34.us
-  %2475 = icmp eq i32 %2454, 2
-  br label %2476
+2482:                                             ; preds = %switch.early.test.i34.us
+  %2483 = icmp eq i32 %2462, 2
+  br label %2484
 
-2476:                                             ; preds = %2474, %switch.early.test.i34.us, %switch.early.test.i34.us, %switch.early.test296.us, %switch.early.test296.us, %2459, %2456, %2452
-  %2477 = phi i1 [ true, %2459 ], [ true, %2456 ], [ true, %switch.early.test.i34.us ], [ true, %2452 ], [ true, %switch.early.test296.us ], [ %2475, %2474 ], [ true, %switch.early.test.i34.us ], [ true, %switch.early.test296.us ]
-  %2478 = and i32 %2317, 15
-  %2479 = icmp eq i32 %2478, 11
-  %2480 = and i32 %2317, 43
-  %2481 = icmp eq i32 %2480, 11
-  %or.cond412.i35.us = or i1 %2479, %2481
-  br i1 %or.cond412.i35.us, label %2484, label %2482
+2484:                                             ; preds = %2482, %switch.early.test.i34.us, %switch.early.test.i34.us, %switch.early.test284.us, %switch.early.test284.us, %2467, %2464, %2460
+  %2485 = phi i1 [ true, %2467 ], [ true, %2464 ], [ true, %switch.early.test.i34.us ], [ true, %2460 ], [ true, %switch.early.test284.us ], [ %2483, %2482 ], [ true, %switch.early.test.i34.us ], [ true, %switch.early.test284.us ]
+  %2486 = and i32 %2325, 15
+  %2487 = icmp eq i32 %2486, 11
+  %2488 = and i32 %2325, 43
+  %2489 = icmp eq i32 %2488, 11
+  %or.cond412.i35.us = or i1 %2487, %2489
+  br i1 %or.cond412.i35.us, label %2492, label %2490
 
-2482:                                             ; preds = %2476
-  %2483 = trunc nuw i32 %2317 to i8
-  %trunc283.us = and i8 %2483, -2
-  switch i8 %trunc283.us, label %yuv_diff.exit450.i36.us [
-    i8 74, label %2484
-    i8 26, label %2484
+2490:                                             ; preds = %2484
+  %2491 = trunc i32 %2325 to i8
+  %trunc270.us = and i8 %2491, -2
+  switch i8 %trunc270.us, label %yuv_diff.exit450.i36.us [
+    i8 74, label %2492
+    i8 26, label %2492
   ]
 
-2484:                                             ; preds = %2482, %2482, %2476
-  %2485 = and i32 %69, 16777215
-  %2486 = zext nneg i32 %2485 to i64
-  %2487 = getelementptr inbounds nuw i32, ptr %7, i64 %2486
-  %2488 = load i32, ptr %2487, align 4, !tbaa !20
-  %2489 = and i32 %79, 16777215
-  %2490 = zext nneg i32 %2489 to i64
-  %2491 = getelementptr inbounds nuw i32, ptr %7, i64 %2490
-  %2492 = load i32, ptr %2491, align 4, !tbaa !20
-  %2493 = and i32 %2488, 16711680
-  %2494 = and i32 %2492, 16711680
-  %2495 = add nsw i32 %2493, -3145729
-  %2496 = sub nsw i32 %2495, %2494
-  %2497 = icmp ult i32 %2496, -6291457
-  br i1 %2497, label %yuv_diff.exit450.i36.us, label %2498
+2492:                                             ; preds = %2490, %2490, %2484
+  %2493 = and i32 %69, 16777215
+  %2494 = zext nneg i32 %2493 to i64
+  %2495 = getelementptr inbounds nuw i32, ptr %7, i64 %2494
+  %2496 = load i32, ptr %2495, align 4, !tbaa !20
+  %2497 = and i32 %79, 16777215
+  %2498 = zext nneg i32 %2497 to i64
+  %2499 = getelementptr inbounds nuw i32, ptr %7, i64 %2498
+  %2500 = load i32, ptr %2499, align 4, !tbaa !20
+  %2501 = and i32 %2496, 16711680
+  %2502 = and i32 %2500, 16711680
+  %2503 = add nsw i32 %2501, -3145729
+  %2504 = sub nsw i32 %2503, %2502
+  %2505 = icmp ult i32 %2504, -6291457
+  br i1 %2505, label %yuv_diff.exit450.i36.us, label %2506
 
-2498:                                             ; preds = %2484
-  %2499 = and i32 %2488, 65280
-  %2500 = and i32 %2492, 65280
-  %2501 = add nsw i32 %2499, -1793
-  %2502 = sub nsw i32 %2501, %2500
-  %2503 = icmp ult i32 %2502, -3585
-  br i1 %2503, label %yuv_diff.exit450.i36.us, label %2504
+2506:                                             ; preds = %2492
+  %2507 = and i32 %2496, 65280
+  %2508 = and i32 %2500, 65280
+  %2509 = add nsw i32 %2507, -1793
+  %2510 = sub nsw i32 %2509, %2508
+  %2511 = icmp ult i32 %2510, -3585
+  br i1 %2511, label %yuv_diff.exit450.i36.us, label %2512
 
-2504:                                             ; preds = %2498
-  %2505 = and i32 %2488, 255
-  %2506 = and i32 %2492, 255
-  %2507 = add nsw i32 %2505, -7
-  %2508 = sub nsw i32 %2507, %2506
-  %2509 = icmp ult i32 %2508, -13
+2512:                                             ; preds = %2506
+  %2513 = and i32 %2496, 255
+  %2514 = and i32 %2500, 255
+  %2515 = add nsw i32 %2513, -7
+  %2516 = sub nsw i32 %2515, %2514
+  %2517 = icmp ult i32 %2516, -13
   br label %yuv_diff.exit450.i36.us
 
-yuv_diff.exit450.i36.us:                          ; preds = %2504, %2498, %2484, %2482
-  %2510 = phi i1 [ false, %2482 ], [ true, %2498 ], [ true, %2484 ], [ %2509, %2504 ]
-  %2511 = and i32 %2317, 47
-  %2512 = icmp eq i32 %2511, 47
-  %2513 = and i32 %2317, 10
-  %2514 = icmp eq i32 %2513, 0
-  %2515 = icmp eq i32 %2454, 9
-  %2516 = and i32 %2317, 126
-  %2517 = icmp eq i32 %2516, 42
-  %2518 = icmp eq i32 %2353, 171
-  %2519 = or i1 %2517, %2518
-  %2520 = icmp eq i32 %2321, 143
-  %2521 = icmp eq i32 %2516, 14
-  %2522 = or i1 %2520, %2521
-  %2523 = icmp eq i32 %2435, 75
-  %2524 = icmp eq i32 %2389, 27
-  %or.cond414.i37.us = or i1 %2523, %2524
-  %2525 = icmp eq i32 %2511, 11
-  %or.cond415.i38.us = or i1 %2525, %or.cond414.i37.us
-  %2526 = and i32 %2317, 190
-  %2527 = icmp eq i32 %2526, 10
-  %2528 = and i32 %2317, 238
-  %2529 = icmp eq i32 %2528, 10
-  %2530 = icmp eq i32 %2516, 10
-  %2531 = or i1 %2530, %or.cond415.i38.us
-  %2532 = icmp eq i32 %2404, 75
-  %2533 = or i1 %2532, %2531
-  %2534 = or i1 %2527, %2533
-  %or.cond422.i42.us = or i1 %2529, %2534
-  br i1 %or.cond422.i42.us, label %2538, label %2535
+yuv_diff.exit450.i36.us:                          ; preds = %2512, %2506, %2492, %2490
+  %2518 = phi i1 [ false, %2490 ], [ true, %2506 ], [ true, %2492 ], [ %2517, %2512 ]
+  %2519 = and i32 %2325, 47
+  %2520 = icmp eq i32 %2519, 47
+  %2521 = and i32 %2325, 10
+  %2522 = icmp eq i32 %2521, 0
+  %2523 = icmp eq i32 %2462, 9
+  %2524 = and i32 %2325, 126
+  %2525 = icmp eq i32 %2524, 42
+  %2526 = icmp eq i32 %2361, 171
+  %2527 = or i1 %2525, %2526
+  %2528 = icmp eq i32 %2329, 143
+  %2529 = icmp eq i32 %2524, 14
+  %2530 = or i1 %2528, %2529
+  %2531 = icmp eq i32 %2443, 75
+  %2532 = icmp eq i32 %2397, 27
+  %or.cond414.i37.us = or i1 %2531, %2532
+  %2533 = icmp eq i32 %2519, 11
+  %or.cond415.i38.us = or i1 %2533, %or.cond414.i37.us
+  %2534 = and i32 %2325, 190
+  %2535 = icmp eq i32 %2534, 10
+  %2536 = and i32 %2325, 238
+  %2537 = icmp eq i32 %2536, 10
+  %2538 = icmp eq i32 %2524, 10
+  %2539 = or i1 %2538, %or.cond415.i38.us
+  %2540 = icmp eq i32 %2412, 75
+  %2541 = or i1 %2540, %2539
+  %2542 = or i1 %2535, %2541
+  %or.cond422.i42.us = or i1 %2537, %2542
+  br i1 %or.cond422.i42.us, label %2546, label %2543
 
-2535:                                             ; preds = %yuv_diff.exit450.i36.us
-  %2536 = and i32 %2317, 59
-  %2537 = icmp eq i32 %2536, 27
-  br label %2538
+2543:                                             ; preds = %yuv_diff.exit450.i36.us
+  %2544 = and i32 %2325, 59
+  %2545 = icmp eq i32 %2544, 27
+  br label %2546
 
-2538:                                             ; preds = %2535, %yuv_diff.exit450.i36.us
-  %2539 = phi i1 [ true, %yuv_diff.exit450.i36.us ], [ %2537, %2535 ]
-  %2540 = icmp eq i32 %2454, 3
-  br i1 %2351, label %2947, label %2541
+2546:                                             ; preds = %2543, %yuv_diff.exit450.i36.us
+  %2547 = phi i1 [ true, %yuv_diff.exit450.i36.us ], [ %2545, %2543 ]
+  %2548 = icmp eq i32 %2462, 3
+  br i1 %2359, label %2955, label %2549
 
-2541:                                             ; preds = %2538
-  br i1 %2381, label %.thread253.us, label %2542
+2549:                                             ; preds = %2546
+  br i1 %2389, label %.thread253.us, label %2550
 
-2542:                                             ; preds = %2541
-  %2543 = icmp eq i32 %2454, 11
-  br i1 %2543, label %2546, label %2544
+2550:                                             ; preds = %2549
+  %2551 = icmp eq i32 %2462, 11
+  br i1 %2551, label %2554, label %2552
 
-2544:                                             ; preds = %2542
-  %2545 = trunc nuw i32 %2317 to i8
-  %trunc284.us = and i8 %2545, -2
-  switch i8 %trunc284.us, label %2571 [
-    i8 74, label %2546
-    i8 26, label %2546
+2552:                                             ; preds = %2550
+  %2553 = trunc i32 %2325 to i8
+  %trunc271.us = and i8 %2553, -2
+  switch i8 %trunc271.us, label %2579 [
+    i8 74, label %2554
+    i8 26, label %2554
   ]
 
-2546:                                             ; preds = %2544, %2544, %2542
-  %2547 = and i32 %69, 16777215
-  %2548 = zext nneg i32 %2547 to i64
-  %2549 = getelementptr inbounds nuw i32, ptr %7, i64 %2548
-  %2550 = load i32, ptr %2549, align 4, !tbaa !20
-  %2551 = and i32 %79, 16777215
-  %2552 = zext nneg i32 %2551 to i64
-  %2553 = getelementptr inbounds nuw i32, ptr %7, i64 %2552
-  %2554 = load i32, ptr %2553, align 4, !tbaa !20
-  %2555 = and i32 %2550, 16711680
-  %2556 = and i32 %2554, 16711680
-  %2557 = add nsw i32 %2555, -3145729
-  %2558 = sub nsw i32 %2557, %2556
-  %2559 = icmp ult i32 %2558, -6291457
-  br i1 %2559, label %yuv_diff.exit449.i43.thread.us, label %2560
+2554:                                             ; preds = %2552, %2552, %2550
+  %2555 = and i32 %69, 16777215
+  %2556 = zext nneg i32 %2555 to i64
+  %2557 = getelementptr inbounds nuw i32, ptr %7, i64 %2556
+  %2558 = load i32, ptr %2557, align 4, !tbaa !20
+  %2559 = and i32 %79, 16777215
+  %2560 = zext nneg i32 %2559 to i64
+  %2561 = getelementptr inbounds nuw i32, ptr %7, i64 %2560
+  %2562 = load i32, ptr %2561, align 4, !tbaa !20
+  %2563 = and i32 %2558, 16711680
+  %2564 = and i32 %2562, 16711680
+  %2565 = add nsw i32 %2563, -3145729
+  %2566 = sub nsw i32 %2565, %2564
+  %2567 = icmp ult i32 %2566, -6291457
+  br i1 %2567, label %yuv_diff.exit449.i43.thread.us, label %2568
 
-2560:                                             ; preds = %2546
-  %2561 = and i32 %2550, 65280
-  %2562 = and i32 %2554, 65280
-  %2563 = add nsw i32 %2561, -1793
-  %2564 = sub nsw i32 %2563, %2562
-  %2565 = icmp ult i32 %2564, -3585
-  br i1 %2565, label %yuv_diff.exit449.i43.thread.us, label %yuv_diff.exit449.i43.us
+2568:                                             ; preds = %2554
+  %2569 = and i32 %2558, 65280
+  %2570 = and i32 %2562, 65280
+  %2571 = add nsw i32 %2569, -1793
+  %2572 = sub nsw i32 %2571, %2570
+  %2573 = icmp ult i32 %2572, -3585
+  br i1 %2573, label %yuv_diff.exit449.i43.thread.us, label %yuv_diff.exit449.i43.us
 
-yuv_diff.exit449.i43.us:                          ; preds = %2560
-  %2566 = and i32 %2550, 255
-  %2567 = and i32 %2554, 255
-  %2568 = add nuw nsw i32 %2566, 6
-  %2569 = sub nsw i32 %2568, %2567
-  %2570 = icmp ult i32 %2569, 13
-  br i1 %2570, label %2571, label %yuv_diff.exit449.i43.thread.us
+yuv_diff.exit449.i43.us:                          ; preds = %2568
+  %2574 = and i32 %2558, 255
+  %2575 = and i32 %2562, 255
+  %2576 = add nuw nsw i32 %2574, 6
+  %2577 = sub nsw i32 %2576, %2575
+  %2578 = icmp ult i32 %2577, 13
+  br i1 %2578, label %2579, label %yuv_diff.exit449.i43.thread.us
 
-2571:                                             ; preds = %yuv_diff.exit449.i43.us, %2544
-  br i1 %2432, label %.thread236.us, label %2572
+2579:                                             ; preds = %yuv_diff.exit449.i43.us, %2552
+  br i1 %2440, label %.thread236.us, label %2580
 
-2572:                                             ; preds = %2571
-  br i1 %or.cond367.i11.us, label %2689, label %2573
+2580:                                             ; preds = %2579
+  br i1 %or.cond367.i11.us, label %2697, label %2581
 
-2573:                                             ; preds = %2572
-  br i1 %or.cond.i10.us, label %2673, label %2574
+2581:                                             ; preds = %2580
+  br i1 %or.cond.i10.us, label %2681, label %2582
 
-2574:                                             ; preds = %2573
-  br i1 %2443, label %2655, label %2575
+2582:                                             ; preds = %2581
+  br i1 %2451, label %2663, label %2583
 
-2575:                                             ; preds = %2574
-  br i1 %2453, label %2637, label %2576
+2583:                                             ; preds = %2582
+  br i1 %2461, label %2645, label %2584
 
-2576:                                             ; preds = %2575
-  %2577 = and i32 %2317, 94
-  %2578 = icmp eq i32 %2577, 10
-  %2579 = and i32 %2317, 122
-  %2580 = icmp eq i32 %2579, 10
-  %2581 = or i1 %2578, %2580
-  %2582 = or i1 %2479, %2581
-  %2583 = or i1 %2481, %2582
-  %or.cond430.i63.us = or i1 %2527, %2583
-  %or.cond432.i64.us = or i1 %2529, %or.cond430.i63.us
-  br i1 %or.cond432.i64.us, label %2623, label %2584
+2584:                                             ; preds = %2583
+  %2585 = and i32 %2325, 94
+  %2586 = icmp eq i32 %2585, 10
+  %2587 = and i32 %2325, 122
+  %2588 = icmp eq i32 %2587, 10
+  %2589 = or i1 %2586, %2588
+  %2590 = or i1 %2487, %2589
+  %2591 = or i1 %2489, %2590
+  %or.cond430.i63.us = or i1 %2535, %2591
+  %or.cond432.i64.us = or i1 %2537, %or.cond430.i63.us
+  br i1 %or.cond432.i64.us, label %2631, label %2592
 
-2584:                                             ; preds = %2576
-  br i1 %2477, label %2605, label %2585
+2592:                                             ; preds = %2584
+  br i1 %2485, label %2613, label %2593
 
-2585:                                             ; preds = %2584
-  %2586 = lshr i32 %70, 7
-  %2587 = and i32 %2586, 33423870
-  %2588 = lshr i32 %79, 8
-  %2589 = and i32 %2588, 16711935
-  %2590 = lshr i32 %69, 8
-  %2591 = and i32 %2590, 16711935
-  %2592 = add nuw nsw i32 %2587, %2591
-  %2593 = add nuw nsw i32 %2592, %2589
-  %2594 = shl nuw i32 %2593, 6
-  %2595 = and i32 %2594, -16711936
-  %2596 = shl i32 %70, 1
-  %2597 = and i32 %2596, 33423870
-  %2598 = and i32 %79, 16711935
-  %2599 = and i32 %69, 16711935
-  %2600 = add nuw nsw i32 %2597, %2599
-  %2601 = add nuw nsw i32 %2600, %2598
-  %2602 = lshr i32 %2601, 2
-  %2603 = and i32 %2602, 16711935
-  %2604 = or disjoint i32 %2595, %2603
+2593:                                             ; preds = %2592
+  %2594 = lshr i32 %70, 7
+  %2595 = and i32 %2594, 33423870
+  %2596 = lshr i32 %79, 8
+  %2597 = and i32 %2596, 16711935
+  %2598 = lshr i32 %69, 8
+  %2599 = and i32 %2598, 16711935
+  %2600 = add nuw nsw i32 %2595, %2599
+  %2601 = add nuw nsw i32 %2600, %2597
+  %2602 = shl nuw i32 %2601, 6
+  %2603 = and i32 %2602, -16711936
+  %2604 = shl i32 %70, 1
+  %2605 = and i32 %2604, 33423870
+  %2606 = and i32 %79, 16711935
+  %2607 = and i32 %69, 16711935
+  %2608 = add nuw nsw i32 %2605, %2607
+  %2609 = add nuw nsw i32 %2608, %2606
+  %2610 = lshr i32 %2609, 2
+  %2611 = and i32 %2610, 16711935
+  %2612 = or disjoint i32 %2603, %2611
   br label %yuv_diff.exit449.i43.thread.us
 
-2605:                                             ; preds = %2584
-  %2606 = lshr i32 %70, 8
-  %2607 = and i32 %2606, 16711935
-  %2608 = mul nuw nsw i32 %2607, 5
-  %2609 = lshr i32 %77, 8
-  %2610 = and i32 %2609, 16711935
-  %2611 = mul nuw nsw i32 %2610, 3
-  %2612 = add nuw nsw i32 %2611, %2608
-  %2613 = shl nuw i32 %2612, 5
-  %2614 = and i32 %2613, -16711936
-  %2615 = and i32 %70, 16711935
+2613:                                             ; preds = %2592
+  %2614 = lshr i32 %70, 8
+  %2615 = and i32 %2614, 16711935
   %2616 = mul nuw nsw i32 %2615, 5
-  %2617 = and i32 %77, 16711935
-  %2618 = mul nuw nsw i32 %2617, 3
-  %2619 = add nuw nsw i32 %2618, %2616
-  %2620 = lshr i32 %2619, 3
-  %2621 = and i32 %2620, 16711935
-  %2622 = or disjoint i32 %2614, %2621
+  %2617 = lshr i32 %77, 8
+  %2618 = and i32 %2617, 16711935
+  %2619 = mul nuw nsw i32 %2618, 3
+  %2620 = add nuw nsw i32 %2619, %2616
+  %2621 = shl nuw i32 %2620, 5
+  %2622 = and i32 %2621, -16711936
+  %2623 = and i32 %70, 16711935
+  %2624 = mul nuw nsw i32 %2623, 5
+  %2625 = and i32 %77, 16711935
+  %2626 = mul nuw nsw i32 %2625, 3
+  %2627 = add nuw nsw i32 %2626, %2624
+  %2628 = lshr i32 %2627, 3
+  %2629 = and i32 %2628, 16711935
+  %2630 = or disjoint i32 %2622, %2629
   br label %yuv_diff.exit449.i43.thread.us
 
-2623:                                             ; preds = %2576
-  %2624 = lshr i32 %79, 8
-  %2625 = and i32 %2624, 16711935
-  %2626 = lshr i32 %69, 8
-  %2627 = and i32 %2626, 16711935
-  %2628 = add nuw nsw i32 %2625, %2627
-  %2629 = shl nuw i32 %2628, 7
-  %2630 = and i32 %2629, -16711936
-  %2631 = and i32 %79, 16711935
-  %2632 = and i32 %69, 16711935
-  %2633 = add nuw nsw i32 %2631, %2632
-  %2634 = lshr i32 %2633, 1
+2631:                                             ; preds = %2584
+  %2632 = lshr i32 %79, 8
+  %2633 = and i32 %2632, 16711935
+  %2634 = lshr i32 %69, 8
   %2635 = and i32 %2634, 16711935
-  %2636 = or disjoint i32 %2630, %2635
+  %2636 = add nuw nsw i32 %2633, %2635
+  %2637 = shl nuw i32 %2636, 7
+  %2638 = and i32 %2637, -16711936
+  %2639 = and i32 %79, 16711935
+  %2640 = and i32 %69, 16711935
+  %2641 = add nuw nsw i32 %2639, %2640
+  %2642 = lshr i32 %2641, 1
+  %2643 = and i32 %2642, 16711935
+  %2644 = or disjoint i32 %2638, %2643
   br label %yuv_diff.exit449.i43.thread.us
 
-2637:                                             ; preds = %2575
-  %2638 = lshr i32 %70, 8
-  %2639 = and i32 %2638, 16711935
-  %2640 = mul nuw nsw i32 %2639, 5
-  %2641 = lshr i32 %79, 8
-  %2642 = and i32 %2641, 16711935
-  %2643 = mul nuw nsw i32 %2642, 3
-  %2644 = add nuw nsw i32 %2643, %2640
-  %2645 = shl nuw i32 %2644, 5
-  %2646 = and i32 %2645, -16711936
-  %2647 = and i32 %70, 16711935
+2645:                                             ; preds = %2583
+  %2646 = lshr i32 %70, 8
+  %2647 = and i32 %2646, 16711935
   %2648 = mul nuw nsw i32 %2647, 5
-  %2649 = and i32 %79, 16711935
-  %2650 = mul nuw nsw i32 %2649, 3
-  %2651 = add nuw nsw i32 %2650, %2648
-  %2652 = lshr i32 %2651, 3
-  %2653 = and i32 %2652, 16711935
-  %2654 = or disjoint i32 %2646, %2653
+  %2649 = lshr i32 %79, 8
+  %2650 = and i32 %2649, 16711935
+  %2651 = mul nuw nsw i32 %2650, 3
+  %2652 = add nuw nsw i32 %2651, %2648
+  %2653 = shl nuw i32 %2652, 5
+  %2654 = and i32 %2653, -16711936
+  %2655 = and i32 %70, 16711935
+  %2656 = mul nuw nsw i32 %2655, 5
+  %2657 = and i32 %79, 16711935
+  %2658 = mul nuw nsw i32 %2657, 3
+  %2659 = add nuw nsw i32 %2658, %2656
+  %2660 = lshr i32 %2659, 3
+  %2661 = and i32 %2660, 16711935
+  %2662 = or disjoint i32 %2654, %2661
   br label %yuv_diff.exit449.i43.thread.us
 
-2655:                                             ; preds = %2574
-  %2656 = lshr i32 %70, 8
-  %2657 = and i32 %2656, 16711935
-  %2658 = mul nuw nsw i32 %2657, 5
-  %2659 = lshr i32 %69, 8
-  %2660 = and i32 %2659, 16711935
-  %2661 = mul nuw nsw i32 %2660, 3
-  %2662 = add nuw nsw i32 %2658, %2661
-  %2663 = shl nuw i32 %2662, 5
-  %2664 = and i32 %2663, -16711936
-  %2665 = and i32 %70, 16711935
+2663:                                             ; preds = %2582
+  %2664 = lshr i32 %70, 8
+  %2665 = and i32 %2664, 16711935
   %2666 = mul nuw nsw i32 %2665, 5
-  %2667 = and i32 %69, 16711935
-  %2668 = mul nuw nsw i32 %2667, 3
-  %2669 = add nuw nsw i32 %2666, %2668
-  %2670 = lshr i32 %2669, 3
-  %2671 = and i32 %2670, 16711935
-  %2672 = or disjoint i32 %2664, %2671
-  br label %yuv_diff.exit449.i43.thread.us
-
-2673:                                             ; preds = %2573
-  %2674 = lshr i32 %70, 8
-  %2675 = and i32 %2674, 16711935
+  %2667 = lshr i32 %69, 8
+  %2668 = and i32 %2667, 16711935
+  %2669 = mul nuw nsw i32 %2668, 3
+  %2670 = add nuw nsw i32 %2666, %2669
+  %2671 = shl nuw i32 %2670, 5
+  %2672 = and i32 %2671, -16711936
+  %2673 = and i32 %70, 16711935
+  %2674 = mul nuw nsw i32 %2673, 5
+  %2675 = and i32 %69, 16711935
   %2676 = mul nuw nsw i32 %2675, 3
-  %2677 = lshr i32 %79, 8
-  %2678 = and i32 %2677, 16711935
-  %2679 = add nuw nsw i32 %2678, %2676
-  %2680 = shl nuw i32 %2679, 6
-  %2681 = and i32 %2680, -16711936
-  %2682 = and i32 %70, 16711935
-  %2683 = mul nuw nsw i32 %2682, 3
-  %2684 = and i32 %79, 16711935
-  %2685 = add nuw nsw i32 %2684, %2683
-  %2686 = lshr i32 %2685, 2
-  %2687 = and i32 %2686, 16711935
-  %2688 = or disjoint i32 %2681, %2687
+  %2677 = add nuw nsw i32 %2674, %2676
+  %2678 = lshr i32 %2677, 3
+  %2679 = and i32 %2678, 16711935
+  %2680 = or disjoint i32 %2672, %2679
   br label %yuv_diff.exit449.i43.thread.us
 
-2689:                                             ; preds = %2572
-  %2690 = lshr i32 %70, 8
-  %2691 = and i32 %2690, 16711935
-  %2692 = mul nuw nsw i32 %2691, 3
-  %2693 = lshr i32 %69, 8
-  %2694 = and i32 %2693, 16711935
-  %2695 = add nuw nsw i32 %2692, %2694
-  %2696 = shl nuw i32 %2695, 6
-  %2697 = and i32 %2696, -16711936
-  %2698 = and i32 %70, 16711935
-  %2699 = mul nuw nsw i32 %2698, 3
-  %2700 = and i32 %69, 16711935
-  %2701 = add nuw nsw i32 %2699, %2700
-  %2702 = lshr i32 %2701, 2
-  %2703 = and i32 %2702, 16711935
-  %2704 = or disjoint i32 %2697, %2703
+2681:                                             ; preds = %2581
+  %2682 = lshr i32 %70, 8
+  %2683 = and i32 %2682, 16711935
+  %2684 = mul nuw nsw i32 %2683, 3
+  %2685 = lshr i32 %79, 8
+  %2686 = and i32 %2685, 16711935
+  %2687 = add nuw nsw i32 %2686, %2684
+  %2688 = shl nuw i32 %2687, 6
+  %2689 = and i32 %2688, -16711936
+  %2690 = and i32 %70, 16711935
+  %2691 = mul nuw nsw i32 %2690, 3
+  %2692 = and i32 %79, 16711935
+  %2693 = add nuw nsw i32 %2692, %2691
+  %2694 = lshr i32 %2693, 2
+  %2695 = and i32 %2694, 16711935
+  %2696 = or disjoint i32 %2689, %2695
   br label %yuv_diff.exit449.i43.thread.us
 
-.thread236.us:                                    ; preds = %2571
-  %2705 = lshr i32 %70, 8
-  %2706 = and i32 %2705, 16711935
-  %2707 = mul nuw nsw i32 %2706, 5
-  %2708 = lshr i32 %77, 8
-  %2709 = and i32 %2708, 16711935
-  %2710 = mul nuw nsw i32 %2709, 3
-  %2711 = add nuw nsw i32 %2710, %2707
-  %2712 = shl nuw i32 %2711, 5
-  %2713 = and i32 %2712, -16711936
-  %2714 = and i32 %70, 16711935
+2697:                                             ; preds = %2580
+  %2698 = lshr i32 %70, 8
+  %2699 = and i32 %2698, 16711935
+  %2700 = mul nuw nsw i32 %2699, 3
+  %2701 = lshr i32 %69, 8
+  %2702 = and i32 %2701, 16711935
+  %2703 = add nuw nsw i32 %2700, %2702
+  %2704 = shl nuw i32 %2703, 6
+  %2705 = and i32 %2704, -16711936
+  %2706 = and i32 %70, 16711935
+  %2707 = mul nuw nsw i32 %2706, 3
+  %2708 = and i32 %69, 16711935
+  %2709 = add nuw nsw i32 %2707, %2708
+  %2710 = lshr i32 %2709, 2
+  %2711 = and i32 %2710, 16711935
+  %2712 = or disjoint i32 %2705, %2711
+  br label %yuv_diff.exit449.i43.thread.us
+
+.thread236.us:                                    ; preds = %2579
+  %2713 = lshr i32 %70, 8
+  %2714 = and i32 %2713, 16711935
   %2715 = mul nuw nsw i32 %2714, 5
-  %2716 = and i32 %77, 16711935
-  %2717 = mul nuw nsw i32 %2716, 3
-  %2718 = add nuw nsw i32 %2717, %2715
-  %2719 = lshr i32 %2718, 3
-  %2720 = and i32 %2719, 16711935
-  %2721 = or disjoint i32 %2713, %2720
-  store i32 %2721, ptr %2318, align 4, !tbaa !20
-  br i1 %2510, label %.thread239.us.sink.split, label %.thread237.us
+  %2716 = lshr i32 %77, 8
+  %2717 = and i32 %2716, 16711935
+  %2718 = mul nuw nsw i32 %2717, 3
+  %2719 = add nuw nsw i32 %2718, %2715
+  %2720 = shl nuw i32 %2719, 5
+  %2721 = and i32 %2720, -16711936
+  %2722 = and i32 %70, 16711935
+  %2723 = mul nuw nsw i32 %2722, 5
+  %2724 = and i32 %77, 16711935
+  %2725 = mul nuw nsw i32 %2724, 3
+  %2726 = add nuw nsw i32 %2725, %2723
+  %2727 = lshr i32 %2726, 3
+  %2728 = and i32 %2727, 16711935
+  %2729 = or disjoint i32 %2721, %2728
+  store i32 %2729, ptr %2326, align 4, !tbaa !20
+  br i1 %2518, label %.thread239.us.sink.split, label %.thread237.us
 
-yuv_diff.exit449.i43.thread.us:                   ; preds = %2546, %2560, %yuv_diff.exit449.i43.us, %2689, %2673, %2655, %2637, %2623, %2605, %2585
-  %.sink555 = phi i32 [ %2604, %2585 ], [ %2704, %2689 ], [ %2688, %2673 ], [ %2672, %2655 ], [ %2654, %2637 ], [ %2636, %2623 ], [ %2622, %2605 ], [ %70, %yuv_diff.exit449.i43.us ], [ %70, %2560 ], [ %70, %2546 ]
-  store i32 %.sink555, ptr %2318, align 4, !tbaa !20
-  br i1 %2510, label %.thread239.us.sink.split, label %2739
+yuv_diff.exit449.i43.thread.us:                   ; preds = %2554, %2568, %yuv_diff.exit449.i43.us, %2697, %2681, %2663, %2645, %2631, %2613, %2593
+  %.sink526 = phi i32 [ %2612, %2593 ], [ %2712, %2697 ], [ %2696, %2681 ], [ %2680, %2663 ], [ %2662, %2645 ], [ %2644, %2631 ], [ %2630, %2613 ], [ %70, %yuv_diff.exit449.i43.us ], [ %70, %2568 ], [ %70, %2554 ]
+  store i32 %.sink526, ptr %2326, align 4, !tbaa !20
+  br i1 %2518, label %.thread239.us.sink.split, label %2747
 
-.thread253.us:                                    ; preds = %2541
-  %2722 = lshr i32 %70, 8
-  %2723 = and i32 %2722, 16711935
-  %2724 = mul nuw nsw i32 %2723, 5
-  %2725 = lshr i32 %79, 8
-  %2726 = and i32 %2725, 16711935
-  %2727 = mul nuw nsw i32 %2726, 3
-  %2728 = add nuw nsw i32 %2727, %2724
-  %2729 = shl nuw i32 %2728, 5
-  %2730 = and i32 %2729, -16711936
-  %2731 = and i32 %70, 16711935
+.thread253.us:                                    ; preds = %2549
+  %2730 = lshr i32 %70, 8
+  %2731 = and i32 %2730, 16711935
   %2732 = mul nuw nsw i32 %2731, 5
-  %2733 = and i32 %79, 16711935
-  %2734 = mul nuw nsw i32 %2733, 3
-  %2735 = add nuw nsw i32 %2734, %2732
-  %2736 = lshr i32 %2735, 3
-  %2737 = and i32 %2736, 16711935
-  %2738 = or disjoint i32 %2730, %2737
-  store i32 %2738, ptr %2318, align 4, !tbaa !20
-  br i1 %2510, label %.thread238.thread254.us, label %2739
+  %2733 = lshr i32 %79, 8
+  %2734 = and i32 %2733, 16711935
+  %2735 = mul nuw nsw i32 %2734, 3
+  %2736 = add nuw nsw i32 %2735, %2732
+  %2737 = shl nuw i32 %2736, 5
+  %2738 = and i32 %2737, -16711936
+  %2739 = and i32 %70, 16711935
+  %2740 = mul nuw nsw i32 %2739, 5
+  %2741 = and i32 %79, 16711935
+  %2742 = mul nuw nsw i32 %2741, 3
+  %2743 = add nuw nsw i32 %2742, %2740
+  %2744 = lshr i32 %2743, 3
+  %2745 = and i32 %2744, 16711935
+  %2746 = or disjoint i32 %2738, %2745
+  store i32 %2746, ptr %2326, align 4, !tbaa !20
+  br i1 %2518, label %.thread238.thread254.us, label %2747
 
-2739:                                             ; preds = %.thread253.us, %yuv_diff.exit449.i43.thread.us
-  br i1 %2432, label %..thread237.us_crit_edge, label %2740
+2747:                                             ; preds = %.thread253.us, %yuv_diff.exit449.i43.thread.us
+  br i1 %2440, label %..thread237.us_crit_edge, label %2748
 
-..thread237.us_crit_edge:                         ; preds = %2739
-  %.pre487 = lshr i32 %70, 8
-  %.pre489 = and i32 %.pre487, 16711935
-  %.pre491 = lshr i32 %77, 8
-  %.pre493 = and i32 %.pre491, 16711935
-  %.pre495 = and i32 %70, 16711935
-  %.pre497 = and i32 %77, 16711935
+..thread237.us_crit_edge:                         ; preds = %2747
+  %.pre458 = lshr i32 %70, 8
+  %.pre460 = and i32 %.pre458, 16711935
+  %.pre462 = lshr i32 %77, 8
+  %.pre464 = and i32 %.pre462, 16711935
+  %.pre466 = and i32 %70, 16711935
+  %.pre468 = and i32 %77, 16711935
   br label %.thread237.us
 
-2740:                                             ; preds = %2739
-  br i1 %2512, label %2974, label %2741
-
-2741:                                             ; preds = %2740
-  br i1 %2514, label %2916, label %2742
-
-2742:                                             ; preds = %2741
-  br i1 %2455, label %2894, label %2743
-
-2743:                                             ; preds = %2742
-  br i1 %2515, label %2876, label %2744
-
-2744:                                             ; preds = %2743
-  br i1 %or.cond.i10.us, label %2860, label %2745
-
-2745:                                             ; preds = %2744
-  br i1 %2519, label %2840, label %2746
-
-2746:                                             ; preds = %2745
-  br i1 %2522, label %2822, label %2747
-
-2747:                                             ; preds = %2746
-  br i1 %2443, label %2806, label %2748
-
 2748:                                             ; preds = %2747
-  %2749 = and i32 %2317, 243
-  %2750 = icmp eq i32 %2749, 98
-  %2751 = and i32 %2317, 103
-  %2752 = icmp eq i32 %2751, 102
-  %or.cond434.i45.us = or i1 %2750, %2752
-  %2753 = and i32 %2317, 55
-  %2754 = icmp eq i32 %2753, 54
-  %or.cond436.i46.us = or i1 %2754, %or.cond434.i45.us
-  %2755 = icmp eq i32 %2749, 242
-  %or.cond437.i47.us = or i1 %2755, %or.cond436.i46.us
-  br i1 %or.cond437.i47.us, label %2790, label %2756
+  br i1 %2520, label %2982, label %2749
 
-2756:                                             ; preds = %2748
-  %2757 = trunc nuw i32 %2317 to i8
-  %trunc285.us = and i8 %2757, -41
-  switch i8 %trunc285.us, label %2758 [
-    i8 -42, label %2790
-    i8 22, label %2790
+2749:                                             ; preds = %2748
+  br i1 %2522, label %2924, label %2750
+
+2750:                                             ; preds = %2749
+  br i1 %2463, label %2902, label %2751
+
+2751:                                             ; preds = %2750
+  br i1 %2523, label %2884, label %2752
+
+2752:                                             ; preds = %2751
+  br i1 %or.cond.i10.us, label %2868, label %2753
+
+2753:                                             ; preds = %2752
+  br i1 %2527, label %2848, label %2754
+
+2754:                                             ; preds = %2753
+  br i1 %2530, label %2830, label %2755
+
+2755:                                             ; preds = %2754
+  br i1 %2451, label %2814, label %2756
+
+2756:                                             ; preds = %2755
+  %2757 = and i32 %2325, 243
+  %2758 = icmp eq i32 %2757, 98
+  %2759 = and i32 %2325, 103
+  %2760 = icmp eq i32 %2759, 102
+  %or.cond434.i45.us = or i1 %2758, %2760
+  %2761 = and i32 %2325, 55
+  %2762 = icmp eq i32 %2761, 54
+  %or.cond436.i46.us = or i1 %2762, %or.cond434.i45.us
+  %2763 = icmp eq i32 %2757, 242
+  %or.cond437.i47.us = or i1 %2763, %or.cond436.i46.us
+  br i1 %or.cond437.i47.us, label %2798, label %2764
+
+2764:                                             ; preds = %2756
+  %2765 = trunc i32 %2325 to i8
+  %trunc272.us = and i8 %2765, -41
+  switch i8 %trunc272.us, label %2766 [
+    i8 -42, label %2798
+    i8 22, label %2798
   ]
 
-2758:                                             ; preds = %2756
-  %2759 = icmp eq i32 %2454, 2
-  br i1 %2759, label %2790, label %2760
+2766:                                             ; preds = %2764
+  %2767 = icmp eq i32 %2462, 2
+  br i1 %2767, label %2798, label %2768
 
-2760:                                             ; preds = %2758
-  %2761 = and i32 %70, 16711935
-  br i1 %2539, label %2777, label %2762
+2768:                                             ; preds = %2766
+  %2769 = and i32 %70, 16711935
+  br i1 %2547, label %2785, label %2770
 
-2762:                                             ; preds = %2760
-  %2763 = lshr i32 %70, 8
-  %2764 = and i32 %2763, 16711935
-  %2765 = mul nuw nsw i32 %2764, 3
-  %2766 = lshr i32 %79, 8
-  %2767 = and i32 %2766, 16711935
-  %2768 = add nuw nsw i32 %2767, %2765
-  %2769 = shl nuw i32 %2768, 6
-  %2770 = and i32 %2769, -16711936
-  %2771 = mul nuw nsw i32 %2761, 3
-  %2772 = and i32 %79, 16711935
-  %2773 = add nuw nsw i32 %2772, %2771
-  %2774 = lshr i32 %2773, 2
+2770:                                             ; preds = %2768
+  %2771 = lshr i32 %70, 8
+  %2772 = and i32 %2771, 16711935
+  %2773 = mul nuw nsw i32 %2772, 3
+  %2774 = lshr i32 %79, 8
   %2775 = and i32 %2774, 16711935
-  %2776 = or disjoint i32 %2770, %2775
-  br label %2974
+  %2776 = add nuw nsw i32 %2775, %2773
+  %2777 = shl nuw i32 %2776, 6
+  %2778 = and i32 %2777, -16711936
+  %2779 = mul nuw nsw i32 %2769, 3
+  %2780 = and i32 %79, 16711935
+  %2781 = add nuw nsw i32 %2780, %2779
+  %2782 = lshr i32 %2781, 2
+  %2783 = and i32 %2782, 16711935
+  %2784 = or disjoint i32 %2778, %2783
+  br label %2982
 
-2777:                                             ; preds = %2760
-  %2778 = lshr i32 %79, 8
-  %2779 = and i32 %2778, 16711935
-  %2780 = lshr i32 %70, 8
-  %2781 = and i32 %2780, 16711935
-  %2782 = add nuw nsw i32 %2779, %2781
-  %2783 = shl nuw i32 %2782, 7
-  %2784 = and i32 %2783, -16711936
-  %2785 = and i32 %79, 16711935
-  %2786 = add nuw nsw i32 %2785, %2761
-  %2787 = lshr i32 %2786, 1
-  %2788 = and i32 %2787, 16711935
-  %2789 = or disjoint i32 %2784, %2788
-  br label %2974
+2785:                                             ; preds = %2768
+  %2786 = lshr i32 %79, 8
+  %2787 = and i32 %2786, 16711935
+  %2788 = lshr i32 %70, 8
+  %2789 = and i32 %2788, 16711935
+  %2790 = add nuw nsw i32 %2787, %2789
+  %2791 = shl nuw i32 %2790, 7
+  %2792 = and i32 %2791, -16711936
+  %2793 = and i32 %79, 16711935
+  %2794 = add nuw nsw i32 %2793, %2769
+  %2795 = lshr i32 %2794, 1
+  %2796 = and i32 %2795, 16711935
+  %2797 = or disjoint i32 %2792, %2796
+  br label %2982
 
-2790:                                             ; preds = %2758, %2756, %2756, %2748
-  %2791 = lshr i32 %70, 8
-  %2792 = and i32 %2791, 16711935
-  %2793 = mul nuw nsw i32 %2792, 3
-  %2794 = lshr i32 %77, 8
-  %2795 = and i32 %2794, 16711935
-  %2796 = add nuw nsw i32 %2795, %2793
-  %2797 = shl nuw i32 %2796, 6
-  %2798 = and i32 %2797, -16711936
-  %2799 = and i32 %70, 16711935
-  %2800 = mul nuw nsw i32 %2799, 3
-  %2801 = and i32 %77, 16711935
-  %2802 = add nuw nsw i32 %2801, %2800
-  %2803 = lshr i32 %2802, 2
-  %2804 = and i32 %2803, 16711935
-  %2805 = or disjoint i32 %2798, %2804
-  br label %2974
+2798:                                             ; preds = %2766, %2764, %2764, %2756
+  %2799 = lshr i32 %70, 8
+  %2800 = and i32 %2799, 16711935
+  %2801 = mul nuw nsw i32 %2800, 3
+  %2802 = lshr i32 %77, 8
+  %2803 = and i32 %2802, 16711935
+  %2804 = add nuw nsw i32 %2803, %2801
+  %2805 = shl nuw i32 %2804, 6
+  %2806 = and i32 %2805, -16711936
+  %2807 = and i32 %70, 16711935
+  %2808 = mul nuw nsw i32 %2807, 3
+  %2809 = and i32 %77, 16711935
+  %2810 = add nuw nsw i32 %2809, %2808
+  %2811 = lshr i32 %2810, 2
+  %2812 = and i32 %2811, 16711935
+  %2813 = or disjoint i32 %2806, %2812
+  br label %2982
 
-2806:                                             ; preds = %2747
-  %2807 = lshr i32 %70, 8
-  %2808 = and i32 %2807, 16711935
-  %2809 = mul nuw nsw i32 %2808, 7
-  %2810 = lshr i32 %69, 8
-  %2811 = and i32 %2810, 16711935
-  %2812 = add nuw nsw i32 %2809, %2811
-  %2813 = shl nuw i32 %2812, 5
-  %2814 = and i32 %2813, -16711936
-  %2815 = and i32 %70, 16711935
-  %2816 = mul nuw nsw i32 %2815, 7
-  %2817 = and i32 %69, 16711935
-  %2818 = add nuw nsw i32 %2816, %2817
-  %2819 = lshr i32 %2818, 3
-  %2820 = and i32 %2819, 16711935
-  %2821 = or disjoint i32 %2814, %2820
-  br label %2974
+2814:                                             ; preds = %2755
+  %2815 = lshr i32 %70, 8
+  %2816 = and i32 %2815, 16711935
+  %2817 = mul nuw nsw i32 %2816, 7
+  %2818 = lshr i32 %69, 8
+  %2819 = and i32 %2818, 16711935
+  %2820 = add nuw nsw i32 %2817, %2819
+  %2821 = shl nuw i32 %2820, 5
+  %2822 = and i32 %2821, -16711936
+  %2823 = and i32 %70, 16711935
+  %2824 = mul nuw nsw i32 %2823, 7
+  %2825 = and i32 %69, 16711935
+  %2826 = add nuw nsw i32 %2824, %2825
+  %2827 = lshr i32 %2826, 3
+  %2828 = and i32 %2827, 16711935
+  %2829 = or disjoint i32 %2822, %2828
+  br label %2982
 
-2822:                                             ; preds = %2746
-  %2823 = lshr i32 %79, 8
-  %2824 = and i32 %2823, 16711935
-  %2825 = mul nuw nsw i32 %2824, 5
-  %2826 = lshr i32 %69, 8
-  %2827 = and i32 %2826, 16711935
-  %2828 = mul nuw nsw i32 %2827, 3
-  %2829 = add nuw nsw i32 %2825, %2828
-  %2830 = shl nuw i32 %2829, 5
-  %2831 = and i32 %2830, -16711936
-  %2832 = and i32 %79, 16711935
+2830:                                             ; preds = %2754
+  %2831 = lshr i32 %79, 8
+  %2832 = and i32 %2831, 16711935
   %2833 = mul nuw nsw i32 %2832, 5
-  %2834 = and i32 %69, 16711935
-  %2835 = mul nuw nsw i32 %2834, 3
-  %2836 = add nuw nsw i32 %2833, %2835
-  %2837 = lshr i32 %2836, 3
-  %2838 = and i32 %2837, 16711935
-  %2839 = or disjoint i32 %2831, %2838
-  br label %2974
-
-2840:                                             ; preds = %2745
-  %2841 = lshr i32 %79, 7
-  %2842 = and i32 %2841, 33423870
-  %2843 = lshr i32 %70, 8
-  %2844 = and i32 %2843, 16711935
-  %2845 = lshr i32 %69, 8
+  %2834 = lshr i32 %69, 8
+  %2835 = and i32 %2834, 16711935
+  %2836 = mul nuw nsw i32 %2835, 3
+  %2837 = add nuw nsw i32 %2833, %2836
+  %2838 = shl nuw i32 %2837, 5
+  %2839 = and i32 %2838, -16711936
+  %2840 = and i32 %79, 16711935
+  %2841 = mul nuw nsw i32 %2840, 5
+  %2842 = and i32 %69, 16711935
+  %2843 = mul nuw nsw i32 %2842, 3
+  %2844 = add nuw nsw i32 %2841, %2843
+  %2845 = lshr i32 %2844, 3
   %2846 = and i32 %2845, 16711935
-  %2847 = add nuw nsw i32 %2844, %2846
-  %2848 = add nuw nsw i32 %2847, %2842
-  %2849 = shl nuw i32 %2848, 6
-  %2850 = and i32 %2849, -16711936
-  %2851 = shl i32 %79, 1
-  %2852 = and i32 %2851, 33423870
-  %2853 = and i32 %70, 16711935
-  %2854 = and i32 %69, 16711935
-  %2855 = add nuw nsw i32 %2853, %2854
-  %2856 = add nuw nsw i32 %2855, %2852
-  %2857 = lshr i32 %2856, 2
-  %2858 = and i32 %2857, 16711935
-  %2859 = or disjoint i32 %2850, %2858
-  br label %2974
+  %2847 = or disjoint i32 %2839, %2846
+  br label %2982
 
-2860:                                             ; preds = %2744
-  %2861 = lshr i32 %79, 8
-  %2862 = and i32 %2861, 16711935
-  %2863 = mul nuw nsw i32 %2862, 3
-  %2864 = lshr i32 %70, 8
-  %2865 = and i32 %2864, 16711935
-  %2866 = add nuw nsw i32 %2863, %2865
-  %2867 = shl nuw i32 %2866, 6
-  %2868 = and i32 %2867, -16711936
-  %2869 = and i32 %79, 16711935
-  %2870 = mul nuw nsw i32 %2869, 3
-  %2871 = and i32 %70, 16711935
-  %2872 = add nuw nsw i32 %2870, %2871
-  %2873 = lshr i32 %2872, 2
-  %2874 = and i32 %2873, 16711935
-  %2875 = or disjoint i32 %2868, %2874
-  br label %2974
+2848:                                             ; preds = %2753
+  %2849 = lshr i32 %79, 7
+  %2850 = and i32 %2849, 33423870
+  %2851 = lshr i32 %70, 8
+  %2852 = and i32 %2851, 16711935
+  %2853 = lshr i32 %69, 8
+  %2854 = and i32 %2853, 16711935
+  %2855 = add nuw nsw i32 %2852, %2854
+  %2856 = add nuw nsw i32 %2855, %2850
+  %2857 = shl nuw i32 %2856, 6
+  %2858 = and i32 %2857, -16711936
+  %2859 = shl i32 %79, 1
+  %2860 = and i32 %2859, 33423870
+  %2861 = and i32 %70, 16711935
+  %2862 = and i32 %69, 16711935
+  %2863 = add nuw nsw i32 %2861, %2862
+  %2864 = add nuw nsw i32 %2863, %2860
+  %2865 = lshr i32 %2864, 2
+  %2866 = and i32 %2865, 16711935
+  %2867 = or disjoint i32 %2858, %2866
+  br label %2982
 
-2876:                                             ; preds = %2743
-  %2877 = lshr i32 %70, 8
-  %2878 = and i32 %2877, 16711935
-  %2879 = mul nuw nsw i32 %2878, 5
-  %2880 = lshr i32 %79, 8
-  %2881 = and i32 %2880, 16711935
-  %2882 = mul nuw nsw i32 %2881, 3
-  %2883 = add nuw nsw i32 %2882, %2879
-  %2884 = shl nuw i32 %2883, 5
-  %2885 = and i32 %2884, -16711936
-  %2886 = and i32 %70, 16711935
+2868:                                             ; preds = %2752
+  %2869 = lshr i32 %79, 8
+  %2870 = and i32 %2869, 16711935
+  %2871 = mul nuw nsw i32 %2870, 3
+  %2872 = lshr i32 %70, 8
+  %2873 = and i32 %2872, 16711935
+  %2874 = add nuw nsw i32 %2871, %2873
+  %2875 = shl nuw i32 %2874, 6
+  %2876 = and i32 %2875, -16711936
+  %2877 = and i32 %79, 16711935
+  %2878 = mul nuw nsw i32 %2877, 3
+  %2879 = and i32 %70, 16711935
+  %2880 = add nuw nsw i32 %2878, %2879
+  %2881 = lshr i32 %2880, 2
+  %2882 = and i32 %2881, 16711935
+  %2883 = or disjoint i32 %2876, %2882
+  br label %2982
+
+2884:                                             ; preds = %2751
+  %2885 = lshr i32 %70, 8
+  %2886 = and i32 %2885, 16711935
   %2887 = mul nuw nsw i32 %2886, 5
-  %2888 = and i32 %79, 16711935
-  %2889 = mul nuw nsw i32 %2888, 3
-  %2890 = add nuw nsw i32 %2889, %2887
-  %2891 = lshr i32 %2890, 3
-  %2892 = and i32 %2891, 16711935
-  %2893 = or disjoint i32 %2885, %2892
-  br label %2974
+  %2888 = lshr i32 %79, 8
+  %2889 = and i32 %2888, 16711935
+  %2890 = mul nuw nsw i32 %2889, 3
+  %2891 = add nuw nsw i32 %2890, %2887
+  %2892 = shl nuw i32 %2891, 5
+  %2893 = and i32 %2892, -16711936
+  %2894 = and i32 %70, 16711935
+  %2895 = mul nuw nsw i32 %2894, 5
+  %2896 = and i32 %79, 16711935
+  %2897 = mul nuw nsw i32 %2896, 3
+  %2898 = add nuw nsw i32 %2897, %2895
+  %2899 = lshr i32 %2898, 3
+  %2900 = and i32 %2899, 16711935
+  %2901 = or disjoint i32 %2893, %2900
+  br label %2982
 
-2894:                                             ; preds = %2742
-  %2895 = lshr i32 %70, 8
-  %2896 = and i32 %2895, 16711935
-  %2897 = mul nuw nsw i32 %2896, 5
-  %2898 = lshr i32 %79, 7
-  %2899 = and i32 %2898, 33423870
-  %2900 = lshr i32 %77, 8
-  %2901 = and i32 %2900, 16711935
-  %2902 = add nuw nsw i32 %2901, %2897
-  %2903 = add nuw nsw i32 %2902, %2899
-  %2904 = shl nuw i32 %2903, 5
-  %2905 = and i32 %2904, -16711936
-  %2906 = and i32 %70, 16711935
-  %2907 = mul nuw nsw i32 %2906, 5
-  %2908 = shl i32 %79, 1
-  %2909 = and i32 %2908, 33423870
-  %2910 = and i32 %77, 16711935
+2902:                                             ; preds = %2750
+  %2903 = lshr i32 %70, 8
+  %2904 = and i32 %2903, 16711935
+  %2905 = mul nuw nsw i32 %2904, 5
+  %2906 = lshr i32 %79, 7
+  %2907 = and i32 %2906, 33423870
+  %2908 = lshr i32 %77, 8
+  %2909 = and i32 %2908, 16711935
+  %2910 = add nuw nsw i32 %2909, %2905
   %2911 = add nuw nsw i32 %2910, %2907
-  %2912 = add nuw nsw i32 %2911, %2909
-  %2913 = lshr i32 %2912, 3
-  %2914 = and i32 %2913, 16711935
-  %2915 = or disjoint i32 %2905, %2914
-  br label %2974
+  %2912 = shl nuw i32 %2911, 5
+  %2913 = and i32 %2912, -16711936
+  %2914 = and i32 %70, 16711935
+  %2915 = mul nuw nsw i32 %2914, 5
+  %2916 = shl i32 %79, 1
+  %2917 = and i32 %2916, 33423870
+  %2918 = and i32 %77, 16711935
+  %2919 = add nuw nsw i32 %2918, %2915
+  %2920 = add nuw nsw i32 %2919, %2917
+  %2921 = lshr i32 %2920, 3
+  %2922 = and i32 %2921, 16711935
+  %2923 = or disjoint i32 %2913, %2922
+  br label %2982
 
-2916:                                             ; preds = %2741
-  %2917 = lshr i32 %70, 8
-  %2918 = and i32 %2917, 16711935
-  %2919 = mul nuw nsw i32 %2918, 5
-  %2920 = lshr i32 %79, 7
-  %2921 = and i32 %2920, 33423870
-  %2922 = lshr i32 %69, 8
-  %2923 = and i32 %2922, 16711935
-  %2924 = add nuw nsw i32 %2919, %2923
-  %2925 = add nuw nsw i32 %2924, %2921
-  %2926 = shl nuw i32 %2925, 5
-  %2927 = and i32 %2926, -16711936
-  %2928 = and i32 %70, 16711935
-  %2929 = mul nuw nsw i32 %2928, 5
-  %2930 = shl i32 %79, 1
-  %2931 = and i32 %2930, 33423870
-  %2932 = and i32 %69, 16711935
-  %2933 = add nuw nsw i32 %2929, %2932
-  %2934 = add nuw nsw i32 %2933, %2931
-  %2935 = lshr i32 %2934, 3
-  %2936 = and i32 %2935, 16711935
-  %2937 = or disjoint i32 %2927, %2936
-  br label %2974
+2924:                                             ; preds = %2749
+  %2925 = lshr i32 %70, 8
+  %2926 = and i32 %2925, 16711935
+  %2927 = mul nuw nsw i32 %2926, 5
+  %2928 = lshr i32 %79, 7
+  %2929 = and i32 %2928, 33423870
+  %2930 = lshr i32 %69, 8
+  %2931 = and i32 %2930, 16711935
+  %2932 = add nuw nsw i32 %2927, %2931
+  %2933 = add nuw nsw i32 %2932, %2929
+  %2934 = shl nuw i32 %2933, 5
+  %2935 = and i32 %2934, -16711936
+  %2936 = and i32 %70, 16711935
+  %2937 = mul nuw nsw i32 %2936, 5
+  %2938 = shl i32 %79, 1
+  %2939 = and i32 %2938, 33423870
+  %2940 = and i32 %69, 16711935
+  %2941 = add nuw nsw i32 %2937, %2940
+  %2942 = add nuw nsw i32 %2941, %2939
+  %2943 = lshr i32 %2942, 3
+  %2944 = and i32 %2943, 16711935
+  %2945 = or disjoint i32 %2935, %2944
+  br label %2982
 
 .thread237.us:                                    ; preds = %..thread237.us_crit_edge, %.thread236.us
-  %.pre-phi498 = phi i32 [ %.pre497, %..thread237.us_crit_edge ], [ %2716, %.thread236.us ]
-  %.pre-phi496 = phi i32 [ %.pre495, %..thread237.us_crit_edge ], [ %2714, %.thread236.us ]
-  %.pre-phi494 = phi i32 [ %.pre493, %..thread237.us_crit_edge ], [ %2709, %.thread236.us ]
-  %.pre-phi490 = phi i32 [ %.pre489, %..thread237.us_crit_edge ], [ %2706, %.thread236.us ]
-  %2938 = mul nuw nsw i32 %.pre-phi490, 3
-  %2939 = add nuw nsw i32 %.pre-phi494, %2938
-  %2940 = shl nuw i32 %2939, 6
-  %2941 = and i32 %2940, -16711936
-  %2942 = mul nuw nsw i32 %.pre-phi496, 3
-  %2943 = add nuw nsw i32 %.pre-phi498, %2942
-  %2944 = lshr i32 %2943, 2
-  %2945 = and i32 %2944, 16711935
-  %2946 = or disjoint i32 %2941, %2945
-  br label %2974
+  %.pre-phi469 = phi i32 [ %.pre468, %..thread237.us_crit_edge ], [ %2724, %.thread236.us ]
+  %.pre-phi467 = phi i32 [ %.pre466, %..thread237.us_crit_edge ], [ %2722, %.thread236.us ]
+  %.pre-phi465 = phi i32 [ %.pre464, %..thread237.us_crit_edge ], [ %2717, %.thread236.us ]
+  %.pre-phi461 = phi i32 [ %.pre460, %..thread237.us_crit_edge ], [ %2714, %.thread236.us ]
+  %2946 = mul nuw nsw i32 %.pre-phi461, 3
+  %2947 = add nuw nsw i32 %.pre-phi465, %2946
+  %2948 = shl nuw i32 %2947, 6
+  %2949 = and i32 %2948, -16711936
+  %2950 = mul nuw nsw i32 %.pre-phi467, 3
+  %2951 = add nuw nsw i32 %.pre-phi469, %2950
+  %2952 = lshr i32 %2951, 2
+  %2953 = and i32 %2952, 16711935
+  %2954 = or disjoint i32 %2949, %2953
+  br label %2982
 
 .thread238.thread254.us:                          ; preds = %.thread253.us
-  store i32 %70, ptr %2319, align 4, !tbaa !20
-  br label %3191
+  store i32 %70, ptr %2327, align 4, !tbaa !20
+  br label %3199
 
-2947:                                             ; preds = %2538
-  %2948 = lshr i32 %70, 8
-  %2949 = and i32 %2948, 16711935
-  %2950 = mul nuw nsw i32 %2949, 5
-  %2951 = lshr i32 %69, 8
-  %2952 = and i32 %2951, 16711935
-  %2953 = mul nuw nsw i32 %2952, 3
-  %2954 = add nuw nsw i32 %2950, %2953
-  %2955 = shl nuw i32 %2954, 5
-  %2956 = and i32 %2955, -16711936
-  %2957 = and i32 %70, 16711935
+2955:                                             ; preds = %2546
+  %2956 = lshr i32 %70, 8
+  %2957 = and i32 %2956, 16711935
   %2958 = mul nuw nsw i32 %2957, 5
-  %2959 = and i32 %69, 16711935
-  %2960 = mul nuw nsw i32 %2959, 3
-  %2961 = add nuw nsw i32 %2958, %2960
-  %2962 = lshr i32 %2961, 3
-  %2963 = and i32 %2962, 16711935
-  %2964 = or disjoint i32 %2956, %2963
-  store i32 %2964, ptr %2318, align 4, !tbaa !20
-  %2965 = mul nuw nsw i32 %2949, 7
-  %2966 = add nuw nsw i32 %2965, %2952
-  %2967 = shl nuw i32 %2966, 5
-  %2968 = and i32 %2967, -16711936
-  %2969 = mul nuw nsw i32 %2957, 7
-  %2970 = add nuw nsw i32 %2969, %2959
-  %2971 = lshr i32 %2970, 3
-  %2972 = and i32 %2971, 16711935
-  %2973 = or disjoint i32 %2968, %2972
-  br label %2974
+  %2959 = lshr i32 %69, 8
+  %2960 = and i32 %2959, 16711935
+  %2961 = mul nuw nsw i32 %2960, 3
+  %2962 = add nuw nsw i32 %2958, %2961
+  %2963 = shl nuw i32 %2962, 5
+  %2964 = and i32 %2963, -16711936
+  %2965 = and i32 %70, 16711935
+  %2966 = mul nuw nsw i32 %2965, 5
+  %2967 = and i32 %69, 16711935
+  %2968 = mul nuw nsw i32 %2967, 3
+  %2969 = add nuw nsw i32 %2966, %2968
+  %2970 = lshr i32 %2969, 3
+  %2971 = and i32 %2970, 16711935
+  %2972 = or disjoint i32 %2964, %2971
+  store i32 %2972, ptr %2326, align 4, !tbaa !20
+  %2973 = mul nuw nsw i32 %2957, 7
+  %2974 = add nuw nsw i32 %2973, %2960
+  %2975 = shl nuw i32 %2974, 5
+  %2976 = and i32 %2975, -16711936
+  %2977 = mul nuw nsw i32 %2965, 7
+  %2978 = add nuw nsw i32 %2977, %2967
+  %2979 = lshr i32 %2978, 3
+  %2980 = and i32 %2979, 16711935
+  %2981 = or disjoint i32 %2976, %2980
+  br label %2982
 
-2974:                                             ; preds = %2740, %2947, %.thread237.us, %2916, %2894, %2876, %2860, %2840, %2822, %2806, %2790, %2777, %2762
-  %.sink556 = phi i32 [ %2973, %2947 ], [ %2946, %.thread237.us ], [ %2776, %2762 ], [ %2937, %2916 ], [ %2915, %2894 ], [ %2893, %2876 ], [ %2875, %2860 ], [ %2859, %2840 ], [ %2839, %2822 ], [ %2821, %2806 ], [ %2805, %2790 ], [ %2789, %2777 ], [ %70, %2740 ]
-  store i32 %.sink556, ptr %2319, align 4, !tbaa !20
-  br i1 %2381, label %._crit_edge426, label %2975
+2982:                                             ; preds = %2748, %2955, %.thread237.us, %2924, %2902, %2884, %2868, %2848, %2830, %2814, %2798, %2785, %2770
+  %.sink527 = phi i32 [ %2981, %2955 ], [ %2954, %.thread237.us ], [ %2784, %2770 ], [ %2945, %2924 ], [ %2923, %2902 ], [ %2901, %2884 ], [ %2883, %2868 ], [ %2867, %2848 ], [ %2847, %2830 ], [ %2829, %2814 ], [ %2813, %2798 ], [ %2797, %2785 ], [ %70, %2748 ]
+  store i32 %.sink527, ptr %2327, align 4, !tbaa !20
+  br i1 %2389, label %._crit_edge397, label %2983
 
-._crit_edge426:                                   ; preds = %2974
-  %.pre451 = lshr i32 %70, 8
-  %.pre453 = and i32 %.pre451, 16711935
-  %.pre455 = lshr i32 %79, 8
-  %.pre457 = and i32 %.pre455, 16711935
-  %.pre459 = and i32 %70, 16711935
-  %.pre461 = and i32 %79, 16711935
-  br label %3191
-
-2975:                                             ; preds = %2974
-  br i1 %2510, label %.thread239.us, label %2976
-
-2976:                                             ; preds = %2975
-  br i1 %2432, label %3175, label %2977
-
-2977:                                             ; preds = %2976
-  br i1 %2512, label %.thread239.us, label %2978
-
-2978:                                             ; preds = %2977
-  br i1 %2514, label %3153, label %2979
-
-2979:                                             ; preds = %2978
-  %2980 = icmp eq i32 %2454, 2
-  br i1 %2980, label %3131, label %2981
-
-2981:                                             ; preds = %2979
-  br i1 %2540, label %3113, label %2982
-
-2982:                                             ; preds = %2981
-  br i1 %or.cond367.i11.us, label %3097, label %2983
+._crit_edge397:                                   ; preds = %2982
+  %.pre422 = lshr i32 %70, 8
+  %.pre424 = and i32 %.pre422, 16711935
+  %.pre426 = lshr i32 %79, 8
+  %.pre428 = and i32 %.pre426, 16711935
+  %.pre430 = and i32 %70, 16711935
+  %.pre432 = and i32 %79, 16711935
+  br label %3199
 
 2983:                                             ; preds = %2982
-  br i1 %2522, label %3077, label %2984
+  br i1 %2518, label %.thread239.us, label %2984
 
 2984:                                             ; preds = %2983
-  br i1 %2519, label %3059, label %2985
+  br i1 %2440, label %3183, label %2985
 
 2985:                                             ; preds = %2984
-  br i1 %2453, label %3043, label %2986
+  br i1 %2520, label %.thread239.us, label %2986
 
 2986:                                             ; preds = %2985
-  br i1 %2455, label %3027, label %2987
+  br i1 %2522, label %3161, label %2987
 
 2987:                                             ; preds = %2986
-  %2988 = and i32 %2316, 249
-  %2989 = icmp eq i32 %2988, 104
-  %2990 = and i32 %2315, 109
-  %2991 = icmp eq i32 %2990, 108
-  %or.cond439.i48.us = or i1 %2989, %2991
-  %2992 = and i32 %2316, 61
-  %2993 = icmp eq i32 %2992, 60
-  %or.cond441.i49.us = or i1 %2993, %or.cond439.i48.us
-  %2994 = icmp eq i32 %2988, 248
-  %or.cond442.i50.us = or i1 %2994, %or.cond441.i49.us
-  br i1 %or.cond442.i50.us, label %3027, label %2995
+  %2988 = icmp eq i32 %2462, 2
+  br i1 %2988, label %3139, label %2989
 
-2995:                                             ; preds = %2987
-  %2996 = trunc nuw i32 %2316 to i8
-  %trunc286.us = and i8 %2996, -35
-  switch i8 %trunc286.us, label %2997 [
-    i8 -36, label %3027
-    i8 28, label %3027
+2989:                                             ; preds = %2987
+  br i1 %2548, label %3121, label %2990
+
+2990:                                             ; preds = %2989
+  br i1 %or.cond367.i11.us, label %3105, label %2991
+
+2991:                                             ; preds = %2990
+  br i1 %2530, label %3085, label %2992
+
+2992:                                             ; preds = %2991
+  br i1 %2527, label %3067, label %2993
+
+2993:                                             ; preds = %2992
+  br i1 %2461, label %3051, label %2994
+
+2994:                                             ; preds = %2993
+  br i1 %2463, label %3035, label %2995
+
+2995:                                             ; preds = %2994
+  %2996 = and i32 %.fr268.us, 249
+  %2997 = icmp eq i32 %2996, 104
+  %2998 = and i32 %.fr268.us, 109
+  %2999 = icmp eq i32 %2998, 108
+  %or.cond439.i48.us = or i1 %2997, %2999
+  %3000 = and i32 %.fr268.us, 61
+  %3001 = icmp eq i32 %3000, 60
+  %or.cond441.i49.us = or i1 %3001, %or.cond439.i48.us
+  %3002 = icmp eq i32 %2996, 248
+  %or.cond442.i50.us = or i1 %3002, %or.cond441.i49.us
+  br i1 %or.cond442.i50.us, label %3035, label %3003
+
+3003:                                             ; preds = %2995
+  %3004 = trunc i32 %.fr268.us to i8
+  %trunc273.us = and i8 %3004, -35
+  switch i8 %trunc273.us, label %3005 [
+    i8 -36, label %3035
+    i8 28, label %3035
   ]
 
-2997:                                             ; preds = %2995
-  %2998 = and i32 %70, 16711935
-  br i1 %2539, label %3014, label %2999
+3005:                                             ; preds = %3003
+  %3006 = and i32 %70, 16711935
+  br i1 %2547, label %3022, label %3007
 
-2999:                                             ; preds = %2997
-  %3000 = lshr i32 %70, 8
-  %3001 = and i32 %3000, 16711935
-  %3002 = mul nuw nsw i32 %3001, 3
-  %3003 = lshr i32 %69, 8
-  %3004 = and i32 %3003, 16711935
-  %3005 = add nuw nsw i32 %3002, %3004
-  %3006 = shl nuw i32 %3005, 6
-  %3007 = and i32 %3006, -16711936
-  %3008 = mul nuw nsw i32 %2998, 3
-  %3009 = and i32 %69, 16711935
-  %3010 = add nuw nsw i32 %3008, %3009
-  %3011 = lshr i32 %3010, 2
+3007:                                             ; preds = %3005
+  %3008 = lshr i32 %70, 8
+  %3009 = and i32 %3008, 16711935
+  %3010 = mul nuw nsw i32 %3009, 3
+  %3011 = lshr i32 %69, 8
   %3012 = and i32 %3011, 16711935
-  %3013 = or disjoint i32 %3007, %3012
+  %3013 = add nuw nsw i32 %3010, %3012
+  %3014 = shl nuw i32 %3013, 6
+  %3015 = and i32 %3014, -16711936
+  %3016 = mul nuw nsw i32 %3006, 3
+  %3017 = and i32 %69, 16711935
+  %3018 = add nuw nsw i32 %3016, %3017
+  %3019 = lshr i32 %3018, 2
+  %3020 = and i32 %3019, 16711935
+  %3021 = or disjoint i32 %3015, %3020
   br label %.thread239.us
 
-3014:                                             ; preds = %2997
-  %3015 = lshr i32 %69, 8
-  %3016 = and i32 %3015, 16711935
-  %3017 = lshr i32 %70, 8
-  %3018 = and i32 %3017, 16711935
-  %3019 = add nuw nsw i32 %3018, %3016
-  %3020 = shl nuw i32 %3019, 7
-  %3021 = and i32 %3020, -16711936
-  %3022 = and i32 %69, 16711935
-  %3023 = add nuw nsw i32 %2998, %3022
-  %3024 = lshr i32 %3023, 1
-  %3025 = and i32 %3024, 16711935
-  %3026 = or disjoint i32 %3021, %3025
+3022:                                             ; preds = %3005
+  %3023 = lshr i32 %69, 8
+  %3024 = and i32 %3023, 16711935
+  %3025 = lshr i32 %70, 8
+  %3026 = and i32 %3025, 16711935
+  %3027 = add nuw nsw i32 %3026, %3024
+  %3028 = shl nuw i32 %3027, 7
+  %3029 = and i32 %3028, -16711936
+  %3030 = and i32 %69, 16711935
+  %3031 = add nuw nsw i32 %3006, %3030
+  %3032 = lshr i32 %3031, 1
+  %3033 = and i32 %3032, 16711935
+  %3034 = or disjoint i32 %3029, %3033
   br label %.thread239.us
 
-3027:                                             ; preds = %2995, %2995, %2987, %2986
-  %3028 = lshr i32 %70, 8
-  %3029 = and i32 %3028, 16711935
-  %3030 = mul nuw nsw i32 %3029, 3
-  %3031 = lshr i32 %77, 8
-  %3032 = and i32 %3031, 16711935
-  %3033 = add nuw nsw i32 %3032, %3030
-  %3034 = shl nuw i32 %3033, 6
-  %3035 = and i32 %3034, -16711936
-  %3036 = and i32 %70, 16711935
-  %3037 = mul nuw nsw i32 %3036, 3
-  %3038 = and i32 %77, 16711935
-  %3039 = add nuw nsw i32 %3038, %3037
-  %3040 = lshr i32 %3039, 2
-  %3041 = and i32 %3040, 16711935
-  %3042 = or disjoint i32 %3035, %3041
+3035:                                             ; preds = %3003, %3003, %2995, %2994
+  %3036 = lshr i32 %70, 8
+  %3037 = and i32 %3036, 16711935
+  %3038 = mul nuw nsw i32 %3037, 3
+  %3039 = lshr i32 %77, 8
+  %3040 = and i32 %3039, 16711935
+  %3041 = add nuw nsw i32 %3040, %3038
+  %3042 = shl nuw i32 %3041, 6
+  %3043 = and i32 %3042, -16711936
+  %3044 = and i32 %70, 16711935
+  %3045 = mul nuw nsw i32 %3044, 3
+  %3046 = and i32 %77, 16711935
+  %3047 = add nuw nsw i32 %3046, %3045
+  %3048 = lshr i32 %3047, 2
+  %3049 = and i32 %3048, 16711935
+  %3050 = or disjoint i32 %3043, %3049
   br label %.thread239.us
 
-3043:                                             ; preds = %2985
-  %3044 = lshr i32 %70, 8
-  %3045 = and i32 %3044, 16711935
-  %3046 = mul nuw nsw i32 %3045, 7
-  %3047 = lshr i32 %79, 8
-  %3048 = and i32 %3047, 16711935
-  %3049 = add nuw nsw i32 %3048, %3046
-  %3050 = shl nuw i32 %3049, 5
-  %3051 = and i32 %3050, -16711936
-  %3052 = and i32 %70, 16711935
-  %3053 = mul nuw nsw i32 %3052, 7
-  %3054 = and i32 %79, 16711935
-  %3055 = add nuw nsw i32 %3054, %3053
-  %3056 = lshr i32 %3055, 3
-  %3057 = and i32 %3056, 16711935
-  %3058 = or disjoint i32 %3051, %3057
+3051:                                             ; preds = %2993
+  %3052 = lshr i32 %70, 8
+  %3053 = and i32 %3052, 16711935
+  %3054 = mul nuw nsw i32 %3053, 7
+  %3055 = lshr i32 %79, 8
+  %3056 = and i32 %3055, 16711935
+  %3057 = add nuw nsw i32 %3056, %3054
+  %3058 = shl nuw i32 %3057, 5
+  %3059 = and i32 %3058, -16711936
+  %3060 = and i32 %70, 16711935
+  %3061 = mul nuw nsw i32 %3060, 7
+  %3062 = and i32 %79, 16711935
+  %3063 = add nuw nsw i32 %3062, %3061
+  %3064 = lshr i32 %3063, 3
+  %3065 = and i32 %3064, 16711935
+  %3066 = or disjoint i32 %3059, %3065
   br label %.thread239.us
 
-3059:                                             ; preds = %2984
-  %3060 = lshr i32 %69, 8
-  %3061 = and i32 %3060, 16711935
-  %3062 = mul nuw nsw i32 %3061, 5
-  %3063 = lshr i32 %79, 8
-  %3064 = and i32 %3063, 16711935
-  %3065 = mul nuw nsw i32 %3064, 3
-  %3066 = add nuw nsw i32 %3065, %3062
-  %3067 = shl nuw i32 %3066, 5
-  %3068 = and i32 %3067, -16711936
-  %3069 = and i32 %69, 16711935
+3067:                                             ; preds = %2992
+  %3068 = lshr i32 %69, 8
+  %3069 = and i32 %3068, 16711935
   %3070 = mul nuw nsw i32 %3069, 5
-  %3071 = and i32 %79, 16711935
-  %3072 = mul nuw nsw i32 %3071, 3
-  %3073 = add nuw nsw i32 %3072, %3070
-  %3074 = lshr i32 %3073, 3
-  %3075 = and i32 %3074, 16711935
-  %3076 = or disjoint i32 %3068, %3075
+  %3071 = lshr i32 %79, 8
+  %3072 = and i32 %3071, 16711935
+  %3073 = mul nuw nsw i32 %3072, 3
+  %3074 = add nuw nsw i32 %3073, %3070
+  %3075 = shl nuw i32 %3074, 5
+  %3076 = and i32 %3075, -16711936
+  %3077 = and i32 %69, 16711935
+  %3078 = mul nuw nsw i32 %3077, 5
+  %3079 = and i32 %79, 16711935
+  %3080 = mul nuw nsw i32 %3079, 3
+  %3081 = add nuw nsw i32 %3080, %3078
+  %3082 = lshr i32 %3081, 3
+  %3083 = and i32 %3082, 16711935
+  %3084 = or disjoint i32 %3076, %3083
   br label %.thread239.us
 
-3077:                                             ; preds = %2983
-  %3078 = lshr i32 %69, 7
-  %3079 = and i32 %3078, 33423870
-  %3080 = lshr i32 %70, 8
-  %3081 = and i32 %3080, 16711935
-  %3082 = add nuw nsw i32 %3081, %3079
-  %3083 = lshr i32 %79, 8
-  %3084 = and i32 %3083, 16711935
-  %3085 = add nuw nsw i32 %3082, %3084
-  %3086 = shl nuw i32 %3085, 6
-  %3087 = and i32 %3086, -16711936
-  %3088 = shl i32 %69, 1
-  %3089 = and i32 %3088, 33423870
-  %3090 = and i32 %70, 16711935
-  %3091 = add nuw nsw i32 %3089, %3090
-  %3092 = and i32 %79, 16711935
-  %3093 = add nuw nsw i32 %3091, %3092
-  %3094 = lshr i32 %3093, 2
-  %3095 = and i32 %3094, 16711935
-  %3096 = or disjoint i32 %3087, %3095
+3085:                                             ; preds = %2991
+  %3086 = lshr i32 %69, 7
+  %3087 = and i32 %3086, 33423870
+  %3088 = lshr i32 %70, 8
+  %3089 = and i32 %3088, 16711935
+  %3090 = add nuw nsw i32 %3089, %3087
+  %3091 = lshr i32 %79, 8
+  %3092 = and i32 %3091, 16711935
+  %3093 = add nuw nsw i32 %3090, %3092
+  %3094 = shl nuw i32 %3093, 6
+  %3095 = and i32 %3094, -16711936
+  %3096 = shl i32 %69, 1
+  %3097 = and i32 %3096, 33423870
+  %3098 = and i32 %70, 16711935
+  %3099 = add nuw nsw i32 %3097, %3098
+  %3100 = and i32 %79, 16711935
+  %3101 = add nuw nsw i32 %3099, %3100
+  %3102 = lshr i32 %3101, 2
+  %3103 = and i32 %3102, 16711935
+  %3104 = or disjoint i32 %3095, %3103
   br label %.thread239.us
 
-3097:                                             ; preds = %2982
-  %3098 = lshr i32 %69, 8
-  %3099 = and i32 %3098, 16711935
-  %3100 = mul nuw nsw i32 %3099, 3
-  %3101 = lshr i32 %70, 8
-  %3102 = and i32 %3101, 16711935
-  %3103 = add nuw nsw i32 %3100, %3102
-  %3104 = shl nuw i32 %3103, 6
-  %3105 = and i32 %3104, -16711936
-  %3106 = and i32 %69, 16711935
-  %3107 = mul nuw nsw i32 %3106, 3
-  %3108 = and i32 %70, 16711935
-  %3109 = add nuw nsw i32 %3107, %3108
-  %3110 = lshr i32 %3109, 2
-  %3111 = and i32 %3110, 16711935
-  %3112 = or disjoint i32 %3105, %3111
+3105:                                             ; preds = %2990
+  %3106 = lshr i32 %69, 8
+  %3107 = and i32 %3106, 16711935
+  %3108 = mul nuw nsw i32 %3107, 3
+  %3109 = lshr i32 %70, 8
+  %3110 = and i32 %3109, 16711935
+  %3111 = add nuw nsw i32 %3108, %3110
+  %3112 = shl nuw i32 %3111, 6
+  %3113 = and i32 %3112, -16711936
+  %3114 = and i32 %69, 16711935
+  %3115 = mul nuw nsw i32 %3114, 3
+  %3116 = and i32 %70, 16711935
+  %3117 = add nuw nsw i32 %3115, %3116
+  %3118 = lshr i32 %3117, 2
+  %3119 = and i32 %3118, 16711935
+  %3120 = or disjoint i32 %3113, %3119
   br label %.thread239.us
 
-3113:                                             ; preds = %2981
-  %3114 = lshr i32 %70, 8
-  %3115 = and i32 %3114, 16711935
-  %3116 = mul nuw nsw i32 %3115, 5
-  %3117 = lshr i32 %69, 8
-  %3118 = and i32 %3117, 16711935
-  %3119 = mul nuw nsw i32 %3118, 3
-  %3120 = add nuw nsw i32 %3116, %3119
-  %3121 = shl nuw i32 %3120, 5
-  %3122 = and i32 %3121, -16711936
-  %3123 = and i32 %70, 16711935
+3121:                                             ; preds = %2989
+  %3122 = lshr i32 %70, 8
+  %3123 = and i32 %3122, 16711935
   %3124 = mul nuw nsw i32 %3123, 5
-  %3125 = and i32 %69, 16711935
-  %3126 = mul nuw nsw i32 %3125, 3
-  %3127 = add nuw nsw i32 %3124, %3126
-  %3128 = lshr i32 %3127, 3
-  %3129 = and i32 %3128, 16711935
-  %3130 = or disjoint i32 %3122, %3129
+  %3125 = lshr i32 %69, 8
+  %3126 = and i32 %3125, 16711935
+  %3127 = mul nuw nsw i32 %3126, 3
+  %3128 = add nuw nsw i32 %3124, %3127
+  %3129 = shl nuw i32 %3128, 5
+  %3130 = and i32 %3129, -16711936
+  %3131 = and i32 %70, 16711935
+  %3132 = mul nuw nsw i32 %3131, 5
+  %3133 = and i32 %69, 16711935
+  %3134 = mul nuw nsw i32 %3133, 3
+  %3135 = add nuw nsw i32 %3132, %3134
+  %3136 = lshr i32 %3135, 3
+  %3137 = and i32 %3136, 16711935
+  %3138 = or disjoint i32 %3130, %3137
   br label %.thread239.us
 
-3131:                                             ; preds = %2979
-  %3132 = lshr i32 %70, 8
-  %3133 = and i32 %3132, 16711935
-  %3134 = mul nuw nsw i32 %3133, 5
-  %3135 = lshr i32 %69, 7
-  %3136 = and i32 %3135, 33423870
-  %3137 = add nuw nsw i32 %3134, %3136
-  %3138 = lshr i32 %77, 8
-  %3139 = and i32 %3138, 16711935
-  %3140 = add nuw nsw i32 %3137, %3139
-  %3141 = shl nuw i32 %3140, 5
-  %3142 = and i32 %3141, -16711936
-  %3143 = and i32 %70, 16711935
-  %3144 = mul nuw nsw i32 %3143, 5
-  %3145 = shl i32 %69, 1
-  %3146 = and i32 %3145, 33423870
-  %3147 = add nuw nsw i32 %3144, %3146
-  %3148 = and i32 %77, 16711935
-  %3149 = add nuw nsw i32 %3147, %3148
-  %3150 = lshr i32 %3149, 3
-  %3151 = and i32 %3150, 16711935
-  %3152 = or disjoint i32 %3142, %3151
+3139:                                             ; preds = %2987
+  %3140 = lshr i32 %70, 8
+  %3141 = and i32 %3140, 16711935
+  %3142 = mul nuw nsw i32 %3141, 5
+  %3143 = lshr i32 %69, 7
+  %3144 = and i32 %3143, 33423870
+  %3145 = add nuw nsw i32 %3142, %3144
+  %3146 = lshr i32 %77, 8
+  %3147 = and i32 %3146, 16711935
+  %3148 = add nuw nsw i32 %3145, %3147
+  %3149 = shl nuw i32 %3148, 5
+  %3150 = and i32 %3149, -16711936
+  %3151 = and i32 %70, 16711935
+  %3152 = mul nuw nsw i32 %3151, 5
+  %3153 = shl i32 %69, 1
+  %3154 = and i32 %3153, 33423870
+  %3155 = add nuw nsw i32 %3152, %3154
+  %3156 = and i32 %77, 16711935
+  %3157 = add nuw nsw i32 %3155, %3156
+  %3158 = lshr i32 %3157, 3
+  %3159 = and i32 %3158, 16711935
+  %3160 = or disjoint i32 %3150, %3159
   br label %.thread239.us
 
-3153:                                             ; preds = %2978
-  %3154 = lshr i32 %70, 8
-  %3155 = and i32 %3154, 16711935
-  %3156 = mul nuw nsw i32 %3155, 5
-  %3157 = lshr i32 %69, 7
-  %3158 = and i32 %3157, 33423870
-  %3159 = add nuw nsw i32 %3156, %3158
-  %3160 = lshr i32 %79, 8
-  %3161 = and i32 %3160, 16711935
-  %3162 = add nuw nsw i32 %3159, %3161
-  %3163 = shl nuw i32 %3162, 5
-  %3164 = and i32 %3163, -16711936
-  %3165 = and i32 %70, 16711935
-  %3166 = mul nuw nsw i32 %3165, 5
-  %3167 = shl i32 %69, 1
-  %3168 = and i32 %3167, 33423870
-  %3169 = add nuw nsw i32 %3166, %3168
-  %3170 = and i32 %79, 16711935
-  %3171 = add nuw nsw i32 %3169, %3170
-  %3172 = lshr i32 %3171, 3
-  %3173 = and i32 %3172, 16711935
-  %3174 = or disjoint i32 %3164, %3173
+3161:                                             ; preds = %2986
+  %3162 = lshr i32 %70, 8
+  %3163 = and i32 %3162, 16711935
+  %3164 = mul nuw nsw i32 %3163, 5
+  %3165 = lshr i32 %69, 7
+  %3166 = and i32 %3165, 33423870
+  %3167 = add nuw nsw i32 %3164, %3166
+  %3168 = lshr i32 %79, 8
+  %3169 = and i32 %3168, 16711935
+  %3170 = add nuw nsw i32 %3167, %3169
+  %3171 = shl nuw i32 %3170, 5
+  %3172 = and i32 %3171, -16711936
+  %3173 = and i32 %70, 16711935
+  %3174 = mul nuw nsw i32 %3173, 5
+  %3175 = shl i32 %69, 1
+  %3176 = and i32 %3175, 33423870
+  %3177 = add nuw nsw i32 %3174, %3176
+  %3178 = and i32 %79, 16711935
+  %3179 = add nuw nsw i32 %3177, %3178
+  %3180 = lshr i32 %3179, 3
+  %3181 = and i32 %3180, 16711935
+  %3182 = or disjoint i32 %3172, %3181
   br label %.thread239.us
 
-3175:                                             ; preds = %2976
-  %3176 = lshr i32 %70, 8
-  %3177 = and i32 %3176, 16711935
-  %3178 = mul nuw nsw i32 %3177, 3
-  %3179 = lshr i32 %77, 8
-  %3180 = and i32 %3179, 16711935
-  %3181 = add nuw nsw i32 %3180, %3178
-  %3182 = shl nuw i32 %3181, 6
-  %3183 = and i32 %3182, -16711936
-  %3184 = and i32 %70, 16711935
-  %3185 = mul nuw nsw i32 %3184, 3
-  %3186 = and i32 %77, 16711935
-  %3187 = add nuw nsw i32 %3186, %3185
-  %3188 = lshr i32 %3187, 2
-  %3189 = and i32 %3188, 16711935
-  %3190 = or disjoint i32 %3183, %3189
+3183:                                             ; preds = %2984
+  %3184 = lshr i32 %70, 8
+  %3185 = and i32 %3184, 16711935
+  %3186 = mul nuw nsw i32 %3185, 3
+  %3187 = lshr i32 %77, 8
+  %3188 = and i32 %3187, 16711935
+  %3189 = add nuw nsw i32 %3188, %3186
+  %3190 = shl nuw i32 %3189, 6
+  %3191 = and i32 %3190, -16711936
+  %3192 = and i32 %70, 16711935
+  %3193 = mul nuw nsw i32 %3192, 3
+  %3194 = and i32 %77, 16711935
+  %3195 = add nuw nsw i32 %3194, %3193
+  %3196 = lshr i32 %3195, 2
+  %3197 = and i32 %3196, 16711935
+  %3198 = or disjoint i32 %3191, %3197
   br label %.thread239.us
 
 .thread239.us.sink.split:                         ; preds = %yuv_diff.exit449.i43.thread.us, %.thread236.us
-  store i32 %70, ptr %2319, align 4, !tbaa !20
+  store i32 %70, ptr %2327, align 4, !tbaa !20
   br label %.thread239.us
 
-3191:                                             ; preds = %._crit_edge426, %.thread238.thread254.us
-  %.pre-phi462 = phi i32 [ %.pre461, %._crit_edge426 ], [ %2733, %.thread238.thread254.us ]
-  %.pre-phi460 = phi i32 [ %.pre459, %._crit_edge426 ], [ %2731, %.thread238.thread254.us ]
-  %.pre-phi458 = phi i32 [ %.pre457, %._crit_edge426 ], [ %2726, %.thread238.thread254.us ]
-  %.pre-phi454 = phi i32 [ %.pre453, %._crit_edge426 ], [ %2723, %.thread238.thread254.us ]
-  %3192 = mul nuw nsw i32 %.pre-phi454, 7
-  %3193 = add nuw nsw i32 %.pre-phi458, %3192
-  %3194 = shl nuw i32 %3193, 5
-  %3195 = and i32 %3194, -16711936
-  %3196 = mul nuw nsw i32 %.pre-phi460, 7
-  %3197 = add nuw nsw i32 %.pre-phi462, %3196
-  %3198 = lshr i32 %3197, 3
-  %3199 = and i32 %3198, 16711935
-  %3200 = or disjoint i32 %3195, %3199
+3199:                                             ; preds = %._crit_edge397, %.thread238.thread254.us
+  %.pre-phi433 = phi i32 [ %.pre432, %._crit_edge397 ], [ %2741, %.thread238.thread254.us ]
+  %.pre-phi431 = phi i32 [ %.pre430, %._crit_edge397 ], [ %2739, %.thread238.thread254.us ]
+  %.pre-phi429 = phi i32 [ %.pre428, %._crit_edge397 ], [ %2734, %.thread238.thread254.us ]
+  %.pre-phi425 = phi i32 [ %.pre424, %._crit_edge397 ], [ %2731, %.thread238.thread254.us ]
+  %3200 = mul nuw nsw i32 %.pre-phi425, 7
+  %3201 = add nuw nsw i32 %.pre-phi429, %3200
+  %3202 = shl nuw i32 %3201, 5
+  %3203 = and i32 %3202, -16711936
+  %3204 = mul nuw nsw i32 %.pre-phi431, 7
+  %3205 = add nuw nsw i32 %.pre-phi433, %3204
+  %3206 = lshr i32 %3205, 3
+  %3207 = and i32 %3206, 16711935
+  %3208 = or disjoint i32 %3203, %3207
   br label %.thread239.us
 
-.thread239.us:                                    ; preds = %2975, %.thread239.us.sink.split, %2977, %3191, %3175, %3153, %3131, %3113, %3097, %3077, %3059, %3043, %3027, %3014, %2999
-  %.sink557 = phi i32 [ %3200, %3191 ], [ %70, %2977 ], [ %3190, %3175 ], [ %3013, %2999 ], [ %3174, %3153 ], [ %3152, %3131 ], [ %3130, %3113 ], [ %3112, %3097 ], [ %3096, %3077 ], [ %3076, %3059 ], [ %3058, %3043 ], [ %3042, %3027 ], [ %3026, %3014 ], [ %70, %.thread239.us.sink.split ], [ %70, %2975 ]
-  store i32 %.sink557, ptr %2306, align 4, !tbaa !20
-  %3201 = icmp eq i32 %2400, 43
-  %3202 = icmp eq i32 %2400, 15
-  %3203 = or i1 %3201, %3202
-  %3204 = or i1 %2518, %3203
-  %or.cond444.i53.us = or i1 %2520, %3204
-  br i1 %or.cond444.i53.us, label %3205, label %3230
+.thread239.us:                                    ; preds = %2983, %.thread239.us.sink.split, %2985, %3199, %3183, %3161, %3139, %3121, %3105, %3085, %3067, %3051, %3035, %3022, %3007
+  %.sink528 = phi i32 [ %3208, %3199 ], [ %70, %2985 ], [ %3198, %3183 ], [ %3021, %3007 ], [ %3182, %3161 ], [ %3160, %3139 ], [ %3138, %3121 ], [ %3120, %3105 ], [ %3104, %3085 ], [ %3084, %3067 ], [ %3066, %3051 ], [ %3050, %3035 ], [ %3034, %3022 ], [ %70, %.thread239.us.sink.split ], [ %70, %2983 ]
+  store i32 %.sink528, ptr %2314, align 4, !tbaa !20
+  %3209 = icmp eq i32 %2408, 43
+  %3210 = icmp eq i32 %2408, 15
+  %3211 = or i1 %3209, %3210
+  %3212 = or i1 %2526, %3211
+  %or.cond444.i53.us = or i1 %2528, %3212
+  br i1 %or.cond444.i53.us, label %3213, label %3238
 
-3205:                                             ; preds = %.thread239.us
-  %3206 = and i32 %69, 16777215
-  %3207 = zext nneg i32 %3206 to i64
-  %3208 = getelementptr inbounds nuw i32, ptr %7, i64 %3207
-  %3209 = load i32, ptr %3208, align 4, !tbaa !20
-  %3210 = and i32 %79, 16777215
-  %3211 = zext nneg i32 %3210 to i64
-  %3212 = getelementptr inbounds nuw i32, ptr %7, i64 %3211
-  %3213 = load i32, ptr %3212, align 4, !tbaa !20
-  %3214 = and i32 %3209, 16711680
-  %3215 = and i32 %3213, 16711680
-  %3216 = add nsw i32 %3214, -3145729
-  %3217 = sub nsw i32 %3216, %3215
-  %3218 = icmp ult i32 %3217, -6291457
-  br i1 %3218, label %hq4x_interp_2x2.exit68.us, label %3219
+3213:                                             ; preds = %.thread239.us
+  %3214 = and i32 %69, 16777215
+  %3215 = zext nneg i32 %3214 to i64
+  %3216 = getelementptr inbounds nuw i32, ptr %7, i64 %3215
+  %3217 = load i32, ptr %3216, align 4, !tbaa !20
+  %3218 = and i32 %79, 16777215
+  %3219 = zext nneg i32 %3218 to i64
+  %3220 = getelementptr inbounds nuw i32, ptr %7, i64 %3219
+  %3221 = load i32, ptr %3220, align 4, !tbaa !20
+  %3222 = and i32 %3217, 16711680
+  %3223 = and i32 %3221, 16711680
+  %3224 = add nsw i32 %3222, -3145729
+  %3225 = sub nsw i32 %3224, %3223
+  %3226 = icmp ult i32 %3225, -6291457
+  br i1 %3226, label %hq4x_interp_2x2.exit68.us, label %3227
 
-3219:                                             ; preds = %3205
-  %3220 = and i32 %3209, 65280
-  %3221 = and i32 %3213, 65280
-  %3222 = add nsw i32 %3220, -1793
-  %3223 = sub nsw i32 %3222, %3221
-  %3224 = icmp ult i32 %3223, -3585
-  br i1 %3224, label %hq4x_interp_2x2.exit68.us, label %yuv_diff.exit.i58.us
+3227:                                             ; preds = %3213
+  %3228 = and i32 %3217, 65280
+  %3229 = and i32 %3221, 65280
+  %3230 = add nsw i32 %3228, -1793
+  %3231 = sub nsw i32 %3230, %3229
+  %3232 = icmp ult i32 %3231, -3585
+  br i1 %3232, label %hq4x_interp_2x2.exit68.us, label %yuv_diff.exit.i58.us
 
-yuv_diff.exit.i58.us:                             ; preds = %3219
-  %3225 = and i32 %3209, 255
-  %3226 = and i32 %3213, 255
-  %3227 = add nuw nsw i32 %3225, 6
-  %3228 = sub nsw i32 %3227, %3226
-  %3229 = icmp ult i32 %3228, 13
-  br i1 %3229, label %3230, label %hq4x_interp_2x2.exit68.us
+yuv_diff.exit.i58.us:                             ; preds = %3227
+  %3233 = and i32 %3217, 255
+  %3234 = and i32 %3221, 255
+  %3235 = add nuw nsw i32 %3233, 6
+  %3236 = sub nsw i32 %3235, %3234
+  %3237 = icmp ult i32 %3236, 13
+  br i1 %3237, label %3238, label %hq4x_interp_2x2.exit68.us
 
-3230:                                             ; preds = %yuv_diff.exit.i58.us, %.thread239.us
-  br i1 %2432, label %3304, label %3231
+3238:                                             ; preds = %yuv_diff.exit.i58.us, %.thread239.us
+  br i1 %2440, label %3312, label %3239
 
-3231:                                             ; preds = %3230
-  br i1 %2540, label %3288, label %3232
+3239:                                             ; preds = %3238
+  br i1 %2548, label %3296, label %3240
 
-3232:                                             ; preds = %3231
-  br i1 %2515, label %3272, label %3233
+3240:                                             ; preds = %3239
+  br i1 %2523, label %3280, label %3241
 
-3233:                                             ; preds = %3232
-  %brmerge445.i54.us = or i1 %2514, %2517
-  %brmerge446.i55.us = or i1 %2518, %brmerge445.i54.us
-  %brmerge447.i56.us = or i1 %2520, %brmerge446.i55.us
-  %brmerge448.i57.us = or i1 %2521, %brmerge447.i56.us
-  br i1 %brmerge448.i57.us, label %3251, label %3234
+3241:                                             ; preds = %3240
+  %brmerge445.i54.us = or i1 %2522, %2525
+  %brmerge446.i55.us = or i1 %2526, %brmerge445.i54.us
+  %brmerge447.i56.us = or i1 %2528, %brmerge446.i55.us
+  %brmerge448.i57.us = or i1 %2529, %brmerge447.i56.us
+  br i1 %brmerge448.i57.us, label %3259, label %3242
 
-3234:                                             ; preds = %3233
-  br i1 %2477, label %3235, label %hq4x_interp_2x2.exit68.us
+3242:                                             ; preds = %3241
+  br i1 %2485, label %3243, label %hq4x_interp_2x2.exit68.us
 
-3235:                                             ; preds = %3234
-  %3236 = lshr i32 %70, 8
-  %3237 = and i32 %3236, 16711935
-  %3238 = mul nuw nsw i32 %3237, 7
-  %3239 = lshr i32 %77, 8
-  %3240 = and i32 %3239, 16711935
-  %3241 = add nuw nsw i32 %3240, %3238
-  %3242 = shl nuw i32 %3241, 5
-  %3243 = and i32 %3242, -16711936
-  %3244 = and i32 %70, 16711935
-  %3245 = mul nuw nsw i32 %3244, 7
-  %3246 = and i32 %77, 16711935
-  %3247 = add nuw nsw i32 %3246, %3245
-  %3248 = lshr i32 %3247, 3
-  %3249 = and i32 %3248, 16711935
-  %3250 = or disjoint i32 %3243, %3249
+3243:                                             ; preds = %3242
+  %3244 = lshr i32 %70, 8
+  %3245 = and i32 %3244, 16711935
+  %3246 = mul nuw nsw i32 %3245, 7
+  %3247 = lshr i32 %77, 8
+  %3248 = and i32 %3247, 16711935
+  %3249 = add nuw nsw i32 %3248, %3246
+  %3250 = shl nuw i32 %3249, 5
+  %3251 = and i32 %3250, -16711936
+  %3252 = and i32 %70, 16711935
+  %3253 = mul nuw nsw i32 %3252, 7
+  %3254 = and i32 %77, 16711935
+  %3255 = add nuw nsw i32 %3254, %3253
+  %3256 = lshr i32 %3255, 3
+  %3257 = and i32 %3256, 16711935
+  %3258 = or disjoint i32 %3251, %3257
   br label %hq4x_interp_2x2.exit68.us
 
-3251:                                             ; preds = %3233
-  %3252 = lshr i32 %70, 8
-  %3253 = and i32 %3252, 16711935
-  %3254 = mul nuw nsw i32 %3253, 6
-  %3255 = lshr i32 %69, 8
-  %3256 = and i32 %3255, 16711935
-  %3257 = add nuw nsw i32 %3254, %3256
-  %3258 = lshr i32 %79, 8
-  %3259 = and i32 %3258, 16711935
-  %3260 = add nuw nsw i32 %3257, %3259
-  %3261 = shl nuw i32 %3260, 5
-  %3262 = and i32 %3261, -16711936
-  %3263 = and i32 %70, 16711935
-  %3264 = mul nuw nsw i32 %3263, 6
-  %3265 = and i32 %69, 16711935
-  %3266 = add nuw nsw i32 %3264, %3265
-  %3267 = and i32 %79, 16711935
-  %3268 = add nuw nsw i32 %3266, %3267
-  %3269 = lshr i32 %3268, 3
-  %3270 = and i32 %3269, 16711935
-  %3271 = or disjoint i32 %3262, %3270
+3259:                                             ; preds = %3241
+  %3260 = lshr i32 %70, 8
+  %3261 = and i32 %3260, 16711935
+  %3262 = mul nuw nsw i32 %3261, 6
+  %3263 = lshr i32 %69, 8
+  %3264 = and i32 %3263, 16711935
+  %3265 = add nuw nsw i32 %3262, %3264
+  %3266 = lshr i32 %79, 8
+  %3267 = and i32 %3266, 16711935
+  %3268 = add nuw nsw i32 %3265, %3267
+  %3269 = shl nuw i32 %3268, 5
+  %3270 = and i32 %3269, -16711936
+  %3271 = and i32 %70, 16711935
+  %3272 = mul nuw nsw i32 %3271, 6
+  %3273 = and i32 %69, 16711935
+  %3274 = add nuw nsw i32 %3272, %3273
+  %3275 = and i32 %79, 16711935
+  %3276 = add nuw nsw i32 %3274, %3275
+  %3277 = lshr i32 %3276, 3
+  %3278 = and i32 %3277, 16711935
+  %3279 = or disjoint i32 %3270, %3278
   br label %hq4x_interp_2x2.exit68.us
 
-3272:                                             ; preds = %3232
-  %3273 = lshr i32 %70, 8
-  %3274 = and i32 %3273, 16711935
-  %3275 = mul nuw nsw i32 %3274, 7
-  %3276 = lshr i32 %79, 8
-  %3277 = and i32 %3276, 16711935
-  %3278 = add nuw nsw i32 %3277, %3275
-  %3279 = shl nuw i32 %3278, 5
-  %3280 = and i32 %3279, -16711936
-  %3281 = and i32 %70, 16711935
-  %3282 = mul nuw nsw i32 %3281, 7
-  %3283 = and i32 %79, 16711935
-  %3284 = add nuw nsw i32 %3283, %3282
-  %3285 = lshr i32 %3284, 3
-  %3286 = and i32 %3285, 16711935
-  %3287 = or disjoint i32 %3280, %3286
+3280:                                             ; preds = %3240
+  %3281 = lshr i32 %70, 8
+  %3282 = and i32 %3281, 16711935
+  %3283 = mul nuw nsw i32 %3282, 7
+  %3284 = lshr i32 %79, 8
+  %3285 = and i32 %3284, 16711935
+  %3286 = add nuw nsw i32 %3285, %3283
+  %3287 = shl nuw i32 %3286, 5
+  %3288 = and i32 %3287, -16711936
+  %3289 = and i32 %70, 16711935
+  %3290 = mul nuw nsw i32 %3289, 7
+  %3291 = and i32 %79, 16711935
+  %3292 = add nuw nsw i32 %3291, %3290
+  %3293 = lshr i32 %3292, 3
+  %3294 = and i32 %3293, 16711935
+  %3295 = or disjoint i32 %3288, %3294
   br label %hq4x_interp_2x2.exit68.us
 
-3288:                                             ; preds = %3231
-  %3289 = lshr i32 %70, 8
-  %3290 = and i32 %3289, 16711935
-  %3291 = mul nuw nsw i32 %3290, 7
-  %3292 = lshr i32 %69, 8
-  %3293 = and i32 %3292, 16711935
-  %3294 = add nuw nsw i32 %3291, %3293
-  %3295 = shl nuw i32 %3294, 5
-  %3296 = and i32 %3295, -16711936
-  %3297 = and i32 %70, 16711935
-  %3298 = mul nuw nsw i32 %3297, 7
-  %3299 = and i32 %69, 16711935
-  %3300 = add nuw nsw i32 %3298, %3299
-  %3301 = lshr i32 %3300, 3
-  %3302 = and i32 %3301, 16711935
-  %3303 = or disjoint i32 %3296, %3302
+3296:                                             ; preds = %3239
+  %3297 = lshr i32 %70, 8
+  %3298 = and i32 %3297, 16711935
+  %3299 = mul nuw nsw i32 %3298, 7
+  %3300 = lshr i32 %69, 8
+  %3301 = and i32 %3300, 16711935
+  %3302 = add nuw nsw i32 %3299, %3301
+  %3303 = shl nuw i32 %3302, 5
+  %3304 = and i32 %3303, -16711936
+  %3305 = and i32 %70, 16711935
+  %3306 = mul nuw nsw i32 %3305, 7
+  %3307 = and i32 %69, 16711935
+  %3308 = add nuw nsw i32 %3306, %3307
+  %3309 = lshr i32 %3308, 3
+  %3310 = and i32 %3309, 16711935
+  %3311 = or disjoint i32 %3304, %3310
   br label %hq4x_interp_2x2.exit68.us
 
-3304:                                             ; preds = %3230
-  %3305 = lshr i32 %70, 8
-  %3306 = and i32 %3305, 16711935
-  %3307 = mul nuw nsw i32 %3306, 7
-  %3308 = lshr i32 %77, 8
-  %3309 = and i32 %3308, 16711935
-  %3310 = add nuw nsw i32 %3309, %3307
-  %3311 = shl nuw i32 %3310, 5
-  %3312 = and i32 %3311, -16711936
-  %3313 = and i32 %70, 16711935
-  %3314 = mul nuw nsw i32 %3313, 7
-  %3315 = and i32 %77, 16711935
-  %3316 = add nuw nsw i32 %3315, %3314
-  %3317 = lshr i32 %3316, 3
-  %3318 = and i32 %3317, 16711935
-  %3319 = or disjoint i32 %3312, %3318
+3312:                                             ; preds = %3238
+  %3313 = lshr i32 %70, 8
+  %3314 = and i32 %3313, 16711935
+  %3315 = mul nuw nsw i32 %3314, 7
+  %3316 = lshr i32 %77, 8
+  %3317 = and i32 %3316, 16711935
+  %3318 = add nuw nsw i32 %3317, %3315
+  %3319 = shl nuw i32 %3318, 5
+  %3320 = and i32 %3319, -16711936
+  %3321 = and i32 %70, 16711935
+  %3322 = mul nuw nsw i32 %3321, 7
+  %3323 = and i32 %77, 16711935
+  %3324 = add nuw nsw i32 %3323, %3322
+  %3325 = lshr i32 %3324, 3
+  %3326 = and i32 %3325, 16711935
+  %3327 = or disjoint i32 %3320, %3326
   br label %hq4x_interp_2x2.exit68.us
 
-hq4x_interp_2x2.exit68.us:                        ; preds = %3205, %3219, %yuv_diff.exit.i58.us, %3234, %3304, %3288, %3272, %3251, %3235
-  %.sink558 = phi i32 [ %70, %3234 ], [ %3319, %3304 ], [ %3303, %3288 ], [ %3287, %3272 ], [ %3271, %3251 ], [ %3250, %3235 ], [ %70, %yuv_diff.exit.i58.us ], [ %70, %3219 ], [ %70, %3205 ]
-  store i32 %.sink558, ptr %2320, align 4, !tbaa !20
-  %3320 = getelementptr inbounds nuw i8, ptr %2306, i64 8
-  %3321 = shl nuw nsw i32 %.fr263.us, 7
-  %3322 = shl nuw nsw i32 %.fr257.us, 3
-  %3323 = or disjoint i32 %3322, %3321
-  %3324 = lshr exact i32 %.fr260.us, 3
-  %3325 = or disjoint i32 %3323, %3324
-  %3326 = or disjoint i32 %3325, %2307
-  %3327 = or i32 %3326, %1295
-  %3328 = add nuw nsw i32 %3327, %279
-  %3329 = add nuw nsw i32 %3328, %2310
-  %3330 = or i32 %3329, %284
-  %3331 = getelementptr inbounds i32, ptr %3320, i64 %32
-  %3332 = getelementptr inbounds i32, ptr %3320, i64 %30
-  %3333 = getelementptr inbounds nuw i8, ptr %2306, i64 12
-  %3334 = and i32 %3330, 191
-  %3335 = icmp eq i32 %3334, 55
-  %3336 = and i32 %3330, 219
-  %3337 = icmp eq i32 %3336, 19
-  %or.cond.i.us = or i1 %3335, %3337
-  br i1 %or.cond.i.us, label %3338, label %yuv_diff.exit453.i.us
+hq4x_interp_2x2.exit68.us:                        ; preds = %3213, %3227, %yuv_diff.exit.i58.us, %3242, %3312, %3296, %3280, %3259, %3243
+  %.sink529 = phi i32 [ %70, %3242 ], [ %3327, %3312 ], [ %3311, %3296 ], [ %3295, %3280 ], [ %3279, %3259 ], [ %3258, %3243 ], [ %70, %yuv_diff.exit.i58.us ], [ %70, %3227 ], [ %70, %3213 ]
+  store i32 %.sink529, ptr %2328, align 4, !tbaa !20
+  %3328 = getelementptr inbounds nuw i8, ptr %2314, i64 8
+  %3329 = shl nuw nsw i32 %111, 7
+  %3330 = shl nuw nsw i32 %159, 3
+  %3331 = or disjoint i32 %3330, %3329
+  %3332 = lshr exact i32 %231, 3
+  %3333 = or disjoint i32 %3331, %3332
+  %3334 = or disjoint i32 %3333, %2315
+  %3335 = or disjoint i32 %3334, %1303
+  %3336 = add nuw nsw i32 %3335, %287
+  %3337 = add nuw nsw i32 %3336, %2318
+  %.fr = freeze i32 %3337
+  %3338 = or i32 %.fr, %292
+  %3339 = getelementptr inbounds i32, ptr %3328, i64 %32
+  %3340 = getelementptr inbounds i32, ptr %3328, i64 %30
+  %3341 = getelementptr inbounds nuw i8, ptr %2314, i64 12
+  %3342 = and i32 %3338, 191
+  %3343 = icmp eq i32 %3342, 55
+  %3344 = and i32 %3338, 219
+  %3345 = icmp eq i32 %3344, 19
+  %or.cond.i.us = or i1 %3343, %3345
+  br i1 %or.cond.i.us, label %3346, label %yuv_diff.exit453.i.us
 
-3338:                                             ; preds = %hq4x_interp_2x2.exit68.us
-  %3339 = and i32 %79, 16777215
-  %3340 = zext nneg i32 %3339 to i64
-  %3341 = getelementptr inbounds nuw i32, ptr %7, i64 %3340
-  %3342 = load i32, ptr %3341, align 4, !tbaa !20
-  %3343 = and i32 %69, 16777215
-  %3344 = zext nneg i32 %3343 to i64
-  %3345 = getelementptr inbounds nuw i32, ptr %7, i64 %3344
-  %3346 = load i32, ptr %3345, align 4, !tbaa !20
-  %3347 = and i32 %3342, 16711680
-  %3348 = and i32 %3346, 16711680
-  %3349 = add nsw i32 %3347, -3145729
-  %3350 = sub nsw i32 %3349, %3348
-  %3351 = icmp ult i32 %3350, -6291457
-  br i1 %3351, label %yuv_diff.exit453.i.us, label %3352
+3346:                                             ; preds = %hq4x_interp_2x2.exit68.us
+  %3347 = and i32 %79, 16777215
+  %3348 = zext nneg i32 %3347 to i64
+  %3349 = getelementptr inbounds nuw i32, ptr %7, i64 %3348
+  %3350 = load i32, ptr %3349, align 4, !tbaa !20
+  %3351 = and i32 %69, 16777215
+  %3352 = zext nneg i32 %3351 to i64
+  %3353 = getelementptr inbounds nuw i32, ptr %7, i64 %3352
+  %3354 = load i32, ptr %3353, align 4, !tbaa !20
+  %3355 = and i32 %3350, 16711680
+  %3356 = and i32 %3354, 16711680
+  %3357 = add nsw i32 %3355, -3145729
+  %3358 = sub nsw i32 %3357, %3356
+  %3359 = icmp ult i32 %3358, -6291457
+  br i1 %3359, label %yuv_diff.exit453.i.us, label %3360
 
-3352:                                             ; preds = %3338
-  %3353 = and i32 %3342, 65280
-  %3354 = and i32 %3346, 65280
-  %3355 = add nsw i32 %3353, -1793
-  %3356 = sub nsw i32 %3355, %3354
-  %3357 = icmp ult i32 %3356, -3585
-  br i1 %3357, label %yuv_diff.exit453.i.us, label %3358
+3360:                                             ; preds = %3346
+  %3361 = and i32 %3350, 65280
+  %3362 = and i32 %3354, 65280
+  %3363 = add nsw i32 %3361, -1793
+  %3364 = sub nsw i32 %3363, %3362
+  %3365 = icmp ult i32 %3364, -3585
+  br i1 %3365, label %yuv_diff.exit453.i.us, label %3366
 
-3358:                                             ; preds = %3352
-  %3359 = and i32 %3342, 255
-  %3360 = and i32 %3346, 255
-  %3361 = add nsw i32 %3359, -7
-  %3362 = sub nsw i32 %3361, %3360
-  %3363 = icmp ult i32 %3362, -13
+3366:                                             ; preds = %3360
+  %3367 = and i32 %3350, 255
+  %3368 = and i32 %3354, 255
+  %3369 = add nsw i32 %3367, -7
+  %3370 = sub nsw i32 %3369, %3368
+  %3371 = icmp ult i32 %3370, -13
   br label %yuv_diff.exit453.i.us
 
-yuv_diff.exit453.i.us:                            ; preds = %3358, %3352, %3338, %hq4x_interp_2x2.exit68.us
-  %3364 = phi i1 [ false, %hq4x_interp_2x2.exit68.us ], [ true, %3352 ], [ true, %3338 ], [ %3363, %3358 ]
-  %3365 = icmp eq i32 %3336, 73
-  %3366 = and i32 %3330, 239
-  %3367 = icmp eq i32 %3366, 109
-  %or.cond367.i.us = or i1 %3365, %3367
-  br i1 %or.cond367.i.us, label %3368, label %yuv_diff.exit452.i.us
+yuv_diff.exit453.i.us:                            ; preds = %3366, %3360, %3346, %hq4x_interp_2x2.exit68.us
+  %3372 = phi i1 [ false, %hq4x_interp_2x2.exit68.us ], [ true, %3360 ], [ true, %3346 ], [ %3371, %3366 ]
+  %3373 = icmp eq i32 %3344, 73
+  %3374 = and i32 %3338, 239
+  %3375 = icmp eq i32 %3374, 109
+  %or.cond367.i.us = or i1 %3373, %3375
+  br i1 %or.cond367.i.us, label %3376, label %yuv_diff.exit452.i.us
 
-3368:                                             ; preds = %yuv_diff.exit453.i.us
-  %3369 = and i32 %62, 16777215
-  %3370 = zext nneg i32 %3369 to i64
-  %3371 = getelementptr inbounds nuw i32, ptr %7, i64 %3370
-  %3372 = load i32, ptr %3371, align 4, !tbaa !20
-  %3373 = and i32 %73, 16777215
-  %3374 = zext nneg i32 %3373 to i64
-  %3375 = getelementptr inbounds nuw i32, ptr %7, i64 %3374
-  %3376 = load i32, ptr %3375, align 4, !tbaa !20
-  %3377 = and i32 %3372, 16711680
-  %3378 = and i32 %3376, 16711680
-  %3379 = add nsw i32 %3377, -3145729
-  %3380 = sub nsw i32 %3379, %3378
-  %3381 = icmp ult i32 %3380, -6291457
-  br i1 %3381, label %yuv_diff.exit452.i.us, label %3382
+3376:                                             ; preds = %yuv_diff.exit453.i.us
+  %3377 = and i32 %62, 16777215
+  %3378 = zext nneg i32 %3377 to i64
+  %3379 = getelementptr inbounds nuw i32, ptr %7, i64 %3378
+  %3380 = load i32, ptr %3379, align 4, !tbaa !20
+  %3381 = and i32 %73, 16777215
+  %3382 = zext nneg i32 %3381 to i64
+  %3383 = getelementptr inbounds nuw i32, ptr %7, i64 %3382
+  %3384 = load i32, ptr %3383, align 4, !tbaa !20
+  %3385 = and i32 %3380, 16711680
+  %3386 = and i32 %3384, 16711680
+  %3387 = add nsw i32 %3385, -3145729
+  %3388 = sub nsw i32 %3387, %3386
+  %3389 = icmp ult i32 %3388, -6291457
+  br i1 %3389, label %yuv_diff.exit452.i.us, label %3390
 
-3382:                                             ; preds = %3368
-  %3383 = and i32 %3372, 65280
-  %3384 = and i32 %3376, 65280
-  %3385 = add nsw i32 %3383, -1793
-  %3386 = sub nsw i32 %3385, %3384
-  %3387 = icmp ult i32 %3386, -3585
-  br i1 %3387, label %yuv_diff.exit452.i.us, label %3388
+3390:                                             ; preds = %3376
+  %3391 = and i32 %3380, 65280
+  %3392 = and i32 %3384, 65280
+  %3393 = add nsw i32 %3391, -1793
+  %3394 = sub nsw i32 %3393, %3392
+  %3395 = icmp ult i32 %3394, -3585
+  br i1 %3395, label %yuv_diff.exit452.i.us, label %3396
 
-3388:                                             ; preds = %3382
-  %3389 = and i32 %3372, 255
-  %3390 = and i32 %3376, 255
-  %3391 = add nsw i32 %3389, -7
-  %3392 = sub nsw i32 %3391, %3390
-  %3393 = icmp ult i32 %3392, -13
+3396:                                             ; preds = %3390
+  %3397 = and i32 %3380, 255
+  %3398 = and i32 %3384, 255
+  %3399 = add nsw i32 %3397, -7
+  %3400 = sub nsw i32 %3399, %3398
+  %3401 = icmp ult i32 %3400, -13
   br label %yuv_diff.exit452.i.us
 
-yuv_diff.exit452.i.us:                            ; preds = %3388, %3382, %3368, %yuv_diff.exit453.i.us
-  %3394 = phi i1 [ false, %yuv_diff.exit453.i.us ], [ true, %3382 ], [ true, %3368 ], [ %3393, %3388 ]
-  %3395 = and i32 %3330, 111
-  %3396 = icmp eq i32 %3395, 42
-  %3397 = and i32 %3330, 91
-  %3398 = icmp eq i32 %3397, 10
-  %or.cond369.i.us = or i1 %3396, %3398
-  %3399 = icmp eq i32 %3334, 58
-  %or.cond370.i.us = or i1 %3399, %or.cond369.i.us
-  %3400 = and i32 %3330, 223
-  %3401 = icmp eq i32 %3400, 90
-  %or.cond372.i.us = or i1 %3401, %or.cond370.i.us
-  %3402 = and i32 %3330, 159
-  %3403 = icmp eq i32 %3402, 138
-  %or.cond374.i.us = or i1 %3403, %or.cond372.i.us
-  %3404 = and i32 %3330, 207
-  %3405 = icmp eq i32 %3404, 138
-  %or.cond376.i.us = or i1 %3405, %or.cond374.i.us
-  %3406 = icmp eq i32 %3366, 78
-  %or.cond378.i.us = or i1 %3406, %or.cond376.i.us
-  %3407 = and i32 %3330, 63
-  %3408 = icmp eq i32 %3407, 14
-  %or.cond380.i.us = or i1 %3408, %or.cond378.i.us
-  %3409 = and i32 %3330, 251
-  %3410 = icmp eq i32 %3409, 90
-  %or.cond382.i.us = or i1 %3410, %or.cond380.i.us
-  %3411 = and i32 %3330, 187
-  %3412 = icmp eq i32 %3411, 138
-  %or.cond384.i.us = or i1 %3412, %or.cond382.i.us
-  %3413 = and i32 %3330, 127
-  %3414 = icmp eq i32 %3413, 90
-  %or.cond386.i.us = or i1 %3414, %or.cond384.i.us
-  %3415 = and i32 %3330, 175
-  %3416 = icmp eq i32 %3415, 138
-  %or.cond388.i.us = or i1 %3416, %or.cond386.i.us
-  %3417 = and i32 %3330, 235
-  %3418 = icmp eq i32 %3417, 138
-  %or.cond390.i.us = or i1 %3418, %or.cond388.i.us
-  br i1 %or.cond390.i.us, label %3419, label %yuv_diff.exit451.i.us
+yuv_diff.exit452.i.us:                            ; preds = %3396, %3390, %3376, %yuv_diff.exit453.i.us
+  %3402 = phi i1 [ false, %yuv_diff.exit453.i.us ], [ true, %3390 ], [ true, %3376 ], [ %3401, %3396 ]
+  %3403 = and i32 %3338, 111
+  %3404 = icmp eq i32 %3403, 42
+  %3405 = and i32 %3338, 91
+  %3406 = icmp eq i32 %3405, 10
+  %or.cond369.i.us = or i1 %3404, %3406
+  %3407 = icmp eq i32 %3342, 58
+  %or.cond370.i.us = or i1 %3407, %or.cond369.i.us
+  %3408 = and i32 %3338, 223
+  %3409 = icmp eq i32 %3408, 90
+  %or.cond372.i.us = or i1 %3409, %or.cond370.i.us
+  %3410 = and i32 %3338, 159
+  %3411 = icmp eq i32 %3410, 138
+  %or.cond374.i.us = or i1 %3411, %or.cond372.i.us
+  %3412 = and i32 %3338, 207
+  %3413 = icmp eq i32 %3412, 138
+  %or.cond376.i.us = or i1 %3413, %or.cond374.i.us
+  %3414 = icmp eq i32 %3374, 78
+  %or.cond378.i.us = or i1 %3414, %or.cond376.i.us
+  %3415 = and i32 %3338, 63
+  %3416 = icmp eq i32 %3415, 14
+  %or.cond380.i.us = or i1 %3416, %or.cond378.i.us
+  %3417 = and i32 %3338, 251
+  %3418 = icmp eq i32 %3417, 90
+  %or.cond382.i.us = or i1 %3418, %or.cond380.i.us
+  %3419 = and i32 %3338, 187
+  %3420 = icmp eq i32 %3419, 138
+  %or.cond384.i.us = or i1 %3420, %or.cond382.i.us
+  %3421 = and i32 %3338, 127
+  %3422 = icmp eq i32 %3421, 90
+  %or.cond386.i.us = or i1 %3422, %or.cond384.i.us
+  %3423 = and i32 %3338, 175
+  %3424 = icmp eq i32 %3423, 138
+  %or.cond388.i.us = or i1 %3424, %or.cond386.i.us
+  %3425 = and i32 %3338, 235
+  %3426 = icmp eq i32 %3425, 138
+  %or.cond390.i.us = or i1 %3426, %or.cond388.i.us
+  br i1 %or.cond390.i.us, label %3427, label %yuv_diff.exit451.i.us
 
-3419:                                             ; preds = %yuv_diff.exit452.i.us
-  %3420 = and i32 %73, 16777215
-  %3421 = zext nneg i32 %3420 to i64
-  %3422 = getelementptr inbounds nuw i32, ptr %7, i64 %3421
-  %3423 = load i32, ptr %3422, align 4, !tbaa !20
-  %3424 = and i32 %79, 16777215
-  %3425 = zext nneg i32 %3424 to i64
-  %3426 = getelementptr inbounds nuw i32, ptr %7, i64 %3425
-  %3427 = load i32, ptr %3426, align 4, !tbaa !20
-  %3428 = and i32 %3423, 16711680
-  %3429 = and i32 %3427, 16711680
-  %3430 = add nsw i32 %3428, -3145729
-  %3431 = sub nsw i32 %3430, %3429
-  %3432 = icmp ult i32 %3431, -6291457
-  br i1 %3432, label %yuv_diff.exit451.i.us, label %3433
+3427:                                             ; preds = %yuv_diff.exit452.i.us
+  %3428 = and i32 %73, 16777215
+  %3429 = zext nneg i32 %3428 to i64
+  %3430 = getelementptr inbounds nuw i32, ptr %7, i64 %3429
+  %3431 = load i32, ptr %3430, align 4, !tbaa !20
+  %3432 = and i32 %79, 16777215
+  %3433 = zext nneg i32 %3432 to i64
+  %3434 = getelementptr inbounds nuw i32, ptr %7, i64 %3433
+  %3435 = load i32, ptr %3434, align 4, !tbaa !20
+  %3436 = and i32 %3431, 16711680
+  %3437 = and i32 %3435, 16711680
+  %3438 = add nsw i32 %3436, -3145729
+  %3439 = sub nsw i32 %3438, %3437
+  %3440 = icmp ult i32 %3439, -6291457
+  br i1 %3440, label %yuv_diff.exit451.i.us, label %3441
 
-3433:                                             ; preds = %3419
-  %3434 = and i32 %3423, 65280
-  %3435 = and i32 %3427, 65280
-  %3436 = add nsw i32 %3434, -1793
-  %3437 = sub nsw i32 %3436, %3435
-  %3438 = icmp ult i32 %3437, -3585
-  br i1 %3438, label %yuv_diff.exit451.i.us, label %3439
+3441:                                             ; preds = %3427
+  %3442 = and i32 %3431, 65280
+  %3443 = and i32 %3435, 65280
+  %3444 = add nsw i32 %3442, -1793
+  %3445 = sub nsw i32 %3444, %3443
+  %3446 = icmp ult i32 %3445, -3585
+  br i1 %3446, label %yuv_diff.exit451.i.us, label %3447
 
-3439:                                             ; preds = %3433
-  %3440 = and i32 %3423, 255
-  %3441 = and i32 %3427, 255
-  %3442 = add nsw i32 %3440, -7
-  %3443 = sub nsw i32 %3442, %3441
-  %3444 = icmp ult i32 %3443, -13
+3447:                                             ; preds = %3441
+  %3448 = and i32 %3431, 255
+  %3449 = and i32 %3435, 255
+  %3450 = add nsw i32 %3448, -7
+  %3451 = sub nsw i32 %3450, %3449
+  %3452 = icmp ult i32 %3451, -13
   br label %yuv_diff.exit451.i.us
 
-yuv_diff.exit451.i.us:                            ; preds = %3439, %3433, %3419, %yuv_diff.exit452.i.us
-  %3445 = phi i1 [ false, %yuv_diff.exit452.i.us ], [ true, %3433 ], [ true, %3419 ], [ %3444, %3439 ]
-  %3446 = and i32 %3330, 27
-  %3447 = icmp eq i32 %3446, 3
-  %3448 = and i32 %3330, 79
-  %3449 = icmp eq i32 %3448, 67
-  %or.cond392.i.us = or i1 %3447, %3449
-  %3450 = and i32 %3330, 139
-  %3451 = icmp eq i32 %3450, 131
-  %or.cond394.i.us = or i1 %3451, %or.cond392.i.us
-  br i1 %or.cond394.i.us, label %3455, label %3452
+yuv_diff.exit451.i.us:                            ; preds = %3447, %3441, %3427, %yuv_diff.exit452.i.us
+  %3453 = phi i1 [ false, %yuv_diff.exit452.i.us ], [ true, %3441 ], [ true, %3427 ], [ %3452, %3447 ]
+  %3454 = and i32 %3338, 27
+  %3455 = icmp eq i32 %3454, 3
+  %3456 = and i32 %3338, 79
+  %3457 = icmp eq i32 %3456, 67
+  %or.cond392.i.us = or i1 %3455, %3457
+  %3458 = and i32 %3338, 139
+  %3459 = icmp eq i32 %3458, 131
+  %or.cond394.i.us = or i1 %3459, %or.cond392.i.us
+  br i1 %or.cond394.i.us, label %3463, label %3460
 
-3452:                                             ; preds = %yuv_diff.exit451.i.us
-  %3453 = and i32 %3330, 107
-  %3454 = icmp eq i32 %3453, 67
-  br label %3455
+3460:                                             ; preds = %yuv_diff.exit451.i.us
+  %3461 = and i32 %3338, 107
+  %3462 = icmp eq i32 %3461, 67
+  br label %3463
 
-3455:                                             ; preds = %3452, %yuv_diff.exit451.i.us
-  %3456 = phi i1 [ true, %yuv_diff.exit451.i.us ], [ %3454, %3452 ]
-  %3457 = and i32 %3330, 75
-  %3458 = icmp eq i32 %3457, 9
-  %3459 = icmp eq i32 %3450, 137
-  %or.cond396.i.us = or i1 %3458, %3459
-  %3460 = and i32 %3330, 31
-  %3461 = icmp eq i32 %3460, 25
-  %or.cond398.i.us = or i1 %3461, %or.cond396.i.us
-  br i1 %or.cond398.i.us, label %3465, label %3462
+3463:                                             ; preds = %3460, %yuv_diff.exit451.i.us
+  %3464 = phi i1 [ true, %yuv_diff.exit451.i.us ], [ %3462, %3460 ]
+  %3465 = and i32 %3338, 75
+  %3466 = icmp eq i32 %3465, 9
+  %3467 = icmp eq i32 %3458, 137
+  %or.cond396.i.us = or i1 %3466, %3467
+  %3468 = and i32 %3338, 31
+  %3469 = icmp eq i32 %3468, 25
+  %or.cond398.i.us = or i1 %3469, %or.cond396.i.us
+  br i1 %or.cond398.i.us, label %3473, label %3470
 
-3462:                                             ; preds = %3455
-  %3463 = and i32 %3330, 59
-  %3464 = icmp eq i32 %3463, 25
-  br label %3465
+3470:                                             ; preds = %3463
+  %3471 = and i32 %3338, 59
+  %3472 = icmp eq i32 %3471, 25
+  br label %3473
 
-3465:                                             ; preds = %3462, %3455
-  %3466 = phi i1 [ true, %3455 ], [ %3464, %3462 ]
-  %3467 = and i32 %3330, 11
-  %3468 = icmp eq i32 %3467, 8
-  br i1 %3468, label %3488, label %3469
+3473:                                             ; preds = %3470, %3463
+  %3474 = phi i1 [ true, %3463 ], [ %3472, %3470 ]
+  %3475 = and i32 %3338, 11
+  %3476 = icmp eq i32 %3475, 8
+  br i1 %3476, label %3496, label %3477
 
-3469:                                             ; preds = %3465
-  %3470 = and i32 %3330, 249
-  %3471 = icmp eq i32 %3470, 104
-  br i1 %3471, label %3488, label %3472
+3477:                                             ; preds = %3473
+  %3478 = and i32 %3338, 249
+  %3479 = icmp eq i32 %3478, 104
+  br i1 %3479, label %3496, label %3480
 
-3472:                                             ; preds = %3469
-  %3473 = and i32 %3330, 243
-  %3474 = icmp eq i32 %3473, 98
-  %3475 = and i32 %3330, 109
-  %3476 = icmp eq i32 %3475, 108
-  %or.cond400.i.us = or i1 %3474, %3476
-  %3477 = and i32 %3330, 103
-  %3478 = icmp eq i32 %3477, 102
-  %or.cond402.i.us = or i1 %3478, %or.cond400.i.us
-  %3479 = and i32 %3330, 61
-  %3480 = icmp eq i32 %3479, 60
-  %or.cond404.i.us = or i1 %3480, %or.cond402.i.us
-  %3481 = and i32 %3330, 55
-  %3482 = icmp eq i32 %3481, 54
-  %or.cond406.i.us = or i1 %3482, %or.cond404.i.us
-  %3483 = icmp eq i32 %3470, 248
-  %or.cond407.i.us = or i1 %3483, %or.cond406.i.us
-  %3484 = icmp eq i32 %3473, 242
-  %or.cond559 = or i1 %or.cond407.i.us, %3484
-  br i1 %or.cond559, label %3488, label %switch.early.test297.us
+3480:                                             ; preds = %3477
+  %3481 = and i32 %3338, 243
+  %3482 = icmp eq i32 %3481, 98
+  %3483 = and i32 %3338, 109
+  %3484 = icmp eq i32 %3483, 108
+  %or.cond400.i.us = or i1 %3482, %3484
+  %3485 = and i32 %3338, 103
+  %3486 = icmp eq i32 %3485, 102
+  %or.cond402.i.us = or i1 %3486, %or.cond400.i.us
+  %3487 = and i32 %3338, 61
+  %3488 = icmp eq i32 %3487, 60
+  %or.cond404.i.us = or i1 %3488, %or.cond402.i.us
+  %3489 = and i32 %3338, 55
+  %3490 = icmp eq i32 %3489, 54
+  %or.cond406.i.us = or i1 %3490, %or.cond404.i.us
+  %3491 = icmp eq i32 %3478, 248
+  %or.cond407.i.us = or i1 %3491, %or.cond406.i.us
+  %3492 = icmp eq i32 %3481, 242
+  %or.cond530 = or i1 %or.cond407.i.us, %3492
+  br i1 %or.cond530, label %3496, label %switch.early.test285.us
 
-switch.early.test297.us:                          ; preds = %3472
-  %3485 = trunc i32 %3330 to i8
-  %trunc423 = and i8 %3485, -35
-  switch i8 %trunc423, label %switch.early.test.i.us [
-    i8 -36, label %3488
-    i8 28, label %3488
+switch.early.test285.us:                          ; preds = %3480
+  %3493 = trunc i32 %3338 to i8
+  %trunc394 = and i8 %3493, -35
+  switch i8 %trunc394, label %switch.early.test.i.us [
+    i8 -36, label %3496
+    i8 28, label %3496
   ]
 
-switch.early.test.i.us:                           ; preds = %switch.early.test297.us
-  %trunc287.us = and i8 %3485, -41
-  switch i8 %trunc287.us, label %3486 [
-    i8 -42, label %3488
-    i8 22, label %3488
+switch.early.test.i.us:                           ; preds = %switch.early.test285.us
+  %trunc275.us = and i8 %3493, -41
+  switch i8 %trunc275.us, label %3494 [
+    i8 -42, label %3496
+    i8 22, label %3496
   ]
 
-3486:                                             ; preds = %switch.early.test.i.us
-  %3487 = icmp eq i32 %3467, 2
-  br label %3488
+3494:                                             ; preds = %switch.early.test.i.us
+  %3495 = icmp eq i32 %3475, 2
+  br label %3496
 
-3488:                                             ; preds = %3486, %switch.early.test.i.us, %switch.early.test.i.us, %switch.early.test297.us, %switch.early.test297.us, %3472, %3469, %3465
-  %3489 = phi i1 [ true, %3472 ], [ true, %3469 ], [ true, %switch.early.test.i.us ], [ true, %3465 ], [ true, %switch.early.test297.us ], [ %3487, %3486 ], [ true, %switch.early.test.i.us ], [ true, %switch.early.test297.us ]
-  %3490 = and i32 %3330, 15
-  %3491 = icmp eq i32 %3490, 11
-  %3492 = and i32 %3330, 43
-  %3493 = icmp eq i32 %3492, 11
-  %or.cond412.i.us = or i1 %3491, %3493
-  br i1 %or.cond412.i.us, label %3496, label %3494
+3496:                                             ; preds = %3494, %switch.early.test.i.us, %switch.early.test.i.us, %switch.early.test285.us, %switch.early.test285.us, %3480, %3477, %3473
+  %3497 = phi i1 [ true, %3480 ], [ true, %3477 ], [ true, %switch.early.test.i.us ], [ true, %3473 ], [ true, %switch.early.test285.us ], [ %3495, %3494 ], [ true, %switch.early.test.i.us ], [ true, %switch.early.test285.us ]
+  %3498 = and i32 %3338, 15
+  %3499 = icmp eq i32 %3498, 11
+  %3500 = and i32 %3338, 43
+  %3501 = icmp eq i32 %3500, 11
+  %or.cond412.i.us = or i1 %3499, %3501
+  br i1 %or.cond412.i.us, label %3504, label %3502
 
-3494:                                             ; preds = %3488
-  %3495 = trunc i32 %3330 to i8
-  %trunc288.us = and i8 %3495, -2
-  switch i8 %trunc288.us, label %yuv_diff.exit450.i.us [
-    i8 74, label %3496
-    i8 26, label %3496
+3502:                                             ; preds = %3496
+  %3503 = trunc i32 %3338 to i8
+  %trunc276.us = and i8 %3503, -2
+  switch i8 %trunc276.us, label %yuv_diff.exit450.i.us [
+    i8 74, label %3504
+    i8 26, label %3504
   ]
 
-3496:                                             ; preds = %3494, %3494, %3488
-  %3497 = and i32 %73, 16777215
-  %3498 = zext nneg i32 %3497 to i64
-  %3499 = getelementptr inbounds nuw i32, ptr %7, i64 %3498
-  %3500 = load i32, ptr %3499, align 4, !tbaa !20
-  %3501 = and i32 %79, 16777215
-  %3502 = zext nneg i32 %3501 to i64
-  %3503 = getelementptr inbounds nuw i32, ptr %7, i64 %3502
-  %3504 = load i32, ptr %3503, align 4, !tbaa !20
-  %3505 = and i32 %3500, 16711680
-  %3506 = and i32 %3504, 16711680
-  %3507 = add nsw i32 %3505, -3145729
-  %3508 = sub nsw i32 %3507, %3506
-  %3509 = icmp ult i32 %3508, -6291457
-  br i1 %3509, label %yuv_diff.exit450.i.us, label %3510
+3504:                                             ; preds = %3502, %3502, %3496
+  %3505 = and i32 %73, 16777215
+  %3506 = zext nneg i32 %3505 to i64
+  %3507 = getelementptr inbounds nuw i32, ptr %7, i64 %3506
+  %3508 = load i32, ptr %3507, align 4, !tbaa !20
+  %3509 = and i32 %79, 16777215
+  %3510 = zext nneg i32 %3509 to i64
+  %3511 = getelementptr inbounds nuw i32, ptr %7, i64 %3510
+  %3512 = load i32, ptr %3511, align 4, !tbaa !20
+  %3513 = and i32 %3508, 16711680
+  %3514 = and i32 %3512, 16711680
+  %3515 = add nsw i32 %3513, -3145729
+  %3516 = sub nsw i32 %3515, %3514
+  %3517 = icmp ult i32 %3516, -6291457
+  br i1 %3517, label %yuv_diff.exit450.i.us, label %3518
 
-3510:                                             ; preds = %3496
-  %3511 = and i32 %3500, 65280
-  %3512 = and i32 %3504, 65280
-  %3513 = add nsw i32 %3511, -1793
-  %3514 = sub nsw i32 %3513, %3512
-  %3515 = icmp ult i32 %3514, -3585
-  br i1 %3515, label %yuv_diff.exit450.i.us, label %3516
+3518:                                             ; preds = %3504
+  %3519 = and i32 %3508, 65280
+  %3520 = and i32 %3512, 65280
+  %3521 = add nsw i32 %3519, -1793
+  %3522 = sub nsw i32 %3521, %3520
+  %3523 = icmp ult i32 %3522, -3585
+  br i1 %3523, label %yuv_diff.exit450.i.us, label %3524
 
-3516:                                             ; preds = %3510
-  %3517 = and i32 %3500, 255
-  %3518 = and i32 %3504, 255
-  %3519 = add nsw i32 %3517, -7
-  %3520 = sub nsw i32 %3519, %3518
-  %3521 = icmp ult i32 %3520, -13
+3524:                                             ; preds = %3518
+  %3525 = and i32 %3508, 255
+  %3526 = and i32 %3512, 255
+  %3527 = add nsw i32 %3525, -7
+  %3528 = sub nsw i32 %3527, %3526
+  %3529 = icmp ult i32 %3528, -13
   br label %yuv_diff.exit450.i.us
 
-yuv_diff.exit450.i.us:                            ; preds = %3516, %3510, %3496, %3494
-  %3522 = phi i1 [ false, %3494 ], [ true, %3510 ], [ true, %3496 ], [ %3521, %3516 ]
-  %3523 = and i32 %3330, 47
-  %3524 = icmp eq i32 %3523, 47
-  %3525 = and i32 %3330, 10
-  %3526 = icmp eq i32 %3525, 0
-  %3527 = icmp eq i32 %3467, 9
-  %3528 = and i32 %3330, 126
-  %3529 = icmp eq i32 %3528, 42
-  %3530 = icmp eq i32 %3366, 171
-  %3531 = or i1 %3529, %3530
-  %3532 = icmp eq i32 %3334, 143
-  %3533 = icmp eq i32 %3528, 14
-  %3534 = or i1 %3532, %3533
-  %3535 = icmp eq i32 %3448, 75
-  %3536 = icmp eq i32 %3402, 27
-  %or.cond414.i.us = or i1 %3535, %3536
-  %3537 = icmp eq i32 %3523, 11
-  %or.cond415.i.us = or i1 %3537, %or.cond414.i.us
-  %3538 = and i32 %3330, 190
-  %3539 = icmp eq i32 %3538, 10
-  %3540 = and i32 %3330, 238
-  %3541 = icmp eq i32 %3540, 10
-  %3542 = icmp eq i32 %3528, 10
-  %3543 = or i1 %3542, %or.cond415.i.us
-  %3544 = icmp eq i32 %3417, 75
-  %3545 = or i1 %3544, %3543
-  %3546 = or i1 %3539, %3545
-  %or.cond422.i.us = or i1 %3541, %3546
-  br i1 %or.cond422.i.us, label %3550, label %3547
+yuv_diff.exit450.i.us:                            ; preds = %3524, %3518, %3504, %3502
+  %3530 = phi i1 [ false, %3502 ], [ true, %3518 ], [ true, %3504 ], [ %3529, %3524 ]
+  %3531 = and i32 %3338, 47
+  %3532 = icmp eq i32 %3531, 47
+  %3533 = and i32 %3338, 10
+  %3534 = icmp eq i32 %3533, 0
+  %3535 = icmp eq i32 %3475, 9
+  %3536 = and i32 %3338, 126
+  %3537 = icmp eq i32 %3536, 42
+  %3538 = icmp eq i32 %3374, 171
+  %3539 = or i1 %3537, %3538
+  %3540 = icmp eq i32 %3342, 143
+  %3541 = icmp eq i32 %3536, 14
+  %3542 = or i1 %3540, %3541
+  %3543 = icmp eq i32 %3456, 75
+  %3544 = icmp eq i32 %3410, 27
+  %or.cond414.i.us = or i1 %3543, %3544
+  %3545 = icmp eq i32 %3531, 11
+  %or.cond415.i.us = or i1 %3545, %or.cond414.i.us
+  %3546 = and i32 %3338, 190
+  %3547 = icmp eq i32 %3546, 10
+  %3548 = and i32 %3338, 238
+  %3549 = icmp eq i32 %3548, 10
+  %3550 = icmp eq i32 %3536, 10
+  %3551 = or i1 %3550, %or.cond415.i.us
+  %3552 = icmp eq i32 %3425, 75
+  %3553 = or i1 %3552, %3551
+  %3554 = or i1 %3547, %3553
+  %or.cond422.i.us = or i1 %3549, %3554
+  br i1 %or.cond422.i.us, label %3558, label %3555
 
-3547:                                             ; preds = %yuv_diff.exit450.i.us
-  %3548 = and i32 %3330, 59
-  %3549 = icmp eq i32 %3548, 27
-  br label %3550
+3555:                                             ; preds = %yuv_diff.exit450.i.us
+  %3556 = and i32 %3338, 59
+  %3557 = icmp eq i32 %3556, 27
+  br label %3558
 
-3550:                                             ; preds = %3547, %yuv_diff.exit450.i.us
-  %3551 = phi i1 [ true, %yuv_diff.exit450.i.us ], [ %3549, %3547 ]
-  %3552 = icmp eq i32 %3467, 3
-  br i1 %3364, label %3959, label %3553
+3558:                                             ; preds = %3555, %yuv_diff.exit450.i.us
+  %3559 = phi i1 [ true, %yuv_diff.exit450.i.us ], [ %3557, %3555 ]
+  %3560 = icmp eq i32 %3475, 3
+  br i1 %3372, label %3967, label %3561
 
-3553:                                             ; preds = %3550
-  br i1 %3394, label %.thread255.us, label %3554
+3561:                                             ; preds = %3558
+  br i1 %3402, label %.thread255.us, label %3562
 
-3554:                                             ; preds = %3553
-  %3555 = icmp eq i32 %3467, 11
-  br i1 %3555, label %3558, label %3556
+3562:                                             ; preds = %3561
+  %3563 = icmp eq i32 %3475, 11
+  br i1 %3563, label %3566, label %3564
 
-3556:                                             ; preds = %3554
-  %3557 = trunc i32 %3330 to i8
-  %trunc289.us = and i8 %3557, -2
-  switch i8 %trunc289.us, label %3583 [
-    i8 74, label %3558
-    i8 26, label %3558
+3564:                                             ; preds = %3562
+  %3565 = trunc i32 %3338 to i8
+  %trunc277.us = and i8 %3565, -2
+  switch i8 %trunc277.us, label %3591 [
+    i8 74, label %3566
+    i8 26, label %3566
   ]
 
-3558:                                             ; preds = %3556, %3556, %3554
-  %3559 = and i32 %73, 16777215
-  %3560 = zext nneg i32 %3559 to i64
-  %3561 = getelementptr inbounds nuw i32, ptr %7, i64 %3560
-  %3562 = load i32, ptr %3561, align 4, !tbaa !20
-  %3563 = and i32 %79, 16777215
-  %3564 = zext nneg i32 %3563 to i64
-  %3565 = getelementptr inbounds nuw i32, ptr %7, i64 %3564
-  %3566 = load i32, ptr %3565, align 4, !tbaa !20
-  %3567 = and i32 %3562, 16711680
-  %3568 = and i32 %3566, 16711680
-  %3569 = add nsw i32 %3567, -3145729
-  %3570 = sub nsw i32 %3569, %3568
-  %3571 = icmp ult i32 %3570, -6291457
-  br i1 %3571, label %yuv_diff.exit449.i.thread.us, label %3572
+3566:                                             ; preds = %3564, %3564, %3562
+  %3567 = and i32 %73, 16777215
+  %3568 = zext nneg i32 %3567 to i64
+  %3569 = getelementptr inbounds nuw i32, ptr %7, i64 %3568
+  %3570 = load i32, ptr %3569, align 4, !tbaa !20
+  %3571 = and i32 %79, 16777215
+  %3572 = zext nneg i32 %3571 to i64
+  %3573 = getelementptr inbounds nuw i32, ptr %7, i64 %3572
+  %3574 = load i32, ptr %3573, align 4, !tbaa !20
+  %3575 = and i32 %3570, 16711680
+  %3576 = and i32 %3574, 16711680
+  %3577 = add nsw i32 %3575, -3145729
+  %3578 = sub nsw i32 %3577, %3576
+  %3579 = icmp ult i32 %3578, -6291457
+  br i1 %3579, label %yuv_diff.exit449.i.thread.us, label %3580
 
-3572:                                             ; preds = %3558
-  %3573 = and i32 %3562, 65280
-  %3574 = and i32 %3566, 65280
-  %3575 = add nsw i32 %3573, -1793
-  %3576 = sub nsw i32 %3575, %3574
-  %3577 = icmp ult i32 %3576, -3585
-  br i1 %3577, label %yuv_diff.exit449.i.thread.us, label %yuv_diff.exit449.i.us
+3580:                                             ; preds = %3566
+  %3581 = and i32 %3570, 65280
+  %3582 = and i32 %3574, 65280
+  %3583 = add nsw i32 %3581, -1793
+  %3584 = sub nsw i32 %3583, %3582
+  %3585 = icmp ult i32 %3584, -3585
+  br i1 %3585, label %yuv_diff.exit449.i.thread.us, label %yuv_diff.exit449.i.us
 
-yuv_diff.exit449.i.us:                            ; preds = %3572
-  %3578 = and i32 %3562, 255
-  %3579 = and i32 %3566, 255
-  %3580 = add nuw nsw i32 %3578, 6
-  %3581 = sub nsw i32 %3580, %3579
-  %3582 = icmp ult i32 %3581, 13
-  br i1 %3582, label %3583, label %yuv_diff.exit449.i.thread.us
+yuv_diff.exit449.i.us:                            ; preds = %3580
+  %3586 = and i32 %3570, 255
+  %3587 = and i32 %3574, 255
+  %3588 = add nuw nsw i32 %3586, 6
+  %3589 = sub nsw i32 %3588, %3587
+  %3590 = icmp ult i32 %3589, 13
+  br i1 %3590, label %3591, label %yuv_diff.exit449.i.thread.us
 
-3583:                                             ; preds = %yuv_diff.exit449.i.us, %3556
-  br i1 %3445, label %.thread244.us, label %3584
+3591:                                             ; preds = %yuv_diff.exit449.i.us, %3564
+  br i1 %3453, label %.thread244.us, label %3592
 
-3584:                                             ; preds = %3583
-  br i1 %or.cond367.i.us, label %3701, label %3585
+3592:                                             ; preds = %3591
+  br i1 %or.cond367.i.us, label %3709, label %3593
 
-3585:                                             ; preds = %3584
-  br i1 %or.cond.i.us, label %3685, label %3586
+3593:                                             ; preds = %3592
+  br i1 %or.cond.i.us, label %3693, label %3594
 
-3586:                                             ; preds = %3585
-  br i1 %3456, label %3667, label %3587
+3594:                                             ; preds = %3593
+  br i1 %3464, label %3675, label %3595
 
-3587:                                             ; preds = %3586
-  br i1 %3466, label %3649, label %3588
+3595:                                             ; preds = %3594
+  br i1 %3474, label %3657, label %3596
 
-3588:                                             ; preds = %3587
-  %3589 = and i32 %3330, 94
-  %3590 = icmp eq i32 %3589, 10
-  %3591 = and i32 %3330, 122
-  %3592 = icmp eq i32 %3591, 10
-  %3593 = or i1 %3590, %3592
-  %3594 = or i1 %3491, %3593
-  %3595 = or i1 %3493, %3594
-  %or.cond430.i.us = or i1 %3539, %3595
-  %or.cond432.i.us = or i1 %3541, %or.cond430.i.us
-  br i1 %or.cond432.i.us, label %3635, label %3596
+3596:                                             ; preds = %3595
+  %3597 = and i32 %3338, 94
+  %3598 = icmp eq i32 %3597, 10
+  %3599 = and i32 %3338, 122
+  %3600 = icmp eq i32 %3599, 10
+  %3601 = or i1 %3598, %3600
+  %3602 = or i1 %3499, %3601
+  %3603 = or i1 %3501, %3602
+  %or.cond430.i.us = or i1 %3547, %3603
+  %or.cond432.i.us = or i1 %3549, %or.cond430.i.us
+  br i1 %or.cond432.i.us, label %3643, label %3604
 
-3596:                                             ; preds = %3588
-  br i1 %3489, label %3617, label %3597
+3604:                                             ; preds = %3596
+  br i1 %3497, label %3625, label %3605
 
-3597:                                             ; preds = %3596
-  %3598 = lshr i32 %70, 7
-  %3599 = and i32 %3598, 33423870
-  %3600 = lshr i32 %79, 8
-  %3601 = and i32 %3600, 16711935
-  %3602 = lshr i32 %73, 8
-  %3603 = and i32 %3602, 16711935
-  %3604 = add nuw nsw i32 %3603, %3599
-  %3605 = add nuw nsw i32 %3604, %3601
-  %3606 = shl nuw i32 %3605, 6
-  %3607 = and i32 %3606, -16711936
-  %3608 = shl i32 %70, 1
-  %3609 = and i32 %3608, 33423870
-  %3610 = and i32 %79, 16711935
-  %3611 = and i32 %73, 16711935
-  %3612 = add nuw nsw i32 %3611, %3609
-  %3613 = add nuw nsw i32 %3612, %3610
-  %3614 = lshr i32 %3613, 2
-  %3615 = and i32 %3614, 16711935
-  %3616 = or disjoint i32 %3607, %3615
+3605:                                             ; preds = %3604
+  %3606 = lshr i32 %70, 7
+  %3607 = and i32 %3606, 33423870
+  %3608 = lshr i32 %79, 8
+  %3609 = and i32 %3608, 16711935
+  %3610 = lshr i32 %73, 8
+  %3611 = and i32 %3610, 16711935
+  %3612 = add nuw nsw i32 %3611, %3607
+  %3613 = add nuw nsw i32 %3612, %3609
+  %3614 = shl nuw i32 %3613, 6
+  %3615 = and i32 %3614, -16711936
+  %3616 = shl i32 %70, 1
+  %3617 = and i32 %3616, 33423870
+  %3618 = and i32 %79, 16711935
+  %3619 = and i32 %73, 16711935
+  %3620 = add nuw nsw i32 %3619, %3617
+  %3621 = add nuw nsw i32 %3620, %3618
+  %3622 = lshr i32 %3621, 2
+  %3623 = and i32 %3622, 16711935
+  %3624 = or disjoint i32 %3615, %3623
   br label %yuv_diff.exit449.i.thread.us
 
-3617:                                             ; preds = %3596
-  %3618 = lshr i32 %70, 8
-  %3619 = and i32 %3618, 16711935
-  %3620 = mul nuw nsw i32 %3619, 5
-  %3621 = lshr i32 %83, 8
-  %3622 = and i32 %3621, 16711935
-  %3623 = mul nuw nsw i32 %3622, 3
-  %3624 = add nuw nsw i32 %3623, %3620
-  %3625 = shl nuw i32 %3624, 5
-  %3626 = and i32 %3625, -16711936
-  %3627 = and i32 %70, 16711935
+3625:                                             ; preds = %3604
+  %3626 = lshr i32 %70, 8
+  %3627 = and i32 %3626, 16711935
   %3628 = mul nuw nsw i32 %3627, 5
-  %3629 = and i32 %83, 16711935
-  %3630 = mul nuw nsw i32 %3629, 3
-  %3631 = add nuw nsw i32 %3630, %3628
-  %3632 = lshr i32 %3631, 3
-  %3633 = and i32 %3632, 16711935
-  %3634 = or disjoint i32 %3626, %3633
+  %3629 = lshr i32 %83, 8
+  %3630 = and i32 %3629, 16711935
+  %3631 = mul nuw nsw i32 %3630, 3
+  %3632 = add nuw nsw i32 %3631, %3628
+  %3633 = shl nuw i32 %3632, 5
+  %3634 = and i32 %3633, -16711936
+  %3635 = and i32 %70, 16711935
+  %3636 = mul nuw nsw i32 %3635, 5
+  %3637 = and i32 %83, 16711935
+  %3638 = mul nuw nsw i32 %3637, 3
+  %3639 = add nuw nsw i32 %3638, %3636
+  %3640 = lshr i32 %3639, 3
+  %3641 = and i32 %3640, 16711935
+  %3642 = or disjoint i32 %3634, %3641
   br label %yuv_diff.exit449.i.thread.us
 
-3635:                                             ; preds = %3588
-  %3636 = lshr i32 %79, 8
-  %3637 = and i32 %3636, 16711935
-  %3638 = lshr i32 %73, 8
-  %3639 = and i32 %3638, 16711935
-  %3640 = add nuw nsw i32 %3637, %3639
-  %3641 = shl nuw i32 %3640, 7
-  %3642 = and i32 %3641, -16711936
-  %3643 = and i32 %79, 16711935
-  %3644 = and i32 %73, 16711935
-  %3645 = add nuw nsw i32 %3643, %3644
-  %3646 = lshr i32 %3645, 1
+3643:                                             ; preds = %3596
+  %3644 = lshr i32 %79, 8
+  %3645 = and i32 %3644, 16711935
+  %3646 = lshr i32 %73, 8
   %3647 = and i32 %3646, 16711935
-  %3648 = or disjoint i32 %3642, %3647
+  %3648 = add nuw nsw i32 %3645, %3647
+  %3649 = shl nuw i32 %3648, 7
+  %3650 = and i32 %3649, -16711936
+  %3651 = and i32 %79, 16711935
+  %3652 = and i32 %73, 16711935
+  %3653 = add nuw nsw i32 %3651, %3652
+  %3654 = lshr i32 %3653, 1
+  %3655 = and i32 %3654, 16711935
+  %3656 = or disjoint i32 %3650, %3655
   br label %yuv_diff.exit449.i.thread.us
 
-3649:                                             ; preds = %3587
-  %3650 = lshr i32 %70, 8
-  %3651 = and i32 %3650, 16711935
-  %3652 = mul nuw nsw i32 %3651, 5
-  %3653 = lshr i32 %79, 8
-  %3654 = and i32 %3653, 16711935
-  %3655 = mul nuw nsw i32 %3654, 3
-  %3656 = add nuw nsw i32 %3655, %3652
-  %3657 = shl nuw i32 %3656, 5
-  %3658 = and i32 %3657, -16711936
-  %3659 = and i32 %70, 16711935
+3657:                                             ; preds = %3595
+  %3658 = lshr i32 %70, 8
+  %3659 = and i32 %3658, 16711935
   %3660 = mul nuw nsw i32 %3659, 5
-  %3661 = and i32 %79, 16711935
-  %3662 = mul nuw nsw i32 %3661, 3
-  %3663 = add nuw nsw i32 %3662, %3660
-  %3664 = lshr i32 %3663, 3
-  %3665 = and i32 %3664, 16711935
-  %3666 = or disjoint i32 %3658, %3665
+  %3661 = lshr i32 %79, 8
+  %3662 = and i32 %3661, 16711935
+  %3663 = mul nuw nsw i32 %3662, 3
+  %3664 = add nuw nsw i32 %3663, %3660
+  %3665 = shl nuw i32 %3664, 5
+  %3666 = and i32 %3665, -16711936
+  %3667 = and i32 %70, 16711935
+  %3668 = mul nuw nsw i32 %3667, 5
+  %3669 = and i32 %79, 16711935
+  %3670 = mul nuw nsw i32 %3669, 3
+  %3671 = add nuw nsw i32 %3670, %3668
+  %3672 = lshr i32 %3671, 3
+  %3673 = and i32 %3672, 16711935
+  %3674 = or disjoint i32 %3666, %3673
   br label %yuv_diff.exit449.i.thread.us
 
-3667:                                             ; preds = %3586
-  %3668 = lshr i32 %70, 8
-  %3669 = and i32 %3668, 16711935
-  %3670 = mul nuw nsw i32 %3669, 5
-  %3671 = lshr i32 %73, 8
-  %3672 = and i32 %3671, 16711935
-  %3673 = mul nuw nsw i32 %3672, 3
-  %3674 = add nuw nsw i32 %3673, %3670
-  %3675 = shl nuw i32 %3674, 5
-  %3676 = and i32 %3675, -16711936
-  %3677 = and i32 %70, 16711935
+3675:                                             ; preds = %3594
+  %3676 = lshr i32 %70, 8
+  %3677 = and i32 %3676, 16711935
   %3678 = mul nuw nsw i32 %3677, 5
-  %3679 = and i32 %73, 16711935
-  %3680 = mul nuw nsw i32 %3679, 3
-  %3681 = add nuw nsw i32 %3680, %3678
-  %3682 = lshr i32 %3681, 3
-  %3683 = and i32 %3682, 16711935
-  %3684 = or disjoint i32 %3676, %3683
-  br label %yuv_diff.exit449.i.thread.us
-
-3685:                                             ; preds = %3585
-  %3686 = lshr i32 %70, 8
-  %3687 = and i32 %3686, 16711935
+  %3679 = lshr i32 %73, 8
+  %3680 = and i32 %3679, 16711935
+  %3681 = mul nuw nsw i32 %3680, 3
+  %3682 = add nuw nsw i32 %3681, %3678
+  %3683 = shl nuw i32 %3682, 5
+  %3684 = and i32 %3683, -16711936
+  %3685 = and i32 %70, 16711935
+  %3686 = mul nuw nsw i32 %3685, 5
+  %3687 = and i32 %73, 16711935
   %3688 = mul nuw nsw i32 %3687, 3
-  %3689 = lshr i32 %79, 8
-  %3690 = and i32 %3689, 16711935
-  %3691 = add nuw nsw i32 %3690, %3688
-  %3692 = shl nuw i32 %3691, 6
-  %3693 = and i32 %3692, -16711936
-  %3694 = and i32 %70, 16711935
-  %3695 = mul nuw nsw i32 %3694, 3
-  %3696 = and i32 %79, 16711935
-  %3697 = add nuw nsw i32 %3696, %3695
-  %3698 = lshr i32 %3697, 2
-  %3699 = and i32 %3698, 16711935
-  %3700 = or disjoint i32 %3693, %3699
+  %3689 = add nuw nsw i32 %3688, %3686
+  %3690 = lshr i32 %3689, 3
+  %3691 = and i32 %3690, 16711935
+  %3692 = or disjoint i32 %3684, %3691
   br label %yuv_diff.exit449.i.thread.us
 
-3701:                                             ; preds = %3584
-  %3702 = lshr i32 %70, 8
-  %3703 = and i32 %3702, 16711935
-  %3704 = mul nuw nsw i32 %3703, 3
-  %3705 = lshr i32 %73, 8
-  %3706 = and i32 %3705, 16711935
-  %3707 = add nuw nsw i32 %3704, %3706
-  %3708 = shl nuw i32 %3707, 6
-  %3709 = and i32 %3708, -16711936
-  %3710 = and i32 %70, 16711935
-  %3711 = mul nuw nsw i32 %3710, 3
-  %3712 = and i32 %73, 16711935
-  %3713 = add nuw nsw i32 %3711, %3712
-  %3714 = lshr i32 %3713, 2
-  %3715 = and i32 %3714, 16711935
-  %3716 = or disjoint i32 %3709, %3715
+3693:                                             ; preds = %3593
+  %3694 = lshr i32 %70, 8
+  %3695 = and i32 %3694, 16711935
+  %3696 = mul nuw nsw i32 %3695, 3
+  %3697 = lshr i32 %79, 8
+  %3698 = and i32 %3697, 16711935
+  %3699 = add nuw nsw i32 %3698, %3696
+  %3700 = shl nuw i32 %3699, 6
+  %3701 = and i32 %3700, -16711936
+  %3702 = and i32 %70, 16711935
+  %3703 = mul nuw nsw i32 %3702, 3
+  %3704 = and i32 %79, 16711935
+  %3705 = add nuw nsw i32 %3704, %3703
+  %3706 = lshr i32 %3705, 2
+  %3707 = and i32 %3706, 16711935
+  %3708 = or disjoint i32 %3701, %3707
   br label %yuv_diff.exit449.i.thread.us
 
-.thread244.us:                                    ; preds = %3583
-  %3717 = lshr i32 %70, 8
-  %3718 = and i32 %3717, 16711935
-  %3719 = mul nuw nsw i32 %3718, 5
-  %3720 = lshr i32 %83, 8
-  %3721 = and i32 %3720, 16711935
-  %3722 = mul nuw nsw i32 %3721, 3
-  %3723 = add nuw nsw i32 %3722, %3719
-  %3724 = shl nuw i32 %3723, 5
-  %3725 = and i32 %3724, -16711936
-  %3726 = and i32 %70, 16711935
+3709:                                             ; preds = %3592
+  %3710 = lshr i32 %70, 8
+  %3711 = and i32 %3710, 16711935
+  %3712 = mul nuw nsw i32 %3711, 3
+  %3713 = lshr i32 %73, 8
+  %3714 = and i32 %3713, 16711935
+  %3715 = add nuw nsw i32 %3712, %3714
+  %3716 = shl nuw i32 %3715, 6
+  %3717 = and i32 %3716, -16711936
+  %3718 = and i32 %70, 16711935
+  %3719 = mul nuw nsw i32 %3718, 3
+  %3720 = and i32 %73, 16711935
+  %3721 = add nuw nsw i32 %3719, %3720
+  %3722 = lshr i32 %3721, 2
+  %3723 = and i32 %3722, 16711935
+  %3724 = or disjoint i32 %3717, %3723
+  br label %yuv_diff.exit449.i.thread.us
+
+.thread244.us:                                    ; preds = %3591
+  %3725 = lshr i32 %70, 8
+  %3726 = and i32 %3725, 16711935
   %3727 = mul nuw nsw i32 %3726, 5
-  %3728 = and i32 %83, 16711935
-  %3729 = mul nuw nsw i32 %3728, 3
-  %3730 = add nuw nsw i32 %3729, %3727
-  %3731 = lshr i32 %3730, 3
-  %3732 = and i32 %3731, 16711935
-  %3733 = or disjoint i32 %3725, %3732
-  store i32 %3733, ptr %3331, align 4, !tbaa !20
-  br i1 %3522, label %.thread247.us.sink.split, label %.thread245.us
+  %3728 = lshr i32 %83, 8
+  %3729 = and i32 %3728, 16711935
+  %3730 = mul nuw nsw i32 %3729, 3
+  %3731 = add nuw nsw i32 %3730, %3727
+  %3732 = shl nuw i32 %3731, 5
+  %3733 = and i32 %3732, -16711936
+  %3734 = and i32 %70, 16711935
+  %3735 = mul nuw nsw i32 %3734, 5
+  %3736 = and i32 %83, 16711935
+  %3737 = mul nuw nsw i32 %3736, 3
+  %3738 = add nuw nsw i32 %3737, %3735
+  %3739 = lshr i32 %3738, 3
+  %3740 = and i32 %3739, 16711935
+  %3741 = or disjoint i32 %3733, %3740
+  store i32 %3741, ptr %3339, align 4, !tbaa !20
+  br i1 %3530, label %.thread247.us.sink.split, label %.thread245.us
 
-yuv_diff.exit449.i.thread.us:                     ; preds = %3558, %3572, %yuv_diff.exit449.i.us, %3701, %3685, %3667, %3649, %3635, %3617, %3597
-  %.sink560 = phi i32 [ %3616, %3597 ], [ %3716, %3701 ], [ %3700, %3685 ], [ %3684, %3667 ], [ %3666, %3649 ], [ %3648, %3635 ], [ %3634, %3617 ], [ %70, %yuv_diff.exit449.i.us ], [ %70, %3572 ], [ %70, %3558 ]
-  store i32 %.sink560, ptr %3331, align 4, !tbaa !20
-  br i1 %3522, label %.thread247.us.sink.split, label %3751
+yuv_diff.exit449.i.thread.us:                     ; preds = %3566, %3580, %yuv_diff.exit449.i.us, %3709, %3693, %3675, %3657, %3643, %3625, %3605
+  %.sink531 = phi i32 [ %3624, %3605 ], [ %3724, %3709 ], [ %3708, %3693 ], [ %3692, %3675 ], [ %3674, %3657 ], [ %3656, %3643 ], [ %3642, %3625 ], [ %70, %yuv_diff.exit449.i.us ], [ %70, %3580 ], [ %70, %3566 ]
+  store i32 %.sink531, ptr %3339, align 4, !tbaa !20
+  br i1 %3530, label %.thread247.us.sink.split, label %3759
 
-.thread255.us:                                    ; preds = %3553
-  %3734 = lshr i32 %70, 8
-  %3735 = and i32 %3734, 16711935
-  %3736 = mul nuw nsw i32 %3735, 5
-  %3737 = lshr i32 %79, 8
-  %3738 = and i32 %3737, 16711935
-  %3739 = mul nuw nsw i32 %3738, 3
-  %3740 = add nuw nsw i32 %3739, %3736
-  %3741 = shl nuw i32 %3740, 5
-  %3742 = and i32 %3741, -16711936
-  %3743 = and i32 %70, 16711935
+.thread255.us:                                    ; preds = %3561
+  %3742 = lshr i32 %70, 8
+  %3743 = and i32 %3742, 16711935
   %3744 = mul nuw nsw i32 %3743, 5
-  %3745 = and i32 %79, 16711935
-  %3746 = mul nuw nsw i32 %3745, 3
-  %3747 = add nuw nsw i32 %3746, %3744
-  %3748 = lshr i32 %3747, 3
-  %3749 = and i32 %3748, 16711935
-  %3750 = or disjoint i32 %3742, %3749
-  store i32 %3750, ptr %3331, align 4, !tbaa !20
-  br i1 %3522, label %.thread246.thread256.us, label %3751
+  %3745 = lshr i32 %79, 8
+  %3746 = and i32 %3745, 16711935
+  %3747 = mul nuw nsw i32 %3746, 3
+  %3748 = add nuw nsw i32 %3747, %3744
+  %3749 = shl nuw i32 %3748, 5
+  %3750 = and i32 %3749, -16711936
+  %3751 = and i32 %70, 16711935
+  %3752 = mul nuw nsw i32 %3751, 5
+  %3753 = and i32 %79, 16711935
+  %3754 = mul nuw nsw i32 %3753, 3
+  %3755 = add nuw nsw i32 %3754, %3752
+  %3756 = lshr i32 %3755, 3
+  %3757 = and i32 %3756, 16711935
+  %3758 = or disjoint i32 %3750, %3757
+  store i32 %3758, ptr %3339, align 4, !tbaa !20
+  br i1 %3530, label %.thread246.thread256.us, label %3759
 
-3751:                                             ; preds = %.thread255.us, %yuv_diff.exit449.i.thread.us
-  br i1 %3445, label %..thread245.us_crit_edge, label %3752
+3759:                                             ; preds = %.thread255.us, %yuv_diff.exit449.i.thread.us
+  br i1 %3453, label %..thread245.us_crit_edge, label %3760
 
-..thread245.us_crit_edge:                         ; preds = %3751
-  %.pre475 = lshr i32 %70, 8
-  %.pre477 = and i32 %.pre475, 16711935
-  %.pre479 = lshr i32 %83, 8
-  %.pre481 = and i32 %.pre479, 16711935
-  %.pre483 = and i32 %70, 16711935
-  %.pre485 = and i32 %83, 16711935
+..thread245.us_crit_edge:                         ; preds = %3759
+  %.pre446 = lshr i32 %70, 8
+  %.pre448 = and i32 %.pre446, 16711935
+  %.pre450 = lshr i32 %83, 8
+  %.pre452 = and i32 %.pre450, 16711935
+  %.pre454 = and i32 %70, 16711935
+  %.pre456 = and i32 %83, 16711935
   br label %.thread245.us
 
-3752:                                             ; preds = %3751
-  br i1 %3524, label %3986, label %3753
-
-3753:                                             ; preds = %3752
-  br i1 %3526, label %3928, label %3754
-
-3754:                                             ; preds = %3753
-  br i1 %3468, label %3906, label %3755
-
-3755:                                             ; preds = %3754
-  br i1 %3527, label %3888, label %3756
-
-3756:                                             ; preds = %3755
-  br i1 %or.cond.i.us, label %3872, label %3757
-
-3757:                                             ; preds = %3756
-  br i1 %3531, label %3852, label %3758
-
-3758:                                             ; preds = %3757
-  br i1 %3534, label %3834, label %3759
-
-3759:                                             ; preds = %3758
-  br i1 %3456, label %3818, label %3760
-
 3760:                                             ; preds = %3759
-  %3761 = and i32 %3330, 243
-  %3762 = icmp eq i32 %3761, 98
-  %3763 = and i32 %3330, 103
-  %3764 = icmp eq i32 %3763, 102
-  %or.cond434.i.us = or i1 %3762, %3764
-  %3765 = and i32 %3330, 55
-  %3766 = icmp eq i32 %3765, 54
-  %or.cond436.i.us = or i1 %3766, %or.cond434.i.us
-  %3767 = icmp eq i32 %3761, 242
-  %or.cond437.i.us = or i1 %3767, %or.cond436.i.us
-  br i1 %or.cond437.i.us, label %3802, label %3768
+  br i1 %3532, label %3994, label %3761
 
-3768:                                             ; preds = %3760
-  %3769 = trunc i32 %3330 to i8
-  %trunc290.us = and i8 %3769, -41
-  switch i8 %trunc290.us, label %3770 [
-    i8 -42, label %3802
-    i8 22, label %3802
+3761:                                             ; preds = %3760
+  br i1 %3534, label %3936, label %3762
+
+3762:                                             ; preds = %3761
+  br i1 %3476, label %3914, label %3763
+
+3763:                                             ; preds = %3762
+  br i1 %3535, label %3896, label %3764
+
+3764:                                             ; preds = %3763
+  br i1 %or.cond.i.us, label %3880, label %3765
+
+3765:                                             ; preds = %3764
+  br i1 %3539, label %3860, label %3766
+
+3766:                                             ; preds = %3765
+  br i1 %3542, label %3842, label %3767
+
+3767:                                             ; preds = %3766
+  br i1 %3464, label %3826, label %3768
+
+3768:                                             ; preds = %3767
+  %3769 = and i32 %3338, 243
+  %3770 = icmp eq i32 %3769, 98
+  %3771 = and i32 %3338, 103
+  %3772 = icmp eq i32 %3771, 102
+  %or.cond434.i.us = or i1 %3770, %3772
+  %3773 = and i32 %3338, 55
+  %3774 = icmp eq i32 %3773, 54
+  %or.cond436.i.us = or i1 %3774, %or.cond434.i.us
+  %3775 = icmp eq i32 %3769, 242
+  %or.cond437.i.us = or i1 %3775, %or.cond436.i.us
+  br i1 %or.cond437.i.us, label %3810, label %3776
+
+3776:                                             ; preds = %3768
+  %3777 = trunc i32 %3338 to i8
+  %trunc278.us = and i8 %3777, -41
+  switch i8 %trunc278.us, label %3778 [
+    i8 -42, label %3810
+    i8 22, label %3810
   ]
 
-3770:                                             ; preds = %3768
-  %3771 = icmp eq i32 %3467, 2
-  br i1 %3771, label %3802, label %3772
+3778:                                             ; preds = %3776
+  %3779 = icmp eq i32 %3475, 2
+  br i1 %3779, label %3810, label %3780
 
-3772:                                             ; preds = %3770
-  %3773 = and i32 %70, 16711935
-  br i1 %3551, label %3789, label %3774
+3780:                                             ; preds = %3778
+  %3781 = and i32 %70, 16711935
+  br i1 %3559, label %3797, label %3782
 
-3774:                                             ; preds = %3772
-  %3775 = lshr i32 %70, 8
-  %3776 = and i32 %3775, 16711935
-  %3777 = mul nuw nsw i32 %3776, 3
-  %3778 = lshr i32 %79, 8
-  %3779 = and i32 %3778, 16711935
-  %3780 = add nuw nsw i32 %3779, %3777
-  %3781 = shl nuw i32 %3780, 6
-  %3782 = and i32 %3781, -16711936
-  %3783 = mul nuw nsw i32 %3773, 3
-  %3784 = and i32 %79, 16711935
-  %3785 = add nuw nsw i32 %3784, %3783
-  %3786 = lshr i32 %3785, 2
+3782:                                             ; preds = %3780
+  %3783 = lshr i32 %70, 8
+  %3784 = and i32 %3783, 16711935
+  %3785 = mul nuw nsw i32 %3784, 3
+  %3786 = lshr i32 %79, 8
   %3787 = and i32 %3786, 16711935
-  %3788 = or disjoint i32 %3782, %3787
-  br label %3986
+  %3788 = add nuw nsw i32 %3787, %3785
+  %3789 = shl nuw i32 %3788, 6
+  %3790 = and i32 %3789, -16711936
+  %3791 = mul nuw nsw i32 %3781, 3
+  %3792 = and i32 %79, 16711935
+  %3793 = add nuw nsw i32 %3792, %3791
+  %3794 = lshr i32 %3793, 2
+  %3795 = and i32 %3794, 16711935
+  %3796 = or disjoint i32 %3790, %3795
+  br label %3994
 
-3789:                                             ; preds = %3772
-  %3790 = lshr i32 %79, 8
-  %3791 = and i32 %3790, 16711935
-  %3792 = lshr i32 %70, 8
-  %3793 = and i32 %3792, 16711935
-  %3794 = add nuw nsw i32 %3791, %3793
-  %3795 = shl nuw i32 %3794, 7
-  %3796 = and i32 %3795, -16711936
-  %3797 = and i32 %79, 16711935
-  %3798 = add nuw nsw i32 %3797, %3773
-  %3799 = lshr i32 %3798, 1
-  %3800 = and i32 %3799, 16711935
-  %3801 = or disjoint i32 %3796, %3800
-  br label %3986
+3797:                                             ; preds = %3780
+  %3798 = lshr i32 %79, 8
+  %3799 = and i32 %3798, 16711935
+  %3800 = lshr i32 %70, 8
+  %3801 = and i32 %3800, 16711935
+  %3802 = add nuw nsw i32 %3799, %3801
+  %3803 = shl nuw i32 %3802, 7
+  %3804 = and i32 %3803, -16711936
+  %3805 = and i32 %79, 16711935
+  %3806 = add nuw nsw i32 %3805, %3781
+  %3807 = lshr i32 %3806, 1
+  %3808 = and i32 %3807, 16711935
+  %3809 = or disjoint i32 %3804, %3808
+  br label %3994
 
-3802:                                             ; preds = %3770, %3768, %3768, %3760
-  %3803 = lshr i32 %70, 8
-  %3804 = and i32 %3803, 16711935
-  %3805 = mul nuw nsw i32 %3804, 3
-  %3806 = lshr i32 %83, 8
-  %3807 = and i32 %3806, 16711935
-  %3808 = add nuw nsw i32 %3807, %3805
-  %3809 = shl nuw i32 %3808, 6
-  %3810 = and i32 %3809, -16711936
-  %3811 = and i32 %70, 16711935
-  %3812 = mul nuw nsw i32 %3811, 3
-  %3813 = and i32 %83, 16711935
-  %3814 = add nuw nsw i32 %3813, %3812
-  %3815 = lshr i32 %3814, 2
-  %3816 = and i32 %3815, 16711935
-  %3817 = or disjoint i32 %3810, %3816
-  br label %3986
+3810:                                             ; preds = %3778, %3776, %3776, %3768
+  %3811 = lshr i32 %70, 8
+  %3812 = and i32 %3811, 16711935
+  %3813 = mul nuw nsw i32 %3812, 3
+  %3814 = lshr i32 %83, 8
+  %3815 = and i32 %3814, 16711935
+  %3816 = add nuw nsw i32 %3815, %3813
+  %3817 = shl nuw i32 %3816, 6
+  %3818 = and i32 %3817, -16711936
+  %3819 = and i32 %70, 16711935
+  %3820 = mul nuw nsw i32 %3819, 3
+  %3821 = and i32 %83, 16711935
+  %3822 = add nuw nsw i32 %3821, %3820
+  %3823 = lshr i32 %3822, 2
+  %3824 = and i32 %3823, 16711935
+  %3825 = or disjoint i32 %3818, %3824
+  br label %3994
 
-3818:                                             ; preds = %3759
-  %3819 = lshr i32 %70, 8
-  %3820 = and i32 %3819, 16711935
-  %3821 = mul nuw nsw i32 %3820, 7
-  %3822 = lshr i32 %73, 8
-  %3823 = and i32 %3822, 16711935
-  %3824 = add nuw nsw i32 %3821, %3823
-  %3825 = shl nuw i32 %3824, 5
-  %3826 = and i32 %3825, -16711936
-  %3827 = and i32 %70, 16711935
-  %3828 = mul nuw nsw i32 %3827, 7
-  %3829 = and i32 %73, 16711935
-  %3830 = add nuw nsw i32 %3828, %3829
-  %3831 = lshr i32 %3830, 3
-  %3832 = and i32 %3831, 16711935
-  %3833 = or disjoint i32 %3826, %3832
-  br label %3986
+3826:                                             ; preds = %3767
+  %3827 = lshr i32 %70, 8
+  %3828 = and i32 %3827, 16711935
+  %3829 = mul nuw nsw i32 %3828, 7
+  %3830 = lshr i32 %73, 8
+  %3831 = and i32 %3830, 16711935
+  %3832 = add nuw nsw i32 %3829, %3831
+  %3833 = shl nuw i32 %3832, 5
+  %3834 = and i32 %3833, -16711936
+  %3835 = and i32 %70, 16711935
+  %3836 = mul nuw nsw i32 %3835, 7
+  %3837 = and i32 %73, 16711935
+  %3838 = add nuw nsw i32 %3836, %3837
+  %3839 = lshr i32 %3838, 3
+  %3840 = and i32 %3839, 16711935
+  %3841 = or disjoint i32 %3834, %3840
+  br label %3994
 
-3834:                                             ; preds = %3758
-  %3835 = lshr i32 %79, 8
-  %3836 = and i32 %3835, 16711935
-  %3837 = mul nuw nsw i32 %3836, 5
-  %3838 = lshr i32 %73, 8
-  %3839 = and i32 %3838, 16711935
-  %3840 = mul nuw nsw i32 %3839, 3
-  %3841 = add nuw nsw i32 %3837, %3840
-  %3842 = shl nuw i32 %3841, 5
-  %3843 = and i32 %3842, -16711936
-  %3844 = and i32 %79, 16711935
+3842:                                             ; preds = %3766
+  %3843 = lshr i32 %79, 8
+  %3844 = and i32 %3843, 16711935
   %3845 = mul nuw nsw i32 %3844, 5
-  %3846 = and i32 %73, 16711935
-  %3847 = mul nuw nsw i32 %3846, 3
-  %3848 = add nuw nsw i32 %3845, %3847
-  %3849 = lshr i32 %3848, 3
-  %3850 = and i32 %3849, 16711935
-  %3851 = or disjoint i32 %3843, %3850
-  br label %3986
-
-3852:                                             ; preds = %3757
-  %3853 = lshr i32 %79, 7
-  %3854 = and i32 %3853, 33423870
-  %3855 = lshr i32 %70, 8
-  %3856 = and i32 %3855, 16711935
-  %3857 = lshr i32 %73, 8
+  %3846 = lshr i32 %73, 8
+  %3847 = and i32 %3846, 16711935
+  %3848 = mul nuw nsw i32 %3847, 3
+  %3849 = add nuw nsw i32 %3845, %3848
+  %3850 = shl nuw i32 %3849, 5
+  %3851 = and i32 %3850, -16711936
+  %3852 = and i32 %79, 16711935
+  %3853 = mul nuw nsw i32 %3852, 5
+  %3854 = and i32 %73, 16711935
+  %3855 = mul nuw nsw i32 %3854, 3
+  %3856 = add nuw nsw i32 %3853, %3855
+  %3857 = lshr i32 %3856, 3
   %3858 = and i32 %3857, 16711935
-  %3859 = add nuw nsw i32 %3858, %3856
-  %3860 = add nuw nsw i32 %3859, %3854
-  %3861 = shl nuw i32 %3860, 6
-  %3862 = and i32 %3861, -16711936
-  %3863 = shl i32 %79, 1
-  %3864 = and i32 %3863, 33423870
-  %3865 = and i32 %70, 16711935
-  %3866 = and i32 %73, 16711935
-  %3867 = add nuw nsw i32 %3866, %3865
-  %3868 = add nuw nsw i32 %3867, %3864
-  %3869 = lshr i32 %3868, 2
-  %3870 = and i32 %3869, 16711935
-  %3871 = or disjoint i32 %3862, %3870
-  br label %3986
+  %3859 = or disjoint i32 %3851, %3858
+  br label %3994
 
-3872:                                             ; preds = %3756
-  %3873 = lshr i32 %79, 8
-  %3874 = and i32 %3873, 16711935
-  %3875 = mul nuw nsw i32 %3874, 3
-  %3876 = lshr i32 %70, 8
-  %3877 = and i32 %3876, 16711935
-  %3878 = add nuw nsw i32 %3875, %3877
-  %3879 = shl nuw i32 %3878, 6
-  %3880 = and i32 %3879, -16711936
-  %3881 = and i32 %79, 16711935
-  %3882 = mul nuw nsw i32 %3881, 3
-  %3883 = and i32 %70, 16711935
-  %3884 = add nuw nsw i32 %3882, %3883
-  %3885 = lshr i32 %3884, 2
-  %3886 = and i32 %3885, 16711935
-  %3887 = or disjoint i32 %3880, %3886
-  br label %3986
+3860:                                             ; preds = %3765
+  %3861 = lshr i32 %79, 7
+  %3862 = and i32 %3861, 33423870
+  %3863 = lshr i32 %70, 8
+  %3864 = and i32 %3863, 16711935
+  %3865 = lshr i32 %73, 8
+  %3866 = and i32 %3865, 16711935
+  %3867 = add nuw nsw i32 %3866, %3864
+  %3868 = add nuw nsw i32 %3867, %3862
+  %3869 = shl nuw i32 %3868, 6
+  %3870 = and i32 %3869, -16711936
+  %3871 = shl i32 %79, 1
+  %3872 = and i32 %3871, 33423870
+  %3873 = and i32 %70, 16711935
+  %3874 = and i32 %73, 16711935
+  %3875 = add nuw nsw i32 %3874, %3873
+  %3876 = add nuw nsw i32 %3875, %3872
+  %3877 = lshr i32 %3876, 2
+  %3878 = and i32 %3877, 16711935
+  %3879 = or disjoint i32 %3870, %3878
+  br label %3994
 
-3888:                                             ; preds = %3755
-  %3889 = lshr i32 %70, 8
-  %3890 = and i32 %3889, 16711935
-  %3891 = mul nuw nsw i32 %3890, 5
-  %3892 = lshr i32 %79, 8
-  %3893 = and i32 %3892, 16711935
-  %3894 = mul nuw nsw i32 %3893, 3
-  %3895 = add nuw nsw i32 %3894, %3891
-  %3896 = shl nuw i32 %3895, 5
-  %3897 = and i32 %3896, -16711936
-  %3898 = and i32 %70, 16711935
+3880:                                             ; preds = %3764
+  %3881 = lshr i32 %79, 8
+  %3882 = and i32 %3881, 16711935
+  %3883 = mul nuw nsw i32 %3882, 3
+  %3884 = lshr i32 %70, 8
+  %3885 = and i32 %3884, 16711935
+  %3886 = add nuw nsw i32 %3883, %3885
+  %3887 = shl nuw i32 %3886, 6
+  %3888 = and i32 %3887, -16711936
+  %3889 = and i32 %79, 16711935
+  %3890 = mul nuw nsw i32 %3889, 3
+  %3891 = and i32 %70, 16711935
+  %3892 = add nuw nsw i32 %3890, %3891
+  %3893 = lshr i32 %3892, 2
+  %3894 = and i32 %3893, 16711935
+  %3895 = or disjoint i32 %3888, %3894
+  br label %3994
+
+3896:                                             ; preds = %3763
+  %3897 = lshr i32 %70, 8
+  %3898 = and i32 %3897, 16711935
   %3899 = mul nuw nsw i32 %3898, 5
-  %3900 = and i32 %79, 16711935
-  %3901 = mul nuw nsw i32 %3900, 3
-  %3902 = add nuw nsw i32 %3901, %3899
-  %3903 = lshr i32 %3902, 3
-  %3904 = and i32 %3903, 16711935
-  %3905 = or disjoint i32 %3897, %3904
-  br label %3986
+  %3900 = lshr i32 %79, 8
+  %3901 = and i32 %3900, 16711935
+  %3902 = mul nuw nsw i32 %3901, 3
+  %3903 = add nuw nsw i32 %3902, %3899
+  %3904 = shl nuw i32 %3903, 5
+  %3905 = and i32 %3904, -16711936
+  %3906 = and i32 %70, 16711935
+  %3907 = mul nuw nsw i32 %3906, 5
+  %3908 = and i32 %79, 16711935
+  %3909 = mul nuw nsw i32 %3908, 3
+  %3910 = add nuw nsw i32 %3909, %3907
+  %3911 = lshr i32 %3910, 3
+  %3912 = and i32 %3911, 16711935
+  %3913 = or disjoint i32 %3905, %3912
+  br label %3994
 
-3906:                                             ; preds = %3754
-  %3907 = lshr i32 %70, 8
-  %3908 = and i32 %3907, 16711935
-  %3909 = mul nuw nsw i32 %3908, 5
-  %3910 = lshr i32 %79, 7
-  %3911 = and i32 %3910, 33423870
-  %3912 = add nuw nsw i32 %3911, %3909
-  %3913 = lshr i32 %83, 8
-  %3914 = and i32 %3913, 16711935
-  %3915 = add nuw nsw i32 %3912, %3914
-  %3916 = shl nuw i32 %3915, 5
-  %3917 = and i32 %3916, -16711936
-  %3918 = and i32 %70, 16711935
-  %3919 = mul nuw nsw i32 %3918, 5
-  %3920 = shl i32 %79, 1
-  %3921 = and i32 %3920, 33423870
-  %3922 = add nuw nsw i32 %3921, %3919
-  %3923 = and i32 %83, 16711935
-  %3924 = add nuw nsw i32 %3922, %3923
-  %3925 = lshr i32 %3924, 3
-  %3926 = and i32 %3925, 16711935
-  %3927 = or disjoint i32 %3917, %3926
-  br label %3986
+3914:                                             ; preds = %3762
+  %3915 = lshr i32 %70, 8
+  %3916 = and i32 %3915, 16711935
+  %3917 = mul nuw nsw i32 %3916, 5
+  %3918 = lshr i32 %79, 7
+  %3919 = and i32 %3918, 33423870
+  %3920 = add nuw nsw i32 %3919, %3917
+  %3921 = lshr i32 %83, 8
+  %3922 = and i32 %3921, 16711935
+  %3923 = add nuw nsw i32 %3920, %3922
+  %3924 = shl nuw i32 %3923, 5
+  %3925 = and i32 %3924, -16711936
+  %3926 = and i32 %70, 16711935
+  %3927 = mul nuw nsw i32 %3926, 5
+  %3928 = shl i32 %79, 1
+  %3929 = and i32 %3928, 33423870
+  %3930 = add nuw nsw i32 %3929, %3927
+  %3931 = and i32 %83, 16711935
+  %3932 = add nuw nsw i32 %3930, %3931
+  %3933 = lshr i32 %3932, 3
+  %3934 = and i32 %3933, 16711935
+  %3935 = or disjoint i32 %3925, %3934
+  br label %3994
 
-3928:                                             ; preds = %3753
-  %3929 = lshr i32 %70, 8
-  %3930 = and i32 %3929, 16711935
-  %3931 = mul nuw nsw i32 %3930, 5
-  %3932 = lshr i32 %79, 7
-  %3933 = and i32 %3932, 33423870
-  %3934 = lshr i32 %73, 8
-  %3935 = and i32 %3934, 16711935
-  %3936 = add nuw nsw i32 %3935, %3931
-  %3937 = add nuw nsw i32 %3936, %3933
-  %3938 = shl nuw i32 %3937, 5
-  %3939 = and i32 %3938, -16711936
-  %3940 = and i32 %70, 16711935
-  %3941 = mul nuw nsw i32 %3940, 5
-  %3942 = shl i32 %79, 1
-  %3943 = and i32 %3942, 33423870
-  %3944 = and i32 %73, 16711935
+3936:                                             ; preds = %3761
+  %3937 = lshr i32 %70, 8
+  %3938 = and i32 %3937, 16711935
+  %3939 = mul nuw nsw i32 %3938, 5
+  %3940 = lshr i32 %79, 7
+  %3941 = and i32 %3940, 33423870
+  %3942 = lshr i32 %73, 8
+  %3943 = and i32 %3942, 16711935
+  %3944 = add nuw nsw i32 %3943, %3939
   %3945 = add nuw nsw i32 %3944, %3941
-  %3946 = add nuw nsw i32 %3945, %3943
-  %3947 = lshr i32 %3946, 3
-  %3948 = and i32 %3947, 16711935
-  %3949 = or disjoint i32 %3939, %3948
-  br label %3986
+  %3946 = shl nuw i32 %3945, 5
+  %3947 = and i32 %3946, -16711936
+  %3948 = and i32 %70, 16711935
+  %3949 = mul nuw nsw i32 %3948, 5
+  %3950 = shl i32 %79, 1
+  %3951 = and i32 %3950, 33423870
+  %3952 = and i32 %73, 16711935
+  %3953 = add nuw nsw i32 %3952, %3949
+  %3954 = add nuw nsw i32 %3953, %3951
+  %3955 = lshr i32 %3954, 3
+  %3956 = and i32 %3955, 16711935
+  %3957 = or disjoint i32 %3947, %3956
+  br label %3994
 
 .thread245.us:                                    ; preds = %..thread245.us_crit_edge, %.thread244.us
-  %.pre-phi486 = phi i32 [ %.pre485, %..thread245.us_crit_edge ], [ %3728, %.thread244.us ]
-  %.pre-phi484 = phi i32 [ %.pre483, %..thread245.us_crit_edge ], [ %3726, %.thread244.us ]
-  %.pre-phi482 = phi i32 [ %.pre481, %..thread245.us_crit_edge ], [ %3721, %.thread244.us ]
-  %.pre-phi478 = phi i32 [ %.pre477, %..thread245.us_crit_edge ], [ %3718, %.thread244.us ]
-  %3950 = mul nuw nsw i32 %.pre-phi478, 3
-  %3951 = add nuw nsw i32 %.pre-phi482, %3950
-  %3952 = shl nuw i32 %3951, 6
-  %3953 = and i32 %3952, -16711936
-  %3954 = mul nuw nsw i32 %.pre-phi484, 3
-  %3955 = add nuw nsw i32 %.pre-phi486, %3954
-  %3956 = lshr i32 %3955, 2
-  %3957 = and i32 %3956, 16711935
-  %3958 = or disjoint i32 %3953, %3957
-  br label %3986
+  %.pre-phi457 = phi i32 [ %.pre456, %..thread245.us_crit_edge ], [ %3736, %.thread244.us ]
+  %.pre-phi455 = phi i32 [ %.pre454, %..thread245.us_crit_edge ], [ %3734, %.thread244.us ]
+  %.pre-phi453 = phi i32 [ %.pre452, %..thread245.us_crit_edge ], [ %3729, %.thread244.us ]
+  %.pre-phi449 = phi i32 [ %.pre448, %..thread245.us_crit_edge ], [ %3726, %.thread244.us ]
+  %3958 = mul nuw nsw i32 %.pre-phi449, 3
+  %3959 = add nuw nsw i32 %.pre-phi453, %3958
+  %3960 = shl nuw i32 %3959, 6
+  %3961 = and i32 %3960, -16711936
+  %3962 = mul nuw nsw i32 %.pre-phi455, 3
+  %3963 = add nuw nsw i32 %.pre-phi457, %3962
+  %3964 = lshr i32 %3963, 2
+  %3965 = and i32 %3964, 16711935
+  %3966 = or disjoint i32 %3961, %3965
+  br label %3994
 
 .thread246.thread256.us:                          ; preds = %.thread255.us
-  store i32 %70, ptr %3332, align 4, !tbaa !20
-  br label %4203
+  store i32 %70, ptr %3340, align 4, !tbaa !20
+  br label %4211
 
-3959:                                             ; preds = %3550
-  %3960 = lshr i32 %70, 8
-  %3961 = and i32 %3960, 16711935
-  %3962 = mul nuw nsw i32 %3961, 5
-  %3963 = lshr i32 %73, 8
-  %3964 = and i32 %3963, 16711935
-  %3965 = mul nuw nsw i32 %3964, 3
-  %3966 = add nuw nsw i32 %3965, %3962
-  %3967 = shl nuw i32 %3966, 5
-  %3968 = and i32 %3967, -16711936
-  %3969 = and i32 %70, 16711935
+3967:                                             ; preds = %3558
+  %3968 = lshr i32 %70, 8
+  %3969 = and i32 %3968, 16711935
   %3970 = mul nuw nsw i32 %3969, 5
-  %3971 = and i32 %73, 16711935
-  %3972 = mul nuw nsw i32 %3971, 3
-  %3973 = add nuw nsw i32 %3972, %3970
-  %3974 = lshr i32 %3973, 3
-  %3975 = and i32 %3974, 16711935
-  %3976 = or disjoint i32 %3968, %3975
-  store i32 %3976, ptr %3331, align 4, !tbaa !20
-  %3977 = mul nuw nsw i32 %3961, 7
-  %3978 = add nuw nsw i32 %3977, %3964
-  %3979 = shl nuw i32 %3978, 5
-  %3980 = and i32 %3979, -16711936
-  %3981 = mul nuw nsw i32 %3969, 7
-  %3982 = add nuw nsw i32 %3981, %3971
-  %3983 = lshr i32 %3982, 3
-  %3984 = and i32 %3983, 16711935
-  %3985 = or disjoint i32 %3980, %3984
-  br label %3986
+  %3971 = lshr i32 %73, 8
+  %3972 = and i32 %3971, 16711935
+  %3973 = mul nuw nsw i32 %3972, 3
+  %3974 = add nuw nsw i32 %3973, %3970
+  %3975 = shl nuw i32 %3974, 5
+  %3976 = and i32 %3975, -16711936
+  %3977 = and i32 %70, 16711935
+  %3978 = mul nuw nsw i32 %3977, 5
+  %3979 = and i32 %73, 16711935
+  %3980 = mul nuw nsw i32 %3979, 3
+  %3981 = add nuw nsw i32 %3980, %3978
+  %3982 = lshr i32 %3981, 3
+  %3983 = and i32 %3982, 16711935
+  %3984 = or disjoint i32 %3976, %3983
+  store i32 %3984, ptr %3339, align 4, !tbaa !20
+  %3985 = mul nuw nsw i32 %3969, 7
+  %3986 = add nuw nsw i32 %3985, %3972
+  %3987 = shl nuw i32 %3986, 5
+  %3988 = and i32 %3987, -16711936
+  %3989 = mul nuw nsw i32 %3977, 7
+  %3990 = add nuw nsw i32 %3989, %3979
+  %3991 = lshr i32 %3990, 3
+  %3992 = and i32 %3991, 16711935
+  %3993 = or disjoint i32 %3988, %3992
+  br label %3994
 
-3986:                                             ; preds = %3752, %3959, %.thread245.us, %3928, %3906, %3888, %3872, %3852, %3834, %3818, %3802, %3789, %3774
-  %.sink561 = phi i32 [ %3985, %3959 ], [ %3958, %.thread245.us ], [ %3788, %3774 ], [ %3949, %3928 ], [ %3927, %3906 ], [ %3905, %3888 ], [ %3887, %3872 ], [ %3871, %3852 ], [ %3851, %3834 ], [ %3833, %3818 ], [ %3817, %3802 ], [ %3801, %3789 ], [ %70, %3752 ]
-  store i32 %.sink561, ptr %3332, align 4, !tbaa !20
-  br i1 %3394, label %._crit_edge, label %3987
+3994:                                             ; preds = %3760, %3967, %.thread245.us, %3936, %3914, %3896, %3880, %3860, %3842, %3826, %3810, %3797, %3782
+  %.sink532 = phi i32 [ %3993, %3967 ], [ %3966, %.thread245.us ], [ %3796, %3782 ], [ %3957, %3936 ], [ %3935, %3914 ], [ %3913, %3896 ], [ %3895, %3880 ], [ %3879, %3860 ], [ %3859, %3842 ], [ %3841, %3826 ], [ %3825, %3810 ], [ %3809, %3797 ], [ %70, %3760 ]
+  store i32 %.sink532, ptr %3340, align 4, !tbaa !20
+  br i1 %3402, label %._crit_edge, label %3995
 
-._crit_edge:                                      ; preds = %3986
-  %.pre463 = lshr i32 %70, 8
-  %.pre465 = and i32 %.pre463, 16711935
-  %.pre467 = lshr i32 %79, 8
-  %.pre469 = and i32 %.pre467, 16711935
-  %.pre471 = and i32 %70, 16711935
-  %.pre473 = and i32 %79, 16711935
-  br label %4203
-
-3987:                                             ; preds = %3986
-  br i1 %3522, label %.thread247.us, label %3988
-
-3988:                                             ; preds = %3987
-  br i1 %3445, label %4187, label %3989
-
-3989:                                             ; preds = %3988
-  br i1 %3524, label %.thread247.us, label %3990
-
-3990:                                             ; preds = %3989
-  br i1 %3526, label %4165, label %3991
-
-3991:                                             ; preds = %3990
-  %3992 = icmp eq i32 %3467, 2
-  br i1 %3992, label %4143, label %3993
-
-3993:                                             ; preds = %3991
-  br i1 %3552, label %4125, label %3994
-
-3994:                                             ; preds = %3993
-  br i1 %or.cond367.i.us, label %4109, label %3995
+._crit_edge:                                      ; preds = %3994
+  %.pre434 = lshr i32 %70, 8
+  %.pre436 = and i32 %.pre434, 16711935
+  %.pre438 = lshr i32 %79, 8
+  %.pre440 = and i32 %.pre438, 16711935
+  %.pre442 = and i32 %70, 16711935
+  %.pre444 = and i32 %79, 16711935
+  br label %4211
 
 3995:                                             ; preds = %3994
-  br i1 %3534, label %4089, label %3996
+  br i1 %3530, label %.thread247.us, label %3996
 
 3996:                                             ; preds = %3995
-  br i1 %3531, label %4071, label %3997
+  br i1 %3453, label %4195, label %3997
 
 3997:                                             ; preds = %3996
-  br i1 %3466, label %4055, label %3998
+  br i1 %3532, label %.thread247.us, label %3998
 
 3998:                                             ; preds = %3997
-  br i1 %3468, label %4039, label %3999
+  br i1 %3534, label %4173, label %3999
 
 3999:                                             ; preds = %3998
-  %4000 = and i32 %3330, 249
-  %4001 = icmp eq i32 %4000, 104
-  %4002 = and i32 %3330, 109
-  %4003 = icmp eq i32 %4002, 108
-  %or.cond439.i.us = or i1 %4001, %4003
-  %4004 = and i32 %3330, 61
-  %4005 = icmp eq i32 %4004, 60
-  %or.cond441.i.us = or i1 %4005, %or.cond439.i.us
-  %4006 = icmp eq i32 %4000, 248
-  %or.cond442.i.us = or i1 %4006, %or.cond441.i.us
-  br i1 %or.cond442.i.us, label %4039, label %4007
+  %4000 = icmp eq i32 %3475, 2
+  br i1 %4000, label %4151, label %4001
 
-4007:                                             ; preds = %3999
-  %4008 = trunc i32 %3330 to i8
-  %trunc291.us = and i8 %4008, -35
-  switch i8 %trunc291.us, label %4009 [
-    i8 -36, label %4039
-    i8 28, label %4039
+4001:                                             ; preds = %3999
+  br i1 %3560, label %4133, label %4002
+
+4002:                                             ; preds = %4001
+  br i1 %or.cond367.i.us, label %4117, label %4003
+
+4003:                                             ; preds = %4002
+  br i1 %3542, label %4097, label %4004
+
+4004:                                             ; preds = %4003
+  br i1 %3539, label %4079, label %4005
+
+4005:                                             ; preds = %4004
+  br i1 %3474, label %4063, label %4006
+
+4006:                                             ; preds = %4005
+  br i1 %3476, label %4047, label %4007
+
+4007:                                             ; preds = %4006
+  %4008 = and i32 %3338, 249
+  %4009 = icmp eq i32 %4008, 104
+  %4010 = and i32 %3338, 109
+  %4011 = icmp eq i32 %4010, 108
+  %or.cond439.i.us = or i1 %4009, %4011
+  %4012 = and i32 %3338, 61
+  %4013 = icmp eq i32 %4012, 60
+  %or.cond441.i.us = or i1 %4013, %or.cond439.i.us
+  %4014 = icmp eq i32 %4008, 248
+  %or.cond442.i.us = or i1 %4014, %or.cond441.i.us
+  br i1 %or.cond442.i.us, label %4047, label %4015
+
+4015:                                             ; preds = %4007
+  %4016 = trunc i32 %3338 to i8
+  %trunc279.us = and i8 %4016, -35
+  switch i8 %trunc279.us, label %4017 [
+    i8 -36, label %4047
+    i8 28, label %4047
   ]
 
-4009:                                             ; preds = %4007
-  %4010 = and i32 %70, 16711935
-  br i1 %3551, label %4026, label %4011
+4017:                                             ; preds = %4015
+  %4018 = and i32 %70, 16711935
+  br i1 %3559, label %4034, label %4019
 
-4011:                                             ; preds = %4009
-  %4012 = lshr i32 %70, 8
-  %4013 = and i32 %4012, 16711935
-  %4014 = mul nuw nsw i32 %4013, 3
-  %4015 = lshr i32 %73, 8
-  %4016 = and i32 %4015, 16711935
-  %4017 = add nuw nsw i32 %4014, %4016
-  %4018 = shl nuw i32 %4017, 6
-  %4019 = and i32 %4018, -16711936
-  %4020 = mul nuw nsw i32 %4010, 3
-  %4021 = and i32 %73, 16711935
-  %4022 = add nuw nsw i32 %4020, %4021
-  %4023 = lshr i32 %4022, 2
+4019:                                             ; preds = %4017
+  %4020 = lshr i32 %70, 8
+  %4021 = and i32 %4020, 16711935
+  %4022 = mul nuw nsw i32 %4021, 3
+  %4023 = lshr i32 %73, 8
   %4024 = and i32 %4023, 16711935
-  %4025 = or disjoint i32 %4019, %4024
+  %4025 = add nuw nsw i32 %4022, %4024
+  %4026 = shl nuw i32 %4025, 6
+  %4027 = and i32 %4026, -16711936
+  %4028 = mul nuw nsw i32 %4018, 3
+  %4029 = and i32 %73, 16711935
+  %4030 = add nuw nsw i32 %4028, %4029
+  %4031 = lshr i32 %4030, 2
+  %4032 = and i32 %4031, 16711935
+  %4033 = or disjoint i32 %4027, %4032
   br label %.thread247.us
 
-4026:                                             ; preds = %4009
-  %4027 = lshr i32 %73, 8
-  %4028 = and i32 %4027, 16711935
-  %4029 = lshr i32 %70, 8
-  %4030 = and i32 %4029, 16711935
-  %4031 = add nuw nsw i32 %4028, %4030
-  %4032 = shl nuw i32 %4031, 7
-  %4033 = and i32 %4032, -16711936
-  %4034 = and i32 %73, 16711935
-  %4035 = add nuw nsw i32 %4034, %4010
-  %4036 = lshr i32 %4035, 1
-  %4037 = and i32 %4036, 16711935
-  %4038 = or disjoint i32 %4033, %4037
+4034:                                             ; preds = %4017
+  %4035 = lshr i32 %73, 8
+  %4036 = and i32 %4035, 16711935
+  %4037 = lshr i32 %70, 8
+  %4038 = and i32 %4037, 16711935
+  %4039 = add nuw nsw i32 %4036, %4038
+  %4040 = shl nuw i32 %4039, 7
+  %4041 = and i32 %4040, -16711936
+  %4042 = and i32 %73, 16711935
+  %4043 = add nuw nsw i32 %4042, %4018
+  %4044 = lshr i32 %4043, 1
+  %4045 = and i32 %4044, 16711935
+  %4046 = or disjoint i32 %4041, %4045
   br label %.thread247.us
 
-4039:                                             ; preds = %4007, %4007, %3999, %3998
-  %4040 = lshr i32 %70, 8
-  %4041 = and i32 %4040, 16711935
-  %4042 = mul nuw nsw i32 %4041, 3
-  %4043 = lshr i32 %83, 8
-  %4044 = and i32 %4043, 16711935
-  %4045 = add nuw nsw i32 %4044, %4042
-  %4046 = shl nuw i32 %4045, 6
-  %4047 = and i32 %4046, -16711936
-  %4048 = and i32 %70, 16711935
-  %4049 = mul nuw nsw i32 %4048, 3
-  %4050 = and i32 %83, 16711935
-  %4051 = add nuw nsw i32 %4050, %4049
-  %4052 = lshr i32 %4051, 2
-  %4053 = and i32 %4052, 16711935
-  %4054 = or disjoint i32 %4047, %4053
+4047:                                             ; preds = %4015, %4015, %4007, %4006
+  %4048 = lshr i32 %70, 8
+  %4049 = and i32 %4048, 16711935
+  %4050 = mul nuw nsw i32 %4049, 3
+  %4051 = lshr i32 %83, 8
+  %4052 = and i32 %4051, 16711935
+  %4053 = add nuw nsw i32 %4052, %4050
+  %4054 = shl nuw i32 %4053, 6
+  %4055 = and i32 %4054, -16711936
+  %4056 = and i32 %70, 16711935
+  %4057 = mul nuw nsw i32 %4056, 3
+  %4058 = and i32 %83, 16711935
+  %4059 = add nuw nsw i32 %4058, %4057
+  %4060 = lshr i32 %4059, 2
+  %4061 = and i32 %4060, 16711935
+  %4062 = or disjoint i32 %4055, %4061
   br label %.thread247.us
 
-4055:                                             ; preds = %3997
-  %4056 = lshr i32 %70, 8
-  %4057 = and i32 %4056, 16711935
-  %4058 = mul nuw nsw i32 %4057, 7
-  %4059 = lshr i32 %79, 8
-  %4060 = and i32 %4059, 16711935
-  %4061 = add nuw nsw i32 %4060, %4058
-  %4062 = shl nuw i32 %4061, 5
-  %4063 = and i32 %4062, -16711936
-  %4064 = and i32 %70, 16711935
-  %4065 = mul nuw nsw i32 %4064, 7
-  %4066 = and i32 %79, 16711935
-  %4067 = add nuw nsw i32 %4066, %4065
-  %4068 = lshr i32 %4067, 3
-  %4069 = and i32 %4068, 16711935
-  %4070 = or disjoint i32 %4063, %4069
+4063:                                             ; preds = %4005
+  %4064 = lshr i32 %70, 8
+  %4065 = and i32 %4064, 16711935
+  %4066 = mul nuw nsw i32 %4065, 7
+  %4067 = lshr i32 %79, 8
+  %4068 = and i32 %4067, 16711935
+  %4069 = add nuw nsw i32 %4068, %4066
+  %4070 = shl nuw i32 %4069, 5
+  %4071 = and i32 %4070, -16711936
+  %4072 = and i32 %70, 16711935
+  %4073 = mul nuw nsw i32 %4072, 7
+  %4074 = and i32 %79, 16711935
+  %4075 = add nuw nsw i32 %4074, %4073
+  %4076 = lshr i32 %4075, 3
+  %4077 = and i32 %4076, 16711935
+  %4078 = or disjoint i32 %4071, %4077
   br label %.thread247.us
 
-4071:                                             ; preds = %3996
-  %4072 = lshr i32 %73, 8
-  %4073 = and i32 %4072, 16711935
-  %4074 = mul nuw nsw i32 %4073, 5
-  %4075 = lshr i32 %79, 8
-  %4076 = and i32 %4075, 16711935
-  %4077 = mul nuw nsw i32 %4076, 3
-  %4078 = add nuw nsw i32 %4077, %4074
-  %4079 = shl nuw i32 %4078, 5
-  %4080 = and i32 %4079, -16711936
-  %4081 = and i32 %73, 16711935
+4079:                                             ; preds = %4004
+  %4080 = lshr i32 %73, 8
+  %4081 = and i32 %4080, 16711935
   %4082 = mul nuw nsw i32 %4081, 5
-  %4083 = and i32 %79, 16711935
-  %4084 = mul nuw nsw i32 %4083, 3
-  %4085 = add nuw nsw i32 %4084, %4082
-  %4086 = lshr i32 %4085, 3
-  %4087 = and i32 %4086, 16711935
-  %4088 = or disjoint i32 %4080, %4087
+  %4083 = lshr i32 %79, 8
+  %4084 = and i32 %4083, 16711935
+  %4085 = mul nuw nsw i32 %4084, 3
+  %4086 = add nuw nsw i32 %4085, %4082
+  %4087 = shl nuw i32 %4086, 5
+  %4088 = and i32 %4087, -16711936
+  %4089 = and i32 %73, 16711935
+  %4090 = mul nuw nsw i32 %4089, 5
+  %4091 = and i32 %79, 16711935
+  %4092 = mul nuw nsw i32 %4091, 3
+  %4093 = add nuw nsw i32 %4092, %4090
+  %4094 = lshr i32 %4093, 3
+  %4095 = and i32 %4094, 16711935
+  %4096 = or disjoint i32 %4088, %4095
   br label %.thread247.us
 
-4089:                                             ; preds = %3995
-  %4090 = lshr i32 %73, 7
-  %4091 = and i32 %4090, 33423870
-  %4092 = lshr i32 %70, 8
-  %4093 = and i32 %4092, 16711935
-  %4094 = add nuw nsw i32 %4091, %4093
-  %4095 = lshr i32 %79, 8
-  %4096 = and i32 %4095, 16711935
-  %4097 = add nuw nsw i32 %4094, %4096
-  %4098 = shl nuw i32 %4097, 6
-  %4099 = and i32 %4098, -16711936
-  %4100 = shl i32 %73, 1
-  %4101 = and i32 %4100, 33423870
-  %4102 = and i32 %70, 16711935
-  %4103 = add nuw nsw i32 %4101, %4102
-  %4104 = and i32 %79, 16711935
-  %4105 = add nuw nsw i32 %4103, %4104
-  %4106 = lshr i32 %4105, 2
-  %4107 = and i32 %4106, 16711935
-  %4108 = or disjoint i32 %4099, %4107
+4097:                                             ; preds = %4003
+  %4098 = lshr i32 %73, 7
+  %4099 = and i32 %4098, 33423870
+  %4100 = lshr i32 %70, 8
+  %4101 = and i32 %4100, 16711935
+  %4102 = add nuw nsw i32 %4099, %4101
+  %4103 = lshr i32 %79, 8
+  %4104 = and i32 %4103, 16711935
+  %4105 = add nuw nsw i32 %4102, %4104
+  %4106 = shl nuw i32 %4105, 6
+  %4107 = and i32 %4106, -16711936
+  %4108 = shl i32 %73, 1
+  %4109 = and i32 %4108, 33423870
+  %4110 = and i32 %70, 16711935
+  %4111 = add nuw nsw i32 %4109, %4110
+  %4112 = and i32 %79, 16711935
+  %4113 = add nuw nsw i32 %4111, %4112
+  %4114 = lshr i32 %4113, 2
+  %4115 = and i32 %4114, 16711935
+  %4116 = or disjoint i32 %4107, %4115
   br label %.thread247.us
 
-4109:                                             ; preds = %3994
-  %4110 = lshr i32 %73, 8
-  %4111 = and i32 %4110, 16711935
-  %4112 = mul nuw nsw i32 %4111, 3
-  %4113 = lshr i32 %70, 8
-  %4114 = and i32 %4113, 16711935
-  %4115 = add nuw nsw i32 %4112, %4114
-  %4116 = shl nuw i32 %4115, 6
-  %4117 = and i32 %4116, -16711936
-  %4118 = and i32 %73, 16711935
-  %4119 = mul nuw nsw i32 %4118, 3
-  %4120 = and i32 %70, 16711935
-  %4121 = add nuw nsw i32 %4119, %4120
-  %4122 = lshr i32 %4121, 2
-  %4123 = and i32 %4122, 16711935
-  %4124 = or disjoint i32 %4117, %4123
+4117:                                             ; preds = %4002
+  %4118 = lshr i32 %73, 8
+  %4119 = and i32 %4118, 16711935
+  %4120 = mul nuw nsw i32 %4119, 3
+  %4121 = lshr i32 %70, 8
+  %4122 = and i32 %4121, 16711935
+  %4123 = add nuw nsw i32 %4120, %4122
+  %4124 = shl nuw i32 %4123, 6
+  %4125 = and i32 %4124, -16711936
+  %4126 = and i32 %73, 16711935
+  %4127 = mul nuw nsw i32 %4126, 3
+  %4128 = and i32 %70, 16711935
+  %4129 = add nuw nsw i32 %4127, %4128
+  %4130 = lshr i32 %4129, 2
+  %4131 = and i32 %4130, 16711935
+  %4132 = or disjoint i32 %4125, %4131
   br label %.thread247.us
 
-4125:                                             ; preds = %3993
-  %4126 = lshr i32 %70, 8
-  %4127 = and i32 %4126, 16711935
-  %4128 = mul nuw nsw i32 %4127, 5
-  %4129 = lshr i32 %73, 8
-  %4130 = and i32 %4129, 16711935
-  %4131 = mul nuw nsw i32 %4130, 3
-  %4132 = add nuw nsw i32 %4131, %4128
-  %4133 = shl nuw i32 %4132, 5
-  %4134 = and i32 %4133, -16711936
-  %4135 = and i32 %70, 16711935
+4133:                                             ; preds = %4001
+  %4134 = lshr i32 %70, 8
+  %4135 = and i32 %4134, 16711935
   %4136 = mul nuw nsw i32 %4135, 5
-  %4137 = and i32 %73, 16711935
-  %4138 = mul nuw nsw i32 %4137, 3
-  %4139 = add nuw nsw i32 %4138, %4136
-  %4140 = lshr i32 %4139, 3
-  %4141 = and i32 %4140, 16711935
-  %4142 = or disjoint i32 %4134, %4141
+  %4137 = lshr i32 %73, 8
+  %4138 = and i32 %4137, 16711935
+  %4139 = mul nuw nsw i32 %4138, 3
+  %4140 = add nuw nsw i32 %4139, %4136
+  %4141 = shl nuw i32 %4140, 5
+  %4142 = and i32 %4141, -16711936
+  %4143 = and i32 %70, 16711935
+  %4144 = mul nuw nsw i32 %4143, 5
+  %4145 = and i32 %73, 16711935
+  %4146 = mul nuw nsw i32 %4145, 3
+  %4147 = add nuw nsw i32 %4146, %4144
+  %4148 = lshr i32 %4147, 3
+  %4149 = and i32 %4148, 16711935
+  %4150 = or disjoint i32 %4142, %4149
   br label %.thread247.us
 
-4143:                                             ; preds = %3991
-  %4144 = lshr i32 %70, 8
-  %4145 = and i32 %4144, 16711935
-  %4146 = mul nuw nsw i32 %4145, 5
-  %4147 = lshr i32 %73, 7
-  %4148 = and i32 %4147, 33423870
-  %4149 = add nuw nsw i32 %4146, %4148
-  %4150 = lshr i32 %83, 8
-  %4151 = and i32 %4150, 16711935
-  %4152 = add nuw nsw i32 %4149, %4151
-  %4153 = shl nuw i32 %4152, 5
-  %4154 = and i32 %4153, -16711936
-  %4155 = and i32 %70, 16711935
-  %4156 = mul nuw nsw i32 %4155, 5
-  %4157 = shl i32 %73, 1
-  %4158 = and i32 %4157, 33423870
-  %4159 = add nuw nsw i32 %4158, %4156
-  %4160 = and i32 %83, 16711935
-  %4161 = add nuw nsw i32 %4159, %4160
-  %4162 = lshr i32 %4161, 3
-  %4163 = and i32 %4162, 16711935
-  %4164 = or disjoint i32 %4154, %4163
+4151:                                             ; preds = %3999
+  %4152 = lshr i32 %70, 8
+  %4153 = and i32 %4152, 16711935
+  %4154 = mul nuw nsw i32 %4153, 5
+  %4155 = lshr i32 %73, 7
+  %4156 = and i32 %4155, 33423870
+  %4157 = add nuw nsw i32 %4154, %4156
+  %4158 = lshr i32 %83, 8
+  %4159 = and i32 %4158, 16711935
+  %4160 = add nuw nsw i32 %4157, %4159
+  %4161 = shl nuw i32 %4160, 5
+  %4162 = and i32 %4161, -16711936
+  %4163 = and i32 %70, 16711935
+  %4164 = mul nuw nsw i32 %4163, 5
+  %4165 = shl i32 %73, 1
+  %4166 = and i32 %4165, 33423870
+  %4167 = add nuw nsw i32 %4166, %4164
+  %4168 = and i32 %83, 16711935
+  %4169 = add nuw nsw i32 %4167, %4168
+  %4170 = lshr i32 %4169, 3
+  %4171 = and i32 %4170, 16711935
+  %4172 = or disjoint i32 %4162, %4171
   br label %.thread247.us
 
-4165:                                             ; preds = %3990
-  %4166 = lshr i32 %70, 8
-  %4167 = and i32 %4166, 16711935
-  %4168 = mul nuw nsw i32 %4167, 5
-  %4169 = lshr i32 %73, 7
-  %4170 = and i32 %4169, 33423870
-  %4171 = add nuw nsw i32 %4168, %4170
-  %4172 = lshr i32 %79, 8
-  %4173 = and i32 %4172, 16711935
-  %4174 = add nuw nsw i32 %4171, %4173
-  %4175 = shl nuw i32 %4174, 5
-  %4176 = and i32 %4175, -16711936
-  %4177 = and i32 %70, 16711935
-  %4178 = mul nuw nsw i32 %4177, 5
-  %4179 = shl i32 %73, 1
-  %4180 = and i32 %4179, 33423870
-  %4181 = add nuw nsw i32 %4180, %4178
-  %4182 = and i32 %79, 16711935
-  %4183 = add nuw nsw i32 %4181, %4182
-  %4184 = lshr i32 %4183, 3
-  %4185 = and i32 %4184, 16711935
-  %4186 = or disjoint i32 %4176, %4185
+4173:                                             ; preds = %3998
+  %4174 = lshr i32 %70, 8
+  %4175 = and i32 %4174, 16711935
+  %4176 = mul nuw nsw i32 %4175, 5
+  %4177 = lshr i32 %73, 7
+  %4178 = and i32 %4177, 33423870
+  %4179 = add nuw nsw i32 %4176, %4178
+  %4180 = lshr i32 %79, 8
+  %4181 = and i32 %4180, 16711935
+  %4182 = add nuw nsw i32 %4179, %4181
+  %4183 = shl nuw i32 %4182, 5
+  %4184 = and i32 %4183, -16711936
+  %4185 = and i32 %70, 16711935
+  %4186 = mul nuw nsw i32 %4185, 5
+  %4187 = shl i32 %73, 1
+  %4188 = and i32 %4187, 33423870
+  %4189 = add nuw nsw i32 %4188, %4186
+  %4190 = and i32 %79, 16711935
+  %4191 = add nuw nsw i32 %4189, %4190
+  %4192 = lshr i32 %4191, 3
+  %4193 = and i32 %4192, 16711935
+  %4194 = or disjoint i32 %4184, %4193
   br label %.thread247.us
 
-4187:                                             ; preds = %3988
-  %4188 = lshr i32 %70, 8
-  %4189 = and i32 %4188, 16711935
-  %4190 = mul nuw nsw i32 %4189, 3
-  %4191 = lshr i32 %83, 8
-  %4192 = and i32 %4191, 16711935
-  %4193 = add nuw nsw i32 %4192, %4190
-  %4194 = shl nuw i32 %4193, 6
-  %4195 = and i32 %4194, -16711936
-  %4196 = and i32 %70, 16711935
-  %4197 = mul nuw nsw i32 %4196, 3
-  %4198 = and i32 %83, 16711935
-  %4199 = add nuw nsw i32 %4198, %4197
-  %4200 = lshr i32 %4199, 2
-  %4201 = and i32 %4200, 16711935
-  %4202 = or disjoint i32 %4195, %4201
+4195:                                             ; preds = %3996
+  %4196 = lshr i32 %70, 8
+  %4197 = and i32 %4196, 16711935
+  %4198 = mul nuw nsw i32 %4197, 3
+  %4199 = lshr i32 %83, 8
+  %4200 = and i32 %4199, 16711935
+  %4201 = add nuw nsw i32 %4200, %4198
+  %4202 = shl nuw i32 %4201, 6
+  %4203 = and i32 %4202, -16711936
+  %4204 = and i32 %70, 16711935
+  %4205 = mul nuw nsw i32 %4204, 3
+  %4206 = and i32 %83, 16711935
+  %4207 = add nuw nsw i32 %4206, %4205
+  %4208 = lshr i32 %4207, 2
+  %4209 = and i32 %4208, 16711935
+  %4210 = or disjoint i32 %4203, %4209
   br label %.thread247.us
 
 .thread247.us.sink.split:                         ; preds = %yuv_diff.exit449.i.thread.us, %.thread244.us
-  store i32 %70, ptr %3332, align 4, !tbaa !20
+  store i32 %70, ptr %3340, align 4, !tbaa !20
   br label %.thread247.us
 
-4203:                                             ; preds = %._crit_edge, %.thread246.thread256.us
-  %.pre-phi474 = phi i32 [ %.pre473, %._crit_edge ], [ %3745, %.thread246.thread256.us ]
-  %.pre-phi472 = phi i32 [ %.pre471, %._crit_edge ], [ %3743, %.thread246.thread256.us ]
-  %.pre-phi470 = phi i32 [ %.pre469, %._crit_edge ], [ %3738, %.thread246.thread256.us ]
-  %.pre-phi466 = phi i32 [ %.pre465, %._crit_edge ], [ %3735, %.thread246.thread256.us ]
-  %4204 = mul nuw nsw i32 %.pre-phi466, 7
-  %4205 = add nuw nsw i32 %.pre-phi470, %4204
-  %4206 = shl nuw i32 %4205, 5
-  %4207 = and i32 %4206, -16711936
-  %4208 = mul nuw nsw i32 %.pre-phi472, 7
-  %4209 = add nuw nsw i32 %.pre-phi474, %4208
-  %4210 = lshr i32 %4209, 3
-  %4211 = and i32 %4210, 16711935
-  %4212 = or disjoint i32 %4207, %4211
+4211:                                             ; preds = %._crit_edge, %.thread246.thread256.us
+  %.pre-phi445 = phi i32 [ %.pre444, %._crit_edge ], [ %3753, %.thread246.thread256.us ]
+  %.pre-phi443 = phi i32 [ %.pre442, %._crit_edge ], [ %3751, %.thread246.thread256.us ]
+  %.pre-phi441 = phi i32 [ %.pre440, %._crit_edge ], [ %3746, %.thread246.thread256.us ]
+  %.pre-phi437 = phi i32 [ %.pre436, %._crit_edge ], [ %3743, %.thread246.thread256.us ]
+  %4212 = mul nuw nsw i32 %.pre-phi437, 7
+  %4213 = add nuw nsw i32 %.pre-phi441, %4212
+  %4214 = shl nuw i32 %4213, 5
+  %4215 = and i32 %4214, -16711936
+  %4216 = mul nuw nsw i32 %.pre-phi443, 7
+  %4217 = add nuw nsw i32 %.pre-phi445, %4216
+  %4218 = lshr i32 %4217, 3
+  %4219 = and i32 %4218, 16711935
+  %4220 = or disjoint i32 %4215, %4219
   br label %.thread247.us
 
-.thread247.us:                                    ; preds = %3987, %.thread247.us.sink.split, %3989, %4203, %4187, %4165, %4143, %4125, %4109, %4089, %4071, %4055, %4039, %4026, %4011
-  %.sink562 = phi i32 [ %4212, %4203 ], [ %70, %3989 ], [ %4202, %4187 ], [ %4025, %4011 ], [ %4186, %4165 ], [ %4164, %4143 ], [ %4142, %4125 ], [ %4124, %4109 ], [ %4108, %4089 ], [ %4088, %4071 ], [ %4070, %4055 ], [ %4054, %4039 ], [ %4038, %4026 ], [ %70, %.thread247.us.sink.split ], [ %70, %3987 ]
-  store i32 %.sink562, ptr %3333, align 4, !tbaa !20
-  %4213 = icmp eq i32 %3413, 43
-  %4214 = icmp eq i32 %3413, 15
-  %4215 = or i1 %4213, %4214
-  %4216 = or i1 %3530, %4215
-  %or.cond444.i.us = or i1 %3532, %4216
-  br i1 %or.cond444.i.us, label %4217, label %4242
+.thread247.us:                                    ; preds = %3995, %.thread247.us.sink.split, %3997, %4211, %4195, %4173, %4151, %4133, %4117, %4097, %4079, %4063, %4047, %4034, %4019
+  %.sink533 = phi i32 [ %4220, %4211 ], [ %70, %3997 ], [ %4210, %4195 ], [ %4033, %4019 ], [ %4194, %4173 ], [ %4172, %4151 ], [ %4150, %4133 ], [ %4132, %4117 ], [ %4116, %4097 ], [ %4096, %4079 ], [ %4078, %4063 ], [ %4062, %4047 ], [ %4046, %4034 ], [ %70, %.thread247.us.sink.split ], [ %70, %3995 ]
+  store i32 %.sink533, ptr %3341, align 4, !tbaa !20
+  %4221 = icmp eq i32 %3421, 43
+  %4222 = icmp eq i32 %3421, 15
+  %4223 = or i1 %4221, %4222
+  %4224 = or i1 %3538, %4223
+  %or.cond444.i.us = or i1 %3540, %4224
+  br i1 %or.cond444.i.us, label %4225, label %4250
 
-4217:                                             ; preds = %.thread247.us
-  %4218 = and i32 %73, 16777215
-  %4219 = zext nneg i32 %4218 to i64
-  %4220 = getelementptr inbounds nuw i32, ptr %7, i64 %4219
-  %4221 = load i32, ptr %4220, align 4, !tbaa !20
-  %4222 = and i32 %79, 16777215
-  %4223 = zext nneg i32 %4222 to i64
-  %4224 = getelementptr inbounds nuw i32, ptr %7, i64 %4223
-  %4225 = load i32, ptr %4224, align 4, !tbaa !20
-  %4226 = and i32 %4221, 16711680
-  %4227 = and i32 %4225, 16711680
-  %4228 = add nsw i32 %4226, -3145729
-  %4229 = sub nsw i32 %4228, %4227
-  %4230 = icmp ult i32 %4229, -6291457
-  br i1 %4230, label %hq4x_interp_2x2.exit.us, label %4231
+4225:                                             ; preds = %.thread247.us
+  %4226 = and i32 %73, 16777215
+  %4227 = zext nneg i32 %4226 to i64
+  %4228 = getelementptr inbounds nuw i32, ptr %7, i64 %4227
+  %4229 = load i32, ptr %4228, align 4, !tbaa !20
+  %4230 = and i32 %79, 16777215
+  %4231 = zext nneg i32 %4230 to i64
+  %4232 = getelementptr inbounds nuw i32, ptr %7, i64 %4231
+  %4233 = load i32, ptr %4232, align 4, !tbaa !20
+  %4234 = and i32 %4229, 16711680
+  %4235 = and i32 %4233, 16711680
+  %4236 = add nsw i32 %4234, -3145729
+  %4237 = sub nsw i32 %4236, %4235
+  %4238 = icmp ult i32 %4237, -6291457
+  br i1 %4238, label %hq4x_interp_2x2.exit.us, label %4239
 
-4231:                                             ; preds = %4217
-  %4232 = and i32 %4221, 65280
-  %4233 = and i32 %4225, 65280
-  %4234 = add nsw i32 %4232, -1793
-  %4235 = sub nsw i32 %4234, %4233
-  %4236 = icmp ult i32 %4235, -3585
-  br i1 %4236, label %hq4x_interp_2x2.exit.us, label %yuv_diff.exit.i.us
+4239:                                             ; preds = %4225
+  %4240 = and i32 %4229, 65280
+  %4241 = and i32 %4233, 65280
+  %4242 = add nsw i32 %4240, -1793
+  %4243 = sub nsw i32 %4242, %4241
+  %4244 = icmp ult i32 %4243, -3585
+  br i1 %4244, label %hq4x_interp_2x2.exit.us, label %yuv_diff.exit.i.us
 
-yuv_diff.exit.i.us:                               ; preds = %4231
-  %4237 = and i32 %4221, 255
-  %4238 = and i32 %4225, 255
-  %4239 = add nuw nsw i32 %4237, 6
-  %4240 = sub nsw i32 %4239, %4238
-  %4241 = icmp ult i32 %4240, 13
-  br i1 %4241, label %4242, label %hq4x_interp_2x2.exit.us
+yuv_diff.exit.i.us:                               ; preds = %4239
+  %4245 = and i32 %4229, 255
+  %4246 = and i32 %4233, 255
+  %4247 = add nuw nsw i32 %4245, 6
+  %4248 = sub nsw i32 %4247, %4246
+  %4249 = icmp ult i32 %4248, 13
+  br i1 %4249, label %4250, label %hq4x_interp_2x2.exit.us
 
-4242:                                             ; preds = %yuv_diff.exit.i.us, %.thread247.us
-  br i1 %3445, label %4316, label %4243
+4250:                                             ; preds = %yuv_diff.exit.i.us, %.thread247.us
+  br i1 %3453, label %4324, label %4251
 
-4243:                                             ; preds = %4242
-  br i1 %3552, label %4300, label %4244
+4251:                                             ; preds = %4250
+  br i1 %3560, label %4308, label %4252
 
-4244:                                             ; preds = %4243
-  br i1 %3527, label %4284, label %4245
+4252:                                             ; preds = %4251
+  br i1 %3535, label %4292, label %4253
 
-4245:                                             ; preds = %4244
-  %brmerge445.i.us = or i1 %3526, %3529
-  %brmerge446.i.us = or i1 %3530, %brmerge445.i.us
-  %brmerge447.i.us = or i1 %3532, %brmerge446.i.us
-  %brmerge448.i.us = or i1 %3533, %brmerge447.i.us
-  br i1 %brmerge448.i.us, label %4263, label %4246
+4253:                                             ; preds = %4252
+  %brmerge445.i.us = or i1 %3534, %3537
+  %brmerge446.i.us = or i1 %3538, %brmerge445.i.us
+  %brmerge447.i.us = or i1 %3540, %brmerge446.i.us
+  %brmerge448.i.us = or i1 %3541, %brmerge447.i.us
+  br i1 %brmerge448.i.us, label %4271, label %4254
 
-4246:                                             ; preds = %4245
-  br i1 %3489, label %4247, label %hq4x_interp_2x2.exit.us
+4254:                                             ; preds = %4253
+  br i1 %3497, label %4255, label %hq4x_interp_2x2.exit.us
 
-4247:                                             ; preds = %4246
-  %4248 = lshr i32 %70, 8
-  %4249 = and i32 %4248, 16711935
-  %4250 = mul nuw nsw i32 %4249, 7
-  %4251 = lshr i32 %83, 8
-  %4252 = and i32 %4251, 16711935
-  %4253 = add nuw nsw i32 %4252, %4250
-  %4254 = shl nuw i32 %4253, 5
-  %4255 = and i32 %4254, -16711936
-  %4256 = and i32 %70, 16711935
-  %4257 = mul nuw nsw i32 %4256, 7
-  %4258 = and i32 %83, 16711935
-  %4259 = add nuw nsw i32 %4258, %4257
-  %4260 = lshr i32 %4259, 3
-  %4261 = and i32 %4260, 16711935
-  %4262 = or disjoint i32 %4255, %4261
+4255:                                             ; preds = %4254
+  %4256 = lshr i32 %70, 8
+  %4257 = and i32 %4256, 16711935
+  %4258 = mul nuw nsw i32 %4257, 7
+  %4259 = lshr i32 %83, 8
+  %4260 = and i32 %4259, 16711935
+  %4261 = add nuw nsw i32 %4260, %4258
+  %4262 = shl nuw i32 %4261, 5
+  %4263 = and i32 %4262, -16711936
+  %4264 = and i32 %70, 16711935
+  %4265 = mul nuw nsw i32 %4264, 7
+  %4266 = and i32 %83, 16711935
+  %4267 = add nuw nsw i32 %4266, %4265
+  %4268 = lshr i32 %4267, 3
+  %4269 = and i32 %4268, 16711935
+  %4270 = or disjoint i32 %4263, %4269
   br label %hq4x_interp_2x2.exit.us
 
-4263:                                             ; preds = %4245
-  %4264 = lshr i32 %70, 8
-  %4265 = and i32 %4264, 16711935
-  %4266 = mul nuw nsw i32 %4265, 6
-  %4267 = lshr i32 %73, 8
-  %4268 = and i32 %4267, 16711935
-  %4269 = add nuw nsw i32 %4266, %4268
-  %4270 = lshr i32 %79, 8
-  %4271 = and i32 %4270, 16711935
-  %4272 = add nuw nsw i32 %4269, %4271
-  %4273 = shl nuw i32 %4272, 5
-  %4274 = and i32 %4273, -16711936
-  %4275 = and i32 %70, 16711935
-  %4276 = mul nuw nsw i32 %4275, 6
-  %4277 = and i32 %73, 16711935
-  %4278 = add nuw nsw i32 %4276, %4277
-  %4279 = and i32 %79, 16711935
-  %4280 = add nuw nsw i32 %4278, %4279
-  %4281 = lshr i32 %4280, 3
-  %4282 = and i32 %4281, 16711935
-  %4283 = or disjoint i32 %4274, %4282
+4271:                                             ; preds = %4253
+  %4272 = lshr i32 %70, 8
+  %4273 = and i32 %4272, 16711935
+  %4274 = mul nuw nsw i32 %4273, 6
+  %4275 = lshr i32 %73, 8
+  %4276 = and i32 %4275, 16711935
+  %4277 = add nuw nsw i32 %4274, %4276
+  %4278 = lshr i32 %79, 8
+  %4279 = and i32 %4278, 16711935
+  %4280 = add nuw nsw i32 %4277, %4279
+  %4281 = shl nuw i32 %4280, 5
+  %4282 = and i32 %4281, -16711936
+  %4283 = and i32 %70, 16711935
+  %4284 = mul nuw nsw i32 %4283, 6
+  %4285 = and i32 %73, 16711935
+  %4286 = add nuw nsw i32 %4284, %4285
+  %4287 = and i32 %79, 16711935
+  %4288 = add nuw nsw i32 %4286, %4287
+  %4289 = lshr i32 %4288, 3
+  %4290 = and i32 %4289, 16711935
+  %4291 = or disjoint i32 %4282, %4290
   br label %hq4x_interp_2x2.exit.us
 
-4284:                                             ; preds = %4244
-  %4285 = lshr i32 %70, 8
-  %4286 = and i32 %4285, 16711935
-  %4287 = mul nuw nsw i32 %4286, 7
-  %4288 = lshr i32 %79, 8
-  %4289 = and i32 %4288, 16711935
-  %4290 = add nuw nsw i32 %4289, %4287
-  %4291 = shl nuw i32 %4290, 5
-  %4292 = and i32 %4291, -16711936
-  %4293 = and i32 %70, 16711935
-  %4294 = mul nuw nsw i32 %4293, 7
-  %4295 = and i32 %79, 16711935
-  %4296 = add nuw nsw i32 %4295, %4294
-  %4297 = lshr i32 %4296, 3
-  %4298 = and i32 %4297, 16711935
-  %4299 = or disjoint i32 %4292, %4298
+4292:                                             ; preds = %4252
+  %4293 = lshr i32 %70, 8
+  %4294 = and i32 %4293, 16711935
+  %4295 = mul nuw nsw i32 %4294, 7
+  %4296 = lshr i32 %79, 8
+  %4297 = and i32 %4296, 16711935
+  %4298 = add nuw nsw i32 %4297, %4295
+  %4299 = shl nuw i32 %4298, 5
+  %4300 = and i32 %4299, -16711936
+  %4301 = and i32 %70, 16711935
+  %4302 = mul nuw nsw i32 %4301, 7
+  %4303 = and i32 %79, 16711935
+  %4304 = add nuw nsw i32 %4303, %4302
+  %4305 = lshr i32 %4304, 3
+  %4306 = and i32 %4305, 16711935
+  %4307 = or disjoint i32 %4300, %4306
   br label %hq4x_interp_2x2.exit.us
 
-4300:                                             ; preds = %4243
-  %4301 = lshr i32 %70, 8
-  %4302 = and i32 %4301, 16711935
-  %4303 = mul nuw nsw i32 %4302, 7
-  %4304 = lshr i32 %73, 8
-  %4305 = and i32 %4304, 16711935
-  %4306 = add nuw nsw i32 %4303, %4305
-  %4307 = shl nuw i32 %4306, 5
-  %4308 = and i32 %4307, -16711936
-  %4309 = and i32 %70, 16711935
-  %4310 = mul nuw nsw i32 %4309, 7
-  %4311 = and i32 %73, 16711935
-  %4312 = add nuw nsw i32 %4310, %4311
-  %4313 = lshr i32 %4312, 3
-  %4314 = and i32 %4313, 16711935
-  %4315 = or disjoint i32 %4308, %4314
+4308:                                             ; preds = %4251
+  %4309 = lshr i32 %70, 8
+  %4310 = and i32 %4309, 16711935
+  %4311 = mul nuw nsw i32 %4310, 7
+  %4312 = lshr i32 %73, 8
+  %4313 = and i32 %4312, 16711935
+  %4314 = add nuw nsw i32 %4311, %4313
+  %4315 = shl nuw i32 %4314, 5
+  %4316 = and i32 %4315, -16711936
+  %4317 = and i32 %70, 16711935
+  %4318 = mul nuw nsw i32 %4317, 7
+  %4319 = and i32 %73, 16711935
+  %4320 = add nuw nsw i32 %4318, %4319
+  %4321 = lshr i32 %4320, 3
+  %4322 = and i32 %4321, 16711935
+  %4323 = or disjoint i32 %4316, %4322
   br label %hq4x_interp_2x2.exit.us
 
-4316:                                             ; preds = %4242
-  %4317 = lshr i32 %70, 8
-  %4318 = and i32 %4317, 16711935
-  %4319 = mul nuw nsw i32 %4318, 7
-  %4320 = lshr i32 %83, 8
-  %4321 = and i32 %4320, 16711935
-  %4322 = add nuw nsw i32 %4321, %4319
-  %4323 = shl nuw i32 %4322, 5
-  %4324 = and i32 %4323, -16711936
-  %4325 = and i32 %70, 16711935
-  %4326 = mul nuw nsw i32 %4325, 7
-  %4327 = and i32 %83, 16711935
-  %4328 = add nuw nsw i32 %4327, %4326
-  %4329 = lshr i32 %4328, 3
-  %4330 = and i32 %4329, 16711935
-  %4331 = or disjoint i32 %4324, %4330
+4324:                                             ; preds = %4250
+  %4325 = lshr i32 %70, 8
+  %4326 = and i32 %4325, 16711935
+  %4327 = mul nuw nsw i32 %4326, 7
+  %4328 = lshr i32 %83, 8
+  %4329 = and i32 %4328, 16711935
+  %4330 = add nuw nsw i32 %4329, %4327
+  %4331 = shl nuw i32 %4330, 5
+  %4332 = and i32 %4331, -16711936
+  %4333 = and i32 %70, 16711935
+  %4334 = mul nuw nsw i32 %4333, 7
+  %4335 = and i32 %83, 16711935
+  %4336 = add nuw nsw i32 %4335, %4334
+  %4337 = lshr i32 %4336, 3
+  %4338 = and i32 %4337, 16711935
+  %4339 = or disjoint i32 %4332, %4338
   br label %hq4x_interp_2x2.exit.us
 
-hq4x_interp_2x2.exit.us:                          ; preds = %4217, %4231, %yuv_diff.exit.i.us, %4246, %4316, %4300, %4284, %4263, %4247
-  %.sink563 = phi i32 [ %70, %4246 ], [ %4331, %4316 ], [ %4315, %4300 ], [ %4299, %4284 ], [ %4283, %4263 ], [ %4262, %4247 ], [ %70, %yuv_diff.exit.i.us ], [ %70, %4231 ], [ %70, %4217 ]
-  store i32 %.sink563, ptr %3320, align 4, !tbaa !20
-  %4332 = getelementptr inbounds nuw i8, ptr %.0144.i394.us, i64 4
-  %4333 = getelementptr inbounds nuw i8, ptr %.0145.i393.us, i64 16
-  %4334 = add nuw nsw i32 %.0.i395.us, 1
-  %exitcond.not = icmp eq i32 %4334, %11
+hq4x_interp_2x2.exit.us:                          ; preds = %4225, %4239, %yuv_diff.exit.i.us, %4254, %4324, %4308, %4292, %4271, %4255
+  %.sink534 = phi i32 [ %70, %4254 ], [ %4339, %4324 ], [ %4323, %4308 ], [ %4307, %4292 ], [ %4291, %4271 ], [ %4270, %4255 ], [ %70, %yuv_diff.exit.i.us ], [ %70, %4239 ], [ %70, %4225 ]
+  store i32 %.sink534, ptr %3328, align 4, !tbaa !20
+  %4340 = getelementptr inbounds nuw i8, ptr %.0144.i382.us, i64 4
+  %4341 = getelementptr inbounds nuw i8, ptr %.0145.i381.us, i64 16
+  %4342 = add nuw nsw i32 %.0.i383.us, 1
+  %exitcond.not = icmp eq i32 %4342, %11
   br i1 %exitcond.not, label %._crit_edge.us, label %53, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %hq4x_interp_2x2.exit.us
-  %4335 = getelementptr inbounds i8, ptr %.0143.i396.us, i64 %35
-  %4336 = getelementptr inbounds i8, ptr %.0142.i397.us, i64 %37
-  %4337 = add nsw i32 %.0141.i398.us, 1
-  %exitcond425.not = icmp eq i32 %4337, %16
-  br i1 %exitcond425.not, label %hqx_filter.exit, label %.lr.ph.us, !llvm.loop !62
+  %4343 = getelementptr inbounds i8, ptr %.0143.i384.us, i64 %35
+  %4344 = getelementptr inbounds i8, ptr %.0142.i385.us, i64 %37
+  %4345 = add nsw i32 %.0141.i386.us, 1
+  %exitcond396.not = icmp eq i32 %4345, %16
+  br i1 %exitcond396.not, label %hqx_filter.exit, label %.lr.ph.us, !llvm.loop !62
 
-hqx_filter.exit:                                  ; preds = %._crit_edge.us, %.lr.ph400, %4
+hqx_filter.exit:                                  ; preds = %._crit_edge.us, %.lr.ph388, %4
   ret i32 0
 }
 

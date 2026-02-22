@@ -980,8 +980,8 @@ define dso_local range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 nound
   %23 = load ptr, ptr %5, align 8
   %24 = icmp eq ptr %21, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.fr = freeze i64 %22
-  %25 = trunc i64 %.fr to i32
+  %.fr25 = freeze i64 %22
+  %25 = trunc i64 %.fr25 to i32
   %26 = icmp eq i32 %25, -1
   %or.cond = or i1 %24, %26
   br i1 %or.cond, label %acct_gather_parse_freq.exit.thread, label %acct_gather_parse_freq.exit.thread19
@@ -998,9 +998,9 @@ acct_gather_parse_freq.exit.thread19:             ; preds = %20, %11, %acct_gath
   %29 = phi i32 [ %27, %acct_gather_parse_freq.exit.thread19 ], [ %7, %2 ]
   %30 = icmp eq i64 %0, 0
   %31 = icmp eq i32 %29, 0
-  %or.cond.not26 = select i1 %30, i1 true, i1 %31
+  %or.cond.not27 = select i1 %30, i1 true, i1 %31
   %.not.i12 = icmp eq ptr %1, null
-  %or.cond24 = or i1 %.not.i12, %or.cond.not26
+  %or.cond24 = or i1 %.not.i12, %or.cond.not27
   br i1 %or.cond24, label %acct_gather_parse_freq.exit16.thread, label %32
 
 32:                                               ; preds = %28

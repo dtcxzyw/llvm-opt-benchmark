@@ -130,21 +130,21 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne i64 %10, 0
   %or.cond = and i1 %21, %20
-  br i1 %or.cond, label %.thread582, label %26
+  br i1 %or.cond, label %.thread583, label %26
 
-.thread582:                                       ; preds = %18
+.thread583:                                       ; preds = %18
   %22 = load i8, ptr %0, align 1, !tbaa !97
   %23 = add i8 %22, -48
   %24 = icmp ult i8 %23, 10
   %25 = select i1 %24, i32 2, i32 1
   store i32 %25, ptr %15, align 8, !tbaa !96
-  br label %.lr.ph561
+  br label %.lr.ph562
 
 26:                                               ; preds = %18
-  %.not562 = icmp eq i64 %10, 0
-  br i1 %.not562, label %.loopexit, label %.lr.ph561
+  %.not563 = icmp eq i64 %10, 0
+  br i1 %.not563, label %.loopexit, label %.lr.ph562
 
-.lr.ph561:                                        ; preds = %.thread582, %26
+.lr.ph562:                                        ; preds = %.thread583, %26
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -158,10 +158,10 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 72
   br label %38
 
-38:                                               ; preds = %.lr.ph561, %522
-  %.0466560 = phi i64 [ 0, %.lr.ph561 ], [ %.1, %522 ]
+38:                                               ; preds = %.lr.ph562, %522
+  %.0466561 = phi i64 [ 0, %.lr.ph562 ], [ %.1, %522 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.0466560
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.0466561
   %40 = load i8, ptr %39, align 1, !tbaa !97
   store i8 %40, ptr %5, align 1, !tbaa !97
   %41 = load ptr, ptr %27, align 8, !tbaa !23
@@ -283,24 +283,24 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
 
 .preheader:                                       ; preds = %80
   %82 = add i8 %81, -48
-  %or.cond534558 = icmp ult i8 %82, 10
-  br i1 %or.cond534558, label %.lr.ph, label %.critedge5
+  %or.cond534559 = icmp ult i8 %82, 10
+  br i1 %or.cond534559, label %.lr.ph, label %.critedge5
 
 .critedge:                                        ; preds = %80, %80
   %83 = getelementptr inbounds nuw i8, ptr %.0467, i64 1
   br label %80, !llvm.loop !102
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1468559 = phi ptr [ %84, %.lr.ph ], [ %.0467, %.preheader ]
-  %84 = getelementptr inbounds nuw i8, ptr %.1468559, i64 1
+  %.1468560 = phi ptr [ %84, %.lr.ph ], [ %.0467, %.preheader ]
+  %84 = getelementptr inbounds nuw i8, ptr %.1468560, i64 1
   %.pr = load i8, ptr %84, align 1, !tbaa !97
   %85 = add i8 %.pr, -48
   %or.cond534 = icmp ult i8 %85, 10
   br i1 %or.cond534, label %.lr.ph, label %.critedge5, !llvm.loop !103
 
 .critedge5:                                       ; preds = %.lr.ph, %.preheader
-  %.lcssa557 = phi i8 [ %81, %.preheader ], [ %.pr, %.lr.ph ]
-  %.not532 = icmp eq i8 %.lcssa557, 0
+  %.lcssa558 = phi i8 [ %81, %.preheader ], [ %.pr, %.lr.ph ]
+  %.not532 = icmp eq i8 %.lcssa558, 0
   br i1 %.not532, label %.thread, label %86
 
 .thread:                                          ; preds = %.critedge5
@@ -832,8 +832,8 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %302 = add i32 %301, 1
   store i32 %302, ptr %29, align 8, !tbaa !99
   %303 = load i8, ptr %5, align 1, !tbaa !97
-  %.fr = freeze i8 %303
-  %304 = icmp eq i8 %.fr, 32
+  %.fr556 = freeze i8 %303
+  %304 = icmp eq i8 %.fr556, 32
   br i1 %304, label %305, label %317
 
 305:                                              ; preds = %300
@@ -861,16 +861,16 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   br label %520
 
 317:                                              ; preds = %300
-  %318 = add i8 %.fr, -58
+  %318 = add i8 %.fr556, -58
   %or.cond79 = icmp ult i8 %318, -10
-  %319 = and i8 %.fr, -33
+  %319 = and i8 %.fr556, -33
   %320 = add i8 %319, -91
   %321 = icmp ult i8 %320, -26
-  %or.cond556 = and i1 %or.cond79, %321
-  br i1 %or.cond556, label %switch.early.test, label %520
+  %or.cond557 = and i1 %or.cond79, %321
+  br i1 %or.cond557, label %switch.early.test, label %520
 
 switch.early.test:                                ; preds = %317
-  switch i8 %.fr, label %322 [
+  switch i8 %.fr556, label %322 [
     i8 58, label %520
     i8 46, label %520
   ]
@@ -1286,7 +1286,7 @@ switch.early.test:                                ; preds = %317
   store i32 1, ptr %482, align 8, !tbaa !104
   %483 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i64 0, ptr %483, align 8, !tbaa !119
-  %.pre564 = load ptr, ptr %27, align 8, !tbaa !23
+  %.pre565 = load ptr, ptr %27, align 8, !tbaa !23
   br label %490
 
 484:                                              ; preds = %471
@@ -1309,7 +1309,7 @@ switch.early.test:                                ; preds = %317
   br label %.thread552
 
 490:                                              ; preds = %.thread549, %481
-  %491 = phi ptr [ %487, %.thread549 ], [ %.pre564, %481 ]
+  %491 = phi ptr [ %487, %.thread549 ], [ %.pre565, %481 ]
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 96
   %493 = load i32, ptr %492, align 8, !tbaa !107
   %494 = or i32 %493, 64
@@ -1389,7 +1389,7 @@ switch.early.test:                                ; preds = %317
   br label %.thread552
 
 520:                                              ; preds = %119, %.thread, %359, %501, %445, %445, %397, %329, %switch.early.test, %switch.early.test, %67, %344, %334, %421, %427, %438, %451, %457, %447, %441, %466, %490, %462, %464, %460, %505, %508, %497, %499, %515, %495, %56, %98, %71, %63, %58, %108, %104, %159, %160, %127, %131, %125, %169, %174, %165, %167, %163, %187, %192, %183, %185, %181, %236, %237, %201, %205, %199, %316, %315, %317, %289, %298, %281, %285, %282, %265, %274, %257, %261, %258, %242, %249, %240, %333, %325, %327, %323, %401, %402, %383, %391, %376, %378, %369, %371, %363, %355, %357, %412, %394, %353
-  %521 = add i64 %.0466560, 1
+  %521 = add i64 %.0466561, 1
   br label %522
 
 .thread552:                                       ; preds = %51, %518, %87, %86, %97, %107, %133, %162, %207, %239, %251, %264, %275, %288, %299, %322, %44, %517, %352, %364, %370, %377, %390, %396, %459, %489, %420, %432, %439, %440, %112, %118
@@ -1398,7 +1398,7 @@ switch.early.test:                                ; preds = %317
   br label %524
 
 522:                                              ; preds = %520, %66
-  %.1 = phi i64 [ %521, %520 ], [ %.0466560, %66 ]
+  %.1 = phi i64 [ %521, %520 ], [ %.0466561, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %523 = icmp ult i64 %.1, %10
   br i1 %523, label %38, label %.loopexit

@@ -10729,10 +10729,9 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZZN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorISt14_List_iteratorISK_ESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEEC1ERKSQ_ENKUlSY_SY_E_clESY_SY_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.fr9 = freeze ptr %4
-  %.fr8 = freeze ptr %2
-  %6 = icmp eq ptr %.fr8, %.fr9
-  br i1 %6, label %.split.us.outer, label %.split.outer
+  %6 = icmp eq ptr %2, %4
+  %.fr = freeze i1 %6
+  br i1 %.fr, label %.split.us.outer, label %.split.outer
 
 .split.us.outer:                                  ; preds = %5, %27
   %.sroa.01.0.us.ph = phi ptr [ %28, %27 ], [ %1, %5 ]
@@ -10741,12 +10740,12 @@ define linkonce_odr hidden void @_ZZN5boost4wave8grammars19has_include_grammarIN
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.outer, %26
-  %8 = load ptr, ptr %.fr8, align 8, !tbaa !48
-  %9 = icmp eq ptr %8, %.fr9
-  %.pre = load ptr, ptr %.fr9, align 8, !tbaa !48
-  %10 = icmp eq ptr %.pre, %.fr9
-  %or.cond16 = select i1 %9, i1 %10, i1 false
-  br i1 %or.cond16, label %_ZN5boost9iteratorsneINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS2_8cpplexer9lex_tokenINS3_13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcSC_EEPcEEEEEEEEESK_NSt7__cxx114listISK_NS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEKSK_St20forward_iterator_tagRSU_lST_SU_SV_SW_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSX_12always_bool2ESZ_S10_E4typeEE4typeERKNS0_15iterator_facadeISZ_T0_T1_T2_T3_EERKNS18_IS10_T5_T6_T7_T8_EE.exit.us, label %._crit_edge.i.i.i.us
+  %8 = load ptr, ptr %2, align 8, !tbaa !48
+  %9 = icmp eq ptr %8, %2
+  %.pre = load ptr, ptr %4, align 8, !tbaa !48
+  %10 = icmp eq ptr %.pre, %4
+  %or.cond15 = select i1 %9, i1 %10, i1 false
+  br i1 %or.cond15, label %_ZN5boost9iteratorsneINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS2_8cpplexer9lex_tokenINS3_13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcSC_EEPcEEEEEEEEESK_NSt7__cxx114listISK_NS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEKSK_St20forward_iterator_tagRSU_lST_SU_SV_SW_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSX_12always_bool2ESZ_S10_E4typeEE4typeERKNS0_15iterator_facadeISZ_T0_T1_T2_T3_EERKNS18_IS10_T5_T6_T7_T8_EE.exit.us, label %._crit_edge.i.i.i.us
 
 ._crit_edge.i.i.i.us:                             ; preds = %.split.us
   %11 = icmp ne ptr %8, %.pre
@@ -10780,12 +10779,12 @@ _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_
   %22 = load i64, ptr %21, align 8, !tbaa !184
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !tbaa !184
-  %24 = load ptr, ptr %.fr8, align 8, !tbaa !48
-  %25 = icmp eq ptr %24, %.fr9
+  %24 = load ptr, ptr %2, align 8, !tbaa !48
+  %25 = icmp eq ptr %24, %2
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE9push_backERKSI_.exit.us
-  tail call void @_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE8_M_eraseESt14_List_iteratorISI_E(ptr noundef nonnull align 8 dereferenceable(24) %.fr8, ptr %24) #29
+  tail call void @_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE8_M_eraseESt14_List_iteratorISI_E(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %24) #29
   br label %.split.us, !llvm.loop !276
 
 27:                                               ; preds = %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE9push_backERKSI_.exit.us
@@ -10793,13 +10792,13 @@ _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_
   br label %.split.us.outer, !llvm.loop !276
 
 .split:                                           ; preds = %.split.outer, %48
-  %29 = load ptr, ptr %.fr8, align 8, !tbaa !48
-  %30 = icmp eq ptr %29, %.fr8
+  %29 = load ptr, ptr %2, align 8, !tbaa !48
+  %30 = icmp eq ptr %29, %2
   br i1 %30, label %31, label %_ZN5boost9iteratorsneINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS2_8cpplexer9lex_tokenINS3_13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcSC_EEPcEEEEEEEEESK_NSt7__cxx114listISK_NS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEKSK_St20forward_iterator_tagRSU_lST_SU_SV_SW_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSX_12always_bool2ESZ_S10_E4typeEE4typeERKNS0_15iterator_facadeISZ_T0_T1_T2_T3_EERKNS18_IS10_T5_T6_T7_T8_EE.exit.thread
 
 31:                                               ; preds = %.split
-  %32 = load ptr, ptr %.fr9, align 8, !tbaa !48
-  %33 = icmp eq ptr %32, %.fr9
+  %32 = load ptr, ptr %4, align 8, !tbaa !48
+  %33 = icmp eq ptr %32, %4
   %or.cond = select i1 %33, i1 %.old.not, i1 false
   br i1 %or.cond, label %.split7.us, label %_ZN5boost9iteratorsneINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS2_8cpplexer9lex_tokenINS3_13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcSC_EEPcEEEEEEEEESK_NSt7__cxx114listISK_NS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEKSK_St20forward_iterator_tagRSU_lST_SU_SV_SW_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSX_12always_bool2ESZ_S10_E4typeEE4typeERKNS0_15iterator_facadeISZ_T0_T1_T2_T3_EERKNS18_IS10_T5_T6_T7_T8_EE.exit.thread
 
@@ -10827,12 +10826,12 @@ _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_
   %44 = load i64, ptr %43, align 8, !tbaa !184
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !184
-  %46 = load ptr, ptr %.fr8, align 8, !tbaa !48
-  %47 = icmp eq ptr %46, %.fr8
+  %46 = load ptr, ptr %2, align 8, !tbaa !48
+  %47 = icmp eq ptr %46, %2
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE9push_backERKSI_.exit
-  tail call void @_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE8_M_eraseESt14_List_iteratorISI_E(ptr noundef nonnull align 8 dereferenceable(24) %.fr8, ptr %46) #29
+  tail call void @_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE8_M_eraseESt14_List_iteratorISI_E(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %46) #29
   br label %.split, !llvm.loop !276
 
 49:                                               ; preds = %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE9push_backERKSI_.exit

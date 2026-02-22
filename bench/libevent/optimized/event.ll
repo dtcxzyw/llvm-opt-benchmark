@@ -760,13 +760,13 @@ event_mm_calloc_.exit:                            ; preds = %1
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = load i32, ptr %14, align 4
-  %.fr132 = freeze i32 %15
+  %.fr133 = freeze i32 %15
   %16 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 984
-  store i32 %.fr132, ptr %16, align 8
-  %17 = and i32 %.fr132, 2
+  store i32 %.fr133, ptr %16, align 8
+  %17 = and i32 %.fr133, 2
   %18 = icmp ne i32 %17, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = and i32 %.fr132, 32
+  %19 = and i32 %.fr133, 32
   %20 = icmp ne i32 %19, 0
   br label %21
 
@@ -871,7 +871,7 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   store i64 -1, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1012
   store i32 1, ptr %71, align 4
-  br label %.thread166
+  br label %.thread167
 
 72:                                               ; preds = %gettime.exit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -883,9 +883,9 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %81, label %.thread166
+  br i1 %79, label %81, label %.thread167
 
-.thread166:                                       ; preds = %72, %.thread
+.thread167:                                       ; preds = %72, %.thread
   %80 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1008
   store i32 2147483647, ptr %80, align 8
   br label %85
@@ -894,13 +894,13 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   %82 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1008
   store i32 %78, ptr %82, align 8
   %83 = icmp eq i32 %78, 2147483647
-  br i1 %83, label %85, label %.thread167
+  br i1 %83, label %85, label %.thread168
 
-.thread167:                                       ; preds = %81
+.thread168:                                       ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.split
 
-85:                                               ; preds = %.thread166, %81
+85:                                               ; preds = %.thread167, %81
   %86 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 992
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, -1
@@ -920,7 +920,7 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
 
 .split.us.split.us:                               ; preds = %.split.us, %event_config_is_avoided_method.exit.us.us
   %93 = phi ptr [ %97, %event_config_is_avoided_method.exit.us.us ], [ null, %.split.us ]
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %event_config_is_avoided_method.exit.us.us ], [ 0, %.split.us ]
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %event_config_is_avoided_method.exit.us.us ], [ 0, %.split.us ]
   %94 = phi ptr [ %99, %event_config_is_avoided_method.exit.us.us ], [ @epollops, %.split.us ]
   %.not93.us.us = icmp eq ptr %93, null
   br i1 %.not93.us.us, label %event_config_is_avoided_method.exit.us.us, label %.critedge.thread
@@ -931,14 +931,14 @@ event_config_is_avoided_method.exit.us.us:        ; preds = %.split.us.split.us
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr %96(ptr noundef nonnull %.0.i118) #26
   store ptr %97, ptr %69, align 8
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %98 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next147
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %98 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next148
   %99 = load ptr, ptr %98, align 8
-  %.not92.us.us = icmp eq i64 %indvars.iv.next147, 3
+  %.not92.us.us = icmp eq i64 %indvars.iv.next148, 3
   br i1 %.not92.us.us, label %.critedge, label %.split.us.split.us, !llvm.loop !11
 
 .split.us.split:                                  ; preds = %.split.us, %event_config_is_avoided_method.exit.us
-  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %event_config_is_avoided_method.exit.us ], [ 0, %.split.us ]
+  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %event_config_is_avoided_method.exit.us ], [ 0, %.split.us ]
   %100 = phi ptr [ %117, %event_config_is_avoided_method.exit.us ], [ @epollops, %.split.us ]
   %101 = load ptr, ptr %69, align 8
   %.not93.us = icmp eq ptr %101, null
@@ -979,20 +979,20 @@ event_is_method_disabled.exit.us:                 ; preds = %.lr.ph.i110.us, %10
   br label %event_config_is_avoided_method.exit.us
 
 event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_method_disabled.exit.us
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %116 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next144
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %116 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next145
   %117 = load ptr, ptr %116, align 8
-  %.not92.us = icmp eq i64 %indvars.iv.next144, 3
+  %.not92.us = icmp eq i64 %indvars.iv.next145, 3
   br i1 %.not92.us, label %.critedgethread-pre-split, label %.split.us.split, !llvm.loop !11
 
-.split:                                           ; preds = %.thread167, %91
-  %118 = phi ptr [ %84, %.thread167 ], [ %92, %91 ]
+.split:                                           ; preds = %.thread168, %91
+  %118 = phi ptr [ %84, %.thread168 ], [ %92, %91 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.fr, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %event_config_is_avoided_method.exit.us128
   %120 = phi ptr [ %138, %event_config_is_avoided_method.exit.us128 ], [ null, %.split ]
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %event_config_is_avoided_method.exit.us128 ], [ 0, %.split ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %event_config_is_avoided_method.exit.us128 ], [ 0, %.split ]
   %121 = phi ptr [ %140, %event_config_is_avoided_method.exit.us128 ], [ @epollops, %.split ]
   %.not93.us127 = icmp eq ptr %120, null
   br i1 %.not93.us127, label %122, label %.critedge.thread
@@ -1038,10 +1038,10 @@ event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_meth
 
 event_config_is_avoided_method.exit.us128:        ; preds = %126, %134, %.loopexit124.us
   %138 = phi ptr [ null, %.loopexit124.us ], [ %137, %134 ], [ null, %126 ]
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %139 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next141
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %139 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next142
   %140 = load ptr, ptr %139, align 8
-  %.not92.us129 = icmp eq i64 %indvars.iv.next141, 3
+  %.not92.us129 = icmp eq i64 %indvars.iv.next142, 3
   br i1 %.not92.us129, label %.critedgethread-pre-split, label %.split.split.us, !llvm.loop !11
 
 .split.split:                                     ; preds = %.split, %event_config_is_avoided_method.exit

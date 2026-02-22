@@ -426,8 +426,8 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   %45 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val.i.i.i) #5, !srcloc !10
   %46 = and i32 %44, 255
-  %.not57.i.i.i = icmp ugt i32 %30, %46
-  br i1 %.not57.i.i.i, label %.split.i.i.i, label %.split.us.i.i.i
+  %.not58.i.i.i = icmp ugt i32 %30, %46
+  br i1 %.not58.i.i.i, label %.split.i.i.i, label %.split.us.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %43, %51
   %.1.i.i = phi i32 [ %54, %51 ], [ %.080.i.i, %43 ]
@@ -482,8 +482,8 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr noundef readonly 
   %66 = or i32 %65, %.349.i.i
   %67 = add nuw nsw i32 %.03451.i.i.i, 1
   %68 = getelementptr i8, ptr %.02953.i.i.i, i64 1
-  %exitcond63.not.i.i.i = icmp eq i32 %67, 4
-  br i1 %exitcond63.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !11
+  %exitcond64.not.i.i.i = icmp eq i32 %67, 4
+  br i1 %exitcond64.not.i.i.i, label %select.unfold.i.i, label %.split.i.i.i, !llvm.loop !11
 
 select.unfold.i.i:                                ; preds = %51, %63, %.split55.us.i.i.i
   %.4.i.i = phi i32 [ %66, %63 ], [ %.248.i.i, %.split55.us.i.i.i ], [ %54, %51 ]

@@ -2243,7 +2243,8 @@ define dso_local ptr @bdev_getblk(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %36 = lshr i64 %33, 12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = or i32 %3, 4194304
-  br i1 %35, label %.split.us, label %.split
+  %.fr = freeze i1 %35
+  br i1 %.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %29
   %39 = tail call ptr @__find_get_block(ptr noundef %0, i64 noundef %1, i32 noundef %2)

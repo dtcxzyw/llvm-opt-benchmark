@@ -24409,8 +24409,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %3
   %17 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i7, i64 noundef %16) #11
   tail call void @lean_inc_heartbeat() #11
   %18 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr21 = freeze ptr %18
-  %19 = icmp eq ptr %.fr21, null
+  %.fr24 = freeze ptr %18
+  %19 = icmp eq ptr %.fr24, null
   br i1 %19, label %20, label %l_Lean_Name_str___override.exit8
 
 20:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24418,20 +24418,20 @@ l_Lean_Name_str___override.exit:                  ; preds = %3
   unreachable
 
 l_Lean_Name_str___override.exit8:                 ; preds = %l_Lean_Name_str___override.exit
-  %21 = getelementptr inbounds nuw i8, ptr %.fr21, i64 4
-  store i32 1, ptr %.fr21, align 4, !tbaa !4
+  %21 = getelementptr inbounds nuw i8, ptr %.fr24, i64 4
+  store i32 1, ptr %.fr24, align 4, !tbaa !4
   store i32 16908320, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %.fr21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.fr24, i64 8
   store ptr %.fr, ptr %22, align 8, !tbaa !10
-  %23 = getelementptr inbounds nuw i8, ptr %.fr21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.fr24, i64 16
   store ptr %1, ptr %23, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw i8, ptr %.fr21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.fr24, i64 24
   store i64 %17, ptr %24, align 8, !tbaa !16
-  %25 = ptrtoint ptr %.fr21 to i64
+  %25 = ptrtoint ptr %.fr24 to i64
   %26 = and i64 %25, 8589934591
   %27 = icmp eq i64 %26, 1
-  %l_Lean_Name_hash___override___closed__1.val22 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i13 = select i1 %27, i64 %l_Lean_Name_hash___override___closed__1.val22, i64 %17
+  %l_Lean_Name_hash___override___closed__1.val25 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i13 = select i1 %27, i64 %l_Lean_Name_hash___override___closed__1.val25, i64 %17
   %28 = tail call i64 @lean_string_hash(ptr noundef %2) #11
   %29 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i13, i64 noundef %28) #11
   tail call void @lean_inc_heartbeat() #11
@@ -24448,7 +24448,7 @@ l_Lean_Name_str___override.exit14:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %30, align 4, !tbaa !4
   store i32 16908320, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %.fr21, ptr %34, align 8, !tbaa !10
+  store ptr %.fr24, ptr %34, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %2, ptr %35, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -24490,8 +24490,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %4
   %18 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i9, i64 noundef %17) #11
   tail call void @lean_inc_heartbeat() #11
   %19 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr33 = freeze ptr %19
-  %20 = icmp eq ptr %.fr33, null
+  %.fr36 = freeze ptr %19
+  %20 = icmp eq ptr %.fr36, null
   br i1 %20, label %21, label %l_Lean_Name_str___override.exit10
 
 21:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24499,26 +24499,26 @@ l_Lean_Name_str___override.exit:                  ; preds = %4
   unreachable
 
 l_Lean_Name_str___override.exit10:                ; preds = %l_Lean_Name_str___override.exit
-  %22 = getelementptr inbounds nuw i8, ptr %.fr33, i64 4
-  store i32 1, ptr %.fr33, align 4, !tbaa !4
+  %22 = getelementptr inbounds nuw i8, ptr %.fr36, i64 4
+  store i32 1, ptr %.fr36, align 4, !tbaa !4
   store i32 16908320, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %.fr33, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.fr36, i64 8
   store ptr %.fr, ptr %23, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw i8, ptr %.fr33, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.fr36, i64 16
   store ptr %1, ptr %24, align 8, !tbaa !10
-  %25 = getelementptr inbounds nuw i8, ptr %.fr33, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.fr36, i64 24
   store i64 %18, ptr %25, align 8, !tbaa !16
-  %26 = ptrtoint ptr %.fr33 to i64
+  %26 = ptrtoint ptr %.fr36 to i64
   %27 = and i64 %26, 8589934591
   %28 = icmp eq i64 %27, 1
-  %l_Lean_Name_hash___override___closed__1.val34 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i15 = select i1 %28, i64 %l_Lean_Name_hash___override___closed__1.val34, i64 %18
+  %l_Lean_Name_hash___override___closed__1.val37 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i15 = select i1 %28, i64 %l_Lean_Name_hash___override___closed__1.val37, i64 %18
   %29 = tail call i64 @lean_string_hash(ptr noundef %2) #11
   %30 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i15, i64 noundef %29) #11
   tail call void @lean_inc_heartbeat() #11
   %31 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr35 = freeze ptr %31
-  %32 = icmp eq ptr %.fr35, null
+  %.fr40 = freeze ptr %31
+  %32 = icmp eq ptr %.fr40, null
   br i1 %32, label %33, label %l_Lean_Name_str___override.exit16
 
 33:                                               ; preds = %l_Lean_Name_str___override.exit10
@@ -24526,20 +24526,20 @@ l_Lean_Name_str___override.exit10:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit16:                ; preds = %l_Lean_Name_str___override.exit10
-  %34 = getelementptr inbounds nuw i8, ptr %.fr35, i64 4
-  store i32 1, ptr %.fr35, align 4, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %.fr40, i64 4
+  store i32 1, ptr %.fr40, align 4, !tbaa !4
   store i32 16908320, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.fr35, i64 8
-  store ptr %.fr33, ptr %35, align 8, !tbaa !10
-  %36 = getelementptr inbounds nuw i8, ptr %.fr35, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.fr40, i64 8
+  store ptr %.fr36, ptr %35, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   store ptr %2, ptr %36, align 8, !tbaa !10
-  %37 = getelementptr inbounds nuw i8, ptr %.fr35, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.fr40, i64 24
   store i64 %30, ptr %37, align 8, !tbaa !16
-  %38 = ptrtoint ptr %.fr35 to i64
+  %38 = ptrtoint ptr %.fr40 to i64
   %39 = and i64 %38, 8589934591
   %40 = icmp eq i64 %39, 1
-  %l_Lean_Name_hash___override___closed__1.val36 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i21 = select i1 %40, i64 %l_Lean_Name_hash___override___closed__1.val36, i64 %30
+  %l_Lean_Name_hash___override___closed__1.val41 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i21 = select i1 %40, i64 %l_Lean_Name_hash___override___closed__1.val41, i64 %30
   %41 = tail call i64 @lean_string_hash(ptr noundef %3) #11
   %42 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i21, i64 noundef %41) #11
   tail call void @lean_inc_heartbeat() #11
@@ -24556,7 +24556,7 @@ l_Lean_Name_str___override.exit22:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %43, align 4, !tbaa !4
   store i32 16908320, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %.fr35, ptr %47, align 8, !tbaa !10
+  store ptr %.fr40, ptr %47, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %3, ptr %48, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -24598,8 +24598,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %5
   %19 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i11, i64 noundef %18) #11
   tail call void @lean_inc_heartbeat() #11
   %20 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr45 = freeze ptr %20
-  %21 = icmp eq ptr %.fr45, null
+  %.fr48 = freeze ptr %20
+  %21 = icmp eq ptr %.fr48, null
   br i1 %21, label %22, label %l_Lean_Name_str___override.exit12
 
 22:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24607,26 +24607,26 @@ l_Lean_Name_str___override.exit:                  ; preds = %5
   unreachable
 
 l_Lean_Name_str___override.exit12:                ; preds = %l_Lean_Name_str___override.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.fr45, i64 4
-  store i32 1, ptr %.fr45, align 4, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %.fr48, i64 4
+  store i32 1, ptr %.fr48, align 4, !tbaa !4
   store i32 16908320, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %.fr45, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.fr48, i64 8
   store ptr %.fr, ptr %24, align 8, !tbaa !10
-  %25 = getelementptr inbounds nuw i8, ptr %.fr45, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.fr48, i64 16
   store ptr %1, ptr %25, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw i8, ptr %.fr45, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.fr48, i64 24
   store i64 %19, ptr %26, align 8, !tbaa !16
-  %27 = ptrtoint ptr %.fr45 to i64
+  %27 = ptrtoint ptr %.fr48 to i64
   %28 = and i64 %27, 8589934591
   %29 = icmp eq i64 %28, 1
-  %l_Lean_Name_hash___override___closed__1.val46 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i17 = select i1 %29, i64 %l_Lean_Name_hash___override___closed__1.val46, i64 %19
+  %l_Lean_Name_hash___override___closed__1.val49 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i17 = select i1 %29, i64 %l_Lean_Name_hash___override___closed__1.val49, i64 %19
   %30 = tail call i64 @lean_string_hash(ptr noundef %2) #11
   %31 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i17, i64 noundef %30) #11
   tail call void @lean_inc_heartbeat() #11
   %32 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr47 = freeze ptr %32
-  %33 = icmp eq ptr %.fr47, null
+  %.fr52 = freeze ptr %32
+  %33 = icmp eq ptr %.fr52, null
   br i1 %33, label %34, label %l_Lean_Name_str___override.exit18
 
 34:                                               ; preds = %l_Lean_Name_str___override.exit12
@@ -24634,26 +24634,26 @@ l_Lean_Name_str___override.exit12:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___override.exit12
-  %35 = getelementptr inbounds nuw i8, ptr %.fr47, i64 4
-  store i32 1, ptr %.fr47, align 4, !tbaa !4
+  %35 = getelementptr inbounds nuw i8, ptr %.fr52, i64 4
+  store i32 1, ptr %.fr52, align 4, !tbaa !4
   store i32 16908320, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  store ptr %.fr45, ptr %36, align 8, !tbaa !10
-  %37 = getelementptr inbounds nuw i8, ptr %.fr47, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.fr52, i64 8
+  store ptr %.fr48, ptr %36, align 8, !tbaa !10
+  %37 = getelementptr inbounds nuw i8, ptr %.fr52, i64 16
   store ptr %2, ptr %37, align 8, !tbaa !10
-  %38 = getelementptr inbounds nuw i8, ptr %.fr47, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.fr52, i64 24
   store i64 %31, ptr %38, align 8, !tbaa !16
-  %39 = ptrtoint ptr %.fr47 to i64
+  %39 = ptrtoint ptr %.fr52 to i64
   %40 = and i64 %39, 8589934591
   %41 = icmp eq i64 %40, 1
-  %l_Lean_Name_hash___override___closed__1.val48 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i23 = select i1 %41, i64 %l_Lean_Name_hash___override___closed__1.val48, i64 %31
+  %l_Lean_Name_hash___override___closed__1.val53 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i23 = select i1 %41, i64 %l_Lean_Name_hash___override___closed__1.val53, i64 %31
   %42 = tail call i64 @lean_string_hash(ptr noundef %3) #11
   %43 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i23, i64 noundef %42) #11
   tail call void @lean_inc_heartbeat() #11
   %44 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr49 = freeze ptr %44
-  %45 = icmp eq ptr %.fr49, null
+  %.fr56 = freeze ptr %44
+  %45 = icmp eq ptr %.fr56, null
   br i1 %45, label %46, label %l_Lean_Name_str___override.exit24
 
 46:                                               ; preds = %l_Lean_Name_str___override.exit18
@@ -24661,20 +24661,20 @@ l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit24:                ; preds = %l_Lean_Name_str___override.exit18
-  %47 = getelementptr inbounds nuw i8, ptr %.fr49, i64 4
-  store i32 1, ptr %.fr49, align 4, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %.fr56, i64 4
+  store i32 1, ptr %.fr56, align 4, !tbaa !4
   store i32 16908320, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %.fr49, i64 8
-  store ptr %.fr47, ptr %48, align 8, !tbaa !10
-  %49 = getelementptr inbounds nuw i8, ptr %.fr49, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.fr56, i64 8
+  store ptr %.fr52, ptr %48, align 8, !tbaa !10
+  %49 = getelementptr inbounds nuw i8, ptr %.fr56, i64 16
   store ptr %3, ptr %49, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw i8, ptr %.fr49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.fr56, i64 24
   store i64 %43, ptr %50, align 8, !tbaa !16
-  %51 = ptrtoint ptr %.fr49 to i64
+  %51 = ptrtoint ptr %.fr56 to i64
   %52 = and i64 %51, 8589934591
   %53 = icmp eq i64 %52, 1
-  %l_Lean_Name_hash___override___closed__1.val50 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i29 = select i1 %53, i64 %l_Lean_Name_hash___override___closed__1.val50, i64 %43
+  %l_Lean_Name_hash___override___closed__1.val57 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i29 = select i1 %53, i64 %l_Lean_Name_hash___override___closed__1.val57, i64 %43
   %54 = tail call i64 @lean_string_hash(ptr noundef %4) #11
   %55 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i29, i64 noundef %54) #11
   tail call void @lean_inc_heartbeat() #11
@@ -24691,7 +24691,7 @@ l_Lean_Name_str___override.exit30:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %56, align 4, !tbaa !4
   store i32 16908320, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %.fr49, ptr %60, align 8, !tbaa !10
+  store ptr %.fr56, ptr %60, align 8, !tbaa !10
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %4, ptr %61, align 8, !tbaa !10
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -24733,8 +24733,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %6
   %20 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i13, i64 noundef %19) #11
   tail call void @lean_inc_heartbeat() #11
   %21 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr57 = freeze ptr %21
-  %22 = icmp eq ptr %.fr57, null
+  %.fr60 = freeze ptr %21
+  %22 = icmp eq ptr %.fr60, null
   br i1 %22, label %23, label %l_Lean_Name_str___override.exit14
 
 23:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24742,26 +24742,26 @@ l_Lean_Name_str___override.exit:                  ; preds = %6
   unreachable
 
 l_Lean_Name_str___override.exit14:                ; preds = %l_Lean_Name_str___override.exit
-  %24 = getelementptr inbounds nuw i8, ptr %.fr57, i64 4
-  store i32 1, ptr %.fr57, align 4, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %.fr60, i64 4
+  store i32 1, ptr %.fr60, align 4, !tbaa !4
   store i32 16908320, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %.fr57, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.fr60, i64 8
   store ptr %.fr, ptr %25, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw i8, ptr %.fr57, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.fr60, i64 16
   store ptr %1, ptr %26, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i8, ptr %.fr57, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.fr60, i64 24
   store i64 %20, ptr %27, align 8, !tbaa !16
-  %28 = ptrtoint ptr %.fr57 to i64
+  %28 = ptrtoint ptr %.fr60 to i64
   %29 = and i64 %28, 8589934591
   %30 = icmp eq i64 %29, 1
-  %l_Lean_Name_hash___override___closed__1.val58 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i19 = select i1 %30, i64 %l_Lean_Name_hash___override___closed__1.val58, i64 %20
+  %l_Lean_Name_hash___override___closed__1.val61 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i19 = select i1 %30, i64 %l_Lean_Name_hash___override___closed__1.val61, i64 %20
   %31 = tail call i64 @lean_string_hash(ptr noundef %2) #11
   %32 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i19, i64 noundef %31) #11
   tail call void @lean_inc_heartbeat() #11
   %33 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr59 = freeze ptr %33
-  %34 = icmp eq ptr %.fr59, null
+  %.fr64 = freeze ptr %33
+  %34 = icmp eq ptr %.fr64, null
   br i1 %34, label %35, label %l_Lean_Name_str___override.exit20
 
 35:                                               ; preds = %l_Lean_Name_str___override.exit14
@@ -24769,26 +24769,26 @@ l_Lean_Name_str___override.exit14:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit20:                ; preds = %l_Lean_Name_str___override.exit14
-  %36 = getelementptr inbounds nuw i8, ptr %.fr59, i64 4
-  store i32 1, ptr %.fr59, align 4, !tbaa !4
+  %36 = getelementptr inbounds nuw i8, ptr %.fr64, i64 4
+  store i32 1, ptr %.fr64, align 4, !tbaa !4
   store i32 16908320, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.fr59, i64 8
-  store ptr %.fr57, ptr %37, align 8, !tbaa !10
-  %38 = getelementptr inbounds nuw i8, ptr %.fr59, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.fr64, i64 8
+  store ptr %.fr60, ptr %37, align 8, !tbaa !10
+  %38 = getelementptr inbounds nuw i8, ptr %.fr64, i64 16
   store ptr %2, ptr %38, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw i8, ptr %.fr59, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.fr64, i64 24
   store i64 %32, ptr %39, align 8, !tbaa !16
-  %40 = ptrtoint ptr %.fr59 to i64
+  %40 = ptrtoint ptr %.fr64 to i64
   %41 = and i64 %40, 8589934591
   %42 = icmp eq i64 %41, 1
-  %l_Lean_Name_hash___override___closed__1.val60 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i25 = select i1 %42, i64 %l_Lean_Name_hash___override___closed__1.val60, i64 %32
+  %l_Lean_Name_hash___override___closed__1.val65 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i25 = select i1 %42, i64 %l_Lean_Name_hash___override___closed__1.val65, i64 %32
   %43 = tail call i64 @lean_string_hash(ptr noundef %3) #11
   %44 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i25, i64 noundef %43) #11
   tail call void @lean_inc_heartbeat() #11
   %45 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr61 = freeze ptr %45
-  %46 = icmp eq ptr %.fr61, null
+  %.fr68 = freeze ptr %45
+  %46 = icmp eq ptr %.fr68, null
   br i1 %46, label %47, label %l_Lean_Name_str___override.exit26
 
 47:                                               ; preds = %l_Lean_Name_str___override.exit20
@@ -24796,26 +24796,26 @@ l_Lean_Name_str___override.exit20:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit26:                ; preds = %l_Lean_Name_str___override.exit20
-  %48 = getelementptr inbounds nuw i8, ptr %.fr61, i64 4
-  store i32 1, ptr %.fr61, align 4, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %.fr68, i64 4
+  store i32 1, ptr %.fr68, align 4, !tbaa !4
   store i32 16908320, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %.fr61, i64 8
-  store ptr %.fr59, ptr %49, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw i8, ptr %.fr61, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.fr68, i64 8
+  store ptr %.fr64, ptr %49, align 8, !tbaa !10
+  %50 = getelementptr inbounds nuw i8, ptr %.fr68, i64 16
   store ptr %3, ptr %50, align 8, !tbaa !10
-  %51 = getelementptr inbounds nuw i8, ptr %.fr61, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.fr68, i64 24
   store i64 %44, ptr %51, align 8, !tbaa !16
-  %52 = ptrtoint ptr %.fr61 to i64
+  %52 = ptrtoint ptr %.fr68 to i64
   %53 = and i64 %52, 8589934591
   %54 = icmp eq i64 %53, 1
-  %l_Lean_Name_hash___override___closed__1.val62 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i31 = select i1 %54, i64 %l_Lean_Name_hash___override___closed__1.val62, i64 %44
+  %l_Lean_Name_hash___override___closed__1.val69 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i31 = select i1 %54, i64 %l_Lean_Name_hash___override___closed__1.val69, i64 %44
   %55 = tail call i64 @lean_string_hash(ptr noundef %4) #11
   %56 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i31, i64 noundef %55) #11
   tail call void @lean_inc_heartbeat() #11
   %57 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr63 = freeze ptr %57
-  %58 = icmp eq ptr %.fr63, null
+  %.fr72 = freeze ptr %57
+  %58 = icmp eq ptr %.fr72, null
   br i1 %58, label %59, label %l_Lean_Name_str___override.exit32
 
 59:                                               ; preds = %l_Lean_Name_str___override.exit26
@@ -24823,20 +24823,20 @@ l_Lean_Name_str___override.exit26:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit32:                ; preds = %l_Lean_Name_str___override.exit26
-  %60 = getelementptr inbounds nuw i8, ptr %.fr63, i64 4
-  store i32 1, ptr %.fr63, align 4, !tbaa !4
+  %60 = getelementptr inbounds nuw i8, ptr %.fr72, i64 4
+  store i32 1, ptr %.fr72, align 4, !tbaa !4
   store i32 16908320, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %.fr63, i64 8
-  store ptr %.fr61, ptr %61, align 8, !tbaa !10
-  %62 = getelementptr inbounds nuw i8, ptr %.fr63, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.fr72, i64 8
+  store ptr %.fr68, ptr %61, align 8, !tbaa !10
+  %62 = getelementptr inbounds nuw i8, ptr %.fr72, i64 16
   store ptr %4, ptr %62, align 8, !tbaa !10
-  %63 = getelementptr inbounds nuw i8, ptr %.fr63, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.fr72, i64 24
   store i64 %56, ptr %63, align 8, !tbaa !16
-  %64 = ptrtoint ptr %.fr63 to i64
+  %64 = ptrtoint ptr %.fr72 to i64
   %65 = and i64 %64, 8589934591
   %66 = icmp eq i64 %65, 1
-  %l_Lean_Name_hash___override___closed__1.val64 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i37 = select i1 %66, i64 %l_Lean_Name_hash___override___closed__1.val64, i64 %56
+  %l_Lean_Name_hash___override___closed__1.val73 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i37 = select i1 %66, i64 %l_Lean_Name_hash___override___closed__1.val73, i64 %56
   %67 = tail call i64 @lean_string_hash(ptr noundef %5) #11
   %68 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i37, i64 noundef %67) #11
   tail call void @lean_inc_heartbeat() #11
@@ -24853,7 +24853,7 @@ l_Lean_Name_str___override.exit38:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %69, align 4, !tbaa !4
   store i32 16908320, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %.fr63, ptr %73, align 8, !tbaa !10
+  store ptr %.fr72, ptr %73, align 8, !tbaa !10
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %5, ptr %74, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -24895,8 +24895,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %7
   %21 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i15, i64 noundef %20) #11
   tail call void @lean_inc_heartbeat() #11
   %22 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr69 = freeze ptr %22
-  %23 = icmp eq ptr %.fr69, null
+  %.fr72 = freeze ptr %22
+  %23 = icmp eq ptr %.fr72, null
   br i1 %23, label %24, label %l_Lean_Name_str___override.exit16
 
 24:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24904,26 +24904,26 @@ l_Lean_Name_str___override.exit:                  ; preds = %7
   unreachable
 
 l_Lean_Name_str___override.exit16:                ; preds = %l_Lean_Name_str___override.exit
-  %25 = getelementptr inbounds nuw i8, ptr %.fr69, i64 4
-  store i32 1, ptr %.fr69, align 4, !tbaa !4
+  %25 = getelementptr inbounds nuw i8, ptr %.fr72, i64 4
+  store i32 1, ptr %.fr72, align 4, !tbaa !4
   store i32 16908320, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %.fr69, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.fr72, i64 8
   store ptr %.fr, ptr %26, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i8, ptr %.fr69, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.fr72, i64 16
   store ptr %1, ptr %27, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw i8, ptr %.fr69, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.fr72, i64 24
   store i64 %21, ptr %28, align 8, !tbaa !16
-  %29 = ptrtoint ptr %.fr69 to i64
+  %29 = ptrtoint ptr %.fr72 to i64
   %30 = and i64 %29, 8589934591
   %31 = icmp eq i64 %30, 1
-  %l_Lean_Name_hash___override___closed__1.val70 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i21 = select i1 %31, i64 %l_Lean_Name_hash___override___closed__1.val70, i64 %21
+  %l_Lean_Name_hash___override___closed__1.val73 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i21 = select i1 %31, i64 %l_Lean_Name_hash___override___closed__1.val73, i64 %21
   %32 = tail call i64 @lean_string_hash(ptr noundef %2) #11
   %33 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i21, i64 noundef %32) #11
   tail call void @lean_inc_heartbeat() #11
   %34 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr71 = freeze ptr %34
-  %35 = icmp eq ptr %.fr71, null
+  %.fr76 = freeze ptr %34
+  %35 = icmp eq ptr %.fr76, null
   br i1 %35, label %36, label %l_Lean_Name_str___override.exit22
 
 36:                                               ; preds = %l_Lean_Name_str___override.exit16
@@ -24931,26 +24931,26 @@ l_Lean_Name_str___override.exit16:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit22:                ; preds = %l_Lean_Name_str___override.exit16
-  %37 = getelementptr inbounds nuw i8, ptr %.fr71, i64 4
-  store i32 1, ptr %.fr71, align 4, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %.fr76, i64 4
+  store i32 1, ptr %.fr76, align 4, !tbaa !4
   store i32 16908320, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.fr71, i64 8
-  store ptr %.fr69, ptr %38, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw i8, ptr %.fr71, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.fr76, i64 8
+  store ptr %.fr72, ptr %38, align 8, !tbaa !10
+  %39 = getelementptr inbounds nuw i8, ptr %.fr76, i64 16
   store ptr %2, ptr %39, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %.fr71, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.fr76, i64 24
   store i64 %33, ptr %40, align 8, !tbaa !16
-  %41 = ptrtoint ptr %.fr71 to i64
+  %41 = ptrtoint ptr %.fr76 to i64
   %42 = and i64 %41, 8589934591
   %43 = icmp eq i64 %42, 1
-  %l_Lean_Name_hash___override___closed__1.val72 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i27 = select i1 %43, i64 %l_Lean_Name_hash___override___closed__1.val72, i64 %33
+  %l_Lean_Name_hash___override___closed__1.val77 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i27 = select i1 %43, i64 %l_Lean_Name_hash___override___closed__1.val77, i64 %33
   %44 = tail call i64 @lean_string_hash(ptr noundef %3) #11
   %45 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i27, i64 noundef %44) #11
   tail call void @lean_inc_heartbeat() #11
   %46 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr73 = freeze ptr %46
-  %47 = icmp eq ptr %.fr73, null
+  %.fr80 = freeze ptr %46
+  %47 = icmp eq ptr %.fr80, null
   br i1 %47, label %48, label %l_Lean_Name_str___override.exit28
 
 48:                                               ; preds = %l_Lean_Name_str___override.exit22
@@ -24958,26 +24958,26 @@ l_Lean_Name_str___override.exit22:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit28:                ; preds = %l_Lean_Name_str___override.exit22
-  %49 = getelementptr inbounds nuw i8, ptr %.fr73, i64 4
-  store i32 1, ptr %.fr73, align 4, !tbaa !4
+  %49 = getelementptr inbounds nuw i8, ptr %.fr80, i64 4
+  store i32 1, ptr %.fr80, align 4, !tbaa !4
   store i32 16908320, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.fr73, i64 8
-  store ptr %.fr71, ptr %50, align 8, !tbaa !10
-  %51 = getelementptr inbounds nuw i8, ptr %.fr73, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.fr80, i64 8
+  store ptr %.fr76, ptr %50, align 8, !tbaa !10
+  %51 = getelementptr inbounds nuw i8, ptr %.fr80, i64 16
   store ptr %3, ptr %51, align 8, !tbaa !10
-  %52 = getelementptr inbounds nuw i8, ptr %.fr73, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.fr80, i64 24
   store i64 %45, ptr %52, align 8, !tbaa !16
-  %53 = ptrtoint ptr %.fr73 to i64
+  %53 = ptrtoint ptr %.fr80 to i64
   %54 = and i64 %53, 8589934591
   %55 = icmp eq i64 %54, 1
-  %l_Lean_Name_hash___override___closed__1.val74 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i33 = select i1 %55, i64 %l_Lean_Name_hash___override___closed__1.val74, i64 %45
+  %l_Lean_Name_hash___override___closed__1.val81 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i33 = select i1 %55, i64 %l_Lean_Name_hash___override___closed__1.val81, i64 %45
   %56 = tail call i64 @lean_string_hash(ptr noundef %4) #11
   %57 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i33, i64 noundef %56) #11
   tail call void @lean_inc_heartbeat() #11
   %58 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr75 = freeze ptr %58
-  %59 = icmp eq ptr %.fr75, null
+  %.fr84 = freeze ptr %58
+  %59 = icmp eq ptr %.fr84, null
   br i1 %59, label %60, label %l_Lean_Name_str___override.exit34
 
 60:                                               ; preds = %l_Lean_Name_str___override.exit28
@@ -24985,26 +24985,26 @@ l_Lean_Name_str___override.exit28:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit34:                ; preds = %l_Lean_Name_str___override.exit28
-  %61 = getelementptr inbounds nuw i8, ptr %.fr75, i64 4
-  store i32 1, ptr %.fr75, align 4, !tbaa !4
+  %61 = getelementptr inbounds nuw i8, ptr %.fr84, i64 4
+  store i32 1, ptr %.fr84, align 4, !tbaa !4
   store i32 16908320, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %.fr75, i64 8
-  store ptr %.fr73, ptr %62, align 8, !tbaa !10
-  %63 = getelementptr inbounds nuw i8, ptr %.fr75, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.fr84, i64 8
+  store ptr %.fr80, ptr %62, align 8, !tbaa !10
+  %63 = getelementptr inbounds nuw i8, ptr %.fr84, i64 16
   store ptr %4, ptr %63, align 8, !tbaa !10
-  %64 = getelementptr inbounds nuw i8, ptr %.fr75, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.fr84, i64 24
   store i64 %57, ptr %64, align 8, !tbaa !16
-  %65 = ptrtoint ptr %.fr75 to i64
+  %65 = ptrtoint ptr %.fr84 to i64
   %66 = and i64 %65, 8589934591
   %67 = icmp eq i64 %66, 1
-  %l_Lean_Name_hash___override___closed__1.val76 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i39 = select i1 %67, i64 %l_Lean_Name_hash___override___closed__1.val76, i64 %57
+  %l_Lean_Name_hash___override___closed__1.val85 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i39 = select i1 %67, i64 %l_Lean_Name_hash___override___closed__1.val85, i64 %57
   %68 = tail call i64 @lean_string_hash(ptr noundef %5) #11
   %69 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i39, i64 noundef %68) #11
   tail call void @lean_inc_heartbeat() #11
   %70 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr77 = freeze ptr %70
-  %71 = icmp eq ptr %.fr77, null
+  %.fr88 = freeze ptr %70
+  %71 = icmp eq ptr %.fr88, null
   br i1 %71, label %72, label %l_Lean_Name_str___override.exit40
 
 72:                                               ; preds = %l_Lean_Name_str___override.exit34
@@ -25012,20 +25012,20 @@ l_Lean_Name_str___override.exit34:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit40:                ; preds = %l_Lean_Name_str___override.exit34
-  %73 = getelementptr inbounds nuw i8, ptr %.fr77, i64 4
-  store i32 1, ptr %.fr77, align 4, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %.fr88, i64 4
+  store i32 1, ptr %.fr88, align 4, !tbaa !4
   store i32 16908320, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %.fr77, i64 8
-  store ptr %.fr75, ptr %74, align 8, !tbaa !10
-  %75 = getelementptr inbounds nuw i8, ptr %.fr77, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.fr88, i64 8
+  store ptr %.fr84, ptr %74, align 8, !tbaa !10
+  %75 = getelementptr inbounds nuw i8, ptr %.fr88, i64 16
   store ptr %5, ptr %75, align 8, !tbaa !10
-  %76 = getelementptr inbounds nuw i8, ptr %.fr77, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.fr88, i64 24
   store i64 %69, ptr %76, align 8, !tbaa !16
-  %77 = ptrtoint ptr %.fr77 to i64
+  %77 = ptrtoint ptr %.fr88 to i64
   %78 = and i64 %77, 8589934591
   %79 = icmp eq i64 %78, 1
-  %l_Lean_Name_hash___override___closed__1.val78 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i45 = select i1 %79, i64 %l_Lean_Name_hash___override___closed__1.val78, i64 %69
+  %l_Lean_Name_hash___override___closed__1.val89 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i45 = select i1 %79, i64 %l_Lean_Name_hash___override___closed__1.val89, i64 %69
   %80 = tail call i64 @lean_string_hash(ptr noundef %6) #11
   %81 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i45, i64 noundef %80) #11
   tail call void @lean_inc_heartbeat() #11
@@ -25042,7 +25042,7 @@ l_Lean_Name_str___override.exit46:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %82, align 4, !tbaa !4
   store i32 16908320, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %.fr77, ptr %86, align 8, !tbaa !10
+  store ptr %.fr88, ptr %86, align 8, !tbaa !10
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %6, ptr %87, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 24
@@ -25084,8 +25084,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %8
   %22 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i17, i64 noundef %21) #11
   tail call void @lean_inc_heartbeat() #11
   %23 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr81 = freeze ptr %23
-  %24 = icmp eq ptr %.fr81, null
+  %.fr84 = freeze ptr %23
+  %24 = icmp eq ptr %.fr84, null
   br i1 %24, label %25, label %l_Lean_Name_str___override.exit18
 
 25:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -25093,26 +25093,26 @@ l_Lean_Name_str___override.exit:                  ; preds = %8
   unreachable
 
 l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___override.exit
-  %26 = getelementptr inbounds nuw i8, ptr %.fr81, i64 4
-  store i32 1, ptr %.fr81, align 4, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %.fr84, i64 4
+  store i32 1, ptr %.fr84, align 4, !tbaa !4
   store i32 16908320, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.fr81, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.fr84, i64 8
   store ptr %.fr, ptr %27, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw i8, ptr %.fr81, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.fr84, i64 16
   store ptr %1, ptr %28, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %.fr81, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.fr84, i64 24
   store i64 %22, ptr %29, align 8, !tbaa !16
-  %30 = ptrtoint ptr %.fr81 to i64
+  %30 = ptrtoint ptr %.fr84 to i64
   %31 = and i64 %30, 8589934591
   %32 = icmp eq i64 %31, 1
-  %l_Lean_Name_hash___override___closed__1.val82 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i23 = select i1 %32, i64 %l_Lean_Name_hash___override___closed__1.val82, i64 %22
+  %l_Lean_Name_hash___override___closed__1.val85 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i23 = select i1 %32, i64 %l_Lean_Name_hash___override___closed__1.val85, i64 %22
   %33 = tail call i64 @lean_string_hash(ptr noundef %2) #11
   %34 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i23, i64 noundef %33) #11
   tail call void @lean_inc_heartbeat() #11
   %35 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr83 = freeze ptr %35
-  %36 = icmp eq ptr %.fr83, null
+  %.fr88 = freeze ptr %35
+  %36 = icmp eq ptr %.fr88, null
   br i1 %36, label %37, label %l_Lean_Name_str___override.exit24
 
 37:                                               ; preds = %l_Lean_Name_str___override.exit18
@@ -25120,26 +25120,26 @@ l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit24:                ; preds = %l_Lean_Name_str___override.exit18
-  %38 = getelementptr inbounds nuw i8, ptr %.fr83, i64 4
-  store i32 1, ptr %.fr83, align 4, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %.fr88, i64 4
+  store i32 1, ptr %.fr88, align 4, !tbaa !4
   store i32 16908320, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.fr83, i64 8
-  store ptr %.fr81, ptr %39, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %.fr83, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.fr88, i64 8
+  store ptr %.fr84, ptr %39, align 8, !tbaa !10
+  %40 = getelementptr inbounds nuw i8, ptr %.fr88, i64 16
   store ptr %2, ptr %40, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw i8, ptr %.fr83, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.fr88, i64 24
   store i64 %34, ptr %41, align 8, !tbaa !16
-  %42 = ptrtoint ptr %.fr83 to i64
+  %42 = ptrtoint ptr %.fr88 to i64
   %43 = and i64 %42, 8589934591
   %44 = icmp eq i64 %43, 1
-  %l_Lean_Name_hash___override___closed__1.val84 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i29 = select i1 %44, i64 %l_Lean_Name_hash___override___closed__1.val84, i64 %34
+  %l_Lean_Name_hash___override___closed__1.val89 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i29 = select i1 %44, i64 %l_Lean_Name_hash___override___closed__1.val89, i64 %34
   %45 = tail call i64 @lean_string_hash(ptr noundef %3) #11
   %46 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i29, i64 noundef %45) #11
   tail call void @lean_inc_heartbeat() #11
   %47 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr85 = freeze ptr %47
-  %48 = icmp eq ptr %.fr85, null
+  %.fr92 = freeze ptr %47
+  %48 = icmp eq ptr %.fr92, null
   br i1 %48, label %49, label %l_Lean_Name_str___override.exit30
 
 49:                                               ; preds = %l_Lean_Name_str___override.exit24
@@ -25147,26 +25147,26 @@ l_Lean_Name_str___override.exit24:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit30:                ; preds = %l_Lean_Name_str___override.exit24
-  %50 = getelementptr inbounds nuw i8, ptr %.fr85, i64 4
-  store i32 1, ptr %.fr85, align 4, !tbaa !4
+  %50 = getelementptr inbounds nuw i8, ptr %.fr92, i64 4
+  store i32 1, ptr %.fr92, align 4, !tbaa !4
   store i32 16908320, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.fr85, i64 8
-  store ptr %.fr83, ptr %51, align 8, !tbaa !10
-  %52 = getelementptr inbounds nuw i8, ptr %.fr85, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.fr92, i64 8
+  store ptr %.fr88, ptr %51, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw i8, ptr %.fr92, i64 16
   store ptr %3, ptr %52, align 8, !tbaa !10
-  %53 = getelementptr inbounds nuw i8, ptr %.fr85, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.fr92, i64 24
   store i64 %46, ptr %53, align 8, !tbaa !16
-  %54 = ptrtoint ptr %.fr85 to i64
+  %54 = ptrtoint ptr %.fr92 to i64
   %55 = and i64 %54, 8589934591
   %56 = icmp eq i64 %55, 1
-  %l_Lean_Name_hash___override___closed__1.val86 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i35 = select i1 %56, i64 %l_Lean_Name_hash___override___closed__1.val86, i64 %46
+  %l_Lean_Name_hash___override___closed__1.val93 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i35 = select i1 %56, i64 %l_Lean_Name_hash___override___closed__1.val93, i64 %46
   %57 = tail call i64 @lean_string_hash(ptr noundef %4) #11
   %58 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i35, i64 noundef %57) #11
   tail call void @lean_inc_heartbeat() #11
   %59 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr87 = freeze ptr %59
-  %60 = icmp eq ptr %.fr87, null
+  %.fr96 = freeze ptr %59
+  %60 = icmp eq ptr %.fr96, null
   br i1 %60, label %61, label %l_Lean_Name_str___override.exit36
 
 61:                                               ; preds = %l_Lean_Name_str___override.exit30
@@ -25174,26 +25174,26 @@ l_Lean_Name_str___override.exit30:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit36:                ; preds = %l_Lean_Name_str___override.exit30
-  %62 = getelementptr inbounds nuw i8, ptr %.fr87, i64 4
-  store i32 1, ptr %.fr87, align 4, !tbaa !4
+  %62 = getelementptr inbounds nuw i8, ptr %.fr96, i64 4
+  store i32 1, ptr %.fr96, align 4, !tbaa !4
   store i32 16908320, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %.fr87, i64 8
-  store ptr %.fr85, ptr %63, align 8, !tbaa !10
-  %64 = getelementptr inbounds nuw i8, ptr %.fr87, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.fr96, i64 8
+  store ptr %.fr92, ptr %63, align 8, !tbaa !10
+  %64 = getelementptr inbounds nuw i8, ptr %.fr96, i64 16
   store ptr %4, ptr %64, align 8, !tbaa !10
-  %65 = getelementptr inbounds nuw i8, ptr %.fr87, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.fr96, i64 24
   store i64 %58, ptr %65, align 8, !tbaa !16
-  %66 = ptrtoint ptr %.fr87 to i64
+  %66 = ptrtoint ptr %.fr96 to i64
   %67 = and i64 %66, 8589934591
   %68 = icmp eq i64 %67, 1
-  %l_Lean_Name_hash___override___closed__1.val88 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i41 = select i1 %68, i64 %l_Lean_Name_hash___override___closed__1.val88, i64 %58
+  %l_Lean_Name_hash___override___closed__1.val97 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i41 = select i1 %68, i64 %l_Lean_Name_hash___override___closed__1.val97, i64 %58
   %69 = tail call i64 @lean_string_hash(ptr noundef %5) #11
   %70 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i41, i64 noundef %69) #11
   tail call void @lean_inc_heartbeat() #11
   %71 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr89 = freeze ptr %71
-  %72 = icmp eq ptr %.fr89, null
+  %.fr100 = freeze ptr %71
+  %72 = icmp eq ptr %.fr100, null
   br i1 %72, label %73, label %l_Lean_Name_str___override.exit42
 
 73:                                               ; preds = %l_Lean_Name_str___override.exit36
@@ -25201,26 +25201,26 @@ l_Lean_Name_str___override.exit36:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit42:                ; preds = %l_Lean_Name_str___override.exit36
-  %74 = getelementptr inbounds nuw i8, ptr %.fr89, i64 4
-  store i32 1, ptr %.fr89, align 4, !tbaa !4
+  %74 = getelementptr inbounds nuw i8, ptr %.fr100, i64 4
+  store i32 1, ptr %.fr100, align 4, !tbaa !4
   store i32 16908320, ptr %74, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %.fr89, i64 8
-  store ptr %.fr87, ptr %75, align 8, !tbaa !10
-  %76 = getelementptr inbounds nuw i8, ptr %.fr89, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.fr100, i64 8
+  store ptr %.fr96, ptr %75, align 8, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %.fr100, i64 16
   store ptr %5, ptr %76, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %.fr89, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.fr100, i64 24
   store i64 %70, ptr %77, align 8, !tbaa !16
-  %78 = ptrtoint ptr %.fr89 to i64
+  %78 = ptrtoint ptr %.fr100 to i64
   %79 = and i64 %78, 8589934591
   %80 = icmp eq i64 %79, 1
-  %l_Lean_Name_hash___override___closed__1.val90 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i47 = select i1 %80, i64 %l_Lean_Name_hash___override___closed__1.val90, i64 %70
+  %l_Lean_Name_hash___override___closed__1.val101 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i47 = select i1 %80, i64 %l_Lean_Name_hash___override___closed__1.val101, i64 %70
   %81 = tail call i64 @lean_string_hash(ptr noundef %6) #11
   %82 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i47, i64 noundef %81) #11
   tail call void @lean_inc_heartbeat() #11
   %83 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr91 = freeze ptr %83
-  %84 = icmp eq ptr %.fr91, null
+  %.fr104 = freeze ptr %83
+  %84 = icmp eq ptr %.fr104, null
   br i1 %84, label %85, label %l_Lean_Name_str___override.exit48
 
 85:                                               ; preds = %l_Lean_Name_str___override.exit42
@@ -25228,20 +25228,20 @@ l_Lean_Name_str___override.exit42:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit48:                ; preds = %l_Lean_Name_str___override.exit42
-  %86 = getelementptr inbounds nuw i8, ptr %.fr91, i64 4
-  store i32 1, ptr %.fr91, align 4, !tbaa !4
+  %86 = getelementptr inbounds nuw i8, ptr %.fr104, i64 4
+  store i32 1, ptr %.fr104, align 4, !tbaa !4
   store i32 16908320, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.fr91, i64 8
-  store ptr %.fr89, ptr %87, align 8, !tbaa !10
-  %88 = getelementptr inbounds nuw i8, ptr %.fr91, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.fr104, i64 8
+  store ptr %.fr100, ptr %87, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw i8, ptr %.fr104, i64 16
   store ptr %6, ptr %88, align 8, !tbaa !10
-  %89 = getelementptr inbounds nuw i8, ptr %.fr91, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.fr104, i64 24
   store i64 %82, ptr %89, align 8, !tbaa !16
-  %90 = ptrtoint ptr %.fr91 to i64
+  %90 = ptrtoint ptr %.fr104 to i64
   %91 = and i64 %90, 8589934591
   %92 = icmp eq i64 %91, 1
-  %l_Lean_Name_hash___override___closed__1.val92 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
-  %.0.i.i53 = select i1 %92, i64 %l_Lean_Name_hash___override___closed__1.val92, i64 %82
+  %l_Lean_Name_hash___override___closed__1.val105 = load i64, ptr @l_Lean_Name_hash___override___closed__1, align 8
+  %.0.i.i53 = select i1 %92, i64 %l_Lean_Name_hash___override___closed__1.val105, i64 %82
   %93 = tail call i64 @lean_string_hash(ptr noundef %7) #11
   %94 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i53, i64 noundef %93) #11
   tail call void @lean_inc_heartbeat() #11
@@ -25258,7 +25258,7 @@ l_Lean_Name_str___override.exit54:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %95, align 4, !tbaa !4
   store i32 16908320, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %.fr91, ptr %99, align 8, !tbaa !10
+  store ptr %.fr104, ptr %99, align 8, !tbaa !10
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr %7, ptr %100, align 8, !tbaa !10
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 24

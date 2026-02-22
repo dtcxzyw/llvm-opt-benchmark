@@ -624,14 +624,13 @@ entry:
   %0 = load i64, ptr %d1, align 8, !tbaa !20
   %call.i.i = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call2.i.i = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i)
-  %.fr = freeze i64 %0
-  %sub.i.i = sub i64 %.fr, %call2.i.i
+  %sub.i.i = sub nsw i64 %0, %call2.i.i
   %conv.i.i = trunc i64 %sub.i.i to i32
   %call2.i = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call3.i = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call4.i = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call3.i)
   %call5.i = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i, i1 noundef zeroext %call4.i)
-  %sub.i = sub i32 %conv.i.i, %call5.i
+  %sub.i = sub nsw i32 %conv.i.i, %call5.i
   %1 = load i64, ptr %d2, align 8, !tbaa !20
   %call.i.i19 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call2.i.i20 = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i19)
@@ -648,8 +647,9 @@ entry:
   %call6 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %cmp = icmp eq i32 %sub.i, 31
   %spec.store.select = select i1 %cmp, i32 30, i32 %sub.i
+  %spec.store.select.fr = freeze i32 %spec.store.select
   %cmp7 = icmp eq i32 %sub.i27, 31
-  %cmp8 = icmp sgt i32 %spec.store.select, 29
+  %cmp8 = icmp sgt i32 %spec.store.select.fr, 29
   %or.cond = and i1 %cmp8, %cmp7
   %spec.store.select1 = select i1 %or.cond, i32 30, i32 %sub.i27
   %cmp.i = icmp eq i32 %call4, 2
@@ -668,7 +668,7 @@ land.lhs.true12:                                  ; preds = %_ZN8QuantLib12_GLOB
 _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit33: ; preds = %land.lhs.true12
   %call.i30 = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call5)
   %add.i31 = select i1 %call.i30, i32 29, i32 28
-  %cmp1.i32 = icmp eq i32 %spec.store.select, %add.i31
+  %cmp1.i32 = icmp eq i32 %spec.store.select.fr, %add.i31
   %spec.select = select i1 %cmp1.i32, i32 30, i32 %sub.i27
   br label %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39
 
@@ -680,13 +680,13 @@ _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39: ; preds = %_ZN
   %dd2.044 = phi i32 [ %spec.store.select1, %if.end15 ], [ %spec.select, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit33 ]
   %call.i36 = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call5)
   %add.i37 = select i1 %call.i36, i32 29, i32 28
-  %cmp1.i38 = icmp eq i32 %spec.store.select, %add.i37
-  %spec.select52 = select i1 %cmp1.i38, i32 30, i32 %spec.store.select
+  %cmp1.i38 = icmp eq i32 %spec.store.select.fr, %add.i37
+  %spec.select52 = select i1 %cmp1.i38, i32 30, i32 %spec.store.select.fr
   br label %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39.thread
 
 _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39.thread: ; preds = %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39, %land.lhs.true12, %if.end15
   %dd2.04351 = phi i32 [ %sub.i27, %land.lhs.true12 ], [ %dd2.044, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39 ], [ %spec.store.select1, %if.end15 ]
-  %2 = phi i32 [ %spec.store.select, %land.lhs.true12 ], [ %spec.select52, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39 ], [ %spec.store.select, %if.end15 ]
+  %2 = phi i32 [ %spec.store.select.fr, %land.lhs.true12 ], [ %spec.select52, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit39 ], [ %spec.store.select.fr, %if.end15 ]
   %sub = sub nsw i32 %call6, %call5
   %mul = mul nsw i32 %sub, 360
   %sub19 = sub nsw i32 %call4, %call3
@@ -844,45 +844,45 @@ entry:
   %0 = load i64, ptr %d1, align 8, !tbaa !20
   %call.i.i = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call2.i.i = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i)
-  %.fr = freeze i64 %0
-  %sub.i.i = sub i64 %.fr, %call2.i.i
+  %sub.i.i = sub nsw i64 %0, %call2.i.i
   %conv.i.i = trunc i64 %sub.i.i to i32
   %call2.i = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call3.i = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call4.i = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call3.i)
   %call5.i = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i, i1 noundef zeroext %call4.i)
-  %sub.i = sub i32 %conv.i.i, %call5.i
+  %sub.i = sub nsw i32 %conv.i.i, %call5.i
   %1 = load i64, ptr %d2, align 8, !tbaa !20
   %call.i.i16 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call2.i.i17 = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i16)
-  %.fr36 = freeze i64 %1
-  %sub.i.i18 = sub i64 %.fr36, %call2.i.i17
+  %sub.i.i18 = sub nsw i64 %1, %call2.i.i17
   %conv.i.i19 = trunc i64 %sub.i.i18 to i32
   %call2.i20 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call3.i21 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call4.i22 = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call3.i21)
   %call5.i23 = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i20, i1 noundef zeroext %call4.i22)
-  %sub.i24 = sub i32 %conv.i.i19, %call5.i23
+  %sub.i24 = sub nsw i32 %conv.i.i19, %call5.i23
   %call3 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call4 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call5 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call6 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %cmp = icmp eq i32 %sub.i, 31
   %spec.store.select = select i1 %cmp, i32 30, i32 %sub.i
+  %spec.store.select.fr = freeze i32 %spec.store.select
   %cmp7 = icmp eq i32 %sub.i24, 31
   %spec.store.select1 = select i1 %cmp7, i32 30, i32 %sub.i24
+  %spec.store.select1.fr = freeze i32 %spec.store.select1
   %cmp.i = icmp eq i32 %call3, 2
   br i1 %cmp.i, label %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit, label %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread
 
 _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit: ; preds = %entry
   %call.i = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call5)
   %add.i = select i1 %call.i, i32 29, i32 28
-  %cmp1.i = icmp eq i32 %spec.store.select, %add.i
-  %spec.select = select i1 %cmp1.i, i32 30, i32 %spec.store.select
+  %cmp1.i = icmp eq i32 %spec.store.select.fr, %add.i
+  %spec.select = select i1 %cmp1.i, i32 30, i32 %spec.store.select.fr
   br label %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread
 
 _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread: ; preds = %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit, %entry
-  %2 = phi i32 [ %spec.store.select, %entry ], [ %spec.select, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit ]
+  %2 = phi i32 [ %spec.store.select.fr, %entry ], [ %spec.select, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit ]
   %terminationDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %d2, align 8, !tbaa !20
   %4 = load i64, ptr %terminationDate_, align 8, !tbaa !20
@@ -894,12 +894,12 @@ _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread: ; preds =
 _ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit31: ; preds = %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread
   %call.i28 = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call6)
   %add.i29 = select i1 %call.i28, i32 29, i32 28
-  %cmp1.i30 = icmp eq i32 %spec.store.select1, %add.i29
-  %spec.select35 = select i1 %cmp1.i30, i32 30, i32 %spec.store.select1
+  %cmp1.i30 = icmp eq i32 %spec.store.select1.fr, %add.i29
+  %spec.select35 = select i1 %cmp1.i30, i32 30, i32 %spec.store.select1.fr
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit31, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread
-  %dd2.0 = phi i32 [ %spec.store.select1, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread ], [ %spec.select35, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit31 ]
+  %dd2.0 = phi i32 [ %spec.store.select1.fr, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit.thread ], [ %spec.select35, %_ZN8QuantLib12_GLOBAL__N_116isLastOfFebruaryEiNS_5MonthEi.exit31 ]
   %sub = sub nsw i32 %call6, %call5
   %mul = mul nsw i32 %sub, 360
   %sub17 = sub nsw i32 %call4, %call3

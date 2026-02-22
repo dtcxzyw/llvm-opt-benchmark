@@ -125,8 +125,8 @@ Vec_IntAlloc.exit.i:
   %2 = icmp slt i32 %1, 6
   %3 = add nsw i32 %1, -5
   %4 = shl nuw i32 1, %3
-  %.fr43.i = freeze i32 %4
-  %5 = select i1 %2, i32 1, i32 %.fr43.i
+  %.fr.i = freeze i32 %4
+  %5 = select i1 %2, i32 1, i32 %.fr.i
   %6 = getelementptr inbounds nuw i8, ptr %calloc87, i64 12
   store i32 %5, ptr %6, align 4, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %calloc87, i64 20

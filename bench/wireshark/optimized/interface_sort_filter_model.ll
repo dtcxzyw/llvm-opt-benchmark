@@ -1348,9 +1348,8 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %.fr12.i = freeze ptr %8
-  %9 = getelementptr i8, ptr %.fr12.i, i64 -4
-  %10 = getelementptr i32, ptr %.fr12.i, i64 %4
+  %9 = getelementptr i8, ptr %8, i64 -4
+  %10 = getelementptr i32, ptr %8, i64 %4
   br label %11
 
 11:                                               ; preds = %13, %6
@@ -1366,9 +1365,10 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i: ; preds = %13
   %16 = ptrtoint ptr %12 to i64
-  %17 = ptrtoint ptr %.fr12.i to i64
+  %17 = ptrtoint ptr %8 to i64
   %18 = sub i64 %16, %17
-  %.not11.i = icmp eq i64 %18, -4
+  %.fr.i = freeze i64 %18
+  %.not11.i = icmp eq i64 %.fr.i, -4
   br i1 %.not11.i, label %.thread.i, label %22
 
 .thread.i:                                        ; preds = %11, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i, %2
@@ -1400,9 +1400,8 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %.fr12 = freeze ptr %8
-  %9 = getelementptr i8, ptr %.fr12, i64 -4
-  %10 = getelementptr i32, ptr %.fr12, i64 %4
+  %9 = getelementptr i8, ptr %8, i64 -4
+  %10 = getelementptr i32, ptr %8, i64 %4
   br label %11
 
 11:                                               ; preds = %13, %6
@@ -1418,9 +1417,10 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %13
   %16 = ptrtoint ptr %12 to i64
-  %17 = ptrtoint ptr %.fr12 to i64
+  %17 = ptrtoint ptr %8 to i64
   %18 = sub i64 %16, %17
-  %.not11 = icmp eq i64 %18, -4
+  %.fr = freeze i64 %18
+  %.not11 = icmp eq i64 %.fr, -4
   br i1 %.not11, label %.thread, label %23
 
 .thread:                                          ; preds = %11, %2, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit

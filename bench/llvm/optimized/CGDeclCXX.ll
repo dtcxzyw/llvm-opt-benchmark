@@ -7875,10 +7875,9 @@ _ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8F
   %24 = load ptr, ptr %23, align 8, !tbaa !1199
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !1199
-  %.fr = freeze ptr %24
-  %.fr13 = freeze ptr %26
-  %27 = icmp ult ptr %.fr, %.fr13
-  br i1 %27, label %_ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit6.thread, label %_ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit.thread
+  %27 = icmp ult ptr %24, %26
+  %cond.fr = freeze i1 %27
+  br i1 %cond.fr, label %_ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit6.thread, label %_ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit.thread
 
 _ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit6.thread: ; preds = %8, %_ZNK5clang7CodeGen33OrderGlobalInitsOrStermFinalizersltERKS1_.exit.i.i4, %_ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit6
   br label %_ZNKSt4lessISt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEEEclERKS7_SA_.exit.thread

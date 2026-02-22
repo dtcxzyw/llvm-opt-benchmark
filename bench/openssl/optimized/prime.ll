@@ -169,16 +169,16 @@ define dso_local range(i32 0, 2) i32 @prime_main(i32 noundef %0, ptr noundef %1)
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.i.preheader.us, %.preheader.i.us
-  %indvars.iv37.i.us = phi i64 [ %indvars.iv.next38.i.us, %.preheader.i.us ], [ 0, %.preheader.i.preheader.us ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv37.i.us
+  %indvars.iv38.i.us = phi i64 [ %indvars.iv.next39.i.us, %.preheader.i.us ], [ 0, %.preheader.i.preheader.us ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv38.i.us
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = add i8 %34, -48
   %or.cond30.i.us = icmp ult i8 %35, 10
-  %indvars.iv.next38.i.us = add nuw nsw i64 %indvars.iv37.i.us, 1
+  %indvars.iv.next39.i.us = add nuw nsw i64 %indvars.iv38.i.us, 1
   br i1 %or.cond30.i.us, label %.preheader.i.us, label %check_num.exit.thread.us, !llvm.loop !16
 
 check_num.exit.thread.us:                         ; preds = %.preheader.i.us
-  %36 = and i64 %indvars.iv37.i.us, 4294967295
+  %36 = and i64 %indvars.iv38.i.us, 4294967295
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %.not71.us = icmp eq i8 %38, 0
@@ -275,13 +275,13 @@ check_num.exit.thread.us:                         ; preds = %.preheader.i.us
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 0, %.preheader33.i.preheader ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv.i
   %87 = load i8, ptr %86, align 1, !tbaa !15
-  %.fr.i = freeze i8 %87
-  %88 = add i8 %.fr.i, -48
+  %.fr35.i = freeze i8 %87
+  %88 = add i8 %.fr35.i, -48
   %or.cond.i = icmp ult i8 %88, 10
   br i1 %or.cond.i, label %.critedge.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.preheader33.i
-  switch i8 %.fr.i, label %check_num.exit [
+  switch i8 %.fr35.i, label %check_num.exit [
     i8 102, label %.critedge.i
     i8 101, label %.critedge.i
     i8 100, label %.critedge.i

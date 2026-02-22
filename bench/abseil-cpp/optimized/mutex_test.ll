@@ -14819,12 +14819,11 @@ define internal fastcc void @_ZN7testing8ValuesInISt6vectorIN12_GLOBAL__N_116Tim
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEEE, i64 16), ptr %2, align 8, !tbaa !4, !noalias !453
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !453
-  %.fr8.i.i.i.i = freeze ptr %.0.val
-  %.fr7.i.i.i.i = freeze ptr %.8.val
-  %4 = ptrtoint ptr %.fr7.i.i.i.i to i64
-  %5 = ptrtoint ptr %.fr8.i.i.i.i to i64
+  %4 = ptrtoint ptr %.8.val to i64
+  %5 = ptrtoint ptr %.0.val to i64
   %6 = sub i64 %4, %5
-  %7 = sdiv exact i64 %6, 56
+  %reass.sub.fr.i.i.i = freeze i64 %6
+  %7 = sdiv exact i64 %reass.sub.fr.i.i.i, 56
   %8 = icmp ugt i64 %7, 164703072086692425
   br i1 %8, label %9, label %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i
 
@@ -14836,29 +14835,29 @@ define internal fastcc void @_ZN7testing8ValuesInISt6vectorIN12_GLOBAL__N_116Tim
   unreachable
 
 _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i: ; preds = %1
-  %.not.i.i.i.i.i = icmp eq ptr %.fr7.i.i.i.i, %.fr8.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr %.8.val, %.0.val
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i
-  %10 = getelementptr inbounds nuw i8, ptr null, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8, !tbaa !456, !noalias !453
   br label %26
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #48
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i.i.i) #48
           to label %.noexc6.i.i.i unwind label %19, !noalias !453
 
 .noexc6.i.i.i:                                    ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.i
   store ptr %12, ptr %3, align 8, !tbaa !458, !noalias !453
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %reass.sub.fr.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8, !tbaa !456, !noalias !453
-  %15 = add i64 %6, -56
+  %15 = add i64 %reass.sub.fr.i.i.i, -56
   %16 = urem i64 %15, 56
   %17 = sub nuw i64 %15, %16
   %18 = add i64 %17, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %.fr8.i.i.i.i, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %.0.val, i64 %18, i1 false), !noalias !453
   %scevgep.i.i.i.i = getelementptr i8, ptr %12, i64 %18
   br label %26
 

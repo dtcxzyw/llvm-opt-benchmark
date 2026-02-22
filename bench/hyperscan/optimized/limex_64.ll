@@ -7250,21 +7250,20 @@ declare void @repeatUnpack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash64(ptr noundef readonly captures(none) %0, i64 %.0.val, i64 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
-  %.0.val1.fr = freeze i64 %.0.val1
-  %.0.val.fr = freeze i64 %.0.val
-  %6 = and i64 %.0.val1.fr, %.0.val.fr
-  %.not.i20 = icmp eq i64 %6, 0
+  %6 = and i64 %.0.val1, %.0.val
+  %.fr = freeze i64 %6
+  %.not.i20 = icmp eq i64 %.fr, 0
   br i1 %.not.i20, label %moProcessAcceptsImpl64.exit, label %.preheader
 
 .preheader:                                       ; preds = %5, %limexRunAccept.exit.thread8
-  %.021 = phi i64 [ %9, %limexRunAccept.exit.thread8 ], [ %6, %5 ]
+  %.021 = phi i64 [ %9, %limexRunAccept.exit.thread8 ], [ %.fr, %5 ]
   %7 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.021) #9, !srcloc !7
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   %10 = and i64 %8, 4294967295
   %notmask.i = shl nsw i64 -1, %10
   %11 = xor i64 %notmask.i, -1
-  %12 = and i64 %.0.val1.fr, %11
+  %12 = and i64 %.0.val1, %11
   %13 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %12)
   %14 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %13
   %15 = load i8, ptr %14, align 4
@@ -7312,21 +7311,20 @@ declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts64(ptr noundef readonly captures(none) %0, i64 %.0.val, i64 %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
-  %.0.val1.fr = freeze i64 %.0.val1
-  %.0.val.fr = freeze i64 %.0.val
-  %6 = and i64 %.0.val1.fr, %.0.val.fr
-  %.not.i25 = icmp eq i64 %6, 0
+  %6 = and i64 %.0.val1, %.0.val
+  %.fr = freeze i64 %6
+  %.not.i25 = icmp eq i64 %.fr, 0
   br i1 %.not.i25, label %moProcessAcceptsImpl64.exit, label %.preheader
 
 .preheader:                                       ; preds = %5, %limexRunAccept.exit.thread10
-  %.0726 = phi i64 [ %9, %limexRunAccept.exit.thread10 ], [ %6, %5 ]
+  %.0726 = phi i64 [ %9, %limexRunAccept.exit.thread10 ], [ %.fr, %5 ]
   %7 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0726) #9, !srcloc !7
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   %10 = and i64 %8, 4294967295
   %notmask.i = shl nsw i64 -1, %10
   %11 = xor i64 %notmask.i, -1
-  %12 = and i64 %.0.val1.fr, %11
+  %12 = and i64 %.0.val1, %11
   %13 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %12)
   %14 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %13
   %15 = load i8, ptr %14, align 4

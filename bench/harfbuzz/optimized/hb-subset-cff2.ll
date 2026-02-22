@@ -4347,12 +4347,12 @@ _ZNK16hb_subset_plan_t19old_gid_for_new_gidEjPj.exit.thread56: ; preds = %60
   store ptr %82, ptr %14, align 8, !tbaa !312
   store i8 0, ptr %15, align 8, !tbaa !313
   %.pre.i = load i32, ptr %.sroa.gep, align 4, !tbaa !328
-  %.pre14.i = load i32, ptr %.sroa.gep45, align 8, !tbaa !329
+  %.pre12.i = load i32, ptr %.sroa.gep45, align 8, !tbaa !329
   br label %87
 
 87:                                               ; preds = %137, %74
-  %88 = phi i32 [ %.pre14.i, %74 ], [ %.fr9.i, %137 ]
-  %89 = phi i32 [ %.pre.i, %74 ], [ %.fr.i, %137 ]
+  %88 = phi i32 [ %.pre12.i, %74 ], [ %131, %137 ]
+  %89 = phi i32 [ %.pre.i, %74 ], [ %130, %137 ]
   %.0.i = phi i32 [ 200000, %74 ], [ %136, %137 ]
   %90 = add i32 %89, 1
   %.not.i.i20 = icmp ugt i32 %90, %88
@@ -4464,22 +4464,20 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blen
   br i1 %129, label %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i, label %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
 
 _ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i: ; preds = %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE10process_opEjRS6_RS2_.exit
-  %.pre16.i = load i32, ptr %.sroa.gep45, align 8, !tbaa !329
+  %.pre14.i = load i32, ptr %.sroa.gep45, align 8, !tbaa !329
   br label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE23cff2_cs_opset_flatten_tNS_15flatten_param_tEE9interpretERS5_.exit
 
 _ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i: ; preds = %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE10process_opEjRS6_RS2_.exit
   %130 = load i32, ptr %.sroa.gep, align 4, !tbaa !328
-  %.fr.i = freeze i32 %130
   %131 = load i32, ptr %.sroa.gep45, align 8, !tbaa !329
-  %.fr9.i = freeze i32 %131
-  %132 = icmp ugt i32 %.fr.i, %.fr9.i
+  %132 = icmp ugt i32 %130, %131
   %133 = load i8, ptr %.sroa.gep30, align 8, !range !102
-  %.fr10.i = freeze i8 %133
-  %134 = trunc i8 %.fr10.i to i1
-  %135 = or i1 %132, %134
+  %134 = trunc nuw i8 %133 to i1
+  %135 = select i1 %132, i1 true, i1 %134
+  %cond.fr.i = freeze i1 %135
   %136 = add nsw i32 %.0.i, -1
   %.not.i = icmp eq i32 %136, 0
-  %brmerge.i = select i1 %135, i1 true, i1 %.not.i, !prof !340
+  %brmerge.i = select i1 %cond.fr.i, i1 true, i1 %.not.i, !prof !340
   br i1 %brmerge.i, label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE23cff2_cs_opset_flatten_tNS_15flatten_param_tEE9interpretERS5_.exit, label %137, !prof !340
 
 137:                                              ; preds = %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
@@ -4488,7 +4486,7 @@ _ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_
   br i1 %139, label %.loopexit, label %87, !llvm.loop !341
 
 _ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE23cff2_cs_opset_flatten_tNS_15flatten_param_tEE9interpretERS5_.exit: ; preds = %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i
-  %140 = phi i32 [ %.pre16.i, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %.fr9.i, %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
+  %140 = phi i32 [ %.pre14.i, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %131, %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
   %141 = add i32 %140, 1
   store i32 %141, ptr %.sroa.gep, align 4, !tbaa !328
   br label %.loopexit
@@ -5383,12 +5381,12 @@ _ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit:         ; preds = %378, %379
   store i8 %387, ptr %250, align 8, !tbaa !392
   store i8 0, ptr %.sroa.gep165, align 8, !tbaa !313
   %.pre.i = load i32, ptr %.sroa.gep, align 4, !tbaa !328
-  %.pre14.i = load i32, ptr %.sroa.gep174, align 8, !tbaa !329
+  %.pre12.i = load i32, ptr %.sroa.gep174, align 8, !tbaa !329
   br label %388
 
 388:                                              ; preds = %437, %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit
-  %389 = phi i32 [ %.pre14.i, %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit ], [ %.fr9.i, %437 ]
-  %390 = phi i32 [ %.pre.i, %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit ], [ %.fr.i, %437 ]
+  %389 = phi i32 [ %.pre12.i, %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit ], [ %431, %437 ]
+  %390 = phi i32 [ %.pre.i, %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit ], [ %430, %437 ]
   %.0.i118 = phi i32 [ 200000, %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit ], [ %436, %437 ]
   %391 = add i32 %390, 1
   %.not.i.i119 = icmp ugt i32 %391, %389
@@ -5494,22 +5492,20 @@ _ZN27cff2_cs_opset_subr_subset_t10process_opEjRN3CFF20cff2_cs_interp_env_tINS0_1
   br i1 %429, label %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i, label %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
 
 _ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i: ; preds = %_ZN27cff2_cs_opset_subr_subset_t10process_opEjRN3CFF20cff2_cs_interp_env_tINS0_11blend_arg_tEEERNS0_19subr_subset_param_tE.exit
-  %.pre16.i = load i32, ptr %.sroa.gep174, align 8, !tbaa !329
+  %.pre14.i = load i32, ptr %.sroa.gep174, align 8, !tbaa !329
   br label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit
 
 _ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i: ; preds = %_ZN27cff2_cs_opset_subr_subset_t10process_opEjRN3CFF20cff2_cs_interp_env_tINS0_11blend_arg_tEEERNS0_19subr_subset_param_tE.exit
   %430 = load i32, ptr %.sroa.gep, align 4, !tbaa !328
-  %.fr.i = freeze i32 %430
   %431 = load i32, ptr %.sroa.gep174, align 8, !tbaa !329
-  %.fr9.i = freeze i32 %431
-  %432 = icmp ugt i32 %.fr.i, %.fr9.i
+  %432 = icmp ugt i32 %430, %431
   %433 = load i8, ptr %251, align 8, !range !102
-  %.fr10.i = freeze i8 %433
-  %434 = trunc i8 %.fr10.i to i1
-  %435 = or i1 %432, %434
+  %434 = trunc nuw i8 %433 to i1
+  %435 = select i1 %432, i1 true, i1 %434
+  %cond.fr.i = freeze i1 %435
   %436 = add nsw i32 %.0.i118, -1
   %.not.i121 = icmp eq i32 %436, 0
-  %brmerge.i = select i1 %435, i1 true, i1 %.not.i121, !prof !340
+  %brmerge.i = select i1 %cond.fr.i, i1 true, i1 %.not.i121, !prof !340
   br i1 %brmerge.i, label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit, label %437, !prof !340
 
 437:                                              ; preds = %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
@@ -5518,7 +5514,7 @@ _ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_
   br i1 %439, label %442, label %388, !llvm.loop !393
 
 _ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit: ; preds = %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i
-  %440 = phi i32 [ %.pre16.i, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %.fr9.i, %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
+  %440 = phi i32 [ %.pre14.i, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %431, %_ZNK3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
   %441 = add i32 %440, 1
   store i32 %441, ptr %.sroa.gep, align 4, !tbaa !328
   br label %526

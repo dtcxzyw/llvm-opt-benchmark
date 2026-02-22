@@ -2890,17 +2890,16 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -288
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %118, label %6
+  br i1 %5, label %119, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %0, i64 3496
   br label %8
 
 8:                                                ; preds = %.thread11, %6
-  %9 = phi ptr [ %4, %6 ], [ %114, %.thread11 ]
-  %10 = phi i8 [ 0, %6 ], [ %113, %.thread11 ]
-  %.fr14 = freeze ptr %9
-  %11 = getelementptr inbounds nuw i8, ptr %.fr14, i64 80
+  %9 = phi ptr [ %4, %6 ], [ %115, %.thread11 ]
+  %10 = phi i8 [ 0, %6 ], [ %114, %.thread11 ]
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1672
   %14 = load ptr, ptr %13, align 8
@@ -2908,14 +2907,14 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %15, label %.thread11, label %16
 
 16:                                               ; preds = %8
-  %17 = getelementptr i8, ptr %.fr14, i64 328
-  %18 = getelementptr inbounds nuw i8, ptr %.fr14, i64 200
-  %19 = getelementptr inbounds nuw i8, ptr %.fr14, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 232
   br label %20
 
-20:                                               ; preds = %108, %16
-  %21 = phi i64 [ 0, %16 ], [ %110, %108 ]
-  %22 = phi i1 [ false, %16 ], [ %109, %108 ]
+20:                                               ; preds = %109, %16
+  %21 = phi i64 [ 0, %16 ], [ %111, %109 ]
+  %22 = phi i1 [ false, %16 ], [ %110, %109 ]
   %23 = getelementptr %struct.sk_buff_head, ptr %17, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2970,8 +2969,8 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %61, label %.thread, label %.lr.ph, !llvm.loop !124
 
 .thread:                                          ; preds = %.lr.ph, %.thread8, %20
-  %.lcssa41.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa41.sink) #18
+  %.lcssa38.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa38.sink) #18
   %62 = getelementptr %struct.sk_buff_head, ptr %19, i64 %21
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -2980,9 +2979,9 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   %67 = icmp eq ptr %66, %62
   %68 = icmp eq ptr %66, null
   %69 = or i1 %67, %68
-  br i1 %69, label %.thread9, label %.lr.ph22
+  br i1 %69, label %.thread9, label %.lr.ph19
 
-.lr.ph22:                                         ; preds = %.thread, %.thread10
+.lr.ph19:                                         ; preds = %.thread, %.thread10
   %70 = phi ptr [ %99, %.thread10 ], [ %66, %.thread ]
   %71 = phi i64 [ %98, %.thread10 ], [ %65, %.thread ]
   %72 = load i16, ptr %18, align 8
@@ -3005,7 +3004,7 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   %89 = icmp sgt i64 %88, -1
   br i1 %89, label %.thread9, label %.thread10
 
-.thread10:                                        ; preds = %.lr.ph22
+.thread10:                                        ; preds = %.lr.ph19
   %90 = load i32, ptr %64, align 8
   %91 = add i32 %90, -1
   store volatile i32 %91, ptr %64, align 8
@@ -3026,60 +3025,60 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   %100 = icmp eq ptr %99, %62
   %101 = icmp eq ptr %99, null
   %102 = or i1 %100, %101
-  br i1 %102, label %.thread9, label %.lr.ph22, !llvm.loop !125
+  br i1 %102, label %.thread9, label %.lr.ph19, !llvm.loop !125
 
-.thread9:                                         ; preds = %.lr.ph22, %.thread10, %.thread
-  %.lcssa44.sink = phi i64 [ %65, %.thread ], [ %98, %.thread10 ], [ %71, %.lr.ph22 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %63, i64 noundef %.lcssa44.sink) #18
-  tail call fastcc void @__sta_info_recalc_tim(ptr noundef %.fr14, i1 noundef zeroext false)
+.thread9:                                         ; preds = %.lr.ph19, %.thread10, %.thread
+  %.lcssa41.sink = phi i64 [ %65, %.thread ], [ %98, %.thread10 ], [ %71, %.lr.ph19 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %63, i64 noundef %.lcssa41.sink) #18
+  tail call fastcc void @__sta_info_recalc_tim(ptr noundef %9, i1 noundef zeroext false)
   %103 = load ptr, ptr %62, align 8
   %104 = icmp eq ptr %103, %62
-  br i1 %104, label %105, label %108
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.thread9
   %106 = load ptr, ptr %23, align 8
-  %.fr = freeze ptr %106
-  %107 = icmp ne ptr %.fr, %23
-  br label %108
+  %107 = icmp ne ptr %106, %23
+  %108 = freeze i1 %107
+  br label %109
 
-108:                                              ; preds = %105, %.thread9
-  %.fr13 = phi i1 [ true, %.thread9 ], [ %107, %105 ]
-  %109 = or i1 %22, %.fr13
-  %110 = add nuw nsw i64 %21, 1
-  %111 = icmp eq i64 %110, 4
-  br i1 %111, label %112, label %20, !llvm.loop !126
+109:                                              ; preds = %105, %.thread9
+  %.fr = phi i1 [ true, %.thread9 ], [ %108, %105 ]
+  %110 = or i1 %22, %.fr
+  %111 = add nuw nsw i64 %21, 1
+  %112 = icmp eq i64 %111, 4
+  br i1 %112, label %113, label %20, !llvm.loop !126
 
-112:                                              ; preds = %108
-  %spec.select = select i1 %109, i8 1, i8 %10
+113:                                              ; preds = %109
+  %spec.select = select i1 %110, i8 1, i8 %10
   br label %.thread11
 
-.thread11:                                        ; preds = %112, %8
-  %113 = phi i8 [ %10, %8 ], [ %spec.select, %112 ]
-  %114 = load volatile ptr, ptr %.fr14, align 8
-  %115 = icmp eq ptr %114, %3
-  br i1 %115, label %116, label %8, !llvm.loop !127
+.thread11:                                        ; preds = %113, %8
+  %114 = phi i8 [ %10, %8 ], [ %spec.select, %113 ]
+  %115 = load volatile ptr, ptr %9, align 8
+  %116 = icmp eq ptr %115, %3
+  br i1 %116, label %117, label %8, !llvm.loop !127
 
-116:                                              ; preds = %.thread11
-  %117 = icmp eq i8 %113, 0
-  br label %118
+117:                                              ; preds = %.thread11
+  %118 = icmp eq i8 %114, 0
+  br label %119
 
-118:                                              ; preds = %116, %1
-  %119 = phi i1 [ true, %1 ], [ %117, %116 ]
+119:                                              ; preds = %117, %1
+  %120 = phi i1 [ true, %1 ], [ %118, %117 ]
   tail call void @__rcu_read_unlock() #18
-  %120 = getelementptr i8, ptr %0, i64 -436
-  %121 = load i8, ptr %120, align 4, !range !33, !noundef !34
-  %122 = icmp ne i8 %121, 0
-  %123 = select i1 %122, i1 true, i1 %119
-  br i1 %123, label %129, label %124
+  %121 = getelementptr i8, ptr %0, i64 -436
+  %122 = load i8, ptr %121, align 4, !range !33, !noundef !34
+  %123 = icmp ne i8 %122, 0
+  %124 = select i1 %123, i1 true, i1 %120
+  br i1 %124, label %130, label %125
 
-124:                                              ; preds = %118
-  %125 = load volatile i64, ptr @jiffies, align 64
-  %126 = add i64 %125, 10000
-  %127 = tail call i64 @round_jiffies(i64 noundef %126) #18
-  %128 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %127) #18
-  br label %129
+125:                                              ; preds = %119
+  %126 = load volatile i64, ptr @jiffies, align 64
+  %127 = add i64 %126, 10000
+  %128 = tail call i64 @round_jiffies(i64 noundef %127) #18
+  %129 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %128) #18
+  br label %130
 
-129:                                              ; preds = %124, %118
+130:                                              ; preds = %125, %119
   ret void
 }
 

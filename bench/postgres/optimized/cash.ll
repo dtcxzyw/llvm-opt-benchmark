@@ -474,10 +474,10 @@ define dso_local i64 @cash_out(ptr noundef readonly captures(none) %0) local_unn
   %5 = tail call ptr @PGLC_localeconv() #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 81
   %7 = load i8, ptr %6, align 1
-  %.fr133 = freeze i8 %7
-  %or.cond = icmp ugt i8 %.fr133, 10
-  %narrow = select i1 %or.cond, i8 2, i8 %.fr133
-  %spec.store.select = zext nneg i8 %narrow to i32
+  %or.cond = icmp ugt i8 %7, 10
+  %narrow = select i1 %or.cond, i8 2, i8 %7
+  %narrow.fr = freeze i8 %narrow
+  %spec.store.select = sext i8 %narrow.fr to i32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
@@ -533,12 +533,12 @@ define dso_local i64 @cash_out(ptr noundef readonly captures(none) %0) local_unn
   br label %34
 
 34:                                               ; preds = %31, %27
-  %.sink141 = phi i64 [ 86, %31 ], [ 87, %27 ]
-  %.sink140 = phi i64 [ 82, %31 ], [ 84, %27 ]
+  %.sink139 = phi i64 [ 86, %31 ], [ 87, %27 ]
+  %.sink138 = phi i64 [ 82, %31 ], [ 84, %27 ]
   %.sink = phi i64 [ 83, %31 ], [ 85, %27 ]
   %.0107 = phi ptr [ %33, %31 ], [ %spec.select, %27 ]
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink141
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink140
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink139
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink138
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink
   %.0104 = load i8, ptr %37, align 1
   %.0105 = load i8, ptr %36, align 2
@@ -546,8 +546,8 @@ define dso_local i64 @cash_out(ptr noundef readonly captures(none) %0) local_unn
   %38 = tail call noundef range(i64 0, -9223372036854775807) i64 @llvm.abs.i64(i64 %4, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 127
   store i8 0, ptr %39, align 1
-  %.not135 = icmp eq i8 %narrow, 0
-  br i1 %.not135, label %.split.us, label %.split
+  %.not133 = icmp eq i8 %narrow.fr, 0
+  br i1 %.not133, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %34, %48
   %.0112.us = phi ptr [ %52, %48 ], [ %39, %34 ]

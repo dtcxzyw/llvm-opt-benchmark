@@ -7790,16 +7790,16 @@ define dso_local range(i64 8, 17) i64 @journal_tag_bytes(ptr noundef readonly ca
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load i32, ptr %8, align 4
-  %.fr = freeze i32 %9
-  %10 = and i32 %.fr, 268435456
+  %.fr3 = freeze i32 %9
+  %10 = and i32 %.fr3, 268435456
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.thread1
 
 12:                                               ; preds = %7
-  %13 = and i32 %.fr, 134217728
+  %13 = and i32 %.fr3, 134217728
   %14 = icmp eq i32 %13, 0
   %15 = select i1 %14, i64 12, i64 14
-  %16 = and i32 %.fr, 33554432
+  %16 = and i32 %.fr3, 33554432
   %.not = icmp eq i32 %16, 0
   %17 = add nsw i64 %15, -4
   %spec.select = select i1 %.not, i64 %17, i64 %15

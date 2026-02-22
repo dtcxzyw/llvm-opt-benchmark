@@ -122518,10 +122518,10 @@ define internal noundef i32 @ZEND_DECLARE_LAMBDA_FUNCTION_SPEC_CONST_HANDLER(ptr
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !55
-  %.fr = freeze i32 %25
-  %26 = and i32 %.fr, 16
-  %.not20 = icmp eq i32 %26, 0
-  br i1 %.not20, label %27, label %.thread, !prof !155
+  %.fr20 = freeze i32 %25
+  %26 = and i32 %.fr20, 16
+  %.not21 = icmp eq i32 %26, 0
+  br i1 %.not21, label %27, label %.thread, !prof !155
 
 .thread:                                          ; preds = %17, %23
   br label %27

@@ -58419,8 +58419,7 @@ _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %24, %_ZNK7AstNode5w
   %.fr.i.i = freeze i32 %126
   %127 = getelementptr inbounds nuw i8, ptr %16, i64 188
   %128 = load i8, ptr %127, align 4, !tbaa !284
-  %.fr13.i.i = freeze i8 %128
-  %129 = add i8 %.fr13.i.i, -3
+  %129 = add i8 %128, -3
   %spec.select.i.i.i = icmp ult i8 %129, -2
   %130 = icmp slt i32 %.fr.i.i, 1
   %or.cond10.i.i = or i1 %130, %spec.select.i.i.i
@@ -60778,8 +60777,7 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZNK12V3NumberData4typeEv(ptr 
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number7bitIsXZEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4, !tbaa !284
-  %.fr13 = freeze i8 %4
-  %5 = add i8 %.fr13, -3
+  %5 = add i8 %4, -3
   %spec.select.i = icmp ult i8 %5, -2
   %6 = icmp slt i32 %1, 0
   %or.cond10 = or i1 %6, %spec.select.i

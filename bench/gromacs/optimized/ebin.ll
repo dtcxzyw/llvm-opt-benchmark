@@ -518,8 +518,8 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readonly captures(none) %2, ptr readnone captures(none) %3, ptr readonly captures(address) %4, ptr readnone captures(address) %5, i1 noundef zeroext %6) local_unnamed_addr #9 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !34
-  %.fr50 = freeze i64 %9
-  %10 = trunc i64 %.fr50 to i32
+  %.fr = freeze i64 %9
+  %10 = trunc i64 %.fr to i32
   %11 = icmp eq i32 %10, 0
   %12 = sitofp i32 %10 to double
   %13 = fdiv double 1.000000e+00, %12

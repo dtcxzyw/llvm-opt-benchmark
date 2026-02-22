@@ -2148,8 +2148,8 @@ define noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnl
   %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !167
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !170
-  %.not14 = icmp eq ptr %3, %5
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %3, %5
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2160,7 +2160,6 @@ define noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnl
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
-  %.fr11 = freeze i64 %13
   br label %14
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit, %1
@@ -2168,56 +2167,55 @@ define noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnl
   ret i64 %.04.lcssa
 
 14:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
-  %.019 = phi i64 [ %11, %.lr.ph ], [ %37, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.0418 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.sroa.13.017 = phi ptr [ %7, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.sroa.10.016 = phi ptr [ %9, %.lr.ph ], [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.sroa.05.015 = phi ptr [ %3, %.lr.ph ], [ %.sroa.05.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 42
+  %.014 = phi i64 [ %11, %.lr.ph ], [ %37, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.0413 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.sroa.13.012 = phi ptr [ %7, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.sroa.10.011 = phi ptr [ %9, %.lr.ph ], [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.sroa.05.010 = phi ptr [ %3, %.lr.ph ], [ %.sroa.05.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 42
   %16 = load i8, ptr %15, align 2, !tbaa !67, !range !94, !noundef !95
   %17 = trunc nuw i8 %16 to i1
-  %18 = icmp ugt i64 %.019, %.fr11
+  %18 = icmp ugt i64 %.014, %13
   %not..i.i = xor i1 %17, true
   %19 = select i1 %not..i.i, i1 %18, i1 false
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 41
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 41
   %21 = load i8, ptr %20, align 1, !range !94
   %22 = trunc nuw i8 %21 to i1
   %or.cond.i = select i1 %19, i1 true, i1 %22
   br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %14
-  %23 = load ptr, ptr %.sroa.05.015, align 8, !tbaa !105
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 8
+  %23 = load ptr, ptr %.sroa.05.010, align 8, !tbaa !105
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !105
-  %.fr = freeze ptr %23
-  %.fr9 = freeze ptr %25
-  %26 = icmp ne ptr %.fr, %.fr9
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 48
+  %26 = icmp eq ptr %23, %25
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 48
   %28 = load i64, ptr %27, align 8
-  %.fr10 = freeze i64 %28
-  %29 = icmp ugt i64 %.fr10, %.fr11
-  %.not7.i.not = or i1 %26, %29
-  %30 = zext i1 %.not7.i.not to i64
+  %29 = icmp ule i64 %28, %13
+  %.not7.i = select i1 %26, i1 %29, i1 false
+  %cond.fr = freeze i1 %.not7.i
+  %not.cond.fr = xor i1 %cond.fr, true
+  %30 = zext i1 %not.cond.fr to i64
   br label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %14, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
   %.sink = phi i64 [ %30, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit ], [ 1, %14 ]
-  %spec.select = add i64 %.0418, %.sink
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 80
-  %32 = icmp eq ptr %31, %.sroa.10.016
+  %spec.select = add i64 %.0413, %.sink
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 80
+  %32 = icmp eq ptr %31, %.sroa.10.011
   br i1 %32, label %33, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 33:                                               ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.13.017, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.13.012, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, %33
   %.sroa.05.1 = phi ptr [ %35, %33 ], [ %31, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread ]
-  %.sroa.10.1 = phi ptr [ %36, %33 ], [ %.sroa.10.016, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread ]
-  %.sroa.13.1 = phi ptr [ %34, %33 ], [ %.sroa.13.017, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread ]
-  %37 = add i64 %.019, 1
+  %.sroa.10.1 = phi ptr [ %36, %33 ], [ %.sroa.10.011, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread ]
+  %.sroa.13.1 = phi ptr [ %34, %33 ], [ %.sroa.13.012, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread ]
+  %37 = add i64 %.014, 1
   %.not = icmp eq ptr %.sroa.05.1, %5
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !173
 }

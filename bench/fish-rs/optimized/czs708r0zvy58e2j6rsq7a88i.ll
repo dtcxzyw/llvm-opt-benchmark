@@ -3993,7 +3993,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h50061294cc5500c1E.exit.i:
   %74 = zext nneg i8 %73 to i32
   %75 = or disjoint i32 %72, %74
   %76 = or disjoint i32 %75, %69
-  %.not5.i = icmp eq i32 %76, 1114112
+  %.fr.i = freeze i32 %76
+  %.not5.i = icmp eq i32 %.fr.i, 1114112
   br i1 %.not5.i, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread14.i", label %_ZN4core4iter6traits8iterator12iter_compare17h207f22b987c7a6afE.exit
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.thread14.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cb4e8776eb6df79E.exit.i", %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h50061294cc5500c1E.exit.i

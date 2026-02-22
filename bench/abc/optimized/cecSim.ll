@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @Cec_ManSVerify_rec(ptr noundef %0, i32 noundef %1) l
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %4
   %6 = icmp eq i32 %1, 0
-  br i1 %6, label %58, label %7
+  br i1 %6, label %59, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 176
@@ -249,7 +249,7 @@ define range(i32 0, 2) i32 @Cec_ManSVerify_rec(ptr noundef %0, i32 noundef %1) l
   %14 = lshr i64 %13, 62
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = and i32 %15, 1
-  br label %58
+  br label %59
 
 17:                                               ; preds = %7
   store i32 %.val27, ptr %10, align 4, !tbaa !55
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @Cec_ManSVerify_rec(ptr noundef %0, i32 noundef %1) l
   %20 = lshr i64 %.val31, 62
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = and i32 %21, 1
-  br label %58
+  br label %59
 
 23:                                               ; preds = %17
   %24 = trunc i64 %.val31 to i32
@@ -280,45 +280,45 @@ define range(i32 0, 2) i32 @Cec_ManSVerify_rec(ptr noundef %0, i32 noundef %1) l
   %35 = sub nsw i32 %1, %34
   %36 = tail call i32 @Cec_ManSVerify_rec(ptr noundef nonnull %0, i32 noundef %35)
   %.val35 = load i64, ptr %5, align 4
-  %.val35.fr = freeze i64 %.val35
-  %37 = lshr i64 %.val35.fr, 61
+  %37 = lshr i64 %.val35, 61
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 1
   %40 = xor i32 %39, %36
-  %41 = and i64 %.val35.fr, 2147483648
+  %41 = and i64 %.val35, 2147483648
   %.not.i.i = icmp ne i64 %41, 0
-  %42 = and i64 %.val35.fr, 536870911
+  %42 = and i64 %.val35, 536870911
   %43 = icmp eq i64 %42, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %43
   br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %23
   %44 = and i32 %40, %31
-  br label %52
+  br label %53
 
 Gia_ObjIsXor.exit:                                ; preds = %23
-  %45 = trunc i64 %.val35.fr to i32
+  %45 = trunc i64 %.val35 to i32
   %46 = and i32 %45, 536870911
-  %47 = lshr i64 %.val35.fr, 32
+  %47 = lshr i64 %.val35, 32
   %48 = trunc nuw i64 %47 to i32
   %49 = and i32 %48, 536870911
-  %.not40 = icmp samesign ult i32 %46, %49
-  %50 = xor i32 %40, %31
-  %51 = and i32 %40, %31
-  %spec.select = select i1 %.not40, i32 %50, i32 %51
-  br label %52
+  %50 = icmp samesign uge i32 %46, %49
+  %51 = xor i32 %40, %31
+  %52 = and i32 %40, %31
+  %cond.fr = freeze i1 %50
+  %spec.select = select i1 %cond.fr, i32 %52, i32 %51
+  br label %53
 
-52:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread
-  %53 = phi i32 [ %spec.select, %Gia_ObjIsXor.exit ], [ %44, %Gia_ObjIsXor.exit.thread ]
-  %54 = zext nneg i32 %53 to i64
-  %55 = shl nuw nsw i64 %54, 62
-  %56 = and i64 %.val35.fr, -4611686018427387905
-  %57 = or disjoint i64 %55, %56
-  store i64 %57, ptr %5, align 4
-  br label %58
+53:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread
+  %54 = phi i32 [ %spec.select, %Gia_ObjIsXor.exit ], [ %44, %Gia_ObjIsXor.exit.thread ]
+  %55 = zext nneg i32 %54 to i64
+  %56 = shl nuw nsw i64 %55, 62
+  %57 = and i64 %.val35, -4611686018427387905
+  %58 = or disjoint i64 %56, %57
+  store i64 %58, ptr %5, align 4
+  br label %59
 
-58:                                               ; preds = %2, %52, %19, %12
-  %.0 = phi i32 [ %53, %52 ], [ %16, %12 ], [ %22, %19 ], [ 0, %2 ]
+59:                                               ; preds = %2, %53, %19, %12
+  %.0 = phi i32 [ %54, %53 ], [ %16, %12 ], [ %22, %19 ], [ 0, %2 ]
   ret i32 %.0
 }
 

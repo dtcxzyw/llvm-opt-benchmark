@@ -1598,7 +1598,7 @@ define dso_local range(i32 0, 2) i32 @x509_main(i32 noundef %0, ptr noundef %1) 
 
 .loopexit877:                                     ; preds = %.lr.ph1591, %.preheader, %.loopexit879
   %502 = icmp ne ptr %.0629.lcssa, null
-  %or.cond31 = select i1 %.0548.lcssa, i1 %502, i1 false
+  %or.cond31 = and i1 %.0548.lcssa, %502
   br i1 %or.cond31, label %503, label %506
 
 503:                                              ; preds = %.loopexit877

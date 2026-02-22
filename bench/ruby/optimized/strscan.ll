@@ -1408,12 +1408,12 @@ define internal i64 @strscan_scan_base16_integer(i64 noundef %0) #0 {
   tail call void @rb_must_asciicompat(i64 noundef %4) #12
   %.pre = load i64, ptr %3, align 8, !tbaa !23
   %.phi.trans.insert = inttoptr i64 %.pre to ptr
-  %.pre55 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34, !noalias !66
+  %.pre58 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34, !noalias !66
   br label %strscan_must_ascii_compat.exit
 
 strscan_must_ascii_compat.exit:                   ; preds = %8, %22
   %.pre-phi = phi ptr [ %11, %8 ], [ %.phi.trans.insert, %22 ]
-  %23 = phi i64 [ %12, %8 ], [ %.pre55, %22 ]
+  %23 = phi i64 [ %12, %8 ], [ %.pre58, %22 ]
   %24 = and i64 %23, 8192
   %.not.i.i = icmp eq i64 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 24
@@ -1497,14 +1497,14 @@ switch.early.test:                                ; preds = %48
   %.252 = phi i64 [ %63, %62 ], [ %.1, %54 ]
   %57 = getelementptr inbounds i8, ptr %29, i64 %.252
   %58 = load i8, ptr %57, align 1, !tbaa !54
-  %.fr54 = freeze i8 %58
-  %59 = sext i8 %.fr54 to i32
+  %.fr57 = freeze i8 %58
+  %59 = sext i8 %.fr57 to i32
   %60 = add nsw i32 %59, -58
   %61 = icmp ult i32 %60, -10
   br i1 %61, label %switch.early.test51, label %62
 
 switch.early.test51:                              ; preds = %.lr.ph
-  switch i8 %.fr54, label %.critedge [
+  switch i8 %.fr57, label %.critedge [
     i8 102, label %62
     i8 101, label %62
     i8 100, label %62

@@ -9259,11 +9259,11 @@ define linkonce_odr hidden void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_1
   %5 = alloca %"struct.boost::gregorian::bad_day_of_month", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %.fr.i = freeze i16 %1
+  %.fr5.i = freeze i16 %1
   %8 = zext i16 %2 to i32
   %9 = sub nsw i32 14, %8
   %10 = sdiv i32 %9, 12
-  %11 = zext i16 %.fr.i to i32
+  %11 = zext i16 %.fr5.i to i32
   %12 = add nuw nsw i32 %11, 4800
   %13 = sub nsw i32 %12, %10
   %14 = trunc nsw i32 %10 to i16
@@ -9299,14 +9299,14 @@ define linkonce_odr hidden void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_1
   ]
 
 34:                                               ; preds = %4
-  %35 = and i16 %.fr.i, 3
+  %35 = and i16 %.fr5.i, 3
   %.not.i.i = icmp eq i16 %35, 0
   br i1 %.not.i.i, label %36, label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit
 
 36:                                               ; preds = %34
-  %37 = urem i16 %.fr.i, 100
+  %37 = urem i16 %.fr5.i, 100
   %.not1.i.i = icmp ne i16 %37, 0
-  %38 = urem i16 %.fr.i, 400
+  %38 = urem i16 %.fr5.i, 400
   %.not2.i.i = icmp eq i16 %38, 0
   %or.cond.i = or i1 %.not1.i.i, %.not2.i.i
   %spec.select.i = select i1 %or.cond.i, i16 29, i16 28
@@ -21607,7 +21607,7 @@ _ZN5boost9gregorian9greg_yearC2Et.exit.sink.split: ; preds = %33, %_ZN5boost9dat
 
 _ZN5boost9gregorian9greg_yearC2Et.exit:           ; preds = %_ZN5boost9gregorian9greg_yearC2Et.exit.sink.split, %33
   %.sroa.039.0 = phi i16 [ %31, %33 ], [ 1400, %_ZN5boost9gregorian9greg_yearC2Et.exit.sink.split ]
-  %.fr.i12 = freeze i16 %.sroa.039.0
+  %.fr5.i12 = freeze i16 %.sroa.039.0
   %35 = icmp eq i16 %.sroa.042.0, 0
   br i1 %35, label %36, label %37
 
@@ -21633,14 +21633,14 @@ _ZN5boost9gregorian10greg_monthC2Et.exit:         ; preds = %37
   ]
 
 40:                                               ; preds = %_ZN5boost9gregorian10greg_monthC2Et.exit
-  %41 = and i16 %.fr.i12, 3
+  %41 = and i16 %.fr5.i12, 3
   %.not.i.i14 = icmp eq i16 %41, 0
   br i1 %.not.i.i14, label %42, label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit19
 
 42:                                               ; preds = %40
-  %43 = urem i16 %.fr.i12, 100
+  %43 = urem i16 %.fr5.i12, 100
   %.not1.i.i15 = icmp ne i16 %43, 0
-  %44 = urem i16 %.fr.i12, 400
+  %44 = urem i16 %.fr5.i12, 400
   %.not2.i.i16 = icmp eq i16 %44, 0
   %or.cond.i17 = or i1 %.not1.i.i15, %.not2.i.i16
   %spec.select.i18 = select i1 %or.cond.i17, i16 29, i16 28
@@ -21675,7 +21675,7 @@ _ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9grego
 
 _ZN5boost9gregorian10greg_monthC2Et.exit20:       ; preds = %48, %47, %50
   %.sroa.034.0 = phi i16 [ 1, %47 ], [ 1, %50 ], [ %.sroa.042.0, %48 ]
-  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %3, i16 %.fr.i12, i16 %.sroa.034.0, i16 %.0.i13)
+  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %3, i16 %.fr5.i12, i16 %.sroa.034.0, i16 %.0.i13)
   %51 = load i32, ptr %3, align 4, !tbaa !221
   %52 = add i32 %51, 2
   %53 = icmp ult i32 %52, 3
@@ -21777,7 +21777,7 @@ _ZN5boost9gregorian8greg_dayC2Et.exit.thread:     ; preds = %_ZN5boost9gregorian
 
 _ZN5boost9gregorian10greg_monthC2Et.exit21:       ; preds = %77, %76, %79
   %.sroa.0.0 = phi i16 [ 1, %76 ], [ 1, %79 ], [ %.sroa.042.0, %77 ]
-  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %4, i16 %.fr.i12, i16 %.sroa.0.0, i16 %.sroa.032.0)
+  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %4, i16 %.fr5.i12, i16 %.sroa.0.0, i16 %.sroa.032.0)
   %80 = load i32, ptr %4, align 4, !tbaa !221
   %81 = add i32 %80, 2
   %82 = icmp ult i32 %81, 3

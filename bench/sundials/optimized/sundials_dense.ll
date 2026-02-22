@@ -15,8 +15,8 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %9, label %.lr.ph91.i, label %SUNDlsMat_denseGETRF.exit
 
 .loopexit75.i:                                    ; preds = %..loopexit_crit_edge.us.i, %.preheader74.i, %.loopexit77.i
-  %exitcond102.not.i = icmp eq i64 %12, %8
-  br i1 %exitcond102.not.i, label %SUNDlsMat_denseGETRF.exit, label %.lr.ph91.i
+  %exitcond103.not.i = icmp eq i64 %12, %8
+  br i1 %exitcond103.not.i, label %SUNDlsMat_denseGETRF.exit, label %.lr.ph91.i
 
 .lr.ph91.i:                                       ; preds = %2, %.loopexit75.i
   %.06889.i = phi i64 [ %12, %.loopexit75.i ], [ 0, %2 ]
@@ -65,8 +65,8 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
   store double %32, ptr %29, align 8, !tbaa !15
   store double %30, ptr %31, align 8, !tbaa !15
   %33 = add nuw nsw i64 %.180.i, 1
-  %exitcond98.not.i = icmp eq i64 %33, %8
-  br i1 %exitcond98.not.i, label %.loopexit77.i, label %.lr.ph81.i
+  %exitcond99.not.i = icmp eq i64 %33, %8
+  br i1 %exitcond99.not.i, label %.loopexit77.i, label %.lr.ph81.i
 
 .loopexit77.i:                                    ; preds = %.lr.ph81.i, %26
   %34 = getelementptr inbounds nuw double, ptr %11, i64 %.06889.i
@@ -75,8 +75,8 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %13, label %.lr.ph84.i, label %.loopexit75.i
 
 .preheader74.i:                                   ; preds = %.lr.ph84.i
-  %.not111.i = icmp slt i64 %12, %8
-  br i1 %.not111.i, label %.lr.ph88.split.us.i, label %.loopexit75.i
+  %.not112.i = icmp slt i64 %12, %8
+  br i1 %.not112.i, label %.lr.ph88.split.us.i, label %.loopexit75.i
 
 .lr.ph88.split.us.i:                              ; preds = %.preheader74.i, %..loopexit_crit_edge.us.i
   %.06787.us.i = phi i64 [ %42, %..loopexit_crit_edge.us.i ], [ %12, %.preheader74.i ]
@@ -89,8 +89,8 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
 
 ..loopexit_crit_edge.us.i:                        ; preds = %43, %.lr.ph88.split.us.i
   %42 = add nuw nsw i64 %.06787.us.i, 1
-  %exitcond101.not.i = icmp eq i64 %42, %8
-  br i1 %exitcond101.not.i, label %.loopexit75.i, label %.lr.ph88.split.us.i
+  %exitcond102.not.i = icmp eq i64 %42, %8
+  br i1 %exitcond102.not.i, label %.loopexit75.i, label %.lr.ph88.split.us.i
 
 43:                                               ; preds = %.preheader.us.i, %43
   %.385.us.i = phi i64 [ %12, %.preheader.us.i ], [ %49, %43 ]
@@ -101,8 +101,8 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
   %48 = tail call double @llvm.fmuladd.f64(double %50, double %45, double %47)
   store double %48, ptr %46, align 8, !tbaa !15
   %49 = add nuw nsw i64 %.385.us.i, 1
-  %exitcond100.not.i = icmp eq i64 %49, %6
-  br i1 %exitcond100.not.i, label %..loopexit_crit_edge.us.i, label %43
+  %exitcond101.not.i = icmp eq i64 %49, %6
+  br i1 %exitcond101.not.i, label %..loopexit_crit_edge.us.i, label %43
 
 .preheader.us.i:                                  ; preds = %.lr.ph88.split.us.i
   %50 = fneg double %40
@@ -115,8 +115,8 @@ define i64 @SUNDlsMat_DenseGETRF(ptr noundef readonly captures(none) %0, ptr nou
   %53 = fmul double %36, %52
   store double %53, ptr %51, align 8, !tbaa !15
   %54 = add nuw nsw i64 %.282.i, 1
-  %exitcond99.not.i = icmp eq i64 %54, %6
-  br i1 %exitcond99.not.i, label %.preheader74.i, label %.lr.ph84.i
+  %exitcond100.not.i = icmp eq i64 %54, %6
+  br i1 %exitcond100.not.i, label %.preheader74.i, label %.lr.ph84.i
 
 SUNDlsMat_denseGETRF.exit:                        ; preds = %.loopexit75.i, %._crit_edge.i, %2
   %.0.i = phi i64 [ 0, %2 ], [ %12, %._crit_edge.i ], [ 0, %.loopexit75.i ]
@@ -129,8 +129,8 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %5, label %.lr.ph91, label %._crit_edge92
 
 .loopexit75:                                      ; preds = %..loopexit_crit_edge.us, %.preheader74, %.loopexit77
-  %exitcond102.not = icmp eq i64 %8, %2
-  br i1 %exitcond102.not, label %._crit_edge92, label %.lr.ph91
+  %exitcond103.not = icmp eq i64 %8, %2
+  br i1 %exitcond103.not, label %._crit_edge92, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %4, %.loopexit75
   %.06889 = phi i64 [ %8, %.loopexit75 ], [ 0, %4 ]
@@ -179,8 +179,8 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
   store double %28, ptr %25, align 8, !tbaa !15
   store double %26, ptr %27, align 8, !tbaa !15
   %29 = add nuw nsw i64 %.180, 1
-  %exitcond98.not = icmp eq i64 %29, %2
-  br i1 %exitcond98.not, label %.loopexit77, label %.lr.ph81
+  %exitcond99.not = icmp eq i64 %29, %2
+  br i1 %exitcond99.not, label %.loopexit77, label %.lr.ph81
 
 .loopexit77:                                      ; preds = %.lr.ph81, %22
   %30 = getelementptr inbounds nuw double, ptr %7, i64 %.06889
@@ -189,8 +189,8 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %9, label %.lr.ph84, label %.loopexit75
 
 .preheader74:                                     ; preds = %.lr.ph84
-  %.not111 = icmp slt i64 %8, %2
-  br i1 %.not111, label %.lr.ph88.split.us, label %.loopexit75
+  %.not112 = icmp slt i64 %8, %2
+  br i1 %.not112, label %.lr.ph88.split.us, label %.loopexit75
 
 .lr.ph88.split.us:                                ; preds = %.preheader74, %..loopexit_crit_edge.us
   %.06787.us = phi i64 [ %38, %..loopexit_crit_edge.us ], [ %8, %.preheader74 ]
@@ -203,8 +203,8 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
 
 ..loopexit_crit_edge.us:                          ; preds = %39, %.lr.ph88.split.us
   %38 = add nuw nsw i64 %.06787.us, 1
-  %exitcond101.not = icmp eq i64 %38, %2
-  br i1 %exitcond101.not, label %.loopexit75, label %.lr.ph88.split.us
+  %exitcond102.not = icmp eq i64 %38, %2
+  br i1 %exitcond102.not, label %.loopexit75, label %.lr.ph88.split.us
 
 39:                                               ; preds = %.preheader.us, %39
   %.385.us = phi i64 [ %8, %.preheader.us ], [ %45, %39 ]
@@ -215,8 +215,8 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
   %44 = tail call double @llvm.fmuladd.f64(double %46, double %41, double %43)
   store double %44, ptr %42, align 8, !tbaa !15
   %45 = add nuw nsw i64 %.385.us, 1
-  %exitcond100.not = icmp eq i64 %45, %1
-  br i1 %exitcond100.not, label %..loopexit_crit_edge.us, label %39
+  %exitcond101.not = icmp eq i64 %45, %1
+  br i1 %exitcond101.not, label %..loopexit_crit_edge.us, label %39
 
 .preheader.us:                                    ; preds = %.lr.ph88.split.us
   %46 = fneg double %36
@@ -229,8 +229,8 @@ define i64 @SUNDlsMat_denseGETRF(ptr noundef readonly captures(none) %0, i64 nou
   %49 = fmul double %32, %48
   store double %49, ptr %47, align 8, !tbaa !15
   %50 = add nuw nsw i64 %.282, 1
-  %exitcond99.not = icmp eq i64 %50, %1
-  br i1 %exitcond99.not, label %.preheader74, label %.lr.ph84
+  %exitcond100.not = icmp eq i64 %50, %1
+  br i1 %exitcond100.not, label %.preheader74, label %.lr.ph84
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %.loopexit75, %4
   %.0 = phi i64 [ 0, %4 ], [ 0, %.loopexit75 ], [ %8, %._crit_edge ]

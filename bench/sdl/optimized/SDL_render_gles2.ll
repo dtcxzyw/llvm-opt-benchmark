@@ -2966,344 +2966,344 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %22, label %18
+  br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %17, align 8
-  %.fr = freeze i32 %19
-  %20 = icmp eq i32 %.fr, 372645892
-  %21 = icmp eq i32 %.fr, 370546692
+  %20 = icmp eq i32 %19, 372645892
+  %21 = icmp eq i32 %19, 370546692
   %spec.select = or i1 %20, %21
-  br label %22
+  %22 = freeze i1 %spec.select
+  br label %23
 
-22:                                               ; preds = %18, %15
-  %.fr141 = phi i1 [ false, %15 ], [ %spec.select, %18 ]
+23:                                               ; preds = %18, %15
+  %.fr141 = phi i1 [ false, %15 ], [ %22, %18 ]
   %.not128 = icmp eq ptr %10, null
-  %23 = select i1 %.not128, i32 %9, i32 %11
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load float, ptr %25, align 8
-  %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %27, ptr %28, align 8
-  %29 = select i1 %.not128, i32 0, i32 %12
+  %24 = select i1 %.not128, i32 %9, i32 %11
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = load float, ptr %26, align 8
+  %28 = sext i32 %24 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %28, ptr %29, align 8
+  %30 = select i1 %.not128, i32 0, i32 %12
   %.not129 = icmp eq ptr %2, null
-  br i1 %.not129, label %110, label %30
+  br i1 %.not129, label %111, label %31
 
-30:                                               ; preds = %22
-  %31 = shl nsw i64 %27, 5
-  %32 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef nonnull %0, i64 noundef %31, i64 noundef 0, ptr noundef nonnull %24) #10
-  %.not131.not = icmp eq ptr %32, null
+31:                                               ; preds = %23
+  %32 = shl nsw i64 %28, 5
+  %33 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef nonnull %0, i64 noundef %32, i64 noundef 0, ptr noundef nonnull %25) #10
+  %.not131.not = icmp eq ptr %33, null
   br i1 %.not131.not, label %.critedge, label %.preheader134
 
-.preheader134:                                    ; preds = %30
-  %33 = icmp sgt i32 %23, 0
-  br i1 %33, label %.lr.ph, label %.critedge
+.preheader134:                                    ; preds = %31
+  %34 = icmp sgt i32 %24, 0
+  br i1 %34, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader134
-  %wide.trip.count150 = zext nneg i32 %23 to i64
+  %wide.trip.count149 = zext nneg i32 %24 to i64
   br i1 %.fr141, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %46
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %46 ], [ 0, %.lr.ph ]
-  %.0120136.us = phi ptr [ %71, %46 ], [ %32, %.lr.ph ]
-  %34 = trunc nuw nsw i64 %indvars.iv147 to i32
-  switch i32 %29, label %46 [
-    i32 4, label %43
-    i32 2, label %39
-    i32 1, label %35
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %47
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %47 ], [ 0, %.lr.ph ]
+  %.0120136.us = phi ptr [ %72, %47 ], [ %33, %.lr.ph ]
+  %35 = trunc nuw nsw i64 %indvars.iv146 to i32
+  switch i32 %30, label %47 [
+    i32 4, label %44
+    i32 2, label %40
+    i32 1, label %36
   ]
 
-35:                                               ; preds = %.lr.ph.split.us
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv147
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  br label %46
+36:                                               ; preds = %.lr.ph.split.us
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv146
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  br label %47
 
-39:                                               ; preds = %.lr.ph.split.us
-  %40 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv147
-  %41 = load i16, ptr %40, align 2
-  %42 = zext i16 %41 to i32
-  br label %46
+40:                                               ; preds = %.lr.ph.split.us
+  %41 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv146
+  %42 = load i16, ptr %41, align 2
+  %43 = zext i16 %42 to i32
+  br label %47
 
-43:                                               ; preds = %.lr.ph.split.us
-  %44 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv147
-  %45 = load i32, ptr %44, align 4
-  br label %46
+44:                                               ; preds = %.lr.ph.split.us
+  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv146
+  %46 = load i32, ptr %45, align 4
+  br label %47
 
-46:                                               ; preds = %43, %39, %35, %.lr.ph.split.us
-  %.0123.us = phi i32 [ %45, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %.lr.ph.split.us ]
-  %47 = mul nsw i32 %.0123.us, %4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %3, i64 %48
-  %50 = mul nsw i32 %.0123.us, %6
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %5, i64 %51
-  %.sroa.022.0.copyload.us = load float, ptr %52, align 4
-  %.sroa.825.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %52, i64 4
+47:                                               ; preds = %44, %40, %36, %.lr.ph.split.us
+  %.0123.us = phi i32 [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %.lr.ph.split.us ]
+  %48 = mul nsw i32 %.0123.us, %4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %3, i64 %49
+  %51 = mul nsw i32 %.0123.us, %6
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %5, i64 %52
+  %.sroa.022.0.copyload.us = load float, ptr %53, align 4
+  %.sroa.825.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %53, i64 4
   %.sroa.825.0.copyload.us = load float, ptr %.sroa.825.0..sroa_idx.us, align 4
-  %.sroa.1028.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.sroa.1028.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.1028.0.copyload.us = load float, ptr %.sroa.1028.0..sroa_idx.us, align 4
-  %.sroa.1432.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %52, i64 12
+  %.sroa.1432.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %53, i64 12
   %.sroa.1432.0.copyload.us = load float, ptr %.sroa.1432.0..sroa_idx.us, align 4
-  %53 = mul nsw i32 %.0123.us, %8
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %7, i64 %54
-  %56 = load float, ptr %49, align 4
-  %57 = fmul float %13, %56
-  store float %57, ptr %.0120136.us, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %59 = load float, ptr %58, align 4
-  %60 = fmul float %14, %59
-  %61 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 4
-  store float %60, ptr %61, align 4
-  %62 = fmul float %26, %.sroa.022.0.copyload.us
-  %63 = fmul float %26, %.sroa.825.0.copyload.us
-  %64 = fmul float %26, %.sroa.1028.0.copyload.us
-  %65 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 8
-  store float %64, ptr %65, align 4
+  %54 = mul nsw i32 %.0123.us, %8
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i8, ptr %7, i64 %55
+  %57 = load float, ptr %50, align 4
+  %58 = fmul float %13, %57
+  store float %58, ptr %.0120136.us, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %60 = load float, ptr %59, align 4
+  %61 = fmul float %14, %60
+  %62 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 4
+  store float %61, ptr %62, align 4
+  %63 = fmul float %27, %.sroa.022.0.copyload.us
+  %64 = fmul float %27, %.sroa.825.0.copyload.us
+  %65 = fmul float %27, %.sroa.1028.0.copyload.us
+  %66 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 8
+  store float %65, ptr %66, align 4
   %.sroa.825.0..sroa_idx26.us = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 12
-  store float %63, ptr %.sroa.825.0..sroa_idx26.us, align 4
+  store float %64, ptr %.sroa.825.0..sroa_idx26.us, align 4
   %.sroa.1028.0..sroa_idx29.us = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 16
-  store float %62, ptr %.sroa.1028.0..sroa_idx29.us, align 4
+  store float %63, ptr %.sroa.1028.0..sroa_idx29.us, align 4
   %.sroa.1432.0..sroa_idx33.us = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 20
   store float %.sroa.1432.0.copyload.us, ptr %.sroa.1432.0..sroa_idx33.us, align 4
-  %66 = load float, ptr %55, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 24
-  store float %66, ptr %67, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 28
-  store float %69, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 32
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !12
+  %67 = load float, ptr %56, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 24
+  store float %67, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %70 = load float, ptr %69, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 28
+  store float %70, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %.0120136.us, i64 32
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
+  br i1 %exitcond150.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !12
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %84
-  %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph ]
-  %.0120136 = phi ptr [ %109, %84 ], [ %32, %.lr.ph ]
-  %72 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %29, label %84 [
-    i32 4, label %73
-    i32 2, label %76
-    i32 1, label %80
+.lr.ph.split:                                     ; preds = %.lr.ph, %85
+  %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.lr.ph ]
+  %.0120136 = phi ptr [ %110, %85 ], [ %33, %.lr.ph ]
+  %73 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %30, label %85 [
+    i32 4, label %74
+    i32 2, label %77
+    i32 1, label %81
   ]
 
-73:                                               ; preds = %.lr.ph.split
-  %74 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %75 = load i32, ptr %74, align 4
-  br label %84
+74:                                               ; preds = %.lr.ph.split
+  %75 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %76 = load i32, ptr %75, align 4
+  br label %85
 
-76:                                               ; preds = %.lr.ph.split
-  %77 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  %78 = load i16, ptr %77, align 2
-  %79 = zext i16 %78 to i32
-  br label %84
+77:                                               ; preds = %.lr.ph.split
+  %78 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %79 = load i16, ptr %78, align 2
+  %80 = zext i16 %79 to i32
+  br label %85
 
-80:                                               ; preds = %.lr.ph.split
-  %81 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  br label %84
+81:                                               ; preds = %.lr.ph.split
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  br label %85
 
-84:                                               ; preds = %.lr.ph.split, %76, %80, %73
-  %.0123 = phi i32 [ %75, %73 ], [ %79, %76 ], [ %83, %80 ], [ %72, %.lr.ph.split ]
-  %85 = mul nsw i32 %.0123, %4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %3, i64 %86
-  %88 = mul nsw i32 %.0123, %6
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %5, i64 %89
-  %.sroa.022.0.copyload = load float, ptr %90, align 4
-  %.sroa.825.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 4
+85:                                               ; preds = %.lr.ph.split, %77, %81, %74
+  %.0123 = phi i32 [ %76, %74 ], [ %80, %77 ], [ %84, %81 ], [ %73, %.lr.ph.split ]
+  %86 = mul nsw i32 %.0123, %4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i8, ptr %3, i64 %87
+  %89 = mul nsw i32 %.0123, %6
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %5, i64 %90
+  %.sroa.022.0.copyload = load float, ptr %91, align 4
+  %.sroa.825.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 4
   %.sroa.825.0.copyload = load float, ptr %.sroa.825.0..sroa_idx, align 4
-  %.sroa.1028.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %.sroa.1028.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.1028.0.copyload = load float, ptr %.sroa.1028.0..sroa_idx, align 4
-  %.sroa.1432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %.sroa.1432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 12
   %.sroa.1432.0.copyload = load float, ptr %.sroa.1432.0..sroa_idx, align 4
-  %91 = mul nsw i32 %.0123, %8
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %7, i64 %92
-  %94 = load float, ptr %87, align 4
-  %95 = fmul float %13, %94
-  store float %95, ptr %.0120136, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %97 = load float, ptr %96, align 4
-  %98 = fmul float %14, %97
-  %99 = getelementptr inbounds nuw i8, ptr %.0120136, i64 4
-  store float %98, ptr %99, align 4
-  %100 = fmul float %26, %.sroa.022.0.copyload
-  %101 = fmul float %26, %.sroa.825.0.copyload
-  %102 = fmul float %26, %.sroa.1028.0.copyload
-  %103 = getelementptr inbounds nuw i8, ptr %.0120136, i64 8
-  store float %100, ptr %103, align 4
+  %92 = mul nsw i32 %.0123, %8
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i8, ptr %7, i64 %93
+  %95 = load float, ptr %88, align 4
+  %96 = fmul float %13, %95
+  store float %96, ptr %.0120136, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %98 = load float, ptr %97, align 4
+  %99 = fmul float %14, %98
+  %100 = getelementptr inbounds nuw i8, ptr %.0120136, i64 4
+  store float %99, ptr %100, align 4
+  %101 = fmul float %27, %.sroa.022.0.copyload
+  %102 = fmul float %27, %.sroa.825.0.copyload
+  %103 = fmul float %27, %.sroa.1028.0.copyload
+  %104 = getelementptr inbounds nuw i8, ptr %.0120136, i64 8
+  store float %101, ptr %104, align 4
   %.sroa.825.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.0120136, i64 12
-  store float %101, ptr %.sroa.825.0..sroa_idx26, align 4
+  store float %102, ptr %.sroa.825.0..sroa_idx26, align 4
   %.sroa.1028.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %.0120136, i64 16
-  store float %102, ptr %.sroa.1028.0..sroa_idx29, align 4
+  store float %103, ptr %.sroa.1028.0..sroa_idx29, align 4
   %.sroa.1432.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %.0120136, i64 20
   store float %.sroa.1432.0.copyload, ptr %.sroa.1432.0..sroa_idx33, align 4
-  %104 = load float, ptr %93, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %.0120136, i64 24
-  store float %104, ptr %105, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %107 = load float, ptr %106, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %.0120136, i64 28
-  store float %107, ptr %108, align 4
-  %109 = getelementptr inbounds nuw i8, ptr %.0120136, i64 32
+  %105 = load float, ptr %94, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %.0120136, i64 24
+  store float %105, ptr %106, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %108 = load float, ptr %107, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %.0120136, i64 28
+  store float %108, ptr %109, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %.0120136, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count150
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count149
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !12
 
-110:                                              ; preds = %22
-  %111 = mul nsw i64 %27, 24
-  %112 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef nonnull %0, i64 noundef %111, i64 noundef 0, ptr noundef nonnull %24) #10
-  %.not130.not = icmp eq ptr %112, null
+111:                                              ; preds = %23
+  %112 = mul nsw i64 %28, 24
+  %113 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef nonnull %0, i64 noundef %112, i64 noundef 0, ptr noundef nonnull %25) #10
+  %.not130.not = icmp eq ptr %113, null
   br i1 %.not130.not, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %110
-  %113 = icmp sgt i32 %23, 0
-  br i1 %113, label %.lr.ph140, label %.critedge
+.preheader:                                       ; preds = %111
+  %114 = icmp sgt i32 %24, 0
+  br i1 %114, label %.lr.ph140, label %.critedge
 
 .lr.ph140:                                        ; preds = %.preheader
-  %wide.trip.count160 = zext nneg i32 %23 to i64
+  %wide.trip.count159 = zext nneg i32 %24 to i64
   br i1 %.fr141, label %.lr.ph140.split.us, label %.lr.ph140.split
 
-.lr.ph140.split.us:                               ; preds = %.lr.ph140, %126
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %126 ], [ 0, %.lr.ph140 ]
-  %.0119138.us = phi ptr [ %143, %126 ], [ %112, %.lr.ph140 ]
-  %114 = trunc nuw nsw i64 %indvars.iv157 to i32
-  switch i32 %29, label %126 [
-    i32 4, label %123
-    i32 2, label %119
-    i32 1, label %115
+.lr.ph140.split.us:                               ; preds = %.lr.ph140, %127
+  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %127 ], [ 0, %.lr.ph140 ]
+  %.0119138.us = phi ptr [ %144, %127 ], [ %113, %.lr.ph140 ]
+  %115 = trunc nuw nsw i64 %indvars.iv156 to i32
+  switch i32 %30, label %127 [
+    i32 4, label %124
+    i32 2, label %120
+    i32 1, label %116
   ]
 
-115:                                              ; preds = %.lr.ph140.split.us
-  %116 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv157
-  %117 = load i8, ptr %116, align 1
-  %118 = zext i8 %117 to i32
-  br label %126
+116:                                              ; preds = %.lr.ph140.split.us
+  %117 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv156
+  %118 = load i8, ptr %117, align 1
+  %119 = zext i8 %118 to i32
+  br label %127
 
-119:                                              ; preds = %.lr.ph140.split.us
-  %120 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv157
-  %121 = load i16, ptr %120, align 2
-  %122 = zext i16 %121 to i32
-  br label %126
+120:                                              ; preds = %.lr.ph140.split.us
+  %121 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv156
+  %122 = load i16, ptr %121, align 2
+  %123 = zext i16 %122 to i32
+  br label %127
 
-123:                                              ; preds = %.lr.ph140.split.us
-  %124 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv157
-  %125 = load i32, ptr %124, align 4
-  br label %126
+124:                                              ; preds = %.lr.ph140.split.us
+  %125 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv156
+  %126 = load i32, ptr %125, align 4
+  br label %127
 
-126:                                              ; preds = %123, %119, %115, %.lr.ph140.split.us
-  %.0118.us = phi i32 [ %125, %123 ], [ %122, %119 ], [ %118, %115 ], [ %114, %.lr.ph140.split.us ]
-  %127 = mul nsw i32 %.0118.us, %4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %3, i64 %128
-  %130 = mul nsw i32 %.0118.us, %6
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %5, i64 %131
-  %.sroa.0.0.copyload.us = load float, ptr %132, align 4
-  %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %132, i64 4
+127:                                              ; preds = %124, %120, %116, %.lr.ph140.split.us
+  %.0118.us = phi i32 [ %126, %124 ], [ %123, %120 ], [ %119, %116 ], [ %115, %.lr.ph140.split.us ]
+  %128 = mul nsw i32 %.0118.us, %4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i8, ptr %3, i64 %129
+  %131 = mul nsw i32 %.0118.us, %6
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %5, i64 %132
+  %.sroa.0.0.copyload.us = load float, ptr %133, align 4
+  %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %133, i64 4
   %.sroa.8.0.copyload.us = load float, ptr %.sroa.8.0..sroa_idx.us, align 4
-  %.sroa.10.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %.sroa.10.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %133, i64 8
   %.sroa.10.0.copyload.us = load float, ptr %.sroa.10.0..sroa_idx.us, align 4
-  %.sroa.14.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %132, i64 12
+  %.sroa.14.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %133, i64 12
   %.sroa.14.0.copyload.us = load float, ptr %.sroa.14.0..sroa_idx.us, align 4
-  %133 = load float, ptr %129, align 4
-  %134 = fmul float %13, %133
-  store float %134, ptr %.0119138.us, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  %136 = load float, ptr %135, align 4
-  %137 = fmul float %14, %136
-  %138 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 4
-  store float %137, ptr %138, align 4
-  %139 = fmul float %26, %.sroa.0.0.copyload.us
-  %140 = fmul float %26, %.sroa.8.0.copyload.us
-  %141 = fmul float %26, %.sroa.10.0.copyload.us
-  %142 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 8
-  store float %141, ptr %142, align 4
+  %134 = load float, ptr %130, align 4
+  %135 = fmul float %13, %134
+  store float %135, ptr %.0119138.us, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 4
+  %137 = load float, ptr %136, align 4
+  %138 = fmul float %14, %137
+  %139 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 4
+  store float %138, ptr %139, align 4
+  %140 = fmul float %27, %.sroa.0.0.copyload.us
+  %141 = fmul float %27, %.sroa.8.0.copyload.us
+  %142 = fmul float %27, %.sroa.10.0.copyload.us
+  %143 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 8
+  store float %142, ptr %143, align 4
   %.sroa.8.0..sroa_idx4.us = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 12
-  store float %140, ptr %.sroa.8.0..sroa_idx4.us, align 4
+  store float %141, ptr %.sroa.8.0..sroa_idx4.us, align 4
   %.sroa.10.0..sroa_idx6.us = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 16
-  store float %139, ptr %.sroa.10.0..sroa_idx6.us, align 4
+  store float %140, ptr %.sroa.10.0..sroa_idx6.us, align 4
   %.sroa.14.0..sroa_idx9.us = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 20
   store float %.sroa.14.0.copyload.us, ptr %.sroa.14.0..sroa_idx9.us, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 24
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %.critedge, label %.lr.ph140.split.us, !llvm.loop !13
+  %144 = getelementptr inbounds nuw i8, ptr %.0119138.us, i64 24
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
+  br i1 %exitcond160.not, label %.critedge, label %.lr.ph140.split.us, !llvm.loop !13
 
-.lr.ph140.split:                                  ; preds = %.lr.ph140, %156
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %156 ], [ 0, %.lr.ph140 ]
-  %.0119138 = phi ptr [ %173, %156 ], [ %112, %.lr.ph140 ]
-  %144 = trunc nuw nsw i64 %indvars.iv152 to i32
-  switch i32 %29, label %156 [
-    i32 4, label %145
-    i32 2, label %148
-    i32 1, label %152
+.lr.ph140.split:                                  ; preds = %.lr.ph140, %157
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %157 ], [ 0, %.lr.ph140 ]
+  %.0119138 = phi ptr [ %174, %157 ], [ %113, %.lr.ph140 ]
+  %145 = trunc nuw nsw i64 %indvars.iv151 to i32
+  switch i32 %30, label %157 [
+    i32 4, label %146
+    i32 2, label %149
+    i32 1, label %153
   ]
 
-145:                                              ; preds = %.lr.ph140.split
-  %146 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv152
-  %147 = load i32, ptr %146, align 4
-  br label %156
+146:                                              ; preds = %.lr.ph140.split
+  %147 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv151
+  %148 = load i32, ptr %147, align 4
+  br label %157
 
-148:                                              ; preds = %.lr.ph140.split
-  %149 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv152
-  %150 = load i16, ptr %149, align 2
-  %151 = zext i16 %150 to i32
-  br label %156
+149:                                              ; preds = %.lr.ph140.split
+  %150 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv151
+  %151 = load i16, ptr %150, align 2
+  %152 = zext i16 %151 to i32
+  br label %157
 
-152:                                              ; preds = %.lr.ph140.split
-  %153 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv152
-  %154 = load i8, ptr %153, align 1
-  %155 = zext i8 %154 to i32
-  br label %156
+153:                                              ; preds = %.lr.ph140.split
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv151
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  br label %157
 
-156:                                              ; preds = %.lr.ph140.split, %148, %152, %145
-  %.0118 = phi i32 [ %147, %145 ], [ %151, %148 ], [ %155, %152 ], [ %144, %.lr.ph140.split ]
-  %157 = mul nsw i32 %.0118, %4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %3, i64 %158
-  %160 = mul nsw i32 %.0118, %6
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %5, i64 %161
-  %.sroa.0.0.copyload = load float, ptr %162, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 4
+157:                                              ; preds = %.lr.ph140.split, %149, %153, %146
+  %.0118 = phi i32 [ %148, %146 ], [ %152, %149 ], [ %156, %153 ], [ %145, %.lr.ph140.split ]
+  %158 = mul nsw i32 %.0118, %4
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds i8, ptr %3, i64 %159
+  %161 = mul nsw i32 %.0118, %6
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %5, i64 %162
+  %.sroa.0.0.copyload = load float, ptr %163, align 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 4
   %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
   %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 12
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 12
   %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 4
-  %163 = load float, ptr %159, align 4
-  %164 = fmul float %13, %163
-  store float %164, ptr %.0119138, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %159, i64 4
-  %166 = load float, ptr %165, align 4
-  %167 = fmul float %14, %166
-  %168 = getelementptr inbounds nuw i8, ptr %.0119138, i64 4
-  store float %167, ptr %168, align 4
-  %169 = fmul float %26, %.sroa.0.0.copyload
-  %170 = fmul float %26, %.sroa.8.0.copyload
-  %171 = fmul float %26, %.sroa.10.0.copyload
-  %172 = getelementptr inbounds nuw i8, ptr %.0119138, i64 8
-  store float %169, ptr %172, align 4
+  %164 = load float, ptr %160, align 4
+  %165 = fmul float %13, %164
+  store float %165, ptr %.0119138, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %167 = load float, ptr %166, align 4
+  %168 = fmul float %14, %167
+  %169 = getelementptr inbounds nuw i8, ptr %.0119138, i64 4
+  store float %168, ptr %169, align 4
+  %170 = fmul float %27, %.sroa.0.0.copyload
+  %171 = fmul float %27, %.sroa.8.0.copyload
+  %172 = fmul float %27, %.sroa.10.0.copyload
+  %173 = getelementptr inbounds nuw i8, ptr %.0119138, i64 8
+  store float %170, ptr %173, align 4
   %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.0119138, i64 12
-  store float %170, ptr %.sroa.8.0..sroa_idx4, align 4
+  store float %171, ptr %.sroa.8.0..sroa_idx4, align 4
   %.sroa.10.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.0119138, i64 16
-  store float %171, ptr %.sroa.10.0..sroa_idx6, align 4
+  store float %172, ptr %.sroa.10.0..sroa_idx6, align 4
   %.sroa.14.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.0119138, i64 20
   store float %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx9, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %.0119138, i64 24
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count160
-  br i1 %exitcond156.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !13
+  %174 = getelementptr inbounds nuw i8, ptr %.0119138, i64 24
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count159
+  br i1 %exitcond155.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !13
 
-.critedge:                                        ; preds = %84, %46, %156, %126, %.preheader134, %.preheader, %110, %30
-  %.1 = phi i1 [ false, %30 ], [ false, %110 ], [ true, %.preheader ], [ true, %.preheader134 ], [ true, %46 ], [ true, %126 ], [ true, %156 ], [ true, %84 ]
+.critedge:                                        ; preds = %85, %47, %157, %127, %.preheader134, %.preheader, %111, %31
+  %.1 = phi i1 [ false, %31 ], [ false, %111 ], [ true, %.preheader ], [ true, %.preheader134 ], [ true, %47 ], [ true, %127 ], [ true, %157 ], [ true, %85 ]
   ret i1 %.1
 }
 

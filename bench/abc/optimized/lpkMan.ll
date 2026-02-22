@@ -16,8 +16,8 @@ define noalias noundef ptr @Lpk_ManStart(ptr noundef %0) local_unnamed_addr #0 {
   %5 = icmp slt i32 %4, 6
   %6 = add nsw i32 %4, -5
   %7 = shl nuw i32 1, %6
-  %.fr43.i = freeze i32 %7
-  %8 = select i1 %5, i32 1, i32 %.fr43.i
+  %.fr.i = freeze i32 %7
+  %8 = select i1 %5, i32 1, i32 %.fr.i
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 2
   %11 = add nsw i64 %10, 8
@@ -108,7 +108,7 @@ Vec_PtrAllocTruthTables.exit.loopexit:            ; preds = %..loopexit27_crit_e
   br label %Vec_PtrAllocTruthTables.exit
 
 Vec_PtrAllocTruthTables.exit:                     ; preds = %Vec_PtrAllocTruthTables.exit.loopexit, %Vec_PtrAllocSimInfo.exit.i
-  %.pre-phi84 = phi i32 [ %.pre83, %Vec_PtrAllocTruthTables.exit.loopexit ], [ %.fr43.i, %Vec_PtrAllocSimInfo.exit.i ]
+  %.pre-phi84 = phi i32 [ %.pre83, %Vec_PtrAllocTruthTables.exit.loopexit ], [ %.fr.i, %Vec_PtrAllocSimInfo.exit.i ]
   %38 = phi i32 [ %.pre, %Vec_PtrAllocTruthTables.exit.loopexit ], [ %4, %Vec_PtrAllocSimInfo.exit.i ]
   %39 = getelementptr inbounds nuw i8, ptr %calloc, i64 8240904
   store ptr %20, ptr %39, align 8, !tbaa !32

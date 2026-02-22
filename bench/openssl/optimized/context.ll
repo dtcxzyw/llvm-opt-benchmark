@@ -951,17 +951,16 @@ ossl_lib_ctx_is_global_default.exit.thread:       ; preds = %1
 
 17:                                               ; preds = %.thread
   %18 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @default_context_thread_local) #3
-  %19 = freeze ptr %18
   br label %ossl_lib_ctx_is_default.exit
 
 ossl_lib_ctx_is_default.exit:                     ; preds = %.thread, %17
-  %.0.i.i.i = phi ptr [ %19, %17 ], [ null, %.thread ]
-  %20 = icmp eq ptr %.0.i.i.i, null
+  %.0.i.i.i = phi ptr [ %18, %17 ], [ null, %.thread ]
+  %19 = icmp eq ptr %.0.i.i.i, null
   %.b.i.i = load i1, ptr @default_context_inited, align 4
-  %.b.i.i.fr = freeze i1 %.b.i.i
-  %or.cond.i.i = and i1 %20, %.b.i.i.fr
+  %or.cond.i.i = select i1 %19, i1 %.b.i.i, i1 false
   %spec.store.select.i.i = select i1 %or.cond.i.i, ptr @default_context_int, ptr %.0.i.i.i
-  %.not = icmp eq ptr %0, %spec.store.select.i.i
+  %spec.store.select.i.i.fr = freeze ptr %spec.store.select.i.i
+  %.not = icmp eq ptr %0, %spec.store.select.i.i.fr
   %spec.select = select i1 %.not, ptr @.str.2, ptr @.str.3
   br label %ossl_lib_ctx_is_default.exit.thread
 

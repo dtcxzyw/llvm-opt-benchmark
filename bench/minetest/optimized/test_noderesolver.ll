@@ -2932,21 +2932,20 @@ init.end353:                                      ; preds = %init352, %init.chec
   %test_nr_list_group = getelementptr inbounds nuw i8, ptr %foobar, i64 112
   %_M_finish.i1221 = getelementptr inbounds nuw i8, ptr %foobar, i64 120
   %152 = load ptr, ptr %_M_finish.i1221, align 8, !tbaa !13
-  %.fr73 = freeze ptr %152
   %153 = load ptr, ptr %test_nr_list_group, align 8, !tbaa !13
-  %.fr72 = freeze ptr %153
-  %sub.ptr.lhs.cast.i1222 = ptrtoint ptr %.fr73 to i64
-  %sub.ptr.rhs.cast.i1223 = ptrtoint ptr %.fr72 to i64
+  %sub.ptr.lhs.cast.i1222 = ptrtoint ptr %152 to i64
+  %sub.ptr.rhs.cast.i1223 = ptrtoint ptr %153 to i64
   %sub.ptr.sub.i1224 = sub i64 %sub.ptr.lhs.cast.i1222, %sub.ptr.rhs.cast.i1223
   %sub.ptr.div.i1225 = ashr exact i64 %sub.ptr.sub.i1224, 1
   %cmp357 = icmp eq i64 %sub.ptr.sub.i1224, 4
   br i1 %cmp357, label %for.cond394.preheader, label %if.then358
 
 for.cond394.preheader:                            ; preds = %init.end353
-  %154 = load i16, ptr %.fr72, align 2, !tbaa !72
-  %incdec.ptr.i68.i.i.i = getelementptr i8, ptr %.fr72, i64 2
-  %155 = icmp eq ptr %incdec.ptr.i68.i.i.i, %.fr73
-  br i1 %155, label %for.body398.us, label %for.body398
+  %154 = load i16, ptr %153, align 2, !tbaa !72
+  %incdec.ptr.i68.i.i.i = getelementptr inbounds nuw i8, ptr %153, i64 2
+  %155 = icmp eq ptr %incdec.ptr.i68.i.i.i, %152
+  %.fr = freeze i1 %155
+  br i1 %.fr, label %for.body398.us, label %for.body398
 
 for.body398.us:                                   ; preds = %for.cond394.preheader, %for.cond394.us
   %i.11415.us = phi i64 [ %inc438.us, %for.cond394.us ], [ 0, %for.cond394.preheader ]

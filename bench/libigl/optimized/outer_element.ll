@@ -238,18 +238,18 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
 
 ._crit_edge.loopexit:                             ; preds = %81
   %.pre = load i64, ptr %7, align 8, !tbaa !19
-  %.pre58 = load i64, ptr %13, align 8, !tbaa !19
+  %.pre57 = load i64, ptr %13, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre59 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
-  %.pre60 = load ptr, ptr %15, align 8, !tbaa !41
-  %43 = ptrtoint ptr %.pre59 to i64
-  %44 = ptrtoint ptr %.pre60 to i64
+  %.pre58 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
+  %.pre59 = load ptr, ptr %15, align 8, !tbaa !41
+  %43 = ptrtoint ptr %.pre58 to i64
+  %44 = ptrtoint ptr %.pre59 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
-  %47 = phi i64 [ %.pre58, %._crit_edge.loopexit ], [ 9223372036854775807, %18 ]
+  %47 = phi i64 [ %.pre57, %._crit_edge.loopexit ], [ 9223372036854775807, %18 ]
   %48 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %19, %18 ]
   %49 = phi i64 [ %46, %._crit_edge.loopexit ], [ 0, %18 ]
   store i64 %48, ptr %3, align 8, !tbaa !19
@@ -263,9 +263,9 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
   br label %117
 
 52:                                               ; preds = %.lr.ph, %81
-  %.03457 = phi i64 [ 0, %.lr.ph ], [ %82, %81 ]
+  %.03456 = phi i64 [ 0, %.lr.ph ], [ %82, %81 ]
   %53 = load ptr, ptr %8, align 8, !tbaa !11
-  %54 = getelementptr inbounds i64, ptr %53, i64 %.03457
+  %54 = getelementptr inbounds i64, ptr %53, i64 %.03456
   %55 = load i64, ptr %54, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %56 = load ptr, ptr %1, align 8, !tbaa !42, !noalias !45
@@ -279,23 +279,22 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
   %.idx.i.i.i.i.i.i.i.i.i.i42 = shl nsw i64 %58, 3
   %62 = getelementptr inbounds i8, ptr %57, i64 %.idx.i.i.i.i.i.i.i.i.i.i42
   %63 = load i32, ptr %62, align 4, !tbaa !15
-  %.fr56 = freeze i32 %63
-  store i32 %.fr56, ptr %42, align 4, !tbaa !15
+  store i32 %63, ptr %42, align 4, !tbaa !15
   %64 = load i64, ptr %7, align 8, !tbaa !19
-  %.fr = freeze i64 %64
   %65 = sext i32 %59 to i64
-  %66 = icmp eq i64 %.fr, %65
+  %66 = icmp eq i64 %64, %65
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %52
   %68 = sext i32 %61 to i64
-  %69 = icmp eq i64 %.fr, %68
+  %69 = icmp eq i64 %64, %68
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %67
-  %71 = sext i32 %.fr56 to i64
-  %72 = icmp eq i64 %.fr, %71
-  %..i = select i1 %72, i64 2, i64 -1
+  %71 = sext i32 %63 to i64
+  %72 = icmp eq i64 %64, %71
+  %.fr = freeze i1 %72
+  %..i = select i1 %.fr, i64 2, i64 -1
   br label %73
 
 73:                                               ; preds = %70, %67, %52
@@ -321,7 +320,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELi3
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %82 = add nuw i64 %.03457, 1
+  %82 = add nuw i64 %.03456, 1
   %exitcond.not = icmp eq i64 %82, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %52, !llvm.loop !49
 
@@ -602,18 +601,18 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
 
 ._crit_edge.loopexit:                             ; preds = %80
   %.pre = load i64, ptr %7, align 8, !tbaa !19
-  %.pre58 = load i64, ptr %13, align 8, !tbaa !19
+  %.pre57 = load i64, ptr %13, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre59 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
-  %.pre60 = load ptr, ptr %15, align 8, !tbaa !41
-  %41 = ptrtoint ptr %.pre59 to i64
-  %42 = ptrtoint ptr %.pre60 to i64
+  %.pre58 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
+  %.pre59 = load ptr, ptr %15, align 8, !tbaa !41
+  %41 = ptrtoint ptr %.pre58 to i64
+  %42 = ptrtoint ptr %.pre59 to i64
   %43 = sub i64 %41, %42
   %44 = ashr exact i64 %43, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
-  %45 = phi i64 [ %.pre58, %._crit_edge.loopexit ], [ 9223372036854775807, %18 ]
+  %45 = phi i64 [ %.pre57, %._crit_edge.loopexit ], [ 9223372036854775807, %18 ]
   %46 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %19, %18 ]
   %47 = phi i64 [ %44, %._crit_edge.loopexit ], [ 0, %18 ]
   store i64 %46, ptr %3, align 8, !tbaa !19
@@ -627,9 +626,9 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   br label %116
 
 50:                                               ; preds = %.lr.ph, %80
-  %.03457 = phi i64 [ 0, %.lr.ph ], [ %81, %80 ]
+  %.03456 = phi i64 [ 0, %.lr.ph ], [ %81, %80 ]
   %51 = load ptr, ptr %8, align 8, !tbaa !11
-  %52 = getelementptr inbounds i64, ptr %51, i64 %.03457
+  %52 = getelementptr inbounds i64, ptr %51, i64 %.03456
   %53 = load i64, ptr %52, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %54 = load ptr, ptr %1, align 8, !tbaa !62, !noalias !64
@@ -643,23 +642,22 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   store i32 %60, ptr %39, align 4, !tbaa !15
   %61 = getelementptr i8, ptr %57, i64 8
   %62 = load i32, ptr %61, align 4, !tbaa !15
-  %.fr56 = freeze i32 %62
-  store i32 %.fr56, ptr %40, align 4, !tbaa !15
+  store i32 %62, ptr %40, align 4, !tbaa !15
   %63 = load i64, ptr %7, align 8, !tbaa !19
-  %.fr = freeze i64 %63
   %64 = sext i32 %58 to i64
-  %65 = icmp eq i64 %.fr, %64
+  %65 = icmp eq i64 %63, %64
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %50
   %67 = sext i32 %60 to i64
-  %68 = icmp eq i64 %.fr, %67
+  %68 = icmp eq i64 %63, %67
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = sext i32 %.fr56 to i64
-  %71 = icmp eq i64 %.fr, %70
-  %..i = select i1 %71, i64 2, i64 -1
+  %70 = sext i32 %62 to i64
+  %71 = icmp eq i64 %63, %70
+  %.fr = freeze i1 %71
+  %..i = select i1 %.fr, i64 2, i64 -1
   br label %72
 
 72:                                               ; preds = %69, %66, %50
@@ -685,7 +683,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
 
 80:                                               ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %81 = add nuw i64 %.03457, 1
+  %81 = add nuw i64 %.03456, 1
   %exitcond.not = icmp eq i64 %81, %37
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %50, !llvm.loop !68
 
@@ -966,18 +964,18 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
 
 ._crit_edge.loopexit:                             ; preds = %81
   %.pre = load i64, ptr %7, align 8, !tbaa !19
-  %.pre59 = load i64, ptr %13, align 8, !tbaa !19
+  %.pre58 = load i64, ptr %13, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre60 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
-  %.pre61 = load ptr, ptr %15, align 8, !tbaa !41
-  %43 = ptrtoint ptr %.pre60 to i64
-  %44 = ptrtoint ptr %.pre61 to i64
+  %.pre59 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
+  %.pre60 = load ptr, ptr %15, align 8, !tbaa !41
+  %43 = ptrtoint ptr %.pre59 to i64
+  %44 = ptrtoint ptr %.pre60 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
-  %47 = phi i64 [ %.pre59, %._crit_edge.loopexit ], [ 9223372036854775807, %18 ]
+  %47 = phi i64 [ %.pre58, %._crit_edge.loopexit ], [ 9223372036854775807, %18 ]
   %48 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %19, %18 ]
   %49 = phi i64 [ %46, %._crit_edge.loopexit ], [ 0, %18 ]
   store i64 %48, ptr %3, align 8, !tbaa !19
@@ -991,9 +989,9 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   br label %117
 
 52:                                               ; preds = %.lr.ph, %81
-  %.03458 = phi i64 [ 0, %.lr.ph ], [ %82, %81 ]
+  %.03457 = phi i64 [ 0, %.lr.ph ], [ %82, %81 ]
   %53 = load ptr, ptr %8, align 8, !tbaa !11
-  %54 = getelementptr inbounds i64, ptr %53, i64 %.03458
+  %54 = getelementptr inbounds i64, ptr %53, i64 %.03457
   %55 = load i64, ptr %54, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %56 = load ptr, ptr %1, align 8, !tbaa !78, !noalias !80
@@ -1007,23 +1005,22 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
   %.idx.i.i.i.i.i.i.i.i.i.i42 = shl nsw i64 %58, 3
   %62 = getelementptr inbounds i8, ptr %57, i64 %.idx.i.i.i.i.i.i.i.i.i.i42
   %63 = load i32, ptr %62, align 4, !tbaa !15
-  %.fr57 = freeze i32 %63
-  store i32 %.fr57, ptr %42, align 4, !tbaa !15
+  store i32 %63, ptr %42, align 4, !tbaa !15
   %64 = load i64, ptr %7, align 8, !tbaa !19
-  %.fr = freeze i64 %64
   %65 = sext i32 %59 to i64
-  %66 = icmp eq i64 %.fr, %65
+  %66 = icmp eq i64 %64, %65
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %52
   %68 = sext i32 %61 to i64
-  %69 = icmp eq i64 %.fr, %68
+  %69 = icmp eq i64 %64, %68
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %67
-  %71 = sext i32 %.fr57 to i64
-  %72 = icmp eq i64 %.fr, %71
-  %..i = select i1 %72, i64 2, i64 -1
+  %71 = sext i32 %63 to i64
+  %72 = icmp eq i64 %64, %71
+  %.fr = freeze i1 %72
+  %..i = select i1 %.fr, i64 2, i64 -1
   br label %73
 
 73:                                               ; preds = %70, %67, %52
@@ -1049,7 +1046,7 @@ define linkonce_odr dso_local void @_ZN3igl10outer_edgeIN5Eigen6MatrixIdLin1ELin
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %82 = add nuw i64 %.03458, 1
+  %82 = add nuw i64 %.03457, 1
   %exitcond.not = icmp eq i64 %82, %39
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %52, !llvm.loop !84
 

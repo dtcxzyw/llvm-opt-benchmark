@@ -16865,10 +16865,9 @@ shape_differs.exit:                               ; preds = %6
   %12 = load i64, ptr %11, align 8, !tbaa !233
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !233
-  %.fr = freeze i64 %12
-  %.fr13 = freeze i64 %14
-  %.not12 = icmp eq i64 %.fr, %.fr13
-  %spec.select = select i1 %.not12, ptr %.0, ptr %0
+  %.not12 = icmp eq i64 %12, %14
+  %cond.fr = freeze i1 %.not12
+  %spec.select = select i1 %cond.fr, ptr %.0, ptr %0
   br label %shape_differs.exit.thread
 
 shape_differs.exit.thread:                        ; preds = %shape_differs.exit, %6

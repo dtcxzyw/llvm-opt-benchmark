@@ -1363,8 +1363,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_config_features(ptr noundef
   %19 = sext i8 %14 to i64
   %20 = getelementptr inbounds i16, ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2
-  %.fr.i = freeze i16 %21
-  %22 = and i16 %.fr.i, 1024
+  %.fr34.i = freeze i16 %21
+  %22 = and i16 %.fr34.i, 1024
   %.not.not.i = icmp eq i16 %22, 0
   br i1 %.not.not.i, label %switch.early.test.i, label %.preheader.i
 
@@ -1377,8 +1377,8 @@ switch.early.test.i:                              ; preds = %16
 .preheader.i:                                     ; preds = %switch.early.test.i, %switch.early.test.i, %16
   %23 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   %24 = load i8, ptr %23, align 1
-  %.not2435.i = icmp eq i8 %24, 0
-  br i1 %.not2435.i, label %_is_feature_valid.exit, label %.lr.ph.i
+  %.not2436.i = icmp eq i8 %24, 0
+  br i1 %.not2436.i, label %_is_feature_valid.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %30
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 1, %.preheader.i ]
@@ -1386,8 +1386,8 @@ switch.early.test.i:                              ; preds = %16
   %26 = sext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %18, i64 %26
   %28 = load i16, ptr %27, align 2
-  %.fr34.i = freeze i16 %28
-  %29 = and i16 %.fr34.i, 8
+  %.fr35.i = freeze i16 %28
+  %29 = and i16 %.fr35.i, 8
   %.not25.not.i = icmp eq i16 %29, 0
   br i1 %.not25.not.i, label %switch.early.test33.i, label %30
 
@@ -1721,8 +1721,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal noundef i32 @_get_list_excl_count(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @xstrstr(ptr noundef %3, ptr noundef %0) #10
-  %.not35 = icmp eq ptr %4, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq ptr %4, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
@@ -1732,15 +1732,15 @@ define internal noundef i32 @_get_list_excl_count(ptr noundef %0, ptr noundef ca
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.backedge
-  %.036 = phi ptr [ %4, %.lr.ph ], [ %17, %.backedge ]
+  %.037 = phi ptr [ %4, %.lr.ph ], [ %17, %.backedge ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %.036, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %.037, i64 %7
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i64
   %14 = getelementptr inbounds i16, ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2
-  %.fr = freeze i16 %15
-  %16 = and i16 %.fr, 8
+  %.fr35 = freeze i16 %15
+  %16 = and i16 %.fr35, 8
   %.not29.not = icmp eq i16 %16, 0
   br i1 %.not29.not, label %switch.early.test, label %.backedge
 
@@ -1758,11 +1758,11 @@ switch.early.test:                                ; preds = %9
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !24
 
 18:                                               ; preds = %switch.early.test
-  %.not30 = icmp eq ptr %.036, %3
+  %.not30 = icmp eq ptr %.037, %3
   br i1 %.not30, label %26, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.036, i64 -1
+  %20 = getelementptr inbounds i8, ptr %.037, i64 -1
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i64
   %23 = getelementptr inbounds i16, ptr %10, i64 %22

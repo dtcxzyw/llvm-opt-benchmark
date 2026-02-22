@@ -12490,9 +12490,9 @@ define dso_local noundef i64 @text_format_nv(ptr noundef captures(none) %0) loca
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @varstr_levenshtein(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = tail call i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %1) #18
-  %.fr205 = freeze i32 %9
+  %.fr = freeze i32 %9
   %10 = tail call i32 @pg_mbstrlen_with_len(ptr noundef %2, i32 noundef %3) #18
-  %.not = icmp eq i32 %.fr205, 0
+  %.not = icmp eq i32 %.fr, 0
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %8
@@ -12504,14 +12504,14 @@ define dso_local i32 @varstr_levenshtein(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not153, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = mul i32 %.fr205, %5
+  %15 = mul i32 %.fr, %5
   br label %136
 
 16:                                               ; preds = %13
   br i1 %7, label %24, label %17
 
 17:                                               ; preds = %16
-  %18 = icmp sgt i32 %.fr205, 255
+  %18 = icmp sgt i32 %.fr, 255
   %19 = icmp sgt i32 %10, 255
   %or.cond = select i1 %18, i1 true, i1 %19
   br i1 %or.cond, label %20, label %24
@@ -12524,10 +12524,10 @@ define dso_local i32 @varstr_levenshtein(ptr noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 24:                                               ; preds = %17, %16
-  %.not154 = icmp eq i32 %.fr205, %1
+  %.not154 = icmp eq i32 %.fr, %1
   %.not155 = icmp eq i32 %10, %3
   %or.cond158 = select i1 %.not154, i1 %.not155, i1 false
-  %.pre = add i32 %.fr205, 1
+  %.pre = add i32 %.fr, 1
   %.pre234 = sext i32 %.pre to i64
   br i1 %or.cond158, label %._crit_edge233, label %25
 
@@ -12535,11 +12535,11 @@ define dso_local i32 @varstr_levenshtein(ptr noundef %0, i32 noundef %1, ptr nou
   %26 = shl nsw i64 %.pre234, 2
   %27 = tail call ptr @palloc(i64 noundef %26) #18
   %28 = freeze ptr %27
-  %29 = icmp sgt i32 %.fr205, 0
+  %29 = icmp sgt i32 %.fr, 0
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %25
-  %wide.trip.count = zext nneg i32 %.fr205 to i64
+  %wide.trip.count = zext nneg i32 %.fr to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -12555,7 +12555,7 @@ define dso_local i32 @varstr_levenshtein(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %34 = zext nneg i32 %.fr205 to i64
+  %34 = zext nneg i32 %.fr to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %._crit_edge.loopexit
@@ -12572,7 +12572,7 @@ define dso_local i32 @varstr_levenshtein(ptr noundef %0, i32 noundef %1, ptr nou
   %39 = shl nsw i64 %38, 2
   %40 = tail call ptr @palloc(i64 noundef %39) #18
   %41 = getelementptr inbounds i32, ptr %40, i64 %.pre234
-  %42 = icmp ult i32 %.fr205, 2147483647
+  %42 = icmp ult i32 %.fr, 2147483647
   br i1 %42, label %.lr.ph167.preheader, label %.preheader162
 
 .lr.ph167.preheader:                              ; preds = %._crit_edge233
@@ -12808,7 +12808,7 @@ rest_of_char_same.exit.thread.us:                 ; preds = %.preheader, %101
 
 ._crit_edge181:                                   ; preds = %.preheader160, %.preheader160.us193, %..loopexit161_crit_edge.us, %.preheader.us, %.preheader.us.us202, %..loopexit_crit_edge.us.us, %.preheader162
   %.0133.lcssa = phi ptr [ %40, %.preheader162 ], [ %.0135178.us190, %.preheader160.us193 ], [ %.0135178.us, %.preheader.us ], [ %.0135178.us184, %..loopexit161_crit_edge.us ], [ %.0135178.us.us, %..loopexit_crit_edge.us.us ], [ %.0135178.us.us199, %.preheader.us.us202 ], [ %.0135178, %.preheader160 ]
-  %133 = sext i32 %.fr205 to i64
+  %133 = sext i32 %.fr to i64
   %134 = getelementptr inbounds i32, ptr %.0133.lcssa, i64 %133
   %135 = load i32, ptr %134, align 4
   br label %136

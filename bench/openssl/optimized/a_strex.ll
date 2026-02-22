@@ -410,15 +410,15 @@ define internal fastcc i32 @do_print_ex(ptr noundef readonly captures(none) %0, 
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = load i32, ptr %3, align 8, !tbaa !17
-  %.fr43.i = freeze i32 %41
+  %.fr44.i = freeze i32 %41
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %do_hex_dump.exit.i, label %42
 
 42:                                               ; preds = %38
-  %43 = sext i32 %.fr43.i to i64
+  %43 = sext i32 %.fr44.i to i64
   %44 = getelementptr inbounds i8, ptr %40, i64 %43
-  %.not1316.i.i = icmp eq i32 %.fr43.i, 0
+  %.not1316.i.i = icmp eq i32 %.fr44.i, 0
   br i1 %.not1316.i.i, label %do_hex_dump.exit.thread38.i, label %.lr.ph.i.i
 
 do_hex_dump.exit.thread38.i:                      ; preds = %42
@@ -443,7 +443,7 @@ do_hex_dump.exit.thread.i:                        ; preds = %.lr.ph.i.i
   br label %53
 
 do_hex_dump.exit.i:                               ; preds = %45, %38
-  %50 = shl i32 %.fr43.i, 1
+  %50 = shl i32 %.fr44.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %51 = icmp slt i32 %50, 0
   %52 = or disjoint i32 %50, 1
@@ -458,12 +458,12 @@ do_hex_dump.exit.i:                               ; preds = %45, %38
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %56, align 8, !tbaa !7
   %57 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %7, ptr noundef null) #8
-  %.fr.i = freeze i32 %57
-  %58 = icmp slt i32 %.fr.i, 1
+  %.fr43.i = freeze i32 %57
+  %58 = icmp slt i32 %.fr43.i, 1
   br i1 %58, label %do_dump.exit, label %59
 
 59:                                               ; preds = %54
-  %60 = zext nneg i32 %.fr.i to i64
+  %60 = zext nneg i32 %.fr43.i to i64
   %61 = call noalias ptr @CRYPTO_malloc(i64 noundef %60, ptr noundef nonnull @.str.13, i32 noundef 285) #8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %do_dump.exit, label %63
@@ -498,7 +498,7 @@ do_hex_dump.exit35.thread.i:                      ; preds = %.lr.ph.i29.i
   br label %75
 
 do_hex_dump.exit35.i:                             ; preds = %67, %63
-  %72 = shl nuw i32 %.fr.i, 1
+  %72 = shl nuw i32 %.fr43.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @CRYPTO_free(ptr noundef nonnull %61, ptr noundef nonnull @.str.13, i32 noundef 290) #8
   %73 = icmp slt i32 %72, 0

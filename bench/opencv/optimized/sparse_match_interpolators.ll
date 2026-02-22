@@ -1114,12 +1114,12 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit:          ; preds = %242, %237, %231
 265:                                              ; preds = %257
   %266 = sdiv i32 %.062151, %218
   %267 = mul nsw i32 %266, %218
-  %.recomposed177 = srem i32 %.062151, %218
+  %.recomposed178 = srem i32 %.062151, %218
   %268 = load i64, ptr %220, align 8, !tbaa !68
   %269 = sext i32 %266 to i64
   %270 = mul i64 %268, %269
   %271 = getelementptr inbounds nuw i8, ptr %219, i64 %270
-  %272 = sext i32 %.recomposed177 to i64
+  %272 = sext i32 %.recomposed178 to i64
   %273 = getelementptr inbounds %"class.cv::Point_", ptr %271, i64 %272
   br label %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit126
 
@@ -1144,7 +1144,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS
 280:                                              ; preds = %.noexc122, %._crit_edge
   %281 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread173
+  br label %.thread174
 
 282:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -1180,7 +1180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %28
   %.pn77 = phi { ptr, i32 } [ %286, %285 ], [ %288, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i127 ], [ %288, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread173
+  br label %.thread174
 
 292:                                              ; preds = %.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
   %293 = phi ptr [ null, %.thread ], [ %196, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
@@ -1273,8 +1273,8 @@ _ZNK2cv11_InputArray6getMatEi.exit133:            ; preds = %297, %300
 327:                                              ; preds = %325
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %328 = load i32, ptr %294, align 8, !tbaa !61
-  %.fr164 = freeze i32 %328
-  %329 = sext i32 %.fr164 to i64
+  %.fr = freeze i32 %328
+  %329 = sext i32 %.fr to i64
   %330 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %329, i64 24)
   %331 = extractvalue { i64, i1 } %330, 1
   %332 = extractvalue { i64, i1 } %330, 0
@@ -1289,7 +1289,7 @@ _ZNK2cv11_InputArray6getMatEi.exit133:            ; preds = %297, %300
 339:                                              ; preds = %327
   store i64 %329, ptr %338, align 16
   %340 = getelementptr i8, ptr %338, i64 8
-  %341 = icmp eq i32 %.fr164, 0
+  %341 = icmp eq i32 %.fr, 0
   br i1 %341, label %.loopexit149, label %.loopexit149.loopexit
 
 .loopexit149.loopexit:                            ; preds = %339
@@ -1554,16 +1554,16 @@ _ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit: ; preds = %423, %424
   %.pn89.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn, %427 ], [ %378, %377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.not.i.i.i139 = icmp eq ptr %293, null
-  br i1 %.not.i.i.i139, label %_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140, label %.thread173
+  br i1 %.not.i.i.i139, label %_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140, label %.thread174
 
-.thread173:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %280, %428
-  %.pn94176 = phi { ptr, i32 } [ %.pn89.pn.pn.pn, %428 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %281, %280 ]
+.thread174:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %280, %428
+  %.pn94177 = phi { ptr, i32 } [ %.pn89.pn.pn.pn, %428 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %281, %280 ]
   %429 = phi ptr [ %293, %428 ], [ %196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %196, %280 ]
   call void @_ZdlPv(ptr noundef nonnull %429) #35
   br label %_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140
 
-_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140: ; preds = %.thread173, %428, %224
-  %.pn94.pn = phi { ptr, i32 } [ %225, %224 ], [ %.pn89.pn.pn.pn, %428 ], [ %.pn94176, %.thread173 ]
+_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140: ; preds = %.thread174, %428, %224
+  %.pn94.pn = phi { ptr, i32 } [ %225, %224 ], [ %.pn89.pn.pn.pn, %428 ], [ %.pn94177, %.thread174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %430
 

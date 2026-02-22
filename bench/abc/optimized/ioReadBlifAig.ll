@@ -1609,8 +1609,8 @@ Io_BlifGetLine.exit.i148.i:                       ; preds = %668, %.critedge.loo
   %673 = getelementptr inbounds nuw i8, ptr %.val53.i.i, i64 24
   %674 = load ptr, ptr %673, align 8, !tbaa !29
   %675 = tail call i64 @strtol(ptr noundef nonnull captures(none) %674, ptr noundef null, i32 noundef 10) #13
-  %.fr.i.i = freeze i64 %675
-  %676 = trunc i64 %.fr.i.i to i32
+  %.fr130.i.i = freeze i64 %675
+  %676 = trunc i64 %.fr130.i.i to i32
   %or.cond.i.i = icmp ugt i32 %676, 2
   br i1 %or.cond.i.i, label %677, label %694
 

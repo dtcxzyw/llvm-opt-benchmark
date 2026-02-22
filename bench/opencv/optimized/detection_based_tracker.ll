@@ -3767,18 +3767,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !54
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !54
-  %.sroa.6.0.copyload.fr = freeze i32 %.sroa.6.0.copyload
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 12
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !54
-  %.sroa.7.0.copyload.fr = freeze i32 %.sroa.7.0.copyload
   br i1 %54, label %.lr.ph206, label %._crit_edge207.thread
 
 .lr.ph206:                                        ; preds = %87
   %91 = load ptr, ptr %1, align 8
-  %92 = icmp slt i32 %.sroa.6.0.copyload.fr, 1
-  %93 = icmp slt i32 %.sroa.7.0.copyload.fr, 1
-  %94 = or i1 %92, %93
-  br i1 %94, label %._crit_edge207.thread, label %.lr.ph206.split
+  %92 = icmp slt i32 %.sroa.6.0.copyload, 1
+  %93 = icmp slt i32 %.sroa.7.0.copyload, 1
+  %94 = select i1 %92, i1 true, i1 %93
+  %.fr = freeze i1 %94
+  br i1 %.fr, label %._crit_edge207.thread, label %.lr.ph206.split
 
 ._crit_edge207:                                   ; preds = %.thread
   %95 = icmp sgt i32 %.178, -1
@@ -3816,7 +3815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %107
-  %.sroa.speculated39.i = select i1 %109, i32 %.sroa.6.0.copyload.fr, i32 %101
+  %.sroa.speculated39.i = select i1 %109, i32 %.sroa.6.0.copyload, i32 %101
   %117 = add nsw i32 %.sroa.speculated39.i, %110
   %118 = icmp slt i32 %117, %111
   br i1 %118, label %.thread, label %119
@@ -3824,7 +3823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %
 119:                                              ; preds = %116, %107
   %.sroa.speculated53.i = call i32 @llvm.smin.i32(i32 %.sroa.5.0.copyload, i32 %113)
   %120 = icmp slt i32 %.sroa.speculated53.i, 0
-  %.sroa.speculated31.i = select i1 %114, i32 %.sroa.7.0.copyload.fr, i32 %104
+  %.sroa.speculated31.i = select i1 %114, i32 %.sroa.7.0.copyload, i32 %104
   br i1 %120, label %121, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %119
@@ -3841,13 +3840,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %
 124:                                              ; preds = %._crit_edge.i.i, %121
   %.neg49.pre-phi.i.i = phi i32 [ %.pre60.i.i, %._crit_edge.i.i ], [ %122, %121 ]
   %125 = phi i32 [ %.pre59.i.sroa.speculated.i, %._crit_edge.i.i ], [ %.sroa.speculated50.i, %121 ]
-  %.sroa.speculated42.i = select i1 %109, i32 %.sroa.6.0.copyload.fr, i32 %101
+  %.sroa.speculated42.i = select i1 %109, i32 %.sroa.6.0.copyload, i32 %101
   %.neg.i.i = sub i32 %110, %111
   %126 = add i32 %.neg.i.i, %.sroa.speculated42.i
-  %.sroa.speculated36.i = select i1 %109, i32 %101, i32 %.sroa.6.0.copyload.fr
+  %.sroa.speculated36.i = select i1 %109, i32 %101, i32 %.sroa.6.0.copyload
   %.sroa.speculated53.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated36.i, i32 %126)
   %127 = sub i32 %.neg49.pre-phi.i.i, %125
-  %.sroa.speculated.i = select i1 %114, i32 %104, i32 %.sroa.7.0.copyload.fr
+  %.sroa.speculated.i = select i1 %114, i32 %104, i32 %.sroa.7.0.copyload
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated.i, i32 %127)
   %128 = icmp sgt i32 %.sroa.speculated53.i.i, 0
   %129 = icmp sgt i32 %.sroa.speculated.i.i, 0

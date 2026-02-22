@@ -816,8 +816,8 @@ define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0
 38:                                               ; preds = %19
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %40 = load i32, ptr %39, align 8
-  %.fr8 = freeze i32 %40
-  %41 = and i32 %.fr8, 2048
+  %.fr = freeze i32 %40
+  %41 = and i32 %.fr, 2048
   %42 = icmp eq i32 %41, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %44 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %43) #6

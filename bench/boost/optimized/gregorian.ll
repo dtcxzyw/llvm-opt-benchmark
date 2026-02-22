@@ -1241,8 +1241,8 @@ _ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit: ; preds = %36, %_ZN5
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %58 = load i32, ptr %57, align 4, !tbaa !55
-  %.fr78 = freeze i32 %58
-  %59 = add nsw i32 %.fr78, 1900
+  %.fr79 = freeze i32 %58
+  %59 = add nsw i32 %.fr79, 1900
   %60 = srem i32 %59, 400
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, label %62
@@ -1250,10 +1250,10 @@ _ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit: ; preds = %36, %_ZN5
 62:                                               ; preds = %56
   %63 = srem i32 %59, 100
   %64 = icmp ne i32 %63, 0
-  %65 = and i32 %.fr78, 3
+  %65 = and i32 %.fr79, 3
   %66 = icmp eq i32 %65, 0
-  %or.cond80 = and i1 %66, %64
-  br i1 %or.cond80, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+  %or.cond81 = and i1 %66, %64
+  br i1 %or.cond81, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
 _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread: ; preds = %62, %56
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
@@ -1545,8 +1545,8 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread: ; preds = %62, %56
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %165 = load i32, ptr %164, align 4, !tbaa !55
-  %.fr = freeze i32 %165
-  %166 = add nsw i32 %.fr, 1900
+  %.fr78 = freeze i32 %165
+  %166 = add nsw i32 %.fr78, 1900
   %167 = srem i32 %166, 400
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread, label %169
@@ -1554,10 +1554,10 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread: ; preds = %62, %56
 169:                                              ; preds = %163
   %170 = srem i32 %166, 100
   %171 = icmp ne i32 %170, 0
-  %172 = and i32 %.fr, 3
+  %172 = and i32 %.fr78, 3
   %173 = icmp eq i32 %172, 0
-  %or.cond82 = and i1 %173, %171
-  br i1 %or.cond82, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63
+  %or.cond83 = and i1 %173, %171
+  br i1 %or.cond83, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63
 
 _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread: ; preds = %169, %163
   br label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63
@@ -1573,8 +1573,8 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63: ; preds = %169, %
   %181 = srem i32 %180, 7
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %183 = load i32, ptr %182, align 8, !tbaa !18
-  %reass.sub95 = sub i32 %181, %183
-  %184 = add i32 %reass.sub95, 7
+  %reass.sub96 = sub i32 %181, %183
+  %184 = add i32 %reass.sub96, 7
   %185 = srem i32 %184, 7
   %reass.sub.i = sub nsw i32 %185, %174
   %186 = trunc nsw i32 %reass.sub.i to i16
@@ -1601,8 +1601,8 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63: ; preds = %169, %
   %199 = add i32 %196, 7
   %200 = sub i32 %199, %198
   %201 = srem i32 %200, 7
-  %reass.sub94 = sub i32 %201, %194
-  %202 = add i32 %reass.sub94, 700
+  %reass.sub95 = sub i32 %201, %194
+  %202 = add i32 %reass.sub95, 700
   %203 = srem i32 %202, 7
   %204 = icmp slt i32 %203, 4
   %..i36 = select i1 %204, i32 0, i32 -7
@@ -1682,11 +1682,11 @@ _ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42: ; preds = %225, %_
   %240 = srem i32 %239, 7
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %242 = load i32, ptr %241, align 8, !tbaa !18
-  %reass.sub92 = sub i32 %240, %242
-  %243 = add i32 %reass.sub92, 7
+  %reass.sub93 = sub i32 %240, %242
+  %243 = add i32 %reass.sub93, 7
   %244 = srem i32 %243, 7
-  %reass.sub93 = sub i32 %244, %233
-  %245 = add i32 %reass.sub93, 700
+  %reass.sub94 = sub i32 %244, %233
+  %245 = add i32 %reass.sub94, 700
   %246 = srem i32 %245, 7
   %247 = icmp slt i32 %246, 4
   %..i44 = select i1 %247, i32 0, i32 -7

@@ -16,12 +16,12 @@ define dso_local void @uriencode_init() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %14
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %14 ]
-  %.022 = phi ptr [ @uriencode_str, %0 ], [ %.1, %14 ]
+  %.023 = phi ptr [ @uriencode_str, %0 ], [ %.1, %14 ]
   %3 = load ptr, ptr %1, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !9
-  %.fr = freeze i16 %5
-  %6 = and i16 %.fr, 8
+  %.fr20 = freeze i16 %5
+  %6 = and i16 %.fr20, 8
   %.not = icmp eq i16 %6, 0
   br i1 %.not, label %switch.early.test, label %7
 
@@ -41,14 +41,14 @@ switch.early.test:                                ; preds = %2
 
 9:                                                ; preds = %switch.early.test
   %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.022, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %10) #15
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.023, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %10) #15
   %12 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %indvars.iv
-  store ptr %.022, ptr %12, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i8, ptr %.022, i64 3
+  store ptr %.023, ptr %12, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw i8, ptr %.023, i64 3
   br label %14
 
 14:                                               ; preds = %7, %9
-  %.1 = phi ptr [ %.022, %7 ], [ %13, %9 ]
+  %.1 = phi ptr [ %.023, %7 ], [ %13, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %15, label %2, !llvm.loop !13

@@ -2565,10 +2565,10 @@ define dso_local void @afterErrorReply(ptr noundef captures(none) %0, ptr nounde
 
 41:                                               ; preds = %28, %34, %24, %35
   %42 = load i64, ptr %5, align 8, !tbaa !86
-  %.fr = freeze i64 %42
-  %43 = and i64 %.fr, 2
+  %.fr76 = freeze i64 %42
+  %43 = and i64 %.fr76, 2
   %.not.i = icmp ne i64 %43, 0
-  %44 = and i64 %.fr, 5
+  %44 = and i64 %.fr76, 5
   %or.cond.i = icmp eq i64 %44, 1
   %or.cond = or i1 %.not.i, %or.cond.i
   %.pre = load i64, ptr %0, align 8, !tbaa !59
@@ -2583,13 +2583,13 @@ getClientType.exit.thread:                        ; preds = %41
   %.str.11..str.10 = select i1 %.not.i, ptr @.str.11, ptr @.str.10
   %.str.10..str.11 = select i1 %.not.i, ptr @.str.10, ptr @.str.11
   %spec.select = select i1 %45, ptr @.str.9, ptr %.str.11..str.10
-  %spec.select76 = select i1 %45, ptr @.str.8, ptr %.str.10..str.11
+  %spec.select77 = select i1 %45, ptr @.str.8, ptr %.str.10..str.11
   br label %.thread71.thread
 
 .thread71.thread:                                 ; preds = %getClientType.exit.thread, %getClientType.exit
   %46 = phi ptr [ %spec.select, %getClientType.exit.thread ], [ @.str.9, %getClientType.exit ]
   %47 = phi i1 [ %.not.i, %getClientType.exit.thread ], [ false, %getClientType.exit ]
-  %48 = phi ptr [ %spec.select76, %getClientType.exit.thread ], [ @.str.8, %getClientType.exit ]
+  %48 = phi ptr [ %spec.select77, %getClientType.exit.thread ], [ @.str.8, %getClientType.exit ]
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2, i64 4096)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %50 = load ptr, ptr %49, align 8, !tbaa !133

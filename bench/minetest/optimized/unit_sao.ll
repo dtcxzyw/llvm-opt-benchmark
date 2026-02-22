@@ -992,16 +992,15 @@ entry:
   %m_animation_loop = getelementptr inbounds nuw i8, ptr %this, i64 728
   %0 = load <4 x float>, ptr %m_animation_range, align 8
   %1 = shufflevector <2 x float> %frame_range.coerce, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.fr1 = freeze <4 x float> %1
-  %2 = insertelement <4 x float> %.fr1, float %frame_speed, i64 2
+  %2 = insertelement <4 x float> %1, float %frame_speed, i64 2
   %3 = insertelement <4 x float> %2, float %frame_blend, i64 3
-  %.fr = freeze <4 x float> %0
-  %4 = load i8, ptr %m_animation_loop, align 8, !range !119
-  %cmp.i.i.i.i.i = icmp eq i8 %4, %frombool
-  %5 = fcmp une <4 x float> %.fr, %3
-  %6 = bitcast <4 x i1> %5 to i4
-  %7 = icmp eq i4 %6, 0
-  %op.rdx = select i1 %7, i1 %cmp.i.i.i.i.i, i1 false
+  %4 = fcmp nsz oeq <4 x float> %0, %3
+  %5 = load i8, ptr %m_animation_loop, align 8, !range !119
+  %cmp.i.i.i.i.i = icmp eq i8 %5, %frombool
+  %6 = freeze <4 x i1> %4
+  %7 = bitcast <4 x i1> %6 to i4
+  %8 = icmp eq i4 %7, -1
+  %op.rdx = select i1 %8, i1 %cmp.i.i.i.i.i, i1 false
   br i1 %op.rdx, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

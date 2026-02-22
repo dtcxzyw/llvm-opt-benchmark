@@ -159,8 +159,8 @@ define dso_local ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i
   %34 = sext i8 %33 to i64
   %35 = getelementptr inbounds i16, ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !29
-  %.fr = freeze i16 %36
-  %37 = and i16 %.fr, 8
+  %.fr166 = freeze i16 %36
+  %37 = and i16 %.fr166, 8
   %.not99.not = icmp eq i16 %37, 0
   br i1 %.not99.not, label %switch.early.test, label %.critedge
 
@@ -185,8 +185,8 @@ switch.early.test:                                ; preds = %32
 sub_1:                                            ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %.082, i64 1
   %44 = load i8, ptr %43, align 1
-  %.not168 = icmp eq i8 %44, 47
-  br i1 %.not168, label %.tail, label %.thread
+  %.not169 = icmp eq i8 %44, 47
+  br i1 %.not169, label %.tail, label %.thread
 
 .tail:                                            ; preds = %sub_1
   %45 = getelementptr inbounds nuw i8, ptr %.082, i64 2
@@ -248,8 +248,8 @@ sub_1:                                            ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
   %64 = call i32 @__sigsetjmp(ptr noundef nonnull %16, i32 noundef 0) #16
-  %.not166 = icmp eq i32 %64, 0
-  br i1 %.not166, label %65, label %.critedge183
+  %.not167 = icmp eq i32 %64, 0
+  br i1 %.not167, label %65, label %.critedge184
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %12, align 8, !tbaa !12
@@ -537,7 +537,7 @@ zval_get_long.exit:                               ; preds = %159, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge129
 
-.critedge183:                                     ; preds = %62
+.critedge184:                                     ; preds = %62
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %191 = load ptr, ptr %12, align 8, !tbaa !12

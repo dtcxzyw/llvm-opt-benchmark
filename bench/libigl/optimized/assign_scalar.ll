@@ -33704,8 +33704,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends15eval_con
   %5 = alloca %"class.boost::math::policies::policy", align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 16, !tbaa !221
-  %.fr88 = freeze i64 %7
-  %8 = icmp eq i64 %.fr88, 1
+  %8 = icmp eq i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %10 = load i8, ptr %9, align 1, !tbaa !43, !range !29
   br i1 %8, label %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit, label %._ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread_crit_edge
@@ -33729,16 +33728,16 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
 _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread: ; preds = %._ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread_crit_edge, %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit
   %.pre-phi98 = phi ptr [ %.pre97, %._ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread_crit_edge ], [ %14, %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit ]
   %.pre-phi = phi i1 [ %.pre96, %._ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.thread_crit_edge ], [ %11, %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit ]
-  %17 = shl i64 %.fr88, 6
+  %17 = shl i64 %7, 6
   %18 = add i64 %17, -64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = getelementptr i64, ptr %.pre-phi98, i64 %.fr88
+  %20 = getelementptr i64, ptr %.pre-phi98, i64 %7
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load i64, ptr %21, align 8, !tbaa !44
-  %.fr87 = freeze i64 %22
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr87, i1 false)
-  %24 = or i64 %23, %18
-  %25 = xor i64 %24, 63
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
+  %24 = or disjoint i64 %23, %18
+  %.fr = freeze i64 %24
+  %25 = xor i64 %.fr, 63
   %26 = add i64 %25, 1
   %27 = icmp sgt i64 %26, 53
   br i1 %27, label %28, label %92
@@ -33747,7 +33746,7 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
   store double 0.000000e+00, ptr %0, align 8, !tbaa !10
   %29 = load ptr, ptr %19, align 8
   %30 = select i1 %.pre-phi, ptr %1, ptr %29
-  %31 = add i64 %.fr88, -1
+  %31 = add i64 %7, -1
   %32 = shl i64 %31, 6
   %33 = and i64 %26, 63
   %.not89 = icmp eq i64 %33, 0
@@ -33804,7 +33803,7 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
   %59 = add nsw i64 %25, -53
   %60 = lshr i64 %59, 6
   %61 = and i64 %60, 67108863
-  %.not.i = icmp ult i64 %61, %.fr88
+  %.not.i = icmp ult i64 %61, %7
   br i1 %.not.i, label %_ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_m.exit, label %_ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_m.exit.thread
 
 _ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_m.exit: ; preds = %.split86.us
@@ -33873,7 +33872,7 @@ _ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typ
   %93 = load i64, ptr %.pre-phi98, align 8, !tbaa !44
   %94 = uitofp i64 %93 to double
   store double %94, ptr %0, align 8, !tbaa !10
-  %95 = icmp ugt i64 %.fr88, 1
+  %95 = icmp ugt i64 %7, 1
   br i1 %95, label %.lr.ph, label %_ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_m.exit.thread
 
 .lr.ph:                                           ; preds = %92, %.lr.ph
@@ -33888,7 +33887,7 @@ _ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typ
   %102 = fadd double %96, %101
   %103 = add i32 %.05976, 64
   %104 = add nuw i64 %.077, 1
-  %exitcond.not = icmp eq i64 %104, %.fr88
+  %exitcond.not = icmp eq i64 %104, %7
   br i1 %exitcond.not, label %._ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_m.exit.thread.loopexit_crit_edge, label %.lr.ph, !llvm.loop !525
 
 ._ZN5boost14multiprecision8backends13eval_bit_testILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_m.exit.thread.loopexit_crit_edge: ; preds = %.lr.ph

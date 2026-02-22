@@ -1439,13 +1439,13 @@ define dso_local i64 @rb_hash_dup(i64 noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !56
   %8 = load i64, ptr %2, align 8, !tbaa !11
-  %.fr.i = freeze i64 %8
-  %9 = and i64 %.fr.i, 32768
+  %.fr7.i = freeze i64 %8
+  %9 = and i64 %.fr7.i, 32768
   %.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = lshr i64 %.fr.i, 16
+  %11 = lshr i64 %.fr7.i, 16
   %12 = and i64 %11, 15
   br label %RHASH_EMPTY_P.exit.i
 
@@ -1503,13 +1503,13 @@ define hidden i64 @rb_hash_resurrect(i64 noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !56
   %6 = load i64, ptr %3, align 8, !tbaa !11
-  %.fr.i = freeze i64 %6
-  %7 = and i64 %.fr.i, 32768
+  %.fr7.i = freeze i64 %6
+  %7 = and i64 %.fr7.i, 32768
   %.not.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = lshr i64 %.fr.i, 16
+  %9 = lshr i64 %.fr7.i, 16
   %10 = and i64 %9, 15
   br label %RHASH_EMPTY_P.exit.i
 
@@ -5414,16 +5414,16 @@ rb_hash_to_h_block.exit:                          ; preds = %RHASH_SIZE.exit.i, 
 32:                                               ; preds = %29
   %33 = inttoptr i64 %0 to ptr
   %34 = load i64, ptr %33, align 8, !tbaa !11
-  %.fr.i = freeze i64 %34
-  %35 = and i64 %.fr.i, 16384
+  %.fr7.i = freeze i64 %34
+  %35 = and i64 %.fr7.i, 16384
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !56
-  %38 = and i64 %.fr.i, 32768
+  %38 = and i64 %.fr7.i, 32768
   %.not.i.i.i.i = icmp eq i64 %38, 0
   br i1 %.not.i.i.i.i, label %39, label %42
 
 39:                                               ; preds = %32
-  %40 = lshr i64 %.fr.i, 16
+  %40 = lshr i64 %.fr7.i, 16
   %41 = and i64 %40, 15
   br label %RHASH_EMPTY_P.exit.i
 

@@ -411,24 +411,22 @@ define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr noundef nonnull cap
 .lr.ph.preheader:                                 ; preds = %29, %.lr.ph.i, %9, %6
   %.049.ph = phi i64 [ %7, %9 ], [ 0, %6 ], [ -1, %.lr.ph.i ], [ %7, %29 ]
   store i64 0, ptr %4, align 8, !tbaa !9
-  %.049.ph.fr = freeze i64 %.049.ph
   %31 = load i64, ptr %2, align 8, !tbaa !9
-  %.not165 = icmp eq i64 %.049.ph.fr, %31
-  br i1 %.not165, label %.lr.ph161, label %.critedge
+  %.not162 = icmp eq i64 %.049.ph, %31
+  br i1 %.not162, label %.lr.ph158, label %.critedge
 
-.lr.ph161:                                        ; preds = %.lr.ph.preheader, %.lr.ph.backedge
-  %.15092160 = phi i64 [ %.15092.be, %.lr.ph.backedge ], [ %.049.ph.fr, %.lr.ph.preheader ]
+.lr.ph158:                                        ; preds = %.lr.ph.preheader, %.lr.ph.backedge
+  %.15092157 = phi i64 [ %.15092.be, %.lr.ph.backedge ], [ %.049.ph, %.lr.ph.preheader ]
   %32 = load i64, ptr %5, align 8, !tbaa !9
   %33 = icmp ult i64 %32, 131072
   br i1 %33, label %34, label %.critedge
 
-34:                                               ; preds = %.lr.ph161
+34:                                               ; preds = %.lr.ph158
   %35 = load i64, ptr %3, align 8, !tbaa !9
-  %.fr140 = freeze i64 %35
-  %36 = sub i64 %.fr140, %.15092160
-  %37 = add nsw i64 %.fr140, 1023
+  %36 = sub nsw i64 %35, %.15092157
+  %37 = add nsw i64 %35, 1023
   %38 = and i64 %37, 4294966272
-  %39 = add i64 %.fr140, 160
+  %39 = add i64 %35, 160
   %40 = icmp ult i64 %38, %39
   %41 = zext i1 %40 to i64
   %spec.select = shl nuw nsw i64 %38, %41
@@ -455,15 +453,15 @@ define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr noundef nonnull cap
   %52 = getelementptr inbounds i8, ptr %50, i64 %36
   store ptr %52, ptr %1, align 8, !tbaa !4
   %53 = load i64, ptr %2, align 8, !tbaa !9
-  %.fr = freeze i64 %53
-  %54 = sub i64 %.fr, %36
+  %54 = sub nsw i64 %53, %36
   store i64 %54, ptr %2, align 8, !tbaa !9
-  %55 = sub i64 %54, %.15092160
-  %56 = icmp sgt i64 %55, 0
+  %55 = sub nsw i64 %54, %.15092157
+  %.019.i66.fr = freeze i64 %55
+  %56 = icmp sgt i64 %.019.i66.fr, 0
   br i1 %56, label %.lr.ph.i67.preheader, label %.loopexit
 
 .lr.ph.i67.preheader:                             ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %50, i64 %.fr140
+  %57 = getelementptr inbounds i8, ptr %50, i64 %35
   br label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %.lr.ph.i67.preheader, %72
@@ -485,7 +483,7 @@ get_line.exit73.thread:                           ; preds = %.lr.ph.i67
   br label %.lr.ph.backedge
 
 62:                                               ; preds = %.lr.ph.i67
-  %63 = sub nsw i64 %55, %.034.i68
+  %63 = sub nsw i64 %.019.i66.fr, %.034.i68
   %64 = icmp sgt i64 %63, 1
   br i1 %64, label %65, label %.loopexit.i72
 
@@ -506,33 +504,34 @@ get_line.exit73.thread:                           ; preds = %.lr.ph.i67
 72:                                               ; preds = %69, %.lr.ph.i67
   %.121.i70 = phi ptr [ %.02033.i69, %.lr.ph.i67 ], [ %70, %69 ]
   %.1.i71 = phi i64 [ %.034.i68, %.lr.ph.i67 ], [ %71, %69 ]
-  %73 = icmp slt i64 %.1.i71, %55
+  %73 = icmp slt i64 %.1.i71, %.019.i66.fr
   br i1 %73, label %.lr.ph.i67, label %.loopexit, !llvm.loop !30
 
 .thread:                                          ; preds = %65, %.loopexit.i72
-  %.sink166 = phi i64 [ 1, %.loopexit.i72 ], [ 2, %65 ]
-  store i64 %.sink166, ptr %4, align 8, !tbaa !9
-  %74 = add i64 %.034.i68, %.sink166
+  %.sink163 = phi i64 [ 1, %.loopexit.i72 ], [ 2, %65 ]
+  store i64 %.sink163, ptr %4, align 8, !tbaa !9
+  %74 = add i64 %.034.i68, %.sink163
   %75 = icmp slt i64 %74, 0
-  %76 = select i1 %75, i64 0, i64 %.15092160
+  %76 = select i1 %75, i64 0, i64 %.15092157
   %spec.select76120 = add nsw i64 %76, %74
   br label %.critedge
 
 .loopexit:                                        ; preds = %72, %49
   store i64 0, ptr %4, align 8, !tbaa !9
-  %77 = icmp slt i64 %55, 0
-  %spec.select76 = select i1 %77, i64 %55, i64 %54
+  %77 = icmp slt i64 %.019.i66.fr, 0
+  %78 = select i1 %77, i64 0, i64 %.15092157
+  %spec.select76 = add nsw i64 %78, %.019.i66.fr
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.loopexit, %get_line.exit73.thread
   %.15092.be = phi i64 [ %spec.select76, %.loopexit ], [ -1, %get_line.exit73.thread ]
-  %78 = load i64, ptr %2, align 8, !tbaa !9
-  %79 = icmp ne i64 %.15092.be, %78
-  %or.cond = or i1 %43, %79
-  br i1 %or.cond, label %.critedge, label %.lr.ph161, !llvm.loop !31
+  %79 = load i64, ptr %2, align 8, !tbaa !9
+  %80 = icmp ne i64 %.15092.be, %79
+  %or.cond = or i1 %43, %80
+  br i1 %or.cond, label %.critedge, label %.lr.ph158, !llvm.loop !31
 
-.critedge:                                        ; preds = %44, %.lr.ph161, %.lr.ph.backedge, %.lr.ph.preheader, %.thread, %23, %.loopexit.i
-  %.2 = phi i64 [ %25, %.loopexit.i ], [ %24, %23 ], [ %spec.select76120, %.thread ], [ %.049.ph.fr, %.lr.ph.preheader ], [ %.15092.be, %.lr.ph.backedge ], [ 0, %44 ], [ %.15092160, %.lr.ph161 ]
+.critedge:                                        ; preds = %44, %.lr.ph158, %.lr.ph.backedge, %.lr.ph.preheader, %.thread, %23, %.loopexit.i
+  %.2 = phi i64 [ %25, %.loopexit.i ], [ %24, %23 ], [ %spec.select76120, %.thread ], [ %.049.ph, %.lr.ph.preheader ], [ %.15092.be, %.lr.ph.backedge ], [ 0, %44 ], [ %.15092157, %.lr.ph158 ]
   ret i64 %.2
 }
 

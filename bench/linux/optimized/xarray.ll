@@ -4012,17 +4012,17 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %25 = phi ptr [ %118, %138 ], [ %0, %20 ]
   %26 = phi i64 [ %117, %138 ], [ %1, %20 ]
   tail call void @_raw_spin_lock(ptr noundef %25) #9
-  br i1 %21, label %.preheader49, label %27
+  br i1 %21, label %.preheader50, label %27
 
 27:                                               ; preds = %24
   br i1 %23, label %.thread, label %28
 
 28:                                               ; preds = %27
   %29 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %22) #10, !srcloc !47
-  %.fr = freeze i64 %29
-  %30 = trunc i64 %.fr to i32
+  %.fr11 = freeze i64 %29
+  %30 = trunc i64 %.fr11 to i32
   %31 = icmp ult i32 %30, 64
-  %32 = and i64 %.fr, 4294967295
+  %32 = and i64 %.fr11, 4294967295
   %33 = shl nsw i64 -1, %32
   %34 = and i64 %33, %2
   %spec.select = select i1 %31, i64 %34, i64 0
@@ -4051,13 +4051,13 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %50 = and i64 %45, 17179869180
   %51 = icmp eq i64 %50, 0
   %52 = or i1 %51, %49
-  br i1 %52, label %.preheader49, label %.loopexit14
+  br i1 %52, label %.preheader50, label %.loopexit15
 
-.preheader49:                                     ; preds = %.thread, %24
+.preheader50:                                     ; preds = %.thread, %24
   br label %53
 
-53:                                               ; preds = %.preheader49, %107
-  %54 = phi i64 [ %114, %107 ], [ %26, %.preheader49 ]
+53:                                               ; preds = %.preheader50, %107
+  %54 = phi i64 [ %114, %107 ], [ %26, %.preheader50 ]
   %55 = sub i64 %2, %54
   store i64 %54, ptr %8, align 8
   store ptr inttoptr (i64 3 to ptr), ptr %11, align 8
@@ -4065,9 +4065,9 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %57 = icmp ne i64 %56, 0
   %58 = icmp ult i64 %55, 63
   %59 = or i1 %57, %58
-  br i1 %59, label %.loopexit12, label %.preheader11
+  br i1 %59, label %.loopexit13, label %.preheader12
 
-60:                                               ; preds = %.preheader11
+60:                                               ; preds = %.preheader12
   %61 = icmp eq i32 %71, 63
   %62 = trunc i64 %70 to i32
   %63 = and i32 %62, 63
@@ -4075,9 +4075,9 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %65 = icmp eq i64 %73, 63
   %66 = icmp ne i32 %64, 63
   %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %.loopexit12, label %.preheader11, !llvm.loop !68
+  br i1 %67, label %.loopexit13, label %.preheader12, !llvm.loop !68
 
-.preheader11:                                     ; preds = %53, %60
+.preheader12:                                     ; preds = %53, %60
   %68 = phi i64 [ %74, %60 ], [ %54, %53 ]
   %69 = phi i32 [ %72, %60 ], [ 0, %53 ]
   %70 = phi i64 [ %73, %60 ], [ %55, %53 ]
@@ -4089,13 +4089,13 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %76 = icmp ne i64 %75, 0
   %77 = icmp ult i64 %70, 4032
   %78 = or i1 %77, %76
-  br i1 %78, label %.loopexit12, label %60, !llvm.loop !68
+  br i1 %78, label %.loopexit13, label %60, !llvm.loop !68
 
-.loopexit12:                                      ; preds = %.preheader11, %60, %53
-  %79 = phi i64 [ %54, %53 ], [ %74, %60 ], [ %74, %.preheader11 ]
-  %80 = phi i32 [ 0, %53 ], [ %72, %60 ], [ %72, %.preheader11 ]
-  %81 = phi i64 [ %55, %53 ], [ %73, %.preheader11 ], [ 63, %60 ]
-  %82 = phi i64 [ %56, %53 ], [ %75, %.preheader11 ], [ 0, %60 ]
+.loopexit13:                                      ; preds = %.preheader12, %60, %53
+  %79 = phi i64 [ %54, %53 ], [ %74, %60 ], [ %74, %.preheader12 ]
+  %80 = phi i32 [ 0, %53 ], [ %72, %60 ], [ %72, %.preheader12 ]
+  %81 = phi i64 [ %55, %53 ], [ %73, %.preheader12 ], [ 63, %60 ]
+  %82 = phi i64 [ %56, %53 ], [ %75, %.preheader12 ], [ 0, %60 ]
   %83 = add i64 %82, %81
   %84 = icmp ugt i64 %83, 63
   %85 = xor i64 %82, 63
@@ -4122,9 +4122,9 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %104 = and i64 %99, 17179869180
   %105 = icmp eq i64 %104, 0
   %106 = or i1 %105, %103
-  br i1 %106, label %107, label %.loopexit14
+  br i1 %106, label %107, label %.loopexit15
 
-107:                                              ; preds = %.loopexit12
+107:                                              ; preds = %.loopexit13
   %108 = load i8, ptr %10, align 1
   %109 = zext i8 %108 to i64
   %110 = add nuw nsw i64 %109, 1
@@ -4133,20 +4133,20 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %113 = shl i64 %110, %112
   %114 = add i64 %113, %54
   %115 = icmp ugt i64 %114, %2
-  br i1 %115, label %.loopexit14, label %53, !llvm.loop !69
+  br i1 %115, label %.loopexit15, label %53, !llvm.loop !69
 
-.loopexit14:                                      ; preds = %107, %.loopexit12, %.thread
-  %116 = phi ptr [ %44, %.thread ], [ %98, %.loopexit12 ], [ %98, %107 ]
-  %117 = phi i64 [ %26, %.thread ], [ %114, %107 ], [ %54, %.loopexit12 ]
+.loopexit15:                                      ; preds = %107, %.loopexit13, %.thread
+  %116 = phi ptr [ %44, %.thread ], [ %98, %.loopexit13 ], [ %98, %107 ]
+  %117 = phi i64 [ %26, %.thread ], [ %114, %107 ], [ %54, %.loopexit13 ]
   %118 = load ptr, ptr %6, align 8
   tail call void @_raw_spin_unlock(ptr noundef %118) #9
   %119 = icmp eq ptr %116, inttoptr (i64 -46 to ptr)
   br i1 %119, label %128, label %120
 
-120:                                              ; preds = %.loopexit14
+120:                                              ; preds = %.loopexit15
   %121 = load ptr, ptr %12, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.loopexit16, label %.preheader
+  br i1 %122, label %.loopexit17, label %.preheader
 
 .preheader:                                       ; preds = %120, %.preheader
   %123 = phi ptr [ %125, %.preheader ], [ %121, %120 ]
@@ -4155,9 +4155,9 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
   tail call void @radix_tree_node_rcu_free(ptr noundef nonnull %126) #9
   %127 = icmp eq ptr %125, null
-  br i1 %127, label %.loopexit16, label %.preheader, !llvm.loop !8
+  br i1 %127, label %.loopexit17, label %.preheader, !llvm.loop !8
 
-128:                                              ; preds = %.loopexit14
+128:                                              ; preds = %.loopexit15
   %129 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = shl i32 %130, 17
@@ -4168,7 +4168,7 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %136 = tail call noalias align 8 ptr @kmem_cache_alloc_lru(ptr noundef %134, ptr noundef %135, i32 noundef %133) #9
   store ptr %136, ptr %12, align 8
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit16, label %138
+  br i1 %137, label %.loopexit17, label %138
 
 138:                                              ; preds = %128
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -4176,7 +4176,7 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   store ptr inttoptr (i64 3 to ptr), ptr %11, align 8
   br label %24
 
-.loopexit16:                                      ; preds = %128, %.preheader, %120
+.loopexit17:                                      ; preds = %128, %.preheader, %120
   %140 = ptrtoint ptr %116 to i64
   %141 = and i64 %140, 3
   %142 = icmp ne i64 %141, 2
@@ -4188,8 +4188,8 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %148 = select i1 %147, ptr null, ptr %116
   br label %149
 
-149:                                              ; preds = %.loopexit16, %18, %17
-  %150 = phi ptr [ %148, %.loopexit16 ], [ inttoptr (i64 -86 to ptr), %17 ], [ inttoptr (i64 -86 to ptr), %18 ]
+149:                                              ; preds = %.loopexit17, %18, %17
+  %150 = phi ptr [ %148, %.loopexit17 ], [ inttoptr (i64 -86 to ptr), %17 ], [ inttoptr (i64 -86 to ptr), %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %150
 }

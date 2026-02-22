@@ -250,8 +250,8 @@ base_yylex_location.exit45.thread:                ; preds = %54, %base_yylex_loc
   %72 = zext i8 %69 to i64
   %73 = getelementptr inbounds nuw i16, ptr %71, i64 %72
   %74 = load i16, ptr %73, align 2
-  %.fr.i = freeze i16 %74
-  %75 = and i16 %.fr.i, 4096
+  %.fr13.i = freeze i16 %74
+  %75 = and i16 %.fr13.i, 4096
   %.not.i46 = icmp eq i16 %75, 0
   br i1 %.not.i46, label %switch.early.test.i, label %check_uescapechar.exit.thread
 

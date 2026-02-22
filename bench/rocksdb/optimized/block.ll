@@ -8493,9 +8493,9 @@ define void @_ZN7rocksdb5Block38InitializeMetaIndexBlockProtectionInfoEh(ptr nou
 .thread:                                          ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !282
   %20 = icmp eq i8 %17, 0
-  br i1 %20, label %26, label %.thread138
+  br i1 %20, label %26, label %.thread139
 
-.thread138:                                       ; preds = %.thread
+.thread139:                                       ; preds = %.thread
   %21 = load i8, ptr %16, align 8, !tbaa !166, !noalias !285
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !285
   br label %.thread120
@@ -8536,8 +8536,8 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %24
   %.not.i.i.i36 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i36, label %.thread120, label %32
 
-.thread120:                                       ; preds = %.thread138, %28
-  %30 = phi i8 [ %21, %.thread138 ], [ %29, %28 ]
+.thread120:                                       ; preds = %.thread139, %28
+  %30 = phi i8 [ %21, %.thread139 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !285
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %36, label %42
@@ -8769,10 +8769,10 @@ _ZN7rocksdb9BlockIterINS_5SliceEE4NextEv.exit:    ; preds = %.noexc67
   br label %.body
 
 .loopexit:                                        ; preds = %_ZN7rocksdb9BlockIterINS_5SliceEE4NextEv.exit, %_ZN7rocksdb9BlockIterINS_5SliceEE4NextEv.exit.us, %_ZN7rocksdb9BlockIterINS_5SliceEE11SeekToFirstEv.exit.preheader, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i57, %_ZN7rocksdb6StatusD2Ev.exit58
-  %.pr140 = load ptr, ptr %18, align 8, !tbaa !69, !noalias !291
+  %.pr141 = load ptr, ptr %18, align 8, !tbaa !69, !noalias !291
   %102 = load i8, ptr %16, align 8, !tbaa !166, !noalias !291
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !291
-  %.not.i.i.i72 = icmp eq ptr %.pr140, null
+  %.not.i.i.i72 = icmp eq ptr %.pr141, null
   br i1 %.not.i.i.i72, label %.thread126, label %105
 
 .thread126:                                       ; preds = %.loopexit.thread, %.loopexit
@@ -8782,7 +8782,7 @@ _ZN7rocksdb9BlockIterINS_5SliceEE4NextEv.exit:    ; preds = %.noexc67
   br i1 %104, label %111, label %109
 
 105:                                              ; preds = %.loopexit
-  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %3, ptr noundef nonnull %.pr140)
+  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %3, ptr noundef nonnull %.pr141)
           to label %107 unwind label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i73, !noalias !291
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i73: ; preds = %105

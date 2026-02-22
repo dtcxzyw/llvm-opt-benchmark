@@ -8983,17 +8983,17 @@ _ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.lr.ph.i.i.
   br label %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.lr.ph.i.i.i
-  %.027.i.i.i = phi ptr [ %453, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %464, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i ]
-  %.01126.i.i.i = phi i64 [ %455, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %463, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i ]
-  %456 = lshr i64 %.01126.i.i.i, 1
-  %457 = getelementptr inbounds nuw %"struct.std::pair.213", ptr %.027.i.i.i, i64 %456
+  %.026.i.i.i = phi ptr [ %453, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %464, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i ]
+  %.01125.i.i.i = phi i64 [ %455, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %463, %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i ]
+  %456 = lshr i64 %.01125.i.i.i, 1
+  %457 = getelementptr inbounds nuw %"struct.std::pair.213", ptr %.026.i.i.i, i64 %456
   %458 = load ptr, ptr %457, align 8, !tbaa !400
   %459 = icmp ult ptr %458, %452
   %460 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %461 = xor i64 %456, -1
-  %462 = add nsw i64 %.01126.i.i.i, %461
+  %462 = add nsw i64 %.01125.i.i.i, %461
   %463 = select i1 %459, i64 %462, i64 %456
-  %464 = select i1 %459, ptr %460, ptr %.027.i.i.i
+  %464 = select i1 %459, ptr %460, ptr %.026.i.i.i
   %465 = icmp sgt i64 %463, 0
   br i1 %465, label %_ZSt7advanceIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRNS_11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EEES7_EEDaOT_OT0_.exit, !llvm.loop !416
 
@@ -20963,10 +20963,9 @@ _ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit4: ; preds
   %14 = load ptr, ptr %13, align 8, !tbaa !402
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !402
-  %.fr = freeze ptr %14
-  %.fr8 = freeze ptr %16
-  %17 = icmp ult ptr %.fr, %.fr8
-  br i1 %17, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit4.thread, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit.thread
+  %17 = icmp ult ptr %14, %16
+  %cond.fr = freeze i1 %17
+  br i1 %cond.fr, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit4.thread, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit.thread
 
 _ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit4.thread: ; preds = %6, %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit4
   br label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEEclERKS6_S9_.exit.thread

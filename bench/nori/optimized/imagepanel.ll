@@ -88,35 +88,28 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %2, align 8
-  %.fr85 = freeze i32 %3
-  %.fr86 = freeze i32 %4
-  %5 = sub i32 %.fr85, %.fr86
+  %5 = sub nsw i32 %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
-  %.fr88 = freeze i32 %7
-  %.fr89 = freeze i32 %9
-  %10 = sub i32 %.fr88, %.fr89
+  %10 = sub nsw i32 %7, %9
   %11 = sitofp i32 %5 to float
   %12 = sitofp i32 %10 to float
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %14 = load i32, ptr %13, align 8
-  %.fr87 = freeze i32 %14
-  %15 = sitofp i32 %.fr87 to float
+  %15 = sitofp i32 %14 to float
   %16 = fsub float %11, %15
   %17 = fsub float %12, %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %19 = load i32, ptr %18, align 8
-  %.fr78 = freeze i32 %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %21 = load i32, ptr %20, align 4
-  %.fr79 = freeze i32 %21
-  %22 = add i32 %.fr79, %.fr78
+  %22 = add nsw i32 %21, %19
   %23 = sitofp i32 %22 to float
   %24 = fdiv float %16, %23
   %25 = fdiv float %17, %23
-  %26 = sitofp i32 %.fr78 to float
+  %26 = sitofp i32 %19 to float
   %27 = fdiv float %26, %23
   %28 = tail call noundef float @llvm.floor.f32(float %24)
   %29 = fsub float %24, %28
@@ -128,49 +121,46 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %35 = fptosi float %25 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i32, ptr %36, align 8
-  %.neg = mul i32 %.fr87, -2
-  %.neg68 = sub i32 %.neg, %.fr78
+  %.neg = mul i32 %14, -2
+  %.neg68 = sub i32 %.neg, %19
   %38 = add i32 %.neg68, %37
   %39 = sitofp i32 %38 to float
   %40 = fdiv float %39, %23
   %41 = fptosi float %40 to i32
-  %.fr = freeze i32 %41
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %.fr, i32 0)
-  %42 = add nuw i32 %.sroa.speculated.i, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
+  %42 = add nuw nsw i32 %.sroa.speculated.i, 1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
-  %.fr76 = freeze ptr %45
-  %47 = ptrtoint ptr %.fr76 to i64
-  %.fr77 = freeze ptr %46
-  %48 = ptrtoint ptr %.fr77 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
-  %50 = sdiv i64 %49, 40
+  %50 = sdiv exact i64 %49, 40
   %51 = trunc i64 %50 to i32
   %52 = add i32 %.sroa.speculated.i, %51
   %53 = sdiv i32 %52, %42
   %54 = icmp sgt i32 %34, -1
-  %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr = freeze i32 %35
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %56 = icmp sgt i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, -1
+  %56 = icmp sgt i32 %35, -1
   %57 = fcmp oge float %24, 0.000000e+00
   %or.cond.not66 = and i1 %57, %56
   %58 = fcmp oge float %25, 0.000000e+00
-  %or.cond60.not63 = and i1 %or.cond.not66, %58
+  %or.cond60.not63 = select i1 %or.cond.not66, i1 %58, i1 false
   %59 = icmp samesign uge i32 %.sroa.speculated.i, %34
   %or.cond61 = and i1 %59, %or.cond60.not63
   br i1 %or.cond61, label %60, label %.thread
 
 60:                                               ; preds = %55
-  %61 = icmp sge i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, %53
-  %62 = or i1 %61, %30
-  %63 = or i1 %62, %33
-  %64 = mul nuw nsw i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, %42
+  %61 = icmp sle i32 %53, %35
+  %62 = select i1 %61, i1 true, i1 %30
+  %63 = select i1 %62, i1 true, i1 %33
+  %64 = mul nuw nsw i32 %42, %35
   %65 = add nuw nsw i32 %64, %34
-  br i1 %63, label %.thread, label %66
+  %cond.fr = freeze i1 %63
+  br i1 %cond.fr, label %.thread, label %66
 
 .thread:                                          ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %55, %60
   br label %66

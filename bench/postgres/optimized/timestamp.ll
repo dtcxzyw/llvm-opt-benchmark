@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 44:                                               ; preds = %37
   %45 = srem i32 %39, 100
   %.not41 = icmp eq i32 %45, 0
-  br i1 %.not41, label %46, label %.thread64
+  br i1 %.not41, label %46, label %.thread60
 
 46:                                               ; preds = %44
   %47 = srem i32 %39, 400
@@ -1439,7 +1439,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %55 = icmp sgt i32 %41, %54
   br i1 %55, label %66, label %75
 
-.thread64:                                        ; preds = %44
+.thread60:                                        ; preds = %44
   %56 = add nsw i32 %38, -1
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 %57
@@ -1461,17 +1461,17 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %69 = zext i1 %68 to i64
   br label %.thread44
 
-.thread44:                                        ; preds = %.thread64, %.thread, %66
-  %70 = phi i64 [ %62, %.thread ], [ %57, %.thread64 ], [ %52, %66 ]
-  %71 = phi i64 [ 0, %.thread ], [ 1, %.thread64 ], [ %69, %66 ]
+.thread44:                                        ; preds = %.thread60, %.thread, %66
+  %70 = phi i64 [ %62, %.thread ], [ %57, %.thread60 ], [ %52, %66 ]
+  %71 = phi i64 [ 0, %.thread ], [ 1, %.thread60 ], [ %69, %66 ]
   %72 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %71
   %73 = getelementptr inbounds nuw i32, ptr %72, i64 %70
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %40, align 4
   br label %75
 
-75:                                               ; preds = %.thread64, %.thread, %.thread44, %46
-  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread44 ], [ %41, %46 ], [ %41, %.thread64 ]
+75:                                               ; preds = %.thread60, %.thread, %.thread44, %46
+  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread44 ], [ %41, %46 ], [ %41, %.thread60 ]
   %77 = load i32, ptr %5, align 4
   %78 = icmp sgt i32 %39, -4713
   br i1 %78, label %82, label %79
@@ -1495,9 +1495,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 .thread.i:                                        ; preds = %84, %79, %82
   %87 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %76) #10
   %88 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
-  %.fr = freeze i32 %87
-  %.fr53 = freeze i32 %88
-  %89 = sub i32 %.fr, %.fr53
+  %89 = sub i32 %87, %88
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1511,26 +1509,23 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   br i1 %97, label %.thread48, label %99
 
 99:                                               ; preds = %.thread.i
-  %.fr54 = freeze i32 %91
-  %100 = mul i32 %.fr54, 60
-  %.fr55 = freeze i32 %93
-  %101 = add i32 %100, %.fr55
+  %100 = mul i32 %91, 60
+  %101 = add i32 %100, %93
   %102 = mul i32 %101, 60
-  %.fr56 = freeze i32 %94
-  %103 = add i32 %102, %.fr56
+  %103 = add i32 %102, %94
   %104 = sext i32 %103 to i64
   %105 = mul nsw i64 %104, 1000000
-  %.fr57 = freeze i32 %77
-  %106 = sext i32 %.fr57 to i64
+  %106 = sext i32 %77 to i64
   %107 = add nsw i64 %105, %106
   %108 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %98, i64 range(i64 -2147485795483648, 2147485794483648) %107)
-  %109 = extractvalue { i64, i1 } %108, 1
-  %110 = extractvalue { i64, i1 } %108, 0
+  %.fr = freeze { i64, i1 } %108
+  %109 = extractvalue { i64, i1 } %.fr, 1
+  %110 = extractvalue { i64, i1 } %.fr, 0
   store i64 %110, ptr %0, align 8
   %111 = add i64 %110, -9223371331200000000
   %or.cond.i = icmp ult i64 %111, 9011559254509551616
-  %or.cond59.not = or i1 %or.cond.i, %109
-  br i1 %or.cond59.not, label %.thread48, label %112, !prof !16
+  %or.cond55.not = or i1 %or.cond.i, %109
+  br i1 %or.cond55.not, label %.thread48, label %112, !prof !16
 
 .thread48:                                        ; preds = %10, %79, %.thread.i, %99, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

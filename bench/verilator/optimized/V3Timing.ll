@@ -24413,14 +24413,12 @@ define linkonce_odr dso_local void @_ZNK20TimingControlVisitor14addProcessInfoEP
   %12 = getelementptr i8, ptr %9, i64 120
   %.val13 = load i64, ptr %12, align 8
   %13 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !75
-  %.val.fr = freeze i32 %.val
-  %.fr = freeze i32 %13
-  %14 = icmp eq i32 %.val.fr, %.fr
-  %.val13.fr = freeze i64 %.val13
-  %15 = and i64 %.val13.fr, 32
+  %14 = icmp eq i32 %.val, %13
+  %15 = and i64 %.val13, 32
   %.not.i19 = icmp ne i64 %15, 0
-  %.not.i = and i1 %14, %.not.i19
-  %spec.select = select i1 %.not.i, ptr @.str.508, ptr @.str.509
+  %.not.i = select i1 %14, i1 %.not.i19, i1 false
+  %cond.fr = freeze i1 %.not.i
+  %spec.select = select i1 %cond.fr, ptr @.str.508, ptr @.str.509
   br label %.thread
 
 .thread:                                          ; preds = %10, %2

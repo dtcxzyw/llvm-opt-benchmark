@@ -163,8 +163,8 @@ define dso_local range(i32 -1, 1) i32 @zend_fiber_init_context(ptr noundef initi
 
 zend_fiber_get_page_size.exit.i:                  ; preds = %6, %4
   %9 = phi i64 [ %spec.store.select.i.i, %6 ], [ %5, %4 ]
-  %.fr30.i = freeze i64 %9
-  %10 = shl i64 %.fr30.i, 1
+  %.fr.i = freeze i64 %9
+  %10 = shl i64 %.fr.i, 1
   %11 = icmp ult i64 %3, %10
   br i1 %11, label %12, label %14
 
@@ -174,10 +174,10 @@ zend_fiber_get_page_size.exit.i:                  ; preds = %6, %4
 
 14:                                               ; preds = %zend_fiber_get_page_size.exit.i
   %15 = add i64 %3, -1
-  %16 = add i64 %15, %.fr30.i
-  %17 = urem i64 %16, %.fr30.i
+  %16 = add i64 %15, %.fr.i
+  %17 = urem i64 %16, %.fr.i
   %18 = sub nuw i64 %16, %17
-  %19 = add i64 %18, %.fr30.i
+  %19 = add i64 %18, %.fr.i
   %20 = tail call ptr @mmap(ptr noundef null, i64 noundef %19, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #22
   %21 = icmp eq ptr %20, inttoptr (i64 -1 to ptr)
   br i1 %21, label %22, label %28
@@ -194,7 +194,7 @@ zend_fiber_get_page_size.exit.i:                  ; preds = %6, %4
   %29 = tail call i32 @madvise(ptr noundef %20, i64 noundef %19, i32 noundef 15) #22
   %30 = ptrtoint ptr %20 to i64
   %31 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %30, i64 noundef %19, i64 noundef ptrtoint (ptr @.str.19 to i64)) #22
-  %32 = tail call i32 @mprotect(ptr noundef %20, i64 noundef %.fr30.i, i32 noundef 0) #22
+  %32 = tail call i32 @mprotect(ptr noundef %20, i64 noundef %.fr.i, i32 noundef 0) #22
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %42
 
@@ -214,7 +214,7 @@ zend_fiber_stack_allocate.exit.thread:            ; preds = %12, %22, %34
 
 42:                                               ; preds = %28
   %43 = tail call noalias ptr @_emalloc_16() #22
-  %44 = add i64 %.fr30.i, %30
+  %44 = add i64 %.fr.i, %30
   %45 = inttoptr i64 %44 to ptr
   store ptr %45, ptr %43, align 8, !tbaa !42
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8

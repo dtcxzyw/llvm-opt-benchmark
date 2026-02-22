@@ -228,19 +228,18 @@ _ZN6hermes5irgen15EnterBlockScopeC2EPNS0_15FunctionContextE.exit: ; preds = %ent
 if.then:                                          ; preds = %_ZN6hermes5irgen15EnterBlockScopeC2EPNS0_15FunctionContextE.exit
   %labelCount = getelementptr inbounds nuw i8, ptr %8, i64 308
   %9 = load i32, ptr %labelCount, align 4
-  %.fr16 = freeze i32 %9
-  %conv = zext i32 %.fr16 to i64
+  %conv = zext i32 %9 to i64
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %cmp.i = icmp ult i32 %.fr16, %10
+  %cmp.i = icmp ult i32 %9, %10
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp5.i = icmp ugt i32 %.fr16, %10
+  %cmp5.i = icmp ugt i32 %9, %10
   br i1 %cmp5.i, label %if.then6.i, label %if.end
 
 if.then6.i:                                       ; preds = %if.else.i
   %11 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp8.i = icmp ugt i32 %.fr16, %11
+  %cmp8.i = icmp ugt i32 %9, %11
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -250,26 +249,26 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
   %conv.i17.pre-phi.i.in = phi i32 [ %.pre.i, %if.then9.i ], [ %10, %if.then6.i ]
-  %conv.i17.pre-phi.i.in.fr = freeze i32 %conv.i17.pre-phi.i.in
-  %cmp13.not20.i = icmp eq i32 %.fr16, %conv.i17.pre-phi.i.in.fr
+  %cmp13.not20.i = icmp eq i32 %9, %conv.i17.pre-phi.i.in
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
   %12 = load ptr, ptr %labels_, align 8
-  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in.fr to i64
+  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in to i64
   %add.ptr.i.i = getelementptr %"struct.hermes::irgen::GotoLabel", ptr %12, i64 %conv.i17.pre-phi.i
   %13 = mul nuw nsw i64 %conv, 24
   %14 = add nsw i64 %13, -24
   %.neg = mul nsw i64 %conv.i17.pre-phi.i, -24
   %15 = add nsw i64 %.neg, %14
-  %16 = urem i64 %15, 24
-  %17 = sub nuw nsw i64 %15, %16
-  %18 = add nsw i64 %17, 24
+  %.fr = freeze i64 %15
+  %16 = urem i64 %.fr, 24
+  %17 = sub nuw i64 %.fr, %16
+  %18 = add i64 %17, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 0, i64 %18, i1 false)
   br label %if.end15.sink.split.i
 
 if.end15.sink.split.i:                            ; preds = %for.body.preheader.i, %if.end.i, %if.then
-  store i32 %.fr16, ptr %Size.i.i.i.i.i, align 8
+  store i32 %9, ptr %Size.i.i.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end15.sink.split.i, %if.else.i, %_ZN6hermes5irgen15EnterBlockScopeC2EPNS0_15FunctionContextE.exit

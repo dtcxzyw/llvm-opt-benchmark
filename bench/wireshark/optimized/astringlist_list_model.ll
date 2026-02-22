@@ -3291,9 +3291,8 @@ define noundef zeroext i1 @_ZNK35AStringListListSortFilterProxyModel19filterAcce
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
-  %.fr11 = freeze ptr %23
-  %24 = getelementptr i8, ptr %.fr11, i64 -4
-  %25 = getelementptr i32, ptr %.fr11, i64 %19
+  %24 = getelementptr i8, ptr %23, i64 -4
+  %25 = getelementptr i32, ptr %23, i64 %19
   br label %26
 
 26:                                               ; preds = %28, %21
@@ -3309,9 +3308,10 @@ define noundef zeroext i1 @_ZNK35AStringListListSortFilterProxyModel19filterAcce
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %28
   %31 = ptrtoint ptr %27 to i64
-  %32 = ptrtoint ptr %.fr11 to i64
+  %32 = ptrtoint ptr %23 to i64
   %33 = sub i64 %31, %32
-  %.not = icmp eq i64 %33, -4
+  %.fr = freeze i64 %33
+  %.not = icmp eq i64 %.fr, -4
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %26, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %17, %3

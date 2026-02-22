@@ -1219,7 +1219,7 @@ r_mark_lArI.exit1013.i:                           ; preds = %502, %502
   br i1 %.not10.i1011.not.i, label %r_mark_lArI.exit1013.r_mark_lArI.exit1013.thread_crit_edge.i, label %509
 
 r_mark_lArI.exit1013.r_mark_lArI.exit1013.thread_crit_edge.i: ; preds = %r_mark_lArI.exit1013.i
-  %.pre1395.i = load i32, ptr %15, align 4
+  %.pre1394.i = load i32, ptr %15, align 4
   br label %r_mark_lArI.exit1013.thread.i
 
 509:                                              ; preds = %r_mark_lArI.exit1013.i
@@ -1231,7 +1231,7 @@ r_mark_lArI.exit1013.r_mark_lArI.exit1013.thread_crit_edge.i: ; preds = %r_mark_
   br i1 %513, label %r_stem_noun_suffixes.exit.thread, label %r_stem_noun_suffixes.exit.thread109
 
 r_mark_lArI.exit1013.thread.i:                    ; preds = %r_mark_lArI.exit1013.r_mark_lArI.exit1013.thread_crit_edge.i, %502, %.thread1108.i
-  %514 = phi i32 [ %.pre1395.i, %r_mark_lArI.exit1013.r_mark_lArI.exit1013.thread_crit_edge.i ], [ %497, %502 ], [ %497, %.thread1108.i ]
+  %514 = phi i32 [ %.pre1394.i, %r_mark_lArI.exit1013.r_mark_lArI.exit1013.thread_crit_edge.i ], [ %497, %502 ], [ %497, %.thread1108.i ]
   %515 = sub i32 %514, %499
   store i32 %515, ptr %2, align 8
   %516 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
@@ -1715,8 +1715,8 @@ r_mark_nUn.exit.thread:                           ; preds = %684, %680, %689, %r
   %765 = load i32, ptr %15, align 4
   store i32 %765, ptr %2, align 8
   %766 = tail call fastcc i32 @r_mark_yA(ptr noundef nonnull %0)
-  %.not1386.i = icmp eq i32 %766, 0
-  br i1 %.not1386.i, label %799, label %.thread1298.i
+  %.not1385.i = icmp eq i32 %766, 0
+  br i1 %.not1385.i, label %799, label %.thread1298.i
 
 .thread1298.i:                                    ; preds = %764, %760, %756
   %767 = load i32, ptr %2, align 8
@@ -1791,8 +1791,8 @@ r_mark_nUn.exit.thread:                           ; preds = %684, %680, %689, %r
   %804 = load i32, ptr %15, align 4
   store i32 %804, ptr %2, align 8
   %805 = tail call fastcc i32 @r_mark_sU(ptr noundef nonnull %0)
-  %.not1387.i = icmp eq i32 %805, 0
-  br i1 %.not1387.i, label %r_stem_noun_suffixes.exit.thread, label %select.unfold1327.i
+  %.not1386.i = icmp eq i32 %805, 0
+  br i1 %.not1386.i, label %r_stem_noun_suffixes.exit.thread, label %select.unfold1327.i
 
 select.unfold1327.i:                              ; preds = %803, %799
   %806 = load i32, ptr %2, align 8
@@ -1823,16 +1823,16 @@ select.unfold1327.i:                              ; preds = %803, %799
 
 821:                                              ; preds = %818
   %822 = icmp slt i32 %819, 0
-  %.lobit1388.i = lshr i32 %819, 31
+  %.lobit1387.i = lshr i32 %819, 31
   %spec.select1377.i = select i1 %822, i32 %819, i32 %..39.i
   br label %823
 
 823:                                              ; preds = %821, %752
-  %.1734.i = phi i32 [ %.lobit1388.i, %821 ], [ %.lobit1384.i, %752 ]
+  %.1734.i = phi i32 [ %.lobit1387.i, %821 ], [ %.lobit1384.i, %752 ]
   %.1.i = phi i32 [ %spec.select1377.i, %821 ], [ %..39.i, %752 ]
   %.1734.fr.i = freeze i32 %.1734.i
-  %.not1431.i = icmp eq i32 %.1734.fr.i, 0
-  br i1 %.not1431.i, label %r_stem_noun_suffixes.exit.thread, label %r_stem_noun_suffixes.exit
+  %.not1430.i = icmp eq i32 %.1734.fr.i, 0
+  br i1 %.not1430.i, label %r_stem_noun_suffixes.exit.thread, label %r_stem_noun_suffixes.exit
 
 r_stem_noun_suffixes.exit:                        ; preds = %742, %823
   %824 = phi i32 [ %.1.i, %823 ], [ %.68.i, %742 ]

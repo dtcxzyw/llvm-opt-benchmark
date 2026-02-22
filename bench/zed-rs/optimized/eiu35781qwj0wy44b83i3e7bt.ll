@@ -46558,8 +46558,8 @@ _ZN6rustix3net7sockopt27set_socket_send_buffer_size17ha51040c27381a89dE.llvm.782
   %34 = zext i32 %31 to i64
   %35 = inttoptr i64 %34 to ptr
   %36 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %35, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 7 to ptr), ptr nonnull %4, ptr nonnull inttoptr (i64 4 to ptr)) #44, !srcloc !2571
-  %.fr.i = freeze { ptr, i32, i32 } %36
-  %37 = extractvalue { ptr, i32, i32 } %.fr.i, 0
+  %.fr16.i = freeze { ptr, i32, i32 } %36
+  %37 = extractvalue { ptr, i32, i32 } %.fr16.i, 0
   %.not.i.i.not.i = icmp eq ptr %37, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10330
   %38 = ptrtoint ptr %37 to i64
@@ -46741,8 +46741,8 @@ _ZN6rustix3net7sockopt27set_socket_recv_buffer_size17h2d87e65ab1936f86E.llvm.782
   %34 = zext i32 %31 to i64
   %35 = inttoptr i64 %34 to ptr
   %36 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %35, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 8 to ptr), ptr nonnull %4, ptr nonnull inttoptr (i64 4 to ptr)) #44, !srcloc !2571
-  %.fr.i = freeze { ptr, i32, i32 } %36
-  %37 = extractvalue { ptr, i32, i32 } %.fr.i, 0
+  %.fr16.i = freeze { ptr, i32, i32 } %36
+  %37 = extractvalue { ptr, i32, i32 } %.fr16.i, 0
   %.not.i.i.not.i = icmp eq ptr %37, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10375
   %38 = ptrtoint ptr %37 to i64
@@ -50251,8 +50251,8 @@ _ZN6rustix3net7sockopt27set_socket_recv_buffer_size17h2d87e65ab1936f86E.llvm.782
   %10 = zext i32 %7 to i64
   %11 = inttoptr i64 %10 to ptr
   %12 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %11, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 8 to ptr), ptr nonnull %3, ptr nonnull inttoptr (i64 4 to ptr)) #44, !srcloc !2571
-  %.fr = freeze { ptr, i32, i32 } %12
-  %13 = extractvalue { ptr, i32, i32 } %.fr, 0
+  %.fr16 = freeze { ptr, i32, i32 } %12
+  %13 = extractvalue { ptr, i32, i32 } %.fr16, 0
   %.not.i.i.not = icmp eq ptr %13, null
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i16
@@ -50291,8 +50291,8 @@ _ZN6rustix3net7sockopt27set_socket_send_buffer_size17ha51040c27381a89dE.llvm.782
   %10 = zext i32 %7 to i64
   %11 = inttoptr i64 %10 to ptr
   %12 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %11, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 7 to ptr), ptr nonnull %3, ptr nonnull inttoptr (i64 4 to ptr)) #44, !srcloc !2571
-  %.fr = freeze { ptr, i32, i32 } %12
-  %13 = extractvalue { ptr, i32, i32 } %.fr, 0
+  %.fr16 = freeze { ptr, i32, i32 } %12
+  %13 = extractvalue { ptr, i32, i32 } %.fr16, 0
   %.not.i.i.not = icmp eq ptr %13, null
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i16

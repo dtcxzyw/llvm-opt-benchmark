@@ -3634,24 +3634,24 @@ define internal fastcc i64 @rb_int_ceil(i64 noundef %0, i32 noundef range(i32 -2
   %7 = sub i32 0, %1
   %8 = sext i32 %7 to i64
   %9 = tail call fastcc i64 @int_pow(i64 noundef 10, i64 noundef %8)
-  %.fr = freeze i64 %9
   %10 = trunc i64 %0 to i1
   br i1 %10, label %11, label %29
 
 11:                                               ; preds = %2
-  %12 = trunc i64 %.fr to i1
+  %12 = trunc i64 %9 to i1
   br i1 %12, label %13, label %int_neg_p.exit
 
 13:                                               ; preds = %11
   %14 = ashr i64 %0, 1
-  %15 = ashr i64 %.fr, 1
+  %15 = ashr i64 %9, 1
   %16 = icmp slt i64 %14, 0
   %17 = sub nsw i64 0, %14
   %18 = add nsw i64 %14, -1
   %19 = add nsw i64 %18, %15
   %.029 = select i1 %16, i64 %17, i64 %19
-  %20 = srem i64 %.029, %15
-  %21 = sub nsw i64 %.029, %20
+  %.029.fr = freeze i64 %.029
+  %20 = srem i64 %.029.fr, %15
+  %21 = sub nsw i64 %.029.fr, %20
   %22 = sub i64 0, %21
   %.130 = select i1 %16, i64 %22, i64 %21
   %23 = add i64 %.130, 4611686018427387904
@@ -3715,11 +3715,11 @@ int_neg_p.exit.thread:                            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_int_uminus.exit
 
 49:                                               ; preds = %int_neg_p.exit.thread
-  %.pre = trunc i64 %.fr to i1
+  %.pre = trunc i64 %9 to i1
   br i1 %.pre, label %50, label %.thread
 
 50:                                               ; preds = %49
-  %51 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.fr, i64 -2)
+  %51 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %9, i64 -2)
   %52 = extractvalue { i64, i1 } %51, 1
   %53 = extractvalue { i64, i1 } %51, 0
   br i1 %52, label %54, label %rb_int_minus.exit.thread
@@ -3731,27 +3731,27 @@ int_neg_p.exit.thread:                            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_int_minus.exit.thread
 
 .thread:                                          ; preds = %int_neg_p.exit, %49
-  %58 = icmp eq i64 %.fr, 0
-  %59 = and i64 %.fr, 6
+  %58 = icmp eq i64 %9, 0
+  %59 = and i64 %9, 6
   %60 = icmp ne i64 %59, 0
   %61 = or i1 %58, %60
   br i1 %61, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i37, label %rbimpl_RB_TYPE_P_fastpath.exit.i36
 
 rbimpl_RB_TYPE_P_fastpath.exit.i36:               ; preds = %.thread
-  %62 = inttoptr i64 %.fr to ptr
+  %62 = inttoptr i64 %9 to ptr
   %63 = load i64, ptr %62, align 8, !tbaa !11
   %64 = and i64 %63, 31
   %65 = icmp eq i64 %64, 10
   br i1 %65, label %66, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i37
 
 66:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i36
-  %67 = tail call i64 @rb_big_minus(i64 noundef %.fr, i64 noundef 3) #27
+  %67 = tail call i64 @rb_big_minus(i64 noundef %9, i64 noundef 3) #27
   br label %rb_int_minus.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i37:        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i36, %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.fr, ptr %5, align 8, !tbaa !7
+  store i64 %9, ptr %5, align 8, !tbaa !7
   store i64 3, ptr %6, align 8, !tbaa !7
   call fastcc void @do_coerce(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
   %68 = load i64, ptr %5, align 8, !tbaa !7
@@ -3770,7 +3770,7 @@ rb_int_minus.exit:                                ; preds = %66, %rbimpl_RB_TYPE
   br label %rb_int_uminus.exit
 
 rb_int_minus.exit.thread:                         ; preds = %50, %54, %rb_int_minus.exit
-  %.0.i3863 = phi i64 [ %.0.i38, %rb_int_minus.exit ], [ %57, %54 ], [ %53, %50 ]
+  %.0.i3864 = phi i64 [ %.0.i38, %rb_int_minus.exit ], [ %57, %54 ], [ %53, %50 ]
   %73 = and i64 %0, 6
   %.not59 = icmp eq i64 %73, 0
   br i1 %.not59, label %rbimpl_RB_TYPE_P_fastpath.exit.i39, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i40
@@ -3783,14 +3783,14 @@ rbimpl_RB_TYPE_P_fastpath.exit.i39:               ; preds = %rb_int_minus.exit.t
   br i1 %77, label %78, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i40
 
 78:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i39
-  %79 = call i64 @rb_big_plus(i64 noundef %0, i64 noundef %.0.i3863) #27
+  %79 = call i64 @rb_big_plus(i64 noundef %0, i64 noundef %.0.i3864) #27
   br label %rb_int_uminus.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i40:        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i39, %rb_int_minus.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %0, ptr %3, align 8, !tbaa !7
-  store i64 %.0.i3863, ptr %4, align 8, !tbaa !7
+  store i64 %.0.i3864, ptr %4, align 8, !tbaa !7
   call fastcc void @do_coerce(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %80 = load i64, ptr %3, align 8, !tbaa !7
   %81 = load i64, ptr %4, align 8, !tbaa !7
@@ -3806,7 +3806,7 @@ rb_int_uminus.exit:                               ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %rb_int_uminus.exit
-  %85 = call fastcc i64 @fix_divide(i64 noundef %.028, i64 noundef %.fr, i64 noundef 47)
+  %85 = call fastcc i64 @fix_divide(i64 noundef %.028, i64 noundef %9, i64 noundef 47)
   br label %rb_int_div.exit
 
 86:                                               ; preds = %rb_int_uminus.exit
@@ -3824,12 +3824,12 @@ rbimpl_RB_TYPE_P_fastpath.exit.i42:               ; preds = %86
   br i1 %94, label %95, label %rb_int_div.exit
 
 95:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i42
-  %96 = call i64 @rb_big_div(i64 noundef %.028, i64 noundef %.fr) #27
+  %96 = call i64 @rb_big_div(i64 noundef %.028, i64 noundef %9) #27
   br label %rb_int_div.exit
 
 rb_int_div.exit:                                  ; preds = %84, %86, %rbimpl_RB_TYPE_P_fastpath.exit.i42, %95
   %.0.i44 = phi i64 [ %85, %84 ], [ %96, %95 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i42 ], [ 4, %86 ]
-  %97 = call i64 @rb_int_mul(i64 noundef %.0.i44, i64 noundef %.fr)
+  %97 = call i64 @rb_int_mul(i64 noundef %.0.i44, i64 noundef %9)
   br i1 %.not52, label %rb_long2num_inline.exit, label %98
 
 98:                                               ; preds = %rb_int_div.exit

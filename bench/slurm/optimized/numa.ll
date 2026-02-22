@@ -104,53 +104,52 @@ define dso_local void @slurm_chk_memset(ptr noundef readonly captures(none) %0, 
 
 nodemask_isset_compat.exit.i:                     ; preds = %nodemask_isset_compat.exit.i, %27
   %indvars.iv.i = phi i64 [ 124, %27 ], [ %indvars.iv.next.i, %nodemask_isset_compat.exit.i ]
-  %.03386.i = phi ptr [ null, %27 ], [ %spec.select45.i, %nodemask_isset_compat.exit.i ]
-  %.03685.i = phi ptr [ %3, %27 ], [ %55, %nodemask_isset_compat.exit.i ]
+  %.03382.i = phi ptr [ null, %27 ], [ %spec.select45.i, %nodemask_isset_compat.exit.i ]
+  %.03681.i = phi ptr [ %3, %27 ], [ %55, %nodemask_isset_compat.exit.i ]
   %32 = lshr i64 %indvars.iv.i, 6
   %33 = getelementptr inbounds nuw i64, ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %indvars.iv.i, 60
   %36 = shl nuw nsw i64 1, %35
-  %.fr.i = freeze i64 %34
-  %.fr73.i = freeze i64 %36
-  %37 = and i64 %.fr.i, %.fr73.i
-  %.not41.i = icmp ne i64 %37, 0
+  %37 = and i64 %34, %36
+  %.fr.i = freeze i64 %37
+  %.not41.i = icmp ne i64 %.fr.i, 0
   %spec.select.i = zext i1 %.not41.i to i8
   %38 = shl nuw nsw i64 2, %35
-  %.fr76.i = freeze i64 %38
-  %39 = and i64 %.fr.i, %.fr76.i
-  %.not42.i = icmp eq i64 %39, 0
+  %39 = and i64 %34, %38
+  %.fr74.i = freeze i64 %39
+  %.not42.i = icmp eq i64 %.fr74.i, 0
   %40 = or disjoint i8 %spec.select.i, 2
   %41 = select i1 %.not42.i, i8 %spec.select.i, i8 %40
   %42 = shl nuw nsw i64 4, %35
-  %.fr79.i = freeze i64 %42
-  %43 = and i64 %.fr.i, %.fr79.i
-  %.not43.i = icmp eq i64 %43, 0
+  %43 = and i64 %34, %42
+  %.fr76.i = freeze i64 %43
+  %.not43.i = icmp eq i64 %.fr76.i, 0
   %44 = or disjoint i8 %41, 4
   %45 = select i1 %.not43.i, i8 %41, i8 %44
   %46 = shl nuw i64 8, %35
-  %.fr82.i = freeze i64 %46
-  %47 = and i64 %.fr.i, %.fr82.i
-  %.not44.i = icmp eq i64 %47, 0
+  %47 = and i64 %34, %46
+  %.fr78.i = freeze i64 %47
+  %.not44.i = icmp eq i64 %.fr78.i, 0
   %48 = or disjoint i8 %45, 8
   %49 = select i1 %.not44.i, i8 %45, i8 %48
   %50 = zext nneg i8 %49 to i32
-  %51 = icmp eq ptr %.03386.i, null
+  %51 = icmp eq ptr %.03382.i, null
   %52 = icmp ne i8 %49, 0
   %or.cond7.i = and i1 %51, %52
-  %spec.select45.i = select i1 %or.cond7.i, ptr %.03685.i, ptr %.03386.i
+  %spec.select45.i = select i1 %or.cond7.i, ptr %.03681.i, ptr %.03382.i
   %53 = call i32 @slurm_hex_to_char(i32 noundef %50) #8
   %54 = trunc i32 %53 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %.03685.i, i64 1
-  store i8 %54, ptr %.03685.i, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %.03681.i, i64 1
+  store i8 %54, ptr %.03681.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -4
-  %.not88.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not88.i, label %_memset_to_str.exit, label %nodemask_isset_compat.exit.i, !llvm.loop !8
+  %.not84.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not84.i, label %_memset_to_str.exit, label %nodemask_isset_compat.exit.i, !llvm.loop !8
 
 _memset_to_str.exit:                              ; preds = %nodemask_isset_compat.exit.i
   store i8 0, ptr %55, align 1
   %.not.i = icmp eq ptr %spec.select45.i, null
-  %56 = select i1 %.not.i, ptr %.03685.i, ptr %spec.select45.i
+  %56 = select i1 %.not.i, ptr %.03681.i, ptr %spec.select45.i
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.11, ptr noundef nonnull %.018, ptr noundef nonnull %.017, ptr noundef %31, i32 noundef %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull %56, ptr noundef nonnull %.0) #9
   br label %58
 

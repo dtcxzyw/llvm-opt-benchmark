@@ -5861,8 +5861,8 @@ define internal fastcc noundef double @_ZN12_GLOBAL__N_17sampleXIN9Imath_3_24hal
 
 _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %13 = phi i32 [ %7, %6 ], [ %.neg5.i, %8 ]
-  %.fr3 = freeze i32 %13
-  %14 = add nsw i32 %.fr3, 1
+  %.fr = freeze i32 %13
+  %14 = add nsw i32 %.fr, 1
   switch i32 %3, label %182 [
     i32 0, label %15
     i32 1, label %41
@@ -5871,8 +5871,8 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   ]
 
 15:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %16 = icmp sgt i32 %.fr3, -1
-  %17 = icmp slt i32 %.fr3, %0
+  %16 = icmp sgt i32 %.fr, -1
+  %17 = icmp slt i32 %.fr, %0
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %18, label %30
 
@@ -5880,7 +5880,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %19 = sext i32 %2 to i64
   %20 = mul nsw i64 %.24.val, %19
   %21 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %20
-  %22 = zext nneg i32 %.fr3 to i64
+  %22 = zext nneg i32 %.fr to i64
   %23 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !157
   %25 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !159
@@ -5892,7 +5892,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 30:                                               ; preds = %15, %18
   %31 = phi double [ %29, %18 ], [ 0.000000e+00, %15 ]
-  %32 = icmp sgt i32 %.fr3, -2
+  %32 = icmp sgt i32 %.fr, -2
   %33 = icmp slt i32 %14, %0
   %or.cond54 = select i1 %32, i1 %33, i1 false
   br i1 %or.cond54, label %34, label %182
@@ -5908,10 +5908,10 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 41:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
   %42 = add nsw i32 %0, -1
-  %43 = icmp slt i32 %.fr3, 0
-  %44 = tail call i32 @llvm.smin.i32(i32 %.fr3, i32 %42)
+  %43 = icmp slt i32 %.fr, 0
+  %44 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %42)
   %45 = select i1 %43, i32 0, i32 %44
-  %46 = icmp slt i32 %.fr3, -1
+  %46 = icmp slt i32 %.fr, -1
   %47 = tail call i32 @llvm.smin.i32(i32 %14, i32 %42)
   %48 = select i1 %46, i32 0, i32 %47
   %49 = sext i32 %2 to i64
@@ -5930,7 +5930,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br label %.sink.split
 
 62:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %63 = icmp sgt i32 %.fr3, -1
+  %63 = icmp sgt i32 %.fr, -1
   %64 = icmp sgt i32 %0, -1
   br i1 %63, label %65, label %67
 
@@ -5938,36 +5938,36 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br i1 %64, label %.thread10, label %..thread2_crit_edge
 
 .thread10:                                        ; preds = %65
-  %66 = urem i32 %.fr3, %0
+  %66 = urem i32 %.fr, %0
   br label %.thread9
 
 67:                                               ; preds = %62
   br i1 %64, label %_ZN9Imath_3_24modpEii.exit, label %_ZN9Imath_3_24modpEii.exit.thread1
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %67
-  %68 = xor i32 %.fr3, -1
+  %68 = xor i32 %.fr, -1
   %69 = add nuw i32 %0, %68
   %70 = urem i32 %69, %0
   %.neg.neg = sub nuw i32 %69, %70
-  %71 = add i32 %.neg.neg, %.fr3
-  %72 = icmp eq i32 %.fr3, -1
+  %71 = add i32 %.neg.neg, %.fr
+  %72 = icmp eq i32 %.fr, -1
   br i1 %72, label %.thread9, label %89
 
 _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %67
   %73 = sub nsw i32 0, %0
   %74 = xor i32 %0, -1
-  %75 = sub nsw i32 %74, %.fr3
+  %75 = sub nsw i32 %74, %.fr
   %76 = udiv i32 %75, %73
   %77 = mul nsw i32 %76, %0
-  %78 = sub nsw i32 %.fr3, %77
-  %79 = icmp eq i32 %.fr3, -1
+  %78 = sub nsw i32 %.fr, %77
+  %79 = icmp eq i32 %.fr, -1
   br i1 %79, label %.thread2, label %.thread
 
 ..thread2_crit_edge:                              ; preds = %65
   %80 = sub nsw i32 0, %0
-  %81 = udiv i32 %.fr3, %80
+  %81 = udiv i32 %.fr, %80
   %82 = mul i32 %81, %0
-  %83 = add i32 %.fr3, %82
+  %83 = add i32 %.fr, %82
   %.pre = sub nsw i32 0, %0
   br label %.thread2
 
@@ -5985,7 +5985,7 @@ _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %67
 
 89:                                               ; preds = %_ZN9Imath_3_24modpEii.exit
   %reass.sub4 = add nsw i32 %0, -2
-  %90 = sub i32 %reass.sub4, %.fr3
+  %90 = sub i32 %reass.sub4, %.fr
   %91 = udiv i32 %90, %0
   %92 = sub nsw i32 0, %91
   br label %_ZN9Imath_3_24modpEii.exit55
@@ -6016,7 +6016,7 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br label %.sink.split
 
 112:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %113 = icmp sgt i32 %.fr3, -1
+  %113 = icmp sgt i32 %.fr, -1
   %114 = icmp sgt i32 %0, -1
   br i1 %113, label %115, label %116
 
@@ -6027,17 +6027,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br i1 %114, label %123, label %128
 
 117:                                              ; preds = %115
-  %118 = udiv i32 %.fr3, %0
+  %118 = udiv i32 %.fr, %0
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 119:                                              ; preds = %115
   %120 = sub nsw i32 0, %0
-  %121 = udiv i32 %.fr3, %120
+  %121 = udiv i32 %.fr, %120
   %122 = sub nsw i32 0, %121
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 123:                                              ; preds = %116
-  %124 = xor i32 %.fr3, -1
+  %124 = xor i32 %.fr, -1
   %125 = add nuw i32 %0, %124
   %126 = udiv i32 %125, %0
   %127 = sub nsw i32 0, %126
@@ -6046,20 +6046,20 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
 128:                                              ; preds = %116
   %129 = sub nsw i32 0, %0
   %130 = xor i32 %0, -1
-  %131 = sub nsw i32 %130, %.fr3
+  %131 = sub nsw i32 %130, %.fr
   %132 = udiv i32 %131, %129
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %117, %119, %123, %128
   %133 = phi i32 [ %122, %119 ], [ %118, %117 ], [ %127, %123 ], [ %132, %128 ]
   %134 = mul nsw i32 %133, %0
-  %135 = sub nsw i32 %.fr3, %134
+  %135 = sub nsw i32 %.fr, %134
   %136 = and i32 %133, 1
   %.not.i = icmp eq i32 %136, 0
   %137 = xor i32 %135, -1
   %138 = add i32 %0, %137
   %139 = select i1 %.not.i, i32 %135, i32 %138
-  %140 = icmp sgt i32 %.fr3, -2
+  %140 = icmp sgt i32 %.fr, -2
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %_ZN12_GLOBAL__N_16mirrorEii.exit
@@ -6080,7 +6080,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %117, %119, %123, %1
 
 149:                                              ; preds = %142
   %reass.sub = add nsw i32 %0, -2
-  %150 = sub i32 %reass.sub, %.fr3
+  %150 = sub i32 %reass.sub, %.fr
   %151 = udiv i32 %150, %0
   %152 = sub nsw i32 0, %151
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit57
@@ -6168,8 +6168,8 @@ define internal fastcc noundef double @_ZN12_GLOBAL__N_17sampleXIfEEdRK17TypedIm
 
 _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %13 = phi i32 [ %7, %6 ], [ %.neg5.i, %8 ]
-  %.fr3 = freeze i32 %13
-  %14 = add nsw i32 %.fr3, 1
+  %.fr = freeze i32 %13
+  %14 = add nsw i32 %.fr, 1
   switch i32 %3, label %169 [
     i32 0, label %15
     i32 1, label %38
@@ -6178,8 +6178,8 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   ]
 
 15:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %16 = icmp sgt i32 %.fr3, -1
-  %17 = icmp slt i32 %.fr3, %0
+  %16 = icmp sgt i32 %.fr, -1
+  %17 = icmp slt i32 %.fr, %0
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %18, label %26
 
@@ -6187,7 +6187,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %19 = sext i32 %2 to i64
   %20 = mul nsw i64 %.24.val, %19
   %21 = getelementptr inbounds float, ptr %.32.val, i64 %20
-  %22 = zext nneg i32 %.fr3 to i64
+  %22 = zext nneg i32 %.fr to i64
   %23 = getelementptr inbounds nuw float, ptr %21, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !131
   %25 = fpext float %24 to double
@@ -6195,7 +6195,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 26:                                               ; preds = %15, %18
   %27 = phi double [ %25, %18 ], [ 0.000000e+00, %15 ]
-  %28 = icmp sgt i32 %.fr3, -2
+  %28 = icmp sgt i32 %.fr, -2
   %29 = icmp slt i32 %14, %0
   %or.cond54 = select i1 %28, i1 %29, i1 false
   br i1 %or.cond54, label %30, label %169
@@ -6212,10 +6212,10 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 38:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
   %39 = add nsw i32 %0, -1
-  %40 = icmp slt i32 %.fr3, 0
-  %41 = tail call i32 @llvm.smin.i32(i32 %.fr3, i32 %39)
+  %40 = icmp slt i32 %.fr, 0
+  %41 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %39)
   %42 = select i1 %40, i32 0, i32 %41
-  %43 = icmp slt i32 %.fr3, -1
+  %43 = icmp slt i32 %.fr, -1
   %44 = tail call i32 @llvm.smin.i32(i32 %14, i32 %39)
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %2 to i64
@@ -6232,7 +6232,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br label %169
 
 57:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %58 = icmp sgt i32 %.fr3, -1
+  %58 = icmp sgt i32 %.fr, -1
   %59 = icmp sgt i32 %0, -1
   br i1 %58, label %60, label %62
 
@@ -6240,36 +6240,36 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br i1 %59, label %.thread10, label %..thread2_crit_edge
 
 .thread10:                                        ; preds = %60
-  %61 = urem i32 %.fr3, %0
+  %61 = urem i32 %.fr, %0
   br label %.thread9
 
 62:                                               ; preds = %57
   br i1 %59, label %_ZN9Imath_3_24modpEii.exit, label %_ZN9Imath_3_24modpEii.exit.thread1
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %62
-  %63 = xor i32 %.fr3, -1
+  %63 = xor i32 %.fr, -1
   %64 = add nuw i32 %0, %63
   %65 = urem i32 %64, %0
   %.neg.neg = sub nuw i32 %64, %65
-  %66 = add i32 %.neg.neg, %.fr3
-  %67 = icmp eq i32 %.fr3, -1
+  %66 = add i32 %.neg.neg, %.fr
+  %67 = icmp eq i32 %.fr, -1
   br i1 %67, label %.thread9, label %84
 
 _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %62
   %68 = sub nsw i32 0, %0
   %69 = xor i32 %0, -1
-  %70 = sub nsw i32 %69, %.fr3
+  %70 = sub nsw i32 %69, %.fr
   %71 = udiv i32 %70, %68
   %72 = mul nsw i32 %71, %0
-  %73 = sub nsw i32 %.fr3, %72
-  %74 = icmp eq i32 %.fr3, -1
+  %73 = sub nsw i32 %.fr, %72
+  %74 = icmp eq i32 %.fr, -1
   br i1 %74, label %.thread2, label %.thread
 
 ..thread2_crit_edge:                              ; preds = %60
   %75 = sub nsw i32 0, %0
-  %76 = udiv i32 %.fr3, %75
+  %76 = udiv i32 %.fr, %75
   %77 = mul i32 %76, %0
-  %78 = add i32 %.fr3, %77
+  %78 = add i32 %.fr, %77
   %.pre = sub nsw i32 0, %0
   br label %.thread2
 
@@ -6287,7 +6287,7 @@ _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %62
 
 84:                                               ; preds = %_ZN9Imath_3_24modpEii.exit
   %reass.sub4 = add nsw i32 %0, -2
-  %85 = sub i32 %reass.sub4, %.fr3
+  %85 = sub i32 %reass.sub4, %.fr
   %86 = udiv i32 %85, %0
   %87 = sub nsw i32 0, %86
   br label %_ZN9Imath_3_24modpEii.exit55
@@ -6316,7 +6316,7 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br label %169
 
 105:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %106 = icmp sgt i32 %.fr3, -1
+  %106 = icmp sgt i32 %.fr, -1
   %107 = icmp sgt i32 %0, -1
   br i1 %106, label %108, label %109
 
@@ -6327,17 +6327,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br i1 %107, label %116, label %121
 
 110:                                              ; preds = %108
-  %111 = udiv i32 %.fr3, %0
+  %111 = udiv i32 %.fr, %0
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 112:                                              ; preds = %108
   %113 = sub nsw i32 0, %0
-  %114 = udiv i32 %.fr3, %113
+  %114 = udiv i32 %.fr, %113
   %115 = sub nsw i32 0, %114
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 116:                                              ; preds = %109
-  %117 = xor i32 %.fr3, -1
+  %117 = xor i32 %.fr, -1
   %118 = add nuw i32 %0, %117
   %119 = udiv i32 %118, %0
   %120 = sub nsw i32 0, %119
@@ -6346,20 +6346,20 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
 121:                                              ; preds = %109
   %122 = sub nsw i32 0, %0
   %123 = xor i32 %0, -1
-  %124 = sub nsw i32 %123, %.fr3
+  %124 = sub nsw i32 %123, %.fr
   %125 = udiv i32 %124, %122
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %110, %112, %116, %121
   %126 = phi i32 [ %115, %112 ], [ %111, %110 ], [ %120, %116 ], [ %125, %121 ]
   %127 = mul nsw i32 %126, %0
-  %128 = sub nsw i32 %.fr3, %127
+  %128 = sub nsw i32 %.fr, %127
   %129 = and i32 %126, 1
   %.not.i = icmp eq i32 %129, 0
   %130 = xor i32 %128, -1
   %131 = add i32 %0, %130
   %132 = select i1 %.not.i, i32 %128, i32 %131
-  %133 = icmp sgt i32 %.fr3, -2
+  %133 = icmp sgt i32 %.fr, -2
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %_ZN12_GLOBAL__N_16mirrorEii.exit
@@ -6380,7 +6380,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %110, %112, %116, %1
 
 142:                                              ; preds = %135
   %reass.sub = add nsw i32 %0, -2
-  %143 = sub i32 %reass.sub, %.fr3
+  %143 = sub i32 %reass.sub, %.fr
   %144 = udiv i32 %143, %0
   %145 = sub nsw i32 0, %144
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit57
@@ -6445,8 +6445,8 @@ define internal fastcc noundef double @_ZN12_GLOBAL__N_17sampleXIjEEdRK17TypedIm
 
 _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %13 = phi i32 [ %7, %6 ], [ %.neg5.i, %8 ]
-  %.fr3 = freeze i32 %13
-  %14 = add nsw i32 %.fr3, 1
+  %.fr = freeze i32 %13
+  %14 = add nsw i32 %.fr, 1
   switch i32 %3, label %169 [
     i32 0, label %15
     i32 1, label %38
@@ -6455,8 +6455,8 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   ]
 
 15:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %16 = icmp sgt i32 %.fr3, -1
-  %17 = icmp slt i32 %.fr3, %0
+  %16 = icmp sgt i32 %.fr, -1
+  %17 = icmp slt i32 %.fr, %0
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %18, label %26
 
@@ -6464,7 +6464,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %19 = sext i32 %2 to i64
   %20 = mul nsw i64 %.24.val, %19
   %21 = getelementptr inbounds i32, ptr %.32.val, i64 %20
-  %22 = zext nneg i32 %.fr3 to i64
+  %22 = zext nneg i32 %.fr to i64
   %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !107
   %25 = uitofp i32 %24 to double
@@ -6472,7 +6472,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 26:                                               ; preds = %15, %18
   %27 = phi double [ %25, %18 ], [ 0.000000e+00, %15 ]
-  %28 = icmp sgt i32 %.fr3, -2
+  %28 = icmp sgt i32 %.fr, -2
   %29 = icmp slt i32 %14, %0
   %or.cond54 = select i1 %28, i1 %29, i1 false
   br i1 %or.cond54, label %30, label %169
@@ -6489,10 +6489,10 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 38:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
   %39 = add nsw i32 %0, -1
-  %40 = icmp slt i32 %.fr3, 0
-  %41 = tail call i32 @llvm.smin.i32(i32 %.fr3, i32 %39)
+  %40 = icmp slt i32 %.fr, 0
+  %41 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %39)
   %42 = select i1 %40, i32 0, i32 %41
-  %43 = icmp slt i32 %.fr3, -1
+  %43 = icmp slt i32 %.fr, -1
   %44 = tail call i32 @llvm.smin.i32(i32 %14, i32 %39)
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %2 to i64
@@ -6509,7 +6509,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br label %169
 
 57:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %58 = icmp sgt i32 %.fr3, -1
+  %58 = icmp sgt i32 %.fr, -1
   %59 = icmp sgt i32 %0, -1
   br i1 %58, label %60, label %62
 
@@ -6517,36 +6517,36 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br i1 %59, label %.thread10, label %..thread2_crit_edge
 
 .thread10:                                        ; preds = %60
-  %61 = urem i32 %.fr3, %0
+  %61 = urem i32 %.fr, %0
   br label %.thread9
 
 62:                                               ; preds = %57
   br i1 %59, label %_ZN9Imath_3_24modpEii.exit, label %_ZN9Imath_3_24modpEii.exit.thread1
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %62
-  %63 = xor i32 %.fr3, -1
+  %63 = xor i32 %.fr, -1
   %64 = add nuw i32 %0, %63
   %65 = urem i32 %64, %0
   %.neg.neg = sub nuw i32 %64, %65
-  %66 = add i32 %.neg.neg, %.fr3
-  %67 = icmp eq i32 %.fr3, -1
+  %66 = add i32 %.neg.neg, %.fr
+  %67 = icmp eq i32 %.fr, -1
   br i1 %67, label %.thread9, label %84
 
 _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %62
   %68 = sub nsw i32 0, %0
   %69 = xor i32 %0, -1
-  %70 = sub nsw i32 %69, %.fr3
+  %70 = sub nsw i32 %69, %.fr
   %71 = udiv i32 %70, %68
   %72 = mul nsw i32 %71, %0
-  %73 = sub nsw i32 %.fr3, %72
-  %74 = icmp eq i32 %.fr3, -1
+  %73 = sub nsw i32 %.fr, %72
+  %74 = icmp eq i32 %.fr, -1
   br i1 %74, label %.thread2, label %.thread
 
 ..thread2_crit_edge:                              ; preds = %60
   %75 = sub nsw i32 0, %0
-  %76 = udiv i32 %.fr3, %75
+  %76 = udiv i32 %.fr, %75
   %77 = mul i32 %76, %0
-  %78 = add i32 %.fr3, %77
+  %78 = add i32 %.fr, %77
   %.pre = sub nsw i32 0, %0
   br label %.thread2
 
@@ -6564,7 +6564,7 @@ _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %62
 
 84:                                               ; preds = %_ZN9Imath_3_24modpEii.exit
   %reass.sub4 = add nsw i32 %0, -2
-  %85 = sub i32 %reass.sub4, %.fr3
+  %85 = sub i32 %reass.sub4, %.fr
   %86 = udiv i32 %85, %0
   %87 = sub nsw i32 0, %86
   br label %_ZN9Imath_3_24modpEii.exit55
@@ -6593,7 +6593,7 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br label %169
 
 105:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %106 = icmp sgt i32 %.fr3, -1
+  %106 = icmp sgt i32 %.fr, -1
   %107 = icmp sgt i32 %0, -1
   br i1 %106, label %108, label %109
 
@@ -6604,17 +6604,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br i1 %107, label %116, label %121
 
 110:                                              ; preds = %108
-  %111 = udiv i32 %.fr3, %0
+  %111 = udiv i32 %.fr, %0
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 112:                                              ; preds = %108
   %113 = sub nsw i32 0, %0
-  %114 = udiv i32 %.fr3, %113
+  %114 = udiv i32 %.fr, %113
   %115 = sub nsw i32 0, %114
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 116:                                              ; preds = %109
-  %117 = xor i32 %.fr3, -1
+  %117 = xor i32 %.fr, -1
   %118 = add nuw i32 %0, %117
   %119 = udiv i32 %118, %0
   %120 = sub nsw i32 0, %119
@@ -6623,20 +6623,20 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
 121:                                              ; preds = %109
   %122 = sub nsw i32 0, %0
   %123 = xor i32 %0, -1
-  %124 = sub nsw i32 %123, %.fr3
+  %124 = sub nsw i32 %123, %.fr
   %125 = udiv i32 %124, %122
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %110, %112, %116, %121
   %126 = phi i32 [ %115, %112 ], [ %111, %110 ], [ %120, %116 ], [ %125, %121 ]
   %127 = mul nsw i32 %126, %0
-  %128 = sub nsw i32 %.fr3, %127
+  %128 = sub nsw i32 %.fr, %127
   %129 = and i32 %126, 1
   %.not.i = icmp eq i32 %129, 0
   %130 = xor i32 %128, -1
   %131 = add i32 %0, %130
   %132 = select i1 %.not.i, i32 %128, i32 %131
-  %133 = icmp sgt i32 %.fr3, -2
+  %133 = icmp sgt i32 %.fr, -2
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %_ZN12_GLOBAL__N_16mirrorEii.exit
@@ -6657,7 +6657,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %110, %112, %116, %1
 
 142:                                              ; preds = %135
   %reass.sub = add nsw i32 %0, -2
-  %143 = sub i32 %reass.sub, %.fr3
+  %143 = sub i32 %reass.sub, %.fr
   %144 = udiv i32 %143, %0
   %145 = sub nsw i32 0, %144
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit57
@@ -6722,8 +6722,8 @@ define internal fastcc noundef double @_ZN12_GLOBAL__N_17sampleYIN9Imath_3_24hal
 
 _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %13 = phi i32 [ %7, %6 ], [ %.neg5.i, %8 ]
-  %.fr3 = freeze i32 %13
-  %14 = add nsw i32 %.fr3, 1
+  %.fr = freeze i32 %13
+  %14 = add nsw i32 %.fr, 1
   switch i32 %3, label %188 [
     i32 0, label %15
     i32 1, label %41
@@ -6732,13 +6732,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   ]
 
 15:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %16 = icmp sgt i32 %.fr3, -1
-  %17 = icmp slt i32 %.fr3, %0
+  %16 = icmp sgt i32 %.fr, -1
+  %17 = icmp slt i32 %.fr, %0
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %18, label %30
 
 18:                                               ; preds = %15
-  %19 = zext nneg i32 %.fr3 to i64
+  %19 = zext nneg i32 %.fr to i64
   %20 = mul nsw i64 %.24.val, %19
   %21 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.32.val, i64 %20
   %22 = sext i32 %1 to i64
@@ -6753,7 +6753,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 30:                                               ; preds = %15, %18
   %31 = phi double [ %29, %18 ], [ 0.000000e+00, %15 ]
-  %32 = icmp sgt i32 %.fr3, -2
+  %32 = icmp sgt i32 %.fr, -2
   %33 = icmp slt i32 %14, %0
   %or.cond54 = select i1 %32, i1 %33, i1 false
   br i1 %or.cond54, label %34, label %188
@@ -6769,10 +6769,10 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 41:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
   %42 = add nsw i32 %0, -1
-  %43 = icmp slt i32 %.fr3, 0
-  %44 = tail call i32 @llvm.smin.i32(i32 %.fr3, i32 %42)
+  %43 = icmp slt i32 %.fr, 0
+  %44 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %42)
   %45 = select i1 %43, i32 0, i32 %44
-  %46 = icmp slt i32 %.fr3, -1
+  %46 = icmp slt i32 %.fr, -1
   %47 = tail call i32 @llvm.smin.i32(i32 %14, i32 %42)
   %48 = select i1 %46, i32 0, i32 %47
   %49 = sext i32 %45 to i64
@@ -6793,7 +6793,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br label %.sink.split
 
 64:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %65 = icmp sgt i32 %.fr3, -1
+  %65 = icmp sgt i32 %.fr, -1
   %66 = icmp sgt i32 %0, -1
   br i1 %65, label %67, label %69
 
@@ -6801,36 +6801,36 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br i1 %66, label %.thread10, label %..thread2_crit_edge
 
 .thread10:                                        ; preds = %67
-  %68 = urem i32 %.fr3, %0
+  %68 = urem i32 %.fr, %0
   br label %.thread9
 
 69:                                               ; preds = %64
   br i1 %66, label %_ZN9Imath_3_24modpEii.exit, label %_ZN9Imath_3_24modpEii.exit.thread1
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %69
-  %70 = xor i32 %.fr3, -1
+  %70 = xor i32 %.fr, -1
   %71 = add nuw i32 %0, %70
   %72 = urem i32 %71, %0
   %.neg.neg = sub nuw i32 %71, %72
-  %73 = add i32 %.neg.neg, %.fr3
-  %74 = icmp eq i32 %.fr3, -1
+  %73 = add i32 %.neg.neg, %.fr
+  %74 = icmp eq i32 %.fr, -1
   br i1 %74, label %.thread9, label %91
 
 _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %69
   %75 = sub nsw i32 0, %0
   %76 = xor i32 %0, -1
-  %77 = sub nsw i32 %76, %.fr3
+  %77 = sub nsw i32 %76, %.fr
   %78 = udiv i32 %77, %75
   %79 = mul nsw i32 %78, %0
-  %80 = sub nsw i32 %.fr3, %79
-  %81 = icmp eq i32 %.fr3, -1
+  %80 = sub nsw i32 %.fr, %79
+  %81 = icmp eq i32 %.fr, -1
   br i1 %81, label %.thread2, label %.thread
 
 ..thread2_crit_edge:                              ; preds = %67
   %82 = sub nsw i32 0, %0
-  %83 = udiv i32 %.fr3, %82
+  %83 = udiv i32 %.fr, %82
   %84 = mul i32 %83, %0
-  %85 = add i32 %.fr3, %84
+  %85 = add i32 %.fr, %84
   %.pre = sub nsw i32 0, %0
   br label %.thread2
 
@@ -6848,7 +6848,7 @@ _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %69
 
 91:                                               ; preds = %_ZN9Imath_3_24modpEii.exit
   %reass.sub4 = add nsw i32 %0, -2
-  %92 = sub i32 %reass.sub4, %.fr3
+  %92 = sub i32 %reass.sub4, %.fr
   %93 = udiv i32 %92, %0
   %94 = sub nsw i32 0, %93
   br label %_ZN9Imath_3_24modpEii.exit55
@@ -6881,7 +6881,7 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br label %.sink.split
 
 116:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %117 = icmp sgt i32 %.fr3, -1
+  %117 = icmp sgt i32 %.fr, -1
   %118 = icmp sgt i32 %0, -1
   br i1 %117, label %119, label %120
 
@@ -6892,17 +6892,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br i1 %118, label %127, label %132
 
 121:                                              ; preds = %119
-  %122 = udiv i32 %.fr3, %0
+  %122 = udiv i32 %.fr, %0
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 123:                                              ; preds = %119
   %124 = sub nsw i32 0, %0
-  %125 = udiv i32 %.fr3, %124
+  %125 = udiv i32 %.fr, %124
   %126 = sub nsw i32 0, %125
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 127:                                              ; preds = %120
-  %128 = xor i32 %.fr3, -1
+  %128 = xor i32 %.fr, -1
   %129 = add nuw i32 %0, %128
   %130 = udiv i32 %129, %0
   %131 = sub nsw i32 0, %130
@@ -6911,20 +6911,20 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
 132:                                              ; preds = %120
   %133 = sub nsw i32 0, %0
   %134 = xor i32 %0, -1
-  %135 = sub nsw i32 %134, %.fr3
+  %135 = sub nsw i32 %134, %.fr
   %136 = udiv i32 %135, %133
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %121, %123, %127, %132
   %137 = phi i32 [ %126, %123 ], [ %122, %121 ], [ %131, %127 ], [ %136, %132 ]
   %138 = mul nsw i32 %137, %0
-  %139 = sub nsw i32 %.fr3, %138
+  %139 = sub nsw i32 %.fr, %138
   %140 = and i32 %137, 1
   %.not.i = icmp eq i32 %140, 0
   %141 = xor i32 %139, -1
   %142 = add i32 %0, %141
   %143 = select i1 %.not.i, i32 %139, i32 %142
-  %144 = icmp sgt i32 %.fr3, -2
+  %144 = icmp sgt i32 %.fr, -2
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %_ZN12_GLOBAL__N_16mirrorEii.exit
@@ -6945,7 +6945,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %121, %123, %127, %1
 
 153:                                              ; preds = %146
   %reass.sub = add nsw i32 %0, -2
-  %154 = sub i32 %reass.sub, %.fr3
+  %154 = sub i32 %reass.sub, %.fr
   %155 = udiv i32 %154, %0
   %156 = sub nsw i32 0, %155
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit57
@@ -7025,8 +7025,8 @@ define internal fastcc noundef double @_ZN12_GLOBAL__N_17sampleYIfEEdRK17TypedIm
 
 _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %13 = phi i32 [ %7, %6 ], [ %.neg5.i, %8 ]
-  %.fr3 = freeze i32 %13
-  %14 = add nsw i32 %.fr3, 1
+  %.fr = freeze i32 %13
+  %14 = add nsw i32 %.fr, 1
   switch i32 %3, label %175 [
     i32 0, label %15
     i32 1, label %38
@@ -7035,13 +7035,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   ]
 
 15:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %16 = icmp sgt i32 %.fr3, -1
-  %17 = icmp slt i32 %.fr3, %0
+  %16 = icmp sgt i32 %.fr, -1
+  %17 = icmp slt i32 %.fr, %0
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = zext nneg i32 %.fr3 to i64
+  %19 = zext nneg i32 %.fr to i64
   %20 = mul nsw i64 %.24.val, %19
   %21 = getelementptr inbounds float, ptr %.32.val, i64 %20
   %22 = sext i32 %1 to i64
@@ -7052,7 +7052,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 26:                                               ; preds = %15, %18
   %27 = phi double [ %25, %18 ], [ 0.000000e+00, %15 ]
-  %28 = icmp sgt i32 %.fr3, -2
+  %28 = icmp sgt i32 %.fr, -2
   %29 = icmp slt i32 %14, %0
   %or.cond54 = select i1 %28, i1 %29, i1 false
   br i1 %or.cond54, label %30, label %175
@@ -7069,10 +7069,10 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 38:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
   %39 = add nsw i32 %0, -1
-  %40 = icmp slt i32 %.fr3, 0
-  %41 = tail call i32 @llvm.smin.i32(i32 %.fr3, i32 %39)
+  %40 = icmp slt i32 %.fr, 0
+  %41 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %39)
   %42 = select i1 %40, i32 0, i32 %41
-  %43 = icmp slt i32 %.fr3, -1
+  %43 = icmp slt i32 %.fr, -1
   %44 = tail call i32 @llvm.smin.i32(i32 %14, i32 %39)
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %42 to i64
@@ -7091,7 +7091,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br label %175
 
 59:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %60 = icmp sgt i32 %.fr3, -1
+  %60 = icmp sgt i32 %.fr, -1
   %61 = icmp sgt i32 %0, -1
   br i1 %60, label %62, label %64
 
@@ -7099,36 +7099,36 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br i1 %61, label %.thread10, label %..thread2_crit_edge
 
 .thread10:                                        ; preds = %62
-  %63 = urem i32 %.fr3, %0
+  %63 = urem i32 %.fr, %0
   br label %.thread9
 
 64:                                               ; preds = %59
   br i1 %61, label %_ZN9Imath_3_24modpEii.exit, label %_ZN9Imath_3_24modpEii.exit.thread1
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %64
-  %65 = xor i32 %.fr3, -1
+  %65 = xor i32 %.fr, -1
   %66 = add nuw i32 %0, %65
   %67 = urem i32 %66, %0
   %.neg.neg = sub nuw i32 %66, %67
-  %68 = add i32 %.neg.neg, %.fr3
-  %69 = icmp eq i32 %.fr3, -1
+  %68 = add i32 %.neg.neg, %.fr
+  %69 = icmp eq i32 %.fr, -1
   br i1 %69, label %.thread9, label %86
 
 _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %64
   %70 = sub nsw i32 0, %0
   %71 = xor i32 %0, -1
-  %72 = sub nsw i32 %71, %.fr3
+  %72 = sub nsw i32 %71, %.fr
   %73 = udiv i32 %72, %70
   %74 = mul nsw i32 %73, %0
-  %75 = sub nsw i32 %.fr3, %74
-  %76 = icmp eq i32 %.fr3, -1
+  %75 = sub nsw i32 %.fr, %74
+  %76 = icmp eq i32 %.fr, -1
   br i1 %76, label %.thread2, label %.thread
 
 ..thread2_crit_edge:                              ; preds = %62
   %77 = sub nsw i32 0, %0
-  %78 = udiv i32 %.fr3, %77
+  %78 = udiv i32 %.fr, %77
   %79 = mul i32 %78, %0
-  %80 = add i32 %.fr3, %79
+  %80 = add i32 %.fr, %79
   %.pre = sub nsw i32 0, %0
   br label %.thread2
 
@@ -7146,7 +7146,7 @@ _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %64
 
 86:                                               ; preds = %_ZN9Imath_3_24modpEii.exit
   %reass.sub4 = add nsw i32 %0, -2
-  %87 = sub i32 %reass.sub4, %.fr3
+  %87 = sub i32 %reass.sub4, %.fr
   %88 = udiv i32 %87, %0
   %89 = sub nsw i32 0, %88
   br label %_ZN9Imath_3_24modpEii.exit55
@@ -7177,7 +7177,7 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br label %175
 
 109:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %110 = icmp sgt i32 %.fr3, -1
+  %110 = icmp sgt i32 %.fr, -1
   %111 = icmp sgt i32 %0, -1
   br i1 %110, label %112, label %113
 
@@ -7188,17 +7188,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br i1 %111, label %120, label %125
 
 114:                                              ; preds = %112
-  %115 = udiv i32 %.fr3, %0
+  %115 = udiv i32 %.fr, %0
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 116:                                              ; preds = %112
   %117 = sub nsw i32 0, %0
-  %118 = udiv i32 %.fr3, %117
+  %118 = udiv i32 %.fr, %117
   %119 = sub nsw i32 0, %118
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 120:                                              ; preds = %113
-  %121 = xor i32 %.fr3, -1
+  %121 = xor i32 %.fr, -1
   %122 = add nuw i32 %0, %121
   %123 = udiv i32 %122, %0
   %124 = sub nsw i32 0, %123
@@ -7207,20 +7207,20 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
 125:                                              ; preds = %113
   %126 = sub nsw i32 0, %0
   %127 = xor i32 %0, -1
-  %128 = sub nsw i32 %127, %.fr3
+  %128 = sub nsw i32 %127, %.fr
   %129 = udiv i32 %128, %126
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %114, %116, %120, %125
   %130 = phi i32 [ %119, %116 ], [ %115, %114 ], [ %124, %120 ], [ %129, %125 ]
   %131 = mul nsw i32 %130, %0
-  %132 = sub nsw i32 %.fr3, %131
+  %132 = sub nsw i32 %.fr, %131
   %133 = and i32 %130, 1
   %.not.i = icmp eq i32 %133, 0
   %134 = xor i32 %132, -1
   %135 = add i32 %0, %134
   %136 = select i1 %.not.i, i32 %132, i32 %135
-  %137 = icmp sgt i32 %.fr3, -2
+  %137 = icmp sgt i32 %.fr, -2
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %_ZN12_GLOBAL__N_16mirrorEii.exit
@@ -7241,7 +7241,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %114, %116, %120, %1
 
 146:                                              ; preds = %139
   %reass.sub = add nsw i32 %0, -2
-  %147 = sub i32 %reass.sub, %.fr3
+  %147 = sub i32 %reass.sub, %.fr
   %148 = udiv i32 %147, %0
   %149 = sub nsw i32 0, %148
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit57
@@ -7308,8 +7308,8 @@ define internal fastcc noundef double @_ZN12_GLOBAL__N_17sampleYIjEEdRK17TypedIm
 
 _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   %13 = phi i32 [ %7, %6 ], [ %.neg5.i, %8 ]
-  %.fr3 = freeze i32 %13
-  %14 = add nsw i32 %.fr3, 1
+  %.fr = freeze i32 %13
+  %14 = add nsw i32 %.fr, 1
   switch i32 %3, label %175 [
     i32 0, label %15
     i32 1, label %38
@@ -7318,13 +7318,13 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   ]
 
 15:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %16 = icmp sgt i32 %.fr3, -1
-  %17 = icmp slt i32 %.fr3, %0
+  %16 = icmp sgt i32 %.fr, -1
+  %17 = icmp slt i32 %.fr, %0
   %or.cond = and i1 %16, %17
   br i1 %or.cond, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = zext nneg i32 %.fr3 to i64
+  %19 = zext nneg i32 %.fr to i64
   %20 = mul nsw i64 %.24.val, %19
   %21 = getelementptr inbounds i32, ptr %.32.val, i64 %20
   %22 = sext i32 %1 to i64
@@ -7335,7 +7335,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 26:                                               ; preds = %15, %18
   %27 = phi double [ %25, %18 ], [ 0.000000e+00, %15 ]
-  %28 = icmp sgt i32 %.fr3, -2
+  %28 = icmp sgt i32 %.fr, -2
   %29 = icmp slt i32 %14, %0
   %or.cond54 = select i1 %28, i1 %29, i1 false
   br i1 %or.cond54, label %30, label %175
@@ -7352,10 +7352,10 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
 
 38:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
   %39 = add nsw i32 %0, -1
-  %40 = icmp slt i32 %.fr3, 0
-  %41 = tail call i32 @llvm.smin.i32(i32 %.fr3, i32 %39)
+  %40 = icmp slt i32 %.fr, 0
+  %41 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %39)
   %42 = select i1 %40, i32 0, i32 %41
-  %43 = icmp slt i32 %.fr3, -1
+  %43 = icmp slt i32 %.fr, -1
   %44 = tail call i32 @llvm.smin.i32(i32 %14, i32 %39)
   %45 = select i1 %43, i32 0, i32 %44
   %46 = sext i32 %42 to i64
@@ -7374,7 +7374,7 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br label %175
 
 59:                                               ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %60 = icmp sgt i32 %.fr3, -1
+  %60 = icmp sgt i32 %.fr, -1
   %61 = icmp sgt i32 %0, -1
   br i1 %60, label %62, label %64
 
@@ -7382,36 +7382,36 @@ _ZN9Imath_3_25floorIdEEiT_.exit:                  ; preds = %6, %8
   br i1 %61, label %.thread10, label %..thread2_crit_edge
 
 .thread10:                                        ; preds = %62
-  %63 = urem i32 %.fr3, %0
+  %63 = urem i32 %.fr, %0
   br label %.thread9
 
 64:                                               ; preds = %59
   br i1 %61, label %_ZN9Imath_3_24modpEii.exit, label %_ZN9Imath_3_24modpEii.exit.thread1
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %64
-  %65 = xor i32 %.fr3, -1
+  %65 = xor i32 %.fr, -1
   %66 = add nuw i32 %0, %65
   %67 = urem i32 %66, %0
   %.neg.neg = sub nuw i32 %66, %67
-  %68 = add i32 %.neg.neg, %.fr3
-  %69 = icmp eq i32 %.fr3, -1
+  %68 = add i32 %.neg.neg, %.fr
+  %69 = icmp eq i32 %.fr, -1
   br i1 %69, label %.thread9, label %86
 
 _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %64
   %70 = sub nsw i32 0, %0
   %71 = xor i32 %0, -1
-  %72 = sub nsw i32 %71, %.fr3
+  %72 = sub nsw i32 %71, %.fr
   %73 = udiv i32 %72, %70
   %74 = mul nsw i32 %73, %0
-  %75 = sub nsw i32 %.fr3, %74
-  %76 = icmp eq i32 %.fr3, -1
+  %75 = sub nsw i32 %.fr, %74
+  %76 = icmp eq i32 %.fr, -1
   br i1 %76, label %.thread2, label %.thread
 
 ..thread2_crit_edge:                              ; preds = %62
   %77 = sub nsw i32 0, %0
-  %78 = udiv i32 %.fr3, %77
+  %78 = udiv i32 %.fr, %77
   %79 = mul i32 %78, %0
-  %80 = add i32 %.fr3, %79
+  %80 = add i32 %.fr, %79
   %.pre = sub nsw i32 0, %0
   br label %.thread2
 
@@ -7429,7 +7429,7 @@ _ZN9Imath_3_24modpEii.exit.thread1:               ; preds = %64
 
 86:                                               ; preds = %_ZN9Imath_3_24modpEii.exit
   %reass.sub4 = add nsw i32 %0, -2
-  %87 = sub i32 %reass.sub4, %.fr3
+  %87 = sub i32 %reass.sub4, %.fr
   %88 = udiv i32 %87, %0
   %89 = sub nsw i32 0, %88
   br label %_ZN9Imath_3_24modpEii.exit55
@@ -7460,7 +7460,7 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br label %175
 
 109:                                              ; preds = %_ZN9Imath_3_25floorIdEEiT_.exit
-  %110 = icmp sgt i32 %.fr3, -1
+  %110 = icmp sgt i32 %.fr, -1
   %111 = icmp sgt i32 %0, -1
   br i1 %110, label %112, label %113
 
@@ -7471,17 +7471,17 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
   br i1 %111, label %120, label %125
 
 114:                                              ; preds = %112
-  %115 = udiv i32 %.fr3, %0
+  %115 = udiv i32 %.fr, %0
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 116:                                              ; preds = %112
   %117 = sub nsw i32 0, %0
-  %118 = udiv i32 %.fr3, %117
+  %118 = udiv i32 %.fr, %117
   %119 = sub nsw i32 0, %118
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 120:                                              ; preds = %113
-  %121 = xor i32 %.fr3, -1
+  %121 = xor i32 %.fr, -1
   %122 = add nuw i32 %0, %121
   %123 = udiv i32 %122, %0
   %124 = sub nsw i32 0, %123
@@ -7490,20 +7490,20 @@ _ZN9Imath_3_24modpEii.exit55:                     ; preds = %.thread9, %.thread2
 125:                                              ; preds = %113
   %126 = sub nsw i32 0, %0
   %127 = xor i32 %0, -1
-  %128 = sub nsw i32 %127, %.fr3
+  %128 = sub nsw i32 %127, %.fr
   %129 = udiv i32 %128, %126
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit
 
 _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %114, %116, %120, %125
   %130 = phi i32 [ %119, %116 ], [ %115, %114 ], [ %124, %120 ], [ %129, %125 ]
   %131 = mul nsw i32 %130, %0
-  %132 = sub nsw i32 %.fr3, %131
+  %132 = sub nsw i32 %.fr, %131
   %133 = and i32 %130, 1
   %.not.i = icmp eq i32 %133, 0
   %134 = xor i32 %132, -1
   %135 = add i32 %0, %134
   %136 = select i1 %.not.i, i32 %132, i32 %135
-  %137 = icmp sgt i32 %.fr3, -2
+  %137 = icmp sgt i32 %.fr, -2
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %_ZN12_GLOBAL__N_16mirrorEii.exit
@@ -7524,7 +7524,7 @@ _ZN12_GLOBAL__N_16mirrorEii.exit:                 ; preds = %114, %116, %120, %1
 
 146:                                              ; preds = %139
   %reass.sub = add nsw i32 %0, -2
-  %147 = sub i32 %reass.sub, %.fr3
+  %147 = sub i32 %reass.sub, %.fr
   %148 = udiv i32 %147, %0
   %149 = sub nsw i32 0, %148
   br label %_ZN12_GLOBAL__N_16mirrorEii.exit57

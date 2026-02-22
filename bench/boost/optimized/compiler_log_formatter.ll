@@ -2203,13 +2203,12 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN5b
 .lr.ph.i.i.i:                                     ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !13
-  %.fr.i.i = freeze ptr %14
   %15 = load ptr, ptr %1, align 8, !tbaa !11
-  %.fr15.i.i = freeze ptr %15
-  %16 = ptrtoint ptr %.fr.i.i to i64
-  %17 = ptrtoint ptr %.fr15.i.i to i64
+  %16 = ptrtoint ptr %14 to i64
+  %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
-  %.not12.i.i.i.i.i.i = icmp eq i64 %18, 0
+  %.fr.i.i = freeze i64 %18
+  %.not12.i.i.i.i.i.i = icmp eq i64 %.fr.i.i, 0
   br i1 %.not12.i.i.i.i.i.i, label %.lr.ph.i.split.us.i.i, label %.lr.ph.i.split.i.i
 
 .lr.ph.i.split.us.i.i:                            ; preds = %.lr.ph.i.i.i, %.lr.ph.i.split.us.i.i
@@ -2229,16 +2228,16 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN5b
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %.not.i.i.i.i.i = icmp eq i64 %26, %18
+  %.not.i.i.i.i.i = icmp eq i64 %26, %.fr.i.i
   br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %27
 
 27:                                               ; preds = %.lr.ph.i.split.i.i
-  %28 = icmp ult i64 %26, %18
+  %28 = icmp ult i64 %26, %.fr.i.i
   br i1 %28, label %37, label %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.thread.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.split.i.i, %32
-  %.015.i.i.i.i.i.i = phi i64 [ %35, %32 ], [ %18, %.lr.ph.i.split.i.i ]
-  %.0814.i.i.i.i.i.i = phi ptr [ %34, %32 ], [ %.fr15.i.i, %.lr.ph.i.split.i.i ]
+  %.015.i.i.i.i.i.i = phi i64 [ %35, %32 ], [ %.fr.i.i, %.lr.ph.i.split.i.i ]
+  %.0814.i.i.i.i.i.i = phi ptr [ %34, %32 ], [ %15, %.lr.ph.i.split.i.i ]
   %.0913.i.i.i.i.i.i = phi ptr [ %33, %32 ], [ %23, %.lr.ph.i.split.i.i ]
   %29 = load i8, ptr %.0913.i.i.i.i.i.i, align 1, !tbaa !23
   %30 = load i8, ptr %.0814.i.i.i.i.i.i, align 1, !tbaa !23
@@ -2280,20 +2279,20 @@ _ZNSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_ptr
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
-  %.not.i.i.i.i = icmp eq i64 %18, %47
+  %.not.i.i.i.i = icmp eq i64 %.fr.i.i, %47
   br i1 %.not.i.i.i.i, label %49, label %48
 
 48:                                               ; preds = %40
-  %.not = icmp ult i64 %18, %47
+  %.not = icmp ult i64 %.fr.i.i, %47
   br i1 %.not, label %_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit.thread, label %_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit
 
 49:                                               ; preds = %40
   br i1 %.not12.i.i.i.i.i.i, label %_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %49, %53
-  %.015.i.i.i.i.i = phi i64 [ %56, %53 ], [ %18, %49 ]
+  %.015.i.i.i.i.i = phi i64 [ %56, %53 ], [ %.fr.i.i, %49 ]
   %.0814.i.i.i.i.i = phi ptr [ %55, %53 ], [ %44, %49 ]
-  %.0913.i.i.i.i.i = phi ptr [ %54, %53 ], [ %.fr15.i.i, %49 ]
+  %.0913.i.i.i.i.i = phi ptr [ %54, %53 ], [ %15, %49 ]
   %50 = load i8, ptr %.0913.i.i.i.i.i, align 1, !tbaa !23
   %51 = load i8, ptr %.0814.i.i.i.i.i, align 1, !tbaa !23
   %52 = icmp eq i8 %50, %51

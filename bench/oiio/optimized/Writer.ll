@@ -445,15 +445,15 @@ declare void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr noundef no
 define hidden noundef zeroext i1 @_ZN3dpx6Writer12WritePadDataEi(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %4 = load i64, ptr %3, align 8, !tbaa !14
-  %.fr16 = freeze i64 %4
+  %.fr = freeze i64 %4
   %5 = sext i32 %1 to i64
   %6 = add nsw i64 %5, -1
-  %7 = add i64 %6, %.fr16
+  %7 = add i64 %6, %.fr
   %8 = srem i64 %7, %5
   %9 = sub nsw i64 %7, %8
   %sext = shl i64 %9, 32
   %10 = ashr exact i64 %sext, 32
-  %11 = sub i64 %9, %.fr16
+  %11 = sub i64 %9, %.fr
   %12 = trunc i64 %11 to i32
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %32
@@ -526,13 +526,13 @@ _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
 11:                                               ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %13 = load i64, ptr %12, align 8, !tbaa !14
-  %.fr16.i = freeze i64 %13
-  %14 = add i64 %.fr16.i, 8191
+  %.fr.i = freeze i64 %13
+  %14 = add i64 %.fr.i, 8191
   %15 = srem i64 %14, 8192
   %16 = sub nsw i64 %14, %15
   %sext.i = shl i64 %16, 32
   %17 = ashr exact i64 %sext.i, 32
-  %18 = sub i64 %16, %.fr16.i
+  %18 = sub i64 %16, %.fr.i
   %19 = trunc i64 %18 to i32
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.noexc.i, label %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
@@ -570,7 +570,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit19.i:                ; preds = %.noexc.i
   resume { ptr, i32 } %31
 
 _ZN3dpx13GenericHeader13SetDataOffsetEij.exit:    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge, %11
-  %32 = phi i64 [ %.pre, %_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge ], [ %.fr16.i, %11 ]
+  %32 = phi i64 [ %.pre, %_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge ], [ %.fr.i, %11 ]
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 808
   store i32 %33, ptr %34, align 8, !tbaa !50
@@ -634,13 +634,13 @@ _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
 12:                                               ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %14 = load i64, ptr %13, align 8, !tbaa !14
-  %.fr16.i = freeze i64 %14
-  %15 = add i64 %.fr16.i, 8191
+  %.fr.i = freeze i64 %14
+  %15 = add i64 %.fr.i, 8191
   %16 = srem i64 %15, 8192
   %17 = sub nsw i64 %15, %16
   %sext.i = shl i64 %17, 32
   %18 = ashr exact i64 %sext.i, 32
-  %19 = sub i64 %17, %.fr16.i
+  %19 = sub i64 %17, %.fr.i
   %20 = trunc i64 %19 to i32
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.noexc.i, label %33

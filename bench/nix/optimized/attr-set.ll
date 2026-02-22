@@ -11557,7 +11557,7 @@ _ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.e
   br label %54
 
 54:                                               ; preds = %58, %.lr.ph.split.split.us.split
-  %.sroa.0.0.copyload.i.i.us13 = phi i32 [ %.sroa.0.0.copyload.i.i.us13.pre, %.lr.ph.split.split.us.split ], [ %.sroa.0.0.copyload.i.i.us1336, %58 ]
+  %.sroa.0.0.copyload.i.i.us13 = phi i32 [ %.sroa.0.0.copyload.i.i.us13.pre, %.lr.ph.split.split.us.split ], [ %.sroa.0.0.copyload.i.i.us1337, %58 ]
   %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %59, %58 ]
   %55 = load i32, ptr %.011.us12, align 4
   %56 = icmp ult i32 %55, %.sroa.0.0.copyload.i.i.us13
@@ -11574,7 +11574,7 @@ _ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.e
   br label %58
 
 58:                                               ; preds = %._crit_edge.i.i.us14, %54
-  %.sroa.0.0.copyload.i.i.us1336 = phi i32 [ %57, %._crit_edge.i.i.us14 ], [ %.sroa.0.0.copyload.i.i.us13, %54 ]
+  %.sroa.0.0.copyload.i.i.us1337 = phi i32 [ %57, %._crit_edge.i.i.us14 ], [ %.sroa.0.0.copyload.i.i.us13, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 16
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %54, label %._crit_edge, !llvm.loop !79
@@ -11585,7 +11585,7 @@ _ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.e
   br label %61
 
 61:                                               ; preds = %.lr.ph.split.split, %65
-  %.sroa.0.0.copyload.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.pre, %.lr.ph.split.split ], [ %.sroa.0.0.copyload.i.i34, %65 ]
+  %.sroa.0.0.copyload.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.pre, %.lr.ph.split.split ], [ %.sroa.0.0.copyload.i.i35, %65 ]
   %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %66, %65 ]
   %62 = load i32, ptr %.011, align 4
   %63 = icmp ult i32 %62, %.sroa.0.0.copyload.i.i
@@ -11602,7 +11602,7 @@ _ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.e
   br label %65
 
 65:                                               ; preds = %61, %._crit_edge.i.i
-  %.sroa.0.0.copyload.i.i34 = phi i32 [ %.sroa.0.0.copyload.i.i, %61 ], [ %64, %._crit_edge.i.i ]
+  %.sroa.0.0.copyload.i.i35 = phi i32 [ %.sroa.0.0.copyload.i.i, %61 ], [ %64, %._crit_edge.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %67 = icmp ult ptr %66, %2
   br i1 %67, label %61, label %._crit_edge, !llvm.loop !79

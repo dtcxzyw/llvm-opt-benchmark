@@ -2840,18 +2840,18 @@ define hidden void @"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xc
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !335
   store i64 %14, ptr %3, align 8, !noalias !337
   %15 = call { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h14ad336a202e483eE.llvm.5281577753466666573(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %12), !noalias !340
-  %.fr = freeze { ptr, i64 } %15
+  %.fr15 = freeze { ptr, i64 } %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !335
-  %16 = extractvalue { ptr, i64 } %.fr, 0
-  %17 = extractvalue { ptr, i64 } %.fr, 1
+  %16 = extractvalue { ptr, i64 } %.fr15, 0
+  %17 = extractvalue { ptr, i64 } %.fr15, 1
   %.not = icmp eq ptr %16, null
   %spec.select = select i1 %.not, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %16
-  %spec.select15 = select i1 %.not, i64 0, i64 %17
+  %spec.select16 = select i1 %.not, i64 0, i64 %17
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit", %2
   %18 = phi ptr [ @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, %2 ], [ %spec.select, %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit" ]
-  %19 = phi i64 [ 0, %2 ], [ %spec.select15, %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit" ]
+  %19 = phi i64 [ 0, %2 ], [ %spec.select16, %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit" ]
   %20 = getelementptr inbounds { i32, i32, i8, i8, [2 x i8] }, ptr %18, i64 %19
   store ptr %6, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8

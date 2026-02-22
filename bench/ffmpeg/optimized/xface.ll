@@ -271,21 +271,21 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %181
-  %indvars.iv137 = phi i64 [ 0, %2 ], [ %indvars.iv.next138, %181 ]
+  %indvars.iv135 = phi i64 [ 0, %2 ], [ %indvars.iv.next136, %181 ]
   %indvars.iv = phi i32 [ 1, %2 ], [ %indvars.iv.next, %181 ]
-  %3 = mul nuw nsw i64 %indvars.iv137, 48
-  %4 = trunc i64 %indvars.iv137 to i32
+  %3 = mul nuw nsw i64 %indvars.iv135, 48
+  %4 = trunc i64 %indvars.iv135 to i32
   %5 = add i32 %4, -2
-  %6 = trunc nuw nsw i64 %indvars.iv137 to i32
-  %7 = trunc nuw nsw i64 %indvars.iv137 to i32
-  %8 = trunc nuw nsw i64 %indvars.iv137 to i32
-  %9 = trunc nuw nsw i64 %indvars.iv137 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv135 to i32
   br label %10
 
 10:                                               ; preds = %.preheader, %180
-  %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %180 ]
-  %indvars.iv130 = phi i32 [ 3, %.preheader ], [ %indvars.iv.next131, %180 ]
-  %11 = trunc i64 %indvars.iv133 to i32
+  %indvars.iv131 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next132, %180 ]
+  %indvars.iv128 = phi i32 [ 3, %.preheader ], [ %indvars.iv.next129, %180 ]
+  %11 = trunc i64 %indvars.iv131 to i32
   %12 = add i32 %11, -2
   br label %13
 
@@ -293,13 +293,14 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   %.091118 = phi i32 [ %12, %10 ], [ %42, %.split101.us ]
   %.092117 = phi i32 [ 0, %10 ], [ %.us-phi, %.split101.us ]
   %14 = add i32 %.091118, -1
-  %or.cond144 = icmp ult i32 %14, 48
-  br i1 %or.cond144, label %.split.split, label %.split101.us
+  %or.cond142 = icmp ult i32 %14, 48
+  br i1 %or.cond142, label %.split.split, label %.split101.us
 
 .split.split:                                     ; preds = %13
   %15 = zext nneg i32 %.091118 to i64
-  %.not96.not = icmp samesign ugt i64 %indvars.iv133, %15
-  br i1 %.not96.not, label %.split.split.split.us, label %.split.split.split
+  %.not96 = icmp samesign ule i64 %indvars.iv131, %15
+  %.not96.fr116 = freeze i1 %.not96
+  br i1 %.not96.fr116, label %.split.split.split, label %.split.split.split.us
 
 .split.split.split.us:                            ; preds = %.split.split, %26
   %.099.us108 = phi i32 [ %27, %26 ], [ %5, %.split.split ]
@@ -321,14 +322,14 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 26:                                               ; preds = %17, %.split.split.split.us
   %.2.us111 = phi i32 [ %.198.us109, %.split.split.split.us ], [ %25, %17 ]
   %27 = add nsw i32 %.099.us108, 1
-  %exitcond129.not = icmp eq i32 %27, %indvars.iv
-  br i1 %exitcond129.not, label %.split101.us, label %.split.split.split.us, !llvm.loop !15
+  %exitcond.not = icmp eq i32 %27, %indvars.iv
+  br i1 %exitcond.not, label %.split101.us, label %.split.split.split.us, !llvm.loop !15
 
 .split.split.split:                               ; preds = %.split.split, %40
   %.099 = phi i32 [ %41, %40 ], [ %5, %.split.split ]
   %.198 = phi i32 [ %.2, %40 ], [ %.092117, %.split.split ]
   %28 = zext i32 %.099 to i64
-  %29 = icmp ne i64 %indvars.iv137, %28
+  %29 = icmp ne i64 %indvars.iv135, %28
   %30 = icmp sgt i32 %.099, 0
   %or.cond = and i1 %29, %30
   br i1 %or.cond, label %31, label %40
@@ -347,18 +348,18 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 40:                                               ; preds = %.split.split.split, %31
   %.2 = phi i32 [ %39, %31 ], [ %.198, %.split.split.split ]
   %41 = add nsw i32 %.099, 1
-  %exitcond.not = icmp eq i32 %41, %indvars.iv
-  br i1 %exitcond.not, label %.split101.us, label %.split.split.split, !llvm.loop !15
+  %exitcond127.not = icmp eq i32 %41, %indvars.iv
+  br i1 %exitcond127.not, label %.split101.us, label %.split.split.split, !llvm.loop !15
 
-.split101.us:                                     ; preds = %40, %26, %13
-  %.us-phi = phi i32 [ %.2.us111, %26 ], [ %.092117, %13 ], [ %.2, %40 ]
+.split101.us:                                     ; preds = %26, %40, %13
+  %.us-phi = phi i32 [ %.092117, %13 ], [ %.2, %40 ], [ %.2.us111, %26 ]
   %42 = add nsw i32 %.091118, 1
-  %exitcond132 = icmp eq i32 %42, %indvars.iv130
-  br i1 %exitcond132, label %43, label %13, !llvm.loop !16
+  %exitcond130 = icmp eq i32 %42, %indvars.iv128
+  br i1 %exitcond130, label %43, label %13, !llvm.loop !16
 
 43:                                               ; preds = %.split101.us
-  %44 = add nuw nsw i64 %indvars.iv133, %3
-  %45 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %44 = add nuw nsw i64 %indvars.iv131, %3
+  %45 = trunc nuw nsw i64 %indvars.iv131 to i32
   switch i32 %45, label %142 [
     i32 1, label %46
     i32 2, label %70
@@ -553,16 +554,16 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   br label %180
 
 180:                                              ; preds = %46, %56, %47, %92, %78, %71, %128, %114, %107, %166, %152, %143
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %indvars.iv.next131 = add nuw nsw i32 %indvars.iv130, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, 48
-  br i1 %exitcond136.not, label %181, label %10, !llvm.loop !17
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %indvars.iv.next129 = add nuw nsw i32 %indvars.iv128, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next132, 48
+  br i1 %exitcond134.not, label %181, label %10, !llvm.loop !17
 
 181:                                              ; preds = %180
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next138, 48
-  br i1 %exitcond140.not, label %182, label %.preheader, !llvm.loop !18
+  %exitcond138.not = icmp eq i64 %indvars.iv.next136, 48
+  br i1 %exitcond138.not, label %182, label %.preheader, !llvm.loop !18
 
 182:                                              ; preds = %181
   ret void

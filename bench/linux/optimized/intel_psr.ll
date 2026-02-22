@@ -3433,7 +3433,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   br i1 %253, label %254, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %250
-  %.pre27 = load i16, ptr %172, align 8
+  %.pre28 = load i16, ptr %172, align 8
   br label %274
 
 254:                                              ; preds = %250
@@ -3460,7 +3460,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   br label %308
 
 274:                                              ; preds = %._crit_edge, %228
-  %275 = phi i16 [ %.pre27, %._crit_edge ], [ %173, %228 ]
+  %275 = phi i16 [ %.pre28, %._crit_edge ], [ %173, %228 ]
   %276 = icmp ugt i16 %275, 11
   br i1 %276, label %277, label %291
 
@@ -3482,14 +3482,14 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
 
 291:                                              ; preds = %274
   %292 = icmp samesign ugt i16 %275, 8
-  br i1 %292, label %.thread46, label %.thread13
+  br i1 %292, label %.thread47, label %.thread13
 
 .thread13:                                        ; preds = %291
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 3306
   %294 = load i8, ptr %293, align 2, !range !5, !noundef !6
   br label %317
 
-.thread46:                                        ; preds = %291
+.thread47:                                        ; preds = %291
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 3308
   %296 = load i8, ptr %295, align 4
   %297 = zext i8 %296 to i32
@@ -3501,7 +3501,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %303 = mul nuw nsw i32 %302, 6144
   %304 = and i32 %303, 6144
   %305 = or disjoint i32 %304, %299
-  %.ph49 = or i32 %305, %229
+  %.ph50 = or i32 %305, %229
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 3306
   %307 = load i8, ptr %306, align 2, !range !5, !noundef !6
   br label %317
@@ -3522,11 +3522,11 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %316 = and i32 %315, 196608
   br label %317
 
-317:                                              ; preds = %.thread46, %.thread13, %312, %308
-  %318 = phi i8 [ %310, %312 ], [ %310, %308 ], [ %294, %.thread13 ], [ %307, %.thread46 ]
-  %319 = phi i32 [ %.ph, %312 ], [ %.ph, %308 ], [ %229, %.thread13 ], [ %.ph49, %.thread46 ]
-  %320 = phi i16 [ %.pr, %312 ], [ %.pr, %308 ], [ %275, %.thread13 ], [ %275, %.thread46 ]
-  %321 = phi i32 [ %316, %312 ], [ 0, %308 ], [ 0, %.thread13 ], [ 0, %.thread46 ]
+317:                                              ; preds = %.thread47, %.thread13, %312, %308
+  %318 = phi i8 [ %310, %312 ], [ %310, %308 ], [ %294, %.thread13 ], [ %307, %.thread47 ]
+  %319 = phi i32 [ %.ph, %312 ], [ %.ph, %308 ], [ %229, %.thread13 ], [ %.ph50, %.thread47 ]
+  %320 = phi i16 [ %.pr, %312 ], [ %.pr, %308 ], [ %275, %.thread13 ], [ %275, %.thread47 ]
+  %321 = phi i32 [ %316, %312 ], [ 0, %308 ], [ 0, %.thread13 ], [ 0, %.thread47 ]
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 3304
   %323 = load i8, ptr %322, align 8, !range !5, !noundef !6
   %324 = icmp eq i8 %323, 0
@@ -3600,10 +3600,10 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
 371:                                              ; preds = %356, %354, %352, %325
   %372 = load i16, ptr %172, align 8
   %373 = icmp ugt i16 %372, 7
-  br i1 %373, label %374, label %._crit_edge31
+  br i1 %373, label %374, label %._crit_edge32
 
-._crit_edge31:                                    ; preds = %371
-  %.pre32 = sext i32 %110 to i64
+._crit_edge32:                                    ; preds = %371
+  %.pre33 = sext i32 %110 to i64
   br label %386
 
 374:                                              ; preds = %371
@@ -3620,9 +3620,9 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   %385 = add i32 %384, %382
   br label %386
 
-386:                                              ; preds = %._crit_edge31, %374
-  %.pre-phi = phi i64 [ %.pre32, %._crit_edge31 ], [ %377, %374 ]
-  %387 = phi i32 [ 411648, %._crit_edge31 ], [ %385, %374 ]
+386:                                              ; preds = %._crit_edge32, %374
+  %.pre-phi = phi i64 [ %.pre33, %._crit_edge32 ], [ %377, %374 ]
+  %387 = phi i32 [ 411648, %._crit_edge32 ], [ %385, %374 ]
   %388 = icmp eq i8 %318, 0
   %389 = or i32 %319, 33554432
   %390 = select i1 %388, i32 %319, i32 %389
@@ -3669,13 +3669,13 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 705, i32 2313, i64 12) #10, !srcloc !77
   tail call void asm sideeffect "908: nop\0A\09.pushsection .discard.instr_end\0A\09.long 908b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 908) #10, !srcloc !78
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #10, !srcloc !79
-  %.pre29 = load ptr, ptr %144, align 8
-  %.pre30 = load ptr, ptr %2, align 8
+  %.pre30 = load ptr, ptr %144, align 8
+  %.pre31 = load ptr, ptr %2, align 8
   br label %418
 
 418:                                              ; preds = %416, %405
-  %419 = phi ptr [ %.pre30, %416 ], [ %143, %405 ]
-  %420 = phi ptr [ %.pre29, %416 ], [ %145, %405 ]
+  %419 = phi ptr [ %.pre31, %416 ], [ %143, %405 ]
+  %420 = phi ptr [ %.pre30, %416 ], [ %145, %405 ]
   %421 = tail call i32 @llvm.umin.i32(i32 %153, i32 15)
   %422 = getelementptr inbounds nuw i8, ptr %143, i64 2632
   %423 = load i16, ptr %422, align 8
@@ -3774,8 +3774,8 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
 484:                                              ; preds = %480
   %485 = getelementptr i8, ptr %0, i64 19
   %486 = load i8, ptr %485, align 1
-  %.fr19 = freeze i8 %486
-  %487 = and i8 %.fr19, 64
+  %.fr20 = freeze i8 %486
+  %487 = and i8 %.fr20, 64
   %488 = zext nneg i8 %487 to i32
   %489 = shl nuw nsw i32 %488, 5
   %spec.select18 = or i32 %489, %478

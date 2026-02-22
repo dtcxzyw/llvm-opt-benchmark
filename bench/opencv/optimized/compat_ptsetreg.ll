@@ -1958,9 +1958,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   br i1 %.not.i.i.i87, label %.body76, label %.body76.sink.split
 
 .body76.sink.split:                               ; preds = %136, %101
-  %.sink115 = phi ptr [ %103, %101 ], [ %138, %136 ]
+  %.sink116 = phi ptr [ %103, %101 ], [ %138, %136 ]
   %.pn44.ph = phi { ptr, i32 } [ %102, %101 ], [ %137, %136 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink115) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sink116) #23
   br label %.body76
 
 .body76:                                          ; preds = %.body76.sink.split, %136, %101
@@ -1971,9 +1971,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   br i1 %.not.i.i.i89, label %.body71, label %.body71.sink.split
 
 .body71.sink.split:                               ; preds = %.body76, %95
-  %.sink116 = phi ptr [ %97, %95 ], [ %139, %.body76 ]
+  %.sink117 = phi ptr [ %97, %95 ], [ %139, %.body76 ]
   %.pn44.pn.ph = phi { ptr, i32 } [ %96, %95 ], [ %.pn44, %.body76 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink116) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sink117) #23
   br label %.body71
 
 .body71:                                          ; preds = %.body71.sink.split, %.body76, %95
@@ -2048,8 +2048,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   %164 = load ptr, ptr %0, align 8, !tbaa !21
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %166 = load i32, ptr %11, align 8
-  %.fr = freeze i32 %166
-  %167 = and i32 %.fr, 16384
+  %.fr95 = freeze i32 %166
+  %167 = and i32 %.fr95, 16384
   %.not.i.i = icmp eq i32 %167, 0
   %168 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %169 = load ptr, ptr %168, align 8
@@ -2062,17 +2062,17 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %28, align 8, !tbaa !21
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %wide.trip.count100 = zext nneg i32 %31 to i64
+  %wide.trip.count101 = zext nneg i32 %31 to i64
   br i1 %.not.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %210
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %210 ], [ 0, %.lr.ph ]
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %210 ], [ 0, %.lr.ph ]
   %.01693.us = phi i32 [ %.1.us, %210 ], [ 0, %.lr.ph ]
   %179 = load ptr, ptr %163, align 8, !tbaa !22
-  %180 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv97
+  %180 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv98
   %181 = load double, ptr %180, align 8, !tbaa !23
   %182 = load ptr, ptr %165, align 8, !tbaa !22
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %indvars.iv97
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %indvars.iv98
   %184 = load i8, ptr %183, align 1, !tbaa !22
   %.not55.us = icmp eq i8 %184, 0
   br i1 %.not55.us, label %210, label %185
@@ -2122,11 +2122,11 @@ _ZN2cv4Mat_IdEclEi.exit.us:                       ; preds = %205, %200, %191
   %211 = phi double [ %209, %_ZN2cv4Mat_IdEclEi.exit.us ], [ 0.000000e+00, %.lr.ph.split.us ]
   %212 = fsub double %181, %211
   %213 = load ptr, ptr %178, align 8, !tbaa !22
-  %214 = getelementptr inbounds nuw double, ptr %213, i64 %indvars.iv97
+  %214 = getelementptr inbounds nuw double, ptr %213, i64 %indvars.iv98
   store double %212, ptr %214, align 8, !tbaa !23
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !76
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
+  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %232, %210, %159
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #20
@@ -2192,7 +2192,7 @@ _ZN2cv4Mat_IdEclEi.exit:                          ; preds = %.lr.ph.split
   %236 = getelementptr inbounds nuw double, ptr %235, i64 %indvars.iv
   store double %234, ptr %236, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count100
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count101
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !76
 
 237:                                              ; preds = %220, %219, %140, %.body71, %135

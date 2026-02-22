@@ -11182,13 +11182,13 @@ _ZNK4llvm10DIVariable7getNameEv.exit.i:           ; preds = %403, %_ZNK4llvm6DIN
   %425 = load ptr, ptr %424, align 8, !tbaa !203
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   %427 = load i32, ptr %426, align 8
-  %.fr.i.i = freeze i32 %427
-  %428 = and i32 %.fr.i.i, 255
+  %.fr8.i.i = freeze i32 %427
+  %428 = and i32 %.fr8.i.i, 255
   %429 = icmp eq i32 %428, 12
   br i1 %429, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %430
 
 430:                                              ; preds = %423
-  %trunc.i.i.i.i = trunc i32 %.fr.i.i to i8
+  %trunc.i.i.i.i = trunc i32 %.fr8.i.i to i8
   switch i8 %trunc.i.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
@@ -11198,7 +11198,7 @@ _ZNK4llvm10DIVariable7getNameEv.exit.i:           ; preds = %403, %_ZNK4llvm6DIN
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %430
-  %431 = and i32 %.fr.i.i, 253
+  %431 = and i32 %.fr8.i.i, 253
   %spec.select.i.i.i283 = icmp eq i32 %431, 4
   br i1 %spec.select.i.i.i283, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %switch.early.test.i.i
 
@@ -12751,11 +12751,9 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS
   %11 = load ptr, ptr %10, align 8, !tbaa !628
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !174
-  %.fr15 = freeze i64 %13
-  %.not24.i = icmp eq i64 %.fr15, 0
-  %.fr16 = freeze i64 %3
-  %.fr17 = freeze i64 %5
-  %spec.select.i = select i1 %.not24.i, i64 %.fr16, i64 %.fr17
+  %.not24.i = icmp eq i64 %13, 0
+  %spec.select.i = select i1 %.not24.i, i64 %3, i64 %5
+  %spec.select.i.fr = freeze i64 %spec.select.i
   %spec.select23.i = select i1 %.not24.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
@@ -12766,7 +12764,7 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val.i = load ptr, ptr %17, align 8, !tbaa !25
-  %18 = icmp eq i64 %spec.select.i, 0
+  %18 = icmp eq i64 %spec.select.i.fr, 0
   br i1 %18, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us
@@ -12787,12 +12785,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread21.i.us:  ; preds = %.lr.ph.i.split.us
   %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %.01526.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !45
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !44
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select23.i, i64 %spec.select.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select23.i, i64 %spec.select.i.fr)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
 
@@ -12820,7 +12818,7 @@ _ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_R
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select23.i, ptr %30, align 8, !tbaa !220, !alias.scope !635
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select.i, ptr %31, align 8, !tbaa !220, !alias.scope !635
+  store i64 %spec.select.i.fr, ptr %31, align 8, !tbaa !220, !alias.scope !635
   store ptr %8, ptr %7, align 8, !alias.scope !639
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.47, ptr %32, align 8, !alias.scope !639
@@ -13190,13 +13188,13 @@ define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @_ZN12_GLO
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
-  %.fr.i = freeze i32 %5
-  %6 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %5
+  %6 = and i32 %.fr8.i, 255
   %7 = icmp eq i32 %6, 12
   br i1 %7, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -13206,7 +13204,7 @@ define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @_ZN12_GLO
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %8
-  %9 = and i32 %.fr.i, 253
+  %9 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %9, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 

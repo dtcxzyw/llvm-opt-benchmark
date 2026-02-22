@@ -320,20 +320,19 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr nou
   %40 = zext i32 %.017.i85.us to i64
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 %40
   %.val61.us = load i64, ptr %41, align 1
-  %.val61.fr.us = freeze i64 %.val61.us
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 %40
   %.val.us = load i64, ptr %42, align 1
-  %.val.fr.us = freeze i64 %.val.us
-  %.not.i.not.us = icmp eq i64 %.val61.fr.us, %.val.fr.us
+  %.not.i.not.us = icmp eq i64 %.val61.us, %.val.us
   br i1 %.not.i.not.us, label %57, label %.thread.us
 
 .thread.us:                                       ; preds = %.preheader.us
-  %43 = sub i64 %.val61.fr.us, %.val.fr.us
+  %43 = sub i64 %.val61.us, %.val.us
   %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %43, i1 true)
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = lshr i32 %45, 3
   %47 = add i32 %46, %.017.i85.us
-  %48 = tail call i32 @llvm.umin.i32(i32 %47, i32 %0)
+  %.fr.us = freeze i32 %47
+  %48 = tail call i32 @llvm.umin.i32(i32 %.fr.us, i32 %0)
   br label %lzma_memcmplen.exit.us
 
 lzma_memcmplen.exit.us:                           ; preds = %57, %.thread.us

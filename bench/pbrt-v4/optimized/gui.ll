@@ -2018,7 +2018,6 @@ define dso_local void @_ZN4pbrt3GUI17cursorPosCallbackEP10GLFWwindowdd(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7Vector2IiEENS_7Bounds3IfEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 5), (16, 20), (24, 32)) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly byval(%"class.pbrt::Bounds3") align 8 captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.fr13 = freeze i64 %2
   store float 1.000000e+00, ptr %0, align 8, !tbaa !176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %5, align 4, !tbaa !175
@@ -2082,11 +2081,11 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %14
   br i1 %exitcond.not.i5.i, label %21, label %22, !llvm.loop !174
 
 26:                                               ; preds = %21
-  %.sroa.06.0.extract.trunc = trunc i64 %.fr13 to i32
-  %.sroa.5.0.extract.shift = lshr i64 %.fr13, 32
+  %.sroa.06.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.5.0.extract.shift = lshr i64 %2, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i64 %.fr13, ptr %27, align 4
+  store i64 %2, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 0, ptr %28, align 4, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2126,25 +2125,25 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %14
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 13
   %52 = load i8, ptr %51, align 1, !tbaa !188, !range !35, !noundef !36
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %.invoke15
+  br i1 %53, label %54, label %.invoke14
 
 54:                                               ; preds = %49
   %55 = invoke ptr @glfwGetPrimaryMonitor()
-          to label %.invoke15 unwind label %56
+          to label %.invoke14 unwind label %56
 
-56:                                               ; preds = %.invoke15, %.invoke, %84, %79, %78, %77, %76, %75, %73, %71, %68, %65, %63, %62, %54, %26
+56:                                               ; preds = %.invoke14, %.invoke, %84, %79, %78, %77, %76, %75, %73, %71, %68, %65, %63, %62, %54, %26
   %57 = landingpad { ptr, i32 }
           cleanup
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt3setIcSt4lessIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %58) #30
   resume { ptr, i32 } %57
 
-.invoke15:                                        ; preds = %54, %49
+.invoke14:                                        ; preds = %54, %49
   %59 = phi ptr [ null, %49 ], [ %55, %54 ]
   %60 = invoke ptr @glfwCreateWindow(i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.sroa.5.0.extract.trunc, ptr noundef nonnull @.str.9, ptr noundef %59, ptr noundef null)
           to label %61 unwind label %56
 
-61:                                               ; preds = %.invoke15
+61:                                               ; preds = %.invoke14
   store ptr %60, ptr %32, align 8, !tbaa !191
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %62, label %63
@@ -2211,9 +2210,10 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %14
   unreachable
 
 84:                                               ; preds = %81
-  %85 = shl i64 %.fr13, 32
+  %85 = shl i64 %2, 32
   %sext = mul i64 %85, %.sroa.5.0.extract.shift
-  %86 = ashr exact i64 %sext, 32
+  %sext.fr = freeze i64 %sext
+  %86 = ashr i64 %sext.fr, 32
   %87 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %86, i64 12)
   %88 = extractvalue { i64, i1 } %87, 1
   %89 = extractvalue { i64, i1 } %87, 0
@@ -2222,7 +2222,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %14
           to label %92 unwind label %56
 
 92:                                               ; preds = %84
-  %93 = icmp eq i64 %sext, 0
+  %93 = icmp eq i64 %sext.fr, 0
   br i1 %93, label %.loopexit, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %92

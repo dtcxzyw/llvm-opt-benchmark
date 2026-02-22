@@ -434,8 +434,8 @@ define dso_local i64 @_ZN5clang4sema17FunctionScopeInfo19WeakObjectProfileTy11ge
   %9 = load ptr, ptr %8, align 8, !tbaa !150
   %10 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #17
   %11 = load i16, ptr %10, align 8
-  %.fr = freeze i16 %11
-  %12 = and i16 %.fr, 511
+  %.fr35 = freeze i16 %11
+  %12 = and i16 %.fr35, 511
   %13 = icmp eq i16 %12, 100
   %14 = ptrtoint ptr %7 to i64
   %15 = and i64 %14, -5
@@ -492,8 +492,8 @@ define dso_local i64 @_ZN5clang4sema17FunctionScopeInfo19WeakObjectProfileTy11ge
   %46 = load ptr, ptr %45, align 8, !tbaa !159
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
-  %.fr35 = freeze i32 %48
-  %49 = and i32 %.fr35, 127
+  %.fr = freeze i32 %48
+  %49 = and i32 %.fr, 127
   %50 = add nsw i32 %49, -38
   %51 = icmp ult i32 %50, 7
   %52 = ptrtoint ptr %46 to i64

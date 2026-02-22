@@ -735,11 +735,11 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit:           ; preds = %19
   %28 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %29 = icmp eq i32 %28, 1
   %30 = or i1 %spec.select.i, %29
-  %.not74 = xor i1 %30, true
+  %.not71 = xor i1 %30, true
   %31 = icmp ne i32 %28, 2
-  %32 = and i1 %31, %.not74
-  %or.cond75 = and i1 %32, %26
-  br i1 %or.cond75, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %33
+  %32 = and i1 %31, %.not71
+  %or.cond72 = and i1 %32, %26
+  br i1 %or.cond72, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %33
 
 33:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit
   %34 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
@@ -785,27 +785,25 @@ _ZL18check_legacy_flagsv.exit:                    ; preds = %_ZN12JVMFlagLimit14
   %61 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %62 = icmp eq i32 %61, 0
   %63 = load i64, ptr @TieredStopAtLevel, align 8
-  %.fr59 = freeze i64 %63
-  %64 = icmp eq i64 %.fr59, 0
-  %65 = or i1 %62, %64
+  %64 = icmp eq i64 %63, 0
+  %65 = select i1 %62, i1 true, i1 %64
   br i1 %65, label %_ZN14CompilerConfig10is_c1_onlyEv.exit36.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit32
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit32:         ; preds = %51
   %66 = load i8, ptr @TieredCompilation, align 1
-  %.fr = freeze i8 %66
-  %67 = trunc i8 %.fr to i1
-  %68 = icmp ult i64 %.fr59, 4
-  %spec.select.i30 = and i1 %68, %67
+  %67 = trunc i8 %66 to i1
+  %68 = icmp ult i64 %63, 4
+  %spec.select.i30 = select i1 %67, i1 %68, i1 false
   %69 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.fr60 = freeze i32 %69
-  %70 = icmp eq i32 %.fr60, 1
+  %70 = icmp eq i32 %69, 1
   %71 = or i1 %spec.select.i30, %70
-  %spec.select = select i1 %71, i64 %52, i64 %55
+  %cond.fr = freeze i1 %71
+  %spec.select = select i1 %cond.fr, i64 %52, i64 %55
   %72 = icmp eq i64 %spec.select, 0
   %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select, i1 true)
   %74 = xor i64 %73, 63
   %75 = select i1 %72, i64 -1, i64 %74
-  %spec.select56 = select i1 %71, i64 %58, i64 %60
+  %spec.select56 = select i1 %cond.fr, i64 %58, i64 %60
   br label %80
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit36.thread:  ; preds = %51
@@ -893,10 +891,10 @@ _ZN14CompilerConfig10is_c2_onlyEv.exit.i40:       ; preds = %_ZN14CompilerConfig
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
   %.not.i44 = xor i1 %115, true
   %118 = icmp ne i32 %111, 2
-  %.not64 = and i1 %118, %109
-  %119 = or i1 %.not64, %.not.i44
-  %or.cond66 = or i1 %119, %113
-  br i1 %or.cond66, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
+  %.not60 = and i1 %118, %109
+  %119 = or i1 %.not60, %.not.i44
+  %or.cond62 = or i1 %119, %113
+  br i1 %or.cond62, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
 
 120:                                              ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

@@ -15672,7 +15672,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl14regOverlapsSetERKN4llvm15SmallVectorImplINS1_8RegisterEEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, ptr readonly captures(address) %.0.val, i32 %.8.val, i32 %1) unnamed_addr #0 align 2 {
-  %.fr14 = freeze i32 %1
+  %.fr = freeze i32 %1
   %3 = zext i32 %.8.val to i64
   %.idx = shl nuw nsw i64 %3, 2
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx
@@ -15681,18 +15681,18 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstruc
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = add i32 %.fr14, -1
+  %6 = add i32 %.fr, -1
   %7 = icmp ult i32 %6, 1073741823
   br i1 %7, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %8 = load i32, ptr %.0.val, align 4, !tbaa !621
-  %9 = icmp eq i32 %8, %.fr14
+  %9 = icmp eq i32 %8, %.fr
   br i1 %9, label %.thread, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2.us
 
 10:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2.us
   %11 = load i32, ptr %13, align 4, !tbaa !621
-  %12 = icmp eq i32 %11, %.fr14
+  %12 = icmp eq i32 %11, %.fr
   br i1 %12, label %.thread, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2.us
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2.us: ; preds = %.lr.ph.split.us, %10
@@ -15705,7 +15705,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2.us: ; p
   %.0126 = phi ptr [ %21, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2 ], [ %.0.val, %.lr.ph ]
   %14 = load i32, ptr %.0126, align 4, !tbaa !621
   %15 = load ptr, ptr %5, align 8, !tbaa !200
-  %16 = icmp eq i32 %14, %.fr14
+  %16 = icmp eq i32 %14, %.fr
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %.lr.ph.split
@@ -15714,7 +15714,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2.us: ; p
   br i1 %19, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit: ; preds = %17
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %15, i32 %14, i32 %.fr14) #18
+  %20 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %15, i32 %14, i32 %.fr) #18
   br i1 %20, label %.thread, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread2: ; preds = %17, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit

@@ -9620,37 +9620,36 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge: ; preds = %_Z
 
 58:                                               ; preds = %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge, %48
   %59 = phi i32 [ %.pre, %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge ], [ %52, %48 ]
-  %.fr = freeze i32 %59
-  %60 = and i32 %.fr, 65535
+  %60 = and i32 %59, 65535
   %.not48 = icmp eq i32 %60, 0
   br i1 %.not48, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %62 = load i64, ptr %61, align 8
-  %.fr52 = freeze i64 %62
-  %63 = inttoptr i64 %.fr52 to ptr
-  %64 = and i32 %.fr, 16777216
+  %63 = inttoptr i64 %62 to ptr
+  %64 = and i32 %59, 16777216
   %.not.i30 = icmp eq i32 %64, 0
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.not2643 = icmp eq i64 %.fr52, 0
-  %.not26 = or i1 %.not.i30, %.not2643
+  %.not2643 = icmp eq i64 %62, 0
+  %.not26 = select i1 %.not.i30, i1 true, i1 %.not2643
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 96
+  %.not26.fr = freeze i1 %.not26
   %67 = zext nneg i32 %60 to i64
-  br i1 %.not26, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not26.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %72
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %72 ], [ 0, %.lr.ph ]
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %72 ], [ 0, %.lr.ph ]
   %68 = load ptr, ptr %0, align 8, !tbaa !9
-  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv62
+  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv61
   %70 = load ptr, ptr %69, align 8, !tbaa !788
   %71 = call fastcc noundef ptr @_ZN5clangL17findCapturingExprERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17504) %68, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(21) %5)
   %.not25.us = icmp eq ptr %71, null
   br i1 %.not25.us, label %72, label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit.thread40
 
 72:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %.not.us = icmp eq i64 %indvars.iv.next63, %67
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %.not.us = icmp eq i64 %indvars.iv.next62, %67
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !1325
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %99

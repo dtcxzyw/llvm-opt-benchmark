@@ -8600,8 +8600,8 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_10config_mpfEE18propagat
   store i64 %14, ptr %15, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !103
-  %.not116 = icmp eq i32 %17, 0
-  br i1 %.not116, label %.thread, label %.lr.ph
+  %.not117 = icmp eq i32 %17, 0
+  br i1 %.not117, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %3
   %18 = tail call noundef zeroext i1 @_ZNK9subpaving9context_tINS_10config_mpfEE4node12is_unboundedEj(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %1)
@@ -8619,12 +8619,12 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_10config_mpfEE18propagat
 
 22:                                               ; preds = %.lr.ph, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
-  %.065104 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
-  %.068103 = phi i1 [ false, %.lr.ph ], [ %.3, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
+  %.065105 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
+  %.068104 = phi i1 [ false, %.lr.ph ], [ %.3, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
   %23 = getelementptr inbounds nuw %"class.subpaving::power", ptr %19, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !107
   %25 = tail call noundef zeroext i1 @_ZNK9subpaving9context_tINS_10config_mpfEE7is_zeroEjPNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %24, ptr noundef %2)
-  %spec.select = select i1 %25, i1 true, i1 %.068103
+  %spec.select = select i1 %25, i1 true, i1 %.068104
   %26 = getelementptr inbounds nuw %"class.subpaving::power", ptr %12, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 4, !tbaa !109
@@ -8699,20 +8699,20 @@ _ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit.i: ; preds = %48, %
 _ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit: ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %60 = load i32, ptr %59, align 8
-  %.fr = freeze i32 %60
-  %61 = and i32 %.fr, 1073741824
+  %.fr95 = freeze i32 %60
+  %61 = and i32 %.fr95, 1073741824
   %.not5.i = icmp eq i32 %61, 0
   %spec.select92 = select i1 %.not5.i, i1 true, i1 %spec.select
   br label %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread
 
 62:                                               ; preds = %22
   %63 = tail call noundef zeroext i1 @_ZNK9subpaving9context_tINS_10config_mpfEE4node12is_unboundedEj(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %24)
-  %spec.select80 = select i1 %63, i1 true, i1 %.065104
+  %spec.select80 = select i1 %63, i1 true, i1 %.065105
   br label %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread
 
 _ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit.thread: ; preds = %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit, %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit.i, %55, %62
   %.3 = phi i1 [ %spec.select, %62 ], [ %spec.select, %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit.i ], [ %spec.select92, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit ], [ %spec.select, %55 ]
-  %.1 = phi i1 [ %spec.select80, %62 ], [ %.065104, %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit.i ], [ %.065104, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit ], [ %.065104, %55 ]
+  %.1 = phi i1 [ %spec.select80, %62 ], [ %.065105, %_ZNK9subpaving9context_tINS_10config_mpfEE4node5upperEj.exit.i ], [ %.065105, %_ZNK9subpaving9context_tINS_10config_mpfEE13is_upper_zeroEjPNS2_4nodeE.exit ], [ %.065105, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !260
@@ -8845,20 +8845,20 @@ _ZN9subpaving9context_tINS_10config_mpfEE15propagate_boundEjRK3mpfbbPNS2_4nodeEN
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  br i1 %.not116, label %.critedge, label %.lr.ph110
+  br i1 %.not117, label %.critedge, label %.lr.ph111
 
-.lr.ph110:                                        ; preds = %129
+.lr.ph111:                                        ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %wide.trip.count124 = zext i32 %17 to i64
+  %wide.trip.count125 = zext i32 %17 to i64
   br label %135
 
-135:                                              ; preds = %.lr.ph110, %141
-  %indvars.iv121 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next122, %141 ]
-  %.066107 = phi i32 [ -1, %.lr.ph110 ], [ %.167, %141 ]
-  %136 = getelementptr inbounds nuw %"class.subpaving::power", ptr %131, i64 %indvars.iv121
+135:                                              ; preds = %.lr.ph111, %141
+  %indvars.iv122 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next123, %141 ]
+  %.066108 = phi i32 [ -1, %.lr.ph111 ], [ %.167, %141 ]
+  %136 = getelementptr inbounds nuw %"class.subpaving::power", ptr %131, i64 %indvars.iv122
   %137 = load i32, ptr %136, align 4, !tbaa !107
   store i8 1, ptr %130, align 8, !tbaa !87
   store ptr %2, ptr %132, align 8, !tbaa !90
@@ -8867,37 +8867,37 @@ _ZN9subpaving9context_tINS_10config_mpfEE15propagate_boundEjRK3mpfbbPNS2_4nodeEN
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %135
-  %.not = icmp eq i32 %.066107, -1
-  %140 = trunc nuw i64 %indvars.iv121 to i32
+  %.not = icmp eq i32 %.066108, -1
+  %140 = trunc nuw i64 %indvars.iv122 to i32
   br i1 %.not, label %141, label %.critedge
 
 141:                                              ; preds = %139, %135
-  %.167 = phi i32 [ %.066107, %135 ], [ %140, %139 ]
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %.critedge82, label %135, !llvm.loop !261
+  %.167 = phi i32 [ %.066108, %135 ], [ %140, %139 ]
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
+  br i1 %exitcond126.not, label %.critedge82, label %135, !llvm.loop !261
 
 .critedge82:                                      ; preds = %141
   %142 = icmp eq i32 %.167, -1
-  br i1 %142, label %.lr.ph114, label %146
+  br i1 %142, label %.lr.ph115, label %146
 
-.lr.ph114:                                        ; preds = %.critedge82, %144
-  %.0113 = phi i32 [ %145, %144 ], [ 0, %.critedge82 ]
+.lr.ph115:                                        ; preds = %.critedge82, %144
+  %.0114 = phi i32 [ %145, %144 ], [ 0, %.critedge82 ]
   %143 = load i32, ptr %126, align 8, !tbaa !46
   %.not93 = icmp eq i32 %143, -1
   br i1 %.not93, label %144, label %.critedge
 
-144:                                              ; preds = %.lr.ph114
-  tail call void @_ZN9subpaving9context_tINS_10config_mpfEE27propagate_monomial_downwardEjPNS2_4nodeEj(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %.0113)
-  %145 = add nuw i32 %.0113, 1
-  %exitcond126.not = icmp eq i32 %145, %17
-  br i1 %exitcond126.not, label %.critedge, label %.lr.ph114, !llvm.loop !262
+144:                                              ; preds = %.lr.ph115
+  tail call void @_ZN9subpaving9context_tINS_10config_mpfEE27propagate_monomial_downwardEjPNS2_4nodeEj(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %.0114)
+  %145 = add nuw i32 %.0114, 1
+  %exitcond127.not = icmp eq i32 %145, %17
+  br i1 %exitcond127.not, label %.critedge, label %.lr.ph115, !llvm.loop !262
 
 146:                                              ; preds = %.critedge82
   tail call void @_ZN9subpaving9context_tINS_10config_mpfEE27propagate_monomial_downwardEjPNS2_4nodeEj(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %.167)
   br label %.critedge
 
-.critedge:                                        ; preds = %139, %144, %.lr.ph114, %129, %146, %124, %_ZN9subpaving9context_tINS_10config_mpfEE15propagate_boundEjRK3mpfbbPNS2_4nodeENS2_13justificationE.exit90, %_ZN9subpaving9context_tINS_10config_mpfEE15propagate_boundEjRK3mpfbbPNS2_4nodeENS2_13justificationE.exit, %64
+.critedge:                                        ; preds = %139, %144, %.lr.ph115, %129, %146, %124, %_ZN9subpaving9context_tINS_10config_mpfEE15propagate_boundEjRK3mpfbbPNS2_4nodeENS2_13justificationE.exit90, %_ZN9subpaving9context_tINS_10config_mpfEE15propagate_boundEjRK3mpfbbPNS2_4nodeENS2_13justificationE.exit, %64
   ret void
 }
 

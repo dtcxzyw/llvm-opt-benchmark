@@ -5435,8 +5435,8 @@ define linkonce_odr dso_local noundef double @_ZNK2OT20TupleVariationHeader16cal
   %.sroa.2161.8.extract.trunc = trunc i64 %2 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 1, !tbaa !29
-  %.fr = freeze i16 %9
-  %.mask.i = and i16 %.fr, 128
+  %.fr184 = freeze i16 %9
+  %.mask.i = and i16 %.fr184, 128
   %.not172 = icmp eq i16 %.mask.i, 0
   br i1 %.not172, label %12, label %10
 
@@ -5446,7 +5446,7 @@ define linkonce_odr dso_local noundef double @_ZNK2OT20TupleVariationHeader16cal
 
 12:                                               ; preds = %7
   %.sroa.2.8.extract.trunc = trunc i64 %5 to i32
-  %13 = and i16 %.fr, -241
+  %13 = and i16 %.fr184, -241
   %14 = tail call i16 @llvm.bswap.i16(i16 %13)
   %15 = zext nneg i16 %14 to i32
   %16 = add nuw nsw i32 %15, 1
@@ -5506,7 +5506,7 @@ define linkonce_odr dso_local noundef double @_ZNK2OT20TupleVariationHeader16cal
   br i1 %.not120176, label %.lr.ph, label %.critedge123
 
 .lr.ph:                                           ; preds = %36
-  %44 = and i16 %.fr, 64
+  %44 = and i16 %.fr184, 64
   %.not173 = icmp eq i16 %44, 0
   br i1 %.not173, label %.lr.ph.split.us, label %.lr.ph.split
 

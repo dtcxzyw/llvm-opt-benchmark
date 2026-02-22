@@ -17,25 +17,24 @@ define void @ff_nelly_get_sample_bits(ptr noundef readonly captures(none) %0, pt
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %.0160173 = phi i32 [ 0, %2 ], [ %.fr244, %4 ]
+  %.0160173 = phi i32 [ 0, %2 ], [ %9, %4 ]
   %5 = sitofp i32 %.0160173 to float
   %6 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %7 = load float, ptr %6, align 4, !tbaa !4
   %8 = fcmp nsz olt float %7, %5
   %. = select nsz i1 %8, float %5, float %7
   %9 = fptosi float %. to i32
-  %.fr244 = freeze i32 %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 124
   br i1 %exitcond.not, label %10, label %4, !llvm.loop !8
 
 10:                                               ; preds = %4
-  %11 = icmp eq i32 %.fr244, 0
+  %11 = icmp eq i32 %9, 0
   br i1 %11, label %headroom.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @llvm.abs.i32(i32 %.fr244, i1 false)
-  %14 = icmp ugt i32 %13, 65535
+  %13 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %14 = icmp samesign ugt i32 %13, 65535
   %15 = lshr i32 %13, 16
   %spec.select.i.i = select i1 %14, i32 %15, i32 %13
   %spec.select11.i.neg.i = select i1 %14, i32 -16, i32 0
@@ -45,8 +44,7 @@ define void @ff_nelly_get_sample_bits(ptr noundef readonly captures(none) %0, pt
   %17 = zext nneg i32 %.110.i.i to i64
   %18 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !10
-  %.fr245 = freeze i8 %19
-  %20 = zext i8 %.fr245 to i32
+  %20 = zext i8 %19 to i32
   %21 = select i1 %.not.i.i, i32 30, i32 22
   %.neg8.i = add nsw i32 %21, %spec.select11.i.neg.i
   %22 = sub nsw i32 %.neg8.i, %20
@@ -69,9 +67,7 @@ headroom.exit:                                    ; preds = %10, %12
   %30 = fptosi float %29 to i32
   %31 = shl i32 %30, %24
   %32 = ashr i32 %30, %26
-  %.fr = freeze i32 %31
-  %.fr242 = freeze i32 %32
-  %.0.i131 = select i1 %25, i32 %.fr, i32 %.fr242
+  %.0.i131 = select i1 %25, i32 %31, i32 %32
   %33 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv211
   %sext128 = shl i32 %.0.i131, 16
   %34 = ashr exact i32 %sext128, 16
@@ -81,7 +77,7 @@ headroom.exit:                                    ; preds = %10, %12
   store i16 %37, ptr %33, align 2, !tbaa !11
   %sext129 = shl i32 %36, 16
   %38 = ashr exact i32 %sext129, 16
-  %39 = add i32 %38, %.0158175
+  %39 = add nsw i32 %38, %.0158175
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next212, 124
   br i1 %exitcond214.not, label %40, label %27, !llvm.loop !13
@@ -90,35 +86,34 @@ headroom.exit:                                    ; preds = %10, %12
   %41 = trunc nsw i32 %.0.i130 to i16
   %42 = add nsw i32 %.0.i130, -5
   %.neg = shl i32 -198, %42
-  %.neg.fr = freeze i32 %.neg
-  %43 = add i32 %39, %.neg.fr
+  %43 = add i32 %39, %.neg
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %headroom.exit138.thread, label %headroom.exit138
 
 headroom.exit138:                                 ; preds = %40
-  %45 = tail call i32 @llvm.abs.i32(i32 %43, i1 false)
-  %46 = icmp ugt i32 %45, 65535
+  %45 = tail call i32 @llvm.abs.i32(i32 %43, i1 true)
+  %46 = icmp samesign ugt i32 %45, 65535
   %47 = lshr i32 %45, 16
   %spec.select.i.i132 = select i1 %46, i32 %47, i32 %45
   %spec.select11.i.neg.i133 = select i1 %46, i32 -16, i32 0
-  %.not.i.i134 = icmp ult i32 %spec.select.i.i132, 256
+  %.not.i.i134 = icmp samesign ult i32 %spec.select.i.i132, 256
   %48 = lshr i32 %spec.select.i.i132, 8
   %.110.i.i135 = select i1 %.not.i.i134, i32 %spec.select.i.i132, i32 %48
   %49 = zext nneg i32 %.110.i.i135 to i64
   %50 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !10
-  %.fr243 = freeze i8 %51
-  %52 = zext i8 %.fr243 to i32
+  %52 = zext i8 %51 to i32
   %53 = select i1 %.not.i.i134, i32 30, i32 22
   %.neg8.i136 = add nsw i32 %53, %spec.select11.i.neg.i133
   %54 = sub nsw i32 %.neg8.i136, %52
-  %55 = shl nsw i32 %43, %54
+  %.fr = freeze i32 %54
+  %55 = shl nsw i32 %43, %.fr
   %56 = ashr i32 %55, 16
   %57 = mul nsw i32 %56, 4228
   %58 = ashr i32 %57, 15
-  %.neg241 = add nsw i32 %54, -12
-  %59 = sub nsw i32 12, %54
-  %60 = icmp slt i32 %54, 12
+  %.neg241 = add nsw i32 %.fr, -12
+  %59 = sub nsw i32 12, %.fr
+  %60 = icmp slt i32 %.fr, 12
   %61 = shl i32 %58, %59
   %62 = ashr i32 %58, %.neg241
   %spec.select = select i1 %60, i32 %61, i32 %62

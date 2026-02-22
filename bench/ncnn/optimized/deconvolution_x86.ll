@@ -2597,13 +2597,13 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %134, %149, %150, %1
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %170 = load i64, ptr %169, align 8, !tbaa !17
   store i64 %170, ptr %110, align 8, !tbaa !17
-  %.pre150 = load i32, ptr %42, align 4, !tbaa !92
+  %.pre149 = load i32, ptr %42, align 4, !tbaa !92
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %132, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %123
-  %.sink190 = phi i64 [ 16, %4 ], [ 16, %123 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %132 ]
-  %171 = phi i32 [ %100, %4 ], [ %100, %123 ], [ %.pre150, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %100, %132 ]
-  %172 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink190
+  %.sink189 = phi i64 [ 16, %4 ], [ 16, %123 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %132 ]
+  %171 = phi i32 [ %100, %4 ], [ %100, %123 ], [ %.pre149, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %100, %132 ]
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink189
   %173 = load ptr, ptr %172, align 8, !tbaa !93
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %43, i32 noundef %79, i32 noundef %87, i32 noundef %171, i64 noundef %99, i32 noundef %.071, ptr noundef %173)
           to label %174 unwind label %130
@@ -2677,13 +2677,13 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %174
 
 217:                                              ; preds = %189
   %218 = atomicrmw add ptr %193, i32 1 acq_rel, align 4
-  %.pre151 = load i32, ptr %50, align 4, !tbaa !50
-  %.pre152 = load i32, ptr %52, align 8, !tbaa !59
+  %.pre150 = load i32, ptr %50, align 4, !tbaa !50
+  %.pre151 = load i32, ptr %52, align 8, !tbaa !59
   br label %_ZN4ncnn3Mat6addrefEv.exit
 
 _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %217, %189
-  %219 = phi i32 [ %.pre152, %217 ], [ %207, %189 ]
-  %220 = phi i32 [ %.pre151, %217 ], [ %205, %189 ]
+  %219 = phi i32 [ %.pre151, %217 ], [ %207, %189 ]
+  %220 = phi i32 [ %.pre150, %217 ], [ %205, %189 ]
   %221 = mul nsw i32 %219, %220
   store i32 %221, ptr %204, align 4, !tbaa !50
   store i32 1, ptr %206, align 8, !tbaa !59
@@ -3119,11 +3119,10 @@ _ZNK4ncnn3Mat5emptyEv.exit143:                    ; preds = %385
   %389 = load i64, ptr %388, align 8, !tbaa !17
   %390 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %391 = load i32, ptr %390, align 8, !tbaa !61
-  %.fr149 = freeze i32 %391
-  %392 = sext i32 %.fr149 to i64
-  %.fr = freeze i64 %389
-  %393 = mul i64 %.fr, %392
-  %394 = icmp eq i64 %393, 0
+  %392 = sext i32 %391 to i64
+  %393 = mul i64 %389, %392
+  %.fr = freeze i64 %393
+  %394 = icmp eq i64 %.fr, 0
   br i1 %394, label %_ZNK4ncnn3Mat5emptyEv.exit143.thread, label %427
 
 _ZNK4ncnn3Mat5emptyEv.exit143.thread:             ; preds = %385, %_ZNK4ncnn3Mat5emptyEv.exit143

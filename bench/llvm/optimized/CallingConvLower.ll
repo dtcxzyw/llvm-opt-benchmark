@@ -434,14 +434,14 @@ define dso_local void @_ZN4llvm7CCState15MarkUnallocatedEt(ptr noundef nonnull r
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_10MCRegisterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %0, i32 %1) local_unnamed_addr #0 align 2 {
-  %.fr29 = freeze i32 %1
+  %.fr = freeze i32 %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = lshr i32 %.fr29, 5
+  %4 = lshr i32 %.fr, 5
   %5 = zext nneg i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !161
   %7 = getelementptr inbounds nuw i32, ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4, !tbaa !181
-  %9 = and i32 %.fr29, 31
+  %9 = and i32 %.fr, 31
   %10 = shl nuw i32 1, %9
   %11 = and i32 %8, %10
   %.not21 = icmp eq i32 %11, 0
@@ -461,7 +461,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_
 
 .lr.ph:                                           ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = add i32 %.fr29, -1
+  %21 = add i32 %.fr, -1
   %22 = icmp ult i32 %21, 1073741823
   br i1 %22, label %.lr.ph.split, label %.lr.ph.split.us
 
@@ -501,7 +501,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit.us:        ; preds = %31, %29
 
 _ZNK4llvm11CCValAssign9getLocRegEv.exit.us:       ; preds = %35
   %.sroa.0.0.copyload.i.us = load i32, ptr %.01524.us, align 4, !tbaa !181
-  %36 = icmp eq i32 %.sroa.0.0.copyload.i.us, %.fr29
+  %36 = icmp eq i32 %.sroa.0.0.copyload.i.us, %.fr
   br i1 %36, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.critedge.us
 
 .critedge.us:                                     ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit.us, %_ZNK4llvm11CCValAssign8isRegLocEv.exit.us
@@ -550,7 +550,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %44, %46
 
 _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %50
   %.sroa.0.0.copyload.i = load i32, ptr %.01524, align 4, !tbaa !181
-  %52 = icmp eq i32 %.sroa.0.0.copyload.i, %.fr29
+  %52 = icmp eq i32 %.sroa.0.0.copyload.i, %.fr
   br i1 %52, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %53
 
 53:                                               ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit
@@ -559,7 +559,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %50
   br i1 %55, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, label %.critedge
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit: ; preds = %53
-  %56 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %51, i32 %.sroa.0.0.copyload.i, i32 %.fr29) #12
+  %56 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %51, i32 %.sroa.0.0.copyload.i, i32 %.fr) #12
   br i1 %56, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %53, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %_ZNK4llvm11CCValAssign8isRegLocEv.exit

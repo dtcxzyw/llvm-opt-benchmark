@@ -6200,8 +6200,8 @@ switch.early.test.i:                              ; preds = %225
   %or.cond9.i = icmp ult i32 %227, 55136
   %228 = add i32 %.1290296.fr, -57344
   %229 = icmp ult i32 %228, 1056768
-  %or.cond467 = or i1 %or.cond9.i, %229
-  br i1 %or.cond467, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
+  %or.cond466 = or i1 %or.cond9.i, %229
+  br i1 %or.cond466, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
 
 230:                                              ; preds = %223
   %or.cond11.i = icmp ult i32 %224, 95
@@ -6222,11 +6222,11 @@ switch.early.test.i:                              ; preds = %225
   %or.cond19.i = icmp ult i32 %236, 1056768
   %237 = and i32 %.1290296.fr, 65534
   %.not.i194 = icmp ne i32 %237, 65534
-  %or.cond65.i.not475 = and i1 %or.cond19.i, %.not.i194
+  %or.cond65.i.not474 = and i1 %or.cond19.i, %.not.i194
   %238 = add nsw i32 %.1290296.fr, -65008
   %239 = icmp ult i32 %238, -32
-  %or.cond469 = select i1 %or.cond65.i.not475, i1 %239, i1 false
-  br i1 %or.cond469, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
+  %or.cond468 = select i1 %or.cond65.i.not474, i1 %239, i1 false
+  br i1 %or.cond468, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
 
 240:                                              ; preds = %223, %223
   %or.cond21.i = icmp ult i32 %224, 55264
@@ -6240,12 +6240,13 @@ switch.early.test66.i:                            ; preds = %240
   ]
 
 241:                                              ; preds = %switch.early.test66.i
-  %242 = add i32 %.1290296.fr, -57344
+  %242 = add nsw i32 %.1290296.fr, -57344
   %or.cond29.i = icmp ult i32 %242, 1056768
-  %243 = add i32 %.1290296.fr, -65536
+  %243 = add nsw i32 %.1290296.fr, -65536
   %244 = icmp ult i32 %243, -2
   %spec.select.i = and i1 %244, %or.cond29.i
-  br i1 %spec.select.i, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
+  %cond.fr397406 = freeze i1 %spec.select.i
+  br i1 %cond.fr397406, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
 
 unicode_cp_is_allowed.exit.thread.thread:         ; preds = %235, %241, %240, %230, %231, %225, %226, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test66.i, %switch.early.test66.i, %switch.early.test66.i
   br label %.thread407
@@ -6296,8 +6297,8 @@ switch.early.test.i210:                           ; preds = %260
   %or.cond9.i211 = icmp ult i32 %262, 55136
   %263 = add i32 %.2291, -57344
   %264 = icmp ult i32 %263, 1056768
-  %or.cond471 = or i1 %or.cond9.i211, %264
-  br i1 %or.cond471, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
+  %or.cond470 = or i1 %or.cond9.i211, %264
+  br i1 %or.cond470, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
 265:                                              ; preds = %258
   %or.cond11.i201 = icmp ult i32 %259, 95
@@ -6318,11 +6319,11 @@ switch.early.test.i210:                           ; preds = %260
   %or.cond19.i206 = icmp ult i32 %271, 1056768
   %272 = and i32 %.2291, 65534
   %.not.i207 = icmp ne i32 %272, 65534
-  %or.cond65.i208.not474 = and i1 %or.cond19.i206, %.not.i207
+  %or.cond65.i208.not473 = and i1 %or.cond19.i206, %.not.i207
   %273 = add nsw i32 %.2291, -65008
   %274 = icmp ult i32 %273, -32
-  %or.cond473 = select i1 %or.cond65.i208.not474, i1 %274, i1 false
-  br i1 %or.cond473, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
+  %or.cond472 = select i1 %or.cond65.i208.not473, i1 %274, i1 false
+  br i1 %or.cond472, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
 275:                                              ; preds = %258, %258
   %or.cond21.i195 = icmp ult i32 %259, 55264
@@ -6341,7 +6342,8 @@ switch.early.test66.i196:                         ; preds = %275
   %278 = add nsw i32 %.2291, -65536
   %279 = icmp ult i32 %278, -2
   %spec.select.i200 = and i1 %279, %or.cond29.i199
-  br i1 %spec.select.i200, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
+  %cond.fr412421 = freeze i1 %spec.select.i200
+  br i1 %cond.fr412421, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
 unicode_cp_is_allowed.exit212.thread.thread:      ; preds = %270, %276, %275, %265, %266, %260, %261, %switch.early.test.i210, %switch.early.test.i210, %switch.early.test.i210, %switch.early.test66.i196, %switch.early.test66.i196, %switch.early.test66.i196
   br label %.thread407
@@ -6523,10 +6525,10 @@ process_numeric_entity.exit.thread:               ; preds = %312, %330, %321
   %or.cond7.i = icmp ult i32 %346, 1113952
   %347 = and i32 %338, 65534
   %.not.i237 = icmp ne i32 %347, 65534
-  %or.cond23.i.not458 = and i1 %or.cond7.i, %.not.i237
+  %or.cond23.i.not456 = and i1 %or.cond7.i, %.not.i237
   %348 = add nsw i32 %338, -65008
   %349 = icmp ult i32 %348, -32
-  %or.cond455 = select i1 %or.cond23.i.not458, i1 %349, i1 false
+  %or.cond455 = select i1 %or.cond23.i.not456, i1 %349, i1 false
   br i1 %or.cond455, label %numeric_entity_is_allowed.exit.thread, label %.thread321
 
 350:                                              ; preds = %339, %339

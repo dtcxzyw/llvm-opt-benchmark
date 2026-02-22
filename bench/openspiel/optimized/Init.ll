@@ -194,10 +194,10 @@ define void @SetResources(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   %18 = icmp slt i32 %1, 1
   %or.cond = or i1 %18, %17
   %19 = load i32, ptr %3, align 4
-  %.fr = freeze i32 %19
-  %.sroa.speculated46 = call i32 @llvm.smin.i32(i32 %.fr, i32 %1)
-  %.050 = select i1 %or.cond, i32 %.fr, i32 %.sroa.speculated46
-  %spec.select = call i32 @llvm.smax.i32(i32 %.050, i32 1)
+  %.sroa.speculated46 = call i32 @llvm.smin.i32(i32 %19, i32 %1)
+  %.050 = select i1 %or.cond, i32 %19, i32 %.sroa.speculated46
+  %.050.fr = freeze i32 %.050
+  %spec.select = call i32 @llvm.smax.i32(i32 %.050.fr, i32 1)
   br label %.thread
 
 .thread:                                          ; preds = %16, %2

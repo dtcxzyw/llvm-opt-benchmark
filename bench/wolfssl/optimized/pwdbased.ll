@@ -441,27 +441,27 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
 
 29:                                               ; preds = %27
   %30 = tail call i32 @wc_HashGetBlockSize(i32 noundef %24) #6
-  %.fr145 = freeze i32 %30
-  %31 = icmp slt i32 %.fr145, 0
+  %.fr = freeze i32 %30
+  %31 = icmp slt i32 %.fr, 0
   br i1 %31, label %141, label %32
 
 32:                                               ; preds = %29
-  %33 = icmp eq i32 %.fr145, 0
+  %33 = icmp eq i32 %.fr, 0
   br i1 %33, label %141, label %34
 
 34:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %14, i8 0, i64 144, i1 false)
   %35 = add nsw i32 %4, -1
-  %36 = add nuw i32 %35, %.fr145
-  %37 = urem i32 %36, %.fr145
+  %36 = add nuw i32 %35, %.fr
+  %37 = urem i32 %36, %.fr
   %38 = sub nuw i32 %36, %37
   %39 = add nsw i32 %2, -1
-  %40 = add nuw i32 %39, %.fr145
-  %41 = urem i32 %40, %.fr145
+  %40 = add nuw i32 %39, %.fr
+  %41 = urem i32 %40, %.fr
   %42 = sub nuw i32 %40, %41
   %43 = add i32 %42, %38
-  %44 = add i32 %43, %.fr145
+  %44 = add i32 %43, %.fr
   %45 = icmp ult i32 %44, 1025
   br i1 %45, label %50, label %46
 
@@ -473,7 +473,7 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
 
 50:                                               ; preds = %46, %34
   %.0124 = phi ptr [ %12, %34 ], [ %48, %46 ]
-  %51 = zext nneg i32 %.fr145 to i64
+  %51 = zext nneg i32 %.fr to i64
   %52 = getelementptr inbounds nuw i8, ptr %.0124, i64 %51
   %53 = zext i32 %38 to i64
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
@@ -599,7 +599,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br i1 %.not, label %99, label %.thread162.sink.split
 
 99:                                               ; preds = %97
-  %100 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef %.fr145) #6
+  %100 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef %.fr) #6
   %.not146 = icmp eq i32 %100, 0
   br i1 %.not146, label %101, label %.thread162.sink.split
 
@@ -624,7 +624,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
 105:                                              ; preds = %.lr.ph178
   %106 = zext i32 %.3131177 to i64
   %107 = getelementptr inbounds nuw i8, ptr %52, i64 %106
-  %108 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %16, ptr noundef nonnull %107, i32 noundef %.fr145) #6
+  %108 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %16, ptr noundef nonnull %107, i32 noundef %.fr) #6
   %.not150 = icmp eq i32 %108, 0
   br i1 %.not150, label %109, label %130
 
@@ -639,7 +639,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br i1 %113, label %130, label %114
 
 114:                                              ; preds = %111
-  %115 = icmp sgt i32 %112, %.fr145
+  %115 = icmp sgt i32 %112, %.fr
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
@@ -650,11 +650,11 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br label %130
 
 118:                                              ; preds = %114
-  %119 = icmp samesign ult i32 %112, %.fr145
+  %119 = icmp samesign ult i32 %112, %.fr
   br i1 %119, label %120, label %128
 
 120:                                              ; preds = %118
-  %121 = sub nuw nsw i32 %.fr145, %112
+  %121 = sub nuw nsw i32 %.fr, %112
   %122 = zext nneg i32 %121 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 0, i64 %122, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 %51
@@ -674,7 +674,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   call void @sp_clear(ptr noundef nonnull %16) #6
   call void @sp_clear(ptr noundef nonnull %17) #6
   %131 = icmp sgt i32 %.7.fr, -1
-  %132 = add i32 %.3131177, %.fr145
+  %132 = add i32 %.3131177, %.fr
   %133 = icmp ult i32 %132, %43
   %or.cond186 = select i1 %131, i1 %133, i1 false
   br i1 %or.cond186, label %.lr.ph178, label %.thread158, !llvm.loop !18
@@ -700,7 +700,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br label %.thread162
 
 .thread162:                                       ; preds = %.thread158.thread215, %DoPKCS12Hash.exit, %.thread162.sink.split, %.preheader170
-  %.1127 = phi i32 [ %.fr145, %.preheader170 ], [ %.1127.ph, %.thread162.sink.split ], [ %.5217, %.thread158.thread215 ], [ %.0.i, %DoPKCS12Hash.exit ]
+  %.1127 = phi i32 [ %.fr, %.preheader170 ], [ %.1127.ph, %.thread162.sink.split ], [ %.5217, %.thread158.thread215 ], [ %.0.i, %DoPKCS12Hash.exit ]
   br i1 %45, label %141, label %140
 
 140:                                              ; preds = %.thread162
@@ -708,7 +708,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br label %141
 
 141:                                              ; preds = %.thread162, %140, %46, %32, %29, %27, %23, %10
-  %.0 = phi i32 [ -125, %46 ], [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr145, %29 ], [ -192, %32 ], [ %.1127, %140 ], [ %.1127, %.thread162 ]
+  %.0 = phi i32 [ -125, %46 ], [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr, %29 ], [ -192, %32 ], [ %.1127, %140 ], [ %.1127, %.thread162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

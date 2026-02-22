@@ -574,7 +574,7 @@ define hidden i64 @php_new_dom_dump_node_to_file(ptr noundef %0, ptr readnone ca
 
 8:                                                ; preds = %5
   %9 = tail call i32 @xmlCharEncCloseFunc(ptr noundef %6) #11
-  br label %32
+  br label %33
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %7, align 8, !tbaa !77
@@ -582,7 +582,7 @@ define hidden i64 @php_new_dom_dump_node_to_file(ptr noundef %0, ptr readnone ca
   %13 = load ptr, ptr %12, align 8, !tbaa !81
   %14 = tail call ptr @xmlSaveToIO(ptr noundef %13, ptr noundef null, ptr noundef %11, ptr noundef %4, i32 noundef 32) #11
   %.not26 = icmp eq ptr %14, null
-  br i1 %.not26, label %27, label %15, !prof !27
+  br i1 %.not26, label %28, label %15, !prof !27
 
 15:                                               ; preds = %10
   %16 = tail call ptr @php_dom_object_get_data(ptr noundef %2) #11
@@ -600,23 +600,22 @@ get_private_data_from_node.exit:                  ; preds = %15, %17
   %22 = phi ptr [ %21, %17 ], [ null, %15 ]
   %23 = tail call i32 @dom_xml_serialize(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext false, ptr noundef %22) #11
   %24 = tail call i32 @xmlOutputBufferFlush(ptr noundef nonnull %7) #11
-  %.fr = freeze i32 %23
-  %.fr27 = freeze i32 %24
-  %25 = or i32 %.fr27, %.fr
+  %25 = or i32 %24, %23
   %26 = tail call i32 @xmlSaveClose(ptr noundef nonnull %14) #11
-  br label %27
+  %27 = freeze i32 %25
+  br label %28
 
-27:                                               ; preds = %get_private_data_from_node.exit, %10
-  %.023 = phi i32 [ %25, %get_private_data_from_node.exit ], [ -1, %10 ]
-  %28 = tail call i64 @_php_stream_tell(ptr noundef %11) #11
-  %29 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %7) #11
-  %30 = icmp slt i32 %.023, 0
-  %31 = sext i32 %.023 to i64
-  %spec.select = select i1 %30, i64 %31, i64 %28
-  br label %32
+28:                                               ; preds = %get_private_data_from_node.exit, %10
+  %.023 = phi i32 [ %27, %get_private_data_from_node.exit ], [ -1, %10 ]
+  %29 = tail call i64 @_php_stream_tell(ptr noundef %11) #11
+  %30 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %7) #11
+  %31 = icmp slt i32 %.023, 0
+  %32 = sext i32 %.023 to i64
+  %spec.select = select i1 %31, i64 %32, i64 %29
+  br label %33
 
-32:                                               ; preds = %27, %8
-  %.0 = phi i64 [ -1, %8 ], [ %spec.select, %27 ]
+33:                                               ; preds = %28, %8
+  %.0 = phi i64 [ -1, %8 ], [ %spec.select, %28 ]
   ret i64 %.0
 }
 

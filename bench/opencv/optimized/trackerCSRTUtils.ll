@@ -3101,8 +3101,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %87
 
 311:                                              ; preds = %362, %.preheader485.us.i
   %indvars.iv545.i = phi i64 [ 1, %.preheader485.us.i ], [ %indvars.iv.next546.i, %362 ]
-  %.idx579.i = shl nsw i64 %indvars.iv545.i, 8
-  %312 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx579.i
+  %.idx580.i = shl nsw i64 %indvars.iv545.i, 8
+  %312 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx580.i
   %313 = getelementptr inbounds nuw double, ptr %306, i64 %indvars.iv545.i
   %314 = load double, ptr %313, align 8, !tbaa !140
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 8
@@ -3151,8 +3151,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %87
   %358 = fadd double %357, 1.000000e-04
   %359 = call double @sqrt(double noundef %358) #20, !tbaa !38
   %360 = fdiv double 1.000000e+00, %359
-  %.idx580.i = mul nuw nsw i64 %indvars.iv545.i, 144
-  %361 = getelementptr inbounds nuw i8, ptr %310, i64 %.idx580.i
+  %.idx581.i = mul nuw nsw i64 %indvars.iv545.i, 144
+  %361 = getelementptr inbounds nuw i8, ptr %310, i64 %.idx581.i
   br label %390
 
 362:                                              ; preds = %.preheader484.us.i
@@ -3248,8 +3248,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %87
 .preheader483.i:                                  ; preds = %._crit_edge512.us.i, %.lr.ph499.i, %.preheader486.i, %.preheader487.i
   %411 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %412 = load i32, ptr %411, align 8, !tbaa !3
-  %.fr.i = freeze i32 %412
-  %413 = icmp sgt i32 %.fr.i, 0
+  %413 = icmp sgt i32 %412, 0
   br i1 %413, label %.preheader.lr.ph.i, label %.loopexit
 
 .preheader.lr.ph.i:                               ; preds = %.preheader483.i
@@ -3260,11 +3259,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %87
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %417 = add nsw i32 %415, -32
-  %418 = add nsw i32 %.fr.i, -1
+  %418 = add nsw i32 %412, -1
   %419 = zext nneg i32 %415 to i64
   %420 = sext i32 %417 to i64
   %421 = zext nneg i32 %418 to i64
-  %wide.trip.count567.i = zext nneg i32 %.fr.i to i64
+  %wide.trip.count567.i = zext nneg i32 %412 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge516.us.i, %.preheader.us.preheader.i
@@ -3295,7 +3294,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %87
 
 .lr.ph515.split.us522.i:                          ; preds = %.preheader.us.i
   %431 = icmp samesign ult i64 %indvars.iv564.i, %421
-  br i1 %431, label %.lr.ph515.split.split.us523.i, label %.lr.ph515.split.split.us.us.i
+  %.fr.us.i = freeze i1 %431
+  br i1 %.fr.us.i, label %.lr.ph515.split.split.us523.i, label %.lr.ph515.split.split.us.us.i
 
 ._crit_edge516.us.i:                              ; preds = %438, %429, %.lr.ph515.split.us.us.i
   %indvars.iv.next565.i = add nuw nsw i64 %indvars.iv564.i, 1

@@ -900,11 +900,11 @@ define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr noundef rea
   %26 = icmp samesign ult i32 %3, 7
   %27 = add nsw i32 %3, -6
   %28 = shl nuw i32 1, %27
-  %.fr82.i.i = freeze i32 %28
-  %29 = sext i32 %.fr82.i.i to i64
+  %.fr.i.i = freeze i32 %28
+  %29 = sext i32 %.fr.i.i to i64
   %.idx.i.i = shl nsw i64 %29, 3
   %30 = getelementptr inbounds i8, ptr %8, i64 %.idx.i.i
-  %smax56.i.i = tail call i32 @llvm.smax.i32(i32 %.fr82.i.i, i32 1)
+  %smax56.i.i = tail call i32 @llvm.smax.i32(i32 %.fr.i.i, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %26, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1041,7 +1041,7 @@ Abc_TtHasVar.exit.i:                              ; preds = %48, %Abc_TtHasVar.e
   br i1 %.not.i.not, label %Abc_TtMinimumBase.exit, label %.lr.ph61.i.i
 
 .lr.ph61.i.i:                                     ; preds = %70
-  %73 = select i1 %26, i32 1, i32 %.fr82.i.i
+  %73 = select i1 %26, i32 1, i32 %.fr.i.i
   %74 = sext i32 %73 to i64
   %.idx65.i.i.i = shl nsw i64 %74, 3
   %75 = getelementptr inbounds i8, ptr %8, i64 %.idx65.i.i.i

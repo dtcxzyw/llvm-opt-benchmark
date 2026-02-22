@@ -440,9 +440,9 @@ define dso_local noundef i32 @_ZN4llvm3ARM9parseArchENS_9StringRefE(ptr %0, i64 
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
   %6 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr %4, i64 %5) #17
-  %.fr29 = freeze { ptr, i64 } %6
-  %7 = extractvalue { ptr, i64 } %.fr29, 0
-  %8 = extractvalue { ptr, i64 } %.fr29, 1
+  %.fr = freeze { ptr, i64 } %6
+  %7 = extractvalue { ptr, i64 } %.fr, 0
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = icmp eq i64 %8, 0
   %10 = sub i64 0, %8
   br i1 %9, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %.split
@@ -496,9 +496,9 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN4llvm3ARM16parseArchVersionENS
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
   %9 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr %7, i64 %8) #17
-  %.fr29.i = freeze { ptr, i64 } %9
-  %10 = extractvalue { ptr, i64 } %.fr29.i, 0
-  %11 = extractvalue { ptr, i64 } %.fr29.i, 1
+  %.fr.i = freeze { ptr, i64 } %9
+  %10 = extractvalue { ptr, i64 } %.fr.i, 0
+  %11 = extractvalue { ptr, i64 } %.fr.i, 1
   %12 = icmp eq i64 %11, 0
   %13 = sub i64 0, %11
   br i1 %12, label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit, label %.split.i
@@ -548,9 +548,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm3ARM16parseArchProfileENS_
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
   %9 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr %7, i64 %8) #17
-  %.fr29.i = freeze { ptr, i64 } %9
-  %10 = extractvalue { ptr, i64 } %.fr29.i, 0
-  %11 = extractvalue { ptr, i64 } %.fr29.i, 1
+  %.fr.i = freeze { ptr, i64 } %9
+  %10 = extractvalue { ptr, i64 } %.fr.i, 0
+  %11 = extractvalue { ptr, i64 } %.fr.i, 1
   %12 = icmp eq i64 %11, 0
   %13 = sub i64 0, %11
   br i1 %12, label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit, label %.split.i
@@ -979,9 +979,9 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit65: ; preds = %_ZNSt6v
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN4llvm3ARM8parseFPUENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #3 {
   %3 = tail call { ptr, i64 } @_ZN4llvm3ARM13getFPUSynonymENS_9StringRefE(ptr %0, i64 %1)
-  %.fr31 = freeze { ptr, i64 } %3
-  %4 = extractvalue { ptr, i64 } %.fr31, 0
-  %5 = extractvalue { ptr, i64 } %.fr31, 1
+  %.fr = freeze { ptr, i64 } %3
+  %4 = extractvalue { ptr, i64 } %.fr, 0
+  %5 = extractvalue { ptr, i64 } %.fr, 1
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.split.us, label %.split
 
@@ -3604,9 +3604,9 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM13getDefaultCPUENS_9StringRefE(ptr %0
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
   %6 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr %4, i64 %5) #17
-  %.fr29.i = freeze { ptr, i64 } %6
-  %7 = extractvalue { ptr, i64 } %.fr29.i, 0
-  %8 = extractvalue { ptr, i64 } %.fr29.i, 1
+  %.fr.i = freeze { ptr, i64 } %6
+  %7 = extractvalue { ptr, i64 } %.fr.i, 0
+  %8 = extractvalue { ptr, i64 } %.fr.i, 1
   %9 = icmp eq i64 %8, 0
   %10 = sub i64 0, %8
   br i1 %9, label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit, label %.split.i
@@ -4042,9 +4042,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit27.thread52:     ; preds = %9, %18
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = extractvalue { ptr, i64 } %24, 1
   %27 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr %25, i64 %26) #17
-  %.fr29.i.i = freeze { ptr, i64 } %27
-  %28 = extractvalue { ptr, i64 } %.fr29.i.i, 0
-  %29 = extractvalue { ptr, i64 } %.fr29.i.i, 1
+  %.fr.i.i = freeze { ptr, i64 } %27
+  %28 = extractvalue { ptr, i64 } %.fr.i.i, 0
+  %29 = extractvalue { ptr, i64 } %.fr.i.i, 1
   %30 = icmp eq i64 %29, 0
   %31 = sub i64 0, %29
   br i1 %30, label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit.i, label %.split.i.i

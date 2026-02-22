@@ -16403,13 +16403,13 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %_ZNK4
   %66 = load ptr, ptr %54, align 8, !tbaa !874
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %68 = load i64, ptr %67, align 8
-  %.fr = freeze i64 %68
-  %69 = and i64 %.fr, 2199023255552
+  %.fr10 = freeze i64 %68
+  %69 = and i64 %.fr10, 2199023255552
   %.not30.i = icmp eq i64 %69, 0
   br i1 %.not30.i, label %70, label %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread
 
 70:                                               ; preds = %65
-  %71 = and i64 %.fr, 4398046511104
+  %71 = and i64 %.fr10, 4398046511104
   %72 = icmp eq i64 %71, 0
   %73 = load i32, ptr %3, align 8
   br i1 %72, label %104, label %106
@@ -16477,17 +16477,17 @@ _ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.
 
 _ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit: ; preds = %41
   %102 = load i32, ptr %3, align 8
-  %.fr10 = freeze i32 %102
-  %103 = and i32 %.fr10, 15
+  %.fr11 = freeze i32 %102
+  %103 = and i32 %.fr11, 15
   %.not = icmp eq i32 %103, 9
   br i1 %.not, label %106, label %104
 
 104:                                              ; preds = %70, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread6, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit
-  %105 = phi i32 [ %101, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread6 ], [ %.fr10, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit ], [ %73, %70 ]
+  %105 = phi i32 [ %101, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread6 ], [ %.fr11, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit ], [ %73, %70 ]
   br label %106
 
 106:                                              ; preds = %70, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit, %104
-  %107 = phi i32 [ %105, %104 ], [ %.fr10, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit ], [ %100, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread ], [ %73, %70 ]
+  %107 = phi i32 [ %105, %104 ], [ %.fr11, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit ], [ %100, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread ], [ %73, %70 ]
   %108 = phi i32 [ 16384, %104 ], [ 0, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit ], [ 0, %_ZL20shouldAssumeDSOLocalRKN5clang7CodeGen13CodeGenModuleEPN4llvm11GlobalValueE.exit.thread ], [ 0, %70 ]
   %109 = and i32 %107, -16385
   %110 = or disjoint i32 %109, %108
@@ -18753,11 +18753,11 @@ _ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread30: ; preds = %20, %9, %5, 
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, 2048
   %.not13 = icmp eq i64 %64, 0
-  %.pre45 = load i32, ptr %6, align 4
+  %.pre44 = load i32, ptr %6, align 4
   br i1 %.not13, label %65, label %79
 
 65:                                               ; preds = %60
-  %66 = and i32 %.pre45, 127
+  %66 = and i32 %.pre44, 127
   %67 = add nsw i32 %66, -38
   %68 = icmp ult i32 %67, 7
   br i1 %68, label %69, label %79
@@ -18779,7 +18779,7 @@ _ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread30: ; preds = %20, %9, %5, 
   br label %79
 
 79:                                               ; preds = %._crit_edge, %65, %60
-  %80 = phi i32 [ %.pre, %._crit_edge ], [ %.pre45, %65 ], [ %.pre45, %60 ]
+  %80 = phi i32 [ %.pre, %._crit_edge ], [ %.pre44, %65 ], [ %.pre44, %60 ]
   %81 = and i32 %80, 256
   %.not.i19 = icmp eq i32 %81, 0
   br i1 %.not.i19, label %_ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit.thread34, label %82
@@ -18787,18 +18787,17 @@ _ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread30: ; preds = %20, %9, %5, 
 82:                                               ; preds = %79
   %83 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #28
   %84 = load ptr, ptr %83, align 8, !tbaa !25
-  %.fr = freeze ptr %84
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !26
-  %.fr39 = freeze i32 %86
-  %87 = zext i32 %.fr39 to i64
+  %87 = zext i32 %86 to i64
   %.idx.i.i20 = shl nuw nsw i64 %87, 3
-  %88 = getelementptr i8, ptr %.fr, i64 %.idx.i.i20
-  %.not.i.i21 = icmp eq i32 %.fr39, 0
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i.i20
+  %.fr = freeze ptr %88
+  %.not.i.i21 = icmp eq i32 %86, 0
   br i1 %.not.i.i21, label %_ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit.thread34, label %.lr.ph.i.i.i.i.i22
 
 .lr.ph.i.i.i.i.i22:                               ; preds = %82, %93
-  %.sroa.07.1.i.i.i.i23 = phi ptr [ %94, %93 ], [ %.fr, %82 ]
+  %.sroa.07.1.i.i.i.i23 = phi ptr [ %94, %93 ], [ %84, %82 ]
   %89 = load ptr, ptr %.sroa.07.1.i.i.i.i23, align 8, !tbaa !1042
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load i16, ptr %90, align 8
@@ -18807,12 +18806,12 @@ _ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit.thread30: ; preds = %20, %9, %5, 
 
 93:                                               ; preds = %.lr.ph.i.i.i.i.i22
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i23, i64 8
-  %.not.i.i.i.i.i24 = icmp eq ptr %94, %88
+  %.not.i.i.i.i.i24 = icmp eq ptr %94, %.fr
   br i1 %.not.i.i.i.i.i24, label %_ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit.thread34, label %.lr.ph.i.i.i.i.i22, !llvm.loop !1647
 
 _ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i22
-  %.not40 = icmp eq ptr %.sroa.07.1.i.i.i.i23, %88
-  %spec.select = select i1 %.not40, i32 0, i32 5
+  %.not39 = icmp eq ptr %.sroa.07.1.i.i.i.i23, %.fr
+  %spec.select = select i1 %.not39, i32 0, i32 5
   br label %_ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit.thread34
 
 _ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit.thread34: ; preds = %93, %_ZNK5clang4Decl7hasAttrINS_13SelectAnyAttrEEEbv.exit, %82, %79, %23, %69, %49, %53, %43, %33, %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit, %3, %57, %34

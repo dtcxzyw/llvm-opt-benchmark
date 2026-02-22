@@ -2987,13 +2987,14 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit: ; preds = %.l
   %95 = trunc nuw i8 %94 to i1
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %97 = load ptr, ptr %96, align 8
-  %.fr = freeze ptr %97
-  %.not.i = icmp eq ptr %50, %.fr
-  %or.cond.i.not = and i1 %.not.i, %95
+  %.not.i = icmp ne ptr %50, %97
+  %not..i = xor i1 %95, true
+  %or.cond.i = select i1 %not..i, i1 true, i1 %.not.i
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !162
   %100 = tail call noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(ptr noundef nonnull align 8 dereferenceable(232) %99)
-  %spec.select = select i1 %or.cond.i.not, ptr %100, ptr %50
+  %cond.fr = freeze i1 %or.cond.i
+  %spec.select = select i1 %cond.fr, ptr %50, ptr %100
   br label %101
 
 101:                                              ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread32, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.thread, %_ZNSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit
@@ -3272,13 +3273,14 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit: ; preds = %.loopexit.
   %95 = trunc nuw i8 %94 to i1
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %97 = load ptr, ptr %96, align 8
-  %.fr = freeze ptr %97
-  %.not.i = icmp eq ptr %50, %.fr
-  %or.cond.i.not = and i1 %.not.i, %95
+  %.not.i = icmp ne ptr %50, %97
+  %not..i = xor i1 %95, true
+  %or.cond.i = select i1 %not..i, i1 true, i1 %.not.i
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !162
   %100 = tail call noundef ptr @_ZNK4Luau12BuiltinTypes17errorRecoveryTypeEv(ptr noundef nonnull align 8 dereferenceable(232) %99)
-  %spec.select = select i1 %or.cond.i.not, ptr %100, ptr %50
+  %cond.fr = freeze i1 %or.cond.i
+  %spec.select = select i1 %cond.fr, ptr %50, ptr %100
   br label %101
 
 101:                                              ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread32, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.thread, %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit

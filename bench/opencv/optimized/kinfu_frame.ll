@@ -5269,8 +5269,8 @@ define linkonce_odr hidden void @_ZN2cv5kinfu23PyrDownBilateralInvokerD0Ev(ptr n
 define linkonce_odr hidden void @_ZNK2cv5kinfu23PyrDownBilateralInvokerclERKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load float, ptr %3, align 8, !tbaa !83
-  %.fr = freeze float %4
-  %5 = fmul float %.fr, 3.000000e+00
+  %.fr114 = freeze float %4
+  %5 = fmul float %.fr114, 3.000000e+00
   %6 = load i32, ptr %1, align 4, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !38

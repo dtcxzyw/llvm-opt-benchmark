@@ -2380,15 +2380,15 @@ define internal noundef zeroext i16 @de_bssgp_rim_proto_ver_no(ptr noundef %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
-  %.fr57 = freeze i8 %8
-  %9 = zext i8 %.fr57 to i32
-  %10 = icmp ult i8 %.fr57, 12
+  %.fr = freeze i8 %8
+  %9 = zext i8 %.fr to i32
+  %10 = icmp ult i8 %.fr, 12
   %11 = load i32, ptr @hf_bssgp_num_pfc, align 4
   br i1 %10, label %12, label %15
 
 12:                                               ; preds = %7
   %13 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %9)
-  %14 = icmp eq i8 %.fr57, 0
+  %14 = icmp eq i8 %.fr, 0
   br i1 %14, label %50, label %17
 
 15:                                               ; preds = %7
@@ -2404,10 +2404,10 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
   br i1 %22, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %17, %.split.us
-  %indvars.iv61 = phi i32 [ %24, %.split.us ], [ 0, %17 ]
+  %indvars.iv62 = phi i32 [ %24, %.split.us ], [ 0, %17 ]
   %.04954.us = phi i32 [ %36, %.split.us ], [ %18, %17 ]
   %23 = load i32, ptr @ett_bssgp_pfc_flow_control_parameters_pfc, align 4
-  %24 = add nuw nsw i32 %indvars.iv61, 1
+  %24 = add nuw nsw i32 %indvars.iv62, 1
   %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04954.us, i32 noundef 6, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %24)
   %26 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %25, ptr noundef %2, i32 noundef %.04954.us, i32 noundef 1, ptr noundef null, i32 noundef 0)
   %27 = add i32 %.04954.us, 1
@@ -2420,8 +2420,8 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
   %34 = load i32, ptr @hf_bssgp_b_pfc, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0)
   %36 = add i32 %.04954.us, 6
-  %exitcond65.not = icmp eq i32 %24, %9
-  br i1 %exitcond65.not, label %.split56.us, label %.split.us, !llvm.loop !10
+  %exitcond66.not = icmp eq i32 %24, %9
+  br i1 %exitcond66.not, label %.split56.us, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %17, %.split
   %indvars.iv = phi i32 [ %38, %.split ], [ 0, %17 ]

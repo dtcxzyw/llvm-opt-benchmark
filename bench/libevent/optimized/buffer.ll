@@ -1163,8 +1163,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %.073, i64 24
   %56 = load i64, ptr %55, align 8
-  %.fr106 = freeze i64 %56
-  %.not83 = icmp eq i64 %.fr106, 0
+  %.not83 = icmp eq i64 %56, 0
   br i1 %.not83, label %70, label %57
 
 57:                                               ; preds = %54
@@ -1177,15 +1176,15 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.073, i64 8
   %63 = load i64, ptr %62, align 8
-  %.fr = freeze i64 %63
   %64 = getelementptr inbounds nuw i8, ptr %.073, i64 16
   %65 = load i64, ptr %64, align 8
-  %.fr105 = freeze i64 %65
-  %66 = add i64 %.fr105, %.fr106
-  %.not85 = icmp ne i64 %.fr, %66
-  %67 = add i64 %.fr, %.069
+  %66 = add i64 %65, %56
+  %.not85 = icmp eq i64 %63, %66
+  %67 = add i64 %63, %.069
   %68 = sub i64 %67, %66
-  %69 = zext i1 %.not85 to i32
+  %cond.fr = freeze i1 %.not85
+  %not.cond.fr = xor i1 %cond.fr, true
+  %69 = zext i1 %not.cond.fr to i32
   %spec.select = add nsw i32 %.067, %69
   br label %.thread
 
@@ -1206,11 +1205,11 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
 
 76:                                               ; preds = %.thread
   %77 = icmp eq i32 %.3, %2
-  br i1 %77, label %.thread125, label %53, !llvm.loop !12
+  br i1 %77, label %.thread124, label %53, !llvm.loop !12
 
 78:                                               ; preds = %53
   %79 = icmp slt i32 %.067, %2
-  br i1 %79, label %80, label %.thread125
+  br i1 %79, label %80, label %.thread124
 
 80:                                               ; preds = %78
   %81 = sub i64 %1, %.069
@@ -1254,7 +1253,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   store ptr %91, ptr %4, align 8
   br label %evbuffer_chain_new_membuf.exit.thread
 
-.thread125:                                       ; preds = %76, %78
+.thread124:                                       ; preds = %76, %78
   %99 = load ptr, ptr %51, align 8
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
@@ -1262,7 +1261,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   %.not87.not.not = icmp eq i64 %102, 0
   br i1 %.not87.not.not, label %.lr.ph.preheader, label %103
 
-103:                                              ; preds = %.thread125
+103:                                              ; preds = %.thread124
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 8
@@ -1281,24 +1280,24 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
 113:                                              ; preds = %107, %103
   %.neg90 = phi i64 [ %.neg, %107 ], [ 0, %103 ]
   %114 = load ptr, ptr %100, align 8
-  %.not89111 = icmp eq ptr %114, null
-  br i1 %.not89111, label %._crit_edge, label %.lr.ph.preheader
+  %.not89109 = icmp eq ptr %114, null
+  br i1 %.not89109, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread125, %113
-  %.4.neg133 = phi i64 [ %.neg90, %113 ], [ 0, %.thread125 ]
-  %.174132 = phi ptr [ %114, %113 ], [ %100, %.thread125 ]
+.lr.ph.preheader:                                 ; preds = %.thread124, %113
+  %.4.neg132 = phi i64 [ %.neg90, %113 ], [ 0, %.thread124 ]
+  %.174131 = phi ptr [ %114, %113 ], [ %100, %.thread124 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.275112 = phi ptr [ %115, %.lr.ph ], [ %.174132, %.lr.ph.preheader ]
-  %115 = load ptr, ptr %.275112, align 8
-  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.275112)
+  %.275110 = phi ptr [ %115, %.lr.ph ], [ %.174131, %.lr.ph.preheader ]
+  %115 = load ptr, ptr %.275110, align 8
+  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.275110)
   %.not89 = icmp eq ptr %115, null
   br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %113
-  %.4.neg134 = phi i64 [ %.neg90, %113 ], [ %.4.neg133, %.lr.ph ]
-  %116 = add i64 %.4.neg134, %1
+  %.4.neg133 = phi i64 [ %.neg90, %113 ], [ %.4.neg132, %.lr.ph ]
+  %116 = add i64 %.4.neg133, %1
   %117 = icmp ugt i64 %116, 9223372036854775759
   br i1 %117, label %128, label %118
 

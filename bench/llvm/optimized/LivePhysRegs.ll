@@ -630,8 +630,8 @@ _ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %25 = load i32, ptr %24, align 4, !noalias !65
   %26 = and i32 %25, 4
-  %.not.i6.i.i.i27 = icmp eq i32 %26, 0
-  br i1 %.not.i6.i.i.i27, label %_ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit, label %.lr.ph
+  %.not.i6.i.i.i26 = icmp eq i32 %26, 0
+  br i1 %.not.i6.i.i.i26, label %_ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit, label %.lr.ph
 
 .lr.ph.i5.i.i.i:                                  ; preds = %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -664,8 +664,8 @@ _ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit.sink.split: ; preds = %.
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !49, !noalias !65
   %39 = zext i24 %35 to i64
-  %.idx.i.i.i.i.le81 = shl nuw nsw i64 %39, 5
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.le81
+  %.idx.i.i.i.i.le80 = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.le80
   br label %_ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit
 
 _ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit.sink.split, %.lr.ph.i.preheader, %_ZN4llvm14getBundleStartENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE.exit.i.i.i, %.lr.ph.i5.i.i.preheader.i
@@ -678,10 +678,8 @@ _ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm19co
   %44 = load ptr, ptr %43, align 8, !tbaa !49, !noalias !70
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i24, ptr %45, align 8, !noalias !70
-  %.fr16 = freeze i24 %46
-  %47 = zext i24 %.fr16 to i64
-  %.fr = freeze ptr %44
-  %48 = getelementptr %"class.llvm::MachineOperand", ptr %.fr, i64 %47
+  %47 = zext i24 %46 to i64
+  %48 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %44, i64 %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   br label %.split.i
 
@@ -792,7 +790,7 @@ _ZN4llvm20filter_iterator_implINS_21ConstMIBundleOperandsEPFbRKNS_14MachineOpera
   br i1 %or.cond114.i, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.i.i.i8.i, label %_ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFbRKNS_14MachineOperandEEEENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISC_E4typeEEEEEOSA_SD_.exit
 
 _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.i.i.i8.i: ; preds = %85, %_ZN4llvm20filter_iterator_implINS_21ConstMIBundleOperandsEPFbRKNS_14MachineOperandEESt20forward_iterator_tagEC2ES1_S1_S6_.exit.split109.i
-  %88 = load i32, ptr %.sroa.8.0.i, align 8
+  %88 = load i32, ptr %.sroa.8.0.i, align 8, !noalias !73
   %trunc.i.i = trunc i32 %88 to i8
   switch i8 %trunc.i.i, label %_ZZN4llvm19phys_regs_and_masksERKNS_12MachineInstrEENUlRKNS_14MachineOperandEE_8__invokeES5_.exit.thread [
     i8 12, label %_ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFbRKNS_14MachineOperandEEEENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISC_E4typeEEEEEOSA_SD_.exit
@@ -805,7 +803,7 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOp
 
 _ZZN4llvm19phys_regs_and_masksERKNS_12MachineInstrEENUlRKNS_14MachineOperandEE_8__invokeES5_.exit: ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.i, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !12
+  %92 = load i32, ptr %91, align 4, !tbaa !12, !noalias !73
   %93 = add i32 %92, -1
   %94 = icmp ult i32 %93, 1073741823
   br i1 %94, label %_ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFbRKNS_14MachineOperandEEEENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISC_E4typeEEEEEOSA_SD_.exit, label %_ZZN4llvm19phys_regs_and_masksERKNS_12MachineInstrEENUlRKNS_14MachineOperandEE_8__invokeES5_.exit.thread

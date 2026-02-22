@@ -10487,9 +10487,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit18: ; 
   br i1 %.not.i.i19, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit24.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i20"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i20": ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit18
-  %rhsc32 = load i8, ptr %.pn5.i13.pn, align 1
-  %rhsc32.fr = freeze i8 %rhsc32
-  %68 = icmp eq i8 %rhsc32.fr, 34
+  %rhsc33 = load i8, ptr %.pn5.i13.pn, align 1
+  %rhsc33.fr = freeze i8 %rhsc33
+  %68 = icmp eq i8 %rhsc33.fr, 34
   %69 = getelementptr inbounds nuw i8, ptr %.pn5.i13.pn, i64 1
   br i1 %68, label %70, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit24.thread"
 
@@ -10500,9 +10500,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit18: ; 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hcc9256b803391f7aE.exit.i": ; preds = %70
   %.pre.i = add i64 %.pn3.i14.pn, -2
   %71 = getelementptr inbounds i8, ptr %69, i64 %.pre.i
-  %rhsc34 = load i8, ptr %71, align 1
-  %rhsc34.fr = freeze i8 %rhsc34
-  %72 = icmp eq i8 %rhsc34.fr, 34
+  %rhsc38 = load i8, ptr %71, align 1
+  %rhsc38.fr = freeze i8 %rhsc38
+  %72 = icmp eq i8 %rhsc38.fr, 34
   %spec.select.i28 = select i1 %72, ptr %69, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit24.thread"
 
@@ -10609,9 +10609,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit29: ; 
   br i1 %.not.i.i30, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit35.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i31"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i31": ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.8462471242219372772.exit29
-  %rhsc62 = load i8, ptr %.pn5.i24, align 1
-  %rhsc62.fr = freeze i8 %rhsc62
-  %48 = icmp eq i8 %rhsc62.fr, 34
+  %rhsc69 = load i8, ptr %.pn5.i24, align 1
+  %rhsc69.fr = freeze i8 %rhsc69
+  %48 = icmp eq i8 %rhsc69.fr, 34
   %49 = getelementptr inbounds nuw i8, ptr %.pn5.i24, i64 1
   br i1 %48, label %78, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit35.thread"
 
@@ -10693,9 +10693,9 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h8bdcfd7c8bbf7a26E.llvm
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hffb3447530e40bd1E.exit.i37": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h7c7cf8a930d4ea53E.exit"
   %75 = getelementptr inbounds i8, ptr %32, i64 %.not19.i
-  %rhsc58 = load i8, ptr %75, align 1
-  %rhsc58.fr = freeze i8 %rhsc58
-  %76 = icmp eq i8 %rhsc58.fr, 34
+  %rhsc59 = load i8, ptr %75, align 1
+  %rhsc59.fr = freeze i8 %rhsc59
+  %76 = icmp eq i8 %rhsc59.fr, 34
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 1
   br i1 %76, label %108, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.llvm.8462471242219372772.exit35.thread"
 
@@ -10706,9 +10706,9 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h8bdcfd7c8bbf7a26E.llvm
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hcc9256b803391f7aE.exit.i": ; preds = %78
   %79 = getelementptr inbounds i8, ptr %49, i64 %.pre.i
-  %rhsc64 = load i8, ptr %79, align 1
-  %rhsc64.fr = freeze i8 %rhsc64
-  %80 = icmp eq i8 %rhsc64.fr, 34
+  %rhsc74 = load i8, ptr %79, align 1
+  %rhsc74.fr = freeze i8 %rhsc74
+  %80 = icmp eq i8 %rhsc74.fr, 34
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hcc9256b803391f7aE.exit.i", %78
@@ -10823,9 +10823,9 @@ _ZN4core3ops8function6FnOnce9call_once17he13f8763865a23e9E.exit: ; preds = %95, 
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hcc9256b803391f7aE.exit.i48": ; preds = %108
   %111 = getelementptr i8, ptr %75, i64 %110
-  %rhsc60 = load i8, ptr %111, align 1
-  %rhsc60.fr = freeze i8 %rhsc60
-  %112 = icmp eq i8 %rhsc60.fr, 34
+  %rhsc64 = load i8, ptr %111, align 1
+  %rhsc64.fr = freeze i8 %rhsc64
+  %112 = icmp eq i8 %rhsc64.fr, 34
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hcc9256b803391f7aE.exit.i48", %108

@@ -469,17 +469,16 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   %spec.select = zext nneg i8 %178 to i16
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %180 = load i16, ptr %179, align 2
-  %.fr746 = freeze i16 %180
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %182 = load i16, ptr %181, align 4
-  %.fr747 = freeze i16 %182
-  %183 = or i16 %.fr747, %spec.select
-  %184 = or i16 %183, %.fr746
-  %185 = and i16 %184, 1
+  %183 = or i16 %182, %spec.select
+  %184 = or i16 %183, %180
+  %.fr747 = freeze i16 %184
+  %185 = and i16 %.fr747, 1
   %.not483 = icmp eq i16 %185, 0
-  %186 = and i16 %184, 32
+  %186 = and i16 %.fr747, 32
   %.not484 = icmp eq i16 %186, 0
-  %187 = and i16 %184, 33
+  %187 = and i16 %.fr747, 33
   %or.cond533.not = icmp eq i16 %187, 33
   br i1 %or.cond533.not, label %188, label %192
 
@@ -491,7 +490,7 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   unreachable
 
 192:                                              ; preds = %.critedge.thread
-  %193 = and i16 %184, 66
+  %193 = and i16 %.fr747, 66
   %194 = icmp eq i16 %193, 64
   br i1 %194, label %195, label %214
 
@@ -547,26 +546,26 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %220 = getelementptr inbounds nuw i8, ptr %.0402, i64 72
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %222 = and i16 %184, 24
+  %222 = and i16 %.fr747, 24
   %brmerge537.not = icmp eq i16 %222, 0
-  %223 = and i16 %184, 20
+  %223 = and i16 %.fr747, 20
   %brmerge.not = icmp eq i16 %223, 0
   br i1 %.not484, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %224 = lshr i16 %184, 2
+  %224 = lshr i16 %.fr747, 2
   %.lobit = and i16 %224, 1
-  %225 = lshr i16 %184, 4
+  %225 = lshr i16 %.fr747, 4
   %.lobit525 = and i16 %225, 1
   %narrow = add nuw nsw i16 %.lobit, %.lobit525
-  %226 = lshr i16 %184, 3
+  %226 = lshr i16 %.fr747, 3
   %.lobit527 = and i16 %226, 1
   %narrow528 = add nuw nsw i16 %narrow, %.lobit527
   %.not529 = icmp eq i16 %narrow528, 1
   br i1 %.not529, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %260
-  %227 = phi i16 [ 0, %260 ], [ %.fr746, %.lr.ph.split.us ]
+  %227 = phi i16 [ 0, %260 ], [ %180, %.lr.ph.split.us ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %260 ], [ 0, %.lr.ph.split.us ]
   %.1412617.us.us = phi ptr [ %.2413.us.us, %260 ], [ null, %.lr.ph.split.us ]
   %.1416616.us.us = phi ptr [ %.2417.us.us, %260 ], [ null, %.lr.ph.split.us ]
@@ -678,7 +677,7 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   br label %276
 
 276:                                              ; preds = %._crit_edge813, %272
-  %277 = phi i16 [ %.pre814, %._crit_edge813 ], [ %.fr746, %272 ]
+  %277 = phi i16 [ %.pre814, %._crit_edge813 ], [ %180, %272 ]
   %.not521.us = icmp eq i16 %277, 0
   br i1 %.not521.us, label %.split628.us, label %.split626.us
 
@@ -765,7 +764,7 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   unreachable
 
 319:                                              ; preds = %._crit_edge812, %305
-  %320 = phi i16 [ %.pre, %._crit_edge812 ], [ %.fr746, %305 ]
+  %320 = phi i16 [ %.pre, %._crit_edge812 ], [ %180, %305 ]
   %.not521 = icmp eq i16 %320, 0
   br i1 %.not521, label %324, label %.split626.us
 
@@ -871,11 +870,11 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
   %368 = load i32, ptr %367, align 4
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 16
-  %370 = and i16 %184, 8
+  %370 = and i16 %.fr747, 8
   %.not494 = icmp eq i16 %370, 0
   %371 = icmp eq i16 %193, 2
   %372 = getelementptr inbounds nuw i8, ptr %.0402, i64 64
-  %373 = and i16 %184, 4
+  %373 = and i16 %.fr747, 4
   %.not497 = icmp eq i16 %373, 0
   %374 = icmp sgt i32 %368, 0
   br i1 %.not483, label %.lr.ph643.split.us, label %.lr.ph643.split.split.split
@@ -1347,7 +1346,7 @@ define dso_local { i64, i32 } @CreateTriggerFiringOn(ptr noundef %0, ptr noundef
   %611 = zext i32 %.0396 to i64
   %612 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 %611, ptr %612, align 16
-  %613 = sext i16 %184 to i64
+  %613 = sext i16 %.fr747 to i64
   %614 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 %613, ptr %614, align 8
   %615 = sext i8 %11 to i64

@@ -4253,11 +4253,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_9GVDAGTypeELb0
   %11 = load ptr, ptr %10, align 8, !tbaa !304
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !306
-  %.fr15 = freeze i64 %13
-  %.not23.i = icmp eq i64 %.fr15, 0
-  %.fr16 = freeze i64 %3
-  %.fr17 = freeze i64 %5
-  %spec.select.i = select i1 %.not23.i, i64 %.fr16, i64 %.fr17
+  %.not23.i = icmp eq i64 %13, 0
+  %spec.select.i = select i1 %.not23.i, i64 %3, i64 %5
+  %spec.select.i.fr = freeze i64 %spec.select.i
   %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
@@ -4268,7 +4266,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_9GVDAGTypeELb0
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select.i, 0
+  %19 = icmp eq i64 %spec.select.i.fr, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
@@ -4289,12 +4287,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
   %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::GVDAGType>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !50
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !49
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i.fr)
   %23 = icmp eq i32 %bcmp.i.i, 0
   br i1 %23, label %_ZN4llvm2cl6parserINS_9GVDAGTypeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
@@ -4322,7 +4320,7 @@ _ZN4llvm2cl6parserINS_9GVDAGTypeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select22.i, ptr %31, align 8, !tbaa !57, !alias.scope !308
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select.i, ptr %32, align 8, !tbaa !57, !alias.scope !308
+  store i64 %spec.select.i.fr, ptr %32, align 8, !tbaa !57, !alias.scope !308
   store ptr %8, ptr %7, align 8, !alias.scope !311
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.37, ptr %33, align 8, !alias.scope !311
@@ -4734,11 +4732,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_17PGOViewCount
   %11 = load ptr, ptr %10, align 8, !tbaa !304
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !306
-  %.fr15 = freeze i64 %13
-  %.not23.i = icmp eq i64 %.fr15, 0
-  %.fr16 = freeze i64 %3
-  %.fr17 = freeze i64 %5
-  %spec.select.i = select i1 %.not23.i, i64 %.fr16, i64 %.fr17
+  %.not23.i = icmp eq i64 %13, 0
+  %spec.select.i = select i1 %.not23.i, i64 %3, i64 %5
+  %spec.select.i.fr = freeze i64 %spec.select.i
   %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
@@ -4749,7 +4745,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_17PGOViewCount
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select.i, 0
+  %19 = icmp eq i64 %spec.select.i.fr, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
@@ -4770,12 +4766,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
   %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::PGOViewCountsType>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !50
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !49
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i.fr)
   %23 = icmp eq i32 %bcmp.i.i, 0
   br i1 %23, label %_ZN4llvm2cl6parserINS_17PGOViewCountsTypeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
@@ -4803,7 +4799,7 @@ _ZN4llvm2cl6parserINS_17PGOViewCountsTypeEE5parseERNS0_6OptionENS_9StringRefES6_
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select22.i, ptr %31, align 8, !tbaa !57, !alias.scope !322
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select.i, ptr %32, align 8, !tbaa !57, !alias.scope !322
+  store i64 %spec.select.i.fr, ptr %32, align 8, !tbaa !57, !alias.scope !322
   store ptr %8, ptr %7, align 8, !alias.scope !325
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.37, ptr %33, align 8, !alias.scope !325
@@ -7923,7 +7919,7 @@ define linkonce_odr void @_ZN4llvm22BlockFrequencyInfoImplINS_10BasicBlockEE23ap
   br i1 %.not55, label %._crit_edge59, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %._crit_edge
-  %.not.i13.i = icmp eq i64 %spec.select, 0
+  %.not.i13.i = icmp eq i64 %.sroa.041.0.lcssa.fr, 0
   br i1 %.not.i13.i, label %.lr.ph58.split.us, label %.lr.ph58.split
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58, %_ZN4llvm12ScaledNumberImEdVERKS1_.exit.us
@@ -7947,7 +7943,7 @@ _ZN4llvm12ScaledNumberImEdVERKS1_.exit.us:        ; preds = %29, %.lr.ph58.split
   %31 = phi ptr [ %74, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ], [ %12, %.lr.ph.preheader ]
   %.02253 = phi i64 [ %72, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ], [ 0, %.lr.ph.preheader ]
   %.sroa.7.052 = phi i16 [ %spec.select45, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ], [ 0, %.lr.ph.preheader ]
-  %.sroa.041.051 = phi i64 [ %spec.select, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ], [ 0, %.lr.ph.preheader ]
+  %.sroa.041.051 = phi i64 [ %.sroa.041.0.lcssa.fr, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ], [ 0, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.02253
   %33 = load ptr, ptr %32, align 8, !tbaa !231
@@ -8046,22 +8042,20 @@ _ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i: ; preds = %66, %4
   %.0..0..i.i = phi i64 [ %.fca.0.extract8, %44 ], [ %.fca.0.extract8, %42 ], [ %.0..0..0..0..0..0..0..pre.i.i, %66 ]
   %.0..0.12.i.i = phi i64 [ %.sroa.041.051, %44 ], [ %.sroa.041.051, %42 ], [ %.0..0..0..0..0..0..0.12.pre.i.i, %66 ]
   %.0.i.i.i = phi i16 [ %39, %44 ], [ %40, %42 ], [ %.1.i.i.i, %66 ]
-  %.0..0..i.i.fr = freeze i64 %.0..0..i.i
-  %.0..0.12.i.i.fr = freeze i64 %.0..0.12.i.i
-  %67 = add i64 %.0..0.12.i.i.fr, %.0..0..i.i.fr
-  %.not.i.i = icmp ult i64 %67, %.0..0..i.i.fr
+  %67 = add i64 %.0..0.12.i.i, %.0..0..i.i
+  %.not.i.i = icmp ult i64 %67, %.0..0..i.i
   %68 = lshr i64 %67, 1
   %69 = or disjoint i64 %68, -9223372036854775808
   %.sroa.013.0.i.i = select i1 %.not.i.i, i64 %69, i64 %67
   %70 = zext i1 %.not.i.i to i16
-  %.0.i.i.i.fr = freeze i16 %.0.i.i.i
-  %.sroa.3.0.i.i = add i16 %.0.i.i.i.fr, %70
+  %.sroa.3.0.i.i = add i16 %.0.i.i.i, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %71 = icmp sgt i16 %.sroa.3.0.i.i, 16383
   %spec.select = select i1 %71, i64 -1, i64 %.sroa.013.0.i.i
+  %.sroa.041.0.lcssa.fr = freeze i64 %spec.select
   %spec.select45 = call i16 @llvm.smin.i16(i16 %.sroa.3.0.i.i, i16 16383)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %72 = add nuw i64 %.02253, 1
@@ -8102,7 +8096,7 @@ _ZN4llvm12ScaledNumberImE11getQuotientEmm.exit.i: ; preds = %.lr.ph58.split
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.038.056, i64 8
   %88 = load i16, ptr %87, align 8, !tbaa !451
   %89 = sub i16 %88, %spec.select45
-  %90 = call { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %86, i64 noundef %spec.select) #25
+  %90 = call { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %86, i64 noundef %.sroa.041.0.lcssa.fr) #25
   %.fca.0.extract.i.i.i = extractvalue { i64, i16 } %90, 0
   %.fca.1.extract.i.i.i = extractvalue { i64, i16 } %90, 1
   store i64 %.fca.0.extract.i.i.i, ptr %.sroa.038.056, align 8

@@ -25223,31 +25223,30 @@ define internal fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17co
   %8 = alloca %"class.tbb::detail::d1::vector_iterator.575", align 8
   %9 = alloca %"class.tbb::detail::d1::vector_iterator.575", align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !531
-  %.fr9.i.i = freeze ptr %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !533
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !534
   %15 = load ptr, ptr %1, align 8, !tbaa !531
-  %.fr10.i.i = freeze ptr %15
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !533
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !534
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %20 = icmp ne ptr %.fr9.i.i, %.fr10.i.i
+  %20 = icmp ne ptr %10, %15
+  %.fr.i.i = freeze i1 %20
   %21 = icmp ne i64 %12, %17
-  %.not3.i.i = select i1 %20, i1 true, i1 %21
+  %.not3.i.i = select i1 %.fr.i.i, i1 true, i1 %21
   br i1 %.not3.i.i, label %22, label %_ZSt6__sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_SJ_T0_.exit
 
 22:                                               ; preds = %2
-  store ptr %.fr9.i.i, ptr %8, align 8, !tbaa !531
+  store ptr %10, ptr %8, align 8, !tbaa !531
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %12, ptr %23, align 8, !tbaa !533
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %14, ptr %24, align 8, !tbaa !534
-  store ptr %.fr10.i.i, ptr %9, align 8, !tbaa !531
+  store ptr %15, ptr %9, align 8, !tbaa !531
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %17, ptr %25, align 8, !tbaa !533
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -25265,13 +25264,13 @@ define internal fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17co
   br i1 %31, label %32, label %125
 
 32:                                               ; preds = %22
-  store ptr %.fr9.i.i, ptr %4, align 8, !tbaa !531
+  store ptr %10, ptr %4, align 8, !tbaa !531
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %33, align 8, !tbaa !533
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %34, align 8, !tbaa !534
   %35 = add i64 %12, 16
-  store ptr %.fr9.i.i, ptr %5, align 8, !tbaa !531, !alias.scope !1121
+  store ptr %10, ptr %5, align 8, !tbaa !531, !alias.scope !1121
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %35, ptr %36, align 8, !tbaa !533, !alias.scope !1121
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -25279,21 +25278,21 @@ define internal fastcc void @_ZSt4sortIN3tbb6detail2d115vector_iteratorINS2_17co
   call fastcc void @_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_SJ_T0_(ptr noundef %4, ptr noundef %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = icmp ne i64 %35, %17
-  %.not3.i6.i.i.i = or i1 %20, %38
+  %.not3.i6.i.i.i = or i1 %.fr.i.i, %38
   br i1 %.not3.i6.i.i.i, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.lr.ph.i.i.i, label %_ZSt26__unguarded_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_SJ_T0_.exit.i.i
 
 _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.lr.ph.i.i.i: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %20, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.preheader.i, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.i.i.i
+  br i1 %.fr.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.preheader.i, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.preheader.i: ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.lr.ph.i.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.fr9.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.i: ; preds = %_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_T0_.exit.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.preheader.i
   %.sroa.5.07.i.us.i.i = phi i64 [ %123, %_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_T0_.exit.i ], [ %35, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EdeEv.exit.i.preheader.i ]
-  store ptr %.fr9.i.i, ptr %3, align 8, !tbaa !531
+  store ptr %10, ptr %3, align 8, !tbaa !531
   store i64 %.sroa.5.07.i.us.i.i, ptr %39, align 8, !tbaa !533
   store ptr null, ptr %40, align 8, !tbaa !534
   %42 = or i64 %.sroa.5.07.i.us.i.i, 1
@@ -25440,7 +25439,7 @@ _ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurren
 
 _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.i.i.i: ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.lr.ph.i.i.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.i.i.i
   %.sroa.5.07.i.i.i = phi i64 [ %124, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.i.i.i ], [ %35, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS4_6X86_64EEENS1_23cache_aligned_allocatorIS8_EEEES8_EppEv.exit.lr.ph.i.i.i ]
-  store ptr %.fr9.i.i, ptr %3, align 8, !tbaa !531
+  store ptr %10, ptr %3, align 8, !tbaa !531
   store i64 %.sroa.5.07.i.i.i, ptr %39, align 8, !tbaa !533
   store ptr null, ptr %40, align 8, !tbaa !534
   call fastcc void @_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_T0_(ptr noundef %3)
@@ -25453,12 +25452,12 @@ _ZSt26__unguarded_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurre
   br label %_ZSt22__final_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS2_23cache_aligned_allocatorIS9_EEEES9_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEEvSJ_SJ_T0_.exit.i
 
 125:                                              ; preds = %22
-  store ptr %.fr9.i.i, ptr %6, align 8, !tbaa !531
+  store ptr %10, ptr %6, align 8, !tbaa !531
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %126, align 8, !tbaa !533
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %14, ptr %127, align 8, !tbaa !534
-  store ptr %.fr10.i.i, ptr %7, align 8, !tbaa !531
+  store ptr %15, ptr %7, align 8, !tbaa !531
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %17, ptr %128, align 8, !tbaa !533
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16

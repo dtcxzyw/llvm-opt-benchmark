@@ -8329,8 +8329,8 @@ _ZL16CheckMemoryLeaksRN12_GLOBAL__N_18EvalInfoE.exit: ; preds = %_ZL23CheckConst
   %232 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   %233 = call fastcc noundef zeroext i1 @_ZL19EvaluateDestructionRKN5clang10ASTContextENS_7APValue10LValueBaseES3_NS_8QualTypeENS_14SourceLocationERNS_4Expr10EvalStatusEb(ptr noundef nonnull align 8 dereferenceable(23216) %2, i64 %.sroa.02.0.copyload, ptr %.sroa.2.0.copyload, ptr noundef %14, i64 %spec.select, i32 %232, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext true)
   %234 = load i8, ptr %1, align 8, !range !638
-  %.fr = freeze i8 %234
-  %235 = trunc i8 %.fr to i1
+  %.fr79 = freeze i8 %234
+  %235 = trunc i8 %.fr79 to i1
   %not. = xor i1 %233, true
   %.ph = or i1 %not., %235
   %236 = load i32, ptr %14, align 8, !tbaa !669
@@ -30414,9 +30414,9 @@ _ZN12_GLOBAL__N_18EvalInfo20getCallFrameAndDepthEj.exit: ; preds = %.lr.ph.i, %2
   %.03.lcssa.i = phi i32 [ %.val273, %24 ], [ %33, %.lr.ph.i ]
   %.0.lcssa.i = phi ptr [ %.val, %24 ], [ %32, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %29, %24 ], [ %35, %.lr.ph.i ]
-  %.not497 = icmp eq i32 %.lcssa.i, %25
-  %spec.select4.i = select i1 %.not497, i32 %.03.lcssa.i, i32 0
-  br i1 %.not497, label %44, label %37
+  %.not498 = icmp eq i32 %.lcssa.i, %25
+  %spec.select4.i = select i1 %.not498, i32 %.03.lcssa.i, i32 0
+  br i1 %.not498, label %44, label %37
 
 37:                                               ; preds = %_ZN12_GLOBAL__N_18EvalInfo20getCallFrameAndDepthEj.exit
   %38 = tail call ptr @_ZN5clang6interp5State6FFDiagEPKNS_4ExprEjj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %2, i32 noundef 2221, i32 noundef 1) #31
@@ -31013,8 +31013,8 @@ _ZN12_GLOBAL__N_18EvalInfo18lookupDynamicAllocEN5clang18DynamicAllocLValueE.exit
   %264 = getelementptr inbounds nuw i8, ptr %.110.i.i.i.i, i64 32
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %264, align 4, !tbaa !695
   %265 = add i32 %.sroa.0.0.copyload.i.i.i, -1
-  %.not471 = icmp ult i32 %258, %265
-  br i1 %.not471, label %_ZN12_GLOBAL__N_18EvalInfo18lookupDynamicAllocEN5clang18DynamicAllocLValueE.exit.thread, label %269
+  %.not472 = icmp ult i32 %258, %265
+  br i1 %.not472, label %_ZN12_GLOBAL__N_18EvalInfo18lookupDynamicAllocEN5clang18DynamicAllocLValueE.exit.thread, label %269
 
 _ZN12_GLOBAL__N_18EvalInfo18lookupDynamicAllocEN5clang18DynamicAllocLValueE.exit.thread: ; preds = %255, %_ZNSt8_Rb_treeIN5clang18DynamicAllocLValueESt4pairIKS1_N12_GLOBAL__N_18DynAllocEESt10_Select1stIS6_ENS4_13DynAllocOrderESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZN12_GLOBAL__N_18EvalInfo18lookupDynamicAllocEN5clang18DynamicAllocLValueE.exit
   %266 = call ptr @_ZN5clang6interp5State6FFDiagEPKNS_4ExprEjj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %2, i32 noundef 2165, i32 noundef 0) #31
@@ -31209,8 +31209,8 @@ _ZN4llvm15isa_and_nonnullIJN5clang11ParmVarDeclEEPKNS1_9ValueDeclEEEbRKT0_.exit:
   %331 = inttoptr i64 %330 to ptr
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 28
   %333 = load i32, ptr %332, align 4
-  %.fr = freeze i32 %333
-  %334 = and i32 %.fr, 127
+  %.fr471 = freeze i32 %333
+  %334 = and i32 %.fr471, 127
   %335 = icmp eq i32 %334, 41
   %336 = zext i1 %335 to i32
   %spec.select457 = add i32 %.0435, %336

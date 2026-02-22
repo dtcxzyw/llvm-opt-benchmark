@@ -551,13 +551,11 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %22 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !54
-  %.fr94 = freeze i64 %23
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !56
-  %.fr93 = freeze i64 %25
-  %.not91 = icmp slt i64 %17, %.fr94
-  %.not92 = icmp sgt i64 %17, %.fr93
-  %or.cond = or i1 %.not91, %.not92
+  %.not91 = icmp slt i64 %17, %23
+  %.not92 = icmp sgt i64 %17, %25
+  %or.cond = select i1 %.not91, i1 true, i1 %.not92
   br i1 %or.cond, label %36, label %26
 
 26:                                               ; preds = %21
@@ -570,9 +568,10 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = sub i64 %.fr93, %.fr94
+  %33 = sub nsw i64 %25, %23
+  %.fr = freeze i64 %33
   %34 = sext i32 %14 to i64
-  %35 = srem i64 %33, %34
+  %35 = srem i64 %.fr, %34
   br label %.thread
 
 36:                                               ; preds = %21
@@ -589,8 +588,8 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !56
   %43 = sub nsw i64 %42, %.1
-  %.not95 = icmp slt i64 %17, %43
-  br i1 %.not95, label %72, label %44
+  %.not93 = icmp slt i64 %17, %43
+  br i1 %.not93, label %72, label %44
 
 44:                                               ; preds = %.thread
   %45 = add i32 %38, 1
@@ -610,8 +609,8 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 55:                                               ; preds = %47
   %56 = tail call i32 @avio_rb16(ptr noundef %11) #6
-  %.not96 = icmp eq i32 %56, 32768
-  br i1 %.not96, label %57, label %101
+  %.not94 = icmp eq i32 %56, 32768
+  br i1 %.not94, label %57, label %101
 
 57:                                               ; preds = %55
   %58 = tail call i32 @avio_rb16(ptr noundef %11) #6
@@ -624,13 +623,13 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %63 = add nuw i32 %58, 68
   %64 = zext nneg i32 %63 to i64
   %65 = tail call noalias ptr @av_malloc(i64 noundef %64) #6
-  %.not97 = icmp eq ptr %65, null
-  br i1 %.not97, label %101, label %66
+  %.not95 = icmp eq ptr %65, null
+  br i1 %.not95, label %101, label %66
 
 66:                                               ; preds = %62
   %67 = tail call i32 @avio_read(ptr noundef %11, ptr noundef nonnull %65, i32 noundef %59) #6
-  %.not98 = icmp eq i32 %67, %59
-  br i1 %.not98, label %69, label %68
+  %.not96 = icmp eq i32 %67, %59
+  br i1 %.not96, label %69, label %68
 
 68:                                               ; preds = %66
   tail call void @av_free(ptr noundef nonnull %65) #6
@@ -646,8 +645,8 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %.079 = phi i64 [ %70, %69 ], [ 0, %47 ], [ 0, %.thread ]
   %.078 = phi ptr [ %65, %69 ], [ null, %47 ], [ null, %.thread ]
   %73 = tail call i32 @av_get_packet(ptr noundef %11, ptr noundef %1, i32 noundef %14) #6
-  %.not99 = icmp eq i32 %73, %14
-  br i1 %.not99, label %77, label %74
+  %.not97 = icmp eq i32 %73, %14
+  br i1 %.not97, label %77, label %74
 
 74:                                               ; preds = %72
   tail call void @av_free(ptr noundef %.078) #6
@@ -698,8 +697,8 @@ get_pts.exit:                                     ; preds = %83, %77
   %95 = add nsw i64 %94, %.015.lcssa.i
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %95, ptr %96, align 8, !tbaa !84
-  %.not100 = icmp eq ptr %.078, null
-  br i1 %.not100, label %101, label %97
+  %.not98 = icmp eq ptr %.078, null
+  br i1 %.not98, label %101, label %97
 
 97:                                               ; preds = %get_pts.exit
   %98 = tail call i32 @av_packet_add_side_data(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %.078, i64 noundef %.079) #6

@@ -15164,7 +15164,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sgpd(ptr noundef readonly
 
 .thread:                                          ; preds = %22, %25, %27
   %29 = phi i32 [ %26, %27 ], [ %26, %25 ], [ 0, %22 ]
-  %.fr = freeze i32 %29
+  %.fr49 = freeze i32 %29
   %30 = tail call i32 @avio_rb32(ptr noundef %1) #17
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 1408
   tail call void @av_freep(ptr noundef nonnull %31) #17
@@ -15182,12 +15182,12 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sgpd(ptr noundef readonly
   br i1 %.not48, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %36 = icmp eq i32 %.fr, 0
+  %36 = icmp eq i32 %.fr49, 0
   %or.cond = and i1 %24, %36
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %38 ], [ 0, %.lr.ph ]
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %38 ], [ 0, %.lr.ph ]
   %37 = load i32, ptr %35, align 8, !tbaa !47
   %.not43.us = icmp eq i32 %37, 0
   br i1 %.not43.us, label %38, label %.critedge.thread
@@ -15198,17 +15198,17 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sgpd(ptr noundef readonly
   %41 = trunc i32 %40 to i8
   %42 = and i8 %41, 63
   %43 = load ptr, ptr %31, align 8, !tbaa !560
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv51
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv52
   store i8 %42, ptr %44, align 1, !tbaa !82
   %45 = add i32 %39, -1
   %46 = zext i32 %45 to i64
   %47 = tail call i64 @avio_skip(ptr noundef nonnull %1, i64 noundef %46) #17
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %33
-  br i1 %exitcond55.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !561
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %33
+  br i1 %exitcond56.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !561
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %48 = add i32 %.fr, -1
+  %48 = add i32 %.fr49, -1
   %49 = zext i32 %48 to i64
   br label %50
 
@@ -19577,8 +19577,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_iprp(ptr noundef %0, ptr
 
 .lr.ph152:                                        ; preds = %54
   %.not109 = icmp eq i32 %55, 0
-  %.fr = freeze i32 %56
-  %58 = and i32 %.fr, 1
+  %.fr163 = freeze i32 %56
+  %58 = and i32 %.fr163, 1
   %.not111 = icmp eq i32 %58, 0
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 468
@@ -19605,8 +19605,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_iprp(ptr noundef %0, ptr
 
 ._crit_edge149.split.us.us:                       ; preds = %89, %.preheader.us
   %69 = add nuw i32 %.099150.us, 1
-  %exitcond173.not = icmp eq i32 %69, %57
-  br i1 %exitcond173.not, label %.thread120thread-pre-split, label %.lr.ph152.split.us, !llvm.loop !649
+  %exitcond174.not = icmp eq i32 %69, %57
+  br i1 %exitcond174.not, label %.thread120thread-pre-split, label %.lr.ph152.split.us, !llvm.loop !649
 
 .preheader.us:                                    ; preds = %65
   %70 = icmp sgt i32 %67, 0
@@ -19647,8 +19647,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_iprp(ptr noundef %0, ptr
   %93 = trunc i64 %92 to i32
   call void @ffio_init_read_context(ptr noundef %80, ptr noundef %91, i32 noundef %93) #17
   %94 = add nuw nsw i32 %.093147.us.us, 1
-  %exitcond172.not = icmp eq i32 %94, %67
-  br i1 %exitcond172.not, label %._crit_edge149.split.us.us, label %.lr.ph148.us, !llvm.loop !650
+  %exitcond173.not = icmp eq i32 %94, %67
+  br i1 %exitcond173.not, label %._crit_edge149.split.us.us, label %.lr.ph148.us, !llvm.loop !650
 
 .lr.ph152.split:                                  ; preds = %.lr.ph152, %._crit_edge149.split
   %.099150 = phi i32 [ %131, %._crit_edge149.split ], [ 0, %.lr.ph152 ]
@@ -19716,8 +19716,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_iprp(ptr noundef %0, ptr
 
 ._crit_edge149.split:                             ; preds = %125, %.preheader
   %131 = add nuw i32 %.099150, 1
-  %exitcond171.not = icmp eq i32 %131, %57
-  br i1 %exitcond171.not, label %.thread120thread-pre-split, label %.lr.ph152.split, !llvm.loop !649
+  %exitcond172.not = icmp eq i32 %131, %57
+  br i1 %exitcond172.not, label %.thread120thread-pre-split, label %.lr.ph152.split, !llvm.loop !649
 
 .thread120thread-pre-split:                       ; preds = %20, %18, %30, %32, %._crit_edge149.split, %99, %112, %._crit_edge149.split.us.us, %65, %76, %._crit_edge, %49, %54
   %.3.ph = phi i32 [ -1094995529, %99 ], [ 0, %54 ], [ 0, %._crit_edge149.split.us.us ], [ %123, %112 ], [ %87, %76 ], [ -1094995529, %._crit_edge ], [ -1094995529, %49 ], [ -1094995529, %65 ], [ 0, %._crit_edge149.split ], [ -1094995529, %30 ], [ -12, %18 ], [ -1094995529, %32 ], [ -1094995529, %20 ]

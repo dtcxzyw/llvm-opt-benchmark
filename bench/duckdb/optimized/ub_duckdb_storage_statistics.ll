@@ -8913,8 +8913,8 @@ define void @_ZN6duckdb10ArrayStats6VerifyERKNS_14BaseStatisticsERNS_6VectorERKN
           to label %.preheader unwind label %59
 
 .preheader:                                       ; preds = %4
-  %.not105 = icmp eq i64 %3, 0
-  br i1 %.not105, label %._crit_edge, label %.lr.ph
+  %.not103 = icmp eq i64 %3, 0
+  br i1 %.not103, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = load ptr, ptr %2, align 8, !tbaa !164
@@ -8931,30 +8931,29 @@ define void @_ZN6duckdb10ArrayStats6VerifyERKNS_14BaseStatisticsERNS_6VectorERKN
   br i1 %.not.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %.not.i54, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74
+  br i1 %.not.i54, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us: ; preds = %.lr.ph.split.split.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us
-  %.04071.us72.us = phi i64 [ %23, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us ], [ 0, %.lr.ph.split.split.us ]
-  %.04670.us73.us = phi i64 [ %24, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us ], [ 0, %.lr.ph.split.split.us ]
-  %16 = lshr i64 %.04670.us73.us, 6
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us: ; preds = %.lr.ph.split.split.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us
+  %.04070.us71.us = phi i64 [ %23, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us ], [ 0, %.lr.ph.split.split.us ]
+  %.04669.us72.us = phi i64 [ %24, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us ], [ 0, %.lr.ph.split.split.us ]
+  %16 = lshr i64 %.04669.us72.us, 6
   %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !85
-  %19 = and i64 %.04670.us73.us, 63
+  %19 = and i64 %.04669.us72.us, 63
   %20 = shl nuw i64 1, %19
-  %.fr.us.us = freeze i64 %18
-  %.fr68.us.us = freeze i64 %20
-  %21 = and i64 %.fr.us.us, %.fr68.us.us
-  %.not69.us.us = icmp ne i64 %21, 0
-  %22 = zext i1 %.not69.us.us to i64
-  %23 = add i64 %.04071.us72.us, %22
-  %24 = add nuw i64 %.04670.us73.us, 1
-  %exitcond126.not = icmp eq i64 %24, %3
-  br i1 %exitcond126.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us, !llvm.loop !189
+  %21 = and i64 %18, %20
+  %.fr.us.us = freeze i64 %21
+  %.not68.us.us = icmp ne i64 %.fr.us.us, 0
+  %22 = zext i1 %.not68.us.us to i64
+  %23 = add i64 %.04070.us71.us, %22
+  %24 = add nuw i64 %.04669.us72.us, 1
+  %exitcond124.not = icmp eq i64 %24, %3
+  br i1 %exitcond124.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us, !llvm.loop !189
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74: ; preds = %.lr.ph.split.split.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74
-  %.04071.us72 = phi i64 [ %35, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74 ], [ 0, %.lr.ph.split.split.us ]
-  %.04670.us73 = phi i64 [ %36, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74 ], [ 0, %.lr.ph.split.split.us ]
-  %25 = getelementptr inbounds nuw i32, ptr %13, i64 %.04670.us73
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73: ; preds = %.lr.ph.split.split.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73
+  %.04070.us71 = phi i64 [ %35, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73 ], [ 0, %.lr.ph.split.split.us ]
+  %.04669.us72 = phi i64 [ %36, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73 ], [ 0, %.lr.ph.split.split.us ]
+  %25 = getelementptr inbounds nuw i32, ptr %13, i64 %.04669.us72
   %26 = load i32, ptr %25, align 4, !tbaa !41
   %27 = zext i32 %26 to i64
   %28 = lshr i64 %27, 6
@@ -8962,23 +8961,22 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us74: ; preds = %.lr.ph.split.spli
   %30 = load i64, ptr %29, align 8, !tbaa !85
   %31 = and i64 %27, 63
   %32 = shl nuw i64 1, %31
-  %.fr.us = freeze i64 %30
-  %.fr68.us = freeze i64 %32
-  %33 = and i64 %.fr.us, %.fr68.us
-  %.not69.us = icmp ne i64 %33, 0
-  %34 = zext i1 %.not69.us to i64
-  %35 = add i64 %.04071.us72, %34
-  %36 = add nuw i64 %.04670.us73, 1
-  %exitcond125.not = icmp eq i64 %36, %3
-  br i1 %exitcond125.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74, !llvm.loop !189
+  %33 = and i64 %30, %32
+  %.fr.us = freeze i64 %33
+  %.not68.us = icmp ne i64 %.fr.us, 0
+  %34 = zext i1 %.not68.us to i64
+  %35 = add i64 %.04070.us71, %34
+  %36 = add nuw i64 %.04669.us72, 1
+  %exitcond123.not = icmp eq i64 %36, %3
+  br i1 %exitcond123.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73, !llvm.loop !189
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %.not.i54, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
+  br i1 %.not.i54, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78: ; preds = %.lr.ph.split.split, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78
-  %.04071.us79 = phi i64 [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78 ], [ 0, %.lr.ph.split.split ]
-  %.04670.us80 = phi i64 [ %48, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78 ], [ 0, %.lr.ph.split.split ]
-  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %.04670.us80
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77: ; preds = %.lr.ph.split.split, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77
+  %.04070.us78 = phi i64 [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77 ], [ 0, %.lr.ph.split.split ]
+  %.04669.us79 = phi i64 [ %48, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77 ], [ 0, %.lr.ph.split.split ]
+  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %.04669.us79
   %38 = load i32, ptr %37, align 4, !tbaa !41
   %39 = zext i32 %38 to i64
   %40 = lshr i64 %39, 6
@@ -8986,18 +8984,17 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us78: ; preds = %.lr.ph.split.spli
   %42 = load i64, ptr %41, align 8, !tbaa !85
   %43 = and i64 %39, 63
   %44 = shl nuw i64 1, %43
-  %.fr.us82 = freeze i64 %42
-  %.fr68.us83 = freeze i64 %44
-  %45 = and i64 %.fr.us82, %.fr68.us83
-  %.not69.us84 = icmp ne i64 %45, 0
-  %46 = zext i1 %.not69.us84 to i64
-  %47 = add i64 %.04071.us79, %46
-  %48 = add nuw i64 %.04670.us80, 1
-  %exitcond124.not = icmp eq i64 %48, %3
-  br i1 %exitcond124.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78, !llvm.loop !189
+  %45 = and i64 %42, %44
+  %.fr.us81 = freeze i64 %45
+  %.not68.us82 = icmp ne i64 %.fr.us81, 0
+  %46 = zext i1 %.not68.us82 to i64
+  %47 = add i64 %.04070.us78, %46
+  %48 = add nuw i64 %.04669.us79, 1
+  %exitcond122.not = icmp eq i64 %48, %3
+  br i1 %exitcond122.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77, !llvm.loop !189
 
-._crit_edge:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us, %.lr.ph, %.preheader
-  %.040.lcssa = phi i64 [ 0, %.preheader ], [ %35, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74 ], [ %23, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us74.us ], [ %3, %.lr.ph ], [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us78 ], [ %74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
+._crit_edge:                                      ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us, %.lr.ph, %.preheader
+  %.040.lcssa = phi i64 [ 0, %.preheader ], [ %35, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73 ], [ %23, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us73.us ], [ %3, %.lr.ph ], [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us77 ], [ %74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = mul i64 %.040.lcssa, %10
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9006,9 +9003,9 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us78: ; preds = %.lr.ph.split.spli
           to label %_ZN6duckdb15SelectionVectorC2Em.exit.preheader unwind label %57
 
 _ZN6duckdb15SelectionVectorC2Em.exit.preheader:   ; preds = %._crit_edge
-  br i1 %.not105, label %_ZN6duckdb15SelectionVectorC2Em.exit._crit_edge, label %.lr.ph102
+  br i1 %.not103, label %_ZN6duckdb15SelectionVectorC2Em.exit._crit_edge, label %.lr.ph100
 
-.lr.ph102:                                        ; preds = %_ZN6duckdb15SelectionVectorC2Em.exit.preheader
+.lr.ph100:                                        ; preds = %_ZN6duckdb15SelectionVectorC2Em.exit.preheader
   %51 = load ptr, ptr %2, align 8, !tbaa !164
   %.not.i57 = icmp eq ptr %51, null
   %52 = load ptr, ptr %5, align 8, !tbaa !171
@@ -9017,7 +9014,7 @@ _ZN6duckdb15SelectionVectorC2Em.exit.preheader:   ; preds = %._crit_edge
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !181
   %.not.i61 = icmp eq ptr %55, null
-  %.not107 = icmp eq i64 %10, 0
+  %.not105 = icmp eq i64 %10, 0
   %56 = load ptr, ptr %6, align 8
   %umax = call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %76
@@ -9034,9 +9031,9 @@ _ZN6duckdb15SelectionVectorC2Em.exit.preheader:   ; preds = %._crit_edge
   br label %172
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %.lr.ph.split.split, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
-  %.04071 = phi i64 [ %74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %.lr.ph.split.split ]
-  %.04670 = phi i64 [ %75, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %.lr.ph.split.split ]
-  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %.04670
+  %.04070 = phi i64 [ %74, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %.lr.ph.split.split ]
+  %.04669 = phi i64 [ %75, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %.lr.ph.split.split ]
+  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %.04669
   %62 = load i32, ptr %61, align 4, !tbaa !41
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i32, ptr %13, i64 %63
@@ -9047,13 +9044,12 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %.lr.ph.split.split,
   %69 = load i64, ptr %68, align 8, !tbaa !85
   %70 = and i64 %66, 63
   %71 = shl nuw i64 1, %70
-  %.fr = freeze i64 %69
-  %.fr68 = freeze i64 %71
-  %72 = and i64 %.fr, %.fr68
-  %.not69 = icmp ne i64 %72, 0
-  %73 = zext i1 %.not69 to i64
-  %74 = add i64 %.04071, %73
-  %75 = add nuw i64 %.04670, 1
+  %72 = and i64 %69, %71
+  %.fr = freeze i64 %72
+  %.not68 = icmp ne i64 %.fr, 0
+  %73 = zext i1 %.not68 to i64
+  %74 = add i64 %.04070, %73
+  %75 = add nuw i64 %.04669, 1
   %exitcond.not = icmp eq i64 %75, %3
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, !llvm.loop !189
 
@@ -9062,19 +9058,19 @@ _ZN6duckdb15SelectionVectorC2Em.exit._crit_edge:  ; preds = %_ZN6duckdb15Selecti
   invoke void @_ZNK6duckdb14BaseStatistics6VerifyERNS_6VectorERKNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %.043.lcssa)
           to label %100 unwind label %170
 
-76:                                               ; preds = %.lr.ph102, %_ZN6duckdb15SelectionVectorC2Em.exit
-  %.042101 = phi i64 [ 0, %.lr.ph102 ], [ %99, %_ZN6duckdb15SelectionVectorC2Em.exit ]
-  %.043100 = phi i64 [ 0, %.lr.ph102 ], [ %.144, %_ZN6duckdb15SelectionVectorC2Em.exit ]
+76:                                               ; preds = %.lr.ph100, %_ZN6duckdb15SelectionVectorC2Em.exit
+  %.04299 = phi i64 [ 0, %.lr.ph100 ], [ %99, %_ZN6duckdb15SelectionVectorC2Em.exit ]
+  %.04398 = phi i64 [ 0, %.lr.ph100 ], [ %.144, %_ZN6duckdb15SelectionVectorC2Em.exit ]
   br i1 %.not.i57, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i32, ptr %51, i64 %.042101
+  %78 = getelementptr inbounds nuw i32, ptr %51, i64 %.04299
   %79 = load i32, ptr %78, align 4, !tbaa !41
   %80 = zext i32 %79 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit58
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit58:  ; preds = %76, %77
-  %81 = phi i64 [ %80, %77 ], [ %.042101, %76 ]
+  %81 = phi i64 [ %80, %77 ], [ %.04299, %76 ]
   br i1 %.not.i59, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit60, label %82
 
 82:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit58
@@ -9096,32 +9092,32 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i62: ; preds = %_
   %92 = shl nuw i64 1, %91
   %93 = and i64 %90, %92
   %.not = icmp eq i64 %93, 0
-  %brmerge = or i1 %.not, %.not107
-  br i1 %brmerge, label %_ZN6duckdb15SelectionVectorC2Em.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader154
+  %brmerge = or i1 %.not, %.not105
+  br i1 %brmerge, label %_ZN6duckdb15SelectionVectorC2Em.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader152
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit60
-  br i1 %.not107, label %_ZN6duckdb15SelectionVectorC2Em.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader154
+  br i1 %.not105, label %_ZN6duckdb15SelectionVectorC2Em.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader152
 
-_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader154: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i62
+_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader152: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i62
   br label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64
 
-_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader154, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64
-  %.097 = phi i64 [ %98, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64 ], [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader154 ]
-  %.24596 = phi i64 [ %97, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64 ], [ %.043100, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader154 ]
-  %94 = add i64 %.097, %87
+_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader152, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64
+  %.095 = phi i64 [ %98, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64 ], [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader152 ]
+  %.24594 = phi i64 [ %97, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64 ], [ %.04398, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader152 ]
+  %94 = add i64 %.095, %87
   %95 = trunc i64 %94 to i32
-  %96 = getelementptr inbounds nuw i32, ptr %56, i64 %.24596
+  %96 = getelementptr inbounds nuw i32, ptr %56, i64 %.24594
   store i32 %95, ptr %96, align 4, !tbaa !41
-  %97 = add i64 %.24596, 1
-  %98 = add nuw i64 %.097, 1
-  %exitcond127.not = icmp eq i64 %98, %umax
-  br i1 %exitcond127.not, label %_ZN6duckdb15SelectionVectorC2Em.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64, !llvm.loop !190
+  %97 = add i64 %.24594, 1
+  %98 = add nuw i64 %.095, 1
+  %exitcond125.not = icmp eq i64 %98, %umax
+  br i1 %exitcond125.not, label %_ZN6duckdb15SelectionVectorC2Em.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64, !llvm.loop !190
 
 _ZN6duckdb15SelectionVectorC2Em.exit:             ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i62, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader
-  %.144 = phi i64 [ %.043100, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i62 ], [ %.043100, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader ], [ %97, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64 ]
-  %99 = add nuw i64 %.042101, 1
-  %exitcond128.not = icmp eq i64 %99, %3
-  br i1 %exitcond128.not, label %_ZN6duckdb15SelectionVectorC2Em.exit._crit_edge, label %76, !llvm.loop !191
+  %.144 = phi i64 [ %.04398, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i62 ], [ %.04398, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64.preheader ], [ %97, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit64 ]
+  %99 = add nuw i64 %.04299, 1
+  %exitcond126.not = icmp eq i64 %99, %3
+  br i1 %exitcond126.not, label %_ZN6duckdb15SelectionVectorC2Em.exit._crit_edge, label %76, !llvm.loop !191
 
 100:                                              ; preds = %_ZN6duckdb15SelectionVectorC2Em.exit._crit_edge
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -25927,8 +25923,6 @@ declare { i64, i64 } @_ZNK6duckdb5Value14GetValueUnsafeINS_9hugeint_tEEET_v(ptr 
 define linkonce_odr noundef zeroext i8 @_ZN6duckdb21CheckZonemapTemplatedINS_9hugeint_tEEENS_21FilterPropagateResultERKNS_14BaseStatisticsENS_14ExpressionTypeET_S7_S7_(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 noundef zeroext %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef byval(%"struct.duckdb::hugeint_t") align 8 %6) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
-  %.fr117 = freeze i64 %5
-  %.fr = freeze i64 %4
   switch i8 %1, label %79 [
     i8 25, label %10
     i8 26, label %24
@@ -25940,68 +25934,66 @@ define linkonce_odr noundef zeroext i8 @_ZN6duckdb21CheckZonemapTemplatedINS_9hu
 
 10:                                               ; preds = %7
   %.sroa.018.0.copyload = load i64, ptr %6, align 8, !tbaa !85
-  %.sroa.018.0.copyload.fr = freeze i64 %.sroa.018.0.copyload
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.219.0.copyload = load i64, ptr %.sroa.219.0..sroa_idx, align 8, !tbaa !85
-  %.sroa.219.0.copyload.fr = freeze i64 %.sroa.219.0.copyload
-  %11 = icmp eq i64 %.sroa.018.0.copyload.fr, %2
-  %12 = icmp eq i64 %.sroa.219.0.copyload.fr, %3
+  %11 = icmp eq i64 %.sroa.018.0.copyload, %2
+  %12 = icmp eq i64 %.sroa.219.0.copyload, %3
   %13 = and i1 %11, %12
   br i1 %13, label %_ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit, label %_ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
 
 _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit: ; preds = %10
-  %14 = icmp eq i64 %2, %.fr
-  %15 = icmp eq i64 %3, %.fr117
+  %14 = icmp eq i64 %2, %4
+  %15 = icmp eq i64 %3, %5
   %16 = and i1 %14, %15
   br i1 %16, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %_ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
 
 _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread: ; preds = %10, %_ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit
-  %17 = icmp sgt i64 %3, %.sroa.219.0.copyload.fr
-  %18 = icmp ugt i64 %2, %.sroa.018.0.copyload.fr
+  %17 = icmp sgt i64 %3, %.sroa.219.0.copyload
+  %18 = icmp ugt i64 %2, %.sroa.018.0.copyload
   %19 = and i1 %18, %12
   %20 = or i1 %17, %19
   br i1 %20, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit
 
 _ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit: ; preds = %_ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
-  %21 = icmp sle i64 %.sroa.219.0.copyload.fr, %.fr117
-  %22 = icmp ne i64 %.sroa.219.0.copyload.fr, %.fr117
-  %23 = icmp ule i64 %.sroa.018.0.copyload.fr, %.fr
+  %21 = icmp sle i64 %.sroa.219.0.copyload, %5
+  %22 = icmp ne i64 %.sroa.219.0.copyload, %5
+  %23 = icmp ule i64 %.sroa.018.0.copyload, %4
   %.not9.i = or i1 %23, %22
   %.not7.i = and i1 %21, %.not9.i
-  %spec.select = select i1 %.not7.i, i8 0, i8 2
+  %cond.fr = freeze i1 %.not7.i
+  %spec.select = select i1 %cond.fr, i8 0, i8 2
   br label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
 
 24:                                               ; preds = %7
   %.sroa.06.0.copyload = load i64, ptr %6, align 8, !tbaa !85
-  %.sroa.06.0.copyload.fr = freeze i64 %.sroa.06.0.copyload
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !85
-  %.sroa.27.0.copyload.fr = freeze i64 %.sroa.27.0.copyload
-  %25 = icmp sgt i64 %3, %.sroa.27.0.copyload.fr
-  %26 = icmp eq i64 %3, %.sroa.27.0.copyload.fr
-  %27 = icmp ugt i64 %2, %.sroa.06.0.copyload.fr
+  %25 = icmp sgt i64 %3, %.sroa.27.0.copyload
+  %26 = icmp eq i64 %3, %.sroa.27.0.copyload
+  %27 = icmp ugt i64 %2, %.sroa.06.0.copyload
   %28 = and i1 %27, %26
   %29 = or i1 %25, %28
   br i1 %29, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit37
 
 _ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit37: ; preds = %24
-  %30 = icmp sle i64 %.sroa.27.0.copyload.fr, %.fr117
-  %31 = icmp ne i64 %.sroa.27.0.copyload.fr, %.fr117
-  %32 = icmp ule i64 %.sroa.06.0.copyload.fr, %.fr
+  %30 = icmp sle i64 %.sroa.27.0.copyload, %5
+  %31 = icmp ne i64 %.sroa.27.0.copyload, %5
+  %32 = icmp ule i64 %.sroa.06.0.copyload, %4
   %.not9.i35 = or i1 %32, %31
   %.not7.i36 = and i1 %30, %.not9.i35
   br i1 %.not7.i36, label %33, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
 
 33:                                               ; preds = %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit37
-  %34 = icmp eq i64 %.sroa.06.0.copyload.fr, %2
+  %34 = icmp eq i64 %.sroa.06.0.copyload, %2
   %35 = and i1 %34, %26
   br i1 %35, label %_ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit38, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
 
 _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit38: ; preds = %33
-  %36 = icmp eq i64 %2, %.fr
-  %37 = icmp eq i64 %3, %.fr117
+  %36 = icmp eq i64 %2, %4
+  %37 = icmp eq i64 %3, %5
   %38 = and i1 %36, %37
-  %spec.select116 = select i1 %38, i8 2, i8 0
+  %cond.fr110 = freeze i1 %38
+  %spec.select116 = select i1 %cond.fr110, i8 2, i8 0
   br label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread
 
 39:                                               ; preds = %7
@@ -26016,9 +26008,9 @@ _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit38: ; preds = %33
   br i1 %.not3.i, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = icmp sle i64 %.sroa.22.0.copyload.i.i, %.fr117
-  %45 = icmp ne i64 %.sroa.22.0.copyload.i.i, %.fr117
-  %46 = icmp ule i64 %.sroa.01.0.copyload.i.i, %.fr
+  %44 = icmp sle i64 %.sroa.22.0.copyload.i.i, %5
+  %45 = icmp ne i64 %.sroa.22.0.copyload.i.i, %5
+  %46 = icmp ule i64 %.sroa.01.0.copyload.i.i, %4
   %.not5.i45 = or i1 %46, %45
   %.not3.i46 = and i1 %44, %.not5.i45
   %.31 = select i1 %.not3.i46, i8 0, i8 2
@@ -26036,9 +26028,9 @@ _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit38: ; preds = %33
   br i1 %52, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %53
 
 53:                                               ; preds = %47
-  %54 = icmp sgt i64 %.fr117, %.sroa.2.0.copyload.i
-  %55 = icmp eq i64 %.fr117, %.sroa.2.0.copyload.i
-  %56 = icmp ugt i64 %.fr, %.sroa.0.0.copyload.i
+  %54 = icmp sgt i64 %5, %.sroa.2.0.copyload.i
+  %55 = icmp eq i64 %5, %.sroa.2.0.copyload.i
+  %56 = icmp ugt i64 %4, %.sroa.0.0.copyload.i
   %57 = and i1 %56, %55
   %58 = or i1 %54, %57
   %.32 = select i1 %58, i8 0, i8 2
@@ -26048,9 +26040,9 @@ _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit38: ; preds = %33
   %.sroa.0.0.copyload.i.i56 = load i64, ptr %6, align 8, !tbaa !85
   %.sroa.2.0..sroa_idx.i.i57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i58 = load i64, ptr %.sroa.2.0..sroa_idx.i.i57, align 8, !tbaa !85
-  %60 = icmp sle i64 %.fr117, %.sroa.2.0.copyload.i.i58
-  %61 = icmp ne i64 %.fr117, %.sroa.2.0.copyload.i.i58
-  %62 = icmp ule i64 %.fr, %.sroa.0.0.copyload.i.i56
+  %60 = icmp sle i64 %5, %.sroa.2.0.copyload.i.i58
+  %61 = icmp ne i64 %5, %.sroa.2.0.copyload.i.i58
+  %62 = icmp ule i64 %4, %.sroa.0.0.copyload.i.i56
   %.not5.i59 = or i1 %62, %61
   %.not3.i60 = and i1 %60, %.not5.i59
   br i1 %.not3.i60, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %63
@@ -26068,9 +26060,9 @@ _ZN6duckdb18ConstantExactRangeINS_9hugeint_tEEEbT_S2_S2_.exit38: ; preds = %33
   %.sroa.01.0.copyload.i.i69 = load i64, ptr %6, align 8, !tbaa !85
   %.sroa.22.0..sroa_idx.i.i70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.22.0.copyload.i.i71 = load i64, ptr %.sroa.22.0..sroa_idx.i.i70, align 8, !tbaa !85
-  %68 = icmp sgt i64 %.sroa.22.0.copyload.i.i71, %.fr117
-  %69 = icmp eq i64 %.sroa.22.0.copyload.i.i71, %.fr117
-  %70 = icmp ugt i64 %.sroa.01.0.copyload.i.i69, %.fr
+  %68 = icmp sgt i64 %.sroa.22.0.copyload.i.i71, %5
+  %69 = icmp eq i64 %.sroa.22.0.copyload.i.i71, %5
+  %70 = icmp ugt i64 %.sroa.01.0.copyload.i.i69, %4
   %71 = and i1 %70, %69
   %72 = or i1 %68, %71
   br i1 %72, label %_ZN6duckdb20ConstantValueInRangeINS_9hugeint_tEEEbT_S2_S2_.exit.thread, label %73

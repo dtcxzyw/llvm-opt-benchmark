@@ -9446,438 +9446,437 @@ define internal fastcc range(i32 0, 2) i32 @_insert_shortcut(ptr noundef nonnull
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !90
   %25 = tail call fastcc i32 @_find_views(ptr noundef %24)
-  %.fr = freeze i32 %25
-  store i32 %.fr, ptr %22, align 8, !tbaa !82
+  store i32 %25, ptr %22, align 8, !tbaa !82
   %26 = tail call i32 @dt_view_get_current() #25
-  %.fr228 = freeze i32 %26
   %27 = icmp ne i32 %1, 0
   %28 = xor i1 %27, true
   %29 = zext i1 %28 to i32
-  %30 = sext i32 %.fr228 to i64
+  %30 = sext i32 %26 to i64
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  %33 = icmp eq i32 %.fr, 0
-  %34 = icmp eq i32 %.fr, %.fr228
-  br label %35
+  %33 = icmp eq i32 %25, 0
+  %34 = icmp eq i32 %25, %26
+  %35 = freeze i1 %34
+  br label %36
 
-35:                                               ; preds = %203, %21
-  %.0135 = phi i32 [ %29, %21 ], [ %206, %203 ]
-  %.0128 = phi i32 [ 0, %21 ], [ %.2130, %203 ]
-  %36 = icmp ne i32 %.0135, 0
-  %or.cond = select i1 %27, i1 %36, i1 false
+36:                                               ; preds = %204, %21
+  %.0135 = phi i32 [ %29, %21 ], [ %207, %204 ]
+  %.0128 = phi i32 [ 0, %21 ], [ %.2130, %204 ]
+  %37 = icmp ne i32 %.0135, 0
+  %or.cond = select i1 %27, i1 %37, i1 false
   %.not160 = icmp eq i32 %.0135, 0
-  br label %37
+  br label %38
 
-37:                                               ; preds = %200, %35
-  %.0141 = phi ptr [ null, %35 ], [ %.1142, %200 ]
-  %.1129 = phi i32 [ %.0128, %35 ], [ %.2130, %200 ]
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 560
-  %40 = load ptr, ptr %39, align 8, !tbaa !81
-  %41 = tail call ptr @g_sequence_lookup(ptr noundef %40, ptr noundef nonnull %22, ptr noundef nonnull @_shortcut_compare_func, ptr noundef %31) #25
-  %.not153 = icmp eq ptr %41, null
+38:                                               ; preds = %201, %36
+  %.0141 = phi ptr [ null, %36 ], [ %.1142, %201 ]
+  %.1129 = phi i32 [ %.0128, %36 ], [ %.2130, %201 ]
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 560
+  %41 = load ptr, ptr %40, align 8, !tbaa !81
+  %42 = tail call ptr @g_sequence_lookup(ptr noundef %41, ptr noundef nonnull %22, ptr noundef nonnull @_shortcut_compare_func, ptr noundef %31) #25
+  %.not153 = icmp eq ptr %42, null
   br i1 %.not153, label %.critedge6, label %.preheader
 
-.preheader:                                       ; preds = %37
-  %42 = tail call i32 @g_sequence_iter_is_begin(ptr noundef nonnull %41) #25
-  %.not154224 = icmp eq i32 %42, 0
+.preheader:                                       ; preds = %38
+  %43 = tail call i32 @g_sequence_iter_is_begin(ptr noundef nonnull %42) #25
+  %.not154224 = icmp eq i32 %43, 0
   br i1 %.not154224, label %.lr.ph, label %.critedge.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %46
-  %.0138225 = phi ptr [ %47, %46 ], [ %41, %.preheader ]
-  %43 = tail call ptr @g_sequence_iter_prev(ptr noundef %.0138225) #25
-  %44 = tail call ptr @g_sequence_get(ptr noundef %43) #25
-  %45 = tail call i32 @_shortcut_compare_func(ptr noundef nonnull %22, ptr noundef %44, ptr noundef %31)
-  %.not155 = icmp eq i32 %45, 0
-  br i1 %.not155, label %46, label %.critedge.preheader
+.lr.ph:                                           ; preds = %.preheader, %47
+  %.0138225 = phi ptr [ %48, %47 ], [ %42, %.preheader ]
+  %44 = tail call ptr @g_sequence_iter_prev(ptr noundef %.0138225) #25
+  %45 = tail call ptr @g_sequence_get(ptr noundef %44) #25
+  %46 = tail call i32 @_shortcut_compare_func(ptr noundef nonnull %22, ptr noundef %45, ptr noundef %31)
+  %.not155 = icmp eq i32 %46, 0
+  br i1 %.not155, label %47, label %.critedge.preheader
 
-46:                                               ; preds = %.lr.ph
-  %47 = tail call ptr @g_sequence_iter_prev(ptr noundef %.0138225) #25
-  %48 = tail call i32 @g_sequence_iter_is_begin(ptr noundef %47) #25
-  %.not154 = icmp eq i32 %48, 0
+47:                                               ; preds = %.lr.ph
+  %48 = tail call ptr @g_sequence_iter_prev(ptr noundef %.0138225) #25
+  %49 = tail call i32 @g_sequence_iter_is_begin(ptr noundef %48) #25
+  %.not154 = icmp eq i32 %49, 0
   br i1 %.not154, label %.lr.ph, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.lr.ph, %46, %.preheader
-  %.1139.ph = phi ptr [ %41, %.preheader ], [ %.0138225, %.lr.ph ], [ %47, %46 ]
+.critedge.preheader:                              ; preds = %.lr.ph, %47, %.preheader
+  %.1139.ph = phi ptr [ %42, %.preheader ], [ %.0138225, %.lr.ph ], [ %48, %47 ]
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.preheader, %197
-  %.2143 = phi ptr [ %.3144, %197 ], [ %.0141, %.critedge.preheader ]
-  %.1139 = phi ptr [ %49, %197 ], [ %.1139.ph, %.critedge.preheader ]
-  %.3131 = phi i32 [ %.4132, %197 ], [ %.1129, %.critedge.preheader ]
-  %49 = tail call ptr @g_sequence_iter_next(ptr noundef %.1139) #25
-  %50 = tail call ptr @g_sequence_get(ptr noundef %.1139) #25
-  %51 = load i32, ptr %50, align 8, !tbaa !82
-  %52 = load i32, ptr %22, align 8, !tbaa !82
-  %53 = icmp eq i32 %51, %52
-  br i1 %53, label %54, label %_shortcut_is_move.exit.thread
+.critedge:                                        ; preds = %.critedge.preheader, %198
+  %.2143 = phi ptr [ %.3144, %198 ], [ %.0141, %.critedge.preheader ]
+  %.1139 = phi ptr [ %50, %198 ], [ %.1139.ph, %.critedge.preheader ]
+  %.3131 = phi i32 [ %.4132, %198 ], [ %.1129, %.critedge.preheader ]
+  %50 = tail call ptr @g_sequence_iter_next(ptr noundef %.1139) #25
+  %51 = tail call ptr @g_sequence_get(ptr noundef %.1139) #25
+  %52 = load i32, ptr %51, align 8, !tbaa !82
+  %53 = load i32, ptr %22, align 8, !tbaa !82
+  %54 = icmp eq i32 %52, %53
+  br i1 %54, label %55, label %_shortcut_is_move.exit.thread
 
-54:                                               ; preds = %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 22
-  %56 = load i8, ptr %55, align 2, !tbaa !87
-  %.not.i = icmp eq i8 %56, 0
-  br i1 %.not.i, label %57, label %_shortcut_is_move.exit
+55:                                               ; preds = %.critedge
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 22
+  %57 = load i8, ptr %56, align 2, !tbaa !87
+  %.not.i = icmp eq i8 %57, 0
+  br i1 %.not.i, label %58, label %_shortcut_is_move.exit
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %59 = load i32, ptr %58, align 8, !tbaa !88
-  %.not3.i = icmp eq i32 %59, 0
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %60 = load i32, ptr %59, align 8, !tbaa !88
+  %.not3.i = icmp eq i32 %60, 0
   br i1 %.not3.i, label %_shortcut_is_move.exit.thread, label %_shortcut_is_move.exit
 
-_shortcut_is_move.exit:                           ; preds = %54, %57
-  %60 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  %61 = load i16, ptr %60, align 4
-  %62 = and i16 %61, 1536
-  %.not4.i.not = icmp eq i16 %62, 0
-  br i1 %.not4.i.not, label %63, label %_shortcut_is_move.exit.thread
+_shortcut_is_move.exit:                           ; preds = %55, %58
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  %62 = load i16, ptr %61, align 4
+  %63 = and i16 %62, 1536
+  %.not4.i.not = icmp eq i16 %63, 0
+  br i1 %.not4.i.not, label %64, label %_shortcut_is_move.exit.thread
 
-63:                                               ; preds = %_shortcut_is_move.exit
-  %64 = getelementptr inbounds nuw i8, ptr %50, i64 44
-  %65 = load i32, ptr %64, align 4, !tbaa !109
-  %.not157 = icmp eq i32 %65, -1
-  br i1 %.not157, label %_shortcut_is_move.exit.thread, label %66
+64:                                               ; preds = %_shortcut_is_move.exit
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 44
+  %66 = load i32, ptr %65, align 4, !tbaa !109
+  %.not157 = icmp eq i32 %66, -1
+  br i1 %.not157, label %_shortcut_is_move.exit.thread, label %67
 
-66:                                               ; preds = %63
-  %67 = load i16, ptr %32, align 4
-  %68 = and i16 %67, 1536
-  %.not158 = icmp eq i16 %68, 0
+67:                                               ; preds = %64
+  %68 = load i16, ptr %32, align 4
+  %69 = and i16 %68, 1536
+  %.not158 = icmp eq i16 %69, 0
   %or.cond180 = select i1 %.not158, i1 true, i1 %or.cond
-  br i1 %or.cond180, label %_shortcut_is_move.exit.thread, label %69
+  br i1 %or.cond180, label %_shortcut_is_move.exit.thread, label %70
 
-69:                                               ; preds = %66
-  br i1 %27, label %70, label %split.loopexit
+70:                                               ; preds = %67
+  br i1 %27, label %71, label %split.loopexit
 
-70:                                               ; preds = %69
-  %71 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.303, i32 noundef 5) #25
-  %72 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.304, i32 noundef 5) #25
-  %73 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef 5) #25
-  tail call fastcc void @_action_description(ptr noundef nonnull %50, i32 noundef 2)
-  %74 = load i16, ptr %32, align 4
-  %75 = and i16 %74, 1536
-  %76 = icmp eq i16 %75, 1024
-  %.str.22..str.21 = select i1 %76, ptr @.str.22, ptr @.str.21
-  %77 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.22..str.21, i32 noundef 5) #25
-  %78 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef nonnull @_action_description.hint, ptr noundef %77) #25
-  %.not159 = icmp eq i32 %78, 0
+71:                                               ; preds = %70
+  %72 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.303, i32 noundef 5) #25
+  %73 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.304, i32 noundef 5) #25
+  %74 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef 5) #25
+  tail call fastcc void @_action_description(ptr noundef nonnull %51, i32 noundef 2)
+  %75 = load i16, ptr %32, align 4
+  %76 = and i16 %75, 1536
+  %77 = icmp eq i16 %76, 1024
+  %.str.22..str.21 = select i1 %77, ptr @.str.22, ptr @.str.21
+  %78 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.22..str.21, i32 noundef 5) #25
+  %79 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef nonnull @_action_description.hint, ptr noundef %78) #25
+  %.not159 = icmp eq i32 %79, 0
   br i1 %.not159, label %_shortcut_is_move.exit.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %70
-  %79 = getelementptr inbounds nuw i8, ptr %50, i64 20
+._crit_edge:                                      ; preds = %71
+  %80 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %.pre = load i16, ptr %32, align 4
-  %.pre234 = load i16, ptr %79, align 4
-  %.pre237 = and i16 %.pre, 1536
+  %.pre233 = load i16, ptr %80, align 4
+  %.pre236 = and i16 %.pre, 1536
   br label %split
 
-split.loopexit:                                   ; preds = %69
-  %80 = getelementptr inbounds nuw i8, ptr %50, i64 20
+split.loopexit:                                   ; preds = %70
+  %81 = getelementptr inbounds nuw i8, ptr %51, i64 20
   br label %split
 
 split:                                            ; preds = %split.loopexit, %._crit_edge
-  %81 = phi ptr [ %79, %._crit_edge ], [ %80, %split.loopexit ]
-  %.pre-phi = phi i16 [ %.pre237, %._crit_edge ], [ %68, %split.loopexit ]
-  %82 = phi i16 [ %.pre234, %._crit_edge ], [ %61, %split.loopexit ]
-  %83 = and i16 %82, -1537
-  %84 = or disjoint i16 %83, %.pre-phi
-  %85 = xor i16 %84, 1536
-  store i16 %85, ptr %81, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %22, i64 44
-  %87 = load i32, ptr %86, align 4, !tbaa !109
-  %88 = icmp eq i32 %87, -1
-  br i1 %88, label %89, label %90
+  %82 = phi ptr [ %80, %._crit_edge ], [ %81, %split.loopexit ]
+  %.pre-phi = phi i16 [ %.pre236, %._crit_edge ], [ %69, %split.loopexit ]
+  %83 = phi i16 [ %.pre233, %._crit_edge ], [ %62, %split.loopexit ]
+  %84 = and i16 %83, -1537
+  %85 = or disjoint i16 %84, %.pre-phi
+  %86 = xor i16 %85, 1536
+  store i16 %86, ptr %82, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %22, i64 44
+  %88 = load i32, ptr %87, align 4, !tbaa !109
+  %89 = icmp eq i32 %88, -1
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %split
-  store i32 0, ptr %86, align 4, !tbaa !109
-  br label %90
+90:                                               ; preds = %split
+  store i32 0, ptr %87, align 4, !tbaa !109
+  br label %91
 
-90:                                               ; preds = %89, %split
-  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %.fr228)
+91:                                               ; preds = %90, %split
+  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %26)
   br label %.thread200
 
-_shortcut_is_move.exit.thread:                    ; preds = %57, %70, %66, %63, %_shortcut_is_move.exit, %.critedge
-  %91 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %92 = load ptr, ptr %91, align 8, !tbaa !90
-  %93 = load ptr, ptr %23, align 8, !tbaa !90
-  %94 = icmp eq ptr %92, %93
-  br i1 %94, label %95, label %179
+_shortcut_is_move.exit.thread:                    ; preds = %58, %71, %67, %64, %_shortcut_is_move.exit, %.critedge
+  %92 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %93 = load ptr, ptr %92, align 8, !tbaa !90
+  %94 = load ptr, ptr %23, align 8, !tbaa !90
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %96, label %180
 
-95:                                               ; preds = %_shortcut_is_move.exit.thread
-  %96 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %97 = load i8, ptr %96, align 8, !tbaa !85
-  %.not.i182 = icmp eq i8 %97, 0
-  br i1 %.not.i182, label %98, label %_shortcut_is_speed.exit.thread
+96:                                               ; preds = %_shortcut_is_move.exit.thread
+  %97 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %98 = load i8, ptr %97, align 8, !tbaa !85
+  %.not.i182 = icmp eq i8 %98, 0
+  br i1 %.not.i182, label %99, label %_shortcut_is_speed.exit.thread
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  %100 = load i32, ptr %99, align 4, !tbaa !86
-  %.not8.i = icmp eq i32 %100, 0
-  br i1 %.not8.i, label %101, label %_shortcut_is_speed.exit.thread
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  %101 = load i32, ptr %100, align 4, !tbaa !86
+  %.not8.i = icmp eq i32 %101, 0
+  br i1 %.not8.i, label %102, label %_shortcut_is_speed.exit.thread
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  %103 = load i16, ptr %102, align 4
-  %104 = and i16 %103, 7
-  %.not9.i = icmp eq i16 %104, 0
-  br i1 %.not9.i, label %105, label %_shortcut_is_speed.exit.thread
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  %104 = load i16, ptr %103, align 4
+  %105 = and i16 %104, 7
+  %.not9.i = icmp eq i16 %105, 0
+  br i1 %.not9.i, label %106, label %_shortcut_is_speed.exit.thread
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %50, i64 22
-  %107 = load i8, ptr %106, align 2, !tbaa !87
-  %.not10.i = icmp eq i8 %107, 0
-  br i1 %.not10.i, label %108, label %_shortcut_is_speed.exit.thread
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %51, i64 22
+  %108 = load i8, ptr %107, align 2, !tbaa !87
+  %.not10.i = icmp eq i8 %108, 0
+  br i1 %.not10.i, label %109, label %_shortcut_is_speed.exit.thread
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %110 = load i32, ptr %109, align 8, !tbaa !88
-  %.not11.i = icmp eq i32 %110, 0
-  %111 = and i16 %103, 504
-  %112 = icmp eq i16 %111, 0
-  %or.cond15.i = and i1 %112, %.not11.i
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %111 = load i32, ptr %110, align 8, !tbaa !88
+  %.not11.i = icmp eq i32 %111, 0
+  %112 = and i16 %104, 504
+  %113 = icmp eq i16 %112, 0
+  %or.cond15.i = and i1 %113, %.not11.i
   br i1 %or.cond15.i, label %_shortcut_is_speed.exit, label %_shortcut_is_speed.exit.thread
 
-_shortcut_is_speed.exit:                          ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %114 = load i32, ptr %113, align 8, !tbaa !89
-  %.not14.i.not = icmp eq i32 %114, 0
-  br i1 %.not14.i.not, label %115, label %_shortcut_is_speed.exit.thread
+_shortcut_is_speed.exit:                          ; preds = %109
+  %114 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %115 = load i32, ptr %114, align 8, !tbaa !89
+  %.not14.i.not = icmp eq i32 %115, 0
+  br i1 %.not14.i.not, label %116, label %_shortcut_is_speed.exit.thread
 
-115:                                              ; preds = %_shortcut_is_speed.exit
-  %116 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %117 = load float, ptr %116, align 8, !tbaa !125
-  br i1 %27, label %118, label %._crit_edge235
+116:                                              ; preds = %_shortcut_is_speed.exit
+  %117 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %118 = load float, ptr %117, align 8, !tbaa !125
+  br i1 %27, label %119, label %._crit_edge234
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %120 = load float, ptr %119, align 8, !tbaa !125
-  %121 = fmul reassoc nsz arcp contract afn float %117, 1.000000e+03
-  %122 = fmul reassoc nsz arcp contract afn float %121, %120
-  %123 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %122)
-  %124 = fpext reassoc nsz arcp contract afn float %123 to double
-  %125 = fmul reassoc nsz arcp contract afn double %124, 1.000000e-03
-  %126 = fptrunc reassoc nsz arcp contract afn double %125 to float
-  store float %126, ptr %116, align 8, !tbaa !125
-  store float %126, ptr %4, align 8, !tbaa !125
-  br label %._crit_edge235
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %121 = load float, ptr %120, align 8, !tbaa !125
+  %122 = fmul reassoc nsz arcp contract afn float %118, 1.000000e+03
+  %123 = fmul reassoc nsz arcp contract afn float %122, %121
+  %124 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %123)
+  %125 = fpext reassoc nsz arcp contract afn float %124 to double
+  %126 = fmul reassoc nsz arcp contract afn double %125, 1.000000e-03
+  %127 = fptrunc reassoc nsz arcp contract afn double %126 to float
+  store float %127, ptr %117, align 8, !tbaa !125
+  store float %127, ptr %4, align 8, !tbaa !125
+  br label %._crit_edge234
 
-._crit_edge235:                                   ; preds = %115, %118
-  %127 = phi float [ %126, %118 ], [ %117, %115 ]
-  %128 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %127)
-  %129 = fpext reassoc nsz arcp contract afn float %128 to double
-  %130 = fcmp reassoc nsz arcp contract afn ult double %129, 1.000000e-03
-  %131 = fcmp reassoc nsz arcp contract afn ugt float %128, 1.000000e+03
-  %or.cond181 = or i1 %131, %130
-  br i1 %or.cond181, label %178, label %132
+._crit_edge234:                                   ; preds = %116, %119
+  %128 = phi float [ %127, %119 ], [ %118, %116 ]
+  %129 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %128)
+  %130 = fpext reassoc nsz arcp contract afn float %129 to double
+  %131 = fcmp reassoc nsz arcp contract afn ult double %130, 1.000000e-03
+  %132 = fcmp reassoc nsz arcp contract afn ugt float %129, 1.000000e+03
+  %or.cond181 = or i1 %132, %131
+  br i1 %or.cond181, label %179, label %133
 
-132:                                              ; preds = %._crit_edge235
-  %133 = getelementptr inbounds nuw i8, ptr %22, i64 48
+133:                                              ; preds = %._crit_edge234
+  %134 = getelementptr inbounds nuw i8, ptr %22, i64 48
   tail call fastcc void @_remove_shortcut(ptr noundef %.1139)
-  %134 = load float, ptr %133, align 8, !tbaa !125
-  %135 = fcmp reassoc nsz arcp contract afn une float %134, 1.000000e+00
-  br i1 %135, label %136, label %137
+  %135 = load float, ptr %134, align 8, !tbaa !125
+  %136 = fcmp reassoc nsz arcp contract afn une float %135, 1.000000e+00
+  br i1 %136, label %137, label %138
 
-136:                                              ; preds = %132
-  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %.fr228)
+137:                                              ; preds = %133
+  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %26)
   br label %.thread200
 
-137:                                              ; preds = %132
-  %138 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef 5) #25
+138:                                              ; preds = %133
+  %139 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef 5) #25
   tail call fastcc void @_action_description(ptr noundef nonnull %22, i32 noundef 2)
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %138, ptr noundef nonnull @_action_description.hint) #25
-  br label %178
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %139, ptr noundef nonnull @_action_description.hint) #25
+  br label %179
 
-_shortcut_is_speed.exit.thread:                   ; preds = %98, %101, %105, %108, %95, %_shortcut_is_speed.exit
+_shortcut_is_speed.exit.thread:                   ; preds = %99, %102, %106, %109, %96, %_shortcut_is_speed.exit
   %.not163 = icmp eq i32 %2, 0
-  br i1 %.not163, label %143, label %139
+  br i1 %.not163, label %144, label %140
 
-139:                                              ; preds = %_shortcut_is_speed.exit.thread
-  %140 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %141 = load i32, ptr %140, align 4, !tbaa !164
-  %.not164 = icmp eq i32 %141, 0
-  br i1 %.not164, label %143, label %142
+140:                                              ; preds = %_shortcut_is_speed.exit.thread
+  %141 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %142 = load i32, ptr %141, align 4, !tbaa !164
+  %.not164 = icmp eq i32 %142, 0
+  br i1 %.not164, label %144, label %143
 
-142:                                              ; preds = %139
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %50, i64 56, i1 false), !tbaa.struct !245
-  store i32 0, ptr %140, align 4, !tbaa !164
+143:                                              ; preds = %140
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %51, i64 56, i1 false), !tbaa.struct !245
+  store i32 0, ptr %141, align 4, !tbaa !164
   tail call fastcc void @_remove_shortcut(ptr noundef %.1139)
   store i32 0, ptr %22, align 8, !tbaa !82
-  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %.fr228)
+  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %26)
   br label %.thread200
 
-143:                                              ; preds = %139, %_shortcut_is_speed.exit.thread
-  %144 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %145 = load i32, ptr %144, align 8, !tbaa !104
-  %146 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %147 = load i32, ptr %146, align 8, !tbaa !104
-  %.not165 = icmp eq i32 %145, %147
-  br i1 %.not165, label %148, label %164
+144:                                              ; preds = %140, %_shortcut_is_speed.exit.thread
+  %145 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %146 = load i32, ptr %145, align 8, !tbaa !104
+  %147 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %148 = load i32, ptr %147, align 8, !tbaa !104
+  %.not165 = icmp eq i32 %146, %148
+  br i1 %.not165, label %149, label %165
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds nuw i8, ptr %50, i64 44
-  %150 = load i32, ptr %149, align 4, !tbaa !109
-  %151 = getelementptr inbounds nuw i8, ptr %22, i64 44
-  %152 = load i32, ptr %151, align 4, !tbaa !109
-  %.not166 = icmp eq i32 %150, %152
-  br i1 %.not166, label %153, label %164
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds nuw i8, ptr %51, i64 44
+  %151 = load i32, ptr %150, align 4, !tbaa !109
+  %152 = getelementptr inbounds nuw i8, ptr %22, i64 44
+  %153 = load i32, ptr %152, align 4, !tbaa !109
+  %.not166 = icmp eq i32 %151, %153
+  br i1 %.not166, label %154, label %165
 
-153:                                              ; preds = %148
-  %154 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %155 = load float, ptr %154, align 8, !tbaa !125
-  %156 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %157 = load float, ptr %156, align 8, !tbaa !125
-  %158 = fcmp reassoc nsz arcp contract afn une float %155, %157
-  br i1 %158, label %164, label %159
+154:                                              ; preds = %149
+  %155 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %156 = load float, ptr %155, align 8, !tbaa !125
+  %157 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %158 = load float, ptr %157, align 8, !tbaa !125
+  %159 = fcmp reassoc nsz arcp contract afn une float %156, %158
+  br i1 %159, label %165, label %160
 
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds nuw i8, ptr %50, i64 52
-  %161 = load i32, ptr %160, align 4, !tbaa !93
-  %162 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  %163 = load i32, ptr %162, align 4, !tbaa !93
-  %.not167 = icmp eq i32 %161, %163
-  br i1 %.not167, label %170, label %164
+160:                                              ; preds = %154
+  %161 = getelementptr inbounds nuw i8, ptr %51, i64 52
+  %162 = load i32, ptr %161, align 4, !tbaa !93
+  %163 = getelementptr inbounds nuw i8, ptr %22, i64 52
+  %164 = load i32, ptr %163, align 4, !tbaa !93
+  %.not167 = icmp eq i32 %162, %164
+  br i1 %.not167, label %171, label %165
 
-164:                                              ; preds = %159, %153, %148, %143
-  br i1 %27, label %165, label %169
+165:                                              ; preds = %160, %154, %149, %144
+  br i1 %27, label %166, label %170
 
-165:                                              ; preds = %164
-  %166 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.307, i32 noundef 5) #25
-  %167 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef 5) #25
-  %168 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %166, ptr noundef %167) #25
-  %.not170 = icmp eq i32 %168, 0
-  br i1 %.not170, label %178, label %169
+166:                                              ; preds = %165
+  %167 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.307, i32 noundef 5) #25
+  %168 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.308, i32 noundef 5) #25
+  %169 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %167, ptr noundef %168) #25
+  %.not170 = icmp eq i32 %169, 0
+  br i1 %.not170, label %179, label %170
 
-169:                                              ; preds = %165, %164
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false), !tbaa.struct !245
-  br label %178
+170:                                              ; preds = %166, %165
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false), !tbaa.struct !245
+  br label %179
 
-170:                                              ; preds = %159
-  br i1 %27, label %171, label %178
+171:                                              ; preds = %160
+  br i1 %27, label %172, label %179
 
-171:                                              ; preds = %170
-  %172 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef 5) #25
-  %173 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %174 = load i32, ptr %173, align 4, !tbaa !164
-  %.not168 = icmp eq i32 %174, 0
+172:                                              ; preds = %171
+  %173 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.309, i32 noundef 5) #25
+  %174 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %175 = load i32, ptr %174, align 4, !tbaa !164
+  %.not168 = icmp eq i32 %175, 0
   %.str.311..str.310 = select i1 %.not168, ptr @.str.311, ptr @.str.310
-  %175 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.311..str.310, i32 noundef 5) #25
-  %176 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %172, ptr noundef %175) #25
-  %.not169 = icmp eq i32 %176, 0
-  br i1 %.not169, label %178, label %177
+  %176 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.311..str.310, i32 noundef 5) #25
+  %177 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %173, ptr noundef %176) #25
+  %.not169 = icmp eq i32 %177, 0
+  br i1 %.not169, label %179, label %178
 
-177:                                              ; preds = %171
+178:                                              ; preds = %172
   tail call fastcc void @_remove_shortcut(ptr noundef %.1139)
-  br label %178
+  br label %179
 
-178:                                              ; preds = %170, %171, %177, %165, %169, %._crit_edge235, %137
+179:                                              ; preds = %171, %172, %178, %166, %170, %._crit_edge234, %138
   tail call void @g_free(ptr noundef nonnull %22) #25
   br label %.thread200
 
-179:                                              ; preds = %_shortcut_is_move.exit.thread
-  %180 = load i32, ptr %50, align 8, !tbaa !82
-  %181 = and i32 %180, %.fr
-  %182 = icmp ne i32 %181, 0
-  %or.cond4 = or i1 %33, %182
-  br i1 %or.cond4, label %183, label %195
+180:                                              ; preds = %_shortcut_is_move.exit.thread
+  %181 = load i32, ptr %51, align 8, !tbaa !82
+  %182 = and i32 %181, %25
+  %183 = icmp ne i32 %182, 0
+  %or.cond4 = or i1 %33, %183
+  br i1 %or.cond4, label %184, label %196
 
-183:                                              ; preds = %179
-  br i1 %.not160, label %192, label %184
+184:                                              ; preds = %180
+  br i1 %.not160, label %193, label %185
 
-184:                                              ; preds = %183
-  %185 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  %186 = load i16, ptr %185, align 4
-  %187 = lshr i16 %186, 9
-  %188 = and i16 %187, 3
-  %189 = zext nneg i16 %188 to i32
-  %190 = or i32 %.3131, %189
-  %191 = and i16 %186, -1537
-  store i16 %191, ptr %185, align 4
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  %187 = load i16, ptr %186, align 4
+  %188 = lshr i16 %187, 9
+  %189 = and i16 %188, 3
+  %190 = zext nneg i16 %189 to i32
+  %191 = or i32 %.3131, %190
+  %192 = and i16 %187, -1537
+  store i16 %192, ptr %186, align 4
   tail call fastcc void @_remove_shortcut(ptr noundef %.1139)
-  br label %195
+  br label %196
 
-192:                                              ; preds = %183
+193:                                              ; preds = %184
   %.not161 = icmp eq ptr %.2143, null
-  %193 = select i1 %.not161, ptr @.str.5, ptr %.2143
-  tail call fastcc void @_action_description(ptr noundef nonnull %50, i32 noundef 2)
-  %194 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.312, ptr noundef nonnull %193, ptr noundef nonnull @_action_description.hint) #25
+  %194 = select i1 %.not161, ptr @.str.5, ptr %.2143
+  tail call fastcc void @_action_description(ptr noundef nonnull %51, i32 noundef 2)
+  %195 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.312, ptr noundef nonnull %194, ptr noundef nonnull @_action_description.hint) #25
   tail call void @g_free(ptr noundef %.2143) #25
-  br label %195
+  br label %196
 
-195:                                              ; preds = %184, %192, %179
-  %.3144 = phi ptr [ %.2143, %179 ], [ %.2143, %184 ], [ %194, %192 ]
-  %.4132 = phi i32 [ %.3131, %179 ], [ %190, %184 ], [ %.3131, %192 ]
-  %196 = tail call i32 @g_sequence_iter_is_end(ptr noundef %49) #25
-  %.not171 = icmp eq i32 %196, 0
-  br i1 %.not171, label %197, label %.critedge6
+196:                                              ; preds = %185, %193, %180
+  %.3144 = phi ptr [ %.2143, %180 ], [ %.2143, %185 ], [ %195, %193 ]
+  %.4132 = phi i32 [ %.3131, %180 ], [ %191, %185 ], [ %.3131, %193 ]
+  %197 = tail call i32 @g_sequence_iter_is_end(ptr noundef %50) #25
+  %.not171 = icmp eq i32 %197, 0
+  br i1 %.not171, label %198, label %.critedge6
 
-197:                                              ; preds = %195
-  %198 = tail call ptr @g_sequence_get(ptr noundef %49) #25
-  %199 = tail call i32 @_shortcut_compare_func(ptr noundef nonnull %22, ptr noundef %198, ptr noundef %31)
-  %.not172 = icmp eq i32 %199, 0
+198:                                              ; preds = %196
+  %199 = tail call ptr @g_sequence_get(ptr noundef %50) #25
+  %200 = tail call i32 @_shortcut_compare_func(ptr noundef nonnull %22, ptr noundef %199, ptr noundef %31)
+  %.not172 = icmp eq i32 %200, 0
   br i1 %.not172, label %.critedge, label %.critedge6
 
-.critedge6:                                       ; preds = %195, %197, %37
-  %.1142 = phi ptr [ %.0141, %37 ], [ %.3144, %197 ], [ %.3144, %195 ]
-  %.2130 = phi i32 [ %.1129, %37 ], [ %.4132, %197 ], [ %.4132, %195 ]
-  br i1 %34, label %.thread191, label %switch.early.test
+.critedge6:                                       ; preds = %196, %198, %38
+  %.1142 = phi ptr [ %.0141, %38 ], [ %.3144, %198 ], [ %.3144, %196 ]
+  %.2130 = phi i32 [ %.1129, %38 ], [ %.4132, %198 ], [ %.4132, %196 ]
+  br i1 %35, label %.thread191, label %switch.early.test
 
 switch.early.test:                                ; preds = %.critedge6
-  switch i32 %.fr, label %200 [
+  switch i32 %25, label %201 [
     i32 536870912, label %.thread191
     i32 0, label %.thread191
   ]
 
-200:                                              ; preds = %switch.early.test
-  %201 = load i32, ptr %22, align 8, !tbaa !82
-  %202 = xor i32 %201, %.fr228
-  store i32 %202, ptr %22, align 8, !tbaa !82
-  %.not174 = icmp eq i32 %202, %.fr
-  br i1 %.not174, label %.thread191, label %37
+201:                                              ; preds = %switch.early.test
+  %202 = load i32, ptr %22, align 8, !tbaa !82
+  %203 = xor i32 %202, %26
+  store i32 %203, ptr %22, align 8, !tbaa !82
+  %.not174 = icmp eq i32 %203, %25
+  br i1 %.not174, label %.thread191, label %38
 
-.thread191:                                       ; preds = %switch.early.test, %switch.early.test, %.critedge6, %200
+.thread191:                                       ; preds = %switch.early.test, %switch.early.test, %.critedge6, %201
   %.not175 = icmp eq ptr %.1142, null
-  br i1 %.not175, label %208, label %203
+  br i1 %.not175, label %209, label %204
 
-203:                                              ; preds = %.thread191
-  %204 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.313, i32 noundef 5) #25
-  %205 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.314, i32 noundef 5) #25
-  %206 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %204, ptr noundef nonnull @.str.312, ptr noundef %205, ptr noundef nonnull %.1142) #25
+204:                                              ; preds = %.thread191
+  %205 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.313, i32 noundef 5) #25
+  %206 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.314, i32 noundef 5) #25
+  %207 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %205, ptr noundef nonnull @.str.312, ptr noundef %206, ptr noundef nonnull %.1142) #25
   tail call void @g_free(ptr noundef nonnull %.1142) #25
-  %.not176 = icmp eq i32 %206, 0
-  br i1 %.not176, label %207, label %35
+  %.not176 = icmp eq i32 %207, 0
+  br i1 %.not176, label %208, label %36
 
-207:                                              ; preds = %203
+208:                                              ; preds = %204
   tail call void @g_free(ptr noundef nonnull %22) #25
   br label %.thread200
 
-208:                                              ; preds = %.thread191
+209:                                              ; preds = %.thread191
   %.not178 = icmp eq i32 %2, 0
-  br i1 %.not178, label %210, label %209
+  br i1 %.not178, label %211, label %210
 
-209:                                              ; preds = %208
+210:                                              ; preds = %209
   tail call void @g_free(ptr noundef nonnull %22) #25
   br label %.thread200
 
-210:                                              ; preds = %208
-  %211 = load i16, ptr %32, align 4
-  %212 = lshr i16 %211, 9
-  %213 = and i16 %212, 3
-  %214 = zext nneg i16 %213 to i32
-  %.not179 = icmp eq i32 %.2130, %214
-  br i1 %.not179, label %220, label %215
+211:                                              ; preds = %209
+  %212 = load i16, ptr %32, align 4
+  %213 = lshr i16 %212, 9
+  %214 = and i16 %213, 3
+  %215 = zext nneg i16 %214 to i32
+  %.not179 = icmp eq i32 %.2130, %215
+  br i1 %.not179, label %221, label %216
 
-215:                                              ; preds = %210
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %217 = load i16, ptr %216, align 4
-  %218 = and i16 %217, -1537
-  store i16 %218, ptr %216, align 4
-  %219 = and i16 %211, -1537
-  store i16 %219, ptr %32, align 4
-  br label %220
+216:                                              ; preds = %211
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %218 = load i16, ptr %217, align 4
+  %219 = and i16 %218, -1537
+  store i16 %219, ptr %217, align 4
+  %220 = and i16 %212, -1537
+  store i16 %220, ptr %32, align 4
+  br label %221
 
-220:                                              ; preds = %215, %210
-  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %.fr228)
+221:                                              ; preds = %216, %211
+  tail call fastcc void @_add_shortcut(ptr noundef nonnull %22, i32 noundef %26)
   br label %.thread200
 
-.thread200:                                       ; preds = %136, %178, %142, %90, %207, %209, %220, %7, %15
-  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %209 ], [ 1, %220 ], [ 0, %207 ], [ 1, %90 ], [ 1, %142 ], [ 0, %178 ], [ 1, %136 ]
+.thread200:                                       ; preds = %137, %179, %143, %91, %208, %210, %221, %7, %15
+  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %210 ], [ 1, %221 ], [ 0, %208 ], [ 1, %91 ], [ 1, %143 ], [ 0, %179 ], [ 1, %137 ]
   ret i32 %.0
 }
 
@@ -14233,8 +14232,8 @@ declare i64 @gtk_native_dialog_get_type() local_unnamed_addr #1
 define internal void @_export_id_changed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #25
   %4 = tail call ptr @g_object_get_data(ptr noundef %3, ptr noundef nonnull @.str.245) #25
-  %.fr35 = freeze ptr %4
-  %5 = ptrtoint ptr %.fr35 to i64
+  %.fr36 = freeze ptr %4
+  %5 = ptrtoint ptr %.fr36 to i64
   %6 = trunc i64 %5 to i32
   %7 = icmp slt i32 %6, 2
   br i1 %7, label %15, label %8
@@ -14245,8 +14244,8 @@ define internal void @_export_id_changed(ptr noundef %0, ptr noundef %1) #0 {
   %11 = tail call i32 @gtk_combo_box_get_active(ptr noundef %10) #25
   %12 = mul i32 %6, 10
   %13 = add i32 %12, -10
-  %.fr36 = freeze i32 %11
-  %14 = add i32 %13, %.fr36
+  %.fr37 = freeze i32 %11
+  %14 = add i32 %13, %.fr37
   br label %15
 
 15:                                               ; preds = %2, %8

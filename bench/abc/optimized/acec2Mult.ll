@@ -614,8 +614,8 @@ Sdb_StoInitResult.exit.._crit_edge340_crit_edge:  ; preds = %Sdb_StoInitResult.e
   %262 = load ptr, ptr %261, align 8, !tbaa !47
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 20
   %264 = load i32, ptr %263, align 4
-  %.fr.i.us = freeze i32 %264
-  %265 = lshr i32 %.fr.i.us, 28
+  %.fr31.i.us = freeze i32 %264
+  %265 = lshr i32 %.fr31.i.us, 28
   %266 = getelementptr inbounds nuw i8, ptr %262, i64 24
   %wide.trip.count.i.i142.us = zext nneg i32 %265 to i64
   %.not49.i.i.us = icmp eq i32 %265, 0
@@ -700,8 +700,8 @@ Sdb_CutSetCutIsContainedOrder.exit.thread.i.us:   ; preds = %282, %294, %296, %2
   br i1 %exitcond.not.i146.us, label %Sdb_CutSetLastCutIsContained.exit.us, label %.lr.ph.split.i.us, !llvm.loop !57
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i141.us, %Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us
-  %indvars.iv38.i.us = phi i64 [ %indvars.iv.next39.i.us, %Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us ], [ 0, %.lr.ph.i141.us ]
-  %302 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv38.i.us
+  %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us ], [ 0, %.lr.ph.i141.us ]
+  %302 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv39.i.us
   %303 = load ptr, ptr %302, align 8, !tbaa !47
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 20
   %305 = load i32, ptr %304, align 4
@@ -716,9 +716,9 @@ Sdb_CutSetCutIsContainedOrder.exit.thread.i.us:   ; preds = %282, %294, %296, %2
   br i1 %310, label %Sdb_CutSetAddCut.exit.us, label %Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us
 
 Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us: ; preds = %306, %.lr.ph.split.us.i.us
-  %indvars.iv.next39.i.us = add nuw nsw i64 %indvars.iv38.i.us, 1
-  %exitcond42.not.i.us = icmp eq i64 %indvars.iv.next39.i.us, %260
-  br i1 %exitcond42.not.i.us, label %Sdb_CutSetLastCutIsContained.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !57
+  %indvars.iv.next40.i.us = add nuw nsw i64 %indvars.iv39.i.us, 1
+  %exitcond43.not.i.us = icmp eq i64 %indvars.iv.next40.i.us, %260
+  br i1 %exitcond43.not.i.us, label %Sdb_CutSetLastCutIsContained.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !57
 
 Sdb_CutSetLastCutIsContained.exit.us:             ; preds = %Sdb_CutSetCutIsContainedOrder.exit.thread.i.us, %Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us, %.loopexit.us.Sdb_CutSetLastCutIsContained.exit.us_crit_edge
   %.pre406 = phi ptr [ %.pre406.pre, %.loopexit.us.Sdb_CutSetLastCutIsContained.exit.us_crit_edge ], [ %262, %Sdb_CutSetCutIsContainedOrder.exit.thread.us.i.us ], [ %262, %Sdb_CutSetCutIsContainedOrder.exit.thread.i.us ]
@@ -1866,8 +1866,8 @@ Sdb_CutTreeLeaves.exit.us:                        ; preds = %Sdb_CutTreeLeaves.e
   %894 = load ptr, ptr %892, align 8, !tbaa !47
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 20
   %896 = load i32, ptr %895, align 4
-  %.fr31.i.us = freeze i32 %896
-  %897 = lshr i32 %.fr31.i.us, 28
+  %.fr.i.us = freeze i32 %896
+  %897 = lshr i32 %.fr.i.us, 28
   %898 = icmp eq i32 %897, 0
   %899 = getelementptr inbounds nuw i8, ptr %894, i64 24
   br i1 %898, label %.outer.i.split.us.i.us, label %.outer.i.split.i.us

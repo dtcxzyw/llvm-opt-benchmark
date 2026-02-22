@@ -2325,12 +2325,12 @@ rec_idx_key.exit:                                 ; preds = %238, %248, %279, %.
 
 320:                                              ; preds = %316
   %321 = load i64, ptr %317, align 8, !tbaa !4
-  %.fr = freeze i64 %321
-  %322 = ashr i64 %.fr, 47
+  %322 = ashr i64 %321, 47
   %323 = icmp ult i64 %322, -14
   %324 = trunc nsw i64 %322 to i32
   %325 = xor i32 %324, -1
   %.0.i258 = select i1 %323, i32 14, i32 %325
+  %.0.i258.fr = freeze i32 %.0.i258
   %326 = icmp eq ptr %317, %14
   br i1 %326, label %327, label %331
 
@@ -2345,7 +2345,7 @@ rec_idx_key.exit:                                 ; preds = %238, %248, %279, %.
 
 331:                                              ; preds = %320
   %332 = shl nuw nsw i32 %308, 8
-  %333 = or disjoint i32 %.0.i258, 128
+  %333 = or disjoint i32 %.0.i258.fr, 128
   %334 = add nuw nsw i32 %333, %332
   %335 = trunc nuw nsw i32 %334 to i16
   store i16 %335, ptr %10, align 4, !tbaa !4
@@ -2366,7 +2366,7 @@ rec_idx_key.exit:                                 ; preds = %238, %248, %279, %.
   br label %341
 
 341:                                              ; preds = %340, %337
-  %342 = icmp eq i32 %.0.i258, 0
+  %342 = icmp eq i32 %.0.i258.fr, 0
   br i1 %342, label %343, label %347
 
 343:                                              ; preds = %341
@@ -2380,8 +2380,8 @@ rec_idx_key.exit:                                 ; preds = %238, %248, %279, %.
   br i1 %.not246, label %lj_record_call.exit, label %.thread
 
 347:                                              ; preds = %341
-  %348 = icmp ult i32 %.0.i258, 3
-  %349 = mul nuw nsw i32 %.0.i258, 16777217
+  %348 = icmp ult i32 %.0.i258.fr, 3
+  %349 = mul nuw nsw i32 %.0.i258.fr, 16777217
   %350 = xor i32 %349, 32767
   %spec.select = select i1 %348, i32 %350, i32 %.0215
   br label %lj_record_call.exit
@@ -2978,37 +2978,37 @@ define hidden void @lj_record_ins(ptr noundef %0) local_unnamed_addr #0 {
   %56 = load ptr, ptr %55, align 8, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %58 = load i32, ptr %57, align 4, !tbaa !36
-  %.not591 = icmp eq i32 %58, 0
-  br i1 %.not591, label %.loopexit, label %.lr.ph587
+  %.not592 = icmp eq i32 %58, 0
+  br i1 %.not592, label %.loopexit, label %.lr.ph588
 
-.lr.ph587:                                        ; preds = %52
+.lr.ph588:                                        ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %60 = load ptr, ptr %59, align 8, !tbaa !43
   %wide.trip.count = zext i32 %58 to i64
   br label %61
 
-61:                                               ; preds = %.lr.ph587, %71
-  %indvars.iv597 = phi i64 [ 0, %.lr.ph587 ], [ %indvars.iv.next598, %71 ]
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv597
+61:                                               ; preds = %.lr.ph588, %71
+  %indvars.iv598 = phi i64 [ 0, %.lr.ph588 ], [ %indvars.iv.next599, %71 ]
+  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv598
   %63 = load i32, ptr %62, align 4, !tbaa !37
   %64 = icmp eq i32 %63, 33587197
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw %union.TValue, ptr %56, i64 %indvars.iv597
+  %66 = getelementptr inbounds nuw %union.TValue, ptr %56, i64 %indvars.iv598
   %67 = load i64, ptr %66, align 8, !tbaa !4
   %.mask = and i64 %67, -140737488355328
   %68 = icmp eq i64 %.mask, -281474976710656
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv597
+  %70 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv598
   store i32 16809982, ptr %70, align 4, !tbaa !37
   br label %.loopexit
 
 71:                                               ; preds = %61, %65
-  %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next598, %wide.trip.count
+  %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !104
 
 72:                                               ; preds = %1
@@ -3046,11 +3046,11 @@ define hidden void @lj_record_ins(ptr noundef %0) local_unnamed_addr #0 {
   %92 = load ptr, ptr %79, align 8, !tbaa !43
   %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv
   store i32 %91, ptr %93, align 4, !tbaa !37
-  %.pre600 = load i32, ptr %77, align 4, !tbaa !36
+  %.pre601 = load i32, ptr %77, align 4, !tbaa !36
   br label %94
 
 94:                                               ; preds = %80, %86, %90
-  %95 = phi i32 [ %81, %80 ], [ %81, %86 ], [ %.pre600, %90 ]
+  %95 = phi i32 [ %81, %80 ], [ %81, %86 ], [ %.pre601, %90 ]
   %96 = phi ptr [ %82, %80 ], [ %82, %86 ], [ %92, %90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = zext i32 %95 to i64
@@ -3247,7 +3247,6 @@ rec_profile_ins.exit:                             ; preds = %135, %138, %148, %1
 
 207:                                              ; preds = %rec_profile_ins.exit, %205
   %.0 = phi i32 [ %206, %205 ], [ %171, %rec_profile_ins.exit ]
-  %.0.fr = freeze i32 %.0
   %208 = lshr i32 %168, 24
   %209 = lshr i32 %168, 16
   %210 = and i32 %209, 255
@@ -3427,7 +3426,6 @@ rec_profile_ins.exit:                             ; preds = %135, %138, %148, %1
 
 323:                                              ; preds = %.sink.split, %250
   %.1476 = phi i32 [ %.0475, %250 ], [ %.sink, %.sink.split ]
-  %.1476.fr = freeze i32 %.1476
   %trunc = trunc i32 %168 to i8
   switch i8 %trunc, label %959 [
     i8 0, label %324
@@ -3530,12 +3528,12 @@ rec_profile_ins.exit:                             ; preds = %135, %138, %148, %1
   ]
 
 324:                                              ; preds = %323, %323, %323, %323
-  %325 = and i32 %.0.fr, 520093696
+  %325 = and i32 %.0, 520093696
   %326 = icmp eq i32 %325, 167772160
   br i1 %326, label %rec_mm_comp_cdata.exit, label %327
 
 327:                                              ; preds = %324
-  %328 = and i32 %.1476.fr, 520093696
+  %328 = and i32 %.1476, 520093696
   %329 = icmp eq i32 %328, 167772160
   br i1 %329, label %rec_mm_comp_cdata.exit, label %339
 
@@ -3552,20 +3550,20 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   %.sink.i = select i1 %334, i32 %332, i32 %336
   %337 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %.sink.i, ptr %337, align 8, !tbaa !49
-  %.sink17.i.sroa.gep569.val580 = load i64, ptr %.sink17.i.sroa.gep569, align 8
-  %.sink17.i.sroa.gep.val581 = load i64, ptr %.sink17.i.sroa.gep, align 8
-  %storemerge.i = select i1 %334, i64 %.sink17.i.sroa.gep569.val580, i64 %.sink17.i.sroa.gep.val581
+  %.sink17.i.sroa.gep569.val581 = load i64, ptr %.sink17.i.sroa.gep569, align 8
+  %.sink17.i.sroa.gep.val582 = load i64, ptr %.sink17.i.sroa.gep, align 8
+  %storemerge.i = select i1 %334, i64 %.sink17.i.sroa.gep569.val581, i64 %.sink17.i.sroa.gep.val582
   store i64 %storemerge.i, ptr %2, align 8, !tbaa !4
   %338 = call i32 @lj_record_mm_lookup(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef range(i32 4, 8) %331)
   call fastcc void @rec_mm_callcomp(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %169)
   br label %lj_record_call.exit
 
 339:                                              ; preds = %327
-  %340 = or i32 %.1476.fr, %.0.fr
+  %340 = or i32 %.1476, %.0
   %341 = and i32 %340, 32768
   %.not524.not = icmp eq i32 %341, 0
-  %342 = lshr i32 %.0.fr, 24
-  br i1 %.not524.not, label %343, label %._crit_edge604
+  %342 = lshr i32 %.0, 24
+  br i1 %.not524.not, label %343, label %._crit_edge605
 
 343:                                              ; preds = %339
   %344 = and i32 %342, 30
@@ -3573,23 +3571,23 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   %346 = icmp ult i32 %345, 6
   %347 = icmp eq i32 %325, 67108864
   %or.cond532 = or i1 %347, %346
-  br i1 %or.cond532, label %348, label %._crit_edge604
+  br i1 %or.cond532, label %348, label %._crit_edge605
 
 348:                                              ; preds = %343
-  %349 = lshr i32 %.1476.fr, 24
+  %349 = lshr i32 %.1476, 24
   %350 = and i32 %349, 30
   %351 = add nsw i32 %350, -14
   %352 = icmp ult i32 %351, 6
   %353 = icmp eq i32 %328, 67108864
   %or.cond533 = or i1 %353, %352
-  br i1 %or.cond533, label %lj_record_call.exit, label %._crit_edge604
+  br i1 %or.cond533, label %lj_record_call.exit, label %._crit_edge605
 
-._crit_edge604:                                   ; preds = %339, %348, %343
+._crit_edge605:                                   ; preds = %339, %348, %343
   %354 = and i32 %342, 31
   %355 = add nsw i32 %354, -15
   %356 = icmp ult i32 %355, 5
   %357 = select i1 %356, i32 19, i32 %354
-  %358 = lshr i32 %.1476.fr, 24
+  %358 = lshr i32 %.1476, 24
   %359 = and i32 %358, 31
   %360 = add nsw i32 %359, -15
   %361 = icmp ult i32 %360, 5
@@ -3597,14 +3595,14 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   %.not525 = icmp eq i32 %357, %362
   br i1 %.not525, label %384, label %363
 
-363:                                              ; preds = %._crit_edge604
+363:                                              ; preds = %._crit_edge605
   %364 = icmp eq i32 %357, 19
   %365 = icmp eq i32 %362, 14
   %or.cond = and i1 %364, %365
   br i1 %or.cond, label %366, label %372
 
 366:                                              ; preds = %363
-  %367 = trunc i32 %.0.fr to i16
+  %367 = trunc i32 %.0 to i16
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 23310, ptr %369, align 4, !tbaa !4
@@ -3621,7 +3619,7 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   br i1 %or.cond3, label %375, label %381
 
 375:                                              ; preds = %372
-  %376 = trunc i32 %.1476.fr to i16
+  %376 = trunc i32 %.1476 to i16
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 23310, ptr %378, align 4, !tbaa !4
@@ -3640,13 +3638,13 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   br i1 %or.cond534, label %384, label %lj_record_call.exit
 
 .thread:                                          ; preds = %366, %375
-  %.8.ph = phi i32 [ %380, %375 ], [ %.1476.fr, %366 ]
-  %.2.ph = phi i32 [ %.0.fr, %375 ], [ %371, %366 ]
+  %.8.ph = phi i32 [ %380, %375 ], [ %.1476, %366 ]
+  %.2.ph = phi i32 [ %.0, %375 ], [ %371, %366 ]
   tail call fastcc void @rec_comp_prep(ptr noundef nonnull %0)
   br label %385
 
-384:                                              ; preds = %381, %._crit_edge604
-  %.0482 = phi i32 [ %354, %381 ], [ %357, %._crit_edge604 ]
+384:                                              ; preds = %381, %._crit_edge605
+  %.0482 = phi i32 [ %354, %381 ], [ %357, %._crit_edge605 ]
   tail call fastcc void @rec_comp_prep(ptr noundef nonnull %0)
   switch i32 %.0482, label %408 [
     i32 14, label %385
@@ -3655,8 +3653,8 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   ]
 
 385:                                              ; preds = %.thread, %384
-  %.2575 = phi i32 [ %.2.ph, %.thread ], [ %.0.fr, %384 ]
-  %.8574 = phi i32 [ %.8.ph, %.thread ], [ %.1476.fr, %384 ]
+  %.2575 = phi i32 [ %.2.ph, %.thread ], [ %.0, %384 ]
+  %.8574 = phi i32 [ %.8.ph, %.thread ], [ %.1476, %384 ]
   %386 = shl i32 %168, 2
   %387 = and i32 %386, 4
   %spec.select = xor i32 %387, %169
@@ -3688,7 +3686,7 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   %.not526 = icmp eq i32 %404, 0
   %405 = zext i1 %.not526 to i32
   %spec.select536 = xor i32 %169, %405
-  %406 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.fr, i32 noundef %.1476.fr) #8
+  %406 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0, i32 noundef %.1476) #8
   %407 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 0) #8
   br label %409
 
@@ -3698,9 +3696,9 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
 
 409:                                              ; preds = %385, %392, %397
   %.1483 = phi i32 [ 147, %397 ], [ 142, %385 ], [ 147, %392 ]
-  %.10 = phi i32 [ %407, %397 ], [ %.8574, %385 ], [ %.1476.fr, %392 ]
+  %.10 = phi i32 [ %407, %397 ], [ %.8574, %385 ], [ %.1476, %392 ]
   %.1473 = phi i32 [ %spec.select536, %397 ], [ %spec.select556, %385 ], [ %spec.select535, %392 ]
-  %.4 = phi i32 [ %406, %397 ], [ %.2575, %385 ], [ %.0.fr, %392 ]
+  %.4 = phi i32 [ %406, %397 ], [ %.2575, %385 ], [ %.0, %392 ]
   %410 = shl nuw nsw i32 %.1473, 8
   %411 = or disjoint i32 %410, %.1483
   %412 = trunc nuw i32 %411 to i16
@@ -3720,11 +3718,11 @@ rec_mm_comp_cdata.exit:                           ; preds = %327, %324
   br label %lj_record_call.exit
 
 422:                                              ; preds = %323, %323, %323, %323, %323, %323, %323, %323
-  %423 = and i32 %.0.fr, 520093696
+  %423 = and i32 %.0, 520093696
   %424 = icmp eq i32 %423, 167772160
-  %425 = and i32 %.1476.fr, 520093696
+  %425 = and i32 %.1476, 520093696
   %426 = icmp eq i32 %425, 167772160
-  %or.cond538 = or i1 %424, %426
+  %or.cond538 = select i1 %424, i1 true, i1 %426
   br i1 %or.cond538, label %rec_mm_comp_cdata.exit564, label %434
 
 rec_mm_comp_cdata.exit564:                        ; preds = %422
@@ -3746,8 +3744,9 @@ rec_mm_comp_cdata.exit564:                        ; preds = %422
   br label %lj_record_call.exit
 
 434:                                              ; preds = %422
-  %435 = or i32 %.1476.fr, %.0.fr
-  %436 = and i32 %435, 32768
+  %435 = or i32 %.1476, %.0
+  %.fr580 = freeze i32 %435
+  %436 = and i32 %.fr580, 32768
   %.not522.not.not = icmp eq i32 %436, 0
   br i1 %.not522.not.not, label %switch.early.test, label %437
 
@@ -3786,7 +3785,7 @@ switch.early.test:                                ; preds = %434
 
 rec_comp_prep.exit:                               ; preds = %437, %441, %450
   tail call void @lj_snap_add(ptr noundef nonnull %0) #8
-  %455 = call i32 @lj_record_objcmp(ptr noundef nonnull %0, i32 noundef %.0.fr, i32 noundef %.1476.fr, ptr noundef nonnull %.sink17.i.sroa.gep569, ptr noundef nonnull %.sink17.i.sroa.gep)
+  %455 = call i32 @lj_record_objcmp(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %.1476, ptr noundef nonnull %.sink17.i.sroa.gep569, ptr noundef nonnull %.sink17.i.sroa.gep)
   %456 = icmp eq i32 %455, 2
   br i1 %456, label %458, label %457
 
@@ -3855,15 +3854,15 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit
 
 498:                                              ; preds = %323, %323
-  %499 = and i32 %.1476.fr, 503316480
+  %499 = and i32 %.1476, 503316480
   %500 = trunc i32 %168 to i1
   %501 = icmp eq i32 %499, 0
   %502 = xor i1 %501, %500
-  %spec.select541 = select i1 %502, i32 0, i32 %.1476.fr
+  %spec.select541 = select i1 %502, i32 0, i32 %.1476
   br label %503
 
 503:                                              ; preds = %498, %323, %323
-  %.2477 = phi i32 [ %.1476.fr, %323 ], [ %spec.select541, %498 ], [ %.1476.fr, %323 ]
+  %.2477 = phi i32 [ %.1476, %323 ], [ %spec.select541, %498 ], [ %.1476, %323 ]
   %504 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %505 = load i32, ptr %504, align 4, !tbaa !37
   %506 = lshr i32 %505, 8
@@ -3878,21 +3877,21 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit
 
 512:                                              ; preds = %323, %323
-  switch i32 %.1476.fr, label %517 [
+  switch i32 %.1476, label %517 [
     i32 15, label %513
     i32 5, label %515
   ]
 
 513:                                              ; preds = %512
-  %514 = tail call i32 @lj_ir_tonum(ptr noundef nonnull %0, i32 noundef %.0.fr) #8
+  %514 = tail call i32 @lj_ir_tonum(ptr noundef nonnull %0, i32 noundef %.0) #8
   br label %517
 
 515:                                              ; preds = %512
-  %516 = tail call i32 @lj_ir_tostr(ptr noundef nonnull %0, i32 noundef %.0.fr) #8
+  %516 = tail call i32 @lj_ir_tostr(ptr noundef nonnull %0, i32 noundef %.0) #8
   br label %517
 
 517:                                              ; preds = %512, %515, %513
-  %.5 = phi i32 [ %514, %513 ], [ %516, %515 ], [ %.0.fr, %512 ]
+  %.5 = phi i32 [ %514, %513 ], [ %516, %515 ], [ %.0, %512 ]
   %518 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %519 = load ptr, ptr %518, align 8, !tbaa !43
   %520 = zext nneg i32 %171 to i64
@@ -3901,20 +3900,20 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit
 
 522:                                              ; preds = %323
-  %523 = and i32 %.1476.fr, 503316480
+  %523 = and i32 %.1476, 503316480
   %.not521 = icmp eq i32 %523, 0
   %524 = select i1 %.not521, i32 33587197, i32 16809982
   br label %lj_record_call.exit
 
 525:                                              ; preds = %323
-  %526 = and i32 %.1476.fr, 520093696
+  %526 = and i32 %.1476, 520093696
   switch i32 %526, label %539 [
     i32 67108864, label %527
     i32 184549376, label %533
   ]
 
 527:                                              ; preds = %525
-  %528 = trunc i32 %.1476.fr to i16
+  %528 = trunc i32 %.1476 to i16
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %530 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 17683, ptr %530, align 4, !tbaa !4
@@ -3925,7 +3924,7 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit
 
 533:                                              ; preds = %525
-  %534 = trunc i32 %.1476.fr to i16
+  %534 = trunc i32 %.1476 to i16
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 18707, ptr %536, align 4, !tbaa !4
@@ -3936,26 +3935,26 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit
 
 539:                                              ; preds = %525
-  call fastcc void @rec_mm_len(ptr noundef nonnull %0, i32 noundef %.1476.fr, ptr noundef %.sink17.i.sroa.gep)
+  call fastcc void @rec_mm_len(ptr noundef nonnull %0, i32 noundef %.1476, ptr noundef %.sink17.i.sroa.gep)
   br label %lj_record_call.exit.thread
 
 540:                                              ; preds = %323
-  %541 = lshr i32 %.1476.fr, 24
+  %541 = lshr i32 %.1476, 24
   %542 = and i32 %541, 30
   %543 = add nsw i32 %542, -14
   %544 = icmp ult i32 %543, 6
-  %545 = and i32 %.1476.fr, 520093696
+  %545 = and i32 %.1476, 520093696
   %546 = icmp eq i32 %545, 67108864
-  %or.cond543 = or i1 %544, %546
+  %or.cond543 = select i1 %544, i1 true, i1 %546
   br i1 %or.cond543, label %547, label %549
 
 547:                                              ; preds = %540
-  %548 = call i32 @lj_opt_narrow_unm(ptr noundef nonnull %0, i32 noundef %.1476.fr, ptr noundef nonnull %.sink17.i.sroa.gep) #8
+  %548 = call i32 @lj_opt_narrow_unm(ptr noundef nonnull %0, i32 noundef %.1476, ptr noundef nonnull %.sink17.i.sroa.gep) #8
   br label %lj_record_call.exit
 
 549:                                              ; preds = %540
   %550 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i32 %.1476.fr, ptr %550, align 8, !tbaa !49
+  store i32 %.1476, ptr %550, align 8, !tbaa !49
   %551 = load i64, ptr %.sink17.i.sroa.gep, align 8, !tbaa !4
   store i64 %551, ptr %2, align 8, !tbaa !4
   call fastcc void @rec_mm_arith(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 16)
@@ -3963,7 +3962,7 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
 
 552:                                              ; preds = %323, %323, %323, %323, %323
   %553 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i32 %.1476.fr, ptr %553, align 8, !tbaa !49
+  store i32 %.1476, ptr %553, align 8, !tbaa !49
   %554 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %.0469, ptr %554, align 4, !tbaa !82
   %555 = load i64, ptr %2, align 8, !tbaa !4
@@ -3975,8 +3974,8 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br i1 %557, label %578, label %558
 
 558:                                              ; preds = %552, %323, %323, %323, %323, %323, %323, %323, %323
-  %.3478 = phi i32 [ %.0469, %552 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ]
-  %.1470 = phi i32 [ %.1476.fr, %552 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ]
+  %.3478 = phi i32 [ %.0469, %552 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ]
+  %.1470 = phi i32 [ %.1476, %552 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ], [ %.0469, %323 ]
   %559 = lshr i16 %175, 11
   %560 = zext nneg i16 %559 to i32
   %561 = lshr i32 %.1470, 24
@@ -4008,8 +4007,8 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit.thread
 
 578:                                              ; preds = %323, %323, %552
-  %.11 = phi i32 [ %.0469, %552 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ]
-  %.2471 = phi i32 [ %.1476.fr, %552 ], [ %.0469, %323 ], [ %.0469, %323 ]
+  %.11 = phi i32 [ %.0469, %552 ], [ %.1476, %323 ], [ %.1476, %323 ]
+  %.2471 = phi i32 [ %.1476, %552 ], [ %.0469, %323 ], [ %.0469, %323 ]
   %579 = lshr i32 %.2471, 24
   %580 = and i32 %579, 30
   %581 = add nsw i32 %580, -14
@@ -4048,17 +4047,17 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br i1 %or.cond553, label %602, label %611
 
 602:                                              ; preds = %595
-  %603 = lshr i32 %.1476.fr, 24
+  %603 = lshr i32 %.1476, 24
   %604 = and i32 %603, 30
   %605 = add nsw i32 %604, -14
   %606 = icmp ult i32 %605, 6
-  %607 = and i32 %.1476.fr, 520093696
+  %607 = and i32 %.1476, 520093696
   %608 = icmp eq i32 %607, 67108864
-  %or.cond555 = or i1 %606, %608
+  %or.cond555 = select i1 %606, i1 true, i1 %608
   br i1 %or.cond555, label %609, label %611
 
 609:                                              ; preds = %602
-  %610 = call i32 @lj_opt_narrow_arith(ptr noundef nonnull %0, i32 noundef %.0469, i32 noundef %.1476.fr, ptr noundef nonnull %2, ptr noundef nonnull %.sink17.i.sroa.gep, i32 noundef 46) #8
+  %610 = call i32 @lj_opt_narrow_arith(ptr noundef nonnull %0, i32 noundef %.0469, i32 noundef %.1476, ptr noundef nonnull %2, ptr noundef nonnull %.sink17.i.sroa.gep, i32 noundef 46) #8
   br label %lj_record_call.exit
 
 611:                                              ; preds = %602, %595
@@ -4066,7 +4065,7 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit.thread
 
 612:                                              ; preds = %323
-  %613 = tail call fastcc i32 @rec_cat(ptr noundef nonnull %0, i32 noundef %.0469, i32 noundef %.1476.fr)
+  %613 = tail call fastcc i32 @rec_cat(ptr noundef nonnull %0, i32 noundef %.0469, i32 noundef %.1476)
   %614 = icmp ugt i32 %613, -257
   br i1 %614, label %615, label %lj_record_call.exit
 
@@ -4079,7 +4078,7 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
 618:                                              ; preds = %323
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %620 = load i32, ptr %619, align 4, !tbaa !36
-  %621 = icmp ugt i32 %.0.fr, %620
+  %621 = icmp ugt i32 %.0, %620
   br i1 %621, label %622, label %lj_record_call.exit
 
 622:                                              ; preds = %618
@@ -4087,14 +4086,14 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   %624 = load ptr, ptr %623, align 8, !tbaa !43
   %625 = zext i32 %620 to i64
   %626 = getelementptr inbounds nuw i32, ptr %624, i64 %625
-  %627 = sub nuw i32 %.0.fr, %620
+  %627 = sub nuw i32 %.0, %620
   %628 = zext i32 %627 to i64
   %629 = shl nuw nsw i64 %628, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %626, i8 0, i64 %629, i1 false)
   br label %lj_record_call.exit
 
 630:                                              ; preds = %323
-  %sext = shl i32 %.1476.fr, 16
+  %sext = shl i32 %.1476, 16
   %631 = ashr exact i32 %sext, 16
   %632 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %631) #8
   br label %lj_record_call.exit
@@ -4102,44 +4101,44 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
 633:                                              ; preds = %323
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %635 = load i32, ptr %634, align 4, !tbaa !36
-  %636 = icmp ugt i32 %.0.fr, %635
+  %636 = icmp ugt i32 %.0, %635
   br i1 %636, label %637, label %643
 
 637:                                              ; preds = %633
   %638 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %639 = load ptr, ptr %638, align 8, !tbaa !43
-  %640 = add i32 %.0.fr, -1
+  %640 = add i32 %.0, -1
   %641 = zext i32 %640 to i64
   %642 = getelementptr inbounds nuw i32, ptr %639, i64 %641
   store i32 0, ptr %642, align 4, !tbaa !37
   br label %643
 
 643:                                              ; preds = %637, %633
-  %.not519588 = icmp ugt i32 %.0.fr, %.1476.fr
-  br i1 %.not519588, label %._crit_edge, label %.lr.ph590
+  %.not519589 = icmp ugt i32 %.0, %.1476
+  br i1 %.not519589, label %._crit_edge, label %.lr.ph591
 
-.lr.ph590:                                        ; preds = %643
+.lr.ph591:                                        ; preds = %643
   %644 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %645 = load ptr, ptr %644, align 8, !tbaa !43
   br label %646
 
-646:                                              ; preds = %.lr.ph590, %646
-  %.6589 = phi i32 [ %.0.fr, %.lr.ph590 ], [ %647, %646 ]
-  %647 = add i32 %.6589, 1
-  %648 = zext i32 %.6589 to i64
+646:                                              ; preds = %.lr.ph591, %646
+  %.6590 = phi i32 [ %.0, %.lr.ph591 ], [ %647, %646 ]
+  %647 = add i32 %.6590, 1
+  %648 = zext i32 %.6590 to i64
   %649 = getelementptr inbounds nuw i32, ptr %645, i64 %648
   store i32 32767, ptr %649, align 4, !tbaa !37
-  %.not519 = icmp ugt i32 %647, %.1476.fr
+  %.not519 = icmp ugt i32 %647, %.1476
   br i1 %.not519, label %._crit_edge, label %646, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %646, %643
-  %.6.lcssa = phi i32 [ %.0.fr, %643 ], [ %647, %646 ]
+  %.6.lcssa = phi i32 [ %.0, %643 ], [ %647, %646 ]
   %650 = load i32, ptr %634, align 4, !tbaa !36
-  %.not520 = icmp ult i32 %.1476.fr, %650
+  %.not520 = icmp ult i32 %.1476, %650
   br i1 %.not520, label %lj_record_call.exit, label %651
 
 651:                                              ; preds = %._crit_edge
-  %652 = add nuw i32 %.1476.fr, 1
+  %652 = add nuw i32 %.1476, 1
   store i32 %652, ptr %634, align 4, !tbaa !36
   br label %lj_record_call.exit
 
@@ -4149,7 +4148,7 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 32
   %657 = load i64, ptr %656, align 8, !tbaa !114
   %658 = inttoptr i64 %657 to ptr
-  %659 = zext i32 %.1476.fr to i64
+  %659 = zext i32 %.1476 to i64
   %660 = xor i64 %659, -1
   %661 = getelementptr inbounds %struct.GCRef, ptr %658, i64 %660
   %662 = load i64, ptr %661, align 8, !tbaa !79
@@ -4158,11 +4157,11 @@ rec_comp_fixup.exit:                              ; preds = %458, %494
   br label %lj_record_call.exit
 
 665:                                              ; preds = %323
-  %666 = tail call fastcc i32 @rec_upvalue(ptr noundef nonnull %0, i32 noundef %.1476.fr, i32 noundef 0)
+  %666 = tail call fastcc i32 @rec_upvalue(ptr noundef nonnull %0, i32 noundef %.1476, i32 noundef 0)
   br label %lj_record_call.exit
 
 667:                                              ; preds = %323, %323, %323, %323
-  %668 = tail call fastcc i32 @rec_upvalue(ptr noundef nonnull %0, i32 noundef %.0.fr, i32 noundef %.1476.fr)
+  %668 = tail call fastcc i32 @rec_upvalue(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %.1476)
   br label %lj_record_call.exit
 
 669:                                              ; preds = %323, %323
@@ -4214,9 +4213,9 @@ getcurrf.exit:                                    ; preds = %669, %679
   br label %lj_record_call.exit
 
 698:                                              ; preds = %323, %323
-  %699 = sitofp i32 %.1476.fr to double
+  %699 = sitofp i32 %.1476 to double
   store double %699, ptr %.sink17.i.sroa.gep, align 8, !tbaa !4
-  %700 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.1476.fr) #8
+  %700 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.1476) #8
   %701 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %700, ptr %701, align 4, !tbaa !82
   br label %702
@@ -4245,14 +4244,14 @@ getcurrf.exit:                                    ; preds = %669, %679
   %717 = lshr exact i64 %716, 3
   %718 = trunc i64 %717 to i32
   %719 = load i32, ptr %.sink17.i.sroa.gep, align 8, !tbaa !4
-  tail call fastcc void @rec_tsetm(ptr noundef nonnull %0, i32 noundef %.0.fr, i32 noundef %718, i32 noundef %719)
+  tail call fastcc void @rec_tsetm(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %718, i32 noundef %719)
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.0.fr, ptr %720, align 4, !tbaa !36
+  store i32 %.0, ptr %720, align 4, !tbaa !36
   br label %lj_record_call.exit
 
 721:                                              ; preds = %323
-  %722 = and i32 %.1476.fr, 2047
-  %723 = lshr i32 %.1476.fr, 11
+  %722 = and i32 %.1476, 2047
+  %723 = lshr i32 %.1476, 11
   %724 = icmp eq i32 %722, 2047
   %725 = trunc nuw nsw i32 %722 to i16
   %726 = select i1 %724, i16 2049, i16 %725
@@ -4272,7 +4271,7 @@ getcurrf.exit:                                    ; preds = %669, %679
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 32
   %736 = load i64, ptr %735, align 8, !tbaa !114
   %737 = inttoptr i64 %736 to ptr
-  %738 = zext i32 %.1476.fr to i64
+  %738 = zext i32 %.1476 to i64
   %739 = xor i64 %738, -1
   %740 = getelementptr inbounds %struct.GCRef, ptr %737, i64 %739
   %741 = load i64, ptr %740, align 8, !tbaa !79
@@ -4291,7 +4290,7 @@ getcurrf.exit:                                    ; preds = %669, %679
 749:                                              ; preds = %323
   %750 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %751 = load ptr, ptr %750, align 8, !tbaa !43
-  %752 = add i32 %.0.fr, -3
+  %752 = add i32 %.0, -3
   %753 = zext i32 %752 to i64
   %754 = getelementptr inbounds nuw i32, ptr %751, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !37
@@ -4300,16 +4299,16 @@ getcurrf.exit:                                    ; preds = %669, %679
 
 756:                                              ; preds = %749
   %757 = tail call fastcc i32 @sload(ptr noundef nonnull %0, i32 noundef %752)
-  %.pre601 = load ptr, ptr %750, align 8, !tbaa !43
+  %.pre602 = load ptr, ptr %750, align 8, !tbaa !43
   br label %758
 
 758:                                              ; preds = %749, %756
-  %759 = phi ptr [ %.pre601, %756 ], [ %751, %749 ]
+  %759 = phi ptr [ %.pre602, %756 ], [ %751, %749 ]
   %760 = phi i32 [ %757, %756 ], [ %755, %749 ]
-  %761 = zext i32 %.0.fr to i64
+  %761 = zext i32 %.0 to i64
   %762 = getelementptr inbounds nuw i32, ptr %759, i64 %761
   store i32 %760, ptr %762, align 4, !tbaa !37
-  %763 = add i32 %.0.fr, -2
+  %763 = add i32 %.0, -2
   %764 = zext i32 %763 to i64
   %765 = getelementptr inbounds nuw i32, ptr %759, i64 %764
   %766 = load i32, ptr %765, align 4, !tbaa !37
@@ -4318,17 +4317,17 @@ getcurrf.exit:                                    ; preds = %669, %679
 
 767:                                              ; preds = %758
   %768 = tail call fastcc i32 @sload(ptr noundef nonnull %0, i32 noundef %763)
-  %.pre602 = load ptr, ptr %750, align 8, !tbaa !43
+  %.pre603 = load ptr, ptr %750, align 8, !tbaa !43
   br label %769
 
 769:                                              ; preds = %758, %767
-  %770 = phi ptr [ %.pre602, %767 ], [ %759, %758 ]
+  %770 = phi ptr [ %.pre603, %767 ], [ %759, %758 ]
   %771 = phi i32 [ %768, %767 ], [ %766, %758 ]
-  %772 = add i32 %.0.fr, 2
+  %772 = add i32 %.0, 2
   %773 = zext i32 %772 to i64
   %774 = getelementptr inbounds nuw i32, ptr %770, i64 %773
   store i32 %771, ptr %774, align 4, !tbaa !37
-  %775 = add i32 %.0.fr, -1
+  %775 = add i32 %.0, -1
   %776 = zext i32 %775 to i64
   %777 = getelementptr inbounds nuw i32, ptr %770, i64 %776
   %778 = load i32, ptr %777, align 4, !tbaa !37
@@ -4337,13 +4336,13 @@ getcurrf.exit:                                    ; preds = %669, %679
 
 779:                                              ; preds = %769
   %780 = tail call fastcc i32 @sload(ptr noundef nonnull %0, i32 noundef %775)
-  %.pre603 = load ptr, ptr %750, align 8, !tbaa !43
+  %.pre604 = load ptr, ptr %750, align 8, !tbaa !43
   br label %781
 
 781:                                              ; preds = %769, %779
-  %782 = phi ptr [ %.pre603, %779 ], [ %770, %769 ]
+  %782 = phi ptr [ %.pre604, %779 ], [ %770, %769 ]
   %783 = phi i32 [ %780, %779 ], [ %778, %769 ]
-  %784 = add i32 %.0.fr, 3
+  %784 = add i32 %.0, 3
   %785 = zext i32 %784 to i64
   %786 = getelementptr inbounds nuw i32, ptr %782, i64 %785
   store i32 %783, ptr %786, align 4, !tbaa !37
@@ -4362,9 +4361,9 @@ getcurrf.exit:                                    ; preds = %669, %679
   %797 = getelementptr inbounds i8, ptr %790, i64 -8
   %798 = load i64, ptr %797, align 8, !tbaa !4
   store i64 %798, ptr %796, align 8, !tbaa !4
-  %799 = zext i32 %.1476.fr to i64
+  %799 = zext i32 %.1476 to i64
   %800 = add nsw i64 %799, -1
-  tail call void @lj_record_call(ptr noundef nonnull %0, i32 noundef %.0.fr, i64 noundef %800)
+  tail call void @lj_record_call(ptr noundef nonnull %0, i32 noundef %.0, i64 noundef %800)
   br label %lj_record_call.exit
 
 801:                                              ; preds = %323
@@ -4378,19 +4377,19 @@ getcurrf.exit:                                    ; preds = %669, %679
   %809 = sub i64 %807, %808
   %810 = lshr exact i64 %809, 3
   %811 = trunc i64 %810 to i32
-  %812 = xor i32 %.0.fr, -1
+  %812 = xor i32 %.0, -1
   %813 = add i32 %811, %812
   br label %814
 
 814:                                              ; preds = %801, %323
-  %.4479 = phi i32 [ %813, %801 ], [ %.1476.fr, %323 ]
+  %.4479 = phi i32 [ %813, %801 ], [ %.1476, %323 ]
   %815 = zext i32 %.4479 to i64
   %816 = add nsw i64 %815, -1
-  tail call fastcc void @rec_call_setup(ptr noundef nonnull %0, i32 noundef %.0.fr, i64 noundef %816)
+  tail call fastcc void @rec_call_setup(ptr noundef nonnull %0, i32 noundef %.0, i64 noundef %816)
   %817 = load i32, ptr %122, align 4, !tbaa !31
   %818 = add nsw i32 %817, 1
   store i32 %818, ptr %122, align 4, !tbaa !31
-  %819 = add i32 %.0.fr, 2
+  %819 = add i32 %.0, 2
   %820 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %821 = load ptr, ptr %820, align 8, !tbaa !43
   %822 = zext i32 %819 to i64
@@ -4421,21 +4420,21 @@ getcurrf.exit:                                    ; preds = %669, %679
   %840 = sub i64 %838, %839
   %841 = lshr exact i64 %840, 3
   %842 = trunc i64 %841 to i32
-  %843 = xor i32 %.0.fr, -1
+  %843 = xor i32 %.0, -1
   %844 = add i32 %842, %843
   br label %845
 
 845:                                              ; preds = %832, %323
-  %.5480 = phi i32 [ %844, %832 ], [ %.1476.fr, %323 ]
+  %.5480 = phi i32 [ %844, %832 ], [ %.1476, %323 ]
   %846 = zext i32 %.5480 to i64
   %847 = add nsw i64 %846, -1
-  tail call void @lj_record_tailcall(ptr noundef nonnull %0, i32 noundef %.0.fr, i64 noundef %847)
+  tail call void @lj_record_tailcall(ptr noundef nonnull %0, i32 noundef %.0, i64 noundef %847)
   br label %lj_record_call.exit
 
 848:                                              ; preds = %323
   %849 = zext i32 %.0469 to i64
   %850 = add nsw i64 %849, -1
-  tail call fastcc void @rec_varg(ptr noundef nonnull %0, i32 noundef %.0.fr, i64 noundef %850)
+  tail call fastcc void @rec_varg(ptr noundef nonnull %0, i32 noundef %.0, i64 noundef %850)
   br label %lj_record_call.exit
 
 851:                                              ; preds = %323
@@ -4449,12 +4448,12 @@ getcurrf.exit:                                    ; preds = %669, %679
   %859 = sub i64 %857, %858
   %860 = lshr exact i64 %859, 3
   %861 = trunc i64 %860 to i32
-  %reass.sub592 = sub i32 %861, %.0.fr
-  %862 = add i32 %reass.sub592, 1
+  %reass.sub593 = sub i32 %861, %.0
+  %862 = add i32 %reass.sub593, 1
   br label %863
 
 863:                                              ; preds = %851, %323, %323, %323
-  %.6481 = phi i32 [ %862, %851 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ]
+  %.6481 = phi i32 [ %862, %851 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ]
   %864 = load i32, ptr %136, align 4, !tbaa !110
   %865 = icmp eq i32 %864, 102
   br i1 %865, label %866, label %rec_profile_ret.exit
@@ -4475,7 +4474,7 @@ getcurrf.exit:                                    ; preds = %669, %679
 rec_profile_ret.exit:                             ; preds = %863, %866
   %872 = zext i32 %.6481 to i64
   %873 = add nsw i64 %872, -1
-  tail call void @lj_record_ret(ptr noundef nonnull %0, i32 noundef %.0.fr, i64 noundef %873)
+  tail call void @lj_record_ret(ptr noundef nonnull %0, i32 noundef %.0, i64 noundef %873)
   br label %lj_record_call.exit
 
 874:                                              ; preds = %323
@@ -4496,7 +4495,7 @@ rec_profile_ret.exit:                             ; preds = %863, %866
   br i1 %.not514, label %lj_record_call.exit, label %882
 
 882:                                              ; preds = %880
-  %883 = zext i32 %.1476.fr to i64
+  %883 = zext i32 %.1476 to i64
   %884 = getelementptr i32, ptr %121, i64 %883
   %885 = getelementptr i8, ptr %884, i64 -131072
   %886 = load i32, ptr %885, align 4, !tbaa !37
@@ -4505,7 +4504,7 @@ rec_profile_ret.exit:                             ; preds = %863, %866
   br label %lj_record_call.exit
 
 888:                                              ; preds = %323
-  %889 = zext i32 %.1476.fr to i64
+  %889 = zext i32 %.1476 to i64
   %890 = getelementptr i32, ptr %121, i64 %889
   %891 = getelementptr i8, ptr %890, i64 -131072
   %892 = tail call fastcc i32 @rec_for(ptr noundef nonnull %0, ptr noundef %891, i32 noundef 1)
@@ -4519,18 +4518,18 @@ rec_profile_ret.exit:                             ; preds = %863, %866
   br label %lj_record_call.exit
 
 896:                                              ; preds = %323
-  %897 = tail call fastcc i32 @rec_itern(ptr noundef nonnull %0, i32 noundef %.0.fr, i32 noundef %.0469)
+  %897 = tail call fastcc i32 @rec_itern(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %.0469)
   tail call fastcc void @rec_loop_interp(ptr noundef nonnull %0, ptr noundef nonnull %121, i32 noundef %897)
   br label %lj_record_call.exit
 
 898:                                              ; preds = %323
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %900 = load i32, ptr %899, align 4, !tbaa !36
-  %901 = icmp ult i32 %.0.fr, %900
+  %901 = icmp ult i32 %.0, %900
   br i1 %901, label %902, label %rec_loop.exit
 
 902:                                              ; preds = %898
-  store i32 %.0.fr, ptr %899, align 4, !tbaa !36
+  store i32 %.0, ptr %899, align 4, !tbaa !36
   br label %rec_loop.exit
 
 rec_loop.exit:                                    ; preds = %898, %902
@@ -4543,7 +4542,7 @@ rec_loop.exit:                                    ; preds = %898, %902
 905:                                              ; preds = %323
   %906 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %907 = load ptr, ptr %906, align 8, !tbaa !119
-  %908 = zext i32 %.1476.fr to i64
+  %908 = zext i32 %.1476 to i64
   %909 = getelementptr inbounds nuw %struct.GCRef, ptr %907, i64 %908
   %910 = load i64, ptr %909, align 8, !tbaa !79
   %911 = inttoptr i64 %910 to ptr
@@ -4554,26 +4553,26 @@ rec_loop.exit:                                    ; preds = %898, %902
   %916 = getelementptr i32, ptr %121, i64 %915
   %917 = getelementptr i8, ptr %916, i64 -131072
   %918 = tail call fastcc i32 @rec_for(ptr noundef nonnull %0, ptr noundef %917, i32 noundef 1)
-  tail call fastcc void @rec_loop_jit(ptr noundef nonnull %0, i32 noundef %.1476.fr, i32 noundef %918)
+  tail call fastcc void @rec_loop_jit(ptr noundef nonnull %0, i32 noundef %.1476, i32 noundef %918)
   br label %lj_record_call.exit
 
 919:                                              ; preds = %323
   %920 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %921 = load ptr, ptr %920, align 8, !tbaa !119
-  %922 = zext i32 %.1476.fr to i64
+  %922 = zext i32 %.1476 to i64
   %923 = getelementptr inbounds nuw %struct.GCRef, ptr %921, i64 %922
   %924 = load i64, ptr %923, align 8, !tbaa !79
   %925 = inttoptr i64 %924 to ptr
   %926 = getelementptr inbounds nuw i8, ptr %925, i64 80
   %927 = load i32, ptr %926, align 8, !tbaa !120
   %928 = tail call fastcc i32 @rec_iterl(ptr noundef nonnull %0, i32 noundef %927)
-  tail call fastcc void @rec_loop_jit(ptr noundef nonnull %0, i32 noundef %.1476.fr, i32 noundef %928)
+  tail call fastcc void @rec_loop_jit(ptr noundef nonnull %0, i32 noundef %.1476, i32 noundef %928)
   br label %lj_record_call.exit
 
 929:                                              ; preds = %323
   %930 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %931 = load ptr, ptr %930, align 8, !tbaa !119
-  %932 = zext i32 %.1476.fr to i64
+  %932 = zext i32 %.1476 to i64
   %933 = getelementptr inbounds nuw %struct.GCRef, ptr %931, i64 %932
   %934 = load i64, ptr %933, align 8, !tbaa !79
   %935 = inttoptr i64 %934 to ptr
@@ -4586,11 +4585,11 @@ rec_loop.exit:                                    ; preds = %898, %902
   %narrow579 = and i1 %940, %narrow
   %941 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %942 = load i32, ptr %941, align 4, !tbaa !36
-  %943 = icmp ult i32 %.0.fr, %942
+  %943 = icmp ult i32 %.0, %942
   br i1 %943, label %944, label %rec_loop.exit568
 
 944:                                              ; preds = %929
-  store i32 %.0.fr, ptr %941, align 4, !tbaa !36
+  store i32 %.0, ptr %941, align 4, !tbaa !36
   br label %rec_loop.exit568
 
 rec_loop.exit568:                                 ; preds = %929, %944
@@ -4598,7 +4597,7 @@ rec_loop.exit568:                                 ; preds = %929, %944
   %946 = zext i1 %narrow579 to i64
   %947 = getelementptr inbounds nuw i32, ptr %945, i64 %946
   store ptr %947, ptr %120, align 8, !tbaa !61
-  tail call fastcc void @rec_loop_jit(ptr noundef nonnull %0, i32 noundef %.1476.fr, i32 noundef 2)
+  tail call fastcc void @rec_loop_jit(ptr noundef nonnull %0, i32 noundef %.1476, i32 noundef 2)
   br label %lj_record_call.exit
 
 948:                                              ; preds = %323, %323, %323, %323, %323
@@ -4608,15 +4607,15 @@ rec_loop.exit568:                                 ; preds = %929, %944
 949:                                              ; preds = %323
   %950 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %951 = load i32, ptr %950, align 4, !tbaa !36
-  %952 = icmp ult i32 %.0.fr, %951
+  %952 = icmp ult i32 %.0, %951
   br i1 %952, label %953, label %lj_record_call.exit
 
 953:                                              ; preds = %949
-  store i32 %.0.fr, ptr %950, align 4, !tbaa !36
+  store i32 %.0, ptr %950, align 4, !tbaa !36
   br label %lj_record_call.exit
 
 954:                                              ; preds = %323
-  tail call fastcc void @rec_isnext(ptr noundef nonnull %0, i32 noundef %.0.fr)
+  tail call fastcc void @rec_isnext(ptr noundef nonnull %0, i32 noundef %.0)
   br label %lj_record_call.exit
 
 955:                                              ; preds = %323
@@ -4624,7 +4623,7 @@ rec_loop.exit568:                                 ; preds = %929, %944
   br label %lj_record_call.exit
 
 956:                                              ; preds = %323
-  tail call fastcc void @rec_func_jit(ptr noundef nonnull %0, i32 noundef %.1476.fr)
+  tail call fastcc void @rec_func_jit(ptr noundef nonnull %0, i32 noundef %.1476)
   br label %lj_record_call.exit
 
 957:                                              ; preds = %323
@@ -4652,8 +4651,8 @@ rec_loop.exit568:                                 ; preds = %929, %944
   unreachable
 
 lj_record_call.exit:                              ; preds = %814, %switch.early.test, %574, %rec_comp_fixup.exit, %497, %495, %408, %409, %381, %949, %953, %880, %882, %874, %876, %._crit_edge, %651, %323, %323, %323, %323, %618, %622, %612, %609, %592, %547, %527, %533, %503, %511, %348, %961, %958, %957, %956, %955, %954, %rec_loop.exit568, %919, %905, %rec_loop.exit, %896, %893, %888, %rec_profile_ret.exit, %848, %845, %781, %732, %721, %708, %705, %702, %getcurrf.exit, %667, %665, %653, %630, %522, %517, %rec_mm_comp_cdata.exit564, %rec_mm_comp_cdata.exit
-  %.7 = phi i32 [ %.1476.fr, %961 ], [ %.1476.fr, %rec_mm_comp_cdata.exit ], [ %.1476.fr, %348 ], [ %.1476.fr, %958 ], [ %.1476.fr, %323 ], [ %.1476.fr, %rec_mm_comp_cdata.exit564 ], [ %.1476.fr, %381 ], [ %.1476.fr, %switch.early.test ], [ %.2477, %511 ], [ %.2477, %503 ], [ %.1476.fr, %517 ], [ %524, %522 ], [ %532, %527 ], [ %538, %533 ], [ %.1476.fr, %408 ], [ %548, %547 ], [ %.1476.fr, %495 ], [ %593, %592 ], [ %.1476.fr, %497 ], [ %.1476.fr, %rec_comp_fixup.exit ], [ %610, %609 ], [ %576, %574 ], [ %613, %612 ], [ %.1476.fr, %622 ], [ %.1476.fr, %618 ], [ %632, %630 ], [ %.1476.fr, %651 ], [ %.1476.fr, %._crit_edge ], [ %664, %653 ], [ %666, %665 ], [ %.1476.fr, %667 ], [ %697, %getcurrf.exit ], [ %704, %702 ], [ %707, %705 ], [ %.1476.fr, %708 ], [ %731, %721 ], [ %748, %732 ], [ %.1476.fr, %781 ], [ %.4479, %814 ], [ %.5480, %845 ], [ %.1476.fr, %848 ], [ %.6481, %rec_profile_ret.exit ], [ %.1476.fr, %876 ], [ %.1476.fr, %874 ], [ %.1476.fr, %882 ], [ %.1476.fr, %880 ], [ %.1476.fr, %888 ], [ %.1476.fr, %893 ], [ %.1476.fr, %896 ], [ %.1476.fr, %rec_loop.exit ], [ %.1476.fr, %905 ], [ %.1476.fr, %919 ], [ %.1476.fr, %rec_loop.exit568 ], [ %.1476.fr, %953 ], [ %.1476.fr, %949 ], [ %.1476.fr, %954 ], [ %.1476.fr, %955 ], [ %.1476.fr, %956 ], [ %.1476.fr, %957 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.1476.fr, %323 ], [ %.10, %409 ]
-  %.1 = phi i32 [ %.0.fr, %961 ], [ %.0.fr, %rec_mm_comp_cdata.exit ], [ %.0.fr, %348 ], [ %.0.fr, %958 ], [ %.0.fr, %323 ], [ %.0.fr, %rec_mm_comp_cdata.exit564 ], [ %.0.fr, %381 ], [ %.0.fr, %switch.early.test ], [ %.0.fr, %511 ], [ %.0.fr, %503 ], [ %.5, %517 ], [ %.0.fr, %522 ], [ %.0.fr, %527 ], [ %.0.fr, %533 ], [ %.0.fr, %408 ], [ %.0.fr, %547 ], [ %.0.fr, %495 ], [ %.0.fr, %592 ], [ %.0.fr, %497 ], [ %.0.fr, %rec_comp_fixup.exit ], [ %.0.fr, %609 ], [ %.0.fr, %574 ], [ %.0.fr, %612 ], [ %.0.fr, %622 ], [ %.0.fr, %618 ], [ %.0.fr, %630 ], [ %.6.lcssa, %651 ], [ %.6.lcssa, %._crit_edge ], [ %.0.fr, %653 ], [ %.0.fr, %665 ], [ %.0.fr, %667 ], [ %.0.fr, %getcurrf.exit ], [ %.0.fr, %702 ], [ %.0.fr, %705 ], [ %.0.fr, %708 ], [ %.0.fr, %721 ], [ %.0.fr, %732 ], [ %.0.fr, %781 ], [ %.0.fr, %814 ], [ %.0.fr, %845 ], [ %.0.fr, %848 ], [ %.0.fr, %rec_profile_ret.exit ], [ %.0.fr, %876 ], [ %.0.fr, %874 ], [ %.0.fr, %882 ], [ %.0.fr, %880 ], [ %.0.fr, %888 ], [ %.0.fr, %893 ], [ %.0.fr, %896 ], [ %.0.fr, %rec_loop.exit ], [ %.0.fr, %905 ], [ %.0.fr, %919 ], [ %.0.fr, %rec_loop.exit568 ], [ %.0.fr, %953 ], [ %.0.fr, %949 ], [ %.0.fr, %954 ], [ %.0.fr, %955 ], [ %.0.fr, %956 ], [ %.0.fr, %957 ], [ %.0.fr, %323 ], [ %.0.fr, %323 ], [ %.0.fr, %323 ], [ %.4, %409 ]
+  %.7 = phi i32 [ %.1476, %961 ], [ %.1476, %rec_mm_comp_cdata.exit ], [ %.1476, %348 ], [ %.1476, %958 ], [ %.1476, %323 ], [ %.1476, %rec_mm_comp_cdata.exit564 ], [ %.1476, %381 ], [ %.1476, %switch.early.test ], [ %.2477, %511 ], [ %.2477, %503 ], [ %.1476, %517 ], [ %524, %522 ], [ %532, %527 ], [ %538, %533 ], [ %.1476, %408 ], [ %548, %547 ], [ %.1476, %495 ], [ %593, %592 ], [ %.1476, %497 ], [ %.1476, %rec_comp_fixup.exit ], [ %610, %609 ], [ %576, %574 ], [ %613, %612 ], [ %.1476, %622 ], [ %.1476, %618 ], [ %632, %630 ], [ %.1476, %651 ], [ %.1476, %._crit_edge ], [ %664, %653 ], [ %666, %665 ], [ %.1476, %667 ], [ %697, %getcurrf.exit ], [ %704, %702 ], [ %707, %705 ], [ %.1476, %708 ], [ %731, %721 ], [ %748, %732 ], [ %.1476, %781 ], [ %.4479, %814 ], [ %.5480, %845 ], [ %.1476, %848 ], [ %.6481, %rec_profile_ret.exit ], [ %.1476, %876 ], [ %.1476, %874 ], [ %.1476, %882 ], [ %.1476, %880 ], [ %.1476, %888 ], [ %.1476, %893 ], [ %.1476, %896 ], [ %.1476, %rec_loop.exit ], [ %.1476, %905 ], [ %.1476, %919 ], [ %.1476, %rec_loop.exit568 ], [ %.1476, %953 ], [ %.1476, %949 ], [ %.1476, %954 ], [ %.1476, %955 ], [ %.1476, %956 ], [ %.1476, %957 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.1476, %323 ], [ %.10, %409 ]
+  %.1 = phi i32 [ %.0, %961 ], [ %.0, %rec_mm_comp_cdata.exit ], [ %.0, %348 ], [ %.0, %958 ], [ %.0, %323 ], [ %.0, %rec_mm_comp_cdata.exit564 ], [ %.0, %381 ], [ %.0, %switch.early.test ], [ %.0, %511 ], [ %.0, %503 ], [ %.5, %517 ], [ %.0, %522 ], [ %.0, %527 ], [ %.0, %533 ], [ %.0, %408 ], [ %.0, %547 ], [ %.0, %495 ], [ %.0, %592 ], [ %.0, %497 ], [ %.0, %rec_comp_fixup.exit ], [ %.0, %609 ], [ %.0, %574 ], [ %.0, %612 ], [ %.0, %622 ], [ %.0, %618 ], [ %.0, %630 ], [ %.6.lcssa, %651 ], [ %.6.lcssa, %._crit_edge ], [ %.0, %653 ], [ %.0, %665 ], [ %.0, %667 ], [ %.0, %getcurrf.exit ], [ %.0, %702 ], [ %.0, %705 ], [ %.0, %708 ], [ %.0, %721 ], [ %.0, %732 ], [ %.0, %781 ], [ %.0, %814 ], [ %.0, %845 ], [ %.0, %848 ], [ %.0, %rec_profile_ret.exit ], [ %.0, %876 ], [ %.0, %874 ], [ %.0, %882 ], [ %.0, %880 ], [ %.0, %888 ], [ %.0, %893 ], [ %.0, %896 ], [ %.0, %rec_loop.exit ], [ %.0, %905 ], [ %.0, %919 ], [ %.0, %rec_loop.exit568 ], [ %.0, %953 ], [ %.0, %949 ], [ %.0, %954 ], [ %.0, %955 ], [ %.0, %956 ], [ %.0, %957 ], [ %.0, %323 ], [ %.0, %323 ], [ %.0, %323 ], [ %.4, %409 ]
   %965 = icmp eq i16 %176, 1
   %966 = icmp ne i32 %.7, 0
   %or.cond9 = select i1 %965, i1 %966, i1 false

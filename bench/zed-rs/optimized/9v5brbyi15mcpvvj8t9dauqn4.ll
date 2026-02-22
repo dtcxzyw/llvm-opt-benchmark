@@ -8713,10 +8713,10 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
   unreachable
 
 "_ZN4core3ptr79drop_in_place$LT$gpui..app..entity_map..Model$LT$supermaven..Supermaven$GT$$GT$17h2204edca86e16cf6E.exit.i": ; preds = %23
-  %.fr = freeze { i64, ptr } %20
+  %.fr42 = freeze { i64, ptr } %20
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6fdaeab44fc32f5cE.llvm.9180888732656986660"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.625.0..sroa_idx)
-  %28 = extractvalue { i64, ptr } %.fr, 0
-  %29 = extractvalue { i64, ptr } %.fr, 1
+  %28 = extractvalue { i64, ptr } %.fr42, 0
+  %29 = extractvalue { i64, ptr } %.fr42, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %30 = icmp eq i64 %28, 2

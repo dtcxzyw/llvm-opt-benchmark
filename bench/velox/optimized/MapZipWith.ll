@@ -34345,16 +34345,15 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit63: ; preds = %_ZNK8facebook5velo
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %_M_finish.i46.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %66 = load ptr, ptr %_M_finish.i46.i, align 8
-  %.fr.i = freeze ptr %66
   %67 = load ptr, ptr %57, align 8
-  %.fr111.i = freeze ptr %67
-  %sub.ptr.lhs.cast.i47.i = ptrtoint ptr %.fr.i to i64
-  %sub.ptr.rhs.cast.i48.i = ptrtoint ptr %.fr111.i to i64
+  %sub.ptr.lhs.cast.i47.i = ptrtoint ptr %66 to i64
+  %sub.ptr.rhs.cast.i48.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i49.i = sub i64 %sub.ptr.lhs.cast.i47.i, %sub.ptr.rhs.cast.i48.i
-  %sub.ptr.div.i50.i = ashr i64 %sub.ptr.sub.i49.i, 2
+  %sub.ptr.sub.i49.fr.i = freeze i64 %sub.ptr.sub.i49.i
+  %sub.ptr.div.i50.i = ashr i64 %sub.ptr.sub.i49.fr.i, 2
   %cmp84.i = icmp ne ptr %64, %65
-  %cmp385.i = icmp ne ptr %.fr.i, %.fr111.i
-  %68 = and i1 %cmp84.i, %cmp385.i
+  %cmp385.i = icmp ne ptr %66, %67
+  %68 = select i1 %cmp84.i, i1 %cmp385.i, i1 false
   br i1 %68, label %if.end32.preheader.i, label %for.cond.preheader.i
 
 if.end32.preheader.i:                             ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit63
@@ -34915,16 +34914,15 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit63: ; preds = %_ZNK8facebook5velo
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %_M_finish.i45.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %66 = load ptr, ptr %_M_finish.i45.i, align 8
-  %.fr.i = freeze ptr %66
   %67 = load ptr, ptr %57, align 8
-  %.fr32.i = freeze ptr %67
-  %sub.ptr.lhs.cast.i46.i = ptrtoint ptr %.fr.i to i64
-  %sub.ptr.rhs.cast.i47.i = ptrtoint ptr %.fr32.i to i64
+  %sub.ptr.lhs.cast.i46.i = ptrtoint ptr %66 to i64
+  %sub.ptr.rhs.cast.i47.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i48.i = sub i64 %sub.ptr.lhs.cast.i46.i, %sub.ptr.rhs.cast.i47.i
-  %sub.ptr.div.i49.i = ashr i64 %sub.ptr.sub.i48.i, 2
+  %sub.ptr.sub.i48.fr.i = freeze i64 %sub.ptr.sub.i48.i
+  %sub.ptr.div.i49.i = ashr i64 %sub.ptr.sub.i48.fr.i, 2
   %cmp4.i = icmp ne ptr %64, %65
-  %cmp36.i = icmp ne ptr %.fr.i, %.fr32.i
-  %68 = and i1 %cmp4.i, %cmp36.i
+  %cmp36.i = icmp ne ptr %66, %67
+  %68 = select i1 %cmp4.i, i1 %cmp36.i, i1 false
   br i1 %68, label %if.end32.preheader.i, label %for.cond.preheader.i
 
 if.end32.preheader.i:                             ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit63

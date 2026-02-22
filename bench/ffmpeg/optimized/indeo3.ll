@@ -646,22 +646,22 @@ define internal void @build_requant_tab() #3 {
   br label %1
 
 1:                                                ; preds = %0, %18
-  %indvars.iv17 = phi i64 [ 0, %0 ], [ %indvars.iv.next18, %18 ]
-  %2 = getelementptr inbounds nuw i8, ptr @build_requant_tab.offsets, i64 %indvars.iv17
+  %indvars.iv16 = phi i64 [ 0, %0 ], [ %indvars.iv.next17, %18 ]
+  %2 = getelementptr inbounds nuw i8, ptr @build_requant_tab.offsets, i64 %indvars.iv16
   %3 = load i8, ptr %2, align 1, !tbaa !40
-  %.fr13 = freeze i8 %3
-  %4 = sext i8 %.fr13 to i64
-  %5 = getelementptr inbounds nuw i8, ptr @build_requant_tab.deltas, i64 %indvars.iv17
+  %4 = sext i8 %3 to i64
+  %5 = getelementptr inbounds nuw i8, ptr @build_requant_tab.deltas, i64 %indvars.iv16
   %6 = load i8, ptr %5, align 1, !tbaa !40
-  %7 = getelementptr inbounds nuw [128 x i8], ptr @requant_tab, i64 %indvars.iv17
-  %8 = trunc i64 %indvars.iv17 to i32
+  %7 = getelementptr inbounds nuw [128 x i8], ptr @requant_tab, i64 %indvars.iv16
+  %8 = trunc i64 %indvars.iv16 to i32
   %9 = add i32 %8, 2
   br label %10
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %11 = add i64 %indvars.iv, %4
-  %12 = trunc i64 %11 to i32
+  %.fr20 = freeze i64 %11
+  %12 = trunc i64 %.fr20 to i32
   %13 = srem i32 %12, %9
   %14 = sub nsw i32 %12, %13
   %15 = trunc i32 %14 to i8
@@ -673,9 +673,9 @@ define internal void @build_requant_tab() #3 {
   br i1 %exitcond.not, label %18, label %10, !llvm.loop !61
 
 18:                                               ; preds = %10
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %exitcond20.not = icmp eq i64 %indvars.iv.next18, 8
-  br i1 %exitcond20.not, label %19, label %1, !llvm.loop !62
+  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
+  %exitcond19.not = icmp eq i64 %indvars.iv.next17, 8
+  br i1 %exitcond19.not, label %19, label %1, !llvm.loop !62
 
 19:                                               ; preds = %18
   store i8 126, ptr getelementptr inbounds nuw (i8, ptr @requant_tab, i64 127), align 1, !tbaa !40

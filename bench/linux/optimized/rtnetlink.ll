@@ -6978,11 +6978,11 @@ define internal i32 @rtnl_dump_all(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i16, ptr %7, align 4
-  %.fr8 = freeze i16 %8
-  %9 = zext i16 %.fr8 to i64
+  %.fr = freeze i16 %8
+  %9 = zext i16 %.fr to i64
   %10 = add nuw nsw i64 %9, 4294967280
   %11 = tail call i16 @llvm.umax.i16(i16 %4, i16 1)
-  %12 = add i16 %.fr8, -124
+  %12 = add i16 %.fr, -124
   %13 = icmp ult i16 %12, -108
   %14 = and i64 %10, 4294967295
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80

@@ -662,10 +662,9 @@ be_underlying_writebuf_full.exit67.us:            ; preds = %50
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @evbuffer_get_length(ptr noundef %54) #3
   %56 = load i64, ptr %51, align 8
-  %.fr.us = freeze i64 %55
-  %.fr80.us = freeze i64 %56
-  %.not79.us = icmp ult i64 %.fr.us, %.fr80.us
-  br i1 %.not79.us, label %.split.us.us.backedge, label %.critedge61
+  %.not79.us = icmp ult i64 %55, %56
+  %cond.fr.us = freeze i1 %.not79.us
+  br i1 %cond.fr.us, label %.split.us.us.backedge, label %.critedge61
 
 .split.us.us.backedge:                            ; preds = %be_underlying_writebuf_full.exit67.us, %50, %80, %be_underlying_writebuf_full.exit65.us.us
   %.not52.us.us.be = phi i1 [ true, %50 ], [ true, %be_underlying_writebuf_full.exit67.us ], [ false, %80 ], [ false, %be_underlying_writebuf_full.exit65.us.us ]
@@ -738,10 +737,10 @@ be_underlying_writebuf_full.exit65.us.us:         ; preds = %80
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %28, align 8
   %93 = tail call i32 %87(ptr noundef %88, ptr noundef %91, i64 noundef -1, i32 noundef %1, ptr noundef %92) #3
-  %.not98 = icmp eq i32 %93, 0
-  br i1 %.not98, label %.lr.ph, label %.critedge61
+  %.not97 = icmp eq i32 %93, 0
+  br i1 %.not97, label %.lr.ph, label %.critedge61
 
-94:                                               ; preds = %.critedge81
+94:                                               ; preds = %.critedge80
   %95 = load ptr, ptr %27, align 8
   %96 = load ptr, ptr %20, align 8
   %97 = load ptr, ptr %26, align 8
@@ -757,16 +756,16 @@ be_underlying_writebuf_full.exit65.us.us:         ; preds = %80
   %103 = load i16, ptr %25, align 8
   %104 = and i16 %103, 4
   %.not49 = icmp eq i16 %104, 0
-  br i1 %.not49, label %.critedge.thread, label %.critedge81
+  br i1 %.not49, label %.critedge.thread, label %.critedge80
 
-.critedge81:                                      ; preds = %.lr.ph
+.critedge80:                                      ; preds = %.lr.ph
   %105 = load ptr, ptr %20, align 8
   %106 = tail call i64 @evbuffer_get_length(ptr noundef %105) #3
   %.not50 = icmp eq i64 %106, 0
   br i1 %.not50, label %.critedge.thread, label %94
 
-.critedge.thread:                                 ; preds = %.lr.ph, %.critedge81, %94
-  %107 = phi i1 [ false, %94 ], [ true, %.critedge81 ], [ true, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %.critedge80, %94
+  %107 = phi i1 [ false, %94 ], [ true, %.critedge80 ], [ true, %.lr.ph ]
   %108 = load ptr, ptr %20, align 8
   %109 = tail call i64 @evbuffer_get_length(ptr noundef %108) #3
   %110 = load i64, ptr %29, align 8

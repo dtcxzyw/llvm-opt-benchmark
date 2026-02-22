@@ -2843,9 +2843,9 @@ define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0, ptr noundef %1, i48 %2) unnamed_addr #0 {
-  %.fr118 = freeze i48 %2
-  %.sroa.7.0.extract.shift = lshr i48 %.fr118, 16
-  %.sroa.11.0.extract.shift = lshr i48 %.fr118, 32
+  %.fr = freeze i48 %2
+  %.sroa.7.0.extract.shift = lshr i48 %.fr, 16
+  %.sroa.11.0.extract.shift = lshr i48 %.fr, 32
   %.sroa.11.0.extract.trunc = trunc nuw i48 %.sroa.11.0.extract.shift to i16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -2853,7 +2853,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br i1 %.not, label %104, label %6
 
 6:                                                ; preds = %3
-  %7 = trunc i48 %.fr118 to i32
+  %7 = trunc i48 %.fr to i32
   %8 = shl i32 %7, 16
   %9 = trunc nuw i48 %.sroa.7.0.extract.shift to i32
   %10 = and i32 %9, 65535
@@ -2873,11 +2873,11 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br label %.backedge96
 
 .backedge96:                                      ; preds = %.backedge96.backedge, %6
-  %.pre127 = load ptr, ptr %12, align 8
+  %.pre129 = load ptr, ptr %12, align 8
   br i1 %16, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %.backedge96, %38
-  %23 = phi ptr [ %36, %38 ], [ %.pre127, %.backedge96 ]
+  %23 = phi ptr [ %36, %38 ], [ %.pre129, %.backedge96 ]
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge.us, label %25
 
@@ -2910,7 +2910,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br label %.split.us, !llvm.loop !35
 
 .split:                                           ; preds = %.backedge96, %54
-  %39 = phi ptr [ %51, %54 ], [ %.pre127, %.backedge96 ]
+  %39 = phi ptr [ %51, %54 ], [ %.pre129, %.backedge96 ]
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
 
@@ -2979,8 +2979,8 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br i1 %68, label %69, label %..loopexit94_crit_edge
 
 ..loopexit94_crit_edge:                           ; preds = %67
-  %.pre129 = load i16, ptr %13, align 4
-  %.pre132 = zext i16 %.pre129 to i64
+  %.pre131 = load i16, ptr %13, align 4
+  %.pre134 = zext i16 %.pre131 to i64
   br label %.loopexit94
 
 69:                                               ; preds = %67
@@ -3019,13 +3019,13 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br i1 %.not73, label %.loopexit94.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit94.loopexit:                             ; preds = %.lr.ph
-  %.pre128 = load i32, ptr %58, align 4
+  %.pre130 = load i32, ptr %58, align 4
   br label %.loopexit94
 
 .loopexit94:                                      ; preds = %..loopexit94_crit_edge, %.loopexit94.loopexit, %.preheader93
-  %.pre-phi = phi i64 [ %.pre132, %..loopexit94_crit_edge ], [ %82, %.loopexit94.loopexit ], [ %75, %.preheader93 ]
-  %85 = phi i16 [ %.pre129, %..loopexit94_crit_edge ], [ %81, %.loopexit94.loopexit ], [ %.promoted, %.preheader93 ]
-  %86 = phi i32 [ %62, %..loopexit94_crit_edge ], [ %.pre128, %.loopexit94.loopexit ], [ %11, %.preheader93 ]
+  %.pre-phi = phi i64 [ %.pre134, %..loopexit94_crit_edge ], [ %82, %.loopexit94.loopexit ], [ %75, %.preheader93 ]
+  %85 = phi i16 [ %.pre131, %..loopexit94_crit_edge ], [ %81, %.loopexit94.loopexit ], [ %.promoted, %.preheader93 ]
+  %86 = phi i32 [ %62, %..loopexit94_crit_edge ], [ %.pre130, %.loopexit94.loopexit ], [ %11, %.preheader93 ]
   %87 = getelementptr inbounds nuw i8, ptr %58, i64 10
   %88 = getelementptr inbounds nuw i16, ptr %87, i64 %.pre-phi
   %89 = load i16, ptr %88, align 2
@@ -3058,7 +3058,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br i1 %.not88, label %.preheader, label %.preheader91
 
 .preheader91:                                     ; preds = %104
-  %.sroa.0.0.extract.trunc = trunc i48 %.fr118 to i16
+  %.sroa.0.0.extract.trunc = trunc i48 %.fr to i16
   %.sroa.7.0.extract.trunc = trunc i48 %.sroa.7.0.extract.shift to i16
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -3090,7 +3090,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %128 = getelementptr i8, ptr %1, i64 42
   %129 = getelementptr i8, ptr %1, i64 44
-  %.sroa.0.0.extract.trunc.mask = and i48 %.fr118, 65535
+  %.sroa.0.0.extract.trunc.mask = and i48 %.fr, 65535
   %130 = zext nneg i48 %.sroa.0.0.extract.trunc.mask to i64
   %131 = shl nuw i64 %130, 48
   %132 = shl i48 %.sroa.7.0.extract.shift, 32
@@ -3136,8 +3136,8 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br i1 %.not89, label %160, label %.backedge
 
 .backedge:                                        ; preds = %..backedge_crit_edge, %143
-  %157 = phi i32 [ %.pre131, %..backedge_crit_edge ], [ %144, %143 ]
-  %158 = phi i16 [ %.pre130, %..backedge_crit_edge ], [ %147, %143 ]
+  %157 = phi i32 [ %.pre133, %..backedge_crit_edge ], [ %144, %143 ]
+  %158 = phi i16 [ %.pre132, %..backedge_crit_edge ], [ %147, %143 ]
   %159 = zext i16 %158 to i32
   %.not68 = icmp sgt i32 %157, %159
   br i1 %.not68, label %143, label %._crit_edge
@@ -3158,11 +3158,11 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br i1 %170, label %..backedge_crit_edge, label %.loopexit
 
 ..backedge_crit_edge:                             ; preds = %163
-  %.pre130 = load i16, ptr %121, align 4
-  %.pre131 = load i32, ptr %122, align 8
+  %.pre132 = load i16, ptr %121, align 4
+  %.pre133 = load i32, ptr %122, align 8
   br label %.backedge
 
-171:                                              ; preds = %.backedge172, %.outer
+171:                                              ; preds = %.backedge174, %.outer
   %172 = load i16, ptr %107, align 4
   %173 = zext i16 %172 to i32
   %174 = load i32, ptr %108, align 8
@@ -3410,9 +3410,9 @@ BufferGetPage.exit71.i:                           ; preds = %238, %232, %218
 entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %290
   %292 = load i8, ptr %118, align 2, !range !4, !noundef !5
   %293 = trunc nuw i8 %292 to i1
-  br i1 %293, label %294, label %.backedge172
+  br i1 %293, label %294, label %.backedge174
 
-.backedge172:                                     ; preds = %entryLoadMoreItems.exit, %295
+.backedge174:                                     ; preds = %entryLoadMoreItems.exit, %295
   br label %171, !llvm.loop !38
 
 294:                                              ; preds = %entryLoadMoreItems.exit
@@ -3439,7 +3439,7 @@ entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %2
   %305 = zext i16 %.val5.i81 to i64
   %306 = or disjoint i64 %304, %305
   %.not90 = icmp ugt i64 %306, %345
-  br i1 %.not90, label %307, label %.backedge172
+  br i1 %.not90, label %307, label %.backedge174
 
 307:                                              ; preds = %295
   %308 = load i8, ptr %119, align 1, !range !4, !noundef !5

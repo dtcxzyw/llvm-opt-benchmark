@@ -1488,11 +1488,9 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !85
-  %.fr = freeze i32 %21
-  %22 = sext i32 %.fr to i64
+  %22 = sext i32 %21 to i64
   %23 = load i32, ptr %19, align 4, !tbaa !85
-  %.fr133 = freeze i32 %23
-  %24 = sext i32 %.fr133 to i64
+  %24 = sext i32 %23 to i64
   %invariant.op = sub nsw i64 %22, %24
   %25 = load i32, ptr %4, align 4, !tbaa !86
   %26 = sext i32 %25 to i64
@@ -1502,8 +1500,7 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
   %29 = load i32, ptr %18, align 4, !tbaa !83
   %30 = sext i32 %29 to i64
   %31 = load i32, ptr %17, align 4, !tbaa !84
-  %.fr134 = freeze i32 %31
-  %32 = sext i32 %.fr134 to i64
+  %32 = sext i32 %31 to i64
   br i1 %.not117, label %.preheader.us.us, label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge.us.us
@@ -1512,12 +1509,13 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
   %33 = mul nsw i64 %.reass.us131, %30
   %34 = mul nuw nsw i64 %.0124.us.us, %15
   %35 = icmp slt i64 %.reass.us131, %32
-  br i1 %35, label %.lr.ph.split.us128.us, label %._crit_edge.us.us
+  %.fr.us.us = freeze i1 %35
+  br i1 %.fr.us.us, label %.lr.ph.split.us128.us, label %._crit_edge.us.us
 
 ._crit_edge.us.us:                                ; preds = %84, %.preheader.us.us
   %36 = add nuw nsw i64 %.0124.us.us, 1
-  %exitcond141.not = icmp eq i64 %36, %11
-  br i1 %exitcond141.not, label %._crit_edge125, label %.preheader.us.us
+  %exitcond139.not = icmp eq i64 %36, %11
+  br i1 %exitcond139.not, label %._crit_edge125, label %.preheader.us.us
 
 .lr.ph.split.us128.us:                            ; preds = %.preheader.us.us, %84
   %.0103121.us122.us.us = phi i64 [ %85, %84 ], [ 0, %.preheader.us.us ]
@@ -1595,15 +1593,16 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
 
 84:                                               ; preds = %79, %.lr.ph.split.us128.us
   %85 = add nuw nsw i64 %.0103121.us122.us.us, 1
-  %exitcond140.not = icmp eq i64 %85, %15
-  br i1 %exitcond140.not, label %._crit_edge.us.us, label %.lr.ph.split.us128.us
+  %exitcond138.not = icmp eq i64 %85, %15
+  br i1 %exitcond138.not, label %._crit_edge.us.us, label %.lr.ph.split.us128.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.us
   %.0124.us = phi i64 [ %116, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.reass = add nsw i64 %.0124.us, %invariant.op
   %86 = mul nuw nsw i64 %.0124.us, %15
   %87 = icmp slt i64 %.reass, %32
-  br i1 %87, label %.lr.ph.split.us128.preheader, label %._crit_edge.us
+  %.fr.us = freeze i1 %87
+  br i1 %.fr.us, label %.lr.ph.split.us128.preheader, label %._crit_edge.us
 
 .lr.ph.split.us128.preheader:                     ; preds = %.preheader.us
   %88 = mul nsw i64 %.reass, %30
@@ -1655,8 +1654,8 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
 
 ._crit_edge.us:                                   ; preds = %114, %.preheader.us
   %116 = add nuw nsw i64 %.0124.us, 1
-  %exitcond139.not = icmp eq i64 %116, %11
-  br i1 %exitcond139.not, label %._crit_edge125, label %.preheader.us
+  %exitcond137.not = icmp eq i64 %116, %11
+  br i1 %exitcond137.not, label %._crit_edge125, label %.preheader.us
 
 ._crit_edge125:                                   ; preds = %._crit_edge.us, %._crit_edge.us.us, %6, %.preheader.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

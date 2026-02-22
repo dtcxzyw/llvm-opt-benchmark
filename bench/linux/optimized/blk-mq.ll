@@ -401,7 +401,7 @@ define dso_local void @blk_mq_run_hw_queues(ptr noundef %0, i1 noundef zeroext %
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1073741824
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %25, label %8
+  br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
   %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !6
@@ -415,79 +415,78 @@ define dso_local void @blk_mq_run_hw_queues(ptr noundef %0, i1 noundef zeroext %
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 16
-  %.fr5 = freeze ptr %19
-  %20 = getelementptr inbounds nuw i8, ptr %.fr5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load volatile i64, ptr %20, align 8
-  %.fr = freeze i64 %21
-  %22 = and i64 %.fr, 1
+  %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
-  %24 = select i1 %23, ptr %.fr5, ptr null
-  br label %25
+  %24 = select i1 %23, ptr %19, ptr null
+  %25 = freeze ptr %24
+  br label %26
 
-25:                                               ; preds = %8, %2
-  %.fr4 = phi ptr [ %24, %8 ], [ null, %2 ]
+26:                                               ; preds = %8, %2
+  %.fr4 = phi ptr [ %25, %8 ], [ null, %2 ]
   store i64 0, ptr %3, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = call ptr @xa_find(ptr noundef nonnull %26, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %29
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = call ptr @xa_find(ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.loopexit, label %30
 
-29:                                               ; preds = %25
-  %30 = icmp eq ptr %.fr4, null
-  br i1 %30, label %.split.us, label %.split
+30:                                               ; preds = %26
+  %31 = icmp eq ptr %.fr4, null
+  br i1 %31, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %29, %36
-  %31 = phi ptr [ %37, %36 ], [ %27, %29 ]
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load volatile i64, ptr %32, align 8
-  %34 = and i64 %33, 1
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.critedge.us, label %36
+.split.us:                                        ; preds = %30, %37
+  %32 = phi ptr [ %38, %37 ], [ %28, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load volatile i64, ptr %33, align 8
+  %35 = and i64 %34, 1
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %.critedge.us, label %37
 
 .critedge.us:                                     ; preds = %.split.us
-  call void @blk_mq_run_hw_queue(ptr noundef nonnull %31, i1 noundef zeroext %1)
-  br label %36
+  call void @blk_mq_run_hw_queue(ptr noundef nonnull %32, i1 noundef zeroext %1)
+  br label %37
 
-36:                                               ; preds = %.critedge.us, %.split.us
-  %37 = call ptr @xa_find_after(ptr noundef nonnull %26, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %.split.us, !llvm.loop !7
+37:                                               ; preds = %.critedge.us, %.split.us
+  %38 = call ptr @xa_find_after(ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.loopexit, label %.split.us, !llvm.loop !7
 
-.split:                                           ; preds = %29, %53
-  %39 = phi ptr [ %54, %53 ], [ %27, %29 ]
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load volatile i64, ptr %40, align 8
-  %42 = and i64 %41, 1
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %53
+.split:                                           ; preds = %30, %54
+  %40 = phi ptr [ %55, %54 ], [ %28, %30 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load volatile i64, ptr %41, align 8
+  %43 = and i64 %42, 1
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %54
 
-44:                                               ; preds = %.split
-  %45 = icmp eq ptr %.fr4, %39
-  br i1 %45, label %.critedge, label %46
+45:                                               ; preds = %.split
+  %46 = icmp eq ptr %.fr4, %40
+  br i1 %46, label %.critedge, label %47
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %48 = load volatile ptr, ptr %47, align 8
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %49 = load volatile ptr, ptr %48, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !10
-  %49 = icmp eq ptr %48, %47
-  br i1 %49, label %50, label %.critedge
+  %50 = icmp eq ptr %49, %48
+  br i1 %50, label %51, label %.critedge
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %52 = load volatile ptr, ptr %51, align 8
-  %.not = icmp eq ptr %47, %52
-  br i1 %.not, label %53, label %.critedge
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %53 = load volatile ptr, ptr %52, align 8
+  %.not = icmp eq ptr %48, %53
+  br i1 %.not, label %54, label %.critedge
 
-.critedge:                                        ; preds = %46, %50, %44
-  call void @blk_mq_run_hw_queue(ptr noundef nonnull %39, i1 noundef zeroext %1)
-  br label %53
+.critedge:                                        ; preds = %47, %51, %45
+  call void @blk_mq_run_hw_queue(ptr noundef nonnull %40, i1 noundef zeroext %1)
+  br label %54
 
-53:                                               ; preds = %.critedge, %50, %.split
-  %54 = call ptr @xa_find_after(ptr noundef nonnull %26, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %.split, !llvm.loop !7
+54:                                               ; preds = %.critedge, %51, %.split
+  %55 = call ptr @xa_find_after(ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %.loopexit, label %.split, !llvm.loop !7
 
-.loopexit:                                        ; preds = %53, %36, %25
+.loopexit:                                        ; preds = %54, %37, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4810,11 +4809,11 @@ define dso_local zeroext i8 @blk_execute_rq(ptr noundef initializes((232, 248)) 
   %35 = load ptr, ptr %0, align 8
   %36 = load ptr, ptr %5, align 8
   %37 = load volatile i32, ptr %32, align 8
-  %.fr7 = freeze i32 %37
+  %.fr = freeze i32 %37
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %39 = and i32 %.fr7, 257
+  %39 = and i32 %.fr, 257
   %40 = icmp eq i32 %39, 0
-  %41 = trunc i32 %.fr7 to i1
+  %41 = trunc i32 %.fr to i1
   br i1 %40, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %34, %51
@@ -6378,7 +6377,7 @@ define dso_local void @blk_mq_delay_run_hw_queues(ptr noundef %0, i64 noundef %1
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1073741824
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %25, label %8
+  br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
   %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !6
@@ -6392,93 +6391,92 @@ define dso_local void @blk_mq_delay_run_hw_queues(ptr noundef %0, i64 noundef %1
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 16
-  %.fr5 = freeze ptr %19
-  %20 = getelementptr inbounds nuw i8, ptr %.fr5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load volatile i64, ptr %20, align 8
-  %.fr = freeze i64 %21
-  %22 = and i64 %.fr, 1
+  %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
-  %24 = select i1 %23, ptr %.fr5, ptr null
-  br label %25
+  %24 = select i1 %23, ptr %19, ptr null
+  %25 = freeze ptr %24
+  br label %26
 
-25:                                               ; preds = %8, %2
-  %.fr4 = phi ptr [ %24, %8 ], [ null, %2 ]
+26:                                               ; preds = %8, %2
+  %.fr4 = phi ptr [ %25, %8 ], [ null, %2 ]
   store i64 0, ptr %3, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = call ptr @xa_find(ptr noundef nonnull %26, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %29
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = call ptr @xa_find(ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.loopexit, label %30
 
-29:                                               ; preds = %25
-  %30 = icmp eq ptr %.fr4, null
-  br i1 %30, label %.split.us, label %.split
+30:                                               ; preds = %26
+  %31 = icmp eq ptr %.fr4, null
+  br i1 %31, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %29, %41
-  %31 = phi ptr [ %42, %41 ], [ %27, %29 ]
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load volatile i64, ptr %32, align 8
-  %34 = and i64 %33, 1
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %41
+.split.us:                                        ; preds = %30, %42
+  %32 = phi ptr [ %43, %42 ], [ %28, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load volatile i64, ptr %33, align 8
+  %35 = and i64 %34, 1
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %.split.us
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %38 = load volatile i64, ptr %37, align 8
-  %39 = and i64 %38, 1
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.critedge.us, label %41
+37:                                               ; preds = %.split.us
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %39 = load volatile i64, ptr %38, align 8
+  %40 = and i64 %39, 1
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %.critedge.us, label %42
 
-.critedge.us:                                     ; preds = %36
-  call void @blk_mq_delay_run_hw_queue(ptr noundef nonnull %31, i64 noundef %1)
-  br label %41
+.critedge.us:                                     ; preds = %37
+  call void @blk_mq_delay_run_hw_queue(ptr noundef nonnull %32, i64 noundef %1)
+  br label %42
 
-41:                                               ; preds = %.critedge.us, %36, %.split.us
-  %42 = call ptr @xa_find_after(ptr noundef nonnull %26, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit, label %.split.us, !llvm.loop !146
+42:                                               ; preds = %.critedge.us, %37, %.split.us
+  %43 = call ptr @xa_find_after(ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !146
 
-.split:                                           ; preds = %29, %63
-  %44 = phi ptr [ %64, %63 ], [ %27, %29 ]
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = load volatile i64, ptr %45, align 8
-  %47 = and i64 %46, 1
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %63
+.split:                                           ; preds = %30, %64
+  %45 = phi ptr [ %65, %64 ], [ %28, %30 ]
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load volatile i64, ptr %46, align 8
+  %48 = and i64 %47, 1
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %64
 
-49:                                               ; preds = %.split
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %51 = load volatile i64, ptr %50, align 8
-  %52 = and i64 %51, 1
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %54, label %63
+50:                                               ; preds = %.split
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %52 = load volatile i64, ptr %51, align 8
+  %53 = and i64 %52, 1
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %55, label %64
 
-54:                                               ; preds = %49
-  %55 = icmp eq ptr %.fr4, %44
-  br i1 %55, label %.critedge, label %56
+55:                                               ; preds = %50
+  %56 = icmp eq ptr %.fr4, %45
+  br i1 %56, label %.critedge, label %57
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %58 = load volatile ptr, ptr %57, align 8
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %59 = load volatile ptr, ptr %58, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !10
-  %59 = icmp eq ptr %58, %57
-  br i1 %59, label %60, label %.critedge
+  %60 = icmp eq ptr %59, %58
+  br i1 %60, label %61, label %.critedge
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %62 = load volatile ptr, ptr %61, align 8
-  %.not = icmp eq ptr %57, %62
-  br i1 %.not, label %63, label %.critedge
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %63 = load volatile ptr, ptr %62, align 8
+  %.not = icmp eq ptr %58, %63
+  br i1 %.not, label %64, label %.critedge
 
-.critedge:                                        ; preds = %56, %60, %54
-  call void @blk_mq_delay_run_hw_queue(ptr noundef nonnull %44, i64 noundef %1)
-  br label %63
+.critedge:                                        ; preds = %57, %61, %55
+  call void @blk_mq_delay_run_hw_queue(ptr noundef nonnull %45, i64 noundef %1)
+  br label %64
 
-63:                                               ; preds = %.critedge, %60, %49, %.split
-  %64 = call ptr @xa_find_after(ptr noundef nonnull %26, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit, label %.split, !llvm.loop !146
+64:                                               ; preds = %.critedge, %61, %50, %.split
+  %65 = call ptr @xa_find_after(ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #22
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %.loopexit, label %.split, !llvm.loop !146
 
-.loopexit:                                        ; preds = %63, %41, %25
+.loopexit:                                        ; preds = %64, %42, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -12227,9 +12225,9 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load volatile i32, ptr %10, align 8
-  %.fr8 = freeze i32 %11
+  %.fr = freeze i32 %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = and i32 %.fr8, 257
+  %13 = and i32 %.fr, 257
   %14 = icmp eq i32 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 1936
   %16 = and i32 %3, 1
@@ -12261,7 +12259,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
   br i1 %30, label %.split.us, label %.split4.us, !llvm.loop !122
 
 .split:                                           ; preds = %4
-  %31 = trunc i32 %.fr8 to i1
+  %31 = trunc i32 %.fr to i1
   br i1 %31, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %50
@@ -12422,9 +12420,9 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load volatile i32, ptr %36, align 8
-  %.fr12 = freeze i32 %37
+  %.fr = freeze i32 %37
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %39 = and i32 %.fr12, 257
+  %39 = and i32 %.fr, 257
   %40 = icmp eq i32 %39, 0
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 1936
   %42 = and i32 %2, 1
@@ -12456,7 +12454,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   br i1 %56, label %.split.us, label %.split8.us, !llvm.loop !122
 
 .split:                                           ; preds = %.loopexit38
-  %57 = trunc i32 %.fr12 to i1
+  %57 = trunc i32 %.fr to i1
   br i1 %57, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %76

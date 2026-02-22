@@ -44936,11 +44936,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !843
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8, !tbaa !525
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !528
@@ -44962,16 +44960,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #39
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEPS8_mT_SI_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -24
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 24
-  %25 = add i64 %23, 24
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 24
+  %25 = add i64 %.fr.i, 24
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEPS8_mT_SI_.exit
 
 _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEPS8_mT_SI_.exit: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -44997,11 +44996,11 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7
   br i1 %.not24, label %36, label %34
 
 34:                                               ; preds = %29
-  %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
+  %.not.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %.fr14.i, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit
 
 36:                                               ; preds = %29
@@ -45009,7 +45008,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tES9_ET0_T_SB_SA_.exit, label %37
 
 37:                                               ; preds = %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %.fr14.i, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !525
   %.pre27 = load ptr, ptr %30, align 8, !tbaa !843
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !525
@@ -45021,9 +45020,9 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7
 
 _ZSt4copyIPN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tES9_ET0_T_SB_SA_.exit: ; preds = %36, %37
   %.pre-phi34 = phi i64 [ 0, %36 ], [ %.pre33, %37 ]
-  %38 = phi ptr [ %.fr13.i, %36 ], [ %.pre29, %37 ]
+  %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
   %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
-  %40 = phi ptr [ %.fr14.i, %36 ], [ %.pre, %37 ]
+  %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.pre-phi34
   %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINS2_5RTLIL6SigBitENS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit, label %.lr.ph.i.i.i.i
@@ -54018,19 +54017,18 @@ define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5
 7:                                                ; preds = %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.01220.i.i.i.i, i64 32
   %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !997
-  %.fr3.i.i.i.i.i.i.i.i.i.i = freeze ptr %.val.i.i.i.i.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.01220.i.i.i.i, i64 40
   %.val25.i.i.i.i.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !998
-  %.fr2.i.i.i.i.i.i.i.i.i.i = freeze ptr %.val25.i.i.i.i.i.i.i.i.i
-  %10 = ptrtoint ptr %.fr2.i.i.i.i.i.i.i.i.i.i to i64
-  %11 = ptrtoint ptr %.fr3.i.i.i.i.i.i.i.i.i.i to i64
+  %10 = ptrtoint ptr %.val25.i.i.i.i.i.i.i.i.i to i64
+  %11 = ptrtoint ptr %.val.i.i.i.i.i.i.i.i.i to i64
   %12 = sub i64 %10, %11
+  %reass.sub.fr.i.i.i.i.i.i.i.i.i = freeze i64 %12
   %13 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 48
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.fr2.i.i.i.i.i.i.i.i.i.i, %.fr3.i.i.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %reass.sub.fr.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESB_SA_ET0_T_SD_SC_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i, label %14
 
 14:                                               ; preds = %7
-  %15 = sdiv exact i64 %12, 24
+  %15 = sdiv exact i64 %reass.sub.fr.i.i.i.i.i.i.i.i.i, 24
   %16 = icmp ugt i64 %15, 384307168202282325
   br i1 %16, label %17, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i.i.i, !prof !126
 
@@ -54042,22 +54040,29 @@ define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5
   unreachable
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %14
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #39
-          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i.i.i.i.i.i.i.i.i) #39
+          to label %.noexc4.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i
 
-_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i.i.i
-  %19 = add i64 %12, -24
+.noexc4.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i.i.i
+  %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i, %.val25.i.i.i.i.i.i.i.i.i
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i:     ; preds = %.noexc4.i.i.i.i.i.i.i.i
+  %19 = add i64 %reass.sub.fr.i.i.i.i.i.i.i.i.i, -24
   %20 = urem i64 %19, 24
-  %21 = sub i64 %12, %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 8 %.fr3.i.i.i.i.i.i.i.i.i.i, i64 %21, i1 false)
+  %21 = sub i64 %reass.sub.fr.i.i.i.i.i.i.i.i.i, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr readonly align 8 %.val.i.i.i.i.i.i.i.i.i, i64 %21, i1 false)
+  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i, %.noexc4.i.i.i.i.i.i.i.i
   store ptr %18, ptr %6, align 8, !tbaa !997
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %12
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %reass.sub.fr.i.i.i.i.i.i.i.i.i
   store ptr %22, ptr %13, align 8, !tbaa !1181
   br label %_ZSt22__uninitialized_copy_aIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESB_SA_ET0_T_SD_SC_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i
 
 _ZSt22__uninitialized_copy_aIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESB_SA_ET0_T_SD_SC_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i, %7
   %23 = phi ptr [ %18, %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i.i.i.i.i.i.i.i.i ], [ null, %7 ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %reass.sub.fr.i.i.i.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 40
   store ptr %24, ptr %25, align 8, !tbaa !998
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EEaSERKSC_.exit.i.i.i.i.i.i.i.i
@@ -62177,432 +62182,422 @@ _ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19SchedulerINS2_9FlowGraph4NodeEE6VertexEN
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_T0_T1_(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #21 {
-  %.fr63.i = freeze ptr %0
-  %.fr = freeze ptr %1
-  %4 = ptrtoint ptr %.fr63.i to i64
-  %5 = ptrtoint ptr %.fr to i64
+  %.fr33 = freeze ptr %1
+  %.fr28 = freeze ptr %0
+  %4 = ptrtoint ptr %.fr28 to i64
+  %5 = ptrtoint ptr %.fr33 to i64
   %6 = sub i64 %5, %4
   %7 = icmp sgt i64 %6, 384
   br i1 %7, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %.fr63.i, i64 24
-  %.sroa.46.0..sroa_idx.i.i56.i.i = getelementptr inbounds nuw i8, ptr %.fr63.i, i64 8
-  %.sroa.5.0..sroa_idx.i.i58.i.i = getelementptr inbounds nuw i8, ptr %.fr63.i, i64 16
-  %9 = getelementptr inbounds nuw i8, ptr %.fr63.i, i64 32
-  %10 = getelementptr inbounds nuw i8, ptr %.fr63.i, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.fr28, i64 24
+  %.sroa.46.0..sroa_idx.i.i56.i.i = getelementptr inbounds nuw i8, ptr %.fr28, i64 8
+  %.sroa.5.0..sroa_idx.i.i58.i.i = getelementptr inbounds nuw i8, ptr %.fr28, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.fr28, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.fr28, i64 40
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit
-  %12 = phi i64 [ %6, %.lr.ph ], [ %166, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit ]
-  %.024 = phi i64 [ %2, %.lr.ph ], [ %122, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit ]
-  %storemerge23 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit ]
-  %13 = icmp eq i64 %.024, 0
-  br i1 %13, label %14, label %121
+  %.fr62.i27 = phi i64 [ %6, %.lr.ph ], [ %160, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit ]
+  %.026 = phi i64 [ %2, %.lr.ph ], [ %116, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit ]
+  %storemerge25 = phi ptr [ %.fr33, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit ]
+  %12 = icmp eq i64 %.026, 0
+  br i1 %12, label %13, label %115
 
-14:                                               ; preds = %11
-  %15 = ptrtoint ptr %storemerge23 to i64
-  %16 = sub i64 %15, %4
-  %17 = icmp slt i64 %16, 48
-  br i1 %17, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit.i, label %18
+13:                                               ; preds = %11
+  %14 = udiv exact i64 %.fr62.i27, 24
+  %15 = add nsw i64 %14, -2
+  %16 = lshr i64 %15, 1
+  %17 = add nsw i64 %14, -1
+  %18 = lshr i64 %17, 1
+  %19 = and i64 %14, 1
+  %20 = icmp eq i64 %19, 0
+  %21 = or disjoint i64 %15, 1
+  %22 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %21
+  %23 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  br label %28
 
-18:                                               ; preds = %14
-  %19 = udiv exact i64 %16, 24
-  %20 = add nsw i64 %19, -2
-  %21 = lshr i64 %20, 1
-  %22 = add nsw i64 %19, -1
-  %23 = lshr i64 %22, 1
-  %24 = and i64 %19, 1
-  %25 = icmp eq i64 %24, 0
-  %26 = or disjoint i64 %20, 1
-  %27 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %26
-  %28 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %21
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  br label %33
-
-33:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i, %18
-  %.08.i.i.i = phi i64 [ %21, %18 ], [ %68, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i ]
-  %34 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.08.i.i.i
-  %.sroa.08.0.copyload.i.i.i = load i32, ptr %34, align 8
-  %.sroa.510.0..sroa.0.0..val12.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
+28:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i, %13
+  %.08.i.i.i = phi i64 [ %16, %13 ], [ %63, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i ]
+  %29 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.08.i.i.i
+  %.sroa.08.0.copyload.i.i.i = load i32, ptr %29, align 8
+  %.sroa.510.0..sroa.0.0..val12.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.510.0.copyload.i.i.i = load ptr, ptr %.sroa.510.0..sroa.0.0..val12.sroa_idx.i.i.i, align 8
-  %.sroa.611.0..sroa.0.0..val12.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %.sroa.611.0..sroa.0.0..val12.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.611.0.copyload.i.i.i = load i32, ptr %.sroa.611.0..sroa.0.0..val12.sroa_idx.i.i.i, align 8
-  %35 = icmp slt i64 %.08.i.i.i, %23
-  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %30 = icmp slt i64 %.08.i.i.i, %18
+  br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %33, %.lr.ph.i.i.i.i
-  %.048.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %33 ]
-  %36 = shl i64 %.048.i.i.i.i, 1
-  %37 = add i64 %36, 2
-  %38 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %37
-  %39 = or disjoint i64 %36, 1
-  %40 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %39
-  %.val2.i.i.i.i.i = load i32, ptr %38, align 4, !tbaa !109
-  %.val3.i.i.i.i.i = load i32, ptr %40, align 4, !tbaa !109
-  %41 = icmp sgt i32 %.val3.i.i.i.i.i, %.val2.i.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %41, i64 %39, i64 %37
-  %42 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %spec.select.i.i.i.i
-  %43 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.048.i.i.i.i
-  %.val.i.i.i.i.i = load i32, ptr %42, align 4, !tbaa !109
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.val3.i34.i.i.i.i = load ptr, ptr %44, align 8, !tbaa !716
-  store i32 %.val.i.i.i.i.i, ptr %43, align 8, !tbaa !740
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %.val3.i34.i.i.i.i, ptr %45, align 8, !tbaa !741
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !729
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 %47, ptr %48, align 8, !tbaa !729
-  %49 = icmp slt i64 %spec.select.i.i.i.i, %23
-  br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1348
+.lr.ph.i.i.i.i:                                   ; preds = %28, %.lr.ph.i.i.i.i
+  %.048.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %28 ]
+  %31 = shl i64 %.048.i.i.i.i, 1
+  %32 = add i64 %31, 2
+  %33 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %32
+  %34 = or disjoint i64 %31, 1
+  %35 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %34
+  %.val2.i.i.i.i.i = load i32, ptr %33, align 4, !tbaa !109
+  %.val3.i.i.i.i.i = load i32, ptr %35, align 4, !tbaa !109
+  %36 = icmp sgt i32 %.val3.i.i.i.i.i, %.val2.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %36, i64 %34, i64 %32
+  %37 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %spec.select.i.i.i.i
+  %38 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.048.i.i.i.i
+  %.val.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !109
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.val3.i34.i.i.i.i = load ptr, ptr %39, align 8, !tbaa !716
+  store i32 %.val.i.i.i.i.i, ptr %38, align 8, !tbaa !740
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %.val3.i34.i.i.i.i, ptr %40, align 8, !tbaa !741
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %42 = load i32, ptr %41, align 8, !tbaa !729
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store i32 %42, ptr %43, align 8, !tbaa !729
+  %44 = icmp slt i64 %spec.select.i.i.i.i, %18
+  br i1 %44, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1348
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %33
-  %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %33 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = icmp eq i64 %.0.lcssa.i.i.i.i, %21
-  %or.cond.i.i.i = select i1 %25, i1 %50, i1 false
-  br i1 %or.cond.i.i.i, label %51, label %53
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %28
+  %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %28 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %45 = icmp eq i64 %.0.lcssa.i.i.i.i, %16
+  %or.cond.i.i.i = select i1 %20, i1 %45, i1 false
+  br i1 %or.cond.i.i.i, label %46, label %48
 
-51:                                               ; preds = %._crit_edge.i.i.i.i
-  %.val.i35.i.i.i.i = load i32, ptr %27, align 4, !tbaa !109
-  %.val3.i36.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !716
-  store i32 %.val.i35.i.i.i.i, ptr %28, align 8, !tbaa !740
-  store ptr %.val3.i36.i.i.i.i, ptr %30, align 8, !tbaa !741
-  %52 = load i32, ptr %31, align 8, !tbaa !729
-  store i32 %52, ptr %32, align 8, !tbaa !729
-  br label %53
+46:                                               ; preds = %._crit_edge.i.i.i.i
+  %.val.i35.i.i.i.i = load i32, ptr %22, align 4, !tbaa !109
+  %.val3.i36.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !716
+  store i32 %.val.i35.i.i.i.i, ptr %23, align 8, !tbaa !740
+  store ptr %.val3.i36.i.i.i.i, ptr %25, align 8, !tbaa !741
+  %47 = load i32, ptr %26, align 8, !tbaa !729
+  store i32 %47, ptr %27, align 8, !tbaa !729
+  br label %48
 
-53:                                               ; preds = %51, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %26, %51 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %54 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
-  br i1 %54, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i
+48:                                               ; preds = %46, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %21, %46 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %49 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
+  br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %53, %57
-  %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %57 ], [ %.1.i.i.i.i, %53 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %48, %52
+  %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %52 ], [ %.1.i.i.i.i, %48 ]
   %.097.in.i.i.i.i.i = add nsw i64 %.06.i.i.i.i.i, -1
   %.097.i.i.i.i.i = sdiv i64 %.097.in.i.i.i.i.i, 2
-  %55 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.097.i.i.i.i.i
-  %.val2.i.i.i.i.i.i = load i32, ptr %55, align 4, !tbaa !109
-  %56 = icmp sgt i32 %.sroa.08.0.copyload.i.i.i, %.val2.i.i.i.i.i.i
-  br i1 %56, label %57, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i
+  %50 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.097.i.i.i.i.i
+  %.val2.i.i.i.i.i.i = load i32, ptr %50, align 4, !tbaa !109
+  %51 = icmp sgt i32 %.sroa.08.0.copyload.i.i.i, %.val2.i.i.i.i.i.i
+  br i1 %51, label %52, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %58 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.06.i.i.i.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.val3.i.i.i.i.i.i = load ptr, ptr %59, align 8, !tbaa !716
-  store i32 %.val2.i.i.i.i.i.i, ptr %58, align 8, !tbaa !740
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %.val3.i.i.i.i.i.i, ptr %60, align 8, !tbaa !741
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %62 = load i32, ptr %61, align 8, !tbaa !729
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i32 %62, ptr %63, align 8, !tbaa !729
-  %64 = icmp sgt i64 %.097.i.i.i.i.i, %.08.i.i.i
-  br i1 %64, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i, !llvm.loop !1349
+52:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.06.i.i.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.val3.i.i.i.i.i.i = load ptr, ptr %54, align 8, !tbaa !716
+  store i32 %.val2.i.i.i.i.i.i, ptr %53, align 8, !tbaa !740
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store ptr %.val3.i.i.i.i.i.i, ptr %55, align 8, !tbaa !741
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !729
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i32 %57, ptr %58, align 8, !tbaa !729
+  %59 = icmp sgt i64 %.097.i.i.i.i.i, %.08.i.i.i
+  br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i, !llvm.loop !1349
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i: ; preds = %57, %.lr.ph.i.i.i.i.i, %53
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %53 ], [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %57 ]
-  %65 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %.sroa.08.0.copyload.i.i.i, ptr %65, align 8, !tbaa !740
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %.sroa.510.0.copyload.i.i.i, ptr %66, align 8, !tbaa !741
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 %.sroa.611.0.copyload.i.i.i, ptr %67, align 8, !tbaa !729
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i: ; preds = %52, %.lr.ph.i.i.i.i.i, %48
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %48 ], [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %52 ]
+  %60 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.0.lcssa.i.i.i.i.i
+  store i32 %.sroa.08.0.copyload.i.i.i, ptr %60, align 8, !tbaa !740
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %.sroa.510.0.copyload.i.i.i, ptr %61, align 8, !tbaa !741
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store i32 %.sroa.611.0.copyload.i.i.i, ptr %62, align 8, !tbaa !729
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
-  %68 = add nsw i64 %.08.i.i.i, -1
-  br i1 %.not.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit.i, label %33, !llvm.loop !1350
+  %63 = add nsw i64 %.08.i.i.i, -1
+  br i1 %.not.i.i.i, label %.lr.ph.i9.i, label %28, !llvm.loop !1350
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i, %14
-  %69 = icmp sgt i64 %16, 24
-  br i1 %69, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit
-
-.lr.ph.i9.i:                                      ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i
-  %.sroa.0.02.i.i = phi ptr [ %70, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i ], [ %storemerge23, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit.i ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -24
-  %.sroa.08.0.copyload.i.i10.i = load i32, ptr %70, align 8
+.lr.ph.i9.i:                                      ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i
+  %.sroa.0.02.i.i = phi ptr [ %64, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_T0_SV_T1_T2_.exit.i.i.i ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -24
+  %.sroa.08.0.copyload.i.i10.i = load i32, ptr %64, align 8
   %.sroa.510.0..sroa.0.0..val5.sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -16
   %.sroa.510.0.copyload.i.i12.i = load ptr, ptr %.sroa.510.0..sroa.0.0..val5.sroa_idx.i.i11.i, align 8
   %.sroa.611.0..sroa.0.0..val5.sroa_idx.i.i13.i = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -8
   %.sroa.611.0.copyload.i.i14.i = load i32, ptr %.sroa.611.0..sroa.0.0..val5.sroa_idx.i.i13.i, align 8
-  %.val.i.i.i.i = load i32, ptr %.fr63.i, align 4, !tbaa !109
+  %.val.i.i.i.i = load i32, ptr %.fr28, align 4, !tbaa !109
   %.val3.i.i.i15.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !716
-  store i32 %.val.i.i.i.i, ptr %70, align 8, !tbaa !740
+  store i32 %.val.i.i.i.i, ptr %64, align 8, !tbaa !740
   store ptr %.val3.i.i.i15.i, ptr %.sroa.510.0..sroa.0.0..val5.sroa_idx.i.i11.i, align 8, !tbaa !741
-  %71 = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
-  store i32 %71, ptr %.sroa.611.0..sroa.0.0..val5.sroa_idx.i.i13.i, align 8, !tbaa !729
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %72, %4
-  %74 = sdiv exact i64 %73, 24
-  %75 = add nsw i64 %74, -1
-  %76 = sdiv i64 %75, 2
-  %77 = icmp sgt i64 %73, 48
-  br i1 %77, label %.lr.ph.i.i.i33.i, label %._crit_edge.i.i.i16.i
+  %65 = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
+  store i32 %65, ptr %.sroa.611.0..sroa.0.0..val5.sroa_idx.i.i13.i, align 8, !tbaa !729
+  %66 = ptrtoint ptr %64 to i64
+  %67 = sub i64 %66, %4
+  %68 = sdiv exact i64 %67, 24
+  %69 = add nsw i64 %68, -1
+  %70 = sdiv i64 %69, 2
+  %71 = icmp sgt i64 %67, 48
+  br i1 %71, label %.lr.ph.i.i.i33.i, label %._crit_edge.i.i.i16.i
 
 .lr.ph.i.i.i33.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i33.i
   %.048.i.i.i34.i = phi i64 [ %spec.select.i.i.i37.i, %.lr.ph.i.i.i33.i ], [ 0, %.lr.ph.i9.i ]
-  %78 = shl i64 %.048.i.i.i34.i, 1
-  %79 = add i64 %78, 2
-  %80 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %79
-  %81 = or disjoint i64 %78, 1
-  %82 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %81
-  %.val2.i.i.i.i35.i = load i32, ptr %80, align 4, !tbaa !109
-  %.val3.i.i.i.i36.i = load i32, ptr %82, align 4, !tbaa !109
-  %83 = icmp sgt i32 %.val3.i.i.i.i36.i, %.val2.i.i.i.i35.i
-  %spec.select.i.i.i37.i = select i1 %83, i64 %81, i64 %79
-  %84 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %spec.select.i.i.i37.i
-  %85 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.048.i.i.i34.i
-  %.val.i.i.i.i38.i = load i32, ptr %84, align 4, !tbaa !109
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %.val3.i34.i.i.i39.i = load ptr, ptr %86, align 8, !tbaa !716
-  store i32 %.val.i.i.i.i38.i, ptr %85, align 8, !tbaa !740
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %.val3.i34.i.i.i39.i, ptr %87, align 8, !tbaa !741
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !729
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i32 %89, ptr %90, align 8, !tbaa !729
-  %91 = icmp slt i64 %spec.select.i.i.i37.i, %76
-  br i1 %91, label %.lr.ph.i.i.i33.i, label %._crit_edge.i.i.i16.i, !llvm.loop !1348
+  %72 = shl i64 %.048.i.i.i34.i, 1
+  %73 = add i64 %72, 2
+  %74 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %73
+  %75 = or disjoint i64 %72, 1
+  %76 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %75
+  %.val2.i.i.i.i35.i = load i32, ptr %74, align 4, !tbaa !109
+  %.val3.i.i.i.i36.i = load i32, ptr %76, align 4, !tbaa !109
+  %77 = icmp sgt i32 %.val3.i.i.i.i36.i, %.val2.i.i.i.i35.i
+  %spec.select.i.i.i37.i = select i1 %77, i64 %75, i64 %73
+  %78 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %spec.select.i.i.i37.i
+  %79 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.048.i.i.i34.i
+  %.val.i.i.i.i38.i = load i32, ptr %78, align 4, !tbaa !109
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %.val3.i34.i.i.i39.i = load ptr, ptr %80, align 8, !tbaa !716
+  store i32 %.val.i.i.i.i38.i, ptr %79, align 8, !tbaa !740
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %.val3.i34.i.i.i39.i, ptr %81, align 8, !tbaa !741
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %83 = load i32, ptr %82, align 8, !tbaa !729
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  store i32 %83, ptr %84, align 8, !tbaa !729
+  %85 = icmp slt i64 %spec.select.i.i.i37.i, %70
+  br i1 %85, label %.lr.ph.i.i.i33.i, label %._crit_edge.i.i.i16.i, !llvm.loop !1348
 
 ._crit_edge.i.i.i16.i:                            ; preds = %.lr.ph.i.i.i33.i, %.lr.ph.i9.i
   %.0.lcssa.i.i.i17.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i37.i, %.lr.ph.i.i.i33.i ]
-  %92 = and i64 %74, 1
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %107
+  %86 = and i64 %68, 1
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %101
 
-94:                                               ; preds = %._crit_edge.i.i.i16.i
-  %95 = add nsw i64 %74, -2
-  %96 = ashr exact i64 %95, 1
-  %97 = icmp eq i64 %.0.lcssa.i.i.i17.i, %96
-  br i1 %97, label %.thread.i.i30.i, label %107
+88:                                               ; preds = %._crit_edge.i.i.i16.i
+  %89 = add nsw i64 %68, -2
+  %90 = ashr exact i64 %89, 1
+  %91 = icmp eq i64 %.0.lcssa.i.i.i17.i, %90
+  br i1 %91, label %.thread.i.i30.i, label %101
 
-.thread.i.i30.i:                                  ; preds = %94
-  %98 = shl nuw nsw i64 %.0.lcssa.i.i.i17.i, 1
-  %99 = or disjoint i64 %98, 1
-  %100 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %99
-  %101 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.0.lcssa.i.i.i17.i
-  %.val.i35.i.i.i31.i = load i32, ptr %100, align 4, !tbaa !109
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %.val3.i36.i.i.i32.i = load ptr, ptr %102, align 8, !tbaa !716
-  store i32 %.val.i35.i.i.i31.i, ptr %101, align 8, !tbaa !740
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store ptr %.val3.i36.i.i.i32.i, ptr %103, align 8, !tbaa !741
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %105 = load i32, ptr %104, align 8, !tbaa !729
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store i32 %105, ptr %106, align 8, !tbaa !729
+.thread.i.i30.i:                                  ; preds = %88
+  %92 = shl nuw nsw i64 %.0.lcssa.i.i.i17.i, 1
+  %93 = or disjoint i64 %92, 1
+  %94 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %93
+  %95 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.0.lcssa.i.i.i17.i
+  %.val.i35.i.i.i31.i = load i32, ptr %94, align 4, !tbaa !109
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %.val3.i36.i.i.i32.i = load ptr, ptr %96, align 8, !tbaa !716
+  store i32 %.val.i35.i.i.i31.i, ptr %95, align 8, !tbaa !740
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store ptr %.val3.i36.i.i.i32.i, ptr %97, align 8, !tbaa !741
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %99 = load i32, ptr %98, align 8, !tbaa !729
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  store i32 %99, ptr %100, align 8, !tbaa !729
   br label %.lr.ph.i.i.i.i21.i.preheader
 
-107:                                              ; preds = %94, %._crit_edge.i.i.i16.i
+101:                                              ; preds = %88, %._crit_edge.i.i.i16.i
   %.not.i.i18.i = icmp eq i64 %.0.lcssa.i.i.i17.i, 0
   br i1 %.not.i.i18.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i, label %.lr.ph.i.i.i.i21.i.preheader
 
-.lr.ph.i.i.i.i21.i.preheader:                     ; preds = %107, %.thread.i.i30.i
-  %.06.i.i.i.i22.i.ph = phi i64 [ %.0.lcssa.i.i.i17.i, %107 ], [ %99, %.thread.i.i30.i ]
+.lr.ph.i.i.i.i21.i.preheader:                     ; preds = %101, %.thread.i.i30.i
+  %.06.i.i.i.i22.i.ph = phi i64 [ %.0.lcssa.i.i.i17.i, %101 ], [ %93, %.thread.i.i30.i ]
   br label %.lr.ph.i.i.i.i21.i
 
-.lr.ph.i.i.i.i21.i:                               ; preds = %.lr.ph.i.i.i.i21.i.preheader, %110
-  %.06.i.i.i.i22.i = phi i64 [ %.097.i.i1213.i.i24.i, %110 ], [ %.06.i.i.i.i22.i.ph, %.lr.ph.i.i.i.i21.i.preheader ]
+.lr.ph.i.i.i.i21.i:                               ; preds = %.lr.ph.i.i.i.i21.i.preheader, %104
+  %.06.i.i.i.i22.i = phi i64 [ %.097.i.i1213.i.i24.i, %104 ], [ %.06.i.i.i.i22.i.ph, %.lr.ph.i.i.i.i21.i.preheader ]
   %.097.in.i.i.i.i23.i = add nsw i64 %.06.i.i.i.i22.i, -1
   %.097.i.i1213.i.i24.i = lshr i64 %.097.in.i.i.i.i23.i, 1
-  %108 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.097.i.i1213.i.i24.i
-  %.val2.i.i.i.i.i25.i = load i32, ptr %108, align 4, !tbaa !109
-  %109 = icmp sgt i32 %.sroa.08.0.copyload.i.i10.i, %.val2.i.i.i.i.i25.i
-  br i1 %109, label %110, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i
+  %102 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.097.i.i1213.i.i24.i
+  %.val2.i.i.i.i.i25.i = load i32, ptr %102, align 4, !tbaa !109
+  %103 = icmp sgt i32 %.sroa.08.0.copyload.i.i10.i, %.val2.i.i.i.i.i25.i
+  br i1 %103, label %104, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i
 
-110:                                              ; preds = %.lr.ph.i.i.i.i21.i
-  %111 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.06.i.i.i.i22.i
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %.val3.i.i.i.i.i28.i = load ptr, ptr %112, align 8, !tbaa !716
-  store i32 %.val2.i.i.i.i.i25.i, ptr %111, align 8, !tbaa !740
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store ptr %.val3.i.i.i.i.i28.i, ptr %113, align 8, !tbaa !741
-  %114 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %115 = load i32, ptr %114, align 8, !tbaa !729
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store i32 %115, ptr %116, align 8, !tbaa !729
+104:                                              ; preds = %.lr.ph.i.i.i.i21.i
+  %105 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.06.i.i.i.i22.i
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %.val3.i.i.i.i.i28.i = load ptr, ptr %106, align 8, !tbaa !716
+  store i32 %.val2.i.i.i.i.i25.i, ptr %105, align 8, !tbaa !740
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store ptr %.val3.i.i.i.i.i28.i, ptr %107, align 8, !tbaa !741
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %109 = load i32, ptr %108, align 8, !tbaa !729
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store i32 %109, ptr %110, align 8, !tbaa !729
   %.not14.i.i29.i = icmp eq i64 %.097.i.i1213.i.i24.i, 0
   br i1 %.not14.i.i29.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i, label %.lr.ph.i.i.i.i21.i, !llvm.loop !1349
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i: ; preds = %110, %.lr.ph.i.i.i.i21.i, %107
-  %.0.lcssa.i.i.i.i27.i = phi i64 [ 0, %107 ], [ %.06.i.i.i.i22.i, %.lr.ph.i.i.i.i21.i ], [ 0, %110 ]
-  %117 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %.0.lcssa.i.i.i.i27.i
-  store i32 %.sroa.08.0.copyload.i.i10.i, ptr %117, align 8, !tbaa !740
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %.sroa.510.0.copyload.i.i12.i, ptr %118, align 8, !tbaa !741
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  store i32 %.sroa.611.0.copyload.i.i14.i, ptr %119, align 8, !tbaa !729
-  %120 = icmp sgt i64 %73, 24
-  br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit, !llvm.loop !1351
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i: ; preds = %104, %.lr.ph.i.i.i.i21.i, %101
+  %.0.lcssa.i.i.i.i27.i = phi i64 [ 0, %101 ], [ %.06.i.i.i.i22.i, %.lr.ph.i.i.i.i21.i ], [ 0, %104 ]
+  %111 = getelementptr inbounds %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %.0.lcssa.i.i.i.i27.i
+  store i32 %.sroa.08.0.copyload.i.i10.i, ptr %111, align 8, !tbaa !740
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  store ptr %.sroa.510.0.copyload.i.i12.i, ptr %112, align 8, !tbaa !741
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  store i32 %.sroa.611.0.copyload.i.i14.i, ptr %113, align 8, !tbaa !729
+  %114 = icmp sgt i64 %67, 24
+  br i1 %114, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit, !llvm.loop !1351
 
-121:                                              ; preds = %11
-  %122 = add nsw i64 %.024, -1
-  %123 = udiv i64 %12, 48
-  %124 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr63.i, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge23, i64 -24
-  %.val2.i.i.i17 = load i32, ptr %8, align 4, !tbaa !109
-  %.val3.i.i.i18 = load i32, ptr %124, align 4, !tbaa !109
-  %126 = icmp sgt i32 %.val3.i.i.i18, %.val2.i.i.i17
-  %.val3.i27.i.i = load i32, ptr %125, align 4, !tbaa !109
-  br i1 %126, label %127, label %141
+115:                                              ; preds = %11
+  %116 = add nsw i64 %.026, -1
+  %117 = udiv i64 %.fr62.i27, 48
+  %118 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, (anonymous namespace)::Scheduler<(anonymous namespace)::FlowGraph::Node>::Vertex *>::entry_t", ptr %.fr28, i64 %117
+  %119 = getelementptr inbounds i8, ptr %storemerge25, i64 -24
+  %.val2.i.i.i = load i32, ptr %8, align 4, !tbaa !109
+  %.val3.i.i.i = load i32, ptr %118, align 4, !tbaa !109
+  %120 = icmp sgt i32 %.val3.i.i.i, %.val2.i.i.i
+  %.val3.i27.i.i = load i32, ptr %119, align 4, !tbaa !109
+  br i1 %120, label %121, label %135
+
+121:                                              ; preds = %115
+  %122 = icmp sgt i32 %.val3.i27.i.i, %.val3.i.i.i
+  br i1 %122, label %123, label %127
+
+123:                                              ; preds = %121
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %.fr28, align 8
+  %.sroa.46.0.copyload.i.i.i.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8
+  %.sroa.5.0.copyload.i.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %.val3.i.i.i.i.i17 = load ptr, ptr %124, align 8, !tbaa !716
+  store i32 %.val3.i.i.i, ptr %.fr28, align 8, !tbaa !740
+  store ptr %.val3.i.i.i.i.i17, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
+  %125 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %126 = load i32, ptr %125, align 8, !tbaa !729
+  store i32 %126, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
+  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %118, align 8, !tbaa !740
+  store ptr %.sroa.46.0.copyload.i.i.i.i, ptr %124, align 8, !tbaa !741
+  store i32 %.sroa.5.0.copyload.i.i.i.i, ptr %125, align 8, !tbaa !729
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
 
 127:                                              ; preds = %121
-  %128 = icmp sgt i32 %.val3.i27.i.i, %.val3.i.i.i18
+  %128 = icmp sgt i32 %.val3.i27.i.i, %.val2.i.i.i
+  %.sroa.0.0.copyload.i.i30.i.i = load i32, ptr %.fr28, align 8
+  %.sroa.46.0.copyload.i.i32.i.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8
+  %.sroa.5.0.copyload.i.i34.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %127
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %.fr63.i, align 8
-  %.sroa.46.0.copyload.i.i.i.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8
-  %.sroa.5.0.copyload.i.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %.val3.i.i.i.i.i19 = load ptr, ptr %130, align 8, !tbaa !716
-  store i32 %.val3.i.i.i18, ptr %.fr63.i, align 8, !tbaa !740
-  store ptr %.val3.i.i.i.i.i19, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
-  %131 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %130 = getelementptr inbounds i8, ptr %storemerge25, i64 -16
+  %.val3.i.i.i36.i.i = load ptr, ptr %130, align 8, !tbaa !716
+  store i32 %.val3.i27.i.i, ptr %.fr28, align 8, !tbaa !740
+  store ptr %.val3.i.i.i36.i.i, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
+  %131 = getelementptr inbounds i8, ptr %storemerge25, i64 -8
   %132 = load i32, ptr %131, align 8, !tbaa !729
   store i32 %132, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
-  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %124, align 8, !tbaa !740
-  store ptr %.sroa.46.0.copyload.i.i.i.i, ptr %130, align 8, !tbaa !741
-  store i32 %.sroa.5.0.copyload.i.i.i.i, ptr %131, align 8, !tbaa !729
+  store i32 %.sroa.0.0.copyload.i.i30.i.i, ptr %119, align 8, !tbaa !740
+  store ptr %.sroa.46.0.copyload.i.i32.i.i, ptr %130, align 8, !tbaa !741
+  store i32 %.sroa.5.0.copyload.i.i34.i.i, ptr %131, align 8, !tbaa !729
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
 
 133:                                              ; preds = %127
-  %134 = icmp sgt i32 %.val3.i27.i.i, %.val2.i.i.i17
-  %.sroa.0.0.copyload.i.i30.i.i = load i32, ptr %.fr63.i, align 8
-  %.sroa.46.0.copyload.i.i32.i.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8
-  %.sroa.5.0.copyload.i.i34.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8
-  br i1 %134, label %135, label %139
-
-135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %storemerge23, i64 -16
-  %.val3.i.i.i36.i.i = load ptr, ptr %136, align 8, !tbaa !716
-  store i32 %.val3.i27.i.i, ptr %.fr63.i, align 8, !tbaa !740
-  store ptr %.val3.i.i.i36.i.i, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
-  %137 = getelementptr inbounds i8, ptr %storemerge23, i64 -8
-  %138 = load i32, ptr %137, align 8, !tbaa !729
-  store i32 %138, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
-  store i32 %.sroa.0.0.copyload.i.i30.i.i, ptr %125, align 8, !tbaa !740
-  store ptr %.sroa.46.0.copyload.i.i32.i.i, ptr %136, align 8, !tbaa !741
-  store i32 %.sroa.5.0.copyload.i.i34.i.i, ptr %137, align 8, !tbaa !729
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
-
-139:                                              ; preds = %133
   %.val3.i.i.i43.i.i = load ptr, ptr %9, align 8, !tbaa !716
-  store i32 %.val2.i.i.i17, ptr %.fr63.i, align 8, !tbaa !740
+  store i32 %.val2.i.i.i, ptr %.fr28, align 8, !tbaa !740
   store ptr %.val3.i.i.i43.i.i, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
-  %140 = load i32, ptr %10, align 8, !tbaa !729
-  store i32 %140, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
+  %134 = load i32, ptr %10, align 8, !tbaa !729
+  store i32 %134, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
   store i32 %.sroa.0.0.copyload.i.i30.i.i, ptr %8, align 8, !tbaa !740
   store ptr %.sroa.46.0.copyload.i.i32.i.i, ptr %9, align 8, !tbaa !741
   store i32 %.sroa.5.0.copyload.i.i34.i.i, ptr %10, align 8, !tbaa !729
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
 
-141:                                              ; preds = %121
-  %142 = icmp sgt i32 %.val3.i27.i.i, %.val2.i.i.i17
-  br i1 %142, label %143, label %145
+135:                                              ; preds = %115
+  %136 = icmp sgt i32 %.val3.i27.i.i, %.val2.i.i.i
+  br i1 %136, label %137, label %139
 
-143:                                              ; preds = %141
-  %.sroa.0.0.copyload.i.i46.i.i = load i32, ptr %.fr63.i, align 8
+137:                                              ; preds = %135
+  %.sroa.0.0.copyload.i.i46.i.i = load i32, ptr %.fr28, align 8
   %.sroa.46.0.copyload.i.i48.i.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8
   %.sroa.5.0.copyload.i.i50.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8
   %.val3.i.i.i52.i.i = load ptr, ptr %9, align 8, !tbaa !716
-  store i32 %.val2.i.i.i17, ptr %.fr63.i, align 8, !tbaa !740
+  store i32 %.val2.i.i.i, ptr %.fr28, align 8, !tbaa !740
   store ptr %.val3.i.i.i52.i.i, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
-  %144 = load i32, ptr %10, align 8, !tbaa !729
-  store i32 %144, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
+  %138 = load i32, ptr %10, align 8, !tbaa !729
+  store i32 %138, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
   store i32 %.sroa.0.0.copyload.i.i46.i.i, ptr %8, align 8, !tbaa !740
   store ptr %.sroa.46.0.copyload.i.i48.i.i, ptr %9, align 8, !tbaa !741
   store i32 %.sroa.5.0.copyload.i.i50.i.i, ptr %10, align 8, !tbaa !729
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
 
-145:                                              ; preds = %141
-  %146 = icmp sgt i32 %.val3.i27.i.i, %.val3.i.i.i18
-  %.sroa.0.0.copyload.i.i55.i.i = load i32, ptr %.fr63.i, align 8
+139:                                              ; preds = %135
+  %140 = icmp sgt i32 %.val3.i27.i.i, %.val3.i.i.i
+  %.sroa.0.0.copyload.i.i55.i.i = load i32, ptr %.fr28, align 8
   %.sroa.46.0.copyload.i.i57.i.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8
   %.sroa.5.0.copyload.i.i59.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8
-  br i1 %146, label %147, label %151
+  br i1 %140, label %141, label %145
 
-147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %storemerge23, i64 -16
-  %.val3.i.i.i61.i.i = load ptr, ptr %148, align 8, !tbaa !716
-  store i32 %.val3.i27.i.i, ptr %.fr63.i, align 8, !tbaa !740
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds i8, ptr %storemerge25, i64 -16
+  %.val3.i.i.i61.i.i = load ptr, ptr %142, align 8, !tbaa !716
+  store i32 %.val3.i27.i.i, ptr %.fr28, align 8, !tbaa !740
   store ptr %.val3.i.i.i61.i.i, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
-  %149 = getelementptr inbounds i8, ptr %storemerge23, i64 -8
-  %150 = load i32, ptr %149, align 8, !tbaa !729
-  store i32 %150, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
-  store i32 %.sroa.0.0.copyload.i.i55.i.i, ptr %125, align 8, !tbaa !740
-  store ptr %.sroa.46.0.copyload.i.i57.i.i, ptr %148, align 8, !tbaa !741
-  store i32 %.sroa.5.0.copyload.i.i59.i.i, ptr %149, align 8, !tbaa !729
+  %143 = getelementptr inbounds i8, ptr %storemerge25, i64 -8
+  %144 = load i32, ptr %143, align 8, !tbaa !729
+  store i32 %144, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
+  store i32 %.sroa.0.0.copyload.i.i55.i.i, ptr %119, align 8, !tbaa !740
+  store ptr %.sroa.46.0.copyload.i.i57.i.i, ptr %142, align 8, !tbaa !741
+  store i32 %.sroa.5.0.copyload.i.i59.i.i, ptr %143, align 8, !tbaa !729
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
 
-151:                                              ; preds = %145
-  %152 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %.val3.i.i.i68.i.i = load ptr, ptr %152, align 8, !tbaa !716
-  store i32 %.val3.i.i.i18, ptr %.fr63.i, align 8, !tbaa !740
+145:                                              ; preds = %139
+  %146 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %.val3.i.i.i68.i.i = load ptr, ptr %146, align 8, !tbaa !716
+  store i32 %.val3.i.i.i, ptr %.fr28, align 8, !tbaa !740
   store ptr %.val3.i.i.i68.i.i, ptr %.sroa.46.0..sroa_idx.i.i56.i.i, align 8, !tbaa !741
-  %153 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %154 = load i32, ptr %153, align 8, !tbaa !729
-  store i32 %154, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
-  store i32 %.sroa.0.0.copyload.i.i55.i.i, ptr %124, align 8, !tbaa !740
-  store ptr %.sroa.46.0.copyload.i.i57.i.i, ptr %152, align 8, !tbaa !741
-  store i32 %.sroa.5.0.copyload.i.i59.i.i, ptr %153, align 8, !tbaa !729
+  %147 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %148 = load i32, ptr %147, align 8, !tbaa !729
+  store i32 %148, ptr %.sroa.5.0..sroa_idx.i.i58.i.i, align 8, !tbaa !729
+  store i32 %.sroa.0.0.copyload.i.i55.i.i, ptr %118, align 8, !tbaa !740
+  store ptr %.sroa.46.0.copyload.i.i57.i.i, ptr %146, align 8, !tbaa !741
+  store i32 %.sroa.5.0.copyload.i.i59.i.i, ptr %147, align 8, !tbaa !729
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader: ; preds = %151, %147, %143, %139, %135, %129
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader: ; preds = %145, %141, %137, %133, %129, %123
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader, %161
-  %.sroa.012.0.i.i = phi ptr [ %157, %161 ], [ %8, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %161 ], [ %storemerge23, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader ]
-  %.val3.i.i18.i = load i32, ptr %.fr63.i, align 4, !tbaa !109
-  br label %155
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader, %155
+  %.sroa.012.0.i.i = phi ptr [ %151, %155 ], [ %8, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %155 ], [ %storemerge25, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i.preheader ]
+  %.val3.i.i18.i = load i32, ptr %.fr28, align 4, !tbaa !109
+  br label %149
 
-155:                                              ; preds = %155, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i ], [ %157, %155 ]
+149:                                              ; preds = %149, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i ], [ %151, %149 ]
   %.val2.i.i19.i = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !109
-  %156 = icmp sgt i32 %.val3.i.i18.i, %.val2.i.i19.i
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 24
-  br i1 %156, label %155, label %.preheader.i.i, !llvm.loop !1352
+  %150 = icmp sgt i32 %.val3.i.i18.i, %.val2.i.i19.i
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 24
+  br i1 %150, label %149, label %.preheader.i.i, !llvm.loop !1352
 
-.preheader.i.i:                                   ; preds = %155, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %155 ]
+.preheader.i.i:                                   ; preds = %149, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %149 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -24
   %.val3.i10.i.i = load i32, ptr %.sroa.0.1.i.i, align 4, !tbaa !109
-  %158 = icmp sgt i32 %.val3.i10.i.i, %.val3.i.i18.i
-  br i1 %158, label %.preheader.i.i, label %159, !llvm.loop !1353
+  %152 = icmp sgt i32 %.val3.i10.i.i, %.val3.i.i18.i
+  br i1 %152, label %.preheader.i.i, label %153, !llvm.loop !1353
 
-159:                                              ; preds = %.preheader.i.i
-  %160 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
-  br i1 %160, label %161, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit
+153:                                              ; preds = %.preheader.i.i
+  %154 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
+  br i1 %154, label %155, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit
 
-161:                                              ; preds = %159
+155:                                              ; preds = %153
   %.sroa.46.0..sroa_idx.i.i.i20.i = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
   %.sroa.46.0.copyload.i.i.i21.i = load ptr, ptr %.sroa.46.0..sroa_idx.i.i.i20.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 16
   %.sroa.5.0.copyload.i.i.i23.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i.i22.i, align 8
-  %162 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %.val3.i.i.i.i24.i = load ptr, ptr %162, align 8, !tbaa !716
+  %156 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+  %.val3.i.i.i.i24.i = load ptr, ptr %156, align 8, !tbaa !716
   store i32 %.val3.i10.i.i, ptr %.sroa.012.1.i.i, align 8, !tbaa !740
   store ptr %.val3.i.i.i.i24.i, ptr %.sroa.46.0..sroa_idx.i.i.i20.i, align 8, !tbaa !741
-  %163 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %164 = load i32, ptr %163, align 8, !tbaa !729
-  store i32 %164, ptr %.sroa.5.0..sroa_idx.i.i.i22.i, align 8, !tbaa !729
+  %157 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %158 = load i32, ptr %157, align 8, !tbaa !729
+  store i32 %158, ptr %.sroa.5.0..sroa_idx.i.i.i22.i, align 8, !tbaa !729
   store i32 %.val2.i.i19.i, ptr %.sroa.0.1.i.i, align 8, !tbaa !740
-  store ptr %.sroa.46.0.copyload.i.i.i21.i, ptr %162, align 8, !tbaa !741
-  store i32 %.sroa.5.0.copyload.i.i.i23.i, ptr %163, align 8, !tbaa !729
+  store ptr %.sroa.46.0.copyload.i.i.i21.i, ptr %156, align 8, !tbaa !741
+  store i32 %.sroa.5.0.copyload.i.i.i23.i, ptr %157, align 8, !tbaa !729
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_SQ_T0_.exit.i, !llvm.loop !1354
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit: ; preds = %159
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge23, i64 noundef %122)
-  %165 = ptrtoint ptr %.sroa.012.1.i.i to i64
-  %166 = sub i64 %165, %4
-  %167 = icmp sgt i64 %166, 384
-  br i1 %167, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit, !llvm.loop !1355
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit: ; preds = %153
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge25, i64 noundef %116)
+  %159 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %160 = sub i64 %159, %4
+  %161 = icmp sgt i64 %160, 384
+  br i1 %161, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit, !llvm.loop !1355
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i, %3, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEESQ_SQ_SQ_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i, %3
   ret void
 }
 

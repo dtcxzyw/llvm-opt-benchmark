@@ -2064,8 +2064,7 @@ rb_float_value_inline.exit192:                    ; preds = %313, %314, %320
 BIGNUM_DIGITS.exit:                               ; preds = %327, %331
   %.0.i194241 = phi i64 [ %329, %327 ], [ %333, %331 ]
   %.0.i196 = phi ptr [ %330, %327 ], [ %335, %331 ]
-  %.0.i194241.fr = freeze i64 %.0.i194241
-  %336 = add i64 %.0.i194241.fr, -1
+  %336 = add i64 %.0.i194241, -1
   %337 = getelementptr i32, ptr %.0.i196, i64 %336
   %338 = load i32, ptr %337, align 4, !tbaa !89
   %.not7.i = icmp eq i32 %338, 0
@@ -2100,7 +2099,7 @@ shortlen.exit:                                    ; preds = %BIGNUM_DIGITS.exit,
   %349 = select i1 %.not256, i8 45, i8 43
   call fastcc void @w_byte(i8 noundef signext %349, ptr noundef nonnull %1)
   call fastcc void @w_long(i64 noundef %344, ptr noundef nonnull %1)
-  %.not268 = icmp eq i64 %.0.i194241.fr, 0
+  %.not268 = icmp eq i64 %.0.i194241, 0
   br i1 %.not268, label %.loopexit, label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %348, %.split264.us
@@ -2108,7 +2107,8 @@ shortlen.exit:                                    ; preds = %BIGNUM_DIGITS.exit,
   %.0136265 = phi ptr [ %359, %.split264.us ], [ %.0.i196, %348 ]
   %350 = load i32, ptr %.0136265, align 4, !tbaa !89
   %351 = icmp eq i64 %.0134266, %336
-  br i1 %351, label %.split, label %.split.us
+  %.fr = freeze i1 %351
+  br i1 %.fr, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph267, %.split.us
   %352 = phi i1 [ false, %.split.us ], [ true, %.lr.ph267 ]
@@ -2131,7 +2131,7 @@ shortlen.exit:                                    ; preds = %BIGNUM_DIGITS.exit,
 .split264.us:                                     ; preds = %.split.us, %.split
   %359 = getelementptr i8, ptr %.0136265, i64 4
   %360 = add nuw i64 %.0134266, 1
-  %exitcond273.not = icmp eq i64 %360, %.0.i194241.fr
+  %exitcond273.not = icmp eq i64 %360, %.0.i194241
   br i1 %exitcond273.not, label %.loopexit, label %.lr.ph267, !llvm.loop !92
 
 361:                                              ; preds = %274
@@ -3710,8 +3710,8 @@ define internal fastcc i64 @class2path(i64 noundef %0) unnamed_addr #0 {
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %1
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8, !tbaa !56
-  %.fr = freeze i64 %8
-  %9 = and i64 %.fr, 31
+  %.fr9 = freeze i64 %8
+  %9 = and i64 %.fr9, 31
   %10 = icmp eq i64 %9, 2
   %spec.select = select i1 %10, ptr @.str.49, ptr @.str.57
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread

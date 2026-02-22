@@ -698,13 +698,13 @@ if.else18:                                        ; preds = %if.else
 if.then21:                                        ; preds = %if.else18, %if.else18
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %23 = load i8, ptr %current_char_, align 8
-  %.fr.i = freeze i8 %23
-  %24 = add i8 %.fr.i, -48
+  %.fr2.i = freeze i8 %23
+  %24 = add i8 %.fr2.i, -48
   %or.cond.i.i = icmp ult i8 %24, 10
   br i1 %or.cond.i.i, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %if.then21
-  switch i8 %.fr.i, label %if.then23 [
+  switch i8 %.fr2.i, label %if.then23 [
     i8 102, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread
     i8 101, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread
     i8 100, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread
@@ -774,13 +774,13 @@ lpad28:                                           ; preds = %invoke.cont27
 if.then35:                                        ; preds = %if.else18
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %34 = load i8, ptr %current_char_, align 8
-  %.fr.i62 = freeze i8 %34
-  %35 = add i8 %.fr.i62, -48
+  %.fr2.i62 = freeze i8 %34
+  %35 = add i8 %.fr2.i62, -48
   %or.cond.i.i63 = icmp ult i8 %35, 10
   br i1 %or.cond.i.i63, label %lor.lhs.false37, label %switch.early.test.i64
 
 switch.early.test.i64:                            ; preds = %if.then35
-  switch i8 %.fr.i62, label %if.then43 [
+  switch i8 %.fr2.i62, label %if.then43 [
     i8 102, label %lor.lhs.false37
     i8 101, label %lor.lhs.false37
     i8 100, label %lor.lhs.false37
@@ -798,13 +798,13 @@ switch.early.test.i64:                            ; preds = %if.then35
 lor.lhs.false37:                                  ; preds = %if.then35, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64, %switch.early.test.i64
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %36 = load i8, ptr %current_char_, align 8
-  %.fr.i68 = freeze i8 %36
-  %37 = add i8 %.fr.i68, -48
+  %.fr2.i68 = freeze i8 %36
+  %37 = add i8 %.fr2.i68, -48
   %or.cond.i.i69 = icmp ult i8 %37, 10
   br i1 %or.cond.i.i69, label %lor.lhs.false39, label %switch.early.test.i70
 
 switch.early.test.i70:                            ; preds = %lor.lhs.false37
-  switch i8 %.fr.i68, label %if.then43 [
+  switch i8 %.fr2.i68, label %if.then43 [
     i8 102, label %lor.lhs.false39
     i8 101, label %lor.lhs.false39
     i8 100, label %lor.lhs.false39
@@ -822,13 +822,13 @@ switch.early.test.i70:                            ; preds = %lor.lhs.false37
 lor.lhs.false39:                                  ; preds = %lor.lhs.false37, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %38 = load i8, ptr %current_char_, align 8
-  %.fr.i74 = freeze i8 %38
-  %39 = add i8 %.fr.i74, -48
+  %.fr2.i74 = freeze i8 %38
+  %39 = add i8 %.fr2.i74, -48
   %or.cond.i.i75 = icmp ult i8 %39, 10
   br i1 %or.cond.i.i75, label %lor.lhs.false41, label %switch.early.test.i76
 
 switch.early.test.i76:                            ; preds = %lor.lhs.false39
-  switch i8 %.fr.i74, label %if.then43 [
+  switch i8 %.fr2.i74, label %if.then43 [
     i8 102, label %lor.lhs.false41
     i8 101, label %lor.lhs.false41
     i8 100, label %lor.lhs.false41
@@ -846,13 +846,13 @@ switch.early.test.i76:                            ; preds = %lor.lhs.false39
 lor.lhs.false41:                                  ; preds = %lor.lhs.false39, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76, %switch.early.test.i76
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %40 = load i8, ptr %current_char_, align 8
-  %.fr.i80 = freeze i8 %40
-  %41 = add i8 %.fr.i80, -48
+  %.fr2.i80 = freeze i8 %40
+  %41 = add i8 %.fr2.i80, -48
   %or.cond.i.i81 = icmp ult i8 %41, 10
   br i1 %or.cond.i.i81, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit84.thread, label %switch.early.test.i82
 
 switch.early.test.i82:                            ; preds = %lor.lhs.false41
-  switch i8 %.fr.i80, label %if.then43 [
+  switch i8 %.fr2.i80, label %if.then43 [
     i8 102, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit84.thread
     i8 101, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit84.thread
     i8 100, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit84.thread
@@ -941,13 +941,13 @@ lor.lhs.false59:                                  ; preds = %lor.lhs.false57
 lor.lhs.false63:                                  ; preds = %lor.lhs.false59
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %55 = load i8, ptr %current_char_, align 8
-  %.fr.i122 = freeze i8 %55
-  %56 = add i8 %.fr.i122, -48
+  %.fr2.i122 = freeze i8 %55
+  %56 = add i8 %.fr2.i122, -48
   %or.cond.i.i123 = icmp ult i8 %56, 10
   br i1 %or.cond.i.i123, label %lor.lhs.false65, label %switch.early.test.i124
 
 switch.early.test.i124:                           ; preds = %lor.lhs.false63
-  switch i8 %.fr.i122, label %if.then73 [
+  switch i8 %.fr2.i122, label %if.then73 [
     i8 102, label %lor.lhs.false65
     i8 101, label %lor.lhs.false65
     i8 100, label %lor.lhs.false65
@@ -965,13 +965,13 @@ switch.early.test.i124:                           ; preds = %lor.lhs.false63
 lor.lhs.false65:                                  ; preds = %lor.lhs.false63, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124, %switch.early.test.i124
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %57 = load i8, ptr %current_char_, align 8
-  %.fr.i128 = freeze i8 %57
-  %58 = add i8 %.fr.i128, -48
+  %.fr2.i128 = freeze i8 %57
+  %58 = add i8 %.fr2.i128, -48
   %or.cond.i.i129 = icmp ult i8 %58, 10
   br i1 %or.cond.i.i129, label %lor.lhs.false67, label %switch.early.test.i130
 
 switch.early.test.i130:                           ; preds = %lor.lhs.false65
-  switch i8 %.fr.i128, label %if.then73 [
+  switch i8 %.fr2.i128, label %if.then73 [
     i8 102, label %lor.lhs.false67
     i8 101, label %lor.lhs.false67
     i8 100, label %lor.lhs.false67
@@ -989,13 +989,13 @@ switch.early.test.i130:                           ; preds = %lor.lhs.false65
 lor.lhs.false67:                                  ; preds = %lor.lhs.false65, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130, %switch.early.test.i130
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %59 = load i8, ptr %current_char_, align 8
-  %.fr.i134 = freeze i8 %59
-  %60 = add i8 %.fr.i134, -48
+  %.fr2.i134 = freeze i8 %59
+  %60 = add i8 %.fr2.i134, -48
   %or.cond.i.i135 = icmp ult i8 %60, 10
   br i1 %or.cond.i.i135, label %lor.lhs.false69, label %switch.early.test.i136
 
 switch.early.test.i136:                           ; preds = %lor.lhs.false67
-  switch i8 %.fr.i134, label %if.then73 [
+  switch i8 %.fr2.i134, label %if.then73 [
     i8 102, label %lor.lhs.false69
     i8 101, label %lor.lhs.false69
     i8 100, label %lor.lhs.false69
@@ -1013,13 +1013,13 @@ switch.early.test.i136:                           ; preds = %lor.lhs.false67
 lor.lhs.false69:                                  ; preds = %lor.lhs.false67, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136, %switch.early.test.i136
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %61 = load i8, ptr %current_char_, align 8
-  %.fr.i140 = freeze i8 %61
-  %62 = add i8 %.fr.i140, -48
+  %.fr2.i140 = freeze i8 %61
+  %62 = add i8 %.fr2.i140, -48
   %or.cond.i.i141 = icmp ult i8 %62, 10
   br i1 %or.cond.i.i141, label %lor.lhs.false71, label %switch.early.test.i142
 
 switch.early.test.i142:                           ; preds = %lor.lhs.false69
-  switch i8 %.fr.i140, label %if.then73 [
+  switch i8 %.fr2.i140, label %if.then73 [
     i8 102, label %lor.lhs.false71
     i8 101, label %lor.lhs.false71
     i8 100, label %lor.lhs.false71
@@ -1037,13 +1037,13 @@ switch.early.test.i142:                           ; preds = %lor.lhs.false69
 lor.lhs.false71:                                  ; preds = %lor.lhs.false69, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142, %switch.early.test.i142
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %63 = load i8, ptr %current_char_, align 8
-  %.fr.i146 = freeze i8 %63
-  %64 = add i8 %.fr.i146, -48
+  %.fr2.i146 = freeze i8 %63
+  %64 = add i8 %.fr2.i146, -48
   %or.cond.i.i147 = icmp ult i8 %64, 10
   br i1 %or.cond.i.i147, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit150.thread, label %switch.early.test.i148
 
 switch.early.test.i148:                           ; preds = %lor.lhs.false71
-  switch i8 %.fr.i146, label %if.then73 [
+  switch i8 %.fr2.i146, label %if.then73 [
     i8 102, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit150.thread
     i8 101, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit150.thread
     i8 100, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit150.thread
@@ -1273,13 +1273,13 @@ if.then:                                          ; preds = %land.lhs.true, %lan
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %1 = load i8, ptr %current_char_.i, align 8
-  %.fr.i = freeze i8 %1
-  %2 = add i8 %.fr.i, -48
+  %.fr5.i = freeze i8 %1
+  %2 = add i8 %.fr5.i, -48
   %or.cond.i.i = icmp ult i8 %2, 10
   br i1 %or.cond.i.i, label %do.body.preheader.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %if.then
-  switch i8 %.fr.i, label %if.then.i18 [
+  switch i8 %.fr5.i, label %if.then.i18 [
     i8 102, label %do.body.preheader.i
     i8 101, label %do.body.preheader.i
     i8 100, label %do.body.preheader.i
@@ -1445,13 +1445,13 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.th
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %if.then15.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i
   %26 = phi i8 [ %16, %if.then15.i ], [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ]
-  %.fr5.i = freeze i8 %26
-  %27 = add i8 %.fr5.i, -48
+  %.fr6.i = freeze i8 %26
+  %27 = add i8 %.fr6.i, -48
   %or.cond.i4.i = icmp ult i8 %27, 10
   br i1 %or.cond.i4.i, label %do.body.i.backedge, label %switch.early.test4.i
 
 switch.early.test4.i:                             ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
-  switch i8 %.fr5.i, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit [
+  switch i8 %.fr6.i, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit [
     i8 102, label %do.body.i.backedge
     i8 101, label %do.body.i.backedge
     i8 100, label %do.body.i.backedge
@@ -5125,13 +5125,13 @@ if.else:                                          ; preds = %if.then12
 if.then36:                                        ; preds = %if.else, %if.else
   %arrayidx38 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 3
   %13 = load i8, ptr %arrayidx38, align 1
-  %.fr = freeze i8 %13
-  %14 = add i8 %.fr, -48
+  %.fr73 = freeze i8 %13
+  %14 = add i8 %.fr73, -48
   %or.cond.i = icmp ult i8 %14, 10
   br i1 %or.cond.i, label %if.then40, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.then36
-  switch i8 %.fr, label %if.end43 [
+  switch i8 %.fr73, label %if.end43 [
     i8 102, label %if.then40
     i8 101, label %if.then40
     i8 100, label %if.then40
@@ -5147,7 +5147,7 @@ switch.early.test:                                ; preds = %if.then36
   ]
 
 if.then40:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.then36
-  %idxprom.i52 = zext nneg i8 %.fr to i64
+  %idxprom.i52 = zext nneg i8 %.fr73 to i64
   %arrayidx.i53 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i52
   %15 = load i8, ptr %arrayidx.i53, align 1
   br label %if.end43
@@ -5157,13 +5157,13 @@ if.end43:                                         ; preds = %switch.early.test, 
   %ptr.3 = phi ptr [ %arrayidx38, %if.then40 ], [ %arrayidx, %switch.early.test ]
   %arrayidx44 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 1
   %16 = load i8, ptr %arrayidx44, align 1
-  %.fr73 = freeze i8 %16
-  %17 = add i8 %.fr73, -48
+  %.fr74 = freeze i8 %16
+  %17 = add i8 %.fr74, -48
   %or.cond.i55 = icmp ult i8 %17, 10
   br i1 %or.cond.i55, label %if.then46, label %switch.early.test72
 
 switch.early.test72:                              ; preds = %if.end43
-  switch i8 %.fr73, label %if.end51 [
+  switch i8 %.fr74, label %if.end51 [
     i8 102, label %if.then46
     i8 101, label %if.then46
     i8 100, label %if.then46
@@ -5180,7 +5180,7 @@ switch.early.test72:                              ; preds = %if.end43
 
 if.then46:                                        ; preds = %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %if.end43
   %mul48 = shl i8 %code37.0, 4
-  %idxprom.i60 = zext nneg i8 %.fr73 to i64
+  %idxprom.i60 = zext nneg i8 %.fr74 to i64
   %arrayidx.i61 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i60
   %18 = load i8, ptr %arrayidx.i61, align 1
   %add50 = add i8 %18, %mul48
@@ -5277,7 +5277,7 @@ if.then12.i:                                      ; preds = %land.lhs.true10.i
   br label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
 
 if.else5.i.thread:                                ; preds = %land.lhs.true.i, %land.lhs.true3.i
-  %retval.0.i.ptr78 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %incdec.ptr.i.add
+  %retval.0.i.ptr79 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %incdec.ptr.i.add
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   br label %if.then7.i
 
@@ -5310,13 +5310,13 @@ if.else5.i:                                       ; preds = %if.else.i
   br i1 %cmp6.i64, label %if.then7.i, label %if.else16.i
 
 if.then7.i:                                       ; preds = %if.else5.i.thread, %if.else5.i
-  %retval.0.i.ptr828793 = phi ptr [ %retval.0.i.ptr78, %if.else5.i.thread ], [ %retval.0.i.ptr, %if.else5.i ]
-  %unicode.1808892 = phi i32 [ %add.i.i, %if.else5.i.thread ], [ %unicode.1, %if.else5.i ]
-  %and8.i = shl nuw nsw i32 %unicode.1808892, 4
+  %retval.0.i.ptr838894 = phi ptr [ %retval.0.i.ptr79, %if.else5.i.thread ], [ %retval.0.i.ptr, %if.else5.i ]
+  %unicode.1818993 = phi i32 [ %add.i.i, %if.else5.i.thread ], [ %unicode.1, %if.else5.i ]
+  %and8.i = shl nuw nsw i32 %unicode.1818993, 4
   %shl9.i = and i32 %and8.i, 983040
-  %and11.i = shl nuw nsw i32 %unicode.1808892, 2
+  %and11.i = shl nuw nsw i32 %unicode.1818993, 2
   %shl12.i = and i32 %and11.i, 16128
-  %and14.i = and i32 %unicode.1808892, 63
+  %and14.i = and i32 %unicode.1818993, 63
   %or10.i = or disjoint i32 %and14.i, %shl12.i
   %or13.i = or disjoint i32 %or10.i, %shl9.i
   %or15.i = or disjoint i32 %or13.i, 14712960
@@ -5351,7 +5351,7 @@ if.else30.i:                                      ; preds = %if.else16.i
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end33.i:                                       ; preds = %if.then18.i, %if.then7.i, %if.then2.i, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
-  %retval.0.i.ptr83 = phi ptr [ %retval.0.i.ptr, %if.then18.i ], [ %retval.0.i.ptr, %if.then2.i ], [ %retval.0.i.ptr828793, %if.then7.i ], [ %retval.0.i.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
+  %retval.0.i.ptr84 = phi ptr [ %retval.0.i.ptr, %if.then18.i ], [ %retval.0.i.ptr, %if.then2.i ], [ %retval.0.i.ptr838894, %if.then7.i ], [ %retval.0.i.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %33 = phi i32 [ %or29.i, %if.then18.i ], [ %or4.i, %if.then2.i ], [ %or15.i, %if.then7.i ], [ %unicode.1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %len.0.i = phi i64 [ 4, %if.then18.i ], [ 2, %if.then2.i ], [ 3, %if.then7.i ], [ 1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %call34.i = call noundef i32 @_ZN6google8protobuf6ghtonlEj(i32 noundef %33)
@@ -5362,9 +5362,9 @@ if.end33.i:                                       ; preds = %if.then18.i, %if.th
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.else30.i, %if.end33.i
-  %retval.0.i.ptr81 = phi ptr [ %retval.0.i.ptr, %if.else30.i ], [ %retval.0.i.ptr83, %if.end33.i ]
+  %retval.0.i.ptr82 = phi ptr [ %retval.0.i.ptr, %if.else30.i ], [ %retval.0.i.ptr84, %if.end33.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
-  %add.ptr64 = getelementptr inbounds i8, ptr %retval.0.i.ptr81, i64 -1
+  %add.ptr64 = getelementptr inbounds i8, ptr %retval.0.i.ptr82, i64 -1
   br label %for.cond.backedge
 
 sw.bb1.i:                                         ; preds = %if.else

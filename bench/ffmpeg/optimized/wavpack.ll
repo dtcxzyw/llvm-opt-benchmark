@@ -1917,8 +1917,8 @@ bytestream2_get_le24.exit671.i:                   ; preds = %.lr.ph1009.i, %wp_e
   %864 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %865 = load i32, ptr %864, align 4, !tbaa !45
   %.not537.i = icmp eq i32 %865, 0
-  %.not1414.i = icmp eq i32 %.0475983.i, 0
-  %or.cond775 = select i1 %.not537.i, i1 %.not1414.i, i1 false
+  %.not1415.i = icmp eq i32 %.0475983.i, 0
+  %or.cond775 = select i1 %.not537.i, i1 %.not1415.i, i1 false
   br i1 %or.cond775, label %867, label %.thread1302.i.thread
 
 .thread1302.i:                                    ; preds = %862

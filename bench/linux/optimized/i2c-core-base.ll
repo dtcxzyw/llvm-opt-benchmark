@@ -3706,8 +3706,8 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = load i64, ptr %30, align 8
-  %.fr74 = freeze i64 %35
-  %36 = and i64 %.fr74, 1
+  %.fr = freeze i64 %35
+  %36 = and i64 %.fr, 1
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %153, label %38
 
@@ -3716,7 +3716,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %39, label %40, label %153
 
 40:                                               ; preds = %38
-  %41 = and i64 %.fr74, 2
+  %41 = and i64 %.fr, 2
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %62, label %43
 
@@ -3747,7 +3747,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread
 
 62:                                               ; preds = %43, %40
-  %63 = and i64 %.fr74, 4
+  %63 = and i64 %.fr, 4
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %85, label %65
 
@@ -3779,7 +3779,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread
 
 85:                                               ; preds = %65, %62
-  %86 = and i64 %.fr74, 8
+  %86 = and i64 %.fr, 8
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %108, label %88
 
@@ -3883,10 +3883,10 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 159:                                              ; preds = %153
   %160 = getelementptr inbounds nuw i8, ptr %30, i64 14
-  %161 = and i64 %.fr74, 32
+  %161 = and i64 %.fr, 32
   %162 = icmp ne i64 %161, 0
   %163 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %164 = and i64 %.fr74, 64
+  %164 = and i64 %.fr, 64
   %165 = icmp ne i64 %164, 0
   %166 = zext nneg i32 %2 to i64
   br i1 %155, label %.split.us, label %.split.split

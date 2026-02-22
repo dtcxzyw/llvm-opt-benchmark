@@ -4153,15 +4153,15 @@ cp_opt.exit:                                      ; preds = %3
   %.057114 = phi i32 [ 0, %.lr.ph116 ], [ %.us-phi, %cp_check.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 131072)
-  %.fr = freeze i32 %27
-  %.not65 = icmp eq i32 %.fr, 0
+  %.fr117 = freeze i32 %27
+  %.not65 = icmp eq i32 %.fr117, 0
   %28 = select i1 %.not65, i32 14, i32 4
   store i32 %28, ptr %15, align 4, !tbaa !113
   %.not66105 = icmp eq i32 %.057114, 0
   br i1 %.not66105, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26
-  %29 = and i32 %.fr, 131072
+  %29 = and i32 %.fr117, 131072
   %.not67 = icmp eq i32 %29, 0
   br i1 %.not67, label %.lr.ph.split.us, label %.lr.ph.split.split
 

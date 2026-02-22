@@ -596,10 +596,10 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i.i: ; preds = %244
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %192 = load i64, ptr %191, align 8, !alias.scope !96, !noalias !103, !noundef !11
   %193 = load i64, ptr %46, align 8, !alias.scope !96, !noalias !103
-  %.fr.i = freeze i64 %193
+  %.fr53.i = freeze i64 %193
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %195 = load i64, ptr %194, align 8, !alias.scope !96, !noalias !103
-  %196 = add i64 %.fr.i, -1
+  %196 = add i64 %.fr53.i, -1
   %.first_iter.i.i = icmp ult i64 %196, %67
   br label %197
 
@@ -626,7 +626,7 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i.i: ; preds = %244
   br i1 %212, label %197, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i.i"
 
 .preheader52.i.i:                                 ; preds = %197, %227
-  %.sroa.04.0.i.i.i = phi i64 [ %228, %227 ], [ %.fr.i, %197 ]
+  %.sroa.04.0.i.i.i = phi i64 [ %228, %227 ], [ %.fr53.i, %197 ]
   %213 = icmp ult i64 %.sroa.04.0.i.i.i, %67
   br i1 %213, label %224, label %.preheader.i.preheader.i
 
@@ -634,7 +634,7 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i.i: ; preds = %244
   br i1 %.first_iter.i.i, label %.preheader.i.us.i, label %.preheader.i.i
 
 .preheader.i.us.i:                                ; preds = %.preheader.i.preheader.i, %218
-  %.sroa.59.0.i.i.us.i = phi i64 [ %215, %218 ], [ %.fr.i, %.preheader.i.preheader.i ]
+  %.sroa.59.0.i.i.us.i = phi i64 [ %215, %218 ], [ %.fr53.i, %.preheader.i.preheader.i ]
   %.not.i.us.i = icmp eq i64 %.sroa.59.0.i.i.us.i, 0
   br i1 %.not.i.us.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i.i", label %214
 
@@ -662,7 +662,7 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i.i: ; preds = %244
   br i1 %226, label %227, label %233
 
 .preheader.i.i:                                   ; preds = %.preheader.i.preheader.i
-  %.not.i.i = icmp eq i64 %.fr.i, 0
+  %.not.i.i = icmp eq i64 %.fr53.i, 0
   br i1 %.not.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h45b6fe7b2ee2b133E.exit.i.i", label %.invoke.i
 
 227:                                              ; preds = %224
@@ -675,12 +675,12 @@ _ZN4core3str7pattern13simd_contains17he2e01193d3743636E.exit.i.i: ; preds = %244
   br i1 %.not24.i.i.i, label %.preheader52.i.i, label %235
 
 233:                                              ; preds = %224
-  %234 = add i64 %198, %.fr.i
+  %234 = add i64 %198, %.fr53.i
   %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %63, i64 %234)
   br label %.invoke.i
 
 235:                                              ; preds = %227
-  %reass.sub39 = sub i64 %198, %.fr.i
+  %reass.sub39 = sub i64 %198, %.fr53.i
   %236 = add i64 %reass.sub39, 1
   %237 = add i64 %236, %.sroa.04.0.i.i.i
   br label %209

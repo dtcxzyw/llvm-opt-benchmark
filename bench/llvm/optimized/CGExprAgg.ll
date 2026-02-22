@@ -7347,8 +7347,8 @@ _ZN12_GLOBAL__N_114AggExprEmitter10EnsureSlotEN5clang8QualTypeE.exit: ; preds = 
   %63 = load ptr, ptr %62, align 8, !tbaa !282
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8
-  %.fr4.i = freeze i64 %65
-  %66 = and i64 %.fr4.i, 8796093022208
+  %.fr5.i = freeze i64 %65
+  %66 = and i64 %.fr5.i, 8796093022208
   %.not.i.i = icmp eq i64 %66, 0
   br i1 %59, label %67, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
 
@@ -7359,8 +7359,8 @@ _ZN12_GLOBAL__N_114AggExprEmitter10EnsureSlotEN5clang8QualTypeE.exit: ; preds = 
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 184
   %70 = load ptr, ptr %69, align 8, !tbaa !738
   %71 = load i64, ptr %70, align 8
-  %.fr.i = freeze i64 %71
-  %72 = and i64 %.fr.i, 512
+  %.fr4.i = freeze i64 %71
+  %72 = and i64 %.fr4.i, 512
   %.not.i = icmp eq i64 %72, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %73
 

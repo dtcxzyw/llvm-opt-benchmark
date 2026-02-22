@@ -2116,15 +2116,14 @@ _ZNK2OT11ResourceMap15get_type_recordEj.exit.i:   ; preds = %73, %57
 _ZNK2OT18ResourceTypeRecord18get_resource_countEv.exit.i: ; preds = %_ZNK2OT11ResourceMap15get_type_recordEj.exit.i
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %95 = load i8, ptr %94, align 1
-  %.fr.i.i = freeze i8 %95
-  %96 = zext i8 %.fr.i.i to i32
+  %96 = zext i8 %95 to i32
   %97 = shl nuw nsw i32 %96, 8
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 5
   %99 = load i8, ptr %98, align 1
-  %.fr3.i.i = freeze i8 %99
-  %100 = zext i8 %.fr3.i.i to i32
+  %100 = zext i8 %99 to i32
   %101 = or disjoint i32 %97, %100
-  %.not13.i = icmp ugt i32 %1, %101
+  %.fr.i.i = freeze i32 %101
+  %.not13.i = icmp ugt i32 %1, %.fr.i.i
   br i1 %.not13.i, label %135, label %_ZNK2OT18ResourceTypeRecord19get_resource_recordEjPKv.exit.i
 
 _ZNK2OT18ResourceTypeRecord19get_resource_recordEjPKv.exit.i: ; preds = %_ZNK2OT18ResourceTypeRecord18get_resource_countEv.exit.i

@@ -2599,13 +2599,13 @@ Vec_IntPush.exit410:                              ; preds = %.Vec_IntGrow.exit10
 .lr.ph.i:                                         ; preds = %343
   %345 = add nsw i32 %.val287, -6
   %346 = shl nuw i32 1, %345
-  %.fr82.i.i.i = freeze i32 %346
+  %.fr.i.i.i = freeze i32 %346
   %347 = icmp samesign ult i32 %.val287, 7
-  %348 = sext i32 %.fr82.i.i.i to i64
+  %348 = sext i32 %.fr.i.i.i to i64
   %.idx.i57.i = shl nsw i64 %348, 3
   %349 = getelementptr inbounds i8, ptr %275, i64 %.idx.i57.i
   %.not.i411 = icmp eq i32 %345, 31
-  %wide.trip.count51.i72.i = zext nneg i32 %.fr82.i.i.i to i64
+  %wide.trip.count51.i72.i = zext nneg i32 %.fr.i.i.i to i64
   %wide.trip.count.i = zext nneg i32 %.val287 to i64
   br label %350
 
@@ -2875,7 +2875,7 @@ Abc_TtCofactor0.exit.i:                           ; preds = %._crit_edge.us.i70.
   br i1 %exitcond113.not.i, label %.loopexit.i, label %437, !llvm.loop !95
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %smax56.i.i.i = call i32 @llvm.smax.i32(i32 %.fr82.i.i.i, i32 1)
+  %smax56.i.i.i = call i32 @llvm.smax.i32(i32 %.fr.i.i.i, i32 1)
   %wide.trip.count57.i.i.i = zext nneg i32 %smax56.i.i.i to i64
   %.not32.i.i = icmp eq ptr %.val344, null
   br i1 %347, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
@@ -3051,7 +3051,7 @@ Abc_TtHasVar.exit.thread.i.i:                     ; preds = %._crit_edge.us.i.i.
   br i1 %.not.i81.not.i, label %Abc_TtSimplify.exit, label %.lr.ph61.i.i.i
 
 .lr.ph61.i.i.i:                                   ; preds = %542
-  %545 = select i1 %347, i32 1, i32 %.fr82.i.i.i
+  %545 = select i1 %347, i32 1, i32 %.fr.i.i.i
   %546 = sext i32 %545 to i64
   %.idx65.i.i.i.i = shl nsw i64 %546, 3
   %547 = getelementptr inbounds i8, ptr %275, i64 %.idx65.i.i.i.i

@@ -987,27 +987,27 @@ define hidden noundef i32 @_ZN13LogFileOutput14write_blockingERK14LogDecorations
   %14 = zext nneg i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = load i64, ptr %15, align 8
-  %.fr = freeze i64 %16
-  %17 = add i64 %.fr, %14
-  store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %19 = load i32, ptr %18, align 4
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %20
+  %17 = add i64 %16, %14
+  %18 = freeze i64 %17
+  store i64 %18, ptr %15, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %20 = load i32, ptr %19, align 4
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %21
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, -1
-  %or.cond = icmp ult i64 %23, %17
-  br i1 %or.cond, label %24, label %_ZN13LogFileOutput13should_rotateEv.exit.thread
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %23 = load i64, ptr %22, align 8
+  %24 = add i64 %23, -1
+  %or.cond = icmp ult i64 %24, %18
+  br i1 %or.cond, label %25, label %_ZN13LogFileOutput13should_rotateEv.exit.thread
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   tail call void @_ZN13LogFileOutput6rotateEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
   br label %_ZN13LogFileOutput13should_rotateEv.exit.thread
 
-_ZN13LogFileOutput13should_rotateEv.exit.thread:  ; preds = %13, %20, %8, %24, %3
-  %.0 = phi i32 [ 0, %3 ], [ %9, %13 ], [ %9, %24 ], [ %11, %8 ], [ %9, %20 ]
+_ZN13LogFileOutput13should_rotateEv.exit.thread:  ; preds = %13, %21, %8, %25, %3
+  %.0 = phi i32 [ 0, %3 ], [ %9, %13 ], [ %9, %25 ], [ %11, %8 ], [ %9, %21 ]
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1) #13
   ret i32 %.0
 }
@@ -1114,7 +1114,7 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeEN16LogMessageBuffer8Iterator
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %25, label %6
+  br i1 %5, label %26, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #13
@@ -1123,7 +1123,7 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeEN16LogMessageBuffer8Iterator
 
 8:                                                ; preds = %6
   tail call void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMessageBuffer8IteratorE(ptr noundef nonnull align 8 dereferenceable(1184) %7, ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull byval(%"class.LogMessageBuffer::Iterator") align 8 %1) #13
-  br label %25
+  br label %26
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -1136,30 +1136,30 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeEN16LogMessageBuffer8Iterator
   %14 = zext nneg i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = load i64, ptr %15, align 8
-  %.fr = freeze i64 %16
-  %17 = add i64 %.fr, %14
-  store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %19 = load i32, ptr %18, align 4
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %20
+  %17 = add i64 %16, %14
+  %18 = freeze i64 %17
+  store i64 %18, ptr %15, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %20 = load i32, ptr %19, align 4
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %21
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, -1
-  %or.cond = icmp ult i64 %23, %17
-  br i1 %or.cond, label %24, label %_ZN13LogFileOutput13should_rotateEv.exit.thread
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %23 = load i64, ptr %22, align 8
+  %24 = add i64 %23, -1
+  %or.cond = icmp ult i64 %24, %18
+  br i1 %or.cond, label %25, label %_ZN13LogFileOutput13should_rotateEv.exit.thread
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   tail call void @_ZN13LogFileOutput6rotateEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
   br label %_ZN13LogFileOutput13should_rotateEv.exit.thread
 
-_ZN13LogFileOutput13should_rotateEv.exit.thread:  ; preds = %13, %20, %24, %9
+_ZN13LogFileOutput13should_rotateEv.exit.thread:  ; preds = %13, %21, %25, %9
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1) #13
-  br label %25
+  br label %26
 
-25:                                               ; preds = %2, %_ZN13LogFileOutput13should_rotateEv.exit.thread, %8
+26:                                               ; preds = %2, %_ZN13LogFileOutput13should_rotateEv.exit.thread, %8
   %.0 = phi i32 [ %11, %_ZN13LogFileOutput13should_rotateEv.exit.thread ], [ 0, %8 ], [ 0, %2 ]
   ret i32 %.0
 }

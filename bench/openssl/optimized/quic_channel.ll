@@ -5668,7 +5668,7 @@ define internal i32 @ch_on_crypto_recv_record(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not31, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %19
-  %11 = phi i64 [ %.fr, %19 ], [ %8, %3 ]
+  %11 = phi i64 [ %.fr46, %19 ], [ %8, %3 ]
   %.030 = phi i32 [ %21, %19 ], [ 0, %3 ]
   %.not = icmp eq i32 %.030, 1
   br i1 %.not, label %19, label %12
@@ -5719,9 +5719,9 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
 
 19:                                               ; preds = %crypto_ensure_empty.exit._crit_edge, %crypto_ensure_empty.exit.thread24, %.lr.ph
   %20 = phi i64 [ %.pre, %crypto_ensure_empty.exit._crit_edge ], [ %11, %crypto_ensure_empty.exit.thread24 ], [ %11, %.lr.ph ]
-  %.fr = freeze i64 %20
+  %.fr46 = freeze i64 %20
   %21 = add nuw nsw i32 %.030, 1
-  %22 = trunc i64 %.fr to i32
+  %22 = trunc i64 %.fr46 to i32
   %23 = lshr i32 %22, 17
   %24 = and i32 %23, 7
   %25 = icmp samesign ult i32 %21, %24

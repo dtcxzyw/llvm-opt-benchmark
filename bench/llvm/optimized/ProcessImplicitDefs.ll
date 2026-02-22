@@ -439,14 +439,14 @@ _ZN4llvm9SetVectorIPNS_12MachineInstrENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2
   %85 = load ptr, ptr %84, align 8, !tbaa !201
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4, !tbaa !202
-  %.fr82.i = freeze i32 %87
-  %88 = icmp slt i32 %.fr82.i, 0
+  %.fr.i = freeze i32 %87
+  %88 = icmp slt i32 %.fr.i, 0
   br i1 %88, label %89, label %143
 
 89:                                               ; preds = %_ZN4llvm9SetVectorIPNS_12MachineInstrENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE12pop_back_valEv.exit
   %90 = load ptr, ptr %20, align 8, !tbaa !168
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %92 = and i32 %.fr82.i, 2147483647
+  %92 = and i32 %.fr.i, 2147483647
   %93 = zext nneg i32 %92 to i64
   %94 = load ptr, ptr %91, align 8
   %95 = getelementptr inbounds nuw %"struct.std::pair", ptr %94, i64 %93
@@ -596,7 +596,7 @@ _ZN12_GLOBAL__N_119ProcessImplicitDefs22canTurnIntoImplicitDefEPN4llvm12MachineI
   %144 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !216
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 48
-  %147 = add nsw i32 %.fr82.i, -1
+  %147 = add nsw i32 %.fr.i, -1
   %148 = icmp ult i32 %147, 1073741823
   %.sroa.047.0.in.us.i37 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.047.0.us.i38 = load ptr, ptr %.sroa.047.0.in.us.i37, align 8, !tbaa !170
@@ -637,12 +637,12 @@ _ZN12_GLOBAL__N_119ProcessImplicitDefs22canTurnIntoImplicitDefEPN4llvm12MachineI
   br i1 %162, label %163, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread62.us.us.i
 
 163:                                              ; preds = %158
-  %164 = icmp eq i32 %.fr82.i, %160
+  %164 = icmp eq i32 %.fr.i, %160
   br i1 %164, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us.us.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.us.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.us.i: ; preds = %163
   %165 = load ptr, ptr %17, align 8, !tbaa !166
-  %166 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %165, i32 %.fr82.i, i32 %160) #14
+  %166 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %165, i32 %.fr.i, i32 %160) #14
   br i1 %166, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.us._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us.us_crit_edge.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread62.us.us.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.us._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us.us_crit_edge.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.us.i
@@ -709,7 +709,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread62.us.us.
   %183 = load i32, ptr %182, align 4, !tbaa !202
   %184 = add i32 %183, -1
   %185 = icmp ult i32 %184, 1073741823
-  %186 = icmp eq i32 %.fr82.i, %183
+  %186 = icmp eq i32 %.fr.i, %183
   %or.cond.i = and i1 %186, %185
   br i1 %or.cond.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread62.i
 

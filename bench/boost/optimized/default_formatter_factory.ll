@@ -6384,11 +6384,11 @@ define linkonce_odr hidden void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_1
   %5 = alloca %"struct.boost::gregorian::bad_day_of_month", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %.fr.i = freeze i16 %1
+  %.fr5.i = freeze i16 %1
   %8 = zext i16 %2 to i32
   %9 = sub nsw i32 14, %8
   %10 = sdiv i32 %9, 12
-  %11 = zext i16 %.fr.i to i32
+  %11 = zext i16 %.fr5.i to i32
   %12 = add nuw nsw i32 %11, 4800
   %13 = sub nsw i32 %12, %10
   %14 = trunc nsw i32 %10 to i16
@@ -6424,14 +6424,14 @@ define linkonce_odr hidden void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_1
   ]
 
 34:                                               ; preds = %4
-  %35 = and i16 %.fr.i, 3
+  %35 = and i16 %.fr5.i, 3
   %.not.i.i = icmp eq i16 %35, 0
   br i1 %.not.i.i, label %36, label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit
 
 36:                                               ; preds = %34
-  %37 = urem i16 %.fr.i, 100
+  %37 = urem i16 %.fr5.i, 100
   %.not1.i.i = icmp ne i16 %37, 0
-  %38 = urem i16 %.fr.i, 400
+  %38 = urem i16 %.fr5.i, 400
   %.not2.i.i = icmp eq i16 %38, 0
   %or.cond.i = or i1 %.not1.i.i, %.not2.i.i
   %spec.select.i = select i1 %or.cond.i, i16 29, i16 28

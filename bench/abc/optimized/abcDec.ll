@@ -1568,29 +1568,27 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %158 = load i64, ptr %150, align 8, !tbaa !6
-  %.fr18.us.i = freeze i64 %158
-  %wide.trip.count56.i = zext nneg i32 %151 to i64
+  %wide.trip.count54.i = zext nneg i32 %151 to i64
   br label %Abc_TtHasVar.exit.us.i
 
 Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.us.i, %.lr.ph.split.us.i
-  %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %.024.us.i = phi i32 [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %159 = trunc nuw nsw i64 %indvars.iv53.i to i32
+  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %.022.us.i = phi i32 [ %spec.select.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %159 = trunc nuw nsw i64 %indvars.iv51.i to i32
   %160 = shl nuw i32 1, %159
   %161 = zext nneg i32 %160 to i64
-  %162 = lshr i64 %.fr18.us.i, %161
-  %163 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv53.i
+  %162 = lshr i64 %158, %161
+  %163 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv51.i
   %164 = load i64, ptr %163, align 8, !tbaa !6
-  %.fr.us.i = freeze i64 %162
-  %165 = xor i64 %.fr.us.i, %.fr18.us.i
-  %.fr19.us.i = freeze i64 %164
-  %166 = and i64 %165, %.fr19.us.i
-  %.not17.us.i = icmp ne i64 %166, 0
+  %165 = xor i64 %162, %158
+  %166 = and i64 %165, %164
+  %.fr.us.i = freeze i64 %166
+  %.not17.us.i = icmp ne i64 %.fr.us.i, 0
   %167 = zext i1 %.not17.us.i to i32
-  %spec.select.i = add nuw nsw i32 %.024.us.i, %167
-  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
-  br i1 %exitcond57.not.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !70
+  %spec.select.i = add nuw nsw i32 %.022.us.i, %167
+  %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
+  br i1 %exitcond55.not.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !70
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %.not48.i.i = icmp eq i32 %154, 31
@@ -1602,7 +1600,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 
 .lr.ph.split.split.split.i:                       ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.split.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %indvars.iv.next.i, %Abc_TtHasVar.exit.thread.i ]
-  %.024.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %196, %Abc_TtHasVar.exit.thread.i ]
+  %.022.i = phi i32 [ 0, %.lr.ph.split.split.split.preheader.i ], [ %196, %Abc_TtHasVar.exit.thread.i ]
   %168 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %168, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
@@ -1669,11 +1667,11 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   br i1 %194, label %.preheader.us.i.i, label %Abc_TtHasVar.exit.thread.i, !llvm.loop !73
 
 Abc_TtHasVar.exit.thread13.i:                     ; preds = %175, %189
-  %195 = add nsw i32 %.024.i, 1
+  %195 = add nsw i32 %.022.i, 1
   br label %Abc_TtHasVar.exit.thread.i
 
 Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i, %174, %Abc_TtHasVar.exit.thread13.i, %.preheader.lr.ph.i.i
-  %196 = phi i32 [ %195, %Abc_TtHasVar.exit.thread13.i ], [ %.024.i, %174 ], [ %.024.i, %.preheader.lr.ph.i.i ], [ %.024.i, %._crit_edge.us.i.i ]
+  %196 = phi i32 [ %195, %Abc_TtHasVar.exit.thread13.i ], [ %.022.i, %174 ], [ %.022.i, %.preheader.lr.ph.i.i ], [ %.022.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i, !llvm.loop !70

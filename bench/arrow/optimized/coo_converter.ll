@@ -532,7 +532,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %71, %69
   br label %.lr.ph.i.i.i.i.i.preheader.us.i
 
 .lr.ph.i.i.i.i.i.preheader.us.i:                  ; preds = %.thread.us.i, %.lr.ph.i.i.i.i.i.preheader.us.preheader.i
-  %indvars.iv.i = phi ptr [ %scevgep.i, %.lr.ph.i.i.i.i.i.preheader.us.preheader.i ], [ %scevgep393.i, %.thread.us.i ]
+  %indvars.iv.i = phi ptr [ %scevgep.i, %.lr.ph.i.i.i.i.i.preheader.us.preheader.i ], [ %scevgep394.i, %.thread.us.i ]
   %.0235345.us.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.preheader.us.preheader.i ], [ %205, %.thread.us.i ]
   %.0238343.us.i = phi ptr [ %149, %.lr.ph.i.i.i.i.i.preheader.us.preheader.i ], [ %167, %.thread.us.i ]
   %.0239341.us.i = phi ptr [ %141, %.lr.ph.i.i.i.i.i.preheader.us.preheader.i ], [ %.1240.us.i, %.thread.us.i ]
@@ -662,9 +662,9 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   %.1242.us.i = phi ptr [ %203, %_ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us.i ], [ %.0241339.us.i, %.loopexit.us.i ], [ %.0241339.us.i, %._crit_edge.i.i.i.i.i.loopexit.us.i ], [ %.0241339.us.i, %190 ]
   %.1240.us.i = phi ptr [ %204, %_ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us.i ], [ %.0239341.us.i, %.loopexit.us.i ], [ %.0239341.us.i, %._crit_edge.i.i.i.i.i.loopexit.us.i ], [ %.0239341.us.i, %190 ]
   %205 = add nuw nsw i64 %.0235345.us.i, 1
-  %scevgep393.i = getelementptr i8, ptr %indvars.iv.i, i64 %119
-  %exitcond394.not.i = icmp eq i64 %205, %157
-  br i1 %exitcond394.not.i, label %.loopexit330.i, label %.lr.ph.i.i.i.i.i.preheader.us.i, !llvm.loop !90
+  %scevgep394.i = getelementptr i8, ptr %indvars.iv.i, i64 %119
+  %exitcond395.not.i = icmp eq i64 %205, %157
+  br i1 %exitcond395.not.i, label %.loopexit330.i, label %.lr.ph.i.i.i.i.i.preheader.us.i, !llvm.loop !90
 
 ._crit_edge.i.i.i.i.i.loopexit.us.i:              ; preds = %178
   switch i64 %166, label %default.unreachable [
@@ -756,8 +756,8 @@ _ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us363.i:      ; preds = %223, %221, %219, %2
   %.1242.us365.i = phi ptr [ %225, %_ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us363.i ], [ %.0241339.us351.i, %217 ], [ %.0241339.us351.i, %._crit_edge.i.i.i.i.i.us347.i ], [ %.0241339.us351.i, %215 ]
   %.1240.us366.i = phi ptr [ %226, %_ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us363.i ], [ %.0239341.us350.i, %217 ], [ %.0239341.us350.i, %._crit_edge.i.i.i.i.i.us347.i ], [ %.0239341.us350.i, %215 ]
   %227 = add nuw nsw i64 %.0235345.us348.i, 1
-  %exitcond392.not.i = icmp eq i64 %227, %157
-  br i1 %exitcond392.not.i, label %.loopexit330.i, label %._crit_edge.i.i.i.i.i.us347.i, !llvm.loop !90
+  %exitcond393.not.i = icmp eq i64 %227, %157
+  br i1 %exitcond393.not.i, label %.loopexit330.i, label %._crit_edge.i.i.i.i.i.us347.i, !llvm.loop !90
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i
   br i1 %163, label %.loopexit330.i, label %._crit_edge.i.i.i.i.i.i.preheader
@@ -2624,12 +2624,11 @@ _ZN5arrow6StatusD2Ev.exit72:                      ; preds = %_ZN5arrow6StatusD2E
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %147 = load ptr, ptr %146, align 8, !tbaa !55
   %148 = load ptr, ptr %125, align 8, !tbaa !58
-  %.fr169 = freeze ptr %147
-  %149 = ptrtoint ptr %.fr169 to i64
-  %.fr170 = freeze ptr %148
-  %150 = ptrtoint ptr %.fr170 to i64
+  %149 = ptrtoint ptr %147 to i64
+  %150 = ptrtoint ptr %148 to i64
   %151 = sub i64 %149, %150
-  %152 = lshr i64 %151, 3
+  %.fr170 = freeze i64 %151
+  %152 = lshr i64 %.fr170, 3
   %153 = trunc i64 %152 to i32
   %154 = icmp sgt i32 %153, 0
   %155 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %40, i1 true)
@@ -3373,10 +3372,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr43 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr43 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3386,7 +3383,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %15, ptr %17, ptr null, !prof !59
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %19 = ashr i64 %sext, 32
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3583,10 +3581,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr43 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr43 to i64
-  %.fr44 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr44 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3596,7 +3592,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %15, ptr %17, ptr null, !prof !59
-  %sext = shl i64 %10, 29
+  %.fr44 = freeze i64 %10
+  %sext = shl i64 %.fr44, 29
   %19 = ashr i64 %sext, 32
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3635,15 +3632,14 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr46 = freeze ptr %29
-  %.fr45 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr45 to i64
-  %31 = ptrtoint ptr %.fr46 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr46, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %29, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -3697,7 +3693,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr46, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %29, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -3820,10 +3816,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr44 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr44 to i64
-  %.fr45 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr45 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3833,7 +3827,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %15, ptr %17, ptr null, !prof !59
-  %sext = shl i64 %10, 29
+  %.fr45 = freeze i64 %10
+  %sext = shl i64 %.fr45, 29
   %19 = ashr i64 %sext, 32
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3872,15 +3867,14 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc29, %_ZNSt6ve
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr47 = freeze ptr %29
-  %.fr46 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr46 to i64
-  %31 = ptrtoint ptr %.fr47 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %29, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -3934,7 +3928,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %29, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -4057,10 +4051,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr44 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr44 to i64
-  %.fr45 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr45 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -4070,7 +4062,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %15, ptr %17, ptr null, !prof !59
-  %sext = shl i64 %10, 29
+  %.fr45 = freeze i64 %10
+  %sext = shl i64 %.fr45, 29
   %19 = ashr i64 %sext, 32
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4109,15 +4102,14 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc29, %_ZNSt6ve
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr47 = freeze ptr %29
-  %.fr46 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr46 to i64
-  %31 = ptrtoint ptr %.fr47 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %29, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -4171,7 +4163,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %29, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -4557,16 +4549,15 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val28.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val28.us.fr = freeze ptr %.val28.us
   %.val29.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val29.us.fr = freeze ptr %.val29.us
-  %31 = ptrtoint ptr %.val29.us.fr to i64
-  %32 = ptrtoint ptr %.val28.us.fr to i64
+  %31 = ptrtoint ptr %.val29.us to i64
+  %32 = ptrtoint ptr %.val28.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i16, ptr %.sroa.033.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val28.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val28.us, i64 %35
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = icmp sgt i64 %34, 1
   br i1 %39, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
@@ -4620,7 +4611,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.ex
   %54 = phi i16 [ %64, %59 ], [ %51, %49 ]
   %.03.i.us = phi i64 [ %61, %59 ], [ %35, %49 ]
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %.val28.us.fr, i64 %.03.i.us
+  %56 = getelementptr inbounds nuw i64, ptr %.val28.us, i64 %.03.i.us
   %57 = load i64, ptr %56, align 8, !tbaa !10
   %58 = icmp eq i64 %57, %55
   br i1 %58, label %59, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -4794,16 +4785,15 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val29.us.fr = freeze ptr %.val29.us
   %.val30.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val30.us.fr = freeze ptr %.val30.us
-  %31 = ptrtoint ptr %.val30.us.fr to i64
-  %32 = ptrtoint ptr %.val29.us.fr to i64
+  %31 = ptrtoint ptr %.val30.us to i64
+  %32 = ptrtoint ptr %.val29.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i16, ptr %.sroa.034.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %35
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = icmp sgt i64 %34, 1
   br i1 %39, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
@@ -4864,7 +4854,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.ex
   %55 = phi i16 [ %65, %60 ], [ %52, %50 ]
   %.03.i.us = phi i64 [ %62, %60 ], [ %35, %50 ]
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %.03.i.us
+  %57 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %.03.i.us
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = icmp eq i64 %58, %56
   br i1 %59, label %60, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -5038,16 +5028,15 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val29.us.fr = freeze ptr %.val29.us
   %.val30.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val30.us.fr = freeze ptr %.val30.us
-  %31 = ptrtoint ptr %.val30.us.fr to i64
-  %32 = ptrtoint ptr %.val29.us.fr to i64
+  %31 = ptrtoint ptr %.val30.us to i64
+  %32 = ptrtoint ptr %.val29.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i16, ptr %.sroa.034.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %35
   %38 = icmp sgt i64 %34, 1
   br i1 %38, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -5108,7 +5097,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.ex
   %55 = phi i16 [ %65, %60 ], [ %51, %49 ]
   %.03.i.us = phi i64 [ %62, %60 ], [ %35, %49 ]
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %.03.i.us
+  %57 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %.03.i.us
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = icmp eq i64 %58, %56
   br i1 %59, label %60, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -5492,16 +5481,15 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val28.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val28.us.fr = freeze ptr %.val28.us
   %.val29.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val29.us.fr = freeze ptr %.val29.us
-  %31 = ptrtoint ptr %.val29.us.fr to i64
-  %32 = ptrtoint ptr %.val28.us.fr to i64
+  %31 = ptrtoint ptr %.val29.us to i64
+  %32 = ptrtoint ptr %.val28.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i32, ptr %.sroa.033.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val28.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val28.us, i64 %35
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = icmp sgt i64 %34, 1
   br i1 %39, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
@@ -5562,7 +5550,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.ex
   %55 = phi i32 [ %65, %60 ], [ %52, %50 ]
   %.03.i.us = phi i64 [ %62, %60 ], [ %35, %50 ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %.val28.us.fr, i64 %.03.i.us
+  %57 = getelementptr inbounds nuw i64, ptr %.val28.us, i64 %.03.i.us
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = icmp eq i64 %58, %56
   br i1 %59, label %60, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -5736,16 +5724,15 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val29.us.fr = freeze ptr %.val29.us
   %.val30.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val30.us.fr = freeze ptr %.val30.us
-  %31 = ptrtoint ptr %.val30.us.fr to i64
-  %32 = ptrtoint ptr %.val29.us.fr to i64
+  %31 = ptrtoint ptr %.val30.us to i64
+  %32 = ptrtoint ptr %.val29.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i32, ptr %.sroa.034.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %35
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = icmp sgt i64 %34, 1
   br i1 %39, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
@@ -5799,7 +5786,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.ex
   %54 = phi i32 [ %64, %59 ], [ %51, %49 ]
   %.03.i.us = phi i64 [ %61, %59 ], [ %35, %49 ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %.03.i.us
+  %56 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %.03.i.us
   %57 = load i64, ptr %56, align 8, !tbaa !10
   %58 = icmp eq i64 %57, %55
   br i1 %58, label %59, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -5973,16 +5960,15 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val29.us.fr = freeze ptr %.val29.us
   %.val30.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val30.us.fr = freeze ptr %.val30.us
-  %31 = ptrtoint ptr %.val30.us.fr to i64
-  %32 = ptrtoint ptr %.val29.us.fr to i64
+  %31 = ptrtoint ptr %.val30.us to i64
+  %32 = ptrtoint ptr %.val29.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i32, ptr %.sroa.034.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %35
   %38 = icmp sgt i64 %34, 1
   br i1 %38, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -6043,7 +6029,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.ex
   %55 = phi i32 [ %65, %60 ], [ %51, %49 ]
   %.03.i.us = phi i64 [ %62, %60 ], [ %35, %49 ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %.03.i.us
+  %57 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %.03.i.us
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = icmp eq i64 %58, %56
   br i1 %59, label %60, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -6423,16 +6409,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val28.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val28.us.fr = freeze ptr %.val28.us
   %.val29.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val29.us.fr = freeze ptr %.val29.us
-  %31 = ptrtoint ptr %.val29.us.fr to i64
-  %32 = ptrtoint ptr %.val28.us.fr to i64
+  %31 = ptrtoint ptr %.val29.us to i64
+  %32 = ptrtoint ptr %.val28.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i64, ptr %.sroa.033.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val28.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val28.us, i64 %35
   %38 = icmp sgt i64 %34, 1
   br i1 %38, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -6490,7 +6475,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES2_ET0_T_S8_S7_.ex
 .lr.ph.i.us:                                      ; preds = %48, %57
   %53 = phi i64 [ %62, %57 ], [ %50, %48 ]
   %.03.i.us = phi i64 [ %59, %57 ], [ %35, %48 ]
-  %54 = getelementptr inbounds nuw i64, ptr %.val28.us.fr, i64 %.03.i.us
+  %54 = getelementptr inbounds nuw i64, ptr %.val28.us, i64 %.03.i.us
   %55 = load i64, ptr %54, align 8, !tbaa !10
   %56 = icmp eq i64 %53, %55
   br i1 %56, label %57, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -6662,16 +6647,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val29.us.fr = freeze ptr %.val29.us
   %.val30.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val30.us.fr = freeze ptr %.val30.us
-  %31 = ptrtoint ptr %.val30.us.fr to i64
-  %32 = ptrtoint ptr %.val29.us.fr to i64
+  %31 = ptrtoint ptr %.val30.us to i64
+  %32 = ptrtoint ptr %.val29.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i64, ptr %.sroa.034.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %35
   %38 = icmp sgt i64 %34, 1
   br i1 %38, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -6729,7 +6713,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES2_ET0_T_S8_S7_.ex
 .lr.ph.i.us:                                      ; preds = %48, %57
   %53 = phi i64 [ %62, %57 ], [ %50, %48 ]
   %.03.i.us = phi i64 [ %59, %57 ], [ %35, %48 ]
-  %54 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %.03.i.us
+  %54 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %.03.i.us
   %55 = load i64, ptr %54, align 8, !tbaa !10
   %56 = icmp eq i64 %53, %55
   br i1 %56, label %57, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -6901,16 +6885,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
-  %.val29.us.fr = freeze ptr %.val29.us
   %.val30.us = load ptr, ptr %5, align 8, !tbaa !55
-  %.val30.us.fr = freeze ptr %.val30.us
-  %31 = ptrtoint ptr %.val30.us.fr to i64
-  %32 = ptrtoint ptr %.val29.us.fr to i64
+  %31 = ptrtoint ptr %.val30.us to i64
+  %32 = ptrtoint ptr %.val29.us to i64
   %33 = sub i64 %31, %32
-  %34 = ashr i64 %33, 3
+  %.fr = freeze i64 %33
+  %34 = ashr i64 %.fr, 3
   %35 = add nsw i64 %34, -1
   %36 = getelementptr inbounds nuw i64, ptr %.sroa.034.0, i64 %35
-  %37 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %35
   %38 = icmp sgt i64 %34, 1
   br i1 %38, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -6962,7 +6945,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES2_ET0_T_S8_S7_.ex
 .lr.ph.i.us:                                      ; preds = %48, %57
   %53 = phi i64 [ %62, %57 ], [ %50, %48 ]
   %.03.i.us = phi i64 [ %59, %57 ], [ %35, %48 ]
-  %54 = getelementptr inbounds nuw i64, ptr %.val29.us.fr, i64 %.03.i.us
+  %54 = getelementptr inbounds nuw i64, ptr %.val29.us, i64 %.03.i.us
   %55 = load i64, ptr %54, align 8, !tbaa !10
   %56 = icmp eq i64 %53, %55
   br i1 %56, label %57, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -14879,12 +14862,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr62 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr62 to i64
-  %.fr63 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr63 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -14965,8 +14947,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %42 = getelementptr inbounds nuw i8, ptr %.235.us, i64 1
   store i8 %41, ptr %.235.us, align 1, !tbaa !3
   %43 = add nuw nsw i64 %.01736.us, 1
-  %exitcond70.not = icmp eq i64 %43, %27
-  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !294
+  %exitcond69.not = icmp eq i64 %43, %27
+  br i1 %exitcond69.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !294
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit34.us
   %.120.us = phi ptr [ %.01937.us, %.loopexit34.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -15195,12 +15177,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr62 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr62 to i64
-  %.fr63 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr63 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -15281,8 +15262,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %42 = getelementptr inbounds nuw i8, ptr %.235.us, i64 1
   store i8 %41, ptr %.235.us, align 1, !tbaa !3
   %43 = add nuw nsw i64 %.01736.us, 1
-  %exitcond70.not = icmp eq i64 %43, %27
-  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !296
+  %exitcond69.not = icmp eq i64 %43, %27
+  br i1 %exitcond69.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !296
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit34.us
   %.120.us = phi ptr [ %.01937.us, %.loopexit34.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -15514,12 +15495,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr63 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr63 to i64
-  %.fr64 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr64 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -15600,8 +15580,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %42 = getelementptr inbounds nuw i8, ptr %.236.us, i64 1
   store i8 %41, ptr %.236.us, align 1, !tbaa !3
   %43 = add nuw nsw i64 %.01737.us, 1
-  %exitcond71.not = icmp eq i64 %43, %27
-  br i1 %exitcond71.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !298
+  %exitcond70.not = icmp eq i64 %43, %27
+  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !298
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit35.us
   %.120.us = phi ptr [ %.01938.us, %.loopexit35.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -15833,12 +15813,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr63 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr63 to i64
-  %.fr64 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr64 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -15919,8 +15898,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %42 = getelementptr inbounds nuw i8, ptr %.236.us, i64 1
   store i8 %41, ptr %.236.us, align 1, !tbaa !3
   %43 = add nuw nsw i64 %.01737.us, 1
-  %exitcond71.not = icmp eq i64 %43, %27
-  br i1 %exitcond71.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !300
+  %exitcond70.not = icmp eq i64 %43, %27
+  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !300
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit35.us
   %.120.us = phi ptr [ %.01938.us, %.loopexit35.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -16152,12 +16131,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr62 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr62 to i64
-  %.fr63 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr63 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -16238,8 +16216,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %42 = getelementptr inbounds nuw i8, ptr %.235.us, i64 2
   store i16 %41, ptr %.235.us, align 2, !tbaa !6
   %43 = add nuw nsw i64 %.01736.us, 1
-  %exitcond70.not = icmp eq i64 %43, %27
-  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !302
+  %exitcond69.not = icmp eq i64 %43, %27
+  br i1 %exitcond69.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !302
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit34.us
   %.120.us = phi ptr [ %.01937.us, %.loopexit34.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -16468,12 +16446,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr77 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr77 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr79 = freeze i64 %10
+  %sext = shl i64 %.fr79, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -16518,16 +16495,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val24 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val24.fr = freeze ptr %.val24
   %.val25 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val25.fr = freeze ptr %.val25
-  %30 = ptrtoint ptr %.val25.fr to i64
-  %31 = ptrtoint ptr %.val24.fr to i64
+  %30 = ptrtoint ptr %.val25 to i64
+  %31 = ptrtoint ptr %.val24 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.029.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val24, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph40.split, label %.lr.ph40.split.us
 
@@ -16571,8 +16547,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %52 = getelementptr inbounds nuw i8, ptr %.235.us.us, i64 2
   store i16 %51, ptr %.235.us.us, align 2, !tbaa !6
   %53 = add nuw nsw i64 %.01736.us.us, 1
-  %exitcond89.not = icmp eq i64 %53, %38
-  br i1 %exitcond89.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !304
+  %exitcond91.not = icmp eq i64 %53, %38
+  br i1 %exitcond91.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !304
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit34.us.us
   %.120.us.us = phi ptr [ %.01937.us.us, %.loopexit34.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -16692,8 +16668,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %95 = getelementptr inbounds nuw i8, ptr %.235.us51, i64 2
   store i16 %94, ptr %.235.us51, align 2, !tbaa !6
   %96 = add nuw nsw i64 %.01736.us50, 1
-  %exitcond93.not = icmp eq i64 %96, %81
-  br i1 %exitcond93.not, label %.loopexit.us55, label %.lr.ph.us59, !llvm.loop !304
+  %exitcond95.not = icmp eq i64 %96, %81
+  br i1 %exitcond95.not, label %.loopexit.us55, label %.lr.ph.us59, !llvm.loop !304
 
 .loopexit.us55:                                   ; preds = %.lr.ph.us59, %90, %.loopexit34.us57
   %.120.us52 = phi ptr [ %.01937.us43, %.loopexit34.us57 ], [ %91, %90 ], [ %91, %.lr.ph.us59 ]
@@ -16708,7 +16684,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us55, %105
   %101 = phi i64 [ %110, %105 ], [ %98, %.loopexit.us55 ]
   %.03.i.us = phi i64 [ %107, %105 ], [ %34, %.loopexit.us55 ]
-  %102 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %.03.i.us
+  %102 = getelementptr inbounds nuw i64, ptr %.val24, i64 %.03.i.us
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us54
@@ -16784,8 +16760,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %131 = getelementptr inbounds nuw i8, ptr %.235, i64 2
   store i16 %130, ptr %.235, align 2, !tbaa !6
   %132 = add nuw nsw i64 %.01736, 1
-  %exitcond91.not = icmp eq i64 %132, %81
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph, !llvm.loop !304
+  %exitcond93.not = icmp eq i64 %132, %81
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph, !llvm.loop !304
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %.lr.ph40.split.split
   %.120 = phi ptr [ %.01937, %.lr.ph40.split.split ], [ %127, %126 ], [ %127, %.lr.ph ]
@@ -16800,7 +16776,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %141
   %137 = phi i64 [ %146, %141 ], [ %134, %.loopexit ]
   %.03.i = phi i64 [ %143, %141 ], [ %34, %.loopexit ]
-  %138 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %.03.i
+  %138 = getelementptr inbounds nuw i64, ptr %.val24, i64 %.03.i
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = icmp eq i64 %137, %139
   br i1 %140, label %141, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16831,12 +16807,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr78 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr78 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr80 = freeze i64 %10
+  %sext = shl i64 %.fr80, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -16881,16 +16856,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val25 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val25.fr = freeze ptr %.val25
   %.val26 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val26.fr = freeze ptr %.val26
-  %30 = ptrtoint ptr %.val26.fr to i64
-  %31 = ptrtoint ptr %.val25.fr to i64
+  %30 = ptrtoint ptr %.val26 to i64
+  %31 = ptrtoint ptr %.val25 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val25, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph41.split, label %.lr.ph41.split.us
 
@@ -16934,8 +16908,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %52 = getelementptr inbounds nuw i8, ptr %.236.us.us, i64 2
   store i16 %51, ptr %.236.us.us, align 2, !tbaa !6
   %53 = add nuw nsw i64 %.01737.us.us, 1
-  %exitcond90.not = icmp eq i64 %53, %38
-  br i1 %exitcond90.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !306
+  %exitcond92.not = icmp eq i64 %53, %38
+  br i1 %exitcond92.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !306
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit35.us.us
   %.120.us.us = phi ptr [ %.01938.us.us, %.loopexit35.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -17055,8 +17029,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %95 = getelementptr inbounds nuw i8, ptr %.236.us52, i64 2
   store i16 %94, ptr %.236.us52, align 2, !tbaa !6
   %96 = add nuw nsw i64 %.01737.us51, 1
-  %exitcond94.not = icmp eq i64 %96, %81
-  br i1 %exitcond94.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !306
+  %exitcond96.not = icmp eq i64 %96, %81
+  br i1 %exitcond96.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !306
 
 .loopexit.us56:                                   ; preds = %.lr.ph.us60, %90, %.loopexit35.us58
   %.120.us53 = phi ptr [ %.01938.us44, %.loopexit35.us58 ], [ %91, %90 ], [ %91, %.lr.ph.us60 ]
@@ -17071,7 +17045,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us56, %105
   %101 = phi i64 [ %110, %105 ], [ %98, %.loopexit.us56 ]
   %.03.i.us = phi i64 [ %107, %105 ], [ %34, %.loopexit.us56 ]
-  %102 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i.us
+  %102 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i.us
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us55
@@ -17147,8 +17121,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %131 = getelementptr inbounds nuw i8, ptr %.236, i64 2
   store i16 %130, ptr %.236, align 2, !tbaa !6
   %132 = add nuw nsw i64 %.01737, 1
-  %exitcond92.not = icmp eq i64 %132, %81
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !306
+  %exitcond94.not = icmp eq i64 %132, %81
+  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph, !llvm.loop !306
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %.lr.ph41.split.split
   %.120 = phi ptr [ %.01938, %.lr.ph41.split.split ], [ %127, %126 ], [ %127, %.lr.ph ]
@@ -17163,7 +17137,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %141
   %137 = phi i64 [ %146, %141 ], [ %134, %.loopexit ]
   %.03.i = phi i64 [ %143, %141 ], [ %34, %.loopexit ]
-  %138 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i
+  %138 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = icmp eq i64 %137, %139
   br i1 %140, label %141, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -17194,12 +17168,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr78 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr78 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr80 = freeze i64 %10
+  %sext = shl i64 %.fr80, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -17244,16 +17217,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val25 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val25.fr = freeze ptr %.val25
   %.val26 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val26.fr = freeze ptr %.val26
-  %30 = ptrtoint ptr %.val26.fr to i64
-  %31 = ptrtoint ptr %.val25.fr to i64
+  %30 = ptrtoint ptr %.val26 to i64
+  %31 = ptrtoint ptr %.val25 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val25, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph41.split, label %.lr.ph41.split.us
 
@@ -17297,8 +17269,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %52 = getelementptr inbounds nuw i8, ptr %.236.us.us, i64 2
   store i16 %51, ptr %.236.us.us, align 2, !tbaa !6
   %53 = add nuw nsw i64 %.01737.us.us, 1
-  %exitcond90.not = icmp eq i64 %53, %38
-  br i1 %exitcond90.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !308
+  %exitcond92.not = icmp eq i64 %53, %38
+  br i1 %exitcond92.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !308
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit35.us.us
   %.120.us.us = phi ptr [ %.01938.us.us, %.loopexit35.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -17418,8 +17390,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %95 = getelementptr inbounds nuw i8, ptr %.236.us52, i64 2
   store i16 %94, ptr %.236.us52, align 2, !tbaa !6
   %96 = add nuw nsw i64 %.01737.us51, 1
-  %exitcond94.not = icmp eq i64 %96, %81
-  br i1 %exitcond94.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !308
+  %exitcond96.not = icmp eq i64 %96, %81
+  br i1 %exitcond96.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !308
 
 .loopexit.us56:                                   ; preds = %.lr.ph.us60, %90, %.loopexit35.us58
   %.120.us53 = phi ptr [ %.01938.us44, %.loopexit35.us58 ], [ %91, %90 ], [ %91, %.lr.ph.us60 ]
@@ -17434,7 +17406,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us56, %105
   %101 = phi i64 [ %110, %105 ], [ %98, %.loopexit.us56 ]
   %.03.i.us = phi i64 [ %107, %105 ], [ %34, %.loopexit.us56 ]
-  %102 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i.us
+  %102 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i.us
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us55
@@ -17510,8 +17482,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %131 = getelementptr inbounds nuw i8, ptr %.236, i64 2
   store i16 %130, ptr %.236, align 2, !tbaa !6
   %132 = add nuw nsw i64 %.01737, 1
-  %exitcond92.not = icmp eq i64 %132, %81
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !308
+  %exitcond94.not = icmp eq i64 %132, %81
+  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph, !llvm.loop !308
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %.lr.ph41.split.split
   %.120 = phi ptr [ %.01938, %.lr.ph41.split.split ], [ %127, %126 ], [ %127, %.lr.ph ]
@@ -17526,7 +17498,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %141
   %137 = phi i64 [ %146, %141 ], [ %134, %.loopexit ]
   %.03.i = phi i64 [ %143, %141 ], [ %34, %.loopexit ]
-  %138 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i
+  %138 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = icmp eq i64 %137, %139
   br i1 %140, label %141, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -17557,12 +17529,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr62 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr62 to i64
-  %.fr63 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr63 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -17643,8 +17614,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %42 = getelementptr inbounds nuw i8, ptr %.235.us, i64 4
   store i32 %41, ptr %.235.us, align 4, !tbaa !8
   %43 = add nuw nsw i64 %.01736.us, 1
-  %exitcond70.not = icmp eq i64 %43, %27
-  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !310
+  %exitcond69.not = icmp eq i64 %43, %27
+  br i1 %exitcond69.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !310
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit34.us
   %.120.us = phi ptr [ %.01937.us, %.loopexit34.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -17873,12 +17844,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr77 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr77 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr79 = freeze i64 %10
+  %sext = shl i64 %.fr79, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -17923,16 +17893,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val24 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val24.fr = freeze ptr %.val24
   %.val25 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val25.fr = freeze ptr %.val25
-  %30 = ptrtoint ptr %.val25.fr to i64
-  %31 = ptrtoint ptr %.val24.fr to i64
+  %30 = ptrtoint ptr %.val25 to i64
+  %31 = ptrtoint ptr %.val24 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.029.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val24, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph40.split, label %.lr.ph40.split.us
 
@@ -17976,8 +17945,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %52 = getelementptr inbounds nuw i8, ptr %.235.us.us, i64 4
   store i32 %51, ptr %.235.us.us, align 4, !tbaa !8
   %53 = add nuw nsw i64 %.01736.us.us, 1
-  %exitcond89.not = icmp eq i64 %53, %38
-  br i1 %exitcond89.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !312
+  %exitcond91.not = icmp eq i64 %53, %38
+  br i1 %exitcond91.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !312
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit34.us.us
   %.120.us.us = phi ptr [ %.01937.us.us, %.loopexit34.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -18097,8 +18066,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %95 = getelementptr inbounds nuw i8, ptr %.235.us51, i64 4
   store i32 %94, ptr %.235.us51, align 4, !tbaa !8
   %96 = add nuw nsw i64 %.01736.us50, 1
-  %exitcond93.not = icmp eq i64 %96, %81
-  br i1 %exitcond93.not, label %.loopexit.us55, label %.lr.ph.us59, !llvm.loop !312
+  %exitcond95.not = icmp eq i64 %96, %81
+  br i1 %exitcond95.not, label %.loopexit.us55, label %.lr.ph.us59, !llvm.loop !312
 
 .loopexit.us55:                                   ; preds = %.lr.ph.us59, %90, %.loopexit34.us57
   %.120.us52 = phi ptr [ %.01937.us43, %.loopexit34.us57 ], [ %91, %90 ], [ %91, %.lr.ph.us59 ]
@@ -18113,7 +18082,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us55, %105
   %101 = phi i64 [ %110, %105 ], [ %98, %.loopexit.us55 ]
   %.03.i.us = phi i64 [ %107, %105 ], [ %34, %.loopexit.us55 ]
-  %102 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %.03.i.us
+  %102 = getelementptr inbounds nuw i64, ptr %.val24, i64 %.03.i.us
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us54
@@ -18189,8 +18158,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %131 = getelementptr inbounds nuw i8, ptr %.235, i64 4
   store i32 %130, ptr %.235, align 4, !tbaa !8
   %132 = add nuw nsw i64 %.01736, 1
-  %exitcond91.not = icmp eq i64 %132, %81
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph, !llvm.loop !312
+  %exitcond93.not = icmp eq i64 %132, %81
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph, !llvm.loop !312
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %.lr.ph40.split.split
   %.120 = phi ptr [ %.01937, %.lr.ph40.split.split ], [ %127, %126 ], [ %127, %.lr.ph ]
@@ -18205,7 +18174,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %141
   %137 = phi i64 [ %146, %141 ], [ %134, %.loopexit ]
   %.03.i = phi i64 [ %143, %141 ], [ %34, %.loopexit ]
-  %138 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %.03.i
+  %138 = getelementptr inbounds nuw i64, ptr %.val24, i64 %.03.i
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = icmp eq i64 %137, %139
   br i1 %140, label %141, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -18236,12 +18205,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr78 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr78 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr80 = freeze i64 %10
+  %sext = shl i64 %.fr80, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -18286,16 +18254,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val25 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val25.fr = freeze ptr %.val25
   %.val26 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val26.fr = freeze ptr %.val26
-  %30 = ptrtoint ptr %.val26.fr to i64
-  %31 = ptrtoint ptr %.val25.fr to i64
+  %30 = ptrtoint ptr %.val26 to i64
+  %31 = ptrtoint ptr %.val25 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val25, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph41.split, label %.lr.ph41.split.us
 
@@ -18339,8 +18306,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %52 = getelementptr inbounds nuw i8, ptr %.236.us.us, i64 4
   store i32 %51, ptr %.236.us.us, align 4, !tbaa !8
   %53 = add nuw nsw i64 %.01737.us.us, 1
-  %exitcond90.not = icmp eq i64 %53, %38
-  br i1 %exitcond90.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !314
+  %exitcond92.not = icmp eq i64 %53, %38
+  br i1 %exitcond92.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !314
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit35.us.us
   %.120.us.us = phi ptr [ %.01938.us.us, %.loopexit35.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -18460,8 +18427,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %95 = getelementptr inbounds nuw i8, ptr %.236.us52, i64 4
   store i32 %94, ptr %.236.us52, align 4, !tbaa !8
   %96 = add nuw nsw i64 %.01737.us51, 1
-  %exitcond94.not = icmp eq i64 %96, %81
-  br i1 %exitcond94.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !314
+  %exitcond96.not = icmp eq i64 %96, %81
+  br i1 %exitcond96.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !314
 
 .loopexit.us56:                                   ; preds = %.lr.ph.us60, %90, %.loopexit35.us58
   %.120.us53 = phi ptr [ %.01938.us44, %.loopexit35.us58 ], [ %91, %90 ], [ %91, %.lr.ph.us60 ]
@@ -18476,7 +18443,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us56, %105
   %101 = phi i64 [ %110, %105 ], [ %98, %.loopexit.us56 ]
   %.03.i.us = phi i64 [ %107, %105 ], [ %34, %.loopexit.us56 ]
-  %102 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i.us
+  %102 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i.us
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us55
@@ -18552,8 +18519,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %131 = getelementptr inbounds nuw i8, ptr %.236, i64 4
   store i32 %130, ptr %.236, align 4, !tbaa !8
   %132 = add nuw nsw i64 %.01737, 1
-  %exitcond92.not = icmp eq i64 %132, %81
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !314
+  %exitcond94.not = icmp eq i64 %132, %81
+  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph, !llvm.loop !314
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %.lr.ph41.split.split
   %.120 = phi ptr [ %.01938, %.lr.ph41.split.split ], [ %127, %126 ], [ %127, %.lr.ph ]
@@ -18568,7 +18535,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %141
   %137 = phi i64 [ %146, %141 ], [ %134, %.loopexit ]
   %.03.i = phi i64 [ %143, %141 ], [ %34, %.loopexit ]
-  %138 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i
+  %138 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = icmp eq i64 %137, %139
   br i1 %140, label %141, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -18599,12 +18566,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr78 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr78 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr80 = freeze i64 %10
+  %sext = shl i64 %.fr80, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -18649,16 +18615,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val25 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val25.fr = freeze ptr %.val25
   %.val26 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val26.fr = freeze ptr %.val26
-  %30 = ptrtoint ptr %.val26.fr to i64
-  %31 = ptrtoint ptr %.val25.fr to i64
+  %30 = ptrtoint ptr %.val26 to i64
+  %31 = ptrtoint ptr %.val25 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val25, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph41.split, label %.lr.ph41.split.us
 
@@ -18702,8 +18667,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %52 = getelementptr inbounds nuw i8, ptr %.236.us.us, i64 4
   store i32 %51, ptr %.236.us.us, align 4, !tbaa !8
   %53 = add nuw nsw i64 %.01737.us.us, 1
-  %exitcond90.not = icmp eq i64 %53, %38
-  br i1 %exitcond90.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !316
+  %exitcond92.not = icmp eq i64 %53, %38
+  br i1 %exitcond92.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !316
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit35.us.us
   %.120.us.us = phi ptr [ %.01938.us.us, %.loopexit35.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -18823,8 +18788,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %95 = getelementptr inbounds nuw i8, ptr %.236.us52, i64 4
   store i32 %94, ptr %.236.us52, align 4, !tbaa !8
   %96 = add nuw nsw i64 %.01737.us51, 1
-  %exitcond94.not = icmp eq i64 %96, %81
-  br i1 %exitcond94.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !316
+  %exitcond96.not = icmp eq i64 %96, %81
+  br i1 %exitcond96.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !316
 
 .loopexit.us56:                                   ; preds = %.lr.ph.us60, %90, %.loopexit35.us58
   %.120.us53 = phi ptr [ %.01938.us44, %.loopexit35.us58 ], [ %91, %90 ], [ %91, %.lr.ph.us60 ]
@@ -18839,7 +18804,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us56, %105
   %101 = phi i64 [ %110, %105 ], [ %98, %.loopexit.us56 ]
   %.03.i.us = phi i64 [ %107, %105 ], [ %34, %.loopexit.us56 ]
-  %102 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i.us
+  %102 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i.us
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = icmp eq i64 %101, %103
   br i1 %104, label %105, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us55
@@ -18915,8 +18880,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %131 = getelementptr inbounds nuw i8, ptr %.236, i64 4
   store i32 %130, ptr %.236, align 4, !tbaa !8
   %132 = add nuw nsw i64 %.01737, 1
-  %exitcond92.not = icmp eq i64 %132, %81
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !316
+  %exitcond94.not = icmp eq i64 %132, %81
+  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph, !llvm.loop !316
 
 .loopexit:                                        ; preds = %.lr.ph, %126, %.lr.ph41.split.split
   %.120 = phi ptr [ %.01938, %.lr.ph41.split.split ], [ %127, %126 ], [ %127, %.lr.ph ]
@@ -18931,7 +18896,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %141
   %137 = phi i64 [ %146, %141 ], [ %134, %.loopexit ]
   %.03.i = phi i64 [ %143, %141 ], [ %34, %.loopexit ]
-  %138 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i
+  %138 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = icmp eq i64 %137, %139
   br i1 %140, label %141, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -18962,12 +18927,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr62 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr62 to i64
-  %.fr63 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr63 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr = freeze i64 %10
+  %sext = shl i64 %.fr, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -19047,8 +19011,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %41 = getelementptr inbounds nuw i8, ptr %.235.us, i64 8
   store i64 %40, ptr %.235.us, align 8, !tbaa !10
   %42 = add nuw nsw i64 %.01736.us, 1
-  %exitcond70.not = icmp eq i64 %42, %27
-  br i1 %exitcond70.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !318
+  %exitcond69.not = icmp eq i64 %42, %27
+  br i1 %exitcond69.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !318
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %37, %.loopexit34.us
   %.120.us = phi ptr [ %.01937.us, %.loopexit34.us ], [ %38, %37 ], [ %38, %.lr.ph.us ]
@@ -19276,12 +19240,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr77 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr77 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr79 = freeze i64 %10
+  %sext = shl i64 %.fr79, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -19326,16 +19289,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val24 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val24.fr = freeze ptr %.val24
   %.val25 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val25.fr = freeze ptr %.val25
-  %30 = ptrtoint ptr %.val25.fr to i64
-  %31 = ptrtoint ptr %.val24.fr to i64
+  %30 = ptrtoint ptr %.val25 to i64
+  %31 = ptrtoint ptr %.val24 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.029.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val24, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph40.split, label %.lr.ph40.split.us
 
@@ -19378,8 +19340,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
   %51 = getelementptr inbounds nuw i8, ptr %.235.us.us, i64 8
   store i64 %50, ptr %.235.us.us, align 8, !tbaa !10
   %52 = add nuw nsw i64 %.01736.us.us, 1
-  %exitcond89.not = icmp eq i64 %52, %38
-  br i1 %exitcond89.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !320
+  %exitcond91.not = icmp eq i64 %52, %38
+  br i1 %exitcond91.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !320
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit34.us.us
   %.120.us.us = phi ptr [ %.01937.us.us, %.loopexit34.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -19497,8 +19459,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %92 = getelementptr inbounds nuw i8, ptr %.235.us51, i64 8
   store i64 %91, ptr %.235.us51, align 8, !tbaa !10
   %93 = add nuw nsw i64 %.01736.us50, 1
-  %exitcond93.not = icmp eq i64 %93, %79
-  br i1 %exitcond93.not, label %.loopexit.us55, label %.lr.ph.us59, !llvm.loop !320
+  %exitcond95.not = icmp eq i64 %93, %79
+  br i1 %exitcond95.not, label %.loopexit.us55, label %.lr.ph.us59, !llvm.loop !320
 
 .loopexit.us55:                                   ; preds = %.lr.ph.us59, %88, %.loopexit34.us57
   %.120.us52 = phi ptr [ %.01937.us43, %.loopexit34.us57 ], [ %89, %88 ], [ %89, %.lr.ph.us59 ]
@@ -19513,7 +19475,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us55, %102
   %98 = phi i64 [ %107, %102 ], [ %95, %.loopexit.us55 ]
   %.03.i.us = phi i64 [ %104, %102 ], [ %34, %.loopexit.us55 ]
-  %99 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %.03.i.us
+  %99 = getelementptr inbounds nuw i64, ptr %.val24, i64 %.03.i.us
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = icmp eq i64 %98, %100
   br i1 %101, label %102, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us54
@@ -19588,8 +19550,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %127 = getelementptr inbounds nuw i8, ptr %.235, i64 8
   store i64 %126, ptr %.235, align 8, !tbaa !10
   %128 = add nuw nsw i64 %.01736, 1
-  %exitcond91.not = icmp eq i64 %128, %79
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph, !llvm.loop !320
+  %exitcond93.not = icmp eq i64 %128, %79
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph, !llvm.loop !320
 
 .loopexit:                                        ; preds = %.lr.ph, %123, %.lr.ph40.split.split
   %.120 = phi ptr [ %.01937, %.lr.ph40.split.split ], [ %124, %123 ], [ %124, %.lr.ph ]
@@ -19604,7 +19566,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %137
   %133 = phi i64 [ %142, %137 ], [ %130, %.loopexit ]
   %.03.i = phi i64 [ %139, %137 ], [ %34, %.loopexit ]
-  %134 = getelementptr inbounds nuw i64, ptr %.val24.fr, i64 %.03.i
+  %134 = getelementptr inbounds nuw i64, ptr %.val24, i64 %.03.i
   %135 = load i64, ptr %134, align 8, !tbaa !10
   %136 = icmp eq i64 %133, %135
   br i1 %136, label %137, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -19635,12 +19597,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr78 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr78 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr80 = freeze i64 %10
+  %sext = shl i64 %.fr80, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -19685,16 +19646,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val25 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val25.fr = freeze ptr %.val25
   %.val26 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val26.fr = freeze ptr %.val26
-  %30 = ptrtoint ptr %.val26.fr to i64
-  %31 = ptrtoint ptr %.val25.fr to i64
+  %30 = ptrtoint ptr %.val26 to i64
+  %31 = ptrtoint ptr %.val25 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val25, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph41.split, label %.lr.ph41.split.us
 
@@ -19737,8 +19697,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %51 = getelementptr inbounds nuw i8, ptr %.236.us.us, i64 8
   store i64 %50, ptr %.236.us.us, align 8, !tbaa !10
   %52 = add nuw nsw i64 %.01737.us.us, 1
-  %exitcond90.not = icmp eq i64 %52, %38
-  br i1 %exitcond90.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !322
+  %exitcond92.not = icmp eq i64 %52, %38
+  br i1 %exitcond92.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !322
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit35.us.us
   %.120.us.us = phi ptr [ %.01938.us.us, %.loopexit35.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -19856,8 +19816,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %92 = getelementptr inbounds nuw i8, ptr %.236.us52, i64 8
   store i64 %91, ptr %.236.us52, align 8, !tbaa !10
   %93 = add nuw nsw i64 %.01737.us51, 1
-  %exitcond94.not = icmp eq i64 %93, %79
-  br i1 %exitcond94.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !322
+  %exitcond96.not = icmp eq i64 %93, %79
+  br i1 %exitcond96.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !322
 
 .loopexit.us56:                                   ; preds = %.lr.ph.us60, %88, %.loopexit35.us58
   %.120.us53 = phi ptr [ %.01938.us44, %.loopexit35.us58 ], [ %89, %88 ], [ %89, %.lr.ph.us60 ]
@@ -19872,7 +19832,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us56, %102
   %98 = phi i64 [ %107, %102 ], [ %95, %.loopexit.us56 ]
   %.03.i.us = phi i64 [ %104, %102 ], [ %34, %.loopexit.us56 ]
-  %99 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i.us
+  %99 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i.us
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = icmp eq i64 %98, %100
   br i1 %101, label %102, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us55
@@ -19947,8 +19907,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %127 = getelementptr inbounds nuw i8, ptr %.236, i64 8
   store i64 %126, ptr %.236, align 8, !tbaa !10
   %128 = add nuw nsw i64 %.01737, 1
-  %exitcond92.not = icmp eq i64 %128, %79
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !322
+  %exitcond94.not = icmp eq i64 %128, %79
+  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph, !llvm.loop !322
 
 .loopexit:                                        ; preds = %.lr.ph, %123, %.lr.ph41.split.split
   %.120 = phi ptr [ %.01938, %.lr.ph41.split.split ], [ %124, %123 ], [ %124, %.lr.ph ]
@@ -19963,7 +19923,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %137
   %133 = phi i64 [ %142, %137 ], [ %130, %.loopexit ]
   %.03.i = phi i64 [ %139, %137 ], [ %34, %.loopexit ]
-  %134 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i
+  %134 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i
   %135 = load i64, ptr %134, align 8, !tbaa !10
   %136 = icmp eq i64 %133, %135
   br i1 %136, label %137, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -19994,12 +19954,11 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr78 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr78 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %sext = shl i64 %10, 29
+  %.fr80 = freeze i64 %10
+  %sext = shl i64 %.fr80, 29
   %11 = ashr i64 %sext, 32
   %12 = icmp ugt i64 %11, 1152921504606846975
   br i1 %12, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -20044,16 +20003,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.val25 = load ptr, ptr %4, align 8, !tbaa !58
-  %.val25.fr = freeze ptr %.val25
   %.val26 = load ptr, ptr %5, align 8, !tbaa !55
-  %.val26.fr = freeze ptr %.val26
-  %30 = ptrtoint ptr %.val26.fr to i64
-  %31 = ptrtoint ptr %.val25.fr to i64
+  %30 = ptrtoint ptr %.val26 to i64
+  %31 = ptrtoint ptr %.val25 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr i64 %32, 3
+  %.fr = freeze i64 %32
+  %33 = ashr i64 %.fr, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i64, ptr %.sroa.030.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.val25, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph41.split, label %.lr.ph41.split.us
 
@@ -20096,8 +20054,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc27, %_ZNSt6ve
   %51 = getelementptr inbounds nuw i8, ptr %.236.us.us, i64 8
   store i64 %50, ptr %.236.us.us, align 8, !tbaa !10
   %52 = add nuw nsw i64 %.01737.us.us, 1
-  %exitcond90.not = icmp eq i64 %52, %38
-  br i1 %exitcond90.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !324
+  %exitcond92.not = icmp eq i64 %52, %38
+  br i1 %exitcond92.not, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %.lr.ph.us.us, !llvm.loop !324
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %.lr.ph.us.us, %47, %.loopexit35.us.us
   %.120.us.us = phi ptr [ %.01938.us.us, %.loopexit35.us.us ], [ %48, %47 ], [ %48, %.lr.ph.us.us ]
@@ -20215,8 +20173,8 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
   %92 = getelementptr inbounds nuw i8, ptr %.236.us52, i64 8
   store i64 %91, ptr %.236.us52, align 8, !tbaa !10
   %93 = add nuw nsw i64 %.01737.us51, 1
-  %exitcond94.not = icmp eq i64 %93, %79
-  br i1 %exitcond94.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !324
+  %exitcond96.not = icmp eq i64 %93, %79
+  br i1 %exitcond96.not, label %.loopexit.us56, label %.lr.ph.us60, !llvm.loop !324
 
 .loopexit.us56:                                   ; preds = %.lr.ph.us60, %88, %.loopexit35.us58
   %.120.us53 = phi ptr [ %.01938.us44, %.loopexit35.us58 ], [ %89, %88 ], [ %89, %.lr.ph.us60 ]
@@ -20231,7 +20189,7 @@ _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_
 .lr.ph.i.us:                                      ; preds = %.loopexit.us56, %102
   %98 = phi i64 [ %107, %102 ], [ %95, %.loopexit.us56 ]
   %.03.i.us = phi i64 [ %104, %102 ], [ %34, %.loopexit.us56 ]
-  %99 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i.us
+  %99 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i.us
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = icmp eq i64 %98, %100
   br i1 %101, label %102, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us55
@@ -20306,8 +20264,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %127 = getelementptr inbounds nuw i8, ptr %.236, i64 8
   store i64 %126, ptr %.236, align 8, !tbaa !10
   %128 = add nuw nsw i64 %.01737, 1
-  %exitcond92.not = icmp eq i64 %128, %79
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph, !llvm.loop !324
+  %exitcond94.not = icmp eq i64 %128, %79
+  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph, !llvm.loop !324
 
 .loopexit:                                        ; preds = %.lr.ph, %123, %.lr.ph41.split.split
   %.120 = phi ptr [ %.01938, %.lr.ph41.split.split ], [ %124, %123 ], [ %124, %.lr.ph ]
@@ -20322,7 +20280,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 .lr.ph.i:                                         ; preds = %.loopexit, %137
   %133 = phi i64 [ %142, %137 ], [ %130, %.loopexit ]
   %.03.i = phi i64 [ %139, %137 ], [ %34, %.loopexit ]
-  %134 = getelementptr inbounds nuw i64, ptr %.val25.fr, i64 %.03.i
+  %134 = getelementptr inbounds nuw i64, ptr %.val25, i64 %.03.i
   %135 = load i64, ptr %134, align 8, !tbaa !10
   %136 = icmp eq i64 %133, %135
   br i1 %136, label %137, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit

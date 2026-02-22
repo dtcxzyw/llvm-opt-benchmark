@@ -956,22 +956,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit33.i.i: ; preds = %346, %3
 
 351:                                              ; preds = %350
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %68, align 8
-  %.sroa.0.0.copyload.i.fr.i.i = freeze ptr %.sroa.0.0.copyload.i.i.i
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.sroa.0.0.copyload.i34.i.i = load ptr, ptr %252, align 8
   %.sroa.2.0.copyload.i36.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i35.i.i, align 8
-  %.sroa.0.0.copyload.i34.fr.i.i = freeze ptr %.sroa.0.0.copyload.i34.i.i
-  %352 = icmp ne ptr %.sroa.0.0.copyload.i.fr.i.i, %.sroa.0.0.copyload.i34.fr.i.i
+  %352 = icmp ne ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i34.i.i
+  %.fr.i.i = freeze i1 %352
   %353 = icmp ne i64 %.sroa.2.0.copyload.i.i.i, %.sroa.2.0.copyload.i36.i.i
-  %.not3.i66.i.i = or i1 %352, %353
+  %.not3.i66.i.i = or i1 %.fr.i.i, %353
   br i1 %.not3.i66.i.i, label %.lr.ph69.i.i, label %.thread.i.i
 
 .lr.ph69.i.i:                                     ; preds = %351
-  br i1 %352, label %.lr.ph69.split.us.i.i, label %.lr.ph69.split.i.i
+  br i1 %.fr.i.i, label %.lr.ph69.split.us.i.i, label %.lr.ph69.split.i.i
 
 .lr.ph69.split.us.i.i:                            ; preds = %.lr.ph69.i.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__24PcpComputeNamespaceEditsEPKNS_8PcpCacheERKSt6vectorIPS0_SaIS4_EERKNS_7SdfPathESB_RKNS_9TfWeakPtrINS_8SdfLayerEEEENK3$_0clESB_RKNS_10PcpNodeRefE.exit.us.i.i"
   %.sroa.3.067.us.i.i = phi i64 [ %366, %"_ZZN32pxrInternal_v0_24__pxrReserved__24PcpComputeNamespaceEditsEPKNS_8PcpCacheERKSt6vectorIPS0_SaIS4_EERKNS_7SdfPathESB_RKNS_9TfWeakPtrINS_8SdfLayerEEEENK3$_0clESB_RKNS_10PcpNodeRefE.exit.us.i.i" ], [ %.sroa.2.0.copyload.i.i.i, %.lr.ph69.i.i ]
-  store ptr %.sroa.0.0.copyload.i.fr.i.i, ptr %69, align 8
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %69, align 8
   store i64 %.sroa.3.067.us.i.i, ptr %253, align 8
   %354 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(16) %69)
           to label %355 unwind label %.loopexit.split.us.i.i
@@ -1026,7 +1025,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__29Pcp_NodeUsesLayerOrLayerStackERKNS_10PcpN
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.i.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__24PcpComputeNamespaceEditsEPKNS_8PcpCacheERKSt6vectorIPS0_SaIS4_EERKNS_7SdfPathESB_RKNS_9TfWeakPtrINS_8SdfLayerEEEENK3$_0clESB_RKNS_10PcpNodeRefE.exit.i.i"
   %.168.i.i = phi i1 [ %.2.i.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__24PcpComputeNamespaceEditsEPKNS_8PcpCacheERKSt6vectorIPS0_SaIS4_EERKNS_7SdfPathESB_RKNS_9TfWeakPtrINS_8SdfLayerEEEENK3$_0clESB_RKNS_10PcpNodeRefE.exit.i.i" ], [ false, %.lr.ph69.i.i ]
   %.sroa.3.067.i.i = phi i64 [ %383, %"_ZZN32pxrInternal_v0_24__pxrReserved__24PcpComputeNamespaceEditsEPKNS_8PcpCacheERKSt6vectorIPS0_SaIS4_EERKNS_7SdfPathESB_RKNS_9TfWeakPtrINS_8SdfLayerEEEENK3$_0clESB_RKNS_10PcpNodeRefE.exit.i.i" ], [ %.sroa.2.0.copyload.i.i.i, %.lr.ph69.i.i ]
-  store ptr %.sroa.0.0.copyload.i.fr.i.i, ptr %69, align 8
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %69, align 8
   store i64 %.sroa.3.067.i.i, ptr %253, align 8
   %367 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(16) %69)
           to label %368 unwind label %.loopexit.split.i.i
@@ -2979,22 +2978,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1075:                                             ; preds = %.critedge
   %.sroa.0.0.copyload.i = load ptr, ptr %93, align 8
-  %.sroa.0.0.copyload.i.fr = freeze ptr %.sroa.0.0.copyload.i
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.0.0.copyload.i371 = load ptr, ptr %505, align 8
   %.sroa.2.0.copyload.i373 = load i64, ptr %.sroa.2.0..sroa_idx.i372, align 8
-  %.sroa.0.0.copyload.i371.fr = freeze ptr %.sroa.0.0.copyload.i371
-  %1076 = icmp ne ptr %.sroa.0.0.copyload.i.fr, %.sroa.0.0.copyload.i371.fr
+  %1076 = icmp ne ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i371
+  %.fr = freeze i1 %1076
   %1077 = icmp ne i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i373
-  %.not3.i1526 = or i1 %1076, %1077
+  %.not3.i1526 = or i1 %.fr, %1077
   br i1 %.not3.i1526, label %.lr.ph1529, label %.loopexit1357
 
 .lr.ph1529:                                       ; preds = %1075
-  br i1 %1076, label %.lr.ph1529.split.us, label %.lr.ph1529.split
+  br i1 %.fr, label %.lr.ph1529.split.us, label %.lr.ph1529.split
 
 .lr.ph1529.split.us:                              ; preds = %.lr.ph1529, %_ZNSt3setISt4pairImN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefEESt4lessIS3_ESaIS3_EE6insertEOS3_.exit.us
   %.sroa.31152.01527.us = phi i64 [ %1093, %_ZNSt3setISt4pairImN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefEESt4lessIS3_ESaIS3_EE6insertEOS3_.exit.us ], [ %.sroa.2.0.copyload.i, %.lr.ph1529 ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %94, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %94, align 8
   store i64 %.sroa.31152.01527.us, ptr %506, align 8
   %1078 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %94)
           to label %1079 unwind label %.loopexit1358.split.us
@@ -3040,7 +3038,7 @@ _ZNSt3setISt4pairImN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefEESt4lessIS3_E
 
 .lr.ph1529.split:                                 ; preds = %.lr.ph1529, %_ZNSt3setISt4pairImN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefEESt4lessIS3_ESaIS3_EE6insertEOS3_.exit
   %.sroa.31152.01527 = phi i64 [ %1109, %_ZNSt3setISt4pairImN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefEESt4lessIS3_ESaIS3_EE6insertEOS3_.exit ], [ %.sroa.2.0.copyload.i, %.lr.ph1529 ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %94, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %94, align 8
   store i64 %.sroa.31152.01527, ptr %506, align 8
   %1094 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %94)
           to label %1095 unwind label %.loopexit1358.split

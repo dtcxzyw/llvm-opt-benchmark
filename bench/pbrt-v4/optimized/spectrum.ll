@@ -811,17 +811,17 @@ define dso_local noundef float @_ZNK4pbrt23PiecewiseLinearSpectrumclEf(ptr nound
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.02.i = phi i64 [ %28, %.lr.ph.i ], [ %17, %16 ]
-  %.0151.i = phi i64 [ %26, %.lr.ph.i ], [ 1, %16 ]
+  %.0151.i = phi i64 [ %.fr.i, %.lr.ph.i ], [ 1, %16 ]
   %19 = lshr i64 %.02.i, 1
   %20 = add i64 %19, %.0151.i
   %sext.i = shl i64 %20, 32
   %21 = ashr exact i64 %sext.i, 30
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !16
-  %.fr.i = freeze float %23
-  %24 = fcmp ole float %.fr.i, %1
+  %24 = fcmp ole float %23, %1
   %25 = add i64 %20, 1
   %26 = select i1 %24, i64 %25, i64 %.0151.i
+  %.fr.i = freeze i64 %26
   %.neg.i = xor i64 %19, -1
   %27 = add nsw i64 %.02.i, %.neg.i
   %28 = select i1 %24, i64 %27, i64 %19
@@ -829,9 +829,9 @@ define dso_local noundef float @_ZNK4pbrt23PiecewiseLinearSpectrumclEf(ptr nound
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !66
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %30 = add nsw i64 %26, -1
+  %30 = add nsw i64 %.fr.i, -1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %17)
-  %.inv.i = icmp sgt i64 %26, 0
+  %.inv.i = icmp sgt i64 %.fr.i, 0
   %31 = shl i64 %..i.i, 32
   %32 = select i1 %.inv.i, i64 %31, i64 0
   br label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit"
@@ -7861,17 +7861,17 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8Spe
 
 .lr.ph.i.i.i:                                     ; preds = %39, %.lr.ph.i.i.i
   %.02.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i ], [ %40, %39 ]
-  %.0151.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i ], [ 1, %39 ]
+  %.0151.i.i.i = phi i64 [ %.fr.i.i.i, %.lr.ph.i.i.i ], [ 1, %39 ]
   %42 = lshr i64 %.02.i.i.i, 1
   %43 = add i64 %42, %.0151.i.i.i
   %sext.i.i.i = shl i64 %43, 32
   %44 = ashr exact i64 %sext.i.i.i, 30
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !16
-  %.fr.i.i.i = freeze float %46
-  %47 = fcmp ole float %.fr.i.i.i, %25
+  %47 = fcmp ole float %46, %25
   %48 = add i64 %43, 1
   %49 = select i1 %47, i64 %48, i64 %.0151.i.i.i
+  %.fr.i.i.i = freeze i64 %49
   %.neg.i.i.i = xor i64 %42, -1
   %50 = add nsw i64 %.02.i.i.i, %.neg.i.i.i
   %51 = select i1 %47, i64 %50, i64 %42
@@ -7879,9 +7879,9 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8Spe
   br i1 %52, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !66
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %53 = add nsw i64 %49, -1
+  %53 = add nsw i64 %.fr.i.i.i, -1
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %53, i64 %40)
-  %.inv.i.i.i = icmp sgt i64 %49, 0
+  %.inv.i.i.i = icmp sgt i64 %.fr.i.i.i, 0
   %54 = shl i64 %..i.i.i.i, 32
   %55 = select i1 %.inv.i.i.i, i64 %54, i64 0
   br label %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i"

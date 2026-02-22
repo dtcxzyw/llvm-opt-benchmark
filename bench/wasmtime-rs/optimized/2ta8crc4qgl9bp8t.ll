@@ -34750,10 +34750,10 @@ default.unreachable62:                            ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6679
   store i64 %114, ptr %4, align 8, !noalias !6681
   %115 = call { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h14ad336a202e483eE.llvm.5281577753466666573(ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %109, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %112), !noalias !6684
-  %.fr.i = freeze { ptr, i64 } %115
+  %.fr15.i = freeze { ptr, i64 } %115
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6679
-  %116 = extractvalue { ptr, i64 } %.fr.i, 0
-  %117 = extractvalue { ptr, i64 } %.fr.i, 1
+  %116 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %117 = extractvalue { ptr, i64 } %.fr15.i, 1
   %.not.i32 = icmp eq ptr %116, null
   %spec.select = select i1 %.not.i32, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %116
   %spec.select61 = select i1 %.not.i32, i64 0, i64 %117

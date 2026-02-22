@@ -936,8 +936,8 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %19 = load i32, ptr %18, align 8
-  %.fr17 = freeze i32 %19
-  %20 = and i32 %.fr17, 512
+  %.fr18 = freeze i32 %19
+  %20 = and i32 %.fr18, 512
   %21 = icmp ne i32 %20, 0
   br label %22
 

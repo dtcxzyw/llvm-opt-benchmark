@@ -247,8 +247,8 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %111 = load i16, ptr %.193, align 2, !tbaa !33
   %112 = sext i16 %111 to i32
   %113 = load i16, ptr %109, align 2, !tbaa !33
-  %.fr33.i = freeze i16 %113
-  %114 = sext i16 %.fr33.i to i32
+  %.fr34.i = freeze i16 %113
+  %114 = sext i16 %.fr34.i to i32
   %115 = sub nsw i32 %112, %114
   %116 = icmp slt i32 %115, 0
   %117 = tail call i32 @llvm.abs.i32(i32 %115, i1 true)
@@ -272,12 +272,12 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
 129:                                              ; preds = %119
   %130 = icmp samesign ult i32 %117, 4096
   %..i = select i1 %130, i32 4, i32 6
-  %.41.i = select i1 %130, i8 2, i8 1
+  %.42.i = select i1 %130, i8 2, i8 1
   %131 = lshr i32 %117, %..i
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !47
-  %135 = lshr i8 %134, %.41.i
+  %135 = lshr i8 %134, %.42.i
   %.022.i.i = zext nneg i8 %135 to i32
   %136 = mul nuw nsw i32 %.022.i.i, %.022.i.i
   %137 = icmp samesign ult i32 %117, %136

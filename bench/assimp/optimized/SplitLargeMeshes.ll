@@ -2574,8 +2574,8 @@ switch.lookup:                                    ; preds = %211
   br label %221
 
 221:                                              ; preds = %211, %switch.lookup
-  %.sink449 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %211 ]
-  %222 = or i32 %214, %.sink449
+  %.sink450 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %211 ]
+  %222 = or i32 %214, %.sink450
   store i32 %222, ptr %49, align 8
   br i1 %.not353, label %._crit_edge343, label %.lr.ph342
 

@@ -596,9 +596,9 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %86 = load i8, ptr %85, align 1
   %87 = load i8, ptr %84, align 1
   %.not217 = icmp eq i8 %86, %87
-  br i1 %.not217, label %.thread323, label %265
+  br i1 %.not217, label %.thread324, label %265
 
-.thread323:                                       ; preds = %83
+.thread324:                                       ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 5
   %89 = getelementptr inbounds nuw i8, ptr %.1196263, i64 5
   %90 = add nsw i32 %64, -1
@@ -631,18 +631,18 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %103 = icmp ult ptr %102, %7
   br i1 %103, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
-104:                                              ; preds = %.thread323, %91
-  %105 = phi i32 [ %90, %.thread323 ], [ %93, %91 ]
-  %106 = phi ptr [ %89, %.thread323 ], [ %92, %91 ]
-  %.0184327 = phi ptr [ %88, %.thread323 ], [ %74, %91 ]
-  %107 = load i8, ptr %.0184327, align 1
+104:                                              ; preds = %.thread324, %91
+  %105 = phi i32 [ %90, %.thread324 ], [ %93, %91 ]
+  %106 = phi ptr [ %89, %.thread324 ], [ %92, %91 ]
+  %.0184328 = phi ptr [ %88, %.thread324 ], [ %74, %91 ]
+  %107 = load i8, ptr %.0184328, align 1
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %109 = load i8, ptr %106, align 1
   %.not220 = icmp eq i8 %107, %109
   br i1 %.not220, label %110, label %.loopexit
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds nuw i8, ptr %.0184327, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.0184328, i64 1
   %112 = load i8, ptr %111, align 1
   %113 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %114 = load i8, ptr %108, align 1
@@ -650,7 +650,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not221, label %115, label %.loopexit
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw i8, ptr %.0184327, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %.0184328, i64 2
   %117 = load i8, ptr %116, align 1
   %118 = getelementptr inbounds nuw i8, ptr %106, i64 3
   %119 = load i8, ptr %113, align 1
@@ -658,7 +658,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not222, label %120, label %.loopexit
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %.0184327, i64 3
+  %121 = getelementptr inbounds nuw i8, ptr %.0184328, i64 3
   %122 = load i8, ptr %121, align 1
   %123 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %124 = load i8, ptr %118, align 1
@@ -666,7 +666,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not223, label %125, label %.loopexit
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds nuw i8, ptr %.0184327, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %.0184328, i64 4
   %127 = load i8, ptr %126, align 1
   %128 = getelementptr inbounds nuw i8, ptr %106, i64 5
   %129 = load i8, ptr %123, align 1
@@ -674,7 +674,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not224, label %130, label %.loopexit
 
 130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %.0184327, i64 5
+  %131 = getelementptr inbounds nuw i8, ptr %.0184328, i64 5
   %132 = load i8, ptr %131, align 1
   %133 = getelementptr inbounds nuw i8, ptr %106, i64 6
   %134 = load i8, ptr %128, align 1
@@ -682,7 +682,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not225, label %135, label %.loopexit
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %.0184327, i64 6
+  %136 = getelementptr inbounds nuw i8, ptr %.0184328, i64 6
   %137 = load i8, ptr %136, align 1
   %138 = getelementptr inbounds nuw i8, ptr %106, i64 7
   %139 = load i8, ptr %133, align 1
@@ -690,7 +690,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not226, label %140, label %.loopexit
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds nuw i8, ptr %.0184327, i64 7
+  %141 = getelementptr inbounds nuw i8, ptr %.0184328, i64 7
   %142 = load i8, ptr %141, align 1
   %143 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %144 = load i8, ptr %138, align 1
@@ -698,7 +698,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not227, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %140
-  %145 = getelementptr inbounds nuw i8, ptr %.0184327, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.0184328, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %147

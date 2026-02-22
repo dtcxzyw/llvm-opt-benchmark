@@ -2257,8 +2257,8 @@ define dso_local range(i32 -95, 1) i32 @ip_mroute_getsockopt(ptr noundef readonl
 
 copy_to_sockptr.exit:                             ; preds = %52
   %54 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 2147483648) %49) #17
-  %.fr = freeze i64 %54
-  %55 = and i64 %.fr, 4294967295
+  %.fr2 = freeze i64 %54
+  %55 = and i64 %.fr2, 4294967295
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %57, label %58
 

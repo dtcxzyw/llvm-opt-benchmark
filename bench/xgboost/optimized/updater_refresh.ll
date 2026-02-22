@@ -7820,11 +7820,9 @@ _ZN7xgboost7RegTree4FVec4DropEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i,
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 232
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 240
   %76 = load ptr, ptr %75, align 8, !tbaa !352, !noalias !353
-  %.fr26 = freeze ptr %76
   %77 = load ptr, ptr %74, align 8, !tbaa !356, !noalias !353
-  %.fr27 = freeze ptr %77
-  %78 = ptrtoint ptr %.fr26 to i64
-  %79 = ptrtoint ptr %.fr27 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %64, i64 256
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 264
@@ -7850,9 +7848,10 @@ _ZN7xgboost7RegTree4FVec4DropEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %101, label %_ZN7xgboost4tree13TreeRefresher8AddStatsERKNS_7RegTreeERKNS2_4FVecERKSt6vectorINS_6detail20GradientPairInternalIfEESaISB_EERKNS_8MetaInfoEjPNS0_9GradStatsE.exit, label %.lr.ph.i14.preheader
 
 .lr.ph.i14.preheader:                             ; preds = %63
-  %102 = icmp eq ptr %.fr26, %.fr27
+  %102 = icmp eq ptr %76, %77
   %103 = icmp ne ptr %84, null
-  br i1 %102, label %.lr.ph.i14.us, label %.lr.ph.i14
+  %.fr = freeze i1 %102
+  br i1 %.fr, label %.lr.ph.i14.us, label %.lr.ph.i14
 
 .lr.ph.i14.us:                                    ; preds = %.lr.ph.i14.preheader, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.us
   %104 = phi i32 [ %134, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.us ], [ %100, %.lr.ph.i14.preheader ]
@@ -7933,7 +7932,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   unreachable
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.i: ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %.fr27, i64 %151
+  %154 = getelementptr inbounds nuw i8, ptr %77, i64 %151
   %155 = load i8, ptr %154, align 1, !tbaa !363
   %156 = icmp eq i8 %155, 1
   br i1 %156, label %157, label %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i

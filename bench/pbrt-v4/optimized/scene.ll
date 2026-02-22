@@ -80736,14 +80736,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %132
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIN4pbrt19InstanceSceneEntityESaIS2_EELb1EE8_S_do_itERS4_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !481
-  %.fr8.i.i = freeze ptr %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !481
-  %.fr7.i.i = freeze ptr %4
-  %5 = ptrtoint ptr %.fr7.i.i to i64
-  %6 = ptrtoint ptr %.fr8.i.i to i64
+  %5 = ptrtoint ptr %4 to i64
+  %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
-  %8 = sdiv exact i64 %7, 48
+  %reass.sub.fr.i = freeze i64 %7
+  %8 = sdiv exact i64 %reass.sub.fr.i, 48
   %9 = icmp ugt i64 %8, 192153584101141162
   br i1 %9, label %10, label %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 
@@ -80755,24 +80754,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6
   unreachable
 
 _ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %1
-  %.not.i.i.i = icmp eq ptr %.fr7.i.i, %.fr8.i.i
+  %.not.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4pbrt19InstanceSceneEntityESaIS1_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN4pbrt19InstanceSceneEntityESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
   br label %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEvEET_SB_RKS2_.exit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #39
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #39
           to label %.noexc5.i unwind label %_ZNSt12_Vector_baseIN4pbrt19InstanceSceneEntityESaIS1_EED2Ev.exit.i
 
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
-  %14 = add i64 %7, -48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %reass.sub.fr.i
+  %14 = add i64 %reass.sub.fr.i, -48
   %15 = urem i64 %14, 48
   %16 = sub nuw i64 %14, %15
   %17 = add i64 %16, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %.fr8.i.i, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %2, i64 %17, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %12, i64 %17
   br label %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEvEET_SB_RKS2_.exit
 
@@ -80793,13 +80792,13 @@ _ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EEC2ISt13move_iteratorIN9__gnu_cx
   store ptr %.sroa.012.0, ptr %0, align 8, !tbaa !144
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %3, align 8, !tbaa !462
   store ptr %.sroa.12.0, ptr %20, align 8, !tbaa !145
-  %.not.i.i.i10 = icmp eq ptr %.fr8.i.i, null
+  %.not.i.i.i10 = icmp eq ptr %2, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEvEET_SB_RKS2_.exit
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %23, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %.fr8.i.i, i64 noundef %24) #37
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %24) #37
   br label %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EED2Ev.exit: ; preds = %22, %_ZNSt6vectorIN4pbrt19InstanceSceneEntityESaIS1_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEvEET_SB_RKS2_.exit, %_ZNSt12_Vector_baseIN4pbrt19InstanceSceneEntityESaIS1_EED2Ev.exit.i

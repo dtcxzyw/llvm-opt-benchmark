@@ -6854,16 +6854,16 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %25 = sext i32 %7 to i64
   %26 = add nsw i64 %25, 1
   %27 = sext i32 %8 to i64
-  %wide.trip.count87 = sext i32 %20 to i64
+  %wide.trip.count88 = sext i32 %20 to i64
   %wide.trip.count = sext i32 %22 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv84 = phi i64 [ %26, %.lr.ph.us.preheader ], [ %indvars.iv.next85, %._crit_edge.us ]
+  %indvars.iv85 = phi i64 [ %26, %.lr.ph.us.preheader ], [ %indvars.iv.next86, %._crit_edge.us ]
   %.06276.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %59, %._crit_edge.us ]
-  %28 = trunc nsw i64 %indvars.iv84 to i32
+  %28 = trunc nsw i64 %indvars.iv85 to i32
   %29 = add i32 %28, %19
-  %30 = add nsw i64 %indvars.iv84, %25
+  %30 = add nsw i64 %indvars.iv85, %25
   %31 = mul nsw i32 %29, %8
   %32 = mul nsw i64 %30, %27
   %33 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %5, i32 noundef %28)
@@ -6871,7 +6871,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %34 = sext i32 %31 to i64
   %invariant.gep = getelementptr i32, ptr %0, i64 %32
   %35 = getelementptr i32, ptr %0, i64 %32
-  %invariant.gep92 = getelementptr i32, ptr %0, i64 %34
+  %invariant.gep93 = getelementptr i32, ptr %0, i64 %34
   br label %36
 
 36:                                               ; preds = %.lr.ph.us, %.thread.us
@@ -6885,8 +6885,8 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %41 = sext i32 %38 to i64
   %42 = getelementptr i32, ptr %35, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !155
-  %gep93 = getelementptr i32, ptr %invariant.gep92, i64 %39
-  %44 = load i32, ptr %gep93, align 4, !tbaa !155
+  %gep94 = getelementptr i32, ptr %invariant.gep93, i64 %39
+  %44 = load i32, ptr %gep94, align 4, !tbaa !155
   %45 = add nsw i32 %38, %31
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %0, i64 %46
@@ -6915,14 +6915,14 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %58 = zext i1 %.not68.us to i32
   %59 = add i32 %.174.us, %58
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond83.not, label %._crit_edge.us, label %36, !llvm.loop !191
+  %exitcond84.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond84.not, label %._crit_edge.us, label %36, !llvm.loop !191
 
 ._crit_edge.us:                                   ; preds = %.thread.us
   tail call void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 dereferenceable(346) %6, i32 noundef %28, ptr noundef nonnull %16)
-  %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !192
+  %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  br i1 %exitcond89.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !192
 
 .lr.ph78.split:                                   ; preds = %.lr.ph78, %.lr.ph78.split
   %.06375 = phi i32 [ %61, %.lr.ph78.split ], [ %18, %.lr.ph78 ]

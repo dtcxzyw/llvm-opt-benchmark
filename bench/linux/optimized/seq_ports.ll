@@ -89,8 +89,8 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr noundef rea
   br i1 %10, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.fr6 = freeze i32 %4
-  %11 = and i32 %.fr6, 256
+  %.fr = freeze i32 %4
+  %11 = and i32 %.fr, 256
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.preheader.split, label %.preheader.split.us
 

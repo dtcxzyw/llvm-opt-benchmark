@@ -710,13 +710,10 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   %11 = load i64, ptr %5, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !54
-  %.fr54 = freeze i64 %11
-  %.fr55 = freeze i64 %13
-  %14 = sub i64 %.fr54, %.fr55
+  %14 = sub i64 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %16 = load i32, ptr %15, align 4, !tbaa !20
-  %.fr56 = freeze i32 %16
-  %17 = icmp slt i32 %.fr56, 1
+  %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %10
@@ -726,15 +723,16 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   br label %29
 
 22:                                               ; preds = %10
-  %23 = zext nneg i32 %.fr56 to i64
-  %24 = add i64 %14, -1
-  %25 = add i64 %24, %23
+  %23 = zext nneg i32 %16 to i64
+  %24 = add nsw i64 %14, %23
+  %.fr54 = freeze i64 %24
+  %25 = add i64 %.fr54, -1
   %26 = srem i64 %25, %23
   %27 = sub nsw i64 %25, %26
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 224
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !19
-  %.pre64 = sext i32 %.pre to i64
-  %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 %.pre64)
+  %.pre62 = sext i32 %.pre to i64
+  %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 %.pre62)
   br label %29
 
 29:                                               ; preds = %22, %18
@@ -749,8 +747,8 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
 
 33:                                               ; preds = %31, %29
   %.046 = phi i64 [ %.047, %31 ], [ %14, %29 ]
-  %.not5759 = icmp eq i64 %.046, 0
-  br i1 %.not5759, label %.loopexit, label %.lr.ph
+  %.not5557 = icmp eq i64 %.046, 0
+  br i1 %.not5557, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %34 = load ptr, ptr %8, align 8, !tbaa !52
@@ -759,16 +757,16 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   br label %37
 
 37:                                               ; preds = %.lr.ph, %45
-  %.04461 = phi ptr [ %34, %.lr.ph ], [ %46, %45 ]
-  %.04560 = phi i64 [ %.046, %.lr.ph ], [ %47, %45 ]
+  %.04459 = phi ptr [ %34, %.lr.ph ], [ %46, %45 ]
+  %.04558 = phi i64 [ %.046, %.lr.ph ], [ %47, %45 ]
   %38 = load ptr, ptr %35, align 8, !tbaa !35
   %39 = load ptr, ptr %36, align 8, !tbaa !39
-  %40 = tail call i64 %38(ptr noundef nonnull %3, ptr noundef %39, ptr noundef %.04461, i64 noundef %.04560) #13
+  %40 = tail call i64 %38(ptr noundef nonnull %3, ptr noundef %39, ptr noundef %.04459, i64 noundef %.04558) #13
   %41 = icmp slt i64 %40, 1
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %37
-  %43 = icmp ugt i64 %40, %.04560
+  %43 = icmp ugt i64 %40, %.04558
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
@@ -776,17 +774,17 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   br label %.loopexit
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %.04461, i64 %40
-  %47 = sub nuw i64 %.04560, %40
-  %.not57 = icmp eq i64 %47, 0
-  br i1 %.not57, label %.loopexit, label %37, !llvm.loop !59
+  %46 = getelementptr inbounds nuw i8, ptr %.04459, i64 %40
+  %47 = sub nuw i64 %.04558, %40
+  %.not55 = icmp eq i64 %47, 0
+  br i1 %.not55, label %.loopexit, label %37, !llvm.loop !59
 
 .loopexit:                                        ; preds = %45, %37, %33, %44, %1
   %.0 = phi i32 [ 0, %1 ], [ -30, %44 ], [ 0, %33 ], [ 0, %45 ], [ -30, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %49 = load ptr, ptr %48, align 8, !tbaa !37
-  %.not58 = icmp eq ptr %49, null
-  br i1 %.not58, label %54, label %50
+  %.not56 = icmp eq ptr %49, null
+  br i1 %.not56, label %54, label %50
 
 50:                                               ; preds = %.loopexit
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 216

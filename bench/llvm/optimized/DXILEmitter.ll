@@ -10336,7 +10336,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %47 = and i32 %46, 2147483647
   %48 = icmp uge i32 %42, %41
   %49 = icmp samesign ult i32 %47, %45
-  %spec.select.i11.i.i.i = and i1 %48, %49
+  %spec.select.i11.i.i.i = select i1 %48, i1 %49, i1 false
   br i1 %spec.select.i11.i.i.i, label %"_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit12.thread.i.i.i", label %50
 
 "_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit12.thread.i.i.i": ; preds = %"_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit12.i.i.i", %.lr.ph.i.i.i.i
@@ -10458,7 +10458,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %116 = and i32 %115, 2147483647
   %117 = icmp uge i32 %111, %110
   %118 = icmp samesign ult i32 %116, %114
-  %spec.select.i3.i.i = and i1 %117, %118
+  %spec.select.i3.i.i = select i1 %117, i1 %118, i1 false
   br i1 %spec.select.i3.i.i, label %"_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit4.thread.i.i", label %119
 
 "_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit4.thread.i.i": ; preds = %"_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit4.i.i", %.lr.ph.i.i.i26.i

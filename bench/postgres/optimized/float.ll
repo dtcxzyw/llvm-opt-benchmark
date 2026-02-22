@@ -742,8 +742,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4up(ptr noundef re
 define dso_local range(i64 -2147483648, 2147483648) i64 @float4larger(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %.fr8 = freeze i64 %3
-  %4 = trunc i64 %.fr8 to i32
+  %4 = trunc i64 %3 to i32
   %5 = bitcast i32 %4 to float
   %6 = fcmp uno float %5, 0.000000e+00
   br i1 %6, label %float4_gt.exit.thread, label %float4_gt.exit
@@ -751,17 +750,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4larger(ptr nounde
 float4_gt.exit:                                   ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
-  %.fr = freeze i64 %8
-  %9 = trunc i64 %.fr to i32
+  %9 = trunc i64 %8 to i32
   %10 = bitcast i32 %9 to float
   %11 = fcmp uno float %10, 0.000000e+00
   %12 = fcmp ogt float %10, %5
   %13 = or i1 %11, %12
-  %spec.select = select i1 %13, i64 %.fr, i64 %.fr8
+  %cond.fr = freeze i1 %13
+  %spec.select = select i1 %cond.fr, i64 %8, i64 %3
   br label %float4_gt.exit.thread
 
 float4_gt.exit.thread:                            ; preds = %float4_gt.exit, %1
-  %14 = phi i64 [ %.fr8, %1 ], [ %spec.select, %float4_gt.exit ]
+  %14 = phi i64 [ %3, %1 ], [ %spec.select, %float4_gt.exit ]
   %sext = shl i64 %14, 32
   %15 = ashr exact i64 %sext, 32
   ret i64 %15
@@ -771,26 +770,25 @@ float4_gt.exit.thread:                            ; preds = %float4_gt.exit, %1
 define dso_local range(i64 -2147483648, 2147483648) i64 @float4smaller(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %.fr8 = freeze i64 %3
-  %4 = trunc i64 %.fr8 to i32
+  %4 = trunc i64 %3 to i32
   %5 = bitcast i32 %4 to float
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
-  %.fr = freeze i64 %7
   %8 = fcmp uno float %5, 0.000000e+00
   br i1 %8, label %float4_lt.exit.thread, label %float4_lt.exit
 
 float4_lt.exit:                                   ; preds = %1
-  %9 = trunc i64 %.fr to i32
+  %9 = trunc i64 %7 to i32
   %10 = bitcast i32 %9 to float
   %11 = fcmp uno float %10, 0.000000e+00
   %12 = fcmp olt float %5, %10
   %13 = or i1 %11, %12
-  %spec.select = select i1 %13, i64 %.fr8, i64 %.fr
+  %cond.fr = freeze i1 %13
+  %spec.select = select i1 %cond.fr, i64 %3, i64 %7
   br label %float4_lt.exit.thread
 
 float4_lt.exit.thread:                            ; preds = %float4_lt.exit, %1
-  %14 = phi i64 [ %.fr, %1 ], [ %spec.select, %float4_lt.exit ]
+  %14 = phi i64 [ %7, %1 ], [ %spec.select, %float4_lt.exit ]
   %sext = shl i64 %14, 32
   %15 = ashr exact i64 %sext, 32
   ret i64 %15
@@ -825,53 +823,51 @@ define dso_local i64 @float8up(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @float8larger(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local i64 @float8larger(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load double, ptr %2, align 8
-  %.fr = freeze double %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
-  %.fr9 = freeze double %5
-  %6 = fcmp uno double %.fr9, 0.000000e+00
+  %6 = fcmp uno double %5, 0.000000e+00
   br i1 %6, label %float8_gt.exit.thread, label %float8_gt.exit
 
 float8_gt.exit:                                   ; preds = %1
-  %7 = fcmp uno double %.fr, 0.000000e+00
-  %8 = fcmp ogt double %.fr, %.fr9
+  %7 = fcmp uno double %3, 0.000000e+00
+  %8 = fcmp ogt double %3, %5
   %9 = or i1 %7, %8
-  br i1 %9, label %10, label %float8_gt.exit.thread
+  %cond.fr = freeze i1 %9
+  br i1 %cond.fr, label %10, label %float8_gt.exit.thread
 
 10:                                               ; preds = %float8_gt.exit
   br label %float8_gt.exit.thread
 
 float8_gt.exit.thread:                            ; preds = %1, %float8_gt.exit, %10
-  %11 = phi double [ %.fr, %10 ], [ %.fr9, %float8_gt.exit ], [ %.fr9, %1 ]
+  %11 = phi double [ %3, %10 ], [ %5, %float8_gt.exit ], [ %5, %1 ]
   %12 = bitcast double %11 to i64
   ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @float8smaller(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local i64 @float8smaller(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load double, ptr %2, align 8
-  %.fr8 = freeze double %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
-  %.fr = freeze double %5
-  %6 = fcmp uno double %.fr8, 0.000000e+00
+  %6 = fcmp uno double %3, 0.000000e+00
   br i1 %6, label %float8_lt.exit.thread, label %float8_lt.exit
 
 float8_lt.exit:                                   ; preds = %1
-  %7 = fcmp uno double %.fr, 0.000000e+00
-  %8 = fcmp olt double %.fr8, %.fr
+  %7 = fcmp uno double %5, 0.000000e+00
+  %8 = fcmp olt double %3, %5
   %9 = or i1 %7, %8
-  br i1 %9, label %10, label %float8_lt.exit.thread
+  %cond.fr = freeze i1 %9
+  br i1 %cond.fr, label %10, label %float8_lt.exit.thread
 
 10:                                               ; preds = %float8_lt.exit
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %1, %float8_lt.exit, %10
-  %11 = phi double [ %.fr8, %10 ], [ %.fr, %float8_lt.exit ], [ %.fr, %1 ]
+  %11 = phi double [ %3, %10 ], [ %5, %float8_lt.exit ], [ %5, %1 ]
   %12 = bitcast double %11 to i64
   ret i64 %12
 }

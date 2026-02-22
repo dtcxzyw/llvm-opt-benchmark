@@ -3562,10 +3562,10 @@ define void @_ZN9elfshaker4repo10repository10Repository16extract_snapshot17hd0a4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %.not = icmp eq i64 %83, -9223372036854775808
   %.not251 = icmp ne i32 %.sroa.6138.0.copyload.fr, 1000000000
-  %or.cond309.not468 = or i1 %.not, %.not251
+  %or.cond309.not442 = or i1 %.not, %.not251
   %88 = and i64 %3, 281474976710656
   %89 = icmp ne i64 %88, 0
-  %or.cond418 = select i1 %or.cond309.not468, i1 true, i1 %89
+  %or.cond418 = select i1 %or.cond309.not442, i1 true, i1 %89
   br i1 %or.cond418, label %90, label %98
 
 90:                                               ; preds = %87

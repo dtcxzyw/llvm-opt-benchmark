@@ -16570,9 +16570,9 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %47, %_ZNK8seq_util3
   br i1 %56, label %_ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit, label %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i
 
 _ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit:  ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %47
-  %.sink73 = phi i64 [ 32, %47 ], [ 40, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ]
+  %.sink71 = phi i64 [ 32, %47 ], [ 40, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ]
   %.sink = phi i64 [ 40, %47 ], [ 48, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink73
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink71
   %58 = load ptr, ptr %57, align 8, !tbaa !177
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.036 = load ptr, ptr %59, align 8, !tbaa !177
@@ -16667,7 +16667,6 @@ _ZNK8seq_util3rex7is_diffEPK4exprRPS1_S5_.exit:   ; preds = %85
 
 113:                                              ; preds = %106
   %114 = load i32, ptr %7, align 8, !tbaa !206
-  %.fr61 = freeze i32 %114
   %115 = load i32, ptr %9, align 4
   %116 = and i32 %115, 65535
   %117 = icmp eq i32 %116, 0
@@ -16683,7 +16682,7 @@ _ZNK8seq_util3rex7is_diffEPK4exprRPS1_S5_.exit:   ; preds = %85
 
 _ZNK8seq_util3rex8is_rangeEPK4expr.exit:          ; preds = %118
   %123 = load i32, ptr %122, align 8, !tbaa !44
-  %124 = icmp eq i32 %123, %.fr61
+  %124 = icmp eq i32 %123, %114
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = icmp eq i32 %126, 27
@@ -16692,7 +16691,7 @@ _ZNK8seq_util3rex8is_rangeEPK4expr.exit:          ; preds = %118
 
 _ZNK8seq_util3rex10is_of_predEPK4expr.exit:       ; preds = %_ZNK8seq_util3rex8is_rangeEPK4expr.exit
   %129 = load i32, ptr %122, align 8, !tbaa !44
-  %130 = icmp eq i32 %129, %.fr61
+  %130 = icmp eq i32 %129, %114
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, 38
@@ -16701,14 +16700,13 @@ _ZNK8seq_util3rex10is_of_predEPK4expr.exit:       ; preds = %_ZNK8seq_util3rex8i
 
 _ZNK8seq_util3rex12is_full_charEPK4expr.exit:     ; preds = %_ZNK8seq_util3rex10is_of_predEPK4expr.exit
   %135 = load i32, ptr %122, align 8, !tbaa !44
-  %.fr = freeze i32 %135
-  %136 = icmp eq i32 %.fr, %.fr61
+  %136 = icmp eq i32 %135, %114
   %137 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %138 = load i32, ptr %137, align 4
-  %.fr62 = freeze i32 %138
-  %139 = icmp eq i32 %.fr62, 37
-  %140 = and i1 %136, %139
-  %spec.select = select i1 %140, i32 1, i32 -1
+  %139 = icmp eq i32 %138, 37
+  %140 = select i1 %136, i1 %139, i1 false
+  %cond.fr = freeze i1 %140
+  %spec.select = select i1 %cond.fr, i32 1, i32 -1
   br label %_ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread
 
 _ZNK8seq_util3rex12is_full_charEPK4expr.exit.thread: ; preds = %118, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit, %113, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit, %108, %100, %95, %72, %_ZNK8seq_util3rex8is_unionEPK4exprRPS1_S5_.exit, %34

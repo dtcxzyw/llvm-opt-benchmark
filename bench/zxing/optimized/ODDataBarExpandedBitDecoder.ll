@@ -2474,8 +2474,8 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_R
   %.01617 = phi i32 [ 0, %.lr.ph ], [ %19, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !29
-  %.fr31 = freeze i8 %16
-  %17 = sext i8 %.fr31 to i32
+  %.fr32 = freeze i8 %16
+  %17 = sext i8 %.fr32 to i32
   %18 = add i32 %.01617, -48
   %19 = add i32 %18, %17
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
@@ -2493,16 +2493,16 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_R
   ret i8 %24
 
 25:                                               ; preds = %.lr.ph23, %25
-  %indvars.iv28 = phi i64 [ %13, %.lr.ph23 ], [ %indvars.iv.next29, %25 ]
+  %indvars.iv29 = phi i64 [ %13, %.lr.ph23 ], [ %indvars.iv.next30, %25 ]
   %.1.fr21 = phi i32 [ %11, %.lr.ph23 ], [ %30, %25 ]
-  %indvars.iv.next29 = add nsw i64 %indvars.iv28, -2
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next29
+  %indvars.iv.next30 = add nsw i64 %indvars.iv29, -2
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next30
   %27 = load i8, ptr %26, align 1, !tbaa !29
-  %.fr = freeze i8 %27
-  %28 = sext i8 %.fr to i32
+  %.fr26 = freeze i8 %27
+  %28 = sext i8 %.fr26 to i32
   %29 = add i32 %.1.fr21, -48
   %30 = add i32 %29, %28
-  %31 = icmp samesign ugt i64 %indvars.iv28, 3
+  %31 = icmp samesign ugt i64 %indvars.iv29, 3
   br i1 %31, label %25, label %._crit_edge24, !llvm.loop !57
 }
 

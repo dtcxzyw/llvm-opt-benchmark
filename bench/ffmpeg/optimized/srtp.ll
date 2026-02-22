@@ -456,14 +456,14 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !15
-  %.fr = freeze i8 %11
-  %12 = and i8 %.fr, -4
+  %.fr146 = freeze i8 %11
+  %12 = and i8 %.fr146, -4
   %or.cond = icmp eq i8 %12, -64
-  %13 = add i8 %.fr, 56
+  %13 = add i8 %.fr146, 56
   %spec.select = icmp ult i8 %13, 11
   %14 = or i1 %or.cond, %spec.select
-  %.v146 = select i1 %14, i64 20, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.v146
+  %.v147 = select i1 %14, i64 20, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.v147
   %16 = load i32, ptr %15, align 4, !tbaa !19
   %17 = icmp slt i32 %7, %16
   br i1 %17, label %.critedge, label %18
@@ -774,13 +774,13 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !15
-  %.fr = freeze i8 %14
-  %15 = and i8 %.fr, -4
+  %.fr118 = freeze i8 %14
+  %15 = and i8 %.fr118, -4
   %or.cond = icmp eq i8 %15, -64
   br i1 %or.cond, label %.thread115, label %16
 
 16:                                               ; preds = %12
-  %17 = add i8 %.fr, 56
+  %17 = add i8 %.fr118, 56
   %spec.select = icmp ult i8 %17, 11
   br i1 %spec.select, label %18, label %.thread
 
@@ -943,8 +943,8 @@ create_iv.exit:                                   ; preds = %.preheader.i
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 %.v106
   %111 = tail call i32 @av_aes_init(ptr noundef %109, ptr noundef nonnull %110, i32 noundef 128, i32 noundef 0) #9
   %112 = load ptr, ptr %0, align 8, !tbaa !14
-  %.not122 = icmp eq i32 %.090, 0
-  br i1 %.not122, label %encrypt_counter.exit, label %.lr.ph.i
+  %.not123 = icmp eq i32 %.090, 0
+  br i1 %.not123, label %encrypt_counter.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %create_iv.exit
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 14

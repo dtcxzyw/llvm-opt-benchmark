@@ -106,24 +106,23 @@ define internal ptr @DefaultICCintents(ptr noundef %0, i32 noundef %1, ptr nound
   %8 = alloca %struct.cmsMAT3, align 8
   %9 = alloca %struct.cmsVEC3, align 8
   %10 = icmp eq i32 %1, 0
-  br i1 %10, label %97, label %11
+  br i1 %10, label %101, label %11
 
 11:                                               ; preds = %7
   %12 = tail call ptr @cmsPipelineAlloc(ptr noundef %0, i32 noundef 0, i32 noundef 0) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %97, label %14
+  br i1 %13, label %101, label %14
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %3, align 8
   %16 = tail call i32 @cmsGetColorSpace(ptr noundef %15) #7
-  %.097.fr131 = freeze i32 %16
   %17 = icmp eq i32 %1, 1
   %wide.trip.count = zext i32 %1 to i64
   br label %18
 
-18:                                               ; preds = %14, %84
-  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %84 ]
-  %.097.fr134 = phi i32 [ %.097.fr131, %14 ], [ %.097.fr, %84 ]
+18:                                               ; preds = %14, %88
+  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %88 ]
+  %.097130 = phi i32 [ %16, %14 ], [ %.196, %88 ]
   %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @cmsGetDeviceClass(ptr noundef %20) #7
@@ -139,187 +138,187 @@ switch.early.test:                                ; preds = %18
 
 .thread:                                          ; preds = %switch.early.test
   %24 = load i32, ptr %2, align 4
-  br label %28
+  br label %32
 
 25:                                               ; preds = %18, %switch.early.test, %switch.early.test
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  switch i32 %.097.fr134, label %28 [
-    i32 1482250784, label %switch.early.test116
-    i32 1281450528, label %switch.early.test116
+  %26 = icmp ne i32 %.097130, 1482250784
+  %27 = icmp ne i32 %.097130, 1281450528
+  %28 = and i1 %26, %27
+  %29 = freeze i1 %28
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %31 = load i32, ptr %30, align 4
+  br i1 %29, label %32, label %switch.early.test116
+
+switch.early.test116:                             ; preds = %25
+  switch i32 %21, label %36 [
+    i32 1818848875, label %32
+    i32 1633842036, label %32
   ]
 
-switch.early.test116:                             ; preds = %25, %25
-  switch i32 %21, label %32 [
-    i32 1818848875, label %28
-    i32 1633842036, label %28
-  ]
-
-28:                                               ; preds = %25, %.thread, %switch.early.test116, %switch.early.test116
-  %29 = phi i32 [ %24, %.thread ], [ %27, %switch.early.test116 ], [ %27, %switch.early.test116 ], [ %27, %25 ]
+32:                                               ; preds = %.thread, %switch.early.test116, %switch.early.test116, %25
+  %33 = phi i32 [ %24, %.thread ], [ %31, %switch.early.test116 ], [ %31, %switch.early.test116 ], [ %31, %25 ]
   %.091119 = phi i1 [ true, %.thread ], [ false, %switch.early.test116 ], [ false, %switch.early.test116 ], [ true, %25 ]
-  %30 = call i32 @cmsGetColorSpace(ptr noundef %20) #7
-  %31 = call i32 @cmsGetPCS(ptr noundef %20) #7
-  br label %35
-
-32:                                               ; preds = %switch.early.test116
-  %33 = call i32 @cmsGetPCS(ptr noundef %20) #7
   %34 = call i32 @cmsGetColorSpace(ptr noundef %20) #7
-  br label %35
+  %35 = call i32 @cmsGetPCS(ptr noundef %20) #7
+  br label %39
 
-35:                                               ; preds = %32, %28
-  %36 = phi i32 [ %29, %28 ], [ %27, %32 ]
-  %.091118 = phi i1 [ %.091119, %28 ], [ false, %32 ]
-  %.196 = phi i32 [ %31, %28 ], [ %34, %32 ]
-  %.093 = phi i32 [ %30, %28 ], [ %33, %32 ]
-  %.097.fr = freeze i32 %.196
-  %37 = icmp eq i32 %.093, %.097.fr134
-  br i1 %37, label %ColorSpaceIsCompatible.exit.thread, label %38
+36:                                               ; preds = %switch.early.test116
+  %37 = call i32 @cmsGetPCS(ptr noundef %20) #7
+  %38 = call i32 @cmsGetColorSpace(ptr noundef %20) #7
+  br label %39
 
-38:                                               ; preds = %35
-  %39 = icmp eq i32 %.093, 876825682
-  %40 = icmp eq i32 %.097.fr134, 1129142603
-  %or.cond.i = and i1 %40, %39
-  br i1 %or.cond.i, label %ColorSpaceIsCompatible.exit.thread, label %41
+39:                                               ; preds = %36, %32
+  %40 = phi i32 [ %33, %32 ], [ %31, %36 ]
+  %.091118 = phi i1 [ %.091119, %32 ], [ false, %36 ]
+  %.196 = phi i32 [ %35, %32 ], [ %38, %36 ]
+  %.093 = phi i32 [ %34, %32 ], [ %37, %36 ]
+  %41 = icmp eq i32 %.093, %.097130
+  br i1 %41, label %ColorSpaceIsCompatible.exit.thread, label %42
 
-41:                                               ; preds = %38
-  %42 = icmp eq i32 %.093, 1129142603
-  %43 = icmp eq i32 %.097.fr134, 876825682
-  %or.cond3.i = and i1 %43, %42
-  br i1 %or.cond3.i, label %ColorSpaceIsCompatible.exit.thread, label %44
+42:                                               ; preds = %39
+  %43 = icmp eq i32 %.093, 876825682
+  %44 = icmp eq i32 %.097130, 1129142603
+  %or.cond.i = and i1 %44, %43
+  br i1 %or.cond.i, label %ColorSpaceIsCompatible.exit.thread, label %45
 
-44:                                               ; preds = %41
-  %45 = icmp eq i32 %.093, 1482250784
-  %46 = icmp eq i32 %.097.fr134, 1281450528
-  %or.cond5.i = and i1 %46, %45
+45:                                               ; preds = %42
+  %46 = icmp eq i32 %.093, 1129142603
+  %47 = icmp eq i32 %.097130, 876825682
+  %or.cond3.i = and i1 %47, %46
+  br i1 %or.cond3.i, label %ColorSpaceIsCompatible.exit.thread, label %48
+
+48:                                               ; preds = %45
+  %49 = icmp eq i32 %.093, 1482250784
+  %50 = icmp eq i32 %.097130, 1281450528
+  %or.cond5.i = and i1 %50, %49
   br i1 %or.cond5.i, label %ColorSpaceIsCompatible.exit.thread, label %ColorSpaceIsCompatible.exit
 
-ColorSpaceIsCompatible.exit:                      ; preds = %44
-  %47 = icmp ne i32 %.093, 1281450528
-  %48 = icmp ne i32 %.097.fr134, 1482250784
-  %or.cond7.i.not = or i1 %48, %47
-  br i1 %or.cond7.i.not, label %49, label %ColorSpaceIsCompatible.exit.thread
+ColorSpaceIsCompatible.exit:                      ; preds = %48
+  %51 = icmp ne i32 %.093, 1281450528
+  %52 = icmp ne i32 %.097130, 1482250784
+  %or.cond7.i.not = or i1 %52, %51
+  br i1 %or.cond7.i.not, label %53, label %ColorSpaceIsCompatible.exit.thread
 
-49:                                               ; preds = %ColorSpaceIsCompatible.exit
+53:                                               ; preds = %ColorSpaceIsCompatible.exit
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @.str.2) #7
   br label %.thread122
 
-ColorSpaceIsCompatible.exit.thread:               ; preds = %41, %38, %35, %44, %ColorSpaceIsCompatible.exit
-  switch i32 %21, label %50 [
-    i32 1818848875, label %52
-    i32 1633842036, label %52
+ColorSpaceIsCompatible.exit.thread:               ; preds = %45, %42, %39, %48, %ColorSpaceIsCompatible.exit
+  switch i32 %21, label %54 [
+    i32 1818848875, label %56
+    i32 1633842036, label %56
   ]
 
-50:                                               ; preds = %ColorSpaceIsCompatible.exit.thread
-  %51 = icmp eq i32 %21, 1852662636
-  %or.cond5 = and i1 %17, %51
-  br i1 %or.cond5, label %52, label %66
+54:                                               ; preds = %ColorSpaceIsCompatible.exit.thread
+  %55 = icmp eq i32 %21, 1852662636
+  %or.cond5 = and i1 %17, %55
+  br i1 %or.cond5, label %56, label %70
 
-52:                                               ; preds = %ColorSpaceIsCompatible.exit.thread, %ColorSpaceIsCompatible.exit.thread, %50
-  %53 = call ptr @_cmsReadDevicelinkLUT(ptr noundef %20, i32 noundef %36) #7
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread122, label %55
+56:                                               ; preds = %ColorSpaceIsCompatible.exit.thread, %ColorSpaceIsCompatible.exit.thread, %54
+  %57 = call ptr @_cmsReadDevicelinkLUT(ptr noundef %20, i32 noundef %40) #7
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %.thread122, label %59
 
-55:                                               ; preds = %52
+59:                                               ; preds = %56
   %or.cond7 = and i1 %23, %22
-  br i1 %or.cond7, label %56, label %63
+  br i1 %or.cond7, label %60, label %67
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %60 = load double, ptr %59, align 8
-  %61 = trunc nuw i64 %indvars.iv to i32
-  %62 = call fastcc i32 @ComputeConversion(i32 noundef %61, ptr noundef nonnull %3, i32 noundef %36, i32 noundef %58, double noundef %60, ptr noundef %8, ptr noundef %9)
-  %.not112 = icmp eq i32 %62, 0
-  br i1 %.not112, label %96, label %64
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %64 = load double, ptr %63, align 8
+  %65 = trunc nuw i64 %indvars.iv to i32
+  %66 = call fastcc i32 @ComputeConversion(i32 noundef %65, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %62, double noundef %64, ptr noundef %8, ptr noundef %9)
+  %.not112 = icmp eq i32 %66, 0
+  br i1 %.not112, label %100, label %68
 
-63:                                               ; preds = %55
+67:                                               ; preds = %59
   call void @_cmsMAT3identity(ptr noundef nonnull %8) #7
   call void @_cmsVEC3init(ptr noundef nonnull %9, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
-  br label %64
+  br label %68
 
-64:                                               ; preds = %56, %63
-  %65 = call fastcc i32 @AddConversion(ptr noundef %12, i32 noundef %.097.fr134, i32 noundef %.093, ptr noundef %8, ptr noundef %9)
-  %.not113 = icmp eq i32 %65, 0
-  br i1 %.not113, label %96, label %82
+68:                                               ; preds = %60, %67
+  %69 = call fastcc i32 @AddConversion(ptr noundef %12, i32 noundef %.097130, i32 noundef %.093, ptr noundef %8, ptr noundef %9)
+  %.not113 = icmp eq i32 %69, 0
+  br i1 %.not113, label %100, label %86
 
-66:                                               ; preds = %50
-  br i1 %.091118, label %67, label %70
+70:                                               ; preds = %54
+  br i1 %.091118, label %71, label %74
 
-67:                                               ; preds = %66
-  %68 = call ptr @_cmsReadInputLUT(ptr noundef %20, i32 noundef %36) #7
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread122, label %82
+71:                                               ; preds = %70
+  %72 = call ptr @_cmsReadInputLUT(ptr noundef %20, i32 noundef %40) #7
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.thread122, label %86
 
-70:                                               ; preds = %66
-  %71 = call ptr @_cmsReadOutputLUT(ptr noundef %20, i32 noundef %36) #7
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.thread122, label %73
+74:                                               ; preds = %70
+  %75 = call ptr @_cmsReadOutputLUT(ptr noundef %20, i32 noundef %40) #7
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.thread122, label %77
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8
-  %78 = trunc nuw i64 %indvars.iv to i32
-  %79 = call fastcc i32 @ComputeConversion(i32 noundef %78, ptr noundef nonnull %3, i32 noundef %36, i32 noundef %75, double noundef %77, ptr noundef %8, ptr noundef %9)
-  %.not110 = icmp eq i32 %79, 0
-  br i1 %.not110, label %96, label %80
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %79 = load i32, ptr %78, align 4
+  %80 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %81 = load double, ptr %80, align 8
+  %82 = trunc nuw i64 %indvars.iv to i32
+  %83 = call fastcc i32 @ComputeConversion(i32 noundef %82, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %79, double noundef %81, ptr noundef %8, ptr noundef %9)
+  %.not110 = icmp eq i32 %83, 0
+  br i1 %.not110, label %100, label %84
 
-80:                                               ; preds = %73
-  %81 = call fastcc i32 @AddConversion(ptr noundef %12, i32 noundef %.097.fr134, i32 noundef %.093, ptr noundef %8, ptr noundef %9)
-  %.not111 = icmp eq i32 %81, 0
-  br i1 %.not111, label %96, label %82
+84:                                               ; preds = %77
+  %85 = call fastcc i32 @AddConversion(ptr noundef %12, i32 noundef %.097130, i32 noundef %.093, ptr noundef %8, ptr noundef %9)
+  %.not111 = icmp eq i32 %85, 0
+  br i1 %.not111, label %100, label %86
 
-82:                                               ; preds = %67, %80, %64
-  %.2 = phi ptr [ %53, %64 ], [ %68, %67 ], [ %71, %80 ]
-  %83 = call i32 @cmsPipelineCat(ptr noundef nonnull %12, ptr noundef nonnull %.2) #7
-  %.not114 = icmp eq i32 %83, 0
-  br i1 %.not114, label %96, label %84
+86:                                               ; preds = %71, %84, %68
+  %.2 = phi ptr [ %57, %68 ], [ %72, %71 ], [ %75, %84 ]
+  %87 = call i32 @cmsPipelineCat(ptr noundef nonnull %12, ptr noundef nonnull %.2) #7
+  %.not114 = icmp eq i32 %87, 0
+  br i1 %.not114, label %100, label %88
 
-84:                                               ; preds = %82
+88:                                               ; preds = %86
   call void @cmsPipelineFree(ptr noundef nonnull %.2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %85, label %18, !llvm.loop !8
+  br i1 %exitcond.not, label %89, label %18, !llvm.loop !8
 
-85:                                               ; preds = %84
-  %86 = and i32 %6, 32768
-  %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %97, label %87
+89:                                               ; preds = %88
+  %90 = and i32 %6, 32768
+  %.not = icmp eq i32 %90, 0
+  br i1 %.not, label %101, label %91
 
-87:                                               ; preds = %85
-  switch i32 %.097.fr, label %97 [
-    i32 1380401696, label %88
-    i32 1196573017, label %88
-    i32 1129142603, label %88
+91:                                               ; preds = %89
+  switch i32 %.196, label %101 [
+    i32 1380401696, label %92
+    i32 1196573017, label %92
+    i32 1129142603, label %92
   ]
 
-88:                                               ; preds = %87, %87, %87
-  %89 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %90 = load ptr, ptr %89, align 8
-  %91 = call i32 @cmsChannelsOfColorSpace(i32 noundef %.097.fr) #7
-  %92 = call ptr @_cmsStageClipNegatives(ptr noundef %90, i32 noundef %91) #7
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread122, label %94
+92:                                               ; preds = %91, %91, %91
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 @cmsChannelsOfColorSpace(i32 noundef %.196) #7
+  %96 = call ptr @_cmsStageClipNegatives(ptr noundef %94, i32 noundef %95) #7
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %.thread122, label %98
 
-94:                                               ; preds = %88
-  %95 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %92) #7
-  %.not108 = icmp eq i32 %95, 0
-  br i1 %.not108, label %.thread122, label %97
+98:                                               ; preds = %92
+  %99 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %96) #7
+  %.not108 = icmp eq i32 %99, 0
+  br i1 %.not108, label %.thread122, label %101
 
-96:                                               ; preds = %56, %64, %73, %80, %82
-  %.1 = phi ptr [ %71, %73 ], [ %.2, %82 ], [ %53, %64 ], [ %53, %56 ], [ %71, %80 ]
+100:                                              ; preds = %60, %68, %77, %84, %86
+  %.1 = phi ptr [ %75, %77 ], [ %.2, %86 ], [ %57, %68 ], [ %57, %60 ], [ %75, %84 ]
   call void @cmsPipelineFree(ptr noundef nonnull %.1) #7
   br label %.thread122
 
-.thread122:                                       ; preds = %70, %67, %52, %94, %88, %49, %96
+.thread122:                                       ; preds = %74, %71, %56, %98, %92, %53, %100
   call void @cmsPipelineFree(ptr noundef nonnull %12) #7
-  br label %97
+  br label %101
 
-97:                                               ; preds = %85, %94, %87, %11, %7, %.thread122
-  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread122 ], [ %12, %87 ], [ %12, %94 ], [ %12, %85 ]
+101:                                              ; preds = %89, %98, %91, %11, %7, %.thread122
+  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread122 ], [ %12, %91 ], [ %12, %98 ], [ %12, %89 ]
   ret ptr %.0
 }
 

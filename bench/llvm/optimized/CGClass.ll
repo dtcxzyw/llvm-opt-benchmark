@@ -3346,19 +3346,18 @@ _ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit: ; preds = %31
   %36 = tail call noundef ptr @_ZNK5clang18CXXConstructorDecl10init_beginEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #16
   %37 = load ptr, ptr %36, align 8, !tbaa !797
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.fr = freeze i64 %.0.copyload.i.i.i.i.i.i.i.i.i
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.fr, 6
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 6
   %39 = icmp eq i64 %38, 0
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %41 = load i16, ptr %40, align 4
-  %.fr = freeze i16 %41
-  %42 = trunc i16 %.fr to i1
-  %43 = and i1 %39, %42
-  %not. = xor i1 %43, true
+  %42 = trunc i16 %41 to i1
+  %43 = select i1 %39, i1 %42, i1 false
+  %cond.fr = freeze i1 %43
+  %not.cond.fr = xor i1 %cond.fr, true
   br label %_ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit.thread
 
 _ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit.thread: ; preds = %_ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit, %31, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, %_ZNK5clang13CXXMethodDecl9getParentEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ false, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ true, %31 ], [ %not., %_ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit ]
+  %.0 = phi i1 [ false, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ false, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ true, %31 ], [ %not.cond.fr, %_ZNK5clang18CXXConstructorDecl23isDelegatingConstructorEv.exit ]
   ret i1 %.0
 }
 
@@ -6554,8 +6553,8 @@ _ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9Fie
   %366 = load ptr, ptr %365, align 8, !tbaa !794
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load i64, ptr %367, align 8
-  %.fr4.i = freeze i64 %368
-  %369 = and i64 %.fr4.i, 8796093022208
+  %.fr5.i = freeze i64 %368
+  %369 = and i64 %.fr5.i, 8796093022208
   %.not.i.i130 = icmp eq i64 %369, 0
   br i1 %363, label %370, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
 
@@ -6566,8 +6565,8 @@ _ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9Fie
   %372 = getelementptr inbounds nuw i8, ptr %364, i64 184
   %373 = load ptr, ptr %372, align 8, !tbaa !795
   %374 = load i64, ptr %373, align 8
-  %.fr.i = freeze i64 %374
-  %375 = and i64 %.fr.i, 512
+  %.fr4.i = freeze i64 %374
+  %375 = and i64 %.fr4.i, 512
   %.not.i = icmp eq i64 %375, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit, label %376
 

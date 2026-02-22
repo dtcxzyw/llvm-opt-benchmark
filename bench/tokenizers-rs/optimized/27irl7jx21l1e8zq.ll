@@ -4089,8 +4089,8 @@ define internal fastcc { ptr, ptr } @_ZN10rayon_core8registry12WorkerThread14tak
 
 58:                                               ; preds = %40
   %59 = cmpxchg ptr %20, i64 %18, i64 %5 seq_cst monotonic, align 8
-  %.fr.i = freeze { i64, i1 } %59
-  %60 = extractvalue { i64, i1 } %.fr.i, 1
+  %.fr52.i = freeze { i64, i1 } %59
+  %60 = extractvalue { i64, i1 } %.fr52.i, 1
   %61 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 264
   store atomic i64 %5, ptr %62 monotonic, align 8

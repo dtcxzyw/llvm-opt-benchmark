@@ -26090,12 +26090,12 @@ _ZNK7AstNode8isStringEv.exit.thread.i:            ; preds = %_ZNK7AstNode8isStri
 _ZNK7AstNode6isWideEv.exit.i:                     ; preds = %_ZNK7AstNode8isStringEv.exit.thread.i
   %46 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 152
   %47 = load i32, ptr %46, align 8, !tbaa !220
-  %.fr.i = freeze i32 %47
-  %48 = icmp sgt i32 %.fr.i, 64
+  %.fr4.i = freeze i32 %47
+  %48 = icmp sgt i32 %.fr4.i, 64
   br i1 %48, label %_ZNK12AstNodeDType8charIQWNEv.exit, label %_ZNK7AstNode6isQuadEv.exit.i
 
 _ZNK7AstNode6isQuadEv.exit.i:                     ; preds = %_ZNK7AstNode6isWideEv.exit.i
-  %49 = icmp sgt i32 %.fr.i, 32
+  %49 = icmp sgt i32 %.fr4.i, 32
   %spec.select.i = select i1 %49, ptr @.str.510, ptr @.str.511
   br label %_ZNK12AstNodeDType8charIQWNEv.exit
 
@@ -26159,12 +26159,12 @@ _ZNK7AstNode8isStringEv.exit.thread.i52:          ; preds = %_ZNK7AstNode8isStri
 _ZNK7AstNode6isWideEv.exit.i55:                   ; preds = %_ZNK7AstNode8isStringEv.exit.thread.i52
   %74 = getelementptr inbounds nuw i8, ptr %.pr.i53, i64 152
   %75 = load i32, ptr %74, align 8, !tbaa !220
-  %.fr.i56 = freeze i32 %75
-  %76 = icmp sgt i32 %.fr.i56, 64
+  %.fr4.i56 = freeze i32 %75
+  %76 = icmp sgt i32 %.fr4.i56, 64
   br i1 %76, label %_ZNK12AstNodeDType8charIQWNEv.exit60, label %_ZNK7AstNode6isQuadEv.exit.i57
 
 _ZNK7AstNode6isQuadEv.exit.i57:                   ; preds = %_ZNK7AstNode6isWideEv.exit.i55
-  %77 = icmp sgt i32 %.fr.i56, 32
+  %77 = icmp sgt i32 %.fr4.i56, 32
   %spec.select.i59 = select i1 %77, ptr @.str.510, ptr @.str.511
   br label %_ZNK12AstNodeDType8charIQWNEv.exit60
 

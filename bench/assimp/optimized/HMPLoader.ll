@@ -674,14 +674,14 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP5Ev(ptr noundef n
   store ptr %12, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %23 = load i32, ptr %22, align 1
-  %.fr72 = freeze i32 %23
-  %24 = sext i32 %.fr72 to i64
+  %.fr = freeze i32 %23
+  %24 = sext i32 %.fr to i64
   %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %24, i64 12)
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
   %28 = select i1 %26, i64 -1, i64 %27
   %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #23
-  %30 = icmp eq i32 %.fr72, 0
+  %30 = icmp eq i32 %.fr, 0
   br i1 %30, label %.loopexit48.thread, label %.loopexit.loopexit
 
 .loopexit48.thread:                               ; preds = %1
@@ -708,7 +708,7 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP5Ev(ptr noundef n
   %41 = phi ptr [ %31, %.loopexit48.thread ], [ %36, %.loopexit.loopexit ]
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %41, ptr %42, align 8
-  %43 = sitofp i32 %.fr72 to float
+  %43 = sitofp i32 %.fr to float
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %45 = load float, ptr %44, align 1
   %46 = fdiv float %43, %45
@@ -923,14 +923,14 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP7Ev(ptr noundef n
   store ptr %12, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %23 = load i32, ptr %22, align 1
-  %.fr76 = freeze i32 %23
-  %24 = sext i32 %.fr76 to i64
+  %.fr = freeze i32 %23
+  %24 = sext i32 %.fr to i64
   %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %24, i64 12)
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
   %28 = select i1 %26, i64 -1, i64 %27
   %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #23
-  %30 = icmp eq i32 %.fr76, 0
+  %30 = icmp eq i32 %.fr, 0
   br i1 %30, label %.loopexit52.thread, label %.loopexit.loopexit
 
 .loopexit52.thread:                               ; preds = %1
@@ -957,7 +957,7 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP7Ev(ptr noundef n
   %41 = phi ptr [ %31, %.loopexit52.thread ], [ %36, %.loopexit.loopexit ]
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %41, ptr %42, align 8
-  %43 = sitofp i32 %.fr76 to float
+  %43 = sitofp i32 %.fr to float
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %45 = load float, ptr %44, align 1
   %46 = fdiv float %43, %45
@@ -1529,14 +1529,14 @@ define hidden void @_ZN6Assimp11HMPImporter14CreateMaterialEPKhPS2_(ptr noundef 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %19 = load i32, ptr %18, align 1
-  %.fr15 = freeze i32 %19
-  %20 = sext i32 %.fr15 to i64
+  %.fr = freeze i32 %19
+  %20 = sext i32 %.fr to i64
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 12)
   %22 = extractvalue { i64, i1 } %21, 1
   %23 = extractvalue { i64, i1 } %21, 0
   %24 = select i1 %22, i64 -1, i64 %23
   %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #23
-  %26 = icmp eq i32 %.fr15, 0
+  %26 = icmp eq i32 %.fr, 0
   br i1 %26, label %.loopexit, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %17

@@ -2387,8 +2387,8 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_S
   %sub.ptr.lhs.cast.i23 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i26 = ashr exact i64 %sub.ptr.sub.i25, 3
-  %cmp89 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i26
-  br i1 %cmp89, label %for.body.lr.ph, label %if.then46
+  %cmp90 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i26
+  br i1 %cmp90, label %for.body.lr.ph, label %if.then46
 
 for.body.lr.ph:                                   ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
   %fixedNominal = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -2402,31 +2402,31 @@ for.cond.cleanup:                                 ; preds = %for.body
   br i1 %cmp45, label %do.end, label %if.then46
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.093 = phi i64 [ %sub.ptr.div.i, %for.body.lr.ph ], [ %inc, %for.body ]
-  %ind.092 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %ind.1, %for.body ]
-  %weightedRate.091 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %14, %for.body ]
-  %nominalSum.090 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %8, i64 %i.093
+  %i.094 = phi i64 [ %sub.ptr.div.i, %for.body.lr.ph ], [ %inc, %for.body ]
+  %ind.093 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %ind.1, %for.body ]
+  %weightedRate.092 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %14, %for.body ]
+  %nominalSum.091 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add, %for.body ]
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %8, i64 %i.094
   %10 = load double, ptr %add.ptr.i, align 8, !tbaa !70
-  %add = fadd double %nominalSum.090, %10
-  %add.ptr.i27 = getelementptr inbounds nuw double, ptr %9, i64 %i.093
+  %add = fadd double %nominalSum.091, %10
+  %add.ptr.i27 = getelementptr inbounds nuw double, ptr %9, i64 %i.094
   %11 = load double, ptr %add.ptr.i27, align 8, !tbaa !70
-  %.fr = freeze double %11
-  %cmp.i = fcmp oeq double %.fr, 0.000000e+00
-  %12 = call double @llvm.fabs.f64(double %.fr)
+  %.fr89 = freeze double %11
+  %cmp.i = fcmp oeq double %.fr89, 0.000000e+00
+  %12 = call double @llvm.fabs.f64(double %.fr89)
   %cmp4.i = fcmp olt double %12, 0x3A1B900000000000
   %or.cond = or i1 %cmp.i, %cmp4.i
-  %13 = select i1 %or.cond, double 3.000000e-02, double %.fr
-  %14 = call double @llvm.fmuladd.f64(double %10, double %13, double %weightedRate.091)
+  %13 = select i1 %or.cond, double 3.000000e-02, double %.fr89
+  %14 = call double @llvm.fmuladd.f64(double %10, double %13, double %weightedRate.092)
   %cmp41 = fcmp ogt double %10, 1.000000e-08
-  %add43 = fadd double %ind.092, 1.000000e+00
-  %ind.1 = select i1 %cmp41, double %add43, double %ind.092
-  %inc = add nuw i64 %i.093, 1
+  %add43 = fadd double %ind.093, 1.000000e+00
+  %ind.1 = select i1 %cmp41, double %add43, double %ind.093
+  %inc = add nuw i64 %i.094, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i26
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !127
 
 if.then46:                                        ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, %for.cond.cleanup
-  %nominalSum.0.lcssa112 = phi double [ %add, %for.cond.cleanup ], [ 0.000000e+00, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit ]
+  %nominalSum.0.lcssa113 = phi double [ %add, %for.cond.cleanup ], [ 0.000000e+00, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
           to label %invoke.cont48 unwind label %lpad47
@@ -2436,7 +2436,7 @@ invoke.cont48:                                    ; preds = %if.then46
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  %call.i3334 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, double noundef %nominalSum.0.lcssa112)
+  %call.i3334 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, double noundef %nominalSum.0.lcssa113)
           to label %invoke.cont52 unwind label %lpad49
 
 invoke.cont52:                                    ; preds = %invoke.cont50

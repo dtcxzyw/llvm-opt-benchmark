@@ -17779,22 +17779,21 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i5 = getelementptr inbounds nuw i8, ptr %d, i64 72
   %3 = load ptr, ptr %_M_finish.i.i5, align 8
   %4 = load ptr, ptr %second.i, align 8
-  %.fr17 = freeze ptr %4
-  %.fr = freeze ptr %3
-  %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %.fr to i64
-  %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %.fr17 to i64
+  %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
-  %sub.ptr.div.i.i9 = ashr i64 %sub.ptr.sub.i.i8, 3
-  %add.ptr.i.i57.i = getelementptr inbounds nuw i8, ptr %.fr17, i64 8
+  %sub.ptr.sub.i.i8.fr = freeze i64 %sub.ptr.sub.i.i8
+  %sub.ptr.div.i.i9 = ashr i64 %sub.ptr.sub.i.i8.fr, 3
+  %add.ptr.i.i57.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %second11.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %sub.ptr.sub.i.i8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %sub.ptr.sub.i.i8.fr
   %6 = load ptr, ptr %second5.i, align 8
   %add.ptr.i.i.i65.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %cmp82.i = icmp ugt i64 %sub.ptr.div.i.i9, 2
   br i1 %cmp82.i, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %7 = and i64 %sub.ptr.sub.i.i8, -8
+  %7 = and i64 %sub.ptr.sub.i.i8.fr, -8
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %_ZN8QuantLib6detail14n_cubic_splineINS0_17base_cubic_splineEEC2ERKNS0_4DataINS4_ISt6vectorIdSaIdEENS0_8EmptyArgEEES9_EESC_RKNS0_9DataTableINSD_IdEEEERSF_RNS0_5PointINSJ_ISE_NS0_8EmptyResEEESL_EE.exit.us
@@ -17817,20 +17816,20 @@ for.body.preheader.i.us:                          ; preds = %for.body.us
 
 _ZN8QuantLib6detail14n_cubic_splineINS0_17base_cubic_splineEEC2ERKNS0_4DataINS4_ISt6vectorIdSaIdEENS0_8EmptyArgEEES9_EESC_RKNS0_9DataTableINSD_IdEEEERSF_RNS0_5PointINSJ_ISE_NS0_8EmptyResEEESL_EE.exit.us: ; preds = %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit.us.us, %for.body.us
   %inc.us = add nuw i64 %j.016.us, 1
-  %exitcond20.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
-  br i1 %exitcond20.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !366
+  %exitcond19.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i
+  br i1 %exitcond19.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !366
 
 for.body.i.us.us:                                 ; preds = %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit.us.us, %for.body.preheader.i.us
   %j.06.i.us.us = phi i64 [ %inc.i.us.us, %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit.us.us ], [ 0, %for.body.preheader.i.us ]
   %add.ptr.i.i.i.us.us = getelementptr inbounds nuw %"struct.QuantLib::detail::DataTable.190", ptr %9, i64 %j.06.i.us.us
   %add.ptr.i.i4.i.us.us = getelementptr inbounds nuw %"struct.QuantLib::detail::DataTable.190", ptr %10, i64 %j.06.i.us.us
-  %11 = load double, ptr %.fr17, align 8, !tbaa !79
+  %11 = load double, ptr %4, align 8, !tbaa !79
   %12 = load ptr, ptr %add.ptr.i.i.i.us.us, align 8, !tbaa !143
   %13 = load double, ptr %12, align 8, !tbaa !79
   %add.ptr.i.i.i10.us.us = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load double, ptr %add.ptr.i.i.i10.us.us, align 8, !tbaa !79
   %15 = load ptr, ptr %add.ptr.i.i4.i.us.us, align 8, !tbaa !143
-  %add.ptr.i.i56.i.us.us = getelementptr inbounds nuw i8, ptr %15, i64 %sub.ptr.sub.i.i8
+  %add.ptr.i.i56.i.us.us = getelementptr inbounds nuw i8, ptr %15, i64 %sub.ptr.sub.i.i8.fr
   %sub.i.us.us = fsub double %14, %13
   %div.i.us.us = fdiv double %sub.i.us.us, %11
   store double %div.i.us.us, ptr %add.ptr.i.i56.i.us.us, align 8, !tbaa !79
@@ -17864,7 +17863,7 @@ for.body.i12.us.us:                               ; preds = %for.body.i12.us.us,
   %add.ptr.i.i67.i.us.us = getelementptr inbounds nuw double, ptr %12, i64 %k.084.i.us.us
   %24 = load double, ptr %add.ptr.i.i67.i.us.us, align 8, !tbaa !79
   %sub23.i.us.us = fsub double %23, %24
-  %add.ptr.i.i68.i.us.us = getelementptr inbounds nuw double, ptr %.fr17, i64 %k.084.i.us.us
+  %add.ptr.i.i68.i.us.us = getelementptr inbounds nuw double, ptr %4, i64 %k.084.i.us.us
   %25 = load double, ptr %add.ptr.i.i68.i.us.us, align 8, !tbaa !79
   %div25.i.us.us = fdiv double %sub23.i.us.us, %25
   store double %div25.i.us.us, ptr %add.ptr.i.i56.i.us.us, align 8, !tbaa !79
@@ -17874,7 +17873,7 @@ for.body.i12.us.us:                               ; preds = %for.body.i12.us.us,
   store double %mul27.i.us.us, ptr %15, align 8, !tbaa !79
   %add.ptr.i.i69.i.us.us = getelementptr inbounds nuw double, ptr %6, i64 %j.085.i.us.us
   %27 = load double, ptr %add.ptr.i.i69.i.us.us, align 8, !tbaa !79
-  %add.ptr.i.i70.i.us.us = getelementptr inbounds nuw double, ptr %.fr17, i64 %j.085.i.us.us
+  %add.ptr.i.i70.i.us.us = getelementptr inbounds nuw double, ptr %4, i64 %j.085.i.us.us
   %28 = load double, ptr %add.ptr.i.i70.i.us.us, align 8, !tbaa !79
   %add.ptr.i.i71.i.us.us = getelementptr inbounds nuw double, ptr %15, i64 %j.085.i.us.us
   %29 = load double, ptr %add.ptr.i.i71.i.us.us, align 8, !tbaa !79
@@ -17953,13 +17952,13 @@ for.body.i:                                       ; preds = %_ZN8QuantLib6detail
   %j.06.i = phi i64 [ %inc.i, %_ZN8QuantLib6detail17base_cubic_splineC2ERKNS0_4DataISt6vectorIdSaIdEENS0_8EmptyArgEEES9_RKNS0_9DataTableIdEERSB_RNS0_5PointISB_NS0_8EmptyResEEE.exit ], [ 0, %for.body.preheader.i ]
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.QuantLib::detail::DataTable.190", ptr %40, i64 %j.06.i
   %add.ptr.i.i4.i = getelementptr inbounds nuw %"struct.QuantLib::detail::DataTable.190", ptr %41, i64 %j.06.i
-  %42 = load double, ptr %.fr17, align 8, !tbaa !79
+  %42 = load double, ptr %4, align 8, !tbaa !79
   %43 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !143
   %44 = load double, ptr %43, align 8, !tbaa !79
   %add.ptr.i.i.i10 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load double, ptr %add.ptr.i.i.i10, align 8, !tbaa !79
   %46 = load ptr, ptr %add.ptr.i.i4.i, align 8, !tbaa !143
-  %add.ptr.i.i56.i = getelementptr inbounds nuw i8, ptr %46, i64 %sub.ptr.sub.i.i8
+  %add.ptr.i.i56.i = getelementptr inbounds nuw i8, ptr %46, i64 %sub.ptr.sub.i.i8.fr
   %sub.i = fsub double %45, %44
   %div.i = fdiv double %sub.i, %42
   store double %div.i, ptr %add.ptr.i.i56.i, align 8, !tbaa !79
@@ -17984,19 +17983,19 @@ for.body.i:                                       ; preds = %_ZN8QuantLib6detail
   store double %div19.i, ptr %add.ptr.i.i.i65.i, align 8, !tbaa !79
   store double 0.000000e+00, ptr %add.ptr.i.i56.i, align 8, !tbaa !79
   store double 0.000000e+00, ptr %46, align 8, !tbaa !79
-  %scevgep27 = getelementptr nuw i8, ptr %46, i64 16
-  %load_initial28 = load double, ptr %scevgep27, align 8
+  %scevgep26 = getelementptr nuw i8, ptr %46, i64 16
+  %load_initial27 = load double, ptr %scevgep26, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %for.body.i
-  %store_forwarded29 = phi double [ %load_initial28, %for.body.i ], [ %add.i, %while.body.i ]
+  %store_forwarded28 = phi double [ %load_initial27, %for.body.i ], [ %add.i, %while.body.i ]
   %k.189.i = phi i64 [ 2, %for.body.i ], [ %sub45.i, %while.body.i ]
   %sub45.i = add nsw i64 %k.189.i, -1
   %add.ptr.i.i.i79.i = getelementptr inbounds nuw double, ptr %5, i64 %sub45.i
   %54 = load double, ptr %add.ptr.i.i.i79.i, align 8, !tbaa !79
   %add.ptr.i.i81.i = getelementptr inbounds nuw double, ptr %46, i64 %sub45.i
   %55 = load double, ptr %add.ptr.i.i81.i, align 8, !tbaa !79
-  %mul51.i = fmul double %store_forwarded29, %55
+  %mul51.i = fmul double %store_forwarded28, %55
   %add.i = fadd double %54, %mul51.i
   store double %add.i, ptr %add.ptr.i.i81.i, align 8, !tbaa !79
   %cmp44.not.i = icmp eq i64 %sub45.i, 0

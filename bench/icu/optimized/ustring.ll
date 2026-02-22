@@ -225,16 +225,16 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   br i1 %.not116.us, label %100, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit
 
 .lr.ph199.split:                                  ; preds = %.lr.ph199.split.preheader, %.loopexit
-  %.pn245 = phi ptr [ %96, %.lr.ph199.split.preheader ], [ %indvars.iv222, %.loopexit ]
+  %.pn246 = phi ptr [ %96, %.lr.ph199.split.preheader ], [ %indvars.iv223, %.loopexit ]
   %104 = phi i16 [ %93, %.lr.ph199.split.preheader ], [ %117, %.loopexit ]
   %105 = phi ptr [ %94, %.lr.ph199.split.preheader ], [ %116, %.loopexit ]
   %.193198 = phi ptr [ %0, %.lr.ph199.split.preheader ], [ %105, %.loopexit ]
-  %indvars.iv222 = getelementptr i8, ptr %.pn245, i64 2
+  %indvars.iv223 = getelementptr i8, ptr %.pn246, i64 2
   %106 = icmp eq i16 %104, %72
   br i1 %106, label %.preheader, label %.loopexit
 
 ._crit_edge195:                                   ; preds = %112
-  %107 = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef %0, ptr noundef %.193198, ptr noundef %indvars.iv222, ptr noundef null)
+  %107 = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef %0, ptr noundef %.193198, ptr noundef %indvars.iv223, ptr noundef null)
   %.not116 = icmp eq i8 %107, 0
   br i1 %.not116, label %.loopexit, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit
 
@@ -534,22 +534,22 @@ define ptr @u_strstr_77(ptr noundef readonly captures(address, ret: address, pro
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %8 = load i16, ptr %1, align 2, !tbaa !3
-  %.fr = freeze i16 %8
-  %9 = icmp eq i16 %.fr, 0
+  %.fr19 = freeze i16 %8
+  %9 = icmp eq i16 %.fr19, 0
   br i1 %9, label %u_strFindFirst_77.exit, label %10
 
 10:                                               ; preds = %6
   %11 = load i16, ptr %7, align 2, !tbaa !3
   %.fr18 = freeze i16 %11
   %12 = icmp ne i16 %.fr18, 0
-  %13 = and i16 %.fr, -2048
+  %13 = and i16 %.fr19, -2048
   %14 = icmp eq i16 %13, -10240
   %or.cond121.i = or i1 %14, %12
   %15 = load i16, ptr %0, align 2, !tbaa !3
   br i1 %or.cond121.i, label %.preheader152.i, label %.preheader155.i
 
 .preheader155.i:                                  ; preds = %10
-  %16 = icmp eq i16 %15, %.fr
+  %16 = icmp eq i16 %15, %.fr19
   br i1 %16, label %u_strFindFirst_77.exit, label %.lr.ph.i
 
 .preheader152.i:                                  ; preds = %10
@@ -558,7 +558,7 @@ define ptr @u_strstr_77(ptr noundef readonly captures(address, ret: address, pro
 
 .lr.ph172.preheader.i:                            ; preds = %.preheader152.i
   %17 = icmp eq i16 %.fr18, 0
-  %18 = and i16 %.fr, -1024
+  %18 = and i16 %.fr19, -1024
   %.not = icmp eq i16 %18, -9216
   br i1 %17, label %.lr.ph172.preheader.i.split.us, label %.lr.ph172.preheader.i.split
 
@@ -573,7 +573,7 @@ define ptr @u_strstr_77(ptr noundef readonly captures(address, ret: address, pro
   %19 = phi i16 [ %26, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ %15, %.lr.ph172.i.us.us.preheader ]
   %.092171.i.us.us = phi ptr [ %20, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us ], [ %0, %.lr.ph172.i.us.us.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %.092171.i.us.us, i64 2
-  %21 = icmp eq i16 %19, %.fr
+  %21 = icmp eq i16 %19, %.fr19
   br i1 %21, label %.preheader150.i.us.us, label %.lr.ph172.i.us.us._ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us_crit_edge
 
 .lr.ph172.i.us.us._ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us_crit_edge: ; preds = %.lr.ph172.i.us.us
@@ -598,7 +598,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us: ; preds = %.lr.ph172.
   %27 = phi i16 [ %35, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %15, %.lr.ph172.preheader.i.split.us ]
   %.092171.i.us = phi ptr [ %28, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %0, %.lr.ph172.preheader.i.split.us ]
   %28 = getelementptr inbounds nuw i8, ptr %.092171.i.us, i64 2
-  %29 = icmp eq i16 %27, %.fr
+  %29 = icmp eq i16 %27, %.fr19
   br i1 %29, label %.preheader150.i.us, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us
 
 .preheader150.i.us:                               ; preds = %.lr.ph172.i.us
@@ -624,7 +624,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %30, %.lr.ph17
   %36 = phi i16 [ %52, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9 ], [ %15, %.lr.ph172.preheader.i.split ]
   %.092171.i.us6 = phi ptr [ %37, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9 ], [ %0, %.lr.ph172.preheader.i.split ]
   %37 = getelementptr inbounds nuw i8, ptr %.092171.i.us6, i64 2
-  %38 = icmp eq i16 %36, %.fr
+  %38 = icmp eq i16 %36, %.fr19
   br i1 %38, label %.lr.ph168.i.us, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9
 
 .lr.ph168.i.us:                                   ; preds = %.lr.ph172.i.us5, %43
@@ -671,14 +671,14 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9: ; preds = %42, %48, %.l
 56:                                               ; preds = %.lr.ph.i
   %57 = getelementptr inbounds nuw i8, ptr %.05.i163.i, i64 2
   %58 = load i16, ptr %57, align 2, !tbaa !3
-  %59 = icmp eq i16 %58, %.fr
+  %59 = icmp eq i16 %58, %.fr19
   br i1 %59, label %u_strFindFirst_77.exit, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph172.i:                                      ; preds = %.lr.ph172.preheader.i.split, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i
   %60 = phi i16 [ %83, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i ], [ %15, %.lr.ph172.preheader.i.split ]
   %.092171.i = phi ptr [ %61, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i ], [ %0, %.lr.ph172.preheader.i.split ]
   %61 = getelementptr inbounds nuw i8, ptr %.092171.i, i64 2
-  %62 = icmp eq i16 %60, %.fr
+  %62 = icmp eq i16 %60, %.fr19
   br i1 %62, label %.lr.ph168.i, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i
 
 ._crit_edge.i.loopexit:                           ; preds = %78
@@ -772,8 +772,8 @@ define ptr @u_strchr32_77(ptr noundef readonly captures(address, ret: address, p
   %17 = load i16, ptr %15, align 2, !tbaa !3
   %18 = and i16 %17, -1024
   %19 = icmp eq i16 %18, -9216
-  %or.cond67 = select i1 %16, i1 true, i1 %19
-  br i1 %or.cond67, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us, label %u_strchr_77.exit
+  %or.cond70 = select i1 %16, i1 true, i1 %19
+  br i1 %or.cond70, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us, label %u_strchr_77.exit
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.us: ; preds = %.lr.ph29.i.us.us
   %.not114.i.i.us.us = icmp eq i16 %17, 0

@@ -1262,10 +1262,10 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %44, %rb_enc_asciico
 
 RB_FL_ABLE.exit.i.i:                              ; preds = %47
   %52 = load i64, ptr %17, align 8, !tbaa !34
-  %.fr.i = freeze i64 %52
-  %53 = and i64 %.fr.i, 31
+  %.fr4.i = freeze i64 %52
+  %53 = and i64 %.fr4.i, 31
   %.not.i.i = icmp eq i64 %53, 27
-  %54 = and i64 %.fr.i, 65536
+  %54 = and i64 %.fr4.i, 65536
   %.not.i38 = icmp eq i64 %54, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i38
   br i1 %or.cond.i, label %60, label %rb_reg_fixed_encoding_p.exit
@@ -5762,10 +5762,10 @@ define internal range(i64 0, 21) i64 @rb_reg_fixed_encoding_p(i64 noundef %0) #7
 RB_FL_ABLE.exit.i:                                ; preds = %1
   %6 = inttoptr i64 %0 to ptr
   %7 = load i64, ptr %6, align 8, !tbaa !34
-  %.fr = freeze i64 %7
-  %8 = and i64 %.fr, 31
+  %.fr4 = freeze i64 %7
+  %8 = and i64 %.fr4, 31
   %.not.i = icmp eq i64 %8, 27
-  %9 = and i64 %.fr, 65536
+  %9 = and i64 %.fr4, 65536
   %.not = icmp eq i64 %9, 0
   %or.cond = or i1 %.not.i, %.not
   br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %10
@@ -9825,10 +9825,10 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %58, %rb_enc_asciico
 RB_FL_ABLE.exit.i.i:                              ; preds = %67
   %72 = inttoptr i64 %.0..0..0..0.16 to ptr
   %73 = load i64, ptr %72, align 8, !tbaa !34
-  %.fr.i = freeze i64 %73
-  %74 = and i64 %.fr.i, 31
+  %.fr4.i = freeze i64 %73
+  %74 = and i64 %.fr4.i, 31
   %.not.i.i99 = icmp eq i64 %74, 27
-  %75 = and i64 %.fr.i, 65536
+  %75 = and i64 %.fr4.i, 65536
   %.not.i100 = icmp eq i64 %75, 0
   %or.cond.i = or i1 %.not.i.i99, %.not.i100
   br i1 %or.cond.i, label %rb_reg_fixed_encoding_p.exit.thread, label %rb_reg_fixed_encoding_p.exit

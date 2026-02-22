@@ -1800,7 +1800,6 @@ define linkonce_odr noundef double @_ZN3g2o15EdgeSE3PointXYZ23initialEstimatePos
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = load ptr, ptr %8, align 8, !tbaa !43
-  %.fr = freeze ptr %9
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
@@ -1808,7 +1807,7 @@ define linkonce_odr noundef double @_ZN3g2o15EdgeSE3PointXYZ23initialEstimatePos
   %.0811.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
   %11 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !43
-  %13 = icmp ult ptr %12, %.fr
+  %13 = icmp ult ptr %12, %9
   %.19.i.i.i = select i1 %13, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %13, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -1823,14 +1822,14 @@ _ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_
 _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !43
-  %.fr4 = freeze ptr %16
-  %.not = icmp ult ptr %.fr, %.fr4
-  %spec.select = select i1 %.not, double -1.000000e+00, double 1.000000e+00
+  %17 = icmp uge ptr %9, %16
+  %cond.fr = freeze i1 %17
+  %spec.select = select i1 %cond.fr, double 1.000000e+00, double -1.000000e+00
   br label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
 
 _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %3
-  %17 = phi double [ -1.000000e+00, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %spec.select, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ], [ -1.000000e+00, %3 ]
-  ret double %17
+  %18 = phi double [ -1.000000e+00, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %spec.select, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit ], [ -1.000000e+00, %3 ]
+  ret double %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

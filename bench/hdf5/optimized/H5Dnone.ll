@@ -173,8 +173,8 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nounde
   store i32 %15, ptr %16, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !28
-  %.fr31 = freeze i32 %18
-  %19 = add i32 %.fr31, -1
+  %.fr = freeze i32 %18
+  %19 = add i32 %.fr, -1
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %21 = load i64, ptr %20, align 8, !tbaa !40
   %.not = icmp eq i64 %21, 0
@@ -183,7 +183,7 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nounde
 .lr.ph30:                                         ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %24 = add i32 %.fr31, -2
+  %24 = add i32 %.fr, -2
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %.lr.ph30.split.us, label %.lr.ph30.split
 

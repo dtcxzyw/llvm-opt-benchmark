@@ -218,13 +218,11 @@ declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unn
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22CavesNoiseIntersection13generateCavesEP8MMVManipN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(none) %vm, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly captures(none) %biomemap) local_unnamed_addr #3 align 2 {
 entry:
-  %nmax.coerce.fr = freeze i48 %nmax.coerce
-  %nmin.coerce.fr = freeze i48 %nmin.coerce
-  %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce.fr to i16
-  %0 = trunc i48 %nmin.coerce.fr to i32
-  %nmin.sroa.8.0.extract.shift = lshr i48 %nmin.coerce.fr, 32
+  %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
+  %0 = trunc i48 %nmin.coerce to i32
+  %nmin.sroa.8.0.extract.shift = lshr i48 %nmin.coerce, 32
   %nmin.sroa.8.0.extract.trunc = trunc nuw i48 %nmin.sroa.8.0.extract.shift to i16
-  %nmax.sroa.2.0.extract.shift = lshr i48 %nmax.coerce.fr, 16
+  %nmax.sroa.2.0.extract.shift = lshr i48 %nmax.coerce, 16
   %nmax.sroa.2.0.extract.trunc = trunc i48 %nmax.sroa.2.0.extract.shift to i16
   %noise_cave1 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %noise_cave1, align 8, !tbaa !19
@@ -252,7 +250,7 @@ entry:
   br i1 %cmp.not306, label %for.cond.cleanup, label %for.cond22.preheader.lr.ph
 
 for.cond22.preheader.lr.ph:                       ; preds = %entry
-  %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce.fr to i32
+  %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i32
   %sext = shl i32 %nmax.sroa.0.0.extract.trunc, 16
   %conv25 = ashr exact i32 %sext, 16
   %conv23300 = sext i16 %nmin.sroa.0.0.extract.trunc to i32
@@ -271,7 +269,8 @@ for.cond22.preheader.lr.ph:                       ; preds = %entry
 
 for.cond22.preheader.lr.ph.split:                 ; preds = %for.cond22.preheader.lr.ph
   %cmp64.not288 = icmp sgt i32 %sub, %conv7.i
-  br i1 %cmp64.not288, label %for.cond22.preheader.us310, label %for.cond22.preheader.preheader
+  %cmp64.not288.fr = freeze i1 %cmp64.not288
+  br i1 %cmp64.not288.fr, label %for.cond22.preheader.us310, label %for.cond22.preheader.preheader
 
 for.cond22.preheader.preheader:                   ; preds = %for.cond22.preheader.lr.ph.split
   %.pre.pre = load i16, ptr %m_cache_extent.i, align 2, !tbaa !26
@@ -1669,23 +1668,23 @@ if.end211:                                        ; preds = %if.then159, %if.the
   %conv191 = ashr exact i32 %sext389, 16
   %cmp192 = icmp slt i32 %conv191, 0
   %55 = load i16, ptr %route_y_max, align 2
-  %.fr = freeze i16 %55
-  %conv198 = sext i16 %.fr to i32
+  %conv198 = sext i16 %55 to i32
   %cmp199 = icmp sgt i32 %conv191, %conv198
-  %.conv188 = select i1 %cmp199, i16 %.fr, i16 %conv188
+  %.conv188 = select i1 %cmp199, i16 %55, i16 %conv188
   %cond208 = select i1 %cmp192, i16 0, i16 %.conv188
-  store i16 %cond208, ptr %route_y_min, align 4, !tbaa !160
+  %cond208.fr = freeze i16 %cond208
+  store i16 %cond208.fr, ptr %route_y_min, align 4, !tbaa !160
   %.pre = load i16, ptr %Y6.i527, align 8
   %.pre579 = load i16, ptr %Z11.i530, align 2, !tbaa !162
   %.pre580 = add i16 %.pre, -1
-  %cmp215 = icmp slt i16 %cond208, 0
-  %cmp223.not = icmp sgt i16 %.pre, %cond208
-  %spec.select390 = select i1 %cmp223.not, i16 %cond208, i16 %.pre580
+  %cmp215 = icmp slt i16 %cond208.fr, 0
+  %cmp223.not = icmp sgt i16 %.pre, %cond208.fr
+  %spec.select390 = select i1 %cmp223.not, i16 %cond208.fr, i16 %.pre580
   %spec.select587 = select i1 %cmp215, i16 0, i16 %spec.select390
   br label %56
 
 56:                                               ; preds = %if.end211, %if.end211.thread
-  %57 = phi i16 [ %cond143, %if.end211.thread ], [ %.fr, %if.end211 ]
+  %57 = phi i16 [ %cond143, %if.end211.thread ], [ %55, %if.end211 ]
   %58 = phi i16 [ %45, %if.end211.thread ], [ %.pre, %if.end211 ]
   %59 = phi i16 [ %add13.i531, %if.end211.thread ], [ %.pre579, %if.end211 ]
   %sub222.pre-phi586 = phi i16 [ %sub130, %if.end211.thread ], [ %.pre580, %if.end211 ]
@@ -3016,8 +3015,8 @@ entry:
   store ptr %heightmap, ptr %heightmap6, align 8, !tbaa !195
   %large_cave = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i8 %frombool, ptr %large_cave, align 4, !tbaa !196
-  %reass.sub10 = sub i16 %nmax.sroa.0.0.extract.trunc, %nmin.sroa.0.0.extract.trunc
-  %add = add i16 %reass.sub10, 1
+  %reass.sub9 = sub i16 %nmax.sroa.0.0.extract.trunc, %nmin.sroa.0.0.extract.trunc
+  %add = add i16 %reass.sub9, 1
   %ystride = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 %add, ptr %ystride, align 8, !tbaa !197
   %min_tunnel_diameter = getelementptr inbounds nuw i8, ptr %this, i64 58
@@ -3220,23 +3219,23 @@ if.end168:                                        ; preds = %if.then116, %if.the
   %conv148 = ashr exact i32 %sext341, 16
   %cmp149 = icmp slt i32 %conv148, 0
   %31 = load i16, ptr %route_y_max, align 2
-  %.fr = freeze i16 %31
-  %conv155 = sext i16 %.fr to i32
+  %conv155 = sext i16 %31 to i32
   %cmp156 = icmp sgt i32 %conv148, %conv155
-  %.conv145 = select i1 %cmp156, i16 %.fr, i16 %conv145
+  %.conv145 = select i1 %cmp156, i16 %31, i16 %conv145
   %cond165 = select i1 %cmp149, i16 0, i16 %.conv145
-  store i16 %cond165, ptr %route_y_min, align 4, !tbaa !203
+  %cond165.fr = freeze i16 %cond165
+  store i16 %cond165.fr, ptr %route_y_min, align 4, !tbaa !203
   %.pre479 = load i16, ptr %Y86, align 8
   %.pre480 = load i16, ptr %Z11.i435, align 2, !tbaa !206
   %.pre481 = add i16 %.pre479, -1
-  %cmp172 = icmp slt i16 %cond165, 0
-  %cmp180.not = icmp sgt i16 %.pre479, %cond165
-  %spec.select342 = select i1 %cmp180.not, i16 %cond165, i16 %.pre481
+  %cmp172 = icmp slt i16 %cond165.fr, 0
+  %cmp180.not = icmp sgt i16 %.pre479, %cond165.fr
+  %spec.select342 = select i1 %cmp180.not, i16 %cond165.fr, i16 %.pre481
   %spec.select488 = select i1 %cmp172, i16 0, i16 %spec.select342
   br label %32
 
 32:                                               ; preds = %if.end168, %if.end168.thread
-  %33 = phi i16 [ %cond101, %if.end168.thread ], [ %.fr, %if.end168 ]
+  %33 = phi i16 [ %cond101, %if.end168.thread ], [ %31, %if.end168 ]
   %34 = phi i16 [ %add8.i, %if.end168.thread ], [ %.pre479, %if.end168 ]
   %35 = phi i16 [ %add13.i436, %if.end168.thread ], [ %.pre480, %if.end168 ]
   %sub179.pre-phi487 = phi i16 [ %sub88, %if.end168.thread ], [ %.pre481, %if.end168 ]

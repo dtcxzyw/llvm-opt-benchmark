@@ -5711,7 +5711,6 @@ entry:
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mBackground.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %mBackground.i.i.i.i, align 1
-  %.fr.i.i.i = freeze i8 %3
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEE.exit.thread.i.i.i, %for.body.lr.ph.i.i.i
@@ -5729,9 +5728,9 @@ for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEE.exit.i.i.i: ; preds = %for.body.i.i.i
   %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 56
   %6 = load i8, ptr %tile.i.i.i.i.i, align 1
-  %.fr6.i.i.i = freeze i8 %6
-  %7 = xor i8 %.fr6.i.i.i, %.fr.i.i.i
-  %8 = and i8 %7, 1
+  %7 = xor i8 %6, %3
+  %.fr6.i.i.i = freeze i8 %7
+  %8 = and i8 %.fr6.i.i.i, 1
   %9 = xor i8 %8, 1
   %10 = zext nneg i8 %9 to i64
   %spec.select.i.i.i = add i64 %count.09.i.i.i, %10
@@ -10256,7 +10255,6 @@ entry:
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mBackground.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i8, ptr %mBackground.i.i.i.i, align 8
-  %.fr.i.i.i = freeze i8 %2
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEE.exit.thread.i.i.i, %for.body.lr.ph.i.i.i
@@ -10274,9 +10272,9 @@ for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEE.exit.i.i.i: ; preds = %for.body.i.i.i
   %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 56
   %5 = load i8, ptr %tile.i.i.i.i.i, align 1
-  %.fr6.i.i.i = freeze i8 %5
-  %6 = xor i8 %.fr6.i.i.i, %.fr.i.i.i
-  %7 = and i8 %6, 1
+  %6 = xor i8 %5, %2
+  %.fr6.i.i.i = freeze i8 %6
+  %7 = and i8 %.fr6.i.i.i, 1
   %8 = xor i8 %7, 1
   %9 = zext nneg i8 %8 to i64
   %spec.select.i.i.i = add i64 %count.09.i.i.i, %9
@@ -10454,7 +10452,6 @@ entry:
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mBackground.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i8, ptr %mBackground.i.i.i.i, align 8
-  %.fr.i.i.i = freeze i8 %2
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEE.exit.thread.i.i.i, %for.body.lr.ph.i.i.i
@@ -10472,9 +10469,9 @@ for.body.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_04
 _ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE16isBackgroundTileERKSt23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEE.exit.i.i.i: ; preds = %for.body.i.i.i
   %tile.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.08.i.i.i, i64 56
   %5 = load i8, ptr %tile.i.i.i.i.i, align 1
-  %.fr6.i.i.i = freeze i8 %5
-  %6 = xor i8 %.fr6.i.i.i, %.fr.i.i.i
-  %7 = and i8 %6, 1
+  %6 = xor i8 %5, %2
+  %.fr6.i.i.i = freeze i8 %6
+  %7 = and i8 %.fr6.i.i.i, 1
   %8 = xor i8 %7, 1
   %9 = zext nneg i8 %8 to i64
   %spec.select.i.i.i = add i64 %count.09.i.i.i, %9

@@ -42165,10 +42165,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i35.i.i.i: ; 
 _ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.i.i.i: ; preds = %102
   %125 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %.val21.i.i43.i.i.i = load i64, ptr %125, align 8, !tbaa !1507
-  %.val14.i20.fr.i.i.i = freeze i64 %.val14.i20.i.i.i
-  %.val21.i.i43.fr.i.i.i = freeze i64 %.val21.i.i43.i.i.i
-  %126 = icmp ult i64 %.val14.i20.fr.i.i.i, %.val21.i.i43.fr.i.i.i
-  br i1 %126, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.thread.i.i.i, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.thread50.i.i.i
+  %126 = icmp ult i64 %.val14.i20.i.i.i, %.val21.i.i43.i.i.i
+  %cond.fr.i.i.i = freeze i1 %126
+  br i1 %cond.fr.i.i.i, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.thread.i.i.i, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.thread50.i.i.i
 
 _ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.thread.i.i.i: ; preds = %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i35.i.i.i, %101, %96
   br label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit44.thread50.i.i.i
@@ -43000,10 +42999,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i25.i.i: ; pr
 _ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.i.i: ; preds = %221
   %490 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %.val21.i.i33.i.i = load i64, ptr %490, align 8, !tbaa !1507
-  %.val14.i10.fr.i.i = freeze i64 %.val14.i10.i.i
-  %.val21.i.i33.fr.i.i = freeze i64 %.val21.i.i33.i.i
-  %491 = icmp ult i64 %.val14.i10.fr.i.i, %.val21.i.i33.fr.i.i
-  br i1 %491, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.thread.i.i, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.thread30.i.i
+  %491 = icmp ult i64 %.val14.i10.i.i, %.val21.i.i33.i.i
+  %cond.fr.i57.i = freeze i1 %491
+  br i1 %cond.fr.i57.i, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.thread.i.i, label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.thread30.i.i
 
 _ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.thread.i.i: ; preds = %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i25.i.i, %220, %215
   br label %_ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUlPKSt4pairINS_10BindingKeyEN5clang4ento4SValEESD_E_clESD_SD_.exit34.thread30.i.i

@@ -2596,34 +2596,34 @@ define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18Designate
 .preheader.i:                                     ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
-  %.fr.i = freeze i32 %7
-  %8 = lshr i32 %.fr.i, 1
+  %.fr21.i = freeze i32 %7
+  %8 = lshr i32 %.fr21.i, 1
   %9 = and i32 %8, 32767
   %.not1419.not.i = icmp eq i32 %9, 0
   br i1 %.not1419.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %10 = and i32 %.fr.i, 1
+  %10 = and i32 %.fr21.i, 1
   %.not.i = icmp eq i32 %10, 0
-  %wide.trip.count29.i = zext nneg i32 %9 to i64
+  %wide.trip.count30.i = zext nneg i32 %9 to i64
   br i1 %.not.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %13
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %13 ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv26.i
+  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %13 ], [ 0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv27.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %storemerge.us.i = load i32, ptr %12, align 4, !tbaa !83
   %.not18.us.i = icmp eq i32 %storemerge.us.i, 0
   br i1 %.not18.us.i, label %13, label %_ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit
 
 13:                                               ; preds = %.lr.ph.split.us.i
-  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !145
+  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
+  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
+  br i1 %exitcond31.not.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !145
 
 14:                                               ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count29.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count30.i
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !145
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %14
@@ -18920,7 +18920,7 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   %49 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #31
   %50 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %spec.select.i.i.i.i.i) #31
   %or.cond.not.i.i.i.i.i.i = icmp eq i64 %49, %50
-  %spec.select26.i.i.i.i.i.i = select i1 %or.cond.not.i.i.i.i.i.i, ptr %48, ptr %spec.select.i.i.i.i.i
+  %spec.select27.i.i.i.i.i.i = select i1 %or.cond.not.i.i.i.i.i.i, ptr %48, ptr %spec.select.i.i.i.i.i
   br label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
 .thread.i.i.i.i.i.i:                              ; preds = %_ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i
@@ -18963,14 +18963,14 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
 
 .critedge6.i.i.i.i.i.i:                           ; preds = %.critedge.i.i.i.i.i.i
   %69 = load i32, ptr %spec.select.i.i.i.i.i, align 8
-  %.fr.i.i.i.i.i.i = freeze i32 %69
-  %70 = and i32 %.fr.i.i.i.i.i.i, 524288
+  %.fr25.i.i.i.i.i.i = freeze i32 %69
+  %70 = and i32 %.fr25.i.i.i.i.i.i, 524288
   %.not24.i.i.i.i.i.i = icmp eq i32 %70, 0
   %spec.select.i.i.i.i.i.i = select i1 %.not24.i.i.i.i.i.i, ptr %spec.select.i.i.i.i.i, ptr %65
   br label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
 "_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i": ; preds = %.critedge6.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i, %55, %52, %.thread.i.i.i.i.i.i, %46
-  %.3.i.i.i.i.i.i = phi ptr [ %spec.select26.i.i.i.i.i.i, %46 ], [ %spec.select.i.i.i.i.i, %52 ], [ %spec.select.i.i.i.i.i.i, %.critedge6.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %65, %.critedge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %55 ]
+  %.3.i.i.i.i.i.i = phi ptr [ %spec.select27.i.i.i.i.i.i, %46 ], [ %spec.select.i.i.i.i.i, %52 ], [ %spec.select.i.i.i.i.i.i, %.critedge6.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %65, %.critedge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %55 ]
   %71 = load i16, ptr %.3.i.i.i.i.i.i, align 8
   %72 = and i16 %71, 511
   %.not.i.i.i.i.i.i.i = icmp eq i16 %72, 94
@@ -18982,9 +18982,8 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   %.sroa.09.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %75 to i32
   %.sroa.410.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %75, 32
   %76 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.3.i.i.i.i.i.i) #31
-  %.fr27.i.i.i.i.i.i.i = freeze i64 %76
-  %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %.fr27.i.i.i.i.i.i.i to i32
-  %.sroa.48.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.fr27.i.i.i.i.i.i.i, 32
+  %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %76 to i32
+  %.sroa.48.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %76, 32
   %77 = icmp eq i32 %.sroa.09.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i
   %78 = icmp eq i64 %.sroa.410.0.extract.shift.i.i.i.i.i.i.i, %.sroa.48.0.extract.shift.i.i.i.i.i.i.i
   %79 = and i1 %77, %78
@@ -18993,21 +18992,21 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
 80:                                               ; preds = %73
   %81 = load i16, ptr %74, align 8
   %82 = and i16 %81, 511
-  %.not31.i.i.i.i.i.i.i = icmp eq i16 %82, 22
-  %83 = icmp eq i64 %75, %.fr27.i.i.i.i.i.i.i
-  %or.cond.i.i.i.i.i.i = and i1 %83, %.not31.i.i.i.i.i.i.i
+  %.not28.i.i.i.i.i.i.i = icmp eq i16 %82, 22
+  %83 = icmp eq i64 %75, %76
+  %or.cond.i.i.i.i.i.i = and i1 %83, %.not28.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i", label %84
 
 84:                                               ; preds = %80
   %85 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #31
   %86 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %85) #31
-  %.fr.i.i.i.i.i.i.i = freeze i64 %86
-  %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %.fr.i.i.i.i.i.i.i to i32
-  %.sroa.42.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.fr.i.i.i.i.i.i.i, 32
+  %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %86 to i32
+  %.sroa.42.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %86, 32
   %87 = icmp ne i32 %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i
   %88 = icmp ne i64 %.sroa.42.0.extract.shift.i.i.i.i.i.i.i, %.sroa.48.0.extract.shift.i.i.i.i.i.i.i
   %.not26.i.i.i.i.i.i.i = or i1 %87, %88
-  %spec.select.i.i.i.i.i.i.i = select i1 %.not26.i.i.i.i.i.i.i, ptr %.3.i.i.i.i.i.i, ptr %85
+  %cond.fr.i.i.i.i.i.i.i = freeze i1 %.not26.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = select i1 %cond.fr.i.i.i.i.i.i.i, ptr %.3.i.i.i.i.i.i, ptr %85
   br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i"
 
 "_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i": ; preds = %84, %80, %73, %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
@@ -30248,34 +30247,34 @@ define dso_local i32 @_ZNK5clang18DesignatedInitExpr11getBeginLocEv(ptr noundef 
 .preheader:                                       ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
-  %.fr = freeze i32 %7
-  %8 = lshr i32 %.fr, 1
+  %.fr21 = freeze i32 %7
+  %8 = lshr i32 %.fr21, 1
   %9 = and i32 %8, 32767
   %.not1419.not = icmp eq i32 %9, 0
   br i1 %.not1419.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = and i32 %.fr, 1
+  %10 = and i32 %.fr21, 1
   %.not = icmp eq i32 %10, 0
-  %wide.trip.count29 = zext nneg i32 %9 to i64
+  %wide.trip.count30 = zext nneg i32 %9 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %13
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %13 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv26
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %13 ], [ 0, %.lr.ph ]
+  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %storemerge.us = load i32, ptr %12, align 4, !tbaa !83
   %.not18.us = icmp eq i32 %storemerge.us, 0
   br i1 %.not18.us, label %13, label %.loopexit
 
 13:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !145
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !145
 
 14:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !145
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14

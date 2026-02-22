@@ -580,35 +580,28 @@ entry:
   %__tmp.i.i.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %agg.tmp61.sroa.0.i.i1.i = alloca { ptr, ptr }, align 8
   %agg.tmp611.sroa.0.i.i.i = alloca { ptr, ptr }, align 8
-  %__first.coerce.fr.i = freeze ptr %__first.coerce
-  %__last.coerce.fr = freeze ptr %__last.coerce
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr.i to i64
-  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %__last.coerce.fr to i64
-  %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %cmp16 = icmp sgt i64 %sub.ptr.sub.i15, 384
-  br i1 %cmp16, label %while.body.lr.ph, label %while.end
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.lhs.cast.i12 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i.i.i.fr.i14 = freeze i64 %sub.ptr.sub.i13
+  %cmp15 = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i14, 384
+  br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i2.i = getelementptr i8, ptr %__first.coerce.fr.i, i64 24
-  %0 = getelementptr i8, ptr %__first.coerce.fr.i, i64 40
-  %1 = getelementptr i8, ptr %__first.coerce.fr.i, i64 16
+  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 24
+  %0 = getelementptr i8, ptr %__first.coerce, i64 40
+  %1 = getelementptr i8, ptr %__first.coerce, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit"
-  %sub.ptr.sub.i19 = phi i64 [ %sub.ptr.sub.i15, %while.body.lr.ph ], [ %sub.ptr.sub.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit" ]
-  %__depth_limit.addr.018 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit" ]
-  %storemerge17 = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit" ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.018, 0
-  br i1 %cmp2, label %if.then, label %if.end
+  %sub.ptr.sub.i.i.i.fr.i18 = phi i64 [ %sub.ptr.sub.i.i.i.fr.i14, %while.body.lr.ph ], [ %sub.ptr.sub.i.i.i.fr.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit" ]
+  %__depth_limit.addr.017 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit" ]
+  %storemerge16 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit" ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.017, 0
+  br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
-if.then:                                          ; preds = %while.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %storemerge17 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
-  %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i, 48
-  br i1 %cmp.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_T0_.exit.i", label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then
-  %sub.ptr.div.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i, 24
+if.end.i.i.i:                                     ; preds = %while.body
+  %sub.ptr.div.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.fr.i18, 24
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -2
   %div56.i.i.i = lshr i64 %sub.i.i.i, 1
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -1
@@ -616,13 +609,13 @@ if.end.i.i.i:                                     ; preds = %if.then
   %and.i.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 1
   %cmp16.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   %sub24.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub24.i.i.i.i
-  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %div56.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %div56.i.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div56.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
-  %phi.call.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__parent.0.i.i.i
+  %phi.call.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__parent.0.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp611.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp611.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %phi.call.i.i.i, i64 16, i1 false)
   %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 16
@@ -634,17 +627,17 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__holeIndex.addr.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.030.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i17.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub3.i.i.i.i
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub3.i.i.i.i
   %2 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %call.val.i.i.i.i.i = load i64, ptr %2, align 8
   %3 = getelementptr i8, ptr %add.ptr.i17.i.i.i.i, i64 16
   %call3.val.i.i.i.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i, %call3.val.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i18.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %spec.select.i.i.i.i
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.030.i.i.i.i
+  %add.ptr.i18.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18.i.i.i.i, i64 24, i1 false)
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i7.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !14
@@ -668,41 +661,37 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.07.i.i.i.i.i = phi i64 [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.08.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i.i, -1
   %__parent.08.i.i.i.i.i = sdiv i64 %__parent.08.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__parent.08.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__parent.08.i.i.i.i.i
   %4 = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i, i64 16
   %call.val.i.i.i.i.i.i = load i64, ptr %4, align 8
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i.i, %__value.sroa.2.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.07.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i, i64 24, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.08.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !15
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__holeIndex.addr.07.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp611.sroa.0.i.i.i, i64 16, i1 false)
   %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i.i.i, i64 16
   store i64 %__value.sroa.2.0.copyload.i.i.i, ptr %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp611.sroa.0.i.i.i)
   %cmp9.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp9.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_T0_.exit.i", label %while.body.i.i.i, !llvm.loop !16
+  br i1 %cmp9.i.i.i, label %while.body.i.i, label %while.body.i.i.i, !llvm.loop !16
 
-"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_T0_.exit.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %if.then
-  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 24
-  br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
-
-while.body.i.i:                                   ; preds = %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_T0_.exit.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i" ], [ %storemerge17, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_T0_.exit.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i" ], [ %storemerge16, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp61.sroa.0.i.i1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61.sroa.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i2.i, i64 16, i1 false)
   %__value.sroa.2.0.__result.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   %__value.sroa.2.0.copyload.i.i3.i = load i64, ptr %__value.sroa.2.0.__result.sroa.0.0..sroa_idx.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i2.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i2.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i4.i = ptrtoint ptr %incdec.ptr.i.i2.i to i64
   %sub.ptr.sub.i.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i.i4.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i6.i = sdiv exact i64 %sub.ptr.sub.i.i.i5.i, 24
@@ -715,17 +704,17 @@ while.body.i.i.i38.i:                             ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.030.i.i.i39.i = phi i64 [ %spec.select.i.i.i48.i, %while.body.i.i.i38.i ], [ 0, %while.body.i.i ]
   %add.i.i.i40.i = shl i64 %__holeIndex.addr.030.i.i.i39.i, 1
   %mul.i.i.i41.i = add i64 %add.i.i.i40.i, 2
-  %add.ptr.i.i.i.i42.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %mul.i.i.i41.i
+  %add.ptr.i.i.i.i42.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %mul.i.i.i41.i
   %sub3.i.i.i43.i = or disjoint i64 %add.i.i.i40.i, 1
-  %add.ptr.i17.i.i.i44.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub3.i.i.i43.i
+  %add.ptr.i17.i.i.i44.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub3.i.i.i43.i
   %5 = getelementptr i8, ptr %add.ptr.i.i.i.i42.i, i64 16
   %call.val.i.i.i.i45.i = load i64, ptr %5, align 8
   %6 = getelementptr i8, ptr %add.ptr.i17.i.i.i44.i, i64 16
   %call3.val.i.i.i.i46.i = load i64, ptr %6, align 8
   %cmp.i.i.i.i.i47.i = icmp ugt i64 %call.val.i.i.i.i45.i, %call3.val.i.i.i.i46.i
   %spec.select.i.i.i48.i = select i1 %cmp.i.i.i.i.i47.i, i64 %sub3.i.i.i43.i, i64 %mul.i.i.i41.i
-  %add.ptr.i18.i.i.i49.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %spec.select.i.i.i48.i
-  %add.ptr.i19.i.i.i50.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.030.i.i.i39.i
+  %add.ptr.i18.i.i.i49.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %spec.select.i.i.i48.i
+  %add.ptr.i19.i.i.i50.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i39.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i19.i.i.i50.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18.i.i.i49.i, i64 24, i1 false)
   %cmp.i.i.i51.i = icmp slt i64 %spec.select.i.i.i48.i, %div.i.i.i8.i
   br i1 %cmp.i.i.i51.i, label %while.body.i.i.i38.i, label %while.end.i.i.i10.i, !llvm.loop !14
@@ -745,8 +734,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i10.i
 if.end33.i.thread.i.i34.i:                        ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 1
   %sub24.i.i.i35.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i20.i.i.i36.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub24.i.i.i35.i
-  %add.ptr.i21.i.i.i37.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
+  %add.ptr.i20.i.i.i36.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub24.i.i.i35.i
+  %add.ptr.i21.i.i.i37.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i21.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i20.i.i.i36.i, i64 24, i1 false)
   br label %land.rhs.i.i.i.i18.i.preheader
 
@@ -762,21 +751,21 @@ land.rhs.i.i.i.i18.i:                             ; preds = %land.rhs.i.i.i.i18.
   %__holeIndex.addr.07.i.i.i.i19.i = phi i64 [ %__parent.08.i.i34.i.i21.i, %while.body.i.i.i.i29.i ], [ %__holeIndex.addr.07.i.i.i.i19.i.ph, %land.rhs.i.i.i.i18.i.preheader ]
   %__parent.08.in.i.i.i.i20.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i19.i, -1
   %__parent.08.i.i34.i.i21.i = lshr i64 %__parent.08.in.i.i.i.i20.i, 1
-  %add.ptr.i.i.i.i.i22.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__parent.08.i.i34.i.i21.i
+  %add.ptr.i.i.i.i.i22.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__parent.08.i.i34.i.i21.i
   %7 = getelementptr i8, ptr %add.ptr.i.i.i.i.i22.i, i64 16
   %call.val.i.i.i.i.i23.i = load i64, ptr %7, align 8
   %cmp.i.i.i.i.i.i24.i = icmp ugt i64 %call.val.i.i.i.i.i23.i, %__value.sroa.2.0.copyload.i.i3.i
   br i1 %cmp.i.i.i.i.i.i24.i, label %while.body.i.i.i.i29.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i"
 
 while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i18.i
-  %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.07.i.i.i.i19.i
+  %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i19.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8.i.i.i.i30.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i22.i, i64 24, i1 false)
   %cmp.i.i.not.i.i31.i = icmp eq i64 %__parent.08.i.i34.i.i21.i, 0
   br i1 %cmp.i.i.not.i.i31.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i", label %land.rhs.i.i.i.i18.i, !llvm.loop !15
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i": ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i18.i, %if.end33.i.i.i14.i
   %__holeIndex.addr.0.lcssa.i.i.i.i26.i = phi i64 [ 0, %if.end33.i.i.i14.i ], [ %__holeIndex.addr.07.i.i.i.i19.i, %land.rhs.i.i.i.i18.i ], [ 0, %while.body.i.i.i.i29.i ]
-  %add.ptr.i9.i.i.i.i27.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i26.i
+  %add.ptr.i9.i.i.i.i27.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i26.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i.i.i27.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61.sroa.0.i.i1.i, i64 16, i1 false)
   %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i28.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i.i27.i, i64 16
   store i64 %__value.sroa.2.0.copyload.i.i3.i, ptr %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i28.i, align 8
@@ -785,97 +774,97 @@ while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i18.
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !17
 
 if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.018, -1
-  %div.i = udiv i64 %sub.ptr.sub.i19, 48
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %div.i
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge17, i64 -24
-  %call.val.i.i.i5 = load i64, ptr %0, align 8
+  %dec = add nsw i64 %__depth_limit.addr.017, -1
+  %div.i = udiv i64 %sub.ptr.sub.i.i.i.fr.i18, 48
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge16, i64 -24
+  %call.val.i.i.i = load i64, ptr %0, align 8
   %8 = getelementptr i8, ptr %add.ptr.i.i, i64 16
-  %call3.val.i.i.i6 = load i64, ptr %8, align 8
-  %cmp.i.i.i.i7 = icmp ugt i64 %call.val.i.i.i5, %call3.val.i.i.i6
-  %9 = getelementptr i8, ptr %storemerge17, i64 -8
+  %call3.val.i.i.i = load i64, ptr %8, align 8
+  %cmp.i.i.i.i5 = icmp ugt i64 %call.val.i.i.i, %call3.val.i.i.i
+  %9 = getelementptr i8, ptr %storemerge16, i64 -8
   %call3.val.i2.i.i = load i64, ptr %9, align 8
-  br i1 %cmp.i.i.i.i7, label %if.then.i.i11, label %if.else33.i.i
+  br i1 %cmp.i.i.i.i5, label %if.then.i.i, label %if.else33.i.i
 
-if.then.i.i11:                                    ; preds = %if.end
-  %cmp.i.i3.i.i = icmp ugt i64 %call3.val.i.i.i6, %call3.val.i2.i.i
+if.then.i.i:                                      ; preds = %if.end
+  %cmp.i.i3.i.i = icmp ugt i64 %call3.val.i.i.i, %call3.val.i2.i.i
   br i1 %cmp.i.i3.i.i, label %if.then12.i.i, label %if.else.i.i
 
-if.then12.i.i:                                    ; preds = %if.then.i.i11
+if.then12.i.i:                                    ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
-  br label %while.body.i.i8.preheader
+  br label %while.body.i.i6.preheader
 
-if.else.i.i:                                      ; preds = %if.then.i.i11
-  %cmp.i.i6.i.i = icmp ugt i64 %call.val.i.i.i5, %call3.val.i2.i.i
+if.else.i.i:                                      ; preds = %if.then.i.i
+  %cmp.i.i6.i.i = icmp ugt i64 %call.val.i.i.i, %call3.val.i2.i.i
   br i1 %cmp.i.i6.i.i, label %if.then22.i.i, label %if.else27.i.i
 
 if.then22.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i7.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i3.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i3.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i3.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i7.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i7.i.i)
-  br label %while.body.i.i8.preheader
+  br label %while.body.i.i6.preheader
 
 if.else27.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i8.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i2.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i2.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i2.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i8.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i8.i.i)
-  br label %while.body.i.i8.preheader
+  br label %while.body.i.i6.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
-  %cmp.i.i11.i.i = icmp ugt i64 %call.val.i.i.i5, %call3.val.i2.i.i
+  %cmp.i.i11.i.i = icmp ugt i64 %call.val.i.i.i, %call3.val.i2.i.i
   br i1 %cmp.i.i11.i.i, label %if.then39.i.i, label %if.else44.i.i
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i12.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i2.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i2.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i2.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i12.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i12.i.i)
-  br label %while.body.i.i8.preheader
+  br label %while.body.i.i6.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
-  %cmp.i.i15.i.i = icmp ugt i64 %call3.val.i.i.i6, %call3.val.i2.i.i
+  %cmp.i.i15.i.i = icmp ugt i64 %call3.val.i.i.i, %call3.val.i2.i.i
   br i1 %cmp.i.i15.i.i, label %if.then50.i.i, label %if.else55.i.i
 
 if.then50.i.i:                                    ; preds = %if.else44.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i16.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i16.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i3.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i16.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i3.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i3.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i16.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i16.i.i)
-  br label %while.body.i.i8.preheader
+  br label %while.body.i.i6.preheader
 
 if.else55.i.i:                                    ; preds = %if.else44.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i17.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce.fr.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i17.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i17.i.i)
-  br label %while.body.i.i8.preheader
+  br label %while.body.i.i6.preheader
 
-while.body.i.i8.preheader:                        ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
-  br label %while.body.i.i8
+while.body.i.i6.preheader:                        ; preds = %if.else55.i.i, %if.then50.i.i, %if.then39.i.i, %if.else27.i.i, %if.then22.i.i, %if.then12.i.i
+  br label %while.body.i.i6
 
-while.body.i.i8:                                  ; preds = %while.body.i.i8.preheader, %if.end.i.i
-  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i9, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i8.preheader ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge17, %while.body.i.i8.preheader ]
+while.body.i.i6:                                  ; preds = %while.body.i.i6.preheader, %if.end.i.i
+  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i6.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge16, %while.body.i.i6.preheader ]
   %call3.val.i.i6.i = load i64, ptr %1, align 8
   br label %while.cond3.i.i
 
-while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i8
-  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i8 ], [ %incdec.ptr.i.i.i9, %while.cond3.i.i ]
+while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i6
+  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i6 ], [ %incdec.ptr.i.i.i, %while.cond3.i.i ]
   %10 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 16
   %call.val.i.i7.i = load i64, ptr %10, align 8
   %cmp.i.i.i8.i = icmp ugt i64 %call.val.i.i7.i, %call3.val.i.i6.i
-  %incdec.ptr.i.i.i9 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 24
   br i1 %cmp.i.i.i8.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !18
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
@@ -887,8 +876,8 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !19
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
-  %cmp.i.i.i10 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
-  br i1 %cmp.i.i.i10, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit"
+  %cmp.i.i.i7 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
+  br i1 %cmp.i.i.i7, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit"
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i5.i)
@@ -896,16 +885,17 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.1.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i5.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i5.i)
-  br label %while.body.i.i8, !llvm.loop !20
+  br label %while.body.i.i6, !llvm.loop !20
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %while.end18.i.i
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge17, i64 noundef %dec)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge16, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp sgt i64 %sub.ptr.sub.i, 384
+  %sub.ptr.sub.i.i.i.fr.i = freeze i64 %sub.ptr.sub.i
+  %cmp = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i, 384
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !21
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i", %entry, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_T0_.exit.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i", %entry
   ret void
 }
 

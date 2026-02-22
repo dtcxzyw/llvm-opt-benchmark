@@ -66578,10 +66578,8 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %5 = alloca { i8, [31 x i8] }, align 8
   %.sroa.9 = alloca [31 x i8], align 1
   %.sroa.0.0.copyload2 = load ptr, ptr %1, align 8, !alias.scope !19184
-  %.sroa.0.0.copyload2.fr = freeze ptr %.sroa.0.0.copyload2
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload4 = load ptr, ptr %.sroa.5.0..sroa_idx3, align 8, !alias.scope !19184
-  %.sroa.5.0.copyload4.fr = freeze ptr %.sroa.5.0.copyload4
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.sroa.0.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx5, align 8, !alias.scope !19184
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx5.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -66589,8 +66587,9 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %.sroa.66.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.66.0.copyload8 = load i64, ptr %.sroa.66.0..sroa_idx7, align 8, !alias.scope !19184
   %6 = icmp eq i64 %.sroa.66.0.copyload8, 0
-  %7 = icmp eq ptr %.sroa.5.0.copyload4.fr, %.sroa.0.0.copyload2.fr
-  %8 = or i1 %6, %7
+  %7 = icmp eq ptr %.sroa.5.0.copyload4, %.sroa.0.0.copyload2
+  %.fr = freeze i1 %7
+  %8 = or i1 %6, %.fr
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %2
@@ -66599,11 +66598,11 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
 
 .lr.ph:                                           ; preds = %.thread, %9
   %.sroa.9.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %10 = icmp ne ptr %.sroa.0.0.copyload2.fr, null
+  %10 = icmp ne ptr %.sroa.0.0.copyload2, null
   %.sroa.9.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %7, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %12 = icmp ne ptr %.sroa.6.sroa.4.0.copyload, null
@@ -66701,7 +66700,7 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.i.i", %.lr.ph.split
   tail call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !19211
-  call void @"_ZN71_$LT$typst..foundations..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17ha48c16cb206e134aE.llvm.13383457361836014260"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %.sroa.0.0.copyload2.fr), !noalias !19188
+  call void @"_ZN71_$LT$typst..foundations..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17ha48c16cb206e134aE.llvm.13383457361836014260"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %.sroa.0.0.copyload2), !noalias !19188
   %.sroa.016.0.copyload18 = load i8, ptr %3, align 8, !noalias !19218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.9, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.9.0..sroa_idx20, i64 31, i1 false), !noalias !19218
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !19211
@@ -66720,8 +66719,8 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
 
 37:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf73b46036448a46E.llvm.4930786928582598558.exit.thread29", %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i"
   %.sroa.016.035 = phi i8 [ %.pr.i.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf73b46036448a46E.llvm.4930786928582598558.exit.thread29" ], [ %.sroa.016.0.copyload18, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i" ]
-  %.sroa.11.134 = phi ptr [ %.sroa.11.037, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf73b46036448a46E.llvm.4930786928582598558.exit.thread29" ], [ %.sroa.5.0.copyload4.fr, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i" ]
-  %.sroa.615.0.pn = phi ptr [ %.sroa.615.036, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf73b46036448a46E.llvm.4930786928582598558.exit.thread29" ], [ %.sroa.0.0.copyload2.fr, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i" ]
+  %.sroa.11.134 = phi ptr [ %.sroa.11.037, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf73b46036448a46E.llvm.4930786928582598558.exit.thread29" ], [ %.sroa.5.0.copyload4, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i" ]
+  %.sroa.615.0.pn = phi ptr [ %.sroa.615.036, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf73b46036448a46E.llvm.4930786928582598558.exit.thread29" ], [ %.sroa.0.0.copyload2, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74f0bb8d189c41b5E.exit.thread.i.i" ]
   %.sroa.615.133 = getelementptr inbounds nuw i8, ptr %.sroa.615.0.pn, i64 32
   store i8 %.sroa.016.035, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.9, i64 31, i1 false)
@@ -89761,13 +89760,13 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.i: ; 
           to label %.noexc51 unwind label %.loopexit.split-lp
 
 .noexc51:                                         ; preds = %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.i
-  %.fr.i = freeze { i32, float } %255
-  %256 = extractvalue { i32, float } %.fr.i, 0
+  %.fr32.i = freeze { i32, float } %255
+  %256 = extractvalue { i32, float } %.fr32.i, 0
   %257 = icmp eq i32 %256, 1
   br i1 %257, label %258, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i
 
 258:                                              ; preds = %.noexc51
-  %259 = extractvalue { i32, float } %.fr.i, 1
+  %259 = extractvalue { i32, float } %.fr32.i, 1
   %260 = fadd float %259, 5.000000e-01
   %261 = fadd float %260, %193
   br label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i
@@ -98346,13 +98345,13 @@ define noundef i64 @_ZN5typst4eval6tracer6Tracer9inspected17hbf88866871d5d757E(p
 
 6:                                                ; preds = %2
   %7 = tail call { i16, i16 } @_ZN12typst_syntax4span4Span2id17hb541e9ff210c7eccE(i64 noundef %4)
-  %.fr = freeze { i16, i16 } %7
-  %8 = extractvalue { i16, i16 } %.fr, 0
+  %.fr16 = freeze { i16, i16 } %7
+  %8 = extractvalue { i16, i16 } %.fr16, 0
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %.thread14, label %10
 
 10:                                               ; preds = %6
-  %11 = extractvalue { i16, i16 } %.fr, 1
+  %11 = extractvalue { i16, i16 } %.fr16, 1
   %12 = icmp eq i16 %11, %1
   %spec.select = select i1 %12, i64 %4, i64 0
   br label %.thread14

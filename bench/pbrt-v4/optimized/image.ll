@@ -5020,8 +5020,8 @@ define dso_local void @_ZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIK
   %27 = mul nsw i32 %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !61
-  %.fr183 = freeze i64 %29
-  %30 = trunc i64 %.fr183 to i32
+  %.fr = freeze i64 %29
+  %30 = trunc i64 %.fr to i32
   %31 = mul nsw i32 %27, %30
   store i32 %31, ptr %20, align 4, !tbaa !13
   %32 = sext i32 %31 to i64
@@ -11853,8 +11853,8 @@ define dso_local void @_ZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4span
   %26 = mul nsw i32 %25, %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !61
-  %.fr194 = freeze i64 %28
-  %29 = trunc i64 %.fr194 to i32
+  %.fr = freeze i64 %28
+  %29 = trunc i64 %.fr to i32
   %30 = mul nsw i32 %26, %29
   store i32 %30, ptr %19, align 4, !tbaa !13
   %31 = sext i32 %30 to i64

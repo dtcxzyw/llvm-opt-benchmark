@@ -1323,11 +1323,12 @@ define dso_local void @__i915_gem_object_release_map(ptr noundef %0) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr i8, ptr %0, i64 832
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %6 = icmp eq ptr %5, %1
-  %7 = getelementptr i8, ptr %0, i64 936
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %8 = icmp eq ptr %7, %1
-  %9 = or i1 %6, %8
+  %9 = select i1 %6, i1 true, i1 %8
+  %.fr = freeze i1 %9
   %10 = tail call i32 @__SCT__might_resched() #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %12 = load volatile i32, ptr %11, align 4
@@ -1342,7 +1343,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   tail call void @mutex_lock(ptr noundef nonnull %18) #6
   %19 = load ptr, ptr %1, align 8
   %20 = load i32, ptr %13, align 8
-  %21 = select i1 %9, i64 24, i64 12
+  %21 = select i1 %.fr, i64 24, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.in314 = load i32, ptr %22, align 4
@@ -1353,7 +1354,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   br i1 %27, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %53
   %28 = phi i32 [ %57, %53 ], [ %25, %.lr.ph ]

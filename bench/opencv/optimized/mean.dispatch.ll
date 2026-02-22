@@ -3670,8 +3670,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %91
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %101 = load i64, ptr %100, align 8, !tbaa !107
-  %.fr198 = freeze i64 %101
-  %102 = trunc i64 %.fr198 to i32
+  %.fr = freeze i64 %101
+  %102 = trunc i64 %.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %103 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %103, ptr %17, align 8, !tbaa !112
@@ -3724,7 +3724,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %99
   br i1 %129, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.preheader, label %_ZNK2cv3Mat8elemSizeEv.exit.split.preheader
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.preheader: ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread
-  %131 = and i64 %.fr198, 2147483647
+  %131 = and i64 %.fr, 2147483647
   br label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.preheader:      ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread, %_ZNK2cv3Mat8elemSizeEv.exit
@@ -4717,8 +4717,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %26
 274:                                              ; preds = %271
   %275 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %276 = load i64, ptr %275, align 8, !tbaa !107
-  %.fr392 = freeze i64 %276
-  %277 = trunc i64 %.fr392 to i32
+  %.fr = freeze i64 %276
+  %277 = trunc i64 %.fr to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %278 = shl nuw nsw i32 %100, 2
   %279 = zext nneg i32 %278 to i64
@@ -4817,7 +4817,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %295
   br i1 %320, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.preheader, label %_ZNK2cv3Mat8elemSizeEv.exit.split.preheader
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.preheader: ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread
-  %322 = and i64 %.fr392, 2147483647
+  %322 = and i64 %.fr, 2147483647
   br label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.preheader:      ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread, %_ZNK2cv3Mat8elemSizeEv.exit

@@ -1366,15 +1366,15 @@ define internal ptr @filter_next(ptr noundef readonly captures(none) %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !31
-  %.fr = freeze ptr %5
-  %6 = icmp eq ptr %.fr, @_Py_NoneStruct
-  %7 = icmp eq ptr %.fr, @PyBool_Type
+  %6 = icmp eq ptr %5, @_Py_NoneStruct
+  %7 = icmp eq ptr %5, @PyBool_Type
   %spec.select = or i1 %6, %7
   %8 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 224
   %10 = load ptr, ptr %9, align 8, !tbaa !37
-  br i1 %spec.select, label %.split.us, label %.split
+  %spec.select.fr = freeze i1 %spec.select
+  br i1 %spec.select.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %Py_DECREF.exit31.us
   %11 = tail call ptr %10(ptr noundef %3) #10

@@ -18,14 +18,14 @@ define void @Cnf_ManPostprocess_old(ptr noundef readonly captures(none) %0) loca
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr i8, ptr %4, i64 8
   %.val38 = load ptr, ptr %7, align 8, !tbaa !27
-  %wide.trip.count60 = zext nneg i32 %.val to i64
+  %wide.trip.count61 = zext nneg i32 %.val to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.critedge2
-  %indvars.iv57 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next58, %.critedge2 ]
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %.critedge2 ]
   %.02751 = phi i32 [ 0, %.lr.ph ], [ %.1, %.critedge2 ]
   %.02850 = phi i32 [ 0, %.lr.ph ], [ %.129, %.critedge2 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv57
+  %9 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv58
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.critedge2, label %12
@@ -88,9 +88,9 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %Aig_ManObj.exit.lr.ph, %.preheader, %8, %12
   %.129 = phi i32 [ %.02850, %8 ], [ %.02850, %12 ], [ %.02850, %.preheader ], [ %.02850, %Aig_ManObj.exit.lr.ph ], [ %.331, %Aig_ManObj.exit ]
   %.1 = phi i32 [ %.02751, %8 ], [ %.02751, %12 ], [ %.02751, %.preheader ], [ %.02751, %Aig_ManObj.exit.lr.ph ], [ %.3, %Aig_ManObj.exit ]
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.critedge, label %8, !llvm.loop !32
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %.critedge, label %8, !llvm.loop !32
 
 .critedge:                                        ; preds = %.critedge2, %1
   %.028.lcssa = phi i32 [ 0, %1 ], [ %.129, %.critedge2 ]

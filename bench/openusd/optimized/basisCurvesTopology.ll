@@ -2164,7 +2164,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNK32pxrInte
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit: ; preds = %44, %40
   %.sroa.059.0 = phi i64 [ %42, %40 ], [ %49, %44 ]
-  %.sroa.059.0.fr = freeze i64 %.sroa.059.0
   %50 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %51 = inttoptr i64 %50 to ptr
   %.not.i.i27 = icmp eq i64 %50, 0
@@ -2201,16 +2200,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %62 = phi ptr [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit ], [ %61, %59 ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens_StaticTokenTypeEE3NewEv.exit.i.i.i28 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 456
   %64 = load ptr, ptr %63, align 8
-  %.fr70 = freeze ptr %64
-  %65 = ptrtoint ptr %.fr70 to i64
-  %66 = xor i64 %.sroa.059.0.fr, %65
-  %67 = icmp ult i64 %66, 8
-  %68 = and i64 %.sroa.059.0.fr, 7
+  %65 = ptrtoint ptr %64 to i64
+  %66 = xor i64 %.sroa.059.0, %65
+  %.fr70 = freeze i64 %66
+  %67 = icmp ult i64 %.fr70, 8
+  %68 = and i64 %.sroa.059.0, 7
   %.not.i.i33 = icmp eq i64 %68, 0
   br i1 %.not.i.i33, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit34, label %69
 
 69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit32
-  %70 = and i64 %.sroa.059.0.fr, -8
+  %70 = and i64 %.sroa.059.0, -8
   %71 = inttoptr i64 %70 to ptr
   %72 = atomicrmw sub ptr %71, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit34
@@ -2321,7 +2320,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit43: ; preds = %_ZNK32pxrIn
 
 .body30:                                          ; preds = %54, %118
   %eh.lpad-body31 = phi { ptr, i32 } [ %119, %118 ], [ %55, %54 ]
-  %120 = and i64 %.sroa.059.0.fr, 7
+  %120 = and i64 %.sroa.059.0, 7
   %.not.i.i44 = icmp eq i64 %120, 0
   br i1 %.not.i.i44, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split
 
@@ -2363,7 +2362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit43: ; preds = %_ZNK32pxrIn
   ret i64 %.016
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split: ; preds = %.body39, %.body30, %.body
-  %.sroa.0.0.sink = phi i64 [ %.sroa.059.0.fr, %.body30 ], [ %.sroa.062.0, %.body ], [ %.sroa.0.0, %.body39 ]
+  %.sroa.0.0.sink = phi i64 [ %.sroa.059.0, %.body30 ], [ %.sroa.062.0, %.body ], [ %.sroa.0.0, %.body39 ]
   %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body31, %.body30 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body40, %.body39 ]
   %134 = and i64 %.sroa.0.0.sink, -8
   %135 = inttoptr i64 %134 to ptr

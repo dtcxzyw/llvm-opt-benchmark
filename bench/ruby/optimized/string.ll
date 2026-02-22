@@ -463,8 +463,8 @@ declare ptr @rb_enc_from_index(i32 noundef) local_unnamed_addr #2
 define hidden void @rb_str_make_independent(i64 noundef %0) local_unnamed_addr #1 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !7
-  %.fr.i = freeze i64 %3
-  %4 = and i64 %.fr.i, 8192
+  %.fr7.i = freeze i64 %3
+  %4 = and i64 %.fr7.i, 8192
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %str_dependent_p.exit.thread, label %str_dependent_p.exit
 
@@ -472,24 +472,24 @@ str_dependent_p.exit:                             ; preds = %1
   %5 = icmp eq i64 %0, 0
   %6 = and i64 %0, 7
   %7 = icmp ne i64 %6, 0
-  %.not12.i.not6 = or i1 %5, %7
-  %8 = and i64 %.fr.i, 31
+  %.not13.i.not6 = or i1 %5, %7
+  %8 = and i64 %.fr7.i, 31
   %.not.i3.i = icmp eq i64 %8, 27
-  %or.cond.not9.i.not4 = or i1 %.not12.i.not6, %.not.i3.i
-  %9 = and i64 %.fr.i, 1073745920
+  %or.cond.not10.i.not4 = or i1 %.not13.i.not6, %.not.i3.i
+  %9 = and i64 %.fr7.i, 1073745920
   %.not.i = icmp eq i64 %9, 0
-  %or.cond7.not.i.not = or i1 %.not.i, %or.cond.not9.i.not4
-  br i1 %or.cond7.not.i.not, label %str_dependent_p.exit.thread, label %10
+  %or.cond8.not.i.not = or i1 %.not.i, %or.cond.not10.i.not4
+  br i1 %or.cond8.not.i.not, label %str_dependent_p.exit.thread, label %10
 
 10:                                               ; preds = %str_dependent_p.exit
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !12
-  %13 = and i64 %.fr.i, 532676608
+  %13 = and i64 %.fr7.i, 532676608
   %switch.i.i.i = icmp samesign ult i64 %13, 12582912
   br i1 %switch.i.i.i, label %str_make_independent.exit, label %14
 
 14:                                               ; preds = %10
-  %15 = trunc i64 %.fr.i to i32
+  %15 = trunc i64 %.fr7.i to i32
   %16 = lshr i32 %15, 22
   %17 = and i32 %16, 127
   %18 = icmp eq i32 %17, 127
@@ -933,8 +933,8 @@ define dso_local noundef i64 @rb_str_resize(i64 noundef returned %0, i64 noundef
 10:                                               ; preds = %6
   tail call fastcc void @str_modifiable(i64 noundef %0)
   %11 = load i64, ptr %7, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %11
-  %12 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %11
+  %12 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i, label %str_independent.exit, label %13
 
@@ -942,18 +942,18 @@ define dso_local noundef i64 @rb_str_resize(i64 noundef returned %0, i64 noundef
   %14 = icmp ne i64 %0, 0
   %15 = and i64 %0, 7
   %16 = icmp eq i64 %15, 0
-  %.not12.i.not7.i.not110 = and i1 %14, %16
-  %17 = and i64 %.fr.i.i, 31
+  %.not13.i.not7.i.not110 = and i1 %14, %16
+  %17 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp ne i64 %17, 27
-  %or.cond.not9.i.not4.i.not107 = and i1 %.not12.i.not7.i.not110, %.not.i3.i.i
-  %18 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not4.i.not107 = and i1 %.not13.i.not7.i.not110, %.not.i3.i.i
+  %18 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i = icmp ne i64 %18, 0
-  %or.cond7.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not9.i.not4.i.not107
+  %or.cond8.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not10.i.not4.i.not107
   br label %str_independent.exit
 
 str_independent.exit:                             ; preds = %6, %10, %13
-  %19 = phi i64 [ %8, %6 ], [ %.fr.i.i, %10 ], [ %.fr.i.i, %13 ]
-  %.0.i = phi i1 [ false, %6 ], [ false, %10 ], [ %or.cond7.not.i.not.i.not, %13 ]
+  %19 = phi i64 [ %8, %6 ], [ %.fr7.i.i, %10 ], [ %.fr7.i.i, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %10 ], [ %or.cond8.not.i.not.i.not, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !12
   %22 = and i64 %19, 532676608
@@ -3063,8 +3063,8 @@ define dso_local void @rb_str_modify(i64 noundef %0) local_unnamed_addr #1 {
 5:                                                ; preds = %1
   tail call fastcc void @str_modifiable(i64 noundef %0)
   %6 = load i64, ptr %2, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %6
-  %7 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %6
+  %7 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i, label %str_independent.exit.thread, label %str_independent.exit
 
@@ -3072,24 +3072,24 @@ str_independent.exit:                             ; preds = %5
   %8 = icmp ne i64 %0, 0
   %9 = and i64 %0, 7
   %10 = icmp eq i64 %9, 0
-  %.not12.i.i.not13.not16 = and i1 %8, %10
-  %11 = and i64 %.fr.i.i, 31
+  %.not13.i.i.not13.not16 = and i1 %8, %10
+  %11 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp ne i64 %11, 27
-  %or.cond.not9.i.i.not10.not14 = and i1 %.not12.i.i.not13.not16, %.not.i3.i.i
-  %12 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.i.not10.not14 = and i1 %.not13.i.i.not13.not16, %.not.i3.i.i
+  %12 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i = icmp ne i64 %12, 0
-  %or.cond7.not.i.i.not.not = and i1 %.not.i.i, %or.cond.not9.i.i.not10.not14
-  br i1 %or.cond7.not.i.i.not.not, label %13, label %str_independent.exit.thread
+  %or.cond8.not.i.i.not.not = and i1 %.not.i.i, %or.cond.not10.i.i.not10.not14
+  br i1 %or.cond8.not.i.i.not.not, label %13, label %str_independent.exit.thread
 
 13:                                               ; preds = %str_independent.exit
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !12
-  %16 = and i64 %.fr.i.i, 532676608
+  %16 = and i64 %.fr7.i.i, 532676608
   %switch.i.i.i = icmp samesign ult i64 %16, 12582912
   br i1 %switch.i.i.i, label %str_make_independent.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = trunc i64 %.fr.i.i to i32
+  %18 = trunc i64 %.fr7.i.i to i32
   %19 = lshr i32 %18, 22
   %20 = and i32 %19, 127
   %21 = icmp eq i32 %20, 127
@@ -3113,7 +3113,7 @@ str_make_independent.exit:                        ; preds = %13, %RB_ENCODING_GE
   br label %str_independent.exit.thread
 
 str_independent.exit.thread:                      ; preds = %5, %1, %str_make_independent.exit, %str_independent.exit
-  %27 = phi i64 [ %.fr.i.i, %5 ], [ %3, %1 ], [ %.pre, %str_make_independent.exit ], [ %.fr.i.i, %str_independent.exit ]
+  %27 = phi i64 [ %.fr7.i.i, %5 ], [ %3, %1 ], [ %.pre, %str_make_independent.exit ], [ %.fr7.i.i, %str_independent.exit ]
   %28 = and i64 %27, -3145729
   store i64 %28, ptr %2, align 8, !tbaa !7
   ret void
@@ -7048,8 +7048,8 @@ RB_ENCODING_GET.exit:                             ; preds = %6, %11
 29:                                               ; preds = %26
   tail call fastcc void @str_modifiable(i64 noundef %0)
   %30 = load i64, ptr %3, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %30
-  %31 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %30
+  %31 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i, label %str_independent.exit.thread, label %str_independent.exit
 
@@ -7057,21 +7057,21 @@ str_independent.exit:                             ; preds = %29
   %32 = icmp ne i64 %0, 0
   %33 = and i64 %0, 7
   %34 = icmp eq i64 %33, 0
-  %.not12.i.not7.i.not57 = and i1 %32, %34
-  %35 = and i64 %.fr.i.i, 31
+  %.not13.i.not7.i.not57 = and i1 %32, %34
+  %35 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp ne i64 %35, 27
-  %or.cond.not9.i.not4.i.not54 = and i1 %.not12.i.not7.i.not57, %.not.i3.i.i
-  %36 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not4.i.not54 = and i1 %.not13.i.not7.i.not57, %.not.i3.i.i
+  %36 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i = icmp ne i64 %36, 0
-  %or.cond7.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not9.i.not4.i.not54
-  br i1 %or.cond7.not.i.not.i.not, label %37, label %str_independent.exit.thread
+  %or.cond8.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not10.i.not4.i.not54
+  br i1 %or.cond8.not.i.not.i.not, label %37, label %str_independent.exit.thread
 
 37:                                               ; preds = %str_independent.exit
   tail call fastcc void @str_make_independent_expand(i64 noundef %0, i64 noundef %18, i64 noundef %1, i32 noundef %16)
   br label %71
 
 str_independent.exit.thread:                      ; preds = %29, %26, %str_independent.exit
-  %38 = phi i64 [ %.fr.i.i, %29 ], [ %27, %26 ], [ %.fr.i.i, %str_independent.exit ]
+  %38 = phi i64 [ %.fr7.i.i, %29 ], [ %27, %26 ], [ %.fr7.i.i, %str_independent.exit ]
   %.not43 = icmp eq i64 %1, 0
   br i1 %.not43, label %71, label %39
 
@@ -7455,8 +7455,8 @@ rb_check_lockedtmp.exit:                          ; preds = %26, %RB_FL_ABLE.exi
 
 36:                                               ; preds = %str_capacity.exit
   %37 = load i64, ptr %4, align 8, !tbaa !7
-  %.fr.i = freeze i64 %37
-  %38 = and i64 %.fr.i, 8192
+  %.fr7.i = freeze i64 %37
+  %38 = and i64 %.fr7.i, 8192
   %.not.i.i32 = icmp eq i64 %38, 0
   br i1 %.not.i.i32, label %str_dependent_p.exit.thread.thread, label %str_dependent_p.exit
 
@@ -7464,14 +7464,14 @@ str_dependent_p.exit:                             ; preds = %36
   %39 = icmp eq i64 %0, 0
   %40 = and i64 %0, 7
   %41 = icmp ne i64 %40, 0
-  %.not12.i.not41 = or i1 %39, %41
-  %42 = and i64 %.fr.i, 31
+  %.not13.i.not41 = or i1 %39, %41
+  %42 = and i64 %.fr7.i, 31
   %.not.i3.i = icmp eq i64 %42, 27
-  %or.cond.not9.i.not39 = or i1 %.not12.i.not41, %.not.i3.i
-  %43 = and i64 %.fr.i, 1073745920
+  %or.cond.not10.i.not39 = or i1 %.not13.i.not41, %.not.i3.i
+  %43 = and i64 %.fr7.i, 1073745920
   %.not.i33 = icmp eq i64 %43, 0
-  %or.cond7.not.i.not = or i1 %.not.i33, %or.cond.not9.i.not39
-  br i1 %or.cond7.not.i.not, label %str_dependent_p.exit.thread, label %44
+  %or.cond8.not.i.not = or i1 %.not.i33, %or.cond.not10.i.not39
+  br i1 %or.cond8.not.i.not, label %str_dependent_p.exit.thread, label %44
 
 44:                                               ; preds = %str_dependent_p.exit
   %45 = icmp sgt i32 %2, %1
@@ -7492,7 +7492,7 @@ str_dependent_p.exit.thread.thread:               ; preds = %36, %str_dependent_
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %str_dependent_p.exit.thread.thread
-  %51 = and i64 %.fr.i, 8192
+  %51 = and i64 %.fr7.i, 8192
   %.not.i.i36 = icmp eq i64 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not.i.i36, label %RSTRING_PTR.exit, label %53
@@ -7614,8 +7614,8 @@ str_null_char.exit:                               ; preds = %18
 
 str_null_char.exit.thread:                        ; preds = %22, %13, %str_null_char.exit
   %27 = load i64, ptr %3, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %27
-  %28 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %27
+  %28 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %28, 0
   br i1 %.not.i.i.i, label %39, label %str_dependent_p.exit.i
 
@@ -7623,14 +7623,14 @@ str_dependent_p.exit.i:                           ; preds = %str_null_char.exit.
   %29 = icmp eq i64 %0, 0
   %30 = and i64 %0, 7
   %31 = icmp ne i64 %30, 0
-  %.not12.i.not26.i = or i1 %29, %31
-  %32 = and i64 %.fr.i.i, 31
+  %.not13.i.not26.i = or i1 %29, %31
+  %32 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp eq i64 %32, 27
-  %or.cond.not9.i.not24.i = or i1 %.not12.i.not26.i, %.not.i3.i.i
-  %33 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not24.i = or i1 %.not13.i.not26.i, %.not.i3.i.i
+  %33 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i32 = icmp eq i64 %33, 0
-  %or.cond7.not.i.not.i = or i1 %.not.i.i32, %or.cond.not9.i.not24.i
-  br i1 %or.cond7.not.i.not.i, label %39, label %.lr.ph.i.i35
+  %or.cond8.not.i.not.i = or i1 %.not.i.i32, %or.cond.not10.i.not24.i
+  br i1 %or.cond8.not.i.not.i, label %39, label %.lr.ph.i.i35
 
 .lr.ph.i.i35:                                     ; preds = %str_dependent_p.exit.i, %35
   %.06.i.i36 = phi i32 [ %37, %35 ], [ %.val, %str_dependent_p.exit.i ]
@@ -7679,8 +7679,8 @@ zero_filled.exit.thread.i.thread:                 ; preds = %35, %zero_filled.ex
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %3, align 8, !tbaa !7
-  %.fr.i.i38 = freeze i64 %48
-  %49 = and i64 %.fr.i.i38, 8192
+  %.fr7.i.i38 = freeze i64 %48
+  %49 = and i64 %.fr7.i.i38, 8192
   %.not.i.i.i39 = icmp eq i64 %49, 0
   br i1 %.not.i.i.i39, label %str_dependent_p.exit.thread.i57, label %str_dependent_p.exit.i40
 
@@ -7688,14 +7688,14 @@ str_dependent_p.exit.i40:                         ; preds = %47
   %50 = icmp eq i64 %0, 0
   %51 = and i64 %0, 7
   %52 = icmp ne i64 %51, 0
-  %.not12.i.not26.i41 = or i1 %50, %52
-  %53 = and i64 %.fr.i.i38, 31
+  %.not13.i.not26.i41 = or i1 %50, %52
+  %53 = and i64 %.fr7.i.i38, 31
   %.not.i3.i.i42 = icmp eq i64 %53, 27
-  %or.cond.not9.i.not24.i43 = or i1 %.not12.i.not26.i41, %.not.i3.i.i42
-  %54 = and i64 %.fr.i.i38, 1073745920
+  %or.cond.not10.i.not24.i43 = or i1 %.not13.i.not26.i41, %.not.i3.i.i42
+  %54 = and i64 %.fr7.i.i38, 1073745920
   %.not.i.i44 = icmp eq i64 %54, 0
-  %or.cond7.not.i.not.i45 = or i1 %.not.i.i44, %or.cond.not9.i.not24.i43
-  br i1 %or.cond7.not.i.not.i45, label %str_dependent_p.exit.thread.i57, label %55
+  %or.cond8.not.i.not.i45 = or i1 %.not.i.i44, %or.cond.not10.i.not24.i43
+  br i1 %or.cond8.not.i.not.i45, label %str_dependent_p.exit.thread.i57, label %55
 
 55:                                               ; preds = %str_dependent_p.exit.i40
   %56 = icmp eq i32 %.val, 1
@@ -7711,7 +7711,7 @@ str_dependent_p.exit.thread.i57:                  ; preds = %str_dependent_p.exi
   br label %str_fill_term.exit
 
 zero_filled.exit.thread.i46:                      ; preds = %zero_filled.exit.i55, %55
-  %57 = phi i64 [ %.pre.i56, %zero_filled.exit.i55 ], [ %.fr.i.i38, %55 ]
+  %57 = phi i64 [ %.pre.i56, %zero_filled.exit.i55 ], [ %.fr7.i.i38, %55 ]
   %58 = and i64 %57, 8192
   %.not.i.i19.i47 = icmp eq i64 %58, 0
   br i1 %.not.i.i19.i47, label %str_fill_term.exit, label %59
@@ -7777,8 +7777,8 @@ rb_string_value.exit:                             ; preds = %rbimpl_RB_TYPE_P_fa
 define hidden ptr @rb_str_fill_terminator(i64 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8, !tbaa !7, !noalias !189
-  %.fr.i.i = freeze i64 %4
-  %5 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %4
+  %5 = and i64 %.fr7.i.i, 8192
   %.not.i.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit.thread, label %str_dependent_p.exit.i
@@ -7795,14 +7795,14 @@ str_dependent_p.exit.i:                           ; preds = %2
   %11 = icmp eq i64 %0, 0
   %12 = and i64 %0, 7
   %13 = icmp ne i64 %12, 0
-  %.not12.i.not26.i = or i1 %11, %13
-  %14 = and i64 %.fr.i.i, 31
+  %.not13.i.not26.i = or i1 %11, %13
+  %14 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp eq i64 %14, 27
-  %or.cond.not9.i.not24.i = or i1 %.not12.i.not26.i, %.not.i3.i.i
-  %15 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not24.i = or i1 %.not13.i.not26.i, %.not.i3.i.i
+  %15 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i5 = icmp eq i64 %15, 0
-  %or.cond7.not.i.not.i = or i1 %.not.i.i5, %or.cond.not9.i.not24.i
-  br i1 %or.cond7.not.i.not.i, label %str_dependent_p.exit.thread.i, label %16
+  %or.cond8.not.i.not.i = or i1 %.not.i.i5, %or.cond.not10.i.not24.i
+  br i1 %or.cond8.not.i.not.i, label %str_dependent_p.exit.thread.i, label %16
 
 16:                                               ; preds = %str_dependent_p.exit.i
   %17 = icmp sgt i32 %1, 0
@@ -11020,8 +11020,8 @@ define internal fastcc void @rb_str_buf_cat_byte(i64 noundef %0, i8 noundef zero
 7:                                                ; preds = %2
   tail call fastcc void @str_modifiable(i64 noundef %0)
   %8 = load i64, ptr %4, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %8
-  %9 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %8
+  %9 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i, label %str_independent.exit.thread, label %str_independent.exit
 
@@ -11029,14 +11029,14 @@ str_independent.exit:                             ; preds = %7
   %10 = icmp ne i64 %0, 0
   %11 = and i64 %0, 7
   %12 = icmp eq i64 %11, 0
-  %.not12.i.not7.i.not43 = and i1 %10, %12
-  %13 = and i64 %.fr.i.i, 31
+  %.not13.i.not7.i.not43 = and i1 %10, %12
+  %13 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp ne i64 %13, 27
-  %or.cond.not9.i.not4.i.not41 = and i1 %.not12.i.not7.i.not43, %.not.i3.i.i
-  %14 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not4.i.not41 = and i1 %.not13.i.not7.i.not43, %.not.i3.i.i
+  %14 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i = icmp ne i64 %14, 0
-  %or.cond7.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not9.i.not4.i.not41
-  br i1 %or.cond7.not.i.not.i.not, label %15, label %str_independent.exit.thread, !prof !270
+  %or.cond8.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not10.i.not4.i.not41
+  br i1 %or.cond8.not.i.not.i.not, label %15, label %str_independent.exit.thread, !prof !270
 
 15:                                               ; preds = %str_independent.exit
   tail call fastcc void @str_make_independent(i64 noundef %0)
@@ -11044,7 +11044,7 @@ str_independent.exit:                             ; preds = %7
   br label %str_independent.exit.thread
 
 str_independent.exit.thread:                      ; preds = %7, %2, %15, %str_independent.exit
-  %16 = phi i64 [ %.fr.i.i, %7 ], [ %5, %2 ], [ %.pre, %15 ], [ %.fr.i.i, %str_independent.exit ]
+  %16 = phi i64 [ %.fr7.i.i, %7 ], [ %5, %2 ], [ %.pre, %15 ], [ %.fr7.i.i, %str_independent.exit ]
   %17 = and i64 %16, 8192
   %.not.i25 = icmp eq i64 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -14343,8 +14343,8 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 30:                                               ; preds = %rb_num2int_inline.exit
   tail call fastcc void @str_modifiable(i64 noundef %0)
   %31 = load i64, ptr %9, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %31
-  %32 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %31
+  %32 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i, label %str_independent.exit.thread, label %str_independent.exit
 
@@ -14352,23 +14352,23 @@ str_independent.exit:                             ; preds = %30
   %33 = icmp ne i64 %0, 0
   %34 = and i64 %0, 7
   %35 = icmp eq i64 %34, 0
-  %.not12.i.not7.i.not77 = and i1 %33, %35
-  %36 = and i64 %.fr.i.i, 31
+  %.not13.i.not7.i.not77 = and i1 %33, %35
+  %36 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp ne i64 %36, 27
-  %or.cond.not9.i.not4.i.not74 = and i1 %.not12.i.not7.i.not77, %.not.i3.i.i
-  %37 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not4.i.not74 = and i1 %.not13.i.not7.i.not77, %.not.i3.i.i
+  %37 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i = icmp ne i64 %37, 0
-  %or.cond7.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not9.i.not4.i.not74
-  br i1 %or.cond7.not.i.not.i.not, label %38, label %str_independent.exit.thread
+  %or.cond8.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not10.i.not4.i.not74
+  br i1 %or.cond8.not.i.not.i.not, label %38, label %str_independent.exit.thread
 
 38:                                               ; preds = %str_independent.exit
   %39 = load i64, ptr %10, align 8, !tbaa !12
-  %40 = and i64 %.fr.i.i, 532676608
+  %40 = and i64 %.fr7.i.i, 532676608
   %switch.i.i.i = icmp samesign ult i64 %40, 12582912
   br i1 %switch.i.i.i, label %str_make_independent.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = trunc i64 %.fr.i.i to i32
+  %42 = trunc i64 %.fr7.i.i to i32
   %43 = lshr i32 %42, 22
   %44 = and i32 %43, 127
   %45 = icmp eq i32 %44, 127
@@ -14392,7 +14392,7 @@ str_make_independent.exit:                        ; preds = %38, %RB_ENCODING_GE
   br label %str_independent.exit.thread
 
 str_independent.exit.thread:                      ; preds = %30, %rb_num2int_inline.exit, %str_make_independent.exit, %str_independent.exit
-  %51 = phi i64 [ %.fr.i.i, %30 ], [ %28, %rb_num2int_inline.exit ], [ %.pre, %str_make_independent.exit ], [ %.fr.i.i, %str_independent.exit ]
+  %51 = phi i64 [ %.fr7.i.i, %30 ], [ %28, %rb_num2int_inline.exit ], [ %.pre, %str_make_independent.exit ], [ %.fr7.i.i, %str_independent.exit ]
   %52 = trunc i64 %51 to i32
   %53 = lshr i32 %52, 22
   %54 = and i32 %53, 127
@@ -17502,8 +17502,8 @@ define internal fastcc void @str_modify_keep_cr(i64 noundef %0) unnamed_addr #1 
 5:                                                ; preds = %1
   tail call fastcc void @str_modifiable(i64 noundef %0)
   %6 = load i64, ptr %2, align 8, !tbaa !7
-  %.fr.i.i = freeze i64 %6
-  %7 = and i64 %.fr.i.i, 8192
+  %.fr7.i.i = freeze i64 %6
+  %7 = and i64 %.fr7.i.i, 8192
   %.not.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i, label %str_independent.exit.thread, label %str_independent.exit
 
@@ -17511,24 +17511,24 @@ str_independent.exit:                             ; preds = %5
   %8 = icmp ne i64 %0, 0
   %9 = and i64 %0, 7
   %10 = icmp eq i64 %9, 0
-  %.not12.i.not7.i.not8 = and i1 %8, %10
-  %11 = and i64 %.fr.i.i, 31
+  %.not13.i.not7.i.not8 = and i1 %8, %10
+  %11 = and i64 %.fr7.i.i, 31
   %.not.i3.i.i = icmp ne i64 %11, 27
-  %or.cond.not9.i.not4.i.not6 = and i1 %.not12.i.not7.i.not8, %.not.i3.i.i
-  %12 = and i64 %.fr.i.i, 1073745920
+  %or.cond.not10.i.not4.i.not6 = and i1 %.not13.i.not7.i.not8, %.not.i3.i.i
+  %12 = and i64 %.fr7.i.i, 1073745920
   %.not.i.i = icmp ne i64 %12, 0
-  %or.cond7.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not9.i.not4.i.not6
-  br i1 %or.cond7.not.i.not.i.not, label %13, label %str_independent.exit.thread
+  %or.cond8.not.i.not.i.not = and i1 %.not.i.i, %or.cond.not10.i.not4.i.not6
+  br i1 %or.cond8.not.i.not.i.not, label %13, label %str_independent.exit.thread
 
 13:                                               ; preds = %str_independent.exit
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !12
-  %16 = and i64 %.fr.i.i, 532676608
+  %16 = and i64 %.fr7.i.i, 532676608
   %switch.i.i.i = icmp samesign ult i64 %16, 12582912
   br i1 %switch.i.i.i, label %str_make_independent.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = trunc i64 %.fr.i.i to i32
+  %18 = trunc i64 %.fr7.i.i to i32
   %19 = lshr i32 %18, 22
   %20 = and i32 %19, 127
   %21 = icmp eq i32 %20, 127
@@ -17552,7 +17552,7 @@ str_make_independent.exit:                        ; preds = %13, %RB_ENCODING_GE
   br label %str_independent.exit.thread
 
 str_independent.exit.thread:                      ; preds = %5, %1, %str_make_independent.exit, %str_independent.exit
-  %27 = phi i64 [ %.fr.i.i, %5 ], [ %3, %1 ], [ %.pre, %str_make_independent.exit ], [ %.fr.i.i, %str_independent.exit ]
+  %27 = phi i64 [ %.fr7.i.i, %5 ], [ %3, %1 ], [ %.pre, %str_make_independent.exit ], [ %.fr7.i.i, %str_independent.exit ]
   %28 = and i64 %27, 3145728
   %29 = icmp eq i64 %28, 3145728
   br i1 %29, label %30, label %32
@@ -26824,16 +26824,16 @@ rbimpl_RB_TYPE_P_fastpath.exit.i178:              ; preds = %RB_FL_ABLE.exit.i.i
   br i1 %53, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge
 
 .rbimpl_RB_TYPE_P_fastpath.exit_crit_edge:        ; preds = %136
-  %.pre268 = inttoptr i64 %28 to ptr
+  %.pre269 = inttoptr i64 %28 to ptr
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %65, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge
-  %.pre-phi269 = phi ptr [ %.pre268, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ], [ %54, %65 ]
+  %.pre-phi270 = phi ptr [ %.pre269, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ], [ %54, %65 ]
   %.0143234239247 = phi i64 [ %60, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ], [ %41, %65 ]
   %.0144233240245 = phi i64 [ %63, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ], [ %68, %65 ]
-  %137 = load i64, ptr %.pre-phi269, align 8, !tbaa !7
-  %.fr = freeze i64 %137
-  %138 = and i64 %.fr, 31
+  %137 = load i64, ptr %.pre-phi270, align 8, !tbaa !7
+  %.fr263 = freeze i64 %137
+  %138 = and i64 %.fr263, 31
   %139 = icmp eq i64 %138, 5
   %spec.select262 = select i1 %139, i64 4, i64 %28
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -27025,14 +27025,14 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit191
   %231 = or i1 %228, %230
   %232 = and i64 %223, 31
   %.not.i194 = icmp eq i64 %232, 27
-  %or.cond294 = or i1 %231, %.not.i194
-  br i1 %or.cond294, label %.sink.split, label %RB_FL_ABLE.exit.i195
+  %or.cond295 = or i1 %231, %.not.i194
+  br i1 %or.cond295, label %.sink.split, label %RB_FL_ABLE.exit.i195
 
 RB_FL_ABLE.exit.i195:                             ; preds = %ruby_nonempty_memcpy.exit
   %233 = or i64 %223, 8192
   store i64 %233, ptr %29, align 8, !tbaa !7
-  %.pre265 = and i64 %223, 31
-  %234 = icmp eq i64 %.pre265, 27
+  %.pre266 = and i64 %223, 31
+  %234 = icmp eq i64 %.pre266, 27
   br i1 %234, label %.sink.split, label %235
 
 235:                                              ; preds = %RB_FL_ABLE.exit.i195
@@ -36114,8 +36114,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.rbimpl_RB_TYPE_P_f
   %.0.175236 = phi i64 [ %.0..0..0.175229, %.thread225 ], [ %.0..0..0.175, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ]
   %.0129189221232 = phi i64 [ %.0127, %.thread225 ], [ %107, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ]
   %.0132186223230 = phi i64 [ %113, %.thread225 ], [ %110, %.rbimpl_RB_TYPE_P_fastpath.exit_crit_edge ]
-  %.fr259 = freeze i64 %180
-  %181 = and i64 %.fr259, 31
+  %.fr260 = freeze i64 %180
+  %181 = and i64 %.fr260, 31
   %182 = icmp eq i64 %181, 5
   %spec.select258 = select i1 %182, i64 4, i64 %41
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -36236,11 +36236,11 @@ RSTRING_PTR.exit174:                              ; preds = %215, %218
   br i1 %227, label %98, label %.loopexit.loopexit, !llvm.loop !982
 
 .loopexit.loopexit:                               ; preds = %223
-  %.pre270 = load i64, ptr %50, align 8, !tbaa !12
+  %.pre271 = load i64, ptr %50, align 8, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread250
-  %228 = phi i64 [ %222, %.thread250 ], [ %.pre270, %.loopexit.loopexit ]
+  %228 = phi i64 [ %222, %.thread250 ], [ %.pre271, %.loopexit.loopexit ]
   %.1122257 = phi ptr [ %.1122.ph, %.thread250 ], [ %219, %.loopexit.loopexit ]
   %.2256 = phi i64 [ %.2.ph, %.thread250 ], [ %.1131, %.loopexit.loopexit ]
   %229 = icmp sgt i64 %228, %.2256

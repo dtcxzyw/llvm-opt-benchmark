@@ -7019,18 +7019,17 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread15: ; preds = %26, %1
 30:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread15
   %31 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #26
   %32 = load ptr, ptr %31, align 8, !tbaa !402
-  %.fr = freeze ptr %32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !484
-  %.fr21 = freeze i32 %34
-  %35 = zext i32 %.fr21 to i64
+  %35 = zext i32 %34 to i64
   %.idx.i.i9 = shl nuw nsw i64 %35, 3
-  %36 = getelementptr i8, ptr %.fr, i64 %.idx.i.i9
-  %.not.i.i10 = icmp eq i32 %.fr21, 0
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i9
+  %.fr = freeze ptr %36
+  %.not.i.i10 = icmp eq i32 %34, 0
   br i1 %.not.i.i10, label %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.thread18, label %.lr.ph.i.i.i.i.i11
 
 .lr.ph.i.i.i.i.i11:                               ; preds = %30, %41
-  %.sroa.07.1.i.i.i.i12 = phi ptr [ %42, %41 ], [ %.fr, %30 ]
+  %.sroa.07.1.i.i.i.i12 = phi ptr [ %42, %41 ], [ %32, %30 ]
   %37 = load ptr, ptr %.sroa.07.1.i.i.i.i12, align 8, !tbaa !790
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i16, ptr %38, align 8
@@ -7039,12 +7038,12 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread15: ; preds = %26, %1
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.i11
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i12, i64 8
-  %.not.i.i.i.i.i13 = icmp eq ptr %42, %36
+  %.not.i.i.i.i.i13 = icmp eq ptr %42, %.fr
   br i1 %.not.i.i.i.i.i13, label %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.thread18, label %.lr.ph.i.i.i.i.i11, !llvm.loop !1265
 
 _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i11
-  %.not22 = icmp eq ptr %.sroa.07.1.i.i.i.i12, %36
-  %spec.select = select i1 %.not22, i32 3, i32 1
+  %.not21 = icmp eq ptr %.sroa.07.1.i.i.i.i12, %.fr
+  %spec.select = select i1 %.not21, i32 3, i32 1
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.thread18
 
 43:                                               ; preds = %6

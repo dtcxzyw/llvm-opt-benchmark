@@ -517,8 +517,8 @@ define dso_local ptr @lpPrev(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %11 = and i8 %10, 127
   %12 = zext nneg i8 %11 to i64
   %13 = shl nuw nsw i64 %12, %.0.i
-  %.fr = freeze i64 %13
-  %14 = or i64 %.fr, %.08.i
+  %.fr28 = freeze i64 %13
+  %14 = or i64 %.fr28, %.08.i
   %.not.i = icmp sgt i8 %10, -1
   br i1 %.not.i, label %lpDecodeBacklen.exit, label %15
 
@@ -546,8 +546,8 @@ lpDecodeBacklen.exit:                             ; preds = %.preheader
 
 lpEncodeBacklenBytes.exit:                        ; preds = %15, %23, %lpDecodeBacklen.exit, %19, %21
   %.010.i18 = phi i64 [ %14, %21 ], [ %14, %lpDecodeBacklen.exit ], [ %14, %19 ], [ %14, %23 ], [ -1, %15 ]
-  %.0.i14.neg29 = phi i64 [ -3, %21 ], [ -1, %lpDecodeBacklen.exit ], [ -2, %19 ], [ %spec.select.neg, %23 ], [ -5, %15 ]
-  %reass.sub = sub i64 %.0.i14.neg29, %.010.i18
+  %.0.i14.neg30 = phi i64 [ -3, %21 ], [ -1, %lpDecodeBacklen.exit ], [ -2, %19 ], [ %spec.select.neg, %23 ], [ -5, %15 ]
+  %reass.sub = sub i64 %.0.i14.neg30, %.010.i18
   %25 = getelementptr i8, ptr %1, i64 %reass.sub
   %26 = load i32, ptr %0, align 1
   %27 = zext i32 %26 to i64
@@ -639,8 +639,8 @@ define dso_local ptr @lpLast(ptr noundef %0) local_unnamed_addr #2 {
   %27 = and i8 %26, 127
   %28 = zext nneg i8 %27 to i64
   %29 = shl nuw nsw i64 %28, %.0.i.i
-  %.fr.i = freeze i64 %29
-  %30 = or i64 %.fr.i, %.08.i.i
+  %.fr28.i = freeze i64 %29
+  %30 = or i64 %.fr28.i, %.08.i.i
   %.not.i.i = icmp sgt i8 %26, -1
   br i1 %.not.i.i, label %lpDecodeBacklen.exit.i, label %31
 
@@ -668,8 +668,8 @@ lpDecodeBacklen.exit.i:                           ; preds = %.preheader
 
 lpEncodeBacklenBytes.exit.i:                      ; preds = %31, %39, %37, %35, %lpDecodeBacklen.exit.i
   %.010.i18.i = phi i64 [ %30, %37 ], [ %30, %lpDecodeBacklen.exit.i ], [ %30, %35 ], [ %30, %39 ], [ -1, %31 ]
-  %.0.i14.neg29.i = phi i64 [ -3, %37 ], [ -1, %lpDecodeBacklen.exit.i ], [ -2, %35 ], [ %spec.select.neg.i, %39 ], [ -5, %31 ]
-  %reass.sub.i = sub i64 %.0.i14.neg29.i, %.010.i18.i
+  %.0.i14.neg30.i = phi i64 [ -3, %37 ], [ -1, %lpDecodeBacklen.exit.i ], [ -2, %35 ], [ %spec.select.neg.i, %39 ], [ -5, %31 ]
+  %reass.sub.i = sub i64 %.0.i14.neg30.i, %.010.i18.i
   %41 = getelementptr i8, ptr %21, i64 %reass.sub.i
   %42 = load i32, ptr %0, align 1
   %43 = zext i32 %42 to i64
@@ -3809,8 +3809,8 @@ lpFirst.exit:                                     ; preds = %21
   %42 = and i8 %41, 127
   %43 = zext nneg i8 %42 to i64
   %44 = shl nuw nsw i64 %43, %.0.i.i
-  %.fr.i = freeze i64 %44
-  %45 = or i64 %.fr.i, %.08.i.i
+  %.fr28.i = freeze i64 %44
+  %45 = or i64 %.fr28.i, %.08.i.i
   %.not.i.i43 = icmp sgt i8 %41, -1
   br i1 %.not.i.i43, label %lpDecodeBacklen.exit.i, label %46
 
@@ -3838,8 +3838,8 @@ lpDecodeBacklen.exit.i:                           ; preds = %.preheader
 
 lpEncodeBacklenBytes.exit.i:                      ; preds = %46, %54, %52, %50, %lpDecodeBacklen.exit.i
   %.010.i18.i = phi i64 [ %45, %52 ], [ %45, %lpDecodeBacklen.exit.i ], [ %45, %50 ], [ %45, %54 ], [ -1, %46 ]
-  %.0.i14.neg29.i = phi i64 [ -3, %52 ], [ -1, %lpDecodeBacklen.exit.i ], [ -2, %50 ], [ %spec.select.neg.i, %54 ], [ -5, %46 ]
-  %reass.sub.i = sub i64 %.0.i14.neg29.i, %.010.i18.i
+  %.0.i14.neg30.i = phi i64 [ -3, %52 ], [ -1, %lpDecodeBacklen.exit.i ], [ -2, %50 ], [ %spec.select.neg.i, %54 ], [ -5, %46 ]
+  %reass.sub.i = sub i64 %.0.i14.neg30.i, %.010.i18.i
   %56 = getelementptr i8, ptr %.054, i64 %reass.sub.i
   %57 = load i32, ptr %0, align 1
   %58 = zext i32 %57 to i64

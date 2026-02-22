@@ -64516,8 +64516,8 @@ _ZN6chrono6format10formatting14write_hundreds17habad14538ee92c16E.exit173.thread
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.3801596959246744488(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %81)
   %82 = zext nneg i8 %80 to i32
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.3801596959246744488(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %82)
-  %.lhs.trunc192 = trunc nuw i32 %35 to i16
-  %83 = urem i16 %.lhs.trunc192, 100
+  %.lhs.trunc193 = trunc nuw i32 %35 to i16
+  %83 = urem i16 %.lhs.trunc193, 100
   %84 = trunc nuw nsw i16 %83 to i8
   %85 = udiv i8 %84, 10
   %86 = or disjoint i8 %85, 48
@@ -65586,7 +65586,6 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %218 = load i32, ptr %64, align 4
   %.sroa.0.0.copyload.i = load i32, ptr %66, align 8
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.10.0..sroa_idx.i, align 4
-  %.sroa.7.0.copyload.fr.i = freeze i32 %.sroa.7.0.copyload.i
   %.sroa.13.0.copyload.i = load i32, ptr %.sroa.21.0..sroa_idx.i, align 8
   %219 = icmp ne i32 %218, 0
   %220 = icmp eq i32 %.sroa.0.0.copyload.i, 1
@@ -65605,14 +65604,14 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %.neg.i.i = mul nsw i32 %228, -146097
   %230 = lshr i32 %218, 4
   %231 = and i32 %230, 511
-  %232 = zext i32 %.sroa.7.0.copyload.fr.i to i64
+  %232 = zext i32 %.sroa.7.0.copyload.i to i64
   %233 = add nuw nsw i32 %231, -719163
   %234 = sub nsw i64 %232, %..sroa.379.0.i
   %235 = urem i32 %.sroa.13.0.copyload.i, 1000000000
   %236 = zext nneg i32 %235 to i64
-  %237 = urem i32 %.sroa.7.0.copyload.fr.i, 60
+  %237 = urem i32 %.sroa.7.0.copyload.i, 60
   %238 = udiv i32 %.sroa.13.0.copyload.i, 1000000000
-  %239 = add nuw nsw i32 %237, %238
+  %239 = add nuw nsw i32 %238, %237
   %240 = trunc nuw nsw i32 %239 to i8
   %241 = udiv i8 %240, 10
   %242 = icmp samesign ult i32 %239, 10
@@ -65621,7 +65620,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %245 = urem i8 %240, 10
   %246 = or disjoint i8 %245, 48
   %247 = zext nneg i8 %246 to i32
-  %248 = udiv i32 %.sroa.7.0.copyload.fr.i, 60
+  %248 = udiv i32 %.sroa.7.0.copyload.i, 60
   %249 = urem i32 %248, 60
   %250 = trunc nuw nsw i32 %249 to i8
   %251 = udiv i8 %250, 10
@@ -65631,16 +65630,17 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %255 = urem i8 %250, 10
   %256 = or disjoint i8 %255, 48
   %257 = zext nneg i8 %256 to i32
-  %258 = udiv i32 %.sroa.7.0.copyload.fr.i, 3600
+  %258 = udiv i32 %.sroa.7.0.copyload.i, 3600
   %259 = urem i32 %258, 12
   %260 = icmp eq i32 %259, 0
   %261 = trunc nuw nsw i32 %259 to i8
   %262 = select i1 %260, i8 12, i8 %261
-  %.cmp6.i = icmp samesign ugt i8 %262, 9
-  %263 = icmp samesign ult i8 %262, 10
+  %.frozen7.i = freeze i8 %262
+  %.cmp6.i = icmp samesign ugt i8 %.frozen7.i, 9
+  %263 = icmp ult i8 %.frozen7.i, 10
   %264 = select i1 %.cmp6.i, i32 49, i32 48
-  %.urem8.i = add nsw i8 %262, -10
-  %265 = select i1 %263, i8 %262, i8 %.urem8.i
+  %.urem8.i = add i8 %.frozen7.i, -10
+  %265 = select i1 %263, i8 %.frozen7.i, i8 %.urem8.i
   %266 = or disjoint i8 %265, 48
   %267 = zext nneg i8 %266 to i32
   %268 = trunc i32 %258 to i8

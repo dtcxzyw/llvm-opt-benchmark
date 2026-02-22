@@ -284,8 +284,8 @@ zend_string_release_ex.exit206:                   ; preds = %62, %57, %53, %52
 
 63:                                               ; preds = %50
   %64 = and i32 %47, 8
-  %.not247 = icmp eq i32 %64, 0
-  br i1 %.not247, label %switch.early.test, label %65
+  %.not248 = icmp eq i32 %64, 0
+  br i1 %.not248, label %switch.early.test, label %65
 
 switch.early.test:                                ; preds = %63
   switch i8 %43, label %76 [
@@ -333,42 +333,42 @@ zend_string_release_ex.exit208:                   ; preds = %75, %70, %66, %65
   %80 = load i8, ptr %79, align 1, !tbaa !11
   %.pre = sext i8 %80 to i32
   %81 = icmp eq i8 %43, %80
-  br i1 %81, label %.preheader, label %.preheader248
+  br i1 %81, label %.preheader, label %.preheader249
 
-.preheader248:                                    ; preds = %78
+.preheader249:                                    ; preds = %78
   %82 = icmp ult ptr %49, %51
   br i1 %82, label %.lr.ph, label %.loopexit
 
 .preheader:                                       ; preds = %76, %78
-  %.pre-phi302 = phi i32 [ %.pre, %78 ], [ %77, %76 ]
+  %.pre-phi303 = phi i32 [ %.pre, %78 ], [ %77, %76 ]
   %83 = icmp ult ptr %49, %51
-  br i1 %83, label %.lr.ph262, label %.loopexit
+  br i1 %83, label %.lr.ph263, label %.loopexit
 
-.lr.ph262:                                        ; preds = %.preheader, %90
-  %.0167261 = phi ptr [ %91, %90 ], [ %49, %.preheader ]
-  %84 = load i8, ptr %.0167261, align 1, !tbaa !11
+.lr.ph263:                                        ; preds = %.preheader, %90
+  %.0167262 = phi ptr [ %91, %90 ], [ %49, %.preheader ]
+  %84 = load i8, ptr %.0167262, align 1, !tbaa !11
   %85 = icmp eq i8 %84, 92
-  %86 = getelementptr inbounds nuw i8, ptr %.0167261, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0167262, i64 1
   %87 = icmp ult ptr %86, %51
   %or.cond202 = select i1 %85, i1 %87, i1 false
   br i1 %or.cond202, label %90, label %88
 
-88:                                               ; preds = %.lr.ph262
+88:                                               ; preds = %.lr.ph263
   %89 = icmp eq i8 %84, %43
   br i1 %89, label %.loopexit, label %90
 
-90:                                               ; preds = %.lr.ph262, %88
-  %.1168 = phi ptr [ %.0167261, %88 ], [ %86, %.lr.ph262 ]
+90:                                               ; preds = %.lr.ph263, %88
+  %.1168 = phi ptr [ %.0167262, %88 ], [ %86, %.lr.ph263 ]
   %91 = getelementptr inbounds nuw i8, ptr %.1168, i64 1
   %92 = icmp ult ptr %91, %51
-  br i1 %92, label %.lr.ph262, label %.loopexit
+  br i1 %92, label %.lr.ph263, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader248, %105
-  %.0152258 = phi i32 [ %.1153, %105 ], [ 1, %.preheader248 ]
-  %.3257 = phi ptr [ %106, %105 ], [ %49, %.preheader248 ]
-  %93 = load i8, ptr %.3257, align 1, !tbaa !11
+.lr.ph:                                           ; preds = %.preheader249, %105
+  %.0152259 = phi i32 [ %.1153, %105 ], [ 1, %.preheader249 ]
+  %.3258 = phi ptr [ %106, %105 ], [ %49, %.preheader249 ]
+  %93 = load i8, ptr %.3258, align 1, !tbaa !11
   %94 = icmp eq i8 %93, 92
-  %95 = getelementptr inbounds nuw i8, ptr %.3257, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.3258, i64 1
   %96 = icmp ult ptr %95, %51
   %or.cond204 = select i1 %94, i1 %96, i1 false
   br i1 %or.cond204, label %105, label %97
@@ -378,28 +378,28 @@ zend_string_release_ex.exit208:                   ; preds = %75, %70, %66, %65
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %97
-  %100 = add nsw i32 %.0152258, -1
-  %101 = icmp slt i32 %.0152258, 2
+  %100 = add nsw i32 %.0152259, -1
+  %101 = icmp slt i32 %.0152259, 2
   br i1 %101, label %.loopexit, label %102
 
 102:                                              ; preds = %99, %97
-  %.2154 = phi i32 [ %100, %99 ], [ %.0152258, %97 ]
+  %.2154 = phi i32 [ %100, %99 ], [ %.0152259, %97 ]
   %103 = icmp eq i8 %93, %43
   %104 = zext i1 %103 to i32
   %spec.select = add nsw i32 %.2154, %104
   br label %105
 
 105:                                              ; preds = %102, %.lr.ph
-  %.4 = phi ptr [ %.3257, %102 ], [ %95, %.lr.ph ]
-  %.1153 = phi i32 [ %spec.select, %102 ], [ %.0152258, %.lr.ph ]
+  %.4 = phi ptr [ %.3258, %102 ], [ %95, %.lr.ph ]
+  %.1153 = phi i32 [ %spec.select, %102 ], [ %.0152259, %.lr.ph ]
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %107 = icmp ult ptr %106, %51
   br i1 %107, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %99, %105, %88, %90, %.preheader248, %.preheader
-  %.str.3..str.4 = phi ptr [ @.str.4, %.preheader248 ], [ @.str.3, %.preheader ], [ @.str.3, %88 ], [ @.str.3, %90 ], [ @.str.4, %105 ], [ @.str.4, %99 ]
-  %.pre-phi301 = phi i32 [ %.pre, %.preheader248 ], [ %.pre-phi302, %.preheader ], [ %.pre-phi302, %88 ], [ %.pre-phi302, %90 ], [ %.pre, %105 ], [ %.pre, %99 ]
-  %.2169 = phi ptr [ %49, %.preheader248 ], [ %49, %.preheader ], [ %.0167261, %88 ], [ %91, %90 ], [ %.3257, %99 ], [ %106, %105 ]
+.loopexit:                                        ; preds = %99, %105, %88, %90, %.preheader249, %.preheader
+  %.str.3..str.4 = phi ptr [ @.str.4, %.preheader249 ], [ @.str.3, %.preheader ], [ @.str.3, %88 ], [ @.str.3, %90 ], [ @.str.4, %105 ], [ @.str.4, %99 ]
+  %.pre-phi302 = phi i32 [ %.pre, %.preheader249 ], [ %.pre-phi303, %.preheader ], [ %.pre-phi303, %88 ], [ %.pre-phi303, %90 ], [ %.pre, %105 ], [ %.pre, %99 ]
+  %.2169 = phi ptr [ %49, %.preheader249 ], [ %49, %.preheader ], [ %.0167262, %88 ], [ %91, %90 ], [ %.3258, %99 ], [ %106, %105 ]
   %.not189 = icmp ult ptr %.2169, %51
   br i1 %.not189, label %119, label %108
 
@@ -428,7 +428,7 @@ zend_string_release_ex.exit208:                   ; preds = %75, %70, %66, %65
   br label %zend_string_release_ex.exit210
 
 zend_string_release_ex.exit210:                   ; preds = %118, %113, %109, %108
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.3..str.4, i32 noundef %.pre-phi301) #24
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.3..str.4, i32 noundef %.pre-phi302) #24
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
   br label %zend_string_release_ex.exit212
 
@@ -437,15 +437,15 @@ zend_string_release_ex.exit210:                   ; preds = %118, %113, %109, %1
   %121 = ptrtoint ptr %49 to i64
   %122 = sub i64 %120, %121
   %123 = tail call noalias ptr @_estrndup(ptr noundef nonnull %49, i64 noundef %122) #24
-  %.5266 = getelementptr inbounds nuw i8, ptr %.2169, i64 1
-  %124 = icmp ult ptr %.5266, %51
-  br i1 %124, label %.lr.ph270, label %._crit_edge
+  %.5267 = getelementptr inbounds nuw i8, ptr %.2169, i64 1
+  %124 = icmp ult ptr %.5267, %51
+  br i1 %124, label %.lr.ph271, label %._crit_edge
 
-.lr.ph270:                                        ; preds = %119, %162
-  %.5269 = phi ptr [ %.5, %162 ], [ %.5266, %119 ]
-  %.0155268 = phi i32 [ %.1156, %162 ], [ 0, %119 ]
-  %.0160267 = phi i32 [ %.1161, %162 ], [ 64, %119 ]
-  %125 = load i8, ptr %.5269, align 1, !tbaa !11
+.lr.ph271:                                        ; preds = %119, %162
+  %.5270 = phi ptr [ %.5, %162 ], [ %.5267, %119 ]
+  %.0155269 = phi i32 [ %.1156, %162 ], [ 0, %119 ]
+  %.0160268 = phi i32 [ %.1161, %162 ], [ 64, %119 ]
+  %125 = load i8, ptr %.5270, align 1, !tbaa !11
   switch i8 %125, label %148 [
     i8 105, label %126
     i8 109, label %128
@@ -466,56 +466,56 @@ zend_string_release_ex.exit210:                   ; preds = %118, %113, %109, %1
     i8 0, label %150
   ]
 
-126:                                              ; preds = %.lr.ph270
-  %127 = or i32 %.0155268, 8
+126:                                              ; preds = %.lr.ph271
+  %127 = or i32 %.0155269, 8
   br label %162
 
-128:                                              ; preds = %.lr.ph270
-  %129 = or i32 %.0155268, 1024
+128:                                              ; preds = %.lr.ph271
+  %129 = or i32 %.0155269, 1024
   br label %162
 
-130:                                              ; preds = %.lr.ph270
-  %131 = or i32 %.0155268, 8192
+130:                                              ; preds = %.lr.ph271
+  %131 = or i32 %.0155269, 8192
   br label %162
 
-132:                                              ; preds = %.lr.ph270
-  %133 = or i32 %.0155268, 32
+132:                                              ; preds = %.lr.ph271
+  %133 = or i32 %.0155269, 32
   br label %162
 
-134:                                              ; preds = %.lr.ph270
-  %135 = or i32 %.0155268, 128
+134:                                              ; preds = %.lr.ph271
+  %135 = or i32 %.0155269, 128
   br label %162
 
-136:                                              ; preds = %.lr.ph270
-  %137 = or i32 %.0155268, -2147483648
+136:                                              ; preds = %.lr.ph271
+  %137 = or i32 %.0155269, -2147483648
   br label %162
 
-138:                                              ; preds = %.lr.ph270
-  %139 = or i32 %.0155268, 16
+138:                                              ; preds = %.lr.ph271
+  %139 = or i32 %.0155269, 16
   br label %162
 
-140:                                              ; preds = %.lr.ph270
-  %141 = or i32 %.0160267, 128
+140:                                              ; preds = %.lr.ph271
+  %141 = or i32 %.0160268, 128
   br label %162
 
-142:                                              ; preds = %.lr.ph270
-  %143 = or i32 %.0155268, 262144
+142:                                              ; preds = %.lr.ph271
+  %143 = or i32 %.0155269, 262144
   br label %162
 
-144:                                              ; preds = %.lr.ph270
-  %145 = or i32 %.0155268, 655360
+144:                                              ; preds = %.lr.ph271
+  %145 = or i32 %.0155269, 655360
   br label %162
 
-146:                                              ; preds = %.lr.ph270
-  %147 = or i32 %.0155268, 64
+146:                                              ; preds = %.lr.ph271
+  %147 = or i32 %.0155269, 64
   br label %162
 
-148:                                              ; preds = %.lr.ph270
+148:                                              ; preds = %.lr.ph271
   %149 = sext i8 %125 to i32
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %149) #24
   br label %151
 
-150:                                              ; preds = %.lr.ph270
+150:                                              ; preds = %.lr.ph271
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6) #24
   br label %151
 
@@ -545,12 +545,12 @@ zend_string_release_ex.exit210:                   ; preds = %118, %113, %109, %1
   tail call void @_efree(ptr noundef nonnull %.0159) #24
   br label %zend_string_release_ex.exit212
 
-162:                                              ; preds = %.lr.ph270, %.lr.ph270, %.lr.ph270, %.lr.ph270, %.lr.ph270, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126
-  %.1161 = phi i32 [ %.0160267, %126 ], [ %.0160267, %128 ], [ %.0160267, %130 ], [ %.0160267, %132 ], [ %.0160267, %134 ], [ %.0160267, %136 ], [ %.0160267, %138 ], [ %141, %140 ], [ %.0160267, %142 ], [ %.0160267, %144 ], [ %.0160267, %146 ], [ %.0160267, %.lr.ph270 ], [ %.0160267, %.lr.ph270 ], [ %.0160267, %.lr.ph270 ], [ %.0160267, %.lr.ph270 ], [ %.0160267, %.lr.ph270 ]
-  %.1156 = phi i32 [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %.0155268, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %.0155268, %.lr.ph270 ], [ %.0155268, %.lr.ph270 ], [ %.0155268, %.lr.ph270 ], [ %.0155268, %.lr.ph270 ], [ %.0155268, %.lr.ph270 ]
-  %.5 = getelementptr inbounds nuw i8, ptr %.5269, i64 1
+162:                                              ; preds = %.lr.ph271, %.lr.ph271, %.lr.ph271, %.lr.ph271, %.lr.ph271, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126
+  %.1161 = phi i32 [ %.0160268, %126 ], [ %.0160268, %128 ], [ %.0160268, %130 ], [ %.0160268, %132 ], [ %.0160268, %134 ], [ %.0160268, %136 ], [ %.0160268, %138 ], [ %141, %140 ], [ %.0160268, %142 ], [ %.0160268, %144 ], [ %.0160268, %146 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ], [ %.0160268, %.lr.ph271 ]
+  %.1156 = phi i32 [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %.0155269, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ], [ %.0155269, %.lr.ph271 ]
+  %.5 = getelementptr inbounds nuw i8, ptr %.5270, i64 1
   %163 = icmp ult ptr %.5, %51
-  br i1 %163, label %.lr.ph270, label %._crit_edge
+  br i1 %163, label %.lr.ph271, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %162, %119
   %.0160.lcssa = phi i32 [ 64, %119 ], [ %.1161, %162 ]

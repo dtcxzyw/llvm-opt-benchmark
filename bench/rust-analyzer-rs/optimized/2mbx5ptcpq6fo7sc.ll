@@ -29303,7 +29303,6 @@ define internal fastcc void @_ZN15ra_ap_rustc_abi6layout10univariant17h7a5018393
   %66 = load i8, ptr %65, align 1, !range !3165, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %68 = load i8, ptr %67, align 4
-  %.fr = freeze i8 %68
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf03ede8bfabff75aE.llvm.6579604558243679033"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %55, i64 noundef 0, i64 noundef %4)
   %69 = and i8 %62, 63
@@ -29904,12 +29903,12 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.con
   %.0303.lcssa = phi i8 [ 1, %235 ], [ %584, %692 ]
   %.sroa.2130.0.lcssa = phi i8 [ 6, %235 ], [ %.sroa.2130.1, %692 ]
   %.sroa.0136.0.lcssa = phi i1 [ %239, %235 ], [ %618, %692 ]
-  %.sroa.4138.0.lcssa = phi i8 [ %.fr, %235 ], [ %617, %692 ]
+  %.sroa.4138.0.lcssa = phi i8 [ %68, %235 ], [ %617, %692 ]
   br i1 %239, label %257, label %258
 
 257:                                              ; preds = %._crit_edge
-  %.0.sroa.speculated.i398 = call noundef i8 @llvm.umax.i8(i8 %.sroa.055.2.lcssa, i8 %.fr)
-  %.0.sroa.speculated.i400 = call noundef i8 @llvm.umax.i8(i8 %.sroa.1060.2.lcssa, i8 %.fr)
+  %.0.sroa.speculated.i398 = call noundef i8 @llvm.umax.i8(i8 %.sroa.055.2.lcssa, i8 %68)
+  %.0.sroa.speculated.i400 = call noundef i8 @llvm.umax.i8(i8 %.sroa.1060.2.lcssa, i8 %68)
   br label %258
 
 258:                                              ; preds = %257, %._crit_edge
@@ -30753,7 +30752,7 @@ default.unreachable:                              ; preds = %.lr.ph.i413, %.lr.p
 
 562:                                              ; preds = %.lr.ph, %692
   %.0291754 = phi i128 [ 0, %.lr.ph ], [ %.1, %692 ]
-  %.sroa.4138.0753 = phi i8 [ %.fr, %.lr.ph ], [ %617, %692 ]
+  %.sroa.4138.0753 = phi i8 [ %68, %.lr.ph ], [ %617, %692 ]
   %.sroa.0136.0752 = phi i1 [ %239, %.lr.ph ], [ %618, %692 ]
   %.sroa.2130.0751 = phi i8 [ 6, %.lr.ph ], [ %.sroa.2130.1, %692 ]
   %.0303750 = phi i8 [ 1, %.lr.ph ], [ %584, %692 ]
@@ -30872,7 +30871,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit._crit_edge: ; preds = %_ZN5alloc3f
   %608 = trunc nuw i8 %607 to i1
   %609 = getelementptr inbounds nuw i8, ptr %605, i64 347
   %610 = load i8, ptr %609, align 1
-  %.fr22.i = freeze i8 %610
   %611 = xor i1 %.sroa.0136.0752, true
   %612 = and i1 %611, %608
   br i1 %612, label %616, label %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i
@@ -30880,14 +30878,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit._crit_edge: ; preds = %_ZN5alloc3f
 _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i: ; preds = %598
   %613 = xor i1 %.sroa.0136.0752, %608
   %614 = and i1 %.sroa.0136.0752, %608
-  %615 = icmp ugt i8 %.sroa.4138.0753, %.fr22.i
-  %spec.select.i = select i1 %614, i1 %615, i1 %613
-  %spec.select549 = select i1 %spec.select.i, i8 %.sroa.4138.0753, i8 %.fr22.i
+  %615 = icmp ugt i8 %.sroa.4138.0753, %610
+  %.fr.i = freeze i1 %615
+  %spec.select.i = select i1 %614, i1 %.fr.i, i1 %613
+  %spec.select549 = select i1 %spec.select.i, i8 %.sroa.4138.0753, i8 %610
   %spec.select550 = select i1 %spec.select.i, i1 %.sroa.0136.0752, i1 %608
   br label %616
 
 616:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i, %598
-  %617 = phi i8 [ %.fr22.i, %598 ], [ %spec.select549, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i ]
+  %617 = phi i8 [ %610, %598 ], [ %spec.select549, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i ]
   %618 = phi i1 [ true, %598 ], [ %spec.select550, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i ]
   %619 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %620 = icmp samesign ult i64 %619, 2
@@ -32402,7 +32401,6 @@ define hidden void @_ZN15ra_ap_rustc_abi6layout16LayoutCalculator15layout_of_uni
   %13 = trunc nuw i8 %12 to i1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %15 = load i8, ptr %14, align 4
-  %.fr = freeze i8 %15
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %27, label %16, !prof !9564
 
@@ -32457,7 +32455,7 @@ default.unreachable578:                           ; preds = %103, %94, %_ZN4core
   %.sroa.028.1.lcssa = phi i8 [ %.0.sroa.speculated.i113, %.backedge ], [ %.sroa.028.0, %16 ], [ %.0.sroa.speculated.i113, %.outer ]
   %.sroa.1235.1.lcssa = phi i8 [ %.0.sroa.speculated.i114, %.backedge ], [ %.sroa.1235.0, %16 ], [ %.0.sroa.speculated.i114, %.outer ]
   %.sroa.063.0.lcssa = phi i1 [ %81, %.backedge ], [ %25, %16 ], [ %81, %.outer ]
-  %.sroa.465.0.lcssa = phi i8 [ %80, %.backedge ], [ %.fr, %16 ], [ %80, %.outer ]
+  %.sroa.465.0.lcssa = phi i8 [ %80, %.backedge ], [ %15, %16 ], [ %80, %.outer ]
   %.086.lcssa = phi i64 [ %.0.sroa.speculated.i115, %.backedge ], [ 0, %16 ], [ %.0.sroa.speculated.i115, %.outer ]
   br i1 %13, label %34, label %37
 
@@ -32489,8 +32487,8 @@ default.unreachable578:                           ; preds = %103, %94, %_ZN4core
   br i1 %25, label %38, label %39
 
 38:                                               ; preds = %37
-  %.0.sroa.speculated.i111 = tail call noundef i8 @llvm.umax.i8(i8 %.sroa.028.2, i8 %.fr)
-  %.0.sroa.speculated.i112 = tail call noundef i8 @llvm.umax.i8(i8 %.sroa.1235.2, i8 %.fr)
+  %.0.sroa.speculated.i111 = tail call noundef i8 @llvm.umax.i8(i8 %.sroa.028.2, i8 %15)
+  %.0.sroa.speculated.i112 = tail call noundef i8 @llvm.umax.i8(i8 %.sroa.1235.2, i8 %15)
   br label %39
 
 39:                                               ; preds = %38, %37
@@ -32635,7 +32633,6 @@ default.unreachable578:                           ; preds = %103, %94, %_ZN4core
   %72 = trunc nuw i8 %71 to i1
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 347
   %74 = load i8, ptr %73, align 1
-  %.fr22.i = freeze i8 %74
   %75 = xor i1 %.sroa.063.0364, true
   %76 = and i1 %75, %72
   br i1 %76, label %_ZN4core3cmp6max_by17h02498efc25db1bfcE.exit, label %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i
@@ -32643,14 +32640,15 @@ default.unreachable578:                           ; preds = %103, %94, %_ZN4core
 _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i: ; preds = %.critedge
   %77 = xor i1 %.sroa.063.0364, %72
   %78 = and i1 %.sroa.063.0364, %72
-  %79 = icmp ugt i8 %.sroa.465.0365, %.fr22.i
-  %spec.select.i = select i1 %78, i1 %79, i1 %77
-  %spec.select = select i1 %spec.select.i, i8 %.sroa.465.0365, i8 %.fr22.i
+  %79 = icmp ugt i8 %.sroa.465.0365, %74
+  %.fr.i = freeze i1 %79
+  %spec.select.i = select i1 %78, i1 %.fr.i, i1 %77
+  %spec.select = select i1 %spec.select.i, i8 %.sroa.465.0365, i8 %74
   %spec.select262 = select i1 %spec.select.i, i1 %.sroa.063.0364, i1 %72
   br label %_ZN4core3cmp6max_by17h02498efc25db1bfcE.exit
 
 _ZN4core3cmp6max_by17h02498efc25db1bfcE.exit:     ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i, %.critedge
-  %80 = phi i8 [ %.fr22.i, %.critedge ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i ]
+  %80 = phi i8 [ %74, %.critedge ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i ]
   %81 = phi i1 [ true, %.critedge ], [ %spec.select262, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i ]
   %82 = getelementptr inbounds nuw i8, ptr %65, i64 336
   %83 = load i64, ptr %82, align 16, !noundef !4
@@ -32795,7 +32793,7 @@ _ZN15ra_ap_rustc_abi3Abi8to_union17hb67f99cf13ca45a3E.exit: ; preds = %94, %94, 
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.086.ph447 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.0.sroa.speculated.i115, %.outer ]
-  %.sroa.465.0.ph446 = phi i8 [ %.fr, %.lr.ph.lr.ph ], [ %80, %.outer ]
+  %.sroa.465.0.ph446 = phi i8 [ %15, %.lr.ph.lr.ph ], [ %80, %.outer ]
   %.sroa.063.0.ph445 = phi i1 [ %25, %.lr.ph.lr.ph ], [ %81, %.outer ]
   %.sroa.014.1.ph444 = phi i8 [ %.sroa.014.0, %.lr.ph.lr.ph ], [ %.sroa.014.2, %.outer ]
   %.sroa.11.1.ph443 = phi i8 [ undef, %.lr.ph.lr.ph ], [ %.sroa.11.2, %.outer ]
@@ -55039,20 +55037,19 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb1071f76a
   %70 = load i8, ptr %26, align 2, !range !3165, !noalias !20625, !noundef !4
   %71 = trunc nuw i8 %70 to i1
   %72 = load i8, ptr %27, align 1, !noalias !20625
-  %.fr22.i.i.i.i.i = freeze i8 %72
   %73 = xor i1 %68, true
   %74 = and i1 %73, %71
   br i1 %74, label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17had0bb322aadcd291E.exit.i.i.i", label %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i: ; preds = %59
   %75 = load i8, ptr %69, align 1, !noalias !20625
-  %.fr.i.i.i.i.i = freeze i8 %75
   %76 = xor i1 %68, %71
   %77 = and i8 %70, %67
   %.not.i.i.i.i = icmp eq i8 %77, 0
-  %78 = icmp ugt i8 %.fr.i.i.i.i.i, %.fr22.i.i.i.i.i
-  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i, i1 %76, i1 %78
-  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %.fr.i.i.i.i.i, i8 %.fr22.i.i.i.i.i
+  %78 = icmp ugt i8 %75, %72
+  %.fr.i.i.i.i.i = freeze i1 %78
+  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i, i1 %76, i1 %.fr.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %75, i8 %72
   %spec.select2.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %67, i8 %70
   br label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17had0bb322aadcd291E.exit.i.i.i"
 
@@ -55066,7 +55063,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i: ; pre
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i
 
 "_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17had0bb322aadcd291E.exit.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i, %59
-  %82 = phi i8 [ %.fr22.i.i.i.i.i, %59 ], [ %spec.select.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i ]
+  %82 = phi i8 [ %72, %59 ], [ %spec.select.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i ]
   %83 = phi i8 [ 1, %59 ], [ %spec.select2.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i ]
   store i8 %83, ptr %66, align 1, !noalias !20625
   store i8 %82, ptr %69, align 1, !noalias !20625
@@ -55537,20 +55534,19 @@ switch.lookup:                                    ; preds = %.lr.ph, %220
   %197 = load i8, ptr %47, align 2, !range !3165, !noalias !20687, !noundef !4
   %198 = trunc nuw i8 %197 to i1
   %199 = load i8, ptr %48, align 1, !noalias !20687
-  %.fr22.i.i.i.i.i = freeze i8 %199
   %200 = xor i1 %195, true
   %201 = and i1 %200, %198
   br i1 %201, label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$17h0e31ac72b6de48b3E.exit.i.i.i", label %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i: ; preds = %183
   %202 = load i8, ptr %196, align 1, !noalias !20687
-  %.fr.i.i.i.i.i = freeze i8 %202
   %203 = xor i1 %195, %198
   %204 = and i8 %197, %194
   %.not3.i.i.i.i = icmp eq i8 %204, 0
-  %205 = icmp ugt i8 %.fr.i.i.i.i.i, %.fr22.i.i.i.i.i
-  %spec.select.i.i.i.i.i = select i1 %.not3.i.i.i.i, i1 %203, i1 %205
-  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %.fr.i.i.i.i.i, i8 %.fr22.i.i.i.i.i
+  %205 = icmp ugt i8 %202, %199
+  %.fr.i.i.i.i.i = freeze i1 %205
+  %spec.select.i.i.i.i.i = select i1 %.not3.i.i.i.i, i1 %203, i1 %.fr.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %202, i8 %199
   %spec.select2.i.i.i.i = select i1 %spec.select.i.i.i.i.i, i8 %194, i8 %197
   br label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$17h0e31ac72b6de48b3E.exit.i.i.i"
 
@@ -55564,7 +55560,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i: ; pre
   resume { ptr, i32 } %.pn.i.i.i.i
 
 "_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$17h0e31ac72b6de48b3E.exit.i.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i, %183
-  %209 = phi i8 [ %.fr22.i.i.i.i.i, %183 ], [ %spec.select.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i ]
+  %209 = phi i8 [ %199, %183 ], [ %spec.select.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i ]
   %210 = phi i8 [ 1, %183 ], [ %spec.select2.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb0440693c96c105aE.exit.i.i.i.i.i ]
   store i8 %210, ptr %193, align 1, !noalias !20687
   store i8 %209, ptr %196, align 1, !noalias !20687

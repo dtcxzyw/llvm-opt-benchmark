@@ -26034,15 +26034,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIPN6duckdb8ReadHeadES2_St9_Identi
 
 .lr.ph.i:                                         ; preds = %2
   %5 = load i64, ptr %.pre.i.pre.pre, align 8, !tbaa !922
-  %.fr28.i = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.pre, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !926
-  %.fr.i = freeze i64 %7
-  %8 = add i64 %.fr.i, %.fr28.i
+  %8 = add i64 %7, %5
   %.not.i.i = icmp ugt i64 %8, -16385
-  %9 = add nuw i64 %8, 16384
+  %9 = add i64 %8, 16384
   %spec.select.i.i = select i1 %.not.i.i, i64 %8, i64 %9
-  %invariant.umax.i = tail call i64 @llvm.umax.i64(i64 %.fr28.i, i64 %spec.select.i.i)
+  %spec.select.i.fr.i = freeze i64 %spec.select.i.i
+  %invariant.umax.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %spec.select.i.fr.i)
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph.i
@@ -26061,14 +26060,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIPN6duckdb8ReadHeadES2_St9_Identi
   br i1 %14, label %._crit_edge.thread.i, label %20
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.021.lcssa32.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %2 ]
+  %.021.lcssa31.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !506
-  %17 = icmp eq ptr %.021.lcssa32.i, %16
+  %17 = icmp eq ptr %.021.lcssa31.i, %16
   br i1 %17, label %select.unfold, label %18
 
 18:                                               ; preds = %._crit_edge.thread.i
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa32.i) #32
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i) #32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !934
   %.pre21 = load i64, ptr %.pre, align 8, !tbaa !922
@@ -26076,10 +26075,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIPN6duckdb8ReadHeadES2_St9_Identi
   br label %20
 
 20:                                               ; preds = %18, %._crit_edge.i
-  %21 = phi i64 [ %.pre22, %18 ], [ %.fr28.i, %._crit_edge.i ]
+  %21 = phi i64 [ %.pre22, %18 ], [ %5, %._crit_edge.i ]
   %22 = phi i64 [ %.pre21, %18 ], [ %13, %._crit_edge.i ]
   %23 = phi ptr [ %.pre, %18 ], [ %12, %._crit_edge.i ]
-  %.021.lcssa31.i = phi ptr [ %.021.lcssa32.i, %18 ], [ %.02226.i, %._crit_edge.i ]
+  %.021.lcssa30.i = phi ptr [ %.021.lcssa31.i, %18 ], [ %.02226.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %19, %18 ], [ %.02226.i, %._crit_edge.i ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !926
@@ -26093,7 +26092,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIPN6duckdb8ReadHeadES2_St9_Identi
   br i1 %30, label %select.unfold, label %50
 
 select.unfold:                                    ; preds = %20, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa32.i, %._crit_edge.thread.i ], [ %.021.lcssa31.i, %20 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa31.i, %._crit_edge.thread.i ], [ %.021.lcssa30.i, %20 ]
   %31 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %31, label %_ZNSt8_Rb_treeIPN6duckdb8ReadHeadES2_St9_IdentityIS2_ENS0_18ReadHeadComparatorESaIS2_EE10_M_insert_IS2_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit, label %32
 

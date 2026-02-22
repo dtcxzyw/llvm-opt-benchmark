@@ -954,28 +954,26 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
 
 25:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
-  %.0913 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
+  %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %26 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !16
-  %.fr10 = freeze i32 %27
   br label %28
 
 28:                                               ; preds = %37, %25
-  %.1 = phi i32 [ %.0913, %25 ], [ %40, %37 ]
+  %.1 = phi i32 [ %.0912, %25 ], [ %40, %37 ]
   %.026.i.i = phi i32 [ %19, %25 ], [ %.127.i.i, %37 ]
   %.0.i.i = phi i32 [ -1, %25 ], [ %.1.i.i, %37 ]
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr11 = freeze i32 %32
-  %33 = icmp slt i32 %.fr10, %.fr11
+  %33 = icmp slt i32 %27, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !36
-  %.not.i.i = icmp slt i32 %.fr10, %36
+  %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %37
 
 37:                                               ; preds = %34, %28
@@ -987,9 +985,10 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   br label %28, !llvm.loop !37
 
 _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %34
-  %41 = sub i32 %.fr10, %.fr11
+  %41 = sub nsw i32 %27, %32
+  %.fr = freeze i32 %41
   %42 = load i32, ptr %30, align 4, !tbaa !38
-  %43 = srem i32 %41, %42
+  %43 = srem i32 %.fr, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
@@ -1304,7 +1303,6 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %.01517 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit ]
   %26 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !16
-  %.fr23 = freeze i32 %27
   br label %28
 
 28:                                               ; preds = %37, %25
@@ -1315,14 +1313,13 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr24 = freeze i32 %32
-  %33 = icmp slt i32 %.fr23, %.fr24
+  %33 = icmp slt i32 %27, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !36
-  %.not.i = icmp slt i32 %.fr23, %36
+  %.not.i = icmp slt i32 %27, %36
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %37
 
 37:                                               ; preds = %34, %28
@@ -1334,9 +1331,10 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   br label %28, !llvm.loop !37
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %34
-  %41 = sub i32 %.fr23, %.fr24
+  %41 = sub nsw i32 %27, %32
+  %.fr = freeze i32 %41
   %42 = load i32, ptr %30, align 4, !tbaa !38
-  %43 = srem i32 %41, %42
+  %43 = srem i32 %.fr, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64

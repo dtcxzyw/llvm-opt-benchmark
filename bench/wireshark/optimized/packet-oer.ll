@@ -486,8 +486,8 @@ define noundef i32 @dissect_oer_integer(ptr noundef %0, i32 noundef %1, ptr noun
 
 16:                                               ; preds = %13
   %17 = call i32 @proto_registrar_get_ftype(i32 noundef %4)
-  %.fr = freeze i32 %17
-  %18 = add i32 %.fr, -12
+  %.fr86 = freeze i32 %17
+  %18 = add i32 %.fr86, -12
   %19 = icmp ult i32 %18, 8
   %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %9)
   %spec.select = sext i1 %19 to i32
@@ -501,15 +501,15 @@ define noundef i32 @dissect_oer_integer(ptr noundef %0, i32 noundef %1, ptr noun
   br label %23
 
 23:                                               ; preds = %21, %23
-  %.088 = phi i32 [ %9, %21 ], [ %28, %23 ]
-  %.06987 = phi i32 [ 0, %21 ], [ %29, %23 ]
-  %.17186 = phi i32 [ %.070, %21 ], [ %27, %23 ]
-  %24 = shl i32 %.17186, 8
-  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.088)
+  %.089 = phi i32 [ %9, %21 ], [ %28, %23 ]
+  %.06988 = phi i32 [ 0, %21 ], [ %29, %23 ]
+  %.17187 = phi i32 [ %.070, %21 ], [ %27, %23 ]
+  %24 = shl i32 %.17187, 8
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.089)
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %24, %26
-  %28 = add i32 %.088, 1
-  %29 = add nuw i32 %.06987, 1
+  %28 = add i32 %.089, 1
+  %29 = add nuw i32 %.06988, 1
   %exitcond.not = icmp eq i32 %29, %10
   br i1 %exitcond.not, label %42, label %23, !llvm.loop !8
 

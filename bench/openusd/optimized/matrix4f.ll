@@ -4161,24 +4161,22 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f16RemoveScaleShea
 define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f19ExtractRotationQuatEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %0) local_unnamed_addr #13 align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 8
   %3 = load float, ptr %0, align 4
-  %.fr = freeze float %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load float, ptr %4, align 4
-  %.fr42 = freeze float %5
-  %6 = fcmp ule float %.fr, %.fr42
+  %6 = fcmp ule float %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load float, ptr %7, align 4
-  %.fr45 = freeze float %8
-  %. = select i1 %6, float %.fr42, float %.fr
+  %. = select i1 %6, float %5, float %3
   %.41 = zext i1 %6 to i32
-  %9 = fcmp ogt float %., %.fr45
+  %9 = fcmp ogt float %., %8
   %10 = select i1 %9, i32 %.41, i32 2
-  %11 = fadd float %.fr, %.fr42
-  %12 = fadd float %11, %.fr45
-  %13 = shl nuw nsw i32 %10, 2
+  %.0.fr = freeze i32 %10
+  %11 = fadd float %3, %5
+  %12 = fadd float %11, %8
+  %13 = shl nuw nsw i32 %.0.fr, 2
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw float, ptr %0, i64 %14
-  %16 = zext nneg i32 %10 to i64
+  %16 = zext nneg i32 %.0.fr to i64
   %17 = getelementptr inbounds nuw float, ptr %15, i64 %16
   %18 = load float, ptr %17, align 4
   %19 = fcmp ogt float %12, %18
@@ -4222,15 +4220,15 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   br label %100
 
 53:                                               ; preds = %1
-  %54 = add nuw nsw i32 %10, 1
+  %54 = add nuw nsw i32 %.0.fr, 1
   %55 = icmp eq i32 %54, 3
   %56 = select i1 %55, i32 0, i32 %54
-  %57 = add nuw nsw i32 %10, 2
+  %57 = add nuw nsw i32 %.0.fr, 2
   %58 = urem i32 %57, 3
-  %59 = shl nuw nsw i32 %56, 2
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw float, ptr %0, i64 %60
-  %62 = zext nneg i32 %56 to i64
+  %59 = shl nsw i32 %56, 2
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds float, ptr %0, i64 %60
+  %62 = sext i32 %56 to i64
   %63 = getelementptr inbounds nuw float, ptr %61, i64 %62
   %64 = load float, ptr %63, align 4
   %65 = fsub float %18, %64
@@ -4255,7 +4253,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %83 = fadd float %80, %82
   %84 = fmul float %77, 4.000000e+00
   %85 = fdiv float %83, %84
-  %86 = getelementptr inbounds nuw float, ptr %2, i64 %62
+  %86 = getelementptr inbounds float, ptr %2, i64 %62
   store float %85, ptr %86, align 4
   %87 = getelementptr inbounds nuw float, ptr %68, i64 %16
   %88 = load float, ptr %87, align 4

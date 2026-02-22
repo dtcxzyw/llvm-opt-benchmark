@@ -29,12 +29,12 @@ define internal range(i32 0, 53) i32 @avs2_probe(ptr noundef readonly captures(n
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1, %33
-  %.076 = phi ptr [ %.1, %33 ], [ null, %1 ]
-  %.06075 = phi ptr [ %11, %33 ], [ %4, %1 ]
-  %.06174 = phi i32 [ %.162, %33 ], [ 0, %1 ]
-  %.06373 = phi i32 [ %.164, %33 ], [ 0, %1 ]
-  %.06572 = phi i32 [ %.2, %33 ], [ 0, %1 ]
-  %11 = call ptr @avpriv_find_start_code(ptr noundef %.06075, ptr noundef nonnull %8, ptr noundef nonnull %2) #4
+  %.077 = phi ptr [ %.1, %33 ], [ null, %1 ]
+  %.06076 = phi ptr [ %11, %33 ], [ %4, %1 ]
+  %.06175 = phi i32 [ %.162, %33 ], [ 0, %1 ]
+  %.06374 = phi i32 [ %.164, %33 ], [ 0, %1 ]
+  %.06573 = phi i32 [ %.2, %33 ], [ 0, %1 ]
+  %11 = call ptr @avpriv_find_start_code(ptr noundef %.06076, ptr noundef nonnull %8, ptr noundef nonnull %2) #4
   %12 = load i32, ptr %2, align 4, !tbaa !4
   %.fr = freeze i32 %12
   %13 = and i32 %.fr, -256
@@ -46,24 +46,24 @@ define internal range(i32 0, 53) i32 @avs2_probe(ptr noundef readonly captures(n
   %17 = add nsw i32 %16, -181
   %18 = icmp ult i32 %17, 3
   %.pre = trunc i32 %.fr to i8
-  br i1 %18, label %._crit_edge83, label %switch.early.test
+  br i1 %18, label %._crit_edge84, label %switch.early.test
 
 switch.early.test:                                ; preds = %15
   %trunc = and i8 %.pre, -2
   switch i8 %trunc, label %33 [
-    i8 -78, label %._crit_edge83
-    i8 -80, label %._crit_edge83
+    i8 -78, label %._crit_edge84
+    i8 -80, label %._crit_edge84
   ]
 
-._crit_edge83:                                    ; preds = %15, %switch.early.test, %switch.early.test
-  %19 = icmp eq ptr %.076, null
-  %20 = icmp ne i32 %.06572, 0
+._crit_edge84:                                    ; preds = %15, %switch.early.test, %switch.early.test
+  %19 = icmp eq ptr %.077, null
+  %20 = icmp ne i32 %.06573, 0
   %or.cond19 = select i1 %19, i1 true, i1 %20
   %21 = ptrtoint ptr %11 to i64
-  %22 = ptrtoint ptr %.076 to i64
+  %22 = ptrtoint ptr %.077 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %.3 = select i1 %or.cond19, i32 %.06572, i32 %24
+  %.3 = select i1 %or.cond19, i32 %.06573, i32 %24
   switch i8 %.pre, label %33 [
     i8 -80, label %25
     i8 -74, label %31
@@ -71,7 +71,7 @@ switch.early.test:                                ; preds = %15
     i8 -79, label %._crit_edge.loopexit
   ]
 
-25:                                               ; preds = %._crit_edge83
+25:                                               ; preds = %._crit_edge84
   %26 = load i8, ptr %11, align 1, !tbaa !13
   %27 = add i8 %26, -32
   %28 = call i8 @llvm.fshl.i8(i8 %27, i8 %27, i8 7)
@@ -83,25 +83,25 @@ switch.early.test:                                ; preds = %15
   ]
 
 29:                                               ; preds = %25, %25, %25, %25
-  %30 = add i32 %.06174, 1
+  %30 = add i32 %.06175, 1
   br label %33
 
-31:                                               ; preds = %._crit_edge83, %._crit_edge83
-  %32 = add i32 %.06373, 1
+31:                                               ; preds = %._crit_edge84, %._crit_edge84
+  %32 = add i32 %.06374, 1
   br label %33
 
-33:                                               ; preds = %switch.early.test, %._crit_edge83, %31, %29, %.lr.ph
-  %.2 = phi i32 [ %.3, %29 ], [ %.3, %31 ], [ %.3, %._crit_edge83 ], [ %.06572, %switch.early.test ], [ %.06572, %.lr.ph ]
-  %.164 = phi i32 [ %.06373, %29 ], [ %32, %31 ], [ %.06373, %._crit_edge83 ], [ %.06373, %switch.early.test ], [ %.06373, %.lr.ph ]
-  %.162 = phi i32 [ %30, %29 ], [ %.06174, %31 ], [ %.06174, %._crit_edge83 ], [ %.06174, %switch.early.test ], [ %.06174, %.lr.ph ]
-  %.1 = phi ptr [ %11, %29 ], [ %.076, %31 ], [ %.076, %._crit_edge83 ], [ %.076, %switch.early.test ], [ %.076, %.lr.ph ]
+33:                                               ; preds = %switch.early.test, %._crit_edge84, %31, %29, %.lr.ph
+  %.2 = phi i32 [ %.3, %29 ], [ %.3, %31 ], [ %.3, %._crit_edge84 ], [ %.06573, %switch.early.test ], [ %.06573, %.lr.ph ]
+  %.164 = phi i32 [ %.06374, %29 ], [ %32, %31 ], [ %.06374, %._crit_edge84 ], [ %.06374, %switch.early.test ], [ %.06374, %.lr.ph ]
+  %.162 = phi i32 [ %30, %29 ], [ %.06175, %31 ], [ %.06175, %._crit_edge84 ], [ %.06175, %switch.early.test ], [ %.06175, %.lr.ph ]
+  %.1 = phi ptr [ %11, %29 ], [ %.077, %31 ], [ %.077, %._crit_edge84 ], [ %.077, %switch.early.test ], [ %.077, %.lr.ph ]
   %34 = icmp ult ptr %11, %8
   br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %._crit_edge83, %33
-  %.063.lcssa.ph = phi i32 [ %.164, %33 ], [ %.06373, %._crit_edge83 ]
-  %.061.lcssa.ph = phi i32 [ %.162, %33 ], [ %.06174, %._crit_edge83 ]
-  %.166.ph = phi i32 [ %.2, %33 ], [ %.3, %._crit_edge83 ]
+._crit_edge.loopexit:                             ; preds = %._crit_edge84, %33
+  %.063.lcssa.ph = phi i32 [ %.164, %33 ], [ %.06374, %._crit_edge84 ]
+  %.061.lcssa.ph = phi i32 [ %.162, %33 ], [ %.06175, %._crit_edge84 ]
+  %.166.ph = phi i32 [ %.2, %33 ], [ %.3, %._crit_edge84 ]
   %35 = icmp ne i32 %.061.lcssa.ph, 0
   %36 = icmp ugt i32 %.166.ph, 20
   %37 = select i1 %35, i1 %36, i1 false

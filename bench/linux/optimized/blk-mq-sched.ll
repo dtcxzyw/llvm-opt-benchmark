@@ -1070,8 +1070,8 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
   br i1 %27, label %28, label %10, !llvm.loop !24
 
 28:                                               ; preds = %23
-  %.fr7 = freeze i64 %25
-  %29 = and i64 %.fr7, 8
+  %.fr8 = freeze i64 %25
+  %29 = and i64 %.fr8, 8
   %30 = icmp eq i64 %29, 0
   br label %31
 

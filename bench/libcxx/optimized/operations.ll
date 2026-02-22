@@ -5477,12 +5477,12 @@ _ZNSt3__14__fs10filesystem6detail11posix_lstatB8ne210000ERKNS1_4pathEPNS_10error
 
 53:                                               ; preds = %_ZNSt3__14__fs10filesystem6detail11posix_lstatB8ne210000ERKNS1_4pathEPNS_10error_codeE.exit, %_ZNSt3__14__fs10filesystem6detail10posix_statB8ne210000ERKNS1_4pathEPNS_10error_codeE.exit
   %54 = load i64, ptr %11, align 8
-  %.fr = freeze i64 %54
-  %55 = and i64 %.fr, 255
+  %.fr37 = freeze i64 %54
+  %55 = and i64 %.fr37, 255
   %56 = icmp eq i64 %55, 3
   %57 = load i32, ptr %10, align 8, !tbaa !8
   %.not36 = icmp eq i32 %57, 0
-  %58 = lshr i64 %.fr, 32
+  %58 = lshr i64 %.fr37, 32
   %59 = trunc nuw i64 %58 to i32
   br i1 %.not36, label %61, label %60
 

@@ -10252,10 +10252,10 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %9 = alloca %"class.Eigen::Block.1096", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !range !304
-  %.fr = freeze i8 %11
-  %12 = trunc i8 %.fr to i1
-  %or.cond69 = xor i1 %12, true
-  %spec.select = and i1 %3, %or.cond69
+  %.fr69 = freeze i8 %11
+  %12 = trunc i8 %.fr69 to i1
+  %or.cond70 = xor i1 %12, true
+  %spec.select = and i1 %3, %or.cond70
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !408
   %15 = icmp sgt i64 %14, 47
@@ -10308,11 +10308,11 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %47 = sub nsw i64 %42, %.04767
   %48 = sub nsw i64 %47, %21
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %48, i64 0)
-  %.pre73 = add nuw nsw i64 %.04767, %21
+  %.pre74 = add nuw nsw i64 %.04767, %21
   br label %49
 
 49:                                               ; preds = %.thread, %46
-  %.pre-phi = phi i64 [ %45, %.thread ], [ %.pre73, %46 ]
+  %.pre-phi = phi i64 [ %45, %.thread ], [ %.pre74, %46 ]
   %50 = phi i64 [ %.sroa.speculated57, %.thread ], [ %47, %46 ]
   %51 = phi i64 [ %.04767, %.thread ], [ %.sroa.speculated, %46 ]
   %52 = sub nsw i64 %50, %51
@@ -10410,11 +10410,11 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i: ; preds = %84
 .sink.split.i.i:                                  ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i, %81
   %.sink.i.i = phi ptr [ %89, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i ], [ null, %81 ]
   store ptr %.sink.i.i, ptr %2, align 8, !tbaa !346
-  %.pre72 = load i64, ptr %13, align 8, !tbaa !408
+  %.pre73 = load i64, ptr %13, align 8, !tbaa !408
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEl.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEl.exit: ; preds = %._crit_edge, %.sink.split.i.i
-  %93 = phi i64 [ %14, %._crit_edge ], [ %.pre72, %.sink.split.i.i ]
+  %93 = phi i64 [ %14, %._crit_edge ], [ %.pre73, %.sink.split.i.i ]
   store i64 %17, ptr %79, align 8, !tbaa !432
   %94 = icmp sgt i64 %93, 0
   br i1 %94, label %.lr.ph, label %.loopexit
@@ -21001,10 +21001,10 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLi2
   %9 = alloca %"class.Eigen::Block.2641", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !range !304
-  %.fr = freeze i8 %11
-  %12 = trunc i8 %.fr to i1
-  %or.cond66 = xor i1 %12, true
-  %spec.select = and i1 %3, %or.cond66
+  %.fr66 = freeze i8 %11
+  %12 = trunc i8 %.fr66 to i1
+  %or.cond67 = xor i1 %12, true
+  %spec.select = and i1 %3, %or.cond67
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !427
   %15 = icmp sgt i64 %14, 47

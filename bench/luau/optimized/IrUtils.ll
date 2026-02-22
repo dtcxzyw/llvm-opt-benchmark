@@ -4520,8 +4520,8 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %31
   %33 = load i8, ptr %32, align 4, !tbaa !29
-  %.fr15.i.i.i.i.i = freeze i8 %33
-  %34 = icmp eq i8 %.fr15.i.i.i.i.i, 1
+  %.fr.i.i.i.i.i = freeze i8 %33
+  %34 = icmp eq i8 %.fr.i.i.i.i.i, 1
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br i1 %34, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
@@ -5382,8 +5382,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %11
   %13 = load i8, ptr %10, align 4, !tbaa !29
-  %.fr15.i = freeze i8 %13
-  %14 = icmp eq i8 %.fr15.i, 1
+  %.fr.i = freeze i8 %13
+  %14 = icmp eq i8 %.fr.i, 1
   %15 = load i8, ptr %12, align 4, !tbaa !29
   %16 = icmp eq i8 %15, 1
   %17 = xor i1 %14, %16

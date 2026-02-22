@@ -222,26 +222,22 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr noundef readonly captures(non
 66:                                               ; preds = %45
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %68 = load i8, ptr %67, align 1, !tbaa !3
-  %.fr57 = freeze i8 %68
-  %69 = zext i8 %.fr57 to i32
+  %69 = zext i8 %68 to i32
   %70 = shl nuw i32 %69, 24
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %72 = load i8, ptr %71, align 1, !tbaa !3
-  %.fr56 = freeze i8 %72
-  %73 = zext i8 %.fr56 to i32
+  %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 16
-  %75 = or disjoint i32 %74, %70
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %77 = load i8, ptr %76, align 1, !tbaa !3
-  %.fr54 = freeze i8 %77
-  %78 = zext i8 %.fr54 to i32
-  %79 = shl nuw nsw i32 %78, 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %81 = load i8, ptr %80, align 1, !tbaa !3
-  %.fr55 = freeze i8 %81
-  %82 = zext i8 %.fr55 to i32
-  %83 = or disjoint i32 %79, %82
-  %84 = or disjoint i32 %83, %75
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %76 = load i8, ptr %75, align 1, !tbaa !3
+  %77 = zext i8 %76 to i32
+  %78 = shl nuw nsw i32 %77, 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %80 = load i8, ptr %79, align 1, !tbaa !3
+  %81 = zext i8 %80 to i32
+  %82 = or disjoint i32 %74, %81
+  %83 = or disjoint i32 %82, %78
+  %84 = or disjoint i32 %83, %70
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ugt i64 %.0.i.i.ph, %85
   %87 = icmp slt i32 %70, 0
@@ -326,31 +322,27 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr noundef readonly captures(non
   %153 = add i32 %152, %129
   %154 = icmp ult i32 %153, %129
   %.not42 = icmp ugt i32 %153, %84
-  %or.cond58 = or i1 %154, %.not42
-  br i1 %or.cond58, label %check_block_.exit.thread, label %155
+  %or.cond47 = or i1 %154, %.not42
+  br i1 %or.cond47, label %check_block_.exit.thread, label %155
 
 155:                                              ; preds = %134, %132
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %157 = load i8, ptr %156, align 1, !tbaa !3
-  %.fr51 = freeze i8 %157
-  %158 = zext i8 %.fr51 to i32
+  %158 = zext i8 %157 to i32
   %159 = shl nuw i32 %158, 24
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %161 = load i8, ptr %160, align 1, !tbaa !3
-  %.fr50 = freeze i8 %161
-  %162 = zext i8 %.fr50 to i32
+  %162 = zext i8 %161 to i32
   %163 = shl nuw nsw i32 %162, 16
   %164 = or disjoint i32 %163, %159
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %166 = load i8, ptr %165, align 1, !tbaa !3
-  %.fr52 = freeze i8 %166
-  %167 = zext i8 %.fr52 to i32
+  %167 = zext i8 %166 to i32
   %168 = shl nuw nsw i32 %167, 8
   %169 = or disjoint i32 %164, %168
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %171 = load i8, ptr %170, align 1, !tbaa !3
-  %.fr53 = freeze i8 %171
-  %172 = zext i8 %.fr53 to i32
+  %172 = zext i8 %171 to i32
   %173 = or disjoint i32 %169, %172
   %174 = icmp ult i32 %173, %89
   %175 = icmp ugt i32 %173, %84
@@ -360,37 +352,36 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr noundef readonly captures(non
 176:                                              ; preds = %155
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %178 = load i8, ptr %177, align 1, !tbaa !3
-  %.fr = freeze i8 %178
-  %179 = zext i8 %.fr to i32
+  %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 16
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %182 = load i8, ptr %181, align 1, !tbaa !3
-  %.fr47 = freeze i8 %182
-  %183 = zext i8 %.fr47 to i32
+  %183 = zext i8 %182 to i32
   %184 = shl nuw i32 %183, 24
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %186 = load i8, ptr %185, align 1, !tbaa !3
-  %.fr48 = freeze i8 %186
-  %187 = zext i8 %.fr48 to i32
-  %188 = shl nuw nsw i32 %187, 8
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %190 = load i8, ptr %189, align 1, !tbaa !3
-  %.fr49 = freeze i8 %190
-  %191 = zext i8 %.fr49 to i32
-  %192 = add i32 %180, %173
-  %193 = add i32 %192, %184
-  %194 = add i32 %193, %188
-  %195 = add i32 %194, %191
+  %185 = or disjoint i32 %184, %180
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %187 = load i8, ptr %186, align 1, !tbaa !3
+  %188 = zext i8 %187 to i32
+  %189 = shl nuw nsw i32 %188, 8
+  %190 = or disjoint i32 %185, %189
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  %192 = load i8, ptr %191, align 1, !tbaa !3
+  %193 = zext i8 %192 to i32
+  %194 = or disjoint i32 %190, %193
+  %195 = add i32 %194, %173
   %196 = icmp ult i32 %195, %173
-  %.not46 = icmp ugt i32 %195, %84
-  %or.cond59 = or i1 %196, %.not46
-  br i1 %or.cond59, label %check_block_.exit32.thread, label %check_block_.exit.thread
+  br i1 %196, label %check_block_.exit32.thread, label %check_block_.exit32
 
-check_block_.exit32.thread:                       ; preds = %176, %155
+check_block_.exit32:                              ; preds = %176
+  %.not46 = icmp ugt i32 %195, %84
+  %cond.fr = freeze i1 %.not46
+  br i1 %cond.fr, label %check_block_.exit32.thread, label %check_block_.exit.thread
+
+check_block_.exit32.thread:                       ; preds = %176, %155, %check_block_.exit32
   br label %check_block_.exit.thread
 
-check_block_.exit.thread:                         ; preds = %19, %176, %134, %133, %check_block_.exit32.thread, %132, %88, %66, %45, %1
-  %.0 = phi i32 [ -8, %66 ], [ -9, %1 ], [ -8, %133 ], [ -8, %134 ], [ -8, %check_block_.exit32.thread ], [ 0, %176 ], [ -8, %88 ], [ -8, %132 ], [ -10, %45 ], [ -10, %19 ]
+check_block_.exit.thread:                         ; preds = %19, %134, %133, %check_block_.exit32.thread, %check_block_.exit32, %132, %88, %66, %45, %1
+  %.0 = phi i32 [ -8, %66 ], [ -9, %1 ], [ -8, %133 ], [ -8, %134 ], [ -8, %check_block_.exit32.thread ], [ 0, %check_block_.exit32 ], [ -8, %88 ], [ -8, %132 ], [ -10, %45 ], [ -10, %19 ]
   ret i32 %.0
 }
 

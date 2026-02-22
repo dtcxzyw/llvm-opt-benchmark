@@ -2714,9 +2714,9 @@ define noundef range(i32 0, 2) i32 @_ZN22LteRlcStatisticsDialog9tapPacketEPvP12_
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.thread46
-  %.03754 = phi i32 [ 0, %.lr.ph ], [ %40, %.thread46 ]
+  %.03753 = phi i32 [ 0, %.lr.ph ], [ %40, %.thread46 ]
   %26 = tail call noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable_or_null(232) %0)
-  %27 = tail call noundef ptr @_ZNK11QTreeWidget12topLevelItemEi(ptr noundef align 8 dereferenceable_or_null(40) %26, i32 noundef %.03754)
+  %27 = tail call noundef ptr @_ZNK11QTreeWidget12topLevelItemEi(ptr noundef align 8 dereferenceable_or_null(40) %26, i32 noundef %.03753)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %.not41 = icmp eq i32 %29, 1000
@@ -2733,14 +2733,13 @@ _ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit: ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %36 = load i32, ptr %35, align 8
   %37 = load i16, ptr %24, align 4
-  %.fr53 = freeze i16 %37
-  %38 = zext i16 %.fr53 to i32
-  %.fr = freeze i32 %36
-  %39 = icmp eq i32 %.fr, %38
-  br i1 %39, label %_ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit._crit_edge, label %.thread46
+  %38 = zext i16 %37 to i32
+  %39 = icmp eq i32 %36, %38
+  %cond.fr = freeze i1 %39
+  br i1 %cond.fr, label %_ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit._crit_edge, label %.thread46
 
 .thread46:                                        ; preds = %_ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit, %30, %25
-  %40 = add nuw nsw i32 %.03754, 1
+  %40 = add nuw nsw i32 %.03753, 1
   %41 = tail call noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable_or_null(232) %0)
   %42 = tail call noundef i32 @_ZNK11QTreeWidget17topLevelItemCountEv(ptr noundef align 8 dereferenceable_or_null(40) %41)
   %43 = icmp slt i32 %40, %42
@@ -2763,7 +2762,7 @@ _ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit._crit_edge.thread: ;
   %47 = tail call noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable_or_null(232) %0)
   %48 = tail call noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef align 8 dereferenceable_or_null(40) %47)
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph57, label %.loopexit
+  br i1 %49, label %.lr.ph56, label %.loopexit
 
 common.resume:                                    ; preds = %63, %58, %50
   %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %59, %58 ], [ %64, %63 ]
@@ -2775,26 +2774,26 @@ common.resume:                                    ; preds = %63, %58, %50
   tail call void @_ZdlPvm(ptr noundef %44, i64 noundef 496) #26
   br label %common.resume
 
-.lr.ph57:                                         ; preds = %.preheader, %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit
-  %.056 = phi i32 [ %65, %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit ], [ 0, %.preheader ]
+.lr.ph56:                                         ; preds = %.preheader, %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit
+  %.055 = phi i32 [ %65, %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit ], [ 0, %.preheader ]
   %52 = call noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable_or_null(232) %0)
   %53 = call noundef ptr @_ZNK11QTreeWidget10headerItemEv(ptr noundef align 8 dereferenceable_or_null(40) %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %7, ptr noundef align 8 dereferenceable_or_null(92) %53, i32 noundef %.056, i32 noundef 7)
+  call void %56(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %7, ptr noundef align 8 dereferenceable_or_null(92) %53, i32 noundef %.055, i32 noundef 7)
   %57 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable_or_null(32) %7, ptr noundef null)
           to label %_ZNK15QTreeWidgetItem13textAlignmentEi.exit unwind label %58
 
-58:                                               ; preds = %.lr.ph57
+58:                                               ; preds = %.lr.ph56
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
-_ZNK15QTreeWidgetItem13textAlignmentEi.exit:      ; preds = %.lr.ph57
+_ZNK15QTreeWidgetItem13textAlignmentEi.exit:      ; preds = %.lr.ph56
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2802,7 +2801,7 @@ _ZNK15QTreeWidgetItem13textAlignmentEi.exit:      ; preds = %.lr.ph57
   %60 = load ptr, ptr %44, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef align 8 dereferenceable_or_null(92) %44, i32 noundef %.056, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void %62(ptr noundef align 8 dereferenceable_or_null(92) %44, i32 noundef %.055, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit unwind label %63
 
 63:                                               ; preds = %_ZNK15QTreeWidgetItem13textAlignmentEi.exit
@@ -2815,11 +2814,11 @@ _ZNK15QTreeWidgetItem13textAlignmentEi.exit:      ; preds = %.lr.ph57
 _ZN15QTreeWidgetItem16setTextAlignmentEii.exit:   ; preds = %_ZNK15QTreeWidgetItem13textAlignmentEi.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %65 = add nuw nsw i32 %.056, 1
+  %65 = add nuw nsw i32 %.055, 1
   %66 = call noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable_or_null(232) %0)
   %67 = call noundef i32 @_ZNK11QTreeWidget11columnCountEv(ptr noundef align 8 dereferenceable_or_null(40) %66)
   %68 = icmp slt i32 %65, %67
-  br i1 %68, label %.lr.ph57, label %.loopexit, !llvm.loop !15
+  br i1 %68, label %.lr.ph56, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit, %.preheader, %_ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit._crit_edge
   %.4 = phi ptr [ %27, %_ZN19RlcUeTreeWidgetItem7isMatchEPK17rlc_3gpp_tap_info.exit._crit_edge ], [ %44, %.preheader ], [ %44, %_ZN15QTreeWidgetItem16setTextAlignmentEii.exit ]

@@ -28977,8 +28977,8 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulIfdEEvPKT_mS4_mPT0_mNS_5Size_IiEES8_i.exit: ;
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #8 {
-  %.fr72.i = freeze i64 %6
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr72.i, 32
+  %.fr.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr.i, 32
   %11 = lshr i64 %1, 2
   %12 = lshr i64 %3, 3
   %13 = lshr i64 %5, 2
@@ -28990,14 +28990,14 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_I
   %.035.i = select i1 %.not.i, i64 0, i64 %..i
   %.0.i = select i1 %.not.i, i64 0, i64 %.44.i
   %.not4251.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr72.i to i32
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr.i to i32
   %15 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4251.i, %15
   br i1 %or.cond.i, label %.lr.ph58.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreIfdEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit
 
 .lr.ph58.split.us.split.us.preheader.i:           ; preds = %10
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %wide.trip.count86.i = and i64 %.fr72.i, 2147483647
+  %wide.trip.count85.i = and i64 %.fr.i, 2147483647
   br label %.lr.ph58.split.us.split.us.i
 
 .lr.ph58.split.us.split.us.i:                     ; preds = %..loopexit46_crit_edge.us.us.i, %.lr.ph58.split.us.split.us.preheader.i
@@ -29010,21 +29010,21 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_I
   br i1 %.not43.us.us.i, label %.preheader.us.us.i, label %.preheader45.us.us.i
 
 .preheader45.us.us.i:                             ; preds = %.lr.ph58.split.us.split.us.i, %.preheader45.us.us.i
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %.preheader45.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
+  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %.preheader45.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
   %.03847.us.us.i = phi ptr [ %25, %.preheader45.us.us.i ], [ %.03756.us.us.i, %.lr.ph58.split.us.split.us.i ]
-  %17 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv83.i
+  %17 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv82.i
   %18 = load double, ptr %17, align 8, !tbaa !45
   %19 = fmul double %7, %18
   %20 = load float, ptr %.03847.us.us.i, align 4, !tbaa !12
   %21 = fpext float %20 to double
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %8, double %19)
   %23 = fptrunc double %22 to float
-  %24 = getelementptr inbounds nuw float, ptr %.04052.us.us.i, i64 %indvars.iv83.i
+  %24 = getelementptr inbounds nuw float, ptr %.04052.us.us.i, i64 %indvars.iv82.i
   store float %23, ptr %24, align 4, !tbaa !12
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %25 = getelementptr inbounds nuw float, ptr %.03847.us.us.i, i64 %.0.i
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count86.i
-  br i1 %exitcond87.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader45.us.us.i, !llvm.loop !583
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
+  br i1 %exitcond86.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader45.us.us.i, !llvm.loop !583
 
 ..loopexit46_crit_edge.us.us.i:                   ; preds = %.preheader45.us.us.i, %.preheader.us.us.i
   %26 = getelementptr inbounds nuw float, ptr %.03756.us.us.i, i64 %.035.i
@@ -29034,16 +29034,16 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_I
   br i1 %.not42.us.us.i, label %_ZN2cv12cpu_baselineL9GEMMStoreIfdEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit, label %.lr.ph58.split.us.split.us.i, !llvm.loop !584
 
 .preheader.us.us.i:                               ; preds = %.lr.ph58.split.us.split.us.i, %.preheader.us.us.i
-  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.preheader.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
-  %29 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv88.i
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.preheader.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
+  %29 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv87.i
   %30 = load double, ptr %29, align 8, !tbaa !45
   %31 = fmul double %7, %30
   %32 = fptrunc double %31 to float
-  %33 = getelementptr inbounds nuw float, ptr %.04052.us.us.i, i64 %indvars.iv88.i
+  %33 = getelementptr inbounds nuw float, ptr %.04052.us.us.i, i64 %indvars.iv87.i
   store float %32, ptr %33, align 4, !tbaa !12
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count86.i
-  br i1 %exitcond92.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !585
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count85.i
+  br i1 %exitcond91.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !585
 
 _ZN2cv12cpu_baselineL9GEMMStoreIfdEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit: ; preds = %..loopexit46_crit_edge.us.us.i, %10
   ret void
@@ -30399,8 +30399,8 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulIddEEvPKT_mS4_mPT0_mNS_5Size_IiEES8_i.exit: ;
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #8 {
-  %.fr72.i = freeze i64 %6
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr72.i, 32
+  %.fr.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr.i, 32
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %3, 3
   %13 = lshr i64 %5, 3
@@ -30412,14 +30412,14 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_I
   %.035.i = select i1 %.not.i, i64 0, i64 %..i
   %.0.i = select i1 %.not.i, i64 0, i64 %.44.i
   %.not4251.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr72.i to i32
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr.i to i32
   %15 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4251.i, %15
   br i1 %or.cond.i, label %.lr.ph58.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreIddEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit
 
 .lr.ph58.split.us.split.us.preheader.i:           ; preds = %10
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %wide.trip.count86.i = and i64 %.fr72.i, 2147483647
+  %wide.trip.count85.i = and i64 %.fr.i, 2147483647
   br label %.lr.ph58.split.us.split.us.i
 
 .lr.ph58.split.us.split.us.i:                     ; preds = %..loopexit46_crit_edge.us.us.i, %.lr.ph58.split.us.split.us.preheader.i
@@ -30432,19 +30432,19 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_I
   br i1 %.not43.us.us.i, label %.preheader.us.us.i, label %.preheader45.us.us.i
 
 .preheader45.us.us.i:                             ; preds = %.lr.ph58.split.us.split.us.i, %.preheader45.us.us.i
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %.preheader45.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
+  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %.preheader45.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
   %.03847.us.us.i = phi ptr [ %23, %.preheader45.us.us.i ], [ %.03756.us.us.i, %.lr.ph58.split.us.split.us.i ]
-  %17 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv83.i
+  %17 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv82.i
   %18 = load double, ptr %17, align 8, !tbaa !45
   %19 = fmul double %7, %18
   %20 = load double, ptr %.03847.us.us.i, align 8, !tbaa !45
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %8, double %19)
-  %22 = getelementptr inbounds nuw double, ptr %.04052.us.us.i, i64 %indvars.iv83.i
+  %22 = getelementptr inbounds nuw double, ptr %.04052.us.us.i, i64 %indvars.iv82.i
   store double %21, ptr %22, align 8, !tbaa !45
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %23 = getelementptr inbounds nuw double, ptr %.03847.us.us.i, i64 %.0.i
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count86.i
-  br i1 %exitcond87.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader45.us.us.i, !llvm.loop !618
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
+  br i1 %exitcond86.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader45.us.us.i, !llvm.loop !618
 
 ..loopexit46_crit_edge.us.us.i:                   ; preds = %.preheader45.us.us.i, %.preheader.us.us.i
   %24 = getelementptr inbounds nuw double, ptr %.03756.us.us.i, i64 %.035.i
@@ -30454,15 +30454,15 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_I
   br i1 %.not42.us.us.i, label %_ZN2cv12cpu_baselineL9GEMMStoreIddEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit, label %.lr.ph58.split.us.split.us.i, !llvm.loop !619
 
 .preheader.us.us.i:                               ; preds = %.lr.ph58.split.us.split.us.i, %.preheader.us.us.i
-  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.preheader.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
-  %27 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv88.i
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.preheader.us.us.i ], [ 0, %.lr.ph58.split.us.split.us.i ]
+  %27 = getelementptr inbounds nuw double, ptr %.03954.us.us.i, i64 %indvars.iv87.i
   %28 = load double, ptr %27, align 8, !tbaa !45
   %29 = fmul double %7, %28
-  %30 = getelementptr inbounds nuw double, ptr %.04052.us.us.i, i64 %indvars.iv88.i
+  %30 = getelementptr inbounds nuw double, ptr %.04052.us.us.i, i64 %indvars.iv87.i
   store double %29, ptr %30, align 8, !tbaa !45
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count86.i
-  br i1 %exitcond92.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !620
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count85.i
+  br i1 %exitcond91.not.i, label %..loopexit46_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !620
 
 _ZN2cv12cpu_baselineL9GEMMStoreIddEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit: ; preds = %..loopexit46_crit_edge.us.us.i, %10
   ret void
@@ -32084,8 +32084,8 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mPT0_mNS_5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPKNS1_IdEEmPS2_mNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #21 {
-  %.fr104.i = freeze i64 %6
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr104.i, 32
+  %.fr.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr.i, 32
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %3, 4
   %13 = lshr i64 %5, 3
@@ -32097,14 +32097,14 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPK
   %.037.i = select i1 %.not.i, i64 0, i64 %..i
   %.036.i = select i1 %.not.i, i64 0, i64 %.45.i
   %.not4379.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
-  %.sroa.034.0.extract.trunc.i = trunc i64 %.fr104.i to i32
+  %.sroa.034.0.extract.trunc.i = trunc i64 %.fr.i to i32
   %15 = icmp sgt i32 %.sroa.034.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4379.i, %15
   br i1 %or.cond.i, label %.lr.ph86.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIfEENS2_IdEEEEvPKT_mPKT0_mPS5_mNS_5Size_IiEEddi.exit
 
 .lr.ph86.split.us.split.us.preheader.i:           ; preds = %10
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %wide.trip.count118.i = and i64 %.fr104.i, 2147483647
+  %wide.trip.count117.i = and i64 %.fr.i, 2147483647
   br label %.lr.ph86.split.us.split.us.i
 
 .lr.ph86.split.us.split.us.i:                     ; preds = %..loopexit74_crit_edge.us.us.i, %.lr.ph86.split.us.split.us.preheader.i
@@ -32117,9 +32117,9 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPK
   br i1 %.not44.us.us.i, label %.preheader.us.us.i, label %.preheader73.us.us.i
 
 .preheader73.us.us.i:                             ; preds = %.lr.ph86.split.us.split.us.i, %.preheader73.us.us.i
-  %indvars.iv115.i = phi i64 [ %indvars.iv.next116.i, %.preheader73.us.us.i ], [ 0, %.lr.ph86.split.us.split.us.i ]
+  %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %.preheader73.us.us.i ], [ 0, %.lr.ph86.split.us.split.us.i ]
   %.076.us.us.i = phi ptr [ %33, %.preheader73.us.us.i ], [ %.03984.us.us.i, %.lr.ph86.split.us.split.us.i ]
-  %17 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04082.us.us.i, i64 %indvars.iv115.i
+  %17 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04082.us.us.i, i64 %indvars.iv114.i
   %.val.us.us.i = load double, ptr %17, align 8, !tbaa !648
   %18 = getelementptr i8, ptr %17, i64 8
   %.val46.us.us.i = load double, ptr %18, align 8, !tbaa !650
@@ -32138,12 +32138,12 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPK
   %31 = fptrunc double %29 to float
   %.sroa.0.0.vec.insert.i.us.us.i = insertelement <2 x float> poison, float %30, i64 0
   %.sroa.0.4.vec.insert.i.us.us.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.us.us.i, float %31, i64 1
-  %32 = getelementptr inbounds nuw %"class.cv::Complex", ptr %.04180.us.us.i, i64 %indvars.iv115.i
+  %32 = getelementptr inbounds nuw %"class.cv::Complex", ptr %.04180.us.us.i, i64 %indvars.iv114.i
   store <2 x float> %.sroa.0.4.vec.insert.i.us.us.i, ptr %32, align 4
-  %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
+  %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %33 = getelementptr inbounds nuw %"class.cv::Complex", ptr %.076.us.us.i, i64 %.036.i
-  %exitcond119.not.i = icmp eq i64 %indvars.iv.next116.i, %wide.trip.count118.i
-  br i1 %exitcond119.not.i, label %..loopexit74_crit_edge.us.us.i, label %.preheader73.us.us.i, !llvm.loop !667
+  %exitcond118.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count117.i
+  br i1 %exitcond118.not.i, label %..loopexit74_crit_edge.us.us.i, label %.preheader73.us.us.i, !llvm.loop !667
 
 ..loopexit74_crit_edge.us.us.i:                   ; preds = %.preheader73.us.us.i, %.preheader.us.us.i
   %34 = getelementptr inbounds nuw %"class.cv::Complex", ptr %.03984.us.us.i, i64 %.037.i
@@ -32153,8 +32153,8 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPK
   br i1 %.not43.us.us.i, label %_ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIfEENS2_IdEEEEvPKT_mPKT0_mPS5_mNS_5Size_IiEEddi.exit, label %.lr.ph86.split.us.split.us.i, !llvm.loop !668
 
 .preheader.us.us.i:                               ; preds = %.lr.ph86.split.us.split.us.i, %.preheader.us.us.i
-  %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %.preheader.us.us.i ], [ 0, %.lr.ph86.split.us.split.us.i ]
-  %37 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04082.us.us.i, i64 %indvars.iv120.i
+  %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %.preheader.us.us.i ], [ 0, %.lr.ph86.split.us.split.us.i ]
+  %37 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04082.us.us.i, i64 %indvars.iv119.i
   %.val47.us.us.i = load double, ptr %37, align 8, !tbaa !648
   %38 = getelementptr i8, ptr %37, i64 8
   %.val48.us.us.i = load double, ptr %38, align 8, !tbaa !650
@@ -32164,11 +32164,11 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPK
   %42 = fptrunc double %40 to float
   %.sroa.0.0.vec.insert.i63.us.us.i = insertelement <2 x float> poison, float %41, i64 0
   %.sroa.0.4.vec.insert.i64.us.us.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i63.us.us.i, float %42, i64 1
-  %43 = getelementptr inbounds nuw %"class.cv::Complex", ptr %.04180.us.us.i, i64 %indvars.iv120.i
+  %43 = getelementptr inbounds nuw %"class.cv::Complex", ptr %.04180.us.us.i, i64 %indvars.iv119.i
   store <2 x float> %.sroa.0.4.vec.insert.i64.us.us.i, ptr %43, align 4
-  %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
-  %exitcond124.not.i = icmp eq i64 %indvars.iv.next121.i, %wide.trip.count118.i
-  br i1 %exitcond124.not.i, label %..loopexit74_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !669
+  %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
+  %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count117.i
+  br i1 %exitcond123.not.i, label %..loopexit74_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !669
 
 _ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIfEENS2_IdEEEEvPKT_mPKT0_mPS5_mNS_5Size_IiEEddi.exit: ; preds = %..loopexit74_crit_edge.us.us.i, %10
   ret void
@@ -33647,8 +33647,8 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulINS_7ComplexIdEES3_EEvPKT_mS6_mPT0_mNS_5Size_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4_mPS2_mNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #8 {
-  %.fr96.i = freeze i64 %6
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr96.i, 32
+  %.fr.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr.i, 32
   %11 = lshr i64 %1, 4
   %12 = lshr i64 %3, 4
   %13 = lshr i64 %5, 4
@@ -33660,14 +33660,14 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4
   %.039.i = select i1 %.not.i, i64 0, i64 %..i
   %.038.i = select i1 %.not.i, i64 0, i64 %.46.i
   %.not4472.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
-  %.sroa.035.0.extract.trunc.i = trunc i64 %.fr96.i to i32
+  %.sroa.035.0.extract.trunc.i = trunc i64 %.fr.i to i32
   %15 = icmp sgt i32 %.sroa.035.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4472.i, %15
   br i1 %or.cond.i, label %.lr.ph79.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIdEES3_EEvPKT_mPKT0_mPS4_mNS_5Size_IiEEddi.exit
 
 .lr.ph79.split.us.split.us.preheader.i:           ; preds = %10
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %wide.trip.count110.i = and i64 %.fr96.i, 2147483647
+  %wide.trip.count109.i = and i64 %.fr.i, 2147483647
   br label %.lr.ph79.split.us.split.us.i
 
 .lr.ph79.split.us.split.us.i:                     ; preds = %..loopexit67_crit_edge.us.us.i, %.lr.ph79.split.us.split.us.preheader.i
@@ -33680,9 +33680,9 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4
   br i1 %.not45.us.us.i, label %.preheader.us.us.i, label %.preheader66.us.us.i
 
 .preheader66.us.us.i:                             ; preds = %.lr.ph79.split.us.split.us.i, %.preheader66.us.us.i
-  %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.preheader66.us.us.i ], [ 0, %.lr.ph79.split.us.split.us.i ]
+  %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %.preheader66.us.us.i ], [ 0, %.lr.ph79.split.us.split.us.i ]
   %.069.us.us.i = phi ptr [ %26, %.preheader66.us.us.i ], [ %.04175.us.us.i, %.lr.ph79.split.us.split.us.i ]
-  %17 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.03777.us.us.i, i64 %indvars.iv107.i
+  %17 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.03777.us.us.i, i64 %indvars.iv106.i
   %.val48.us.us.i = load double, ptr %17, align 8, !tbaa !648
   %18 = getelementptr i8, ptr %17, i64 8
   %.val49.us.us.i = load double, ptr %18, align 8, !tbaa !650
@@ -33695,14 +33695,14 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4
   %22 = fmul double %8, %.sroa.4.0.copyload.us.us.i
   %23 = fadd double %19, %21
   %24 = fadd double %20, %22
-  %25 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04273.us.us.i, i64 %indvars.iv107.i
+  %25 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04273.us.us.i, i64 %indvars.iv106.i
   store double %23, ptr %25, align 8, !tbaa !45
   %.sroa.42.0..sroa_idx.us.us.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store double %24, ptr %.sroa.42.0..sroa_idx.us.us.i, align 8, !tbaa !45
-  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
+  %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %26 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.069.us.us.i, i64 %.038.i
-  %exitcond111.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count110.i
-  br i1 %exitcond111.not.i, label %..loopexit67_crit_edge.us.us.i, label %.preheader66.us.us.i, !llvm.loop !703
+  %exitcond110.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count109.i
+  br i1 %exitcond110.not.i, label %..loopexit67_crit_edge.us.us.i, label %.preheader66.us.us.i, !llvm.loop !703
 
 ..loopexit67_crit_edge.us.us.i:                   ; preds = %.preheader66.us.us.i, %.preheader.us.us.i
   %27 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04175.us.us.i, i64 %.039.i
@@ -33712,20 +33712,20 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4
   br i1 %.not44.us.us.i, label %_ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIdEES3_EEvPKT_mPKT0_mPS4_mNS_5Size_IiEEddi.exit, label %.lr.ph79.split.us.split.us.i, !llvm.loop !704
 
 .preheader.us.us.i:                               ; preds = %.lr.ph79.split.us.split.us.i, %.preheader.us.us.i
-  %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %.preheader.us.us.i ], [ 0, %.lr.ph79.split.us.split.us.i ]
-  %30 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.03777.us.us.i, i64 %indvars.iv112.i
+  %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %.preheader.us.us.i ], [ 0, %.lr.ph79.split.us.split.us.i ]
+  %30 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.03777.us.us.i, i64 %indvars.iv111.i
   %.val.us.us.i = load double, ptr %30, align 8, !tbaa !648
   %31 = getelementptr i8, ptr %30, i64 8
   %.val47.us.us.i = load double, ptr %31, align 8, !tbaa !650
   %32 = fmul double %7, %.val.us.us.i
   %33 = fmul double %7, %.val47.us.us.i
-  %34 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04273.us.us.i, i64 %indvars.iv112.i
+  %34 = getelementptr inbounds nuw %"class.cv::Complex.6", ptr %.04273.us.us.i, i64 %indvars.iv111.i
   store double %32, ptr %34, align 8, !tbaa !45
   %.sroa.4.0..sroa_idx.us.us.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store double %33, ptr %.sroa.4.0..sroa_idx.us.us.i, align 8, !tbaa !45
-  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %wide.trip.count110.i
-  br i1 %exitcond116.not.i, label %..loopexit67_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !705
+  %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
+  %exitcond115.not.i = icmp eq i64 %indvars.iv.next112.i, %wide.trip.count109.i
+  br i1 %exitcond115.not.i, label %..loopexit67_crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !705
 
 _ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIdEES3_EEvPKT_mPKT0_mPS4_mNS_5Size_IiEEddi.exit: ; preds = %..loopexit67_crit_edge.us.us.i, %10
   ret void

@@ -445,8 +445,7 @@ define internal noundef zeroext i1 @observer_seek_read(ptr noundef readonly capt
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load ptr, ptr %7, align 8
   %14 = call fastcc i32 @read_packet_header(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
-  %.fr27 = freeze i32 %14
-  %15 = icmp slt i32 %.fr27, 1
+  %15 = icmp slt i32 %14, 1
   br i1 %15, label %read_packet_data.exit.thread23, label %16
 
 16:                                               ; preds = %11
@@ -457,20 +456,19 @@ define internal noundef zeroext i1 @observer_seek_read(ptr noundef readonly capt
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i16, ptr %20, align 4
-  %.fr26 = freeze i16 %21
-  %22 = zext i16 %.fr26 to i32
-  %23 = icmp samesign ugt i32 %.fr27, %22
+  %22 = zext i16 %21 to i32
+  %23 = icmp samesign ugt i32 %14, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %18
   store i32 -13, ptr %3, align 4
-  %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 65536) %22, i32 noundef range(i32 1, -2147483648) %.fr27)
+  %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 65536) %22, i32 noundef range(i32 1, -2147483648) %14)
   store ptr %25, ptr %4, align 8
   br label %read_packet_data.exit.thread
 
 26:                                               ; preds = %18
-  %27 = sub nuw nsw i32 %22, %.fr27
-  %.not.i = icmp eq i32 %.fr27, %22
+  %27 = sub nuw nsw i32 %22, %14
+  %.not.i = icmp eq i32 %14, %22
   br i1 %.not.i, label %30, label %28
 
 28:                                               ; preds = %26
@@ -486,9 +484,9 @@ define internal noundef zeroext i1 @observer_seek_read(ptr noundef readonly capt
 
 read_packet_data.exit:                            ; preds = %30
   %35 = load i32, ptr %32, align 8
-  %.fr = freeze i32 %35
-  %36 = add i32 %.fr, %27
-  %37 = icmp slt i32 %36, 0
+  %36 = add i32 %35, %27
+  %.fr = freeze i32 %36
+  %37 = icmp slt i32 %.fr, 0
   br i1 %37, label %read_packet_data.exit.thread, label %read_packet_data.exit.thread23
 
 read_packet_data.exit.thread:                     ; preds = %28, %24, %read_packet_data.exit

@@ -73,13 +73,13 @@ switch.early.test.i:                              ; preds = %.lr.ph79
 16:                                               ; preds = %switch.early.test.i
   %17 = getelementptr inbounds nuw i8, ptr %.0385578, i64 1
   %18 = load i8, ptr %17, align 1
-  %.fr.i = freeze i8 %18
-  %19 = add i8 %.fr.i, -48
+  %.fr22.i = freeze i8 %18
+  %19 = add i8 %.fr22.i, -48
   %or.cond.i.i = icmp ult i8 %19, 10
   br i1 %or.cond.i.i, label %_is_char_hex.exit.thread.i, label %switch.early.test.i49
 
 switch.early.test.i49:                            ; preds = %16
-  switch i8 %.fr.i, label %39 [
+  switch i8 %.fr22.i, label %39 [
     i8 102, label %_is_char_hex.exit.thread.i
     i8 101, label %_is_char_hex.exit.thread.i
     i8 100, label %_is_char_hex.exit.thread.i
@@ -97,13 +97,13 @@ switch.early.test.i49:                            ; preds = %16
 _is_char_hex.exit.thread.i:                       ; preds = %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %16
   %20 = getelementptr inbounds nuw i8, ptr %.0385578, i64 2
   %21 = load i8, ptr %20, align 1
-  %.fr22.i = freeze i8 %21
-  %22 = add i8 %.fr22.i, -48
+  %.fr23.i = freeze i8 %21
+  %22 = add i8 %.fr23.i, -48
   %or.cond.i14.i = icmp ult i8 %22, 10
   br i1 %or.cond.i14.i, label %_is_char_hex.exit17.thread.i, label %switch.early.test21.i
 
 switch.early.test21.i:                            ; preds = %_is_char_hex.exit.thread.i
-  switch i8 %.fr22.i, label %39 [
+  switch i8 %.fr23.i, label %39 [
     i8 102, label %_is_char_hex.exit17.thread.i
     i8 101, label %_is_char_hex.exit17.thread.i
     i8 100, label %_is_char_hex.exit17.thread.i
@@ -119,10 +119,10 @@ switch.early.test21.i:                            ; preds = %_is_char_hex.exit.t
   ]
 
 _is_char_hex.exit17.thread.i:                     ; preds = %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %_is_char_hex.exit.thread.i
-  %23 = zext nneg i8 %.fr.i to i32
+  %23 = zext nneg i8 %.fr22.i to i32
   %24 = call i32 @slurm_char_to_hex(i32 noundef %23) #4
   %25 = shl i32 %24, 4
-  %26 = zext nneg i8 %.fr22.i to i32
+  %26 = zext nneg i8 %.fr23.i to i32
   %27 = call i32 @slurm_char_to_hex(i32 noundef %26) #4
   %28 = add nsw i32 %25, %27
   %29 = trunc i32 %28 to i8

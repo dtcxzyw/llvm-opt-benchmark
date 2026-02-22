@@ -2748,10 +2748,10 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   %16 = load i64, ptr %6, align 8, !tbaa !113
   %17 = icmp sgt i64 %16, 922337203685477580
   %.pre = load i64, ptr %4, align 8, !tbaa !113
-  br i1 %17, label %18, label %._crit_edge104
+  br i1 %17, label %18, label %._crit_edge105
 
-._crit_edge104:                                   ; preds = %15
-  %.pre105 = load i64, ptr %5, align 8, !tbaa !113
+._crit_edge105:                                   ; preds = %15
+  %.pre106 = load i64, ptr %5, align 8, !tbaa !113
   br label %24
 
 18:                                               ; preds = %15
@@ -2764,8 +2764,8 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   store i64 %23, ptr %6, align 8, !tbaa !113
   br label %24
 
-24:                                               ; preds = %._crit_edge104, %18
-  %25 = phi i64 [ %.pre105, %._crit_edge104 ], [ %21, %18 ]
+24:                                               ; preds = %._crit_edge105, %18
+  %25 = phi i64 [ %.pre106, %._crit_edge105 ], [ %21, %18 ]
   %26 = icmp slt i64 %.pre, %25
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -2773,11 +2773,11 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   %27 = load ptr, ptr %2, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 34
   %29 = load i16, ptr %28, align 2
-  %.fr = freeze i16 %29
-  %30 = and i16 %.fr, 7
-  %31 = and i16 %.fr, 8
+  %.fr100 = freeze i16 %29
+  %30 = and i16 %.fr100, 7
+  %31 = and i16 %.fr100, 8
   %.not.i19.i = icmp eq i16 %31, 0
-  %32 = and i16 %.fr, 16
+  %32 = and i16 %.fr100, 16
   %.not.i.i12.i = icmp eq i16 %32, 0
   %.0.v.i.i13.i = select i1 %.not.i.i12.i, i64 56, i64 40
   %.0.i.i14.i = getelementptr i8, ptr %27, i64 %.0.v.i.i13.i
@@ -2836,15 +2836,15 @@ PyUnicode_READ_CHAR.exit.us:                      ; preds = %_PyUnicode_DATA.exi
 
 51:                                               ; preds = %49
   %52 = icmp ult i32 %.0.i.us, 1000000
-  %.122 = select i1 %52, i64 9, i64 10
+  %.123 = select i1 %52, i64 9, i64 10
   br label %53
 
 53:                                               ; preds = %PyUnicode_READ_CHAR.exit.us, %43, %45, %47, %49, %51
-  %.sink = phi i64 [ 5, %43 ], [ 6, %45 ], [ 7, %47 ], [ 8, %49 ], [ %.122, %51 ], [ 4, %PyUnicode_READ_CHAR.exit.us ]
+  %.sink = phi i64 [ 5, %43 ], [ 6, %45 ], [ 7, %47 ], [ 8, %49 ], [ %.123, %51 ], [ 4, %PyUnicode_READ_CHAR.exit.us ]
   %54 = add i64 %.05190.us, %.sink
   %55 = add nsw i64 %.05389.us, 1
-  %exitcond103.not = icmp eq i64 %55, %25
-  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !117
+  %exitcond104.not = icmp eq i64 %55, %25
+  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %77, %53, %24
   %.051.lcssa = phi i64 [ 0, %24 ], [ %54, %53 ], [ %78, %77 ]
@@ -2900,12 +2900,12 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 75:                                               ; preds = %73
   %76 = icmp ult i32 %.0.i, 1000000
-  %.123 = select i1 %76, i64 9, i64 10
+  %.124 = select i1 %76, i64 9, i64 10
   br label %77
 
 77:                                               ; preds = %75, %73, %71, %69, %67, %PyUnicode_READ_CHAR.exit
-  %.sink120 = phi i64 [ 4, %PyUnicode_READ_CHAR.exit ], [ 6, %69 ], [ %.123, %75 ], [ 8, %73 ], [ 7, %71 ], [ 5, %67 ]
-  %78 = add i64 %.05190, %.sink120
+  %.sink121 = phi i64 [ 4, %PyUnicode_READ_CHAR.exit ], [ 6, %69 ], [ %.124, %75 ], [ 8, %73 ], [ 7, %71 ], [ 5, %67 ]
+  %78 = add i64 %.05190, %.sink121
   %79 = add nsw i64 %.05389, 1
   %exitcond.not = icmp eq i64 %79, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !117
@@ -3102,9 +3102,9 @@ PyUnicode_READ_CHAR.exit86:                       ; preds = %_PyUnicode_DATA.exi
   br i1 %157, label %.lr.ph97, label %._crit_edge98, !llvm.loop !119
 
 Py_DECREF.exit60.sink.split:                      ; preds = %99, %83
-  %.sink121 = phi ptr [ %81, %83 ], [ %97, %99 ]
+  %.sink122 = phi ptr [ %81, %83 ], [ %97, %99 ]
   %.1.ph = phi ptr [ null, %83 ], [ %96, %99 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink121) #10
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink122) #10
   br label %Py_DECREF.exit60
 
 Py_DECREF.exit60:                                 ; preds = %Py_DECREF.exit60.sink.split, %99, %._crit_edge98, %83, %80, %PyObject_TypeCheck.exit.thread

@@ -9850,19 +9850,18 @@ entry:
   %__tmp.i.i70.i.i = alloca %"struct.irr::scene::CSceneManager::DefaultNodeEntry", align 8
   %__tmp.i.i69.i.i = alloca %"struct.irr::scene::CSceneManager::DefaultNodeEntry", align 8
   %__tmp.i.i.i.i = alloca %"struct.irr::scene::CSceneManager::DefaultNodeEntry", align 8
-  %__first.coerce.fr = freeze ptr %__first.coerce
-  %__last.coerce.fr = freeze ptr %__last.coerce
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr to i64
-  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %__last.coerce.fr to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i42, 4
+  %sub.ptr.sub.i.i.fr.i43 = freeze i64 %sub.ptr.sub.i42
+  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i.i.fr.i43, 4
   %cmp45 = icmp sgt i64 %sub.ptr.div.i44, 16
   br i1 %cmp45, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i28.i = getelementptr i8, ptr %__first.coerce.fr, i64 16
-  %TextureValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 24
-  %TextureValue2.i.i.i32.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 8
+  %add.ptr.i28.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 16
+  %TextureValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 24
+  %TextureValue2.i.i.i32.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
   %cmp259 = icmp eq i64 %__depth_limit, 0
   br i1 %cmp259, label %if.then, label %if.end
 
@@ -9871,8 +9870,8 @@ while.body:                                       ; preds = %_ZSt27__unguarded_p
   br i1 %cmp2, label %if.then, label %if.end, !llvm.loop !241
 
 if.then:                                          ; preds = %while.body, %while.body.lr.ph
-  %sub.ptr.sub.i.i.fr.i48.lcssa = phi i64 [ %sub.ptr.sub.i42, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
-  %storemerge46.lcssa = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+  %sub.ptr.sub.i.i.fr.i48.lcssa = phi i64 [ %sub.ptr.sub.i.i.fr.i43, %while.body.lr.ph ], [ %sub.ptr.sub.i.i.fr.i, %while.body ]
+  %storemerge46.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
   %sub.ptr.div.i.i.i = lshr i64 %sub.ptr.sub.i.i.fr.i48.lcssa, 4
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i, -2
   %div2526.i.i = lshr i64 %sub.i.i, 1
@@ -9881,13 +9880,13 @@ if.then:                                          ; preds = %while.body, %while.
   %0 = and i64 %sub.ptr.sub.i.i.fr.i48.lcssa, 16
   %cmp16.i.i.i = icmp eq i64 %0, 0
   %sub24.i.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr.i57.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %sub24.i.i.i
-  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %div2526.i.i
+  %add.ptr.i57.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i
+  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %div2526.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, %if.then
   %__parent.0.i.i = phi i64 [ %div2526.i.i, %if.then ], [ %dec.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__parent.0.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.0.i.i
   %__value.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %__value.sroa.4.0.copyload.i.i = load ptr, ptr %__value.sroa.4.0.call5.sroa_idx.i.i, align 8, !tbaa !85
@@ -9899,16 +9898,16 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i, %wh
   %add.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub3.i.i.i = or disjoint i64 %add.i.i.i, 1
-  %TextureValue.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %mul.i.i.i
+  %TextureValue.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i
   %TextureValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue.i.i.i.i.i.split, i64 8
   %1 = load ptr, ptr %TextureValue.i.i.i.i.i, align 8, !tbaa !242
-  %TextureValue2.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %sub3.i.i.i
+  %TextureValue2.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i
   %TextureValue2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue2.i.i.i.i.i.split, i64 8
   %2 = load ptr, ptr %TextureValue2.i.i.i.i.i, align 8, !tbaa !242
   %cmp.i.i.i.i.i = icmp ult ptr %1, %2
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub3.i.i.i, i64 %mul.i.i.i
-  %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %spec.select.i.i.i
-  %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.065.i.i.i
+  %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i
+  %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.i34 = icmp slt i64 %spec.select.i.i.i, %div.i2728.i.i
   br i1 %cmp.i.i.i34, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !243
@@ -9932,21 +9931,21 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end33.i.i.i, %wh
   %__holeIndex.addr.032.i.i.i.i = phi i64 [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ], [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ]
   %__parent.033.in.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i, -1
   %__parent.033.i.i.i.i = sdiv i64 %__parent.033.in.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__parent.033.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i.i.i
   %TextureValue.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %TextureValue.i.i.i.i.i.i30, align 8, !tbaa !242
   %cmp.i.i.i.i.i.i31 = icmp ult ptr %3, %__value.sroa.4.0.copyload.i.i
   br i1 %cmp.i.i.i.i.i.i31, label %while.body.i.i.i.i32, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i
 
 while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
-  %add.ptr.i24.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i.i
+  %add.ptr.i24.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.i.i33 = icmp sgt i64 %__parent.033.i.i.i.i, %__parent.0.i.i
   br i1 %cmp.i.i.i.i33, label %land.rhs.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, !llvm.loop !244
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ]
-  %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
+  %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
   store ptr %__value.sroa.0.0.copyload.i.i, ptr %add.ptr.i25.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i, i64 8
   store ptr %__value.sroa.4.0.copyload.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !85
@@ -9964,7 +9963,7 @@ while.body.i.i:                                   ; preds = %_ZSt13__heap_select
   %__value.sroa.0.0.copyload.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -8
   %__value.sroa.4.0.copyload.i.i.i = load ptr, ptr %__value.sroa.4.0.call.sroa_idx.i.i.i, align 8, !tbaa !85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
@@ -9978,16 +9977,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %add.i.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %TextureValue.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %mul.i.i.i.i
+  %TextureValue.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i.i
   %TextureValue.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue.i.i.i.i.i.i.split, i64 8
   %4 = load ptr, ptr %TextureValue.i.i.i.i.i.i, align 8, !tbaa !242
-  %TextureValue2.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %sub3.i.i.i.i
+  %TextureValue2.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i.i
   %TextureValue2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TextureValue2.i.i.i.i.i.i.split, i64 8
   %5 = load ptr, ptr %TextureValue2.i.i.i.i.i.i, align 8, !tbaa !242
   %cmp.i.i.i.i.i.i = icmp ult ptr %4, %5
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
-  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.065.i.i.i.i
+  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !243
@@ -10007,8 +10006,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %sub24.i.i.i.i
-  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i58.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i57.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   br label %if.end33.i.i.i.i
 
@@ -10021,21 +10020,21 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.032.i.i.i.i.i = phi i64 [ %__parent.033.i.i1112.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.033.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i.i, -1
   %__parent.033.i.i1112.i.i.i = lshr i64 %__parent.033.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__parent.033.i.i1112.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
   %TextureValue.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %TextureValue.i.i.i.i.i.i.i, align 8, !tbaa !242
   %cmp.i.i.i.i.i.i.i = icmp ult ptr %7, %__value.sroa.4.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i.i.i
+  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.033.in.i.i.i.i.i, 2
   br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !244
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i.i, i64 8
   store ptr %__value.sroa.4.0.copyload.i.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !85
@@ -10043,12 +10042,12 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16Def
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !246
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
-  %storemerge4662 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce.fr, %while.body.lr.ph ]
+  %storemerge4662 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
   %__depth_limit.addr.04761 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
   %sub.ptr.div.i4960 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i44, %while.body.lr.ph ]
   %dec = add nsw i64 %__depth_limit.addr.04761, -1
   %div.i3536 = lshr i64 %sub.ptr.div.i4960, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce.fr, i64 %div.i3536
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %div.i3536
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -16
   %8 = load ptr, ptr %TextureValue.i.i.i.i, align 8, !tbaa !242
   %TextureValue2.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
@@ -10064,8 +10063,8 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.then12.i.i:                                    ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
   br label %while.body.i.i24.preheader
@@ -10076,16 +10075,16 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 if.then22.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i69.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i69.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i69.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i69.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i69.i.i)
   br label %while.body.i.i24.preheader
 
 if.else27.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i70.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i70.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i70.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i70.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i70.i.i)
   br label %while.body.i.i24.preheader
@@ -10096,8 +10095,8 @@ if.else33.i.i:                                    ; preds = %if.end
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i74.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i74.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i74.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i74.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i74.i.i)
   br label %while.body.i.i24.preheader
@@ -10108,16 +10107,16 @@ if.else44.i.i:                                    ; preds = %if.else33.i.i
 
 if.then50.i.i:                                    ; preds = %if.else44.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i78.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i78.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i78.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i78.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i78.i.i)
   br label %while.body.i.i24.preheader
 
 if.else55.i.i:                                    ; preds = %if.else44.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i79.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i79.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !153
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i79.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i79.i.i, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i79.i.i)
   br label %while.body.i.i24.preheader
@@ -10136,7 +10135,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %TextureValue.i.i.i33.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
   %12 = load ptr, ptr %TextureValue.i.i.i33.i, align 8, !tbaa !242
   %cmp.i.i.i34.i = icmp ult ptr %12, %11
-  %incdec.ptr.i.i.i25 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 16
+  %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 16
   br i1 %cmp.i.i.i34.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !247
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
@@ -10163,7 +10162,8 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13C
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge4662, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
+  %sub.ptr.sub.i.i.fr.i = freeze i64 %sub.ptr.sub.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i.i.fr.i, 4
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !241
 
@@ -10441,19 +10441,18 @@ entry:
   %__tmp.i.i70.i.i = alloca %"struct.irr::scene::CSceneManager::TransparentNodeEntry", align 8
   %__tmp.i.i69.i.i = alloca %"struct.irr::scene::CSceneManager::TransparentNodeEntry", align 8
   %__tmp.i.i.i.i = alloca %"struct.irr::scene::CSceneManager::TransparentNodeEntry", align 8
-  %__first.coerce.fr = freeze ptr %__first.coerce
-  %__last.coerce.fr = freeze ptr %__last.coerce
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr to i64
-  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %__last.coerce.fr to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i42, 4
+  %sub.ptr.sub.i.i.fr.i43 = freeze i64 %sub.ptr.sub.i42
+  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i.i.fr.i43, 4
   %cmp45 = icmp sgt i64 %sub.ptr.div.i44, 16
   br i1 %cmp45, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i28.i = getelementptr i8, ptr %__first.coerce.fr, i64 16
-  %Distance.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 24
-  %Distance2.i.i.i32.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 8
+  %add.ptr.i28.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 16
+  %Distance.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 24
+  %Distance2.i.i.i32.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
   %cmp259 = icmp eq i64 %__depth_limit, 0
   br i1 %cmp259, label %if.then, label %if.end
 
@@ -10462,8 +10461,8 @@ while.body:                                       ; preds = %_ZSt27__unguarded_p
   br i1 %cmp2, label %if.then, label %if.end, !llvm.loop !257
 
 if.then:                                          ; preds = %while.body, %while.body.lr.ph
-  %sub.ptr.sub.i.i.fr.i48.lcssa = phi i64 [ %sub.ptr.sub.i42, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
-  %storemerge46.lcssa = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+  %sub.ptr.sub.i.i.fr.i48.lcssa = phi i64 [ %sub.ptr.sub.i.i.fr.i43, %while.body.lr.ph ], [ %sub.ptr.sub.i.i.fr.i, %while.body ]
+  %storemerge46.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
   %sub.ptr.div.i.i.i = lshr i64 %sub.ptr.sub.i.i.fr.i48.lcssa, 4
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i, -2
   %div2526.i.i = lshr i64 %sub.i.i, 1
@@ -10472,13 +10471,13 @@ if.then:                                          ; preds = %while.body, %while.
   %0 = and i64 %sub.ptr.sub.i.i.fr.i48.lcssa, 16
   %cmp16.i.i.i = icmp eq i64 %0, 0
   %sub24.i.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr.i57.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %sub24.i.i.i
-  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %div2526.i.i
+  %add.ptr.i57.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i
+  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %div2526.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, %if.then
   %__parent.0.i.i = phi i64 [ %div2526.i.i, %if.then ], [ %dec.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__parent.0.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__parent.0.i.i
   %__value.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %__value.sroa.4.0.copyload.i.i = load double, ptr %__value.sroa.4.0.call5.sroa_idx.i.i, align 8, !tbaa !160
@@ -10490,16 +10489,16 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i, %wh
   %add.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub3.i.i.i = or disjoint i64 %add.i.i.i, 1
-  %Distance.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %mul.i.i.i
+  %Distance.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i
   %Distance.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance.i.i.i.i.i.split, i64 8
   %1 = load double, ptr %Distance.i.i.i.i.i, align 8, !tbaa !258
-  %Distance2.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %sub3.i.i.i
+  %Distance2.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i
   %Distance2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance2.i.i.i.i.i.split, i64 8
   %2 = load double, ptr %Distance2.i.i.i.i.i, align 8, !tbaa !258
   %cmp.i.i.i.i.i = fcmp ogt double %1, %2
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub3.i.i.i, i64 %mul.i.i.i
-  %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %spec.select.i.i.i
-  %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.065.i.i.i
+  %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i
+  %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.i34 = icmp slt i64 %spec.select.i.i.i, %div.i2728.i.i
   br i1 %cmp.i.i.i34, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !259
@@ -10523,21 +10522,21 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end33.i.i.i, %wh
   %__holeIndex.addr.032.i.i.i.i = phi i64 [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ], [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ]
   %__parent.033.in.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i, -1
   %__parent.033.i.i.i.i = sdiv i64 %__parent.033.in.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__parent.033.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i.i.i
   %Distance.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %3 = load double, ptr %Distance.i.i.i.i.i.i30, align 8, !tbaa !258
   %cmp.i.i.i.i.i.i31 = fcmp ogt double %3, %__value.sroa.4.0.copyload.i.i
   br i1 %cmp.i.i.i.i.i.i31, label %while.body.i.i.i.i32, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i
 
 while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
-  %add.ptr.i24.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i.i
+  %add.ptr.i24.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.i.i33 = icmp sgt i64 %__parent.033.i.i.i.i, %__parent.0.i.i
   br i1 %cmp.i.i.i.i33, label %land.rhs.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, !llvm.loop !260
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ]
-  %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
+  %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
   store ptr %__value.sroa.0.0.copyload.i.i, ptr %add.ptr.i25.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i, i64 8
   store double %__value.sroa.4.0.copyload.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !160
@@ -10555,7 +10554,7 @@ while.body.i.i:                                   ; preds = %_ZSt13__heap_select
   %__value.sroa.0.0.copyload.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -8
   %__value.sroa.4.0.copyload.i.i.i = load double, ptr %__value.sroa.4.0.call.sroa_idx.i.i.i, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
@@ -10569,16 +10568,16 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %add.i.i.i.i = shl i64 %__holeIndex.addr.065.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %Distance.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %mul.i.i.i.i
+  %Distance.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i.i
   %Distance.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance.i.i.i.i.i.i.split, i64 8
   %4 = load double, ptr %Distance.i.i.i.i.i.i, align 8, !tbaa !258
-  %Distance2.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %sub3.i.i.i.i
+  %Distance2.i.i.i.i.i.i.split = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i.i
   %Distance2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Distance2.i.i.i.i.i.i.split, i64 8
   %5 = load double, ptr %Distance2.i.i.i.i.i.i, align 8, !tbaa !258
   %cmp.i.i.i.i.i.i = fcmp ogt double %4, %5
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
-  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.065.i.i.i.i
+  %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i56.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i55.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !259
@@ -10598,8 +10597,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %sub24.i.i.i.i
-  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr.i57.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i58.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i58.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i57.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   br label %if.end33.i.i.i.i
 
@@ -10612,21 +10611,21 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.032.i.i.i.i.i = phi i64 [ %__parent.033.i.i1112.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.033.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i.i, -1
   %__parent.033.i.i1112.i.i.i = lshr i64 %__parent.033.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__parent.033.i.i1112.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
   %Distance.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %7 = load double, ptr %Distance.i.i.i.i.i.i.i, align 8, !tbaa !258
   %cmp.i.i.i.i.i.i.i = fcmp ogt double %7, %__value.sroa.4.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i.i.i
+  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.032.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.033.in.i.i.i.i.i, 2
   br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !260
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 8, !tbaa !85
   %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25.i.i.i.i.i, i64 8
   store double %__value.sroa.4.0.copyload.i.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !160
@@ -10634,12 +10633,12 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20Tra
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !262
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
-  %storemerge4662 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce.fr, %while.body.lr.ph ]
+  %storemerge4662 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
   %__depth_limit.addr.04761 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
   %sub.ptr.div.i4960 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i44, %while.body.lr.ph ]
   %dec = add nsw i64 %__depth_limit.addr.04761, -1
   %div.i3536 = lshr i64 %sub.ptr.div.i4960, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce.fr, i64 %div.i3536
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CSceneManager::TransparentNodeEntry", ptr %__first.coerce, i64 %div.i3536
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -16
   %8 = load double, ptr %Distance.i.i.i.i, align 8, !tbaa !258
   %Distance2.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
@@ -10655,8 +10654,8 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.then12.i.i:                                    ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
   br label %while.body.i.i24.preheader
@@ -10667,16 +10666,16 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 if.then22.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i69.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i69.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i69.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i69.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i69.i.i)
   br label %while.body.i.i24.preheader
 
 if.else27.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i70.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i70.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i70.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i70.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i70.i.i)
   br label %while.body.i.i24.preheader
@@ -10687,8 +10686,8 @@ if.else33.i.i:                                    ; preds = %if.end
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i74.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i74.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i74.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i28.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i74.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i74.i.i)
   br label %while.body.i.i24.preheader
@@ -10699,16 +10698,16 @@ if.else44.i.i:                                    ; preds = %if.else33.i.i
 
 if.then50.i.i:                                    ; preds = %if.else44.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i78.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i78.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i78.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i29.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i78.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i78.i.i)
   br label %while.body.i.i24.preheader
 
 if.else55.i.i:                                    ; preds = %if.else44.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i79.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i79.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i79.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i79.i.i, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i79.i.i)
   br label %while.body.i.i24.preheader
@@ -10727,7 +10726,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %Distance.i.i.i33.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
   %12 = load double, ptr %Distance.i.i.i33.i, align 8, !tbaa !258
   %cmp.i.i.i34.i = fcmp ogt double %12, %11
-  %incdec.ptr.i.i.i25 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 16
+  %incdec.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 16
   br i1 %cmp.i.i.i34.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !263
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
@@ -10754,7 +10753,8 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13C
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager20TransparentNodeEntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge4662, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
+  %sub.ptr.sub.i.i.fr.i = freeze i64 %sub.ptr.sub.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i.i.fr.i, 4
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !257
 

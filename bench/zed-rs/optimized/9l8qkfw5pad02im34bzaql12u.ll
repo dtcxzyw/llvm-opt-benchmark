@@ -21222,12 +21222,12 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   %12 = load i32, ptr %4, align 4, !range !82
   %.fr19 = freeze i32 %12
   %13 = load i8, ptr %5, align 1, !range !1147
-  %.fr20 = freeze i8 %13
-  %14 = trunc i8 %.fr20 to i1
-  %15 = add i32 %.fr19, -91
+  %14 = trunc nuw i8 %13 to i1
+  %15 = add nsw i32 %.fr19, -91
   %or.cond.i.i = icmp ult i32 %15, -26
   %or.cond10.not.i.i = and i1 %or.cond.i.i, %14
-  br i1 %or.cond10.not.i.i, label %.split.us, label %.split
+  %or.cond10.not.i.i.fr = freeze i1 %or.cond10.not.i.i
+  br i1 %or.cond10.not.i.i.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %6
   %16 = icmp ugt i32 %.fr19, 127

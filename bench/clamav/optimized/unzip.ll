@@ -655,10 +655,10 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !69
-  %.fr202 = freeze i64 %10
-  %11 = trunc i64 %.fr202 to i32
-  %12 = and i64 %.fr202, 4294967294
-  %.not = icmp ult i64 %.fr202, 4294967296
+  %.fr = freeze i64 %10
+  %11 = trunc i64 %.fr to i32
+  %12 = and i64 %.fr, 4294967294
+  %.not = icmp ult i64 %.fr, 4294967296
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %1
@@ -676,14 +676,14 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge
 
 .lr.ph:                                           ; preds = %14
-  %17 = add nuw nsw i64 %.fr202, 4294967274
+  %17 = add nuw nsw i64 %.fr, 4294967274
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %19 = icmp samesign ugt i64 %12, 45
   %20 = and i64 %17, 4294967295
   br i1 %19, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %21 = trunc nuw i64 %.fr202 to i32
+  %21 = trunc nuw i64 %.fr to i32
   %22 = add i32 %21, -46
   br label %.lr.ph.split.us
 

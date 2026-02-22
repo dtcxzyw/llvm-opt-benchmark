@@ -113,12 +113,12 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br i1 %exitcond.not.i, label %.preheader.i10, label %38, !llvm.loop !6
 
 .preheader.i10:                                   ; preds = %38, %62
-  %indvars.iv156.i = phi i64 [ %indvars.iv.next157.i, %62 ], [ 0, %38 ]
+  %indvars.iv155.i = phi i64 [ %indvars.iv.next156.i, %62 ], [ 0, %38 ]
   %.sroa.0.0124.i = phi i32 [ %.sroa.0.1.i, %62 ], [ -1, %38 ]
   %.sroa.10.0123.i = phi i32 [ %.sroa.10.1.i, %62 ], [ 0, %38 ]
   %.sroa.041.0122.i = phi i32 [ %.sroa.041.2.i, %62 ], [ -1, %38 ]
   %.sroa.16.0121.i = phi i32 [ %.sroa.16.2.i, %62 ], [ 0, %38 ]
-  %51 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv156.i
+  %51 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv155.i
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   %54 = icmp eq i32 %.sroa.0.0124.i, -1
@@ -127,7 +127,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 55:                                               ; preds = %.preheader.i10
   %56 = add i32 %.sroa.10.0123.i, 1
   %spec.select101.i = select i1 %54, i32 1, i32 %56
-  %57 = trunc nuw nsw i64 %indvars.iv156.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv155.i to i32
   %spec.select102.i = select i1 %54, i32 %57, i32 %.sroa.0.0124.i
   br label %62
 
@@ -147,9 +147,9 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.sroa.041.2.i = phi i32 [ %.sroa.041.0122.i, %58 ], [ %.sroa.041.0122.i, %55 ], [ %.sroa.041.1.i, %59 ]
   %.sroa.10.1.i = phi i32 [ %.sroa.10.0123.i, %58 ], [ %spec.select101.i, %55 ], [ %.sroa.10.0123.i, %59 ]
   %.sroa.0.1.i = phi i32 [ -1, %58 ], [ %spec.select102.i, %55 ], [ -1, %59 ]
-  %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
-  %exitcond159.not.i = icmp eq i64 %indvars.iv.next157.i, 8
-  br i1 %exitcond159.not.i, label %63, label %.preheader.i10, !llvm.loop !7
+  %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
+  %exitcond158.not.i = icmp eq i64 %indvars.iv.next156.i, 8
+  br i1 %exitcond158.not.i, label %63, label %.preheader.i10, !llvm.loop !7
 
 63:                                               ; preds = %62
   %.not.i11 = icmp eq i32 %.sroa.0.1.i, -1
@@ -167,8 +167,8 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.sroa.16.3.i = phi i32 [ %.sroa.16.2.i, %63 ], [ %spec.select103.i, %64 ]
   %.sroa.041.3.i = phi i32 [ %.sroa.041.2.i, %63 ], [ %spec.select104.i, %64 ]
   %.sroa.16.3.fr.i = freeze i32 %.sroa.16.3.i
-  %.sroa.041.3.fr.i = freeze i32 %.sroa.041.3.i
   %68 = icmp slt i32 %.sroa.16.3.fr.i, 2
+  %.sroa.041.3.fr.i = freeze i32 %.sroa.041.3.i
   %spec.select.i = select i1 %68, i32 -1, i32 %.sroa.041.3.fr.i
   %.not88.i = icmp ne i32 %spec.select.i, -1
   %69 = add i32 %spec.select.i, %.sroa.16.3.fr.i
@@ -186,16 +186,16 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %92, %.split.us.preheader.i
-  %indvars.iv160.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next161.i, %92 ]
+  %indvars.iv159.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next160.i, %92 ]
   %.084126.us.i = phi ptr [ %6, %.split.us.preheader.i ], [ %.286.us.i, %92 ]
-  %.not89.us.i = icmp sge i64 %indvars.iv160.i, %75
-  %78 = icmp slt i64 %indvars.iv160.i, %76
+  %.not89.us.i = icmp sge i64 %indvars.iv159.i, %75
+  %78 = icmp slt i64 %indvars.iv159.i, %76
   %79 = and i1 %.not89.us.i, %78
   %or.cond98.us.i = and i1 %.not88.i, %79
   br i1 %or.cond98.us.i, label %88, label %80
 
 80:                                               ; preds = %.split.us.i
-  %.not90.us.i = icmp eq i64 %indvars.iv160.i, 0
+  %.not90.us.i = icmp eq i64 %indvars.iv159.i, 0
   br i1 %.not90.us.i, label %.thread.us.i, label %81
 
 81:                                               ; preds = %80
@@ -205,7 +205,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 
 .thread.us.i:                                     ; preds = %81, %80
   %.3107.us.i = phi ptr [ %82, %81 ], [ %.084126.us.i, %80 ]
-  %83 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv160.i
+  %83 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv159.i
   %84 = load i32, ptr %83, align 4
   %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.us.i, ptr noundef nonnull @.str.2, i32 noundef %84) #8
   %86 = sext i32 %85 to i64
@@ -213,7 +213,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br label %92
 
 88:                                               ; preds = %.split.us.i
-  %89 = icmp eq i64 %indvars.iv160.i, %77
+  %89 = icmp eq i64 %indvars.iv159.i, %77
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
@@ -223,9 +223,9 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 
 92:                                               ; preds = %90, %88, %.thread.us.i
   %.286.us.i = phi ptr [ %91, %90 ], [ %.084126.us.i, %88 ], [ %87, %.thread.us.i ]
-  %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
-  %exitcond163.not.i = icmp eq i64 %indvars.iv.next161.i, 8
-  br i1 %exitcond163.not.i, label %.loopexit.i12, label %.split.us.i, !llvm.loop !8
+  %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
+  %exitcond162.not.i = icmp eq i64 %indvars.iv.next160.i, 8
+  br i1 %exitcond162.not.i, label %.loopexit.i12, label %.split.us.i, !llvm.loop !8
 
 .split.i:                                         ; preds = %67
   %93 = icmp eq i32 %.sroa.16.3.fr.i, 6
@@ -240,10 +240,10 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br label %.split.split.us.i
 
 .split.split.us.i:                                ; preds = %110, %.split.split.us.preheader.i
-  %indvars.iv168.i = phi i64 [ 0, %.split.split.us.preheader.i ], [ %indvars.iv.next169.i, %110 ]
+  %indvars.iv167.i = phi i64 [ 0, %.split.split.us.preheader.i ], [ %indvars.iv.next168.i, %110 ]
   %.084126.us129.i = phi ptr [ %6, %.split.split.us.preheader.i ], [ %.286.us136.i, %110 ]
-  %96 = icmp samesign ult i64 %indvars.iv168.i, %95
-  %97 = icmp eq i64 %indvars.iv168.i, 0
+  %96 = icmp samesign ult i64 %indvars.iv167.i, %95
+  %97 = icmp eq i64 %indvars.iv167.i, 0
   br i1 %96, label %107, label %98
 
 98:                                               ; preds = %.split.split.us.i
@@ -252,12 +252,12 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %.084126.us129.i, i64 1
   store i8 58, ptr %.084126.us129.i, align 1
-  %101 = icmp eq i64 %indvars.iv168.i, 6
+  %101 = icmp eq i64 %indvars.iv167.i, 6
   br i1 %101, label %.split138.us.i, label %.thread.us134.i
 
 .thread.us134.i:                                  ; preds = %99, %98
   %.3107.us135.i = phi ptr [ %100, %99 ], [ %.084126.us129.i, %98 ]
-  %102 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv168.i
+  %102 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv167.i
   %103 = load i32, ptr %102, align 4
   %104 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.us135.i, ptr noundef nonnull @.str.2, i32 noundef %103) #8
   %105 = sext i32 %104 to i64
@@ -274,15 +274,15 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 
 110:                                              ; preds = %108, %107, %.thread.us134.i
   %.286.us136.i = phi ptr [ %109, %108 ], [ %.084126.us129.i, %107 ], [ %106, %.thread.us134.i ]
-  %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
-  %exitcond171.not.i = icmp eq i64 %indvars.iv.next169.i, 8
-  br i1 %exitcond171.not.i, label %.loopexit.i12, label %.split.split.us.i, !llvm.loop !8
+  %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
+  %exitcond170.not.i = icmp eq i64 %indvars.iv.next168.i, 8
+  br i1 %exitcond170.not.i, label %.loopexit.i12, label %.split.split.us.i, !llvm.loop !8
 
 .split.split.i:                                   ; preds = %156, %.split.split.preheader.i
-  %indvars.iv164.i = phi i64 [ 0, %.split.split.preheader.i ], [ %indvars.iv.next165.i, %156 ]
+  %indvars.iv163.i = phi i64 [ 0, %.split.split.preheader.i ], [ %indvars.iv.next164.i, %156 ]
   %.084126.i = phi ptr [ %6, %.split.split.preheader.i ], [ %.286.i, %156 ]
-  %111 = icmp slt i64 %indvars.iv164.i, %94
-  %112 = icmp eq i64 %indvars.iv164.i, 0
+  %111 = icmp slt i64 %indvars.iv163.i, %94
+  %112 = icmp eq i64 %indvars.iv163.i, 0
   br i1 %111, label %113, label %116
 
 113:                                              ; preds = %.split.split.i
@@ -299,7 +299,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %.084126.i, i64 1
   store i8 58, ptr %.084126.i, align 1
-  %119 = icmp eq i64 %indvars.iv164.i, 6
+  %119 = icmp eq i64 %indvars.iv163.i, 6
   br i1 %119, label %120, label %.thread.i
 
 120:                                              ; preds = %117
@@ -372,7 +372,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
 
 .thread.i:                                        ; preds = %123, %117, %116
   %.3107.i = phi ptr [ %118, %117 ], [ %118, %123 ], [ %.084126.i, %116 ]
-  %151 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv164.i
+  %151 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv163.i
   %152 = load i32, ptr %151, align 4
   %153 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.i, ptr noundef nonnull @.str.2, i32 noundef %152) #8
   %154 = sext i32 %153 to i64
@@ -381,9 +381,9 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
 
 156:                                              ; preds = %.thread.i, %114, %113
   %.286.i = phi ptr [ %115, %114 ], [ %.084126.i, %113 ], [ %155, %.thread.i ]
-  %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
-  %exitcond167.not.i = icmp eq i64 %indvars.iv.next165.i, 8
-  br i1 %exitcond167.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !8
+  %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
+  %exitcond166.not.i = icmp eq i64 %indvars.iv.next164.i, 8
+  br i1 %exitcond166.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !8
 
 .loopexit.i12:                                    ; preds = %92, %156, %110, %148
   %.185.i = phi ptr [ %150, %148 ], [ %.286.us136.i, %110 ], [ %.286.i, %156 ], [ %.286.us.i, %92 ]

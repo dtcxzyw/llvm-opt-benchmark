@@ -11798,110 +11798,105 @@ define void @_ZN6icu_7712FormatParserD0Ev(ptr noundef nonnull align 8 dereferenc
 define noundef range(i32 1, 4) i32 @_ZN6icu_7712FormatParser9setTokensERKNS_13UnicodeStringEiPi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #30 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i16, ptr %5, align 8, !tbaa !17
-  %.fr54 = freeze i16 %6
-  %7 = icmp slt i16 %.fr54, 0
-  %8 = lshr i16 %.fr54, 5
-  %9 = zext nneg i16 %8 to i32
+  %7 = icmp slt i16 %6, 0
+  %8 = ashr i16 %6, 5
+  %9 = sext i16 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
-  %.fr55 = freeze i32 %11
-  %12 = select i1 %7, i32 %.fr55, i32 %9
-  %.not = icmp slt i32 %2, %12
-  br i1 %.not, label %.preheader, label %55
+  %12 = select i1 %7, i32 %11, i32 %9
+  %.fr54 = freeze i32 %12
+  %.not = icmp slt i32 %2, %.fr54
+  br i1 %.not, label %.preheader, label %51
 
 .preheader:                                       ; preds = %4
-  %13 = icmp slt i16 %.fr54, 0
-  %14 = lshr i16 %.fr54, 5
-  %15 = zext nneg i16 %14 to i32
-  %16 = select i1 %13, i32 %.fr55, i32 %15
-  %17 = and i16 %.fr54, 2
-  %.not.i.i.i = icmp eq i16 %17, 0
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = select i1 %.not.i.i.i, ptr %20, ptr %18
-  %22 = icmp ult i32 %2, %16
-  %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds i16, ptr %21, i64 %23
-  %25 = sext i32 %12 to i64
-  br i1 %22, label %.preheader.split.us, label %.preheader.split
+  %13 = and i16 %6, 2
+  %.not.i.i.i = icmp eq i16 %13, 0
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = select i1 %.not.i.i.i, ptr %16, ptr %14
+  %18 = icmp ult i32 %2, %.fr54
+  %19 = sext i32 %2 to i64
+  %20 = getelementptr inbounds i16, ptr %17, i64 %19
+  %21 = sext i32 %.fr54 to i64
+  br i1 %18, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us ], [ %23, %.preheader ]
-  %26 = trunc nsw i64 %indvars.iv61 to i32
-  %27 = icmp ugt i32 %16, %26
-  br i1 %27, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, label %.sink.split
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us ], [ %19, %.preheader ]
+  %22 = trunc nsw i64 %indvars.iv59 to i32
+  %23 = icmp ugt i32 %.fr54, %22
+  br i1 %23, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, label %.sink.split
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.us:      ; preds = %.preheader.split.us
-  %28 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv61
-  %29 = load i16, ptr %28, align 2, !tbaa !79
-  %30 = and i16 %29, -33
-  %31 = add i16 %30, -65
-  %32 = icmp ult i16 %31, 26
-  br i1 %32, label %33, label %.sink.split
+  %24 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv59
+  %25 = load i16, ptr %24, align 2, !tbaa !79
+  %26 = and i16 %25, -33
+  %27 = add i16 %26, -65
+  %28 = icmp ult i16 %27, 26
+  br i1 %28, label %29, label %.sink.split
 
-33:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.us
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %34 = trunc nsw i64 %indvars.iv.next62 to i32
-  %35 = icmp ugt i32 %16, %34
-  br i1 %35, label %36, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us
+29:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.us
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %30 = trunc nsw i64 %indvars.iv.next60 to i32
+  %31 = icmp ugt i32 %.fr54, %30
+  br i1 %31, label %32, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv.next62
-  %38 = load i16, ptr %37, align 2, !tbaa !79
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv.next60
+  %34 = load i16, ptr %33, align 2, !tbaa !79
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit38.us:    ; preds = %36, %33
-  %.0.i.i36.us = phi i16 [ %38, %36 ], [ -1, %33 ]
-  %39 = load i16, ptr %24, align 2, !tbaa !79
-  %.not33.us = icmp eq i16 %.0.i.i36.us, %39
-  %.not34.not.us = icmp slt i64 %indvars.iv61, %25
+_ZNK6icu_7713UnicodeString6charAtEi.exit38.us:    ; preds = %32, %29
+  %.0.i.i36.us = phi i16 [ %34, %32 ], [ -1, %29 ]
+  %35 = load i16, ptr %20, align 2, !tbaa !79
+  %.not33.us = icmp eq i16 %.0.i.i36.us, %35
+  %.not34.not.us = icmp slt i64 %indvars.iv59, %21
   %or.cond = and i1 %.not33.us, %.not34.not.us
   br i1 %or.cond, label %.preheader.split.us, label %.split.us, !llvm.loop !181
 
 .preheader.split:                                 ; preds = %.preheader, %_ZNK6icu_7713UnicodeString6charAtEi.exit38
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7713UnicodeString6charAtEi.exit38 ], [ %23, %.preheader ]
-  %40 = trunc nsw i64 %indvars.iv to i32
-  %41 = icmp ugt i32 %16, %40
-  br i1 %41, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.sink.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7713UnicodeString6charAtEi.exit38 ], [ %19, %.preheader ]
+  %36 = trunc nsw i64 %indvars.iv to i32
+  %37 = icmp ugt i32 %.fr54, %36
+  br i1 %37, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.sink.split
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.preheader.split
-  %42 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv
-  %43 = load i16, ptr %42, align 2, !tbaa !79
-  %44 = and i16 %43, -33
-  %45 = add i16 %44, -65
-  %46 = icmp ult i16 %45, 26
-  br i1 %46, label %47, label %.sink.split
+  %38 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv
+  %39 = load i16, ptr %38, align 2, !tbaa !79
+  %40 = and i16 %39, -33
+  %41 = add i16 %40, -65
+  %42 = icmp ult i16 %41, 26
+  br i1 %42, label %43, label %.sink.split
 
-47:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
+43:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = trunc nsw i64 %indvars.iv.next to i32
-  %49 = icmp ugt i32 %16, %48
-  br i1 %49, label %50, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38
+  %44 = trunc nsw i64 %indvars.iv.next to i32
+  %45 = icmp ugt i32 %.fr54, %44
+  br i1 %45, label %46, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv.next
-  %52 = load i16, ptr %51, align 2, !tbaa !79
-  %53 = icmp eq i16 %52, -1
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv.next
+  %48 = load i16, ptr %47, align 2, !tbaa !79
+  %49 = icmp eq i16 %48, -1
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit38
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit38:       ; preds = %47, %50
-  %.0.i.i36 = phi i1 [ %53, %50 ], [ true, %47 ]
-  %.not34.not = icmp slt i64 %indvars.iv, %25
+_ZNK6icu_7713UnicodeString6charAtEi.exit38:       ; preds = %43, %46
+  %.0.i.i36 = phi i1 [ %49, %46 ], [ true, %43 ]
+  %.not34.not = icmp slt i64 %indvars.iv, %21
   %or.cond53 = and i1 %.0.i.i36, %.not34.not
   br i1 %or.cond53, label %.preheader.split, label %.split.us, !llvm.loop !181
 
 .split.us:                                        ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit38, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us
-  %.us-phi = phi i32 [ %34, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us ], [ %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit38 ]
-  %54 = sub nsw i32 %.us-phi, %2
+  %.us-phi = phi i32 [ %30, %_ZNK6icu_7713UnicodeString6charAtEi.exit38.us ], [ %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit38 ]
+  %50 = sub nsw i32 %.us-phi, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader.split, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %.preheader.split.us, %.split.us
-  %.sink = phi i32 [ %54, %.split.us ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ 1, %.preheader.split.us ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 1, %.preheader.split ]
+  %.sink = phi i32 [ %50, %.split.us ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ 1, %.preheader.split.us ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 1, %.preheader.split ]
   store i32 %.sink, ptr %3, align 4, !tbaa !12
-  br label %55
+  br label %51
 
-55:                                               ; preds = %.sink.split, %4
+51:                                               ; preds = %.sink.split, %4
   %.0 = phi i32 [ 3, %4 ], [ 1, %.sink.split ]
   ret i32 %.0
 }

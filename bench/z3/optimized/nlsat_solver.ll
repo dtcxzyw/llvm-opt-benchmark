@@ -12788,8 +12788,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread33
-  %.037 = phi i64 [ %1, %.lr.ph ], [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread33 ]
-  %14 = shl i64 %.037, 1
+  %.036 = phi i64 [ %1, %.lr.ph ], [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread33 ]
+  %14 = shl i64 %.036, 1
   %15 = add i64 %14, 2
   %16 = getelementptr inbounds i32, ptr %0, i64 %15
   %17 = getelementptr i32, ptr %0, i64 %14
@@ -12832,18 +12832,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEb
   %42 = load i32, ptr %41, align 4, !tbaa !180
   %43 = getelementptr inbounds nuw i32, ptr %40, i64 %24
   %44 = load i32, ptr %43, align 4, !tbaa !180
-  %.fr = freeze i32 %42
-  %.fr36 = freeze i32 %44
-  %45 = icmp ult i32 %.fr, %.fr36
+  %45 = icmp ult i32 %42, %44
   %46 = or disjoint i64 %14, 1
-  %spec.select = select i1 %45, i64 %46, i64 %15
+  %cond.fr = freeze i1 %45
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %15
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread33
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit, %30, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread
   %47 = phi i64 [ %15, %30 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit ], [ %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp10reorder_ltEEclIPjS8_EEbT_T0_.exit.thread ], [ %15, %13 ]
   %48 = getelementptr inbounds i32, ptr %0, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !180
-  %50 = getelementptr inbounds i32, ptr %0, i64 %.037
+  %50 = getelementptr inbounds i32, ptr %0, i64 %.036
   store i32 %49, ptr %50, align 4, !tbaa !180
   %51 = icmp slt i64 %47, %7
   br i1 %51, label %13, label %._crit_edge, !llvm.loop !409
@@ -13960,20 +13959,18 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
-  %.041 = phi i64 [ %1, %.lr.ph ], [ %46, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32 ]
-  %12 = shl i64 %.041, 1
+  %.037 = phi i64 [ %1, %.lr.ph ], [ %46, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32 ]
+  %12 = shl i64 %.037, 1
   %13 = add i64 %12, 2
   %14 = getelementptr inbounds i32, ptr %0, i64 %13
   %15 = getelementptr i32, ptr %0, i64 %12
   %16 = getelementptr i8, ptr %15, i64 4
   %17 = load i32, ptr %14, align 4, !tbaa !180
-  %.fr39 = freeze i32 %17
   %18 = load i32, ptr %16, align 4, !tbaa !180
-  %.fr40 = freeze i32 %18
-  %19 = zext i32 %.fr39 to i64
+  %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds nuw i32, ptr %10, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !180
-  %22 = zext i32 %.fr40 to i64
+  %22 = zext i32 %18 to i64
   switch i32 %21, label %27 [
     i32 1, label %23
     i32 0, label %.thread.i.i
@@ -13995,30 +13992,30 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %31 = load ptr, ptr %4, align 8, !tbaa !159
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %19
   %33 = load i32, ptr %32, align 4, !tbaa !180
-  %.fr = freeze i32 %33
   %34 = getelementptr inbounds nuw i32, ptr %31, i64 %22
   %35 = load i32, ptr %34, align 4, !tbaa !180
-  %.fr37 = freeze i32 %35
-  %.not.i.i = icmp eq i32 %.fr, %.fr37
+  %.not.i.i = icmp eq i32 %33, %35
   br i1 %.not.i.i, label %38, label %36
 
 36:                                               ; preds = %.thread.i.i
-  %37 = icmp ult i32 %.fr, %.fr37
-  br i1 %37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
+  %37 = icmp ult i32 %33, %35
+  %cond.fr36 = freeze i1 %37
+  br i1 %cond.fr36, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
 
 38:                                               ; preds = %.thread.i.i
   %39 = getelementptr inbounds nuw i32, ptr %10, i64 %22
   %40 = load i32, ptr %39, align 4, !tbaa !180
-  %.fr38 = freeze i32 %40
-  %.not15.i.i = icmp eq i32 %21, %.fr38
+  %.fr = freeze i32 %40
+  %.not15.i.i = icmp eq i32 %21, %.fr
   br i1 %.not15.i.i, label %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit
 
 41:                                               ; preds = %38
-  %42 = icmp ult i32 %.fr39, %.fr40
-  br i1 %42, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
+  %42 = icmp ult i32 %17, %18
+  %cond.fr35 = freeze i1 %42
+  br i1 %cond.fr35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit: ; preds = %38
-  %43 = icmp ult i32 %21, %.fr38
+  %43 = icmp ult i32 %21, %.fr
   br i1 %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread: ; preds = %23, %36, %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit
@@ -14028,9 +14025,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIP
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread32: ; preds = %27, %36, %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread
-  %45 = phi i32 [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread ], [ %.fr39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit ], [ %.fr39, %36 ], [ %.fr39, %41 ], [ %.fr39, %27 ]
+  %45 = phi i32 [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread ], [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit ], [ %17, %36 ], [ %17, %41 ], [ %17, %27 ]
   %46 = phi i64 [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit.thread ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp17degree_lit_num_ltEEclIPjS8_EEbT_T0_.exit ], [ %13, %36 ], [ %13, %41 ], [ %13, %27 ]
-  %47 = getelementptr inbounds i32, ptr %0, i64 %.041
+  %47 = getelementptr inbounds i32, ptr %0, i64 %.037
   store i32 %45, ptr %47, align 4, !tbaa !180
   %48 = icmp slt i64 %46, %8
   br i1 %48, label %11, label %._crit_edge, !llvm.loop !423
@@ -14931,25 +14928,21 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   br label %19
 
 19:                                               ; preds = %38, %.lr.ph.i.i
-  %.035.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %39, %38 ]
-  %20 = shl i64 %.035.i.i, 1
+  %.032.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %39, %38 ]
+  %20 = shl i64 %.032.i.i, 1
   %21 = add i64 %20, 2
   %22 = getelementptr inbounds i32, ptr %0, i64 %21
   %23 = getelementptr i32, ptr %0, i64 %20
   %24 = getelementptr i8, ptr %23, i64 4
   %25 = load i32, ptr %22, align 4, !tbaa !180
-  %.fr.i.i = freeze i32 %25
   %26 = load i32, ptr %24, align 4, !tbaa !180
-  %.fr32.i.i = freeze i32 %26
-  %27 = zext i32 %.fr.i.i to i64
+  %27 = zext i32 %25 to i64
   %28 = getelementptr inbounds nuw i32, ptr %18, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !180
-  %.fr33.i.i = freeze i32 %29
-  %30 = zext i32 %.fr32.i.i to i64
+  %30 = zext i32 %26 to i64
   %31 = getelementptr inbounds nuw i32, ptr %18, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !180
-  %.fr34.i.i = freeze i32 %32
-  %33 = icmp ult i32 %.fr33.i.i, %.fr34.i.i
+  %33 = icmp ult i32 %29, %32
   br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i.i: ; preds = %19
@@ -14957,18 +14950,19 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_
   br label %38
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i.i: ; preds = %19
-  %35 = icmp ule i32 %.fr33.i.i, %.fr34.i.i
-  %36 = icmp ult i32 %.fr.i.i, %.fr32.i.i
+  %35 = icmp ule i32 %29, %32
+  %36 = icmp ult i32 %25, %26
   %spec.select.i.i.i.i = and i1 %36, %35
   %37 = or disjoint i64 %20, 1
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i, i64 %37, i64 %21
+  %cond.fr.i.i = freeze i1 %spec.select.i.i.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %37, i64 %21
   br label %38
 
 38:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i.i
   %39 = phi i64 [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i.i ]
   %40 = getelementptr inbounds i32, ptr %0, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !180
-  %42 = getelementptr inbounds i32, ptr %0, i64 %.035.i.i
+  %42 = getelementptr inbounds i32, ptr %0, i64 %.032.i.i
   store i32 %41, ptr %42, align 4, !tbaa !180
   %43 = icmp slt i64 %39, %16
   br i1 %43, label %19, label %._crit_edge.i.i, !llvm.loop !433
@@ -15076,25 +15070,21 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_co
   br label %25
 
 25:                                               ; preds = %44, %.lr.ph.i
-  %.035.i = phi i64 [ %.014, %.lr.ph.i ], [ %45, %44 ]
-  %26 = shl i64 %.035.i, 1
+  %.032.i = phi i64 [ %.014, %.lr.ph.i ], [ %45, %44 ]
+  %26 = shl i64 %.032.i, 1
   %27 = add i64 %26, 2
   %28 = getelementptr inbounds i32, ptr %0, i64 %27
   %29 = getelementptr i32, ptr %0, i64 %26
   %30 = getelementptr i8, ptr %29, i64 4
   %31 = load i32, ptr %28, align 4, !tbaa !180
-  %.fr.i = freeze i32 %31
   %32 = load i32, ptr %30, align 4, !tbaa !180
-  %.fr32.i = freeze i32 %32
-  %33 = zext i32 %.fr.i to i64
+  %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !180
-  %.fr33.i = freeze i32 %35
-  %36 = zext i32 %.fr32.i to i64
+  %36 = zext i32 %32 to i64
   %37 = getelementptr inbounds nuw i32, ptr %24, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !180
-  %.fr34.i = freeze i32 %38
-  %39 = icmp ult i32 %.fr33.i, %.fr34.i
+  %39 = icmp ult i32 %35, %38
   br i1 %39, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i: ; preds = %25
@@ -15102,18 +15092,19 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_
   br label %44
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i: ; preds = %25
-  %41 = icmp ule i32 %.fr33.i, %.fr34.i
-  %42 = icmp ult i32 %.fr.i, %.fr32.i
+  %41 = icmp ule i32 %35, %38
+  %42 = icmp ult i32 %31, %32
   %spec.select.i.i.i = and i1 %42, %41
   %43 = or disjoint i64 %26, 1
-  %spec.select.i = select i1 %spec.select.i.i.i, i64 %43, i64 %27
+  %cond.fr.i = freeze i1 %spec.select.i.i.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %43, i64 %27
   br label %44
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i
   %45 = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.i ], [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp9degree_ltEEclIPjS8_EEbT_T0_.exit.thread.i ]
   %46 = getelementptr inbounds i32, ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !180
-  %48 = getelementptr inbounds i32, ptr %0, i64 %.035.i
+  %48 = getelementptr inbounds i32, ptr %0, i64 %.032.i
   store i32 %47, ptr %48, align 4, !tbaa !180
   %49 = icmp slt i64 %45, %13
   br i1 %49, label %25, label %._crit_edge.i, !llvm.loop !433
@@ -34458,16 +34449,14 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPN3sat7literalEN9__gnu_cxx5__
   %20 = getelementptr %"class.sat::literal", ptr %0, i64 %17
   %21 = getelementptr i8, ptr %20, i64 4
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %19, align 4, !tbaa !180
-  %.sroa.01.0.copyload.i.i.i.fr = freeze i32 %.sroa.01.0.copyload.i.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %21, align 4, !tbaa !180
-  %.sroa.0.0.copyload.i.i.i.fr = freeze i32 %.sroa.0.0.copyload.i.i.i
-  %22 = lshr i32 %.sroa.01.0.copyload.i.i.i.fr, 1
+  %22 = lshr i32 %.sroa.01.0.copyload.i.i.i, 1
   %23 = load ptr, ptr %16, align 8, !tbaa !213
   %24 = zext nneg i32 %22 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !186
   %.fr = freeze ptr %26
-  %27 = lshr i32 %.sroa.0.0.copyload.i.i.i.fr, 1
+  %27 = lshr i32 %.sroa.0.0.copyload.i.i.i, 1
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !186
@@ -34477,8 +34466,9 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPN3sat7literalEN9__gnu_cxx5__
   br i1 %or.cond.i9, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i.i
-  %34 = icmp ult i32 %.sroa.01.0.copyload.i.i.i.fr, %.sroa.0.0.copyload.i.i.i.fr
-  br i1 %34, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread38
+  %34 = icmp ult i32 %.sroa.01.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
+  %cond.fr41 = freeze i1 %34
+  br i1 %cond.fr41, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread38
 
 35:                                               ; preds = %.lr.ph.i.i
   %brmerge.i10 = select i1 %31, i1 true, i1 %32
@@ -34600,8 +34590,9 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i13: ; preds = %69, %76, %65
   ]
 
 88:                                               ; preds = %87, %87, %86
-  %89 = icmp ult i32 %.sroa.01.0.copyload.i.i.i.fr, %.sroa.0.0.copyload.i.i.i.fr
-  br i1 %89, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread38
+  %89 = icmp ult i32 %.sroa.01.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
+  %cond.fr42 = freeze i1 %89
+  br i1 %cond.fr42, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread38
 
 _ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32: ; preds = %35
   br i1 %31, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit32.thread38
@@ -34859,16 +34850,14 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3sat7literalEN9__gnu_cxx5__
   %27 = getelementptr %"class.sat::literal", ptr %0, i64 %24
   %28 = getelementptr i8, ptr %27, i64 4
   %.sroa.01.0.copyload.i.i = load i32, ptr %26, align 4, !tbaa !180
-  %.sroa.01.0.copyload.i.i.fr = freeze i32 %.sroa.01.0.copyload.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %28, align 4, !tbaa !180
-  %.sroa.0.0.copyload.i.i.fr = freeze i32 %.sroa.0.0.copyload.i.i
-  %29 = lshr i32 %.sroa.01.0.copyload.i.i.fr, 1
+  %29 = lshr i32 %.sroa.01.0.copyload.i.i, 1
   %30 = load ptr, ptr %23, align 8, !tbaa !213
   %31 = zext nneg i32 %29 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !186
   %.fr = freeze ptr %33
-  %34 = lshr i32 %.sroa.0.0.copyload.i.i.fr, 1
+  %34 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !186
@@ -34878,8 +34867,9 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3sat7literalEN9__gnu_cxx5__
   br i1 %or.cond.i18, label %40, label %42
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = icmp ult i32 %.sroa.01.0.copyload.i.i.fr, %.sroa.0.0.copyload.i.i.fr
-  br i1 %41, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread46
+  %41 = icmp ult i32 %.sroa.01.0.copyload.i.i, %.sroa.0.0.copyload.i.i
+  %cond.fr49 = freeze i1 %41
+  br i1 %cond.fr49, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread46
 
 42:                                               ; preds = %.lr.ph.i
   %brmerge.i19 = select i1 %38, i1 true, i1 %39
@@ -35001,8 +34991,9 @@ _ZNK5nlsat6solver3imp6degreeEPKNS_4atomE.exit37.i22: ; preds = %76, %83, %72
   ]
 
 95:                                               ; preds = %94, %94, %93
-  %96 = icmp ult i32 %.sroa.01.0.copyload.i.i.fr, %.sroa.0.0.copyload.i.i.fr
-  br i1 %96, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread46
+  %96 = icmp ult i32 %.sroa.01.0.copyload.i.i, %.sroa.0.0.copyload.i.i
+  %cond.fr50 = freeze i1 %96
+  br i1 %cond.fr50, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread46
 
 _ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41: ; preds = %42
   br i1 %38, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread, label %_ZNK5nlsat6solver3imp6lit_ltclEN3sat7literalES4_.exit41.thread46

@@ -30706,8 +30706,8 @@ define void @"_ZN83_$LT$uv_python..discovery..VersionRequest$u20$as$u20$core..st
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08798685f70fd852E.exit": ; preds = %48
   %50 = getelementptr i8, ptr %1, i64 %2
   %51 = getelementptr i8, ptr %50, i64 -2
-  %rhsc168 = load i8, ptr %51, align 1
-  %52 = icmp eq i8 %rhsc168, 116
+  %rhsc169 = load i8, ptr %51, align 1
+  %52 = icmp eq i8 %rhsc169, 116
   br i1 %52, label %53, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08798685f70fd852E.exit.thread"
 
 53:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08798685f70fd852E.exit"
@@ -30967,7 +30967,7 @@ common.resume:                                    ; preds = %307, %305, %311, %2
 .thread32.i:                                      ; preds = %157, %141, %136, %107
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  %.pre179 = load i8, ptr %94, align 1, !alias.scope !7220, !noalias !7206
+  %.pre182 = load i8, ptr %94, align 1, !alias.scope !7220, !noalias !7206
   br label %.thread28.i
 
 136:                                              ; preds = %127, %120, %115, %112, %100, %97
@@ -31290,7 +31290,7 @@ common.resume:                                    ; preds = %307, %305, %311, %2
   unreachable
 
 .thread28.i:                                      ; preds = %151, %.thread32.i
-  %264 = phi i8 [ %.pre179, %.thread32.i ], [ %95, %151 ]
+  %264 = phi i8 [ %.pre182, %.thread32.i ], [ %95, %151 ]
   %eh.lpad-body31.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread32.i ], [ %152, %151 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7260)
   call void @llvm.experimental.noalias.scope.decl(metadata !7261)
@@ -31777,8 +31777,8 @@ common.resume:                                    ; preds = %307, %305, %311, %2
           to label %474 unwind label %312
 
 442:                                              ; preds = %475, %459, %450, %437
-  %.sink202 = phi i64 [ 49, %475 ], [ 51, %459 ], [ 51, %450 ], [ 51, %437 ]
-  store i64 %.sink202, ptr %0, align 8
+  %.sink205 = phi i64 [ 49, %475 ], [ 51, %459 ], [ 51, %450 ], [ 51, %437 ]
+  store i64 %.sink205, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he0bd227e0c4b42ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
           to label %476 unwind label %312
 

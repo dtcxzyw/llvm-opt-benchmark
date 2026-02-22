@@ -495,18 +495,18 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br i1 %21, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %37, %17
-  %.021.lcssa46.pre-phi.i.i.i.i = phi i64 [ %19, %17 ], [ %39, %37 ]
+  %.021.lcssa47.pre-phi.i.i.i.i = phi i64 [ %19, %17 ], [ %39, %37 ]
   %.021.lcssa.i.i.i.i = phi ptr [ %6, %17 ], [ %38, %37 ]
-  %.not37.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %3
-  br i1 %.not37.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit, label %.lr.ph39.preheader.i.i.i.i
+  %.not38.i.i.i.i = icmp eq ptr %.021.lcssa.i.i.i.i, %3
+  br i1 %.not38.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit, label %.lr.ph40.preheader.i.i.i.i
 
-.lr.ph39.preheader.i.i.i.i:                       ; preds = %.preheader.i.i.i.i
-  %22 = sub i64 %18, %.021.lcssa46.pre-phi.i.i.i.i
+.lr.ph40.preheader.i.i.i.i:                       ; preds = %.preheader.i.i.i.i
+  %22 = sub i64 %18, %.021.lcssa47.pre-phi.i.i.i.i
   %scevgep.i.i.i.i = getelementptr i8, ptr %.021.lcssa.i.i.i.i, i64 %22
-  br label %.lr.ph39.i.i.i.i
+  br label %.lr.ph40.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %17, %37
-  %.02136.i.i.i.i = phi ptr [ %38, %37 ], [ %6, %17 ]
+  %.02137.i.i.i.i = phi ptr [ %38, %37 ], [ %6, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i
@@ -520,7 +520,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i: ; preds = %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %.02136.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %.02137.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %29 = add i8 %28, -58
   %or.cond.i.i.i.i.i = icmp ult i8 %29, -10
@@ -540,28 +540,28 @@ _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i
 .thread.i.i.i.i:                                  ; preds = %23
   %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 true)
   %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %.02136.i.i.i.i, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.02137.i.i.i.i, i64 %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit
 
 37:                                               ; preds = %23
-  %38 = getelementptr inbounds nuw i8, ptr %.02136.i.i.i.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.02137.i.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %18, %39
   %41 = icmp sgt i64 %40, 15
   br i1 %41, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
-.lr.ph39.i.i.i.i:                                 ; preds = %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i, %.lr.ph39.preheader.i.i.i.i
-  %.22338.i.i.i.i = phi ptr [ %44, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.lr.ph39.preheader.i.i.i.i ]
-  %42 = load i8, ptr %.22338.i.i.i.i, align 1, !tbaa !7
-  %.fr.i.i.i.i = freeze i8 %42
-  %43 = add i8 %.fr.i.i.i.i, -48
+.lr.ph40.i.i.i.i:                                 ; preds = %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i, %.lr.ph40.preheader.i.i.i.i
+  %.22339.i.i.i.i = phi ptr [ %44, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.lr.ph40.preheader.i.i.i.i ]
+  %42 = load i8, ptr %.22339.i.i.i.i, align 1, !tbaa !7
+  %.fr34.i.i.i.i = freeze i8 %42
+  %43 = add i8 %.fr34.i.i.i.i, -48
   %or.cond.i27.i.i.i.i = icmp ult i8 %43, 10
   br i1 %or.cond.i27.i.i.i.i, label %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i, label %switch.early.test.i.i.i.i
 
-switch.early.test.i.i.i.i:                        ; preds = %.lr.ph39.i.i.i.i
-  switch i8 %.fr.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit [
+switch.early.test.i.i.i.i:                        ; preds = %.lr.ph40.i.i.i.i
+  switch i8 %.fr34.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit [
     i8 102, label %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i
     i8 101, label %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i
     i8 100, label %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i
@@ -576,13 +576,13 @@ switch.early.test.i.i.i.i:                        ; preds = %.lr.ph39.i.i.i.i
     i8 65, label %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i
   ]
 
-_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i: ; preds = %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %.lr.ph39.i.i.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %.22338.i.i.i.i, i64 1
+_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i: ; preds = %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %.lr.ph40.i.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %.22339.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %44, %3
-  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit, label %.lr.ph39.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit, label %.lr.ph40.i.i.i.i, !llvm.loop !58
 
 _ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit: ; preds = %switch.early.test.i.i.i.i, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i, %.preheader.i.i.i.i, %.thread.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %36, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i ], [ %.22338.i.i.i.i, %switch.early.test.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %36, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit30.thread.i.i.i.i ], [ %.22339.i.i.i.i, %switch.early.test.i.i.i.i ]
   store ptr %.2.i.i.i.i, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %.2.i.i.i.i, %6
   br i1 %.not, label %48, label %45

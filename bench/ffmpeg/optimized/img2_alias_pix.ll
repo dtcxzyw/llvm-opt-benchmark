@@ -26,13 +26,13 @@ define internal range(i32 0, 52) i32 @alias_pix_read_probe(ptr noundef readonly 
   %10 = tail call i16 @llvm.bswap.i16(i16 %9)
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %8, align 1, !tbaa !12
-  %.fr53 = freeze i16 %12
+  %.fr = freeze i16 %12
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i16, ptr %13, align 1, !tbaa !12
   %15 = tail call i16 @llvm.bswap.i16(i16 %14)
   %16 = zext i16 %15 to i32
   %17 = icmp ne i16 %9, 0
-  %18 = icmp ne i16 %.fr53, 0
+  %18 = icmp ne i16 %.fr, 0
   %or.cond = and i1 %17, %18
   %19 = and i32 %16, 65519
   %or.cond3.not = icmp eq i32 %19, 8
@@ -41,7 +41,7 @@ define internal range(i32 0, 52) i32 @alias_pix_read_probe(ptr noundef readonly 
 
 .preheader.lr.ph:                                 ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %21 = tail call i16 @llvm.bswap.i16(i16 %.fr53)
+  %21 = tail call i16 @llvm.bswap.i16(i16 %.fr)
   %22 = tail call i16 @llvm.umin.i16(i16 %21, i16 2)
   %invariant.umin = zext nneg i16 %22 to i32
   %23 = lshr exact i32 %16, 3

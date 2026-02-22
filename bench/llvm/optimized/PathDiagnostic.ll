@@ -8085,31 +8085,29 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN5clang4ento22PathDiagnosticCo
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %18 = load i64, ptr %17, align 8, !tbaa !21
-  %.fr.i = freeze i64 %18
   %19 = getelementptr inbounds nuw i8, ptr %.val2, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %.val2, i64 56
   %22 = load i64, ptr %21, align 8, !tbaa !21
-  %.fr12.i = freeze i64 %22
-  %.not.i.i.i.i = icmp eq i64 %.fr.i, %.fr12.i
+  %.not.i.i.i.i = icmp eq i64 %18, %22
   br i1 %.not.i.i.i.i, label %23, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i
 
 23:                                               ; preds = %14
-  %24 = icmp eq i64 %.fr.i, 0
+  %24 = icmp eq i64 %18, 0
   br i1 %24, label %_ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.i.i:            ; preds = %23
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %16, ptr %20, i64 %.fr.i)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %16, ptr %20, i64 %18)
   %.not249.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not249.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i.i
-  %25 = tail call i32 @memcmp(ptr noundef %16, ptr noundef %20, i64 noundef %.fr.i) #29
-  %.fr.i.i.i44.i = freeze i32 %25
+  %25 = tail call i32 @memcmp(ptr noundef %16, ptr noundef %20, i64 noundef %18) #29
+  %.fr.i.i.i34.i = freeze i32 %25
   br label %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i: ; preds = %14
-  %.sroa.speculated.i.i282.i.i = tail call i64 @llvm.umin.i64(i64 %.fr12.i, i64 %.fr.i)
+  %.sroa.speculated.i.i282.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %18)
   %26 = icmp eq i64 %.sroa.speculated.i.i282.i.i, 0
   br i1 %26, label %.thread.i.i.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
 
@@ -8120,40 +8118,39 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvmneENS
   br i1 %.not.not.i.i.i.not.i, label %.thread.i.i.thread.i.i, label %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i
 
 .thread.i.i.thread.i.i:                           ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i
-  %28 = icmp ult i64 %.fr.i, %.fr12.i
+  %28 = icmp ult i64 %18, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %28, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
+  %cond.fr6.i = freeze i1 %28
+  br i1 %cond.fr6.i, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i:  ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %23
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %32 = load i64, ptr %31, align 8, !tbaa !21
-  %.fr13.i = freeze i64 %32
   %33 = getelementptr inbounds nuw i8, ptr %.val2, i64 144
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %.val2, i64 152
   %36 = load i64, ptr %35, align 8, !tbaa !21
-  %.fr14.i = freeze i64 %36
-  %.not.i.i106.i.i = icmp eq i64 %.fr13.i, %.fr14.i
+  %.not.i.i106.i.i = icmp eq i64 %32, %36
   br i1 %.not.i.i106.i.i, label %37, label %_ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i
 
 37:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i
-  %38 = icmp eq i64 %.fr13.i, 0
+  %38 = icmp eq i64 %32, 0
   br i1 %38, label %_ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit109.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit109.i.i:         ; preds = %37
-  %bcmp.i.i108.i.i = tail call i32 @bcmp(ptr %30, ptr %34, i64 %.fr13.i)
+  %bcmp.i.i108.i.i = tail call i32 @bcmp(ptr %30, ptr %34, i64 %32)
   %.not250.i.i = icmp eq i32 %bcmp.i.i108.i.i, 0
   br i1 %.not250.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit109.i.i
-  %39 = tail call i32 @memcmp(ptr noundef %30, ptr noundef %34, i64 noundef %.fr13.i) #29
-  %.fr.i.i116.i48.i = freeze i32 %39
+  %39 = tail call i32 @memcmp(ptr noundef %30, ptr noundef %34, i64 noundef %32) #29
+  %.fr.i.i116.i38.i = freeze i32 %39
   br label %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i
 
 _ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread232.i.i
-  %.sroa.speculated.i.i114284.i.i = tail call i64 @llvm.umin.i64(i64 %.fr14.i, i64 %.fr13.i)
+  %.sroa.speculated.i.i114284.i.i = tail call i64 @llvm.umin.i64(i64 %36, i64 %32)
   %40 = icmp eq i64 %.sroa.speculated.i.i114284.i.i, 0
   br i1 %40, label %.thread.i.i121.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i
 
@@ -8164,40 +8161,39 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i: ; preds = %_ZN4llvmne
   br i1 %.not.not.i.i117.i.not.i, label %.thread.i.i121.thread.i.i, label %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i
 
 .thread.i.i121.thread.i.i:                        ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i, %_ZN4llvmneENS_9StringRefES0_.exit109.thread.thread.i.i
-  %42 = icmp ult i64 %.fr13.i, %.fr14.i
+  %42 = icmp ult i64 %32, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %42, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
+  %cond.fr5.i = freeze i1 %42
+  br i1 %cond.fr5.i, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit109.i.i, %37
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %44 = load ptr, ptr %43, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %46 = load i64, ptr %45, align 8, !tbaa !21
-  %.fr15.i = freeze i64 %46
   %47 = getelementptr inbounds nuw i8, ptr %.val2, i64 80
   %48 = load ptr, ptr %47, align 8, !tbaa !18
   %49 = getelementptr inbounds nuw i8, ptr %.val2, i64 88
   %50 = load i64, ptr %49, align 8, !tbaa !21
-  %.fr16.i = freeze i64 %50
-  %.not.i.i127.i.i = icmp eq i64 %.fr15.i, %.fr16.i
+  %.not.i.i127.i.i = icmp eq i64 %46, %50
   br i1 %.not.i.i127.i.i, label %51, label %_ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i
 
 51:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i
-  %52 = icmp eq i64 %.fr15.i, 0
+  %52 = icmp eq i64 %46, 0
   br i1 %52, label %_ZN4llvmneENS_9StringRefES0_.exit130.thread238.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit130.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit130.i.i:         ; preds = %51
-  %bcmp.i.i129.i.i = tail call i32 @bcmp(ptr %44, ptr %48, i64 %.fr15.i)
+  %bcmp.i.i129.i.i = tail call i32 @bcmp(ptr %44, ptr %48, i64 %46)
   %.not251.i.i = icmp eq i32 %bcmp.i.i129.i.i, 0
   br i1 %.not251.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit130.thread238.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit130.i.i
-  %53 = tail call i32 @memcmp(ptr noundef %44, ptr noundef %48, i64 noundef %.fr15.i) #29
-  %.fr.i.i137.i52.i = freeze i32 %53
+  %53 = tail call i32 @memcmp(ptr noundef %44, ptr noundef %48, i64 noundef %46) #29
+  %.fr.i.i137.i42.i = freeze i32 %53
   br label %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i
 
 _ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit109.thread235.i.i
-  %.sroa.speculated.i.i135286.i.i = tail call i64 @llvm.umin.i64(i64 %.fr16.i, i64 %.fr15.i)
+  %.sroa.speculated.i.i135286.i.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %46)
   %54 = icmp eq i64 %.sroa.speculated.i.i135286.i.i, 0
   br i1 %54, label %.thread.i.i142.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i
 
@@ -8208,9 +8204,10 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i: ; preds = %_ZN4llvmne
   br i1 %.not.not.i.i138.i.not.i, label %.thread.i.i142.thread.i.i, label %_ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i
 
 .thread.i.i142.thread.i.i:                        ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i, %_ZN4llvmneENS_9StringRefES0_.exit130.thread.thread.i.i
-  %56 = icmp ult i64 %.fr15.i, %.fr16.i
+  %56 = icmp ult i64 %46, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %56, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
+  %cond.fr11.i = freeze i1 %56
+  br i1 %cond.fr11.i, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZN4llvmneENS_9StringRefES0_.exit130.thread238.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit130.i.i, %51
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 120
@@ -8252,12 +8249,12 @@ _ZN4llvmneENS_9StringRefES0_.exit152.thread241.i.i: ; preds = %_ZN4llvmneENS_9St
   %76 = getelementptr inbounds nuw i8, ptr %.val2, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !146
   %78 = call fastcc i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nonnull %3, ptr noundef %75, ptr noundef %77)
-  %.fr17.i = freeze i16 %78
-  %.not253.i.i = icmp samesign ult i16 %.fr17.i, 256
+  %.fr.i = freeze i16 %78
+  %.not253.i.i = icmp samesign ult i16 %.fr.i, 256
   br i1 %.not253.i.i, label %80, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_ZN4llvmneENS_9StringRefES0_.exit152.thread241.i.i
-  %79 = trunc i16 %.fr17.i to i1
+  %79 = trunc i16 %.fr.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %79, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
@@ -8271,107 +8268,96 @@ _ZN4llvmneENS_9StringRefES0_.exit152.thread241.i.i: ; preds = %_ZN4llvmneENS_9St
   %84 = getelementptr inbounds nuw i8, ptr %.val2, i64 448
   %85 = load ptr, ptr %84, align 8, !tbaa !169
   %86 = call fastcc i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr nonnull %3, ptr noundef %83, ptr noundef %85)
-  %.fr18.i = freeze i16 %86
-  %.not255.i.i = icmp samesign ult i16 %.fr18.i, 256
+  %.fr12.i = freeze i16 %86
+  %.not255.i.i = icmp samesign ult i16 %.fr12.i, 256
   br i1 %.not255.i.i, label %88, label %.thread244.i.i
 
 .thread244.i.i:                                   ; preds = %81
-  %87 = trunc i16 %.fr18.i to i1
+  %87 = trunc i16 %.fr12.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %87, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 88:                                               ; preds = %81, %80
   %89 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %90 = load ptr, ptr %89, align 8, !tbaa !126, !noalias !480
-  %.fr22.i = freeze ptr %90
   %91 = getelementptr inbounds nuw i8, ptr %.val, i64 208
   %92 = load ptr, ptr %91, align 8, !tbaa !134, !noalias !480
-  %.fr21.i = freeze ptr %92
   %93 = getelementptr inbounds nuw i8, ptr %.val, i64 216
   %94 = load ptr, ptr %93, align 8, !tbaa !135, !noalias !480
-  %.fr24.i = freeze ptr %94
   %95 = getelementptr inbounds nuw i8, ptr %.val, i64 224
   %96 = load ptr, ptr %95, align 8, !tbaa !126, !noalias !485
-  %.fr19.i = freeze ptr %96
   %97 = getelementptr inbounds nuw i8, ptr %.val, i64 232
   %98 = load ptr, ptr %97, align 8, !tbaa !133, !noalias !485
   %99 = getelementptr inbounds nuw i8, ptr %.val, i64 248
   %100 = load ptr, ptr %99, align 8, !tbaa !135, !noalias !485
-  %.fr23.i = freeze ptr %100
   %101 = getelementptr inbounds nuw i8, ptr %.val2, i64 192
   %102 = load ptr, ptr %101, align 8, !tbaa !126, !noalias !490
-  %.fr29.i = freeze ptr %102
   %103 = getelementptr inbounds nuw i8, ptr %.val2, i64 208
   %104 = load ptr, ptr %103, align 8, !tbaa !134, !noalias !490
-  %.fr28.i = freeze ptr %104
   %105 = getelementptr inbounds nuw i8, ptr %.val2, i64 216
   %106 = load ptr, ptr %105, align 8, !tbaa !135, !noalias !490
-  %.fr31.i = freeze ptr %106
   %107 = getelementptr inbounds nuw i8, ptr %.val2, i64 224
   %108 = load ptr, ptr %107, align 8, !tbaa !126, !noalias !495
   %109 = getelementptr inbounds nuw i8, ptr %.val2, i64 232
   %110 = load ptr, ptr %109, align 8, !tbaa !133, !noalias !495
   %111 = getelementptr inbounds nuw i8, ptr %.val2, i64 248
   %112 = load ptr, ptr %111, align 8, !tbaa !135, !noalias !495
-  %.fr30.i = freeze ptr %112
-  %113 = ptrtoint ptr %.fr23.i to i64
-  %114 = ptrtoint ptr %.fr24.i to i64
+  %113 = ptrtoint ptr %100 to i64
+  %114 = ptrtoint ptr %94 to i64
   %115 = sub i64 %113, %114
-  %116 = lshr i64 %115, 3
-  %117 = icmp ne ptr %.fr23.i, null
+  %116 = ashr exact i64 %115, 3
+  %117 = icmp ne ptr %100, null
   %.neg.i.i.i = sext i1 %117 to i64
   %118 = add nsw i64 %116, %.neg.i.i.i
-  %119 = shl i64 %118, 4
-  %120 = ptrtoint ptr %.fr19.i to i64
-  %.fr20.i = freeze ptr %98
-  %121 = ptrtoint ptr %.fr20.i to i64
+  %119 = shl nsw i64 %118, 4
+  %120 = ptrtoint ptr %96 to i64
+  %121 = ptrtoint ptr %98 to i64
   %122 = sub i64 %120, %121
-  %123 = ashr i64 %122, 5
-  %124 = ptrtoint ptr %.fr21.i to i64
-  %125 = ptrtoint ptr %.fr22.i to i64
+  %123 = ashr exact i64 %122, 5
+  %124 = ptrtoint ptr %92 to i64
+  %125 = ptrtoint ptr %90 to i64
   %126 = sub i64 %124, %125
-  %127 = ashr i64 %126, 5
+  %127 = ashr exact i64 %126, 5
   %128 = add nsw i64 %123, %127
   %129 = add i64 %128, %119
-  %130 = ptrtoint ptr %.fr30.i to i64
-  %131 = ptrtoint ptr %.fr31.i to i64
+  %130 = ptrtoint ptr %112 to i64
+  %131 = ptrtoint ptr %106 to i64
   %132 = sub i64 %130, %131
-  %133 = lshr i64 %132, 3
-  %134 = icmp ne ptr %.fr30.i, null
+  %133 = ashr exact i64 %132, 3
+  %134 = icmp ne ptr %112, null
   %.neg.i159.i.i = sext i1 %134 to i64
   %135 = add nsw i64 %133, %.neg.i159.i.i
-  %136 = shl i64 %135, 4
-  %.fr26.i = freeze ptr %108
-  %137 = ptrtoint ptr %.fr26.i to i64
-  %.fr27.i = freeze ptr %110
-  %138 = ptrtoint ptr %.fr27.i to i64
+  %136 = shl nsw i64 %135, 4
+  %137 = ptrtoint ptr %108 to i64
+  %138 = ptrtoint ptr %110 to i64
   %139 = sub i64 %137, %138
-  %140 = ashr i64 %139, 5
-  %141 = ptrtoint ptr %.fr28.i to i64
-  %142 = ptrtoint ptr %.fr29.i to i64
+  %140 = ashr exact i64 %139, 5
+  %141 = ptrtoint ptr %104 to i64
+  %142 = ptrtoint ptr %102 to i64
   %143 = sub i64 %141, %142
-  %144 = ashr i64 %143, 5
+  %144 = ashr exact i64 %143, 5
   %145 = add nsw i64 %140, %144
   %146 = add i64 %145, %136
   %.not.i.i = icmp eq i64 %129, %146
   br i1 %.not.i.i, label %.preheader.i.i, label %147
 
 .preheader.i.i:                                   ; preds = %88
-  %.not256260.i.i = icmp eq ptr %.fr22.i, %.fr19.i
+  %.not256260.i.i = icmp eq ptr %90, %96
   br i1 %.not256260.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 147:                                              ; preds = %88
   %148 = icmp slt i64 %129, %146
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %148, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
+  %cond.fr8.i = freeze i1 %148
+  br i1 %cond.fr8.i, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i
-  %.sroa.18.0266.i.i = phi ptr [ %.sroa.18.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %.fr24.i, %.preheader.i.i ]
-  %.sroa.13.0265.i.i = phi ptr [ %.sroa.13.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %.fr21.i, %.preheader.i.i ]
-  %.sroa.0184.0264.i.i = phi ptr [ %.sroa.0184.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %.fr22.i, %.preheader.i.i ]
-  %.sroa.17.0263.i.i = phi ptr [ %.sroa.17.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %.fr31.i, %.preheader.i.i ]
-  %.sroa.12.0262.i.i = phi ptr [ %.sroa.12.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %.fr28.i, %.preheader.i.i ]
-  %.sroa.0168.0261.i.i = phi ptr [ %.sroa.0168.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %.fr29.i, %.preheader.i.i ]
+  %.sroa.18.0266.i.i = phi ptr [ %.sroa.18.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %94, %.preheader.i.i ]
+  %.sroa.13.0265.i.i = phi ptr [ %.sroa.13.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %92, %.preheader.i.i ]
+  %.sroa.0184.0264.i.i = phi ptr [ %.sroa.0184.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %90, %.preheader.i.i ]
+  %.sroa.17.0263.i.i = phi ptr [ %.sroa.17.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %106, %.preheader.i.i ]
+  %.sroa.12.0262.i.i = phi ptr [ %.sroa.12.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %104, %.preheader.i.i ]
+  %.sroa.0168.0261.i.i = phi ptr [ %.sroa.0168.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i ], [ %102, %.preheader.i.i ]
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0264.i.i, i64 8
   %150 = load i64, ptr %149, align 8, !tbaa !21
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.0168.0261.i.i, i64 8
@@ -8424,7 +8410,7 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_
   %.sroa.0168.1.i.i = phi ptr [ %169, %167 ], [ %165, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit.i.i ]
   %.sroa.12.1.i.i = phi ptr [ %170, %167 ], [ %.sroa.12.0262.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit.i.i ]
   %.sroa.17.1.i.i = phi ptr [ %168, %167 ], [ %.sroa.17.0263.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit.i.i ]
-  %.not256.i.i = icmp eq ptr %.sroa.0184.1.i.i, %.fr19.i
+  %.not256.i.i = icmp eq ptr %.sroa.0184.1.i.i, %96
   br i1 %.not256.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !500
 
 ._crit_edge.i.i:                                  ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_PS6_EppEv.exit163.i.i, %.preheader.i.i
@@ -8433,13 +8419,13 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_
   %173 = getelementptr inbounds nuw i8, ptr %.val2, i64 472
   %174 = load ptr, ptr %173, align 8, !tbaa !180
   %175 = tail call fastcc i16 @_ZL11comparePathRKN5clang4ento10PathPiecesES3_(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(24) %174)
-  %.fr33.i = freeze i16 %175
-  %176 = trunc i16 %.fr33.i to i1
+  %.fr13.i = freeze i16 %175
+  %176 = trunc i16 %.fr13.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %176, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
 _ZL7compareRKN5clang4ento14PathDiagnosticES3_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i
-  %.0.i.in.i = phi i32 [ %.fr.i.i116.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i ], [ %.fr.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %.fr.i.i137.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i ], [ %.fr.i.i.i44.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i ], [ %.fr.i.i116.i48.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i ], [ %.fr.i.i137.i52.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i ]
+  %.0.i.in.i = phi i32 [ %.fr.i.i116.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i ], [ %.fr.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %.fr.i.i137.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i ], [ %.fr.i.i.i34.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.thread.i ], [ %.fr.i.i116.i38.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.thread.i ], [ %.fr.i.i137.i42.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.thread.i ]
   %.0.i.i = icmp slt i32 %.0.i.in.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0.i.i, label %177, label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"

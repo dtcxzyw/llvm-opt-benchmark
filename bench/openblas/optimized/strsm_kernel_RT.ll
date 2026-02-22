@@ -156,7 +156,7 @@ solve.exit.loopexit.us:                           ; preds = %63
   br i1 %.not204, label %.loopexit292..loopexit290_crit_edge, label %.preheader289
 
 .loopexit292..loopexit290_crit_edge:              ; preds = %.loopexit292
-  %.pre367 = sub nsw i64 %.1335, %.0163331
+  %.pre368 = sub nsw i64 %.1335, %.0163331
   br label %.loopexit290
 
 .preheader289:                                    ; preds = %.loopexit292
@@ -284,7 +284,7 @@ solve.exit231:                                    ; preds = %99
 .loopexit290:                                     ; preds = %123, %.loopexit292..loopexit290_crit_edge, %19
   %.2175 = phi ptr [ %.1174329, %19 ], [ %27, %.loopexit292..loopexit290_crit_edge ], [ %27, %123 ]
   %.2171 = phi ptr [ %.1170330, %19 ], [ %24, %.loopexit292..loopexit290_crit_edge ], [ %24, %123 ]
-  %.2 = phi i64 [ %.1335, %19 ], [ %.pre367, %.loopexit292..loopexit290_crit_edge ], [ %78, %123 ]
+  %.2 = phi i64 [ %.1335, %19 ], [ %.pre368, %.loopexit292..loopexit290_crit_edge ], [ %78, %123 ]
   %125 = shl nuw nsw i64 %.0163331, 1
   %126 = icmp samesign ult i64 %.0163331, 2
   br i1 %126, label %19, label %.loopexit294, !llvm.loop !12

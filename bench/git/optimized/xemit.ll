@@ -344,8 +344,8 @@ xdl_get_hunk.exit:                                ; preds = %.lr.ph94.i, %58, %7
   %101 = zext i8 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !41
-  %.fr.i.i.i = freeze i8 %103
-  %104 = and i8 %.fr.i.i.i, 4
+  %.fr21.i.i.i = freeze i8 %103
+  %104 = and i8 %.fr21.i.i.i, 4
   %.not.not.i.i.i = icmp eq i8 %104, 0
   br i1 %.not.not.i.i.i, label %switch.early.test.i.i.i, label %is_func_rec.exit.thread365
 
@@ -423,8 +423,8 @@ is_func_rec.exit._crit_edge:                      ; preds = %is_func_rec.exit
   %130 = zext i8 %129 to i64
   %131 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !41
-  %.fr.i.i.i258 = freeze i8 %132
-  %133 = and i8 %.fr.i.i.i258, 4
+  %.fr21.i.i.i258 = freeze i8 %132
+  %133 = and i8 %.fr21.i.i.i258, 4
   %.not.not.i.i.i259 = icmp eq i8 %133, 0
   br i1 %.not.not.i.i.i259, label %switch.early.test.i.i.i261, label %get_func_line.exit
 
@@ -510,8 +510,8 @@ is_empty_rec.exit.thread:                         ; preds = %.lr.ph.i263
   %162 = zext i8 %161 to i64
   %163 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !41
-  %.fr.i.i.i268 = freeze i8 %164
-  %165 = and i8 %.fr.i.i.i268, 4
+  %.fr21.i.i.i268 = freeze i8 %164
+  %165 = and i8 %.fr21.i.i.i268, 4
   %.not.not.i.i.i269 = icmp eq i8 %165, 0
   br i1 %.not.not.i.i.i269, label %switch.early.test.i.i.i271, label %is_func_rec.exit272.thread383
 
@@ -662,8 +662,8 @@ is_func_rec.exit272:                              ; preds = %is_empty_rec.exit.t
   %239 = zext i8 %238 to i64
   %240 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !41
-  %.fr.i.i.i283 = freeze i8 %241
-  %242 = and i8 %.fr.i.i.i283, 4
+  %.fr21.i.i.i283 = freeze i8 %241
+  %242 = and i8 %.fr21.i.i.i283, 4
   %.not.not.i.i.i284 = icmp eq i8 %242, 0
   br i1 %.not.not.i.i.i284, label %switch.early.test.i.i.i290, label %get_func_line.exit291
 
@@ -814,8 +814,8 @@ is_empty_rec.exit300.thread397:                   ; preds = %264, %is_empty_rec.
   %305 = zext i8 %304 to i64
   %306 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !41
-  %.fr.i.i.i312 = freeze i8 %307
-  %308 = and i8 %.fr.i.i.i312, 4
+  %.fr21.i.i.i312 = freeze i8 %307
+  %308 = and i8 %.fr21.i.i.i312, 4
   %.not.not.i.i.i313 = icmp eq i8 %308, 0
   br i1 %.not.not.i.i.i313, label %switch.early.test.i.i.i319, label %.thread413.sink.split
 
@@ -896,8 +896,8 @@ get_func_line.exit320.thread:                     ; preds = %.lr.ph.i304, %.thre
   %341 = zext i8 %340 to i64
   %342 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %341
   %343 = load i8, ptr %342, align 1, !tbaa !41
-  %.fr.i.i.i333 = freeze i8 %343
-  %344 = and i8 %.fr.i.i.i333, 4
+  %.fr21.i.i.i333 = freeze i8 %343
+  %344 = and i8 %.fr21.i.i.i333, 4
   %.not.not.i.i.i334 = icmp eq i8 %344, 0
   br i1 %.not.not.i.i.i334, label %switch.early.test.i.i.i340, label %345
 
@@ -912,8 +912,8 @@ switch.early.test.i.i.i340:                       ; preds = %339
   br label %346
 
 346:                                              ; preds = %354, %345
-  %.121.i.i.i336 = phi i64 [ %spec.select.i.i.i335, %345 ], [ %355, %354 ]
-  %347 = getelementptr i8, ptr %333, i64 %.121.i.i.i336
+  %.122.i.i.i336 = phi i64 [ %spec.select.i.i.i335, %345 ], [ %355, %354 ]
+  %347 = getelementptr i8, ptr %333, i64 %.122.i.i.i336
   %348 = getelementptr i8, ptr %347, i64 -1
   %349 = load i8, ptr %348, align 1, !tbaa !41
   %350 = zext i8 %349 to i64
@@ -924,12 +924,12 @@ switch.early.test.i.i.i340:                       ; preds = %339
   br i1 %.not19.i.i.i337, label %match_func_rec.exit.i329.thread, label %354
 
 354:                                              ; preds = %346
-  %355 = add nsw i64 %.121.i.i.i336, -1
-  %356 = icmp sgt i64 %.121.i.i.i336, 1
+  %355 = add nsw i64 %.122.i.i.i336, -1
+  %356 = icmp sgt i64 %.122.i.i.i336, 1
   br i1 %356, label %346, label %match_func_rec.exit.i329.thread, !llvm.loop !49
 
 match_func_rec.exit.i329.thread:                  ; preds = %346, %354
-  %.1.lcssa.i.i.i339 = phi i64 [ 0, %354 ], [ %.121.i.i.i336, %346 ]
+  %.1.lcssa.i.i.i339 = phi i64 [ 0, %354 ], [ %.122.i.i.i336, %346 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull readonly align 1 %333, i64 %.1.lcssa.i.i.i339, i1 false)
   br label %.loopexit
 

@@ -129,8 +129,8 @@ define void @sfdp_layout(ptr noundef %0) local_unnamed_addr #0 {
 
 sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, %._crit_edge.i.i
   %48 = load i16, ptr @Ndim, align 2, !tbaa !32
-  %.fr = freeze i16 %48
-  %49 = icmp eq i16 %.fr, 2
+  %.fr56 = freeze i16 %48
+  %49 = icmp eq i16 %.fr56, 2
   %50 = tail call i32 @agnnodes(ptr noundef %0) #12
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %199, label %51
@@ -437,8 +437,8 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 
 191:                                              ; preds = %._crit_edge, %172
   %192 = load i64, ptr %5, align 8, !tbaa !40
-  %.not56 = icmp eq i64 %192, 0
-  br i1 %.not56, label %._crit_edge54, label %.lr.ph53
+  %.not57 = icmp eq i64 %192, 0
+  br i1 %.not57, label %._crit_edge54, label %.lr.ph53
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %191
   call void @free(ptr noundef %166) #12

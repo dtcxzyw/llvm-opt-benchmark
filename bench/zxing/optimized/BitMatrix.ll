@@ -1548,18 +1548,16 @@ _ZNSt6vectorItSaItEE6resizeEm.exit44:             ; preds = %70, %72, %74, %76
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing7InflateEONS_9BitMatrixEiii(ptr dead_on_unwind noalias writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = load i32, ptr %1, align 8, !tbaa !14
-  %.fr96 = freeze i32 %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !3
-  %.fr94 = freeze i32 %8
-  %9 = shl i32 %4, 1
-  %10 = add i32 %.fr96, %9
+  %9 = shl nsw i32 %4, 1
+  %10 = add nsw i32 %6, %9
   %.sroa.speculated62 = tail call i32 @llvm.smax.i32(i32 %2, i32 %10)
-  %11 = add i32 %.fr94, %9
+  %11 = add nsw i32 %8, %9
   %.sroa.speculated58 = tail call i32 @llvm.smax.i32(i32 %3, i32 %11)
-  %12 = icmp eq i32 %.fr96, %.sroa.speculated62
-  %13 = icmp eq i32 %.fr94, %.sroa.speculated58
-  %or.cond = and i1 %12, %13
+  %12 = icmp eq i32 %6, %.sroa.speculated62
+  %13 = icmp eq i32 %8, %.sroa.speculated58
+  %or.cond = select i1 %12, i1 %13, i1 false
   br i1 %or.cond, label %14, label %25
 
 14:                                               ; preds = %5
@@ -1581,12 +1579,13 @@ define void @_ZN5ZXing7InflateEONS_9BitMatrixEiii(ptr dead_on_unwind noalias wri
   br label %.loopexit
 
 25:                                               ; preds = %5
-  %26 = sub i32 %.sroa.speculated62, %9
-  %27 = sdiv i32 %26, %.fr96
-  %28 = sub i32 %.sroa.speculated58, %9
-  %29 = sdiv i32 %28, %.fr94
+  %26 = sub nsw i32 %.sroa.speculated62, %9
+  %27 = sdiv i32 %26, %6
+  %28 = sub nsw i32 %.sroa.speculated58, %9
+  %29 = sdiv i32 %28, %8
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %29, i32 %27)
-  %30 = mul nsw i32 %.sroa.speculated, %.fr96
+  %.sroa.speculated.fr = freeze i32 %.sroa.speculated
+  %30 = mul nsw i32 %.sroa.speculated.fr, %6
   %31 = sub nsw i32 %.sroa.speculated62, %30
   %32 = sdiv i32 %31, 2
   tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.speculated62, i32 noundef %.sroa.speculated58)
@@ -1597,7 +1596,7 @@ define void @_ZN5ZXing7InflateEONS_9BitMatrixEiii(ptr dead_on_unwind noalias wri
 .preheader.lr.ph:                                 ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = icmp slt i32 %.sroa.speculated, 1
+  %37 = icmp slt i32 %.sroa.speculated.fr, 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %1, align 8, !tbaa !14
@@ -1605,212 +1604,214 @@ define void @_ZN5ZXing7InflateEONS_9BitMatrixEiii(ptr dead_on_unwind noalias wri
   br i1 %41, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %42 = mul nsw i32 %.sroa.speculated, %.fr94
+  %42 = mul nsw i32 %.sroa.speculated.fr, %8
   %43 = sub nsw i32 %.sroa.speculated58, %42
   %44 = sdiv i32 %43, 2
   %45 = sext i32 %32 to i64
-  %46 = tail call i32 @llvm.smin.i32(i32 %27, i32 %29)
-  %smin = sext i32 %46 to i64
-  %47 = sext i32 %.sroa.speculated to i64
+  %46 = sext i32 %.sroa.speculated.fr to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %48 = phi i32 [ %71, %._crit_edge ], [ %33, %.preheader.preheader ]
+  %47 = phi i32 [ %70, %._crit_edge ], [ %33, %.preheader.preheader ]
+  %48 = phi i32 [ %71, %._crit_edge ], [ %40, %.preheader.preheader ]
   %49 = phi i32 [ %72, %._crit_edge ], [ %40, %.preheader.preheader ]
   %50 = phi i32 [ %73, %._crit_edge ], [ %40, %.preheader.preheader ]
-  %51 = phi i32 [ %74, %._crit_edge ], [ %40, %.preheader.preheader ]
-  %.04792 = phi i32 [ %53, %._crit_edge ], [ %44, %.preheader.preheader ]
-  %.04890 = phi i32 [ %75, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %52 = icmp sgt i32 %51, 0
-  %53 = add nsw i32 %.04792, %.sroa.speculated
-  br i1 %52, label %.lr.ph, label %._crit_edge
+  %.04792 = phi i32 [ %52, %._crit_edge ], [ %44, %.preheader.preheader ]
+  %.04890 = phi i32 [ %74, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %51 = icmp sgt i32 %50, 0
+  %52 = add nsw i32 %.04792, %.sroa.speculated.fr
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %37, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %54 = load ptr, ptr %36, align 8, !tbaa !21
-  %55 = load ptr, ptr %35, align 8, !tbaa !15
+  %53 = load ptr, ptr %36, align 8, !tbaa !21
+  %54 = load ptr, ptr %35, align 8, !tbaa !15
+  %55 = ptrtoint ptr %53 to i64
   %56 = ptrtoint ptr %54 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %smax = tail call i32 @llvm.smax.i32(i32 %49, i32 1)
-  br label %59
+  %57 = sub i64 %55, %56
+  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
+  br label %58
 
-59:                                               ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, %.lr.ph.split.us
-  %60 = phi i32 [ %51, %.lr.ph.split.us ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %.077.us = phi i32 [ %32, %.lr.ph.split.us ], [ %70, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %.04676.us = phi i32 [ 0, %.lr.ph.split.us ], [ %69, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %61 = mul nsw i32 %60, %.04890
-  %62 = add nsw i32 %61, %.04676.us
-  %63 = sext i32 %62 to i64
-  %.not.i.i.i.i51.us = icmp ugt i64 %58, %63
-  br i1 %.not.i.i.i.i51.us, label %64, label %.split.us
+58:                                               ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, %.lr.ph.split.us
+  %59 = phi i32 [ %50, %.lr.ph.split.us ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %.077.us = phi i32 [ %32, %.lr.ph.split.us ], [ %69, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %.04676.us = phi i32 [ 0, %.lr.ph.split.us ], [ %68, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %60 = mul nsw i32 %59, %.04890
+  %61 = add nsw i32 %60, %.04676.us
+  %62 = sext i32 %61 to i64
+  %.not.i.i.i.i51.us = icmp ugt i64 %57, %62
+  br i1 %.not.i.i.i.i51.us, label %63, label %.split.us
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw i8, ptr %55, i64 %63
-  %66 = load i8, ptr %65, align 1, !tbaa !16
-  %.not.us = icmp eq i8 %66, 0
-  br i1 %.not.us, label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, label %67
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 %62
+  %65 = load i8, ptr %64, align 1, !tbaa !16
+  %.not.us = icmp eq i8 %65, 0
+  br i1 %.not.us, label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, label %66
 
-67:                                               ; preds = %64
-  %68 = or i32 %.077.us, %.04792
-  %or.cond.not.i.us = icmp sgt i32 %68, -1
+66:                                               ; preds = %63
+  %67 = or i32 %.077.us, %.04792
+  %or.cond.not.i.us = icmp sgt i32 %67, -1
   br i1 %or.cond.not.i.us, label %.split82.us, label %.split80.us
 
-_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us:       ; preds = %64
-  %69 = add nuw nsw i32 %.04676.us, 1
-  %70 = add nsw i32 %.077.us, %.sroa.speculated
-  %exitcond.not = icmp eq i32 %69, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !63
+_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us:       ; preds = %63
+  %68 = add nuw nsw i32 %.04676.us, 1
+  %69 = add nsw i32 %.077.us, %.sroa.speculated.fr
+  %exitcond.not = icmp eq i32 %68, %smax
+  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !63
 
-._crit_edge.loopexit99:                           ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit
-  %.pre120 = load i32, ptr %7, align 4, !tbaa !3
+._crit_edge.loopexit95:                           ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit
+  %.pre117 = load i32, ptr %7, align 4, !tbaa !3
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, %.preheader, %._crit_edge.loopexit99
-  %71 = phi i32 [ %48, %.preheader ], [ %.pre120, %._crit_edge.loopexit99 ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %72 = phi i32 [ %49, %.preheader ], [ %132, %._crit_edge.loopexit99 ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %73 = phi i32 [ %50, %.preheader ], [ %133, %._crit_edge.loopexit99 ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %74 = phi i32 [ %51, %.preheader ], [ %133, %._crit_edge.loopexit99 ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %75 = add nuw nsw i32 %.04890, 1
-  %76 = icmp slt i32 %75, %71
-  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !64
+._crit_edge:                                      ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, %.preheader, %._crit_edge.loopexit95
+  %70 = phi i32 [ %47, %.preheader ], [ %.pre117, %._crit_edge.loopexit95 ], [ %47, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %71 = phi i32 [ %48, %.preheader ], [ %131, %._crit_edge.loopexit95 ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %72 = phi i32 [ %49, %.preheader ], [ %132, %._crit_edge.loopexit95 ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %73 = phi i32 [ %50, %.preheader ], [ %132, %._crit_edge.loopexit95 ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %74 = add nuw nsw i32 %.04890, 1
+  %75 = icmp slt i32 %74, %70
+  br i1 %75, label %.preheader, label %.loopexit, !llvm.loop !64
 
-77:                                               ; preds = %.invoke, %.split.us
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %.invoke, %.split.us
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %131, %77
-  %eh.lpad-body = phi { ptr, i32 } [ %78, %77 ], [ %.pn.i, %131 ]
-  %79 = load ptr, ptr %39, align 8, !tbaa !15
-  %.not.i.i.i.i = icmp eq ptr %79, null
-  br i1 %.not.i.i.i.i, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %80
+.body:                                            ; preds = %130, %76
+  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %.pn.i, %130 ]
+  %78 = load ptr, ptr %39, align 8, !tbaa !15
+  %.not.i.i.i.i = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %79
 
-80:                                               ; preds = %.body
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !20
-  %83 = ptrtoint ptr %82 to i64
-  %84 = ptrtoint ptr %79 to i64
-  %85 = sub i64 %83, %84
-  tail call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef %85) #19
+79:                                               ; preds = %.body
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %81 = load ptr, ptr %80, align 8, !tbaa !20
+  %82 = ptrtoint ptr %81 to i64
+  %83 = ptrtoint ptr %78 to i64
+  %84 = sub i64 %82, %83
+  tail call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %84) #19
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
-_ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %.body, %80
+_ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %.body, %79
   resume { ptr, i32 } %eh.lpad-body
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit
+  %85 = phi i32 [ %131, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %48, %.lr.ph ]
   %86 = phi i32 [ %132, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %49, %.lr.ph ]
-  %87 = phi i32 [ %133, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %50, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %45, %.lr.ph ]
-  %88 = phi i32 [ %133, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %51, %.lr.ph ]
-  %.04676 = phi i32 [ %134, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ 0, %.lr.ph ]
-  %89 = mul nsw i32 %88, %.04890
-  %90 = add nsw i32 %89, %.04676
-  %91 = sext i32 %90 to i64
-  %92 = load ptr, ptr %36, align 8, !tbaa !21
-  %93 = load ptr, ptr %35, align 8, !tbaa !15
+  %indvars.iv = phi i64 [ %indvars.iv.next.pre-phi, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %45, %.lr.ph ]
+  %87 = phi i32 [ %132, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ %50, %.lr.ph ]
+  %.04676 = phi i32 [ %133, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit ], [ 0, %.lr.ph ]
+  %88 = mul nsw i32 %87, %.04890
+  %89 = add nsw i32 %88, %.04676
+  %90 = sext i32 %89 to i64
+  %91 = load ptr, ptr %36, align 8, !tbaa !21
+  %92 = load ptr, ptr %35, align 8, !tbaa !15
+  %93 = ptrtoint ptr %91 to i64
   %94 = ptrtoint ptr %92 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %.not.i.i.i.i51 = icmp ugt i64 %96, %91
-  br i1 %.not.i.i.i.i51, label %97, label %.split.us
+  %95 = sub i64 %93, %94
+  %.not.i.i.i.i51 = icmp ugt i64 %95, %90
+  br i1 %.not.i.i.i.i51, label %96, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph.split, %59
-  %.us-phi = phi i64 [ %63, %59 ], [ %91, %.lr.ph.split ]
-  %.us-phi78 = phi i64 [ %58, %59 ], [ %96, %.lr.ph.split ]
+.split.us:                                        ; preds = %.lr.ph.split, %58
+  %.us-phi = phi i64 [ %62, %58 ], [ %90, %.lr.ph.split ]
+  %.us-phi78 = phi i64 [ %57, %58 ], [ %95, %.lr.ph.split ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %.us-phi, i64 noundef %.us-phi78) #18
-          to label %.noexc unwind label %77
+          to label %.noexc unwind label %76
 
 .noexc:                                           ; preds = %.split.us
   unreachable
 
-97:                                               ; preds = %.lr.ph.split
-  %98 = getelementptr inbounds nuw i8, ptr %93, i64 %91
-  %99 = load i8, ptr %98, align 1, !tbaa !16
-  %.not = icmp eq i8 %99, 0
-  br i1 %.not, label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit, label %100
+96:                                               ; preds = %.lr.ph.split
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 %90
+  %98 = load i8, ptr %97, align 1, !tbaa !16
+  %.not = icmp eq i8 %98, 0
+  br i1 %.not, label %._ZN5ZXing9BitMatrix9setRegionEiiii.exit_crit_edge, label %99
 
-100:                                              ; preds = %97
-  %101 = trunc nsw i64 %indvars.iv to i32
-  %102 = or i32 %.04792, %101
-  %or.cond.not.i = icmp sgt i32 %102, -1
-  br i1 %or.cond.not.i, label %106, label %.split80.us
+._ZN5ZXing9BitMatrix9setRegionEiiii.exit_crit_edge: ; preds = %96
+  %.pre119 = add nsw i64 %indvars.iv, %46
+  br label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit
 
-.split80.us:                                      ; preds = %100, %67
-  %103 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull @.str)
-          to label %.invoke unwind label %104
+99:                                               ; preds = %96
+  %100 = trunc nsw i64 %indvars.iv to i32
+  %101 = or i32 %.04792, %100
+  %or.cond.not.i = icmp sgt i32 %101, -1
+  br i1 %or.cond.not.i, label %105, label %.split80.us
 
-104:                                              ; preds = %.split80.us
-  %105 = landingpad { ptr, i32 }
+.split80.us:                                      ; preds = %99, %66
+  %102 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull @.str)
+          to label %.invoke unwind label %103
+
+103:                                              ; preds = %.split80.us
+  %104 = landingpad { ptr, i32 }
           cleanup
-  br label %131
+  br label %130
 
-106:                                              ; preds = %100
-  %107 = add nuw nsw i64 %indvars.iv, %47
-  %108 = load i32, ptr %38, align 4, !tbaa !3
-  %109 = icmp sgt i32 %53, %108
-  %110 = load i32, ptr %0, align 8
-  %111 = sext i32 %110 to i64
-  %112 = icmp sgt i64 %107, %111
-  %or.cond.i = select i1 %109, i1 true, i1 %112
-  br i1 %or.cond.i, label %126, label %.lr.ph.us.i
+105:                                              ; preds = %99
+  %106 = add nsw i64 %indvars.iv, %46
+  %107 = load i32, ptr %38, align 4, !tbaa !3
+  %108 = icmp sgt i32 %52, %107
+  %109 = load i32, ptr %0, align 8
+  %110 = sext i32 %109 to i64
+  %111 = icmp sgt i64 %106, %110
+  %or.cond.i = select i1 %108, i1 true, i1 %111
+  br i1 %or.cond.i, label %125, label %.lr.ph.us.i
 
-.split82.us:                                      ; preds = %67
-  %113 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull @.str.1)
-          to label %.invoke unwind label %114
+.split82.us:                                      ; preds = %66
+  %112 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull @.str.1)
+          to label %.invoke unwind label %113
 
-114:                                              ; preds = %.split82.us
-  %115 = landingpad { ptr, i32 }
+113:                                              ; preds = %.split82.us
+  %114 = landingpad { ptr, i32 }
           cleanup
-  br label %131
+  br label %130
 
-.lr.ph.us.i:                                      ; preds = %106, %._crit_edge.us.i
-  %.02738.us.i = phi i32 [ %124, %._crit_edge.us.i ], [ %.04792, %106 ]
-  %116 = load i32, ptr %0, align 8, !tbaa !14
-  %117 = mul nsw i32 %116, %.02738.us.i
-  %118 = sext i32 %117 to i64
-  br label %119
+.lr.ph.us.i:                                      ; preds = %105, %._crit_edge.us.i
+  %.02738.us.i = phi i32 [ %123, %._crit_edge.us.i ], [ %.04792, %105 ]
+  %115 = load i32, ptr %0, align 8, !tbaa !14
+  %116 = mul nsw i32 %115, %.02738.us.i
+  %117 = sext i32 %116 to i64
+  br label %118
 
-119:                                              ; preds = %119, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ %indvars.iv, %.lr.ph.us.i ], [ %indvars.iv.next.i, %119 ]
-  %120 = load ptr, ptr %39, align 8, !tbaa !15
-  %121 = getelementptr i8, ptr %120, i64 %indvars.iv.i
-  %122 = getelementptr i8, ptr %121, i64 %118
-  store i8 -1, ptr %122, align 1, !tbaa !16
+118:                                              ; preds = %118, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv, %.lr.ph.us.i ], [ %indvars.iv.next.i, %118 ]
+  %119 = load ptr, ptr %39, align 8, !tbaa !15
+  %120 = getelementptr i8, ptr %119, i64 %indvars.iv.i
+  %121 = getelementptr i8, ptr %120, i64 %117
+  store i8 -1, ptr %121, align 1, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %123 = icmp slt i64 %indvars.iv.next.i, %107
-  br i1 %123, label %119, label %._crit_edge.us.i, !llvm.loop !17
+  %122 = icmp slt i64 %indvars.iv.next.i, %106
+  br i1 %122, label %118, label %._crit_edge.us.i, !llvm.loop !17
 
-._crit_edge.us.i:                                 ; preds = %119
-  %124 = add nuw nsw i32 %.02738.us.i, 1
-  %125 = icmp slt i32 %124, %53
-  br i1 %125, label %.lr.ph.us.i, label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit, !llvm.loop !19
+._crit_edge.us.i:                                 ; preds = %118
+  %123 = add nuw nsw i32 %.02738.us.i, 1
+  %124 = icmp slt i32 %123, %52
+  br i1 %124, label %.lr.ph.us.i, label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit, !llvm.loop !19
 
-126:                                              ; preds = %106
-  %127 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull @.str.2)
-          to label %.invoke unwind label %129
+125:                                              ; preds = %105
+  %126 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull @.str.2)
+          to label %.invoke unwind label %128
 
-.invoke:                                          ; preds = %126, %.split82.us, %.split80.us
-  %128 = phi ptr [ %113, %.split82.us ], [ %103, %.split80.us ], [ %127, %126 ]
-  invoke void @__cxa_throw(ptr nonnull %128, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
-          to label %.cont unwind label %77
+.invoke:                                          ; preds = %125, %.split82.us, %.split80.us
+  %127 = phi ptr [ %112, %.split82.us ], [ %102, %.split80.us ], [ %126, %125 ]
+  invoke void @__cxa_throw(ptr nonnull %127, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
+          to label %.cont unwind label %76
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-129:                                              ; preds = %126
-  %130 = landingpad { ptr, i32 }
+128:                                              ; preds = %125
+  %129 = landingpad { ptr, i32 }
           cleanup
-  br label %131
+  br label %130
 
-131:                                              ; preds = %129, %114, %104
-  %.sink.i = phi ptr [ %127, %129 ], [ %113, %114 ], [ %103, %104 ]
-  %.pn.i = phi { ptr, i32 } [ %130, %129 ], [ %115, %114 ], [ %105, %104 ]
+130:                                              ; preds = %128, %113, %103
+  %.sink.i = phi ptr [ %126, %128 ], [ %112, %113 ], [ %102, %103 ]
+  %.pn.i = phi { ptr, i32 } [ %129, %128 ], [ %114, %113 ], [ %104, %103 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #17
   br label %.body
 
@@ -1818,13 +1819,13 @@ _ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit: ; preds = %._crit_edge.us.i
   %.pre = load i32, ptr %1, align 8, !tbaa !14
   br label %_ZN5ZXing9BitMatrix9setRegionEiiii.exit
 
-_ZN5ZXing9BitMatrix9setRegionEiiii.exit:          ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit, %97
-  %132 = phi i32 [ %.pre, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit ], [ %86, %97 ]
-  %133 = phi i32 [ %.pre, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit ], [ %87, %97 ]
-  %134 = add nuw nsw i32 %.04676, 1
-  %135 = icmp slt i32 %134, %133
-  %indvars.iv.next = add nsw i64 %indvars.iv, %smin
-  br i1 %135, label %.lr.ph.split, label %._crit_edge.loopexit99, !llvm.loop !63
+_ZN5ZXing9BitMatrix9setRegionEiiii.exit:          ; preds = %._ZN5ZXing9BitMatrix9setRegionEiiii.exit_crit_edge, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre119, %._ZN5ZXing9BitMatrix9setRegionEiiii.exit_crit_edge ], [ %106, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit ]
+  %131 = phi i32 [ %85, %._ZN5ZXing9BitMatrix9setRegionEiiii.exit_crit_edge ], [ %.pre, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit ]
+  %132 = phi i32 [ %86, %._ZN5ZXing9BitMatrix9setRegionEiiii.exit_crit_edge ], [ %.pre, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.loopexit ]
+  %133 = add nuw nsw i32 %.04676, 1
+  %134 = icmp slt i32 %133, %132
+  br i1 %134, label %.lr.ph.split, label %._crit_edge.loopexit95, !llvm.loop !63
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %25, %14
   ret void

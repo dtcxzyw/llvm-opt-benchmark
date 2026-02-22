@@ -136,15 +136,15 @@ define dso_local void @_ZN5clang16AvailabilityInfo9mergeWithES0_(ptr noundef non
 _ZNK5clang16AvailabilityInfo9isDefaultEv.exit9:   ; preds = %58
   %66 = load i8, ptr %41, align 1, !tbaa !4, !range !3, !noundef !8
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %287, label %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread
+  br i1 %67, label %285, label %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread
 
 _ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread: ; preds = %58, %55, %51, %48, %44, %35, %25, %22, %18, %15, %11, %2, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit9
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !9
   %.not.i = icmp ne i64 %69, 0
   %70 = icmp eq ptr %0, %1
-  %or.cond41 = or i1 %70, %.not.i
-  br i1 %or.cond41, label %_ZN4llvm11SmallStringILj32EEaSERKS1_.exit, label %71
+  %or.cond37 = or i1 %70, %.not.i
+  br i1 %or.cond37, label %_ZN4llvm11SmallStringILj32EEaSERKS1_.exit, label %71
 
 71:                                               ; preds = %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -175,11 +175,11 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.thread:  ; preds = %74, %_ZSt4copyIPKcP
 
 .sink.split.i.i.i:                                ; preds = %71, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.thread, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i
   store i64 %73, ptr %68, align 8, !tbaa !9
-  %.pre50 = load i64, ptr %3, align 8
+  %.pre46 = load i64, ptr %3, align 8
   br label %_ZN4llvm11SmallStringILj32EEaSERKS1_.exit
 
 _ZN4llvm11SmallStringILj32EEaSERKS1_.exit:        ; preds = %.sink.split.i.i.i, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread
-  %82 = phi i64 [ %.pre50, %.sink.split.i.i.i ], [ %9, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread ]
+  %82 = phi i64 [ %.pre46, %.sink.split.i.i.i ], [ %9, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit.thread ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %84 = load i8, ptr %83, align 2, !tbaa !15, !range !3, !noundef !8
   %85 = load i8, ptr %8, align 2, !tbaa !15, !range !3, !noundef !8
@@ -202,10 +202,9 @@ _ZN4llvm11SmallStringILj32EEaSERKS1_.exit:        ; preds = %.sink.split.i.i.i, 
   %99 = and i32 %98, 2147483647
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %101 = load i64, ptr %100, align 8
-  %.fr9.i = freeze i64 %101
-  %102 = trunc i64 %.fr9.i to i32
+  %102 = trunc i64 %101 to i32
   %103 = and i32 %102, 2147483647
-  %104 = lshr i64 %.fr9.i, 32
+  %104 = lshr i64 %101, 32
   %105 = trunc nuw i64 %104 to i32
   %106 = and i32 %105, 2147483647
   %107 = load i64, ptr %95, align 8
@@ -215,10 +214,9 @@ _ZN4llvm11SmallStringILj32EEaSERKS1_.exit:        ; preds = %.sink.split.i.i.i, 
   %111 = and i32 %110, 2147483647
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %113 = load i64, ptr %112, align 8
-  %.fr.i = freeze i64 %113
-  %114 = trunc i64 %.fr.i to i32
+  %114 = trunc i64 %113 to i32
   %115 = and i32 %114, 2147483647
-  %116 = lshr i64 %.fr.i, 32
+  %116 = lshr i64 %113, 32
   %117 = trunc nuw i64 %116 to i32
   %118 = and i32 %117, 2147483647
   %119 = icmp ult i32 %96, %108
@@ -243,8 +241,9 @@ _ZN4llvm11SmallStringILj32EEaSERKS1_.exit:        ; preds = %.sink.split.i.i.i, 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit.i:        ; preds = %126
   %128 = icmp samesign uge i32 %115, %103
   %129 = icmp samesign ult i32 %106, %118
-  %spec.select.i.i = and i1 %128, %129
-  br i1 %spec.select.i.i, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i, label %_ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit
+  %spec.select.i.i = select i1 %128, i1 %129, i1 false
+  %cond.fr.i = freeze i1 %spec.select.i.i
+  br i1 %cond.fr.i, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i, label %_ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i, %126, %122, %_ZN4llvm11SmallStringILj32EEaSERKS1_.exit
   br label %_ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit
@@ -261,284 +260,282 @@ _ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %120, %124, %_ZN4llv
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, 9223372034707292159
-  %or.cond43 = icmp eq i64 %136, 0
-  br i1 %or.cond43, label %._crit_edge54, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+  %or.cond39 = icmp eq i64 %136, 0
+  br i1 %or.cond39, label %._crit_edge50, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
-._crit_edge54:                                    ; preds = %133
-  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.pre56 = load i64, ptr %.phi.trans.insert55, align 4
-  %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.pre58 = load i64, ptr %.phi.trans.insert57, align 4
-  %137 = freeze i64 %.pre58
-  br label %176
+._crit_edge50:                                    ; preds = %133
+  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 4
+  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %.pre54 = load i64, ptr %.phi.trans.insert53, align 4
+  br label %174
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit, %133
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %139 = load i64, ptr %138, align 4
-  %140 = and i64 %139, 9223372036854775807
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %142 = load i64, ptr %141, align 4
-  %.fr9.i13 = freeze i64 %142
-  %143 = and i64 %.fr9.i13, 9223372034707292159
-  %144 = or i64 %140, %143
-  %or.cond103 = icmp eq i64 %144, 0
-  br i1 %or.cond103, label %._crit_edge, label %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %138 = load i64, ptr %137, align 4
+  %139 = and i64 %138, 9223372036854775807
+  %or.cond.i11 = icmp eq i64 %139, 0
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %141 = load i64, ptr %140, align 4
+  %142 = and i64 %141, 9223372034707292159
+  %or.cond41 = icmp eq i64 %142, 0
+  %or.cond99 = select i1 %or.cond.i11, i1 %or.cond41, i1 false
+  br i1 %or.cond99, label %._crit_edge, label %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
-  %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.pre53 = load i64, ptr %.phi.trans.insert52, align 8
-  br label %176
+  %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %.pre49 = load i64, ptr %.phi.trans.insert48, align 8
+  br label %174
 
 _ZNK4llvm12VersionTuple5emptyEv.exit12.thread:    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
-  %145 = trunc i64 %139 to i32
-  %146 = lshr i64 %139, 32
-  %147 = trunc nuw i64 %146 to i32
+  %143 = trunc i64 %138 to i32
+  %144 = lshr i64 %138, 32
+  %145 = trunc nuw i64 %144 to i32
+  %146 = and i32 %145, 2147483647
+  %147 = trunc i64 %141 to i32
   %148 = and i32 %147, 2147483647
-  %149 = trunc i64 %.fr9.i13 to i32
-  %150 = and i32 %149, 2147483647
-  %151 = lshr i64 %.fr9.i13, 32
-  %152 = trunc nuw i64 %151 to i32
-  %153 = and i32 %152, 2147483647
-  %154 = trunc i64 %131 to i32
-  %155 = lshr i64 %131, 32
-  %156 = trunc nuw i64 %155 to i32
-  %157 = and i32 %156, 2147483647
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %159 = load i64, ptr %158, align 8
-  %.fr.i14 = freeze i64 %159
-  %160 = trunc i64 %.fr.i14 to i32
-  %161 = and i32 %160, 2147483647
-  %162 = lshr i64 %.fr.i14, 32
-  %163 = trunc nuw i64 %162 to i32
-  %164 = and i32 %163, 2147483647
-  %165 = icmp ult i32 %145, %154
-  br i1 %165, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17, label %166
+  %149 = lshr i64 %141, 32
+  %150 = trunc nuw i64 %149 to i32
+  %151 = and i32 %150, 2147483647
+  %152 = trunc i64 %131 to i32
+  %153 = lshr i64 %131, 32
+  %154 = trunc nuw i64 %153 to i32
+  %155 = and i32 %154, 2147483647
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %157 = load i64, ptr %156, align 8
+  %158 = trunc i64 %157 to i32
+  %159 = and i32 %158, 2147483647
+  %160 = lshr i64 %157, 32
+  %161 = trunc nuw i64 %160 to i32
+  %162 = and i32 %161, 2147483647
+  %163 = icmp ult i32 %143, %152
+  br i1 %163, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16, label %164
 
-166:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
-  %167 = icmp ult i32 %154, %145
-  br i1 %167, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %168
+164:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
+  %165 = icmp ult i32 %152, %143
+  br i1 %165, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %166
+
+166:                                              ; preds = %164
+  %167 = icmp samesign ult i32 %146, %155
+  br i1 %167, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16, label %168
 
 168:                                              ; preds = %166
-  %169 = icmp samesign ult i32 %148, %157
-  br i1 %169, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17, label %170
+  %169 = icmp samesign ult i32 %155, %146
+  br i1 %169, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %170
 
 170:                                              ; preds = %168
-  %171 = icmp samesign ult i32 %157, %148
-  br i1 %171, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %172
+  %171 = icmp samesign ult i32 %148, %159
+  br i1 %171, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i13
 
-172:                                              ; preds = %170
-  %173 = icmp samesign ult i32 %150, %161
-  br i1 %173, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i13:      ; preds = %170
+  %172 = icmp samesign uge i32 %159, %148
+  %173 = icmp samesign ult i32 %151, %162
+  %spec.select.i.i14 = select i1 %172, i1 %173, i1 false
+  %cond.fr.i15 = freeze i1 %spec.select.i.i14
+  br i1 %cond.fr.i15, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15:      ; preds = %172
-  %174 = icmp samesign uge i32 %161, %150
-  %175 = icmp samesign ult i32 %153, %164
-  %spec.select.i.i16 = and i1 %174, %175
-  br i1 %spec.select.i.i16, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
-
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15, %172, %168, %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i13, %170, %166, %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
   br label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
-176:                                              ; preds = %._crit_edge54, %._crit_edge
-  %.fr.i19 = phi i64 [ %.fr9.i13, %._crit_edge ], [ %137, %._crit_edge54 ]
-  %177 = phi i64 [ %139, %._crit_edge ], [ %.pre56, %._crit_edge54 ]
-  %178 = phi i64 [ %.pre53, %._crit_edge ], [ %135, %._crit_edge54 ]
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %180 = trunc i64 %131 to i32
-  %181 = lshr i64 %131, 32
-  %182 = trunc nuw i64 %181 to i32
-  %183 = and i32 %182, 2147483647
-  %.fr9.i18 = freeze i64 %178
-  %184 = trunc i64 %.fr9.i18 to i32
-  %185 = and i32 %184, 2147483647
-  %186 = lshr i64 %.fr9.i18, 32
-  %187 = trunc nuw i64 %186 to i32
-  %188 = and i32 %187, 2147483647
-  %189 = trunc i64 %177 to i32
-  %190 = lshr i64 %177, 32
-  %191 = trunc nuw i64 %190 to i32
-  %192 = and i32 %191, 2147483647
-  %193 = trunc i64 %.fr.i19 to i32
-  %194 = and i32 %193, 2147483647
-  %195 = lshr i64 %.fr.i19, 32
-  %196 = trunc nuw i64 %195 to i32
-  %197 = and i32 %196, 2147483647
-  %198 = icmp ult i32 %180, %189
-  br i1 %198, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22, label %199
+174:                                              ; preds = %._crit_edge50, %._crit_edge
+  %175 = phi i64 [ %141, %._crit_edge ], [ %.pre54, %._crit_edge50 ]
+  %176 = phi i64 [ %138, %._crit_edge ], [ %.pre52, %._crit_edge50 ]
+  %177 = phi i64 [ %.pre49, %._crit_edge ], [ %135, %._crit_edge50 ]
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %179 = trunc i64 %131 to i32
+  %180 = lshr i64 %131, 32
+  %181 = trunc nuw i64 %180 to i32
+  %182 = and i32 %181, 2147483647
+  %183 = trunc i64 %177 to i32
+  %184 = and i32 %183, 2147483647
+  %185 = lshr i64 %177, 32
+  %186 = trunc nuw i64 %185 to i32
+  %187 = and i32 %186, 2147483647
+  %188 = trunc i64 %176 to i32
+  %189 = lshr i64 %176, 32
+  %190 = trunc nuw i64 %189 to i32
+  %191 = and i32 %190, 2147483647
+  %192 = trunc i64 %175 to i32
+  %193 = and i32 %192, 2147483647
+  %194 = lshr i64 %175, 32
+  %195 = trunc nuw i64 %194 to i32
+  %196 = and i32 %195, 2147483647
+  %197 = icmp ult i32 %179, %188
+  br i1 %197, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20, label %198
 
-199:                                              ; preds = %176
-  %200 = icmp ult i32 %189, %180
-  br i1 %200, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %201
+198:                                              ; preds = %174
+  %199 = icmp ult i32 %188, %179
+  br i1 %199, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %200
 
-201:                                              ; preds = %199
-  %202 = icmp samesign ult i32 %183, %192
-  br i1 %202, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22, label %203
+200:                                              ; preds = %198
+  %201 = icmp samesign ult i32 %182, %191
+  br i1 %201, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20, label %202
 
-203:                                              ; preds = %201
-  %204 = icmp samesign ult i32 %192, %183
-  br i1 %204, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %205
+202:                                              ; preds = %200
+  %203 = icmp samesign ult i32 %191, %182
+  br i1 %203, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, label %204
 
-205:                                              ; preds = %203
-  %206 = icmp samesign ult i32 %185, %194
-  br i1 %206, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20
+204:                                              ; preds = %202
+  %205 = icmp samesign ult i32 %184, %193
+  br i1 %205, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i17
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20:      ; preds = %205
-  %207 = icmp samesign uge i32 %194, %185
-  %208 = icmp samesign ult i32 %188, %197
-  %spec.select.i.i21 = and i1 %207, %208
-  br i1 %spec.select.i.i21, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i17:      ; preds = %204
+  %206 = icmp samesign uge i32 %193, %184
+  %207 = icmp samesign ult i32 %187, %196
+  %spec.select.i.i18 = select i1 %206, i1 %207, i1 false
+  %cond.fr.i19 = freeze i1 %spec.select.i.i18
+  br i1 %cond.fr.i19, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20, label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20, %205, %201, %176
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i17, %204, %200, %174
   br label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
-_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20, %203, %199, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15, %170, %166
-  %.sink = phi ptr [ %4, %166 ], [ %138, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15 ], [ %4, %170 ], [ %179, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20 ], [ %4, %203 ], [ %4, %199 ]
+_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i17, %202, %198, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i13, %168, %164
+  %.sink = phi ptr [ %4, %164 ], [ %137, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i16 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i13 ], [ %4, %168 ], [ %178, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i20 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i17 ], [ %4, %202 ], [ %4, %198 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink, i64 16, i1 false)
-  %209 = load i64, ptr %5, align 8
-  %210 = and i64 %209, 9223372036854775807
-  %or.cond.i24 = icmp eq i64 %210, 0
-  br i1 %or.cond.i24, label %211, label %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
+  %208 = load i64, ptr %5, align 8
+  %209 = and i64 %208, 9223372036854775807
+  %or.cond.i22 = icmp eq i64 %209, 0
+  br i1 %or.cond.i22, label %210, label %_ZNK4llvm12VersionTuple5emptyEv.exit23.thread
 
-211:                                              ; preds = %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %213 = load i64, ptr %212, align 8
-  %214 = and i64 %213, 9223372034707292159
-  %or.cond47 = icmp eq i64 %214, 0
-  br i1 %or.cond47, label %._crit_edge64, label %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
+210:                                              ; preds = %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %212 = load i64, ptr %211, align 8
+  %213 = and i64 %212, 9223372034707292159
+  %or.cond43 = icmp eq i64 %213, 0
+  br i1 %or.cond43, label %._crit_edge60, label %_ZNK4llvm12VersionTuple5emptyEv.exit23.thread
 
-._crit_edge64:                                    ; preds = %211
-  %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.pre66 = load i64, ptr %.phi.trans.insert65, align 4
-  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.pre68 = load i64, ptr %.phi.trans.insert67, align 4
-  %215 = freeze i64 %.pre68
-  br label %254
+._crit_edge60:                                    ; preds = %210
+  %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.pre62 = load i64, ptr %.phi.trans.insert61, align 4
+  %.phi.trans.insert63 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %.pre64 = load i64, ptr %.phi.trans.insert63, align 4
+  br label %251
 
-_ZNK4llvm12VersionTuple5emptyEv.exit25.thread:    ; preds = %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, %211
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %217 = load i64, ptr %216, align 4
-  %218 = and i64 %217, 9223372036854775807
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %220 = load i64, ptr %219, align 4
-  %.fr9.i28 = freeze i64 %220
-  %221 = and i64 %.fr9.i28, 9223372034707292159
-  %222 = or i64 %218, %221
-  %or.cond104 = icmp eq i64 %222, 0
-  br i1 %or.cond104, label %._crit_edge61, label %_ZNK4llvm12VersionTuple5emptyEv.exit27.thread
+_ZNK4llvm12VersionTuple5emptyEv.exit23.thread:    ; preds = %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit, %210
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %215 = load i64, ptr %214, align 4
+  %216 = and i64 %215, 9223372036854775807
+  %or.cond.i24 = icmp eq i64 %216, 0
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %218 = load i64, ptr %217, align 4
+  %219 = and i64 %218, 9223372034707292159
+  %or.cond45 = icmp eq i64 %219, 0
+  %or.cond100 = select i1 %or.cond.i24, i1 %or.cond45, i1 false
+  br i1 %or.cond100, label %._crit_edge57, label %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
 
-._crit_edge61:                                    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
-  %.phi.trans.insert62 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre63 = load i64, ptr %.phi.trans.insert62, align 8
-  br label %254
+._crit_edge57:                                    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit23.thread
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
+  br label %251
 
-_ZNK4llvm12VersionTuple5emptyEv.exit27.thread:    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
-  %223 = trunc i64 %217 to i32
-  %224 = lshr i64 %217, 32
-  %225 = trunc nuw i64 %224 to i32
-  %226 = and i32 %225, 2147483647
-  %227 = trunc i64 %.fr9.i28 to i32
+_ZNK4llvm12VersionTuple5emptyEv.exit25.thread:    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit23.thread
+  %220 = trunc i64 %215 to i32
+  %221 = lshr i64 %215, 32
+  %222 = trunc nuw i64 %221 to i32
+  %223 = and i32 %222, 2147483647
+  %224 = trunc i64 %218 to i32
+  %225 = and i32 %224, 2147483647
+  %226 = lshr i64 %218, 32
+  %227 = trunc nuw i64 %226 to i32
   %228 = and i32 %227, 2147483647
-  %229 = lshr i64 %.fr9.i28, 32
-  %230 = trunc nuw i64 %229 to i32
-  %231 = and i32 %230, 2147483647
-  %232 = trunc i64 %209 to i32
-  %233 = lshr i64 %209, 32
-  %234 = trunc nuw i64 %233 to i32
-  %235 = and i32 %234, 2147483647
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %237 = load i64, ptr %236, align 8
-  %.fr.i29 = freeze i64 %237
-  %238 = trunc i64 %.fr.i29 to i32
+  %229 = trunc i64 %208 to i32
+  %230 = lshr i64 %208, 32
+  %231 = trunc nuw i64 %230 to i32
+  %232 = and i32 %231, 2147483647
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %234 = load i64, ptr %233, align 8
+  %235 = trunc i64 %234 to i32
+  %236 = and i32 %235, 2147483647
+  %237 = lshr i64 %234, 32
+  %238 = trunc nuw i64 %237 to i32
   %239 = and i32 %238, 2147483647
-  %240 = lshr i64 %.fr.i29, 32
-  %241 = trunc nuw i64 %240 to i32
-  %242 = and i32 %241, 2147483647
-  %243 = icmp ult i32 %223, %232
-  br i1 %243, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32, label %244
+  %240 = icmp ult i32 %220, %229
+  br i1 %240, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29, label %241
 
-244:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit27.thread
-  %245 = icmp ult i32 %232, %223
-  br i1 %245, label %.sink.split, label %246
+241:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
+  %242 = icmp ult i32 %229, %220
+  br i1 %242, label %.sink.split, label %243
 
-246:                                              ; preds = %244
-  %247 = icmp samesign ult i32 %226, %235
-  br i1 %247, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32, label %248
+243:                                              ; preds = %241
+  %244 = icmp samesign ult i32 %223, %232
+  br i1 %244, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29, label %245
 
-248:                                              ; preds = %246
-  %249 = icmp samesign ult i32 %235, %226
-  br i1 %249, label %.sink.split, label %250
+245:                                              ; preds = %243
+  %246 = icmp samesign ult i32 %232, %223
+  br i1 %246, label %.sink.split, label %247
 
-250:                                              ; preds = %248
-  %251 = icmp samesign ult i32 %228, %239
-  br i1 %251, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30
+247:                                              ; preds = %245
+  %248 = icmp samesign ult i32 %225, %236
+  br i1 %248, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30:      ; preds = %250
-  %252 = icmp samesign uge i32 %239, %228
-  %253 = icmp samesign ult i32 %231, %242
-  %spec.select.i.i31 = and i1 %252, %253
-  br i1 %spec.select.i.i31, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32, label %.sink.split
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26:      ; preds = %247
+  %249 = icmp samesign uge i32 %236, %225
+  %250 = icmp samesign ult i32 %228, %239
+  %spec.select.i.i27 = select i1 %249, i1 %250, i1 false
+  %cond.fr.i28 = freeze i1 %spec.select.i.i27
+  br i1 %cond.fr.i28, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29, label %.sink.split
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30, %250, %246, %_ZNK4llvm12VersionTuple5emptyEv.exit27.thread
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26, %247, %243, %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
   br label %.sink.split
 
-254:                                              ; preds = %._crit_edge64, %._crit_edge61
-  %.fr.i35 = phi i64 [ %.fr9.i28, %._crit_edge61 ], [ %215, %._crit_edge64 ]
-  %255 = phi i64 [ %217, %._crit_edge61 ], [ %.pre66, %._crit_edge64 ]
-  %256 = phi i64 [ %.pre63, %._crit_edge61 ], [ %213, %._crit_edge64 ]
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %258 = trunc i64 %209 to i32
-  %259 = lshr i64 %209, 32
-  %260 = trunc nuw i64 %259 to i32
+251:                                              ; preds = %._crit_edge60, %._crit_edge57
+  %252 = phi i64 [ %218, %._crit_edge57 ], [ %.pre64, %._crit_edge60 ]
+  %253 = phi i64 [ %215, %._crit_edge57 ], [ %.pre62, %._crit_edge60 ]
+  %254 = phi i64 [ %.pre59, %._crit_edge57 ], [ %212, %._crit_edge60 ]
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %256 = trunc i64 %208 to i32
+  %257 = lshr i64 %208, 32
+  %258 = trunc nuw i64 %257 to i32
+  %259 = and i32 %258, 2147483647
+  %260 = trunc i64 %254 to i32
   %261 = and i32 %260, 2147483647
-  %.fr9.i34 = freeze i64 %256
-  %262 = trunc i64 %.fr9.i34 to i32
-  %263 = and i32 %262, 2147483647
-  %264 = lshr i64 %.fr9.i34, 32
-  %265 = trunc nuw i64 %264 to i32
-  %266 = and i32 %265, 2147483647
-  %267 = trunc i64 %255 to i32
-  %268 = lshr i64 %255, 32
-  %269 = trunc nuw i64 %268 to i32
+  %262 = lshr i64 %254, 32
+  %263 = trunc nuw i64 %262 to i32
+  %264 = and i32 %263, 2147483647
+  %265 = trunc i64 %253 to i32
+  %266 = lshr i64 %253, 32
+  %267 = trunc nuw i64 %266 to i32
+  %268 = and i32 %267, 2147483647
+  %269 = trunc i64 %252 to i32
   %270 = and i32 %269, 2147483647
-  %271 = trunc i64 %.fr.i35 to i32
-  %272 = and i32 %271, 2147483647
-  %273 = lshr i64 %.fr.i35, 32
-  %274 = trunc nuw i64 %273 to i32
-  %275 = and i32 %274, 2147483647
-  %276 = icmp ult i32 %258, %267
-  br i1 %276, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38, label %277
+  %271 = lshr i64 %252, 32
+  %272 = trunc nuw i64 %271 to i32
+  %273 = and i32 %272, 2147483647
+  %274 = icmp ult i32 %256, %265
+  br i1 %274, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34, label %275
 
-277:                                              ; preds = %254
-  %278 = icmp ult i32 %267, %258
-  br i1 %278, label %.sink.split, label %279
+275:                                              ; preds = %251
+  %276 = icmp ult i32 %265, %256
+  br i1 %276, label %.sink.split, label %277
+
+277:                                              ; preds = %275
+  %278 = icmp samesign ult i32 %259, %268
+  br i1 %278, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34, label %279
 
 279:                                              ; preds = %277
-  %280 = icmp samesign ult i32 %261, %270
-  br i1 %280, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38, label %281
+  %280 = icmp samesign ult i32 %268, %259
+  br i1 %280, label %.sink.split, label %281
 
 281:                                              ; preds = %279
-  %282 = icmp samesign ult i32 %270, %261
-  br i1 %282, label %.sink.split, label %283
+  %282 = icmp samesign ult i32 %261, %270
+  br i1 %282, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31
 
-283:                                              ; preds = %281
-  %284 = icmp samesign ult i32 %263, %272
-  br i1 %284, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31:      ; preds = %281
+  %283 = icmp samesign uge i32 %270, %261
+  %284 = icmp samesign ult i32 %264, %273
+  %spec.select.i.i32 = select i1 %283, i1 %284, i1 false
+  %cond.fr.i33 = freeze i1 %spec.select.i.i32
+  br i1 %cond.fr.i33, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34, label %.sink.split
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36:      ; preds = %283
-  %285 = icmp samesign uge i32 %272, %263
-  %286 = icmp samesign ult i32 %266, %275
-  %spec.select.i.i37 = and i1 %285, %286
-  br i1 %spec.select.i.i37, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38, label %.sink.split
-
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36, %283, %279, %254
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31, %281, %277, %251
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36, %281, %277, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30, %248, %244
-  %.sink105 = phi ptr [ %5, %244 ], [ %216, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30 ], [ %5, %248 ], [ %257, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36 ], [ %5, %281 ], [ %5, %277 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %.sink105, i64 16, i1 false)
-  br label %287
+.sink.split:                                      ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31, %279, %275, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26, %245, %241
+  %.sink101 = phi ptr [ %5, %241 ], [ %214, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26 ], [ %5, %245 ], [ %255, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31 ], [ %5, %279 ], [ %5, %275 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %.sink101, i64 16, i1 false)
+  br label %285
 
-287:                                              ; preds = %.sink.split, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit9
+285:                                              ; preds = %.sink.split, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit9
   ret void
 }
 

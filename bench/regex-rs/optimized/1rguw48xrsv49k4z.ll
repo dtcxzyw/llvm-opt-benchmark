@@ -12706,7 +12706,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %630, %629, %627, %626, %621, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.thread.i", %586, %584, %537, %507, %.invoke.i, %.invoke495.i, %280, %277, %276, %272, %259, %255, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.thread.i239", %248, %245, %240
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %630, %629, %627, %626, %621, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.thread.i", %586, %584, %537, %507, %.invoke.i, %.invoke496.i, %280, %277, %276, %272, %259, %255, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit.thread.i239", %248, %245, %240
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -12815,11 +12815,11 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
 
 268:                                              ; preds = %266
   %269 = icmp eq i32 %267, 125
-  %.pre419.i = load i64, ptr %34, align 8, !noalias !1457
+  %.pre420.i = load i64, ptr %34, align 8, !noalias !1457
   br i1 %269, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.i", label %618
 
 "_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.i": ; preds = %268, %".noexc137._ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread_crit_edge.i"
-  %270 = phi i64 [ %.pre.i, %".noexc137._ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread_crit_edge.i" ], [ %.pre419.i, %268 ]
+  %270 = phi i64 [ %.pre.i, %".noexc137._ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread_crit_edge.i" ], [ %.pre420.i, %268 ]
   %271 = icmp eq i64 %270, %.val237
   br i1 %271, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19bump_and_bump_space17ha93486656ca9df72E.exit139.thread.thread.i", label %272
 
@@ -13063,21 +13063,21 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
 395:                                              ; preds = %.preheader4.i.i
   %396 = add i64 %.sroa.5.0.i13.i.i, -1
   %397 = icmp ult i64 %396, %366
-  br i1 %397, label %398, label %.invoke495.i, !prof !599
+  br i1 %397, label %398, label %.invoke496.i, !prof !599
 
 398:                                              ; preds = %395
   %399 = add i64 %396, %378
   %400 = icmp ult i64 %399, %362
-  br i1 %400, label %404, label %.invoke495.i, !prof !599
+  br i1 %400, label %404, label %.invoke496.i, !prof !599
 
-.invoke495.i:                                     ; preds = %398, %395, %448, %467, %.preheader.i.i, %420
+.invoke496.i:                                     ; preds = %398, %395, %448, %467, %.preheader.i.i, %420
   %401 = phi i64 [ %umax.i.i.i, %467 ], [ %432, %.preheader.i.i ], [ %umax.i17.i.i, %420 ], [ %450, %448 ], [ %399, %398 ], [ %396, %395 ]
   %402 = phi i64 [ %362, %467 ], [ %366, %.preheader.i.i ], [ %362, %420 ], [ %362, %448 ], [ %362, %398 ], [ %366, %395 ]
   %403 = phi ptr [ @anon.ed16137989d64f70c3f50139d1d1d1dc.12, %467 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.9, %.preheader.i.i ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.12, %420 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.10, %448 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.10, %398 ], [ @anon.ed16137989d64f70c3f50139d1d1d1dc.9, %395 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %401, i64 noundef %402, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %403) #23
-          to label %.cont496.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1457
+          to label %.cont497.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !1457
 
-.cont496.i:                                       ; preds = %.invoke495.i
+.cont497.i:                                       ; preds = %.invoke496.i
   unreachable
 
 404:                                              ; preds = %398
@@ -13109,7 +13109,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
 420:                                              ; preds = %411
   %421 = add i64 %.0.sroa.speculated.i.i11.i.i, %378
   %umax.i17.i.i = tail call i64 @llvm.umax.i64(i64 %362, i64 %421)
-  br label %.invoke495.i
+  br label %.invoke496.i
 
 422:                                              ; preds = %414
   %reass.sub = sub i64 %378, %373
@@ -13130,10 +13130,10 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   %427 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %428 = load i64, ptr %427, align 8, !alias.scope !1507, !noalias !1514, !noundef !5
   %429 = load i64, ptr %285, align 8, !alias.scope !1507, !noalias !1514
-  %.fr.i = freeze i64 %429
+  %.fr368.i = freeze i64 %429
   %430 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %431 = load i64, ptr %430, align 8, !alias.scope !1507, !noalias !1514
-  %432 = add i64 %.fr.i, -1
+  %432 = add i64 %.fr368.i, -1
   %.first_iter.i.i = icmp ult i64 %432, %366
   br label %433
 
@@ -13160,7 +13160,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   br i1 %.not35.i.i.i, label %433, label %.thread23.i.i.i.i
 
 .preheader3.i.i:                                  ; preds = %433, %461
-  %.sroa.04.0.i.i.i = phi i64 [ %462, %461 ], [ %.fr.i, %433 ]
+  %.sroa.04.0.i.i.i = phi i64 [ %462, %461 ], [ %.fr368.i, %433 ]
   %447 = icmp ult i64 %.sroa.04.0.i.i.i, %366
   br i1 %447, label %458, label %.preheader.i.preheader.i
 
@@ -13168,7 +13168,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   br i1 %.first_iter.i.i, label %.preheader.i.us.i, label %.preheader.i.i, !prof !599
 
 .preheader.i.us.i:                                ; preds = %.preheader.i.preheader.i, %452
-  %.sroa.5.0.i.i.us.i = phi i64 [ %449, %452 ], [ %.fr.i, %.preheader.i.preheader.i ]
+  %.sroa.5.0.i.i.us.i = phi i64 [ %449, %452 ], [ %.fr368.i, %.preheader.i.preheader.i ]
   %.not.i.us.i = icmp eq i64 %.sroa.5.0.i.i.us.i, 0
   br i1 %.not.i.us.i, label %.loopexit315.i, label %448
 
@@ -13176,7 +13176,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   %449 = add i64 %.sroa.5.0.i.i.us.i, -1
   %450 = add i64 %449, %434
   %451 = icmp ult i64 %450, %362
-  br i1 %451, label %452, label %.invoke495.i, !prof !599
+  br i1 %451, label %452, label %.invoke496.i, !prof !599
 
 452:                                              ; preds = %448
   %453 = getelementptr inbounds i8, ptr %364, i64 %449
@@ -13191,8 +13191,8 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   br label %.backedge.i.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.preheader.i
-  %.not.i.i246 = icmp eq i64 %.fr.i, 0
-  br i1 %.not.i.i246, label %.loopexit315.i, label %.invoke495.i
+  %.not.i.i246 = icmp eq i64 %.fr368.i, 0
+  br i1 %.not.i.i246, label %.loopexit315.i, label %.invoke496.i
 
 458:                                              ; preds = %.preheader3.i.i
   %459 = add i64 %.sroa.04.0.i.i.i, %434
@@ -13209,12 +13209,12 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   br i1 %.not.i.i.i, label %.preheader3.i.i, label %469
 
 467:                                              ; preds = %458
-  %468 = add i64 %434, %.fr.i
+  %468 = add i64 %434, %.fr368.i
   %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %362, i64 %468)
-  br label %.invoke495.i
+  br label %.invoke496.i
 
 469:                                              ; preds = %461
-  %reass.sub624 = sub i64 %434, %.fr.i
+  %reass.sub624 = sub i64 %434, %.fr368.i
   %470 = add i64 %reass.sub624, 1
   %471 = add i64 %470, %.sroa.04.0.i.i.i
   br label %.backedge.i.i.i
@@ -13595,7 +13595,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i182.i: ; preds =
   br label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$19parse_unicode_class17h53dab885d799ce4eE.exit"
 
 618:                                              ; preds = %268
-  %619 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.pre419.i)
+  %619 = invoke fastcc noundef i32 @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$7char_at17h336a5b76778ee86fE"(ptr nonnull %.val236, i64 %.val237, i64 noundef %.pre420.i)
           to label %620 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !1457
 
 620:                                              ; preds = %618

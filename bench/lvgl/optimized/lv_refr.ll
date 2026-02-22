@@ -1311,14 +1311,14 @@ alpha_test_area_on_obj.exit:                      ; preds = %94
   store i32 %140, ptr %78, align 4, !tbaa !113
   store i8 %16, ptr %79, align 4, !tbaa !114
   %141 = call ptr @lv_obj_get_style_prop(ptr noundef %1, i32 noundef 0, i8 noundef zeroext 110) #9
-  %.fr99 = freeze ptr %141
-  %142 = ptrtoint ptr %.fr99 to i64
+  %142 = ptrtoint ptr %141 to i64
   %.sroa.0.0.extract.trunc.i77 = trunc i64 %142 to i32
   %143 = add i32 %.sroa.0.0.extract.trunc.i77, 3599
   %smin = call i32 @llvm.smin.i32(i32 %.sroa.0.0.extract.trunc.i77, i32 3600)
   %144 = sub i32 %143, %smin
-  %145 = urem i32 %144, 3600
-  %146 = sub nuw i32 %144, %145
+  %.fr = freeze i32 %144
+  %145 = urem i32 %.fr, 3600
+  %146 = sub nuw i32 %.fr, %145
   %147 = sub i32 %.sroa.0.0.extract.trunc.i77, %146
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %.lr.ph.preheader, label %160

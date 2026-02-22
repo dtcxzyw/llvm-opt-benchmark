@@ -2639,13 +2639,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdEditTarget11ComposeOverE
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEntEv.exit: ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %8 = load i8, ptr %7, align 2
-  %.fr = freeze i8 %8
-  %9 = trunc i8 %.fr to i1
+  %9 = trunc i8 %8 to i1
   %10 = load ptr, ptr %1, align 8
-  %.fr6 = freeze ptr %10
-  %11 = icmp ne ptr %.fr6, null
-  %.not1.i.i.not = and i1 %11, %9
-  br i1 %.not1.i.i.not, label %12, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEntEv.exit.thread
+  %11 = icmp eq ptr %10, null
+  %not..i = xor i1 %9, true
+  %.not1.i.i = select i1 %not..i, i1 true, i1 %11
+  %cond.fr = freeze i1 %.not1.i.i
+  br i1 %cond.fr, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEntEv.exit.thread, label %12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEntEv.exit.thread: ; preds = %3, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEntEv.exit
   br label %12

@@ -649,8 +649,6 @@ $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_plac
 
 $_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_T0_ = comdat any
 
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_RT0_ = comdat any
 
 $_ZN5boost9container18throw_length_errorEPKc = comdat any
@@ -36721,8 +36719,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
-  %.045 = phi i64 [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41 ], [ %1, %4 ]
-  %8 = shl i64 %.045, 1
+  %.044 = phi i64 [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41 ], [ %1, %4 ]
+  %8 = shl i64 %.044, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -36743,10 +36741,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5E
   %18 = load double, ptr %17, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load double, ptr %19, align 8, !tbaa !57
-  %.fr = freeze double %18
-  %.fr44 = freeze double %20
-  %21 = fcmp olt double %.fr, %.fr44
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
+  %21 = fcmp olt double %18, %20
+  %cond.fr = freeze i1 %21
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
@@ -36754,7 +36751,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5E
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread
   %22 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi2EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit ], [ %9, %.lr.ph ]
   %23 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %22
-  %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
+  %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.044
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %25 = icmp slt i64 %22, %6
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !733
@@ -37440,8 +37437,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
-  %.046 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
-  %9 = shl i64 %.046, 1
+  %.045 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
+  %9 = shl i64 %.045, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -37462,10 +37459,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
   %19 = load double, ptr %18, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load double, ptr %20, align 8, !tbaa !57
-  %.fr = freeze double %19
-  %.fr45 = freeze double %21
-  %22 = fcmp olt double %.fr, %.fr45
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
+  %22 = fcmp olt double %19, %21
+  %cond.fr = freeze i1 %22
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
@@ -37473,7 +37469,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread
   %23 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit ], [ %10, %.lr.ph ]
   %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %23
-  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
+  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %26 = icmp slt i64 %23, %7
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !744
@@ -38159,8 +38155,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
-  %.046 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
-  %9 = shl i64 %.046, 1
+  %.045 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
+  %9 = shl i64 %.045, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -38181,10 +38177,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
   %19 = load double, ptr %18, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load double, ptr %20, align 8, !tbaa !57
-  %.fr = freeze double %19
-  %.fr45 = freeze double %21
-  %22 = fcmp olt double %.fr, %.fr45
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
+  %22 = fcmp olt double %19, %21
+  %cond.fr = freeze i1 %22
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
@@ -38192,7 +38187,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread
   %23 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xy_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit ], [ %10, %.lr.ph ]
   %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %23
-  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
+  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %26 = icmp slt i64 %23, %7
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !755
@@ -43108,8 +43103,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
-  %.045 = phi i64 [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41 ], [ %1, %4 ]
-  %8 = shl i64 %.045, 1
+  %.044 = phi i64 [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41 ], [ %1, %4 ]
+  %8 = shl i64 %.044, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -43132,10 +43127,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5E
   %20 = load double, ptr %19, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %22 = load double, ptr %21, align 8, !tbaa !57
-  %.fr = freeze double %20
-  %.fr44 = freeze double %22
-  %23 = fcmp olt double %.fr, %.fr44
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
+  %23 = fcmp olt double %20, %22
+  %cond.fr = freeze i1 %23
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41
@@ -43143,7 +43137,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5E
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread41: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread
   %24 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi0EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit ], [ %9, %.lr.ph ]
   %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %24
-  %26 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
+  %26 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.044
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %27 = icmp slt i64 %24, %6
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !885
@@ -43842,8 +43836,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
-  %.046 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
-  %9 = shl i64 %.046, 1
+  %.045 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
+  %9 = shl i64 %.045, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -43866,10 +43860,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
   %21 = load double, ptr %20, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load double, ptr %22, align 8, !tbaa !57
-  %.fr = freeze double %21
-  %.fr45 = freeze double %23
-  %24 = fcmp olt double %.fr, %.fr45
-  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
+  %24 = fcmp olt double %21, %23
+  %cond.fr = freeze i1 %24
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
@@ -43877,7 +43870,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread
   %25 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit ], [ %10, %.lr.ph ]
   %26 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %25
-  %27 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
+  %27 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %28 = icmp slt i64 %25, %7
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !896
@@ -44576,8 +44569,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
-  %.046 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
-  %9 = shl i64 %.046, 1
+  %.045 = phi i64 [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42 ], [ %1, %5 ]
+  %9 = shl i64 %.045, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -44600,10 +44593,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
   %21 = load double, ptr %20, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load double, ptr %22, align 8, !tbaa !57
-  %.fr = freeze double %21
-  %.fr45 = freeze double %23
-  %24 = fcmp olt double %.fr, %.fr45
-  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
+  %24 = fcmp olt double %21, %23
+  %cond.fr = freeze i1 %24
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42
@@ -44611,7 +44603,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread42: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread
   %25 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_yz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit ], [ %10, %.lr.ph ]
   %26 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %25
-  %27 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
+  %27 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %28 = icmp slt i64 %25, %7
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !907
@@ -49415,8 +49407,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42
-  %.046 = phi i64 [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42 ], [ %1, %4 ]
-  %8 = shl i64 %.046, 1
+  %.045 = phi i64 [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42 ], [ %1, %4 ]
+  %8 = shl i64 %.045, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -49437,10 +49429,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5E
   %18 = load double, ptr %17, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %20 = load double, ptr %19, align 8, !tbaa !57
-  %.fr = freeze double %18
-  %.fr45 = freeze double %20
-  %21 = fcmp olt double %.fr, %.fr45
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42
+  %21 = fcmp olt double %18, %20
+  %cond.fr = freeze i1 %21
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42
@@ -49448,7 +49439,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5E
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread42: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread
   %22 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL8internal19Projection_traits_3INS2_5EpickELi1EE9Less_xy_2EEclINS_17__normal_iteratorIPNS2_7Point_3IS5_EESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit ], [ %9, %.lr.ph ]
   %23 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %22
-  %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
+  %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %25 = icmp slt i64 %22, %6
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !1037
@@ -50134,8 +50125,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
-  %.047 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43 ], [ %1, %5 ]
-  %9 = shl i64 %.047, 1
+  %.046 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43 ], [ %1, %5 ]
+  %9 = shl i64 %.046, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -50156,10 +50147,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
   %19 = load double, ptr %18, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load double, ptr %20, align 8, !tbaa !57
-  %.fr = freeze double %19
-  %.fr46 = freeze double %21
-  %22 = fcmp olt double %.fr, %.fr46
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
+  %22 = fcmp olt double %19, %21
+  %cond.fr = freeze i1 %22
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
@@ -50167,7 +50157,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread
   %23 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit ], [ %10, %.lr.ph ]
   %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %23
-  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.047
+  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %26 = icmp slt i64 %23, %7
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !1048
@@ -50853,8 +50843,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
-  %.047 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43 ], [ %1, %5 ]
-  %9 = shl i64 %.047, 1
+  %.046 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43 ], [ %1, %5 ]
+  %9 = shl i64 %.046, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -50875,10 +50865,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
   %19 = load double, ptr %18, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load double, ptr %20, align 8, !tbaa !57
-  %.fr = freeze double %19
-  %.fr46 = freeze double %21
-  %22 = fcmp olt double %.fr, %.fr46
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
+  %22 = fcmp olt double %19, %21
+  %cond.fr = freeze i1 %22
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43
@@ -50886,7 +50875,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iterato
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread43: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread
   %23 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintISt14_List_iteratorINS2_7Point_3INS2_5EpickEEEESt20back_insert_iteratorINSt7__cxx114listIS7_SaIS7_EEEENS2_22Projection_traits_xz_3IS6_EEEET0_T_SI_SH_RKT1_EUlRKS7_SN_E0_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SC_EEESV_EEbSI_SH_.exit ], [ %10, %.lr.ph ]
   %24 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %23
-  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.047
+  %25 = getelementptr inbounds %"class.CGAL::Point_3", ptr %0, i64 %.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %26 = icmp slt i64 %23, %7
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !1059
@@ -52399,217 +52388,220 @@ _ZN4CGAL8internal21set_face_in_face_loopINS_12Polyhedron_3INS_5EpickENS_18Polyhe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElNS0_5__ops15_Iter_less_iterEEvT_SV_T0_T1_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #4 comdat {
-  %4 = ptrtoint ptr %0 to i64
-  %5 = ptrtoint ptr %1 to i64
-  %6 = sub i64 %5, %4
-  %7 = ashr exact i64 %6, 3
-  %8 = icmp sgt i64 %7, 16
-  br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit
+  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %5 = ptrtoint ptr %0 to i64
+  %6 = ptrtoint ptr %1 to i64
+  %7 = sub i64 %6, %5
+  %8 = ashr exact i64 %7, 3
+  %9 = icmp sgt i64 %8, 16
+  br i1 %9, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit
-  %11 = phi i64 [ %7, %.lr.ph ], [ %94, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit ]
-  %.018 = phi i64 [ %2, %.lr.ph ], [ %56, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit ]
+11:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit
+  %12 = phi i64 [ %8, %.lr.ph ], [ %95, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit ]
+  %.018 = phi i64 [ %2, %.lr.ph ], [ %57, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit ]
   %storemerge17 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit ]
-  %12 = icmp eq i64 %.018, 0
-  br i1 %12, label %13, label %55
+  %13 = icmp eq i64 %.018, 0
+  br i1 %13, label %14, label %56
 
-13:                                               ; preds = %10
-  tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_(ptr %0, ptr %storemerge17, ptr %storemerge17)
+14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_RT0_(ptr %0, ptr %storemerge17, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %13, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i ], [ %storemerge17, %13 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
-  %.sroa.02.0.copyload.i.i.i = load ptr, ptr %14, align 8, !tbaa !488
-  %15 = load i64, ptr %0, align 8, !tbaa !488
-  store i64 %15, ptr %14, align 8, !tbaa !488
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %16, %4
-  %18 = ashr exact i64 %17, 3
-  %19 = add nsw i64 %18, -1
-  %20 = sdiv i64 %19, 2
-  %21 = icmp sgt i64 %18, 2
-  br i1 %21, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+.lr.ph.i.i:                                       ; preds = %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i
+  %.sroa.0.05.i.i = phi ptr [ %15, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i ], [ %storemerge17, %14 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.02.0.copyload.i.i.i = load ptr, ptr %15, align 8, !tbaa !488
+  %16 = load i64, ptr %0, align 8, !tbaa !488
+  store i64 %16, ptr %15, align 8, !tbaa !488
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %17, %5
+  %19 = ashr exact i64 %18, 3
+  %20 = add nsw i64 %19, -1
+  %21 = sdiv i64 %20, 2
+  %22 = icmp sgt i64 %19, 2
+  br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %22 = shl i64 %.036.i.i.i.i, 1
-  %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %23
-  %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %25
-  %27 = load ptr, ptr %24, align 8, !tbaa !1062
-  %28 = load ptr, ptr %26, align 8, !tbaa !1062
-  %29 = icmp ult ptr %27, %28
-  %spec.select.i.i.i.i = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %spec.select.i.i.i.i
-  %31 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.036.i.i.i.i
-  %32 = load i64, ptr %30, align 8, !tbaa !488
-  store i64 %32, ptr %31, align 8, !tbaa !488
-  %33 = icmp slt i64 %spec.select.i.i.i.i, %20
-  br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1090
+  %23 = shl i64 %.036.i.i.i.i, 1
+  %24 = add i64 %23, 2
+  %25 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %24
+  %26 = or disjoint i64 %23, 1
+  %27 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %26
+  %28 = load ptr, ptr %25, align 8, !tbaa !1062
+  %29 = load ptr, ptr %27, align 8, !tbaa !1062
+  %30 = icmp ult ptr %28, %29
+  %spec.select.i.i.i.i = select i1 %30, i64 %26, i64 %24
+  %31 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %spec.select.i.i.i.i
+  %32 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.036.i.i.i.i
+  %33 = load i64, ptr %31, align 8, !tbaa !488
+  store i64 %33, ptr %32, align 8, !tbaa !488
+  %34 = icmp slt i64 %spec.select.i.i.i.i, %21
+  br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1090
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %34 = and i64 %17, 8
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %45
+  %35 = and i64 %18, 8
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %46
 
-36:                                               ; preds = %._crit_edge.i.i.i.i
-  %37 = add nsw i64 %18, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i.i.i, %38
-  br i1 %39, label %.thread.i.i.i, label %45
+37:                                               ; preds = %._crit_edge.i.i.i.i
+  %38 = add nsw i64 %19, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i.i, %39
+  br i1 %40, label %.thread.i.i.i, label %46
 
-.thread.i.i.i:                                    ; preds = %36
-  %40 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %41
-  %43 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0.lcssa.i.i.i.i
-  %44 = load i64, ptr %42, align 8, !tbaa !488
-  store i64 %44, ptr %43, align 8, !tbaa !488
+.thread.i.i.i:                                    ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %42
+  %44 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %45 = load i64, ptr %43, align 8, !tbaa !488
+  store i64 %45, ptr %44, align 8, !tbaa !488
   br label %.lr.ph.i.i.i.i.i.preheader
 
-45:                                               ; preds = %36, %._crit_edge.i.i.i.i
+46:                                               ; preds = %37, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %45, %.thread.i.i.i
-  %.019.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %45 ], [ %41, %.thread.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %46, %.thread.i.i.i
+  %.019.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %46 ], [ %42, %.thread.i.i.i ]
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %49
-  %.019.i.i.i.i.i = phi i64 [ %.0920.i.i78.i.i.i, %49 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %50
+  %.019.i.i.i.i.i = phi i64 [ %.0920.i.i78.i.i.i, %50 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i78.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0920.i.i78.i.i.i
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ult ptr %47, %.sroa.02.0.copyload.i.i.i
-  br i1 %48, label %49, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i
+  %47 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0920.i.i78.i.i.i
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ult ptr %48, %.sroa.02.0.copyload.i.i.i
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i
 
-49:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %50 = ptrtoint ptr %47 to i64
-  %51 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.019.i.i.i.i.i
-  store i64 %50, ptr %51, align 8, !tbaa !488
+50:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %51 = ptrtoint ptr %48 to i64
+  %52 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.019.i.i.i.i.i
+  store i64 %51, ptr %52, align 8, !tbaa !488
   %.not9.i.i.i = icmp eq i64 %.0920.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1091
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i: ; preds = %49, %.lr.ph.i.i.i.i.i, %45
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %45 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %49 ]
-  %52 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  %53 = ptrtoint ptr %.sroa.02.0.copyload.i.i.i to i64
-  store i64 %53, ptr %52, align 8, !tbaa !488
-  %54 = icmp sgt i64 %17, 8
-  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit, !llvm.loop !1092
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %46 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %50 ]
+  %53 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %54 = ptrtoint ptr %.sroa.02.0.copyload.i.i.i to i64
+  store i64 %54, ptr %53, align 8, !tbaa !488
+  %55 = icmp sgt i64 %18, 8
+  br i1 %55, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit, !llvm.loop !1092
 
-55:                                               ; preds = %10
-  %56 = add nsw i64 %.018, -1
-  %57 = lshr i64 %11, 1
-  %58 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %57
-  %59 = getelementptr inbounds i8, ptr %storemerge17, i64 -8
-  %60 = load ptr, ptr %9, align 8
-  %61 = load ptr, ptr %58, align 8
-  %62 = icmp ult ptr %60, %61
-  %63 = ptrtoint ptr %61 to i64
-  %64 = ptrtoint ptr %60 to i64
-  %65 = load ptr, ptr %59, align 8
-  %66 = ptrtoint ptr %65 to i64
-  br i1 %62, label %67, label %74
+56:                                               ; preds = %11
+  %57 = add nsw i64 %.018, -1
+  %58 = lshr i64 %12, 1
+  %59 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %58
+  %60 = getelementptr inbounds i8, ptr %storemerge17, i64 -8
+  %61 = load ptr, ptr %10, align 8
+  %62 = load ptr, ptr %59, align 8
+  %63 = icmp ult ptr %61, %62
+  %64 = ptrtoint ptr %62 to i64
+  %65 = ptrtoint ptr %61 to i64
+  %66 = load ptr, ptr %60, align 8
+  %67 = ptrtoint ptr %66 to i64
+  br i1 %63, label %68, label %75
 
-67:                                               ; preds = %55
-  %68 = icmp ult ptr %61, %65
-  br i1 %68, label %69, label %70
+68:                                               ; preds = %56
+  %69 = icmp ult ptr %62, %66
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %67
+70:                                               ; preds = %68
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !488
-  store i64 %63, ptr %0, align 8, !tbaa !488
-  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %58, align 8, !tbaa !488
+  store i64 %64, ptr %0, align 8, !tbaa !488
+  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %59, align 8, !tbaa !488
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
 
-70:                                               ; preds = %67
-  %71 = icmp ult ptr %60, %65
+71:                                               ; preds = %68
+  %72 = icmp ult ptr %61, %66
   %.sroa.0.0.copyload.i.i26.i.i = load ptr, ptr %0, align 8, !tbaa !488
-  br i1 %71, label %72, label %73
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %70
-  store i64 %66, ptr %0, align 8, !tbaa !488
-  store ptr %.sroa.0.0.copyload.i.i26.i.i, ptr %59, align 8, !tbaa !488
+73:                                               ; preds = %71
+  store i64 %67, ptr %0, align 8, !tbaa !488
+  store ptr %.sroa.0.0.copyload.i.i26.i.i, ptr %60, align 8, !tbaa !488
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
 
-73:                                               ; preds = %70
-  store i64 %64, ptr %0, align 8, !tbaa !488
-  store ptr %.sroa.0.0.copyload.i.i26.i.i, ptr %9, align 8, !tbaa !488
+74:                                               ; preds = %71
+  store i64 %65, ptr %0, align 8, !tbaa !488
+  store ptr %.sroa.0.0.copyload.i.i26.i.i, ptr %10, align 8, !tbaa !488
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
 
-74:                                               ; preds = %55
-  %75 = icmp ult ptr %60, %65
-  br i1 %75, label %76, label %77
+75:                                               ; preds = %56
+  %76 = icmp ult ptr %61, %66
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %74
+77:                                               ; preds = %75
   %.sroa.0.0.copyload.i.i28.i.i = load ptr, ptr %0, align 8, !tbaa !488
-  store i64 %64, ptr %0, align 8, !tbaa !488
-  store ptr %.sroa.0.0.copyload.i.i28.i.i, ptr %9, align 8, !tbaa !488
+  store i64 %65, ptr %0, align 8, !tbaa !488
+  store ptr %.sroa.0.0.copyload.i.i28.i.i, ptr %10, align 8, !tbaa !488
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
 
-77:                                               ; preds = %74
-  %78 = icmp ult ptr %61, %65
+78:                                               ; preds = %75
+  %79 = icmp ult ptr %62, %66
   %.sroa.0.0.copyload.i.i29.i.i = load ptr, ptr %0, align 8, !tbaa !488
-  br i1 %78, label %79, label %80
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %77
-  store i64 %66, ptr %0, align 8, !tbaa !488
+80:                                               ; preds = %78
+  store i64 %67, ptr %0, align 8, !tbaa !488
+  store ptr %.sroa.0.0.copyload.i.i29.i.i, ptr %60, align 8, !tbaa !488
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
+
+81:                                               ; preds = %78
+  store i64 %64, ptr %0, align 8, !tbaa !488
   store ptr %.sroa.0.0.copyload.i.i29.i.i, ptr %59, align 8, !tbaa !488
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
 
-80:                                               ; preds = %77
-  store i64 %63, ptr %0, align 8, !tbaa !488
-  store ptr %.sroa.0.0.copyload.i.i29.i.i, ptr %58, align 8, !tbaa !488
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader: ; preds = %80, %79, %76, %73, %72, %69
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader: ; preds = %81, %80, %77, %74, %73, %70
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader, %90
-  %.sroa.010.0.i.i = phi ptr [ %85, %90 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %90 ], [ %storemerge17, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader ]
-  %81 = load ptr, ptr %0, align 8, !tbaa !1062
-  br label %82
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader, %91
+  %.sroa.010.0.i.i = phi ptr [ %86, %91 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %91 ], [ %storemerge17, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i.preheader ]
+  %82 = load ptr, ptr %0, align 8, !tbaa !1062
+  br label %83
 
-82:                                               ; preds = %82, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i ], [ %85, %82 ]
-  %83 = load ptr, ptr %.sroa.010.1.i.i, align 8, !tbaa !1062
-  %84 = icmp ult ptr %83, %81
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  br i1 %84, label %82, label %.preheader.i.i, !llvm.loop !1093
+83:                                               ; preds = %83, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i ], [ %86, %83 ]
+  %84 = load ptr, ptr %.sroa.010.1.i.i, align 8, !tbaa !1062
+  %85 = icmp ult ptr %84, %82
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
+  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !1093
 
-.preheader.i.i:                                   ; preds = %82, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %82 ]
+.preheader.i.i:                                   ; preds = %83, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %83 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %86 = load ptr, ptr %.sroa.0.1.i.i, align 8
-  %87 = icmp ult ptr %81, %86
-  br i1 %87, label %.preheader.i.i, label %88, !llvm.loop !1094
+  %87 = load ptr, ptr %.sroa.0.1.i.i, align 8
+  %88 = icmp ult ptr %82, %87
+  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !1094
 
-88:                                               ; preds = %.preheader.i.i
-  %89 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %89, label %90, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit
+89:                                               ; preds = %.preheader.i.i
+  %90 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %90, label %91, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit
 
-90:                                               ; preds = %88
-  %91 = ptrtoint ptr %86 to i64
-  store i64 %91, ptr %.sroa.010.1.i.i, align 8, !tbaa !488
-  store ptr %83, ptr %.sroa.0.1.i.i, align 8, !tbaa !488
+91:                                               ; preds = %89
+  %92 = ptrtoint ptr %87 to i64
+  store i64 %92, ptr %.sroa.010.1.i.i, align 8, !tbaa !488
+  store ptr %84, ptr %.sroa.0.1.i.i, align 8, !tbaa !488
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_SV_T0_.exit.i, !llvm.loop !1095
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit: ; preds = %88
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElNS0_5__ops15_Iter_less_iterEEvT_SV_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge17, i64 noundef %56)
-  %92 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %93 = sub i64 %92, %4
-  %94 = ashr exact i64 %93, 3
-  %95 = icmp sgt i64 %94, 16
-  br i1 %95, label %10, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit, !llvm.loop !1096
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit: ; preds = %89
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElNS0_5__ops15_Iter_less_iterEEvT_SV_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge17, i64 noundef %57)
+  %93 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %94 = sub i64 %93, %5
+  %95 = ashr exact i64 %94, 3
+  %96 = icmp sgt i64 %95, 16
+  br i1 %96, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit, !llvm.loop !1096
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEET_SV_SV_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i, %3
   ret void
@@ -52788,207 +52780,12 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #4 comdat {
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
-  %.fr27 = freeze ptr %0
-  %.fr26 = freeze ptr %1
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_RT0_(ptr %.fr27, ptr %.fr26, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %5 = icmp ult ptr %.fr26, %2
-  br i1 %5, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %3
-  %6 = ptrtoint ptr %.fr26 to i64
-  %7 = ptrtoint ptr %.fr27 to i64
-  %8 = sub i64 %6, %7
-  %9 = ashr i64 %8, 3
-  %10 = add nsw i64 %9, -1
-  %11 = sdiv i64 %10, 2
-  %12 = icmp sgt i64 %9, 2
-  %13 = and i64 %8, 8
-  %14 = icmp eq i64 %13, 0
-  %15 = add nsw i64 %9, -2
-  %16 = ashr exact i64 %15, 1
-  br i1 %12, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %17 = or disjoint i64 %15, 1
-  %18 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %17
-  %19 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %16
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %46
-  %.sroa.0.011.us = phi ptr [ %47, %46 ], [ %.fr26, %.lr.ph.split.us.preheader ]
-  %20 = load ptr, ptr %.sroa.0.011.us, align 8, !tbaa !1062
-  %21 = load ptr, ptr %.fr27, align 8
-  %22 = icmp ult ptr %20, %21
-  br i1 %22, label %.lr.ph.i.i.preheader.us, label %46
-
-.lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
-  %23 = ptrtoint ptr %21 to i64
-  store i64 %23, ptr %.sroa.0.011.us, align 8, !tbaa !488
-  br label %.lr.ph.i.i.us
-
-.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader.us, %.lr.ph.i.i.us
-  %.036.i.i.us = phi i64 [ %spec.select.i.i.us, %.lr.ph.i.i.us ], [ 0, %.lr.ph.i.i.preheader.us ]
-  %24 = shl i64 %.036.i.i.us, 1
-  %25 = add i64 %24, 2
-  %26 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %27
-  %29 = load ptr, ptr %26, align 8, !tbaa !1062
-  %30 = load ptr, ptr %28, align 8, !tbaa !1062
-  %31 = icmp ult ptr %29, %30
-  %spec.select.i.i.us = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %spec.select.i.i.us
-  %33 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %.036.i.i.us
-  %34 = load i64, ptr %32, align 8, !tbaa !488
-  store i64 %34, ptr %33, align 8, !tbaa !488
-  %35 = icmp slt i64 %spec.select.i.i.us, %11
-  br i1 %35, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !1090
-
-36:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
-
-.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
-  %37 = load i64, ptr %18, align 8, !tbaa !488
-  store i64 %37, ptr %19, align 8, !tbaa !488
-  br label %.lr.ph.i.i.i.us.preheader
-
-.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %36
-  %.019.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %36 ], [ %17, %.thread.i.us ]
-  br label %.lr.ph.i.i.i.us
-
-.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %41
-  %.019.i.i.i.us = phi i64 [ %.0920.i.i78.i.us, %41 ], [ %.019.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
-  %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
-  %.0920.i.i78.i.us = lshr i64 %.0920.in.i.i.i.us, 1
-  %38 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %.0920.i.i78.i.us
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp ult ptr %39, %20
-  br i1 %40, label %41, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.us
-
-41:                                               ; preds = %.lr.ph.i.i.i.us
-  %42 = ptrtoint ptr %39 to i64
-  %43 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %.019.i.i.i.us
-  store i64 %42, ptr %43, align 8, !tbaa !488
-  %.not9.i.us = icmp eq i64 %.0920.i.i78.i.us, 0
-  br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1091
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %41, %36
-  %.0.lcssa.i.i.i.us = phi i64 [ 0, %36 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %41 ]
-  %44 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %.0.lcssa.i.i.i.us
-  %45 = ptrtoint ptr %20 to i64
-  store i64 %45, ptr %44, align 8, !tbaa !488
-  br label %46
-
-46:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.us, %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %48 = icmp ult ptr %47, %2
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1100
-
-._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %49 = icmp eq i64 %spec.select.i.i.us, %16
-  %or.cond = select i1 %14, i1 %49, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %36
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %.fr27, i64 8
-  br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
-
-.lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  %.pre = load ptr, ptr %.fr27, align 8
-  %51 = ptrtoint ptr %.pre to i64
-  br label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %52 = icmp eq i64 %15, 0
-  br i1 %52, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
-
-.lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
-  %.pre31 = load ptr, ptr %.fr27, align 8
-  %53 = ptrtoint ptr %.pre31 to i64
-  br label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %63
-  %.sroa.0.011.us12.us = phi ptr [ %64, %63 ], [ %.fr26, %.lr.ph.split.split.us ]
-  %54 = load ptr, ptr %.sroa.0.011.us12.us, align 8, !tbaa !1062
-  %55 = load ptr, ptr %.fr27, align 8
-  %56 = icmp ult ptr %54, %55
-  br i1 %56, label %._crit_edge.i.i.us13.us, label %63
-
-._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
-  %57 = ptrtoint ptr %55 to i64
-  store i64 %57, ptr %.sroa.0.011.us12.us, align 8, !tbaa !488
-  %58 = load i64, ptr %50, align 8, !tbaa !488
-  store i64 %58, ptr %.fr27, align 8, !tbaa !488
-  %59 = inttoptr i64 %58 to ptr
-  %60 = icmp ule ptr %54, %59
-  %spec.select = zext i1 %60 to i64
-  %61 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr27, i64 %spec.select
-  %62 = ptrtoint ptr %54 to i64
-  store i64 %62, ptr %61, align 8, !tbaa !488
-  br label %63
-
-63:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %65 = icmp ult ptr %64, %2
-  br i1 %65, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !1100
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %71
-  %66 = phi i64 [ %72, %71 ], [ %53, %.lr.ph.split.split.us.split.preheader ]
-  %67 = phi ptr [ %73, %71 ], [ %.pre31, %.lr.ph.split.split.us.split.preheader ]
-  %.sroa.0.011.us12 = phi ptr [ %74, %71 ], [ %.fr26, %.lr.ph.split.split.us.split.preheader ]
-  %68 = load ptr, ptr %.sroa.0.011.us12, align 8, !tbaa !1062
-  %69 = icmp ult ptr %68, %67
-  br i1 %69, label %._crit_edge.i.i.us13, label %71
-
-._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
-  store i64 %66, ptr %.sroa.0.011.us12, align 8, !tbaa !488
-  %70 = ptrtoint ptr %68 to i64
-  store i64 %70, ptr %.fr27, align 8, !tbaa !488
-  br label %71
-
-71:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %72 = phi i64 [ %70, %._crit_edge.i.i.us13 ], [ %66, %.lr.ph.split.split.us.split ]
-  %73 = phi ptr [ %68, %._crit_edge.i.i.us13 ], [ %67, %.lr.ph.split.split.us.split ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %75 = icmp ult ptr %74, %2
-  br i1 %75, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !1100
-
-._crit_edge:                                      ; preds = %81, %71, %63, %46, %3
-  ret void
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %81
-  %76 = phi i64 [ %82, %81 ], [ %51, %.lr.ph.split.split.preheader ]
-  %77 = phi ptr [ %83, %81 ], [ %.pre, %.lr.ph.split.split.preheader ]
-  %.sroa.0.011 = phi ptr [ %84, %81 ], [ %.fr26, %.lr.ph.split.split.preheader ]
-  %78 = load ptr, ptr %.sroa.0.011, align 8, !tbaa !1062
-  %79 = icmp ult ptr %78, %77
-  br i1 %79, label %._crit_edge.i.i, label %81
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
-  store i64 %76, ptr %.sroa.0.011, align 8, !tbaa !488
-  %80 = ptrtoint ptr %78 to i64
-  store i64 %80, ptr %.fr27, align 8, !tbaa !488
-  br label %81
-
-81:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %82 = phi i64 [ %76, %.lr.ph.split.split ], [ %80, %._crit_edge.i.i ]
-  %83 = phi ptr [ %77, %.lr.ph.split.split ], [ %78, %._crit_edge.i.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %85 = icmp ult ptr %84, %2
-  br i1 %85, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !1100
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS0_5__ops15_Iter_less_iterEEvT_SV_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat {
-  %.fr17 = freeze ptr %0
-  %.fr16 = freeze ptr %1
-  %4 = ptrtoint ptr %.fr16 to i64
-  %5 = ptrtoint ptr %.fr17 to i64
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 3
+  %.fr = freeze i64 %6
+  %7 = ashr exact i64 %.fr, 3
   %8 = icmp slt i64 %7, 2
   br i1 %8, label %.loopexit, label %9
 
@@ -52997,20 +52794,20 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = and i64 %6, 8
+  %14 = and i64 %.fr, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   br i1 %15, label %.split.preheader, label %.split.us
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %17
-  %19 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %16
+  %18 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us
   %.09.us = phi i64 [ %44, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.09.us
+  %20 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.09.us
   %.sroa.02.0.copyload.us = load ptr, ptr %20, align 8, !tbaa !488
   %21 = icmp slt i64 %.09.us, %13
   br i1 %21, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us
@@ -53019,15 +52816,15 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.036.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.09.us, %.split.us ]
   %22 = shl i64 %.036.i.us, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %23
+  %24 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %25
+  %26 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %25
   %27 = load ptr, ptr %24, align 8, !tbaa !1062
   %28 = load ptr, ptr %26, align 8, !tbaa !1062
   %29 = icmp ult ptr %27, %28
   %spec.select.i.us = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %spec.select.i.us
-  %31 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.036.i.us
+  %30 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %spec.select.i.us
+  %31 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.036.i.us
   %32 = load i64, ptr %30, align 8, !tbaa !488
   store i64 %32, ptr %31, align 8, !tbaa !488
   %33 = icmp slt i64 %spec.select.i.us, %13
@@ -53041,30 +52838,30 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %38 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %35 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.0920.i.i.us
+  %35 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0920.i.i.us
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ult ptr %36, %.sroa.02.0.copyload.us
   br i1 %37, label %38, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us
 
 38:                                               ; preds = %.lr.ph.i.i.us
   %39 = ptrtoint ptr %36 to i64
-  %40 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.019.i.i.us
   store i64 %39, ptr %40, align 8, !tbaa !488
   %41 = icmp sgt i64 %.0920.i.i.us, %.09.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us, !llvm.loop !1091
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %38, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %38 ]
-  %42 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0.lcssa.i.i.us
   %43 = ptrtoint ptr %.sroa.02.0.copyload.us to i64
   store i64 %43, ptr %42, align 8, !tbaa !488
   %.not.us = icmp eq i64 %.09.us, 0
   %44 = add nsw i64 %.09.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !1101
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !1100
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit
   %.09 = phi i64 [ %73, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %45 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.09
+  %45 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.09
   %.sroa.02.0.copyload = load ptr, ptr %45, align 8, !tbaa !488
   %46 = icmp slt i64 %.09, %13
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
@@ -53073,15 +52870,15 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_li
   %.036.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.09, %.split ]
   %47 = shl i64 %.036.i, 1
   %48 = add i64 %47, 2
-  %49 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %48
+  %49 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %48
   %50 = or disjoint i64 %47, 1
-  %51 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %50
+  %51 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %50
   %52 = load ptr, ptr %49, align 8, !tbaa !1062
   %53 = load ptr, ptr %51, align 8, !tbaa !1062
   %54 = icmp ult ptr %52, %53
   %spec.select.i = select i1 %54, i64 %50, i64 %48
-  %55 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %spec.select.i
-  %56 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.036.i
+  %55 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %spec.select.i
+  %56 = getelementptr inbounds %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.036.i
   %57 = load i64, ptr %55, align 8, !tbaa !488
   store i64 %57, ptr %56, align 8, !tbaa !488
   %58 = icmp slt i64 %spec.select.i, %13
@@ -53106,26 +52903,26 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_li
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0920.i.i
   %65 = load ptr, ptr %64, align 8
   %66 = icmp ult ptr %65, %.sroa.02.0.copyload
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
   %68 = ptrtoint ptr %65 to i64
-  %69 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.019.i.i
+  %69 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.019.i.i
   store i64 %68, ptr %69, align 8, !tbaa !488
   %70 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %70, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit, !llvm.loop !1091
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %71 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.fr17, i64 %.0.lcssa.i.i
+  %71 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %0, i64 %.0.lcssa.i.i
   %72 = ptrtoint ptr %.sroa.02.0.copyload to i64
   store i64 %72, ptr %71, align 8, !tbaa !488
   %.not = icmp eq i64 %.09, 0
   %73 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !1101
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !1100
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEElSN_NS0_5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit, %3
   ret void
@@ -53135,7 +52932,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_li
 define linkonce_odr dso_local void @_ZN5boost9container18throw_length_errorEPKc(ptr noundef %0) local_unnamed_addr #31 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %3, align 8, !tbaa !1102
+  store ptr %0, ptr %3, align 8, !tbaa !1101
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9container12length_errorE, i64 16), ptr %2, align 8, !tbaa !17
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost9container12length_errorE, ptr nonnull @_ZNSt9exceptionD2Ev) #41
   unreachable
@@ -53151,7 +52948,7 @@ define linkonce_odr dso_local void @_ZN5boost9container12length_errorD0Ev(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5boost9container9exception4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #16 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !1102
+  %3 = load ptr, ptr %2, align 8, !tbaa !1101
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str.129, ptr %3
   ret ptr %spec.select
@@ -53261,16 +53058,16 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
   store i64 %55, ptr %11, align 8, !tbaa !1071
   store i64 %26, ptr %8, align 8, !tbaa !1072
   %56 = getelementptr inbounds i8, ptr %30, i64 %54
-  store ptr %56, ptr %0, align 8, !tbaa !1105
+  store ptr %56, ptr %0, align 8, !tbaa !1104
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5clearEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !1107
+  %3 = load ptr, ptr %2, align 8, !tbaa !1106
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !1107
+  %5 = load ptr, ptr %4, align 8, !tbaa !1106
   %.not1419 = icmp eq ptr %3, %5
   br i1 %.not1419, label %._crit_edge23, label %.lr.ph22
 
@@ -53306,9 +53103,9 @@ _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits
 
 .lr.ph22:                                         ; preds = %1, %._crit_edge
   %.sroa.010.020 = phi ptr [ %22, %._crit_edge ], [ %3, %1 ]
-  %17 = load ptr, ptr %.sroa.010.020, align 8, !tbaa !1108
+  %17 = load ptr, ptr %.sroa.010.020, align 8, !tbaa !1107
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !1110
+  %19 = load i64, ptr %18, align 8, !tbaa !1109
   %.idx = mul i64 %19, 88
   %20 = add nsw i64 %.idx, -88
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
@@ -53323,7 +53120,7 @@ _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits
   tail call void @_ZdlPvm(ptr noundef %17, i64 noundef %.idx) #40
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
   %.not14 = icmp eq ptr %22, %5
-  br i1 %.not14, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !1111
+  br i1 %.not14, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !1110
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %.018 = phi ptr [ %.0, %32 ], [ %.015, %.lr.ph.preheader ]
@@ -53355,7 +53152,7 @@ _ZN4CGAL23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyh
 32:                                               ; preds = %.lr.ph, %_ZN4CGAL23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS2_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISA_EENS_30Triangulation_ds_vertex_base_2IvEEEENS0_ISA_NSB_IvEEEEEEEEED2Ev.exit
   %.0 = getelementptr inbounds nuw i8, ptr %.018, i64 88
   %.not = icmp eq ptr %.0, %21
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1112
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1111
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -53383,7 +53180,7 @@ _ZNSt15__new_allocatorIN4CGAL25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_2
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !1113
+  %14 = load ptr, ptr %13, align 8, !tbaa !1112
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !492
   %.not.i.i = icmp eq ptr %14, %16
@@ -53393,9 +53190,9 @@ _ZNSt15__new_allocatorIN4CGAL25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_2
   store ptr %11, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %4, ptr %.sroa.5.0..sroa_idx, align 8
-  %18 = load ptr, ptr %13, align 8, !tbaa !1113
+  %18 = load ptr, ptr %13, align 8, !tbaa !1112
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %19, ptr %13, align 8, !tbaa !1113
+  store ptr %19, ptr %13, align 8, !tbaa !1112
   br label %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit
 
 20:                                               ; preds = %_ZNSt15__new_allocatorIN4CGAL25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS4_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS1_ISD_NSE_IvEEEENS0_23Convex_hull_face_base_2ISC_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEEE8allocateEmPKv.exit
@@ -53431,11 +53228,11 @@ _ZNKSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_2
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i ], [ %33, %_ZNKSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i ], [ %21, %_ZNKSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1114
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1113
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %35, %14
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1118
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1117
 
 _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %33, %_ZNKSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.i ]
@@ -53449,7 +53246,7 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
 
 _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i
   store ptr %33, ptr %12, align 8, !tbaa !491
-  store ptr %37, ptr %13, align 8, !tbaa !1113
+  store ptr %37, ptr %13, align 8, !tbaa !1112
   %39 = getelementptr inbounds nuw %"struct.std::pair.404", ptr %33, i64 %31
   store ptr %39, ptr %15, align 8, !tbaa !492
   br label %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit
@@ -53457,9 +53254,9 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
 _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit: ; preds = %17, %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_.exit.i.i
   %40 = load i64, ptr %2, align 8, !tbaa !239
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !1119
+  %42 = load i64, ptr %41, align 8, !tbaa !1118
   %43 = add i64 %42, %40
-  store i64 %43, ptr %41, align 8, !tbaa !1119
+  store i64 %43, ptr %41, align 8, !tbaa !1118
   %.not16 = icmp eq i64 %40, 0
   br i1 %.not16, label %45, label %.lr.ph
 
@@ -53474,7 +53271,7 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
 
 45:                                               ; preds = %._crit_edge, %_ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !1120
+  %47 = load ptr, ptr %46, align 8, !tbaa !1119
   %48 = icmp eq ptr %47, null
   br i1 %48, label %57, label %59
 
@@ -53489,11 +53286,11 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
   store ptr %55, ptr %51, align 8, !tbaa !242
   %56 = add i64 %.017, -1
   %.not = icmp eq i64 %56, 0
-  br i1 %.not, label %._crit_edge, label %49, !llvm.loop !1121
+  br i1 %.not, label %._crit_edge, label %49, !llvm.loop !1120
 
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %11, ptr %58, align 8, !tbaa !1122
+  store ptr %11, ptr %58, align 8, !tbaa !1121
   br label %67
 
 59:                                               ; preds = %45
@@ -53511,7 +53308,7 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %66, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Convex_hull_vertex_base_2", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 40
-  store ptr %.sink20, ptr %46, align 8, !tbaa !1120
+  store ptr %.sink20, ptr %46, align 8, !tbaa !1119
   store ptr %.sink, ptr %11, align 8, !tbaa !242
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !242
   %68 = add i64 %40, 16
@@ -53544,7 +53341,7 @@ _ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !1123
+  %14 = load ptr, ptr %13, align 8, !tbaa !1122
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !499
   %.not.i.i = icmp eq ptr %14, %16
@@ -53554,9 +53351,9 @@ _ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_
   store ptr %11, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %4, ptr %.sroa.5.0..sroa_idx, align 8
-  %18 = load ptr, ptr %13, align 8, !tbaa !1123
+  %18 = load ptr, ptr %13, align 8, !tbaa !1122
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %19, ptr %13, align 8, !tbaa !1123
+  store ptr %19, ptr %13, align 8, !tbaa !1122
   br label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit
 
 20:                                               ; preds = %_ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS3_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISB_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEEE8allocateEmPKv.exit
@@ -53592,11 +53389,11 @@ _ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i ], [ %33, %_ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i ], [ %21, %_ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1123
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %35, %14
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1128
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1127
 
 _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %33, %_ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.i ]
@@ -53610,7 +53407,7 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
 
 _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i
   store ptr %33, ptr %12, align 8, !tbaa !498
-  store ptr %37, ptr %13, align 8, !tbaa !1123
+  store ptr %37, ptr %13, align 8, !tbaa !1122
   %39 = getelementptr inbounds nuw %"struct.std::pair.402", ptr %33, i64 %31
   store ptr %39, ptr %15, align 8, !tbaa !499
   br label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit
@@ -53618,9 +53415,9 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
 _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit: ; preds = %17, %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_.exit.i.i
   %40 = load i64, ptr %2, align 8, !tbaa !238
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !1129
+  %42 = load i64, ptr %41, align 8, !tbaa !1128
   %43 = add i64 %42, %40
-  store i64 %43, ptr %41, align 8, !tbaa !1129
+  store i64 %43, ptr %41, align 8, !tbaa !1128
   %.not16 = icmp eq i64 %40, 0
   br i1 %.not16, label %45, label %.lr.ph
 
@@ -53651,7 +53448,7 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
   store ptr %55, ptr %56, align 8, !tbaa !242
   %57 = add i64 %.017, -1
   %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %._crit_edge, label %49, !llvm.loop !1130
+  br i1 %.not, label %._crit_edge, label %49, !llvm.loop !1129
 
 58:                                               ; preds = %45
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -53715,7 +53512,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %26 = alloca %"class.CGAL::Point_3.414", align 16
   %27 = load double, ptr %1, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !1131
+  %29 = load ptr, ptr %28, align 8, !tbaa !1130
   %30 = load double, ptr %29, align 8, !tbaa !57
   %31 = fsub double %27, %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53802,7 +53599,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
 
 ._crit_edge:                                      ; preds = %85
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.pre150 = load <2 x double>, ptr %.phi.trans.insert, align 16, !tbaa !103, !noalias !1132
+  %.pre150 = load <2 x double>, ptr %.phi.trans.insert, align 16, !tbaa !103, !noalias !1131
   %.pre151 = shufflevector <2 x double> %.pre150, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   br label %260
 
@@ -53817,59 +53614,59 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %98 = insertelement <2 x double> poison, double %97, i64 0
   %99 = insertelement <2 x double> %98, double %40, i64 1
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %101 = load double, ptr %100, align 16, !tbaa !57, !noalias !1139
+  %101 = load double, ptr %100, align 16, !tbaa !57, !noalias !1138
   %102 = fneg double %101
   %103 = insertelement <2 x double> poison, double %102, i64 0
   %104 = insertelement <2 x double> %103, double %101, i64 1
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %106 = load double, ptr %105, align 8, !tbaa !57, !noalias !1139
+  %106 = load double, ptr %105, align 8, !tbaa !57, !noalias !1138
   %107 = fneg double %106
   %108 = insertelement <2 x double> poison, double %107, i64 0
   %109 = insertelement <2 x double> %108, double %106, i64 1
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load double, ptr %110, align 16, !tbaa !57, !noalias !1139
+  %111 = load double, ptr %110, align 16, !tbaa !57, !noalias !1138
   %112 = fneg double %111
   %113 = insertelement <2 x double> poison, double %112, i64 0
   %114 = insertelement <2 x double> %113, double %111, i64 1
   %115 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %116 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %104) #29, !noalias !1142, !srcloc !315
+  %116 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %104) #29, !noalias !1141, !srcloc !315
   %117 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %115) #45, !srcloc !316
   %118 = fadd <2 x double> %116, %117
-  %119 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %118) #29, !noalias !1142, !srcloc !315
+  %119 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %118) #29, !noalias !1141, !srcloc !315
   %120 = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %121 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %109) #29, !noalias !1142, !srcloc !315
+  %121 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %109) #29, !noalias !1141, !srcloc !315
   %122 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %120) #45, !srcloc !316
   %123 = fadd <2 x double> %121, %122
-  %124 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %123) #29, !noalias !1142, !srcloc !315
+  %124 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %123) #29, !noalias !1141, !srcloc !315
   %125 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %126 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %114) #29, !noalias !1142, !srcloc !315
+  %126 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %114) #29, !noalias !1141, !srcloc !315
   %127 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %125) #45, !srcloc !316
   %128 = fadd <2 x double> %126, %127
-  %129 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %128) #29, !noalias !1142, !srcloc !315
+  %129 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %128) #29, !noalias !1141, !srcloc !315
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %131 = load double, ptr %130, align 8, !tbaa !57, !noalias !1149
+  %131 = load double, ptr %130, align 8, !tbaa !57, !noalias !1148
   %132 = fneg double %131
   %133 = insertelement <2 x double> poison, double %132, i64 0
   %134 = insertelement <2 x double> %133, double %131, i64 1
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %136 = load double, ptr %135, align 16, !tbaa !57, !noalias !1149
+  %136 = load double, ptr %135, align 16, !tbaa !57, !noalias !1148
   %137 = fneg double %136
   %138 = insertelement <2 x double> poison, double %137, i64 0
   %139 = insertelement <2 x double> %138, double %136, i64 1
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %141 = load double, ptr %140, align 8, !tbaa !57, !noalias !1149
+  %141 = load double, ptr %140, align 8, !tbaa !57, !noalias !1148
   %142 = fneg double %141
   %143 = insertelement <2 x double> poison, double %142, i64 0
   %144 = insertelement <2 x double> %143, double %141, i64 1
-  %145 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #29, !noalias !1152, !srcloc !315
+  %145 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %134) #29, !noalias !1151, !srcloc !315
   %146 = fadd <2 x double> %117, %145
-  %147 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #29, !noalias !1152, !srcloc !315
-  %148 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %139) #29, !noalias !1152, !srcloc !315
+  %147 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %146) #29, !noalias !1151, !srcloc !315
+  %148 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %139) #29, !noalias !1151, !srcloc !315
   %149 = fadd <2 x double> %122, %148
-  %150 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %149) #29, !noalias !1152, !srcloc !315
-  %151 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #29, !noalias !1152, !srcloc !315
+  %150 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %149) #29, !noalias !1151, !srcloc !315
+  %151 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %144) #29, !noalias !1151, !srcloc !315
   %152 = fadd <2 x double> %127, %151
-  %153 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %152) #29, !noalias !1152, !srcloc !315
+  %153 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %152) #29, !noalias !1151, !srcloc !315
   %154 = bitcast <2 x double> %147 to <2 x i64>
   %155 = bitcast <2 x double> %150 to <2 x i64>
   %156 = bitcast <2 x double> %153 to <2 x i64>
@@ -53878,7 +53675,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %159 = shufflevector <2 x double> %158, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %160 = xor <2 x i64> %156, <i64 -9223372036854775808, i64 0>
   %161 = bitcast <2 x i64> %160 to <2 x double>
-  %162 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #29, !noalias !1159, !srcloc !315
+  %162 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #29, !noalias !1158, !srcloc !315
   %163 = shufflevector <2 x double> %162, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %164 = fmul <2 x double> %157, %162
   %165 = fmul <2 x double> %157, %163
@@ -53889,13 +53686,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %170 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %164, <2 x double> %166)
   %171 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %167, <2 x double> %169)
   %172 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %170, <2 x double> %171)
-  %173 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %172) #29, !noalias !1159, !srcloc !315
+  %173 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %172) #29, !noalias !1158, !srcloc !315
   %174 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %129) #45, !srcloc !316
   %175 = fneg <2 x double> %174
   %176 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %177 = xor <2 x i64> %155, <i64 -9223372036854775808, i64 0>
   %178 = bitcast <2 x i64> %177 to <2 x double>
-  %179 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178) #29, !noalias !1159, !srcloc !315
+  %179 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178) #29, !noalias !1158, !srcloc !315
   %180 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %181 = fmul <2 x double> %174, %179
   %182 = fmul <2 x double> %174, %180
@@ -53906,15 +53703,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %187 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %181, <2 x double> %183)
   %188 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %184, <2 x double> %186)
   %189 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %187, <2 x double> %188)
-  %190 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %189) #29, !noalias !1159, !srcloc !315
+  %190 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %189) #29, !noalias !1158, !srcloc !315
   %191 = shufflevector <2 x double> %190, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %192 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %173) #29, !noalias !1159, !srcloc !315
+  %192 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %173) #29, !noalias !1158, !srcloc !315
   %193 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %191) #45, !srcloc !316
   %194 = fadd <2 x double> %192, %193
-  %195 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %194) #29, !noalias !1159, !srcloc !315
+  %195 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %194) #29, !noalias !1158, !srcloc !315
   %196 = xor <2 x i64> %154, <i64 -9223372036854775808, i64 0>
   %197 = bitcast <2 x i64> %196 to <2 x double>
-  %198 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %197) #29, !noalias !1159, !srcloc !315
+  %198 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %197) #29, !noalias !1158, !srcloc !315
   %199 = shufflevector <2 x double> %198, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %200 = fmul <2 x double> %174, %198
   %201 = fmul <2 x double> %174, %199
@@ -53925,11 +53722,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %206 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %200, <2 x double> %202)
   %207 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %203, <2 x double> %205)
   %208 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %206, <2 x double> %207)
-  %209 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %208) #29, !noalias !1159, !srcloc !315
+  %209 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %208) #29, !noalias !1158, !srcloc !315
   %210 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %119) #45, !srcloc !316
   %211 = fneg <2 x double> %210
   %212 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %213 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #29, !noalias !1159, !srcloc !315
+  %213 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %161) #29, !noalias !1158, !srcloc !315
   %214 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %215 = fmul <2 x double> %210, %213
   %216 = fmul <2 x double> %210, %214
@@ -53940,13 +53737,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %221 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %215, <2 x double> %217)
   %222 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %218, <2 x double> %220)
   %223 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %221, <2 x double> %222)
-  %224 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %223) #29, !noalias !1159, !srcloc !315
+  %224 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %223) #29, !noalias !1158, !srcloc !315
   %225 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %226 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #29, !noalias !1159, !srcloc !315
+  %226 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %209) #29, !noalias !1158, !srcloc !315
   %227 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %225) #45, !srcloc !316
   %228 = fadd <2 x double> %226, %227
-  %229 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %228) #29, !noalias !1159, !srcloc !315
-  %230 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178) #29, !noalias !1159, !srcloc !315
+  %229 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %228) #29, !noalias !1158, !srcloc !315
+  %230 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %178) #29, !noalias !1158, !srcloc !315
   %231 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %232 = fmul <2 x double> %210, %230
   %233 = fmul <2 x double> %210, %231
@@ -53957,8 +53754,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %238 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %232, <2 x double> %234)
   %239 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %235, <2 x double> %237)
   %240 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %238, <2 x double> %239)
-  %241 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #29, !noalias !1159, !srcloc !315
-  %242 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %197) #29, !noalias !1159, !srcloc !315
+  %241 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %240) #29, !noalias !1158, !srcloc !315
+  %242 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %197) #29, !noalias !1158, !srcloc !315
   %243 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %244 = fmul <2 x double> %157, %242
   %245 = fmul <2 x double> %157, %243
@@ -53969,12 +53766,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %250 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %244, <2 x double> %246)
   %251 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %247, <2 x double> %249)
   %252 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %250, <2 x double> %251)
-  %253 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %252) #29, !noalias !1159, !srcloc !315
+  %253 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %252) #29, !noalias !1158, !srcloc !315
   %254 = shufflevector <2 x double> %253, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %255 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #29, !noalias !1159, !srcloc !315
+  %255 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %241) #29, !noalias !1158, !srcloc !315
   %256 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %254) #45, !srcloc !316
   %257 = fadd <2 x double> %255, %256
-  %258 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #29, !noalias !1159, !srcloc !315
+  %258 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %257) #29, !noalias !1158, !srcloc !315
   store <2 x double> %195, ptr %86, align 16
   %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store <2 x double> %229, ptr %.sroa.5129.0..sroa_idx, align 16
@@ -53986,9 +53783,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   store <2 x double> %96, ptr %.sroa.7133.0..sroa_idx, align 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x double> %99, ptr %.sroa.10.0..sroa_idx, align 16
-  %.pre = load double, ptr %1, align 8, !tbaa !57, !noalias !1166
-  %.pre148 = load double, ptr %32, align 8, !tbaa !57, !noalias !1166
-  %.pre149 = load double, ptr %37, align 8, !tbaa !57, !noalias !1166
+  %.pre = load double, ptr %1, align 8, !tbaa !57, !noalias !1165
+  %.pre148 = load double, ptr %32, align 8, !tbaa !57, !noalias !1165
+  %.pre149 = load double, ptr %37, align 8, !tbaa !57, !noalias !1165
   br label %260
 
 260:                                              ; preds = %._crit_edge, %90
@@ -54005,24 +53802,24 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   %270 = fneg double %261
   %271 = insertelement <2 x double> poison, double %270, i64 0
   %272 = insertelement <2 x double> %271, double %261, i64 1
-  %273 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %266) #29, !noalias !1132, !srcloc !315
+  %273 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %266) #29, !noalias !1131, !srcloc !315
   %274 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.pre-phi) #45, !srcloc !316
   %275 = fadd <2 x double> %273, %274
-  %276 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %275) #29, !noalias !1132, !srcloc !315
+  %276 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %275) #29, !noalias !1131, !srcloc !315
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %278 = load <2 x double>, ptr %277, align 16, !tbaa !103, !noalias !1132
+  %278 = load <2 x double>, ptr %277, align 16, !tbaa !103, !noalias !1131
   %279 = shufflevector <2 x double> %278, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %280 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %269) #29, !noalias !1132, !srcloc !315
+  %280 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %269) #29, !noalias !1131, !srcloc !315
   %281 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %279) #45, !srcloc !316
   %282 = fadd <2 x double> %280, %281
-  %283 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %282) #29, !noalias !1132, !srcloc !315
+  %283 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %282) #29, !noalias !1131, !srcloc !315
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %285 = load <2 x double>, ptr %284, align 16, !tbaa !103, !noalias !1132
+  %285 = load <2 x double>, ptr %284, align 16, !tbaa !103, !noalias !1131
   %286 = shufflevector <2 x double> %285, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %287 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %272) #29, !noalias !1132, !srcloc !315
+  %287 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %272) #29, !noalias !1131, !srcloc !315
   %288 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %286) #45, !srcloc !316
   %289 = fadd <2 x double> %287, %288
-  %290 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %289) #29, !noalias !1132, !srcloc !315
+  %290 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %289) #29, !noalias !1131, !srcloc !315
   %291 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %276) #45, !srcloc !316
   %292 = load <2 x i64>, ptr %86, align 16, !tbaa !103
   %293 = fneg <2 x double> %291
@@ -54132,14 +53929,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL13Convex_hull_38inter
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %373 = load ptr, ptr %372, align 16, !tbaa !1169
+  %373 = load ptr, ptr %372, align 16, !tbaa !1168
   %374 = icmp eq ptr %373, null
   br i1 %374, label %375, label %611
 
 375:                                              ; preds = %367
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %377 = load ptr, ptr %28, align 8, !tbaa !1131
+  %377 = load ptr, ptr %28, align 8, !tbaa !1130
   invoke void @_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEENS_12NT_converterIdSF_EEEclERKNS_7Point_3IS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.414") align 16 %18, ptr noundef nonnull align 1 dereferenceable(2) %376, ptr noundef nonnull align 8 dereferenceable(24) %377)
           to label %378 unwind label %593
 
@@ -54202,7 +53999,7 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body
 
 _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEESB_E17Vector_plus_pointINS_16Simple_cartesianIN5boost14multiprecision6numberINSH_8backends16rational_adaptorINSJ_15cpp_int_backendILm0ELm0ELNSH_16cpp_integer_typeE1ELNSH_18cpp_int_check_typeE0ESaIyEEEEELNSH_26expression_template_optionE1EEEEEEC2Ev.exit: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2Ev.exit.i.i.i.i.i.i
-  store ptr %379, ptr %372, align 16, !tbaa !1169
+  store ptr %379, ptr %372, align 16, !tbaa !1168
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -54211,12 +54008,12 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
           to label %393 unwind label %595
 
 393:                                              ; preds = %_ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEESB_E17Vector_plus_pointINS_16Simple_cartesianIN5boost14multiprecision6numberINSH_8backends16rational_adaptorINSJ_15cpp_int_backendILm0ELm0ELNSH_16cpp_integer_typeE1ELNSH_18cpp_int_check_typeE0ESaIyEEEEELNSH_26expression_template_optionE1EEEEEEC2Ev.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1170
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1169
   invoke void @_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Vector_3.416") align 16 %20, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 16 dereferenceable(192) %18, ptr noundef nonnull align 16 dereferenceable(192) %21)
           to label %394 unwind label %597
 
 394:                                              ; preds = %393
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1170
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1169
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -54224,48 +54021,48 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
           to label %396 unwind label %599
 
 396:                                              ; preds = %394
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1173
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1172
   invoke void @_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Vector_3.416") align 16 %22, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 16 dereferenceable(192) %18, ptr noundef nonnull align 16 dereferenceable(192) %23)
           to label %397 unwind label %601
 
 397:                                              ; preds = %396
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1173
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1176
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1172
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1175
   %398 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %399 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %400 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %401 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store ptr %398, ptr %10, align 8, !tbaa !1183, !alias.scope !1185, !noalias !1176
+  store ptr %398, ptr %10, align 8, !tbaa !1182, !alias.scope !1184, !noalias !1175
   %402 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %399, ptr %402, align 8, !tbaa !1183, !alias.scope !1185, !noalias !1176
+  store ptr %399, ptr %402, align 8, !tbaa !1182, !alias.scope !1184, !noalias !1175
   %403 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %400, ptr %403, align 8, !tbaa !1183, !alias.scope !1185, !noalias !1176
+  store ptr %400, ptr %403, align 8, !tbaa !1182, !alias.scope !1184, !noalias !1175
   %404 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %401, ptr %404, align 8, !tbaa !1183, !alias.scope !1185, !noalias !1176
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1176
-  store ptr %400, ptr %11, align 8, !tbaa !1183, !alias.scope !1188, !noalias !1176
+  store ptr %401, ptr %404, align 8, !tbaa !1182, !alias.scope !1184, !noalias !1175
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1175
+  store ptr %400, ptr %11, align 8, !tbaa !1182, !alias.scope !1187, !noalias !1175
   %405 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %22, ptr %405, align 8, !tbaa !1183, !alias.scope !1188, !noalias !1176
+  store ptr %22, ptr %405, align 8, !tbaa !1182, !alias.scope !1187, !noalias !1175
   %406 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %20, ptr %406, align 8, !tbaa !1183, !alias.scope !1188, !noalias !1176
+  store ptr %20, ptr %406, align 8, !tbaa !1182, !alias.scope !1187, !noalias !1175
   %407 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %399, ptr %407, align 8, !tbaa !1183, !alias.scope !1188, !noalias !1176
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1176
-  store ptr %20, ptr %12, align 8, !tbaa !1183, !alias.scope !1191, !noalias !1176
+  store ptr %399, ptr %407, align 8, !tbaa !1182, !alias.scope !1187, !noalias !1175
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1175
+  store ptr %20, ptr %12, align 8, !tbaa !1182, !alias.scope !1190, !noalias !1175
   %408 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %401, ptr %408, align 8, !tbaa !1183, !alias.scope !1191, !noalias !1176
+  store ptr %401, ptr %408, align 8, !tbaa !1182, !alias.scope !1190, !noalias !1175
   %409 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %398, ptr %409, align 8, !tbaa !1183, !alias.scope !1191, !noalias !1176
+  store ptr %398, ptr %409, align 8, !tbaa !1182, !alias.scope !1190, !noalias !1175
   %410 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %22, ptr %410, align 8, !tbaa !1183, !alias.scope !1191, !noalias !1176
+  store ptr %22, ptr %410, align 8, !tbaa !1182, !alias.scope !1190, !noalias !1175
   invoke void @_ZN4CGAL8Vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEC2INS3_6detail10expressionINSI_5minusENSJ_INSI_19multiply_immediatesESE_SE_vvEESM_vvEESN_SN_EEOT_OT0_OT1_(ptr noundef nonnull align 16 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %411 unwind label %603
 
 411:                                              ; preds = %397
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1176
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1176
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1176
-  %412 = load ptr, ptr %372, align 16, !tbaa !1169
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1175
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1175
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1175
+  %412 = load ptr, ptr %372, align 16, !tbaa !1168
   br label %413
 
 413:                                              ; preds = %413, %411
@@ -54275,7 +54072,7 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
   %416 = call noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSEOS8_(ptr noundef nonnull align 16 dereferenceable(64) %414, ptr noundef nonnull align 16 dereferenceable(64) %415) #29
   %417 = add nuw nsw i64 %.05.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %417, 3
-  br i1 %.not.i.i.i, label %_ZN4CGAL8Vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEaSEOSG_.exit, label %413, !llvm.loop !1194
+  br i1 %.not.i.i.i, label %_ZN4CGAL8Vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEaSEOSG_.exit, label %413, !llvm.loop !1193
 
 _ZN4CGAL8Vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEaSEOSG_.exit: ; preds = %413
   %418 = getelementptr inbounds nuw i8, ptr %19, i64 192
@@ -54518,7 +54315,7 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %558 = load ptr, ptr %372, align 16, !tbaa !1169
+  %558 = load ptr, ptr %372, align 16, !tbaa !1168
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 192
   br label %560
 
@@ -54532,7 +54329,7 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
 .noexc:                                           ; preds = %560
   %564 = add nuw nsw i64 %.05.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i64 %564, 3
-  br i1 %.not.i.i.i.i.i, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEaSERKSG_.exit, label %560, !llvm.loop !1195
+  br i1 %.not.i.i.i.i.i, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEaSERKSG_.exit, label %560, !llvm.loop !1194
 
 _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEaSERKSG_.exit: ; preds = %.noexc
   %565 = getelementptr inbounds nuw i8, ptr %18, i64 192
@@ -54674,36 +54471,36 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
           to label %613 unwind label %727
 
 613:                                              ; preds = %611
-  %614 = load ptr, ptr %372, align 16, !tbaa !1169
+  %614 = load ptr, ptr %372, align 16, !tbaa !1168
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 192
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1196
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1195
   invoke void @_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Vector_3.416") align 16 %25, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 16 dereferenceable(192) %615, ptr noundef nonnull align 16 dereferenceable(192) %26)
           to label %616 unwind label %729
 
 616:                                              ; preds = %613
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1196
-  %617 = load ptr, ptr %372, align 16, !tbaa !1169
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1195
+  %617 = load ptr, ptr %372, align 16, !tbaa !1168
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1198
   %618 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %619 = getelementptr inbounds nuw i8, ptr %617, i64 64
   %620 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %621 = getelementptr inbounds nuw i8, ptr %617, i64 128
-  store ptr %25, ptr %8, align 8, !tbaa !1183, !alias.scope !1204, !noalias !1199
+  store ptr %25, ptr %8, align 8, !tbaa !1182, !alias.scope !1203, !noalias !1198
   %622 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %617, ptr %622, align 8, !tbaa !1183, !alias.scope !1204, !noalias !1199
+  store ptr %617, ptr %622, align 8, !tbaa !1182, !alias.scope !1203, !noalias !1198
   %623 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %618, ptr %623, align 8, !tbaa !1183, !alias.scope !1204, !noalias !1199
+  store ptr %618, ptr %623, align 8, !tbaa !1182, !alias.scope !1203, !noalias !1198
   %624 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %619, ptr %624, align 8, !tbaa !1183, !alias.scope !1204, !noalias !1199
+  store ptr %619, ptr %624, align 8, !tbaa !1182, !alias.scope !1203, !noalias !1198
   %625 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %620, ptr %625, align 8, !tbaa !1183, !alias.scope !1204, !noalias !1199
+  store ptr %620, ptr %625, align 8, !tbaa !1182, !alias.scope !1203, !noalias !1198
   %626 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %621, ptr %626, align 8, !tbaa !1183, !alias.scope !1204, !noalias !1199
+  store ptr %621, ptr %626, align 8, !tbaa !1182, !alias.scope !1203, !noalias !1198
   invoke void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %24)
           to label %.noexc90 unwind label %731
 
 .noexc90:                                         ; preds = %616
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1198
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_4plusENSE_ISF_NSE_INSD_19multiply_immediatesESB_SB_vvEESH_vvEESH_vvEEEEvRKT_RKSF_(ptr noundef nonnull align 16 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %629 unwind label %627
 
@@ -54714,8 +54511,8 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   br label %.body91
 
 629:                                              ; preds = %.noexc90
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1199
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1198
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1198
   %630 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %631 = load i64, ptr %630, align 16, !tbaa !93
   %632 = icmp eq i64 %631, 1
@@ -54941,7 +54738,7 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEESB_ED2Ev(ptr noundef nonnull align 16 dereferenceable(216) %0) unnamed_addr #16 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 16, !tbaa !1169
+  %3 = load ptr, ptr %2, align 16, !tbaa !1168
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %55, label %.preheader
 
@@ -55072,15 +54869,15 @@ define linkonce_odr dso_local void @_ZN4CGAL13Convex_hull_38internal19ch_quickhu
   store i64 0, ptr %18, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 0, ptr %19, align 8, !tbaa !1207
+  store i32 0, ptr %19, align 8, !tbaa !1206
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %20, align 8, !tbaa !1212
+  store ptr null, ptr %20, align 8, !tbaa !1211
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %19, ptr %21, align 8, !tbaa !1213
+  store ptr %19, ptr %21, align 8, !tbaa !1212
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %19, ptr %22, align 8, !tbaa !1214
+  store ptr %19, ptr %22, align 8, !tbaa !1213
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i64 0, ptr %23, align 8, !tbaa !1215
+  store i64 0, ptr %23, align 8, !tbaa !1214
   %24 = load ptr, ptr %1, align 8, !tbaa !206
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %._crit_edge311, label %.lr.ph310
@@ -55177,67 +54974,67 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE5clearEv.exit: ; preds = 
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %72 = load double, ptr %10, align 8, !tbaa !57, !noalias !1216
+  %72 = load double, ptr %10, align 8, !tbaa !57, !noalias !1215
   %73 = fneg double %72
   %74 = insertelement <2 x double> poison, double %72, i64 0
   %75 = insertelement <2 x double> %74, double %73, i64 1
-  %76 = load double, ptr %28, align 8, !tbaa !57, !noalias !1216
+  %76 = load double, ptr %28, align 8, !tbaa !57, !noalias !1215
   %77 = fneg double %76
   %78 = insertelement <2 x double> poison, double %76, i64 0
   %79 = insertelement <2 x double> %78, double %77, i64 1
-  %80 = load double, ptr %29, align 8, !tbaa !57, !noalias !1216
+  %80 = load double, ptr %29, align 8, !tbaa !57, !noalias !1215
   %81 = fneg double %80
   %82 = insertelement <2 x double> poison, double %80, i64 0
   %83 = insertelement <2 x double> %82, double %81, i64 1
-  %84 = load double, ptr %26, align 8, !tbaa !57, !noalias !1219
+  %84 = load double, ptr %26, align 8, !tbaa !57, !noalias !1218
   %85 = fneg double %84
   %86 = insertelement <2 x double> poison, double %85, i64 0
   %87 = insertelement <2 x double> %86, double %84, i64 1
-  %88 = load double, ptr %30, align 8, !tbaa !57, !noalias !1219
+  %88 = load double, ptr %30, align 8, !tbaa !57, !noalias !1218
   %89 = fneg double %88
   %90 = insertelement <2 x double> poison, double %89, i64 0
   %91 = insertelement <2 x double> %90, double %88, i64 1
-  %92 = load double, ptr %31, align 8, !tbaa !57, !noalias !1219
+  %92 = load double, ptr %31, align 8, !tbaa !57, !noalias !1218
   %93 = fneg double %92
   %94 = insertelement <2 x double> poison, double %93, i64 0
   %95 = insertelement <2 x double> %94, double %92, i64 1
-  %96 = load double, ptr %27, align 8, !tbaa !57, !noalias !1222
+  %96 = load double, ptr %27, align 8, !tbaa !57, !noalias !1221
   %97 = fneg double %96
   %98 = insertelement <2 x double> poison, double %97, i64 0
   %99 = insertelement <2 x double> %98, double %96, i64 1
-  %100 = load double, ptr %32, align 8, !tbaa !57, !noalias !1222
+  %100 = load double, ptr %32, align 8, !tbaa !57, !noalias !1221
   %101 = fneg double %100
   %102 = insertelement <2 x double> poison, double %101, i64 0
   %103 = insertelement <2 x double> %102, double %100, i64 1
-  %104 = load double, ptr %33, align 8, !tbaa !57, !noalias !1222
+  %104 = load double, ptr %33, align 8, !tbaa !57, !noalias !1221
   %105 = fneg double %104
   %106 = insertelement <2 x double> poison, double %105, i64 0
   %107 = insertelement <2 x double> %106, double %104, i64 1
-  %108 = load double, ptr %65, align 8, !tbaa !57, !noalias !1225
+  %108 = load double, ptr %65, align 8, !tbaa !57, !noalias !1224
   %109 = fneg double %108
   %110 = insertelement <2 x double> poison, double %109, i64 0
   %111 = insertelement <2 x double> %110, double %108, i64 1
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.02.111.i.i.i, i64 24
-  %113 = load double, ptr %112, align 8, !tbaa !57, !noalias !1225
+  %113 = load double, ptr %112, align 8, !tbaa !57, !noalias !1224
   %114 = fneg double %113
   %115 = insertelement <2 x double> poison, double %114, i64 0
   %116 = insertelement <2 x double> %115, double %113, i64 1
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.02.111.i.i.i, i64 32
-  %118 = load double, ptr %117, align 8, !tbaa !57, !noalias !1225
+  %118 = load double, ptr %117, align 8, !tbaa !57, !noalias !1224
   %119 = fneg double %118
   %120 = insertelement <2 x double> poison, double %119, i64 0
   %121 = insertelement <2 x double> %120, double %118, i64 1
-  %122 = load double, ptr %66, align 8, !tbaa !57, !noalias !1228
+  %122 = load double, ptr %66, align 8, !tbaa !57, !noalias !1227
   %123 = fneg double %122
   %124 = insertelement <2 x double> poison, double %122, i64 0
   %125 = insertelement <2 x double> %124, double %123, i64 1
   %126 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %127 = load double, ptr %126, align 8, !tbaa !57, !noalias !1228
+  %127 = load double, ptr %126, align 8, !tbaa !57, !noalias !1227
   %128 = fneg double %127
   %129 = insertelement <2 x double> poison, double %127, i64 0
   %130 = insertelement <2 x double> %129, double %128, i64 1
   %131 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %132 = load double, ptr %131, align 8, !tbaa !57, !noalias !1228
+  %132 = load double, ptr %131, align 8, !tbaa !57, !noalias !1227
   %133 = fneg double %132
   %134 = insertelement <2 x double> poison, double %132, i64 0
   %135 = insertelement <2 x double> %134, double %133, i64 1
@@ -55498,7 +55295,7 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE5clearEv.exit: ; preds = 
   %spec.select.i.i.i = select i1 %.3.i, ptr %64, ptr %.sroa.02.111.i.i.i
   %358 = load ptr, ptr %64, align 8, !tbaa !206
   %.not.i.i.i = icmp eq ptr %358, %55
-  br i1 %.not.i.i.i, label %.loopexit262, label %.noexc118, !llvm.loop !1231
+  br i1 %.not.i.i.i, label %.loopexit262, label %.noexc118, !llvm.loop !1230
 
 .loopexit262:                                     ; preds = %.noexc, %.preheader.i.i.i, %_ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE5clearEv.exit
   %.sroa.02.0.i.i.i = phi ptr [ %61, %_ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE5clearEv.exit ], [ %61, %.preheader.i.i.i ], [ %spec.select.i.i.i, %.noexc ]
@@ -55572,10 +55369,10 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_i
   store i32 0, ptr %385, align 4, !tbaa !30
   %.sroa.0178.0 = load ptr, ptr %.sroa.0178.0293, align 8, !tbaa !206
   %.not249 = icmp eq ptr %.sroa.0178.0, %11
-  br i1 %.not249, label %._crit_edge, label %.lr.ph, !llvm.loop !1232
+  br i1 %.not249, label %._crit_edge, label %.lr.ph, !llvm.loop !1231
 
 ._crit_edge:                                      ; preds = %383, %.preheader261
-  %386 = load i64, ptr %23, align 8, !tbaa !1215
+  %386 = load i64, ptr %23, align 8, !tbaa !1214
   %387 = icmp ugt i64 %386, 576460752303423487
   br i1 %387, label %388, label %389
 
@@ -55591,7 +55388,7 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_i
   br i1 %.not250, label %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE7reserveEm.exit.thread, label %_ZNSt12_Vector_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE7reserveEm.exit.thread: ; preds = %389
-  %390 = load ptr, ptr %21, align 8, !tbaa !1213
+  %390 = load ptr, ptr %21, align 8, !tbaa !1212
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 40
   %.sroa.0121.0.copyload221 = load ptr, ptr %391, align 8
   %.sroa.12.0..sroa_idx222 = getelementptr inbounds nuw i8, ptr %390, i64 48
@@ -55609,7 +55406,7 @@ _ZNSt12_Vector_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_container
           to label %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE7reserveEm.exit unwind label %.thread.loopexit
 
 _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE11_M_allocateEm.exit.i
-  %396 = load ptr, ptr %21, align 8, !tbaa !1213
+  %396 = load ptr, ptr %21, align 8, !tbaa !1212
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 40
   %.sroa.0121.0.copyload = load ptr, ptr %397, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 48
@@ -55644,10 +55441,10 @@ _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23
   %.sroa.26.5 = phi ptr [ %400, %.noexc61 ], [ %399, %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE7reserveEm.exit ]
   %402 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %401, ptr noundef nonnull align 8 dereferenceable(32) %19) #29
   call void @_ZdlPvm(ptr noundef nonnull %402, i64 noundef 56) #40
-  %403 = load i64, ptr %23, align 8, !tbaa !1215
+  %403 = load i64, ptr %23, align 8, !tbaa !1214
   %.sroa.14153.0294 = getelementptr inbounds nuw i8, ptr %.sroa.0146.5, i64 16
   %storemerge295 = add i64 %403, -1
-  store i64 %storemerge295, ptr %23, align 8, !tbaa !1215
+  store i64 %storemerge295, ptr %23, align 8, !tbaa !1214
   %404 = icmp eq i64 %storemerge295, 0
   br i1 %404, label %._crit_edge303, label %.lr.ph302
 
@@ -55664,7 +55461,7 @@ _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23
   %408 = sext i32 %407 to i64
   %409 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0121.0300, i64 %408
   %.sroa.0.0.copyload.i62 = load ptr, ptr %409, align 8, !tbaa !253
-  %410 = load ptr, ptr %20, align 8, !tbaa !1212
+  %410 = load ptr, ptr %20, align 8, !tbaa !1211
   %.not10.i.i.i63 = icmp eq ptr %410, null
   br i1 %.not10.i.i.i63, label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE4findERS13_.exit, label %.lr.ph.i.i.i64
 
@@ -55672,14 +55469,14 @@ _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i64 ], [ %410, %.lr.ph302 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i64 ], [ %19, %.lr.ph302 ]
   %411 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %412 = load ptr, ptr %411, align 8, !tbaa !1233
+  %412 = load ptr, ptr %411, align 8, !tbaa !1232
   %413 = icmp ult ptr %412, %.sroa.0.0.copyload.i62
   %.19.i.i.i = select i1 %413, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %413, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !1235
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !1234
   %.not.i.i.i65 = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i65, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS12_EPSt18_Rb_tree_node_baseRSW_.exit.i.i, label %.lr.ph.i.i.i64, !llvm.loop !1236
+  br i1 %.not.i.i.i65, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS12_EPSt18_Rb_tree_node_baseRSW_.exit.i.i, label %.lr.ph.i.i.i64, !llvm.loop !1235
 
 _ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS12_EPSt18_Rb_tree_node_baseRSW_.exit.i.i: ; preds = %.lr.ph.i.i.i64
   %414 = icmp eq ptr %.19.i.i.i, %19
@@ -55688,7 +55485,7 @@ _ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex
 415:                                              ; preds = %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS12_EPSt18_Rb_tree_node_baseRSW_.exit.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %413, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
-  %416 = load ptr, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !1233
+  %416 = load ptr, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !1232
   %417 = icmp ult ptr %.sroa.0.0.copyload.i62, %416
   %spec.select.i.i = select i1 %417, ptr %19, ptr %.19.i.i.i
   br label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE4findERS13_.exit
@@ -55699,7 +55496,7 @@ _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull
   %419 = load i64, ptr %418, align 8, !tbaa !262
   %420 = inttoptr i64 %419 to ptr
   %421 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
-  %422 = load i32, ptr %421, align 8, !tbaa !1237
+  %422 = load i32, ptr %421, align 8, !tbaa !1236
   %423 = getelementptr inbounds nuw i8, ptr %420, i64 52
   store i32 0, ptr %423, align 4, !tbaa !30
   %.not.i66 = icmp eq ptr %.sroa.14153.0301, %.sroa.26.1298
@@ -55753,11 +55550,11 @@ _ZNKSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_2
 .lr.ph.i.i.i.i.i71:                               ; preds = %.noexc80, %.lr.ph.i.i.i.i.i71
   %.012.i.i.i.i.i72 = phi ptr [ %440, %.lr.ph.i.i.i.i.i71 ], [ %437, %.noexc80 ]
   %.0911.i.i.i.i.i73 = phi ptr [ %439, %.lr.ph.i.i.i.i.i71 ], [ %.sroa.0146.1296, %.noexc80 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i72, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i73, i64 16, i1 false), !alias.scope !1239
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i72, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i73, i64 16, i1 false), !alias.scope !1238
   %439 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i73, i64 16
   %440 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i72, i64 16
   %.not.i.i.i.i.i74 = icmp eq ptr %.0911.i.i.i.i.i73, %.sroa.0146.5.pn297
-  br i1 %.not.i.i.i.i.i74, label %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE17_M_realloc_insertIJRKSW_EEEvN9__gnu_cxx17__normal_iteratorIPSW_SY_EEDpOT_.exit.i78, label %.lr.ph.i.i.i.i.i71, !llvm.loop !1243
+  br i1 %.not.i.i.i.i.i74, label %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE17_M_realloc_insertIJRKSW_EEEvN9__gnu_cxx17__normal_iteratorIPSW_SY_EEDpOT_.exit.i78, label %.lr.ph.i.i.i.i.i71, !llvm.loop !1242
 
 _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE17_M_realloc_insertIJRKSW_EEEvN9__gnu_cxx17__normal_iteratorIPSW_SY_EEDpOT_.exit.i78: ; preds = %.lr.ph.i.i.i.i.i71, %.noexc80
   %.0.lcssa.i.i.i.i.i76 = phi ptr [ %437, %.noexc80 ], [ %440, %.lr.ph.i.i.i.i.i71 ]
@@ -55771,10 +55568,10 @@ _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23
   %.sroa.26.6 = phi ptr [ %441, %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE17_M_realloc_insertIJRKSW_EEEvN9__gnu_cxx17__normal_iteratorIPSW_SY_EEDpOT_.exit.i78 ], [ %.sroa.26.1298, %424 ]
   %442 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %19) #29
   call void @_ZdlPvm(ptr noundef nonnull %442, i64 noundef 56) #40
-  %443 = load i64, ptr %23, align 8, !tbaa !1215
+  %443 = load i64, ptr %23, align 8, !tbaa !1214
   %.sroa.14153.0 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i76.pn, i64 16
   %storemerge = add i64 %443, -1
-  store i64 %storemerge, ptr %23, align 8, !tbaa !1215
+  store i64 %storemerge, ptr %23, align 8, !tbaa !1214
   %444 = icmp eq i64 %storemerge, 0
   br i1 %444, label %._crit_edge303, label %.lr.ph302
 
@@ -55861,7 +55658,7 @@ _ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_
           to label %.noexc115 unwind label %.loopexit253
 
 .noexc115:                                        ; preds = %_ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS3_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISB_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEEE8allocateEmPKv.exit.i
-  %466 = load ptr, ptr %39, align 8, !tbaa !1123
+  %466 = load ptr, ptr %39, align 8, !tbaa !1122
   %467 = load ptr, ptr %40, align 8, !tbaa !499
   %.not.i.i.i110 = icmp eq ptr %466, %467
   br i1 %.not.i.i.i110, label %471, label %468
@@ -55870,9 +55667,9 @@ _ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_
   store ptr %465, ptr %466, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %466, i64 8
   store i64 %458, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %469 = load ptr, ptr %39, align 8, !tbaa !1123
+  %469 = load ptr, ptr %39, align 8, !tbaa !1122
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
-  store ptr %470, ptr %39, align 8, !tbaa !1123
+  store ptr %470, ptr %39, align 8, !tbaa !1122
   br label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit.i
 
 471:                                              ; preds = %.noexc115
@@ -55914,11 +55711,11 @@ _ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc117, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %487, %.lr.ph.i.i.i.i.i.i.i ], [ %484, %.noexc117 ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %486, %.lr.ph.i.i.i.i.i.i.i ], [ %472, %.noexc117 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1244
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1243
   %486 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
   %487 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %486, %466
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1128
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1127
 
 _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc117
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %484, %.noexc117 ], [ %487, %.lr.ph.i.i.i.i.i.i.i ]
@@ -55932,16 +55729,16 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
 
 _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_.exit.i.i.i: ; preds = %489, %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE11_S_relocateEPSR_SU_SU_RSS_.exit22.i.i.i.i
   store ptr %484, ptr %38, align 8, !tbaa !498
-  store ptr %488, ptr %39, align 8, !tbaa !1123
+  store ptr %488, ptr %39, align 8, !tbaa !1122
   %490 = getelementptr inbounds nuw %"struct.std::pair.402", ptr %484, i64 %482
   store ptr %490, ptr %40, align 8, !tbaa !499
   br label %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit.i
 
 _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE9push_backEOSR_.exit.i: ; preds = %_ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE17_M_realloc_insertIJSR_EEEvN9__gnu_cxx17__normal_iteratorIPSR_ST_EEDpOT_.exit.i.i.i, %468
   %491 = load i64, ptr %37, align 8, !tbaa !238
-  %492 = load i64, ptr %41, align 8, !tbaa !1129
+  %492 = load i64, ptr %41, align 8, !tbaa !1128
   %493 = add i64 %492, %491
-  store i64 %493, ptr %41, align 8, !tbaa !1129
+  store i64 %493, ptr %41, align 8, !tbaa !1128
   %.not16.i = icmp eq i64 %491, 0
   br i1 %.not16.i, label %494, label %.lr.ph.i
 
@@ -55970,7 +55767,7 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
   store ptr %503, ptr %504, align 8, !tbaa !242
   %505 = add i64 %.017.i, -1
   %.not.i111 = icmp eq i64 %505, 0
-  br i1 %.not.i111, label %._crit_edge.i, label %497, !llvm.loop !1130
+  br i1 %.not.i111, label %._crit_edge.i, label %497, !llvm.loop !1129
 
 506:                                              ; preds = %494
   store ptr %465, ptr %43, align 8, !tbaa !458
@@ -56037,7 +55834,7 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
   store i64 %538, ptr %16, align 8, !tbaa !483
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond338.not = icmp eq i64 %indvars.iv.next336, %smax
-  br i1 %exitcond338.not, label %.loopexit252, label %453, !llvm.loop !1248
+  br i1 %exitcond338.not, label %.loopexit252, label %453, !llvm.loop !1247
 
 .loopexit253:                                     ; preds = %519, %_ZNSt15__new_allocatorIN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS3_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISB_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEEE8allocateEmPKv.exit.i, %_ZNKSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESaISR_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -56090,7 +55887,7 @@ _ZNSt6vectorISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3
   call void @_ZdlPvm(ptr noundef nonnull %544, i64 noundef 24) #40
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %450
-  br i1 %exitcond.not, label %.loopexit252, label %.lr.ph307, !llvm.loop !1249
+  br i1 %exitcond.not, label %.loopexit252, label %.lr.ph307, !llvm.loop !1248
 
 .loopexit252:                                     ; preds = %.loopexit, %534, %.preheader254
   %555 = load ptr, ptr %11, align 8, !tbaa !206
@@ -56135,7 +55932,7 @@ _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %570 = load ptr, ptr %1, align 8, !tbaa !206
   %571 = icmp eq ptr %570, %1
-  br i1 %571, label %._crit_edge311.loopexit, label %47, !llvm.loop !1250
+  br i1 %571, label %._crit_edge311.loopexit, label %47, !llvm.loop !1249
 
 572:                                              ; preds = %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE13create_vertexEv.exit.i, %558, %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE9star_holeIN9__gnu_cxx17__normal_iteratorIPSt4pairINS_8internal11CC_iteratorINS_17Compact_containerINSH_ISC_NSI_ISL_EEEENS_7DefaultESV_SV_EELb0EEEiESt6vectorISY_SaISY_EEEESt14_List_iteratorISX_EEENSR_INSS_INS1_ISD_NSE_ISL_EEEESV_SV_SV_EELb0EEET_S1A_T0_S1B_.exit
   %573 = landingpad { ptr, i32 }
@@ -56194,7 +55991,7 @@ _ZNSt7__cxx1110_List_baseIN4CGAL8internal11CC_iteratorINS1_17Compact_containerIN
   resume { ptr, i32 } %.pn49.pn.pn.pn
 
 ._crit_edge311.loopexit:                          ; preds = %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EED2Ev.exit
-  %.pre342 = load ptr, ptr %20, align 8, !tbaa !1212
+  %.pre342 = load ptr, ptr %20, align 8, !tbaa !1211
   br label %._crit_edge311
 
 ._crit_edge311:                                   ; preds = %._crit_edge311.loopexit, %3
@@ -56247,7 +56044,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL19Cartesian_converterINS_5EpickENS_
   %6 = alloca %"class.boost::multiprecision::number", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %4)
-  %7 = load double, ptr %2, align 8, !tbaa !57, !noalias !1251
+  %7 = load double, ptr %2, align 8, !tbaa !57, !noalias !1250
   %8 = fpext double %7 to x86_fp80
   %9 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %4, x86_fp80 noundef %8)
           to label %12 unwind label %10
@@ -56269,7 +56066,7 @@ common.resume:                                    ; preds = %.body, %10
 
 .noexc:                                           ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !57, !noalias !1254
+  %14 = load double, ptr %13, align 8, !tbaa !57, !noalias !1253
   %15 = fpext double %14 to x86_fp80
   %16 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %5, x86_fp80 noundef %15)
           to label %19 unwind label %17
@@ -56287,7 +56084,7 @@ common.resume:                                    ; preds = %.body, %10
 
 .noexc10:                                         ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %21 = load double, ptr %20, align 8, !tbaa !57, !noalias !1257
+  %21 = load double, ptr %20, align 8, !tbaa !57, !noalias !1256
   %22 = fpext double %21 to x86_fp80
   %23 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %6, x86_fp80 noundef %22)
           to label %_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd.exit13 unwind label %24
@@ -57546,16 +57343,16 @@ _ZNK5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_
   %6 = alloca %"struct.boost::multiprecision::detail::multiply_immediates", align 1
   %7 = alloca %"struct.boost::multiprecision::detail::expression.1", align 8
   %8 = alloca %"struct.boost::multiprecision::detail::multiply_immediates", align 1
-  %9 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1262
+  %9 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1261
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !1265, !noalias !1262
+  %11 = load ptr, ptr %10, align 8, !tbaa !1264, !noalias !1261
   %12 = icmp eq ptr %9, %0
   %13 = icmp eq ptr %11, %0
   %spec.select = select i1 %12, i1 true, i1 %13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1260, !noalias !1266
+  %15 = load ptr, ptr %14, align 8, !tbaa !1259, !noalias !1265
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !1265, !noalias !1266
+  %17 = load ptr, ptr %16, align 8, !tbaa !1264, !noalias !1265
   %18 = icmp eq ptr %15, %0
   %19 = icmp eq ptr %17, %0
   %20 = select i1 %18, i1 true, i1 %19
@@ -57689,12 +57486,12 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEEEEvRKT_RKSF_.exit: ; preds = %74, %78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1269)
-  %80 = load ptr, ptr %14, align 8, !tbaa !1260, !noalias !1269
-  store ptr %80, ptr %5, align 8, !tbaa !1183, !alias.scope !1269
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1268)
+  %80 = load ptr, ptr %14, align 8, !tbaa !1259, !noalias !1268
+  store ptr %80, ptr %5, align 8, !tbaa !1182, !alias.scope !1268
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %82 = load ptr, ptr %16, align 8, !tbaa !1265, !noalias !1269
-  store ptr %82, ptr %81, align 8, !tbaa !1183, !alias.scope !1269
+  %82 = load ptr, ptr %16, align 8, !tbaa !1264, !noalias !1268
+  store ptr %82, ptr %81, align 8, !tbaa !1182, !alias.scope !1268
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE11do_subtractINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -57720,12 +57517,12 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEEEEvRKT_RKSF_.exit21: ; preds = %85, %89
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1272)
-  %91 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1272
-  store ptr %91, ptr %7, align 8, !tbaa !1183, !alias.scope !1272
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1271)
+  %91 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1271
+  store ptr %91, ptr %7, align 8, !tbaa !1182, !alias.scope !1271
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %93 = load ptr, ptr %10, align 8, !tbaa !1265, !noalias !1272
-  store ptr %93, ptr %92, align 8, !tbaa !1183, !alias.scope !1272
+  %93 = load ptr, ptr %10, align 8, !tbaa !1264, !noalias !1271
+  store ptr %93, ptr %92, align 8, !tbaa !1182, !alias.scope !1271
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE11do_subtractINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -57765,9 +57562,9 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision6numberINS0_8backen
   %4 = alloca %"class.boost::multiprecision::number", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %4)
-  %5 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1275
+  %5 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1274
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !1265, !noalias !1278
+  %7 = load ptr, ptr %6, align 8, !tbaa !1264, !noalias !1277
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %13
 
@@ -58259,13 +58056,13 @@ _ZNK5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_
   %10 = alloca %"struct.boost::multiprecision::detail::plus", align 1
   %11 = alloca %"struct.boost::multiprecision::detail::expression.1", align 8
   %12 = alloca %"struct.boost::multiprecision::detail::multiply_immediates", align 1
-  %13 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1281
+  %13 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1280
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !1265, !noalias !1281
+  %15 = load ptr, ptr %14, align 8, !tbaa !1264, !noalias !1280
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1260, !noalias !1281
+  %17 = load ptr, ptr %16, align 8, !tbaa !1259, !noalias !1280
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1265, !noalias !1281
+  %19 = load ptr, ptr %18, align 8, !tbaa !1264, !noalias !1280
   %20 = icmp eq ptr %13, %0
   %21 = icmp eq ptr %15, %0
   %or.cond64 = select i1 %20, i1 true, i1 %21
@@ -58274,9 +58071,9 @@ _ZNK5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_
   %23 = icmp eq ptr %19, %0
   %spec.select66 = select i1 %or.cond65, i1 true, i1 %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1260, !noalias !1284
+  %25 = load ptr, ptr %24, align 8, !tbaa !1259, !noalias !1283
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !1265, !noalias !1284
+  %27 = load ptr, ptr %26, align 8, !tbaa !1264, !noalias !1283
   %28 = icmp eq ptr %25, %0
   %29 = icmp eq ptr %27, %0
   %spec.select = select i1 %28, i1 true, i1 %29
@@ -58393,24 +58190,24 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 .critedge3:                                       ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %13, ptr %9, align 8, !tbaa !1183, !alias.scope !1287
+  store ptr %13, ptr %9, align 8, !tbaa !1182, !alias.scope !1286
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %15, ptr %82, align 8, !tbaa !1183, !alias.scope !1287
+  store ptr %15, ptr %82, align 8, !tbaa !1182, !alias.scope !1286
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %17, ptr %83, align 8, !tbaa !1183, !alias.scope !1287
+  store ptr %17, ptr %83, align 8, !tbaa !1182, !alias.scope !1286
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %19, ptr %84, align 8, !tbaa !1183, !alias.scope !1287
+  store ptr %19, ptr %84, align 8, !tbaa !1182, !alias.scope !1286
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_4plusENSE_INSD_19multiply_immediatesESB_SB_vvEESH_vvEEEEvRKT_RKSF_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1290)
-  %85 = load ptr, ptr %24, align 8, !tbaa !1260, !noalias !1290
-  store ptr %85, ptr %11, align 8, !tbaa !1183, !alias.scope !1290
+  call void @llvm.experimental.noalias.scope.decl(metadata !1289)
+  %85 = load ptr, ptr %24, align 8, !tbaa !1259, !noalias !1289
+  store ptr %85, ptr %11, align 8, !tbaa !1182, !alias.scope !1289
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %87 = load ptr, ptr %26, align 8, !tbaa !1265, !noalias !1290
-  store ptr %87, ptr %86, align 8, !tbaa !1183, !alias.scope !1290
+  %87 = load ptr, ptr %26, align 8, !tbaa !1264, !noalias !1289
+  store ptr %87, ptr %86, align 8, !tbaa !1182, !alias.scope !1289
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE6do_addINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -58435,22 +58232,22 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEEEEvRKT_RKSF_.exit
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEEEEvRKT_RKSF_.exit: ; preds = %90, %94
-  %96 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1293
-  %97 = load ptr, ptr %14, align 8, !tbaa !1265, !noalias !1293
-  %98 = load ptr, ptr %16, align 8, !tbaa !1260, !noalias !1293
-  %99 = load ptr, ptr %18, align 8, !tbaa !1265, !noalias !1293
+  %96 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1292
+  %97 = load ptr, ptr %14, align 8, !tbaa !1264, !noalias !1292
+  %98 = load ptr, ptr %16, align 8, !tbaa !1259, !noalias !1292
+  %99 = load ptr, ptr %18, align 8, !tbaa !1264, !noalias !1292
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %96, ptr %4, align 8, !tbaa !1183, !alias.scope !1296
+  store ptr %96, ptr %4, align 8, !tbaa !1182, !alias.scope !1295
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %97, ptr %100, align 8, !tbaa !1183, !alias.scope !1296
+  store ptr %97, ptr %100, align 8, !tbaa !1182, !alias.scope !1295
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE6do_addINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %98, ptr %6, align 8, !tbaa !1183, !alias.scope !1299
+  store ptr %98, ptr %6, align 8, !tbaa !1182, !alias.scope !1298
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %99, ptr %101, align 8, !tbaa !1183, !alias.scope !1299
+  store ptr %99, ptr %101, align 8, !tbaa !1182, !alias.scope !1298
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE6do_addINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -58466,9 +58263,9 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision6numberINS0_8backen
   %4 = alloca %"class.boost::multiprecision::number", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %4)
-  %5 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1302
+  %5 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1301
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !1265, !noalias !1305
+  %7 = load ptr, ptr %6, align 8, !tbaa !1264, !noalias !1304
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %13
 
@@ -58560,16 +58357,16 @@ _ZNK5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_
   %6 = alloca %"struct.boost::multiprecision::detail::multiply_immediates", align 1
   %7 = alloca %"struct.boost::multiprecision::detail::expression.1", align 8
   %8 = alloca %"struct.boost::multiprecision::detail::multiply_immediates", align 1
-  %9 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1308
+  %9 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1307
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !1265, !noalias !1308
+  %11 = load ptr, ptr %10, align 8, !tbaa !1264, !noalias !1307
   %12 = icmp eq ptr %9, %0
   %13 = icmp eq ptr %11, %0
   %spec.select = select i1 %12, i1 true, i1 %13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1260, !noalias !1311
+  %15 = load ptr, ptr %14, align 8, !tbaa !1259, !noalias !1310
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !1265, !noalias !1311
+  %17 = load ptr, ptr %16, align 8, !tbaa !1264, !noalias !1310
   %18 = icmp eq ptr %15, %0
   %19 = icmp eq ptr %17, %0
   %20 = select i1 %18, i1 true, i1 %19
@@ -58703,12 +58500,12 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEEEEvRKT_RKSF_.exit: ; preds = %74, %78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1314)
-  %80 = load ptr, ptr %14, align 8, !tbaa !1260, !noalias !1314
-  store ptr %80, ptr %5, align 8, !tbaa !1183, !alias.scope !1314
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1313)
+  %80 = load ptr, ptr %14, align 8, !tbaa !1259, !noalias !1313
+  store ptr %80, ptr %5, align 8, !tbaa !1182, !alias.scope !1313
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %82 = load ptr, ptr %16, align 8, !tbaa !1265, !noalias !1314
-  store ptr %82, ptr %81, align 8, !tbaa !1183, !alias.scope !1314
+  %82 = load ptr, ptr %16, align 8, !tbaa !1264, !noalias !1313
+  store ptr %82, ptr %81, align 8, !tbaa !1182, !alias.scope !1313
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE6do_addINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -58734,12 +58531,12 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEEEEvRKT_RKSF_.exit21: ; preds = %85, %89
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1317)
-  %91 = load ptr, ptr %1, align 8, !tbaa !1260, !noalias !1317
-  store ptr %91, ptr %7, align 8, !tbaa !1183, !alias.scope !1317
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1316)
+  %91 = load ptr, ptr %1, align 8, !tbaa !1259, !noalias !1316
+  store ptr %91, ptr %7, align 8, !tbaa !1182, !alias.scope !1316
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %93 = load ptr, ptr %10, align 8, !tbaa !1265, !noalias !1317
-  store ptr %93, ptr %92, align 8, !tbaa !1183, !alias.scope !1317
+  %93 = load ptr, ptr %10, align 8, !tbaa !1264, !noalias !1316
+  store ptr %93, ptr %92, align 8, !tbaa !1182, !alias.scope !1316
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE6do_addINS0_6detail10expressionINSD_19multiply_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -58840,7 +58637,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
 .loopexit:                                        ; preds = %290
   %.sroa.0209.0 = load ptr, ptr %.sroa.0209.0330, align 8, !tbaa !206
   %.not266 = icmp eq ptr %.sroa.0209.0, %3
-  br i1 %.not266, label %.preheader, label %.preheader268, !llvm.loop !1320
+  br i1 %.not266, label %.preheader, label %.preheader268, !llvm.loop !1319
 
 .preheader268:                                    ; preds = %.preheader268.lr.ph, %.loopexit
   %.sroa.0209.0330 = phi ptr [ %.sroa.0209.0325, %.preheader268.lr.ph ], [ %.sroa.0209.0, %.loopexit ]
@@ -59027,14 +58824,14 @@ _ZNKSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc97, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %139, %.lr.ph.i.i.i.i.i ], [ %134, %.noexc97 ]
   %.0911.i.i.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i.i.i ], [ %.sroa.0213.1323, %.noexc97 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !1321)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1324)
-  %137 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !253, !alias.scope !1324, !noalias !1321
-  store i64 %137, ptr %.012.i.i.i.i.i, align 8, !tbaa !253, !alias.scope !1321, !noalias !1324
+  call void @llvm.experimental.noalias.scope.decl(metadata !1320)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1323)
+  %137 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !253, !alias.scope !1323, !noalias !1320
+  store i64 %137, ptr %.012.i.i.i.i.i, align 8, !tbaa !253, !alias.scope !1320, !noalias !1323
   %138 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %139 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %138, %.sroa.17.1322
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EE17_M_realloc_insertIJRKSU_EEEvN9__gnu_cxx17__normal_iteratorIPSU_SW_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1326
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EE17_M_realloc_insertIJRKSU_EEEvN9__gnu_cxx17__normal_iteratorIPSU_SW_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1325
 
 _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EE17_M_realloc_insertIJRKSU_EEEvN9__gnu_cxx17__normal_iteratorIPSU_SW_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc97
   %.0.lcssa.i.i.i.i.i = phi ptr [ %134, %.noexc97 ], [ %139, %.lr.ph.i.i.i.i.i ]
@@ -59084,7 +58881,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
   store i32 2, ptr %154, align 4, !tbaa !30
   %155 = ptrtoint ptr %.sroa.0.0.copyload.i89 to i64
   %156 = ptrtoint ptr %.sroa.0.0.copyload.i98 to i64
-  %157 = load ptr, ptr %29, align 8, !tbaa !1212
+  %157 = load ptr, ptr %29, align 8, !tbaa !1211
   %.not10.i.i.i.i101 = icmp eq ptr %157, null
   br i1 %.not10.i.i.i.i101, label %.critedge.i, label %.lr.ph.i.i.i.i102
 
@@ -59092,14 +58889,14 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
   %.012.i.i.i.i103 = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i102 ], [ %157, %143 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i102 ], [ %30, %143 ]
   %158 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i103, i64 32
-  %159 = load ptr, ptr %158, align 8, !tbaa !1233
+  %159 = load ptr, ptr %158, align 8, !tbaa !1232
   %160 = icmp ult ptr %159, %.sroa.0.0.copyload.i98
   %.19.i.i.i.i = select i1 %160, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i103
   %.1.in.v.i.i.i.i = select i1 %160, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i103, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !1235
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !1234
   %.not.i.i.i.i104 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i104, label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i, label %.lr.ph.i.i.i.i102, !llvm.loop !1236
+  br i1 %.not.i.i.i.i104, label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i, label %.lr.ph.i.i.i.i102, !llvm.loop !1235
 
 _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i: ; preds = %.lr.ph.i.i.i.i102
   %161 = icmp eq ptr %.19.i.i.i.i, %30
@@ -59107,7 +58904,7 @@ _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull
 
 162:                                              ; preds = %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i
   %163 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %164 = load ptr, ptr %163, align 8, !tbaa !1233
+  %164 = load ptr, ptr %163, align 8, !tbaa !1232
   %165 = icmp ult ptr %.sroa.0.0.copyload.i98, %164
   br i1 %165, label %.critedge.i, label %187
 
@@ -59140,17 +58937,17 @@ _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  %177 = load ptr, ptr %167, align 8, !tbaa !1233
-  %178 = load ptr, ptr %176, align 8, !tbaa !1233
+  %177 = load ptr, ptr %167, align 8, !tbaa !1232
+  %178 = load ptr, ptr %176, align 8, !tbaa !1232
   %179 = icmp ult ptr %177, %178
   br label %.thread.i
 
 .thread.i:                                        ; preds = %175, %172
   %180 = phi i1 [ %179, %175 ], [ true, %172 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %180, ptr noundef nonnull %166, ptr noundef nonnull %171, ptr noundef nonnull align 8 dereferenceable(32) %30) #29
-  %181 = load i64, ptr %31, align 8, !tbaa !1215
+  %181 = load i64, ptr %31, align 8, !tbaa !1214
   %182 = add i64 %181, 1
-  store i64 %182, ptr %31, align 8, !tbaa !1215
+  store i64 %182, ptr %31, align 8, !tbaa !1214
   br label %187
 
 _ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.noexc135
@@ -59172,7 +58969,7 @@ _ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex
   %.sroa.32.5 = phi ptr [ %.sroa.32.1321, %109 ], [ %.sroa.32.11, %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EE9push_backERKSU_.exit ], [ %.sroa.32.1321, %162 ], [ %.sroa.32.1321, %184 ], [ %.sroa.32.1321, %.thread.i ]
   %.sroa.17.3 = phi ptr [ %.sroa.17.1322, %109 ], [ %.sroa.17.9, %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EE9push_backERKSU_.exit ], [ %.sroa.17.1322, %162 ], [ %.sroa.17.1322, %184 ], [ %.sroa.17.1322, %.thread.i ]
   %.sroa.0213.5 = phi ptr [ %.sroa.0213.1323, %109 ], [ %.sroa.0213.11, %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EE9push_backERKSU_.exit ], [ %.sroa.0213.1323, %162 ], [ %.sroa.0213.1323, %184 ], [ %.sroa.0213.1323, %.thread.i ]
-  %188 = load ptr, ptr %47, align 16, !tbaa !1169
+  %188 = load ptr, ptr %47, align 16, !tbaa !1168
   %.not.i106 = icmp eq ptr %188, null
   br i1 %.not.i106, label %_ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEESB_ED2Ev.exit, label %.preheader.i
 
@@ -59309,7 +59106,7 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
   store i32 2, ptr %257, align 4, !tbaa !30
   %258 = ptrtoint ptr %.sroa.0.0.copyload.i89 to i64
   %259 = ptrtoint ptr %.sroa.0.0.copyload.i109 to i64
-  %260 = load ptr, ptr %29, align 8, !tbaa !1212
+  %260 = load ptr, ptr %29, align 8, !tbaa !1211
   %.not10.i.i.i.i112 = icmp eq ptr %260, null
   br i1 %.not10.i.i.i.i112, label %.critedge.i126, label %.lr.ph.i.i.i.i113
 
@@ -59317,14 +59114,14 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
   %.012.i.i.i.i114 = phi ptr [ %.1.i.i.i.i119, %.lr.ph.i.i.i.i113 ], [ %260, %240 ]
   %.0811.i.i.i.i115 = phi ptr [ %.19.i.i.i.i116, %.lr.ph.i.i.i.i113 ], [ %30, %240 ]
   %261 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i114, i64 32
-  %262 = load ptr, ptr %261, align 8, !tbaa !1233
+  %262 = load ptr, ptr %261, align 8, !tbaa !1232
   %263 = icmp ult ptr %262, %.sroa.0.0.copyload.i109
   %.19.i.i.i.i116 = select i1 %263, ptr %.0811.i.i.i.i115, ptr %.012.i.i.i.i114
   %.1.in.v.i.i.i.i117 = select i1 %263, i64 24, i64 16
   %.1.in.i.i.i.i118 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i114, i64 %.1.in.v.i.i.i.i117
-  %.1.i.i.i.i119 = load ptr, ptr %.1.in.i.i.i.i118, align 8, !tbaa !1235
+  %.1.i.i.i.i119 = load ptr, ptr %.1.in.i.i.i.i118, align 8, !tbaa !1234
   %.not.i.i.i.i120 = icmp eq ptr %.1.i.i.i.i119, null
-  br i1 %.not.i.i.i.i120, label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i121, label %.lr.ph.i.i.i.i113, !llvm.loop !1236
+  br i1 %.not.i.i.i.i120, label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i121, label %.lr.ph.i.i.i.i113, !llvm.loop !1235
 
 _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i121: ; preds = %.lr.ph.i.i.i.i113
   %264 = icmp eq ptr %.19.i.i.i.i116, %30
@@ -59332,7 +59129,7 @@ _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull
 
 265:                                              ; preds = %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEE11lower_boundERS13_.exit.i121
   %266 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i116, i64 32
-  %267 = load ptr, ptr %266, align 8, !tbaa !1233
+  %267 = load ptr, ptr %266, align 8, !tbaa !1232
   %268 = icmp ult ptr %.sroa.0.0.copyload.i109, %267
   br i1 %268, label %.critedge.i126, label %290
 
@@ -59365,17 +59162,17 @@ _ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull
 
 278:                                              ; preds = %275
   %279 = getelementptr inbounds nuw i8, ptr %274, i64 32
-  %280 = load ptr, ptr %270, align 8, !tbaa !1233
-  %281 = load ptr, ptr %279, align 8, !tbaa !1233
+  %280 = load ptr, ptr %270, align 8, !tbaa !1232
+  %281 = load ptr, ptr %279, align 8, !tbaa !1232
   %282 = icmp ult ptr %280, %281
   br label %.thread.i140
 
 .thread.i140:                                     ; preds = %278, %275
   %283 = phi i1 [ %282, %278 ], [ true, %275 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %283, ptr noundef nonnull %269, ptr noundef nonnull %274, ptr noundef nonnull align 8 dereferenceable(32) %30) #29
-  %284 = load i64, ptr %31, align 8, !tbaa !1215
+  %284 = load i64, ptr %31, align 8, !tbaa !1214
   %285 = add i64 %284, 1
-  store i64 %285, ptr %31, align 8, !tbaa !1215
+  store i64 %285, ptr %31, align 8, !tbaa !1214
   br label %290
 
 _ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE10_Auto_nodeD2Ev.exit.i136: ; preds = %.noexc142
@@ -59399,7 +59196,7 @@ _ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex
   %.sroa.0213.6 = phi ptr [ %.sroa.0213.5, %_ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEESB_ED2Ev.exit ], [ %.sroa.0213.1323, %53 ], [ %.sroa.0213.1323, %265 ], [ %.sroa.0213.1323, %287 ], [ %.sroa.0213.1323, %.thread.i140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !1327
+  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !1326
 
 _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EED2Ev.exit: ; preds = %307, %.preheader
   %.sroa.0213.0.lcssa374 = phi ptr [ %.sroa.0213.6, %.preheader ], [ %.sroa.0213.0.lcssa373, %307 ]
@@ -59414,7 +59211,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
   %295 = phi i64 [ %.promoted335, %.lr.ph ], [ %308, %307 ]
   %296 = phi ptr [ %.promoted, %.lr.ph ], [ %309, %307 ]
   %.sroa.0146.0334 = phi ptr [ %.sroa.0213.0.lcssa373, %.lr.ph ], [ %310, %307 ]
-  %297 = load ptr, ptr %.sroa.0146.0334, align 8, !tbaa !1233
+  %297 = load ptr, ptr %.sroa.0146.0334, align 8, !tbaa !1232
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load i32, ptr %298, align 4, !tbaa !30
   %.not = icmp eq i32 %299, 2
@@ -59440,7 +59237,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
   %309 = phi ptr [ %297, %300 ], [ %296, %306 ]
   %310 = getelementptr inbounds nuw i8, ptr %.sroa.0146.0334, i64 8
   %.not267 = icmp eq ptr %310, %.sroa.17.0.lcssa372
-  br i1 %.not267, label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EED2Ev.exit, label %294, !llvm.loop !1328
+  br i1 %.not267, label %_ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EED2Ev.exit, label %294, !llvm.loop !1327
 
 _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESaISU_EED2Ev.exit132: ; preds = %51, %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE10_Auto_nodeD2Ev.exit.i136, %288, %.body
   %.pn40.pn.pn.pn.pn254 = phi { ptr, i32 } [ %52, %51 ], [ %286, %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE10_Auto_nodeD2Ev.exit.i136 ], [ %.pn40, %.body ], [ %289, %288 ]
@@ -59600,7 +59397,7 @@ define linkonce_odr dso_local void @_ZN4CGAL13Convex_hull_38internal22partition_
 
 _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_S8_.exit: ; preds = %75, %80, %77
   %.not52 = icmp eq ptr %76, %1
-  br i1 %.not52, label %86, label %72, !llvm.loop !1329
+  br i1 %.not52, label %86, label %72, !llvm.loop !1328
 
 86:                                               ; preds = %_ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_S8_.exit
   %87 = load ptr, ptr %70, align 8, !tbaa !206
@@ -59629,7 +59426,7 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.045.0 = load ptr, ptr %.sroa.045.059, align 8, !tbaa !206
   %.not = icmp eq ptr %.sroa.045.0, %0
-  br i1 %.not, label %.critedge, label %24, !llvm.loop !1330
+  br i1 %.not, label %.critedge, label %24, !llvm.loop !1329
 
 .critedge:                                        ; preds = %24, %95, %4
   %.sroa.045.0.lcssa = phi ptr [ %.sroa.045.057, %4 ], [ %.sroa.045.0, %95 ], [ %.sroa.045.059, %24 ]
@@ -59644,7 +59441,7 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_i
   store ptr %2, ptr %99, align 8, !tbaa !486
   %100 = load ptr, ptr %.sroa.045.163, align 8, !tbaa !206
   %.not53 = icmp eq ptr %100, %0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph64, !llvm.loop !1331
+  br i1 %.not53, label %._crit_edge, label %.lr.ph64, !llvm.loop !1330
 
 ._crit_edge:                                      ; preds = %.lr.ph64, %.critedge
   ret void
@@ -59653,7 +59450,7 @@ _ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EE6spliceESt20_List_const_i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairINS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiESt4lessISU_ESaISV_IKSU_S10_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1212
+  %3 = load ptr, ptr %2, align 8, !tbaa !1211
   invoke void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE8_M_eraseEPSt13_Rb_tree_nodeIS12_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EED2Ev.exit unwind label %4
 
@@ -59676,39 +59473,39 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !1215
+  %8 = load i64, ptr %7, align 8, !tbaa !1214
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !1235
+  %11 = load ptr, ptr %10, align 8, !tbaa !1234
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !1233
-  %14 = load ptr, ptr %2, align 8, !tbaa !1233
+  %13 = load ptr, ptr %12, align 8, !tbaa !1232
+  %14 = load ptr, ptr %2, align 8, !tbaa !1232
   %15 = icmp ult ptr %13, %14
   br i1 %15, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE24_M_get_insert_unique_posERSW_.exit, label %16
 
 16:                                               ; preds = %9, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i = load ptr, ptr %17, align 8, !tbaa !1235
+  %.02022.i = load ptr, ptr %17, align 8, !tbaa !1234
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
-  %18 = load ptr, ptr %2, align 8, !tbaa !1233
+  %18 = load ptr, ptr %2, align 8, !tbaa !1232
   br label %19
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.02024.i = phi ptr [ %.02022.i, %.lr.ph.i ], [ %.020.i, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !1233
+  %21 = load ptr, ptr %20, align 8, !tbaa !1232
   %22 = icmp ult ptr %18, %21
   %.in.v.i = select i1 %22, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !1235
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !1234
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !1332
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !1331
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -59716,15 +59513,15 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !1213
+  %24 = load ptr, ptr %23, align 8, !tbaa !1212
   %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE24_M_get_insert_unique_posERSW_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
   %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #47
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !1233
-  %.pre82 = load ptr, ptr %2, align 8, !tbaa !1233
+  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !1232
+  %.pre82 = load ptr, ptr %2, align 8, !tbaa !1232
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i
@@ -59739,27 +59536,27 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 
 32:                                               ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = load ptr, ptr %2, align 8, !tbaa !1233
-  %35 = load ptr, ptr %33, align 8, !tbaa !1233
+  %34 = load ptr, ptr %2, align 8, !tbaa !1232
+  %35 = load ptr, ptr %33, align 8, !tbaa !1232
   %36 = icmp ult ptr %34, %35
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !1235
+  %39 = load ptr, ptr %38, align 8, !tbaa !1234
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE24_M_get_insert_unique_posERSW_.exit, label %41
 
 41:                                               ; preds = %37
   %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #47
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !1233
+  %44 = load ptr, ptr %43, align 8, !tbaa !1232
   %45 = icmp ult ptr %44, %34
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !1333
+  %48 = load ptr, ptr %47, align 8, !tbaa !1332
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -59767,20 +59564,20 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !1235
+  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !1234
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %50, %.lr.ph.i12
   %.02024.i13 = phi ptr [ %.020.i16, %.lr.ph.i12 ], [ %.02022.i10, %50 ]
   %52 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !1233
+  %53 = load ptr, ptr %52, align 8, !tbaa !1232
   %54 = icmp ult ptr %34, %53
   %.in.v.i14 = select i1 %54, i64 16, i64 24
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
-  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !1235
+  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !1234
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !1332
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !1331
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -59793,7 +59590,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 56:                                               ; preds = %._crit_edge.thread.i27
   %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #47
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !1233
+  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !1232
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
@@ -59811,20 +59608,20 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !1235
+  %65 = load ptr, ptr %64, align 8, !tbaa !1234
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE24_M_get_insert_unique_posERSW_.exit, label %67
 
 67:                                               ; preds = %63
   %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #47
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !1233
+  %70 = load ptr, ptr %69, align 8, !tbaa !1232
   %71 = icmp ult ptr %34, %70
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !1333
+  %74 = load ptr, ptr %73, align 8, !tbaa !1332
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -59832,20 +59629,20 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 
 76:                                               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !1235
+  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !1234
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %76, %.lr.ph.i32
   %.02024.i33 = phi ptr [ %.020.i36, %.lr.ph.i32 ], [ %.02022.i30, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !1233
+  %79 = load ptr, ptr %78, align 8, !tbaa !1232
   %80 = icmp ult ptr %34, %79
   %.in.v.i34 = select i1 %80, i64 16, i64 24
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
-  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !1235
+  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !1234
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !1332
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !1331
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -59853,14 +59650,14 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN4CGAL8internal11CC_i
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !1213
+  %82 = load ptr, ptr %81, align 8, !tbaa !1212
   %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE24_M_get_insert_unique_posERSW_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
   %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #47
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1233
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1232
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
@@ -59897,7 +59694,7 @@ define linkonce_odr dso_local void @_ZN4CGAL30Triangulation_data_structure_2INS_
   %7 = load i64, ptr %2, align 8, !tbaa !262
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !1237
+  %10 = load i32, ptr %9, align 8, !tbaa !1236
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !30
@@ -60005,7 +59802,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   %64 = load i64, ptr %.sroa.038.054, align 8, !tbaa !262
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %.pn52, i64 24
-  %67 = load i32, ptr %66, align 8, !tbaa !1237
+  %67 = load i32, ptr %66, align 8, !tbaa !1236
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !30
@@ -60100,7 +59897,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   store ptr %.sroa.017.0.i26, ptr %115, align 8, !tbaa !262
   %.sroa.038.0 = getelementptr inbounds nuw i8, ptr %.sroa.038.054, i64 16
   %.not = icmp eq ptr %.sroa.038.0, %3
-  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !1334
+  br i1 %.not, label %._crit_edge, label %63, !llvm.loop !1333
 
 ._crit_edge:                                      ; preds = %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE20reset_or_create_faceISt14_List_iteratorINS_8internal11CC_iteratorINS_17Compact_containerINSH_ISC_NSI_ISL_EEEENS_7DefaultEST_ST_EELb0EEEEEESV_SV_iNSP_INSQ_INS1_ISD_NSE_ISL_EEEEST_ST_ST_EELb0EEERT_RKS11_.exit31
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i26, i64 24
@@ -60119,13 +59916,13 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorI
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1333
+  %4 = load ptr, ptr %3, align 8, !tbaa !1332
   tail call void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESt4pairIKSU_SV_INS2_INS3_INSL_ISF_NSM_ISP_EEEESS_SS_SS_EELb0EEEiEESt10_Select1stIS12_ESt4lessISU_ESaIS12_EE8_M_eraseEPSt13_Rb_tree_nodeIS12_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !1335
+  %6 = load ptr, ptr %5, align 8, !tbaa !1334
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 56) #40
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1336
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1335
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -60138,22 +59935,22 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal20copy_face_graph_implINS_3
   %5 = alloca %"struct.CGAL::internal::Dynamic_property_map.499", align 8
   %6 = alloca %"struct.CGAL::internal::TDS2_halfedge_descriptor", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1337)
-  %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42, !noalias !1337
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1336)
+  %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42, !noalias !1336
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !1337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !1336
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %9, ptr %7, align 8, !tbaa !1340, !noalias !1337
+  store ptr %9, ptr %7, align 8, !tbaa !1339, !noalias !1336
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %10, align 8, !tbaa !1348, !noalias !1337
+  store i64 1, ptr %10, align 8, !tbaa !1347, !noalias !1336
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !1337
-  store float 1.000000e+00, ptr %8, align 8, !tbaa !1349, !noalias !1337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !1336
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !1348, !noalias !1336
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !1337
-  store ptr %7, ptr %3, align 8, !tbaa !1350, !alias.scope !1337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !1336
+  store ptr %7, ptr %3, align 8, !tbaa !1349, !alias.scope !1336
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %13, align 8, !tbaa !1355
+  store ptr null, ptr %13, align 8, !tbaa !1354
   %14 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #42
           to label %_ZN4CGAL8internal18exact_num_verticesINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEmRKT_.exit unwind label %15
 
@@ -60189,15 +59986,15 @@ common.resume:                                    ; preds = %19, %_ZN4CGAL8inter
 
 _ZN4CGAL8internal18exact_num_verticesINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEmRKT_.exit: ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 1, ptr %25, align 8, !tbaa !1356
+  store i32 1, ptr %25, align 8, !tbaa !1355
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i32 1, ptr %26, align 4, !tbaa !1358
+  store i32 1, ptr %26, align 4, !tbaa !1357
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEENS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS11_EEESt4hashISQ_ESt8equal_toISQ_ESaISt4pairIKSQ_S13_EEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %7, ptr %27, align 8, !tbaa !1359
-  store ptr %14, ptr %13, align 8, !tbaa !1355
+  store ptr %7, ptr %27, align 8, !tbaa !1358
+  store ptr %14, ptr %13, align 8, !tbaa !1354
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %28, align 8, !tbaa !194, !alias.scope !1337
+  store ptr null, ptr %28, align 8, !tbaa !194, !alias.scope !1336
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load i64, ptr %30, align 8, !tbaa !241
@@ -60206,12 +60003,12 @@ _ZN4CGAL8internal18exact_num_verticesINS_12Polyhedron_3INS_5EpickENS_18Polyhedro
 
 33:                                               ; preds = %_ZN4CGAL8internal18exact_num_verticesINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEmRKT_.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %35 = load ptr, ptr %34, align 8, !tbaa !1120
+  %35 = load ptr, ptr %34, align 8, !tbaa !1119
   br label %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i
 
 36:                                               ; preds = %_ZN4CGAL8internal18exact_num_verticesINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEmRKT_.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load ptr, ptr %37, align 8, !tbaa !1122
+  %38 = load ptr, ptr %37, align 8, !tbaa !1121
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i, label %40
 
@@ -60244,7 +60041,7 @@ _ZN4CGAL8internal18exact_num_verticesINS_12Polyhedron_3INS_5EpickENS_18Polyhedro
 
 .preheader.i.i.i.i.i.backedge:                    ; preds = %52, %.preheader.i.i.i.i.i
   %.be3063 = phi ptr [ %54, %52 ], [ %47, %.preheader.i.i.i.i.i ]
-  br label %.preheader.i.i.i.i.i, !llvm.loop !1361
+  br label %.preheader.i.i.i.i.i, !llvm.loop !1360
 
 .preheader.i.i.i.i.i.unreachabledefault:          ; preds = %.preheader.i.i.i.i.i
   unreachable
@@ -60255,7 +60052,7 @@ default.unreachable:                              ; preds = %.preheader.i.i, %.p
 _ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i: ; preds = %.preheader.i.i.i.i.i, %.preheader.i.i.i.i.i, %40, %36, %33
   %.sroa.0.0.i.i.i.i = phi ptr [ %35, %33 ], [ null, %36 ], [ %41, %40 ], [ %47, %.preheader.i.i.i.i.i ], [ %47, %.preheader.i.i.i.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %56 = load ptr, ptr %55, align 8, !tbaa !1120
+  %56 = load ptr, ptr %55, align 8, !tbaa !1119
   %.not5.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i, %56
   br i1 %.not5.i.i, label %_ZN4CGAL8internal18exact_num_verticesINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEmRKT_.exit, label %.preheader.i.i
 
@@ -60284,7 +60081,7 @@ _ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8inte
 
 .preheader.i.i.backedge:                          ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8internal11CC_iteratorINS3_17Compact_containerINS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISB_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2INS3_30Triangulation_data_structure_2INS8_ISK_NSL_IvEEEENS3_23Convex_hull_face_base_2ISJ_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEEENS3_7DefaultESW_SW_EELb0EEERKSY_EESY_NS0_27bidirectional_traversal_tagES10_lLb0ELb0EEppEv.exit.i.i, %63, %.preheader.i.i
   %.be3062 = phi ptr [ %65, %63 ], [ %58, %_ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8internal11CC_iteratorINS3_17Compact_containerINS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISB_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2INS3_30Triangulation_data_structure_2INS8_ISK_NSL_IvEEEENS3_23Convex_hull_face_base_2ISJ_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEEENS3_7DefaultESW_SW_EELb0EEERKSY_EESY_NS0_27bidirectional_traversal_tagES10_lLb0ELb0EEppEv.exit.i.i ], [ %58, %.preheader.i.i ]
-  br label %.preheader.i.i, !llvm.loop !1361
+  br label %.preheader.i.i, !llvm.loop !1360
 
 _ZN4CGAL8internal18exact_num_verticesINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEmRKT_.exit: ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8internal11CC_iteratorINS3_17Compact_containerINS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISB_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2INS3_30Triangulation_data_structure_2INS8_ISK_NSL_IvEEEENS3_23Convex_hull_face_base_2ISJ_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEEENS3_7DefaultESW_SW_EELb0EEERKSY_EESY_NS0_27bidirectional_traversal_tagES10_lLb0ELb0EEppEv.exit.i.i, %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -60423,12 +60220,12 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESaISL_EE7reserveEm.exit
-  %125 = load ptr, ptr %55, align 8, !tbaa !1120
+  %125 = load ptr, ptr %55, align 8, !tbaa !1119
   br label %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i246
 
 126:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESaISL_EE7reserveEm.exit
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %128 = load ptr, ptr %127, align 8, !tbaa !1122
+  %128 = load ptr, ptr %127, align 8, !tbaa !1121
   %129 = icmp eq ptr %128, null
   br i1 %129, label %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i246, label %130
 
@@ -60461,11 +60258,11 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
 
 .preheader.i.i.i.i.i256.backedge:                 ; preds = %142, %.preheader.i.i.i.i.i256
   %.be3052 = phi ptr [ %144, %142 ], [ %137, %.preheader.i.i.i.i.i256 ]
-  br label %.preheader.i.i.i.i.i256, !llvm.loop !1361
+  br label %.preheader.i.i.i.i.i256, !llvm.loop !1360
 
 _ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i246: ; preds = %.preheader.i.i.i.i.i256, %.preheader.i.i.i.i.i256, %130, %126, %124
   %.sroa.0.0.i.i.i.i247 = phi ptr [ %125, %124 ], [ null, %126 ], [ %131, %130 ], [ %137, %.preheader.i.i.i.i.i256 ], [ %137, %.preheader.i.i.i.i.i256 ]
-  %145 = load ptr, ptr %55, align 8, !tbaa !1120
+  %145 = load ptr, ptr %55, align 8, !tbaa !1119
   %.not5.i.i248 = icmp eq ptr %.sroa.0.0.i.i.i.i247, %145
   br i1 %.not5.i.i248, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE7reserveEm.exit, label %.preheader.i.i249
 
@@ -60495,12 +60292,12 @@ _ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hu
 
 .backedge:                                        ; preds = %153, %146
   %.be3046 = phi ptr [ %148, %146 ], [ %155, %153 ]
-  br label %146, !llvm.loop !1361
+  br label %146, !llvm.loop !1360
 
 _ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8internal11CC_iteratorINS3_17Compact_containerINS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISB_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2INS3_30Triangulation_data_structure_2INS8_ISK_NSL_IvEEEENS3_23Convex_hull_face_base_2ISJ_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEEENS3_7DefaultESW_SW_EELb0EEERKSY_EESY_NS0_27bidirectional_traversal_tagES10_lLb0ELb0EEppEv.exit.i.i252: ; preds = %146, %146
   %156 = add nuw nsw i64 %.07.i.i250, 1
   %.not.i.i253 = icmp eq ptr %148, %145
-  br i1 %.not.i.i253, label %_ZN4CGAL8internal18exact_num_verticesINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEmRKT_.exit258, label %.preheader.i.i249, !llvm.loop !1362
+  br i1 %.not.i.i253, label %_ZN4CGAL8internal18exact_num_verticesINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEmRKT_.exit258, label %.preheader.i.i249, !llvm.loop !1361
 
 _ZN4CGAL8internal18exact_num_verticesINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEmRKT_.exit258: ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseIN4CGAL13Prevent_derefINS3_8internal11CC_iteratorINS3_17Compact_containerINS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISB_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2INS3_30Triangulation_data_structure_2INS8_ISK_NSL_IvEEEENS3_23Convex_hull_face_base_2ISJ_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEEENS3_7DefaultESW_SW_EELb0EEERKSY_EESY_NS0_27bidirectional_traversal_tagES10_lLb0ELb0EEppEv.exit.i.i252
   %157 = icmp samesign ugt i64 %.07.i.i250, 1152921504606846974
@@ -60525,34 +60322,34 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE13_M_deallocateEPSJ_m.exit.i, %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i246
   %.sroa.22905.7 = phi ptr [ %161, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE13_M_deallocateEPSJ_m.exit.i ], [ null, %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i246 ]
   %.sroa.13901.3 = phi ptr [ %160, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE13_M_deallocateEPSJ_m.exit.i ], [ null, %_ZN4CGAL8verticesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE15vertex_iteratorEEERKSR_.exit.i246 ]
-  %162 = load i32, ptr %0, align 8, !tbaa !218, !noalias !1363
+  %162 = load i32, ptr %0, align 8, !tbaa !218, !noalias !1362
   %163 = icmp slt i32 %162, 1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE7reserveEm.exit
-  %165 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1363
+  %165 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1362
   br label %.loopexit1049
 
 166:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE7reserveEm.exit
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %168 = load i64, ptr %167, align 8, !tbaa !261, !noalias !1363
+  %168 = load i64, ptr %167, align 8, !tbaa !261, !noalias !1362
   %169 = icmp eq i64 %168, 0
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %166
-  %171 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1363
+  %171 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1362
   br label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %174 = load ptr, ptr %173, align 8, !tbaa !458, !noalias !1363
+  %174 = load ptr, ptr %173, align 8, !tbaa !458, !noalias !1362
   %175 = icmp eq ptr %174, null
   br i1 %175, label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i, label %176
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 88
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 112
-  %179 = load ptr, ptr %178, align 8, !tbaa !242, !noalias !1363
+  %179 = load ptr, ptr %178, align 8, !tbaa !242, !noalias !1362
   %180 = ptrtoint ptr %179 to i64
   %181 = and i64 %180, 3
   %182 = icmp eq i64 %181, 2
@@ -60562,7 +60359,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %183 = phi ptr [ %.be3042, %.preheader.i.i.i.i.i270.backedge ], [ %177, %176 ]
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 88
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 112
-  %186 = load ptr, ptr %185, align 8, !tbaa !242, !noalias !1363
+  %186 = load ptr, ptr %185, align 8, !tbaa !242, !noalias !1362
   %187 = ptrtoint ptr %186 to i64
   %188 = trunc i64 %187 to i32
   %189 = and i32 %188, 3
@@ -60585,7 +60382,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i: ; preds = %.preheader.i.i.i.i.i270, %.preheader.i.i.i.i.i270, %176, %172, %170
   %193 = phi ptr [ %171, %170 ], [ null, %172 ], [ %177, %176 ], [ %184, %.preheader.i.i.i.i.i270 ], [ %184, %.preheader.i.i.i.i.i270 ]
   %194 = icmp eq i32 %162, 1
-  %.pre.i = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1368
+  %.pre.i = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1367
   br i1 %194, label %.loopexit1049, label %195
 
 195:                                              ; preds = %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i
@@ -60594,7 +60391,7 @@ _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i: ; preds = %195
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %.sroa.0.0.copyload.i.i.i3.i.i = load ptr, ptr %196, align 8, !tbaa !262, !noalias !1363
+  %.sroa.0.0.copyload.i.i.i3.i.i = load ptr, ptr %196, align 8, !tbaa !262, !noalias !1362
   %197 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i3.i.i, %193
   br i1 %197, label %.loopexit1049, label %.lr.ph.i.i267
 
@@ -60602,9 +60399,9 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %198 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %199 = zext nneg i32 %218 to i64
   %200 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %198, i64 %199
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %200, align 8, !tbaa !262, !noalias !1363
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %200, align 8, !tbaa !262, !noalias !1362
   %201 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.i, %217
-  br i1 %201, label %.loopexit1049, label %.lr.ph.i.i267, !llvm.loop !1369
+  br i1 %201, label %.loopexit1049, label %.lr.ph.i.i267, !llvm.loop !1368
 
 .lr.ph.i.i267:                                    ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i
   %.sroa.48.0.i = phi ptr [ %.sroa.48.1.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i ], [ %193, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i ]
@@ -60617,7 +60414,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %205 = phi ptr [ %.be3035, %.preheader.i.i268.backedge ], [ %203, %.lr.ph.i.i267 ]
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 88
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 112
-  %208 = load ptr, ptr %207, align 8, !tbaa !242, !noalias !1363
+  %208 = load ptr, ptr %207, align 8, !tbaa !242, !noalias !1362
   %209 = ptrtoint ptr %208 to i64
   %210 = trunc i64 %209 to i32
   %211 = and i32 %210, 3
@@ -60646,10 +60443,10 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %217 = phi ptr [ %203, %215 ], [ %206, %.preheader.i.i268 ], [ %206, %.preheader.i.i268 ]
   %218 = phi i32 [ %216, %215 ], [ 0, %.preheader.i.i268 ], [ 0, %.preheader.i.i268 ]
   %.not5.i.i.i = icmp eq ptr %217, %.pre.i
-  br i1 %.not5.i.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i, !llvm.loop !1369
+  br i1 %.not5.i.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i, !llvm.loop !1368
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i.i.i
-  br label %.loopexit1049, !llvm.loop !1369
+  br label %.loopexit1049, !llvm.loop !1368
 
 .loopexit1049:                                    ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i, %195, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i, %164
   %219 = phi ptr [ %165, %164 ], [ %.pre.i, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i ], [ %193, %195 ], [ %.pre.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i ], [ %.pre.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i ], [ %.pre.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i ]
@@ -60837,14 +60634,14 @@ _ZNKSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfed
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc275, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %292, %.lr.ph.i.i.i.i.i ], [ %287, %.noexc275 ]
   %.0911.i.i.i.i.i = phi ptr [ %291, %.lr.ph.i.i.i.i.i ], [ %.sroa.0910.11411, %.noexc275 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1370)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1373)
-  %290 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !194, !alias.scope !1373, !noalias !1370
-  store i64 %290, ptr %.012.i.i.i.i.i, align 8, !tbaa !194, !alias.scope !1370, !noalias !1373
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1369)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1372)
+  %290 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !194, !alias.scope !1372, !noalias !1369
+  store i64 %290, ptr %.012.i.i.i.i.i, align 8, !tbaa !194, !alias.scope !1369, !noalias !1372
   %291 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %292 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %291, %.sroa.11915.01410
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1375
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1374
 
 _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc275
   %.0.lcssa.i.i.i.i.i = phi ptr [ %287, %.noexc275 ], [ %292, %.lr.ph.i.i.i.i.i ]
@@ -60867,12 +60664,12 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.6873.01404, i64 24
   %297 = zext nneg i32 %.sroa.14876.01405 to i64
   %298 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %296, i64 %297
-  %.sroa.0.0.copyload.i.i.i276 = load ptr, ptr %298, align 8, !tbaa !262, !noalias !1376
+  %.sroa.0.0.copyload.i.i.i276 = load ptr, ptr %298, align 8, !tbaa !262, !noalias !1375
   %299 = getelementptr inbounds nuw i8, ptr %.sroa.6873.01404, i64 16
-  %300 = load ptr, ptr %299, align 8, !tbaa !1233, !noalias !1376
+  %300 = load ptr, ptr %299, align 8, !tbaa !1232, !noalias !1375
   %.not.i.i.i.i277 = icmp eq ptr %300, null
   %301 = getelementptr inbounds nuw i8, ptr %.sroa.6873.01404, i64 8
-  %302 = load ptr, ptr %301, align 8, !noalias !1376
+  %302 = load ptr, ptr %301, align 8, !noalias !1375
   %303 = icmp ne ptr %302, null
   %304 = select i1 %.not.i.i.i.i277, i1 %303, i1 false
   br i1 %304, label %305, label %312
@@ -60881,27 +60678,27 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   %306 = icmp eq i32 %.sroa.14876.01405, 0
   %307 = zext i1 %306 to i64
   %308 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %307
-  %.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %308, align 8, !tbaa !253, !noalias !1376
-  %309 = load ptr, ptr %.sroa.0.0.copyload.i.i.i276, align 8, !tbaa !1233, !noalias !1376
+  %.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %308, align 8, !tbaa !253, !noalias !1375
+  %309 = load ptr, ptr %.sroa.0.0.copyload.i.i.i276, align 8, !tbaa !1232, !noalias !1375
   %310 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i, %309
   %311 = zext i1 %310 to i32
   br label %326
 
 312:                                              ; preds = %295
   %313 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %297
-  %314 = load i32, ptr %313, align 4, !tbaa !30, !noalias !1376
+  %314 = load i32, ptr %313, align 4, !tbaa !30, !noalias !1375
   %315 = sext i32 %314 to i64
   %316 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %315
-  %.sroa.0.0.copyload.i10.i.i.i = load ptr, ptr %316, align 8, !tbaa !253, !noalias !1376
-  %317 = load ptr, ptr %.sroa.0.0.copyload.i.i.i276, align 8, !tbaa !1233, !noalias !1376
+  %.sroa.0.0.copyload.i10.i.i.i = load ptr, ptr %316, align 8, !tbaa !253, !noalias !1375
+  %317 = load ptr, ptr %.sroa.0.0.copyload.i.i.i276, align 8, !tbaa !1232, !noalias !1375
   %318 = icmp eq ptr %.sroa.0.0.copyload.i10.i.i.i, %317
   %319 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i276, i64 8
-  %320 = load ptr, ptr %319, align 8, !noalias !1376
+  %320 = load ptr, ptr %319, align 8, !noalias !1375
   %321 = icmp eq ptr %.sroa.0.0.copyload.i10.i.i.i, %320
   %322 = select i1 %321, i64 1, i64 2
   %323 = select i1 %318, i64 0, i64 %322
   %324 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %323
-  %325 = load i32, ptr %324, align 4, !tbaa !30, !noalias !1376
+  %325 = load i32, ptr %324, align 4, !tbaa !30, !noalias !1375
   br label %326
 
 326:                                              ; preds = %312, %305
@@ -60914,21 +60711,21 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   store ptr %.sroa.0.0.copyload.i.i, ptr %328, align 8, !tbaa !194
   %329 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
   store ptr %.sroa.0.0.copyload.i.i, ptr %329, align 8, !tbaa !194
-  %330 = load ptr, ptr %3, align 8, !tbaa !1350
+  %330 = load ptr, ptr %3, align 8, !tbaa !1349
   %331 = lshr i64 %258, 6
   %332 = getelementptr inbounds nuw i8, ptr %330, i64 8
-  %333 = load i64, ptr %332, align 8, !tbaa !1348
+  %333 = load i64, ptr %332, align 8, !tbaa !1347
   %334 = urem i64 %331, %333
-  %335 = load ptr, ptr %330, align 8, !tbaa !1340
+  %335 = load ptr, ptr %330, align 8, !tbaa !1339
   %336 = getelementptr inbounds nuw ptr, ptr %335, i64 %334
-  %337 = load ptr, ptr %336, align 8, !tbaa !1379
+  %337 = load ptr, ptr %336, align 8, !tbaa !1378
   %.not.i.i.i.i.i279 = icmp eq ptr %337, null
   br i1 %.not.i.i.i.i.i279, label %.loopexit.i.i.i, label %338
 
 338:                                              ; preds = %326
-  %339 = load ptr, ptr %337, align 8, !tbaa !1380
+  %339 = load ptr, ptr %337, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %339, i64 32
-  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !1381
+  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !1380
   br label %340
 
 340:                                              ; preds = %352, %338
@@ -60948,23 +60745,23 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %350, label %.loopexit1028, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i.i, %340
-  %351 = load ptr, ptr %342, align 8, !tbaa !1380
+  %351 = load ptr, ptr %342, align 8, !tbaa !1379
   %.not18.i.i.i.i.i = icmp eq ptr %351, null
   br i1 %.not18.i.i.i.i.i, label %.loopexit.i.i.i, label %352
 
 352:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  %354 = load i64, ptr %353, align 8, !tbaa !1381
+  %354 = load i64, ptr %353, align 8, !tbaa !1380
   %355 = urem i64 %354, %333
   %.not19.i.i.i.i.i = icmp eq i64 %355, %334
-  br i1 %.not19.i.i.i.i.i, label %340, label %.loopexit.i.i.i, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i.i, label %340, label %.loopexit.i.i.i, !llvm.loop !1382
 
 .loopexit.i.i.i:                                  ; preds = %352, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i, %326
   %356 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %.noexc280 unwind label %.loopexit1030
 
 .noexc280:                                        ; preds = %.loopexit.i.i.i
-  store ptr null, ptr %356, align 8, !tbaa !1380
+  store ptr null, ptr %356, align 8, !tbaa !1379
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store ptr %.sroa.6873.01404, ptr %357, align 8
   %.sroa.14852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 16
@@ -60975,10 +60772,10 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
           to label %.noexc280..loopexit1028_crit_edge unwind label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i
 
 .noexc280..loopexit1028_crit_edge:                ; preds = %.noexc280
-  %.pre = load ptr, ptr %3, align 8, !tbaa !1350
+  %.pre = load ptr, ptr %3, align 8, !tbaa !1349
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre1786 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !1348
-  %.pre1787 = load ptr, ptr %.pre, align 8, !tbaa !1340
+  %.pre1786 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !1347
+  %.pre1787 = load ptr, ptr %.pre, align 8, !tbaa !1339
   br label %.loopexit1028
 
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i: ; preds = %.noexc280
@@ -60999,14 +60796,14 @@ _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_
   %366 = lshr i64 %365, 6
   %367 = urem i64 %366, %362
   %368 = getelementptr inbounds nuw ptr, ptr %361, i64 %367
-  %369 = load ptr, ptr %368, align 8, !tbaa !1379
+  %369 = load ptr, ptr %368, align 8, !tbaa !1378
   %.not.i.i.i.i.i281 = icmp eq ptr %369, null
   br i1 %.not.i.i.i.i.i281, label %.loopexit.i.i.i287, label %370
 
 370:                                              ; preds = %.loopexit1028
-  %371 = load ptr, ptr %369, align 8, !tbaa !1380
+  %371 = load ptr, ptr %369, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i.i282 = getelementptr inbounds nuw i8, ptr %371, i64 32
-  %.pre.i.i.i.i.i283 = load i64, ptr %.phi.trans.insert.i.i.i.i.i282, align 8, !tbaa !1381
+  %.pre.i.i.i.i.i283 = load i64, ptr %.phi.trans.insert.i.i.i.i.i282, align 8, !tbaa !1380
   br label %372
 
 372:                                              ; preds = %384, %370
@@ -61026,23 +60823,23 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %382, label %.loopexit1027, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i284
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i284: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i.i291, %372
-  %383 = load ptr, ptr %374, align 8, !tbaa !1380
+  %383 = load ptr, ptr %374, align 8, !tbaa !1379
   %.not18.i.i.i.i.i285 = icmp eq ptr %383, null
   br i1 %.not18.i.i.i.i.i285, label %.loopexit.i.i.i287, label %384
 
 384:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i284
   %385 = getelementptr inbounds nuw i8, ptr %383, i64 32
-  %386 = load i64, ptr %385, align 8, !tbaa !1381
+  %386 = load i64, ptr %385, align 8, !tbaa !1380
   %387 = urem i64 %386, %362
   %.not19.i.i.i.i.i286 = icmp eq i64 %387, %367
-  br i1 %.not19.i.i.i.i.i286, label %372, label %.loopexit.i.i.i287, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i.i286, label %372, label %.loopexit.i.i.i287, !llvm.loop !1382
 
 .loopexit.i.i.i287:                               ; preds = %384, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i284, %.loopexit1028
   %388 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %.noexc292 unwind label %.loopexit1030
 
 .noexc292:                                        ; preds = %.loopexit.i.i.i287
-  store ptr null, ptr %388, align 8, !tbaa !1380
+  store ptr null, ptr %388, align 8, !tbaa !1379
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   store ptr %.sroa.0.0.copyload.i.i.i276, ptr %389, align 8
   %.sroa.11838.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 16
@@ -61110,14 +60907,14 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_
 .lr.ph.i.i.i.i.i300:                              ; preds = %.noexc307, %.lr.ph.i.i.i.i.i300
   %.012.i.i.i.i.i301 = phi ptr [ %413, %.lr.ph.i.i.i.i.i300 ], [ %409, %.noexc307 ]
   %.0911.i.i.i.i.i302 = phi ptr [ %412, %.lr.ph.i.i.i.i.i300 ], [ %.sroa.0939.01417, %.noexc307 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1384)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1387)
-  %411 = load i64, ptr %.0911.i.i.i.i.i302, align 8, !tbaa !194, !alias.scope !1387, !noalias !1384
-  store i64 %411, ptr %.012.i.i.i.i.i301, align 8, !tbaa !194, !alias.scope !1384, !noalias !1387
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1383)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1386)
+  %411 = load i64, ptr %.0911.i.i.i.i.i302, align 8, !tbaa !194, !alias.scope !1386, !noalias !1383
+  store i64 %411, ptr %.012.i.i.i.i.i301, align 8, !tbaa !194, !alias.scope !1383, !noalias !1386
   %412 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i302, i64 8
   %413 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i301, i64 8
   %.not.i.i.i.i.i303 = icmp eq ptr %412, %.sroa.12945.01416
-  br i1 %.not.i.i.i.i.i303, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i, label %.lr.ph.i.i.i.i.i300, !llvm.loop !1389
+  br i1 %.not.i.i.i.i.i303, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i, label %.lr.ph.i.i.i.i.i300, !llvm.loop !1388
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i300, %.noexc307
   %.0.lcssa.i.i.i.i.i304 = phi ptr [ %409, %.noexc307 ], [ %413, %.lr.ph.i.i.i.i.i300 ]
@@ -61188,7 +60985,7 @@ _ZNKSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data
   %431 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i.i, i64 16
   %432 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %431, %.sroa.11931.01413
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESQ_SaISP_EET0_T_ST_SS_RT1_.exit34.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1390
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESQ_SaISP_EET0_T_ST_SS_RT1_.exit34.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1389
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESQ_SaISP_EET0_T_ST_SS_RT1_.exit34.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc312
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %429, %.noexc312 ], [ %432, %.lr.ph.i.i.i.i.i.i.i ]
@@ -61295,14 +61092,14 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_
 .lr.ph.i.i.i.i.i319:                              ; preds = %.noexc328, %.lr.ph.i.i.i.i.i319
   %.012.i.i.i.i.i320 = phi ptr [ %456, %.lr.ph.i.i.i.i.i319 ], [ %452, %.noexc328 ]
   %.0911.i.i.i.i.i321 = phi ptr [ %455, %.lr.ph.i.i.i.i.i319 ], [ %.sroa.0939.4, %.noexc328 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1391)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1394)
-  %454 = load i64, ptr %.0911.i.i.i.i.i321, align 8, !tbaa !194, !alias.scope !1394, !noalias !1391
-  store i64 %454, ptr %.012.i.i.i.i.i320, align 8, !tbaa !194, !alias.scope !1391, !noalias !1394
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1393)
+  %454 = load i64, ptr %.0911.i.i.i.i.i321, align 8, !tbaa !194, !alias.scope !1393, !noalias !1390
+  store i64 %454, ptr %.012.i.i.i.i.i320, align 8, !tbaa !194, !alias.scope !1390, !noalias !1393
   %455 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i321, i64 8
   %456 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i320, i64 8
   %.not.i.i.i.i.i322 = icmp eq ptr %455, %.sroa.19948.4
-  br i1 %.not.i.i.i.i.i322, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i323, label %.lr.ph.i.i.i.i.i319, !llvm.loop !1389
+  br i1 %.not.i.i.i.i.i322, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i323, label %.lr.ph.i.i.i.i.i319, !llvm.loop !1388
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i323: ; preds = %.lr.ph.i.i.i.i.i319, %.noexc328
   %.0.lcssa.i.i.i.i.i324 = phi ptr [ %452, %.noexc328 ], [ %456, %.lr.ph.i.i.i.i.i319 ]
@@ -61373,7 +61170,7 @@ _ZNKSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data
   %474 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i.i337, i64 16
   %475 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i.i336, i64 16
   %.not.i.i.i.i.i.i.i338 = icmp eq ptr %474, %.sroa.19935.4
-  br i1 %.not.i.i.i.i.i.i.i338, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESQ_SaISP_EET0_T_ST_SS_RT1_.exit34.i.i339, label %.lr.ph.i.i.i.i.i.i.i335, !llvm.loop !1390
+  br i1 %.not.i.i.i.i.i.i.i338, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESQ_SaISP_EET0_T_ST_SS_RT1_.exit34.i.i339, label %.lr.ph.i.i.i.i.i.i.i335, !llvm.loop !1389
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESQ_SaISP_EET0_T_ST_SS_RT1_.exit34.i.i339: ; preds = %.lr.ph.i.i.i.i.i.i.i335, %.noexc344
   %.0.lcssa.i.i.i.i.i.i.i340 = phi ptr [ %472, %.noexc344 ], [ %475, %.lr.ph.i.i.i.i.i.i.i335 ]
@@ -61414,16 +61211,16 @@ _ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_
   %486 = sext i32 %485 to i64
   %487 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %486
   %.sroa.0.0.copyload.i.i347 = load ptr, ptr %487, align 8, !tbaa !253
-  %.sroa.0.0.copyload.i.i348 = load ptr, ptr %.sroa.0.0.copyload.i.i347, align 8, !tbaa !262, !noalias !1396
-  %488 = load ptr, ptr %.sroa.0.0.copyload.i.i348, align 8, !tbaa !1233, !noalias !1396
+  %.sroa.0.0.copyload.i.i348 = load ptr, ptr %.sroa.0.0.copyload.i.i347, align 8, !tbaa !262, !noalias !1395
+  %488 = load ptr, ptr %.sroa.0.0.copyload.i.i348, align 8, !tbaa !1232, !noalias !1395
   %489 = icmp eq ptr %.sroa.0.0.copyload.i.i347, %488
   %490 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i348, i64 8
-  %491 = load ptr, ptr %490, align 8, !noalias !1396
+  %491 = load ptr, ptr %490, align 8, !noalias !1395
   %492 = icmp eq ptr %.sroa.0.0.copyload.i.i347, %491
   %493 = select i1 %492, i64 1, i64 2
   %494 = select i1 %489, i64 0, i64 %493
   %495 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %494
-  %496 = load i32, ptr %495, align 4, !tbaa !30, !noalias !1396
+  %496 = load i32, ptr %495, align 4, !tbaa !30, !noalias !1395
   %497 = icmp eq ptr %.sroa.0.0.copyload.i.i348, %.sroa.6873.01404
   %498 = icmp eq i32 %496, %.sroa.14876.01405
   %499 = select i1 %497, i1 %498, i1 false
@@ -61492,14 +61289,14 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_
 .lr.ph.i.i.i.i.i355:                              ; preds = %.noexc364, %.lr.ph.i.i.i.i.i355
   %.012.i.i.i.i.i356 = phi ptr [ %528, %.lr.ph.i.i.i.i.i355 ], [ %524, %.noexc364 ]
   %.0911.i.i.i.i.i357 = phi ptr [ %527, %.lr.ph.i.i.i.i.i355 ], [ %.sroa.0895.01408, %.noexc364 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1399)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1402)
-  %526 = load i64, ptr %.0911.i.i.i.i.i357, align 8, !tbaa !194, !alias.scope !1402, !noalias !1399
-  store i64 %526, ptr %.012.i.i.i.i.i356, align 8, !tbaa !194, !alias.scope !1399, !noalias !1402
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1398)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1401)
+  %526 = load i64, ptr %.0911.i.i.i.i.i357, align 8, !tbaa !194, !alias.scope !1401, !noalias !1398
+  store i64 %526, ptr %.012.i.i.i.i.i356, align 8, !tbaa !194, !alias.scope !1398, !noalias !1401
   %527 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i357, i64 8
   %528 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i356, i64 8
   %.not.i.i.i.i.i358 = icmp eq ptr %527, %.sroa.13901.01407
-  br i1 %.not.i.i.i.i.i358, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i359, label %.lr.ph.i.i.i.i.i355, !llvm.loop !1389
+  br i1 %.not.i.i.i.i.i358, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i359, label %.lr.ph.i.i.i.i.i355, !llvm.loop !1388
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i359: ; preds = %.lr.ph.i.i.i.i.i355, %.noexc364
   %.0.lcssa.i.i.i.i.i360 = phi ptr [ %524, %.noexc364 ], [ %528, %.lr.ph.i.i.i.i.i355 ]
@@ -61546,16 +61343,16 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %.sroa.22905.4 = phi ptr [ %.sroa.22905.8, %531 ], [ %.sroa.22905.01406, %535 ]
   %.sroa.13901.1 = phi ptr [ %.sroa.13901.4, %531 ], [ %.sroa.13901.01407, %535 ]
   %.sroa.0895.4 = phi ptr [ %.sroa.0895.8, %531 ], [ %.sroa.0895.01408, %535 ]
-  %.sroa.0.0.copyload.i.i366 = load ptr, ptr %.sroa.0.0.copyload.i.i346, align 8, !tbaa !262, !noalias !1404
-  %538 = load ptr, ptr %.sroa.0.0.copyload.i.i366, align 8, !tbaa !1233, !noalias !1404
+  %.sroa.0.0.copyload.i.i366 = load ptr, ptr %.sroa.0.0.copyload.i.i346, align 8, !tbaa !262, !noalias !1403
+  %538 = load ptr, ptr %.sroa.0.0.copyload.i.i366, align 8, !tbaa !1232, !noalias !1403
   %539 = icmp eq ptr %.sroa.0.0.copyload.i.i346, %538
   %540 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i366, i64 8
-  %541 = load ptr, ptr %540, align 8, !noalias !1404
+  %541 = load ptr, ptr %540, align 8, !noalias !1403
   %542 = icmp eq ptr %.sroa.0.0.copyload.i.i346, %541
   %543 = select i1 %542, i64 1, i64 2
   %544 = select i1 %539, i64 0, i64 %543
   %545 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %544
-  %546 = load i32, ptr %545, align 4, !tbaa !30, !noalias !1404
+  %546 = load i32, ptr %545, align 4, !tbaa !30, !noalias !1403
   %547 = icmp eq ptr %.sroa.0.0.copyload.i.i366, %.sroa.0.0.copyload.i.i.i276
   %548 = icmp eq i32 %546, %.0.i.i.i
   %549 = select i1 %547, i1 %548, i1 false
@@ -61624,14 +61421,14 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_
 .lr.ph.i.i.i.i.i376:                              ; preds = %.noexc385, %.lr.ph.i.i.i.i.i376
   %.012.i.i.i.i.i377 = phi ptr [ %578, %.lr.ph.i.i.i.i.i376 ], [ %574, %.noexc385 ]
   %.0911.i.i.i.i.i378 = phi ptr [ %577, %.lr.ph.i.i.i.i.i376 ], [ %.sroa.0895.4, %.noexc385 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1407)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1410)
-  %576 = load i64, ptr %.0911.i.i.i.i.i378, align 8, !tbaa !194, !alias.scope !1410, !noalias !1407
-  store i64 %576, ptr %.012.i.i.i.i.i377, align 8, !tbaa !194, !alias.scope !1407, !noalias !1410
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1406)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1409)
+  %576 = load i64, ptr %.0911.i.i.i.i.i378, align 8, !tbaa !194, !alias.scope !1409, !noalias !1406
+  store i64 %576, ptr %.012.i.i.i.i.i377, align 8, !tbaa !194, !alias.scope !1406, !noalias !1409
   %577 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i378, i64 8
   %578 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i377, i64 8
   %.not.i.i.i.i.i379 = icmp eq ptr %577, %.sroa.22905.4
-  br i1 %.not.i.i.i.i.i379, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i380, label %.lr.ph.i.i.i.i.i376, !llvm.loop !1389
+  br i1 %.not.i.i.i.i.i379, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i380, label %.lr.ph.i.i.i.i.i376, !llvm.loop !1388
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i380: ; preds = %.lr.ph.i.i.i.i.i376, %.noexc385
   %.0.lcssa.i.i.i.i.i381 = phi ptr [ %574, %.noexc385 ], [ %578, %.lr.ph.i.i.i.i.i376 ]
@@ -61762,7 +61559,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %622 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %620, i64 %621
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %622, align 8, !tbaa !262
   %623 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i, %619
-  br i1 %623, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit, label %.split.i.i, !llvm.loop !1412
+  br i1 %623, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit, label %.split.i.i, !llvm.loop !1411
 
 _ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i, %.split.us.i.i, %.split.us.i.i
   %.sroa.6873.3 = phi ptr [ %592, %.split.us.i.i ], [ %592, %.split.us.i.i ], [ %606, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i ], [ %.sroa.6873.1, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i ], [ %.sroa.6873.2, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i ]
@@ -61816,8 +61613,8 @@ _ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25C
   %644 = add i64 %643, 1
   store i64 %644, ptr %627, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %636, ptr %4, align 8, !tbaa !262, !alias.scope !1413
-  store i32 2, ptr %628, align 8, !tbaa !1237, !alias.scope !1413
+  store i64 %636, ptr %4, align 8, !tbaa !262, !alias.scope !1412
+  store i32 2, ptr %628, align 8, !tbaa !1236, !alias.scope !1412
   %645 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4CGAL8internal3getERKNS0_20Dynamic_property_mapINS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS7_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISF_NS_28Triangulation_ds_face_base_2IvEEEEEEEENS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesIS7_NS_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEEEERKSP_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %646 unwind label %661
 
@@ -61878,9 +61675,9 @@ _ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_
   %.sroa.048.01430 = phi ptr [ %.sroa.048.0.copyload, %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit.thread.lr.ph ], [ %.sroa.042.0.copyload, %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit ]
   %.sroa.17756.01429 = phi i32 [ 0, %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit.thread.lr.ph ], [ %spec.select, %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit ]
   %.sroa.11751.01428 = phi i32 [ 0, %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit.thread.lr.ph ], [ %735, %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit ]
-  %663 = load ptr, ptr %3, align 8, !tbaa !1350
+  %663 = load ptr, ptr %3, align 8, !tbaa !1349
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 24
-  %665 = load i64, ptr %664, align 8, !tbaa !1416
+  %665 = load i64, ptr %664, align 8, !tbaa !1415
   %.not.not.i.i.i = icmp eq i64 %665, 0
   br i1 %.not.not.i.i.i, label %666, label %677
 
@@ -61890,7 +61687,7 @@ _ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_
 
 668:                                              ; preds = %669, %666
   %.sroa.06.0.in.i.i.i = phi ptr [ %667, %666 ], [ %.sroa.06.0.i.i.i, %669 ]
-  %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8, !tbaa !1380
+  %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8, !tbaa !1379
   %.not.i.i.i407 = icmp eq ptr %.sroa.06.0.i.i.i, null
   br i1 %.not.i.i.i407, label %.loopexit.loopexit.i, label %669
 
@@ -61902,22 +61699,22 @@ _ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_
   %674 = load i32, ptr %673, align 8
   %675 = icmp eq i32 %.sroa.11751.01428, %674
   %676 = select i1 %672, i1 %675, i1 false
-  br i1 %676, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i, label %668, !llvm.loop !1417
+  br i1 %676, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i, label %668, !llvm.loop !1416
 
 677:                                              ; preds = %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit.thread
   %678 = getelementptr inbounds nuw i8, ptr %663, i64 8
-  %679 = load i64, ptr %678, align 8, !tbaa !1348
+  %679 = load i64, ptr %678, align 8, !tbaa !1347
   %680 = urem i64 %648, %679
-  %681 = load ptr, ptr %663, align 8, !tbaa !1340
+  %681 = load ptr, ptr %663, align 8, !tbaa !1339
   %682 = getelementptr inbounds nuw ptr, ptr %681, i64 %680
-  %683 = load ptr, ptr %682, align 8, !tbaa !1379
+  %683 = load ptr, ptr %682, align 8, !tbaa !1378
   %.not.i.i.i.i.i396 = icmp eq ptr %683, null
   br i1 %.not.i.i.i.i.i396, label %.loopexit.i.i.i402, label %684
 
 684:                                              ; preds = %677
-  %685 = load ptr, ptr %683, align 8, !tbaa !1380
+  %685 = load ptr, ptr %683, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i.i397 = getelementptr inbounds nuw i8, ptr %685, i64 32
-  %.pre.i.i.i.i.i398 = load i64, ptr %.phi.trans.insert.i.i.i.i.i397, align 8, !tbaa !1381
+  %.pre.i.i.i.i.i398 = load i64, ptr %.phi.trans.insert.i.i.i.i.i397, align 8, !tbaa !1380
   br label %686
 
 686:                                              ; preds = %698, %684
@@ -61937,24 +61734,24 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %696, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i399
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i399: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i.i406, %686
-  %697 = load ptr, ptr %688, align 8, !tbaa !1380
+  %697 = load ptr, ptr %688, align 8, !tbaa !1379
   %.not18.i.i.i.i.i400 = icmp eq ptr %697, null
   br i1 %.not18.i.i.i.i.i400, label %.loopexit.i, label %698
 
 698:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i399
   %699 = getelementptr inbounds nuw i8, ptr %697, i64 32
-  %700 = load i64, ptr %699, align 8, !tbaa !1381
+  %700 = load i64, ptr %699, align 8, !tbaa !1380
   %701 = urem i64 %700, %679
   %.not19.i.i.i.i.i401 = icmp eq i64 %701, %680
-  br i1 %.not19.i.i.i.i.i401, label %686, label %.loopexit.i, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i.i401, label %686, label %.loopexit.i, !llvm.loop !1382
 
 .loopexit.loopexit.i:                             ; preds = %668
   %.phi.trans.insert.i408 = getelementptr inbounds nuw i8, ptr %663, i64 8
-  %.pre.i409 = load i64, ptr %.phi.trans.insert.i408, align 8, !tbaa !1348
-  %.pre31.i = load ptr, ptr %663, align 8, !tbaa !1340
+  %.pre.i409 = load i64, ptr %.phi.trans.insert.i408, align 8, !tbaa !1347
+  %.pre31.i = load ptr, ptr %663, align 8, !tbaa !1339
   %.pre35.i = urem i64 %648, %.pre.i409
   %.phi.trans.insert1788 = getelementptr inbounds nuw ptr, ptr %.pre31.i, i64 %.pre35.i
-  %.pre1789 = load ptr, ptr %.phi.trans.insert1788, align 8, !tbaa !1379
+  %.pre1789 = load ptr, ptr %.phi.trans.insert1788, align 8, !tbaa !1378
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %698, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i399, %.loopexit.loopexit.i
@@ -61965,9 +61762,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %.not.i.i.i.i8.i, label %.loopexit.i.i.i402, label %704
 
 704:                                              ; preds = %.loopexit.i
-  %705 = load ptr, ptr %702, align 8, !tbaa !1380
+  %705 = load ptr, ptr %702, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i9.i = getelementptr inbounds nuw i8, ptr %705, i64 32
-  %.pre.i.i.i.i10.i = load i64, ptr %.phi.trans.insert.i.i.i.i9.i, align 8, !tbaa !1381
+  %.pre.i.i.i.i10.i = load i64, ptr %.phi.trans.insert.i.i.i.i9.i, align 8, !tbaa !1380
   br label %706
 
 706:                                              ; preds = %718, %704
@@ -61987,16 +61784,16 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %716, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEEixERS18_.exit.i, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i14.i, %706
-  %717 = load ptr, ptr %708, align 8, !tbaa !1380
+  %717 = load ptr, ptr %708, align 8, !tbaa !1379
   %.not18.i.i.i.i12.i = icmp eq ptr %717, null
   br i1 %.not18.i.i.i.i12.i, label %.loopexit.i.i.i402, label %718
 
 718:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i
   %719 = getelementptr inbounds nuw i8, ptr %717, i64 32
-  %720 = load i64, ptr %719, align 8, !tbaa !1381
+  %720 = load i64, ptr %719, align 8, !tbaa !1380
   %721 = urem i64 %720, %703
   %.not19.i.i.i.i13.i = icmp eq i64 %721, %.pre-phi36.i
-  br i1 %.not19.i.i.i.i13.i, label %706, label %.loopexit.i.i.i402, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i13.i, label %706, label %.loopexit.i.i.i402, !llvm.loop !1382
 
 .loopexit.i.i.i402:                               ; preds = %718, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i, %677, %.loopexit.i
   %.pre-phi36.i1876 = phi i64 [ %680, %677 ], [ %.pre-phi36.i, %.loopexit.i ], [ %.pre-phi36.i, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i ], [ %.pre-phi36.i, %718 ]
@@ -62004,7 +61801,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
           to label %.noexc410 unwind label %740
 
 .noexc410:                                        ; preds = %.loopexit.i.i.i402
-  store ptr null, ptr %722, align 8, !tbaa !1380
+  store ptr null, ptr %722, align 8, !tbaa !1379
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 8
   store ptr %.sroa.0790.01432, ptr %723, align 8
   %.sroa.7734.0..sroa_idx735 = getelementptr inbounds nuw i8, ptr %722, i64 16
@@ -62044,7 +61841,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   store ptr %634, ptr %732, align 8, !tbaa !489
   %733 = sext i32 %.sroa.11751.01428 to i64
   %734 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %733
-  %735 = load i32, ptr %734, align 4, !tbaa !30, !noalias !1418
+  %735 = load i32, ptr %734, align 4, !tbaa !30, !noalias !1417
   %736 = icmp eq i32 %.sroa.11751.01428, 2
   %737 = zext i1 %736 to i32
   %spec.select = add nuw nsw i32 %.sroa.17756.01429, %737
@@ -62079,7 +61876,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %.sroa.2708.0.copyload = load i32, ptr %.sroa.2708.0..sroa_idx, align 8
   %748 = sext i32 %.sroa.2708.0.copyload to i64
   %749 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %748
-  %750 = load i32, ptr %749, align 4, !tbaa !30, !noalias !1421
+  %750 = load i32, ptr %749, align 4, !tbaa !30, !noalias !1420
   %751 = icmp eq ptr %.sroa.0707.0.copyload, null
   %752 = icmp eq i32 %.sroa.2708.0.copyload, 2
   %753 = and i1 %751, %752
@@ -62094,9 +61891,9 @@ _ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_
   %.sroa.030.01437 = phi ptr [ %744, %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit425.thread.lr.ph ], [ %823, %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit469 ]
   %.sroa.17.01436 = phi i32 [ 0, %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit425.thread.lr.ph ], [ %spec.select999, %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit469 ]
   %.sroa.11700.01435 = phi i32 [ %750, %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit425.thread.lr.ph ], [ %828, %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit469 ]
-  %756 = load ptr, ptr %3, align 8, !tbaa !1350
+  %756 = load ptr, ptr %3, align 8, !tbaa !1349
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 24
-  %758 = load i64, ptr %757, align 8, !tbaa !1416
+  %758 = load i64, ptr %757, align 8, !tbaa !1415
   %.not.not.i.i.i426 = icmp eq i64 %758, 0
   br i1 %.not.not.i.i.i426, label %759, label %770
 
@@ -62106,7 +61903,7 @@ _ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_
 
 761:                                              ; preds = %762, %759
   %.sroa.06.0.in.i.i.i452 = phi ptr [ %760, %759 ], [ %.sroa.06.0.i.i.i453, %762 ]
-  %.sroa.06.0.i.i.i453 = load ptr, ptr %.sroa.06.0.in.i.i.i452, align 8, !tbaa !1380
+  %.sroa.06.0.i.i.i453 = load ptr, ptr %.sroa.06.0.in.i.i.i452, align 8, !tbaa !1379
   %.not.i.i.i454 = icmp eq ptr %.sroa.06.0.i.i.i453, null
   br i1 %.not.i.i.i454, label %.loopexit.loopexit.i455, label %762
 
@@ -62118,22 +61915,22 @@ _ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_
   %767 = load i32, ptr %766, align 8
   %768 = icmp eq i32 %.sroa.11700.01435, %767
   %769 = select i1 %765, i1 %768, i1 false
-  br i1 %769, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i450, label %761, !llvm.loop !1417
+  br i1 %769, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i450, label %761, !llvm.loop !1416
 
 770:                                              ; preds = %_ZNK4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEneERKSN_.exit425.thread
   %771 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  %772 = load i64, ptr %771, align 8, !tbaa !1348
+  %772 = load i64, ptr %771, align 8, !tbaa !1347
   %773 = urem i64 %755, %772
-  %774 = load ptr, ptr %756, align 8, !tbaa !1340
+  %774 = load ptr, ptr %756, align 8, !tbaa !1339
   %775 = getelementptr inbounds nuw ptr, ptr %774, i64 %773
-  %776 = load ptr, ptr %775, align 8, !tbaa !1379
+  %776 = load ptr, ptr %775, align 8, !tbaa !1378
   %.not.i.i.i.i.i427 = icmp eq ptr %776, null
   br i1 %.not.i.i.i.i.i427, label %.loopexit.i.i.i442, label %777
 
 777:                                              ; preds = %770
-  %778 = load ptr, ptr %776, align 8, !tbaa !1380
+  %778 = load ptr, ptr %776, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i.i428 = getelementptr inbounds nuw i8, ptr %778, i64 32
-  %.pre.i.i.i.i.i429 = load i64, ptr %.phi.trans.insert.i.i.i.i.i428, align 8, !tbaa !1381
+  %.pre.i.i.i.i.i429 = load i64, ptr %.phi.trans.insert.i.i.i.i.i428, align 8, !tbaa !1380
   br label %779
 
 779:                                              ; preds = %791, %777
@@ -62153,24 +61950,24 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %789, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i450, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i430
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i430: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i.i449, %779
-  %790 = load ptr, ptr %781, align 8, !tbaa !1380
+  %790 = load ptr, ptr %781, align 8, !tbaa !1379
   %.not18.i.i.i.i.i431 = icmp eq ptr %790, null
   br i1 %.not18.i.i.i.i.i431, label %.loopexit.i433, label %791
 
 791:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i430
   %792 = getelementptr inbounds nuw i8, ptr %790, i64 32
-  %793 = load i64, ptr %792, align 8, !tbaa !1381
+  %793 = load i64, ptr %792, align 8, !tbaa !1380
   %794 = urem i64 %793, %772
   %.not19.i.i.i.i.i432 = icmp eq i64 %794, %773
-  br i1 %.not19.i.i.i.i.i432, label %779, label %.loopexit.i433, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i.i432, label %779, label %.loopexit.i433, !llvm.loop !1382
 
 .loopexit.loopexit.i455:                          ; preds = %761
   %.phi.trans.insert.i456 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  %.pre.i457 = load i64, ptr %.phi.trans.insert.i456, align 8, !tbaa !1348
-  %.pre31.i458 = load ptr, ptr %756, align 8, !tbaa !1340
+  %.pre.i457 = load i64, ptr %.phi.trans.insert.i456, align 8, !tbaa !1347
+  %.pre31.i458 = load ptr, ptr %756, align 8, !tbaa !1339
   %.pre35.i461 = urem i64 %755, %.pre.i457
   %.phi.trans.insert1791 = getelementptr inbounds nuw ptr, ptr %.pre31.i458, i64 %.pre35.i461
-  %.pre1792 = load ptr, ptr %.phi.trans.insert1791, align 8, !tbaa !1379
+  %.pre1792 = load ptr, ptr %.phi.trans.insert1791, align 8, !tbaa !1378
   br label %.loopexit.i433
 
 .loopexit.i433:                                   ; preds = %791, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i430, %.loopexit.loopexit.i455
@@ -62181,9 +61978,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %.not.i.i.i.i8.i436, label %.loopexit.i.i.i442, label %797
 
 797:                                              ; preds = %.loopexit.i433
-  %798 = load ptr, ptr %795, align 8, !tbaa !1380
+  %798 = load ptr, ptr %795, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i9.i437 = getelementptr inbounds nuw i8, ptr %798, i64 32
-  %.pre.i.i.i.i10.i438 = load i64, ptr %.phi.trans.insert.i.i.i.i9.i437, align 8, !tbaa !1381
+  %.pre.i.i.i.i10.i438 = load i64, ptr %.phi.trans.insert.i.i.i.i9.i437, align 8, !tbaa !1380
   br label %799
 
 799:                                              ; preds = %811, %797
@@ -62203,16 +62000,16 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %809, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEEixERS18_.exit.i444, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i439
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i439: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i14.i448, %799
-  %810 = load ptr, ptr %801, align 8, !tbaa !1380
+  %810 = load ptr, ptr %801, align 8, !tbaa !1379
   %.not18.i.i.i.i12.i440 = icmp eq ptr %810, null
   br i1 %.not18.i.i.i.i12.i440, label %.loopexit.i.i.i442, label %811
 
 811:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i439
   %812 = getelementptr inbounds nuw i8, ptr %810, i64 32
-  %813 = load i64, ptr %812, align 8, !tbaa !1381
+  %813 = load i64, ptr %812, align 8, !tbaa !1380
   %814 = urem i64 %813, %796
   %.not19.i.i.i.i13.i441 = icmp eq i64 %814, %.pre-phi36.i434
-  br i1 %.not19.i.i.i.i13.i441, label %799, label %.loopexit.i.i.i442, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i13.i441, label %799, label %.loopexit.i.i.i442, !llvm.loop !1382
 
 .loopexit.i.i.i442:                               ; preds = %811, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i439, %770, %.loopexit.i433
   %.pre-phi36.i4341879 = phi i64 [ %773, %770 ], [ %.pre-phi36.i434, %.loopexit.i433 ], [ %.pre-phi36.i434, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i439 ], [ %.pre-phi36.i434, %811 ]
@@ -62220,7 +62017,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
           to label %.noexc462 unwind label %833
 
 .noexc462:                                        ; preds = %.loopexit.i.i.i442
-  store ptr null, ptr %815, align 8, !tbaa !1380
+  store ptr null, ptr %815, align 8, !tbaa !1379
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
   store ptr %.sroa.0707.0.copyload, ptr %816, align 8
   %.sroa.7683.0..sroa_idx684 = getelementptr inbounds nuw i8, ptr %815, i64 16
@@ -62258,7 +62055,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   store ptr %.sroa.030.01437, ptr %825, align 8, !tbaa !194
   %826 = sext i32 %.sroa.11700.01435 to i64
   %827 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %826
-  %828 = load i32, ptr %827, align 4, !tbaa !30, !noalias !1424
+  %828 = load i32, ptr %827, align 4, !tbaa !30, !noalias !1423
   %829 = icmp eq i32 %828, %750
   %830 = zext i1 %829 to i32
   %spec.select999 = add nuw nsw i32 %.sroa.17.01436, %830
@@ -62275,7 +62072,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
 .loopexit1021:                                    ; preds = %_ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEppEv.exit469, %746, %.lr.ph1440
   %835 = add nuw i64 %.01831438, 1
   %exitcond.not = icmp eq i64 %835, %632
-  br i1 %exitcond.not, label %.preheader1019, label %.lr.ph1440, !llvm.loop !1427
+  br i1 %exitcond.not, label %.preheader1019, label %.lr.ph1440, !llvm.loop !1426
 
 .preheader1017:                                   ; preds = %842, %.preheader1019
   %.not10061444 = icmp eq ptr %.sroa.0910.1.lcssa, %.sroa.11915.0.lcssa
@@ -62297,7 +62094,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %841 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i472, i64 24
   store ptr %.sroa.0.0.copyload.i.i470, ptr %841, align 8, !tbaa !488
   %.not1008 = icmp eq ptr %.sroa.0.0.copyload.i.i472, %837
-  br i1 %.not1008, label %842, label %839, !llvm.loop !1428
+  br i1 %.not1008, label %842, label %839, !llvm.loop !1427
 
 842:                                              ; preds = %839
   %843 = getelementptr inbounds nuw i8, ptr %.sroa.0677.01442, i64 8
@@ -62321,60 +62118,60 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
 
 .critedge:                                        ; preds = %.lr.ph1446, %846
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1429)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   %849 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
           to label %.noexc475 unwind label %919
 
 .noexc475:                                        ; preds = %.critedge
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %850, i8 0, i64 16, i1 false), !noalias !1429
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %850, i8 0, i64 16, i1 false), !noalias !1428
   %851 = getelementptr inbounds nuw i8, ptr %849, i64 48
-  store ptr %851, ptr %849, align 8, !tbaa !1432, !noalias !1429
+  store ptr %851, ptr %849, align 8, !tbaa !1431, !noalias !1428
   %852 = getelementptr inbounds nuw i8, ptr %849, i64 8
-  store i64 1, ptr %852, align 8, !tbaa !1434, !noalias !1429
+  store i64 1, ptr %852, align 8, !tbaa !1433, !noalias !1428
   %853 = getelementptr inbounds nuw i8, ptr %849, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %853, i8 0, i64 16, i1 false), !noalias !1429
-  store float 1.000000e+00, ptr %850, align 8, !tbaa !1349, !noalias !1429
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %853, i8 0, i64 16, i1 false), !noalias !1428
+  store float 1.000000e+00, ptr %850, align 8, !tbaa !1348, !noalias !1428
   %854 = getelementptr inbounds nuw i8, ptr %849, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %854, i8 0, i64 16, i1 false), !noalias !1429
-  store ptr %849, ptr %5, align 8, !tbaa !1435, !alias.scope !1429
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %854, i8 0, i64 16, i1 false), !noalias !1428
+  store ptr %849, ptr %5, align 8, !tbaa !1434, !alias.scope !1428
   %855 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS5_33HalfedgeDS_in_place_list_halfedgeINS5_21I_Polyhedron_halfedgeINS5_24HalfedgeDS_halfedge_baseINS5_21HalfedgeDS_list_typesINS5_5EpickENS5_28I_Polyhedron_derived_items_3INS5_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESJ_SJ_EEEEEESaISM_EEENS6_24TDS2_halfedge_descriptorINS5_30Triangulation_data_structure_2INS5_25Convex_hull_vertex_base_2INS5_11GT3_for_CH3INS5_20Convex_hull_traits_3ISC_NS5_12Polyhedron_3ISC_SE_NS5_18HalfedgeDS_defaultESG_EESJ_EEEENS5_30Triangulation_ds_vertex_base_2IvEEEENS5_23Convex_hull_face_base_2ISX_NS5_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_S17_EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %855, ptr noundef nonnull %849)
           to label %856 unwind label %919
 
 856:                                              ; preds = %.noexc475
   %857 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %857, align 8, !alias.scope !1429
+  store ptr null, ptr %857, align 8, !alias.scope !1428
   %.sroa.2.0..sroa_idx.i474 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 0, ptr %.sroa.2.0..sroa_idx.i474, align 8, !alias.scope !1429
-  %858 = load i32, ptr %0, align 8, !tbaa !218, !noalias !1438
+  store i32 0, ptr %.sroa.2.0..sroa_idx.i474, align 8, !alias.scope !1428
+  %858 = load i32, ptr %0, align 8, !tbaa !218, !noalias !1437
   %859 = icmp slt i32 %858, 1
   br i1 %859, label %860, label %862
 
 860:                                              ; preds = %856
-  %861 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1438
+  %861 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1437
   br label %.loopexit1016
 
 862:                                              ; preds = %856
   %863 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %864 = load i64, ptr %863, align 8, !tbaa !261, !noalias !1438
+  %864 = load i64, ptr %863, align 8, !tbaa !261, !noalias !1437
   %865 = icmp eq i64 %864, 0
   br i1 %865, label %866, label %868
 
 866:                                              ; preds = %862
-  %867 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1438
+  %867 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1437
   br label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i477
 
 868:                                              ; preds = %862
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %870 = load ptr, ptr %869, align 8, !tbaa !458, !noalias !1438
+  %870 = load ptr, ptr %869, align 8, !tbaa !458, !noalias !1437
   %871 = icmp eq ptr %870, null
   br i1 %871, label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i477, label %872
 
 872:                                              ; preds = %868
   %873 = getelementptr inbounds nuw i8, ptr %870, i64 88
   %874 = getelementptr inbounds nuw i8, ptr %870, i64 112
-  %875 = load ptr, ptr %874, align 8, !tbaa !242, !noalias !1438
+  %875 = load ptr, ptr %874, align 8, !tbaa !242, !noalias !1437
   %876 = ptrtoint ptr %875 to i64
   %877 = and i64 %876, 3
   %878 = icmp eq i64 %877, 2
@@ -62384,7 +62181,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %879 = phi ptr [ %.be2699, %.preheader.i.i.i.i.i496.backedge ], [ %873, %872 ]
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 88
   %881 = getelementptr inbounds nuw i8, ptr %879, i64 112
-  %882 = load ptr, ptr %881, align 8, !tbaa !242, !noalias !1438
+  %882 = load ptr, ptr %881, align 8, !tbaa !242, !noalias !1437
   %883 = ptrtoint ptr %882 to i64
   %884 = trunc i64 %883 to i32
   %885 = and i32 %884, 3
@@ -62407,7 +62204,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
 _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i477: ; preds = %.preheader.i.i.i.i.i496, %.preheader.i.i.i.i.i496, %872, %868, %866
   %889 = phi ptr [ %867, %866 ], [ null, %868 ], [ %873, %872 ], [ %880, %.preheader.i.i.i.i.i496 ], [ %880, %.preheader.i.i.i.i.i496 ]
   %890 = icmp eq i32 %858, 1
-  %.pre.i479 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1443
+  %.pre.i479 = load ptr, ptr %102, align 8, !tbaa !457, !noalias !1442
   br i1 %890, label %.loopexit1016, label %891
 
 891:                                              ; preds = %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i477
@@ -62416,7 +62213,7 @@ _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i481: ; preds = %891
   %892 = getelementptr inbounds nuw i8, ptr %889, i64 24
-  %.sroa.0.0.copyload.i.i.i3.i.i482 = load ptr, ptr %892, align 8, !tbaa !262, !noalias !1438
+  %.sroa.0.0.copyload.i.i.i3.i.i482 = load ptr, ptr %892, align 8, !tbaa !262, !noalias !1437
   %893 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i3.i.i482, %889
   br i1 %893, label %.loopexit1016, label %.lr.ph.i.i483
 
@@ -62424,9 +62221,9 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %894 = getelementptr inbounds nuw i8, ptr %913, i64 24
   %895 = zext nneg i32 %914 to i64
   %896 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %894, i64 %895
-  %.sroa.0.0.copyload.i.i.i.i.i487 = load ptr, ptr %896, align 8, !tbaa !262, !noalias !1438
+  %.sroa.0.0.copyload.i.i.i.i.i487 = load ptr, ptr %896, align 8, !tbaa !262, !noalias !1437
   %897 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.i487, %913
-  br i1 %897, label %.loopexit1016, label %.lr.ph.i.i483, !llvm.loop !1369
+  br i1 %897, label %.loopexit1016, label %.lr.ph.i.i483, !llvm.loop !1368
 
 .lr.ph.i.i483:                                    ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i481, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486
   %.sroa.49.0.i = phi ptr [ %.sroa.49.1.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486 ], [ %889, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i481 ]
@@ -62439,7 +62236,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %901 = phi ptr [ %.be2692, %.preheader.i.i494.backedge ], [ %899, %.lr.ph.i.i483 ]
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 88
   %903 = getelementptr inbounds nuw i8, ptr %901, i64 112
-  %904 = load ptr, ptr %903, align 8, !tbaa !242, !noalias !1438
+  %904 = load ptr, ptr %903, align 8, !tbaa !242, !noalias !1437
   %905 = ptrtoint ptr %904 to i64
   %906 = trunc i64 %905 to i32
   %907 = and i32 %906, 3
@@ -62468,10 +62265,10 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %913 = phi ptr [ %899, %911 ], [ %902, %.preheader.i.i494 ], [ %902, %.preheader.i.i494 ]
   %914 = phi i32 [ %912, %911 ], [ 0, %.preheader.i.i494 ], [ 0, %.preheader.i.i494 ]
   %.not5.i.i.i485 = icmp eq ptr %913, %.pre.i479
-  br i1 %.not5.i.i.i485, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i493, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486, !llvm.loop !1369
+  br i1 %.not5.i.i.i485, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i493, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486, !llvm.loop !1368
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i493: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i.i.i484
-  br label %.loopexit1016, !llvm.loop !1369
+  br label %.loopexit1016, !llvm.loop !1368
 
 .loopexit1016:                                    ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486, %860, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i477, %891, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i481, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i493
   %915 = phi ptr [ %861, %860 ], [ %.pre.i479, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i477 ], [ %889, %891 ], [ %.pre.i479, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i493 ], [ %.pre.i479, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i481 ], [ %.pre.i479, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486 ]
@@ -62530,16 +62327,16 @@ _ZNK4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2IN
           to label %934 unwind label %980
 
 934:                                              ; preds = %_ZNK4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEdeEv.exit
-  %935 = load ptr, ptr %5, align 8, !tbaa !1435
+  %935 = load ptr, ptr %5, align 8, !tbaa !1434
   %936 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNSt8__detail9_Map_baseIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEESt4pairIKSK_NS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISV_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS16_ENS_10_Select1stESt8equal_toISK_ESt4hashISK_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERSM_(ptr noundef nonnull align 8 dereferenceable(56) %935, ptr noundef nonnull align 8 dereferenceable(8) %933)
           to label %937 unwind label %980
 
 937:                                              ; preds = %934
   %938 = load i64, ptr %6, align 8, !tbaa !262
   store i64 %938, ptr %936, align 8, !tbaa !262
-  %939 = load i32, ptr %.sroa.27.40..sroa_idx645, align 8, !tbaa !1237
+  %939 = load i32, ptr %.sroa.27.40..sroa_idx645, align 8, !tbaa !1236
   %940 = getelementptr inbounds nuw i8, ptr %936, i64 8
-  store i32 %939, ptr %940, align 8, !tbaa !1237
+  store i32 %939, ptr %940, align 8, !tbaa !1236
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.sroa.21641.01450, label %941, label %_ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit
 
@@ -62629,7 +62426,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %976 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %974, i64 %975
   %.sroa.0.0.copyload.i.i.i.i507 = load ptr, ptr %976, align 8, !tbaa !262
   %977 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i507, %973
-  br i1 %977, label %_ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit, label %.split.i.i503, !llvm.loop !1412
+  br i1 %977, label %_ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit, label %.split.i.i503, !llvm.loop !1411
 
 _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i508, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i504, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i506, %.split.us.i.i511, %.split.us.i.i511, %937
   %.sroa.15.2 = phi i32 [ %.sroa.15.01448, %937 ], [ %.sroa.15.01448, %.split.us.i.i511 ], [ %.sroa.15.01448, %.split.us.i.i511 ], [ 0, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i508 ], [ %.sroa.15.1, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i506 ], [ %970, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i504 ]
@@ -62653,7 +62450,7 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
 982:                                              ; preds = %.loopexit
   %983 = getelementptr inbounds nuw i8, ptr %.sroa.0667.11458, i64 8
   %.not1007 = icmp eq ptr %983, %.sroa.11915.0.lcssa
-  br i1 %.not1007, label %._crit_edge1459, label %.preheader, !llvm.loop !1444
+  br i1 %.not1007, label %._crit_edge1459, label %.preheader, !llvm.loop !1443
 
 984:                                              ; preds = %.preheader, %.loopexit
   %.sroa.0625.01455.in = phi ptr [ %.sroa.0667.11458, %.preheader ], [ %.sroa.0625.01455, %.loopexit ]
@@ -62665,9 +62462,9 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
   br i1 %987, label %988, label %.loopexit
 
 988:                                              ; preds = %984
-  %989 = load ptr, ptr %5, align 8, !tbaa !1435
+  %989 = load ptr, ptr %5, align 8, !tbaa !1434
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 24
-  %991 = load i64, ptr %990, align 8, !tbaa !1445
+  %991 = load i64, ptr %990, align 8, !tbaa !1444
   %.not.not.i.i.i514 = icmp eq i64 %991, 0
   br i1 %.not.not.i.i.i514, label %992, label %999
 
@@ -62677,7 +62474,7 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
 
 994:                                              ; preds = %995, %992
   %.sroa.06.0.in.i.i.i522 = phi ptr [ %993, %992 ], [ %.sroa.06.0.i.i.i523, %995 ]
-  %.sroa.06.0.i.i.i523 = load ptr, ptr %.sroa.06.0.in.i.i.i522, align 8, !tbaa !1380
+  %.sroa.06.0.i.i.i523 = load ptr, ptr %.sroa.06.0.in.i.i.i522, align 8, !tbaa !1379
   %.not.i.i.i524 = icmp eq ptr %.sroa.06.0.i.i.i523, null
   br i1 %.not.i.i.i524, label %.loopexit.i519.loopexit, label %995
 
@@ -62685,25 +62482,25 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
   %996 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i523, i64 8
   %997 = load ptr, ptr %996, align 8, !tbaa !39
   %998 = icmp eq ptr %.sroa.0625.01455, %997
-  br i1 %998, label %_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEE4findERS18_.exit.i, label %994, !llvm.loop !1446
+  br i1 %998, label %_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEE4findERS18_.exit.i, label %994, !llvm.loop !1445
 
 999:                                              ; preds = %988
   %1000 = ptrtoint ptr %.sroa.0625.01455 to i64
   %1001 = udiv i64 %1000, 56
   %1002 = getelementptr inbounds nuw i8, ptr %989, i64 8
-  %1003 = load i64, ptr %1002, align 8, !tbaa !1434
+  %1003 = load i64, ptr %1002, align 8, !tbaa !1433
   %1004 = urem i64 %1001, %1003
-  %1005 = load ptr, ptr %989, align 8, !tbaa !1432
+  %1005 = load ptr, ptr %989, align 8, !tbaa !1431
   %1006 = getelementptr inbounds nuw ptr, ptr %1005, i64 %1004
-  %1007 = load ptr, ptr %1006, align 8, !tbaa !1379
+  %1007 = load ptr, ptr %1006, align 8, !tbaa !1378
   %.not.i.i.i.i.i515 = icmp eq ptr %1007, null
   br i1 %.not.i.i.i.i.i515, label %.loopexit.i519, label %1008
 
 1008:                                             ; preds = %999
-  %1009 = load ptr, ptr %1007, align 8, !tbaa !1380
+  %1009 = load ptr, ptr %1007, align 8, !tbaa !1379
   %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 8
   %1011 = getelementptr inbounds nuw i8, ptr %1009, i64 32
-  %1012 = load i64, ptr %1011, align 8, !tbaa !1381
+  %1012 = load i64, ptr %1011, align 8, !tbaa !1380
   %1013 = icmp eq i64 %1001, %1012
   %1014 = load ptr, ptr %1010, align 8
   %1015 = icmp eq ptr %.sroa.0625.01455, %1014
@@ -62716,28 +62513,28 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
   %1020 = load ptr, ptr %1018, align 8
   %1021 = icmp eq ptr %.sroa.0625.01455, %1020
   %1022 = select i1 %1019, i1 %1021, i1 false
-  br i1 %1022, label %_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEE4findERS18_.exit.i, label %.lr.ph.i.i.i.i.i516, !llvm.loop !1447
+  br i1 %1022, label %_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEE4findERS18_.exit.i, label %.lr.ph.i.i.i.i.i516, !llvm.loop !1446
 
 .lr.ph.i.i.i.i.i516:                              ; preds = %1008, %1017
   %.020.i.i.i.i.i = phi ptr [ %1023, %1017 ], [ %1009, %1008 ]
-  %1023 = load ptr, ptr %.020.i.i.i.i.i, align 8, !tbaa !1380
+  %1023 = load ptr, ptr %.020.i.i.i.i.i, align 8, !tbaa !1379
   %.not18.i.i.i.i.i517 = icmp eq ptr %1023, null
   br i1 %.not18.i.i.i.i.i517, label %.loopexit.i519, label %1024
 
 1024:                                             ; preds = %.lr.ph.i.i.i.i.i516
   %1025 = getelementptr inbounds nuw i8, ptr %1023, i64 32
-  %1026 = load i64, ptr %1025, align 8, !tbaa !1381
+  %1026 = load i64, ptr %1025, align 8, !tbaa !1380
   %1027 = urem i64 %1026, %1003
   %.not19.i.i.i.i.i518 = icmp eq i64 %1027, %1004
-  br i1 %.not19.i.i.i.i.i518, label %1017, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !1447
+  br i1 %.not19.i.i.i.i.i518, label %1017, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !1446
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %1024
-  br label %.loopexit.i519, !llvm.loop !1447
+  br label %.loopexit.i519, !llvm.loop !1446
 
 .loopexit.i519.loopexit:                          ; preds = %994
   %.phi.trans.insert1794 = getelementptr inbounds nuw i8, ptr %989, i64 8
-  %.pre1795 = load i64, ptr %.phi.trans.insert1794, align 8, !tbaa !1434
-  %.pre1796 = load ptr, ptr %989, align 8, !tbaa !1432
+  %.pre1795 = load i64, ptr %.phi.trans.insert1794, align 8, !tbaa !1433
+  %.pre1796 = load ptr, ptr %989, align 8, !tbaa !1431
   %.pre1801 = ptrtoint ptr %.sroa.0625.01455 to i64
   %.pre1802 = udiv i64 %.pre1801, 56
   %.pre1804 = urem i64 %.pre1802, %.pre1795
@@ -62750,15 +62547,15 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
   %1028 = phi ptr [ %1005, %999 ], [ %.pre1796, %.loopexit.i519.loopexit ], [ %1005, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1005, %.lr.ph.i.i.i.i.i516 ]
   %1029 = phi i64 [ %1003, %999 ], [ %.pre1795, %.loopexit.i519.loopexit ], [ %1003, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1003, %.lr.ph.i.i.i.i.i516 ]
   %1030 = getelementptr inbounds nuw ptr, ptr %1028, i64 %.pre-phi1805
-  %1031 = load ptr, ptr %1030, align 8, !tbaa !1379
+  %1031 = load ptr, ptr %1030, align 8, !tbaa !1378
   %.not.i.i.i602 = icmp eq ptr %1031, null
   br i1 %.not.i.i.i602, label %.loopexit.i603, label %1032
 
 1032:                                             ; preds = %.loopexit.i519
-  %1033 = load ptr, ptr %1031, align 8, !tbaa !1380
+  %1033 = load ptr, ptr %1031, align 8, !tbaa !1379
   %1034 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   %1035 = getelementptr inbounds nuw i8, ptr %1033, i64 32
-  %1036 = load i64, ptr %1035, align 8, !tbaa !1381
+  %1036 = load i64, ptr %1035, align 8, !tbaa !1380
   %1037 = icmp eq i64 %.pre-phi1803, %1036
   %1038 = load ptr, ptr %1034, align 8
   %1039 = icmp eq ptr %.sroa.0625.01455, %1038
@@ -62771,36 +62568,36 @@ _ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS
   %1044 = load ptr, ptr %1042, align 8
   %1045 = icmp eq ptr %.sroa.0625.01455, %1044
   %1046 = select i1 %1043, i1 %1045, i1 false
-  br i1 %1046, label %.noexc525, label %.lr.ph.i.i.i, !llvm.loop !1447
+  br i1 %1046, label %.noexc525, label %.lr.ph.i.i.i, !llvm.loop !1446
 
 .lr.ph.i.i.i:                                     ; preds = %1032, %1041
   %.020.i.i.i = phi ptr [ %1047, %1041 ], [ %1033, %1032 ]
-  %1047 = load ptr, ptr %.020.i.i.i, align 8, !tbaa !1380
+  %1047 = load ptr, ptr %.020.i.i.i, align 8, !tbaa !1379
   %.not18.i.i.i = icmp eq ptr %1047, null
   br i1 %.not18.i.i.i, label %.loopexit.i603, label %1048
 
 1048:                                             ; preds = %.lr.ph.i.i.i
   %1049 = getelementptr inbounds nuw i8, ptr %1047, i64 32
-  %1050 = load i64, ptr %1049, align 8, !tbaa !1381
+  %1050 = load i64, ptr %1049, align 8, !tbaa !1380
   %1051 = urem i64 %1050, %1029
   %.not19.i.i.i = icmp eq i64 %1051, %.pre-phi1805
-  br i1 %.not19.i.i.i, label %1041, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !1447
+  br i1 %.not19.i.i.i, label %1041, label %..loopexit_crit_edge21.i.i.i, !llvm.loop !1446
 
 ..loopexit_crit_edge21.i.i.i:                     ; preds = %1048
-  br label %.loopexit.i603, !llvm.loop !1447
+  br label %.loopexit.i603, !llvm.loop !1446
 
 .loopexit.i603:                                   ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %.loopexit.i519
   %1052 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %.noexc604 unwind label %1151
 
 .noexc604:                                        ; preds = %.loopexit.i603
-  store ptr null, ptr %1052, align 8, !tbaa !1380
+  store ptr null, ptr %1052, align 8, !tbaa !1379
   %1053 = getelementptr inbounds nuw i8, ptr %1052, i64 8
   store i64 %.pre-phi, ptr %1053, align 8, !tbaa !194
   %1054 = getelementptr inbounds nuw i8, ptr %1052, i64 16
   store ptr null, ptr %1054, align 8, !tbaa !242
   %1055 = getelementptr inbounds nuw i8, ptr %1052, i64 24
-  store i32 0, ptr %1055, align 8, !tbaa !1237
+  store i32 0, ptr %1055, align 8, !tbaa !1236
   %1056 = invoke ptr @_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS17_10_Hash_nodeIS15_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %989, i64 noundef %.pre-phi1805, i64 noundef %.pre-phi1803, ptr noundef nonnull %1052, i64 noundef 1)
           to label %.noexc525 unwind label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i
 
@@ -62815,9 +62612,9 @@ _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_pl
   %.1.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %1058 = load i64, ptr %857, align 8
   store i64 %1058, ptr %.1.i, align 8, !tbaa !262
-  %1059 = load i32, ptr %.sroa.2.0..sroa_idx.i474, align 8, !tbaa !1237
+  %1059 = load i32, ptr %.sroa.2.0..sroa_idx.i474, align 8, !tbaa !1236
   %1060 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
-  store i32 %1059, ptr %1060, align 8, !tbaa !1237
+  store i32 %1059, ptr %1060, align 8, !tbaa !1236
   %1061 = inttoptr i64 %1058 to ptr
   br label %1063
 
@@ -62838,20 +62635,20 @@ _ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in
   %1068 = sext i32 %1067 to i64
   %1069 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0617.0.copyload, i64 %1068
   %.sroa.0.0.copyload.i.i526 = load ptr, ptr %1069, align 8, !tbaa !253
-  %.sroa.0.0.copyload.i.i527 = load ptr, ptr %.sroa.0.0.copyload.i.i526, align 8, !tbaa !262, !noalias !1448
-  %1070 = load ptr, ptr %.sroa.0.0.copyload.i.i527, align 8, !tbaa !1233, !noalias !1448
+  %.sroa.0.0.copyload.i.i527 = load ptr, ptr %.sroa.0.0.copyload.i.i526, align 8, !tbaa !262, !noalias !1447
+  %1070 = load ptr, ptr %.sroa.0.0.copyload.i.i527, align 8, !tbaa !1232, !noalias !1447
   %1071 = icmp eq ptr %.sroa.0.0.copyload.i.i526, %1070
   %1072 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i527, i64 8
-  %1073 = load ptr, ptr %1072, align 8, !noalias !1448
+  %1073 = load ptr, ptr %1072, align 8, !noalias !1447
   %1074 = icmp eq ptr %.sroa.0.0.copyload.i.i526, %1073
   %1075 = select i1 %1074, i64 1, i64 2
   %1076 = select i1 %1071, i64 0, i64 %1075
   %1077 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %1076
-  %1078 = load i32, ptr %1077, align 4, !tbaa !30, !noalias !1448
+  %1078 = load i32, ptr %1077, align 4, !tbaa !30, !noalias !1447
   %1079 = ptrtoint ptr %.sroa.0.0.copyload.i.i527 to i64
-  %1080 = load ptr, ptr %3, align 8, !tbaa !1350
+  %1080 = load ptr, ptr %3, align 8, !tbaa !1349
   %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 24
-  %1082 = load i64, ptr %1081, align 8, !tbaa !1416
+  %1082 = load i64, ptr %1081, align 8, !tbaa !1415
   %.not.not.i.i.i528 = icmp eq i64 %1082, 0
   br i1 %.not.not.i.i.i528, label %1083, label %1094
 
@@ -62861,7 +62658,7 @@ _ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in
 
 1085:                                             ; preds = %1086, %1083
   %.sroa.06.0.in.i.i.i554 = phi ptr [ %1084, %1083 ], [ %.sroa.06.0.i.i.i555, %1086 ]
-  %.sroa.06.0.i.i.i555 = load ptr, ptr %.sroa.06.0.in.i.i.i554, align 8, !tbaa !1380
+  %.sroa.06.0.i.i.i555 = load ptr, ptr %.sroa.06.0.in.i.i.i554, align 8, !tbaa !1379
   %.not.i.i.i556 = icmp eq ptr %.sroa.06.0.i.i.i555, null
   br i1 %.not.i.i.i556, label %.loopexit.loopexit.i557, label %1086
 
@@ -62873,23 +62670,23 @@ _ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in
   %1091 = load i32, ptr %1090, align 8
   %1092 = icmp eq i32 %1078, %1091
   %1093 = select i1 %1089, i1 %1092, i1 false
-  br i1 %1093, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i552, label %1085, !llvm.loop !1417
+  br i1 %1093, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i552, label %1085, !llvm.loop !1416
 
 1094:                                             ; preds = %1063
   %1095 = lshr i64 %1079, 6
   %1096 = getelementptr inbounds nuw i8, ptr %1080, i64 8
-  %1097 = load i64, ptr %1096, align 8, !tbaa !1348
+  %1097 = load i64, ptr %1096, align 8, !tbaa !1347
   %1098 = urem i64 %1095, %1097
-  %1099 = load ptr, ptr %1080, align 8, !tbaa !1340
+  %1099 = load ptr, ptr %1080, align 8, !tbaa !1339
   %1100 = getelementptr inbounds nuw ptr, ptr %1099, i64 %1098
-  %1101 = load ptr, ptr %1100, align 8, !tbaa !1379
+  %1101 = load ptr, ptr %1100, align 8, !tbaa !1378
   %.not.i.i.i.i.i529 = icmp eq ptr %1101, null
   br i1 %.not.i.i.i.i.i529, label %.loopexit.i.i.i544, label %1102
 
 1102:                                             ; preds = %1094
-  %1103 = load ptr, ptr %1101, align 8, !tbaa !1380
+  %1103 = load ptr, ptr %1101, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i.i530 = getelementptr inbounds nuw i8, ptr %1103, i64 32
-  %.pre.i.i.i.i.i531 = load i64, ptr %.phi.trans.insert.i.i.i.i.i530, align 8, !tbaa !1381
+  %.pre.i.i.i.i.i531 = load i64, ptr %.phi.trans.insert.i.i.i.i.i530, align 8, !tbaa !1380
   br label %1104
 
 1104:                                             ; preds = %1116, %1102
@@ -62909,25 +62706,25 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %1114, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit.i552, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i532
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i532: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i.i551, %1104
-  %1115 = load ptr, ptr %1106, align 8, !tbaa !1380
+  %1115 = load ptr, ptr %1106, align 8, !tbaa !1379
   %.not18.i.i.i.i.i533 = icmp eq ptr %1115, null
   br i1 %.not18.i.i.i.i.i533, label %.loopexit.i535, label %1116
 
 1116:                                             ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i532
   %1117 = getelementptr inbounds nuw i8, ptr %1115, i64 32
-  %1118 = load i64, ptr %1117, align 8, !tbaa !1381
+  %1118 = load i64, ptr %1117, align 8, !tbaa !1380
   %1119 = urem i64 %1118, %1097
   %.not19.i.i.i.i.i534 = icmp eq i64 %1119, %1098
-  br i1 %.not19.i.i.i.i.i534, label %1104, label %.loopexit.i535, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i.i534, label %1104, label %.loopexit.i535, !llvm.loop !1382
 
 .loopexit.loopexit.i557:                          ; preds = %1085
   %.phi.trans.insert.i558 = getelementptr inbounds nuw i8, ptr %1080, i64 8
-  %.pre.i559 = load i64, ptr %.phi.trans.insert.i558, align 8, !tbaa !1348
-  %.pre31.i560 = load ptr, ptr %1080, align 8, !tbaa !1340
+  %.pre.i559 = load i64, ptr %.phi.trans.insert.i558, align 8, !tbaa !1347
+  %.pre31.i560 = load ptr, ptr %1080, align 8, !tbaa !1339
   %.pre33.i562 = lshr i64 %1079, 6
   %.pre35.i563 = urem i64 %.pre33.i562, %.pre.i559
   %.phi.trans.insert1798 = getelementptr inbounds nuw ptr, ptr %.pre31.i560, i64 %.pre35.i563
-  %.pre1799 = load ptr, ptr %.phi.trans.insert1798, align 8, !tbaa !1379
+  %.pre1799 = load ptr, ptr %.phi.trans.insert1798, align 8, !tbaa !1378
   br label %.loopexit.i535
 
 .loopexit.i535:                                   ; preds = %1116, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i.i532, %.loopexit.loopexit.i557
@@ -62939,9 +62736,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %.not.i.i.i.i8.i538, label %.loopexit.i.i.i544, label %1122
 
 1122:                                             ; preds = %.loopexit.i535
-  %1123 = load ptr, ptr %1120, align 8, !tbaa !1380
+  %1123 = load ptr, ptr %1120, align 8, !tbaa !1379
   %.phi.trans.insert.i.i.i.i9.i539 = getelementptr inbounds nuw i8, ptr %1123, i64 32
-  %.pre.i.i.i.i10.i540 = load i64, ptr %.phi.trans.insert.i.i.i.i9.i539, align 8, !tbaa !1381
+  %.pre.i.i.i.i10.i540 = load i64, ptr %.phi.trans.insert.i.i.i.i9.i539, align 8, !tbaa !1380
   br label %1124
 
 1124:                                             ; preds = %1136, %1122
@@ -62961,16 +62758,16 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %1134, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEEixERS18_.exit.i546, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i541
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i541: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i14.i550, %1124
-  %1135 = load ptr, ptr %1126, align 8, !tbaa !1380
+  %1135 = load ptr, ptr %1126, align 8, !tbaa !1379
   %.not18.i.i.i.i12.i542 = icmp eq ptr %1135, null
   br i1 %.not18.i.i.i.i12.i542, label %.loopexit.i.i.i544, label %1136
 
 1136:                                             ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i541
   %1137 = getelementptr inbounds nuw i8, ptr %1135, i64 32
-  %1138 = load i64, ptr %1137, align 8, !tbaa !1381
+  %1138 = load i64, ptr %1137, align 8, !tbaa !1380
   %1139 = urem i64 %1138, %1121
   %.not19.i.i.i.i13.i543 = icmp eq i64 %1139, %.pre-phi36.i536
-  br i1 %.not19.i.i.i.i13.i543, label %1124, label %.loopexit.i.i.i544, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i13.i543, label %1124, label %.loopexit.i.i.i544, !llvm.loop !1382
 
 .loopexit.i.i.i544:                               ; preds = %1136, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i541, %1094, %.loopexit.i535
   %.pre-phi34.i5371884 = phi i64 [ %1095, %1094 ], [ %.pre-phi34.i537, %.loopexit.i535 ], [ %.pre-phi34.i537, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11.i541 ], [ %.pre-phi34.i537, %1136 ]
@@ -62979,7 +62776,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
           to label %.noexc564 unwind label %1151
 
 .noexc564:                                        ; preds = %.loopexit.i.i.i544
-  store ptr null, ptr %1140, align 8, !tbaa !1380
+  store ptr null, ptr %1140, align 8, !tbaa !1379
   %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 8
   store ptr %.sroa.0.0.copyload.i.i527, ptr %1141, align 8
   %.sroa.7620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1140, i64 16
@@ -63038,10 +62835,10 @@ _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Poly
   br i1 %or.cond1001, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread, %1148, %984
-  br i1 %985, label %984, label %982, !llvm.loop !1451
+  br i1 %985, label %984, label %982, !llvm.loop !1450
 
 ._crit_edge1459:                                  ; preds = %982, %.preheader1013
-  %1159 = load ptr, ptr %855, align 8, !tbaa !1355
+  %1159 = load ptr, ptr %855, align 8, !tbaa !1354
   %.not.i.i.i573 = icmp eq ptr %1159, null
   br i1 %.not.i.i.i573, label %_ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISS_NS_28Triangulation_ds_face_base_2IvEEEEEEEEED2Ev.exit, label %1160
 
@@ -63053,9 +62850,9 @@ _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Poly
   br i1 %1163, label %1165, label %1173
 
 1165:                                             ; preds = %1160
-  store i32 0, ptr %1161, align 8, !tbaa !1356
+  store i32 0, ptr %1161, align 8, !tbaa !1355
   %1166 = getelementptr inbounds nuw i8, ptr %1159, i64 12
-  store i32 0, ptr %1166, align 4, !tbaa !1358
+  store i32 0, ptr %1166, align 4, !tbaa !1357
   %1167 = load ptr, ptr %1159, align 8, !tbaa !17
   %1168 = getelementptr inbounds nuw i8, ptr %1167, i64 16
   %1169 = load ptr, ptr %1168, align 8
@@ -63095,7 +62892,7 @@ _ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33Halfed
 
 .body565:                                         ; preds = %1151, %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i, %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i545, %980
   %.pn188.pn.pn.pn = phi { ptr, i32 } [ %981, %980 ], [ %1057, %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i ], [ %1152, %1151 ], [ %1144, %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i545 ]
-  %1181 = load ptr, ptr %855, align 8, !tbaa !1355
+  %1181 = load ptr, ptr %855, align 8, !tbaa !1354
   %.not.i.i.i575 = icmp eq ptr %1181, null
   br i1 %.not.i.i.i575, label %_ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISS_NS_28Triangulation_ds_face_base_2IvEEEEEEEEED2Ev.exit579, label %1182
 
@@ -63107,9 +62904,9 @@ _ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33Halfed
   br i1 %1185, label %1187, label %1195
 
 1187:                                             ; preds = %1182
-  store i32 0, ptr %1183, align 8, !tbaa !1356
+  store i32 0, ptr %1183, align 8, !tbaa !1355
   %1188 = getelementptr inbounds nuw i8, ptr %1181, i64 12
-  store i32 0, ptr %1188, align 4, !tbaa !1358
+  store i32 0, ptr %1188, align 4, !tbaa !1357
   %1189 = load ptr, ptr %1181, align 8, !tbaa !17
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 16
   %1191 = load ptr, ptr %1190, align 8
@@ -63151,7 +62948,7 @@ _ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33Halfed
 1203:                                             ; preds = %846
   %1204 = getelementptr inbounds nuw i8, ptr %.sroa.0667.01445, i64 8
   %.not1006 = icmp eq ptr %1204, %.sroa.11915.0.lcssa
-  br i1 %.not1006, label %.loopexit1018, label %.lr.ph1446, !llvm.loop !1452
+  br i1 %.not1006, label %.loopexit1018, label %.lr.ph1446, !llvm.loop !1451
 
 .loopexit1018:                                    ; preds = %1203, %.preheader1017, %_ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISS_NS_28Triangulation_ds_face_base_2IvEEEEEEEEED2Ev.exit
   %.not.i.i.i580 = icmp eq ptr %.sroa.0895.0.lcssa, null
@@ -63197,7 +62994,7 @@ _ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit584
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit584: ; preds = %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EED2Ev.exit, %1217
-  %1220 = load ptr, ptr %13, align 8, !tbaa !1355
+  %1220 = load ptr, ptr %13, align 8, !tbaa !1354
   %.not.i.i.i585 = icmp eq ptr %1220, null
   br i1 %.not.i.i.i585, label %_ZN4CGAL8internal20Dynamic_property_mapINS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS7_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISF_NS_28Triangulation_ds_face_base_2IvEEEEEEEENS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesIS7_NS_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEEED2Ev.exit, label %1221
 
@@ -63209,9 +63006,9 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   br i1 %1224, label %1226, label %1234
 
 1226:                                             ; preds = %1221
-  store i32 0, ptr %1222, align 8, !tbaa !1356
+  store i32 0, ptr %1222, align 8, !tbaa !1355
   %1227 = getelementptr inbounds nuw i8, ptr %1220, i64 12
-  store i32 0, ptr %1227, align 4, !tbaa !1358
+  store i32 0, ptr %1227, align 4, !tbaa !1357
   %1228 = load ptr, ptr %1220, align 8, !tbaa !17
   %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 16
   %1230 = load ptr, ptr %1229, align 8
@@ -63311,7 +63108,7 @@ _ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit596: ; preds = %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EED2Ev.exit594.thread, %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EED2Ev.exit594, %1253
   %.pn219.pn.pn.pn18931898 = phi { ptr, i32 } [ %256, %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EED2Ev.exit594.thread ], [ %.pn219.pn.pn975, %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EED2Ev.exit594 ], [ %.pn219.pn.pn975, %1253 ]
-  %1257 = load ptr, ptr %13, align 8, !tbaa !1355
+  %1257 = load ptr, ptr %13, align 8, !tbaa !1354
   %.not.i.i.i597 = icmp eq ptr %1257, null
   br i1 %.not.i.i.i597, label %_ZN4CGAL8internal20Dynamic_property_mapINS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS7_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISF_NS_28Triangulation_ds_face_base_2IvEEEEEEEENS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesIS7_NS_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEEED2Ev.exit601, label %1258
 
@@ -63323,9 +63120,9 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   br i1 %1261, label %1263, label %1271
 
 1263:                                             ; preds = %1258
-  store i32 0, ptr %1259, align 8, !tbaa !1356
+  store i32 0, ptr %1259, align 8, !tbaa !1355
   %1264 = getelementptr inbounds nuw i8, ptr %1257, i64 12
-  store i32 0, ptr %1264, align 4, !tbaa !1358
+  store i32 0, ptr %1264, align 4, !tbaa !1357
   %1265 = load ptr, ptr %1257, align 8, !tbaa !17
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 16
   %1267 = load ptr, ptr %1266, align 8
@@ -63366,47 +63163,46 @@ _ZN4CGAL8internal20Dynamic_property_mapINS0_24TDS2_halfedge_descriptorINS_30Tria
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4CGAL8internal15exact_num_edgesINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !218, !noalias !1453
-  %.fr = freeze i32 %2
-  %3 = icmp slt i32 %.fr, 1
+  %2 = load i32, ptr %0, align 8, !tbaa !218, !noalias !1452
+  %3 = icmp slt i32 %2, 1
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !457, !noalias !1453
+  %6 = load ptr, ptr %5, align 8, !tbaa !457, !noalias !1452
   br label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !261, !noalias !1453
+  %9 = load i64, ptr %8, align 8, !tbaa !261, !noalias !1452
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !457, !noalias !1453
+  %13 = load ptr, ptr %12, align 8, !tbaa !457, !noalias !1452
   br label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !458, !noalias !1453
+  %16 = load ptr, ptr %15, align 8, !tbaa !458, !noalias !1452
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %21 = load ptr, ptr %20, align 8, !tbaa !242, !noalias !1453
+  %21 = load ptr, ptr %20, align 8, !tbaa !242, !noalias !1452
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 3
   %24 = icmp eq i64 %23, 2
   br i1 %24, label %.preheader.i.i.i.i.i, label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %18, %.preheader.i.i.i.i.i.backedge
-  %25 = phi ptr [ %.be131, %.preheader.i.i.i.i.i.backedge ], [ %19, %18 ]
+  %25 = phi ptr [ %.be132, %.preheader.i.i.i.i.i.backedge ], [ %19, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !242, !noalias !1453
+  %28 = load ptr, ptr %27, align 8, !tbaa !242, !noalias !1452
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 3
@@ -63423,7 +63219,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4CGAL8internal15exact_num_edgesINS
   br label %.preheader.i.i.i.i.i.backedge
 
 .preheader.i.i.i.i.i.backedge:                    ; preds = %32, %.preheader.i.i.i.i.i
-  %.be131 = phi ptr [ %34, %32 ], [ %26, %.preheader.i.i.i.i.i ]
+  %.be132 = phi ptr [ %34, %32 ], [ %26, %.preheader.i.i.i.i.i ]
   br label %.preheader.i.i.i.i.i, !llvm.loop !459
 
 .preheader.i.i.i.i.i.unreachabledefault:          ; preds = %.preheader.i.i.i.i.i
@@ -63434,9 +63230,9 @@ default.unreachable:                              ; preds = %.preheader.i.i, %.p
 
 _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i: ; preds = %.preheader.i.i.i.i.i, %.preheader.i.i.i.i.i, %18, %14, %11
   %35 = phi ptr [ %13, %11 ], [ null, %14 ], [ %19, %18 ], [ %26, %.preheader.i.i.i.i.i ], [ %26, %.preheader.i.i.i.i.i ]
-  %36 = icmp eq i32 %.fr, 1
+  %36 = icmp eq i32 %2, 1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !457, !noalias !1458
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !457, !noalias !1457
   br i1 %36, label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, label %37
 
 37:                                               ; preds = %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i
@@ -63445,7 +63241,7 @@ _ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i: ; preds = %37
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.sroa.0.0.copyload.i.i.i3.i.i = load ptr, ptr %38, align 8, !tbaa !262, !noalias !1453
+  %.sroa.0.0.copyload.i.i.i3.i.i = load ptr, ptr %38, align 8, !tbaa !262, !noalias !1452
   %39 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i3.i.i, %35
   br i1 %39, label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, label %.lr.ph.i.i
 
@@ -63453,9 +63249,9 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %40 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %41 = zext nneg i32 %60 to i64
   %42 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %40, i64 %41
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !262, !noalias !1453
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !262, !noalias !1452
   %43 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.i, %59
-  br i1 %43, label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, label %.lr.ph.i.i, !llvm.loop !1369
+  br i1 %43, label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, label %.lr.ph.i.i, !llvm.loop !1368
 
 .lr.ph.i.i:                                       ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i
   %.sroa.48.0.i = phi ptr [ %.sroa.48.1.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i ], [ %35, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i ]
@@ -63465,10 +63261,10 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br i1 %46, label %.preheader.i.i, label %57
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i.backedge
-  %47 = phi ptr [ %.be125, %.preheader.i.i.backedge ], [ %45, %.lr.ph.i.i ]
+  %47 = phi ptr [ %.be126, %.preheader.i.i.backedge ], [ %45, %.lr.ph.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 112
-  %50 = load ptr, ptr %49, align 8, !tbaa !242, !noalias !1453
+  %50 = load ptr, ptr %49, align 8, !tbaa !242, !noalias !1452
   %51 = ptrtoint ptr %50 to i64
   %52 = trunc i64 %51 to i32
   %53 = and i32 %52, 3
@@ -63485,7 +63281,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %54, %.preheader.i.i
-  %.be125 = phi ptr [ %56, %54 ], [ %48, %.preheader.i.i ]
+  %.be126 = phi ptr [ %56, %54 ], [ %48, %.preheader.i.i ]
   br label %.preheader.i.i, !llvm.loop !459
 
 57:                                               ; preds = %.lr.ph.i.i
@@ -63497,28 +63293,28 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %59 = phi ptr [ %45, %57 ], [ %48, %.preheader.i.i ], [ %48, %.preheader.i.i ]
   %60 = phi i32 [ %58, %57 ], [ 0, %.preheader.i.i ], [ 0, %.preheader.i.i ]
   %.not5.i.i.i = icmp eq ptr %59, %.pre.i
-  br i1 %.not5.i.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i, !llvm.loop !1369
+  br i1 %.not5.i.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i, !llvm.loop !1368
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i.i.i
-  br label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, !llvm.loop !1369
+  br label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, !llvm.loop !1368
 
 _ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i, %4, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i, %37, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i
   %61 = phi ptr [ %6, %4 ], [ %.pre.i, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i ], [ %35, %37 ], [ %.pre.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i ], [ %.pre.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i ], [ %.pre.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i ]
   %.sroa.910.0.i = phi i32 [ 0, %4 ], [ 2, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i ], [ 0, %37 ], [ %60, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i ], [ 0, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i ], [ %60, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i ]
   %.sroa.48.3.i = phi ptr [ %6, %4 ], [ %35, %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i ], [ %35, %37 ], [ %.sroa.48.1.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i._ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEEC2EPKSM_.exit.loopexit_crit_edge.i.i ], [ %35, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.preheader.i.i ], [ %.sroa.48.1.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i ]
-  %.sroa.910.0.i.fr = freeze i32 %.sroa.910.0.i
-  %62 = icmp eq i32 %.fr, 1
+  %62 = icmp eq i32 %2, 1
   %spec.store.select.i.i.i = select i1 %62, i32 2, i32 0
   %63 = icmp eq ptr %.sroa.48.3.i, %61
-  %.not.us.i63 = icmp eq i32 %.sroa.910.0.i.fr, %spec.store.select.i.i.i
-  %or.cond.i64 = and i1 %63, %.not.us.i63
+  %.not.us.i63 = icmp eq i32 %.sroa.910.0.i, %spec.store.select.i.i.i
+  %.not.us.i.us.fr = freeze i1 %.not.us.i63
+  %or.cond.i64 = and i1 %63, %.not.us.i.us.fr
   br i1 %or.cond.i64, label %_ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEENS0_32Triangulation_ds_edge_iterator_2ISO_EEEEENSt15iterator_traitsIT_E15difference_typeEST_ST_St18input_iterator_tag.exit, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph
 
 _ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph: ; preds = %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit
   br i1 %62, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph.split.us, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i
 
 _ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph.split.us: ; preds = %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph
-  tail call void @llvm.assume(i1 %.not.us.i63)
+  tail call void @llvm.assume(i1 %.not.us.i.us.fr)
   br label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.us
 
 _ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.us: ; preds = %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph.split.us, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit.us
@@ -63553,12 +63349,12 @@ _ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25
 _ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit.us: ; preds = %.split.us.i.i.us.i.us, %.split.us.i.i.us.i.us
   %75 = add nuw nsw i64 %.0.us.i65.us, 1
   %76 = icmp eq ptr %66, %61
-  br i1 %76, label %_ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEENS0_32Triangulation_ds_edge_iterator_2ISO_EEEEENSt15iterator_traitsIT_E15difference_typeEST_ST_St18input_iterator_tag.exit, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.us, !llvm.loop !1459
+  br i1 %76, label %_ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEENS0_32Triangulation_ds_edge_iterator_2ISO_EEEEENSt15iterator_traitsIT_E15difference_typeEST_ST_St18input_iterator_tag.exit, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.us, !llvm.loop !1458
 
 _ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i: ; preds = %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52
   %.0.us.i65 = phi i64 [ %106, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52 ], [ 0, %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph ]
   %77 = phi ptr [ %.ph53, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52 ], [ %.sroa.48.3.i, %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph ]
-  %78 = phi i32 [ %.ph, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52 ], [ %.sroa.910.0.i.fr, %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph ]
+  %78 = phi i32 [ %.ph, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52 ], [ %.sroa.910.0.i, %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i.lr.ph ]
   %79 = ptrtoint ptr %77 to i64
   br label %.split.i.i.us.i
 
@@ -63571,12 +63367,12 @@ _ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25
   br i1 %84, label %.preheader.i, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i.us.i
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i.us.i: ; preds = %.split.i.i.us.i
-  %85 = add nsw i32 %83, 1
+  %85 = add nuw nsw i32 %83, 1
   %.not2.i.i.us.i = icmp eq ptr %82, %61
   br i1 %.not2.i.i.us.i, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.us.i
 
 .preheader.i:                                     ; preds = %.split.i.i.us.i, %.preheader.i.backedge
-  %86 = phi ptr [ %.be119, %.preheader.i.backedge ], [ %82, %.split.i.i.us.i ]
+  %86 = phi ptr [ %.be120, %.preheader.i.backedge ], [ %82, %.split.i.i.us.i ]
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 112
   %89 = load ptr, ptr %88, align 8, !tbaa !242
@@ -63596,7 +63392,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %93, %.preheader.i
-  %.be119 = phi ptr [ %95, %93 ], [ %87, %.preheader.i ]
+  %.be120 = phi ptr [ %95, %93 ], [ %87, %.preheader.i ]
   br label %.preheader.i, !llvm.loop !459
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i.us.i: ; preds = %.preheader.i, %.preheader.i
@@ -63611,11 +63407,11 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %100 = phi i32 [ 0, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i.us.i ], [ %85, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i.us.i ]
   %101 = inttoptr i64 %98 to ptr
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %103 = sext i32 %100 to i64
-  %104 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.262", ptr %102, i64 %103
+  %103 = zext nneg i32 %100 to i64
+  %104 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %102, i64 %103
   %.sroa.0.0.copyload.i.i.i.i.us.i = load ptr, ptr %104, align 8, !tbaa !262
   %105 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.us.i, %101
-  br i1 %105, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52, label %.split.i.i.us.i, !llvm.loop !1412
+  br i1 %105, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52, label %.split.i.i.us.i, !llvm.loop !1411
 
 _ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.us.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i.us.i, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i.us.i
   %.ph = phi i32 [ %100, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.us.i ], [ 0, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i.us.i ], [ %85, %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.thread.i.i.us.i ]
@@ -63624,7 +63420,7 @@ _ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25C
   %107 = icmp eq ptr %.ph53, %61
   %.not.us.i = icmp eq i32 %.ph, %spec.store.select.i.i.i
   %or.cond.i = select i1 %107, i1 %.not.us.i, i1 false
-  br i1 %or.cond.i, label %_ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEENS0_32Triangulation_ds_edge_iterator_2ISO_EEEEENSt15iterator_traitsIT_E15difference_typeEST_ST_St18input_iterator_tag.exit, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i, !llvm.loop !1459
+  br i1 %or.cond.i, label %_ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEENS0_32Triangulation_ds_edge_iterator_2ISO_EEEEENSt15iterator_traitsIT_E15difference_typeEST_ST_St18input_iterator_tag.exit, label %_ZNK4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread.us.i, !llvm.loop !1458
 
 _ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEENS0_32Triangulation_ds_edge_iterator_2ISO_EEEEENSt15iterator_traitsIT_E15difference_typeEST_ST_St18input_iterator_tag.exit: ; preds = %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit.us, %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit
   %.0.us.i.lcssa = phi i64 [ 0, %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit ], [ %75, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit.us ], [ %106, %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52 ]
@@ -63633,9 +63429,9 @@ _ZSt10__distanceIN4CGAL8internal18TDS2_edge_iteratorINS0_30Triangulation_data_st
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4CGAL8internal3getERKNS0_20Dynamic_property_mapINS0_24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS7_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISF_NS_28Triangulation_ds_face_base_2IvEEEEEEEENS0_22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesIS7_NS_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEEEERKSP_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !1350
+  %3 = load ptr, ptr %0, align 8, !tbaa !1349
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !1416
+  %5 = load i64, ptr %4, align 8, !tbaa !1415
   %.not.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.not.i.i, label %6, label %20
 
@@ -63648,7 +63444,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 11:                                               ; preds = %12, %6
   %.sroa.06.0.in.i.i = phi ptr [ %7, %6 ], [ %.sroa.06.0.i.i, %12 ]
-  %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !1380
+  %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !1379
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i, label %.loopexit.loopexit, label %12
 
@@ -63660,27 +63456,27 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %10, %17
   %19 = select i1 %15, i1 %18, i1 false
-  br i1 %19, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit, label %11, !llvm.loop !1417
+  br i1 %19, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit, label %11, !llvm.loop !1416
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %1, align 8, !tbaa !242
   %22 = ptrtoint ptr %21 to i64
   %23 = lshr i64 %22, 6
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !1348
+  %25 = load i64, ptr %24, align 8, !tbaa !1347
   %26 = urem i64 %23, %25
-  %27 = load ptr, ptr %3, align 8, !tbaa !1340
+  %27 = load ptr, ptr %3, align 8, !tbaa !1339
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
-  %29 = load ptr, ptr %28, align 8, !tbaa !1379
+  %29 = load ptr, ptr %28, align 8, !tbaa !1378
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %30
 
 30:                                               ; preds = %20
-  %31 = load ptr, ptr %29, align 8, !tbaa !1380
+  %31 = load ptr, ptr %29, align 8, !tbaa !1379
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 8
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !1381
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !1380
   br label %34
 
 34:                                               ; preds = %46, %30
@@ -63700,21 +63496,21 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %44, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE4findERS18_.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i, %34
-  %45 = load ptr, ptr %36, align 8, !tbaa !1380
+  %45 = load ptr, ptr %36, align 8, !tbaa !1379
   %.not18.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not18.i.i.i.i, label %.loopexit, label %46
 
 46:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %48 = load i64, ptr %47, align 8, !tbaa !1381
+  %48 = load i64, ptr %47, align 8, !tbaa !1380
   %49 = urem i64 %48, %25
   %.not19.i.i.i.i = icmp eq i64 %49, %26
-  br i1 %.not19.i.i.i.i, label %34, label %.loopexit, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i, label %34, label %.loopexit, !llvm.loop !1382
 
 .loopexit.loopexit:                               ; preds = %11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !1348
-  %.pre31 = load ptr, ptr %3, align 8, !tbaa !1340
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !1347
+  %.pre31 = load ptr, ptr %3, align 8, !tbaa !1339
   %.pre32 = ptrtoint ptr %8 to i64
   %.pre33 = lshr i64 %.pre32, 6
   %.pre35 = urem i64 %.pre33, %.pre
@@ -63728,16 +63524,16 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   %52 = phi ptr [ %21, %20 ], [ %8, %.loopexit.loopexit ], [ %21, %46 ], [ %21, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi36
-  %55 = load ptr, ptr %54, align 8, !tbaa !1379
+  %55 = load ptr, ptr %54, align 8, !tbaa !1378
   %.not.i.i.i.i8 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i8, label %.loopexit.i.i, label %56
 
 56:                                               ; preds = %.loopexit
-  %57 = load ptr, ptr %55, align 8, !tbaa !1380
+  %57 = load ptr, ptr %55, align 8, !tbaa !1379
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load i32, ptr %58, align 8
   %.phi.trans.insert.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %.pre.i.i.i.i10 = load i64, ptr %.phi.trans.insert.i.i.i.i9, align 8, !tbaa !1381
+  %.pre.i.i.i.i10 = load i64, ptr %.phi.trans.insert.i.i.i.i9, align 8, !tbaa !1380
   br label %60
 
 60:                                               ; preds = %72, %56
@@ -63757,20 +63553,20 @@ _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_3
   br i1 %70, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEEixERS18_.exit, label %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11
 
 _ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.i.i.i.i14, %60
-  %71 = load ptr, ptr %62, align 8, !tbaa !1380
+  %71 = load ptr, ptr %62, align 8, !tbaa !1379
   %.not18.i.i.i.i12 = icmp eq ptr %71, null
   br i1 %.not18.i.i.i.i12, label %.loopexit.i.i, label %72
 
 72:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %74 = load i64, ptr %73, align 8, !tbaa !1381
+  %74 = load i64, ptr %73, align 8, !tbaa !1380
   %75 = urem i64 %74, %51
   %.not19.i.i.i.i13 = icmp eq i64 %75, %.pre-phi36
-  br i1 %.not19.i.i.i.i13, label %60, label %.loopexit.i.i, !llvm.loop !1383
+  br i1 %.not19.i.i.i.i13, label %60, label %.loopexit.i.i, !llvm.loop !1382
 
 .loopexit.i.i:                                    ; preds = %72, %_ZNKSt8__detail15_Hashtable_baseIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSQ_NS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS13_EEEENS_10_Select1stESt8equal_toISQ_ESt4hashISQ_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSS_mRKNS_16_Hash_node_valueIS16_Lb1EEE.exit.thread.i.i.i.i11, %.loopexit
   %76 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
-  store ptr null, ptr %76, align 8, !tbaa !1380
+  store ptr null, ptr %76, align 8, !tbaa !1379
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -63804,31 +63600,31 @@ _ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulati
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1460
+  %3 = load ptr, ptr %2, align 8, !tbaa !1459
   %.not5.i.i.i = icmp eq ptr %3, null
   br i1 %.not5.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
-  %4 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !1380
+  %4 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !1379
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i, i64 noundef 40) #40
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !1461
+  br i1 %.not.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !1460
 
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i, %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !1340
+  %5 = load ptr, ptr %0, align 8, !tbaa !1339
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !1348
+  %7 = load i64, ptr %6, align 8, !tbaa !1347
   %8 = shl i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %8, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %9 = load ptr, ptr %0, align 8, !tbaa !1340
+  %9 = load ptr, ptr %0, align 8, !tbaa !1339
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
-  %13 = load i64, ptr %6, align 8, !tbaa !1348
+  %13 = load i64, ptr %6, align 8, !tbaa !1347
   %14 = shl i64 %13, 3
   tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %14) #40
   br label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit
@@ -63846,37 +63642,37 @@ define linkonce_odr dso_local void @_ZNSt15_Sp_counted_ptrIPSt13unordered_mapIN4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEENS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS11_EEESt4hashISQ_ESt8equal_toISQ_ESaISt4pairIKSQ_S13_EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1359
+  %3 = load ptr, ptr %2, align 8, !tbaa !1358
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1460
+  %7 = load ptr, ptr %6, align 8, !tbaa !1459
   %.not5.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %7, %5 ]
-  %8 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !1380
+  %8 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !1379
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 40) #40
   %.not.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1461
+  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1460
 
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %5
-  %9 = load ptr, ptr %3, align 8, !tbaa !1340
+  %9 = load ptr, ptr %3, align 8, !tbaa !1339
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !1348
+  %11 = load i64, ptr %10, align 8, !tbaa !1347
   %12 = shl i64 %11, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %13 = load ptr, ptr %3, align 8, !tbaa !1340
+  %13 = load ptr, ptr %3, align 8, !tbaa !1339
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  %17 = load i64, ptr %10, align 8, !tbaa !1348
+  %17 = load i64, ptr %10, align 8, !tbaa !1347
   %18 = shl i64 %17, 3
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %18) #40
   br label %_ZNSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEED2Ev.exit
@@ -63904,11 +63700,11 @@ define linkonce_odr dso_local noundef ptr @_ZNSt15_Sp_counted_ptrIPSt13unordered
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS17_10_Hash_nodeIS15_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !1462
+  %8 = load i64, ptr %7, align 8, !tbaa !1461
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !1348
+  %10 = load i64, ptr %9, align 8, !tbaa !1347
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !1416
+  %12 = load i64, ptr %11, align 8, !tbaa !1415
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
   %15 = trunc i8 %14 to i1
@@ -63924,7 +63720,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfe
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #29
-  store i64 %8, ptr %7, align 8, !tbaa !1462
+  store i64 %8, ptr %7, align 8, !tbaa !1461
   invoke void @__cxa_rethrow() #41
           to label %28 unwind label %22
 
@@ -63948,53 +63744,53 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfe
   unreachable
 
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit: ; preds = %16
-  %29 = load i64, ptr %9, align 8, !tbaa !1348
+  %29 = load i64, ptr %9, align 8, !tbaa !1347
   %30 = urem i64 %2, %29
   br label %31
 
 31:                                               ; preds = %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %2, ptr %32, align 8, !tbaa !1381
-  %33 = load ptr, ptr %0, align 8, !tbaa !1340
+  store i64 %2, ptr %32, align 8, !tbaa !1380
+  %33 = load ptr, ptr %0, align 8, !tbaa !1339
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
-  %35 = load ptr, ptr %34, align 8, !tbaa !1379
+  %35 = load ptr, ptr %34, align 8, !tbaa !1378
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr %35, align 8, !tbaa !1380
-  store ptr %37, ptr %3, align 8, !tbaa !1380
-  %38 = load ptr, ptr %34, align 8, !tbaa !1379
-  store ptr %3, ptr %38, align 8, !tbaa !1380
+  %37 = load ptr, ptr %35, align 8, !tbaa !1379
+  store ptr %37, ptr %3, align 8, !tbaa !1379
+  %38 = load ptr, ptr %34, align 8, !tbaa !1378
+  store ptr %3, ptr %38, align 8, !tbaa !1379
   br label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS17_10_Hash_nodeIS15_Lb1EEE.exit
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !1460
-  store ptr %41, ptr %3, align 8, !tbaa !1380
-  store ptr %3, ptr %40, align 8, !tbaa !1460
-  %42 = load ptr, ptr %3, align 8, !tbaa !1380
+  %41 = load ptr, ptr %40, align 8, !tbaa !1459
+  store ptr %41, ptr %3, align 8, !tbaa !1379
+  store ptr %3, ptr %40, align 8, !tbaa !1459
+  %42 = load ptr, ptr %3, align 8, !tbaa !1379
   %.not11.i = icmp eq ptr %42, null
   br i1 %.not11.i, label %49, label %43
 
 43:                                               ; preds = %39
-  %44 = load i64, ptr %9, align 8, !tbaa !1348
+  %44 = load i64, ptr %9, align 8, !tbaa !1347
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %46 = load i64, ptr %45, align 8, !tbaa !1381
+  %46 = load i64, ptr %45, align 8, !tbaa !1380
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
-  store ptr %3, ptr %48, align 8, !tbaa !1379
+  store ptr %3, ptr %48, align 8, !tbaa !1378
   br label %49
 
 49:                                               ; preds = %43, %39
-  store ptr %40, ptr %34, align 8, !tbaa !1379
+  store ptr %40, ptr %34, align 8, !tbaa !1378
   br label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS17_10_Hash_nodeIS15_Lb1EEE.exit
 
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS17_10_Hash_nodeIS15_Lb1EEE.exit: ; preds = %36, %49
-  %50 = load i64, ptr %11, align 8, !tbaa !1416
+  %50 = load i64, ptr %11, align 8, !tbaa !1415
   %51 = add i64 %50, 1
-  store i64 %51, ptr %11, align 8, !tbaa !1416
+  store i64 %51, ptr %11, align 8, !tbaa !1415
   ret ptr %3
 }
 
@@ -64007,7 +63803,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN4CGAL8internal24TDS2_half
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !1463
+  store ptr null, ptr %5, align 8, !tbaa !1462
   br label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
@@ -64035,84 +63831,84 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal24TD
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal24TDS2_halfedge_descriptorINS3_30Triangulation_data_structure_2INS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISA_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2IvEEEENS3_23Convex_hull_face_base_2ISI_NS3_28Triangulation_ds_face_base_2IvEEEEEEEENS4_22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesISA_NS3_28I_Polyhedron_derived_items_3ISC_EESE_EESH_SH_SH_EEEEEESaIS14_EEEELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal24TDS2_halfedge_descriptorINS3_30Triangulation_data_structure_2INS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3INS3_5EpickENS3_12Polyhedron_3ISA_NS3_18Polyhedron_items_3ENS3_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS3_30Triangulation_ds_vertex_base_2IvEEEENS3_23Convex_hull_face_base_2ISI_NS3_28Triangulation_ds_face_base_2IvEEEEEEEENS4_22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesISA_NS3_28I_Polyhedron_derived_items_3ISC_EESE_EESH_SH_SH_EEEEEESaIS14_EEEELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !1460
-  store ptr null, ptr %12, align 8, !tbaa !1460
+  %13 = load ptr, ptr %12, align 8, !tbaa !1459
+  store ptr null, ptr %12, align 8, !tbaa !1459
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit, %28
   %.031 = phi ptr [ %14, %28 ], [ %13, %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %28 ], [ 0, %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
-  %14 = load ptr, ptr %.031, align 8, !tbaa !1380
+  %14 = load ptr, ptr %.031, align 8, !tbaa !1379
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !1381
+  %16 = load i64, ptr %15, align 8, !tbaa !1380
   %17 = urem i64 %16, %1
   %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !1379
+  %19 = load ptr, ptr %18, align 8, !tbaa !1378
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
 
 20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %12, align 8, !tbaa !1460
-  store ptr %21, ptr %.031, align 8, !tbaa !1380
-  store ptr %.031, ptr %12, align 8, !tbaa !1460
-  store ptr %12, ptr %18, align 8, !tbaa !1379
-  %22 = load ptr, ptr %.031, align 8, !tbaa !1380
+  %21 = load ptr, ptr %12, align 8, !tbaa !1459
+  store ptr %21, ptr %.031, align 8, !tbaa !1379
+  store ptr %.031, ptr %12, align 8, !tbaa !1459
+  store ptr %12, ptr %18, align 8, !tbaa !1378
+  %22 = load ptr, ptr %.031, align 8, !tbaa !1379
   %.not28 = icmp eq ptr %22, null
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
-  store ptr %.031, ptr %24, align 8, !tbaa !1379
+  store ptr %.031, ptr %24, align 8, !tbaa !1378
   br label %28
 
 25:                                               ; preds = %.lr.ph
-  %26 = load ptr, ptr %19, align 8, !tbaa !1380
-  store ptr %26, ptr %.031, align 8, !tbaa !1380
-  %27 = load ptr, ptr %18, align 8, !tbaa !1379
-  store ptr %.031, ptr %27, align 8, !tbaa !1380
+  %26 = load ptr, ptr %19, align 8, !tbaa !1379
+  store ptr %26, ptr %.031, align 8, !tbaa !1379
+  %27 = load ptr, ptr %18, align 8, !tbaa !1378
+  store ptr %.031, ptr %27, align 8, !tbaa !1379
   br label %28
 
 28:                                               ; preds = %20, %23, %25
   %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1464
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1463
 
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
-  %29 = load ptr, ptr %0, align 8, !tbaa !1340
+  %29 = load ptr, ptr %0, align 8, !tbaa !1339
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !1348
+  %34 = load i64, ptr %33, align 8, !tbaa !1347
   %35 = shl i64 %34, 3
   tail call void @_ZdlPvm(ptr noundef %29, i64 noundef %35) #40
   br label %_ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %36, align 8, !tbaa !1348
-  store ptr %.0.i, ptr %0, align 8, !tbaa !1340
+  store i64 %1, ptr %36, align 8, !tbaa !1347
+  store ptr %.0.i, ptr %0, align 8, !tbaa !1339
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS5_33HalfedgeDS_in_place_list_halfedgeINS5_21I_Polyhedron_halfedgeINS5_24HalfedgeDS_halfedge_baseINS5_21HalfedgeDS_list_typesINS5_5EpickENS5_28I_Polyhedron_derived_items_3INS5_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESJ_SJ_EEEEEESaISM_EEENS6_24TDS2_halfedge_descriptorINS5_30Triangulation_data_structure_2INS5_25Convex_hull_vertex_base_2INS5_11GT3_for_CH3INS5_20Convex_hull_traits_3ISC_NS5_12Polyhedron_3ISC_SE_NS5_18HalfedgeDS_defaultESG_EESJ_EEEENS5_30Triangulation_ds_vertex_base_2IvEEEENS5_23Convex_hull_face_base_2ISX_NS5_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISO_ESt8equal_toISO_ESaISt4pairIKSO_S17_EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !1355
+  store ptr null, ptr %0, align 8, !tbaa !1354
   %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #42
           to label %4 unwind label %8
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8, !tbaa !1356
+  store i32 1, ptr %5, align 8, !tbaa !1355
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4, !tbaa !1358
+  store i32 1, ptr %6, align 4, !tbaa !1357
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEENS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2IST_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_S13_EEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !1465
-  store ptr %3, ptr %0, align 8, !tbaa !1355
+  store ptr %1, ptr %7, align 8, !tbaa !1464
+  store ptr %3, ptr %0, align 8, !tbaa !1354
   ret void
 
 8:                                                ; preds = %2
@@ -64155,31 +63951,31 @@ define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_po
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1467
+  %3 = load ptr, ptr %2, align 8, !tbaa !1466
   %.not5.i.i.i = icmp eq ptr %3, null
   br i1 %.not5.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
-  %4 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !1380
+  %4 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !1379
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i, i64 noundef 40) #40
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !1468
+  br i1 %.not.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !1467
 
 _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i, %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !1432
+  %5 = load ptr, ptr %0, align 8, !tbaa !1431
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !1434
+  %7 = load i64, ptr %6, align 8, !tbaa !1433
   %8 = shl i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %8, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %9 = load ptr, ptr %0, align 8, !tbaa !1432
+  %9 = load ptr, ptr %0, align 8, !tbaa !1431
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
-  %13 = load i64, ptr %6, align 8, !tbaa !1434
+  %13 = load i64, ptr %6, align 8, !tbaa !1433
   %14 = shl i64 %13, 3
   tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %14) #40
   br label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit
@@ -64202,37 +63998,37 @@ define linkonce_odr dso_local void @_ZNSt15_Sp_counted_ptrIPSt13unordered_mapIN4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEENS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2IST_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_S13_EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1465
+  %3 = load ptr, ptr %2, align 8, !tbaa !1464
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1467
+  %7 = load ptr, ptr %6, align 8, !tbaa !1466
   %.not5.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %7, %5 ]
-  %8 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !1380
+  %8 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !1379
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 40) #40
   %.not.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1468
+  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1467
 
 _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %5
-  %9 = load ptr, ptr %3, align 8, !tbaa !1432
+  %9 = load ptr, ptr %3, align 8, !tbaa !1431
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !1434
+  %11 = load i64, ptr %10, align 8, !tbaa !1433
   %12 = shl i64 %11, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %13 = load ptr, ptr %3, align 8, !tbaa !1432
+  %13 = load ptr, ptr %3, align 8, !tbaa !1431
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  %17 = load i64, ptr %10, align 8, !tbaa !1434
+  %17 = load i64, ptr %10, align 8, !tbaa !1433
   %18 = shl i64 %17, 3
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %18) #40
   br label %_ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEED2Ev.exit
@@ -64299,19 +64095,19 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(12) ptr @_
   %4 = ptrtoint ptr %3 to i64
   %5 = udiv i64 %4, 56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !1434
+  %7 = load i64, ptr %6, align 8, !tbaa !1433
   %8 = urem i64 %5, %7
-  %9 = load ptr, ptr %0, align 8, !tbaa !1432
+  %9 = load ptr, ptr %0, align 8, !tbaa !1431
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
-  %11 = load ptr, ptr %10, align 8, !tbaa !1379
+  %11 = load ptr, ptr %10, align 8, !tbaa !1378
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %.loopexit, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %11, align 8, !tbaa !1380
+  %13 = load ptr, ptr %11, align 8, !tbaa !1379
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !1381
+  %16 = load i64, ptr %15, align 8, !tbaa !1380
   %17 = icmp eq i64 %5, %16
   %18 = load ptr, ptr %14, align 8
   %19 = icmp eq ptr %3, %18
@@ -64324,33 +64120,33 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(12) ptr @_
   %24 = load ptr, ptr %22, align 8
   %25 = icmp eq ptr %3, %24
   %26 = select i1 %23, i1 %25, i1 false
-  br i1 %26, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %.lr.ph.i.i, !llvm.loop !1447
+  br i1 %26, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %.lr.ph.i.i, !llvm.loop !1446
 
 .lr.ph.i.i:                                       ; preds = %12, %21
   %.020.i.i = phi ptr [ %27, %21 ], [ %13, %12 ]
-  %27 = load ptr, ptr %.020.i.i, align 8, !tbaa !1380
+  %27 = load ptr, ptr %.020.i.i, align 8, !tbaa !1379
   %.not18.i.i = icmp eq ptr %27, null
   br i1 %.not18.i.i, label %.loopexit, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %30 = load i64, ptr %29, align 8, !tbaa !1381
+  %30 = load i64, ptr %29, align 8, !tbaa !1380
   %31 = urem i64 %30, %7
   %.not19.i.i = icmp eq i64 %31, %8
-  br i1 %.not19.i.i, label %21, label %..loopexit_crit_edge21.i.i, !llvm.loop !1447
+  br i1 %.not19.i.i, label %21, label %..loopexit_crit_edge21.i.i, !llvm.loop !1446
 
 ..loopexit_crit_edge21.i.i:                       ; preds = %28
-  br label %.loopexit, !llvm.loop !1447
+  br label %.loopexit, !llvm.loop !1446
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %2, %..loopexit_crit_edge21.i.i
   %32 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
-  store ptr null, ptr %32, align 8, !tbaa !1380
+  store ptr null, ptr %32, align 8, !tbaa !1379
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %4, ptr %33, align 8, !tbaa !194
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr null, ptr %34, align 8, !tbaa !242
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i32 0, ptr %35, align 8, !tbaa !1237
+  store i32 0, ptr %35, align 8, !tbaa !1236
   %36 = invoke ptr @_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS17_10_Hash_nodeIS15_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %8, i64 noundef %5, ptr noundef nonnull %32, i64 noundef 1)
           to label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22
 
@@ -64370,11 +64166,11 @@ _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_pl
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS17_10_Hash_nodeIS15_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !1462
+  %8 = load i64, ptr %7, align 8, !tbaa !1461
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !1434
+  %10 = load i64, ptr %9, align 8, !tbaa !1433
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !1445
+  %12 = load i64, ptr %11, align 8, !tbaa !1444
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
   %15 = trunc i8 %14 to i1
@@ -64390,7 +64186,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4CGAL8internal22In_place_l
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #29
-  store i64 %8, ptr %7, align 8, !tbaa !1462
+  store i64 %8, ptr %7, align 8, !tbaa !1461
   invoke void @__cxa_rethrow() #41
           to label %28 unwind label %22
 
@@ -64414,53 +64210,53 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN4CGAL8internal22In_place_l
   unreachable
 
 _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit: ; preds = %16
-  %29 = load i64, ptr %9, align 8, !tbaa !1434
+  %29 = load i64, ptr %9, align 8, !tbaa !1433
   %30 = urem i64 %2, %29
   br label %31
 
 31:                                               ; preds = %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %2, ptr %32, align 8, !tbaa !1381
-  %33 = load ptr, ptr %0, align 8, !tbaa !1432
+  store i64 %2, ptr %32, align 8, !tbaa !1380
+  %33 = load ptr, ptr %0, align 8, !tbaa !1431
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
-  %35 = load ptr, ptr %34, align 8, !tbaa !1379
+  %35 = load ptr, ptr %34, align 8, !tbaa !1378
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr %35, align 8, !tbaa !1380
-  store ptr %37, ptr %3, align 8, !tbaa !1380
-  %38 = load ptr, ptr %34, align 8, !tbaa !1379
-  store ptr %3, ptr %38, align 8, !tbaa !1380
+  %37 = load ptr, ptr %35, align 8, !tbaa !1379
+  store ptr %37, ptr %3, align 8, !tbaa !1379
+  %38 = load ptr, ptr %34, align 8, !tbaa !1378
+  store ptr %3, ptr %38, align 8, !tbaa !1379
   br label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS17_10_Hash_nodeIS15_Lb1EEE.exit
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !1467
-  store ptr %41, ptr %3, align 8, !tbaa !1380
-  store ptr %3, ptr %40, align 8, !tbaa !1467
-  %42 = load ptr, ptr %3, align 8, !tbaa !1380
+  %41 = load ptr, ptr %40, align 8, !tbaa !1466
+  store ptr %41, ptr %3, align 8, !tbaa !1379
+  store ptr %3, ptr %40, align 8, !tbaa !1466
+  %42 = load ptr, ptr %3, align 8, !tbaa !1379
   %.not11.i = icmp eq ptr %42, null
   br i1 %.not11.i, label %49, label %43
 
 43:                                               ; preds = %39
-  %44 = load i64, ptr %9, align 8, !tbaa !1434
+  %44 = load i64, ptr %9, align 8, !tbaa !1433
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %46 = load i64, ptr %45, align 8, !tbaa !1381
+  %46 = load i64, ptr %45, align 8, !tbaa !1380
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
-  store ptr %3, ptr %48, align 8, !tbaa !1379
+  store ptr %3, ptr %48, align 8, !tbaa !1378
   br label %49
 
 49:                                               ; preds = %43, %39
-  store ptr %40, ptr %34, align 8, !tbaa !1379
+  store ptr %40, ptr %34, align 8, !tbaa !1378
   br label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS17_10_Hash_nodeIS15_Lb1EEE.exit
 
 _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS17_10_Hash_nodeIS15_Lb1EEE.exit: ; preds = %36, %49
-  %50 = load i64, ptr %11, align 8, !tbaa !1445
+  %50 = load i64, ptr %11, align 8, !tbaa !1444
   %51 = add i64 %50, 1
-  store i64 %51, ptr %11, align 8, !tbaa !1445
+  store i64 %51, ptr %11, align 8, !tbaa !1444
   ret ptr %3
 }
 
@@ -64471,7 +64267,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN4CGAL8internal22In_place_
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !1469
+  store ptr null, ptr %5, align 8, !tbaa !1468
   br label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
@@ -64499,66 +64295,66 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal22In
 _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEENS4_24TDS2_halfedge_descriptorINS3_30Triangulation_data_structure_2INS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3ISA_NS3_12Polyhedron_3ISA_SC_NS3_18HalfedgeDS_defaultESE_EESH_EEEENS3_30Triangulation_ds_vertex_base_2IvEEEENS3_23Convex_hull_face_base_2ISW_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEENS4_24TDS2_halfedge_descriptorINS3_30Triangulation_data_structure_2INS3_25Convex_hull_vertex_base_2INS3_11GT3_for_CH3INS3_20Convex_hull_traits_3ISA_NS3_12Polyhedron_3ISA_SC_NS3_18HalfedgeDS_defaultESE_EESH_EEEENS3_30Triangulation_ds_vertex_base_2IvEEEENS3_23Convex_hull_face_base_2ISW_NS3_28Triangulation_ds_face_base_2IvEEEEEEEEELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !1467
-  store ptr null, ptr %12, align 8, !tbaa !1467
+  %13 = load ptr, ptr %12, align 8, !tbaa !1466
+  store ptr null, ptr %12, align 8, !tbaa !1466
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit, %28
   %.031 = phi ptr [ %14, %28 ], [ %13, %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %28 ], [ 0, %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
-  %14 = load ptr, ptr %.031, align 8, !tbaa !1380
+  %14 = load ptr, ptr %.031, align 8, !tbaa !1379
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !1381
+  %16 = load i64, ptr %15, align 8, !tbaa !1380
   %17 = urem i64 %16, %1
   %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !1379
+  %19 = load ptr, ptr %18, align 8, !tbaa !1378
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
 
 20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %12, align 8, !tbaa !1467
-  store ptr %21, ptr %.031, align 8, !tbaa !1380
-  store ptr %.031, ptr %12, align 8, !tbaa !1467
-  store ptr %12, ptr %18, align 8, !tbaa !1379
-  %22 = load ptr, ptr %.031, align 8, !tbaa !1380
+  %21 = load ptr, ptr %12, align 8, !tbaa !1466
+  store ptr %21, ptr %.031, align 8, !tbaa !1379
+  store ptr %.031, ptr %12, align 8, !tbaa !1466
+  store ptr %12, ptr %18, align 8, !tbaa !1378
+  %22 = load ptr, ptr %.031, align 8, !tbaa !1379
   %.not28 = icmp eq ptr %22, null
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
-  store ptr %.031, ptr %24, align 8, !tbaa !1379
+  store ptr %.031, ptr %24, align 8, !tbaa !1378
   br label %28
 
 25:                                               ; preds = %.lr.ph
-  %26 = load ptr, ptr %19, align 8, !tbaa !1380
-  store ptr %26, ptr %.031, align 8, !tbaa !1380
-  %27 = load ptr, ptr %18, align 8, !tbaa !1379
-  store ptr %.031, ptr %27, align 8, !tbaa !1380
+  %26 = load ptr, ptr %19, align 8, !tbaa !1379
+  store ptr %26, ptr %.031, align 8, !tbaa !1379
+  %27 = load ptr, ptr %18, align 8, !tbaa !1378
+  store ptr %.031, ptr %27, align 8, !tbaa !1379
   br label %28
 
 28:                                               ; preds = %20, %23, %25
   %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1470
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1469
 
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
-  %29 = load ptr, ptr %0, align 8, !tbaa !1432
+  %29 = load ptr, ptr %0, align 8, !tbaa !1431
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !1434
+  %34 = load i64, ptr %33, align 8, !tbaa !1433
   %35 = shl i64 %34, 3
   tail call void @_ZdlPvm(ptr noundef %29, i64 noundef %35) #40
   br label %_ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %36, align 8, !tbaa !1434
-  store ptr %.0.i, ptr %0, align 8, !tbaa !1432
+  store i64 %1, ptr %36, align 8, !tbaa !1433
+  store ptr %.0.i, ptr %0, align 8, !tbaa !1431
   ret void
 }
 
@@ -64674,8 +64470,8 @@ define linkonce_odr dso_local ptr @_ZN4CGAL16ch_akl_toussaintIN9__gnu_cxx17__nor
   %.sroa.0342.0 = phi ptr [ %.sroa.0342.1, %55 ], [ %0, %4 ]
   %.sroa.0336.0 = phi ptr [ %.sroa.0336.1, %55 ], [ %0, %4 ]
   %.sroa.022.033.i.i = phi ptr [ %56, %55 ], [ %0, %4 ]
-  %13 = load double, ptr %.sroa.022.033.i.i, align 8, !tbaa !57, !noalias !1471
-  %14 = load double, ptr %.sroa.0336.0, align 8, !tbaa !57, !noalias !1471
+  %13 = load double, ptr %.sroa.022.033.i.i, align 8, !tbaa !57, !noalias !1470
+  %14 = load double, ptr %.sroa.0336.0, align 8, !tbaa !57, !noalias !1470
   %15 = fcmp olt double %13, %14
   %16 = fcmp ule double %13, %14
   %.not.i.i.i.i.i324 = xor i1 %15, %16
@@ -64684,8 +64480,8 @@ define linkonce_odr dso_local ptr @_ZN4CGAL16ch_akl_toussaintIN9__gnu_cxx17__nor
 17:                                               ; preds = %.lr.ph.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0336.0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i.i, i64 8
-  %20 = load double, ptr %19, align 8, !tbaa !57, !noalias !1471
-  %21 = load double, ptr %18, align 8, !tbaa !57, !noalias !1471
+  %20 = load double, ptr %19, align 8, !tbaa !57, !noalias !1470
+  %21 = load double, ptr %18, align 8, !tbaa !57, !noalias !1470
   %22 = fcmp olt double %20, %21
   br i1 %22, label %23, label %24
 
@@ -64697,7 +64493,7 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20F
 
 24:                                               ; preds = %23, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.i.i, %17
   %.sroa.0336.1 = phi ptr [ %.sroa.022.033.i.i, %23 ], [ %.sroa.0336.0, %17 ], [ %.sroa.0336.0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.i.i ]
-  %25 = load double, ptr %.sroa.0342.0, align 8, !tbaa !57, !noalias !1471
+  %25 = load double, ptr %.sroa.0342.0, align 8, !tbaa !57, !noalias !1470
   %26 = fcmp olt double %25, %13
   %27 = fcmp ule double %25, %13
   %.not.i.i.i14.i.i = xor i1 %26, %27
@@ -64706,8 +64502,8 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20F
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i.i, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0342.0, i64 8
-  %31 = load double, ptr %30, align 8, !tbaa !57, !noalias !1471
-  %32 = load double, ptr %29, align 8, !tbaa !57, !noalias !1471
+  %31 = load double, ptr %30, align 8, !tbaa !57, !noalias !1470
+  %32 = load double, ptr %29, align 8, !tbaa !57, !noalias !1470
   %33 = fcmp olt double %31, %32
   br i1 %33, label %34, label %35
 
@@ -64721,15 +64517,15 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20F
   %.sroa.0342.1 = phi ptr [ %.sroa.022.033.i.i, %34 ], [ %.sroa.0342.0, %28 ], [ %.sroa.0342.0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit16.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0353.0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i.i, i64 8
-  %38 = load double, ptr %36, align 8, !tbaa !57, !noalias !1471
-  %39 = load double, ptr %37, align 8, !tbaa !57, !noalias !1471
+  %38 = load double, ptr %36, align 8, !tbaa !57, !noalias !1470
+  %39 = load double, ptr %37, align 8, !tbaa !57, !noalias !1470
   %40 = fcmp olt double %38, %39
   %41 = fcmp ule double %38, %39
   %.not.i.i.i.i325 = xor i1 %40, %41
   br i1 %.not.i.i.i.i325, label %42, label %_ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.i.i
 
 42:                                               ; preds = %35
-  %43 = load double, ptr %.sroa.0353.0, align 8, !tbaa !57, !noalias !1471
+  %43 = load double, ptr %.sroa.0353.0, align 8, !tbaa !57, !noalias !1470
   %44 = fcmp olt double %43, %13
   br i1 %44, label %45, label %46
 
@@ -64742,14 +64538,14 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20F
 46:                                               ; preds = %45, %_ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.i.i, %42
   %.sroa.0353.1 = phi ptr [ %.sroa.022.033.i.i, %45 ], [ %.sroa.0353.0, %42 ], [ %.sroa.0353.0, %_ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0347.0, i64 8
-  %48 = load double, ptr %47, align 8, !tbaa !57, !noalias !1471
+  %48 = load double, ptr %47, align 8, !tbaa !57, !noalias !1470
   %49 = fcmp olt double %39, %48
   %50 = fcmp ule double %39, %48
   %.not.i.i17.i.i = xor i1 %49, %50
   br i1 %.not.i.i17.i.i, label %51, label %_ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit19.i.i
 
 51:                                               ; preds = %46
-  %52 = load double, ptr %.sroa.0347.0, align 8, !tbaa !57, !noalias !1471
+  %52 = load double, ptr %.sroa.0347.0, align 8, !tbaa !57, !noalias !1470
   %53 = fcmp olt double %13, %52
   br i1 %53, label %54, label %55
 
@@ -64763,29 +64559,29 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20F
   %.sroa.0347.1 = phi ptr [ %.sroa.022.033.i.i, %54 ], [ %.sroa.0347.0, %51 ], [ %.sroa.0347.0, %_ZNK4CGAL23CartesianKernelFunctors9Less_yx_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_.exit19.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i.i, i64 16
   %.not.i.i326 = icmp eq ptr %56, %1
-  br i1 %.not.i.i326, label %_ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS5_SaIS5_EEEES4_EEvT_SB_RSB_SC_SC_SC_RKT0_.exit.i, label %.lr.ph.i.i, !llvm.loop !1474
+  br i1 %.not.i.i326, label %_ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS5_SaIS5_EEEES4_EEvT_SB_RSB_SC_SC_SC_RKT0_.exit.i, label %.lr.ph.i.i, !llvm.loop !1473
 
 _ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS5_SaIS5_EEEES4_EEvT_SB_RSB_SC_SC_SC_RKT0_.exit.i: ; preds = %55
   %57 = ptrtoint ptr %.sroa.0347.1 to i64
   %58 = ptrtoint ptr %.sroa.0353.1 to i64
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1471
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1470
   %59 = ptrtoint ptr %.sroa.0336.1 to i64
-  store i64 %59, ptr %5, align 16, !tbaa !1475, !noalias !1471
+  store i64 %59, ptr %5, align 16, !tbaa !1474, !noalias !1470
   %.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = ptrtoint ptr %.sroa.0342.1 to i64
-  store i64 %60, ptr %.ptr.i, align 8, !tbaa !1475, !noalias !1471
+  store i64 %60, ptr %.ptr.i, align 8, !tbaa !1474, !noalias !1470
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %58, ptr %61, align 16, !tbaa !1475, !noalias !1471
+  store i64 %58, ptr %61, align 16, !tbaa !1474, !noalias !1470
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %57, ptr %62, align 8, !tbaa !1475, !noalias !1471
+  store i64 %57, ptr %62, align 8, !tbaa !1474, !noalias !1470
   br label %.lr.ph.i17.i.i
 
 .lr.ph.i17.i.i:                                   ; preds = %79, %_ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS5_SaIS5_EEEES4_EEvT_SB_RSB_SC_SC_SC_RKT0_.exit.i
   %.020.i18.i.idx.i = phi i64 [ %.020.i18.i.add.i, %79 ], [ 8, %_ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS5_SaIS5_EEEES4_EEvT_SB_RSB_SC_SC_SC_RKT0_.exit.i ]
   %.pn19.i19.i.i = phi ptr [ %.020.i18.i.ptr.i, %79 ], [ %5, %_ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS5_SaIS5_EEEES4_EEvT_SB_RSB_SC_SC_SC_RKT0_.exit.i ]
   %.020.i18.i.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.020.i18.i.idx.i
-  %63 = load ptr, ptr %.020.i18.i.ptr.i, align 8, !noalias !1471
-  %64 = load ptr, ptr %5, align 16, !noalias !1471
+  %63 = load ptr, ptr %.020.i18.i.ptr.i, align 8, !noalias !1470
+  %64 = load ptr, ptr %5, align 16, !noalias !1470
   %65 = icmp ult ptr %63, %64
   %66 = ptrtoint ptr %63 to i64
   %67 = ptrtoint ptr %64 to i64
@@ -64796,20 +64592,20 @@ _ZN4CGAL13ch_nswe_pointIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEE
   br i1 %69, label %70, label %71, !prof !729
 
 70:                                               ; preds = %68
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %.020.i18.i.idx.i, i1 false), !noalias !1471
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %.020.i18.i.idx.i, i1 false), !noalias !1470
   br label %_ZSt13move_backwardIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_ET0_T_SD_SC_.exit.i29.i.i
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %.pn19.i19.i.i, i64 8
-  store i64 %67, ptr %72, align 8, !tbaa !1475, !noalias !1471
+  store i64 %67, ptr %72, align 8, !tbaa !1474, !noalias !1470
   br label %_ZSt13move_backwardIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_ET0_T_SD_SC_.exit.i29.i.i
 
 _ZSt13move_backwardIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_ET0_T_SD_SC_.exit.i29.i.i: ; preds = %71, %70
-  store ptr %63, ptr %5, align 16, !tbaa !1475, !noalias !1471
+  store ptr %63, ptr %5, align 16, !tbaa !1474, !noalias !1470
   br label %79
 
 73:                                               ; preds = %.lr.ph.i17.i.i
-  %74 = load ptr, ptr %.pn19.i19.i.i, align 8, !noalias !1471
+  %74 = load ptr, ptr %.pn19.i19.i.i, align 8, !noalias !1470
   %75 = icmp ugt ptr %74, %63
   br i1 %75, label %.lr.ph.i.i24.i.i, label %_ZSt25__unguarded_linear_insertIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i20.i.i
 
@@ -64818,32 +64614,32 @@ _ZSt13move_backwardIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEE
   %.012.i.i26.i.i = phi ptr [ %.0.i.i28.i.i, %.lr.ph.i.i24.i.i ], [ %.pn19.i19.i.i, %73 ]
   %.0911.i.i27.i.i = phi ptr [ %.012.i.i26.i.i, %.lr.ph.i.i24.i.i ], [ %.020.i18.i.ptr.i, %73 ]
   %76 = ptrtoint ptr %.in.i.i25.i.i to i64
-  store i64 %76, ptr %.0911.i.i27.i.i, align 8, !tbaa !1475, !noalias !1471
+  store i64 %76, ptr %.0911.i.i27.i.i, align 8, !tbaa !1474, !noalias !1470
   %.0.i.i28.i.i = getelementptr inbounds i8, ptr %.012.i.i26.i.i, i64 -8
-  %77 = load ptr, ptr %.0.i.i28.i.i, align 8, !noalias !1471
+  %77 = load ptr, ptr %.0.i.i28.i.i, align 8, !noalias !1470
   %78 = icmp ugt ptr %77, %63
-  br i1 %78, label %.lr.ph.i.i24.i.i, label %_ZSt25__unguarded_linear_insertIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i20.i.i, !llvm.loop !1476
+  br i1 %78, label %.lr.ph.i.i24.i.i, label %_ZSt25__unguarded_linear_insertIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i20.i.i, !llvm.loop !1475
 
 _ZSt25__unguarded_linear_insertIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i20.i.i: ; preds = %.lr.ph.i.i24.i.i, %73
   %.09.lcssa.i.i21.i.i = phi ptr [ %.020.i18.i.ptr.i, %73 ], [ %.012.i.i26.i.i, %.lr.ph.i.i24.i.i ]
-  store i64 %66, ptr %.09.lcssa.i.i21.i.i, align 8, !tbaa !1475, !noalias !1471
+  store i64 %66, ptr %.09.lcssa.i.i21.i.i, align 8, !tbaa !1474, !noalias !1470
   br label %79
 
 79:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i20.i.i, %_ZSt13move_backwardIPN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_ET0_T_SD_SC_.exit.i29.i.i
   %.020.i18.i.add.i = add nuw nsw i64 %.020.i18.i.idx.i, 8
   %.not.i23.i.i327 = icmp eq i64 %.020.i18.i.add.i, 32
-  br i1 %.not.i23.i.i327, label %_ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag.exit, label %.lr.ph.i17.i.i, !llvm.loop !1477
+  br i1 %.not.i23.i.i327, label %_ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag.exit, label %.lr.ph.i17.i.i, !llvm.loop !1476
 
 _ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag.exit: ; preds = %79
-  %80 = load i64, ptr %62, align 8, !tbaa !1475, !noalias !1478
+  %80 = load i64, ptr %62, align 8, !tbaa !1474, !noalias !1477
   %81 = inttoptr i64 %80 to ptr
-  %82 = load i64, ptr %61, align 16, !tbaa !1475, !noalias !1478
+  %82 = load i64, ptr %61, align 16, !tbaa !1474, !noalias !1477
   %83 = inttoptr i64 %82 to ptr
-  %84 = load i64, ptr %.ptr.i, align 8, !tbaa !1475, !noalias !1478
+  %84 = load i64, ptr %.ptr.i, align 8, !tbaa !1474, !noalias !1477
   %85 = inttoptr i64 %84 to ptr
-  %86 = load i64, ptr %5, align 16, !tbaa !1475, !noalias !1478
+  %86 = load i64, ptr %5, align 16, !tbaa !1474, !noalias !1477
   %87 = inttoptr i64 %86 to ptr
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1471
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1470
   %88 = load double, ptr %.sroa.0353.1, align 8, !tbaa !57
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.0353.1, i64 8
   %90 = load double, ptr %89, align 8, !tbaa !57
@@ -64901,11 +64697,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i.i.i.i ], [ %118, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %120, %.lr.ph.i.i.i.i.i.i ], [ %106, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1481
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1480
   %120 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %120, %99
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %118, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %121, %.lr.ph.i.i.i.i.i.i ]
@@ -65062,9 +64858,9 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit231: ; pre
 178:                                              ; preds = %167, %176
   %179 = ptrtoint ptr %2 to i64
   store i64 %179, ptr %6, align 8
-  %180 = load ptr, ptr %8, align 8, !tbaa !1475
+  %180 = load ptr, ptr %8, align 8, !tbaa !1474
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %182 = load ptr, ptr %140, align 8, !tbaa !1475
+  %182 = load ptr, ptr %140, align 8, !tbaa !1474
   %.not.i.i232 = icmp eq ptr %181, %182
   br i1 %.not.i.i232, label %191, label %183
 
@@ -65084,9 +64880,9 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit231: ; pre
           to label %191 unwind label %398
 
 191:                                              ; preds = %.noexc233, %178
-  %192 = load ptr, ptr %9, align 8, !tbaa !1475
+  %192 = load ptr, ptr %9, align 8, !tbaa !1474
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %194 = load ptr, ptr %142, align 8, !tbaa !1475
+  %194 = load ptr, ptr %142, align 8, !tbaa !1474
   %.not.i.i235 = icmp eq ptr %193, %194
   br i1 %.not.i.i235, label %203, label %195
 
@@ -65106,9 +64902,9 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit231: ; pre
           to label %203 unwind label %398
 
 203:                                              ; preds = %191, %.noexc236
-  %204 = load ptr, ptr %10, align 8, !tbaa !1475
+  %204 = load ptr, ptr %10, align 8, !tbaa !1474
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %206 = load ptr, ptr %144, align 8, !tbaa !1475
+  %206 = load ptr, ptr %144, align 8, !tbaa !1474
   %.not.i.i239 = icmp eq ptr %205, %206
   br i1 %.not.i.i239, label %215, label %207
 
@@ -65128,9 +64924,9 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit231: ; pre
           to label %215 unwind label %398
 
 215:                                              ; preds = %203, %.noexc240
-  %216 = load ptr, ptr %11, align 8, !tbaa !1475
+  %216 = load ptr, ptr %11, align 8, !tbaa !1474
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  %218 = load ptr, ptr %146, align 8, !tbaa !1475
+  %218 = load ptr, ptr %146, align 8, !tbaa !1474
   %.not.i.i242 = icmp eq ptr %217, %218
   br i1 %.not.i.i242, label %227, label %219
 
@@ -65171,7 +64967,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit231: ; pre
   %240 = load ptr, ptr %140, align 8, !tbaa !70
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr %241, ptr %140, align 8, !tbaa !70
-  %.pre = load ptr, ptr %8, align 8, !tbaa !1475
+  %.pre = load ptr, ptr %8, align 8, !tbaa !1474
   br label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit260
 
 242:                                              ; preds = %236
@@ -65211,11 +65007,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i24
 .lr.ph.i.i.i.i.i250:                              ; preds = %.noexc259, %.lr.ph.i.i.i.i.i250
   %.012.i.i.i.i.i251 = phi ptr [ %257, %.lr.ph.i.i.i.i.i250 ], [ %254, %.noexc259 ]
   %.0911.i.i.i.i.i252 = phi ptr [ %256, %.lr.ph.i.i.i.i.i250 ], [ %243, %.noexc259 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i251, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i252, i64 16, i1 false), !alias.scope !1486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i251, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i252, i64 16, i1 false), !alias.scope !1485
   %256 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i252, i64 16
   %257 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i251, i64 16
   %.not.i.i.i.i.i253 = icmp eq ptr %256, %237
-  br i1 %.not.i.i.i.i.i253, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i254, label %.lr.ph.i.i.i.i.i250, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i253, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i254, label %.lr.ph.i.i.i.i.i250, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i254: ; preds = %.lr.ph.i.i.i.i.i250, %.noexc259
   %.0.lcssa.i.i.i.i.i255 = phi ptr [ %254, %.noexc259 ], [ %257, %.lr.ph.i.i.i.i.i250 ]
@@ -65267,7 +65063,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit260._crit_
   %277 = load ptr, ptr %142, align 8, !tbaa !70
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
   store ptr %278, ptr %142, align 8, !tbaa !70
-  %.pre398 = load ptr, ptr %9, align 8, !tbaa !1475
+  %.pre398 = load ptr, ptr %9, align 8, !tbaa !1474
   br label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit276
 
 279:                                              ; preds = %273
@@ -65300,11 +65096,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i26
 .lr.ph.i.i.i.i.i266:                              ; preds = %.noexc275, %.lr.ph.i.i.i.i.i266
   %.012.i.i.i.i.i267 = phi ptr [ %294, %.lr.ph.i.i.i.i.i266 ], [ %291, %.noexc275 ]
   %.0911.i.i.i.i.i268 = phi ptr [ %293, %.lr.ph.i.i.i.i.i266 ], [ %280, %.noexc275 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i267, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i268, i64 16, i1 false), !alias.scope !1490
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i267, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i268, i64 16, i1 false), !alias.scope !1489
   %293 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i268, i64 16
   %294 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i267, i64 16
   %.not.i.i.i.i.i269 = icmp eq ptr %293, %274
-  br i1 %.not.i.i.i.i.i269, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i270, label %.lr.ph.i.i.i.i.i266, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i269, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i270, label %.lr.ph.i.i.i.i.i266, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i270: ; preds = %.lr.ph.i.i.i.i.i266, %.noexc275
   %.0.lcssa.i.i.i.i.i271 = phi ptr [ %291, %.noexc275 ], [ %294, %.lr.ph.i.i.i.i.i266 ]
@@ -65355,7 +65151,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit276._crit_
   %313 = load ptr, ptr %144, align 8, !tbaa !70
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
   store ptr %314, ptr %144, align 8, !tbaa !70
-  %.pre401 = load ptr, ptr %10, align 8, !tbaa !1475
+  %.pre401 = load ptr, ptr %10, align 8, !tbaa !1474
   br label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit292
 
 315:                                              ; preds = %309
@@ -65388,11 +65184,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i27
 .lr.ph.i.i.i.i.i282:                              ; preds = %.noexc291, %.lr.ph.i.i.i.i.i282
   %.012.i.i.i.i.i283 = phi ptr [ %330, %.lr.ph.i.i.i.i.i282 ], [ %327, %.noexc291 ]
   %.0911.i.i.i.i.i284 = phi ptr [ %329, %.lr.ph.i.i.i.i.i282 ], [ %316, %.noexc291 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i283, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i284, i64 16, i1 false), !alias.scope !1494
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i283, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i284, i64 16, i1 false), !alias.scope !1493
   %329 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i284, i64 16
   %330 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i283, i64 16
   %.not.i.i.i.i.i285 = icmp eq ptr %329, %310
-  br i1 %.not.i.i.i.i.i285, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i286, label %.lr.ph.i.i.i.i.i282, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i285, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i286, label %.lr.ph.i.i.i.i.i282, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i286: ; preds = %.lr.ph.i.i.i.i.i282, %.noexc291
   %.0.lcssa.i.i.i.i.i287 = phi ptr [ %327, %.noexc291 ], [ %330, %.lr.ph.i.i.i.i.i282 ]
@@ -65443,7 +65239,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit292._crit_
   %349 = load ptr, ptr %146, align 8, !tbaa !70
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
   store ptr %350, ptr %146, align 8, !tbaa !70
-  %.pre404 = load ptr, ptr %11, align 8, !tbaa !1475
+  %.pre404 = load ptr, ptr %11, align 8, !tbaa !1474
   br label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit308
 
 351:                                              ; preds = %345
@@ -65476,11 +65272,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i29
 .lr.ph.i.i.i.i.i298:                              ; preds = %.noexc307, %.lr.ph.i.i.i.i.i298
   %.012.i.i.i.i.i299 = phi ptr [ %366, %.lr.ph.i.i.i.i.i298 ], [ %363, %.noexc307 ]
   %.0911.i.i.i.i.i300 = phi ptr [ %365, %.lr.ph.i.i.i.i.i298 ], [ %352, %.noexc307 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i299, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i300, i64 16, i1 false), !alias.scope !1498
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i299, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i300, i64 16, i1 false), !alias.scope !1497
   %365 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i300, i64 16
   %366 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i299, i64 16
   %.not.i.i.i.i.i301 = icmp eq ptr %365, %346
-  br i1 %.not.i.i.i.i.i301, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i302, label %.lr.ph.i.i.i.i.i298, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i301, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i302, label %.lr.ph.i.i.i.i.i298, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i302: ; preds = %.lr.ph.i.i.i.i.i298, %.noexc307
   %.0.lcssa.i.i.i.i.i303 = phi ptr [ %363, %.noexc307 ], [ %366, %.lr.ph.i.i.i.i.i298 ]
@@ -65762,11 +65558,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i ], [ %80, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i ], [ %68, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !1502
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !1501
   %82 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %82, %62
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %80, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %83, %.lr.ph.i.i.i.i.i ]
@@ -65829,11 +65625,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
 .lr.ph.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i20, %.lr.ph.i.i.i.i.i24
   %.012.i.i.i.i.i25 = phi ptr [ %108, %.lr.ph.i.i.i.i.i24 ], [ %105, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ]
   %.0911.i.i.i.i.i26 = phi ptr [ %107, %.lr.ph.i.i.i.i.i24 ], [ %93, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i25, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i26, i64 16, i1 false), !alias.scope !1506
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i25, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i26, i64 16, i1 false), !alias.scope !1505
   %107 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i26, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i25, i64 16
   %.not.i.i.i.i.i27 = icmp eq ptr %107, %87
-  br i1 %.not.i.i.i.i.i27, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i28, label %.lr.ph.i.i.i.i.i24, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i27, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i28, label %.lr.ph.i.i.i.i.i24, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i28: ; preds = %.lr.ph.i.i.i.i.i24, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
   %.0.lcssa.i.i.i.i.i29 = phi ptr [ %105, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ], [ %108, %.lr.ph.i.i.i.i.i24 ]
@@ -65855,7 +65651,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit: ; preds = %50, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i31, %89, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %64, %_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_.exit
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.0175.0238, i64 16
   %.not220 = icmp eq ptr %112, %1
-  br i1 %.not220, label %._crit_edge, label %27, !llvm.loop !1510
+  br i1 %.not220, label %._crit_edge, label %27, !llvm.loop !1509
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -66002,11 +65798,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i34
 .lr.ph.i.i.i.i.i38:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i34, %.lr.ph.i.i.i.i.i38
   %.012.i.i.i.i.i39 = phi ptr [ %190, %.lr.ph.i.i.i.i.i38 ], [ %187, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i34 ]
   %.0911.i.i.i.i.i40 = phi ptr [ %189, %.lr.ph.i.i.i.i.i38 ], [ %175, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i34 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i40, i64 16, i1 false), !alias.scope !1511
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i40, i64 16, i1 false), !alias.scope !1510
   %189 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i40, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i39, i64 16
   %.not.i.i.i.i.i41 = icmp eq ptr %189, %169
-  br i1 %.not.i.i.i.i.i41, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i42, label %.lr.ph.i.i.i.i.i38, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i41, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i42, label %.lr.ph.i.i.i.i.i38, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i42: ; preds = %.lr.ph.i.i.i.i.i38, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i34
   %.0.lcssa.i.i.i.i.i43 = phi ptr [ %187, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i34 ], [ %190, %.lr.ph.i.i.i.i.i38 ]
@@ -66128,11 +65924,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i54
 .lr.ph.i.i.i.i.i58:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i54, %.lr.ph.i.i.i.i.i58
   %.012.i.i.i.i.i59 = phi ptr [ %249, %.lr.ph.i.i.i.i.i58 ], [ %246, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i54 ]
   %.0911.i.i.i.i.i60 = phi ptr [ %248, %.lr.ph.i.i.i.i.i58 ], [ %234, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i54 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i60, i64 16, i1 false), !alias.scope !1515
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i60, i64 16, i1 false), !alias.scope !1514
   %248 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i60, i64 16
   %249 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i59, i64 16
   %.not.i.i.i.i.i61 = icmp eq ptr %248, %228
-  br i1 %.not.i.i.i.i.i61, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i62, label %.lr.ph.i.i.i.i.i58, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i61, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i62, label %.lr.ph.i.i.i.i.i58, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i62: ; preds = %.lr.ph.i.i.i.i.i58, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i54
   %.0.lcssa.i.i.i.i.i63 = phi ptr [ %246, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i54 ], [ %249, %.lr.ph.i.i.i.i.i58 ]
@@ -66247,11 +66043,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i74
 .lr.ph.i.i.i.i.i78:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i74, %.lr.ph.i.i.i.i.i78
   %.012.i.i.i.i.i79 = phi ptr [ %308, %.lr.ph.i.i.i.i.i78 ], [ %305, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i74 ]
   %.0911.i.i.i.i.i80 = phi ptr [ %307, %.lr.ph.i.i.i.i.i78 ], [ %293, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i74 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i80, i64 16, i1 false), !alias.scope !1519
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i80, i64 16, i1 false), !alias.scope !1518
   %307 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i80, i64 16
   %308 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i79, i64 16
   %.not.i.i.i.i.i81 = icmp eq ptr %307, %287
-  br i1 %.not.i.i.i.i.i81, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i82, label %.lr.ph.i.i.i.i.i78, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i81, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i82, label %.lr.ph.i.i.i.i.i78, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i82: ; preds = %.lr.ph.i.i.i.i.i78, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i74
   %.0.lcssa.i.i.i.i.i83 = phi ptr [ %305, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i74 ], [ %308, %.lr.ph.i.i.i.i.i78 ]
@@ -66273,7 +66069,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit46: ; preds = %274, %282, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i85, %289, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i65, %230, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i45, %171, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit72
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.0175.1234, i64 16
   %.not219 = icmp eq ptr %312, %1
-  br i1 %.not219, label %.loopexit, label %133, !llvm.loop !1523
+  br i1 %.not219, label %.loopexit, label %133, !llvm.loop !1522
 
 313:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit112
   %.sroa.0175.2231 = phi ptr [ %0, %.lr.ph ], [ %492, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit112 ]
@@ -66439,11 +66235,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i10
 .lr.ph.i.i.i.i.i104:                              ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i100, %.lr.ph.i.i.i.i.i104
   %.012.i.i.i.i.i105 = phi ptr [ %404, %.lr.ph.i.i.i.i.i104 ], [ %401, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i100 ]
   %.0911.i.i.i.i.i106 = phi ptr [ %403, %.lr.ph.i.i.i.i.i104 ], [ %389, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i100 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i106, i64 16, i1 false), !alias.scope !1524
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i106, i64 16, i1 false), !alias.scope !1523
   %403 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i106, i64 16
   %404 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i105, i64 16
   %.not.i.i.i.i.i107 = icmp eq ptr %403, %383
-  br i1 %.not.i.i.i.i.i107, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i108, label %.lr.ph.i.i.i.i.i104, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i107, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i108, label %.lr.ph.i.i.i.i.i104, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i108: ; preds = %.lr.ph.i.i.i.i.i104, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i100
   %.0.lcssa.i.i.i.i.i109 = phi ptr [ %401, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i100 ], [ %404, %.lr.ph.i.i.i.i.i104 ]
@@ -66558,11 +66354,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i12
 .lr.ph.i.i.i.i.i124:                              ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i120, %.lr.ph.i.i.i.i.i124
   %.012.i.i.i.i.i125 = phi ptr [ %463, %.lr.ph.i.i.i.i.i124 ], [ %460, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i120 ]
   %.0911.i.i.i.i.i126 = phi ptr [ %462, %.lr.ph.i.i.i.i.i124 ], [ %448, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i120 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i125, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i126, i64 16, i1 false), !alias.scope !1528
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i125, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i126, i64 16, i1 false), !alias.scope !1527
   %462 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i126, i64 16
   %463 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i125, i64 16
   %.not.i.i.i.i.i127 = icmp eq ptr %462, %442
-  br i1 %.not.i.i.i.i.i127, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i128, label %.lr.ph.i.i.i.i.i124, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i127, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i128, label %.lr.ph.i.i.i.i.i124, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i128: ; preds = %.lr.ph.i.i.i.i.i124, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i120
   %.0.lcssa.i.i.i.i.i129 = phi ptr [ %460, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i120 ], [ %463, %.lr.ph.i.i.i.i.i124 ]
@@ -66625,11 +66421,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i13
 .lr.ph.i.i.i.i.i138:                              ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i134, %.lr.ph.i.i.i.i.i138
   %.012.i.i.i.i.i139 = phi ptr [ %488, %.lr.ph.i.i.i.i.i138 ], [ %485, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i134 ]
   %.0911.i.i.i.i.i140 = phi ptr [ %487, %.lr.ph.i.i.i.i.i138 ], [ %473, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i134 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i139, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i140, i64 16, i1 false), !alias.scope !1532
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i139, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i140, i64 16, i1 false), !alias.scope !1531
   %487 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i140, i64 16
   %488 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i139, i64 16
   %.not.i.i.i.i.i141 = icmp eq ptr %487, %467
-  br i1 %.not.i.i.i.i.i141, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i142, label %.lr.ph.i.i.i.i.i138, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i141, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i142, label %.lr.ph.i.i.i.i.i138, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i142: ; preds = %.lr.ph.i.i.i.i.i138, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i134
   %.0.lcssa.i.i.i.i.i143 = phi ptr [ %485, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i134 ], [ %488, %.lr.ph.i.i.i.i.i138 ]
@@ -66651,7 +66447,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit112: ; preds = %429, %437, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i145, %469, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i131, %444, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i111, %385, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit118
   %492 = getelementptr inbounds nuw i8, ptr %.sroa.0175.2231, i64 16
   %.not = icmp eq ptr %492, %1
-  br i1 %.not, label %.loopexit, label %313, !llvm.loop !1536
+  br i1 %.not, label %.loopexit, label %313, !llvm.loop !1535
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit112, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit46, %.preheader221, %.preheader, %._crit_edge
   ret void
@@ -66847,11 +66643,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i ], [ %114, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %116, %.lr.ph.i.i.i.i.i ], [ %102, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !1537
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !1536
   %116 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %116, %96
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %114, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %117, %.lr.ph.i.i.i.i.i ]
@@ -66966,11 +66762,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i22
 .lr.ph.i.i.i.i.i26:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i22, %.lr.ph.i.i.i.i.i26
   %.012.i.i.i.i.i27 = phi ptr [ %176, %.lr.ph.i.i.i.i.i26 ], [ %173, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i22 ]
   %.0911.i.i.i.i.i28 = phi ptr [ %175, %.lr.ph.i.i.i.i.i26 ], [ %161, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i22 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i28, i64 16, i1 false), !alias.scope !1541
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i28, i64 16, i1 false), !alias.scope !1540
   %175 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i28, i64 16
   %176 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i27, i64 16
   %.not.i.i.i.i.i29 = icmp eq ptr %175, %155
-  br i1 %.not.i.i.i.i.i29, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i30, label %.lr.ph.i.i.i.i.i26, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i29, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i30, label %.lr.ph.i.i.i.i.i26, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i30: ; preds = %.lr.ph.i.i.i.i.i26, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i22
   %.0.lcssa.i.i.i.i.i31 = phi ptr [ %173, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i22 ], [ %176, %.lr.ph.i.i.i.i.i26 ]
@@ -67092,11 +66888,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i42
 .lr.ph.i.i.i.i.i46:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i42, %.lr.ph.i.i.i.i.i46
   %.012.i.i.i.i.i47 = phi ptr [ %235, %.lr.ph.i.i.i.i.i46 ], [ %232, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i42 ]
   %.0911.i.i.i.i.i48 = phi ptr [ %234, %.lr.ph.i.i.i.i.i46 ], [ %220, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i42 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i47, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i48, i64 16, i1 false), !alias.scope !1545
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i47, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i48, i64 16, i1 false), !alias.scope !1544
   %234 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i48, i64 16
   %235 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i47, i64 16
   %.not.i.i.i.i.i49 = icmp eq ptr %234, %214
-  br i1 %.not.i.i.i.i.i49, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i50, label %.lr.ph.i.i.i.i.i46, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i49, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i50, label %.lr.ph.i.i.i.i.i46, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i50: ; preds = %.lr.ph.i.i.i.i.i46, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i42
   %.0.lcssa.i.i.i.i.i51 = phi ptr [ %232, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i42 ], [ %235, %.lr.ph.i.i.i.i.i46 ]
@@ -67211,11 +67007,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i62
 .lr.ph.i.i.i.i.i66:                               ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i62, %.lr.ph.i.i.i.i.i66
   %.012.i.i.i.i.i67 = phi ptr [ %294, %.lr.ph.i.i.i.i.i66 ], [ %291, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i62 ]
   %.0911.i.i.i.i.i68 = phi ptr [ %293, %.lr.ph.i.i.i.i.i66 ], [ %279, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i62 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i68, i64 16, i1 false), !alias.scope !1549
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i68, i64 16, i1 false), !alias.scope !1548
   %293 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i68, i64 16
   %294 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i67, i64 16
   %.not.i.i.i.i.i69 = icmp eq ptr %293, %273
-  br i1 %.not.i.i.i.i.i69, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i70, label %.lr.ph.i.i.i.i.i66, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i69, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i70, label %.lr.ph.i.i.i.i.i66, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i70: ; preds = %.lr.ph.i.i.i.i.i66, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i62
   %.0.lcssa.i.i.i.i.i71 = phi ptr [ %291, %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i62 ], [ %294, %.lr.ph.i.i.i.i.i66 ]
@@ -67237,7 +67033,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit: ; preds = %260, %268, %142, %150, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i73, %275, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i53, %216, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i33, %157, %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %98, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit20, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit60
   %298 = getelementptr inbounds nuw i8, ptr %.sroa.085.0115, i64 16
   %.not = icmp eq ptr %298, %1
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !1553
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !1552
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE9push_backERKS3_.exit, %12
   ret void
@@ -67259,7 +67055,7 @@ _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_
 
 _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE12_M_check_lenEmPKc.exit.i.i9: ; preds = %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE12_M_check_lenEmPKc.exit.i.i
   %12 = ptrtoint ptr %10 to i64
-  store i64 %12, ptr %11, align 8, !tbaa !1475
+  store i64 %12, ptr %11, align 8, !tbaa !1474
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #42
           to label %.noexc22 unwind label %.loopexit.split-lp149
@@ -67267,8 +67063,8 @@ _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_
 .noexc22:                                         ; preds = %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE12_M_check_lenEmPKc.exit.i.i9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = ptrtoint ptr %0 to i64
-  store i64 %16, ptr %15, align 8, !tbaa !1475
-  store i64 %12, ptr %14, align 8, !tbaa !1475, !alias.scope !1554, !noalias !1557
+  store i64 %16, ptr %15, align 8, !tbaa !1474
+  store i64 %12, ptr %14, align 8, !tbaa !1474, !alias.scope !1553, !noalias !1556
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 8) #40
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -67341,7 +67137,7 @@ _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_
 .backedge:                                        ; preds = %45, %53, %.noexc24
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.not = icmp eq ptr %59, %10
-  br i1 %.not, label %.critedge, label %21, !llvm.loop !1559
+  br i1 %.not, label %.critedge, label %21, !llvm.loop !1558
 
 _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE12_M_check_lenEmPKc.exit.i.i26: ; preds = %49, %.noexc24
   %60 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
@@ -67350,8 +67146,8 @@ _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE9push_backERKS9_.exit40: ; preds = %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE12_M_check_lenEmPKc.exit.i.i26
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = ptrtoint ptr %22 to i64
-  store i64 %62, ptr %61, align 8, !tbaa !1475
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa !1475, !alias.scope !1560, !noalias !11
+  store i64 %62, ptr %61, align 8, !tbaa !1474
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa !1474, !alias.scope !1559, !noalias !11
   call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 16) #40
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %.sroa.15.6 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -67361,7 +67157,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_S
 
 .lr.ph185:                                        ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE9push_backERKS9_.exit40
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !1475
+  %66 = load i64, ptr %65, align 8, !tbaa !1474
   %67 = inttoptr i64 %66 to ptr
   br label %68
 
@@ -67499,27 +67295,27 @@ _ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20F
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %146 = load double, ptr %.sroa.0100.1, align 8, !tbaa !57, !noalias !1564
+  %146 = load double, ptr %.sroa.0100.1, align 8, !tbaa !57, !noalias !1563
   %147 = fneg double %146
   %148 = insertelement <2 x double> poison, double %146, i64 0
   %149 = insertelement <2 x double> %148, double %147, i64 1
-  %150 = load double, ptr %107, align 8, !tbaa !57, !noalias !1564
+  %150 = load double, ptr %107, align 8, !tbaa !57, !noalias !1563
   %151 = fneg double %150
   %152 = insertelement <2 x double> poison, double %150, i64 0
   %153 = insertelement <2 x double> %152, double %151, i64 1
-  %154 = load double, ptr %.sroa.0101.1, align 8, !tbaa !57, !noalias !1567
+  %154 = load double, ptr %.sroa.0101.1, align 8, !tbaa !57, !noalias !1566
   %155 = fneg double %154
   %156 = insertelement <2 x double> poison, double %155, i64 0
   %157 = insertelement <2 x double> %156, double %154, i64 1
-  %158 = load double, ptr %110, align 8, !tbaa !57, !noalias !1567
+  %158 = load double, ptr %110, align 8, !tbaa !57, !noalias !1566
   %159 = fneg double %158
   %160 = insertelement <2 x double> poison, double %159, i64 0
   %161 = insertelement <2 x double> %160, double %158, i64 1
-  %162 = load double, ptr %.sroa.086.1183, align 8, !tbaa !57, !noalias !1570
+  %162 = load double, ptr %.sroa.086.1183, align 8, !tbaa !57, !noalias !1569
   %163 = fneg double %162
   %164 = insertelement <2 x double> poison, double %163, i64 0
   %165 = insertelement <2 x double> %164, double %162, i64 1
-  %166 = load double, ptr %73, align 8, !tbaa !57, !noalias !1570
+  %166 = load double, ptr %73, align 8, !tbaa !57, !noalias !1569
   %167 = fneg double %166
   %168 = insertelement <2 x double> poison, double %167, i64 0
   %169 = insertelement <2 x double> %168, double %166, i64 1
@@ -67623,9 +67419,9 @@ _ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20F
 _ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit54.thread: ; preds = %129, %137, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit54
   %239 = getelementptr inbounds i8, ptr %.sroa.15.2, i64 -8
   %240 = getelementptr inbounds i8, ptr %.sroa.15.2, i64 -24
-  %241 = load i64, ptr %240, align 8, !tbaa !1475
+  %241 = load i64, ptr %240, align 8, !tbaa !1474
   %242 = inttoptr i64 %241 to ptr
-  br label %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit47, !llvm.loop !1573
+  br label %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit47, !llvm.loop !1572
 
 .loopexit.split-lp140.thread:                     ; preds = %56
   %lpad.loopexit150 = landingpad { ptr, i32 }
@@ -67660,7 +67456,7 @@ _ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20F
 
 243:                                              ; preds = %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit54.thread135
   %244 = ptrtoint ptr %.sroa.086.1183 to i64
-  store i64 %244, ptr %.sroa.15.2, align 8, !tbaa !1475
+  store i64 %244, ptr %.sroa.15.2, align 8, !tbaa !1474
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE9push_backERKS9_.exit70
 
 245:                                              ; preds = %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit54.thread135
@@ -67693,21 +67489,21 @@ _ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_
 .noexc69:                                         ; preds = %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE12_M_check_lenEmPKc.exit.i.i56
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 %248
   %259 = ptrtoint ptr %.sroa.086.1183 to i64
-  store i64 %259, ptr %258, align 8, !tbaa !1475
+  store i64 %259, ptr %258, align 8, !tbaa !1474
   %.not10.i.i.i.i.i59 = icmp eq ptr %.sroa.0103.2184, %.sroa.32.2180
   br i1 %.not10.i.i.i.i.i59, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvNS1_IPS9_SB_EEDpOT_.exit.i67, label %.lr.ph.i.i.i.i.i60
 
 .lr.ph.i.i.i.i.i60:                               ; preds = %.noexc69, %.lr.ph.i.i.i.i.i60
   %.012.i.i.i.i.i61 = phi ptr [ %262, %.lr.ph.i.i.i.i.i60 ], [ %257, %.noexc69 ]
   %.0911.i.i.i.i.i62 = phi ptr [ %261, %.lr.ph.i.i.i.i.i60 ], [ %.sroa.0103.2184, %.noexc69 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !1574)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1577)
-  %260 = load i64, ptr %.0911.i.i.i.i.i62, align 8, !tbaa !1475, !alias.scope !1577, !noalias !1574
-  store i64 %260, ptr %.012.i.i.i.i.i61, align 8, !tbaa !1475, !alias.scope !1574, !noalias !1577
+  call void @llvm.experimental.noalias.scope.decl(metadata !1573)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1576)
+  %260 = load i64, ptr %.0911.i.i.i.i.i62, align 8, !tbaa !1474, !alias.scope !1576, !noalias !1573
+  store i64 %260, ptr %.012.i.i.i.i.i61, align 8, !tbaa !1474, !alias.scope !1573, !noalias !1576
   %261 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i62, i64 8
   %262 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i61, i64 8
   %.not.i.i.i.i.i63 = icmp eq ptr %261, %.sroa.32.2180
-  br i1 %.not.i.i.i.i.i63, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvNS1_IPS9_SB_EEDpOT_.exit.i67, label %.lr.ph.i.i.i.i.i60, !llvm.loop !1579
+  br i1 %.not.i.i.i.i.i63, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvNS1_IPS9_SB_EEDpOT_.exit.i67, label %.lr.ph.i.i.i.i.i60, !llvm.loop !1578
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvNS1_IPS9_SB_EEDpOT_.exit.i67: ; preds = %.lr.ph.i.i.i.i.i60, %.noexc69
   %.0.lcssa.i.i.i.i.i65 = phi ptr [ %257, %.noexc69 ], [ %262, %.lr.ph.i.i.i.i.i60 ]
@@ -67730,7 +67526,7 @@ _ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20F
   %.sroa.0103.4 = phi ptr [ %.sroa.0103.8, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE9push_backERKS9_.exit70 ], [ %.sroa.0103.2184, %.noexc46 ], [ %.sroa.0103.2184, %100 ], [ %.sroa.0103.2184, %92 ]
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.086.1183, i64 16
   %.not137 = icmp eq ptr %264, %10
-  br i1 %.not137, label %.critedge, label %68, !llvm.loop !1580
+  br i1 %.not137, label %.critedge, label %68, !llvm.loop !1579
 
 .critedge:                                        ; preds = %.backedge, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit47.thread, %.noexc22, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE9push_backERKS9_.exit40
   %.sroa.15.0 = phi ptr [ %17, %.noexc22 ], [ %.sroa.15.6, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EE9push_backERKS9_.exit40 ], [ %.sroa.15.3, %_ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES7_EEEEEEEclERKNS_7Point_2IS7_EESG_SG_.exit47.thread ], [ %17, %.backedge ]
@@ -67742,8 +67538,8 @@ _ZNK4CGAL20CommonKernelFunctors11Left_turn_2INS_8internal14Static_filtersINS_20F
 
 .lr.ph191:                                        ; preds = %.critedge, %_ZNSt20back_insert_iteratorISt6vectorIN4CGAL7Point_2INS1_5EpickEEESaIS4_EEEaSERKS4_.exit
   %.sroa.078.0190 = phi ptr [ %.sroa.078.0, %_ZNSt20back_insert_iteratorISt6vectorIN4CGAL7Point_2INS1_5EpickEEESaIS4_EEEaSERKS4_.exit ], [ %.sroa.078.0188, %.critedge ]
-  %265 = load ptr, ptr %.sroa.078.0190, align 8, !tbaa !1581
-  %266 = load ptr, ptr %2, align 8, !tbaa !1583
+  %265 = load ptr, ptr %.sroa.078.0190, align 8, !tbaa !1580
+  %266 = load ptr, ptr %2, align 8, !tbaa !1582
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %268 = load ptr, ptr %267, align 8, !tbaa !70
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 16
@@ -67795,11 +67591,11 @@ _ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc72, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %290, %.lr.ph.i.i.i.i.i.i ], [ %287, %.noexc72 ]
   %.0911.i.i.i.i.i.i = phi ptr [ %289, %.lr.ph.i.i.i.i.i.i ], [ %275, %.noexc72 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1586
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1585
   %289 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
   %290 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %289, %268
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1485
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1484
 
 _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc72
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %287, %.noexc72 ], [ %290, %.lr.ph.i.i.i.i.i.i ]
@@ -67821,7 +67617,7 @@ _ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
 _ZNSt20back_insert_iteratorISt6vectorIN4CGAL7Point_2INS1_5EpickEEESaIS4_EEEaSERKS4_.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %271
   %.sroa.078.0 = getelementptr inbounds nuw i8, ptr %.sroa.078.0190, i64 8
   %.not138 = icmp eq ptr %.sroa.078.0, %.sroa.15.0
-  br i1 %.not138, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EED2Ev.exit, label %.lr.ph191, !llvm.loop !1590
+  br i1 %.not138, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEES_IS5_SaIS5_EEEESaIS9_EED2Ev.exit, label %.lr.ph191, !llvm.loop !1589
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -67933,7 +67729,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2IN
 
 32:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit.i.i, %27
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 16
-  br label %23, !llvm.loop !1591
+  br label %23, !llvm.loop !1590
 
 34:                                               ; preds = %.backedge, %.preheader
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %.preheader ], [ %.sroa.0.1.i.i, %.backedge ]
@@ -67955,7 +67751,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2IN
   br i1 %36, label %.backedge, label %43
 
 .backedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit10.i.i, %38
-  br label %34, !llvm.loop !1592
+  br label %34, !llvm.loop !1591
 
 43:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit10.i.i, %38
   %44 = icmp ult ptr %.sroa.013.1.i.i, %.sroa.0.1.i.i
@@ -67976,7 +67772,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2IN
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 16
-  br label %21, !llvm.loop !1593
+  br label %21, !llvm.loop !1592
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEET_SQ_SQ_T0_.exit: ; preds = %43
   %49 = add nsw i64 %.019, -1
@@ -67985,7 +67781,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2
   %51 = sub i64 %50, %6
   %52 = ashr exact i64 %51, 4
   %53 = icmp sgt i64 %52, 16
-  br i1 %53, label %13, label %.loopexit, !llvm.loop !1594
+  br i1 %53, label %13, label %.loopexit, !llvm.loop !1593
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEET_SQ_SQ_T0_.exit, %3, %16
   ret void
@@ -68076,7 +67872,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS
 
 32:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS2_7Point_2ISA_EENS_17__normal_iteratorIPSJ_St6vectorISJ_SaISJ_EEEEEEbRT_T0_.exit.i.i, %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i, i64 16, i1 false)
-  br label %24, !llvm.loop !1595
+  br label %24, !llvm.loop !1594
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS2_7Point_2ISA_EENS_17__normal_iteratorIPSJ_St6vectorISJ_SaISJ_EEEEEEbRT_T0_.exit.i.i, %28
   store double %9, ptr %.sroa.07.0.i.i, align 8
@@ -68087,7 +67883,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
 33:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %.sroa.0.020.i.add = add nuw nsw i64 %.sroa.0.020.i.idx, 16
   %.not.i = icmp eq i64 %.sroa.0.020.i.add, 256
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit, label %8, !llvm.loop !1596
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit, label %8, !llvm.loop !1595
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit: ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -68121,7 +67917,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS
 
 43:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS2_7Point_2ISA_EENS_17__normal_iteratorIPSJ_St6vectorISJ_SaISJ_EEEEEEbRT_T0_.exit.i.i17, %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.i.i14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i15, i64 16, i1 false)
-  br label %35, !llvm.loop !1595
+  br label %35, !llvm.loop !1594
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_.exit.i18: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS2_7Point_2ISA_EENS_17__normal_iteratorIPSJ_St6vectorISJ_SaISJ_EEEEEEbRT_T0_.exit.i.i17, %39
   store double %.sroa.03.0.copyload.i.i, ptr %.sroa.07.0.i.i14, align 8
@@ -68129,7 +67925,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
   store double %.sroa.5.0.copyload.i.i13, ptr %.sroa.5.0..sroa_idx5.i.i19, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 16
   %.not.i20 = icmp eq ptr %44, %1
-  br i1 %.not.i20, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit, label %.lr.ph.i12, !llvm.loop !1597
+  br i1 %.not.i20, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit, label %.lr.ph.i12, !llvm.loop !1596
 
 45:                                               ; preds = %2
   %46 = icmp eq ptr %0, %1
@@ -68223,7 +68019,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS
 
 80:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS2_7Point_2ISA_EENS_17__normal_iteratorIPSJ_St6vectorISJ_SaISJ_EEEEEEbRT_T0_.exit.i.i37, %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.i.i34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i35, i64 16, i1 false)
-  br label %72, !llvm.loop !1595
+  br label %72, !llvm.loop !1594
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_.exit.i38: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS2_7Point_2ISA_EENS_17__normal_iteratorIPSJ_St6vectorISJ_SaISJ_EEEEEEbRT_T0_.exit.i.i37, %76
   store double %49, ptr %.sroa.07.0.i.i34, align 8
@@ -68234,7 +68030,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
 81:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_.exit.i38, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i42
   %.sroa.0.0.i40 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i26, i64 16
   %.not.i41 = icmp eq ptr %.sroa.0.0.i40, %1
-  br i1 %.not.i41, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit, label %48, !llvm.loop !1596
+  br i1 %.not.i41, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit, label %48, !llvm.loop !1595
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit: ; preds = %81, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_.exit.i18, %.preheader.i22, %45, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_T0_.exit
   ret void
@@ -68292,7 +68088,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2IN
   %31 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.038.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   %32 = icmp slt i64 %spec.select.i.i, %13
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1598
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1597
 
 ._crit_edge.i.i:                                  ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit.i.i ]
@@ -68343,7 +68139,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4CGAL23CartesianKernelFunctors9Less_xy_2INS
   %55 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %0, i64 %.019.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   %.not.i = icmp eq i64 %.0920.i.i89.i, 0
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_SQ_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1599
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_SQ_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1598
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_SQ_RT0_.exit: ; preds = %50, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESK_EEbT_RT0_.exit.i.i.i, %54, %44
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %44 ], [ %.019.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESK_EEbT_RT0_.exit.i.i.i ], [ 0, %54 ], [ %.019.i.i.i, %50 ]
@@ -68352,7 +68148,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store double %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 8
   %57 = icmp sgt i64 %10, 16
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !1600
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !1599
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_SQ_SQ_RT0_.exit, %3
   ret void
@@ -68418,7 +68214,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2IN
   %39 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.038.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   %40 = icmp slt i64 %spec.select.i, %13
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1598
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1597
 
 ._crit_edge.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit.i, %20
   %.0.lcssa.i = phi i64 [ %.010, %20 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESP_EEbT_T0_.exit.i ]
@@ -68459,7 +68255,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4CGAL23CartesianKernelFunctors9Less_xy_2INS
   %54 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.019.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
   %55 = icmp sgt i64 %.0920.i.i, %.010
-  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_SR_T1_T2_.exit, !llvm.loop !1599
+  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_SR_T1_T2_.exit, !llvm.loop !1598
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_SR_T1_T2_.exit: ; preds = %49, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESK_EEbT_RT0_.exit.i.i, %53, %43
   %.0.lcssa.i.i = phi i64 [ %.1.i, %43 ], [ %.019.i.i, %49 ], [ %.0920.i.i, %53 ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4CGAL23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdNS2_5EpickEEESA_EEEEEEEEEclINS_17__normal_iteratorIPNS2_7Point_2ISA_EESt6vectorISK_SaISK_EEEESK_EEbT_RT0_.exit.i.i ]
@@ -68469,7 +68265,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEE
   store double %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.010, 0
   %57 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !1601
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !1600
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS2_23CartesianKernelFunctors9Less_xy_2INS2_8internal14Static_filtersINS2_20Filtered_kernel_baseINS2_21Type_equality_wrapperINS2_27Cartesian_base_no_ref_countIdS4_EES4_EEEEEEEEEEEvT_T0_SR_T1_T2_.exit, %3
   ret void
@@ -68735,7 +68531,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
 
 33:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit.i.i, %28
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 16
-  br label %24, !llvm.loop !1602
+  br label %24, !llvm.loop !1601
 
 35:                                               ; preds = %.backedge, %.preheader
   %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.0.i.i, %.preheader ], [ %.sroa.011.1.i.i, %.backedge ]
@@ -68757,7 +68553,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
   br i1 %37, label %.backedge, label %44
 
 .backedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit10.i.i, %39
-  br label %35, !llvm.loop !1603
+  br label %35, !llvm.loop !1602
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit10.i.i, %39
   %45 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.011.1.i.i
@@ -68778,7 +68574,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 16
-  br label %22, !llvm.loop !1604
+  br label %22, !llvm.loop !1603
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEESH_SH_SH_SG_.exit: ; preds = %44
   %50 = add nsw i64 %.017, -1
@@ -68787,7 +68583,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2
   %52 = sub i64 %51, %7
   %53 = ashr exact i64 %52, 4
   %54 = icmp sgt i64 %53, 16
-  br i1 %54, label %14, label %.loopexit, !llvm.loop !1605
+  br i1 %54, label %14, label %.loopexit, !llvm.loop !1604
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEESH_SH_SH_SG_.exit, %4, %17
   ret void
@@ -68878,7 +68674,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
 
 33:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclIS7_SC_EEbRSG_SF_.exit.i.i, %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i, i64 16, i1 false)
-  br label %25, !llvm.loop !1606
+  br label %25, !llvm.loop !1605
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclIS7_SC_EEbRSG_SF_.exit.i.i, %29
   store double %11, ptr %.sroa.08.0.i.i, align 8
@@ -68889,7 +68685,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
 34:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %.sroa.0.022.i.add = add nuw nsw i64 %.sroa.0.022.i.idx, 16
   %.not.i = icmp eq i64 %.sroa.0.022.i.add, 256
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit, label %9, !llvm.loop !1607
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit, label %9, !llvm.loop !1606
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit: ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -68923,7 +68719,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclIS7_SC_EEbRSG_SF_.exit.i.i15, %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i13, i64 16, i1 false)
-  br label %36, !llvm.loop !1606
+  br label %36, !llvm.loop !1605
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclIS7_SC_EEbRSG_SF_.exit.i.i15, %40
   store double %.sroa.03.0.copyload.i.i, ptr %.sroa.08.0.i.i12, align 8
@@ -68931,7 +68727,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
   store double %.sroa.5.0.copyload.i.i11, ptr %.sroa.5.0..sroa_idx5.i.i17, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 16
   %.not.i18 = icmp eq ptr %45, %1
-  br i1 %.not.i18, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit, label %.lr.ph.i10, !llvm.loop !1608
+  br i1 %.not.i18, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit, label %.lr.ph.i10, !llvm.loop !1607
 
 46:                                               ; preds = %3
   %47 = icmp eq ptr %0, %1
@@ -69025,7 +68821,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
 
 81:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclIS7_SC_EEbRSG_SF_.exit.i.i35, %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i33, i64 16, i1 false)
-  br label %73, !llvm.loop !1606
+  br label %73, !llvm.loop !1605
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_.exit.i36: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclIS7_SC_EEbRSG_SF_.exit.i.i35, %77
   store double %51, ptr %.sroa.08.0.i.i32, align 8
@@ -69036,7 +68832,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
 82:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_.exit.i36, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i40
   %.sroa.0.0.i38 = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i24, i64 16
   %.not.i39 = icmp eq ptr %.sroa.0.0.i38, %1
-  br i1 %.not.i39, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit, label %49, !llvm.loop !1607
+  br i1 %.not.i39, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit, label %49, !llvm.loop !1606
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit: ; preds = %82, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_.exit.i16, %.preheader.i20, %46, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SG_.exit
   ret void
@@ -69094,7 +68890,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
   %31 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.038.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   %32 = icmp slt i64 %spec.select.i.i, %13
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1609
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1608
 
 ._crit_edge.i.i:                                  ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit.i.i ]
@@ -69145,7 +68941,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
   %55 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %0, i64 %.019.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   %.not.i = icmp eq i64 %.0920.i.i89.i, 0
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SH_RSG_.exit, label %.lr.ph.i.i.i, !llvm.loop !1610
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SH_RSG_.exit, label %.lr.ph.i.i.i, !llvm.loop !1609
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SH_RSG_.exit: ; preds = %50, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_S7_EEbSG_RSF_.exit.i.i.i, %54, %44
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %44 ], [ %.019.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_S7_EEbSG_RSF_.exit.i.i.i ], [ 0, %54 ], [ %.019.i.i.i, %50 ]
@@ -69154,7 +68950,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store double %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 8
   %57 = icmp sgt i64 %10, 16
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !1611
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !1610
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SH_SH_RSG_.exit, %3
   ret void
@@ -69220,7 +69016,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
   %39 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.038.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   %40 = icmp slt i64 %spec.select.i, %13
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1609
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1608
 
 ._crit_edge.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit.i, %20
   %.0.lcssa.i = phi i64 [ %.010, %20 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_SC_EEbSG_SF_.exit.i ]
@@ -69261,7 +69057,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
   %54 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.019.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
   %55 = icmp sgt i64 %.0920.i.i, %.010
-  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_SG_SI_T2_.exit, !llvm.loop !1610
+  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_SG_SI_T2_.exit, !llvm.loop !1609
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_SG_SI_T2_.exit: ; preds = %49, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_S7_EEbSG_RSF_.exit.i.i, %53, %43
   %.0.lcssa.i.i = phi i64 [ %.1.i, %43 ], [ %.019.i.i, %49 ], [ %.0920.i.i, %53 ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E_EclISC_S7_EEbSG_RSF_.exit.i.i ]
@@ -69271,7 +69067,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEE
   store double %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.010, 0
   %57 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !1612
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !1611
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E_EEEvSH_SG_SG_SI_T2_.exit, %3
   ret void
@@ -69537,7 +69333,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
 
 33:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit.i.i, %28
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 16
-  br label %24, !llvm.loop !1613
+  br label %24, !llvm.loop !1612
 
 35:                                               ; preds = %.backedge, %.preheader
   %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.0.i.i, %.preheader ], [ %.sroa.011.1.i.i, %.backedge ]
@@ -69559,7 +69355,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
   br i1 %37, label %.backedge, label %44
 
 .backedge:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit10.i.i, %39
-  br label %35, !llvm.loop !1614
+  br label %35, !llvm.loop !1613
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit10.i.i, %39
   %45 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.011.1.i.i
@@ -69580,7 +69376,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 16
-  br label %22, !llvm.loop !1615
+  br label %22, !llvm.loop !1614
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEESH_SH_SH_SG_.exit: ; preds = %44
   %50 = add nsw i64 %.017, -1
@@ -69589,7 +69385,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2
   %52 = sub i64 %51, %7
   %53 = ashr exact i64 %52, 4
   %54 = icmp sgt i64 %53, 16
-  br i1 %54, label %14, label %.loopexit, !llvm.loop !1616
+  br i1 %54, label %14, label %.loopexit, !llvm.loop !1615
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEESH_SH_SH_SG_.exit, %4, %17
   ret void
@@ -69680,7 +69476,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
 
 33:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclIS7_SC_EEbRSG_SF_.exit.i.i, %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i, i64 16, i1 false)
-  br label %25, !llvm.loop !1617
+  br label %25, !llvm.loop !1616
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclIS7_SC_EEbRSG_SF_.exit.i.i, %29
   store double %11, ptr %.sroa.08.0.i.i, align 8
@@ -69691,7 +69487,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
 34:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %.sroa.0.022.i.add = add nuw nsw i64 %.sroa.0.022.i.idx, 16
   %.not.i = icmp eq i64 %.sroa.0.022.i.add, 256
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit, label %9, !llvm.loop !1618
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit, label %9, !llvm.loop !1617
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit: ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -69725,7 +69521,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclIS7_SC_EEbRSG_SF_.exit.i.i15, %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i13, i64 16, i1 false)
-  br label %36, !llvm.loop !1617
+  br label %36, !llvm.loop !1616
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclIS7_SC_EEbRSG_SF_.exit.i.i15, %40
   store double %.sroa.03.0.copyload.i.i, ptr %.sroa.08.0.i.i12, align 8
@@ -69733,7 +69529,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
   store double %.sroa.5.0.copyload.i.i11, ptr %.sroa.5.0..sroa_idx5.i.i17, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 16
   %.not.i18 = icmp eq ptr %45, %1
-  br i1 %.not.i18, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit, label %.lr.ph.i10, !llvm.loop !1619
+  br i1 %.not.i18, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit, label %.lr.ph.i10, !llvm.loop !1618
 
 46:                                               ; preds = %3
   %47 = icmp eq ptr %0, %1
@@ -69827,7 +69623,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
 
 81:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclIS7_SC_EEbRSG_SF_.exit.i.i35, %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i33, i64 16, i1 false)
-  br label %73, !llvm.loop !1617
+  br label %73, !llvm.loop !1616
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_.exit.i36: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclIS7_SC_EEbRSG_SF_.exit.i.i35, %77
   store double %51, ptr %.sroa.08.0.i.i32, align 8
@@ -69838,7 +69634,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2IN
 82:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_.exit.i36, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i40
   %.sroa.0.0.i38 = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i24, i64 16
   %.not.i39 = icmp eq ptr %.sroa.0.0.i38, %1
-  br i1 %.not.i39, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit, label %49, !llvm.loop !1618
+  br i1 %.not.i39, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit, label %49, !llvm.loop !1617
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit: ; preds = %82, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_.exit.i16, %.preheader.i20, %46, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SG_.exit
   ret void
@@ -69896,7 +69692,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
   %31 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.038.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   %32 = icmp slt i64 %spec.select.i.i, %13
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1620
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1619
 
 ._crit_edge.i.i:                                  ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit.i.i ]
@@ -69947,7 +69743,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
   %55 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %0, i64 %.019.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   %.not.i = icmp eq i64 %.0920.i.i89.i, 0
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SH_RSG_.exit, label %.lr.ph.i.i.i, !llvm.loop !1621
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SH_RSG_.exit, label %.lr.ph.i.i.i, !llvm.loop !1620
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SH_RSG_.exit: ; preds = %50, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_S7_EEbSG_RSF_.exit.i.i.i, %54, %44
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %44 ], [ %.019.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_S7_EEbSG_RSF_.exit.i.i.i ], [ 0, %54 ], [ %.019.i.i.i, %50 ]
@@ -69956,7 +69752,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store double %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 8
   %57 = icmp sgt i64 %10, 16
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !1622
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !1621
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SH_SH_RSG_.exit, %3
   ret void
@@ -70022,7 +69818,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_ite
   %39 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.038.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   %40 = icmp slt i64 %spec.select.i, %13
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1620
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1619
 
 ._crit_edge.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit.i, %20
   %.0.lcssa.i = phi i64 [ %.010, %20 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_SC_EEbSG_SF_.exit.i ]
@@ -70063,7 +69859,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iter
   %54 = getelementptr inbounds %"class.CGAL::Point_2", ptr %0, i64 %.019.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
   %55 = icmp sgt i64 %.0920.i.i, %.010
-  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_SG_SI_T2_.exit, !llvm.loop !1621
+  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_SG_SI_T2_.exit, !llvm.loop !1620
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_SG_SI_T2_.exit: ; preds = %49, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_S7_EEbSG_RSF_.exit.i.i, %53, %43
   %.0.lcssa.i.i = phi i64 [ %.1.i, %43 ], [ %.019.i.i, %49 ], [ %.0920.i.i, %53 ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4CGAL16ch_akl_toussaintINS_17__normal_iteratorIPNS2_7Point_2INS2_5EpickEEESt6vectorIS7_SaIS7_EEEESt20back_insert_iteratorISB_ES6_EET0_T_SG_SF_RKT1_EUlRKS7_SL_E0_EclISC_S7_EEbSG_RSF_.exit.i.i ]
@@ -70073,7 +69869,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEE
   store double %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.010, 0
   %57 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !1623
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !1622
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_16ch_akl_toussaintISA_St20back_insert_iteratorIS9_ES4_EET0_T_SH_SG_RKT1_EUlRKS5_SM_E0_EEEvSH_SG_SG_SI_T2_.exit, %3
   ret void
@@ -70379,44 +70175,44 @@ define internal void @_GLOBAL__sub_I_convex_hull.cpp() #36 section ".text.startu
   %5 = fadd double %4, 1.000000e+00
   store double %5, ptr @_ZN4COREL6relEpsE, align 8, !tbaa !57
   %6 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL6relEpsE)
-  store i64 0, ptr @_ZN4COREL12EXTLONG_ZEROE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_ZEROE, i64 8), align 8, !tbaa !1626
+  store i64 0, ptr @_ZN4COREL12EXTLONG_ZEROE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_ZEROE, i64 8), align 8, !tbaa !1625
   %7 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_ZEROE)
-  store i64 1, ptr @_ZN4COREL11EXTLONG_ONEE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_ONEE, i64 8), align 8, !tbaa !1626
+  store i64 1, ptr @_ZN4COREL11EXTLONG_ONEE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_ONEE, i64 8), align 8, !tbaa !1625
   %8 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_ONEE)
-  store i64 2, ptr @_ZN4COREL11EXTLONG_TWOE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_TWOE, i64 8), align 8, !tbaa !1626
+  store i64 2, ptr @_ZN4COREL11EXTLONG_TWOE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_TWOE, i64 8), align 8, !tbaa !1625
   %9 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_TWOE)
-  store i64 3, ptr @_ZN4COREL13EXTLONG_THREEE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_THREEE, i64 8), align 8, !tbaa !1626
+  store i64 3, ptr @_ZN4COREL13EXTLONG_THREEE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_THREEE, i64 8), align 8, !tbaa !1625
   %10 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_THREEE)
-  store i64 4, ptr @_ZN4COREL12EXTLONG_FOURE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FOURE, i64 8), align 8, !tbaa !1626
+  store i64 4, ptr @_ZN4COREL12EXTLONG_FOURE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FOURE, i64 8), align 8, !tbaa !1625
   %11 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_FOURE)
-  store i64 5, ptr @_ZN4COREL12EXTLONG_FIVEE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FIVEE, i64 8), align 8, !tbaa !1626
+  store i64 5, ptr @_ZN4COREL12EXTLONG_FIVEE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FIVEE, i64 8), align 8, !tbaa !1625
   %12 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_FIVEE)
-  store i64 6, ptr @_ZN4COREL11EXTLONG_SIXE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_SIXE, i64 8), align 8, !tbaa !1626
+  store i64 6, ptr @_ZN4COREL11EXTLONG_SIXE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_SIXE, i64 8), align 8, !tbaa !1625
   %13 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_SIXE)
-  store i64 7, ptr @_ZN4COREL13EXTLONG_SEVENE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SEVENE, i64 8), align 8, !tbaa !1626
+  store i64 7, ptr @_ZN4COREL13EXTLONG_SEVENE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SEVENE, i64 8), align 8, !tbaa !1625
   %14 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_SEVENE)
-  store i64 8, ptr @_ZN4COREL13EXTLONG_EIGHTE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_EIGHTE, i64 8), align 8, !tbaa !1626
+  store i64 8, ptr @_ZN4COREL13EXTLONG_EIGHTE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_EIGHTE, i64 8), align 8, !tbaa !1625
   %15 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_EIGHTE)
-  store i64 1073741824, ptr @_ZN4COREL11EXTLONG_BIGE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_BIGE, i64 8), align 8, !tbaa !1626
+  store i64 1073741824, ptr @_ZN4COREL11EXTLONG_BIGE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_BIGE, i64 8), align 8, !tbaa !1625
   %16 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_BIGE)
-  store i64 -1073741824, ptr @_ZN4COREL13EXTLONG_SMALLE, align 8, !tbaa !1624
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SMALLE, i64 8), align 8, !tbaa !1626
+  store i64 -1073741824, ptr @_ZN4COREL13EXTLONG_SMALLE, align 8, !tbaa !1623
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SMALLE, i64 8), align 8, !tbaa !1625
   %17 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_SMALLE)
   store double 0x4002934F0979A371, ptr @_ZN4COREL5log_5E, align 8, !tbaa !57
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL5log_5E)
   %19 = load i8, ptr @_ZGVZN4CGAL18get_default_randomEvE14default_random, align 8
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %__cxx_global_var_init.22.exit, !prof !1627
+  br i1 %20, label %21, label %__cxx_global_var_init.22.exit, !prof !1626
 
 21:                                               ; preds = %0
   tail call void @_ZN4CGAL6RandomC2Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4CGAL18get_default_randomEvE14default_random)
@@ -70425,7 +70221,7 @@ define internal void @_GLOBAL__sub_I_convex_hull.cpp() #36 section ".text.startu
 
 __cxx_global_var_init.22.exit:                    ; preds = %0, %21
   %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4CGAL18get_default_randomEvE14default_random)
-  store ptr %22, ptr @_ZN4CGAL12_GLOBAL__N_114default_randomE, align 8, !tbaa !1628
+  store ptr %22, ptr @_ZN4CGAL12_GLOBAL__N_114default_randomE, align 8, !tbaa !1627
   ret void
 }
 
@@ -71617,495 +71413,495 @@ attributes #47 = { nounwind willreturn memory(read) }
 !1098 = distinct !{!1098, !29}
 !1099 = distinct !{!1099, !29}
 !1100 = distinct !{!1100, !29}
-!1101 = distinct !{!1101, !29}
-!1102 = !{!1103, !98, i64 8}
-!1103 = !{!"_ZTSN5boost9container9exceptionE", !1104, i64 0, !98, i64 8}
-!1104 = !{!"_ZTSSt9exception"}
-!1105 = !{!1106, !1070, i64 0}
-!1106 = !{!"_ZTSN5boost9container12vec_iteratorIPSt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ELb0EEE", !1070, i64 0}
-!1107 = !{!227, !227, i64 0}
-!1108 = !{!1109, !222, i64 0}
-!1109 = !{!"_ZTSSt4pairIPN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS3_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISB_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEEmE", !222, i64 0, !8, i64 8}
-!1110 = !{!1109, !8, i64 8}
+!1101 = !{!1102, !98, i64 8}
+!1102 = !{!"_ZTSN5boost9container9exceptionE", !1103, i64 0, !98, i64 8}
+!1103 = !{!"_ZTSSt9exception"}
+!1104 = !{!1105, !1070, i64 0}
+!1105 = !{!"_ZTSN5boost9container12vec_iteratorIPSt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ELb0EEE", !1070, i64 0}
+!1106 = !{!227, !227, i64 0}
+!1107 = !{!1108, !222, i64 0}
+!1108 = !{!"_ZTSSt4pairIPN4CGAL23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS3_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISB_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEEmE", !222, i64 0, !8, i64 8}
+!1109 = !{!1108, !8, i64 8}
+!1110 = distinct !{!1110, !29}
 !1111 = distinct !{!1111, !29}
-!1112 = distinct !{!1112, !29}
-!1113 = !{!236, !237, i64 8}
-!1114 = !{!1115, !1117}
-!1115 = distinct !{!1115, !1116, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 0"}
-!1116 = distinct !{!1116, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_"}
-!1117 = distinct !{!1117, !1116, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 1"}
-!1118 = distinct !{!1118, !29}
-!1119 = !{!230, !8, i64 8}
-!1120 = !{!230, !232, i64 48}
-!1121 = distinct !{!1121, !29}
-!1122 = !{!230, !232, i64 40}
-!1123 = !{!226, !227, i64 8}
-!1124 = !{!1125, !1127}
-!1125 = distinct !{!1125, !1126, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 0"}
-!1126 = distinct !{!1126, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_"}
-!1127 = distinct !{!1127, !1126, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 1"}
-!1128 = distinct !{!1128, !29}
-!1129 = !{!220, !8, i64 8}
-!1130 = distinct !{!1130, !29}
-!1131 = !{!463, !461, i64 8}
-!1132 = !{!1133, !1135, !1137}
-!1133 = distinct !{!1133, !1134, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_: argument 0"}
-!1134 = distinct !{!1134, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_"}
-!1135 = distinct !{!1135, !1136, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_: argument 0"}
-!1136 = distinct !{!1136, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_"}
-!1137 = distinct !{!1137, !1138, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_: argument 0"}
-!1138 = distinct !{!1138, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_"}
-!1139 = !{!1140}
-!1140 = distinct !{!1140, !1141, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE: argument 0"}
-!1141 = distinct !{!1141, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE"}
-!1142 = !{!1143, !1145, !1147}
-!1143 = distinct !{!1143, !1144, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_: argument 0"}
-!1144 = distinct !{!1144, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_"}
-!1145 = distinct !{!1145, !1146, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_: argument 0"}
-!1146 = distinct !{!1146, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_"}
-!1147 = distinct !{!1147, !1148, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_: argument 0"}
-!1148 = distinct !{!1148, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_"}
-!1149 = !{!1150}
-!1150 = distinct !{!1150, !1151, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE: argument 0"}
-!1151 = distinct !{!1151, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE"}
-!1152 = !{!1153, !1155, !1157}
-!1153 = distinct !{!1153, !1154, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_: argument 0"}
-!1154 = distinct !{!1154, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_"}
-!1155 = distinct !{!1155, !1156, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_: argument 0"}
-!1156 = distinct !{!1156, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_"}
-!1157 = distinct !{!1157, !1158, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_: argument 0"}
-!1158 = distinct !{!1158, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_"}
-!1159 = !{!1160, !1162, !1164}
-!1160 = distinct !{!1160, !1161, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Vector_3IS5_EESA_: argument 0"}
-!1161 = distinct !{!1161, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Vector_3IS5_EESA_"}
-!1162 = distinct !{!1162, !1163, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKS7_S9_RKS6_: argument 0"}
-!1163 = distinct !{!1163, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKS7_S9_RKS6_"}
-!1164 = distinct !{!1164, !1165, !"_ZN4CGAL13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_8Vector_3IS5_EESA_: argument 0"}
-!1165 = distinct !{!1165, !"_ZN4CGAL13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_8Vector_3IS5_EESA_"}
-!1166 = !{!1167}
-!1167 = distinct !{!1167, !1168, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE: argument 0"}
-!1168 = distinct !{!1168, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE"}
-!1169 = !{!463, !476, i64 160}
-!1170 = !{!1171}
-!1171 = distinct !{!1171, !1172, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_: argument 0"}
-!1172 = distinct !{!1172, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_"}
-!1173 = !{!1174}
-!1174 = distinct !{!1174, !1175, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_: argument 0"}
-!1175 = distinct !{!1175, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_"}
-!1176 = !{!1177, !1179, !1181}
-!1177 = distinct !{!1177, !1178, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_: argument 0"}
-!1178 = distinct !{!1178, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_"}
-!1179 = distinct !{!1179, !1180, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEENT_8Vector_3ERKSI_SK_RKSH_: argument 0"}
-!1180 = distinct !{!1180, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEENT_8Vector_3ERKSI_SK_RKSH_"}
-!1181 = distinct !{!1181, !1182, !"_ZN4CGAL13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_8Vector_3ISG_EESL_: argument 0"}
-!1182 = distinct !{!1182, !"_ZN4CGAL13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_8Vector_3ISG_EESL_"}
-!1183 = !{!1184, !1184, i64 0}
-!1184 = !{!"p1 _ZTSN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEE", !15, i64 0}
-!1185 = !{!1186}
-!1186 = distinct !{!1186, !1187, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
-!1187 = distinct !{!1187, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
-!1188 = !{!1189}
-!1189 = distinct !{!1189, !1190, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
-!1190 = distinct !{!1190, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
-!1191 = !{!1192}
-!1192 = distinct !{!1192, !1193, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
-!1193 = distinct !{!1193, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!1112 = !{!236, !237, i64 8}
+!1113 = !{!1114, !1116}
+!1114 = distinct !{!1114, !1115, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 0"}
+!1115 = distinct !{!1115, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_"}
+!1116 = distinct !{!1116, !1115, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS5_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2INS1_30Triangulation_data_structure_2INS2_ISE_NSF_IvEEEENS1_23Convex_hull_face_base_2ISD_NS1_28Triangulation_ds_face_base_2IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 1"}
+!1117 = distinct !{!1117, !29}
+!1118 = !{!230, !8, i64 8}
+!1119 = !{!230, !232, i64 48}
+!1120 = distinct !{!1120, !29}
+!1121 = !{!230, !232, i64 40}
+!1122 = !{!226, !227, i64 8}
+!1123 = !{!1124, !1126}
+!1124 = distinct !{!1124, !1125, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 0"}
+!1125 = distinct !{!1125, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_"}
+!1126 = distinct !{!1126, !1125, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 1"}
+!1127 = distinct !{!1127, !29}
+!1128 = !{!220, !8, i64 8}
+!1129 = distinct !{!1129, !29}
+!1130 = !{!463, !461, i64 8}
+!1131 = !{!1132, !1134, !1136}
+!1132 = distinct !{!1132, !1133, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_: argument 0"}
+!1133 = distinct !{!1133, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_"}
+!1134 = distinct !{!1134, !1135, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_: argument 0"}
+!1135 = distinct !{!1135, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_"}
+!1136 = distinct !{!1136, !1137, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_: argument 0"}
+!1137 = distinct !{!1137, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_"}
+!1138 = !{!1139}
+!1139 = distinct !{!1139, !1140, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE: argument 0"}
+!1140 = distinct !{!1140, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE"}
+!1141 = !{!1142, !1144, !1146}
+!1142 = distinct !{!1142, !1143, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_: argument 0"}
+!1143 = distinct !{!1143, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_"}
+!1144 = distinct !{!1144, !1145, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_: argument 0"}
+!1145 = distinct !{!1145, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_"}
+!1146 = distinct !{!1146, !1147, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_: argument 0"}
+!1147 = distinct !{!1147, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_"}
+!1148 = !{!1149}
+!1149 = distinct !{!1149, !1150, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE: argument 0"}
+!1150 = distinct !{!1150, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE"}
+!1151 = !{!1152, !1154, !1156}
+!1152 = distinct !{!1152, !1153, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_: argument 0"}
+!1153 = distinct !{!1153, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_15Return_base_tagERKNS_7Point_3IS5_EESB_"}
+!1154 = distinct !{!1154, !1155, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_: argument 0"}
+!1155 = distinct !{!1155, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_"}
+!1156 = distinct !{!1156, !1157, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_: argument 0"}
+!1157 = distinct !{!1157, !"_ZN4CGALmiINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_7Point_3IS5_EESA_"}
+!1158 = !{!1159, !1161, !1163}
+!1159 = distinct !{!1159, !1160, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Vector_3IS5_EESA_: argument 0"}
+!1160 = distinct !{!1160, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Vector_3IS5_EESA_"}
+!1161 = distinct !{!1161, !1162, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKS7_S9_RKS6_: argument 0"}
+!1162 = distinct !{!1162, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKS7_S9_RKS6_"}
+!1163 = distinct !{!1163, !1164, !"_ZN4CGAL13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_8Vector_3IS5_EESA_: argument 0"}
+!1164 = distinct !{!1164, !"_ZN4CGAL13cross_productINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_8Vector_3ERKNS_8Vector_3IS5_EESA_"}
+!1165 = !{!1166}
+!1166 = distinct !{!1166, !1167, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE: argument 0"}
+!1167 = distinct !{!1167, !"_ZNK4CGAL19Cartesian_converterINS_5EpickENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS4_EEEclERKNS_7Point_3IS1_EE"}
+!1168 = !{!463, !476, i64 160}
+!1169 = !{!1170}
+!1170 = distinct !{!1170, !1171, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_: argument 0"}
+!1171 = distinct !{!1171, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_"}
+!1172 = !{!1173}
+!1173 = distinct !{!1173, !1174, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_: argument 0"}
+!1174 = distinct !{!1174, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_"}
+!1175 = !{!1176, !1178, !1180}
+!1176 = distinct !{!1176, !1177, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_: argument 0"}
+!1177 = distinct !{!1177, !"_ZNK4CGAL23CartesianKernelFunctors32Construct_cross_product_vector_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_"}
+!1178 = distinct !{!1178, !1179, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEENT_8Vector_3ERKSI_SK_RKSH_: argument 0"}
+!1179 = distinct !{!1179, !"_ZN4CGAL8internal13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEENT_8Vector_3ERKSI_SK_RKSH_"}
+!1180 = distinct !{!1180, !1181, !"_ZN4CGAL13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_8Vector_3ISG_EESL_: argument 0"}
+!1181 = distinct !{!1181, !"_ZN4CGAL13cross_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_8Vector_3ISG_EESL_"}
+!1182 = !{!1183, !1183, i64 0}
+!1183 = !{!"p1 _ZTSN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEE", !15, i64 0}
+!1184 = !{!1185}
+!1185 = distinct !{!1185, !1186, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
+!1186 = distinct !{!1186, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!1187 = !{!1188}
+!1188 = distinct !{!1188, !1189, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
+!1189 = distinct !{!1189, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!1190 = !{!1191}
+!1191 = distinct !{!1191, !1192, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
+!1192 = distinct !{!1192, !"_ZN5boost14multiprecisionmiINS0_6detail19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_5minusENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!1193 = distinct !{!1193, !29}
 !1194 = distinct !{!1194, !29}
-!1195 = distinct !{!1195, !29}
-!1196 = !{!1197}
-!1197 = distinct !{!1197, !1198, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_: argument 0"}
-!1198 = distinct !{!1198, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_"}
-!1199 = !{!1200, !1202}
-!1200 = distinct !{!1200, !1201, !"_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_: argument 0"}
-!1201 = distinct !{!1201, !"_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_"}
-!1202 = distinct !{!1202, !1203, !"_ZN4CGAL14scalar_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_2FTERKNS_8Vector_3ISG_EESL_: argument 0"}
-!1203 = distinct !{!1203, !"_ZN4CGAL14scalar_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_2FTERKNS_8Vector_3ISG_EESL_"}
-!1204 = !{!1205}
-!1205 = distinct !{!1205, !1206, !"_ZN5boost14multiprecisionplINS0_6detail4plusENS2_10expressionINS2_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESG_vvEESH_vvS5_SG_SG_vvEENS4_IS3_NS4_IT_T0_T1_T2_T3_EENS4_IT4_T5_T6_T7_T8_EEvvEERKSN_RKST_: argument 0"}
-!1206 = distinct !{!1206, !"_ZN5boost14multiprecisionplINS0_6detail4plusENS2_10expressionINS2_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESG_vvEESH_vvS5_SG_SG_vvEENS4_IS3_NS4_IT_T0_T1_T2_T3_EENS4_IT4_T5_T6_T7_T8_EEvvEERKSN_RKST_"}
-!1207 = !{!1208, !1210, i64 0}
-!1208 = !{!"_ZTSSt15_Rb_tree_header", !1209, i64 0, !8, i64 32}
-!1209 = !{!"_ZTSSt18_Rb_tree_node_base", !1210, i64 0, !1211, i64 8, !1211, i64 16, !1211, i64 24}
-!1210 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
-!1211 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !15, i64 0}
-!1212 = !{!1208, !1211, i64 8}
-!1213 = !{!1208, !1211, i64 16}
-!1214 = !{!1208, !1211, i64 24}
-!1215 = !{!1208, !8, i64 32}
-!1216 = !{!1217}
-!1217 = distinct !{!1217, !1218, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!1218 = distinct !{!1218, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!1219 = !{!1220}
-!1220 = distinct !{!1220, !1221, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!1221 = distinct !{!1221, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!1222 = !{!1223}
-!1223 = distinct !{!1223, !1224, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!1224 = distinct !{!1224, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!1225 = !{!1226}
-!1226 = distinct !{!1226, !1227, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!1227 = distinct !{!1227, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!1228 = !{!1229}
-!1229 = distinct !{!1229, !1230, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!1230 = distinct !{!1230, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!1195 = !{!1196}
+!1196 = distinct !{!1196, !1197, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_: argument 0"}
+!1197 = distinct !{!1197, !"_ZN4CGALmiINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_8Vector_3ERKNS_7Point_3ISG_EESL_"}
+!1198 = !{!1199, !1201}
+!1199 = distinct !{!1199, !1200, !"_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_: argument 0"}
+!1200 = distinct !{!1200, !"_ZNK4CGAL23CartesianKernelFunctors24Compute_scalar_product_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_8Vector_3ISG_EESL_"}
+!1201 = distinct !{!1201, !1202, !"_ZN4CGAL14scalar_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_2FTERKNS_8Vector_3ISG_EESL_: argument 0"}
+!1202 = distinct !{!1202, !"_ZN4CGAL14scalar_productINS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEENT_2FTERKNS_8Vector_3ISG_EESL_"}
+!1203 = !{!1204}
+!1204 = distinct !{!1204, !1205, !"_ZN5boost14multiprecisionplINS0_6detail4plusENS2_10expressionINS2_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESG_vvEESH_vvS5_SG_SG_vvEENS4_IS3_NS4_IT_T0_T1_T2_T3_EENS4_IT4_T5_T6_T7_T8_EEvvEERKSN_RKST_: argument 0"}
+!1205 = distinct !{!1205, !"_ZN5boost14multiprecisionplINS0_6detail4plusENS2_10expressionINS2_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESG_vvEESH_vvS5_SG_SG_vvEENS4_IS3_NS4_IT_T0_T1_T2_T3_EENS4_IT4_T5_T6_T7_T8_EEvvEERKSN_RKST_"}
+!1206 = !{!1207, !1209, i64 0}
+!1207 = !{!"_ZTSSt15_Rb_tree_header", !1208, i64 0, !8, i64 32}
+!1208 = !{!"_ZTSSt18_Rb_tree_node_base", !1209, i64 0, !1210, i64 8, !1210, i64 16, !1210, i64 24}
+!1209 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!1210 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !15, i64 0}
+!1211 = !{!1207, !1210, i64 8}
+!1212 = !{!1207, !1210, i64 16}
+!1213 = !{!1207, !1210, i64 24}
+!1214 = !{!1207, !8, i64 32}
+!1215 = !{!1216}
+!1216 = distinct !{!1216, !1217, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!1217 = distinct !{!1217, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!1218 = !{!1219}
+!1219 = distinct !{!1219, !1220, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!1220 = distinct !{!1220, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!1221 = !{!1222}
+!1222 = distinct !{!1222, !1223, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!1223 = distinct !{!1223, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!1224 = !{!1225}
+!1225 = distinct !{!1225, !1226, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!1226 = distinct !{!1226, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!1227 = !{!1228}
+!1228 = distinct !{!1228, !1229, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!1229 = distinct !{!1229, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!1230 = distinct !{!1230, !29}
 !1231 = distinct !{!1231, !29}
-!1232 = distinct !{!1232, !29}
-!1233 = !{!1234, !232, i64 0}
-!1234 = !{!"_ZTSN4CGAL8internal11CC_iteratorINS_17Compact_containerINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS3_ISF_NSG_IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESR_SR_EELb0EEE", !232, i64 0}
-!1235 = !{!1211, !1211, i64 0}
-!1236 = distinct !{!1236, !29}
-!1237 = !{!1238, !31, i64 8}
-!1238 = !{!"_ZTSSt4pairIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS6_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISE_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS4_ISE_NSF_IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEEiE", !243, i64 0, !31, i64 8}
-!1239 = !{!1240, !1242}
-!1240 = distinct !{!1240, !1241, !"_ZSt19__relocate_object_aISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_SaISW_EEvPT_PT0_RT1_: argument 0"}
-!1241 = distinct !{!1241, !"_ZSt19__relocate_object_aISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_SaISW_EEvPT_PT0_RT1_"}
-!1242 = distinct !{!1242, !1241, !"_ZSt19__relocate_object_aISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_SaISW_EEvPT_PT0_RT1_: argument 1"}
-!1243 = distinct !{!1243, !29}
-!1244 = !{!1245, !1247}
-!1245 = distinct !{!1245, !1246, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 0"}
-!1246 = distinct !{!1246, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_"}
-!1247 = distinct !{!1247, !1246, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 1"}
+!1232 = !{!1233, !232, i64 0}
+!1233 = !{!"_ZTSN4CGAL8internal11CC_iteratorINS_17Compact_containerINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2INS_30Triangulation_data_structure_2INS3_ISF_NSG_IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEENS_7DefaultESR_SR_EELb0EEE", !232, i64 0}
+!1234 = !{!1210, !1210, i64 0}
+!1235 = distinct !{!1235, !29}
+!1236 = !{!1237, !31, i64 8}
+!1237 = !{!"_ZTSSt4pairIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_23Convex_hull_face_base_2INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS6_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS0_28Triangulation_ds_face_base_2INS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3ISE_EENS0_30Triangulation_ds_vertex_base_2IvEEEENS4_ISE_NSF_IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEEiE", !243, i64 0, !31, i64 8}
+!1238 = !{!1239, !1241}
+!1239 = distinct !{!1239, !1240, !"_ZSt19__relocate_object_aISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_SaISW_EEvPT_PT0_RT1_: argument 0"}
+!1240 = distinct !{!1240, !"_ZSt19__relocate_object_aISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_SaISW_EEvPT_PT0_RT1_"}
+!1241 = distinct !{!1241, !1240, !"_ZSt19__relocate_object_aISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_SaISW_EEvPT_PT0_RT1_: argument 1"}
+!1242 = distinct !{!1242, !29}
+!1243 = !{!1244, !1246}
+!1244 = distinct !{!1244, !1245, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 0"}
+!1245 = distinct !{!1245, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_"}
+!1246 = distinct !{!1246, !1245, !"_ZSt19__relocate_object_aISt4pairIPN4CGAL23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS4_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISC_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS2_ISC_NSD_IvEEEEEEEEEEmESR_SaISR_EEvPT_PT0_RT1_: argument 1"}
+!1247 = distinct !{!1247, !29}
 !1248 = distinct !{!1248, !29}
 !1249 = distinct !{!1249, !29}
-!1250 = distinct !{!1250, !29}
-!1251 = !{!1252}
-!1252 = distinct !{!1252, !1253, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd: argument 0"}
-!1253 = distinct !{!1253, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd"}
-!1254 = !{!1255}
-!1255 = distinct !{!1255, !1256, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd: argument 0"}
-!1256 = distinct !{!1256, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd"}
-!1257 = !{!1258}
-!1258 = distinct !{!1258, !1259, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd: argument 0"}
-!1259 = distinct !{!1259, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd"}
-!1260 = !{!1261, !1184, i64 0}
-!1261 = !{!"_ZTSN5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvEE", !1184, i64 0, !1184, i64 8}
-!1262 = !{!1263}
-!1263 = distinct !{!1263, !1264, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!1264 = distinct !{!1264, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
-!1265 = !{!1261, !1184, i64 8}
-!1266 = !{!1267}
-!1267 = distinct !{!1267, !1268, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!1268 = distinct !{!1268, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
-!1269 = !{!1270}
-!1270 = distinct !{!1270, !1271, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!1271 = distinct !{!1271, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
-!1272 = !{!1273}
-!1273 = distinct !{!1273, !1274, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!1274 = distinct !{!1274, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
-!1275 = !{!1276}
-!1276 = distinct !{!1276, !1277, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv: argument 0"}
-!1277 = distinct !{!1277, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv"}
-!1278 = !{!1279}
-!1279 = distinct !{!1279, !1280, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv: argument 0"}
-!1280 = distinct !{!1280, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv"}
-!1281 = !{!1282}
-!1282 = distinct !{!1282, !1283, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv: argument 0"}
-!1283 = distinct !{!1283, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv"}
-!1284 = !{!1285}
-!1285 = distinct !{!1285, !1286, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv: argument 0"}
-!1286 = distinct !{!1286, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv"}
-!1287 = !{!1288}
-!1288 = distinct !{!1288, !1289, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv: argument 0"}
-!1289 = distinct !{!1289, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv"}
-!1290 = !{!1291}
-!1291 = distinct !{!1291, !1292, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv: argument 0"}
-!1292 = distinct !{!1292, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv"}
-!1293 = !{!1294}
-!1294 = distinct !{!1294, !1295, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv: argument 0"}
-!1295 = distinct !{!1295, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv"}
-!1296 = !{!1297}
-!1297 = distinct !{!1297, !1298, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!1298 = distinct !{!1298, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
-!1299 = !{!1300}
-!1300 = distinct !{!1300, !1301, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!1301 = distinct !{!1301, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
-!1302 = !{!1303}
-!1303 = distinct !{!1303, !1304, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv: argument 0"}
-!1304 = distinct !{!1304, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv"}
-!1305 = !{!1306}
-!1306 = distinct !{!1306, !1307, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv: argument 0"}
-!1307 = distinct !{!1307, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv"}
-!1308 = !{!1309}
-!1309 = distinct !{!1309, !1310, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!1310 = distinct !{!1310, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
-!1311 = !{!1312}
-!1312 = distinct !{!1312, !1313, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!1313 = distinct !{!1313, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
-!1314 = !{!1315}
-!1315 = distinct !{!1315, !1316, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!1316 = distinct !{!1316, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
-!1317 = !{!1318}
-!1318 = distinct !{!1318, !1319, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!1319 = distinct !{!1319, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
-!1320 = distinct !{!1320, !29}
-!1321 = !{!1322}
-!1322 = distinct !{!1322, !1323, !"_ZSt19__relocate_object_aIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESU_SaISU_EEvPT_PT0_RT1_: argument 0"}
-!1323 = distinct !{!1323, !"_ZSt19__relocate_object_aIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESU_SaISU_EEvPT_PT0_RT1_"}
-!1324 = !{!1325}
-!1325 = distinct !{!1325, !1323, !"_ZSt19__relocate_object_aIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESU_SaISU_EEvPT_PT0_RT1_: argument 1"}
+!1250 = !{!1251}
+!1251 = distinct !{!1251, !1252, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd: argument 0"}
+!1252 = distinct !{!1252, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd"}
+!1253 = !{!1254}
+!1254 = distinct !{!1254, !1255, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd: argument 0"}
+!1255 = distinct !{!1255, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd"}
+!1256 = !{!1257}
+!1257 = distinct !{!1257, !1258, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd: argument 0"}
+!1258 = distinct !{!1258, !"_ZNK4CGAL12NT_converterIdN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEclERKd"}
+!1259 = !{!1260, !1183, i64 0}
+!1260 = !{!"_ZTSN5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvEE", !1183, i64 0, !1183, i64 8}
+!1261 = !{!1262}
+!1262 = distinct !{!1262, !1263, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!1263 = distinct !{!1263, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
+!1264 = !{!1260, !1183, i64 8}
+!1265 = !{!1266}
+!1266 = distinct !{!1266, !1267, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!1267 = distinct !{!1267, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!1268 = !{!1269}
+!1269 = distinct !{!1269, !1270, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!1270 = distinct !{!1270, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!1271 = !{!1272}
+!1272 = distinct !{!1272, !1273, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!1273 = distinct !{!1273, !"_ZNK5boost14multiprecision6detail10expressionINS1_5minusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
+!1274 = !{!1275}
+!1275 = distinct !{!1275, !1276, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv: argument 0"}
+!1276 = distinct !{!1276, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv"}
+!1277 = !{!1278}
+!1278 = distinct !{!1278, !1279, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv: argument 0"}
+!1279 = distinct !{!1279, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv"}
+!1280 = !{!1281}
+!1281 = distinct !{!1281, !1282, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv: argument 0"}
+!1282 = distinct !{!1282, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv"}
+!1283 = !{!1284}
+!1284 = distinct !{!1284, !1285, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv: argument 0"}
+!1285 = distinct !{!1285, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv"}
+!1286 = !{!1287}
+!1287 = distinct !{!1287, !1288, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv: argument 0"}
+!1288 = distinct !{!1288, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv"}
+!1289 = !{!1290}
+!1290 = distinct !{!1290, !1291, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv: argument 0"}
+!1291 = distinct !{!1291, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE5rightEv"}
+!1292 = !{!1293}
+!1293 = distinct !{!1293, !1294, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv: argument 0"}
+!1294 = distinct !{!1294, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_IS3_NS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvEESG_vvE4leftEv"}
+!1295 = !{!1296}
+!1296 = distinct !{!1296, !1297, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!1297 = distinct !{!1297, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
+!1298 = !{!1299}
+!1299 = distinct !{!1299, !1300, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!1300 = distinct !{!1300, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!1301 = !{!1302}
+!1302 = distinct !{!1302, !1303, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv: argument 0"}
+!1303 = distinct !{!1303, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv"}
+!1304 = !{!1305}
+!1305 = distinct !{!1305, !1306, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv: argument 0"}
+!1306 = distinct !{!1306, !"_ZNK5boost14multiprecision6detail10expressionINS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv"}
+!1307 = !{!1308}
+!1308 = distinct !{!1308, !1309, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!1309 = distinct !{!1309, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
+!1310 = !{!1311}
+!1311 = distinct !{!1311, !1312, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!1312 = distinct !{!1312, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!1313 = !{!1314}
+!1314 = distinct !{!1314, !1315, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!1315 = distinct !{!1315, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!1316 = !{!1317}
+!1317 = distinct !{!1317, !1318, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!1318 = distinct !{!1318, !"_ZNK5boost14multiprecision6detail10expressionINS1_4plusENS2_INS1_19multiply_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
+!1319 = distinct !{!1319, !29}
+!1320 = !{!1321}
+!1321 = distinct !{!1321, !1322, !"_ZSt19__relocate_object_aIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESU_SaISU_EEvPT_PT0_RT1_: argument 0"}
+!1322 = distinct !{!1322, !"_ZSt19__relocate_object_aIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESU_SaISU_EEvPT_PT0_RT1_"}
+!1323 = !{!1324}
+!1324 = distinct !{!1324, !1322, !"_ZSt19__relocate_object_aIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2INS0_30Triangulation_data_structure_2INS4_ISG_NSH_IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEEENS0_7DefaultESS_SS_EELb0EEESU_SaISU_EEvPT_PT0_RT1_: argument 1"}
+!1325 = distinct !{!1325, !29}
 !1326 = distinct !{!1326, !29}
 !1327 = distinct !{!1327, !29}
 !1328 = distinct !{!1328, !29}
 !1329 = distinct !{!1329, !29}
 !1330 = distinct !{!1330, !29}
 !1331 = distinct !{!1331, !29}
-!1332 = distinct !{!1332, !29}
-!1333 = !{!1209, !1211, i64 24}
-!1334 = distinct !{!1334, !29}
-!1335 = !{!1209, !1211, i64 16}
-!1336 = distinct !{!1336, !29}
-!1337 = !{!1338}
-!1338 = distinct !{!1338, !1339, !"_ZN4CGAL3getINS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISR_NS_28Triangulation_ds_face_base_2IvEEEEEEEEN5boost12property_mapIT0_NS_27dynamic_halfedge_property_tIT_EEvE10const_typeERKS16_RKS13_RKS15_: argument 0"}
-!1339 = distinct !{!1339, !"_ZN4CGAL3getINS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISR_NS_28Triangulation_ds_face_base_2IvEEEEEEEEN5boost12property_mapIT0_NS_27dynamic_halfedge_property_tIT_EEvE10const_typeERKS16_RKS13_RKS15_"}
-!1340 = !{!1341, !1342, i64 0}
-!1341 = !{!"_ZTSSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE", !1342, i64 0, !8, i64 8, !1344, i64 16, !8, i64 24, !1346, i64 32, !1345, i64 48}
-!1342 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !1343, i64 0}
-!1343 = !{!"any p2 pointer", !15, i64 0}
-!1344 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !1345, i64 0}
-!1345 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !15, i64 0}
-!1346 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !1347, i64 0, !8, i64 8}
-!1347 = !{!"float", !6, i64 0}
-!1348 = !{!1341, !8, i64 8}
-!1349 = !{!1346, !1347, i64 0}
-!1350 = !{!1351, !1352, i64 0}
-!1351 = !{!"_ZTSSt12__shared_ptrISt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEENS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS11_EEESt4hashISQ_ESt8equal_toISQ_ESaISt4pairIKSQ_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1352, i64 0, !1353, i64 8}
-!1352 = !{!"p1 _ZTSSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE", !15, i64 0}
-!1353 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !1354, i64 0}
-!1354 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0}
-!1355 = !{!1353, !1354, i64 0}
-!1356 = !{!1357, !31, i64 8}
-!1357 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !31, i64 8, !31, i64 12}
-!1358 = !{!1357, !31, i64 12}
-!1359 = !{!1360, !1352, i64 16}
-!1360 = !{!"_ZTSSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEENS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS11_EEESt4hashISQ_ESt8equal_toISQ_ESaISt4pairIKSQ_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1357, i64 0, !1352, i64 16}
+!1332 = !{!1208, !1210, i64 24}
+!1333 = distinct !{!1333, !29}
+!1334 = !{!1208, !1210, i64 16}
+!1335 = distinct !{!1335, !29}
+!1336 = !{!1337}
+!1337 = distinct !{!1337, !1338, !"_ZN4CGAL3getINS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISR_NS_28Triangulation_ds_face_base_2IvEEEEEEEEN5boost12property_mapIT0_NS_27dynamic_halfedge_property_tIT_EEvE10const_typeERKS16_RKS13_RKS15_: argument 0"}
+!1338 = distinct !{!1338, !"_ZN4CGAL3getINS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_24HalfedgeDS_halfedge_baseINS_21HalfedgeDS_list_typesINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS7_NS_12Polyhedron_3IS7_S9_NS_18HalfedgeDS_defaultESB_EESE_EEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISR_NS_28Triangulation_ds_face_base_2IvEEEEEEEEN5boost12property_mapIT0_NS_27dynamic_halfedge_property_tIT_EEvE10const_typeERKS16_RKS13_RKS15_"}
+!1339 = !{!1340, !1341, i64 0}
+!1340 = !{!"_ZTSSt10_HashtableIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4pairIKSP_NS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS12_EEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISP_ESt4hashISP_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE", !1341, i64 0, !8, i64 8, !1343, i64 16, !8, i64 24, !1345, i64 32, !1344, i64 48}
+!1341 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !1342, i64 0}
+!1342 = !{!"any p2 pointer", !15, i64 0}
+!1343 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !1344, i64 0}
+!1344 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !15, i64 0}
+!1345 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !1346, i64 0, !8, i64 8}
+!1346 = !{!"float", !6, i64 0}
+!1347 = !{!1340, !8, i64 8}
+!1348 = !{!1345, !1346, i64 0}
+!1349 = !{!1350, !1351, i64 0}
+!1350 = !{!"_ZTSSt12__shared_ptrISt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEENS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS11_EEESt4hashISQ_ESt8equal_toISQ_ESaISt4pairIKSQ_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1351, i64 0, !1352, i64 8}
+!1351 = !{!"p1 _ZTSSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEENS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesIS7_NS0_28I_Polyhedron_derived_items_3IS9_EESB_EESE_SE_SE_EEEEEESaIS10_EEESt4hashISP_ESt8equal_toISP_ESaISt4pairIKSP_S12_EEE", !15, i64 0}
+!1352 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !1353, i64 0}
+!1353 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0}
+!1354 = !{!1352, !1353, i64 0}
+!1355 = !{!1356, !31, i64 8}
+!1356 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !31, i64 8, !31, i64 12}
+!1357 = !{!1356, !31, i64 12}
+!1358 = !{!1359, !1351, i64 16}
+!1359 = !{!"_ZTSSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS8_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2ISG_NS1_28Triangulation_ds_face_base_2IvEEEEEEEENS2_22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesIS8_NS1_28I_Polyhedron_derived_items_3ISA_EESC_EESF_SF_SF_EEEEEESaIS11_EEESt4hashISQ_ESt8equal_toISQ_ESaISt4pairIKSQ_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1356, i64 0, !1351, i64 16}
+!1360 = distinct !{!1360, !29}
 !1361 = distinct !{!1361, !29}
-!1362 = distinct !{!1362, !29}
-!1363 = !{!1364, !1366}
-!1364 = distinct !{!1364, !1365, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv: argument 0"}
-!1365 = distinct !{!1365, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv"}
-!1366 = distinct !{!1366, !1367, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_: argument 0"}
-!1367 = distinct !{!1367, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_"}
-!1368 = !{!1366}
-!1369 = distinct !{!1369, !29}
-!1370 = !{!1371}
-!1371 = distinct !{!1371, !1372, !"_ZSt19__relocate_object_aIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESL_SaISL_EEvPT_PT0_RT1_: argument 0"}
-!1372 = distinct !{!1372, !"_ZSt19__relocate_object_aIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESL_SaISL_EEvPT_PT0_RT1_"}
-!1373 = !{!1374}
-!1374 = distinct !{!1374, !1372, !"_ZSt19__relocate_object_aIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESL_SaISL_EEvPT_PT0_RT1_: argument 1"}
-!1375 = distinct !{!1375, !29}
-!1376 = !{!1377}
-!1377 = distinct !{!1377, !1378, !"_ZN4CGAL8oppositeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
-!1378 = distinct !{!1378, !"_ZN4CGAL8oppositeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
-!1379 = !{!1345, !1345, i64 0}
-!1380 = !{!1344, !1345, i64 0}
-!1381 = !{!1382, !8, i64 0}
-!1382 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !8, i64 0}
-!1383 = distinct !{!1383, !29}
-!1384 = !{!1385}
-!1385 = distinct !{!1385, !1386, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
-!1386 = distinct !{!1386, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
-!1387 = !{!1388}
-!1388 = distinct !{!1388, !1386, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
+!1362 = !{!1363, !1365}
+!1363 = distinct !{!1363, !1364, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv: argument 0"}
+!1364 = distinct !{!1364, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv"}
+!1365 = distinct !{!1365, !1366, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_: argument 0"}
+!1366 = distinct !{!1366, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_"}
+!1367 = !{!1365}
+!1368 = distinct !{!1368, !29}
+!1369 = !{!1370}
+!1370 = distinct !{!1370, !1371, !"_ZSt19__relocate_object_aIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESL_SaISL_EEvPT_PT0_RT1_: argument 0"}
+!1371 = distinct !{!1371, !"_ZSt19__relocate_object_aIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESL_SaISL_EEvPT_PT0_RT1_"}
+!1372 = !{!1373}
+!1373 = distinct !{!1373, !1371, !"_ZSt19__relocate_object_aIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEEEESL_SaISL_EEvPT_PT0_RT1_: argument 1"}
+!1374 = distinct !{!1374, !29}
+!1375 = !{!1376}
+!1376 = distinct !{!1376, !1377, !"_ZN4CGAL8oppositeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
+!1377 = distinct !{!1377, !"_ZN4CGAL8oppositeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
+!1378 = !{!1344, !1344, i64 0}
+!1379 = !{!1343, !1344, i64 0}
+!1380 = !{!1381, !8, i64 0}
+!1381 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !8, i64 0}
+!1382 = distinct !{!1382, !29}
+!1383 = !{!1384}
+!1384 = distinct !{!1384, !1385, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
+!1385 = distinct !{!1385, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
+!1386 = !{!1387}
+!1387 = distinct !{!1387, !1385, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
+!1388 = distinct !{!1388, !29}
 !1389 = distinct !{!1389, !29}
-!1390 = distinct !{!1390, !29}
-!1391 = !{!1392}
-!1392 = distinct !{!1392, !1393, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
-!1393 = distinct !{!1393, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
-!1394 = !{!1395}
-!1395 = distinct !{!1395, !1393, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
-!1396 = !{!1397}
-!1397 = distinct !{!1397, !1398, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_: argument 0"}
-!1398 = distinct !{!1398, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_"}
-!1399 = !{!1400}
-!1400 = distinct !{!1400, !1401, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
-!1401 = distinct !{!1401, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
-!1402 = !{!1403}
-!1403 = distinct !{!1403, !1401, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
-!1404 = !{!1405}
-!1405 = distinct !{!1405, !1406, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_: argument 0"}
-!1406 = distinct !{!1406, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_"}
-!1407 = !{!1408}
-!1408 = distinct !{!1408, !1409, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
-!1409 = distinct !{!1409, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
-!1410 = !{!1411}
-!1411 = distinct !{!1411, !1409, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
-!1412 = distinct !{!1412, !29}
-!1413 = !{!1414}
-!1414 = distinct !{!1414, !1415, !"_ZN4CGAL4prevINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
-!1415 = distinct !{!1415, !"_ZN4CGAL4prevINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
-!1416 = !{!1341, !8, i64 24}
-!1417 = distinct !{!1417, !29}
-!1418 = !{!1419}
-!1419 = distinct !{!1419, !1420, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
-!1420 = distinct !{!1420, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
-!1421 = !{!1422}
-!1422 = distinct !{!1422, !1423, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
-!1423 = distinct !{!1423, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
-!1424 = !{!1425}
-!1425 = distinct !{!1425, !1426, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
-!1426 = distinct !{!1426, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
+!1390 = !{!1391}
+!1391 = distinct !{!1391, !1392, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
+!1392 = distinct !{!1392, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
+!1393 = !{!1394}
+!1394 = distinct !{!1394, !1392, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
+!1395 = !{!1396}
+!1396 = distinct !{!1396, !1397, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_: argument 0"}
+!1397 = distinct !{!1397, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_"}
+!1398 = !{!1399}
+!1399 = distinct !{!1399, !1400, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
+!1400 = distinct !{!1400, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
+!1401 = !{!1402}
+!1402 = distinct !{!1402, !1400, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
+!1403 = !{!1404}
+!1404 = distinct !{!1404, !1405, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_: argument 0"}
+!1405 = distinct !{!1405, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_"}
+!1406 = !{!1407}
+!1407 = distinct !{!1407, !1408, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 0"}
+!1408 = distinct !{!1408, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_"}
+!1409 = !{!1410}
+!1410 = distinct !{!1410, !1408, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESJ_SaISJ_EEvPT_PT0_RT1_: argument 1"}
+!1411 = distinct !{!1411, !29}
+!1412 = !{!1413}
+!1413 = distinct !{!1413, !1414, !"_ZN4CGAL4prevINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
+!1414 = distinct !{!1414, !"_ZN4CGAL4prevINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
+!1415 = !{!1340, !8, i64 24}
+!1416 = distinct !{!1416, !29}
+!1417 = !{!1418}
+!1418 = distinct !{!1418, !1419, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
+!1419 = distinct !{!1419, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
+!1420 = !{!1421}
+!1421 = distinct !{!1421, !1422, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
+!1422 = distinct !{!1422, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
+!1423 = !{!1424}
+!1424 = distinct !{!1424, !1425, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_: argument 0"}
+!1425 = distinct !{!1425, !"_ZN4CGAL4nextINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorESS_RKSQ_"}
+!1426 = distinct !{!1426, !29}
 !1427 = distinct !{!1427, !29}
-!1428 = distinct !{!1428, !29}
-!1429 = !{!1430}
-!1430 = distinct !{!1430, !1431, !"_ZN4CGAL3getINS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiENS_27dynamic_halfedge_property_tINS_8internal24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS1_NS_12Polyhedron_3IS1_S2_S3_S4_EESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISG_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEEEN5boost12property_mapINSC_IT_T0_T1_T2_EET3_vE4typeESZ_RSY_: argument 0"}
-!1431 = distinct !{!1431, !"_ZN4CGAL3getINS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiENS_27dynamic_halfedge_property_tINS_8internal24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS1_NS_12Polyhedron_3IS1_S2_S3_S4_EESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISG_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEEEN5boost12property_mapINSC_IT_T0_T1_T2_EET3_vE4typeESZ_RSY_"}
-!1432 = !{!1433, !1342, i64 0}
-!1433 = !{!"_ZTSSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE", !1342, i64 0, !8, i64 8, !1344, i64 16, !8, i64 24, !1346, i64 32, !1345, i64 48}
-!1434 = !{!1433, !8, i64 8}
-!1435 = !{!1436, !1437, i64 0}
-!1436 = !{!"_ZTSSt12__shared_ptrISt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEENS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2IST_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1437, i64 0, !1353, i64 8}
-!1437 = !{!"p1 _ZTSSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEE", !15, i64 0}
-!1438 = !{!1439, !1441}
-!1439 = distinct !{!1439, !1440, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv: argument 0"}
-!1440 = distinct !{!1440, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv"}
-!1441 = distinct !{!1441, !1442, !"_ZN4CGAL9halfedgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE17halfedge_iteratorEEERKSR_: argument 0"}
-!1442 = distinct !{!1442, !"_ZN4CGAL9halfedgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE17halfedge_iteratorEEERKSR_"}
-!1443 = !{!1441}
-!1444 = distinct !{!1444, !29}
-!1445 = !{!1433, !8, i64 24}
+!1428 = !{!1429}
+!1429 = distinct !{!1429, !1430, !"_ZN4CGAL3getINS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiENS_27dynamic_halfedge_property_tINS_8internal24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS1_NS_12Polyhedron_3IS1_S2_S3_S4_EESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISG_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEEEN5boost12property_mapINSC_IT_T0_T1_T2_EET3_vE4typeESZ_RSY_: argument 0"}
+!1430 = distinct !{!1430, !"_ZN4CGAL3getINS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiENS_27dynamic_halfedge_property_tINS_8internal24TDS2_halfedge_descriptorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3IS1_NS_12Polyhedron_3IS1_S2_S3_S4_EESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISG_NS_28Triangulation_ds_face_base_2IvEEEEEEEEEEEEN5boost12property_mapINSC_IT_T0_T1_T2_EET3_vE4typeESZ_RSY_"}
+!1431 = !{!1432, !1341, i64 0}
+!1432 = !{!"_ZTSSt10_HashtableIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESt4pairIKSJ_NS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISU_NS0_28Triangulation_ds_face_base_2IvEEEEEEEEESaIS15_ENSt8__detail10_Select1stESt8equal_toISJ_ESt4hashISJ_ENS17_18_Mod_range_hashingENS17_20_Default_ranged_hashENS17_20_Prime_rehash_policyENS17_17_Hashtable_traitsILb1ELb0ELb1EEEE", !1341, i64 0, !8, i64 8, !1343, i64 16, !8, i64 24, !1345, i64 32, !1344, i64 48}
+!1433 = !{!1432, !8, i64 8}
+!1434 = !{!1435, !1436, i64 0}
+!1435 = !{!"_ZTSSt12__shared_ptrISt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEENS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2IST_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1436, i64 0, !1352, i64 8}
+!1436 = !{!"p1 _ZTSSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEENS1_24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3IS7_NS0_12Polyhedron_3IS7_S9_NS0_18HalfedgeDS_defaultESB_EESE_EEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISS_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISJ_ESt8equal_toISJ_ESaISt4pairIKSJ_S12_EEE", !15, i64 0}
+!1437 = !{!1438, !1440}
+!1438 = distinct !{!1438, !1439, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv: argument 0"}
+!1439 = distinct !{!1439, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv"}
+!1440 = distinct !{!1440, !1441, !"_ZN4CGAL9halfedgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE17halfedge_iteratorEEERKSR_: argument 0"}
+!1441 = distinct !{!1441, !"_ZN4CGAL9halfedgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE17halfedge_iteratorEEERKSR_"}
+!1442 = !{!1440}
+!1443 = distinct !{!1443, !29}
+!1444 = !{!1432, !8, i64 24}
+!1445 = distinct !{!1445, !29}
 !1446 = distinct !{!1446, !29}
-!1447 = distinct !{!1447, !29}
-!1448 = !{!1449}
-!1449 = distinct !{!1449, !1450, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_: argument 0"}
-!1450 = distinct !{!1450, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_"}
+!1447 = !{!1448}
+!1448 = distinct !{!1448, !1449, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_: argument 0"}
+!1449 = distinct !{!1449, !"_ZN4CGAL8halfedgeINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEEN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE19halfedge_descriptorENSR_17vertex_descriptorERKSQ_"}
+!1450 = distinct !{!1450, !29}
 !1451 = distinct !{!1451, !29}
-!1452 = distinct !{!1452, !29}
-!1453 = !{!1454, !1456}
-!1454 = distinct !{!1454, !1455, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv: argument 0"}
-!1455 = distinct !{!1455, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv"}
-!1456 = distinct !{!1456, !1457, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_: argument 0"}
-!1457 = distinct !{!1457, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_"}
-!1458 = !{!1456}
-!1459 = distinct !{!1459, !29}
-!1460 = !{!1341, !1345, i64 16}
-!1461 = distinct !{!1461, !29}
-!1462 = !{!1346, !8, i64 8}
-!1463 = !{!1341, !1345, i64 48}
-!1464 = distinct !{!1464, !29}
-!1465 = !{!1466, !1437, i64 16}
-!1466 = !{!"_ZTSSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEENS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2IST_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1357, i64 0, !1437, i64 16}
-!1467 = !{!1433, !1345, i64 16}
-!1468 = distinct !{!1468, !29}
-!1469 = !{!1433, !1345, i64 48}
-!1470 = distinct !{!1470, !29}
-!1471 = !{!1472}
-!1472 = distinct !{!1472, !1473, !"_ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag: argument 0"}
-!1473 = distinct !{!1473, !"_ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag"}
-!1474 = distinct !{!1474, !29}
-!1475 = !{!72, !72, i64 0}
+!1452 = !{!1453, !1455}
+!1453 = distinct !{!1453, !1454, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv: argument 0"}
+!1454 = distinct !{!1454, !"_ZNK4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE11edges_beginEv"}
+!1455 = distinct !{!1455, !1456, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_: argument 0"}
+!1456 = distinct !{!1456, !"_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_"}
+!1457 = !{!1455}
+!1458 = distinct !{!1458, !29}
+!1459 = !{!1340, !1344, i64 16}
+!1460 = distinct !{!1460, !29}
+!1461 = !{!1345, !8, i64 8}
+!1462 = !{!1340, !1344, i64 48}
+!1463 = distinct !{!1463, !29}
+!1464 = !{!1465, !1436, i64 16}
+!1465 = !{!"_ZTSSt15_Sp_counted_ptrIPSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS1_33HalfedgeDS_in_place_list_halfedgeINS1_21I_Polyhedron_halfedgeINS1_24HalfedgeDS_halfedge_baseINS1_21HalfedgeDS_list_typesINS1_5EpickENS1_28I_Polyhedron_derived_items_3INS1_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESF_SF_EEEEEESaISI_EEENS2_24TDS2_halfedge_descriptorINS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20Convex_hull_traits_3IS8_NS1_12Polyhedron_3IS8_SA_NS1_18HalfedgeDS_defaultESC_EESF_EEEENS1_30Triangulation_ds_vertex_base_2IvEEEENS1_23Convex_hull_face_base_2IST_NS1_28Triangulation_ds_face_base_2IvEEEEEEEESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_S13_EEELN9__gnu_cxx12_Lock_policyE2EE", !1356, i64 0, !1436, i64 16}
+!1466 = !{!1432, !1344, i64 16}
+!1467 = distinct !{!1467, !29}
+!1468 = !{!1432, !1344, i64 48}
+!1469 = distinct !{!1469, !29}
+!1470 = !{!1471}
+!1471 = distinct !{!1471, !1472, !"_ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag: argument 0"}
+!1472 = distinct !{!1472, !"_ZN4CGAL8internal24ch_nswe_point_with_orderIN9__gnu_cxx17__normal_iteratorIPNS_7Point_2INS_5EpickEEESt6vectorIS6_SaIS6_EEEES5_EESt5tupleIJT_SD_SD_SD_EESD_SD_RSD_SF_SF_SF_RKT0_St26random_access_iterator_tag"}
+!1473 = distinct !{!1473, !29}
+!1474 = !{!72, !72, i64 0}
+!1475 = distinct !{!1475, !29}
 !1476 = distinct !{!1476, !29}
-!1477 = distinct !{!1477, !29}
-!1478 = !{!1479, !1472}
-!1479 = distinct !{!1479, !1480, !"_ZSt10make_tupleIJRN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_SB_SB_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSF_: argument 0"}
-!1480 = distinct !{!1480, !"_ZSt10make_tupleIJRN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_SB_SB_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSF_"}
-!1481 = !{!1482, !1484}
-!1482 = distinct !{!1482, !1483, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1483 = distinct !{!1483, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1484 = distinct !{!1484, !1483, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1485 = distinct !{!1485, !29}
-!1486 = !{!1487, !1489}
-!1487 = distinct !{!1487, !1488, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1488 = distinct !{!1488, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1489 = distinct !{!1489, !1488, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1490 = !{!1491, !1493}
-!1491 = distinct !{!1491, !1492, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1492 = distinct !{!1492, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1493 = distinct !{!1493, !1492, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1494 = !{!1495, !1497}
-!1495 = distinct !{!1495, !1496, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1496 = distinct !{!1496, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1497 = distinct !{!1497, !1496, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1498 = !{!1499, !1501}
-!1499 = distinct !{!1499, !1500, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1500 = distinct !{!1500, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1501 = distinct !{!1501, !1500, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1502 = !{!1503, !1505}
-!1503 = distinct !{!1503, !1504, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1504 = distinct !{!1504, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1505 = distinct !{!1505, !1504, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1506 = !{!1507, !1509}
-!1507 = distinct !{!1507, !1508, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1508 = distinct !{!1508, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1509 = distinct !{!1509, !1508, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1510 = distinct !{!1510, !29}
-!1511 = !{!1512, !1514}
-!1512 = distinct !{!1512, !1513, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1513 = distinct !{!1513, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1514 = distinct !{!1514, !1513, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1515 = !{!1516, !1518}
-!1516 = distinct !{!1516, !1517, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1517 = distinct !{!1517, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1518 = distinct !{!1518, !1517, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1519 = !{!1520, !1522}
-!1520 = distinct !{!1520, !1521, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1521 = distinct !{!1521, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1522 = distinct !{!1522, !1521, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1523 = distinct !{!1523, !29}
-!1524 = !{!1525, !1527}
-!1525 = distinct !{!1525, !1526, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1526 = distinct !{!1526, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1527 = distinct !{!1527, !1526, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1528 = !{!1529, !1531}
-!1529 = distinct !{!1529, !1530, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1530 = distinct !{!1530, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1531 = distinct !{!1531, !1530, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1532 = !{!1533, !1535}
-!1533 = distinct !{!1533, !1534, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1534 = distinct !{!1534, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1535 = distinct !{!1535, !1534, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1536 = distinct !{!1536, !29}
-!1537 = !{!1538, !1540}
-!1538 = distinct !{!1538, !1539, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1539 = distinct !{!1539, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1540 = distinct !{!1540, !1539, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1541 = !{!1542, !1544}
-!1542 = distinct !{!1542, !1543, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1543 = distinct !{!1543, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1544 = distinct !{!1544, !1543, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1545 = !{!1546, !1548}
-!1546 = distinct !{!1546, !1547, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1547 = distinct !{!1547, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1548 = distinct !{!1548, !1547, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1549 = !{!1550, !1552}
-!1550 = distinct !{!1550, !1551, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1551 = distinct !{!1551, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1552 = distinct !{!1552, !1551, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!1553 = distinct !{!1553, !29}
-!1554 = !{!1555}
-!1555 = distinct !{!1555, !1556, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
-!1556 = distinct !{!1556, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_"}
-!1557 = !{!1558}
-!1558 = distinct !{!1558, !1556, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 1"}
-!1559 = distinct !{!1559, !29}
-!1560 = !{!1561, !1563}
-!1561 = distinct !{!1561, !1562, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
-!1562 = distinct !{!1562, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_"}
-!1563 = distinct !{!1563, !1562, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 1"}
-!1564 = !{!1565}
-!1565 = distinct !{!1565, !1566, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE: argument 0"}
-!1566 = distinct !{!1566, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE"}
-!1567 = !{!1568}
-!1568 = distinct !{!1568, !1569, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE: argument 0"}
-!1569 = distinct !{!1569, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE"}
-!1570 = !{!1571}
-!1571 = distinct !{!1571, !1572, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE: argument 0"}
-!1572 = distinct !{!1572, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE"}
-!1573 = distinct !{!1573, !29}
-!1574 = !{!1575}
-!1575 = distinct !{!1575, !1576, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
-!1576 = distinct !{!1576, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_"}
-!1577 = !{!1578}
-!1578 = distinct !{!1578, !1576, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 1"}
+!1477 = !{!1478, !1471}
+!1478 = distinct !{!1478, !1479, !"_ZSt10make_tupleIJRN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_SB_SB_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSF_: argument 0"}
+!1479 = distinct !{!1479, !"_ZSt10make_tupleIJRN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESB_SB_SB_EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSF_"}
+!1480 = !{!1481, !1483}
+!1481 = distinct !{!1481, !1482, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1482 = distinct !{!1482, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1483 = distinct !{!1483, !1482, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1484 = distinct !{!1484, !29}
+!1485 = !{!1486, !1488}
+!1486 = distinct !{!1486, !1487, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1487 = distinct !{!1487, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1488 = distinct !{!1488, !1487, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1489 = !{!1490, !1492}
+!1490 = distinct !{!1490, !1491, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1491 = distinct !{!1491, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1492 = distinct !{!1492, !1491, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1493 = !{!1494, !1496}
+!1494 = distinct !{!1494, !1495, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1495 = distinct !{!1495, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1496 = distinct !{!1496, !1495, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1497 = !{!1498, !1500}
+!1498 = distinct !{!1498, !1499, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1499 = distinct !{!1499, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1500 = distinct !{!1500, !1499, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1501 = !{!1502, !1504}
+!1502 = distinct !{!1502, !1503, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1503 = distinct !{!1503, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1504 = distinct !{!1504, !1503, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1505 = !{!1506, !1508}
+!1506 = distinct !{!1506, !1507, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1507 = distinct !{!1507, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1508 = distinct !{!1508, !1507, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1509 = distinct !{!1509, !29}
+!1510 = !{!1511, !1513}
+!1511 = distinct !{!1511, !1512, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1512 = distinct !{!1512, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1513 = distinct !{!1513, !1512, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1514 = !{!1515, !1517}
+!1515 = distinct !{!1515, !1516, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1516 = distinct !{!1516, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1517 = distinct !{!1517, !1516, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1518 = !{!1519, !1521}
+!1519 = distinct !{!1519, !1520, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1520 = distinct !{!1520, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1521 = distinct !{!1521, !1520, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1522 = distinct !{!1522, !29}
+!1523 = !{!1524, !1526}
+!1524 = distinct !{!1524, !1525, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1525 = distinct !{!1525, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1526 = distinct !{!1526, !1525, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1527 = !{!1528, !1530}
+!1528 = distinct !{!1528, !1529, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1529 = distinct !{!1529, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1530 = distinct !{!1530, !1529, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1531 = !{!1532, !1534}
+!1532 = distinct !{!1532, !1533, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1533 = distinct !{!1533, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1534 = distinct !{!1534, !1533, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1535 = distinct !{!1535, !29}
+!1536 = !{!1537, !1539}
+!1537 = distinct !{!1537, !1538, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1538 = distinct !{!1538, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1539 = distinct !{!1539, !1538, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1540 = !{!1541, !1543}
+!1541 = distinct !{!1541, !1542, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1542 = distinct !{!1542, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1543 = distinct !{!1543, !1542, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1544 = !{!1545, !1547}
+!1545 = distinct !{!1545, !1546, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1546 = distinct !{!1546, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1547 = distinct !{!1547, !1546, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1548 = !{!1549, !1551}
+!1549 = distinct !{!1549, !1550, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1550 = distinct !{!1550, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1551 = distinct !{!1551, !1550, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1552 = distinct !{!1552, !29}
+!1553 = !{!1554}
+!1554 = distinct !{!1554, !1555, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
+!1555 = distinct !{!1555, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_"}
+!1556 = !{!1557}
+!1557 = distinct !{!1557, !1555, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 1"}
+!1558 = distinct !{!1558, !29}
+!1559 = !{!1560, !1562}
+!1560 = distinct !{!1560, !1561, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
+!1561 = distinct !{!1561, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_"}
+!1562 = distinct !{!1562, !1561, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 1"}
+!1563 = !{!1564}
+!1564 = distinct !{!1564, !1565, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE: argument 0"}
+!1565 = distinct !{!1565, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE"}
+!1566 = !{!1567}
+!1567 = distinct !{!1567, !1568, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE: argument 0"}
+!1568 = distinct !{!1568, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE"}
+!1569 = !{!1570}
+!1570 = distinct !{!1570, !1571, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE: argument 0"}
+!1571 = distinct !{!1571, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_2IS3_EE"}
+!1572 = distinct !{!1572, !29}
+!1573 = !{!1574}
+!1574 = distinct !{!1574, !1575, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 0"}
+!1575 = distinct !{!1575, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_"}
+!1576 = !{!1577}
+!1577 = distinct !{!1577, !1575, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS2_5EpickEEESt6vectorIS5_SaIS5_EEEESA_SaISA_EEvPT_PT0_RT1_: argument 1"}
+!1578 = distinct !{!1578, !29}
 !1579 = distinct !{!1579, !29}
-!1580 = distinct !{!1580, !29}
-!1581 = !{!1582, !72, i64 0}
-!1582 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS1_5EpickEEESt6vectorIS4_SaIS4_EEEE", !72, i64 0}
-!1583 = !{!1584, !1585, i64 0}
-!1584 = !{!"_ZTSSt20back_insert_iteratorISt6vectorIN4CGAL7Point_2INS1_5EpickEEESaIS4_EEE", !1585, i64 0}
-!1585 = !{!"p1 _ZTSSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE", !15, i64 0}
-!1586 = !{!1587, !1589}
-!1587 = distinct !{!1587, !1588, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!1588 = distinct !{!1588, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
-!1589 = distinct !{!1589, !1588, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1580 = !{!1581, !72, i64 0}
+!1581 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN4CGAL7Point_2INS1_5EpickEEESt6vectorIS4_SaIS4_EEEE", !72, i64 0}
+!1582 = !{!1583, !1584, i64 0}
+!1583 = !{!"_ZTSSt20back_insert_iteratorISt6vectorIN4CGAL7Point_2INS1_5EpickEEESaIS4_EEE", !1584, i64 0}
+!1584 = !{!"p1 _ZTSSt6vectorIN4CGAL7Point_2INS0_5EpickEEESaIS3_EE", !15, i64 0}
+!1585 = !{!1586, !1588}
+!1586 = distinct !{!1586, !1587, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!1587 = distinct !{!1587, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_"}
+!1588 = distinct !{!1588, !1587, !"_ZSt19__relocate_object_aIN4CGAL7Point_2INS0_5EpickEEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!1589 = distinct !{!1589, !29}
 !1590 = distinct !{!1590, !29}
 !1591 = distinct !{!1591, !29}
 !1592 = distinct !{!1592, !29}
@@ -72139,10 +71935,9 @@ attributes #47 = { nounwind willreturn memory(read) }
 !1620 = distinct !{!1620, !29}
 !1621 = distinct !{!1621, !29}
 !1622 = distinct !{!1622, !29}
-!1623 = distinct !{!1623, !29}
-!1624 = !{!1625, !8, i64 0}
-!1625 = !{!"_ZTSN4CORE7extLongE", !8, i64 0, !31, i64 8}
-!1626 = !{!1625, !31, i64 8}
-!1627 = !{!"branch_weights", i32 1, i32 1023}
-!1628 = !{!1629, !1629, i64 0}
-!1629 = !{!"p1 _ZTSN4CGAL6RandomE", !15, i64 0}
+!1623 = !{!1624, !8, i64 0}
+!1624 = !{!"_ZTSN4CORE7extLongE", !8, i64 0, !31, i64 8}
+!1625 = !{!1624, !31, i64 8}
+!1626 = !{!"branch_weights", i32 1, i32 1023}
+!1627 = !{!1628, !1628, i64 0}
+!1628 = !{!"p1 _ZTSN4CGAL6RandomE", !15, i64 0}

@@ -71,7 +71,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -86,7 +86,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -110,7 +110,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -128,7 +128,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -156,7 +156,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -186,15 +186,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -205,15 +205,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -225,7 +225,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -427,7 +427,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImE
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -442,7 +442,7 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -466,7 +466,7 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -484,7 +484,7 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -512,7 +512,7 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -542,15 +542,15 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -561,15 +561,15 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -581,7 +581,7 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -674,7 +674,7 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -689,7 +689,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -713,7 +713,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -731,7 +731,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -759,7 +759,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -789,15 +789,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -808,15 +808,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -828,7 +828,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -923,7 +923,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -938,7 +938,7 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -962,7 +962,7 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -980,7 +980,7 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1008,7 +1008,7 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1038,15 +1038,15 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -1057,15 +1057,15 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -1077,7 +1077,7 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1170,7 +1170,7 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -1185,7 +1185,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1209,7 +1209,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1227,7 +1227,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1255,7 +1255,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1285,15 +1285,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -1304,15 +1304,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -1324,7 +1324,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1419,7 +1419,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -1434,7 +1434,7 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1458,7 +1458,7 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1476,7 +1476,7 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1504,7 +1504,7 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1534,15 +1534,15 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -1553,15 +1553,15 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -1573,7 +1573,7 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1666,7 +1666,7 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -1681,7 +1681,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1705,7 +1705,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1723,7 +1723,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1751,7 +1751,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1781,15 +1781,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -1800,15 +1800,15 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -1820,7 +1820,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1915,7 +1915,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %.fr96 = freeze i64 %1
+  %.fr = freeze i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -1930,7 +1930,7 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %12, align 8, !tbaa !134
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.fr96, ptr %13, align 8, !tbaa !136
+  store i64 %.fr, ptr %13, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %10, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1954,7 +1954,7 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %24, align 8, !tbaa !134
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.fr96, ptr %25, align 8, !tbaa !136
+  store i64 %.fr, ptr %25, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -1972,7 +1972,7 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %.fr96, ptr %34, align 8, !tbaa !136
+  store i64 %.fr, ptr %34, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %31, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -2000,7 +2000,7 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 0, ptr %49, align 8, !tbaa !134
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %.fr96, ptr %50, align 8, !tbaa !136
+  store i64 %.fr, ptr %50, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %47, align 8, !tbaa !137
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
@@ -2030,15 +2030,15 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 0, ptr %64, align 8, !tbaa !134
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i64 %.fr96, ptr %65, align 8, !tbaa !136
+  store i64 %.fr, ptr %65, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %62, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 66:                                               ; preds = %51
-  %67 = and i64 %.fr96, 33554432
+  %67 = and i64 %.fr, 33554432
   %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.fr96, 33558400
+  %69 = and i64 %.fr, 33558400
   %or.cond89 = icmp eq i64 %69, 0
   br i1 %or.cond89, label %70, label %75, !prof !148
 
@@ -2049,15 +2049,15 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %73, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %.fr96, ptr %74, align 8, !tbaa !136
+  store i64 %.fr, ptr %74, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 75:                                               ; preds = %66
-  %76 = lshr i64 %.fr96, 7
+  %76 = lshr i64 %.fr, 7
   %77 = and i64 %76, 31
-  %78 = lshr i64 %.fr96, 20
+  %78 = lshr i64 %.fr, 20
   %79 = and i64 %78, 31
   %.not67 = icmp eq i64 %77, %79
   br i1 %.not67, label %80, label %85, !prof !131
@@ -2069,7 +2069,7 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i8 0, ptr %83, align 8, !tbaa !134
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store i64 %.fr96, ptr %84, align 8, !tbaa !136
+  store i64 %.fr, ptr %84, align 8, !tbaa !136
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable

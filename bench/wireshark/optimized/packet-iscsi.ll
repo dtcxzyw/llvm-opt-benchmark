@@ -1624,8 +1624,8 @@ define internal fastcc i32 @dissect_iscsi(ptr noundef %0, ptr noundef %1, ptr no
   %308 = add i32 %.0462, 1
   %309 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %308)
   %310 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0462)
-  %.fr = freeze i8 %310
-  %311 = and i8 %.fr, 63
+  %.fr673 = freeze i8 %310
+  %311 = and i8 %.fr673, 63
   %312 = zext nneg i8 %311 to i32
   switch i8 %311, label %313 [
     i8 49, label %317
@@ -1696,7 +1696,7 @@ define internal fastcc i32 @dissect_iscsi(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond630, label %342, label %344
 
 342:                                              ; preds = %339
-  %343 = and i8 %.fr, 31
+  %343 = and i8 %.fr673, 31
   %or.cond25 = icmp eq i8 %343, 0
   br i1 %or.cond25, label %.thread663, label %switch.early.test
 
@@ -1727,7 +1727,7 @@ switch.early.test:                                ; preds = %342
   br i1 %.1468.in, label %.thread663, label %.thread648
 
 .thread648:                                       ; preds = %346, %switch.early.test, %344, %350
-  %351 = and i8 %.fr, 31
+  %351 = and i8 %.fr673, 31
   %or.cond52 = icmp eq i8 %351, 3
   br i1 %or.cond52, label %352, label %358
 
@@ -1792,10 +1792,10 @@ switch.early.test:                                ; preds = %342
 
 385:                                              ; preds = %373, %366
   %.0478 = phi ptr [ %372, %366 ], [ %375, %373 ]
-  %.not673 = icmp eq i32 %.2481, 0
+  %.not674 = icmp eq i32 %.2481, 0
   %386 = add nuw nsw i32 %.0466, 52
   %.not615 = icmp ult i32 %.0470, %386
-  %or.cond634 = select i1 %.not673, i1 true, i1 %.not615
+  %or.cond634 = select i1 %.not674, i1 true, i1 %.not615
   br i1 %or.cond634, label %396, label %387
 
 387:                                              ; preds = %385
@@ -1814,7 +1814,7 @@ switch.early.test:                                ; preds = %342
   br label %.thread651
 
 396:                                              ; preds = %385
-  br i1 %.not673, label %.thread659, label %.thread651thread-pre-split
+  br i1 %.not674, label %.thread659, label %.thread651thread-pre-split
 
 .thread651thread-pre-split:                       ; preds = %396
   %.pr = load i32, ptr %.0478, align 8
@@ -1862,8 +1862,8 @@ switch.early.test:                                ; preds = %342
   br label %413
 
 413:                                              ; preds = %408, %404, %402
-  %.not674 = icmp eq i32 %.0476, 0
-  br i1 %.not674, label %.thread659, label %414
+  %.not675 = icmp eq i32 %.0476, 0
+  br i1 %.not675, label %.thread659, label %414
 
 414:                                              ; preds = %413
   %415 = getelementptr inbounds nuw i8, ptr %.0478, i64 4
@@ -1943,9 +1943,9 @@ switch.early.test:                                ; preds = %342
   br label %301, !llvm.loop !8
 
 .thread663.sink.split:                            ; preds = %7, %425
-  %.sink700 = phi i32 [ %427, %425 ], [ 268435455, %7 ]
+  %.sink701 = phi i32 [ %427, %425 ], [ 268435455, %7 ]
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store i32 %.sink700, ptr %445, align 8
+  store i32 %.sink701, ptr %445, align 8
   br label %.thread663
 
 .thread663:                                       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %336, %342, %350, %303, %346, %.thread663.sink.split, %9, %291, %288, %286, %280, %282, %284, %278, %275, %273, %261, %263, %265, %267, %269, %271, %259, %255, %253, %251, %249, %245, %247, %243, %241, %239, %235, %237, %231, %228, %226, %223, %219, %216, %214, %208, %210, %212, %206, %204, %202, %194, %196, %198, %200, %192, %190, %188, %186, %176, %178, %180, %182, %184, %174, %170, %168, %166, %164, %162, %160, %158, %156, %150, %152, %154, %148, %145, %142, %140, %136, %132, %130, %116, %118, %120, %122, %124, %126, %128, %114, %110, %108, %106, %92, %94, %96, %98, %100, %102, %104, %90, %87, %85, %83, %81, %79, %75, %73, %71, %69, %63, %65, %67, %62, %56, %54, %52, %51, %45, %43, %40, %32, %34, %36, %38, %28, %30, %24, %26, %22, %20, %16, %18, %14, %12

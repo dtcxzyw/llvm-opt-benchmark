@@ -951,8 +951,8 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
 11:                                               ; preds = %9
   %12 = load i64, ptr %4, align 8, !tbaa !24
   %13 = call i32 @JS_DetectModule(ptr noundef nonnull %5, i64 noundef %12) #17
-  %.fr = freeze i32 %13
-  %14 = icmp ne i32 %.fr, 0
+  %.fr22 = freeze i32 %13
+  %14 = icmp ne i32 %.fr22, 0
   %15 = zext i1 %14 to i32
   br label %16
 

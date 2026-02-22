@@ -287,8 +287,8 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1568), align 8, !tbaa !23
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !24
-  %.fr = freeze i64 %6
-  %7 = and i64 %.fr, 131072
+  %.fr172 = freeze i64 %6
+  %7 = and i64 %.fr172, 131072
   %8 = lshr exact i64 %7, 15
   %9 = tail call i32 @phpdbg_get_terminal_width() #6
   %10 = trunc i64 %3 to i32

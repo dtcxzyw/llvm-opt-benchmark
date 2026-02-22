@@ -1395,10 +1395,9 @@ define dso_local ptr @dbRandomKey(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %.fr34 = freeze i64 %3
-  %.fr35 = freeze i64 %6
-  %12 = icmp eq i64 %.fr34, %.fr35
-  br i1 %12, label %.lr.ph.split, label %.lr.ph.split.us
+  %12 = icmp eq i64 %3, %6
+  %.fr = freeze i1 %12
+  br i1 %.fr, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %39
   %13 = phi ptr [ %43, %39 ], [ %10, %.lr.ph ]
@@ -1507,8 +1506,8 @@ sdslen.exit:                                      ; preds = %.lr.ph.split, %51, 
   %.0.i = phi i64 [ %68, %66 ], [ %53, %51 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ 0, %.lr.ph.split ]
   %69 = tail call ptr @createStringObject(ptr noundef nonnull %46, i64 noundef %.0.i) #20
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8
-  %.not36 = icmp eq ptr %70, null
-  br i1 %.not36, label %74, label %71
+  %.not34 = icmp eq ptr %70, null
+  br i1 %.not34, label %74, label %71
 
 71:                                               ; preds = %sdslen.exit
   %72 = add nsw i32 %.01928, -1
@@ -3687,8 +3686,8 @@ sdslen.exit:                                      ; preds = %60, %63, %67, %71, 
 
 80:                                               ; preds = %sdslen.exit
   %81 = load i8, ptr %55, align 1, !tbaa !76
-  %.fr = freeze i8 %81
-  %82 = icmp ne i8 %.fr, 42
+  %.fr514 = freeze i8 %81
+  %82 = icmp ne i8 %.fr514, 42
   %83 = zext i1 %82 to i32
   br label %sdslen.exit.thread
 
@@ -3867,8 +3866,8 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 0, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %spec.select552 = select i1 %.not285323335, ptr @sdslen, ptr @hfieldlen
-  store ptr %spec.select552, ptr %153, align 8, !tbaa !133
+  %spec.select553 = select i1 %.not285323335, ptr @sdslen, ptr @hfieldlen
+  store ptr %spec.select553, ptr %153, align 8, !tbaa !133
   %or.cond11 = and i1 %17, %148
   %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8
   %155 = icmp ne i32 %154, 0
@@ -3886,7 +3885,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
 
 .split435.us.preheader:                           ; preds = %.thread, %158
   %160 = phi ptr [ %157, %.thread ], [ %159, %158 ]
-  %.0257515 = phi i32 [ %156, %.thread ], [ -1, %158 ]
+  %.0257516 = phi i32 [ %156, %.thread ], [ -1, %158 ]
   br label %.split435.us
 
 .split435.us:                                     ; preds = %.split435.us.preheader, %164
@@ -3894,7 +3893,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %.0.us = phi i64 [ %163, %164 ], [ %2, %.split435.us.preheader ]
   %161 = load ptr, ptr %160, align 8, !tbaa !74
   %162 = load ptr, ptr %161, align 8, !tbaa !6
-  %163 = call i64 @kvstoreScan(ptr noundef %162, i64 noundef %.0.us, i32 noundef %.0257515, ptr noundef nonnull @scanCallback, ptr noundef null, ptr noundef nonnull %5) #20
+  %163 = call i64 @kvstoreScan(ptr noundef %162, i64 noundef %.0.us, i32 noundef %.0257516, ptr noundef nonnull @scanCallback, ptr noundef null, ptr noundef nonnull %5) #20
   %.not286.us = icmp eq i64 %163, 0
   %.not287.us = icmp eq i64 %.0258.us, 0
   %or.cond308.us = select i1 %.not286.us, i1 true, i1 %.not287.us
@@ -7668,8 +7667,8 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   br i1 %40, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %46
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %46 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %indvars.iv51
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %46 ], [ 0, %.preheader ]
+  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %indvars.iv52
   %42 = load ptr, ptr %41, align 16, !tbaa !205
   %43 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef %42) #24
   %.not33.us = icmp eq i32 %43, 0
@@ -7686,8 +7685,8 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   br label %.loopexit
 
 46:                                               ; preds = %44
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %.not.us = icmp eq i64 %indvars.iv.next52, 3
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %.not.us = icmp eq i64 %indvars.iv.next53, 3
   br i1 %.not.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !207
 
 .preheader.split:                                 ; preds = %.preheader, %55
@@ -7699,7 +7698,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   br i1 %.not33, label %.split.us, label %55
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
-  %50 = phi i64 [ %indvars.iv51, %.preheader.split.us ], [ %indvars.iv, %.preheader.split ]
+  %50 = phi i64 [ %indvars.iv52, %.preheader.split.us ], [ %indvars.iv, %.preheader.split ]
   %51 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !208

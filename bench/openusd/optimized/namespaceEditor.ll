@@ -6229,22 +6229,21 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i:
 67:                                               ; preds = %63
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex19GetNodeSubtreeRangeERKNS_10PcpNodeRefE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.216") align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8
-  %.sroa.0.0.copyload.i.fr.i = freeze ptr %.sroa.0.0.copyload.i.i
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.0.0.copyload.i11.i = load ptr, ptr %61, align 8
   %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8
-  %.sroa.0.0.copyload.i11.fr.i = freeze ptr %.sroa.0.0.copyload.i11.i
-  %68 = icmp ne ptr %.sroa.0.0.copyload.i.fr.i, %.sroa.0.0.copyload.i11.fr.i
+  %68 = icmp ne ptr %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i11.i
+  %.fr.i = freeze i1 %68
   %69 = icmp ne i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i13.i
-  %.not3.i1611.i = or i1 %68, %69
+  %.not3.i1611.i = or i1 %.fr.i, %69
   br i1 %.not3.i1611.i, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %67
-  br i1 %68, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %73
   %.sroa.3.012.us.i = phi i64 [ %74, %73 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  store ptr %.sroa.0.0.copyload.i.fr.i, ptr %8, align 8
+  store ptr %.sroa.0.0.copyload.i.i, ptr %8, align 8
   store i64 %.sroa.3.012.us.i, ptr %62, align 8
   %70 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8HasSpecsEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   br i1 %70, label %71, label %73
@@ -6259,7 +6258,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i.i.i:
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %78
   %.sroa.3.012.i = phi i64 [ %79, %78 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  store ptr %.sroa.0.0.copyload.i.fr.i, ptr %8, align 8
+  store ptr %.sroa.0.0.copyload.i.i, ptr %8, align 8
   store i64 %.sroa.3.012.i, ptr %62, align 8
   %75 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8HasSpecsEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   br i1 %75, label %76, label %78

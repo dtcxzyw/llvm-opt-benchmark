@@ -1982,9 +1982,9 @@ BIT_initDStream.exit:                             ; preds = %11
   br i1 %74, label %.lr.ph, label %BIT_reloadDStream.exit.i
 
 .lr.ph:                                           ; preds = %.thread, %67
-  %.sroa.20.581149 = phi i32 [ %73, %.thread ], [ %65, %67 ]
-  %.sroa.0.582147 = phi i64 [ %.sroa.0.4, %.thread ], [ %.val.i, %67 ]
-  %.sroa.5034.483.idx145 = phi i64 [ 0, %.thread ], [ %.add, %67 ]
+  %.sroa.20.581150 = phi i32 [ %73, %.thread ], [ %65, %67 ]
+  %.sroa.0.582148 = phi i64 [ %.sroa.0.4, %.thread ], [ %.val.i, %67 ]
+  %.sroa.5034.483.idx146 = phi i64 [ 0, %.thread ], [ %.add, %67 ]
   %75 = getelementptr inbounds i8, ptr %6, i64 -3
   %76 = sub nsw i32 0, %.sroa.3.0.extract.shift.i
   %77 = and i32 %76, 63
@@ -1993,9 +1993,9 @@ BIT_initDStream.exit:                             ; preds = %11
 
 79:                                               ; preds = %.lr.ph, %94
   %.0.i113 = phi ptr [ %0, %.lr.ph ], [ %138, %94 ]
-  %.sroa.5034.2.idx112 = phi i64 [ %.sroa.5034.483.idx145, %.lr.ph ], [ %.sroa.5034.3.idx, %94 ]
-  %.sroa.0.2111 = phi i64 [ %.sroa.0.582147, %.lr.ph ], [ %.sroa.0.3, %94 ]
-  %.sroa.20.3110 = phi i32 [ %.sroa.20.581149, %.lr.ph ], [ %137, %94 ]
+  %.sroa.5034.2.idx112 = phi i64 [ %.sroa.5034.483.idx146, %.lr.ph ], [ %.sroa.5034.3.idx, %94 ]
+  %.sroa.0.2111 = phi i64 [ %.sroa.0.582148, %.lr.ph ], [ %.sroa.0.3, %94 ]
+  %.sroa.20.3110 = phi i32 [ %.sroa.20.581150, %.lr.ph ], [ %137, %94 ]
   %.not.i37.i = icmp slt i64 %.sroa.5034.2.idx112, 8
   br i1 %.not.i37.i, label %83, label %BIT_reloadDStreamFast.exit
 
@@ -2147,8 +2147,8 @@ BIT_reloadDStream.exit.i:                         ; preds = %83, %BIT_reloadDStr
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 1
   %167 = load i8, ptr %166, align 1, !tbaa !54
   %168 = load i8, ptr %165, align 1, !tbaa !56
-  %.fr = freeze i8 %168
-  %169 = zext i8 %.fr to i32
+  %.fr123 = freeze i8 %168
+  %169 = zext i8 %.fr123 to i32
   %170 = add i32 %.sroa.20.2.fr119, %169
   %171 = getelementptr inbounds nuw i8, ptr %.6.i118, i64 1
   store i8 %167, ptr %.6.i118, align 1, !tbaa !8

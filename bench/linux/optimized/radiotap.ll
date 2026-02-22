@@ -242,25 +242,25 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
 92:                                               ; preds = %88
   %93 = load ptr, ptr %86, align 8
   %94 = zext nneg i32 %90 to i64
-  %.fr = freeze ptr %93
   br label %95
 
 95:                                               ; preds = %105, %92
   %96 = phi i64 [ 0, %92 ], [ %106, %105 ]
-  %97 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %.fr, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  %97 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %93, i64 %96
+  %.fr = freeze ptr %97
+  %98 = getelementptr inbounds nuw i8, ptr %.fr, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, %83
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.fr, i64 16
   %103 = load i8, ptr %102, align 8
   %104 = icmp eq i8 %103, %85
   br i1 %104, label %.loopexit, label %105
 
 105:                                              ; preds = %101, %95
-  %106 = add i64 %96, 1
+  %106 = add nuw nsw i64 %96, 1
   %107 = icmp eq i64 %106, %94
   br i1 %107, label %.loopexit.thread, label %95, !llvm.loop !8
 
@@ -286,8 +286,8 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
   br label %131
 
 .loopexit:                                        ; preds = %101
-  store ptr %97, ptr %5, align 8
-  %121 = icmp eq ptr %97, null
+  store ptr %.fr, ptr %5, align 8
+  %121 = icmp eq ptr %.fr, null
   %122 = getelementptr i8, ptr %62, i64 4
   %123 = load i16, ptr %122, align 1
   %124 = getelementptr i8, ptr %62, i64 %66

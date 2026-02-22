@@ -5036,16 +5036,16 @@ _ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %47
   %53 = zext i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 3
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 %54
-  %.not46.not.i = icmp eq i32 %52, 0
-  br i1 %.not46.not.i, label %_ZN3sls12array_plugin13is_shared_argEPN3euf5enodeE.exit, label %.lr.ph49.i
+  %.not45.not.i = icmp eq i32 %52, 0
+  br i1 %.not45.not.i, label %_ZN3sls12array_plugin13is_shared_argEPN3euf5enodeE.exit, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %_ZNK3euf13enode_parents3endEv.exit.i
+.lr.ph48.i:                                       ; preds = %_ZNK3euf13enode_parents3endEv.exit.i
   %56 = load i32, ptr %16, align 8, !tbaa !32
   br label %57
 
-57:                                               ; preds = %.loopexit.i, %.lr.ph49.i
-  %.02347.i = phi ptr [ %49, %.lr.ph49.i ], [ %88, %.loopexit.i ]
-  %58 = load ptr, ptr %.02347.i, align 8, !tbaa !129
+57:                                               ; preds = %.loopexit.i, %.lr.ph48.i
+  %.02346.i = phi ptr [ %49, %.lr.ph48.i ], [ %88, %.loopexit.i ]
+  %58 = load ptr, ptr %.02346.i, align 8, !tbaa !129
   %59 = load ptr, ptr %58, align 8, !tbaa !180
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4
@@ -5063,20 +5063,18 @@ _ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %47
 
 _ZNK17array_recognizers9is_selectEP4expr.exit.i:  ; preds = %64
   %69 = load i32, ptr %68, align 8, !tbaa !140
-  %.fr.i = freeze i32 %69
-  %70 = icmp eq i32 %.fr.i, %56
+  %70 = icmp eq i32 %69, %56
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %72 = load i32, ptr %71, align 4
-  %.fr40.i = freeze i32 %72
-  %73 = icmp ult i32 %.fr40.i, 2
-  %or.cond = and i1 %70, %73
+  %73 = icmp ult i32 %72, 2
+  %or.cond = select i1 %70, i1 %73, i1 false
   br i1 %or.cond, label %74, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
 
 74:                                               ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit.i
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 152
   %76 = load i32, ptr %75, align 8, !tbaa !188
-  %.not2744.i = icmp ugt i32 %76, 1
-  br i1 %.not2744.i, label %.lr.ph.i, label %.loopexit.i
+  %.not2743.i = icmp ugt i32 %76, 1
+  br i1 %.not2743.i, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %58, i64 176
@@ -5098,13 +5096,14 @@ _ZNK17array_recognizers9is_selectEP4expr.exit.i:  ; preds = %64
   br i1 %84, label %.loopexit, label %78
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit.i
-  %85 = icmp eq i32 %.fr.i, 0
-  %86 = icmp eq i32 %.fr40.i, 2
-  %87 = and i1 %85, %86
-  br i1 %87, label %.loopexit.i, label %.loopexit
+  %85 = icmp eq i32 %69, 0
+  %86 = icmp eq i32 %72, 2
+  %87 = select i1 %85, i1 %86, i1 false
+  %cond.fr.i = freeze i1 %87
+  br i1 %cond.fr.i, label %.loopexit.i, label %.loopexit
 
 .loopexit.i:                                      ; preds = %78, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %74
-  %88 = getelementptr inbounds nuw i8, ptr %.02347.i, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.02346.i, i64 8
   %.not.not.i = icmp eq ptr %88, %55
   br i1 %.not.not.i, label %_ZN3sls12array_plugin13is_shared_argEPN3euf5enodeE.exit, label %57
 
@@ -5227,17 +5226,17 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not46.not = icmp eq i32 %7, 0
-  br i1 %.not46.not, label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread, label %.lr.ph49
+  %.not45.not = icmp eq i32 %7, 0
+  br i1 %.not45.not, label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit
+.lr.ph48:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !32
   br label %13
 
-13:                                               ; preds = %.lr.ph49, %.loopexit
-  %.02347 = phi ptr [ %4, %.lr.ph49 ], [ %54, %.loopexit ]
-  %14 = load ptr, ptr %.02347, align 8, !tbaa !129
+13:                                               ; preds = %.lr.ph48, %.loopexit
+  %.02346 = phi ptr [ %4, %.lr.ph48 ], [ %54, %.loopexit ]
+  %14 = load ptr, ptr %.02346, align 8, !tbaa !129
   %15 = load ptr, ptr %14, align 8, !tbaa !180
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -5274,8 +5273,8 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %_ZNK17array_recogni
 37:                                               ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit, %_ZNK17array_recognizers9is_selectEP4expr.exit
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %39 = load i32, ptr %38, align 8, !tbaa !188
-  %.not2744 = icmp ugt i32 %39, 1
-  br i1 %.not2744, label %.lr.ph, label %.loopexit
+  %.not2743 = icmp ugt i32 %39, 1
+  br i1 %.not2743, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 176
@@ -5298,23 +5297,22 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %_ZNK17array_recogni
 
 _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit
   %48 = load i32, ptr %24, align 8, !tbaa !140
-  %.fr = freeze i32 %48
-  %49 = icmp eq i32 %.fr, 0
+  %49 = icmp eq i32 %48, 0
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %51 = load i32, ptr %50, align 4
-  %.fr40 = freeze i32 %51
-  %52 = icmp eq i32 %.fr40, 2
-  %53 = and i1 %49, %52
-  br i1 %53, label %.loopexit, label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread
+  %52 = icmp eq i32 %51, 2
+  %53 = select i1 %49, i1 %52, i1 false
+  %cond.fr = freeze i1 %53
+  br i1 %cond.fr, label %.loopexit, label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread
 
 .loopexit:                                        ; preds = %41, %37, %_ZNK11ast_manager5is_eqEPK4expr.exit
-  %54 = getelementptr inbounds nuw i8, ptr %.02347, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.02346, i64 8
   %.not.not = icmp eq ptr %54, %10
   br i1 %.not.not, label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread, label %13
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %20, %_ZNK11ast_manager5is_eqEPK4expr.exit, %.loopexit, %13, %42, %2, %_ZNK3euf13enode_parents3endEv.exit
-  %.not43 = phi i1 [ false, %2 ], [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ true, %42 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %.loopexit ], [ true, %20 ], [ true, %13 ]
-  ret i1 %.not43
+  %.not42 = phi i1 [ false, %2 ], [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ true, %42 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %.loopexit ], [ true, %20 ], [ true, %13 ]
+  ret i1 %.not42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

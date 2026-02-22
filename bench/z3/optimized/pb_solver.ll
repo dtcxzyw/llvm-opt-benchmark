@@ -34123,25 +34123,25 @@ declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnul
 define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPPN2pb10constraintElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_S9_T0_SA_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat {
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %4, 0
-  %or.cond74 = or i1 %6, %7
-  br i1 %or.cond74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64, label %.lr.ph
+  %or.cond73 = or i1 %6, %7
+  br i1 %or.cond73, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = ptrtoint ptr %2 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %tailrecurse
-  %.tr7079 = phi i64 [ %4, %.lr.ph ], [ %122, %tailrecurse ]
-  %.tr6978 = phi i64 [ %3, %.lr.ph ], [ %121, %tailrecurse ]
-  %.tr6776 = phi ptr [ %1, %.lr.ph ], [ %.061, %tailrecurse ]
-  %.tr75 = phi ptr [ %0, %.lr.ph ], [ %120, %tailrecurse ]
-  %10 = add nsw i64 %.tr7079, %.tr6978
+  %.tr6978 = phi i64 [ %4, %.lr.ph ], [ %122, %tailrecurse ]
+  %.tr6877 = phi i64 [ %3, %.lr.ph ], [ %121, %tailrecurse ]
+  %.tr6675 = phi ptr [ %1, %.lr.ph ], [ %.060, %tailrecurse ]
+  %.tr74 = phi ptr [ %0, %.lr.ph ], [ %120, %tailrecurse ]
+  %10 = add nsw i64 %.tr6978, %.tr6877
   %11 = icmp eq i64 %10, 2
   br i1 %11, label %12, label %35
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %.tr6776, align 8, !tbaa !600
-  %14 = load ptr, ptr %.tr75, align 8, !tbaa !600
+  %13 = load ptr, ptr %.tr6675, align 8, !tbaa !600
+  %14 = load ptr, ptr %.tr74, align 8, !tbaa !600
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !615
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -34151,7 +34151,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPPN2pb10constraint
 
 20:                                               ; preds = %12
   %21 = icmp eq i32 %16, %18
-  br i1 %21, label %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64
+  br i1 %21, label %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 28
@@ -34163,7 +34163,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPPN2pb10constraint
 
 28:                                               ; preds = %22
   %29 = icmp eq i32 %24, %26
-  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64
+  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit: ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -34171,21 +34171,21 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10co
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !223
   %34 = icmp ult i32 %31, %33
-  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread: ; preds = %22, %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit
-  store ptr %13, ptr %.tr75, align 8, !tbaa !600
-  store ptr %14, ptr %.tr6776, align 8, !tbaa !600
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64
+  store ptr %13, ptr %.tr74, align 8, !tbaa !600
+  store ptr %14, ptr %.tr6675, align 8, !tbaa !600
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63
 
 35:                                               ; preds = %9
-  %36 = icmp sgt i64 %.tr6978, %.tr7079
-  %37 = ptrtoint ptr %.tr6776 to i64
+  %36 = icmp sgt i64 %.tr6877, %.tr6978
+  %37 = ptrtoint ptr %.tr6675 to i64
   br i1 %36, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42
 
 _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit:   ; preds = %35
-  %38 = sdiv i64 %.tr6978, 2
-  %39 = getelementptr inbounds ptr, ptr %.tr75, i64 %38
+  %38 = sdiv i64 %.tr6877, 2
+  %39 = getelementptr inbounds ptr, ptr %.tr74, i64 %38
   %40 = sub i64 %8, %37
   %41 = ashr exact i64 %40, 3
   %42 = icmp sgt i64 %41, 0
@@ -34200,10 +34200,10 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceI
   br label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i: ; preds = %.thread22.i, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i
-  %.028.i = phi ptr [ %.tr6776, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %74, %.thread22.i ]
-  %.01127.i = phi i64 [ %41, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %73, %.thread22.i ]
-  %48 = lshr i64 %.01127.i, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %.028.i, i64 %48
+  %.027.i = phi ptr [ %.tr6675, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %74, %.thread22.i ]
+  %.01126.i = phi i64 [ %41, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %73, %.thread22.i ]
+  %48 = lshr i64 %.01126.i, 1
+  %49 = getelementptr inbounds nuw ptr, ptr %.027.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !600
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8, !tbaa !615
@@ -34228,26 +34228,25 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i: ; preds = %.thread22.i, %_ZSt7
 .thread.i:                                        ; preds = %56, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %64 = xor i64 %48, -1
-  %65 = add nsw i64 %.01127.i, %64
+  %65 = add nsw i64 %.01126.i, %64
   br label %.thread22.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i: ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !223
   %68 = load i32, ptr %47, align 8, !tbaa !223
-  %.fr.i = freeze i32 %67
-  %.fr25.i = freeze i32 %68
-  %69 = icmp ult i32 %.fr.i, %.fr25.i
+  %69 = icmp ult i32 %67, %68
+  %cond.fr.i = freeze i1 %69
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %71 = xor i64 %48, -1
-  %72 = add nsw i64 %.01127.i, %71
-  %spec.select.i = select i1 %69, i64 %72, i64 %48
-  %spec.select26.i = select i1 %69, ptr %70, ptr %.028.i
+  %72 = add nsw i64 %.01126.i, %71
+  %spec.select.i = select i1 %cond.fr.i, i64 %72, i64 %48
+  %spec.select25.i = select i1 %cond.fr.i, ptr %70, ptr %.027.i
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i, %.thread.i, %61, %54
   %73 = phi i64 [ %48, %54 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %48, %61 ], [ %65, %.thread.i ]
-  %74 = phi ptr [ %.028.i, %54 ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.028.i, %61 ], [ %63, %.thread.i ]
+  %74 = phi ptr [ %.027.i, %54 ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.027.i, %61 ], [ %63, %.thread.i ]
   %75 = icmp sgt i64 %73, 0
   br i1 %75, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !878
 
@@ -34257,15 +34256,15 @@ _ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_
 
 _ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %37, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %74, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %.tr6776, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %74, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %.tr6675, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit ]
   %76 = sub i64 %.pre-phi, %37
   %77 = ashr exact i64 %76, 3
   br label %tailrecurse
 
 _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42: ; preds = %35
-  %78 = sdiv i64 %.tr7079, 2
-  %79 = getelementptr inbounds ptr, ptr %.tr6776, i64 %78
-  %80 = ptrtoint ptr %.tr75 to i64
+  %78 = sdiv i64 %.tr6978, 2
+  %79 = getelementptr inbounds ptr, ptr %.tr6675, i64 %78
+  %80 = ptrtoint ptr %.tr74 to i64
   %81 = sub i64 %37, %80
   %82 = ashr exact i64 %81, 3
   %83 = icmp sgt i64 %82, 0
@@ -34280,10 +34279,10 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i44: ; preds = %_ZSt7advanc
   br label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45
 
 _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45: ; preds = %.thread.i49, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i44
-  %.027.i = phi ptr [ %.tr75, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i44 ], [ %116, %.thread.i49 ]
-  %.01126.i = phi i64 [ %82, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i44 ], [ %115, %.thread.i49 ]
-  %89 = lshr i64 %.01126.i, 1
-  %90 = getelementptr inbounds nuw ptr, ptr %.027.i, i64 %89
+  %.026.i = phi ptr [ %.tr74, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i44 ], [ %116, %.thread.i49 ]
+  %.01125.i = phi i64 [ %82, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i44 ], [ %115, %.thread.i49 ]
+  %89 = lshr i64 %.01125.i, 1
+  %90 = getelementptr inbounds nuw ptr, ptr %.026.i, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !600
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i32, ptr %92, align 8, !tbaa !615
@@ -34308,56 +34307,55 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45: ; preds = %.thread.i49, %_ZS
 .thread22.i48:                                    ; preds = %102, %95
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %105 = xor i64 %89, -1
-  %106 = add nsw i64 %.01126.i, %105
+  %106 = add nsw i64 %.01125.i, %105
   br label %.thread.i49
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i: ; preds = %102
   %107 = load i32, ptr %88, align 8, !tbaa !223
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %109 = load i32, ptr %108, align 8, !tbaa !223
-  %.fr.i50 = freeze i32 %107
-  %.fr25.i51 = freeze i32 %109
-  %110 = icmp ult i32 %.fr.i50, %.fr25.i51
-  br i1 %110, label %.thread.i49, label %111
+  %110 = icmp ult i32 %107, %109
+  %cond.fr.i50 = freeze i1 %110
+  br i1 %cond.fr.i50, label %.thread.i49, label %111
 
 111:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i
   %112 = xor i64 %89, -1
-  %113 = add nsw i64 %.01126.i, %112
+  %113 = add nsw i64 %.01125.i, %112
   %114 = getelementptr inbounds nuw i8, ptr %90, i64 8
   br label %.thread.i49
 
 .thread.i49:                                      ; preds = %111, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i, %.thread22.i48, %97, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45
   %115 = phi i64 [ %106, %.thread22.i48 ], [ %113, %111 ], [ %89, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45 ], [ %89, %97 ], [ %89, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
-  %116 = phi ptr [ %104, %.thread22.i48 ], [ %114, %111 ], [ %.027.i, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45 ], [ %.027.i, %97 ], [ %.027.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
+  %116 = phi ptr [ %104, %.thread22.i48 ], [ %114, %111 ], [ %.026.i, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45 ], [ %.026.i, %97 ], [ %.026.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
   %117 = icmp sgt i64 %115, 0
   br i1 %117, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !879
 
 _ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i49
-  %.pre83 = ptrtoint ptr %116 to i64
+  %.pre82 = ptrtoint ptr %116 to i64
   br label %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42
-  %.pre-phi84 = phi i64 [ %.pre83, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %80, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42 ]
-  %.0.lcssa.i43 = phi ptr [ %116, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %.tr75, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42 ]
-  %118 = sub i64 %.pre-phi84, %80
+  %.pre-phi83 = phi i64 [ %.pre82, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %80, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42 ]
+  %.0.lcssa.i43 = phi ptr [ %116, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %.tr74, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit42 ]
+  %118 = sub i64 %.pre-phi83, %80
   %119 = ashr exact i64 %118, 3
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit
-  %.062 = phi ptr [ %39, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %.0.lcssa.i43, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ]
-  %.061 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ]
+  %.061 = phi ptr [ %39, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %.0.lcssa.i43, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ]
+  %.060 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ]
   %.036 = phi i64 [ %77, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %78, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ]
   %.0 = phi i64 [ %38, %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %119, %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit ]
-  %120 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN2pb10constraintEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.062, ptr noundef %.tr6776, ptr noundef %.061)
-  tail call void @_ZSt22__merge_without_bufferIPPN2pb10constraintElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_S9_T0_SA_T1_(ptr noundef %.tr75, ptr noundef %.062, ptr noundef %120, i64 noundef %.0, i64 noundef %.036)
-  %121 = sub nsw i64 %.tr6978, %.0
-  %122 = sub nsw i64 %.tr7079, %.036
+  %120 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN2pb10constraintEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.061, ptr noundef %.tr6675, ptr noundef %.060)
+  tail call void @_ZSt22__merge_without_bufferIPPN2pb10constraintElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_S9_T0_SA_T1_(ptr noundef %.tr74, ptr noundef %.061, ptr noundef %120, i64 noundef %.0, i64 noundef %.036)
+  %121 = sub nsw i64 %.tr6877, %.0
+  %122 = sub nsw i64 %.tr6978, %.036
   %123 = icmp eq i64 %121, 0
   %124 = icmp eq i64 %122, 0
   %or.cond = or i1 %123, %124
-  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64, label %9
+  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63, label %9
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64: ; preds = %tailrecurse, %5, %20, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread63: ; preds = %tailrecurse, %5, %20, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread
   ret void
 }
 
@@ -34748,10 +34746,10 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceI
   br label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i: ; preds = %.thread22.i, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i
-  %.028.i = phi ptr [ %.tr110127, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %132, %.thread22.i ]
-  %.01127.i = phi i64 [ %99, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %131, %.thread22.i ]
-  %106 = lshr i64 %.01127.i, 1
-  %107 = getelementptr inbounds nuw ptr, ptr %.028.i, i64 %106
+  %.027.i = phi ptr [ %.tr110127, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %132, %.thread22.i ]
+  %.01126.i = phi i64 [ %99, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i ], [ %131, %.thread22.i ]
+  %106 = lshr i64 %.01126.i, 1
+  %107 = getelementptr inbounds nuw ptr, ptr %.027.i, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !600
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load i32, ptr %109, align 8, !tbaa !615
@@ -34776,26 +34774,25 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i: ; preds = %.thread22.i, %_ZSt7
 .thread.i:                                        ; preds = %114, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i
   %121 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %122 = xor i64 %106, -1
-  %123 = add nsw i64 %.01127.i, %122
+  %123 = add nsw i64 %.01126.i, %122
   br label %.thread22.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i: ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %125 = load i32, ptr %124, align 8, !tbaa !223
   %126 = load i32, ptr %105, align 8, !tbaa !223
-  %.fr.i = freeze i32 %125
-  %.fr25.i = freeze i32 %126
-  %127 = icmp ult i32 %.fr.i, %.fr25.i
+  %127 = icmp ult i32 %125, %126
+  %cond.fr.i = freeze i1 %127
   %128 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %129 = xor i64 %106, -1
-  %130 = add nsw i64 %.01127.i, %129
-  %spec.select.i = select i1 %127, i64 %130, i64 %106
-  %spec.select26.i = select i1 %127, ptr %128, ptr %.028.i
+  %130 = add nsw i64 %.01126.i, %129
+  %spec.select.i = select i1 %cond.fr.i, i64 %130, i64 %106
+  %spec.select25.i = select i1 %cond.fr.i, ptr %128, ptr %.027.i
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i, %.thread.i, %119, %112
   %131 = phi i64 [ %106, %112 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %106, %119 ], [ %123, %.thread.i ]
-  %132 = phi ptr [ %.028.i, %112 ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.028.i, %119 ], [ %121, %.thread.i ]
+  %132 = phi ptr [ %.027.i, %112 ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.027.i, %119 ], [ %121, %.thread.i ]
   %133 = icmp sgt i64 %131, 0
   br i1 %133, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !878
 
@@ -34827,60 +34824,59 @@ _ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86: ; preds = %_ZSt7advanc
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 32
   br label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87
 
-_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87: ; preds = %.thread.i91, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86
-  %.027.i = phi ptr [ %.tr126, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86 ], [ %174, %.thread.i91 ]
-  %.01126.i = phi i64 [ %140, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86 ], [ %173, %.thread.i91 ]
-  %147 = lshr i64 %.01126.i, 1
-  %148 = getelementptr inbounds nuw ptr, ptr %.027.i, i64 %147
+_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87: ; preds = %.thread.i92, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86
+  %.026.i88 = phi ptr [ %.tr126, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86 ], [ %174, %.thread.i92 ]
+  %.01125.i = phi i64 [ %140, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.lr.ph.i86 ], [ %173, %.thread.i92 ]
+  %147 = lshr i64 %.01125.i, 1
+  %148 = getelementptr inbounds nuw ptr, ptr %.026.i88, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !600
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %151 = load i32, ptr %150, align 8, !tbaa !615
   %152 = icmp ult i32 %144, %151
-  br i1 %152, label %.thread.i91, label %153
+  br i1 %152, label %.thread.i92, label %153
 
 153:                                              ; preds = %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87
   %154 = icmp eq i32 %144, %151
-  br i1 %154, label %155, label %.thread22.i90
+  br i1 %154, label %155, label %.thread22.i91
 
 155:                                              ; preds = %153
   %156 = load i32, ptr %145, align 4, !tbaa !628
   %157 = getelementptr inbounds nuw i8, ptr %149, i64 28
   %158 = load i32, ptr %157, align 4, !tbaa !628
   %159 = icmp ult i32 %156, %158
-  br i1 %159, label %.thread.i91, label %160
+  br i1 %159, label %.thread.i92, label %160
 
 160:                                              ; preds = %155
   %161 = icmp eq i32 %156, %158
-  br i1 %161, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i, label %.thread22.i90
+  br i1 %161, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i, label %.thread22.i91
 
-.thread22.i90:                                    ; preds = %160, %153
+.thread22.i91:                                    ; preds = %160, %153
   %162 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %163 = xor i64 %147, -1
-  %164 = add nsw i64 %.01126.i, %163
-  br label %.thread.i91
+  %164 = add nsw i64 %.01125.i, %163
+  br label %.thread.i92
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i: ; preds = %160
   %165 = load i32, ptr %146, align 8, !tbaa !223
   %166 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %167 = load i32, ptr %166, align 8, !tbaa !223
-  %.fr.i92 = freeze i32 %165
-  %.fr25.i93 = freeze i32 %167
-  %168 = icmp ult i32 %.fr.i92, %.fr25.i93
-  br i1 %168, label %.thread.i91, label %169
+  %168 = icmp ult i32 %165, %167
+  %cond.fr.i93 = freeze i1 %168
+  br i1 %cond.fr.i93, label %.thread.i92, label %169
 
 169:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i
   %170 = xor i64 %147, -1
-  %171 = add nsw i64 %.01126.i, %170
+  %171 = add nsw i64 %.01125.i, %170
   %172 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  br label %.thread.i91
+  br label %.thread.i92
 
-.thread.i91:                                      ; preds = %169, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i, %.thread22.i90, %155, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87
-  %173 = phi i64 [ %164, %.thread22.i90 ], [ %171, %169 ], [ %147, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87 ], [ %147, %155 ], [ %147, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
-  %174 = phi ptr [ %162, %.thread22.i90 ], [ %172, %169 ], [ %.027.i, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87 ], [ %.027.i, %155 ], [ %.027.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
+.thread.i92:                                      ; preds = %169, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i, %.thread22.i91, %155, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87
+  %173 = phi i64 [ %164, %.thread22.i91 ], [ %171, %169 ], [ %147, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87 ], [ %147, %155 ], [ %147, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
+  %174 = phi ptr [ %162, %.thread22.i91 ], [ %172, %169 ], [ %.026.i88, %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87 ], [ %.026.i88, %155 ], [ %.026.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIKPNS2_10constraintEPS7_EEbRT_T0_.exit.i ]
   %175 = icmp sgt i64 %173, 0
   br i1 %175, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !879
 
-_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i91
+_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i92
   %.pre140 = ptrtoint ptr %174 to i64
   br label %_ZSt13__upper_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit
 

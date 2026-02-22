@@ -1941,8 +1941,8 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i: ; preds = %_ZNK5Ipopt14Com
   %38 = load ptr, ptr %37, align 8, !tbaa !74
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !64
-  %.fr = freeze i32 %40
-  %41 = add i32 %.fr, %.04077
+  %.fr112 = freeze i32 %40
+  %41 = add i32 %.fr112, %.04077
   %42 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
   store i32 %36, ptr %42, align 8, !tbaa !3
   %43 = icmp eq i32 %36, 0

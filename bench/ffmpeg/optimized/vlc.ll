@@ -1870,12 +1870,12 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %24 = getelementptr i32, ptr %11, i64 %16
   %25 = getelementptr i8, ptr %24, i64 -4
   %26 = add nuw nsw i32 %8, 1
-  %.fr92 = freeze i32 %15
-  %27 = icmp uge i32 %26, %.fr92
+  %27 = icmp samesign uge i32 %26, %15
+  %.fr = freeze i1 %27
   br i1 %.not76, label %.preheader.lr.ph.split.us, label %.preheader
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  br i1 %27, label %.preheader.lr.ph.split.us.split.us, label %.preheader.us
+  br i1 %.fr, label %.preheader.lr.ph.split.us.split.us, label %.preheader.us
 
 .preheader.lr.ph.split.us.split.us:               ; preds = %.preheader.lr.ph.split.us
   br i1 %.not75, label %.preheader.us.us.us, label %.preheader.us.us
@@ -2052,7 +2052,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %98 = add i32 %97, 1
   store i32 %98, ptr %25, align 4, !tbaa !17
   %.not77 = icmp samesign ult i32 %81, %9
-  %or.cond = select i1 %27, i1 true, i1 %.not77
+  %or.cond = select i1 %.fr, i1 true, i1 %.not77
   br i1 %or.cond, label %101, label %99
 
 99:                                               ; preds = %._crit_edge

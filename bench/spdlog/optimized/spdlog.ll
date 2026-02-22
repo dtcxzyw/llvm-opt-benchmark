@@ -2754,20 +2754,19 @@ _ZN6spdlog7details14log_msg_bufferaSEOS1_.exit:   ; preds = %_ZN3fmt3v116detail4
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %43, ptr %44, align 8, !tbaa !4
   %45 = load i64, ptr %6, align 8, !tbaa !40
-  %.fr = freeze i64 %45
-  %46 = add i64 %.fr, 1
+  %46 = add i64 %45, 1
   %47 = load i64, ptr %0, align 8, !tbaa !34
-  %.fr7 = freeze i64 %47
-  %48 = urem i64 %46, %.fr7
-  store i64 %48, ptr %6, align 8, !tbaa !40
+  %48 = urem i64 %46, %47
+  %.fr = freeze i64 %48
+  store i64 %.fr, ptr %6, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !39
-  %51 = icmp eq i64 %48, %50
+  %51 = icmp eq i64 %.fr, %50
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %_ZN6spdlog7details14log_msg_bufferaSEOS1_.exit
-  %53 = add nuw i64 %48, 1
-  %54 = icmp eq i64 %53, %.fr7
+  %53 = add i64 %.fr, 1
+  %54 = icmp eq i64 %53, %47
   %55 = select i1 %54, i64 0, i64 %53
   store i64 %55, ptr %49, align 8, !tbaa !39
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24

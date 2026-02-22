@@ -2299,10 +2299,10 @@ begins_with_separator.exit.thread.i:              ; preds = %39, %begins_with_se
   %.not5379.i = icmp ult i64 %41, %40
   br i1 %.not5379.i, label %._crit_edge.i, label %.lr.ph82.i
 
-.lr.ph82.i:                                       ; preds = %begins_with_separator.exit.thread.i, %109
-  %42 = phi i64 [ %111, %109 ], [ %40, %begins_with_separator.exit.thread.i ]
-  %.04981.i = phi ptr [ %.173.i, %109 ], [ %31, %begins_with_separator.exit.thread.i ]
-  %.15180.i = phi i32 [ %110, %109 ], [ %.050.i, %begins_with_separator.exit.thread.i ]
+.lr.ph82.i:                                       ; preds = %begins_with_separator.exit.thread.i, %110
+  %42 = phi i64 [ %112, %110 ], [ %40, %begins_with_separator.exit.thread.i ]
+  %.04981.i = phi ptr [ %.173.i, %110 ], [ %31, %begins_with_separator.exit.thread.i ]
+  %.15180.i = phi i32 [ %111, %110 ], [ %.050.i, %begins_with_separator.exit.thread.i ]
   %43 = tail call i64 @wmem_strbuf_get_len(ptr noundef %10)
   %44 = add i64 %43, -1
   %45 = icmp ult i64 %44, %42
@@ -2317,165 +2317,165 @@ begins_with_separator.exit.thread.i:              ; preds = %39, %begins_with_se
 wmem_strbuf_get_char_n.exit.i:                    ; preds = %46, %.lr.ph82.i
   %.0.i59.i = phi i8 [ %49, %46 ], [ 0, %.lr.ph82.i ]
   %50 = tail call i64 @wmem_strbuf_get_len(ptr noundef %10)
-  %.fr.i = freeze i64 %50
-  %51 = icmp eq i64 %.fr.i, %42
+  %51 = icmp eq i64 %50, %42
   %52 = icmp eq i8 %.0.i59.i, 0
-  br i1 %51, label %53, label %switch.early.test.i
+  %53 = freeze i1 %51
+  br i1 %53, label %54, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %wmem_strbuf_get_char_n.exit.i
   switch i8 %.0.i59.i, label %.thread.i [
-    i8 47, label %53
-    i8 0, label %53
+    i8 47, label %54
+    i8 0, label %54
   ]
 
-53:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %wmem_strbuf_get_char_n.exit.i
+54:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %wmem_strbuf_get_char_n.exit.i
   %.not54.i = icmp eq i32 %.15180.i, 0
-  br i1 %.not54.i, label %108, label %54
+  br i1 %.not54.i, label %109, label %55
 
-54:                                               ; preds = %53
-  %55 = tail call i64 @wmem_strbuf_get_len(ptr noundef %.04981.i)
-  %.not55.i = icmp eq i64 %55, 0
-  br i1 %.not55.i, label %108, label %sub_0.i
+55:                                               ; preds = %54
+  %56 = tail call i64 @wmem_strbuf_get_len(ptr noundef %.04981.i)
+  %.not55.i = icmp eq i64 %56, 0
+  br i1 %.not55.i, label %109, label %sub_0.i
 
-sub_0.i:                                          ; preds = %54
-  %56 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.04981.i)
-  %57 = load i8, ptr %56, align 1
-  %.not84.i = icmp eq i8 %57, 46
+sub_0.i:                                          ; preds = %55
+  %57 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.04981.i)
+  %58 = load i8, ptr %57, align 1
+  %.not84.i = icmp eq i8 %58, 46
   br i1 %.not84.i, label %sub_1.i, label %sub_075.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  %59 = load i8, ptr %58, align 1
-  %.not85.i = icmp eq i8 %59, 46
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  %60 = load i8, ptr %59, align 1
+  %.not85.i = icmp eq i8 %60, 46
   br i1 %.not85.i, label %.tail.i, label %sub_075.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  %61 = load i8, ptr %60, align 1
-  %62 = icmp eq i8 %61, 0
-  br i1 %62, label %.preheader.i, label %sub_075.i
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 2
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %.preheader.i, label %sub_075.i
 
 .preheader.i:                                     ; preds = %.tail.i
-  %63 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %.not5778.i = icmp eq i64 %63, 0
+  %64 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %.not5778.i = icmp eq i64 %64, 0
   br i1 %.not5778.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %ends_with_separator.exit62.thread.i
-  %64 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %ends_with_separator.exit62.thread.i, label %66
+  %65 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %ends_with_separator.exit62.thread.i, label %67
 
-66:                                               ; preds = %.lr.ph.i
-  %67 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %.not.i.i60.i = icmp eq i64 %67, 0
+67:                                               ; preds = %.lr.ph.i
+  %68 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %.not.i.i60.i = icmp eq i64 %68, 0
   br i1 %.not.i.i60.i, label %ends_with_separator.exit62.thread.i, label %ends_with_separator.exit62.i
 
-ends_with_separator.exit62.i:                     ; preds = %66
-  %68 = tail call ptr @wmem_strbuf_get_str(ptr noundef %29)
-  %69 = getelementptr i8, ptr %68, i64 %67
-  %70 = getelementptr i8, ptr %69, i64 -1
-  %71 = load i8, ptr %70, align 1
-  %72 = icmp eq i8 %71, 47
-  br i1 %72, label %.critedge.i, label %ends_with_separator.exit62.thread.i
+ends_with_separator.exit62.i:                     ; preds = %67
+  %69 = tail call ptr @wmem_strbuf_get_str(ptr noundef %29)
+  %70 = getelementptr i8, ptr %69, i64 %68
+  %71 = getelementptr i8, ptr %70, i64 -1
+  %72 = load i8, ptr %71, align 1
+  %73 = icmp eq i8 %72, 47
+  br i1 %73, label %.critedge.i, label %ends_with_separator.exit62.thread.i
 
-ends_with_separator.exit62.thread.i:              ; preds = %ends_with_separator.exit62.i, %66, %.lr.ph.i
-  %73 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %74 = add i64 %73, -1
-  tail call void @wmem_strbuf_truncate(ptr noundef %29, i64 noundef %74)
-  %75 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %.not57.i = icmp eq i64 %75, 0
+ends_with_separator.exit62.thread.i:              ; preds = %ends_with_separator.exit62.i, %67, %.lr.ph.i
+  %74 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %75 = add i64 %74, -1
+  tail call void @wmem_strbuf_truncate(ptr noundef %29, i64 noundef %75)
+  %76 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %.not57.i = icmp eq i64 %76, 0
   br i1 %.not57.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %ends_with_separator.exit62.thread.i, %ends_with_separator.exit62.i, %.preheader.i
-  %76 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %77 = icmp ugt i64 %76, 1
-  br i1 %77, label %78, label %wmem_strbuf_get_last_char.exit.thread.i
+  %77 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %78 = icmp ugt i64 %77, 1
+  br i1 %78, label %79, label %wmem_strbuf_get_last_char.exit.thread.i
 
-78:                                               ; preds = %.critedge.i
-  %79 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %.not.i.i = icmp eq i64 %79, 0
+79:                                               ; preds = %.critedge.i
+  %80 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %.not.i.i = icmp eq i64 %80, 0
   br i1 %.not.i.i, label %wmem_strbuf_get_last_char.exit.thread.i, label %wmem_strbuf_get_last_char.exit.i
 
-wmem_strbuf_get_last_char.exit.i:                 ; preds = %78
-  %80 = tail call ptr @wmem_strbuf_get_str(ptr noundef %29)
-  %81 = getelementptr i8, ptr %80, i64 %79
-  %82 = getelementptr i8, ptr %81, i64 -1
-  %83 = load i8, ptr %82, align 1
-  %84 = icmp eq i8 %83, 47
-  br i1 %84, label %85, label %wmem_strbuf_get_last_char.exit.thread.i
+wmem_strbuf_get_last_char.exit.i:                 ; preds = %79
+  %81 = tail call ptr @wmem_strbuf_get_str(ptr noundef %29)
+  %82 = getelementptr i8, ptr %81, i64 %80
+  %83 = getelementptr i8, ptr %82, i64 -1
+  %84 = load i8, ptr %83, align 1
+  %85 = icmp eq i8 %84, 47
+  br i1 %85, label %86, label %wmem_strbuf_get_last_char.exit.thread.i
 
-85:                                               ; preds = %wmem_strbuf_get_last_char.exit.i
-  %86 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %87 = add i64 %86, -1
-  tail call void @wmem_strbuf_truncate(ptr noundef %29, i64 noundef %87)
+86:                                               ; preds = %wmem_strbuf_get_last_char.exit.i
+  %87 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %88 = add i64 %87, -1
+  tail call void @wmem_strbuf_truncate(ptr noundef %29, i64 noundef %88)
   br label %wmem_strbuf_get_last_char.exit.thread.i
 
 sub_075.i:                                        ; preds = %.tail.i, %sub_1.i, %sub_0.i
-  %88 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.04981.i)
-  %89 = load i8, ptr %88, align 1
-  %.not86.i = icmp eq i8 %89, 46
+  %89 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.04981.i)
+  %90 = load i8, ptr %89, align 1
+  %.not86.i = icmp eq i8 %90, 46
   br i1 %.not86.i, label %.tail74.i, label %.tail74.thread.i
 
 .tail74.i:                                        ; preds = %sub_075.i
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 1
-  %91 = load i8, ptr %90, align 1
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %wmem_strbuf_get_last_char.exit.thread.i, label %.tail74.thread.i
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %92 = load i8, ptr %91, align 1
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %wmem_strbuf_get_last_char.exit.thread.i, label %.tail74.thread.i
 
 .tail74.thread.i:                                 ; preds = %.tail74.i, %sub_075.i
-  %93 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %.not56.i = icmp eq i64 %93, 0
-  br i1 %.not56.i, label %104, label %94
+  %94 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %.not56.i = icmp eq i64 %94, 0
+  br i1 %.not56.i, label %105, label %95
 
-94:                                               ; preds = %.tail74.thread.i
-  %95 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %ends_with_separator.exit66.thread.i, label %97
+95:                                               ; preds = %.tail74.thread.i
+  %96 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %ends_with_separator.exit66.thread.i, label %98
 
-97:                                               ; preds = %94
-  %98 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
-  %.not.i.i64.i = icmp eq i64 %98, 0
+98:                                               ; preds = %95
+  %99 = tail call i64 @wmem_strbuf_get_len(ptr noundef %29)
+  %.not.i.i64.i = icmp eq i64 %99, 0
   br i1 %.not.i.i64.i, label %ends_with_separator.exit66.thread.i, label %ends_with_separator.exit66.i
 
-ends_with_separator.exit66.i:                     ; preds = %97
-  %99 = tail call ptr @wmem_strbuf_get_str(ptr noundef %29)
-  %100 = getelementptr i8, ptr %99, i64 %98
-  %101 = getelementptr i8, ptr %100, i64 -1
-  %102 = load i8, ptr %101, align 1
-  %103 = icmp eq i8 %102, 47
-  br i1 %103, label %104, label %ends_with_separator.exit66.thread.i
+ends_with_separator.exit66.i:                     ; preds = %98
+  %100 = tail call ptr @wmem_strbuf_get_str(ptr noundef %29)
+  %101 = getelementptr i8, ptr %100, i64 %99
+  %102 = getelementptr i8, ptr %101, i64 -1
+  %103 = load i8, ptr %102, align 1
+  %104 = icmp eq i8 %103, 47
+  br i1 %104, label %105, label %ends_with_separator.exit66.thread.i
 
-ends_with_separator.exit66.thread.i:              ; preds = %ends_with_separator.exit66.i, %97, %94
+ends_with_separator.exit66.thread.i:              ; preds = %ends_with_separator.exit66.i, %98, %95
   tail call void @wmem_strbuf_append_c(ptr noundef %29, i8 noundef signext 47)
-  br label %104
+  br label %105
 
-104:                                              ; preds = %ends_with_separator.exit66.thread.i, %ends_with_separator.exit66.i, %.tail74.thread.i
-  %105 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.04981.i)
-  tail call void @wmem_strbuf_append(ptr noundef %29, ptr noundef %105)
+105:                                              ; preds = %ends_with_separator.exit66.thread.i, %ends_with_separator.exit66.i, %.tail74.thread.i
+  %106 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.04981.i)
+  tail call void @wmem_strbuf_append(ptr noundef %29, ptr noundef %106)
   br label %wmem_strbuf_get_last_char.exit.thread.i
 
-wmem_strbuf_get_last_char.exit.thread.i:          ; preds = %104, %.tail74.i, %85, %wmem_strbuf_get_last_char.exit.i, %78, %.critedge.i
-  %106 = tail call ptr @wmem_packet_scope()
-  %107 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %106, ptr noundef null)
-  br label %108
+wmem_strbuf_get_last_char.exit.thread.i:          ; preds = %105, %.tail74.i, %86, %wmem_strbuf_get_last_char.exit.i, %79, %.critedge.i
+  %107 = tail call ptr @wmem_packet_scope()
+  %108 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %107, ptr noundef null)
+  br label %109
 
 .thread.i:                                        ; preds = %switch.early.test.i
   tail call void @wmem_strbuf_append_c(ptr noundef %.04981.i, i8 noundef signext %.0.i59.i)
-  br label %109
+  br label %110
 
-108:                                              ; preds = %wmem_strbuf_get_last_char.exit.thread.i, %54, %53
-  %.1.i = phi ptr [ %107, %wmem_strbuf_get_last_char.exit.thread.i ], [ %.04981.i, %54 ], [ %.04981.i, %53 ]
-  br i1 %52, label %._crit_edge.i, label %109
+109:                                              ; preds = %wmem_strbuf_get_last_char.exit.thread.i, %55, %54
+  %.1.i = phi ptr [ %108, %wmem_strbuf_get_last_char.exit.thread.i ], [ %.04981.i, %55 ], [ %.04981.i, %54 ]
+  br i1 %52, label %._crit_edge.i, label %110
 
-109:                                              ; preds = %108, %.thread.i
-  %.173.i = phi ptr [ %.04981.i, %.thread.i ], [ %.1.i, %108 ]
-  %110 = add i32 %.15180.i, 1
-  %111 = zext i32 %110 to i64
-  %112 = tail call i64 @wmem_strbuf_get_len(ptr noundef %10)
-  %.not53.i = icmp ult i64 %112, %111
+110:                                              ; preds = %109, %.thread.i
+  %.173.i = phi ptr [ %.04981.i, %.thread.i ], [ %.1.i, %109 ]
+  %111 = add i32 %.15180.i, 1
+  %112 = zext i32 %111 to i64
+  %113 = tail call i64 @wmem_strbuf_get_len(ptr noundef %10)
+  %.not53.i = icmp ult i64 %113, %112
   br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %109, %108, %begins_with_separator.exit.thread.i
+._crit_edge.i:                                    ; preds = %110, %109, %begins_with_separator.exit.thread.i
   store ptr %29, ptr %4, align 8
   br label %add_directory_to_conv.exit
 

@@ -2393,15 +2393,15 @@ _ZN4llvm5APIntD2Ev.exit171:                       ; preds = %463, %466, %469
   %.020.us.i = phi ptr [ %.121.us.i, %488 ], [ null, %._crit_edge281 ]
   %.019.us.i = phi ptr [ %.1.us.i, %488 ], [ %.pre, %._crit_edge281 ]
   %481 = load i8, ptr %.019.us.i, align 1, !tbaa !57
-  %.fr.us.i = freeze i8 %481
-  %482 = add i8 %.fr.us.i, -48
+  %.fr29.us.i = freeze i8 %481
+  %482 = add i8 %.fr29.us.i, -48
   %483 = icmp ult i8 %482, 10
   br i1 %483, label %488, label %484
 
 484:                                              ; preds = %.split.us.i
   %.not23.us.i = icmp eq ptr %.020.us.i, null
   %spec.select.us.i = select i1 %.not23.us.i, ptr %.019.us.i, ptr %.020.us.i
-  %485 = zext i8 %.fr.us.i to i64
+  %485 = zext i8 %.fr29.us.i to i64
   %486 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !69
   %.not.us.i = icmp eq i16 %487, -1
@@ -2415,14 +2415,14 @@ _ZN4llvm5APIntD2Ev.exit171:                       ; preds = %463, %466, %469
 .split.i:                                         ; preds = %._crit_edge281, %.split.i
   %.019.i = phi ptr [ %.1.i, %.split.i ], [ %.pre, %._crit_edge281 ]
   %489 = load i8, ptr %.019.i, align 1, !tbaa !57
-  %.fr.i = freeze i8 %489
-  %490 = add i8 %.fr.i, -48
+  %.fr29.i = freeze i8 %489
+  %490 = add i8 %.fr29.i, -48
   %491 = icmp ult i8 %490, 10
   %.1.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
   br i1 %491, label %.split.i, label %_ZL14doHexLookAheadRPKcjb.exit, !llvm.loop !140
 
 .critedge.i:                                      ; preds = %484
-  %492 = and i8 %.fr.us.i, -33
+  %492 = and i8 %.fr29.us.i, -33
   %spec.select24.i = icmp eq i8 %492, 72
   %.019.us.lcssa.spec.select.us.lcssa.i = select i1 %spec.select24.i, ptr %.019.us.i, ptr %spec.select.us.i
   %..i = select i1 %spec.select24.i, i32 16, i32 10
@@ -3640,15 +3640,15 @@ define internal fastcc noundef range(i32 8, 17) i32 @_ZL14doHexLookAheadRPKcjb(p
   %.020.us = phi ptr [ %.121.us, %12 ], [ null, %3 ]
   %.019.us = phi ptr [ %.1.us, %12 ], [ %4, %3 ]
   %5 = load i8, ptr %.019.us, align 1, !tbaa !57
-  %.fr.us = freeze i8 %5
-  %6 = add i8 %.fr.us, -48
+  %.fr29.us = freeze i8 %5
+  %6 = add i8 %.fr29.us, -48
   %7 = icmp ult i8 %6, 10
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %.split.us
   %.not23.us = icmp eq ptr %.020.us, null
   %spec.select.us = select i1 %.not23.us, ptr %.019.us, ptr %.020.us
-  %9 = zext i8 %.fr.us to i64
+  %9 = zext i8 %.fr29.us to i64
   %10 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !69
   %.not.us = icmp eq i16 %11, -1
@@ -3662,14 +3662,14 @@ define internal fastcc noundef range(i32 8, 17) i32 @_ZL14doHexLookAheadRPKcjb(p
 .split:                                           ; preds = %3, %.split
   %.019 = phi ptr [ %.1, %.split ], [ %4, %3 ]
   %13 = load i8, ptr %.019, align 1, !tbaa !57
-  %.fr = freeze i8 %13
-  %14 = add i8 %.fr, -48
+  %.fr29 = freeze i8 %13
+  %14 = add i8 %.fr29, -48
   %15 = icmp ult i8 %14, 10
   %.1 = getelementptr inbounds nuw i8, ptr %.019, i64 1
   br i1 %15, label %.split, label %.thread, !llvm.loop !140
 
 .critedge:                                        ; preds = %8
-  %16 = and i8 %.fr.us, -33
+  %16 = and i8 %.fr29.us, -33
   %spec.select24 = icmp eq i8 %16, 72
   %.019.us.lcssa.spec.select.us.lcssa = select i1 %spec.select24, ptr %.019.us, ptr %spec.select.us
   %. = select i1 %spec.select24, i32 16, i32 %1

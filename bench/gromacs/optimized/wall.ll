@@ -57,21 +57,20 @@ define void @_Z16make_wall_tablesP8_IO_FILERK10t_inputrecPKcPK16SimulationGroups
   %9 = load i32, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %11 = load i32, ptr %10, align 8, !tbaa !102
-  %.fr68 = freeze i32 %11
-  %.fr67 = freeze i32 %9
-  %12 = sub i32 %.fr67, %.fr68
+  %12 = sub nsw i32 %9, %11
+  %.fr67 = freeze i32 %12
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !103
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %12, i32 noundef %.fr68) #18
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %.fr67, i32 noundef %11) #18
   %.pre = load i32, ptr %10, align 8, !tbaa !102
   br label %17
 
 17:                                               ; preds = %15, %5
-  %18 = phi i32 [ %.pre, %15 ], [ %.fr68, %5 ]
+  %18 = phi i32 [ %.pre, %15 ], [ %11, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %20 = sext i32 %18 to i64
   tail call void @_ZNSt6vectorIS_ISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20)
@@ -80,20 +79,20 @@ define void @_Z16make_wall_tablesP8_IO_FILERK10t_inputrecPKcPK16SimulationGroups
   br i1 %22, label %.lr.ph65, label %._crit_edge66
 
 .lr.ph65:                                         ; preds = %17
-  %23 = sext i32 %12 to i64
-  %24 = icmp sgt i32 %12, 0
+  %23 = sext i32 %.fr67 to i64
+  %24 = icmp sgt i32 %.fr67, 0
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 240
   br i1 %24, label %.lr.ph65.split.us.preheader, label %.lr.ph65.split
 
 .lr.ph65.split.us.preheader:                      ; preds = %.lr.ph65
-  %27 = zext nneg i32 %12 to i64
+  %27 = zext nneg i32 %.fr67 to i64
   br label %.lr.ph65.split.us
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65.split.us.preheader, %._crit_edge.us
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph65.split.us.preheader ], [ %indvars.iv.next85, %._crit_edge.us ]
+  %indvars.iv83 = phi i64 [ 0, %.lr.ph65.split.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us ]
   %28 = load ptr, ptr %19, align 8, !tbaa !105
-  %29 = getelementptr inbounds nuw %"class.std::vector.186", ptr %28, i64 %indvars.iv84
+  %29 = getelementptr inbounds nuw %"class.std::vector.186", ptr %28, i64 %indvars.iv83
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !108
   %32 = load ptr, ptr %29, align 8, !tbaa !111
@@ -140,16 +139,16 @@ _ZSt8_DestroyIPSt10unique_ptrI12t_forcetableSt14default_deleteIS1_EES4_EvT_S6_RS
   br label %_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm.exit.us
 
 _ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm.exit.us: ; preds = %44, %_ZSt8_DestroyIPSt10unique_ptrI12t_forcetableSt14default_deleteIS1_EES4_EvT_S6_RSaIT0_E.exit.i.i.us, %40, %38
-  %46 = add nuw nsw i64 %indvars.iv84, %27
+  %46 = add nuw nsw i64 %indvars.iv83, %27
   %47 = getelementptr inbounds nuw i32, ptr %14, i64 %46
   %48 = trunc nuw i64 %46 to i32
   br label %49
 
 49:                                               ; preds = %_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm.exit.us, %.loopexit.us
-  %indvars.iv79 = phi i64 [ 0, %_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm.exit.us ], [ %indvars.iv.next80, %.loopexit.us ]
+  %indvars.iv78 = phi i64 [ 0, %_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm.exit.us ], [ %indvars.iv.next79, %.loopexit.us ]
   %50 = load ptr, ptr %25, align 8, !tbaa !116
   %51 = load i32, ptr %8, align 8, !tbaa !4
-  %52 = trunc nuw nsw i64 %indvars.iv79 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv78 to i32
   %53 = mul nsw i32 %51, %52
   %54 = add i32 %53, %48
   %55 = sext i32 %54 to i64
@@ -168,7 +167,7 @@ _ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resiz
   %64 = sub i64 0, %63
   %65 = getelementptr inbounds i8, ptr %61, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -1
-  %67 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv79
+  %67 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv78
   %68 = load i32, ptr %67, align 4, !tbaa !214
   %69 = sext i32 %68 to i64
   %70 = load ptr, ptr %26, align 8, !tbaa !215
@@ -186,9 +185,9 @@ _ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resiz
   %81 = load ptr, ptr %4, align 8, !tbaa !223
   call void @_Z11make_tablesP8_IO_FILEPK19interaction_const_tPKcfi(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.87") align 8 %7, ptr noundef %0, ptr noundef %81, ptr noundef nonnull %6, float noundef 0.000000e+00, i32 noundef 1)
   %82 = load ptr, ptr %19, align 8, !tbaa !105
-  %83 = getelementptr inbounds nuw %"class.std::vector.186", ptr %82, i64 %indvars.iv84
+  %83 = getelementptr inbounds nuw %"class.std::vector.186", ptr %82, i64 %indvars.iv83
   %84 = load ptr, ptr %83, align 8, !tbaa !111
-  %85 = getelementptr inbounds nuw %"class.std::unique_ptr.87", ptr %84, i64 %indvars.iv79
+  %85 = getelementptr inbounds nuw %"class.std::unique_ptr.87", ptr %84, i64 %indvars.iv78
   %86 = load ptr, ptr %7, align 8, !tbaa !112
   store ptr null, ptr %7, align 8, !tbaa !112
   %87 = load ptr, ptr %85, align 8, !tbaa !112
@@ -214,9 +213,9 @@ _ZNKSt14default_deleteI12t_forcetableEclEPS0_.exit.i.us: ; preds = %_ZNSt10uniqu
 _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = %_ZNKSt14default_deleteI12t_forcetableEclEPS0_.exit.i.us, %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EEaSEOS3_.exit.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %89 = load ptr, ptr %19, align 8, !tbaa !105
-  %90 = getelementptr inbounds nuw %"class.std::vector.186", ptr %89, i64 %indvars.iv84
+  %90 = getelementptr inbounds nuw %"class.std::vector.186", ptr %89, i64 %indvars.iv83
   %91 = load ptr, ptr %90, align 8, !tbaa !111
-  %92 = getelementptr inbounds nuw %"class.std::unique_ptr.87", ptr %91, i64 %indvars.iv79
+  %92 = getelementptr inbounds nuw %"class.std::unique_ptr.87", ptr %91, i64 %indvars.iv78
   %93 = load ptr, ptr %92, align 8, !tbaa !112
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %95 = load i32, ptr %94, align 4, !tbaa !224
@@ -224,32 +223,32 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
   br i1 %.not5760.us, label %.loopexit.us, label %.preheader.lr.ph.us
 
 96:                                               ; preds = %97
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
-  br i1 %exitcond78.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !232
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
+  br i1 %exitcond77.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !232
 
 97:                                               ; preds = %.preheader.us, %97
-  %indvars.iv72 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next73, %97 ]
-  %98 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv72
+  %indvars.iv71 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next72, %97 ]
+  %98 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv71
   %99 = load float, ptr %98, align 4, !tbaa !233
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv72
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv71
   store float %99, ptr %gep, align 4, !tbaa !233
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next73, 8
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next72, 8
   br i1 %exitcond.not, label %96, label %97, !llvm.loop !234
 
 .loopexit.us:                                     ; preds = %96, %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us, %49
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %27
-  br i1 %exitcond83.not, label %._crit_edge.us, label %49, !llvm.loop !235
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %27
+  br i1 %exitcond82.not, label %._crit_edge.us, label %49, !llvm.loop !235
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.us, %96
-  %indvars.iv75 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next76, %96 ]
-  %.idx = mul nuw nsw i64 %indvars.iv75, 48
+  %indvars.iv74 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next75, %96 ]
+  %.idx = mul nuw nsw i64 %indvars.iv74, 48
   %100 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %.idx104 = shl nsw i64 %indvars.iv75, 5
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %103, i64 %.idx104
+  %.idx102 = shl nsw i64 %indvars.iv74, 5
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %103, i64 %.idx102
   br label %97
 
 .preheader.lr.ph.us:                              ; preds = %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us
@@ -260,10 +259,10 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit.us: ; preds = 
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %105 = load i32, ptr %10, align 8, !tbaa !102
   %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next85, %106
+  %107 = icmp slt i64 %indvars.iv.next84, %106
   br i1 %107, label %.lr.ph65.split.us, label %._crit_edge66, !llvm.loop !237
 
 ._crit_edge66:                                    ; preds = %_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EE6resizeEm.exit, %._crit_edge.us, %17

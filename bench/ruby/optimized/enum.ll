@@ -4395,8 +4395,8 @@ rb_array_len.exit:                                ; preds = %29, %32
 RB_FLOAT_TYPE_P.exit:                             ; preds = %44
   %49 = inttoptr i64 %.0.i26 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !20
-  %.fr = freeze i64 %50
-  %51 = and i64 %.fr, 31
+  %.fr52 = freeze i64 %50
+  %51 = and i64 %.fr52, 31
   %52 = icmp eq i64 %51, 4
   br i1 %52, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread42
 
@@ -4419,8 +4419,8 @@ RB_FLOAT_TYPE_P.exit.thread42:                    ; preds = %44, %RB_FLOAT_TYPE_
 RB_FLOAT_TYPE_P.exit30:                           ; preds = %56
   %61 = inttoptr i64 %.0.i26 to ptr
   %62 = load i64, ptr %61, align 8, !tbaa !20
-  %.fr52 = freeze i64 %62
-  %63 = and i64 %.fr52, 31
+  %.fr53 = freeze i64 %62
+  %63 = and i64 %.fr53, 31
   %64 = icmp eq i64 %63, 4
   br i1 %64, label %RB_FLOAT_TYPE_P.exit30.thread, label %RB_FLOAT_TYPE_P.exit30.thread48
 
@@ -4461,8 +4461,8 @@ RARRAY_ASET.exit:                                 ; preds = %71, %81
   %83 = load i8, ptr %72, align 8, !tbaa !48
   %84 = zext i8 %83 to i64
   %85 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %82) #15
-  %.idx53 = shl nuw nsw i64 %84, 4
-  %86 = getelementptr i8, ptr %85, i64 %.idx53
+  %.idx54 = shl nuw nsw i64 %84, 4
+  %86 = getelementptr i8, ptr %85, i64 %.idx54
   %87 = getelementptr i8, ptr %86, i64 8
   store i64 %.0.i34, ptr %87, align 8, !tbaa !7
   %88 = icmp eq i64 %.0.i34, 0

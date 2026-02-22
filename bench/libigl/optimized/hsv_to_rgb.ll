@@ -71,8 +71,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   %26 = getelementptr i8, ptr %22, i64 %.idx
   %27 = load double, ptr %26, align 8, !tbaa !15
   %28 = fptosi double %23 to i32
-  %.fr.i.i = freeze i32 %28
-  %29 = srem i32 %.fr.i.i, 360
+  %.fr48.i.i = freeze i32 %28
+  %29 = srem i32 %.fr48.i.i, 360
   %30 = add nsw i32 %29, 360
   %.cmp.i.i = icmp slt i32 %29, 0
   %31 = select i1 %.cmp.i.i, i32 %30, i32 %29
@@ -140,8 +140,8 @@ define weak_odr dso_local void @_ZN3igl10hsv_to_rgbIdEEvPKT_PS1_(ptr noundef %0,
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %0, align 8, !tbaa !15
   %8 = fptosi double %7 to i32
-  %.fr.i = freeze i32 %8
-  %9 = srem i32 %.fr.i, 360
+  %.fr48.i = freeze i32 %8
+  %9 = srem i32 %.fr48.i, 360
   %10 = add nsw i32 %9, 360
   %.cmp.i = icmp slt i32 %9, 0
   %11 = select i1 %.cmp.i, i32 %10, i32 %9
@@ -263,8 +263,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   %26 = getelementptr i8, ptr %22, i64 %.idx
   %27 = load float, ptr %26, align 4, !tbaa !24
   %28 = fptosi float %23 to i32
-  %.fr.i = freeze i32 %28
-  %29 = srem i32 %.fr.i, 360
+  %.fr48.i = freeze i32 %28
+  %29 = srem i32 %.fr48.i, 360
   %30 = add nsw i32 %29, 360
   %.cmp.i = icmp slt i32 %29, 0
   %31 = select i1 %.cmp.i, i32 %30, i32 %29
@@ -441,8 +441,8 @@ define weak_odr dso_local void @_ZN3igl10hsv_to_rgbIN5Eigen6MatrixIfLi64ELi3ELi1
   %9 = getelementptr i8, ptr %5, i64 8
   %10 = load float, ptr %9, align 4, !tbaa !24
   %11 = fptosi float %6 to i32
-  %.fr.i = freeze i32 %11
-  %12 = srem i32 %.fr.i, 360
+  %.fr48.i = freeze i32 %11
+  %12 = srem i32 %.fr48.i, 360
   %13 = add nsw i32 %12, 360
   %.cmp.i = icmp slt i32 %12, 0
   %14 = select i1 %.cmp.i, i32 %13, i32 %12

@@ -153,20 +153,20 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
 48:                                               ; preds = %44, %.thread34
   %49 = load i16, ptr %30, align 8
   %50 = icmp eq i16 %49, 0
-  br i1 %50, label %.thread55, label %.preheader67.preheader
+  br i1 %50, label %.thread55, label %.preheader68.preheader
 
-.preheader67.preheader:                           ; preds = %48
+.preheader68.preheader:                           ; preds = %48
   %51 = zext i16 %49 to i32
-  br label %.preheader67
+  br label %.preheader68
 
-.preheader67:                                     ; preds = %.preheader67.preheader, %102
-  %52 = phi i32 [ %103, %102 ], [ 0, %.preheader67.preheader ]
-  %53 = phi ptr [ %104, %102 ], [ %37, %.preheader67.preheader ]
+.preheader68:                                     ; preds = %.preheader68.preheader, %102
+  %52 = phi i32 [ %103, %102 ], [ 0, %.preheader68.preheader ]
+  %53 = phi ptr [ %104, %102 ], [ %37, %.preheader68.preheader ]
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 3
   br i1 %55, label %56, label %102
 
-56:                                               ; preds = %.preheader67
+56:                                               ; preds = %.preheader68
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, -4097
@@ -237,16 +237,16 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %93 = call i64 @kernel_read(ptr noundef %83, ptr noundef nonnull %90, i64 noundef 64, ptr noundef nonnull %2) #15
-  %.fr = freeze i64 %93
-  %94 = icmp eq i64 %.fr, 64
+  %.fr64 = freeze i64 %93
+  %94 = icmp eq i64 %.fr64, 64
   br i1 %94, label %.thread42, label %95, !prof !6
 
 .thread42:                                        ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.loopexit68
+  br label %.loopexit69
 
 95:                                               ; preds = %92
-  %96 = icmp slt i64 %.fr, 0
+  %96 = icmp slt i64 %.fr64, 0
   br i1 %96, label %97, label %.thread40
 
 .thread40:                                        ; preds = %95
@@ -254,32 +254,32 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   br label %.thread52
 
 97:                                               ; preds = %95
-  %98 = trunc i64 %.fr to i32
+  %98 = trunc i64 %.fr64 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %99 = icmp slt i32 %98, 0
-  br i1 %99, label %.thread52, label %.loopexit68
+  br i1 %99, label %.thread52, label %.loopexit69
 
 100:                                              ; preds = %.thread37, %76, %73
   %101 = phi i32 [ %74, %73 ], [ -8, %76 ], [ -5, %.thread37 ]
   call void @kfree(ptr noundef nonnull %62) #15
   br label %.thread46
 
-102:                                              ; preds = %.preheader67
+102:                                              ; preds = %.preheader68
   %103 = add nuw nsw i32 %52, 1
   %104 = getelementptr i8, ptr %53, i64 56
   %105 = icmp samesign ult i32 %103, %51
-  br i1 %105, label %.preheader67, label %.preheader.preheader, !llvm.loop !7
+  br i1 %105, label %.preheader68, label %.preheader.preheader, !llvm.loop !7
 
-.loopexit68:                                      ; preds = %97, %.thread42
+.loopexit69:                                      ; preds = %97, %.thread42
   %.pr = load i16, ptr %30, align 8
-  %.pre96 = zext i16 %.pr to i32
+  %.pre97 = zext i16 %.pr to i32
   %106 = icmp eq i16 %.pr, 0
-  br i1 %106, label %.loopexit66, label %.preheader.preheader
+  br i1 %106, label %.loopexit67, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %102, %.loopexit68
-  %107 = phi ptr [ %83, %.loopexit68 ], [ null, %102 ]
-  %108 = phi ptr [ %90, %.loopexit68 ], [ null, %102 ]
-  %.pre-phi133 = phi i32 [ %.pre96, %.loopexit68 ], [ %51, %102 ]
+.preheader.preheader:                             ; preds = %102, %.loopexit69
+  %107 = phi ptr [ %83, %.loopexit69 ], [ null, %102 ]
+  %108 = phi ptr [ %90, %.loopexit69 ], [ null, %102 ]
+  %.pre-phi134 = phi i32 [ %.pre97, %.loopexit69 ], [ %51, %102 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %119
@@ -301,20 +301,20 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %120 = phi i32 [ %118, %114 ], [ %109, %.preheader ]
   %121 = add nuw nsw i32 %110, 1
   %122 = getelementptr i8, ptr %111, i64 56
-  %123 = icmp eq i32 %121, %.pre-phi133
-  br i1 %123, label %.loopexit66, label %.preheader, !llvm.loop !10
+  %123 = icmp eq i32 %121, %.pre-phi134
+  br i1 %123, label %.loopexit67, label %.preheader, !llvm.loop !10
 
-.loopexit66:                                      ; preds = %119, %.loopexit68
-  %124 = phi ptr [ %83, %.loopexit68 ], [ %107, %119 ]
-  %125 = phi ptr [ %90, %.loopexit68 ], [ %108, %119 ]
-  %126 = phi i32 [ 0, %.loopexit68 ], [ %120, %119 ]
+.loopexit67:                                      ; preds = %119, %.loopexit69
+  %124 = phi ptr [ %83, %.loopexit69 ], [ %107, %119 ]
+  %125 = phi ptr [ %90, %.loopexit69 ], [ %108, %119 ]
+  %126 = phi i32 [ 0, %.loopexit69 ], [ %120, %119 ]
   %.not = icmp eq ptr %124, null
   br i1 %.not, label %.thread55, label %127
 
-127:                                              ; preds = %.loopexit66
+127:                                              ; preds = %.loopexit67
   %lhsv = load i32, ptr %125, align 4
-  %.not64 = icmp eq i32 %lhsv, 1179403647
-  br i1 %.not64, label %128, label %.thread52
+  %.not65 = icmp eq i32 %lhsv, 1179403647
+  br i1 %.not65, label %128, label %.thread52
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 18
@@ -327,12 +327,12 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread52, label %.thread55
 
-.thread55:                                        ; preds = %48, %132, %.loopexit66
-  %135 = phi i1 [ false, %.loopexit66 ], [ true, %132 ], [ false, %48 ]
-  %136 = phi i32 [ %126, %.loopexit66 ], [ %126, %132 ], [ 0, %48 ]
-  %137 = phi ptr [ %125, %.loopexit66 ], [ %125, %132 ], [ null, %48 ]
-  %138 = phi ptr [ null, %.loopexit66 ], [ %124, %132 ], [ null, %48 ]
-  %139 = phi ptr [ null, %.loopexit66 ], [ %133, %132 ], [ null, %48 ]
+.thread55:                                        ; preds = %48, %132, %.loopexit67
+  %135 = phi i1 [ false, %.loopexit67 ], [ true, %132 ], [ false, %48 ]
+  %136 = phi i32 [ %126, %.loopexit67 ], [ %126, %132 ], [ 0, %48 ]
+  %137 = phi ptr [ %125, %.loopexit67 ], [ %125, %132 ], [ null, %48 ]
+  %138 = phi ptr [ null, %.loopexit67 ], [ %124, %132 ], [ null, %48 ]
+  %139 = phi ptr [ null, %.loopexit67 ], [ %133, %132 ], [ null, %48 ]
   %140 = call i32 @begin_new_exec(ptr noundef %0) #15
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %.thread52
@@ -437,10 +437,10 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   ]
 
 209:                                              ; preds = %207
-  br i1 %135, label %210, label %._crit_edge97
+  br i1 %135, label %210, label %._crit_edge98
 
-._crit_edge97:                                    ; preds = %209
-  %.pre98 = zext i16 %185 to i32
+._crit_edge98:                                    ; preds = %209
+  %.pre99 = zext i16 %185 to i32
   br label %230
 
 210:                                              ; preds = %209
@@ -456,11 +456,11 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
 218:                                              ; preds = %210
   %219 = call i64 @arch_mmap_rnd() #15
   %220 = add i64 %219, %214
-  %.pre91 = load i16, ptr %30, align 8
+  %.pre92 = load i16, ptr %30, align 8
   br label %221
 
 221:                                              ; preds = %218, %210
-  %222 = phi i16 [ %.pre91, %218 ], [ %185, %210 ]
+  %222 = phi i16 [ %.pre92, %218 ], [ %185, %210 ]
   %223 = phi i64 [ %220, %218 ], [ %214, %210 ]
   %224 = zext i16 %222 to i32
   %225 = call fastcc i64 @maximum_alignment(ptr noundef nonnull %37, i32 noundef %224), !range !12
@@ -470,13 +470,13 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %229 = and i64 %228, %223
   br label %230
 
-230:                                              ; preds = %._crit_edge97, %221
-  %.pre-phi99 = phi i32 [ %.pre98, %._crit_edge97 ], [ %224, %221 ]
-  %231 = phi i64 [ 0, %._crit_edge97 ], [ %229, %221 ]
-  %232 = phi i32 [ 2, %._crit_edge97 ], [ 1048578, %221 ]
+230:                                              ; preds = %._crit_edge98, %221
+  %.pre-phi100 = phi i32 [ %.pre99, %._crit_edge98 ], [ %224, %221 ]
+  %231 = phi i64 [ 0, %._crit_edge98 ], [ %229, %221 ]
+  %232 = phi i32 [ 2, %._crit_edge98 ], [ 1048578, %221 ]
   %233 = sub i64 %231, %205
   %234 = and i64 %233, -4096
-  %235 = call fastcc i64 @total_mapping_size(ptr noundef nonnull %37, i32 noundef %.pre-phi99)
+  %235 = call fastcc i64 @total_mapping_size(ptr noundef nonnull %37, i32 noundef %.pre-phi100)
   %236 = icmp eq i64 %235, 0
   br i1 %236, label %.thread52, label %238
 
@@ -539,10 +539,10 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %273 = load i64, ptr %272, align 8
   %274 = load i64, ptr %40, align 8
   %275 = icmp ugt i64 %273, %274
-  br i1 %275, label %._crit_edge92, label %276
+  br i1 %275, label %._crit_edge93, label %276
 
-._crit_edge92:                                    ; preds = %270
-  %.pre93 = load i64, ptr %204, align 8
+._crit_edge93:                                    ; preds = %270
+  %.pre94 = load i64, ptr %204, align 8
   br label %284
 
 276:                                              ; preds = %270
@@ -550,17 +550,17 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %278 = load i64, ptr %277, align 8
   %279 = add i64 %278, %273
   %280 = icmp ult i64 %274, %279
-  %.pre94 = load i64, ptr %204, align 8
+  %.pre95 = load i64, ptr %204, align 8
   br i1 %280, label %281, label %284
 
 281:                                              ; preds = %276
   %282 = sub i64 %274, %273
-  %283 = add i64 %282, %.pre94
+  %283 = add i64 %282, %.pre95
   br label %284
 
-284:                                              ; preds = %._crit_edge92, %281, %276
-  %285 = phi i64 [ %.pre94, %281 ], [ %.pre94, %276 ], [ %.pre93, %._crit_edge92 ]
-  %286 = phi i64 [ %283, %281 ], [ %194, %276 ], [ %194, %._crit_edge92 ]
+284:                                              ; preds = %._crit_edge93, %281, %276
+  %285 = phi i64 [ %.pre95, %281 ], [ %.pre95, %276 ], [ %.pre94, %._crit_edge93 ]
+  %286 = phi i64 [ %283, %281 ], [ %194, %276 ], [ %194, %._crit_edge93 ]
   %287 = load i32, ptr %199, align 4
   %288 = and i32 %287, 1
   %289 = icmp eq i32 %288, 0
@@ -654,11 +654,11 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %351 = call i64 @llvm.umax.i64(i64 %186, i64 %345)
   %352 = add i64 %343, %339
   %353 = call i64 @llvm.umax.i64(i64 %352, i64 %191)
-  %.pre95 = load i16, ptr %30, align 8
+  %.pre96 = load i16, ptr %30, align 8
   br label %354
 
 354:                                              ; preds = %184, %342
-  %355 = phi i16 [ %185, %184 ], [ %.pre95, %342 ]
+  %355 = phi i16 [ %185, %184 ], [ %.pre96, %342 ]
   %356 = phi i64 [ %195, %184 ], [ %271, %342 ]
   %357 = phi i64 [ %194, %184 ], [ %286, %342 ]
   %358 = phi i32 [ %193, %184 ], [ 0, %342 ]
@@ -2075,14 +2075,14 @@ define internal fastcc range(i64 0, -4095) i64 @maximum_alignment(ptr noundef no
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %13 = load i64, ptr %12, align 8
-  %.fr = freeze i64 %13
-  %14 = icmp eq i64 %.fr, 0
+  %.fr4 = freeze i64 %13
+  %14 = icmp eq i64 %.fr4, 0
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr)
+  %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr4)
   %17 = icmp samesign ult i64 %16, 2
-  %18 = tail call i64 @llvm.umax.i64(i64 %7, i64 %.fr)
+  %18 = tail call i64 @llvm.umax.i64(i64 %7, i64 %.fr4)
   %spec.select = select i1 %17, i64 %18, i64 %7
   br label %.thread
 

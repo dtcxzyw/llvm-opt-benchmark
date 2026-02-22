@@ -12421,15 +12421,13 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h370311680a0df429E.exit: 
   %.pre2.i.i.i.i.i = load i64, ptr %23, align 8, !noalias !3894
   %.phi.trans.insert3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.pre4.i.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i.i, align 8, !noalias !3894
-  %.pre4.i.i.i.fr.i.i = freeze i64 %.pre4.i.i.i.i.i
-  %.pre.i.i.i.fr.i.i = freeze i64 %.pre.i.i.i.i.i
-  %233 = icmp eq i64 %.pre.i.i.i.fr.i.i, 0
-  %.pre2.i.i.i.fr.i.i = freeze i64 %.pre2.i.i.i.i.i
-  %234 = icmp ne i64 %.pre2.i.i.i.fr.i.i, %.pre4.i.i.i.fr.i.i
-  %.not46.i.i = or i1 %233, %234
+  %233 = icmp eq i64 %.pre.i.i.i.i.i, 0
+  %234 = icmp ne i64 %.pre2.i.i.i.i.i, %.pre4.i.i.i.i.i
+  %.not46.i.i = select i1 %233, i1 true, i1 %234
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !3894
-  %235 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i.i, i64 16384)
-  %spec.select.i.i = select i1 %.not46.i.i, i64 0, i64 %235
+  %235 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i.i, i64 16384)
+  %cond.fr.i.i = freeze i1 %.not46.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 0, i64 %235
   %236 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6f968edc136cc5efE"(i64 noundef %spec.select.i.i, i1 noundef zeroext false), !noalias !3899
   %237 = extractvalue { i64, ptr } %236, 0
   %238 = extractvalue { i64, ptr } %236, 1
@@ -12967,15 +12965,13 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h2f16f0c145a350ffE.exit.i
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !range !272, !noalias !4065
   %.pre2.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !noalias !4065
   %.pre4.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4065
-  %.pre4.i.i.i.fr.i.i.i.i.i.i.i.i.i = freeze i64 %.pre4.i.i.i.i.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.fr.i.i.i.i.i.i.i.i.i = freeze i64 %.pre.i.i.i.i.i.i.i.i.i.i.i.i
-  %403 = icmp eq i64 %.pre.i.i.i.fr.i.i.i.i.i.i.i.i.i, 0
-  %.pre2.i.i.i.fr.i.i.i.i.i.i.i.i.i = freeze i64 %.pre2.i.i.i.i.i.i.i.i.i.i.i.i
-  %404 = icmp ne i64 %.pre2.i.i.i.fr.i.i.i.i.i.i.i.i.i, %.pre4.i.i.i.fr.i.i.i.i.i.i.i.i.i
-  %.not38.i.i.i.i.i.i.i.i.i = or i1 %403, %404
+  %403 = icmp eq i64 %.pre.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %404 = icmp ne i64 %.pre2.i.i.i.i.i.i.i.i.i.i.i.i, %.pre4.i.i.i.i.i.i.i.i.i.i.i.i
+  %.not38.i.i.i.i.i.i.i.i.i = select i1 %403, i1 true, i1 %404
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !4065
-  %405 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i.i.i.i.i.i.i.i.i, i64 16384)
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %.not38.i.i.i.i.i.i.i.i.i, i64 0, i64 %405
+  %405 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i.i.i.i.i.i.i.i.i, i64 16384)
+  %cond.fr.i.i.i.i.i.i.i.i.i = freeze i1 %.not38.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %cond.fr.i.i.i.i.i.i.i.i.i, i64 0, i64 %405
   %406 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6f968edc136cc5efE"(i64 noundef %spec.select.i.i.i.i.i.i.i.i.i, i1 noundef zeroext false)
           to label %.noexc30.i.i unwind label %.loopexit.i.i, !noalias !3899
 
@@ -46511,15 +46507,13 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h704d
   %.pre2.i.i.i.i = load i64, ptr %12, align 8, !noalias !10813
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.pre4.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i, align 8, !noalias !10813
-  %.pre4.i.i.i.fr.i = freeze i64 %.pre4.i.i.i.i
-  %.pre.i.i.i.fr.i = freeze i64 %.pre.i.i.i.i
-  %23 = icmp eq i64 %.pre.i.i.i.fr.i, 0
-  %.pre2.i.i.i.fr.i = freeze i64 %.pre2.i.i.i.i
-  %24 = icmp ne i64 %.pre2.i.i.i.fr.i, %.pre4.i.i.i.fr.i
-  %.not31.i = or i1 %23, %24
+  %23 = icmp eq i64 %.pre.i.i.i.i, 0
+  %24 = icmp ne i64 %.pre2.i.i.i.i, %.pre4.i.i.i.i
+  %.not31.i = select i1 %23, i1 true, i1 %24
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !10813
-  %25 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i, i64 21845)
-  %spec.select.i = select i1 %.not31.i, i64 0, i64 %25
+  %25 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i, i64 21845)
+  %cond.fr.i = freeze i1 %.not31.i
+  %spec.select.i = select i1 %cond.fr.i, i64 0, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !10811
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hecb9ff7e7261287bE.llvm.9266542439947230232(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 48, i64 noundef 16, i64 noundef %spec.select.i, i1 noundef zeroext true), !noalias !10819
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !10811
@@ -66800,15 +66794,13 @@ define internal fastcc void @"_ZN84_$LT$serde..__private..de..content..ContentVi
   %.pre2.i.i.i = load i64, ptr %4, align 8, !noalias !15898
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre4.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i, align 8, !noalias !15898
-  %.pre4.i.i.i.fr = freeze i64 %.pre4.i.i.i
-  %.pre.i.i.i.fr = freeze i64 %.pre.i.i.i
-  %9 = icmp eq i64 %.pre.i.i.i.fr, 0
-  %.pre2.i.i.i.fr = freeze i64 %.pre2.i.i.i
-  %10 = icmp ne i64 %.pre2.i.i.i.fr, %.pre4.i.i.i.fr
-  %.not17 = or i1 %9, %10
+  %9 = icmp eq i64 %.pre.i.i.i, 0
+  %10 = icmp ne i64 %.pre2.i.i.i, %.pre4.i.i.i
+  %.not17 = select i1 %9, i1 true, i1 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !15898
-  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr, i64 32768)
-  %spec.select = select i1 %.not17, i64 0, i64 %11
+  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 32768)
+  %cond.fr = freeze i1 %.not17
+  %spec.select = select i1 %cond.fr, i64 0, i64 %11
   br label %12
 
 12:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h269fba188c774567E.exit", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h269fba188c774567E.exit.thread"

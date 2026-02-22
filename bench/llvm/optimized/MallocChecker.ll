@@ -16838,9 +16838,9 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
   br i1 %75, label %78, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %72
-  %.sroa.062.0.copyload218 = load ptr, ptr %14, align 8, !tbaa !44
-  %.sroa.263.0.copyload219 = load i8, ptr %.sroa.287.0..sroa_idx, align 8, !tbaa !430
-  %76 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_113MallocChecker18isArgZERO_SIZE_PTREN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextENS4_4SValE(ptr noundef nonnull align 8 dereferenceable(668) %1, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr %.sroa.062.0.copyload218, i8 %.sroa.263.0.copyload219)
+  %.sroa.062.0.copyload219 = load ptr, ptr %14, align 8, !tbaa !44
+  %.sroa.263.0.copyload220 = load i8, ptr %.sroa.287.0..sroa_idx, align 8, !tbaa !430
+  %76 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_113MallocChecker18isArgZERO_SIZE_PTREN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextENS4_4SValE(ptr noundef nonnull align 8 dereferenceable(668) %1, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr %.sroa.062.0.copyload219, i8 %.sroa.263.0.copyload220)
   br i1 %76, label %78, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread: ; preds = %70, %74, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
@@ -17000,13 +17000,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.thread: ;
 
 134:                                              ; preds = %131
   %135 = call { ptr, i64 } @_ZNK5clang4ento9MemRegion11getAsOffsetEv(ptr noundef nonnull align 8 dereferenceable(48) %80) #28
-  %.fr = freeze { ptr, i64 } %135
-  %136 = extractvalue { ptr, i64 } %.fr, 0
+  %.fr209 = freeze { ptr, i64 } %135
+  %136 = extractvalue { ptr, i64 } %.fr209, 0
   %137 = icmp eq ptr %136, null
   br i1 %137, label %140, label %switch.early.test
 
 switch.early.test:                                ; preds = %134
-  %138 = extractvalue { ptr, i64 } %.fr, 1
+  %138 = extractvalue { ptr, i64 } %.fr209, 1
   switch i64 %138, label %.critedge138 [
     i64 9223372036854775807, label %140
     i64 0, label %140
@@ -27230,13 +27230,13 @@ _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit2.i4: ; pre
 
 52:                                               ; preds = %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit2.i4
   %53 = load i32, ptr %2, align 4
-  %.fr8 = freeze i32 %53
-  %54 = and i32 %.fr8, 15728640
+  %.fr9 = freeze i32 %53
+  %54 = and i32 %.fr9, 15728640
   %.not.i3.i5 = icmp eq i32 %54, 15728640
   br i1 %.not.i3.i5, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = lshr i32 %.fr8, 20
+  %56 = lshr i32 %.fr9, 20
   %57 = and i32 %56, 15
   br label %_ZNK5clang13OwnershipAttr7isTakesEv.exit
 
@@ -30555,8 +30555,8 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %41, %_ZN5cl
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
   %62 = load i32, ptr %59, align 16
-  %.fr = freeze i32 %62
-  %63 = lshr i32 %.fr, 19
+  %.fr46 = freeze i32 %62
+  %63 = lshr i32 %.fr46, 19
   %64 = and i32 %63, 511
   %65 = add nsw i32 %64, -479
   %or.cond.i = icmp ult i32 %65, -21

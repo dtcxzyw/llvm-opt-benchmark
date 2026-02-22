@@ -5545,7 +5545,7 @@ define i8 @_ZN7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceab
   %46 = phi ptr [ null, %2 ], [ %143, %.outer.backedge ]
   %.0.ph = phi i32 [ 0, %2 ], [ %53, %.outer.backedge ]
   %.not43 = icmp sge i32 %.0.ph, %1
-  %or.cond.not123 = and i1 %8, %.not43
+  %or.cond.not123 = select i1 %8, i1 %.not43, i1 false
   br i1 %or.cond.not123, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
@@ -9637,25 +9637,25 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %.tr.lcssa = phi ptr [ %0, %3 ], [ %91, %tailrecurse ]
   %.tr41.lcssa = phi i32 [ %1, %3 ], [ %119, %tailrecurse ]
   %5 = icmp sgt i32 %.tr41.lcssa, 1
-  br i1 %5, label %.lr.ph31.preheader.i, label %_ZN7Minisat13selectionSortIj11reduceDB_ltEEvPT_iT0_.exit
+  br i1 %5, label %.lr.ph30.preheader.i, label %_ZN7Minisat13selectionSortIj11reduceDB_ltEEvPT_iT0_.exit
 
-.lr.ph31.preheader.i:                             ; preds = %tailrecurse._crit_edge
+.lr.ph30.preheader.i:                             ; preds = %tailrecurse._crit_edge
   %6 = add nsw i32 %.tr41.lcssa, -1
-  %wide.trip.count39.i = zext nneg i32 %6 to i64
+  %wide.trip.count38.i = zext nneg i32 %6 to i64
   %7 = load ptr, ptr %2, align 8, !tbaa !122
   %wide.trip.count.i = zext nneg i32 %.tr41.lcssa to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph31.preheader.i
-  %indvars.iv36.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next37.i, %._crit_edge.i ]
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph31.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %8 = trunc nuw nsw i64 %indvars.iv36.i to i32
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph30.preheader.i
+  %indvars.iv35.i = phi i64 [ 0, %.lr.ph30.preheader.i ], [ %indvars.iv.next36.i, %._crit_edge.i ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph30.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %8 = trunc nuw nsw i64 %indvars.iv35.i to i32
   br label %9
 
 9:                                                ; preds = %_ZN11reduceDB_ltclEjj.exit.thread24.i, %.lr.ph.i
-  %indvars.iv33.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next34.i, %_ZN11reduceDB_ltclEjj.exit.thread24.i ]
-  %.02128.i = phi i32 [ %8, %.lr.ph.i ], [ %36, %_ZN11reduceDB_ltclEjj.exit.thread24.i ]
-  %10 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv33.i
+  %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next33.i, %_ZN11reduceDB_ltclEjj.exit.thread24.i ]
+  %.02127.i = phi i32 [ %8, %.lr.ph.i ], [ %36, %_ZN11reduceDB_ltclEjj.exit.thread24.i ]
+  %10 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv32.i
   %11 = load i32, ptr %10, align 4, !tbaa !65
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
@@ -9665,7 +9665,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   br i1 %16, label %17, label %_ZN11reduceDB_ltclEjj.exit.thread24.i
 
 17:                                               ; preds = %9
-  %18 = sext i32 %.02128.i to i64
+  %18 = sext i32 %.02127.i to i64
   %19 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !65
   %21 = zext i32 %20 to i64
@@ -9684,24 +9684,23 @@ _ZN11reduceDB_ltclEjj.exit.i:                     ; preds = %17
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw %union.anon, ptr %30, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !154
-  %.fr.i = freeze float %29
-  %.fr26.i = freeze float %33
-  %34 = fcmp olt float %.fr.i, %.fr26.i
-  br i1 %34, label %_ZN11reduceDB_ltclEjj.exit.thread.i, label %_ZN11reduceDB_ltclEjj.exit.thread24.i
+  %34 = fcmp olt float %29, %33
+  %cond.fr.i = freeze i1 %34
+  br i1 %cond.fr.i, label %_ZN11reduceDB_ltclEjj.exit.thread.i, label %_ZN11reduceDB_ltclEjj.exit.thread24.i
 
 _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclEjj.exit.i, %17
-  %35 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %_ZN11reduceDB_ltclEjj.exit.thread24.i
 
 _ZN11reduceDB_ltclEjj.exit.thread24.i:            ; preds = %_ZN11reduceDB_ltclEjj.exit.thread.i, %_ZN11reduceDB_ltclEjj.exit.i, %9
-  %36 = phi i32 [ %35, %_ZN11reduceDB_ltclEjj.exit.thread.i ], [ %.02128.i, %_ZN11reduceDB_ltclEjj.exit.i ], [ %.02128.i, %9 ]
-  %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
+  %36 = phi i32 [ %35, %_ZN11reduceDB_ltclEjj.exit.thread.i ], [ %.02127.i, %_ZN11reduceDB_ltclEjj.exit.i ], [ %.02127.i, %9 ]
+  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %9, !llvm.loop !276
 
 ._crit_edge.i:                                    ; preds = %_ZN11reduceDB_ltclEjj.exit.thread24.i
-  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %37 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv36.i
+  %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
+  %37 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv35.i
   %38 = load i32, ptr %37, align 4, !tbaa !65
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %39
@@ -9709,8 +9708,8 @@ _ZN11reduceDB_ltclEjj.exit.thread24.i:            ; preds = %_ZN11reduceDB_ltclE
   store i32 %41, ptr %37, align 4, !tbaa !65
   store i32 %38, ptr %40, align 4, !tbaa !65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %_ZN7Minisat13selectionSortIj11reduceDB_ltEEvPT_iT0_.exit, label %.lr.ph.i, !llvm.loop !277
+  %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
+  br i1 %exitcond39.not.i, label %_ZN7Minisat13selectionSortIj11reduceDB_ltEEvPT_iT0_.exit, label %.lr.ph.i, !llvm.loop !277
 
 .lr.ph78:                                         ; preds = %3, %tailrecurse
   %.tr4177 = phi i32 [ %119, %tailrecurse ], [ %1, %3 ]

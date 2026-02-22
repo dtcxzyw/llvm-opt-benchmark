@@ -133904,11 +133904,9 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %.val4 = load i64, ptr %1, align 8, !range !19, !alias.scope !17296, !noalias !17301, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val5 = load double, ptr %10, align 8
-  %.val5.fr = freeze double %.val5
   %.val6 = load i64, ptr %9, align 8
   %11 = getelementptr i8, ptr %9, i64 8
   %.val7 = load double, ptr %11, align 8
-  %.val7.fr = freeze double %.val7
   %12 = trunc nuw i64 %.val4 to i1
   %.val6.fr = freeze i64 %.val6
   %13 = trunc i64 %.val6.fr to i1
@@ -133918,11 +133916,12 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   br i1 %13, label %15, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0cc12d5e158b7b82E.exit.thread"
 
 15:                                               ; preds = %14
-  %16 = fcmp uno double %.val5.fr, 0.000000e+00
-  %17 = fcmp uno double %.val7.fr, 0.000000e+00
-  %18 = fcmp oeq double %.val5.fr, %.val7.fr
+  %16 = fcmp uno double %.val5, 0.000000e+00
+  %17 = fcmp uno double %.val7, 0.000000e+00
+  %18 = fcmp oeq double %.val5, %.val7
   %.sroa.0.0.in.i.i = select i1 %16, i1 %17, i1 %18
-  br i1 %.sroa.0.0.in.i.i, label %19, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0cc12d5e158b7b82E.exit.thread"
+  %cond.fr10 = freeze i1 %.sroa.0.0.in.i.i
+  br i1 %cond.fr10, label %19, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0cc12d5e158b7b82E.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0cc12d5e158b7b82E.exit": ; preds = %7
   br i1 %13, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0cc12d5e158b7b82E.exit.thread", label %19
@@ -134720,11 +134719,9 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %.val4 = load i32, ptr %1, align 4, !range !23, !alias.scope !17468, !noalias !17473, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val5 = load float, ptr %10, align 4
-  %.val5.fr = freeze float %.val5
   %.val6 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %9, i64 4
   %.val7 = load float, ptr %11, align 4
-  %.val7.fr = freeze float %.val7
   %12 = trunc nuw i32 %.val4 to i1
   %.val6.fr = freeze i32 %.val6
   %13 = trunc i32 %.val6.fr to i1
@@ -134734,11 +134731,12 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   br i1 %13, label %15, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h59c82a826ffcefeeE.exit.thread"
 
 15:                                               ; preds = %14
-  %16 = fcmp uno float %.val5.fr, 0.000000e+00
-  %17 = fcmp uno float %.val7.fr, 0.000000e+00
-  %18 = fcmp oeq float %.val5.fr, %.val7.fr
+  %16 = fcmp uno float %.val5, 0.000000e+00
+  %17 = fcmp uno float %.val7, 0.000000e+00
+  %18 = fcmp oeq float %.val5, %.val7
   %.sroa.0.0.in.i.i = select i1 %16, i1 %17, i1 %18
-  br i1 %.sroa.0.0.in.i.i, label %19, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h59c82a826ffcefeeE.exit.thread"
+  %cond.fr10 = freeze i1 %.sroa.0.0.in.i.i
+  br i1 %cond.fr10, label %19, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h59c82a826ffcefeeE.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h59c82a826ffcefeeE.exit": ; preds = %7
   br i1 %13, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h59c82a826ffcefeeE.exit.thread", label %19

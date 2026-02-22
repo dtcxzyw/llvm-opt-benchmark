@@ -517,16 +517,16 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not72 = icmp eq i32 %40, 0
-  br i1 %.not72, label %_ZN4llvm5ErrorD2Ev.exit45, label %.preheader.lr.ph
+  %.not71 = icmp eq i32 %40, 0
+  br i1 %.not71, label %_ZN4llvm5ErrorD2Ev.exit45, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN4llvm5ErrorD2Ev.exit34
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN4llvm5ErrorD2Ev.exit44
-  %.02374 = phi i32 [ 0, %.preheader.lr.ph ], [ %150, %_ZN4llvm5ErrorD2Ev.exit44 ]
-  %.02473 = phi i32 [ 0, %.preheader.lr.ph ], [ %.us-phi, %_ZN4llvm5ErrorD2Ev.exit44 ]
+  %.02373 = phi i32 [ 0, %.preheader.lr.ph ], [ %150, %_ZN4llvm5ErrorD2Ev.exit44 ]
+  %.02472 = phi i32 [ 0, %.preheader.lr.ph ], [ %.us-phi, %_ZN4llvm5ErrorD2Ev.exit44 ]
   %73 = load ptr, ptr %2, align 8, !tbaa !54
   %74 = icmp eq ptr %73, %2
   br i1 %74, label %.split.us, label %.preheader.split.preheader
@@ -536,7 +536,7 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZNK4llvm15SparseBi
   br label %.preheader.split
 
 .split.us:                                        ; preds = %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread, %.preheader
-  %.us-phi71 = phi i32 [ 0, %.preheader ], [ %124, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ]
+  %.us-phi70 = phi i32 [ 0, %.preheader ], [ %124, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !91
   %75 = load ptr, ptr %41, align 8, !tbaa !78, !noalias !91
@@ -545,8 +545,8 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZNK4llvm15SparseBi
   %78 = load ptr, ptr %77, align 8, !noalias !91
   %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(8) %75) #14, !noalias !91
   %.not.i.i.i35 = icmp eq i32 %79, 1
-  %80 = call i32 @llvm.bswap.i32(i32 %.us-phi71)
-  %spec.select.i.i.i36 = select i1 %.not.i.i.i35, i32 %.us-phi71, i32 %80
+  %80 = call i32 @llvm.bswap.i32(i32 %.us-phi70)
+  %spec.select.i.i.i36 = select i1 %.not.i.i.i35, i32 %.us-phi70, i32 %80
   store i32 %spec.select.i.i.i36, ptr %7, align 4, !noalias !91
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nonnull %7, i64 4) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !91
@@ -556,10 +556,10 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZNK4llvm15SparseBi
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread
   %82 = phi ptr [ %107, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ %.pre, %.preheader.split.preheader ]
-  %.070 = phi i32 [ %125, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ 0, %.preheader.split.preheader ]
-  %.02269 = phi i32 [ %124, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ 0, %.preheader.split.preheader ]
-  %.12568 = phi i32 [ %126, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ %.02473, %.preheader.split.preheader ]
-  %83 = lshr i32 %.12568, 7
+  %.069 = phi i32 [ %125, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ 0, %.preheader.split.preheader ]
+  %.02268 = phi i32 [ %124, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ 0, %.preheader.split.preheader ]
+  %.12567 = phi i32 [ %126, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread ], [ %.02472, %.preheader.split.preheader ]
+  %83 = lshr i32 %.12567, 7
   %84 = icmp eq ptr %82, %2
   br i1 %84, label %85, label %88
 
@@ -634,27 +634,26 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i: ; preds = %.si
 
 _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit:   ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i, i64 24
-  %113 = lshr i32 %.12568, 6
+  %113 = lshr i32 %.12567, 6
   %114 = and i32 %113, 1
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw i64, ptr %112, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !71
-  %118 = and i32 %.12568, 63
+  %118 = and i32 %.12567, 63
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw i64 1, %119
-  %.fr = freeze i64 %117
-  %.fr60 = freeze i64 %120
-  %121 = and i64 %.fr, %.fr60
-  %.not61 = icmp eq i64 %121, 0
-  %122 = shl nuw i32 1, %.070
-  %123 = select i1 %.not61, i32 0, i32 %122
-  %spec.select = or i32 %123, %.02269
+  %121 = and i64 %117, %120
+  %.fr = freeze i64 %121
+  %.not60 = icmp eq i64 %.fr, 0
+  %122 = shl nuw i32 1, %.069
+  %123 = select i1 %.not60, i32 0, i32 %122
+  %spec.select = or i32 %123, %.02268
   br label %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread
 
 _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.thread: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i, %109
-  %124 = phi i32 [ %.02269, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i ], [ %spec.select, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit ], [ %.02269, %109 ]
-  %125 = add nuw nsw i32 %.070, 1
-  %126 = add i32 %.12568, 1
+  %124 = phi i32 [ %.02268, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i ], [ %spec.select, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit ], [ %.02268, %109 ]
+  %125 = add nuw nsw i32 %.069, 1
+  %126 = add i32 %.12567, 1
   %exitcond.not = icmp eq i32 %125, 32
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !94
 
@@ -718,9 +717,9 @@ _ZN4llvm5ErrorD2Ev.exit43:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %151
 
 _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %.split.us
-  %.us-phi = add nuw i32 %.02473, 32
+  %.us-phi = add nuw i32 %.02472, 32
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %150 = add nuw nsw i32 %.02374, 1
+  %150 = add nuw nsw i32 %.02373, 1
   %.not = icmp eq i32 %150, %40
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit45, label %.preheader, !llvm.loop !103
 

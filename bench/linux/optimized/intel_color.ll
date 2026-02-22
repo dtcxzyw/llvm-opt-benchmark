@@ -17565,8 +17565,8 @@ define internal void @bdw_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4324
   %16 = load i32, ptr %15, align 4
-  %.fr = freeze i32 %16
-  %17 = and i32 %.fr, 2
+  %.fr11 = freeze i32 %16
+  %17 = and i32 %.fr11, 2
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -18851,8 +18851,8 @@ define internal void @ivb_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4324
   %16 = load i32, ptr %15, align 4
-  %.fr = freeze i32 %16
-  %17 = and i32 %.fr, 2
+  %.fr11 = freeze i32 %16
+  %17 = and i32 %.fr11, 2
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 736

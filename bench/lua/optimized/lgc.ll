@@ -3443,13 +3443,13 @@ getgclist.exit:                                   ; preds = %1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %clearkey.exit.i.i, %61
-  %.035.i.i = phi i32 [ %.1.i.i, %clearkey.exit.i.i ], [ %71, %61 ]
-  %.02534.i.i = phi ptr [ %106, %clearkey.exit.i.i ], [ %63, %61 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.02534.i.i, i64 8
+  %.036.i.i = phi i32 [ %.1.i.i, %clearkey.exit.i.i ], [ %71, %61 ]
+  %.02535.i.i = phi ptr [ %106, %clearkey.exit.i.i ], [ %63, %61 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.02535.i.i, i64 8
   %73 = load i8, ptr %72, align 8, !tbaa !33
   %74 = and i8 %73, 15
   %75 = icmp eq i8 %74, 0
-  %76 = getelementptr inbounds nuw i8, ptr %.02534.i.i, i64 9
+  %76 = getelementptr inbounds nuw i8, ptr %.02535.i.i, i64 9
   %77 = load i8, ptr %76, align 1, !tbaa !33
   %78 = and i8 %77, 64
   %.not.i.i.i = icmp eq i8 %78, 0
@@ -3466,7 +3466,7 @@ getgclist.exit:                                   ; preds = %1
   br i1 %.not.i.i.i, label %89, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %.02534.i.i, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.02535.i.i, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !33
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 9
   %86 = load i8, ptr %85, align 1, !tbaa !27
@@ -3479,7 +3479,7 @@ getgclist.exit:                                   ; preds = %1
   br label %89
 
 89:                                               ; preds = %88, %82, %81
-  %.not27.i.i = icmp eq i32 %.035.i.i, 0
+  %.not27.i.i = icmp eq i32 %.036.i.i, 0
   br i1 %.not27.i.i, label %90, label %clearkey.exit.i.i
 
 90:                                               ; preds = %89
@@ -3489,7 +3489,7 @@ getgclist.exit:                                   ; preds = %1
   br i1 %.not28.i.i, label %iscleared.exit.thread.i.i, label %93
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr %.02534.i.i, align 8, !tbaa !33
+  %94 = load ptr, ptr %.02535.i.i, align 8, !tbaa !33
   %95 = icmp eq ptr %94, null
   br i1 %95, label %iscleared.exit.thread.i.i, label %96
 
@@ -3500,8 +3500,8 @@ getgclist.exit:                                   ; preds = %1
   %100 = icmp eq i8 %99, 4
   %101 = getelementptr inbounds nuw i8, ptr %94, i64 9
   %102 = load i8, ptr %101, align 1, !tbaa !27
-  %.fr.i.i = freeze i8 %102
-  %103 = and i8 %.fr.i.i, 24
+  %.fr34.i.i = freeze i8 %102
+  %103 = and i8 %.fr34.i.i, 24
   %.not.i30.i.i = icmp eq i8 %103, 0
   br i1 %100, label %104, label %iscleared.exit.i.i
 
@@ -3519,8 +3519,8 @@ iscleared.exit.thread.i.i:                        ; preds = %iscleared.exit.i.i,
   br label %clearkey.exit.i.i
 
 clearkey.exit.i.i:                                ; preds = %iscleared.exit.thread.i.i, %iscleared.exit.i.i, %89, %80, %79
-  %.1.i.i = phi i32 [ %.035.i.i, %80 ], [ 1, %89 ], [ %.035.i.i, %79 ], [ 0, %iscleared.exit.thread.i.i ], [ 1, %iscleared.exit.i.i ]
-  %106 = getelementptr inbounds nuw i8, ptr %.02534.i.i, i64 24
+  %.1.i.i = phi i32 [ %.036.i.i, %80 ], [ 1, %89 ], [ %.036.i.i, %79 ], [ 0, %iscleared.exit.thread.i.i ], [ 1, %iscleared.exit.i.i ]
+  %106 = getelementptr inbounds nuw i8, ptr %.02535.i.i, i64 24
   %107 = icmp ult ptr %106, %67
   br i1 %107, label %.lr.ph.i.i, label %traverseweakvalue.exit.i
 

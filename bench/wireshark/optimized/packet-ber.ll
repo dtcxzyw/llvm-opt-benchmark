@@ -2685,8 +2685,8 @@ define i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef captures(no
 
 47:                                               ; preds = %45
   %48 = call i32 @proto_registrar_get_ftype(i32 noundef %5)
-  %.fr = freeze i32 %48
-  %49 = add i32 %.fr, -12
+  %.fr162 = freeze i32 %48
+  %49 = add i32 %.fr162, -12
   %50 = icmp ult i32 %49, 8
   %spec.select159 = sext i1 %50 to i64
   br label %.thread
@@ -2718,15 +2718,15 @@ define i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef captures(no
   br label %62
 
 62:                                               ; preds = %61, %62
-  %.2164 = phi i32 [ %.0128, %61 ], [ %67, %62 ]
-  %.2133163 = phi i64 [ %.1132, %61 ], [ %66, %62 ]
-  %.0138162 = phi i32 [ 0, %61 ], [ %68, %62 ]
-  %63 = shl i64 %.2133163, 8
-  %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2164)
+  %.2165 = phi i32 [ %.0128, %61 ], [ %67, %62 ]
+  %.2133164 = phi i64 [ %.1132, %61 ], [ %66, %62 ]
+  %.0138163 = phi i32 [ 0, %61 ], [ %68, %62 ]
+  %63 = shl i64 %.2133164, 8
+  %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2165)
   %65 = zext i8 %64 to i64
   %66 = or disjoint i64 %63, %65
-  %67 = add i32 %.2164, 1
-  %68 = add nuw i32 %.0138162, 1
+  %67 = add i32 %.2165, 1
+  %68 = add nuw i32 %.0138163, 1
   %exitcond.not = icmp eq i32 %68, %21
   br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !17
 

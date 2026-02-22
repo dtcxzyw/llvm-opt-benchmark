@@ -23211,8 +23211,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb14VersionBuilder3Rep36Remain
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i64, ptr %3, align 8, !tbaa !314
-  %.fr72 = freeze i64 %4
-  %5 = icmp eq i64 %.fr72, 0
+  %5 = icmp eq i64 %4, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !252
   call void @_ZNK7rocksdb14VersionBuilder3Rep18MergeBlobFileMetasIZNKS1_26GetMinOldestBlobFileNumberEvEUlRKSt10shared_ptrINS_16BlobFileMetaDataEEE_ZNKS1_26GetMinOldestBlobFileNumberEvEUlRKNS1_23MutableBlobFileMetaDataEE_ZNKS1_26GetMinOldestBlobFileNumberEvEUlS7_SB_E_EEvmT_T0_T1_(ptr noundef nonnull align 8 dereferenceable(627) %0, i64 noundef 0, ptr nonnull %2, ptr nonnull %2, ptr nonnull %2)
@@ -23321,13 +23320,13 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToM
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %44 = load i64, ptr %43, align 8
-  %.fr73 = freeze i64 %44
-  %45 = icmp ne i64 %.fr73, 0
+  %45 = icmp ne i64 %44, 0
   %or.cond.us46 = and i1 %5, %45
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %47 = load ptr, ptr %46, align 8
-  %.fr74 = freeze ptr %47
-  br i1 %or.cond.us46, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %.fr72 = freeze ptr %47
+  %or.cond.us46.fr = freeze i1 %or.cond.us46
+  br i1 %or.cond.us46.fr, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 8
@@ -23348,7 +23347,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToM
   br i1 %.not25.us50.us, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit, label %51
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.not14.i.i.i.i.i.us47 = icmp eq ptr %.fr74, null
+  %.not14.i.i.i.i.i.us47 = icmp eq ptr %.fr72, null
   br i1 %.not14.i.i.i.i.i.us47, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit, label %.lr.ph.split.split.us.split.split
 
 .lr.ph.split.split.us.split.split:                ; preds = %.lr.ph.split.split.us.split, %.loopexit28.us
@@ -23359,7 +23358,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToM
   br i1 %57, label %.loopexit28.us, label %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.us44
 
 _ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.us44: ; preds = %.lr.ph.split.split.us.split.split, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i.us
-  %.sroa.03.015.i.i.i.i.i.us = phi ptr [ %75, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i.us ], [ %.fr74, %.lr.ph.split.split.us.split.split ]
+  %.sroa.03.015.i.i.i.i.i.us = phi ptr [ %75, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i.us ], [ %.fr72, %.lr.ph.split.split.us.split.split ]
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.03.015.i.i.i.i.i.us, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = urem i64 %59, %15

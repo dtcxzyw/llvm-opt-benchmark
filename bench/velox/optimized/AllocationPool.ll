@@ -419,8 +419,7 @@ lor.lhs.false.if.then_crit_edge:                  ; preds = %lor.lhs.false
 if.then:                                          ; preds = %lor.lhs.false.if.then_crit_edge, %entry
   %6 = phi i64 [ %.pre, %lor.lhs.false.if.then_crit_edge ], [ %0, %entry ]
   store i64 33554432, ptr %ref.tmp, align 8
-  %.fr = freeze i64 %6
-  %add = add i64 %.fr, 2097152
+  %add = add i64 %6, 2097152
   %cmp.i = icmp eq i64 %add, 0
   br i1 %cmp.i, label %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.thread, label %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit
 
@@ -428,19 +427,18 @@ _ZN8facebook5velox4bits14nextPowerOfTwoEm.exit:   ; preds = %if.then
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add, i1 true)
   %sub.i = xor i64 %7, 63
   %shl.i = shl nuw i64 1, %sub.i
-  %shl.i.fr = freeze i64 %shl.i
-  %cmp1.i = icmp eq i64 %shl.i.fr, %add
+  %cmp1.i = icmp eq i64 %shl.i, %add
   %mul.i = shl i64 2, %sub.i
-  %mul.i.fr = freeze i64 %mul.i
-  %spec.select.i = select i1 %cmp1.i, i64 %add, i64 %mul.i.fr
-  %cmp.i10 = icmp sgt i64 %spec.select.i, 33554432
+  %spec.select.i = select i1 %cmp1.i, i64 %add, i64 %mul.i
+  %spec.select.i.fr = freeze i64 %spec.select.i
+  %cmp.i10 = icmp sgt i64 %spec.select.i.fr, 33554432
   %spec.select37 = select i1 %cmp.i10, ptr %ref.tmp4, ptr %ref.tmp
   br label %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.thread
 
 _ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.thread: ; preds = %if.then, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit
-  %spec.select.i.sink = phi i64 [ %spec.select.i, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit ], [ 0, %if.then ]
+  %spec.select.i.fr.sink = phi i64 [ %spec.select.i.fr, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit ], [ 0, %if.then ]
   %8 = phi ptr [ %spec.select37, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit ], [ %ref.tmp, %if.then ]
-  store i64 %spec.select.i.sink, ptr %ref.tmp4, align 8
+  store i64 %spec.select.i.fr.sink, ptr %ref.tmp4, align 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 536870912)
   %add.i = shl i64 %numPages, 12

@@ -152,106 +152,106 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 4
-  %.fr4 = freeze i32 %13
-  %14 = and i32 %.fr4, 1073741823
+  %14 = and i32 %13, 1073741823
   %15 = icmp sgt i32 %4, 0
-  br i1 %15, label %16, label %21
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
   %17 = add nsw i32 %4, -1
   %18 = add nuw i32 %17, %14
-  %19 = srem i32 %18, %4
-  %20 = sub nsw i32 %18, %19
-  br label %21
+  %19 = freeze i32 %18
+  %20 = srem i32 %19, %4
+  %21 = sub nsw i32 %19, %20
+  br label %22
 
-21:                                               ; preds = %16, %11
-  %22 = phi i32 [ %20, %16 ], [ %14, %11 ]
-  %23 = icmp sgt i32 %22, %1
-  br i1 %23, label %.critedge, label %24
+22:                                               ; preds = %16, %11
+  %23 = phi i32 [ %21, %16 ], [ %14, %11 ]
+  %24 = icmp sgt i32 %23, %1
+  br i1 %24, label %.critedge, label %25
 
-24:                                               ; preds = %21
-  %25 = icmp eq i32 %3, 0
+25:                                               ; preds = %22
+  %26 = icmp eq i32 %3, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
-  %26 = icmp sgt i32 %.fr4, -1
-  br i1 %26, label %34, label %27
+  %27 = icmp sgt i32 %13, -1
+  br i1 %27, label %35, label %28
 
-27:                                               ; preds = %24
-  br i1 %25, label %.thread6, label %28
+28:                                               ; preds = %25
+  br i1 %26, label %.thread4, label %29
 
-28:                                               ; preds = %27
-  %29 = zext nneg i32 %14 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %31 = load ptr, ptr %30, align 4
-  %32 = tail call i64 @_copy_from_user(ptr noundef %2, ptr noundef %31, i64 noundef %29) #12
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.thread8, label %.thread6
+29:                                               ; preds = %28
+  %30 = zext nneg i32 %14 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %32 = load ptr, ptr %31, align 4
+  %33 = tail call i64 @_copy_from_user(ptr noundef %2, ptr noundef %32, i64 noundef %30) #12
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %.thread6, label %.thread4
 
-.thread6:                                         ; preds = %27, %28
-  %.ph = phi i32 [ -14, %28 ], [ -22, %27 ]
+.thread4:                                         ; preds = %28, %29
+  %.ph = phi i32 [ -14, %29 ], [ -22, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-34:                                               ; preds = %24
-  %35 = select i1 %25, ptr @seq_copy_in_user, ptr @seq_copy_in_kernel
-  %36 = call fastcc i32 @dump_var_event(ptr noundef %0, ptr noundef nonnull %35, ptr noundef nonnull %6, i32 noundef %14)
+35:                                               ; preds = %25
+  %36 = select i1 %26, ptr @seq_copy_in_user, ptr @seq_copy_in_kernel
+  %37 = call fastcc i32 @dump_var_event(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %6, i32 noundef %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.critedge, label %38
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %.critedge, label %39
 
-38:                                               ; preds = %34
-  %39 = icmp eq i32 %14, %22
-  br i1 %39, label %64, label %44
+39:                                               ; preds = %35
+  %40 = icmp eq i32 %14, %23
+  br i1 %40, label %65, label %45
 
-.thread8:                                         ; preds = %28
+.thread6:                                         ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %40 = icmp eq i32 %14, %22
-  br i1 %40, label %64, label %.thread9
+  %41 = icmp eq i32 %14, %23
+  br i1 %41, label %65, label %.thread7
 
-.thread9:                                         ; preds = %.thread8
-  %41 = getelementptr i8, ptr %2, i64 %29
-  %42 = sub i32 %22, %14
-  %43 = sext i32 %42 to i64
-  br label %49
+.thread7:                                         ; preds = %.thread6
+  %42 = getelementptr i8, ptr %2, i64 %30
+  %43 = sub i32 %23, %14
+  %44 = sext i32 %43 to i64
+  br label %50
 
-44:                                               ; preds = %38
-  %45 = zext nneg i32 %14 to i64
-  %46 = getelementptr i8, ptr %2, i64 %45
-  %47 = sub i32 %22, %14
-  %48 = sext i32 %47 to i64
-  br i1 %25, label %52, label %49
+45:                                               ; preds = %39
+  %46 = zext nneg i32 %14 to i64
+  %47 = getelementptr i8, ptr %2, i64 %46
+  %48 = sub i32 %23, %14
+  %49 = sext i32 %48 to i64
+  br i1 %26, label %53, label %50
 
-49:                                               ; preds = %.thread9, %44
-  %50 = phi i64 [ %43, %.thread9 ], [ %48, %44 ]
-  %51 = phi ptr [ %41, %.thread9 ], [ %46, %44 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %51, i8 0, i64 %50, i1 false)
-  br label %64
+50:                                               ; preds = %.thread7, %45
+  %51 = phi i64 [ %44, %.thread7 ], [ %49, %45 ]
+  %52 = phi ptr [ %42, %.thread7 ], [ %47, %45 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %52, i8 0, i64 %51, i1 false)
+  br label %65
 
-52:                                               ; preds = %44
-  %53 = ptrtoint ptr %46 to i64
-  %54 = add i64 %48, %53
-  %55 = icmp sgt i64 %54, -1
-  %56 = icmp uge i64 %54, %53
-  %57 = and i1 %55, %56
-  br i1 %57, label %58, label %.critedge
+53:                                               ; preds = %45
+  %54 = ptrtoint ptr %47 to i64
+  %55 = add i64 %49, %54
+  %56 = icmp sgt i64 %55, -1
+  %57 = icmp uge i64 %55, %54
+  %58 = and i1 %56, %57
+  br i1 %58, label %59, label %.critedge
 
-58:                                               ; preds = %52
+59:                                               ; preds = %53
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
-  %59 = call i64 @llvm.read_register.i64(metadata !0)
-  %60 = call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 %48, ptr %46, i64 %59) #12, !srcloc !12
-  %61 = extractvalue { i64, ptr, i64 } %60, 0
-  %62 = extractvalue { i64, ptr, i64 } %60, 2
-  call void @llvm.write_register.i64(metadata !0, i64 %62)
+  %60 = call i64 @llvm.read_register.i64(metadata !0)
+  %61 = call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 %49, ptr %47, i64 %60) #12, !srcloc !12
+  %62 = extractvalue { i64, ptr, i64 } %61, 0
+  %63 = extractvalue { i64, ptr, i64 } %61, 2
+  call void @llvm.write_register.i64(metadata !0, i64 %63)
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  %63 = icmp eq i64 %61, 0
-  br i1 %63, label %64, label %.critedge
+  %64 = icmp eq i64 %62, 0
+  br i1 %64, label %65, label %.critedge
 
-64:                                               ; preds = %.thread8, %58, %49, %38
+65:                                               ; preds = %.thread6, %59, %50, %39
   br label %.critedge
 
-.critedge:                                        ; preds = %5, %.thread6, %52, %64, %58, %34, %21
-  %65 = phi i32 [ %22, %64 ], [ -22, %5 ], [ -11, %21 ], [ %36, %34 ], [ -14, %58 ], [ -14, %52 ], [ %.ph, %.thread6 ]
-  ret i32 %65
+.critedge:                                        ; preds = %5, %.thread4, %53, %65, %59, %35, %22
+  %66 = phi i32 [ %23, %65 ], [ -22, %5 ], [ -11, %22 ], [ %37, %35 ], [ -14, %59 ], [ -14, %53 ], [ %.ph, %.thread4 ]
+  ret i32 %66
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

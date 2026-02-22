@@ -8234,8 +8234,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %57 = getelementptr i8, ptr %45, i64 72
   %.val469 = load ptr, ptr %57, align 8, !tbaa !64
   %58 = load i8, ptr %.val469, align 8, !tbaa !403
-  %.not982 = icmp eq i8 %58, 1
-  br i1 %.not982, label %59, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit517
+  %.not979 = icmp eq i8 %58, 1
+  br i1 %.not979, label %59, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit517
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %.val469, i64 16
@@ -8261,20 +8261,19 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %59
   %73 = zext nneg i32 %66 to i64
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !64
-  %.fr984 = freeze i8 %75
-  %76 = zext i8 %.fr984 to i32
+  %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 1, %71
-  %.fr983 = freeze i32 %77
-  %78 = and i32 %.fr983, %76
-  %.not985 = icmp eq i32 %78, 0
+  %78 = and i32 %77, %76
+  %.fr980 = freeze i32 %78
+  %.not981 = icmp eq i32 %.fr980, 0
   %79 = sub i64 0, %61
-  %spec.select989 = select i1 %.not985, i64 63, i64 31
-  %spec.select990 = and i64 %spec.select989, %79
+  %spec.select985 = select i1 %.not981, i64 63, i64 31
+  %spec.select986 = and i64 %spec.select985, %79
   br label %80
 
 80:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, %.thread
-  %81 = phi i64 [ 63, %.thread ], [ %spec.select989, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ]
-  %82 = phi i64 [ %70, %.thread ], [ %spec.select990, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ]
+  %81 = phi i64 [ 63, %.thread ], [ %spec.select985, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ]
+  %82 = phi i64 [ %70, %.thread ], [ %spec.select986, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ]
   %.0390 = sub i64 %81, %61
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !60
@@ -8862,7 +8861,7 @@ _ZN12_GLOBAL__N_114AArch64OperandC2ERKS0_.exit522: ; preds = %_ZN12_GLOBAL__N_11
   %383 = load i64, ptr %382, align 8, !tbaa !406
   %384 = getelementptr inbounds nuw i8, ptr %.val471, i64 16
   %385 = load i64, ptr %384, align 8, !tbaa !406
-  %.fr980 = freeze i64 %385
+  %.fr977 = freeze i64 %385
   %386 = load ptr, ptr %201, align 8, !tbaa !11
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 56
   %388 = load ptr, ptr %387, align 8
@@ -8879,12 +8878,11 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit527: ; preds = %381
   %395 = zext nneg i32 %390 to i64
   %396 = getelementptr inbounds nuw i8, ptr %394, i64 %395
   %397 = load i8, ptr %396, align 1, !tbaa !64
-  %.fr979 = freeze i8 %397
-  %398 = zext i8 %.fr979 to i32
+  %398 = zext i8 %397 to i32
   %399 = shl nuw nsw i32 1, %393
-  %.fr978 = freeze i32 %399
-  %400 = and i32 %.fr978, %398
-  %401 = icmp ne i32 %400, 0
+  %400 = and i32 %399, %398
+  %.fr976 = freeze i32 %400
+  %401 = icmp ne i32 %.fr976, 0
   %spec.select964 = select i1 %401, i64 64, i64 32
   br label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit527.thread
 
@@ -8909,7 +8907,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit527.thread: ; preds = %
   br label %528
 
 409:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit527.thread
-  %410 = add i64 %.fr980, -1
+  %410 = add i64 %.fr977, -1
   %or.cond447.not = icmp ult i64 %410, %402
   br i1 %or.cond447.not, label %417, label %411
 
@@ -9247,7 +9245,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit561.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %572 = load i64, ptr %571, align 8, !tbaa !406
   %573 = getelementptr inbounds nuw i8, ptr %.val473, i64 16
   %574 = load i64, ptr %573, align 8, !tbaa !406
-  %.fr977 = freeze i64 %574
+  %.fr975 = freeze i64 %574
   %575 = load ptr, ptr %543, align 8, !tbaa !11
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 56
   %577 = load ptr, ptr %576, align 8
@@ -9264,14 +9262,13 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574: ; preds = %570
   %584 = zext nneg i32 %579 to i64
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 %584
   %586 = load i8, ptr %585, align 1, !tbaa !64
-  %.fr975 = freeze i8 %586
-  %587 = zext i8 %.fr975 to i32
+  %587 = zext i8 %586 to i32
   %588 = shl nuw nsw i32 1, %582
-  %.fr974 = freeze i32 %588
-  %589 = and i32 %.fr974, %587
-  %.not976 = icmp eq i32 %589, 0
-  %spec.select965 = select i1 %.not976, i64 32, i64 64
-  %590 = select i1 %.not976, i64 31, i64 63
+  %589 = and i32 %588, %587
+  %.fr973 = freeze i32 %589
+  %.not974 = icmp eq i32 %.fr973, 0
+  %spec.select965 = select i1 %.not974, i64 32, i64 64
+  %590 = select i1 %.not974, i64 31, i64 63
   br label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574.thread: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574, %570
@@ -9298,7 +9295,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574.thread: ; preds = %
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit596
 
 602:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit574.thread
-  %603 = add i64 %.fr977, -1
+  %603 = add i64 %.fr975, -1
   %or.cond450.not = icmp ult i64 %603, %591
   br i1 %or.cond450.not, label %614, label %604
 
@@ -9591,7 +9588,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit628:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %759, label %_ZN4llvmeqENS_9StringRefES0_.exit620.thread, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit517
 
 _ZN4llvmeqENS_9StringRefES0_.exit620.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit628, %_ZN4llvmeqENS_9StringRefES0_.exit624, %_ZN4llvmeqENS_9StringRefES0_.exit620
-  %cond99110631068 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit628 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit624 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit620 ]
+  %cond98710591064 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit628 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit624 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit620 ]
   %760 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %761 = load ptr, ptr %760, align 8, !tbaa !132
   %762 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -9654,13 +9651,12 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit633: ; preds = %788
   %802 = zext nneg i32 %797 to i64
   %803 = getelementptr inbounds nuw i8, ptr %801, i64 %802
   %804 = load i8, ptr %803, align 1, !tbaa !64
-  %.fr972 = freeze i8 %804
-  %805 = zext i8 %.fr972 to i32
+  %805 = zext i8 %804 to i32
   %806 = shl nuw nsw i32 1, %800
-  %.fr = freeze i32 %806
-  %807 = and i32 %.fr, %805
-  %.not973 = icmp eq i32 %807, 0
-  %spec.select966 = select i1 %.not973, i64 32, i64 64
+  %807 = and i32 %806, %805
+  %.fr = freeze i32 %807
+  %.not972 = icmp eq i32 %.fr, 0
+  %spec.select966 = select i1 %.not972, i64 32, i64 64
   br label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit633.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit633.thread: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit633, %788
@@ -9785,7 +9781,7 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i.i635: ; pred
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit639
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit639: ; preds = %_ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i.i635, %843
-  br i1 %cond99110631068, label %_ZN4llvmeqENS_9StringRefES0_.exit643, label %_ZN4llvmeqENS_9StringRefES0_.exit643.thread924
+  br i1 %cond98710591064, label %_ZN4llvmeqENS_9StringRefES0_.exit643, label %_ZN4llvmeqENS_9StringRefES0_.exit643.thread924
 
 _ZN4llvmeqENS_9StringRefES0_.exit643:             ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit639
   %bcmp.i642 = tail call i32 @bcmp(ptr %.val, ptr nonnull @.str.839, i64 %36)
@@ -10022,11 +10018,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit673.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 32
   %1008 = load ptr, ptr %1007, align 8
   %1009 = call noundef zeroext i1 %1008(ptr noundef nonnull align 8 dereferenceable(112) %969) #27
-  %spec.select1074 = select i1 %1009, ptr %969, ptr %971
-  %.sink.in.in = getelementptr i8, ptr %spec.select1074, i64 80
+  %spec.select1070 = select i1 %1009, ptr %969, ptr %971
+  %.sink.in.in = getelementptr i8, ptr %spec.select1070, i64 80
   %.sink.in = load i32, ptr %.sink.in.in, align 8, !tbaa !64
   %.sink = zext i32 %.sink.in to i64
-  %.val467.sink.in = getelementptr i8, ptr %spec.select1074, i64 72
+  %.val467.sink.in = getelementptr i8, ptr %spec.select1070, i64 72
   %.val467.sink = load ptr, ptr %.val467.sink.in, align 8, !tbaa !64
   store ptr %.val467.sink, ptr %21, align 8
   %1010 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -10142,9 +10138,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
 
 1065:                                             ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit517
   %1066 = icmp eq i32 %38, 3
-  %cond993 = icmp eq i32 %.val464, 4
-  %or.cond994 = select i1 %1066, i1 %cond993, i1 false
-  br i1 %or.cond994, label %_ZN4llvmeqENS_9StringRefES0_.exit690, label %.critedge457
+  %cond989 = icmp eq i32 %.val464, 4
+  %or.cond990 = select i1 %1066, i1 %cond989, i1 false
+  br i1 %or.cond990, label %_ZN4llvmeqENS_9StringRefES0_.exit690, label %.critedge457
 
 _ZN4llvmeqENS_9StringRefES0_.exit690:             ; preds = %1065
   %bcmp.i689 = call i32 @bcmp(ptr %.val, ptr nonnull @.str.500, i64 %36)
@@ -10268,8 +10264,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit711: ; preds = %1124
   %1137 = zext i8 %1136 to i32
   %1138 = shl nuw nsw i32 1, %1132
   %1139 = and i32 %1138, %1137
-  %.not987 = icmp eq i32 %1139, 0
-  br i1 %.not987, label %.critedge457, label %1140
+  %.not983 = icmp eq i32 %1139, 0
+  br i1 %.not983, label %.critedge457, label %1140
 
 1140:                                             ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit711
   %1141 = load ptr, ptr %3, align 8, !tbaa !87
@@ -10383,8 +10379,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit728: ; preds = %1196
   %1209 = zext i8 %1208 to i32
   %1210 = shl nuw nsw i32 1, %1204
   %1211 = and i32 %1210, %1209
-  %.not986 = icmp eq i32 %1211, 0
-  br i1 %.not986, label %.critedge457, label %1212
+  %.not982 = icmp eq i32 %1211, 0
+  br i1 %.not982, label %.critedge457, label %1212
 
 1212:                                             ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit728
   %1213 = load ptr, ptr %3, align 8, !tbaa !87
@@ -10866,17 +10862,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit739: ; preds = %13
   br label %1432
 
 1336:                                             ; preds = %1323, %1358
-  %.0412999 = phi i32 [ 0, %1323 ], [ %1359, %1358 ]
-  %1337 = and i32 %.0412999, 63
+  %.0412995 = phi i32 [ 0, %1323 ], [ %1359, %1358 ]
+  %1337 = and i32 %.0412995, 63
   %1338 = zext nneg i32 %1337 to i64
   %1339 = shl nuw i64 1, %1338
-  %1340 = lshr i32 %.0412999, 6
+  %1340 = lshr i32 %.0412995, 6
   %1341 = zext nneg i32 %1340 to i64
   %1342 = getelementptr inbounds nuw i64, ptr %25, i64 %1341
   %1343 = load i64, ptr %1342, align 8, !tbaa !65
   %1344 = and i64 %1343, %1339
-  %.not988 = icmp eq i64 %1344, 0
-  br i1 %.not988, label %1358, label %1345
+  %.not984 = icmp eq i64 %1344, 0
+  br i1 %.not984, label %1358, label %1345
 
 1345:                                             ; preds = %1336
   %1346 = load i64, ptr %1324, align 8, !tbaa !99
@@ -10889,11 +10885,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit739: ; preds = %13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %1345
   %1349 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.477, i64 noundef 1) #27
-  %1350 = icmp samesign ult i32 %.0412999, 148
+  %1350 = icmp samesign ult i32 %.0412995, 148
   br i1 %1350, label %switch.lookup, label %_ZL23getSubtargetFeatureNamem.exit
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %1351 = zext nneg i32 %.0412999 to i64
+  %1351 = zext nneg i32 %.0412995 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_116AArch64AsmParser23matchAndEmitInstructionEN4llvm5SMLocERjRNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerERmb, i64 %1351
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL23getSubtargetFeatureNamem.exit
@@ -10915,7 +10911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit741: ; preds = %
   br label %1358
 
 1358:                                             ; preds = %1336, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit741
-  %1359 = add nuw nsw i32 %.0412999, 1
+  %1359 = add nuw nsw i32 %.0412995, 1
   %.not444 = icmp eq i32 %1359, 320
   br i1 %.not444, label %1325, label %1336, !llvm.loop !548
 
@@ -10975,12 +10971,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit741: ; preds = %
   %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 32
   %1393 = load ptr, ptr %1392, align 8
   %1394 = call noundef zeroext i1 %1393(ptr noundef nonnull align 8 dereferenceable(112) %1390) #27
-  %.pre1002 = load i64, ptr %5, align 8, !tbaa !65
+  %.pre998 = load i64, ptr %5, align 8, !tbaa !65
   %.val503.pre = load ptr, ptr %3, align 8
   br i1 %1394, label %1395, label %1400
 
 1395:                                             ; preds = %1386
-  %1396 = getelementptr inbounds nuw %"class.std::unique_ptr.192", ptr %.val503.pre, i64 %.pre1002
+  %1396 = getelementptr inbounds nuw %"class.std::unique_ptr.192", ptr %.val503.pre, i64 %.pre998
   %1397 = load ptr, ptr %1396, align 8, !tbaa !132
   %1398 = getelementptr i8, ptr %1397, i64 84
   %.val500 = load i8, ptr %1398, align 4, !tbaa !64, !range !546, !noundef !491
@@ -10990,7 +10986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit741: ; preds = %
 
 1400:                                             ; preds = %1395, %1386
   %.2410 = phi i32 [ 0, %1386 ], [ %spec.select, %1395 ]
-  %1401 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser14showMatchErrorEN4llvm5SMLocEjmRNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr %.sroa.0747.0, i32 noundef %.2410, i64 noundef %.pre1002, ptr %.val503.pre)
+  %1401 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser14showMatchErrorEN4llvm5SMLocEjmRNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr %.sroa.0747.0, i32 noundef %.2410, i64 noundef %.pre998, ptr %.val503.pre)
   br label %1432
 
 1402:                                             ; preds = %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287, %1287

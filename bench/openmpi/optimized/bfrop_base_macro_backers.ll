@@ -8100,8 +8100,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %326
   %366 = load i64, ptr %365, align 8, !tbaa !186
   %367 = getelementptr inbounds nuw i8, ptr %327, i64 160
   %368 = load i64, ptr %367, align 8, !tbaa !183
-  %.fr55.i.i = freeze i64 %368
-  %369 = sub i64 %366, %.fr55.i.i
+  %369 = sub i64 %366, %368
   %.not.i.i = icmp ult i64 %369, %364
   br i1 %.not.i.i, label %373, label %370
 
@@ -8111,16 +8110,16 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %326
   br label %pmix_bfrops_base_tma_buffer_extend.exit.i
 
 373:                                              ; preds = %361
-  %374 = add i64 %.fr55.i.i, %364
+  %374 = add i64 %368, %364
   %375 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8, !tbaa !187
-  %.fr56.i.i = freeze i64 %375
-  %.not54.i.i = icmp ult i64 %374, %.fr56.i.i
+  %.not54.i.i = icmp ult i64 %374, %375
   br i1 %.not54.i.i, label %381, label %376
 
 376:                                              ; preds = %373
-  %377 = add i64 %374, -1
-  %378 = add i64 %377, %.fr56.i.i
-  %379 = urem i64 %378, %.fr56.i.i
+  %377 = add i64 %375, %374
+  %.fr55.i.i = freeze i64 %377
+  %378 = add i64 %.fr55.i.i, -1
+  %379 = urem i64 %378, %375
   %380 = sub nuw i64 %378, %379
   br label %.loopexit.i.i
 

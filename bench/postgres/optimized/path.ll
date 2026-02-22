@@ -598,17 +598,18 @@ define dso_local noundef zeroext i1 @path_is_relative_and_below_cwd(ptr noundef 
 path_contains_parent_reference.exit:              ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 1
-  %.fr = freeze i8 %8
-  %switch.selectcmp.case1.i = icmp ne i8 %.fr, 0
-  %switch.selectcmp.case2.i = icmp ne i8 %.fr, 47
-  %switch.selectcmp.i.not = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
+  %switch.selectcmp.case1.i = icmp eq i8 %8, 0
+  %switch.selectcmp.case2.i = icmp eq i8 %8, 47
+  %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
+  %cond.fr = freeze i1 %switch.selectcmp.i
+  %not.cond.fr = xor i1 %cond.fr, true
   br label %path_contains_parent_reference.exit.thread
 
 path_contains_parent_reference.exit.thread.fold.split: ; preds = %1
   br label %path_contains_parent_reference.exit.thread
 
 path_contains_parent_reference.exit.thread:       ; preds = %path_contains_parent_reference.exit, %1, %path_contains_parent_reference.exit.thread.fold.split, %3
-  %.0 = phi i1 [ false, %1 ], [ true, %path_contains_parent_reference.exit.thread.fold.split ], [ %switch.selectcmp.i.not, %path_contains_parent_reference.exit ], [ true, %3 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %path_contains_parent_reference.exit.thread.fold.split ], [ %not.cond.fr, %path_contains_parent_reference.exit ], [ true, %3 ]
   ret i1 %.0
 }
 

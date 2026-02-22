@@ -4034,8 +4034,8 @@ entry:
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this.0.val, i64 8
   store i32 0, ptr %Size.i.i, align 8
   %call = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %I) #11
-  %cmp.not12 = icmp eq i32 %call, 0
-  br i1 %cmp.not12, label %for.end, label %for.body.lr.ph
+  %cmp.not13 = icmp eq i32 %call, 0
+  br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.8.val, i64 16
@@ -4044,12 +4044,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ]
-  %call2 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I, i32 noundef %i.013) #11
+  %i.014 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ]
+  %call2 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I, i32 noundef %i.014) #11
   store ptr %call2, ptr %oldOp, align 8
   %0 = load i8, ptr %call2, align 8
-  %.fr = freeze i8 %0
-  %cmp.i.i.i.i.i.i.i.not = icmp eq i8 %.fr, 124
+  %.fr10 = freeze i8 %0
+  %cmp.i.i.i.i.i.i.i.not = icmp eq i8 %.fr10, 124
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.then, label %if.else9
 
 if.then:                                          ; preds = %for.body
@@ -4102,12 +4102,12 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br i1 %cmp.i.i.not, label %if.end39, label %if.end39.sink.split
 
 if.else9:                                         ; preds = %for.body
-  %7 = add i8 %.fr, -2
+  %7 = add i8 %.fr10, -2
   %8 = icmp ult i8 %7, 107
   br i1 %8, label %if.then16, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.else9
-  switch i8 %.fr, label %if.else18 [
+  switch i8 %.fr10, label %if.else18 [
     i8 126, label %if.then16
     i8 125, label %if.then16
     i8 120, label %if.then16
@@ -4171,9 +4171,9 @@ if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, 
   br label %if.end39.sink.split
 
 if.else18:                                        ; preds = %switch.early.test
-  %16 = add i8 %.fr, -109
+  %16 = add i8 %.fr10, -109
   %17 = icmp ult i8 %16, 11
-  %18 = add i8 %.fr, -121
+  %18 = add i8 %.fr10, -121
   %19 = icmp ult i8 %18, 2
   %or.cond = or i1 %17, %19
   br i1 %or.cond, label %if.end39, label %if.else25
@@ -4225,7 +4225,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   %31 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %31, 1
   store i32 %add.i, ptr %Size.i.i, align 8
-  %inc = add nuw i32 %i.013, 1
+  %inc = add nuw i32 %i.014, 1
   %cmp.not = icmp eq i32 %inc, %call
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !27
 

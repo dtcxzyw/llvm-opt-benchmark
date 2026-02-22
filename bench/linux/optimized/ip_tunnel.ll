@@ -2133,8 +2133,8 @@ define internal fastcc noundef range(i32 -7, 1) i32 @tnl_update_pmtu(ptr noundef
   %129 = inttoptr i64 %126 to ptr
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = load i16, ptr %130, align 8
-  %.fr = freeze i16 %131
-  %132 = and i16 %.fr, 128
+  %.fr12 = freeze i16 %131
+  %132 = and i16 %.fr12, 128
   %133 = icmp eq i16 %132, 0
   %spec.select = select i1 %133, ptr %129, ptr null
   br label %.thread
@@ -3286,13 +3286,13 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i16, ptr %26, align 4
-  %.fr36 = freeze i16 %27
+  %.fr39 = freeze i16 %27
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %22, 240
   %31 = icmp eq i32 %30, 224
   %32 = select i1 %31, i32 0, i32 %22
-  %33 = and i16 %.fr36, 1025
+  %33 = and i16 %.fr39, 1025
   %34 = icmp eq i16 %33, 1
   %35 = select i1 %34, i32 0, i32 %25
   %36 = xor i32 %35, %32
@@ -3309,7 +3309,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %17
-  %48 = and i16 %.fr36, 1024
+  %48 = and i16 %.fr39, 1024
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %.split32.us, label %.split32
 
@@ -3439,8 +3439,8 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
 132:                                              ; preds = %128, %124
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %134 = load i16, ptr %133, align 4
-  %.fr = freeze i16 %134
-  %135 = zext i16 %.fr to i32
+  %.fr37 = freeze i16 %134
+  %135 = zext i16 %.fr37 to i32
   %136 = and i32 %135, 1
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %150
@@ -3481,7 +3481,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %161 = and i32 %155, 240
   %162 = icmp eq i32 %161, 224
   %163 = select i1 %162, i32 0, i32 %155
-  %164 = and i16 %.fr, 1025
+  %164 = and i16 %.fr37, 1025
   %165 = icmp eq i16 %164, 1
   %166 = select i1 %165, i32 0, i32 %158
   %167 = xor i32 %166, %163
@@ -3498,7 +3498,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %177, label %.loopexit24, label %178
 
 178:                                              ; preds = %150
-  %179 = and i16 %.fr, 1024
+  %179 = and i16 %.fr37, 1024
   %180 = icmp eq i16 %179, 0
   br i1 %180, label %.split29.us, label %.split29
 
@@ -3758,13 +3758,13 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %352 = load i32, ptr %351, align 4
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %354 = load i16, ptr %353, align 4
-  %.fr35 = freeze i16 %354
+  %.fr = freeze i16 %354
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %356 = load i32, ptr %355, align 4
   %357 = and i32 %349, 240
   %358 = icmp eq i32 %357, 224
   %359 = select i1 %358, i32 0, i32 %349
-  %360 = and i16 %.fr35, 1025
+  %360 = and i16 %.fr, 1025
   %361 = icmp eq i16 %360, 1
   %362 = select i1 %361, i32 0, i32 %352
   %363 = xor i32 %362, %359
@@ -3781,7 +3781,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %373, label %.thread23, label %374
 
 374:                                              ; preds = %344
-  %375 = and i16 %.fr35, 1024
+  %375 = and i16 %.fr, 1024
   %376 = icmp eq i16 %375, 0
   br i1 %376, label %.split.us, label %.split
 
@@ -4743,13 +4743,13 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr noundef readonly cap
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %33 = load i16, ptr %32, align 4
-  %.fr6 = freeze i16 %33
+  %.fr = freeze i16 %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %28, 240
   %37 = icmp eq i32 %36, 224
   %38 = select i1 %37, i32 0, i32 %28
-  %39 = and i16 %.fr6, 1025
+  %39 = and i16 %.fr, 1025
   %40 = icmp eq i16 %39, 1
   %41 = select i1 %40, i32 0, i32 %31
   %42 = xor i32 %41, %38
@@ -4766,7 +4766,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr noundef readonly cap
   br i1 %52, label %.loopexit5, label %53
 
 53:                                               ; preds = %23
-  %54 = and i16 %.fr6, 1024
+  %54 = and i16 %.fr, 1024
   %55 = icmp eq i16 %54, 0
   br i1 %55, label %.split.us, label %.split
 
@@ -5025,13 +5025,13 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %27 = load i16, ptr %26, align 4
-  %.fr8 = freeze i16 %27
+  %.fr = freeze i16 %27
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %22, 240
   %31 = icmp eq i32 %30, 224
   %32 = select i1 %31, i32 0, i32 %22
-  %33 = and i16 %.fr8, 1025
+  %33 = and i16 %.fr, 1025
   %34 = icmp eq i16 %33, 1
   %35 = select i1 %34, i32 0, i32 %25
   %36 = xor i32 %35, %32
@@ -5048,7 +5048,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %17
-  %48 = and i16 %.fr8, 1024
+  %48 = and i16 %.fr, 1024
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %.split.us, label %.split
 

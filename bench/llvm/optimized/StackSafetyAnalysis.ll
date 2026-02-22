@@ -16550,9 +16550,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4ll
 .lr.ph:                                           ; preds = %3
   %13 = load i32, ptr %10, align 8, !tbaa !108
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL24StackSafetyMaxIterations, i64 120), align 8, !tbaa !34
-  %.fr38 = freeze i32 %13
-  %.fr39 = freeze i32 %14
-  %15 = icmp sgt i32 %.fr38, %.fr39
+  %15 = icmp sgt i32 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -16566,7 +16564,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4ll
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %15
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us
   %.032.us = phi i1 [ %72, %_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneUseERNS_7UseInfoIS2_EEb.exit.us ], [ false, %.lr.ph ]
@@ -20113,8 +20112,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN4llvm15FunctionSummary11ParamAccess4CallaSEOS2_.exit
-  %.047 = phi i64 [ %27, %_ZN4llvm15FunctionSummary11ParamAccess4CallaSEOS2_.exit ], [ %1, %4 ]
-  %8 = shl i64 %.047, 1
+  %.046 = phi i64 [ %27, %_ZN4llvm15FunctionSummary11ParamAccess4CallaSEOS2_.exit ], [ %1, %4 ]
+  %8 = shl i64 %.046, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"struct.llvm::FunctionSummary::ParamAccess::Call", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -20139,10 +20138,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %23 = and i64 %.0.copyload.i.i.i.i.i2.i.i.i.i.i.i, -8
   %24 = inttoptr i64 %23 to ptr
   %25 = load i64, ptr %24, align 8, !tbaa !392
-  %.fr = freeze i64 %22
-  %.fr46 = freeze i64 %25
-  %26 = icmp ult i64 %.fr, %.fr46
-  br i1 %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread44"
+  %26 = icmp ult i64 %22, %25
+  %cond.fr = freeze i1 %26
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread44"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread44"
@@ -20150,7 +20148,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread44": ; preds = %18, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread"
   %27 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EclINS_17__normal_iteratorIPNS2_15FunctionSummary11ParamAccess4CallESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit" ], [ %9, %18 ]
   %28 = getelementptr inbounds %"struct.llvm::FunctionSummary::ParamAccess::Call", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.llvm::FunctionSummary::ParamAccess::Call", ptr %0, i64 %.047
+  %29 = getelementptr inbounds %"struct.llvm::FunctionSummary::ParamAccess::Call", ptr %0, i64 %.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16

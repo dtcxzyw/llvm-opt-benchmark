@@ -1898,17 +1898,17 @@ _ZN5eastl9sort_heapIPNS_8optionalIiEEEEvT_S4_.exit: ; preds = %_ZN5eastl8pop_hea
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16adjust_heap_implIPNS_8optionalIiEElOS2_S2_EEvT_T0_S6_S6_T1_(ptr noundef %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr noundef nonnull align 4 dereferenceable(5) %value) local_unnamed_addr #1 comdat {
 entry:
-  %childPosition.0.in40 = shl nsw i64 %position, 1
-  %childPosition.041 = add nsw i64 %childPosition.0.in40, 2
-  %cmp42 = icmp slt i64 %childPosition.041, %heapSize
-  br i1 %cmp42, label %for.body, label %for.end
+  %childPosition.0.in39 = shl nsw i64 %position, 1
+  %childPosition.040 = add nsw i64 %childPosition.0.in39, 2
+  %cmp41 = icmp slt i64 %childPosition.040, %heapSize
+  br i1 %cmp41, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %_ZN5eastl8optionalIiEaSEOS1_.exit
-  %childPosition.045 = phi i64 [ %childPosition.0, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %childPosition.041, %entry ]
-  %childPosition.0.in44 = phi i64 [ %childPosition.0.in, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %childPosition.0.in40, %entry ]
-  %position.addr.043 = phi i64 [ %5, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %position, %entry ]
-  %add.ptr = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %childPosition.045
-  %0 = getelementptr %"class.eastl::optional", ptr %first, i64 %childPosition.0.in44
+  %childPosition.044 = phi i64 [ %childPosition.0, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %childPosition.040, %entry ]
+  %childPosition.0.in43 = phi i64 [ %childPosition.0.in, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %childPosition.0.in39, %entry ]
+  %position.addr.042 = phi i64 [ %5, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %position, %entry ]
+  %add.ptr = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %childPosition.044
+  %0 = getelementptr %"class.eastl::optional", ptr %first, i64 %childPosition.0.in43
   %add.ptr1 = getelementptr i8, ptr %0, i64 8
   %engaged.i.i = getelementptr i8, ptr %0, i64 12
   %1 = load i8, ptr %engaged.i.i, align 4
@@ -1922,23 +1922,22 @@ cond.false.i:                                     ; preds = %for.body
   br i1 %tobool.i4.i, label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit, label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread
 
 _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread: ; preds = %cond.false.i
-  %dec32 = or disjoint i64 %childPosition.0.in44, 1
+  %dec32 = or disjoint i64 %childPosition.0.in43, 1
   br label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread35
 
 _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit:      ; preds = %cond.false.i
   %3 = load i32, ptr %add.ptr, align 4
   %4 = load i32, ptr %add.ptr1, align 4
-  %.fr = freeze i32 %3
-  %.fr39 = freeze i32 %4
-  %cmp.i = icmp slt i32 %.fr, %.fr39
-  %dec = or disjoint i64 %childPosition.0.in44, 1
-  %spec.select = select i1 %cmp.i, i64 %dec, i64 %childPosition.045
+  %cmp.i = icmp slt i32 %3, %4
+  %dec = or disjoint i64 %childPosition.0.in43, 1
+  %cond.fr = freeze i1 %cmp.i
+  %spec.select = select i1 %cond.fr, i64 %dec, i64 %childPosition.044
   br label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread35
 
 _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread35: ; preds = %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit, %for.body, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread
-  %5 = phi i64 [ %childPosition.045, %for.body ], [ %spec.select, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit ], [ %dec32, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread ]
+  %5 = phi i64 [ %childPosition.044, %for.body ], [ %spec.select, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit ], [ %dec32, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread ]
   %add.ptr2 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %5
-  %add.ptr4 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %position.addr.043
+  %add.ptr4 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %position.addr.042
   %engaged.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 4
   %6 = load i8, ptr %engaged.i, align 4
   %tobool.i = trunc i8 %6 to i1
@@ -1978,8 +1977,8 @@ _ZN5eastl8optionalIiEaSEOS1_.exit:                ; preds = %if.then.i, %if.then
 
 for.end:                                          ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit, %entry
   %position.addr.0.lcssa = phi i64 [ %position, %entry ], [ %5, %_ZN5eastl8optionalIiEaSEOS1_.exit ]
-  %childPosition.0.in.lcssa = phi i64 [ %childPosition.0.in40, %entry ], [ %childPosition.0.in, %_ZN5eastl8optionalIiEaSEOS1_.exit ]
-  %childPosition.0.lcssa = phi i64 [ %childPosition.041, %entry ], [ %childPosition.0, %_ZN5eastl8optionalIiEaSEOS1_.exit ]
+  %childPosition.0.in.lcssa = phi i64 [ %childPosition.0.in39, %entry ], [ %childPosition.0.in, %_ZN5eastl8optionalIiEaSEOS1_.exit ]
+  %childPosition.0.lcssa = phi i64 [ %childPosition.040, %entry ], [ %childPosition.0, %_ZN5eastl8optionalIiEaSEOS1_.exit ]
   %cmp8 = icmp eq i64 %childPosition.0.lcssa, %heapSize
   br i1 %cmp8, label %if.then9, label %if.end16
 

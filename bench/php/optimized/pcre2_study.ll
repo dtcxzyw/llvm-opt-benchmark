@@ -171,9 +171,9 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 79:                                               ; preds = %52, %75, %74
   %.084 = phi i32 [ %78, %75 ], [ %58, %74 ], [ %58, %52 ]
-  %.084.fr = freeze i32 %.084
-  %.not109 = icmp eq i32 %.084.fr, %.098146
-  br i1 %.not109, label %.thread120, label %.thread126.loopexit
+  %.not109 = icmp eq i32 %.084, %.098146
+  %cond.fr = freeze i1 %.not109
+  br i1 %cond.fr, label %.thread120, label %.thread126.loopexit
 
 .thread120:                                       ; preds = %79, %48, %23
   %.5125 = phi i32 [ %.093147, %23 ], [ %.089.frozen, %79 ], [ %.093147, %48 ]

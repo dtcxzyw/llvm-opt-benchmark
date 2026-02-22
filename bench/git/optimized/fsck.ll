@@ -1486,11 +1486,11 @@ define dso_local i32 @fsck_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %21 = phi i32 [ %.pre, %16 ], [ %13, %12 ]
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 7
-  switch i32 %23, label %291 [
+  switch i32 %23, label %292 [
     i32 3, label %fsck_walk_commit.exit
     i32 2, label %24
     i32 1, label %121
-    i32 4, label %241
+    i32 4, label %242
   ]
 
 24:                                               ; preds = %20
@@ -1861,7 +1861,6 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   %indvars.iv.i = phi i64 [ %183, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %191 ]
   %.066106.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %196, %191 ]
   %.2104.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %195, %191 ]
-  %.2104.fr.i = freeze i32 %.2104.i
   %184 = getelementptr i8, ptr %.0.i90.i, i64 %indvars.iv.i
   %185 = getelementptr i8, ptr %184, i64 -1
   %186 = load i8, ptr %185, align 1, !tbaa !15
@@ -1877,7 +1876,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   %192 = sext i8 %186 to i32
   %193 = add nsw i32 %192, -48
   %194 = mul nsw i32 %193, %.066106.i
-  %195 = add nsw i32 %194, %.2104.fr.i
+  %195 = add nsw i32 %194, %.2104.i
   %196 = mul nuw nsw i32 %.066106.i, 10
   %.not94.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not94.i, label %.critedge.thread.i, label %.lr.ph.i32, !llvm.loop !87
@@ -1892,14 +1891,14 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds i8, ptr %.0.i90.i, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !15
-  %.fr.i = freeze i8 %203
-  %204 = icmp eq i8 %.fr.i, 126
-  %spec.select118.i = select i1 %204, i32 %.2104.fr.i, i32 0
+  %204 = icmp eq i8 %203, 126
+  %spec.select118.i = select i1 %204, i32 %.2104.i, i32 0
   %spec.select119.i = select i1 %204, i32 %200, i32 %197
+  %205 = freeze i32 %spec.select118.i
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %191, %199, %.critedge.i, %170
-  %.074.i = phi i32 [ 0, %170 ], [ %spec.select118.i, %199 ], [ 0, %.critedge.i ], [ 0, %191 ]
+  %.074.i = phi i32 [ 0, %170 ], [ %205, %199 ], [ 0, %.critedge.i ], [ 0, %191 ]
   %.072.i = phi i32 [ 0, %170 ], [ %spec.select119.i, %199 ], [ %197, %.critedge.i ], [ 0, %191 ]
   %.not86107.i = icmp eq ptr %172, null
   br i1 %.not86107.i, label %fsck_walk_commit.exit, label %.lr.ph111.i
@@ -1914,220 +1913,220 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   br i1 %164, label %.lr.ph111.split.us.split.us.i.preheader, label %.lr.ph111.split.i.preheader
 
 .lr.ph111.split.us.i:                             ; preds = %.lr.ph111.i
-  %205 = add nuw nsw i32 %.074.i, 1
-  %206 = icmp sgt i32 %.074.i, 0
-  br i1 %206, label %.lr.ph111.split.us.split.us.i.preheader, label %.lr.ph111.split.us.split.i.preheader
+  %206 = add nuw nsw i32 %.074.i, 1
+  %207 = icmp sgt i32 %.074.i, 0
+  br i1 %207, label %.lr.ph111.split.us.split.us.i.preheader, label %.lr.ph111.split.us.split.i.preheader
 
 .lr.ph111.split.us.split.i.preheader:             ; preds = %174, %.lr.ph111.split.us.i
   br label %.lr.ph111.split.us.split.i
 
 .lr.ph111.split.us.split.us.i.preheader:          ; preds = %.lr.ph111.i.thread, %.lr.ph111.split.us.i
   %.072153.i132136 = phi i32 [ %.072.i, %.lr.ph111.split.us.i ], [ %178, %.lr.ph111.i.thread ]
-  %207 = phi i32 [ %205, %.lr.ph111.split.us.i ], [ 2, %.lr.ph111.i.thread ]
+  %208 = phi i32 [ %206, %.lr.ph111.split.us.i ], [ 2, %.lr.ph111.i.thread ]
   br label %.lr.ph111.split.us.split.us.i
 
-.lr.ph111.split.us.split.us.i:                    ; preds = %.lr.ph111.split.us.split.us.i.preheader, %218
-  %.068110.us.us.i = phi i32 [ %.1.us.us.i, %218 ], [ 0, %.lr.ph111.split.us.split.us.i.preheader ]
-  %.069109.us.us.i = phi i32 [ %spec.select.us.us.i, %218 ], [ %168, %.lr.ph111.split.us.split.us.i.preheader ]
-  %.071108.us.us.i = phi ptr [ %220, %218 ], [ %172, %.lr.ph111.split.us.split.us.i.preheader ]
-  %208 = load ptr, ptr %.071108.us.us.i, align 8, !tbaa !88
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
+.lr.ph111.split.us.split.us.i:                    ; preds = %.lr.ph111.split.us.split.us.i.preheader, %219
+  %.068110.us.us.i = phi i32 [ %.1.us.us.i, %219 ], [ 0, %.lr.ph111.split.us.split.us.i.preheader ]
+  %.069109.us.us.i = phi i32 [ %spec.select.us.us.i, %219 ], [ %168, %.lr.ph111.split.us.split.us.i.preheader ]
+  %.071108.us.us.i = phi ptr [ %221, %219 ], [ %172, %.lr.ph111.split.us.split.us.i.preheader ]
+  %209 = load ptr, ptr %.071108.us.us.i, align 8, !tbaa !88
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %.not87.us.us.i = icmp eq i32 %.068110.us.us.i, 0
-  br i1 %.not87.us.us.i, label %212, label %210
+  br i1 %.not87.us.us.i, label %213, label %211
 
-210:                                              ; preds = %.lr.ph111.split.us.split.us.i
-  %211 = add nsw i32 %.068110.us.us.i, 1
-  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %209, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0.i90.i, i32 noundef %211)
-  br label %213
+211:                                              ; preds = %.lr.ph111.split.us.split.us.i
+  %212 = add nsw i32 %.068110.us.us.i, 1
+  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %210, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0.i90.i, i32 noundef %212)
+  br label %214
 
-212:                                              ; preds = %.lr.ph111.split.us.split.us.i
-  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %209, ptr noundef nonnull @.str.115, i32 noundef %.072153.i132136, ptr noundef nonnull %.0.i90.i, i32 noundef %207)
-  br label %213
+213:                                              ; preds = %.lr.ph111.split.us.split.us.i
+  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %210, ptr noundef nonnull @.str.115, i32 noundef %.072153.i132136, ptr noundef nonnull %.0.i90.i, i32 noundef %208)
+  br label %214
 
-213:                                              ; preds = %212, %210
-  %.1.us.us.i = phi i32 [ %211, %210 ], [ 1, %212 ]
-  %214 = load ptr, ptr %2, align 8, !tbaa !81
-  %215 = load ptr, ptr %.071108.us.us.i, align 8, !tbaa !88
-  %216 = tail call i32 %214(ptr noundef %215, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
-  %217 = icmp slt i32 %216, 0
-  br i1 %217, label %fsck_walk_commit.exit, label %218
+214:                                              ; preds = %213, %211
+  %.1.us.us.i = phi i32 [ %212, %211 ], [ 1, %213 ]
+  %215 = load ptr, ptr %2, align 8, !tbaa !81
+  %216 = load ptr, ptr %.071108.us.us.i, align 8, !tbaa !88
+  %217 = tail call i32 %215(ptr noundef %216, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
+  %218 = icmp slt i32 %217, 0
+  br i1 %218, label %fsck_walk_commit.exit, label %219
 
-218:                                              ; preds = %213
+219:                                              ; preds = %214
   %.not88.us.us.i = icmp eq i32 %.069109.us.us.i, 0
-  %spec.select.us.us.i = select i1 %.not88.us.us.i, i32 %216, i32 %.069109.us.us.i
-  %219 = getelementptr inbounds nuw i8, ptr %.071108.us.us.i, i64 8
-  %220 = load ptr, ptr %219, align 8, !tbaa !91
-  %.not86.us.us.i = icmp eq ptr %220, null
+  %spec.select.us.us.i = select i1 %.not88.us.us.i, i32 %217, i32 %.069109.us.us.i
+  %220 = getelementptr inbounds nuw i8, ptr %.071108.us.us.i, i64 8
+  %221 = load ptr, ptr %220, align 8, !tbaa !91
+  %.not86.us.us.i = icmp eq ptr %221, null
   br i1 %.not86.us.us.i, label %fsck_walk_commit.exit, label %.lr.ph111.split.us.split.us.i, !llvm.loop !92
 
-.lr.ph111.split.us.split.i:                       ; preds = %.lr.ph111.split.us.split.i.preheader, %231
-  %.068110.us.i = phi i32 [ %.1.us.i, %231 ], [ 0, %.lr.ph111.split.us.split.i.preheader ]
-  %.069109.us.i = phi i32 [ %spec.select.us.i31, %231 ], [ %168, %.lr.ph111.split.us.split.i.preheader ]
-  %.071108.us.i = phi ptr [ %233, %231 ], [ %172, %.lr.ph111.split.us.split.i.preheader ]
-  %221 = load ptr, ptr %.071108.us.i, align 8, !tbaa !88
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
+.lr.ph111.split.us.split.i:                       ; preds = %.lr.ph111.split.us.split.i.preheader, %232
+  %.068110.us.i = phi i32 [ %.1.us.i, %232 ], [ 0, %.lr.ph111.split.us.split.i.preheader ]
+  %.069109.us.i = phi i32 [ %spec.select.us.i31, %232 ], [ %168, %.lr.ph111.split.us.split.i.preheader ]
+  %.071108.us.i = phi ptr [ %234, %232 ], [ %172, %.lr.ph111.split.us.split.i.preheader ]
+  %222 = load ptr, ptr %.071108.us.i, align 8, !tbaa !88
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 4
   %.not87.us.i = icmp eq i32 %.068110.us.i, 0
-  br i1 %.not87.us.i, label %225, label %223
+  br i1 %.not87.us.i, label %226, label %224
 
-223:                                              ; preds = %.lr.ph111.split.us.split.i
-  %224 = add nsw i32 %.068110.us.i, 1
-  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %222, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0.i90.i, i32 noundef %224)
-  br label %226
+224:                                              ; preds = %.lr.ph111.split.us.split.i
+  %225 = add nsw i32 %.068110.us.i, 1
+  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %223, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0.i90.i, i32 noundef %225)
+  br label %227
 
-225:                                              ; preds = %.lr.ph111.split.us.split.i
-  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %222, ptr noundef nonnull @.str.116, ptr noundef nonnull %.0.i90.i)
-  br label %226
+226:                                              ; preds = %.lr.ph111.split.us.split.i
+  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %223, ptr noundef nonnull @.str.116, ptr noundef nonnull %.0.i90.i)
+  br label %227
 
-226:                                              ; preds = %225, %223
-  %.1.us.i = phi i32 [ %224, %223 ], [ 1, %225 ]
-  %227 = load ptr, ptr %2, align 8, !tbaa !81
-  %228 = load ptr, ptr %.071108.us.i, align 8, !tbaa !88
-  %229 = tail call i32 %227(ptr noundef %228, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
-  %230 = icmp slt i32 %229, 0
-  br i1 %230, label %fsck_walk_commit.exit, label %231
+227:                                              ; preds = %226, %224
+  %.1.us.i = phi i32 [ %225, %224 ], [ 1, %226 ]
+  %228 = load ptr, ptr %2, align 8, !tbaa !81
+  %229 = load ptr, ptr %.071108.us.i, align 8, !tbaa !88
+  %230 = tail call i32 %228(ptr noundef %229, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
+  %231 = icmp slt i32 %230, 0
+  br i1 %231, label %fsck_walk_commit.exit, label %232
 
-231:                                              ; preds = %226
+232:                                              ; preds = %227
   %.not88.us.i = icmp eq i32 %.069109.us.i, 0
-  %spec.select.us.i31 = select i1 %.not88.us.i, i32 %229, i32 %.069109.us.i
-  %232 = getelementptr inbounds nuw i8, ptr %.071108.us.i, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !91
-  %.not86.us.i = icmp eq ptr %233, null
+  %spec.select.us.i31 = select i1 %.not88.us.i, i32 %230, i32 %.069109.us.i
+  %233 = getelementptr inbounds nuw i8, ptr %.071108.us.i, i64 8
+  %234 = load ptr, ptr %233, align 8, !tbaa !91
+  %.not86.us.i = icmp eq ptr %234, null
   br i1 %.not86.us.i, label %fsck_walk_commit.exit, label %.lr.ph111.split.us.split.i, !llvm.loop !92
 
-.lr.ph111.split.i:                                ; preds = %.lr.ph111.split.i.preheader, %238
-  %.069109.i = phi i32 [ %spec.select.i30, %238 ], [ %168, %.lr.ph111.split.i.preheader ]
-  %.071108.i = phi ptr [ %240, %238 ], [ %172, %.lr.ph111.split.i.preheader ]
-  %234 = load ptr, ptr %2, align 8, !tbaa !81
-  %235 = load ptr, ptr %.071108.i, align 8, !tbaa !88
-  %236 = tail call i32 %234(ptr noundef %235, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
-  %237 = icmp slt i32 %236, 0
-  br i1 %237, label %fsck_walk_commit.exit, label %238
+.lr.ph111.split.i:                                ; preds = %.lr.ph111.split.i.preheader, %239
+  %.069109.i = phi i32 [ %spec.select.i30, %239 ], [ %168, %.lr.ph111.split.i.preheader ]
+  %.071108.i = phi ptr [ %241, %239 ], [ %172, %.lr.ph111.split.i.preheader ]
+  %235 = load ptr, ptr %2, align 8, !tbaa !81
+  %236 = load ptr, ptr %.071108.i, align 8, !tbaa !88
+  %237 = tail call i32 %235(ptr noundef %236, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
+  %238 = icmp slt i32 %237, 0
+  br i1 %238, label %fsck_walk_commit.exit, label %239
 
-238:                                              ; preds = %.lr.ph111.split.i
+239:                                              ; preds = %.lr.ph111.split.i
   %.not88.i = icmp eq i32 %.069109.i, 0
-  %spec.select.i30 = select i1 %.not88.i, i32 %236, i32 %.069109.i
-  %239 = getelementptr inbounds nuw i8, ptr %.071108.i, i64 8
-  %240 = load ptr, ptr %239, align 8, !tbaa !91
-  %.not86.i = icmp eq ptr %240, null
+  %spec.select.i30 = select i1 %.not88.i, i32 %237, i32 %.069109.i
+  %240 = getelementptr inbounds nuw i8, ptr %.071108.i, i64 8
+  %241 = load ptr, ptr %240, align 8, !tbaa !91
+  %.not86.i = icmp eq ptr %241, null
   br i1 %.not86.i, label %fsck_walk_commit.exit, label %.lr.ph111.split.i, !llvm.loop !92
 
-241:                                              ; preds = %20
-  %242 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %243 = load ptr, ptr %242, align 8, !tbaa !57
-  %.not.i.i39 = icmp eq ptr %243, null
-  br i1 %.not.i.i39, label %fsck_get_object_name.exit.i51, label %244
+242:                                              ; preds = %20
+  %243 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %244 = load ptr, ptr %243, align 8, !tbaa !57
+  %.not.i.i39 = icmp eq ptr %244, null
+  br i1 %.not.i.i39, label %fsck_get_object_name.exit.i51, label %245
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 4
+245:                                              ; preds = %242
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull readonly align 4 dereferenceable(36) %245, i64 36, i1 false)
-  %246 = load i32, ptr %243, align 8, !tbaa !58
-  %.not.i.i.i40 = icmp eq i32 %246, 0
-  br i1 %.not.i.i.i40, label %kh_get_oid_map.exit.i.i48, label %247
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull readonly align 4 dereferenceable(36) %246, i64 36, i1 false)
+  %247 = load i32, ptr %244, align 8, !tbaa !58
+  %.not.i.i.i40 = icmp eq i32 %247, 0
+  br i1 %.not.i.i.i40, label %kh_get_oid_map.exit.i.i48, label %248
 
-247:                                              ; preds = %244
-  %248 = add i32 %246, -1
+248:                                              ; preds = %245
+  %249 = add i32 %247, -1
   %.val.i.i.i41 = load i32, ptr %5, align 8
-  %249 = and i32 %.val.i.i.i41, %248
-  %250 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  %251 = load ptr, ptr %250, align 8, !tbaa !60
-  %252 = getelementptr inbounds nuw i8, ptr %243, i64 24
-  br label %253
+  %250 = and i32 %.val.i.i.i41, %249
+  %251 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  %252 = load ptr, ptr %251, align 8, !tbaa !60
+  %253 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  br label %254
 
-253:                                              ; preds = %.critedge2.i.i.i56, %247
-  %.027.i.i.i42 = phi i32 [ %249, %247 ], [ %270, %.critedge2.i.i.i56 ]
-  %.0.i.i.i43 = phi i32 [ 0, %247 ], [ %268, %.critedge2.i.i.i56 ]
-  %254 = lshr i32 %.027.i.i.i42, 4
-  %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw i32, ptr %251, i64 %255
-  %257 = load i32, ptr %256, align 4, !tbaa !29
-  %258 = shl i32 %.027.i.i.i42, 1
-  %259 = and i32 %258, 30
-  %260 = lshr i32 %257, %259
-  %261 = and i32 %260, 2
-  %.not30.i.i.i44 = icmp eq i32 %261, 0
-  br i1 %.not30.i.i.i44, label %262, label %.critedge.i.i.i45
+254:                                              ; preds = %.critedge2.i.i.i56, %248
+  %.027.i.i.i42 = phi i32 [ %250, %248 ], [ %271, %.critedge2.i.i.i56 ]
+  %.0.i.i.i43 = phi i32 [ 0, %248 ], [ %269, %.critedge2.i.i.i56 ]
+  %255 = lshr i32 %.027.i.i.i42, 4
+  %256 = zext nneg i32 %255 to i64
+  %257 = getelementptr inbounds nuw i32, ptr %252, i64 %256
+  %258 = load i32, ptr %257, align 4, !tbaa !29
+  %259 = shl i32 %.027.i.i.i42, 1
+  %260 = and i32 %259, 30
+  %261 = lshr i32 %258, %260
+  %262 = and i32 %261, 2
+  %.not30.i.i.i44 = icmp eq i32 %262, 0
+  br i1 %.not30.i.i.i44, label %263, label %.critedge.i.i.i45
 
-262:                                              ; preds = %253
-  %263 = and i32 %260, 1
-  %.not31.i.i.i55 = icmp eq i32 %263, 0
-  br i1 %.not31.i.i.i55, label %264, label %.critedge2.i.i.i56
+263:                                              ; preds = %254
+  %264 = and i32 %261, 1
+  %.not31.i.i.i55 = icmp eq i32 %264, 0
+  br i1 %.not31.i.i.i55, label %265, label %.critedge2.i.i.i56
 
-264:                                              ; preds = %262
-  %265 = load ptr, ptr %252, align 8, !tbaa !61
-  %266 = zext i32 %.027.i.i.i42 to i64
-  %267 = getelementptr inbounds nuw %struct.object_id, ptr %265, i64 %266
+265:                                              ; preds = %263
+  %266 = load ptr, ptr %253, align 8, !tbaa !61
+  %267 = zext i32 %.027.i.i.i42 to i64
+  %268 = getelementptr inbounds nuw %struct.object_id, ptr %266, i64 %267
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %267, i64 36, i1 false), !tbaa.struct !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %268, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i.i.i58 = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32)
   %.not.i.i.not.i.i.i59 = icmp eq i32 %bcmp.i.i.i.i.i58, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i.not.i.i.i59, label %.critedge.i.i.i45, label %.critedge2.i.i.i56
 
-.critedge2.i.i.i56:                               ; preds = %264, %262
-  %268 = add i32 %.0.i.i.i43, 1
-  %269 = add i32 %268, %.027.i.i.i42
-  %270 = and i32 %269, %248
-  %271 = icmp eq i32 %270, %249
-  br i1 %271, label %kh_get_oid_map.exit.thread.i.i57, label %253, !llvm.loop !63
+.critedge2.i.i.i56:                               ; preds = %265, %263
+  %269 = add i32 %.0.i.i.i43, 1
+  %270 = add i32 %269, %.027.i.i.i42
+  %271 = and i32 %270, %249
+  %272 = icmp eq i32 %271, %250
+  br i1 %272, label %kh_get_oid_map.exit.thread.i.i57, label %254, !llvm.loop !63
 
 kh_get_oid_map.exit.thread.i.i57:                 ; preds = %.critedge2.i.i.i56
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %fsck_get_object_name.exit.i51
 
-.critedge.i.i.i45:                                ; preds = %264, %253
-  %272 = shl nuw i32 3, %259
-  %273 = and i32 %272, %257
-  %.not33.i.i.i46 = icmp eq i32 %273, 0
-  %spec.select.i.i.i47 = select i1 %.not33.i.i.i46, i32 %.027.i.i.i42, i32 %246
+.critedge.i.i.i45:                                ; preds = %265, %254
+  %273 = shl nuw i32 3, %260
+  %274 = and i32 %273, %258
+  %.not33.i.i.i46 = icmp eq i32 %274, 0
+  %spec.select.i.i.i47 = select i1 %.not33.i.i.i46, i32 %.027.i.i.i42, i32 %247
   br label %kh_get_oid_map.exit.i.i48
 
-kh_get_oid_map.exit.i.i48:                        ; preds = %.critedge.i.i.i45, %244
-  %.1.i.i.i49 = phi i32 [ %spec.select.i.i.i47, %.critedge.i.i.i45 ], [ 0, %244 ]
+kh_get_oid_map.exit.i.i48:                        ; preds = %.critedge.i.i.i45, %245
+  %.1.i.i.i49 = phi i32 [ %spec.select.i.i.i47, %.critedge.i.i.i45 ], [ 0, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not9.i.i50 = icmp ult i32 %.1.i.i.i49, %246
-  br i1 %.not9.i.i50, label %274, label %fsck_get_object_name.exit.i51
+  %.not9.i.i50 = icmp ult i32 %.1.i.i.i49, %247
+  br i1 %.not9.i.i50, label %275, label %fsck_get_object_name.exit.i51
 
-274:                                              ; preds = %kh_get_oid_map.exit.i.i48
-  %275 = getelementptr inbounds nuw i8, ptr %243, i64 32
-  %276 = load ptr, ptr %275, align 8, !tbaa !64
-  %277 = zext i32 %.1.i.i.i49 to i64
-  %278 = getelementptr inbounds nuw ptr, ptr %276, i64 %277
-  %279 = load ptr, ptr %278, align 8, !tbaa !65
+275:                                              ; preds = %kh_get_oid_map.exit.i.i48
+  %276 = getelementptr inbounds nuw i8, ptr %244, i64 32
+  %277 = load ptr, ptr %276, align 8, !tbaa !64
+  %278 = zext i32 %.1.i.i.i49 to i64
+  %279 = getelementptr inbounds nuw ptr, ptr %277, i64 %278
+  %280 = load ptr, ptr %279, align 8, !tbaa !65
   br label %fsck_get_object_name.exit.i51
 
-fsck_get_object_name.exit.i51:                    ; preds = %274, %kh_get_oid_map.exit.i.i48, %kh_get_oid_map.exit.thread.i.i57, %241
-  %.0.i.i52 = phi ptr [ null, %241 ], [ %279, %274 ], [ null, %kh_get_oid_map.exit.i.i48 ], [ null, %kh_get_oid_map.exit.thread.i.i57 ]
-  %280 = tail call i32 @parse_tag(ptr noundef nonnull %0) #16
-  %.not.i53 = icmp eq i32 %280, 0
-  br i1 %.not.i53, label %281, label %fsck_walk_commit.exit
+fsck_get_object_name.exit.i51:                    ; preds = %275, %kh_get_oid_map.exit.i.i48, %kh_get_oid_map.exit.thread.i.i57, %242
+  %.0.i.i52 = phi ptr [ null, %242 ], [ %280, %275 ], [ null, %kh_get_oid_map.exit.i.i48 ], [ null, %kh_get_oid_map.exit.thread.i.i57 ]
+  %281 = tail call i32 @parse_tag(ptr noundef nonnull %0) #16
+  %.not.i53 = icmp eq i32 %281, 0
+  br i1 %.not.i53, label %282, label %fsck_walk_commit.exit
 
-281:                                              ; preds = %fsck_get_object_name.exit.i51
+282:                                              ; preds = %fsck_get_object_name.exit.i51
   %.not12.i = icmp eq ptr %.0.i.i52, null
-  br i1 %.not12.i, label %286, label %282
+  br i1 %.not12.i, label %287, label %283
 
-282:                                              ; preds = %281
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %284 = load ptr, ptr %283, align 8, !tbaa !93
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 4
-  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef %2, ptr noundef nonnull %285, ptr noundef nonnull @.str.117, ptr noundef nonnull %.0.i.i52)
-  br label %286
+283:                                              ; preds = %282
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %285 = load ptr, ptr %284, align 8, !tbaa !93
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 4
+  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef %2, ptr noundef nonnull %286, ptr noundef nonnull @.str.117, ptr noundef nonnull %.0.i.i52)
+  br label %287
 
-286:                                              ; preds = %282, %281
-  %287 = load ptr, ptr %2, align 8, !tbaa !81
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %289 = load ptr, ptr %288, align 8, !tbaa !93
-  %290 = tail call i32 %287(ptr noundef %289, i32 noundef 8, ptr noundef %1, ptr noundef nonnull %2) #16
+287:                                              ; preds = %283, %282
+  %288 = load ptr, ptr %2, align 8, !tbaa !81
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %290 = load ptr, ptr %289, align 8, !tbaa !93
+  %291 = tail call i32 %288(ptr noundef %290, i32 noundef 8, ptr noundef %1, ptr noundef nonnull %2) #16
   br label %fsck_walk_commit.exit
 
-291:                                              ; preds = %20
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %293 = tail call ptr @fsck_describe_object(ptr noundef %2, ptr noundef nonnull %292)
-  %294 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %293) #16
+292:                                              ; preds = %20
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %294 = tail call ptr @fsck_describe_object(ptr noundef %2, ptr noundef nonnull %293)
+  %295 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %294) #16
   br label %fsck_walk_commit.exit
 
-fsck_walk_commit.exit:                            ; preds = %238, %.lr.ph111.split.i, %218, %213, %231, %226, %286, %fsck_get_object_name.exit.i51, %.critedge.thread.i, %fsck_get_object_name.exit.thread.i, %121, %20, %3, %291, %fsck_walk_tree.exit
-  %.0 = phi i32 [ -1, %291 ], [ -1, %3 ], [ %.034.i, %fsck_walk_tree.exit ], [ 0, %20 ], [ %216, %213 ], [ %168, %fsck_get_object_name.exit.thread.i ], [ -1, %121 ], [ %290, %286 ], [ %168, %.critedge.thread.i ], [ %229, %226 ], [ -1, %fsck_get_object_name.exit.i51 ], [ %spec.select.us.i31, %231 ], [ %spec.select.us.us.i, %218 ], [ %236, %.lr.ph111.split.i ], [ %spec.select.i30, %238 ]
+fsck_walk_commit.exit:                            ; preds = %239, %.lr.ph111.split.i, %219, %214, %232, %227, %287, %fsck_get_object_name.exit.i51, %.critedge.thread.i, %fsck_get_object_name.exit.thread.i, %121, %20, %3, %292, %fsck_walk_tree.exit
+  %.0 = phi i32 [ -1, %292 ], [ -1, %3 ], [ %.034.i, %fsck_walk_tree.exit ], [ 0, %20 ], [ %217, %214 ], [ %168, %fsck_get_object_name.exit.thread.i ], [ -1, %121 ], [ %291, %287 ], [ %168, %.critedge.thread.i ], [ %230, %227 ], [ -1, %fsck_get_object_name.exit.i51 ], [ %spec.select.us.i31, %232 ], [ %spec.select.us.us.i, %219 ], [ %237, %.lr.ph111.split.i ], [ %spec.select.i30, %239 ]
   ret i32 %.0
 }
 

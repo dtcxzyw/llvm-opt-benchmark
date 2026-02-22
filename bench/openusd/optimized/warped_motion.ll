@@ -167,15 +167,14 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
 
 108:                                              ; preds = %105, %101
   %109 = phi i32 [ %104, %101 ], [ %107, %105 ]
-  %.fr66 = freeze i32 %109
-  %.tr55 = trunc i32 %.fr66 to i16
+  %.tr55 = trunc nsw i32 %109 to i16
   %110 = shl i16 %.tr55, 6
   store i16 %110, ptr %53, align 4
   %sext65 = shl i32 %75, 16
   %111 = ashr exact i32 %sext65, 16
   %112 = and i32 %75, 32768
-  %.not71 = icmp eq i32 %112, 0
-  br i1 %.not71, label %117, label %113
+  %.not70 = icmp eq i32 %112, 0
+  br i1 %.not70, label %117, label %113
 
 113:                                              ; preds = %108
   %114 = sub nsw i32 32, %111
@@ -190,8 +189,7 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
 
 120:                                              ; preds = %117, %113
   %121 = phi i32 [ %116, %113 ], [ %119, %117 ]
-  %.fr = freeze i32 %121
-  %.tr56 = trunc i32 %.fr to i16
+  %.tr56 = trunc nsw i32 %121 to i16
   %122 = shl i16 %.tr56, 6
   store i16 %122, ptr %76, align 2
   %123 = tail call i16 @llvm.abs.i16(i16 %88, i1 false)
@@ -210,7 +208,8 @@ is_affine_shear_allowed.exit:                     ; preds = %120
   %133 = tail call i16 @llvm.abs.i16(i16 %122, i1 false)
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %134, %132
-  %136 = icmp samesign ugt i32 %135, 16383
+  %.fr = freeze i32 %135
+  %136 = icmp ugt i32 %.fr, 16383
   br i1 %136, label %is_affine_shear_allowed.exit.thread, label %137
 
 is_affine_shear_allowed.exit.thread:              ; preds = %120, %is_affine_shear_allowed.exit
@@ -1287,15 +1286,15 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv63.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next64.i, %._crit_edge.us.i ]
   %.051.us.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %.us-phi.us.i, %._crit_edge.us.i ]
-  %28 = sub nsw i64 %26, %indvars.iv63.i
-  %29 = trunc nsw i64 %28 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv63.i to i32
+  %29 = sub i32 %6, %28
   %30 = tail call i32 @llvm.smin.i32(i32 %6, i32 %29)
   %31 = tail call i32 @llvm.smin.i32(i32 %30, i32 32)
   %32 = mul nsw i64 %indvars.iv63.i, %24
   %invariant.gep.us.i = getelementptr i16, ptr %14, i64 %32
   %33 = mul nsw i64 %indvars.iv63.i, %23
   %invariant.gep48.us.i = getelementptr i16, ptr %17, i64 %33
-  %34 = icmp sgt i64 %28, 0
+  %34 = icmp sgt i32 %29, 0
   %wide.trip.count29.i.us.i = zext nneg i32 %31 to i64
   br i1 %34, label %.lr.ph.split.us.us.preheader.i, label %._crit_edge.us.i
 
@@ -1407,14 +1406,14 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
 .preheader.us.i21:                                ; preds = %._crit_edge.us.i23, %.preheader.us.preheader.i20
   %indvars.iv62.i = phi i64 [ 0, %.preheader.us.preheader.i20 ], [ %indvars.iv.next63.i, %._crit_edge.us.i23 ]
   %.050.us.i = phi i64 [ 0, %.preheader.us.preheader.i20 ], [ %.us-phi.us.i24, %._crit_edge.us.i23 ]
-  %79 = sub nsw i64 %77, %indvars.iv62.i
-  %80 = trunc nsw i64 %79 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv62.i to i32
+  %80 = sub i32 %6, %79
   %81 = tail call i32 @llvm.smin.i32(i32 %6, i32 %80)
   %82 = mul nsw i64 %indvars.iv62.i, %75
   %invariant.gep.us.i22 = getelementptr i8, ptr %2, i64 %82
   %83 = mul nsw i64 %indvars.iv62.i, %74
   %invariant.gep47.us.i = getelementptr i8, ptr %4, i64 %83
-  %84 = icmp sgt i64 %79, 0
+  %84 = icmp sgt i32 %80, 0
   %85 = tail call i32 @llvm.smin.i32(i32 %81, i32 32)
   %wide.trip.count28.i.us.i = zext nneg i32 %85 to i64
   br i1 %84, label %.lr.ph.split.us57.preheader.i, label %._crit_edge.us.i23

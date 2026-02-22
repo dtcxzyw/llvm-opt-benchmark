@@ -15326,8 +15326,8 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.172, align 8
-  %.fr137 = freeze i64 %3
-  store i64 %.fr137, ptr %7, align 8
+  %.fr138 = freeze i64 %3
+  store i64 %.fr138, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i32, ptr %1, align 4, !tbaa !291
   store i32 %24, ptr %8, align 4, !tbaa !28
@@ -15346,9 +15346,9 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %35 = lshr i64 %.fr137, 32
+  %35 = lshr i64 %.fr138, 32
   %36 = trunc nuw i64 %35 to i32
-  %37 = lshr i64 %.fr137, 40
+  %37 = lshr i64 %.fr138, 40
   %38 = trunc i64 %37 to i8
   store i8 %38, ptr %11, align 1, !tbaa !293
   %.not = icmp ne i8 %38, 0
@@ -15358,7 +15358,7 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %42 = and i32 %36, 131072
   %.not65 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr137 to i32
+  %43 = trunc i64 %.fr138 to i32
   br i1 %.not65, label %60, label %44
 
 44:                                               ; preds = %5
@@ -15875,11 +15875,11 @@ _ZN3fmt3v106detail14digit_groupingIcED2Ev.exit103: ; preds = %_ZNSt7__cxx1112bas
 
 265:                                              ; preds = %258
   %266 = and i32 %36, 524288
-  %.not114 = icmp eq i32 %266, 0
+  %.not115 = icmp eq i32 %266, 0
   %.lobit = lshr exact i32 %266, 19
   %267 = trunc nuw nsw i32 %.lobit to i8
   store i8 %267, ptr %22, align 1, !tbaa !198
-  br i1 %.not114, label %269, label %268
+  br i1 %.not115, label %269, label %268
 
 268:                                              ; preds = %.thread112, %265
   br label %269
@@ -18195,8 +18195,8 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.179, align 8
-  %.fr137 = freeze i64 %3
-  store i64 %.fr137, ptr %7, align 8
+  %.fr138 = freeze i64 %3
+  store i64 %.fr138, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i64, ptr %1, align 8, !tbaa !347
   store i64 %24, ptr %8, align 8, !tbaa !48
@@ -18217,9 +18217,9 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %36 = lshr i64 %.fr137, 32
+  %36 = lshr i64 %.fr138, 32
   %37 = trunc nuw i64 %36 to i32
-  %38 = lshr i64 %.fr137, 40
+  %38 = lshr i64 %.fr138, 40
   %39 = trunc i64 %38 to i8
   store i8 %39, ptr %11, align 1, !tbaa !293
   %.not = icmp ne i8 %39, 0
@@ -18229,7 +18229,7 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = and i32 %37, 131072
   %.not65 = icmp eq i32 %43, 0
-  %44 = trunc i64 %.fr137 to i32
+  %44 = trunc i64 %.fr138 to i32
   br i1 %.not65, label %61, label %45
 
 45:                                               ; preds = %5
@@ -18746,11 +18746,11 @@ _ZN3fmt3v106detail14digit_groupingIcED2Ev.exit103: ; preds = %_ZNSt7__cxx1112bas
 
 266:                                              ; preds = %259
   %267 = and i32 %37, 524288
-  %.not114 = icmp eq i32 %267, 0
+  %.not115 = icmp eq i32 %267, 0
   %.lobit = lshr exact i32 %267, 19
   %268 = trunc nuw nsw i32 %.lobit to i8
   store i8 %268, ptr %22, align 1, !tbaa !198
-  br i1 %.not114, label %270, label %269
+  br i1 %.not115, label %270, label %269
 
 269:                                              ; preds = %.thread112, %266
   br label %270
@@ -24074,8 +24074,8 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_14
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.198, align 8
-  %.fr137 = freeze i64 %3
-  store i64 %.fr137, ptr %7, align 8
+  %.fr138 = freeze i64 %3
+  store i64 %.fr138, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load ptr, ptr %1, align 8, !tbaa !390
   store ptr %24, ptr %8, align 8, !tbaa !147
@@ -24086,9 +24086,9 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = lshr i64 %.fr137, 32
+  %27 = lshr i64 %.fr138, 32
   %28 = trunc nuw i64 %27 to i32
-  %29 = lshr i64 %.fr137, 40
+  %29 = lshr i64 %.fr138, 40
   %30 = trunc i64 %29 to i8
   store i8 %30, ptr %11, align 1, !tbaa !293
   %.not = icmp ne i8 %30, 0
@@ -24098,7 +24098,7 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_14
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = and i32 %28, 131072
   %.not65 = icmp eq i32 %34, 0
-  %35 = trunc i64 %.fr137 to i32
+  %35 = trunc i64 %.fr138 to i32
   br i1 %.not65, label %52, label %36
 
 36:                                               ; preds = %5
@@ -24615,11 +24615,11 @@ _ZN3fmt3v106detail14digit_groupingIcED2Ev.exit103: ; preds = %_ZNSt7__cxx1112bas
 
 257:                                              ; preds = %250
   %258 = and i32 %28, 524288
-  %.not114 = icmp eq i32 %258, 0
+  %.not115 = icmp eq i32 %258, 0
   %.lobit = lshr exact i32 %258, 19
   %259 = trunc nuw nsw i32 %.lobit to i8
   store i8 %259, ptr %22, align 1, !tbaa !198
-  br i1 %.not114, label %261, label %260
+  br i1 %.not115, label %261, label %260
 
 260:                                              ; preds = %.thread112, %257
   br label %261
@@ -37177,8 +37177,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45"
-  %.048 = phi i64 [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45" ], [ %1, %4 ]
-  %8 = shl i64 %.048, 1
+  %.047 = phi i64 [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45" ], [ %1, %4 ]
+  %8 = shl i64 %.047, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"class.Eigen::Matrix.250", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -37209,10 +37209,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit": ; preds = %26
   %28 = load i32, ptr %10, align 4, !tbaa !28
   %29 = load i32, ptr %12, align 4, !tbaa !28
-  %.fr = freeze i32 %28
-  %.fr47 = freeze i32 %29
-  %30 = icmp slt i32 %.fr, %.fr47
-  br i1 %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45"
+  %30 = icmp slt i32 %28, %29
+  %cond.fr = freeze i1 %30
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread": ; preds = %.lr.ph, %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45"
@@ -37220,7 +37219,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread45": ; preds = %26, %18, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread"
   %31 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EclINS_17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit" ], [ %9, %18 ], [ %9, %26 ]
   %32 = getelementptr inbounds %"class.Eigen::Matrix.250", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"class.Eigen::Matrix.250", ptr %0, i64 %.048
+  %33 = getelementptr inbounds %"class.Eigen::Matrix.250", ptr %0, i64 %.047
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull align 16 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !567
   %34 = icmp slt i64 %31, %6
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !745

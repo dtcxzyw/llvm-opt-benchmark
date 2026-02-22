@@ -1355,17 +1355,17 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
 
 20:                                               ; preds = %14
   %21 = load volatile i64, ptr %16, align 8
-  %.fr = freeze i64 %21
-  %22 = and i64 %.fr, 4
+  %.fr6 = freeze i64 %21
+  %22 = and i64 %.fr6, 4
   %23 = icmp ne i64 %22, 0
   %24 = or i1 %5, %23
   %. = select i1 %23, i64 -512, i64 0
-  br i1 %24, label %.thread5, label %._crit_edge14
+  br i1 %24, label %.thread5, label %._crit_edge15
 
 25:                                               ; preds = %13
-  br i1 %5, label %.thread5, label %._crit_edge14
+  br i1 %5, label %.thread5, label %._crit_edge15
 
-._crit_edge14:                                    ; preds = %25, %20
+._crit_edge15:                                    ; preds = %25, %20
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @dma_fence_default_wait_cb, ptr %26, align 8
   %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !55
@@ -1388,7 +1388,7 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   %39 = and i1 %37, %38
   br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %._crit_edge14
+.lr.ph:                                           ; preds = %._crit_edge15
   br i1 %1, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -1444,9 +1444,9 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   %71 = select i1 %66, i64 %54, i64 -512
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %._crit_edge.loopexit, %.thread, %._crit_edge14
-  %.lcssa6 = phi i64 [ %6, %._crit_edge14 ], [ %71, %._crit_edge.loopexit ], [ %.ph, %.thread ], [ %43, %.lr.ph.split.us ]
-  %.lcssa = phi i64 [ %8, %._crit_edge14 ], [ %56, %._crit_edge.loopexit ], [ %56, %.thread ], [ %45, %.lr.ph.split.us ]
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %._crit_edge.loopexit, %.thread, %._crit_edge15
+  %.lcssa7 = phi i64 [ %6, %._crit_edge15 ], [ %71, %._crit_edge.loopexit ], [ %.ph, %.thread ], [ %43, %.lr.ph.split.us ]
+  %.lcssa = phi i64 [ %8, %._crit_edge15 ], [ %56, %._crit_edge.loopexit ], [ %56, %.thread ], [ %45, %.lr.ph.split.us ]
   %72 = load volatile ptr, ptr %4, align 8
   %73 = icmp eq ptr %72, %4
   br i1 %73, label %77, label %74
@@ -1465,7 +1465,7 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   br label %.thread5
 
 .thread5:                                         ; preds = %20, %14, %77, %25, %3
-  %78 = phi i64 [ %.lcssa6, %77 ], [ %6, %3 ], [ -512, %14 ], [ 0, %25 ], [ %., %20 ]
+  %78 = phi i64 [ %.lcssa7, %77 ], [ %6, %3 ], [ -512, %14 ], [ 0, %25 ], [ %., %20 ]
   %79 = phi i64 [ %.lcssa, %77 ], [ %8, %3 ], [ %8, %14 ], [ %8, %25 ], [ %8, %20 ]
   %80 = load ptr, ptr %0, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %80, i64 noundef %79) #14

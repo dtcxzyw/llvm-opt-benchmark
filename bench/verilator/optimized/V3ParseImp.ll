@@ -5218,25 +5218,25 @@ define dso_local noundef double @_ZN10V3ParseImp15lexParseTimenumEPKc(ptr nounde
   %.021 = phi ptr [ %6, %1 ], [ %.1, %12 ]
   %.020 = phi ptr [ %0, %1 ], [ %13, %12 ]
   %8 = load i8, ptr %.020, align 1, !tbaa !50
-  %.fr = freeze i8 %8
-  %9 = sext i8 %.fr to i32
+  %.fr32 = freeze i8 %8
+  %9 = sext i8 %.fr32 to i32
   %isdigittmp = add nsw i32 %9, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   br i1 %isdigit, label %.critedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %7
-  switch i8 %.fr, label %14 [
+  switch i8 %.fr32, label %14 [
     i8 95, label %12
     i8 46, label %10
   ]
 
 .critedge:                                        ; preds = %7
-  %.not = icmp eq i8 %.fr, 95
+  %.not = icmp eq i8 %.fr32, 95
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %switch.early.test, %.critedge
   %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  store i8 %.fr, ptr %.021, align 1, !tbaa !50
+  store i8 %.fr32, ptr %.021, align 1, !tbaa !50
   br label %12
 
 12:                                               ; preds = %switch.early.test, %.critedge, %10

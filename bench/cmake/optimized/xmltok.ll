@@ -17748,44 +17748,43 @@ isSpace.exit122:                                  ; preds = %select.unfold, %sel
   %110 = load ptr, ptr %32, align 8, !tbaa !53
   %111 = call i32 %110(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %109) #13
   %112 = load ptr, ptr %10, align 8, !tbaa !4
-  %.fr147 = freeze ptr %112
-  %113 = icmp eq ptr %.fr147, %9
+  %113 = icmp eq ptr %112, %9
   %114 = load i8, ptr %9, align 1
-  %.fr137148 = freeze i8 %114
-  %115 = sext i8 %.fr137148 to i32
-  %.0.i124149 = select i1 %113, i32 -1, i32 %115
+  %115 = sext i8 %114 to i32
+  %.0.i124146 = select i1 %113, i32 -1, i32 %115
+  %.0.i124.fr147 = freeze i32 %.0.i124146
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %116 = icmp eq i32 %.0.i124149, %.098
+  %116 = icmp eq i32 %.0.i124.fr147, %.098
   br i1 %116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %105, %121
-  %.0.i124151 = phi i32 [ %.0.i124, %121 ], [ %.0.i124149, %105 ]
-  %.5150 = phi ptr [ %124, %121 ], [ %108, %105 ]
-  %117 = and i32 %.0.i124151, -33
-  %118 = add nsw i32 %117, -91
+  %.0.i124.fr149 = phi i32 [ %.0.i124.fr, %121 ], [ %.0.i124.fr147, %105 ]
+  %.5148 = phi ptr [ %124, %121 ], [ %108, %105 ]
+  %117 = and i32 %.0.i124.fr149, -33
+  %118 = add i32 %117, -91
   %or.cond = icmp ult i32 %118, -26
-  %119 = add nsw i32 %.0.i124151, -58
+  %119 = add i32 %.0.i124.fr149, -58
   %or.cond7 = icmp ult i32 %119, -10
-  %or.cond138 = select i1 %or.cond, i1 %or.cond7, i1 false
-  br i1 %or.cond138, label %switch.early.test, label %121
+  %or.cond137 = and i1 %or.cond7, %or.cond
+  br i1 %or.cond137, label %switch.early.test, label %121
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i32 %.0.i124151, label %120 [
+  switch i32 %.0.i124.fr149, label %120 [
     i32 95, label %121
     i32 46, label %121
     i32 45, label %121
   ]
 
 120:                                              ; preds = %switch.early.test
-  store ptr %.5150, ptr %6, align 8, !tbaa !4
+  store ptr %.5148, ptr %6, align 8, !tbaa !4
   br label %135
 
 121:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   %122 = load i32, ptr %40, align 8, !tbaa !51
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i8, ptr %.5150, i64 %123
+  %124 = getelementptr inbounds i8, ptr %.5148, i64 %123
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %124, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -17794,16 +17793,15 @@ switch.early.test:                                ; preds = %.lr.ph
   %125 = load ptr, ptr %32, align 8, !tbaa !53
   %126 = call i32 %125(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %109) #13
   %127 = load ptr, ptr %10, align 8, !tbaa !4
-  %.fr = freeze ptr %127
-  %128 = icmp eq ptr %.fr, %9
+  %128 = icmp eq ptr %127, %9
   %129 = load i8, ptr %9, align 1
-  %.fr137 = freeze i8 %129
-  %130 = sext i8 %.fr137 to i32
+  %130 = sext i8 %129 to i32
   %.0.i124 = select i1 %128, i32 -1, i32 %130
+  %.0.i124.fr = freeze i32 %.0.i124
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %131 = icmp eq i32 %.0.i124, %.098
+  %131 = icmp eq i32 %.0.i124.fr, %.098
   br i1 %131, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %121, %105

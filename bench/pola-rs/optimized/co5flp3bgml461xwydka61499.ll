@@ -32480,9 +32480,9 @@ define internal fastcc void @_ZN17polars_mem_engine9executors5stack9StackExec12e
           to label %244 unwind label %242
 
 87:                                               ; preds = %75
-  %.fr246 = freeze { i64, i64 } %76
-  %88 = extractvalue { i64, i64 } %.fr246, 0
-  %89 = extractvalue { i64, i64 } %.fr246, 1
+  %.fr = freeze { i64, i64 } %76
+  %88 = extractvalue { i64, i64 } %.fr, 0
+  %89 = extractvalue { i64, i64 } %.fr, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 %88, ptr %26, align 8
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 16

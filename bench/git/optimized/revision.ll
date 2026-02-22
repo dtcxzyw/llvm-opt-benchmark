@@ -6888,16 +6888,16 @@ define dso_local range(i32 -1, 1) i32 @prepare_revision_walk(ptr noundef %0) loc
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !298
   %31 = load i32, ptr %24, align 4
-  %.fr.i = freeze i32 %31
-  %32 = lshr i32 %.fr.i, 4
+  %.fr131.i = freeze i32 %31
+  %32 = lshr i32 %.fr131.i, 4
   %33 = zext nneg i32 %32 to i64
   %34 = and i64 %33, 2
   %.not86.i = icmp eq i64 %34, 0
-  %35 = and i32 %.fr.i, -16
+  %35 = and i32 %.fr131.i, -16
   br i1 %.not86.i, label %.split.i, label %.split.us.i
 
 .split.us.i:                                      ; preds = %21, %43
-  %36 = phi i32 [ %45, %43 ], [ %.fr.i, %21 ]
+  %36 = phi i32 [ %45, %43 ], [ %.fr131.i, %21 ]
   %.071.us.i = phi i32 [ 0, %43 ], [ %30, %21 ]
   %.068.us.i = phi ptr [ null, %43 ], [ %28, %21 ]
   %.067.us.i = phi ptr [ %42, %43 ], [ %24, %21 ]
@@ -6924,7 +6924,7 @@ define dso_local range(i32 -1, 1) i32 @prepare_revision_walk(ptr noundef %0) loc
   br label %.split.us.i, !llvm.loop !299
 
 .split.i:                                         ; preds = %21, %115
-  %46 = phi i32 [ %117, %115 ], [ %.fr.i, %21 ]
+  %46 = phi i32 [ %117, %115 ], [ %.fr131.i, %21 ]
   %.071.i = phi i32 [ 0, %115 ], [ %30, %21 ]
   %.068.i = phi ptr [ null, %115 ], [ %28, %21 ]
   %.067.i = phi ptr [ %91, %115 ], [ %24, %21 ]
@@ -7045,14 +7045,14 @@ add_pending_object_with_path.exit:                ; preds = %81, %87
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = call i32 @is_promisor_object(ptr noundef %98, ptr noundef nonnull %101) #27
   %.not91.i = icmp eq i32 %102, 0
-  br i1 %.not91.i, label %._crit_edge160.i, label %handle_commit.exit.thread
+  br i1 %.not91.i, label %._crit_edge162.i, label %handle_commit.exit.thread
 
-._crit_edge160.i:                                 ; preds = %97
-  %.pre161.i = load i64, ptr %14, align 8
+._crit_edge162.i:                                 ; preds = %97
+  %.pre163.i = load i64, ptr %14, align 8
   br label %103
 
-103:                                              ; preds = %._crit_edge160.i, %95
-  %104 = phi i64 [ %.pre161.i, %._crit_edge160.i ], [ %92, %95 ]
+103:                                              ; preds = %._crit_edge162.i, %95
+  %104 = phi i64 [ %.pre163.i, %._crit_edge162.i ], [ %92, %95 ]
   %105 = and i64 %104, 4398046511104
   %106 = icmp ne i64 %105, 0
   %107 = icmp ne ptr %.us-phi127.i, null

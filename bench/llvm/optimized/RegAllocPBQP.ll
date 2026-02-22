@@ -3509,14 +3509,14 @@ _ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4p
   br i1 %.not.i.i.i95.i, label %_ZNSt6vectorIN4llvm10MCRegisterESaIS1_EED2Ev.exit.i, label %_ZNSt6vectorIN4llvm10MCRegisterESaIS1_EED2Ev.exit.i.sink.split
 
 _ZNSt6vectorIN4llvm10MCRegisterESaIS1_EED2Ev.exit.i.sink.split: ; preds = %656, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i
-  %.sink666 = phi ptr [ %655, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.14.0.lcssa289.i, %656 ]
-  %.sink665 = phi ptr [ %652, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.9179.0.lcssa290.i, %656 ]
+  %.sink663 = phi ptr [ %655, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.14.0.lcssa289.i, %656 ]
+  %.sink662 = phi ptr [ %652, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.9179.0.lcssa290.i, %656 ]
   %.sink = phi ptr [ %652, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.0175.0.lcssa291.i, %656 ]
   %.sroa.16.1.ph = phi ptr [ %.sroa.16.0, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.16.4, %656 ]
   %.sroa.9.0.ph = phi ptr [ %340, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.9.2, %656 ]
   %.sroa.0334.1.ph = phi ptr [ %.sroa.0334.0, %_ZNSt3mapIN4llvm8RegisterESt6vectorINS0_10MCRegisterESaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEEixEOS1_.exit.i ], [ %.sroa.0334.4, %656 ]
-  %657 = ptrtoint ptr %.sink666 to i64
-  %658 = ptrtoint ptr %.sink665 to i64
+  %657 = ptrtoint ptr %.sink663 to i64
+  %658 = ptrtoint ptr %.sink662 to i64
   %659 = sub i64 %657, %658
   call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef %659) #28
   br label %_ZNSt6vectorIN4llvm10MCRegisterESaIS1_EED2Ev.exit.i
@@ -4127,14 +4127,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6de
   %905 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %903, i64 %904
   %.sroa.07.0.copyload.i = load i32, ptr %905, align 4, !tbaa !130
   %.val.i = load ptr, ptr %309, align 8, !tbaa !182
-  %.fr15.i.i = freeze i32 %.sroa.07.0.copyload.i
+  %.fr.i.i = freeze i32 %.sroa.07.0.copyload.i
   %906 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo18getCalleeSavedRegsEv(ptr noundef nonnull align 8 dereferenceable(504) %.val.i) #26
   %907 = load i16, ptr %906, align 2, !tbaa !465
   %.not5.not.i.i = icmp eq i16 %907, 0
   br i1 %.not5.not.i.i, label %_ZL22isACalleeSavedRegisterN4llvm10MCRegisterERKNS_18TargetRegisterInfoERKNS_15MachineFunctionE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph233.i
-  %908 = add i32 %.fr15.i.i, -1
+  %908 = add i32 %.fr.i.i, -1
   %909 = icmp ult i32 %908, 1073741823
   br i1 %909, label %.lr.ph.split.us.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.i.i
 
@@ -4142,11 +4142,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6de
   %910 = phi i16 [ %917, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.us.i.i ], [ %907, %.lr.ph.i.i ]
   %.0106.us.i.i = phi i32 [ %914, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.us.i.i ], [ 0, %.lr.ph.i.i ]
   %911 = zext i16 %910 to i32
-  %912 = icmp eq i32 %.fr15.i.i, %911
+  %912 = icmp eq i32 %.fr.i.i, %911
   br i1 %912, label %.loopexit.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.i.i: ; preds = %.lr.ph.split.us.i.i
-  %913 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %316, i32 %.fr15.i.i, i32 %911) #26
+  %913 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %316, i32 %.fr.i.i, i32 %911) #26
   br i1 %913, label %.loopexit.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.us.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.us.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.i.i
@@ -4159,7 +4159,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.us.i.i:
 
 918:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.i.i
   %919 = zext i16 %924 to i32
-  %920 = icmp eq i32 %.fr15.i.i, %919
+  %920 = icmp eq i32 %.fr.i.i, %919
   br i1 %920, label %.loopexit.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.i.i, !llvm.loop !527
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread3.i.i: ; preds = %.lr.ph.i.i, %918
@@ -4271,7 +4271,6 @@ _ZN4llvm4PBQP8RegAlloc5solveERNS1_11PBQPRAGraphE.exit: ; preds = %945, %946
   %965 = call noundef i32 @_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
   store i32 %965, ptr %4, align 8, !tbaa !99
   %.fca.0.load.i.i = load i64, ptr %4, align 8
-  %.fca.0.load.i.i.fr = freeze i64 %.fca.0.load.i.i
   %.fca.1.load.i.i = load ptr, ptr %298, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4290,7 +4289,7 @@ _ZN4llvm4PBQP8RegAlloc5solveERNS1_11PBQPRAGraphE.exit: ; preds = %945, %946
   %.fca.0.load.i28.i = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fca.0.load.i28.i to i32
-  %974 = trunc i64 %.fca.0.load.i.i.fr to i32
+  %974 = trunc i64 %.fca.0.load.i.i to i32
   %.not3536.i = icmp eq i32 %974, %.sroa.0.0.extract.trunc.i
   br i1 %.not3536.i, label %_ZNSt10unique_ptrIN4llvm20PBQPRAConstraintListESt14default_deleteIS1_EED2Ev.exit.critedge, label %.lr.ph.i119
 
@@ -4307,7 +4306,7 @@ _ZN4llvm4PBQP8RegAlloc5solveERNS1_11PBQPRAGraphE.exit: ; preds = %945, %946
   br i1 %.1.i, label %306, label %_ZNSt10unique_ptrIN4llvm20PBQPRAConstraintListESt14default_deleteIS1_EED2Ev.exit, !llvm.loop !535
 
 977:                                              ; preds = %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, %.lr.ph.i119
-  %.sroa.0346.0 = phi i64 [ %.fca.0.load.i.i.fr, %.lr.ph.i119 ], [ %.sroa.0346.0.insert.insert350, %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit ]
+  %.sroa.0346.0 = phi i64 [ %.fca.0.load.i.i, %.lr.ph.i119 ], [ %.sroa.0346.0.insert.insert350, %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit ]
   %978 = phi i32 [ %974, %.lr.ph.i119 ], [ %storemerge.lcssa.i, %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit ]
   %.037.i = phi i1 [ false, %.lr.ph.i119 ], [ %.1.i, %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit ]
   %979 = zext i32 %978 to i64
@@ -4396,16 +4395,14 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit.i: ; preds = %1006, %1001
 
 .lr.ph.i291:                                      ; preds = %1007
   %1010 = load ptr, ptr %.fca.1.load.i.i, align 8, !tbaa !539
-  %.fr437 = freeze ptr %1010
   %1011 = load ptr, ptr %975, align 8, !tbaa !539
-  %.fr438 = freeze ptr %1011
-  %1012 = ptrtoint ptr %.fr438 to i64
-  %1013 = ptrtoint ptr %.fr437 to i64
+  %1012 = ptrtoint ptr %1011 to i64
+  %1013 = ptrtoint ptr %1010 to i64
   %1014 = sub i64 %1012, %1013
   %1015 = ashr i64 %1014, 4
   %1016 = icmp sgt i64 %1015, 0
   %1017 = and i64 %1014, -16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %.fr437, i64 %1017
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %1010, i64 %1017
   br i1 %1016, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i291
@@ -4421,7 +4418,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit.i: ; preds = %1006, %1001
 
 1020:                                             ; preds = %1035, %.lr.ph.i.i.i.i.us.i
   %.052.i.i.i.i.us.i = phi i64 [ %1015, %.lr.ph.i.i.i.i.us.i ], [ %1037, %1035 ]
-  %.sroa.032.051.i.i.i.i.us.i = phi ptr [ %.fr437, %.lr.ph.i.i.i.i.us.i ], [ %1036, %1035 ]
+  %.sroa.032.051.i.i.i.i.us.i = phi ptr [ %1010, %.lr.ph.i.i.i.i.us.i ], [ %1036, %1035 ]
   %1021 = load i32, ptr %.sroa.032.051.i.i.i.i.us.i, align 4, !tbaa !130
   %1022 = icmp eq i32 %1021, %storemerge15.us.i
   br i1 %1022, label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i, label %1023
@@ -4436,13 +4433,13 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit.i: ; preds = %1006, %1001
   %1028 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.us.i, i64 8
   %1029 = load i32, ptr %1028, align 4, !tbaa !130
   %1030 = icmp eq i32 %1029, %storemerge15.us.i
-  br i1 %1030, label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit654, label %1031
+  br i1 %1030, label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit651, label %1031
 
 1031:                                             ; preds = %1027
   %1032 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.us.i, i64 12
   %1033 = load i32, ptr %1032, align 4, !tbaa !130
   %1034 = icmp eq i32 %1033, %storemerge15.us.i
-  br i1 %1034, label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit656, label %1035
+  br i1 %1034, label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit653, label %1035
 
 1035:                                             ; preds = %1031
   %1036 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.us.i, i64 16
@@ -4476,34 +4473,34 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit.i: ; preds = %1006, %1001
   %.sroa.032.2.i.i.i.i.us.i = phi ptr [ %1045, %1044 ], [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.us.i ]
   %1046 = load i32, ptr %.sroa.032.2.i.i.i.i.us.i, align 4, !tbaa !130
   %1047 = icmp eq i32 %1046, %storemerge15.us.i
-  %spec.select.i.i.i.i.us.i = select i1 %1047, ptr %.sroa.032.2.i.i.i.i.us.i, ptr %.fr438
+  %spec.select.i.i.i.i.us.i = select i1 %1047, ptr %.sroa.032.2.i.i.i.i.us.i, ptr %1011
   br label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i
 
 _ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit: ; preds = %1023
   %1048 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.us.i, i64 4
   br label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i
 
-_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit654: ; preds = %1027
+_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit651: ; preds = %1027
   %1049 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.us.i, i64 8
   br label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i
 
-_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit656: ; preds = %1031
+_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit653: ; preds = %1031
   %1050 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.us.i, i64 12
   br label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i
 
-_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i: ; preds = %1020, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit654, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit656, %._crit_edge._crit_edge57.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.us.i, %1039
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us.i = phi ptr [ %.sroa.032.1.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.us.i ], [ %spec.select.i.i.i.i.us.i, %._crit_edge._crit_edge57.i.i.i.i.us.i ], [ %scevgep.i.i.i.i.i, %1039 ], [ %1050, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit656 ], [ %1049, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit654 ], [ %1048, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.us.i, %1020 ]
-  %.not.us.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us.i, %.fr438
+_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i: ; preds = %1020, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit651, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit653, %._crit_edge._crit_edge57.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.us.i, %1039
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us.i = phi ptr [ %.sroa.032.1.i.i.i.i.us.i, %._crit_edge._crit_edge.i.i.i.i.us.i ], [ %spec.select.i.i.i.i.us.i, %._crit_edge._crit_edge57.i.i.i.i.us.i ], [ %scevgep.i.i.i.i.i, %1039 ], [ %1050, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit653 ], [ %1049, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit651 ], [ %1048, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.us.i, %1020 ]
+  %.not.us.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us.i, %1011
   br i1 %.not.us.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, label %1051
 
 1051:                                             ; preds = %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i
-  %1052 = add i32 %storemerge15.us.i, 1
+  %1052 = add nuw i32 %storemerge15.us.i, 1
   %exitcond77.not.i = icmp eq i32 %1052, %.sroa.0346.4.extract.trunc
   br i1 %exitcond77.not.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, label %.lr.ph.i.i.i.i.us.i, !llvm.loop !541
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i291
   %1053 = ashr exact i64 %1014, 2
-  %1054 = getelementptr inbounds nuw i8, ptr %.fr437, i64 4
+  %1054 = getelementptr inbounds nuw i8, ptr %1010, i64 4
   switch i64 %1053, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit [
     i64 3, label %.lr.ph.split.split.us.i
     i64 2, label %.lr.ph.split.split.us34.i
@@ -4511,8 +4508,8 @@ _ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i: ; preds = %102
   ]
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i
-  %1055 = load i32, ptr %.fr437, align 4, !tbaa !130
-  %1056 = getelementptr inbounds nuw i8, ptr %.fr437, i64 8
+  %1055 = load i32, ptr %1010, align 4, !tbaa !130
+  %1056 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   br label %._crit_edge.i.i.i.i.us20.i
 
 ._crit_edge.i.i.i.i.us20.i:                       ; preds = %1062, %.lr.ph.split.split.us.i
@@ -4528,21 +4525,21 @@ _ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i: ; preds = %102
 ._crit_edge._crit_edge57.i.i.i.i.us24.i:          ; preds = %._crit_edge._crit_edge.i.i.i.i.us22.i
   %1060 = load i32, ptr %1056, align 4, !tbaa !130
   %1061 = icmp eq i32 %1060, %storemerge15.us21.i
-  %spec.select.i.i.i.i.us26.i = select i1 %1061, ptr %1056, ptr %.fr438
+  %spec.select.i.i.i.i.us26.i = select i1 %1061, ptr %1056, ptr %1011
   br label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us27.i
 
 _ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us27.i: ; preds = %._crit_edge._crit_edge57.i.i.i.i.us24.i, %._crit_edge._crit_edge.i.i.i.i.us22.i, %._crit_edge.i.i.i.i.us20.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us28.i = phi ptr [ %1054, %._crit_edge._crit_edge.i.i.i.i.us22.i ], [ %spec.select.i.i.i.i.us26.i, %._crit_edge._crit_edge57.i.i.i.i.us24.i ], [ %.fr437, %._crit_edge.i.i.i.i.us20.i ]
-  %.not.us29.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us28.i, %.fr438
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us28.i = phi ptr [ %1054, %._crit_edge._crit_edge.i.i.i.i.us22.i ], [ %spec.select.i.i.i.i.us26.i, %._crit_edge._crit_edge57.i.i.i.i.us24.i ], [ %1010, %._crit_edge.i.i.i.i.us20.i ]
+  %.not.us29.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us28.i, %1011
   br i1 %.not.us29.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, label %1062
 
 1062:                                             ; preds = %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us27.i
-  %1063 = add i32 %storemerge15.us21.i, 1
+  %1063 = add nuw i32 %storemerge15.us21.i, 1
   %exitcond76.not.i = icmp eq i32 %1063, %.sroa.0346.4.extract.trunc
   br i1 %exitcond76.not.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, label %._crit_edge.i.i.i.i.us20.i, !llvm.loop !541
 
 .lr.ph.split.split.us34.i:                        ; preds = %.lr.ph.split.i
-  %1064 = load i32, ptr %.fr437, align 4, !tbaa !130
+  %1064 = load i32, ptr %1010, align 4, !tbaa !130
   br label %._crit_edge.i.i.i.i.us35.i
 
 ._crit_edge.i.i.i.i.us35.i:                       ; preds = %1068, %.lr.ph.split.split.us34.i
@@ -4553,37 +4550,38 @@ _ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us27.i: ; preds = %.
 ._crit_edge._crit_edge57.i.i.i.i.us39.i:          ; preds = %._crit_edge.i.i.i.i.us35.i
   %1066 = load i32, ptr %1054, align 4, !tbaa !130
   %1067 = icmp eq i32 %1066, %storemerge15.us36.i
-  %spec.select.i.i.i.i.us41.i = select i1 %1067, ptr %1054, ptr %.fr438
+  %spec.select.i.i.i.i.us41.i = select i1 %1067, ptr %1054, ptr %1011
   br label %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us42.i
 
 _ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us42.i: ; preds = %._crit_edge._crit_edge57.i.i.i.i.us39.i, %._crit_edge.i.i.i.i.us35.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us43.i = phi ptr [ %.fr437, %._crit_edge.i.i.i.i.us35.i ], [ %spec.select.i.i.i.i.us41.i, %._crit_edge._crit_edge57.i.i.i.i.us39.i ]
-  %.not.us44.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us43.i, %.fr438
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.us43.i = phi ptr [ %1010, %._crit_edge.i.i.i.i.us35.i ], [ %spec.select.i.i.i.i.us41.i, %._crit_edge._crit_edge57.i.i.i.i.us39.i ]
+  %.not.us44.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.us43.i, %1011
   br i1 %.not.us44.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, label %1068
 
 1068:                                             ; preds = %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us42.i
-  %1069 = add i32 %storemerge15.us36.i, 1
+  %1069 = add nuw i32 %storemerge15.us36.i, 1
   %exitcond75.not.i = icmp eq i32 %1069, %.sroa.0346.4.extract.trunc
   br i1 %exitcond75.not.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit, label %._crit_edge.i.i.i.i.us35.i, !llvm.loop !541
 
 .lr.ph.split.split.us49.i:                        ; preds = %.lr.ph.split.i
-  %1070 = load i32, ptr %.fr437, align 4, !tbaa !130
-  %.fr = freeze i32 %1070
-  %1071 = add i32 %.fr, 1
-  %.not.us5964.i = icmp eq ptr %.fr437, %.fr438
+  %1070 = load i32, ptr %1010, align 4, !tbaa !130
+  %1071 = add nuw i32 %1070, 1
+  %.not.us5964.i = icmp eq ptr %1010, %1011
+  %.not.us5964.i.fr = freeze i1 %.not.us5964.i
   %exitcond.not.i = icmp eq i32 %1071, %.sroa.0346.4.extract.trunc
-  %1072 = or i1 %exitcond.not.i, %.not.us5964.i
+  %exitcond.not.i.fr = freeze i1 %exitcond.not.i
+  %1072 = or i1 %exitcond.not.i.fr, %.not.us5964.i.fr
   br i1 %1072, label %.lr.ph.split.split.us49.i.split.us, label %._crit_edge.i.i.i.i.us50.i
 
 .lr.ph.split.split.us49.i.split.us:               ; preds = %.lr.ph.split.split.us49.i
-  %1073 = icmp ne i32 %.fr, %1008
-  %.not.us59.i.us = or i1 %.not.us5964.i, %1073
+  %1073 = icmp ne i32 %1070, %1008
+  %.not.us59.i.us = or i1 %.not.us5964.i.fr, %1073
   %1074 = select i1 %.not.us59.i.us, i32 %1008, i32 %.sroa.0346.4.extract.trunc
   br label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit
 
 ._crit_edge.i.i.i.i.us50.i:                       ; preds = %.lr.ph.split.split.us49.i, %._crit_edge.i.i.i.i.us50.i
   %storemerge15.us51.i = phi i32 [ %1071, %._crit_edge.i.i.i.i.us50.i ], [ %1008, %.lr.ph.split.split.us49.i ]
-  %.not = icmp eq i32 %.fr, %storemerge15.us51.i
+  %.not = icmp eq i32 %1070, %storemerge15.us51.i
   br i1 %.not, label %._crit_edge.i.i.i.i.us50.i, label %_ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit
 
 _ZNK4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE7NodeItr13findNextInUseEj.exit: ; preds = %._crit_edge.i.i.i.i.us50.i, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us42.i, %1068, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us27.i, %1062, %._crit_edge.loopexit.i.i.i.i.us.i, %_ZN4llvm12is_containedIRKSt6vectorIjSaIjEEjEEbOT_RKT0_.exit.us.i, %1051, %.lr.ph.split.split.us49.i.split.us, %1007, %.lr.ph.split.i
@@ -8745,7 +8743,7 @@ _ZN4llvm4PBQP6MatrixC2Ejjf.exit.i:                ; preds = %_ZN4llvm12DenseMapB
   br i1 %.not4117.i, label %.lr.ph23.split.._crit_edge_crit_edge.i, label %.lr.ph.i
 
 .lr.ph23.split.._crit_edge_crit_edge.i:           ; preds = %.lr.ph23.split.i
-  %.pre28.i = add i32 %.03921.i, 1
+  %.pre29.i = add i32 %.03921.i, 1
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23.split.i
@@ -8788,7 +8786,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i: 
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i, %._crit_edge.loopexit.i, %.lr.ph23.split.._crit_edge_crit_edge.i
-  %.pre-phi.i54 = phi i32 [ %.pre28.i, %.lr.ph23.split.._crit_edge_crit_edge.i ], [ %764, %._crit_edge.loopexit.i ], [ %764, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i ]
+  %.pre-phi.i54 = phi i32 [ %.pre29.i, %.lr.ph23.split.._crit_edge_crit_edge.i ], [ %764, %._crit_edge.loopexit.i ], [ %764, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i ]
   %776 = phi i32 [ %756, %.lr.ph23.split.._crit_edge_crit_edge.i ], [ %.pre.i56, %._crit_edge.loopexit.i ], [ %756, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i ]
   %777 = phi i32 [ %757, %.lr.ph23.split.._crit_edge_crit_edge.i ], [ %790, %._crit_edge.loopexit.i ], [ %757, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i ]
   %778 = phi i32 [ 0, %.lr.ph23.split.._crit_edge_crit_edge.i ], [ %790, %._crit_edge.loopexit.i ], [ %757, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread12.us.i ]
@@ -10944,13 +10942,12 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %15 = getelementptr inbounds nuw float, ptr %9, i64 %14
   %16 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %9, ptr noundef %15)
   %17 = load i64, ptr %1, align 8
-  %.fr51 = freeze i64 %17
-  %18 = trunc i64 %.fr51 to i32
-  %19 = lshr i64 %.fr51, 32
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i64 %17, 32
   %20 = trunc nuw i64 %19 to i32
   %21 = add i64 %16, 16
   %22 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 48)
-  %23 = xor i64 %.fr51, %22
+  %23 = xor i64 %17, %22
   %24 = xor i64 %23, -49064778989728563
   %25 = mul i64 %24, -7070675565921424023
   %26 = lshr i64 %25, 47
@@ -10966,10 +10963,11 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %36 = and i32 %35, %34
   %37 = load ptr, ptr %8, align 8
   %38 = mul i32 %20, %18
-  %39 = zext i32 %38 to i64
+  %.fr = freeze i32 %38
+  %39 = zext i32 %.fr to i64
   %.idx.i.i.i = shl nuw nsw i64 %39, 2
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i
-  %.not9.i.i.i.i.i.i.i = icmp eq i32 %38, 0
+  %.not9.i.i.i.i.i.i.i = icmp eq i32 %.fr, 0
   br i1 %.not9.i.i.i.i.i.i.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %7, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us
@@ -11041,7 +11039,7 @@ _ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEnt
   %68 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %68, %40
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit52, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !658
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !658
 
 _ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit: ; preds = %.split
   %.old = icmp eq ptr %55, null
@@ -11057,12 +11055,12 @@ _ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEnt
   %73 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.542", ptr %3, i64 %41
   br label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28
 
-_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit52: ; preds = %67
+_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50: ; preds = %67
   %74 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.542", ptr %3, i64 %53
   br label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28
 
-_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28: ; preds = %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit52, %2
-  %.0 = phi ptr [ null, %2 ], [ %74, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit52 ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us ], [ %73, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit ]
+_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28: ; preds = %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50, %2
+  %.0 = phi ptr [ null, %2 ], [ %74, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50 ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us ], [ %73, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit ]
   ret ptr %.0
 }
 

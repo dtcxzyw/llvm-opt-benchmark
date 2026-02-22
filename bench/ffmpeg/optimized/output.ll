@@ -8440,11 +8440,10 @@ define internal void @yuv2rgba64le_full_X_c(ptr noundef readonly captures(none) 
   %53 = load i32, ptr %52, align 4, !tbaa !49
   %54 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41
   %55 = load i16, ptr %54, align 2, !tbaa !39
-  %.fr56 = freeze i16 %55
-  %56 = sext i16 %.fr56 to i32
-  %.fr = freeze i32 %53
-  %57 = mul i32 %.fr, %56
-  %58 = add i32 %57, %.2.i27
+  %56 = sext i16 %55 to i32
+  %57 = mul i32 %53, %56
+  %.fr56 = freeze i32 %57
+  %58 = add i32 %.fr56, %.2.i27
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge.loopexit, label %.lr.ph28, !llvm.loop !89
@@ -9362,11 +9361,10 @@ define internal void @yuv2rgba64be_full_X_c(ptr noundef readonly captures(none) 
   %53 = load i32, ptr %52, align 4, !tbaa !49
   %54 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41
   %55 = load i16, ptr %54, align 2, !tbaa !39
-  %.fr56 = freeze i16 %55
-  %56 = sext i16 %.fr56 to i32
-  %.fr = freeze i32 %53
-  %57 = mul i32 %.fr, %56
-  %58 = add i32 %57, %.2.i27
+  %56 = sext i16 %55 to i32
+  %57 = mul i32 %53, %56
+  %.fr56 = freeze i32 %57
+  %58 = add i32 %.fr56, %.2.i27
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge.loopexit, label %.lr.ph28, !llvm.loop !89
@@ -10312,11 +10310,10 @@ define internal void @yuv2bgra64le_full_X_c(ptr noundef readonly captures(none) 
   %53 = load i32, ptr %52, align 4, !tbaa !49
   %54 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41
   %55 = load i16, ptr %54, align 2, !tbaa !39
-  %.fr56 = freeze i16 %55
-  %56 = sext i16 %.fr56 to i32
-  %.fr = freeze i32 %53
-  %57 = mul i32 %.fr, %56
-  %58 = add i32 %57, %.2.i27
+  %56 = sext i16 %55 to i32
+  %57 = mul i32 %53, %56
+  %.fr56 = freeze i32 %57
+  %58 = add i32 %.fr56, %.2.i27
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge.loopexit, label %.lr.ph28, !llvm.loop !89
@@ -11234,11 +11231,10 @@ define internal void @yuv2bgra64be_full_X_c(ptr noundef readonly captures(none) 
   %53 = load i32, ptr %52, align 4, !tbaa !49
   %54 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41
   %55 = load i16, ptr %54, align 2, !tbaa !39
-  %.fr56 = freeze i16 %55
-  %56 = sext i16 %.fr56 to i32
-  %.fr = freeze i32 %53
-  %57 = mul i32 %.fr, %56
-  %58 = add i32 %57, %.2.i27
+  %56 = sext i16 %55 to i32
+  %57 = mul i32 %53, %56
+  %.fr56 = freeze i32 %57
+  %58 = add i32 %.fr56, %.2.i27
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge.loopexit, label %.lr.ph28, !llvm.loop !89
@@ -21941,16 +21937,15 @@ define internal void @yuv2rgba64le_X_c(ptr noundef readonly captures(none) %0, p
   %63 = load i32, ptr %62, align 4, !tbaa !49
   %64 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv47
   %65 = load i16, ptr %64, align 2, !tbaa !39
-  %.fr66 = freeze i16 %65
-  %66 = sext i16 %.fr66 to i32
-  %.fr = freeze i32 %63
-  %67 = mul i32 %.fr, %66
-  %68 = add i32 %67, %.2.i30
+  %66 = sext i16 %65 to i32
+  %67 = mul i32 %63, %66
+  %.fr66 = freeze i32 %67
+  %68 = add i32 %.fr66, %.2.i30
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !49
-  %.fr67 = freeze i32 %70
-  %71 = mul i32 %.fr67, %66
-  %72 = add i32 %71, %.2295.i28
+  %71 = mul i32 %70, %66
+  %.fr67 = freeze i32 %71
+  %72 = add i32 %.fr67, %.2295.i28
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge.loopexit, label %59, !llvm.loop !116
@@ -23299,16 +23294,15 @@ define internal void @yuv2rgba64be_X_c(ptr noundef readonly captures(none) %0, p
   %63 = load i32, ptr %62, align 4, !tbaa !49
   %64 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv47
   %65 = load i16, ptr %64, align 2, !tbaa !39
-  %.fr66 = freeze i16 %65
-  %66 = sext i16 %.fr66 to i32
-  %.fr = freeze i32 %63
-  %67 = mul i32 %.fr, %66
-  %68 = add i32 %67, %.2.i30
+  %66 = sext i16 %65 to i32
+  %67 = mul i32 %63, %66
+  %.fr66 = freeze i32 %67
+  %68 = add i32 %.fr66, %.2.i30
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !49
-  %.fr67 = freeze i32 %70
-  %71 = mul i32 %.fr67, %66
-  %72 = add i32 %71, %.2295.i28
+  %71 = mul i32 %70, %66
+  %.fr67 = freeze i32 %71
+  %72 = add i32 %.fr67, %.2295.i28
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge.loopexit, label %59, !llvm.loop !116
@@ -24665,16 +24659,15 @@ define internal void @yuv2bgra64le_X_c(ptr noundef readonly captures(none) %0, p
   %63 = load i32, ptr %62, align 4, !tbaa !49
   %64 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv47
   %65 = load i16, ptr %64, align 2, !tbaa !39
-  %.fr66 = freeze i16 %65
-  %66 = sext i16 %.fr66 to i32
-  %.fr = freeze i32 %63
-  %67 = mul i32 %.fr, %66
-  %68 = add i32 %67, %.2.i30
+  %66 = sext i16 %65 to i32
+  %67 = mul i32 %63, %66
+  %.fr66 = freeze i32 %67
+  %68 = add i32 %.fr66, %.2.i30
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !49
-  %.fr67 = freeze i32 %70
-  %71 = mul i32 %.fr67, %66
-  %72 = add i32 %71, %.2295.i28
+  %71 = mul i32 %70, %66
+  %.fr67 = freeze i32 %71
+  %72 = add i32 %.fr67, %.2295.i28
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge.loopexit, label %59, !llvm.loop !116
@@ -26023,16 +26016,15 @@ define internal void @yuv2bgra64be_X_c(ptr noundef readonly captures(none) %0, p
   %63 = load i32, ptr %62, align 4, !tbaa !49
   %64 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv47
   %65 = load i16, ptr %64, align 2, !tbaa !39
-  %.fr66 = freeze i16 %65
-  %66 = sext i16 %.fr66 to i32
-  %.fr = freeze i32 %63
-  %67 = mul i32 %.fr, %66
-  %68 = add i32 %67, %.2.i30
+  %66 = sext i16 %65 to i32
+  %67 = mul i32 %63, %66
+  %.fr66 = freeze i32 %67
+  %68 = add i32 %.fr66, %.2.i30
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !49
-  %.fr67 = freeze i32 %70
-  %71 = mul i32 %.fr67, %66
-  %72 = add i32 %71, %.2295.i28
+  %71 = mul i32 %70, %66
+  %.fr67 = freeze i32 %71
+  %72 = add i32 %.fr67, %.2295.i28
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge.loopexit, label %59, !llvm.loop !116

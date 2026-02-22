@@ -4469,7 +4469,7 @@ for.cond18.preheader:                             ; preds = %if.end9, %for.cond.
   br i1 %cmp2370, label %for.body25.preheader, label %for.cond.cleanup24
 
 for.body25.preheader:                             ; preds = %for.cond18.preheader
-  %.pre82 = load double, ptr %scaleM_26, align 8, !tbaa !53
+  %.pre81 = load double, ptr %scaleM_26, align 8, !tbaa !53
   br label %for.body25
 
 for.cond.cleanup24:                               ; preds = %_ZNK8QuantLib18NormalDistributionclEd.exit, %for.cond18.preheader
@@ -4479,7 +4479,7 @@ for.cond.cleanup24:                               ; preds = %_ZNK8QuantLib18Norm
   br i1 %cmp15, label %for.cond18.preheader, label %if.end67, !llvm.loop !111
 
 for.body25:                                       ; preds = %for.body25.preheader, %_ZNK8QuantLib18NormalDistributionclEd.exit
-  %7 = phi double [ %8, %_ZNK8QuantLib18NormalDistributionclEd.exit ], [ %.pre82, %for.body25.preheader ]
+  %7 = phi double [ %8, %_ZNK8QuantLib18NormalDistributionclEd.exit ], [ %.pre81, %for.body25.preheader ]
   %z.072 = phi double [ %add32, %_ZNK8QuantLib18NormalDistributionclEd.exit ], [ 0xC023F33333333333, %for.body25.preheader ]
   %cumulated.171 = phi double [ %10, %_ZNK8QuantLib18NormalDistributionclEd.exit ], [ %cumulated.074, %for.body25.preheader ]
   %div27 = fdiv double %m.075, %7
@@ -4523,13 +4523,14 @@ for.cond46.preheader:                             ; preds = %if.end9, %for.cond.
 for.body54.lr.ph:                                 ; preds = %for.cond46.preheader
   %13 = fneg double %z36.064
   %fneg.i42 = fmul double %z36.064, %13
-  %div.i44 = fmul double %fneg.i42, 5.000000e-01
+  %fneg.i42.fr = freeze double %fneg.i42
+  %div.i44 = fmul double %fneg.i42.fr, 5.000000e-01
   %cmp.i45 = fcmp ugt double %div.i44, -6.900000e+02
-  %.pre81 = load double, ptr %scaleM_26, align 8, !tbaa !53
+  %.pre80 = load double, ptr %scaleM_26, align 8, !tbaa !53
   br i1 %cmp.i45, label %for.body54.us, label %for.body54
 
 for.body54.us:                                    ; preds = %for.body54.lr.ph, %for.body54.us
-  %14 = phi double [ %15, %for.body54.us ], [ %.pre81, %for.body54.lr.ph ]
+  %14 = phi double [ %15, %for.body54.us ], [ %.pre80, %for.body54.lr.ph ]
   %m43.062.us = phi double [ %add62.us, %for.body54.us ], [ 0xC023F33333333333, %for.body54.lr.ph ]
   %cumulated.461.us = phi double [ %16, %for.body54.us ], [ %cumulated.363, %for.body54.lr.ph ]
   %div56.us = fdiv double %m43.062.us, %14
@@ -4555,7 +4556,7 @@ for.cond.cleanup53:                               ; preds = %for.body54, %for.bo
   br i1 %cmp40, label %for.cond46.preheader, label %if.end67, !llvm.loop !114
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.body54
-  %18 = phi double [ %19, %for.body54 ], [ %.pre81, %for.body54.lr.ph ]
+  %18 = phi double [ %19, %for.body54 ], [ %.pre80, %for.body54.lr.ph ]
   %m43.062 = phi double [ %add62, %for.body54 ], [ 0xC023F33333333333, %for.body54.lr.ph ]
   %cumulated.461 = phi double [ %20, %for.body54 ], [ %cumulated.363, %for.body54.lr.ph ]
   %div56 = fdiv double %m43.062, %18

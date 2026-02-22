@@ -4064,8 +4064,7 @@ define range(i32 0, 2) i32 @tls1_process_sigalgs(ptr noundef initializes((5520, 
   %5 = load ptr, ptr %4, align 8, !tbaa !127
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !128
-  %.fr137.i = freeze i32 %7
-  %8 = and i32 %.fr137.i, 196608
+  %8 = and i32 %7, 196608
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5512
   %10 = load ptr, ptr %9, align 8, !tbaa !229
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.2, i32 noundef 3376) #14
@@ -4081,7 +4080,7 @@ define range(i32 0, 2) i32 @tls1_process_sigalgs(ptr noundef initializes((5520, 
   %16 = load ptr, ptr %15, align 8, !tbaa !207
   %17 = icmp eq ptr %16, null
   %18 = icmp ne i32 %8, 0
-  %or.cond.i = or i1 %18, %17
+  %or.cond.i = select i1 %17, i1 true, i1 %18
   br i1 %or.cond.i, label %22, label %19
 
 19:                                               ; preds = %14
@@ -4094,7 +4093,7 @@ define range(i32 0, 2) i32 @tls1_process_sigalgs(ptr noundef initializes((5520, 
   %24 = load ptr, ptr %23, align 8, !tbaa !209
   %25 = icmp eq ptr %24, null
   %26 = icmp ne i32 %8, 0
-  %or.cond3.i = or i1 %26, %25
+  %or.cond3.i = select i1 %25, i1 true, i1 %26
   br i1 %or.cond3.i, label %30, label %27
 
 27:                                               ; preds = %22
@@ -4161,23 +4160,21 @@ default.unreachable:                              ; preds = %30
 tls12_get_psigalgs.exit.i:                        ; preds = %51, %48, %42, %37, %36, %30, %27, %19
   %.090.i = phi ptr [ %16, %19 ], [ %24, %27 ], [ %41, %42 ], [ @suiteb_sigalgs, %36 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %37 ], [ %55, %51 ], [ %47, %48 ], [ @suiteb_sigalgs, %30 ]
   %.048.i = phi i64 [ %21, %19 ], [ %29, %27 ], [ %44, %42 ], [ 1, %36 ], [ 1, %37 ], [ %57, %51 ], [ %50, %48 ], [ 2, %30 ]
-  %.048.fr.i = freeze i64 %.048.i
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %59 = load i64, ptr %58, align 8, !tbaa !155
-  %.fr.i = freeze i64 %59
-  %60 = and i64 %.fr.i, 4194304
+  %60 = and i64 %59, 4194304
   %61 = icmp ne i64 %60, 0
   %62 = icmp ne i32 %8, 0
-  %or.cond5.i = or i1 %62, %61
+  %or.cond5.i = select i1 %61, i1 true, i1 %62
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %65 = load i64, ptr %64, align 8, !tbaa !235
-  %.fr138.i = freeze i64 %65
   %.051.in.sroa.speculate.load..i = load ptr, ptr %63, align 8, !tbaa !131
   %.051.in.sroa.speculate.load...090.i = select i1 %or.cond5.i, ptr %.051.in.sroa.speculate.load..i, ptr %.090.i
-  %.048..i = select i1 %or.cond5.i, i64 %.048.fr.i, i64 %.fr138.i
-  %..048.i = select i1 %or.cond5.i, i64 %.fr138.i, i64 %.048.fr.i
+  %.048..i = select i1 %or.cond5.i, i64 %.048.i, i64 %65
+  %..048.i = select i1 %or.cond5.i, i64 %65, i64 %.048.i
   %.090..051.in.sroa.speculate.load..i = select i1 %or.cond5.i, ptr %.090.i, ptr %.051.in.sroa.speculate.load..i
+  %.049.fr.i = freeze i64 %..048.i
   %.not41.i.i = icmp eq i64 %.048..i, 0
   br i1 %.not41.i.i, label %tls1_set_shared_sigalgs.exit, label %.lr.ph39.i.i
 
@@ -4190,7 +4187,7 @@ tls12_get_psigalgs.exit.i:                        ; preds = %51, %48, %42, %37, 
   br i1 %70, label %tls1_set_shared_sigalgs.exit, label %.lr.ph39.split.i.preheader.i
 
 .lr.ph39.split.i.preheader.i:                     ; preds = %.lr.ph39.i.i
-  %.not42.i.i = icmp eq i64 %..048.i, 0
+  %.not42.i.i = icmp eq i64 %.049.fr.i, 0
   br i1 %.not42.i.i, label %.lr.ph39.split.i.us.i, label %.lr.ph39.split.i.i
 
 .lr.ph39.split.i.us.i:                            ; preds = %.lr.ph39.split.i.preheader.i, %tls1_lookup_sigalg.exit.thread.i.us.i
@@ -4297,7 +4294,7 @@ tls1_lookup_sigalg.exit.i.i:                      ; preds = %96
 109:                                              ; preds = %104
   %110 = add nuw i64 %.02434.i.i, 1
   %111 = getelementptr inbounds nuw i8, ptr %.02633.i.i, i64 2
-  %exitcond.not.i.i = icmp eq i64 %110, %..048.i
+  %exitcond.not.i.i = icmp eq i64 %110, %.049.fr.i
   br i1 %exitcond.not.i.i, label %tls1_lookup_sigalg.exit.thread.i.i, label %104, !llvm.loop !237
 
 tls1_lookup_sigalg.exit.thread.i.i:               ; preds = %99, %109, %107, %tls1_lookup_sigalg.exit.i.i, %96, %.lr.ph39.split.i.i
@@ -4386,7 +4383,7 @@ tls1_lookup_sigalg.exit.i79.i:                    ; preds = %130
 144:                                              ; preds = %138
   %145 = add nuw i64 %.02434.i83.i, 1
   %146 = getelementptr inbounds nuw i8, ptr %.02633.i84.i, i64 2
-  %exitcond.not.i85.i = icmp eq i64 %145, %..048.i
+  %exitcond.not.i85.i = icmp eq i64 %145, %.049.fr.i
   br i1 %exitcond.not.i85.i, label %tls1_lookup_sigalg.exit.thread.i73.i, label %138, !llvm.loop !237
 
 tls1_lookup_sigalg.exit.thread.i73.i:             ; preds = %133, %144, %141, %tls1_lookup_sigalg.exit.i79.i, %130, %.lr.ph39.split.i61.i

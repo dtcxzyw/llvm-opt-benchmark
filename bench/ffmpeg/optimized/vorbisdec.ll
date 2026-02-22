@@ -3870,9 +3870,9 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br i1 %.not330, label %._crit_edge329, label %.lr.ph328
 
 .lr.ph328:                                        ; preds = %.preheader264, %370
-  %indvars.iv404 = phi i64 [ %indvars.iv.next405, %370 ], [ 0, %.preheader264 ]
+  %indvars.iv403 = phi i64 [ %indvars.iv.next404, %370 ], [ 0, %.preheader264 ]
   %32 = load ptr, ptr %22, align 8, !tbaa !94
-  %33 = getelementptr inbounds nuw %struct.vorbis_codebook, ptr %32, i64 %indvars.iv404
+  %33 = getelementptr inbounds nuw %struct.vorbis_codebook, ptr %32, i64 %indvars.iv403
   %34 = load i32, ptr %3, align 8, !tbaa !49
   %35 = load i32, ptr %5, align 8, !tbaa !47
   %36 = load ptr, ptr %2, align 8, !tbaa !45
@@ -3890,7 +3890,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br i1 %.not, label %49, label %46
 
 46:                                               ; preds = %.lr.ph328
-  %47 = trunc nuw nsw i64 %indvars.iv404 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv403 to i32
   %48 = load ptr, ptr %0, align 8, !tbaa !29
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %48, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %47) #13
   br label %._crit_edge329
@@ -3913,7 +3913,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br i1 %or.cond236, label %61, label %64
 
 61:                                               ; preds = %49
-  %62 = trunc nuw nsw i64 %indvars.iv404 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv403 to i32
   %63 = load ptr, ptr %0, align 8, !tbaa !29
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %63, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %62, i32 noundef %59) #13
   br label %._crit_edge329
@@ -3933,7 +3933,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %64
-  %76 = trunc nuw nsw i64 %indvars.iv404 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv403 to i32
   %77 = load ptr, ptr %0, align 8, !tbaa !29
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %77, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %76, i32 noundef %71) #13
   br label %._crit_edge329
@@ -3975,18 +3975,18 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br i1 %.not333, label %.loopexit261, label %.lr.ph297
 
 .lr.ph297:                                        ; preds = %.preheader262
-  %wide.trip.count373 = zext nneg i32 %71 to i64
+  %wide.trip.count372 = zext nneg i32 %71 to i64
   br label %100
 
 .preheader260:                                    ; preds = %92
   br i1 %.not333, label %.loopexit261, label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.preheader260
-  %wide.trip.count378 = zext nneg i32 %71 to i64
+  %wide.trip.count377 = zext nneg i32 %71 to i64
   br label %126
 
 100:                                              ; preds = %.lr.ph297, %124
-  %indvars.iv370 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next371, %124 ]
+  %indvars.iv369 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next370, %124 ]
   %spec.select.i242301 = phi i32 [ %spec.select.i241, %.lr.ph297 ], [ %spec.select.i242300, %124 ]
   %.0204296 = phi i32 [ 0, %.lr.ph297 ], [ %.1205, %124 ]
   %101 = lshr i32 %spec.select.i242301, 3
@@ -4024,14 +4024,14 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %.sink = phi i8 [ %122, %111 ], [ 0, %100 ]
   %spec.select.i242300 = phi i32 [ %119, %111 ], [ %spec.select.i242, %100 ]
   %.1205 = phi i32 [ %123, %111 ], [ %.0204296, %100 ]
-  %125 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv370
+  %125 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv369
   store i8 %.sink, ptr %125, align 1, !tbaa !50
-  %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
-  %exitcond374.not = icmp eq i64 %indvars.iv.next371, %wide.trip.count373
-  br i1 %exitcond374.not, label %.loopexit261, label %100, !llvm.loop !168
+  %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
+  %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
+  br i1 %exitcond373.not, label %.loopexit261, label %100, !llvm.loop !168
 
 126:                                              ; preds = %.lr.ph303, %126
-  %indvars.iv375 = phi i64 [ 0, %.lr.ph303 ], [ %indvars.iv.next376, %126 ]
+  %indvars.iv374 = phi i64 [ 0, %.lr.ph303 ], [ %indvars.iv.next375, %126 ]
   %127 = phi i32 [ %spec.select.i241, %.lr.ph303 ], [ %135, %126 ]
   %128 = lshr i32 %127, 3
   %129 = zext nneg i32 %128 to i64
@@ -4045,11 +4045,11 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %136 = trunc i32 %133 to i8
   %137 = and i8 %136, 31
   %138 = add nuw nsw i8 %137, 1
-  %139 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv375
+  %139 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv374
   store i8 %138, ptr %139, align 1, !tbaa !50
-  %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %exitcond379.not = icmp eq i64 %indvars.iv.next376, %wide.trip.count378
-  br i1 %exitcond379.not, label %.loopexit261, label %126, !llvm.loop !169
+  %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
+  %exitcond378.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count377
+  br i1 %exitcond378.not, label %.loopexit261, label %126, !llvm.loop !169
 
 140:                                              ; preds = %78
   %141 = load i32, ptr %91, align 1, !tbaa !50
@@ -4245,8 +4245,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %269 = icmp slt i32 %263, %203
   %270 = zext i1 %269 to i32
   %spec.select.i246 = add i32 %263, %270
-  %.fr336 = freeze i8 %268
-  %271 = zext i8 %.fr336 to i32
+  %271 = zext i8 %268 to i32
   %272 = and i32 %263, 7
   store i32 %spec.select.i246, ptr %3, align 8, !tbaa !49
   %273 = tail call float @llvm.fabs.f32(float %229)
@@ -4263,11 +4262,11 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 .lr.ph306:                                        ; preds = %.preheader259
   %277 = xor i32 %261, 31
   %278 = lshr i32 -1, %277
-  %wide.trip.count383 = zext i32 %201 to i64
+  %wide.trip.count382 = zext i32 %201 to i64
   br label %279
 
 279:                                              ; preds = %.lr.ph306, %279
-  %indvars.iv380 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next381, %279 ]
+  %indvars.iv379 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next380, %279 ]
   %280 = phi i32 [ %spec.select.i246, %.lr.ph306 ], [ %289, %279 ]
   %281 = lshr i32 %280, 3
   %282 = zext nneg i32 %281 to i64
@@ -4280,11 +4279,11 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %289 = tail call i32 @llvm.umin.i32(i32 %203, i32 %288)
   store i32 %289, ptr %3, align 8, !tbaa !49
   %290 = trunc nuw i32 %287 to i16
-  %291 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv380
+  %291 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv379
   store i16 %290, ptr %291, align 2, !tbaa !112
-  %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
-  %exitcond384.not = icmp eq i64 %indvars.iv.next381, %wide.trip.count383
-  br i1 %exitcond384.not, label %._crit_edge307, label %279, !llvm.loop !173
+  %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
+  %exitcond383.not = icmp eq i64 %indvars.iv.next380, %wide.trip.count382
+  br i1 %exitcond383.not, label %._crit_edge307, label %279, !llvm.loop !173
 
 ._crit_edge307:                                   ; preds = %279, %.preheader259
   %.not228 = icmp eq i32 %.3207, 0
@@ -4313,35 +4312,35 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 .lr.ph319:                                        ; preds = %301
   %302 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %303 = shl nuw nsw i32 1, %272
-  %.fr = freeze i32 %303
-  %304 = and i32 %.fr, %271
-  %.not235 = icmp eq i32 %304, 0
-  %wide.trip.count398 = zext nneg i32 %71 to i64
+  %304 = and i32 %303, %271
+  %.fr = freeze i32 %304
+  %.not235 = icmp eq i32 %.fr, 0
+  %wide.trip.count397 = zext nneg i32 %71 to i64
   br label %305
 
 305:                                              ; preds = %.lr.ph319, %340
-  %indvars.iv395 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next396, %340 ]
+  %indvars.iv394 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next395, %340 ]
   %.0192317 = phi i32 [ 0, %.lr.ph319 ], [ %.1193, %340 ]
   %306 = load i8, ptr %33, align 8, !tbaa !96
   %307 = zext i8 %306 to i32
-  %308 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv395
+  %308 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv394
   %309 = load i8, ptr %308, align 1, !tbaa !50
   %.not234 = icmp eq i8 %309, 0
   br i1 %.not234, label %340, label %.preheader
 
 .preheader:                                       ; preds = %305
-  %.not337 = icmp eq i8 %306, 0
-  br i1 %.not337, label %._crit_edge313, label %.lr.ph312
+  %.not336 = icmp eq i8 %306, 0
+  br i1 %.not336, label %._crit_edge313, label %.lr.ph312
 
 .lr.ph312:                                        ; preds = %.preheader
   %310 = load ptr, ptr %302, align 8, !tbaa !113
   %311 = mul i32 %.0192317, %307
-  %wide.trip.count393 = zext i8 %306 to i64
-  %312 = trunc nuw nsw i64 %indvars.iv395 to i32
+  %wide.trip.count392 = zext i8 %306 to i64
+  %312 = trunc nuw nsw i64 %indvars.iv394 to i32
   br i1 %.not235, label %.lr.ph312.split.us, label %.lr.ph312.split
 
 .lr.ph312.split.us:                               ; preds = %.lr.ph312, %.lr.ph312.split.us
-  %indvars.iv390 = phi i64 [ %indvars.iv.next391, %.lr.ph312.split.us ], [ 0, %.lr.ph312 ]
+  %indvars.iv389 = phi i64 [ %indvars.iv.next390, %.lr.ph312.split.us ], [ 0, %.lr.ph312 ]
   %.0184311.us = phi i32 [ %323, %.lr.ph312.split.us ], [ %312, %.lr.ph312 ]
   %313 = urem i32 %.0184311.us, %201
   %314 = zext nneg i32 %313 to i64
@@ -4349,18 +4348,18 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %316 = load i16, ptr %315, align 2, !tbaa !112
   %317 = uitofp i16 %316 to float
   %318 = tail call nsz float @llvm.fmuladd.f32(float %317, float %254, float %229)
-  %319 = trunc nuw nsw i64 %indvars.iv390 to i32
+  %319 = trunc nuw nsw i64 %indvars.iv389 to i32
   %320 = add i32 %311, %319
   %321 = zext i32 %320 to i64
   %322 = getelementptr inbounds nuw float, ptr %310, i64 %321
   store float %318, ptr %322, align 4, !tbaa !115
   %323 = udiv i32 %.0184311.us, %201
-  %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
-  %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
-  br i1 %exitcond394.not, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !174
+  %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
+  %exitcond393.not = icmp eq i64 %indvars.iv.next390, %wide.trip.count392
+  br i1 %exitcond393.not, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !174
 
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %.lr.ph312.split
-  %indvars.iv385 = phi i64 [ %indvars.iv.next386, %.lr.ph312.split ], [ 0, %.lr.ph312 ]
+  %indvars.iv384 = phi i64 [ %indvars.iv.next385, %.lr.ph312.split ], [ 0, %.lr.ph312 ]
   %.0184311 = phi i32 [ %335, %.lr.ph312.split ], [ %312, %.lr.ph312 ]
   %.0185310 = phi float [ %330, %.lr.ph312.split ], [ 0.000000e+00, %.lr.ph312 ]
   %324 = urem i32 %.0184311, %201
@@ -4370,15 +4369,15 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   %328 = uitofp i16 %327 to float
   %329 = tail call nsz float @llvm.fmuladd.f32(float %328, float %254, float %229)
   %330 = fadd nsz float %.0185310, %329
-  %331 = trunc nuw nsw i64 %indvars.iv385 to i32
+  %331 = trunc nuw nsw i64 %indvars.iv384 to i32
   %332 = add i32 %311, %331
   %333 = zext i32 %332 to i64
   %334 = getelementptr inbounds nuw float, ptr %310, i64 %333
   store float %330, ptr %334, align 4, !tbaa !115
   %335 = udiv i32 %.0184311, %201
-  %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
-  %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count393
-  br i1 %exitcond389.not, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !174
+  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
+  %exitcond388.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count392
+  br i1 %exitcond388.not, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !174
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us, %.preheader
   %336 = load i8, ptr %308, align 1, !tbaa !50
@@ -4390,9 +4389,9 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 340:                                              ; preds = %._crit_edge313, %305
   %.1193 = phi i32 [ %339, %._crit_edge313 ], [ %.0192317, %305 ]
-  %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
-  %exitcond399.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count398
-  br i1 %exitcond399.not, label %._crit_edge320, label %305, !llvm.loop !175
+  %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
+  %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397
+  br i1 %exitcond398.not, label %._crit_edge320, label %305, !llvm.loop !175
 
 ._crit_edge320:                                   ; preds = %340, %301
   %.0192.lcssa = phi i32 [ 0, %301 ], [ %.1193, %340 ]
@@ -4423,17 +4422,17 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 349:                                              ; preds = %345
   %350 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 0, ptr %350, align 2, !tbaa !176
-  %.not338 = icmp eq i32 %.1200, 0
-  br i1 %.not338, label %._crit_edge325.thread, label %.lr.ph324
+  %.not337 = icmp eq i32 %.1200, 0
+  br i1 %.not337, label %._crit_edge325.thread, label %.lr.ph324
 
 .lr.ph324:                                        ; preds = %349
-  %wide.trip.count402 = zext i32 %.1200 to i64
+  %wide.trip.count401 = zext i32 %.1200 to i64
   br label %351
 
 351:                                              ; preds = %.lr.ph324, %356
-  %indvars.iv400 = phi i64 [ 0, %.lr.ph324 ], [ %indvars.iv.next401, %356 ]
+  %indvars.iv399 = phi i64 [ 0, %.lr.ph324 ], [ %indvars.iv.next400, %356 ]
   %352 = phi i8 [ 0, %.lr.ph324 ], [ %357, %356 ]
-  %353 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv400
+  %353 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv399
   %354 = load i8, ptr %353, align 1, !tbaa !50
   %.not233 = icmp ult i8 %354, %352
   br i1 %.not233, label %356, label %355
@@ -4444,9 +4443,9 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 356:                                              ; preds = %351, %355
   %357 = phi i8 [ %352, %351 ], [ %354, %355 ]
-  %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
-  %exitcond403.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count402
-  br i1 %exitcond403.not, label %._crit_edge325, label %351, !llvm.loop !177
+  %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
+  %exitcond402.not = icmp eq i64 %indvars.iv.next400, %wide.trip.count401
+  br i1 %exitcond402.not, label %._crit_edge325, label %351, !llvm.loop !177
 
 ._crit_edge325:                                   ; preds = %356
   %358 = icmp ugt i8 %357, 24
@@ -4457,17 +4456,17 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 ._crit_edge325.thread:                            ; preds = %._crit_edge325, %349
   %361 = phi i32 [ %360, %._crit_edge325 ], [ -1, %349 ]
-  %.sink407 = phi i32 [ %spec.select, %._crit_edge325 ], [ 8, %349 ]
+  %.sink406 = phi i32 [ %spec.select, %._crit_edge325 ], [ 8, %349 ]
   %362 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store i32 %.sink407, ptr %362, align 8, !tbaa !109
-  %363 = add nsw i32 %361, %.sink407
+  store i32 %.sink406, ptr %362, align 8, !tbaa !109
+  %363 = add nsw i32 %361, %.sink406
   %.lhs.trunc = trunc nsw i32 %363 to i16
-  %.rhs.trunc = trunc nuw nsw i32 %.sink407 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %.sink406 to i16
   %364 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %365 = trunc i16 %364 to i8
   store i8 %365, ptr %350, align 2, !tbaa !176
   %366 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %367 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %366, i32 noundef %.sink407, i32 noundef %.1200, ptr noundef nonnull %23, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %24, i32 noundef 4, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 12) #13
+  %367 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %366, i32 noundef %.sink406, i32 noundef %.1200, ptr noundef nonnull %23, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %24, i32 noundef 4, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 12) #13
   %.not232 = icmp eq i32 %367, 0
   br i1 %.not232, label %370, label %368
 
@@ -4477,10 +4476,10 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
   br label %._crit_edge329
 
 370:                                              ; preds = %._crit_edge325.thread
-  %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
+  %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %371 = load i16, ptr %19, align 8, !tbaa !161
   %372 = zext i16 %371 to i64
-  %373 = icmp samesign ult i64 %indvars.iv.next405, %372
+  %373 = icmp samesign ult i64 %indvars.iv.next404, %372
   br i1 %373, label %.lr.ph328, label %._crit_edge329, !llvm.loop !178
 
 ._crit_edge329:                                   ; preds = %292, %198, %370, %1, %46, %61, %75, %347, %368, %.thread, %343, %341, %.preheader264

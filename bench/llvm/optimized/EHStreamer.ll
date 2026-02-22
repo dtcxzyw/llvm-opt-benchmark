@@ -4640,7 +4640,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34"
-  %.040 = phi i64 [ %36, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34" ], [ %1, %4 ]
+  %.040 = phi i64 [ %37, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34" ], [ %1, %4 ]
   %8 = shl nuw nsw i64 %.040, 1
   %9 = add nuw nsw i64 %8, 2
   %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
@@ -4656,11 +4656,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
   %.val29.val = load ptr, ptr %15, align 8, !tbaa !129
   %16 = getelementptr i8, ptr %.val29, i64 104
   %.val29.val31 = load ptr, ptr %16, align 8, !tbaa !129
-  %.val29.val31.fr = freeze ptr %.val29.val31
   %17 = ptrtoint ptr %.val.val30 to i64
   %18 = ptrtoint ptr %.val.val to i64
   %19 = sub i64 %17, %18
-  %20 = ptrtoint ptr %.val29.val31.fr to i64
+  %20 = ptrtoint ptr %.val29.val31 to i64
   %21 = ptrtoint ptr %.val29.val to i64
   %22 = sub i64 %20, %21
   %23 = icmp slt i64 %22, %19
@@ -4693,109 +4692,109 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit": ; preds = %32, %.lr.ph
   %.019.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %.val29.val, %.lr.ph ], [ %34, %32 ]
-  %.019.lcssa.i.i.i.i.i.i.i.i.fr = freeze ptr %.019.lcssa.i.i.i.i.i.i.i.i
-  %.not = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.fr, %.val29.val31.fr
-  %35 = or disjoint i64 %8, 1
-  %spec.select = select i1 %.not, i64 %9, i64 %35
+  %35 = icmp ne ptr %.019.lcssa.i.i.i.i.i.i.i.i, %.val29.val31
+  %36 = or disjoint i64 %8, 1
+  %cond.fr = freeze i1 %35
+  %spec.select = select i1 %cond.fr, i64 %36, i64 %9
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34": ; preds = %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread"
-  %36 = phi i64 [ %29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread" ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit" ], [ %9, %30 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !142
-  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040
-  store ptr %38, ptr %39, align 8, !tbaa !142
-  %40 = icmp slt i64 %36, %6
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !621
+  %37 = phi i64 [ %29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread" ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit" ], [ %9, %30 ]
+  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !142
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040
+  store ptr %39, ptr %40, align 8, !tbaa !142
+  %41 = icmp slt i64 %37, %6
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !621
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %36, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34" ]
-  %41 = and i64 %2, 1
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %53
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %37, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34" ]
+  %42 = and i64 %2, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %54
 
-43:                                               ; preds = %._crit_edge
-  %44 = add nsw i64 %2, -2
-  %45 = ashr exact i64 %44, 1
-  %46 = icmp eq i64 %.0.lcssa, %45
-  br i1 %46, label %47, label %53
+44:                                               ; preds = %._crit_edge
+  %45 = add nsw i64 %2, -2
+  %46 = ashr exact i64 %45, 1
+  %47 = icmp eq i64 %.0.lcssa, %46
+  br i1 %47, label %48, label %54
 
-47:                                               ; preds = %43
-  %48 = shl nuw nsw i64 %.0.lcssa, 1
-  %49 = or disjoint i64 %48, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !142
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
-  store ptr %51, ptr %52, align 8, !tbaa !142
-  br label %53
+48:                                               ; preds = %44
+  %49 = shl nuw nsw i64 %.0.lcssa, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds nuw ptr, ptr %0, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !142
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
+  store ptr %52, ptr %53, align 8, !tbaa !142
+  br label %54
 
-53:                                               ; preds = %47, %43, %._crit_edge
-  %.128 = phi i64 [ %49, %47 ], [ %.0.lcssa, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %54 = icmp samesign ugt i64 %.128, %1
-  br i1 %54, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit"
+54:                                               ; preds = %48, %44, %._crit_edge
+  %.128 = phi i64 [ %50, %48 ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %._crit_edge ]
+  %55 = icmp samesign ugt i64 %.128, %1
+  br i1 %55, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %53
-  %55 = getelementptr i8, ptr %3, i64 96
-  %.val14.val.i = load ptr, ptr %55, align 8, !tbaa !129
-  %56 = getelementptr i8, ptr %3, i64 104
-  %.val14.val16.i = load ptr, ptr %56, align 8, !tbaa !129
-  %57 = ptrtoint ptr %.val14.val16.i to i64
-  %58 = ptrtoint ptr %.val14.val.i to i64
-  %59 = sub i64 %57, %58
-  br label %60
+.lr.ph.i:                                         ; preds = %54
+  %56 = getelementptr i8, ptr %3, i64 96
+  %.val14.val.i = load ptr, ptr %56, align 8, !tbaa !129
+  %57 = getelementptr i8, ptr %3, i64 104
+  %.val14.val16.i = load ptr, ptr %57, align 8, !tbaa !129
+  %58 = ptrtoint ptr %.val14.val16.i to i64
+  %59 = ptrtoint ptr %.val14.val.i to i64
+  %60 = sub i64 %58, %59
+  br label %61
 
-60:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %.lr.ph.i
+61:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %.lr.ph.i
   %.0139.i = phi i64 [ %.128, %.lr.ph.i ], [ %.01019.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ]
   %.010.in.i = add nsw i64 %.0139.i, -1
   %.01019.i = lshr i64 %.010.in.i, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01019.i
-  %.val.i = load ptr, ptr %61, align 8, !tbaa !142
-  %62 = getelementptr i8, ptr %.val.i, i64 96
-  %.val.val.i = load ptr, ptr %62, align 8, !tbaa !129
-  %63 = getelementptr i8, ptr %.val.i, i64 104
-  %.val.val15.i = load ptr, ptr %63, align 8, !tbaa !129
-  %64 = ptrtoint ptr %.val.val15.i to i64
-  %65 = ptrtoint ptr %.val.val.i to i64
-  %66 = sub i64 %64, %65
-  %67 = icmp slt i64 %59, %66
-  %68 = getelementptr inbounds i8, ptr %.val.val.i, i64 %59
-  %69 = select i1 %67, ptr %68, ptr %.val.val15.i
-  %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.val.i, %69
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01019.i
+  %.val.i = load ptr, ptr %62, align 8, !tbaa !142
+  %63 = getelementptr i8, ptr %.val.i, i64 96
+  %.val.val.i = load ptr, ptr %63, align 8, !tbaa !129
+  %64 = getelementptr i8, ptr %.val.i, i64 104
+  %.val.val15.i = load ptr, ptr %64, align 8, !tbaa !129
+  %65 = ptrtoint ptr %.val.val15.i to i64
+  %66 = ptrtoint ptr %.val.val.i to i64
+  %67 = sub i64 %65, %66
+  %68 = icmp slt i64 %60, %67
+  %69 = getelementptr inbounds i8, ptr %.val.val.i, i64 %60
+  %70 = select i1 %68, ptr %69, ptr %.val.val15.i
+  %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.val.i, %70
   br i1 %.not22.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %60, %75
-  %.01924.i.i.i.i.i.i.i.i.i = phi ptr [ %77, %75 ], [ %.val14.val.i, %60 ]
-  %.02023.i.i.i.i.i.i.i.i.i = phi ptr [ %76, %75 ], [ %.val.val.i, %60 ]
-  %70 = load i32, ptr %.02023.i.i.i.i.i.i.i.i.i, align 4, !tbaa !131
-  %71 = load i32, ptr %.01924.i.i.i.i.i.i.i.i.i, align 4, !tbaa !131
-  %72 = icmp slt i32 %70, %71
-  br i1 %72, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", label %73
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %61, %76
+  %.01924.i.i.i.i.i.i.i.i.i = phi ptr [ %78, %76 ], [ %.val14.val.i, %61 ]
+  %.02023.i.i.i.i.i.i.i.i.i = phi ptr [ %77, %76 ], [ %.val.val.i, %61 ]
+  %71 = load i32, ptr %.02023.i.i.i.i.i.i.i.i.i, align 4, !tbaa !131
+  %72 = load i32, ptr %.01924.i.i.i.i.i.i.i.i.i, align 4, !tbaa !131
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", label %74
 
-73:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %74 = icmp slt i32 %71, %70
-  br i1 %74, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", label %75
+74:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %75 = icmp slt i32 %72, %71
+  br i1 %75, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", label %76
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i.i.i.i, i64 4
-  %77 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %76, %69
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i.i.i.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %77, %70
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !317
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i": ; preds = %75, %60
-  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.val14.val.i, %60 ], [ %77, %75 ]
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i": ; preds = %76, %61
+  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.val14.val.i, %61 ], [ %78, %76 ]
   %.not.i = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %.val14.val16.i
   br i1 %.not.i, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i"
-  %78 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0139.i
-  store ptr %.val.i, ptr %78, align 8, !tbaa !142
-  %79 = icmp samesign ugt i64 %.01019.i, %1
-  br i1 %79, label %60, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", !llvm.loop !622
+  %79 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0139.i
+  store ptr %.val.i, ptr %79, align 8, !tbaa !142
+  %80 = icmp samesign ugt i64 %.01019.i, %1
+  br i1 %80, label %61, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", !llvm.loop !622
 
-"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %73, %53
-  %.0136.i = phi i64 [ %.0139.i, %73 ], [ %.128, %53 ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i" ], [ %.01019.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ]
-  %80 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i
-  store ptr %3, ptr %80, align 8, !tbaa !142
+"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %74, %54
+  %.0136.i = phi i64 [ %.0139.i, %74 ], [ %.128, %54 ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i" ], [ %.01019.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ]
+  %81 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i
+  store ptr %3, ptr %81, align 8, !tbaa !142
   ret void
 }
 

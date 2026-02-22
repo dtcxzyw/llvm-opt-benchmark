@@ -227,8 +227,8 @@ entry:
   %Length = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %RHS.coerce1, i64 %0)
-  %cmp.not58 = icmp eq i64 %.sroa.speculated, 0
-  br i1 %cmp.not58, label %for.end62, label %for.body.lr.ph
+  %cmp.not59 = icmp eq i64 %.sroa.speculated, 0
+  br i1 %cmp.not59, label %for.end62, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr %this, align 8
@@ -236,12 +236,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc60
-  %I.059 = phi i64 [ 0, %for.body.lr.ph ], [ %inc61, %for.inc60 ]
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %I.059
+  %I.060 = phi i64 [ 0, %for.body.lr.ph ], [ %inc61, %for.inc60 ]
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %I.060
   %3 = load i8, ptr %arrayidx, align 1
   %4 = add i8 %3, -48
   %5 = icmp ult i8 %4, 10
-  %arrayidx5 = getelementptr inbounds i8, ptr %RHS.coerce0, i64 %I.059
+  %arrayidx5 = getelementptr inbounds i8, ptr %RHS.coerce0, i64 %I.060
   %6 = load i8, ptr %arrayidx5, align 1
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
@@ -249,7 +249,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.cond7, label %if.end42
 
 for.cond7:                                        ; preds = %for.body, %if.end
-  %J.0.in = phi i64 [ %J.0, %if.end ], [ %I.059, %for.body ]
+  %J.0.in = phi i64 [ %J.0, %if.end ], [ %I.060, %for.body ]
   %J.0 = add i64 %J.0.in, 1
   %cmp9.not = icmp eq i64 %J.0.in, %.sroa.speculated
   br i1 %cmp9.not, label %for.end, label %for.body10
@@ -275,8 +275,8 @@ land.end22:                                       ; preds = %land.end.thread, %l
   %conv41 = phi i32 [ 0, %land.end.thread ], [ %12, %land.end ]
   %arrayidx20 = getelementptr inbounds i8, ptr %RHS.coerce0, i64 %J.0
   %13 = load i8, ptr %arrayidx20, align 1
-  %.fr = freeze i8 %13
-  %14 = add i8 %.fr, -48
+  %.fr46 = freeze i8 %13
+  %14 = add i8 %.fr46, -48
   %15 = icmp ult i8 %14, 10
   %conv25 = zext i1 %15 to i32
   %cmp26.not = icmp eq i32 %conv41, %conv25
@@ -293,13 +293,13 @@ if.end:                                           ; preds = %land.end22
   br i1 %15, label %for.cond7, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %land.end.thread, %if.end, %for.cond7, %land.end22.thread
-  %J.0.in66 = phi i64 [ %J.0.in, %land.end22.thread ], [ %J.0.in, %land.end.thread ], [ %J.0.in, %if.end ], [ %.sroa.speculated, %for.cond7 ]
-  %J.063 = phi i64 [ %J.0, %land.end22.thread ], [ %J.0, %land.end.thread ], [ %J.0, %if.end ], [ %2, %for.cond7 ]
-  %cmp.i = icmp eq i64 %J.063, %I.059
+  %J.0.in67 = phi i64 [ %J.0.in, %land.end22.thread ], [ %J.0.in, %land.end.thread ], [ %J.0.in, %if.end ], [ %.sroa.speculated, %for.cond7 ]
+  %J.064 = phi i64 [ %J.0, %land.end22.thread ], [ %J.0, %land.end.thread ], [ %J.0, %if.end ], [ %2, %for.cond7 ]
+  %cmp.i = icmp eq i64 %J.064, %I.060
   br i1 %cmp.i, label %for.inc60, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %for.end
-  %sub = sub i64 %J.063, %I.059
+  %sub = sub i64 %J.064, %I.060
   %call.i = tail call i32 @memcmp(ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx5, i64 noundef %sub) #17
   %tobool36.not = icmp eq i32 %call.i, 0
   br i1 %tobool36.not, label %for.inc60, label %if.then37
@@ -319,7 +319,7 @@ if.then50:                                        ; preds = %if.end42
   br label %return
 
 for.inc60:                                        ; preds = %for.end, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %if.end42
-  %I.1 = phi i64 [ %I.059, %if.end42 ], [ %J.0.in66, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %J.0.in66, %for.end ]
+  %I.1 = phi i64 [ %I.060, %if.end42 ], [ %J.0.in67, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %J.0.in67, %for.end ]
   %inc61 = add i64 %I.1, 1
   %cmp.not = icmp eq i64 %inc61, %.sroa.speculated
   br i1 %cmp.not, label %for.end62, label %for.body, !llvm.loop !8

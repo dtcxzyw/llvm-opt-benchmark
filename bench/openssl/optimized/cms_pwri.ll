@@ -580,13 +580,13 @@ declare i32 @EVP_PBE_CipherInit(ptr noundef, ptr noundef, i32 noundef, ptr nound
 define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %4) #5
-  %.fr43 = freeze i32 %8
+  %.fr44 = freeze i32 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %9 = icmp eq i32 %.fr43, 0
+  %9 = icmp eq i32 %.fr44, 0
   br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
-  %11 = sext i32 %.fr43 to i64
+  %11 = sext i32 %.fr44 to i64
   %12 = add i64 %3, 4
   %13 = add i64 %3, 3
   %14 = add i64 %13, %11
@@ -636,13 +636,13 @@ define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %0, ptr nou
 42:                                               ; preds = %36, %21
   %43 = trunc i64 %16 to i32
   %44 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %43) #5
-  %.not44 = icmp eq i32 %44, 0
-  br i1 %.not44, label %48, label %45
+  %.not45 = icmp eq i32 %44, 0
+  br i1 %.not45, label %48, label %45
 
 45:                                               ; preds = %42
   %46 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %43) #5
-  %.not45 = icmp eq i32 %46, 0
-  br i1 %.not45, label %48, label %47
+  %.not46 = icmp eq i32 %46, 0
+  br i1 %.not46, label %48, label %47
 
 47:                                               ; preds = %45, %20
   store i64 %16, ptr %1, align 8, !tbaa !34

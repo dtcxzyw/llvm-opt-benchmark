@@ -1094,7 +1094,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   br i1 %44, label %.preheader, label %.thread.thread101
 
 .thread:                                          ; preds = %.split.us
-  %45 = trunc nuw i8 %.044.us.fr to i1
+  %45 = trunc i8 %.044.us.fr to i1
   %spec.select = select i1 %45, i8 -1, i8 127
   br label %.thread.thread101
 

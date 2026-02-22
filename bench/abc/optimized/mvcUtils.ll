@@ -920,8 +920,8 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
 
 .preheader48.lr.ph:                               ; preds = %2
   %5 = load i32, ptr %0, align 8, !tbaa !34
-  %.fr63 = freeze i32 %5
-  %6 = shl i32 %.fr63, 2
+  %.fr = freeze i32 %5
+  %6 = shl i32 %.fr, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %9 = sext i32 %6 to i64

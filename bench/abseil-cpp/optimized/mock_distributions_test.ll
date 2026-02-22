@@ -20030,22 +20030,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiiiEE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -20088,16 +20087,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiiiEE20ExplainMatchResultToERKSt5tupleIJiiEEPSo(ptr noundef nonnull align 8 dereferenceable(376) %23, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !514
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !514
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiiiEE20ExplainMatchResultToERKSt5tupleIJiiEEPSo(ptr noundef nonnull align 8 dereferenceable(376) %45, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -20119,12 +20118,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27121,12 +27120,10 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %5 = alloca double, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load double, ptr %2, align 8, !tbaa !65
-  %.fr8 = freeze double %6
-  store double %.fr8, ptr %4, align 8, !tbaa !725
+  store double %6, ptr %4, align 8, !tbaa !725
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load double, ptr %1, align 8, !tbaa !65
-  %.fr9 = freeze double %8
-  store double %.fr9, ptr %7, align 8, !tbaa !727
+  store double %8, ptr %7, align 8, !tbaa !727
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = load i64, ptr %0, align 8, !tbaa !97
   %10 = icmp ne i64 %9, 0
@@ -27237,7 +27234,8 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread: ; preds = %_ZN4absl18c
   br label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
 _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i
-  %64 = fsub double %.fr8, %.fr9
+  %64 = fsub double %6, %8
+  %.fr8 = freeze double %64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, 8
@@ -27246,7 +27244,7 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit: ; preds = %_ZN4absl18containe
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.pre.i.i = load i64, ptr %69, align 8, !tbaa !368
-  %72 = tail call i1 @llvm.is.fpclass.f64(double %64, i32 384)
+  %72 = tail call i1 @llvm.is.fpclass.f64(double %.fr8, i32 384)
   br i1 %72, label %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split, label %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split.us
 
 _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split.us: ; preds = %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit
@@ -27290,7 +27288,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %85, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us
   %.0.i.i.i.us = phi double [ %92, %85 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us ]
-  %93 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %64, double %.fr9)
+  %93 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %.fr8, double %8)
   br label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
 _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split: ; preds = %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
@@ -27328,15 +27326,15 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %110 = lshr i64 %109, 11
   %111 = and i64 %110, 4503599627370495
   %112 = shl nuw nsw i64 %108, 52
-  %reass.sub12 = sub nsw i64 %111, %112
-  %113 = add nsw i64 %reass.sub12, 4602678819172646912
+  %reass.sub11 = sub nsw i64 %111, %112
+  %113 = add nsw i64 %reass.sub11, 4602678819172646912
   %114 = bitcast i64 %113 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %107, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
   %.0.i.i.i = phi double [ %114, %107 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
-  %115 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %64, double %.fr9)
-  %116 = fcmp uge double %115, %.fr8
+  %115 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %.fr8, double %8)
+  %116 = fcmp uge double %115, %6
   br i1 %116, label %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
 _ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread
@@ -28486,22 +28484,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFdddEE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -28544,16 +28541,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFdddEE20ExplainMatchResultToERKSt5tupleIJddEEPSo(ptr noundef nonnull align 8 dereferenceable(376) %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !755
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !755
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFdddEE20ExplainMatchResultToERKSt5tupleIJddEEPSo(ptr noundef nonnull align 8 dereferenceable(376) %45, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -28575,12 +28572,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -35285,22 +35282,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFddEE2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -35343,16 +35339,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFddEE20ExplainMatchResultToERKSt5tupleIJdEEPSo(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !878
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !878
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFddEE20ExplainMatchResultToERKSt5tupleIJdEEPSo(ptr noundef nonnull align 8 dereferenceable(352) %45, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -35374,12 +35370,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -40743,22 +40739,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFidEE2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -40801,16 +40796,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFidEE20ExplainMatchResultToERKSt5tupleIJdEEPSo(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !991
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !991
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFidEE20ExplainMatchResultToERKSt5tupleIJdEEPSo(ptr noundef nonnull align 8 dereferenceable(352) %45, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -40832,12 +40827,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46074,22 +46069,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFbdEE2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -46132,16 +46126,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFbdEE20ExplainMatchResultToERKSt5tupleIJdEEPSo(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1083
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1083
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFbdEE20ExplainMatchResultToERKSt5tupleIJdEEPSo(ptr noundef nonnull align 8 dereferenceable(352) %45, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -46163,12 +46157,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52243,22 +52237,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiiddE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -52301,16 +52294,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiiddEE20ExplainMatchResultToERKSt5tupleIJiddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1210
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1210
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiiddEE20ExplainMatchResultToERKSt5tupleIJiddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -52332,12 +52325,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59113,22 +59106,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiiiiE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -59171,16 +59163,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiiiiEE20ExplainMatchResultToERKSt5tupleIJiiiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1359
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1359
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiiiiEE20ExplainMatchResultToERKSt5tupleIJiiiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -59202,12 +59194,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65966,22 +65958,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFN4abs
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -66024,16 +66015,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFN4absl7uint128EvEE20ExplainMatchResultToERKSt5tupleIJEEPSo(ptr noundef nonnull align 8 dereferenceable(336) %23, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1530
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1530
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFN4absl7uint128EvEE20ExplainMatchResultToERKSt5tupleIJEEPSo(ptr noundef nonnull align 8 dereferenceable(336) %45, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -66055,12 +66046,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73925,22 +73916,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFdN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -73983,16 +73973,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFdN4absl19IntervalOpenOpenTagEddEE20ExplainMatchResultToERKSt5tupleIJS3_ddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1680
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1680
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFdN4absl19IntervalOpenOpenTagEddEE20ExplainMatchResultToERKSt5tupleIJS3_ddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -74014,12 +74004,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -85525,22 +85515,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFdN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -85583,16 +85572,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFdN4absl21IntervalOpenClosedTagEddEE20ExplainMatchResultToERKSt5tupleIJS3_ddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1890
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1890
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFdN4absl21IntervalOpenClosedTagEddEE20ExplainMatchResultToERKSt5tupleIJS3_ddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -85614,12 +85603,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -91120,22 +91109,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFdN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -91178,16 +91166,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFdN4absl21IntervalClosedOpenTagEddEE20ExplainMatchResultToERKSt5tupleIJS3_ddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2002
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2002
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFdN4absl21IntervalClosedOpenTagEddEE20ExplainMatchResultToERKSt5tupleIJS3_ddEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -91209,12 +91197,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -95053,12 +95041,10 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %6 = alloca double, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load double, ptr %3, align 8, !tbaa !65
-  %.fr9 = freeze double %7
-  store double %.fr9, ptr %5, align 8, !tbaa !1176
+  store double %7, ptr %5, align 8, !tbaa !1176
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load double, ptr %2, align 8, !tbaa !65
-  %.fr10 = freeze double %9
-  store double %.fr10, ptr %8, align 8, !tbaa !725
+  store double %9, ptr %8, align 8, !tbaa !725
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load i64, ptr %0, align 8, !tbaa !97
   %11 = icmp ne i64 %10, 0
@@ -95169,7 +95155,8 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread: ; preds = %_ZN4absl18c
   br label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
 _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i
-  %65 = fsub double %.fr9, %.fr10
+  %65 = fsub double %7, %9
+  %.fr9 = freeze double %65
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 8
@@ -95178,7 +95165,7 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit: ; preds = %_ZN4absl18containe
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.pre.i.i = load i64, ptr %70, align 8, !tbaa !368
-  %73 = tail call i1 @llvm.is.fpclass.f64(double %65, i32 384)
+  %73 = tail call i1 @llvm.is.fpclass.f64(double %.fr9, i32 384)
   br i1 %73, label %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split, label %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split.us
 
 _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split.us: ; preds = %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit
@@ -95222,7 +95209,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %86, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us
   %.0.i.i.i.us = phi double [ %93, %86 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us ]
-  %94 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %65, double %.fr10)
+  %94 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %.fr9, double %9)
   br label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
 _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split: ; preds = %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
@@ -95260,15 +95247,15 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %111 = lshr i64 %110, 11
   %112 = and i64 %111, 4503599627370495
   %113 = shl nuw nsw i64 %109, 52
-  %reass.sub13 = sub nsw i64 %112, %113
-  %114 = add nsw i64 %reass.sub13, 4602678819172646912
+  %reass.sub12 = sub nsw i64 %112, %113
+  %114 = add nsw i64 %reass.sub12, 4602678819172646912
   %115 = bitcast i64 %114 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %108, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
   %.0.i.i.i = phi double [ %115, %108 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
-  %116 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %65, double %.fr10)
-  %117 = fcmp uge double %116, %.fr9
+  %116 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %.fr9, double %9)
+  %117 = fcmp uge double %116, %7
   br i1 %117, label %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.split, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
 _ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread
@@ -100869,22 +100856,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -100927,16 +100913,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl19IntervalOpenOpenTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2177
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2177
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl19IntervalOpenOpenTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -100958,12 +100944,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -106328,22 +106314,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -106386,16 +106371,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl21IntervalOpenClosedTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2282
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2282
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl21IntervalOpenClosedTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -106417,12 +106402,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -111728,22 +111713,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -111786,16 +111770,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl21IntervalClosedOpenTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2387
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2387
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl21IntervalClosedOpenTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -111817,12 +111801,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -132554,22 +132538,21 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiN4ab
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !511
-  %.fr22 = freeze ptr %6
   %7 = load ptr, ptr %4, align 8, !tbaa !513
-  %.fr23 = freeze ptr %7
-  %8 = ptrtoint ptr %.fr22 to i64
-  %9 = ptrtoint ptr %.fr23 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr i64 %10, 4
+  %.fr = freeze i64 %10
+  %11 = ashr i64 %.fr, 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.82, i64 noundef 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %11)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.83, i64 noundef 1)
-  %15 = icmp eq i64 %10, 16
+  %15 = icmp eq i64 %.fr, 16
   %16 = select i1 %15, ptr @.str.84, ptr @.str.85
   %17 = select i1 %15, i64 32, i64 30
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %16, i64 noundef %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.86, i64 noundef 2)
-  %.not = icmp eq ptr %.fr22, %.fr23
+  %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -132612,16 +132595,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %23, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
   %42 = add nuw i64 %.021.us, 1
-  %exitcond25.not = icmp eq i64 %42, %11
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2697
+  %exitcond24.not = icmp eq i64 %42, %11
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2697
 
-._crit_edge.loopexit24:                           ; preds = %57, %49
+._crit_edge.loopexit23:                           ; preds = %57, %49
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, i64 noundef 4)
   tail call void @_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE20ExplainMatchResultToERKSt5tupleIJS3_iiEEPSo(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2)
   tail call void @_ZNK7testing8internal15ExpectationBase19DescribeCallCountToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull %2)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit24, %3
+._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us, %._crit_edge.loopexit23, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -132643,12 +132626,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us: ; preds = %33, 
   %55 = load i32, ptr %54, align 8, !tbaa !18
   %56 = or i32 %55, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %53, i32 noundef %56)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 
 57:                                               ; preds = %.lr.ph.split
   %58 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #35
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %48, i64 noundef %58)
-  br label %._crit_edge.loopexit24
+  br label %._crit_edge.loopexit23
 }
 
 ; Function Attrs: mustprogress uwtable

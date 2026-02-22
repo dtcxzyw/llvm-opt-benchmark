@@ -1376,33 +1376,31 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit: ; preds = %4, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i.i
   %.sroa.079.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.079.0.copyload.fr = freeze ptr %.sroa.079.0.copyload
   %.sroa.381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.381.0.copyload = load ptr, ptr %.sroa.381.0..sroa_idx, align 8
-  %.sroa.381.0.copyload.fr = freeze ptr %.sroa.381.0.copyload
   %.sroa.785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.785.0.copyload = load i64, ptr %.sroa.785.0..sroa_idx, align 8
   %.sroa.1390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.1390.0.copyload = load ptr, ptr %.sroa.1390.0..sroa_idx, align 8
   %.sroa.1891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.1891.0.copyload = load ptr, ptr %.sroa.1891.0..sroa_idx, align 8
-  %27 = icmp eq ptr %.sroa.079.0.copyload.fr, null
+  %27 = icmp eq ptr %.sroa.079.0.copyload, null
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %30 = getelementptr i8, ptr %.sroa.079.0.copyload.fr, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload.fr, i64 88
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload.fr, i64 48
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload.fr, i64 56
-  %34 = icmp ne ptr %.sroa.381.0.copyload.fr, %30
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload, i64 56
+  %34 = icmp ne ptr %.sroa.381.0.copyload, %30
+  %.fr = freeze i1 %34
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.381.0.copyload.fr, i64 16
-  %.not = icmp eq ptr %.sroa.381.0.copyload.fr, %30
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.381.0.copyload, i64 16
   br label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit
 
-_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge: ; preds = %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23
-  %.sroa.785.0.be = phi i64 [ %147, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23 ], [ %.sroa.785.1, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i ], [ %.sroa.785.1.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us ]
-  %.sroa.1390.0.be = phi ptr [ null, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23 ], [ %.sroa.1390.2, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i ], [ %.sroa.1390.2.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us ]
-  %.sroa.1891.0.be = phi ptr [ %storemerge.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i ], [ %storemerge.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23 ], [ %storemerge.i.i.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us ]
+_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge: ; preds = %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us
+  %.sroa.785.0.be = phi i64 [ %.sroa.785.1.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us ], [ %.sroa.785.1, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i ], [ %147, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23 ]
+  %.sroa.1390.0.be = phi ptr [ %.sroa.1390.2.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us ], [ %.sroa.1390.2, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i ], [ null, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23 ]
+  %.sroa.1891.0.be = phi ptr [ %storemerge.i.i.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i.us ], [ %storemerge.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23 ], [ %storemerge.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i ]
   br label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit
 
 _ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit: ; preds = %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit
@@ -1411,7 +1409,7 @@ _ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vector
   %.sroa.1891.0 = phi ptr [ %.sroa.1891.0.copyload, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit ], [ %.sroa.1891.0.be, %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge ]
   %.0 = phi i64 [ 0, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit ], [ %103, %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge ]
   %37 = load ptr, ptr %2, align 8
-  %.not.i.i18 = icmp eq ptr %.sroa.079.0.copyload.fr, %37
+  %.not.i.i18 = icmp eq ptr %.sroa.079.0.copyload, %37
   br i1 %.not.i.i18, label %38, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread
 
 38:                                               ; preds = %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit
@@ -1421,7 +1419,7 @@ _ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vector
   %40 = load i64, ptr %29, align 8
   %41 = icmp ne i64 %.sroa.785.0, %40
   %42 = load ptr, ptr %28, align 8
-  %43 = icmp ne ptr %.sroa.381.0.copyload.fr, %42
+  %43 = icmp ne ptr %.sroa.381.0.copyload, %42
   %.not3.i.i.i = select i1 %41, i1 true, i1 %43
   br i1 %.not3.i.i.i, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread, label %44
 
@@ -1456,7 +1454,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__px
   %.09.i.i.i.i.i.i = phi i64 [ %55, %53 ], [ 8, %56 ]
   %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.09.i.i.i.i.i.i, i64 %45)
   %58 = icmp ne i64 %.sroa.785.0, %.sroa.speculated.i.i.i.i
-  %.not111 = or i1 %58, %34
+  %.not111 = or i1 %58, %.fr
   %59 = load ptr, ptr %35, align 8
   %60 = icmp ne ptr %.sroa.1891.0, %59
   %or.cond = select i1 %.not111, i1 %60, i1 false
@@ -1535,20 +1533,18 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_dea
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit: ; preds = %63, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit.i
   %.sroa.067.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.067.0.copyload.fr = freeze ptr %.sroa.067.0.copyload
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.381.0..sroa_idx, align 8
-  %.sroa.3.0.copyload.fr = freeze ptr %.sroa.3.0.copyload
   %.sroa.7.0.copyload = load i64, ptr %.sroa.785.0..sroa_idx, align 8
   %.sroa.13.0.copyload = load ptr, ptr %.sroa.1390.0..sroa_idx, align 8
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.1891.0..sroa_idx, align 8
-  %91 = icmp eq ptr %.sroa.067.0.copyload.fr, null
-  %92 = getelementptr i8, ptr %.sroa.067.0.copyload.fr, i64 32
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload.fr, i64 88
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload.fr, i64 48
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload.fr, i64 56
-  %96 = icmp ne ptr %.sroa.3.0.copyload.fr, %92
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.fr, i64 16
-  %.not127 = icmp eq ptr %.sroa.3.0.copyload.fr, %92
+  %91 = icmp eq ptr %.sroa.067.0.copyload, null
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.copyload, i64 56
+  %96 = icmp ne ptr %.sroa.3.0.copyload, %92
+  %.fr123 = freeze i1 %96
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 16
   br label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63
 
 _ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i, %39, %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit
@@ -1559,7 +1555,7 @@ _ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0
   %102 = add i64 %101, %99
   %103 = sub i64 %102, %100
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.1891.0, i64 16
-  br i1 %.not, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread.split, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread.split.us
+  br i1 %.fr, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread.split.us, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread.split
 
 _ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread.split.us: ; preds = %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23.us
   %.sroa.785.1.us = phi i64 [ %126, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23.us ], [ %.sroa.785.0, %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread ]
@@ -1678,8 +1674,8 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
 _ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23: ; preds = %159, %156
   %.09.i.i.i.i.i.i24 = phi i64 [ %158, %156 ], [ 8, %159 ]
   %.sroa.speculated.i.i.i.i25 = tail call noundef i64 @llvm.umin.i64(i64 %.09.i.i.i.i.i.i24, i64 %148)
-  %.not126 = icmp eq i64 %147, %.sroa.speculated.i.i.i.i25
-  br i1 %.not126, label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge, label %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit6.i.i
+  %.not = icmp eq i64 %147, %.sroa.speculated.i.i.i.i25
+  br i1 %.not, label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit.backedge, label %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit6.i.i
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit6.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i23
   %161 = or i64 %147, 1
@@ -1694,10 +1690,10 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %168 = load ptr, ptr %167, align 8
   br label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit.thread.split, !llvm.loop !58
 
-_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge: ; preds = %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50
-  %.sroa.13.0.be = phi ptr [ null, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50 ], [ %.sroa.13.2, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44 ], [ %.sroa.13.2.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us ]
-  %.sroa.7.0.be = phi i64 [ %249, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50 ], [ %.sroa.7.1, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44 ], [ %.sroa.7.1.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us ]
-  %.sroa.18.0.be = phi ptr [ %storemerge.i.i42, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44 ], [ %storemerge.i.i42, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50 ], [ %storemerge.i.i42.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us ]
+_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge: ; preds = %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us
+  %.sroa.13.0.be = phi ptr [ %.sroa.13.2.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us ], [ %.sroa.13.2, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44 ], [ null, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50 ]
+  %.sroa.7.0.be = phi i64 [ %.sroa.7.1.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us ], [ %.sroa.7.1, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44 ], [ %249, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50 ]
+  %.sroa.18.0.be = phi ptr [ %storemerge.i.i42.us, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44.us ], [ %storemerge.i.i42, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50 ], [ %storemerge.i.i42, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit.i.i44 ]
   br label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63
 
 _ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63: ; preds = %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit
@@ -1705,7 +1701,7 @@ _ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vector
   %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit ], [ %.sroa.7.0.be, %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge ]
   %.sroa.18.0 = phi ptr [ %.sroa.18.0.copyload, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit ], [ %.sroa.18.0.be, %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge ]
   %169 = load ptr, ptr %2, align 8
-  %.not.i.i29 = icmp eq ptr %.sroa.067.0.copyload.fr, %169
+  %.not.i.i29 = icmp eq ptr %.sroa.067.0.copyload, %169
   br i1 %.not.i.i29, label %170, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread
 
 170:                                              ; preds = %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63
@@ -1715,7 +1711,7 @@ _ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vector
   %172 = load i64, ptr %29, align 8
   %173 = icmp ne i64 %.sroa.7.0, %172
   %174 = load ptr, ptr %28, align 8
-  %175 = icmp ne ptr %.sroa.3.0.copyload.fr, %174
+  %175 = icmp ne ptr %.sroa.3.0.copyload, %174
   %.not3.i.i.i31 = select i1 %173, i1 true, i1 %175
   br i1 %.not3.i.i.i31, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread, label %176
 
@@ -1750,7 +1746,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__px
   %.09.i.i.i.i.i.i37 = phi i64 [ %187, %185 ], [ 8, %188 ]
   %.sroa.speculated.i.i.i.i38 = tail call noundef i64 @llvm.umin.i64(i64 %.09.i.i.i.i.i.i37, i64 %177)
   %190 = icmp ne i64 %.sroa.7.0, %.sroa.speculated.i.i.i.i38
-  %.not113 = or i1 %190, %96
+  %.not113 = or i1 %190, %.fr123
   %191 = load ptr, ptr %35, align 8
   %192 = icmp ne ptr %.sroa.18.0, %191
   %or.cond108 = select i1 %.not113, i1 %192, i1 false
@@ -1775,7 +1771,7 @@ _ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0
   %205 = getelementptr inbounds i8, ptr %201, i64 %204
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEvNS6_IPS1_S3_EET_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %205, ptr %195, ptr %199)
   %206 = getelementptr inbounds nuw i8, ptr %.sroa.18.0, i64 16
-  br i1 %.not127, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread.split, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread.split.us
+  br i1 %.fr123, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread.split.us, label %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread.split
 
 _ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread.split.us: ; preds = %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50.us
   %.sroa.13.1.us = phi ptr [ %235, %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50.us ], [ %.sroa.13.0, %_ZN3tbb6detail2d1neINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_S7_EEbRKNS1_18segmented_iteratorIT_T0_EERKNSE_ISF_T1_EE.exit40.thread ]
@@ -1894,8 +1890,8 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
 _ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50: ; preds = %261, %258
   %.09.i.i.i.i.i.i51 = phi i64 [ %260, %258 ], [ 8, %261 ]
   %.sroa.speculated.i.i.i.i52 = tail call noundef i64 @llvm.umin.i64(i64 %.09.i.i.i.i.i.i51, i64 %250)
-  %.not128 = icmp eq i64 %249, %.sroa.speculated.i.i.i.i52
-  br i1 %.not128, label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge, label %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit6.i.i55
+  %.not126 = icmp eq i64 %249, %.sroa.speculated.i.i.i.i52
+  br i1 %.not126, label %_ZN3tbb6detail2d118segmented_iteratorINS1_26enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS7_EENS1_23cache_aligned_allocatorIS9_EELNS1_18ets_key_usage_typeE1EEES7_EppEv.exit63.backedge, label %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit6.i.i55
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaISA_EEEELm128EEENS1_23cache_aligned_allocatorISE_EEEESC_EptEv.exit6.i.i55: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS6_EENS1_23cache_aligned_allocatorIS8_EELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i50
   %263 = or i64 %249, 1

@@ -21922,23 +21922,22 @@ define linkonce_odr hidden void @_ZSt13__heap_selectISt16reverse_iteratorIN9__gn
   store i64 %8, ptr %6, align 8, !tbaa !366
   call void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEENS1_5__ops15_Iter_less_iterEEvT_SB_RT0_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
   %9 = load i64, ptr %1, align 8, !tbaa !366
-  %.fr23 = freeze i64 %9
-  %10 = inttoptr i64 %.fr23 to ptr
+  %10 = inttoptr i64 %9 to ptr
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8, !tbaa !366
   %11 = icmp ult ptr %.sroa.0.0.copyload.i.i, %10
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %12 = load i64, ptr %0, align 8, !tbaa !366
-  %.fr22 = freeze i64 %12
-  %13 = inttoptr i64 %.fr22 to ptr
+  %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
-  %15 = sub i64 %.fr22, %.fr23
-  %16 = ashr i64 %15, 2
+  %15 = sub i64 %12, %9
+  %.fr = freeze i64 %15
+  %16 = ashr i64 %.fr, 2
   %17 = add nsw i64 %16, -1
   %18 = sdiv i64 %17, 2
   %19 = icmp sgt i64 %16, 2
-  %20 = and i64 %15, 4
+  %20 = and i64 %.fr, 4
   %21 = icmp eq i64 %20, 0
   %22 = add nsw i64 %16, -2
   %23 = ashr exact i64 %22, 1
@@ -22134,13 +22133,12 @@ _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vector
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEENS1_5__ops15_Iter_less_iterEEvT_SB_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #3 comdat {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
-  %.sroa.0.0.copyload.i.i.fr = freeze ptr %.sroa.0.0.copyload.i.i
   %.sroa.0.0.copyload.i2.i = load ptr, ptr %1, align 8, !tbaa !366
-  %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i.fr to i64
-  %.sroa.0.0.copyload.i2.i.fr = freeze ptr %.sroa.0.0.copyload.i2.i
-  %5 = ptrtoint ptr %.sroa.0.0.copyload.i2.i.fr to i64
+  %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
+  %5 = ptrtoint ptr %.sroa.0.0.copyload.i2.i to i64
   %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 2
+  %.fr = freeze i64 %6
+  %7 = ashr exact i64 %.fr, 2
   %8 = icmp slt i64 %7, 2
   br i1 %8, label %.loopexit, label %9
 
@@ -22149,7 +22147,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = and i64 %6, 4
+  %14 = and i64 %.fr, 4
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   br i1 %15, label %.split.preheader, label %.split.us
@@ -22157,17 +22155,17 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %18
+  %19 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -4
   %21 = sub nsw i64 0, %16
-  %22 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %21
+  %22 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -4
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEljNS1_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
   %.08.us = phi i64 [ %63, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEljNS1_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us ], [ %11, %9 ]
   %24 = sub i64 0, %.08.us
-  %25 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %24
+  %25 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !287
   %28 = icmp slt i64 %.08.us, %13
@@ -22178,10 +22176,10 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
   %29 = shl i64 %.030.i.us, 1
   %30 = add i64 %29, 2
   %31 = sub nuw nsw i64 -2, %29
-  %32 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %31
+  %32 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %31
   %33 = or disjoint i64 %29, 1
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %34
+  %35 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %34
   %36 = getelementptr inbounds i8, ptr %32, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !287
   %38 = getelementptr inbounds i8, ptr %35, i64 -4
@@ -22189,11 +22187,11 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
   %40 = icmp ult i32 %37, %39
   %spec.select.i.us = select i1 %40, i64 %33, i64 %30
   %41 = sub i64 0, %spec.select.i.us
-  %42 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %41
+  %42 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
   %44 = load i32, ptr %43, align 4, !tbaa !287
   %45 = sub i64 0, %.030.i.us
-  %46 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %45
+  %46 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   store i32 %44, ptr %47, align 4, !tbaa !287
   %48 = icmp slt i64 %spec.select.i.us, %13
@@ -22208,7 +22206,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
   %.017.in.i.i.us = add nsw i64 %.0916.i.i.us, -1
   %.017.i.i.us = sdiv i64 %.017.in.i.i.us, 2
   %50 = sub nsw i64 0, %.017.i.i.us
-  %51 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %50
+  %51 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -4
   %53 = load i32, ptr %52, align 4, !tbaa !287
   %54 = icmp ult i32 %53, %27
@@ -22216,7 +22214,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
 
 55:                                               ; preds = %.lr.ph.i.i.us
   %56 = sub nsw i64 0, %.0916.i.i.us
-  %57 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %56
+  %57 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -4
   store i32 %53, ptr %58, align 4, !tbaa !287
   %59 = icmp sgt i64 %.017.i.i.us, %.08.us
@@ -22225,7 +22223,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
 _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEljNS1_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %55, %.split.us, %._crit_edge.i.us
   %.09.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0916.i.i.us, %.lr.ph.i.i.us ], [ %.017.i.i.us, %55 ]
   %60 = sub nsw i64 0, %.09.lcssa.i.i.us
-  %61 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %60
+  %61 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -4
   store i32 %27, ptr %62, align 4, !tbaa !287
   %.not.us = icmp eq i64 %.08.us, 0
@@ -22235,7 +22233,7 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vec
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEljNS1_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
   %.08 = phi i64 [ %107, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEljNS1_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ], [ %11, %.split.preheader ]
   %64 = sub i64 0, %.08
-  %65 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %64
+  %65 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -4
   %67 = load i32, ptr %66, align 4, !tbaa !287
   %68 = icmp slt i64 %.08, %13
@@ -22246,10 +22244,10 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vec
   %69 = shl i64 %.030.i, 1
   %70 = add i64 %69, 2
   %71 = sub nuw nsw i64 -2, %69
-  %72 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %71
+  %72 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %71
   %73 = or disjoint i64 %69, 1
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %74
+  %75 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %74
   %76 = getelementptr inbounds i8, ptr %72, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !287
   %78 = getelementptr inbounds i8, ptr %75, i64 -4
@@ -22257,11 +22255,11 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vec
   %80 = icmp ult i32 %77, %79
   %spec.select.i = select i1 %80, i64 %73, i64 %70
   %81 = sub i64 0, %spec.select.i
-  %82 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 -4
   %84 = load i32, ptr %83, align 4, !tbaa !287
   %85 = sub i64 0, %.030.i
-  %86 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %85
+  %86 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %85
   %87 = getelementptr inbounds i8, ptr %86, i64 -4
   store i32 %84, ptr %87, align 4, !tbaa !287
   %88 = icmp slt i64 %spec.select.i, %13
@@ -22287,7 +22285,7 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vec
   %.017.in.i.i = add nsw i64 %.0916.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
   %94 = sub nsw i64 0, %.017.i.i
-  %95 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %94
+  %95 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %94
   %96 = getelementptr inbounds i8, ptr %95, i64 -4
   %97 = load i32, ptr %96, align 4, !tbaa !287
   %98 = icmp ult i32 %97, %67
@@ -22295,7 +22293,7 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vec
 
 99:                                               ; preds = %.lr.ph.i.i
   %100 = sub nsw i64 0, %.0916.i.i
-  %101 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %100
+  %101 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -4
   store i32 %97, ptr %102, align 4, !tbaa !287
   %103 = icmp sgt i64 %.017.i.i, %.08
@@ -22304,7 +22302,7 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vec
 _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEljNS1_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %.lr.ph.i.i, %99, %92
   %.09.lcssa.i.i = phi i64 [ %.122.i, %92 ], [ %.017.i.i, %99 ], [ %.0916.i.i, %.lr.ph.i.i ]
   %104 = sub nsw i64 0, %.09.lcssa.i.i
-  %105 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.fr, i64 %104
+  %105 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %104
   %106 = getelementptr inbounds i8, ptr %105, i64 -4
   store i32 %67, ptr %106, align 4, !tbaa !287
   %.not = icmp eq i64 %.08, 0

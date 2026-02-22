@@ -3257,8 +3257,8 @@ declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnul
 define internal fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_SA_T0_SB_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %5) unnamed_addr #3 {
   %7 = icmp eq i64 %3, 0
   %8 = icmp eq i64 %4, 0
-  %or.cond83 = or i1 %7, %8
-  br i1 %or.cond83, label %.loopexit, label %.lr.ph
+  %or.cond81 = or i1 %7, %8
+  br i1 %or.cond81, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3266,19 +3266,19 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15
   br label %10
 
 10:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr7888 = phi i64 [ %4, %.lr.ph ], [ %91, %tailrecurse ]
-  %.tr7787 = phi i64 [ %3, %.lr.ph ], [ %90, %tailrecurse ]
-  %.tr7585 = phi ptr [ %1, %.lr.ph ], [ %.071, %tailrecurse ]
-  %.tr84 = phi ptr [ %0, %.lr.ph ], [ %89, %tailrecurse ]
-  %11 = add nsw i64 %.tr7888, %.tr7787
+  %.tr7686 = phi i64 [ %4, %.lr.ph ], [ %91, %tailrecurse ]
+  %.tr7585 = phi i64 [ %3, %.lr.ph ], [ %90, %tailrecurse ]
+  %.tr7383 = phi ptr [ %1, %.lr.ph ], [ %.069, %tailrecurse ]
+  %.tr82 = phi ptr [ %0, %.lr.ph ], [ %89, %tailrecurse ]
+  %11 = add nsw i64 %.tr7686, %.tr7585
   %12 = icmp eq i64 %11, 2
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %10
   %.val = load ptr, ptr %5, align 8, !tbaa !135
   %.val42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !137
-  %.val43 = load i32, ptr %.tr7585, align 4, !tbaa !73
-  %.val44 = load i32, ptr %.tr84, align 4, !tbaa !73
+  %.val43 = load i32, ptr %.tr7383, align 4, !tbaa !73
+  %.val44 = load i32, ptr %.tr82, align 4, !tbaa !73
   %14 = sext i32 %.val43 to i64
   %15 = sext i32 %.val44 to i64
   %16 = mul i64 %.val42, %14
@@ -3297,70 +3297,67 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIf
   br i1 %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread, label %.loopexit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread: ; preds = %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit
-  store i32 %.val43, ptr %.tr84, align 4, !tbaa !73
-  store i32 %.val44, ptr %.tr7585, align 4, !tbaa !73
+  store i32 %.val43, ptr %.tr82, align 4, !tbaa !73
+  store i32 %.val44, ptr %.tr7383, align 4, !tbaa !73
   br label %.loopexit
 
 26:                                               ; preds = %10
-  %27 = icmp sgt i64 %.tr7787, %.tr7888
+  %27 = icmp sgt i64 %.tr7585, %.tr7686
   %.sroa.05.0.copyload = load ptr, ptr %5, align 8, !tbaa !133
   %.sroa.26.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
-  %28 = ptrtoint ptr %.tr7585 to i64
+  %28 = ptrtoint ptr %.tr7383 to i64
   br i1 %27, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit50
 
 _ZSt7advanceIPilEvRT_T0_.exit:                    ; preds = %26
-  %29 = sdiv i64 %.tr7787, 2
-  %30 = getelementptr inbounds i32, ptr %.tr84, i64 %29
+  %29 = sdiv i64 %.tr7585, 2
+  %30 = getelementptr inbounds i32, ptr %.tr82, i64 %29
   %.val45 = load i32, ptr %30, align 4
-  %.0.val.fr.i = freeze i32 %.val45
   %31 = sub i64 %9, %28
   %32 = ashr exact i64 %31, 2
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i:            ; preds = %_ZSt7advanceIPilEvRT_T0_.exit
-  %34 = sext i32 %.0.val.fr.i to i64
+  %34 = sext i32 %.val45 to i64
   %35 = mul i64 %.sroa.26.0.copyload, %34
   %36 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !120
-  %.fr8.i = freeze float %37
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i
 
 _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %54, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i
-  %.012.i = phi ptr [ %.tr7585, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %56, %54 ]
-  %.01110.i = phi i64 [ %32, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %55, %54 ]
-  %38 = lshr i64 %.01110.i, 1
-  %39 = getelementptr inbounds nuw i32, ptr %.012.i, i64 %38
+  %.010.i = phi ptr [ %.tr7383, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %56, %54 ]
+  %.0119.i = phi i64 [ %32, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %55, %54 ]
+  %38 = lshr i64 %.0119.i, 1
+  %39 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %38
   %.val14.i = load i32, ptr %39, align 4, !tbaa !73
-  %.val14.fr.i = freeze i32 %.val14.i
-  %40 = sext i32 %.val14.fr.i to i64
+  %40 = sext i32 %.val14.i to i64
   %41 = mul i64 %.sroa.26.0.copyload, %40
   %42 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !120
-  %.fr.i = freeze float %43
-  %44 = fcmp ogt float %.fr.i, %.fr8.i
+  %44 = fcmp ogt float %43, %37
   br i1 %44, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %46 = xor i64 %38, -1
-  %47 = add nsw i64 %.01110.i, %46
+  %47 = add nsw i64 %.0119.i, %46
   br label %54
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
-  %48 = fcmp oeq float %.fr.i, %.fr8.i
-  %49 = icmp ult i32 %.val14.fr.i, %.0.val.fr.i
+  %48 = fcmp oeq float %43, %37
+  %49 = icmp ult i32 %.val14.i, %.val45
   %50 = and i1 %49, %48
+  %cond.fr4.i = freeze i1 %50
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %52 = xor i64 %38, -1
-  %53 = add nsw i64 %.01110.i, %52
-  %spec.select.i = select i1 %50, i64 %53, i64 %38
-  %spec.select9.i = select i1 %50, ptr %51, ptr %.012.i
+  %53 = add nsw i64 %.0119.i, %52
+  %spec.select.i = select i1 %cond.fr4.i, i64 %53, i64 %38
+  %spec.select8.i = select i1 %cond.fr4.i, ptr %51, ptr %.010.i
   br label %54
 
 54:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i, %.thread.i
   %55 = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %47, %.thread.i ]
-  %56 = phi ptr [ %spec.select9.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %45, %.thread.i ]
+  %56 = phi ptr [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %45, %.thread.i ]
   %57 = icmp sgt i64 %55, 0
   br i1 %57, label %_ZSt7advanceIPilEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !138
 
@@ -3370,83 +3367,80 @@ _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_11
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %28, %_ZSt7advanceIPilEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %56, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr7585, %_ZSt7advanceIPilEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %56, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr7383, %_ZSt7advanceIPilEvRT_T0_.exit ]
   %58 = sub i64 %.pre-phi, %28
   %59 = ashr exact i64 %58, 2
   br label %tailrecurse
 
 _ZSt7advanceIPilEvRT_T0_.exit50:                  ; preds = %26
-  %60 = sdiv i64 %.tr7888, 2
-  %61 = getelementptr inbounds i32, ptr %.tr7585, i64 %60
+  %60 = sdiv i64 %.tr7686, 2
+  %61 = getelementptr inbounds i32, ptr %.tr7383, i64 %60
   %.val46 = load i32, ptr %61, align 4
-  %.0.val.fr.i53 = freeze i32 %.val46
-  %62 = ptrtoint ptr %.tr84 to i64
+  %62 = ptrtoint ptr %.tr82 to i64
   %63 = sub i64 %28, %62
   %64 = ashr exact i64 %63, 2
   %65 = icmp sgt i64 %64, 0
-  br i1 %65, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
+  br i1 %65, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
 
-_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit50
-  %66 = sext i32 %.0.val.fr.i53 to i64
+_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit50
+  %66 = sext i32 %.val46 to i64
   %67 = mul i64 %.sroa.26.0.copyload, %66
   %68 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !120
-  %.fr.i56 = freeze float %69
-  br label %_ZSt7advanceIPilEvRT_T0_.exit.i57
+  br label %_ZSt7advanceIPilEvRT_T0_.exit.i55
 
-_ZSt7advanceIPilEvRT_T0_.exit.i57:                ; preds = %.thread.i61, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55
-  %.010.i = phi ptr [ %.tr84, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55 ], [ %85, %.thread.i61 ]
-  %.0119.i = phi i64 [ %64, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55 ], [ %84, %.thread.i61 ]
-  %70 = lshr i64 %.0119.i, 1
-  %71 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %70
+_ZSt7advanceIPilEvRT_T0_.exit.i55:                ; preds = %.thread.i59, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54
+  %.09.i = phi ptr [ %.tr82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54 ], [ %85, %.thread.i59 ]
+  %.0118.i = phi i64 [ %64, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54 ], [ %84, %.thread.i59 ]
+  %70 = lshr i64 %.0118.i, 1
+  %71 = getelementptr inbounds nuw i32, ptr %.09.i, i64 %70
   %.val15.i = load i32, ptr %71, align 4, !tbaa !73
-  %.val15.fr.i = freeze i32 %.val15.i
-  %72 = sext i32 %.val15.fr.i to i64
+  %72 = sext i32 %.val15.i to i64
   %73 = mul i64 %.sroa.26.0.copyload, %72
   %74 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !120
-  %.fr8.i60 = freeze float %75
-  %76 = fcmp ogt float %.fr.i56, %.fr8.i60
-  br i1 %76, label %.thread.i61, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i
+  %76 = fcmp ogt float %69, %75
+  br i1 %76, label %.thread.i59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i57
-  %77 = fcmp oeq float %.fr.i56, %.fr8.i60
-  %78 = icmp ult i32 %.0.val.fr.i53, %.val15.fr.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i55
+  %77 = fcmp oeq float %69, %75
+  %78 = icmp ult i32 %.val46, %.val15.i
   %79 = and i1 %78, %77
-  br i1 %79, label %.thread.i61, label %80
+  %cond.fr4.i58 = freeze i1 %79
+  br i1 %cond.fr4.i58, label %.thread.i59, label %80
 
 80:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i
   %81 = xor i64 %70, -1
-  %82 = add nsw i64 %.0119.i, %81
+  %82 = add nsw i64 %.0118.i, %81
   %83 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  br label %.thread.i61
+  br label %.thread.i59
 
-.thread.i61:                                      ; preds = %80, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i57
-  %84 = phi i64 [ %82, %80 ], [ %70, %_ZSt7advanceIPilEvRT_T0_.exit.i57 ], [ %70, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
-  %85 = phi ptr [ %83, %80 ], [ %.010.i, %_ZSt7advanceIPilEvRT_T0_.exit.i57 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
+.thread.i59:                                      ; preds = %80, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i55
+  %84 = phi i64 [ %82, %80 ], [ %70, %_ZSt7advanceIPilEvRT_T0_.exit.i55 ], [ %70, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
+  %85 = phi ptr [ %83, %80 ], [ %.09.i, %_ZSt7advanceIPilEvRT_T0_.exit.i55 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
   %86 = icmp sgt i64 %84, 0
-  br i1 %86, label %_ZSt7advanceIPilEvRT_T0_.exit.i57, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !139
+  br i1 %86, label %_ZSt7advanceIPilEvRT_T0_.exit.i55, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !139
 
-_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i61
-  %.pre93 = ptrtoint ptr %85 to i64
+_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i59
+  %.pre91 = ptrtoint ptr %85 to i64
   br label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit50
-  %.pre-phi94 = phi i64 [ %.pre93, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %62, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
-  %.0.lcssa.i54 = phi ptr [ %85, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr84, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
-  %87 = sub i64 %.pre-phi94, %62
+  %.pre-phi92 = phi i64 [ %.pre91, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %62, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
+  %.0.lcssa.i53 = phi ptr [ %85, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr82, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
+  %87 = sub i64 %.pre-phi92, %62
   %88 = ashr exact i64 %87, 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
-  %.072 = phi ptr [ %30, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i54, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %.071 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %61, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.070 = phi ptr [ %30, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i53, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.069 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %61, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.039 = phi i64 [ %59, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %60, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.0 = phi i64 [ %29, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %88, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %89 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.072, ptr noundef %.tr7585, ptr noundef %.071)
-  tail call fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_SA_T0_SB_T1_(ptr noundef %.tr84, ptr noundef %.072, ptr noundef %89, i64 noundef %.0, i64 noundef %.039, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5)
-  %90 = sub nsw i64 %.tr7787, %.0
-  %91 = sub nsw i64 %.tr7888, %.039
+  %89 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.070, ptr noundef %.tr7383, ptr noundef %.069)
+  tail call fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_SA_T0_SB_T1_(ptr noundef %.tr82, ptr noundef %.070, ptr noundef %89, i64 noundef %.0, i64 noundef %.039, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %5)
+  %90 = sub nsw i64 %.tr7585, %.0
+  %91 = sub nsw i64 %.tr7686, %.039
   %92 = icmp eq i64 %90, 0
   %93 = icmp eq i64 %91, 0
   %or.cond = or i1 %92, %93
@@ -3789,10 +3783,10 @@ _ZSt22__chunk_insertion_sortIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GL
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %7) unnamed_addr #3 {
-  %.not130 = icmp sgt i64 %3, %4
-  %.not65131 = icmp sgt i64 %3, %6
-  %or.cond132 = or i1 %.not65131, %.not130
-  br i1 %or.cond132, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not128 = icmp sgt i64 %3, %4
+  %.not65129 = icmp sgt i64 %3, %6
+  %or.cond130 = or i1 %.not65129, %.not128
+  br i1 %or.cond130, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3800,12 +3794,12 @@ define internal fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_It
   br label %41
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr116.lcssa = phi ptr [ %1, %8 ], [ %.0112, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %10 = ptrtoint ptr %.tr116.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr114.lcssa = phi ptr [ %1, %8 ], [ %.0110, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %10 = ptrtoint ptr %.tr114.lcssa to i64
   %11 = ptrtoint ptr %.tr.lcssa to i64
   %12 = sub i64 %10, %11
-  %.not.i.i.i.i.i = icmp eq ptr %.tr116.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr114.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, label %13
 
 13:                                               ; preds = %tailrecurse._crit_edge
@@ -3814,27 +3808,27 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %tailrecurse._crit_edge, %13
   %14 = getelementptr inbounds i8, ptr %5, i64 %12
-  %.sroa.0110.0.copyload = load ptr, ptr %7, align 8, !tbaa !133
-  %.sroa.2111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2111.0.copyload = load i64, ptr %.sroa.2111.0..sroa_idx, align 8, !tbaa !75
-  %15 = icmp ne ptr %.tr116.lcssa, %.tr.lcssa
-  %16 = icmp ne ptr %.tr116.lcssa, %2
+  %.sroa.0108.0.copyload = load ptr, ptr %7, align 8, !tbaa !133
+  %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.2109.0.copyload = load i64, ptr %.sroa.2109.0..sroa_idx, align 8, !tbaa !75
+  %15 = icmp ne ptr %.tr114.lcssa, %.tr.lcssa
+  %16 = icmp ne ptr %.tr114.lcssa, %2
   %17 = and i1 %15, %16
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %33
   %.03.i = phi ptr [ %34, %33 ], [ %.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %.0182.i = phi ptr [ %.1.i, %33 ], [ %5, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
-  %.0191.i = phi ptr [ %.120.i, %33 ], [ %.tr116.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
+  %.0191.i = phi ptr [ %.120.i, %33 ], [ %.tr114.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %.019.val.i = load i32, ptr %.0191.i, align 4, !tbaa !73
   %.018.val.i = load i32, ptr %.0182.i, align 4, !tbaa !73
   %18 = sext i32 %.019.val.i to i64
   %19 = sext i32 %.018.val.i to i64
-  %20 = mul i64 %.sroa.2111.0.copyload, %18
-  %21 = getelementptr inbounds nuw float, ptr %.sroa.0110.0.copyload, i64 %20
+  %20 = mul i64 %.sroa.2109.0.copyload, %18
+  %21 = getelementptr inbounds nuw float, ptr %.sroa.0108.0.copyload, i64 %20
   %22 = load float, ptr %21, align 4, !tbaa !120
-  %23 = mul i64 %.sroa.2111.0.copyload, %19
-  %24 = getelementptr inbounds nuw float, ptr %.sroa.0110.0.copyload, i64 %23
+  %23 = mul i64 %.sroa.2109.0.copyload, %19
+  %24 = getelementptr inbounds nuw float, ptr %.sroa.0108.0.copyload, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !120
   %26 = fcmp ogt float %22, %25
   br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.i
@@ -3878,26 +3872,26 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %._crit_edge.i
   br label %_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_T0_SB_T1_T2_.exit
 
 41:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
-  %.not138 = phi i1 [ %.not130, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr119137 = phi i64 [ %4, %.lr.ph ], [ %173, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr118136 = phi i64 [ %3, %.lr.ph ], [ %140, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr116134 = phi ptr [ %1, %.lr.ph ], [ %.0112, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr133 = phi ptr [ %0, %.lr.ph ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.not66 = icmp sgt i64 %.tr119137, %6
+  %.not136 = phi i1 [ %.not128, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr117135 = phi i64 [ %4, %.lr.ph ], [ %173, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr116134 = phi i64 [ %3, %.lr.ph ], [ %140, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr114132 = phi ptr [ %1, %.lr.ph ], [ %.0110, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr131 = phi ptr [ %0, %.lr.ph ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.not66 = icmp sgt i64 %.tr117135, %6
   br i1 %.not66, label %77, label %42
 
 42:                                               ; preds = %41
-  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr116134
+  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr114132
   br i1 %.not.i.i.i.i.i72, label %_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_T0_SB_T1_T2_.exit, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread:        ; preds = %42
-  %43 = ptrtoint ptr %.tr116134 to i64
+  %43 = ptrtoint ptr %.tr114132 to i64
   %44 = sub i64 %9, %43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr116134, i64 %44, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr114132, i64 %44, i1 false)
   %45 = getelementptr inbounds i8, ptr %5, i64 %44
-  %.sroa.0.0.copyload107161 = load ptr, ptr %7, align 8, !tbaa !133
-  %.sroa.2.0.copyload109162 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
-  %46 = icmp eq ptr %.tr133, %.tr116134
+  %.sroa.0.0.copyload105163 = load ptr, ptr %7, align 8, !tbaa !133
+  %.sroa.2.0.copyload107164 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
+  %46 = icmp eq ptr %.tr131, %.tr114132
   br i1 %46, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.sink.split.i, label %47
 
 47:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread
@@ -3905,7 +3899,7 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread:        ; preds = %42
   br label %.outer
 
 .outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76, %47
-  %.026.i.ph.pn = phi ptr [ %.tr116134, %47 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
+  %.026.i.ph.pn = phi ptr [ %.tr114132, %47 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
   %.024.i.ph = phi ptr [ %48, %47 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
   %.0.i.ph = phi ptr [ %2, %47 ], [ %62, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -4
@@ -3918,11 +3912,11 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread:        ; preds = %42
   %.026.val.i = load i32, ptr %.026.i.ph, align 4, !tbaa !73
   %50 = sext i32 %.024.val.i to i64
   %51 = sext i32 %.026.val.i to i64
-  %52 = mul i64 %.sroa.2.0.copyload109162, %50
-  %53 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload107161, i64 %52
+  %52 = mul i64 %.sroa.2.0.copyload107164, %50
+  %53 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload105163, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !120
-  %55 = mul i64 %.sroa.2.0.copyload109162, %51
-  %56 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload107161, i64 %55
+  %55 = mul i64 %.sroa.2.0.copyload107164, %51
+  %56 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload105163, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !120
   %58 = fcmp ogt float %54, %57
   br i1 %58, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.i74
@@ -3936,7 +3930,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIf
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.i74, %49
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 -4
   store i32 %.026.val.i, ptr %62, align 4, !tbaa !73
-  %63 = icmp eq ptr %.tr133, %.026.i.ph
+  %63 = icmp eq ptr %.tr131, %.026.i.ph
   br i1 %63, label %64, label %.outer, !llvm.loop !147
 
 64:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiS9_EEbT_T0_.exit.thread.i76
@@ -3969,62 +3963,59 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.sink.split.i: ; preds = %_ZSt4moveIPi
 77:                                               ; preds = %41
   %.sroa.04.0.copyload = load ptr, ptr %7, align 8, !tbaa !133
   %.sroa.25.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
-  %78 = ptrtoint ptr %.tr116134 to i64
-  br i1 %.not138, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit82
+  %78 = ptrtoint ptr %.tr114132 to i64
+  br i1 %.not136, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit82
 
 _ZSt7advanceIPilEvRT_T0_.exit:                    ; preds = %77
-  %79 = sdiv i64 %.tr118136, 2
-  %80 = getelementptr inbounds i32, ptr %.tr133, i64 %79
+  %79 = sdiv i64 %.tr116134, 2
+  %80 = getelementptr inbounds i32, ptr %.tr131, i64 %79
   %.val = load i32, ptr %80, align 4
-  %.0.val.fr.i = freeze i32 %.val
   %81 = sub i64 %9, %78
   %82 = ashr exact i64 %81, 2
   %83 = icmp sgt i64 %82, 0
   br i1 %83, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i:            ; preds = %_ZSt7advanceIPilEvRT_T0_.exit
-  %84 = sext i32 %.0.val.fr.i to i64
+  %84 = sext i32 %.val to i64
   %85 = mul i64 %.sroa.25.0.copyload, %84
   %86 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !120
-  %.fr8.i = freeze float %87
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i
 
 _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %104, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i
-  %.012.i = phi ptr [ %.tr116134, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %106, %104 ]
-  %.01110.i = phi i64 [ %82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %105, %104 ]
-  %88 = lshr i64 %.01110.i, 1
-  %89 = getelementptr inbounds nuw i32, ptr %.012.i, i64 %88
+  %.010.i = phi ptr [ %.tr114132, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %106, %104 ]
+  %.0119.i = phi i64 [ %82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %105, %104 ]
+  %88 = lshr i64 %.0119.i, 1
+  %89 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %88
   %.val14.i = load i32, ptr %89, align 4, !tbaa !73
-  %.val14.fr.i = freeze i32 %.val14.i
-  %90 = sext i32 %.val14.fr.i to i64
+  %90 = sext i32 %.val14.i to i64
   %91 = mul i64 %.sroa.25.0.copyload, %90
   %92 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !120
-  %.fr.i = freeze float %93
-  %94 = fcmp ogt float %.fr.i, %.fr8.i
+  %94 = fcmp ogt float %93, %87
   br i1 %94, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %96 = xor i64 %88, -1
-  %97 = add nsw i64 %.01110.i, %96
+  %97 = add nsw i64 %.0119.i, %96
   br label %104
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
-  %98 = fcmp oeq float %.fr.i, %.fr8.i
-  %99 = icmp ult i32 %.val14.fr.i, %.0.val.fr.i
+  %98 = fcmp oeq float %93, %87
+  %99 = icmp ult i32 %.val14.i, %.val
   %100 = and i1 %99, %98
+  %cond.fr4.i = freeze i1 %100
   %101 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %102 = xor i64 %88, -1
-  %103 = add nsw i64 %.01110.i, %102
-  %spec.select.i = select i1 %100, i64 %103, i64 %88
-  %spec.select9.i = select i1 %100, ptr %101, ptr %.012.i
+  %103 = add nsw i64 %.0119.i, %102
+  %spec.select.i = select i1 %cond.fr4.i, i64 %103, i64 %88
+  %spec.select8.i = select i1 %cond.fr4.i, ptr %101, ptr %.010.i
   br label %104
 
 104:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i, %.thread.i
   %105 = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %97, %.thread.i ]
-  %106 = phi ptr [ %spec.select9.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %95, %.thread.i ]
+  %106 = phi ptr [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %95, %.thread.i ]
   %107 = icmp sgt i64 %105, 0
   br i1 %107, label %_ZSt7advanceIPilEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !138
 
@@ -4034,80 +4025,77 @@ _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_11
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %78, %_ZSt7advanceIPilEvRT_T0_.exit ]
-  %.0.lcssa.i78 = phi ptr [ %106, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr116134, %_ZSt7advanceIPilEvRT_T0_.exit ]
+  %.0.lcssa.i78 = phi ptr [ %106, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr114132, %_ZSt7advanceIPilEvRT_T0_.exit ]
   %108 = sub i64 %.pre-phi, %78
   %109 = ashr exact i64 %108, 2
   br label %139
 
 _ZSt7advanceIPilEvRT_T0_.exit82:                  ; preds = %77
-  %110 = sdiv i64 %.tr119137, 2
-  %111 = getelementptr inbounds i32, ptr %.tr116134, i64 %110
+  %110 = sdiv i64 %.tr117135, 2
+  %111 = getelementptr inbounds i32, ptr %.tr114132, i64 %110
   %.val67 = load i32, ptr %111, align 4
-  %.0.val.fr.i85 = freeze i32 %.val67
-  %112 = ptrtoint ptr %.tr133 to i64
+  %112 = ptrtoint ptr %.tr131 to i64
   %113 = sub i64 %78, %112
   %114 = ashr exact i64 %113, 2
   %115 = icmp sgt i64 %114, 0
-  br i1 %115, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
+  br i1 %115, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
 
-_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit82
-  %116 = sext i32 %.0.val.fr.i85 to i64
+_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit82
+  %116 = sext i32 %.val67 to i64
   %117 = mul i64 %.sroa.25.0.copyload, %116
   %118 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !120
-  %.fr.i89 = freeze float %119
-  br label %_ZSt7advanceIPilEvRT_T0_.exit.i90
+  br label %_ZSt7advanceIPilEvRT_T0_.exit.i88
 
-_ZSt7advanceIPilEvRT_T0_.exit.i90:                ; preds = %.thread.i94, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88
-  %.010.i = phi ptr [ %.tr133, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88 ], [ %135, %.thread.i94 ]
-  %.0119.i = phi i64 [ %114, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88 ], [ %134, %.thread.i94 ]
-  %120 = lshr i64 %.0119.i, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %120
+_ZSt7advanceIPilEvRT_T0_.exit.i88:                ; preds = %.thread.i92, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87
+  %.09.i = phi ptr [ %.tr131, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87 ], [ %135, %.thread.i92 ]
+  %.0118.i = phi i64 [ %114, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87 ], [ %134, %.thread.i92 ]
+  %120 = lshr i64 %.0118.i, 1
+  %121 = getelementptr inbounds nuw i32, ptr %.09.i, i64 %120
   %.val15.i = load i32, ptr %121, align 4, !tbaa !73
-  %.val15.fr.i = freeze i32 %.val15.i
-  %122 = sext i32 %.val15.fr.i to i64
+  %122 = sext i32 %.val15.i to i64
   %123 = mul i64 %.sroa.25.0.copyload, %122
   %124 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %123
   %125 = load float, ptr %124, align 4, !tbaa !120
-  %.fr8.i93 = freeze float %125
-  %126 = fcmp ogt float %.fr.i89, %.fr8.i93
-  br i1 %126, label %.thread.i94, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i
+  %126 = fcmp ogt float %119, %125
+  br i1 %126, label %.thread.i92, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i90
-  %127 = fcmp oeq float %.fr.i89, %.fr8.i93
-  %128 = icmp ult i32 %.0.val.fr.i85, %.val15.fr.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i88
+  %127 = fcmp oeq float %119, %125
+  %128 = icmp ult i32 %.val67, %.val15.i
   %129 = and i1 %128, %127
-  br i1 %129, label %.thread.i94, label %130
+  %cond.fr4.i91 = freeze i1 %129
+  br i1 %cond.fr4.i91, label %.thread.i92, label %130
 
 130:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i
   %131 = xor i64 %120, -1
-  %132 = add nsw i64 %.0119.i, %131
+  %132 = add nsw i64 %.0118.i, %131
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  br label %.thread.i94
+  br label %.thread.i92
 
-.thread.i94:                                      ; preds = %130, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i90
-  %134 = phi i64 [ %132, %130 ], [ %120, %_ZSt7advanceIPilEvRT_T0_.exit.i90 ], [ %120, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
-  %135 = phi ptr [ %133, %130 ], [ %.010.i, %_ZSt7advanceIPilEvRT_T0_.exit.i90 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
+.thread.i92:                                      ; preds = %130, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i88
+  %134 = phi i64 [ %132, %130 ], [ %120, %_ZSt7advanceIPilEvRT_T0_.exit.i88 ], [ %120, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
+  %135 = phi ptr [ %133, %130 ], [ %.09.i, %_ZSt7advanceIPilEvRT_T0_.exit.i88 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEclIKiPiEEbRT_T0_.exit.i ]
   %136 = icmp sgt i64 %134, 0
-  br i1 %136, label %_ZSt7advanceIPilEvRT_T0_.exit.i90, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !139
+  br i1 %136, label %_ZSt7advanceIPilEvRT_T0_.exit.i88, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !139
 
-_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i94
-  %.pre148 = ptrtoint ptr %135 to i64
+_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i92
+  %.pre146 = ptrtoint ptr %135 to i64
   br label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit82
-  %.pre-phi149 = phi i64 [ %.pre148, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %112, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
-  %.0.lcssa.i87 = phi ptr [ %135, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr133, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
-  %137 = sub i64 %.pre-phi149, %112
+  %.pre-phi147 = phi i64 [ %.pre146, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %112, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
+  %.0.lcssa.i86 = phi ptr [ %135, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr131, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
+  %137 = sub i64 %.pre-phi147, %112
   %138 = ashr exact i64 %137, 2
   br label %139
 
 139:                                              ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit
-  %.0113 = phi ptr [ %80, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i87, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %.0112 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %111, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.0111 = phi ptr [ %80, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i86, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.0110 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %111, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.061 = phi i64 [ %109, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %110, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.0 = phi i64 [ %79, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %138, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %140 = sub nsw i64 %.tr118136, %.0
+  %140 = sub nsw i64 %.tr116134, %.0
   %141 = icmp sle i64 %140, %.061
   %.not.i = icmp sgt i64 %.061, %6
   %or.cond.i = or i1 %.not.i, %141
@@ -4118,38 +4106,38 @@ _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_11
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %143
 
 143:                                              ; preds = %142
-  %144 = ptrtoint ptr %.0112 to i64
-  %145 = ptrtoint ptr %.tr116134 to i64
+  %144 = ptrtoint ptr %.0110 to i64
+  %145 = ptrtoint ptr %.tr114132 to i64
   %146 = sub i64 %144, %145
-  %.not.i.i.i.i.i.i95 = icmp eq ptr %.0112, %.tr116134
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96, label %147
+  %.not.i.i.i.i.i.i93 = icmp eq ptr %.0110, %.tr114132
+  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94, label %147
 
 147:                                              ; preds = %143
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr116134, i64 %146, i1 false)
-  br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr114132, i64 %146, i1 false)
+  br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94
 
-_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96:             ; preds = %147, %143
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr116134, %.0113
+_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94:             ; preds = %147, %143
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr114132, %.0111
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i, label %148
 
-148:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96
-  %149 = ptrtoint ptr %.0113 to i64
+148:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94
+  %149 = ptrtoint ptr %.0111 to i64
   %150 = sub i64 %145, %149
   %151 = ashr exact i64 %150, 2
   %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds i32, ptr %.0112, i64 %152
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %153, ptr align 4 %.0113, i64 %150, i1 false)
+  %153 = getelementptr inbounds i32, ptr %.0110, i64 %152
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %153, ptr align 4 %.0111, i64 %150, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
 
-_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %148, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, label %154
+_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %148, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94
+  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, label %154
 
 154:                                              ; preds = %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0113, ptr align 4 %5, i64 %146, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0111, ptr align 4 %5, i64 %146, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i:             ; preds = %154, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
-  %155 = getelementptr inbounds i8, ptr %.0113, i64 %146
+  %155 = getelementptr inbounds i8, ptr %.0111, i64 %146
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 156:                                              ; preds = %139
@@ -4157,28 +4145,28 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i:             ; preds = %154, %_ZSt13move_ba
   br i1 %.not33.i, label %171, label %157
 
 157:                                              ; preds = %156
-  %.not34.i = icmp eq i64 %.tr118136, %.0
+  %.not34.i = icmp eq i64 %.tr116134, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %158
 
 158:                                              ; preds = %157
-  %159 = ptrtoint ptr %.tr116134 to i64
-  %160 = ptrtoint ptr %.0113 to i64
+  %159 = ptrtoint ptr %.tr114132 to i64
+  %160 = ptrtoint ptr %.0111 to i64
   %161 = sub i64 %159, %160
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr116134, %.0113
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr114132, %.0111
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i, label %162
 
 162:                                              ; preds = %158
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0113, i64 %161, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0111, i64 %161, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i:             ; preds = %162, %158
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0112, %.tr116134
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0110, %.tr114132
   br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i, label %163
 
 163:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
-  %164 = ptrtoint ptr %.0112 to i64
+  %164 = ptrtoint ptr %.0110 to i64
   %165 = sub i64 %164, %159
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0113, ptr align 4 %.tr116134, i64 %165, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0111, ptr align 4 %.tr114132, i64 %165, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i:             ; preds = %163, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
@@ -4187,23 +4175,23 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i:             ; preds = %163, %_ZSt4moveIPiS
 166:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
   %167 = ashr exact i64 %161, 2
   %168 = sub nsw i64 0, %167
-  %169 = getelementptr inbounds i32, ptr %.0112, i64 %168
+  %169 = getelementptr inbounds i32, ptr %.0110, i64 %168
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %169, ptr align 4 %5, i64 %161, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i:   ; preds = %166, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %168, %166 ], [ 0, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i ]
-  %170 = getelementptr inbounds i32, ptr %.0112, i64 %.pre-phi.i.i.i.i.i44.i
+  %170 = getelementptr inbounds i32, ptr %.0110, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 171:                                              ; preds = %156
-  %172 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.0113, ptr noundef %.tr116134, ptr noundef %.0112)
+  %172 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.0111, ptr noundef %.tr114132, ptr noundef %.0110)
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 _ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %142, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, %157, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i, %171
-  %.0.i97 = phi ptr [ %155, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i ], [ %172, %171 ], [ %170, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i ], [ %.0113, %142 ], [ %.0112, %157 ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr133, ptr noundef %.0113, ptr noundef %.0.i97, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %7)
-  %173 = sub nsw i64 %.tr119137, %.061
+  %.0.i95 = phi ptr [ %155, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i ], [ %172, %171 ], [ %170, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i ], [ %.0111, %142 ], [ %.0110, %157 ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_117ComparatorGreaterIfEEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr131, ptr noundef %.0111, ptr noundef %.0.i95, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %7)
+  %173 = sub nsw i64 %.tr117135, %.061
   %.not = icmp sgt i64 %140, %173
   %.not65 = icmp sgt i64 %140, %6
   %or.cond = or i1 %.not65, %.not
@@ -5088,8 +5076,8 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__op
 define internal fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_SA_T0_SB_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.35") align 8 captures(none) %5) unnamed_addr #3 {
   %7 = icmp eq i64 %3, 0
   %8 = icmp eq i64 %4, 0
-  %or.cond83 = or i1 %7, %8
-  br i1 %or.cond83, label %.loopexit, label %.lr.ph
+  %or.cond81 = or i1 %7, %8
+  br i1 %or.cond81, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5097,19 +5085,19 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15
   br label %10
 
 10:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr7888 = phi i64 [ %4, %.lr.ph ], [ %91, %tailrecurse ]
-  %.tr7787 = phi i64 [ %3, %.lr.ph ], [ %90, %tailrecurse ]
-  %.tr7585 = phi ptr [ %1, %.lr.ph ], [ %.071, %tailrecurse ]
-  %.tr84 = phi ptr [ %0, %.lr.ph ], [ %89, %tailrecurse ]
-  %11 = add nsw i64 %.tr7888, %.tr7787
+  %.tr7686 = phi i64 [ %4, %.lr.ph ], [ %91, %tailrecurse ]
+  %.tr7585 = phi i64 [ %3, %.lr.ph ], [ %90, %tailrecurse ]
+  %.tr7383 = phi ptr [ %1, %.lr.ph ], [ %.069, %tailrecurse ]
+  %.tr82 = phi ptr [ %0, %.lr.ph ], [ %89, %tailrecurse ]
+  %11 = add nsw i64 %.tr7686, %.tr7585
   %12 = icmp eq i64 %11, 2
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %10
   %.val = load ptr, ptr %5, align 8, !tbaa !172
   %.val42 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !174
-  %.val43 = load i32, ptr %.tr7585, align 4, !tbaa !73
-  %.val44 = load i32, ptr %.tr84, align 4, !tbaa !73
+  %.val43 = load i32, ptr %.tr7383, align 4, !tbaa !73
+  %.val44 = load i32, ptr %.tr82, align 4, !tbaa !73
   %14 = sext i32 %.val43 to i64
   %15 = sext i32 %.val44 to i64
   %16 = mul i64 %.val42, %14
@@ -5128,70 +5116,67 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEE
   br i1 %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread, label %.loopexit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread: ; preds = %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit
-  store i32 %.val43, ptr %.tr84, align 4, !tbaa !73
-  store i32 %.val44, ptr %.tr7585, align 4, !tbaa !73
+  store i32 %.val43, ptr %.tr82, align 4, !tbaa !73
+  store i32 %.val44, ptr %.tr7383, align 4, !tbaa !73
   br label %.loopexit
 
 26:                                               ; preds = %10
-  %27 = icmp sgt i64 %.tr7787, %.tr7888
+  %27 = icmp sgt i64 %.tr7585, %.tr7686
   %.sroa.05.0.copyload = load ptr, ptr %5, align 8, !tbaa !133
   %.sroa.26.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
-  %28 = ptrtoint ptr %.tr7585 to i64
+  %28 = ptrtoint ptr %.tr7383 to i64
   br i1 %27, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit50
 
 _ZSt7advanceIPilEvRT_T0_.exit:                    ; preds = %26
-  %29 = sdiv i64 %.tr7787, 2
-  %30 = getelementptr inbounds i32, ptr %.tr84, i64 %29
+  %29 = sdiv i64 %.tr7585, 2
+  %30 = getelementptr inbounds i32, ptr %.tr82, i64 %29
   %.val45 = load i32, ptr %30, align 4
-  %.0.val.fr.i = freeze i32 %.val45
   %31 = sub i64 %9, %28
   %32 = ashr exact i64 %31, 2
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i:            ; preds = %_ZSt7advanceIPilEvRT_T0_.exit
-  %34 = sext i32 %.0.val.fr.i to i64
+  %34 = sext i32 %.val45 to i64
   %35 = mul i64 %.sroa.26.0.copyload, %34
   %36 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !120
-  %.fr8.i = freeze float %37
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i
 
 _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %54, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i
-  %.012.i = phi ptr [ %.tr7585, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %56, %54 ]
-  %.01110.i = phi i64 [ %32, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %55, %54 ]
-  %38 = lshr i64 %.01110.i, 1
-  %39 = getelementptr inbounds nuw i32, ptr %.012.i, i64 %38
+  %.010.i = phi ptr [ %.tr7383, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %56, %54 ]
+  %.0119.i = phi i64 [ %32, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %55, %54 ]
+  %38 = lshr i64 %.0119.i, 1
+  %39 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %38
   %.val14.i = load i32, ptr %39, align 4, !tbaa !73
-  %.val14.fr.i = freeze i32 %.val14.i
-  %40 = sext i32 %.val14.fr.i to i64
+  %40 = sext i32 %.val14.i to i64
   %41 = mul i64 %.sroa.26.0.copyload, %40
   %42 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !120
-  %.fr.i = freeze float %43
-  %44 = fcmp olt float %.fr.i, %.fr8.i
+  %44 = fcmp olt float %43, %37
   br i1 %44, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %46 = xor i64 %38, -1
-  %47 = add nsw i64 %.01110.i, %46
+  %47 = add nsw i64 %.0119.i, %46
   br label %54
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
-  %48 = fcmp oeq float %.fr.i, %.fr8.i
-  %49 = icmp ult i32 %.val14.fr.i, %.0.val.fr.i
+  %48 = fcmp oeq float %43, %37
+  %49 = icmp ult i32 %.val14.i, %.val45
   %50 = and i1 %49, %48
+  %cond.fr4.i = freeze i1 %50
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %52 = xor i64 %38, -1
-  %53 = add nsw i64 %.01110.i, %52
-  %spec.select.i = select i1 %50, i64 %53, i64 %38
-  %spec.select9.i = select i1 %50, ptr %51, ptr %.012.i
+  %53 = add nsw i64 %.0119.i, %52
+  %spec.select.i = select i1 %cond.fr4.i, i64 %53, i64 %38
+  %spec.select8.i = select i1 %cond.fr4.i, ptr %51, ptr %.010.i
   br label %54
 
 54:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i, %.thread.i
   %55 = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %47, %.thread.i ]
-  %56 = phi ptr [ %spec.select9.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %45, %.thread.i ]
+  %56 = phi ptr [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %45, %.thread.i ]
   %57 = icmp sgt i64 %55, 0
   br i1 %57, label %_ZSt7advanceIPilEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !175
 
@@ -5201,83 +5186,80 @@ _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_11
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %28, %_ZSt7advanceIPilEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %56, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr7585, %_ZSt7advanceIPilEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %56, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr7383, %_ZSt7advanceIPilEvRT_T0_.exit ]
   %58 = sub i64 %.pre-phi, %28
   %59 = ashr exact i64 %58, 2
   br label %tailrecurse
 
 _ZSt7advanceIPilEvRT_T0_.exit50:                  ; preds = %26
-  %60 = sdiv i64 %.tr7888, 2
-  %61 = getelementptr inbounds i32, ptr %.tr7585, i64 %60
+  %60 = sdiv i64 %.tr7686, 2
+  %61 = getelementptr inbounds i32, ptr %.tr7383, i64 %60
   %.val46 = load i32, ptr %61, align 4
-  %.0.val.fr.i53 = freeze i32 %.val46
-  %62 = ptrtoint ptr %.tr84 to i64
+  %62 = ptrtoint ptr %.tr82 to i64
   %63 = sub i64 %28, %62
   %64 = ashr exact i64 %63, 2
   %65 = icmp sgt i64 %64, 0
-  br i1 %65, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
+  br i1 %65, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
 
-_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit50
-  %66 = sext i32 %.0.val.fr.i53 to i64
+_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit50
+  %66 = sext i32 %.val46 to i64
   %67 = mul i64 %.sroa.26.0.copyload, %66
   %68 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !120
-  %.fr.i56 = freeze float %69
-  br label %_ZSt7advanceIPilEvRT_T0_.exit.i57
+  br label %_ZSt7advanceIPilEvRT_T0_.exit.i55
 
-_ZSt7advanceIPilEvRT_T0_.exit.i57:                ; preds = %.thread.i61, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55
-  %.010.i = phi ptr [ %.tr84, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55 ], [ %85, %.thread.i61 ]
-  %.0119.i = phi i64 [ %64, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i55 ], [ %84, %.thread.i61 ]
-  %70 = lshr i64 %.0119.i, 1
-  %71 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %70
+_ZSt7advanceIPilEvRT_T0_.exit.i55:                ; preds = %.thread.i59, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54
+  %.09.i = phi ptr [ %.tr82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54 ], [ %85, %.thread.i59 ]
+  %.0118.i = phi i64 [ %64, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i54 ], [ %84, %.thread.i59 ]
+  %70 = lshr i64 %.0118.i, 1
+  %71 = getelementptr inbounds nuw i32, ptr %.09.i, i64 %70
   %.val15.i = load i32, ptr %71, align 4, !tbaa !73
-  %.val15.fr.i = freeze i32 %.val15.i
-  %72 = sext i32 %.val15.fr.i to i64
+  %72 = sext i32 %.val15.i to i64
   %73 = mul i64 %.sroa.26.0.copyload, %72
   %74 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !120
-  %.fr8.i60 = freeze float %75
-  %76 = fcmp olt float %.fr.i56, %.fr8.i60
-  br i1 %76, label %.thread.i61, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i
+  %76 = fcmp olt float %69, %75
+  br i1 %76, label %.thread.i59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i57
-  %77 = fcmp oeq float %.fr.i56, %.fr8.i60
-  %78 = icmp ult i32 %.0.val.fr.i53, %.val15.fr.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i55
+  %77 = fcmp oeq float %69, %75
+  %78 = icmp ult i32 %.val46, %.val15.i
   %79 = and i1 %78, %77
-  br i1 %79, label %.thread.i61, label %80
+  %cond.fr4.i58 = freeze i1 %79
+  br i1 %cond.fr4.i58, label %.thread.i59, label %80
 
 80:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i
   %81 = xor i64 %70, -1
-  %82 = add nsw i64 %.0119.i, %81
+  %82 = add nsw i64 %.0118.i, %81
   %83 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  br label %.thread.i61
+  br label %.thread.i59
 
-.thread.i61:                                      ; preds = %80, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i57
-  %84 = phi i64 [ %82, %80 ], [ %70, %_ZSt7advanceIPilEvRT_T0_.exit.i57 ], [ %70, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
-  %85 = phi ptr [ %83, %80 ], [ %.010.i, %_ZSt7advanceIPilEvRT_T0_.exit.i57 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
+.thread.i59:                                      ; preds = %80, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i55
+  %84 = phi i64 [ %82, %80 ], [ %70, %_ZSt7advanceIPilEvRT_T0_.exit.i55 ], [ %70, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
+  %85 = phi ptr [ %83, %80 ], [ %.09.i, %_ZSt7advanceIPilEvRT_T0_.exit.i55 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
   %86 = icmp sgt i64 %84, 0
-  br i1 %86, label %_ZSt7advanceIPilEvRT_T0_.exit.i57, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !176
+  br i1 %86, label %_ZSt7advanceIPilEvRT_T0_.exit.i55, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !176
 
-_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i61
-  %.pre93 = ptrtoint ptr %85 to i64
+_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i59
+  %.pre91 = ptrtoint ptr %85 to i64
   br label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit50
-  %.pre-phi94 = phi i64 [ %.pre93, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %62, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
-  %.0.lcssa.i54 = phi ptr [ %85, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr84, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
-  %87 = sub i64 %.pre-phi94, %62
+  %.pre-phi92 = phi i64 [ %.pre91, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %62, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
+  %.0.lcssa.i53 = phi ptr [ %85, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr82, %_ZSt7advanceIPilEvRT_T0_.exit50 ]
+  %87 = sub i64 %.pre-phi92, %62
   %88 = ashr exact i64 %87, 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
-  %.072 = phi ptr [ %30, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i54, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %.071 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %61, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.070 = phi ptr [ %30, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i53, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.069 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %61, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.039 = phi i64 [ %59, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %60, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.0 = phi i64 [ %29, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %88, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %89 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.072, ptr noundef %.tr7585, ptr noundef %.071)
-  tail call fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_SA_T0_SB_T1_(ptr noundef %.tr84, ptr noundef %.072, ptr noundef %89, i64 noundef %.0, i64 noundef %.039, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.35") align 8 %5)
-  %90 = sub nsw i64 %.tr7787, %.0
-  %91 = sub nsw i64 %.tr7888, %.039
+  %89 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.070, ptr noundef %.tr7383, ptr noundef %.069)
+  tail call fastcc void @_ZSt22__merge_without_bufferIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_SA_T0_SB_T1_(ptr noundef %.tr82, ptr noundef %.070, ptr noundef %89, i64 noundef %.0, i64 noundef %.039, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.35") align 8 %5)
+  %90 = sub nsw i64 %.tr7585, %.0
+  %91 = sub nsw i64 %.tr7686, %.039
   %92 = icmp eq i64 %90, 0
   %93 = icmp eq i64 %91, 0
   %or.cond = or i1 %92, %93
@@ -5458,10 +5440,10 @@ _ZSt22__chunk_insertion_sortIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GL
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.35") align 8 captures(none) %7) unnamed_addr #3 {
-  %.not130 = icmp sgt i64 %3, %4
-  %.not65131 = icmp sgt i64 %3, %6
-  %or.cond132 = or i1 %.not65131, %.not130
-  br i1 %or.cond132, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not128 = icmp sgt i64 %3, %4
+  %.not65129 = icmp sgt i64 %3, %6
+  %or.cond130 = or i1 %.not65129, %.not128
+  br i1 %or.cond130, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5469,12 +5451,12 @@ define internal fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_It
   br label %41
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr116.lcssa = phi ptr [ %1, %8 ], [ %.0112, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %10 = ptrtoint ptr %.tr116.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr114.lcssa = phi ptr [ %1, %8 ], [ %.0110, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %10 = ptrtoint ptr %.tr114.lcssa to i64
   %11 = ptrtoint ptr %.tr.lcssa to i64
   %12 = sub i64 %10, %11
-  %.not.i.i.i.i.i = icmp eq ptr %.tr116.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr114.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, label %13
 
 13:                                               ; preds = %tailrecurse._crit_edge
@@ -5483,27 +5465,27 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %tailrecurse._crit_edge, %13
   %14 = getelementptr inbounds i8, ptr %5, i64 %12
-  %.sroa.0110.0.copyload = load ptr, ptr %7, align 8, !tbaa !133
-  %.sroa.2111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2111.0.copyload = load i64, ptr %.sroa.2111.0..sroa_idx, align 8, !tbaa !75
-  %15 = icmp ne ptr %.tr116.lcssa, %.tr.lcssa
-  %16 = icmp ne ptr %.tr116.lcssa, %2
+  %.sroa.0108.0.copyload = load ptr, ptr %7, align 8, !tbaa !133
+  %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.2109.0.copyload = load i64, ptr %.sroa.2109.0..sroa_idx, align 8, !tbaa !75
+  %15 = icmp ne ptr %.tr114.lcssa, %.tr.lcssa
+  %16 = icmp ne ptr %.tr114.lcssa, %2
   %17 = and i1 %15, %16
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %33
   %.03.i = phi ptr [ %34, %33 ], [ %.tr.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %.0182.i = phi ptr [ %.1.i, %33 ], [ %5, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
-  %.0191.i = phi ptr [ %.120.i, %33 ], [ %.tr116.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
+  %.0191.i = phi ptr [ %.120.i, %33 ], [ %.tr114.lcssa, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ]
   %.019.val.i = load i32, ptr %.0191.i, align 4, !tbaa !73
   %.018.val.i = load i32, ptr %.0182.i, align 4, !tbaa !73
   %18 = sext i32 %.019.val.i to i64
   %19 = sext i32 %.018.val.i to i64
-  %20 = mul i64 %.sroa.2111.0.copyload, %18
-  %21 = getelementptr inbounds nuw float, ptr %.sroa.0110.0.copyload, i64 %20
+  %20 = mul i64 %.sroa.2109.0.copyload, %18
+  %21 = getelementptr inbounds nuw float, ptr %.sroa.0108.0.copyload, i64 %20
   %22 = load float, ptr %21, align 4, !tbaa !120
-  %23 = mul i64 %.sroa.2111.0.copyload, %19
-  %24 = getelementptr inbounds nuw float, ptr %.sroa.0110.0.copyload, i64 %23
+  %23 = mul i64 %.sroa.2109.0.copyload, %19
+  %24 = getelementptr inbounds nuw float, ptr %.sroa.0108.0.copyload, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !120
   %26 = fcmp olt float %22, %25
   br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.i
@@ -5547,26 +5529,26 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %._crit_edge.i
   br label %_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_T0_SB_T1_T2_.exit
 
 41:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
-  %.not138 = phi i1 [ %.not130, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr119137 = phi i64 [ %4, %.lr.ph ], [ %173, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr118136 = phi i64 [ %3, %.lr.ph ], [ %140, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr116134 = phi ptr [ %1, %.lr.ph ], [ %.0112, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.tr133 = phi ptr [ %0, %.lr.ph ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %.not66 = icmp sgt i64 %.tr119137, %6
+  %.not136 = phi i1 [ %.not128, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr117135 = phi i64 [ %4, %.lr.ph ], [ %173, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr116134 = phi i64 [ %3, %.lr.ph ], [ %140, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr114132 = phi ptr [ %1, %.lr.ph ], [ %.0110, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.tr131 = phi ptr [ %0, %.lr.ph ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %.not66 = icmp sgt i64 %.tr117135, %6
   br i1 %.not66, label %77, label %42
 
 42:                                               ; preds = %41
-  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr116134
+  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr114132
   br i1 %.not.i.i.i.i.i72, label %_ZSt21__move_merge_adaptiveIPiS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_T0_SB_T1_T2_.exit, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread:        ; preds = %42
-  %43 = ptrtoint ptr %.tr116134 to i64
+  %43 = ptrtoint ptr %.tr114132 to i64
   %44 = sub i64 %9, %43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr116134, i64 %44, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr114132, i64 %44, i1 false)
   %45 = getelementptr inbounds i8, ptr %5, i64 %44
-  %.sroa.0.0.copyload107161 = load ptr, ptr %7, align 8, !tbaa !133
-  %.sroa.2.0.copyload109162 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
-  %46 = icmp eq ptr %.tr133, %.tr116134
+  %.sroa.0.0.copyload105163 = load ptr, ptr %7, align 8, !tbaa !133
+  %.sroa.2.0.copyload107164 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
+  %46 = icmp eq ptr %.tr131, %.tr114132
   br i1 %46, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.sink.split.i, label %47
 
 47:                                               ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread
@@ -5574,7 +5556,7 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread:        ; preds = %42
   br label %.outer
 
 .outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76, %47
-  %.026.i.ph.pn = phi ptr [ %.tr116134, %47 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
+  %.026.i.ph.pn = phi ptr [ %.tr114132, %47 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
   %.024.i.ph = phi ptr [ %48, %47 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
   %.0.i.ph = phi ptr [ %2, %47 ], [ %62, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -4
@@ -5587,11 +5569,11 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit73.thread:        ; preds = %42
   %.026.val.i = load i32, ptr %.026.i.ph, align 4, !tbaa !73
   %50 = sext i32 %.024.val.i to i64
   %51 = sext i32 %.026.val.i to i64
-  %52 = mul i64 %.sroa.2.0.copyload109162, %50
-  %53 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload107161, i64 %52
+  %52 = mul i64 %.sroa.2.0.copyload107164, %50
+  %53 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload105163, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !120
-  %55 = mul i64 %.sroa.2.0.copyload109162, %51
-  %56 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload107161, i64 %55
+  %55 = mul i64 %.sroa.2.0.copyload107164, %51
+  %56 = getelementptr inbounds nuw float, ptr %.sroa.0.0.copyload105163, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !120
   %58 = fcmp olt float %54, %57
   br i1 %58, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.i74
@@ -5605,7 +5587,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEE
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.i74, %49
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 -4
   store i32 %.026.val.i, ptr %62, align 4, !tbaa !73
-  %63 = icmp eq ptr %.tr133, %.026.i.ph
+  %63 = icmp eq ptr %.tr131, %.026.i.ph
   br i1 %63, label %64, label %.outer, !llvm.loop !180
 
 64:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiS9_EEbT_T0_.exit.thread.i76
@@ -5638,62 +5620,59 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.sink.split.i: ; preds = %_ZSt4moveIPi
 77:                                               ; preds = %41
   %.sroa.04.0.copyload = load ptr, ptr %7, align 8, !tbaa !133
   %.sroa.25.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !75
-  %78 = ptrtoint ptr %.tr116134 to i64
-  br i1 %.not138, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit82
+  %78 = ptrtoint ptr %.tr114132 to i64
+  br i1 %.not136, label %_ZSt7advanceIPilEvRT_T0_.exit, label %_ZSt7advanceIPilEvRT_T0_.exit82
 
 _ZSt7advanceIPilEvRT_T0_.exit:                    ; preds = %77
-  %79 = sdiv i64 %.tr118136, 2
-  %80 = getelementptr inbounds i32, ptr %.tr133, i64 %79
+  %79 = sdiv i64 %.tr116134, 2
+  %80 = getelementptr inbounds i32, ptr %.tr131, i64 %79
   %.val = load i32, ptr %80, align 4
-  %.0.val.fr.i = freeze i32 %.val
   %81 = sub i64 %9, %78
   %82 = ashr exact i64 %81, 2
   %83 = icmp sgt i64 %82, 0
   br i1 %83, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i:            ; preds = %_ZSt7advanceIPilEvRT_T0_.exit
-  %84 = sext i32 %.0.val.fr.i to i64
+  %84 = sext i32 %.val to i64
   %85 = mul i64 %.sroa.25.0.copyload, %84
   %86 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !120
-  %.fr8.i = freeze float %87
   br label %_ZSt7advanceIPilEvRT_T0_.exit.i
 
 _ZSt7advanceIPilEvRT_T0_.exit.i:                  ; preds = %104, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i
-  %.012.i = phi ptr [ %.tr116134, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %106, %104 ]
-  %.01110.i = phi i64 [ %82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %105, %104 ]
-  %88 = lshr i64 %.01110.i, 1
-  %89 = getelementptr inbounds nuw i32, ptr %.012.i, i64 %88
+  %.010.i = phi ptr [ %.tr114132, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %106, %104 ]
+  %.0119.i = phi i64 [ %82, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i ], [ %105, %104 ]
+  %88 = lshr i64 %.0119.i, 1
+  %89 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %88
   %.val14.i = load i32, ptr %89, align 4, !tbaa !73
-  %.val14.fr.i = freeze i32 %.val14.i
-  %90 = sext i32 %.val14.fr.i to i64
+  %90 = sext i32 %.val14.i to i64
   %91 = mul i64 %.sroa.25.0.copyload, %90
   %92 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !120
-  %.fr.i = freeze float %93
-  %94 = fcmp olt float %.fr.i, %.fr8.i
+  %94 = fcmp olt float %93, %87
   br i1 %94, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %96 = xor i64 %88, -1
-  %97 = add nsw i64 %.01110.i, %96
+  %97 = add nsw i64 %.0119.i, %96
   br label %104
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i
-  %98 = fcmp oeq float %.fr.i, %.fr8.i
-  %99 = icmp ult i32 %.val14.fr.i, %.0.val.fr.i
+  %98 = fcmp oeq float %93, %87
+  %99 = icmp ult i32 %.val14.i, %.val
   %100 = and i1 %99, %98
+  %cond.fr4.i = freeze i1 %100
   %101 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %102 = xor i64 %88, -1
-  %103 = add nsw i64 %.01110.i, %102
-  %spec.select.i = select i1 %100, i64 %103, i64 %88
-  %spec.select9.i = select i1 %100, ptr %101, ptr %.012.i
+  %103 = add nsw i64 %.0119.i, %102
+  %spec.select.i = select i1 %cond.fr4.i, i64 %103, i64 %88
+  %spec.select8.i = select i1 %cond.fr4.i, ptr %101, ptr %.010.i
   br label %104
 
 104:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i, %.thread.i
   %105 = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %97, %.thread.i ]
-  %106 = phi ptr [ %spec.select9.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %95, %.thread.i ]
+  %106 = phi ptr [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIPiKiEEbT_RT0_.exit.i ], [ %95, %.thread.i ]
   %107 = icmp sgt i64 %105, 0
   br i1 %107, label %_ZSt7advanceIPilEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !175
 
@@ -5703,80 +5682,77 @@ _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_11
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %78, %_ZSt7advanceIPilEvRT_T0_.exit ]
-  %.0.lcssa.i78 = phi ptr [ %106, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr116134, %_ZSt7advanceIPilEvRT_T0_.exit ]
+  %.0.lcssa.i78 = phi ptr [ %106, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr114132, %_ZSt7advanceIPilEvRT_T0_.exit ]
   %108 = sub i64 %.pre-phi, %78
   %109 = ashr exact i64 %108, 2
   br label %139
 
 _ZSt7advanceIPilEvRT_T0_.exit82:                  ; preds = %77
-  %110 = sdiv i64 %.tr119137, 2
-  %111 = getelementptr inbounds i32, ptr %.tr116134, i64 %110
+  %110 = sdiv i64 %.tr117135, 2
+  %111 = getelementptr inbounds i32, ptr %.tr114132, i64 %110
   %.val67 = load i32, ptr %111, align 4
-  %.0.val.fr.i85 = freeze i32 %.val67
-  %112 = ptrtoint ptr %.tr133 to i64
+  %112 = ptrtoint ptr %.tr131 to i64
   %113 = sub i64 %78, %112
   %114 = ashr exact i64 %113, 2
   %115 = icmp sgt i64 %114, 0
-  br i1 %115, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
+  br i1 %115, label %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
 
-_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit82
-  %116 = sext i32 %.0.val.fr.i85 to i64
+_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87:          ; preds = %_ZSt7advanceIPilEvRT_T0_.exit82
+  %116 = sext i32 %.val67 to i64
   %117 = mul i64 %.sroa.25.0.copyload, %116
   %118 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !120
-  %.fr.i89 = freeze float %119
-  br label %_ZSt7advanceIPilEvRT_T0_.exit.i90
+  br label %_ZSt7advanceIPilEvRT_T0_.exit.i88
 
-_ZSt7advanceIPilEvRT_T0_.exit.i90:                ; preds = %.thread.i94, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88
-  %.010.i = phi ptr [ %.tr133, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88 ], [ %135, %.thread.i94 ]
-  %.0119.i = phi i64 [ %114, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i88 ], [ %134, %.thread.i94 ]
-  %120 = lshr i64 %.0119.i, 1
-  %121 = getelementptr inbounds nuw i32, ptr %.010.i, i64 %120
+_ZSt7advanceIPilEvRT_T0_.exit.i88:                ; preds = %.thread.i92, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87
+  %.09.i = phi ptr [ %.tr131, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87 ], [ %135, %.thread.i92 ]
+  %.0118.i = phi i64 [ %114, %_ZSt7advanceIPilEvRT_T0_.exit.lr.ph.i87 ], [ %134, %.thread.i92 ]
+  %120 = lshr i64 %.0118.i, 1
+  %121 = getelementptr inbounds nuw i32, ptr %.09.i, i64 %120
   %.val15.i = load i32, ptr %121, align 4, !tbaa !73
-  %.val15.fr.i = freeze i32 %.val15.i
-  %122 = sext i32 %.val15.fr.i to i64
+  %122 = sext i32 %.val15.i to i64
   %123 = mul i64 %.sroa.25.0.copyload, %122
   %124 = getelementptr inbounds nuw float, ptr %.sroa.04.0.copyload, i64 %123
   %125 = load float, ptr %124, align 4, !tbaa !120
-  %.fr8.i93 = freeze float %125
-  %126 = fcmp olt float %.fr.i89, %.fr8.i93
-  br i1 %126, label %.thread.i94, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i
+  %126 = fcmp olt float %119, %125
+  br i1 %126, label %.thread.i92, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i90
-  %127 = fcmp oeq float %.fr.i89, %.fr8.i93
-  %128 = icmp ult i32 %.0.val.fr.i85, %.val15.fr.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPilEvRT_T0_.exit.i88
+  %127 = fcmp oeq float %119, %125
+  %128 = icmp ult i32 %.val67, %.val15.i
   %129 = and i1 %128, %127
-  br i1 %129, label %.thread.i94, label %130
+  %cond.fr4.i91 = freeze i1 %129
+  br i1 %cond.fr4.i91, label %.thread.i92, label %130
 
 130:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i
   %131 = xor i64 %120, -1
-  %132 = add nsw i64 %.0119.i, %131
+  %132 = add nsw i64 %.0118.i, %131
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  br label %.thread.i94
+  br label %.thread.i92
 
-.thread.i94:                                      ; preds = %130, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i90
-  %134 = phi i64 [ %132, %130 ], [ %120, %_ZSt7advanceIPilEvRT_T0_.exit.i90 ], [ %120, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
-  %135 = phi ptr [ %133, %130 ], [ %.010.i, %_ZSt7advanceIPilEvRT_T0_.exit.i90 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
+.thread.i92:                                      ; preds = %130, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i, %_ZSt7advanceIPilEvRT_T0_.exit.i88
+  %134 = phi i64 [ %132, %130 ], [ %120, %_ZSt7advanceIPilEvRT_T0_.exit.i88 ], [ %120, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
+  %135 = phi ptr [ %133, %130 ], [ %.09.i, %_ZSt7advanceIPilEvRT_T0_.exit.i88 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEclIKiPiEEbRT_T0_.exit.i ]
   %136 = icmp sgt i64 %134, 0
-  br i1 %136, label %_ZSt7advanceIPilEvRT_T0_.exit.i90, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !176
+  br i1 %136, label %_ZSt7advanceIPilEvRT_T0_.exit.i88, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !176
 
-_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i94
-  %.pre148 = ptrtoint ptr %135 to i64
+_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %.thread.i92
+  %.pre146 = ptrtoint ptr %135 to i64
   br label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPilEvRT_T0_.exit82
-  %.pre-phi149 = phi i64 [ %.pre148, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %112, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
-  %.0.lcssa.i87 = phi ptr [ %135, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr133, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
-  %137 = sub i64 %.pre-phi149, %112
+  %.pre-phi147 = phi i64 [ %.pre146, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %112, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
+  %.0.lcssa.i86 = phi ptr [ %135, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr131, %_ZSt7advanceIPilEvRT_T0_.exit82 ]
+  %137 = sub i64 %.pre-phi147, %112
   %138 = ashr exact i64 %137, 2
   br label %139
 
 139:                                              ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit
-  %.0113 = phi ptr [ %80, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i87, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %.0112 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %111, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.0111 = phi ptr [ %80, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i86, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
+  %.0110 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %111, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.061 = phi i64 [ %109, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %110, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
   %.0 = phi i64 [ %79, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ], [ %138, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEET_SA_SA_RKT0_T1_.exit ]
-  %140 = sub nsw i64 %.tr118136, %.0
+  %140 = sub nsw i64 %.tr116134, %.0
   %141 = icmp sle i64 %140, %.061
   %.not.i = icmp sgt i64 %.061, %6
   %or.cond.i = or i1 %.not.i, %141
@@ -5787,38 +5763,38 @@ _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv3dnn12_GLOBAL__N_11
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %143
 
 143:                                              ; preds = %142
-  %144 = ptrtoint ptr %.0112 to i64
-  %145 = ptrtoint ptr %.tr116134 to i64
+  %144 = ptrtoint ptr %.0110 to i64
+  %145 = ptrtoint ptr %.tr114132 to i64
   %146 = sub i64 %144, %145
-  %.not.i.i.i.i.i.i95 = icmp eq ptr %.0112, %.tr116134
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96, label %147
+  %.not.i.i.i.i.i.i93 = icmp eq ptr %.0110, %.tr114132
+  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94, label %147
 
 147:                                              ; preds = %143
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr116134, i64 %146, i1 false)
-  br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr114132, i64 %146, i1 false)
+  br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94
 
-_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96:             ; preds = %147, %143
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr116134, %.0113
+_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94:             ; preds = %147, %143
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr114132, %.0111
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i, label %148
 
-148:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96
-  %149 = ptrtoint ptr %.0113 to i64
+148:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94
+  %149 = ptrtoint ptr %.0111 to i64
   %150 = sub i64 %145, %149
   %151 = ashr exact i64 %150, 2
   %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds i32, ptr %.0112, i64 %152
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %153, ptr align 4 %.0113, i64 %150, i1 false)
+  %153 = getelementptr inbounds i32, ptr %.0110, i64 %152
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %153, ptr align 4 %.0111, i64 %150, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
 
-_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %148, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i96
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, label %154
+_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %148, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i94
+  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, label %154
 
 154:                                              ; preds = %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0113, ptr align 4 %5, i64 %146, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0111, ptr align 4 %5, i64 %146, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i:             ; preds = %154, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
-  %155 = getelementptr inbounds i8, ptr %.0113, i64 %146
+  %155 = getelementptr inbounds i8, ptr %.0111, i64 %146
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 156:                                              ; preds = %139
@@ -5826,28 +5802,28 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i:             ; preds = %154, %_ZSt13move_ba
   br i1 %.not33.i, label %171, label %157
 
 157:                                              ; preds = %156
-  %.not34.i = icmp eq i64 %.tr118136, %.0
+  %.not34.i = icmp eq i64 %.tr116134, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %158
 
 158:                                              ; preds = %157
-  %159 = ptrtoint ptr %.tr116134 to i64
-  %160 = ptrtoint ptr %.0113 to i64
+  %159 = ptrtoint ptr %.tr114132 to i64
+  %160 = ptrtoint ptr %.0111 to i64
   %161 = sub i64 %159, %160
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr116134, %.0113
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr114132, %.0111
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i, label %162
 
 162:                                              ; preds = %158
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0113, i64 %161, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0111, i64 %161, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i:             ; preds = %162, %158
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0112, %.tr116134
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0110, %.tr114132
   br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i, label %163
 
 163:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
-  %164 = ptrtoint ptr %.0112 to i64
+  %164 = ptrtoint ptr %.0110 to i64
   %165 = sub i64 %164, %159
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0113, ptr align 4 %.tr116134, i64 %165, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0111, ptr align 4 %.tr114132, i64 %165, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i:             ; preds = %163, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit40.i
@@ -5856,23 +5832,23 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i:             ; preds = %163, %_ZSt4moveIPiS
 166:                                              ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
   %167 = ashr exact i64 %161, 2
   %168 = sub nsw i64 0, %167
-  %169 = getelementptr inbounds i32, ptr %.0112, i64 %168
+  %169 = getelementptr inbounds i32, ptr %.0110, i64 %168
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %169, ptr align 4 %5, i64 %161, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i:   ; preds = %166, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %168, %166 ], [ 0, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit42.i ]
-  %170 = getelementptr inbounds i32, ptr %.0112, i64 %.pre-phi.i.i.i.i.i44.i
+  %170 = getelementptr inbounds i32, ptr %.0110, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 171:                                              ; preds = %156
-  %172 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.0113, ptr noundef %.tr116134, ptr noundef %.0112)
+  %172 = tail call noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %.0111, ptr noundef %.tr114132, ptr noundef %.0110)
   br label %_ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 _ZSt17__rotate_adaptiveIPiS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %142, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i, %157, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i, %171
-  %.0.i97 = phi ptr [ %155, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i ], [ %172, %171 ], [ %170, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i ], [ %.0113, %142 ], [ %.0112, %157 ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr133, ptr noundef %.0113, ptr noundef %.0.i97, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.35") align 8 %7)
-  %173 = sub nsw i64 %.tr119137, %.061
+  %.0.i95 = phi ptr [ %155, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit38.i ], [ %172, %171 ], [ %170, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit45.i ], [ %.0111, %142 ], [ %.0110, %157 ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIPilS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv3dnn12_GLOBAL__N_114ComparatorLessIfEEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr131, ptr noundef %.0111, ptr noundef %.0.i95, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.35") align 8 %7)
+  %173 = sub nsw i64 %.tr117135, %.061
   %.not = icmp sgt i64 %140, %173
   %.not65 = icmp sgt i64 %140, %6
   %or.cond = or i1 %.not65, %.not

@@ -1385,9 +1385,8 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %12 = load i8, ptr %6, align 1, !tbaa !25
-  %.fr149 = freeze i8 %12
-  %13 = zext i8 %.fr149 to i32
-  %14 = icmp sgt i8 %.fr149, -1
+  %13 = zext i8 %12 to i32
+  %14 = icmp sgt i8 %12, -1
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
@@ -1395,17 +1394,18 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
   br label %154
 
 16:                                               ; preds = %10
-  %17 = add nsw i8 %.fr149, 62
+  %17 = add nsw i8 %12, 62
   %18 = icmp ult i8 %17, 51
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = icmp samesign ugt i8 %.fr149, -33
+  %20 = icmp samesign ugt i8 %12, -33
   %21 = zext i1 %20 to i32
-  %22 = icmp samesign ugt i8 %.fr149, -17
+  %22 = icmp samesign ugt i8 %12, -17
   %23 = zext i1 %22 to i32
   %24 = add nuw nsw i32 %21, %23
-  %25 = add nuw nsw i32 %24, 1
+  %.fr149 = freeze i32 %24
+  %25 = add nuw nsw i32 %.fr149, 1
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 %26
   %28 = icmp ugt ptr %27, %8
@@ -1413,7 +1413,7 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 
 .thread:                                          ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  store i8 %.fr149, ptr %29, align 1, !tbaa !25
+  store i8 %12, ptr %29, align 1, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 1, ptr %30, align 8, !tbaa !42
   store i32 12, ptr %1, align 4, !tbaa !27
@@ -1422,15 +1422,15 @@ define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUCha
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  store i8 %.fr149, ptr %32, align 1, !tbaa !25
+  store i8 %12, ptr %32, align 1, !tbaa !25
   store i32 11, ptr %1, align 4, !tbaa !27
   %33 = load ptr, ptr %7, align 8, !tbaa !40
   %34 = icmp ult ptr %11, %33
   br i1 %34, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %31
-  %35 = icmp eq i32 %24, 0
-  %36 = and i8 %.fr149, 7
+  %35 = icmp eq i32 %.fr149, 0
+  %36 = and i8 %12, 7
   %37 = shl nuw i8 1, %36
   %38 = and i32 %13, 15
   %39 = zext nneg i32 %38 to i64
@@ -1456,7 +1456,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %50 = xor i1 %20, %22
-  br i1 %50, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.fr148 = freeze i1 %50
+  br i1 %.fr148, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %60
   %.090130.us135 = phi ptr [ %64, %60 ], [ %11, %.lr.ph.split ]

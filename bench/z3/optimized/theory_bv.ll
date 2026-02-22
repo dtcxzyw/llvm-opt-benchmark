@@ -22082,10 +22082,10 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.._crit_edge_crit_edge: ; preds = %_Z
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %60, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !694
-  %.fr134 = freeze i8 %102
-  %103 = add i8 %.fr134, 1
+  %.fr = freeze i8 %102
+  %103 = add i8 %.fr, 1
   store i8 %103, ptr %101, align 1, !tbaa !694
-  %104 = and i8 %.fr134, 3
+  %104 = and i8 %.fr, 3
   %105 = icmp eq i8 %104, 3
   %.not71124 = or i1 %.not121160, %105
   br i1 %.not71124, label %.critedge80, label %.lr.ph128.split.preheader

@@ -860,7 +860,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %25 = sitofp i32 %10 to float
   %26 = zext nneg i32 %5 to i64
   %27 = shl nuw nsw i64 %26, 5
-  %28 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %25
+  %28 = fdiv fast float 1.000000e+00, %25
   %29 = fdiv fast float 1.000000e+00, %24
   br label %.preheader110.us.us.us
 
@@ -868,8 +868,8 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %.0141.us.us.us = phi i32 [ %.us-phi.us.us.us.us.us.us, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
   %.087140.us.us.us = phi i32 [ %83, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
   %30 = uitofp nneg i32 %.087140.us.us.us to float
-  %31 = fmul reassoc nnan nsz arcp contract afn float %8, %30
-  %32 = fadd reassoc nsz arcp contract afn float %31, %6
+  %31 = fmul fast float %8, %30
+  %32 = fadd fast float %31, %6
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge116.split.us.us.us.us.us.us, %.preheader110.us.us.us
@@ -884,13 +884,13 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %.2114.us.us.us.us.us.us = phi i32 [ %.1134.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.us-phi.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us ]
   %.089113.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us ], [ %81, %._crit_edge.us.us.us.us.us.us ]
   %36 = uitofp nneg i32 %.089113.us.us.us.us.us.us to float
-  %37 = fadd reassoc nnan nsz arcp contract afn float %36, 5.000000e-01
-  %38 = fmul reassoc nsz arcp contract afn float %8, %37
-  %39 = fmul reassoc nsz arcp contract afn float %38, %28
-  %40 = fadd reassoc nsz arcp contract afn float %32, %39
-  %41 = fcmp reassoc nsz arcp contract afn olt float %40, -1.000000e+00
-  %42 = fcmp reassoc nsz arcp contract afn ogt float %40, %17
-  %or.cond.us.us.us.us.us.us = or i1 %41, %42
+  %37 = fadd fast float %36, 5.000000e-01
+  %38 = fmul fast float %8, %37
+  %39 = fmul fast float %38, %28
+  %40 = fadd fast float %32, %39
+  %41 = fcmp fast olt float %40, -1.000000e+00
+  %42 = fcmp fast ogt float %40, %17
+  %or.cond.us.us.us.us.us.us = select i1 %41, i1 true, i1 %42
   %.093.us.us.us.us.us.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %40, float 0.000000e+00)
   %43 = fptosi float %.093.us.us.us.us.us.us to i32
   %.not.us.us.us.us.us.us = icmp sgt i32 %19, %43
@@ -904,8 +904,9 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %48 = mul nsw i32 %.095.us.us.us.us.us.us, %1
   %49 = mul nsw i32 %.097.us.us.us.us.us.us, %1
   %50 = load ptr, ptr %12, align 8
+  %or.cond.fr.us.us.us.us.us.us = freeze i1 %or.cond.us.us.us.us.us.us
   %51 = sext i32 %.2114.us.us.us.us.us.us to i64
-  br i1 %or.cond.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us.preheader, label %.lr.ph.split.us130.us.us.us.us.us
+  br i1 %or.cond.fr.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us.preheader, label %.lr.ph.split.us130.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us.preheader:      ; preds = %.lr.ph.us.us.us.us.us.us
   %52 = shl nsw i64 %51, 5

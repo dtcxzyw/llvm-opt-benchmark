@@ -1590,8 +1590,8 @@ define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, pt
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 4
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %.fr = freeze i8 %23
-  %24 = lshr i8 %.fr, 4
+  %.fr78 = freeze i8 %23
+  %24 = lshr i8 %.fr78, 4
   %25 = zext nneg i8 %24 to i32
   %26 = or disjoint i32 %22, %19
   %27 = or disjoint i32 %26, %25
@@ -1599,7 +1599,7 @@ define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, pt
   %29 = load i32, ptr @hf_atm_vci, align 4
   %30 = and i32 %27, 65535
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef %30)
-  %32 = lshr i8 %.fr, 1
+  %32 = lshr i8 %.fr78, 1
   %33 = and i8 %32, 7
   %34 = load i32, ptr @hf_atm_payload_type, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
@@ -1668,10 +1668,10 @@ get_header_err.exit:                              ; preds = %44
 64:                                               ; preds = %63, %63
   %65 = add i16 %28, -3
   %or.cond.i = icmp ult i16 %65, 2
-  %66 = and i8 %.fr, 10
+  %66 = and i8 %.fr78, 10
   %67 = icmp eq i8 %66, 0
   %or.cond7.i = and i1 %67, %or.cond.i
-  %68 = and i8 %.fr, 12
+  %68 = and i8 %.fr78, 12
   %69 = icmp eq i8 %68, 8
   %or.cond = or i1 %69, %or.cond7.i
   %spec.select = select i1 %or.cond, i32 7, i32 %4
@@ -1729,16 +1729,16 @@ atm_is_oam_cell.exit.thread:                      ; preds = %64, %63
   br label %103
 
 103:                                              ; preds = %101, %70
-  %.sink81 = phi i8 [ %102, %101 ], [ %73, %70 ]
-  %.sink80 = phi i8 [ %33, %101 ], [ %75, %70 ]
-  %.sink79 = phi i16 [ %14, %101 ], [ %80, %70 ]
+  %.sink82 = phi i8 [ %102, %101 ], [ %73, %70 ]
+  %.sink81 = phi i8 [ %33, %101 ], [ %75, %70 ]
+  %.sink80 = phi i16 [ %14, %101 ], [ %80, %70 ]
   %.sink = phi i16 [ %28, %101 ], [ %82, %70 ]
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.sink81, ptr %104, align 4
+  store i8 %.sink82, ptr %104, align 4
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  store i8 %.sink80, ptr %105, align 1
+  store i8 %.sink81, ptr %105, align 1
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 %.sink79, ptr %106, align 4
+  store i16 %.sink80, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i16 %.sink, ptr %107, align 2
   call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i1 noundef zeroext true, ptr noundef nonnull %8)

@@ -629,8 +629,6 @@ entry:
 define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %headerName, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %nameOnly) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %value.coerce0.fr = freeze ptr %value.coerce0
-  %value.coerce1.fr = freeze ptr %value.coerce1
   %indexNames_ = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i8, ptr %indexNames_, align 4
   %tobool = trunc i8 %0 to i1
@@ -802,8 +800,8 @@ if.end:                                           ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i.i.i30.not71, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %value.coerce1.fr to i64
-  %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %value.coerce0.fr to i64
+  %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %value.coerce1 to i64
+  %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %value.coerce0 to i64
   %sub.ptr.sub.i6.i.i = sub i64 %sub.ptr.lhs.cast.i4.i.i, %sub.ptr.rhs.cast.i5.i.i
   br i1 %nameOnly, label %for.body.us, label %for.body.lr.ph.split
 
@@ -815,8 +813,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph
   br label %if.then26
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %cmp.i8.i.i.i = icmp eq ptr %value.coerce1.fr, %value.coerce0.fr
-  br i1 %cmp.i8.i.i.i, label %for.body.us73, label %for.body
+  %cmp.i8.i.i.i = icmp eq ptr %value.coerce1, %value.coerce0
+  %cmp.i8.i.i.i.fr = freeze i1 %cmp.i8.i.i.i
+  br i1 %cmp.i8.i.i.i.fr, label %for.body.us73, label %for.body
 
 for.body.us73:                                    ; preds = %for.body.lr.ph.split, %for.inc.us
   %indexIt.sroa.0.072.us74 = phi ptr [ %27, %for.inc.us ], [ %second, %for.body.lr.ph.split ]
@@ -865,7 +864,7 @@ land.rhs.i.i:                                     ; preds = %for.body
   %value24 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %35 = load ptr, ptr %value24, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i31, ptr %value24, ptr %35
-  %bcmp.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i, ptr %value.coerce0.fr, i64 %sub.ptr.sub.i6.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i, ptr %value.coerce0, i64 %sub.ptr.sub.i6.i.i)
   %cmp.i.i.i34 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i34, label %if.then26, label %for.inc
 

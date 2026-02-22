@@ -1333,23 +1333,23 @@ define noundef i32 @_ZN6google8protobuf24UnescapeCEscapeSequencesEPKcPcPSt6vecto
   br i1 %4, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %3, %6
-  %.05278 = phi ptr [ %7, %6 ], [ %0, %3 ]
-  %.05477 = phi ptr [ %8, %6 ], [ %1, %3 ]
-  %5 = load i8, ptr %.05278, align 1, !tbaa !11
+  %.05279 = phi ptr [ %7, %6 ], [ %0, %3 ]
+  %.05478 = phi ptr [ %8, %6 ], [ %1, %3 ]
+  %5 = load i8, ptr %.05279, align 1, !tbaa !11
   switch i8 %5, label %6 [
     i8 0, label %.critedge.preheader
     i8 92, label %.critedge.preheader
   ]
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.05278, i64 1
-  %8 = getelementptr inbounds nuw i8, ptr %.05477, i64 1
-  %9 = icmp eq ptr %.05278, %.05477
+  %7 = getelementptr inbounds nuw i8, ptr %.05279, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.05478, i64 1
+  %9 = icmp eq ptr %.05279, %.05478
   br i1 %9, label %.lr.ph, label %.critedge.preheader, !llvm.loop !59
 
 .critedge.preheader:                              ; preds = %6, %.lr.ph, %.lr.ph, %3
-  %.155.ph = phi ptr [ %1, %3 ], [ %8, %6 ], [ %.05477, %.lr.ph ], [ %.05477, %.lr.ph ]
-  %.153.ph = phi ptr [ %0, %3 ], [ %7, %6 ], [ %.05278, %.lr.ph ], [ %.05278, %.lr.ph ]
+  %.155.ph = phi ptr [ %1, %3 ], [ %8, %6 ], [ %.05478, %.lr.ph ], [ %.05478, %.lr.ph ]
+  %.153.ph = phi ptr [ %0, %3 ], [ %7, %6 ], [ %.05279, %.lr.ph ], [ %.05279, %.lr.ph ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %48
@@ -1435,13 +1435,13 @@ define noundef i32 @_ZN6google8protobuf24UnescapeCEscapeSequencesEPKcPcPSt6vecto
 35:                                               ; preds = %11, %11
   %36 = getelementptr inbounds nuw i8, ptr %.153, i64 2
   %37 = load i8, ptr %36, align 1, !tbaa !11
-  %.fr = freeze i8 %37
-  %38 = add i8 %.fr, -48
+  %.fr75 = freeze i8 %37
+  %38 = add i8 %.fr75, -48
   %or.cond.i = icmp ult i8 %38, 10
   br i1 %or.cond.i, label %_ZN6google8protobuf8isxdigitEc.exit.preheader, label %switch.early.test74
 
 switch.early.test74:                              ; preds = %35
-  switch i8 %.fr, label %48 [
+  switch i8 %.fr75, label %48 [
     i8 102, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
     i8 101, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
     i8 100, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
@@ -1464,13 +1464,13 @@ _ZN6google8protobuf8isxdigitEc.exit:              ; preds = %_ZN6google8protobuf
   %.050 = phi i8 [ %46, %_ZN6google8protobuf8isxdigitEc.exit69.thread ], [ 0, %_ZN6google8protobuf8isxdigitEc.exit.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !11
-  %.fr75 = freeze i8 %40
-  %41 = add i8 %.fr75, -48
+  %.fr76 = freeze i8 %40
+  %41 = add i8 %.fr76, -48
   %or.cond.i66 = icmp ult i8 %41, 10
   br i1 %or.cond.i66, label %_ZN6google8protobuf8isxdigitEc.exit69.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZN6google8protobuf8isxdigitEc.exit
-  switch i8 %.fr75, label %.sink.split [
+  switch i8 %.fr76, label %.sink.split [
     i8 102, label %_ZN6google8protobuf8isxdigitEc.exit69.thread
     i8 101, label %_ZN6google8protobuf8isxdigitEc.exit69.thread
     i8 100, label %_ZN6google8protobuf8isxdigitEc.exit69.thread
@@ -1487,9 +1487,9 @@ switch.early.test:                                ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8isxdigitEc.exit69.thread:     ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN6google8protobuf8isxdigitEc.exit
   %42 = shl i8 %.050, 4
-  %43 = icmp samesign ugt i8 %.fr75, 57
-  %44 = add nuw nsw i8 %.fr75, 9
-  %spec.select.i = select i1 %43, i8 %44, i8 %.fr75
+  %43 = icmp samesign ugt i8 %.fr76, 57
+  %44 = add nuw nsw i8 %.fr76, 9
+  %spec.select.i = select i1 %43, i8 %44, i8 %.fr76
   %45 = and i8 %spec.select.i, 15
   %46 = or disjoint i8 %45, %42
   br label %_ZN6google8protobuf8isxdigitEc.exit, !llvm.loop !60

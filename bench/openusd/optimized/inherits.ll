@@ -2296,26 +2296,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
 
 45:                                               ; preds = %44
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
-  %.sroa.0.0.copyload.i.fr = freeze ptr %.sroa.0.0.copyload.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.0.0.copyload.i17 = load ptr, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.2.0.copyload.i19 = load i64, ptr %.sroa.2.0..sroa_idx.i18, align 8
-  %.sroa.0.0.copyload.i17.fr = freeze ptr %.sroa.0.0.copyload.i17
-  %47 = icmp ne ptr %.sroa.0.0.copyload.i.fr, %.sroa.0.0.copyload.i17.fr
+  %47 = icmp ne ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
+  %.fr = freeze i1 %47
   %48 = icmp ne i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i19
-  %.not3.i56 = or i1 %47, %48
+  %.not3.i56 = or i1 %.fr, %48
   br i1 %.not3.i56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br i1 %47, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
   %.sroa.344.057.us = phi i64 [ %51, %50 ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %8, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %8, align 8
   store i64 %.sroa.344.057.us, ptr %49, align 8
   invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split.us
@@ -2331,7 +2330,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %52
   %.sroa.344.057 = phi i64 [ %53, %52 ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
-  store ptr %.sroa.0.0.copyload.i.fr, ptr %8, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %8, align 8
   store i64 %.sroa.344.057, ptr %49, align 8
   invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %52 unwind label %.loopexit.split-lp.loopexit.split
@@ -2372,26 +2371,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
 
 56:                                               ; preds = %._crit_edge
   %.sroa.0.0.copyload.i22 = load ptr, ptr %9, align 8
-  %.sroa.0.0.copyload.i22.fr = freeze ptr %.sroa.0.0.copyload.i22
   %.sroa.2.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0.copyload.i24 = load i64, ptr %.sroa.2.0..sroa_idx.i23, align 8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.0.0.copyload.i27 = load ptr, ptr %57, align 8
   %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.2.0.copyload.i29 = load i64, ptr %.sroa.2.0..sroa_idx.i28, align 8
-  %.sroa.0.0.copyload.i27.fr = freeze ptr %.sroa.0.0.copyload.i27
-  %58 = icmp ne ptr %.sroa.0.0.copyload.i22.fr, %.sroa.0.0.copyload.i27.fr
+  %58 = icmp ne ptr %.sroa.0.0.copyload.i22, %.sroa.0.0.copyload.i27
+  %.fr64 = freeze i1 %58
   %59 = icmp ne i64 %.sroa.2.0.copyload.i24, %.sroa.2.0.copyload.i29
-  %.not3.i3258 = or i1 %58, %59
+  %.not3.i3258 = or i1 %.fr64, %59
   br i1 %.not3.i3258, label %.lr.ph61, label %._crit_edge62
 
 .lr.ph61:                                         ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %58, label %.lr.ph61.split.us, label %.lr.ph61.split
+  br i1 %.fr64, label %.lr.ph61.split.us, label %.lr.ph61.split
 
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %61
   %.sroa.3.059.us = phi i64 [ %62, %61 ], [ %.sroa.2.0.copyload.i24, %.lr.ph61 ]
-  store ptr %.sroa.0.0.copyload.i22.fr, ptr %10, align 8
+  store ptr %.sroa.0.0.copyload.i22, ptr %10, align 8
   store i64 %.sroa.3.059.us, ptr %60, align 8
   invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %61 unwind label %.loopexit.split.us
@@ -2407,7 +2405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
 
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %63
   %.sroa.3.059 = phi i64 [ %64, %63 ], [ %.sroa.2.0.copyload.i24, %.lr.ph61 ]
-  store ptr %.sroa.0.0.copyload.i22.fr, ptr %10, align 8
+  store ptr %.sroa.0.0.copyload.i22, ptr %10, align 8
   store i64 %.sroa.3.059, ptr %60, align 8
   invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %63 unwind label %.loopexit.split

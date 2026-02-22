@@ -6036,8 +6036,8 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit24.i: ; preds 
   %trunc.i.i37.i = trunc i64 %.fr153.i to i1
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %133 = load i32, ptr %132, align 8, !alias.scope !867, !noalias !886
-  %.fr155.i = freeze i32 %133
-  %134 = zext i32 %.fr155.i to i64
+  %.fr.i = freeze i32 %133
+  %134 = zext i32 %.fr.i to i64
   %135 = icmp ult i64 %122, %134
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6094,8 +6094,8 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.us.us.us.us
   %or.cond.i.us.us.us.us.i = or i1 %152, %153
   %154 = trunc i32 %149 to i1
   %or.cond.i = or i1 %150, %154
-  %or.cond274.i = and i1 %or.cond.i, %or.cond.i.us.us.us.us.i
-  br i1 %or.cond274.i, label %.thread.i.us.us.us.us.i, label %155
+  %or.cond273.i = and i1 %or.cond.i, %or.cond.i.us.us.us.us.i
+  br i1 %or.cond273.i, label %.thread.i.us.us.us.us.i, label %155
 
 155:                                              ; preds = %147
   %..us.us.us.us.i = select i1 %150, ptr null, ptr %148
@@ -6111,8 +6111,8 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.us.us.us.us
   br label %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.us.us.i
 
 _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.us.us.i: ; preds = %.thread.i.us.us.us.us.i, %155
-  %exitcond187.not.i = icmp eq i64 %141, %.0.sroa.speculated.i.i.i.i
-  br i1 %exitcond187.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.i
+  %exitcond185.not.i = icmp eq i64 %141, %.0.sroa.speculated.i.i.i.i
+  br i1 %exitcond185.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.us.i
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.us.i: ; preds = %.lr.ph.split.us.split.us.split.split.us.i
   %160 = icmp ult i32 %3, %126
@@ -6142,9 +6142,9 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.us.us.i: ; 
   %173 = trunc i32 %171 to i1
   %or.cond.i.us.us.i = or i1 %172, %173
   %174 = trunc i32 %169 to i1
-  %or.cond271.i = or i1 %170, %174
-  %or.cond275.i = and i1 %or.cond271.i, %or.cond.i.us.us.i
-  br i1 %or.cond275.i, label %.thread.i.us.us.i, label %175
+  %or.cond270.i = or i1 %170, %174
+  %or.cond274.i = and i1 %or.cond270.i, %or.cond.i.us.us.i
+  br i1 %or.cond274.i, label %.thread.i.us.us.i, label %175
 
 175:                                              ; preds = %167
   %..us.us.i = select i1 %170, ptr null, ptr %168
@@ -6160,8 +6160,8 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.us.us.i: ; 
   br label %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.i
 
 _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us.us.i: ; preds = %.thread.i.us.us.i, %175
-  %exitcond186.not.i = icmp eq i64 %161, %.0.sroa.speculated.i.i.i.i
-  br i1 %exitcond186.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.i
+  %exitcond184.not.i = icmp eq i64 %161, %.0.sroa.speculated.i.i.i.i
+  br i1 %exitcond184.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us.us.i
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !932
@@ -6208,9 +6208,9 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.us93.us.i: 
   %193 = trunc i32 %191 to i1
   %or.cond.i.us96.us.i = or i1 %192, %193
   %194 = trunc i32 %189 to i1
-  %or.cond272.i = or i1 %190, %194
-  %or.cond276.i = and i1 %or.cond272.i, %or.cond.i.us96.us.i
-  br i1 %or.cond276.i, label %.thread.i.us99.us.i, label %195
+  %or.cond271.i = or i1 %190, %194
+  %or.cond275.i = and i1 %or.cond271.i, %or.cond.i.us96.us.i
+  br i1 %or.cond275.i, label %.thread.i.us99.us.i, label %195
 
 195:                                              ; preds = %187
   %..us95.us.i = select i1 %190, ptr null, ptr %188
@@ -6226,8 +6226,8 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.us93.us.i: 
   br label %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us101.us.i
 
 _ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit.us101.us.i: ; preds = %.thread.i.us99.us.i, %195
-  %exitcond185.not.i = icmp eq i64 %181, %.0.sroa.speculated.i.i.i.i
-  br i1 %exitcond185.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us91.us.i
+  %exitcond183.not.i = icmp eq i64 %181, %.0.sroa.speculated.i.i.i.i
+  br i1 %exitcond183.not.i, label %_ZN16wasmtime_runtime5table5Table13copy_elements17h6c65b010ebe9a70dE.exit, label %_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us91.us.i
 
 _ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E.exit.us91.i: ; preds = %.lr.ph.split.split.us.i
   %200 = icmp ugt i64 %104, %60
@@ -6275,9 +6275,9 @@ _ZN16wasmtime_runtime5table5Table7gc_refs17h186f4a69cb7f228aE.exit39.i: ; preds 
   %213 = trunc i32 %211 to i1
   %or.cond.i.i = or i1 %212, %213
   %214 = trunc i32 %209 to i1
-  %or.cond273.i = or i1 %210, %214
-  %or.cond277.i = and i1 %or.cond273.i, %or.cond.i.i
-  br i1 %or.cond277.i, label %.thread.i.i, label %215
+  %or.cond272.i = or i1 %210, %214
+  %or.cond276.i = and i1 %or.cond272.i, %or.cond.i.i
+  br i1 %or.cond276.i, label %.thread.i.i, label %215
 
 215:                                              ; preds = %207
   %..i = select i1 %210, ptr null, ptr %208

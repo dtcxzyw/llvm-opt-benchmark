@@ -2255,10 +2255,10 @@ _ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.
 
 .preheader.i91:                                   ; preds = %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86, %.preheader.i91
   %indvars.iv.i5.i92 = phi i64 [ %indvars.iv.next.i6.i95, %.preheader.i91 ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86 ]
-  %.0910.i.i93 = phi i32 [ %268, %.preheader.i91 ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86 ]
+  %.0911.i.i93 = phi i32 [ %268, %.preheader.i91 ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86 ]
   %261 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i5.i92
   %262 = load i32, ptr %261, align 4, !tbaa !26
-  %263 = shl i32 %.0910.i.i93, %262
+  %263 = shl i32 %.0911.i.i93, %262
   %264 = trunc nuw nsw i64 %indvars.iv.i5.i92 to i32
   %265 = and i32 %264, 1
   %266 = xor i32 %265, 1
@@ -2565,10 +2565,10 @@ _ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.
 
 .preheader.i:                                     ; preds = %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i, %.preheader.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %.preheader.i ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i ]
-  %.0910.i.i = phi i32 [ %400, %.preheader.i ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i ]
+  %.0911.i.i = phi i32 [ %400, %.preheader.i ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i ]
   %393 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i5.i
   %394 = load i32, ptr %393, align 4, !tbaa !26
-  %395 = shl i32 %.0910.i.i, %394
+  %395 = shl i32 %.0911.i.i, %394
   %396 = trunc nuw nsw i64 %indvars.iv.i5.i to i32
   %397 = and i32 %396, 1
   %398 = xor i32 %397, 1
@@ -3572,10 +3572,10 @@ _ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit:
 
 .preheader:                                       ; preds = %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit, %.preheader
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %.preheader ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ]
-  %.0910.i = phi i32 [ %67, %.preheader ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ]
+  %.0911.i = phi i32 [ %67, %.preheader ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ]
   %60 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i5
   %61 = load i32, ptr %60, align 4, !tbaa !26
-  %62 = shl i32 %.0910.i, %61
+  %62 = shl i32 %.0911.i, %61
   %63 = trunc nuw nsw i64 %indvars.iv.i5 to i32
   %64 = and i32 %63, 1
   %65 = xor i32 %64, 1

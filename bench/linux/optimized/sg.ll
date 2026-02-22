@@ -3010,8 +3010,8 @@ define internal fastcc noundef range(i32 -14, 1) i32 @sg_read_oxfer(ptr noundef 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %9, align 8
-  %.fr22 = freeze i32 %10
-  %11 = add i32 %.fr22, 12
+  %.fr = freeze i32 %10
+  %11 = add i32 %.fr, 12
   %12 = shl nuw i32 1, %11
   %13 = load i16, ptr %4, align 8
   %14 = icmp eq i16 %13, 0

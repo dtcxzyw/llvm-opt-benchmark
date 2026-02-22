@@ -1231,7 +1231,7 @@ Ifn_NtkParseConstraints.exit.thread:              ; preds = %.preheader.lr.ph.i
   %20 = icmp samesign ult i32 %14, 7
   %21 = add nsw i32 %14, -6
   %22 = shl nuw i32 1, %21
-  %.fr38.i36 = freeze i32 %22
+  %.fr.i36 = freeze i32 %22
   br i1 %20, label %.lr.ph28.split.us.split.us.preheader.i, label %.lr.ph28.i
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %._crit_edge.loopexit.i
@@ -1287,13 +1287,13 @@ Ifn_NtkParseConstraints.exit:                     ; preds = %._crit_edge.loopexi
   %51 = icmp slt i32 %.pre.i, 7
   %52 = add nsw i32 %.pre.i, -6
   %53 = shl nuw i32 1, %52
-  %.fr38.i = freeze i32 %53
-  %54 = select i1 %51, i32 1, i32 %.fr38.i
+  %.fr.i = freeze i32 %53
+  %54 = select i1 %51, i32 1, i32 %.fr.i
   %55 = icmp sgt i32 %.pre.i, 0
   br i1 %55, label %.lr.ph28.i, label %Abc_TtElemInit2.exit
 
 .lr.ph28.i:                                       ; preds = %Ifn_NtkParseConstraints.exit.thread, %Ifn_NtkParseConstraints.exit
-  %56 = phi i32 [ %.fr38.i36, %Ifn_NtkParseConstraints.exit.thread ], [ %54, %Ifn_NtkParseConstraints.exit ]
+  %56 = phi i32 [ %.fr.i36, %Ifn_NtkParseConstraints.exit.thread ], [ %54, %Ifn_NtkParseConstraints.exit ]
   %57 = phi i32 [ %21, %Ifn_NtkParseConstraints.exit.thread ], [ %52, %Ifn_NtkParseConstraints.exit ]
   %58 = phi i1 [ false, %Ifn_NtkParseConstraints.exit.thread ], [ %51, %Ifn_NtkParseConstraints.exit ]
   %59 = phi ptr [ %19, %Ifn_NtkParseConstraints.exit.thread ], [ %50, %Ifn_NtkParseConstraints.exit ]

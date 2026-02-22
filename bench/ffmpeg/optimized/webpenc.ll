@@ -49,8 +49,8 @@ define internal range(i32 -1094995529, 1) i32 @webp_write_packet(ptr noundef rea
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i8, ptr %22, align 1, !tbaa !30
-  %.fr.i = freeze i8 %23
-  %24 = and i8 %.fr.i, 2
+  %.fr15.i = freeze i8 %23
+  %24 = and i8 %.fr15.i, 2
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %.thread.i, label %is_animated_webp_packet.exit
 

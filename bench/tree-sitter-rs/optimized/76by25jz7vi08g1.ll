@@ -15846,15 +15846,13 @@ _ZN5serde9__private2de7content17visit_content_seq17h771569c789867a83E.exit: ; pr
   %.pre2.i.i.i.i.i.i = load i64, ptr %5, align 8, !noalias !4312
   %.phi.trans.insert3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre4.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i.i.i, align 8, !noalias !4312
-  %.pre4.i.i.i.fr.i.i.i = freeze i64 %.pre4.i.i.i.i.i.i
-  %.pre.i.i.i.fr.i.i.i = freeze i64 %.pre.i.i.i.i.i.i
-  %183 = icmp eq i64 %.pre.i.i.i.fr.i.i.i, 0
-  %.pre2.i.i.i.fr.i.i.i = freeze i64 %.pre2.i.i.i.i.i.i
-  %184 = icmp ne i64 %.pre2.i.i.i.fr.i.i.i, %.pre4.i.i.i.fr.i.i.i
-  %.not10.i.i.i = or i1 %183, %184
+  %183 = icmp eq i64 %.pre.i.i.i.i.i.i, 0
+  %184 = icmp ne i64 %.pre2.i.i.i.i.i.i, %.pre4.i.i.i.i.i.i
+  %.not10.i.i.i = select i1 %183, i1 true, i1 %184
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4312
-  %185 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i.i.i, i64 16384)
-  %spec.select.i.i.i = select i1 %.not10.i.i.i, i64 0, i64 %185
+  %185 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i.i.i, i64 16384)
+  %cond.fr.i.i.i = freeze i1 %.not10.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i64 0, i64 %185
   %186 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h016716ead0a946c7E"(i64 noundef %spec.select.i.i.i, i1 noundef zeroext false)
           to label %.noexc9.i unwind label %.thread19.i, !noalias !4302
 
@@ -34251,15 +34249,13 @@ define internal fastcc void @"_ZN84_$LT$serde..__private..de..content..ContentVi
   %.pre2.i.i.i = load i64, ptr %4, align 8, !noalias !7709
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre4.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i, align 8, !noalias !7709
-  %.pre4.i.i.i.fr = freeze i64 %.pre4.i.i.i
-  %.pre.i.i.i.fr = freeze i64 %.pre.i.i.i
-  %9 = icmp eq i64 %.pre.i.i.i.fr, 0
-  %.pre2.i.i.i.fr = freeze i64 %.pre2.i.i.i
-  %10 = icmp ne i64 %.pre2.i.i.i.fr, %.pre4.i.i.i.fr
-  %.not11 = or i1 %9, %10
+  %9 = icmp eq i64 %.pre.i.i.i, 0
+  %10 = icmp ne i64 %.pre2.i.i.i, %.pre4.i.i.i
+  %.not11 = select i1 %9, i1 true, i1 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7709
-  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr, i64 32768)
-  %spec.select = select i1 %.not11, i64 0, i64 %11
+  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 32768)
+  %cond.fr = freeze i1 %.not11
+  %spec.select = select i1 %cond.fr, i64 0, i64 %11
   br label %12
 
 12:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h155b0231a61cffd0E.exit", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h155b0231a61cffd0E.exit.thread"
@@ -52359,15 +52355,13 @@ _ZN5serde9__private2de7content17visit_content_seq17he0620368bf77b047E.exit.i: ; 
   %.pre2.i.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !10808
   %.phi.trans.insert3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre4.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i.i.i, align 8, !noalias !10808
-  %.pre4.i.i.i.fr.i.i.i = freeze i64 %.pre4.i.i.i.i.i.i
-  %.pre.i.i.i.fr.i.i.i = freeze i64 %.pre.i.i.i.i.i.i
-  %163 = icmp eq i64 %.pre.i.i.i.fr.i.i.i, 0
-  %.pre2.i.i.i.fr.i.i.i = freeze i64 %.pre2.i.i.i.i.i.i
-  %164 = icmp ne i64 %.pre2.i.i.i.fr.i.i.i, %.pre4.i.i.i.fr.i.i.i
-  %.not20.i.i.i = or i1 %163, %164
+  %163 = icmp eq i64 %.pre.i.i.i.i.i.i, 0
+  %164 = icmp ne i64 %.pre2.i.i.i.i.i.i, %.pre4.i.i.i.i.i.i
+  %.not20.i.i.i = select i1 %163, i1 true, i1 %164
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10808
-  %165 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i.i.i, i64 16384)
-  %spec.select.i.i.i = select i1 %.not20.i.i.i, i64 0, i64 %165
+  %165 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i.i.i, i64 16384)
+  %cond.fr.i.i.i = freeze i1 %.not20.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i64 0, i64 %165
   %166 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h016716ead0a946c7E"(i64 noundef %spec.select.i.i.i, i1 noundef zeroext false)
           to label %.noexc10.i11.i unwind label %.thread36.i.i, !noalias !10800
 

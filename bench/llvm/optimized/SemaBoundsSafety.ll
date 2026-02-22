@@ -1168,8 +1168,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit120: ; preds = %_Z
   %.pre = load ptr, ptr %182, align 16, !tbaa !72
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.sroa.0.0.copyload.i.i.i.i140.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !42
-  %.pre427 = and i64 %.sroa.0.0.copyload.i.i.i.i140.pre, -16
-  %.pre428 = inttoptr i64 %.pre427 to ptr
+  %.pre428 = and i64 %.sroa.0.0.copyload.i.i.i.i140.pre, -16
+  %.pre429 = inttoptr i64 %.pre428 to ptr
   br label %679
 
 570:                                              ; preds = %566
@@ -1402,9 +1402,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_14SourceLocationEvEERKS1_OT_.exi
   br label %1288
 
 679:                                              ; preds = %._crit_edge, %378
-  %.pre-phi429 = phi ptr [ %.pre428, %._crit_edge ], [ %186, %378 ]
+  %.pre-phi430 = phi ptr [ %.pre429, %._crit_edge ], [ %186, %378 ]
   %680 = phi ptr [ %.pre, %._crit_edge ], [ %183, %378 ]
-  %681 = load ptr, ptr %.pre-phi429, align 8, !tbaa !72
+  %681 = load ptr, ptr %.pre-phi430, align 8, !tbaa !72
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 16
   %683 = load i8, ptr %682, align 16
   %684 = icmp eq i8 %683, 41
@@ -1473,8 +1473,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_14SourceLocationEvEERKS1_OT_.exi
   %722 = load ptr, ptr %721, align 8, !tbaa !735
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 192
   %724 = load i64, ptr %723, align 8
-  %.fr = freeze i64 %724
-  %725 = and i64 %.fr, 8
+  %.fr426 = freeze i64 %724
+  %725 = and i64 %.fr426, 8
   %.not71 = icmp eq i64 %725, 0
   %spec.select = select i1 %.not71, i32 6379, i32 3268
   %.lobit = lshr exact i64 %725, 3

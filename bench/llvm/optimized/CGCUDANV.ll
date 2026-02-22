@@ -3156,18 +3156,17 @@ _ZNK5clang4Decl7hasAttrINS_16CUDAConstantAttrEEEbv.exit51: ; preds = %99, %104, 
 124:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_16CUDAConstantAttrEEEbv.exit51
   %125 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %126 = load ptr, ptr %125, align 8, !tbaa !351
-  %.fr.i = freeze ptr %126
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !352
-  %.fr9.i = freeze i32 %128
-  %129 = zext i32 %.fr9.i to i64
+  %129 = zext i32 %128 to i64
   %.idx.i.i.i = shl nuw nsw i64 %129, 3
-  %130 = getelementptr i8, ptr %.fr.i, i64 %.idx.i.i.i
-  %.not.i.i.i = icmp eq i32 %.fr9.i, 0
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i
+  %.fr.i = freeze ptr %130
+  %.not.i.i.i = icmp eq i32 %128, 0
   br i1 %.not.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_14HIPManagedAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %124, %135
-  %.sroa.07.1.i.i.i.i.i = phi ptr [ %136, %135 ], [ %.fr.i, %124 ]
+  %.sroa.07.1.i.i.i.i.i = phi ptr [ %136, %135 ], [ %126, %124 ]
   %131 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !1203
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load i16, ptr %132, align 8
@@ -3176,7 +3175,7 @@ _ZNK5clang4Decl7hasAttrINS_16CUDAConstantAttrEEEbv.exit51: ; preds = %99, %104, 
 
 135:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %136, %130
+  %.not.i.i.i.i.i.i = icmp eq ptr %136, %.fr.i
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_14HIPManagedAttrEEEbv.exit.thread6.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1210
 
 _ZNK5clang4Decl7hasAttrINS_14HIPManagedAttrEEEbv.exit.thread6.i: ; preds = %135
@@ -3188,7 +3187,7 @@ _ZNK5clang4Decl7hasAttrINS_14HIPManagedAttrEEEbv.exit.thread.i: ; preds = %124, 
   br label %140
 
 _ZNK5clang4Decl7hasAttrINS_14HIPManagedAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not.i53 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %130
+  %.not.i53 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %.fr.i
   %139 = select i1 %.not28, i8 4, i8 0
   %spec.select.i54 = select i1 %.not.i53, i8 0, i8 16
   br label %140
@@ -5264,9 +5263,9 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime15getKernelHandle
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %12 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
-  %.fr123 = freeze { ptr, i64 } %12
-  %13 = extractvalue { ptr, i64 } %.fr123, 0
-  %14 = extractvalue { ptr, i64 } %.fr123, 1
+  %.fr = freeze { ptr, i64 } %12
+  %13 = extractvalue { ptr, i64 } %.fr, 0
+  %14 = extractvalue { ptr, i64 } %.fr, 1
   %15 = load ptr, ptr %11, align 8, !tbaa !736
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %17 = load i32, ptr %16, align 8, !tbaa !737

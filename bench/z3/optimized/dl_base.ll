@@ -3202,8 +3202,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog10table_base10fetch_factER7svector
   %5 = alloca %"class.datalog::table_base::iterator", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !329
-  %.fr62 = freeze i32 %7
-  %8 = icmp eq i32 %.fr62, 0
+  %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
@@ -3211,7 +3210,7 @@ define hidden noundef zeroext i1 @_ZNK7datalog10table_base10fetch_factER7svector
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %148
+  br label %146
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3222,324 +3221,324 @@ define hidden noundef zeroext i1 @_ZNK7datalog10table_base10fetch_factER7svector
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %16, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !12
-  %21 = freeze i32 %20
   br label %_ZNK6vectorImLb0EjE4sizeEv.exit
 
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %14, %18
-  %.0.i = phi i32 [ %21, %18 ], [ 0, %14 ]
-  %22 = sub i32 %.0.i, %.fr62
+  %.0.i = phi i32 [ %20, %18 ], [ 0, %14 ]
+  %21 = sub i32 %.0.i, %7
+  %.fr62 = freeze i32 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !328
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = load ptr, ptr %0, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 200
-  %25 = load ptr, ptr %24, align 8
-  invoke void %25(ptr dead_on_unwind nonnull writable sret(%"class.datalog::table_base::iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(36) %0)
-          to label %26 unwind label %66
+  %22 = load ptr, ptr %0, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 200
+  %24 = load ptr, ptr %23, align 8
+  invoke void %24(ptr dead_on_unwind nonnull writable sret(%"class.datalog::table_base::iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(36) %0)
+          to label %25 unwind label %65
 
-26:                                               ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
+25:                                               ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %27 = load ptr, ptr %0, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 208
-  %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr dead_on_unwind nonnull writable sret(%"class.datalog::table_base::iterator") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %0)
-          to label %_ZN7datalog10table_base8iteratorppEv.exit.preheader unwind label %68
+  %26 = load ptr, ptr %0, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 208
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr dead_on_unwind nonnull writable sret(%"class.datalog::table_base::iterator") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %0)
+          to label %_ZN7datalog10table_base8iteratorppEv.exit.preheader unwind label %67
 
-_ZN7datalog10table_base8iteratorppEv.exit.preheader: ; preds = %26
-  %.not = icmp eq i32 %.0.i, %.fr62
+_ZN7datalog10table_base8iteratorppEv.exit.preheader: ; preds = %25
+  %.not = icmp eq i32 %.fr62, 0
   br i1 %.not, label %_ZN7datalog10table_base8iteratorppEv.exit, label %_ZN7datalog10table_base8iteratorppEv.exit.us.preheader
 
 _ZN7datalog10table_base8iteratorppEv.exit.us.preheader: ; preds = %_ZN7datalog10table_base8iteratorppEv.exit.preheader
-  %wide.trip.count = zext i32 %22 to i64
+  %wide.trip.count = zext i32 %.fr62 to i64
   br label %_ZN7datalog10table_base8iteratorppEv.exit.us
 
 _ZN7datalog10table_base8iteratorppEv.exit.us:     ; preds = %_ZN7datalog10table_base8iteratorppEv.exit.us.preheader, %.critedge.us
-  %30 = load ptr, ptr %4, align 8, !tbaa !357
-  %31 = load ptr, ptr %5, align 8, !tbaa !357
-  %32 = load ptr, ptr %30, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %35 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %31)
-          to label %36 unwind label %.split.us
+  %29 = load ptr, ptr %4, align 8, !tbaa !357
+  %30 = load ptr, ptr %5, align 8, !tbaa !357
+  %31 = load ptr, ptr %29, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %34 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %30)
+          to label %35 unwind label %.split.us
 
-36:                                               ; preds = %_ZN7datalog10table_base8iteratorppEv.exit.us
-  br i1 %35, label %.critedge42, label %37
+35:                                               ; preds = %_ZN7datalog10table_base8iteratorppEv.exit.us
+  br i1 %34, label %.critedge42, label %36
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %4, align 8, !tbaa !357
-  %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %42 = invoke noundef nonnull align 8 dereferenceable(16) ptr %41(ptr noundef nonnull align 8 dereferenceable(12) %38)
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %4, align 8, !tbaa !357
+  %38 = load ptr, ptr %37, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = invoke noundef nonnull align 8 dereferenceable(16) ptr %40(ptr noundef nonnull align 8 dereferenceable(12) %37)
           to label %_ZN7datalog10table_base8iteratordeEv.exit.us unwind label %.split58.us
 
-_ZN7datalog10table_base8iteratordeEv.exit.us:     ; preds = %37
-  %43 = load ptr, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(8) %3)
+_ZN7datalog10table_base8iteratordeEv.exit.us:     ; preds = %36
+  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.preheader49.us unwind label %.split58.us
 
 .critedge.us:                                     ; preds = %._crit_edge.us
-  %46 = load ptr, ptr %4, align 8, !tbaa !357
-  %47 = load ptr, ptr %46, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %49 = load ptr, ptr %48, align 8
-  invoke void %49(ptr noundef nonnull align 8 dereferenceable(12) %46)
+  %45 = load ptr, ptr %4, align 8, !tbaa !357
+  %46 = load ptr, ptr %45, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %48 = load ptr, ptr %47, align 8
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(12) %45)
           to label %_ZN7datalog10table_base8iteratorppEv.exit.us unwind label %.split.us
 
-50:                                               ; preds = %.preheader49.us, %50
-  %indvars.iv = phi i64 [ 0, %.preheader49.us ], [ %indvars.iv.next, %50 ]
-  %.02652.us = phi i1 [ false, %.preheader49.us ], [ %spec.select.us, %50 ]
-  %51 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv
-  %52 = load i64, ptr %51, align 8, !tbaa !332
-  %53 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv
-  %54 = load i64, ptr %53, align 8, !tbaa !332
-  %.not.us = icmp ne i64 %52, %54
+49:                                               ; preds = %.preheader49.us, %49
+  %indvars.iv = phi i64 [ 0, %.preheader49.us ], [ %indvars.iv.next, %49 ]
+  %.02652.us = phi i1 [ false, %.preheader49.us ], [ %spec.select.us, %49 ]
+  %50 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv
+  %51 = load i64, ptr %50, align 8, !tbaa !332
+  %52 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv
+  %53 = load i64, ptr %52, align 8, !tbaa !332
+  %.not.us = icmp ne i64 %51, %53
   %spec.select.us = select i1 %.not.us, i1 true, i1 %.02652.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !369
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !369
 
 .preheader49.us:                                  ; preds = %_ZN7datalog10table_base8iteratordeEv.exit.us
-  %55 = load ptr, ptr %3, align 8, !tbaa !328
-  %56 = load ptr, ptr %1, align 8, !tbaa !328
-  br label %50
+  %54 = load ptr, ptr %3, align 8, !tbaa !328
+  %55 = load ptr, ptr %1, align 8, !tbaa !328
+  br label %49
 
-._crit_edge.us:                                   ; preds = %50
+._crit_edge.us:                                   ; preds = %49
   br i1 %spec.select.us, label %.critedge.us, label %.preheader
 
 .split.us:                                        ; preds = %.critedge.us, %_ZN7datalog10table_base8iteratorppEv.exit.us
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  br label %112
+
+.split58.us:                                      ; preds = %_ZN7datalog10table_base8iteratordeEv.exit.us, %36
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %114
-
-.split58.us:                                      ; preds = %_ZN7datalog10table_base8iteratordeEv.exit.us, %37
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  br label %114
+  br label %112
 
 _ZN7datalog10table_base8iteratorppEv.exit:        ; preds = %_ZN7datalog10table_base8iteratorppEv.exit.preheader
-  %59 = load ptr, ptr %4, align 8, !tbaa !357
-  %60 = load ptr, ptr %5, align 8, !tbaa !357
-  %61 = load ptr, ptr %59, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %63 = load ptr, ptr %62, align 8
-  %64 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(12) %59, ptr noundef nonnull align 8 dereferenceable(12) %60)
-          to label %65 unwind label %.split
+  %58 = load ptr, ptr %4, align 8, !tbaa !357
+  %59 = load ptr, ptr %5, align 8, !tbaa !357
+  %60 = load ptr, ptr %58, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %63 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(12) %58, ptr noundef nonnull align 8 dereferenceable(12) %59)
+          to label %64 unwind label %.split
 
-65:                                               ; preds = %_ZN7datalog10table_base8iteratorppEv.exit
-  br i1 %64, label %.critedge42, label %71
+64:                                               ; preds = %_ZN7datalog10table_base8iteratorppEv.exit
+  br i1 %63, label %.critedge42, label %70
 
-66:                                               ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  br label %116
-
-68:                                               ; preds = %26
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %115
-
-.split:                                           ; preds = %_ZN7datalog10table_base8iteratorppEv.exit
-  %70 = landingpad { ptr, i32 }
+65:                                               ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %114
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %4, align 8, !tbaa !357
-  %73 = load ptr, ptr %72, align 8, !tbaa !3
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = invoke noundef nonnull align 8 dereferenceable(16) ptr %75(ptr noundef nonnull align 8 dereferenceable(12) %72)
+67:                                               ; preds = %25
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  br label %113
+
+.split:                                           ; preds = %_ZN7datalog10table_base8iteratorppEv.exit
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  br label %112
+
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %4, align 8, !tbaa !357
+  %72 = load ptr, ptr %71, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = invoke noundef nonnull align 8 dereferenceable(16) ptr %74(ptr noundef nonnull align 8 dereferenceable(12) %71)
           to label %_ZN7datalog10table_base8iteratordeEv.exit unwind label %.split58
 
-_ZN7datalog10table_base8iteratordeEv.exit:        ; preds = %71
-  %77 = load ptr, ptr %76, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(8) %3)
+_ZN7datalog10table_base8iteratordeEv.exit:        ; preds = %70
+  %76 = load ptr, ptr %75, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %78 = load ptr, ptr %77, align 8
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.preheader unwind label %.split58
 
 .preheader:                                       ; preds = %._crit_edge.us, %_ZN7datalog10table_base8iteratordeEv.exit
-  %.not63 = icmp ugt i32 %.fr62, %.0.i
-  br i1 %.not63, label %._crit_edge, label %.lr.ph
+  %79 = icmp ult i32 %.fr62, %.0.i
+  br i1 %79, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %80 = load ptr, ptr %3, align 8, !tbaa !328
   %81 = load ptr, ptr %1, align 8, !tbaa !328
-  %82 = zext i32 %22 to i64
-  %83 = zext i32 %.0.i to i64
-  br label %85
+  %82 = zext i32 %.fr62 to i64
+  %wide.trip.count67 = zext i32 %.0.i to i64
+  br label %84
 
-.split58:                                         ; preds = %71, %_ZN7datalog10table_base8iteratordeEv.exit
-  %84 = landingpad { ptr, i32 }
+.split58:                                         ; preds = %70, %_ZN7datalog10table_base8iteratordeEv.exit
+  %83 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %112
 
-85:                                               ; preds = %.lr.ph, %85
-  %indvars.iv65 = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next66, %85 ]
-  %86 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv65
-  %87 = load i64, ptr %86, align 8, !tbaa !332
-  %88 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv65
-  store i64 %87, ptr %88, align 8, !tbaa !332
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %89 = icmp samesign ult i64 %indvars.iv.next66, %83
-  br i1 %89, label %85, label %._crit_edge, !llvm.loop !370
+84:                                               ; preds = %.lr.ph, %84
+  %indvars.iv64 = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next65, %84 ]
+  %85 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv64
+  %86 = load i64, ptr %85, align 8, !tbaa !332
+  %87 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv64
+  store i64 %86, ptr %87, align 8, !tbaa !332
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
+  br i1 %exitcond68.not, label %._crit_edge, label %84, !llvm.loop !370
 
-._crit_edge:                                      ; preds = %85, %.preheader
-  %90 = load ptr, ptr %5, align 8, !tbaa !357
-  %.not.i.i.i = icmp eq ptr %90, null
-  br i1 %.not.i.i.i, label %_ZN7datalog10table_base8iteratorD2Ev.exit, label %91
+._crit_edge:                                      ; preds = %84, %.preheader
+  %88 = load ptr, ptr %5, align 8, !tbaa !357
+  %.not.i.i.i = icmp eq ptr %88, null
+  br i1 %.not.i.i.i, label %_ZN7datalog10table_base8iteratorD2Ev.exit, label %89
 
-91:                                               ; preds = %._crit_edge
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %93 = load i32, ptr %92, align 8, !tbaa !360
-  %94 = add i32 %93, -1
-  store i32 %94, ptr %92, align 8, !tbaa !360
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %_ZN7datalog10table_base8iteratorD2Ev.exit
+89:                                               ; preds = %._crit_edge
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %91 = load i32, ptr %90, align 8, !tbaa !360
+  %92 = add i32 %91, -1
+  store i32 %92, ptr %90, align 8, !tbaa !360
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %_ZN7datalog10table_base8iteratorD2Ev.exit
 
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %90, align 8, !tbaa !3
-  %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(12) %90) #24
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %90)
-          to label %_ZN7datalog10table_base8iteratorD2Ev.exit unwind label %99
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %88, align 8, !tbaa !3
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(12) %88) #24
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %88)
+          to label %_ZN7datalog10table_base8iteratorD2Ev.exit unwind label %97
 
-99:                                               ; preds = %96
-  %100 = landingpad { ptr, i32 }
+97:                                               ; preds = %94
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #27
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #27
   unreachable
 
-_ZN7datalog10table_base8iteratorD2Ev.exit:        ; preds = %._crit_edge, %91, %96
+_ZN7datalog10table_base8iteratorD2Ev.exit:        ; preds = %._crit_edge, %89, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %102 = load ptr, ptr %4, align 8, !tbaa !357
-  %.not.i.i.i43 = icmp eq ptr %102, null
-  br i1 %.not.i.i.i43, label %_ZN7datalog10table_base8iteratorD2Ev.exit44, label %103
+  %100 = load ptr, ptr %4, align 8, !tbaa !357
+  %.not.i.i.i43 = icmp eq ptr %100, null
+  br i1 %.not.i.i.i43, label %_ZN7datalog10table_base8iteratorD2Ev.exit44, label %101
 
-103:                                              ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %105 = load i32, ptr %104, align 8, !tbaa !360
-  %106 = add i32 %105, -1
-  store i32 %106, ptr %104, align 8, !tbaa !360
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %_ZN7datalog10table_base8iteratorD2Ev.exit44
+101:                                              ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %103 = load i32, ptr %102, align 8, !tbaa !360
+  %104 = add i32 %103, -1
+  store i32 %104, ptr %102, align 8, !tbaa !360
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %_ZN7datalog10table_base8iteratorD2Ev.exit44
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %102, align 8, !tbaa !3
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(12) %102) #24
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %102)
-          to label %_ZN7datalog10table_base8iteratorD2Ev.exit44 unwind label %111
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %100, align 8, !tbaa !3
+  %108 = load ptr, ptr %107, align 8
+  call void %108(ptr noundef nonnull align 8 dereferenceable(12) %100) #24
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %100)
+          to label %_ZN7datalog10table_base8iteratorD2Ev.exit44 unwind label %109
 
-111:                                              ; preds = %108
-  %112 = landingpad { ptr, i32 }
+109:                                              ; preds = %106
+  %110 = landingpad { ptr, i32 }
           catch ptr null
-  %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #27
+  %111 = extractvalue { ptr, i32 } %110, 0
+  call void @__clang_call_terminate(ptr %111) #27
   unreachable
 
-114:                                              ; preds = %.split58, %.split58.us, %.split, %.split.us
-  %.pn = phi { ptr, i32 } [ %57, %.split.us ], [ %70, %.split ], [ %84, %.split58 ], [ %58, %.split58.us ]
+112:                                              ; preds = %.split58, %.split58.us, %.split, %.split.us
+  %.pn = phi { ptr, i32 } [ %56, %.split.us ], [ %69, %.split ], [ %83, %.split58 ], [ %57, %.split58.us ]
   call void @_ZN7datalog10table_base8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
-  br label %115
+  br label %113
 
-115:                                              ; preds = %114, %68
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %114 ], [ %69, %68 ]
+113:                                              ; preds = %112, %67
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %112 ], [ %68, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN7datalog10table_base8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
-  br label %116
+  br label %114
 
-116:                                              ; preds = %115, %66
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %115 ], [ %67, %66 ]
+114:                                              ; preds = %113, %65
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %113 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6vectorImLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn
 
-.critedge42:                                      ; preds = %36, %65
-  %117 = load ptr, ptr %5, align 8, !tbaa !357
-  %.not.i.i.i45 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i45, label %_ZN7datalog10table_base8iteratorD2Ev.exit46, label %118
+.critedge42:                                      ; preds = %35, %64
+  %115 = load ptr, ptr %5, align 8, !tbaa !357
+  %.not.i.i.i45 = icmp eq ptr %115, null
+  br i1 %.not.i.i.i45, label %_ZN7datalog10table_base8iteratorD2Ev.exit46, label %116
 
-118:                                              ; preds = %.critedge42
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %120 = load i32, ptr %119, align 8, !tbaa !360
-  %121 = add i32 %120, -1
-  store i32 %121, ptr %119, align 8, !tbaa !360
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %_ZN7datalog10table_base8iteratorD2Ev.exit46
+116:                                              ; preds = %.critedge42
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %118 = load i32, ptr %117, align 8, !tbaa !360
+  %119 = add i32 %118, -1
+  store i32 %119, ptr %117, align 8, !tbaa !360
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %_ZN7datalog10table_base8iteratorD2Ev.exit46
 
-123:                                              ; preds = %118
-  %124 = load ptr, ptr %117, align 8, !tbaa !3
-  %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(12) %117) #24
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %117)
-          to label %_ZN7datalog10table_base8iteratorD2Ev.exit46 unwind label %126
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %115, align 8, !tbaa !3
+  %123 = load ptr, ptr %122, align 8
+  call void %123(ptr noundef nonnull align 8 dereferenceable(12) %115) #24
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %115)
+          to label %_ZN7datalog10table_base8iteratorD2Ev.exit46 unwind label %124
 
-126:                                              ; preds = %123
-  %127 = landingpad { ptr, i32 }
+124:                                              ; preds = %121
+  %125 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #27
+  %126 = extractvalue { ptr, i32 } %125, 0
+  call void @__clang_call_terminate(ptr %126) #27
   unreachable
 
-_ZN7datalog10table_base8iteratorD2Ev.exit46:      ; preds = %.critedge42, %118, %123
+_ZN7datalog10table_base8iteratorD2Ev.exit46:      ; preds = %.critedge42, %116, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %129 = load ptr, ptr %4, align 8, !tbaa !357
-  %.not.i.i.i47 = icmp eq ptr %129, null
-  br i1 %.not.i.i.i47, label %_ZN7datalog10table_base8iteratorD2Ev.exit44, label %130
+  %127 = load ptr, ptr %4, align 8, !tbaa !357
+  %.not.i.i.i47 = icmp eq ptr %127, null
+  br i1 %.not.i.i.i47, label %_ZN7datalog10table_base8iteratorD2Ev.exit44, label %128
 
-130:                                              ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit46
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %132 = load i32, ptr %131, align 8, !tbaa !360
-  %133 = add i32 %132, -1
-  store i32 %133, ptr %131, align 8, !tbaa !360
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %_ZN7datalog10table_base8iteratorD2Ev.exit44
+128:                                              ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit46
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %130 = load i32, ptr %129, align 8, !tbaa !360
+  %131 = add i32 %130, -1
+  store i32 %131, ptr %129, align 8, !tbaa !360
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %_ZN7datalog10table_base8iteratorD2Ev.exit44
 
-135:                                              ; preds = %130
-  %136 = load ptr, ptr %129, align 8, !tbaa !3
-  %137 = load ptr, ptr %136, align 8
-  call void %137(ptr noundef nonnull align 8 dereferenceable(12) %129) #24
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %129)
-          to label %_ZN7datalog10table_base8iteratorD2Ev.exit44 unwind label %138
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %127, align 8, !tbaa !3
+  %135 = load ptr, ptr %134, align 8
+  call void %135(ptr noundef nonnull align 8 dereferenceable(12) %127) #24
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %127)
+          to label %_ZN7datalog10table_base8iteratorD2Ev.exit44 unwind label %136
 
-138:                                              ; preds = %135
-  %139 = landingpad { ptr, i32 }
+136:                                              ; preds = %133
+  %137 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #27
+  %138 = extractvalue { ptr, i32 } %137, 0
+  call void @__clang_call_terminate(ptr %138) #27
   unreachable
 
-_ZN7datalog10table_base8iteratorD2Ev.exit44:      ; preds = %135, %130, %_ZN7datalog10table_base8iteratorD2Ev.exit46, %108, %103, %_ZN7datalog10table_base8iteratorD2Ev.exit
-  %141 = phi i1 [ true, %108 ], [ true, %_ZN7datalog10table_base8iteratorD2Ev.exit ], [ true, %103 ], [ false, %_ZN7datalog10table_base8iteratorD2Ev.exit46 ], [ false, %130 ], [ false, %135 ]
+_ZN7datalog10table_base8iteratorD2Ev.exit44:      ; preds = %133, %128, %_ZN7datalog10table_base8iteratorD2Ev.exit46, %106, %101, %_ZN7datalog10table_base8iteratorD2Ev.exit
+  %139 = phi i1 [ true, %106 ], [ true, %_ZN7datalog10table_base8iteratorD2Ev.exit ], [ true, %101 ], [ false, %_ZN7datalog10table_base8iteratorD2Ev.exit46 ], [ false, %128 ], [ false, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %142 = load ptr, ptr %3, align 8, !tbaa !328
-  %.not.i.i = icmp eq ptr %142, null
-  br i1 %.not.i.i, label %_ZN6vectorImLb0EjED2Ev.exit, label %143
+  %140 = load ptr, ptr %3, align 8, !tbaa !328
+  %.not.i.i = icmp eq ptr %140, null
+  br i1 %.not.i.i, label %_ZN6vectorImLb0EjED2Ev.exit, label %141
 
-143:                                              ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit44
-  %144 = getelementptr inbounds i8, ptr %142, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %144)
-          to label %_ZN6vectorImLb0EjED2Ev.exit unwind label %145
+141:                                              ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit44
+  %142 = getelementptr inbounds i8, ptr %140, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %142)
+          to label %_ZN6vectorImLb0EjED2Ev.exit unwind label %143
 
-145:                                              ; preds = %143
-  %146 = landingpad { ptr, i32 }
+143:                                              ; preds = %141
+  %144 = landingpad { ptr, i32 }
           catch ptr null
-  %147 = extractvalue { ptr, i32 } %146, 0
-  call void @__clang_call_terminate(ptr %147) #27
+  %145 = extractvalue { ptr, i32 } %144, 0
+  call void @__clang_call_terminate(ptr %145) #27
   unreachable
 
-_ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit44, %143
+_ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %_ZN7datalog10table_base8iteratorD2Ev.exit44, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %148
+  br label %146
 
-148:                                              ; preds = %_ZN6vectorImLb0EjED2Ev.exit, %9
-  %.027 = phi i1 [ %13, %9 ], [ %141, %_ZN6vectorImLb0EjED2Ev.exit ]
+146:                                              ; preds = %_ZN6vectorImLb0EjED2Ev.exit, %9
+  %.027 = phi i1 [ %13, %9 ], [ %139, %_ZN6vectorImLb0EjED2Ev.exit ]
   ret i1 %.027
 }
 

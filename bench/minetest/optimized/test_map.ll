@@ -814,10 +814,10 @@ for.body22.i.preheader:                           ; preds = %for.cond16.preheade
   %8 = shl nsw i32 %indvars.iv1337, 4
   %sub.i692 = sub nuw nsw i32 -10, %8
   %cond46.i = call i32 @llvm.smax.i32(i32 %sub.i692, i32 0)
-  %conv47.i = trunc i32 %cond46.i to i16
+  %conv47.i = trunc nuw nsw i32 %cond46.i to i16
   %sub104.i = sub nsw i32 20, %8
   %9 = call i32 @llvm.umin.i32(i32 %sub104.i, i32 15)
-  %10 = trunc i32 %8 to i16
+  %10 = trunc nsw i32 %8 to i16
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %for.cond178.cleanup215_crit_edge.i, %for.body22.i.preheader

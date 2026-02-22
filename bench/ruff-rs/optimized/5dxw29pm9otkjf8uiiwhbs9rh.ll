@@ -341,26 +341,24 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit.thread: ; p
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
-  %.sroa.0.05.i = phi i64 [ -1, %.lr.ph.i ], [ %.sroa.0.0.i.i, %16 ]
+  %.sroa.0.05.i = phi i64 [ -1, %.lr.ph.i ], [ %.sroa.0.0.i.i.fr, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !21
   store i64 %.sroa.0.05.i, ptr %5, align 8, !noalias !21
   %17 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15), !noalias !21
-  %.fr23 = freeze { ptr, i64 } %17
-  %18 = extractvalue { ptr, i64 } %.fr23, 1
+  %18 = extractvalue { ptr, i64 } %17, 1
   %19 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15), !noalias !21
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   %22 = call { ptr, i64 } @"_ZN72_$LT$str$u20$as$u20$ruff_python_trivia..whitespace..PythonWhitespace$GT$21trim_whitespace_start17h8c40b61729d70011E"(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21), !noalias !21
-  %.fr24 = freeze { ptr, i64 } %22
-  %23 = extractvalue { ptr, i64 } %.fr24, 1
+  %23 = extractvalue { ptr, i64 } %22, 1
   %24 = sub i64 %18, %23
   %25 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15), !noalias !21
-  %.fr25 = freeze { ptr, i64 } %25
-  %26 = extractvalue { ptr, i64 } %.fr25, 1
+  %26 = extractvalue { ptr, i64 } %25, 1
   %27 = icmp eq i64 %24, %26
   %.sroa.0.0.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %24, i64 %.sroa.0.05.i)
   %.sroa.0.0.i.i = select i1 %27, i64 %.sroa.0.05.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %.sroa.0.0.i.i.fr = freeze i64 %.sroa.0.0.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !21
@@ -372,7 +370,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit.thread: ; p
 _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit: ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %29 = icmp eq i64 %.sroa.0.0.i.i, -1
+  %29 = icmp eq i64 %.sroa.0.0.i.i.fr, -1
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit
@@ -431,7 +429,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %45 = icmp eq i64 %.sroa.0.0.i.i, 0
+  %45 = icmp eq i64 %.sroa.0.0.i.i.fr, 0
   br i1 %45, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %43, %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us
@@ -588,15 +586,15 @@ _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us: ; 
 104:                                              ; preds = %89
   %105 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
   %106 = load i64, ptr %44, align 8, !noundef !3
-  %.not.i11 = icmp ult i64 %.sroa.0.0.i.i, %106
+  %.not.i11 = icmp ult i64 %.sroa.0.0.i.i.fr, %106
   br i1 %.not.i11, label %109, label %107
 
 107:                                              ; preds = %104
-  %108 = icmp eq i64 %.sroa.0.0.i.i, %106
+  %108 = icmp eq i64 %.sroa.0.0.i.i.fr, %106
   br i1 %108, label %120, label %123
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 %.sroa.0.0.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 %.sroa.0.0.i.i.fr
   %111 = load i8, ptr %110, align 1, !alias.scope !24, !noundef !3
   %112 = icmp sgt i8 %111, -65
   br i1 %112, label %120, label %123
@@ -625,13 +623,13 @@ _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit: ; pre
   br label %.split
 
 120:                                              ; preds = %109, %107
-  %121 = getelementptr inbounds nuw i8, ptr %105, i64 %.sroa.0.0.i.i
+  %121 = getelementptr inbounds nuw i8, ptr %105, i64 %.sroa.0.0.i.i.fr
   %122 = getelementptr inbounds nuw i8, ptr %105, i64 %106
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hfb73e79a8baacf53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d962141bf2e4d2fbc8c69de5d530f3f.28)
           to label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit unwind label %.loopexit.split
 
 123:                                              ; preds = %109, %107
-  invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %105, i64 noundef %106, i64 noundef %.sroa.0.0.i.i, i64 noundef %106, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d962141bf2e4d2fbc8c69de5d530f3f.30) #11
+  invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %105, i64 noundef %106, i64 noundef %.sroa.0.0.i.i.fr, i64 noundef %106, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d962141bf2e4d2fbc8c69de5d530f3f.30) #11
           to label %124 unwind label %.loopexit.split-lp
 
 124:                                              ; preds = %123

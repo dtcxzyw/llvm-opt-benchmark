@@ -18,11 +18,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %src.val = load i64, ptr %1, align 4, !tbaa.struct !13
-  %src.val.fr = freeze i64 %src.val
   %2 = getelementptr i8, ptr %src, i64 24
   %src.val4 = load ptr, ptr %2, align 8, !tbaa !15
-  %dim.sroa.0.0.extract.trunc.i = trunc i64 %src.val.fr to i32
-  %dim.sroa.11.0.extract.shift.i = lshr i64 %src.val.fr, 32
+  %dim.sroa.0.0.extract.trunc.i = trunc i64 %src.val to i32
+  %dim.sroa.11.0.extract.shift.i = lshr i64 %src.val, 32
   %dim.sroa.11.0.extract.trunc.i = trunc nuw i64 %dim.sroa.11.0.extract.shift.i to i32
   %mul.i.i = mul i32 %dim.sroa.11.0.extract.trunc.i, %dim.sroa.0.0.extract.trunc.i
   %shr.i.i.i = lshr i32 %mul.i.i, 3
@@ -48,7 +47,7 @@ _ZN6BitmapC2Ejj.exit.i:                           ; preds = %if.then.i.i.i.i.i.i
   br i1 %or.cond.i, label %for.cond.cleanup.i, label %for.cond3.preheader.us.preheader.i
 
 for.cond3.preheader.us.preheader.i:               ; preds = %_ZN6BitmapC2Ejj.exit.i
-  %wide.trip.count.i = and i64 %src.val.fr, 4294967295
+  %wide.trip.count.i = and i64 %src.val, 4294967295
   br label %for.cond3.preheader.us.i
 
 for.cond3.preheader.us.i:                         ; preds = %for.cond3.for.cond.cleanup6_crit_edge.us.i, %for.cond3.preheader.us.preheader.i
@@ -217,7 +216,7 @@ invoke.cont23.i:                                  ; preds = %if.then.i.i.i.i.i.i
   %conv.i50.i265.i = and i32 %mul.i.i, 7
   %cmp1244.i266.i = icmp eq i32 %conv.i50.i265.i, 0
   %add.ptr.i.i.i268.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, i64 -1
-  %11 = and i64 %src.val.fr, 4294967295
+  %11 = and i64 %src.val, 4294967295
   %wide.trip.count151 = and i64 %sub.i250.i, 4294967295
   %exitcond.i277.i = icmp eq i32 %conv.i50.i265.i, 1
   %exitcond.i277.i.1 = icmp eq i32 %conv.i50.i265.i, 2
@@ -242,7 +241,8 @@ for.cond45.preheader.us.i:                        ; preds = %for.cond39.preheade
   %cmp58100.us.i = icmp ule i32 %cond.us.i, %add.us.i
   %cmp60101.us.i = icmp ult i32 %cond.us.i, %dim.sroa.11.0.extract.trunc.i
   %12 = and i1 %cmp58100.us.i, %cmp60101.us.i
-  br i1 %12, label %for.body49.us.us.i, label %for.cond45.for.cond.cleanup48_crit_edge.us.i
+  %.fr.us.i = freeze i1 %12
+  br i1 %.fr.us.i, label %for.body49.us.us.i, label %for.cond45.for.cond.cleanup48_crit_edge.us.i
 
 for.cond45.for.cond.cleanup48_crit_edge.us.i:     ; preds = %for.inc130.us.us.i, %for.cond45.preheader.us.i
   %exitcond168.not.i = icmp eq i32 %add.us.i, %dim.sroa.11.0.extract.trunc.i
@@ -374,8 +374,8 @@ for.inc104.us.us.us.i:                            ; preds = %invoke.cont84.us.us
   br i1 %27, label %for.body77.us.us.us.i, label %for.cond69.for.cond.cleanup76_crit_edge.us.us.us.i, !llvm.loop !25
 
 for.cond69.for.cond.cleanup76_crit_edge.us.us.us.i: ; preds = %for.inc104.us.us.us.i
-  %inc109.us.us.us.i = add nuw i32 %sy.0106.us.us.us.i, 1
-  %cmp58.us.us.us.i = icmp ule i32 %sy.0106.us.us.us.i, %ctry38.0124.us.i
+  %inc109.us.us.us.i = add i32 %sy.0106.us.us.us.i, 1
+  %cmp58.us.us.us.i = icmp ule i32 %inc109.us.us.us.i, %add.us.i
   %cmp60.us.us.us.i = icmp ult i32 %inc109.us.us.us.i, %dim.sroa.11.0.extract.trunc.i
   %28 = and i1 %cmp58.us.us.us.i, %cmp60.us.us.us.i
   br i1 %28, label %for.body62.us.us.us.i, label %for.cond57.for.cond.cleanup61_crit_edge.us.us.i, !llvm.loop !26
@@ -497,8 +497,8 @@ _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %if.else49.i.i
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i, %if.else49.i.i
   %32 = phi ptr [ %bitmap.sroa.25.0143.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i ], [ %bitmap.sroa.11.0144.i, %if.else49.i.i ]
   %add.ptr62.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i66.i, i64 %sub.ptr.sub.i96.i.i
-  %gepdiff3 = sub i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i96.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr align 1 %add.ptr62.i.i, i64 %gepdiff3, i1 false)
+  %gepdiff1 = sub i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i96.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr align 1 %add.ptr62.i.i, i64 %gepdiff1, i1 false)
   br label %for.inc144.i
 
 for.inc144.i:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then27.i.i, %if.then.i.i.i.i.i.i.i.i.i.i357.i
@@ -514,7 +514,7 @@ cleanup.i:                                        ; preds = %for.cond8.preheader
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i347.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.cond8.i275.i, %for.cond8.i275.i.1, %for.cond8.i275.i.2, %for.cond8.i275.i.3, %for.cond8.i275.i.4, %for.cond8.i275.i.5, %for.inc144.i, %cleanup.i
-  %bitmap.sroa.11.084.i6 = phi ptr [ %bitmap.sroa.11.0144.i, %cleanup.i ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.5 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.4 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.3 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.2 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.1 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i ], [ %bitmap.sroa.11.1.i, %for.inc144.i ]
+  %bitmap.sroa.11.084.i4 = phi ptr [ %bitmap.sroa.11.0144.i, %cleanup.i ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.5 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.4 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.3 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.2 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i.1 ], [ %bitmap.sroa.11.0144.i, %for.cond8.i275.i ], [ %bitmap.sroa.11.1.i, %for.inc144.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i.i66.i) #10
   br label %if.then.i.i.i.i347.i
 
@@ -525,7 +525,7 @@ ehcleanup146.loopexit.i:                          ; preds = %_ZNSt12_Vector_base
   br label %if.then.i.i.i.i351.i
 
 if.then.i.i.i.i347.i:                             ; preds = %cleanup.i, %if.then.i.i.i.i.i, %for.cond8.i.i.5, %for.cond8.i.i.4, %for.cond8.i.i.3, %for.cond8.i.i.2, %for.cond8.i.i.1, %for.cond8.i.i, %for.cond8.preheader.i.i
-  %bitmap.sroa.11.277.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.preheader.i.i ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.5 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.4 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.3 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.2 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.1 ], [ %bitmap.sroa.11.084.i6, %if.then.i.i.i.i.i ], [ %bitmap.sroa.11.0144.i, %cleanup.i ]
+  %bitmap.sroa.11.277.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.preheader.i.i ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.5 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.4 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.3 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.2 ], [ %call5.i.i.i.i3.i.i5.i.i, %for.cond8.i.i.1 ], [ %bitmap.sroa.11.084.i4, %if.then.i.i.i.i.i ], [ %bitmap.sroa.11.0144.i, %cleanup.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %bitmap.sroa.11.277.i) #10
   br label %if.end
 
@@ -543,8 +543,7 @@ if.else:                                          ; preds = %entry
   %33 = load i32, ptr %1, align 4
   %Size.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %src, i64 16
   %34 = load i32, ptr %Size.i.sroa_idx.i, align 4
-  %.fr = freeze i32 %34
-  %mul.i.i5 = mul i32 %.fr, %33
+  %mul.i.i5 = mul i32 %34, %33
   %shr.i.i.i6 = lshr i32 %mul.i.i5, 3
   %add.i.i7 = add nuw nsw i32 %shr.i.i.i6, 1
   %conv.i.i8 = zext nneg i32 %add.i.i7 to i64
@@ -562,7 +561,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i14:                  ; preds = %if.else
 
 _ZN6BitmapC2Ejj.exit.i15:                         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i14, %if.else
   %__first.addr.0.i.i.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i11, %if.else ], [ %add.ptr.i.i.i.i.i10, %if.then.i.i.i.i.i.i.i.i.i.i.i14 ]
-  %cmp436.not.i = icmp eq i32 %.fr, 0
+  %cmp436.not.i = icmp eq i32 %34, 0
   %cmp5434.not.i = icmp eq i32 %33, 0
   %or.cond.i17 = or i1 %cmp5434.not.i, %cmp436.not.i
   br i1 %or.cond.i17, label %for.cond.cleanup.i26, label %for.cond3.preheader.us.i18
@@ -605,7 +604,7 @@ for.inc.us.i22:                                   ; preds = %if.then.us.i100, %i
 
 for.cond3.for.cond.cleanup6_crit_edge.us.i24:     ; preds = %for.inc.us.i22
   %inc14.us.i25 = add nuw i32 %ctry.0437.us.i, 1
-  %exitcond495.not.i = icmp eq i32 %inc14.us.i25, %.fr
+  %exitcond495.not.i = icmp eq i32 %inc14.us.i25, %34
   br i1 %exitcond495.not.i, label %for.cond.cleanup.i26, label %for.cond3.preheader.us.i18, !llvm.loop !31
 
 lpad.split.us.i:                                  ; preds = %for.body7.us.i
@@ -729,7 +728,7 @@ if.then.i.i.i.i.i.i.i.i.i.i225.i:                 ; preds = %_ZNSt16allocator_tr
 invoke.cont21.i:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i225.i, %if.end19.i
   %cond.i.i.i.i.i400.i = phi ptr [ %call5.i.i.i.i3.i19.i.i226.i, %if.then.i.i.i.i.i.i.i.i.i.i225.i ], [ null, %if.end19.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i42 = getelementptr i8, ptr %cond.i.i.i.i.i400.i, i64 %sub.ptr.sub.i.i.i.i37
-  %.sroa.speculated387.i = tail call i32 @llvm.umax.i32(i32 %33, i32 %.fr)
+  %.sroa.speculated387.i = tail call i32 @llvm.umax.i32(i32 %33, i32 %34)
   %div202.i = lshr i32 %.sroa.speculated387.i, 4
   %sub.i43 = sub nsw i32 11, %div202.i
   %.sroa.speculated.i44 = tail call i32 @llvm.smax.i32(i32 %sub.i43, i32 2)
@@ -763,9 +762,10 @@ for.cond38.preheader.us.i:                        ; preds = %for.cond32.preheade
   %cond.us.i47 = call i32 @llvm.usub.sat.i32(i32 %ctry31.0467.us.i, i32 1)
   %add.us.i48 = add nuw i32 %ctry31.0467.us.i, 1
   %cmp49448.us.i = icmp ugt i32 %cond.us.i47, %add.us.i48
-  %cmp51449.us.i = icmp uge i32 %cond.us.i47, %.fr
+  %cmp51449.us.i = icmp uge i32 %cond.us.i47, %34
   %.not517.i = or i1 %cmp49448.us.i, %cmp51449.us.i
-  br i1 %.not517.i, label %for.cond38.for.cond.cleanup41_crit_edge.us.i, label %for.body42.us.i
+  %.not517.i.fr = freeze i1 %.not517.i
+  br i1 %.not517.i.fr, label %for.cond38.for.cond.cleanup41_crit_edge.us.i, label %for.body42.us.i
 
 for.body42.us.i:                                  ; preds = %for.cond38.preheader.us.i, %for.inc119.us.i
   %ctrx37.0465.us.i = phi i32 [ %inc120.us.i.pre-phi, %for.inc119.us.i ], [ 0, %for.cond38.preheader.us.i ]
@@ -898,12 +898,12 @@ for.inc93.us.us.i:                                ; preds = %invoke.cont73.us.us
 for.cond60.for.cond.cleanup67_crit_edge.us.us.i:  ; preds = %for.inc93.us.us.i
   %inc98.us.us.i = add nuw i32 %sy.0454.us.us.i, 1
   %cmp49.us.us.i = icmp ule i32 %sy.0454.us.us.i, %ctry31.0467.us.i
-  %cmp51.us.us.i = icmp ult i32 %inc98.us.us.i, %.fr
+  %cmp51.us.us.i = icmp ult i32 %inc98.us.us.i, %34
   %51 = and i1 %cmp49.us.us.i, %cmp51.us.us.i
   br i1 %51, label %for.body53.us.us.i, label %for.cond.cleanup52.us.i, !llvm.loop !34
 
 for.cond38.for.cond.cleanup41_crit_edge.us.i:     ; preds = %for.inc119.us.i, %for.cond38.preheader.us.i
-  %exitcond497.not.i = icmp eq i32 %add.us.i48, %.fr
+  %exitcond497.not.i = icmp eq i32 %add.us.i48, %34
   br i1 %exitcond497.not.i, label %for.cond.cleanup35.i, label %for.cond38.preheader.us.i, !llvm.loop !35
 
 lpad103.split.us.i:                               ; preds = %invoke.cont104.us.i, %if.then102.us.i
@@ -1055,7 +1055,7 @@ cleanup.i62:                                      ; preds = %for.cond8.preheader
   br i1 %tobool.not.i.i.i.i.i63, label %if.then.i.i.i.i330.i, label %if.then.i.i.i.i.i64
 
 if.then.i.i.i.i.i64:                              ; preds = %for.cond8.i259.i, %for.cond8.i259.i.1, %for.cond8.i259.i.2, %for.cond8.i259.i.3, %for.cond8.i259.i.4, %for.cond8.i259.i.5, %for.inc132.i, %cleanup.i62
-  %bitmap.sroa.11.0431.i9 = phi ptr [ %bitmap.sroa.11.0481.i, %cleanup.i62 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.5 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.4 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.3 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.2 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.1 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i ], [ %bitmap.sroa.11.1.i60, %for.inc132.i ]
+  %bitmap.sroa.11.0431.i7 = phi ptr [ %bitmap.sroa.11.0481.i, %cleanup.i62 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.5 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.4 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.3 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.2 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i.1 ], [ %bitmap.sroa.11.0481.i, %for.cond8.i259.i ], [ %bitmap.sroa.11.1.i60, %for.inc132.i ]
   call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i.i400.i) #10
   br label %if.then.i.i.i.i330.i
 
@@ -1065,17 +1065,17 @@ ehcleanup134.i:                                   ; preds = %lpad72.split.us.spl
   br i1 %tobool.not.i.i.i.i325.i, label %if.then.i.i.i.i334.i, label %if.then.i.i.i.i326.i
 
 if.then.i.i.i.i326.i:                             ; preds = %lpad130.loopexit.i, %ehcleanup134.i
-  %.pn.pn.i12 = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup134.i ], [ %lpad.loopexit.i74, %lpad130.loopexit.i ]
+  %.pn.pn.i10 = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup134.i ], [ %lpad.loopexit.i74, %lpad130.loopexit.i ]
   call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i.i400.i) #10
   br label %if.then.i.i.i.i334.i
 
 if.then.i.i.i.i330.i:                             ; preds = %cleanup.i62, %if.then.i.i.i.i.i64, %for.cond8.i.i97.5, %for.cond8.i.i97.4, %for.cond8.i.i97.3, %for.cond8.i.i97.2, %for.cond8.i.i97.1, %for.cond8.i.i97, %for.cond8.preheader.i.i86
-  %bitmap.sroa.11.2404.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.preheader.i.i86 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.5 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.4 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.3 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.2 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.1 ], [ %bitmap.sroa.11.0431.i9, %if.then.i.i.i.i.i64 ], [ %bitmap.sroa.11.0481.i, %cleanup.i62 ]
+  %bitmap.sroa.11.2404.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.preheader.i.i86 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.5 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.4 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.3 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.2 ], [ %call5.i.i.i.i3.i.i5.i.i9, %for.cond8.i.i97.1 ], [ %bitmap.sroa.11.0431.i7, %if.then.i.i.i.i.i64 ], [ %bitmap.sroa.11.0481.i, %cleanup.i62 ]
   call void @_ZdlPv(ptr noundef nonnull %bitmap.sroa.11.2404.i) #10
   br label %if.end
 
 if.then.i.i.i.i334.i:                             ; preds = %ehcleanup134.i, %if.then.i.i.i.i326.i, %lpad20.i, %lpad.split.us.i
-  %.pn206.pn409.i = phi { ptr, i32 } [ %38, %lpad.split.us.i ], [ %54, %lpad20.i ], [ %.pn.pn.i12, %if.then.i.i.i.i326.i ], [ %.pn.pn.i, %ehcleanup134.i ]
+  %.pn206.pn409.i = phi { ptr, i32 } [ %38, %lpad.split.us.i ], [ %54, %lpad20.i ], [ %.pn.pn.i10, %if.then.i.i.i.i326.i ], [ %.pn.pn.i, %ehcleanup134.i ]
   %bitmap.sroa.11.4408.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i9, %lpad.split.us.i ], [ %call5.i.i.i.i3.i.i5.i.i9, %lpad20.i ], [ %bitmap.sroa.11.0481.i, %if.then.i.i.i.i326.i ], [ %bitmap.sroa.11.0481.i, %ehcleanup134.i ]
   call void @_ZdlPv(ptr noundef nonnull %bitmap.sroa.11.4408.i) #10
   br label %common.resume

@@ -3752,8 +3752,8 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 300:                                              ; preds = %293
   %301 = load i32, ptr %11, align 8
-  %.fr49 = freeze i32 %301
-  %302 = and i32 %.fr49, 16384
+  %.fr = freeze i32 %301
+  %302 = and i32 %.fr, 16384
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %.split.us, label %.split
 

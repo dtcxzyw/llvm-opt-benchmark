@@ -8251,8 +8251,8 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   %21 = load i32, ptr %16, align 8
   %22 = zext i32 %21 to i64
   %23 = load i32, ptr %13, align 8
-  %.fr27 = freeze i32 %23
-  %24 = and i32 %.fr27, 256
+  %.fr = freeze i32 %23
+  %24 = and i32 %.fr, 256
   %25 = icmp eq i32 %24, 0
   %26 = load i64, ptr @vmemmap_base, align 8
   %27 = sub i64 %17, %26
@@ -8275,7 +8275,7 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   br i1 %39, label %.loopexit, label %.split.us, !llvm.loop !192
 
 .split:                                           ; preds = %15
-  %41 = and i32 %.fr27, 1024
+  %41 = and i32 %.fr, 1024
   %42 = icmp eq i32 %41, 0
   %43 = ptrtoint ptr %2 to i64
   %44 = add i64 %22, %43
@@ -9461,24 +9461,24 @@ define internal fastcc void @print_trailer(ptr noundef readonly captures(none) %
           to label %..thread_crit_edge [label %71], !srcloc !6
 
 ..thread_crit_edge:                               ; preds = %60
-  %.pre5 = load i32, ptr %28, align 8
+  %.pre6 = load i32, ptr %28, align 8
   br label %.thread
 
 71:                                               ; preds = %60
   %72 = load i32, ptr %28, align 8
-  %.fr = freeze i32 %72
-  %73 = and i32 %.fr, 65536
+  %.fr5 = freeze i32 %72
+  %73 = and i32 %.fr5, 65536
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %71
-  %76 = lshr i32 %.fr, 10
+  %76 = lshr i32 %.fr5, 10
   %77 = and i32 %76, 4
   %spec.select = add i32 %77, %70
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %75, %71
-  %78 = phi i32 [ %.pre5, %..thread_crit_edge ], [ %.fr, %75 ], [ %.fr, %71 ]
+  %78 = phi i32 [ %.pre6, %..thread_crit_edge ], [ %.fr5, %75 ], [ %.fr5, %71 ]
   %79 = phi i32 [ %70, %..thread_crit_edge ], [ %spec.select, %75 ], [ %70, %71 ]
   %80 = and i32 %78, 1024
   %81 = icmp eq i32 %80, 0

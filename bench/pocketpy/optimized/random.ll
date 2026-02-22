@@ -3672,9 +3672,8 @@ define linkonce_odr noundef ptr @_ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjec
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { ptr, ptr } @_ZN4pkpy2VM15cast_array_viewEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %8)
-  %.fr = freeze { ptr, ptr } %9
-  %10 = extractvalue { ptr, ptr } %.fr, 0
-  %11 = extractvalue { ptr, ptr } %.fr, 1
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %13, label %17
 
@@ -3702,7 +3701,8 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit:          ; preds = %.noexc
   %19 = ptrtoint ptr %11 to i64
   %20 = ptrtoint ptr %10 to i64
   %21 = sub i64 %19, %20
-  %22 = shl i64 %21, 29
+  %.fr11 = freeze i64 %21
+  %22 = shl i64 %.fr11, 29
   %sext = add i64 %22, -4294967296
   %23 = ashr i64 %sext, 32
   %24 = add nsw i64 %23, 1

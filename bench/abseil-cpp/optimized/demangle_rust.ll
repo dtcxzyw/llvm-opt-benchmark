@@ -2148,7 +2148,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %9, 115
-  br i1 %.not.i.i, label %10, label %53
+  br i1 %.not.i.i, label %10, label %54
 
 10:                                               ; preds = %2
   %11 = add nsw i32 %6, 1
@@ -2171,11 +2171,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 .thread.i:                                        ; preds = %10
   %20 = add nsw i32 %6, 2
   store i32 %20, ptr %5, align 8, !tbaa !17
-  br label %53
+  br label %54
 
 .critedge.i.i:                                    ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ %12, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
-  %21 = phi ptr [ %42, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ %13, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
+  %21 = phi ptr [ %43, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ %13, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
   %.01530.i.i = phi i1 [ %.116.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
   %.01729.i.i = phi i32 [ %.118.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
@@ -2212,46 +2212,46 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 
 39:                                               ; preds = %36, %33, %27
   %.0.i.i = phi i32 [ %29, %27 ], [ %35, %33 ], [ %38, %36 ]
-  %40 = mul i32 %.01729.i.i, 62
-  %.0.i.fr.i = freeze i32 %.0.i.i
-  %41 = add i32 %.0.i.fr.i, %40
+  %40 = mul nsw i32 %.01729.i.i, 62
+  %41 = add nsw i32 %.0.i.i, %40
+  %42 = freeze i32 %41
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i: ; preds = %39, %.critedge.i.i
-  %.118.i.i = phi i32 [ %41, %39 ], [ %.01729.i.i, %.critedge.i.i ]
+  %.118.i.i = phi i32 [ %42, %39 ], [ %.01729.i.i, %.critedge.i.i ]
   %.116.i.i = phi i1 [ %.01530.i.i, %39 ], [ true, %.critedge.i.i ]
-  %42 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
-  %43 = load i8, ptr %42, align 1, !tbaa !13
-  %44 = and i8 %43, -33
-  %45 = add i8 %44, -65
-  %46 = icmp ult i8 %45, 26
-  %47 = add i8 %43, -48
-  %48 = icmp ult i8 %47, 10
-  %or.cond.i.i = or i1 %48, %46
+  %43 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
+  %44 = load i8, ptr %43, align 1, !tbaa !13
+  %45 = and i8 %44, -33
+  %46 = add i8 %45, -65
+  %47 = icmp ult i8 %46, 26
+  %48 = add i8 %44, -48
+  %49 = icmp ult i8 %48, 10
+  %or.cond.i.i = or i1 %49, %47
   br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, !llvm.loop !19
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
-  %49 = icmp eq i8 %43, 95
-  br i1 %49, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
+  %50 = icmp eq i8 %44, 95
+  br i1 %50, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
-  %50 = add nsw i32 %22, 1
-  store i32 %50, ptr %5, align 8, !tbaa !17
-  br i1 %.116.i.i, label %53, label %51
+  %51 = add nsw i32 %22, 1
+  store i32 %51, ptr %5, align 8, !tbaa !17
+  br i1 %.116.i.i, label %54, label %52
 
-51:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i
-  %52 = add nsw i32 %.118.i.i, 2
+52:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i
+  %53 = add nsw i32 %.118.i.i, 2
   %.inv.inv.i = icmp slt i32 %.118.i.i, -1
-  %spec.select.i = select i1 %.inv.inv.i, i32 -1, i32 %52
-  br label %53
+  %spec.select.i = select i1 %.inv.inv.i, i32 -1, i32 %53
+  br label %54
 
-53:                                               ; preds = %51, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, %.thread.i, %2
-  %.02.ph = phi i32 [ 1, %.thread.i ], [ %spec.select.i, %51 ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ 0, %2 ]
-  %54 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %0, i8 noundef signext %1, i32 noundef %.02.ph)
+54:                                               ; preds = %52, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, %.thread.i, %2
+  %.02.ph = phi i32 [ 1, %.thread.i ], [ %spec.select.i, %52 ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ 0, %2 ]
+  %55 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %0, i8 noundef signext %1, i32 noundef %.02.ph)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %53
-  %.0 = phi i1 [ %54, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %54
+  %.0 = phi i1 [ %55, %54 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ]
   ret i1 %.0
 }
 

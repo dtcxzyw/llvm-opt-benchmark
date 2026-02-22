@@ -155132,12 +155132,12 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal37VerifyTypeImplement
 .lr.ph:                                           ; preds = %98
   %101 = load ptr, ptr %.sroa.0838.0880, align 8, !tbaa !4363
   %102 = load i64, ptr %101, align 8, !tbaa !43
-  %.fr = freeze i64 %102
-  %103 = trunc i64 %.fr to i1
+  %.fr897 = freeze i64 %102
+  %103 = trunc i64 %.fr897 to i1
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = select i1 %103, ptr %105, ptr %104
-  %107 = lshr i64 %.fr, 1
+  %107 = lshr i64 %.fr897, 1
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %107, 2
   %.not.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %107, 0
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
@@ -155648,18 +155648,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.loopexit
 
 .critedge172:                                     ; preds = %278
-  %.pre910 = load ptr, ptr %88, align 8, !tbaa !4371
-  %.pre911 = load ptr, ptr %60, align 8, !tbaa !4408
+  %.pre911 = load ptr, ptr %88, align 8, !tbaa !4371
+  %.pre912 = load ptr, ptr %60, align 8, !tbaa !4408
   %280 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %281 = ptrtoint ptr %.pre910 to i64
-  %282 = ptrtoint ptr %.pre911 to i64
+  %281 = ptrtoint ptr %.pre911 to i64
+  %282 = ptrtoint ptr %.pre912 to i64
   %283 = sub i64 %281, %282
   %284 = sdiv exact i64 %283, 24
   %285 = icmp ult i64 %284, 2
   br i1 %285, label %.critedge172.thread, label %.preheader
 
 .preheader:                                       ; preds = %.critedge172
-  %.not861893 = icmp eq ptr %.pre911, %.pre910
+  %.not861893 = icmp eq ptr %.pre912, %.pre911
   br i1 %.not861893, label %._crit_edge896, label %.lr.ph895
 
 .lr.ph895:                                        ; preds = %.preheader
@@ -155824,11 +155824,11 @@ _ZN7testing15AssertionResultD2Ev.exit202:         ; preds = %358, %_ZNKSt14defau
 
 372:                                              ; preds = %_ZN4absl13hash_internal16SpyHashStateImplIvED2Ev.exit766
   %373 = getelementptr inbounds nuw i8, ptr %.sroa.0825.0894, i64 24
-  %.not861 = icmp eq ptr %373, %.pre910
+  %.not861 = icmp eq ptr %373, %.pre911
   br i1 %.not861, label %._crit_edge896, label %374
 
 374:                                              ; preds = %.lr.ph895, %372
-  %.sroa.0825.0894 = phi ptr [ %.pre911, %.lr.ph895 ], [ %373, %372 ]
+  %.sroa.0825.0894 = phi ptr [ %.pre912, %.lr.ph895 ], [ %373, %372 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %375 = load ptr, ptr %.sroa.0825.0894, align 8, !tbaa !4364
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !4409

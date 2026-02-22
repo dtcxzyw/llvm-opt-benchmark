@@ -4766,8 +4766,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %.fr24 = freeze i32 %5
-  %6 = and i32 %.fr24, 1
+  %6 = and i32 %5, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4777,16 +4776,13 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.fr25 = freeze ptr %12
-  %13 = select i1 %.not.i.i.i, ptr %.fr25, ptr %11
+  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
   %14 = load i32, ptr %1, align 8
-  %.fr26 = freeze i32 %14
-  %15 = and i32 %.fr26, 1
+  %15 = and i32 %14, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.fr27 = freeze ptr %17
-  %18 = select i1 %.not.i.i, ptr %.fr27, ptr %16
+  %18 = select i1 %.not.i.i, ptr %17, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 4
@@ -4796,7 +4792,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
 
 .lr.ph:                                           ; preds = %2
   %23 = icmp eq ptr %13, %18
-  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %23
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us
   %.023.us = phi i64 [ %35, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us ], [ 0, %.lr.ph ]
@@ -4829,8 +4826,8 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us: ; preds = %_
 
 _ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us, %.lr.ph.split.us, %.lr.ph.split.us
   %35 = add nuw nsw i64 %.023.us, 1
-  %exitcond29.not = icmp eq i64 %35, %22
-  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !253
+  %exitcond25.not = icmp eq i64 %35, %22
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !253
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us, %2
   ret void
@@ -11343,8 +11340,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %.fr24 = freeze i32 %5
-  %6 = and i32 %.fr24, 1
+  %6 = and i32 %5, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -11354,16 +11350,13 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.fr25 = freeze ptr %12
-  %13 = select i1 %.not.i.i.i, ptr %.fr25, ptr %11
+  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
   %14 = load i32, ptr %1, align 8
-  %.fr26 = freeze i32 %14
-  %15 = and i32 %.fr26, 1
+  %15 = and i32 %14, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.fr27 = freeze ptr %17
-  %18 = select i1 %.not.i.i, ptr %.fr27, ptr %16
+  %18 = select i1 %.not.i.i, ptr %17, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 4
@@ -11373,7 +11366,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
 
 .lr.ph:                                           ; preds = %2
   %23 = icmp eq ptr %13, %18
-  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %23
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us
   %.023.us = phi i64 [ %35, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us ], [ 0, %.lr.ph ]
@@ -11406,8 +11400,8 @@ _ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us: ; preds = %_
 
 _ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us, %.lr.ph.split.us, %.lr.ph.split.us
   %35 = add nuw nsw i64 %.023.us, 1
-  %exitcond29.not = icmp eq i64 %35, %22
-  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !367
+  %exitcond25.not = icmp eq i64 %35, %22
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !367
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us, %2
   ret void
@@ -18148,8 +18142,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIPN4llvm15DomTreeNodeBaseI
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread31
-  %.034 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
-  %9 = shl i64 %.034, 1
+  %.033 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
+  %9 = shl i64 %.033, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.389", ptr %0, i64 %10
   %12 = getelementptr %"struct.std::pair.389", ptr %0, i64 %9
@@ -18173,17 +18167,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15Dom
   %22 = load i32, ptr %21, align 4, !tbaa !447
   %23 = getelementptr i8, ptr %12, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !447
-  %.fr = freeze i32 %22
-  %.fr33 = freeze i32 %24
-  %25 = icmp ult i32 %.fr, %.fr33
+  %25 = icmp ult i32 %22, %24
   %26 = or disjoint i64 %9, 1
-  %spec.select = select i1 %25, i64 %26, i64 %10
+  %cond.fr = freeze i1 %25
+  %spec.select = select i1 %cond.fr, i64 %26, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread31
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread31: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit, %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread
   %27 = phi i64 [ %10, %19 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm11less_secondEEclIPSt4pairIPNS2_15DomTreeNodeBaseIN5clang8CFGBlockEEES6_IjjEESE_EEbT_T0_.exit.thread ]
   %28 = getelementptr inbounds %"struct.std::pair.389", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.std::pair.389", ptr %0, i64 %.034
+  %29 = getelementptr inbounds %"struct.std::pair.389", ptr %0, i64 %.033
   %30 = load ptr, ptr %28, align 8, !tbaa !138
   store ptr %30, ptr %29, align 8, !tbaa !448
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8

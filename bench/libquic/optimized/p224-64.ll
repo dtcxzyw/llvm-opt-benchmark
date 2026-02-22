@@ -3218,7 +3218,8 @@ get_bit.exit79.i:                                 ; preds = %195
   %240 = or i64 %239, %238
   %241 = lshr i64 %240, 2
   %242 = or i64 %241, %240
-  %243 = and i64 %242, 3
+  %.fr.i.i = freeze i64 %242
+  %243 = and i64 %.fr.i.i, 3
   %244 = icmp eq i64 %243, 0
   br i1 %244, label %.split.us.i.i, label %.split26.us.i.i
 
@@ -3236,8 +3237,8 @@ get_bit.exit79.i:                                 ; preds = %195
 
 .split26.us.i.i:                                  ; preds = %.split.us.i.i, %236
   %251 = add nuw nsw i64 %.02327.i.i, 1
-  %exitcond29.not.i.i = icmp eq i64 %251, 16
-  br i1 %exitcond29.not.i.i, label %select_point.exit.i, label %236, !llvm.loop !23
+  %exitcond30.not.i.i = icmp eq i64 %251, 16
+  br i1 %exitcond30.not.i.i, label %select_point.exit.i, label %236, !llvm.loop !23
 
 select_point.exit.i:                              ; preds = %.split26.us.i.i
   br i1 %.not70.i, label %252, label %253
@@ -3286,41 +3287,42 @@ get_bit.exit81.i:                                 ; preds = %253, %252
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %12, i8 0, i64 96, i1 false)
   br label %286
 
-286:                                              ; preds = %.split26.us.i89.i, %get_bit.exit81.i
-  %.02327.i88.i = phi i64 [ 0, %get_bit.exit81.i ], [ %301, %.split26.us.i89.i ]
+286:                                              ; preds = %.split26.us.i90.i, %get_bit.exit81.i
+  %.02327.i88.i = phi i64 [ 0, %get_bit.exit81.i ], [ %301, %.split26.us.i90.i ]
   %287 = getelementptr inbounds nuw [3 x [4 x i64]], ptr @g_pre_comp, i64 %.02327.i88.i
   %288 = xor i64 %.02327.i88.i, %285
   %289 = lshr i64 %288, 4
   %290 = or i64 %289, %288
   %291 = lshr i64 %290, 2
   %292 = or i64 %291, %290
-  %293 = and i64 %292, 3
+  %.fr.i89.i = freeze i64 %292
+  %293 = and i64 %.fr.i89.i, 3
   %294 = icmp eq i64 %293, 0
-  br i1 %294, label %.split.us.i91.i, label %.split26.us.i89.i
+  br i1 %294, label %.split.us.i92.i, label %.split26.us.i90.i
 
-.split.us.i91.i:                                  ; preds = %286, %.split.us.i91.i
-  %.024.us.i92.i = phi i64 [ %300, %.split.us.i91.i ], [ 0, %286 ]
-  %295 = getelementptr inbounds nuw i64, ptr %287, i64 %.024.us.i92.i
+.split.us.i92.i:                                  ; preds = %286, %.split.us.i92.i
+  %.024.us.i93.i = phi i64 [ %300, %.split.us.i92.i ], [ 0, %286 ]
+  %295 = getelementptr inbounds nuw i64, ptr %287, i64 %.024.us.i93.i
   %296 = load i64, ptr %295, align 8, !tbaa !11
-  %297 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i92.i
+  %297 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i93.i
   %298 = load i64, ptr %297, align 8, !tbaa !11
   %299 = or i64 %298, %296
   store i64 %299, ptr %297, align 8, !tbaa !11
-  %300 = add nuw nsw i64 %.024.us.i92.i, 1
-  %exitcond.not.i93.i = icmp eq i64 %300, 12
-  br i1 %exitcond.not.i93.i, label %.split26.us.i89.i, label %.split.us.i91.i, !llvm.loop !22
+  %300 = add nuw nsw i64 %.024.us.i93.i, 1
+  %exitcond.not.i94.i = icmp eq i64 %300, 12
+  br i1 %exitcond.not.i94.i, label %.split26.us.i90.i, label %.split.us.i92.i, !llvm.loop !22
 
-.split26.us.i89.i:                                ; preds = %.split.us.i91.i, %286
+.split26.us.i90.i:                                ; preds = %.split.us.i92.i, %286
   %301 = add nuw nsw i64 %.02327.i88.i, 1
-  %exitcond29.not.i90.i = icmp eq i64 %301, 16
-  br i1 %exitcond29.not.i90.i, label %select_point.exit94.i, label %286, !llvm.loop !23
+  %exitcond30.not.i91.i = icmp eq i64 %301, 16
+  br i1 %exitcond30.not.i91.i, label %select_point.exit95.i, label %286, !llvm.loop !23
 
-select_point.exit94.i:                            ; preds = %.split26.us.i89.i
+select_point.exit95.i:                            ; preds = %.split26.us.i90.i
   call fastcc void @point_add(ptr noundef %11, ptr noundef %182, ptr noundef %183, ptr noundef %11, ptr noundef %182, ptr noundef %183, i32 noundef 1, ptr noundef %12, ptr noundef %184, ptr noundef %185)
   br label %302
 
-302:                                              ; preds = %select_point.exit94.i, %195
-  %.1.i = phi i32 [ 0, %select_point.exit94.i ], [ %.067.i, %195 ]
+302:                                              ; preds = %select_point.exit95.i, %195
+  %.1.i = phi i32 [ 0, %select_point.exit95.i ], [ %.067.i, %195 ]
   %303 = urem i64 %.066.i, 5
   %304 = icmp eq i64 %303, 0
   %or.cond73.i = select i1 %.not, i1 %304, i1 false
@@ -3362,7 +3364,7 @@ select_point.exit94.i:                            ; preds = %.split26.us.i89.i
   %333 = getelementptr inbounds nuw i8, ptr %.1140, i64 %332
   %334 = trunc nuw i64 %330 to i8
   %335 = and i8 %334, 7
-  br i1 %306, label %get_bit.exit96.i, label %336
+  br i1 %306, label %get_bit.exit97.i, label %336
 
 336:                                              ; preds = %.preheader.i
   %337 = trunc nuw i64 %305 to i8
@@ -3373,105 +3375,106 @@ select_point.exit94.i:                            ; preds = %.split26.us.i89.i
   %342 = lshr i8 %341, %338
   %343 = shl i8 %342, 5
   %344 = and i8 %343, 32
-  br label %get_bit.exit96.i
+  br label %get_bit.exit97.i
 
-get_bit.exit96.i:                                 ; preds = %336, %.preheader.i
-  %.0.i95.i = phi i8 [ %344, %336 ], [ 0, %.preheader.i ]
-  br i1 %308, label %get_bit.exit98.i, label %345
+get_bit.exit97.i:                                 ; preds = %336, %.preheader.i
+  %.0.i96.i = phi i8 [ %344, %336 ], [ 0, %.preheader.i ]
+  br i1 %308, label %get_bit.exit99.i, label %345
 
-345:                                              ; preds = %get_bit.exit96.i
+345:                                              ; preds = %get_bit.exit97.i
   %346 = load i8, ptr %310, align 1, !tbaa !6
   %347 = lshr i8 %346, %312
   %348 = shl i8 %347, 4
   %349 = and i8 %348, 16
-  %350 = or disjoint i8 %349, %.0.i95.i
-  br label %get_bit.exit98.i
+  %350 = or disjoint i8 %349, %.0.i96.i
+  br label %get_bit.exit99.i
 
-get_bit.exit98.i:                                 ; preds = %345, %get_bit.exit96.i
-  %.0.i97.i = phi i8 [ %350, %345 ], [ %.0.i95.i, %get_bit.exit96.i ]
-  br i1 %314, label %get_bit.exit100.i, label %351
+get_bit.exit99.i:                                 ; preds = %345, %get_bit.exit97.i
+  %.0.i98.i = phi i8 [ %350, %345 ], [ %.0.i96.i, %get_bit.exit97.i ]
+  br i1 %314, label %get_bit.exit101.i, label %351
 
-351:                                              ; preds = %get_bit.exit98.i
+351:                                              ; preds = %get_bit.exit99.i
   %352 = load i8, ptr %316, align 1, !tbaa !6
   %353 = lshr i8 %352, %318
   %354 = shl i8 %353, 3
   %355 = and i8 %354, 8
-  %356 = or disjoint i8 %355, %.0.i97.i
-  br label %get_bit.exit100.i
+  %356 = or disjoint i8 %355, %.0.i98.i
+  br label %get_bit.exit101.i
 
-get_bit.exit100.i:                                ; preds = %351, %get_bit.exit98.i
-  %.0.i99.i = phi i8 [ %356, %351 ], [ %.0.i97.i, %get_bit.exit98.i ]
-  br i1 %320, label %get_bit.exit102.i, label %get_bit.exit102.thread.i
+get_bit.exit101.i:                                ; preds = %351, %get_bit.exit99.i
+  %.0.i100.i = phi i8 [ %356, %351 ], [ %.0.i98.i, %get_bit.exit99.i ]
+  br i1 %320, label %get_bit.exit103.i, label %get_bit.exit103.thread.i
 
-get_bit.exit102.thread.i:                         ; preds = %get_bit.exit100.i
+get_bit.exit103.thread.i:                         ; preds = %get_bit.exit101.i
   %357 = load i8, ptr %322, align 1, !tbaa !6
   %358 = lshr i8 %357, %324
   %359 = shl i8 %358, 2
   %360 = and i8 %359, 4
-  %361 = or disjoint i8 %360, %.0.i99.i
+  %361 = or disjoint i8 %360, %.0.i100.i
   br label %362
 
-get_bit.exit102.i:                                ; preds = %get_bit.exit100.i
-  br i1 %325, label %get_bit.exit104.i, label %362
+get_bit.exit103.i:                                ; preds = %get_bit.exit101.i
+  br i1 %325, label %get_bit.exit105.i, label %362
 
-362:                                              ; preds = %get_bit.exit102.i, %get_bit.exit102.thread.i
-  %363 = phi i8 [ %361, %get_bit.exit102.thread.i ], [ %.0.i99.i, %get_bit.exit102.i ]
+362:                                              ; preds = %get_bit.exit103.i, %get_bit.exit103.thread.i
+  %363 = phi i8 [ %361, %get_bit.exit103.thread.i ], [ %.0.i100.i, %get_bit.exit103.i ]
   %364 = load i8, ptr %327, align 1, !tbaa !6
   %365 = lshr i8 %364, %329
   %366 = shl i8 %365, 1
   %367 = and i8 %366, 2
   %368 = or disjoint i8 %367, %363
-  br label %get_bit.exit104.i
+  br label %get_bit.exit105.i
 
-get_bit.exit104.i:                                ; preds = %362, %get_bit.exit102.i
-  %369 = phi i8 [ %368, %362 ], [ %.0.i99.i, %get_bit.exit102.i ]
-  br i1 %331, label %get_bit.exit106.i, label %370
+get_bit.exit105.i:                                ; preds = %362, %get_bit.exit103.i
+  %369 = phi i8 [ %368, %362 ], [ %.0.i100.i, %get_bit.exit103.i ]
+  br i1 %331, label %get_bit.exit107.i, label %370
 
-370:                                              ; preds = %get_bit.exit104.i
+370:                                              ; preds = %get_bit.exit105.i
   %371 = load i8, ptr %333, align 1, !tbaa !6
   %372 = lshr i8 %371, %335
   %373 = and i8 %372, 1
   %374 = or disjoint i8 %373, %369
-  br label %get_bit.exit106.i
+  br label %get_bit.exit107.i
 
-get_bit.exit106.i:                                ; preds = %370, %get_bit.exit104.i
-  %.0.i105.i = phi i8 [ %374, %370 ], [ %369, %get_bit.exit104.i ]
-  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %13, ptr noundef nonnull %14, i8 noundef zeroext %.0.i105.i) #10
+get_bit.exit107.i:                                ; preds = %370, %get_bit.exit105.i
+  %.0.i106.i = phi i8 [ %374, %370 ], [ %369, %get_bit.exit105.i ]
+  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %13, ptr noundef nonnull %14, i8 noundef zeroext %.0.i106.i) #10
   %375 = load i8, ptr %14, align 1, !tbaa !6
   %376 = zext i8 %375 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %12, i8 0, i64 96, i1 false)
   br label %377
 
-377:                                              ; preds = %.split26.us.i108.i, %get_bit.exit106.i
-  %.02327.i107.i = phi i64 [ 0, %get_bit.exit106.i ], [ %392, %.split26.us.i108.i ]
-  %378 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %.1138, i64 %.02327.i107.i
-  %379 = xor i64 %.02327.i107.i, %376
+377:                                              ; preds = %.split26.us.i110.i, %get_bit.exit107.i
+  %.02327.i108.i = phi i64 [ 0, %get_bit.exit107.i ], [ %392, %.split26.us.i110.i ]
+  %378 = getelementptr inbounds nuw [3 x [4 x i64]], ptr %.1138, i64 %.02327.i108.i
+  %379 = xor i64 %.02327.i108.i, %376
   %380 = lshr i64 %379, 4
   %381 = or i64 %380, %379
   %382 = lshr i64 %381, 2
   %383 = or i64 %382, %381
-  %384 = and i64 %383, 3
+  %.fr.i109.i = freeze i64 %383
+  %384 = and i64 %.fr.i109.i, 3
   %385 = icmp eq i64 %384, 0
-  br i1 %385, label %.split.us.i110.i, label %.split26.us.i108.i
+  br i1 %385, label %.split.us.i112.i, label %.split26.us.i110.i
 
-.split.us.i110.i:                                 ; preds = %377, %.split.us.i110.i
-  %.024.us.i111.i = phi i64 [ %391, %.split.us.i110.i ], [ 0, %377 ]
-  %386 = getelementptr inbounds nuw i64, ptr %378, i64 %.024.us.i111.i
+.split.us.i112.i:                                 ; preds = %377, %.split.us.i112.i
+  %.024.us.i113.i = phi i64 [ %391, %.split.us.i112.i ], [ 0, %377 ]
+  %386 = getelementptr inbounds nuw i64, ptr %378, i64 %.024.us.i113.i
   %387 = load i64, ptr %386, align 8, !tbaa !11
-  %388 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i111.i
+  %388 = getelementptr inbounds nuw i64, ptr %12, i64 %.024.us.i113.i
   %389 = load i64, ptr %388, align 8, !tbaa !11
   %390 = or i64 %389, %387
   store i64 %390, ptr %388, align 8, !tbaa !11
-  %391 = add nuw nsw i64 %.024.us.i111.i, 1
-  %exitcond.not.i112.i = icmp eq i64 %391, 12
-  br i1 %exitcond.not.i112.i, label %.split26.us.i108.i, label %.split.us.i110.i, !llvm.loop !22
+  %391 = add nuw nsw i64 %.024.us.i113.i, 1
+  %exitcond.not.i114.i = icmp eq i64 %391, 12
+  br i1 %exitcond.not.i114.i, label %.split26.us.i110.i, label %.split.us.i112.i, !llvm.loop !22
 
-.split26.us.i108.i:                               ; preds = %.split.us.i110.i, %377
-  %392 = add nuw nsw i64 %.02327.i107.i, 1
-  %exitcond29.not.i109.i = icmp eq i64 %392, 17
-  br i1 %exitcond29.not.i109.i, label %select_point.exit113.i, label %377, !llvm.loop !23
+.split26.us.i110.i:                               ; preds = %.split.us.i112.i, %377
+  %392 = add nuw nsw i64 %.02327.i108.i, 1
+  %exitcond30.not.i111.i = icmp eq i64 %392, 17
+  br i1 %exitcond30.not.i111.i, label %select_point.exit115.i, label %377, !llvm.loop !23
 
-select_point.exit113.i:                           ; preds = %.split26.us.i108.i
+select_point.exit115.i:                           ; preds = %.split26.us.i110.i
   %393 = load i64, ptr %184, align 16, !tbaa !11
   %394 = sub i64 288230376151711748, %393
   store i64 %394, ptr %186, align 16, !tbaa !11
@@ -3489,8 +3492,8 @@ select_point.exit113.i:                           ; preds = %.split26.us.i108.i
   %403 = sub nsw i64 0, %402
   br label %404
 
-404:                                              ; preds = %404, %select_point.exit113.i
-  %.010.i.i = phi i64 [ 0, %select_point.exit113.i ], [ %412, %404 ]
+404:                                              ; preds = %404, %select_point.exit115.i
+  %.010.i.i = phi i64 [ 0, %select_point.exit115.i ], [ %412, %404 ]
   %405 = getelementptr inbounds nuw i64, ptr %186, i64 %.010.i.i
   %406 = load i64, ptr %405, align 8, !tbaa !11
   %407 = getelementptr inbounds nuw i64, ptr %184, i64 %.010.i.i
@@ -3500,8 +3503,8 @@ select_point.exit113.i:                           ; preds = %.split26.us.i108.i
   %411 = xor i64 %410, %408
   store i64 %411, ptr %407, align 8, !tbaa !11
   %412 = add nuw nsw i64 %.010.i.i, 1
-  %exitcond.not.i114.i = icmp eq i64 %412, 4
-  br i1 %exitcond.not.i114.i, label %copy_conditional.exit.i, label %404, !llvm.loop !24
+  %exitcond.not.i116.i = icmp eq i64 %412, 4
+  br i1 %exitcond.not.i116.i, label %copy_conditional.exit.i, label %404, !llvm.loop !24
 
 copy_conditional.exit.i:                          ; preds = %404
   %.not71.i = icmp eq i32 %.1.i, 0

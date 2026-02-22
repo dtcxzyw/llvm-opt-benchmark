@@ -14166,11 +14166,11 @@ define dso_local void @_ZN5ImGui22DebugNodeTableSettingsEP18ImGuiTableSettings(p
   %.not = icmp eq i16 %23, -1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 14
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %.fr = freeze i8 %.pre
+  %.fr27 = freeze i8 %.pre
   br i1 %.not, label %.thread24, label %24
 
 24:                                               ; preds = %20
-  %25 = and i8 %.fr, 3
+  %25 = and i8 %.fr27, 3
   %26 = sext i16 %23 to i32
   %27 = icmp eq i8 %25, 1
   %28 = icmp eq i8 %25, 2
@@ -14184,10 +14184,10 @@ define dso_local void @_ZN5ImGui22DebugNodeTableSettingsEP18ImGuiTableSettings(p
   %.in.in = getelementptr inbounds nuw i8, ptr %21, i64 10
   %.in = load i16, ptr %.in.in, align 2, !tbaa !336
   %31 = sext i16 %.in to i32
-  %32 = lshr i8 %.fr, 2
+  %32 = lshr i8 %.fr27, 2
   %33 = and i8 %32, 1
   %34 = zext nneg i8 %33 to i32
-  %35 = and i8 %.fr, 8
+  %35 = and i8 %.fr27, 8
   %.not21 = icmp eq i8 %35, 0
   %36 = select i1 %.not21, ptr @.str.40, ptr @.str.39
   %37 = load float, ptr %21, align 4, !tbaa !334

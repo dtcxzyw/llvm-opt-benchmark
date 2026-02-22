@@ -161,8 +161,7 @@ define dso_local i32 @evictionPoolPopulate(ptr noundef readonly captures(none) %
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %27, align 8
-  %.fr12.i = freeze i32 %41
-  %42 = lshr i32 %.fr12.i, 8
+  %42 = lshr i32 %41, 8
   %43 = and i32 %42, 255
   %44 = zext nneg i32 %43 to i64
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7552), align 8, !tbaa !51
@@ -170,23 +169,22 @@ define dso_local i32 @evictionPoolPopulate(ptr noundef readonly captures(none) %
   br i1 %.not.i93, label %.thread.i, label %46
 
 46:                                               ; preds = %40
-  %47 = lshr i32 %.fr12.i, 16
+  %47 = lshr i32 %41, 16
   %48 = zext nneg i32 %47 to i64
   %49 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7784) seq_cst, align 8, !tbaa !52
-  %.fr.i = freeze i64 %49
-  %50 = sdiv i64 %.fr.i, 60
+  %50 = sdiv i64 %49, 60
   %51 = and i64 %50, 65535
   %.not.i.i = icmp samesign ult i64 %51, %48
   %52 = sub nsw i64 %51, %48
   %53 = add nsw i64 %52, 65535
   %.0.i.i = select i1 %.not.i.i, i64 %53, i64 %52
   %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7552), align 8, !tbaa !51
-  %.fr13.i = freeze i32 %54
-  %55 = sext i32 %.fr13.i to i64
+  %55 = sext i32 %54 to i64
   %56 = udiv i64 %.0.i.i, %55
   %.not9.i = icmp ult i64 %.0.i.i, %55
   %57 = call i64 @llvm.usub.sat.i64(i64 %44, i64 %56)
-  br i1 %.not9.i, label %.thread.i, label %LFUDecrAndReturn.exit
+  %cond.fr.i = freeze i1 %.not9.i
+  br i1 %cond.fr.i, label %.thread.i, label %LFUDecrAndReturn.exit
 
 .thread.i:                                        ; preds = %46, %40
   br label %LFUDecrAndReturn.exit
@@ -441,8 +439,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 256) i64 @LFUDecrAndReturn(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
-  %.fr12 = freeze i32 %2
-  %3 = lshr i32 %.fr12, 8
+  %3 = lshr i32 %2, 8
   %4 = and i32 %3, 255
   %5 = zext nneg i32 %4 to i64
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7552), align 8, !tbaa !51
@@ -450,23 +447,22 @@ define dso_local range(i64 0, 256) i64 @LFUDecrAndReturn(ptr noundef readonly ca
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = lshr i32 %.fr12, 16
+  %8 = lshr i32 %2, 16
   %9 = zext nneg i32 %8 to i64
   %10 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7784) seq_cst, align 8, !tbaa !52
-  %.fr = freeze i64 %10
-  %11 = sdiv i64 %.fr, 60
+  %11 = sdiv i64 %10, 60
   %12 = and i64 %11, 65535
   %.not.i = icmp samesign ult i64 %12, %9
   %13 = sub nsw i64 %12, %9
   %14 = add nsw i64 %13, 65535
   %.0.i = select i1 %.not.i, i64 %14, i64 %13
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7552), align 8, !tbaa !51
-  %.fr13 = freeze i32 %15
-  %16 = sext i32 %.fr13 to i64
+  %16 = sext i32 %15 to i64
   %17 = udiv i64 %.0.i, %16
   %.not9 = icmp ult i64 %.0.i, %16
   %18 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %17)
-  br i1 %.not9, label %.thread, label %19
+  %cond.fr = freeze i1 %.not9
+  br i1 %cond.fr, label %.thread, label %19
 
 .thread:                                          ; preds = %1, %7
   br label %19

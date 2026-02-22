@@ -3812,8 +3812,8 @@ define dso_local void @phpdbg_enable_breakpoint(i64 noundef %0) local_unnamed_ad
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = load i32, ptr %7, align 8, !tbaa !12
-  %.fr.i = freeze i32 %10
-  %11 = and i32 %.fr.i, 4
+  %.fr1.i = freeze i32 %10
+  %11 = and i32 %.fr1.i, 4
   %.not44.i.i = icmp eq i32 %11, 0
   br i1 %.not44.i.i, label %.lr.ph.i.us.i, label %.lr.ph.i.i
 
@@ -3887,8 +3887,8 @@ define dso_local noundef ptr @phpdbg_find_breakbase(i64 noundef %0) local_unname
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = load i32, ptr %7, align 8, !tbaa !12
-  %.fr = freeze i32 %10
-  %11 = and i32 %.fr, 4
+  %.fr1 = freeze i32 %10
+  %11 = and i32 %.fr1, 4
   %.not44.i = icmp eq i32 %11, 0
   br i1 %.not44.i, label %.lr.ph.i.us, label %.lr.ph.i
 
@@ -3957,8 +3957,8 @@ define dso_local void @phpdbg_disable_breakpoint(i64 noundef %0) local_unnamed_a
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = load i32, ptr %7, align 8, !tbaa !12
-  %.fr.i = freeze i32 %10
-  %11 = and i32 %.fr.i, 4
+  %.fr1.i = freeze i32 %10
+  %11 = and i32 %.fr1.i, 4
   %.not44.i.i = icmp eq i32 %11, 0
   br i1 %.not44.i.i, label %.lr.ph.i.us.i, label %.lr.ph.i.i
 

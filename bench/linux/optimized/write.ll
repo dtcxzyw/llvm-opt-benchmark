@@ -408,7 +408,7 @@ define dso_local range(i32 -512, 1) i32 @nfs_writepages(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 84
   %10 = load i32, ptr %9, align 4
-  %.fr8 = freeze i32 %10
+  %.fr = freeze i32 %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
@@ -425,7 +425,7 @@ define dso_local range(i32 -512, 1) i32 @nfs_writepages(ptr noundef %0, ptr noun
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 152
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, ptr elementtype(i64) %21) #16, !srcloc !20
-  %22 = and i32 %.fr8, 16777216
+  %22 = and i32 %.fr, 16777216
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %29, label %24
 
@@ -459,7 +459,7 @@ define dso_local range(i32 -512, 1) i32 @nfs_writepages(ptr noundef %0, ptr noun
 40:                                               ; preds = %36, %24
   %41 = phi ptr [ %31, %36 ], [ null, %24 ]
   %42 = phi i32 [ %39, %36 ], [ 0, %24 ]
-  %43 = and i32 %.fr8, 4194304
+  %43 = and i32 %.fr, 4194304
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %46 = icmp eq i32 %43, 0

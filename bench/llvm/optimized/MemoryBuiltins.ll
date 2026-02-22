@@ -5440,13 +5440,13 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor13visitArgumentERNS_8Arg
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
-  %.fr.i = freeze i32 %12
-  %13 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %12
+  %13 = and i32 %.fr8.i, 255
   %14 = icmp eq i32 %13, 12
   br i1 %14, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %15
 
 15:                                               ; preds = %10
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -5456,7 +5456,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor13visitArgumentERNS_8Arg
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %15
-  %16 = and i32 %.fr.i, 253
+  %16 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %16, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -5807,13 +5807,13 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor19visitGlobalVariableERN
   %10 = load ptr, ptr %9, align 8, !tbaa !121
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
-  %.fr.i = freeze i32 %12
-  %13 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %12
+  %13 = and i32 %.fr8.i, 255
   %14 = icmp eq i32 %13, 12
   br i1 %14, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %15
 
 15:                                               ; preds = %3
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -5823,7 +5823,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor19visitGlobalVariableERN
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %15
-  %16 = and i32 %.fr.i, 253
+  %16 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %16, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -10762,13 +10762,13 @@ define dso_local { ptr, ptr } @_ZN4llvm25ObjectSizeOffsetEvaluator15visitAllocaI
   %7 = load ptr, ptr %6, align 8, !tbaa !914
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
-  %.fr.i = freeze i32 %9
-  %10 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %9
+  %10 = and i32 %.fr8.i, 255
   %11 = icmp eq i32 %10, 12
   br i1 %11, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %12
 
 12:                                               ; preds = %2
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -10778,7 +10778,7 @@ define dso_local { ptr, ptr } @_ZN4llvm25ObjectSizeOffsetEvaluator15visitAllocaI
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %12
-  %13 = and i32 %.fr.i, 253
+  %13 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %13, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 

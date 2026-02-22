@@ -658,88 +658,87 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 
 .preheader:                                       ; preds = %301, %.preheader.backedge
   %304 = phi ptr [ %.be, %.preheader.backedge ], [ %302, %301 ]
-  %.fr56 = phi i32 [ %.fr56.be, %.preheader.backedge ], [ 0, %301 ]
-  %305 = call i32 @pci_read_config_word(ptr noundef nonnull %304, i32 noundef 65, ptr noundef nonnull %3) #13
-  %306 = getelementptr inbounds nuw i8, ptr %304, i64 72
-  %307 = load i8, ptr %306, align 8
-  %.fr = freeze i8 %307
-  %308 = icmp eq i8 %.fr, 0
-  br i1 %308, label %.thread47, label %309
+  %305 = phi i32 [ %.be59, %.preheader.backedge ], [ 0, %301 ]
+  %306 = call i32 @pci_read_config_word(ptr noundef nonnull %304, i32 noundef 65, ptr noundef nonnull %3) #13
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 72
+  %308 = load i8, ptr %307, align 8
+  %309 = icmp eq i8 %308, 0
+  br i1 %309, label %.thread47, label %310
 
-309:                                              ; preds = %.preheader
-  %310 = load i16, ptr %3, align 2
-  %.fr55 = freeze i16 %310
-  %311 = and i16 %.fr55, 16384
-  %312 = icmp ne i16 %311, 0
-  %313 = icmp ult i8 %.fr, 5
-  %314 = and i1 %313, %312
-  %315 = select i1 %314, i32 2, i32 %.fr56
-  %316 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 33995, ptr noundef nonnull %304) #13
-  %317 = icmp eq ptr %316, null
-  br i1 %317, label %320, label %.preheader.backedge
+310:                                              ; preds = %.preheader
+  %311 = load i16, ptr %3, align 2
+  %312 = and i16 %311, 16384
+  %313 = icmp ne i16 %312, 0
+  %314 = icmp ult i8 %308, 5
+  %315 = and i1 %314, %313
+  %.fr55 = freeze i1 %315
+  %316 = select i1 %.fr55, i32 2, i32 %305
+  %317 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 33995, ptr noundef nonnull %304) #13
+  %318 = icmp eq ptr %317, null
+  br i1 %318, label %321, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %309, %.thread47
-  %.be = phi ptr [ %318, %.thread47 ], [ %316, %309 ]
-  %.fr56.be = phi i32 [ 1, %.thread47 ], [ %315, %309 ]
+.preheader.backedge:                              ; preds = %310, %.thread47
+  %.be = phi ptr [ %319, %.thread47 ], [ %317, %310 ]
+  %.be59 = phi i32 [ 1, %.thread47 ], [ %316, %310 ]
   br label %.preheader, !llvm.loop !17
 
 .thread47:                                        ; preds = %.preheader
-  %318 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 33995, ptr noundef nonnull %304) #13
-  %319 = icmp eq ptr %318, null
-  br i1 %319, label %.thread49, label %.preheader.backedge
+  %319 = call ptr @pci_get_device(i32 noundef 32902, i32 noundef 33995, ptr noundef nonnull %304) #13
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %.thread49, label %.preheader.backedge
 
-320:                                              ; preds = %309
-  %321 = icmp eq i32 %315, 0
-  br i1 %321, label %.thread24, label %322
+321:                                              ; preds = %310
+  %322 = icmp eq i32 %316, 0
+  br i1 %322, label %.thread24, label %323
 
-322:                                              ; preds = %320
-  %323 = icmp eq i32 %315, 2
-  %spec.select = select i1 %323, ptr @.str.26, ptr @.str.27
+323:                                              ; preds = %321
+  %324 = icmp eq i32 %316, 2
+  %spec.select = select i1 %324, ptr @.str.26, ptr @.str.27
   br label %.thread49
 
-.thread49:                                        ; preds = %.thread47, %322
-  %324 = phi ptr [ %spec.select, %322 ], [ @.str.27, %.thread47 ]
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef nonnull %324) #14
+.thread49:                                        ; preds = %.thread47, %323
+  %325 = phi ptr [ %spec.select, %323 ], [ @.str.27, %.thread47 ]
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef nonnull %325) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %325 = load ptr, ptr %10, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 112
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 292
-  store i32 0, ptr %328, align 4
-  %329 = load ptr, ptr %326, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 296
-  store i32 0, ptr %330, align 8
-  %331 = getelementptr i8, ptr %325, i64 120
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %332, i64 292
-  store i32 0, ptr %333, align 4
-  %334 = load ptr, ptr %331, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 296
-  store i32 0, ptr %335, align 8
-  br label %336
+  %326 = load ptr, ptr %10, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 112
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 292
+  store i32 0, ptr %329, align 4
+  %330 = load ptr, ptr %327, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 296
+  store i32 0, ptr %331, align 8
+  %332 = getelementptr i8, ptr %326, i64 120
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 292
+  store i32 0, ptr %334, align 4
+  %335 = load ptr, ptr %332, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 296
+  store i32 0, ptr %336, align 8
+  br label %337
 
-.thread24:                                        ; preds = %301, %320
+.thread24:                                        ; preds = %301, %321
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre31 = load ptr, ptr %10, align 8
-  br label %336
+  br label %337
 
-336:                                              ; preds = %.thread24, %.thread49
-  %337 = phi ptr [ %.pre31, %.thread24 ], [ %325, %.thread49 ]
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 48
-  %339 = load i64, ptr %338, align 8
-  %340 = or i64 %339, 4
-  store i64 %340, ptr %338, align 8
+337:                                              ; preds = %.thread24, %.thread49
+  %338 = phi ptr [ %.pre31, %.thread24 ], [ %326, %.thread49 ]
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 48
+  %340 = load i64, ptr %339, align 8
+  %341 = or i64 %340, 4
+  store i64 %341, ptr %339, align 8
   call void @pci_set_master(ptr noundef %0) #13
-  %341 = load ptr, ptr %10, align 8
-  %342 = call i32 @ata_pci_sff_activate_host(ptr noundef %341, ptr noundef nonnull @ata_bmdma_interrupt, ptr noundef nonnull %282) #13
+  %342 = load ptr, ptr %10, align 8
+  %343 = call i32 @ata_pci_sff_activate_host(ptr noundef %342, ptr noundef nonnull @ata_bmdma_interrupt, ptr noundef nonnull %282) #13
   br label %.thread18
 
-.thread18:                                        ; preds = %72, %271, %83, %336, %163, %48, %41, %18
-  %343 = phi i32 [ %342, %336 ], [ -19, %18 ], [ %46, %41 ], [ -12, %48 ], [ -5, %83 ], [ %164, %163 ], [ %269, %271 ], [ -12, %72 ]
+.thread18:                                        ; preds = %72, %271, %83, %337, %163, %48, %41, %18
+  %344 = phi i32 [ %343, %337 ], [ -19, %18 ], [ %46, %41 ], [ -12, %48 ], [ -5, %83 ], [ %164, %163 ], [ %269, %271 ], [ -12, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %343
+  ret i32 %344
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

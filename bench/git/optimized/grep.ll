@@ -3924,7 +3924,7 @@ grep_source_load_driver.exit:                     ; preds = %11, %30, %33
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %40 = load i32, ptr %39, align 8, !tbaa !154
   tail call void @xdiff_set_find_func(ptr noundef nonnull %7, ptr noundef nonnull %37, i32 noundef %40) #19
-  %.pre34 = load ptr, ptr %9, align 8, !tbaa !151
+  %.pre35 = load ptr, ptr %9, align 8, !tbaa !151
   br label %42
 
 41:                                               ; preds = %grep_source_load_driver.exit
@@ -3932,7 +3932,7 @@ grep_source_load_driver.exit:                     ; preds = %11, %30, %33
   br label %51
 
 42:                                               ; preds = %8, %38
-  %43 = phi ptr [ %10, %8 ], [ %.pre34, %38 ]
+  %43 = phi ptr [ %10, %8 ], [ %.pre35, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = ptrtoint ptr %3 to i64
   %45 = ptrtoint ptr %2 to i64
@@ -3953,8 +3953,8 @@ grep_source_load_driver.exit:                     ; preds = %11, %30, %33
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !23
-  %.fr = freeze i8 %57
-  %58 = and i8 %.fr, 4
+  %.fr34 = freeze i8 %57
+  %58 = and i8 %.fr34, 4
   %.not30.not = icmp eq i8 %58, 0
   br i1 %.not30.not, label %switch.early.test, label %59
 

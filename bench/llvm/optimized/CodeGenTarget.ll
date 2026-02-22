@@ -13276,7 +13276,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !50
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !51
-  %.sroa.2.0.copyload.i.i.i.i.fr = freeze i64 %.sroa.2.0.copyload.i.i.i.i
   %18 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.val1.i, ptr nonnull @.str.270, i64 8) #22
   %19 = xor i1 %18, true
   %20 = load ptr, ptr %.val1.i, align 8, !tbaa !104
@@ -13284,7 +13283,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.sroa.0.0.copyload.i.i6.i.i = load ptr, ptr %21, align 8, !tbaa !50
   %.sroa.2.0..sroa_idx.i.i7.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.sroa.2.0.copyload.i.i8.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i7.i.i, align 8, !tbaa !51
-  %.sroa.2.0.copyload.i.i8.i.i.fr = freeze i64 %.sroa.2.0.copyload.i.i8.i.i
   %22 = and i1 %15, %19
   br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread", label %23
 
@@ -13294,7 +13292,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %25, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread36", label %26
 
 26:                                               ; preds = %23
-  %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i8.i.i.fr, i64 %.sroa.2.0.copyload.i.i.i.i.fr)
+  %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i8.i.i, i64 %.sroa.2.0.copyload.i.i.i.i)
   %27 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
   br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
 
@@ -13305,7 +13303,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %26
   br i1 %.not.not.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i:                            ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %29 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.fr, %.sroa.2.0.copyload.i.i8.i.i.fr
+  %29 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i8.i.i
   br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread36"
 
 _ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i:      ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -13313,8 +13311,9 @@ _ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i:      ; preds = %_ZN4llvm9StringRef1
   br i1 %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread36"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit": ; preds = %26
-  %31 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.fr, %.sroa.2.0.copyload.i.i8.i.i.fr
-  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread36"
+  %31 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i8.i.i
+  %cond.fr = freeze i1 %31
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread36"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread": ; preds = %.thread.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i, %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13CodeGenTarget19ComputeInstrsByEnumEvE3$_0EclINS_17__normal_iteratorIPPKNS2_18CodeGenInstructionESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread36"

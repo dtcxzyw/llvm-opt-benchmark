@@ -2005,12 +2005,11 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   %76 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !149
-  %.fr = freeze i32 %78
-  %79 = add i32 %.fr, -1
+  %79 = add i32 %78, -1
   %80 = and i32 %79, 63
   %81 = zext nneg i32 %80 to i64
   %82 = shl nuw i64 1, %81
-  %83 = icmp ult i32 %.fr, 65
+  %83 = icmp ult i32 %78, 65
   %84 = load ptr, ptr %76, align 8
   %85 = lshr i32 %79, 6
   %86 = zext nneg i32 %85 to i64
@@ -2026,11 +2025,11 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   br i1 %83, label %92, label %101
 
 92:                                               ; preds = %91
-  %93 = icmp eq i32 %.fr, 0
+  %93 = icmp eq i32 %78, 0
   br i1 %93, label %_ZNK4llvm5APInt18getSignificantBitsEv.exit, label %94, !prof !152
 
 94:                                               ; preds = %92
-  %95 = sub nuw nsw i32 64, %.fr
+  %95 = sub nuw nsw i32 64, %78
   %96 = zext nneg i32 %95 to i64
   %97 = shl i64 %90, %96
   %98 = xor i64 %97, -1
@@ -2046,7 +2045,7 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   br i1 %83, label %104, label %108
 
 104:                                              ; preds = %103
-  %.neg.i.i.i = add nsw i32 %.fr, -64
+  %.neg.i.i.i = add nsw i32 %78, -64
   %105 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %90, i1 false)
   %106 = trunc nuw nsw i64 %105 to i32
   %107 = add nsw i32 %.neg.i.i.i, %106
@@ -2058,16 +2057,15 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
 
 _ZNK4llvm5APInt18getSignificantBitsEv.exit:       ; preds = %92, %94, %101, %104, %108
   %110 = phi i32 [ 0, %92 ], [ %102, %101 ], [ %100, %94 ], [ %107, %104 ], [ %109, %108 ]
-  %111 = add i32 %.fr, 1
-  %.fr29 = freeze i32 %110
-  %112 = sub i32 %111, %.fr29
+  %111 = add i32 %78, 1
+  %112 = sub i32 %111, %110
   %113 = load ptr, ptr %6, align 8, !tbaa !33
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load i32, ptr %114, align 8
-  %.fr30 = freeze i32 %115
-  %116 = lshr i32 %.fr30, 8
+  %116 = lshr i32 %115, 8
   %117 = icmp ugt i32 %112, %116
-  br i1 %117, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
+  %cond.fr25 = freeze i1 %117
+  br i1 %cond.fr25, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
 
 118:                                              ; preds = %54
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 12

@@ -567,11 +567,10 @@ define internal fastcc void @display_cpus(ptr noundef readonly captures(none) %0
   %12 = tail call i32 @prte_hwloc_base_get_nbobjs_by_type(ptr noundef %11, i32 noundef 3) #15
   %13 = load ptr, ptr %10, align 8, !tbaa !48
   %14 = tail call i32 @prte_hwloc_base_get_nbobjs_by_type(ptr noundef %13, i32 noundef 2) #15
-  %.fr59 = freeze i32 %12
-  %.fr60 = freeze i32 %14
-  %15 = icmp ne i32 %.fr59, %.fr60
-  %or.cond = or i1 %15, %9
-  %.053 = xor i1 %or.cond, true
+  %15 = icmp ne i32 %12, %14
+  %or.cond = select i1 %15, i1 true, i1 %9
+  %or.cond.fr = freeze i1 %or.cond
+  %.053 = xor i1 %or.cond.fr, true
   %16 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %6, i16 noundef zeroext 279, ptr noundef null, i16 noundef zeroext 1) #15
   %.fr = freeze i1 %16
   %or.cond3 = or i1 %.fr, %.053
@@ -594,7 +593,7 @@ define internal fastcc void @display_cpus(ptr noundef readonly captures(none) %0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %or.cond.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
@@ -623,8 +622,8 @@ define internal fastcc void @display_cpus(ptr noundef readonly captures(none) %0
 
 37:                                               ; preds = %34, %32
   %38 = add nuw i32 %.057.us.us, 1
-  %exitcond64.not = icmp eq i32 %38, %23
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !58
+  %exitcond62.not = icmp eq i32 %38, %23
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !58
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %51
   %.057.us = phi i32 [ %52, %51 ], [ 0, %.lr.ph.split.us ]
@@ -652,8 +651,8 @@ define internal fastcc void @display_cpus(ptr noundef readonly captures(none) %0
 
 51:                                               ; preds = %47, %45
   %52 = add nuw i32 %.057.us, 1
-  %exitcond63.not = icmp eq i32 %52, %23
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !58
+  %exitcond61.not = icmp eq i32 %52, %23
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %64
   %.057 = phi i32 [ %65, %64 ], [ 0, %.lr.ph ]

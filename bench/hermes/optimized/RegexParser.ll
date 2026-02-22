@@ -3124,13 +3124,13 @@ for.body.i:                                       ; preds = %_ZZN6hermes5regex6P
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %4 = load i16, ptr %3, align 2
-  %.fr.i.i = freeze i16 %4
-  %5 = add i16 %.fr.i.i, -48
+  %.fr3.i.i = freeze i16 %4
+  %5 = add i16 %.fr3.i.i, -48
   %or.cond.i.i.i = icmp ult i16 %5, 10
   br i1 %or.cond.i.i.i, label %if.then.i2.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %land.rhs.i.i
-  switch i16 %.fr.i.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread [
+  switch i16 %.fr3.i.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread [
     i16 102, label %if.end.i.i
     i16 101, label %if.end.i.i
     i16 100, label %if.end.i.i
@@ -3148,15 +3148,15 @@ switch.early.test.i.i:                            ; preds = %land.rhs.i.i
 if.then.i2.i:                                     ; preds = %land.rhs.i.i
   %incdec.ptr.i.i15.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %incdec.ptr.i.i15.i, ptr %current_, align 8
-  %conv.i17.i = zext nneg i16 %.fr.i.i to i32
+  %conv.i17.i = zext nneg i16 %.fr3.i.i to i32
   %sub.i.i = add nsw i32 %conv.i17.i, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end.i.i:                                       ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %incdec.ptr.i.i.i, ptr %current_, align 8
-  %conv.i.i = zext nneg i16 %.fr.i.i to i32
-  %6 = add nsw i16 %.fr.i.i, -97
+  %conv.i.i = zext nneg i16 %.fr3.i.i to i32
+  %6 = add nsw i16 %.fr3.i.i, -97
   %or.cond1.i.i = icmp ult i16 %6, 6
   br i1 %or.cond1.i.i, label %if.then10.i.i, label %if.end14.i.i
 
@@ -3165,7 +3165,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
-  %or.cond2.i.i = icmp samesign ult i16 %.fr.i.i, 71
+  %or.cond2.i.i = icmp samesign ult i16 %.fr3.i.i, 71
   %add24.i.i = add nsw i32 %conv.i.i, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i32 %add24.i.i, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
@@ -3215,13 +3215,13 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHex
 
 land.rhs.i.i13:                                   ; preds = %while.cond
   %10 = load i16, ptr %9, align 2
-  %.fr.i.i14 = freeze i16 %10
-  %11 = add i16 %.fr.i.i14, -48
+  %.fr3.i.i14 = freeze i16 %10
+  %11 = add i16 %.fr3.i.i14, -48
   %or.cond.i.i.i15 = icmp ult i16 %11, 10
   br i1 %or.cond.i.i.i15, label %if.then.i2.i37, label %switch.early.test.i.i16
 
 switch.early.test.i.i16:                          ; preds = %land.rhs.i.i13
-  switch i16 %.fr.i.i14, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i50 [
+  switch i16 %.fr3.i.i14, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i50 [
     i16 102, label %if.end.i.i17
     i16 101, label %if.end.i.i17
     i16 100, label %if.end.i.i17
@@ -3239,15 +3239,15 @@ switch.early.test.i.i16:                          ; preds = %land.rhs.i.i13
 if.then.i2.i37:                                   ; preds = %land.rhs.i.i13
   %incdec.ptr.i.i15.i38 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store ptr %incdec.ptr.i.i15.i38, ptr %current_, align 8
-  %conv.i17.i39 = zext nneg i16 %.fr.i.i14 to i32
+  %conv.i17.i39 = zext nneg i16 %.fr3.i.i14 to i32
   %sub.i.i40 = add nsw i32 %conv.i17.i39, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i25
 
 if.end.i.i17:                                     ; preds = %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16
   %incdec.ptr.i.i.i18 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store ptr %incdec.ptr.i.i.i18, ptr %current_, align 8
-  %conv.i.i19 = zext nneg i16 %.fr.i.i14 to i32
-  %12 = add nsw i16 %.fr.i.i14, -97
+  %conv.i.i19 = zext nneg i16 %.fr3.i.i14 to i32
+  %12 = add nsw i16 %.fr3.i.i14, -97
   %or.cond1.i.i20 = icmp ult i16 %12, 6
   br i1 %or.cond1.i.i20, label %if.then10.i.i34, label %if.end14.i.i21
 
@@ -3256,7 +3256,7 @@ if.then10.i.i34:                                  ; preds = %if.end.i.i17
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i25
 
 if.end14.i.i21:                                   ; preds = %if.end.i.i17
-  %or.cond2.i.i22 = icmp samesign ult i16 %.fr.i.i14, 71
+  %or.cond2.i.i22 = icmp samesign ult i16 %.fr3.i.i14, 71
   %add24.i.i23 = add nsw i32 %conv.i.i19, -55
   %spec.select.i.i24 = select i1 %or.cond2.i.i22, i32 %add24.i.i23, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i25
@@ -3324,13 +3324,13 @@ for.body.i74:                                     ; preds = %for.body.i74.prehea
 
 land.rhs.i.i78:                                   ; preds = %for.body.i74
   %19 = load i16, ptr %18, align 2
-  %.fr.i.i79 = freeze i16 %19
-  %20 = add i16 %.fr.i.i79, -48
+  %.fr3.i.i79 = freeze i16 %19
+  %20 = add i16 %.fr3.i.i79, -48
   %or.cond.i.i.i80 = icmp ult i16 %20, 10
   br i1 %or.cond.i.i.i80, label %if.then.i2.i102, label %switch.early.test.i.i81
 
 switch.early.test.i.i81:                          ; preds = %land.rhs.i.i78
-  switch i16 %.fr.i.i79, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit106.thread [
+  switch i16 %.fr3.i.i79, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit106.thread [
     i16 102, label %if.end.i.i82
     i16 101, label %if.end.i.i82
     i16 100, label %if.end.i.i82
@@ -3348,15 +3348,15 @@ switch.early.test.i.i81:                          ; preds = %land.rhs.i.i78
 if.then.i2.i102:                                  ; preds = %land.rhs.i.i78
   %incdec.ptr.i.i15.i103 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %incdec.ptr.i.i15.i103, ptr %current_, align 8
-  %conv.i17.i104 = zext nneg i16 %.fr.i.i79 to i32
+  %conv.i17.i104 = zext nneg i16 %.fr3.i.i79 to i32
   %sub.i.i105 = add nsw i32 %conv.i17.i104, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i90
 
 if.end.i.i82:                                     ; preds = %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81, %switch.early.test.i.i81
   %incdec.ptr.i.i.i83 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %incdec.ptr.i.i.i83, ptr %current_, align 8
-  %conv.i.i84 = zext nneg i16 %.fr.i.i79 to i32
-  %21 = add nsw i16 %.fr.i.i79, -97
+  %conv.i.i84 = zext nneg i16 %.fr3.i.i79 to i32
+  %21 = add nsw i16 %.fr3.i.i79, -97
   %or.cond1.i.i85 = icmp ult i16 %21, 6
   br i1 %or.cond1.i.i85, label %if.then10.i.i99, label %if.end14.i.i86
 
@@ -3365,7 +3365,7 @@ if.then10.i.i99:                                  ; preds = %if.end.i.i82
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i90
 
 if.end14.i.i86:                                   ; preds = %if.end.i.i82
-  %or.cond2.i.i87 = icmp samesign ult i16 %.fr.i.i79, 71
+  %or.cond2.i.i87 = icmp samesign ult i16 %.fr3.i.i79, 71
   %add24.i.i88 = add nsw i32 %conv.i.i84, -55
   %spec.select.i.i89 = select i1 %or.cond2.i.i87, i32 %add24.i.i88, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i90
@@ -3429,13 +3429,13 @@ for.body.i118:                                    ; preds = %_ZZN6hermes5regex6P
 
 land.rhs.i.i122:                                  ; preds = %for.body.i118
   %30 = load i16, ptr %29, align 2
-  %.fr.i.i123 = freeze i16 %30
-  %31 = add i16 %.fr.i.i123, -48
+  %.fr3.i.i123 = freeze i16 %30
+  %31 = add i16 %.fr3.i.i123, -48
   %or.cond.i.i.i124 = icmp ult i16 %31, 10
   br i1 %or.cond.i.i.i124, label %if.then.i2.i146, label %switch.early.test.i.i125
 
 switch.early.test.i.i125:                         ; preds = %land.rhs.i.i122
-  switch i16 %.fr.i.i123, label %if.end52 [
+  switch i16 %.fr3.i.i123, label %if.end52 [
     i16 102, label %if.end.i.i126
     i16 101, label %if.end.i.i126
     i16 100, label %if.end.i.i126
@@ -3453,15 +3453,15 @@ switch.early.test.i.i125:                         ; preds = %land.rhs.i.i122
 if.then.i2.i146:                                  ; preds = %land.rhs.i.i122
   %incdec.ptr.i.i15.i147 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store ptr %incdec.ptr.i.i15.i147, ptr %current_, align 8
-  %conv.i17.i148 = zext nneg i16 %.fr.i.i123 to i32
+  %conv.i17.i148 = zext nneg i16 %.fr3.i.i123 to i32
   %sub.i.i149 = add nsw i32 %conv.i17.i148, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i134
 
 if.end.i.i126:                                    ; preds = %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125, %switch.early.test.i.i125
   %incdec.ptr.i.i.i127 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store ptr %incdec.ptr.i.i.i127, ptr %current_, align 8
-  %conv.i.i128 = zext nneg i16 %.fr.i.i123 to i32
-  %32 = add nsw i16 %.fr.i.i123, -97
+  %conv.i.i128 = zext nneg i16 %.fr3.i.i123 to i32
+  %32 = add nsw i16 %.fr3.i.i123, -97
   %or.cond1.i.i129 = icmp ult i16 %32, 6
   br i1 %or.cond1.i.i129, label %if.then10.i.i143, label %if.end14.i.i130
 
@@ -3470,7 +3470,7 @@ if.then10.i.i143:                                 ; preds = %if.end.i.i126
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i134
 
 if.end14.i.i130:                                  ; preds = %if.end.i.i126
-  %or.cond2.i.i131 = icmp samesign ult i16 %.fr.i.i123, 71
+  %or.cond2.i.i131 = icmp samesign ult i16 %.fr3.i.i123, 71
   %add24.i.i132 = add nsw i32 %conv.i.i128, -55
   %spec.select.i.i133 = select i1 %or.cond2.i.i131, i32 %add24.i.i132, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i134
@@ -9153,15 +9153,15 @@ cond.true.i:                                      ; preds = %_ZN6hermes5regex6Pa
 
 land.lhs.true.i10.i:                              ; preds = %cond.true.i
   %23 = load i16, ptr %22, align 2
-  %.fr.i = freeze i16 %23
-  %24 = and i16 %.fr.i, -8
+  %.fr17.i = freeze i16 %23
+  %24 = and i16 %.fr17.i, -8
   %25 = icmp eq i16 %24, 48
   br i1 %25, label %if.then.i12.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_32consumeLegacyOctalEscapeSequenceEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit14.i
 
 if.then.i12.i:                                    ; preds = %land.lhs.true.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds nuw i8, ptr %22, i64 2
   store ptr %incdec.ptr.i.i13.i, ptr %current_, align 8
-  %26 = zext nneg i16 %.fr.i to i32
+  %26 = zext nneg i16 %.fr17.i to i32
   %27 = or disjoint i32 %26, 65536
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_32consumeLegacyOctalEscapeSequenceEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit14.i
 
@@ -10450,15 +10450,15 @@ cond.true:                                        ; preds = %_ZN6hermes5regex6Pa
 
 land.lhs.true.i10:                                ; preds = %cond.true
   %12 = load i16, ptr %11, align 2
-  %.fr = freeze i16 %12
-  %13 = and i16 %.fr, -8
+  %.fr17 = freeze i16 %12
+  %13 = and i16 %.fr17, -8
   %14 = icmp eq i16 %13, 48
   br i1 %14, label %if.then.i12, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_32consumeLegacyOctalEscapeSequenceEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit14
 
 if.then.i12:                                      ; preds = %land.lhs.true.i10
   %incdec.ptr.i.i13 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store ptr %incdec.ptr.i.i13, ptr %current_, align 8
-  %15 = zext nneg i16 %.fr to i32
+  %15 = zext nneg i16 %.fr17 to i32
   %16 = or disjoint i32 %15, 65536
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_32consumeLegacyOctalEscapeSequenceEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit14
 
@@ -10769,15 +10769,15 @@ cond.true.i:                                      ; preds = %_ZN6hermes5regex6Pa
 
 land.lhs.true.i10.i:                              ; preds = %cond.true.i
   %20 = load i16, ptr %19, align 2
-  %.fr.i = freeze i16 %20
-  %21 = and i16 %.fr.i, -8
+  %.fr17.i = freeze i16 %20
+  %21 = and i16 %.fr17.i, -8
   %22 = icmp eq i16 %21, 48
   br i1 %22, label %if.then.i12.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_32consumeLegacyOctalEscapeSequenceEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit14.i
 
 if.then.i12.i:                                    ; preds = %land.lhs.true.i10.i
   %incdec.ptr.i.i13.i = getelementptr inbounds nuw i8, ptr %19, i64 2
   store ptr %incdec.ptr.i.i13.i, ptr %current_, align 8
-  %23 = zext nneg i16 %.fr.i to i32
+  %23 = zext nneg i16 %.fr17.i to i32
   %24 = or disjoint i32 %23, 65536
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_32consumeLegacyOctalEscapeSequenceEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit14.i
 
@@ -10833,13 +10833,13 @@ for.body.i:                                       ; preds = %_ZZN6hermes5regex6P
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %32 = load i16, ptr %31, align 2
-  %.fr.i.i = freeze i16 %32
-  %33 = add i16 %.fr.i.i, -48
+  %.fr3.i.i = freeze i16 %32
+  %33 = add i16 %.fr3.i.i, -48
   %or.cond.i.i.i = icmp ult i16 %33, 10
   br i1 %or.cond.i.i.i, label %if.then.i2.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %land.rhs.i.i
-  switch i16 %.fr.i.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread [
+  switch i16 %.fr3.i.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread [
     i16 102, label %if.end.i.i
     i16 101, label %if.end.i.i
     i16 100, label %if.end.i.i
@@ -10857,15 +10857,15 @@ switch.early.test.i.i:                            ; preds = %land.rhs.i.i
 if.then.i2.i:                                     ; preds = %land.rhs.i.i
   %incdec.ptr.i.i15.i = getelementptr inbounds nuw i8, ptr %31, i64 2
   store ptr %incdec.ptr.i.i15.i, ptr %current_, align 8
-  %conv.i17.i = zext nneg i16 %.fr.i.i to i32
+  %conv.i17.i = zext nneg i16 %.fr3.i.i to i32
   %sub.i.i = add nsw i32 %conv.i17.i, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end.i.i:                                       ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i
   %incdec.ptr.i.i.i35 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store ptr %incdec.ptr.i.i.i35, ptr %current_, align 8
-  %conv.i.i = zext nneg i16 %.fr.i.i to i32
-  %34 = add nsw i16 %.fr.i.i, -97
+  %conv.i.i = zext nneg i16 %.fr3.i.i to i32
+  %34 = add nsw i16 %.fr3.i.i, -97
   %or.cond1.i.i = icmp ult i16 %34, 6
   br i1 %or.cond1.i.i, label %if.then10.i.i, label %if.end14.i.i
 
@@ -10874,7 +10874,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
-  %or.cond2.i.i = icmp samesign ult i16 %.fr.i.i, 71
+  %or.cond2.i.i = icmp samesign ult i16 %.fr3.i.i, 71
   %add24.i.i = add nsw i32 %conv.i.i, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i32 %add24.i.i, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
@@ -11261,11 +11261,10 @@ land.end:                                         ; preds = %_ZNK6hermes5regex11
   %15 = load ptr, ptr %classes_, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %16 = load ptr, ptr %_M_finish.i.i, align 8
-  %.fr = freeze ptr %15
-  %.fr9 = freeze ptr %16
-  %cmp.i.i5.not = icmp eq ptr %.fr, %.fr9
+  %cmp.i.i5 = icmp ne ptr %15, %16
   %17 = or disjoint i8 %12, 4
-  %spec.select = select i1 %cmp.i.i5.not, i8 %12, i8 %17
+  %cond.fr = freeze i1 %cmp.i.i5
+  %spec.select = select i1 %cond.fr, i8 %17, i8 %12
   br label %18
 
 18:                                               ; preds = %land.end, %land.end.thread
@@ -13424,24 +13423,23 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp93 = icmp sgt i64 %sub.ptr.div.i.i, 0
-  br i1 %cmp93, label %while.body.lr.ph, label %return
+  %cmp92 = icmp sgt i64 %sub.ptr.div.i.i, 0
+  br i1 %cmp92, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %__val, align 4
-  %agg.tmp2.sroa.0.0.copyload.i.fr.i = freeze i64 %agg.tmp2.sroa.0.0.copyload.i
-  %rhs.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.fr.i to i32
-  %rhs.sroa.4.0.extract.shift.i.i = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.fr.i, 32
+  %rhs.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i to i32
+  %rhs.sroa.4.0.extract.shift.i.i = lshr i64 %agg.tmp2.sroa.0.0.copyload.i, 32
   %rhs.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %rhs.sroa.4.0.extract.shift.i.i to i32
   %add.i.i.i.i = add i32 %rhs.sroa.4.0.extract.trunc.i.i, %rhs.sroa.0.0.extract.trunc.i.i
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end11
-  %__len.095 = phi i64 [ %sub.ptr.div.i.i, %while.body.lr.ph ], [ %__len.1, %if.end11 ]
-  %__first.addr.094 = phi ptr [ %__first, %while.body.lr.ph ], [ %__first.addr.1, %if.end11 ]
-  %shr = lshr i64 %__len.095, 1
+  %__len.094 = phi i64 [ %sub.ptr.div.i.i, %while.body.lr.ph ], [ %__len.1, %if.end11 ]
+  %__first.addr.093 = phi ptr [ %__first, %while.body.lr.ph ], [ %__first.addr.1, %if.end11 ]
+  %shr = lshr i64 %__len.094, 1
   %add.ptr.i.i.idx = shl nuw nsw i64 %shr, 3
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.094, i64 %add.ptr.i.i.idx
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.093, i64 %add.ptr.i.i.idx
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 4
   %lhs.sroa.0.0.extract.trunc.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %lhs.sroa.4.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
@@ -13463,7 +13461,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointR
 if.then:                                          ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %1 = xor i64 %shr, -1
-  %sub3 = add nsw i64 %__len.095, %1
+  %sub3 = add nsw i64 %__len.094, %1
   br label %if.end11
 
 if.else:                                          ; preds = %while.body, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit
@@ -13479,18 +13477,17 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointR
   br i1 %spec.select.i.i27, label %if.end11, label %if.else6
 
 if.else6:                                         ; preds = %if.else, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit
-  %cmp27.i.not = icmp eq i64 %shr, 0
-  br i1 %cmp27.i.not, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit, label %while.body.i
+  %cmp25.i.not = icmp eq i64 %shr, 0
+  br i1 %cmp25.i.not, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else6, %.thread.i
-  %__first.addr.029.i = phi ptr [ %6, %.thread.i ], [ %__first.addr.094, %if.else6 ]
-  %__len.028.i = phi i64 [ %5, %.thread.i ], [ %shr, %if.else6 ]
-  %shr.i = lshr i64 %__len.028.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %__first.addr.029.i, i64 %shr.i
+  %__first.addr.027.i = phi ptr [ %6, %.thread.i ], [ %__first.addr.093, %if.else6 ]
+  %__len.026.i = phi i64 [ %5, %.thread.i ], [ %shr, %if.else6 ]
+  %shr.i = lshr i64 %__len.026.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %__first.addr.027.i, i64 %shr.i
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %add.ptr.i.i.i, align 4
-  %agg.tmp.sroa.0.0.copyload.i.fr.i = freeze i64 %agg.tmp.sroa.0.0.copyload.i.i
-  %lhs.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.fr.i to i32
-  %lhs.sroa.4.0.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.fr.i, 32
+  %lhs.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i to i32
+  %lhs.sroa.4.0.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i, 32
   %lhs.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %lhs.sroa.4.0.extract.shift.i.i.i to i32
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i
   %add.i3.i.i.i.i = add i32 %lhs.sroa.4.0.extract.trunc.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i
@@ -13501,76 +13498,77 @@ while.body.i:                                     ; preds = %if.else6, %.thread.
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i: ; preds = %while.body.i
   %cmp.i3.i.i.i = icmp ne i32 %add.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i6.i.i.i = icmp ne i32 %add.i3.i.i.i.i, %rhs.sroa.0.0.extract.trunc.i.i
-  %.not.i.i.i = and i1 %cmp.i3.i.i.i, %cmp4.i6.i.i.i
+  %.not.i.i.i = select i1 %cmp.i3.i.i.i, i1 %cmp4.i6.i.i.i, i1 false
   %cmp.i.i8.i = icmp ult i32 %lhs.sroa.0.0.extract.trunc.i.i.i, %rhs.sroa.0.0.extract.trunc.i.i
   %spec.select.i.i.i = and i1 %cmp.i.i8.i, %.not.i.i.i
+  %cond.fr.i = freeze i1 %spec.select.i.i.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %4 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.028.i, %4
-  %spec.select.i = select i1 %spec.select.i.i.i, i64 %sub2.i, i64 %shr.i
-  %spec.select26.i = select i1 %spec.select.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.029.i
+  %sub2.i = add nsw i64 %__len.026.i, %4
+  %spec.select.i = select i1 %cond.fr.i, i64 %sub2.i, i64 %shr.i
+  %spec.select24.i = select i1 %cond.fr.i, ptr %incdec.ptr.i, ptr %__first.addr.027.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i, %while.body.i
   %5 = phi i64 [ %shr.i, %while.body.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i ]
-  %6 = phi ptr [ %__first.addr.029.i, %while.body.i ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i ]
+  %6 = phi ptr [ %__first.addr.027.i, %while.body.i ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i ]
   %cmp.i = icmp sgt i64 %5, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit, !llvm.loop !192
 
 _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit: ; preds = %.thread.i, %if.else6
-  %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.094, %if.else6 ], [ %6, %.thread.i ]
-  %add.ptr.i.i33.idx = shl nuw nsw i64 %__len.095, 3
+  %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.093, %if.else6 ], [ %6, %.thread.i ]
+  %add.ptr.i.i33.idx = shl nuw nsw i64 %__len.094, 3
   %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %7 = add nuw nsw i64 %add.ptr.i.i.idx, 8
   %gepdiff = sub nsw i64 %add.ptr.i.i33.idx, %7
   %sub.ptr.div.i.i.i41 = ashr exact i64 %gepdiff, 3
-  %cmp25.i = icmp sgt i64 %sub.ptr.div.i.i.i41, 0
-  br i1 %cmp25.i, label %while.body.i50, label %return
+  %cmp23.i = icmp sgt i64 %sub.ptr.div.i.i.i41, 0
+  br i1 %cmp23.i, label %while.body.i49, label %return
 
-while.body.i50:                                   ; preds = %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit, %while.cond.i
-  %__first.addr.027.i = phi ptr [ %13, %while.cond.i ], [ %incdec.ptr8, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit ]
-  %__len.026.i = phi i64 [ %12, %while.cond.i ], [ %sub.ptr.div.i.i.i41, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit ]
-  %shr.i51 = lshr i64 %__len.026.i, 1
-  %add.ptr.i.i.i55 = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %__first.addr.027.i, i64 %shr.i51
-  %agg.tmp2.sroa.0.0.copyload.i.i57 = load i64, ptr %add.ptr.i.i.i55, align 4
-  %agg.tmp2.sroa.0.0.copyload.i.fr.i58 = freeze i64 %agg.tmp2.sroa.0.0.copyload.i.i57
-  %rhs.sroa.0.0.extract.trunc.i.i.i59 = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.fr.i58 to i32
-  %rhs.sroa.4.0.extract.shift.i.i.i60 = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.fr.i58, 32
-  %rhs.sroa.4.0.extract.trunc.i.i.i61 = trunc nuw i64 %rhs.sroa.4.0.extract.shift.i.i.i60 to i32
-  %add.i.i.i.i.i62 = add i32 %rhs.sroa.4.0.extract.trunc.i.i.i61, %rhs.sroa.0.0.extract.trunc.i.i.i59
-  %cmp.i.i.i.i63 = icmp ugt i32 %add.i.i.i.i.i62, %rhs.sroa.0.0.extract.trunc.i.i
-  %cmp4.i.i.i.i64 = icmp ugt i32 %add.i.i.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i59
-  %8 = and i1 %cmp.i.i.i.i63, %cmp4.i.i.i.i64
-  br i1 %8, label %.thread.i73, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i
+while.body.i49:                                   ; preds = %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit, %while.cond.i
+  %__first.addr.025.i = phi ptr [ %13, %while.cond.i ], [ %incdec.ptr8, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit ]
+  %__len.024.i = phi i64 [ %12, %while.cond.i ], [ %sub.ptr.div.i.i.i41, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit ]
+  %shr.i50 = lshr i64 %__len.024.i, 1
+  %add.ptr.i.i.i54 = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %__first.addr.025.i, i64 %shr.i50
+  %agg.tmp2.sroa.0.0.copyload.i.i56 = load i64, ptr %add.ptr.i.i.i54, align 4
+  %rhs.sroa.0.0.extract.trunc.i.i.i57 = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i56 to i32
+  %rhs.sroa.4.0.extract.shift.i.i.i58 = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i56, 32
+  %rhs.sroa.4.0.extract.trunc.i.i.i59 = trunc nuw i64 %rhs.sroa.4.0.extract.shift.i.i.i58 to i32
+  %add.i.i.i.i.i60 = add i32 %rhs.sroa.4.0.extract.trunc.i.i.i59, %rhs.sroa.0.0.extract.trunc.i.i.i57
+  %cmp.i.i.i.i61 = icmp ugt i32 %add.i.i.i.i.i60, %rhs.sroa.0.0.extract.trunc.i.i
+  %cmp4.i.i.i.i62 = icmp ugt i32 %add.i.i.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i57
+  %8 = and i1 %cmp4.i.i.i.i62, %cmp.i.i.i.i61
+  br i1 %8, label %.thread.i72, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i
 
-.thread.i73:                                      ; preds = %while.body.i50
-  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i55, i64 8
-  %9 = xor i64 %shr.i51, -1
-  %sub214.i = add nsw i64 %__len.026.i, %9
+.thread.i72:                                      ; preds = %while.body.i49
+  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i54, i64 8
+  %9 = xor i64 %shr.i50, -1
+  %sub214.i = add nsw i64 %__len.024.i, %9
   br label %while.cond.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i: ; preds = %while.body.i50
-  %cmp.i3.i.i.i65 = icmp ne i32 %add.i.i.i.i.i62, %rhs.sroa.0.0.extract.trunc.i.i
-  %cmp4.i6.i.i.i66 = icmp ne i32 %add.i.i.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i59
-  %.not.i.i.i67 = and i1 %cmp4.i6.i.i.i66, %cmp.i3.i.i.i65
-  %cmp.i.i8.i68 = icmp ult i32 %rhs.sroa.0.0.extract.trunc.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i59
-  %spec.select.i.i.i69 = and i1 %cmp.i.i8.i68, %.not.i.i.i67
-  br i1 %spec.select.i.i.i69, label %while.cond.i, label %10
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i: ; preds = %while.body.i49
+  %cmp.i3.i.i.i63 = icmp ne i32 %add.i.i.i.i.i60, %rhs.sroa.0.0.extract.trunc.i.i
+  %cmp4.i6.i.i.i64 = icmp ne i32 %add.i.i.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i57
+  %.not.i.i.i65 = and i1 %cmp4.i6.i.i.i64, %cmp.i3.i.i.i63
+  %cmp.i.i8.i66 = icmp ult i32 %rhs.sroa.0.0.extract.trunc.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i57
+  %spec.select.i.i.i67 = and i1 %cmp.i.i8.i66, %.not.i.i.i65
+  %cond.fr.i68 = freeze i1 %spec.select.i.i.i67
+  br i1 %cond.fr.i68, label %while.cond.i, label %10
 
 10:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i
-  %11 = xor i64 %shr.i51, -1
-  %sub2.i70 = add nsw i64 %__len.026.i, %11
-  %incdec.ptr.i71 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i55, i64 8
+  %11 = xor i64 %shr.i50, -1
+  %sub2.i69 = add nsw i64 %__len.024.i, %11
+  %incdec.ptr.i70 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i54, i64 8
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %10, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i, %.thread.i73
-  %12 = phi i64 [ %sub214.i, %.thread.i73 ], [ %sub2.i70, %10 ], [ %shr.i51, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i ]
-  %13 = phi ptr [ %incdec.ptr13.i, %.thread.i73 ], [ %incdec.ptr.i71, %10 ], [ %__first.addr.027.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i ]
-  %cmp.i72 = icmp sgt i64 %12, 0
-  br i1 %cmp.i72, label %while.body.i50, label %return, !llvm.loop !193
+while.cond.i:                                     ; preds = %10, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i, %.thread.i72
+  %12 = phi i64 [ %sub214.i, %.thread.i72 ], [ %sub2.i69, %10 ], [ %shr.i50, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i ]
+  %13 = phi ptr [ %incdec.ptr13.i, %.thread.i72 ], [ %incdec.ptr.i70, %10 ], [ %__first.addr.025.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i ]
+  %cmp.i71 = icmp sgt i64 %12, 0
+  br i1 %cmp.i71, label %while.body.i49, label %return, !llvm.loop !193
 
 if.end11:                                         ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit, %if.then
-  %__first.addr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %__first.addr.094, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit ]
+  %__first.addr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %__first.addr.093, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit ]
   %__len.1 = phi i64 [ %sub3, %if.then ], [ %shr, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit ]
   %cmp = icmp sgt i64 %__len.1, 0
   br i1 %cmp, label %while.body, label %return, !llvm.loop !194

@@ -111,8 +111,8 @@ thread-pre-split:                                 ; preds = %isALPHA.exit
 isALPHA.exit18:                                   ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !28
-  %.fr37 = freeze i64 %26
-  %27 = and i64 %.fr37, 128
+  %.fr38 = freeze i64 %26
+  %27 = and i64 %.fr38, 128
   %.not15 = icmp eq i64 %27, 0
   %spec.select = select i1 %.not15, ptr @yuv422p_rgb32_c, ptr @yuva422p_rgba_c
   br label %isALPHA.exit18.thread
@@ -221,8 +221,8 @@ thread-pre-split30:                               ; preds = %isALPHA.exit21
 isALPHA.exit24:                                   ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !28
-  %.fr = freeze i64 %55
-  %56 = and i64 %.fr, 128
+  %.fr37 = freeze i64 %55
+  %56 = and i64 %.fr37, 128
   %.not13 = icmp eq i64 %56, 0
   %spec.select36 = select i1 %.not13, ptr @yuv2rgb_c_32, ptr @yuva2rgba_c
   br label %isALPHA.exit18.thread

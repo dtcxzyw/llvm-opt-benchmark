@@ -681,8 +681,8 @@ dsymbol_check.exit:                               ; preds = %rb_vm_lock_enter.ex
   %33 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 24
   %34 = load i64, ptr %33, align 8, !tbaa !29
   %35 = load i32, ptr @ruby_global_symbols, align 8, !tbaa !34
-  %.fr = freeze i32 %35
-  %36 = add i32 %.fr, 1
+  %.fr26 = freeze i32 %35
+  %36 = add i32 %.fr26, 1
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %next_id_base_with_lock.exit.thread, label %next_id_base_with_lock.exit
 

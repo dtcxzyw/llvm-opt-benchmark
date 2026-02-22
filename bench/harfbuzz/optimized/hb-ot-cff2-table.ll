@@ -181,15 +181,15 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff213accelerator_t11get_extentsEP9hb_
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4152
   store i8 0, ptr %32, align 8, !tbaa !62
   %.pre.i = load i32, ptr %.sroa.gep, align 4, !tbaa !75
-  %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre14.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !76
+  %.phi.trans.insert11.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.pre12.i = load i32, ptr %.phi.trans.insert11.i, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 4168
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %35
 
 35:                                               ; preds = %65, %14
-  %36 = phi i32 [ %.pre14.i, %14 ], [ %.fr9.i, %65 ]
-  %37 = phi i32 [ %.pre.i, %14 ], [ %.fr.i, %65 ]
+  %36 = phi i32 [ %.pre12.i, %14 ], [ %59, %65 ]
+  %37 = phi i32 [ %.pre.i, %14 ], [ %58, %65 ]
   %.0.i = phi i32 [ 200000, %14 ], [ %64, %65 ]
   %38 = add i32 %37, 1
   %.not.i.i = icmp ugt i32 %38, %36
@@ -233,22 +233,20 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %54, %
   br i1 %57, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
-  %.pre16.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !76
+  %.pre14.i = load i32, ptr %.phi.trans.insert11.i, align 8, !tbaa !76
   br label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE23cff2_cs_opset_extents_t20cff2_extents_param_tE9interpretERS5_.exit
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
   %58 = load i32, ptr %.sroa.gep, align 4, !tbaa !75
-  %.fr.i = freeze i32 %58
-  %59 = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !76
-  %.fr9.i = freeze i32 %59
-  %60 = icmp ugt i32 %.fr.i, %.fr9.i
+  %59 = load i32, ptr %.phi.trans.insert11.i, align 8, !tbaa !76
+  %60 = icmp ugt i32 %58, %59
   %61 = load i8, ptr %34, align 8, !range !81
-  %.fr10.i = freeze i8 %61
-  %62 = trunc i8 %.fr10.i to i1
-  %63 = or i1 %60, %62
+  %62 = trunc nuw i8 %61 to i1
+  %63 = select i1 %60, i1 true, i1 %62
+  %cond.fr.i = freeze i1 %63
   %64 = add nsw i32 %.0.i, -1
   %.not.i = icmp eq i32 %64, 0
-  %brmerge.i = select i1 %63, i1 true, i1 %.not.i, !prof !83
+  %brmerge.i = select i1 %cond.fr.i, i1 true, i1 %.not.i, !prof !83
   br i1 %brmerge.i, label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE23cff2_cs_opset_extents_t20cff2_extents_param_tE9interpretERS5_.exit, label %65, !prof !83
 
 65:                                               ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
@@ -257,7 +255,7 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_erro
   br i1 %67, label %70, label %35, !llvm.loop !84
 
 _ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE23cff2_cs_opset_extents_t20cff2_extents_param_tE9interpretERS5_.exit: ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i
-  %68 = phi i32 [ %.pre16.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %.fr9.i, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
+  %68 = phi i32 [ %.pre14.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %59, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
   %69 = add i32 %68, 1
   store i32 %69, ptr %.sroa.gep, align 4, !tbaa !75
   br label %100
@@ -990,15 +988,15 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff213accelerator_t11get_path_atEP9hb_
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 4152
   store i8 0, ptr %27, align 8, !tbaa !62
   %.pre.i = load i32, ptr %.sroa.gep, align 4, !tbaa !75
-  %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.pre14.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !76
+  %.phi.trans.insert11.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.pre12.i = load i32, ptr %.phi.trans.insert11.i, align 8, !tbaa !76
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4168
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %30
 
 30:                                               ; preds = %62, %16
-  %31 = phi i32 [ %.pre14.i, %16 ], [ %.fr9.i, %62 ]
-  %32 = phi i32 [ %.pre.i, %16 ], [ %.fr.i, %62 ]
+  %31 = phi i32 [ %.pre12.i, %16 ], [ %54, %62 ]
+  %32 = phi i32 [ %.pre.i, %16 ], [ %53, %62 ]
   %.0.i = phi i32 [ 200000, %16 ], [ %59, %62 ]
   %33 = add i32 %32, 1
   %.not.i.i = icmp ugt i32 %33, %31
@@ -1042,26 +1040,24 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %49, %
   br i1 %52, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
-  %.pre16.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !76
+  %.pre14.i = load i32, ptr %.phi.trans.insert11.i, align 8, !tbaa !76
   br label %.thread.i
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
   %53 = load i32, ptr %.sroa.gep, align 4, !tbaa !75
-  %.fr.i = freeze i32 %53
-  %54 = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !76
-  %.fr9.i = freeze i32 %54
-  %55 = icmp ugt i32 %.fr.i, %.fr9.i
+  %54 = load i32, ptr %.phi.trans.insert11.i, align 8, !tbaa !76
+  %55 = icmp ugt i32 %53, %54
   %56 = load i8, ptr %29, align 8, !range !81
-  %.fr10.i = freeze i8 %56
-  %57 = trunc i8 %.fr10.i to i1
-  %58 = or i1 %55, %57
+  %57 = trunc nuw i8 %56 to i1
+  %58 = select i1 %55, i1 true, i1 %57
+  %cond.fr.i = freeze i1 %58
   %59 = add nsw i32 %.0.i, -1
   %.not.i = icmp eq i32 %59, 0
-  %brmerge.i = select i1 %58, i1 true, i1 %.not.i, !prof !83
+  %brmerge.i = select i1 %cond.fr.i, i1 true, i1 %.not.i, !prof !83
   br i1 %brmerge.i, label %.thread.i, label %62, !prof !83
 
 .thread.i:                                        ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i
-  %60 = phi i32 [ %.pre16.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %.fr9.i, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
+  %60 = phi i32 [ %.pre14.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit..thread_crit_edge.i ], [ %54, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
   %61 = add i32 %60, 1
   store i32 %61, ptr %.sroa.gep, align 4, !tbaa !75
   br label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit

@@ -5125,9 +5125,8 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread.i.i: ; preds = %512, %510, %_Z
   %566 = sub i64 %563, %.sroa.speculated4.i148.i.i
   %.sroa.speculated.i149.i.i = call i64 @llvm.umin.i64(i64 %566, i64 %562)
   %567 = call i64 @_ZN4llvm14CGIOperandList16ParseOperandNameENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(67) %86, ptr %565, i64 %.sroa.speculated.i149.i.i, i1 noundef zeroext false)
-  %.fr.i.i = freeze i64 %567
-  %.sroa.0218.0.extract.trunc.i.i = trunc i64 %.fr.i.i to i32
-  %.sroa.6219.0.extract.shift.i.i = lshr i64 %.fr.i.i, 32
+  %.sroa.0218.0.extract.trunc.i.i = trunc i64 %567 to i32
+  %.sroa.6219.0.extract.shift.i.i = lshr i64 %567, 32
   %568 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.107, i64 2, i64 noundef %509) #18
   %569 = icmp eq i64 %568, -1
   br i1 %569, label %570, label %584
@@ -5169,30 +5168,32 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread.i.i: ; preds = %512, %510, %_Z
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 %.sroa.speculated4.i154.i.i
   %588 = sub i64 %585, %.sroa.speculated4.i154.i.i
   %589 = call i64 @_ZN4llvm14CGIOperandList16ParseOperandNameENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(67) %86, ptr %587, i64 %588, i1 noundef zeroext false)
-  %.fr300.i.i = freeze i64 %589
-  %.sroa.0205.0.extract.trunc.i.i = trunc i64 %.fr300.i.i to i32
-  %.sroa.6.0.extract.shift.i.i = lshr i64 %.fr300.i.i, 32
+  %.sroa.0205.0.extract.trunc.i.i = trunc i64 %589 to i32
+  %.sroa.6.0.extract.shift.i.i = lshr i64 %589, 32
   %590 = icmp ult i32 %.sroa.0218.0.extract.trunc.i.i, %.sroa.0205.0.extract.trunc.i.i
   br i1 %590, label %.thread297.i.i, label %591
 
 591:                                              ; preds = %584
-  %592 = icmp uge i32 %.sroa.0205.0.extract.trunc.i.i, %.sroa.0218.0.extract.trunc.i.i
-  %593 = icmp samesign ult i64 %.sroa.6219.0.extract.shift.i.i, %.sroa.6.0.extract.shift.i.i
-  %or.cond302.i.i = select i1 %592, i1 %593, i1 false
-  br i1 %or.cond302.i.i, label %.thread297.i.i, label %.thread284.i.i
+  %592 = icmp ult i32 %.sroa.0205.0.extract.trunc.i.i, %.sroa.0218.0.extract.trunc.i.i
+  br i1 %592, label %.thread284.i.i, label %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i
 
-.thread297.i.i:                                   ; preds = %591, %584
+_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i:          ; preds = %591
+  %593 = icmp samesign ult i64 %.sroa.6219.0.extract.shift.i.i, %.sroa.6.0.extract.shift.i.i
+  %cond.fr255.i.i = freeze i1 %593
+  br i1 %cond.fr255.i.i, label %.thread297.i.i, label %.thread284.i.i
+
+.thread297.i.i:                                   ; preds = %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i, %584
   br label %.thread284.i.i
 
-.thread284.i.i:                                   ; preds = %.thread297.i.i, %591
-  %594 = phi ptr [ %587, %.thread297.i.i ], [ %565, %591 ]
-  %595 = phi i32 [ %.sroa.0205.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0218.0.extract.trunc.i.i, %591 ]
-  %596 = phi ptr [ %565, %.thread297.i.i ], [ %587, %591 ]
-  %597 = phi i32 [ %.sroa.0218.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0205.0.extract.trunc.i.i, %591 ]
-  %.in.i.i = phi i64 [ %.sroa.6219.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6.0.extract.shift.i.i, %591 ]
-  %598 = phi i64 [ %.sroa.speculated.i149.i.i, %.thread297.i.i ], [ %588, %591 ]
-  %599 = phi i64 [ %.sroa.6.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6219.0.extract.shift.i.i, %591 ]
-  %600 = phi i64 [ %588, %.thread297.i.i ], [ %.sroa.speculated.i149.i.i, %591 ]
+.thread284.i.i:                                   ; preds = %.thread297.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i, %591
+  %594 = phi ptr [ %587, %.thread297.i.i ], [ %565, %591 ], [ %565, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %595 = phi i32 [ %.sroa.0205.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0218.0.extract.trunc.i.i, %591 ], [ %.sroa.0218.0.extract.trunc.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %596 = phi ptr [ %565, %.thread297.i.i ], [ %587, %591 ], [ %587, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %597 = phi i32 [ %.sroa.0218.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0205.0.extract.trunc.i.i, %591 ], [ %.sroa.0205.0.extract.trunc.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %.in.i.i = phi i64 [ %.sroa.6219.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6.0.extract.shift.i.i, %591 ], [ %.sroa.6.0.extract.shift.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %598 = phi i64 [ %.sroa.speculated.i149.i.i, %.thread297.i.i ], [ %588, %591 ], [ %588, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %599 = phi i64 [ %.sroa.6.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6219.0.extract.shift.i.i, %591 ], [ %.sroa.6219.0.extract.shift.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+  %600 = phi i64 [ %588, %.thread297.i.i ], [ %.sroa.speculated.i149.i.i, %591 ], [ %.sroa.speculated.i149.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
   %601 = trunc nuw i64 %.in.i.i to i32
   %602 = load i32, ptr %423, align 8, !tbaa !89
   %.not115.i.i = icmp ult i32 %597, %602
@@ -5408,31 +5409,31 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread.i.i: ; preds = %512, %510, %_Z
   %.sroa.3.0.insert.ext.i.i.i = zext i32 %685 to i64
   %.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i, 32
   %686 = load ptr, ptr %425, align 8, !tbaa !139
-  %.not301304.i.i = icmp eq ptr %655, %686
-  br i1 %.not301304.i.i, label %._crit_edge306.i.i, label %.preheader.i.i
+  %.not300302.i.i = icmp eq ptr %655, %686
+  br i1 %.not300302.i.i, label %._crit_edge304.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %681, %._crit_edge.i.i
-  %.sroa.0189.0305.i.i = phi ptr [ %691, %._crit_edge.i.i ], [ %655, %681 ]
-  %687 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0305.i.i, i64 156
+  %.sroa.0189.0303.i.i = phi ptr [ %691, %._crit_edge.i.i ], [ %655, %681 ]
+  %687 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0303.i.i, i64 156
   %688 = load i32, ptr %687, align 4, !tbaa !206
-  %.not307.i.i = icmp eq i32 %688, 0
-  br i1 %.not307.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not305.i.i = icmp eq i32 %688, 0
+  br i1 %.not305.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %689 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0305.i.i, i64 240
+  %689 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0303.i.i, i64 240
   %690 = load ptr, ptr %689, align 8, !tbaa !250
   %wide.trip.count.i.i = zext i32 %688 to i64
   br label %692
 
-._crit_edge306.i.i:                               ; preds = %._crit_edge.i.i, %681
+._crit_edge304.i.i:                               ; preds = %._crit_edge.i.i, %681
   %.sroa.0192.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, 2
   store i64 %.sroa.0192.0.insert.insert.i.i, ptr %659, align 4
   br label %_ZL15ParseConstraintN4llvm9StringRefERNS_14CGIOperandListEPKNS_6RecordE.exit.i
 
 ._crit_edge.i.i:                                  ; preds = %716, %.preheader.i.i
-  %691 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0305.i.i, i64 264
-  %.not301.i.i = icmp eq ptr %691, %686
-  br i1 %.not301.i.i, label %._crit_edge306.i.i, label %.preheader.i.i
+  %691 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0303.i.i, i64 264
+  %.not300.i.i = icmp eq ptr %691, %686
+  br i1 %.not300.i.i, label %._crit_edge304.i.i, label %.preheader.i.i
 
 692:                                              ; preds = %716, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %716 ]
@@ -5502,7 +5503,7 @@ _ZNK4llvm14CGIOperandList14ConstraintInfoeqERKS1_.exit.i.i: ; preds = %695
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %692, !llvm.loop !280
 
-_ZL15ParseConstraintN4llvm9StringRefERNS_14CGIOperandListEPKNS_6RecordE.exit.i: ; preds = %._crit_edge306.i.i, %504
+_ZL15ParseConstraintN4llvm9StringRefERNS_14CGIOperandListEPKNS_6RecordE.exit.i: ; preds = %._crit_edge304.i.i, %504
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %717 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr nonnull @.str.106, i64 1, i64 noundef %spec.select.i) #18
   %.not.i69 = icmp eq i64 %717, -1

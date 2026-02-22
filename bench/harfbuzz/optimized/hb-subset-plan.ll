@@ -29642,52 +29642,51 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
   %.sink.i = load ptr, ptr %16, align 8, !tbaa !291
   %64 = getelementptr inbounds nuw i8, ptr %.sink30.i, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !292
-  %.fr = freeze i32 %65
-  %66 = zext i32 %.fr to i64
-  %.sink.i.fr = freeze ptr %.sink.i
-  %67 = getelementptr %struct.hb_bit_page_t, ptr %.sink.i.fr, i64 %66
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink.i, i64 %66
+  %68 = freeze ptr %67
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %43, %.sink.split.i
-  %.1.i = phi ptr [ %67, %.sink.split.i ], [ null, %43 ]
-  %68 = icmp ne ptr %.1.i, null
-  %69 = xor i1 %68, true
-  %70 = and i1 %1, %69
-  br i1 %70, label %.critedge42, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread, !prof !706
+  %.1.i = phi ptr [ %68, %.sink.split.i ], [ null, %43 ]
+  %69 = icmp ne ptr %.1.i, null
+  %70 = xor i1 %69, true
+  %71 = and i1 %1, %70
+  br i1 %71, label %.critedge42, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread, !prof !706
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit
-  %71 = and i32 %.03369, -512
-  %72 = add i32 %71, 512
-  %or.cond = or i1 %1, %68
-  %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %72 = and i32 %.03369, -512
+  %73 = add i32 %72, 512
+  %or.cond = or i1 %1, %69
+  %74 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   br i1 %or.cond, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread.thread: ; preds = %.loopexit.i
-  %74 = and i32 %.03369, -512
-  %75 = add i32 %74, 512
+  %75 = and i32 %.03369, -512
+  %76 = add i32 %75, 512
   br label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us: ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.thread, %_ZN12hb_bit_set_t8page_forEjb.exit.thread
-  %76 = phi i32 [ %75, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.thread ], [ %72, %_ZN12hb_bit_set_t8page_forEjb.exit.thread ]
-  %77 = phi i32 [ %74, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.thread ], [ %71, %_ZN12hb_bit_set_t8page_forEjb.exit.thread ]
-  %78 = add i32 %.02970, -1
-  %.not40.us62 = icmp eq i32 %78, 0
+  %77 = phi i32 [ %76, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.thread ], [ %73, %_ZN12hb_bit_set_t8page_forEjb.exit.thread ]
+  %78 = phi i32 [ %75, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.thread ], [ %72, %_ZN12hb_bit_set_t8page_forEjb.exit.thread ]
+  %79 = add i32 %.02970, -1
+  %.not40.us62 = icmp eq i32 %79, 0
   br i1 %.not40.us62, label %.critedge42, label %.lr.ph
 
-79:                                               ; preds = %.lr.ph
-  %80 = add i32 %81, -1
-  %.not40.us = icmp eq i32 %80, 0
+80:                                               ; preds = %.lr.ph
+  %81 = add i32 %82, -1
+  %.not40.us = icmp eq i32 %81, 0
   br i1 %.not40.us, label %.critedge42, label %.lr.ph, !llvm.loop !709
 
-.lr.ph:                                           ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us, %79
-  %81 = phi i32 [ %80, %79 ], [ %78, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us ]
-  %.pn = phi ptr [ %82, %79 ], [ %.071, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us ]
-  %82 = getelementptr inbounds nuw i8, ptr %.pn, i64 %17
-  %83 = load i32, ptr %82, align 4, !tbaa !239
-  %84 = icmp ule i32 %77, %83
-  %85 = icmp ult i32 %83, %76
-  %86 = and i1 %84, %85
-  br i1 %86, label %79, label %..critedge.split.us_crit_edge, !llvm.loop !709
+.lr.ph:                                           ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us, %80
+  %82 = phi i32 [ %81, %80 ], [ %79, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us ]
+  %.pn = phi ptr [ %83, %80 ], [ %.071, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us ]
+  %83 = getelementptr inbounds nuw i8, ptr %.pn, i64 %17
+  %84 = load i32, ptr %83, align 4, !tbaa !239
+  %85 = icmp ule i32 %78, %84
+  %86 = icmp ult i32 %84, %77
+  %87 = and i1 %85, %86
+  br i1 %87, label %80, label %..critedge.split.us_crit_edge, !llvm.loop !709
 
 ..critedge.split.us_crit_edge:                    ; preds = %.lr.ph
   br label %.critedge, !llvm.loop !709
@@ -29695,82 +29694,82 @@ _ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us: ; preds = %_ZN12hb_bit_set_t
 _ZN12hb_bit_set_t8page_forEjb.exit.thread.split:  ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread
   br i1 %1, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split
 
-_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us: ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, %98
-  %.235.us52 = phi i32 [ %100, %98 ], [ %.03369, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
-  %.231.us53 = phi i32 [ %97, %98 ], [ %.02970, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
-  %.2.us54 = phi ptr [ %99, %98 ], [ %.071, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
+_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us: ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, %99
+  %.235.us52 = phi i32 [ %101, %99 ], [ %.03369, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
+  %.231.us53 = phi i32 [ %98, %99 ], [ %.02970, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
+  %.2.us54 = phi ptr [ %100, %99 ], [ %.071, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
   %.not39.us.not = icmp eq i32 %.235.us52, -1
-  br i1 %.not39.us.not, label %96, label %_ZN13hb_bit_page_t3setEjb.exit.us
+  br i1 %.not39.us.not, label %97, label %_ZN13hb_bit_page_t3setEjb.exit.us
 
 _ZN13hb_bit_page_t3setEjb.exit.us:                ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us
-  %87 = and i32 %.235.us52, 63
-  %88 = zext nneg i32 %87 to i64
-  %89 = shl nuw i64 1, %88
-  %90 = lshr i32 %.235.us52, 6
-  %91 = and i32 %90, 7
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw i64, ptr %73, i64 %92
-  %94 = load i64, ptr %93, align 8, !tbaa !256
-  %95 = or i64 %94, %89
-  store i64 %95, ptr %93, align 8, !tbaa !256
+  %88 = and i32 %.235.us52, 63
+  %89 = zext nneg i32 %88 to i64
+  %90 = shl nuw i64 1, %89
+  %91 = lshr i32 %.235.us52, 6
+  %92 = and i32 %91, 7
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds nuw i64, ptr %74, i64 %93
+  %95 = load i64, ptr %94, align 8, !tbaa !256
+  %96 = or i64 %95, %90
+  store i64 %96, ptr %94, align 8, !tbaa !256
   store i32 -1, ptr %.1.i, align 8, !tbaa !253
-  br label %96
+  br label %97
 
-96:                                               ; preds = %_ZN13hb_bit_page_t3setEjb.exit.us, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us
-  %97 = add i32 %.231.us53, -1
-  %.not40.us55 = icmp eq i32 %97, 0
-  br i1 %.not40.us55, label %.critedge42, label %98
+97:                                               ; preds = %_ZN13hb_bit_page_t3setEjb.exit.us, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us
+  %98 = add i32 %.231.us53, -1
+  %.not40.us55 = icmp eq i32 %98, 0
+  br i1 %.not40.us55, label %.critedge42, label %99
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %.2.us54, i64 %17
-  %100 = load i32, ptr %99, align 4, !tbaa !239
-  %101 = icmp ule i32 %71, %100
-  %102 = icmp ult i32 %100, %72
-  %103 = and i1 %101, %102
-  br i1 %103, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us, label %.critedge, !llvm.loop !709
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %.2.us54, i64 %17
+  %101 = load i32, ptr %100, align 4, !tbaa !239
+  %102 = icmp ule i32 %72, %101
+  %103 = icmp ult i32 %101, %73
+  %104 = and i1 %102, %103
+  br i1 %104, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split.us, label %.critedge, !llvm.loop !709
 
-_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split: ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, %116
-  %.235 = phi i32 [ %118, %116 ], [ %.03369, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
-  %.231 = phi i32 [ %115, %116 ], [ %.02970, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
-  %.2 = phi ptr [ %117, %116 ], [ %.071, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
+_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split: ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, %117
+  %.235 = phi i32 [ %119, %117 ], [ %.03369, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
+  %.231 = phi i32 [ %116, %117 ], [ %.02970, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
+  %.2 = phi ptr [ %118, %117 ], [ %.071, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split ]
   %.not39.not = icmp eq i32 %.235, -1
-  br i1 %.not39.not, label %114, label %_ZN13hb_bit_page_t3setEjb.exit
+  br i1 %.not39.not, label %115, label %_ZN13hb_bit_page_t3setEjb.exit
 
 _ZN13hb_bit_page_t3setEjb.exit:                   ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split
-  %104 = and i32 %.235, 63
-  %105 = zext nneg i32 %104 to i64
-  %106 = shl nuw i64 1, %105
-  %107 = xor i64 %106, -1
-  %108 = lshr i32 %.235, 6
-  %109 = and i32 %108, 7
-  %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %73, i64 %110
-  %112 = load i64, ptr %111, align 8, !tbaa !256
-  %113 = and i64 %112, %107
-  store i64 %113, ptr %111, align 8, !tbaa !256
+  %105 = and i32 %.235, 63
+  %106 = zext nneg i32 %105 to i64
+  %107 = shl nuw i64 1, %106
+  %108 = xor i64 %107, -1
+  %109 = lshr i32 %.235, 6
+  %110 = and i32 %109, 7
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds nuw i64, ptr %74, i64 %111
+  %113 = load i64, ptr %112, align 8, !tbaa !256
+  %114 = and i64 %113, %108
+  store i64 %114, ptr %112, align 8, !tbaa !256
   store i32 -1, ptr %.1.i, align 8, !tbaa !253
-  br label %114
+  br label %115
 
-114:                                              ; preds = %_ZN13hb_bit_page_t3setEjb.exit, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split
-  %115 = add i32 %.231, -1
-  %.not40 = icmp eq i32 %115, 0
-  br i1 %.not40, label %.critedge42, label %116
+115:                                              ; preds = %_ZN13hb_bit_page_t3setEjb.exit, %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split
+  %116 = add i32 %.231, -1
+  %.not40 = icmp eq i32 %116, 0
+  br i1 %.not40, label %.critedge42, label %117
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.2, i64 %17
-  %118 = load i32, ptr %117, align 4, !tbaa !239
-  %119 = icmp ule i32 %71, %118
-  %120 = icmp ult i32 %118, %72
-  %121 = and i1 %119, %120
-  br i1 %121, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split, label %.critedge, !llvm.loop !709
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds nuw i8, ptr %.2, i64 %17
+  %119 = load i32, ptr %118, align 4, !tbaa !239
+  %120 = icmp ule i32 %72, %119
+  %121 = icmp ult i32 %119, %73
+  %122 = and i1 %120, %121
+  br i1 %122, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split, label %.critedge, !llvm.loop !709
 
-.critedge:                                        ; preds = %116, %98, %..critedge.split.us_crit_edge
-  %.us-phi = phi ptr [ %99, %98 ], [ %82, %..critedge.split.us_crit_edge ], [ %117, %116 ]
-  %.us-phi50 = phi i32 [ %97, %98 ], [ %81, %..critedge.split.us_crit_edge ], [ %115, %116 ]
-  %.us-phi51 = phi i32 [ %100, %98 ], [ %83, %..critedge.split.us_crit_edge ], [ %118, %116 ]
+.critedge:                                        ; preds = %117, %99, %..critedge.split.us_crit_edge
+  %.us-phi = phi ptr [ %100, %99 ], [ %83, %..critedge.split.us_crit_edge ], [ %118, %117 ]
+  %.us-phi50 = phi i32 [ %98, %99 ], [ %82, %..critedge.split.us_crit_edge ], [ %116, %117 ]
+  %.us-phi51 = phi i32 [ %101, %99 ], [ %84, %..critedge.split.us_crit_edge ], [ %119, %117 ]
   br label %18, !llvm.loop !710
 
-.critedge42:                                      ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us, %_ZN12hb_bit_set_t8page_forEjb.exit, %79, %114, %96, %5
+.critedge42:                                      ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us, %_ZN12hb_bit_set_t8page_forEjb.exit, %80, %115, %97, %5
   ret void
 }
 
@@ -80091,10 +80090,10 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %14 = zext i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i16, ptr %15, align 1, !tbaa !40
-  %.fr74 = freeze i16 %16
-  %.mask.i = and i16 %.fr74, 128
+  %.fr = freeze i16 %16
+  %.mask.i = and i16 %.fr, 128
   %17 = icmp ne i16 %.mask.i, 0
-  %18 = and i16 %.fr74, -129
+  %18 = and i16 %.fr, -129
   %19 = tail call i16 @llvm.bswap.i16(i16 %18)
   %20 = zext nneg i16 %19 to i32
   %21 = select i1 %17, i32 %14, i32 %20
@@ -80103,7 +80102,7 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = add nuw nsw i32 %20, %14
-  %.mask.i.i = lshr i16 %.fr74, 7
+  %.mask.i.i = lshr i16 %.fr, 7
   %.mask.i.lobit.i = and i16 %.mask.i.i, 1
   %27 = zext nneg i16 %.mask.i.lobit.i to i32
   %28 = shl nuw nsw i32 %26, %27
@@ -80129,7 +80128,7 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
 .lr.ph65:                                         ; preds = %.preheader54
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %.049.lcssa to i64
-  %wide.trip.count85 = zext nneg i32 %21 to i64
+  %wide.trip.count84 = zext nneg i32 %21 to i64
   br label %51
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
@@ -80160,14 +80159,14 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
 .lr.ph72:                                         ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %50 = zext nneg i32 %.150.lcssa to i64
-  %wide.trip.count90 = zext i16 %13 to i64
+  %wide.trip.count89 = zext i16 %13 to i64
   br label %62
 
 51:                                               ; preds = %.lr.ph65, %51
-  %indvars.iv82 = phi i64 [ %37, %.lr.ph65 ], [ %indvars.iv.next83, %51 ]
+  %indvars.iv81 = phi i64 [ %37, %.lr.ph65 ], [ %indvars.iv.next82, %51 ]
   %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %61, %51 ]
   %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %57, %51 ]
-  %52 = getelementptr inbounds nuw %"struct.OT::IntType.3", ptr %36, i64 %indvars.iv82
+  %52 = getelementptr inbounds nuw %"struct.OT::IntType.3", ptr %36, i64 %indvars.iv81
   %53 = load i16, ptr %52, align 1, !tbaa !40
   %54 = tail call noundef i16 @llvm.bswap.i16(i16 %53)
   %55 = zext i16 %54 to i32
@@ -80177,15 +80176,15 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %59 = tail call noundef i16 @llvm.bswap.i16(i16 %58)
   %60 = sitofp i16 %59 to float
   %61 = tail call float @llvm.fmuladd.f32(float %56, float %60, float %.164)
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.preheader, label %51, !llvm.loop !1367
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %.preheader, label %51, !llvm.loop !1367
 
 62:                                               ; preds = %.lr.ph72, %62
-  %indvars.iv87 = phi i64 [ %50, %.lr.ph72 ], [ %indvars.iv.next88, %62 ]
+  %indvars.iv86 = phi i64 [ %50, %.lr.ph72 ], [ %indvars.iv.next87, %62 ]
   %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %68, %62 ]
   %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %71, %62 ]
-  %63 = getelementptr inbounds nuw %"struct.OT::IntType.3", ptr %49, i64 %indvars.iv87
+  %63 = getelementptr inbounds nuw %"struct.OT::IntType.3", ptr %49, i64 %indvars.iv86
   %64 = load i16, ptr %63, align 1, !tbaa !40
   %65 = tail call noundef i16 @llvm.bswap.i16(i16 %64)
   %66 = zext i16 %65 to i32
@@ -80194,9 +80193,9 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %69 = load i8, ptr %.04671, align 1, !tbaa !1368
   %70 = sitofp i8 %69 to float
   %71 = tail call float @llvm.fmuladd.f32(float %67, float %70, float %.270)
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.loopexit, label %62, !llvm.loop !1370
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
+  br i1 %exitcond90.not, label %.loopexit, label %62, !llvm.loop !1370
 
 .loopexit:                                        ; preds = %62, %.preheader, %6
   %.0 = phi float [ 0.000000e+00, %6 ], [ %.1.lcssa, %.preheader ], [ %71, %62 ]

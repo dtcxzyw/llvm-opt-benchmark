@@ -31,9 +31,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4, !tbaa !4
-  %.fr = freeze i32 %5
-  %6 = and i32 %.fr, 1040
-  %7 = and i32 %.fr, 16779264
+  %.fr112 = freeze i32 %5
+  %6 = and i32 %.fr112, 1040
+  %7 = and i32 %.fr112, 16779264
   %8 = icmp eq ptr %1, null
   br i1 %8, label %handle_mime.exit.thread, label %9
 
@@ -63,8 +63,8 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 
 21:                                               ; preds = %9
   %.not92 = icmp eq i32 %6, 0
-  %.not112 = icmp eq i32 %7, 0
-  %22 = and i32 %.fr, 16780304
+  %.not113 = icmp eq i32 %7, 0
+  %22 = and i32 %.fr112, 16780304
   %or.cond.not = icmp eq i32 %22, 0
   br i1 %or.cond.not, label %23, label %46
 
@@ -95,16 +95,16 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   %34 = select i1 %.not79, ptr @.str.4, ptr @.str.3
   %35 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %34) #5
   %36 = icmp eq i32 %35, -1
-  br i1 %36, label %handle_mime.exit.thread, label %._crit_edge117
+  br i1 %36, label %handle_mime.exit.thread, label %._crit_edge118
 
-._crit_edge117:                                   ; preds = %33
+._crit_edge118:                                   ; preds = %33
   %37 = add nuw nsw i32 %.1, 1
-  %.pre118 = load i32, ptr %24, align 8, !tbaa !18
+  %.pre119 = load i32, ptr %24, align 8, !tbaa !18
   br label %38
 
-38:                                               ; preds = %._crit_edge117, %30
-  %39 = phi i32 [ %.pre118, %._crit_edge117 ], [ %31, %30 ]
-  %.2 = phi i32 [ %37, %._crit_edge117 ], [ %.1, %30 ]
+38:                                               ; preds = %._crit_edge118, %30
+  %39 = phi i32 [ %.pre119, %._crit_edge118 ], [ %31, %30 ]
+  %.2 = phi i32 [ %37, %._crit_edge118 ], [ %.1, %30 ]
   %40 = and i32 %39, 512
   %.not82 = icmp eq i32 %40, 0
   br i1 %.not82, label %46, label %41
@@ -168,12 +168,12 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 68:                                               ; preds = %67
   %69 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.9)
   %70 = icmp eq i32 %69, -1
-  %brmerge115 = or i1 %.not112, %70
-  %.mux116 = select i1 %70, i32 -1, i32 1
-  br i1 %brmerge115, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
+  %brmerge116 = or i1 %.not113, %70
+  %.mux117 = select i1 %70, i32 -1, i32 1
+  br i1 %brmerge116, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
 71:                                               ; preds = %67
-  br i1 %.not112, label %72, label %handle_mime.exit.thread96.thread108
+  br i1 %.not113, label %72, label %handle_mime.exit.thread96.thread108
 
 72:                                               ; preds = %71
   %.not88 = icmp eq i32 %.073, 0
@@ -198,7 +198,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %.not92, label %95, label %83
 
 83:                                               ; preds = %82
-  %84 = and i32 %.fr, 16
+  %84 = and i32 %.fr112, 16
   %.not.i = icmp eq i32 %84, 0
   br i1 %.not.i, label %92, label %85
 
@@ -223,12 +223,12 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 .thread10.i:                                      ; preds = %92, %89
   %93 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #5
   %94 = icmp eq i32 %93, -1
-  %brmerge = or i1 %.not112, %94
+  %brmerge = or i1 %.not113, %94
   %.mux = select i1 %94, i32 -1, i32 1
   br i1 %brmerge, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
 95:                                               ; preds = %82
-  br i1 %.not112, label %96, label %handle_mime.exit.thread96.thread108
+  br i1 %.not113, label %96, label %handle_mime.exit.thread96.thread108
 
 96:                                               ; preds = %95
   %.not85 = icmp eq i32 %.073, 0
@@ -255,12 +255,12 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 109:                                              ; preds = %108
   %110 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.14)
   %111 = icmp eq i32 %110, -1
-  %brmerge113 = or i1 %.not112, %111
-  %.mux114 = select i1 %111, i32 -1, i32 1
-  br i1 %brmerge113, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
+  %brmerge114 = or i1 %.not113, %111
+  %.mux115 = select i1 %111, i32 -1, i32 1
+  br i1 %brmerge114, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
 112:                                              ; preds = %108
-  br i1 %.not112, label %113, label %handle_mime.exit.thread96.thread108
+  br i1 %.not113, label %113, label %handle_mime.exit.thread96.thread108
 
 113:                                              ; preds = %112
   %.not84 = icmp eq i32 %.073, 0
@@ -288,13 +288,13 @@ handle_mime.exit.thread96.thread:                 ; preds = %handle_mime.exit, %
   br label %handle_mime.exit.thread
 
 handle_mime.exit.thread96:                        ; preds = %92, %88, %64
-  br i1 %.not112, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
+  br i1 %.not113, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread108
 
 handle_mime.exit.thread96.thread108:              ; preds = %68, %109, %.thread10.i, %112, %71, %95, %handle_mime.exit.thread96
   br label %handle_mime.exit.thread
 
 handle_mime.exit.thread:                          ; preds = %68, %109, %.thread10.i, %handle_mime.exit.thread96.thread108, %handle_mime.exit.thread96, %handle_mime.exit.thread96.thread, %89, %85, %119, %113, %96, %76, %72, %59, %56, %41, %33, %27, %17, %3, %117, %79, %63, %16
-  %.0 = phi i32 [ -1, %33 ], [ -1, %16 ], [ %., %17 ], [ 0, %3 ], [ -1, %117 ], [ -1, %113 ], [ %.mux, %.thread10.i ], [ -1, %119 ], [ -1, %41 ], [ 1, %63 ], [ -1, %56 ], [ -1, %59 ], [ %.mux116, %68 ], [ -1, %79 ], [ -1, %72 ], [ 1, %76 ], [ -1, %27 ], [ -1, %96 ], [ %.mux114, %109 ], [ -1, %85 ], [ -1, %89 ], [ 0, %handle_mime.exit.thread96.thread108 ], [ 1, %handle_mime.exit.thread96 ], [ %.072103.ph, %handle_mime.exit.thread96.thread ]
+  %.0 = phi i32 [ -1, %33 ], [ -1, %16 ], [ %., %17 ], [ 0, %3 ], [ -1, %117 ], [ -1, %113 ], [ %.mux, %.thread10.i ], [ -1, %119 ], [ -1, %41 ], [ 1, %63 ], [ -1, %56 ], [ -1, %59 ], [ %.mux117, %68 ], [ -1, %79 ], [ -1, %72 ], [ 1, %76 ], [ -1, %27 ], [ -1, %96 ], [ %.mux115, %109 ], [ -1, %85 ], [ -1, %89 ], [ 0, %handle_mime.exit.thread96.thread108 ], [ 1, %handle_mime.exit.thread96 ], [ %.072103.ph, %handle_mime.exit.thread96.thread ]
   ret i32 %.0
 }
 

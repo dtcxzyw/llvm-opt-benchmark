@@ -52442,8 +52442,8 @@ define hidden void @_ZN11ruff_linter5rules5isort7sorting9ModuleKey11from_module1
   %.sroa.019.087 = select i1 %65, i32 2, i32 %.86
   %.ph89 = zext i32 %5 to i64
   %66 = xor i1 %7, true
-  %.fr = freeze i8 %62
-  %67 = trunc i8 %.fr to i1
+  %.fr92 = freeze i8 %62
+  %67 = trunc i8 %.fr92 to i1
   %.sroa.013.342 = and i1 %66, %67
   %68 = trunc nuw i8 %60 to i1
   %narrow = or i1 %.sroa.013.342, %68

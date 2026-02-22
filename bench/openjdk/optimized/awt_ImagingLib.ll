@@ -1620,16 +1620,15 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
 396:                                              ; preds = %121
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 556
   %398 = load i32, ptr %397, align 4
-  %.fr281 = freeze i32 %398
-  %.not112 = icmp ne i32 %.fr281, 0
+  %.not112 = icmp ne i32 %398, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 468
   %400 = load i32, ptr %399, align 4
-  %.fr280 = freeze i32 %400
   %.neg = sext i1 %.not112 to i32
-  %401 = add i32 %.fr280, %.neg
-  %402 = icmp sgt i32 %.fr280, 32
+  %401 = add i32 %400, %.neg
+  %.fr280 = freeze i32 %401
+  %402 = icmp sgt i32 %400, 32
   br i1 %402, label %expandPackedICRdefault.exit, label %403
 
 403:                                              ; preds = %396
@@ -1698,8 +1697,8 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   br i1 %441, label %.preheader119.preheader.i189, label %.loopexit.i186
 
 .preheader119.preheader.i189:                     ; preds = %.preheader119.lr.ph.i188
-  %442 = icmp sgt i32 %401, 0
-  %wide.trip.count166.i190 = zext nneg i32 %401 to i64
+  %442 = icmp sgt i32 %.fr280, 0
+  %wide.trip.count166.i190 = zext nneg i32 %.fr280 to i64
   br i1 %442, label %.preheader119.i191.us, label %.preheader119.i191
 
 .preheader119.i191.us:                            ; preds = %.preheader119.preheader.i189, %._crit_edge133.i195.us
@@ -1747,11 +1746,11 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   br i1 %461, label %.lr.ph127.us.i202.us, label %._crit_edge133.i195.us.loopexit, !llvm.loop !37
 
 ._crit_edge133.i195.us.loopexit:                  ; preds = %._crit_edge128.us.i212.us
-  %.pre306 = load i32, ptr %17, align 4
+  %.pre305 = load i32, ptr %17, align 4
   br label %._crit_edge133.i195.us
 
 ._crit_edge133.i195.us:                           ; preds = %._crit_edge133.i195.us.loopexit, %.preheader119.i191.us
-  %462 = phi i32 [ %443, %.preheader119.i191.us ], [ %.pre306, %._crit_edge133.i195.us.loopexit ]
+  %462 = phi i32 [ %443, %.preheader119.i191.us ], [ %.pre305, %._crit_edge133.i195.us.loopexit ]
   %463 = phi i32 [ %444, %.preheader119.i191.us ], [ %460, %._crit_edge133.i195.us.loopexit ]
   %.1112.lcssa.i196.us = phi ptr [ %.0111135.i194.us, %.preheader119.i191.us ], [ %.2113.us.i210.us, %._crit_edge133.i195.us.loopexit ]
   %464 = load i32, ptr %439, align 8
@@ -1766,7 +1765,7 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
 
 .preheader.lr.ph.i214:                            ; preds = %.preheader118.i213
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %470 = sext i32 %401 to i64
+  %470 = sext i32 %.fr280 to i64
   %471 = getelementptr inbounds i32, ptr %469, i64 %470
   %472 = getelementptr inbounds i32, ptr %9, i64 %470
   %473 = getelementptr inbounds i32, ptr %8, i64 %470
@@ -1776,8 +1775,8 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   br i1 %476, label %.preheader.preheader.i215, label %.loopexit.i186
 
 .preheader.preheader.i215:                        ; preds = %.preheader.lr.ph.i214
-  %477 = icmp sgt i32 %401, 0
-  %wide.trip.count171.i216 = zext nneg i32 %401 to i64
+  %477 = icmp sgt i32 %.fr280, 0
+  %wide.trip.count171.i216 = zext nneg i32 %.fr280 to i64
   br i1 %477, label %.preheader.i217.us, label %.preheader.i217
 
 .preheader.i217.us:                               ; preds = %.preheader.preheader.i215, %._crit_edge149.i221.us
@@ -1833,11 +1832,11 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   br i1 %504, label %.lr.ph143.us.i229.us, label %._crit_edge149.i221.us.loopexit, !llvm.loop !40
 
 ._crit_edge149.i221.us.loopexit:                  ; preds = %._crit_edge144.us.i239.us
-  %.pre308 = load i32, ptr %17, align 4
+  %.pre307 = load i32, ptr %17, align 4
   br label %._crit_edge149.i221.us
 
 ._crit_edge149.i221.us:                           ; preds = %._crit_edge149.i221.us.loopexit, %.preheader.i217.us
-  %505 = phi i32 [ %478, %.preheader.i217.us ], [ %.pre308, %._crit_edge149.i221.us.loopexit ]
+  %505 = phi i32 [ %478, %.preheader.i217.us ], [ %.pre307, %._crit_edge149.i221.us.loopexit ]
   %506 = phi i32 [ %479, %.preheader.i217.us ], [ %503, %._crit_edge149.i221.us.loopexit ]
   %.4.lcssa.i222.us = phi ptr [ %.3153.i220.us, %.preheader.i217.us ], [ %.5.us.i237.us, %._crit_edge149.i221.us.loopexit ]
   %507 = load i32, ptr %474, align 8
@@ -1907,11 +1906,11 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   br i1 %536, label %.lr.ph148.split.i224, label %._crit_edge149.i221.loopexit, !llvm.loop !40
 
 ._crit_edge149.i221.loopexit:                     ; preds = %.lr.ph148.split.i224
-  %.pre307 = load i32, ptr %17, align 4
+  %.pre306 = load i32, ptr %17, align 4
   br label %._crit_edge149.i221
 
 ._crit_edge149.i221:                              ; preds = %._crit_edge149.i221.loopexit, %.preheader.i217
-  %537 = phi i32 [ %522, %.preheader.i217 ], [ %.pre307, %._crit_edge149.i221.loopexit ]
+  %537 = phi i32 [ %522, %.preheader.i217 ], [ %.pre306, %._crit_edge149.i221.loopexit ]
   %538 = phi i32 [ %523, %.preheader.i217 ], [ %535, %._crit_edge149.i221.loopexit ]
   %.4.lcssa.i222 = phi ptr [ %.3153.i220, %.preheader.i217 ], [ %.5139.i228, %._crit_edge149.i221.loopexit ]
   %539 = load i32, ptr %474, align 8
@@ -2004,8 +2003,8 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   %581 = add nuw nsw i32 %.0100279.us, 1
   %582 = getelementptr inbounds i32, ptr %.0103277.us, i64 %569
   %583 = getelementptr inbounds i32, ptr %.0102278.us, i64 %570
-  %exitcond305.not = icmp eq i32 %581, %18
-  br i1 %exitcond305.not, label %.loopexit, label %.preheader.us, !llvm.loop !43
+  %exitcond304.not = icmp eq i32 %581, %18
+  br i1 %exitcond304.not, label %.loopexit, label %.preheader.us, !llvm.loop !43
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %558
   %584 = load ptr, ptr %0, align 8

@@ -2016,8 +2016,8 @@ define internal fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4ed
 
 _ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit: ; preds = %2
   %7 = load i16, ptr %0, align 8
-  %.fr = freeze i16 %7
-  %8 = and i16 %.fr, 511
+  %.fr7 = freeze i16 %7
+  %8 = and i16 %.fr7, 511
   %.not = icmp eq i16 %8, 22
   br i1 %.not, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread, label %switch.early.test
 
@@ -2125,8 +2125,8 @@ switch.early.test.i:                              ; preds = %21
 
 27:                                               ; preds = %switch.early.test.i
   %28 = load i16, ptr %0, align 8
-  %.fr43.i = freeze i16 %28
-  %29 = and i16 %.fr43.i, 511
+  %.fr45.i = freeze i16 %28
+  %29 = and i16 %.fr45.i, 511
   %30 = icmp eq i16 %29, 22
   br i1 %30, label %_ZL23castOperatorNeedsParensPKN5clang4ExprE.exit.thread, label %switch.early.test42.i
 

@@ -12890,8 +12890,8 @@ define linkonce_odr hidden void @_ZSt17__merge_sort_loopIPP3appS2_lN9__gnu_cxx5_
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not74 = icmp slt i64 %11, %7
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.not73 = icmp slt i64 %11, %7
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %.idx = shl i64 %3, 3
@@ -12905,17 +12905,17 @@ define linkonce_odr hidden void @_ZSt17__merge_sort_loopIPP3appS2_lN9__gnu_cxx5_
   br label %._crit_edge.i.us
 
 ._crit_edge.i.us:                                 ; preds = %._crit_edge.i.us.preheader, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us
-  %.076.us = phi ptr [ %13, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %0, %._crit_edge.i.us.preheader ]
-  %.01975.us = phi ptr [ %16, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %2, %._crit_edge.i.us.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.076.us, i64 %.idx
+  %.075.us = phi ptr [ %13, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %0, %._crit_edge.i.us.preheader ]
+  %.01974.us = phi ptr [ %16, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %2, %._crit_edge.i.us.preheader ]
+  %13 = getelementptr inbounds i8, ptr %.075.us, i64 %.idx
   br i1 %.not.i.i.i.i.i.i.us, label %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, label %14
 
 14:                                               ; preds = %._crit_edge.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.01975.us, ptr align 8 %.076.us, i64 %.idx, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.01974.us, ptr align 8 %.075.us, i64 %.idx, i1 false)
   br label %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us
 
 _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us: ; preds = %._crit_edge.i.us, %14
-  %15 = getelementptr inbounds i8, ptr %.01975.us, i64 %.idx
+  %15 = getelementptr inbounds i8, ptr %.01974.us, i64 %.idx
   %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %8, %17
@@ -12924,10 +12924,10 @@ _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_infere
   br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !396
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit
-  %.076 = phi ptr [ %21, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %0, %.lr.ph ]
-  %.01975 = phi ptr [ %124, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %2, %.lr.ph ]
-  %20 = getelementptr inbounds i8, ptr %.076, i64 %.idx
-  %21 = getelementptr inbounds i8, ptr %.076, i64 %.idx61
+  %.075 = phi ptr [ %21, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %0, %.lr.ph ]
+  %.01974 = phi ptr [ %124, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %2, %.lr.ph ]
+  %20 = getelementptr inbounds i8, ptr %.075, i64 %.idx
+  %21 = getelementptr inbounds i8, ptr %.075, i64 %.idx61
   %22 = load i32, ptr %12, align 8, !tbaa !128
   %23 = add i32 %22, -1
   %24 = load ptr, ptr %4, align 8, !tbaa !127
@@ -12936,8 +12936,8 @@ _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_infere
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread52
-  %.025.i = phi ptr [ %111, %.thread52 ], [ %.01975, %.lr.ph.i.preheader ]
-  %.01824.i = phi ptr [ %.1.i, %.thread52 ], [ %.076, %.lr.ph.i.preheader ]
+  %.025.i = phi ptr [ %111, %.thread52 ], [ %.01974, %.lr.ph.i.preheader ]
+  %.01824.i = phi ptr [ %.1.i, %.thread52 ], [ %.075, %.lr.ph.i.preheader ]
   %.01923.i = phi ptr [ %.120.i55, %.thread52 ], [ %20, %.lr.ph.i.preheader ]
   %27 = load ptr, ptr %.01923.i, align 8, !tbaa !158
   %28 = load ptr, ptr %.01824.i, align 8, !tbaa !158
@@ -13149,10 +13149,9 @@ _ZNK21pattern_inference_cfg17pattern_weight_ltclEP4exprS2_.exit: ; preds = %102
   %105 = load i32, ptr %104, align 8, !tbaa !220
   %106 = getelementptr inbounds nuw i8, ptr %.026.i.i28.i, i64 16
   %107 = load i32, ptr %106, align 8, !tbaa !220
-  %.fr = freeze i32 %105
-  %.fr63 = freeze i32 %107
-  %108 = icmp ult i32 %.fr, %.fr63
-  br i1 %108, label %.thread, label %.thread52
+  %108 = icmp ult i32 %105, %107
+  %cond.fr = freeze i1 %108
+  br i1 %cond.fr, label %.thread, label %.thread52
 
 .thread:                                          ; preds = %_ZNK21pattern_inference_cfg17pattern_weight_ltclEP4exprS2_.exit
   %.120.i56 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 8
@@ -13203,10 +13202,10 @@ _ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_infere
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, %5
   %.019.lcssa = phi ptr [ %2, %5 ], [ %16, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %124, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %21, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
-  %.lcssa72 = phi i64 [ %11, %5 ], [ %19, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %126, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa72)
-  %.idx64 = shl nsw i64 %.sroa.speculated, 3
-  %127 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.idx64
+  %.lcssa71 = phi i64 [ %11, %5 ], [ %19, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %126, %_ZSt12__move_mergeIPP3appS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa71)
+  %.idx63 = shl nsw i64 %.sroa.speculated, 3
+  %127 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.idx63
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8
   %128 = icmp ne i64 %.sroa.speculated, 0

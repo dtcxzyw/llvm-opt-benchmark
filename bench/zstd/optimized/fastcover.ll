@@ -802,10 +802,9 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   %18 = select i1 %17, i32 6, i32 %16
   %19 = select i1 %17, i32 8, i32 %16
   %20 = load i32, ptr %5, align 8, !tbaa !55
-  %.fr = freeze i32 %20
-  %21 = icmp eq i32 %.fr, 0
-  %22 = select i1 %21, i32 50, i32 %.fr
-  %23 = select i1 %21, i32 2000, i32 %.fr
+  %21 = icmp eq i32 %20, 0
+  %22 = select i1 %21, i32 50, i32 %20
+  %23 = select i1 %21, i32 2000, i32 %20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !56
   %26 = icmp eq i32 %25, 0

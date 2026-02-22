@@ -7000,145 +7000,142 @@ define range(i32 1000000001, 1000000000) i32 @Supp_FindNextDiv(ptr noundef reado
   %wide.trip.count.i = zext nneg i32 %8 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %53, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %53 ]
+.lr.ph.i:                                         ; preds = %54, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %54 ]
   %22 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
   %23 = load i64, ptr %22, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !11
-  %.fr = freeze i64 %25
-  %.fr63 = freeze i64 %23
-  %26 = and i64 %.fr, %.fr63
+  %26 = and i64 %25, %23
   %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %53, label %27
+  br i1 %.not.i, label %54, label %27
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = trunc i64 %indvars.iv.i to i32
-  %29 = shl i32 %28, 6
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %29 = shl nsw i32 %28, 6
   %30 = and i64 %26, 4294967295
   %31 = icmp eq i64 %30, 0
-  %32 = lshr i64 %26, 32
+  %32 = lshr exact i64 %26, 32
   %.020.i.i = select i1 %31, i64 %32, i64 %26
   %.0.i.i = select i1 %31, i32 32, i32 0
   %33 = and i64 %.020.i.i, 65535
   %34 = icmp eq i64 %33, 0
   %35 = or disjoint i32 %.0.i.i, 16
-  %36 = lshr i64 %.020.i.i, 16
+  %36 = lshr exact i64 %.020.i.i, 16
   %.121.i.i = select i1 %34, i64 %36, i64 %.020.i.i
   %.1.i.i = select i1 %34, i32 %35, i32 %.0.i.i
   %37 = and i64 %.121.i.i, 255
   %38 = icmp eq i64 %37, 0
   %39 = or disjoint i32 %.1.i.i, 8
-  %40 = lshr i64 %.121.i.i, 8
+  %40 = lshr exact i64 %.121.i.i, 8
   %.222.i.i = select i1 %38, i64 %40, i64 %.121.i.i
   %.2.i.i = select i1 %38, i32 %39, i32 %.1.i.i
   %41 = and i64 %.222.i.i, 15
   %42 = icmp eq i64 %41, 0
   %43 = or disjoint i32 %.2.i.i, 4
-  %44 = lshr i64 %.222.i.i, 4
+  %44 = lshr exact i64 %.222.i.i, 4
   %.323.i.i = select i1 %42, i64 %44, i64 %.222.i.i
   %.3.i.i = select i1 %42, i32 %43, i32 %.2.i.i
   %45 = and i64 %.323.i.i, 3
   %46 = icmp eq i64 %45, 0
   %47 = add nuw nsw i32 %.3.i.i, 2
-  %48 = lshr i64 %.323.i.i, 2
+  %48 = lshr exact i64 %.323.i.i, 2
   %.424.i.i = select i1 %46, i64 %48, i64 %.323.i.i
   %.4.i.i = select i1 %46, i32 %47, i32 %.3.i.i
   %49 = trunc i64 %.424.i.i to i32
   %50 = and i32 %49, 1
   %51 = xor i32 %50, 1
-  %.5.i.i = add i32 %.4.i.i, %29
-  %52 = add i32 %.5.i.i, %51
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %29
+  %52 = add nuw nsw i32 %.5.i.i, %51
+  %53 = freeze i32 %52
   br label %.lr.ph.preheader.i33
 
-53:                                               ; preds = %.lr.ph.i
+54:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i33, label %.lr.ph.i, !llvm.loop !140
 
-.lr.ph.preheader.i33:                             ; preds = %53, %27
-  %.012.i = phi i32 [ %52, %27 ], [ -1, %53 ]
+.lr.ph.preheader.i33:                             ; preds = %54, %27
+  %.012.i = phi i32 [ %53, %27 ], [ -1, %54 ]
   br label %.lr.ph.i35
 
-.lr.ph.i35:                                       ; preds = %59, %.lr.ph.preheader.i33
-  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i49, %59 ]
-  %54 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i36
-  %55 = load i64, ptr %54, align 8, !tbaa !11
-  %56 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i36
-  %57 = load i64, ptr %56, align 8, !tbaa !11
-  %.fr69 = freeze i64 %57
-  %.fr70 = freeze i64 %55
-  %58 = and i64 %.fr69, %.fr70
-  %.not.i37 = icmp eq i64 %58, 0
-  br i1 %.not.i37, label %59, label %Abc_TtFindFirstAndBit2.exit51
+.lr.ph.i35:                                       ; preds = %60, %.lr.ph.preheader.i33
+  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i49, %60 ]
+  %55 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i36
+  %56 = load i64, ptr %55, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i36
+  %58 = load i64, ptr %57, align 8, !tbaa !11
+  %59 = and i64 %58, %56
+  %.not.i37 = icmp eq i64 %59, 0
+  br i1 %.not.i37, label %60, label %Abc_TtFindFirstAndBit2.exit51
 
-59:                                               ; preds = %.lr.ph.i35
-  %indvars.iv.next.i49 = add i64 %indvars.iv.i36, 1
+60:                                               ; preds = %.lr.ph.i35
+  %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i
   br i1 %exitcond.not.i50, label %Abc_TtFindFirstAndBit2.exit51.thread, label %.lr.ph.i35, !llvm.loop !140
 
-Abc_TtFindFirstAndBit2.exit51.thread:             ; preds = %59
-  %60 = icmp eq i32 %.012.i, -1
-  %spec.select79 = select i1 %60, i32 1000000000, i32 %.012.i
+Abc_TtFindFirstAndBit2.exit51.thread:             ; preds = %60
+  %61 = icmp eq i32 %.012.i, -1
+  %spec.select76 = select i1 %61, i32 1000000000, i32 %.012.i
   br label %.thread
 
 Abc_TtFindFirstAndBit2.exit51:                    ; preds = %.lr.ph.i35
-  %61 = trunc i64 %indvars.iv.i36 to i32
-  %62 = shl i32 %61, 6
-  %63 = and i64 %58, 4294967295
-  %64 = icmp eq i64 %63, 0
-  %65 = lshr i64 %58, 32
-  %.020.i.i38 = select i1 %64, i64 %65, i64 %58
-  %.0.i.i39 = select i1 %64, i32 32, i32 0
-  %66 = and i64 %.020.i.i38, 65535
-  %67 = icmp eq i64 %66, 0
-  %68 = or disjoint i32 %.0.i.i39, 16
-  %69 = lshr i64 %.020.i.i38, 16
-  %.121.i.i40 = select i1 %67, i64 %69, i64 %.020.i.i38
-  %.1.i.i41 = select i1 %67, i32 %68, i32 %.0.i.i39
-  %70 = and i64 %.121.i.i40, 255
-  %71 = icmp eq i64 %70, 0
-  %72 = or disjoint i32 %.1.i.i41, 8
-  %73 = lshr i64 %.121.i.i40, 8
-  %.222.i.i42 = select i1 %71, i64 %73, i64 %.121.i.i40
-  %.2.i.i43 = select i1 %71, i32 %72, i32 %.1.i.i41
-  %74 = and i64 %.222.i.i42, 15
-  %75 = icmp eq i64 %74, 0
-  %76 = or disjoint i32 %.2.i.i43, 4
-  %77 = lshr i64 %.222.i.i42, 4
-  %.323.i.i44 = select i1 %75, i64 %77, i64 %.222.i.i42
-  %.3.i.i45 = select i1 %75, i32 %76, i32 %.2.i.i43
-  %78 = and i64 %.323.i.i44, 3
-  %79 = icmp eq i64 %78, 0
-  %80 = add i32 %.3.i.i45, 2
-  %81 = lshr i64 %.323.i.i44, 2
-  %.424.i.i46 = select i1 %79, i64 %81, i64 %.323.i.i44
-  %.4.i.i47 = select i1 %79, i32 %80, i32 %.3.i.i45
-  %82 = trunc i64 %.424.i.i46 to i32
-  %83 = and i32 %82, 1
-  %84 = xor i32 %83, 1
-  %.5.i.i48 = add i32 %.4.i.i47, %62
-  %85 = add i32 %.5.i.i48, %84
-  %86 = icmp eq i32 %.012.i, -1
-  %spec.select = select i1 %86, i32 1000000000, i32 %.012.i
-  %87 = icmp eq i32 %85, -1
-  %spec.select90 = select i1 %87, i32 1000000000, i32 %85
+  %62 = trunc nuw nsw i64 %indvars.iv.i36 to i32
+  %63 = shl nsw i32 %62, 6
+  %64 = and i64 %59, 4294967295
+  %65 = icmp eq i64 %64, 0
+  %66 = lshr exact i64 %59, 32
+  %.020.i.i38 = select i1 %65, i64 %66, i64 %59
+  %.0.i.i39 = select i1 %65, i32 32, i32 0
+  %67 = and i64 %.020.i.i38, 65535
+  %68 = icmp eq i64 %67, 0
+  %69 = or disjoint i32 %.0.i.i39, 16
+  %70 = lshr exact i64 %.020.i.i38, 16
+  %.121.i.i40 = select i1 %68, i64 %70, i64 %.020.i.i38
+  %.1.i.i41 = select i1 %68, i32 %69, i32 %.0.i.i39
+  %71 = and i64 %.121.i.i40, 255
+  %72 = icmp eq i64 %71, 0
+  %73 = or disjoint i32 %.1.i.i41, 8
+  %74 = lshr exact i64 %.121.i.i40, 8
+  %.222.i.i42 = select i1 %72, i64 %74, i64 %.121.i.i40
+  %.2.i.i43 = select i1 %72, i32 %73, i32 %.1.i.i41
+  %75 = and i64 %.222.i.i42, 15
+  %76 = icmp eq i64 %75, 0
+  %77 = or disjoint i32 %.2.i.i43, 4
+  %78 = lshr exact i64 %.222.i.i42, 4
+  %.323.i.i44 = select i1 %76, i64 %78, i64 %.222.i.i42
+  %.3.i.i45 = select i1 %76, i32 %77, i32 %.2.i.i43
+  %79 = and i64 %.323.i.i44, 3
+  %80 = icmp eq i64 %79, 0
+  %81 = add nuw nsw i32 %.3.i.i45, 2
+  %82 = lshr exact i64 %.323.i.i44, 2
+  %.424.i.i46 = select i1 %80, i64 %82, i64 %.323.i.i44
+  %.4.i.i47 = select i1 %80, i32 %81, i32 %.3.i.i45
+  %83 = trunc i64 %.424.i.i46 to i32
+  %84 = and i32 %83, 1
+  %85 = xor i32 %84, 1
+  %.5.i.i48 = add nuw nsw i32 %.4.i.i47, %63
+  %86 = add nuw nsw i32 %.5.i.i48, %85
+  %87 = freeze i32 %86
+  %88 = icmp eq i32 %.012.i, -1
+  %spec.select = select i1 %88, i32 1000000000, i32 %.012.i
+  %89 = icmp eq i32 %87, -1
+  %spec.select85 = select i1 %89, i32 1000000000, i32 %87
   br label %.thread
 
 .thread:                                          ; preds = %Abc_TtFindFirstAndBit2.exit51, %Abc_TtFindFirstAndBit2.exit51.thread
-  %spec.select81 = phi i32 [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ], [ %spec.select79, %Abc_TtFindFirstAndBit2.exit51.thread ]
-  %.fr91 = phi i32 [ %spec.select90, %Abc_TtFindFirstAndBit2.exit51 ], [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ]
-  %spec.select81.fr = freeze i32 %spec.select81
-  %88 = tail call i32 @llvm.smin.i32(i32 %spec.select81.fr, i32 %.fr91)
-  %89 = icmp eq i32 %88, 1000000000
-  br i1 %89, label %.thread.thread, label %90
+  %spec.select77 = phi i32 [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ], [ %spec.select76, %Abc_TtFindFirstAndBit2.exit51.thread ]
+  %90 = phi i32 [ %spec.select85, %Abc_TtFindFirstAndBit2.exit51 ], [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ]
+  %91 = tail call i32 @llvm.smin.i32(i32 %spec.select77, i32 %90)
+  %92 = icmp eq i32 %91, 1000000000
+  br i1 %92, label %.thread.thread, label %93
 
 .thread.thread:                                   ; preds = %2, %.thread
-  br label %90
+  br label %93
 
-90:                                               ; preds = %.thread, %.thread.thread
-  %91 = phi i32 [ -1, %.thread.thread ], [ %88, %.thread ]
-  ret i32 %91
+93:                                               ; preds = %.thread, %.thread.thread
+  %94 = phi i32 [ -1, %.thread.thread ], [ %91, %.thread ]
+  ret i32 %94
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9891,8 +9888,8 @@ define void @Supp_ManComputeTest(ptr noundef %0) local_unnamed_addr #4 {
   %4 = icmp slt i32 %.val39.val, 7
   %5 = add nsw i32 %.val39.val, -6
   %6 = shl nuw i32 1, %5
-  %.fr44.i = freeze i32 %6
-  %7 = select i1 %4, i32 1, i32 %.fr44.i
+  %.fr.i = freeze i32 %6
+  %7 = select i1 %4, i32 1, i32 %.fr.i
   %8 = select i1 %4, i32 0, i32 %5
   %9 = shl i32 %.val39.val, %8
   %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33

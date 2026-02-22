@@ -3144,8 +3144,8 @@ mpeg_decode_picture_coding_extension.exit.thread: ; preds = %1129, %1147, %.sink
 1306:                                             ; preds = %1302
   %1307 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %1308 = load i8, ptr %1307, align 1, !tbaa !58
-  %.not5780.i = icmp slt i8 %1308, 0
-  %spec.select.v.i = select i1 %.not5780.i, i64 7, i64 5
+  %.not5781.i = icmp slt i8 %1308, 0
+  %spec.select.v.i = select i1 %.not5781.i, i64 7, i64 5
   %1309 = and i8 %1308, 64
   %.not58.i390 = icmp eq i8 %1309, 0
   %1310 = icmp samesign uge i64 %spec.select.v.i, %1283
@@ -3251,8 +3251,8 @@ switch.early.test.i:                              ; preds = %1335
 .thread.i389:                                     ; preds = %1316
   %1354 = getelementptr inbounds nuw i8, ptr %1282, i64 4848
   %1355 = load i32, ptr %1354, align 8, !tbaa !176
-  %.not.i103.i = icmp eq i32 %1355, 0
-  br i1 %.not.i103.i, label %.thread275.i.i, label %.thread76.i
+  %.not.i104.i = icmp eq i32 %1355, 0
+  br i1 %.not.i104.i, label %.thread275.i.i, label %.thread76.i
 
 .thread63.i:                                      ; preds = %.loopexit.i
   %1356 = getelementptr inbounds nuw i8, ptr %1282, i64 4848

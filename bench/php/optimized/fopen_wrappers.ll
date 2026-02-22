@@ -1032,21 +1032,21 @@ define dso_local noalias noundef ptr @php_resolve_path(ptr noundef %0, i64 nound
 8:                                                ; preds = %3
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %.not252 = icmp eq i64 %1, %9
-  br i1 %.not252, label %.preheader258, label %tsrm_realpath_str.exit
+  br i1 %.not252, label %.preheader259, label %tsrm_realpath_str.exit
 
-.preheader258:                                    ; preds = %8
+.preheader259:                                    ; preds = %8
   %10 = tail call ptr @__ctype_b_loc() #21
   %11 = load ptr, ptr %10, align 8, !tbaa !61
   br label %12
 
-12:                                               ; preds = %.preheader258, %.critedge
-  %.0144 = phi ptr [ %18, %.critedge ], [ %0, %.preheader258 ]
+12:                                               ; preds = %.preheader259, %.critedge
+  %.0144 = phi ptr [ %18, %.critedge ], [ %0, %.preheader259 ]
   %13 = load i8, ptr %.0144, align 1, !tbaa !23
   %14 = sext i8 %13 to i64
   %15 = getelementptr inbounds i16, ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !63
-  %.fr = freeze i16 %16
-  %17 = and i16 %.fr, 8
+  %.fr253 = freeze i16 %16
+  %17 = and i16 %.fr253, 8
   %.not167.not = icmp eq i16 %17, 0
   br i1 %.not167.not, label %switch.early.test, label %.critedge
 
@@ -1124,9 +1124,9 @@ switch.early.test:                                ; preds = %12
 53:                                               ; preds = %50
   %54 = load i8, ptr %2, align 1, !tbaa !23
   %.not168 = icmp eq i8 %54, 0
-  br i1 %.not168, label %58, label %.preheader257
+  br i1 %.not168, label %58, label %.preheader258
 
-.preheader257:                                    ; preds = %53
+.preheader258:                                    ; preds = %53
   %55 = icmp ugt i64 %1, 4094
   %56 = add i64 %1, -4094
   %57 = add nuw nsw i64 %1, 1
@@ -1156,24 +1156,24 @@ zend_string_alloc.exit.i:                         ; preds = %58
   tail call void @_efree(ptr noundef nonnull %59) #17
   br label %tsrm_realpath_str.exit
 
-69:                                               ; preds = %.preheader257, %select.unfold
-  %.0140264 = phi ptr [ %2, %.preheader257 ], [ %.1141, %select.unfold ]
-  %70 = load i8, ptr %.0140264, align 1, !tbaa !23
+69:                                               ; preds = %.preheader258, %select.unfold
+  %.0140265 = phi ptr [ %2, %.preheader258 ], [ %.1141, %select.unfold ]
+  %70 = load i8, ptr %.0140265, align 1, !tbaa !23
   %.not170 = icmp eq i8 %70, 0
-  br i1 %.not170, label %.critedge6, label %.preheader256
+  br i1 %.not170, label %.critedge6, label %.preheader257
 
-.preheader256:                                    ; preds = %69
+.preheader257:                                    ; preds = %69
   %71 = load ptr, ptr %10, align 8, !tbaa !61
   br label %72
 
-72:                                               ; preds = %.preheader256, %.critedge8
-  %73 = phi i8 [ %.pr, %.critedge8 ], [ %70, %.preheader256 ]
-  %.1145 = phi ptr [ %78, %.critedge8 ], [ %.0140264, %.preheader256 ]
+72:                                               ; preds = %.preheader257, %.critedge8
+  %73 = phi i8 [ %.pr, %.critedge8 ], [ %70, %.preheader257 ]
+  %.1145 = phi ptr [ %78, %.critedge8 ], [ %.0140265, %.preheader257 ]
   %74 = sext i8 %73 to i64
   %75 = getelementptr inbounds i16, ptr %71, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !63
-  %.fr253 = freeze i16 %76
-  %77 = and i16 %.fr253, 8
+  %.fr254 = freeze i16 %76
+  %77 = and i16 %.fr254, 8
   %.not171.not = icmp eq i16 %77, 0
   br i1 %.not171.not, label %switch.early.test214, label %.critedge8
 
@@ -1192,7 +1192,7 @@ switch.early.test214:                             ; preds = %72
 79:                                               ; preds = %switch.early.test214
   %80 = icmp eq i8 %73, 58
   %81 = ptrtoint ptr %.1145 to i64
-  %82 = ptrtoint ptr %.0140264 to i64
+  %82 = ptrtoint ptr %.0140265 to i64
   %83 = sub i64 %81, %82
   %84 = icmp sgt i64 %83, 1
   %or.cond202 = and i1 %80, %84
@@ -1220,7 +1220,7 @@ switch.early.test214:                             ; preds = %72
   %97 = getelementptr inbounds i8, ptr %.1145, i64 -2
   %98 = load i8, ptr %97, align 1, !tbaa !23
   %.not173 = icmp eq i8 %98, 46
-  %.not174 = icmp eq ptr %97, %.0140264
+  %.not174 = icmp eq ptr %97, %.0140265
   %or.cond203 = and i1 %.not174, %.not173
   br i1 %or.cond203, label %101, label %99
 
@@ -1244,15 +1244,15 @@ switch.early.test214:                             ; preds = %72
   %107 = icmp sgt i64 %106, 4096
   %108 = add i64 %56, %106
   %109 = icmp ult i64 %108, -4096
-  %or.cond267 = or i1 %107, %109
-  br i1 %or.cond267, label %110, label %112
+  %or.cond268 = or i1 %107, %109
+  br i1 %or.cond268, label %110, label %112
 
 110:                                              ; preds = %104, %103
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 1
   br label %select.unfold
 
 112:                                              ; preds = %104
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0140264, i64 %106, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0140265, i64 %106, i1 false)
   %113 = getelementptr inbounds i8, ptr %4, i64 %106
   store i8 47, ptr %113, align 1, !tbaa !23
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
@@ -1261,16 +1261,16 @@ switch.early.test214:                             ; preds = %72
   br label %124
 
 116:                                              ; preds = %101
-  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0140264) #18
+  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0140265) #18
   %118 = icmp ugt i64 %117, 4096
   %or.cond10 = select i1 %55, i1 true, i1 %118
   %119 = add nuw nsw i64 %57, %117
   %120 = icmp samesign ugt i64 %119, 4094
-  %or.cond269 = select i1 %or.cond10, i1 true, i1 %120
-  br i1 %or.cond269, label %.critedge6, label %121
+  %or.cond270 = select i1 %or.cond10, i1 true, i1 %120
+  br i1 %or.cond270, label %.critedge6, label %121
 
 121:                                              ; preds = %116
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0140264, i64 %117, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0140265, i64 %117, i1 false)
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 %117
   store i8 47, ptr %122, align 1, !tbaa !23
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
@@ -1329,8 +1329,8 @@ switch.early.test214:                             ; preds = %72
 
 144:                                              ; preds = %132
   %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !69
-  %.fr254 = freeze ptr %145
-  %.not181 = icmp eq ptr %.fr254, null
+  %.fr = freeze ptr %145
+  %.not181 = icmp eq ptr %.fr, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not181, label %select.unfold, label %tsrm_realpath_str.exit
 
@@ -1395,8 +1395,8 @@ select.unfold:                                    ; preds = %146, %144, %128, %1
   %or.cond12 = and i1 %171, %169
   %172 = add i64 %57, %.0
   %173 = icmp ult i64 %172, 4096
-  %or.cond301 = select i1 %or.cond12, i1 %173, i1 false
-  br i1 %or.cond301, label %174, label %tsrm_realpath_str.exit
+  %or.cond302 = select i1 %or.cond12, i1 %173, i1 false
+  br i1 %or.cond302, label %174, label %tsrm_realpath_str.exit
 
 174:                                              ; preds = %170
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %162, i64 %.0, i1 false)
@@ -1412,8 +1412,8 @@ select.unfold:                                    ; preds = %146, %144, %128, %1
   %179 = sext i8 %178 to i64
   %180 = getelementptr inbounds i16, ptr %176, i64 %179
   %181 = load i16, ptr %180, align 2, !tbaa !63
-  %.fr255 = freeze i16 %181
-  %182 = and i16 %.fr255, 8
+  %.fr256 = freeze i16 %181
+  %182 = and i16 %.fr256, 8
   %.not183.not = icmp eq i16 %182, 0
   br i1 %.not183.not, label %switch.early.test215, label %.critedge14
 
@@ -1456,10 +1456,10 @@ switch.early.test215:                             ; preds = %177
 
 200:                                              ; preds = %198
   %.not185 = icmp eq ptr %199, @php_plain_files_wrapper
-  br i1 %.not185, label %._crit_edge274, label %201
+  br i1 %.not185, label %._crit_edge275, label %201
 
-._crit_edge274:                                   ; preds = %200
-  %.pre275 = load ptr, ptr %5, align 8, !tbaa !22
+._crit_edge275:                                   ; preds = %200
+  %.pre276 = load ptr, ptr %5, align 8, !tbaa !22
   br label %218
 
 201:                                              ; preds = %200
@@ -1498,8 +1498,8 @@ switch.early.test215:                             ; preds = %177
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tsrm_realpath_str.exit
 
-218:                                              ; preds = %._crit_edge274, %194, %190, %184
-  %219 = phi ptr [ %.pre275, %._crit_edge274 ], [ %4, %194 ], [ %4, %190 ], [ %4, %184 ]
+218:                                              ; preds = %._crit_edge275, %194, %190, %184
+  %219 = phi ptr [ %.pre276, %._crit_edge275 ], [ %4, %194 ], [ %4, %190 ], [ %4, %184 ]
   %220 = call fastcc ptr @tsrm_realpath_str(ptr noundef %219)
   br label %tsrm_realpath_str.exit
 

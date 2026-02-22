@@ -6207,7 +6207,7 @@ define internal i64 @system_enable_write(ptr noundef readonly captures(none) %0,
 
 12:                                               ; preds = %4
   %13 = sext i32 %10 to i64
-  br label %136
+  br label %138
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -6218,12 +6218,12 @@ define internal i64 @system_enable_write(ptr noundef readonly captures(none) %0,
 
 19:                                               ; preds = %14
   %20 = sext i32 %17 to i64
-  br label %136
+  br label %138
 
 21:                                               ; preds = %14
   %22 = load i64, ptr %5, align 8
   %23 = icmp ugt i64 %22, 1
-  br i1 %23, label %136, label %24
+  br i1 %23, label %138, label %24
 
 24:                                               ; preds = %21
   %25 = icmp eq ptr %9, null
@@ -6236,7 +6236,7 @@ define internal i64 @system_enable_write(ptr noundef readonly captures(none) %0,
   br label %30
 
 30:                                               ; preds = %26, %24
-  %.fr10 = phi ptr [ %29, %26 ], [ null, %24 ]
+  %.fr6 = phi ptr [ %29, %26 ], [ null, %24 ]
   %31 = load ptr, ptr %15, align 8
   %32 = trunc nuw nsw i64 %22 to i32
   call void @mutex_lock(ptr noundef nonnull @event_mutex) #20
@@ -6247,16 +6247,16 @@ define internal i64 @system_enable_write(ptr noundef readonly captures(none) %0,
 
 __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   call void @mutex_unlock(ptr noundef nonnull @event_mutex) #20
-  br label %132
+  br label %134
 
 36:                                               ; preds = %30
-  %37 = icmp eq ptr %.fr10, null
+  %37 = icmp eq ptr %.fr6, null
   br i1 %37, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %36, %.thread.i.us
-  %38 = phi ptr [ %80, %.thread.i.us ], [ %34, %36 ]
+  %38 = phi ptr [ %81, %.thread.i.us ], [ %34, %36 ]
   %39 = phi i32 [ %.fr.us, %.thread.i.us ], [ -22, %36 ]
-  %40 = phi i32 [ %79, %.thread.i.us ], [ 0, %36 ]
+  %40 = phi i32 [ %80, %.thread.i.us ], [ 0, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
@@ -6307,113 +6307,113 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
 
 73:                                               ; preds = %66
   %74 = call fastcc i32 @__ftrace_event_enable_disable(ptr noundef %38, i32 noundef %32, i32 noundef 0)
-  %.fr5.us = freeze i32 %74
-  %75 = icmp eq i32 %.fr5.us, 0
+  %75 = icmp eq i32 %74, 0
   %76 = icmp ne i32 %40, 0
-  %77 = or i1 %76, %75
-  %78 = select i1 %77, i32 %40, i32 %.fr5.us
+  %77 = select i1 %75, i1 true, i1 %76
+  %78 = select i1 %77, i32 %40, i32 %74
+  %79 = freeze i32 %78
   br label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %73, %66, %62, %59, %54
-  %79 = phi i32 [ %40, %59 ], [ %40, %62 ], [ %40, %54 ], [ %78, %73 ], [ %40, %66 ]
-  %.fr.us = phi i32 [ %39, %59 ], [ %39, %62 ], [ %39, %54 ], [ %78, %73 ], [ %39, %66 ]
-  %80 = load ptr, ptr %38, align 8
-  %81 = icmp eq ptr %80, %33
-  br i1 %81, label %__ftrace_set_clr_event_nolock.exit, label %.split.us, !llvm.loop !99
+  %80 = phi i32 [ %40, %59 ], [ %40, %62 ], [ %40, %54 ], [ %79, %73 ], [ %40, %66 ]
+  %.fr.us = phi i32 [ %39, %59 ], [ %39, %62 ], [ %39, %54 ], [ %79, %73 ], [ %39, %66 ]
+  %81 = load ptr, ptr %38, align 8
+  %82 = icmp eq ptr %81, %33
+  br i1 %82, label %__ftrace_set_clr_event_nolock.exit, label %.split.us, !llvm.loop !99
 
 .split:                                           ; preds = %36, %.thread.i
-  %82 = phi ptr [ %128, %.thread.i ], [ %34, %36 ]
-  %83 = phi i32 [ %.fr, %.thread.i ], [ -22, %36 ]
-  %84 = phi i32 [ %127, %.thread.i ], [ 0, %36 ]
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 96
-  %88 = load i32, ptr %87, align 8
-  %89 = and i32 %88, 1024
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %93, label %91
+  %83 = phi ptr [ %130, %.thread.i ], [ %34, %36 ]
+  %84 = phi i32 [ %.fr, %.thread.i ], [ -22, %36 ]
+  %85 = phi i32 [ %129, %.thread.i ], [ 0, %36 ]
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
+  %89 = load i32, ptr %88, align 8
+  %90 = and i32 %89, 1024
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %94, label %92
 
-91:                                               ; preds = %.split
-  %92 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  br label %100
+92:                                               ; preds = %.split
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  br label %101
 
-93:                                               ; preds = %.split
-  %94 = and i32 %88, 16
-  %95 = icmp eq i32 %94, 0
-  %96 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %97 = load ptr, ptr %96, align 8
-  br i1 %95, label %103, label %98
+94:                                               ; preds = %.split
+  %95 = and i32 %89, 16
+  %96 = icmp eq i32 %95, 0
+  %97 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %98 = load ptr, ptr %97, align 8
+  br i1 %96, label %104, label %99
 
-98:                                               ; preds = %93
-  %99 = icmp eq ptr %97, null
-  br i1 %99, label %.thread.i, label %100
+99:                                               ; preds = %94
+  %100 = icmp eq ptr %98, null
+  br i1 %100, label %.thread.i, label %101
 
-100:                                              ; preds = %98, %91
-  %101 = phi ptr [ %92, %91 ], [ %97, %98 ]
-  %102 = load ptr, ptr %101, align 8
-  br label %103
+101:                                              ; preds = %99, %92
+  %102 = phi ptr [ %93, %92 ], [ %98, %99 ]
+  %103 = load ptr, ptr %102, align 8
+  br label %104
 
-103:                                              ; preds = %100, %93
-  %104 = phi ptr [ %102, %100 ], [ %97, %93 ]
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread.i, label %106
+104:                                              ; preds = %101, %94
+  %105 = phi ptr [ %103, %101 ], [ %98, %94 ]
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.thread.i, label %107
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %.thread.i, label %110
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %.thread.i, label %111
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp ne ptr %112, null
-  %114 = and i32 %88, 8
-  %115 = icmp eq i32 %114, 0
-  %116 = and i1 %115, %113
-  br i1 %116, label %117, label %.thread.i
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp ne ptr %113, null
+  %115 = and i32 %89, 8
+  %116 = icmp eq i32 %115, 0
+  %117 = and i1 %116, %114
+  br i1 %117, label %118, label %.thread.i
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr %108, align 8
-  %119 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.fr10, ptr noundef %118) #20
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %.thread.i
+118:                                              ; preds = %111
+  %119 = load ptr, ptr %109, align 8
+  %120 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.fr6, ptr noundef %119) #20
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %.thread.i
 
-121:                                              ; preds = %117
-  %122 = call fastcc i32 @__ftrace_event_enable_disable(ptr noundef %82, i32 noundef %32, i32 noundef 0)
-  %.fr5 = freeze i32 %122
-  %123 = icmp eq i32 %.fr5, 0
-  %124 = icmp ne i32 %84, 0
-  %125 = or i1 %124, %123
-  %126 = select i1 %125, i32 %84, i32 %.fr5
+122:                                              ; preds = %118
+  %123 = call fastcc i32 @__ftrace_event_enable_disable(ptr noundef %83, i32 noundef %32, i32 noundef 0)
+  %124 = icmp eq i32 %123, 0
+  %125 = icmp ne i32 %85, 0
+  %126 = select i1 %124, i1 true, i1 %125
+  %127 = select i1 %126, i32 %85, i32 %123
+  %128 = freeze i32 %127
   br label %.thread.i
 
-.thread.i:                                        ; preds = %121, %117, %110, %106, %103, %98
-  %127 = phi i32 [ %84, %103 ], [ %84, %117 ], [ %84, %98 ], [ %126, %121 ], [ %84, %110 ], [ %84, %106 ]
-  %.fr = phi i32 [ %83, %103 ], [ %83, %117 ], [ %83, %98 ], [ %126, %121 ], [ %83, %110 ], [ %83, %106 ]
-  %128 = load ptr, ptr %82, align 8
-  %129 = icmp eq ptr %128, %33
-  br i1 %129, label %__ftrace_set_clr_event_nolock.exit, label %.split, !llvm.loop !99
+.thread.i:                                        ; preds = %122, %118, %111, %107, %104, %99
+  %129 = phi i32 [ %85, %104 ], [ %85, %118 ], [ %85, %99 ], [ %128, %122 ], [ %85, %111 ], [ %85, %107 ]
+  %.fr = phi i32 [ %84, %104 ], [ %84, %118 ], [ %84, %99 ], [ %128, %122 ], [ %84, %111 ], [ %84, %107 ]
+  %130 = load ptr, ptr %83, align 8
+  %131 = icmp eq ptr %130, %33
+  br i1 %131, label %__ftrace_set_clr_event_nolock.exit, label %.split, !llvm.loop !99
 
 __ftrace_set_clr_event_nolock.exit:               ; preds = %.thread.i, %.thread.i.us
   %.us-phi = phi i32 [ %.fr.us, %.thread.i.us ], [ %.fr, %.thread.i ]
   call void @mutex_unlock(ptr noundef nonnull @event_mutex) #20
-  %130 = sext i32 %.us-phi to i64
-  %131 = icmp eq i32 %.us-phi, 0
-  %spec.select = select i1 %131, i64 %2, i64 %130
-  br label %132
+  %132 = sext i32 %.us-phi to i64
+  %133 = icmp eq i32 %.us-phi, 0
+  %spec.select = select i1 %133, i64 %2, i64 %132
+  br label %134
 
-132:                                              ; preds = %__ftrace_set_clr_event_nolock.exit, %__ftrace_set_clr_event_nolock.exit.thread
-  %133 = phi i64 [ -22, %__ftrace_set_clr_event_nolock.exit.thread ], [ %spec.select, %__ftrace_set_clr_event_nolock.exit ]
-  %134 = load i64, ptr %3, align 8
-  %135 = add i64 %134, %2
-  store i64 %135, ptr %3, align 8
-  br label %136
+134:                                              ; preds = %__ftrace_set_clr_event_nolock.exit, %__ftrace_set_clr_event_nolock.exit.thread
+  %135 = phi i64 [ -22, %__ftrace_set_clr_event_nolock.exit.thread ], [ %spec.select, %__ftrace_set_clr_event_nolock.exit ]
+  %136 = load i64, ptr %3, align 8
+  %137 = add i64 %136, %2
+  store i64 %137, ptr %3, align 8
+  br label %138
 
-136:                                              ; preds = %132, %21, %19, %12
-  %137 = phi i64 [ %13, %12 ], [ %20, %19 ], [ %133, %132 ], [ -22, %21 ]
+138:                                              ; preds = %134, %21, %19, %12
+  %139 = phi i64 [ %13, %12 ], [ %20, %19 ], [ %135, %134 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %137
+  ret i64 %139
 }
 
 ; Function Attrs: null_pointer_is_valid

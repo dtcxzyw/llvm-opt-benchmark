@@ -22104,11 +22104,9 @@ define void @_ZN12colvarmodule10atom_group18group_force_objectC2EPS0_(ptr nounde
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %20 = load ptr, ptr %19, align 8, !tbaa !329
-  %.fr5 = freeze ptr %20
   %21 = load ptr, ptr %18, align 8, !tbaa !144
-  %.fr6 = freeze ptr %21
-  %22 = ptrtoint ptr %.fr5 to i64
-  %23 = ptrtoint ptr %.fr6 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 504
@@ -22130,16 +22128,17 @@ define void @_ZN12colvarmodule10atom_group18group_force_objectC2EPS0_(ptr nounde
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit
 
 35:                                               ; preds = %17
-  %.not5.i.i.i.i = icmp eq ptr %.fr6, %.fr5
+  %.not5.i.i.i.i = icmp eq ptr %21, %20
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %35
   %36 = add i64 %22, -24
   %37 = sub i64 %36, %23
-  %38 = urem i64 %37, 24
-  %39 = sub nuw i64 %37, %38
+  %.fr = freeze i64 %37
+  %38 = urem i64 %.fr, 24
+  %39 = sub nuw i64 %.fr, %38
   %40 = add i64 %39, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.fr6, i8 0, i64 %40, i1 false), !tbaa !139
+  tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %40, i1 false), !tbaa !139
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN12colvarmodule7rvectorESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %35, %34, %13

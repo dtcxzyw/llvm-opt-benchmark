@@ -3969,12 +3969,11 @@ define linkonce_odr dso_local void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_i
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN4absl28log_uniform_int_distributionIiE10param_typeEEE, i64 16), ptr %4, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %.fr8.i.i.i = freeze ptr %1
-  %.fr7.i.i.i = freeze ptr %2
-  %6 = ptrtoint ptr %.fr7.i.i.i to i64
-  %7 = ptrtoint ptr %.fr8.i.i.i to i64
+  %6 = ptrtoint ptr %2 to i64
+  %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
-  %9 = sdiv exact i64 %8, 20
+  %reass.sub.fr.i.i = freeze i64 %8
+  %9 = sdiv exact i64 %reass.sub.fr.i.i, 20
   %10 = icmp ugt i64 %9, 461168601842738790
   br i1 %10, label %11, label %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
 
@@ -3986,29 +3985,29 @@ define linkonce_odr dso_local void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_i
   unreachable
 
 _ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i: ; preds = %3
-  %.not.i.i.i.i = icmp eq ptr %.fr7.i.i.i, %.fr8.i.i.i
+  %.not.i.i.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
-  %12 = getelementptr inbounds nuw i8, ptr null, i64 %8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i.i
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %12, ptr %13, align 8, !tbaa !42
   br label %30
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #38
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i.i) #38
           to label %.noexc5.i.i unwind label %21
 
 .noexc5.i.i:                                      ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i
   store ptr %14, ptr %5, align 8, !tbaa !58
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %reass.sub.fr.i.i
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %16, align 8, !tbaa !42
-  %17 = add i64 %8, -20
+  %17 = add i64 %reass.sub.fr.i.i, -20
   %18 = urem i64 %17, 20
   %19 = sub nuw i64 %17, %18
   %20 = add i64 %19, 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %.fr8.i.i.i, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %1, i64 %20, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %14, i64 %20
   br label %30
 

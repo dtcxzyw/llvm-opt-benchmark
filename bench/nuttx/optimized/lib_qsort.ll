@@ -24,7 +24,7 @@ define void @qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef r
 
 .preheader327:                                    ; preds = %333, %4
   %.0222.lcssa = phi i64 [ %1, %4 ], [ %336, %333 ]
-  %.0.lcssa = phi ptr [ %0, %4 ], [ %335, %333 ]
+  %.0.lcssa = phi ptr [ %0, %4 ], [ %.fr520, %333 ]
   %or.cond.lcssa = phi i1 [ %or.cond393, %4 ], [ %or.cond, %333 ]
   %.lcssa = phi i32 [ %11, %4 ], [ %340, %333 ]
   %15 = mul i64 %.0222.lcssa, %2
@@ -142,7 +142,7 @@ swapfunc.exit.loopexit325:                        ; preds = %.preheader
   %54 = phi i32 [ %11, %.lr.ph398 ], [ %340, %333 ]
   %or.cond396 = phi i1 [ %or.cond393, %.lr.ph398 ], [ %or.cond, %333 ]
   %55 = phi i64 [ %8, %.lr.ph398 ], [ %337, %333 ]
-  %.0395 = phi ptr [ %0, %.lr.ph398 ], [ %335, %333 ]
+  %.0395 = phi ptr [ %0, %.lr.ph398 ], [ %.fr520, %333 ]
   %.0222394 = phi i64 [ %1, %.lr.ph398 ], [ %336, %333 ]
   %56 = lshr i64 %.0222394, 1
   %57 = mul i64 %56, %2
@@ -547,7 +547,7 @@ swapfunc.exit296:                                 ; preds = %.preheader337, %.pr
   %.1227.lcssa = phi ptr [ %215, %214 ], [ %.0226, %.critedge2 ]
   %234 = icmp eq i32 %.3.lcssa, 0
   %235 = mul i64 %.0222394, %2
-  %236 = getelementptr i8, ptr %.0395, i64 %235
+  %236 = getelementptr inbounds i8, ptr %.0395, i64 %235
   br i1 %234, label %.preheader331, label %273
 
 .preheader331:                                    ; preds = %.critedge2._crit_edge
@@ -704,10 +704,8 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   br i1 %298, label %.preheader341, label %swapfunc.exit310, !llvm.loop !10
 
 swapfunc.exit310:                                 ; preds = %.preheader341, %286, %273
-  %.1229.lcssa.fr = freeze ptr %.1229.lcssa
-  %299 = ptrtoint ptr %.1229.lcssa.fr to i64
-  %.1227.lcssa.fr = freeze ptr %.1227.lcssa
-  %300 = ptrtoint ptr %.1227.lcssa.fr to i64
+  %299 = ptrtoint ptr %.1229.lcssa to i64
+  %300 = ptrtoint ptr %.1227.lcssa to i64
   %301 = sub i64 %299, %300
   %302 = ptrtoint ptr %236 to i64
   %303 = add i64 %2, %299
@@ -774,9 +772,10 @@ swapfunc.exit317:                                 ; preds = %.preheader339, %313
 
 333:                                              ; preds = %330
   %334 = sub nsw i64 0, %331
-  %335 = getelementptr i8, ptr %236, i64 %334
+  %335 = getelementptr inbounds i8, ptr %236, i64 %334
+  %.fr520 = freeze ptr %335
   %336 = udiv i64 %331, %2
-  %337 = ptrtoint ptr %335 to i64
+  %337 = ptrtoint ptr %.fr520 to i64
   %338 = or i64 %2, %337
   %339 = and i64 %338, 7
   %or.cond = icmp eq i64 %339, 0

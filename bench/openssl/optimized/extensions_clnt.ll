@@ -1444,8 +1444,8 @@ define range(i32 0, 2) i32 @tls_construct_ctos_key_share(ptr noundef %0, ptr nou
 17:                                               ; preds = %14
   %18 = load ptr, ptr %7, align 8, !tbaa !83
   %19 = load i16, ptr %18, align 2, !tbaa !91
-  %.not68 = icmp eq i16 %19, 0
-  br i1 %.not68, label %20, label %thread-pre-split.thread
+  %.not69 = icmp eq i16 %19, 0
+  br i1 %.not69, label %20, label %thread-pre-split.thread
 
 20:                                               ; preds = %17
   call void @tls1_get_supported_groups(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
@@ -1464,7 +1464,7 @@ thread-pre-split:                                 ; preds = %20, %14
   br label %.loopexit49
 
 thread-pre-split.thread:                          ; preds = %17, %thread-pre-split
-  %.03265 = phi i1 [ %16, %thread-pre-split ], [ true, %17 ]
+  %.03266 = phi i1 [ %16, %thread-pre-split ], [ true, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i64 0, ptr %24, align 8, !tbaa !138
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1246
@@ -1481,9 +1481,9 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 .lr.ph:                                           ; preds = %thread-pre-split.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   %31 = load ptr, ptr %30, align 8, !tbaa !140
-  %.fr = freeze ptr %31
-  %32 = icmp ne ptr %.fr, null
-  %.not44 = and i1 %.03265, %32
+  %.fr56 = freeze ptr %31
+  %32 = icmp ne ptr %.fr56, null
+  %.not44 = and i1 %.03266, %32
   br i1 %.not44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %52

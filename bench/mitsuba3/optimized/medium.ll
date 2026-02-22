@@ -182,8 +182,8 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %26 = fdiv contract float -1.000000e+00, %25
   %bc = bitcast <4 x i32> %20 to <4 x float>
   %27 = extractelement <4 x float> %bc, i64 0
-  %bc225 = bitcast <4 x i32> %20 to <4 x float>
-  %28 = extractelement <4 x float> %bc225, i64 1
+  %bc221 = bitcast <4 x i32> %20 to <4 x float>
+  %28 = extractelement <4 x float> %bc221, i64 1
   %29 = fmul contract float %27, %28
   %30 = fmul contract float %29, %26
   %foldExtExtBinop = fmul contract <4 x float> %bc, %bc
@@ -206,7 +206,7 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %47 = tail call contract noundef float @llvm.fma.f32(float %28, float %46, float %24)
   %48 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %30, i64 0
   %49 = insertelement <4 x float> %48, float %47, i64 1
-  %50 = fneg contract <4 x float> %bc225
+  %50 = fneg contract <4 x float> %bc221
   %51 = shufflevector <4 x float> %49, <4 x float> %50, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   store <4 x float> %45, ptr %10, align 16
   store <4 x float> %51, ptr %.sroa.2.0..sroa_idx164, align 16
@@ -222,9 +222,8 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
   %59 = tail call { i64, float } %58(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 16 dereferenceable(64) %2)
-  %.fr = freeze { i64, float } %59
-  %.fca.0.extract = extractvalue { i64, float } %.fr, 0
-  %.fca.1.extract = extractvalue { i64, float } %.fr, 1
+  %.fca.0.extract = extractvalue { i64, float } %59, 0
+  %.fca.1.extract = extractvalue { i64, float } %59, 1
   %.sroa.3210.0.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.3210.0.extract.trunc = trunc nuw i64 %.sroa.3210.0.extract.shift to i32
   %60 = bitcast i32 %.sroa.3210.0.extract.trunc to float
@@ -232,23 +231,21 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %62 = fcmp contract one float %61, 0x7FF0000000000000
   %63 = tail call contract float @llvm.fabs.f32(float %.fca.1.extract)
   %64 = fcmp contract one float %63, 0x7FF0000000000000
-  %narrow = or i1 %64, %62
+  %narrow = select i1 %62, i1 true, i1 %64
   %65 = trunc i64 %.fca.0.extract to i1
-  %66 = and i1 %narrow, %65
+  %66 = select i1 %narrow, i1 %65, i1 false
   %.sroa.3210.0217 = select i1 %66, float %60, float 0.000000e+00
   %.sroa.9.0 = select i1 %66, float %.fca.1.extract, float 0x7FF0000000000000
   %67 = fcmp contract ogt float %.sroa.3210.0217, 0.000000e+00
   %..i = select contract i1 %67, float %.sroa.3210.0217, float 0.000000e+00
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %69 = load float, ptr %68, align 16
-  %.fr223 = freeze float %69
-  %70 = fcmp contract olt float %.sroa.9.0, %.fr223
-  %..i184 = select contract i1 %70, float %.sroa.9.0, float %.fr223
+  %70 = fcmp contract olt float %.sroa.9.0, %69
+  %..i184 = select contract i1 %70, float %.sroa.9.0, float %69
   %71 = load ptr, ptr %1, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = tail call <4 x float> %73(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 16 dereferenceable(212) %0, i1 noundef zeroext %66)
-  %.fr221 = freeze <4 x float> %74
   %75 = fsub contract float 1.000000e+00, %3
   %.0.copyload.i.cast.i = bitcast float %75 to i32
   %76 = and i32 %.0.copyload.i.cast.i, 2139095040
@@ -298,11 +295,12 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %111 = select i1 %108, float 0x7FF0000000000000, float %107
   %112 = select i1 %109, float 0xFFF0000000000000, float %111
   %113 = select i1 %110, float 0xFFFFFFFFE0000000, float %112
-  %.sroa.0181.0.vec.extract = extractelement <4 x float> %.fr221, i64 0
+  %.sroa.0181.0.vec.extract = extractelement <4 x float> %74, i64 0
   %114 = fdiv contract float %113, %.sroa.0181.0.vec.extract
   %115 = fsub contract float %..i, %114
   %116 = fcmp contract ole float %115, %..i184
-  %117 = select i1 %66, i1 %116, i1 false
+  %cond.fr = freeze i1 %116
+  %117 = and i1 %66, %cond.fr
   %118 = select i1 %117, float %115, float 0x7FF0000000000000
   store float %118, ptr %0, align 16
   %119 = insertelement <4 x float> poison, float %115, i64 0
@@ -323,7 +321,7 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   store <2 x double> %.sroa.0185.16.vec.extract, ptr %13, align 16
   %.sroa.0185.32.vec.extract = shufflevector <6 x double> %127, <6 x double> poison, <2 x i32> <i32 4, i32 5>
   store <2 x double> %.sroa.0185.32.vec.extract, ptr %14, align 16
-  store <4 x float> %.fr221, ptr %15, align 16
+  store <4 x float> %74, ptr %15, align 16
   ret void
 }
 

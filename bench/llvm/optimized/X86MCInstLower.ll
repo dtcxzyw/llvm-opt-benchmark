@@ -8800,10 +8800,10 @@ switch.edge:                                      ; preds = %26
   %28 = tail call noundef ptr @_ZNK4llvm22ConstantDataSequential14getElementTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #21
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
-  %.fr107 = freeze i32 %30
-  %31 = and i32 %.fr107, 252
+  %.fr = freeze i32 %30
+  %31 = and i32 %.fr, 252
   %32 = icmp eq i32 %31, 0
-  %switch.cast = trunc i32 %.fr107 to i4
+  %switch.cast = trunc i32 %.fr to i4
   %switch.downshift = lshr i4 -3, %switch.cast
   %switch.masked = trunc i4 %switch.downshift to i1
   %33 = select i1 %32, i1 %switch.masked, i1 false
@@ -8824,7 +8824,7 @@ switch.edge:                                      ; preds = %26
   br i1 %.not6297, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %switch.edge
-  %39 = and i32 %.fr107, 255
+  %39 = and i32 %.fr, 255
   %40 = icmp eq i32 %39, 12
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32

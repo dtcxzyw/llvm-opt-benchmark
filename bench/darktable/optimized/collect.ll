@@ -6185,8 +6185,8 @@ define internal fastcc void @row_activated_with_event(ptr noundef %0, ptr nounde
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !79
   %29 = call ptr @dt_bauhaus_combobox_get_data(ptr noundef %28) #16
-  %.fr = freeze ptr %29
-  %30 = ptrtoint ptr %.fr to i64
+  %.fr3 = freeze ptr %29
+  %30 = ptrtoint ptr %.fr3 to i64
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, -1
   %33 = load ptr, ptr %6, align 8, !tbaa !174
@@ -6303,8 +6303,8 @@ switch.early.test:                                ; preds = %57
   %78 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !11
   %79 = or i32 %78, %76
   %80 = and i32 %79, %77
-  %.not2 = icmp eq i32 %80, 4
-  br i1 %.not2, label %81, label %85
+  %.not4 = icmp eq i32 %80, 4
+  br i1 %.not4, label %81, label %85
 
 81:                                               ; preds = %75
   %82 = load ptr, ptr %7, align 8, !tbaa !98
@@ -6320,8 +6320,8 @@ switch.early.test:                                ; preds = %57
   %88 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !11
   %89 = or i32 %88, %86
   %90 = and i32 %89, %87
-  %.not3 = icmp eq i32 %90, 1
-  br i1 %.not3, label %_combo_set_active_collection.exit, label %91
+  %.not5 = icmp eq i32 %90, 1
+  br i1 %.not5, label %_combo_set_active_collection.exit, label %91
 
 91:                                               ; preds = %85
   %92 = load ptr, ptr %7, align 8, !tbaa !98
@@ -6384,8 +6384,8 @@ _combo_set_active_collection.exit:                ; preds = %52, %49, %47, %44, 
   %or.cond17.not108 = and i1 %122, %.not107
   %123 = add i32 %31, -10
   %124 = icmp ult i32 %123, 6
-  %or.cond4 = or i1 %124, %or.cond17.not108
-  br i1 %or.cond4, label %125, label %switch.early.test109
+  %or.cond6 = or i1 %124, %or.cond17.not108
+  br i1 %or.cond6, label %125, label %switch.early.test109
 
 switch.early.test109:                             ; preds = %121
   switch i32 %32, label %138 [

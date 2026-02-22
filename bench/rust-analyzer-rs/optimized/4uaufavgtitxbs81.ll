@@ -6405,11 +6405,11 @@ _ZN4core3str11validations15next_code_point17hbc3b908c67353ad2E.exit.thread.i.i.i
 .lr.ph.i19.i.i.i.i:                               ; preds = %173
   %175 = load i64, ptr %24, align 8, !alias.scope !1941, !noalias !1948, !noundef !9
   %176 = load i64, ptr %15, align 8, !alias.scope !1941, !noalias !1948
-  %.fr.i.i.i = freeze i64 %176
+  %.fr58.i.i.i = freeze i64 %176
   %177 = load i64, ptr %17, align 8, !alias.scope !1941, !noalias !1948
-  %178 = add i64 %.fr.i.i.i, -1
+  %178 = add i64 %.fr58.i.i.i, -1
   %.first_iter.i.i.i.i = icmp ult i64 %178, %116
-  %reass.sub75.i.i.i.i = sub i64 1, %.fr.i.i.i
+  %reass.sub75.i.i.i.i = sub i64 1, %.fr58.i.i.i
   br i1 %.first_iter.i.i.i.i, label %.lr.ph.i19.i.split.us.i.i.i, label %.lr.ph.i19.i.split.i.i.i, !prof !696
 
 .lr.ph.i19.i.split.us.i.i.i:                      ; preds = %.lr.ph.i19.i.i.i.i, %202
@@ -6425,7 +6425,7 @@ _ZN4core3str11validations15next_code_point17hbc3b908c67353ad2E.exit.thread.i.i.i
   br i1 %187, label %200, label %.preheader11.i.us.i.i.i
 
 .preheader11.i.us.i.i.i:                          ; preds = %.lr.ph.i19.i.split.us.i.i.i, %191
-  %.sroa.04.0.i.i.us.i.i.i = phi i64 [ %192, %191 ], [ %.fr.i.i.i, %.lr.ph.i19.i.split.us.i.i.i ]
+  %.sroa.04.0.i.i.us.i.i.i = phi i64 [ %192, %191 ], [ %.fr58.i.i.i, %.lr.ph.i19.i.split.us.i.i.i ]
   %exitcond.not.i.i.i = icmp eq i64 %.sroa.04.0.i.i.us.i.i.i, %116
   br i1 %exitcond.not.i.i.i, label %.preheader.i.us.us.i.i.i, label %188
 
@@ -6459,7 +6459,7 @@ _ZN4core3str11validations15next_code_point17hbc3b908c67353ad2E.exit.thread.i.i.i
   br i1 %.not34.i.i.us.i.i.i, label %.lr.ph.i19.i.split.us.i.i.i, label %"_ZN13project_model3env29parse_output_cargo_config_env28_$u7b$$u7b$closure$u7d$$u7d$17h2db201762574feecE.exit.thread.i.i"
 
 .preheader.i.us.us.i.i.i:                         ; preds = %.preheader11.i.us.i.i.i, %209
-  %.sroa.5.0.i.i.us.us.i.i.i = phi i64 [ %206, %209 ], [ %.fr.i.i.i, %.preheader11.i.us.i.i.i ]
+  %.sroa.5.0.i.i.us.us.i.i.i = phi i64 [ %206, %209 ], [ %.fr58.i.i.i, %.preheader11.i.us.i.i.i ]
   %.not.i.us.us.i.i.i = icmp eq i64 %.sroa.5.0.i.i.us.us.i.i.i, 0
   br i1 %.not.i.us.us.i.i.i, label %.split.us.i.i.i, label %205
 
@@ -6504,12 +6504,12 @@ _ZN4core3str11validations15next_code_point17hbc3b908c67353ad2E.exit.thread.i.i.i
   br i1 %.not34.i.i.i.i.i, label %.lr.ph.i19.i.split.i.i.i, label %"_ZN13project_model3env29parse_output_cargo_config_env28_$u7b$$u7b$closure$u7d$$u7d$17h2db201762574feecE.exit.thread.i.i"
 
 .preheader11.i.i.i.i:                             ; preds = %.lr.ph.i19.i.split.i.i.i, %235
-  %.sroa.04.0.i.i.i.i.i = phi i64 [ %236, %235 ], [ %.fr.i.i.i, %.lr.ph.i19.i.split.i.i.i ]
+  %.sroa.04.0.i.i.i.i.i = phi i64 [ %236, %235 ], [ %.fr58.i.i.i, %.lr.ph.i19.i.split.i.i.i ]
   %229 = icmp ult i64 %.sroa.04.0.i.i.i.i.i, %116
   br i1 %229, label %232, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.preheader11.i.i.i.i
-  %.not.i.i.i7.i = icmp eq i64 %.fr.i.i.i, 0
+  %.not.i.i.i7.i = icmp eq i64 %.fr58.i.i.i, 0
   br i1 %.not.i.i.i7.i, label %.split.us.i.i.i, label %231
 
 .split.us.i.i.i:                                  ; preds = %.preheader.i.us.us.i.i.i, %.preheader.i.i.i.i
@@ -6541,7 +6541,7 @@ _ZN4core3str11validations15next_code_point17hbc3b908c67353ad2E.exit.thread.i.i.i
 
 .split51.us.i.i.i:                                ; preds = %232, %188
   %.us-phi52.i.i.i = phi i64 [ %179, %188 ], [ %215, %232 ]
-  %241 = add i64 %.us-phi52.i.i.i, %.fr.i.i.i
+  %241 = add i64 %.us-phi52.i.i.i, %.fr58.i.i.i
   %umax.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %114, i64 %241)
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax.i.i.i.i.i, i64 noundef %114, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6451f4793e1056f03d883f586b77b201.16) #37, !noalias !1952
   unreachable

@@ -4667,20 +4667,20 @@ define dso_local void @_ZN5clang13CXXRecordDecl11addedMemberEPNS_4DeclE(ptr noun
 
 30:                                               ; preds = %27
   %31 = and i32 %28, 127
-  %.not591 = icmp eq i32 %31, 69
-  br i1 %.not591, label %32, label %35
+  %.not592 = icmp eq i32 %31, 69
+  br i1 %.not592, label %32, label %35
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !522
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 28
-  %.pre515 = load i32, ptr %.phi.trans.insert, align 4
-  %.pre533 = and i32 %.pre515, 127
+  %.pre516 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre534 = and i32 %.pre516, 127
   br label %35
 
 35:                                               ; preds = %32, %30
-  %.pre-phi = phi i32 [ %.pre533, %32 ], [ %31, %30 ]
-  %36 = phi i32 [ %.pre515, %32 ], [ %28, %30 ]
+  %.pre-phi = phi i32 [ %.pre534, %32 ], [ %31, %30 ]
+  %36 = phi i32 [ %.pre516, %32 ], [ %28, %30 ]
   %.0414 = phi ptr [ %34, %32 ], [ %1, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %.0414, i64 28
   %38 = add nsw i32 %.pre-phi, -79
@@ -4697,16 +4697,16 @@ define dso_local void @_ZN5clang13CXXRecordDecl11addedMemberEPNS_4DeclE(ptr noun
 
 41:                                               ; preds = %40, %40, %40, %40
   %42 = tail call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %.0414) #29
-  %.phi.trans.insert516 = getelementptr inbounds nuw i8, ptr %42, i64 28
-  %.pre517 = load i32, ptr %.phi.trans.insert516, align 4
+  %.phi.trans.insert517 = getelementptr inbounds nuw i8, ptr %42, i64 28
+  %.pre518 = load i32, ptr %.phi.trans.insert517, align 4
   br label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
 
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %40, %41
-  %43 = phi i32 [ %.pre517, %41 ], [ %36, %40 ]
+  %43 = phi i32 [ %.pre518, %41 ], [ %36, %40 ]
   %.0.i274 = phi ptr [ %42, %41 ], [ %.0414, %40 ]
   %44 = and i32 %43, 127
-  %.not592 = icmp eq i32 %44, 69
-  br i1 %.not592, label %45, label %48
+  %.not593 = icmp eq i32 %44, 69
+  br i1 %.not593, label %45, label %48
 
 45:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
   %46 = getelementptr inbounds nuw i8, ptr %.0.i274, i64 48
@@ -4840,8 +4840,8 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread416: ; preds = %59, %_ZNK5clang
 136:                                              ; preds = %122, %124, %119, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread416
   %137 = load i32, ptr %37, align 4
   %138 = and i32 %137, 127
-  %.not593 = icmp eq i32 %138, 36
-  br i1 %.not593, label %139, label %305
+  %.not594 = icmp eq i32 %138, 36
+  br i1 %.not594, label %139, label %305
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %.0414, i64 80
@@ -4964,11 +4964,11 @@ _ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread: ; preds = %184, %200, %_
   %221 = load i32, ptr %220, align 8
   %222 = or i32 %221, 8
   store i32 %222, ptr %220, align 8
-  %.pre518 = load i32, ptr %210, align 2
+  %.pre519 = load i32, ptr %210, align 2
   br label %223
 
 223:                                              ; preds = %213, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
-  %224 = phi i32 [ %.pre518, %213 ], [ %211, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread ]
+  %224 = phi i32 [ %.pre519, %213 ], [ %211, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread ]
   %225 = and i32 %224, 512
   %.not468 = icmp eq i32 %225, 0
   br i1 %.not468, label %236, label %226
@@ -4988,7 +4988,7 @@ _ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread: ; preds = %184, %200, %_
 
 236:                                              ; preds = %223, %226, %181
   %.1206 = phi i32 [ 1, %226 ], [ 1, %223 ], [ 0, %181 ]
-  br i1 %.not591, label %270, label %237
+  br i1 %.not592, label %270, label %237
 
 237:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5692,13 +5692,13 @@ default.unreachable:                              ; preds = %670
   unreachable
 
 .sink.split:                                      ; preds = %670, %675, %676
-  %.sink588 = phi i64 [ 262144, %676 ], [ 131072, %675 ], [ 65536, %670 ]
+  %.sink589 = phi i64 [ 262144, %676 ], [ 131072, %675 ], [ 65536, %670 ]
   %677 = load ptr, ptr %572, align 8, !tbaa !448
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 96
   %679 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %678, ptr noundef nonnull %677)
   %680 = load ptr, ptr %576, align 8, !tbaa !39
   %681 = load i64, ptr %680, align 8
-  %682 = or i64 %681, %.sink588
+  %682 = or i64 %681, %.sink589
   store i64 %682, ptr %680, align 8
   br label %683
 
@@ -5821,10 +5821,10 @@ default.unreachable:                              ; preds = %670
   %768 = inttoptr i64 %767 to ptr
   %769 = load ptr, ptr %768, align 16, !tbaa !464
   %770 = tail call noundef zeroext i1 @_ZNK5clang4Type20isObjCRetainableTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %769) #28
-  %.phi.trans.insert520 = getelementptr inbounds nuw i8, ptr %768, i64 8
-  %.0.copyload.i.i.i.i.i.i.i305.pre = load i64, ptr %.phi.trans.insert520, align 8
-  %.pre536 = and i64 %.0.copyload.i.i.i.i.i.i.i305.pre, 8
-  %771 = icmp eq i64 %.pre536, 0
+  %.phi.trans.insert521 = getelementptr inbounds nuw i8, ptr %768, i64 8
+  %.0.copyload.i.i.i.i.i.i.i305.pre = load i64, ptr %.phi.trans.insert521, align 8
+  %.pre537 = and i64 %.0.copyload.i.i.i.i.i.i.i305.pre, 8
+  %771 = icmp eq i64 %.pre537, 0
   br i1 %770, label %778, label %772
 
 772:                                              ; preds = %764
@@ -5884,7 +5884,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %783
   br i1 %or.cond8, label %_ZNK5clang8QualType13getQualifiersEv.exit.thread, label %809
 
 _ZNK5clang8QualType13getQualifiersEv.exit.thread: ; preds = %783, %_ZNK5clang8QualType13getQualifiersEv.exit
-  %.sroa.0.0.i.i577 = phi i32 [ %801, %_ZNK5clang8QualType13getQualifiersEv.exit ], [ 0, %783 ]
+  %.sroa.0.0.i.i578 = phi i32 [ %801, %_ZNK5clang8QualType13getQualifiersEv.exit ], [ 0, %783 ]
   %803 = load ptr, ptr %572, align 8, !tbaa !448
   %804 = getelementptr inbounds nuw i8, ptr %803, i64 96
   %805 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %804, ptr noundef nonnull %803)
@@ -5895,8 +5895,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit.thread: ; preds = %783, %_ZNK5clang8Qu
   br label %809
 
 809:                                              ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.thread, %_ZNK5clang8QualType13getQualifiersEv.exit
-  %.sroa.0.0.i.i576 = phi i32 [ %.sroa.0.0.i.i577, %_ZNK5clang8QualType13getQualifiersEv.exit.thread ], [ %801, %_ZNK5clang8QualType13getQualifiersEv.exit ]
-  %810 = icmp eq i32 %.sroa.0.0.i.i576, 3
+  %.sroa.0.0.i.i577 = phi i32 [ %.sroa.0.0.i.i578, %_ZNK5clang8QualType13getQualifiersEv.exit.thread ], [ %801, %_ZNK5clang8QualType13getQualifiersEv.exit ]
+  %810 = icmp eq i32 %.sroa.0.0.i.i577, 3
   br i1 %810, label %811, label %815
 
 811:                                              ; preds = %809
@@ -6134,20 +6134,20 @@ _ZNK5clang4Decl7hasAttrINS_16ExplicitInitAttrEEEbv.exit.thread426: ; preds = %91
   %968 = load i16, ptr %742, align 8
   %.mask.i316 = and i16 %968, -8192
   %969 = icmp eq i16 %.mask.i316, 16384
-  %.pre522 = load i32, ptr %588, align 4
-  %970 = and i32 %.pre522, 2
+  %.pre523 = load i32, ptr %588, align 4
+  %970 = and i32 %.pre523, 2
   br i1 %969, label %971, label %982
 
 971:                                              ; preds = %967
   %.not482 = icmp eq i32 %970, 0
-  br i1 %.not482, label %972, label %.thread578
+  br i1 %.not482, label %972, label %.thread579
 
 972:                                              ; preds = %971
-  %973 = lshr i32 %.pre522, 2
+  %973 = lshr i32 %.pre523, 2
   %974 = and i32 %973, 3
   %.off440 = add nsw i32 %974, -1
   %switch441 = icmp ult i32 %.off440, 2
-  br i1 %switch441, label %975, label %.thread578
+  br i1 %switch441, label %975, label %.thread579
 
 975:                                              ; preds = %972
   %976 = load ptr, ptr %572, align 8, !tbaa !448
@@ -6157,16 +6157,16 @@ _ZNK5clang4Decl7hasAttrINS_16ExplicitInitAttrEEEbv.exit.thread426: ; preds = %91
   %980 = load i64, ptr %979, align 8
   %981 = and i64 %980, -33554433
   store i64 %981, ptr %979, align 8
-  br label %.thread578
+  br label %.thread579
 
 982:                                              ; preds = %967
   %983 = icmp ne i32 %970, 0
-  %984 = lshr i32 %.pre522, 2
+  %984 = lshr i32 %.pre523, 2
   %985 = and i32 %984, 3
   %.off442 = add nsw i32 %985, -1
   %switch443 = icmp ult i32 %.off442, 2
   %or.cond = or i1 %983, %switch443
-  br i1 %or.cond, label %.thread578, label %986
+  br i1 %or.cond, label %.thread579, label %986
 
 986:                                              ; preds = %982
   %.0.copyload.i.i.i.i.i317 = load i64, ptr %5, align 8
@@ -6190,11 +6190,11 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit:  ; preds = %991
   %997 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %996, ptr noundef nonnull %995)
   %998 = load ptr, ptr %992, align 8, !tbaa !39
   %.not483 = icmp eq ptr %998, null
-  br i1 %.not483, label %.thread578, label %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread
+  br i1 %.not483, label %.thread579, label %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %991, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit
   %999 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl21allowConstDefaultInitEv(ptr noundef nonnull align 8 dereferenceable(144) %990)
-  br i1 %999, label %.thread578, label %1000
+  br i1 %999, label %.thread579, label %1000
 
 1000:                                             ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread
   %1001 = load ptr, ptr %572, align 8, !tbaa !448
@@ -6204,7 +6204,7 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %991, %_ZNK5cl
   %1005 = load i64, ptr %1004, align 8
   %1006 = or i64 %1005, 33554432
   store i64 %1006, ptr %1004, align 8
-  br label %.thread578
+  br label %.thread579
 
 1007:                                             ; preds = %986
   %1008 = load ptr, ptr %572, align 8, !tbaa !448
@@ -6214,9 +6214,9 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %991, %_ZNK5cl
   %1012 = load i64, ptr %1011, align 8
   %1013 = or i64 %1012, 33554432
   store i64 %1013, ptr %1011, align 8
-  br label %.thread578
+  br label %.thread579
 
-.thread578:                                       ; preds = %971, %982, %972, %1007, %1000, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit, %975
+.thread579:                                       ; preds = %971, %982, %972, %1007, %1000, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit, %975
   %.0.copyload.i.i.i.i.i319 = load i64, ptr %5, align 8
   %1014 = and i64 %.0.copyload.i.i.i.i.i319, -16
   %1015 = inttoptr i64 %1014 to ptr
@@ -6224,7 +6224,7 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %991, %_ZNK5cl
   %1017 = call noundef zeroext i1 @_ZNK5clang4Type13isLiteralTypeERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(24) %1016, ptr noundef nonnull align 8 dereferenceable(23216) %571) #28
   br i1 %1017, label %1018, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
-1018:                                             ; preds = %.thread578
+1018:                                             ; preds = %.thread579
   %.0.copyload.i.i.i.i.i.i320 = load i64, ptr %5, align 8
   %1019 = and i64 %.0.copyload.i.i.i.i.i.i320, 4
   %.not.i321 = icmp eq i64 %1019, 0
@@ -6239,7 +6239,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %1018
   %.not484 = icmp eq i64 %1023, 0
   br i1 %.not484, label %1031, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
-_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread: ; preds = %1018, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %.thread578
+_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread: ; preds = %1018, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %.thread579
   %1024 = load ptr, ptr %572, align 8, !tbaa !448
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 96
   %1026 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1025, ptr noundef nonnull %1024)
@@ -6812,11 +6812,11 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %1116, %1120
   %1427 = load i64, ptr %742, align 8
   %1428 = or i64 %1427, 33554432
   store i64 %1428, ptr %742, align 8
-  %.pre523 = load i64, ptr %1423, align 8
+  %.pre524 = load i64, ptr %1423, align 8
   br label %1429
 
 1429:                                             ; preds = %1426, %1422
-  %1430 = phi i64 [ %.pre523, %1426 ], [ %1424, %1422 ]
+  %1430 = phi i64 [ %.pre524, %1426 ], [ %1424, %1422 ]
   %1431 = and i64 %1430, 67108864
   %.not494 = icmp eq i64 %1431, 0
   br i1 %.not494, label %1435, label %1432
@@ -6825,11 +6825,11 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %1116, %1120
   %1433 = load i64, ptr %742, align 8
   %1434 = or i64 %1433, 67108864
   store i64 %1434, ptr %742, align 8
-  %.pre524 = load i64, ptr %1423, align 8
+  %.pre525 = load i64, ptr %1423, align 8
   br label %1435
 
 1435:                                             ; preds = %1432, %1429
-  %1436 = phi i64 [ %.pre524, %1432 ], [ %1430, %1429 ]
+  %1436 = phi i64 [ %.pre525, %1432 ], [ %1430, %1429 ]
   %1437 = and i64 %1436, 206158430208
   %1438 = icmp eq i64 %1437, 137438953472
   br i1 %1438, label %1439, label %1443
@@ -6928,17 +6928,17 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %1116, %1120
   %1499 = call { ptr, ptr } @_ZN5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   %1500 = extractvalue { ptr, ptr } %1499, 0
   %1501 = extractvalue { ptr, ptr } %1499, 1
-  %.not259508 = icmp eq ptr %1500, %1501
-  br i1 %.not259508, label %.loopexit, label %.lr.ph
+  %.not259509 = icmp eq ptr %1500, %1501
+  br i1 %.not259509, label %.loopexit, label %.lr.ph
 
 1502:                                             ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
-  %1503 = getelementptr inbounds nuw i8, ptr %.0211509, i64 24
+  %1503 = getelementptr inbounds nuw i8, ptr %.0211510, i64 24
   %.not259 = icmp eq ptr %1503, %1501
   br i1 %.not259, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1498, %1502
-  %.0211509 = phi ptr [ %1503, %1502 ], [ %1500, %1498 ]
-  %1504 = getelementptr inbounds nuw i8, ptr %.0211509, i64 16
+  %.0211510 = phi ptr [ %1503, %1502 ], [ %1500, %1498 ]
+  %1504 = getelementptr inbounds nuw i8, ptr %.0211510, i64 16
   %1505 = load ptr, ptr %1504, align 8, !tbaa !462
   %.sroa.0.0.copyload.i.i337 = load i64, ptr %1505, align 8, !tbaa !34
   %1506 = and i64 %.sroa.0.0.copyload.i.i337, -16
@@ -7027,11 +7027,11 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %1511
   %1562 = load i64, ptr %1561, align 8
   %1563 = or i64 %1562, 2147483648
   store i64 %1563, ptr %1561, align 8
-  %.pre525 = load i32, ptr %588, align 4
+  %.pre526 = load i32, ptr %588, align 4
   br label %1564
 
 1564:                                             ; preds = %1551, %1548
-  %1565 = phi i32 [ %.pre525, %1551 ], [ %1549, %1548 ]
+  %1565 = phi i32 [ %.pre526, %1551 ], [ %1549, %1548 ]
   %1566 = lshr i32 %1565, 2
   %1567 = and i32 %1566, 3
   %.off447 = add nsw i32 %1567, -1
@@ -7230,13 +7230,13 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit345.thread: ; preds = %1672, %_ZNK5c
   %1689 = or i64 %1688, 137438953472
   store i64 %1689, ptr %1687, align 8
   %.0.copyload.i.i.i.i.i346.pre = load i64, ptr %5, align 8
-  %.pre538 = and i64 %.0.copyload.i.i.i.i.i346.pre, -16
-  %.pre540 = inttoptr i64 %.pre538 to ptr
+  %.pre539 = and i64 %.0.copyload.i.i.i.i.i346.pre, -16
+  %.pre541 = inttoptr i64 %.pre539 to ptr
   br label %1690
 
 1690:                                             ; preds = %_ZNK5clang8QualType16isConstQualifiedEv.exit345.thread, %_ZNK5clang8QualType16isConstQualifiedEv.exit345
-  %.pre-phi541 = phi ptr [ %.pre540, %_ZNK5clang8QualType16isConstQualifiedEv.exit345.thread ], [ %1675, %_ZNK5clang8QualType16isConstQualifiedEv.exit345 ]
-  %1691 = load ptr, ptr %.pre-phi541, align 8, !tbaa !464
+  %.pre-phi542 = phi ptr [ %.pre541, %_ZNK5clang8QualType16isConstQualifiedEv.exit345.thread ], [ %1675, %_ZNK5clang8QualType16isConstQualifiedEv.exit345 ]
+  %1691 = load ptr, ptr %.pre-phi542, align 8, !tbaa !464
   %1692 = call noundef zeroext i1 @_ZNK5clang4Type16isStructuralTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %1691) #28
   br i1 %1692, label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread, label %1693
 
@@ -7289,20 +7289,20 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread: ; preds = %1120, %_ZNK5c
   %1725 = getelementptr inbounds nuw i8, ptr %1724, i64 16
   %1726 = load i8, ptr %1725, align 16
   %1727 = and i8 %1726, -2
-  %spec.select.i.i.i.i.i.i.i.i510 = icmp eq i8 %1727, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i510, label %.lr.ph512, label %._crit_edge
+  %spec.select.i.i.i.i.i.i.i.i511 = icmp eq i8 %1727, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i511, label %.lr.ph513, label %._crit_edge
 
-.lr.ph512:                                        ; preds = %1720, %.lr.ph512
-  %storemerge511 = phi ptr [ %1728, %.lr.ph512 ], [ %1724, %1720 ]
-  %1728 = call noundef ptr @_ZNK5clang4Type29getArrayElementTypeNoTypeQualEv(ptr noundef nonnull align 16 dereferenceable(24) %storemerge511) #28
+.lr.ph513:                                        ; preds = %1720, %.lr.ph513
+  %storemerge512 = phi ptr [ %1728, %.lr.ph513 ], [ %1724, %1720 ]
+  %1728 = call noundef ptr @_ZNK5clang4Type29getArrayElementTypeNoTypeQualEv(ptr noundef nonnull align 16 dereferenceable(24) %storemerge512) #28
   %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 16
   %1730 = load i8, ptr %1729, align 16
   %1731 = and i8 %1730, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %1731, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.lr.ph512, label %._crit_edge, !llvm.loop !553
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.lr.ph513, label %._crit_edge, !llvm.loop !553
 
-._crit_edge:                                      ; preds = %.lr.ph512, %1720
-  %storemerge.lcssa = phi ptr [ %1724, %1720 ], [ %1728, %.lr.ph512 ]
+._crit_edge:                                      ; preds = %.lr.ph513, %1720
+  %storemerge.lcssa = phi ptr [ %1724, %1720 ], [ %1728, %.lr.ph513 ]
   %1732 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %storemerge.lcssa) #28
   %1733 = getelementptr inbounds nuw i8, ptr %1732, i64 16
   %1734 = load i8, ptr %1733, align 16
@@ -7355,8 +7355,8 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread: ; preds = %1120, %_ZNK5c
 
 _ZNK5clang4Type27isHLSLBuiltinIntangibleTypeEv.exit: ; preds = %1758
   %1766 = load i32, ptr %1763, align 16
-  %.fr = freeze i32 %1766
-  %1767 = and i32 %.fr, 267911168
+  %.fr504 = freeze i32 %1766
+  %1767 = and i32 %.fr504, 267911168
   %1768 = icmp eq i32 %1767, 227016704
   %spec.select437 = select i1 %1768, i32 1048576, i32 0
   br label %_ZNK5clang4Type27isHLSLBuiltinIntangibleTypeEv.exit.thread
@@ -7375,14 +7375,14 @@ _ZNK5clang4Type27isHLSLBuiltinIntangibleTypeEv.exit.thread: ; preds = %_ZNK5clan
 
 1777:                                             ; preds = %1715, %_ZNK5clang4Type27isHLSLBuiltinIntangibleTypeEv.exit.thread, %1736
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre527 = load i32, ptr %37, align 4
-  %.pre534 = and i32 %.pre527, 127
+  %.pre528 = load i32, ptr %37, align 4
+  %.pre535 = and i32 %.pre528, 127
   br label %.critedge272
 
 .critedge272:                                     ; preds = %1777, %.critedge268
-  %.pre-phi535 = phi i32 [ %.pre534, %1777 ], [ %344, %.critedge268 ]
-  %1778 = phi i32 [ %.pre527, %1777 ], [ %343, %.critedge268 ]
-  %1779 = add nsw i32 %.pre-phi535, -53
+  %.pre-phi536 = phi i32 [ %.pre535, %1777 ], [ %344, %.critedge268 ]
+  %1778 = phi i32 [ %.pre528, %1777 ], [ %343, %.critedge268 ]
+  %1779 = add nsw i32 %.pre-phi536, -53
   %1780 = icmp ult i32 %1779, -2
   br i1 %1780, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.thread, label %1781
 
@@ -7409,8 +7409,8 @@ _ZNK5clang4Type27isHLSLBuiltinIntangibleTypeEv.exit.thread: ; preds = %_ZNK5clan
   br i1 %.not.i356, label %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367_crit_edge, label %1795
 
 ._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367_crit_edge: ; preds = %1784
-  %.phi.trans.insert528 = getelementptr inbounds nuw i8, ptr %1791, i64 48
-  %.pre529 = load ptr, ptr %.phi.trans.insert528, align 8, !tbaa !23
+  %.phi.trans.insert529 = getelementptr inbounds nuw i8, ptr %1791, i64 48
+  %.pre530 = load ptr, ptr %.phi.trans.insert529, align 8, !tbaa !23
   br label %_ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367
 
 1795:                                             ; preds = %1784
@@ -7456,7 +7456,7 @@ _ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i
 
 _ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367: ; preds = %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367_crit_edge, %_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i365
   %.0.copyload.i.i.i.i.i.i368 = phi i64 [ %.0.copyload.i.i.i.i.i.i355, %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367_crit_edge ], [ %1812, %_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i365 ]
-  %1813 = phi ptr [ %.pre529, %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367_crit_edge ], [ %1811, %_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i365 ]
+  %1813 = phi ptr [ %.pre530, %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit367_crit_edge ], [ %1811, %_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i365 ]
   %1814 = load i32, ptr %37, align 4
   %1815 = lshr i32 %1814, 13
   %1816 = and i32 %1815, 3
@@ -7542,11 +7542,11 @@ _ZN5clang16ASTUnresolvedSet7addDeclERNS_10ASTContextEPNS_9NamedDeclENS_15AccessS
   %1864 = load ptr, ptr %1817, align 8, !tbaa !23
   %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 8
   store ptr %1865, ptr %1817, align 8, !tbaa !23
-  %.pre531 = load i32, ptr %37, align 4
+  %.pre532 = load i32, ptr %37, align 4
   br label %_ZNK5clang15DeclarationName11getNameKindEv.exit.thread
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit.thread: ; preds = %1781, %_ZN5clang16ASTUnresolvedSet7addDeclERNS_10ASTContextEPNS_9NamedDeclENS_15AccessSpecifierE.exit, %.critedge272
-  %1866 = phi i32 [ %1778, %1781 ], [ %.pre531, %_ZN5clang16ASTUnresolvedSet7addDeclERNS_10ASTContextEPNS_9NamedDeclENS_15AccessSpecifierE.exit ], [ %1778, %.critedge272 ]
+  %1866 = phi i32 [ %1778, %1781 ], [ %.pre532, %_ZN5clang16ASTUnresolvedSet7addDeclERNS_10ASTContextEPNS_9NamedDeclENS_15AccessSpecifierE.exit ], [ %1778, %.critedge272 ]
   %1867 = and i32 %1866, 127
   %.not = icmp eq i32 %1867, 78
   br i1 %.not, label %1868, label %.thread

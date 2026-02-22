@@ -3706,17 +3706,17 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16CodeGenIntrinsic13isParamImmArgE
   br i1 %.not9, label %_ZSt13__lower_boundIPKN4llvm16CodeGenIntrinsic12ArgAttributeES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i: ; preds = %6, %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i
-  %.027.i.i = phi ptr [ %24, %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i ], [ %11, %6 ]
-  %.01126.i.i = phi i64 [ %23, %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i ], [ %14, %6 ]
-  %16 = lshr i64 %.01126.i.i, 1
-  %17 = getelementptr inbounds nuw %"struct.llvm::CodeGenIntrinsic::ArgAttribute", ptr %.027.i.i, i64 %16
+  %.026.i.i = phi ptr [ %24, %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i ], [ %11, %6 ]
+  %.01125.i.i = phi i64 [ %23, %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i ], [ %14, %6 ]
+  %16 = lshr i64 %.01125.i.i, 1
+  %17 = getelementptr inbounds nuw %"struct.llvm::CodeGenIntrinsic::ArgAttribute", ptr %.026.i.i, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !273
   %19 = icmp slt i32 %18, 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = xor i64 %16, -1
-  %22 = add nsw i64 %.01126.i.i, %21
+  %22 = add nsw i64 %.01125.i.i, %21
   %23 = select i1 %19, i64 %22, i64 %16
-  %24 = select i1 %19, ptr %20, ptr %.027.i.i
+  %24 = select i1 %19, ptr %20, ptr %.026.i.i
   %25 = icmp sgt i64 %23, 0
   br i1 %25, label %_ZSt7advanceIPKN4llvm16CodeGenIntrinsic12ArgAttributeElEvRT_T0_.exit.i.i, label %_ZSt13__lower_boundIPKN4llvm16CodeGenIntrinsic12ArgAttributeES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i, !llvm.loop !279
 
@@ -6675,8 +6675,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36"
-  %.039 = phi i64 [ %48, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36" ], [ %1, %4 ]
-  %9 = shl i64 %.039, 1
+  %.038 = phi i64 [ %48, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36" ], [ %1, %4 ]
+  %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.llvm::CodeGenIntrinsic", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -6746,13 +6746,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i10.i.i.i.i.i: ; preds = %_Z
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i7.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i10.i.i.i.i.i
   %.0.i.i9.i.i.i.i.i = phi i32 [ %44, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i7.i.i.i.i.i ], [ %.0.i6.i.i13.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i10.i.i.i.i.i ]
-  %.0.i.i9.i.i.i.i.i.fr = freeze i32 %.0.i.i9.i.i.i.i.i
-  %46 = icmp sgt i32 %.0.i.i9.i.i.i.i.i.fr, -1
-  %.fr = freeze i32 %22
-  %.fr38 = freeze i32 %25
-  %47 = icmp ult i32 %.fr, %.fr38
-  %spec.select.i.i = and i1 %47, %46
-  br i1 %spec.select.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36"
+  %46 = icmp sgt i32 %.0.i.i9.i.i.i.i.i, -1
+  %47 = icmp ult i32 %22, %25
+  %spec.select.i.i = select i1 %46, i1 %47, i1 false
+  %cond.fr = freeze i1 %spec.select.i.i
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread": ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16.i.i.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i.i, %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36"
@@ -6760,7 +6758,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i10.i.i.i.i.i: ; preds = %_Z
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36": ; preds = %29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread"
   %48 = phi i64 [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread" ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EclINS_17__normal_iteratorIPNS2_16CodeGenIntrinsicESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit" ], [ %10, %29 ]
   %49 = getelementptr inbounds %"struct.llvm::CodeGenIntrinsic", ptr %0, i64 %48
-  %50 = getelementptr inbounds %"struct.llvm::CodeGenIntrinsic", ptr %0, i64 %.039
+  %50 = getelementptr inbounds %"struct.llvm::CodeGenIntrinsic", ptr %0, i64 %.038
   %51 = tail call noundef nonnull align 8 dereferenceable(240) ptr @_ZN4llvm16CodeGenIntrinsicaSEOS0_(ptr noundef nonnull align 8 dereferenceable(240) %50, ptr noundef nonnull align 8 dereferenceable(240) %49)
   %52 = icmp slt i64 %48, %7
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !294
@@ -8774,10 +8772,9 @@ _ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit: ; preds = 
 _ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit4: ; preds = %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit
   %13 = load i64, ptr %4, align 8, !tbaa !56
   %14 = load i64, ptr %3, align 8, !tbaa !56
-  %.fr = freeze i64 %13
-  %.fr8 = freeze i64 %14
-  %15 = icmp ult i64 %.fr, %.fr8
-  br i1 %15, label %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit4.thread, label %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit.thread
+  %15 = icmp ult i64 %13, %14
+  %cond.fr = freeze i1 %15
+  br i1 %cond.fr, label %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit4.thread, label %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit4.thread: ; preds = %8, %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit4
   br label %_ZNKSt4lessIN4llvm16CodeGenIntrinsic12ArgAttributeEEclERKS2_S5_.exit.thread

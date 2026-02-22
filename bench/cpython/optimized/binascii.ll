@@ -1759,13 +1759,13 @@ switch.early.test.i:                              ; preds = %56
 58:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %56
   %59 = getelementptr i8, ptr %.val32, i64 %54
   %60 = load i8, ptr %59, align 1, !tbaa !11
-  %.fr.i = freeze i8 %60
-  %61 = add i8 %.fr.i, -48
+  %.fr16.i = freeze i8 %60
+  %61 = add i8 %.fr16.i, -48
   %or.cond105.i = icmp ult i8 %61, 10
   br i1 %or.cond105.i, label %62, label %switch.early.test5.i
 
 switch.early.test5.i:                             ; preds = %58
-  switch i8 %.fr.i, label %74 [
+  switch i8 %.fr16.i, label %74 [
     i8 102, label %62
     i8 101, label %62
     i8 100, label %62
@@ -1785,7 +1785,7 @@ switch.early.test5.i:                             ; preds = %58
   %64 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !11
   %66 = shl i8 %65, 4
-  %67 = zext nneg i8 %.fr.i to i64
+  %67 = zext nneg i8 %.fr16.i to i64
   %68 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !11
   %70 = or i8 %66, %69

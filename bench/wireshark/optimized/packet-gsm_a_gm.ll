@@ -9433,9 +9433,9 @@ define noundef zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %1, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
-  %.fr410 = freeze i8 %8
-  %9 = lshr i8 %.fr410, 5
-  %10 = and i8 %.fr410, 15
+  %.fr = freeze i8 %8
+  %9 = lshr i8 %.fr, 5
+  %10 = and i8 %.fr, 15
   %11 = load i32, ptr @hf_gsm_a_sm_tft_op_code, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr @hf_gsm_a_sm_tft_e_bit, align 4
@@ -9726,7 +9726,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
 ._crit_edge:                                      ; preds = %.loopexit373, %25, %7
   %.0339.lcssa = phi i32 [ %18, %7 ], [ %40, %25 ], [ %.3342.lcssa, %.loopexit373 ]
   %.0333.lcssa = phi i32 [ %17, %7 ], [ %39, %25 ], [ %.3336.lcssa, %.loopexit373 ]
-  %173 = and i8 %.fr410, 16
+  %173 = and i8 %.fr, 16
   %174 = icmp ne i8 %173, 0
   %175 = icmp ne i32 %.0339.lcssa, 0
   %or.cond = select i1 %174, i1 %175, i1 false

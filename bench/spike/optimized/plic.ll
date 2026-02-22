@@ -683,8 +683,7 @@ define noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonn
 _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %30 = load i8, ptr %29, align 1, !tbaa !50
-  %.fr = freeze i8 %30
-  %.not.i = icmp ugt i8 %.130.i, %.fr
+  %.not.i = icmp ugt i8 %.130.i, %30
   %.028..i = select i1 %.not.i, i32 %.1.i, i32 0
   %.not = icmp eq i32 %.028..i, 0
   br i1 %.not, label %39, label %31
@@ -729,8 +728,8 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
 
 48:                                               ; preds = %._crit_edge51.i.i, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %._crit_edge51.i.i ]
-  %.241.i.i = phi i32 [ %.02844.i.i, %.preheader.i.i ], [ %61, %._crit_edge51.i.i ]
-  %.23140.i.i = phi i8 [ %.02943.i.i, %.preheader.i.i ], [ %60, %._crit_edge51.i.i ]
+  %.241.i.i = phi i32 [ %.02844.i.i, %.preheader.i.i ], [ %.3.i.i, %._crit_edge51.i.i ]
+  %.23140.i.i = phi i8 [ %.02943.i.i, %.preheader.i.i ], [ %.332.i.i, %._crit_edge51.i.i ]
   %49 = add nuw nsw i64 %indvars.iv.i.i, %47
   %.not36.i.i = icmp samesign ult i64 %49, %41
   br i1 %.not36.i.i, label %50, label %._crit_edge51.i.i
@@ -762,46 +761,45 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
 ._crit_edge51.i.i:                                ; preds = %57, %54, %50, %48
   %.332.i.i = phi i8 [ %.23140.i.i, %48 ], [ %.23140.i.i, %54 ], [ %.23140.i.i, %50 ], [ %spec.select.i.i, %57 ]
   %.3.i.i = phi i32 [ %.241.i.i, %48 ], [ %.241.i.i, %54 ], [ %.241.i.i, %50 ], [ %spec.select55.i.i, %57 ]
-  %60 = freeze i8 %.332.i.i
-  %61 = freeze i32 %.3.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %48, !llvm.loop !53
 
 .loopexit.i.i:                                    ; preds = %._crit_edge51.i.i, %42
-  %.130.i.i = phi i8 [ %.02943.i.i, %42 ], [ %60, %._crit_edge51.i.i ]
-  %.1.i.i = phi i32 [ %.02844.i.i, %42 ], [ %61, %._crit_edge51.i.i ]
+  %.130.i.i = phi i8 [ %.02943.i.i, %42 ], [ %.332.i.i, %._crit_edge51.i.i ]
+  %.1.i.i = phi i32 [ %.02844.i.i, %42 ], [ %.3.i.i, %._crit_edge51.i.i ]
   %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i.i, 1
   %exitcond50.not.i.i = icmp eq i64 %indvars.iv.next49.i.i, %wide.trip.count.i.i
   br i1 %exitcond50.not.i.i, label %_ZN6plic_t14context_updateEPK14plic_context_t.exit, label %42, !llvm.loop !54
 
 _ZN6plic_t14context_updateEPK14plic_context_t.exit.thread: ; preds = %39, %2
   %.028..i1518.ph = phi i32 [ 0, %2 ], [ %.028..i, %39 ]
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load i8, ptr %62, align 8, !tbaa !55, !range !56, !noundef !57
-  %64 = trunc nuw i8 %63 to i1
-  %65 = select i1 %64, i64 2048, i64 512
-  br label %73
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %61 = load i8, ptr %60, align 8, !tbaa !55, !range !56, !noundef !57
+  %62 = trunc nuw i8 %61 to i1
+  %63 = select i1 %62, i64 2048, i64 512
+  br label %71
 
 _ZN6plic_t14context_updateEPK14plic_context_t.exit: ; preds = %.loopexit.i.i
-  %66 = icmp eq i32 %.1.i.i, 0
-  %67 = icmp ule i8 %.130.i.i, %.fr
-  %68 = or i1 %67, %66
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %70 = load i8, ptr %69, align 8, !tbaa !55, !range !56, !noundef !57
-  %71 = trunc nuw i8 %70 to i1
-  %72 = select i1 %71, i64 2048, i64 512
-  %spec.select = select i1 %68, i64 0, i64 %72
-  br label %73
+  %64 = icmp eq i32 %.1.i.i, 0
+  %65 = icmp ule i8 %.130.i.i, %30
+  %66 = select i1 %65, i1 true, i1 %64
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %68 = load i8, ptr %67, align 8, !tbaa !55, !range !56, !noundef !57
+  %69 = trunc nuw i8 %68 to i1
+  %70 = select i1 %69, i64 2048, i64 512
+  %cond.fr = freeze i1 %66
+  %spec.select = select i1 %cond.fr, i64 0, i64 %70
+  br label %71
 
-73:                                               ; preds = %_ZN6plic_t14context_updateEPK14plic_context_t.exit, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread
-  %74 = phi i64 [ %72, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ], [ %65, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ]
+71:                                               ; preds = %_ZN6plic_t14context_updateEPK14plic_context_t.exit, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread
+  %72 = phi i64 [ %70, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ], [ %63, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ]
   %.028..i151827 = phi i32 [ %.028..i, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ], [ %.028..i1518.ph, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ]
-  %75 = phi i64 [ %spec.select, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ], [ 0, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ]
+  %73 = phi i64 [ %spec.select, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ], [ 0, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ]
   %.pn = load ptr, ptr %1, align 8, !tbaa !58
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 1264
-  %76 = load ptr, ptr %.in, align 8, !tbaa !59
-  tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %76, i64 noundef %74, i64 noundef %75) #30
+  %74 = load ptr, ptr %.in, align 8, !tbaa !59
+  tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %74, i64 noundef %72, i64 noundef %73) #30
   ret i32 %.028..i151827
 }
 

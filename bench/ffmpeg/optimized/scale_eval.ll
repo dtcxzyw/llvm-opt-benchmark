@@ -228,7 +228,6 @@ define range(i32 -22, 1) i32 @ff_scale_adjust_dimensions(ptr noundef readonly ca
 
 39:                                               ; preds = %26, %24
   %.1 = phi i64 [ %38, %26 ], [ %.080, %24 ]
-  %.1.fr = freeze i64 %.1
   %40 = icmp slt i32 %.083.in, 0
   br i1 %40, label %41, label %55
 
@@ -243,14 +242,13 @@ define range(i32 -22, 1) i32 @ff_scale_adjust_dimensions(ptr noundef readonly ca
   %49 = sitofp i32 %.081 to double
   %50 = fmul nsz double %48, %49
   %51 = fptosi double %50 to i64
-  %52 = tail call i64 @av_rescale(i64 noundef %.1.fr, i64 noundef %44, i64 noundef %51) #7
+  %52 = tail call i64 @av_rescale(i64 noundef %.1, i64 noundef %44, i64 noundef %51) #7
   %53 = sext i32 %.081 to i64
   %54 = mul nsw i64 %52, %53
   br label %55
 
 55:                                               ; preds = %41, %39
   %.184 = phi i64 [ %54, %41 ], [ %.083, %39 ]
-  %.184.fr = freeze i64 %.184
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %93, label %56
 
@@ -265,58 +263,60 @@ define range(i32 -22, 1) i32 @ff_scale_adjust_dimensions(ptr noundef readonly ca
   %64 = sext i32 %63 to i64
   %65 = sext i32 %4 to i64
   %66 = mul nsw i64 %64, %65
-  %67 = tail call i64 @av_rescale(i64 noundef %.184.fr, i64 noundef %61, i64 noundef %66) #7
-  %.fr90 = freeze i64 %67
-  %68 = mul i64 %.fr90, %65
+  %67 = tail call i64 @av_rescale(i64 noundef %.184, i64 noundef %61, i64 noundef %66) #7
+  %68 = mul nsw i64 %67, %65
   %69 = sitofp i32 %4 to double
   %70 = fmul nsz double %60, %69
   %71 = fptosi double %70 to i64
-  %72 = tail call i64 @av_rescale(i64 noundef %.1.fr, i64 noundef %64, i64 noundef %71) #7
-  %.fr91 = freeze i64 %72
-  %73 = mul i64 %.fr91, %65
+  %72 = tail call i64 @av_rescale(i64 noundef %.1, i64 noundef %64, i64 noundef %71) #7
+  %73 = mul nsw i64 %72, %65
   %74 = icmp eq i32 %3, 1
   %75 = icmp sgt i32 %4, 1
   br i1 %74, label %76, label %82
 
 76:                                               ; preds = %56
-  %77 = tail call i64 @llvm.smin.i64(i64 %68, i64 %.1.fr)
-  %78 = tail call i64 @llvm.smin.i64(i64 %73, i64 %.184.fr)
+  %77 = tail call i64 @llvm.smin.i64(i64 %68, i64 %.1)
+  %.fr94 = freeze i64 %77
+  %78 = tail call i64 @llvm.smin.i64(i64 %73, i64 %.184)
+  %.fr95 = freeze i64 %78
   br i1 %75, label %79, label %93
 
 79:                                               ; preds = %76
-  %80 = srem i64 %77, %65
-  %81 = sub nsw i64 %77, %80
+  %80 = srem i64 %.fr94, %65
+  %81 = sub nsw i64 %.fr94, %80
   br label %.sink.split
 
 82:                                               ; preds = %56
-  %83 = tail call i64 @llvm.smax.i64(i64 %68, i64 %.1.fr)
-  %84 = tail call i64 @llvm.smax.i64(i64 %73, i64 %.184.fr)
+  %83 = tail call i64 @llvm.smax.i64(i64 %68, i64 %.1)
+  %.fr = freeze i64 %83
+  %84 = tail call i64 @llvm.smax.i64(i64 %73, i64 %.184)
+  %.fr93 = freeze i64 %84
   br i1 %75, label %85, label %93
 
 85:                                               ; preds = %82
   %86 = add nsw i64 %65, -1
-  %87 = add i64 %86, %83
+  %87 = add i64 %86, %.fr
   %88 = srem i64 %87, %65
   %89 = sub nsw i64 %87, %88
-  %90 = add i64 %86, %84
+  %90 = add i64 %86, %.fr93
   br label %.sink.split
 
 .sink.split:                                      ; preds = %85, %79
-  %.sink97 = phi i64 [ %78, %79 ], [ %90, %85 ]
+  %.fr95.sink100 = phi i64 [ %.fr95, %79 ], [ %90, %85 ]
   %.2.ph = phi i64 [ %81, %79 ], [ %89, %85 ]
-  %91 = srem i64 %.sink97, %65
-  %92 = sub nsw i64 %.sink97, %91
+  %91 = srem i64 %.fr95.sink100, %65
+  %92 = sub nsw i64 %.fr95.sink100, %91
   br label %93
 
 93:                                               ; preds = %.sink.split, %76, %82, %55
-  %.285 = phi i64 [ %.184.fr, %55 ], [ %84, %82 ], [ %78, %76 ], [ %92, %.sink.split ]
-  %.2 = phi i64 [ %.1.fr, %55 ], [ %83, %82 ], [ %77, %76 ], [ %.2.ph, %.sink.split ]
+  %.285 = phi i64 [ %.184, %55 ], [ %.fr93, %82 ], [ %.fr95, %76 ], [ %92, %.sink.split ]
+  %.2 = phi i64 [ %.1, %55 ], [ %.fr, %82 ], [ %.fr94, %76 ], [ %.2.ph, %.sink.split ]
   %94 = add i64 %.2, 2147483648
-  %.not92 = icmp ult i64 %94, 4294967296
+  %.not96 = icmp ult i64 %94, 4294967296
   %95 = add i64 %.285, 2147483648
-  %.not93 = icmp ult i64 %95, 4294967296
-  %or.cond94 = select i1 %.not92, i1 %.not93, i1 false
-  br i1 %or.cond94, label %96, label %99
+  %.not97 = icmp ult i64 %95, 4294967296
+  %or.cond98 = select i1 %.not96, i1 %.not97, i1 false
+  br i1 %or.cond98, label %96, label %99
 
 96:                                               ; preds = %93
   %97 = trunc nsw i64 %.2 to i32

@@ -49342,7 +49342,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %36
 
 .body:                                            ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit", %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i", %131, %122, %120
-  %.sroa.0179.0400 = phi i64 [ %.sroa.0179.0.ph670, %122 ], [ %.sroa.0179.0.ph670, %131 ], [ %.sroa.0179.0.ph670, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ %.sroa.0179.0.ph670, %120 ], [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0179.0401, %.loopexit.split-lp ], [ %.sroa.0179.0.ph670, %.loopexit.loopexit ], [ -9223372036854775807, %.loopexit.loopexit.split-lp ]
+  %.sroa.0179.0393 = phi i64 [ %.sroa.0179.0.ph670, %122 ], [ %.sroa.0179.0.ph670, %131 ], [ %.sroa.0179.0.ph670, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ %.sroa.0179.0.ph670, %120 ], [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0179.0396, %.loopexit.split-lp ], [ %.sroa.0179.0.ph670, %.loopexit.loopexit ], [ -9223372036854775807, %.loopexit.loopexit.split-lp ]
   %.sroa.0102.2 = phi i8 [ 1, %122 ], [ 1, %131 ], [ %.sroa.0102.7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ 1, %120 ], [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit.loopexit.split-lp ], [ 1, %.loopexit.loopexit ]
   %.sroa.0104.2 = phi i8 [ 1, %122 ], [ 1, %131 ], [ %spec.select886, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ 1, %120 ], [ %spec.select886, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %spec.select886, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit.loopexit.split-lp ], [ 1, %.loopexit.loopexit ]
   %.pn133 = phi { ptr, i32 } [ %123, %122 ], [ %132, %131 ], [ %.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ %121, %120 ], [ %.pn, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.pn, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit664, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp665, %.loopexit.loopexit.split-lp ]
@@ -49360,7 +49360,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %48, %67, %94, %135, %53, %58, %72, %86, %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..string..String$GT$11deserialize17h06fc28cfec42ec15E.exit.thread.i.i.i.i.i.i.i", %99, %109
-  %.sroa.0179.0401 = phi i64 [ %.sroa.0179.0.ph670, %48 ], [ %.sroa.0179.0.ph670, %67 ], [ %.sroa.0179.0.ph670, %94 ], [ %.sroa.0179.0.ph670, %135 ], [ %.sroa.0179.0.ph670, %53 ], [ %.sroa.0179.0.ph670, %58 ], [ -9223372036854775807, %72 ], [ -9223372036854775807, %86 ], [ -9223372036854775807, %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..string..String$GT$11deserialize17h06fc28cfec42ec15E.exit.thread.i.i.i.i.i.i.i" ], [ %.sroa.0179.0.ph670, %99 ], [ %.sroa.0179.0.ph670, %109 ]
+  %.sroa.0179.0396 = phi i64 [ %.sroa.0179.0.ph670, %48 ], [ %.sroa.0179.0.ph670, %67 ], [ %.sroa.0179.0.ph670, %94 ], [ %.sroa.0179.0.ph670, %135 ], [ %.sroa.0179.0.ph670, %53 ], [ %.sroa.0179.0.ph670, %58 ], [ -9223372036854775807, %72 ], [ -9223372036854775807, %86 ], [ -9223372036854775807, %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..string..String$GT$11deserialize17h06fc28cfec42ec15E.exit.thread.i.i.i.i.i.i.i" ], [ %.sroa.0179.0.ph670, %99 ], [ %.sroa.0179.0.ph670, %109 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -49814,7 +49814,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
 .body160.sink.split:                              ; preds = %172, %190
   %.sink563 = phi i64 [ %192, %190 ], [ %174, %172 ]
   %.sink = phi ptr [ %188, %190 ], [ %170, %172 ]
-  %.sroa.0179.0399.ph = phi i64 [ %.sroa.0179.0391, %190 ], [ %.sroa.0179.0.ph670, %172 ]
+  %.sroa.0179.0392.ph = phi i64 [ %.sroa.0179.0394, %190 ], [ %.sroa.0179.0.ph670, %172 ]
   %.sroa.0102.3.ph = phi i8 [ %.sroa.0102.5, %190 ], [ %.sroa.0102.7, %172 ]
   %.sroa.0104.3.ph = phi i8 [ %.sroa.0104.5, %190 ], [ %spec.select886, %172 ]
   %.pn135.ph = phi { ptr, i32 } [ %191, %190 ], [ %173, %172 ]
@@ -49823,7 +49823,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %.body160
 
 .body160:                                         ; preds = %.body160.sink.split, %190, %172, %.body
-  %.sroa.0179.0399 = phi i64 [ %.sroa.0179.0400, %.body ], [ %.sroa.0179.0.ph670, %172 ], [ %.sroa.0179.0391, %190 ], [ %.sroa.0179.0399.ph, %.body160.sink.split ]
+  %.sroa.0179.0392 = phi i64 [ %.sroa.0179.0393, %.body ], [ %.sroa.0179.0.ph670, %172 ], [ %.sroa.0179.0394, %190 ], [ %.sroa.0179.0392.ph, %.body160.sink.split ]
   %.sroa.0102.3 = phi i8 [ %.sroa.0102.2, %.body ], [ %.sroa.0102.7, %172 ], [ %.sroa.0102.5, %190 ], [ %.sroa.0102.3.ph, %.body160.sink.split ]
   %.sroa.0104.3 = phi i8 [ %.sroa.0104.2, %.body ], [ %spec.select886, %172 ], [ %.sroa.0104.5, %190 ], [ %.sroa.0104.3.ph, %.body160.sink.split ]
   %.pn135 = phi { ptr, i32 } [ %.pn133, %.body ], [ %173, %172 ], [ %191, %190 ], [ %.pn135.ph, %.body160.sink.split ]
@@ -49855,7 +49855,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit165"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit165": ; preds = %37, %142, %.loopexit230, %111, %.noexc154, %91, %65, %60, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163", %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i164"
-  %.sroa.0179.0391 = phi i64 [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ %.sroa.0179.0.ph670, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i164" ], [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ %.sroa.0179.0.ph670, %37 ], [ %.sroa.0179.0.ph670, %142 ], [ %.sroa.0179.0.ph670, %.loopexit230 ], [ %.sroa.0179.0.ph670, %111 ], [ -9223372036854775807, %.noexc154 ], [ %.sroa.0179.0.ph670, %91 ], [ %.sroa.0179.0.ph670, %65 ], [ %.sroa.0179.0.ph670, %60 ]
+  %.sroa.0179.0394 = phi i64 [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ %.sroa.0179.0.ph670, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i164" ], [ %.sroa.0179.0.ph670, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ %.sroa.0179.0.ph670, %37 ], [ %.sroa.0179.0.ph670, %142 ], [ %.sroa.0179.0.ph670, %.loopexit230 ], [ %.sroa.0179.0.ph670, %111 ], [ -9223372036854775807, %.noexc154 ], [ %.sroa.0179.0.ph670, %91 ], [ %.sroa.0179.0.ph670, %65 ], [ %.sroa.0179.0.ph670, %60 ]
   %.sroa.0102.5 = phi i8 [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ %.sroa.0102.7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i164" ], [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ 1, %37 ], [ 1, %142 ], [ 1, %.loopexit230 ], [ 1, %111 ], [ 1, %.noexc154 ], [ 1, %91 ], [ 1, %65 ], [ 1, %60 ]
   %.sroa.0104.5 = phi i8 [ %spec.select886, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ %spec.select886, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i164" ], [ %spec.select886, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit163" ], [ 1, %37 ], [ 1, %142 ], [ 1, %.loopexit230 ], [ 1, %111 ], [ 1, %.noexc154 ], [ 1, %91 ], [ 1, %65 ], [ 1, %60 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15723)
@@ -49893,13 +49893,13 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
 
 "_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit172": ; preds = %203, %"_ZN4core3ptr159drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$$GT$17h79c6098fc824264dE.exit170"
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %201 = icmp ne i64 %.sroa.0179.0391, -9223372036854775807
-  %202 = trunc nuw i8 %.sroa.0104.5 to i1
+  %201 = icmp ne i64 %.sroa.0179.0394, -9223372036854775807
+  %202 = trunc i8 %.sroa.0104.5 to i1
   %or.cond3 = and i1 %201, %202
   br i1 %or.cond3, label %switch.early.test, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit174"
 
 switch.early.test:                                ; preds = %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit172"
-  switch i64 %.sroa.0179.0391, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i173" [
+  switch i64 %.sroa.0179.0394, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i173" [
     i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit174"
     i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit174"
   ]
@@ -49909,16 +49909,17 @@ switch.early.test:                                ; preds = %"_ZN4core3ptr147dro
           to label %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit172" unwind label %206
 
 "_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit176": ; preds = %209, %206, %.body160
-  %.sroa.0179.0398 = phi i64 [ %.sroa.0179.0391, %206 ], [ %.sroa.0179.0399, %.body160 ], [ %.sroa.0179.0399, %209 ]
+  %.sroa.0179.0391 = phi i64 [ %.sroa.0179.0394, %206 ], [ %.sroa.0179.0392, %.body160 ], [ %.sroa.0179.0392, %209 ]
   %.sroa.0104.8 = phi i8 [ %.sroa.0104.5, %206 ], [ %.sroa.0104.3, %.body160 ], [ %.sroa.0104.3, %209 ]
   %.pn137 = phi { ptr, i32 } [ %207, %206 ], [ %.pn135, %.body160 ], [ %.pn135, %209 ]
-  %204 = icmp ne i64 %.sroa.0179.0398, -9223372036854775807
+  %204 = icmp ne i64 %.sroa.0179.0391, -9223372036854775807
   %205 = trunc nuw i8 %.sroa.0104.8 to i1
-  %or.cond7 = and i1 %204, %205
-  br i1 %or.cond7, label %switch.early.test229, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit178"
+  %or.cond7 = select i1 %204, i1 %205, i1 false
+  %or.cond7.fr = freeze i1 %or.cond7
+  br i1 %or.cond7.fr, label %switch.early.test229, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit178"
 
 switch.early.test229:                             ; preds = %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit176"
-  switch i64 %.sroa.0179.0398, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i177" [
+  switch i64 %.sroa.0179.0391, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i177" [
     i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit178"
     i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit178"
   ]
@@ -49931,7 +49932,7 @@ switch.early.test229:                             ; preds = %"_ZN4core3ptr147dro
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i173": ; preds = %switch.early.test
   %208 = icmp ne ptr %.sroa.14.0.ph, null
   call void @llvm.assume(i1 %208)
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0179.0391, i64 noundef 1) #34, !noalias !15750
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0179.0394, i64 noundef 1) #34, !noalias !15750
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit174"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit178": ; preds = %switch.early.test229, %switch.early.test229, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit176", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i177"
@@ -49944,7 +49945,7 @@ switch.early.test229:                             ; preds = %"_ZN4core3ptr147dro
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i177": ; preds = %switch.early.test229
   %210 = icmp ne ptr %.sroa.14.0.ph, null
   call void @llvm.assume(i1 %210)
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0179.0398, i64 noundef 1) #34, !noalias !15761
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0179.0391, i64 noundef 1) #34, !noalias !15761
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit178"
 }
 
@@ -50100,7 +50101,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %.body
 
 .body:                                            ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.loopexit, %.loopexit.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.split-lp, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit", %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i", %117, %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i.i.i", %38, %108, %106
-  %.sroa.0191.0400 = phi i64 [ %.sroa.0191.0.ph639, %108 ], [ %.sroa.0191.0.ph639, %117 ], [ %.sroa.0191.0.ph639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ %.sroa.0191.0.ph639, %106 ], [ %.sroa.0191.0.ph639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i.i.i" ], [ %.sroa.0191.0.ph639, %65 ], [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0191.0.ph639, %38 ], [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0191.0401, %.loopexit.split-lp ], [ -9223372036854775807, %.loopexit.loopexit.split-lp ], [ %.sroa.0191.0.ph639, %.loopexit.loopexit.loopexit.split-lp ], [ %.sroa.0191.0.ph639, %.loopexit.loopexit.loopexit.loopexit ], [ -9223372036854775807, %.loopexit.loopexit.loopexit.loopexit.split-lp ]
+  %.sroa.0191.0394 = phi i64 [ %.sroa.0191.0.ph639, %108 ], [ %.sroa.0191.0.ph639, %117 ], [ %.sroa.0191.0.ph639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ %.sroa.0191.0.ph639, %106 ], [ %.sroa.0191.0.ph639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i.i.i" ], [ %.sroa.0191.0.ph639, %65 ], [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0191.0.ph639, %38 ], [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %.sroa.0191.0397, %.loopexit.split-lp ], [ -9223372036854775807, %.loopexit.loopexit.split-lp ], [ %.sroa.0191.0.ph639, %.loopexit.loopexit.loopexit.split-lp ], [ %.sroa.0191.0.ph639, %.loopexit.loopexit.loopexit.loopexit ], [ -9223372036854775807, %.loopexit.loopexit.loopexit.loopexit.split-lp ]
   %.sroa.0102.2 = phi i8 [ 1, %108 ], [ 1, %117 ], [ %.sroa.0102.7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ 1, %106 ], [ 1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i.i.i" ], [ 1, %65 ], [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ 1, %38 ], [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit.loopexit.loopexit.split-lp ], [ 1, %.loopexit.loopexit.loopexit.loopexit.split-lp ], [ 1, %.loopexit.loopexit.loopexit.loopexit ], [ 1, %.loopexit.loopexit.split-lp ]
   %.sroa.0104.2 = phi i8 [ 1, %108 ], [ 1, %117 ], [ %.sroa.0104.6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ 1, %106 ], [ 1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i.i.i" ], [ 1, %65 ], [ %.sroa.0104.6, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ 1, %38 ], [ %.sroa.0104.6, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit.loopexit.loopexit.split-lp ], [ 1, %.loopexit.loopexit.loopexit.loopexit.split-lp ], [ 1, %.loopexit.loopexit.loopexit.loopexit ], [ 1, %.loopexit.loopexit.split-lp ]
   %.pn133 = phi { ptr, i32 } [ %109, %108 ], [ %118, %117 ], [ %.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i" ], [ %107, %106 ], [ %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i.i.i" ], [ %66, %65 ], [ %.pn, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %39, %38 ], [ %.pn, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp624, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit.split-lp633, %.loopexit.loopexit.loopexit.split-lp ], [ %lpad.loopexit641, %.loopexit.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp642, %.loopexit.loopexit.loopexit.loopexit.split-lp ]
@@ -50128,7 +50129,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %54, %73, %89, %121, %58, %77, %93
-  %.sroa.0191.0401 = phi i64 [ %.sroa.0191.0.ph639, %54 ], [ %.sroa.0191.0.ph639, %73 ], [ %.sroa.0191.0.ph639, %89 ], [ %.sroa.0191.0.ph639, %121 ], [ %.sroa.0191.0.ph639, %58 ], [ -9223372036854775807, %77 ], [ %.sroa.0191.0.ph639, %93 ]
+  %.sroa.0191.0397 = phi i64 [ %.sroa.0191.0.ph639, %54 ], [ %.sroa.0191.0.ph639, %73 ], [ %.sroa.0191.0.ph639, %89 ], [ %.sroa.0191.0.ph639, %121 ], [ %.sroa.0191.0.ph639, %58 ], [ -9223372036854775807, %77 ], [ %.sroa.0191.0.ph639, %93 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -50610,7 +50611,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
 .body172.sink.split:                              ; preds = %160, %178
   %.sink539 = phi i64 [ %180, %178 ], [ %162, %160 ]
   %.sink = phi ptr [ %176, %178 ], [ %158, %160 ]
-  %.sroa.0191.0399.ph = phi i64 [ %.sroa.0191.0392, %178 ], [ %.sroa.0191.0.ph639, %160 ]
+  %.sroa.0191.0393.ph = phi i64 [ %.sroa.0191.0395, %178 ], [ %.sroa.0191.0.ph639, %160 ]
   %.sroa.0102.3.ph = phi i8 [ %.sroa.0102.5, %178 ], [ %.sroa.0102.7, %160 ]
   %.sroa.0104.3.ph = phi i8 [ %.sroa.0104.5, %178 ], [ %.sroa.0104.6, %160 ]
   %.pn135.ph = phi { ptr, i32 } [ %179, %178 ], [ %161, %160 ]
@@ -50619,7 +50620,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %.body172
 
 .body172:                                         ; preds = %.body172.sink.split, %178, %160, %.body
-  %.sroa.0191.0399 = phi i64 [ %.sroa.0191.0400, %.body ], [ %.sroa.0191.0.ph639, %160 ], [ %.sroa.0191.0392, %178 ], [ %.sroa.0191.0399.ph, %.body172.sink.split ]
+  %.sroa.0191.0393 = phi i64 [ %.sroa.0191.0394, %.body ], [ %.sroa.0191.0.ph639, %160 ], [ %.sroa.0191.0395, %178 ], [ %.sroa.0191.0393.ph, %.body172.sink.split ]
   %.sroa.0102.3 = phi i8 [ %.sroa.0102.2, %.body ], [ %.sroa.0102.7, %160 ], [ %.sroa.0102.5, %178 ], [ %.sroa.0102.3.ph, %.body172.sink.split ]
   %.sroa.0104.3 = phi i8 [ %.sroa.0104.2, %.body ], [ %.sroa.0104.6, %160 ], [ %.sroa.0104.5, %178 ], [ %.sroa.0104.3.ph, %.body172.sink.split ]
   %.pn135 = phi { ptr, i32 } [ %.pn133, %.body ], [ %161, %160 ], [ %179, %178 ], [ %.pn135.ph, %.body172.sink.split ]
@@ -50651,7 +50652,7 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit177"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit177": ; preds = %43, %128, %.loopexit260, %96, %.thread234, %85, %.loopexit261, %69, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175", %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i176"
-  %.sroa.0191.0392 = phi i64 [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ %.sroa.0191.0.ph639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i176" ], [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ %.sroa.0191.0.ph639, %43 ], [ %.sroa.0191.0.ph639, %128 ], [ %.sroa.0191.0.ph639, %.loopexit260 ], [ %.sroa.0191.0.ph639, %96 ], [ -9223372036854775807, %.thread234 ], [ %.sroa.0191.0.ph639, %85 ], [ %.sroa.0191.0.ph639, %.loopexit261 ], [ %.sroa.0191.0.ph639, %69 ]
+  %.sroa.0191.0395 = phi i64 [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ %.sroa.0191.0.ph639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i176" ], [ %.sroa.0191.0.ph639, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ %.sroa.0191.0.ph639, %43 ], [ %.sroa.0191.0.ph639, %128 ], [ %.sroa.0191.0.ph639, %.loopexit260 ], [ %.sroa.0191.0.ph639, %96 ], [ -9223372036854775807, %.thread234 ], [ %.sroa.0191.0.ph639, %85 ], [ %.sroa.0191.0.ph639, %.loopexit261 ], [ %.sroa.0191.0.ph639, %69 ]
   %.sroa.0102.5 = phi i8 [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ %.sroa.0102.7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i176" ], [ %.sroa.0102.7, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ 1, %43 ], [ 1, %128 ], [ 1, %.loopexit260 ], [ 1, %96 ], [ 1, %.thread234 ], [ 1, %85 ], [ 1, %.loopexit261 ], [ 1, %69 ]
   %.sroa.0104.5 = phi i8 [ %.sroa.0104.6, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ %.sroa.0104.6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i176" ], [ %.sroa.0104.6, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit175" ], [ 1, %43 ], [ 1, %128 ], [ 1, %.loopexit260 ], [ 1, %96 ], [ 1, %.thread234 ], [ 1, %85 ], [ 1, %.loopexit261 ], [ 1, %69 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15936)
@@ -50689,13 +50690,13 @@ define hidden void @"_ZN192_$LT$language..language_settings.._..$LT$impl$u20$ser
 
 "_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit184": ; preds = %191, %"_ZN4core3ptr159drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$$GT$17h79c6098fc824264dE.exit182"
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %189 = icmp ne i64 %.sroa.0191.0392, -9223372036854775807
-  %190 = trunc nuw i8 %.sroa.0104.5 to i1
+  %189 = icmp ne i64 %.sroa.0191.0395, -9223372036854775807
+  %190 = trunc i8 %.sroa.0104.5 to i1
   %or.cond3 = and i1 %189, %190
   br i1 %or.cond3, label %switch.early.test, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit186"
 
 switch.early.test:                                ; preds = %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit184"
-  switch i64 %.sroa.0191.0392, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i185" [
+  switch i64 %.sroa.0191.0395, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i185" [
     i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit186"
     i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit186"
   ]
@@ -50705,16 +50706,17 @@ switch.early.test:                                ; preds = %"_ZN4core3ptr147dro
           to label %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit184" unwind label %194
 
 "_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit188": ; preds = %197, %194, %.body172
-  %.sroa.0191.0398 = phi i64 [ %.sroa.0191.0392, %194 ], [ %.sroa.0191.0399, %.body172 ], [ %.sroa.0191.0399, %197 ]
+  %.sroa.0191.0392 = phi i64 [ %.sroa.0191.0395, %194 ], [ %.sroa.0191.0393, %.body172 ], [ %.sroa.0191.0393, %197 ]
   %.sroa.0104.8 = phi i8 [ %.sroa.0104.5, %194 ], [ %.sroa.0104.3, %.body172 ], [ %.sroa.0104.3, %197 ]
   %.pn137 = phi { ptr, i32 } [ %195, %194 ], [ %.pn135, %.body172 ], [ %.pn135, %197 ]
-  %192 = icmp ne i64 %.sroa.0191.0398, -9223372036854775807
+  %192 = icmp ne i64 %.sroa.0191.0392, -9223372036854775807
   %193 = trunc nuw i8 %.sroa.0104.8 to i1
-  %or.cond7 = and i1 %192, %193
-  br i1 %or.cond7, label %switch.early.test259, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit190"
+  %or.cond7 = select i1 %192, i1 %193, i1 false
+  %or.cond7.fr = freeze i1 %or.cond7
+  br i1 %or.cond7.fr, label %switch.early.test259, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit190"
 
 switch.early.test259:                             ; preds = %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit188"
-  switch i64 %.sroa.0191.0398, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i189" [
+  switch i64 %.sroa.0191.0392, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i189" [
     i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit190"
     i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit190"
   ]
@@ -50727,7 +50729,7 @@ switch.early.test259:                             ; preds = %"_ZN4core3ptr147dro
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i185": ; preds = %switch.early.test
   %196 = icmp ne ptr %.sroa.14.0.ph, null
   call void @llvm.assume(i1 %196)
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0191.0392, i64 noundef 1) #34, !noalias !15963
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0191.0395, i64 noundef 1) #34, !noalias !15963
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit186"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit190": ; preds = %switch.early.test259, %switch.early.test259, %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc8c2c821e7de32edE.exit188", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i189"
@@ -50740,7 +50742,7 @@ switch.early.test259:                             ; preds = %"_ZN4core3ptr147dro
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i189": ; preds = %switch.early.test259
   %198 = icmp ne ptr %.sroa.14.0.ph, null
   call void @llvm.assume(i1 %198)
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0191.0398, i64 noundef 1) #34, !noalias !15974
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.14.0.ph, i64 noundef %.sroa.0191.0392, i64 noundef 1) #34, !noalias !15974
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4e98c232c4715c67E.llvm.8775224686477438581.exit190"
 }
 

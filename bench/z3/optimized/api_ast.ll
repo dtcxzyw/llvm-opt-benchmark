@@ -8809,8 +8809,8 @@ define ptr @Z3_get_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 _ZNK9func_decl14is_associativeEv.exit:            ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i16, ptr %19, align 1
-  %.fr = freeze i16 %20
-  %21 = and i16 %.fr, 3
+  %.fr56 = freeze i16 %20
+  %21 = and i16 %.fr56, 3
   %22 = icmp eq i16 %21, 3
   %spec.select = select i1 %22, i32 0, i32 %2
   br label %_ZNK9func_decl14is_associativeEv.exit.thread

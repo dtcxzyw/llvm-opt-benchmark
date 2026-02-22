@@ -180,9 +180,9 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = load ptr, ptr %9, align 8
   %switch.selectcmp = icmp eq i32 %13, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.92, ptr @.str.93
-  %switch.selectcmp142 = icmp eq i32 %13, 0
-  %switch.select143 = select i1 %switch.selectcmp142, ptr @.str.91, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull %switch.select143)
+  %switch.selectcmp143 = icmp eq i32 %13, 0
+  %switch.select144 = select i1 %switch.selectcmp143, ptr @.str.91, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull %switch.select144)
   %15 = load i32, ptr @hf_bthid_transaction_type, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
@@ -326,13 +326,13 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %101 = load i32, ptr @hf_bthid_idle_rate, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %101, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %103 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %.fr = freeze i8 %103
-  %104 = zext i8 %.fr to i32
+  %.fr142 = freeze i8 %103
+  %104 = zext i8 %.fr142 to i32
   %105 = shl nuw nsw i32 %104, 2
-  %.cmp = icmp ugt i8 %.fr, -7
+  %.cmp = icmp ugt i8 %.fr142, -7
   %106 = zext i1 %.cmp to i32
   %.urem = add nsw i32 %105, -1000
-  %.cmp141 = icmp ult i8 %.fr, -6
+  %.cmp141 = icmp ult i8 %.fr142, -6
   %107 = select i1 %.cmp141, i32 %105, i32 %.urem
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef nonnull @.str.100, i32 noundef %106, i32 noundef %107)
   %108 = load ptr, ptr %9, align 8

@@ -7905,10 +7905,9 @@ _ZNK6casadi5SliceneERKS0_.exit:                   ; preds = %19
   %26 = load i64, ptr %25, align 8, !tbaa !171
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %28 = load i64, ptr %27, align 8, !tbaa !171
-  %.fr = freeze i64 %26
-  %.fr11 = freeze i64 %28
-  %.not = icmp eq i64 %.fr, %.fr11
-  br i1 %.not, label %.thread, label %_ZNK6casadi5SliceneERKS0_.exit.thread
+  %29 = icmp ne i64 %26, %28
+  %cond.fr = freeze i1 %29
+  br i1 %cond.fr, label %_ZNK6casadi5SliceneERKS0_.exit.thread, label %.thread
 
 _ZNK6casadi5SliceneERKS0_.exit.thread:            ; preds = %13, %19, %_ZNK6casadi5SliceneERKS0_.exit
   br label %.thread
@@ -7981,10 +7980,9 @@ _ZNK6casadi5SliceneERKS0_.exit10:                 ; preds = %35
   %42 = load i64, ptr %41, align 8, !tbaa !171
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %44 = load i64, ptr %43, align 8, !tbaa !171
-  %.fr = freeze i64 %42
-  %.fr13 = freeze i64 %44
-  %.not14 = icmp eq i64 %.fr, %.fr13
-  br i1 %.not14, label %.thread, label %_ZNK6casadi5SliceneERKS0_.exit10.thread
+  %45 = icmp ne i64 %42, %44
+  %cond.fr = freeze i1 %45
+  br i1 %cond.fr, label %_ZNK6casadi5SliceneERKS0_.exit10.thread, label %.thread
 
 _ZNK6casadi5SliceneERKS0_.exit10.thread:          ; preds = %29, %35, %_ZNK6casadi5SliceneERKS0_.exit10
   br label %.thread

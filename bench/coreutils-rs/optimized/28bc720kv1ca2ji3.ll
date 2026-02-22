@@ -8329,12 +8329,10 @@ _ZN3std2fs12canonicalize17h2341b874b4153c0fE.exit90.i: ; preds = %93
 
 137:                                              ; preds = %.noexc94.i
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1355
-  %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i.i.i = freeze i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
   %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.45.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
   %.sroa.56.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.56.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
   %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.67.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
   %.sroa.78.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.78.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
-  %.sroa.411.0.copyload.fr.i.i.i.i.i.i.i.i.i.i = freeze i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i
   %138 = icmp samesign ugt i8 %134, 5
   %139 = zext nneg i8 %134 to i64
   %140 = add nsw i64 %139, -5
@@ -8402,8 +8400,9 @@ default.unreachable:                              ; preds = %151
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h27607d4a6d0f875dE.exit.i.i.i.i.i.i.i.i.i.i", label %.thread210.i
 
 161:                                              ; preds = %151
-  %162 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i.i.i
-  br i1 %162, label %186, label %.thread210.i
+  %162 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
+  %cond.fr28.i.i.i.i.i.i.i.i.i.i = freeze i1 %162
+  br i1 %cond.fr28.i.i.i.i.i.i.i.i.i.i, label %186, label %.thread210.i
 
 163:                                              ; preds = %151
   %.not.i7.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i, %.sroa.56.0.copyload.i.i.i.i.i.i.i.i.i.i
@@ -8435,8 +8434,9 @@ default.unreachable:                              ; preds = %151
   br i1 %or.cond26.i.i.i.i.i.i.i.i.i.i.i, label %174, label %.thread210.i
 
 172:                                              ; preds = %151
-  %173 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i.i.i
-  br i1 %173, label %186, label %.thread210.i
+  %173 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
+  %cond.fr27.i.i.i.i.i.i.i.i.i.i = freeze i1 %173
+  br i1 %cond.fr27.i.i.i.i.i.i.i.i.i.i, label %186, label %.thread210.i
 
 174:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit14.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
   %175 = icmp ne ptr %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i, null

@@ -1516,9 +1516,9 @@ entry:
   %or.cond = select i1 %updateSpinCutoff, i1 true, i1 %cmp
   %shl = shl i32 %turn, 6
   %1 = load atomic i32, ptr %this acquire, align 4
-  %and.i120 = and i32 %1, -64
-  %cmp4121 = icmp eq i32 %and.i120, %shl
-  br i1 %cmp4121, label %for.end.thread, label %if.end.lr.ph
+  %and.i121 = and i32 %1, -64
+  %cmp4122 = icmp eq i32 %and.i121, %shl
+  br i1 %cmp4122, label %for.end.thread, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
   %2 = zext i32 %0 to i64
@@ -1529,22 +1529,22 @@ if.end.lr.ph:                                     ; preds = %entry
   br i1 %tobool30.not, label %if.end.us, label %if.end
 
 if.end.us:                                        ; preds = %if.end.lr.ph, %for.inc.us
-  %and.i124.us = phi i32 [ %and.i.us, %for.inc.us ], [ %and.i120, %if.end.lr.ph ]
+  %and.i125.us = phi i32 [ %and.i.us, %for.inc.us ], [ %and.i121, %if.end.lr.ph ]
   %3 = phi i32 [ %7, %for.inc.us ], [ %1, %if.end.lr.ph ]
-  %begin.0123.us = phi i64 [ %spec.select.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
-  %tries.0122.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
-  %sub.us = sub i32 %shl, %and.i124.us
+  %begin.0124.us = phi i64 [ %spec.select.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
+  %tries.0123.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
+  %sub.us = sub i32 %shl, %and.i125.us
   %cmp6.not.us = icmp ult i32 %sub.us, 2147483647
   br i1 %cmp6.not.us, label %if.end8.us, label %return
 
 if.end8.us:                                       ; preds = %if.end.us
   %4 = tail call noundef i64 @llvm.x86.rdtsc()
-  %cmp10.us = icmp eq i32 %tries.0122.us, 0
-  %spec.select.us = select i1 %cmp10.us, i64 %4, i64 %begin.0123.us
-  %add.us = add i64 %begin.0123.us, %conv
+  %cmp10.us = icmp eq i32 %tries.0123.us, 0
+  %spec.select.us = select i1 %cmp10.us, i64 %4, i64 %begin.0124.us
+  %add.us = add i64 %begin.0124.us, %conv
   %cmp15.us = icmp ult i64 %4, %add.us
-  %or.cond129 = select i1 %cmp10.us, i1 true, i1 %cmp15.us
-  br i1 %or.cond129, label %if.then16.us, label %if.end18.us
+  %or.cond130 = select i1 %cmp10.us, i1 true, i1 %cmp15.us
+  br i1 %or.cond130, label %if.then16.us, label %if.end18.us
 
 if.end18.us:                                      ; preds = %if.end8.us
   %and.i99.us = and i32 %3, 63
@@ -1554,7 +1554,7 @@ if.end18.us:                                      ; preds = %if.end8.us
 
 if.else.us:                                       ; preds = %if.end18.us
   %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 %shr.us, i32 63)
-  %or.i.us = or disjoint i32 %.sroa.speculated.i.us, %and.i124.us
+  %or.i.us = or disjoint i32 %.sroa.speculated.i.us, %and.i125.us
   %cmp24.not.us = icmp eq i32 %3, %or.i.us
   br i1 %cmp24.not.us, label %if.end29.us, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us
 
@@ -1573,7 +1573,7 @@ if.then16.us:                                     ; preds = %if.end8.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then16.us, %if.end29.us, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us
-  %inc.us = add i32 %tries.0122.us, 1
+  %inc.us = add i32 %tries.0123.us, 1
   %7 = load atomic i32, ptr %this acquire, align 4
   %and.i.us = and i32 %7, -64
   %cmp4.us = icmp eq i32 %and.i.us, %shl
@@ -1585,22 +1585,22 @@ terminate.lpad.split.us:                          ; preds = %if.end29.us
   br label %terminate.lpad
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc
-  %and.i124 = phi i32 [ %and.i, %for.inc ], [ %and.i120, %if.end.lr.ph ]
+  %and.i125 = phi i32 [ %and.i, %for.inc ], [ %and.i121, %if.end.lr.ph ]
   %9 = phi i32 [ %14, %for.inc ], [ %1, %if.end.lr.ph ]
-  %begin.0123 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
-  %tries.0122 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
-  %sub = sub i32 %shl, %and.i124
+  %begin.0124 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
+  %tries.0123 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
+  %sub = sub i32 %shl, %and.i125
   %cmp6.not = icmp ult i32 %sub, 2147483647
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
   %10 = call noundef i64 @llvm.x86.rdtsc()
-  %cmp10 = icmp eq i32 %tries.0122, 0
-  %spec.select = select i1 %cmp10, i64 %10, i64 %begin.0123
-  %add = add i64 %begin.0123, %conv
+  %cmp10 = icmp eq i32 %tries.0123, 0
+  %spec.select = select i1 %cmp10, i64 %10, i64 %begin.0124
+  %add = add i64 %begin.0124, %conv
   %cmp15 = icmp ult i64 %10, %add
-  %or.cond130 = select i1 %cmp10, i1 true, i1 %cmp15
-  br i1 %or.cond130, label %if.then16, label %if.end18
+  %or.cond131 = select i1 %cmp10, i1 true, i1 %cmp15
+  br i1 %or.cond131, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end8
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
@@ -1614,7 +1614,7 @@ if.end18:                                         ; preds = %if.end8
 
 if.else:                                          ; preds = %if.end18
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %shr, i32 63)
-  %or.i = or disjoint i32 %.sroa.speculated.i, %and.i124
+  %or.i = or disjoint i32 %.sroa.speculated.i, %and.i125
   %cmp24.not = icmp eq i32 %9, %or.i
   br i1 %cmp24.not, label %if.end29, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
 
@@ -1639,7 +1639,7 @@ invoke.cont34:                                    ; preds = %if.end29
   br i1 %cmp36, label %return, label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont34, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %if.then16
-  %inc = add i32 %tries.0122, 1
+  %inc = add i32 %tries.0123, 1
   %14 = load atomic i32, ptr %this acquire, align 4
   %and.i = and i32 %14, -64
   %cmp4 = icmp eq i32 %and.i, %shl
@@ -1695,8 +1695,8 @@ terminate.lpad.split:                             ; preds = %if.end29
   br label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %terminate.lpad.split.us, %terminate.lpad.split
-  %.us-phi126 = phi { ptr, i32 } [ %20, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
-  %21 = extractvalue { ptr, i32 } %.us-phi126, 0
+  %.us-phi127 = phi { ptr, i32 } [ %20, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
+  %21 = extractvalue { ptr, i32 } %.us-phi127, 0
   call void @__clang_call_terminate(ptr %21) #24
   unreachable
 }
@@ -2507,20 +2507,19 @@ define linkonce_odr { ptr, ptr } @_ZSt9__find_ifIN5folly14ThreadLocalPtrINS0_6de
 entry:
   %id_.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce0, i64 24
   %0 = load i32, ptr %id_.i.i, align 8
-  %.fr = freeze i32 %0
   %id_3.i.i = getelementptr inbounds nuw i8, ptr %__last.coerce0, i64 24
   %1 = load i32, ptr %id_3.i.i, align 8
-  %.fr21 = freeze i32 %1
-  %cmp.i.i = icmp ne i32 %.fr, %.fr21
+  %cmp.i.i = icmp ne i32 %0, %1
+  %cmp.i.i.fr = freeze i1 %cmp.i.i
   %cmp5.i.i7 = icmp ne ptr %__first.coerce1, %__last.coerce1
-  %.not.i8 = select i1 %cmp.i.i, i1 true, i1 %cmp5.i.i7
+  %.not.i8 = select i1 %cmp.i.i.fr, i1 true, i1 %cmp5.i.i7
   br i1 %.not.i8, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %idxprom.i.i.i = zext i32 %.fr to i64
+  %idxprom.i.i.i = zext i32 %0 to i64
   %2 = load i8, ptr %__pred.coerce, align 1
   %conv.i.i.i = zext i8 %2 to i32
-  br i1 %cmp.i.i, label %land.rhs.lr.ph.split.us, label %land.rhs
+  br i1 %cmp.i.i.fr, label %land.rhs.lr.ph.split.us, label %land.rhs
 
 land.rhs.lr.ph.split.us:                          ; preds = %land.rhs.lr.ph
   %parent.i.i.i.i.us11 = getelementptr inbounds nuw i8, ptr %__first.coerce1, i64 8

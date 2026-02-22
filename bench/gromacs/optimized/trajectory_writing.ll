@@ -68,12 +68,12 @@ _Z11do_per_stepll.exit.thread:                    ; preds = %_Z11do_per_stepll.e
   %32 = phi i32 [ 0, %22 ], [ %spec.select, %_Z11do_per_stepll.exit ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %34 = load i32, ptr %33, align 4, !tbaa !102
-  %.fr163 = freeze i32 %34
-  %.not.i105 = icmp eq i32 %.fr163, 0
+  %.fr166 = freeze i32 %34
+  %.not.i105 = icmp eq i32 %.fr166, 0
   br i1 %.not.i105, label %_Z11do_per_stepll.exit107.thread, label %_Z11do_per_stepll.exit107
 
 _Z11do_per_stepll.exit107:                        ; preds = %_Z11do_per_stepll.exit.thread
-  %35 = sext i32 %.fr163 to i64
+  %35 = sext i32 %.fr166 to i64
   %36 = srem i64 %4, %35
   %37 = icmp eq i64 %36, 0
   %38 = or disjoint i32 %32, 2
@@ -84,12 +84,12 @@ _Z11do_per_stepll.exit107.thread:                 ; preds = %_Z11do_per_stepll.e
   %39 = phi i32 [ %32, %_Z11do_per_stepll.exit.thread ], [ %spec.select157, %_Z11do_per_stepll.exit107 ]
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %41 = load i32, ptr %40, align 8, !tbaa !103
-  %.fr164 = freeze i32 %41
-  %.not.i108 = icmp eq i32 %.fr164, 0
+  %.fr169 = freeze i32 %41
+  %.not.i108 = icmp eq i32 %.fr169, 0
   br i1 %.not.i108, label %_Z11do_per_stepll.exit110.thread, label %_Z11do_per_stepll.exit110
 
 _Z11do_per_stepll.exit110:                        ; preds = %_Z11do_per_stepll.exit107.thread
-  %42 = sext i32 %.fr164 to i64
+  %42 = sext i32 %.fr169 to i64
   %43 = srem i64 %4, %42
   %44 = icmp eq i64 %43, 0
   %45 = or i32 %39, 4
@@ -100,12 +100,12 @@ _Z11do_per_stepll.exit110.thread:                 ; preds = %_Z11do_per_stepll.e
   %46 = phi i32 [ %39, %_Z11do_per_stepll.exit107.thread ], [ %spec.select158, %_Z11do_per_stepll.exit110 ]
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %48 = load i32, ptr %47, align 8, !tbaa !104
-  %.fr165 = freeze i32 %48
-  %.not.i111 = icmp eq i32 %.fr165, 0
+  %.fr172 = freeze i32 %48
+  %.not.i111 = icmp eq i32 %.fr172, 0
   br i1 %.not.i111, label %_Z11do_per_stepll.exit113.thread, label %_Z11do_per_stepll.exit113
 
 _Z11do_per_stepll.exit113:                        ; preds = %_Z11do_per_stepll.exit110.thread
-  %49 = sext i32 %.fr165 to i64
+  %49 = sext i32 %.fr172 to i64
   %50 = srem i64 %4, %49
   %51 = icmp eq i64 %50, 0
   %52 = or i32 %46, 8

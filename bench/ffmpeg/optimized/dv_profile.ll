@@ -239,8 +239,8 @@ define ptr @av_dv_codec_profile(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %16, %3
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %16 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv27.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %16 ], [ 0, %3 ]
+  %4 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv25.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !12
   %7 = icmp eq i32 %1, %6
@@ -259,9 +259,9 @@ define ptr @av_dv_codec_profile(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %15, label %av_dv_codec_profile2.exit, label %16
 
 16:                                               ; preds = %12, %8, %.split.us.i
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 10
-  br i1 %exitcond30.not.i, label %av_dv_codec_profile2.exit, label %.split.us.i, !llvm.loop !42
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 10
+  br i1 %exitcond28.not.i, label %av_dv_codec_profile2.exit, label %.split.us.i, !llvm.loop !42
 
 av_dv_codec_profile2.exit:                        ; preds = %12, %16
   %.us-phi.i = phi ptr [ null, %16 ], [ %4, %12 ]
@@ -270,16 +270,16 @@ av_dv_codec_profile2.exit:                        ; preds = %12, %16
 
 ; Function Attrs: nofree nosync nounwind memory(none) uwtable
 define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #4 {
-  %.fr22 = freeze i64 %3
-  %5 = and i64 %.fr22, 4294967295
+  %5 = and i64 %3, 4294967295
   %6 = icmp eq i64 %5, 0
-  %7 = icmp ult i64 %.fr22, 4294967296
+  %7 = icmp ult i64 %3, 4294967296
   %8 = or i1 %7, %6
-  br i1 %8, label %.split.us, label %.split
+  %.fr = freeze i1 %8
+  br i1 %.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %21
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %21 ], [ 0, %4 ]
-  %9 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv27
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %21 ], [ 0, %4 ]
+  %9 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv25
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !12
   %12 = icmp eq i32 %1, %11
@@ -298,9 +298,9 @@ define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17, %13, %.split.us
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next28, 10
-  br i1 %exitcond30.not, label %.critedge, label %.split.us, !llvm.loop !42
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 10
+  br i1 %exitcond28.not, label %.critedge, label %.split.us, !llvm.loop !42
 
 .split:                                           ; preds = %4, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %4 ]
@@ -326,7 +326,7 @@ define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %36 = load i64, ptr %35, align 4
-  %37 = tail call i64 @av_div_q(i64 %36, i64 %.fr22) #7
+  %37 = tail call i64 @av_div_q(i64 %36, i64 %3) #7
   %38 = and i64 %37, 4294967295
   %39 = icmp eq i64 %38, 1
   br i1 %39, label %.critedge, label %40

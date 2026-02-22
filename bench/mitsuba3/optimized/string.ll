@@ -5272,10 +5272,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10fast_float8long_mulILt62EEEb
   %5 = alloca %"struct.fast_float::stackvec", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load i16, ptr %6, align 8
-  %.fr = freeze i16 %7
   %.496..496..496..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 496
   store i16 0, ptr %.496..496..496..sroa_idx, align 8
-  %.not.i.i = icmp ult i16 %.fr, 63
+  %.not.i.i = icmp ult i16 %7, 63
   br i1 %.not.i.i, label %_ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit.i
 
 _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit.i: ; preds = %3
@@ -5283,20 +5282,20 @@ _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit.i: ; preds = %3
   unreachable
 
 _ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit: ; preds = %3
-  %8 = shl nuw nsw i16 %.fr, 3
+  %8 = shl nuw nsw i16 %7, 3
   %9 = zext nneg i16 %8 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(498) %4, ptr nonnull align 8 %0, i64 %9, i1 false)
   %.496..496..496..sroa_idx138 = getelementptr inbounds nuw i8, ptr %4, i64 496
   %.496..496..496. = load i16, ptr %.496..496..496..sroa_idx138, align 8
-  %.496..fr = freeze i16 %.496..496..496.
-  %10 = add i16 %.496..fr, %.fr
+  %10 = add i16 %.496..496..496., %7
+  %.fr = freeze i16 %10
   %.496..496..496..sroa_idx139 = getelementptr inbounds nuw i8, ptr %4, i64 496
-  store i16 %10, ptr %.496..496..496..sroa_idx139, align 8
+  store i16 %.fr, ptr %.496..496..496..sroa_idx139, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %_ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit
-  %.not25.i = icmp eq i16 %.fr, 0
+  %.not25.i = icmp eq i16 %7, 0
   br i1 %.not25.i, label %.critedge.preheader, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
@@ -5347,8 +5346,8 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_
 
 .lr.ph:                                           ; preds = %.critedge.preheader
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %.not.i19 = icmp ult i16 %10, 63
-  %33 = shl nuw nsw i16 %10, 3
+  %.not.i19 = icmp ult i16 %.fr, 63
+  %33 = shl nuw nsw i16 %.fr, 3
   %34 = zext nneg i16 %33 to i64
   br i1 %.not.i19, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -5363,7 +5362,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_
   store i16 0, ptr %32, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 %34, i1 false)
   %38 = load i16, ptr %32, align 8
-  %39 = add i16 %38, %10
+  %39 = add i16 %38, %.fr
   store i16 %39, ptr %32, align 8
   %.not25.i20.us = icmp eq i16 %39, 0
   br i1 %.not25.i20.us, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us, label %.lr.ph.i21.us
@@ -5534,7 +5533,7 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread, %.loopexit.loopexit, %.critedge.preheader, %_ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit
-  %.promoted.i = phi i16 [ %.promoted.i.pre, %.loopexit.loopexit ], [ %.promoted.i81, %.critedge.preheader ], [ %.fr, %_ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit ], [ %.promoted.i81, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread ]
+  %.promoted.i = phi i16 [ %.promoted.i.pre, %.loopexit.loopexit ], [ %.promoted.i81, %.critedge.preheader ], [ %7, %_ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit ], [ %.promoted.i81, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread ]
   %.not1.i = icmp eq i16 %.promoted.i, 0
   br i1 %.not1.i, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %.lr.ph.i33
 

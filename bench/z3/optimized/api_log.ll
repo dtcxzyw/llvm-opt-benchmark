@@ -522,9 +522,9 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLO
   %3 = alloca i8, align 1
   %4 = alloca [4 x i8], align 4
   %5 = load i8, ptr %.0.val, align 1, !tbaa !8
-  %.fr2 = freeze i8 %5
-  %.not3 = icmp eq i8 %.fr2, 0
-  br i1 %.not3, label %._crit_edge, label %.lr.ph
+  %.fr13 = freeze i8 %5
+  %.not4 = icmp eq i8 %.fr13, 0
+  br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -532,18 +532,18 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLO
   br label %8
 
 8:                                                ; preds = %.lr.ph, %44
-  %.fr5 = phi i8 [ %.fr2, %.lr.ph ], [ %.fr, %44 ]
-  %.04 = phi ptr [ %.0.val, %.lr.ph ], [ %45, %44 ]
-  %9 = add i8 %.fr5, -48
+  %.fr16 = phi i8 [ %.fr13, %.lr.ph ], [ %.fr1, %44 ]
+  %.05 = phi ptr [ %.0.val, %.lr.ph ], [ %45, %44 ]
+  %9 = add i8 %.fr16, -48
   %or.cond = icmp ult i8 %9, 10
-  %10 = and i8 %.fr5, -33
+  %10 = and i8 %.fr16, -33
   %11 = add i8 %10, -65
   %12 = icmp ult i8 %11, 26
-  %or.cond1 = or i1 %or.cond, %12
-  br i1 %or.cond1, label %13, label %switch.early.test
+  %or.cond2 = or i1 %or.cond, %12
+  br i1 %or.cond2, label %13, label %switch.early.test
 
 switch.early.test:                                ; preds = %8
-  switch i8 %.fr5, label %24 [
+  switch i8 %.fr16, label %24 [
     i8 126, label %13
     i8 95, label %13
     i8 94, label %13
@@ -566,7 +566,7 @@ switch.early.test:                                ; preds = %8
 
 13:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i8 %.fr5, ptr %3, align 1, !tbaa !8
+  store i8 %.fr16, ptr %3, align 1, !tbaa !8
   %14 = load ptr, ptr %0, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
@@ -581,7 +581,7 @@ switch.early.test:                                ; preds = %8
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
 
 22:                                               ; preds = %13
-  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %.fr5)
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %.fr16)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %20, %22
@@ -591,14 +591,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %20, %22
 24:                                               ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 3158064, ptr %4, align 4
-  %25 = urem i8 %.fr5, 10
+  %25 = urem i8 %.fr16, 10
   %26 = or disjoint i8 %25, 48
   store i8 %26, ptr %6, align 2, !tbaa !8
-  %27 = udiv i8 %.fr5, 10
+  %27 = udiv i8 %.fr16, 10
   %28 = urem i8 %27, 10
   %29 = or disjoint i8 %28, 48
   store i8 %29, ptr %7, align 1, !tbaa !8
-  %30 = udiv i8 %.fr5, 100
+  %30 = udiv i8 %.fr16, 100
   %31 = or disjoint i8 %30, 48
   store i8 %31, ptr %4, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -629,10 +629,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %38, %40
   br label %44
 
 44:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
-  %45 = getelementptr inbounds nuw i8, ptr %.04, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !8
-  %.fr = freeze i8 %46
-  %.not = icmp eq i8 %.fr, 0
+  %.fr1 = freeze i8 %46
+  %.not = icmp eq i8 %.fr1, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %44, %1

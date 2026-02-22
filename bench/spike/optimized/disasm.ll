@@ -15098,7 +15098,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2515:       ; preds = %4244
 .preheader:                                       ; preds = %.preheader3574, %.split3617.us
   %.012253620 = phi i32 [ 0, %.preheader3574 ], [ %4281, %.split3617.us ]
   %4261 = or i32 %.012253620, %.012263621
-  %.not3624 = icmp eq i32 %4261, 0
+  %.fr = freeze i32 %4261
+  %.not3624 = icmp eq i32 %.fr, 0
   %4262 = shl nuw nsw i32 %.012253620, 15
   %invariant.op3606.reass = add nuw nsw i32 %4262, %invariant.op3619
   br i1 %.not3624, label %.preheader.split, label %.preheader.split.us

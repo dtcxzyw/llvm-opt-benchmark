@@ -37842,11 +37842,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -37868,16 +37866,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #34
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -184
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 184
-  %25 = add i64 %23, 184
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 184
+  %25 = add i64 %.fr.i, 184
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit
 
 _ZNSt6vectorISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -37913,7 +37912,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE13_
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %.012.i.i.i.i.i = phi i64 [ %102, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %101, %.lr.ph.i.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0910.i.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i.i ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0910.i.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(184) %.0910.i.i.i.i.i, i64 10, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
@@ -38016,7 +38015,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEESaIS6_EE13_
 .lr.ph.i.i.i.i.i27:                               ; preds = %.lr.ph.i.i.i.i.i27, %.lr.ph.preheader.i.i.i.i.i26
   %.012.i.i.i.i.i28 = phi i64 [ %172, %.lr.ph.i.i.i.i.i27 ], [ %106, %.lr.ph.preheader.i.i.i.i.i26 ]
   %.0811.i.i.i.i.i29 = phi ptr [ %171, %.lr.ph.i.i.i.i.i27 ], [ %12, %.lr.ph.preheader.i.i.i.i.i26 ]
-  %.0910.i.i.i.i.i30 = phi ptr [ %170, %.lr.ph.i.i.i.i.i27 ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i26 ]
+  %.0910.i.i.i.i.i30 = phi ptr [ %170, %.lr.ph.i.i.i.i.i27 ], [ %6, %.lr.ph.preheader.i.i.i.i.i26 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.0811.i.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(184) %.0910.i.i.i.i.i30, i64 10, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 16
@@ -38120,9 +38119,9 @@ _ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit: ; preds = %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit, %104
   %.pre-phi41 = phi i64 [ %.pre40, %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %104 ]
-  %174 = phi ptr [ %.pre36, %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %.fr13.i, %104 ]
+  %174 = phi ptr [ %.pre36, %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %5, %104 ]
   %175 = phi ptr [ %.pre34, %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %31, %104 ]
-  %176 = phi ptr [ %.pre, %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %.fr14.i, %104 ]
+  %176 = phi ptr [ %.pre, %_ZSt4copyIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_ET0_T_S9_S8_.exit.loopexit ], [ %6, %104 ]
   %177 = getelementptr inbounds i8, ptr %176, i64 %.pre-phi41
   %.not9.i.i.i.i = icmp eq ptr %177, %174
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIN3vcg9TexCoord2IfLi1EEENS1_8Quadric5IdEEES7_S6_ET0_T_S9_S8_RSaIT1_E.exit, label %.lr.ph.i.i.i.i

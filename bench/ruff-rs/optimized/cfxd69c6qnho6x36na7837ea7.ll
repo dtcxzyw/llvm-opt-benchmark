@@ -11041,8 +11041,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 
 "_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit": ; preds = %159
   %164 = select i1 %162, i1 %68, i1 false
-  %narrow149 = select i1 %164, i1 %71, i1 false
-  %spec.select148 = zext i1 %narrow149 to i8
+  %narrow150 = select i1 %164, i1 %71, i1 false
+  %spec.select148 = zext i1 %narrow150 to i8
   br label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit.thread"
 
 "_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit.thread": ; preds = %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit", %.noexc98, %125, %136, %146, %118, %135, %145, %.noexc99, %150, %154

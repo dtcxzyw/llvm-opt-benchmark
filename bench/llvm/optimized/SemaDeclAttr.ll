@@ -32696,13 +32696,13 @@ _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i: ; preds
 
 102:                                              ; preds = %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i
   %103 = load i32, ptr %92, align 4
-  %.fr108 = freeze i32 %103
-  %104 = and i32 %.fr108, 15728640
+  %.fr109 = freeze i32 %103
+  %104 = and i32 %.fr109, 15728640
   %.not.i1.i = icmp eq i32 %104, 15728640
   br i1 %.not.i1.i, label %108, label %105
 
 105:                                              ; preds = %102
-  %106 = lshr i32 %.fr108, 20
+  %106 = lshr i32 %.fr109, 20
   %107 = and i32 %106, 15
   br label %_ZNK5clang11AlignedAttr9isAlignasEv.exit
 
@@ -111797,9 +111797,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_22AttributeArgumentNTypeEvEERKS1
   %283 = load ptr, ptr %282, align 8, !tbaa !1762
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 88
   %285 = load i64, ptr %284, align 8
-  %.fr = freeze i64 %285
-  %286 = and i64 %.fr, 256
-  %.not123 = icmp ne i64 %286, 0
+  %.fr123 = freeze i64 %285
+  %286 = and i64 %.fr123, 256
+  %.not124 = icmp ne i64 %286, 0
   br i1 %switch.i, label %287, label %291
 
 287:                                              ; preds = %253
@@ -111834,7 +111834,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_22AttributeArgumentNTypeEvEERKS1
 304:                                              ; preds = %299
   %.off = add i32 %279, -1
   %switch = icmp ult i32 %.off, 5
-  %or.cond = or i1 %.not123, %switch
+  %or.cond = or i1 %.not124, %switch
   br i1 %or.cond, label %.thread, label %305
 
 305:                                              ; preds = %304, %300, %296, %287
@@ -126159,13 +126159,13 @@ _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit2.i4: ; pre
 
 52:                                               ; preds = %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit2.i4
   %53 = load i32, ptr %2, align 4
-  %.fr8 = freeze i32 %53
-  %54 = and i32 %.fr8, 15728640
+  %.fr9 = freeze i32 %53
+  %54 = and i32 %.fr9, 15728640
   %.not.i3.i5 = icmp eq i32 %54, 15728640
   br i1 %.not.i3.i5, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = lshr i32 %.fr8, 20
+  %56 = lshr i32 %.fr9, 20
   %57 = and i32 %56, 15
   br label %_ZNK5clang13OwnershipAttr7isTakesEv.exit
 

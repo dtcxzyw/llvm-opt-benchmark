@@ -35934,10 +35934,10 @@ if.end92:                                         ; preds = %if.end89, %cond.tru
 cond.false:                                       ; preds = %if.end92
   %m_playing_sounds_id_last_used.i = getelementptr inbounds nuw i8, ptr %this, i64 1432
   %43 = load i32, ptr %m_playing_sounds_id_last_used.i, align 8, !tbaa !1064
-  %.fr = freeze i32 %43
-  %cmp28.i = icmp eq i32 %.fr, 2147483647
-  %inc29.i = add nsw i32 %.fr, 1
+  %cmp28.i = icmp eq i32 %43, 2147483647
+  %inc29.i = add nsw i32 %43, 1
   %storemerge30.i = select i1 %cmp28.i, i32 0, i32 %inc29.i
+  %storemerge30.fr.i = freeze i32 %storemerge30.i
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1400
   %44 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %.fr.i = freeze i64 %44
@@ -35950,7 +35950,7 @@ cond.false:                                       ; preds = %if.end92
   br i1 %cmp.not.not.i.i.i, label %do.cond.us.i, label %do.cond.i
 
 do.cond.us.i:                                     ; preds = %cond.false, %do.body.backedge.us.i
-  %storemerge32.us.i = phi i32 [ %storemerge.us.i, %do.body.backedge.us.i ], [ %storemerge30.i, %cond.false ]
+  %storemerge32.us.i = phi i32 [ %storemerge.us.i, %do.body.backedge.us.i ], [ %storemerge30.fr.i, %cond.false ]
   %cmp6.us.i = icmp eq i32 %storemerge32.us.i, 0
   br i1 %cmp6.us.i, label %do.body.backedge.us.i, label %for.cond.i.i.us.i
 
@@ -35970,11 +35970,11 @@ do.body.backedge.us.i:                            ; preds = %for.body.i.i.us.i, 
   %cmp.us.i = icmp eq i32 %storemerge32.us.i, 2147483647
   %inc.us.i = add nsw i32 %storemerge32.us.i, 1
   %storemerge.us.i = select i1 %cmp.us.i, i32 0, i32 %inc.us.i
-  %cmp3.us.i = icmp eq i32 %storemerge.us.i, %.fr
+  %cmp3.us.i = icmp eq i32 %storemerge.us.i, %43
   br i1 %cmp3.us.i, label %cleanup183, label %do.cond.us.i, !llvm.loop !1066
 
 do.cond.i:                                        ; preds = %cond.false, %do.body.backedge.thread.i
-  %storemerge32.i = phi i32 [ %53, %do.body.backedge.thread.i ], [ %storemerge30.i, %cond.false ]
+  %storemerge32.i = phi i32 [ %53, %do.body.backedge.thread.i ], [ %storemerge30.fr.i, %cond.false ]
   %cmp6.i = icmp eq i32 %storemerge32.i, 0
   br i1 %cmp6.i, label %do.body.backedge.thread.i, label %lor.rhs.i
 
@@ -36019,16 +36019,16 @@ do.body.backedge.i:                               ; preds = %for.cond.i.i.i.i.i,
 
 do.body.backedge.thread.i:                        ; preds = %do.body.backedge.i, %do.cond.i
   %53 = phi i32 [ 1, %do.cond.i ], [ %spec.select.i, %do.body.backedge.i ]
-  %cmp3.i = icmp eq i32 %53, %.fr
+  %cmp3.i = icmp eq i32 %53, %43
   br i1 %cmp3.i, label %cleanup183, label %do.cond.i, !llvm.loop !1066
 
 invoke.cont103.sink.split:                        ; preds = %lor.rhs.i, %if.end3.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.cond.i.i.us.i
-  %storemerge27.i.sink62 = phi i32 [ %storemerge32.us.i, %for.cond.i.i.us.i ], [ %storemerge32.i, %if.end3.i.i.i.i.i ], [ %storemerge32.i, %lor.lhs.false.i.i.i.i.i ], [ %storemerge32.i, %lor.rhs.i ]
-  store i32 %storemerge27.i.sink62, ptr %m_playing_sounds_id_last_used.i, align 8, !tbaa !1064
+  %storemerge27.i.sink61 = phi i32 [ %storemerge32.us.i, %for.cond.i.i.us.i ], [ %storemerge32.i, %if.end3.i.i.i.i.i ], [ %storemerge32.i, %lor.lhs.false.i.i.i.i.i ], [ %storemerge32.i, %lor.rhs.i ]
+  store i32 %storemerge27.i.sink61, ptr %m_playing_sounds_id_last_used.i, align 8, !tbaa !1064
   br label %invoke.cont103
 
 invoke.cont103:                                   ; preds = %invoke.cont103.sink.split, %if.end92
-  %storemerge27.i.sink = phi i32 [ -1, %if.end92 ], [ %storemerge27.i.sink62, %invoke.cont103.sink.split ]
+  %storemerge27.i.sink = phi i32 [ -1, %if.end92 ], [ %storemerge27.i.sink61, %invoke.cont103.sink.split ]
   store i32 %storemerge27.i.sink, ptr %id, align 4, !tbaa !522
   %gain100 = getelementptr inbounds nuw i8, ptr %params, i64 4
   %54 = load float, ptr %gain100, align 4, !tbaa !1068

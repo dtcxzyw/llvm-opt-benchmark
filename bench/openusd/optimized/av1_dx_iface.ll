@@ -4105,8 +4105,8 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
   %86 = call i32 @aom_rb_read_bit(ptr noundef nonnull %8) #12
   %87 = call i32 @aom_rb_read_literal(ptr noundef nonnull %8, i32 noundef 5) #12
   %88 = and i32 %87, 255
-  %.fr.i = freeze i32 %86
-  %89 = and i32 %.fr.i, 255
+  %.fr63.i = freeze i32 %86
+  %89 = and i32 %.fr63.i, 255
   %.not47.i = icmp eq i32 %89, 0
   br i1 %.not45.i, label %.split.us.i, label %.split.i
 
@@ -4129,8 +4129,8 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
 
 96:                                               ; preds = %94, %.split.us.split.us.i
   %97 = add nuw nsw i32 %.03553.us.us.i, 1
-  %exitcond68.not.i = icmp eq i32 %.03553.us.us.i, %88
-  br i1 %exitcond68.not.i, label %parse_operating_points.exit, label %.split.us.split.us.i, !llvm.loop !15
+  %exitcond69.not.i = icmp eq i32 %.03553.us.us.i, %88
+  br i1 %exitcond69.not.i, label %parse_operating_points.exit, label %.split.us.split.us.i, !llvm.loop !15
 
 .split.us.split.i:                                ; preds = %.split.us.i, %109
   %.154.us.i = phi i32 [ %spec.select.us.i, %109 ], [ 0, %.split.us.i ]
@@ -4158,8 +4158,8 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
 
 109:                                              ; preds = %107, %104
   %110 = add nuw nsw i32 %.03553.us.i, 1
-  %exitcond67.not.i = icmp eq i32 %.03553.us.i, %88
-  br i1 %exitcond67.not.i, label %parse_operating_points.exit, label %.split.us.split.i, !llvm.loop !15
+  %exitcond68.not.i = icmp eq i32 %.03553.us.i, %88
+  br i1 %exitcond68.not.i, label %parse_operating_points.exit, label %.split.us.split.i, !llvm.loop !15
 
 .split.i:                                         ; preds = %85
   br i1 %.not47.i, label %.split.split.us.i, label %.split.split.i
@@ -4192,8 +4192,8 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
 
 124:                                              ; preds = %120, %117
   %125 = add nuw nsw i32 %.03553.us56.i, 1
-  %exitcond66.not.i = icmp eq i32 %.03553.us56.i, %88
-  br i1 %exitcond66.not.i, label %parse_operating_points.exit, label %.split.split.us.i, !llvm.loop !15
+  %exitcond67.not.i = icmp eq i32 %.03553.us56.i, %88
+  br i1 %exitcond67.not.i, label %parse_operating_points.exit, label %.split.split.us.i, !llvm.loop !15
 
 .split.split.i:                                   ; preds = %.split.i, %144
   %.154.i = phi i32 [ %spec.select.i, %144 ], [ 0, %.split.i ]

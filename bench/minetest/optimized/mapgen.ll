@@ -3718,20 +3718,18 @@ ehcleanup15:                                      ; preds = %lpad11, %ehcleanup
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN6Mapgen17propagateSunlightEN3irr4core8vector3dIsEES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, i48 %nmin.coerce, i48 %nmax.coerce, i1 noundef zeroext %propagate_shadow) local_unnamed_addr #12 align 2 {
 entry:
-  %nmin.coerce.fr = freeze i48 %nmin.coerce
-  %nmax.coerce.fr = freeze i48 %nmax.coerce
-  %nmax.sroa.2.0.extract.shift = lshr i48 %nmax.coerce.fr, 16
+  %nmax.sroa.2.0.extract.shift = lshr i48 %nmax.coerce, 16
   %nmax.sroa.2.0.extract.trunc = trunc i48 %nmax.sroa.2.0.extract.shift to i16
   %water_level = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %water_level, align 4, !tbaa !51
   %conv = sext i16 %nmax.sroa.2.0.extract.trunc to i32
-  %.fr = freeze i32 %0
-  %cmp.not = icmp slt i32 %.fr, %conv
+  %cmp.not = icmp slt i32 %0, %conv
+  %cmp.not.fr = freeze i1 %cmp.not
   %vm = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %vm, align 8, !tbaa !82
   %m_area = getelementptr inbounds nuw i8, ptr %1, i64 8
   %m_cache_extent.i77 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %sh.diff = lshr i48 %nmin.coerce.fr, 16
+  %sh.diff = lshr i48 %nmin.coerce, 16
   %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv4 = ashr i32 %tr.sh.diff, 16
   %tr.sh.diff95 = trunc nuw i48 %nmax.sroa.2.0.extract.shift to i32
@@ -3741,8 +3739,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub8.i.i.i = add i16 %nmax.sroa.2.0.extract.trunc, 1
-  %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce.fr to i32
-  %2 = trunc i48 %nmin.coerce.fr to i32
+  %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i32
+  %2 = trunc i48 %nmin.coerce to i32
   %sext = shl i32 %2, 16
   %conv9 = ashr exact i32 %sext, 16
   %sext96 = shl i32 %nmax.sroa.0.0.extract.trunc, 16
@@ -3755,6 +3753,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %cmp48.not101 = icmp sgt i32 %conv47, %conv
+  %cmp48.not101.fr = freeze i1 %cmp48.not101
   %m_data = getelementptr inbounds nuw i8, ptr %1, i64 32
   %Y.i = getelementptr inbounds nuw i8, ptr %1, i64 22
   %Z.i = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -3767,7 +3766,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %6 = load i16, ptr %m_area, align 2, !tbaa !84
   %conv19.i = sext i16 %6 to i32
   %7 = load ptr, ptr %m_data, align 8, !tbaa !89
-  br i1 %cmp48.not101, label %for.cond.cleanup, label %for.body.preheader
+  br i1 %cmp48.not101.fr, label %for.cond.cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph.split
   %Y9.i = getelementptr inbounds nuw i8, ptr %1, i64 10
@@ -3777,7 +3776,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph.spli
   br i1 %propagate_shadow, label %for.body.preheader.split.us, label %for.body.preheader.split
 
 for.body.preheader.split.us:                      ; preds = %for.body.preheader
-  br i1 %cmp.not, label %for.body.us.us, label %for.body.us
+  br i1 %cmp.not.fr, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.preheader.split.us, %for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split.us.us
   %z.0122.us.us = phi i32 [ %inc67.us.us, %for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split.us.us ], [ %conv4, %for.body.preheader.split.us ]
@@ -3907,7 +3906,7 @@ for.cond10.for.cond.cleanup15_crit_edge.split.split.us29.split: ; preds = %clean
   br i1 %exitcond166.not.us, label %for.cond.cleanup, label %for.body.us, !llvm.loop !184
 
 for.body.preheader.split:                         ; preds = %for.body.preheader
-  br i1 %cmp.not, label %for.body.us32, label %for.body
+  br i1 %cmp.not.fr, label %for.body.us32, label %for.body
 
 for.body.us32:                                    ; preds = %for.body.preheader.split, %for.cond10.for.cond.cleanup15_crit_edge.split.split.us.split.us.us
   %z.0122.us33 = phi i32 [ %inc67.us41, %for.cond10.for.cond.cleanup15_crit_edge.split.split.us.split.us.us ], [ %conv4, %for.body.preheader.split ]

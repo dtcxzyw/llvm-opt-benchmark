@@ -725,16 +725,16 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %41 = xor i16 %.070.i, -1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %43 = load i8, ptr %42, align 1, !tbaa !20
-  %.fr.i = freeze i8 %43
-  %44 = zext i8 %.fr.i to i32
+  %44 = zext i8 %43 to i32
   %45 = add nsw i32 %44, -1
   %.neg.i.i = ashr i32 %45, 31
   %.neg4.i.i = trunc nsw i32 %.neg.i.i to i16
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = trunc i64 %indvars.iv.next.i to i16
   %47 = and i16 %46, %41
   %48 = and i16 %47, %.neg4.i.i
-  %49 = or i16 %48, %.268.i
+  %.fr.i = freeze i16 %48
+  %49 = or i16 %.fr.i, %.268.i
   %50 = or i16 %.070.i, %.neg4.i.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31

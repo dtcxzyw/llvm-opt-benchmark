@@ -1528,8 +1528,8 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread: ; preds 
 
 _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit21: ; preds = %54
   %58 = load i32, ptr %55, align 16
-  %.fr = freeze i32 %58
-  %59 = and i32 %.fr, 267911168
+  %.fr26 = freeze i32 %58
+  %59 = and i32 %.fr26, 267911168
   %60 = icmp eq i32 %59, 261095424
   %spec.select = select i1 %60, i32 6, i32 0
   br label %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit21.thread

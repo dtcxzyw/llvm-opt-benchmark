@@ -1404,40 +1404,39 @@ define dso_local void @_ZN4llvm13LiveRangeCalc9updateSSAEv(ptr noundef nonnull r
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %15
 
-15:                                               ; preds = %._crit_edge176, %1
+15:                                               ; preds = %._crit_edge170, %1
   %16 = load ptr, ptr %4, align 8, !tbaa !45
   %17 = load i32, ptr %5, align 8, !tbaa !41
   %18 = zext i32 %17 to i64
   %.idx = shl nuw nsw i64 %18, 5
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
-  %.not171 = icmp eq i32 %17, 0
-  br i1 %.not171, label %.critedge, label %.lr.ph175
+  %.not165 = icmp eq i32 %17, 0
+  br i1 %.not165, label %.critedge, label %.lr.ph169
 
-._crit_edge176:                                   ; preds = %293
+._crit_edge170:                                   ; preds = %295
   br i1 %.1, label %15, label %.critedge, !llvm.loop !281
 
-.lr.ph175:                                        ; preds = %15, %293
-  %.0173 = phi i1 [ %.1, %293 ], [ false, %15 ]
-  %.064172 = phi ptr [ %294, %293 ], [ %16, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.064172, i64 8
+.lr.ph169:                                        ; preds = %15, %295
+  %.0167 = phi i1 [ %.1, %295 ], [ false, %15 ]
+  %.064166 = phi ptr [ %296, %295 ], [ %16, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.064166, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !174
   %.not79 = icmp eq ptr %21, null
-  br i1 %.not79, label %293, label %22
+  br i1 %.not79, label %295, label %22
 
-22:                                               ; preds = %.lr.ph175
+22:                                               ; preds = %.lr.ph169
   %23 = load ptr, ptr %21, align 8, !tbaa !179
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !282
-  %.fr = freeze ptr %25
-  %.not80 = icmp eq ptr %.fr, null
+  %.not80 = icmp eq ptr %25, null
   br i1 %.not80, label %..thread151_crit_edge, label %26
 
 ..thread151_crit_edge:                            ; preds = %22
-  %.pre180 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre174 = load ptr, ptr %7, align 8, !tbaa !45
   br label %.thread155
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %.fr, align 8, !tbaa !179
+  %27 = load ptr, ptr %25, align 8, !tbaa !179
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !187
   %30 = and i32 %29, 63
@@ -1450,12 +1449,12 @@ define dso_local void @_ZN4llvm13LiveRangeCalc9updateSSAEv(ptr noundef nonnull r
   %37 = load i64, ptr %36, align 8, !tbaa !46
   %38 = and i64 %32, %37
   %.not162 = icmp eq i64 %38, 0
-  %.pre181 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre175 = load ptr, ptr %7, align 8, !tbaa !45
   br i1 %.not162, label %.thread155, label %39
 
 39:                                               ; preds = %26
   %40 = zext i32 %29 to i64
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre181, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre175, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !233
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !234
@@ -1567,21 +1566,21 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
   %102 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %103 = load i32, ptr %102, align 8, !tbaa !41
   %104 = zext i32 %103 to i64
-  %.idx177 = shl nuw nsw i64 %104, 3
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx177
-  %.not84169 = icmp eq i32 %103, 0
-  br i1 %.not84169, label %._crit_edge, label %.lr.ph
+  %.idx171 = shl nuw nsw i64 %104, 3
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx171
+  %.not84163 = icmp eq i32 %103, 0
+  br i1 %.not84163, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %99
-  %106 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %107 = getelementptr inbounds nuw i8, ptr %.fr, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.fr, i64 72
-  %109 = getelementptr inbounds nuw i8, ptr %.fr, i64 76
+  %106 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %109 = getelementptr inbounds nuw i8, ptr %25, i64 76
   br label %110
 
 110:                                              ; preds = %.lr.ph, %.thread142
-  %.072170 = phi ptr [ %101, %.lr.ph ], [ %219, %.thread142 ]
-  %111 = load ptr, ptr %.072170, align 8, !tbaa !255
+  %.072164 = phi ptr [ %101, %.lr.ph ], [ %221, %.thread142 ]
+  %111 = load ptr, ptr %.072164, align 8, !tbaa !255
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load i32, ptr %112, align 8, !tbaa !187
   %114 = zext i32 %113 to i64
@@ -1699,7 +1698,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111:
 
 174:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111, %121
   %175 = phi ptr [ %173, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111 ], [ %123, %121 ]
-  %176 = icmp ne ptr %175, %.fr
+  %176 = icmp ne ptr %175, %25
   %177 = icmp ne ptr %175, null
   %or.cond.i = and i1 %176, %177
   br i1 %or.cond.i, label %178, label %.thread155
@@ -1707,7 +1706,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111:
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !282
-  %181 = icmp eq ptr %180, %.fr
+  %181 = icmp eq ptr %180, %25
   br i1 %181, label %.thread155, label %182
 
 182:                                              ; preds = %178
@@ -1755,187 +1754,185 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit111:
   %207 = getelementptr inbounds nuw i8, ptr %175, i64 76
   %208 = load i32, ptr %207, align 4, !tbaa !298
   %209 = load i32, ptr %109, align 4, !tbaa !298
-  %.fr163 = freeze i32 %208
-  %.fr164 = freeze i32 %209
-  %.not165 = icmp ugt i32 %.fr163, %.fr164
-  br i1 %.not165, label %.thread142, label %..thread160_crit_edge
+  %210 = icmp ule i32 %208, %209
+  %cond.fr140 = freeze i1 %210
+  br i1 %cond.fr140, label %..thread160_crit_edge, label %.thread142
 
 ..thread160_crit_edge:                            ; preds = %206
-  %.pre178 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre172 = load ptr, ptr %7, align 8, !tbaa !45
   br label %.thread155
 
-.preheader.i:                                     ; preds = %197, %212
-  %.0.i.i = phi ptr [ %211, %212 ], [ %175, %197 ]
-  %.0.i.i.fr = freeze ptr %.0.i.i
-  %210 = getelementptr inbounds nuw i8, ptr %.0.i.i.fr, i64 8
-  %211 = load ptr, ptr %210, align 8, !tbaa !282
-  %.not.i22.i = icmp eq ptr %211, null
-  br i1 %.not.i22.i, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, label %212
+.preheader.i:                                     ; preds = %197, %213
+  %.0.i.i = phi ptr [ %212, %213 ], [ %175, %197 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %212 = load ptr, ptr %211, align 8, !tbaa !282
+  %.not.i22.i = icmp eq ptr %212, null
+  br i1 %.not.i22.i, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, label %213
 
-212:                                              ; preds = %.preheader.i
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %214 = load i32, ptr %213, align 8, !tbaa !283
-  %.not7.i.i = icmp ult i32 %214, %186
+213:                                              ; preds = %.preheader.i
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %215 = load i32, ptr %214, align 8, !tbaa !283
+  %.not7.i.i = icmp ult i32 %215, %186
   br i1 %.not7.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, label %.preheader.i, !llvm.loop !299
 
-_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i: ; preds = %212, %.preheader.i
-  %215 = icmp eq ptr %.0.i.i.fr, %.fr
-  br i1 %215, label %.thread155, label %.thread142
+_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i: ; preds = %213, %.preheader.i
+  %216 = icmp eq ptr %.0.i.i, %25
+  %cond.fr139 = freeze i1 %216
+  br i1 %cond.fr139, label %.thread155, label %.thread142
 
 _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit: ; preds = %193
-  %216 = getelementptr inbounds nuw i8, ptr %175, i64 76
-  %217 = load i32, ptr %216, align 4, !tbaa !298
-  %218 = load i32, ptr %109, align 4, !tbaa !298
-  %.fr166 = freeze i32 %217
-  %.fr167 = freeze i32 %218
-  %.not168 = icmp ugt i32 %.fr166, %.fr167
-  br i1 %.not168, label %.thread142, label %.thread155
+  %217 = getelementptr inbounds nuw i8, ptr %175, i64 76
+  %218 = load i32, ptr %217, align 4, !tbaa !298
+  %219 = load i32, ptr %109, align 4, !tbaa !298
+  %220 = icmp ule i32 %218, %219
+  %cond.fr = freeze i1 %220
+  br i1 %cond.fr, label %.thread155, label %.thread142
 
 .thread142:                                       ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %206, %202, %182, %185, %193, %110
-  %219 = getelementptr inbounds nuw i8, ptr %.072170, i64 8
-  %.not84 = icmp eq ptr %219, %105
+  %221 = getelementptr inbounds nuw i8, ptr %.072164, i64 8
+  %.not84 = icmp eq ptr %221, %105
   br i1 %.not84, label %._crit_edge.loopexit, label %110
 
 ._crit_edge.loopexit:                             ; preds = %.thread142
-  %.pre179 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre173 = load ptr, ptr %7, align 8, !tbaa !45
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %99
-  %220 = phi ptr [ %.pre179, %._crit_edge.loopexit ], [ %.pre181, %99 ]
-  %221 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %222 = load i32, ptr %221, align 8, !tbaa !187
-  %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds nuw %"struct.std::pair", ptr %220, i64 %223
-  %225 = icmp ne ptr %42, null
-  %226 = icmp ne ptr %42, @_ZL8UndefVNI
-  %or.cond9 = and i1 %225, %226
-  br i1 %or.cond9, label %284, label %293
+  %222 = phi ptr [ %.pre173, %._crit_edge.loopexit ], [ %.pre175, %99 ]
+  %223 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %224 = load i32, ptr %223, align 8, !tbaa !187
+  %225 = zext i32 %224 to i64
+  %226 = getelementptr inbounds nuw %"struct.std::pair", ptr %222, i64 %225
+  %227 = icmp ne ptr %42, null
+  %228 = icmp ne ptr %42, @_ZL8UndefVNI
+  %or.cond9 = and i1 %227, %228
+  br i1 %or.cond9, label %286, label %295
 
 .thread155:                                       ; preds = %178, %174, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %119, %..thread160_crit_edge, %26, %..thread151_crit_edge
-  %.sink = phi ptr [ %.pre181, %26 ], [ %.pre178, %..thread160_crit_edge ], [ %.pre180, %..thread151_crit_edge ], [ %115, %119 ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i ], [ %115, %174 ], [ %115, %178 ]
-  %227 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %228 = load i32, ptr %227, align 8, !tbaa !187
-  %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink, i64 %229
-  %231 = load ptr, ptr %9, align 8, !tbaa !171
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 144
-  %233 = load ptr, ptr %232, align 8, !tbaa !45
-  %234 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %233, i64 %229
-  %235 = load i64, ptr %234, align 8, !tbaa !231
-  %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %.sink = phi ptr [ %.pre175, %26 ], [ %.pre172, %..thread160_crit_edge ], [ %.pre174, %..thread151_crit_edge ], [ %115, %119 ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit ], [ %115, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i ], [ %115, %174 ], [ %115, %178 ]
+  %229 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %230 = load i32, ptr %229, align 8, !tbaa !187
+  %231 = zext i32 %230 to i64
+  %232 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink, i64 %231
+  %233 = load ptr, ptr %9, align 8, !tbaa !171
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 144
+  %235 = load ptr, ptr %234, align 8, !tbaa !45
+  %236 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %235, i64 %231
   %237 = load i64, ptr %236, align 8, !tbaa !231
-  %238 = load ptr, ptr %.064172, align 8, !tbaa !235
-  %239 = load ptr, ptr %10, align 8, !tbaa !173
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 80
-  %241 = load i64, ptr %240, align 8, !tbaa !300
-  %242 = add i64 %241, 16
-  store i64 %242, ptr %240, align 8, !tbaa !300
-  %243 = load ptr, ptr %239, align 8, !tbaa !301
-  %244 = ptrtoint ptr %243 to i64
-  %245 = add i64 %244, 15
-  %246 = and i64 %245, -16
-  %247 = add i64 %246, 16
-  %248 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  %249 = load ptr, ptr %248, align 8, !tbaa !302
-  %250 = ptrtoint ptr %249 to i64
-  %.not.i.i.i.i = icmp ule i64 %247, %250
-  %251 = icmp ne ptr %243, null
-  %252 = and i1 %251, %.not.i.i.i.i
-  br i1 %252, label %253, label %256, !prof !260
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %239 = load i64, ptr %238, align 8, !tbaa !231
+  %240 = load ptr, ptr %.064166, align 8, !tbaa !235
+  %241 = load ptr, ptr %10, align 8, !tbaa !173
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 80
+  %243 = load i64, ptr %242, align 8, !tbaa !300
+  %244 = add i64 %243, 16
+  store i64 %244, ptr %242, align 8, !tbaa !300
+  %245 = load ptr, ptr %241, align 8, !tbaa !301
+  %246 = ptrtoint ptr %245 to i64
+  %247 = add i64 %246, 15
+  %248 = and i64 %247, -16
+  %249 = add i64 %248, 16
+  %250 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %251 = load ptr, ptr %250, align 8, !tbaa !302
+  %252 = ptrtoint ptr %251 to i64
+  %.not.i.i.i.i = icmp ule i64 %249, %252
+  %253 = icmp ne ptr %245, null
+  %254 = and i1 %253, %.not.i.i.i.i
+  br i1 %254, label %255, label %258, !prof !260
 
-253:                                              ; preds = %.thread155
-  %254 = inttoptr i64 %247 to ptr
-  store ptr %254, ptr %239, align 8, !tbaa !301
-  %255 = inttoptr i64 %246 to ptr
+255:                                              ; preds = %.thread155
+  %256 = inttoptr i64 %249 to ptr
+  store ptr %256, ptr %241, align 8, !tbaa !301
+  %257 = inttoptr i64 %248 to ptr
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i
 
-256:                                              ; preds = %.thread155
-  %257 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %239, i64 noundef 16, i64 noundef 16, i8 4)
+258:                                              ; preds = %.thread155
+  %259 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %241, i64 noundef 16, i64 noundef 16, i8 4)
   br label %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i
 
-_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i: ; preds = %256, %253
-  %.0.i.i.i.i = phi ptr [ %255, %253 ], [ %257, %256 ]
-  %258 = getelementptr inbounds nuw i8, ptr %238, i64 64
-  %259 = getelementptr inbounds nuw i8, ptr %238, i64 72
-  %260 = load i32, ptr %259, align 8, !tbaa !41
-  store i32 %260, ptr %.0.i.i.i.i, align 8, !tbaa !303
-  %261 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i64 %235, ptr %261, align 8, !tbaa !231
-  %262 = load i32, ptr %259, align 8, !tbaa !41
-  %263 = getelementptr inbounds nuw i8, ptr %238, i64 76
-  %264 = load i32, ptr %263, align 4, !tbaa !43
-  %.not.i.i.not.i.i = icmp ult i32 %262, %264
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit, label %265, !prof !260
+_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i: ; preds = %258, %255
+  %.0.i.i.i.i = phi ptr [ %257, %255 ], [ %259, %258 ]
+  %260 = getelementptr inbounds nuw i8, ptr %240, i64 64
+  %261 = getelementptr inbounds nuw i8, ptr %240, i64 72
+  %262 = load i32, ptr %261, align 8, !tbaa !41
+  store i32 %262, ptr %.0.i.i.i.i, align 8, !tbaa !303
+  %263 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i64 %237, ptr %263, align 8, !tbaa !231
+  %264 = load i32, ptr %261, align 8, !tbaa !41
+  %265 = getelementptr inbounds nuw i8, ptr %240, i64 76
+  %266 = load i32, ptr %265, align 4, !tbaa !43
+  %.not.i.i.not.i.i = icmp ult i32 %264, %266
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit, label %267, !prof !260
 
-265:                                              ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i
-  %266 = zext i32 %262 to i64
-  %267 = add nuw nsw i64 %266, 1
-  %268 = getelementptr inbounds nuw i8, ptr %238, i64 80
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %258, ptr noundef nonnull %268, i64 noundef %267, i64 noundef 8) #13
-  %.pre.i.i = load i32, ptr %259, align 8, !tbaa !41
+267:                                              ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i
+  %268 = zext i32 %264 to i64
+  %269 = add nuw nsw i64 %268, 1
+  %270 = getelementptr inbounds nuw i8, ptr %240, i64 80
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull %270, i64 noundef %269, i64 noundef 8) #13
+  %.pre.i.i = load i32, ptr %261, align 8, !tbaa !41
   br label %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit
 
-_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i, %265
-  %269 = phi i32 [ %262, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i ], [ %.pre.i.i, %265 ]
-  %270 = load ptr, ptr %258, align 8, !tbaa !45
-  %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
-  %273 = ptrtoint ptr %.0.i.i.i.i to i64
-  store i64 %273, ptr %272, align 1
-  %274 = load i32, ptr %259, align 8, !tbaa !41
-  %275 = add i32 %274, 1
-  store i32 %275, ptr %259, align 8, !tbaa !41
-  %276 = getelementptr inbounds nuw i8, ptr %.064172, i64 24
-  store ptr %.0.i.i.i.i, ptr %276, align 8, !tbaa !244
+_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i, %267
+  %271 = phi i32 [ %264, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i ], [ %.pre.i.i, %267 ]
+  %272 = load ptr, ptr %260, align 8, !tbaa !45
+  %273 = zext i32 %271 to i64
+  %274 = getelementptr inbounds nuw ptr, ptr %272, i64 %273
+  %275 = ptrtoint ptr %.0.i.i.i.i to i64
+  store i64 %275, ptr %274, align 1
+  %276 = load i32, ptr %261, align 8, !tbaa !41
+  %277 = add i32 %276, 1
+  store i32 %277, ptr %261, align 8, !tbaa !41
+  %278 = getelementptr inbounds nuw i8, ptr %.064166, i64 24
+  store ptr %.0.i.i.i.i, ptr %278, align 8, !tbaa !244
   store ptr null, ptr %20, align 8, !tbaa !174
-  %277 = getelementptr inbounds nuw i8, ptr %.064172, i64 16
-  %.0.copyload.i.i.i.i = load i64, ptr %277, align 8
-  %278 = icmp ugt i64 %.0.copyload.i.i.i.i, 7
-  br i1 %278, label %279, label %281
-
-279:                                              ; preds = %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit
-  store i64 %235, ptr %2, align 8, !tbaa !231
-  store i64 %.0.copyload.i.i.i.i, ptr %13, align 8, !tbaa !231
-  store ptr %.0.i.i.i.i, ptr %14, align 8, !tbaa !245
-  %280 = tail call noundef ptr @_ZN4llvm9LiveRange10addSegmentENS0_7SegmentE(ptr noundef nonnull align 8 dereferenceable(104) %238, ptr noundef nonnull byval(%"struct.llvm::LiveRange::Segment") align 8 %2) #13
-  br label %293
+  %279 = getelementptr inbounds nuw i8, ptr %.064166, i64 16
+  %.0.copyload.i.i.i.i = load i64, ptr %279, align 8
+  %280 = icmp ugt i64 %.0.copyload.i.i.i.i, 7
+  br i1 %280, label %281, label %283
 
 281:                                              ; preds = %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit
-  store i64 %235, ptr %3, align 8, !tbaa !231
-  store i64 %237, ptr %11, align 8, !tbaa !231
+  store i64 %237, ptr %2, align 8, !tbaa !231
+  store i64 %.0.copyload.i.i.i.i, ptr %13, align 8, !tbaa !231
+  store ptr %.0.i.i.i.i, ptr %14, align 8, !tbaa !245
+  %282 = tail call noundef ptr @_ZN4llvm9LiveRange10addSegmentENS0_7SegmentE(ptr noundef nonnull align 8 dereferenceable(104) %240, ptr noundef nonnull byval(%"struct.llvm::LiveRange::Segment") align 8 %2) #13
+  br label %295
+
+283:                                              ; preds = %_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE.exit
+  store i64 %237, ptr %3, align 8, !tbaa !231
+  store i64 %239, ptr %11, align 8, !tbaa !231
   store ptr %.0.i.i.i.i, ptr %12, align 8, !tbaa !245
-  %282 = tail call noundef ptr @_ZN4llvm9LiveRange10addSegmentENS0_7SegmentE(ptr noundef nonnull align 8 dereferenceable(104) %238, ptr noundef nonnull byval(%"struct.llvm::LiveRange::Segment") align 8 %3) #13
-  store ptr %.0.i.i.i.i, ptr %230, align 8, !tbaa !233
-  %283 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store ptr %21, ptr %283, align 8, !tbaa !234
-  br label %293
+  %284 = tail call noundef ptr @_ZN4llvm9LiveRange10addSegmentENS0_7SegmentE(ptr noundef nonnull align 8 dereferenceable(104) %240, ptr noundef nonnull byval(%"struct.llvm::LiveRange::Segment") align 8 %3) #13
+  store ptr %.0.i.i.i.i, ptr %232, align 8, !tbaa !233
+  %285 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  store ptr %21, ptr %285, align 8, !tbaa !234
+  br label %295
 
-284:                                              ; preds = %._crit_edge
-  %285 = getelementptr inbounds nuw i8, ptr %.064172, i64 24
-  store ptr %42, ptr %285, align 8, !tbaa !244
-  %286 = getelementptr inbounds nuw i8, ptr %.064172, i64 16
-  %.0.copyload.i.i.i.i113 = load i64, ptr %286, align 8
-  %287 = icmp ugt i64 %.0.copyload.i.i.i.i113, 7
-  br i1 %287, label %293, label %288
+286:                                              ; preds = %._crit_edge
+  %287 = getelementptr inbounds nuw i8, ptr %.064166, i64 24
+  store ptr %42, ptr %287, align 8, !tbaa !244
+  %288 = getelementptr inbounds nuw i8, ptr %.064166, i64 16
+  %.0.copyload.i.i.i.i113 = load i64, ptr %288, align 8
+  %289 = icmp ugt i64 %.0.copyload.i.i.i.i113, 7
+  br i1 %289, label %295, label %290
 
-288:                                              ; preds = %284
-  %289 = load ptr, ptr %224, align 8, !tbaa !233
-  %290 = icmp eq ptr %289, %42
-  br i1 %290, label %293, label %291
+290:                                              ; preds = %286
+  %291 = load ptr, ptr %226, align 8, !tbaa !233
+  %292 = icmp eq ptr %291, %42
+  br i1 %292, label %295, label %293
 
-291:                                              ; preds = %288
-  store ptr %42, ptr %224, align 8, !tbaa !233
-  %292 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store ptr %.sroa.9.1, ptr %292, align 8, !tbaa !234
-  br label %293
+293:                                              ; preds = %290
+  store ptr %42, ptr %226, align 8, !tbaa !233
+  %294 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store ptr %.sroa.9.1, ptr %294, align 8, !tbaa !234
+  br label %295
 
-293:                                              ; preds = %284, %288, %._crit_edge, %291, %279, %281, %.lr.ph175
-  %.1 = phi i1 [ %.0173, %.lr.ph175 ], [ %.0173, %288 ], [ %.0173, %284 ], [ %.0173, %._crit_edge ], [ true, %291 ], [ true, %279 ], [ true, %281 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.064172, i64 32
-  %.not = icmp eq ptr %294, %19
-  br i1 %.not, label %._crit_edge176, label %.lr.ph175
+295:                                              ; preds = %286, %290, %._crit_edge, %293, %281, %283, %.lr.ph169
+  %.1 = phi i1 [ %.0167, %.lr.ph169 ], [ %.0167, %290 ], [ %.0167, %286 ], [ %.0167, %._crit_edge ], [ true, %293 ], [ true, %281 ], [ true, %283 ]
+  %296 = getelementptr inbounds nuw i8, ptr %.064166, i64 32
+  %.not = icmp eq ptr %296, %19
+  br i1 %.not, label %._crit_edge170, label %.lr.ph169
 
-.critedge:                                        ; preds = %15, %._crit_edge176
+.critedge:                                        ; preds = %15, %._crit_edge170
   ret void
 }
 

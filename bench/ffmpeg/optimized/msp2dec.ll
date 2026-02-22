@@ -22,8 +22,8 @@ define internal i32 @msp2_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8, !tbaa !16
-  %.fr132 = freeze i32 %10
-  %11 = add nsw i32 %.fr132, 7
+  %.fr = freeze i32 %10
+  %11 = add nsw i32 %.fr, 7
   %12 = sdiv i32 %11, 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %14 = load i32, ptr %13, align 4, !tbaa !30
@@ -58,7 +58,7 @@ bytestream2_init.exit:                            ; preds = %20
 
 .lr.ph129:                                        ; preds = %bytestream2_init.exit
   %28 = ptrtoint ptr %26 to i64
-  %29 = add i32 %.fr132, -1
+  %29 = add i32 %.fr, -1
   %30 = icmp ult i32 %29, -15
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = zext i32 %12 to i64

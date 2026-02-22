@@ -13810,10 +13810,10 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %24, %25
   br label %_ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i:   ; preds = %.thread21.i.i.i, %27
-  %.027.i.i.i = phi ptr [ @_ZN4llvmL14LoadFP32ImmArrE, %27 ], [ %48, %.thread21.i.i.i ]
-  %.01126.i.i.i = phi i64 [ 30, %27 ], [ %47, %.thread21.i.i.i ]
-  %32 = lshr i64 %.01126.i.i.i, 1
-  %33 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %.027.i.i.i, i64 %32
+  %.026.i.i.i = phi ptr [ @_ZN4llvmL14LoadFP32ImmArrE, %27 ], [ %48, %.thread21.i.i.i ]
+  %.01125.i.i.i = phi i64 [ 30, %27 ], [ %47, %.thread21.i.i.i ]
+  %32 = lshr i64 %.01125.i.i.i, 1
+  %33 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %.026.i.i.i, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !91
   %35 = icmp ult i8 %34, %.sroa.0.0.extract.trunc
   br i1 %35, label %.thread.i.i.i, label %39
@@ -13821,7 +13821,7 @@ _ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i:   ; preds = %.thread21.i.i.i, %2
 .thread.i.i.i:                                    ; preds = %_ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %37 = xor i64 %32, -1
-  %38 = add nsw i64 %.01126.i.i.i, %37
+  %38 = add nsw i64 %.01125.i.i.i, %37
   br label %.thread21.i.i.i
 
 39:                                               ; preds = %_ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i
@@ -13831,18 +13831,18 @@ _ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i:   ; preds = %.thread21.i.i.i, %2
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt4pairIhhES5_EEbT_RT0_.exit.i.i.i: ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !93
-  %.fr.i.i.i = freeze i8 %42
-  %43 = icmp ult i8 %.fr.i.i.i, %30
+  %.fr = freeze i8 %42
+  %43 = icmp ult i8 %.fr, %30
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %45 = xor i64 %32, -1
-  %46 = add nsw i64 %.01126.i.i.i, %45
+  %46 = add nsw i64 %.01125.i.i.i, %45
   %spec.select.i.i.i = select i1 %43, i64 %46, i64 %32
-  %spec.select25.i.i.i = select i1 %43, ptr %44, ptr %.027.i.i.i
+  %spec.select24.i.i.i = select i1 %43, ptr %44, ptr %.026.i.i.i
   br label %.thread21.i.i.i
 
 .thread21.i.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt4pairIhhES5_EEbT_RT0_.exit.i.i.i, %39, %.thread.i.i.i
   %47 = phi i64 [ %32, %39 ], [ %spec.select.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt4pairIhhES5_EEbT_RT0_.exit.i.i.i ], [ %38, %.thread.i.i.i ]
-  %48 = phi ptr [ %.027.i.i.i, %39 ], [ %spec.select25.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt4pairIhhES5_EEbT_RT0_.exit.i.i.i ], [ %36, %.thread.i.i.i ]
+  %48 = phi ptr [ %.026.i.i.i, %39 ], [ %spec.select24.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt4pairIhhES5_EEbT_RT0_.exit.i.i.i ], [ %36, %.thread.i.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKSt4pairIhhElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRA30_KSt4pairIhhES2_EEDaOT_OT0_.exit, !llvm.loop !94
 

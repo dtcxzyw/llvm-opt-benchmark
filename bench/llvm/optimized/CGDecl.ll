@@ -10461,8 +10461,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS_8QualT
   %11 = load ptr, ptr %10, align 8, !tbaa !656
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
-  %.fr4.i = freeze i64 %13
-  %14 = and i64 %.fr4.i, 8796093022208
+  %.fr5.i = freeze i64 %13
+  %14 = and i64 %.fr5.i, 8796093022208
   %.not.i.i = icmp eq i64 %14, 0
   br i1 %7, label %15, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
 
@@ -10473,8 +10473,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS_8QualT
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %18 = load ptr, ptr %17, align 8, !tbaa !711
   %19 = load i64, ptr %18, align 8
-  %.fr.i = freeze i64 %19
-  %20 = and i64 %.fr.i, 512
+  %.fr4.i = freeze i64 %19
+  %20 = and i64 %.fr4.i, 512
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %21
 
@@ -10572,8 +10572,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31pushDestroyAndDeferDe
   %10 = load ptr, ptr %9, align 8, !tbaa !656
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
-  %.fr4.i = freeze i64 %12
-  %13 = and i64 %.fr4.i, 8796093022208
+  %.fr5.i = freeze i64 %12
+  %13 = and i64 %.fr5.i, 8796093022208
   %.not.i.i = icmp eq i64 %13, 0
   br i1 %6, label %14, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.i
 
@@ -10584,8 +10584,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31pushDestroyAndDeferDe
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %17 = load ptr, ptr %16, align 8, !tbaa !711
   %18 = load i64, ptr %17, align 8
-  %.fr.i = freeze i64 %18
-  %19 = and i64 %.fr.i, 512
+  %.fr4.i = freeze i64 %18
+  %19 = and i64 %.fr4.i, 512
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %_ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKindE.exit.thread, label %20
 
@@ -12509,18 +12509,17 @@ _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit: ; preds = %335, 
 371:                                              ; preds = %.thread355
   %372 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #20
   %373 = load ptr, ptr %372, align 8, !tbaa !670
-  %.fr.i = freeze ptr %373
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %375 = load i32, ptr %374, align 8, !tbaa !671
-  %.fr20.i = freeze i32 %375
-  %376 = zext i32 %.fr20.i to i64
+  %376 = zext i32 %375 to i64
   %.idx.i.i.i = shl nuw nsw i64 %376, 3
-  %377 = getelementptr i8, ptr %.fr.i, i64 %.idx.i.i.i
-  %.not.i.i.i = icmp eq i32 %.fr20.i, 0
+  %377 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i.i.i
+  %.fr.i = freeze ptr %377
+  %.not.i.i.i = icmp eq i32 %375, 0
   br i1 %.not.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread17.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %371, %382
-  %.sroa.07.1.i.i.i.i.i = phi ptr [ %383, %382 ], [ %.fr.i, %371 ]
+  %.sroa.07.1.i.i.i.i.i = phi ptr [ %383, %382 ], [ %373, %371 ]
   %378 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !672
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 32
   %380 = load i16, ptr %379, align 8
@@ -12529,11 +12528,11 @@ _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit: ; preds = %335, 
 
 382:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %383 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i192 = icmp eq ptr %383, %377
+  %.not.i.i.i.i.i.i192 = icmp eq ptr %383, %.fr.i
   br i1 %.not.i.i.i.i.i.i192, label %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread17.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1319
 
 _ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not.i194 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %377
+  %.not.i194 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %.fr.i
   %spec.select.i = select i1 %.not.i194, ptr @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE, ptr @_ZN5clang7CodeGen15CodeGenFunction23destroyARCStrongPreciseERS1_NS0_7AddressENS_8QualTypeE
   br label %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit.thread17.i
 

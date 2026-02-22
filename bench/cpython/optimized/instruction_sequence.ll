@@ -1056,8 +1056,8 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
   %15 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2, !tbaa !25
-  %.fr = freeze i16 %17
-  %18 = and i16 %.fr, 8
+  %.fr26 = freeze i16 %17
+  %18 = and i16 %.fr26, 8
   %.not = icmp ne i16 %18, 0
   %19 = add i32 %13, -262
   %20 = icmp ult i32 %19, 3
@@ -1917,8 +1917,8 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
   %16 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !25
-  %.fr.i.i = freeze i16 %18
-  %19 = and i16 %.fr.i.i, 8
+  %.fr26.i.i = freeze i16 %18
+  %19 = and i16 %.fr26.i.i, 8
   %.not.i32.i = icmp ne i16 %19, 0
   %20 = add i32 %14, -262
   %21 = icmp ult i32 %20, 3

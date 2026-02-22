@@ -60503,7 +60503,6 @@ _ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char
   %retval.sroa.0.0.copyload.i = load i64, ptr %value.i, align 8
   %retval.sroa.3.0.value.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 24
   %retval.sroa.3.0.copyload.i = load ptr, ptr %retval.sroa.3.0.value.sroa_idx.i, align 8
-  %retval.sroa.3.0.copyload.i.fr = freeze ptr %retval.sroa.3.0.copyload.i
   %cmp.i = icmp eq i64 %retval.sroa.0.0.copyload.i, 0
   br i1 %cmp.i, label %if.end15, label %if.end6.i.i
 
@@ -60512,13 +60511,13 @@ if.end6.i.i:                                      ; preds = %_ZN7cinatra17coro_h
   br i1 %cmp11.not20.i.i, label %if.end6.i.i11, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end6.i.i
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i.fr, i64 %retval.sroa.0.0.copyload.i
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
   %sub.ptr.lhs.cast20.i.i = ptrtoint ptr %add.ptr9.i.i to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %if.end19.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body.lr.ph.i.i ], [ %sub.ptr.sub22.i.i, %if.end19.i.i ]
-  %__first.021.i.i = phi ptr [ %retval.sroa.3.0.copyload.i.fr, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i5, %if.end19.i.i ]
+  %__first.021.i.i = phi ptr [ %retval.sroa.3.0.copyload.i, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i5, %if.end19.i.i ]
   %add.i.i = add i64 %__len.022.i.i, -32
   %call.i.i.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %__first.021.i.i, i32 noundef 97, i64 noundef %add.i.i) #34
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
@@ -60538,7 +60537,7 @@ if.end19.i.i:                                     ; preds = %_ZNSt11char_traitsI
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %retval.sroa.3.0.copyload.i.fr to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %retval.sroa.3.0.copyload.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i.i, -1
   br i1 %cmp.not, label %if.end6.i.i11, label %return
@@ -60548,13 +60547,13 @@ if.end6.i.i11:                                    ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not20.i.i13, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71.thread, label %while.body.lr.ph.i.i14
 
 while.body.lr.ph.i.i14:                           ; preds = %if.end6.i.i11
-  %add.ptr9.i.i15 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i.fr, i64 %retval.sroa.0.0.copyload.i
+  %add.ptr9.i.i15 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
   %sub.ptr.lhs.cast20.i.i17 = ptrtoint ptr %add.ptr9.i.i15 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i18
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i18:   ; preds = %if.end19.i.i28, %while.body.lr.ph.i.i14
   %__len.022.i.i19 = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body.lr.ph.i.i14 ], [ %sub.ptr.sub22.i.i31, %if.end19.i.i28 ]
-  %__first.021.i.i20 = phi ptr [ %retval.sroa.3.0.copyload.i.fr, %while.body.lr.ph.i.i14 ], [ %incdec.ptr.i.i29, %if.end19.i.i28 ]
+  %__first.021.i.i20 = phi ptr [ %retval.sroa.3.0.copyload.i, %while.body.lr.ph.i.i14 ], [ %incdec.ptr.i.i29, %if.end19.i.i28 ]
   %add.i.i22 = add i64 %__len.022.i.i19, -18
   %call.i.i.i23 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %__first.021.i.i20, i32 noundef 109, i64 noundef %add.i.i22) #34
   %tobool.not.i.i24 = icmp eq ptr %call.i.i.i23, null
@@ -60574,7 +60573,7 @@ if.end19.i.i28:                                   ; preds = %_ZNSt11char_traitsI
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit38: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i25
   %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %call.i.i.i23 to i64
-  %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %retval.sroa.3.0.copyload.i.fr to i64
+  %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %retval.sroa.3.0.copyload.i to i64
   %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
   %cmp8.not = icmp eq i64 %sub.ptr.sub.i.i36, -1
   br i1 %cmp8.not, label %if.end6.i.i44, label %return
@@ -60584,36 +60583,36 @@ if.end6.i.i44:                                    ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not20.i.i46, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71.thread, label %while.body.lr.ph.i.i47
 
 while.body.lr.ph.i.i47:                           ; preds = %if.end6.i.i44
-  %add.ptr9.i.i48 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i.fr, i64 %retval.sroa.0.0.copyload.i
+  %add.ptr9.i.i48 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
   %sub.ptr.lhs.cast20.i.i50 = ptrtoint ptr %add.ptr9.i.i48 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i51
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i51:   ; preds = %if.end19.i.i61, %while.body.lr.ph.i.i47
   %__len.022.i.i52 = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body.lr.ph.i.i47 ], [ %sub.ptr.sub22.i.i64, %if.end19.i.i61 ]
-  %__first.021.i.i53 = phi ptr [ %retval.sroa.3.0.copyload.i.fr, %while.body.lr.ph.i.i47 ], [ %incdec.ptr.i.i62, %if.end19.i.i61 ]
+  %__first.021.i.i53 = phi ptr [ %retval.sroa.3.0.copyload.i, %while.body.lr.ph.i.i47 ], [ %incdec.ptr.i.i62, %if.end19.i.i61 ]
   %add.i.i55 = add i64 %__len.022.i.i52, -23
   %call.i.i.i56 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %__first.021.i.i53, i32 noundef 97, i64 noundef %add.i.i55) #34
-  %call.i.i.i56.fr = freeze ptr %call.i.i.i56
-  %tobool.not.i.i57 = icmp eq ptr %call.i.i.i56.fr, null
+  %tobool.not.i.i57 = icmp eq ptr %call.i.i.i56, null
   br i1 %tobool.not.i.i57, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i58
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i58: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i51
-  %bcmp.i.i59 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %call.i.i.i56.fr, ptr noundef nonnull dereferenceable(24) @.str.122, i64 24)
+  %bcmp.i.i59 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %call.i.i.i56, ptr noundef nonnull dereferenceable(24) @.str.122, i64 24)
   %cmp16.i.i60 = icmp eq i32 %bcmp.i.i59, 0
   br i1 %cmp16.i.i60, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71, label %if.end19.i.i61
 
 if.end19.i.i61:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i58
-  %incdec.ptr.i.i62 = getelementptr inbounds nuw i8, ptr %call.i.i.i56.fr, i64 1
+  %incdec.ptr.i.i62 = getelementptr inbounds nuw i8, ptr %call.i.i.i56, i64 1
   %sub.ptr.rhs.cast21.i.i63 = ptrtoint ptr %incdec.ptr.i.i62 to i64
   %sub.ptr.sub22.i.i64 = sub i64 %sub.ptr.lhs.cast20.i.i50, %sub.ptr.rhs.cast21.i.i63
   %cmp11.not.i.i65 = icmp ult i64 %sub.ptr.sub22.i.i64, 24
   br i1 %cmp11.not.i.i65, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i51, !llvm.loop !29
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i58
-  %sub.ptr.lhs.cast.i.i67 = ptrtoint ptr %call.i.i.i56.fr to i64
-  %sub.ptr.rhs.cast.i.i68 = ptrtoint ptr %retval.sroa.3.0.copyload.i.fr to i64
+  %sub.ptr.lhs.cast.i.i67 = ptrtoint ptr %call.i.i.i56 to i64
+  %sub.ptr.rhs.cast.i.i68 = ptrtoint ptr %retval.sroa.3.0.copyload.i to i64
   %sub.ptr.sub.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i67, %sub.ptr.rhs.cast.i.i68
-  %cmp12.not = icmp eq i64 %sub.ptr.sub.i.i69, -1
+  %sub.ptr.sub.i.i69.fr = freeze i64 %sub.ptr.sub.i.i69
+  %cmp12.not = icmp eq i64 %sub.ptr.sub.i.i69.fr, -1
   br i1 %cmp12.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71.thread, label %return
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71.thread: ; preds = %if.end19.i.i61, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i51, %if.end6.i.i11, %if.end6.i.i44, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit71

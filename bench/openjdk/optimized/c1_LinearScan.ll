@@ -19251,14 +19251,12 @@ _ZN10LinearScan14is_block_beginEi.exit:           ; preds = %37
   %44 = sext i32 %41 to i64
   %45 = getelementptr inbounds ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %.fr = freeze ptr %46
   %47 = add nsw i32 %5, -1
   %48 = ashr i32 %47, 1
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %43, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %.fr31 = freeze ptr %51
-  %.not = icmp eq ptr %.fr, %.fr31
+  %.not = icmp eq ptr %46, %51
   br i1 %.not, label %52, label %_ZN10LinearScan14is_block_beginEi.exit22
 
 52:                                               ; preds = %_ZN10LinearScan14is_block_beginEi.exit
@@ -19289,145 +19287,146 @@ _ZN10LinearScan14is_block_beginEi.exit:           ; preds = %37
 
 _ZN10LinearScan14is_block_beginEi.exit22:         ; preds = %54, %55, %57, %60, %_ZN10LinearScan14is_block_beginEi.exit
   %61 = phi i8 [ 0, %_ZN10LinearScan14is_block_beginEi.exit ], [ 1, %54 ], [ 1, %57 ], [ 0, %55 ], [ 0, %60 ]
-  %.not32 = icmp eq ptr %.fr, %.fr31
-  %62 = or i32 %47, 1
-  %spec.select = select i1 %.not32, i32 %62, i32 %5
+  %62 = icmp ne ptr %46, %51
+  %63 = or i32 %47, 1
+  %cond.fr = freeze i1 %62
+  %spec.select = select i1 %cond.fr, i32 %5, i32 %63
   br label %_ZN10LinearScan14is_block_beginEi.exit22.thread
 
 _ZN10LinearScan14is_block_beginEi.exit22.thread:  ; preds = %_ZN10LinearScan14is_block_beginEi.exit22, %37
-  %63 = phi i8 [ %61, %_ZN10LinearScan14is_block_beginEi.exit22 ], [ 0, %37 ]
-  %64 = phi i32 [ %spec.select, %_ZN10LinearScan14is_block_beginEi.exit22 ], [ 0, %37 ]
-  %65 = tail call noundef ptr @_ZN8Interval5splitEi(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %64)
-  %66 = load ptr, ptr %38, align 8
-  tail call void @_ZN10LinearScan15append_intervalEP8Interval(ptr noundef nonnull align 8 dereferenceable(256) %66, ptr noundef %65)
+  %64 = phi i8 [ %61, %_ZN10LinearScan14is_block_beginEi.exit22 ], [ 0, %37 ]
+  %65 = phi i32 [ %spec.select, %_ZN10LinearScan14is_block_beginEi.exit22 ], [ 0, %37 ]
+  %66 = tail call noundef ptr @_ZN8Interval5splitEi(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %65)
   %67 = load ptr, ptr %38, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %1, align 8
-  %71 = tail call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %69, i32 noundef %70, i32 noundef 2) #22
-  br i1 %71, label %72, label %75
+  tail call void @_ZN10LinearScan15append_intervalEP8Interval(ptr noundef nonnull align 8 dereferenceable(256) %67, ptr noundef %66)
+  %68 = load ptr, ptr %38, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %1, align 8
+  %72 = tail call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %70, i32 noundef %71, i32 noundef 2) #22
+  br i1 %72, label %73, label %76
 
-72:                                               ; preds = %_ZN10LinearScan14is_block_beginEi.exit22.thread
-  %73 = load ptr, ptr %68, align 8
-  %74 = load i32, ptr %65, align 8
-  tail call void @_ZN12LIRGenerator13set_vreg_flagEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %73, i32 noundef %74, i32 noundef 2) #22
-  br label %75
+73:                                               ; preds = %_ZN10LinearScan14is_block_beginEi.exit22.thread
+  %74 = load ptr, ptr %69, align 8
+  %75 = load i32, ptr %66, align 8
+  tail call void @_ZN12LIRGenerator13set_vreg_flagEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %74, i32 noundef %75, i32 noundef 2) #22
+  br label %76
 
-75:                                               ; preds = %72, %_ZN10LinearScan14is_block_beginEi.exit22.thread
-  %76 = load ptr, ptr %68, align 8
-  %77 = load i32, ptr %1, align 8
-  %78 = tail call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %76, i32 noundef %77, i32 noundef 1) #22
-  br i1 %78, label %79, label %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit
+76:                                               ; preds = %73, %_ZN10LinearScan14is_block_beginEi.exit22.thread
+  %77 = load ptr, ptr %69, align 8
+  %78 = load i32, ptr %1, align 8
+  %79 = tail call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %77, i32 noundef %78, i32 noundef 1) #22
+  br i1 %79, label %80, label %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %68, align 8
-  %81 = load i32, ptr %65, align 8
-  tail call void @_ZN12LIRGenerator13set_vreg_flagEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %80, i32 noundef %81, i32 noundef 1) #22
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %69, align 8
+  %82 = load i32, ptr %66, align 8
+  tail call void @_ZN12LIRGenerator13set_vreg_flagEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %81, i32 noundef %82, i32 noundef 1) #22
   br label %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit
 
-_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit: ; preds = %75, %79
-  %82 = getelementptr inbounds nuw i8, ptr %65, i64 116
-  store i8 %63, ptr %82, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %84 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %88 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  br label %89
+_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit: ; preds = %76, %80
+  %83 = getelementptr inbounds nuw i8, ptr %66, i64 116
+  store i8 %64, ptr %83, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i32, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  br label %90
 
-89:                                               ; preds = %.critedge.i, %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit
+90:                                               ; preds = %.critedge.i, %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit
   %.018.i = phi ptr [ null, %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit ], [ %.0.i24, %.critedge.i ]
-  %.0.in.i23 = phi ptr [ %83, %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit ], [ %126, %.critedge.i ]
+  %.0.in.i23 = phi ptr [ %84, %_ZN10LinearScan19copy_register_flagsEP8IntervalS1_.exit ], [ %127, %.critedge.i ]
   %.0.i24 = load ptr, ptr %.0.in.i23, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr %91, align 8
-  %93 = icmp slt i32 %92, %86
-  br i1 %93, label %.critedge.i, label %94
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %92, align 8
+  %94 = icmp slt i32 %93, %87
+  br i1 %94, label %.critedge.i, label %95
 
-94:                                               ; preds = %89
-  %95 = icmp eq i32 %92, %86
-  br i1 %95, label %96, label %.critedge2.i
+95:                                               ; preds = %90
+  %96 = icmp eq i32 %93, %87
+  br i1 %96, label %97, label %.critedge2.i
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 16
-  %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 24
-  %100 = load ptr, ptr %99, align 8
-  br label %101
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 16
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 24
+  %101 = load ptr, ptr %100, align 8
+  br label %102
 
-101:                                              ; preds = %103, %96
-  %.0.in.i.i = phi i32 [ %98, %96 ], [ %.0.i.i25, %103 ]
-  %102 = icmp sgt i32 %.0.in.i.i, 1
-  br i1 %102, label %103, label %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i
+102:                                              ; preds = %104, %97
+  %.0.in.i.i = phi i32 [ %99, %97 ], [ %.0.i.i25, %104 ]
+  %103 = icmp sgt i32 %.0.in.i.i, 1
+  br i1 %103, label %104, label %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i
 
-103:                                              ; preds = %101
+104:                                              ; preds = %102
   %.0.i.i25 = add nsw i32 %.0.in.i.i, -2
-  %104 = zext nneg i32 %.0.in.i.i to i64
-  %105 = getelementptr i32, ptr %100, i64 %104
-  %106 = getelementptr i8, ptr %105, i64 -4
-  %107 = load i32, ptr %106, align 4
-  %.not.i.i26 = icmp slt i32 %107, 0
-  br i1 %.not.i.i26, label %101, label %108, !llvm.loop !99
+  %105 = zext nneg i32 %.0.in.i.i to i64
+  %106 = getelementptr i32, ptr %101, i64 %105
+  %107 = getelementptr i8, ptr %106, i64 -4
+  %108 = load i32, ptr %107, align 4
+  %.not.i.i26 = icmp slt i32 %108, 0
+  br i1 %.not.i.i26, label %102, label %109, !llvm.loop !99
 
-108:                                              ; preds = %103
-  %109 = zext nneg i32 %.0.i.i25 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %100, i64 %109
-  %111 = load i32, ptr %110, align 4
+109:                                              ; preds = %104
+  %110 = zext nneg i32 %.0.i.i25 to i64
+  %111 = getelementptr inbounds nuw i32, ptr %101, i64 %110
+  %112 = load i32, ptr %111, align 4
   br label %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i
 
-_ZNK8Interval11first_usageE15IntervalUseKind.exit.i: ; preds = %101, %108
-  %.06.i.i = phi i32 [ %111, %108 ], [ 2147483647, %101 ]
-  %112 = load i32, ptr %87, align 4
-  %113 = load ptr, ptr %88, align 8
-  br label %114
+_ZNK8Interval11first_usageE15IntervalUseKind.exit.i: ; preds = %102, %109
+  %.06.i.i = phi i32 [ %112, %109 ], [ 2147483647, %102 ]
+  %113 = load i32, ptr %88, align 4
+  %114 = load ptr, ptr %89, align 8
+  br label %115
 
-114:                                              ; preds = %116, %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i
-  %.0.in.i19.i = phi i32 [ %112, %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i ], [ %.0.i21.i, %116 ]
-  %115 = icmp sgt i32 %.0.in.i19.i, 1
-  br i1 %115, label %116, label %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i
+115:                                              ; preds = %117, %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i
+  %.0.in.i19.i = phi i32 [ %113, %_ZNK8Interval11first_usageE15IntervalUseKind.exit.i ], [ %.0.i21.i, %117 ]
+  %116 = icmp sgt i32 %.0.in.i19.i, 1
+  br i1 %116, label %117, label %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i
 
-116:                                              ; preds = %114
+117:                                              ; preds = %115
   %.0.i21.i = add nsw i32 %.0.in.i19.i, -2
-  %117 = zext nneg i32 %.0.in.i19.i to i64
-  %118 = getelementptr i32, ptr %113, i64 %117
-  %119 = getelementptr i8, ptr %118, i64 -4
-  %120 = load i32, ptr %119, align 4
-  %.not.i22.i = icmp slt i32 %120, 0
-  br i1 %.not.i22.i, label %114, label %121, !llvm.loop !99
+  %118 = zext nneg i32 %.0.in.i19.i to i64
+  %119 = getelementptr i32, ptr %114, i64 %118
+  %120 = getelementptr i8, ptr %119, i64 -4
+  %121 = load i32, ptr %120, align 4
+  %.not.i22.i = icmp slt i32 %121, 0
+  br i1 %.not.i22.i, label %115, label %122, !llvm.loop !99
 
-121:                                              ; preds = %116
-  %122 = zext nneg i32 %.0.i21.i to i64
-  %123 = getelementptr inbounds nuw i32, ptr %113, i64 %122
-  %124 = load i32, ptr %123, align 4
+122:                                              ; preds = %117
+  %123 = zext nneg i32 %.0.i21.i to i64
+  %124 = getelementptr inbounds nuw i32, ptr %114, i64 %123
+  %125 = load i32, ptr %124, align 4
   br label %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i
 
-_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i: ; preds = %114, %121
-  %.06.i20.i = phi i32 [ %124, %121 ], [ 2147483647, %114 ]
-  %125 = icmp slt i32 %.06.i.i, %.06.i20.i
-  br i1 %125, label %.critedge.i, label %.critedge2.i
+_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i: ; preds = %115, %122
+  %.06.i20.i = phi i32 [ %125, %122 ], [ 2147483647, %115 ]
+  %126 = icmp slt i32 %.06.i.i, %.06.i20.i
+  br i1 %126, label %.critedge.i, label %.critedge2.i
 
-.critedge.i:                                      ; preds = %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i, %89
-  %126 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 48
-  br label %89, !llvm.loop !106
+.critedge.i:                                      ; preds = %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i, %90
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 48
+  br label %90, !llvm.loop !106
 
-.critedge2.i:                                     ; preds = %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i, %94
-  %127 = icmp eq ptr %.018.i, null
-  br i1 %127, label %128, label %129
-
-128:                                              ; preds = %.critedge2.i
-  store ptr %65, ptr %83, align 8
-  br label %_ZN14IntervalWalker19append_to_unhandledEPP8IntervalS1_.exit
+.critedge2.i:                                     ; preds = %_ZNK8Interval11first_usageE15IntervalUseKind.exit23.i, %95
+  %128 = icmp eq ptr %.018.i, null
+  br i1 %128, label %129, label %130
 
 129:                                              ; preds = %.critedge2.i
-  %130 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
-  store ptr %65, ptr %130, align 8
+  store ptr %66, ptr %84, align 8
   br label %_ZN14IntervalWalker19append_to_unhandledEPP8IntervalS1_.exit
 
-_ZN14IntervalWalker19append_to_unhandledEPP8IntervalS1_.exit: ; preds = %128, %129
-  %131 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store ptr %.0.i24, ptr %131, align 8
+130:                                              ; preds = %.critedge2.i
+  %131 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
+  store ptr %66, ptr %131, align 8
+  br label %_ZN14IntervalWalker19append_to_unhandledEPP8IntervalS1_.exit
+
+_ZN14IntervalWalker19append_to_unhandledEPP8IntervalS1_.exit: ; preds = %129, %130
+  %132 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  store ptr %.0.i24, ptr %132, align 8
   br label %_ZNK8Interval10next_usageE15IntervalUseKindi.exit.thread
 
 _ZNK8Interval10next_usageE15IntervalUseKindi.exit.thread: ; preds = %34, %20, %_ZNK8Interval10next_usageE15IntervalUseKindi.exit, %_ZN14IntervalWalker19append_to_unhandledEPP8IntervalS1_.exit
@@ -19551,11 +19550,11 @@ _ZN10LinearScan19allocate_spill_slotEb.exit.i:    ; preds = %65, %57
   %67 = load ptr, ptr %28, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store i32 %63, ptr %68, align 8
-  %.pre77 = load ptr, ptr %28, align 8
+  %.pre75 = load ptr, ptr %28, align 8
   br label %_ZN10LinearScan17assign_spill_slotEP8Interval.exit
 
 _ZN10LinearScan17assign_spill_slotEP8Interval.exit: ; preds = %25, %_ZN10LinearScan19allocate_spill_slotEb.exit.i
-  %69 = phi ptr [ %.pre77, %_ZN10LinearScan19allocate_spill_slotEb.exit.i ], [ %29, %25 ]
+  %69 = phi ptr [ %.pre75, %_ZN10LinearScan19allocate_spill_slotEb.exit.i ], [ %29, %25 ]
   %.sink.i = phi i32 [ %63, %_ZN10LinearScan19allocate_spill_slotEb.exit.i ], [ %31, %25 ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %.sink.i, ptr %70, align 4
@@ -19598,13 +19597,13 @@ _ZN10LinearScan17assign_spill_slotEP8Interval.exit: ; preds = %25, %_ZN10LinearS
 .lr.ph.preheader:                                 ; preds = %.sink.split.i, %_ZN10LinearScan17assign_spill_slotEP8Interval.exit
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %94 = load ptr, ptr %93, align 8
-  %.not73114 = icmp eq ptr %94, %1
-  br i1 %.not73114, label %.critedge, label %.lr.ph116
+  %.not71112 = icmp eq ptr %94, %1
+  br i1 %.not71112, label %.critedge, label %.lr.ph114
 
-.lr.ph116:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph114:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %95 = phi ptr [ %216, %.lr.ph ], [ %94, %.lr.ph.preheader ]
-  %.075115 = phi ptr [ %.0.lcssa.i, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %96 = getelementptr inbounds nuw i8, ptr %.075115, i64 8
+  %.073113 = phi ptr [ %.0.lcssa.i, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %96 = getelementptr inbounds nuw i8, ptr %.073113, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 96
@@ -19613,7 +19612,7 @@ _ZN10LinearScan17assign_spill_slotEP8Interval.exit: ; preds = %25, %_ZN10LinearS
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph.i36, label %_ZN8Interval24split_child_before_op_idEi.exit
 
-.lr.ph.i36:                                       ; preds = %.lr.ph116
+.lr.ph.i36:                                       ; preds = %.lr.ph114
   %103 = load ptr, ptr @_ZN5Range4_endE, align 8
   %104 = zext nneg i32 %101 to i64
   br label %105
@@ -19721,8 +19720,8 @@ _ZN8Interval2toEv.exit21.i:                       ; preds = %_ZN8Interval7calc_t
   %152 = icmp samesign ugt i64 %indvars.iv.i37, 1
   br i1 %152, label %105, label %_ZN8Interval24split_child_before_op_idEi.exit, !llvm.loop !98
 
-_ZN8Interval24split_child_before_op_idEi.exit:    ; preds = %151, %.lr.ph116
-  %.0.lcssa.i = phi ptr [ null, %.lr.ph116 ], [ %.1.i, %151 ]
+_ZN8Interval24split_child_before_op_idEi.exit:    ; preds = %151, %.lr.ph114
+  %.0.lcssa.i = phi ptr [ null, %.lr.ph114 ], [ %.1.i, %151 ]
   %153 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 60
   %154 = load i32, ptr %153, align 4
   %155 = icmp slt i32 %154, 56
@@ -19841,8 +19840,8 @@ _ZN10LinearScan17assign_spill_slotEP8Interval.exit46: ; preds = %_ZNK8Interval11
 .lr.ph:                                           ; preds = %_ZN10LinearScan17assign_spill_slotEP8Interval.exit46, %_ZN8Interval24split_child_before_op_idEi.exit
   %215 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 88
   %216 = load ptr, ptr %215, align 8
-  %.not73 = icmp eq ptr %216, %.0.lcssa.i
-  br i1 %.not73, label %.critedge, label %.lr.ph116, !llvm.loop !123
+  %.not71 = icmp eq ptr %216, %.0.lcssa.i
+  br i1 %.not71, label %.critedge, label %.lr.ph114, !llvm.loop !123
 
 217:                                              ; preds = %_ZNK8Interval14previous_usageE15IntervalUseKindi.exit
   %218 = icmp eq i32 %24, %4
@@ -19965,183 +19964,182 @@ _ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit: ; preds = %278
   br i1 %280, label %_ZN10LinearScan14is_block_beginEi.exit.thread, label %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge
 
 _ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge: ; preds = %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit
-  %.pre78 = ashr i32 %.0.i50, 1
-  %.pre79 = sext i32 %.pre78 to i64
-  %.pre81 = add nsw i32 %.0.i50, -1
-  %.pre83 = ashr i32 %.pre81, 1
-  %.pre85 = sext i32 %.pre83 to i64
+  %.pre76 = ashr i32 %.0.i50, 1
+  %.pre77 = sext i32 %.pre76 to i64
+  %.pre79 = add nsw i32 %.0.i50, -1
+  %.pre81 = ashr i32 %.pre79, 1
+  %.pre83 = sext i32 %.pre81 to i64
   br label %_ZN10LinearScan14is_block_beginEi.exit
 
 _ZN10LinearScan14is_block_beginEi.exit:           ; preds = %_ZN10LinearScan14is_block_beginEi.exit.i, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge
-  %.pre-phi86 = phi i64 [ %.pre85, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %231, %_ZN10LinearScan14is_block_beginEi.exit.i ]
-  %.pre-phi82 = phi i32 [ %.pre81, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %229, %_ZN10LinearScan14is_block_beginEi.exit.i ]
-  %.pre-phi80 = phi i64 [ %.pre79, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %247, %_ZN10LinearScan14is_block_beginEi.exit.i ]
+  %.pre-phi84 = phi i64 [ %.pre83, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %231, %_ZN10LinearScan14is_block_beginEi.exit.i ]
+  %.pre-phi80 = phi i32 [ %.pre79, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %229, %_ZN10LinearScan14is_block_beginEi.exit.i ]
+  %.pre-phi78 = phi i64 [ %.pre77, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %247, %_ZN10LinearScan14is_block_beginEi.exit.i ]
   %281 = phi ptr [ %279, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %220, %_ZN10LinearScan14is_block_beginEi.exit.i ]
   %.0.i5064 = phi i32 [ %.0.i50, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %4, %_ZN10LinearScan14is_block_beginEi.exit.i ]
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 160
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds ptr, ptr %284, i64 %.pre-phi80
+  %285 = getelementptr inbounds ptr, ptr %284, i64 %.pre-phi78
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds ptr, ptr %284, i64 %.pre-phi86
+  %287 = getelementptr inbounds ptr, ptr %284, i64 %.pre-phi84
   %288 = load ptr, ptr %287, align 8
-  %.fr = freeze ptr %286
-  %.fr70 = freeze ptr %288
-  %.not71 = icmp eq ptr %.fr, %.fr70
-  %289 = or i32 %.pre-phi82, 1
-  %spec.select = select i1 %.not71, i32 %289, i32 %.0.i5064
+  %289 = icmp ne ptr %286, %288
+  %290 = or i32 %.pre-phi80, 1
+  %cond.fr = freeze i1 %289
+  %spec.select = select i1 %cond.fr, i32 %.0.i5064, i32 %290
   br label %_ZN10LinearScan14is_block_beginEi.exit.thread
 
 _ZN10LinearScan14is_block_beginEi.exit.thread:    ; preds = %_ZN10LinearScan14is_block_beginEi.exit, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit
-  %290 = phi ptr [ %281, %_ZN10LinearScan14is_block_beginEi.exit ], [ %279, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit ]
-  %291 = phi i32 [ %spec.select, %_ZN10LinearScan14is_block_beginEi.exit ], [ 0, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit ]
-  %292 = tail call noundef ptr @_ZN8Interval5splitEi(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %291)
-  %293 = load ptr, ptr %290, align 8
-  tail call void @_ZN10LinearScan15append_intervalEP8Interval(ptr noundef nonnull align 8 dereferenceable(256) %293, ptr noundef %292)
-  %294 = load ptr, ptr %290, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %292, i64 88
-  %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 112
-  %298 = load i32, ptr %297, align 8
-  %299 = icmp sgt i32 %298, -1
-  br i1 %299, label %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56, label %300
+  %291 = phi ptr [ %281, %_ZN10LinearScan14is_block_beginEi.exit ], [ %279, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit ]
+  %292 = phi i32 [ %spec.select, %_ZN10LinearScan14is_block_beginEi.exit ], [ 0, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit ]
+  %293 = tail call noundef ptr @_ZN8Interval5splitEi(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %292)
+  %294 = load ptr, ptr %291, align 8
+  tail call void @_ZN10LinearScan15append_intervalEP8Interval(ptr noundef nonnull align 8 dereferenceable(256) %294, ptr noundef %293)
+  %295 = load ptr, ptr %291, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 88
+  %297 = load ptr, ptr %296, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 112
+  %299 = load i32, ptr %298, align 8
+  %300 = icmp sgt i32 %299, -1
+  br i1 %300, label %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56, label %301
 
-300:                                              ; preds = %_ZN10LinearScan14is_block_beginEi.exit.thread
-  %301 = getelementptr inbounds nuw i8, ptr %292, i64 4
-  %302 = load i8, ptr %301, align 4
-  %303 = zext nneg i8 %302 to i64
-  %304 = lshr i64 178304, %303
-  %305 = trunc i64 %304 to i1
-  br i1 %305, label %306, label %316
+301:                                              ; preds = %_ZN10LinearScan14is_block_beginEi.exit.thread
+  %302 = getelementptr inbounds nuw i8, ptr %293, i64 4
+  %303 = load i8, ptr %302, align 4
+  %304 = zext nneg i8 %303 to i64
+  %305 = lshr i64 178304, %304
+  %306 = trunc i64 %305 to i1
+  br i1 %306, label %307, label %317
 
-306:                                              ; preds = %300
-  %307 = getelementptr inbounds nuw i8, ptr %294, i64 68
-  %308 = load i32, ptr %307, align 4
-  %309 = and i32 %308, 1
-  %.not5.i.i55 = icmp eq i32 %309, 0
-  br i1 %.not5.i.i55, label %313, label %310
+307:                                              ; preds = %301
+  %308 = getelementptr inbounds nuw i8, ptr %295, i64 68
+  %309 = load i32, ptr %308, align 4
+  %310 = and i32 %309, 1
+  %.not5.i.i55 = icmp eq i32 %310, 0
+  br i1 %.not5.i.i55, label %314, label %311
 
-310:                                              ; preds = %306
-  %311 = getelementptr inbounds nuw i8, ptr %294, i64 72
-  store i32 %308, ptr %311, align 8
-  %312 = add nsw i32 %308, 1
-  br label %313
+311:                                              ; preds = %307
+  %312 = getelementptr inbounds nuw i8, ptr %295, i64 72
+  store i32 %309, ptr %312, align 8
+  %313 = add nsw i32 %309, 1
+  br label %314
 
-313:                                              ; preds = %310, %306
-  %314 = phi i32 [ %312, %310 ], [ %308, %306 ]
-  %315 = add nsw i32 %314, 2
-  store i32 %315, ptr %307, align 4
-  br label %324
+314:                                              ; preds = %311, %307
+  %315 = phi i32 [ %313, %311 ], [ %309, %307 ]
+  %316 = add nsw i32 %315, 2
+  store i32 %316, ptr %308, align 4
+  br label %325
 
-316:                                              ; preds = %300
-  %317 = getelementptr inbounds nuw i8, ptr %294, i64 72
-  %318 = load i32, ptr %317, align 8
-  %.not.i.i51 = icmp eq i32 %318, -1
-  br i1 %.not.i.i51, label %320, label %319
+317:                                              ; preds = %301
+  %318 = getelementptr inbounds nuw i8, ptr %295, i64 72
+  %319 = load i32, ptr %318, align 8
+  %.not.i.i51 = icmp eq i32 %319, -1
+  br i1 %.not.i.i51, label %321, label %320
 
-319:                                              ; preds = %316
-  store i32 -1, ptr %317, align 8
-  br label %324
+320:                                              ; preds = %317
+  store i32 -1, ptr %318, align 8
+  br label %325
 
-320:                                              ; preds = %316
-  %321 = getelementptr inbounds nuw i8, ptr %294, i64 68
-  %322 = load i32, ptr %321, align 4
-  %323 = add nsw i32 %322, 1
-  store i32 %323, ptr %321, align 4
-  br label %324
+321:                                              ; preds = %317
+  %322 = getelementptr inbounds nuw i8, ptr %295, i64 68
+  %323 = load i32, ptr %322, align 4
+  %324 = add nsw i32 %323, 1
+  store i32 %324, ptr %322, align 4
+  br label %325
 
-324:                                              ; preds = %320, %319, %313
-  %.0.i.i52 = phi i32 [ %314, %313 ], [ %318, %319 ], [ %322, %320 ]
-  %325 = add nsw i32 %.0.i.i52, 56
-  %326 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  %329 = load i32, ptr %328, align 4
-  %330 = add nsw i32 %325, %329
-  %331 = icmp sgt i32 %330, 2000
-  br i1 %331, label %332, label %_ZN10LinearScan19allocate_spill_slotEb.exit.i53
+325:                                              ; preds = %321, %320, %314
+  %.0.i.i52 = phi i32 [ %315, %314 ], [ %319, %320 ], [ %323, %321 ]
+  %326 = add nsw i32 %.0.i.i52, 56
+  %327 = getelementptr inbounds nuw i8, ptr %295, i64 24
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 4
+  %330 = load i32, ptr %329, align 4
+  %331 = add nsw i32 %326, %330
+  %332 = icmp sgt i32 %331, 2000
+  br i1 %332, label %333, label %_ZN10LinearScan19allocate_spill_slotEb.exit.i53
 
-332:                                              ; preds = %324
-  %333 = load ptr, ptr %294, align 8
-  tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %333, ptr noundef nonnull @.str.4) #22
+333:                                              ; preds = %325
+  %334 = load ptr, ptr %295, align 8
+  tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %334, ptr noundef nonnull @.str.4) #22
   br label %_ZN10LinearScan19allocate_spill_slotEb.exit.i53
 
-_ZN10LinearScan19allocate_spill_slotEb.exit.i53:  ; preds = %332, %324
-  %334 = load ptr, ptr %295, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 112
-  store i32 %330, ptr %335, align 8
-  %.pre = load ptr, ptr %295, align 8
+_ZN10LinearScan19allocate_spill_slotEb.exit.i53:  ; preds = %333, %325
+  %335 = load ptr, ptr %296, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 112
+  store i32 %331, ptr %336, align 8
+  %.pre = load ptr, ptr %296, align 8
   br label %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56
 
 _ZN10LinearScan17assign_spill_slotEP8Interval.exit56: ; preds = %_ZN10LinearScan14is_block_beginEi.exit.thread, %_ZN10LinearScan19allocate_spill_slotEb.exit.i53
-  %336 = phi ptr [ %.pre, %_ZN10LinearScan19allocate_spill_slotEb.exit.i53 ], [ %296, %_ZN10LinearScan14is_block_beginEi.exit.thread ]
-  %.sink.i54 = phi i32 [ %330, %_ZN10LinearScan19allocate_spill_slotEb.exit.i53 ], [ %298, %_ZN10LinearScan14is_block_beginEi.exit.thread ]
-  %337 = getelementptr inbounds nuw i8, ptr %292, i64 60
-  store i32 %.sink.i54, ptr %337, align 4
-  %338 = getelementptr inbounds nuw i8, ptr %292, i64 64
-  store i32 -1, ptr %338, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %336, i64 120
-  %340 = load i32, ptr %339, align 8
-  switch i32 %340, label %_ZN10LinearScan18change_spill_stateEP8Intervali.exit60 [
-    i32 1, label %341
+  %337 = phi ptr [ %.pre, %_ZN10LinearScan19allocate_spill_slotEb.exit.i53 ], [ %297, %_ZN10LinearScan14is_block_beginEi.exit.thread ]
+  %.sink.i54 = phi i32 [ %331, %_ZN10LinearScan19allocate_spill_slotEb.exit.i53 ], [ %299, %_ZN10LinearScan14is_block_beginEi.exit.thread ]
+  %338 = getelementptr inbounds nuw i8, ptr %293, i64 60
+  store i32 %.sink.i54, ptr %338, align 4
+  %339 = getelementptr inbounds nuw i8, ptr %293, i64 64
+  store i32 -1, ptr %339, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %337, i64 120
+  %341 = load i32, ptr %340, align 8
+  switch i32 %341, label %_ZN10LinearScan18change_spill_stateEP8Intervali.exit60 [
+    i32 1, label %342
     i32 2, label %.sink.split.i57
   ]
 
-341:                                              ; preds = %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56
-  %342 = load ptr, ptr %290, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %336, i64 124
-  %344 = load i32, ptr %343, align 4
-  %345 = ashr i32 %344, 1
-  %346 = getelementptr inbounds nuw i8, ptr %342, i64 160
-  %347 = load ptr, ptr %346, align 8
-  %348 = sext i32 %345 to i64
-  %349 = getelementptr inbounds ptr, ptr %347, i64 %348
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 124
-  %352 = load i32, ptr %351, align 4
-  %353 = ashr i32 %291, 1
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds ptr, ptr %347, i64 %354
-  %356 = load ptr, ptr %355, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 124
-  %358 = load i32, ptr %357, align 4
-  %359 = icmp slt i32 %352, %358
-  %..i59 = select i1 %359, i32 3, i32 2
+342:                                              ; preds = %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56
+  %343 = load ptr, ptr %291, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %337, i64 124
+  %345 = load i32, ptr %344, align 4
+  %346 = ashr i32 %345, 1
+  %347 = getelementptr inbounds nuw i8, ptr %343, i64 160
+  %348 = load ptr, ptr %347, align 8
+  %349 = sext i32 %346 to i64
+  %350 = getelementptr inbounds ptr, ptr %348, i64 %349
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 124
+  %353 = load i32, ptr %352, align 4
+  %354 = ashr i32 %292, 1
+  %355 = sext i32 %354 to i64
+  %356 = getelementptr inbounds ptr, ptr %348, i64 %355
+  %357 = load ptr, ptr %356, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 124
+  %359 = load i32, ptr %358, align 4
+  %360 = icmp slt i32 %353, %359
+  %..i59 = select i1 %360, i32 3, i32 2
   br label %.sink.split.i57
 
-.sink.split.i57:                                  ; preds = %341, %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56
-  %.sink.i58 = phi i32 [ %..i59, %341 ], [ 3, %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56 ]
-  store i32 %.sink.i58, ptr %339, align 8
+.sink.split.i57:                                  ; preds = %342, %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56
+  %.sink.i58 = phi i32 [ %..i59, %342 ], [ 3, %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56 ]
+  store i32 %.sink.i58, ptr %340, align 8
   br label %_ZN10LinearScan18change_spill_stateEP8Intervali.exit60
 
 _ZN10LinearScan18change_spill_stateEP8Intervali.exit60: ; preds = %_ZN10LinearScan17assign_spill_slotEP8Interval.exit56, %.sink.split.i57
-  %360 = icmp eq i32 %291, 0
-  br i1 %360, label %_ZN10LinearScan14is_block_beginEi.exit61.thread, label %_ZN10LinearScan14is_block_beginEi.exit61
+  %361 = icmp eq i32 %292, 0
+  br i1 %361, label %_ZN10LinearScan14is_block_beginEi.exit61.thread, label %_ZN10LinearScan14is_block_beginEi.exit61
 
 _ZN10LinearScan14is_block_beginEi.exit61:         ; preds = %_ZN10LinearScan18change_spill_stateEP8Intervali.exit60
-  %361 = load ptr, ptr %290, align 8
-  %362 = ashr i32 %291, 1
-  %363 = getelementptr inbounds nuw i8, ptr %361, i64 160
-  %364 = load ptr, ptr %363, align 8
-  %365 = sext i32 %362 to i64
-  %366 = getelementptr inbounds ptr, ptr %364, i64 %365
-  %367 = load ptr, ptr %366, align 8
-  %368 = add nsw i32 %291, -1
-  %369 = ashr i32 %368, 1
-  %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds ptr, ptr %364, i64 %370
-  %372 = load ptr, ptr %371, align 8
-  %.not72 = icmp eq ptr %367, %372
-  br i1 %.not72, label %373, label %_ZN10LinearScan14is_block_beginEi.exit61.thread
+  %362 = load ptr, ptr %291, align 8
+  %363 = ashr i32 %292, 1
+  %364 = getelementptr inbounds nuw i8, ptr %362, i64 160
+  %365 = load ptr, ptr %364, align 8
+  %366 = sext i32 %363 to i64
+  %367 = getelementptr inbounds ptr, ptr %365, i64 %366
+  %368 = load ptr, ptr %367, align 8
+  %369 = add nsw i32 %292, -1
+  %370 = ashr i32 %369, 1
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds ptr, ptr %365, i64 %371
+  %373 = load ptr, ptr %372, align 8
+  %.not70 = icmp eq ptr %368, %373
+  br i1 %.not70, label %374, label %_ZN10LinearScan14is_block_beginEi.exit61.thread
 
-373:                                              ; preds = %_ZN10LinearScan14is_block_beginEi.exit61
-  tail call void @_ZN16LinearScanWalker11insert_moveEiP8IntervalS1_(ptr noundef nonnull align 8 dereferenceable(1384) %0, i32 noundef %291, ptr noundef nonnull %1, ptr noundef nonnull %292)
+374:                                              ; preds = %_ZN10LinearScan14is_block_beginEi.exit61
+  tail call void @_ZN16LinearScanWalker11insert_moveEiP8IntervalS1_(ptr noundef nonnull align 8 dereferenceable(1384) %0, i32 noundef %292, ptr noundef nonnull %1, ptr noundef nonnull %293)
   br label %_ZN10LinearScan14is_block_beginEi.exit61.thread
 
-_ZN10LinearScan14is_block_beginEi.exit61.thread:  ; preds = %_ZN10LinearScan18change_spill_stateEP8Intervali.exit60, %373, %_ZN10LinearScan14is_block_beginEi.exit61
-  %374 = load ptr, ptr %295, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 104
-  store ptr %292, ptr %375, align 8
+_ZN10LinearScan14is_block_beginEi.exit61.thread:  ; preds = %_ZN10LinearScan18change_spill_stateEP8Intervali.exit60, %374, %_ZN10LinearScan14is_block_beginEi.exit61
+  %375 = load ptr, ptr %296, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 104
+  store ptr %293, ptr %376, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK8Interval11first_usageE15IntervalUseKind.exit, %.lr.ph.preheader, %_ZN10LinearScan14is_block_beginEi.exit61.thread

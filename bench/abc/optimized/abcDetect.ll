@@ -3826,13 +3826,13 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %4, %Vec_IntFill.exi
 define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [6 x i64], align 16
   %6 = tail call i32 @Mio_GateReadPinNum(ptr noundef %0) #35
-  %.fr57 = freeze i32 %6
+  %.fr = freeze i32 %6
   %7 = tail call ptr @Mio_GateReadExpr(ptr noundef %0) #35
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph20, label %._crit_edge21
 
 .lr.ph20:                                         ; preds = %4
-  %9 = icmp sgt i32 %.fr57, 0
+  %9 = icmp sgt i32 %.fr, 0
   %10 = getelementptr i8, ptr %7, i64 4
   %.val25.i = load i32, ptr %10, align 4, !tbaa !37
   %11 = sdiv i32 %.val25.i, 2
@@ -3840,21 +3840,21 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(n
   %13 = icmp sgt i32 %.val25.i, 1
   %14 = getelementptr i8, ptr %7, i64 8
   %.val24.i = load ptr, ptr %14, align 8, !tbaa !36
-  %15 = shl i32 %.fr57, 1
+  %15 = shl i32 %.fr, 1
   %wide.trip.count.i = zext nneg i32 %11 to i64
   %16 = sext i32 %.val25.i to i64
   %17 = getelementptr i32, ptr %.val24.i, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4, !tbaa !34
-  %.fr56 = freeze i32 %19
-  %20 = icmp slt i32 %.fr56, %15
-  %21 = and i32 %.fr56, 1
+  %.fr57 = freeze i32 %19
+  %20 = icmp slt i32 %.fr57, %15
+  %21 = and i32 %.fr57, 1
   %.not17.i33.i = icmp eq i32 %21, 0
-  %22 = sdiv i32 %.fr56, 2
-  %23 = sub nsw i32 %22, %.fr57
+  %22 = sdiv i32 %.fr57, 2
+  %23 = sub nsw i32 %22, %.fr
   %24 = sext i32 %23 to i64
-  %25 = ashr exact i32 %.fr56, 1
-  %26 = sub nsw i32 %25, %.fr57
+  %25 = ashr exact i32 %.fr57, 1
+  %26 = sub nsw i32 %25, %.fr
   %27 = sext i32 %26 to i64
   %28 = sext i32 %22 to i64
   %29 = getelementptr inbounds i64, ptr %5, i64 %28
@@ -3864,7 +3864,7 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %13, label %.lr.ph20.split.us.preheader, label %.lr.ph20.split
 
 .lr.ph20.split.us.preheader:                      ; preds = %.lr.ph20
-  %wide.trip.count102 = zext nneg i32 %.fr57 to i64
+  %wide.trip.count102 = zext nneg i32 %.fr to i64
   br label %.lr.ph20.split.us
 
 .lr.ph20.split.us:                                ; preds = %.lr.ph20.split.us.preheader, %Exp_Truth6.exit.us
@@ -3900,7 +3900,7 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(n
 
 41:                                               ; preds = %40
   %42 = sdiv i32 %35, 2
-  %43 = sub nsw i32 %42, %.fr57
+  %43 = sub nsw i32 %42, %.fr
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i64, ptr %32, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !103
@@ -3909,7 +3909,7 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(n
 
 48:                                               ; preds = %40
   %49 = ashr exact i32 %35, 1
-  %50 = sub nsw i32 %49, %.fr57
+  %50 = sub nsw i32 %49, %.fr
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i64, ptr %32, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !103
@@ -3956,7 +3956,7 @@ Exp_Truth6Lit.exit.i.us:                          ; preds = %61, %55, %48, %41, 
 
 73:                                               ; preds = %72
   %74 = sdiv i32 %67, 2
-  %75 = sub nsw i32 %74, %.fr57
+  %75 = sub nsw i32 %74, %.fr
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i64, ptr %32, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !103
@@ -3965,7 +3965,7 @@ Exp_Truth6Lit.exit.i.us:                          ; preds = %61, %55, %48, %41, 
 
 80:                                               ; preds = %72
   %81 = ashr exact i32 %67, 1
-  %82 = sub nsw i32 %81, %.fr57
+  %82 = sub nsw i32 %81, %.fr
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i64, ptr %32, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !103
@@ -4053,7 +4053,7 @@ Exp_Truth6.exit.us:                               ; preds = %103, %107, %114, %1
   br i1 %exitcond103.not, label %.lr.ph.i.us, label %.lr.ph.us, !llvm.loop !109
 
 ._crit_edge.i.loopexit.us:                        ; preds = %Exp_Truth6Lit.exit31.i.us
-  switch i32 %.fr56, label %101 [
+  switch i32 %.fr57, label %101 [
     i32 -1, label %Exp_Truth6.exit.us
     i32 -2, label %100
   ]
@@ -4062,7 +4062,7 @@ Exp_Truth6.exit.us:                               ; preds = %103, %107, %114, %1
   br i1 %20, label %.lr.ph20.split.split.us.preheader, label %.lr.ph20.split.split
 
 .lr.ph20.split.split.us.preheader:                ; preds = %.lr.ph20.split
-  %wide.trip.count92 = zext nneg i32 %.fr57 to i64
+  %wide.trip.count92 = zext nneg i32 %.fr to i64
   br label %.lr.ph20.split.split.us
 
 .lr.ph20.split.split.us:                          ; preds = %.lr.ph20.split.split.us.preheader, %Exp_Truth6.exit.us29
@@ -4071,7 +4071,7 @@ Exp_Truth6.exit.us:                               ; preds = %103, %107, %114, %1
   br i1 %9, label %.lr.ph.us32, label %._crit_edge.i.us23
 
 ._crit_edge.i.us23:                               ; preds = %.lr.ph.us32, %.lr.ph20.split.split.us
-  switch i32 %.fr56, label %123 [
+  switch i32 %.fr57, label %123 [
     i32 -1, label %Exp_Truth6.exit.us29
     i32 -2, label %122
   ]
@@ -4116,17 +4116,17 @@ Exp_Truth6.exit.us29:                             ; preds = %127, %124, %122, %.
   br i1 %9, label %.lr.ph20.split.split.split.us, label %.lr.ph20.split.split.split
 
 .lr.ph20.split.split.split.us:                    ; preds = %.lr.ph20.split.split
-  %wide.trip.count82 = zext nneg i32 %.fr57 to i64
+  %wide.trip.count82 = zext nneg i32 %.fr to i64
   br i1 %.not17.i33.i, label %.lr.ph.us44.us.preheader, label %.lr.ph.us44.preheader
 
 .lr.ph.us44.preheader:                            ; preds = %.lr.ph20.split.split.split.us
-  %cond118 = icmp ne i32 %.fr56, -1
-  %.0.i3237.i.us40 = sext i1 %cond118 to i64
+  %cond121 = icmp ne i32 %.fr57, -1
+  %.0.i3237.i.us40 = sext i1 %cond121 to i64
   br label %.lr.ph.us44
 
 .lr.ph.us44.us.preheader:                         ; preds = %.lr.ph20.split.split.split.us
-  %cond119 = icmp eq i32 %.fr56, -2
-  %.0.i3237.i.us40.us = sext i1 %cond119 to i64
+  %cond122 = icmp eq i32 %.fr57, -2
+  %.0.i3237.i.us40.us = sext i1 %cond122 to i64
   br label %.lr.ph.us44.us
 
 .lr.ph.us44.us:                                   ; preds = %.lr.ph.us44.us.preheader, %._crit_edge.us45.us
@@ -4183,13 +4183,13 @@ Exp_Truth6.exit.us29:                             ; preds = %127, %124, %122, %.
   br i1 %.not17.i33.i, label %._crit_edge.i.us46.preheader, label %._crit_edge.i.preheader
 
 ._crit_edge.i.preheader:                          ; preds = %.lr.ph20.split.split.split
-  %cond = icmp ne i32 %.fr56, -1
-  %spec.select120 = sext i1 %cond to i64
+  %cond = icmp ne i32 %.fr57, -1
+  %spec.select123 = sext i1 %cond to i64
   br label %._crit_edge.i
 
 ._crit_edge.i.us46.preheader:                     ; preds = %.lr.ph20.split.split.split
-  %cond117 = icmp eq i32 %.fr56, -2
-  %spec.select = sext i1 %cond117 to i64
+  %cond120 = icmp eq i32 %.fr57, -2
+  %spec.select = sext i1 %cond120 to i64
   br label %._crit_edge.i.us46
 
 ._crit_edge.i.us46:                               ; preds = %._crit_edge.i.us46.preheader, %._crit_edge.i.us46
@@ -4206,7 +4206,7 @@ Exp_Truth6.exit.us29:                             ; preds = %127, %124, %122, %.
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.i ], [ 0, %._crit_edge.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %150 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  store i64 %spec.select120, ptr %150, align 8, !tbaa !103
+  store i64 %spec.select123, ptr %150, align 8, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107

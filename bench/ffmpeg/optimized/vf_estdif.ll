@@ -600,9 +600,9 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %22 = load i32, ptr %21, align 8, !tbaa !77
   %23 = add nsw i32 %9, -1
   %24 = load i32, ptr %13, align 4, !tbaa !51
-  %.fr214 = freeze i32 %24
+  %.fr = freeze i32 %24
   %25 = sub i32 0, %10
-  %26 = tail call i32 @llvm.abs.i32(i32 %.fr214, i1 false)
+  %26 = tail call i32 @llvm.abs.i32(i32 %.fr, i1 false)
   %27 = icmp sgt i32 %26, %10
   %.not181 = icmp sgt i32 %10, -1
   %or.cond182 = and i1 %.not181, %27
@@ -685,7 +685,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph209:                                        ; preds = %.critedge.preheader
   %69 = sub nsw i32 0, %11
   %.not164197 = icmp slt i32 %11, 0
-  %70 = add nsw i32 %.fr214, %8
+  %70 = add nsw i32 %.fr, %8
   %71 = sext i32 %8 to i64
   %72 = getelementptr inbounds i8, ptr %2, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !78
@@ -709,7 +709,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %.2146207.us = phi i32 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa232239, %.critedge.us.preheader ]
   %.0150206.us = phi i32 [ %107, %.critedge.us ], [ %25, %.critedge.us.preheader ]
   %.0151205.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
-  %81 = add nsw i32 %.0150206.us, %.fr214
+  %81 = add nsw i32 %.0150206.us, %.fr
   %82 = add nsw i32 %81, %8
   %83 = icmp slt i32 %82, 0
   %..i7.i.i173.us = tail call i32 @llvm.smin.i32(i32 %82, i32 range(i32 -2147483648, 2147483647) %23)
@@ -842,7 +842,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge202 ]
   %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge202 ]
   %.not163 = icmp eq i32 %.2.lcssa, 0
-  %171 = add nsw i32 %.0151.lcssa, %.fr214
+  %171 = add nsw i32 %.0151.lcssa, %.fr
   %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa230
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = sext i32 %16 to i64
@@ -861,7 +861,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %.0150206 = phi i32 [ %209, %._crit_edge202 ], [ %25, %.lr.ph209 ]
   %.0151205 = phi i32 [ %.1152, %._crit_edge202 ], [ 0, %.lr.ph209 ]
   %180 = add nsw i32 %70, %.0150206
-  %181 = add i32 %.fr214, %.0150206
+  %181 = add i32 %.fr, %.0150206
   %182 = sub i32 %8, %181
   br label %210
 
@@ -960,9 +960,9 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %22 = load i32, ptr %21, align 8, !tbaa !77
   %23 = add nsw i32 %9, -1
   %24 = load i32, ptr %13, align 4, !tbaa !51
-  %.fr214 = freeze i32 %24
+  %.fr = freeze i32 %24
   %25 = sub i32 0, %10
-  %26 = tail call i32 @llvm.abs.i32(i32 %.fr214, i1 false)
+  %26 = tail call i32 @llvm.abs.i32(i32 %.fr, i1 false)
   %27 = icmp sgt i32 %26, %10
   %.not181 = icmp sgt i32 %10, -1
   %or.cond182 = and i1 %.not181, %27
@@ -1048,7 +1048,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
 .lr.ph209:                                        ; preds = %.critedge.preheader
   %72 = sub nsw i32 0, %11
   %.not164197 = icmp slt i32 %11, 0
-  %73 = add nsw i32 %.fr214, %8
+  %73 = add nsw i32 %.fr, %8
   %74 = sext i32 %18 to i64
   %75 = sext i32 %8 to i64
   %76 = getelementptr inbounds i16, ptr %2, i64 %75
@@ -1073,7 +1073,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.2146207.us = phi i64 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa232239, %.critedge.us.preheader ]
   %.0150206.us = phi i32 [ %113, %.critedge.us ], [ %25, %.critedge.us.preheader ]
   %.0151205.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
-  %85 = add nsw i32 %.0150206.us, %.fr214
+  %85 = add nsw i32 %.0150206.us, %.fr
   %86 = add nsw i32 %85, %8
   %87 = icmp slt i32 %86, 0
   %..i7.i.i173.us = tail call i32 @llvm.smin.i32(i32 %86, i32 range(i32 -2147483648, 2147483647) %23)
@@ -1213,7 +1213,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge202 ]
   %.2.lcssa = phi i64 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge202 ]
   %.not163 = icmp eq i64 %.2.lcssa, 0
-  %182 = add nsw i32 %.0151.lcssa, %.fr214
+  %182 = add nsw i32 %.0151.lcssa, %.fr
   %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa230
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %185 = sext i32 %16 to i64
@@ -1232,7 +1232,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0150206 = phi i32 [ %222, %._crit_edge202 ], [ %25, %.lr.ph209 ]
   %.0151205 = phi i32 [ %.1152, %._crit_edge202 ], [ 0, %.lr.ph209 ]
   %191 = add nsw i32 %73, %.0150206
-  %192 = add i32 %.fr214, %.0150206
+  %192 = add i32 %.fr, %.0150206
   %193 = sub i32 %8, %192
   br label %223
 

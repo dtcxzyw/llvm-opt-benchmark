@@ -26660,7 +26660,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110: ; preds = %_ZNK4ll
   br label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110.thread: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit107.thread, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit92, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit95, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit98, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit80, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit83, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit86, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit89, %176, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110
-  %.not239 = phi i1 [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ], [ false, %176 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit89 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit86 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit83 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit80 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit98 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit95 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit92 ], [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit107.thread ]
+  %.not238 = phi i1 [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ], [ false, %176 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit89 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit86 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit83 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit80 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit98 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit95 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit92 ], [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit107.thread ]
   %177 = phi ptr [ @.str.127, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110 ], [ @.str.1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ], [ @.str.127, %176 ], [ @.str.1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit89 ], [ @.str.1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit86 ], [ @.str.1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit83 ], [ @.str.1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit80 ], [ @.str.127, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit98 ], [ @.str.127, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit95 ], [ @.str.127, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit92 ], [ @.str.127, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit107.thread ]
   %.0 = phi i32 [ 1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit110 ], [ 2, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit ], [ 4, %176 ], [ 2, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit89 ], [ 2, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit86 ], [ 2, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit83 ], [ 2, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit80 ], [ 3, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit98 ], [ 3, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit95 ], [ 3, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit92 ], [ 1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit107.thread ]
   %178 = getelementptr inbounds nuw i8, ptr %30, i64 4342
@@ -26696,18 +26696,17 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit116: ; preds = %_ZNK4ll
   %196 = zext nneg i32 %31 to i64
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !30
-  %.fr234 = freeze i8 %198
-  %199 = zext i8 %.fr234 to i32
+  %199 = zext i8 %198 to i32
   %200 = shl nuw nsw i32 1, %193
-  %.fr = freeze i32 %200
-  %201 = and i32 %.fr, %199
-  %.not235 = icmp ne i32 %201, 0
-  %spec.select243 = select i1 %.not235, i32 4, i32 1
+  %201 = and i32 %200, %199
+  %.fr = freeze i32 %201
+  %.not234 = icmp ne i32 %.fr, 0
+  %spec.select242 = select i1 %.not234, i32 4, i32 1
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit116, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113.thread, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113
-  %.not76 = phi i1 [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113.thread ], [ %.not235, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit116 ]
-  %.067 = phi i32 [ 8, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113 ], [ 1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113.thread ], [ %spec.select243, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit116 ]
+  %.not76 = phi i1 [ true, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113.thread ], [ %.not234, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit116 ]
+  %.067 = phi i32 [ 8, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113 ], [ 1, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit113.thread ], [ %spec.select242, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit116 ]
   %202 = tail call i32 @_ZNK4llvm14MCRegisterInfo9getSubRegENS_10MCRegisterEj(ptr noundef nonnull align 8 dereferenceable(232) %28, i32 %13, i32 noundef 4) #23
   %.not = icmp eq i32 %202, 0
   br i1 %.not, label %203, label %212
@@ -26753,21 +26752,21 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119: ; preds = %212
   %226 = zext i8 %225 to i32
   %227 = shl nuw nsw i32 1, %220
   %228 = and i32 %227, %226
-  %.not236 = icmp eq i32 %228, 0
-  br i1 %.not236, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119.thread, label %229
+  %.not235 = icmp eq i32 %228, 0
+  br i1 %.not235, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119.thread, label %229
 
 229:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119
   %230 = getelementptr inbounds nuw i8, ptr %215, i64 2944
   %231 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(232) %213, i32 %.sroa.0160.0, i32 noundef 3, ptr noundef nonnull %230) #23
   %.pre = load ptr, ptr %27, align 8, !tbaa !74
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre247 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !360
-  %.pre248 = lshr i32 %231, 3
+  %.pre246 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !360
+  %.pre247 = lshr i32 %231, 3
   br label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119.thread: ; preds = %212, %229, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119
-  %.pre-phi = phi i32 [ %216, %212 ], [ %.pre248, %229 ], [ %216, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119 ]
-  %232 = phi ptr [ %215, %212 ], [ %.pre247, %229 ], [ %215, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119 ]
+  %.pre-phi = phi i32 [ %216, %212 ], [ %.pre247, %229 ], [ %216, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119 ]
+  %232 = phi ptr [ %215, %212 ], [ %.pre246, %229 ], [ %215, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119 ]
   %.sroa.0160.4 = phi i32 [ %.sroa.0160.0, %212 ], [ %231, %229 ], [ %.sroa.0160.0, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119 ]
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 2998
   %234 = load i16, ptr %233, align 2, !tbaa !375
@@ -26785,8 +26784,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit122: ; preds = %_ZNK4ll
   %242 = zext i8 %241 to i32
   %243 = shl nuw nsw i32 1, %236
   %244 = and i32 %243, %242
-  %.not237 = icmp eq i32 %244, 0
-  br i1 %.not237, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit122.thread, label %258
+  %.not236 = icmp eq i32 %244, 0
+  br i1 %.not236, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit122.thread, label %258
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit122.thread: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit119.thread, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit122
   %245 = getelementptr inbounds nuw i8, ptr %232, i64 406
@@ -26806,12 +26805,12 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit125: ; preds = %_ZNK4ll
   %255 = shl nuw nsw i32 1, %248
   %256 = and i32 %255, %254
   %257 = icmp eq i32 %256, 0
-  %or.cond.not240 = or i1 %.not239, %257
-  %brmerge = or i1 %.not76, %or.cond.not240
+  %or.cond.not239 = or i1 %.not238, %257
+  %brmerge = or i1 %.not76, %or.cond.not239
   br i1 %brmerge, label %.critedge, label %259
 
 258:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit122
-  %brmerge77 = or i1 %.not239, %.not76
+  %brmerge77 = or i1 %.not238, %.not76
   br i1 %brmerge77, label %.critedge, label %259
 
 259:                                              ; preds = %258, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit125
@@ -26852,7 +26851,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit125: ; preds = %_ZNK4ll
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %273, %275, %276
-  br i1 %.not239, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit134, label %279
+  br i1 %.not238, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit134, label %279
 
 279:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %280 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #23
@@ -26916,12 +26915,12 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit131:   ; preds = %287, %289, %290
   br label %309
 
 309:                                              ; preds = %.critedge, %_ZN4llvm11raw_ostreamlsEPKc.exit147
-  %.068246 = phi i32 [ 0, %.critedge ], [ %377, %_ZN4llvm11raw_ostreamlsEPKc.exit147 ]
-  %.sroa.0160.5244 = phi i32 [ %.sroa.0160.4, %.critedge ], [ %390, %_ZN4llvm11raw_ostreamlsEPKc.exit147 ]
+  %.068245 = phi i32 [ 0, %.critedge ], [ %377, %_ZN4llvm11raw_ostreamlsEPKc.exit147 ]
+  %.sroa.0160.5243 = phi i32 [ %.sroa.0160.4, %.critedge ], [ %390, %_ZN4llvm11raw_ostreamlsEPKc.exit147 ]
   %310 = load ptr, ptr %27, align 8, !tbaa !74
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %312 = load ptr, ptr %311, align 8, !tbaa !360
-  %313 = lshr i32 %.sroa.0160.5244, 3
+  %313 = lshr i32 %.sroa.0160.5243, 3
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 2998
   %315 = load i16, ptr %314, align 2, !tbaa !375
   %316 = zext i16 %315 to i32
@@ -26929,7 +26928,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit131:   ; preds = %287, %289, %290
   br i1 %.not.i135, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137: ; preds = %309
-  %317 = and i32 %.sroa.0160.5244, 7
+  %317 = and i32 %.sroa.0160.5243, 7
   %318 = getelementptr inbounds nuw i8, ptr %312, i64 2984
   %319 = load ptr, ptr %318, align 8, !tbaa !377
   %320 = zext nneg i32 %313 to i64
@@ -26938,8 +26937,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137: ; preds = %309
   %323 = zext i8 %322 to i32
   %324 = shl nuw nsw i32 1, %317
   %325 = and i32 %324, %323
-  %.not241 = icmp eq i32 %325, 0
-  br i1 %.not241, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread, label %338
+  %.not240 = icmp eq i32 %325, 0
+  br i1 %.not240, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread, label %338
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread: ; preds = %309, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137
   %326 = getelementptr inbounds nuw i8, ptr %312, i64 406
@@ -26949,7 +26948,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread: ; preds = %
   br i1 %.not.i138, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread
-  %329 = and i32 %.sroa.0160.5244, 7
+  %329 = and i32 %.sroa.0160.5243, 7
   %330 = getelementptr inbounds nuw i8, ptr %312, i64 392
   %331 = load ptr, ptr %330, align 8, !tbaa !377
   %332 = zext nneg i32 %313 to i64
@@ -26958,20 +26957,20 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140: ; preds = %_ZNK4ll
   %335 = zext i8 %334 to i32
   %336 = shl nuw nsw i32 1, %329
   %337 = and i32 %336, %335
-  %.not242 = icmp eq i32 %337, 0
-  br i1 %.not242, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140.thread, label %338
+  %.not241 = icmp eq i32 %337, 0
+  br i1 %.not241, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140.thread, label %338
 
 338:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137
   %339 = load ptr, ptr %0, align 8, !tbaa !18
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 40
   %341 = load ptr, ptr %340, align 8
-  call void %341(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 %.sroa.0160.5244) #23
+  call void %341(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 %.sroa.0160.5243) #23
   br label %364
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140.thread: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit137.thread, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 1) #23
-  %342 = add i32 %.sroa.0160.5244, -1
+  %342 = add i32 %.sroa.0160.5243, -1
   %343 = zext i32 %342 to i64
   %344 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm23AArch64AppleInstPrinter15getRegisterNameENS_10MCRegisterEjE16RegAsmOffsetvreg, i64 %343
   %345 = load i8, ptr %344, align 1, !tbaa !30
@@ -27033,7 +27032,7 @@ _ZN4llvm18AArch64InstPrinter12printRegNameERNS_11raw_ostreamENS_10MCRegisterEj.e
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit144
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit144:   ; preds = %371, %373, %374
-  %377 = add nuw nsw i32 %.068246, 1
+  %377 = add nuw nsw i32 %.068245, 1
   %.not72 = icmp eq i32 %377, %.0
   br i1 %.not72, label %_ZN4llvm11raw_ostreamlsEPKc.exit147, label %378
 
@@ -27058,7 +27057,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit144:   ; preds = %371, %373, %374
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit147
 
 _ZN4llvm11raw_ostreamlsEPKc.exit147:              ; preds = %387, %385, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit144
-  %390 = call fastcc i32 @_ZL21getNextVectorRegisterN4llvm10MCRegisterEj(i32 %.sroa.0160.5244, i32 noundef %.067)
+  %390 = call fastcc i32 @_ZL21getNextVectorRegisterN4llvm10MCRegisterEj(i32 %.sroa.0160.5243, i32 noundef %.067)
   %exitcond.not = icmp eq i32 %377, %.0
   br i1 %exitcond.not, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit134, label %309, !llvm.loop !394
 

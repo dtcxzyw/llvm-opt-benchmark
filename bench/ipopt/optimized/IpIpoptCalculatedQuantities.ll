@@ -13867,21 +13867,19 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %_ZNK5
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !389
   %28 = load ptr, ptr %2, align 8, !tbaa !385
-  %.fr42 = freeze ptr %28
-  %.fr41 = freeze ptr %27
-  %29 = ptrtoint ptr %.fr41 to i64
-  %30 = ptrtoint ptr %.fr42 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = ashr i64 %31, 3
+  %.fr42 = freeze i64 %31
+  %32 = ashr i64 %.fr42, 3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
-  %.fr43 = freeze ptr %35
-  %.fr = freeze ptr %34
-  %36 = ptrtoint ptr %.fr to i64
-  %37 = ptrtoint ptr %.fr43 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = lshr i64 %38, 3
+  %.fr = freeze i64 %38
+  %39 = lshr i64 %.fr, 3
   %40 = trunc i64 %32 to i32
   %41 = icmp sgt i32 %40, 0
   %wide.trip.count.i = and i64 %32, 2147483647
@@ -13913,12 +13911,12 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %_ZNK5
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %.not23.i.us = icmp eq i64 %38, %61
+  %.not23.i.us = icmp eq i64 %.fr, %61
   br i1 %.not23.i.us, label %.lr.ph.i7.us, label %.loopexit.us
 
 .lr.ph.i7.us:                                     ; preds = %54, %72
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %72 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.fr42, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.us
   %63 = load ptr, ptr %62, align 8, !tbaa !390
   %.not24.i.us = icmp eq ptr %63, null
   br i1 %.not24.i.us, label %69, label %64
@@ -13944,7 +13942,7 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %_ZNK5
 
 .lr.ph34.i.us:                                    ; preds = %.preheader.i.loopexit.us, %78
   %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %78 ], [ 0, %.preheader.i.loopexit.us ]
-  %73 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us
+  %73 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us
   %74 = load double, ptr %73, align 8, !tbaa !396
   %75 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv39.i.us
   %76 = load double, ptr %75, align 8, !tbaa !396
@@ -13990,12 +13988,12 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %_ZNK5
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not23.i.us26 = icmp eq i64 %38, %96
+  %.not23.i.us26 = icmp eq i64 %.fr, %96
   br i1 %.not23.i.us26, label %.lr.ph34.i.us29, label %.loopexit.us35
 
 .lr.ph34.i.us29:                                  ; preds = %89, %102
   %indvars.iv39.i.us30 = phi i64 [ %indvars.iv.next40.i.us33, %102 ], [ 0, %89 ]
-  %97 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us30
+  %97 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us30
   %98 = load double, ptr %97, align 8, !tbaa !396
   %99 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv39.i.us30
   %100 = load double, ptr %99, align 8, !tbaa !396
@@ -14035,7 +14033,7 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %_ZNK5
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %.not23.i = icmp eq i64 %38, %120
+  %.not23.i = icmp eq i64 %.fr, %120
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit, label %124
 
 _ZNK5Ipopt15DependentResultIdE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS5_EERKS2_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78
@@ -15111,21 +15109,19 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEE25CleanupInvalidatedResult
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !389
   %28 = load ptr, ptr %2, align 8, !tbaa !385
-  %.fr42 = freeze ptr %28
-  %.fr41 = freeze ptr %27
-  %29 = ptrtoint ptr %.fr41 to i64
-  %30 = ptrtoint ptr %.fr42 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = ashr i64 %31, 3
+  %.fr42 = freeze i64 %31
+  %32 = ashr i64 %.fr42, 3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
-  %.fr43 = freeze ptr %35
-  %.fr = freeze ptr %34
-  %36 = ptrtoint ptr %.fr to i64
-  %37 = ptrtoint ptr %.fr43 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = lshr i64 %38, 3
+  %.fr = freeze i64 %38
+  %39 = lshr i64 %.fr, 3
   %40 = trunc i64 %32 to i32
   %41 = icmp sgt i32 %40, 0
   %wide.trip.count.i = and i64 %32, 2147483647
@@ -15157,12 +15153,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEE25CleanupInvalidatedResult
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %.not23.i.us = icmp eq i64 %38, %61
+  %.not23.i.us = icmp eq i64 %.fr, %61
   br i1 %.not23.i.us, label %.lr.ph.i7.us, label %.loopexit.us
 
 .lr.ph.i7.us:                                     ; preds = %54, %72
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %72 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.fr42, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.us
   %63 = load ptr, ptr %62, align 8, !tbaa !390
   %.not24.i.us = icmp eq ptr %63, null
   br i1 %.not24.i.us, label %69, label %64
@@ -15188,7 +15184,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEE25CleanupInvalidatedResult
 
 .lr.ph34.i.us:                                    ; preds = %.preheader.i.loopexit.us, %78
   %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %78 ], [ 0, %.preheader.i.loopexit.us ]
-  %73 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us
+  %73 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us
   %74 = load double, ptr %73, align 8, !tbaa !396
   %75 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv39.i.us
   %76 = load double, ptr %75, align 8, !tbaa !396
@@ -15234,12 +15230,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEE25CleanupInvalidatedResult
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not23.i.us26 = icmp eq i64 %38, %96
+  %.not23.i.us26 = icmp eq i64 %.fr, %96
   br i1 %.not23.i.us26, label %.lr.ph34.i.us29, label %.loopexit.us35
 
 .lr.ph34.i.us29:                                  ; preds = %89, %102
   %indvars.iv39.i.us30 = phi i64 [ %indvars.iv.next40.i.us33, %102 ], [ 0, %89 ]
-  %97 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us30
+  %97 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us30
   %98 = load double, ptr %97, align 8, !tbaa !396
   %99 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv39.i.us30
   %100 = load double, ptr %99, align 8, !tbaa !396
@@ -15279,7 +15275,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEE25CleanupInvalidatedResult
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %.not23.i = icmp eq i64 %38, %120
+  %.not23.i = icmp eq i64 %.fr, %120
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS9_EERKS6_IdSaIdEE.exit, label %139
 
 _ZNK5Ipopt15DependentResultINS_8SmartPtrIKNS_6VectorEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS9_EERKS6_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78
@@ -39269,21 +39265,19 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEE25CleanupInvalidatedRes
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !389
   %28 = load ptr, ptr %2, align 8, !tbaa !385
-  %.fr42 = freeze ptr %28
-  %.fr41 = freeze ptr %27
-  %29 = ptrtoint ptr %.fr41 to i64
-  %30 = ptrtoint ptr %.fr42 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = ashr i64 %31, 3
+  %.fr42 = freeze i64 %31
+  %32 = ashr i64 %.fr42, 3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
-  %.fr43 = freeze ptr %35
-  %.fr = freeze ptr %34
-  %36 = ptrtoint ptr %.fr to i64
-  %37 = ptrtoint ptr %.fr43 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = lshr i64 %38, 3
+  %.fr = freeze i64 %38
+  %39 = lshr i64 %.fr, 3
   %40 = trunc i64 %32 to i32
   %41 = icmp sgt i32 %40, 0
   %wide.trip.count.i = and i64 %32, 2147483647
@@ -39315,12 +39309,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEE25CleanupInvalidatedRes
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %.not23.i.us = icmp eq i64 %38, %61
+  %.not23.i.us = icmp eq i64 %.fr, %61
   br i1 %.not23.i.us, label %.lr.ph.i7.us, label %.loopexit.us
 
 .lr.ph.i7.us:                                     ; preds = %54, %72
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %72 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.fr42, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.us
   %63 = load ptr, ptr %62, align 8, !tbaa !390
   %.not24.i.us = icmp eq ptr %63, null
   br i1 %.not24.i.us, label %69, label %64
@@ -39346,7 +39340,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEE25CleanupInvalidatedRes
 
 .lr.ph34.i.us:                                    ; preds = %.preheader.i.loopexit.us, %78
   %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %78 ], [ 0, %.preheader.i.loopexit.us ]
-  %73 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us
+  %73 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us
   %74 = load double, ptr %73, align 8, !tbaa !396
   %75 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv39.i.us
   %76 = load double, ptr %75, align 8, !tbaa !396
@@ -39392,12 +39386,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEE25CleanupInvalidatedRes
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not23.i.us26 = icmp eq i64 %38, %96
+  %.not23.i.us26 = icmp eq i64 %.fr, %96
   br i1 %.not23.i.us26, label %.lr.ph34.i.us29, label %.loopexit.us35
 
 .lr.ph34.i.us29:                                  ; preds = %89, %102
   %indvars.iv39.i.us30 = phi i64 [ %indvars.iv.next40.i.us33, %102 ], [ 0, %89 ]
-  %97 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us30
+  %97 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us30
   %98 = load double, ptr %97, align 8, !tbaa !396
   %99 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv39.i.us30
   %100 = load double, ptr %99, align 8, !tbaa !396
@@ -39437,7 +39431,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEE25CleanupInvalidatedRes
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %.not23.i = icmp eq i64 %38, %120
+  %.not23.i = icmp eq i64 %.fr, %120
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS9_EERKS6_IdSaIdEE.exit, label %139
 
 _ZNK5Ipopt15DependentResultINS_8SmartPtrIKNS_9SymMatrixEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS9_EERKS6_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78
@@ -75207,21 +75201,19 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEE25CleanupInvalidatedResults
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !389
   %28 = load ptr, ptr %2, align 8, !tbaa !385
-  %.fr42 = freeze ptr %28
-  %.fr41 = freeze ptr %27
-  %29 = ptrtoint ptr %.fr41 to i64
-  %30 = ptrtoint ptr %.fr42 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = ashr i64 %31, 3
+  %.fr42 = freeze i64 %31
+  %32 = ashr i64 %.fr42, 3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
-  %.fr43 = freeze ptr %35
-  %.fr = freeze ptr %34
-  %36 = ptrtoint ptr %.fr to i64
-  %37 = ptrtoint ptr %.fr43 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = lshr i64 %38, 3
+  %.fr = freeze i64 %38
+  %39 = lshr i64 %.fr, 3
   %40 = trunc i64 %32 to i32
   %41 = icmp sgt i32 %40, 0
   %wide.trip.count.i = and i64 %32, 2147483647
@@ -75253,12 +75245,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEE25CleanupInvalidatedResults
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %.not23.i.us = icmp eq i64 %38, %61
+  %.not23.i.us = icmp eq i64 %.fr, %61
   br i1 %.not23.i.us, label %.lr.ph.i7.us, label %.loopexit.us
 
 .lr.ph.i7.us:                                     ; preds = %54, %72
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %72 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.fr42, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.us
   %63 = load ptr, ptr %62, align 8, !tbaa !390
   %.not24.i.us = icmp eq ptr %63, null
   br i1 %.not24.i.us, label %69, label %64
@@ -75284,7 +75276,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEE25CleanupInvalidatedResults
 
 .lr.ph34.i.us:                                    ; preds = %.preheader.i.loopexit.us, %78
   %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %78 ], [ 0, %.preheader.i.loopexit.us ]
-  %73 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us
+  %73 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us
   %74 = load double, ptr %73, align 8, !tbaa !396
   %75 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv39.i.us
   %76 = load double, ptr %75, align 8, !tbaa !396
@@ -75330,12 +75322,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEE25CleanupInvalidatedResults
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not23.i.us26 = icmp eq i64 %38, %96
+  %.not23.i.us26 = icmp eq i64 %.fr, %96
   br i1 %.not23.i.us26, label %.lr.ph34.i.us29, label %.loopexit.us35
 
 .lr.ph34.i.us29:                                  ; preds = %89, %102
   %indvars.iv39.i.us30 = phi i64 [ %indvars.iv.next40.i.us33, %102 ], [ 0, %89 ]
-  %97 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us30
+  %97 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us30
   %98 = load double, ptr %97, align 8, !tbaa !396
   %99 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv39.i.us30
   %100 = load double, ptr %99, align 8, !tbaa !396
@@ -75375,7 +75367,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEE25CleanupInvalidatedResults
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %.not23.i = icmp eq i64 %38, %120
+  %.not23.i = icmp eq i64 %.fr, %120
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS8_EERKS5_IdSaIdEE.exit, label %139
 
 _ZNK5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS8_EERKS5_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78
@@ -77659,21 +77651,19 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE25CleanupInvalidatedResult
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !389
   %28 = load ptr, ptr %2, align 8, !tbaa !385
-  %.fr42 = freeze ptr %28
-  %.fr41 = freeze ptr %27
-  %29 = ptrtoint ptr %.fr41 to i64
-  %30 = ptrtoint ptr %.fr42 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = ashr i64 %31, 3
+  %.fr42 = freeze i64 %31
+  %32 = ashr i64 %.fr42, 3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
-  %.fr43 = freeze ptr %35
-  %.fr = freeze ptr %34
-  %36 = ptrtoint ptr %.fr to i64
-  %37 = ptrtoint ptr %.fr43 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = lshr i64 %38, 3
+  %.fr = freeze i64 %38
+  %39 = lshr i64 %.fr, 3
   %40 = trunc i64 %32 to i32
   %41 = icmp sgt i32 %40, 0
   %wide.trip.count.i = and i64 %32, 2147483647
@@ -77705,12 +77695,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE25CleanupInvalidatedResult
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %.not23.i.us = icmp eq i64 %38, %61
+  %.not23.i.us = icmp eq i64 %.fr, %61
   br i1 %.not23.i.us, label %.lr.ph.i7.us, label %.loopexit.us
 
 .lr.ph.i7.us:                                     ; preds = %54, %72
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %72 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.fr42, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.us
   %63 = load ptr, ptr %62, align 8, !tbaa !390
   %.not24.i.us = icmp eq ptr %63, null
   br i1 %.not24.i.us, label %69, label %64
@@ -77736,7 +77726,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE25CleanupInvalidatedResult
 
 .lr.ph34.i.us:                                    ; preds = %.preheader.i.loopexit.us, %78
   %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %78 ], [ 0, %.preheader.i.loopexit.us ]
-  %73 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us
+  %73 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us
   %74 = load double, ptr %73, align 8, !tbaa !396
   %75 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv39.i.us
   %76 = load double, ptr %75, align 8, !tbaa !396
@@ -77782,12 +77772,12 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE25CleanupInvalidatedResult
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not23.i.us26 = icmp eq i64 %38, %96
+  %.not23.i.us26 = icmp eq i64 %.fr, %96
   br i1 %.not23.i.us26, label %.lr.ph34.i.us29, label %.loopexit.us35
 
 .lr.ph34.i.us29:                                  ; preds = %89, %102
   %indvars.iv39.i.us30 = phi i64 [ %indvars.iv.next40.i.us33, %102 ], [ 0, %89 ]
-  %97 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us30
+  %97 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us30
   %98 = load double, ptr %97, align 8, !tbaa !396
   %99 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv39.i.us30
   %100 = load double, ptr %99, align 8, !tbaa !396
@@ -77827,7 +77817,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE25CleanupInvalidatedResult
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %.not23.i = icmp eq i64 %38, %120
+  %.not23.i = icmp eq i64 %.fr, %120
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS9_EERKS6_IdSaIdEE.exit, label %139
 
 _ZNK5Ipopt15DependentResultINS_8SmartPtrIKNS_6MatrixEEEE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaIS9_EERKS6_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78
@@ -78607,21 +78597,19 @@ _ZNK5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EE25CleanupInvali
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !389
   %28 = load ptr, ptr %2, align 8, !tbaa !385
-  %.fr42 = freeze ptr %28
-  %.fr41 = freeze ptr %27
-  %29 = ptrtoint ptr %.fr41 to i64
-  %30 = ptrtoint ptr %.fr42 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = ashr i64 %31, 3
+  %.fr42 = freeze i64 %31
+  %32 = ashr i64 %.fr42, 3
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
-  %.fr43 = freeze ptr %35
-  %.fr = freeze ptr %34
-  %36 = ptrtoint ptr %.fr to i64
-  %37 = ptrtoint ptr %.fr43 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = lshr i64 %38, 3
+  %.fr = freeze i64 %38
+  %39 = lshr i64 %.fr, 3
   %40 = trunc i64 %32 to i32
   %41 = icmp sgt i32 %40, 0
   %wide.trip.count.i = and i64 %32, 2147483647
@@ -78653,12 +78641,12 @@ _ZNK5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EE25CleanupInvali
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %.not23.i.us = icmp eq i64 %38, %61
+  %.not23.i.us = icmp eq i64 %.fr, %61
   br i1 %.not23.i.us, label %.lr.ph.i7.us, label %.loopexit.us
 
 .lr.ph.i7.us:                                     ; preds = %54, %72
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %72 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.fr42, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.us
   %63 = load ptr, ptr %62, align 8, !tbaa !390
   %.not24.i.us = icmp eq ptr %63, null
   br i1 %.not24.i.us, label %69, label %64
@@ -78684,7 +78672,7 @@ _ZNK5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EE25CleanupInvali
 
 .lr.ph34.i.us:                                    ; preds = %.preheader.i.loopexit.us, %78
   %indvars.iv39.i.us = phi i64 [ %indvars.iv.next40.i.us, %78 ], [ 0, %.preheader.i.loopexit.us ]
-  %73 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us
+  %73 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us
   %74 = load double, ptr %73, align 8, !tbaa !396
   %75 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv39.i.us
   %76 = load double, ptr %75, align 8, !tbaa !396
@@ -78730,12 +78718,12 @@ _ZNK5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EE25CleanupInvali
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not23.i.us26 = icmp eq i64 %38, %96
+  %.not23.i.us26 = icmp eq i64 %.fr, %96
   br i1 %.not23.i.us26, label %.lr.ph34.i.us29, label %.loopexit.us35
 
 .lr.ph34.i.us29:                                  ; preds = %89, %102
   %indvars.iv39.i.us30 = phi i64 [ %indvars.iv.next40.i.us33, %102 ], [ 0, %89 ]
-  %97 = getelementptr inbounds nuw double, ptr %.fr43, i64 %indvars.iv39.i.us30
+  %97 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv39.i.us30
   %98 = load double, ptr %97, align 8, !tbaa !396
   %99 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv39.i.us30
   %100 = load double, ptr %99, align 8, !tbaa !396
@@ -78775,7 +78763,7 @@ _ZNK5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EE25CleanupInvali
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %.not23.i = icmp eq i64 %38, %120
+  %.not23.i = icmp eq i64 %.fr, %120
   br i1 %.not23.i, label %_ZNK5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaISA_EERKS7_IdSaIdEE.exit, label %157
 
 _ZNK5Ipopt15DependentResultISt4pairINS_8SmartPtrINS_6VectorEEES4_EE19DependentsIdenticalERKSt6vectorIPKNS_12TaggedObjectESaISA_EERKS7_IdSaIdEE.exit: ; preds = %113, %102, %.preheader.i.loopexit.us, %78

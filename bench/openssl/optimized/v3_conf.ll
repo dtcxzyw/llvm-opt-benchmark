@@ -561,11 +561,12 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
   %11 = icmp sgt i32 %.0.lcssa, %.041.lcssa
   %12 = icmp sgt i32 %.041.lcssa, -1
   %or.cond = and i1 %12, %11
+  %or.cond.fr = freeze i1 %or.cond
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.lr.ph56.split.us, label %.lr.ph56.split
 
 .lr.ph56.split.us:                                ; preds = %.lr.ph56
-  br i1 %or.cond, label %.lr.ph56.split.us.split.us, label %.lr.ph56.split.us.split
+  br i1 %or.cond.fr, label %.lr.ph56.split.us.split.us, label %.lr.ph56.split.us.split
 
 .lr.ph56.split.us.split.us:                       ; preds = %.lr.ph56.split.us, %26
   %.14455.us.us = phi i32 [ %27, %26 ], [ 0, %.lr.ph56.split.us ]
@@ -632,8 +633,7 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
 
 47:                                               ; preds = %.lr.ph
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(21) @.str.2) #5
-  %.fr = freeze i32 %48
-  %49 = icmp eq i32 %.fr, 0
+  %49 = icmp eq i32 %48, 0
   %spec.select = select i1 %49, i32 %.04351, i32 %.053
   br label %50
 
@@ -648,23 +648,23 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
 .lr.ph56.split:                                   ; preds = %.lr.ph56, %82
   %.14455 = phi i32 [ %83, %82 ], [ 0, %.lr.ph56 ]
   %54 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.14455) #6
-  br i1 %or.cond, label %55, label %60
+  br i1 %or.cond.fr, label %55, label %60
 
 55:                                               ; preds = %.lr.ph56.split
   %56 = icmp eq i32 %.14455, %.041.lcssa
-  br i1 %56, label %.sink.split83, label %57
+  br i1 %56, label %.sink.split82, label %57
 
 57:                                               ; preds = %55
   %58 = icmp eq i32 %.14455, %.0.lcssa
-  br i1 %58, label %.sink.split83, label %60
+  br i1 %58, label %.sink.split82, label %60
 
-.sink.split83:                                    ; preds = %57, %55
-  %.0.lcssa.sink84 = phi i32 [ %.0.lcssa, %55 ], [ %.041.lcssa, %57 ]
-  %59 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink84) #6
+.sink.split82:                                    ; preds = %57, %55
+  %.0.lcssa.sink83 = phi i32 [ %.0.lcssa, %55 ], [ %.041.lcssa, %57 ]
+  %59 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink83) #6
   br label %60
 
-60:                                               ; preds = %.sink.split83, %57, %.lr.ph56.split
-  %.045 = phi ptr [ %54, %57 ], [ %54, %.lr.ph56.split ], [ %59, %.sink.split83 ]
+60:                                               ; preds = %.sink.split82, %57, %.lr.ph56.split
+  %.045 = phi ptr [ %54, %57 ], [ %54, %.lr.ph56.split ], [ %59, %.sink.split82 ]
   %61 = load ptr, ptr %.045, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !35

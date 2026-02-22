@@ -5449,9 +5449,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29Usd_SortAutoAppliedAPISchema
 .lr.ph.i.i.i.i:                                   ; preds = %16, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_29Usd_SortAutoAppliedAPISchemasEPS7_E3$_0EEEvT_T0_.exit.i.i.i.i"
   %.sroa.0.08.i.i.i.i = phi ptr [ %114, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_29Usd_SortAutoAppliedAPISchemasEPS7_E3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %17, %16 ]
   %18 = load i64, ptr %.sroa.0.08.i.i.i.i, align 8
-  %.fr.i.i.i = freeze i64 %18
+  %.fr27.i.i.i = freeze i64 %18
   store i64 0, ptr %.sroa.0.08.i.i.i.i, align 8
-  %19 = and i64 %.fr.i.i.i, -8
+  %19 = and i64 %.fr27.i.i.i, -8
   %.not.i.i2.i.i.i.i = icmp eq i64 %19, 0
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -5625,7 +5625,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i.i.i.i: ;
 
 103:                                              ; preds = %.split.i.i.i, %.split.us.i.i.i
   %.us-phi21.i.i.i = phi { ptr, i32 } [ %102, %.split.i.i.i ], [ %62, %.split.us.i.i.i ]
-  %104 = and i64 %.fr.i.i.i, 7
+  %104 = and i64 %.fr27.i.i.i, 7
   %.not.i.i1.i.i.i.i.i = icmp eq i64 %104, 0
   br i1 %.not.i.i1.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i, label %105
 
@@ -5651,7 +5651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i: ; preds = %105
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_29Usd_SortAutoAppliedAPISchemasEPS7_E3$_0EEEvT_T0_.exit.i.i.i.i"
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_29Usd_SortAutoAppliedAPISchemasEPS7_E3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %110, %.split23.us.i.i.i
-  store i64 %.fr.i.i.i, ptr %.us-phi24.i.i.i, align 8
+  store i64 %.fr27.i.i.i, ptr %.us-phi24.i.i.i, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %114, %4
   br i1 %.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNS2_29Usd_SortAutoAppliedAPISchemasEPS7_E3$_0EvT_SB_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !44

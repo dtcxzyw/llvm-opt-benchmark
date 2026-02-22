@@ -20316,21 +20316,19 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %28
   %47 = and i64 %40, -8
   %48 = inttoptr i64 %47 to ptr
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.pre164 = load ptr, ptr %49, align 8, !tbaa !412
+  %.pre163 = load ptr, ptr %49, align 8, !tbaa !412
   br label %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
 
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %44, %46
-  %50 = phi ptr [ %45, %44 ], [ %.pre164, %46 ]
+  %50 = phi ptr [ %45, %44 ], [ %.pre163, %46 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 36
   %52 = load i16, ptr %51, align 4
-  %.fr163 = freeze i16 %52
-  %53 = lshr i16 %.fr163, 8
+  %53 = lshr i16 %52, 8
   %54 = and i16 %53, 15
   %55 = zext nneg i16 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %57 = load i16, ptr %56, align 4, !tbaa !377
-  %.fr = freeze i16 %57
-  %58 = icmp eq i16 %.fr, 93
+  %58 = icmp eq i16 %57, 93
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 125504
   %60 = load ptr, ptr %59, align 8, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 391
@@ -20351,13 +20349,14 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %44, %46
 69:                                               ; preds = %64
   %.v = select i1 %58, i32 4, i32 5
   %70 = icmp eq i32 %.v, %55
+  %cond.fr = freeze i1 %70
   %71 = select i1 %58, i32 4693, i32 7213
   %72 = select i1 %58, i32 4787, i32 7309
-  %spec.select = select i1 %70, i32 %71, i32 %72
+  %spec.select = select i1 %cond.fr, i32 %71, i32 %72
   br label %73
 
 73:                                               ; preds = %69, %.thread
-  %74 = phi i1 [ false, %.thread ], [ %70, %69 ]
+  %74 = phi i1 [ false, %.thread ], [ %cond.fr, %69 ]
   %75 = phi i32 [ %68, %.thread ], [ %spec.select, %69 ]
   br i1 %58, label %76, label %96
 

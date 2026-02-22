@@ -32,8 +32,6 @@ $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIf
 
 $_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_ = comdat any
 
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_ = comdat any
-
 $_ZN8interpol19smooth_cubic_splineIfE11gauss_solveERNS1_6matrixERSt6vectorIfSaIfEE = comdat any
 
 $_ZN8interpol19smooth_cubic_splineIfE8LU_solveERKNS1_6matrixERSt6vectorIfSaIfEE = comdat any
@@ -48,15 +46,11 @@ $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIf
 
 $_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_T0_ = comdat any
 
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_ = comdat any
-
 $_ZN8interpol11spline_baseIfEC2IN9__gnu_cxx17__normal_iteratorIPNS_5pointIfEESt6vectorIS6_SaIS6_EEEEEET_SC_RKNS_6limitsIfEESG_b = comdat any
 
 $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_T1_ = comdat any
 
 $_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_ = comdat any
-
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_ = comdat any
 
 $_ZN8interpol31monotone_hermite_spline_variantIfE4initEv = comdat any
 
@@ -270,18 +264,17 @@ define linkonce_odr noundef float @_ZNK8interpol11spline_baseIfEclEf(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = load ptr, ptr %0, align 8, !tbaa !6
-  %.fr137 = freeze ptr %5
   %6 = ptrtoint ptr %4 to i64
-  %7 = ptrtoint ptr %.fr137 to i64
+  %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
   %10 = icmp eq i64 %8, 12
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %.fr137, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load float, ptr %12, align 4, !tbaa !14
-  br label %135
+  br label %136
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -289,36 +282,32 @@ define linkonce_odr noundef float @_ZNK8interpol11spline_baseIfEclEf(ptr noundef
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = icmp sgt i64 %8, 0
-  %20 = load float, ptr %.fr137, align 4, !tbaa !26
-  %.fr134 = freeze float %20
-  br i1 %17, label %21, label %56
+  br i1 %17, label %20, label %56
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %23 = load float, ptr %22, align 4, !tbaa !27
-  %24 = load float, ptr %18, align 8, !tbaa !28
-  %.fr = freeze float %23
-  %.fr133 = freeze float %24
-  %25 = fsub reassoc nsz arcp contract afn float %.fr, %.fr133
-  %26 = frem reassoc nsz arcp contract afn float %1, %25
-  %27 = fcmp reassoc nsz arcp contract afn olt float %26, %.fr134
-  %28 = fadd reassoc nsz arcp contract afn float %26, %25
-  %.0108 = select nsz i1 %27, float %28, float %26
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %22 = load float, ptr %21, align 4, !tbaa !26
+  %23 = load float, ptr %18, align 8, !tbaa !27
+  %24 = fsub reassoc nsz arcp contract afn float %22, %23
+  %25 = frem reassoc nsz arcp contract afn float %1, %24
+  %26 = load float, ptr %5, align 4, !tbaa !28
+  %27 = fcmp reassoc nsz arcp contract afn olt float %25, %26
+  %28 = fadd reassoc nsz arcp contract afn float %25, %24
+  %.0108 = select nsz i1 %27, float %28, float %25
   br i1 %19, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %21
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %20
   %29 = udiv exact i64 %8, 12
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i
   %.013.i.i = phi i64 [ %29, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ]
-  %.sroa.011.012.i.i = phi ptr [ %.fr137, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ]
+  %.sroa.011.012.i.i = phi ptr [ %5, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ]
   %30 = lshr i64 %.013.i.i, 1
   %31 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.sroa.011.012.i.i, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !26
-  %.fr135 = freeze float %32
-  %33 = fcmp reassoc nsz arcp contract afn olt float %.0108, %.fr135
-  %34 = getelementptr i8, ptr %31, i64 12
+  %32 = load float, ptr %31, align 4, !tbaa !28
+  %33 = fcmp reassoc nsz arcp contract afn olt float %.0108, %32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %35 = xor i64 %30, -1
   %36 = add nsw i64 %.013.i.i, %35
   %.sroa.011.1.i.i = select i1 %33, ptr %.sroa.011.012.i.i, ptr %34
@@ -328,12 +317,13 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vecto
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
   %.pre = ptrtoint ptr %.sroa.011.1.i.i to i64
-  %38 = icmp eq ptr %.sroa.011.1.i.i, %.fr137
+  %38 = icmp eq ptr %.sroa.011.1.i.i, %5
   %39 = sub i64 %.pre, %7
   %40 = sdiv exact i64 %39, 12
-  br i1 %38, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread, label %41
+  %cond.fr = freeze i1 %38
+  br i1 %cond.fr, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread, label %41
 
-_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %21, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
+_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %20, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
   br label %41
 
 41:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread
@@ -342,10 +332,10 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6
   %44 = icmp ult i64 %42, %9
   %45 = select i1 %44, i64 %42, i64 0
   %46 = icmp ugt i64 %45, %43
-  %47 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr137, i64 %45
-  %48 = load float, ptr %47, align 4, !tbaa !26
-  %49 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr137, i64 %43
-  %50 = load float, ptr %49, align 4, !tbaa !26
+  %47 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %45
+  %48 = load float, ptr %47, align 4, !tbaa !28
+  %49 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %43
+  %50 = load float, ptr %49, align 4, !tbaa !28
   br i1 %46, label %51, label %53
 
 51:                                               ; preds = %41
@@ -353,7 +343,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6
   br label %.thread
 
 53:                                               ; preds = %41
-  %54 = fadd reassoc nsz arcp contract afn float %48, %25
+  %54 = fadd reassoc nsz arcp contract afn float %48, %24
   %55 = fsub reassoc nsz arcp contract afn float %54, %50
   br label %.thread
 
@@ -365,124 +355,125 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6
   %60 = load float, ptr %59, align 4, !tbaa !31
   %61 = fcmp reassoc nsz arcp contract afn olt float %60, %.sroa.speculated105
   %.sroa.speculated102 = select i1 %61, float %60, float %.sroa.speculated105
-  %62 = fcmp reassoc nsz arcp contract afn oge float %.sroa.speculated102, %.fr134
-  %or.cond = and i1 %62, %19
+  %62 = load float, ptr %5, align 4, !tbaa !28
+  %63 = fcmp reassoc nsz arcp contract afn oge float %.sroa.speculated102, %62
+  %or.cond = and i1 %63, %19
   br i1 %or.cond, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64: ; preds = %56
-  %63 = udiv exact i64 %8, 12
+  %64 = udiv exact i64 %8, 12
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64
-  %.013.i.i66 = phi i64 [ %63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.1.i.i71, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
-  %.sroa.011.012.i.i67 = phi ptr [ %.fr137, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.sroa.011.1.i.i70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
-  %64 = lshr i64 %.013.i.i66, 1
-  %65 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.sroa.011.012.i.i67, i64 %64
-  %66 = load float, ptr %65, align 4, !tbaa !26
-  %67 = fcmp reassoc nsz arcp contract afn olt float %.sroa.speculated102, %66
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %69 = xor i64 %64, -1
-  %70 = add nsw i64 %.013.i.i66, %69
-  %.sroa.011.1.i.i70 = select i1 %67, ptr %.sroa.011.012.i.i67, ptr %68
-  %.1.i.i71 = select i1 %67, i64 %64, i64 %70
-  %71 = icmp sgt i64 %.1.i.i71, 0
-  br i1 %71, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, !llvm.loop !32
+  %.013.i.i66 = phi i64 [ %64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.1.i.i71, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
+  %.sroa.011.012.i.i67 = phi ptr [ %5, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.sroa.011.1.i.i70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
+  %65 = lshr i64 %.013.i.i66, 1
+  %66 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.sroa.011.012.i.i67, i64 %65
+  %67 = load float, ptr %66, align 4, !tbaa !28
+  %68 = fcmp reassoc nsz arcp contract afn olt float %.sroa.speculated102, %67
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  %70 = xor i64 %65, -1
+  %71 = add nsw i64 %.013.i.i66, %70
+  %.sroa.011.1.i.i70 = select i1 %68, ptr %.sroa.011.012.i.i67, ptr %69
+  %.1.i.i71 = select i1 %68, i64 %65, i64 %71
+  %72 = icmp sgt i64 %.1.i.i71, 0
+  br i1 %72, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, !llvm.loop !32
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65
-  %.not = icmp eq ptr %.sroa.011.1.i.i70, %.fr137
-  br i1 %.not, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread, label %72
+  %.not = icmp eq ptr %.sroa.011.1.i.i70, %5
+  br i1 %.not, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread, label %73
 
-72:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit
-  %73 = ptrtoint ptr %.sroa.011.1.i.i70 to i64
-  %74 = sub i64 %73, %7
-  %75 = sdiv exact i64 %74, 12
-  %76 = add nsw i64 %75, -1
-  %77 = add nsw i64 %9, -2
-  %.sroa.speculated80 = tail call i64 @llvm.umin.i64(i64 %77, i64 %76)
+73:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit
+  %74 = ptrtoint ptr %.sroa.011.1.i.i70 to i64
+  %75 = sub i64 %74, %7
+  %76 = sdiv exact i64 %75, 12
+  %77 = add nsw i64 %76, -1
+  %78 = add nsw i64 %9, -2
+  %.sroa.speculated80 = tail call i64 @llvm.umin.i64(i64 %78, i64 %77)
   br label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
 
-_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, %72, %56
-  %.1 = phi i64 [ %.sroa.speculated80, %72 ], [ 0, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit ], [ 0, %56 ]
-  %78 = fcmp reassoc nsz arcp contract afn ugt float %.sroa.speculated102, %.fr134
-  br i1 %78, label %79, label %89
+_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, %73, %56
+  %.1 = phi i64 [ %.sroa.speculated80, %73 ], [ 0, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit ], [ 0, %56 ]
+  %79 = fcmp reassoc nsz arcp contract afn ugt float %.sroa.speculated102, %62
+  br i1 %79, label %80, label %90
 
-79:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
-  %80 = add nsw i64 %.1, 1
-  %81 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr137, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !26
-  %83 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr137, i64 %.1
-  %84 = load float, ptr %83, align 4, !tbaa !26
-  %85 = fsub reassoc nsz arcp contract afn float %82, %84
-  %86 = getelementptr inbounds i8, ptr %4, i64 -12
-  %87 = load float, ptr %86, align 4, !tbaa !26
-  %88 = fcmp reassoc nsz arcp contract afn ult float %.sroa.speculated102, %87
-  br i1 %88, label %.thread, label %89
+80:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
+  %81 = add nsw i64 %.1, 1
+  %82 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %81
+  %83 = load float, ptr %82, align 4, !tbaa !28
+  %84 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.1
+  %85 = load float, ptr %84, align 4, !tbaa !28
+  %86 = fsub reassoc nsz arcp contract afn float %83, %85
+  %87 = getelementptr inbounds i8, ptr %4, i64 -12
+  %88 = load float, ptr %87, align 4, !tbaa !28
+  %89 = fcmp reassoc nsz arcp contract afn ult float %.sroa.speculated102, %88
+  br i1 %89, label %.thread, label %90
 
-89:                                               ; preds = %79, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
-  %90 = phi float [ %.fr134, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %87, %79 ]
-  %91 = phi ptr [ %.fr137, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %86, %79 ]
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %93 = load float, ptr %92, align 4, !tbaa !14
-  %94 = fsub reassoc nsz arcp contract afn float %.sroa.speculated102, %90
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %96 = load float, ptr %95, align 4, !tbaa !33
-  %97 = fmul reassoc nsz arcp contract afn float %94, %96
-  %98 = fadd reassoc nsz arcp contract afn float %97, %93
-  br label %128
+90:                                               ; preds = %80, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
+  %91 = phi float [ %62, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %88, %80 ]
+  %92 = phi ptr [ %5, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %87, %80 ]
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = load float, ptr %93, align 4, !tbaa !14
+  %95 = fsub reassoc nsz arcp contract afn float %.sroa.speculated102, %91
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %97 = load float, ptr %96, align 4, !tbaa !33
+  %98 = fmul reassoc nsz arcp contract afn float %95, %97
+  %99 = fadd reassoc nsz arcp contract afn float %98, %94
+  br label %129
 
-.thread:                                          ; preds = %53, %51, %79
-  %99 = phi float [ %84, %79 ], [ %50, %51 ], [ %50, %53 ]
-  %.050117 = phi i64 [ %.1, %79 ], [ %43, %51 ], [ %43, %53 ]
-  %.051116 = phi i64 [ %80, %79 ], [ %45, %51 ], [ %45, %53 ]
-  %.153115 = phi float [ %85, %79 ], [ %52, %51 ], [ %55, %53 ]
-  %.1109114 = phi float [ %.sroa.speculated102, %79 ], [ %.0108, %51 ], [ %.0108, %53 ]
-  %100 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr137, i64 %.050117
-  %101 = fsub reassoc nsz arcp contract afn float %.1109114, %99
-  %102 = fdiv reassoc nsz arcp contract afn float %101, %.153115
-  %103 = fmul reassoc nsz arcp contract afn float %102, %102
-  %104 = fmul reassoc nsz arcp contract afn float %103, %102
-  %105 = fmul reassoc nsz arcp contract afn float %104, 2.000000e+00
-  %106 = fmul reassoc nsz arcp contract afn float %103, 3.000000e+00
-  %107 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %106
-  %108 = fadd reassoc nsz arcp contract afn float %107, %105
-  %.neg120 = fmul reassoc nsz arcp contract afn float %103, -2.000000e+00
-  %109 = fadd reassoc nsz arcp contract afn float %.neg120, %102
-  %110 = fadd reassoc nsz arcp contract afn float %109, %104
-  %111 = fsub reassoc nsz arcp contract afn float %106, %105
-  %112 = fsub reassoc nsz arcp contract afn float %104, %103
-  %113 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %114 = load float, ptr %113, align 4, !tbaa !14
-  %115 = fmul reassoc nsz arcp contract afn float %108, %114
-  %116 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %117 = load float, ptr %116, align 4, !tbaa !33
-  %118 = fmul reassoc nsz arcp contract afn float %110, %117
-  %119 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr137, i64 %.051116
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %121 = load float, ptr %120, align 4, !tbaa !14
-  %122 = fmul reassoc nsz arcp contract afn float %111, %121
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %124 = load float, ptr %123, align 4, !tbaa !33
-  %125 = fmul reassoc nsz arcp contract afn float %112, %124
-  %reass.add = fadd reassoc nsz arcp contract afn float %118, %125
+.thread:                                          ; preds = %53, %51, %80
+  %100 = phi float [ %85, %80 ], [ %50, %51 ], [ %50, %53 ]
+  %.050117 = phi i64 [ %.1, %80 ], [ %43, %51 ], [ %43, %53 ]
+  %.051116 = phi i64 [ %81, %80 ], [ %45, %51 ], [ %45, %53 ]
+  %.153115 = phi float [ %86, %80 ], [ %52, %51 ], [ %55, %53 ]
+  %.1109114 = phi float [ %.sroa.speculated102, %80 ], [ %.0108, %51 ], [ %.0108, %53 ]
+  %101 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.050117
+  %102 = fsub reassoc nsz arcp contract afn float %.1109114, %100
+  %103 = fdiv reassoc nsz arcp contract afn float %102, %.153115
+  %104 = fmul reassoc nsz arcp contract afn float %103, %103
+  %105 = fmul reassoc nsz arcp contract afn float %104, %103
+  %106 = fmul reassoc nsz arcp contract afn float %105, 2.000000e+00
+  %107 = fmul reassoc nsz arcp contract afn float %104, 3.000000e+00
+  %108 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %107
+  %109 = fadd reassoc nsz arcp contract afn float %108, %106
+  %.neg120 = fmul reassoc nsz arcp contract afn float %104, -2.000000e+00
+  %110 = fadd reassoc nsz arcp contract afn float %.neg120, %103
+  %111 = fadd reassoc nsz arcp contract afn float %110, %105
+  %112 = fsub reassoc nsz arcp contract afn float %107, %106
+  %113 = fsub reassoc nsz arcp contract afn float %105, %104
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  %115 = load float, ptr %114, align 4, !tbaa !14
+  %116 = fmul reassoc nsz arcp contract afn float %109, %115
+  %117 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %118 = load float, ptr %117, align 4, !tbaa !33
+  %119 = fmul reassoc nsz arcp contract afn float %111, %118
+  %120 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.051116
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %122 = load float, ptr %121, align 4, !tbaa !14
+  %123 = fmul reassoc nsz arcp contract afn float %112, %122
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %125 = load float, ptr %124, align 4, !tbaa !33
+  %126 = fmul reassoc nsz arcp contract afn float %113, %125
+  %reass.add = fadd reassoc nsz arcp contract afn float %119, %126
   %reass.mul = fmul reassoc nsz arcp contract afn float %reass.add, %.153115
-  %126 = fadd reassoc nsz arcp contract afn float %122, %115
-  %127 = fadd reassoc nsz arcp contract afn float %126, %reass.mul
-  br label %128
+  %127 = fadd reassoc nsz arcp contract afn float %123, %116
+  %128 = fadd reassoc nsz arcp contract afn float %127, %reass.mul
+  br label %129
 
-128:                                              ; preds = %.thread, %89
-  %storemerge = phi float [ %98, %89 ], [ %127, %.thread ]
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %130 = load float, ptr %129, align 8, !tbaa !31
-  %131 = fcmp reassoc nsz arcp contract afn olt float %storemerge, %130
-  %.sroa.speculated78 = select i1 %131, float %130, float %storemerge
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %133 = load float, ptr %132, align 4, !tbaa !31
-  %134 = fcmp reassoc nsz arcp contract afn olt float %133, %.sroa.speculated78
-  %.sroa.speculated = select i1 %134, float %133, float %.sroa.speculated78
-  br label %135
+129:                                              ; preds = %.thread, %90
+  %storemerge = phi float [ %99, %90 ], [ %128, %.thread ]
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %131 = load float, ptr %130, align 8, !tbaa !31
+  %132 = fcmp reassoc nsz arcp contract afn olt float %storemerge, %131
+  %.sroa.speculated78 = select i1 %132, float %131, float %storemerge
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %134 = load float, ptr %133, align 4, !tbaa !31
+  %135 = fcmp reassoc nsz arcp contract afn olt float %134, %.sroa.speculated78
+  %.sroa.speculated = select i1 %135, float %134, float %.sroa.speculated78
+  br label %136
 
-135:                                              ; preds = %128, %11
-  %.0 = phi nsz float [ %13, %11 ], [ %.sroa.speculated, %128 ]
+136:                                              ; preds = %129, %11
+  %.0 = phi nsz float [ %13, %11 ], [ %.sroa.speculated, %129 ]
   ret float %.0
 }
 
@@ -2153,10 +2144,10 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit: ; preds = %
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEEZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SF_EUlRKS4_SH_E_EvSF_SF_T0_.exit: ; preds = %.noexc14
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %0, align 8, !tbaa !86
-  %60 = load float, ptr %59, align 4, !tbaa !26
+  %60 = load float, ptr %59, align 4, !tbaa !28
   %61 = load ptr, ptr %58, align 8, !tbaa !86
   %62 = getelementptr inbounds i8, ptr %61, i64 -12
-  %63 = load float, ptr %62, align 4, !tbaa !26
+  %63 = load float, ptr %62, align 4, !tbaa !28
   %64 = fcmp reassoc nsz arcp contract afn olt float %63, %60
   %.sroa.speculated5.i = select i1 %64, float %63, float %60
   %65 = fcmp reassoc nsz arcp contract afn olt float %60, %63
@@ -2282,9 +2273,9 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit100:           ; preds = %22, %_ZNSt12_Vector
   %32 = add nuw i64 %.079300, 1
   %33 = load ptr, ptr %0, align 8, !tbaa !6
   %34 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %33, i64 %32
-  %35 = load float, ptr %34, align 4, !tbaa !26
+  %35 = load float, ptr %34, align 4, !tbaa !28
   %36 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %33, i64 %.079300
-  %37 = load float, ptr %36, align 4, !tbaa !26
+  %37 = load float, ptr %36, align 4, !tbaa !28
   %38 = fsub reassoc nsz arcp contract afn float %35, %37
   %.not.i.i = icmp eq ptr %.sroa.35.0298, %.sroa.43.1297
   br i1 %.not.i.i, label %40, label %39
@@ -2444,13 +2435,13 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit112:        ; preds = %_ZNSt6vectorIfSaIfE
 85:                                               ; preds = %._crit_edge
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %88 = load float, ptr %87, align 4, !tbaa !27
-  %89 = load float, ptr %86, align 8, !tbaa !28
+  %88 = load float, ptr %87, align 4, !tbaa !26
+  %89 = load float, ptr %86, align 8, !tbaa !27
   %90 = fsub reassoc nsz arcp contract afn float %88, %89
   %91 = load ptr, ptr %0, align 8, !tbaa !6
-  %92 = load float, ptr %91, align 4, !tbaa !26
+  %92 = load float, ptr %91, align 4, !tbaa !28
   %93 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %91, i64 %18
-  %94 = load float, ptr %93, align 4, !tbaa !26
+  %94 = load float, ptr %93, align 4, !tbaa !28
   %95 = fsub reassoc nsz arcp contract afn float %92, %94
   %96 = fadd reassoc nsz arcp contract afn float %95, %90
   %.not.i.i113 = icmp eq ptr %.sroa.35.0.lcssa, %.sroa.43.1.lcssa
@@ -3082,228 +3073,309 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %8 = alloca %"struct.interpol::base_point", align 4
   %9 = alloca %"struct.interpol::base_point", align 4
   %10 = alloca %"struct.interpol::base_point", align 4
-  %11 = ptrtoint ptr %0 to i64
-  %12 = ptrtoint ptr %1 to i64
+  %.fr39 = freeze ptr %1
+  %.fr28 = freeze ptr %0
+  %11 = ptrtoint ptr %.fr28 to i64
+  %12 = ptrtoint ptr %.fr39 to i64
   %13 = sub i64 %12, %11
   %14 = icmp sgt i64 %13, 192
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.fr28, i64 12
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit
-  %17 = phi i64 [ %13, %.lr.ph ], [ %91, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %58, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit ]
-  %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit ]
-  %18 = icmp eq i64 %.022, 0
-  br i1 %18, label %19, label %57
+  %.fr46.i27 = phi i64 [ %13, %.lr.ph ], [ %127, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit ]
+  %.026 = phi i64 [ %2, %.lr.ph ], [ %94, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit ]
+  %storemerge25 = phi ptr [ %.fr39, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit ]
+  %17 = icmp eq i64 %.026, 0
+  br i1 %17, label %18, label %93
 
-19:                                               ; preds = %16
-  tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_(ptr %0, ptr %storemerge21, ptr %storemerge21)
-  br label %.lr.ph.i.i
+18:                                               ; preds = %16
+  %19 = udiv exact i64 %.fr46.i27, 12
+  %20 = add nsw i64 %19, -2
+  %21 = lshr i64 %20, 1
+  %22 = add nsw i64 %19, -1
+  %23 = lshr i64 %22, 1
+  %24 = and i64 %19, 1
+  %25 = icmp eq i64 %24, 0
+  %26 = or disjoint i64 %20, 1
+  %27 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %21
+  br label %29
 
-.lr.ph.i.i:                                       ; preds = %19, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %20, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i ], [ %storemerge21, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %20, align 4
+29:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i, %18
+  %.012.i.i = phi i64 [ %21, %18 ], [ %55, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i ]
+  %30 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.012.i.i
+  %.sroa.05.0.copyload.i.i = load <2 x float>, ptr %30, align 4
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !31
+  %31 = icmp slt i64 %.012.i.i, %23
+  br i1 %31, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
+  %.041.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i, %29 ]
+  %32 = shl i64 %.041.i.i.i, 1
+  %33 = add i64 %32, 2
+  %34 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %33
+  %35 = or disjoint i64 %32, 1
+  %36 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %35
+  %37 = load float, ptr %34, align 4, !tbaa !28
+  %38 = load float, ptr %36, align 4, !tbaa !28
+  %39 = fcmp reassoc nsz arcp contract afn olt float %37, %38
+  %spec.select.i.i.i = select i1 %39, i64 %35, i64 %33
+  %40 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %spec.select.i.i.i
+  %41 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.041.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false), !tbaa.struct !87
+  %42 = icmp slt i64 %spec.select.i.i.i, %23
+  br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !109
+
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %29
+  %.0.lcssa.i.i.i = phi i64 [ %.012.i.i, %29 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %43 = icmp eq i64 %.0.lcssa.i.i.i, %21
+  %or.cond.i.i = select i1 %25, i1 %43, i1 false
+  br i1 %or.cond.i.i, label %44, label %45
+
+44:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !87
+  br label %45
+
+45:                                               ; preds = %44, %._crit_edge.i.i.i
+  %.1.i.i.i = phi i64 [ %26, %44 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %46 = icmp sgt i64 %.1.i.i.i, %.012.i.i
+  br i1 %46, label %.lr.ph.i.i.i.i17, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i
+
+.lr.ph.i.i.i.i17:                                 ; preds = %45
+  %.sroa.013.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i, i64 0
+  br label %47
+
+47:                                               ; preds = %51, %.lr.ph.i.i.i.i17
+  %.020.i.i.i.i = phi i64 [ %.1.i.i.i, %.lr.ph.i.i.i.i17 ], [ %.01021.i.i.i.i, %51 ]
+  %.01021.in.i.i.i.i = add nsw i64 %.020.i.i.i.i, -1
+  %.01021.i.i.i.i = sdiv i64 %.01021.in.i.i.i.i, 2
+  %48 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.01021.i.i.i.i
+  %49 = load float, ptr %48, align 4, !tbaa !28
+  %50 = fcmp reassoc nsz arcp contract afn olt float %49, %.sroa.013.0.vec.extract.i.i.i.i
+  br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i
+
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.020.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false), !tbaa.struct !87
+  %53 = icmp sgt i64 %.01021.i.i.i.i, %.012.i.i
+  br i1 %53, label %47, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i, !llvm.loop !110
+
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i: ; preds = %51, %47, %45
+  %.0.lcssa.i.i.i.i16 = phi i64 [ %.1.i.i.i, %45 ], [ %.01021.i.i.i.i, %51 ], [ %.020.i.i.i.i, %47 ]
+  %54 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i16
+  store <2 x float> %.sroa.05.0.copyload.i.i, ptr %54, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store float %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i, align 4, !tbaa !31
+  %.not.i.i = icmp eq i64 %.012.i.i, 0
+  %55 = add nsw i64 %.012.i.i, -1
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %29, !llvm.loop !111
+
+.lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i
+  %.sroa.0.05.i.i = phi ptr [ %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i.i ]
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %56, align 4
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %.sroa.4.0.copyload.i.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  %21 = ptrtoint ptr %20 to i64
-  %22 = sub i64 %21, %11
-  %23 = sdiv exact i64 %22, 12
-  %24 = add nsw i64 %23, -1
-  %25 = sdiv i64 %24, 2
-  %26 = icmp sgt i64 %22, 24
-  br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  %57 = ptrtoint ptr %56 to i64
+  %58 = sub i64 %57, %11
+  %59 = sdiv exact i64 %58, 12
+  %60 = add nsw i64 %59, -1
+  %61 = sdiv i64 %60, 2
+  %62 = icmp sgt i64 %58, 24
+  br i1 %62, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.041.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %27 = shl i64 %.041.i.i.i.i, 1
-  %28 = add i64 %27, 2
-  %29 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %28
-  %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %30
-  %32 = load float, ptr %29, align 4, !tbaa !26
-  %33 = load float, ptr %31, align 4, !tbaa !26
-  %34 = fcmp reassoc nsz arcp contract afn olt float %32, %33
-  %spec.select.i.i.i.i = select i1 %34, i64 %30, i64 %28
-  %35 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %spec.select.i.i.i.i
-  %36 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.041.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !87
-  %37 = icmp slt i64 %spec.select.i.i.i.i, %25
-  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !109
+  %63 = shl i64 %.041.i.i.i.i, 1
+  %64 = add i64 %63, 2
+  %65 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %64
+  %66 = or disjoint i64 %63, 1
+  %67 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %66
+  %68 = load float, ptr %65, align 4, !tbaa !28
+  %69 = load float, ptr %67, align 4, !tbaa !28
+  %70 = fcmp reassoc nsz arcp contract afn olt float %68, %69
+  %spec.select.i.i.i.i = select i1 %70, i64 %66, i64 %64
+  %71 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %spec.select.i.i.i.i
+  %72 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.041.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %72, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false), !tbaa.struct !87
+  %73 = icmp slt i64 %spec.select.i.i.i.i, %61
+  br i1 %73, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !109
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %38 = and i64 %23, 1
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %48
+  %74 = and i64 %59, 1
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %84
 
-40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = add nsw i64 %23, -2
-  %42 = ashr exact i64 %41, 1
-  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
-  br i1 %43, label %.thread.i.i.i, label %48
+76:                                               ; preds = %._crit_edge.i.i.i.i
+  %77 = add nsw i64 %59, -2
+  %78 = ashr exact i64 %77, 1
+  %79 = icmp eq i64 %.0.lcssa.i.i.i.i, %78
+  br i1 %79, label %.thread.i.i.i, label %84
 
-.thread.i.i.i:                                    ; preds = %40
-  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.0.lcssa.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !87
+.thread.i.i.i:                                    ; preds = %76
+  %80 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %81 = or disjoint i64 %80, 1
+  %82 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %81
+  %83 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false), !tbaa.struct !87
   br label %.lr.ph.i.i.i.i.i
 
-48:                                               ; preds = %40, %._crit_edge.i.i.i.i
+84:                                               ; preds = %76, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %.thread.i.i.i
-  %.1.i11.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %48 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %84, %.thread.i.i.i
+  %.1.i11.i.i.i = phi i64 [ %81, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %84 ]
   %.sroa.013.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i.i, i64 0
-  br label %49
+  br label %85
 
-49:                                               ; preds = %53, %.lr.ph.i.i.i.i.i
-  %.020.i.i.i.i.i = phi i64 [ %.1.i11.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01021.i.i1213.i.i.i, %53 ]
+85:                                               ; preds = %89, %.lr.ph.i.i.i.i.i
+  %.020.i.i.i.i.i = phi i64 [ %.1.i11.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01021.i.i1213.i.i.i, %89 ]
   %.01021.in.i.i.i.i.i = add nsw i64 %.020.i.i.i.i.i, -1
   %.01021.i.i1213.i.i.i = lshr i64 %.01021.in.i.i.i.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %.01021.i.i1213.i.i.i
-  %51 = load float, ptr %50, align 4, !tbaa !26
-  %52 = fcmp reassoc nsz arcp contract afn olt float %51, %.sroa.013.0.vec.extract.i.i.i.i.i
-  br i1 %52, label %53, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i
+  %86 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.01021.i.i1213.i.i.i
+  %87 = load float, ptr %86, align 4, !tbaa !28
+  %88 = fcmp reassoc nsz arcp contract afn olt float %87, %.sroa.013.0.vec.extract.i.i.i.i.i
+  br i1 %88, label %89, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.020.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false), !tbaa.struct !87
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.020.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %90, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false), !tbaa.struct !87
   %.not14.i.i.i = icmp eq i64 %.01021.i.i1213.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i, label %49, !llvm.loop !110
+  br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i, label %85, !llvm.loop !110
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i: ; preds = %53, %49, %48
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %48 ], [ %.020.i.i.i.i.i, %49 ], [ 0, %53 ]
-  %55 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store <2 x float> %.sroa.05.0.copyload.i.i.i, ptr %55, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i: ; preds = %89, %85, %84
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %84 ], [ %.020.i.i.i.i.i, %85 ], [ 0, %89 ]
+  %91 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i.i
+  store <2 x float> %.sroa.05.0.copyload.i.i.i, ptr %91, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   store float %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !31
-  %56 = icmp sgt i64 %22, 12
-  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !111
+  %92 = icmp sgt i64 %58, 12
+  br i1 %92, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !112
 
-57:                                               ; preds = %16
-  %58 = add nsw i64 %.022, -1
-  %59 = udiv i64 %17, 24
-  %60 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %59
-  %61 = getelementptr inbounds i8, ptr %storemerge21, i64 -12
-  %62 = load float, ptr %15, align 4, !tbaa !26
-  %63 = load float, ptr %60, align 4, !tbaa !26
-  %64 = fcmp reassoc nsz arcp contract afn olt float %62, %63
-  %65 = load float, ptr %61, align 4, !tbaa !26
-  br i1 %64, label %66, label %73
+93:                                               ; preds = %16
+  %94 = add nsw i64 %.026, -1
+  %95 = udiv i64 %.fr46.i27, 24
+  %96 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %95
+  %97 = getelementptr inbounds i8, ptr %storemerge25, i64 -12
+  %98 = load float, ptr %15, align 4, !tbaa !28
+  %99 = load float, ptr %96, align 4, !tbaa !28
+  %100 = fcmp reassoc nsz arcp contract afn olt float %98, %99
+  %101 = load float, ptr %97, align 4, !tbaa !28
+  br i1 %100, label %102, label %109
 
-66:                                               ; preds = %57
-  %67 = fcmp reassoc nsz arcp contract afn olt float %63, %65
-  br i1 %67, label %68, label %69
+102:                                              ; preds = %93
+  %103 = fcmp reassoc nsz arcp contract afn olt float %99, %101
+  br i1 %103, label %104, label %105
 
-68:                                               ; preds = %66
+104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %60, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-69:                                               ; preds = %66
-  %70 = fcmp reassoc nsz arcp contract afn olt float %62, %65
-  br i1 %70, label %71, label %72
+105:                                              ; preds = %102
+  %106 = fcmp reassoc nsz arcp contract afn olt float %98, %101
+  br i1 %106, label %107, label %108
 
-71:                                               ; preds = %69
+107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-72:                                               ; preds = %69
+108:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-73:                                               ; preds = %57
-  %74 = fcmp reassoc nsz arcp contract afn olt float %62, %65
-  br i1 %74, label %75, label %76
+109:                                              ; preds = %93
+  %110 = fcmp reassoc nsz arcp contract afn olt float %98, %101
+  br i1 %110, label %111, label %112
 
-75:                                               ; preds = %73
+111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-76:                                               ; preds = %73
-  %77 = fcmp reassoc nsz arcp contract afn olt float %63, %65
-  br i1 %77, label %78, label %79
+112:                                              ; preds = %109
+  %113 = fcmp reassoc nsz arcp contract afn olt float %99, %101
+  br i1 %113, label %114, label %115
 
-78:                                               ; preds = %76
+114:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-79:                                               ; preds = %76
+115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %60, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader: ; preds = %79, %78, %75, %72, %71, %68
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader: ; preds = %115, %114, %111, %108, %107, %104
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader, %89
-  %.sroa.010.0.i.i = phi ptr [ %84, %89 ], [ %15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %89 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
-  %80 = load float, ptr %0, align 4, !tbaa !26
-  br label %81
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader, %125
+  %.sroa.010.0.i.i = phi ptr [ %120, %125 ], [ %15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %125 ], [ %storemerge25, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
+  %116 = load float, ptr %.fr28, align 4, !tbaa !28
+  br label %117
 
-81:                                               ; preds = %81, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i ], [ %84, %81 ]
-  %82 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !26
-  %83 = fcmp reassoc nsz arcp contract afn olt float %82, %80
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 12
-  br i1 %83, label %81, label %.preheader.i.i, !llvm.loop !112
+117:                                              ; preds = %117, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i ], [ %120, %117 ]
+  %118 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !28
+  %119 = fcmp reassoc nsz arcp contract afn olt float %118, %116
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 12
+  br i1 %119, label %117, label %.preheader.i.i, !llvm.loop !113
 
-.preheader.i.i:                                   ; preds = %81, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %81 ]
+.preheader.i.i:                                   ; preds = %117, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %117 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -12
-  %85 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !26
-  %86 = fcmp reassoc nsz arcp contract afn olt float %80, %85
-  br i1 %86, label %.preheader.i.i, label %87, !llvm.loop !113
+  %121 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !28
+  %122 = fcmp reassoc nsz arcp contract afn olt float %116, %121
+  br i1 %122, label %.preheader.i.i, label %123, !llvm.loop !114
 
-87:                                               ; preds = %.preheader.i.i
-  %88 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %88, label %89, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit
+123:                                              ; preds = %.preheader.i.i
+  %124 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %124, label %125, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit
 
-89:                                               ; preds = %87
+125:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.010.1.i.i, i64 12, i1 false), !tbaa.struct !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.1.i.i, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i, !llvm.loop !114
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_SH_T0_.exit.i, !llvm.loop !115
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit: ; preds = %87
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge21, i64 noundef %58)
-  %90 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %91 = sub i64 %90, %11
-  %92 = icmp sgt i64 %91, 192
-  br i1 %92, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !115
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit: ; preds = %123
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge25, i64 noundef %94)
+  %126 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %127 = sub i64 %126, %11
+  %128 = icmp sgt i64 %127, 192
+  br i1 %128, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !116
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEESH_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.i.i, %3
   ret void
@@ -3323,8 +3395,8 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %.sroa.0.019.i.idx = phi i64 [ %.sroa.0.019.i.add, %20 ], [ 12, %2 ]
   %.pn18.i = phi ptr [ %.sroa.0.019.i.ptr, %20 ], [ %0, %2 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %9 = load float, ptr %.sroa.0.019.i.ptr, align 4, !tbaa !26
-  %10 = load float, ptr %0, align 4, !tbaa !26
+  %9 = load float, ptr %.sroa.0.019.i.ptr, align 4, !tbaa !28
+  %10 = load float, ptr %0, align 4, !tbaa !28
   %11 = fcmp reassoc nsz arcp contract afn olt float %9, %10
   br i1 %11, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i, label %14
 
@@ -3342,7 +3414,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
 14:                                               ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   %15 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 4
-  %16 = load float, ptr %.pn18.i, align 4, !tbaa !26
+  %16 = load float, ptr %.pn18.i, align 4, !tbaa !28
   %17 = fcmp reassoc nsz arcp contract afn olt float %9, %16
   br i1 %17, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i
 
@@ -3351,9 +3423,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
   %.sroa.06.010.i.i = phi ptr [ %.sroa.0.011.i.i, %.lr.ph.i.i ], [ %.sroa.0.019.i.ptr, %14 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.011.i.i, i64 -12
-  %18 = load float, ptr %.sroa.0.0.i.i, align 4, !tbaa !26
+  %18 = load float, ptr %.sroa.0.0.i.i, align 4, !tbaa !28
   %19 = fcmp reassoc nsz arcp contract afn olt float %9, %18
-  br i1 %19, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i, !llvm.loop !116
+  br i1 %19, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i, !llvm.loop !117
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i: ; preds = %.lr.ph.i.i, %14
   %.sroa.06.0.lcssa.i.i = phi ptr [ %.sroa.0.019.i.ptr, %14 ], [ %.sroa.0.011.i.i, %.lr.ph.i.i ]
@@ -3365,7 +3437,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 20:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %.sroa.0.019.i.add = add nuw nsw i64 %.sroa.0.019.i.idx, 12
   %.not.i = icmp eq i64 %.sroa.0.019.i.add, 192
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit, label %.lr.ph.i, !llvm.loop !118
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit: ; preds = %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3378,7 +3450,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfE
   %.sroa.5.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 4
   %22 = load i64, ptr %.sroa.5.0..sroa_idx.i.i13, align 4
   %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 -12
-  %23 = load float, ptr %.sroa.0.09.i.i, align 4, !tbaa !26
+  %23 = load float, ptr %.sroa.0.09.i.i, align 4, !tbaa !28
   %24 = fcmp reassoc nsz arcp contract afn olt float %.sroa.03.0.copyload.i.i, %23
   br i1 %24, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i14
 
@@ -3387,9 +3459,9 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfE
   %.sroa.06.010.i.i20 = phi ptr [ %.sroa.0.011.i.i19, %.lr.ph.i.i18 ], [ %.sroa.0.07.i, %.lr.ph.i12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i20, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i19, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i21 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i19, i64 -12
-  %25 = load float, ptr %.sroa.0.0.i.i21, align 4, !tbaa !26
+  %25 = load float, ptr %.sroa.0.0.i.i21, align 4, !tbaa !28
   %26 = fcmp reassoc nsz arcp contract afn olt float %.sroa.03.0.copyload.i.i, %25
-  br i1 %26, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i14, !llvm.loop !116
+  br i1 %26, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i14, !llvm.loop !117
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i14: ; preds = %.lr.ph.i.i18, %.lr.ph.i12
   %.sroa.06.0.lcssa.i.i15 = phi ptr [ %.sroa.0.07.i, %.lr.ph.i12 ], [ %.sroa.0.011.i.i19, %.lr.ph.i.i18 ]
@@ -3398,7 +3470,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
   store i64 %22, ptr %.sroa.5.0..sroa_idx5.i.i16, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 12
   %.not.i17 = icmp eq ptr %27, %1
-  br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit, label %.lr.ph.i12, !llvm.loop !118
+  br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit, label %.lr.ph.i12, !llvm.loop !119
 
 28:                                               ; preds = %2
   %29 = icmp eq ptr %0, %1
@@ -3410,8 +3482,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 .lr.ph.i25:                                       ; preds = %28, %43
   %.sroa.0.019.i26 = phi ptr [ %.sroa.0.0.i32, %43 ], [ %.sroa.0.016.i23, %28 ]
   %.pn18.i27 = phi ptr [ %.sroa.0.019.i26, %43 ], [ %0, %28 ]
-  %30 = load float, ptr %.sroa.0.019.i26, align 4, !tbaa !26
-  %31 = load float, ptr %0, align 4, !tbaa !26
+  %30 = load float, ptr %.sroa.0.019.i26, align 4, !tbaa !28
+  %31 = load float, ptr %0, align 4, !tbaa !28
   %32 = fcmp reassoc nsz arcp contract afn olt float %30, %31
   br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i38, label %37
 
@@ -3431,7 +3503,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
 37:                                               ; preds = %.lr.ph.i25
   %.sroa.5.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 16
   %38 = load i64, ptr %.sroa.5.0..sroa_idx.i.i28, align 4
-  %39 = load float, ptr %.pn18.i27, align 4, !tbaa !26
+  %39 = load float, ptr %.pn18.i27, align 4, !tbaa !28
   %40 = fcmp reassoc nsz arcp contract afn olt float %30, %39
   br i1 %40, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i29
 
@@ -3440,9 +3512,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
   %.sroa.06.010.i.i36 = phi ptr [ %.sroa.0.011.i.i35, %.lr.ph.i.i34 ], [ %.sroa.0.019.i26, %37 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i36, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i35, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i37 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i35, i64 -12
-  %41 = load float, ptr %.sroa.0.0.i.i37, align 4, !tbaa !26
+  %41 = load float, ptr %.sroa.0.0.i.i37, align 4, !tbaa !28
   %42 = fcmp reassoc nsz arcp contract afn olt float %30, %41
-  br i1 %42, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i29, !llvm.loop !116
+  br i1 %42, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i29, !llvm.loop !117
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i29: ; preds = %.lr.ph.i.i34, %37
   %.sroa.06.0.lcssa.i.i30 = phi ptr [ %.sroa.0.019.i26, %37 ], [ %.sroa.0.011.i.i35, %.lr.ph.i.i34 ]
@@ -3454,297 +3526,10 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 43:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i29, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i38
   %.sroa.0.0.i32 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i26, i64 12
   %.not.i33 = icmp eq ptr %.sroa.0.0.i32, %1
-  br i1 %.not.i33, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit, label %.lr.ph.i25, !llvm.loop !117
+  br i1 %.not.i33, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit, label %.lr.ph.i25, !llvm.loop !118
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit: ; preds = %43, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_.exit.i14, %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #1 comdat {
-  %.fr47 = freeze ptr %0
-  %.fr46 = freeze ptr %1
-  %4 = ptrtoint ptr %.fr46 to i64
-  %5 = ptrtoint ptr %.fr47 to i64
-  %6 = sub i64 %4, %5
-  %7 = icmp slt i64 %6, 24
-  br i1 %7, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_RT0_.exit, label %8
-
-8:                                                ; preds = %3
-  %9 = udiv exact i64 %6, 12
-  %10 = add nsw i64 %9, -2
-  %11 = lshr i64 %10, 1
-  %12 = add nsw i64 %9, -1
-  %13 = lshr i64 %12, 1
-  %14 = and i64 %9, 1
-  %15 = icmp eq i64 %14, 0
-  %16 = or disjoint i64 %10, 1
-  %17 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %16
-  %18 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %11
-  br label %19
-
-19:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i, %8
-  %.012.i = phi i64 [ %11, %8 ], [ %45, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i ]
-  %20 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.012.i
-  %.sroa.05.0.copyload.i = load <2 x float>, ptr %20, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !31
-  %21 = icmp slt i64 %.012.i, %13
-  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i
-
-.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %.041.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.012.i, %19 ]
-  %22 = shl i64 %.041.i.i, 1
-  %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %23
-  %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %25
-  %27 = load float, ptr %24, align 4, !tbaa !26
-  %28 = load float, ptr %26, align 4, !tbaa !26
-  %29 = fcmp reassoc nsz arcp contract afn olt float %27, %28
-  %spec.select.i.i = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %spec.select.i.i
-  %31 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.041.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !87
-  %32 = icmp slt i64 %spec.select.i.i, %13
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !109
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %19
-  %.0.lcssa.i.i = phi i64 [ %.012.i, %19 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %33 = icmp eq i64 %.0.lcssa.i.i, %11
-  %or.cond.i = select i1 %15, i1 %33, i1 false
-  br i1 %or.cond.i, label %34, label %35
-
-34:                                               ; preds = %._crit_edge.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 4 dereferenceable(12) %17, i64 12, i1 false), !tbaa.struct !87
-  br label %35
-
-35:                                               ; preds = %34, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %16, %34 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %36 = icmp sgt i64 %.1.i.i, %.012.i
-  br i1 %36, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i
-
-.lr.ph.i.i.i:                                     ; preds = %35
-  %.sroa.013.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i, i64 0
-  br label %37
-
-37:                                               ; preds = %41, %.lr.ph.i.i.i
-  %.020.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.01021.i.i.i, %41 ]
-  %.01021.in.i.i.i = add nsw i64 %.020.i.i.i, -1
-  %.01021.i.i.i = sdiv i64 %.01021.in.i.i.i, 2
-  %38 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.01021.i.i.i
-  %39 = load float, ptr %38, align 4, !tbaa !26
-  %40 = fcmp reassoc nsz arcp contract afn olt float %39, %.sroa.013.0.vec.extract.i.i.i
-  br i1 %40, label %41, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i
-
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.020.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false), !tbaa.struct !87
-  %43 = icmp sgt i64 %.01021.i.i.i, %.012.i
-  br i1 %43, label %37, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i, !llvm.loop !110
-
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i: ; preds = %41, %37, %35
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %35 ], [ %.020.i.i.i, %37 ], [ %.01021.i.i.i, %41 ]
-  %44 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i
-  store <2 x float> %.sroa.05.0.copyload.i, ptr %44, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store float %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !31
-  %.not.i = icmp eq i64 %.012.i, 0
-  %45 = add nsw i64 %.012.i, -1
-  br i1 %.not.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_RT0_.exit, label %19, !llvm.loop !119
-
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_T0_SM_T1_T2_.exit.i, %3
-  %46 = icmp ult ptr %.fr46, %2
-  br i1 %46, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_RT0_.exit
-  %47 = sdiv i64 %6, 12
-  %48 = add nsw i64 %47, -1
-  %49 = sdiv i64 %48, 2
-  %50 = icmp sgt i64 %6, 24
-  %51 = and i64 %47, 1
-  %52 = icmp eq i64 %51, 0
-  %53 = add nsw i64 %47, -2
-  %54 = ashr exact i64 %53, 1
-  br i1 %50, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %55 = or disjoint i64 %53, 1
-  %56 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %55
-  %57 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %54
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %80
-  %.sroa.0.027.us = phi ptr [ %81, %80 ], [ %.fr46, %.lr.ph.split.us.preheader ]
-  %58 = load float, ptr %.sroa.0.027.us, align 4, !tbaa !26
-  %59 = load float, ptr %.fr47, align 4, !tbaa !26
-  %60 = fcmp reassoc nsz arcp contract afn olt float %58, %59
-  br i1 %60, label %.lr.ph.i.i22.preheader.us, label %80
-
-.lr.ph.i.i22.preheader.us:                        ; preds = %.lr.ph.split.us
-  %.sroa.05.0.copyload.i9.us = load <2 x float>, ptr %.sroa.0.027.us, align 4
-  %.sroa.4.0..sroa_idx.i10.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 8
-  %.sroa.4.0.copyload.i11.us = load float, ptr %.sroa.4.0..sroa_idx.i10.us, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  br label %.lr.ph.i.i22.us
-
-.lr.ph.i.i22.us:                                  ; preds = %.lr.ph.i.i22.preheader.us, %.lr.ph.i.i22.us
-  %.041.i.i23.us = phi i64 [ %spec.select.i.i24.us, %.lr.ph.i.i22.us ], [ 0, %.lr.ph.i.i22.preheader.us ]
-  %61 = shl i64 %.041.i.i23.us, 1
-  %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %62
-  %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %64
-  %66 = load float, ptr %63, align 4, !tbaa !26
-  %67 = load float, ptr %65, align 4, !tbaa !26
-  %68 = fcmp reassoc nsz arcp contract afn olt float %66, %67
-  %spec.select.i.i24.us = select i1 %68, i64 %64, i64 %62
-  %69 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %spec.select.i.i24.us
-  %70 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.041.i.i23.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %69, i64 12, i1 false), !tbaa.struct !87
-  %71 = icmp slt i64 %spec.select.i.i24.us, %49
-  br i1 %71, label %.lr.ph.i.i22.us, label %._crit_edge.i.i12.loopexit.us, !llvm.loop !109
-
-72:                                               ; preds = %._crit_edge.i.i12.loopexit.us
-  %.not.i14.us = icmp eq i64 %spec.select.i.i24.us, 0
-  br i1 %.not.i14.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i15.us
-
-.thread.i.us:                                     ; preds = %._crit_edge.i.i12.loopexit.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %56, i64 12, i1 false), !tbaa.struct !87
-  br label %.lr.ph.i.i.i15.us
-
-.lr.ph.i.i.i15.us:                                ; preds = %.thread.i.us, %72
-  %.1.i11.i.us = phi i64 [ %55, %.thread.i.us ], [ %spec.select.i.i24.us, %72 ]
-  %.sroa.013.0.vec.extract.i.i.i16.us = extractelement <2 x float> %.sroa.05.0.copyload.i9.us, i64 0
-  br label %73
-
-73:                                               ; preds = %77, %.lr.ph.i.i.i15.us
-  %.020.i.i.i17.us = phi i64 [ %.1.i11.i.us, %.lr.ph.i.i.i15.us ], [ %.01021.i.i1213.i.us, %77 ]
-  %.01021.in.i.i.i18.us = add nsw i64 %.020.i.i.i17.us, -1
-  %.01021.i.i1213.i.us = lshr i64 %.01021.in.i.i.i18.us, 1
-  %74 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.01021.i.i1213.i.us
-  %75 = load float, ptr %74, align 4, !tbaa !26
-  %76 = fcmp reassoc nsz arcp contract afn olt float %75, %.sroa.013.0.vec.extract.i.i.i16.us
-  br i1 %76, label %77, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.us
-
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.020.i.i.i17.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %78, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false), !tbaa.struct !87
-  %.not14.i.us = icmp eq i64 %.01021.i.i1213.i.us, 0
-  br i1 %.not14.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.us, label %73, !llvm.loop !110
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.us: ; preds = %73, %77, %72
-  %.0.lcssa.i.i.i20.us = phi i64 [ 0, %72 ], [ %.020.i.i.i17.us, %73 ], [ 0, %77 ]
-  %79 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i20.us
-  store <2 x float> %.sroa.05.0.copyload.i9.us, ptr %79, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store float %.sroa.4.0.copyload.i11.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us, align 4, !tbaa !31
-  br label %80
-
-80:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_SH_RT0_.exit.us, %.lr.ph.split.us
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 12
-  %82 = icmp ult ptr %81, %2
-  br i1 %82, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !120
-
-._crit_edge.i.i12.loopexit.us:                    ; preds = %.lr.ph.i.i22.us
-  %83 = icmp eq i64 %spec.select.i.i24.us, %54
-  %or.cond = select i1 %52, i1 %83, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %72
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %.fr47, i64 12
-  br i1 %52, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %85 = icmp eq i64 %53, 0
-  br i1 %85, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %92
-  %.sroa.0.027.us28.us = phi ptr [ %93, %92 ], [ %.fr46, %.lr.ph.split.split.us ]
-  %86 = load float, ptr %.sroa.0.027.us28.us, align 4, !tbaa !26
-  %87 = load float, ptr %.fr47, align 4, !tbaa !26
-  %88 = fcmp reassoc nsz arcp contract afn olt float %86, %87
-  br i1 %88, label %._crit_edge.i.i12.us29.us, label %92
-
-._crit_edge.i.i12.us29.us:                        ; preds = %.lr.ph.split.split.us.split.us
-  %.sroa.05.0.copyload.i9.us30.us = load <2 x float>, ptr %.sroa.0.027.us28.us, align 4
-  %.sroa.4.0..sroa_idx.i10.us31.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 8
-  %.sroa.4.0.copyload.i11.us32.us = load float, ptr %.sroa.4.0..sroa_idx.i10.us31.us, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us28.us, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr47, ptr noundef nonnull align 4 dereferenceable(12) %84, i64 12, i1 false), !tbaa.struct !87
-  %.sroa.013.0.vec.extract.i.i.i16.us34.us = extractelement <2 x float> %.sroa.05.0.copyload.i9.us30.us, i64 0
-  %89 = load float, ptr %.fr47, align 4, !tbaa !26
-  %90 = fcmp reassoc nsz arcp contract afn uge float %89, %.sroa.013.0.vec.extract.i.i.i16.us34.us
-  %.0.lcssa.i.i.i20.ph.us43.us = zext i1 %90 to i64
-  %91 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i20.ph.us43.us
-  store <2 x float> %.sroa.05.0.copyload.i9.us30.us, ptr %91, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41.us = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store float %.sroa.4.0.copyload.i11.us32.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41.us, align 4, !tbaa !31
-  br label %92
-
-92:                                               ; preds = %._crit_edge.i.i12.us29.us, %.lr.ph.split.split.us.split.us
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 12
-  %94 = icmp ult ptr %93, %2
-  br i1 %94, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !120
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  %.pre51 = load float, ptr %.fr47, align 4, !tbaa !26
-  br label %95
-
-95:                                               ; preds = %100, %.lr.ph.split.split.us.split
-  %96 = phi float [ %.pre51, %.lr.ph.split.split.us.split ], [ %101, %100 ]
-  %.sroa.0.027.us28 = phi ptr [ %.fr46, %.lr.ph.split.split.us.split ], [ %102, %100 ]
-  %97 = load float, ptr %.sroa.0.027.us28, align 4, !tbaa !26
-  %98 = fcmp reassoc nsz arcp contract afn olt float %97, %96
-  br i1 %98, label %._crit_edge.i.i12.us29, label %100
-
-._crit_edge.i.i12.us29:                           ; preds = %95
-  %.sroa.05.0.copyload.i9.us30 = load <2 x float>, ptr %.sroa.0.027.us28, align 4
-  %.sroa.4.0..sroa_idx.i10.us31 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 8
-  %.sroa.4.0.copyload.i11.us32 = load float, ptr %.sroa.4.0..sroa_idx.i10.us31, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us28, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  store <2 x float> %.sroa.05.0.copyload.i9.us30, ptr %.fr47, align 4
-  store float %.sroa.4.0.copyload.i11.us32, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41, align 4, !tbaa !31
-  %99 = extractelement <2 x float> %.sroa.05.0.copyload.i9.us30, i64 0
-  br label %100
-
-100:                                              ; preds = %._crit_edge.i.i12.us29, %95
-  %101 = phi float [ %99, %._crit_edge.i.i12.us29 ], [ %96, %95 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 12
-  %103 = icmp ult ptr %102, %2
-  br i1 %103, label %95, label %._crit_edge, !llvm.loop !120
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  %.pre = load float, ptr %.fr47, align 4, !tbaa !26
-  br label %104
-
-._crit_edge:                                      ; preds = %109, %100, %92, %80, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_EUlRKS4_SJ_E_EEEvSH_SH_RT0_.exit
-  ret void
-
-104:                                              ; preds = %.lr.ph.split.split, %109
-  %105 = phi float [ %.pre, %.lr.ph.split.split ], [ %110, %109 ]
-  %.sroa.0.027 = phi ptr [ %.fr46, %.lr.ph.split.split ], [ %111, %109 ]
-  %106 = load float, ptr %.sroa.0.027, align 4, !tbaa !26
-  %107 = fcmp reassoc nsz arcp contract afn olt float %106, %105
-  br i1 %107, label %._crit_edge.i.i12, label %109
-
-._crit_edge.i.i12:                                ; preds = %104
-  %.sroa.05.0.copyload.i9 = load <2 x float>, ptr %.sroa.0.027, align 4
-  %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
-  %.sroa.4.0.copyload.i11 = load float, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  store <2 x float> %.sroa.05.0.copyload.i9, ptr %.fr47, align 4
-  store float %.sroa.4.0.copyload.i11, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21, align 4, !tbaa !31
-  %108 = extractelement <2 x float> %.sroa.05.0.copyload.i9, i64 0
-  br label %109
-
-109:                                              ; preds = %104, %._crit_edge.i.i12
-  %110 = phi float [ %105, %104 ], [ %108, %._crit_edge.i.i12 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 12
-  %112 = icmp ult ptr %111, %2
-  br i1 %112, label %104, label %._crit_edge, !llvm.loop !120
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3813,12 +3598,12 @@ _ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit88.i: ; preds = %_ZN8interp
   store float %29, ptr %gep129.i, align 4, !tbaa !31
   %30 = add nuw i64 %14, 1
   %exitcond134.not.i = icmp eq i64 %30, %3
-  br i1 %exitcond134.not.i, label %.loopexit, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit.i, !llvm.loop !121
+  br i1 %exitcond134.not.i, label %.loopexit, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit.i, !llvm.loop !120
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i
   %31 = add nuw i64 %32, 1
   %exitcond133.not.i = icmp eq i64 %31, %3
-  br i1 %exitcond133.not.i, label %.loopexit, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit91.i, !llvm.loop !122
+  br i1 %exitcond133.not.i, label %.loopexit, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit91.i, !llvm.loop !121
 
 _ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit91.i: ; preds = %.loopexit.i, %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit91.lr.ph.i
   %32 = phi i64 [ 1, %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit91.lr.ph.i ], [ %31, %.loopexit.i ]
@@ -3860,12 +3645,12 @@ _ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit100.us.i: ; preds = %_ZN8in
   store float %50, ptr %48, align 4, !tbaa !31
   %51 = add nuw i64 %.0116.us.i, 1
   %exitcond.not.i = icmp eq i64 %51, %3
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit100.us.i, !llvm.loop !123
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit100.us.i, !llvm.loop !122
 
 ._crit_edge.us.i:                                 ; preds = %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit100.us.i
   %52 = add nuw i64 %.060117.us.i, 1
   %exitcond132.not.i = icmp eq i64 %52, %3
-  br i1 %exitcond132.not.i, label %.loopexit.i, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit94.us.i, !llvm.loop !124
+  br i1 %exitcond132.not.i, label %.loopexit.i, label %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit94.us.i, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.loopexit.i, %_ZN8interpol19smooth_cubic_splineIfE6matrixclEmm.exit88.i, %.preheader113.i, %.preheader.i
   tail call void @_ZN8interpol19smooth_cubic_splineIfE8LU_solveERKNS1_6matrixERSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -3926,7 +3711,7 @@ _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit: ; preds = %19
 27:                                               ; preds = %19, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit
   %28 = add nuw i64 %.06896, 1
   %exitcond101.not = icmp eq i64 %28, %3
-  br i1 %exitcond101.not, label %.preheader, label %19, !llvm.loop !125
+  br i1 %exitcond101.not, label %.preheader, label %19, !llvm.loop !124
 
 .preheader:                                       ; preds = %27, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit77
   %.067.in = phi i64 [ %.067, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit77 ], [ %3, %27 ]
@@ -3963,7 +3748,7 @@ _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit77: ; preds = %._ZNK8inter
   %44 = fdiv reassoc nsz arcp contract afn float %38, %42
   store float %44, ptr %43, align 4, !tbaa !31
   %45 = icmp eq i64 %.067, 0
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !126
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !125
 
 .preheader90:                                     ; preds = %13, %._crit_edge
   %.06693 = phi i64 [ %49, %._crit_edge ], [ 0, %13 ]
@@ -3983,7 +3768,7 @@ _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80.lr.ph: ; preds = %.preh
 ._crit_edge:                                      ; preds = %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80, %.preheader90
   %49 = add nuw i64 %.06693, 1
   %exitcond99.not = icmp eq i64 %49, %3
-  br i1 %exitcond99.not, label %.preheader88, label %.preheader90, !llvm.loop !127
+  br i1 %exitcond99.not, label %.preheader88, label %.preheader90, !llvm.loop !126
 
 _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80: ; preds = %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80.lr.ph, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80
   %50 = phi float [ %.promoted, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80.lr.ph ], [ %57, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80 ]
@@ -3998,7 +3783,7 @@ _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80: ; preds = %_ZNK8interp
   store float %57, ptr %47, align 4, !tbaa !31
   %58 = add nuw i64 %.06592, 1
   %exitcond.not = icmp eq i64 %58, %.06693
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit80, !llvm.loop !127
 
 59:                                               ; preds = %.preheader88, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit83
   %.064.in = phi i64 [ %.064, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit83 ], [ %3, %.preheader88 ]
@@ -4028,7 +3813,7 @@ _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit83: ; preds = %_ZNK8interp
   %70 = fdiv reassoc nsz arcp contract afn float %63, %68
   store float %70, ptr %69, align 4, !tbaa !31
   %71 = icmp eq i64 %.064, 0
-  br i1 %71, label %.loopexit, label %59, !llvm.loop !129
+  br i1 %71, label %.loopexit, label %59, !llvm.loop !128
 
 _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86: ; preds = %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86.lr.ph, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86
   %72 = phi float [ %.promoted95, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86.lr.ph ], [ %79, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86 ]
@@ -4043,7 +3828,7 @@ _ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86: ; preds = %_ZNK8interp
   store float %79, ptr %62, align 4, !tbaa !31
   %80 = add nuw i64 %.094, 1
   %exitcond100.not = icmp eq i64 %80, %3
-  br i1 %exitcond100.not, label %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit83, label %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86, !llvm.loop !130
+  br i1 %exitcond100.not, label %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit83, label %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit86, !llvm.loop !129
 
 .loopexit:                                        ; preds = %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit83, %_ZNK8interpol19smooth_cubic_splineIfE6matrixclEmm.exit77, %2, %5
   ret void
@@ -4070,8 +3855,8 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %17 = load float, ptr %16, align 4, !tbaa !27
-  %18 = load float, ptr %15, align 8, !tbaa !28
+  %17 = load float, ptr %16, align 4, !tbaa !26
+  %18 = load float, ptr %15, align 8, !tbaa !27
   %19 = fsub reassoc nsz arcp contract afn float %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4081,8 +3866,8 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load float, ptr %25, align 4, !tbaa !14
   %27 = fsub reassoc nsz arcp contract afn float %22, %26
-  %28 = load float, ptr %20, align 4, !tbaa !26
-  %29 = load float, ptr %24, align 4, !tbaa !26
+  %28 = load float, ptr %20, align 4, !tbaa !28
+  %29 = load float, ptr %24, align 4, !tbaa !28
   %30 = fadd reassoc nsz arcp contract afn float %28, %19
   %31 = fsub reassoc nsz arcp contract afn float %30, %29
   %32 = fdiv reassoc nsz arcp contract afn float %27, %31
@@ -4099,8 +3884,8 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
   %39 = getelementptr i8, ptr %37, i64 -20
   %40 = load float, ptr %39, align 4, !tbaa !14
   %41 = fsub reassoc nsz arcp contract afn float %36, %40
-  %42 = load float, ptr %4, align 4, !tbaa !26
-  %43 = load float, ptr %38, align 4, !tbaa !26
+  %42 = load float, ptr %4, align 4, !tbaa !28
+  %43 = load float, ptr %38, align 4, !tbaa !28
   %44 = fadd reassoc nsz arcp contract afn float %42, %19
   %45 = fsub reassoc nsz arcp contract afn float %44, %43
   %46 = fdiv reassoc nsz arcp contract afn float %41, %45
@@ -4117,14 +3902,14 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
   %53 = getelementptr i8, ptr %51, i64 -8
   %54 = load float, ptr %53, align 4, !tbaa !14
   %55 = fsub reassoc nsz arcp contract afn float %50, %54
-  %56 = load float, ptr %48, align 4, !tbaa !26
-  %57 = load float, ptr %52, align 4, !tbaa !26
+  %56 = load float, ptr %48, align 4, !tbaa !28
+  %57 = load float, ptr %52, align 4, !tbaa !28
   %58 = fsub reassoc nsz arcp contract afn float %56, %57
   %59 = fdiv reassoc nsz arcp contract afn float %55, %58
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store float %59, ptr %60, align 4, !tbaa !33
   %exitcond37.not = icmp eq i64 %47, %23
-  br i1 %exitcond37.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !131
+  br i1 %exitcond37.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !130
 
 61:                                               ; preds = %10
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -4133,8 +3918,8 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %66 = load float, ptr %65, align 4, !tbaa !14
   %67 = fsub reassoc nsz arcp contract afn float %64, %66
-  %68 = load float, ptr %62, align 4, !tbaa !26
-  %69 = load float, ptr %4, align 4, !tbaa !26
+  %68 = load float, ptr %62, align 4, !tbaa !28
+  %69 = load float, ptr %4, align 4, !tbaa !28
   %70 = fsub reassoc nsz arcp contract afn float %68, %69
   %71 = fdiv reassoc nsz arcp contract afn float %67, %70
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4152,8 +3937,8 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
   %80 = getelementptr i8, ptr %78, i64 -20
   %81 = load float, ptr %80, align 4, !tbaa !14
   %82 = fsub reassoc nsz arcp contract afn float %77, %81
-  %83 = load float, ptr %75, align 4, !tbaa !26
-  %84 = load float, ptr %79, align 4, !tbaa !26
+  %83 = load float, ptr %75, align 4, !tbaa !28
+  %84 = load float, ptr %79, align 4, !tbaa !28
   %85 = fsub reassoc nsz arcp contract afn float %83, %84
   %86 = fdiv reassoc nsz arcp contract afn float %82, %85
   br label %101
@@ -4169,14 +3954,14 @@ define linkonce_odr void @_ZN8interpol18Catmull_Rom_splineIfE4initEv(ptr noundef
   %93 = getelementptr i8, ptr %91, i64 -8
   %94 = load float, ptr %93, align 4, !tbaa !14
   %95 = fsub reassoc nsz arcp contract afn float %90, %94
-  %96 = load float, ptr %88, align 4, !tbaa !26
-  %97 = load float, ptr %92, align 4, !tbaa !26
+  %96 = load float, ptr %88, align 4, !tbaa !28
+  %97 = load float, ptr %92, align 4, !tbaa !28
   %98 = fsub reassoc nsz arcp contract afn float %96, %97
   %99 = fdiv reassoc nsz arcp contract afn float %95, %98
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store float %99, ptr %100, align 4, !tbaa !33
   %exitcond.not = icmp eq i64 %87, %73
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 101:                                              ; preds = %1, %._crit_edge36, %._crit_edge
   %.sink41 = phi ptr [ %24, %._crit_edge36 ], [ %75, %._crit_edge ], [ %4, %1 ]
@@ -4212,8 +3997,8 @@ define linkonce_odr void @_ZN8interpol23monotone_hermite_splineIfE4initEv(ptr no
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %19 = load float, ptr %18, align 4, !tbaa !27
-  %20 = load float, ptr %17, align 8, !tbaa !28
+  %19 = load float, ptr %18, align 4, !tbaa !26
+  %20 = load float, ptr %17, align 8, !tbaa !27
   %21 = icmp ugt i64 %8, 2305843009213693951
   br i1 %21, label %.noexc, label %22
 
@@ -4255,8 +4040,8 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit:              ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load float, ptr %33, align 4, !tbaa !14
   %35 = fsub reassoc nsz arcp contract afn float %31, %34
-  %36 = load float, ptr %29, align 4, !tbaa !26
-  %37 = load float, ptr %32, align 4, !tbaa !26
+  %36 = load float, ptr %29, align 4, !tbaa !28
+  %37 = load float, ptr %32, align 4, !tbaa !28
   %38 = fadd reassoc nsz arcp contract afn float %19, %36
   %39 = fadd reassoc nsz arcp contract afn float %20, %37
   %40 = fsub reassoc nsz arcp contract afn float %38, %39
@@ -4331,8 +4116,8 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load float, ptr %67, align 4, !tbaa !14
   %69 = fsub reassoc nsz arcp contract afn float %65, %68
-  %70 = load float, ptr %63, align 4, !tbaa !26
-  %71 = load float, ptr %66, align 4, !tbaa !26
+  %70 = load float, ptr %63, align 4, !tbaa !28
+  %71 = load float, ptr %66, align 4, !tbaa !28
   %72 = fsub reassoc nsz arcp contract afn float %70, %71
   %73 = fdiv reassoc nsz arcp contract afn float %69, %72
   %.not.i.i115 = icmp eq ptr %.sroa.25.0245, %.sroa.33.0244
@@ -4397,7 +4182,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit124:        ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.0171.4 = phi ptr [ %87, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i121 ], [ %.sroa.0171.0246, %74 ]
   %.sroa.25.2 = getelementptr inbounds nuw i8, ptr %.pn207, i64 4
   %exitcond275.not = icmp eq i64 %61, %27
-  br i1 %exitcond275.not, label %._crit_edge249.loopexit, label %.lr.ph248, !llvm.loop !133
+  br i1 %exitcond275.not, label %._crit_edge249.loopexit, label %.lr.ph248, !llvm.loop !132
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i116
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4458,7 +4243,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   store float %.sink328, ptr %117, align 4, !tbaa !33
   %118 = add nuw i64 %.0100254, 1
   %exitcond276.not = icmp eq i64 %118, %8
-  br i1 %exitcond276.not, label %.preheader, label %107, !llvm.loop !134
+  br i1 %exitcond276.not, label %.preheader, label %107, !llvm.loop !133
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %157, %.preheader
   %119 = ptrtoint ptr %.sroa.33.3 to i64
@@ -4517,7 +4302,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %157, %.preheader
 
 157:                                              ; preds = %135, %148, %130
   %exitcond277.not = icmp eq i64 %123, %8
-  br i1 %exitcond277.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %122, !llvm.loop !135
+  br i1 %exitcond277.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %122, !llvm.loop !134
 
 158:                                              ; preds = %.loopexit, %.loopexit.split-lp, %103
   %.sroa.33.0224 = phi ptr [ %.sroa.33.0.lcssa, %103 ], [ %.sroa.25.0245, %.loopexit ], [ %.sroa.25.0245, %.loopexit.split-lp ]
@@ -4572,8 +4357,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %157, %.preheader
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load float, ptr %178, align 4, !tbaa !14
   %180 = fsub reassoc nsz arcp contract afn float %176, %179
-  %181 = load float, ptr %174, align 4, !tbaa !26
-  %182 = load float, ptr %177, align 4, !tbaa !26
+  %181 = load float, ptr %174, align 4, !tbaa !28
+  %182 = load float, ptr %177, align 4, !tbaa !28
   %183 = fsub reassoc nsz arcp contract afn float %181, %182
   %184 = fdiv reassoc nsz arcp contract afn float %180, %183
   %.not.i.i134 = icmp eq ptr %.sroa.21.0233, %.sroa.26.0234
@@ -4638,7 +4423,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit143:        ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.26.3 = phi ptr [ %203, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i140 ], [ %.sroa.26.0234, %185 ]
   %.sroa.21.2 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %exitcond.not = icmp eq i64 %172, %164
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 
 ._crit_edge240:                                   ; preds = %.lr.ph239
   %204 = icmp ugt i64 %8, 1
@@ -4663,7 +4448,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit143:        ; preds = %_ZNSt6vectorIfSaIfE
   store float %.sink331, ptr %214, align 4, !tbaa !33
   %215 = add nuw i64 %.098237, 1
   %exitcond273.not = icmp eq i64 %215, %164
-  br i1 %exitcond273.not, label %._crit_edge240, label %.lr.ph239, !llvm.loop !137
+  br i1 %exitcond273.not, label %._crit_edge240, label %.lr.ph239, !llvm.loop !136
 
 ._crit_edge240.thread:                            ; preds = %._crit_edge, %._crit_edge240
   %216 = getelementptr float, ptr %.sroa.0.3, i64 %8
@@ -4726,7 +4511,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit145:                 ; preds = %252
 252:                                              ; preds = %232, %243, %229
   %253 = add nuw i64 %.097241, 1
   %exitcond274.not = icmp eq i64 %253, %164
-  br i1 %exitcond274.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit145, label %.lr.ph243, !llvm.loop !138
+  br i1 %exitcond274.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit145, label %.lr.ph243, !llvm.loop !137
 
 .loopexit209:                                     ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i135
   %lpad.loopexit211 = landingpad { ptr, i32 }
@@ -4865,7 +4650,7 @@ _ZNKSt6vectorIN8interpol10base_pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc35, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i ], [ %49, %.noexc35 ]
   %.0911.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i ], [ %26, %.noexc35 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !87, !alias.scope !139
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !87, !alias.scope !138
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 12
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i = icmp eq ptr %51, %27
@@ -4894,7 +4679,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit: ; preds = %
   %58 = phi ptr [ %53, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %36, %35 ]
   %59 = getelementptr inbounds nuw i8, ptr %.079, i64 8
   %.not31 = icmp eq ptr %59, %2
-  br i1 %.not31, label %.loopexit, label %25, !llvm.loop !143
+  br i1 %.not31, label %.loopexit, label %25, !llvm.loop !142
 
 .loopexit68:                                      ; preds = %_ZNKSt6vectorIN8interpol10base_pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4911,7 +4696,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit: ; preds = %
   %62 = phi ptr [ null, %.lr.ph ], [ %94, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51 ]
   %63 = phi ptr [ null, %.lr.ph ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51 ]
   %.02677 = phi ptr [ %1, %.lr.ph ], [ %96, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51 ]
-  %64 = load float, ptr %8, align 8, !tbaa !28
+  %64 = load float, ptr %8, align 8, !tbaa !27
   %65 = load float, ptr %.02677, align 4, !tbaa !46
   %66 = fcmp reassoc nsz arcp contract afn ugt float %64, %65
   %67 = load float, ptr %13, align 4
@@ -4975,7 +4760,7 @@ _ZNKSt6vectorIN8interpol10base_pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i37
 .lr.ph.i.i.i.i.i.i41:                             ; preds = %.noexc50, %.lr.ph.i.i.i.i.i.i41
   %.012.i.i.i.i.i.i42 = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i41 ], [ %86, %.noexc50 ]
   %.0911.i.i.i.i.i.i43 = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i41 ], [ %61, %.noexc50 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i42, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i43, i64 12, i1 false), !tbaa.struct !87, !alias.scope !144
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i42, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i43, i64 12, i1 false), !tbaa.struct !87, !alias.scope !143
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i43, i64 12
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i42, i64 12
   %.not.i.i.i.i.i.i44 = icmp eq ptr %88, %62
@@ -5014,7 +4799,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51: ; preds =
   %95 = phi ptr [ %73, %72 ], [ %90, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i48 ], [ %63, %60 ]
   %96 = getelementptr inbounds nuw i8, ptr %.02677, i64 8
   %.not = icmp eq ptr %96, %2
-  br i1 %.not, label %.loopexit, label %60, !llvm.loop !148
+  br i1 %.not, label %.loopexit, label %60, !llvm.loop !147
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit, %.preheader, %16
   %97 = phi ptr [ %58, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit ], [ null, %16 ], [ null, %.preheader ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit51 ]
@@ -5091,215 +4876,296 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %8 = alloca %"struct.interpol::base_point", align 4
   %9 = alloca %"struct.interpol::base_point", align 4
   %10 = alloca %"struct.interpol::base_point", align 4
-  %11 = ptrtoint ptr %0 to i64
-  %12 = ptrtoint ptr %1 to i64
+  %.fr39 = freeze ptr %1
+  %.fr28 = freeze ptr %0
+  %11 = ptrtoint ptr %.fr28 to i64
+  %12 = ptrtoint ptr %.fr39 to i64
   %13 = sub i64 %12, %11
   %14 = icmp sgt i64 %13, 192
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.fr28, i64 12
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit
-  %17 = phi i64 [ %13, %.lr.ph ], [ %91, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %58, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit ]
-  %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit ]
-  %18 = icmp eq i64 %.022, 0
-  br i1 %18, label %19, label %57
+  %.fr46.i27 = phi i64 [ %13, %.lr.ph ], [ %127, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit ]
+  %.026 = phi i64 [ %2, %.lr.ph ], [ %94, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit ]
+  %storemerge25 = phi ptr [ %.fr39, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit ]
+  %17 = icmp eq i64 %.026, 0
+  br i1 %17, label %18, label %93
 
-19:                                               ; preds = %16
-  tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_(ptr %0, ptr %storemerge21, ptr %storemerge21)
-  br label %.lr.ph.i.i
+18:                                               ; preds = %16
+  %19 = udiv exact i64 %.fr46.i27, 12
+  %20 = add nsw i64 %19, -2
+  %21 = lshr i64 %20, 1
+  %22 = add nsw i64 %19, -1
+  %23 = lshr i64 %22, 1
+  %24 = and i64 %19, 1
+  %25 = icmp eq i64 %24, 0
+  %26 = or disjoint i64 %20, 1
+  %27 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %21
+  br label %29
 
-.lr.ph.i.i:                                       ; preds = %19, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %20, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i ], [ %storemerge21, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %20, align 4
+29:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i, %18
+  %.012.i.i = phi i64 [ %21, %18 ], [ %55, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i ]
+  %30 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.012.i.i
+  %.sroa.05.0.copyload.i.i = load <2 x float>, ptr %30, align 4
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !31
+  %31 = icmp slt i64 %.012.i.i, %23
+  br i1 %31, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
+  %.041.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i, %29 ]
+  %32 = shl i64 %.041.i.i.i, 1
+  %33 = add i64 %32, 2
+  %34 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %33
+  %35 = or disjoint i64 %32, 1
+  %36 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %35
+  %37 = load float, ptr %34, align 4, !tbaa !28
+  %38 = load float, ptr %36, align 4, !tbaa !28
+  %39 = fcmp reassoc nsz arcp contract afn olt float %37, %38
+  %spec.select.i.i.i = select i1 %39, i64 %35, i64 %33
+  %40 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %spec.select.i.i.i
+  %41 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.041.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false), !tbaa.struct !87
+  %42 = icmp slt i64 %spec.select.i.i.i, %23
+  br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !148
+
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %29
+  %.0.lcssa.i.i.i = phi i64 [ %.012.i.i, %29 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %43 = icmp eq i64 %.0.lcssa.i.i.i, %21
+  %or.cond.i.i = select i1 %25, i1 %43, i1 false
+  br i1 %or.cond.i.i, label %44, label %45
+
+44:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !87
+  br label %45
+
+45:                                               ; preds = %44, %._crit_edge.i.i.i
+  %.1.i.i.i = phi i64 [ %26, %44 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %46 = icmp sgt i64 %.1.i.i.i, %.012.i.i
+  br i1 %46, label %.lr.ph.i.i.i.i17, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i
+
+.lr.ph.i.i.i.i17:                                 ; preds = %45
+  %.sroa.013.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i, i64 0
+  br label %47
+
+47:                                               ; preds = %51, %.lr.ph.i.i.i.i17
+  %.020.i.i.i.i = phi i64 [ %.1.i.i.i, %.lr.ph.i.i.i.i17 ], [ %.01021.i.i.i.i, %51 ]
+  %.01021.in.i.i.i.i = add nsw i64 %.020.i.i.i.i, -1
+  %.01021.i.i.i.i = sdiv i64 %.01021.in.i.i.i.i, 2
+  %48 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.01021.i.i.i.i
+  %49 = load float, ptr %48, align 4, !tbaa !28
+  %50 = fcmp reassoc nsz arcp contract afn olt float %49, %.sroa.013.0.vec.extract.i.i.i.i
+  br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i
+
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.020.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false), !tbaa.struct !87
+  %53 = icmp sgt i64 %.01021.i.i.i.i, %.012.i.i
+  br i1 %53, label %47, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i, !llvm.loop !149
+
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i: ; preds = %51, %47, %45
+  %.0.lcssa.i.i.i.i16 = phi i64 [ %.1.i.i.i, %45 ], [ %.01021.i.i.i.i, %51 ], [ %.020.i.i.i.i, %47 ]
+  %54 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i16
+  store <2 x float> %.sroa.05.0.copyload.i.i, ptr %54, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store float %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i, align 4, !tbaa !31
+  %.not.i.i = icmp eq i64 %.012.i.i, 0
+  %55 = add nsw i64 %.012.i.i, -1
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %29, !llvm.loop !150
+
+.lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i
+  %.sroa.0.05.i.i = phi ptr [ %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i.i ]
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %56, align 4
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %.sroa.4.0.copyload.i.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  %21 = ptrtoint ptr %20 to i64
-  %22 = sub i64 %21, %11
-  %23 = sdiv exact i64 %22, 12
-  %24 = add nsw i64 %23, -1
-  %25 = sdiv i64 %24, 2
-  %26 = icmp sgt i64 %22, 24
-  br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  %57 = ptrtoint ptr %56 to i64
+  %58 = sub i64 %57, %11
+  %59 = sdiv exact i64 %58, 12
+  %60 = add nsw i64 %59, -1
+  %61 = sdiv i64 %60, 2
+  %62 = icmp sgt i64 %58, 24
+  br i1 %62, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.041.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %27 = shl i64 %.041.i.i.i.i, 1
-  %28 = add i64 %27, 2
-  %29 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %28
-  %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %30
-  %32 = load float, ptr %29, align 4, !tbaa !26
-  %33 = load float, ptr %31, align 4, !tbaa !26
-  %34 = fcmp reassoc nsz arcp contract afn olt float %32, %33
-  %spec.select.i.i.i.i = select i1 %34, i64 %30, i64 %28
-  %35 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %spec.select.i.i.i.i
-  %36 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.041.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !87
-  %37 = icmp slt i64 %spec.select.i.i.i.i, %25
-  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !149
+  %63 = shl i64 %.041.i.i.i.i, 1
+  %64 = add i64 %63, 2
+  %65 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %64
+  %66 = or disjoint i64 %63, 1
+  %67 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %66
+  %68 = load float, ptr %65, align 4, !tbaa !28
+  %69 = load float, ptr %67, align 4, !tbaa !28
+  %70 = fcmp reassoc nsz arcp contract afn olt float %68, %69
+  %spec.select.i.i.i.i = select i1 %70, i64 %66, i64 %64
+  %71 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %spec.select.i.i.i.i
+  %72 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.041.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %72, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false), !tbaa.struct !87
+  %73 = icmp slt i64 %spec.select.i.i.i.i, %61
+  br i1 %73, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !148
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %38 = and i64 %23, 1
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %48
+  %74 = and i64 %59, 1
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %84
 
-40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = add nsw i64 %23, -2
-  %42 = ashr exact i64 %41, 1
-  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
-  br i1 %43, label %.thread.i.i.i, label %48
+76:                                               ; preds = %._crit_edge.i.i.i.i
+  %77 = add nsw i64 %59, -2
+  %78 = ashr exact i64 %77, 1
+  %79 = icmp eq i64 %.0.lcssa.i.i.i.i, %78
+  br i1 %79, label %.thread.i.i.i, label %84
 
-.thread.i.i.i:                                    ; preds = %40
-  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.0.lcssa.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !87
+.thread.i.i.i:                                    ; preds = %76
+  %80 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %81 = or disjoint i64 %80, 1
+  %82 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %81
+  %83 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false), !tbaa.struct !87
   br label %.lr.ph.i.i.i.i.i
 
-48:                                               ; preds = %40, %._crit_edge.i.i.i.i
+84:                                               ; preds = %76, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %.thread.i.i.i
-  %.1.i11.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %48 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %84, %.thread.i.i.i
+  %.1.i11.i.i.i = phi i64 [ %81, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %84 ]
   %.sroa.013.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i.i, i64 0
-  br label %49
+  br label %85
 
-49:                                               ; preds = %53, %.lr.ph.i.i.i.i.i
-  %.020.i.i.i.i.i = phi i64 [ %.1.i11.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01021.i.i1213.i.i.i, %53 ]
+85:                                               ; preds = %89, %.lr.ph.i.i.i.i.i
+  %.020.i.i.i.i.i = phi i64 [ %.1.i11.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01021.i.i1213.i.i.i, %89 ]
   %.01021.in.i.i.i.i.i = add nsw i64 %.020.i.i.i.i.i, -1
   %.01021.i.i1213.i.i.i = lshr i64 %.01021.in.i.i.i.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %.01021.i.i1213.i.i.i
-  %51 = load float, ptr %50, align 4, !tbaa !26
-  %52 = fcmp reassoc nsz arcp contract afn olt float %51, %.sroa.013.0.vec.extract.i.i.i.i.i
-  br i1 %52, label %53, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i
+  %86 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.01021.i.i1213.i.i.i
+  %87 = load float, ptr %86, align 4, !tbaa !28
+  %88 = fcmp reassoc nsz arcp contract afn olt float %87, %.sroa.013.0.vec.extract.i.i.i.i.i
+  br i1 %88, label %89, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.020.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false), !tbaa.struct !87
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.020.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %90, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false), !tbaa.struct !87
   %.not14.i.i.i = icmp eq i64 %.01021.i.i1213.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i, label %49, !llvm.loop !150
+  br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i, label %85, !llvm.loop !149
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i: ; preds = %53, %49, %48
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %48 ], [ %.020.i.i.i.i.i, %49 ], [ 0, %53 ]
-  %55 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store <2 x float> %.sroa.05.0.copyload.i.i.i, ptr %55, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i: ; preds = %89, %85, %84
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %84 ], [ %.020.i.i.i.i.i, %85 ], [ 0, %89 ]
+  %91 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i.i
+  store <2 x float> %.sroa.05.0.copyload.i.i.i, ptr %91, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   store float %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !31
-  %56 = icmp sgt i64 %22, 12
-  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !151
+  %92 = icmp sgt i64 %58, 12
+  br i1 %92, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !151
 
-57:                                               ; preds = %16
-  %58 = add nsw i64 %.022, -1
-  %59 = udiv i64 %17, 24
-  %60 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %59
-  %61 = getelementptr inbounds i8, ptr %storemerge21, i64 -12
-  %62 = load float, ptr %15, align 4, !tbaa !26
-  %63 = load float, ptr %60, align 4, !tbaa !26
-  %64 = fcmp reassoc nsz arcp contract afn olt float %62, %63
-  %65 = load float, ptr %61, align 4, !tbaa !26
-  br i1 %64, label %66, label %73
+93:                                               ; preds = %16
+  %94 = add nsw i64 %.026, -1
+  %95 = udiv i64 %.fr46.i27, 24
+  %96 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %95
+  %97 = getelementptr inbounds i8, ptr %storemerge25, i64 -12
+  %98 = load float, ptr %15, align 4, !tbaa !28
+  %99 = load float, ptr %96, align 4, !tbaa !28
+  %100 = fcmp reassoc nsz arcp contract afn olt float %98, %99
+  %101 = load float, ptr %97, align 4, !tbaa !28
+  br i1 %100, label %102, label %109
 
-66:                                               ; preds = %57
-  %67 = fcmp reassoc nsz arcp contract afn olt float %63, %65
-  br i1 %67, label %68, label %69
+102:                                              ; preds = %93
+  %103 = fcmp reassoc nsz arcp contract afn olt float %99, %101
+  br i1 %103, label %104, label %105
 
-68:                                               ; preds = %66
+104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %60, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-69:                                               ; preds = %66
-  %70 = fcmp reassoc nsz arcp contract afn olt float %62, %65
-  br i1 %70, label %71, label %72
+105:                                              ; preds = %102
+  %106 = fcmp reassoc nsz arcp contract afn olt float %98, %101
+  br i1 %106, label %107, label %108
 
-71:                                               ; preds = %69
+107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-72:                                               ; preds = %69
+108:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-73:                                               ; preds = %57
-  %74 = fcmp reassoc nsz arcp contract afn olt float %62, %65
-  br i1 %74, label %75, label %76
+109:                                              ; preds = %93
+  %110 = fcmp reassoc nsz arcp contract afn olt float %98, %101
+  br i1 %110, label %111, label %112
 
-75:                                               ; preds = %73
+111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-76:                                               ; preds = %73
-  %77 = fcmp reassoc nsz arcp contract afn olt float %63, %65
-  br i1 %77, label %78, label %79
+112:                                              ; preds = %109
+  %113 = fcmp reassoc nsz arcp contract afn olt float %99, %101
+  br i1 %113, label %114, label %115
 
-78:                                               ; preds = %76
+114:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-79:                                               ; preds = %76
+115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %60, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader: ; preds = %79, %78, %75, %72, %71, %68
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader: ; preds = %115, %114, %111, %108, %107, %104
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader, %89
-  %.sroa.010.0.i.i = phi ptr [ %84, %89 ], [ %15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %89 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
-  %80 = load float, ptr %0, align 4, !tbaa !26
-  br label %81
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader, %125
+  %.sroa.010.0.i.i = phi ptr [ %120, %125 ], [ %15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %125 ], [ %storemerge25, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i.preheader ]
+  %116 = load float, ptr %.fr28, align 4, !tbaa !28
+  br label %117
 
-81:                                               ; preds = %81, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i ], [ %84, %81 ]
-  %82 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !26
-  %83 = fcmp reassoc nsz arcp contract afn olt float %82, %80
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 12
-  br i1 %83, label %81, label %.preheader.i.i, !llvm.loop !152
+117:                                              ; preds = %117, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i ], [ %120, %117 ]
+  %118 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !28
+  %119 = fcmp reassoc nsz arcp contract afn olt float %118, %116
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 12
+  br i1 %119, label %117, label %.preheader.i.i, !llvm.loop !152
 
-.preheader.i.i:                                   ; preds = %81, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %81 ]
+.preheader.i.i:                                   ; preds = %117, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %117 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -12
-  %85 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !26
-  %86 = fcmp reassoc nsz arcp contract afn olt float %80, %85
-  br i1 %86, label %.preheader.i.i, label %87, !llvm.loop !153
+  %121 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !28
+  %122 = fcmp reassoc nsz arcp contract afn olt float %116, %121
+  br i1 %122, label %.preheader.i.i, label %123, !llvm.loop !153
 
-87:                                               ; preds = %.preheader.i.i
-  %88 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %88, label %89, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit
+123:                                              ; preds = %.preheader.i.i
+  %124 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %124, label %125, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit
 
-89:                                               ; preds = %87
+125:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.010.1.i.i, i64 12, i1 false), !tbaa.struct !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.1.i.i, i64 12, i1 false), !tbaa.struct !87
@@ -5307,12 +5173,12 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_po
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_SH_T0_.exit.i, !llvm.loop !154
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit: ; preds = %87
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge21, i64 noundef %58)
-  %90 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %91 = sub i64 %90, %11
-  %92 = icmp sgt i64 %91, 192
-  br i1 %92, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !155
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit: ; preds = %123
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge25, i64 noundef %94)
+  %126 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %127 = sub i64 %126, %11
+  %128 = icmp sgt i64 %127, 192
+  br i1 %128, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_.exit, !llvm.loop !155
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEESH_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.i.i, %3
   ret void
@@ -5332,8 +5198,8 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %.sroa.0.019.i.idx = phi i64 [ %.sroa.0.019.i.add, %20 ], [ 12, %2 ]
   %.pn18.i = phi ptr [ %.sroa.0.019.i.ptr, %20 ], [ %0, %2 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %9 = load float, ptr %.sroa.0.019.i.ptr, align 4, !tbaa !26
-  %10 = load float, ptr %0, align 4, !tbaa !26
+  %9 = load float, ptr %.sroa.0.019.i.ptr, align 4, !tbaa !28
+  %10 = load float, ptr %0, align 4, !tbaa !28
   %11 = fcmp reassoc nsz arcp contract afn olt float %9, %10
   br i1 %11, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i, label %14
 
@@ -5351,7 +5217,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
 14:                                               ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   %15 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 4
-  %16 = load float, ptr %.pn18.i, align 4, !tbaa !26
+  %16 = load float, ptr %.pn18.i, align 4, !tbaa !28
   %17 = fcmp reassoc nsz arcp contract afn olt float %9, %16
   br i1 %17, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i
 
@@ -5360,7 +5226,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
   %.sroa.06.010.i.i = phi ptr [ %.sroa.0.011.i.i, %.lr.ph.i.i ], [ %.sroa.0.019.i.ptr, %14 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.011.i.i, i64 -12
-  %18 = load float, ptr %.sroa.0.0.i.i, align 4, !tbaa !26
+  %18 = load float, ptr %.sroa.0.0.i.i, align 4, !tbaa !28
   %19 = fcmp reassoc nsz arcp contract afn olt float %9, %18
   br i1 %19, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i, !llvm.loop !156
 
@@ -5387,7 +5253,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfE
   %.sroa.5.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 4
   %22 = load i64, ptr %.sroa.5.0..sroa_idx.i.i13, align 4
   %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 -12
-  %23 = load float, ptr %.sroa.0.09.i.i, align 4, !tbaa !26
+  %23 = load float, ptr %.sroa.0.09.i.i, align 4, !tbaa !28
   %24 = fcmp reassoc nsz arcp contract afn olt float %.sroa.03.0.copyload.i.i, %23
   br i1 %24, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i14
 
@@ -5396,7 +5262,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfE
   %.sroa.06.010.i.i20 = phi ptr [ %.sroa.0.011.i.i19, %.lr.ph.i.i18 ], [ %.sroa.0.07.i, %.lr.ph.i12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i20, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i19, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i21 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i19, i64 -12
-  %25 = load float, ptr %.sroa.0.0.i.i21, align 4, !tbaa !26
+  %25 = load float, ptr %.sroa.0.0.i.i21, align 4, !tbaa !28
   %26 = fcmp reassoc nsz arcp contract afn olt float %.sroa.03.0.copyload.i.i, %25
   br i1 %26, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i14, !llvm.loop !156
 
@@ -5419,8 +5285,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 .lr.ph.i25:                                       ; preds = %28, %43
   %.sroa.0.019.i26 = phi ptr [ %.sroa.0.0.i32, %43 ], [ %.sroa.0.016.i23, %28 ]
   %.pn18.i27 = phi ptr [ %.sroa.0.019.i26, %43 ], [ %0, %28 ]
-  %30 = load float, ptr %.sroa.0.019.i26, align 4, !tbaa !26
-  %31 = load float, ptr %0, align 4, !tbaa !26
+  %30 = load float, ptr %.sroa.0.019.i26, align 4, !tbaa !28
+  %31 = load float, ptr %0, align 4, !tbaa !28
   %32 = fcmp reassoc nsz arcp contract afn olt float %30, %31
   br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i38, label %37
 
@@ -5440,7 +5306,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
 37:                                               ; preds = %.lr.ph.i25
   %.sroa.5.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 16
   %38 = load i64, ptr %.sroa.5.0..sroa_idx.i.i28, align 4
-  %39 = load float, ptr %.pn18.i27, align 4, !tbaa !26
+  %39 = load float, ptr %.pn18.i27, align 4, !tbaa !28
   %40 = fcmp reassoc nsz arcp contract afn olt float %30, %39
   br i1 %40, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i29
 
@@ -5449,7 +5315,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
   %.sroa.06.010.i.i36 = phi ptr [ %.sroa.0.011.i.i35, %.lr.ph.i.i34 ], [ %.sroa.0.019.i26, %37 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i36, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i35, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i37 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i35, i64 -12
-  %41 = load float, ptr %.sroa.0.0.i.i37, align 4, !tbaa !26
+  %41 = load float, ptr %.sroa.0.0.i.i37, align 4, !tbaa !28
   %42 = fcmp reassoc nsz arcp contract afn olt float %30, %41
   br i1 %42, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i29, !llvm.loop !156
 
@@ -5467,293 +5333,6 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_T0_.exit: ; preds = %43, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_.exit.i14, %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #1 comdat {
-  %.fr47 = freeze ptr %0
-  %.fr46 = freeze ptr %1
-  %4 = ptrtoint ptr %.fr46 to i64
-  %5 = ptrtoint ptr %.fr47 to i64
-  %6 = sub i64 %4, %5
-  %7 = icmp slt i64 %6, 24
-  br i1 %7, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_RT0_.exit, label %8
-
-8:                                                ; preds = %3
-  %9 = udiv exact i64 %6, 12
-  %10 = add nsw i64 %9, -2
-  %11 = lshr i64 %10, 1
-  %12 = add nsw i64 %9, -1
-  %13 = lshr i64 %12, 1
-  %14 = and i64 %9, 1
-  %15 = icmp eq i64 %14, 0
-  %16 = or disjoint i64 %10, 1
-  %17 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %16
-  %18 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %11
-  br label %19
-
-19:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i, %8
-  %.012.i = phi i64 [ %11, %8 ], [ %45, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i ]
-  %20 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.012.i
-  %.sroa.05.0.copyload.i = load <2 x float>, ptr %20, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !31
-  %21 = icmp slt i64 %.012.i, %13
-  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i
-
-.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %.041.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.012.i, %19 ]
-  %22 = shl i64 %.041.i.i, 1
-  %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %23
-  %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %25
-  %27 = load float, ptr %24, align 4, !tbaa !26
-  %28 = load float, ptr %26, align 4, !tbaa !26
-  %29 = fcmp reassoc nsz arcp contract afn olt float %27, %28
-  %spec.select.i.i = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %spec.select.i.i
-  %31 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.041.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !87
-  %32 = icmp slt i64 %spec.select.i.i, %13
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !149
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %19
-  %.0.lcssa.i.i = phi i64 [ %.012.i, %19 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %33 = icmp eq i64 %.0.lcssa.i.i, %11
-  %or.cond.i = select i1 %15, i1 %33, i1 false
-  br i1 %or.cond.i, label %34, label %35
-
-34:                                               ; preds = %._crit_edge.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 4 dereferenceable(12) %17, i64 12, i1 false), !tbaa.struct !87
-  br label %35
-
-35:                                               ; preds = %34, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %16, %34 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %36 = icmp sgt i64 %.1.i.i, %.012.i
-  br i1 %36, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i
-
-.lr.ph.i.i.i:                                     ; preds = %35
-  %.sroa.013.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i, i64 0
-  br label %37
-
-37:                                               ; preds = %41, %.lr.ph.i.i.i
-  %.020.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.01021.i.i.i, %41 ]
-  %.01021.in.i.i.i = add nsw i64 %.020.i.i.i, -1
-  %.01021.i.i.i = sdiv i64 %.01021.in.i.i.i, 2
-  %38 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.01021.i.i.i
-  %39 = load float, ptr %38, align 4, !tbaa !26
-  %40 = fcmp reassoc nsz arcp contract afn olt float %39, %.sroa.013.0.vec.extract.i.i.i
-  br i1 %40, label %41, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i
-
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.020.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false), !tbaa.struct !87
-  %43 = icmp sgt i64 %.01021.i.i.i, %.012.i
-  br i1 %43, label %37, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i, !llvm.loop !150
-
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i: ; preds = %41, %37, %35
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %35 ], [ %.020.i.i.i, %37 ], [ %.01021.i.i.i, %41 ]
-  %44 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i
-  store <2 x float> %.sroa.05.0.copyload.i, ptr %44, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store float %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !31
-  %.not.i = icmp eq i64 %.012.i, 0
-  %45 = add nsw i64 %.012.i, -1
-  br i1 %.not.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_RT0_.exit, label %19, !llvm.loop !159
-
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_T0_SQ_T1_T2_.exit.i, %3
-  %46 = icmp ult ptr %.fr46, %2
-  br i1 %46, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_RT0_.exit
-  %47 = sdiv i64 %6, 12
-  %48 = add nsw i64 %47, -1
-  %49 = sdiv i64 %48, 2
-  %50 = icmp sgt i64 %6, 24
-  %51 = and i64 %47, 1
-  %52 = icmp eq i64 %51, 0
-  %53 = add nsw i64 %47, -2
-  %54 = ashr exact i64 %53, 1
-  br i1 %50, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %55 = or disjoint i64 %53, 1
-  %56 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %55
-  %57 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %54
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %80
-  %.sroa.0.027.us = phi ptr [ %81, %80 ], [ %.fr46, %.lr.ph.split.us.preheader ]
-  %58 = load float, ptr %.sroa.0.027.us, align 4, !tbaa !26
-  %59 = load float, ptr %.fr47, align 4, !tbaa !26
-  %60 = fcmp reassoc nsz arcp contract afn olt float %58, %59
-  br i1 %60, label %.lr.ph.i.i22.preheader.us, label %80
-
-.lr.ph.i.i22.preheader.us:                        ; preds = %.lr.ph.split.us
-  %.sroa.05.0.copyload.i9.us = load <2 x float>, ptr %.sroa.0.027.us, align 4
-  %.sroa.4.0..sroa_idx.i10.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 8
-  %.sroa.4.0.copyload.i11.us = load float, ptr %.sroa.4.0..sroa_idx.i10.us, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  br label %.lr.ph.i.i22.us
-
-.lr.ph.i.i22.us:                                  ; preds = %.lr.ph.i.i22.preheader.us, %.lr.ph.i.i22.us
-  %.041.i.i23.us = phi i64 [ %spec.select.i.i24.us, %.lr.ph.i.i22.us ], [ 0, %.lr.ph.i.i22.preheader.us ]
-  %61 = shl i64 %.041.i.i23.us, 1
-  %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %62
-  %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %64
-  %66 = load float, ptr %63, align 4, !tbaa !26
-  %67 = load float, ptr %65, align 4, !tbaa !26
-  %68 = fcmp reassoc nsz arcp contract afn olt float %66, %67
-  %spec.select.i.i24.us = select i1 %68, i64 %64, i64 %62
-  %69 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %spec.select.i.i24.us
-  %70 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.041.i.i23.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %69, i64 12, i1 false), !tbaa.struct !87
-  %71 = icmp slt i64 %spec.select.i.i24.us, %49
-  br i1 %71, label %.lr.ph.i.i22.us, label %._crit_edge.i.i12.loopexit.us, !llvm.loop !149
-
-72:                                               ; preds = %._crit_edge.i.i12.loopexit.us
-  %.not.i14.us = icmp eq i64 %spec.select.i.i24.us, 0
-  br i1 %.not.i14.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i15.us
-
-.thread.i.us:                                     ; preds = %._crit_edge.i.i12.loopexit.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %56, i64 12, i1 false), !tbaa.struct !87
-  br label %.lr.ph.i.i.i15.us
-
-.lr.ph.i.i.i15.us:                                ; preds = %.thread.i.us, %72
-  %.1.i11.i.us = phi i64 [ %55, %.thread.i.us ], [ %spec.select.i.i24.us, %72 ]
-  %.sroa.013.0.vec.extract.i.i.i16.us = extractelement <2 x float> %.sroa.05.0.copyload.i9.us, i64 0
-  br label %73
-
-73:                                               ; preds = %77, %.lr.ph.i.i.i15.us
-  %.020.i.i.i17.us = phi i64 [ %.1.i11.i.us, %.lr.ph.i.i.i15.us ], [ %.01021.i.i1213.i.us, %77 ]
-  %.01021.in.i.i.i18.us = add nsw i64 %.020.i.i.i17.us, -1
-  %.01021.i.i1213.i.us = lshr i64 %.01021.in.i.i.i18.us, 1
-  %74 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.01021.i.i1213.i.us
-  %75 = load float, ptr %74, align 4, !tbaa !26
-  %76 = fcmp reassoc nsz arcp contract afn olt float %75, %.sroa.013.0.vec.extract.i.i.i16.us
-  br i1 %76, label %77, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.us
-
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.020.i.i.i17.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %78, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false), !tbaa.struct !87
-  %.not14.i.us = icmp eq i64 %.01021.i.i1213.i.us, 0
-  br i1 %.not14.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.us, label %73, !llvm.loop !150
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.us: ; preds = %73, %77, %72
-  %.0.lcssa.i.i.i20.us = phi i64 [ 0, %72 ], [ %.020.i.i.i17.us, %73 ], [ 0, %77 ]
-  %79 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i20.us
-  store <2 x float> %.sroa.05.0.copyload.i9.us, ptr %79, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store float %.sroa.4.0.copyload.i11.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us, align 4, !tbaa !31
-  br label %80
-
-80:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_SH_RT0_.exit.us, %.lr.ph.split.us
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 12
-  %82 = icmp ult ptr %81, %2
-  br i1 %82, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !160
-
-._crit_edge.i.i12.loopexit.us:                    ; preds = %.lr.ph.i.i22.us
-  %83 = icmp eq i64 %spec.select.i.i24.us, %54
-  %or.cond = select i1 %52, i1 %83, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %72
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %.fr47, i64 12
-  br i1 %52, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %85 = icmp eq i64 %53, 0
-  br i1 %85, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %92
-  %.sroa.0.027.us28.us = phi ptr [ %93, %92 ], [ %.fr46, %.lr.ph.split.split.us ]
-  %86 = load float, ptr %.sroa.0.027.us28.us, align 4, !tbaa !26
-  %87 = load float, ptr %.fr47, align 4, !tbaa !26
-  %88 = fcmp reassoc nsz arcp contract afn olt float %86, %87
-  br i1 %88, label %._crit_edge.i.i12.us29.us, label %92
-
-._crit_edge.i.i12.us29.us:                        ; preds = %.lr.ph.split.split.us.split.us
-  %.sroa.05.0.copyload.i9.us30.us = load <2 x float>, ptr %.sroa.0.027.us28.us, align 4
-  %.sroa.4.0..sroa_idx.i10.us31.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 8
-  %.sroa.4.0.copyload.i11.us32.us = load float, ptr %.sroa.4.0..sroa_idx.i10.us31.us, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us28.us, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr47, ptr noundef nonnull align 4 dereferenceable(12) %84, i64 12, i1 false), !tbaa.struct !87
-  %.sroa.013.0.vec.extract.i.i.i16.us34.us = extractelement <2 x float> %.sroa.05.0.copyload.i9.us30.us, i64 0
-  %89 = load float, ptr %.fr47, align 4, !tbaa !26
-  %90 = fcmp reassoc nsz arcp contract afn uge float %89, %.sroa.013.0.vec.extract.i.i.i16.us34.us
-  %.0.lcssa.i.i.i20.ph.us43.us = zext i1 %90 to i64
-  %91 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i20.ph.us43.us
-  store <2 x float> %.sroa.05.0.copyload.i9.us30.us, ptr %91, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41.us = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store float %.sroa.4.0.copyload.i11.us32.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41.us, align 4, !tbaa !31
-  br label %92
-
-92:                                               ; preds = %._crit_edge.i.i12.us29.us, %.lr.ph.split.split.us.split.us
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 12
-  %94 = icmp ult ptr %93, %2
-  br i1 %94, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !160
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  %.pre51 = load float, ptr %.fr47, align 4, !tbaa !26
-  br label %95
-
-95:                                               ; preds = %100, %.lr.ph.split.split.us.split
-  %96 = phi float [ %.pre51, %.lr.ph.split.split.us.split ], [ %101, %100 ]
-  %.sroa.0.027.us28 = phi ptr [ %.fr46, %.lr.ph.split.split.us.split ], [ %102, %100 ]
-  %97 = load float, ptr %.sroa.0.027.us28, align 4, !tbaa !26
-  %98 = fcmp reassoc nsz arcp contract afn olt float %97, %96
-  br i1 %98, label %._crit_edge.i.i12.us29, label %100
-
-._crit_edge.i.i12.us29:                           ; preds = %95
-  %.sroa.05.0.copyload.i9.us30 = load <2 x float>, ptr %.sroa.0.027.us28, align 4
-  %.sroa.4.0..sroa_idx.i10.us31 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 8
-  %.sroa.4.0.copyload.i11.us32 = load float, ptr %.sroa.4.0..sroa_idx.i10.us31, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us28, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  store <2 x float> %.sroa.05.0.copyload.i9.us30, ptr %.fr47, align 4
-  store float %.sroa.4.0.copyload.i11.us32, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41, align 4, !tbaa !31
-  %99 = extractelement <2 x float> %.sroa.05.0.copyload.i9.us30, i64 0
-  br label %100
-
-100:                                              ; preds = %._crit_edge.i.i12.us29, %95
-  %101 = phi float [ %99, %._crit_edge.i.i12.us29 ], [ %96, %95 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 12
-  %103 = icmp ult ptr %102, %2
-  br i1 %103, label %95, label %._crit_edge, !llvm.loop !160
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  %.pre = load float, ptr %.fr47, align 4, !tbaa !26
-  br label %104
-
-._crit_edge:                                      ; preds = %109, %100, %92, %80, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1IP16CurveAnchorPointEET_SH_RKNS2_6limitsIfEESL_bEUlRKS4_SN_E_EEEvSH_SH_RT0_.exit
-  ret void
-
-104:                                              ; preds = %.lr.ph.split.split, %109
-  %105 = phi float [ %.pre, %.lr.ph.split.split ], [ %110, %109 ]
-  %.sroa.0.027 = phi ptr [ %.fr46, %.lr.ph.split.split ], [ %111, %109 ]
-  %106 = load float, ptr %.sroa.0.027, align 4, !tbaa !26
-  %107 = fcmp reassoc nsz arcp contract afn olt float %106, %105
-  br i1 %107, label %._crit_edge.i.i12, label %109
-
-._crit_edge.i.i12:                                ; preds = %104
-  %.sroa.05.0.copyload.i9 = load <2 x float>, ptr %.sroa.0.027, align 4
-  %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
-  %.sroa.4.0.copyload.i11 = load float, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  store <2 x float> %.sroa.05.0.copyload.i9, ptr %.fr47, align 4
-  store float %.sroa.4.0.copyload.i11, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21, align 4, !tbaa !31
-  %108 = extractelement <2 x float> %.sroa.05.0.copyload.i9, i64 0
-  br label %109
-
-109:                                              ; preds = %104, %._crit_edge.i.i12
-  %110 = phi float [ %105, %104 ], [ %108, %._crit_edge.i.i12 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 12
-  %112 = icmp ult ptr %111, %2
-  br i1 %112, label %104, label %._crit_edge, !llvm.loop !160
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5860,7 +5439,7 @@ _ZNKSt6vectorIN8interpol10base_pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc17, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i ], [ %49, %.noexc17 ]
   %.0911.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i ], [ %26, %.noexc17 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !87, !alias.scope !161
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !87, !alias.scope !159
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 12
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i = icmp eq ptr %51, %27
@@ -5889,7 +5468,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit: ; preds = %
   %58 = phi ptr [ %53, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %36, %35 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.056.076, i64 8
   %.not64 = icmp eq ptr %59, %2
-  br i1 %.not64, label %.loopexit, label %25, !llvm.loop !165
+  br i1 %.not64, label %.loopexit, label %25, !llvm.loop !163
 
 .loopexit65:                                      ; preds = %_ZNKSt6vectorIN8interpol10base_pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5906,7 +5485,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit: ; preds = %
   %62 = phi ptr [ null, %.lr.ph ], [ %94, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33 ]
   %63 = phi ptr [ null, %.lr.ph ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33 ]
   %.sroa.042.074 = phi ptr [ %1, %.lr.ph ], [ %96, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33 ]
-  %64 = load float, ptr %8, align 8, !tbaa !28
+  %64 = load float, ptr %8, align 8, !tbaa !27
   %65 = load float, ptr %.sroa.042.074, align 4, !tbaa !59
   %66 = fcmp reassoc nsz arcp contract afn ugt float %64, %65
   %67 = load float, ptr %13, align 4
@@ -5970,7 +5549,7 @@ _ZNKSt6vectorIN8interpol10base_pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i19
 .lr.ph.i.i.i.i.i.i23:                             ; preds = %.noexc32, %.lr.ph.i.i.i.i.i.i23
   %.012.i.i.i.i.i.i24 = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i23 ], [ %86, %.noexc32 ]
   %.0911.i.i.i.i.i.i25 = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i23 ], [ %61, %.noexc32 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i24, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i25, i64 12, i1 false), !tbaa.struct !87, !alias.scope !166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i24, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i25, i64 12, i1 false), !tbaa.struct !87, !alias.scope !164
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i25, i64 12
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i24, i64 12
   %.not.i.i.i.i.i.i26 = icmp eq ptr %88, %62
@@ -6009,7 +5588,7 @@ _ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33: ; preds =
   %95 = phi ptr [ %73, %72 ], [ %90, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i30 ], [ %63, %60 ]
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 8
   %.not = icmp eq ptr %96, %2
-  br i1 %.not, label %.loopexit, label %60, !llvm.loop !170
+  br i1 %.not, label %.loopexit, label %60, !llvm.loop !168
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit, %.preheader, %16
   %97 = phi ptr [ %58, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit ], [ null, %16 ], [ null, %.preheader ], [ %95, %_ZNSt6vectorIN8interpol10base_pointIfEESaIS2_EE9push_backEOS2_.exit33 ]
@@ -6086,228 +5665,309 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %8 = alloca %"struct.interpol::base_point", align 4
   %9 = alloca %"struct.interpol::base_point", align 4
   %10 = alloca %"struct.interpol::base_point", align 4
-  %11 = ptrtoint ptr %0 to i64
-  %12 = ptrtoint ptr %1 to i64
+  %.fr39 = freeze ptr %1
+  %.fr28 = freeze ptr %0
+  %11 = ptrtoint ptr %.fr28 to i64
+  %12 = ptrtoint ptr %.fr39 to i64
   %13 = sub i64 %12, %11
   %14 = icmp sgt i64 %13, 192
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.fr28, i64 12
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit
-  %17 = phi i64 [ %13, %.lr.ph ], [ %91, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %58, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit ]
-  %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit ]
-  %18 = icmp eq i64 %.022, 0
-  br i1 %18, label %19, label %57
+  %.fr46.i27 = phi i64 [ %13, %.lr.ph ], [ %127, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit ]
+  %.026 = phi i64 [ %2, %.lr.ph ], [ %94, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit ]
+  %storemerge25 = phi ptr [ %.fr39, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit ]
+  %17 = icmp eq i64 %.026, 0
+  br i1 %17, label %18, label %93
 
-19:                                               ; preds = %16
-  tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_(ptr %0, ptr %storemerge21, ptr %storemerge21)
-  br label %.lr.ph.i.i
+18:                                               ; preds = %16
+  %19 = udiv exact i64 %.fr46.i27, 12
+  %20 = add nsw i64 %19, -2
+  %21 = lshr i64 %20, 1
+  %22 = add nsw i64 %19, -1
+  %23 = lshr i64 %22, 1
+  %24 = and i64 %19, 1
+  %25 = icmp eq i64 %24, 0
+  %26 = or disjoint i64 %20, 1
+  %27 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %21
+  br label %29
 
-.lr.ph.i.i:                                       ; preds = %19, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %20, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i ], [ %storemerge21, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
-  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %20, align 4
+29:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i, %18
+  %.012.i.i = phi i64 [ %21, %18 ], [ %55, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i ]
+  %30 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.012.i.i
+  %.sroa.05.0.copyload.i.i = load <2 x float>, ptr %30, align 4
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !31
+  %31 = icmp slt i64 %.012.i.i, %23
+  br i1 %31, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
+  %.041.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i, %29 ]
+  %32 = shl i64 %.041.i.i.i, 1
+  %33 = add i64 %32, 2
+  %34 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %33
+  %35 = or disjoint i64 %32, 1
+  %36 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %35
+  %37 = load float, ptr %34, align 4, !tbaa !28
+  %38 = load float, ptr %36, align 4, !tbaa !28
+  %39 = fcmp reassoc nsz arcp contract afn olt float %37, %38
+  %spec.select.i.i.i = select i1 %39, i64 %35, i64 %33
+  %40 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %spec.select.i.i.i
+  %41 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.041.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false), !tbaa.struct !87
+  %42 = icmp slt i64 %spec.select.i.i.i, %23
+  br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !169
+
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %29
+  %.0.lcssa.i.i.i = phi i64 [ %.012.i.i, %29 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %43 = icmp eq i64 %.0.lcssa.i.i.i, %21
+  %or.cond.i.i = select i1 %25, i1 %43, i1 false
+  br i1 %or.cond.i.i, label %44, label %45
+
+44:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !87
+  br label %45
+
+45:                                               ; preds = %44, %._crit_edge.i.i.i
+  %.1.i.i.i = phi i64 [ %26, %44 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %46 = icmp sgt i64 %.1.i.i.i, %.012.i.i
+  br i1 %46, label %.lr.ph.i.i.i.i17, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i
+
+.lr.ph.i.i.i.i17:                                 ; preds = %45
+  %.sroa.013.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i, i64 0
+  br label %47
+
+47:                                               ; preds = %51, %.lr.ph.i.i.i.i17
+  %.020.i.i.i.i = phi i64 [ %.1.i.i.i, %.lr.ph.i.i.i.i17 ], [ %.01021.i.i.i.i, %51 ]
+  %.01021.in.i.i.i.i = add nsw i64 %.020.i.i.i.i, -1
+  %.01021.i.i.i.i = sdiv i64 %.01021.in.i.i.i.i, 2
+  %48 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.01021.i.i.i.i
+  %49 = load float, ptr %48, align 4, !tbaa !28
+  %50 = fcmp reassoc nsz arcp contract afn olt float %49, %.sroa.013.0.vec.extract.i.i.i.i
+  br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i
+
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.020.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false), !tbaa.struct !87
+  %53 = icmp sgt i64 %.01021.i.i.i.i, %.012.i.i
+  br i1 %53, label %47, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i, !llvm.loop !170
+
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i: ; preds = %51, %47, %45
+  %.0.lcssa.i.i.i.i16 = phi i64 [ %.1.i.i.i, %45 ], [ %.01021.i.i.i.i, %51 ], [ %.020.i.i.i.i, %47 ]
+  %54 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i16
+  store <2 x float> %.sroa.05.0.copyload.i.i, ptr %54, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store float %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i, align 4, !tbaa !31
+  %.not.i.i = icmp eq i64 %.012.i.i, 0
+  %55 = add nsw i64 %.012.i.i, -1
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %29, !llvm.loop !171
+
+.lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i
+  %.sroa.0.05.i.i = phi ptr [ %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i.i ]
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -12
+  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %56, align 4
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %.sroa.4.0.copyload.i.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  %21 = ptrtoint ptr %20 to i64
-  %22 = sub i64 %21, %11
-  %23 = sdiv exact i64 %22, 12
-  %24 = add nsw i64 %23, -1
-  %25 = sdiv i64 %24, 2
-  %26 = icmp sgt i64 %22, 24
-  br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  %57 = ptrtoint ptr %56 to i64
+  %58 = sub i64 %57, %11
+  %59 = sdiv exact i64 %58, 12
+  %60 = add nsw i64 %59, -1
+  %61 = sdiv i64 %60, 2
+  %62 = icmp sgt i64 %58, 24
+  br i1 %62, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.041.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %27 = shl i64 %.041.i.i.i.i, 1
-  %28 = add i64 %27, 2
-  %29 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %28
-  %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %30
-  %32 = load float, ptr %29, align 4, !tbaa !26
-  %33 = load float, ptr %31, align 4, !tbaa !26
-  %34 = fcmp reassoc nsz arcp contract afn olt float %32, %33
-  %spec.select.i.i.i.i = select i1 %34, i64 %30, i64 %28
-  %35 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %spec.select.i.i.i.i
-  %36 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.041.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !87
-  %37 = icmp slt i64 %spec.select.i.i.i.i, %25
-  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !171
+  %63 = shl i64 %.041.i.i.i.i, 1
+  %64 = add i64 %63, 2
+  %65 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %64
+  %66 = or disjoint i64 %63, 1
+  %67 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %66
+  %68 = load float, ptr %65, align 4, !tbaa !28
+  %69 = load float, ptr %67, align 4, !tbaa !28
+  %70 = fcmp reassoc nsz arcp contract afn olt float %68, %69
+  %spec.select.i.i.i.i = select i1 %70, i64 %66, i64 %64
+  %71 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %spec.select.i.i.i.i
+  %72 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.041.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %72, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false), !tbaa.struct !87
+  %73 = icmp slt i64 %spec.select.i.i.i.i, %61
+  br i1 %73, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !169
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %38 = and i64 %23, 1
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %48
+  %74 = and i64 %59, 1
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %84
 
-40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = add nsw i64 %23, -2
-  %42 = ashr exact i64 %41, 1
-  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
-  br i1 %43, label %.thread.i.i.i, label %48
+76:                                               ; preds = %._crit_edge.i.i.i.i
+  %77 = add nsw i64 %59, -2
+  %78 = ashr exact i64 %77, 1
+  %79 = icmp eq i64 %.0.lcssa.i.i.i.i, %78
+  br i1 %79, label %.thread.i.i.i, label %84
 
-.thread.i.i.i:                                    ; preds = %40
-  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.0.lcssa.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !87
+.thread.i.i.i:                                    ; preds = %76
+  %80 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %81 = or disjoint i64 %80, 1
+  %82 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %81
+  %83 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false), !tbaa.struct !87
   br label %.lr.ph.i.i.i.i.i
 
-48:                                               ; preds = %40, %._crit_edge.i.i.i.i
+84:                                               ; preds = %76, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %.thread.i.i.i
-  %.1.i11.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %48 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %84, %.thread.i.i.i
+  %.1.i11.i.i.i = phi i64 [ %81, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %84 ]
   %.sroa.013.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i.i, i64 0
-  br label %49
+  br label %85
 
-49:                                               ; preds = %53, %.lr.ph.i.i.i.i.i
-  %.020.i.i.i.i.i = phi i64 [ %.1.i11.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01021.i.i1213.i.i.i, %53 ]
+85:                                               ; preds = %89, %.lr.ph.i.i.i.i.i
+  %.020.i.i.i.i.i = phi i64 [ %.1.i11.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01021.i.i1213.i.i.i, %89 ]
   %.01021.in.i.i.i.i.i = add nsw i64 %.020.i.i.i.i.i, -1
   %.01021.i.i1213.i.i.i = lshr i64 %.01021.in.i.i.i.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %.01021.i.i1213.i.i.i
-  %51 = load float, ptr %50, align 4, !tbaa !26
-  %52 = fcmp reassoc nsz arcp contract afn olt float %51, %.sroa.013.0.vec.extract.i.i.i.i.i
-  br i1 %52, label %53, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i
+  %86 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %.01021.i.i1213.i.i.i
+  %87 = load float, ptr %86, align 4, !tbaa !28
+  %88 = fcmp reassoc nsz arcp contract afn olt float %87, %.sroa.013.0.vec.extract.i.i.i.i.i
+  br i1 %88, label %89, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.020.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false), !tbaa.struct !87
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.020.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %90, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false), !tbaa.struct !87
   %.not14.i.i.i = icmp eq i64 %.01021.i.i1213.i.i.i, 0
-  br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i, label %49, !llvm.loop !172
+  br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i, label %85, !llvm.loop !170
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i: ; preds = %53, %49, %48
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %48 ], [ %.020.i.i.i.i.i, %49 ], [ 0, %53 ]
-  %55 = getelementptr inbounds %"struct.interpol::base_point", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store <2 x float> %.sroa.05.0.copyload.i.i.i, ptr %55, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i: ; preds = %89, %85, %84
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %84 ], [ %.020.i.i.i.i.i, %85 ], [ 0, %89 ]
+  %91 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr28, i64 %.0.lcssa.i.i.i.i.i
+  store <2 x float> %.sroa.05.0.copyload.i.i.i, ptr %91, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   store float %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !31
-  %56 = icmp sgt i64 %22, 12
-  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_.exit, !llvm.loop !173
+  %92 = icmp sgt i64 %58, 12
+  br i1 %92, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_.exit, !llvm.loop !172
 
-57:                                               ; preds = %16
-  %58 = add nsw i64 %.022, -1
-  %59 = udiv i64 %17, 24
-  %60 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %0, i64 %59
-  %61 = getelementptr inbounds i8, ptr %storemerge21, i64 -12
-  %62 = load float, ptr %15, align 4, !tbaa !26
-  %63 = load float, ptr %60, align 4, !tbaa !26
-  %64 = fcmp reassoc nsz arcp contract afn olt float %62, %63
-  %65 = load float, ptr %61, align 4, !tbaa !26
-  br i1 %64, label %66, label %73
+93:                                               ; preds = %16
+  %94 = add nsw i64 %.026, -1
+  %95 = udiv i64 %.fr46.i27, 24
+  %96 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr28, i64 %95
+  %97 = getelementptr inbounds i8, ptr %storemerge25, i64 -12
+  %98 = load float, ptr %15, align 4, !tbaa !28
+  %99 = load float, ptr %96, align 4, !tbaa !28
+  %100 = fcmp reassoc nsz arcp contract afn olt float %98, %99
+  %101 = load float, ptr %97, align 4, !tbaa !28
+  br i1 %100, label %102, label %109
 
-66:                                               ; preds = %57
-  %67 = fcmp reassoc nsz arcp contract afn olt float %63, %65
-  br i1 %67, label %68, label %69
+102:                                              ; preds = %93
+  %103 = fcmp reassoc nsz arcp contract afn olt float %99, %101
+  br i1 %103, label %104, label %105
 
-68:                                               ; preds = %66
+104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %60, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader
 
-69:                                               ; preds = %66
-  %70 = fcmp reassoc nsz arcp contract afn olt float %62, %65
-  br i1 %70, label %71, label %72
+105:                                              ; preds = %102
+  %106 = fcmp reassoc nsz arcp contract afn olt float %98, %101
+  br i1 %106, label %107, label %108
 
-71:                                               ; preds = %69
+107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader
 
-72:                                               ; preds = %69
+108:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader
 
-73:                                               ; preds = %57
-  %74 = fcmp reassoc nsz arcp contract afn olt float %62, %65
-  br i1 %74, label %75, label %76
+109:                                              ; preds = %93
+  %110 = fcmp reassoc nsz arcp contract afn olt float %98, %101
+  br i1 %110, label %111, label %112
 
-75:                                               ; preds = %73
+111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader
 
-76:                                               ; preds = %73
-  %77 = fcmp reassoc nsz arcp contract afn olt float %63, %65
-  br i1 %77, label %78, label %79
+112:                                              ; preds = %109
+  %113 = fcmp reassoc nsz arcp contract afn olt float %99, %101
+  br i1 %113, label %114, label %115
 
-78:                                               ; preds = %76
+114:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader
 
-79:                                               ; preds = %76
+115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %60, i64 12, i1 false), !tbaa.struct !87
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %.fr28, i64 12, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr28, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false), !tbaa.struct !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader: ; preds = %79, %78, %75, %72, %71, %68
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader: ; preds = %115, %114, %111, %108, %107, %104
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader, %89
-  %.sroa.010.0.i.i = phi ptr [ %84, %89 ], [ %15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %89 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader ]
-  %80 = load float, ptr %0, align 4, !tbaa !26
-  br label %81
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader, %125
+  %.sroa.010.0.i.i = phi ptr [ %120, %125 ], [ %15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %125 ], [ %storemerge25, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i.preheader ]
+  %116 = load float, ptr %.fr28, align 4, !tbaa !28
+  br label %117
 
-81:                                               ; preds = %81, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i ], [ %84, %81 ]
-  %82 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !26
-  %83 = fcmp reassoc nsz arcp contract afn olt float %82, %80
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 12
-  br i1 %83, label %81, label %.preheader.i.i, !llvm.loop !174
+117:                                              ; preds = %117, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i ], [ %120, %117 ]
+  %118 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !28
+  %119 = fcmp reassoc nsz arcp contract afn olt float %118, %116
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 12
+  br i1 %119, label %117, label %.preheader.i.i, !llvm.loop !173
 
-.preheader.i.i:                                   ; preds = %81, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %81 ]
+.preheader.i.i:                                   ; preds = %117, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %117 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -12
-  %85 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !26
-  %86 = fcmp reassoc nsz arcp contract afn olt float %80, %85
-  br i1 %86, label %.preheader.i.i, label %87, !llvm.loop !175
+  %121 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !28
+  %122 = fcmp reassoc nsz arcp contract afn olt float %116, %121
+  br i1 %122, label %.preheader.i.i, label %123, !llvm.loop !174
 
-87:                                               ; preds = %.preheader.i.i
-  %88 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %88, label %89, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit
+123:                                              ; preds = %.preheader.i.i
+  %124 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %124, label %125, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit
 
-89:                                               ; preds = %87
+125:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.010.1.i.i, i64 12, i1 false), !tbaa.struct !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.1.i.i, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i, !llvm.loop !176
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_SL_T0_.exit.i, !llvm.loop !175
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit: ; preds = %87
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge21, i64 noundef %58)
-  %90 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %91 = sub i64 %90, %11
-  %92 = icmp sgt i64 %91, 192
-  br i1 %92, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_.exit, !llvm.loop !177
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit: ; preds = %123
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge25, i64 noundef %94)
+  %126 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %127 = sub i64 %126, %11
+  %128 = icmp sgt i64 %127, 192
+  br i1 %128, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_.exit, !llvm.loop !176
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEESL_SL_SL_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.i.i, %3
   ret void
@@ -6327,8 +5987,8 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %.sroa.0.019.i.idx = phi i64 [ %.sroa.0.019.i.add, %20 ], [ 12, %2 ]
   %.pn18.i = phi ptr [ %.sroa.0.019.i.ptr, %20 ], [ %0, %2 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %9 = load float, ptr %.sroa.0.019.i.ptr, align 4, !tbaa !26
-  %10 = load float, ptr %0, align 4, !tbaa !26
+  %9 = load float, ptr %.sroa.0.019.i.ptr, align 4, !tbaa !28
+  %10 = load float, ptr %0, align 4, !tbaa !28
   %11 = fcmp reassoc nsz arcp contract afn olt float %9, %10
   br i1 %11, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i, label %14
 
@@ -6346,7 +6006,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
 14:                                               ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   %15 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 4
-  %16 = load float, ptr %.pn18.i, align 4, !tbaa !26
+  %16 = load float, ptr %.pn18.i, align 4, !tbaa !28
   %17 = fcmp reassoc nsz arcp contract afn olt float %9, %16
   br i1 %17, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i
 
@@ -6355,9 +6015,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
   %.sroa.06.010.i.i = phi ptr [ %.sroa.0.011.i.i, %.lr.ph.i.i ], [ %.sroa.0.019.i.ptr, %14 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.011.i.i, i64 -12
-  %18 = load float, ptr %.sroa.0.0.i.i, align 4, !tbaa !26
+  %18 = load float, ptr %.sroa.0.0.i.i, align 4, !tbaa !28
   %19 = fcmp reassoc nsz arcp contract afn olt float %9, %18
-  br i1 %19, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i, !llvm.loop !178
+  br i1 %19, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i, !llvm.loop !177
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i: ; preds = %.lr.ph.i.i, %14
   %.sroa.06.0.lcssa.i.i = phi ptr [ %.sroa.0.019.i.ptr, %14 ], [ %.sroa.0.011.i.i, %.lr.ph.i.i ]
@@ -6369,7 +6029,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 20:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %.sroa.0.019.i.add = add nuw nsw i64 %.sroa.0.019.i.idx, 12
   %.not.i = icmp eq i64 %.sroa.0.019.i.add, 192
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit, label %.lr.ph.i, !llvm.loop !179
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit, label %.lr.ph.i, !llvm.loop !178
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit: ; preds = %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -6382,7 +6042,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfE
   %.sroa.5.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 4
   %22 = load i64, ptr %.sroa.5.0..sroa_idx.i.i13, align 4
   %.sroa.0.09.i.i = getelementptr inbounds i8, ptr %.sroa.0.07.i, i64 -12
-  %23 = load float, ptr %.sroa.0.09.i.i, align 4, !tbaa !26
+  %23 = load float, ptr %.sroa.0.09.i.i, align 4, !tbaa !28
   %24 = fcmp reassoc nsz arcp contract afn olt float %.sroa.03.0.copyload.i.i, %23
   br i1 %24, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i14
 
@@ -6391,9 +6051,9 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfE
   %.sroa.06.010.i.i20 = phi ptr [ %.sroa.0.011.i.i19, %.lr.ph.i.i18 ], [ %.sroa.0.07.i, %.lr.ph.i12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i20, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i19, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i21 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i19, i64 -12
-  %25 = load float, ptr %.sroa.0.0.i.i21, align 4, !tbaa !26
+  %25 = load float, ptr %.sroa.0.0.i.i21, align 4, !tbaa !28
   %26 = fcmp reassoc nsz arcp contract afn olt float %.sroa.03.0.copyload.i.i, %25
-  br i1 %26, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i14, !llvm.loop !178
+  br i1 %26, label %.lr.ph.i.i18, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i14, !llvm.loop !177
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i14: ; preds = %.lr.ph.i.i18, %.lr.ph.i12
   %.sroa.06.0.lcssa.i.i15 = phi ptr [ %.sroa.0.07.i, %.lr.ph.i12 ], [ %.sroa.0.011.i.i19, %.lr.ph.i.i18 ]
@@ -6402,7 +6062,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
   store i64 %22, ptr %.sroa.5.0..sroa_idx5.i.i16, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 12
   %.not.i17 = icmp eq ptr %27, %1
-  br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit, label %.lr.ph.i12, !llvm.loop !180
+  br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit, label %.lr.ph.i12, !llvm.loop !179
 
 28:                                               ; preds = %2
   %29 = icmp eq ptr %0, %1
@@ -6414,8 +6074,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 .lr.ph.i25:                                       ; preds = %28, %43
   %.sroa.0.019.i26 = phi ptr [ %.sroa.0.0.i32, %43 ], [ %.sroa.0.016.i23, %28 ]
   %.pn18.i27 = phi ptr [ %.sroa.0.019.i26, %43 ], [ %0, %28 ]
-  %30 = load float, ptr %.sroa.0.019.i26, align 4, !tbaa !26
-  %31 = load float, ptr %0, align 4, !tbaa !26
+  %30 = load float, ptr %.sroa.0.019.i26, align 4, !tbaa !28
+  %31 = load float, ptr %0, align 4, !tbaa !28
   %32 = fcmp reassoc nsz arcp contract afn olt float %30, %31
   br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i38, label %37
 
@@ -6435,7 +6095,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
 37:                                               ; preds = %.lr.ph.i25
   %.sroa.5.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 16
   %38 = load i64, ptr %.sroa.5.0..sroa_idx.i.i28, align 4
-  %39 = load float, ptr %.pn18.i27, align 4, !tbaa !26
+  %39 = load float, ptr %.pn18.i27, align 4, !tbaa !28
   %40 = fcmp reassoc nsz arcp contract afn olt float %30, %39
   br i1 %40, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i29
 
@@ -6444,9 +6104,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt
   %.sroa.06.010.i.i36 = phi ptr [ %.sroa.0.011.i.i35, %.lr.ph.i.i34 ], [ %.sroa.0.019.i26, %37 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.010.i.i36, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.011.i.i35, i64 12, i1 false), !tbaa.struct !87
   %.sroa.0.0.i.i37 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i35, i64 -12
-  %41 = load float, ptr %.sroa.0.0.i.i37, align 4, !tbaa !26
+  %41 = load float, ptr %.sroa.0.0.i.i37, align 4, !tbaa !28
   %42 = fcmp reassoc nsz arcp contract afn olt float %30, %41
-  br i1 %42, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i29, !llvm.loop !178
+  br i1 %42, label %.lr.ph.i.i34, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i29, !llvm.loop !177
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i29: ; preds = %.lr.ph.i.i34, %37
   %.sroa.06.0.lcssa.i.i30 = phi ptr [ %.sroa.0.019.i26, %37 ], [ %.sroa.0.011.i.i35, %.lr.ph.i.i34 ]
@@ -6458,297 +6118,10 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base
 43:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i29, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i38
   %.sroa.0.0.i32 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i26, i64 12
   %.not.i33 = icmp eq ptr %.sroa.0.0.i32, %1
-  br i1 %.not.i33, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit, label %.lr.ph.i25, !llvm.loop !179
+  br i1 %.not.i33, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit, label %.lr.ph.i25, !llvm.loop !178
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit: ; preds = %43, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_.exit.i14, %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_T0_.exit
   ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #1 comdat {
-  %.fr47 = freeze ptr %0
-  %.fr46 = freeze ptr %1
-  %4 = ptrtoint ptr %.fr46 to i64
-  %5 = ptrtoint ptr %.fr47 to i64
-  %6 = sub i64 %4, %5
-  %7 = icmp slt i64 %6, 24
-  br i1 %7, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_RT0_.exit, label %8
-
-8:                                                ; preds = %3
-  %9 = udiv exact i64 %6, 12
-  %10 = add nsw i64 %9, -2
-  %11 = lshr i64 %10, 1
-  %12 = add nsw i64 %9, -1
-  %13 = lshr i64 %12, 1
-  %14 = and i64 %9, 1
-  %15 = icmp eq i64 %14, 0
-  %16 = or disjoint i64 %10, 1
-  %17 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %16
-  %18 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %11
-  br label %19
-
-19:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i, %8
-  %.012.i = phi i64 [ %11, %8 ], [ %45, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i ]
-  %20 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.012.i
-  %.sroa.05.0.copyload.i = load <2 x float>, ptr %20, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !31
-  %21 = icmp slt i64 %.012.i, %13
-  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i
-
-.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %.041.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.012.i, %19 ]
-  %22 = shl i64 %.041.i.i, 1
-  %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %23
-  %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %25
-  %27 = load float, ptr %24, align 4, !tbaa !26
-  %28 = load float, ptr %26, align 4, !tbaa !26
-  %29 = fcmp reassoc nsz arcp contract afn olt float %27, %28
-  %spec.select.i.i = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %spec.select.i.i
-  %31 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.041.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !87
-  %32 = icmp slt i64 %spec.select.i.i, %13
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !171
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %19
-  %.0.lcssa.i.i = phi i64 [ %.012.i, %19 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %33 = icmp eq i64 %.0.lcssa.i.i, %11
-  %or.cond.i = select i1 %15, i1 %33, i1 false
-  br i1 %or.cond.i, label %34, label %35
-
-34:                                               ; preds = %._crit_edge.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 4 dereferenceable(12) %17, i64 12, i1 false), !tbaa.struct !87
-  br label %35
-
-35:                                               ; preds = %34, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %16, %34 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %36 = icmp sgt i64 %.1.i.i, %.012.i
-  br i1 %36, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i
-
-.lr.ph.i.i.i:                                     ; preds = %35
-  %.sroa.013.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i, i64 0
-  br label %37
-
-37:                                               ; preds = %41, %.lr.ph.i.i.i
-  %.020.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.01021.i.i.i, %41 ]
-  %.01021.in.i.i.i = add nsw i64 %.020.i.i.i, -1
-  %.01021.i.i.i = sdiv i64 %.01021.in.i.i.i, 2
-  %38 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.01021.i.i.i
-  %39 = load float, ptr %38, align 4, !tbaa !26
-  %40 = fcmp reassoc nsz arcp contract afn olt float %39, %.sroa.013.0.vec.extract.i.i.i
-  br i1 %40, label %41, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i
-
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.020.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false), !tbaa.struct !87
-  %43 = icmp sgt i64 %.01021.i.i.i, %.012.i
-  br i1 %43, label %37, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i, !llvm.loop !172
-
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i: ; preds = %41, %37, %35
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %35 ], [ %.020.i.i.i, %37 ], [ %.01021.i.i.i, %41 ]
-  %44 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i
-  store <2 x float> %.sroa.05.0.copyload.i, ptr %44, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store float %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !31
-  %.not.i = icmp eq i64 %.012.i, 0
-  %45 = add nsw i64 %.012.i, -1
-  br i1 %.not.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_RT0_.exit, label %19, !llvm.loop !181
-
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_T0_SU_T1_T2_.exit.i, %3
-  %46 = icmp ult ptr %.fr46, %2
-  br i1 %46, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_RT0_.exit
-  %47 = sdiv i64 %6, 12
-  %48 = add nsw i64 %47, -1
-  %49 = sdiv i64 %48, 2
-  %50 = icmp sgt i64 %6, 24
-  %51 = and i64 %47, 1
-  %52 = icmp eq i64 %51, 0
-  %53 = add nsw i64 %47, -2
-  %54 = ashr exact i64 %53, 1
-  br i1 %50, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %55 = or disjoint i64 %53, 1
-  %56 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %55
-  %57 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %54
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %80
-  %.sroa.0.027.us = phi ptr [ %81, %80 ], [ %.fr46, %.lr.ph.split.us.preheader ]
-  %58 = load float, ptr %.sroa.0.027.us, align 4, !tbaa !26
-  %59 = load float, ptr %.fr47, align 4, !tbaa !26
-  %60 = fcmp reassoc nsz arcp contract afn olt float %58, %59
-  br i1 %60, label %.lr.ph.i.i22.preheader.us, label %80
-
-.lr.ph.i.i22.preheader.us:                        ; preds = %.lr.ph.split.us
-  %.sroa.05.0.copyload.i9.us = load <2 x float>, ptr %.sroa.0.027.us, align 4
-  %.sroa.4.0..sroa_idx.i10.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 8
-  %.sroa.4.0.copyload.i11.us = load float, ptr %.sroa.4.0..sroa_idx.i10.us, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  br label %.lr.ph.i.i22.us
-
-.lr.ph.i.i22.us:                                  ; preds = %.lr.ph.i.i22.preheader.us, %.lr.ph.i.i22.us
-  %.041.i.i23.us = phi i64 [ %spec.select.i.i24.us, %.lr.ph.i.i22.us ], [ 0, %.lr.ph.i.i22.preheader.us ]
-  %61 = shl i64 %.041.i.i23.us, 1
-  %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %62
-  %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %64
-  %66 = load float, ptr %63, align 4, !tbaa !26
-  %67 = load float, ptr %65, align 4, !tbaa !26
-  %68 = fcmp reassoc nsz arcp contract afn olt float %66, %67
-  %spec.select.i.i24.us = select i1 %68, i64 %64, i64 %62
-  %69 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %spec.select.i.i24.us
-  %70 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.041.i.i23.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %69, i64 12, i1 false), !tbaa.struct !87
-  %71 = icmp slt i64 %spec.select.i.i24.us, %49
-  br i1 %71, label %.lr.ph.i.i22.us, label %._crit_edge.i.i12.loopexit.us, !llvm.loop !171
-
-72:                                               ; preds = %._crit_edge.i.i12.loopexit.us
-  %.not.i14.us = icmp eq i64 %spec.select.i.i24.us, 0
-  br i1 %.not.i14.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.us, label %.lr.ph.i.i.i15.us
-
-.thread.i.us:                                     ; preds = %._crit_edge.i.i12.loopexit.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %56, i64 12, i1 false), !tbaa.struct !87
-  br label %.lr.ph.i.i.i15.us
-
-.lr.ph.i.i.i15.us:                                ; preds = %.thread.i.us, %72
-  %.1.i11.i.us = phi i64 [ %55, %.thread.i.us ], [ %spec.select.i.i24.us, %72 ]
-  %.sroa.013.0.vec.extract.i.i.i16.us = extractelement <2 x float> %.sroa.05.0.copyload.i9.us, i64 0
-  br label %73
-
-73:                                               ; preds = %77, %.lr.ph.i.i.i15.us
-  %.020.i.i.i17.us = phi i64 [ %.1.i11.i.us, %.lr.ph.i.i.i15.us ], [ %.01021.i.i1213.i.us, %77 ]
-  %.01021.in.i.i.i18.us = add nsw i64 %.020.i.i.i17.us, -1
-  %.01021.i.i1213.i.us = lshr i64 %.01021.in.i.i.i18.us, 1
-  %74 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.01021.i.i1213.i.us
-  %75 = load float, ptr %74, align 4, !tbaa !26
-  %76 = fcmp reassoc nsz arcp contract afn olt float %75, %.sroa.013.0.vec.extract.i.i.i16.us
-  br i1 %76, label %77, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.us
-
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.020.i.i.i17.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %78, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false), !tbaa.struct !87
-  %.not14.i.us = icmp eq i64 %.01021.i.i1213.i.us, 0
-  br i1 %.not14.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.us, label %73, !llvm.loop !172
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.us: ; preds = %73, %77, %72
-  %.0.lcssa.i.i.i20.us = phi i64 [ 0, %72 ], [ %.020.i.i.i17.us, %73 ], [ 0, %77 ]
-  %79 = getelementptr inbounds %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i20.us
-  store <2 x float> %.sroa.05.0.copyload.i9.us, ptr %79, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store float %.sroa.4.0.copyload.i11.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us, align 4, !tbaa !31
-  br label %80
-
-80:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_SL_RT0_.exit.us, %.lr.ph.split.us
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us, i64 12
-  %82 = icmp ult ptr %81, %2
-  br i1 %82, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !182
-
-._crit_edge.i.i12.loopexit.us:                    ; preds = %.lr.ph.i.i22.us
-  %83 = icmp eq i64 %spec.select.i.i24.us, %54
-  %or.cond = select i1 %52, i1 %83, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %72
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %.fr47, i64 12
-  br i1 %52, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %85 = icmp eq i64 %53, 0
-  br i1 %85, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %92
-  %.sroa.0.027.us28.us = phi ptr [ %93, %92 ], [ %.fr46, %.lr.ph.split.split.us ]
-  %86 = load float, ptr %.sroa.0.027.us28.us, align 4, !tbaa !26
-  %87 = load float, ptr %.fr47, align 4, !tbaa !26
-  %88 = fcmp reassoc nsz arcp contract afn olt float %86, %87
-  br i1 %88, label %._crit_edge.i.i12.us29.us, label %92
-
-._crit_edge.i.i12.us29.us:                        ; preds = %.lr.ph.split.split.us.split.us
-  %.sroa.05.0.copyload.i9.us30.us = load <2 x float>, ptr %.sroa.0.027.us28.us, align 4
-  %.sroa.4.0..sroa_idx.i10.us31.us = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 8
-  %.sroa.4.0.copyload.i11.us32.us = load float, ptr %.sroa.4.0..sroa_idx.i10.us31.us, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us28.us, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.fr47, ptr noundef nonnull align 4 dereferenceable(12) %84, i64 12, i1 false), !tbaa.struct !87
-  %.sroa.013.0.vec.extract.i.i.i16.us34.us = extractelement <2 x float> %.sroa.05.0.copyload.i9.us30.us, i64 0
-  %89 = load float, ptr %.fr47, align 4, !tbaa !26
-  %90 = fcmp reassoc nsz arcp contract afn uge float %89, %.sroa.013.0.vec.extract.i.i.i16.us34.us
-  %.0.lcssa.i.i.i20.ph.us43.us = zext i1 %90 to i64
-  %91 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.fr47, i64 %.0.lcssa.i.i.i20.ph.us43.us
-  store <2 x float> %.sroa.05.0.copyload.i9.us30.us, ptr %91, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41.us = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store float %.sroa.4.0.copyload.i11.us32.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41.us, align 4, !tbaa !31
-  br label %92
-
-92:                                               ; preds = %._crit_edge.i.i12.us29.us, %.lr.ph.split.split.us.split.us
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28.us, i64 12
-  %94 = icmp ult ptr %93, %2
-  br i1 %94, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !182
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  %.pre51 = load float, ptr %.fr47, align 4, !tbaa !26
-  br label %95
-
-95:                                               ; preds = %100, %.lr.ph.split.split.us.split
-  %96 = phi float [ %.pre51, %.lr.ph.split.split.us.split ], [ %101, %100 ]
-  %.sroa.0.027.us28 = phi ptr [ %.fr46, %.lr.ph.split.split.us.split ], [ %102, %100 ]
-  %97 = load float, ptr %.sroa.0.027.us28, align 4, !tbaa !26
-  %98 = fcmp reassoc nsz arcp contract afn olt float %97, %96
-  br i1 %98, label %._crit_edge.i.i12.us29, label %100
-
-._crit_edge.i.i12.us29:                           ; preds = %95
-  %.sroa.05.0.copyload.i9.us30 = load <2 x float>, ptr %.sroa.0.027.us28, align 4
-  %.sroa.4.0..sroa_idx.i10.us31 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 8
-  %.sroa.4.0.copyload.i11.us32 = load float, ptr %.sroa.4.0..sroa_idx.i10.us31, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027.us28, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  store <2 x float> %.sroa.05.0.copyload.i9.us30, ptr %.fr47, align 4
-  store float %.sroa.4.0.copyload.i11.us32, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21.us41, align 4, !tbaa !31
-  %99 = extractelement <2 x float> %.sroa.05.0.copyload.i9.us30, i64 0
-  br label %100
-
-100:                                              ; preds = %._crit_edge.i.i12.us29, %95
-  %101 = phi float [ %99, %._crit_edge.i.i12.us29 ], [ %96, %95 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.us28, i64 12
-  %103 = icmp ult ptr %102, %2
-  br i1 %103, label %95, label %._crit_edge, !llvm.loop !182
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21 = getelementptr inbounds nuw i8, ptr %.fr47, i64 8
-  %.pre = load float, ptr %.fr47, align 4, !tbaa !26
-  br label %104
-
-._crit_edge:                                      ; preds = %109, %100, %92, %80, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_11spline_baseIfEC1INS1_IPNS2_5pointIfEES6_ISG_SaISG_EEEEEET_SL_RKNS2_6limitsIfEESP_bEUlRKS4_SR_E_EEEvSL_SL_RT0_.exit
-  ret void
-
-104:                                              ; preds = %.lr.ph.split.split, %109
-  %105 = phi float [ %.pre, %.lr.ph.split.split ], [ %110, %109 ]
-  %.sroa.0.027 = phi ptr [ %.fr46, %.lr.ph.split.split ], [ %111, %109 ]
-  %106 = load float, ptr %.sroa.0.027, align 4, !tbaa !26
-  %107 = fcmp reassoc nsz arcp contract afn olt float %106, %105
-  br i1 %107, label %._crit_edge.i.i12, label %109
-
-._crit_edge.i.i12:                                ; preds = %104
-  %.sroa.05.0.copyload.i9 = load <2 x float>, ptr %.sroa.0.027, align 4
-  %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
-  %.sroa.4.0.copyload.i11 = load float, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.027, ptr noundef nonnull align 4 dereferenceable(12) %.fr47, i64 12, i1 false), !tbaa.struct !87
-  store <2 x float> %.sroa.05.0.copyload.i9, ptr %.fr47, align 4
-  store float %.sroa.4.0.copyload.i11, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i21, align 4, !tbaa !31
-  %108 = extractelement <2 x float> %.sroa.05.0.copyload.i9, i64 0
-  br label %109
-
-109:                                              ; preds = %104, %._crit_edge.i.i12
-  %110 = phi float [ %105, %104 ], [ %108, %._crit_edge.i.i12 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 12
-  %112 = icmp ult ptr %111, %2
-  br i1 %112, label %104, label %._crit_edge, !llvm.loop !182
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6777,8 +6150,8 @@ define linkonce_odr void @_ZN8interpol31monotone_hermite_spline_variantIfE4initE
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %19 = load float, ptr %18, align 4, !tbaa !27
-  %20 = load float, ptr %17, align 8, !tbaa !28
+  %19 = load float, ptr %18, align 4, !tbaa !26
+  %20 = load float, ptr %17, align 8, !tbaa !27
   %21 = fsub reassoc nsz arcp contract afn float %19, %20
   %22 = icmp ugt i64 %8, 2305843009213693951
   br i1 %22, label %23, label %24
@@ -6831,9 +6204,9 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit75:            ; preds = %_ZNSt12_Vector_base
   %.sroa.24219.1.lcssa = phi ptr [ %27, %_ZNSt6vectorIfSaIfEE7reserveEm.exit75 ], [ %.sroa.24219.5, %._crit_edge370.loopexit ]
   %.sroa.16216.0.lcssa = phi ptr [ %26, %_ZNSt6vectorIfSaIfEE7reserveEm.exit75 ], [ %.sroa.16216.2, %._crit_edge370.loopexit ]
   %.sroa.0207.1.lcssa = phi ptr [ %26, %_ZNSt6vectorIfSaIfEE7reserveEm.exit75 ], [ %.sroa.0207.5, %._crit_edge370.loopexit ]
-  %34 = load float, ptr %33, align 4, !tbaa !26
+  %34 = load float, ptr %33, align 4, !tbaa !28
   %35 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %33, i64 %32
-  %36 = load float, ptr %35, align 4, !tbaa !26
+  %36 = load float, ptr %35, align 4, !tbaa !28
   %37 = fsub reassoc nsz arcp contract afn float %34, %36
   %38 = fadd reassoc nsz arcp contract afn float %37, %21
   %.not.i.i = icmp eq ptr %.sroa.16216.0.lcssa, %.sroa.24219.1.lcssa
@@ -6912,9 +6285,9 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS
   %59 = add nuw i64 %.052368, 1
   %60 = load ptr, ptr %0, align 8, !tbaa !6
   %61 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %60, i64 %59
-  %62 = load float, ptr %61, align 4, !tbaa !26
+  %62 = load float, ptr %61, align 4, !tbaa !28
   %63 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %60, i64 %.052368
-  %64 = load float, ptr %63, align 4, !tbaa !26
+  %64 = load float, ptr %63, align 4, !tbaa !28
   %65 = fsub reassoc nsz arcp contract afn float %62, %64
   %.not.i.i78 = icmp eq ptr %.sroa.16216.0366, %.sroa.24219.1365
   br i1 %.not.i.i78, label %67, label %66
@@ -6987,8 +6360,8 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit87:         ; preds = %_ZNSt6vectorIfSaIfE
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load float, ptr %90, align 4, !tbaa !14
   %92 = fsub reassoc nsz arcp contract afn float %88, %91
-  %93 = load float, ptr %86, align 4, !tbaa !26
-  %94 = load float, ptr %89, align 4, !tbaa !26
+  %93 = load float, ptr %86, align 4, !tbaa !28
+  %94 = load float, ptr %89, align 4, !tbaa !28
   %95 = fsub reassoc nsz arcp contract afn float %93, %94
   %96 = fdiv reassoc nsz arcp contract afn float %92, %95
   %.not.i.i88 = icmp eq ptr %.sroa.16.0363, %.sroa.24.0362
@@ -7053,7 +6426,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit97:         ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.0192.3 = phi ptr [ %110, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i94 ], [ %.sroa.0192.0364, %97 ]
   %.sroa.16.2 = getelementptr inbounds nuw i8, ptr %.pn264, i64 4
   %exitcond427.not = icmp eq i64 %59, %31
-  br i1 %exitcond427.not, label %._crit_edge370.loopexit, label %.lr.ph369, !llvm.loop !183
+  br i1 %exitcond427.not, label %._crit_edge370.loopexit, label %.lr.ph369, !llvm.loop !180
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i79
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7085,8 +6458,8 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load float, ptr %120, align 4, !tbaa !14
   %122 = fsub reassoc nsz arcp contract afn float %118, %121
-  %123 = load float, ptr %116, align 4, !tbaa !26
-  %124 = load float, ptr %119, align 4, !tbaa !26
+  %123 = load float, ptr %116, align 4, !tbaa !28
+  %124 = load float, ptr %119, align 4, !tbaa !28
   %125 = fadd reassoc nsz arcp contract afn float %123, %21
   %126 = fsub reassoc nsz arcp contract afn float %125, %124
   %127 = fdiv reassoc nsz arcp contract afn float %122, %126
@@ -7234,7 +6607,7 @@ _ZN8interpol31monotone_hermite_spline_variantIfE1GEffff.exit111: ; preds = %.lr.
   store float %.0.i110, ptr %200, align 4, !tbaa !33
   %201 = add nuw i64 %.051378, 1
   %exitcond428.not = icmp eq i64 %201, %8
-  br i1 %exitcond428.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit109, label %.lr.ph379, !llvm.loop !184
+  br i1 %exitcond428.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit109, label %.lr.ph379, !llvm.loop !181
 
 202:                                              ; preds = %.loopexit265, %.loopexit.split-lp266, %.loopexit, %.loopexit.split-lp, %176, %174
   %.sroa.24.0313 = phi ptr [ %.sroa.24.0.lcssa, %176 ], [ %.sroa.24.0.lcssa, %174 ], [ %.sroa.24.0362, %.loopexit.split-lp ], [ %.sroa.24.0362, %.loopexit ], [ %.sroa.16.0363, %.loopexit265 ], [ %.sroa.16.0363, %.loopexit.split-lp266 ]
@@ -7313,9 +6686,9 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i123: ; preds = %_ZNSt12_Vector_
   %219 = add nuw i64 %.050354, 1
   %220 = load ptr, ptr %0, align 8, !tbaa !6
   %221 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %220, i64 %219
-  %222 = load float, ptr %221, align 4, !tbaa !26
+  %222 = load float, ptr %221, align 4, !tbaa !28
   %223 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %220, i64 %.050354
-  %224 = load float, ptr %223, align 4, !tbaa !26
+  %224 = load float, ptr %223, align 4, !tbaa !28
   %225 = fsub reassoc nsz arcp contract afn float %222, %224
   %.not.i.i130 = icmp eq ptr %.sroa.12.0349, %.sroa.17.1350
   br i1 %.not.i.i130, label %227, label %226
@@ -7388,8 +6761,8 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit139:        ; preds = %_ZNSt6vectorIfSaIfE
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
   %251 = load float, ptr %250, align 4, !tbaa !14
   %252 = fsub reassoc nsz arcp contract afn float %248, %251
-  %253 = load float, ptr %246, align 4, !tbaa !26
-  %254 = load float, ptr %249, align 4, !tbaa !26
+  %253 = load float, ptr %246, align 4, !tbaa !28
+  %254 = load float, ptr %249, align 4, !tbaa !28
   %255 = fsub reassoc nsz arcp contract afn float %253, %254
   %256 = fdiv reassoc nsz arcp contract afn float %252, %255
   %.not.i.i140 = icmp eq ptr %.sroa.14.0352, %.sroa.19.0353
@@ -7454,7 +6827,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit149:        ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.19.3 = phi ptr [ %275, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i146 ], [ %.sroa.19.0353, %257 ]
   %.sroa.14.2 = getelementptr inbounds nuw i8, ptr %.pn261, i64 4
   %exitcond.not = icmp eq i64 %219, %208
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !185
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
 
 .loopexit270:                                     ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i131
   %lpad.loopexit272 = landingpad { ptr, i32 }
@@ -7514,7 +6887,7 @@ _ZN8interpol31monotone_hermite_spline_variantIfE1GEffff.exit151: ; preds = %.lr.
   store float %.0.i150, ptr %299, align 4, !tbaa !33
   %300 = add nuw i64 %.0358, 1
   %exitcond426.not = icmp eq i64 %300, %208
-  br i1 %exitcond426.not, label %._crit_edge361, label %.lr.ph360, !llvm.loop !186
+  br i1 %exitcond426.not, label %._crit_edge361, label %.lr.ph360, !llvm.loop !183
 
 ._crit_edge361.thread:                            ; preds = %._crit_edge, %._crit_edge361
   %301 = getelementptr float, ptr %.sroa.0.3, i64 %8
@@ -7653,9 +7026,9 @@ attributes #20 = { nounwind }
 !23 = !{!"bool", !10, i64 0}
 !24 = !{i8 0, i8 2}
 !25 = !{}
-!26 = !{!15, !16, i64 0}
-!27 = !{!18, !16, i64 28}
-!28 = !{!18, !16, i64 24}
+!26 = !{!18, !16, i64 28}
+!27 = !{!18, !16, i64 24}
+!28 = !{!15, !16, i64 0}
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
 !31 = !{!16, !16, i64 0}
@@ -7765,16 +7138,16 @@ attributes #20 = { nounwind }
 !135 = distinct !{!135, !30}
 !136 = distinct !{!136, !30}
 !137 = distinct !{!137, !30}
-!138 = distinct !{!138, !30}
-!139 = !{!140, !142}
-!140 = distinct !{!140, !141, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!141 = distinct !{!141, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!142 = distinct !{!142, !141, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!143 = distinct !{!143, !30}
-!144 = !{!145, !147}
-!145 = distinct !{!145, !146, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!146 = distinct !{!146, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!147 = distinct !{!147, !146, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!138 = !{!139, !141}
+!139 = distinct !{!139, !140, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!140 = distinct !{!140, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!141 = distinct !{!141, !140, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!142 = distinct !{!142, !30}
+!143 = !{!144, !146}
+!144 = distinct !{!144, !145, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!145 = distinct !{!145, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!146 = distinct !{!146, !145, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!147 = distinct !{!147, !30}
 !148 = distinct !{!148, !30}
 !149 = distinct !{!149, !30}
 !150 = distinct !{!150, !30}
@@ -7786,17 +7159,17 @@ attributes #20 = { nounwind }
 !156 = distinct !{!156, !30}
 !157 = distinct !{!157, !30}
 !158 = distinct !{!158, !30}
-!159 = distinct !{!159, !30}
-!160 = distinct !{!160, !30}
-!161 = !{!162, !164}
-!162 = distinct !{!162, !163, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!163 = distinct !{!163, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!164 = distinct !{!164, !163, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!165 = distinct !{!165, !30}
-!166 = !{!167, !169}
-!167 = distinct !{!167, !168, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!168 = distinct !{!168, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!169 = distinct !{!169, !168, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!159 = !{!160, !162}
+!160 = distinct !{!160, !161, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!161 = distinct !{!161, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!162 = distinct !{!162, !161, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!163 = distinct !{!163, !30}
+!164 = !{!165, !167}
+!165 = distinct !{!165, !166, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!166 = distinct !{!166, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!167 = distinct !{!167, !166, !"_ZSt19__relocate_object_aIN8interpol10base_pointIfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!168 = distinct !{!168, !30}
+!169 = distinct !{!169, !30}
 !170 = distinct !{!170, !30}
 !171 = distinct !{!171, !30}
 !172 = distinct !{!172, !30}
@@ -7811,6 +7184,3 @@ attributes #20 = { nounwind }
 !181 = distinct !{!181, !30}
 !182 = distinct !{!182, !30}
 !183 = distinct !{!183, !30}
-!184 = distinct !{!184, !30}
-!185 = distinct !{!185, !30}
-!186 = distinct !{!186, !30}

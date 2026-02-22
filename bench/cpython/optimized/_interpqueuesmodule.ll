@@ -1173,7 +1173,7 @@ define internal ptr @queuesmod_is_full(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef nonnull @queuesmod_is_full.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %45, label %6
+  br i1 %.not, label %47, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1222,44 +1222,43 @@ _queue_lock.exit.i.i:                             ; preds = %18
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !66
   %32 = load i64, ptr %29, align 8, !tbaa !65
-  %.fr = freeze i64 %31
-  %.fr17 = freeze i64 %32
-  %.not18 = icmp eq i64 %.fr, %.fr17
-  %33 = select i1 %.not18, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  %33 = icmp ne i64 %31, %32
+  %34 = freeze i1 %33
+  %35 = select i1 %34, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %_queue_is_full.exit.i
 
 _queue_is_full.exit.i:                            ; preds = %_queue_lock.exit.i.i, %18
-  %.08 = phi ptr [ @_Py_FalseStruct, %18 ], [ %33, %_queue_lock.exit.i.i ]
+  %.08 = phi ptr [ @_Py_FalseStruct, %18 ], [ %35, %_queue_lock.exit.i.i ]
   %.0.i9.i = phi i32 [ -14, %18 ], [ 0, %_queue_lock.exit.i.i ]
-  %34 = load ptr, ptr %24, align 8, !tbaa !35
-  call void @PyThread_release_lock(ptr noundef %34) #6
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !20
-  %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %40, label %36
+  %36 = load ptr, ptr %24, align 8, !tbaa !35
+  call void @PyThread_release_lock(ptr noundef %36) #6
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !20
+  %.not.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i, label %42, label %38
 
-36:                                               ; preds = %_queue_is_full.exit.i
-  %37 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %35, i32 noundef 1) #6
-  %38 = load i64, ptr %20, align 8, !tbaa !63
-  %39 = add i64 %38, -1
-  store i64 %39, ptr %20, align 8, !tbaa !63
-  call void @PyThread_release_lock(ptr noundef nonnull %35) #6
+38:                                               ; preds = %_queue_is_full.exit.i
+  %39 = call i32 @PyThread_acquire_lock(ptr noundef nonnull %37, i32 noundef 1) #6
+  %40 = load i64, ptr %20, align 8, !tbaa !63
+  %41 = add i64 %40, -1
+  store i64 %41, ptr %20, align 8, !tbaa !63
+  call void @PyThread_release_lock(ptr noundef nonnull %37) #6
   br label %queue_is_full.exit
 
-40:                                               ; preds = %_queue_is_full.exit.i
-  %41 = load i64, ptr %20, align 8, !tbaa !63
-  %42 = add i64 %41, -1
-  store i64 %42, ptr %20, align 8, !tbaa !63
+42:                                               ; preds = %_queue_is_full.exit.i
+  %43 = load i64, ptr %20, align 8, !tbaa !63
+  %44 = add i64 %43, -1
+  store i64 %44, ptr %20, align 8, !tbaa !63
   br label %queue_is_full.exit
 
-queue_is_full.exit:                               ; preds = %40, %36, %queue_is_full.exit.thread
-  %.0.i9.i.sink = phi i32 [ -14, %queue_is_full.exit.thread ], [ %.0.i9.i, %36 ], [ %.0.i9.i, %40 ]
-  %43 = phi ptr [ @_Py_FalseStruct, %queue_is_full.exit.thread ], [ %.08, %36 ], [ %.08, %40 ]
-  %44 = call fastcc i32 @handle_queue_error(i32 noundef %.0.i9.i.sink, ptr noundef %0, i64 noundef %8)
-  %.not615 = icmp eq i32 %44, 0
-  %.1 = select i1 %.not615, ptr %43, ptr null
-  br label %45
+queue_is_full.exit:                               ; preds = %42, %38, %queue_is_full.exit.thread
+  %.0.i9.i.sink = phi i32 [ -14, %queue_is_full.exit.thread ], [ %.0.i9.i, %38 ], [ %.0.i9.i, %42 ]
+  %45 = phi ptr [ @_Py_FalseStruct, %queue_is_full.exit.thread ], [ %.08, %38 ], [ %.08, %42 ]
+  %46 = call fastcc i32 @handle_queue_error(i32 noundef %.0.i9.i.sink, ptr noundef %0, i64 noundef %8)
+  %.not615 = icmp eq i32 %46, 0
+  %.1 = select i1 %.not615, ptr %45, ptr null
+  br label %47
 
-45:                                               ; preds = %3, %queue_is_full.exit
+47:                                               ; preds = %3, %queue_is_full.exit
   %.0 = phi ptr [ %.1, %queue_is_full.exit ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

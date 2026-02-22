@@ -1211,36 +1211,34 @@ define hidden void @_ZN2cv25VariationalRefinementImpl21updateRepeatedBordersERNS
 .lr.ph:                                           ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %21 = load i32, ptr %20, align 4
-  %.fr76 = freeze i32 %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %23 = load i32, ptr %22, align 4
-  %.fr77 = freeze i32 %23
-  %24 = icmp slt i32 %.fr76, %.fr77
-  %25 = sext i32 %.fr76 to i64
-  %26 = sext i32 %.fr77 to i64
+  %24 = icmp slt i32 %21, %23
+  %25 = sext i32 %21 to i64
+  %26 = sext i32 %23 to i64
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %28 = load i32, ptr %27, align 8
-  %.fr = freeze i32 %28
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %30 = load i32, ptr %29, align 8
-  %.fr78 = freeze i32 %30
-  %31 = icmp sgt i32 %.fr, %.fr78
-  %32 = sext i32 %.fr78 to i64
-  %33 = sext i32 %.fr to i64
-  %wide.trip.count96 = zext nneg i32 %8 to i64
-  br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
+  %31 = icmp sgt i32 %28, %30
+  %.fr72 = freeze i1 %31
+  %32 = sext i32 %30 to i64
+  %33 = sext i32 %28 to i64
+  %.fr = freeze i1 %24
+  %wide.trip.count93 = zext nneg i32 %8 to i64
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %31, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.fr72, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %50
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %50 ], [ 0, %.lr.ph.split.us ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %34 = mul i64 %14, %indvars.iv.next94
+  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %50 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %34 = mul i64 %14, %indvars.iv.next91
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 %34
-  %36 = mul i64 %19, %indvars.iv.next94
+  %36 = mul i64 %19, %indvars.iv.next91
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 %36
-  %38 = and i64 %indvars.iv93, 1
+  %38 = and i64 %indvars.iv90, 1
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %45, label %40
 
@@ -1261,22 +1259,22 @@ define hidden void @_ZN2cv25VariationalRefinementImpl21updateRepeatedBordersERNS
   br label %50
 
 50:                                               ; preds = %45, %40
-  %.sink110 = phi ptr [ %49, %45 ], [ %44, %40 ]
+  %.sink107 = phi ptr [ %49, %45 ], [ %44, %40 ]
   %.sink.in = phi ptr [ %48, %45 ], [ %43, %40 ]
   %.sink = load float, ptr %.sink.in, align 4, !tbaa !42
-  %51 = getelementptr i8, ptr %.sink110, i64 4
+  %51 = getelementptr i8, ptr %.sink107, i64 4
   store float %.sink, ptr %51, align 4, !tbaa !42
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !50
+  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !50
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %64
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %64 ], [ 0, %.lr.ph.split.us ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %52 = mul i64 %14, %indvars.iv.next89
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %64 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %52 = mul i64 %14, %indvars.iv.next86
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 %52
-  %54 = mul i64 %19, %indvars.iv.next89
+  %54 = mul i64 %19, %indvars.iv.next86
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 %54
-  %56 = and i64 %indvars.iv88, 1
+  %56 = and i64 %indvars.iv85, 1
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %61, label %58
 
@@ -1293,27 +1291,27 @@ define hidden void @_ZN2cv25VariationalRefinementImpl21updateRepeatedBordersERNS
   br label %64
 
 64:                                               ; preds = %61, %58
-  %.sink116 = phi i64 [ %32, %61 ], [ %26, %58 ]
-  %.sink114 = phi i64 [ %33, %61 ], [ %25, %58 ]
-  %65 = getelementptr inbounds float, ptr %55, i64 %.sink116
+  %.sink113 = phi i64 [ %32, %61 ], [ %26, %58 ]
+  %.sink111 = phi i64 [ %33, %61 ], [ %25, %58 ]
+  %65 = getelementptr inbounds float, ptr %55, i64 %.sink113
   %66 = load float, ptr %65, align 4, !tbaa !42
-  %67 = getelementptr float, ptr %53, i64 %.sink114
+  %67 = getelementptr float, ptr %53, i64 %.sink111
   %68 = getelementptr i8, ptr %67, i64 4
   store float %66, ptr %68, align 4, !tbaa !42
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count96
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !50
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count93
+  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %31, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr72, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %81
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %81 ], [ 0, %.lr.ph.split ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %69 = mul i64 %14, %indvars.iv.next84
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %81 ], [ 0, %.lr.ph.split ]
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %69 = mul i64 %14, %indvars.iv.next81
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 %69
-  %71 = mul i64 %19, %indvars.iv.next84
+  %71 = mul i64 %19, %indvars.iv.next81
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 %71
-  %73 = and i64 %indvars.iv83, 1
+  %73 = and i64 %indvars.iv80, 1
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %78, label %75
 
@@ -1330,15 +1328,15 @@ define hidden void @_ZN2cv25VariationalRefinementImpl21updateRepeatedBordersERNS
   br label %81
 
 81:                                               ; preds = %78, %75
-  %.sink122 = phi i64 [ %33, %78 ], [ %25, %75 ]
-  %.sink120 = phi i64 [ %32, %78 ], [ %26, %75 ]
-  %82 = getelementptr inbounds float, ptr %70, i64 %.sink122
+  %.sink119 = phi i64 [ %33, %78 ], [ %25, %75 ]
+  %.sink117 = phi i64 [ %32, %78 ], [ %26, %75 ]
+  %82 = getelementptr inbounds float, ptr %70, i64 %.sink119
   %83 = load float, ptr %82, align 4, !tbaa !42
-  %84 = getelementptr float, ptr %72, i64 %.sink120
+  %84 = getelementptr float, ptr %72, i64 %.sink117
   %85 = getelementptr i8, ptr %84, i64 4
   store float %83, ptr %85, align 4, !tbaa !42
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count96
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !50
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count93
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %139, %81, %64, %50, %2
   %86 = add nsw i32 %7, -1
@@ -1424,12 +1422,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %119
   br label %139
 
 139:                                              ; preds = %134, %129
-  %.sink125 = phi ptr [ %138, %134 ], [ %133, %129 ]
-  %.sink123.in = phi ptr [ %137, %134 ], [ %132, %129 ]
-  %.sink123 = load float, ptr %.sink123.in, align 4, !tbaa !42
-  %140 = getelementptr i8, ptr %.sink125, i64 4
-  store float %.sink123, ptr %140, align 4, !tbaa !42
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count96
+  %.sink122 = phi ptr [ %138, %134 ], [ %133, %129 ]
+  %.sink120.in = phi ptr [ %137, %134 ], [ %132, %129 ]
+  %.sink120 = load float, ptr %.sink120.in, align 4, !tbaa !42
+  %140 = getelementptr i8, ptr %.sink122, i64 4
+  store float %.sink120, ptr %140, align 4, !tbaa !42
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count93
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !50
 }
 

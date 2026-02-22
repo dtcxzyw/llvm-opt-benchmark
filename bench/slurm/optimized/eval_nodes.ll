@@ -1457,8 +1457,7 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
   store i64 %383, ptr %18, align 8
   %384 = load ptr, ptr %37, align 8
   %385 = tail call i64 @bit_ffs(ptr noundef %384) #8
-  %.fr.i = freeze i64 %385
-  %386 = trunc i64 %.fr.i to i32
+  %386 = trunc i64 %385 to i32
   %387 = icmp sgt i32 %386, -1
   br i1 %387, label %388, label %392
 
@@ -1474,18 +1473,17 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
 
 394:                                              ; preds = %392, %388
   %.0148.i = phi i32 [ %391, %388 ], [ %393, %392 ]
-  %.0148.fr.i = freeze i32 %.0148.i
   %.not206.i = icmp eq ptr %326, null
   br i1 %.not206.i, label %.thread.i67, label %.preheader251.i
 
 .preheader251.i:                                  ; preds = %394
-  %.not207269.i = icmp slt i32 %.0148.fr.i, %386
+  %.not207269.i = icmp slt i32 %.0148.i, %386
   br i1 %.not207269.i, label %._crit_edge.i63, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader251.i
-  %sext.i = shl i64 %.fr.i, 32
+  %sext.i = shl i64 %385, 32
   %395 = ashr exact i64 %sext.i, 32
-  %396 = add i32 %.0148.fr.i, 1
+  %396 = add i32 %.0148.i, 1
   br label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %445, %.lr.ph.preheader.i
@@ -1655,15 +1653,17 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
   br i1 %469, label %.critedge.thread.i, label %.lr.ph334.i
 
 .lr.ph334.i:                                      ; preds = %467
-  %.not210280.i = icmp slt i32 %.0148.fr.i, %386
+  %.not210280.i = icmp slt i32 %.0148.i, %386
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %473 = getelementptr inbounds nuw i8, ptr %59, i64 392
-  br i1 %.not210280.i, label %.lr.ph334.split.us.split.i, label %.lr.ph334.split.preheader.i
+  %.not210280.fr.i = freeze i1 %.not210280.i
+  br i1 %.not210280.fr.i, label %.lr.ph334.split.us.split.i, label %.lr.ph334.split.preheader.i
 
 .lr.ph334.split.preheader.i:                      ; preds = %.lr.ph334.i
-  %sext370.i = shl i64 %.fr.i, 32
+  %sext370.i = shl i64 %385, 32
   %474 = ashr exact i64 %sext370.i, 32
-  %475 = add i32 %.0148.fr.i, 1
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %.0148.i, i32 %386)
+  %475 = add i32 %smax.i, 1
   br label %.lr.ph334.split.i
 
 .lr.ph334.split.us.split.i:                       ; preds = %.lr.ph334.i
@@ -4233,8 +4233,7 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   store i64 %68, ptr %3, align 8
   %69 = load ptr, ptr %10, align 8
   %70 = tail call i64 @bit_ffs(ptr noundef %69) #8
-  %.fr = freeze i64 %70
-  %71 = trunc i64 %.fr to i32
+  %71 = trunc i64 %70 to i32
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %73, label %77
 
@@ -4250,18 +4249,17 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
 
 79:                                               ; preds = %77, %73
   %.0145 = phi i32 [ %76, %73 ], [ %78, %77 ]
-  %.0145.fr = freeze i32 %.0145
   %.not196 = icmp eq ptr %9, null
   br i1 %.not196, label %.thread, label %.preheader236
 
 .preheader236:                                    ; preds = %79
-  %.not197254 = icmp slt i32 %.0145.fr, %71
+  %.not197254 = icmp slt i32 %.0145, %71
   br i1 %.not197254, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader236
-  %sext = shl i64 %.fr, 32
+  %sext = shl i64 %70, 32
   %80 = ashr exact i64 %sext, 32
-  %81 = add i32 %.0145.fr, 1
+  %81 = add i32 %.0145, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %130
@@ -4431,17 +4429,18 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   br i1 %154, label %.critedge.thread, label %.lr.ph312
 
 .lr.ph312:                                        ; preds = %152
-  %.not200265 = icmp slt i32 %.0145.fr, %71
+  %.not200265 = icmp slt i32 %.0145, %71
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  br i1 %.not200265, label %.preheader.us, label %.lr.ph312.split.preheader
+  %.not200265.fr = freeze i1 %.not200265
+  br i1 %.not200265.fr, label %.preheader.us, label %.lr.ph312.split.preheader
 
 .lr.ph312.split.preheader:                        ; preds = %.lr.ph312
-  %158 = sext i32 %.0145.fr to i64
-  %sext347 = shl i64 %.fr, 32
-  %159 = ashr exact i64 %sext347, 32
+  %158 = sext i32 %.0145 to i64
+  %sext346 = shl i64 %70, 32
+  %159 = ashr exact i64 %sext346, 32
   %160 = tail call ptr @list_next(ptr noundef %156) #8
-  %.not199383 = icmp eq ptr %160, null
-  br i1 %.not199383, label %.critedge.thread, label %.preheader.preheader
+  %.not199382 = icmp eq ptr %160, null
+  br i1 %.not199382, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.us:                                    ; preds = %.lr.ph312, %.preheader.us
   %161 = tail call ptr @list_next(ptr noundef %156) #8
@@ -4450,18 +4449,18 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
 
 .preheader.preheader:                             ; preds = %.lr.ph312.split.preheader, %.critedge3
   %162 = phi ptr [ %200, %.critedge3 ], [ %160, %.lr.ph312.split.preheader ]
-  %.3179304387 = phi i64 [ %.5181, %.critedge3 ], [ %.2178222, %.lr.ph312.split.preheader ]
-  %.3165306386 = phi i32 [ %.5167, %.critedge3 ], [ %.2164224, %.lr.ph312.split.preheader ]
-  %.4159307385 = phi i32 [ %.6161, %.critedge3 ], [ %.3158225, %.lr.ph312.split.preheader ]
-  %.3308384 = phi i32 [ %.5, %.critedge3 ], [ %.2154226, %.lr.ph312.split.preheader ]
+  %.3179304386 = phi i64 [ %.5181, %.critedge3 ], [ %.2178222, %.lr.ph312.split.preheader ]
+  %.3165306385 = phi i32 [ %.5167, %.critedge3 ], [ %.2164224, %.lr.ph312.split.preheader ]
+  %.4159307384 = phi i32 [ %.6161, %.critedge3 ], [ %.3158225, %.lr.ph312.split.preheader ]
+  %.3308383 = phi i32 [ %.5, %.critedge3 ], [ %.2154226, %.lr.ph312.split.preheader ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %199
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %199 ], [ %158, %.preheader.preheader ]
-  %.4270 = phi i32 [ %.6, %199 ], [ %.3308384, %.preheader.preheader ]
-  %.5160269 = phi i32 [ %.7, %199 ], [ %.4159307385, %.preheader.preheader ]
-  %.4166268 = phi i32 [ %.6168, %199 ], [ %.3165306386, %.preheader.preheader ]
-  %.4180266 = phi i64 [ %.6182, %199 ], [ %.3179304387, %.preheader.preheader ]
+  %.4270 = phi i32 [ %.6, %199 ], [ %.3308383, %.preheader.preheader ]
+  %.5160269 = phi i32 [ %.7, %199 ], [ %.4159307384, %.preheader.preheader ]
+  %.4166268 = phi i32 [ %.6168, %199 ], [ %.3165306385, %.preheader.preheader ]
+  %.4180266 = phi i64 [ %.6182, %199 ], [ %.3179304386, %.preheader.preheader ]
   %163 = load i32, ptr %48, align 8
   %.not201 = icmp eq i32 %163, 0
   br i1 %.not201, label %.critedge3, label %164
@@ -4518,9 +4517,9 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   %193 = load ptr, ptr %28, align 8
   %194 = load i32, ptr %157, align 8
   %195 = tail call zeroext i1 @gres_sched_test(ptr noundef %193, i32 noundef %194) #8
-  br i1 %195, label %.critedge.thread359, label %196
+  br i1 %195, label %.critedge.thread358, label %196
 
-.critedge.thread359:                              ; preds = %192
+.critedge.thread358:                              ; preds = %192
   tail call void @list_iterator_destroy(ptr noundef %156) #8
   br label %210
 
@@ -4548,11 +4547,11 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   br i1 %.not199, label %.critedge.thread, label %.preheader.preheader, !llvm.loop !44
 
 .critedge.thread:                                 ; preds = %.critedge3, %196, %.preheader.us, %.lr.ph312.split.preheader, %152
-  %.3.lcssa358 = phi i32 [ %.2154226, %152 ], [ %.2154226, %.preheader.us ], [ %182, %196 ], [ %.2154226, %.lr.ph312.split.preheader ], [ %.5, %.critedge3 ]
-  %.3165.lcssa357 = phi i32 [ %.2164224, %152 ], [ %.2164224, %.preheader.us ], [ %186, %196 ], [ %.2164224, %.lr.ph312.split.preheader ], [ %.5167, %.critedge3 ]
+  %.3.lcssa357 = phi i32 [ %.2154226, %152 ], [ %.2154226, %.preheader.us ], [ %182, %196 ], [ %.2154226, %.lr.ph312.split.preheader ], [ %.5, %.critedge3 ]
+  %.3165.lcssa356 = phi i32 [ %.2164224, %152 ], [ %.2164224, %.preheader.us ], [ %186, %196 ], [ %.2164224, %.lr.ph312.split.preheader ], [ %.5167, %.critedge3 ]
   tail call void @list_iterator_destroy(ptr noundef %156) #8
-  %201 = icmp sgt i32 %.3.lcssa358, 0
-  %202 = icmp sgt i32 %.3165.lcssa357, 0
+  %201 = icmp sgt i32 %.3.lcssa357, 0
+  %202 = icmp sgt i32 %.3165.lcssa356, 0
   %or.cond7 = select i1 %201, i1 true, i1 %202
   br i1 %or.cond7, label %208, label %203
 
@@ -4568,8 +4567,8 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   tail call void @bit_clear_all(ptr noundef %209) #8
   br label %.thread227
 
-210:                                              ; preds = %.critedge.thread359, %138, %203
-  %.0146 = phi ptr [ %155, %.critedge.thread359 ], [ null, %138 ], [ %155, %203 ]
+210:                                              ; preds = %.critedge.thread358, %138, %203
+  %.0146 = phi ptr [ %155, %.critedge.thread358 ], [ null, %138 ], [ %155, %203 ]
   tail call void @eval_nodes_clip_socket_cores(ptr noundef %0)
   br label %.thread227
 

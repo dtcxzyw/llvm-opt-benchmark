@@ -75805,13 +75805,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit: ; preds = %"_Z
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %42 = load ptr, ptr %41, align 8, !invariant.load !5, !noalias !16872, !nonnull !5
   %43 = tail call { i32, i32 } %42(ptr noundef nonnull align 1 %38), !noalias !16872
-  %.fr.i.i.i = freeze { i32, i32 } %43
-  %44 = extractvalue { i32, i32 } %.fr.i.i.i, 1
+  %.fr3.i.i.i = freeze { i32, i32 } %43
+  %44 = extractvalue { i32, i32 } %.fr3.i.i.i, 1
   %45 = icmp eq i32 %44, %3
   br i1 %45, label %"_ZN9workspace9move_item28_$u7b$$u7b$closure$u7d$$u7d$17h0da9e8d4ba65ffd7E.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd0571789072d15b5E.exit.i"
 
 "_ZN9workspace9move_item28_$u7b$$u7b$closure$u7d$$u7d$17h0da9e8d4ba65ffd7E.exit.i.i.i": ; preds = %.lr.ph.i
-  %46 = extractvalue { i32, i32 } %.fr.i.i.i, 0
+  %46 = extractvalue { i32, i32 } %.fr3.i.i.i, 0
   %47 = icmp ne i32 %46, 0
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i32 %46, %2

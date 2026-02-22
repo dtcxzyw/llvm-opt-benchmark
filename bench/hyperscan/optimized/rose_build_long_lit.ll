@@ -1101,7 +1101,7 @@ define internal fastcc void @_ZN3ue2L15makeBloomFilterERKSt6vectorINS_15ue2_case
   br label %10
 
 10:                                               ; preds = %64, %4
-  %11 = phi ptr [ null, %4 ], [ %.sroa.0.038, %64 ]
+  %11 = phi ptr [ null, %4 ], [ %.sroa.0.039, %64 ]
   %.08 = phi i64 [ 256, %4 ], [ %72, %64 ]
   %.val = load ptr, ptr %1, align 8
   %.val10 = load ptr, ptr %5, align 8
@@ -1236,11 +1236,11 @@ _ZN3ue2L16addToBloomFilterERSt6vectorIhSaIhEEPKhb.exit.i.us: ; preds = %.noexc23
   br i1 %.not5.i, label %_ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit, label %.lr.ph13.i.split
 
 _ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit: ; preds = %.loopexit6.i, %.loopexit6.i.us, %10, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i
-  %.sroa.12.039 = phi ptr [ %14, %.loopexit6.i.us ], [ null, %10 ], [ %14, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ %14, %.loopexit6.i ]
-  %.sroa.0.038 = phi ptr [ %13, %.loopexit6.i.us ], [ null, %10 ], [ %13, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ %13, %.loopexit6.i ]
-  store ptr %.sroa.0.038, ptr %0, align 8
-  store ptr %.sroa.12.039, ptr %8, align 8
-  store ptr %.sroa.12.039, ptr %9, align 8
+  %.sroa.12.040 = phi ptr [ %14, %.loopexit6.i.us ], [ null, %10 ], [ %14, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ %14, %.loopexit6.i ]
+  %.sroa.0.039 = phi ptr [ %13, %.loopexit6.i.us ], [ null, %10 ], [ %13, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i ], [ %13, %.loopexit6.i ]
+  store ptr %.sroa.0.039, ptr %0, align 8
+  store ptr %.sroa.12.040, ptr %8, align 8
+  store ptr %.sroa.12.040, ptr %9, align 8
   %.not.i.i.i.i.i13 = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i13, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %57
 
@@ -1249,18 +1249,18 @@ _ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit: ; 
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %57, %_ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit
-  %.not6.i.i.i = icmp eq ptr %.sroa.0.038, %.sroa.12.039
+  %.not6.i.i.i = icmp eq ptr %.sroa.0.039, %.sroa.12.040
   br i1 %.not6.i.i.i, label %64, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %.lr.ph.i.i.i
   %.08.i.i.i = phi i32 [ %60, %.lr.ph.i.i.i ], [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
-  %.sroa.03.07.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i ], [ %.sroa.0.038, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %.sroa.03.07.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i ], [ %.sroa.0.039, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   %.val2.i.i.i = load i8, ptr %.sroa.03.07.i.i.i, align 1
   %58 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %.val2.i.i.i)
   %59 = zext nneg i8 %58 to i32
   %60 = add i32 %.08.i.i.i, %59
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i, i64 1
-  %.not.i.i.i15 = icmp eq ptr %61, %.sroa.12.039
+  %.not.i.i.i15 = icmp eq ptr %61, %.sroa.12.040
   br i1 %.not.i.i.i15, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", label %.lr.ph.i.i.i, !llvm.loop !36
 
 "_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i
@@ -1270,8 +1270,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %57, %_ZN3ue2L16buil
 
 64:                                               ; preds = %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", %_ZNSt6vectorIhSaIhEED2Ev.exit
   %.0.lcssa.i.i.i = phi double [ 0.000000e+00, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %63, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i" ]
-  %65 = ptrtoint ptr %.sroa.12.039 to i64
-  %66 = ptrtoint ptr %.sroa.0.038 to i64
+  %65 = ptrtoint ptr %.sroa.12.040 to i64
+  %66 = ptrtoint ptr %.sroa.0.039 to i64
   %67 = sub i64 %65, %66
   %68 = shl i64 %67, 3
   %69 = uitofp i64 %68 to double

@@ -3182,8 +3182,8 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %18 = load i32, ptr %17, align 8, !tbaa !89
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %.fr79 = freeze i32 %18
-  %.06172 = add i32 %.fr79, -1
+  %.fr = freeze i32 %18
+  %.06172 = add i32 %.fr, -1
   %21 = icmp sgt i32 %.06172, -1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3211,16 +3211,16 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %29 = load i32, ptr %24, align 8, !tbaa !74
   %30 = and i32 %29, 1
   %.not71.us = icmp eq i32 %30, 0
-  br i1 %.not71.us, label %._crit_edge85, label %31
+  br i1 %.not71.us, label %._crit_edge84, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr i64, ptr %5, i64 %.062.us
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load i64, ptr %33, align 8, !tbaa !21
   %35 = icmp ult i64 %66, %34
-  br i1 %35, label %.split77.us, label %._crit_edge85
+  br i1 %35, label %.split77.us, label %._crit_edge84
 
-._crit_edge85:                                    ; preds = %28, %31
+._crit_edge84:                                    ; preds = %28, %31
   %36 = add i64 %.062.us, -1
   %37 = getelementptr inbounds nuw i64, ptr %5, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !21
@@ -3230,7 +3230,7 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %42 = icmp eq i64 %66, %41
   br i1 %42, label %48, label %43
 
-43:                                               ; preds = %._crit_edge85
+43:                                               ; preds = %._crit_edge84
   %44 = getelementptr inbounds nuw i64, ptr %5, i64 %.062.us
   store i64 %66, ptr %44, align 8, !tbaa !21
   %45 = load i64, ptr %20, align 8, !tbaa !92
@@ -3239,7 +3239,7 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %47 = add i64 %.062.us, 1
   br label %52
 
-48:                                               ; preds = %._crit_edge85
+48:                                               ; preds = %._crit_edge84
   %49 = add i64 %40, %26
   store i64 %49, ptr %39, align 8, !tbaa !21
   br label %52
@@ -3308,8 +3308,8 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %77 = getelementptr i64, ptr %5, i64 %.062
   %78 = getelementptr i8, ptr %77, i64 -8
   %79 = load i64, ptr %78, align 8, !tbaa !21
-  %.not80 = icmp eq i64 %79, 0
-  br i1 %.not80, label %._crit_edge, label %.split77.us
+  %.not79 = icmp eq i64 %79, 0
+  br i1 %.not79, label %._crit_edge, label %.split77.us
 
 ._crit_edge:                                      ; preds = %73, %76
   %80 = add i64 %.062, -1

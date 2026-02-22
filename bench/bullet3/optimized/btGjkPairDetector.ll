@@ -234,8 +234,8 @@ define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36b
 78:                                               ; preds = %4
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !23
-  %.fr = freeze i32 %80
-  %81 = add i32 %.fr, -17
+  %.fr633 = freeze i32 %80
+  %81 = add i32 %.fr633, -17
   %82 = icmp ult i32 %81, 2
   br label %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit
 

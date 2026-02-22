@@ -348,10 +348,9 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZN4absl12lts_2024072215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load double, ptr %1, align 8, !tbaa !8
-  %.fr4 = freeze double %4
   %5 = load double, ptr %2, align 8, !tbaa !8
-  %.fr3 = freeze double %5
-  %6 = fsub double %.fr3, %.fr4
+  %6 = fsub double %5, %4
+  %.fr3 = freeze double %6
   %7 = ptrtoint ptr %0 to i64
   %8 = and i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
@@ -359,7 +358,7 @@ define linkonce_odr noundef double @_ZN4absl12lts_2024072215random_internal18Dis
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.pre.i.i = load i64, ptr %10, align 8, !tbaa !26
-  %13 = tail call i1 @llvm.is.fpclass.f64(double %6, i32 384)
+  %13 = tail call i1 @llvm.is.fpclass.f64(double %.fr3, i32 384)
   br i1 %13, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %3
@@ -403,7 +402,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
 
 _ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %26, %_ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us
   %.0.i.i.i.us = phi double [ %33, %26 ], [ 0.000000e+00, %_ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i.us ]
-  %34 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %6, double %.fr4)
+  %34 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us, double %.fr3, double %4)
   br label %_ZN4absl12lts_2024072225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 .split:                                           ; preds = %3, %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i
@@ -441,15 +440,15 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %51 = lshr i64 %50, 11
   %52 = and i64 %51, 4503599627370495
   %53 = shl nuw nsw i64 %49, 52
-  %reass.sub7 = sub nsw i64 %52, %53
-  %54 = add nsw i64 %reass.sub7, 4602678819172646912
+  %reass.sub6 = sub nsw i64 %52, %53
+  %54 = add nsw i64 %reass.sub6, 4602678819172646912
   %55 = bitcast i64 %54 to double
   br label %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %48, %_ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i
   %.0.i.i.i = phi double [ %55, %48 ], [ 0.000000e+00, %_ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
-  %56 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %6, double %.fr4)
-  %57 = fcmp uge double %56, %.fr3
+  %56 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %.fr3, double %4)
+  %57 = fcmp uge double %56, %5
   br i1 %57, label %.split, label %_ZN4absl12lts_2024072225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 _ZN4absl12lts_2024072225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us

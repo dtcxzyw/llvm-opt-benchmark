@@ -685,13 +685,13 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr noundef
   br i1 %.not165, label %.loopexit144, label %.lr.ph164.preheader
 
 .lr.ph164.preheader:                              ; preds = %5
-  %wide.trip.count205 = zext i32 %7 to i64
+  %wide.trip.count206 = zext i32 %7 to i64
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %vec_resize.exit129
-  %indvars.iv202 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next203, %vec_resize.exit129 ]
+  %indvars.iv203 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next204, %vec_resize.exit129 ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv202
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv203
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -795,12 +795,12 @@ vec_resize.exit:                                  ; preds = %46, %49
 
 .lr.ph157:                                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %wide.trip.count195 = zext i32 %60 to i64
+  %wide.trip.count196 = zext i32 %60 to i64
   br label %62
 
 62:                                               ; preds = %.lr.ph157, %._crit_edge
-  %indvars.iv192 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next193, %._crit_edge ]
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv192
+  %indvars.iv193 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next194, %._crit_edge ]
+  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv193
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -839,8 +839,8 @@ vec_resize.exit:                                  ; preds = %46, %49
 83:                                               ; preds = %.critedge127
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %85 = load i8, ptr %84, align 8
-  %.fr = freeze i8 %85
-  %86 = and i8 %.fr, 1
+  %.fr167 = freeze i8 %85
+  %86 = and i8 %.fr167, 1
   %87 = icmp eq i8 %86, 0
   br label %.critedge127.thread
 
@@ -859,9 +859,9 @@ vec_resize.exit:                                  ; preds = %46, %49
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %105
-  %indvars.iv188 = phi i64 [ %90, %.lr.ph.split.us.preheader ], [ %indvars.iv.next189, %105 ]
+  %indvars.iv189 = phi i64 [ %90, %.lr.ph.split.us.preheader ], [ %indvars.iv.next190, %105 ]
   %91 = load ptr, ptr %65, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv188
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv189
   %93 = load ptr, ptr %92, align 8
   %94 = call zeroext i1 @sema_analyse_expr(ptr noundef nonnull %2, ptr noundef %93) #11
   br i1 %94, label %95, label %.loopexit
@@ -881,9 +881,9 @@ vec_resize.exit:                                  ; preds = %46, %49
   br i1 %104, label %105, label %.critedge
 
 105:                                              ; preds = %100
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %exitcond191.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count
-  br i1 %exitcond191.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
+  %exitcond192.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count
+  br i1 %exitcond192.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %147
   %indvars.iv = phi i64 [ %indvars.iv.next, %147 ], [ %90, %.lr.ph ]
@@ -978,9 +978,9 @@ vec_resize.exit:                                  ; preds = %46, %49
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %147, %105, %62, %.critedge127.thread
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %.loopexit142, label %62, !llvm.loop !19
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
+  br i1 %exitcond197.not, label %.loopexit142, label %62, !llvm.loop !19
 
 .loopexit142:                                     ; preds = %._crit_edge, %58, %55
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
@@ -992,28 +992,28 @@ vec_resize.exit:                                  ; preds = %46, %49
 159:                                              ; preds = %.loopexit142
   %160 = getelementptr inbounds i8, ptr %158, i64 -8
   %161 = load i32, ptr %160, align 4
-  %.not167 = icmp eq i32 %161, 0
-  br i1 %.not167, label %.loopexit233, label %.lr.ph160.preheader
+  %.not168 = icmp eq i32 %161, 0
+  br i1 %.not168, label %.loopexit234, label %.lr.ph160.preheader
 
 .lr.ph160.preheader:                              ; preds = %159
-  %wide.trip.count200 = zext i32 %161 to i64
+  %wide.trip.count201 = zext i32 %161 to i64
   br label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %.lr.ph160
-  %indvars.iv197 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next198, %.lr.ph160 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv197
+  %indvars.iv198 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next199, %.lr.ph160 ]
+  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv198
   %163 = load ptr, ptr %162, align 8
   call void @unit_register_global_decl(ptr noundef nonnull %10, ptr noundef %163) #11
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %.loopexit233, label %.lr.ph160, !llvm.loop !20
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
+  br i1 %exitcond202.not, label %.loopexit234, label %.lr.ph160, !llvm.loop !20
 
-.loopexit233:                                     ; preds = %.lr.ph160, %159
+.loopexit234:                                     ; preds = %.lr.ph160, %159
   %164 = getelementptr inbounds i8, ptr %158, i64 -8
   store i32 0, ptr %164, align 4
   br label %vec_resize.exit132
 
-vec_resize.exit132:                               ; preds = %.loopexit142, %.loopexit233
+vec_resize.exit132:                               ; preds = %.loopexit142, %.loopexit234
   call void @sema_process_includes(ptr noundef nonnull %10)
   br label %vec_resize.exit129
 
@@ -1022,9 +1022,9 @@ vec_resize.exit132:                               ; preds = %.loopexit142, %.loo
   br label %.loopexit144
 
 vec_resize.exit129:                               ; preds = %53, %vec_resize.exit, %13, %vec_resize.exit132
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %.loopexit144, label %.lr.ph164, !llvm.loop !21
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
+  br i1 %exitcond207.not, label %.loopexit144, label %.lr.ph164, !llvm.loop !21
 
 .loopexit144:                                     ; preds = %vec_resize.exit129, %1, %5, %.loopexit
   ret void

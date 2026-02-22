@@ -8977,14 +8977,14 @@ define dso_local noundef zeroext i1 @zend_string_only_has_ascii_alphanumeric(ptr
 
 7:                                                ; preds = %6
   %8 = load i8, ptr %.019, align 1, !tbaa !4
-  %.fr = freeze i8 %8
-  %9 = add i8 %.fr, -123
+  %.fr24 = freeze i8 %8
+  %9 = add i8 %.fr24, -123
   %or.cond = icmp ult i8 %9, -75
   br i1 %or.cond, label %.critedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 1
-  switch i8 %.fr, label %6 [
+  switch i8 %.fr24, label %6 [
     i8 96, label %.critedge
     i8 95, label %.critedge
     i8 94, label %.critedge
@@ -9170,14 +9170,14 @@ is_numeric_str_function.exit.thread:              ; preds = %is_numeric_str_func
 
 64:                                               ; preds = %63
   %65 = load i8, ptr %.019.i.i, align 1, !tbaa !4
-  %.fr.i.i = freeze i8 %65
-  %66 = add i8 %.fr.i.i, -123
+  %.fr24.i.i = freeze i8 %65
+  %66 = add i8 %.fr24.i.i, -123
   %or.cond.i.i = icmp ult i8 %66, -75
   br i1 %or.cond.i.i, label %68, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 1
-  switch i8 %.fr.i.i, label %63 [
+  switch i8 %.fr24.i.i, label %63 [
     i8 96, label %68
     i8 95, label %68
     i8 94, label %68

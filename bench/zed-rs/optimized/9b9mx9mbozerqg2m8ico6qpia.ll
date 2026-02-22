@@ -747,7 +747,6 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %.sroa.013.0.copyload.i.i.i = load i32, ptr %108, align 8, !alias.scope !108, !noalias !109
   %.sroa.10.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 68
   %.sroa.10.0.copyload.i.i.i = load i32, ptr %.sroa.10.0..sroa_idx.i.i.i, align 4, !alias.scope !108, !noalias !109
-  %.sroa.7.0.copyload.fr.i.i.i = freeze i32 %.sroa.10.0.copyload.i.i.i
   %.sroa.14.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.14.0.copyload.i.i.i = load i32, ptr %.sroa.14.0..sroa_idx.i.i.i, align 8, !alias.scope !108, !noalias !109
   %109 = load i64, ptr %1, align 8, !range !110, !alias.scope !108, !noalias !109
@@ -880,7 +879,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %129 = icmp ugt i32 %.sroa.7.0.copyload.fr.i.i.i, 43199
+  %129 = icmp ugt i32 %.sroa.10.0.copyload.i.i.i, 43199
   %anon.861f5f7cb78117a4ec6a459232069be7.108.anon.861f5f7cb78117a4ec6a459232069be7.107.i.i.i = select i1 %129, ptr @anon.861f5f7cb78117a4ec6a459232069be7.108, ptr @anon.861f5f7cb78117a4ec6a459232069be7.107
   %130 = select i1 %129, ptr getelementptr inbounds nuw (i8, ptr @anon.861f5f7cb78117a4ec6a459232069be7.108, i64 2), ptr getelementptr inbounds nuw (i8, ptr @anon.861f5f7cb78117a4ec6a459232069be7.107, i64 2)
   %.sroa.0131.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -946,10 +945,10 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %169 = urem i8 %165, 10
   %170 = or disjoint i8 %169, 48
   %171 = zext nneg i8 %170 to i32
-  %172 = urem i32 %.sroa.7.0.copyload.fr.i.i.i, 60
-  %173 = udiv i32 %.sroa.7.0.copyload.fr.i.i.i, 60
+  %172 = urem i32 %.sroa.10.0.copyload.i.i.i, 60
+  %173 = udiv i32 %.sroa.10.0.copyload.i.i.i, 60
   %174 = urem i32 %173, 60
-  %175 = udiv i32 %.sroa.7.0.copyload.fr.i.i.i, 3600
+  %175 = udiv i32 %.sroa.10.0.copyload.i.i.i, 3600
   %176 = icmp ugt i32 %.sroa.14.0.copyload.i.i.i, 999999999
   %177 = add i32 %.sroa.14.0.copyload.i.i.i, -1000000000
   %storemerge.i.i.i = select i1 %176, i32 %177, i32 %.sroa.14.0.copyload.i.i.i
@@ -1026,7 +1025,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %225 = add nuw nsw i32 %224, 1
   %226 = mul nuw nsw i32 %225, 400
   %.neg.i.i.i.i = mul nsw i32 %225, -146097
-  %227 = zext i32 %.sroa.7.0.copyload.fr.i.i.i to i64
+  %227 = zext i32 %.sroa.10.0.copyload.i.i.i to i64
   %228 = add nuw nsw i32 %137, -719163
   %229 = sub nsw i64 %227, %..sroa.3.0.i.i.i
   %230 = zext nneg i32 %112 to i64
@@ -1048,11 +1047,12 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %246 = icmp eq i32 %245, 0
   %247 = trunc nuw nsw i32 %245 to i8
   %248 = select i1 %246, i8 12, i8 %247
-  %.cmp8.i.i.i = icmp samesign ugt i8 %248, 9
-  %249 = icmp samesign ult i8 %248, 10
+  %.frozen.i.i.i = freeze i8 %248
+  %.cmp8.i.i.i = icmp samesign ugt i8 %.frozen.i.i.i, 9
+  %249 = icmp ult i8 %.frozen.i.i.i, 10
   %250 = select i1 %.cmp8.i.i.i, i32 49, i32 48
-  %.urem9.i.i.i = add nsw i8 %248, -10
-  %251 = select i1 %249, i8 %248, i8 %.urem9.i.i.i
+  %.urem9.i.i.i = add i8 %.frozen.i.i.i, -10
+  %251 = select i1 %249, i8 %.frozen.i.i.i, i8 %.urem9.i.i.i
   %252 = or disjoint i8 %251, 48
   %253 = zext nneg i8 %252 to i32
   %254 = icmp ult i8 %179, 10

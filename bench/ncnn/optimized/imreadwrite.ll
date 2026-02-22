@@ -21826,25 +21826,25 @@ define dso_local noundef ptr @stbi_write_png_to_mem(ptr noundef readonly capture
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %21 = trunc i32 %8 to i8
   %22 = sext i32 %12 to i64
-  %wide.trip.count214 = zext nneg i32 %3 to i64
+  %wide.trip.count215 = zext nneg i32 %3 to i64
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph.split.us
-  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %23 ], [ 0, %.lr.ph.split.us ]
-  %24 = trunc nuw nsw i64 %indvars.iv211 to i32
+  %indvars.iv212 = phi i64 [ %indvars.iv.next213, %23 ], [ 0, %.lr.ph.split.us ]
+  %24 = trunc nuw nsw i64 %indvars.iv212 to i32
   tail call fastcc void @_ZL22stbiw__encode_png_linePhiiiiiiPa(ptr noundef %0, i32 noundef %spec.select, i32 noundef %2, i32 noundef %3, i32 noundef %24, i32 noundef %4, i32 noundef %spec.store.select, ptr noundef %18)
-  %25 = mul nsw i64 %indvars.iv211, %22
+  %25 = mul nsw i64 %indvars.iv212, %22
   %26 = getelementptr inbounds i8, ptr %15, i64 %25
   store i8 %21, ptr %26, align 1, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %18, i64 %17, i1 false)
-  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
-  br i1 %exitcond215.not, label %._crit_edge, label %23, !llvm.loop !350
+  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
+  br i1 %exitcond216.not, label %._crit_edge, label %23, !llvm.loop !350
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = icmp sgt i32 %10, 0
-  %wide.trip.count209 = zext nneg i32 %3 to i64
+  %wide.trip.count210 = zext nneg i32 %3 to i64
   br i1 %28, label %.preheader.us.preheader, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph.split
@@ -21853,12 +21853,12 @@ define dso_local noundef ptr @stbi_write_png_to_mem(ptr noundef readonly capture
 
 .preheader.us.preheader:                          ; preds = %.lr.ph.split
   %30 = zext nneg i32 %12 to i64
-  %wide.trip.count203 = zext nneg i32 %10 to i64
+  %wide.trip.count204 = zext nneg i32 %10 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %34
-  %indvars.iv206 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next207, %34 ]
-  %31 = trunc nuw nsw i64 %indvars.iv206 to i32
+  %indvars.iv207 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next208, %34 ]
+  %31 = trunc nuw nsw i64 %indvars.iv207 to i32
   br label %.lr.ph.us.us
 
 32:                                               ; preds = %.split.us.us
@@ -21868,14 +21868,14 @@ define dso_local noundef ptr @stbi_write_png_to_mem(ptr noundef readonly capture
 
 34:                                               ; preds = %.split.us.us, %32
   %.096.us191 = phi i8 [ 5, %.split.us.us ], [ %33, %32 ]
-  %35 = mul nuw nsw i64 %indvars.iv206, %30
+  %35 = mul nuw nsw i64 %indvars.iv207, %30
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 %35
   store i8 %.096.us191, ptr %36, align 1, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %18, i64 %17, i1 false)
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge, label %.preheader.us, !llvm.loop !350
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
+  br i1 %exitcond211.not, label %._crit_edge, label %.preheader.us, !llvm.loop !350
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader.us
   %.093186.us.us = phi i32 [ 2147483647, %.preheader.us ], [ %spec.select113.us.us, %._crit_edge.us.us ]
@@ -21885,24 +21885,24 @@ define dso_local noundef ptr @stbi_write_png_to_mem(ptr noundef readonly capture
   br label %38
 
 38:                                               ; preds = %38, %.lr.ph.us.us
-  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %38 ], [ 0, %.lr.ph.us.us ]
+  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %38 ], [ 0, %.lr.ph.us.us ]
   %.092182.us.us = phi i32 [ %43, %38 ], [ 0, %.lr.ph.us.us ]
-  %39 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv200
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv201
   %40 = load i8, ptr %39, align 1, !tbaa !23
   %41 = tail call i8 @llvm.abs.i8(i8 %40, i1 false)
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %.092182.us.us, %42
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge.us.us, label %38, !llvm.loop !351
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
+  br i1 %exitcond205.not, label %._crit_edge.us.us, label %38, !llvm.loop !351
 
 ._crit_edge.us.us:                                ; preds = %38
   %44 = icmp slt i32 %43, %.093186.us.us
   %spec.select112.us.us = select i1 %44, i32 %.197184.us.us, i32 %.094185.us.us
   %spec.select113.us.us = tail call i32 @llvm.smin.i32(i32 %43, i32 %.093186.us.us)
   %45 = add nuw nsw i32 %.197184.us.us, 1
-  %exitcond205.not = icmp eq i32 %45, 5
-  br i1 %exitcond205.not, label %.split.us.us, label %.lr.ph.us.us, !llvm.loop !352
+  %exitcond206.not = icmp eq i32 %45, 5
+  br i1 %exitcond206.not, label %.split.us.us, label %.lr.ph.us.us, !llvm.loop !352
 
 .split.us.us:                                     ; preds = %._crit_edge.us.us
   %.not111.us = icmp eq i32 %spec.select112.us.us, 5
@@ -21932,8 +21932,8 @@ define dso_local noundef ptr @stbi_write_png_to_mem(ptr noundef readonly capture
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %18, i64 %17, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond199.not = icmp eq i64 %indvars.iv.next, %wide.trip.count209
-  br i1 %exitcond199.not, label %._crit_edge, label %.preheader, !llvm.loop !350
+  %exitcond200.not = icmp eq i64 %indvars.iv.next, %wide.trip.count210
+  br i1 %exitcond200.not, label %._crit_edge, label %.preheader, !llvm.loop !350
 
 ._crit_edge:                                      ; preds = %50, %34, %23, %.preheader179
   tail call void @free(ptr noundef nonnull %18) #39

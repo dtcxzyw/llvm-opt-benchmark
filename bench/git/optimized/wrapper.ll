@@ -1465,14 +1465,14 @@ define dso_local noundef i32 @access_or_warn(ptr noundef %0, i32 noundef %1, i32
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %6, align 4, !tbaa !9
-  %.fr = freeze i32 %7
+  %.fr6 = freeze i32 %7
   %8 = trunc i32 %2 to i1
-  %9 = icmp eq i32 %.fr, 13
+  %9 = icmp eq i32 %.fr6, 13
   %10 = and i1 %9, %8
   br i1 %10, label %15, label %switch.early.test
 
 switch.early.test:                                ; preds = %5
-  switch i32 %.fr, label %11 [
+  switch i32 %.fr6, label %11 [
     i32 20, label %15
     i32 2, label %15
   ]
@@ -1507,14 +1507,14 @@ define dso_local noundef i32 @access_or_die(ptr noundef %0, i32 noundef %1, i32 
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %6, align 4, !tbaa !9
-  %.fr = freeze i32 %7
+  %.fr6 = freeze i32 %7
   %8 = trunc i32 %2 to i1
-  %9 = icmp eq i32 %.fr, 13
+  %9 = icmp eq i32 %.fr6, 13
   %10 = and i1 %9, %8
   br i1 %10, label %13, label %switch.early.test
 
 switch.early.test:                                ; preds = %5
-  switch i32 %.fr, label %11 [
+  switch i32 %.fr6, label %11 [
     i32 20, label %13
     i32 2, label %13
   ]

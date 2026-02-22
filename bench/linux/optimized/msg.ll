@@ -945,15 +945,15 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
 
 90:                                               ; preds = %86
   %91 = load volatile i64, ptr %10, align 8
-  %.fr = freeze i64 %91
-  %92 = and i64 %.fr, 4
+  %.fr24 = freeze i64 %91
+  %92 = and i64 %.fr24, 4
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %94, label %.thread23
 
 .thread23:                                        ; preds = %90, %52, %55, %58, %73, %74, %77, %86
   %.ph = phi i32 [ -514, %86 ], [ -13, %52 ], [ -43, %55 ], [ -43, %77 ], [ -43, %74 ], [ -11, %73 ], [ %59, %58 ], [ -514, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit24
+  br label %.loopexit25
 
 94:                                               ; preds = %90, %66
   %95 = phi i32 [ %71, %66 ], [ 0, %90 ]
@@ -962,7 +962,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   switch i32 %96, label %.unreachabledefault [
     i32 0, label %52
     i32 3, label %97
-    i32 5, label %.loopexit24
+    i32 5, label %.loopexit25
   ], !llvm.loop !16
 
 97:                                               ; preds = %94
@@ -1112,7 +1112,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %178 = getelementptr inbounds nuw i8, ptr %123, i64 48
   store volatile ptr %26, ptr %178, align 8
-  br label %.loopexit24
+  br label %.loopexit25
 
 179:                                              ; preds = %152, %138, %135, %132, %129, %.preheader
   %180 = icmp eq ptr %124, %120
@@ -1137,18 +1137,18 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   call void @percpu_counter_add_batch(ptr noundef nonnull %189, i64 noundef %3, i32 noundef 2147483647) #11
   %190 = getelementptr inbounds nuw i8, ptr %14, i64 720
   call void @percpu_counter_add_batch(ptr noundef nonnull %190, i64 noundef 1, i32 noundef 2147483647) #11
-  br label %.loopexit24
+  br label %.loopexit25
 
-.loopexit24:                                      ; preds = %94, %.thread23, %.loopexit, %174
+.loopexit25:                                      ; preds = %94, %.thread23, %.loopexit, %174
   %191 = phi ptr [ null, %.loopexit ], [ null, %174 ], [ %26, %.thread23 ], [ %26, %94 ]
   %192 = phi i32 [ 0, %.loopexit ], [ 0, %174 ], [ %.ph, %.thread23 ], [ %95, %94 ]
   call void @_raw_spin_unlock(ptr noundef %34) #11
   call void @wake_up_q(ptr noundef nonnull %6) #11
   br label %193
 
-193:                                              ; preds = %.loopexit24, %36
-  %194 = phi ptr [ %26, %36 ], [ %191, %.loopexit24 ]
-  %195 = phi i32 [ %38, %36 ], [ %192, %.loopexit24 ]
+193:                                              ; preds = %.loopexit25, %36
+  %194 = phi ptr [ %26, %36 ], [ %191, %.loopexit25 ]
+  %195 = phi i32 [ %38, %36 ], [ %192, %.loopexit25 ]
   call void @__rcu_read_unlock() #11
   %196 = icmp eq ptr %194, null
   br i1 %196, label %198, label %197

@@ -4374,8 +4374,8 @@ declare void @_ZN14VNVisitorConst5visitEP16AstValuePlusArgs(ptr noundef nonnull 
 define linkonce_odr dso_local void @_ZN13CCtorsVisitor5visitEP6AstVar(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %4 = load i64, ptr %3, align 4
-  %.fr.i = freeze i64 %4
-  %5 = and i64 %.fr.i, 8858370048
+  %.fr11.i = freeze i64 %4
+  %5 = and i64 %.fr11.i, 8858370048
   %or.cond.i = icmp eq i64 %5, 0
   br i1 %or.cond.i, label %switch.early.test.i, label %_ZNK6AstVar11needsCResetEv.exit.thread
 

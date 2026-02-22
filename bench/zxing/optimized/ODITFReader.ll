@@ -1190,8 +1190,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing4GTIN17IsCheckDigitValidIcEEbRK
   %.01617.i = phi i32 [ 0, %.lr.ph.i ], [ %17, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1, !tbaa !26
-  %.fr31.i = freeze i8 %14
-  %15 = sext i8 %.fr31.i to i32
+  %.fr32.i = freeze i8 %14
+  %15 = sext i8 %.fr32.i to i32
   %16 = add i32 %.01617.i, -48
   %17 = add i32 %16, %15
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
@@ -1199,16 +1199,16 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing4GTIN17IsCheckDigitValidIcEEbRK
   br i1 %18, label %12, label %._crit_edge.i, !llvm.loop !64
 
 19:                                               ; preds = %19, %.lr.ph23.i
-  %indvars.iv28.i = phi i64 [ %11, %.lr.ph23.i ], [ %indvars.iv.next29.i, %19 ]
+  %indvars.iv29.i = phi i64 [ %11, %.lr.ph23.i ], [ %indvars.iv.next30.i, %19 ]
   %.1.fr21.i = phi i32 [ %10, %.lr.ph23.i ], [ %24, %19 ]
-  %indvars.iv.next29.i = add nsw i64 %indvars.iv28.i, -2
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.next29.i
+  %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, -2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.next30.i
   %21 = load i8, ptr %20, align 1, !tbaa !26
-  %.fr.i = freeze i8 %21
-  %22 = sext i8 %.fr.i to i32
+  %.fr26.i = freeze i8 %21
+  %22 = sext i8 %.fr26.i to i32
   %23 = add i32 %.1.fr21.i, -48
   %24 = add i32 %23, %22
-  %25 = icmp samesign ugt i64 %indvars.iv28.i, 3
+  %25 = icmp samesign ugt i64 %indvars.iv29.i, 3
   br i1 %25, label %19, label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !65
 
 _ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit: ; preds = %19, %1, %._crit_edge.i

@@ -67,8 +67,8 @@ define dso_local i32 @mei_irq_read_handler(ptr noundef %0, ptr noundef %1, ptr n
 
 ._crit_edge:                                      ; preds = %3
   %.pre = load i32, ptr %2, align 4
-  %.pre75 = lshr i32 %5, 16
-  %.pre76 = and i32 %.pre75, 511
+  %.pre76 = lshr i32 %5, 16
+  %.pre77 = and i32 %.pre76, 511
   br label %31
 
 7:                                                ; preds = %3
@@ -107,11 +107,11 @@ select.unfold:                                    ; preds = %21, %7
   br label %500
 
 31:                                               ; preds = %._crit_edge, %21
-  %.pre-phi77 = phi i32 [ %.pre76, %._crit_edge ], [ %28, %21 ]
+  %.pre-phi78 = phi i32 [ %.pre77, %._crit_edge ], [ %28, %21 ]
   %32 = phi i32 [ %5, %._crit_edge ], [ %16, %21 ]
   %33 = phi i32 [ %.pre, %._crit_edge ], [ %15, %21 ]
   %34 = shl i32 %33, 2
-  %35 = icmp ult i32 %34, %.pre-phi77
+  %35 = icmp ult i32 %34, %.pre-phi78
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %31
@@ -147,15 +147,15 @@ select.unfold:                                    ; preds = %21, %7
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 4
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 1197
-  %.pre70 = load i8, ptr %.phi.trans.insert, align 1
+  %.pre71 = load i8, ptr %.phi.trans.insert, align 1
   br label %58
 
 58:                                               ; preds = %47, %41
-  %59 = phi i8 [ %.pre70, %47 ], [ %46, %41 ]
+  %59 = phi i8 [ %.pre71, %47 ], [ %46, %41 ]
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 2
   %62 = add nuw nsw i32 %61, 4
-  %63 = icmp samesign ult i32 %.pre-phi77, %62
+  %63 = icmp samesign ult i32 %.pre-phi78, %62
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %58
@@ -167,7 +167,7 @@ select.unfold:                                    ; preds = %21, %7
   br label %500
 
 69:                                               ; preds = %58
-  %70 = sub nuw nsw i32 %.pre-phi77, %62
+  %70 = sub nuw nsw i32 %.pre-phi78, %62
   %71 = add nuw nsw i32 %60, 2
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   %73 = load i32, ptr %72, align 8
@@ -199,7 +199,7 @@ select.unfold:                                    ; preds = %21, %7
   br i1 %91, label %.loopexit43, label %78, !llvm.loop !8
 
 .loopexit43:                                      ; preds = %78, %69, %38
-  %92 = phi i32 [ %.pre-phi77, %38 ], [ %70, %69 ], [ %70, %78 ]
+  %92 = phi i32 [ %.pre-phi78, %38 ], [ %70, %69 ], [ %70, %78 ]
   %93 = phi i32 [ 1, %38 ], [ %71, %69 ], [ %71, %78 ]
   %94 = phi ptr [ null, %38 ], [ %42, %69 ], [ %42, %78 ]
   %95 = load i32, ptr %4, align 1
@@ -244,8 +244,8 @@ select.unfold:                                    ; preds = %21, %7
 
 122:                                              ; preds = %104, %.loopexit43
   %123 = phi i32 [ %121, %104 ], [ %95, %.loopexit43 ]
-  %.fr54 = freeze i32 %123
-  %124 = and i32 %.fr54, 65535
+  %.fr55 = freeze i32 %123
+  %124 = and i32 %.fr55, 65535
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %129
 
@@ -256,9 +256,9 @@ select.unfold:                                    ; preds = %21, %7
 
 129:                                              ; preds = %122
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %131 = lshr i32 %.fr54, 8
+  %131 = lshr i32 %.fr55, 8
   %132 = trunc i32 %131 to i8
-  %133 = trunc i32 %.fr54 to i8
+  %133 = trunc i32 %.fr55 to i8
   %134 = load ptr, ptr %130, align 8
   %135 = icmp eq ptr %134, %130
   br i1 %135, label %.critedge._crit_edge, label %.lr.ph
@@ -354,9 +354,9 @@ select.unfold:                                    ; preds = %21, %7
   %179 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 144
   %180 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   %181 = load ptr, ptr %180, align 8
-  %182 = lshr i32 %.fr54, 16
+  %182 = lshr i32 %.fr55, 16
   %183 = and i32 %182, 511
-  %184 = and i32 %.fr54, 268435456
+  %184 = and i32 %.fr55, 268435456
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %194, label %186
 
@@ -423,11 +423,11 @@ select.unfold:                                    ; preds = %21, %7
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store ptr %224, ptr %225, align 8
   store volatile ptr %220, ptr %224, align 8
-  %.pre71 = load i32, ptr %4, align 1
+  %.pre72 = load i32, ptr %4, align 1
   br label %226
 
 226:                                              ; preds = %222, %194
-  %227 = phi i32 [ %.fr54, %194 ], [ %.pre71, %222 ]
+  %227 = phi i32 [ %.fr55, %194 ], [ %.pre72, %222 ]
   %228 = phi ptr [ %198, %194 ], [ %220, %222 ]
   %229 = and i32 %227, 268435456
   %230 = icmp eq i32 %229, 0
@@ -512,13 +512,13 @@ select.unfold:                                    ; preds = %21, %7
   %279 = getelementptr inbounds nuw i8, ptr %228, i64 56
   %280 = load i8, ptr %279, align 8
   %281 = icmp eq i8 %280, 0
-  %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %260, i64 2
-  %.pre74 = load i8, ptr %.phi.trans.insert73, align 1
-  br i1 %281, label %._crit_edge72, label %282
+  %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %260, i64 2
+  %.pre75 = load i8, ptr %.phi.trans.insert74, align 1
+  br i1 %281, label %._crit_edge73, label %282
 
 282:                                              ; preds = %278
-  %283 = icmp eq i8 %280, %.pre74
-  br i1 %283, label %._crit_edge72, label %284
+  %283 = icmp eq i8 %280, %.pre75
+  br i1 %283, label %._crit_edge73, label %284
 
 284:                                              ; preds = %282
   %285 = load ptr, ptr %181, align 8
@@ -537,17 +537,17 @@ select.unfold:                                    ; preds = %21, %7
 294:                                              ; preds = %290, %284
   %295 = phi i32 [ %293, %290 ], [ 0, %284 ]
   %296 = zext i8 %280 to i32
-  %297 = zext i8 %.pre74 to i32
+  %297 = zext i8 %.pre75 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %285, ptr noundef nonnull @.str.11, i32 noundef %287, i32 noundef %295, i32 noundef %296, i32 noundef %297) #7
   store i32 -71, ptr %235, align 8
   br label %.thread37
 
-._crit_edge72:                                    ; preds = %278, %282
-  %298 = phi i8 [ %280, %282 ], [ %.pre74, %278 ]
+._crit_edge73:                                    ; preds = %278, %282
+  %298 = phi i8 [ %280, %282 ], [ %.pre75, %278 ]
   store i8 %298, ptr %279, align 8
   br label %299
 
-299:                                              ; preds = %._crit_edge72, %276
+299:                                              ; preds = %._crit_edge73, %276
   %300 = icmp eq ptr %259, null
   br i1 %300, label %.thread35, label %301
 
@@ -805,9 +805,9 @@ select.unfold:                                    ; preds = %21, %7
   br label %491
 
 .critedge._crit_edge:                             ; preds = %.critedge.backedge, %.critedge.backedge.us, %129
-  %458 = and i32 %.fr54, 65280
+  %458 = and i32 %.fr55, 65280
   %459 = icmp eq i32 %458, 0
-  %460 = and i32 %.fr54, 255
+  %460 = and i32 %.fr55, 255
   %461 = icmp ne i32 %460, 0
   %462 = and i1 %459, %461
   br i1 %462, label %467, label %463
@@ -819,10 +819,10 @@ select.unfold:                                    ; preds = %21, %7
   br i1 %466, label %467, label %489
 
 467:                                              ; preds = %463, %.critedge._crit_edge
-  %468 = lshr i32 %.fr54, 16
+  %468 = lshr i32 %.fr55, 16
   %469 = and i32 %468, 511
   %470 = zext nneg i32 %469 to i64
-  %471 = and i32 %.fr54, 536870912
+  %471 = and i32 %.fr55, 536870912
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %481, label %473
 
@@ -849,7 +849,7 @@ select.unfold:                                    ; preds = %21, %7
 
 489:                                              ; preds = %463
   %490 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %490, ptr noundef nonnull @.str.4, i32 noundef %.fr54) #7
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %490, ptr noundef nonnull @.str.4, i32 noundef %.fr55) #7
   br label %500
 
 491:                                              ; preds = %481, %450, %424, %417, %126

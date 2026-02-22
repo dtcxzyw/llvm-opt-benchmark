@@ -1594,15 +1594,15 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %indvars.iv.i51 = phi i64 [ %157, %.lr.ph.i50 ], [ %indvars.iv.next.i52, %451 ]
   %417 = getelementptr inbounds %class.OopMapValue, ptr %415, i64 %indvars.iv.i51
   %418 = load i16, ptr %417, align 2
-  %.fr.i = freeze i16 %418
-  %419 = lshr i16 %.fr.i, 2
+  %.fr30.i = freeze i16 %418
+  %419 = lshr i16 %.fr30.i, 2
   %420 = icmp eq i16 %419, %.sroa.30.2367
   br i1 %420, label %.preheader.i, label %451
 
 .preheader.i:                                     ; preds = %416
   %421 = getelementptr inbounds %class.OopMapValue, ptr %415, i64 %indvars.iv.i51
   %422 = trunc nsw i64 %indvars.iv.i51 to i32
-  %423 = and i16 %.fr.i, 3
+  %423 = and i16 %.fr30.i, 3
   %424 = getelementptr inbounds nuw i8, ptr %421, i64 2
   %.not.i = icmp eq i16 %423, 3
   %425 = lshr i32 %.sroa.0.0.insert.ext237, 2

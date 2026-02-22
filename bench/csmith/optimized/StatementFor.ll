@@ -586,7 +586,7 @@ select.unfold.i:                                  ; preds = %.noexc162, %.noexc1
   store i32 %.0.i, ptr %4, align 4, !tbaa !12
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-186:                                              ; preds = %thread-pre-split56.i, %242, %.thread.i174, %239, %237, %235, %219, %209, %205, %.noexc177, %196, %193, %191, %179, %.noexc170, %174, %172, %166, %164, %157, %.noexc164, %152, %150, %148, %.noexc160, %145, %.thread, %140
+186:                                              ; preds = %thread-pre-split54.i, %242, %.thread.i174, %239, %237, %235, %219, %209, %205, %.noexc177, %196, %193, %191, %179, %.noexc170, %174, %172, %166, %164, %157, %.noexc164, %152, %150, %148, %.noexc160, %145, %.thread, %140
   %187 = landingpad { ptr, i32 }
           cleanup
   br label %457
@@ -657,13 +657,13 @@ select.unfold.i:                                  ; preds = %.noexc162, %.noexc1
   %213 = sub i32 %199, %197
   %214 = srem i32 %213, %210
   %215 = sub i32 %199, %214
-  %.not47.i257 = icmp slt i32 %215, %197
-  %216 = select i1 %.not47.i257, i32 5, i32 4
+  %.not45.i257 = icmp slt i32 %215, %197
+  %216 = select i1 %.not45.i257, i32 5, i32 4
   br label %219
 
 217:                                              ; preds = %.noexc180
-  %.not47.i = icmp slt i32 %199, %197
-  %218 = select i1 %.not47.i, i32 5, i32 4
+  %.not45.i = icmp slt i32 %199, %197
+  %218 = select i1 %.not45.i, i32 5, i32 4
   %spec.select = call i32 @llvm.umax.i32(i32 %210, i32 1)
   br label %219
 
@@ -702,8 +702,8 @@ select.unfold.i:                                  ; preds = %.noexc162, %.noexc1
 232:                                              ; preds = %230
   %233 = icmp eq i32 %199, %197
   %234 = icmp eq i32 %200, 3
-  %or.cond50.i = and i1 %233, %234
-  br i1 %or.cond50.i, label %235, label %237
+  %or.cond48.i = and i1 %233, %234
+  br i1 %or.cond48.i, label %235, label %237
 
 235:                                              ; preds = %232, %230
   %236 = invoke noundef zeroext i1 @_Z17pure_rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 50, ptr noundef null, ptr noundef null)
@@ -721,43 +721,43 @@ select.unfold.i:                                  ; preds = %.noexc162, %.noexc1
           to label %.noexc184 unwind label %186
 
 .noexc184:                                        ; preds = %239
-  br i1 %240, label %thread-pre-split56.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+  br i1 %240, label %thread-pre-split54.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 .thread.i174:                                     ; preds = %.noexc183
   %241 = invoke noundef zeroext i1 @_ZN9CGOptions18post_incr_operatorEv()
           to label %.noexc185 unwind label %186
 
 .noexc185:                                        ; preds = %.thread.i174
-  br i1 %241, label %thread-pre-split56.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+  br i1 %241, label %thread-pre-split54.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 ._crit_edge.i:                                    ; preds = %235
-  br i1 %236, label %242, label %thread-pre-split56.i
+  br i1 %236, label %242, label %thread-pre-split54.i
 
 242:                                              ; preds = %._crit_edge.i
   %243 = invoke noundef zeroext i1 @_ZN9CGOptions17pre_decr_operatorEv()
           to label %.noexc186 unwind label %186
 
 .noexc186:                                        ; preds = %242
-  br i1 %243, label %thread-pre-split56.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+  br i1 %243, label %thread-pre-split54.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-thread-pre-split56.i.thread:                      ; preds = %.noexc186, %.noexc184, %.noexc185
+thread-pre-split54.i.thread:                      ; preds = %.noexc186, %.noexc184, %.noexc185
   %.2260263.ph = phi i32 [ 12, %.noexc186 ], [ 11, %.noexc184 ], [ 13, %.noexc185 ]
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-thread-pre-split56.i:                             ; preds = %._crit_edge.i
+thread-pre-split54.i:                             ; preds = %._crit_edge.i
   %244 = invoke noundef zeroext i1 @_ZN9CGOptions18post_decr_operatorEv()
           to label %.noexc187 unwind label %186
 
-.noexc187:                                        ; preds = %thread-pre-split56.i
+.noexc187:                                        ; preds = %thread-pre-split54.i
   %spec.select275 = select i1 %244, i32 14, i32 5
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %.noexc187, %226, %222, %.noexc181, %.noexc184, %.noexc185, %.noexc186, %thread-pre-split56.i.thread, %182
-  %.0251.ph = phi i32 [ %197, %226 ], [ %.1252, %182 ], [ %197, %222 ], [ %197, %.noexc181 ], [ %197, %.noexc184 ], [ %197, %.noexc185 ], [ %197, %.noexc186 ], [ %197, %thread-pre-split56.i.thread ], [ %197, %.noexc187 ]
-  %.0247.ph = phi i32 [ %228, %226 ], [ %.1248, %182 ], [ %.2249258, %222 ], [ %.2249258, %.noexc181 ], [ %199, %.noexc184 ], [ %199, %.noexc185 ], [ %199, %.noexc186 ], [ %199, %thread-pre-split56.i.thread ], [ %199, %.noexc187 ]
-  %.0243.ph = phi i32 [ %.2245, %226 ], [ %.1244, %182 ], [ %.2245, %222 ], [ %.2245, %.noexc181 ], [ 1, %.noexc184 ], [ 1, %.noexc185 ], [ 1, %.noexc186 ], [ 1, %thread-pre-split56.i.thread ], [ 1, %.noexc187 ]
-  %.0241.ph = phi i32 [ %203, %226 ], [ %.1242, %182 ], [ %203, %222 ], [ %203, %.noexc181 ], [ %203, %.noexc184 ], [ %203, %.noexc185 ], [ %203, %.noexc186 ], [ %203, %thread-pre-split56.i.thread ], [ %203, %.noexc187 ]
-  %.0239.ph = phi i32 [ %220, %226 ], [ %.1240, %182 ], [ %220, %222 ], [ %220, %.noexc181 ], [ 4, %.noexc184 ], [ 4, %.noexc185 ], [ 5, %.noexc186 ], [ %.2260263.ph, %thread-pre-split56.i.thread ], [ %spec.select275, %.noexc187 ]
+_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %.noexc187, %226, %222, %.noexc181, %.noexc184, %.noexc185, %.noexc186, %thread-pre-split54.i.thread, %182
+  %.0251.ph = phi i32 [ %197, %226 ], [ %.1252, %182 ], [ %197, %222 ], [ %197, %.noexc181 ], [ %197, %.noexc184 ], [ %197, %.noexc185 ], [ %197, %.noexc186 ], [ %197, %thread-pre-split54.i.thread ], [ %197, %.noexc187 ]
+  %.0247.ph = phi i32 [ %228, %226 ], [ %.1248, %182 ], [ %.2249258, %222 ], [ %.2249258, %.noexc181 ], [ %199, %.noexc184 ], [ %199, %.noexc185 ], [ %199, %.noexc186 ], [ %199, %thread-pre-split54.i.thread ], [ %199, %.noexc187 ]
+  %.0243.ph = phi i32 [ %.2245, %226 ], [ %.1244, %182 ], [ %.2245, %222 ], [ %.2245, %.noexc181 ], [ 1, %.noexc184 ], [ 1, %.noexc185 ], [ 1, %.noexc186 ], [ 1, %thread-pre-split54.i.thread ], [ 1, %.noexc187 ]
+  %.0241.ph = phi i32 [ %203, %226 ], [ %.1242, %182 ], [ %203, %222 ], [ %203, %.noexc181 ], [ %203, %.noexc184 ], [ %203, %.noexc185 ], [ %203, %.noexc186 ], [ %203, %thread-pre-split54.i.thread ], [ %203, %.noexc187 ]
+  %.0239.ph = phi i32 [ %220, %226 ], [ %.1240, %182 ], [ %220, %222 ], [ %220, %.noexc181 ], [ 4, %.noexc184 ], [ 4, %.noexc185 ], [ 5, %.noexc186 ], [ %.2260263.ph, %thread-pre-split54.i.thread ], [ %spec.select275, %.noexc187 ]
   %.pr268 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !12
   %.not119 = icmp eq i32 %.pr268, 0
   br i1 %.not119, label %245, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread

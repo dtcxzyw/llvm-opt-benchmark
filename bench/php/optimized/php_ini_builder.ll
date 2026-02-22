@@ -111,8 +111,8 @@ define dso_local void @php_ini_builder_define(ptr noundef captures(none) %0, ptr
   %10 = sext i8 %9 to i64
   %11 = getelementptr inbounds i16, ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !15
-  %.fr = freeze i16 %12
-  %13 = and i16 %.fr, 8
+  %.fr35 = freeze i16 %12
+  %13 = and i16 %.fr35, 8
   %.not29.not = icmp eq i16 %13, 0
   br i1 %.not29.not, label %switch.early.test, label %40
 

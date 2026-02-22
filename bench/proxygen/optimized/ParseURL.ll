@@ -1155,7 +1155,6 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK8proxygen8ParseURL13getQueryParamEN5folly5RangeIPKcEE(ptr noalias writeonly sret(%"class.folly::Optional") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %this, ptr %name.coerce0, ptr %name.coerce1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name.coerce0.fr = freeze ptr %name.coerce0
   %query_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %params.sroa.0.0.copyload = load ptr, ptr %query_, align 8
   %params.sroa.4.0.query_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -1164,13 +1163,13 @@ entry:
   br i1 %cmp.i23, label %while.end, label %invoke.cont2.lr.ph
 
 invoke.cont2.lr.ph:                               ; preds = %entry
-  %name.coerce1.fr = freeze ptr %name.coerce1
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %params.sroa.4.0.copyload to i64
-  %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %name.coerce1.fr to i64
-  %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %name.coerce0.fr to i64
+  %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %name.coerce1 to i64
+  %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %name.coerce0 to i64
   %sub.ptr.sub.i6.i.i = sub i64 %sub.ptr.lhs.cast.i4.i.i, %sub.ptr.rhs.cast.i5.i.i
-  %cmp.i8.i.i.i.i = icmp eq ptr %name.coerce1.fr, %name.coerce0.fr
-  br i1 %cmp.i8.i.i.i.i, label %invoke.cont2.us, label %invoke.cont2
+  %cmp.i8.i.i.i.i = icmp eq ptr %name.coerce1, %name.coerce0
+  %cmp.i8.i.i.i.i.fr = freeze i1 %cmp.i8.i.i.i.i
+  br i1 %cmp.i8.i.i.i.i.fr, label %invoke.cont2.us, label %invoke.cont2
 
 invoke.cont2.us:                                  ; preds = %invoke.cont2.lr.ph, %while.cond.backedge.us
   %params.sroa.0.024.us = phi ptr [ %spec.select.i.us, %while.cond.backedge.us ], [ %params.sroa.0.0.copyload, %invoke.cont2.lr.ph ]
@@ -1223,7 +1222,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph,
   br i1 %cmp.not.i.i, label %while.cond.backedge, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %invoke.cont2
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %params.sroa.0.024, ptr %name.coerce0.fr, i64 %sub.ptr.sub.i6.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %params.sroa.0.024, ptr %name.coerce0, i64 %sub.ptr.sub.i6.i.i)
   %cmp.i.i.i.i4 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i4, label %if.end, label %while.cond.backedge
 

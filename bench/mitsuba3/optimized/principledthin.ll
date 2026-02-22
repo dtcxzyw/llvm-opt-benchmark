@@ -3329,11 +3329,11 @@ define weak_odr noundef float @_ZNK7mitsuba14PrincipledThinIfN5drjit6MatrixINS_8
   %62 = fmul contract float %61, 5.000000e-01
   %.pre = load i8, ptr %52, align 1
   %.pre.fr = freeze i8 %.pre
-  %.pre264 = trunc i8 %.pre.fr to i1
+  %.pre265 = trunc i8 %.pre.fr to i1
   br label %63
 
 63:                                               ; preds = %55, %44
-  %.pre-phi = phi i1 [ %.pre264, %55 ], [ false, %44 ]
+  %.pre-phi = phi i1 [ %.pre265, %55 ], [ false, %44 ]
   %64 = phi contract float [ %62, %55 ], [ 0.000000e+00, %44 ]
   %65 = bitcast float %12 to i32
   %66 = and i32 %65, -2147483648
@@ -3390,9 +3390,9 @@ define weak_odr noundef float @_ZNK7mitsuba14PrincipledThinIfN5drjit6MatrixINS_8
   %112 = fmul contract <4 x float> %111, %111
   %shift = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %112, %shift
-  %shift268 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop269 = fadd contract <4 x float> %shift268, %foldExtExtBinop
-  %113 = extractelement <4 x float> %foldExtExtBinop269, i64 0
+  %shift269 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop270 = fadd contract <4 x float> %shift269, %foldExtExtBinop
+  %113 = extractelement <4 x float> %foldExtExtBinop270, i64 0
   %114 = tail call contract noundef float @llvm.sqrt.f32(float %113)
   %115 = fdiv contract float 1.000000e+00, %114
   %116 = insertelement <4 x float> poison, float %115, i64 0
@@ -3412,8 +3412,8 @@ define weak_odr noundef float @_ZNK7mitsuba14PrincipledThinIfN5drjit6MatrixINS_8
 
 _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit: ; preds = %108
   %127 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %73, <4 x float> %123, i8 113)
-  %.fr = freeze <4 x float> %127
-  %128 = extractelement <4 x float> %.fr, i64 0
+  %.fr262 = freeze <4 x float> %127
+  %128 = extractelement <4 x float> %.fr262, i64 0
   %129 = fcmp contract ogt float %128, 0.000000e+00
   %130 = bitcast i32 %107 to float
   %131 = fcmp contract oge float %130, 0.000000e+00
@@ -3423,8 +3423,8 @@ _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6Vector
   %135 = shufflevector <8 x i1> %134, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %.v.i.v = select <4 x i1> %135, <4 x float> %132, <4 x float> %118
   %136 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %73, <4 x float> %.v.i.v, i8 113)
-  %.fr262 = freeze <4 x float> %136
-  %137 = extractelement <4 x float> %.fr262, i64 0
+  %.fr263 = freeze <4 x float> %136
+  %137 = extractelement <4 x float> %.fr263, i64 0
   %138 = fcmp contract ogt float %137, 0.000000e+00
   %139 = select i1 %129, i1 %75, i1 false
   %140 = select i1 %138, i1 %76, i1 false

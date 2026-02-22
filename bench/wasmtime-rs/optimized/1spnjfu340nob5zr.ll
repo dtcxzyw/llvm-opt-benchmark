@@ -2757,9 +2757,9 @@ _ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i: ; pr
   %95 = getelementptr inbounds nuw i32, ptr %94, i64 %27
   %96 = load i32, ptr %95, align 4, !alias.scope !219, !noundef !4
   %97 = tail call { i64, ptr } @_ZN16wasmtime_runtime8instance8Instance12get_func_ref17h1cd4e14481572800E(ptr noundef nonnull align 16 %3, i32 noundef %96)
-  %.fr.i = freeze { i64, ptr } %97
-  %98 = extractvalue { i64, ptr } %.fr.i, 0
-  %99 = extractvalue { i64, ptr } %.fr.i, 1
+  %.fr28.i = freeze { i64, ptr } %97
+  %98 = extractvalue { i64, ptr } %.fr28.i, 0
+  %99 = extractvalue { i64, ptr } %.fr28.i, 1
   %100 = icmp eq i64 %98, 0
   br i1 %100, label %.thread.i, label %101
 
@@ -2978,9 +2978,9 @@ _ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i: ; pr
   %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 4, !alias.scope !261, !noundef !4
   %101 = tail call { i64, ptr } @_ZN16wasmtime_runtime8instance8Instance12get_func_ref17h1cd4e14481572800E(ptr noundef nonnull align 16 %3, i32 noundef %100)
-  %.fr.i = freeze { i64, ptr } %101
-  %102 = extractvalue { i64, ptr } %.fr.i, 0
-  %103 = extractvalue { i64, ptr } %.fr.i, 1
+  %.fr30.i = freeze { i64, ptr } %101
+  %102 = extractvalue { i64, ptr } %.fr30.i, 0
+  %103 = extractvalue { i64, ptr } %.fr30.i, 1
   %104 = icmp eq i64 %102, 0
   br i1 %104, label %.thread.i, label %105
 

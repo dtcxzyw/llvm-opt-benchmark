@@ -2216,7 +2216,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %115, label %116, label %.preheader, !llvm.loop !47
 
 116:                                              ; preds = %111
-  %117 = icmp samesign ugt i32 %108, 1
+  %117 = icmp ugt i32 %108, 1
   br i1 %117, label %.thread, label %118
 
 .thread:                                          ; preds = %.preheader, %116

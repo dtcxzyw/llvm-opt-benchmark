@@ -502,14 +502,12 @@ select.unfold78:                                  ; preds = %14
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %38 = load ptr, ptr %37, align 8, !tbaa !54
   %39 = tail call { double, double } %38(double %33, double %36, ptr noundef %30)
-  %.fr = freeze { double, double } %39
-  %40 = extractvalue { double, double } %.fr, 0
-  %41 = extractvalue { double, double } %.fr, 1
+  %40 = extractvalue { double, double } %39, 0
+  %41 = extractvalue { double, double } %39, 1
   %42 = load ptr, ptr %29, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 440
   %44 = load double, ptr %43, align 8, !tbaa !45
-  %.fr100 = freeze double %44
-  %45 = fadd double %40, %.fr100
+  %45 = fadd double %40, %44
   switch i32 %.066, label %default.unreachable94 [
     i32 1, label %.critedge
     i32 2, label %46
@@ -524,40 +522,45 @@ select.unfold78:                                  ; preds = %14
   %48 = fcmp ole double %45, 0x3FF0C1523834529D
   %or.cond5 = and i1 %47, %48
   %49 = fcmp oge double %41, -1.000000e-10
-  %spec.select73 = and i1 %or.cond5, %49
-  br i1 %spec.select73, label %69, label %70
+  %spec.select73 = select i1 %or.cond5, i1 %49, i1 false
+  %.0.fr99 = freeze i1 %spec.select73
+  br i1 %.0.fr99, label %69, label %70
 
 50:                                               ; preds = %26
   %51 = fcmp oge double %45, 0x3FF0C1523826942D
   %52 = fcmp ole double %45, 0x400921FB54479CB4
   %or.cond8 = and i1 %51, %52
   %53 = fcmp oge double %41, -1.000000e-10
-  %spec.select74 = and i1 %or.cond8, %53
-  br i1 %spec.select74, label %69, label %70
+  %spec.select74 = select i1 %or.cond8, i1 %53, i1 false
+  %.0.fr98 = freeze i1 %spec.select74
+  br i1 %.0.fr98, label %69, label %70
 
 54:                                               ; preds = %26
   %55 = fcmp oge double %45, 0xC00921FB54479CB4
   %56 = fcmp ole double %45, 0xBFF0C1523826942D
   %or.cond11 = and i1 %55, %56
   %57 = fcmp ole double %41, 1.000000e-10
-  %spec.select75 = and i1 %or.cond11, %57
-  br i1 %spec.select75, label %69, label %70
+  %spec.select75 = select i1 %or.cond11, i1 %57, i1 false
+  %.0.fr97 = freeze i1 %spec.select75
+  br i1 %.0.fr97, label %69, label %70
 
 58:                                               ; preds = %26
   %59 = fcmp oge double %45, 0xBFF0C1523834529D
   %60 = fcmp ole double %45, 0x3FF921FB544B0C50
   %or.cond14 = and i1 %59, %60
   %61 = fcmp ole double %41, 1.000000e-10
-  %spec.select76 = and i1 %or.cond14, %61
-  br i1 %spec.select76, label %69, label %70
+  %spec.select76 = select i1 %or.cond14, i1 %61, i1 false
+  %.0.fr96 = freeze i1 %spec.select76
+  br i1 %.0.fr96, label %69, label %70
 
 62:                                               ; preds = %26
   %63 = fcmp oge double %45, 0x3FF921FB543D4DE0
   %64 = fcmp ole double %45, 0x400921FB54479CB4
   %or.cond17 = and i1 %63, %64
   %65 = fcmp ole double %41, 1.000000e-10
-  %spec.select77 = and i1 %or.cond17, %65
-  br i1 %spec.select77, label %69, label %70
+  %spec.select77 = select i1 %or.cond17, i1 %65, i1 false
+  %.0.fr95 = freeze i1 %spec.select77
+  br i1 %.0.fr95, label %69, label %70
 
 default.unreachable94:                            ; preds = %26
   unreachable
@@ -567,8 +570,9 @@ default.unreachable94:                            ; preds = %26
   %67 = fcmp ole double %45, 0xBFF921FB543D4DE0
   %or.cond = and i1 %66, %67
   %68 = fcmp oge double %41, -1.000000e-10
-  %spec.select = and i1 %or.cond, %68
-  br i1 %spec.select, label %69, label %70
+  %spec.select = select i1 %or.cond, i1 %68, i1 false
+  %.0.fr = freeze i1 %spec.select
+  br i1 %.0.fr, label %69, label %70
 
 69:                                               ; preds = %46, %50, %54, %58, %62, %.critedge
   br label %70

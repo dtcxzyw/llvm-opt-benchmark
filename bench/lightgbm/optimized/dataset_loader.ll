@@ -33614,15 +33614,14 @@ define internal void @"_ZNSt17_Function_handlerIFvimmEZNK8LightGBM13DatasetLoade
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !817
   %19 = load ptr, ptr %18, align 8, !tbaa !228
-  %.fr29.i.i.i = freeze ptr %19
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !228
-  %.fr30.i.i.i = freeze ptr %21
-  %22 = icmp eq ptr %.fr29.i.i.i, %.fr30.i.i.i
+  %22 = icmp eq ptr %19, %21
   %23 = load ptr, ptr %.val, align 8, !tbaa !818
   %24 = load ptr, ptr %23, align 8, !tbaa !394
   %storemerge.i.i.i.i.i.promoted.i.i.i = load i64, ptr %storemerge.i.i.i.i.i.i.i.i, align 8, !tbaa !85
-  br i1 %22, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.preheader.i.i.i
+  %.fr.i.i.i = freeze i1 %22
+  br i1 %.fr.i.i.i, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.preheader.i.i.i
 
 .lr.ph.split.preheader.i.i.i:                     ; preds = %.lr.ph.i.i.i
   %25 = and i64 %storemerge.i.i.i.i.i.promoted.i.i.i, %16
@@ -33655,13 +33654,13 @@ define internal void @"_ZNSt17_Function_handlerIFvimmEZNK8LightGBM13DatasetLoade
 
 40:                                               ; preds = %37, %33, %29
   %41 = add i64 %.021.us.i.i.i, 1
-  %exitcond39.not.i.i.i = icmp eq i64 %41, %.val6
-  br i1 %exitcond39.not.i.i.i, label %.loopexit.sink.split.i.i.i, label %29, !llvm.loop !819
+  %exitcond37.not.i.i.i = icmp eq i64 %41, %.val6
+  br i1 %exitcond37.not.i.i.i, label %.loopexit.sink.split.i.i.i, label %29, !llvm.loop !819
 
 .lr.ph.split.i.i.i:                               ; preds = %55, %.lr.ph.split.preheader.i.i.i
   %42 = phi i64 [ %25, %55 ], [ %storemerge.i.i.i.i.i.promoted.i.i.i, %.lr.ph.split.preheader.i.i.i ]
   %.021.i.i.i = phi i64 [ %56, %55 ], [ %.val5, %.lr.ph.split.preheader.i.i.i ]
-  %43 = getelementptr inbounds nuw i32, ptr %.fr29.i.i.i, i64 %.021.i.i.i
+  %43 = getelementptr inbounds nuw i32, ptr %19, i64 %.021.i.i.i
   %44 = load i32, ptr %43, align 4, !tbaa !111
   %45 = getelementptr inbounds nuw %"class.std::unique_ptr.195", ptr %24, i64 %.021.i.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !407

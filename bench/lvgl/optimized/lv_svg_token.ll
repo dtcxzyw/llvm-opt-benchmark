@@ -400,8 +400,8 @@ define internal fastcc noundef zeroext i1 @_svg_parser_tag(ptr noundef nonnull c
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %5, align 8, !tbaa !16
   %8 = load ptr, ptr %6, align 8, !tbaa !17
-  %.not172 = icmp ugt ptr %7, %8
-  br i1 %.not172, label %.loopexit, label %.lr.ph
+  %.not173 = icmp ugt ptr %7, %8
+  br i1 %.not173, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -417,7 +417,7 @@ define internal fastcc noundef zeroext i1 @_svg_parser_tag(ptr noundef nonnull c
   %17 = phi ptr [ %7, %.lr.ph ], [ %49, %.backedge ]
   %18 = load i32, ptr %0, align 8, !tbaa !14
   %19 = and i32 %18, 7
-  switch i32 %19, label %default.unreachable180 [
+  switch i32 %19, label %default.unreachable181 [
     i32 0, label %20
     i32 1, label %28
     i32 2, label %51
@@ -448,11 +448,11 @@ _lv_svg_token_process.exit:                       ; preds = %22
   br i1 %25, label %_lv_svg_token_process.exit._lv_svg_token_process.exit.thread_crit_edge, label %.loopexit
 
 _lv_svg_token_process.exit._lv_svg_token_process.exit.thread_crit_edge: ; preds = %_lv_svg_token_process.exit
-  %.pre175 = load ptr, ptr %5, align 8, !tbaa !16
+  %.pre176 = load ptr, ptr %5, align 8, !tbaa !16
   br label %_lv_svg_token_process.exit.thread
 
 _lv_svg_token_process.exit.thread:                ; preds = %_lv_svg_token_process.exit._lv_svg_token_process.exit.thread_crit_edge, %20, %22
-  %26 = phi ptr [ %.pre175, %_lv_svg_token_process.exit._lv_svg_token_process.exit.thread_crit_edge ], [ %17, %20 ], [ %17, %22 ]
+  %26 = phi ptr [ %.pre176, %_lv_svg_token_process.exit._lv_svg_token_process.exit.thread_crit_edge ], [ %17, %20 ], [ %17, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %27, ptr %5, align 8, !tbaa !16
   br label %.loopexit
@@ -521,8 +521,8 @@ _lv_svg_token_process.exit.thread:                ; preds = %_lv_svg_token_proce
   %55 = sext i8 %52 to i64
   %56 = getelementptr inbounds i16, ptr %54, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !23
-  %.fr169 = freeze i16 %57
-  %58 = and i16 %.fr169, 8192
+  %.fr170 = freeze i16 %57
+  %58 = and i16 %.fr170, 8192
   %59 = icmp eq i16 %58, 0
   br i1 %59, label %switch.early.test, label %.thread
 
@@ -577,11 +577,11 @@ _new_svg_attr.exit:                               ; preds = %69, %74
   %80 = tail call ptr @lv_array_at(ptr noundef nonnull %10, i32 noundef %78) #6
   tail call void @lv_memset(ptr noundef %80, i8 noundef zeroext 0, i64 noundef 32) #6
   store ptr %80, ptr %9, align 8, !tbaa !13
-  %.pre174 = load ptr, ptr %5, align 8, !tbaa !16
+  %.pre175 = load ptr, ptr %5, align 8, !tbaa !16
   br label %81
 
 81:                                               ; preds = %_new_svg_attr.exit, %67
-  %82 = phi ptr [ %.pre174, %_new_svg_attr.exit ], [ %17, %67 ]
+  %82 = phi ptr [ %.pre175, %_new_svg_attr.exit ], [ %17, %67 ]
   %83 = phi ptr [ %80, %_new_svg_attr.exit ], [ %68, %67 ]
   %84 = load i8, ptr %82, align 1, !tbaa !18
   %85 = tail call ptr @__ctype_b_loc() #7
@@ -589,10 +589,10 @@ _new_svg_attr.exit:                               ; preds = %69, %74
   %87 = sext i8 %84 to i64
   %88 = getelementptr inbounds i16, ptr %86, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !23
-  %.fr167 = freeze i16 %89
-  %90 = and i16 %.fr167, 8192
-  %.not168 = icmp eq i16 %90, 0
-  br i1 %.not168, label %switch.early.test150, label %91
+  %.fr168 = freeze i16 %89
+  %90 = and i16 %.fr168, 8192
+  %.not169 = icmp eq i16 %90, 0
+  br i1 %.not169, label %switch.early.test150, label %91
 
 switch.early.test150:                             ; preds = %81
   switch i8 %84, label %96 [
@@ -631,8 +631,8 @@ switch.early.test150:                             ; preds = %81
   %105 = sext i8 %102 to i64
   %106 = getelementptr inbounds i16, ptr %104, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !23
-  %.fr166 = freeze i16 %107
-  %108 = and i16 %.fr166, 8192
+  %.fr167 = freeze i16 %107
+  %108 = and i16 %.fr167, 8192
   %109 = icmp eq i16 %108, 0
   br i1 %109, label %switch.early.test151, label %.thread
 
@@ -672,9 +672,9 @@ switch.early.test151:                             ; preds = %101
   br label %123
 
 123:                                              ; preds = %121, %122
-  %.sink183 = phi i32 [ 16, %122 ], [ 8, %121 ]
+  %.sink184 = phi i32 [ 16, %122 ], [ 8, %121 ]
   %124 = and i32 %18, -25
-  %125 = or disjoint i32 %124, %.sink183
+  %125 = or disjoint i32 %124, %.sink184
   br label %.thread.sink.split
 
 126:                                              ; preds = %121
@@ -698,11 +698,11 @@ switch.early.test151:                             ; preds = %101
   %134 = icmp eq i8 %129, 34
   %135 = icmp eq i32 %131, 16
   %or.cond164 = and i1 %135, %134
-  %.pre173 = load ptr, ptr %9, align 8, !tbaa !13
+  %.pre174 = load ptr, ptr %9, align 8, !tbaa !13
   br i1 %or.cond164, label %136, label %145
 
 136:                                              ; preds = %._crit_edge, %133
-  %137 = phi ptr [ %.pre, %._crit_edge ], [ %.pre173, %133 ]
+  %137 = phi ptr [ %.pre, %._crit_edge ], [ %.pre174, %133 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !33
   %.not143 = icmp eq ptr %139, null
@@ -721,7 +721,7 @@ switch.early.test151:                             ; preds = %101
   br label %.backedge, !llvm.loop !27
 
 145:                                              ; preds = %133
-  %146 = getelementptr inbounds nuw i8, ptr %.pre173, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.pre174, i64 16
   %147 = load ptr, ptr %146, align 8, !tbaa !33
   %.not142 = icmp eq ptr %147, null
   br i1 %.not142, label %148, label %149
@@ -742,10 +742,10 @@ switch.early.test151:                             ; preds = %101
   %155 = sext i8 %152 to i64
   %156 = getelementptr inbounds i16, ptr %154, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !23
-  %.fr = freeze i16 %157
-  %158 = and i16 %.fr, 8192
-  %.not165 = icmp eq i16 %158, 0
-  br i1 %.not165, label %switch.early.test155, label %159
+  %.fr165 = freeze i16 %157
+  %158 = and i16 %.fr165, 8192
+  %.not166 = icmp eq i16 %158, 0
+  br i1 %.not166, label %switch.early.test155, label %159
 
 switch.early.test155:                             ; preds = %151
   switch i8 %152, label %168 [
@@ -788,14 +788,14 @@ switch.early.test155:                             ; preds = %151
   store ptr %174, ptr %5, align 8, !tbaa !16
   br label %.backedge, !llvm.loop !27
 
-default.unreachable180:                           ; preds = %16
+default.unreachable181:                           ; preds = %16
   unreachable
 
 .thread.sink.split:                               ; preds = %switch.early.test151, %123
   %.sink = phi i32 [ %125, %123 ], [ %18, %switch.early.test151 ]
-  %.sink185 = phi i32 [ 6, %123 ], [ 5, %switch.early.test151 ]
+  %.sink186 = phi i32 [ 6, %123 ], [ 5, %switch.early.test151 ]
   %175 = and i32 %.sink, -8
-  %176 = or disjoint i32 %175, %.sink185
+  %176 = or disjoint i32 %175, %.sink186
   store i32 %176, ptr %0, align 8, !tbaa !14
   br label %.thread
 

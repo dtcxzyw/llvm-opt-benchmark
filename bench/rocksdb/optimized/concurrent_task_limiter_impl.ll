@@ -131,12 +131,12 @@ define noundef i32 @_ZNK7rocksdb25ConcurrentTaskLimiterImpl18GetOutstandingTaskE
 define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl8GetTokenEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load atomic i32, ptr %4 monotonic, align 8
-  %.fr = freeze i32 %5
+  %.fr14 = freeze i32 %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = load atomic i32, ptr %6 monotonic, align 4
-  %8 = icmp slt i32 %.fr, 0
+  %8 = icmp slt i32 %.fr14, 0
   %or.cond = or i1 %2, %8
-  %9 = icmp slt i32 %7, %.fr
+  %9 = icmp slt i32 %7, %.fr14
   %or.cond512 = select i1 %or.cond, i1 true, i1 %9
   br i1 %or.cond512, label %.lr.ph, label %.loopexit
 
@@ -166,7 +166,7 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us: ;
 
 _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; preds = %.lr.ph.split
   %21 = extractvalue { i32, i1 } %19, 0
-  %22 = icmp slt i32 %21, %.fr
+  %22 = icmp slt i32 %21, %.fr14
   br i1 %22, label %.lr.ph.split, label %.loopexit, !llvm.loop !21
 
 .split.us:                                        ; preds = %.lr.ph.split, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us, %.lr.ph.split.us

@@ -4203,8 +4203,8 @@ define dso_local range(i32 -1, 1) i32 @php_register_url_stream_wrapper(ptr nound
   %11 = sext i8 %10 to i64
   %12 = getelementptr inbounds i16, ptr %7, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !139
-  %.fr.i = freeze i16 %13
-  %14 = and i16 %.fr.i, 8
+  %.fr18.i = freeze i16 %13
+  %14 = and i16 %.fr18.i, 8
   %.not.not.i = icmp eq i16 %14, 0
   br i1 %.not.not.i, label %switch.early.test.i, label %15
 
@@ -4286,8 +4286,8 @@ define dso_local range(i32 -1, 1) i32 @php_register_url_stream_wrapper_volatile(
   %13 = sext i8 %12 to i64
   %14 = getelementptr inbounds i16, ptr %9, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !139
-  %.fr.i = freeze i16 %15
-  %16 = and i16 %.fr.i, 8
+  %.fr18.i = freeze i16 %15
+  %16 = and i16 %.fr18.i, 8
   %.not.not.i = icmp eq i16 %16, 0
   br i1 %.not.not.i, label %switch.early.test.i, label %17
 
@@ -4395,8 +4395,8 @@ define dso_local noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr 
   %17 = sext i8 %16 to i64
   %18 = getelementptr inbounds i16, ptr %11, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !139
-  %.fr = freeze i16 %19
-  %20 = and i16 %.fr, 8
+  %.fr163 = freeze i16 %19
+  %20 = and i16 %.fr163, 8
   %.not99.not = icmp eq i16 %20, 0
   br i1 %.not99.not, label %switch.early.test, label %.critedge
 
@@ -4421,8 +4421,8 @@ switch.early.test:                                ; preds = %15
 sub_0:                                            ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %.090, i64 1
   %27 = load i8, ptr %26, align 1
-  %.not164 = icmp eq i8 %27, 47
-  br i1 %.not164, label %.tail, label %.tail.thread
+  %.not165 = icmp eq i8 %27, 47
+  br i1 %.not165, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %28 = getelementptr inbounds nuw i8, ptr %.090, i64 2

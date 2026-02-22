@@ -2276,7 +2276,6 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h5b66e5b0ced0b5f1E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef range(i64 0, 2) %2, i64 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [16 x i8], align 8
-  %.fr = freeze i64 %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !8
   %8 = icmp sgt i64 %7, -1
@@ -2286,11 +2285,11 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h5b66e5b0ced0b5f1E(
   br i1 %trunc, label %10, label %22
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %.fr, -1025
+  %11 = icmp ugt i64 %3, -1025
   br i1 %11, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread", label %12, !prof !35
 
 12:                                               ; preds = %10
-  %13 = add nuw i64 %.fr, 1024
+  %13 = add nuw i64 %3, 1024
   %14 = and i64 %13, 8191
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread84", label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit"
@@ -2298,7 +2297,8 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h5b66e5b0ced0b5f1E(
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit": ; preds = %12
   %16 = sub nuw nsw i64 8192, %14
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %16)
-  %18 = extractvalue { i64, i1 } %17, 1
+  %.fr = freeze { i64, i1 } %17
+  %18 = extractvalue { i64, i1 } %.fr, 1
   %19 = add nuw i64 %16, %13
   br i1 %18, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread", label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread84"
 
@@ -2307,7 +2307,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h5b66e5b0ced0b5f1E(
 
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread84": ; preds = %12, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit", %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread"
   %20 = phi i64 [ 8192, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread" ], [ %19, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit" ], [ %13, %12 ]
-  %21 = icmp eq i64 %.fr, 0
+  %21 = icmp eq i64 %3, 0
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %4, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h621a3a53aeaa6485E.exit.thread84"
@@ -2434,7 +2434,7 @@ _ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread.thread: ; preds = %_ZN3
   %77 = load i64, ptr %6, align 8, !noundef !8
   %78 = icmp sgt i64 %77, -1
   call void @llvm.assume(i1 %78)
-  br label %.loopexit124
+  br label %.loopexit125
 
 79:                                               ; preds = %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit
   %80 = ptrtoint ptr %75 to i64
@@ -2500,9 +2500,9 @@ _ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread: ; preds = %._crit_edge
   %105 = add i64 %103, %73
   store i64 %105, ptr %6, align 8
   %106 = icmp eq ptr %.lcssa, null
-  br i1 %106, label %.loopexit124, label %109
+  br i1 %106, label %.loopexit125, label %109
 
-.loopexit124:                                     ; preds = %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread, %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread.thread
+.loopexit125:                                     ; preds = %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread, %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread.thread
   %107 = phi i64 [ %77, %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread.thread ], [ %105, %_ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread ]
   %108 = sub nsw i64 %107, %7
   br label %.loopexit
@@ -2529,9 +2529,9 @@ _ZN3std2io4Read8read_buf17hc1ad0eed3701beefE.exit.thread: ; preds = %._crit_edge
   %115 = ptrtoint ptr %50 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %84, %88, %82, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763599.exit, %.loopexit.split.loop.exit99, %.loopexit124, %28, %54, %34
-  %.sroa.8.1 = phi i64 [ 0, %34 ], [ %32, %28 ], [ %56, %54 ], [ %108, %.loopexit124 ], [ %80, %84 ], [ %115, %.loopexit.split.loop.exit99 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763599.exit ], [ %80, %82 ], [ %80, %88 ], [ 163208757251, %57 ]
-  %.sroa.0.1 = phi i64 [ 0, %34 ], [ %30, %28 ], [ 0, %54 ], [ 0, %.loopexit124 ], [ 1, %84 ], [ 1, %.loopexit.split.loop.exit99 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763599.exit ], [ 1, %82 ], [ 1, %88 ], [ 1, %57 ]
+.loopexit:                                        ; preds = %57, %84, %88, %82, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763599.exit, %.loopexit.split.loop.exit99, %.loopexit125, %28, %54, %34
+  %.sroa.8.1 = phi i64 [ 0, %34 ], [ %32, %28 ], [ %56, %54 ], [ %108, %.loopexit125 ], [ %80, %84 ], [ %115, %.loopexit.split.loop.exit99 ], [ %80, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763599.exit ], [ %80, %82 ], [ %80, %88 ], [ 163208757251, %57 ]
+  %.sroa.0.1 = phi i64 [ 0, %34 ], [ %30, %28 ], [ 0, %54 ], [ 0, %.loopexit125 ], [ 1, %84 ], [ 1, %.loopexit.split.loop.exit99 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8827233394682763599.exit ], [ 1, %82 ], [ 1, %88 ], [ 1, %57 ]
   %116 = inttoptr i64 %.sroa.8.1 to ptr
   %117 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %118 = insertvalue { i64, ptr } %117, ptr %116, 1

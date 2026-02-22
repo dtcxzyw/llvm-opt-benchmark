@@ -8034,11 +8034,11 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.val50 = load ptr, ptr %36, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i32, ptr %.val50, i64 %indvars.iv146
   %43 = load i32, ptr %42, align 4, !tbaa !31
-  %.fr109 = freeze i32 %43
+  %.fr = freeze i32 %43
   %.val49 = load ptr, ptr %37, align 8, !tbaa !30
   %44 = getelementptr inbounds nuw i32, ptr %.val49, i64 %indvars.iv146
   %45 = load i32, ptr %44, align 4, !tbaa !31
-  %46 = ashr i32 %.fr109, 1
+  %46 = ashr i32 %.fr, 1
   %.val51 = load ptr, ptr %38, align 8, !tbaa !76
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %.val51, i64 %47
@@ -8053,7 +8053,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %52, label %.critedge2.lr.ph, label %._crit_edge
 
 .critedge2.lr.ph:                                 ; preds = %.preheader
-  %53 = and i32 %.fr109, 1
+  %53 = and i32 %.fr, 1
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.critedge2.us, label %.critedge2
 
@@ -8191,7 +8191,7 @@ Gia_ManDivCover.exit.thread68:                    ; preds = %.preheader91.i.i, %
   %.04483.in = phi i64 [ %indvars.iv143, %83 ], [ %indvars.iv, %93 ], [ %indvars.iv, %103 ], [ %indvars.iv143, %.preheader.i.i.us ], [ %indvars.iv143, %72 ], [ %indvars.iv143, %.preheader85.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
   %.04483 = trunc i64 %.04483.in to i32
   %112 = shl i32 %.04483, 17
-  %113 = shl i32 %.fr109, 1
+  %113 = shl i32 %.fr, 1
   %.masked = and i32 %113, -65538
   %114 = or i32 %112, %.masked
   %115 = xor i32 %114, 65539
@@ -8315,17 +8315,17 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.val54 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i32, ptr %.val54, i64 %indvars.iv152
   %38 = load i32, ptr %37, align 4, !tbaa !31
-  %.fr113 = freeze i32 %38
+  %.fr = freeze i32 %38
   %.val53 = load ptr, ptr %36, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv152
   %40 = load i32, ptr %39, align 4, !tbaa !31
-  %41 = and i32 %.fr113, 1
+  %41 = and i32 %.fr, 1
   %42 = shl nsw i32 %40, 1
   %43 = icmp slt i32 %42, %.0.lcssa.i
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %.critedge
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %.fr113, ptr noundef %2, i32 noundef %3, ptr noundef %6)
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %.fr, ptr noundef %2, i32 noundef %3, ptr noundef %6)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %.val91 = load i32, ptr %33, align 4, !tbaa !28
   %45 = sext i32 %.val91 to i64
@@ -13380,8 +13380,8 @@ Vec_WrdFreeP.exit:                                ; preds = %Abc_Clock.exit, %25
   %29 = icmp slt i32 %.val135.val, 7
   %30 = add nsw i32 %.val135.val, -6
   %31 = shl nuw i32 1, %30
-  %.fr44.i = freeze i32 %31
-  %32 = select i1 %29, i32 1, i32 %.fr44.i
+  %.fr.i = freeze i32 %31
+  %32 = select i1 %29, i32 1, i32 %.fr.i
   %33 = select i1 %29, i32 0, i32 %30
   %34 = shl i32 %.val135.val, %33
   %35 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33

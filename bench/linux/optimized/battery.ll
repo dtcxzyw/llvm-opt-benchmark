@@ -1562,8 +1562,8 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = load i32, ptr %11, align 8
-  %.fr = freeze i32 %12
-  %13 = add i32 %.fr, 1
+  %.fr14 = freeze i32 %12
+  %13 = add i32 %.fr14, 1
   %14 = icmp ult i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %16 = load i32, ptr %15, align 8
@@ -1621,7 +1621,7 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   store volatile ptr %41, ptr @acpi_battery_list, align 8
   %45 = load ptr, ptr @battery_hook_list, align 8
   %46 = icmp eq ptr %45, @battery_hook_list
-  br i1 %46, label %.loopexit14, label %.preheader
+  br i1 %46, label %.loopexit15, label %.preheader
 
 .preheader:                                       ; preds = %40, %80
   %47 = phi ptr [ %49, %80 ], [ %45, %40 ]
@@ -1679,17 +1679,17 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
 
 80:                                               ; preds = %.loopexit, %.preheader
   %81 = icmp eq ptr %49, @battery_hook_list
-  br i1 %81, label %.loopexit14, label %.preheader, !llvm.loop !20
+  br i1 %81, label %.loopexit15, label %.preheader, !llvm.loop !20
 
-.loopexit14:                                      ; preds = %80, %40
+.loopexit15:                                      ; preds = %80, %40
   call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #11
   %82 = load ptr, ptr %35, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %84 = call i32 @device_create_file(ptr noundef nonnull %83, ptr noundef nonnull @alarm_attr) #11
   br label %85
 
-85:                                               ; preds = %.loopexit14, %37
-  %86 = phi i32 [ %39, %37 ], [ %84, %.loopexit14 ]
+85:                                               ; preds = %.loopexit15, %37
+  %86 = phi i32 [ %39, %37 ], [ %84, %.loopexit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %86
 }

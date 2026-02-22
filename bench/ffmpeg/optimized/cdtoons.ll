@@ -623,9 +623,8 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
   %12 = add nsw i32 %5, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8, !tbaa !57
-  %.fr162 = freeze i32 %14
-  %15 = icmp sgt i32 %12, %.fr162
-  %16 = sub i32 %.fr162, %3
+  %15 = icmp sgt i32 %12, %14
+  %16 = sub nsw i32 %14, %3
   %spec.select = select i1 %15, i32 %16, i32 %5
   %17 = add nsw i32 %6, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -644,15 +643,15 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 25:                                               ; preds = %23, %7
   %.090 = phi i32 [ 0, %7 ], [ %24, %23 ]
   %.077 = phi i32 [ %3, %7 ], [ 0, %23 ]
-  %.090.fr = freeze i32 %.090
   %.not112150 = icmp sgt i32 %.091, 0
   br i1 %.not112150, label %.lr.ph154, label %.thread138
 
 .lr.ph154:                                        ; preds = %25
   %26 = ptrtoint ptr %11 to i64
   %27 = zext nneg i32 %.077 to i64
-  %28 = sub i32 %spec.select, %.090.fr
-  %29 = icmp sgt i32 %28, 0
+  %28 = sub nsw i32 %spec.select, %.090
+  %.fr162 = freeze i32 %28
+  %29 = icmp sgt i32 %.fr162, 0
   br i1 %29, label %.lr.ph154.split.us, label %.lr.ph154.split
 
 .lr.ph154.split.us:                               ; preds = %.lr.ph154, %..loopexit_crit_edge.us
@@ -693,7 +692,7 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 
 54:                                               ; preds = %.lr.ph.us, %103
   %.085148.us = phi i32 [ 0, %.lr.ph.us ], [ %.186.us, %103 ]
-  %.087147.us = phi i32 [ %.090.fr, %.lr.ph.us ], [ %.188.us, %103 ]
+  %.087147.us = phi i32 [ %.090, %.lr.ph.us ], [ %.188.us, %103 ]
   %.0123146.us = phi ptr [ %34, %.lr.ph.us ], [ %.1.us, %103 ]
   %.not106.us = icmp ult ptr %.0123146.us, %11
   br i1 %.not106.us, label %55, label %.thread138
@@ -718,8 +717,8 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 
 .thread131.us:                                    ; preds = %62
   %64 = add nsw i32 %63, %.085148.us
-  %.not110134.us = icmp slt i32 %64, %28
-  %65 = sub nsw i32 %28, %.085148.us
+  %.not110134.us = icmp slt i32 %64, %.fr162
+  %65 = sub nsw i32 %.fr162, %.085148.us
   %spec.select113135.us = select i1 %.not110134.us, i32 %63, i32 %65
   br label %77
 
@@ -733,15 +732,15 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 .thread.us:                                       ; preds = %66
   %71 = getelementptr inbounds i8, ptr %56, i64 %69
   %72 = add nsw i32 %63, %.085148.us
-  %.not110126.us = icmp slt i32 %72, %28
-  %73 = sub nsw i32 %28, %.085148.us
+  %.not110126.us = icmp slt i32 %72, %.fr162
+  %73 = sub nsw i32 %.fr162, %.085148.us
   %spec.select113127.us = select i1 %.not110126.us, i32 %63, i32 %73
   br label %84
 
 74:                                               ; preds = %61
   %75 = add nsw i32 %60, %.085148.us
-  %.not110.us = icmp slt i32 %75, %28
-  %76 = sub nsw i32 %28, %.085148.us
+  %.not110.us = icmp slt i32 %75, %.fr162
+  %76 = sub nsw i32 %.fr162, %.085148.us
   %spec.select113.us = select i1 %.not110.us, i32 %60, i32 %76
   br i1 %.not107.us, label %84, label %77
 
@@ -798,7 +797,7 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
   %.1.us = phi ptr [ %.3.us, %93 ], [ %102, %100 ]
   %.188.us = phi i32 [ 0, %93 ], [ %101, %100 ]
   %.186.us = phi i32 [ %94, %93 ], [ %.085148.us, %100 ]
-  %104 = icmp slt i32 %.186.us, %28
+  %104 = icmp slt i32 %.186.us, %.fr162
   br i1 %104, label %54, label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %103, %41

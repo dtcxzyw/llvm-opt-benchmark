@@ -12804,12 +12804,12 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hb3a523cd
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i", %108, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i"
   %131 = phi i32 [ %129, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i" ], [ %109, %108 ], [ %118, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i" ], [ %106, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i" ]
-  %.fr = freeze i32 %131
-  %132 = add i32 %.fr, -65
+  %132 = add nsw i32 %131, -65
   %.0.i.i.i = icmp ult i32 %132, 26
-  %133 = xor i32 %.fr, 32
-  %.07.i.i.i = select i1 %.0.i.i.i, i32 %133, i32 %.fr
-  %134 = icmp eq i32 %.07.i.i.i, 1114112
+  %133 = xor i32 %131, 32
+  %.07.i.i.i = select i1 %.0.i.i.i, i32 %133, i32 %131
+  %.07.i.i.i.fr = freeze i32 %.07.i.i.i
+  %134 = icmp eq i32 %.07.i.i.i.fr, 1114112
   br i1 %134, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread", label %.loopexit
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread": ; preds = %92, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"

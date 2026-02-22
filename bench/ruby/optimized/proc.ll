@@ -495,8 +495,8 @@ define internal fastcc i64 @proc_new(i64 noundef %0, i8 noundef signext range(i8
 
 RB_SYMBOL_P.exit.i:                               ; preds = %16
   %19 = load i64, ptr %18, align 8, !tbaa !42
-  %.fr.i = freeze i64 %19
-  %20 = and i64 %.fr.i, 31
+  %.fr11.i = freeze i64 %19
+  %20 = and i64 %.fr11.i, 31
   %21 = icmp eq i64 %20, 20
   br i1 %21, label %vm_block_handler_type.exit, label %._crit_edge
 
@@ -932,8 +932,8 @@ define hidden range(i32 0, 2) i32 @rb_block_pair_yield_optimizable() local_unnam
 
 RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   %19 = load i64, ptr %18, align 8, !tbaa !42
-  %.fr.i.i = freeze i64 %19
-  %20 = and i64 %.fr.i.i, 31
+  %.fr11.i.i = freeze i64 %19
+  %20 = and i64 %.fr11.i.i, 31
   %21 = icmp eq i64 %20, 20
   br i1 %21, label %block_setup.exit.thread19, label %._crit_edge
 
@@ -1040,8 +1040,8 @@ define hidden i32 @rb_block_arity() local_unnamed_addr #0 {
 
 RB_SYMBOL_P.exit.i.i:                             ; preds = %17
   %20 = load i64, ptr %19, align 8, !tbaa !42
-  %.fr.i.i = freeze i64 %20
-  %21 = and i64 %.fr.i.i, 31
+  %.fr11.i.i = freeze i64 %20
+  %21 = and i64 %.fr11.i.i, 31
   %22 = icmp eq i64 %21, 20
   br i1 %22, label %block_setup.exit.thread10, label %._crit_edge
 
@@ -1135,8 +1135,8 @@ define hidden i32 @rb_block_min_max_arity(ptr noundef writeonly captures(none) %
 RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   %18 = inttoptr i64 %7 to ptr
   %19 = load i64, ptr %18, align 8, !tbaa !42
-  %.fr.i.i = freeze i64 %19
-  %20 = and i64 %.fr.i.i, 31
+  %.fr11.i.i = freeze i64 %19
+  %20 = and i64 %.fr11.i.i, 31
   %21 = icmp eq i64 %20, 20
   br i1 %21, label %vm_block_handler_type.exit.i, label %31
 
@@ -4227,8 +4227,8 @@ define internal i64 @f_lambda(i64 %0) #0 {
 
 RB_SYMBOL_P.exit.i.i:                             ; preds = %13
   %16 = load i64, ptr %15, align 8, !tbaa !42
-  %.fr.i.i = freeze i64 %16
-  %17 = and i64 %.fr.i.i, 31
+  %.fr11.i.i = freeze i64 %16
+  %17 = and i64 %.fr11.i.i, 31
   %18 = icmp eq i64 %17, 20
   br i1 %18, label %f_lambda_filter_non_literal.exit, label %._crit_edge.i
 
@@ -5313,14 +5313,13 @@ RARRAY_AREF.exit246.thread:                       ; preds = %RARRAY_AREF.exit243
   %221 = getelementptr i8, ptr %.0.i.i248, i64 8
   %222 = load i64, ptr %221, align 8, !tbaa !36
   %223 = tail call i64 @rb_id2sym(i64 noundef 38) #21
-  %.fr = freeze i64 %222
-  %.fr341 = freeze i64 %223
-  %224 = icmp ne i64 %.fr, %.fr341
-  %spec.select = select i1 %224, ptr @.str.119, ptr @.str.118
+  %224 = icmp ne i64 %222, %223
+  %cond.fr = freeze i1 %224
+  %spec.select = select i1 %cond.fr, ptr @.str.119, ptr @.str.118
   br label %.thread
 
 .thread:                                          ; preds = %RARRAY_AREF.exit246.thread, %RARRAY_AREF.exit237.thread, %RARRAY_AREF.exit228.thread, %rb_array_len.exit.thread, %RARRAY_AREF.exit228, %RARRAY_AREF.exit231, %RARRAY_AREF.exit237, %RARRAY_AREF.exit240, %RARRAY_AREF.exit246, %rb_array_len.exit, %220
-  %.not166330 = phi i1 [ %224, %220 ], [ true, %rb_array_len.exit ], [ true, %RARRAY_AREF.exit246 ], [ true, %RARRAY_AREF.exit240 ], [ true, %RARRAY_AREF.exit237 ], [ true, %RARRAY_AREF.exit231 ], [ true, %RARRAY_AREF.exit228 ], [ true, %rb_array_len.exit.thread ], [ true, %RARRAY_AREF.exit228.thread ], [ true, %RARRAY_AREF.exit237.thread ], [ true, %RARRAY_AREF.exit246.thread ]
+  %.not166330 = phi i1 [ %cond.fr, %220 ], [ true, %rb_array_len.exit ], [ true, %RARRAY_AREF.exit246 ], [ true, %RARRAY_AREF.exit240 ], [ true, %RARRAY_AREF.exit237 ], [ true, %RARRAY_AREF.exit231 ], [ true, %RARRAY_AREF.exit228 ], [ true, %rb_array_len.exit.thread ], [ true, %RARRAY_AREF.exit228.thread ], [ true, %RARRAY_AREF.exit237.thread ], [ true, %RARRAY_AREF.exit246.thread ]
   %225 = phi ptr [ %spec.select, %220 ], [ @.str.119, %rb_array_len.exit ], [ @.str.119, %RARRAY_AREF.exit246 ], [ @.str.119, %RARRAY_AREF.exit240 ], [ @.str.119, %RARRAY_AREF.exit237 ], [ @.str.119, %RARRAY_AREF.exit231 ], [ @.str.119, %RARRAY_AREF.exit228 ], [ @.str.119, %rb_array_len.exit.thread ], [ @.str.119, %RARRAY_AREF.exit228.thread ], [ @.str.119, %RARRAY_AREF.exit237.thread ], [ @.str.119, %RARRAY_AREF.exit246.thread ]
   %226 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %227 = getelementptr inbounds nuw i8, ptr %149, i64 32

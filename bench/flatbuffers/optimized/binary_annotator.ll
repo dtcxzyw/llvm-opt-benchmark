@@ -37118,10 +37118,10 @@ _ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276: ; preds = %_ZNSt7__cxx1112bas
   br label %740
 
 740:                                              ; preds = %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit
-  %.sink1425 = phi i64 [ %111, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276 ], [ %521, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit ]
+  %.sink1427 = phi i64 [ %111, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276 ], [ %521, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit ]
   %741 = load ptr, ptr %510, align 8, !tbaa !645
   %742 = load i64, ptr %741, align 8, !tbaa !36
-  %743 = add i64 %742, %.sink1425
+  %743 = add i64 %742, %.sink1427
   store i64 %743, ptr %741, align 8, !tbaa !36
   %744 = load ptr, ptr %141, align 8, !tbaa !72
   %745 = icmp eq ptr %744, %142
@@ -37740,8 +37740,8 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i356: ; preds = %_ZNK10
   %1019 = zext i16 %1017 to i64
   %1020 = getelementptr inbounds nuw i8, ptr %1009, i64 %1019
   %1021 = load i8, ptr %1020, align 1, !tbaa !60
-  %.fr1069 = freeze i8 %1021
-  %1022 = sext i8 %.fr1069 to i32
+  %.fr1071 = freeze i8 %1021
+  %1022 = sext i8 %.fr1071 to i32
   %1023 = add nsw i32 %1022, -1
   %1024 = icmp ult i32 %1023, 12
   br label %_ZNK10reflection4Type7elementEv.exit
@@ -37828,18 +37828,18 @@ _ZNK10reflection4Type7elementEv.exit369:          ; preds = %_ZNK11flatbuffers5T
   %1068 = zext i16 %1067 to i64
   %1069 = getelementptr inbounds nuw i8, ptr %1059, i64 %1068
   %1070 = load i8, ptr %1069, align 1, !tbaa !60
-  %switch.tableidx1439 = add i8 %1070, -1
-  %1071 = icmp ult i8 %switch.tableidx1439, 12
-  br i1 %1071, label %switch.lookup1440, label %_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371
+  %switch.tableidx1441 = add i8 %1070, -1
+  %1071 = icmp ult i8 %switch.tableidx1441, 12
+  br i1 %1071, label %switch.lookup1442, label %_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371
 
-switch.lookup1440:                                ; preds = %_ZNK10reflection4Type7elementEv.exit369
-  %1072 = zext nneg i8 %switch.tableidx1439 to i64
-  %switch.gep1441 = getelementptr inbounds nuw i32, ptr @"switch.table._ZZN11flatbuffers15BinaryAnnotator11BuildStructEmRSt6vectorINS_12BinaryRegionESaIS2_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN10reflection6ObjectEENK3$_0clEPKNSC_5FieldE.26", i64 %1072
-  %switch.load1442 = load i32, ptr %switch.gep1441, align 4
+switch.lookup1442:                                ; preds = %_ZNK10reflection4Type7elementEv.exit369
+  %1072 = zext nneg i8 %switch.tableidx1441 to i64
+  %switch.gep1443 = getelementptr inbounds nuw i32, ptr @"switch.table._ZZN11flatbuffers15BinaryAnnotator11BuildStructEmRSt6vectorINS_12BinaryRegionESaIS2_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN10reflection6ObjectEENK3$_0clEPKNSC_5FieldE.26", i64 %1072
+  %switch.load1444 = load i32, ptr %switch.gep1443, align 4
   br label %_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371
 
-_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367, %_ZNK10reflection5Field4typeEv.exit366, %_ZNK10reflection4Type7elementEv.exit369, %switch.lookup1440
-  %.0.i370 = phi i32 [ %switch.load1442, %switch.lookup1440 ], [ 0, %_ZNK10reflection4Type7elementEv.exit369 ], [ 0, %_ZNK10reflection5Field4typeEv.exit366 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367 ]
+_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367, %_ZNK10reflection5Field4typeEv.exit366, %_ZNK10reflection4Type7elementEv.exit369, %switch.lookup1442
+  %.0.i370 = phi i32 [ %switch.load1444, %switch.lookup1442 ], [ 0, %_ZNK10reflection4Type7elementEv.exit369 ], [ 0, %_ZNK10reflection5Field4typeEv.exit366 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367 ]
   %1073 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1074 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1075 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -39169,10 +39169,10 @@ _ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us: ; preds = %_ZNSt7__cxx1112
   br label %1631
 
 1631:                                             ; preds = %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit546.us
-  %.sink1428 = phi i64 [ %1050, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us ], [ %1521, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit546.us ]
+  %.sink1430 = phi i64 [ %1050, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us ], [ %1521, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit546.us ]
   %1632 = load ptr, ptr %1073, align 8, !tbaa !645
   %1633 = load i64, ptr %1632, align 8, !tbaa !36
-  %1634 = add i64 %1633, %.sink1428
+  %1634 = add i64 %1633, %.sink1430
   store i64 %1634, ptr %1632, align 8, !tbaa !36
   %1635 = load ptr, ptr %1089, align 8, !tbaa !72
   %1636 = icmp eq ptr %1635, %1090

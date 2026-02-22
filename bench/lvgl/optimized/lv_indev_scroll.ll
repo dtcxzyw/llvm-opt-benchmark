@@ -1317,7 +1317,7 @@ define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_y(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @lv_obj_get_scroll_snap_y(ptr noundef %0) #6
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %60, label %7
+  br i1 %6, label %61, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 16) #6
@@ -1339,22 +1339,22 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %wide.trip.count = zext i32 %12 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %57 ]
+18:                                               ; preds = %.lr.ph, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
+  %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %58 ]
   %19 = load ptr, ptr %13, align 8, !tbaa !54
   %20 = load ptr, ptr %19, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %22, i32 noundef 262145) #6
-  br i1 %23, label %57, label %24
+  br i1 %23, label %58, label %24
 
 24:                                               ; preds = %18
   %25 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %22, i32 noundef 4096) #6
-  br i1 %25, label %26, label %57
+  br i1 %25, label %26, label %58
 
 26:                                               ; preds = %24
-  switch i32 %5, label %57 [
+  switch i32 %5, label %58 [
     i32 1, label %27
     i32 2, label %32
     i32 3, label %37
@@ -1392,38 +1392,37 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 50:                                               ; preds = %37, %32, %27
   %.045 = phi i32 [ %29, %27 ], [ %34, %32 ], [ %43, %37 ]
   %.044 = phi i32 [ %31, %27 ], [ %36, %32 ], [ %49, %37 ]
-  %.045.fr = freeze i32 %.045
-  %51 = add i32 %.045.fr, %3
+  %51 = add nsw i32 %.045, %3
   %.not = icmp slt i32 %51, %1
   %.not51 = icmp sgt i32 %51, %2
   %or.cond = or i1 %.not, %.not51
-  br i1 %or.cond, label %57, label %52
+  br i1 %or.cond, label %58, label %52
 
 52:                                               ; preds = %50
-  %.044.fr = freeze i32 %.044
-  %53 = sub i32 %51, %.044.fr
-  %54 = tail call i32 @llvm.abs.i32(i32 %53, i1 false)
-  %55 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 false)
-  %56 = icmp ult i32 %54, %55
+  %53 = sub nsw i32 %51, %.044
+  %54 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
+  %55 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 true)
+  %56 = icmp samesign ult i32 %54, %55
   %spec.select = select i1 %56, i32 %53, i32 %.04754
-  br label %57
+  %57 = freeze i32 %spec.select
+  br label %58
 
-57:                                               ; preds = %26, %52, %50, %24, %18
-  %.1 = phi i32 [ %.04754, %24 ], [ %.04754, %18 ], [ %.04754, %26 ], [ %spec.select, %52 ], [ %.04754, %50 ]
+58:                                               ; preds = %26, %52, %50, %24, %18
+  %.1 = phi i32 [ %.04754, %24 ], [ %.04754, %18 ], [ %.04754, %26 ], [ %57, %52 ], [ %.04754, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %57
-  %58 = icmp eq i32 %.1, 536870911
-  %59 = sub nsw i32 0, %.1
-  br i1 %58, label %._crit_edge.thread, label %60
+._crit_edge:                                      ; preds = %58
+  %59 = icmp eq i32 %.1, 536870911
+  %60 = sub nsw i32 0, %.1
+  br i1 %59, label %._crit_edge.thread, label %61
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
-  br label %60
+  br label %61
 
-60:                                               ; preds = %._crit_edge.thread, %._crit_edge, %4
-  %.0 = phi i32 [ 536870911, %4 ], [ 536870911, %._crit_edge.thread ], [ %59, %._crit_edge ]
+61:                                               ; preds = %._crit_edge.thread, %._crit_edge, %4
+  %.0 = phi i32 [ 536870911, %4 ], [ 536870911, %._crit_edge.thread ], [ %60, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1433,7 +1432,7 @@ declare void @lv_obj_scroll_by(ptr noundef, i32 noundef, i32 noundef, i1 noundef
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_x(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @lv_obj_get_scroll_snap_x(ptr noundef %0) #6
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %58, label %7
+  br i1 %6, label %59, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #6
@@ -1454,22 +1453,22 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %wide.trip.count = zext i32 %12 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph, %55
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %55 ]
+17:                                               ; preds = %.lr.ph, %56
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
+  %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %56 ]
   %18 = load ptr, ptr %13, align 8, !tbaa !54
   %19 = load ptr, ptr %18, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !58
   %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #6
-  br i1 %22, label %55, label %23
+  br i1 %22, label %56, label %23
 
 23:                                               ; preds = %17
   %24 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %21, i32 noundef 4096) #6
-  br i1 %24, label %25, label %55
+  br i1 %24, label %25, label %56
 
 25:                                               ; preds = %23
-  switch i32 %5, label %55 [
+  switch i32 %5, label %56 [
     i32 1, label %26
     i32 2, label %31
     i32 3, label %36
@@ -1506,38 +1505,37 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 48:                                               ; preds = %36, %31, %26
   %.045 = phi i32 [ %28, %26 ], [ %33, %31 ], [ %41, %36 ]
   %.044 = phi i32 [ %30, %26 ], [ %35, %31 ], [ %47, %36 ]
-  %.045.fr = freeze i32 %.045
-  %49 = add i32 %.045.fr, %3
+  %49 = add nsw i32 %.045, %3
   %.not = icmp slt i32 %49, %1
   %.not51 = icmp sgt i32 %49, %2
   %or.cond = or i1 %.not, %.not51
-  br i1 %or.cond, label %55, label %50
+  br i1 %or.cond, label %56, label %50
 
 50:                                               ; preds = %48
-  %.044.fr = freeze i32 %.044
-  %51 = sub i32 %49, %.044.fr
-  %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 false)
-  %53 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 false)
-  %54 = icmp ult i32 %52, %53
+  %51 = sub nsw i32 %49, %.044
+  %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
+  %53 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 true)
+  %54 = icmp samesign ult i32 %52, %53
   %spec.select = select i1 %54, i32 %51, i32 %.04754
-  br label %55
+  %55 = freeze i32 %spec.select
+  br label %56
 
-55:                                               ; preds = %25, %50, %48, %23, %17
-  %.1 = phi i32 [ %.04754, %23 ], [ %.04754, %17 ], [ %.04754, %25 ], [ %spec.select, %50 ], [ %.04754, %48 ]
+56:                                               ; preds = %25, %50, %48, %23, %17
+  %.1 = phi i32 [ %.04754, %23 ], [ %.04754, %17 ], [ %.04754, %25 ], [ %55, %50 ], [ %.04754, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %55
-  %56 = icmp eq i32 %.1, 536870911
-  %57 = sub nsw i32 0, %.1
-  br i1 %56, label %._crit_edge.thread, label %58
+._crit_edge:                                      ; preds = %56
+  %57 = icmp eq i32 %.1, 536870911
+  %58 = sub nsw i32 0, %.1
+  br i1 %57, label %._crit_edge.thread, label %59
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
-  br label %58
+  br label %59
 
-58:                                               ; preds = %._crit_edge.thread, %._crit_edge, %4
-  %.0 = phi i32 [ 536870911, %4 ], [ 536870911, %._crit_edge.thread ], [ %57, %._crit_edge ]
+59:                                               ; preds = %._crit_edge.thread, %._crit_edge, %4
+  %.0 = phi i32 [ 536870911, %4 ], [ 536870911, %._crit_edge.thread ], [ %58, %._crit_edge ]
   ret i32 %.0
 }
 

@@ -333,11 +333,10 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %137
   %141 = load i64, ptr %140, align 8, !tbaa !36
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %143 = load i32, ptr %142, align 8, !tbaa !47
-  %.fr365 = freeze i32 %143
-  %144 = sext i32 %.fr365 to i64
-  %.fr = freeze i64 %141
-  %145 = mul i64 %.fr, %144
-  %146 = icmp eq i64 %145, 0
+  %144 = sext i32 %143 to i64
+  %145 = mul i64 %141, %144
+  %.fr = freeze i64 %145
+  %146 = icmp eq i64 %.fr, 0
   br i1 %146, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %_ZN4ncnn3MataSERKS0_.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %137, %_ZNK4ncnn3Mat5emptyEv.exit
@@ -898,11 +897,11 @@ _ZN4ncnn3MatD2Ev.exit292:                         ; preds = %339, %337, %345, %3
   %451 = shl i64 %449, %450
   %452 = add i32 %149, -3
   %or.cond8 = icmp ult i32 %452, 2
-  %.pre366 = load i32, ptr %158, align 8, !tbaa !47
+  %.pre365 = load i32, ptr %158, align 8, !tbaa !47
   br i1 %or.cond8, label %453, label %507
 
 453:                                              ; preds = %439
-  %454 = mul nsw i32 %.pre366, %17
+  %454 = mul nsw i32 %.pre365, %17
   %455 = icmp eq i32 %454, %.2223
   %456 = icmp eq i32 %17, %.0220
   %or.cond286 = select i1 %455, i1 %456, i1 false
@@ -992,11 +991,11 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %479, %478, %464, %4
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %501 = load i64, ptr %500, align 8, !tbaa !36
   store i64 %501, ptr %487, align 8, !tbaa !36
-  %.pre367 = load i32, ptr %134, align 4, !tbaa !46
+  %.pre366 = load i32, ptr %134, align 4, !tbaa !46
   br label %.thread362
 
 .thread362:                                       ; preds = %_ZN4ncnn3Mat7releaseEv.exit, %457
-  %502 = phi i32 [ %.pre367, %_ZN4ncnn3Mat7releaseEv.exit ], [ %355, %457 ]
+  %502 = phi i32 [ %.pre366, %_ZN4ncnn3Mat7releaseEv.exit ], [ %355, %457 ]
   %503 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %502, ptr %503, align 8, !tbaa !40
   %504 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -1036,7 +1035,7 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %479, %478, %464, %4
   %524 = load i32, ptr %156, align 4, !tbaa !51
   store i32 %524, ptr %523, align 4, !tbaa !51
   %525 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i32 %.pre366, ptr %525, align 8, !tbaa !47
+  store i32 %.pre365, ptr %525, align 8, !tbaa !47
   %526 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %527 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %528 = load i64, ptr %527, align 8, !tbaa !36

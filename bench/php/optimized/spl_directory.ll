@@ -682,8 +682,8 @@ define hidden void @zim_DirectoryIterator_next(ptr noundef readonly captures(non
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds i8, ptr %4, i64 -4176
   %6 = load i64, ptr %5, align 8, !tbaa !38
-  %.fr = freeze i64 %6
-  %7 = and i64 %.fr, 4096
+  %.fr16 = freeze i64 %6
+  %7 = and i64 %.fr16, 4096
   %.not = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !18
@@ -751,12 +751,12 @@ spl_filesystem_is_dot.exit.us:                    ; preds = %14
 
 36:                                               ; preds = %23, %27, %34, %35
   store ptr null, ptr %20, align 8, !tbaa !41
-  %.pre16 = load ptr, ptr %11, align 8, !tbaa !18
-  %.not10.i.us = icmp eq ptr %.pre16, null
+  %.pre17 = load ptr, ptr %11, align 8, !tbaa !18
+  %.not10.i.us = icmp eq ptr %.pre17, null
   br i1 %.not10.i.us, label %.critedge.sink.split, label %.thread
 
 .thread:                                          ; preds = %spl_filesystem_is_dot.exit.us, %36
-  %37 = phi ptr [ %.pre16, %36 ], [ %12, %spl_filesystem_is_dot.exit.us ]
+  %37 = phi ptr [ %.pre17, %36 ], [ %12, %spl_filesystem_is_dot.exit.us ]
   %38 = tail call ptr @_php_stream_readdir(ptr noundef nonnull %37, ptr noundef nonnull %18) #18
   %.not11.i.us = icmp eq ptr %38, null
   br i1 %.not11.i.us, label %.critedge.sink.split, label %.critedge
@@ -4382,8 +4382,8 @@ define hidden void @zim_FilesystemIterator_rewind(ptr noundef readonly captures(
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds i8, ptr %4, i64 -4176
   %6 = load i64, ptr %5, align 8, !tbaa !38
-  %.fr = freeze i64 %6
-  %7 = and i64 %.fr, 4096
+  %.fr12 = freeze i64 %6
+  %7 = and i64 %.fr12, 4096
   %.not = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !18
@@ -8909,8 +8909,8 @@ zend_string_copy.exit:                            ; preds = %40, %44
 
 spl_filesystem_is_dot.exit.preheader.lr.ph:       ; preds = %48
   %54 = load i64, ptr %21, align 8, !tbaa !38
-  %.fr = freeze i64 %54
-  %55 = and i64 %.fr, 4096
+  %.fr50 = freeze i64 %54
+  %55 = and i64 %.fr50, 4096
   %.not = icmp eq i64 %55, 0
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 122
@@ -9489,8 +9489,8 @@ declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_a
 define internal fastcc void @spl_filesystem_dir_open(ptr noundef initializes((16, 24), (40, 44), (72, 80), (88, 92)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !38
-  %.fr = freeze i64 %4
-  %5 = and i64 %.fr, 4096
+  %.fr21 = freeze i64 %4
+  %5 = and i64 %.fr21, 4096
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %6, align 8, !tbaa !4
@@ -9599,12 +9599,12 @@ spl_filesystem_is_dot.exit.us:                    ; preds = %spl_filesystem_is_d
 
 58:                                               ; preds = %45, %49, %56, %57
   store ptr null, ptr %42, align 8, !tbaa !41
-  %.pre22 = load ptr, ptr %10, align 8, !tbaa !18
-  %.not10.i.us = icmp eq ptr %.pre22, null
+  %.pre23 = load ptr, ptr %10, align 8, !tbaa !18
+  %.not10.i.us = icmp eq ptr %.pre23, null
   br i1 %.not10.i.us, label %61, label %.thread
 
 .thread:                                          ; preds = %spl_filesystem_is_dot.exit.us, %58
-  %59 = phi ptr [ %.pre22, %58 ], [ %38, %spl_filesystem_is_dot.exit.us ]
+  %59 = phi ptr [ %.pre23, %58 ], [ %38, %spl_filesystem_is_dot.exit.us ]
   %60 = tail call ptr @_php_stream_readdir(ptr noundef nonnull %59, ptr noundef nonnull %40) #18
   %.not11.i.us = icmp eq ptr %60, null
   br i1 %.not11.i.us, label %61, label %.critedge
@@ -10356,8 +10356,8 @@ define internal void @spl_filesystem_tree_it_move_forward(ptr noundef %0) #0 {
   %.val = load ptr, ptr %2, align 8, !tbaa !131
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !38
-  %.fr = freeze i64 %4
-  %5 = and i64 %.fr, 4096
+  %.fr14 = freeze i64 %4
+  %5 = and i64 %.fr14, 4096
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %7 = load i32, ptr %6, align 8, !tbaa !18
@@ -10550,8 +10550,8 @@ define internal void @spl_filesystem_tree_it_rewind(ptr noundef %0) #0 {
   %.val = load ptr, ptr %2, align 8, !tbaa !131
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !38
-  %.fr = freeze i64 %4
-  %5 = and i64 %.fr, 4096
+  %.fr12 = freeze i64 %4
+  %5 = and i64 %.fr12, 4096
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 88

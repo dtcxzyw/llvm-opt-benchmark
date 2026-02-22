@@ -18243,9 +18243,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit: ; preds = %9
 
 .lr.ph.i:                                         ; preds = %24
   %26 = load i64, ptr %2, align 8, !tbaa !112
-  %.fr27.i = freeze i64 %26
-  %27 = lshr i64 %.fr27.i, 1
-  %28 = trunc i64 %.fr27.i to i1
+  %.fr.i = freeze i64 %26
+  %27 = lshr i64 %.fr.i, 1
+  %28 = trunc i64 %.fr.i to i1
   br i1 %28, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -18305,7 +18305,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i
-  %50 = phi i64 [ %.pre, %47 ], [ %.fr27.i, %._crit_edge.i ]
+  %50 = phi i64 [ %.pre, %47 ], [ %.fr.i, %._crit_edge.i ]
   %.020.lcssa34.i = phi ptr [ %.020.lcssa35.i, %47 ], [ %.020.lcssa.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %48, %47 ], [ %.020.lcssa.i, %._crit_edge.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
@@ -18332,15 +18332,15 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit5.i: ; preds = %49
 63:                                               ; preds = %3
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load i64, ptr %2, align 8, !tbaa !112
-  %.fr27.i46 = freeze i64 %65
-  %66 = lshr i64 %.fr27.i46, 1
+  %.fr.i46 = freeze i64 %65
+  %66 = lshr i64 %.fr.i46, 1
   %67 = load i64, ptr %64, align 8, !tbaa !112
   %68 = lshr i64 %67, 1
   %69 = icmp eq i64 %66, %68
   br i1 %69, label %70, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit10
 
 70:                                               ; preds = %63
-  %71 = trunc i64 %.fr27.i46 to i1
+  %71 = trunc i64 %.fr.i46 to i1
   %72 = trunc i64 %67 to i1
   %73 = xor i1 %71, true
   %74 = and i1 %73, %72
@@ -18366,7 +18366,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit10: ; preds = %63
 
 86:                                               ; preds = %80
   %87 = trunc i64 %83 to i1
-  %88 = trunc i64 %.fr27.i46 to i1
+  %88 = trunc i64 %.fr.i46 to i1
   %89 = xor i1 %87, true
   %90 = and i1 %88, %89
   br i1 %90, label %92, label %96
@@ -18390,7 +18390,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit11: ; preds = %80
   br i1 %.not23.i13, label %._crit_edge.thread.i32, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %96
-  %98 = trunc i64 %.fr27.i46 to i1
+  %98 = trunc i64 %.fr.i46 to i1
   br i1 %98, label %.lr.ph.split.us.i34, label %.lr.ph.split.i16
 
 .lr.ph.split.us.i34:                              ; preds = %.lr.ph.i14, %.lr.ph.split.us.i34
@@ -18457,7 +18457,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i18: ; preds = %.
 
 122:                                              ; preds = %117
   %123 = trunc i64 %119 to i1
-  %124 = trunc i64 %.fr27.i46 to i1
+  %124 = trunc i64 %.fr.i46 to i1
   %125 = xor i1 %123, true
   %126 = and i1 %124, %125
   br i1 %126, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %128
@@ -18493,7 +18493,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit41: ; preds = %_ZN
   br i1 %142, label %143, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit42
 
 143:                                              ; preds = %137
-  %144 = trunc i64 %.fr27.i46 to i1
+  %144 = trunc i64 %.fr.i46 to i1
   %145 = trunc i64 %140 to i1
   %146 = xor i1 %144, true
   %147 = and i1 %146, %145
@@ -18518,7 +18518,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit42: ; preds = %137
   br i1 %.not23.i44, label %._crit_edge.thread.i63, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %153
-  %155 = trunc i64 %.fr27.i46 to i1
+  %155 = trunc i64 %.fr.i46 to i1
   br i1 %155, label %.lr.ph.split.us.i65, label %.lr.ph.split.i47
 
 .lr.ph.split.us.i65:                              ; preds = %.lr.ph.i45, %.lr.ph.split.us.i65
@@ -18587,7 +18587,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i49: ; preds = %.
 
 181:                                              ; preds = %176
   %182 = trunc i64 %178 to i1
-  %183 = trunc i64 %.fr27.i46 to i1
+  %183 = trunc i64 %.fr.i46 to i1
   %184 = xor i1 %182, true
   %185 = and i1 %183, %184
   br i1 %185, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %187
@@ -18623,12 +18623,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN4cvc58internal4prop10Sat
   %.02122.i = load ptr, ptr %3, align 8, !tbaa !248
   %.not23.i = icmp eq ptr %.02122.i, null
   %.pre.i.pre.pre = load i64, ptr %1, align 8, !tbaa !99
-  %.fr27.i = freeze i64 %.pre.i.pre.pre
+  %.fr.i = freeze i64 %.pre.i.pre.pre
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = lshr i64 %.fr27.i, 1
-  %6 = trunc i64 %.fr27.i to i1
+  %5 = lshr i64 %.fr.i, 1
+  %6 = trunc i64 %.fr.i to i1
   br i1 %6, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -18692,13 +18692,13 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !112
   %30 = lshr i64 %29, 1
-  %31 = lshr i64 %.fr27.i, 1
+  %31 = lshr i64 %.fr.i, 1
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit5.i
 
 33:                                               ; preds = %27
   %34 = trunc i64 %29 to i1
-  %35 = trunc i64 %.fr27.i to i1
+  %35 = trunc i64 %.fr.i to i1
   %36 = xor i1 %34, true
   %37 = and i1 %36, %35
   br i1 %37, label %39, label %60
@@ -18714,14 +18714,14 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit5.i: ; preds = %27
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %43 = lshr i64 %.fr27.i, 1
+  %43 = lshr i64 %.fr.i, 1
   %44 = load i64, ptr %42, align 8, !tbaa !112
   %45 = lshr i64 %44, 1
   %46 = icmp eq i64 %43, %45
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %41
-  %48 = trunc i64 %.fr27.i to i1
+  %48 = trunc i64 %.fr.i to i1
   %49 = trunc i64 %44 to i1
   %50 = xor i1 %48, true
   %51 = and i1 %50, %49
@@ -18735,7 +18735,7 @@ _ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_E
   %54 = phi i1 [ %53, %52 ], [ true, %39 ], [ %51, %47 ]
   %55 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i64 %.fr27.i, ptr %56, align 8, !tbaa !99
+  store i64 %.fr.i, ptr %56, align 8, !tbaa !99
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %54, ptr noundef nonnull %55, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !120
@@ -20141,12 +20141,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN4cvc58internal4prop10Sat
   %.02122.i = load ptr, ptr %3, align 8, !tbaa !248
   %.not23.i = icmp eq ptr %.02122.i, null
   %.pre.i.pre.pre = load i64, ptr %1, align 8, !tbaa !99
-  %.fr27.i = freeze i64 %.pre.i.pre.pre
+  %.fr.i = freeze i64 %.pre.i.pre.pre
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = lshr i64 %.fr27.i, 1
-  %6 = trunc i64 %.fr27.i to i1
+  %5 = lshr i64 %.fr.i, 1
+  %6 = trunc i64 %.fr.i to i1
   br i1 %6, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -20210,13 +20210,13 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !112
   %30 = lshr i64 %29, 1
-  %31 = lshr i64 %.fr27.i, 1
+  %31 = lshr i64 %.fr.i, 1
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit5.i
 
 33:                                               ; preds = %27
   %34 = trunc i64 %29 to i1
-  %35 = trunc i64 %.fr27.i to i1
+  %35 = trunc i64 %.fr.i to i1
   %36 = xor i1 %34, true
   %37 = and i1 %36, %35
   br i1 %37, label %39, label %60
@@ -20232,14 +20232,14 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit5.i: ; preds = %27
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %43 = lshr i64 %.fr27.i, 1
+  %43 = lshr i64 %.fr.i, 1
   %44 = load i64, ptr %42, align 8, !tbaa !112
   %45 = lshr i64 %44, 1
   %46 = icmp eq i64 %43, %45
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %41
-  %48 = trunc i64 %.fr27.i to i1
+  %48 = trunc i64 %.fr.i to i1
   %49 = trunc i64 %44 to i1
   %50 = xor i1 %48, true
   %51 = and i1 %50, %49
@@ -20253,7 +20253,7 @@ _ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_E
   %54 = phi i1 [ %53, %52 ], [ true, %39 ], [ %51, %47 ]
   %55 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i64 %.fr27.i, ptr %56, align 8, !tbaa !99
+  store i64 %.fr.i, ptr %56, align 8, !tbaa !99
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %54, ptr noundef nonnull %55, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !120

@@ -1592,18 +1592,18 @@ define range(i32 0, 101) i32 @cli_url_canon(ptr noundef readonly captures(none) 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
-  %.2165 = phi ptr [ %35, %34 ], [ %26, %.lr.ph.preheader ]
-  %32 = load i8, ptr %.2165, align 1, !tbaa !94
+  %.2166 = phi ptr [ %35, %34 ], [ %26, %.lr.ph.preheader ]
+  %32 = load i8, ptr %.2166, align 1, !tbaa !94
   %33 = icmp eq i8 %32, 47
   br i1 %33, label %34, label %.critedge2.preheader
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.2165, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.2166, i64 1
   %exitcond.not = icmp eq ptr %35, %28
   br i1 %exitcond.not, label %.critedge2.preheader, label %.lr.ph
 
 .critedge2.preheader:                             ; preds = %.lr.ph, %34, %.critedge
-  %.3.ph = phi ptr [ %26, %.critedge ], [ %.2165, %.lr.ph ], [ %scevgep, %34 ]
+  %.3.ph = phi ptr [ %26, %.critedge ], [ %.2166, %.lr.ph ], [ %scevgep, %34 ]
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
@@ -1616,27 +1616,27 @@ define range(i32 0, 101) i32 @cli_url_canon(ptr noundef readonly captures(none) 
   br i1 %39, label %.critedge2, label %41
 
 41:                                               ; preds = %.critedge2
-  br i1 %38, label %.lr.ph172.preheader, label %._crit_edge
+  br i1 %38, label %.lr.ph173.preheader, label %._crit_edge
 
-.lr.ph172.preheader:                              ; preds = %41
+.lr.ph173.preheader:                              ; preds = %41
   %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.3, i32 noundef 47) #16
-  br label %.lr.ph172
+  br label %.lr.ph173
 
-.lr.ph172:                                        ; preds = %.lr.ph172.preheader, %84
-  %.0130171 = phi ptr [ %spec.select155, %84 ], [ %42, %.lr.ph172.preheader ]
-  %.0132170 = phi ptr [ %88, %84 ], [ %.3, %.lr.ph172.preheader ]
-  %43 = phi ptr [ %85, %84 ], [ %28, %.lr.ph172.preheader ]
-  %44 = getelementptr inbounds nuw i8, ptr %.0132170, i64 2
+.lr.ph173:                                        ; preds = %.lr.ph173.preheader, %84
+  %.0130172 = phi ptr [ %spec.select155, %84 ], [ %42, %.lr.ph173.preheader ]
+  %.0132171 = phi ptr [ %88, %84 ], [ %.3, %.lr.ph173.preheader ]
+  %43 = phi ptr [ %85, %84 ], [ %28, %.lr.ph173.preheader ]
+  %44 = getelementptr inbounds nuw i8, ptr %.0132171, i64 2
   %45 = icmp ult ptr %44, %43
   br i1 %45, label %46, label %84
 
-46:                                               ; preds = %.lr.ph172
-  %47 = load i8, ptr %.0132170, align 1, !tbaa !94
+46:                                               ; preds = %.lr.ph173
+  %47 = load i8, ptr %.0132171, align 1, !tbaa !94
   %48 = icmp eq i8 %47, 47
   br i1 %48, label %49, label %84
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %.0132170, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0132171, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !94
   %52 = icmp eq i8 %51, 46
   br i1 %52, label %53, label %84
@@ -1649,15 +1649,15 @@ define range(i32 0, 101) i32 @cli_url_canon(ptr noundef readonly captures(none) 
   ]
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %.0132170, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.0132171, i64 3
   %57 = icmp ult ptr %56, %43
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = ptrtoint ptr %43 to i64
-  %60 = ptrtoint ptr %.0132170 to i64
-  %reass.sub180 = sub i64 %59, %60
-  %61 = add i64 %reass.sub180, -3
+  %60 = ptrtoint ptr %.0132171 to i64
+  %reass.sub181 = sub i64 %59, %60
+  %61 = add i64 %reass.sub181, -3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %56, i64 %61, i1 false)
   br label %62
 
@@ -1666,43 +1666,43 @@ define range(i32 0, 101) i32 @cli_url_canon(ptr noundef readonly captures(none) 
   br label %.sink.split
 
 64:                                               ; preds = %53
-  %65 = getelementptr inbounds nuw i8, ptr %.0132170, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.0132171, i64 3
   %66 = load i8, ptr %65, align 1, !tbaa !94
   %67 = icmp eq i8 %66, 47
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %64
   %69 = icmp eq i8 %66, 0
-  %70 = icmp ne ptr %.0130171, null
+  %70 = icmp ne ptr %.0130172, null
   %or.cond = select i1 %69, i1 %70, i1 false
   br i1 %or.cond, label %72, label %84
 
 71:                                               ; preds = %64
-  %.old3.not = icmp eq ptr %.0130171, null
+  %.old3.not = icmp eq ptr %.0130172, null
   br i1 %.old3.not, label %84, label %72
 
 72:                                               ; preds = %68, %71
-  %73 = getelementptr inbounds nuw i8, ptr %.0132170, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.0132171, i64 4
   %74 = icmp ult ptr %73, %43
-  br i1 %74, label %75, label %._crit_edge184
+  br i1 %74, label %75, label %._crit_edge185
 
-._crit_edge184:                                   ; preds = %72
-  %.pre185 = ptrtoint ptr %.0132170 to i64
+._crit_edge185:                                   ; preds = %72
+  %.pre186 = ptrtoint ptr %.0132171 to i64
   br label %80
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %.0130171, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0130172, i64 1
   %77 = ptrtoint ptr %43 to i64
-  %78 = ptrtoint ptr %.0132170 to i64
+  %78 = ptrtoint ptr %.0132171 to i64
   %reass.sub = sub i64 %77, %78
   %79 = add i64 %reass.sub, -4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull align 1 %73, i64 %79, i1 false)
   br label %80
 
-80:                                               ; preds = %._crit_edge184, %75
-  %.pre-phi186 = phi i64 [ %.pre185, %._crit_edge184 ], [ %78, %75 ]
-  %81 = ptrtoint ptr %.0130171 to i64
-  %.neg = sub i64 %81, %.pre-phi186
+80:                                               ; preds = %._crit_edge185, %75
+  %.pre-phi187 = phi i64 [ %.pre186, %._crit_edge185 ], [ %78, %75 ]
+  %81 = ptrtoint ptr %.0130172 to i64
+  %.neg = sub i64 %81, %.pre-phi187
   %82 = getelementptr i8, ptr %43, i64 %.neg
   %83 = getelementptr i8, ptr %82, i64 -3
   br label %.sink.split
@@ -1712,21 +1712,21 @@ define range(i32 0, 101) i32 @cli_url_canon(ptr noundef readonly captures(none) 
   store ptr %.sink, ptr %10, align 8, !tbaa !50
   br label %84
 
-84:                                               ; preds = %.sink.split, %53, %71, %68, %49, %46, %.lr.ph172
-  %85 = phi ptr [ %43, %53 ], [ %43, %46 ], [ %43, %.lr.ph172 ], [ %43, %71 ], [ %43, %68 ], [ %43, %49 ], [ %.sink, %.sink.split ]
-  %86 = load i8, ptr %.0132170, align 1, !tbaa !94
+84:                                               ; preds = %.sink.split, %53, %71, %68, %49, %46, %.lr.ph173
+  %85 = phi ptr [ %43, %53 ], [ %43, %46 ], [ %43, %.lr.ph173 ], [ %43, %71 ], [ %43, %68 ], [ %43, %49 ], [ %.sink, %.sink.split ]
+  %86 = load i8, ptr %.0132171, align 1, !tbaa !94
   %87 = icmp eq i8 %86, 47
-  %spec.select155 = select i1 %87, ptr %.0132170, ptr %.0130171
-  %88 = getelementptr inbounds nuw i8, ptr %.0132170, i64 1
+  %spec.select155 = select i1 %87, ptr %.0132171, ptr %.0130172
+  %88 = getelementptr inbounds nuw i8, ptr %.0132171, i64 1
   %89 = icmp ult ptr %88, %85
-  br i1 %89, label %.lr.ph172, label %._crit_edge.loopexit
+  br i1 %89, label %.lr.ph173, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %84
-  %.pre183 = ptrtoint ptr %85 to i64
+  %.pre184 = ptrtoint ptr %85 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %41
-  %.pre-phi = phi i64 [ %.pre183, %._crit_edge.loopexit ], [ %29, %41 ]
+  %.pre-phi = phi i64 [ %.pre184, %._crit_edge.loopexit ], [ %29, %41 ]
   %90 = phi ptr [ %85, %._crit_edge.loopexit ], [ %28, %41 ]
   %91 = sub i64 %.pre-phi, %27
   %92 = getelementptr inbounds i8, ptr %26, i64 %91
@@ -1735,38 +1735,38 @@ define range(i32 0, 101) i32 @cli_url_canon(ptr noundef readonly captures(none) 
   %94 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %95 = getelementptr inbounds nuw i8, ptr %26, i64 %12
   %96 = icmp ult ptr %94, %95
-  %or.cond159174 = select i1 %93, i1 %96, i1 false
+  %or.cond159175 = select i1 %93, i1 %96, i1 false
   %97 = icmp ult ptr %90, %17
-  %or.cond160175 = and i1 %97, %or.cond159174
-  br i1 %or.cond160175, label %.lr.ph178, label %.critedge5
+  %or.cond160176 = and i1 %97, %or.cond159175
+  br i1 %or.cond160176, label %.lr.ph179, label %.critedge5
 
-.lr.ph178:                                        ; preds = %._crit_edge, %121
+.lr.ph179:                                        ; preds = %._crit_edge, %121
   %98 = phi ptr [ %122, %121 ], [ %26, %._crit_edge ]
   %99 = phi ptr [ %123, %121 ], [ %90, %._crit_edge ]
   %100 = phi ptr [ %126, %121 ], [ %94, %._crit_edge ]
-  %.1133176 = phi ptr [ %124, %121 ], [ %.3, %._crit_edge ]
-  %101 = load i8, ptr %.1133176, align 1, !tbaa !94
-  %.fr = freeze i8 %101
-  %102 = add i8 %.fr, -127
+  %.1133177 = phi ptr [ %124, %121 ], [ %.3, %._crit_edge ]
+  %101 = load i8, ptr %.1133177, align 1, !tbaa !94
+  %.fr161 = freeze i8 %101
+  %102 = add i8 %.fr161, -127
   %or.cond9 = icmp ult i8 %102, -94
   br i1 %or.cond9, label %103, label %switch.early.test
 
-switch.early.test:                                ; preds = %.lr.ph178
-  switch i8 %.fr, label %121 [
+switch.early.test:                                ; preds = %.lr.ph179
+  switch i8 %.fr161, label %121 [
     i8 37, label %103
     i8 35, label %103
   ]
 
-103:                                              ; preds = %switch.early.test, %switch.early.test, %.lr.ph178
-  %104 = zext i8 %.fr to i32
-  %105 = getelementptr inbounds nuw i8, ptr %.1133176, i64 3
-  %106 = getelementptr inbounds nuw i8, ptr %.1133176, i64 1
+103:                                              ; preds = %switch.early.test, %switch.early.test, %.lr.ph179
+  %104 = zext i8 %.fr161 to i32
+  %105 = getelementptr inbounds nuw i8, ptr %.1133177, i64 3
+  %106 = getelementptr inbounds nuw i8, ptr %.1133177, i64 1
   %107 = ptrtoint ptr %99 to i64
-  %108 = ptrtoint ptr %.1133176 to i64
+  %108 = ptrtoint ptr %.1133177 to i64
   %109 = xor i64 %108, -1
   %110 = add i64 %107, %109
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull align 1 %106, i64 %110, i1 false)
-  store i8 37, ptr %.1133176, align 1, !tbaa !94
+  store i8 37, ptr %.1133177, align 1, !tbaa !94
   %111 = lshr i32 %104, 4
   %112 = zext nneg i32 %111 to i64
   %113 = getelementptr inbounds nuw i8, ptr @__const.hash_match.hexchars, i64 %112
@@ -1786,7 +1786,7 @@ switch.early.test:                                ; preds = %.lr.ph178
 121:                                              ; preds = %switch.early.test, %103
   %122 = phi ptr [ %.pre, %103 ], [ %98, %switch.early.test ]
   %123 = phi ptr [ %120, %103 ], [ %99, %switch.early.test ]
-  %.2134 = phi ptr [ %100, %103 ], [ %.1133176, %switch.early.test ]
+  %.2134 = phi ptr [ %100, %103 ], [ %.1133177, %switch.early.test ]
   %124 = getelementptr inbounds nuw i8, ptr %.2134, i64 1
   %125 = icmp ult ptr %124, %123
   %126 = getelementptr inbounds nuw i8, ptr %.2134, i64 3
@@ -1795,7 +1795,7 @@ switch.early.test:                                ; preds = %.lr.ph178
   %or.cond159 = select i1 %125, i1 %128, i1 false
   %129 = icmp ult ptr %123, %17
   %or.cond160 = and i1 %129, %or.cond159
-  br i1 %or.cond160, label %.lr.ph178, label %.critedge5
+  br i1 %or.cond160, label %.lr.ph179, label %.critedge5
 
 .critedge5:                                       ; preds = %121, %._crit_edge
   %.1133.lcssa = phi ptr [ %.3, %._crit_edge ], [ %124, %121 ]

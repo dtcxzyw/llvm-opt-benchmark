@@ -153,8 +153,7 @@ define internal fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(
   %32 = load i64, ptr %31, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %34 = load i64, ptr %33, align 8, !tbaa !24
-  %.fr55.i = freeze i64 %34
-  %35 = sub i64 %32, %.fr55.i
+  %35 = sub i64 %32, %34
   %.not.i = icmp ult i64 %35, %30
   br i1 %.not.i, label %39, label %36
 
@@ -164,16 +163,16 @@ define internal fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(
   br label %pmix_bfrops_base_tma_buffer_extend.exit
 
 39:                                               ; preds = %27
-  %40 = add i64 %.fr55.i, %30
+  %40 = add i64 %34, %30
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8, !tbaa !28
-  %.fr56.i = freeze i64 %41
-  %.not54.i = icmp ult i64 %40, %.fr56.i
+  %.not54.i = icmp ult i64 %40, %41
   br i1 %.not54.i, label %47, label %42
 
 42:                                               ; preds = %39
-  %43 = add i64 %40, -1
-  %44 = add i64 %43, %.fr56.i
-  %45 = urem i64 %44, %.fr56.i
+  %43 = add i64 %41, %40
+  %.fr55.i = freeze i64 %43
+  %44 = add i64 %.fr55.i, -1
+  %45 = urem i64 %44, %41
   %46 = sub nuw i64 %44, %45
   br label %.loopexit.i
 
@@ -294,8 +293,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_embed_payload(ptr noundef capture
   %21 = load i64, ptr %20, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %23 = load i64, ptr %22, align 8, !tbaa !24
-  %.fr55.i.i = freeze i64 %23
-  %24 = sub i64 %21, %.fr55.i.i
+  %24 = sub i64 %21, %23
   %.not.i.i = icmp ult i64 %24, %14
   br i1 %.not.i.i, label %28, label %25
 
@@ -305,16 +303,16 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_embed_payload(ptr noundef capture
   br label %pmix_bfrops_base_tma_buffer_extend.exit.i
 
 28:                                               ; preds = %19
-  %29 = add i64 %.fr55.i.i, %14
+  %29 = add i64 %23, %14
   %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8, !tbaa !28
-  %.fr56.i.i = freeze i64 %30
-  %.not54.i.i = icmp ult i64 %29, %.fr56.i.i
+  %.not54.i.i = icmp ult i64 %29, %30
   br i1 %.not54.i.i, label %36, label %31
 
 31:                                               ; preds = %28
-  %32 = add i64 %29, -1
-  %33 = add i64 %32, %.fr56.i.i
-  %34 = urem i64 %33, %.fr56.i.i
+  %32 = add i64 %30, %29
+  %.fr55.i.i = freeze i64 %32
+  %33 = add i64 %.fr55.i.i, -1
+  %34 = urem i64 %33, %30
   %35 = sub nuw i64 %33, %34
   br label %.loopexit.i.i
 

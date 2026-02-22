@@ -3724,11 +3724,11 @@ define hidden noundef ptr @_ZN8PhaseCFG22hoist_to_cheaper_blockEP5BlockS1_P4Node
   %.pre-phi.i.i = phi i32 [ %.pre17.i.i, %.._crit_edge_crit_edge.i.i ], [ %27, %28 ]
   store i32 %.pre-phi.i.i, ptr %8, align 8
   %.pre = load ptr, ptr %7, align 8
-  %.pre178 = load i32, ptr %.pre, align 8
+  %.pre179 = load i32, ptr %.pre, align 8
   br label %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit
 
 _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %4, %._crit_edge.i.i
-  %31 = phi i32 [ %11, %4 ], [ %.pre178, %._crit_edge.i.i ]
+  %31 = phi i32 [ %11, %4 ], [ %.pre179, %._crit_edge.i.i ]
   %32 = phi ptr [ %8, %4 ], [ %.pre, %._crit_edge.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -3792,11 +3792,11 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %4, %._crit_edge.i.i
 ._crit_edge.i.i78:                                ; preds = %60, %.._crit_edge_crit_edge.i.i80
   %.pre-phi.i.i79 = phi i32 [ %.pre17.i.i81, %.._crit_edge_crit_edge.i.i80 ], [ %59, %60 ]
   store i32 %.pre-phi.i.i79, ptr %32, align 8
-  %.pre180 = load ptr, ptr %39, align 8
+  %.pre181 = load ptr, ptr %39, align 8
   br label %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit82
 
 _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit82: ; preds = %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit, %._crit_edge.i.i78
-  %63 = phi ptr [ %40, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit ], [ %.pre180, %._crit_edge.i.i78 ]
+  %63 = phi ptr [ %40, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit ], [ %.pre181, %._crit_edge.i.i78 ]
   %64 = load i32, ptr %38, align 8
   %65 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %66 = load ptr, ptr %65, align 8
@@ -3910,8 +3910,8 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98: ; preds = %_ZN8PhaseCFG20get_l
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %136 = load i32, ptr %135, align 4
   %137 = and i32 %136, 3
-  %.not153 = icmp eq i32 %137, 2
-  br i1 %.not153, label %138, label %.thread
+  %.not154 = icmp eq i32 %137, 2
+  br i1 %.not154, label %138, label %.thread
 
 138:                                              ; preds = %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98
   %139 = load ptr, ptr %3, align 8
@@ -3939,8 +3939,8 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98: ; preds = %_ZN8PhaseCFG20get_l
   %153 = zext i32 %.08.i to i64
   %154 = getelementptr inbounds nuw i64, ptr %148, i64 %153
   %155 = load i64, ptr %154, align 8
-  %.fr = freeze i64 %155
-  %156 = or i64 %.fr, %.057.i
+  %.fr153 = freeze i64 %155
+  %156 = or i64 %.fr153, %.057.i
   %157 = add i32 %.08.i, 1
   %.not.i99 = icmp ugt i32 %157, %152
   br i1 %.not.i99, label %_ZNK7RegMask11is_NotEmptyEv.exit, label %.lr.ph.i, !llvm.loop !43
@@ -3960,20 +3960,20 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   %.057.ph.ph.ph = phi i32 [ %119, %.thread ], [ %292, %_ZN8PhaseCFG16is_cheaper_blockEP5BlockP4Nodejjdib.exit.thread ]
   %.056.ph.ph.ph = phi i32 [ 0, %.thread ], [ %295, %_ZN8PhaseCFG16is_cheaper_blockEP5BlockP4Nodejjdib.exit.thread ]
   %.054.ph.ph.ph = phi double [ %6, %.thread ], [ %294, %_ZN8PhaseCFG16is_cheaper_blockEP5BlockP4Nodejjdib.exit.thread ]
-  %.052.ph.ph.ph = phi ptr [ %1, %.thread ], [ %.us-phi162, %_ZN8PhaseCFG16is_cheaper_blockEP5BlockP4Nodejjdib.exit.thread ]
+  %.052.ph.ph.ph = phi ptr [ %1, %.thread ], [ %.us-phi163, %_ZN8PhaseCFG16is_cheaper_blockEP5BlockP4Nodejjdib.exit.thread ]
   %159 = fmul double %.054.ph.ph.ph, 0x3FF00068E0000000
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.outer, %303
   %.2.ph.ph = phi i1 [ false, %303 ], [ %.2.ph.ph.ph, %.outer.outer.outer ]
   %.056.ph.ph = phi i32 [ %295, %303 ], [ %.056.ph.ph.ph, %.outer.outer.outer ]
-  %.052.ph.ph = phi ptr [ %.us-phi162, %303 ], [ %.052.ph.ph.ph, %.outer.outer.outer ]
+  %.052.ph.ph = phi ptr [ %.us-phi163, %303 ], [ %.052.ph.ph.ph, %.outer.outer.outer ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %.056.ph = phi i32 [ %.056.ph.ph, %.outer.outer ], [ %295, %.outer.backedge ]
-  %.052.ph = phi ptr [ %.052.ph.ph, %.outer.outer ], [ %.us-phi162, %.outer.backedge ]
-  br i1 %.not153, label %.outer.split, label %.outer.split.us
+  %.052.ph = phi ptr [ %.052.ph.ph, %.outer.outer ], [ %.us-phi163, %.outer.backedge ]
+  br i1 %.not154, label %.outer.split, label %.outer.split.us
 
 .outer.split.us:                                  ; preds = %.outer, %173
   %.052.us = phi ptr [ %162, %173 ], [ %.052.ph, %.outer ]
@@ -3984,7 +3984,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   %161 = getelementptr inbounds nuw i8, ptr %.052.us, i64 88
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
-  br i1 %163, label %.split160.us, label %164
+  br i1 %163, label %.split161.us, label %164
 
 164:                                              ; preds = %160
   %165 = load i32, ptr %135, align 4
@@ -4020,9 +4020,9 @@ _ZNK4Node16is_memory_writerEv.exit.us:            ; preds = %164
   %183 = getelementptr inbounds nuw i8, ptr %.052, i64 88
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, null
-  br i1 %185, label %.split160.us, label %189
+  br i1 %185, label %.split161.us, label %189
 
-.split160.us:                                     ; preds = %160, %182
+.split161.us:                                     ; preds = %160, %182
   %186 = load ptr, ptr %130, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 352
   %188 = load ptr, ptr %187, align 8
@@ -4060,9 +4060,9 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %191
   br i1 %208, label %.outer.split, label %_ZNK4Node16is_memory_writerEv.exit.thread, !llvm.loop !44
 
 _ZNK4Node16is_memory_writerEv.exit.thread:        ; preds = %164, %_ZNK4Node16is_memory_writerEv.exit.us, %173, %_ZNK4Node16is_memory_writerEv.exit, %200, %191
-  %.us-phi162 = phi ptr [ %184, %_ZNK4Node16is_memory_writerEv.exit ], [ %184, %191 ], [ %184, %200 ], [ %162, %173 ], [ %162, %_ZNK4Node16is_memory_writerEv.exit.us ], [ %162, %164 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 24
-  %210 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 32
+  %.us-phi163 = phi ptr [ %184, %_ZNK4Node16is_memory_writerEv.exit ], [ %184, %191 ], [ %184, %200 ], [ %162, %173 ], [ %162, %_ZNK4Node16is_memory_writerEv.exit.us ], [ %162, %164 ]
+  %209 = getelementptr inbounds nuw i8, ptr %.us-phi163, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %.us-phi163, i64 32
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %7, align 8
@@ -4120,18 +4120,18 @@ _ZNK4Node16is_memory_writerEv.exit.thread:        ; preds = %164, %_ZNK4Node16is
 ._crit_edge.i.i113:                               ; preds = %233, %.._crit_edge_crit_edge.i.i115
   %.pre-phi.i.i114 = phi i32 [ %.pre17.i.i116, %.._crit_edge_crit_edge.i.i115 ], [ %232, %233 ]
   store i32 %.pre-phi.i.i114, ptr %213, align 8
-  %.pre182 = load ptr, ptr %210, align 8
+  %.pre183 = load ptr, ptr %210, align 8
   br label %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit117
 
 _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit117: ; preds = %_ZNK4Node16is_memory_writerEv.exit.thread, %._crit_edge.i.i113
-  %236 = phi ptr [ %211, %_ZNK4Node16is_memory_writerEv.exit.thread ], [ %.pre182, %._crit_edge.i.i113 ]
+  %236 = phi ptr [ %211, %_ZNK4Node16is_memory_writerEv.exit.thread ], [ %.pre183, %._crit_edge.i.i113 ]
   %237 = load i32, ptr %209, align 8
   %238 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %239 = load ptr, ptr %238, align 8
   %240 = sext i32 %215 to i64
   %241 = getelementptr inbounds i32, ptr %239, i64 %240
   %242 = load i32, ptr %241, align 4
-  %243 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 40
+  %243 = getelementptr inbounds nuw i8, ptr %.us-phi163, i64 40
   %244 = load i32, ptr %243, align 8
   %245 = add i32 %244, -1
   %246 = icmp ult i32 %245, %237
@@ -4144,7 +4144,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit117: ; preds = %_ZNK4Node16is_memo
   %252 = load ptr, ptr %251, align 8
   %253 = tail call noundef ptr %252(ptr noundef nonnull align 8 dereferenceable(52) %249) #15
   %254 = icmp eq ptr %253, %249
-  %255 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 72
+  %255 = getelementptr inbounds nuw i8, ptr %.us-phi163, i64 72
   %256 = load i32, ptr %255, align 8
   %257 = select i1 %254, i32 0, i32 %256
   %258 = sub i32 %245, %257
@@ -4218,7 +4218,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit134: ; preds = %_ZN8PhaseCFG20get_
   %290 = sext i32 %267 to i64
   %291 = getelementptr inbounds i32, ptr %289, i64 %290
   %292 = load i32, ptr %291, align 4
-  %293 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %.us-phi163, i64 8
   %294 = load double, ptr %293, align 8
   %295 = add nuw nsw i32 %.056.ph, 1
   %296 = load i8, ptr @StressGCM, align 1
@@ -4318,7 +4318,7 @@ _ZN8PhaseCFG20set_latency_for_nodeEP4Nodei.exit:  ; preds = %308, %._crit_edge.i
   tail call void @_ZN8PhaseCFG23partial_latency_of_defsEP4Node(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %3)
   br label %336
 
-336:                                              ; preds = %.split.us, %_ZN8PhaseCFG20set_latency_for_nodeEP4Nodei.exit, %.split160.us
+336:                                              ; preds = %.split.us, %_ZN8PhaseCFG20set_latency_for_nodeEP4Nodei.exit, %.split161.us
   ret ptr %.052.ph.ph.ph
 }
 

@@ -208,8 +208,8 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %.fr27 = freeze i32 %11
-  %12 = and i32 %.fr27, 67108848
+  %.fr = freeze i32 %11
+  %12 = and i32 %.fr, 67108848
   %13 = load volatile ptr, ptr %9, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 3
@@ -249,7 +249,7 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   br i1 %38, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %35
-  %39 = and i32 %.fr27, 1024
+  %39 = and i32 %.fr, 1024
   %40 = icmp eq i32 %39, 0
   %41 = or i32 %12, 8192
   br i1 %40, label %.preheader.split.us, label %.preheader.split.split

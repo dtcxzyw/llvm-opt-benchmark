@@ -66405,13 +66405,12 @@ define void @_ZN6duckdb19CollectionScanState10InitializeERKNS_6vectorINS_11Logic
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 440
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 448
   %7 = load ptr, ptr %6, align 8, !tbaa !1609
-  %.fr19 = freeze ptr %7
   %8 = load ptr, ptr %5, align 8, !tbaa !1606
-  %.fr20 = freeze ptr %8
-  %9 = ptrtoint ptr %.fr19 to i64
-  %10 = ptrtoint ptr %.fr20 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = ashr i64 %11, 5
+  %.fr = freeze i64 %11
+  %12 = ashr i64 %.fr, 5
   %13 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %12, i64 152)
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
@@ -66423,13 +66422,13 @@ define void @_ZN6duckdb19CollectionScanState10InitializeERKNS_6vectorINS_11Logic
   %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #45, !noalias !1852
   store i64 %12, ptr %21, align 16, !noalias !1852
   %22 = getelementptr i8, ptr %21, i64 8
-  %23 = icmp eq ptr %.fr19, %.fr20
+  %23 = icmp eq ptr %7, %8
   br i1 %23, label %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit, label %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.loopexit
 
 _ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.loopexit: ; preds = %2
   %24 = add i64 %15, -152
   %25 = urem i64 %24, 152
-  %26 = sub i64 %24, %25
+  %26 = sub nuw i64 %24, %25
   %27 = add i64 %26, 152
   tail call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %27, i1 false), !noalias !1852
   br label %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit
@@ -66466,8 +66465,8 @@ _ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14i
   br label %_ZNSt10unique_ptrIA_N6duckdb15ColumnScanStateESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N6duckdb15ColumnScanStateESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i, %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit
-  %38 = phi ptr [ %.pre16, %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i ], [ %.fr20, %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
-  %39 = phi ptr [ %.pre, %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i ], [ %.fr19, %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
+  %38 = phi ptr [ %.pre16, %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i ], [ %8, %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
+  %39 = phi ptr [ %.pre, %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i ], [ %7, %_ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
   %.not = icmp eq ptr %39, %38
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -75662,13 +75661,12 @@ define void @_ZN6duckdb8RowGroup16InitializeAppendERNS_19RowGroupAppendStateE(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !1755
-  %.fr12 = freeze ptr %9
   %10 = load ptr, ptr %7, align 8, !tbaa !1754
-  %.fr13 = freeze ptr %10
-  %11 = ptrtoint ptr %.fr12 to i64
-  %12 = ptrtoint ptr %.fr13 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
-  %14 = ashr i64 %13, 4
+  %.fr = freeze i64 %13
+  %14 = ashr i64 %.fr, 4
   %15 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 48)
   %16 = extractvalue { i64, i1 } %15, 1
   %17 = extractvalue { i64, i1 } %15, 0
@@ -75677,13 +75675,13 @@ define void @_ZN6duckdb8RowGroup16InitializeAppendERNS_19RowGroupAppendStateE(pt
   %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #45, !noalias !2016
   store i64 %14, ptr %20, align 16, !noalias !2016
   %21 = getelementptr i8, ptr %20, i64 8
-  %22 = icmp eq ptr %.fr12, %.fr13
+  %22 = icmp eq ptr %9, %10
   br i1 %22, label %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit, label %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.loopexit
 
 _ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.loopexit: ; preds = %2
   %23 = add i64 %17, -48
   %24 = urem i64 %23, 48
-  %25 = sub i64 %23, %24
+  %25 = sub nuw i64 %23, %24
   %26 = add i64 %25, 48
   tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %26, i1 false), !noalias !2016
   br label %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit
@@ -75702,8 +75700,8 @@ _ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEO
   br label %_ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEOS5_.exit._ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit_crit_edge, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit
-  %29 = phi ptr [ %.pre11, %_ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEOS5_.exit._ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit_crit_edge ], [ %.fr13, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
-  %30 = phi ptr [ %.pre, %_ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEOS5_.exit._ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit_crit_edge ], [ %.fr12, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
+  %29 = phi ptr [ %.pre11, %_ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEOS5_.exit._ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit_crit_edge ], [ %10, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
+  %30 = phi ptr [ %.pre, %_ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEOS5_.exit._ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit_crit_edge ], [ %9, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit ]
   %.not = icmp eq ptr %30, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -145941,13 +145939,12 @@ _ZNK6duckdb10unique_ptrINS_8RowGroupESt14default_deleteIS1_ELb1EEptEv.exit198: ;
   %401 = getelementptr inbounds nuw i8, ptr %384, i64 64
   %402 = getelementptr inbounds nuw i8, ptr %384, i64 72
   %403 = load ptr, ptr %402, align 8, !tbaa !1755
-  %.fr12.i = freeze ptr %403
   %404 = load ptr, ptr %401, align 8, !tbaa !1754
-  %.fr13.i = freeze ptr %404
-  %405 = ptrtoint ptr %.fr12.i to i64
-  %406 = ptrtoint ptr %.fr13.i to i64
+  %405 = ptrtoint ptr %403 to i64
+  %406 = ptrtoint ptr %404 to i64
   %407 = sub i64 %405, %406
-  %408 = ashr i64 %407, 4
+  %.fr.i = freeze i64 %407
+  %408 = ashr i64 %.fr.i, 4
   %409 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %408, i64 48)
   %410 = extractvalue { i64, i1 } %409, 1
   %411 = extractvalue { i64, i1 } %409, 0
@@ -145959,7 +145956,7 @@ _ZNK6duckdb10unique_ptrINS_8RowGroupESt14default_deleteIS1_ELb1EEptEv.exit198: ;
 .noexc202:                                        ; preds = %_ZNK6duckdb10unique_ptrINS_8RowGroupESt14default_deleteIS1_ELb1EEptEv.exit198
   store i64 %408, ptr %414, align 16, !noalias !3480
   %415 = getelementptr i8, ptr %414, i64 8
-  %416 = icmp eq ptr %.fr12.i, %.fr13.i
+  %416 = icmp eq ptr %403, %404
   br i1 %416, label %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.i, label %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.loopexit.i
 
 _ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.loopexit.i: ; preds = %.noexc202
@@ -146049,8 +146046,8 @@ _ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr1
   br label %_ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.i
-  %444 = phi ptr [ %.pre11.i, %_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit ], [ %.fr13.i, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.i ]
-  %445 = phi ptr [ %.pre.i199, %_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit ], [ %.fr12.i, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.i ]
+  %444 = phi ptr [ %.pre11.i, %_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit ], [ %404, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.i ]
+  %445 = phi ptr [ %.pre.i199, %_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit ], [ %403, %_ZN6duckdb22make_unsafe_uniq_arrayINS_17ColumnAppendStateEEENS_10unique_ptrIA_T_St14default_deleteIS3_ELb0EEEm.exit.i ]
   %.not.i200 = icmp eq ptr %445, %444
   br i1 %.not.i200, label %_ZN6duckdb8RowGroup16InitializeAppendERNS_19RowGroupAppendStateE.exit, label %.lr.ph.i201
 

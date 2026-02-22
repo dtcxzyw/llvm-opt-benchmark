@@ -12272,15 +12272,13 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17hfc9cd7d0e411c7f1E.exit: 
   %.pre2.i.i.i.i.i = load i64, ptr %6, align 8, !noalias !2528
   %.phi.trans.insert3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.pre4.i.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i.i, align 8, !noalias !2528
-  %.pre4.i.i.i.fr.i.i = freeze i64 %.pre4.i.i.i.i.i
-  %.pre.i.i.i.fr.i.i = freeze i64 %.pre.i.i.i.i.i
-  %219 = icmp eq i64 %.pre.i.i.i.fr.i.i, 0
-  %.pre2.i.i.i.fr.i.i = freeze i64 %.pre2.i.i.i.i.i
-  %220 = icmp ne i64 %.pre2.i.i.i.fr.i.i, %.pre4.i.i.i.fr.i.i
-  %.not16.i.i = or i1 %219, %220
+  %219 = icmp eq i64 %.pre.i.i.i.i.i, 0
+  %220 = icmp ne i64 %.pre2.i.i.i.i.i, %.pre4.i.i.i.i.i
+  %.not16.i.i = select i1 %219, i1 true, i1 %220
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2528
-  %221 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i.i, i64 16384)
-  %spec.select.i.i = select i1 %.not16.i.i, i64 0, i64 %221
+  %221 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i.i, i64 16384)
+  %cond.fr.i.i = freeze i1 %.not16.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 0, i64 %221
   %222 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9090edcf6d5b1d56E"(i64 noundef %spec.select.i.i, i1 noundef zeroext false), !noalias !2533
   %223 = extractvalue { i64, ptr } %222, 0
   %224 = extractvalue { i64, ptr } %222, 1
@@ -13151,15 +13149,13 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17h9dc811e48a0daf31E.exit: 
   %.pre2.i.i.i.i.i.i = load i64, ptr %6, align 8, !noalias !2842
   %.phi.trans.insert3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.pre4.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i.i.i, align 8, !noalias !2842
-  %.pre4.i.i.i.fr.i.i.i = freeze i64 %.pre4.i.i.i.i.i.i
-  %.pre.i.i.i.fr.i.i.i = freeze i64 %.pre.i.i.i.i.i.i
-  %173 = icmp eq i64 %.pre.i.i.i.fr.i.i.i, 0
-  %.pre2.i.i.i.fr.i.i.i = freeze i64 %.pre2.i.i.i.i.i.i
-  %174 = icmp ne i64 %.pre2.i.i.i.fr.i.i.i, %.pre4.i.i.i.fr.i.i.i
-  %.not10.i.i.i = or i1 %173, %174
+  %173 = icmp eq i64 %.pre.i.i.i.i.i.i, 0
+  %174 = icmp ne i64 %.pre2.i.i.i.i.i.i, %.pre4.i.i.i.i.i.i
+  %.not10.i.i.i = select i1 %173, i1 true, i1 %174
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2842
-  %175 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i.i.i, i64 16384)
-  %spec.select.i.i.i = select i1 %.not10.i.i.i, i64 0, i64 %175
+  %175 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i.i.i, i64 16384)
+  %cond.fr.i.i.i = freeze i1 %.not10.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i64 0, i64 %175
   %176 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9090edcf6d5b1d56E"(i64 noundef %spec.select.i.i.i, i1 noundef zeroext false), !noalias !2847
   %177 = extractvalue { i64, ptr } %176, 0
   %178 = extractvalue { i64, ptr } %176, 1
@@ -47750,15 +47746,13 @@ define internal fastcc void @"_ZN84_$LT$serde..__private..de..content..ContentVi
   %.pre2.i.i.i = load i64, ptr %4, align 8, !noalias !10805
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre4.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i, align 8, !noalias !10805
-  %.pre4.i.i.i.fr = freeze i64 %.pre4.i.i.i
-  %.pre.i.i.i.fr = freeze i64 %.pre.i.i.i
-  %9 = icmp eq i64 %.pre.i.i.i.fr, 0
-  %.pre2.i.i.i.fr = freeze i64 %.pre2.i.i.i
-  %10 = icmp ne i64 %.pre2.i.i.i.fr, %.pre4.i.i.i.fr
-  %.not18 = or i1 %9, %10
+  %9 = icmp eq i64 %.pre.i.i.i, 0
+  %10 = icmp ne i64 %.pre2.i.i.i, %.pre4.i.i.i
+  %.not18 = select i1 %9, i1 true, i1 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10805
-  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr, i64 32768)
-  %spec.select = select i1 %.not18, i64 0, i64 %11
+  %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 32768)
+  %cond.fr = freeze i1 %.not18
+  %spec.select = select i1 %cond.fr, i64 0, i64 %11
   br label %12
 
 12:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h30ebcbb4692486c8E.exit", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h30ebcbb4692486c8E.exit.thread"

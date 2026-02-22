@@ -36,29 +36,28 @@ define i64 @Gia_LutComputeTruth6Simple_rec(ptr noundef %0, i32 noundef %1) local
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %4
   %.val28 = load i64, ptr %5, align 4
-  %.val28.fr = freeze i64 %.val28
-  %6 = and i64 %.val28.fr, 2305843005455597567
+  %6 = and i64 %.val28, 2305843005455597567
   %narrow.i.not = icmp eq i64 %6, 2305843005455597567
-  br i1 %narrow.i.not, label %37, label %7
+  br i1 %narrow.i.not, label %38, label %7
 
 7:                                                ; preds = %2
-  %8 = and i64 %.val28.fr, 2684354559
+  %8 = and i64 %.val28, 2684354559
   %narrow.i36.not = icmp eq i64 %8, 2684354559
   br i1 %narrow.i36.not, label %9, label %14
 
 9:                                                ; preds = %7
-  %10 = lshr i64 %.val28.fr, 32
+  %10 = lshr i64 %.val28, 32
   %11 = and i64 %10, 536870911
   %12 = getelementptr inbounds nuw i64, ptr @s_Truth6, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !28
-  br label %37
+  br label %38
 
 14:                                               ; preds = %7
-  %15 = trunc i64 %.val28.fr to i32
+  %15 = trunc i64 %.val28 to i32
   %16 = and i32 %15, 536870911
   %17 = sub nsw i32 %1, %16
   %18 = tail call i64 @Gia_LutComputeTruth6Simple_rec(ptr noundef nonnull %0, i32 noundef %17)
-  %19 = lshr i64 %.val28.fr, 32
+  %19 = lshr i64 %.val28, 32
   %20 = trunc nuw i64 %19 to i32
   %21 = and i32 %20, 536870911
   %22 = sub nsw i32 %1, %21
@@ -67,28 +66,29 @@ define i64 @Gia_LutComputeTruth6Simple_rec(ptr noundef %0, i32 noundef %1) local
   %25 = ashr i32 %24, 31
   %26 = sext i32 %25 to i64
   %27 = xor i64 %18, %26
-  %28 = shl i64 %.val28.fr, 2
+  %28 = shl i64 %.val28, 2
   %29 = ashr i64 %28, 63
   %30 = xor i64 %23, %29
-  %31 = and i64 %.val28.fr, 2147483648
+  %31 = and i64 %.val28, 2147483648
   %.not.i.i = icmp ne i64 %31, 0
-  %32 = and i64 %.val28.fr, 536870911
+  %32 = and i64 %.val28, 536870911
   %33 = icmp eq i64 %32, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %33
   br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %14
   %34 = and i64 %30, %27
-  br label %37
+  br label %38
 
 Gia_ObjIsXor.exit:                                ; preds = %14
-  %.not = icmp samesign ult i32 %16, %21
-  %35 = xor i64 %30, %27
-  %36 = and i64 %30, %27
-  %spec.select = select i1 %.not, i64 %35, i64 %36
-  br label %37
+  %35 = icmp samesign uge i32 %16, %21
+  %36 = xor i64 %30, %27
+  %37 = and i64 %30, %27
+  %cond.fr = freeze i1 %35
+  %spec.select = select i1 %cond.fr, i64 %37, i64 %36
+  br label %38
 
-37:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread, %2, %9
+38:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread, %2, %9
   %.0 = phi i64 [ 0, %2 ], [ %13, %9 ], [ %spec.select, %Gia_ObjIsXor.exit ], [ %34, %Gia_ObjIsXor.exit.thread ]
   ret i64 %.0
 }
@@ -125,18 +125,17 @@ define i64 @Gia_LutComputeTruth6Map_rec(ptr noundef %0, i32 noundef %1, ptr noun
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %5
   %.val31 = load i64, ptr %6, align 4
-  %.val31.fr = freeze i64 %.val31
-  %7 = and i64 %.val31.fr, 2305843005455597567
+  %7 = and i64 %.val31, 2305843005455597567
   %narrow.i.not = icmp eq i64 %7, 2305843005455597567
-  br i1 %narrow.i.not, label %42, label %8
+  br i1 %narrow.i.not, label %43, label %8
 
 8:                                                ; preds = %3
-  %9 = and i64 %.val31.fr, 2684354559
+  %9 = and i64 %.val31, 2684354559
   %narrow.i40.not = icmp eq i64 %9, 2684354559
   br i1 %narrow.i40.not, label %10, label %19
 
 10:                                               ; preds = %8
-  %11 = lshr i64 %.val31.fr, 32
+  %11 = lshr i64 %.val31, 32
   %12 = and i64 %11, 536870911
   %13 = getelementptr i8, ptr %2, i64 8
   %.val39 = load ptr, ptr %13, align 8, !tbaa !30
@@ -145,14 +144,14 @@ define i64 @Gia_LutComputeTruth6Map_rec(ptr noundef %0, i32 noundef %1, ptr noun
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i64, ptr @s_Truth6, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !28
-  br label %42
+  br label %43
 
 19:                                               ; preds = %8
-  %20 = trunc i64 %.val31.fr to i32
+  %20 = trunc i64 %.val31 to i32
   %21 = and i32 %20, 536870911
   %22 = sub nsw i32 %1, %21
   %23 = tail call i64 @Gia_LutComputeTruth6Map_rec(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %2)
-  %24 = lshr i64 %.val31.fr, 32
+  %24 = lshr i64 %.val31, 32
   %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 536870911
   %27 = sub nsw i32 %1, %26
@@ -161,28 +160,29 @@ define i64 @Gia_LutComputeTruth6Map_rec(ptr noundef %0, i32 noundef %1, ptr noun
   %30 = ashr i32 %29, 31
   %31 = sext i32 %30 to i64
   %32 = xor i64 %23, %31
-  %33 = shl i64 %.val31.fr, 2
+  %33 = shl i64 %.val31, 2
   %34 = ashr i64 %33, 63
   %35 = xor i64 %28, %34
-  %36 = and i64 %.val31.fr, 2147483648
+  %36 = and i64 %.val31, 2147483648
   %.not.i.i = icmp ne i64 %36, 0
-  %37 = and i64 %.val31.fr, 536870911
+  %37 = and i64 %.val31, 536870911
   %38 = icmp eq i64 %37, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %38
   br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %19
   %39 = and i64 %35, %32
-  br label %42
+  br label %43
 
 Gia_ObjIsXor.exit:                                ; preds = %19
-  %.not = icmp samesign ult i32 %21, %26
-  %40 = xor i64 %35, %32
-  %41 = and i64 %35, %32
-  %spec.select = select i1 %.not, i64 %40, i64 %41
-  br label %42
+  %40 = icmp samesign uge i32 %21, %26
+  %41 = xor i64 %35, %32
+  %42 = and i64 %35, %32
+  %cond.fr = freeze i1 %40
+  %spec.select = select i1 %cond.fr, i64 %42, i64 %41
+  br label %43
 
-42:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread, %3, %10
+43:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread, %3, %10
   %.0 = phi i64 [ 0, %3 ], [ %18, %10 ], [ %spec.select, %Gia_ObjIsXor.exit ], [ %39, %Gia_ObjIsXor.exit.thread ]
   ret i64 %.0
 }
@@ -1675,8 +1675,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %36 = tail call noundef i32 @llvm.smax.i32(i32 %10, i32 6)
   %37 = add nsw i32 %36, -5
   %38 = shl nuw i32 1, %37
-  %.fr43.i = freeze i32 %38
-  %39 = sext i32 %.fr43.i to i64
+  %.fr.i = freeze i32 %38
+  %39 = sext i32 %.fr.i to i64
   %40 = shl nsw i64 %39, 2
   %41 = add nsw i64 %40, 8
   %42 = zext nneg i32 %36 to i64
@@ -1702,11 +1702,11 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   store i32 %36, ptr %49, align 8, !tbaa !68
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %44, ptr %51, align 8, !tbaa !69
-  %52 = icmp sgt i32 %.fr43.i, 0
+  %52 = icmp sgt i32 %.fr.i, 0
   br i1 %52, label %.lr.ph33.split.us.split.us.preheader.i, label %Vec_PtrAllocTruthTables.exit
 
 .lr.ph33.split.us.split.us.preheader.i:           ; preds = %Vec_PtrAllocSimInfo.exit.i
-  %wide.trip.count67.i = zext nneg i32 %.fr43.i to i64
+  %wide.trip.count67.i = zext nneg i32 %.fr.i to i64
   br label %.lr.ph33.split.us.split.us.i
 
 .lr.ph33.split.us.split.us.i:                     ; preds = %..loopexit27_crit_edge.us.us.i, %.lr.ph33.split.us.split.us.preheader.i
@@ -2484,8 +2484,8 @@ define void @Gia_ObjComputeTruthTableStart(ptr noundef captures(none) initialize
   %14 = tail call noundef i32 @llvm.smax.i32(i32 %1, i32 6)
   %15 = add nsw i32 %14, -5
   %16 = shl nuw i32 1, %15
-  %.fr43.i = freeze i32 %16
-  %17 = sext i32 %.fr43.i to i64
+  %.fr.i = freeze i32 %16
+  %17 = sext i32 %.fr.i to i64
   %18 = shl nsw i64 %17, 2
   %19 = add nsw i64 %18, 8
   %20 = zext nneg i32 %14 to i64
@@ -2511,11 +2511,11 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   store i32 %14, ptr %27, align 8, !tbaa !68
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %22, ptr %29, align 8, !tbaa !69
-  %30 = icmp sgt i32 %.fr43.i, 0
+  %30 = icmp sgt i32 %.fr.i, 0
   br i1 %30, label %.lr.ph33.split.us.split.us.preheader.i, label %Vec_PtrAllocTruthTables.exit
 
 .lr.ph33.split.us.split.us.preheader.i:           ; preds = %Vec_PtrAllocSimInfo.exit.i
-  %wide.trip.count67.i = zext nneg i32 %.fr43.i to i64
+  %wide.trip.count67.i = zext nneg i32 %.fr.i to i64
   br label %.lr.ph33.split.us.split.us.i
 
 .lr.ph33.split.us.split.us.i:                     ; preds = %..loopexit27_crit_edge.us.us.i, %.lr.ph33.split.us.split.us.preheader.i
@@ -4151,11 +4151,11 @@ Vec_WecPushLevel.exit136:                         ; preds = %Vec_WecPushLevel.ex
   %225 = icmp samesign ult i32 %.val100, 7
   %226 = add nsw i32 %.val100, -6
   %227 = shl nuw i32 1, %226
-  %.fr82.i.i = freeze i32 %227
-  %228 = sext i32 %.fr82.i.i to i64
+  %.fr.i.i = freeze i32 %227
+  %228 = sext i32 %.fr.i.i to i64
   %.idx.i.i = shl nsw i64 %228, 3
   %229 = getelementptr inbounds i8, ptr %223, i64 %.idx.i.i
-  %smax56.i.i = call i32 @llvm.smax.i32(i32 %.fr82.i.i, i32 1)
+  %smax56.i.i = call i32 @llvm.smax.i32(i32 %.fr.i.i, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %225, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -4293,7 +4293,7 @@ Abc_TtHasVar.exit.i:                              ; preds = %248, %Abc_TtHasVar.
   br i1 %.not.i137.not, label %Abc_TtMinimumBase.exit, label %.lr.ph61.i.i
 
 .lr.ph61.i.i:                                     ; preds = %270
-  %273 = select i1 %225, i32 1, i32 %.fr82.i.i
+  %273 = select i1 %225, i32 1, i32 %.fr.i.i
   %274 = sext i32 %273 to i64
   %.idx65.i.i.i = shl nsw i64 %274, 3
   %275 = getelementptr inbounds i8, ptr %223, i64 %.idx65.i.i.i

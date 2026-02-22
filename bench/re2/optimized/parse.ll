@@ -4626,7 +4626,7 @@ if.end37:                                         ; preds = %_ZN4absl7debian211s
   %sub.ptr.lhs.cast42.pre-phi = phi i64 [ %.pre106, %_ZN4absl7debian211string_view13remove_prefixEm.exit43.if.end37_crit_edge ], [ %sub.ptr.lhs.cast, %if.then20 ]
   %name.sroa.8.0 = phi i64 [ %call23, %_ZN4absl7debian211string_view13remove_prefixEm.exit43.if.end37_crit_edge ], [ %sub.ptr.sub, %if.then20 ]
   %name.sroa.0.0 = phi ptr [ %12, %_ZN4absl7debian211string_view13remove_prefixEm.exit43.if.end37_crit_edge ], [ %add.ptr.i, %if.then20 ]
-  %name.sroa.8.0.fr = freeze i64 %name.sroa.8.0
+  %name.coerce1.fr.i.i80 = freeze i64 %name.sroa.8.0
   %sub.ptr.rhs.cast43 = ptrtoint ptr %1 to i64
   %sub.ptr.sub44 = sub i64 %sub.ptr.lhs.cast42.pre-phi, %sub.ptr.rhs.cast43
   %cmp.i.i44 = icmp sgt i64 %sub.ptr.sub44, -1
@@ -4637,7 +4637,7 @@ cond.false.i.i45:                                 ; preds = %if.end37
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKcm.exit47:      ; preds = %if.end37
-  %cmp.i49 = icmp eq i64 %name.sroa.8.0.fr, 0
+  %cmp.i49 = icmp eq i64 %name.coerce1.fr.i.i80, 0
   br i1 %cmp.i49, label %if.end.i62.thread, label %_ZNK4absl7debian211string_viewixEm.exit54
 
 _ZNK4absl7debian211string_viewixEm.exit54:        ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit47
@@ -4646,7 +4646,7 @@ _ZNK4absl7debian211string_viewixEm.exit54:        ; preds = %_ZN4absl7debian211s
   %cmp49 = icmp eq i8 %.fr, 94
   %sub51 = sub nsw i32 0, %spec.select
   %sub.i58 = sext i1 %cmp49 to i64
-  %name.sroa.8.1 = add i64 %name.sroa.8.0.fr, %sub.i58
+  %name.sroa.8.1 = add i64 %name.coerce1.fr.i.i80, %sub.i58
   %name.sroa.0.1.idx = zext i1 %cmp49 to i64
   %name.sroa.0.1 = getelementptr inbounds nuw i8, ptr %name.sroa.0.0, i64 %name.sroa.0.1.idx
   %sign.1 = select i1 %cmp49, i32 %sub51, i32 %spec.select
@@ -5708,8 +5708,8 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit69: ; preds = %_ZNK4absl7debi
   store i64 %sub.i67, ptr %whole_class.sroa.3.0..sroa_idx, align 8
   %5 = load i32, ptr %this, align 8
   %6 = and i32 %5, 2052
-  %or.cond203 = icmp eq i32 %6, 4
-  br i1 %or.cond203, label %if.end26, label %if.then22
+  %or.cond202 = icmp eq i32 %6, 4
+  br i1 %or.cond202, label %if.end26, label %if.then22
 
 if.then22:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit69
   %call24 = tail call noundef zeroext i1 @_ZN3re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %call8, i32 noundef 10, i32 noundef 10)
@@ -5728,8 +5728,8 @@ lpad9:                                            ; preds = %invoke.cont7
 
 if.end26:                                         ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit69, %if.then22
   %9 = phi i64 [ %sub.i67, %_ZN4absl7debian211string_view13remove_prefixEm.exit69 ], [ %.pre, %if.then22 ]
-  %cmp.i73250 = icmp eq i64 %9, 0
-  br i1 %cmp.i73250, label %if.then112, label %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph
+  %cmp.i73249 = icmp eq i64 %9, 0
+  br i1 %cmp.i73249, label %if.then112, label %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph
 
 _ZNK4absl7debian211string_viewixEm.exit77.lr.ph:  ; preds = %_ZNK4absl7debian211string_viewixEm.exit63, %if.end26
   %10 = phi i64 [ %9, %if.end26 ], [ %sub.i, %_ZNK4absl7debian211string_viewixEm.exit63 ]
@@ -5737,23 +5737,23 @@ _ZNK4absl7debian211string_viewixEm.exit77.lr.ph:  ; preds = %_ZNK4absl7debian211
   %cmp13.i.i.i = icmp sgt i32 %11, 0
   %wide.trip.count32.i.i.i = zext nneg i32 %11 to i64
   %12 = load i32, ptr @_ZN3re215num_perl_groupsE, align 4
-  %cmp13.i.i.i144 = icmp slt i32 %12, 1
-  %wide.trip.count32.i.i.i146 = zext nneg i32 %12 to i64
+  %cmp13.i.i.i143 = icmp slt i32 %12, 1
+  %wide.trip.count32.i.i.i145 = zext nneg i32 %12 to i64
   %hi.i = getelementptr inbounds nuw i8, ptr %rr, i64 4
   br label %_ZNK4absl7debian211string_viewixEm.exit77
 
 _ZNK4absl7debian211string_viewixEm.exit77:        ; preds = %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph, %while.cond.backedge
-  %13 = phi i64 [ %10, %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph ], [ %39, %while.cond.backedge ]
-  %first.0251 = phi i1 [ true, %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph ], [ false, %while.cond.backedge ]
+  %13 = phi i64 [ %10, %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph ], [ %40, %while.cond.backedge ]
+  %first.0250 = phi i1 [ true, %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph ], [ false, %while.cond.backedge ]
   %14 = load ptr, ptr %s, align 8
   %15 = load i8, ptr %14, align 1
   %cmp30 = icmp ne i8 %15, 93
-  %16 = or i1 %first.0251, %cmp30
-  br i1 %16, label %_ZNK4absl7debian211string_viewixEm.exit81, label %_ZN4absl7debian211string_view13remove_prefixEm.exit189
+  %16 = or i1 %first.0250, %cmp30
+  br i1 %16, label %_ZNK4absl7debian211string_viewixEm.exit81, label %_ZN4absl7debian211string_view13remove_prefixEm.exit188
 
 _ZNK4absl7debian211string_viewixEm.exit81:        ; preds = %_ZNK4absl7debian211string_viewixEm.exit77
   %cmp34 = icmp ne i8 %15, 45
-  %or.cond = or i1 %first.0251, %cmp34
+  %or.cond = or i1 %first.0250, %cmp34
   br i1 %or.cond, label %if.end56, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %_ZNK4absl7debian211string_viewixEm.exit81
@@ -5839,8 +5839,8 @@ if.end52:                                         ; preds = %_ZN3re2L16StringVie
 if.end56:                                         ; preds = %_ZNK4absl7debian211string_viewixEm.exit81
   %cmp58 = icmp ugt i64 %13, 2
   %cmp62 = icmp eq i8 %15, 91
-  %or.cond204 = and i1 %cmp58, %cmp62
-  br i1 %or.cond204, label %_ZNK4absl7debian211string_viewixEm.exit110, label %if.end73
+  %or.cond203 = and i1 %cmp58, %cmp62
+  br i1 %or.cond203, label %_ZNK4absl7debian211string_viewixEm.exit110, label %if.end73
 
 _ZNK4absl7debian211string_viewixEm.exit110:       ; preds = %if.end56
   %arrayidx.i109 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -5852,35 +5852,38 @@ if.then67:                                        ; preds = %_ZNK4absl7debian211
   %22 = load i32, ptr %this, align 8
   %23 = load ptr, ptr %ccb_, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
-  %cmp.i113 = icmp slt i64 %13, 2
-  br i1 %cmp.i113, label %if.end73, label %if.end.i115
+  %cmp.i112 = icmp slt i64 %13, 2
+  br i1 %cmp.i112, label %if.end73, label %if.end.i114
 
-if.end.i115:                                      ; preds = %if.then67
-  %add.ptr.i112 = getelementptr inbounds nuw i8, ptr %14, i64 %13
-  %add.ptr8.i = getelementptr i8, ptr %14, i64 2
-  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i112, i64 -2
-  %cmp10.not36.i = icmp ugt ptr %add.ptr8.i, %add.ptr9.i
-  br i1 %cmp10.not36.i, label %if.end73, label %land.rhs.i
+if.end.i114:                                      ; preds = %if.then67
+  %24 = getelementptr i8, ptr %14, i64 %13
+  %add.ptr9.i = getelementptr i8, ptr %24, i64 -2
+  %cmp10.not35.i = icmp samesign ult i64 %13, 4
+  br i1 %cmp10.not35.i, label %if.end73, label %land.rhs.preheader.i
 
-land.rhs.i:                                       ; preds = %if.end.i115, %for.inc.i
-  %q.037.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr8.i, %if.end.i115 ]
-  %24 = load i8, ptr %q.037.i, align 1
-  %cmp12.not.i = icmp eq i8 %24, 58
+land.rhs.preheader.i:                             ; preds = %if.end.i114
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %14, i64 2
+  br label %land.rhs.i
+
+land.rhs.i:                                       ; preds = %for.inc.i, %land.rhs.preheader.i
+  %q.036.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr8.i, %land.rhs.preheader.i ]
+  %25 = load i8, ptr %q.036.i, align 1
+  %cmp12.not.i = icmp eq i8 %25, 58
   br i1 %cmp12.not.i, label %lor.rhs.i, label %for.inc.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
-  %add.ptr13.i = getelementptr inbounds nuw i8, ptr %q.037.i, i64 1
-  %25 = load i8, ptr %add.ptr13.i, align 1
-  %cmp15.not.i = icmp eq i8 %25, 93
+  %add.ptr13.i = getelementptr inbounds nuw i8, ptr %q.036.i, i64 1
+  %26 = load i8, ptr %add.ptr13.i, align 1
+  %cmp15.not.i = icmp eq i8 %26, 93
   br i1 %cmp15.not.i, label %if.end19.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.rhs.i, %land.rhs.i
-  %incdec.ptr.i = getelementptr i8, ptr %q.037.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %q.036.i, i64 1
   %cmp10.not.i = icmp ugt ptr %incdec.ptr.i, %add.ptr9.i
   br i1 %cmp10.not.i, label %if.end73, label %land.rhs.i, !llvm.loop !54
 
 if.end19.i:                                       ; preds = %lor.rhs.i
-  %add.ptr20.i = getelementptr i8, ptr %q.037.i, i64 2
+  %add.ptr20.i = getelementptr i8, ptr %q.036.i, i64 2
   %sub.ptr.lhs.cast21.i = ptrtoint ptr %add.ptr20.i to i64
   %sub.ptr.sub23.i = sub i64 %sub.ptr.lhs.cast21.i, %sub.ptr.rhs.cast.i
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub23.i, -1
@@ -5900,12 +5903,12 @@ for.body.lr.ph.i.i.i:                             ; preds = %_ZN4absl7debian211s
 for.body.us.i.i.i:                                ; preds = %for.body.lr.ph.i.i.i, %for.inc.us.i.i.i
   %indvars.iv29.i.i.i = phi i64 [ %indvars.iv.next30.i.i.i, %for.inc.us.i.i.i ], [ 0, %for.body.lr.ph.i.i.i ]
   %arrayidx.us.i.i.i = getelementptr inbounds nuw %"struct.re2::UGroup", ptr @_ZN3re212posix_groupsE, i64 %indvars.iv29.i.i.i
-  %26 = load ptr, ptr %arrayidx.us.i.i.i, align 8
-  %tobool.not.i.us.i.i.i = icmp eq ptr %26, null
+  %27 = load ptr, ptr %arrayidx.us.i.i.i, align 8
+  %tobool.not.i.us.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.us.i.i.i, label %if.end28.i, label %cond.true.i.us.i.i.i
 
 cond.true.i.us.i.i.i:                             ; preds = %for.body.us.i.i.i
-  %call.i.i.us.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #28
+  %call.i.i.us.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #28
   %cmp.i.i.us.i.i.i = icmp sgt i64 %call.i.i.us.i.i.i, -1
   br i1 %cmp.i.i.us.i.i.i, label %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -5921,12 +5924,12 @@ for.inc.us.i.i.i:                                 ; preds = %_ZN4absl7debian211s
 for.body.i.i.i:                                   ; preds = %for.body.lr.ph.i.i.i, %for.inc.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ], [ 0, %for.body.lr.ph.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.re2::UGroup", ptr @_ZN3re212posix_groupsE, i64 %indvars.iv.i.i.i
-  %27 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %27, null
+  %28 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i.i, label %for.inc.i.i.i, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %for.body.i.i.i
-  %call.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #28
+  %call.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #28
   %cmp.i.i.i.i.i = icmp sgt i64 %call.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i, label %cond.false.i.i.i.i.i
 
@@ -5939,7 +5942,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %cond.true.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, label %for.inc.i.i.i
 
 _ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %27, ptr nonnull readonly %14, i64 %sub.ptr.sub23.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %28, ptr nonnull readonly %14, i64 %sub.ptr.sub23.i)
   %cmp7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %if.end28.i, label %for.inc.i.i.i
 
@@ -5950,49 +5953,49 @@ for.inc.i.i.i:                                    ; preds = %_ZN4absl7debian2eqE
 
 if.end28.i:                                       ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i.i, %for.body.us.i.i.i
   %retval.0.i.i.i = phi ptr [ %arrayidx.us.i.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i.i ], [ %arrayidx.us.i.i.i, %for.body.us.i.i.i ], [ %arrayidx.i.i.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i ]
-  %cmp.not.i.i117 = icmp ugt i64 %sub.ptr.sub23.i, %13
-  br i1 %cmp.not.i.i117, label %cond.false.i.i121, label %_ZN3re2L11ParseCCNameEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit
+  %cmp.not.i.i116 = icmp ugt i64 %sub.ptr.sub23.i, %13
+  br i1 %cmp.not.i.i116, label %cond.false.i.i120, label %_ZN3re2L11ParseCCNameEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit
 
-cond.false.i.i121:                                ; preds = %if.end28.i
+cond.false.i.i120:                                ; preds = %if.end28.i
   call void @llvm.trap()
   unreachable
 
 _ZN3re2L11ParseCCNameEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit: ; preds = %if.end28.i
-  %add.ptr.i.i119 = getelementptr inbounds nuw i8, ptr %14, i64 %sub.ptr.sub23.i
-  store ptr %add.ptr.i.i119, ptr %s, align 8
-  %sub.i.i120 = sub nuw nsw i64 %13, %sub.ptr.sub23.i
-  store i64 %sub.i.i120, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+  %add.ptr.i.i118 = getelementptr inbounds nuw i8, ptr %14, i64 %sub.ptr.sub23.i
+  store ptr %add.ptr.i.i118, ptr %s, align 8
+  %sub.i.i119 = sub nuw nsw i64 %13, %sub.ptr.sub23.i
+  store i64 %sub.i.i119, ptr %whole_class.sroa.3.0..sroa_idx, align 8
   %sign.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
-  %28 = load i32, ptr %sign.i, align 8
-  call fastcc void @_ZN3re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %23, ptr noundef nonnull %retval.0.i.i.i, i32 noundef %28, i32 noundef %22)
+  %29 = load i32, ptr %sign.i, align 8
+  call fastcc void @_ZN3re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %23, ptr noundef nonnull %retval.0.i.i.i, i32 noundef %29, i32 noundef %22)
   br label %while.cond.backedge
 
 sw.bb71:                                          ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit.i, %for.inc.i.i.i, %for.inc.us.i.i.i
   store i32 4, ptr %status, align 8
-  %error_arg_.i.i116 = getelementptr inbounds nuw i8, ptr %status, i64 8
-  store ptr %14, ptr %error_arg_.i.i116, align 8
+  %error_arg_.i.i115 = getelementptr inbounds nuw i8, ptr %status, i64 8
+  store ptr %14, ptr %error_arg_.i.i115, align 8
   %error_arg.sroa.2.0.error_arg_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %status, i64 16
   store i64 %sub.ptr.sub23.i, ptr %error_arg.sroa.2.0.error_arg_.sroa_idx.i.i, align 8
   call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call3)
   br label %return
 
-if.end73:                                         ; preds = %for.inc.i, %if.end.i115, %if.then67, %_ZNK4absl7debian211string_viewixEm.exit110, %if.end56
+if.end73:                                         ; preds = %for.inc.i, %if.end.i114, %if.then67, %_ZNK4absl7debian211string_viewixEm.exit110, %if.end56
   %cmp79 = icmp eq i8 %15, 92
-  %or.cond369 = and i1 %cmp58, %cmp79
-  br i1 %or.cond369, label %_ZNK4absl7debian211string_viewixEm.exit132, label %if.end96
+  %or.cond368 = and i1 %cmp58, %cmp79
+  br i1 %or.cond368, label %_ZNK4absl7debian211string_viewixEm.exit131, label %if.end96
 
-_ZNK4absl7debian211string_viewixEm.exit132:       ; preds = %if.end73
-  %arrayidx.i131 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %29 = load i8, ptr %arrayidx.i131, align 1
-  switch i8 %29, label %if.end96 [
+_ZNK4absl7debian211string_viewixEm.exit131:       ; preds = %if.end73
+  %arrayidx.i130 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %30 = load i8, ptr %arrayidx.i130, align 1
+  switch i8 %30, label %if.end96 [
     i8 112, label %if.then88
     i8 80, label %if.then88
   ]
 
-if.then88:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit132, %_ZNK4absl7debian211string_viewixEm.exit132
-  %30 = load i32, ptr %this, align 8
-  %31 = load ptr, ptr %ccb_, align 8
-  %call91 = call noundef i32 @_ZN3re217ParseUnicodeGroupEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef nonnull %s, i32 noundef %30, ptr noundef %31, ptr noundef %status)
+if.then88:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit131, %_ZNK4absl7debian211string_viewixEm.exit131
+  %31 = load i32, ptr %this, align 8
+  %32 = load ptr, ptr %ccb_, align 8
+  %call91 = call noundef i32 @_ZN3re217ParseUnicodeGroupEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef nonnull %s, i32 noundef %31, ptr noundef %32, ptr noundef %status)
   switch i32 %call91, label %if.end96 [
     i32 0, label %while.cond.backedge
     i32 1, label %sw.bb93
@@ -6002,172 +6005,172 @@ sw.bb93:                                          ; preds = %if.then88
   call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call3)
   br label %return
 
-if.end96:                                         ; preds = %land.lhs.true37, %_ZNK4absl7debian211string_viewixEm.exit87, %_ZNK4absl7debian211string_viewixEm.exit132, %if.then88, %if.end73
-  %32 = load i32, ptr %this, align 8
-  %and.i.i = and i32 %32, 128
-  %tobool.not.i138 = icmp eq i32 %and.i.i, 0
-  br i1 %tobool.not.i138, label %if.end96.if.end103_crit_edge, label %if.end.i139
+if.end96:                                         ; preds = %land.lhs.true37, %_ZNK4absl7debian211string_viewixEm.exit87, %_ZNK4absl7debian211string_viewixEm.exit131, %if.then88, %if.end73
+  %33 = load i32, ptr %this, align 8
+  %and.i.i = and i32 %33, 128
+  %tobool.not.i137 = icmp eq i32 %and.i.i, 0
+  br i1 %tobool.not.i137, label %if.end96.if.end103_crit_edge, label %if.end.i138
 
 if.end96.if.end103_crit_edge:                     ; preds = %if.end96
   %os.sroa.0.0.copyload.i.pre = load ptr, ptr %s, align 8
   br label %if.end103
 
-if.end.i139:                                      ; preds = %if.end96
-  %33 = load i64, ptr %whole_class.sroa.3.0..sroa_idx, align 8
-  %cmp.i141 = icmp ult i64 %33, 2
-  %os.sroa.0.0.copyload.i.pre298 = load ptr, ptr %s, align 8
-  br i1 %cmp.i141, label %if.end103, label %_ZNK4absl7debian211string_viewixEm.exit.i
+if.end.i138:                                      ; preds = %if.end96
+  %34 = load i64, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+  %cmp.i140 = icmp ult i64 %34, 2
+  %os.sroa.0.0.copyload.i.pre297 = load ptr, ptr %s, align 8
+  br i1 %cmp.i140, label %if.end103, label %_ZNK4absl7debian211string_viewixEm.exit.i
 
-_ZNK4absl7debian211string_viewixEm.exit.i:        ; preds = %if.end.i139
-  %34 = load i8, ptr %os.sroa.0.0.copyload.i.pre298, align 1
-  %cmp3.not.i142 = icmp ne i8 %34, 92
-  %brmerge = select i1 %cmp3.not.i142, i1 true, i1 %cmp13.i.i.i144
-  br i1 %brmerge, label %if.end103, label %for.body.i.i.i147
+_ZNK4absl7debian211string_viewixEm.exit.i:        ; preds = %if.end.i138
+  %35 = load i8, ptr %os.sroa.0.0.copyload.i.pre297, align 1
+  %cmp3.not.i141 = icmp ne i8 %35, 92
+  %brmerge = select i1 %cmp3.not.i141, i1 true, i1 %cmp13.i.i.i143
+  br i1 %brmerge, label %if.end103, label %for.body.i.i.i146
 
-for.body.i.i.i147:                                ; preds = %_ZNK4absl7debian211string_viewixEm.exit.i, %for.inc.i.i.i157
-  %indvars.iv.i.i.i148 = phi i64 [ %indvars.iv.next.i.i.i158, %for.inc.i.i.i157 ], [ 0, %_ZNK4absl7debian211string_viewixEm.exit.i ]
-  %arrayidx.i.i.i149 = getelementptr inbounds nuw %"struct.re2::UGroup", ptr @_ZN3re211perl_groupsE, i64 %indvars.iv.i.i.i148
-  %35 = load ptr, ptr %arrayidx.i.i.i149, align 8
-  %tobool.not.i.i.i.i150 = icmp eq ptr %35, null
-  br i1 %tobool.not.i.i.i.i150, label %for.inc.i.i.i157, label %cond.true.i.i.i.i151
+for.body.i.i.i146:                                ; preds = %_ZNK4absl7debian211string_viewixEm.exit.i, %for.inc.i.i.i156
+  %indvars.iv.i.i.i147 = phi i64 [ %indvars.iv.next.i.i.i157, %for.inc.i.i.i156 ], [ 0, %_ZNK4absl7debian211string_viewixEm.exit.i ]
+  %arrayidx.i.i.i148 = getelementptr inbounds nuw %"struct.re2::UGroup", ptr @_ZN3re211perl_groupsE, i64 %indvars.iv.i.i.i147
+  %36 = load ptr, ptr %arrayidx.i.i.i148, align 8
+  %tobool.not.i.i.i.i149 = icmp eq ptr %36, null
+  br i1 %tobool.not.i.i.i.i149, label %for.inc.i.i.i156, label %cond.true.i.i.i.i150
 
-cond.true.i.i.i.i151:                             ; preds = %for.body.i.i.i147
-  %call.i.i.i.i.i152 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #28
-  %cmp.i.i.i.i.i153 = icmp sgt i64 %call.i.i.i.i.i152, -1
-  br i1 %cmp.i.i.i.i.i153, label %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i155, label %cond.false.i.i.i.i.i154
+cond.true.i.i.i.i150:                             ; preds = %for.body.i.i.i146
+  %call.i.i.i.i.i151 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #28
+  %cmp.i.i.i.i.i152 = icmp sgt i64 %call.i.i.i.i.i151, -1
+  br i1 %cmp.i.i.i.i.i152, label %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154, label %cond.false.i.i.i.i.i153
 
-cond.false.i.i.i.i.i154:                          ; preds = %cond.true.i.i.i.i151
+cond.false.i.i.i.i.i153:                          ; preds = %cond.true.i.i.i.i150
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i155: ; preds = %cond.true.i.i.i.i151
-  %cmp.i.i.i.i156 = icmp eq i64 %call.i.i.i.i.i152, 2
-  br i1 %cmp.i.i.i.i156, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i160, label %for.inc.i.i.i157
+_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154: ; preds = %cond.true.i.i.i.i150
+  %cmp.i.i.i.i155 = icmp eq i64 %call.i.i.i.i.i151, 2
+  br i1 %cmp.i.i.i.i155, label %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159, label %for.inc.i.i.i156
 
-_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i160: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i155
-  %bcmp.i.i.i.i161 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %35, ptr noundef nonnull readonly dereferenceable(2) %os.sroa.0.0.copyload.i.pre298, i64 2)
-  %cmp7.i.i.i.i162 = icmp eq i32 %bcmp.i.i.i.i161, 0
-  br i1 %cmp7.i.i.i.i162, label %if.then100, label %for.inc.i.i.i157
+_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154
+  %bcmp.i.i.i.i160 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %36, ptr noundef nonnull readonly dereferenceable(2) %os.sroa.0.0.copyload.i.pre297, i64 2)
+  %cmp7.i.i.i.i161 = icmp eq i32 %bcmp.i.i.i.i160, 0
+  br i1 %cmp7.i.i.i.i161, label %if.then100, label %for.inc.i.i.i156
 
-for.inc.i.i.i157:                                 ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i160, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i155, %for.body.i.i.i147
-  %indvars.iv.next.i.i.i158 = add nuw nsw i64 %indvars.iv.i.i.i148, 1
-  %exitcond.not.i.i.i159 = icmp eq i64 %indvars.iv.next.i.i.i158, %wide.trip.count32.i.i.i146
-  br i1 %exitcond.not.i.i.i159, label %if.end103, label %for.body.i.i.i147, !llvm.loop !47
+for.inc.i.i.i156:                                 ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i154, %for.body.i.i.i146
+  %indvars.iv.next.i.i.i157 = add nuw nsw i64 %indvars.iv.i.i.i147, 1
+  %exitcond.not.i.i.i158 = icmp eq i64 %indvars.iv.next.i.i.i157, %wide.trip.count32.i.i.i145
+  br i1 %exitcond.not.i.i.i158, label %if.end103, label %for.body.i.i.i146, !llvm.loop !47
 
-if.then100:                                       ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i160
-  %add.ptr.i.i164 = getelementptr inbounds nuw i8, ptr %os.sroa.0.0.copyload.i.pre298, i64 2
-  store ptr %add.ptr.i.i164, ptr %s, align 8
-  %sub.i.i165 = add i64 %33, -2
-  store i64 %sub.i.i165, ptr %whole_class.sroa.3.0..sroa_idx, align 8
-  %36 = load ptr, ptr %ccb_, align 8
-  %sign = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i149, i64 8
-  %37 = load i32, ptr %sign, align 8
-  %38 = load i32, ptr %this, align 8
-  call fastcc void @_ZN3re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %36, ptr noundef nonnull %arrayidx.i.i.i149, i32 noundef %37, i32 noundef %38)
+if.then100:                                       ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i159
+  %add.ptr.i.i163 = getelementptr inbounds nuw i8, ptr %os.sroa.0.0.copyload.i.pre297, i64 2
+  store ptr %add.ptr.i.i163, ptr %s, align 8
+  %sub.i.i164 = add i64 %34, -2
+  store i64 %sub.i.i164, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+  %37 = load ptr, ptr %ccb_, align 8
+  %sign = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i148, i64 8
+  %38 = load i32, ptr %sign, align 8
+  %39 = load i32, ptr %this, align 8
+  call fastcc void @_ZN3re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %37, ptr noundef nonnull %arrayidx.i.i.i148, i32 noundef %38, i32 noundef %39)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then100, %if.end107, %if.then88, %_ZN3re2L11ParseCCNameEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit
-  %39 = load i64, ptr %whole_class.sroa.3.0..sroa_idx, align 8
-  %cmp.i73 = icmp eq i64 %39, 0
+  %40 = load i64, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+  %cmp.i73 = icmp eq i64 %40, 0
   br i1 %cmp.i73, label %if.then112, label %_ZNK4absl7debian211string_viewixEm.exit77, !llvm.loop !55
 
-if.end103:                                        ; preds = %for.inc.i.i.i157, %if.end96.if.end103_crit_edge, %_ZNK4absl7debian211string_viewixEm.exit.i, %if.end.i139
-  %os.sroa.0.0.copyload.i = phi ptr [ %os.sroa.0.0.copyload.i.pre, %if.end96.if.end103_crit_edge ], [ %os.sroa.0.0.copyload.i.pre298, %if.end.i139 ], [ %os.sroa.0.0.copyload.i.pre298, %_ZNK4absl7debian211string_viewixEm.exit.i ], [ %os.sroa.0.0.copyload.i.pre298, %for.inc.i.i.i157 ]
+if.end103:                                        ; preds = %for.inc.i.i.i156, %if.end96.if.end103_crit_edge, %_ZNK4absl7debian211string_viewixEm.exit.i, %if.end.i138
+  %os.sroa.0.0.copyload.i = phi ptr [ %os.sroa.0.0.copyload.i.pre, %if.end96.if.end103_crit_edge ], [ %os.sroa.0.0.copyload.i.pre297, %if.end.i138 ], [ %os.sroa.0.0.copyload.i.pre297, %_ZNK4absl7debian211string_viewixEm.exit.i ], [ %os.sroa.0.0.copyload.i.pre297, %for.inc.i.i.i156 ]
   store i32 0, ptr %rr, align 4
   store i32 0, ptr %hi.i, align 4
   %call.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %rr, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
-  br i1 %call.i, label %if.end.i167, label %if.then106
+  br i1 %call.i, label %if.end.i166, label %if.then106
 
-if.end.i167:                                      ; preds = %if.end103
-  %40 = load i64, ptr %whole_class.sroa.3.0..sroa_idx, align 8
-  %cmp.i168 = icmp ugt i64 %40, 1
-  br i1 %cmp.i168, label %_ZNK4absl7debian211string_viewixEm.exit.i169, label %if.else.i
+if.end.i166:                                      ; preds = %if.end103
+  %41 = load i64, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+  %cmp.i167 = icmp ugt i64 %41, 1
+  br i1 %cmp.i167, label %_ZNK4absl7debian211string_viewixEm.exit.i168, label %if.else.i
 
-_ZNK4absl7debian211string_viewixEm.exit.i169:     ; preds = %if.end.i167
-  %41 = load ptr, ptr %s, align 8
-  %42 = load i8, ptr %41, align 1
-  %cmp4.i = icmp eq i8 %42, 45
+_ZNK4absl7debian211string_viewixEm.exit.i168:     ; preds = %if.end.i166
+  %42 = load ptr, ptr %s, align 8
+  %43 = load i8, ptr %42, align 1
+  %cmp4.i = icmp eq i8 %43, 45
   br i1 %cmp4.i, label %_ZNK4absl7debian211string_viewixEm.exit20.i, label %if.else.i
 
-_ZNK4absl7debian211string_viewixEm.exit20.i:      ; preds = %_ZNK4absl7debian211string_viewixEm.exit.i169
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %41, i64 1
-  %43 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp8.not.i = icmp eq i8 %43, 93
-  br i1 %cmp8.not.i, label %if.else.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit.i170
+_ZNK4absl7debian211string_viewixEm.exit20.i:      ; preds = %_ZNK4absl7debian211string_viewixEm.exit.i168
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %44 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp8.not.i = icmp eq i8 %44, 93
+  br i1 %cmp8.not.i, label %if.else.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit.i169
 
-_ZN4absl7debian211string_view13remove_prefixEm.exit.i170: ; preds = %_ZNK4absl7debian211string_viewixEm.exit20.i
+_ZN4absl7debian211string_view13remove_prefixEm.exit.i169: ; preds = %_ZNK4absl7debian211string_viewixEm.exit20.i
   store ptr %arrayidx.i.i, ptr %s, align 8
-  %sub.i.i171 = add i64 %40, -1
-  store i64 %sub.i.i171, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+  %sub.i.i170 = add i64 %41, -1
+  store i64 %sub.i.i170, ptr %whole_class.sroa.3.0..sroa_idx, align 8
   %call11.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %hi.i, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
-  br i1 %call11.i, label %if.end13.i173, label %if.then106
+  br i1 %call11.i, label %if.end13.i172, label %if.then106
 
-if.end13.i173:                                    ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i170
-  %44 = load i32, ptr %hi.i, align 4
-  %45 = load i32, ptr %rr, align 4
-  %cmp16.i = icmp slt i32 %44, %45
+if.end13.i172:                                    ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i169
+  %45 = load i32, ptr %hi.i, align 4
+  %46 = load i32, ptr %rr, align 4
+  %cmp16.i = icmp slt i32 %45, %46
   br i1 %cmp16.i, label %if.then17.i, label %if.end107
 
-if.then17.i:                                      ; preds = %if.end13.i173
+if.then17.i:                                      ; preds = %if.end13.i172
   store i32 4, ptr %status, align 8
-  %46 = load ptr, ptr %s, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i174 = ptrtoint ptr %os.sroa.0.0.copyload.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i174
-  %cmp.i.i.i175 = icmp sgt i64 %sub.ptr.sub.i, -1
-  br i1 %cmp.i.i.i175, label %_ZN4absl7debian211string_viewC2EPKcm.exit.i177, label %cond.false.i.i.i176
+  %47 = load ptr, ptr %s, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %47 to i64
+  %sub.ptr.rhs.cast.i173 = ptrtoint ptr %os.sroa.0.0.copyload.i to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i173
+  %cmp.i.i.i174 = icmp sgt i64 %sub.ptr.sub.i, -1
+  br i1 %cmp.i.i.i174, label %_ZN4absl7debian211string_viewC2EPKcm.exit.i176, label %cond.false.i.i.i175
 
-cond.false.i.i.i176:                              ; preds = %if.then17.i
+cond.false.i.i.i175:                              ; preds = %if.then17.i
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian211string_viewC2EPKcm.exit.i177:   ; preds = %if.then17.i
-  %error_arg_.i.i178 = getelementptr inbounds nuw i8, ptr %status, i64 8
-  store ptr %os.sroa.0.0.copyload.i, ptr %error_arg_.i.i178, align 8
-  %error_arg.sroa.2.0.error_arg_.sroa_idx.i.i179 = getelementptr inbounds nuw i8, ptr %status, i64 16
-  store i64 %sub.ptr.sub.i, ptr %error_arg.sroa.2.0.error_arg_.sroa_idx.i.i179, align 8
+_ZN4absl7debian211string_viewC2EPKcm.exit.i176:   ; preds = %if.then17.i
+  %error_arg_.i.i177 = getelementptr inbounds nuw i8, ptr %status, i64 8
+  store ptr %os.sroa.0.0.copyload.i, ptr %error_arg_.i.i177, align 8
+  %error_arg.sroa.2.0.error_arg_.sroa_idx.i.i178 = getelementptr inbounds nuw i8, ptr %status, i64 16
+  store i64 %sub.ptr.sub.i, ptr %error_arg.sroa.2.0.error_arg_.sroa_idx.i.i178, align 8
   br label %if.then106
 
-if.else.i:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit20.i, %_ZNK4absl7debian211string_viewixEm.exit.i169, %if.end.i167
-  %47 = load i32, ptr %rr, align 4
-  store i32 %47, ptr %hi.i, align 4
+if.else.i:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit20.i, %_ZNK4absl7debian211string_viewixEm.exit.i168, %if.end.i166
+  %48 = load i32, ptr %rr, align 4
+  store i32 %48, ptr %hi.i, align 4
   br label %if.end107
 
-if.then106:                                       ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i170, %if.end103, %_ZN4absl7debian211string_viewC2EPKcm.exit.i177
+if.then106:                                       ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i169, %if.end103, %_ZN4absl7debian211string_viewC2EPKcm.exit.i176
   call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call3)
   br label %return
 
-if.end107:                                        ; preds = %if.else.i, %if.end13.i173
-  %48 = phi i32 [ %47, %if.else.i ], [ %44, %if.end13.i173 ]
-  %49 = phi i32 [ %47, %if.else.i ], [ %45, %if.end13.i173 ]
-  %50 = load ptr, ptr %ccb_, align 8
-  %51 = load i32, ptr %this, align 8
-  %or.i = or i32 %51, 4
-  call void @_ZN3re216CharClassBuilder13AddRangeFlagsEiiNS_6Regexp10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(64) %50, i32 noundef %49, i32 noundef %48, i32 noundef %or.i)
+if.end107:                                        ; preds = %if.else.i, %if.end13.i172
+  %49 = phi i32 [ %48, %if.else.i ], [ %45, %if.end13.i172 ]
+  %50 = phi i32 [ %48, %if.else.i ], [ %46, %if.end13.i172 ]
+  %51 = load ptr, ptr %ccb_, align 8
+  %52 = load i32, ptr %this, align 8
+  %or.i = or i32 %52, 4
+  call void @_ZN3re216CharClassBuilder13AddRangeFlagsEiiNS_6Regexp10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(64) %51, i32 noundef %50, i32 noundef %49, i32 noundef %or.i)
   br label %while.cond.backedge
 
 if.then112:                                       ; preds = %while.cond.backedge, %_ZN4absl7debian211string_view13remove_prefixEm.exit, %if.end26
   store i32 5, ptr %status, align 8
-  %error_arg_.i182 = getelementptr inbounds nuw i8, ptr %status, i64 8
-  store ptr %whole_class.sroa.0.0.copyload, ptr %error_arg_.i182, align 8
-  %error_arg.sroa.2.0.error_arg_.sroa_idx.i183 = getelementptr inbounds nuw i8, ptr %status, i64 16
-  store i64 %whole_class.sroa.3.0.copyload, ptr %error_arg.sroa.2.0.error_arg_.sroa_idx.i183, align 8
+  %error_arg_.i181 = getelementptr inbounds nuw i8, ptr %status, i64 8
+  store ptr %whole_class.sroa.0.0.copyload, ptr %error_arg_.i181, align 8
+  %error_arg.sroa.2.0.error_arg_.sroa_idx.i182 = getelementptr inbounds nuw i8, ptr %status, i64 16
+  store i64 %whole_class.sroa.3.0.copyload, ptr %error_arg.sroa.2.0.error_arg_.sroa_idx.i182, align 8
   call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call3)
   br label %return
 
-_ZN4absl7debian211string_view13remove_prefixEm.exit189: ; preds = %_ZNK4absl7debian211string_viewixEm.exit77
-  %add.ptr.i186 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store ptr %add.ptr.i186, ptr %s, align 8
-  %sub.i187 = add i64 %13, -1
-  store i64 %sub.i187, ptr %whole_class.sroa.3.0..sroa_idx, align 8
+_ZN4absl7debian211string_view13remove_prefixEm.exit188: ; preds = %_ZNK4absl7debian211string_viewixEm.exit77
+  %add.ptr.i185 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  store ptr %add.ptr.i185, ptr %s, align 8
+  %sub.i186 = add i64 %13, -1
+  store i64 %sub.i186, ptr %whole_class.sroa.3.0..sroa_idx, align 8
   br i1 %cmp14, label %if.then116, label %if.end118
 
-if.then116:                                       ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit189
-  %52 = load ptr, ptr %ccb_, align 8
-  call void @_ZN3re216CharClassBuilder6NegateEv(ptr noundef nonnull align 8 dereferenceable(64) %52)
+if.then116:                                       ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit188
+  %53 = load ptr, ptr %ccb_, align 8
+  call void @_ZN3re216CharClassBuilder6NegateEv(ptr noundef nonnull align 8 dereferenceable(64) %53)
   br label %if.end118
 
-if.end118:                                        ; preds = %if.then116, %_ZN4absl7debian211string_view13remove_prefixEm.exit189
+if.end118:                                        ; preds = %if.then116, %_ZN4absl7debian211string_view13remove_prefixEm.exit188
   store ptr %call3, ptr %out_re, align 8
   br label %return
 

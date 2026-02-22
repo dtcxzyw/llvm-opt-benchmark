@@ -5173,8 +5173,8 @@ switch.early.test:                                ; preds = %_ZNK5clang6format11
   %64 = load ptr, ptr %63, align 8, !tbaa !209
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i16, ptr %65, align 8, !tbaa !168
-  %.fr = freeze i16 %66
-  %67 = icmp eq i16 %.fr, 4
+  %.fr31 = freeze i16 %66
+  %67 = icmp eq i16 %.fr31, 4
   %spec.select = select i1 %67, i8 1, i8 %.058.fr24
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 108
   %69 = load i32, ptr %68, align 4, !tbaa !210
@@ -6136,8 +6136,8 @@ _ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLi
   br i1 %111, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread32.i.i.i.i
-  %.035.i.i.i.i = phi i64 [ %135, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread32.i.i.i.i ], [ 0, %100 ]
-  %112 = shl i64 %.035.i.i.i.i, 1
+  %.034.i.i.i.i = phi i64 [ %135, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread32.i.i.i.i ], [ 0, %100 ]
+  %112 = shl i64 %.034.i.i.i.i, 1
   %113 = add i64 %112, 2
   %114 = getelementptr inbounds %"struct.std::pair.168", ptr %.val29, i64 %113
   %115 = getelementptr %"struct.std::pair.168", ptr %.val29, i64 %112
@@ -6172,17 +6172,16 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12
   %130 = load ptr, ptr %129, align 8, !tbaa !358
   %131 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !358
-  %.fr.i.i.i.i = freeze ptr %130
-  %.fr34.i.i.i.i = freeze ptr %132
-  %133 = icmp ult ptr %.fr.i.i.i.i, %.fr34.i.i.i.i
+  %133 = icmp ult ptr %130, %132
   %134 = or disjoint i64 %112, 1
-  %spec.select.i.i.i.i = select i1 %133, i64 %134, i64 %113
+  %cond.fr.i.i.i.i = freeze i1 %133
+  %spec.select.i.i.i.i = select i1 %cond.fr.i.i.i.i, i64 %134, i64 %113
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread32.i.i.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread32.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread.i.i.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit6.i.i.i.i.i.i.i.i, %120
   %135 = phi i64 [ %113, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit6.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.i.i.i.i ], [ %128, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread.i.i.i.i ], [ %113, %120 ]
   %136 = getelementptr inbounds %"struct.std::pair.168", ptr %.val29, i64 %135
-  %137 = getelementptr inbounds %"struct.std::pair.168", ptr %.val29, i64 %.035.i.i.i.i
+  %137 = getelementptr inbounds %"struct.std::pair.168", ptr %.val29, i64 %.034.i.i.i.i
   %138 = load i32, ptr %136, align 4, !tbaa !166
   store i32 %138, ptr %137, align 4, !tbaa !355
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 4

@@ -2699,8 +2699,8 @@ define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i
   %139 = getelementptr i8, ptr %135, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %141 = load i32, ptr %140, align 8
-  %.fr9 = freeze i32 %141
-  %142 = and i32 %.fr9, 4096
+  %.fr = freeze i32 %141
+  %142 = and i32 %.fr, 4096
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.split.us.split.us, label %.split.us.split
 

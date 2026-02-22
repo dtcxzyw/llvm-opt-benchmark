@@ -2237,8 +2237,8 @@ _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit10.thread.i: ; preds = %51
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit19.i: ; preds = %.thread23.i, %51
   %67 = phi i8 [ %52, %51 ], [ %.pr.i, %.thread23.i ]
-  %.fr = freeze i8 %67
-  %68 = icmp eq i8 %.fr, 92
+  %.fr65 = freeze i8 %67
+  %68 = icmp eq i8 %.fr65, 92
   %spec.select.i17.i = and i1 %switch.i.i.i25, %68
   %not.spec.select.i17.i = xor i1 %spec.select.i17.i, true
   %spec.select = sext i1 %not.spec.select.i17.i to i64
@@ -2257,19 +2257,19 @@ _ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit: ; 
   br i1 %69, label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us.preheader, label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.preheader
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.preheader: ; preds = %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit.thread, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit
-  %.0.i2776 = phi i64 [ %.0.i27.ph, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit.thread ], [ %.0.i27, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
-  %switch.i.i.i255373 = phi i1 [ %switch.i.i.i2553.ph, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit.thread ], [ %switch.i.i.i25, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
-  %umin = call i64 @llvm.umin.i64(i64 %.0.i2776, i64 %.010.i37)
+  %.0.i2777 = phi i64 [ %.0.i27.ph, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit.thread ], [ %.0.i27, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
+  %switch.i.i.i255374 = phi i1 [ %switch.i.i.i2553.ph, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit.thread ], [ %switch.i.i.i25, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
+  %umin = call i64 @llvm.umin.i64(i64 %.0.i2777, i64 %.010.i37)
   br label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us.preheader: ; preds = %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit
-  %.010.i384282 = phi i64 [ %.010.i37, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ], [ %.010.i, %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
+  %.010.i384283 = phi i64 [ %.010.i37, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ], [ %.010.i, %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
   %70 = phi i1 [ %38, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ], [ false, %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
-  %switch.i.i.i255381 = phi i1 [ %switch.i.i.i25, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ], [ %switch.i.i.i11.i, %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
+  %switch.i.i.i255382 = phi i1 [ %switch.i.i.i25, %_ZN12_GLOBAL__N_114root_dir_startEN4llvm9StringRefENS0_3sys4path5StyleE.exit ], [ %switch.i.i.i11.i, %_ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit ]
   br label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us: ; preds = %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us.preheader, %71
-  %.020.us = phi i64 [ %72, %71 ], [ %.010.i384282, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us.preheader ]
+  %.020.us = phi i64 [ %72, %71 ], [ %.010.i384283, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us.preheader ]
   %.not22.us = icmp eq i64 %.020.us, 0
   br i1 %.not22.us, label %.critedge, label %71
 
@@ -2279,13 +2279,13 @@ _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us: ; preds = %_ZN4ll
   %74 = load i8, ptr %73, align 1, !tbaa !10
   %75 = icmp eq i8 %74, 47
   %76 = icmp eq i8 %74, 92
-  %spec.select.i31.us = and i1 %switch.i.i.i255381, %76
+  %spec.select.i31.us = and i1 %switch.i.i.i255382, %76
   %or.cond63.us = or i1 %75, %spec.select.i31.us
   br i1 %or.cond63.us, label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us, label %.critedge, !llvm.loop !55
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread: ; preds = %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.preheader, %78
   %.020 = phi i64 [ %79, %78 ], [ %.010.i37, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.preheader ]
-  %77 = icmp ugt i64 %.020, %.0.i2776
+  %77 = icmp ugt i64 %.020, %.0.i2777
   br i1 %77, label %78, label %.critedge
 
 78:                                               ; preds = %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread
@@ -2294,17 +2294,17 @@ _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread: ; preds = %_ZN4llvm3
   %81 = load i8, ptr %80, align 1, !tbaa !10
   %82 = icmp eq i8 %81, 47
   %83 = icmp eq i8 %81, 92
-  %spec.select.i31 = and i1 %switch.i.i.i255373, %83
+  %spec.select.i31 = and i1 %switch.i.i.i255374, %83
   %or.cond63 = or i1 %82, %spec.select.i31
   br i1 %or.cond63, label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread, %78, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us, %71
-  %.0.i2775 = phi i64 [ -1, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us ], [ -1, %71 ], [ %.0.i2776, %78 ], [ %.0.i2776, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread ]
+  %.0.i2776 = phi i64 [ -1, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us ], [ -1, %71 ], [ %.0.i2777, %78 ], [ %.0.i2777, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread ]
   %84 = phi i1 [ %70, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us ], [ %70, %71 ], [ %38, %78 ], [ %38, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread ]
   %.us-phi = phi i64 [ 0, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread.us ], [ %.020.us, %71 ], [ %umin, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit33.thread ], [ %.020, %78 ]
-  %85 = icmp ne i64 %.us-phi, %.0.i2775
+  %85 = icmp ne i64 %.us-phi, %.0.i2776
   %or.cond = or i1 %84, %85
-  %86 = add i64 %.0.i2775, 1
+  %86 = add i64 %.0.i2776, 1
   %.0 = select i1 %or.cond, i64 %.us-phi, i64 %86
   ret i64 %.0
 }

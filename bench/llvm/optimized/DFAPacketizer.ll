@@ -2972,10 +2972,10 @@ define linkonce_odr hidden void @_ZN4llvm8internal14NfaTranscriber10transitionEN
   %35 = ashr exact i64 %34, 3
   %36 = add nsw i64 %28, %35
   %37 = and i64 %36, 4294967295
-  %.not62 = icmp eq i64 %37, 0
-  br i1 %.not62, label %._crit_edge61, label %.lr.ph60
+  %.not59 = icmp eq i64 %37, 0
+  br i1 %.not59, label %._crit_edge58, label %.lr.ph57
 
-.lr.ph60:                                         ; preds = %3
+.lr.ph57:                                         ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = icmp sgt i64 %2, 0
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2986,14 +2986,14 @@ define linkonce_odr hidden void @_ZN4llvm8internal14NfaTranscriber10transitionEN
   %wide.trip.count = and i64 %36, 4294967295
   br label %82
 
-._crit_edge61.loopexit:                           ; preds = %._crit_edge
-  %.pre66 = load ptr, ptr %9, align 8, !tbaa !412, !noalias !460
-  %.pre67 = load ptr, ptr %12, align 8, !tbaa !421, !noalias !460
-  br label %._crit_edge61
+._crit_edge58.loopexit:                           ; preds = %._crit_edge
+  %.pre63 = load ptr, ptr %9, align 8, !tbaa !412, !noalias !460
+  %.pre64 = load ptr, ptr %12, align 8, !tbaa !421, !noalias !460
+  br label %._crit_edge58
 
-._crit_edge61:                                    ; preds = %._crit_edge61.loopexit, %3
-  %45 = phi ptr [ %.pre67, %._crit_edge61.loopexit ], [ %13, %3 ]
-  %46 = phi ptr [ %.pre66, %._crit_edge61.loopexit ], [ %31, %3 ]
+._crit_edge58:                                    ; preds = %._crit_edge58.loopexit, %3
+  %45 = phi ptr [ %.pre64, %._crit_edge58.loopexit ], [ %13, %3 ]
+  %46 = phi ptr [ %.pre63, %._crit_edge58.loopexit ], [ %31, %3 ]
   %47 = and i64 %36, 4294967295
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load ptr, ptr %48, align 8, !tbaa !419, !noalias !463
@@ -3005,7 +3005,7 @@ define linkonce_odr hidden void @_ZN4llvm8internal14NfaTranscriber10transitionEN
   %55 = icmp sgt i64 %54, -1
   br i1 %55, label %56, label %62
 
-56:                                               ; preds = %._crit_edge61
+56:                                               ; preds = %._crit_edge58
   %57 = icmp samesign ult i64 %54, 64
   br i1 %57, label %58, label %60
 
@@ -3017,7 +3017,7 @@ define linkonce_odr hidden void @_ZN4llvm8internal14NfaTranscriber10transitionEN
   %61 = lshr i64 %54, 6
   br label %64
 
-62:                                               ; preds = %._crit_edge61
+62:                                               ; preds = %._crit_edge58
   %63 = ashr i64 %54, 6
   br label %64
 
@@ -3062,9 +3062,9 @@ _ZSt4nextISt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS5_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-82:                                               ; preds = %.lr.ph60, %._crit_edge
-  %83 = phi ptr [ %21, %.lr.ph60 ], [ %248, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next, %._crit_edge ]
+82:                                               ; preds = %.lr.ph57, %._crit_edge
+  %83 = phi ptr [ %21, %.lr.ph57 ], [ %248, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next, %._crit_edge ]
   %84 = load ptr, ptr %9, align 8, !tbaa !412, !noalias !480
   %85 = load ptr, ptr %38, align 8, !tbaa !419, !noalias !480
   %86 = load ptr, ptr %12, align 8, !tbaa !421, !noalias !480
@@ -3105,70 +3105,67 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit: ; p
   %storemerge.i.i.i.i = phi ptr [ %107, %101 ], [ %96, %95 ]
   %108 = load ptr, ptr %storemerge.i.i.i.i, align 8, !tbaa !435
   %109 = load i64, ptr %108, align 8, !tbaa !483
-  %.fr.i.i.i = freeze i64 %109
   br i1 %39, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i, label %._crit_edge
 
 _ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i: ; preds = %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i
-  %.025.i.i.i = phi ptr [ %118, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ], [ %1, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ]
-  %.01124.i.i.i = phi i64 [ %117, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ], [ %2, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ]
-  %110 = lshr i64 %.01124.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %.025.i.i.i, i64 %110
+  %.022.i.i.i = phi ptr [ %118, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ], [ %1, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ]
+  %.01121.i.i.i = phi i64 [ %117, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ], [ %2, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ]
+  %110 = lshr i64 %.01121.i.i.i, 1
+  %111 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %.022.i.i.i, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !53, !noalias !485
-  %.fr20.i.i.i = freeze i64 %112
-  %113 = icmp ult i64 %.fr20.i.i.i, %.fr.i.i.i
+  %113 = icmp ult i64 %112, %109
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %115 = xor i64 %110, -1
-  %116 = add nsw i64 %.01124.i.i.i, %115
+  %116 = add nsw i64 %.01121.i.i.i, %115
   %117 = select i1 %113, i64 %116, i64 %110
-  %118 = select i1 %113, ptr %114, ptr %.025.i.i.i
+  %118 = select i1 %113, ptr %114, ptr %.022.i.i.i
   %119 = icmp sgt i64 %117, 0
-  br i1 %119, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20, !llvm.loop !488
+  br i1 %119, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18, !llvm.loop !488
 
-_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20: ; preds = %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i, %.thread.i.i.i26
-  %.024.i.i.i = phi ptr [ %133, %.thread.i.i.i26 ], [ %1, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ]
-  %.01123.i.i.i = phi i64 [ %132, %.thread.i.i.i26 ], [ %2, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ]
-  %120 = lshr i64 %.01123.i.i.i, 1
-  %121 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %.024.i.i.i, i64 %120
+_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18: ; preds = %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i, %.thread.i.i.i23
+  %.021.i.i.i = phi ptr [ %133, %.thread.i.i.i23 ], [ %1, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ]
+  %.01120.i.i.i = phi i64 [ %132, %.thread.i.i.i23 ], [ %2, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ]
+  %120 = lshr i64 %.01120.i.i.i, 1
+  %121 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %.021.i.i.i, i64 %120
   %122 = load i64, ptr %121, align 8, !tbaa !53, !noalias !489
-  %.fr.i.i.i23 = freeze i64 %122
-  %123 = icmp ult i64 %.fr.i.i.i, %.fr.i.i.i23
-  br i1 %123, label %.thread.i.i.i26, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i
+  %123 = icmp ult i64 %109, %122
+  br i1 %123, label %.thread.i.i.i23, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %125 = load i64, ptr %124, align 8, !tbaa !53, !noalias !489
-  %126 = icmp uge i64 %.fr.i.i.i23, %.fr.i.i.i
-  %.fr22.i.i.i24 = freeze i64 %125
-  %127 = icmp slt i64 %.fr22.i.i.i24, 0
-  %spec.select.i.i.i.i.i25 = and i1 %126, %127
-  br i1 %spec.select.i.i.i.i.i25, label %.thread.i.i.i26, label %128
+  %126 = icmp uge i64 %122, %109
+  %127 = icmp slt i64 %125, 0
+  %spec.select.i.i.i.i.i21 = select i1 %126, i1 %127, i1 false
+  %cond.fr.i.i.i22 = freeze i1 %spec.select.i.i.i.i.i21
+  br i1 %cond.fr.i.i.i22, label %.thread.i.i.i23, label %128
 
 128:                                              ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i
   %129 = xor i64 %120, -1
-  %130 = add nsw i64 %.01123.i.i.i, %129
+  %130 = add nsw i64 %.01120.i.i.i, %129
   %131 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  br label %.thread.i.i.i26
+  br label %.thread.i.i.i23
 
-.thread.i.i.i26:                                  ; preds = %128, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20
-  %132 = phi i64 [ %130, %128 ], [ %120, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20 ], [ %120, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i ]
-  %133 = phi ptr [ %131, %128 ], [ %.024.i.i.i, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20 ], [ %.024.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i ]
+.thread.i.i.i23:                                  ; preds = %128, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18
+  %132 = phi i64 [ %130, %128 ], [ %120, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18 ], [ %120, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i ]
+  %133 = phi ptr [ %131, %128 ], [ %.021.i.i.i, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18 ], [ %.021.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i ]
   %134 = icmp sgt i64 %132, 0
-  br i1 %134, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i20, label %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit, !llvm.loop !492
+  br i1 %134, label %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18, label %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit, !llvm.loop !492
 
-_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit: ; preds = %.thread.i.i.i26
-  %.not56 = icmp eq ptr %118, %133
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit: ; preds = %.thread.i.i.i23
+  %.not53 = icmp eq ptr %118, %133
+  br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit
   %135 = phi ptr [ %246, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit ], [ %83, %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit ]
-  %.01457 = phi ptr [ %247, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit ], [ %118, %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit ]
-  %136 = load i64, ptr %.01457, align 8, !tbaa !493
+  %.01454 = phi ptr [ %247, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit ], [ %118, %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit ]
+  %136 = load i64, ptr %.01454, align 8, !tbaa !493
   %137 = load i64, ptr %108, align 8, !tbaa !483
   %138 = icmp eq i64 %136, %137
   br i1 %138, label %139, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit
 
 139:                                              ; preds = %.lr.ph
-  %140 = getelementptr inbounds nuw i8, ptr %.01457, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.01454, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !85
   %142 = load i64, ptr %41, align 8, !tbaa !430
   %143 = add i64 %142, 16
@@ -3266,11 +3263,11 @@ _ZN4llvm8internal14NfaTranscriber15makePathSegmentEmPNS1_11PathSegmentE.exit: ; 
   %204 = getelementptr inbounds nuw ptr, ptr %190, i64 %203
   %205 = icmp ult ptr %204, %165
   %206 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %.not.i.i.i.i.i.i28 = icmp eq ptr %206, %165
+  %.not.i.i.i.i.i.i25 = icmp eq ptr %206, %165
   br i1 %205, label %207, label %211
 
 207:                                              ; preds = %201
-  br i1 %.not.i.i.i.i.i.i28, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit, label %208
+  br i1 %.not.i.i.i.i.i.i25, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit, label %208
 
 208:                                              ; preds = %207
   %209 = ptrtoint ptr %206 to i64
@@ -3279,7 +3276,7 @@ _ZN4llvm8internal14NfaTranscriber15makePathSegmentEmPNS1_11PathSegmentE.exit: ; 
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit
 
 211:                                              ; preds = %201
-  br i1 %.not.i.i.i.i.i.i28, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit, label %212
+  br i1 %.not.i.i.i.i.i.i25, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit, label %212
 
 212:                                              ; preds = %211
   %213 = getelementptr inbounds nuw ptr, ptr %204, i64 %197
@@ -3364,7 +3361,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4
 
 _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit.sink.split, %.lr.ph
   %246 = phi ptr [ %135, %.lr.ph ], [ %.sink, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit.sink.split ]
-  %247 = getelementptr inbounds nuw i8, ptr %.01457, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %.01454, i64 16
   %.not = icmp eq ptr %247, %133
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !494
 
@@ -3372,7 +3369,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4
   %248 = phi ptr [ %83, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ], [ %83, %_ZN4llvm11upper_boundIRNS_8ArrayRefINS_12NfaStatePairEEES2_EEDaOT_OT0_.exit ], [ %246, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE9push_backEOS4_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge61.loopexit, label %82, !llvm.loop !495
+  br i1 %exitcond.not, label %._crit_edge58.loopexit, label %82, !llvm.loop !495
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

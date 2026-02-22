@@ -21553,9 +21553,9 @@ _ZN4fish8builtins6string16StringSubCommand10parse_opts17h48a3c9e1991969ccE.exit.
 
 136:                                              ; preds = %124
   %137 = call { i32, i32 } @"_ZN99_$LT$fish..builtins..string..length..Length$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17h092014f02900b8c1E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %39)
-  %.fr = freeze { i32, i32 } %137
-  %138 = extractvalue { i32, i32 } %.fr, 0
-  %139 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %137
+  %138 = extractvalue { i32, i32 } %.fr13, 0
+  %139 = extractvalue { i32, i32 } %.fr13, 1
   %140 = trunc i32 %138 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1540
   %141 = zext i32 %139 to i64
@@ -22050,9 +22050,9 @@ _ZN4fish8builtins6string16StringSubCommand10parse_opts17haaff41889ccae41fE.exit.
 
 143:                                              ; preds = %128
   %144 = call { i32, i32 } @"_ZN99_$LT$fish..builtins..string..repeat..Repeat$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17hf92e3aa693b50c1cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %39)
-  %.fr = freeze { i32, i32 } %144
-  %145 = extractvalue { i32, i32 } %.fr, 0
-  %146 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %144
+  %145 = extractvalue { i32, i32 } %.fr13, 0
+  %146 = extractvalue { i32, i32 } %.fr13, 1
   %147 = trunc i32 %145 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1613
   %148 = zext i32 %146 to i64
@@ -48224,18 +48224,18 @@ define internal fastcc void @_ZN4fish4proc15summary_command17h671f40cf587fd350E(
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %45 = load i64, ptr %44, align 8, !range !227, !noalias !3893, !noundef !17
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink121.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink121.sroa.gep124 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink121.sroa.gep125 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink121.sroa.gep127 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink121.sroa.gep128 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink121.sroa.gep129 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink121.sroa.gep131 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink121.sroa.gep132 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink121.sroa.gep133 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink121.sroa.gep135 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink121.sroa.gep136 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink121.sroa.gep137 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink122.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink122.sroa.gep125 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink122.sroa.gep126 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink122.sroa.gep128 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink122.sroa.gep129 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink122.sroa.gep130 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink122.sroa.gep132 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink122.sroa.gep133 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink122.sroa.gep134 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink122.sroa.gep136 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink122.sroa.gep137 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink122.sroa.gep138 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %43, label %47, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h9994a23d7ea4ad3aE.exit", !prof !59
 
 47:                                               ; preds = %3
@@ -48599,20 +48599,20 @@ _ZN4fish4proc3Job13is_foreground17h7770a92eb73ddf01E.exit: ; preds = %_ZN4fish4p
 161:                                              ; preds = %158, %.lr.ph.i
   %162 = getelementptr inbounds nuw i8, ptr %155, i64 205
   %163 = load atomic i8, ptr %162 monotonic, align 1
-  %.fr = freeze i8 %163
-  %164 = icmp ne i8 %.fr, 0
+  %.fr107 = freeze i8 %163
+  %164 = icmp ne i8 %.fr107, 0
   %165 = or i1 %.sroa.0.06.i, %164
   %166 = icmp eq ptr %154, %152
   br i1 %166, label %_ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit, label %.lr.ph.i
 
 _ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit: ; preds = %161
   %spec.select = select i1 %165, ptr @anon.ed30acb1490cb1edb4adbeb613859062.1086, ptr @anon.ed30acb1490cb1edb4adbeb613859062.1085
-  %spec.select107 = select i1 %165, i64 8, i64 6
+  %spec.select108 = select i1 %165, i64 8, i64 6
   br label %.thread
 
 .thread:                                          ; preds = %158, %_ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit, %147
   %167 = phi ptr [ @anon.ed30acb1490cb1edb4adbeb613859062.1085, %147 ], [ %spec.select, %_ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit ], [ @anon.ed30acb1490cb1edb4adbeb613859062.1085, %158 ]
-  %168 = phi i64 [ 6, %147 ], [ %spec.select107, %_ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit ], [ 6, %158 ]
+  %168 = phi i64 [ 6, %147 ], [ %spec.select108, %_ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit ], [ 6, %158 ]
   %169 = getelementptr inbounds nuw i32, ptr %167, i64 %168
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h77e1714d935e0dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull %167, ptr noundef nonnull %169, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed30acb1490cb1edb4adbeb613859062.1)
           to label %170 unwind label %86
@@ -48748,17 +48748,17 @@ _ZN4fish4proc3Job10is_stopped17h76562416b81a7a70E.exit: ; preds = %161
   br label %.invoke
 
 .invoke:                                          ; preds = %238, %146, %227
-  %.sink121.sroa.phi = phi ptr [ %.sink121.sroa.gep, %238 ], [ %.sink121.sroa.gep124, %146 ], [ %.sink121.sroa.gep125, %227 ]
-  %.sink121.sroa.phi126 = phi ptr [ %.sink121.sroa.gep127, %238 ], [ %.sink121.sroa.gep128, %146 ], [ %.sink121.sroa.gep129, %227 ]
-  %.sink121.sroa.phi130 = phi ptr [ %.sink121.sroa.gep131, %238 ], [ %.sink121.sroa.gep132, %146 ], [ %.sink121.sroa.gep133, %227 ]
-  %.sink121.sroa.phi134 = phi ptr [ %.sink121.sroa.gep135, %238 ], [ %.sink121.sroa.gep136, %146 ], [ %.sink121.sroa.gep137, %227 ]
-  %.sink121 = phi ptr [ %12, %238 ], [ %10, %146 ], [ %9, %227 ]
+  %.sink122.sroa.phi = phi ptr [ %.sink122.sroa.gep, %238 ], [ %.sink122.sroa.gep125, %146 ], [ %.sink122.sroa.gep126, %227 ]
+  %.sink122.sroa.phi127 = phi ptr [ %.sink122.sroa.gep128, %238 ], [ %.sink122.sroa.gep129, %146 ], [ %.sink122.sroa.gep130, %227 ]
+  %.sink122.sroa.phi131 = phi ptr [ %.sink122.sroa.gep132, %238 ], [ %.sink122.sroa.gep133, %146 ], [ %.sink122.sroa.gep134, %227 ]
+  %.sink122.sroa.phi135 = phi ptr [ %.sink122.sroa.gep136, %238 ], [ %.sink122.sroa.gep137, %146 ], [ %.sink122.sroa.gep138, %227 ]
+  %.sink122 = phi ptr [ %12, %238 ], [ %10, %146 ], [ %9, %227 ]
   %228 = phi ptr [ @anon.ed30acb1490cb1edb4adbeb613859062.502, %238 ], [ @anon.ed30acb1490cb1edb4adbeb613859062.941, %146 ], [ @anon.ed30acb1490cb1edb4adbeb613859062.502, %227 ]
-  store i64 1, ptr %.sink121.sroa.phi, align 8
-  store ptr null, ptr %.sink121.sroa.phi126, align 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink121.sroa.phi130, align 8
-  store i64 0, ptr %.sink121.sroa.phi134, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink121, ptr noalias noundef readonly align 8 dereferenceable(24) %228) #37
+  store i64 1, ptr %.sink122.sroa.phi, align 8
+  store ptr null, ptr %.sink122.sroa.phi127, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink122.sroa.phi131, align 8
+  store i64 0, ptr %.sink122.sroa.phi135, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink122, ptr noalias noundef readonly align 8 dereferenceable(24) %228) #37
           to label %.cont unwind label %86
 
 .cont:                                            ; preds = %.invoke

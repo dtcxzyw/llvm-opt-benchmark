@@ -1195,7 +1195,6 @@ define internal fastcc void @CopyAttributeOutCSV(ptr noundef readonly captures(n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
-  %.fr88 = freeze i8 %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
   %12 = load i8, ptr %11, align 1
@@ -1242,16 +1241,15 @@ list_length.exit:                                 ; preds = %3, %15
 
 36:                                               ; preds = %35
   %.pre = load i8, ptr %.069, align 1
-  %.fr90 = freeze i8 %.pre
-  %.not100 = icmp eq i8 %.fr90, 92
-  %or.cond108 = and i1 %19, %.not100
-  br i1 %or.cond108, label %sub_1, label %.tail.thread
+  %.not96 = icmp eq i8 %.pre, 92
+  %or.cond106 = select i1 %19, i1 %.not96, i1 false
+  br i1 %or.cond106, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %38 = load i8, ptr %37, align 1
-  %.not101 = icmp eq i8 %38, 46
-  br i1 %.not101, label %.tail, label %.lr.ph
+  %.not97 = icmp eq i8 %38, 46
+  br i1 %.not97, label %.tail, label %.lr.ph
 
 .tail:                                            ; preds = %sub_1
   %39 = getelementptr inbounds nuw i8, ptr %.069, i64 2
@@ -1260,219 +1258,221 @@ sub_1:                                            ; preds = %36
   br i1 %41, label %.critedge, label %.lr.ph
 
 .tail.thread:                                     ; preds = %36
-  %.not91 = icmp eq i8 %.fr90, 0
-  br i1 %.not91, label %._crit_edge, label %.lr.ph
+  %.not88 = icmp eq i8 %.pre, 0
+  br i1 %.not88, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %sub_1, %.tail, %.tail.thread
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %44
 
-44:                                               ; preds = %.lr.ph, %55
-  %.fr93 = phi i8 [ %.fr90, %.lr.ph ], [ %.fr, %55 ]
-  %.092 = phi ptr [ %.069, %.lr.ph ], [ %56, %55 ]
-  %45 = icmp eq i8 %.fr93, %6
-  %46 = icmp eq i8 %.fr93, %.fr88
-  %or.cond89 = or i1 %45, %46
-  br i1 %or.cond89, label %.critedge, label %switch.early.test
+44:                                               ; preds = %.lr.ph, %58
+  %45 = phi i8 [ %.pre, %.lr.ph ], [ %60, %58 ]
+  %.089 = phi ptr [ %.069, %.lr.ph ], [ %59, %58 ]
+  %46 = icmp eq i8 %45, %6
+  br i1 %46, label %.critedge, label %47
 
-switch.early.test:                                ; preds = %44
-  switch i8 %.fr93, label %47 [
+47:                                               ; preds = %44
+  %48 = icmp eq i8 %45, %9
+  %49 = freeze i1 %48
+  br i1 %49, label %.critedge, label %switch.early.test
+
+switch.early.test:                                ; preds = %47
+  switch i8 %45, label %50 [
     i8 13, label %.critedge
     i8 10, label %.critedge
   ]
 
-47:                                               ; preds = %switch.early.test
-  %.not76 = icmp sgt i8 %.fr93, -1
-  br i1 %.not76, label %55, label %48
+50:                                               ; preds = %switch.early.test
+  %.not76 = icmp sgt i8 %45, -1
+  br i1 %.not76, label %58, label %51
 
-48:                                               ; preds = %47
-  %49 = load i8, ptr %42, align 1, !range !6, !noundef !7
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %55
+51:                                               ; preds = %50
+  %52 = load i8, ptr %42, align 1, !range !6, !noundef !7
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %58
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %43, align 8
-  %53 = tail call i32 @pg_encoding_mblen(i32 noundef %52, ptr noundef nonnull %.092) #17
-  %54 = sext i32 %53 to i64
-  br label %55
+54:                                               ; preds = %51
+  %55 = load i32, ptr %43, align 8
+  %56 = tail call i32 @pg_encoding_mblen(i32 noundef %55, ptr noundef nonnull %.089) #17
+  %57 = sext i32 %56 to i64
+  br label %58
 
-55:                                               ; preds = %47, %48, %51
-  %.sink = phi i64 [ %54, %51 ], [ 1, %48 ], [ 1, %47 ]
-  %56 = getelementptr inbounds i8, ptr %.092, i64 %.sink
-  %57 = load i8, ptr %56, align 1
-  %.fr = freeze i8 %57
-  %.not = icmp eq i8 %.fr, 0
+58:                                               ; preds = %50, %51, %54
+  %.sink = phi i64 [ %57, %54 ], [ 1, %51 ], [ 1, %50 ]
+  %59 = getelementptr inbounds i8, ptr %.089, i64 %.sink
+  %60 = load i8, ptr %59, align 1
+  %.not = icmp eq i8 %60, 0
   br i1 %.not, label %._crit_edge, label %44, !llvm.loop !22
 
-.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %44, %35, %.tail
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = add i32 %61, 1
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %64 = load i32, ptr %63, align 4
-  %.not.i83 = icmp slt i32 %62, %64
-  br i1 %.not.i83, label %66, label %65
+.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %47, %44, %35, %.tail
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load i32, ptr %63, align 8
+  %65 = add i32 %64, 1
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %67 = load i32, ptr %66, align 4
+  %.not.i83 = icmp slt i32 %65, %67
+  br i1 %.not.i83, label %69, label %68
 
-65:                                               ; preds = %.critedge
-  tail call void @appendStringInfoChar(ptr noundef nonnull %59, i8 noundef signext %.fr88) #17
+68:                                               ; preds = %.critedge
+  tail call void @appendStringInfoChar(ptr noundef nonnull %62, i8 noundef signext %9) #17
   br label %CopySendChar.exit
 
-66:                                               ; preds = %.critedge
-  %67 = load ptr, ptr %59, align 8
-  %68 = sext i32 %61 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store i8 %.fr88, ptr %69, align 1
-  %70 = load ptr, ptr %58, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load i32, ptr %72, align 8
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %72, align 8
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  store i8 0, ptr %76, align 1
+69:                                               ; preds = %.critedge
+  %70 = load ptr, ptr %62, align 8
+  %71 = sext i32 %64 to i64
+  %72 = getelementptr inbounds i8, ptr %70, i64 %71
+  store i8 %9, ptr %72, align 1
+  %73 = load ptr, ptr %61, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %76 = load i32, ptr %75, align 8
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %75, align 8
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %74, i64 %78
+  store i8 0, ptr %79, align 1
   br label %CopySendChar.exit
 
-CopySendChar.exit:                                ; preds = %65, %66
-  %77 = load i8, ptr %.069, align 1
-  %.not7794 = icmp eq i8 %77, 0
-  br i1 %.not7794, label %._crit_edge98.thread, label %.lr.ph97
+CopySendChar.exit:                                ; preds = %68, %69
+  %80 = load i8, ptr %.069, align 1
+  %.not7790 = icmp eq i8 %80, 0
+  br i1 %.not7790, label %._crit_edge94.thread, label %.lr.ph93
 
-.lr.ph97:                                         ; preds = %CopySendChar.exit
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %80
+.lr.ph93:                                         ; preds = %CopySendChar.exit
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %83
 
-80:                                               ; preds = %.lr.ph97, %117
-  %81 = phi i8 [ %77, %.lr.ph97 ], [ %119, %117 ]
-  %.17096 = phi ptr [ %.069, %.lr.ph97 ], [ %118, %117 ]
-  %.07295 = phi ptr [ %.069, %.lr.ph97 ], [ %.173, %117 ]
-  %82 = icmp eq i8 %81, %.fr88
-  %83 = icmp eq i8 %81, %12
-  %or.cond = select i1 %82, i1 true, i1 %83
-  br i1 %or.cond, label %84, label %CopySendChar.exit85
+83:                                               ; preds = %.lr.ph93, %120
+  %84 = phi i8 [ %80, %.lr.ph93 ], [ %122, %120 ]
+  %.17092 = phi ptr [ %.069, %.lr.ph93 ], [ %121, %120 ]
+  %.07291 = phi ptr [ %.069, %.lr.ph93 ], [ %.173, %120 ]
+  %85 = icmp eq i8 %84, %9
+  %86 = icmp eq i8 %84, %12
+  %or.cond = select i1 %85, i1 true, i1 %86
+  br i1 %or.cond, label %87, label %CopySendChar.exit85
 
-84:                                               ; preds = %80
-  %85 = icmp ugt ptr %.17096, %.07295
-  br i1 %85, label %86, label %91
+87:                                               ; preds = %83
+  %88 = icmp ugt ptr %.17092, %.07291
+  br i1 %88, label %89, label %94
 
-86:                                               ; preds = %84
-  %87 = ptrtoint ptr %.17096 to i64
-  %88 = ptrtoint ptr %.07295 to i64
-  %89 = sub i64 %87, %88
-  %90 = trunc i64 %89 to i32
-  %.val81 = load ptr, ptr %58, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val81, ptr noundef %.07295, i32 noundef %90) #17
-  br label %91
+89:                                               ; preds = %87
+  %90 = ptrtoint ptr %.17092 to i64
+  %91 = ptrtoint ptr %.07291 to i64
+  %92 = sub i64 %90, %91
+  %93 = trunc i64 %92 to i32
+  %.val81 = load ptr, ptr %61, align 8
+  tail call void @appendBinaryStringInfo(ptr noundef %.val81, ptr noundef %.07291, i32 noundef %93) #17
+  br label %94
 
-91:                                               ; preds = %86, %84
-  %92 = load ptr, ptr %58, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = add i32 %94, 1
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %97 = load i32, ptr %96, align 4
-  %.not.i84 = icmp slt i32 %95, %97
-  br i1 %.not.i84, label %99, label %98
+94:                                               ; preds = %89, %87
+  %95 = load ptr, ptr %61, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load i32, ptr %96, align 8
+  %98 = add i32 %97, 1
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 12
+  %100 = load i32, ptr %99, align 4
+  %.not.i84 = icmp slt i32 %98, %100
+  br i1 %.not.i84, label %102, label %101
 
-98:                                               ; preds = %91
-  tail call void @appendStringInfoChar(ptr noundef nonnull %92, i8 noundef signext %12) #17
+101:                                              ; preds = %94
+  tail call void @appendStringInfoChar(ptr noundef nonnull %95, i8 noundef signext %12) #17
   br label %CopySendChar.exit85
 
-99:                                               ; preds = %91
-  %100 = load ptr, ptr %92, align 8
-  %101 = sext i32 %94 to i64
-  %102 = getelementptr inbounds i8, ptr %100, i64 %101
-  store i8 %12, ptr %102, align 1
-  %103 = load ptr, ptr %58, align 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %106 = load i32, ptr %105, align 8
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %105, align 8
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %104, i64 %108
-  store i8 0, ptr %109, align 1
+102:                                              ; preds = %94
+  %103 = load ptr, ptr %95, align 8
+  %104 = sext i32 %97 to i64
+  %105 = getelementptr inbounds i8, ptr %103, i64 %104
+  store i8 %12, ptr %105, align 1
+  %106 = load ptr, ptr %61, align 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %109 = load i32, ptr %108, align 8
+  %110 = add i32 %109, 1
+  store i32 %110, ptr %108, align 8
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr %107, i64 %111
+  store i8 0, ptr %112, align 1
   br label %CopySendChar.exit85
 
-CopySendChar.exit85:                              ; preds = %99, %98, %80
-  %.173 = phi ptr [ %.07295, %80 ], [ %.17096, %98 ], [ %.17096, %99 ]
-  %.not78 = icmp sgt i8 %81, -1
-  br i1 %.not78, label %117, label %110
+CopySendChar.exit85:                              ; preds = %102, %101, %83
+  %.173 = phi ptr [ %.07291, %83 ], [ %.17092, %101 ], [ %.17092, %102 ]
+  %.not78 = icmp sgt i8 %84, -1
+  br i1 %.not78, label %120, label %113
 
-110:                                              ; preds = %CopySendChar.exit85
-  %111 = load i8, ptr %78, align 1, !range !6, !noundef !7
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %113, label %117
+113:                                              ; preds = %CopySendChar.exit85
+  %114 = load i8, ptr %81, align 1, !range !6, !noundef !7
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %115, label %116, label %120
 
-113:                                              ; preds = %110
-  %114 = load i32, ptr %79, align 8
-  %115 = tail call i32 @pg_encoding_mblen(i32 noundef %114, ptr noundef nonnull %.17096) #17
-  %116 = sext i32 %115 to i64
-  br label %117
+116:                                              ; preds = %113
+  %117 = load i32, ptr %82, align 8
+  %118 = tail call i32 @pg_encoding_mblen(i32 noundef %117, ptr noundef nonnull %.17092) #17
+  %119 = sext i32 %118 to i64
+  br label %120
 
-117:                                              ; preds = %CopySendChar.exit85, %110, %113
-  %.sink109 = phi i64 [ %116, %113 ], [ 1, %110 ], [ 1, %CopySendChar.exit85 ]
-  %118 = getelementptr inbounds i8, ptr %.17096, i64 %.sink109
-  %119 = load i8, ptr %118, align 1
-  %.not77 = icmp eq i8 %119, 0
-  br i1 %.not77, label %._crit_edge98, label %80, !llvm.loop !23
+120:                                              ; preds = %CopySendChar.exit85, %113, %116
+  %.sink107 = phi i64 [ %119, %116 ], [ 1, %113 ], [ 1, %CopySendChar.exit85 ]
+  %121 = getelementptr inbounds i8, ptr %.17092, i64 %.sink107
+  %122 = load i8, ptr %121, align 1
+  %.not77 = icmp eq i8 %122, 0
+  br i1 %.not77, label %._crit_edge94, label %83, !llvm.loop !23
 
-._crit_edge98:                                    ; preds = %117
-  %120 = icmp ugt ptr %118, %.173
-  br i1 %120, label %121, label %._crit_edge98.thread
+._crit_edge94:                                    ; preds = %120
+  %123 = icmp ugt ptr %121, %.173
+  br i1 %123, label %124, label %._crit_edge94.thread
 
-121:                                              ; preds = %._crit_edge98
-  %122 = ptrtoint ptr %118 to i64
-  %123 = ptrtoint ptr %.173 to i64
-  %124 = sub i64 %122, %123
-  %125 = trunc i64 %124 to i32
-  %.val = load ptr, ptr %58, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef %.173, i32 noundef %125) #17
-  br label %._crit_edge98.thread
+124:                                              ; preds = %._crit_edge94
+  %125 = ptrtoint ptr %121 to i64
+  %126 = ptrtoint ptr %.173 to i64
+  %127 = sub i64 %125, %126
+  %128 = trunc i64 %127 to i32
+  %.val = load ptr, ptr %61, align 8
+  tail call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef %.173, i32 noundef %128) #17
+  br label %._crit_edge94.thread
 
-._crit_edge98.thread:                             ; preds = %CopySendChar.exit, %121, %._crit_edge98
-  %126 = load ptr, ptr %58, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load i32, ptr %127, align 8
-  %129 = add i32 %128, 1
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 12
-  %131 = load i32, ptr %130, align 4
-  %.not.i86 = icmp slt i32 %129, %131
-  br i1 %.not.i86, label %133, label %132
+._crit_edge94.thread:                             ; preds = %CopySendChar.exit, %124, %._crit_edge94
+  %129 = load ptr, ptr %61, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, 1
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 12
+  %134 = load i32, ptr %133, align 4
+  %.not.i86 = icmp slt i32 %132, %134
+  br i1 %.not.i86, label %136, label %135
 
-132:                                              ; preds = %._crit_edge98.thread
-  tail call void @appendStringInfoChar(ptr noundef nonnull %126, i8 noundef signext %.fr88) #17
+135:                                              ; preds = %._crit_edge94.thread
+  tail call void @appendStringInfoChar(ptr noundef nonnull %129, i8 noundef signext %9) #17
   br label %CopySendChar.exit87
 
-133:                                              ; preds = %._crit_edge98.thread
-  %134 = load ptr, ptr %126, align 8
-  %135 = sext i32 %128 to i64
-  %136 = getelementptr inbounds i8, ptr %134, i64 %135
-  store i8 %.fr88, ptr %136, align 1
-  %137 = load ptr, ptr %58, align 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %140 = load i32, ptr %139, align 8
-  %141 = add i32 %140, 1
-  store i32 %141, ptr %139, align 8
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr %138, i64 %142
-  store i8 0, ptr %143, align 1
+136:                                              ; preds = %._crit_edge94.thread
+  %137 = load ptr, ptr %129, align 8
+  %138 = sext i32 %131 to i64
+  %139 = getelementptr inbounds i8, ptr %137, i64 %138
+  store i8 %9, ptr %139, align 1
+  %140 = load ptr, ptr %61, align 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %143 = load i32, ptr %142, align 8
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %142, align 8
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i8, ptr %141, i64 %145
+  store i8 0, ptr %146, align 1
   br label %CopySendChar.exit87
 
-._crit_edge:                                      ; preds = %55, %.tail.thread
-  %144 = getelementptr i8, ptr %0, i64 16
-  %.val82 = load ptr, ptr %144, align 8
-  %145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #21
-  %146 = trunc i64 %145 to i32
-  tail call void @appendBinaryStringInfo(ptr noundef %.val82, ptr noundef nonnull %.069, i32 noundef %146) #17
+._crit_edge:                                      ; preds = %58, %.tail.thread
+  %147 = getelementptr i8, ptr %0, i64 16
+  %.val82 = load ptr, ptr %147, align 8
+  %148 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #21
+  %149 = trunc i64 %148 to i32
+  tail call void @appendBinaryStringInfo(ptr noundef %.val82, ptr noundef nonnull %.069, i32 noundef %149) #17
   br label %CopySendChar.exit87
 
-CopySendChar.exit87:                              ; preds = %133, %132, %._crit_edge
+CopySendChar.exit87:                              ; preds = %136, %135, %._crit_edge
   ret void
 }
 

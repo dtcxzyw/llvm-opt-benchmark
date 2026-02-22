@@ -17259,13 +17259,13 @@ quantize_row_iq1_m_impl.exit.loopexit.us:         ; preds = %505
   %506 = getelementptr inbounds float, ptr %.01659.us, i64 %3
   %507 = getelementptr inbounds nuw i8, ptr %.01560.us, i64 %28
   %508 = add nuw nsw i64 %.061.us, 1
-  %exitcond125.not = icmp eq i64 %508, %2
-  br i1 %exitcond125.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1081
+  %exitcond126.not = icmp eq i64 %508, %2
+  br i1 %exitcond126.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1081
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %509 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iq2_data, i64 48), align 16, !tbaa !685, !noalias !1051
   %510 = icmp eq ptr %509, null
-  br i1 %510, label %.split.us.loopexit82, label %.lr.ph.split.split.us
+  br i1 %510, label %.split.us.loopexit83, label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %511 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iq2_data, i64 56), align 8, !tbaa !691, !noalias !1051
@@ -17300,13 +17300,13 @@ quantize_row_iq1_m_impl.exit.loopexit.us:         ; preds = %505
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %514
 
-.split.us.loopexit82:                             ; preds = %.lr.ph.split
+.split.us.loopexit83:                             ; preds = %.lr.ph.split
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1047)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1049)
   br label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph.split.us, %.split.us.loopexit82
+.split.us:                                        ; preds = %.lr.ph.split.us, %.split.us.loopexit83
   call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 4309, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #24, !noalias !1051
   unreachable
 

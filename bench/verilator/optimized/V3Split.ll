@@ -3472,11 +3472,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %67,
   %.pre = load i32, ptr %75, align 4, !tbaa !157
   %.pre95 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !18
   %.pre96 = load i64, ptr %79, align 8
-  %.pre.fr = freeze i32 %.pre
-  %.pre95.fr = freeze i32 %.pre95
-  %97 = icmp eq i32 %.pre.fr, %.pre95.fr
+  %97 = icmp eq i32 %.pre, %.pre95
   %98 = inttoptr i64 %.pre96 to ptr
-  %spec.select = select i1 %97, ptr %98, ptr null
+  %cond.fr = freeze i1 %97
+  %spec.select = select i1 %cond.fr, ptr %98, ptr null
   br label %99
 
 99:                                               ; preds = %95, %.thread

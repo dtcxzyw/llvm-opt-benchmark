@@ -401,22 +401,22 @@ put_bits_no_assert.exit:                          ; preds = %8, %30
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 1, 16) i32 @ff_h263_aspect_to_info(i64 %0) local_unnamed_addr #4 {
-  %.fr18 = freeze i64 %0
-  %2 = and i64 %.fr18, 4294967295
+  %2 = and i64 %0, 4294967295
   %3 = icmp eq i64 %2, 0
-  %4 = icmp ult i64 %.fr18, 4294967296
+  %4 = icmp ult i64 %0, 4294967296
   %or.cond = or i1 %4, %3
-  %.sroa.06.0.insert.insert = select i1 %or.cond, i64 4294967297, i64 %.fr18
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.06.0.insert.insert to i32
-  %5 = ashr i64 %.sroa.06.0.insert.insert, 32
-  %sext20.i = shl i64 %.sroa.06.0.insert.insert, 32
+  %.sroa.06.0.insert.insert = select i1 %or.cond, i64 4294967297, i64 %0
+  %.sroa.06.0.insert.insert.fr = freeze i64 %.sroa.06.0.insert.insert
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.06.0.insert.insert.fr to i32
+  %5 = ashr i64 %.sroa.06.0.insert.insert.fr, 32
+  %sext20.i = shl i64 %.sroa.06.0.insert.insert.fr, 32
   %6 = ashr exact i64 %sext20.i, 32
   %.not = icmp eq i32 %.sroa.0.0.extract.trunc.i, 0
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %av_cmp_q.exit.thread.us
-  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %av_cmp_q.exit.thread.us ], [ 1, %1 ]
-  %7 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h263_pixel_aspect, i64 %indvars.iv24
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %av_cmp_q.exit.thread.us ], [ 1, %1 ]
+  %7 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h263_pixel_aspect, i64 %indvars.iv21
   %8 = load i64, ptr %7, align 8
   %sext.i.us = shl i64 %8, 32
   %9 = ashr exact i64 %sext.i.us, 32
@@ -426,12 +426,12 @@ define range(i32 1, 16) i32 @ff_h263_aspect_to_info(i64 %0) local_unnamed_addr #
   %.not.i.us = icmp eq i64 %10, %12
   %13 = icmp ugt i64 %8, 4294967295
   %or.cond17 = and i1 %.not.i.us, %13
-  br i1 %or.cond17, label %av_cmp_q.exit.thread12.loopexit.split.loop.exit35, label %av_cmp_q.exit.thread.us
+  br i1 %or.cond17, label %av_cmp_q.exit.thread12.loopexit.split.loop.exit32, label %av_cmp_q.exit.thread.us
 
 av_cmp_q.exit.thread.us:                          ; preds = %.split.us
-  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %exitcond27.not = icmp eq i64 %indvars.iv.next25, 6
-  br i1 %exitcond27.not, label %av_cmp_q.exit.thread12, label %.split.us, !llvm.loop !15
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %exitcond24.not = icmp eq i64 %indvars.iv.next22, 6
+  br i1 %exitcond24.not, label %av_cmp_q.exit.thread12, label %.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %1, %av_cmp_q.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread ], [ 1, %1 ]
@@ -448,34 +448,34 @@ av_cmp_q.exit.thread.us:                          ; preds = %.split.us
 
 20:                                               ; preds = %.split
   %21 = icmp ugt i64 %15, 4294967295
-  br i1 %21, label %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30, label %22
+  br i1 %21, label %av_cmp_q.exit.thread12.loopexit25.split.loop.exit27, label %22
 
 22:                                               ; preds = %20
   %23 = icmp ne i32 %.sroa.011.0.extract.trunc.i, 0
   %.unshifted = xor i32 %.sroa.011.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %24 = icmp sgt i32 %.unshifted, -1
   %or.cond15 = and i1 %23, %24
-  br i1 %or.cond15, label %av_cmp_q.exit.thread12.loopexit28.split.loop.exit, label %av_cmp_q.exit.thread
+  br i1 %or.cond15, label %av_cmp_q.exit.thread12.loopexit25.split.loop.exit, label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread:                             ; preds = %.split, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %av_cmp_q.exit.thread12, label %.split, !llvm.loop !15
 
-av_cmp_q.exit.thread12.loopexit.split.loop.exit35: ; preds = %.split.us
-  %25 = trunc nuw nsw i64 %indvars.iv24 to i32
+av_cmp_q.exit.thread12.loopexit.split.loop.exit32: ; preds = %.split.us
+  %25 = trunc nuw nsw i64 %indvars.iv21 to i32
   br label %av_cmp_q.exit.thread12
 
-av_cmp_q.exit.thread12.loopexit28.split.loop.exit: ; preds = %22
+av_cmp_q.exit.thread12.loopexit25.split.loop.exit: ; preds = %22
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   br label %av_cmp_q.exit.thread12
 
-av_cmp_q.exit.thread12.loopexit28.split.loop.exit30: ; preds = %20
+av_cmp_q.exit.thread12.loopexit25.split.loop.exit27: ; preds = %20
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   br label %av_cmp_q.exit.thread12
 
-av_cmp_q.exit.thread12:                           ; preds = %av_cmp_q.exit.thread, %av_cmp_q.exit.thread.us, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35
-  %.us-phi = phi i32 [ 15, %av_cmp_q.exit.thread.us ], [ %25, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35 ], [ %26, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit ], [ %27, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30 ], [ 15, %av_cmp_q.exit.thread ]
+av_cmp_q.exit.thread12:                           ; preds = %av_cmp_q.exit.thread, %av_cmp_q.exit.thread.us, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit27, %av_cmp_q.exit.thread12.loopexit.split.loop.exit32
+  %.us-phi = phi i32 [ 15, %av_cmp_q.exit.thread.us ], [ %25, %av_cmp_q.exit.thread12.loopexit.split.loop.exit32 ], [ %26, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit ], [ %27, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit27 ], [ 15, %av_cmp_q.exit.thread ]
   ret i32 %.us-phi
 }
 
@@ -3093,22 +3093,22 @@ put_bits.exit292:                                 ; preds = %946, %951, %935
   %954 = load ptr, ptr %89, align 8, !tbaa !101
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 128
   %956 = load i64, ptr %955, align 8
-  %.fr18.i = freeze i64 %956
-  %957 = and i64 %.fr18.i, 4294967295
+  %957 = and i64 %956, 4294967295
   %958 = icmp eq i64 %957, 0
-  %959 = icmp ult i64 %.fr18.i, 4294967296
+  %959 = icmp ult i64 %956, 4294967296
   %or.cond.i = or i1 %959, %958
-  %.sroa.06.0.insert.insert.i = select i1 %or.cond.i, i64 4294967297, i64 %.fr18.i
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.06.0.insert.insert.i to i32
-  %960 = ashr i64 %.sroa.06.0.insert.insert.i, 32
-  %sext20.i.i = shl i64 %.sroa.06.0.insert.insert.i, 32
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.i, i64 4294967297, i64 %956
+  %.sroa.06.0.insert.insert.fr.i = freeze i64 %.sroa.06.0.insert.insert.i
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.06.0.insert.insert.fr.i to i32
+  %960 = ashr i64 %.sroa.06.0.insert.insert.fr.i, 32
+  %sext20.i.i = shl i64 %.sroa.06.0.insert.insert.fr.i, 32
   %961 = ashr exact i64 %sext20.i.i, 32
   %.not.i = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 0
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %953, %av_cmp_q.exit.thread.us.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %av_cmp_q.exit.thread.us.i ], [ 1, %953 ]
-  %962 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h263_pixel_aspect, i64 %indvars.iv24.i
+  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %av_cmp_q.exit.thread.us.i ], [ 1, %953 ]
+  %962 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h263_pixel_aspect, i64 %indvars.iv21.i
   %963 = load i64, ptr %962, align 8
   %sext.i.us.i = shl i64 %963, 32
   %964 = ashr exact i64 %sext.i.us.i, 32
@@ -3118,12 +3118,12 @@ put_bits.exit292:                                 ; preds = %946, %951, %935
   %.not.i.us.i = icmp eq i64 %965, %967
   %968 = icmp ugt i64 %963, 4294967295
   %or.cond17.i = and i1 %968, %.not.i.us.i
-  br i1 %or.cond17.i, label %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i, label %av_cmp_q.exit.thread.us.i
+  br i1 %or.cond17.i, label %av_cmp_q.exit.thread12.loopexit.split.loop.exit32.i, label %av_cmp_q.exit.thread.us.i
 
 av_cmp_q.exit.thread.us.i:                        ; preds = %.split.us.i
-  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, 6
-  br i1 %exitcond27.not.i, label %ff_h263_aspect_to_info.exit, label %.split.us.i, !llvm.loop !15
+  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
+  %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 6
+  br i1 %exitcond24.not.i, label %ff_h263_aspect_to_info.exit, label %.split.us.i, !llvm.loop !15
 
 .split.i:                                         ; preds = %953, %av_cmp_q.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %av_cmp_q.exit.thread.i ], [ 1, %953 ]
@@ -3140,34 +3140,34 @@ av_cmp_q.exit.thread.us.i:                        ; preds = %.split.us.i
 
 975:                                              ; preds = %.split.i
   %976 = icmp ugt i64 %970, 4294967295
-  br i1 %976, label %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i, label %977
+  br i1 %976, label %av_cmp_q.exit.thread12.loopexit25.split.loop.exit27.i, label %977
 
 977:                                              ; preds = %975
   %978 = icmp ne i32 %.sroa.011.0.extract.trunc.i.i, 0
   %.unshifted.i = xor i32 %.sroa.011.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
   %979 = icmp sgt i32 %.unshifted.i, -1
   %or.cond15.i = and i1 %978, %979
-  br i1 %or.cond15.i, label %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i, label %av_cmp_q.exit.thread.i
+  br i1 %or.cond15.i, label %av_cmp_q.exit.thread12.loopexit25.split.loop.exit.i, label %av_cmp_q.exit.thread.i
 
 av_cmp_q.exit.thread.i:                           ; preds = %977, %.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %ff_h263_aspect_to_info.exit, label %.split.i, !llvm.loop !15
 
-av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i: ; preds = %.split.us.i
-  %980 = trunc nuw nsw i64 %indvars.iv24.i to i32
+av_cmp_q.exit.thread12.loopexit.split.loop.exit32.i: ; preds = %.split.us.i
+  %980 = trunc nuw nsw i64 %indvars.iv21.i to i32
   br label %ff_h263_aspect_to_info.exit
 
-av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i: ; preds = %977
+av_cmp_q.exit.thread12.loopexit25.split.loop.exit.i: ; preds = %977
   %981 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %ff_h263_aspect_to_info.exit
 
-av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i: ; preds = %975
+av_cmp_q.exit.thread12.loopexit25.split.loop.exit27.i: ; preds = %975
   %982 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %ff_h263_aspect_to_info.exit
 
-ff_h263_aspect_to_info.exit:                      ; preds = %av_cmp_q.exit.thread.i, %av_cmp_q.exit.thread.us.i, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i
-  %.us-phi.i = phi i32 [ 15, %av_cmp_q.exit.thread.us.i ], [ %980, %av_cmp_q.exit.thread12.loopexit.split.loop.exit35.i ], [ %981, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit.i ], [ %982, %av_cmp_q.exit.thread12.loopexit28.split.loop.exit30.i ], [ 15, %av_cmp_q.exit.thread.i ]
+ff_h263_aspect_to_info.exit:                      ; preds = %av_cmp_q.exit.thread.i, %av_cmp_q.exit.thread.us.i, %av_cmp_q.exit.thread12.loopexit.split.loop.exit32.i, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit.i, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit27.i
+  %.us-phi.i = phi i32 [ 15, %av_cmp_q.exit.thread.us.i ], [ %980, %av_cmp_q.exit.thread12.loopexit.split.loop.exit32.i ], [ %981, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit.i ], [ %982, %av_cmp_q.exit.thread12.loopexit25.split.loop.exit27.i ], [ 15, %av_cmp_q.exit.thread.i ]
   %983 = icmp sgt i32 %952, 4
   br i1 %983, label %984, label %987
 

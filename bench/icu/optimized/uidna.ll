@@ -170,12 +170,11 @@ thread-pre-split:                                 ; preds = %23, %._crit_edge, %
   %.2183 = phi i8 [ 1, %.lr.ph187.preheader ], [ %.3, %62 ]
   %51 = getelementptr inbounds nuw i16, ptr %.2134, i64 %indvars.iv192
   %52 = load i16, ptr %51, align 2, !tbaa !7
-  %.fr = freeze i16 %52
-  %53 = icmp ugt i16 %.fr, 127
+  %53 = icmp ugt i16 %52, 127
   br i1 %53, label %62, label %54
 
 54:                                               ; preds = %.lr.ph187
-  %55 = icmp samesign ugt i16 %.fr, 122
+  %55 = icmp samesign ugt i16 %52, 122
   br i1 %55, label %.thread218, label %_ZL9isLDHCharDs.exit
 
 .thread218:                                       ; preds = %54
@@ -183,24 +182,25 @@ thread-pre-split:                                 ; preds = %23, %._crit_edge, %
   br label %62
 
 _ZL9isLDHCharDs.exit:                             ; preds = %54
-  %57 = icmp ne i16 %.fr, 45
-  %58 = add nsw i16 %.fr, -58
+  %57 = icmp ne i16 %52, 45
+  %58 = add nsw i16 %52, -58
   %or.cond.i = icmp ult i16 %58, -10
-  %or.cond18.i.not178 = and i1 %57, %or.cond.i
-  %59 = add nsw i16 %.fr, -91
+  %or.cond18.i.not178 = select i1 %57, i1 %or.cond.i, i1 false
+  %59 = add nsw i16 %52, -91
   %or.cond5.i = icmp ult i16 %59, -26
-  %or.cond19.i.not176 = and i1 %or.cond18.i.not178, %or.cond5.i
-  %60 = icmp ult i16 %.fr, 97
+  %or.cond19.i.not176 = select i1 %or.cond18.i.not178, i1 %or.cond5.i, i1 false
+  %60 = icmp samesign ult i16 %52, 97
   %or.cond20.i.not = and i1 %60, %or.cond19.i.not176
+  %cond.fr = freeze i1 %or.cond20.i.not
   %61 = trunc nuw nsw i64 %indvars.iv192 to i32
-  %spec.select240 = select i1 %or.cond20.i.not, i8 0, i8 %.0128184
-  %spec.select241 = select i1 %or.cond20.i.not, i32 %61, i32 %.0186
+  %spec.select237 = select i1 %cond.fr, i8 0, i8 %.0128184
+  %spec.select238 = select i1 %cond.fr, i32 %61, i32 %.0186
   br label %62
 
 62:                                               ; preds = %_ZL9isLDHCharDs.exit, %.thread218, %.lr.ph187
   %.3 = phi i8 [ 0, %.lr.ph187 ], [ %.2183, %.thread218 ], [ %.2183, %_ZL9isLDHCharDs.exit ]
-  %.1129 = phi i8 [ %.0128184, %.lr.ph187 ], [ 0, %.thread218 ], [ %spec.select240, %_ZL9isLDHCharDs.exit ]
-  %.1 = phi i32 [ %.0186, %.lr.ph187 ], [ %56, %.thread218 ], [ %spec.select241, %_ZL9isLDHCharDs.exit ]
+  %.1129 = phi i8 [ %.0128184, %.lr.ph187 ], [ 0, %.thread218 ], [ %spec.select237, %_ZL9isLDHCharDs.exit ]
+  %.1 = phi i32 [ %.0186, %.lr.ph187 ], [ %56, %.thread218 ], [ %spec.select238, %_ZL9isLDHCharDs.exit ]
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count194
   br i1 %exitcond195.not, label %._crit_edge188, label %.lr.ph187, !llvm.loop !11

@@ -3743,7 +3743,7 @@ define noundef range(i32 0, 4) i32 @_ZN8LightGBM11GetDataTypeEPKcbRKSt6vectorINS
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !82
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %96, label %15
+  br i1 %14, label %97, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3851,9 +3851,9 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42:    ; preds = %39
   %.0..0..0. = load i32, ptr %10, align 4
   %48 = icmp sgt i32 %.0..0..0., 0
   %or.cond = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond, label %.loopexit.thread125, label %49
+  br i1 %or.cond, label %.loopexit.thread124, label %49
 
-.loopexit.thread125:                              ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42
+.loopexit.thread124:                              ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3865,166 +3865,165 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42:    ; preds = %39
   %50 = icmp eq i32 %.0..0..0.55, %.0..0..0.48
   %51 = icmp sgt i32 %.0..0..0.55, 0
   %or.cond3 = and i1 %51, %50
-  br i1 %or.cond3, label %.thread104, label %52
+  br i1 %or.cond3, label %.thread103, label %52
 
 52:                                               ; preds = %49
   %.0..0..0.59 = load i32, ptr %5, align 4, !tbaa !4
-  %.0.59.fr = freeze i32 %.0..0..0.59
   %.0..0..0.50 = load i32, ptr %8, align 4, !tbaa !4
-  %.0.50.fr = freeze i32 %.0..0..0.50
-  %53 = icmp eq i32 %.0.59.fr, %.0.50.fr
-  %54 = icmp sgt i32 %.0.59.fr, 0
+  %53 = icmp eq i32 %.0..0..0.59, %.0..0..0.50
+  %54 = icmp sgt i32 %.0..0..0.59, 0
   %or.cond5 = and i1 %54, %53
-  %55 = icmp ugt i64 %28, 2
-  %or.cond85 = select i1 %or.cond5, i1 %55, i1 false
+  %55 = freeze i1 %or.cond5
+  %56 = icmp ugt i64 %28, 2
+  %or.cond85 = select i1 %55, i1 %56, i1 false
   br i1 %or.cond85, label %.lr.ph.split, label %.loopexit
 
-.thread104:                                       ; preds = %49
-  %56 = icmp ugt i64 %28, 2
-  br i1 %56, label %.lr.ph.split.us.split.preheader, label %.loopexit.thread
+.thread103:                                       ; preds = %49
+  %57 = icmp ugt i64 %28, 2
+  br i1 %57, label %.lr.ph.split.us.split.preheader, label %.loopexit.thread
 
-.lr.ph.split.us.split.preheader:                  ; preds = %.thread104
-  %.0..0..0.56114 = load i32, ptr %6, align 4
+.lr.ph.split.us.split.preheader:                  ; preds = %.thread103
+  %.0..0..0.56113 = load i32, ptr %6, align 4
   br label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %66
-  %.03275.us = phi i64 [ %67, %66 ], [ 2, %.lr.ph.split.us.split.preheader ]
-  %57 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275.us
-  %58 = load ptr, ptr %57, align 8, !tbaa !15
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %67
+  %.03275.us = phi i64 [ %68, %67 ], [ 2, %.lr.ph.split.us.split.preheader ]
+  %58 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275.us
+  %59 = load ptr, ptr %58, align 8, !tbaa !15
   store i32 0, ptr %8, align 4, !tbaa !4
   store i32 0, ptr %9, align 4, !tbaa !4
   store i32 0, ptr %10, align 4, !tbaa !4
-  br label %59
+  br label %60
 
-59:                                               ; preds = %68, %.lr.ph.split.us.split
-  %indvars.iv.i43.us = phi i64 [ %indvars.iv.next.i46.us, %68 ], [ 0, %.lr.ph.split.us.split ]
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv.i43.us
-  %61 = load i8, ptr %60, align 1, !tbaa !8
-  switch i8 %61, label %68 [
+60:                                               ; preds = %69, %.lr.ph.split.us.split
+  %indvars.iv.i43.us = phi i64 [ %indvars.iv.next.i46.us, %69 ], [ 0, %.lr.ph.split.us.split ]
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv.i43.us
+  %62 = load i8, ptr %61, align 1, !tbaa !8
+  switch i8 %62, label %69 [
     i8 0, label %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
     i8 44, label %.sink.split.i44.us
-    i8 9, label %63
-    i8 58, label %62
+    i8 9, label %64
+    i8 58, label %63
   ]
 
-62:                                               ; preds = %59
+63:                                               ; preds = %60
   br label %.sink.split.i44.us
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   br label %.sink.split.i44.us
 
-.sink.split.i44.us:                               ; preds = %63, %62, %59
-  %.sink.i45.us = phi ptr [ %9, %63 ], [ %10, %62 ], [ %8, %59 ]
-  %64 = load i32, ptr %.sink.i45.us, align 4, !tbaa !4
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %.sink.i45.us, align 4, !tbaa !4
-  br label %68
+.sink.split.i44.us:                               ; preds = %64, %63, %60
+  %.sink.i45.us = phi ptr [ %9, %64 ], [ %10, %63 ], [ %8, %60 ]
+  %65 = load i32, ptr %.sink.i45.us, align 4, !tbaa !4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %.sink.i45.us, align 4, !tbaa !4
+  br label %69
 
-_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us: ; preds = %59
+_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us: ; preds = %60
   %.0..0..0.49.us = load i32, ptr %9, align 4, !tbaa !4
-  %.not.us = icmp eq i32 %.0..0..0.49.us, %.0..0..0.56114
-  br i1 %.not.us, label %66, label %.thread73
+  %.not.us = icmp eq i32 %.0..0..0.49.us, %.0..0..0.56113
+  br i1 %.not.us, label %67, label %.thread73
 
-66:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
-  %67 = add nuw i64 %.03275.us, 1
-  %exitcond93.not = icmp eq i64 %67, %28
-  br i1 %exitcond93.not, label %.loopexit.thread, label %.lr.ph.split.us.split, !llvm.loop !111
+67:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
+  %68 = add nuw i64 %.03275.us, 1
+  %exitcond92.not = icmp eq i64 %68, %28
+  br i1 %exitcond92.not, label %.loopexit.thread, label %.lr.ph.split.us.split, !llvm.loop !111
 
-68:                                               ; preds = %.sink.split.i44.us, %59
+69:                                               ; preds = %.sink.split.i44.us, %60
   %indvars.iv.next.i46.us = add nuw nsw i64 %indvars.iv.i43.us, 1
-  br label %59, !llvm.loop !9
+  br label %60, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %52
   %.0..0..0.60 = load i32, ptr %5, align 4
-  br i1 %or.cond5, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %55, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %78
-  %.03275.us76 = phi i64 [ %79, %78 ], [ 2, %.lr.ph.split ]
-  %69 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275.us76
-  %70 = load ptr, ptr %69, align 8, !tbaa !15
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %79
+  %.03275.us76 = phi i64 [ %80, %79 ], [ 2, %.lr.ph.split ]
+  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275.us76
+  %71 = load ptr, ptr %70, align 8, !tbaa !15
   store i32 0, ptr %8, align 4, !tbaa !4
   store i32 0, ptr %9, align 4, !tbaa !4
   store i32 0, ptr %10, align 4, !tbaa !4
-  br label %71
+  br label %72
 
-71:                                               ; preds = %80, %.lr.ph.split.split.us
-  %indvars.iv.i43.us77 = phi i64 [ %indvars.iv.next.i46.us83, %80 ], [ 0, %.lr.ph.split.split.us ]
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv.i43.us77
-  %73 = load i8, ptr %72, align 1, !tbaa !8
-  switch i8 %73, label %80 [
+72:                                               ; preds = %81, %.lr.ph.split.split.us
+  %indvars.iv.i43.us77 = phi i64 [ %indvars.iv.next.i46.us83, %81 ], [ 0, %.lr.ph.split.split.us ]
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv.i43.us77
+  %74 = load i8, ptr %73, align 1, !tbaa !8
+  switch i8 %74, label %81 [
     i8 0, label %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80
     i8 44, label %.sink.split.i44.us78
-    i8 9, label %75
-    i8 58, label %74
+    i8 9, label %76
+    i8 58, label %75
   ]
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   br label %.sink.split.i44.us78
 
-75:                                               ; preds = %71
+76:                                               ; preds = %72
   br label %.sink.split.i44.us78
 
-.sink.split.i44.us78:                             ; preds = %75, %74, %71
-  %.sink.i45.us79 = phi ptr [ %9, %75 ], [ %10, %74 ], [ %8, %71 ]
-  %76 = load i32, ptr %.sink.i45.us79, align 4, !tbaa !4
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %.sink.i45.us79, align 4, !tbaa !4
-  br label %80
+.sink.split.i44.us78:                             ; preds = %76, %75, %72
+  %.sink.i45.us79 = phi ptr [ %9, %76 ], [ %10, %75 ], [ %8, %72 ]
+  %77 = load i32, ptr %.sink.i45.us79, align 4, !tbaa !4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %.sink.i45.us79, align 4, !tbaa !4
+  br label %81
 
-_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80: ; preds = %71
+_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80: ; preds = %72
   %.0..0..0.51.us81 = load i32, ptr %8, align 4, !tbaa !4
   %.not35.us82 = icmp eq i32 %.0..0..0.60, %.0..0..0.51.us81
-  br i1 %.not35.us82, label %78, label %.thread73
+  br i1 %.not35.us82, label %79, label %.thread73
 
-78:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80
-  %79 = add nuw i64 %.03275.us76, 1
-  %exitcond92.not = icmp eq i64 %79, %28
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !111
+79:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80
+  %80 = add nuw i64 %.03275.us76, 1
+  %exitcond91.not = icmp eq i64 %80, %28
+  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !111
 
-80:                                               ; preds = %.sink.split.i44.us78, %71
+81:                                               ; preds = %.sink.split.i44.us78, %72
   %indvars.iv.next.i46.us83 = add nuw nsw i64 %indvars.iv.i43.us77, 1
-  br label %71, !llvm.loop !9
+  br label %72, !llvm.loop !9
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47
-  %.03275 = phi i64 [ %91, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47 ], [ 2, %.lr.ph.split ]
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275
-  %82 = load ptr, ptr %81, align 8, !tbaa !15
+  %.03275 = phi i64 [ %92, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47 ], [ 2, %.lr.ph.split ]
+  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
   store i32 0, ptr %8, align 4, !tbaa !4
   store i32 0, ptr %9, align 4, !tbaa !4
   store i32 0, ptr %10, align 4, !tbaa !4
-  br label %83
+  br label %84
 
-83:                                               ; preds = %90, %.lr.ph.split.split
-  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i46, %90 ], [ 0, %.lr.ph.split.split ]
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv.i43
-  %85 = load i8, ptr %84, align 1, !tbaa !8
-  switch i8 %85, label %90 [
+84:                                               ; preds = %91, %.lr.ph.split.split
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i46, %91 ], [ 0, %.lr.ph.split.split ]
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv.i43
+  %86 = load i8, ptr %85, align 1, !tbaa !8
+  switch i8 %86, label %91 [
     i8 0, label %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47
     i8 44, label %.sink.split.i44
-    i8 9, label %86
-    i8 58, label %87
+    i8 9, label %87
+    i8 58, label %88
   ]
 
-86:                                               ; preds = %83
+87:                                               ; preds = %84
   br label %.sink.split.i44
 
-87:                                               ; preds = %83
+88:                                               ; preds = %84
   br label %.sink.split.i44
 
-.sink.split.i44:                                  ; preds = %87, %86, %83
-  %.sink.i45 = phi ptr [ %9, %86 ], [ %10, %87 ], [ %8, %83 ]
-  %88 = load i32, ptr %.sink.i45, align 4, !tbaa !4
-  %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %.sink.i45, align 4, !tbaa !4
-  br label %90
+.sink.split.i44:                                  ; preds = %88, %87, %84
+  %.sink.i45 = phi ptr [ %9, %87 ], [ %10, %88 ], [ %8, %84 ]
+  %89 = load i32, ptr %.sink.i45, align 4, !tbaa !4
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %.sink.i45, align 4, !tbaa !4
+  br label %91
 
-90:                                               ; preds = %.sink.split.i44, %83
+91:                                               ; preds = %.sink.split.i44, %84
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i43, 1
-  br label %83, !llvm.loop !9
+  br label %84, !llvm.loop !9
 
-_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %83
-  %91 = add nuw i64 %.03275, 1
-  %exitcond.not = icmp eq i64 %91, %28
+_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %84
+  %92 = add nuw i64 %.03275, 1
+  %exitcond.not = icmp eq i64 %92, %28
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !111
 
 .thread73:                                        ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
@@ -4033,39 +4032,39 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-.loopexit.thread:                                 ; preds = %66, %.thread104
+.loopexit.thread:                                 ; preds = %67, %.thread103
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.0..0..0.57.pre = load i32, ptr %6, align 4, !tbaa !4
   br label %.thread70
 
-.loopexit:                                        ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47, %78, %52
+.loopexit:                                        ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47, %79, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %or.cond5, label %.loopexit..thread67_crit_edge, label %.thread
+  br i1 %55, label %.loopexit..thread67_crit_edge, label %.thread
 
 .loopexit..thread67_crit_edge:                    ; preds = %.loopexit
   %.0..0..0.61.pre = load i32, ptr %5, align 4, !tbaa !4
   br label %.thread67
 
-.thread64:                                        ; preds = %.loopexit.thread125, %30
-  %92 = tail call noundef i32 @_ZN8LightGBM23GetNumColFromLIBSVMFileEPKcb(ptr noundef %0, i1 noundef zeroext %1)
-  %93 = add nuw nsw i32 %92, 1
-  store i32 %93, ptr %3, align 4, !tbaa !4
+.thread64:                                        ; preds = %.loopexit.thread124, %30
+  %93 = tail call noundef i32 @_ZN8LightGBM23GetNumColFromLIBSVMFileEPKcb(ptr noundef %0, i1 noundef zeroext %1)
+  %94 = add nuw nsw i32 %93, 1
+  store i32 %94, ptr %3, align 4, !tbaa !4
   br label %.thread
 
 .thread67:                                        ; preds = %.loopexit..thread67_crit_edge, %34
   %.0..0.61 = phi i32 [ %.0..0..0.61.pre, %.loopexit..thread67_crit_edge ], [ %.0..0..0.58, %34 ]
-  %94 = add nsw i32 %.0..0.61, 1
-  store i32 %94, ptr %3, align 4, !tbaa !4
+  %95 = add nsw i32 %.0..0.61, 1
+  store i32 %95, ptr %3, align 4, !tbaa !4
   br label %.thread
 
 .thread70:                                        ; preds = %.loopexit.thread, %32
   %.0..0.57 = phi i32 [ %.0..0..0.57.pre, %.loopexit.thread ], [ %.0..0..0.54, %32 ]
-  %95 = add nsw i32 %.0..0.57, 1
-  store i32 %95, ptr %3, align 4, !tbaa !4
+  %96 = add nsw i32 %.0..0.57, 1
+  store i32 %96, ptr %3, align 4, !tbaa !4
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %34, %.thread73, %.thread67, %.thread70, %.thread64
@@ -4073,9 +4072,9 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %96
+  br label %97
 
-96:                                               ; preds = %4, %.thread
+97:                                               ; preds = %4, %.thread
   %.0 = phi i32 [ %.03363, %.thread ], [ 0, %4 ]
   ret i32 %.0
 }

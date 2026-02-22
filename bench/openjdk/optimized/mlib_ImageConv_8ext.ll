@@ -73,7 +73,6 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   %.val1310 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.val.i = load i32, ptr %16, align 4
-  %.val.fr.i = freeze i32 %.val.i
   %.val595.i = load i32, ptr %17, align 8
   %.val595.fr.i = freeze i32 %.val595.i
   %.val596.i = load i32, ptr %18, align 4
@@ -86,7 +85,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   %49 = trunc nuw nsw i64 %47 to i32
   %50 = sub i32 %49, %48
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %50, i32 1)
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 %.val.fr.i)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 %.val.i)
   %51 = add nsw i32 %spec.select.i, %48
   %52 = add i32 %spec.select.i, %4
   %53 = icmp sgt i32 %52, 800
@@ -102,13 +101,13 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   %.0554.i = phi ptr [ %56, %54 ], [ %12, %44 ]
   %59 = sext i32 %51 to i64
   %60 = getelementptr inbounds double, ptr %.0554.i, i64 %59
-  %61 = icmp sgt i32 %.val.fr.i, 0
+  %61 = icmp sgt i32 %.val.i, 0
   br i1 %61, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %58
   %62 = add i32 %7, %8
   %63 = sub i32 %48, %62
-  %64 = add i32 %63, %.val.fr.i
+  %64 = add i32 %63, %.val.i
   %65 = icmp sgt i32 %.val596.i, 0
   %66 = add nsw i32 %64, %7
   %67 = add nsw i32 %66, %8
@@ -135,7 +134,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   %82 = add i32 %4, -5
   %83 = and i32 %82, -4
   %84 = add i32 %83, 4
-  %85 = tail call i32 @llvm.umin.i32(i32 %.val.fr.i, i32 %spec.store.select.i)
+  %85 = tail call i32 @llvm.umin.i32(i32 %.val.i, i32 %spec.store.select.i)
   %86 = zext nneg i32 %85 to i64
   %wide.trip.count.i = zext nneg i32 %.val596.i to i64
   br label %.lr.ph84.us.us.i
@@ -144,7 +143,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   %indvars.iv131.i = phi i64 [ 0, %.lr.ph84.us.us.preheader.i ], [ %indvars.iv.next132.i, %._crit_edge85.split.us.us.us.i ]
   %.054596.us.us.i = phi ptr [ %.val1310, %.lr.ph84.us.us.preheader.i ], [ %465, %._crit_edge85.split.us.us.us.i ]
   %.056093.us.us.i = phi i32 [ 0, %.lr.ph84.us.us.preheader.i ], [ %466, %._crit_edge85.split.us.us.us.i ]
-  %87 = sub nsw i32 %.val.fr.i, %.056093.us.us.i
+  %87 = sub nsw i32 %.val.i, %.056093.us.us.i
   %spec.select594.us.us.i = tail call i32 @llvm.smin.i32(i32 %87, i32 %spec.select.i)
   %88 = add nsw i32 %spec.select594.us.us.i, %48
   %89 = icmp sgt i32 %87, 0
@@ -817,15 +816,15 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, %86
   %465 = getelementptr inbounds i8, ptr %.054596.us.us.i, i64 %77
   %466 = add nsw i32 %spec.select594.us.us.i, %.056093.us.us.i
-  %467 = icmp slt i32 %466, %.val.fr.i
+  %467 = icmp slt i32 %466, %.val.i
   br i1 %467, label %.lr.ph84.us.us.i, label %._crit_edge.i, !llvm.loop !20
 
 .lr.ph84.us.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge85.split.us104.i
   %.056093.us.i = phi i32 [ %471, %._crit_edge85.split.us104.i ], [ 0, %.lr.ph.split.us.i ]
-  %.056093.us.fr.i = freeze i32 %.056093.us.i
-  %468 = sub i32 %.val.fr.i, %.056093.us.fr.i
-  %spec.select594.us.i = tail call i32 @llvm.smin.i32(i32 %468, i32 %spec.select.i)
-  %469 = icmp sgt i32 %468, 0
+  %468 = sub nsw i32 %.val.i, %.056093.us.i
+  %.fr.i = freeze i32 %468
+  %spec.select594.us.i = tail call i32 @llvm.smin.i32(i32 %.fr.i, i32 %spec.select.i)
+  %469 = icmp sgt i32 %.fr.i, 0
   br i1 %469, label %.lr.ph84.split.split.us.us.preheader.i, label %._crit_edge85.split.us104.i
 
 .lr.ph84.split.split.us.us.preheader.i:           ; preds = %.lr.ph84.us.i
@@ -833,8 +832,8 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNext_u8(ptr noundef readonly cap
   br label %.lr.ph84.split.split.us.us.i
 
 ._crit_edge85.split.us104.i:                      ; preds = %..preheader6_crit_edge.us91.us.i, %.lr.ph84.us.i
-  %471 = add nsw i32 %spec.select594.us.i, %.056093.us.fr.i
-  %472 = icmp slt i32 %471, %.val.fr.i
+  %471 = add nsw i32 %spec.select594.us.i, %.056093.us.i
+  %472 = icmp slt i32 %471, %.val.i
   br i1 %472, label %.lr.ph84.us.i, label %._crit_edge.i, !llvm.loop !20
 
 .lr.ph84.split.split.us.us.i:                     ; preds = %..preheader6_crit_edge.us91.us.i, %.lr.ph84.split.split.us.us.preheader.i

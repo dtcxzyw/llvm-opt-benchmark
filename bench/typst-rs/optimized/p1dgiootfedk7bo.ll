@@ -44,7 +44,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   %9 = alloca { { ptr, i64 }, { i32, i32 } }, align 8
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 }, { i32, i32 } }, align 8
-  %.fr188 = freeze i32 %3
+  %.fr = freeze i32 %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %13 = load ptr, ptr %12, align 8, !noundef !7
   %.not = icmp eq ptr %13, null
@@ -107,7 +107,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8, !nonnull !7
-  %52 = bitcast i32 %.fr188 to <4 x i8>
+  %52 = bitcast i32 %.fr to <4 x i8>
   %.sroa.05.0.vec.extract7.i = extractelement <4 x i8> %52, i64 0
   %53 = zext i8 %.sroa.05.0.vec.extract7.i to i32
   %.sroa.05.1.vec.extract9.i = extractelement <4 x i8> %52, i64 1
@@ -352,10 +352,10 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit97: ; preds = %143
   %158 = load i64, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %160 = load ptr, ptr %159, align 8, !nonnull !7
-  %161 = and i32 %.fr188, 255
+  %161 = and i32 %.fr, 255
   %162 = icmp eq i32 %161, 255
-  %163 = and i32 %.fr188, 16711935
-  %164 = lshr i32 %.fr188, 8
+  %163 = and i32 %.fr, 16711935
+  %164 = lshr i32 %.fr, 8
   %165 = and i32 %164, 16711935
   br i1 %.not.i98, label %255, label %.lr.ph159.split
 
@@ -431,7 +431,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit105.us.us: ; preds = %.lr.ph159.s
 
 211:                                              ; preds = %210
   %212 = getelementptr inbounds nuw i32, ptr %38, i64 %184
-  store i32 %.fr188, ptr %212, align 4
+  store i32 %.fr, ptr %212, align 4
   br label %.backedge.us161.us
 
 .backedge.us161.us:                               ; preds = %177, %211, %188

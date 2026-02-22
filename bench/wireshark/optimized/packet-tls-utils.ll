@@ -6945,15 +6945,15 @@ addresses_equal.exit:                             ; preds = %3, %4
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %39 = load i32, ptr %38, align 4
   %40 = tail call ptr @dissector_get_uint_handle(ptr noundef %1, i32 noundef %39)
-  %.fr = freeze ptr %40
-  %.not30 = icmp ne ptr %.fr, null
-  %spec.select = zext i1 %.not30 to i32
-  %spec.select29 = select i1 %.not30, ptr @.str.630, ptr @.str.631
+  %.fr19 = freeze ptr %40
+  %.not31 = icmp ne ptr %.fr19, null
+  %spec.select = zext i1 %.not31 to i32
+  %spec.select30 = select i1 %.not31, ptr @.str.630, ptr @.str.631
   br label %.thread
 
 .thread:                                          ; preds = %addresses_equal.exit, %31, %23, %19, %addresses_equal.exit.thread, %7, %13
   %.017 = phi i32 [ 0, %13 ], [ 0, %7 ], [ 1, %addresses_equal.exit.thread ], [ %spec.select, %addresses_equal.exit ], [ 0, %31 ], [ 0, %19 ], [ 0, %23 ]
-  %41 = phi ptr [ @.str.631, %13 ], [ @.str.631, %7 ], [ @.str.630, %addresses_equal.exit.thread ], [ %spec.select29, %addresses_equal.exit ], [ @.str.631, %31 ], [ @.str.631, %19 ], [ @.str.631, %23 ]
+  %41 = phi ptr [ @.str.631, %13 ], [ @.str.631, %7 ], [ @.str.630, %addresses_equal.exit.thread ], [ %spec.select30, %addresses_equal.exit ], [ @.str.631, %31 ], [ @.str.631, %19 ], [ @.str.631, %23 ]
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.629, ptr noundef nonnull %41)
   ret i32 %.017
 }

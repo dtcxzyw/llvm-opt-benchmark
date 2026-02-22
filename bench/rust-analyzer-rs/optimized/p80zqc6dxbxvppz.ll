@@ -86272,9 +86272,9 @@ define noundef i32 @"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u2
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1584
   %11 = load ptr, ptr %10, align 8, !invariant.load !26, !alias.scope !16830, !noalias !16827, !nonnull !26
   %12 = tail call { i32, i32 } %11(ptr noundef nonnull align 1 %1, i32 noundef %9), !noalias !16835
-  %.fr = freeze { i32, i32 } %12
-  %13 = extractvalue { i32, i32 } %.fr, 0
-  %14 = extractvalue { i32, i32 } %.fr, 1
+  %.fr6 = freeze { i32, i32 } %12
+  %13 = extractvalue { i32, i32 } %.fr6, 0
+  %14 = extractvalue { i32, i32 } %.fr6, 1
   %15 = icmp eq i32 %13, 0
   %spec.select = select i1 %15, i32 %14, i32 0
   br label %"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$12callable_def17h45633f7e422adf4fE.exit.thread"

@@ -289,8 +289,6 @@ $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114li
 
 $_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_T0_ = comdat any
 
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_T0_ = comdat any
-
 $_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_ = comdat any
 
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_ = comdat any
@@ -40917,169 +40915,172 @@ _ZSt4copyISt17_Rb_tree_iteratorISt4pairIKiPNSt7__cxx114listINS3_12basic_stringIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElNS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_T0_T1_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #10 comdat {
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
-  %5 = ptrtoint ptr %0 to i64
-  %6 = ptrtoint ptr %1 to i64
-  %7 = sub i64 %6, %5
-  %8 = ashr exact i64 %7, 4
-  %9 = icmp sgt i64 %8, 16
-  br i1 %9, label %.lr.ph, label %.loopexit
+  %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
+  %6 = ptrtoint ptr %0 to i64
+  %7 = ptrtoint ptr %1 to i64
+  %8 = sub i64 %7, %6
+  %9 = ashr exact i64 %8, 4
+  %10 = icmp sgt i64 %9, 16
+  br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %14
 
-13:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit
-  %14 = phi i64 [ %8, %.lr.ph ], [ %76, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit ]
-  %.021 = phi i64 [ %2, %.lr.ph ], [ %18, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit ]
+14:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit
+  %15 = phi i64 [ %9, %.lr.ph ], [ %77, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit ]
+  %.021 = phi i64 [ %2, %.lr.ph ], [ %19, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit ]
   %storemerge20 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit ]
-  %15 = icmp eq i64 %.021, 0
-  br i1 %15, label %16, label %17
+  %16 = icmp eq i64 %.021, 0
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_T0_(ptr %0, ptr %storemerge20, ptr %storemerge20)
-  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_(ptr %0, ptr %storemerge20, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_(ptr %0, ptr %storemerge20, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_(ptr %0, ptr %storemerge20, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-17:                                               ; preds = %13
-  %18 = add nsw i64 %.021, -1
-  %19 = lshr i64 %14, 1
-  %20 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %0, i64 %19
-  %21 = getelementptr inbounds i8, ptr %storemerge20, i64 -16
-  %22 = load i32, ptr %10, align 8, !tbaa !271
-  %23 = load i32, ptr %20, align 8, !tbaa !271
-  %24 = icmp slt i32 %22, %23
-  %25 = load i32, ptr %21, align 8, !tbaa !271
-  br i1 %24, label %26, label %43
+18:                                               ; preds = %14
+  %19 = add nsw i64 %.021, -1
+  %20 = lshr i64 %15, 1
+  %21 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %0, i64 %20
+  %22 = getelementptr inbounds i8, ptr %storemerge20, i64 -16
+  %23 = load i32, ptr %11, align 8, !tbaa !271
+  %24 = load i32, ptr %21, align 8, !tbaa !271
+  %25 = icmp slt i32 %23, %24
+  %26 = load i32, ptr %22, align 8, !tbaa !271
+  br i1 %25, label %27, label %44
 
-26:                                               ; preds = %17
-  %27 = icmp slt i32 %23, %25
-  br i1 %27, label %28, label %33
+27:                                               ; preds = %18
+  %28 = icmp slt i32 %24, %26
+  br i1 %28, label %29, label %34
 
-28:                                               ; preds = %26
-  %29 = load i32, ptr %0, align 4, !tbaa !124
+29:                                               ; preds = %27
+  %30 = load i32, ptr %0, align 4, !tbaa !124
+  store i32 %24, ptr %0, align 4, !tbaa !124
+  store i32 %30, ptr %21, align 4, !tbaa !124
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %32 = load ptr, ptr %12, align 8, !tbaa !691
+  %33 = load ptr, ptr %31, align 8, !tbaa !691
+  store ptr %33, ptr %12, align 8, !tbaa !691
+  store ptr %32, ptr %31, align 8, !tbaa !691
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
+
+34:                                               ; preds = %27
+  %35 = icmp slt i32 %23, %26
+  %36 = load i32, ptr %0, align 4, !tbaa !124
+  br i1 %35, label %37, label %41
+
+37:                                               ; preds = %34
+  store i32 %26, ptr %0, align 4, !tbaa !124
+  store i32 %36, ptr %22, align 4, !tbaa !124
+  %38 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
+  %39 = load ptr, ptr %12, align 8, !tbaa !691
+  %40 = load ptr, ptr %38, align 8, !tbaa !691
+  store ptr %40, ptr %12, align 8, !tbaa !691
+  store ptr %39, ptr %38, align 8, !tbaa !691
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
+
+41:                                               ; preds = %34
   store i32 %23, ptr %0, align 4, !tbaa !124
-  store i32 %29, ptr %20, align 4, !tbaa !124
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %31 = load ptr, ptr %11, align 8, !tbaa !691
-  %32 = load ptr, ptr %30, align 8, !tbaa !691
-  store ptr %32, ptr %11, align 8, !tbaa !691
-  store ptr %31, ptr %30, align 8, !tbaa !691
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
-
-33:                                               ; preds = %26
-  %34 = icmp slt i32 %22, %25
-  %35 = load i32, ptr %0, align 4, !tbaa !124
-  br i1 %34, label %36, label %40
-
-36:                                               ; preds = %33
-  store i32 %25, ptr %0, align 4, !tbaa !124
-  store i32 %35, ptr %21, align 4, !tbaa !124
-  %37 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
-  %38 = load ptr, ptr %11, align 8, !tbaa !691
-  %39 = load ptr, ptr %37, align 8, !tbaa !691
-  store ptr %39, ptr %11, align 8, !tbaa !691
-  store ptr %38, ptr %37, align 8, !tbaa !691
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
-
-40:                                               ; preds = %33
-  store i32 %22, ptr %0, align 4, !tbaa !124
-  store i32 %35, ptr %10, align 4, !tbaa !124
-  %41 = load ptr, ptr %11, align 8, !tbaa !691
+  store i32 %36, ptr %11, align 4, !tbaa !124
   %42 = load ptr, ptr %12, align 8, !tbaa !691
-  store ptr %42, ptr %11, align 8, !tbaa !691
-  store ptr %41, ptr %12, align 8, !tbaa !691
+  %43 = load ptr, ptr %13, align 8, !tbaa !691
+  store ptr %43, ptr %12, align 8, !tbaa !691
+  store ptr %42, ptr %13, align 8, !tbaa !691
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
 
-43:                                               ; preds = %17
-  %44 = icmp slt i32 %22, %25
-  br i1 %44, label %45, label %49
+44:                                               ; preds = %18
+  %45 = icmp slt i32 %23, %26
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %0, align 4, !tbaa !124
-  store i32 %22, ptr %0, align 4, !tbaa !124
-  store i32 %46, ptr %10, align 4, !tbaa !124
-  %47 = load ptr, ptr %11, align 8, !tbaa !691
-  %48 = load ptr, ptr %12, align 8, !tbaa !691
-  store ptr %48, ptr %11, align 8, !tbaa !691
-  store ptr %47, ptr %12, align 8, !tbaa !691
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
-
-49:                                               ; preds = %43
-  %50 = icmp slt i32 %23, %25
-  %51 = load i32, ptr %0, align 4, !tbaa !124
-  br i1 %50, label %52, label %56
-
-52:                                               ; preds = %49
-  store i32 %25, ptr %0, align 4, !tbaa !124
-  store i32 %51, ptr %21, align 4, !tbaa !124
-  %53 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
-  %54 = load ptr, ptr %11, align 8, !tbaa !691
-  %55 = load ptr, ptr %53, align 8, !tbaa !691
-  store ptr %55, ptr %11, align 8, !tbaa !691
-  store ptr %54, ptr %53, align 8, !tbaa !691
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
-
-56:                                               ; preds = %49
+46:                                               ; preds = %44
+  %47 = load i32, ptr %0, align 4, !tbaa !124
   store i32 %23, ptr %0, align 4, !tbaa !124
-  store i32 %51, ptr %20, align 4, !tbaa !124
-  %57 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %58 = load ptr, ptr %11, align 8, !tbaa !691
-  %59 = load ptr, ptr %57, align 8, !tbaa !691
-  store ptr %59, ptr %11, align 8, !tbaa !691
-  store ptr %58, ptr %57, align 8, !tbaa !691
+  store i32 %47, ptr %11, align 4, !tbaa !124
+  %48 = load ptr, ptr %12, align 8, !tbaa !691
+  %49 = load ptr, ptr %13, align 8, !tbaa !691
+  store ptr %49, ptr %12, align 8, !tbaa !691
+  store ptr %48, ptr %13, align 8, !tbaa !691
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader: ; preds = %56, %52, %45, %40, %36, %28
+50:                                               ; preds = %44
+  %51 = icmp slt i32 %24, %26
+  %52 = load i32, ptr %0, align 4, !tbaa !124
+  br i1 %51, label %53, label %57
+
+53:                                               ; preds = %50
+  store i32 %26, ptr %0, align 4, !tbaa !124
+  store i32 %52, ptr %22, align 4, !tbaa !124
+  %54 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
+  %55 = load ptr, ptr %12, align 8, !tbaa !691
+  %56 = load ptr, ptr %54, align 8, !tbaa !691
+  store ptr %56, ptr %12, align 8, !tbaa !691
+  store ptr %55, ptr %54, align 8, !tbaa !691
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
+
+57:                                               ; preds = %50
+  store i32 %24, ptr %0, align 4, !tbaa !124
+  store i32 %52, ptr %21, align 4, !tbaa !124
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %59 = load ptr, ptr %12, align 8, !tbaa !691
+  %60 = load ptr, ptr %58, align 8, !tbaa !691
+  store ptr %60, ptr %12, align 8, !tbaa !691
+  store ptr %59, ptr %58, align 8, !tbaa !691
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader
+
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader: ; preds = %57, %53, %46, %41, %37, %29
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader, %69
-  %.sroa.010.0.i.i = phi ptr [ %64, %69 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %69 ], [ %storemerge20, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader ]
-  %60 = load i32, ptr %0, align 8, !tbaa !271
-  br label %61
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader, %70
+  %.sroa.010.0.i.i = phi ptr [ %65, %70 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %70 ], [ %storemerge20, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i.preheader ]
+  %61 = load i32, ptr %0, align 8, !tbaa !271
+  br label %62
 
-61:                                               ; preds = %61, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i ], [ %64, %61 ]
-  %62 = load i32, ptr %.sroa.010.1.i.i, align 8, !tbaa !271
-  %63 = icmp slt i32 %62, %60
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
-  br i1 %63, label %61, label %.preheader.i.i, !llvm.loop !697
+62:                                               ; preds = %62, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i ], [ %65, %62 ]
+  %63 = load i32, ptr %.sroa.010.1.i.i, align 8, !tbaa !271
+  %64 = icmp slt i32 %63, %61
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
+  br i1 %64, label %62, label %.preheader.i.i, !llvm.loop !697
 
-.preheader.i.i:                                   ; preds = %61, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %61 ]
+.preheader.i.i:                                   ; preds = %62, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %62 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %65 = load i32, ptr %.sroa.0.1.i.i, align 8, !tbaa !271
-  %66 = icmp slt i32 %60, %65
-  br i1 %66, label %.preheader.i.i, label %67, !llvm.loop !698
+  %66 = load i32, ptr %.sroa.0.1.i.i, align 8, !tbaa !271
+  %67 = icmp slt i32 %61, %66
+  br i1 %67, label %.preheader.i.i, label %68, !llvm.loop !698
 
-67:                                               ; preds = %.preheader.i.i
-  %68 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %68, label %69, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit
+68:                                               ; preds = %.preheader.i.i
+  %69 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %69, label %70, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit
 
-69:                                               ; preds = %67
-  store i32 %65, ptr %.sroa.010.1.i.i, align 4, !tbaa !124
-  store i32 %62, ptr %.sroa.0.1.i.i, align 4, !tbaa !124
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  %71 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %72 = load ptr, ptr %70, align 8, !tbaa !691
+70:                                               ; preds = %68
+  store i32 %66, ptr %.sroa.010.1.i.i, align 4, !tbaa !124
+  store i32 %63, ptr %.sroa.0.1.i.i, align 4, !tbaa !124
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %73 = load ptr, ptr %71, align 8, !tbaa !691
-  store ptr %73, ptr %70, align 8, !tbaa !691
-  store ptr %72, ptr %71, align 8, !tbaa !691
+  %74 = load ptr, ptr %72, align 8, !tbaa !691
+  store ptr %74, ptr %71, align 8, !tbaa !691
+  store ptr %73, ptr %72, align 8, !tbaa !691
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_SQ_T0_.exit.i, !llvm.loop !699
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit: ; preds = %67
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElNS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge20, i64 noundef %18)
-  %74 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %75 = sub i64 %74, %5
-  %76 = ashr exact i64 %75, 4
-  %77 = icmp sgt i64 %76, 16
-  br i1 %77, label %13, label %.loopexit, !llvm.loop !700
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit: ; preds = %68
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElNS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge20, i64 noundef %19)
+  %75 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %76 = sub i64 %75, %6
+  %77 = ashr exact i64 %76, 4
+  %78 = icmp sgt i64 %77, 16
+  br i1 %78, label %14, label %.loopexit, !llvm.loop !700
 
-.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit, %3, %16
+.loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_T0_.exit, %3, %17
   ret void
 }
 
@@ -41292,236 +41293,6 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #10 comdat {
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
-  %.fr29 = freeze ptr %0
-  %.fr28 = freeze ptr %1
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_(ptr %.fr29, ptr %.fr28, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %5 = icmp ult ptr %.fr28, %2
-  br i1 %5, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %.fr29, i64 8
-  %7 = ptrtoint ptr %.fr28 to i64
-  %8 = ptrtoint ptr %.fr29 to i64
-  %9 = sub i64 %7, %8
-  %10 = ashr i64 %9, 4
-  %11 = add nsw i64 %10, -1
-  %12 = sdiv i64 %11, 2
-  %13 = icmp sgt i64 %10, 2
-  %14 = and i64 %9, 16
-  %15 = icmp eq i64 %14, 0
-  %16 = add nsw i64 %10, -2
-  %17 = ashr exact i64 %16, 1
-  br i1 %13, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %18 = or disjoint i64 %16, 1
-  %19 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.fr29, i64 %18
-  %20 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %17
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %55
-  %.sroa.0.011.us = phi ptr [ %56, %55 ], [ %.fr28, %.lr.ph.split.us.preheader ]
-  %23 = load i32, ptr %.sroa.0.011.us, align 8, !tbaa !271
-  %24 = load i32, ptr %.fr29, align 8, !tbaa !271
-  %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.lr.ph.i.i.preheader.us, label %55
-
-.lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
-  %.sroa.5.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %.sroa.5.0.copyload.i.us = load ptr, ptr %.sroa.5.0..sroa_idx.i.us, align 8
-  store i32 %24, ptr %.sroa.0.011.us, align 8, !tbaa !271
-  %26 = load ptr, ptr %6, align 8, !tbaa !691
-  store ptr %26, ptr %.sroa.5.0..sroa_idx.i.us, align 8, !tbaa !216
-  br label %.lr.ph.i.i.us
-
-.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader.us, %.lr.ph.i.i.us
-  %.038.i.i.us = phi i64 [ %spec.select.i.i.us, %.lr.ph.i.i.us ], [ 0, %.lr.ph.i.i.preheader.us ]
-  %27 = shl i64 %.038.i.i.us, 1
-  %28 = add i64 %27, 2
-  %29 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %28
-  %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %30
-  %32 = load i32, ptr %29, align 8, !tbaa !271
-  %33 = load i32, ptr %31, align 8, !tbaa !271
-  %34 = icmp slt i32 %32, %33
-  %spec.select.i.i.us = select i1 %34, i64 %30, i64 %28
-  %35 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %spec.select.i.i.us
-  %36 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %.038.i.i.us
-  %37 = load i32, ptr %35, align 4, !tbaa !124
-  store i32 %37, ptr %36, align 8, !tbaa !271
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !691
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %39, ptr %40, align 8, !tbaa !216
-  %41 = icmp slt i64 %spec.select.i.i.us, %12
-  br i1 %41, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !704
-
-42:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
-
-.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
-  %43 = load i32, ptr %19, align 4, !tbaa !124
-  store i32 %43, ptr %20, align 8, !tbaa !271
-  %44 = load ptr, ptr %21, align 8, !tbaa !691
-  store ptr %44, ptr %22, align 8, !tbaa !216
-  br label %.lr.ph.i.i.i.us.preheader
-
-.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %42
-  %.020.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %42 ], [ %18, %.thread.i.us ]
-  br label %.lr.ph.i.i.i.us
-
-.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %48
-  %.020.i.i.i.us = phi i64 [ %.0921.i.i910.i.us, %48 ], [ %.020.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
-  %.0921.in.i.i.i.us = add nsw i64 %.020.i.i.i.us, -1
-  %.0921.i.i910.i.us = lshr i64 %.0921.in.i.i.i.us, 1
-  %45 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.fr29, i64 %.0921.i.i910.i.us
-  %46 = load i32, ptr %45, align 8, !tbaa !271
-  %47 = icmp slt i32 %46, %23
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.us
-
-48:                                               ; preds = %.lr.ph.i.i.i.us
-  %49 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %.020.i.i.i.us
-  store i32 %46, ptr %49, align 8, !tbaa !271
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !691
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %51, ptr %52, align 8, !tbaa !216
-  %.not11.i.us = icmp eq i64 %.0921.i.i910.i.us, 0
-  br i1 %.not11.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !705
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %48, %42
-  %.0.lcssa.i.i.i.us = phi i64 [ 0, %42 ], [ %.020.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %48 ]
-  %53 = getelementptr inbounds %"struct.std::pair.70", ptr %.fr29, i64 %.0.lcssa.i.i.i.us
-  store i32 %23, ptr %53, align 8, !tbaa !271
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %.sroa.5.0.copyload.i.us, ptr %54, align 8, !tbaa !216
-  br label %55
-
-55:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.us, %.lr.ph.split.us
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 16
-  %57 = icmp ult ptr %56, %2
-  br i1 %57, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !706
-
-._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %58 = icmp eq i64 %spec.select.i.i.us, %17
-  %or.cond = select i1 %15, i1 %58, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %42
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %59 = getelementptr inbounds nuw i8, ptr %.fr29, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %.fr29, i64 24
-  br i1 %15, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %61 = icmp eq i64 %16, 0
-  br i1 %61, label %.lr.ph.split.split.us.split.us.preheader, label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us.preheader:         ; preds = %.lr.ph.split.split.us
-  %62 = getelementptr inbounds nuw i8, ptr %.fr29, i64 24
-  br label %.lr.ph.split.split.us.split.us
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us.split.us.preheader, %71
-  %.sroa.0.011.us12.us = phi ptr [ %72, %71 ], [ %.fr28, %.lr.ph.split.split.us.split.us.preheader ]
-  %63 = load i32, ptr %.sroa.0.011.us12.us, align 8, !tbaa !271
-  %64 = load i32, ptr %.fr29, align 8, !tbaa !271
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %._crit_edge.i.i.us13.us, label %71
-
-._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
-  %.sroa.5.0..sroa_idx.i.us14.us = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %.sroa.5.0.copyload.i.us15.us = load ptr, ptr %.sroa.5.0..sroa_idx.i.us14.us, align 8
-  store i32 %64, ptr %.sroa.0.011.us12.us, align 8, !tbaa !271
-  %66 = load ptr, ptr %6, align 8, !tbaa !691
-  store ptr %66, ptr %.sroa.5.0..sroa_idx.i.us14.us, align 8, !tbaa !216
-  %67 = load i32, ptr %59, align 8, !tbaa !124
-  store i32 %67, ptr %.fr29, align 8, !tbaa !271
-  %68 = load ptr, ptr %60, align 8, !tbaa !691
-  store ptr %68, ptr %6, align 8, !tbaa !216
-  %69 = icmp slt i32 %67, %63
-  br i1 %69, label %70, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.loopexit.us24.us
-
-70:                                               ; preds = %._crit_edge.i.i.us13.us
-  store i32 %67, ptr %59, align 8, !tbaa !271
-  store ptr %68, ptr %62, align 8, !tbaa !216
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.loopexit.us24.us
-
-71:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.loopexit.us24.us, %.lr.ph.split.split.us.split.us
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 16
-  %73 = icmp ult ptr %72, %2
-  br i1 %73, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !706
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit.loopexit.us24.us: ; preds = %70, %._crit_edge.i.i.us13.us
-  %.0.lcssa.i.i.i.ph.us25.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %70 ]
-  %74 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.fr29, i64 %.0.lcssa.i.i.i.ph.us25.us
-  store i32 %63, ptr %74, align 8, !tbaa !271
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %.sroa.5.0.copyload.i.us15.us, ptr %75, align 8, !tbaa !216
-  br label %71
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.pre33 = load i32, ptr %.fr29, align 8, !tbaa !271
-  br label %76
-
-76:                                               ; preds = %81, %.lr.ph.split.split.us.split
-  %77 = phi i32 [ %.pre33, %.lr.ph.split.split.us.split ], [ %82, %81 ]
-  %.sroa.0.011.us12 = phi ptr [ %.fr28, %.lr.ph.split.split.us.split ], [ %83, %81 ]
-  %78 = load i32, ptr %.sroa.0.011.us12, align 8, !tbaa !271
-  %79 = icmp slt i32 %78, %77
-  br i1 %79, label %._crit_edge.i.i.us13, label %81
-
-._crit_edge.i.i.us13:                             ; preds = %76
-  %.sroa.5.0..sroa_idx.i.us14 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %.sroa.5.0.copyload.i.us15 = load ptr, ptr %.sroa.5.0..sroa_idx.i.us14, align 8
-  store i32 %77, ptr %.sroa.0.011.us12, align 8, !tbaa !271
-  %80 = load ptr, ptr %6, align 8, !tbaa !691
-  store ptr %80, ptr %.sroa.5.0..sroa_idx.i.us14, align 8, !tbaa !216
-  store i32 %78, ptr %.fr29, align 8, !tbaa !271
-  store ptr %.sroa.5.0.copyload.i.us15, ptr %6, align 8, !tbaa !216
-  br label %81
-
-81:                                               ; preds = %._crit_edge.i.i.us13, %76
-  %82 = phi i32 [ %78, %._crit_edge.i.i.us13 ], [ %77, %76 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 16
-  %84 = icmp ult ptr %83, %2
-  br i1 %84, label %76, label %._crit_edge, !llvm.loop !706
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.pre = load i32, ptr %.fr29, align 8, !tbaa !271
-  br label %85
-
-._crit_edge:                                      ; preds = %90, %81, %71, %55, %3
-  ret void
-
-85:                                               ; preds = %.lr.ph.split.split, %90
-  %86 = phi i32 [ %.pre, %.lr.ph.split.split ], [ %91, %90 ]
-  %.sroa.0.011 = phi ptr [ %.fr28, %.lr.ph.split.split ], [ %92, %90 ]
-  %87 = load i32, ptr %.sroa.0.011, align 8, !tbaa !271
-  %88 = icmp slt i32 %87, %86
-  br i1 %88, label %._crit_edge.i.i, label %90
-
-._crit_edge.i.i:                                  ; preds = %85
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i32 %86, ptr %.sroa.0.011, align 8, !tbaa !271
-  %89 = load ptr, ptr %6, align 8, !tbaa !691
-  store ptr %89, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !216
-  store i32 %87, ptr %.fr29, align 8, !tbaa !271
-  store ptr %.sroa.5.0.copyload.i, ptr %6, align 8, !tbaa !216
-  br label %90
-
-90:                                               ; preds = %85, %._crit_edge.i.i
-  %91 = phi i32 [ %86, %85 ], [ %87, %._crit_edge.i.i ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 16
-  %93 = icmp ult ptr %92, %2
-  br i1 %93, label %85, label %._crit_edge, !llvm.loop !706
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #10 comdat {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
@@ -41632,7 +41403,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.sroa.5.0.copyload.i, ptr %58, align 8, !tbaa !216
   %59 = icmp sgt i64 %14, 16
-  br i1 %59, label %9, label %._crit_edge, !llvm.loop !707
+  br i1 %59, label %9, label %._crit_edge, !llvm.loop !706
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_SQ_SQ_RT0_.exit, %3
   ret void
@@ -41738,7 +41509,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listIN
   store ptr %.sroa.5.0.copyload, ptr %56, align 8, !tbaa !216
   %.not = icmp eq i64 %.011, 0
   %57 = add nsw i64 %.011, -1
-  br i1 %.not, label %.loopexit, label %22, !llvm.loop !708
+  br i1 %.not, label %.loopexit, label %22, !llvm.loop !707
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElSD_NS0_5__ops15_Iter_comp_iterIN4i18n12phonenumbers3gtl12OrderByFirstEEEEvT_T0_SR_T1_T2_.exit, %3
   ret void
@@ -42058,7 +41829,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %37 = getelementptr inbounds i8, ptr %3, i64 %36
   store ptr %34, ptr %37, align 8, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %38, align 8, !tbaa !709
+  store i64 0, ptr %38, align 8, !tbaa !708
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %39) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -42966,6 +42737,5 @@ attributes #39 = { noreturn }
 !705 = distinct !{!705, !166}
 !706 = distinct !{!706, !166}
 !707 = distinct !{!707, !166}
-!708 = distinct !{!708, !166}
-!709 = !{!710, !30, i64 8}
-!710 = !{!"_ZTSSi", !30, i64 8}
+!708 = !{!709, !30, i64 8}
+!709 = !{!"_ZTSSi", !30, i64 8}

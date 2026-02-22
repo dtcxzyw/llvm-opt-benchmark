@@ -21201,8 +21201,7 @@ define void @_ZN6duckdb9DataTable26VerifyForeignKeyConstraintENS_12optional_ptrI
 
 _ZN6duckdb10ColumnList18ColumnListIterator3endEv.exit: ; preds = %30, %39
   %47 = phi i64 [ %38, %30 ], [ %46, %39 ]
-  %.fr216 = freeze i64 %47
-  %.not.i206 = icmp eq i64 %.fr216, 0
+  %.not.i206 = icmp eq i64 %47, 0
   br i1 %.not.i206, label %_ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternalneERKS2_.exit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %_ZN6duckdb10ColumnList18ColumnListIterator3endEv.exit
@@ -21259,7 +21258,7 @@ _ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternaldeEv.e
 
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKS1_EEEvDpOT_.exit: ; preds = %.noexc153, %63
   %64 = add i64 %.sroa.8185.0208, 1
-  %.not.i = icmp eq i64 %64, %.fr216
+  %.not.i = icmp eq i64 %64, %47
   br i1 %.not.i, label %_ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternalneERKS2_.exit, label %.lr.ph.split
 
 .split:                                           ; preds = %63, %60, %54, %52, %_ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternaldeEv.exit
@@ -21275,8 +21274,8 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKS1_EEEvDpOT_.exit: 
   %67 = getelementptr inbounds nuw i8, ptr %spec.select203, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !1126
   %69 = load ptr, ptr %spec.select203, align 8, !tbaa !1129
-  %.not217 = icmp eq ptr %68, %69
-  br i1 %.not217, label %._crit_edge, label %.lr.ph210
+  %.not216 = icmp eq ptr %68, %69
+  br i1 %.not216, label %._crit_edge, label %.lr.ph210
 
 ._crit_edge:                                      ; preds = %88, %.preheader205
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21409,9 +21408,9 @@ _ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit: ;
 
 128:                                              ; preds = %_ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit
   %.not = icmp eq ptr %127, null
-  br i1 %.not, label %._crit_edge218, label %129
+  br i1 %.not, label %._crit_edge217, label %129
 
-._crit_edge218:                                   ; preds = %128
+._crit_edge217:                                   ; preds = %128
   %.pre = select i1 %18, i64 %71, i64 0
   br label %156
 
@@ -21483,9 +21482,9 @@ _ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit: ;
           cleanup
   br label %272
 
-156:                                              ; preds = %._crit_edge218, %135
-  %.0.v.i159.pre-phi = phi i64 [ %.pre, %._crit_edge218 ], [ %.0.v.i, %135 ]
-  %.0119 = phi i1 [ false, %._crit_edge218 ], [ %.0.i158, %135 ]
+156:                                              ; preds = %._crit_edge217, %135
+  %.0.v.i159.pre-phi = phi i64 [ %.pre, %._crit_edge217 ], [ %.0.v.i, %135 ]
+  %.0119 = phi i1 [ false, %._crit_edge217 ], [ %.0.i158, %135 ]
   %157 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %158 = load i64, ptr %157, align 8
   %.0.i160 = icmp ne i64 %158, %.0.v.i159.pre-phi

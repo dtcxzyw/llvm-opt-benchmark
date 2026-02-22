@@ -10427,16 +10427,16 @@ CC_ESC_WARN.exit427:                              ; preds = %450, %445, %463, %4
 
 212:                                              ; preds = %.critedge157.i
   %213 = load i32, ptr %5, align 8, !tbaa !79
-  %.fr.i = freeze i32 %213
-  %214 = and i32 %.fr.i, 24576
+  %.fr167.i = freeze i32 %213
+  %214 = and i32 %.fr167.i, 24576
   %215 = icmp eq i32 %214, 8192
   %216 = zext i1 %215 to i32
   br label %217
 
 217:                                              ; preds = %257, %212
-  %.0129170.i = phi ptr [ @parse_posix_bracket.PBS, %212 ], [ %258, %257 ]
-  %218 = getelementptr inbounds nuw i8, ptr %.0129170.i, i64 2
-  %219 = load i16, ptr %.0129170.i, align 4, !tbaa !158
+  %.0129171.i = phi ptr [ @parse_posix_bracket.PBS, %212 ], [ %258, %257 ]
+  %218 = getelementptr inbounds nuw i8, ptr %.0129171.i, i64 2
+  %219 = load i16, ptr %.0129171.i, align 4, !tbaa !158
   %220 = sext i16 %219 to i32
   %221 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %190, ptr noundef %.0.i, ptr noundef %4, ptr noundef nonnull %218, i32 noundef %220) #26
   %222 = icmp eq i32 %221, 0
@@ -10449,7 +10449,7 @@ CC_ESC_WARN.exit427:                              ; preds = %450, %445, %463, %4
   br i1 %.not151.i, label %226, label %parse_posix_bracket.exit.thread
 
 226:                                              ; preds = %223
-  %227 = getelementptr inbounds nuw i8, ptr %.0129170.i, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %.0129171.i, i64 8
   %228 = load i32, ptr %227, align 4, !tbaa !161
   %229 = call fastcc i32 @add_ctype_to_cc(ptr noundef nonnull %.0303.ph, i32 noundef %228, i32 noundef %.0132.i, i32 noundef %216, ptr noundef nonnull %5)
   %.not152.i = icmp eq i32 %229, 0
@@ -10476,9 +10476,9 @@ switch.early.test.i:                              ; preds = %230
   %235 = getelementptr inbounds nuw i8, ptr %190, i64 20
   %236 = load i32, ptr %235, align 4, !tbaa !45
   %237 = icmp eq i32 %234, %236
-  br i1 %237, label %.thread192.i, label %242
+  br i1 %237, label %.thread193.i, label %242
 
-.thread192.i:                                     ; preds = %.thread.i
+.thread193.i:                                     ; preds = %.thread.i
   %238 = icmp ult ptr %224, %4
   %239 = sext i32 %234 to i64
   %240 = select i1 %238, i64 %239, i64 0
@@ -10488,15 +10488,15 @@ switch.early.test.i:                              ; preds = %230
 242:                                              ; preds = %.thread.i
   %243 = call i32 @onigenc_mbclen(ptr noundef %224, ptr noundef %4, ptr noundef nonnull %190) #26
   %.pre.i417 = load i32, ptr %233, align 8, !tbaa !68
-  %.pre175.i = load i32, ptr %235, align 4, !tbaa !45
-  %244 = icmp eq i32 %.pre.i417, %.pre175.i
+  %.pre176.i = load i32, ptr %235, align 4, !tbaa !45
+  %244 = icmp eq i32 %.pre.i417, %.pre176.i
   %245 = sext i32 %243 to i64
   %246 = getelementptr i8, ptr %224, i64 %245
   br i1 %244, label %247, label %251
 
-247:                                              ; preds = %242, %.thread192.i
-  %248 = phi ptr [ %241, %.thread192.i ], [ %246, %242 ]
-  %249 = phi i32 [ %234, %.thread192.i ], [ %.pre.i417, %242 ]
+247:                                              ; preds = %242, %.thread193.i
+  %248 = phi ptr [ %241, %.thread193.i ], [ %246, %242 ]
+  %249 = phi i32 [ %234, %.thread193.i ], [ %.pre.i417, %242 ]
   %250 = icmp ult ptr %248, %4
   %spec.select160.i = select i1 %250, i32 %249, i32 0
   br label %parse_posix_bracket.exit.thread462.thread569
@@ -10514,7 +10514,7 @@ parse_posix_bracket.exit.thread462.thread569:     ; preds = %247, %251
   br label %.thread465
 
 257:                                              ; preds = %217
-  %258 = getelementptr i8, ptr %.0129170.i, i64 12
+  %258 = getelementptr i8, ptr %.0129171.i, i64 12
   %259 = icmp ult ptr %258, getelementptr inbounds nuw (i8, ptr @parse_posix_bracket.PBS, i64 168)
   br i1 %259, label %217, label %.loopexit.i, !llvm.loop !162
 
@@ -10586,11 +10586,11 @@ parse_posix_bracket.exit.thread462.thread569:     ; preds = %247, %251
 296:                                              ; preds = %290
   %297 = load ptr, ptr %260, align 8, !tbaa !69
   %298 = call i32 %297(ptr noundef %288, ptr noundef nonnull %4, ptr noundef nonnull %190) #26
-  %.pre176.i = load i32, ptr %261, align 8, !tbaa !68
+  %.pre177.i = load i32, ptr %261, align 8, !tbaa !68
   br label %299
 
 299:                                              ; preds = %296, %293
-  %300 = phi i32 [ 1, %293 ], [ %.pre176.i, %296 ]
+  %300 = phi i32 [ 1, %293 ], [ %.pre177.i, %296 ]
   %301 = phi i32 [ %295, %293 ], [ %298, %296 ]
   %302 = load i32, ptr %262, align 4, !tbaa !45
   %303 = icmp eq i32 %300, %302

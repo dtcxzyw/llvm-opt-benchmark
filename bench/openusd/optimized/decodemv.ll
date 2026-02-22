@@ -7831,8 +7831,8 @@ get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %11, i64 %49
   %51 = load i8, ptr %50, align 1
-  %.fr = freeze i8 %51
-  %52 = tail call i8 @llvm.umin.i8(i8 %.fr, i8 8)
+  %.fr63 = freeze i8 %51
+  %52 = tail call i8 @llvm.umin.i8(i8 %.fr63, i8 8)
   %.1..us.i62.i = zext nneg i8 %52 to i32
   br label %get_segment_id.exit63.i
 

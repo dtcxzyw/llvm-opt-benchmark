@@ -3123,16 +3123,16 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_noresample_func(p
 
 25:                                               ; preds = %23
   %26 = load i8, ptr %10, align 4
-  %.fr = freeze i8 %26
-  %27 = and i8 %.fr, 2
+  %.fr12 = freeze i8 %26
+  %27 = and i8 %.fr12, 2
   %.not = icmp eq i8 %27, 0
   %spec.select = select i1 %.not, i32 %7, i32 0
-  %spec.select12 = select i1 %.not, i32 %7, i32 -1
+  %spec.select13 = select i1 %.not, i32 %7, i32 -1
   br label %.thread9
 
 .thread9:                                         ; preds = %25, %2, %16, %20, %23
   %28 = phi i32 [ %7, %23 ], [ %spec.select, %25 ], [ 0, %20 ], [ 0, %2 ], [ 0, %16 ]
-  %29 = phi i32 [ %7, %23 ], [ %spec.select12, %25 ], [ -1, %20 ], [ -1, %2 ], [ -1, %16 ]
+  %29 = phi i32 [ %7, %23 ], [ %spec.select13, %25 ], [ -1, %20 ], [ -1, %2 ], [ -1, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %29, ptr %3, align 4
   store i32 %28, ptr %30, align 4

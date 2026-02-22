@@ -2537,8 +2537,7 @@ define internal void @rgbtest_fill_picture(ptr noundef readonly captures(none) %
   %4 = load i32, ptr %3, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %6 = load i32, ptr %5, align 4, !tbaa !68
-  %.fr = freeze i32 %6
-  %7 = icmp sgt i32 %.fr, 0
+  %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge41
 
 .preheader.lr.ph:                                 ; preds = %2
@@ -2546,7 +2545,7 @@ define internal void @rgbtest_fill_picture(ptr noundef readonly captures(none) %
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = icmp sgt i32 %4, 0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 320
-  %12 = shl nuw nsw i32 %.fr, 1
+  %12 = shl nuw nsw i32 %6, 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 312
@@ -2554,10 +2553,11 @@ define internal void @rgbtest_fill_picture(ptr noundef readonly captures(none) %
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.03239.us = phi i32 [ %26, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %16 = mul i32 %.03239.us, 3
-  %17 = icmp slt i32 %16, %.fr
+  %16 = mul nuw nsw i32 %.03239.us, 3
+  %17 = icmp slt i32 %16, %6
+  %.fr.us = freeze i1 %17
   %.not = icmp samesign ult i32 %16, %12
-  br i1 %17, label %.lr.ph.split.us.us, label %.lr.ph.split.us47
+  br i1 %.fr.us, label %.lr.ph.split.us.us, label %.lr.ph.split.us47
 
 .lr.ph.split.us47:                                ; preds = %.preheader.us, %.lr.ph.split.us47
   %.03138.us42 = phi i32 [ %25, %.lr.ph.split.us47 ], [ 0, %.preheader.us ]
@@ -2578,7 +2578,7 @@ define internal void @rgbtest_fill_picture(ptr noundef readonly captures(none) %
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us47, %.lr.ph.split.us.us
   %26 = add nuw nsw i32 %.03239.us, 1
-  %exitcond51.not = icmp eq i32 %26, %.fr
+  %exitcond51.not = icmp eq i32 %26, %6
   br i1 %exitcond51.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !112
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us

@@ -4355,20 +4355,20 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %278, %272, %253, 
 .lr.ph.i.i.i275:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %.lr.ph.i.i.i275
   %.012.i.i.i276 = phi ptr [ %.1.i.i.i281, %.lr.ph.i.i.i275 ], [ %283, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
   %.0811.i.i.i277 = phi ptr [ %.19.i.i.i278, %.lr.ph.i.i.i275 ], [ %153, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
-  %.012.i.i.i276.fr = freeze ptr %.012.i.i.i276
-  %284 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276.fr, i64 32
+  %284 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276, i64 32
   %285 = load i8, ptr %284, align 1, !tbaa !26, !range !109, !noundef !110
   %.not1302.not = icmp eq i8 %285, 0
-  %.19.i.i.i278 = select i1 %.not1302.not, ptr %.0811.i.i.i277, ptr %.012.i.i.i276.fr
+  %.19.i.i.i278 = select i1 %.not1302.not, ptr %.0811.i.i.i277, ptr %.012.i.i.i276
   %.1.in.v.i.i.i279 = select i1 %.not1302.not, i64 24, i64 16
-  %.1.in.i.i.i280 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276.fr, i64 %.1.in.v.i.i.i279
+  %.1.in.i.i.i280 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276, i64 %.1.in.v.i.i.i279
   %.1.i.i.i281 = load ptr, ptr %.1.in.i.i.i280, align 8, !tbaa !18
   %.not.i.i.i282 = icmp eq ptr %.1.i.i.i281, null
   br i1 %.not.i.i.i282, label %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, label %.lr.ph.i.i.i275, !llvm.loop !108
 
 _ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286: ; preds = %.lr.ph.i.i.i275
   %286 = icmp ne ptr %.19.i.i.i278, %153
-  %spec.select = select i1 %286, i64 240, i64 160
+  %cond.fr = freeze i1 %286
+  %spec.select = select i1 %cond.fr, i64 240, i64 160
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319
 
 287:                                              ; preds = %280, %265
@@ -4480,7 +4480,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293: ; preds = %319, %313, %29
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319: ; preds = %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293
   %326 = phi ptr [ %323, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ %282, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %282, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
   %.v188 = phi i64 [ 80, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ 160, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %spec.select, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
-  %327 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %286, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
+  %327 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %cond.fr, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)

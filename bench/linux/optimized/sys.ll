@@ -3292,8 +3292,8 @@ define internal fastcc range(i64 -14, 1) i64 @__se_sys_olduname(i64 noundef %0) 
 override_release.exit:                            ; preds = %61, %62
   %64 = phi i64 [ %63, %62 ], [ %59, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.fr = freeze i64 %64
-  %65 = and i64 %.fr, 4294967295
+  %.fr2 = freeze i64 %64
+  %65 = and i64 %.fr2, 4294967295
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %override_release.exit.thread, label %67
 

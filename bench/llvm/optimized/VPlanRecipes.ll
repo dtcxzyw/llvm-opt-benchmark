@@ -6597,7 +6597,7 @@ define dso_local { i64, i32 } @_ZNK4llvm22VPWidenIntrinsicRecipe11computeCostENS
   %6 = alloca %"class.llvm::IntrinsicCostAttributes", align 8
   %7 = alloca %"class.llvm::ArrayRef.95", align 8
   %8 = alloca %"class.llvm::InstructionCost", align 8
-  %.fr = freeze i64 %1
+  %.fr80 = freeze i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %9, ptr %4, align 8, !tbaa !59
@@ -6750,12 +6750,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit45: ; pred
   ]
 
 84:                                               ; preds = %.loopexit
-  %85 = and i64 %.fr, 8589934591
+  %85 = and i64 %.fr80, 8589934591
   %.not5.not.i = icmp eq i64 %85, 1
   br i1 %.not5.not.i, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, label %86
 
 86:                                               ; preds = %84
-  %87 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %81, i64 %.fr) #25
+  %87 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %81, i64 %.fr80) #25
   br label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
 
 _ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit: ; preds = %.loopexit, %.loopexit, %84, %86
@@ -6772,7 +6772,7 @@ _ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit: ; preds = %.loopexit, %.
   br i1 %.not3977, label %._crit_edge, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
-  %92 = and i64 %.fr, 8589934591
+  %92 = and i64 %.fr80, 8589934591
   %.not5.not.i48 = icmp eq i64 %92, 1
   br i1 %.not5.not.i48, label %.lr.ph79.split.us, label %.lr.ph79.split
 
@@ -6852,7 +6852,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.us: ; preds
   ]
 
 136:                                              ; preds = %.lr.ph79.split
-  %137 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %133, i64 %.fr) #25
+  %137 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %133, i64 %.fr80) #25
   br label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit49
 
 _ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit49: ; preds = %.lr.ph79.split, %.lr.ph79.split, %136
@@ -19126,7 +19126,7 @@ _ZN4llvm16VPTransformState3setEPNS_7VPValueEPNS_5ValueEb.exit: ; preds = %_ZN4ll
   %77 = load ptr, ptr %76, align 8, !tbaa !226
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %79 = load i32, ptr %78, align 8, !tbaa !230
-  %.fr = freeze i32 %79
+  %.fr113 = freeze i32 %79
   %80 = load i32, ptr %25, align 8, !tbaa !52
   %81 = icmp eq i32 %80, 3
   br i1 %81, label %_ZNK4llvm20VPUnrollPartAccessorILj2EE20getUnrollPartOperandERNS_6VPUserE.exit.i, label %_ZNK4llvm20VPUnrollPartAccessorILj2EE13getUnrollPartERNS_6VPUserE.exit
@@ -19154,12 +19154,12 @@ _ZNK4llvm20VPUnrollPartAccessorILj2EE20getUnrollPartOperandERNS_6VPUserE.exit.i:
 
 _ZNK4llvm20VPUnrollPartAccessorILj2EE13getUnrollPartERNS_6VPUserE.exit: ; preds = %_ZN4llvm16VPTransformState3setEPNS_7VPValueEPNS_5ValueEb.exit, %_ZNK4llvm20VPUnrollPartAccessorILj2EE20getUnrollPartOperandERNS_6VPUserE.exit.i, %85
   %95 = phi i1 [ %94, %85 ], [ true, %_ZNK4llvm20VPUnrollPartAccessorILj2EE20getUnrollPartOperandERNS_6VPUserE.exit.i ], [ true, %_ZN4llvm16VPTransformState3setEPNS_7VPValueEPNS_5ValueEb.exit ]
-  %96 = and i32 %.fr, -4
+  %96 = and i32 %.fr113, -4
   %spec.select.i.i = icmp eq i32 %96, 12
   br i1 %spec.select.i.i, label %97, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK4llvm20VPUnrollPartAccessorILj2EE13getUnrollPartERNS_6VPUserE.exit
-  switch i32 %.fr, label %122 [
+  switch i32 %.fr113, label %122 [
     i32 18, label %97
     i32 17, label %97
     i32 9, label %97
@@ -19235,7 +19235,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   br label %197
 
 122:                                              ; preds = %switch.early.test
-  %123 = add i32 %.fr, -19
+  %123 = add i32 %.fr113, -19
   %124 = icmp ult i32 %123, 2
   br i1 %124, label %125, label %151
 
@@ -19328,7 +19328,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %151, %156
   %.0.i = phi ptr [ %159, %156 ], [ %43, %151 ]
   %160 = getelementptr inbounds nuw i8, ptr %77, i64 44
   %.sroa.0.0.copyload.i = load i32, ptr %160, align 4, !tbaa !193
-  %161 = call noundef ptr @_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE(i32 noundef %.fr, ptr noundef %.0.i, i32 %.sroa.0.0.copyload.i) #25
+  %161 = call noundef ptr @_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE(i32 noundef %.fr113, ptr noundef %.0.i, i32 %.sroa.0.0.copyload.i) #25
   br i1 %37, label %197, label %162
 
 162:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit

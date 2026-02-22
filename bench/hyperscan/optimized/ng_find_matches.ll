@@ -11889,8 +11889,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55
-  %.059 = phi i64 [ %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55 ], [ %1, %4 ]
-  %8 = shl i64 %.059, 1
+  %.058 = phi i64 [ %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55 ], [ %1, %4 ]
+  %8 = shl i64 %.058, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"struct.(anonymous namespace)::StateSet::State", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -11933,10 +11933,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEcl
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %37 = load i64, ptr %36, align 8
-  %.fr = freeze i64 %35
-  %.fr58 = freeze i64 %37
-  %38 = icmp ult i64 %.fr, %.fr58
-  br i1 %38, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55
+  %38 = icmp ult i64 %35, %37
+  %cond.fr = freeze i1 %38
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread: ; preds = %26, %18, %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55
@@ -11944,7 +11943,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEcl
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread55: ; preds = %16, %24, %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread
   %39 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN12_GLOBAL__N_18StateSet5StateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit ], [ %9, %32 ], [ %9, %24 ], [ %9, %16 ]
   %40 = getelementptr inbounds %"struct.(anonymous namespace)::StateSet::State", ptr %0, i64 %39
-  %41 = getelementptr inbounds %"struct.(anonymous namespace)::StateSet::State", ptr %0, i64 %.059
+  %41 = getelementptr inbounds %"struct.(anonymous namespace)::StateSet::State", ptr %0, i64 %.058
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %41, ptr noundef nonnull align 8 dereferenceable(28) %40, i64 28, i1 false)
   %42 = icmp slt i64 %39, %6
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !481

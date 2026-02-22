@@ -169,13 +169,12 @@ define internal fastcc i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1,
   %22 = alloca [256 x i8], align 16
   %23 = alloca [17 x i32], align 16
   %24 = alloca [4097 x i16], align 16
-  %25 = getelementptr i8, ptr %1, i64 %2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %26 = icmp ult i64 %4, 3
   br i1 %26, label %ZSTD_decompressSequences.exit, label %27
 
 27:                                               ; preds = %5
   %28 = load i8, ptr %3, align 1, !tbaa !3
-  %.fr.i.i = freeze i8 %28
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = zext i8 %30 to i32
@@ -183,7 +182,7 @@ define internal fastcc i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1,
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
-  %36 = zext i8 %.fr.i.i to i32
+  %36 = zext i8 %28 to i32
   %37 = shl nuw nsw i32 %36, 16
   %38 = and i32 %37, 458752
   %39 = or disjoint i32 %38, %31
@@ -245,14 +244,12 @@ define internal fastcc i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1,
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %65 = load i8, ptr %64, align 1, !tbaa !3
-  %.fr340.i.i = freeze i8 %65
-  %66 = zext i8 %.fr340.i.i to i64
+  %66 = zext i8 %65 to i64
   %67 = load i8, ptr %48, align 1, !tbaa !3
-  %.fr339.i.i = freeze i8 %67
-  %68 = zext i8 %.fr339.i.i to i64
+  %68 = zext i8 %67 to i64
   %69 = shl nuw nsw i64 %68, 8
   %70 = or disjoint i64 %69, %66
-  %71 = lshr i8 %.fr.i.i, 3
+  %71 = lshr i8 %28, 3
   %72 = and i8 %71, 7
   %73 = zext nneg i8 %72 to i64
   %74 = shl nuw nsw i64 %73, 16
@@ -262,7 +259,7 @@ define internal fastcc i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1,
 
 77:                                               ; preds = %63
   %78 = sub nsw i64 0, %75
-  %79 = getelementptr i8, ptr %25, i64 %78
+  %79 = getelementptr inbounds i8, ptr %25, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %81 = add nsw i64 %.0.i.ph.i, -2
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -2504,11 +2501,10 @@ FSE_reloadDStream.exit193.i.i.i.i:                ; preds = %1234, %1232, %1226,
   %1254 = sub nsw i32 0, %724
   %1255 = and i32 %1254, 63
   %1256 = zext nneg i32 %1255 to i64
-  %.0112.lcssa.i.i.fr.i.i = freeze ptr %.0112.lcssa.i.i.i.i
   br label %1257
 
 1257:                                             ; preds = %1283, %.lr.ph290.i.i.i.i
-  %.1113289.i.i.i.i = phi ptr [ %.0112.lcssa.i.i.fr.i.i, %.lr.ph290.i.i.i.i ], [ %1294, %1283 ]
+  %.1113289.i.i.i.i = phi ptr [ %.0112.lcssa.i.i.i.i, %.lr.ph290.i.i.i.i ], [ %1294, %1283 ]
   %.sroa.0.0288.i.i.i.i = phi i64 [ %.sroa.0219.0.lcssa.i.i.i.i, %.lr.ph290.i.i.i.i ], [ %.sroa.0.1.i.i.i.i, %1283 ]
   %.sroa.6.0287.i.i.i.i = phi i32 [ %.sroa.17.0.lcssa.i.i.i.i, %.lr.ph290.i.i.i.i ], [ %1293, %1283 ]
   %.sroa.13207.0286.i.i.i.i = phi ptr [ %.sroa.31229.0.lcssa.i.i.i.i, %.lr.ph290.i.i.i.i ], [ %.sroa.13207.1.i.i.i.i, %1283 ]
@@ -2571,7 +2567,7 @@ FSE_reloadDStream.exit202.i.i.i.i:                ; preds = %1267, %1266, %1258
   %1292 = zext i8 %1291 to i32
   %1293 = add i32 %.sroa.6.1.i.i.i.i, %1292
   store i8 %1289, ptr %.1113289.i.i.i.i, align 1, !tbaa !3
-  %1294 = getelementptr i8, ptr %.1113289.i.i.i.i, i64 1
+  %1294 = getelementptr inbounds nuw i8, ptr %.1113289.i.i.i.i, i64 1
   %1295 = icmp ugt i32 %1293, 64
   br i1 %1295, label %HUF_decompress.exit.thread255.i.i, label %1257, !llvm.loop !41
 
@@ -2597,7 +2593,8 @@ ZSTD_decompressLiterals.exit.i:                   ; preds = %FSE_reloadDStream.e
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %1301 = icmp ult i64 %1300, -7
+  %.fr.i.i = freeze i64 %1300
+  %1301 = icmp ult i64 %.fr.i.i, -7
   %spec.select.i.i = select i1 %1301, i64 %75, i64 -1
   %1302 = icmp ult i64 %spec.select.i.i, -119
   br i1 %1302, label %1303, label %ZSTD_decompressSequences.exit

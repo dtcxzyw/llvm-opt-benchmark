@@ -11382,7 +11382,6 @@ define internal fastcc i32 @find_lowest_rq(ptr noundef %0) unnamed_addr #1 align
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @local_cpu_mask) #29, !srcloc !233
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !234
-  %.fr7 = freeze i32 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load volatile i32, ptr %5, align 4
   %7 = icmp eq i64 %2, 0
@@ -11438,13 +11437,13 @@ define internal fastcc i32 @find_lowest_rq(ptr noundef %0) unnamed_addr #1 align
   br i1 %42, label %43, label %94
 
 43:                                               ; preds = %38
-  %44 = zext i32 %.fr7 to i64
+  %44 = zext i32 %4 to i64
   %45 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %44) #30, !srcloc !24
-  %.fr6 = freeze i8 %45
-  %46 = icmp ult i8 %.fr6, 2
+  %46 = icmp ult i8 %45, 2
   tail call void @llvm.assume(i1 %46)
-  %47 = icmp eq i8 %.fr6, 0
-  %48 = select i1 %47, i32 -1, i32 %.fr7
+  %47 = icmp eq i8 %45, 0
+  %48 = select i1 %47, i32 -1, i32 %4
+  %.fr6 = freeze i32 %48
   tail call void @__rcu_read_lock() #30
   %49 = sext i32 %6 to i64
   %50 = getelementptr i64, ptr @__per_cpu_offset, i64 %49
@@ -11457,8 +11456,8 @@ define internal fastcc i32 @find_lowest_rq(ptr noundef %0) unnamed_addr #1 align
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %43
-  %58 = icmp eq i32 %48, -1
-  %59 = zext i32 %48 to i64
+  %58 = icmp eq i32 %.fr6, -1
+  %59 = zext i32 %.fr6 to i64
   br i1 %58, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %57, %.thread.us
@@ -11504,7 +11503,7 @@ define internal fastcc i32 @find_lowest_rq(ptr noundef %0) unnamed_addr #1 align
   br i1 %85, label %.split5.us, label %.thread
 
 .split5.us:                                       ; preds = %82, %77, %65
-  %.us-phi = phi i32 [ %67, %65 ], [ %.fr7, %77 ], [ %83, %82 ]
+  %.us-phi = phi i32 [ %67, %65 ], [ %4, %77 ], [ %83, %82 ]
   tail call void @__rcu_read_unlock() #30
   br label %94
 
@@ -11515,7 +11514,7 @@ define internal fastcc i32 @find_lowest_rq(ptr noundef %0) unnamed_addr #1 align
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %43
   tail call void @__rcu_read_unlock() #30
-  %88 = icmp eq i32 %48, -1
+  %88 = icmp eq i32 %.fr6, -1
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %.loopexit
@@ -11526,7 +11525,7 @@ define internal fastcc i32 @find_lowest_rq(ptr noundef %0) unnamed_addr #1 align
   br label %94
 
 94:                                               ; preds = %.split5.us, %89, %.loopexit, %38, %35, %8, %1
-  %95 = phi i32 [ -1, %1 ], [ -1, %8 ], [ -1, %35 ], [ %6, %38 ], [ %.fr7, %.loopexit ], [ %93, %89 ], [ %.us-phi, %.split5.us ]
+  %95 = phi i32 [ -1, %1 ], [ -1, %8 ], [ -1, %35 ], [ %6, %38 ], [ %4, %.loopexit ], [ %93, %89 ], [ %.us-phi, %.split5.us ]
   ret i32 %95
 }
 
@@ -12817,7 +12816,6 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
 .split.us:                                        ; preds = %12
   %17 = getelementptr i8, ptr %1, i64 504
   %18 = load i64, ptr %17, align 8
-  %.fr.us = freeze i64 %18
   br label %19
 
 19:                                               ; preds = %19, %.split.us
@@ -12825,24 +12823,24 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
   %21 = phi i8 [ 1, %.split.us ], [ %27, %19 ]
   %22 = getelementptr i8, ptr %20, i64 -664
   %23 = load i64, ptr %22, align 8
-  %.fr7.us = freeze i64 %23
-  %24 = sub i64 %.fr.us, %.fr7.us
-  %25 = icmp slt i64 %24, 0
+  %24 = sub i64 %18, %23
+  %.fr.us = freeze i64 %24
+  %25 = icmp slt i64 %.fr.us, 0
   %.v = select i1 %25, i64 16, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.v
   %27 = select i1 %25, i8 %21, i8 0
   %28 = load ptr, ptr %26, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.split11.us, label %19, !llvm.loop !197
+  br i1 %29, label %.split10.us, label %19, !llvm.loop !197
 
 .thread4:                                         ; preds = %12, %.thread4
   %30 = phi ptr [ %32, %.thread4 ], [ %10, %12 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.split11.us.thread, label %.thread4, !llvm.loop !197
+  br i1 %33, label %.split10.us.thread, label %.thread4, !llvm.loop !197
 
-.split11.us.thread:                               ; preds = %.thread4
+.split10.us.thread:                               ; preds = %.thread4
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %35 = ptrtoint ptr %30 to i64
   store i64 %35, ptr %3, align 8
@@ -12851,7 +12849,7 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
   store ptr %3, ptr %34, align 8
   br label %42
 
-.split11.us:                                      ; preds = %19
+.split10.us:                                      ; preds = %19
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 %.v
   %38 = icmp eq i8 %27, 0
   %39 = ptrtoint ptr %20 to i64
@@ -12866,7 +12864,7 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
   store ptr %3, ptr %9, align 8
   br label %42
 
-42:                                               ; preds = %.split11.us.thread, %41, %.split11.us
+42:                                               ; preds = %.split10.us.thread, %41, %.split10.us
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   store ptr %3, ptr %43, align 8
   tail call void @rb_insert_color(ptr noundef nonnull %3, ptr noundef nonnull %9) #30
@@ -12876,7 +12874,7 @@ define internal fastcc void @enqueue_pushable_dl_task(ptr noundef %0, ptr nounde
   store i64 %45, ptr %46, align 8
   br label %48
 
-47:                                               ; preds = %.split11.us
+47:                                               ; preds = %.split10.us
   tail call void @rb_insert_color(ptr noundef nonnull %3, ptr noundef nonnull %9) #30
   br label %48
 
@@ -13398,7 +13396,6 @@ define internal fastcc i32 @find_later_rq(ptr noundef %0) unnamed_addr #1 align 
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @local_cpu_mask_dl) #29, !srcloc !293
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !294
-  %.fr7 = freeze i32 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load volatile i32, ptr %5, align 4
   %7 = icmp eq i64 %2, 0
@@ -13433,13 +13430,13 @@ define internal fastcc i32 @find_later_rq(ptr noundef %0) unnamed_addr #1 align 
   br i1 %28, label %29, label %80
 
 29:                                               ; preds = %24
-  %30 = zext i32 %.fr7 to i64
+  %30 = zext i32 %4 to i64
   %31 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %30) #30, !srcloc !24
-  %.fr6 = freeze i8 %31
-  %32 = icmp ult i8 %.fr6, 2
+  %32 = icmp ult i8 %31, 2
   tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i8 %.fr6, 0
-  %34 = select i1 %33, i32 -1, i32 %.fr7
+  %33 = icmp eq i8 %31, 0
+  %34 = select i1 %33, i32 -1, i32 %4
+  %.fr6 = freeze i32 %34
   tail call void @__rcu_read_lock() #30
   %35 = sext i32 %6 to i64
   %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
@@ -13452,8 +13449,8 @@ define internal fastcc i32 @find_later_rq(ptr noundef %0) unnamed_addr #1 align 
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %29
-  %44 = icmp eq i32 %34, -1
-  %45 = zext i32 %34 to i64
+  %44 = icmp eq i32 %.fr6, -1
+  %45 = zext i32 %.fr6 to i64
   br i1 %44, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %43, %.thread.us
@@ -13499,7 +13496,7 @@ define internal fastcc i32 @find_later_rq(ptr noundef %0) unnamed_addr #1 align 
   br i1 %71, label %.split5.us, label %.thread
 
 .split5.us:                                       ; preds = %68, %63, %51
-  %.us-phi = phi i32 [ %53, %51 ], [ %.fr7, %63 ], [ %69, %68 ]
+  %.us-phi = phi i32 [ %53, %51 ], [ %4, %63 ], [ %69, %68 ]
   tail call void @__rcu_read_unlock() #30
   br label %80
 
@@ -13510,7 +13507,7 @@ define internal fastcc i32 @find_later_rq(ptr noundef %0) unnamed_addr #1 align 
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %29
   tail call void @__rcu_read_unlock() #30
-  %74 = icmp eq i32 %34, -1
+  %74 = icmp eq i32 %.fr6, -1
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %.loopexit
@@ -13521,7 +13518,7 @@ define internal fastcc i32 @find_later_rq(ptr noundef %0) unnamed_addr #1 align 
   br label %80
 
 80:                                               ; preds = %.split5.us, %75, %.loopexit, %24, %12, %8, %1
-  %81 = phi i32 [ -1, %1 ], [ -1, %8 ], [ -1, %12 ], [ %6, %24 ], [ %.fr7, %.loopexit ], [ %79, %75 ], [ %.us-phi, %.split5.us ]
+  %81 = phi i32 [ -1, %1 ], [ -1, %8 ], [ -1, %12 ], [ %6, %24 ], [ %4, %.loopexit ], [ %79, %75 ], [ %.us-phi, %.split5.us ]
   ret i32 %81
 }
 

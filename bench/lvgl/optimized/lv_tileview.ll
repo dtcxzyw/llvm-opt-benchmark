@@ -174,37 +174,35 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
 
 12:                                               ; preds = %8, %6
   %13 = tail call i32 @lv_obj_get_content_width(ptr noundef %4) #4
-  %.fr41 = freeze i32 %13
   %14 = tail call i32 @lv_obj_get_content_height(ptr noundef %4) #4
-  %.fr43 = freeze i32 %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_obj_get_scroll_end(ptr noundef %4, ptr noundef nonnull %2) #4
   %15 = load i32, ptr %2, align 4, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !33
-  %18 = sdiv i32 %.fr41, 2
-  %.fr40 = freeze i32 %15
-  %19 = add i32 %.fr40, %18
-  %20 = srem i32 %19, %.fr41
-  %21 = sub nsw i32 %19, %20
-  %22 = sdiv i32 %.fr43, 2
-  %.fr42 = freeze i32 %17
-  %23 = add i32 %.fr42, %22
-  %24 = srem i32 %23, %.fr43
-  %25 = sub nsw i32 %23, %24
+  %18 = sdiv i32 %13, 2
+  %19 = add nsw i32 %15, %18
+  %.fr = freeze i32 %19
+  %20 = srem i32 %.fr, %13
+  %21 = sub nsw i32 %.fr, %20
+  %22 = sdiv i32 %14, 2
+  %23 = add nsw i32 %17, %22
+  %.fr40 = freeze i32 %23
+  %24 = srem i32 %.fr40, %14
+  %25 = sub nsw i32 %.fr40, %24
   %26 = call i32 @lv_obj_get_child_count(ptr noundef %4) #4
-  %.not48 = icmp eq i32 %26, 0
-  br i1 %.not48, label %.critedge, label %.lr.ph
+  %.not45 = icmp eq i32 %26, 0
+  br i1 %.not45, label %.critedge, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
-  %28 = add nuw i32 %.03847, 1
+  %28 = add nuw i32 %.03844, 1
   %29 = call i32 @lv_obj_get_child_count(ptr noundef %4) #4
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %12, %27
-  %.03847 = phi i32 [ %28, %27 ], [ 0, %12 ]
-  %31 = call ptr @lv_obj_get_child(ptr noundef %4, i32 noundef %.03847) #4
+  %.03844 = phi i32 [ %28, %27 ], [ 0, %12 ]
+  %31 = call ptr @lv_obj_get_child(ptr noundef %4, i32 noundef %.03844) #4
   %32 = call i32 @lv_obj_get_x(ptr noundef %31) #4
   %33 = call i32 @lv_obj_get_y(ptr noundef %31) #4
   %34 = icmp eq i32 %32, %21

@@ -467,9 +467,7 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   %25 = load i32, ptr %24, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !30
-  %.fr101 = freeze i32 %25
-  %.fr102 = freeze i32 %27
-  %28 = sub i32 %.fr101, %.fr102
+  %28 = sub i32 %25, %27
   %29 = load i32, ptr %4, align 4, !tbaa !31
   %30 = load i32, ptr %3, align 4, !tbaa !31
   %31 = sub nsw i32 %29, %30
@@ -540,71 +538,68 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   %66 = mul i32 %7, %28
   %67 = add i32 %29, %66
   %68 = sub i32 %67, %30
-  %wide.trip.count126 = zext nneg i32 %58 to i64
+  %69 = sext i32 %28 to i64
+  %wide.trip.count123 = zext nneg i32 %58 to i64
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge88.split.us.us.us
-  %indvars.iv123 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next124, %._crit_edge88.split.us.us.us ]
-  %indvars125 = trunc i64 %indvars.iv123 to i32
-  %69 = mul i32 %9, %indvars125
-  %70 = mul i32 %7, %indvars125
-  %71 = add i32 %68, %70
-  %72 = add i32 %28, %indvars125
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %.lr.ph87.split.us.us.us.split.us, label %.lr.ph85.us.us.us.preheader
-
-.lr.ph85.us.us.us.preheader:                      ; preds = %.preheader.us.us
-  %74 = zext i32 %69 to i64
-  br label %._crit_edge88.split.us.us.us.sink.split
+  %indvars.iv120 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next121, %._crit_edge88.split.us.us.us ]
+  %70 = trunc nuw nsw i64 %indvars.iv120 to i32
+  %71 = mul i32 %9, %70
+  %72 = mul i32 %7, %70
+  %73 = add i32 %68, %72
+  %74 = zext i32 %71 to i64
+  %75 = mul i64 %62, %74
+  %scevgep112 = getelementptr i8, ptr %0, i64 %75
+  %76 = add nsw i64 %indvars.iv120, %69
+  %77 = icmp sgt i64 %76, -1
+  br i1 %77, label %.lr.ph87.split.us.us.us.split.us, label %._crit_edge88.split.us.us.us.sink.split
 
 .lr.ph87.split.us.us.us.split.us:                 ; preds = %.preheader.us.us
-  %75 = sext i32 %69 to i64
-  %76 = load i32, ptr %61, align 4, !tbaa !20
-  %.fr103 = freeze i32 %76
-  %77 = icmp slt i32 %72, %.fr103
-  br i1 %77, label %.lr.ph85.us.us.us.us, label %._crit_edge88.split.us.us.us.sink.split
+  %78 = load i32, ptr %61, align 4, !tbaa !20
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %76, %79
+  %.fr = freeze i1 %80
+  br i1 %.fr, label %.lr.ph85.us.us.us.us, label %._crit_edge88.split.us.us.us.sink.split
 
 .lr.ph85.us.us.us.us:                             ; preds = %.lr.ph87.split.us.us.us.split.us, %._crit_edge.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us.us.us ], [ 0, %.lr.ph87.split.us.us.us.split.us ]
-  %indvars121 = trunc i64 %indvars.iv to i32
-  %78 = add i32 %69, %indvars121
-  %79 = sext i32 %78 to i64
-  %80 = mul i64 %62, %79
-  %scevgep118 = getelementptr i8, ptr %0, i64 %80
-  %81 = add nsw i32 %31, %indvars121
-  %82 = icmp sgt i32 %81, -1
-  %83 = icmp slt i32 %81, %7
-  %84 = and i1 %82, %83
-  br i1 %84, label %.lr.ph85.split.us.us.us.us.us.preheader, label %.lr.ph85.split.us91.us.us.us.preheader
+  %indvars118 = trunc i64 %indvars.iv to i32
+  %81 = add i32 %71, %indvars118
+  %82 = zext i32 %81 to i64
+  %83 = mul i64 %62, %82
+  %scevgep115 = getelementptr i8, ptr %0, i64 %83
+  %84 = add nsw i32 %31, %indvars118
+  %85 = icmp sgt i32 %84, -1
+  %86 = icmp slt i32 %84, %7
+  %87 = and i1 %85, %86
+  br i1 %87, label %.lr.ph85.split.us.us.us.us.us.preheader, label %.lr.ph85.split.us91.us.us.us.preheader
 
 .lr.ph85.split.us91.us.us.us.preheader:           ; preds = %.lr.ph85.us.us.us.us
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep118, i8 0, i64 %62, i1 false), !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep115, i8 0, i64 %62, i1 false), !tbaa !32
   br label %._crit_edge.us.us.us.us
 
 .lr.ph85.split.us.us.us.us.us.preheader:          ; preds = %.lr.ph85.us.us.us.us
-  %85 = add i32 %71, %indvars121
-  %86 = sext i32 %85 to i64
-  %87 = mul i64 %62, %86
-  %scevgep119 = getelementptr i8, ptr %1, i64 %87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep118, ptr align 4 %scevgep119, i64 %62, i1 false), !tbaa !32
+  %88 = add i32 %73, %indvars118
+  %89 = sext i32 %88 to i64
+  %90 = mul i64 %62, %89
+  %scevgep116 = getelementptr i8, ptr %1, i64 %90
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep115, ptr align 4 %scevgep116, i64 %62, i1 false), !tbaa !32
   br label %._crit_edge.us.us.us.us
 
 ._crit_edge.us.us.us.us:                          ; preds = %.lr.ph85.split.us91.us.us.us.preheader, %.lr.ph85.split.us.us.us.us.us.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next, %63
-  br i1 %exitcond122.not, label %._crit_edge88.split.us.us.us, label %.lr.ph85.us.us.us.us
+  %exitcond119.not = icmp eq i64 %indvars.iv.next, %63
+  br i1 %exitcond119.not, label %._crit_edge88.split.us.us.us, label %.lr.ph85.us.us.us.us
 
-._crit_edge88.split.us.us.us.sink.split:          ; preds = %.lr.ph87.split.us.us.us.split.us, %.lr.ph85.us.us.us.preheader
-  %.pn136 = phi i64 [ %74, %.lr.ph85.us.us.us.preheader ], [ %75, %.lr.ph87.split.us.us.us.split.us ]
-  %.pn = mul i64 %62, %.pn136
-  %scevgep112.sink = getelementptr i8, ptr %0, i64 %.pn
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep112.sink, i8 0, i64 %65, i1 false), !tbaa !32
+._crit_edge88.split.us.us.us.sink.split:          ; preds = %.lr.ph87.split.us.us.us.split.us, %.preheader.us.us
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep112, i8 0, i64 %65, i1 false), !tbaa !32
   br label %._crit_edge88.split.us.us.us
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us.us, %._crit_edge88.split.us.us.us.sink.split
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %.loopexit, label %.preheader.us.us
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
+  br i1 %exitcond124.not, label %.loopexit, label %.preheader.us.us
 
 .loopexit:                                        ; preds = %48, %._crit_edge88.split.us.us.us, %.preheader.lr.ph, %39, %57, %17
   ret void

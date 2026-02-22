@@ -3758,8 +3758,8 @@ define void @ff_mjpeg_escape_FF(ptr noundef captures(none) %0, i32 noundef %1) l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !59
   %5 = sext i32 %1 to i64
-  %.fr97 = freeze ptr %4
-  %6 = getelementptr i8, ptr %.fr97, i64 %5
+  %.fr99 = freeze ptr %4
+  %6 = getelementptr i8, ptr %.fr99, i64 %5
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = sub i32 0, %8
@@ -3904,7 +3904,7 @@ flush_put_bits.exit:                              ; preds = %53, %thread-pre-spl
   br i1 %exitcond.not, label %.preheader81, label %.lr.ph, !llvm.loop !60
 
 .preheader.loopexit:                              ; preds = %.lr.ph87
-  %76 = trunc nuw nsw i64 %indvars.iv.next102 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv.next104 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader81
@@ -3919,9 +3919,9 @@ flush_put_bits.exit:                              ; preds = %53, %thread-pre-spl
   br label %.lr.ph92
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
-  %indvars.iv101 = phi i64 [ %70, %.lr.ph87.preheader ], [ %indvars.iv.next102, %.lr.ph87 ]
+  %indvars.iv103 = phi i64 [ %70, %.lr.ph87.preheader ], [ %indvars.iv.next104, %.lr.ph87 ]
   %.27285 = phi i32 [ %.070.lcssa, %.lr.ph87.preheader ], [ %117, %.lr.ph87 ]
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv101
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv103
   %81 = load i32, ptr %80, align 4, !tbaa !32
   %82 = lshr i32 %81, 4
   %83 = and i32 %81, 252645135
@@ -3959,20 +3959,20 @@ flush_put_bits.exit:                              ; preds = %53, %thread-pre-spl
   %115 = add nuw nsw i32 %114, %113
   %116 = and i32 %115, 255
   %117 = add nsw i32 %116, %.27285
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 16
-  %118 = icmp samesign ult i64 %indvars.iv.next102, %71
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 16
+  %118 = icmp samesign ult i64 %indvars.iv.next104, %71
   br i1 %118, label %.lr.ph87, label %.preheader.loopexit, !llvm.loop !61
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
-  %indvars.iv104 = phi i64 [ %78, %.lr.ph92.preheader ], [ %indvars.iv.next105, %.lr.ph92 ]
+  %indvars.iv106 = phi i64 [ %78, %.lr.ph92.preheader ], [ %indvars.iv.next107, %.lr.ph92 ]
   %.37390 = phi i32 [ %.272.lcssa, %.lr.ph92.preheader ], [ %spec.select77, %.lr.ph92 ]
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv104
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv106
   %120 = load i8, ptr %119, align 1, !tbaa !38
   %121 = icmp eq i8 %120, -1
   %122 = zext i1 %121 to i32
   %spec.select77 = add nsw i32 %.37390, %122
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %123 = icmp samesign ult i64 %indvars.iv.next105, %79
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %123 = icmp samesign ult i64 %indvars.iv.next107, %79
   br i1 %123, label %.lr.ph92, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph92, %.preheader
@@ -4001,17 +4001,17 @@ skip_put_bytes.exit:                              ; preds = %125
   br label %134
 
 134:                                              ; preds = %skip_put_bytes.exit, %143
-  %indvars.iv107 = phi i64 [ %133, %skip_put_bytes.exit ], [ %indvars.iv.next108, %143 ]
+  %indvars.iv109 = phi i64 [ %133, %skip_put_bytes.exit ], [ %indvars.iv.next110, %143 ]
   %.595 = phi i32 [ %.373.lcssa, %skip_put_bytes.exit ], [ %.6, %143 ]
-  %indvars.iv.next108 = add nsw i64 %indvars.iv107, -1
-  %135 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next108
+  %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
+  %135 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next110
   %136 = load i8, ptr %135, align 1, !tbaa !38
   %137 = icmp eq i8 %136, -1
   br i1 %137, label %138, label %143
 
 138:                                              ; preds = %134
   %139 = sext i32 %.595 to i64
-  %140 = getelementptr i8, ptr %6, i64 %indvars.iv.next108
+  %140 = getelementptr i8, ptr %6, i64 %indvars.iv.next110
   %141 = getelementptr i8, ptr %140, i64 %139
   store i8 0, ptr %141, align 1, !tbaa !38
   %142 = add nsw i32 %.595, -1
@@ -4020,7 +4020,7 @@ skip_put_bytes.exit:                              ; preds = %125
 143:                                              ; preds = %138, %134
   %.6 = phi i32 [ %142, %138 ], [ %.595, %134 ]
   %144 = sext i32 %.6 to i64
-  %145 = getelementptr i8, ptr %6, i64 %indvars.iv.next108
+  %145 = getelementptr i8, ptr %6, i64 %indvars.iv.next110
   %146 = getelementptr i8, ptr %145, i64 %144
   store i8 %136, ptr %146, align 1, !tbaa !38
   %.not76 = icmp eq i32 %.6, 0

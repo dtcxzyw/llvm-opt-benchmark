@@ -15456,8 +15456,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %24 = load i64, ptr %23, align 8
-  %.fr48 = freeze i64 %24
-  %25 = trunc i64 %.fr48 to i32
+  %25 = trunc i64 %24 to i32
   %26 = getelementptr i8, ptr %1, i64 88
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
@@ -15642,7 +15641,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
 
 123:                                              ; preds = %112
   %124 = getelementptr inbounds nuw i8, ptr %113, i64 304
-  %125 = shl i64 %.fr48, 32
+  %125 = shl i64 %24, 32
   %126 = ashr exact i64 %125, 32
   br label %127
 
@@ -15661,7 +15660,8 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
 
 138:                                              ; preds = %127
   %139 = icmp sgt i64 %128, %126
-  br i1 %139, label %.split.us, label %.split
+  %.fr = freeze i1 %139
+  br i1 %.fr, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %138, %151
   %140 = phi i32 [ %153, %151 ], [ 0, %138 ]
@@ -15726,13 +15726,13 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
 .loopexit27:                                      ; preds = %172, %151, %127
   %181 = phi i32 [ %130, %127 ], [ %152, %151 ], [ %173, %172 ]
   %182 = phi i32 [ 0, %127 ], [ %153, %151 ], [ %174, %172 ]
-  %183 = add i64 %128, 1
+  %183 = add nsw i64 %128, 1
   %184 = and i64 %183, 4294967295
   %185 = icmp eq i64 %184, 256
   br i1 %185, label %.loopexit, label %127, !llvm.loop !217
 
 .loopexit:                                        ; preds = %.loopexit27, %169, %148, %112
-  %186 = phi i64 [ %.fr48, %112 ], [ %128, %169 ], [ %128, %148 ], [ 256, %.loopexit27 ]
+  %186 = phi i64 [ %24, %112 ], [ %128, %169 ], [ %128, %148 ], [ 256, %.loopexit27 ]
   %187 = phi i32 [ %28, %112 ], [ %160, %169 ], [ %140, %148 ], [ %182, %.loopexit27 ]
   call void @__rcu_read_unlock() #20
   %188 = shl i64 %186, 32

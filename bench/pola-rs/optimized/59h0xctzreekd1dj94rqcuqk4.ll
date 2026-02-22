@@ -193541,9 +193541,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h1a3
   br label %.thread270
 
 87:                                               ; preds = %78
-  %.fr = freeze { ptr, i64 } %79
-  %88 = extractvalue { ptr, i64 } %.fr, 0
-  %89 = extractvalue { ptr, i64 } %.fr, 1
+  %.fr321 = freeze { ptr, i64 } %79
+  %88 = extractvalue { ptr, i64 } %.fr321, 0
+  %89 = extractvalue { ptr, i64 } %.fr321, 1
   %90 = icmp ne ptr %88, null
   %brmerge = or i1 %3, %90
   br i1 %brmerge, label %91, label %93
@@ -193610,8 +193610,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h1a3
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0212304, i64 8
   %.val.i = load i64, ptr %.sroa.0.0212304, align 8, !alias.scope !20333, !noundef !6
   %.val1.i = load i64, ptr %119, align 8, !alias.scope !20333, !noundef !6
-  %.not321 = icmp eq i64 %.val1.i, %.val.i
-  br i1 %.not321, label %._crit_edge, label %.lr.ph
+  %.not322 = icmp eq i64 %.val1.i, %.val.i
+  br i1 %.not322, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %116
   %120 = add i64 %.val1.i, 1
@@ -193631,8 +193631,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h1a3
   %126 = icmp eq ptr %125, null
   %127 = or i1 %.sroa.09.0301.us, %126
   %128 = add i64 %122, 1
-  %exitcond330.not = icmp eq i64 %128, %121
-  br i1 %exitcond330.not, label %._crit_edge, label %.lr.ph.split.us
+  %exitcond331.not = icmp eq i64 %128, %121
+  br i1 %exitcond331.not, label %._crit_edge, label %.lr.ph.split.us
 
 .loopexit293.split.us:                            ; preds = %.lr.ph.split.us
   %lpad.loopexit295.us = landingpad { ptr, i32 }
@@ -193688,16 +193688,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h1a3
 
 139:                                              ; preds = %._crit_edge
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %43, i64 noundef 1)
-          to label %._crit_edge334 unwind label %.loopexit.split-lp294
+          to label %._crit_edge335 unwind label %.loopexit.split-lp294
 
-._crit_edge334:                                   ; preds = %139
+._crit_edge335:                                   ; preds = %139
   %.pre = load i64, ptr %109, align 8, !alias.scope !20336
-  %.pre342 = add i64 %.pre, 1
+  %.pre343 = add i64 %.pre, 1
   br label %140
 
-140:                                              ; preds = %._crit_edge334, %._crit_edge
-  %.pre-phi343 = phi i64 [ %.pre342, %._crit_edge334 ], [ %136, %._crit_edge ]
-  %141 = phi i64 [ %.pre, %._crit_edge334 ], [ %135, %._crit_edge ]
+140:                                              ; preds = %._crit_edge335, %._crit_edge
+  %.pre-phi344 = phi i64 [ %.pre343, %._crit_edge335 ], [ %136, %._crit_edge ]
+  %141 = phi i64 [ %.pre, %._crit_edge335 ], [ %135, %._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20336)
   %142 = zext i1 %.sroa.09.0.lcssa to i64
   %143 = and i64 %141, 63
@@ -193705,8 +193705,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h1a3
   %145 = load i64, ptr %111, align 8, !alias.scope !20336, !noundef !6
   %146 = or i64 %144, %145
   store i64 %146, ptr %111, align 8, !alias.scope !20336
-  store i64 %.pre-phi343, ptr %109, align 8, !alias.scope !20336
-  %147 = and i64 %.pre-phi343, 63
+  store i64 %.pre-phi344, ptr %109, align 8, !alias.scope !20336
+  %147 = and i64 %.pre-phi344, 63
   %148 = icmp eq i64 %147, 0
   br i1 %148, label %149, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit115
 
@@ -194060,8 +194060,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.shrunk = phi i1 [ false, %243 ], [ %249, %247 ]
   %245 = or i1 %.sroa.019.0309, %.sroa.018.0.shrunk
   %246 = add i64 %235, 1
-  %exitcond331.not = icmp eq i64 %246, %210
-  br i1 %exitcond331.not, label %.loopexit284.loopexit, label %.lr.ph310
+  %exitcond332.not = icmp eq i64 %246, %210
+  br i1 %exitcond332.not, label %.loopexit284.loopexit, label %.lr.ph310
 
 247:                                              ; preds = %243
   %248 = extractvalue { ptr, i64 } %237, 1
@@ -194070,24 +194070,24 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 250:                                              ; preds = %.loopexit284
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 1)
-          to label %._crit_edge335 unwind label %.loopexit.split-lp286.loopexit
+          to label %._crit_edge336 unwind label %.loopexit.split-lp286.loopexit
 
-._crit_edge335:                                   ; preds = %250
-  %.pre336 = load i64, ptr %186, align 8, !alias.scope !20359
-  %.pre340 = add i64 %.pre336, 1
+._crit_edge336:                                   ; preds = %250
+  %.pre337 = load i64, ptr %186, align 8, !alias.scope !20359
+  %.pre341 = add i64 %.pre337, 1
   br label %251
 
-251:                                              ; preds = %._crit_edge335, %.loopexit284
-  %.pre-phi341 = phi i64 [ %.pre340, %._crit_edge335 ], [ %240, %.loopexit284 ]
-  %252 = phi i64 [ %.pre336, %._crit_edge335 ], [ %239, %.loopexit284 ]
+251:                                              ; preds = %._crit_edge336, %.loopexit284
+  %.pre-phi342 = phi i64 [ %.pre341, %._crit_edge336 ], [ %240, %.loopexit284 ]
+  %252 = phi i64 [ %.pre337, %._crit_edge336 ], [ %239, %.loopexit284 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20359)
   %253 = and i64 %252, 63
   %254 = shl nuw i64 %.sroa.019.1, %253
   %255 = load i64, ptr %188, align 8, !alias.scope !20359, !noundef !6
   %256 = or i64 %254, %255
   store i64 %256, ptr %188, align 8, !alias.scope !20359
-  store i64 %.pre-phi341, ptr %186, align 8, !alias.scope !20359
-  %257 = and i64 %.pre-phi341, 63
+  store i64 %.pre-phi342, ptr %186, align 8, !alias.scope !20359
+  %257 = and i64 %.pre-phi342, 63
   %258 = icmp eq i64 %257, 0
   br i1 %258, label %259, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114.backedge
 
@@ -194218,8 +194218,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 303:                                              ; preds = %296
   %.val.i.i.i136 = load i64, ptr %297, align 8, !alias.scope !20375, !noalias !20378, !noundef !6
   %.val1.i.i.i137 = load i64, ptr %299, align 8, !alias.scope !20375, !noalias !20378, !noundef !6
-  %.not322 = icmp eq i64 %.val1.i.i.i137, %.val.i.i.i136
-  br i1 %.not322, label %._crit_edge316, label %.lr.ph315
+  %.not323 = icmp eq i64 %.val1.i.i.i137, %.val.i.i.i136
+  br i1 %.not323, label %._crit_edge316, label %.lr.ph315
 
 .lr.ph315:                                        ; preds = %303
   %.not107 = icmp eq ptr %291, null
@@ -194240,8 +194240,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %310 = icmp eq ptr %309, null
   %311 = or i1 %.sroa.014.0313.us, %310
   %312 = add i64 %306, 1
-  %exitcond333.not = icmp eq i64 %312, %305
-  br i1 %exitcond333.not, label %._crit_edge316, label %.lr.ph315.split.us
+  %exitcond334.not = icmp eq i64 %312, %305
+  br i1 %exitcond334.not, label %._crit_edge316, label %.lr.ph315.split.us
 
 .loopexit.split.us:                               ; preds = %.lr.ph315.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -194348,16 +194348,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 336:                                              ; preds = %._crit_edge316
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %33, i64 noundef 1)
-          to label %._crit_edge337 unwind label %.loopexit.split-lp.loopexit
+          to label %._crit_edge338 unwind label %.loopexit.split-lp.loopexit
 
-._crit_edge337:                                   ; preds = %336
-  %.pre338 = load i64, ptr %282, align 8, !alias.scope !20379
-  %.pre339 = add i64 %.pre338, 1
+._crit_edge338:                                   ; preds = %336
+  %.pre339 = load i64, ptr %282, align 8, !alias.scope !20379
+  %.pre340 = add i64 %.pre339, 1
   br label %337
 
-337:                                              ; preds = %._crit_edge337, %._crit_edge316
-  %.pre-phi = phi i64 [ %.pre339, %._crit_edge337 ], [ %333, %._crit_edge316 ]
-  %338 = phi i64 [ %.pre338, %._crit_edge337 ], [ %332, %._crit_edge316 ]
+337:                                              ; preds = %._crit_edge338, %._crit_edge316
+  %.pre-phi = phi i64 [ %.pre340, %._crit_edge338 ], [ %333, %._crit_edge316 ]
+  %338 = phi i64 [ %.pre339, %._crit_edge338 ], [ %332, %._crit_edge316 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20379)
   %339 = zext i1 %.sroa.014.0.lcssa to i64
   %340 = and i64 %338, 63
@@ -194398,8 +194398,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.013.0.shrunk = phi i1 [ false, %355 ], [ %361, %359 ]
   %357 = or i1 %.sroa.014.0313, %.sroa.013.0.shrunk
   %358 = add i64 %329, 1
-  %exitcond332.not = icmp eq i64 %358, %305
-  br i1 %exitcond332.not, label %._crit_edge316, label %.lr.ph315.split
+  %exitcond333.not = icmp eq i64 %358, %305
+  br i1 %exitcond333.not, label %._crit_edge316, label %.lr.ph315.split
 
 359:                                              ; preds = %355
   %360 = extractvalue { ptr, i64 } %331, 1
@@ -196333,9 +196333,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h9d1
   br label %.thread240
 
 87:                                               ; preds = %78
-  %.fr = freeze { ptr, i64 } %79
-  %88 = extractvalue { ptr, i64 } %.fr, 0
-  %89 = extractvalue { ptr, i64 } %.fr, 1
+  %.fr285 = freeze { ptr, i64 } %79
+  %88 = extractvalue { ptr, i64 } %.fr285, 0
+  %89 = extractvalue { ptr, i64 } %.fr285, 1
   %90 = icmp ne ptr %88, null
   %brmerge = or i1 %3, %90
   br i1 %brmerge, label %91, label %93
@@ -196402,8 +196402,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h9d1
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0192268, i64 8
   %.val.i = load i64, ptr %.sroa.0.0192268, align 8, !alias.scope !20595, !noundef !6
   %.val1.i = load i64, ptr %119, align 8, !alias.scope !20595, !noundef !6
-  %.not285 = icmp eq i64 %.val1.i, %.val.i
-  br i1 %.not285, label %._crit_edge, label %.lr.ph
+  %.not286 = icmp eq i64 %.val1.i, %.val.i
+  br i1 %.not286, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %116
   %120 = add i64 %.val1.i, 1
@@ -196423,8 +196423,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h9d1
   %126 = icmp eq ptr %125, null
   %127 = or i1 %.sroa.09.0265.us, %126
   %128 = add i64 %122, 1
-  %exitcond294.not = icmp eq i64 %128, %121
-  br i1 %exitcond294.not, label %._crit_edge, label %.lr.ph.split.us
+  %exitcond295.not = icmp eq i64 %128, %121
+  br i1 %exitcond295.not, label %._crit_edge, label %.lr.ph.split.us
 
 .loopexit256.split.us:                            ; preds = %.lr.ph.split.us
   %lpad.loopexit258.us = landingpad { ptr, i32 }
@@ -196480,16 +196480,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h9d1
 
 139:                                              ; preds = %._crit_edge
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %43, i64 noundef 1)
-          to label %._crit_edge298 unwind label %.loopexit.split-lp257
+          to label %._crit_edge299 unwind label %.loopexit.split-lp257
 
-._crit_edge298:                                   ; preds = %139
+._crit_edge299:                                   ; preds = %139
   %.pre = load i64, ptr %109, align 8, !alias.scope !20598
-  %.pre306 = add i64 %.pre, 1
+  %.pre307 = add i64 %.pre, 1
   br label %140
 
-140:                                              ; preds = %._crit_edge298, %._crit_edge
-  %.pre-phi307 = phi i64 [ %.pre306, %._crit_edge298 ], [ %136, %._crit_edge ]
-  %141 = phi i64 [ %.pre, %._crit_edge298 ], [ %135, %._crit_edge ]
+140:                                              ; preds = %._crit_edge299, %._crit_edge
+  %.pre-phi308 = phi i64 [ %.pre307, %._crit_edge299 ], [ %136, %._crit_edge ]
+  %141 = phi i64 [ %.pre, %._crit_edge299 ], [ %135, %._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20598)
   %142 = zext i1 %.sroa.09.0.lcssa to i64
   %143 = and i64 %141, 63
@@ -196497,8 +196497,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h9d1
   %145 = load i64, ptr %111, align 8, !alias.scope !20598, !noundef !6
   %146 = or i64 %144, %145
   store i64 %146, ptr %111, align 8, !alias.scope !20598
-  store i64 %.pre-phi307, ptr %109, align 8, !alias.scope !20598
-  %147 = and i64 %.pre-phi307, 63
+  store i64 %.pre-phi308, ptr %109, align 8, !alias.scope !20598
+  %147 = and i64 %.pre-phi308, 63
   %148 = icmp eq i64 %147, 0
   br i1 %148, label %149, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit115
 
@@ -196821,8 +196821,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.shrunk = phi i1 [ false, %237 ], [ %243, %241 ]
   %239 = or i1 %.sroa.019.0273, %.sroa.018.0.shrunk
   %240 = add i64 %229, 1
-  %exitcond295.not = icmp eq i64 %229, %202
-  br i1 %exitcond295.not, label %.loopexit250.loopexit, label %.lr.ph274
+  %exitcond296.not = icmp eq i64 %229, %202
+  br i1 %exitcond296.not, label %.loopexit250.loopexit, label %.lr.ph274
 
 241:                                              ; preds = %237
   %242 = extractvalue { ptr, i64 } %231, 1
@@ -196831,24 +196831,24 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 244:                                              ; preds = %.loopexit250
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %24, i64 noundef 1)
-          to label %._crit_edge299 unwind label %.loopexit.split-lp252
+          to label %._crit_edge300 unwind label %.loopexit.split-lp252
 
-._crit_edge299:                                   ; preds = %244
-  %.pre300 = load i64, ptr %188, align 8, !alias.scope !20604
-  %.pre304 = add i64 %.pre300, 1
+._crit_edge300:                                   ; preds = %244
+  %.pre301 = load i64, ptr %188, align 8, !alias.scope !20604
+  %.pre305 = add i64 %.pre301, 1
   br label %245
 
-245:                                              ; preds = %._crit_edge299, %.loopexit250
-  %.pre-phi305 = phi i64 [ %.pre304, %._crit_edge299 ], [ %234, %.loopexit250 ]
-  %246 = phi i64 [ %.pre300, %._crit_edge299 ], [ %233, %.loopexit250 ]
+245:                                              ; preds = %._crit_edge300, %.loopexit250
+  %.pre-phi306 = phi i64 [ %.pre305, %._crit_edge300 ], [ %234, %.loopexit250 ]
+  %246 = phi i64 [ %.pre301, %._crit_edge300 ], [ %233, %.loopexit250 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20604)
   %247 = and i64 %246, 63
   %248 = shl nuw i64 %.sroa.019.1, %247
   %249 = load i64, ptr %190, align 8, !alias.scope !20604, !noundef !6
   %250 = or i64 %248, %249
   store i64 %250, ptr %190, align 8, !alias.scope !20604
-  store i64 %.pre-phi305, ptr %188, align 8, !alias.scope !20604
-  %251 = and i64 %.pre-phi305, 63
+  store i64 %.pre-phi306, ptr %188, align 8, !alias.scope !20604
+  %251 = and i64 %.pre-phi306, 63
   %252 = icmp eq i64 %251, 0
   br i1 %252, label %253, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114
 
@@ -196948,8 +196948,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %291 = load i64, ptr %276, align 8
   %292 = load i64, ptr %277, align 8, !noundef !6
   %293 = load i64, ptr %278, align 8, !noundef !6
-  %.not287 = icmp eq i64 %293, 0
-  br i1 %.not287, label %._crit_edge280, label %.lr.ph279
+  %.not288 = icmp eq i64 %293, 0
+  br i1 %.not288, label %._crit_edge280, label %.lr.ph279
 
 .lr.ph279:                                        ; preds = %289
   %.not107 = icmp eq ptr %290, null
@@ -196968,8 +196968,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %298 = icmp eq ptr %297, null
   %299 = or i1 %.sroa.014.0277.us, %298
   %300 = add i64 %294, 1
-  %exitcond297.not = icmp eq i64 %294, %293
-  br i1 %exitcond297.not, label %._crit_edge280, label %.lr.ph279.split.us
+  %exitcond298.not = icmp eq i64 %294, %293
+  br i1 %exitcond298.not, label %._crit_edge280, label %.lr.ph279.split.us
 
 .loopexit.split.us:                               ; preds = %.lr.ph279.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -197077,16 +197077,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 325:                                              ; preds = %._crit_edge280
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %33, i64 noundef 1)
-          to label %._crit_edge301 unwind label %.loopexit.split-lp
+          to label %._crit_edge302 unwind label %.loopexit.split-lp
 
-._crit_edge301:                                   ; preds = %325
-  %.pre302 = load i64, ptr %279, align 8, !alias.scope !20607
-  %.pre303 = add i64 %.pre302, 1
+._crit_edge302:                                   ; preds = %325
+  %.pre303 = load i64, ptr %279, align 8, !alias.scope !20607
+  %.pre304 = add i64 %.pre303, 1
   br label %326
 
-326:                                              ; preds = %._crit_edge301, %._crit_edge280
-  %.pre-phi = phi i64 [ %.pre303, %._crit_edge301 ], [ %322, %._crit_edge280 ]
-  %327 = phi i64 [ %.pre302, %._crit_edge301 ], [ %321, %._crit_edge280 ]
+326:                                              ; preds = %._crit_edge302, %._crit_edge280
+  %.pre-phi = phi i64 [ %.pre304, %._crit_edge302 ], [ %322, %._crit_edge280 ]
+  %327 = phi i64 [ %.pre303, %._crit_edge302 ], [ %321, %._crit_edge280 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20607)
   %328 = zext i1 %.sroa.014.0.lcssa to i64
   %329 = and i64 %327, 63
@@ -197128,8 +197128,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.013.0.shrunk = phi i1 [ false, %344 ], [ %350, %348 ]
   %346 = or i1 %.sroa.014.0277, %.sroa.013.0.shrunk
   %347 = add i64 %318, 1
-  %exitcond296.not = icmp eq i64 %318, %293
-  br i1 %exitcond296.not, label %._crit_edge280, label %.lr.ph279.split
+  %exitcond297.not = icmp eq i64 %318, %293
+  br i1 %exitcond297.not, label %._crit_edge280, label %.lr.ph279.split
 
 348:                                              ; preds = %344
   %349 = extractvalue { ptr, i64 } %320, 1
@@ -197261,9 +197261,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h81
 
 73:                                               ; preds = %67
   %74 = icmp eq i64 %72, 1
-  br i1 %74, label %.thread416, label %75
+  br i1 %74, label %.thread417, label %75
 
-.thread416:                                       ; preds = %73
+.thread417:                                       ; preds = %73
   store i64 %69, ptr %42, align 8
   store i64 1, ptr %41, align 8
   br label %154
@@ -197290,9 +197290,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h81
   br label %.thread295
 
 81:                                               ; preds = %75
-  %.fr = freeze { ptr, i64 } %76
-  %82 = extractvalue { ptr, i64 } %.fr, 0
-  %83 = extractvalue { ptr, i64 } %.fr, 1
+  %.fr346 = freeze { ptr, i64 } %76
+  %82 = extractvalue { ptr, i64 } %.fr346, 0
+  %83 = extractvalue { ptr, i64 } %.fr346, 1
   %84 = icmp ne ptr %82, null
   %brmerge = or i1 %3, %84
   br i1 %brmerge, label %85, label %87
@@ -197364,8 +197364,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h81
   %110 = icmp eq ptr %109, null
   %111 = or i1 %.sroa.04.0325.us, %110
   %112 = add i64 %106, 1
-  %exitcond355.not = icmp eq i64 %106, %54
-  br i1 %exitcond355.not, label %._crit_edge, label %.lr.ph.split.us
+  %exitcond356.not = icmp eq i64 %106, %54
+  br i1 %exitcond356.not, label %._crit_edge, label %.lr.ph.split.us
 
 .loopexit317.split.us:                            ; preds = %.lr.ph.split.us
   %lpad.loopexit319.us = landingpad { ptr, i32 }
@@ -197442,16 +197442,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h81
 
 123:                                              ; preds = %._crit_edge
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %49, i64 noundef 1)
-          to label %._crit_edge359 unwind label %.loopexit.split-lp318
+          to label %._crit_edge360 unwind label %.loopexit.split-lp318
 
-._crit_edge359:                                   ; preds = %123
+._crit_edge360:                                   ; preds = %123
   %.pre = load i64, ptr %99, align 8, !alias.scope !20614
-  %.pre373 = add i64 %.pre, 1
+  %.pre374 = add i64 %.pre, 1
   br label %124
 
-124:                                              ; preds = %._crit_edge359, %._crit_edge
-  %.pre-phi374 = phi i64 [ %.pre373, %._crit_edge359 ], [ %120, %._crit_edge ]
-  %125 = phi i64 [ %.pre, %._crit_edge359 ], [ %119, %._crit_edge ]
+124:                                              ; preds = %._crit_edge360, %._crit_edge
+  %.pre-phi375 = phi i64 [ %.pre374, %._crit_edge360 ], [ %120, %._crit_edge ]
+  %125 = phi i64 [ %.pre, %._crit_edge360 ], [ %119, %._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20614)
   %126 = zext i1 %.sroa.04.0.lcssa to i64
   %127 = and i64 %125, 63
@@ -197459,8 +197459,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h81
   %129 = load i64, ptr %101, align 8, !alias.scope !20614, !noundef !6
   %130 = or i64 %128, %129
   store i64 %130, ptr %101, align 8, !alias.scope !20614
-  store i64 %.pre-phi374, ptr %99, align 8, !alias.scope !20614
-  %131 = and i64 %.pre-phi374, 63
+  store i64 %.pre-phi375, ptr %99, align 8, !alias.scope !20614
+  %131 = and i64 %.pre-phi375, 63
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %133, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit90
 
@@ -197515,7 +197515,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %155 unwind label %.thread
 
-154:                                              ; preds = %.thread416, %77
+154:                                              ; preds = %.thread417, %77
   br i1 %3, label %157, label %156
 
 155:                                              ; preds = %153
@@ -197573,7 +197573,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %181 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.not346 = icmp eq i64 %54, 0
+  %.not347 = icmp eq i64 %54, 0
   %184 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %185 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %186 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -197583,7 +197583,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %190
 
 190:                                              ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89, %158
-  %191 = phi i64 [ 0, %158 ], [ %.pre362, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89 ]
+  %191 = phi i64 [ 0, %158 ], [ %.pre363, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20617)
   call void @llvm.experimental.noalias.scope.decl(metadata !20620)
   call void @llvm.experimental.noalias.scope.decl(metadata !20623)
@@ -197760,7 +197760,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread18.i151: ;
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i158: ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i156", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i161"
   %.sroa.0.0.i.i.i.i9.i.i.i159 = phi ptr [ %264, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i161" ], [ %275, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i156" ]
   %.sroa.3.0.i.i.i.i10.i.i.i160 = zext i32 %262 to i64
-  br label %.noexc.thread417
+  br label %.noexc.thread418
 
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144: ; preds = %.noexc162
   %276 = trunc nuw i8 %244 to i1
@@ -197768,9 +197768,9 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144: ; preds = 
   %278 = load ptr, ptr %173, align 8, !noalias !20674, !nonnull !6, !align !2169
   %.sroa.01.0.i.i.i.i145 = select i1 %276, ptr %278, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !20674
-  br label %.noexc.thread417
+  br label %.noexc.thread418
 
-.noexc.thread417:                                 ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i158
+.noexc.thread418:                                 ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i158
   %.sroa.8.19.i147.ph = phi ptr [ %.sroa.0.0.i.i.i.i9.i.i.i159, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i158 ], [ %.sroa.01.0.i.i.i.i145, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144 ]
   %.sroa.10.17.i148.ph = phi i64 [ %.sroa.3.0.i.i.i.i10.i.i.i160, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i158 ], [ %277, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144 ]
   store i64 1, ptr %12, align 8, !alias.scope !20634, !noalias !20637
@@ -197785,7 +197785,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i144: ; preds = 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %190, %.noexc
   br label %.lr.ph.i.i.i.i
 
-"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread": ; preds = %.noexc105, %.noexc.thread417
+"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread": ; preds = %.noexc105, %.noexc.thread418
   %.sroa.7249.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx.i149, align 8, !noalias !20690
   %.sroa.9250.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx.i150, align 8, !noalias !20690
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !20629
@@ -197998,7 +197998,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread18.i: ; pr
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i: ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i"
   %.sroa.0.0.i.i.i.i9.i.i.i = phi ptr [ %361, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i" ], [ %372, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i" ]
   %.sroa.3.0.i.i.i.i10.i.i.i = zext i32 %359 to i64
-  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread426"
+  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread427"
 
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i: ; preds = %.noexc130
   %373 = trunc nuw i8 %341 to i1
@@ -198006,22 +198006,22 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i: ; preds = %.n
   %375 = load ptr, ptr %183, align 8, !noalias !20751, !nonnull !6, !align !2169
   %.sroa.01.0.i.i.i.i = select i1 %373, ptr %375, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !20751
-  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread426"
+  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread427"
 
-"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread426": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i
+"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread427": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i
   %.sroa.7249.2.ph = phi ptr [ %.sroa.0.0.i.i.i.i9.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i ], [ %.sroa.01.0.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i ]
   %.sroa.9250.2.ph = phi i64 [ %.sroa.3.0.i.i.i.i10.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i ], [ %374, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !20629
   br label %376
 
-376:                                              ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread426", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread"
-  %.sroa.9250.1425 = phi i64 [ %.sroa.9250.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ], [ %.sroa.9250.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread426" ]
-  %.sroa.7249.1424 = phi ptr [ %.sroa.7249.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ], [ %.sroa.7249.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread426" ]
+376:                                              ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread427", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread"
+  %.sroa.9250.1426 = phi i64 [ %.sroa.9250.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ], [ %.sroa.9250.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread427" ]
+  %.sroa.7249.1425 = phi ptr [ %.sroa.7249.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ], [ %.sroa.7249.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread427" ]
   %377 = load i64, ptr %.sroa.214.0..sroa_idx, align 8, !alias.scope !20617, !noalias !20767, !noundef !6
   %378 = add i64 %377, 1
   store i64 %378, ptr %.sroa.214.0..sroa_idx, align 8, !alias.scope !20617, !noalias !20767
-  %.not78 = icmp eq ptr %.sroa.7249.1424, null
-  %brmerge343 = or i1 %.not78, %.not346
+  %.not78 = icmp eq ptr %.sroa.7249.1425, null
+  %brmerge343 = or i1 %.not78, %.not347
   br i1 %brmerge343, label %.loopexit308, label %.lr.ph332
 
 .lr.ph332:                                        ; preds = %376
@@ -198207,34 +198207,34 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i: ; preds = %.n
   %.sroa.019.0.shrunk = phi i1 [ false, %414 ], [ %420, %418 ]
   %416 = or i1 %.sroa.020.0330, %.sroa.019.0.shrunk
   %417 = add i64 %406, 1
-  %exitcond356.not = icmp eq i64 %406, %54
-  br i1 %exitcond356.not, label %.loopexit308.loopexit, label %405
+  %exitcond357.not = icmp eq i64 %406, %54
+  br i1 %exitcond357.not, label %.loopexit308.loopexit, label %405
 
 418:                                              ; preds = %414
   %419 = extractvalue { ptr, i64 } %408, 1
-  %420 = invoke noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$U$u5d$$GT$$u20$for$u20$$u5b$T$u5d$$GT$2eq17h50bce6dd7f69fbd8E"(ptr noalias noundef nonnull readonly align 1 %.sroa.7249.1424, i64 noundef %.sroa.9250.1425, ptr noalias noundef nonnull readonly align 1 %415, i64 noundef %419)
+  %420 = invoke noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$U$u5d$$GT$$u20$for$u20$$u5b$T$u5d$$GT$2eq17h50bce6dd7f69fbd8E"(ptr noalias noundef nonnull readonly align 1 %.sroa.7249.1425, i64 noundef %.sroa.9250.1426, ptr noalias noundef nonnull readonly align 1 %415, i64 noundef %419)
           to label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$polars_utils..total_ord..TotalEq$GT$6tot_eq17hf62533ac5b745d93E.exit91" unwind label %.loopexit309
 
 421:                                              ; preds = %.loopexit308
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge364 unwind label %.loopexit.split-lp310.loopexit.split-lp
+          to label %._crit_edge365 unwind label %.loopexit.split-lp310.loopexit.split-lp
 
-._crit_edge364:                                   ; preds = %421
-  %.pre365 = load i64, ptr %184, align 8, !alias.scope !20771
-  %.pre371 = add i64 %.pre365, 1
+._crit_edge365:                                   ; preds = %421
+  %.pre366 = load i64, ptr %184, align 8, !alias.scope !20771
+  %.pre372 = add i64 %.pre366, 1
   br label %422
 
-422:                                              ; preds = %._crit_edge364, %.loopexit308
-  %.pre-phi372 = phi i64 [ %.pre371, %._crit_edge364 ], [ %411, %.loopexit308 ]
-  %423 = phi i64 [ %.pre365, %._crit_edge364 ], [ %410, %.loopexit308 ]
+422:                                              ; preds = %._crit_edge365, %.loopexit308
+  %.pre-phi373 = phi i64 [ %.pre372, %._crit_edge365 ], [ %411, %.loopexit308 ]
+  %423 = phi i64 [ %.pre366, %._crit_edge365 ], [ %410, %.loopexit308 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20771)
   %424 = and i64 %423, 63
   %425 = shl nuw i64 %.sroa.020.1, %424
   %426 = load i64, ptr %186, align 8, !alias.scope !20771, !noundef !6
   %427 = or i64 %425, %426
   store i64 %427, ptr %186, align 8, !alias.scope !20771
-  store i64 %.pre-phi372, ptr %184, align 8, !alias.scope !20771
-  %428 = and i64 %.pre-phi372, 63
+  store i64 %.pre-phi373, ptr %184, align 8, !alias.scope !20771
+  %428 = and i64 %.pre-phi373, 63
   %429 = icmp eq i64 %428, 0
   br i1 %429, label %430, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89
 
@@ -198255,7 +198255,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i: ; preds = %.n
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89: ; preds = %430, %422
-  %.pre362 = load i64, ptr %30, align 8, !range !2168, !alias.scope !20637, !noalias !20634
+  %.pre363 = load i64, ptr %30, align 8, !range !2168, !alias.scope !20637, !noalias !20634
   br label %190
 
 .loopexit309:                                     ; preds = %405, %418
@@ -198320,7 +198320,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %462 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %463 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %464 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.not347 = icmp eq i64 %54, 0
+  %.not348 = icmp eq i64 %54, 0
   %465 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %466 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %467 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -198330,7 +198330,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %471
 
 471:                                              ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit, %439
-  %472 = phi i64 [ 0, %439 ], [ %.pre366, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %472 = phi i64 [ 0, %439 ], [ %.pre367, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20774)
   call void @llvm.experimental.noalias.scope.decl(metadata !20777)
   call void @llvm.experimental.noalias.scope.decl(metadata !20780)
@@ -198507,7 +198507,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread18.i217: ;
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i224: ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i222", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i227"
   %.sroa.0.0.i.i.i.i9.i.i.i225 = phi ptr [ %545, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i227" ], [ %556, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i222" ]
   %.sroa.3.0.i.i.i.i10.i.i.i226 = zext i32 %543 to i64
-  br label %.noexc119.thread430
+  br label %.noexc119.thread431
 
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210: ; preds = %.noexc228
   %557 = trunc nuw i8 %525 to i1
@@ -198515,9 +198515,9 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210: ; preds = 
   %559 = load ptr, ptr %454, align 8, !noalias !20831, !nonnull !6, !align !2169
   %.sroa.01.0.i.i.i.i211 = select i1 %557, ptr %559, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !20831
-  br label %.noexc119.thread430
+  br label %.noexc119.thread431
 
-.noexc119.thread430:                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i224
+.noexc119.thread431:                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i224
   %.sroa.8.19.i213.ph = phi ptr [ %.sroa.0.0.i.i.i.i9.i.i.i225, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i224 ], [ %.sroa.01.0.i.i.i.i211, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210 ]
   %.sroa.10.17.i214.ph = phi i64 [ %.sroa.3.0.i.i.i.i10.i.i.i226, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i224 ], [ %558, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210 ]
   store i64 1, ptr %10, align 8, !alias.scope !20791, !noalias !20794
@@ -198532,7 +198532,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i210: ; preds = 
 .lr.ph.i.i.i.i110.preheader:                      ; preds = %471, %.noexc119
   br label %.lr.ph.i.i.i.i110
 
-"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread": ; preds = %.noexc121, %.noexc119.thread430
+"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread": ; preds = %.noexc121, %.noexc119.thread431
   %.sroa.7252.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx.i215, align 8, !noalias !20847
   %.sroa.9253.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx.i216, align 8, !noalias !20847
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !20786
@@ -198745,7 +198745,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread18.i184: ;
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i191: ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i189", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i194"
   %.sroa.0.0.i.i.i.i9.i.i.i192 = phi ptr [ %642, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.thread5.i.i.i194" ], [ %653, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87cfb36fe00bdf20E.exit.i.i.i189" ]
   %.sroa.3.0.i.i.i.i10.i.i.i193 = zext i32 %640 to i64
-  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread440"
+  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread441"
 
 _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177: ; preds = %.noexc195
   %654 = trunc nuw i8 %622 to i1
@@ -198753,26 +198753,26 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177: ; preds = 
   %656 = load ptr, ptr %464, align 8, !noalias !20908, !nonnull !6, !align !2169
   %.sroa.01.0.i.i.i.i178 = select i1 %654, ptr %656, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !20908
-  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread440"
+  br label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread441"
 
-"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread440": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i191
+"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread441": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i191
   %.sroa.7252.2.ph = phi ptr [ %.sroa.0.0.i.i.i.i9.i.i.i192, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i191 ], [ %.sroa.01.0.i.i.i.i178, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177 ]
   %.sroa.9253.2.ph = phi i64 [ %.sroa.3.0.i.i.i.i10.i.i.i193, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.thread13.i191 ], [ %655, %_ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !20786
   br label %657
 
-657:                                              ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread440", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread"
-  %.sroa.7252.2.ph.sink = phi ptr [ %.sroa.7252.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread440" ], [ %.sroa.7252.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread" ]
-  %.sroa.9253.1438 = phi i64 [ %.sroa.9253.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread440" ], [ %.sroa.9253.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread" ]
-  %.sroa.7252.1.fr444 = freeze ptr %.sroa.7252.2.ph.sink
+657:                                              ; preds = %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread441", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread"
+  %.sroa.7252.2.ph.sink = phi ptr [ %.sroa.7252.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread441" ], [ %.sroa.7252.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread" ]
+  %.sroa.9253.1439 = phi i64 [ %.sroa.9253.2.ph, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread441" ], [ %.sroa.9253.0.copyload, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i115.thread" ]
+  %.sroa.7252.1.fr445 = freeze ptr %.sroa.7252.2.ph.sink
   %658 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !20774, !noalias !20924, !noundef !6
   %659 = add i64 %658, 1
   store i64 %659, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !20774, !noalias !20924
-  br i1 %.not347, label %._crit_edge338, label %.lr.ph337
+  br i1 %.not348, label %._crit_edge338, label %.lr.ph337
 
 .lr.ph337:                                        ; preds = %657
   %660 = mul i64 %658, %54
-  %.not83 = icmp eq ptr %.sroa.7252.1.fr444, null
+  %.not83 = icmp eq ptr %.sroa.7252.1.fr445, null
   br i1 %.not83, label %.lr.ph337.split.us, label %.lr.ph337.split
 
 .lr.ph337.split.us:                               ; preds = %.lr.ph337, %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$polars_utils..total_ord..TotalEq$GT$6tot_eq17hf62533ac5b745d93E.exit.us"
@@ -198788,8 +198788,8 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177: ; preds = 
   %665 = icmp eq ptr %664, null
   %666 = or i1 %.sroa.011.0335.us, %665
   %667 = add i64 %661, 1
-  %exitcond358.not = icmp eq i64 %661, %54
-  br i1 %exitcond358.not, label %._crit_edge338, label %.lr.ph337.split.us
+  %exitcond359.not = icmp eq i64 %661, %54
+  br i1 %exitcond359.not, label %._crit_edge338, label %.lr.ph337.split.us
 
 .loopexit.split.us:                               ; preds = %.lr.ph337.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -198895,16 +198895,16 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177: ; preds = 
 
 691:                                              ; preds = %._crit_edge338
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %39, i64 noundef 1)
-          to label %._crit_edge368 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %._crit_edge369 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge368:                                   ; preds = %691
-  %.pre369 = load i64, ptr %465, align 8, !alias.scope !20925
-  %.pre370 = add i64 %.pre369, 1
+._crit_edge369:                                   ; preds = %691
+  %.pre370 = load i64, ptr %465, align 8, !alias.scope !20925
+  %.pre371 = add i64 %.pre370, 1
   br label %692
 
-692:                                              ; preds = %._crit_edge368, %._crit_edge338
-  %.pre-phi = phi i64 [ %.pre370, %._crit_edge368 ], [ %688, %._crit_edge338 ]
-  %693 = phi i64 [ %.pre369, %._crit_edge368 ], [ %687, %._crit_edge338 ]
+692:                                              ; preds = %._crit_edge369, %._crit_edge338
+  %.pre-phi = phi i64 [ %.pre371, %._crit_edge369 ], [ %688, %._crit_edge338 ]
+  %693 = phi i64 [ %.pre370, %._crit_edge369 ], [ %687, %._crit_edge338 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20925)
   %694 = zext i1 %.sroa.011.0.lcssa to i64
   %695 = and i64 %693, 63
@@ -198934,7 +198934,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd901a2b164981f31E.exit.i177: ; preds = 
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit: ; preds = %701, %692
-  %.pre366 = load i64, ptr %38, align 8, !range !2168, !alias.scope !20794, !noalias !20791
+  %.pre367 = load i64, ptr %38, align 8, !range !2168, !alias.scope !20794, !noalias !20791
   br label %471
 
 710:                                              ; preds = %.lr.ph337.split
@@ -198946,12 +198946,12 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.010.0.shrunk = phi i1 [ false, %710 ], [ %716, %714 ]
   %712 = or i1 %.sroa.011.0335, %.sroa.010.0.shrunk
   %713 = add i64 %684, 1
-  %exitcond357.not = icmp eq i64 %684, %54
-  br i1 %exitcond357.not, label %._crit_edge338, label %.lr.ph337.split
+  %exitcond358.not = icmp eq i64 %684, %54
+  br i1 %exitcond358.not, label %._crit_edge338, label %.lr.ph337.split
 
 714:                                              ; preds = %710
   %715 = extractvalue { ptr, i64 } %686, 1
-  %716 = invoke noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$U$u5d$$GT$$u20$for$u20$$u5b$T$u5d$$GT$2eq17h50bce6dd7f69fbd8E"(ptr noalias noundef nonnull readonly align 1 %.sroa.7252.1.fr444, i64 noundef %.sroa.9253.1438, ptr noalias noundef nonnull readonly align 1 %711, i64 noundef %715)
+  %716 = invoke noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$U$u5d$$GT$$u20$for$u20$$u5b$T$u5d$$GT$2eq17h50bce6dd7f69fbd8E"(ptr noalias noundef nonnull readonly align 1 %.sroa.7252.1.fr445, i64 noundef %.sroa.9253.1439, ptr noalias noundef nonnull readonly align 1 %711, i64 noundef %715)
           to label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$polars_utils..total_ord..TotalEq$GT$6tot_eq17hf62533ac5b745d93E.exit" unwind label %.loopexit.split
 
 .loopexit.split:                                  ; preds = %714, %.lr.ph337.split
@@ -200684,9 +200684,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hee
 
 67:                                               ; preds = %61
   %68 = icmp eq i64 %66, 1
-  br i1 %68, label %.thread266, label %69
+  br i1 %68, label %.thread267, label %69
 
-.thread266:                                       ; preds = %67
+.thread267:                                       ; preds = %67
   store i64 %63, ptr %36, align 8
   store i64 1, ptr %35, align 8
   br label %148
@@ -200713,9 +200713,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hee
   br label %.thread177
 
 75:                                               ; preds = %69
-  %.fr = freeze { ptr, i64 } %70
-  %76 = extractvalue { ptr, i64 } %.fr, 0
-  %77 = extractvalue { ptr, i64 } %.fr, 1
+  %.fr224 = freeze { ptr, i64 } %70
+  %76 = extractvalue { ptr, i64 } %.fr224, 0
+  %77 = extractvalue { ptr, i64 } %.fr224, 1
   %78 = icmp ne ptr %76, null
   %brmerge = or i1 %3, %78
   br i1 %brmerge, label %79, label %81
@@ -200787,8 +200787,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hee
   %104 = icmp eq ptr %103, null
   %105 = or i1 %.sroa.04.0203.us, %104
   %106 = add i64 %100, 1
-  %exitcond233.not = icmp eq i64 %100, %48
-  br i1 %exitcond233.not, label %._crit_edge, label %.lr.ph.split.us
+  %exitcond234.not = icmp eq i64 %100, %48
+  br i1 %exitcond234.not, label %._crit_edge, label %.lr.ph.split.us
 
 .loopexit194.split.us:                            ; preds = %.lr.ph.split.us
   %lpad.loopexit196.us = landingpad { ptr, i32 }
@@ -200865,16 +200865,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hee
 
 117:                                              ; preds = %._crit_edge
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %43, i64 noundef 1)
-          to label %._crit_edge237 unwind label %.loopexit.split-lp195
+          to label %._crit_edge238 unwind label %.loopexit.split-lp195
 
-._crit_edge237:                                   ; preds = %117
+._crit_edge238:                                   ; preds = %117
   %.pre = load i64, ptr %93, align 8, !alias.scope !21108
-  %.pre247 = add i64 %.pre, 1
+  %.pre248 = add i64 %.pre, 1
   br label %118
 
-118:                                              ; preds = %._crit_edge237, %._crit_edge
-  %.pre-phi248 = phi i64 [ %.pre247, %._crit_edge237 ], [ %114, %._crit_edge ]
-  %119 = phi i64 [ %.pre, %._crit_edge237 ], [ %113, %._crit_edge ]
+118:                                              ; preds = %._crit_edge238, %._crit_edge
+  %.pre-phi249 = phi i64 [ %.pre248, %._crit_edge238 ], [ %114, %._crit_edge ]
+  %119 = phi i64 [ %.pre, %._crit_edge238 ], [ %113, %._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21108)
   %120 = zext i1 %.sroa.04.0.lcssa to i64
   %121 = and i64 %119, 63
@@ -200882,8 +200882,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hee
   %123 = load i64, ptr %95, align 8, !alias.scope !21108, !noundef !6
   %124 = or i64 %122, %123
   store i64 %124, ptr %95, align 8, !alias.scope !21108
-  store i64 %.pre-phi248, ptr %93, align 8, !alias.scope !21108
-  %125 = and i64 %.pre-phi248, 63
+  store i64 %.pre-phi249, ptr %93, align 8, !alias.scope !21108
+  %125 = and i64 %.pre-phi249, 63
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %127, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit90
 
@@ -200938,7 +200938,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %35, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %149 unwind label %.thread
 
-148:                                              ; preds = %.thread266, %71
+148:                                              ; preds = %.thread267, %71
   br i1 %3, label %151, label %150
 
 149:                                              ; preds = %147
@@ -200975,7 +200975,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   store i64 0, ptr %.sroa.214.0..sroa_idx, align 8
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not224 = icmp eq i64 %48, 0
+  %.not225 = icmp eq i64 %48, 0
   %161 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %162 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %163 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -201003,7 +201003,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %173 = add i64 %172, 1
   store i64 %173, ptr %.sroa.214.0..sroa_idx, align 8, !alias.scope !21111, !noalias !21116
   %.not78 = icmp eq ptr %170, null
-  %brmerge221 = or i1 %.not78, %.not224
+  %brmerge221 = or i1 %.not78, %.not225
   br i1 %brmerge221, label %.loopexit187, label %.lr.ph210
 
 .lr.ph210:                                        ; preds = %169
@@ -201189,8 +201189,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.shrunk = phi i1 [ false, %210 ], [ %216, %214 ]
   %212 = or i1 %.sroa.020.0208, %.sroa.019.0.shrunk
   %213 = add i64 %202, 1
-  %exitcond234.not = icmp eq i64 %202, %48
-  br i1 %exitcond234.not, label %.loopexit187.loopexit, label %201
+  %exitcond235.not = icmp eq i64 %202, %48
+  br i1 %exitcond235.not, label %.loopexit187.loopexit, label %201
 
 214:                                              ; preds = %210
   %215 = extractvalue { ptr, i64 } %204, 1
@@ -201199,24 +201199,24 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 217:                                              ; preds = %.loopexit187
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 1)
-          to label %._crit_edge240 unwind label %.loopexit.split-lp189
+          to label %._crit_edge241 unwind label %.loopexit.split-lp189
 
-._crit_edge240:                                   ; preds = %217
-  %.pre241 = load i64, ptr %161, align 8, !alias.scope !21120
-  %.pre245 = add i64 %.pre241, 1
+._crit_edge241:                                   ; preds = %217
+  %.pre242 = load i64, ptr %161, align 8, !alias.scope !21120
+  %.pre246 = add i64 %.pre242, 1
   br label %218
 
-218:                                              ; preds = %._crit_edge240, %.loopexit187
-  %.pre-phi246 = phi i64 [ %.pre245, %._crit_edge240 ], [ %207, %.loopexit187 ]
-  %219 = phi i64 [ %.pre241, %._crit_edge240 ], [ %206, %.loopexit187 ]
+218:                                              ; preds = %._crit_edge241, %.loopexit187
+  %.pre-phi247 = phi i64 [ %.pre246, %._crit_edge241 ], [ %207, %.loopexit187 ]
+  %219 = phi i64 [ %.pre242, %._crit_edge241 ], [ %206, %.loopexit187 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21120)
   %220 = and i64 %219, 63
   %221 = shl nuw i64 %.sroa.020.1, %220
   %222 = load i64, ptr %163, align 8, !alias.scope !21120, !noundef !6
   %223 = or i64 %221, %222
   store i64 %223, ptr %163, align 8, !alias.scope !21120
-  store i64 %.pre-phi246, ptr %161, align 8, !alias.scope !21120
-  %224 = and i64 %.pre-phi246, 63
+  store i64 %.pre-phi247, ptr %161, align 8, !alias.scope !21120
+  %224 = and i64 %.pre-phi247, 63
   %225 = icmp eq i64 %224, 0
   br i1 %225, label %226, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit89.backedge
 
@@ -201275,7 +201275,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %243 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %244 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not225 = icmp eq i64 %48, 0
+  %.not226 = icmp eq i64 %48, 0
   %245 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %246 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %247 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -201302,7 +201302,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %256 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !21123, !noalias !21128, !noundef !6
   %257 = add i64 %256, 1
   store i64 %257, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !21123, !noalias !21128
-  br i1 %.not225, label %._crit_edge216, label %.lr.ph215
+  br i1 %.not226, label %._crit_edge216, label %.lr.ph215
 
 .lr.ph215:                                        ; preds = %253
   %258 = mul i64 %256, %48
@@ -201322,8 +201322,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %263 = icmp eq ptr %262, null
   %264 = or i1 %.sroa.011.0213.us, %263
   %265 = add i64 %259, 1
-  %exitcond236.not = icmp eq i64 %259, %48
-  br i1 %exitcond236.not, label %._crit_edge216, label %.lr.ph215.split.us
+  %exitcond237.not = icmp eq i64 %259, %48
+  br i1 %exitcond237.not, label %._crit_edge216, label %.lr.ph215.split.us
 
 .loopexit.split.us:                               ; preds = %.lr.ph215.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -201429,16 +201429,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 290:                                              ; preds = %._crit_edge216
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %33, i64 noundef 1)
-          to label %._crit_edge242 unwind label %.loopexit.split-lp
+          to label %._crit_edge243 unwind label %.loopexit.split-lp
 
-._crit_edge242:                                   ; preds = %290
-  %.pre243 = load i64, ptr %245, align 8, !alias.scope !21129
-  %.pre244 = add i64 %.pre243, 1
+._crit_edge243:                                   ; preds = %290
+  %.pre244 = load i64, ptr %245, align 8, !alias.scope !21129
+  %.pre245 = add i64 %.pre244, 1
   br label %291
 
-291:                                              ; preds = %._crit_edge242, %._crit_edge216
-  %.pre-phi = phi i64 [ %.pre244, %._crit_edge242 ], [ %287, %._crit_edge216 ]
-  %292 = phi i64 [ %.pre243, %._crit_edge242 ], [ %286, %._crit_edge216 ]
+291:                                              ; preds = %._crit_edge243, %._crit_edge216
+  %.pre-phi = phi i64 [ %.pre245, %._crit_edge243 ], [ %287, %._crit_edge216 ]
+  %292 = phi i64 [ %.pre244, %._crit_edge243 ], [ %286, %._crit_edge216 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21129)
   %293 = zext i1 %.sroa.011.0.lcssa to i64
   %294 = and i64 %292, 63
@@ -201479,8 +201479,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.010.0.shrunk = phi i1 [ false, %309 ], [ %315, %313 ]
   %311 = or i1 %.sroa.011.0213, %.sroa.010.0.shrunk
   %312 = add i64 %283, 1
-  %exitcond235.not = icmp eq i64 %283, %48
-  br i1 %exitcond235.not, label %._crit_edge216, label %.lr.ph215.split
+  %exitcond236.not = icmp eq i64 %283, %48
+  br i1 %exitcond236.not, label %._crit_edge216, label %.lr.ph215.split
 
 313:                                              ; preds = %309
   %314 = extractvalue { ptr, i64 } %285, 1
@@ -201768,9 +201768,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h1dba776aae
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread231.i, label %157
+  br i1 %156, label %.thread233.i, label %157
 
-.thread231.i:                                     ; preds = %155
+.thread233.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21146
   store i64 1, ptr %76, align 8, !noalias !21146
   br label %238
@@ -201797,9 +201797,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h1dba776aae
   br label %.thread143.i
 
 163:                                              ; preds = %157
-  %.fr192.i = freeze { i64, i64 } %158
-  %164 = extractvalue { i64, i64 } %.fr192.i, 0
-  %165 = extractvalue { i64, i64 } %.fr192.i, 1
+  %.fr.i = freeze { i64, i64 } %158
+  %164 = extractvalue { i64, i64 } %.fr.i, 0
+  %165 = extractvalue { i64, i64 } %.fr.i, 1
   %166 = trunc i64 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -201873,8 +201873,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h1dba776aae
   %spec.select.us.i = select i1 %194, i1 %195, i1 false
   %196 = or i1 %.sroa.04.0169.us.i, %spec.select.us.i
   %197 = add i64 %188, 1
-  %exitcond202.not.i = icmp eq i64 %188, %137
-  br i1 %exitcond202.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond204.not.i = icmp eq i64 %188, %137
+  br i1 %exitcond204.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit160.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit162.us.i = landingpad { ptr, i32 }
@@ -201951,16 +201951,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h1dba776aae
 
 208:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge206.i unwind label %.loopexit.split-lp161.i, !noalias !21146
+          to label %._crit_edge208.i unwind label %.loopexit.split-lp161.i, !noalias !21146
 
-._crit_edge206.i:                                 ; preds = %208
+._crit_edge208.i:                                 ; preds = %208
   %.pre.i = load i64, ptr %181, align 8, !alias.scope !21149, !noalias !21146
-  %.pre216.i = add i64 %.pre.i, 1
+  %.pre218.i = add i64 %.pre.i, 1
   br label %209
 
-209:                                              ; preds = %._crit_edge206.i, %._crit_edge.i
-  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge206.i ], [ %205, %._crit_edge.i ]
-  %210 = phi i64 [ %.pre.i, %._crit_edge206.i ], [ %204, %._crit_edge.i ]
+209:                                              ; preds = %._crit_edge208.i, %._crit_edge.i
+  %.pre-phi219.i = phi i64 [ %.pre218.i, %._crit_edge208.i ], [ %205, %._crit_edge.i ]
+  %210 = phi i64 [ %.pre.i, %._crit_edge208.i ], [ %204, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21149)
   %211 = zext i1 %.sroa.04.0.lcssa.i to i64
   %212 = and i64 %210, 63
@@ -201968,8 +201968,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h1dba776aae
   %214 = load i64, ptr %183, align 8, !alias.scope !21149, !noalias !21146, !noundef !6
   %215 = or i64 %213, %214
   store i64 %215, ptr %183, align 8, !alias.scope !21149, !noalias !21146
-  store i64 %.pre-phi217.i, ptr %181, align 8, !alias.scope !21149, !noalias !21146
-  %216 = and i64 %.pre-phi217.i, 63
+  store i64 %.pre-phi219.i, ptr %181, align 8, !alias.scope !21149, !noalias !21146
+  %216 = and i64 %.pre-phi219.i, 63
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %218, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -202016,7 +202016,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %239 unwind label %.thread.i, !noalias !21146
 
-238:                                              ; preds = %159, %.thread231.i
+238:                                              ; preds = %159, %.thread233.i
   br i1 %3, label %241, label %240
 
 239:                                              ; preds = %237
@@ -202259,29 +202259,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %300, i1 %302, i1 false
   %303 = or i1 %.sroa.020.0174.i, %.sroa.019.0.i
   %304 = add i64 %290, 1
-  %exitcond203.not.i = icmp eq i64 %290, %137
-  br i1 %exitcond203.not.i, label %.loopexit153.loopexit.i, label %289
+  %exitcond205.not.i = icmp eq i64 %290, %137
+  br i1 %exitcond205.not.i, label %.loopexit153.loopexit.i, label %289
 
 305:                                              ; preds = %.loopexit153.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge209.i unwind label %.loopexit.split-lp155.i, !noalias !21146
+          to label %._crit_edge211.i unwind label %.loopexit.split-lp155.i, !noalias !21146
 
-._crit_edge209.i:                                 ; preds = %305
-  %.pre210.i = load i64, ptr %249, align 8, !alias.scope !21161, !noalias !21146
-  %.pre214.i = add i64 %.pre210.i, 1
+._crit_edge211.i:                                 ; preds = %305
+  %.pre212.i = load i64, ptr %249, align 8, !alias.scope !21161, !noalias !21146
+  %.pre216.i = add i64 %.pre212.i, 1
   br label %306
 
-306:                                              ; preds = %._crit_edge209.i, %.loopexit153.i
-  %.pre-phi215.i = phi i64 [ %.pre214.i, %._crit_edge209.i ], [ %295, %.loopexit153.i ]
-  %307 = phi i64 [ %.pre210.i, %._crit_edge209.i ], [ %294, %.loopexit153.i ]
+306:                                              ; preds = %._crit_edge211.i, %.loopexit153.i
+  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge211.i ], [ %295, %.loopexit153.i ]
+  %307 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %294, %.loopexit153.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21161)
   %308 = and i64 %307, 63
   %309 = shl nuw i64 %.sroa.020.1.i, %308
   %310 = load i64, ptr %251, align 8, !alias.scope !21161, !noalias !21146, !noundef !6
   %311 = or i64 %309, %310
   store i64 %311, ptr %251, align 8, !alias.scope !21161, !noalias !21146
-  store i64 %.pre-phi215.i, ptr %249, align 8, !alias.scope !21161, !noalias !21146
-  %312 = and i64 %.pre-phi215.i, 63
+  store i64 %.pre-phi217.i, ptr %249, align 8, !alias.scope !21161, !noalias !21146
+  %312 = and i64 %.pre-phi217.i, 63
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %314, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -202352,13 +202352,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc89.i unwind label %.loopexit.split-lp.i, !noalias !21146
 
 .noexc89.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i64, i64 } %337
-  %338 = extractvalue { i64, i64 } %.fr.i, 0
+  %.fr196.i = freeze { i64, i64 } %337
+  %338 = extractvalue { i64, i64 } %.fr196.i, 0
   %.not.i87.i = icmp eq i64 %338, 2
   br i1 %.not.i87.i, label %355, label %339
 
 339:                                              ; preds = %.noexc89.i
-  %340 = extractvalue { i64, i64 } %.fr.i, 1
+  %340 = extractvalue { i64, i64 } %.fr196.i, 1
   %341 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21165, !noalias !21168, !noundef !6
   %342 = add i64 %341, 1
   store i64 %342, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21165, !noalias !21168
@@ -202385,8 +202385,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select152.us.i = select i1 %351, i1 %352, i1 false
   %353 = or i1 %.sroa.011.0179.us.i, %spec.select152.us.i
   %354 = add i64 %345, 1
-  %exitcond205.not.i = icmp eq i64 %345, %137
-  br i1 %exitcond205.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
+  %exitcond207.not.i = icmp eq i64 %345, %137
+  br i1 %exitcond207.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph181.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -202485,16 +202485,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 379:                                              ; preds = %._crit_edge182.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge211.i unwind label %.loopexit.split-lp.i, !noalias !21146
+          to label %._crit_edge213.i unwind label %.loopexit.split-lp.i, !noalias !21146
 
-._crit_edge211.i:                                 ; preds = %379
-  %.pre212.i = load i64, ptr %331, align 8, !alias.scope !21170, !noalias !21146
-  %.pre213.i = add i64 %.pre212.i, 1
+._crit_edge213.i:                                 ; preds = %379
+  %.pre214.i = load i64, ptr %331, align 8, !alias.scope !21170, !noalias !21146
+  %.pre215.i = add i64 %.pre214.i, 1
   br label %380
 
-380:                                              ; preds = %._crit_edge211.i, %._crit_edge182.i
-  %.pre-phi.i = phi i64 [ %.pre213.i, %._crit_edge211.i ], [ %376, %._crit_edge182.i ]
-  %381 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %375, %._crit_edge182.i ]
+380:                                              ; preds = %._crit_edge213.i, %._crit_edge182.i
+  %.pre-phi.i = phi i64 [ %.pre215.i, %._crit_edge213.i ], [ %376, %._crit_edge182.i ]
+  %381 = phi i64 [ %.pre214.i, %._crit_edge213.i ], [ %375, %._crit_edge182.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21170)
   %382 = zext i1 %.sroa.011.0.lcssa.i to i64
   %383 = and i64 %381, 63
@@ -202532,8 +202532,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %401 = xor i1 %400, true
   %402 = or i1 %.sroa.011.0179.i, %401
   %403 = add i64 %372, 1
-  %exitcond204.not.i = icmp eq i64 %372, %137
-  br i1 %exitcond204.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
+  %exitcond206.not.i = icmp eq i64 %372, %137
+  br i1 %exitcond206.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph181.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -202804,9 +202804,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h0a7f6ef90fc9ab21E.exit
   br label %.thread246.i
 
 485:                                              ; preds = %476
-  %.fr297.i = freeze { i64, i64 } %477
-  %486 = extractvalue { i64, i64 } %.fr297.i, 0
-  %487 = extractvalue { i64, i64 } %.fr297.i, 1
+  %.fr.i113 = freeze { i64, i64 } %477
+  %486 = extractvalue { i64, i64 } %.fr.i113, 0
+  %487 = extractvalue { i64, i64 } %.fr.i113, 1
   %488 = trunc i64 %486 to i1
   %brmerge.i114 = or i1 %3, %488
   br i1 %brmerge.i114, label %489, label %491
@@ -202895,8 +202895,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h0a7f6ef90fc9ab21E.exit
   %spec.select.us.i123 = select i1 %524, i1 %525, i1 false
   %526 = or i1 %.sroa.09.0276.us.i, %spec.select.us.i123
   %527 = add i64 %518, 1
-  %exitcond307.not.i = icmp eq i64 %518, %reass.sub
-  br i1 %exitcond307.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond309.not.i = icmp eq i64 %518, %reass.sub
+  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit268.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit270.us.i = landingpad { ptr, i32 }
@@ -202952,16 +202952,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h0a7f6ef90fc9ab21E.exit
 
 538:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge311.i unwind label %.loopexit.split-lp269.i, !noalias !21177
+          to label %._crit_edge313.i unwind label %.loopexit.split-lp269.i, !noalias !21177
 
-._crit_edge311.i:                                 ; preds = %538
+._crit_edge313.i:                                 ; preds = %538
   %.pre.i121 = load i64, ptr %507, align 8, !alias.scope !21183, !noalias !21177
-  %.pre319.i = add i64 %.pre.i121, 1
+  %.pre321.i = add i64 %.pre.i121, 1
   br label %539
 
-539:                                              ; preds = %._crit_edge311.i, %._crit_edge.i118
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge311.i ], [ %535, %._crit_edge.i118 ]
-  %540 = phi i64 [ %.pre.i121, %._crit_edge311.i ], [ %534, %._crit_edge.i118 ]
+539:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
+  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %535, %._crit_edge.i118 ]
+  %540 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %534, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21183)
   %541 = zext i1 %.sroa.09.0.lcssa.i to i64
   %542 = and i64 %540, 63
@@ -202969,8 +202969,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h0a7f6ef90fc9ab21E.exit
   %544 = load i64, ptr %509, align 8, !alias.scope !21183, !noalias !21177, !noundef !6
   %545 = or i64 %543, %544
   store i64 %545, ptr %509, align 8, !alias.scope !21183, !noalias !21177
-  store i64 %.pre-phi320.i, ptr %507, align 8, !alias.scope !21183, !noalias !21177
-  %546 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi322.i, ptr %507, align 8, !alias.scope !21183, !noalias !21177
+  %546 = and i64 %.pre-phi322.i, 63
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %548, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -203304,29 +203304,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %639, i1 %641, i1 false
   %642 = or i1 %.sroa.019.0284.i, %.sroa.018.0.i
   %643 = add i64 %629, 1
-  %exitcond308.not.i = icmp eq i64 %629, %reass.sub152
-  br i1 %exitcond308.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
+  %exitcond310.not.i = icmp eq i64 %629, %reass.sub152
+  br i1 %exitcond310.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
 
 644:                                              ; preds = %.loopexit260.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge312.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !21177
+          to label %._crit_edge314.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !21177
 
-._crit_edge312.i:                                 ; preds = %644
-  %.pre313.i = load i64, ptr %582, align 8, !alias.scope !21205, !noalias !21177
-  %.pre317.i = add i64 %.pre313.i, 1
+._crit_edge314.i:                                 ; preds = %644
+  %.pre315.i = load i64, ptr %582, align 8, !alias.scope !21205, !noalias !21177
+  %.pre319.i = add i64 %.pre315.i, 1
   br label %645
 
-645:                                              ; preds = %._crit_edge312.i, %.loopexit260.i
-  %.pre-phi318.i = phi i64 [ %.pre317.i, %._crit_edge312.i ], [ %634, %.loopexit260.i ]
-  %646 = phi i64 [ %.pre313.i, %._crit_edge312.i ], [ %633, %.loopexit260.i ]
+645:                                              ; preds = %._crit_edge314.i, %.loopexit260.i
+  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %634, %.loopexit260.i ]
+  %646 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %633, %.loopexit260.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21205)
   %647 = and i64 %646, 63
   %648 = shl nuw i64 %.sroa.019.1.i, %647
   %649 = load i64, ptr %584, align 8, !alias.scope !21205, !noalias !21177, !noundef !6
   %650 = or i64 %648, %649
   store i64 %650, ptr %584, align 8, !alias.scope !21205, !noalias !21177
-  store i64 %.pre-phi318.i, ptr %582, align 8, !alias.scope !21205, !noalias !21177
-  %651 = and i64 %.pre-phi318.i, 63
+  store i64 %.pre-phi320.i, ptr %582, align 8, !alias.scope !21205, !noalias !21177
+  %651 = and i64 %.pre-phi320.i, 63
   %652 = icmp eq i64 %651, 0
   br i1 %652, label %653, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -203409,16 +203409,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %677 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %679 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %664
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %664
   %680 = invoke fastcc { i64, i64 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63486e1838439cceE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21177
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i64, i64 } %680
-  %681 = extractvalue { i64, i64 } %.fr.i107, 0
-  %682 = extractvalue { i64, i64 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr301.i = freeze { i64, i64 } %680
+  %681 = extractvalue { i64, i64 } %.fr301.i, 0
+  %682 = extractvalue { i64, i64 } %.fr301.i, 1
   %.not.i114.i = icmp eq i64 %681, 2
   br i1 %.not.i114.i, label %705, label %683
 
@@ -203462,7 +203462,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.us.i = phi i64 [ %695, %698 ], [ 0, %.lr.ph290.i ]
   %696 = add i64 %.sroa.083.0287.us.i, %.val.i.i.i115.i
   %697 = invoke fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h9c562ba9badf36c6E"(ptr noundef nonnull align 8 %467, i64 noundef %696)
-          to label %698 unwind label %.loopexit.split.us.i112, !noalias !21177
+          to label %698 unwind label %.loopexit.split.us.i111, !noalias !21177
 
 698:                                              ; preds = %.lr.ph290.split.us.i
   %699 = extractvalue { i64, i64 } %697, 0
@@ -203472,11 +203472,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select256.us.i = select i1 %701, i1 %702, i1 false
   %703 = or i1 %.sroa.014.0288.us.i, %spec.select256.us.i
   %704 = add i64 %695, 1
-  %exitcond310.not.i = icmp eq i64 %695, %reass.sub153
-  br i1 %exitcond310.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
+  %exitcond312.not.i = icmp eq i64 %695, %reass.sub153
+  br i1 %exitcond312.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph290.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph290.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -203564,7 +203564,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.i = phi i64 [ %721, %747 ], [ 0, %.lr.ph290.i ]
   %722 = add i64 %.sroa.083.0287.i, %.val.i.i.i115.i
   %723 = invoke fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h9c562ba9badf36c6E"(ptr noundef nonnull align 8 %467, i64 noundef %722)
-          to label %747 unwind label %.loopexit.split.i108, !noalias !21177
+          to label %747 unwind label %.loopexit.split.i107, !noalias !21177
 
 ._crit_edge291.i:                                 ; preds = %747, %698, %693
   %.sroa.014.0.lcssa.i = phi i1 [ false, %693 ], [ %703, %698 ], [ %751, %747 ]
@@ -203576,16 +203576,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 728:                                              ; preds = %._crit_edge291.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21177
+          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21177
 
-._crit_edge314.i:                                 ; preds = %728
-  %.pre315.i = load i64, ptr %674, align 8, !alias.scope !21224, !noalias !21177
-  %.pre316.i = add i64 %.pre315.i, 1
+._crit_edge316.i:                                 ; preds = %728
+  %.pre317.i = load i64, ptr %674, align 8, !alias.scope !21224, !noalias !21177
+  %.pre318.i = add i64 %.pre317.i, 1
   br label %729
 
-729:                                              ; preds = %._crit_edge314.i, %._crit_edge291.i
-  %.pre-phi.i110 = phi i64 [ %.pre316.i, %._crit_edge314.i ], [ %725, %._crit_edge291.i ]
-  %730 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %724, %._crit_edge291.i ]
+729:                                              ; preds = %._crit_edge316.i, %._crit_edge291.i
+  %.pre-phi.i109 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %725, %._crit_edge291.i ]
+  %730 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %724, %._crit_edge291.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21224)
   %731 = zext i1 %.sroa.014.0.lcssa.i to i64
   %732 = and i64 %730, 63
@@ -203593,10 +203593,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %734 = load i64, ptr %676, align 8, !alias.scope !21224, !noalias !21177, !noundef !6
   %735 = or i64 %733, %734
   store i64 %735, ptr %676, align 8, !alias.scope !21224, !noalias !21177
-  store i64 %.pre-phi.i110, ptr %674, align 8, !alias.scope !21224, !noalias !21177
-  %736 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %674, align 8, !alias.scope !21224, !noalias !21177
+  %736 = and i64 %.pre-phi.i109, 63
   %737 = icmp eq i64 %736, 0
-  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 738:                                              ; preds = %729
   %739 = load i64, ptr %677, align 8, !alias.scope !21224, !noalias !21177, !noundef !6
@@ -203612,10 +203612,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %746 = add i64 %745, %744
   store i64 %746, ptr %679, align 8, !alias.scope !21224, !noalias !21177
   store i64 0, ptr %676, align 8, !alias.scope !21224, !noalias !21177
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %738, %729
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %738, %729
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 747:                                              ; preds = %.lr.ph290.split.i
   %748 = extractvalue { i64, i64 } %723, 0
@@ -203623,15 +203623,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %750 = xor i1 %749, true
   %751 = or i1 %.sroa.014.0288.i, %750
   %752 = add i64 %721, 1
-  %exitcond309.not.i = icmp eq i64 %721, %reass.sub153
-  br i1 %exitcond309.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
+  %exitcond311.not.i = icmp eq i64 %721, %reass.sub153
+  br i1 %exitcond311.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph290.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph290.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit257.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -203641,8 +203641,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread246.i unwind label %564, !noalias !21177
 
@@ -203892,10 +203892,10 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h38d10d1d43
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h61cb0c5fcfbc6761E", ptr %.sroa.487.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !21231
   store ptr @anon.928e59b0f3020f0e90a866d2dce63e03.611, ptr %89, align 8, !noalias !21239
-  %.sroa.4130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i64 3, ptr %.sroa.4130.0..sroa_idx, align 8, !noalias !21239
-  %.sroa.5131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %94, ptr %.sroa.5131.0..sroa_idx, align 8, !noalias !21239
+  %.sroa.4129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store i64 3, ptr %.sroa.4129.0..sroa_idx, align 8, !noalias !21239
+  %.sroa.5130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 16
+  store ptr %94, ptr %.sroa.5130.0..sroa_idx, align 8, !noalias !21239
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !21239
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 32
@@ -203905,8 +203905,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h38d10d1d43
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
-  %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h9712af10c1bba2b6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.4127.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %95)
+  %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h9712af10c1bba2b6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.4126.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %95)
   store i64 4, ptr %0, align 8
   br label %771
 
@@ -204004,9 +204004,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h38d10d1d43
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread236.i, label %157
+  br i1 %156, label %.thread237.i, label %157
 
-.thread236.i:                                     ; preds = %155
+.thread237.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21241
   store i64 1, ptr %76, align 8, !noalias !21241
   br label %235
@@ -204107,8 +204107,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h38d10d1d43
   %spec.select.us.i = select i1 %191, i1 %193, i1 false
   %194 = or i1 %.sroa.04.0175.us.i, %spec.select.us.i
   %195 = add i64 %187, 1
-  %exitcond207.not.i = icmp eq i64 %187, %137
-  br i1 %exitcond207.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond208.not.i = icmp eq i64 %187, %137
+  br i1 %exitcond208.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit166.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit168.us.i = landingpad { ptr, i32 }
@@ -204185,16 +204185,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h38d10d1d43
 
 206:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge211.i unwind label %.loopexit.split-lp167.i, !noalias !21241
+          to label %._crit_edge212.i unwind label %.loopexit.split-lp167.i, !noalias !21241
 
-._crit_edge211.i:                                 ; preds = %206
+._crit_edge212.i:                                 ; preds = %206
   %.pre.i = load i64, ptr %180, align 8, !alias.scope !21244, !noalias !21241
-  %.pre221.i = add i64 %.pre.i, 1
+  %.pre222.i = add i64 %.pre.i, 1
   br label %207
 
-207:                                              ; preds = %._crit_edge211.i, %._crit_edge.i
-  %.pre-phi222.i = phi i64 [ %.pre221.i, %._crit_edge211.i ], [ %203, %._crit_edge.i ]
-  %208 = phi i64 [ %.pre.i, %._crit_edge211.i ], [ %202, %._crit_edge.i ]
+207:                                              ; preds = %._crit_edge212.i, %._crit_edge.i
+  %.pre-phi223.i = phi i64 [ %.pre222.i, %._crit_edge212.i ], [ %203, %._crit_edge.i ]
+  %208 = phi i64 [ %.pre.i, %._crit_edge212.i ], [ %202, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21244)
   %209 = zext i1 %.sroa.04.0.lcssa.i to i64
   %210 = and i64 %208, 63
@@ -204202,8 +204202,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h38d10d1d43
   %212 = load i64, ptr %182, align 8, !alias.scope !21244, !noalias !21241, !noundef !6
   %213 = or i64 %211, %212
   store i64 %213, ptr %182, align 8, !alias.scope !21244, !noalias !21241
-  store i64 %.pre-phi222.i, ptr %180, align 8, !alias.scope !21244, !noalias !21241
-  %214 = and i64 %.pre-phi222.i, 63
+  store i64 %.pre-phi223.i, ptr %180, align 8, !alias.scope !21244, !noalias !21241
+  %214 = and i64 %.pre-phi223.i, 63
   %215 = icmp eq i64 %214, 0
   br i1 %215, label %216, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -204249,7 +204249,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %236 unwind label %.thread.i, !noalias !21241
 
-235:                                              ; preds = %159, %.thread236.i
+235:                                              ; preds = %159, %.thread237.i
   br i1 %3, label %238, label %237
 
 236:                                              ; preds = %234
@@ -204491,29 +204491,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %294, i1 %296, i1 false
   %297 = or i1 %.sroa.020.0180.i, %.sroa.019.0.i
   %298 = add i64 %285, 1
-  %exitcond208.not.i = icmp eq i64 %285, %137
-  br i1 %exitcond208.not.i, label %.loopexit159.loopexit.i, label %284
+  %exitcond209.not.i = icmp eq i64 %285, %137
+  br i1 %exitcond209.not.i, label %.loopexit159.loopexit.i, label %284
 
 299:                                              ; preds = %.loopexit159.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge214.i unwind label %.loopexit.split-lp161.i, !noalias !21241
+          to label %._crit_edge215.i unwind label %.loopexit.split-lp161.i, !noalias !21241
 
-._crit_edge214.i:                                 ; preds = %299
-  %.pre215.i = load i64, ptr %246, align 8, !alias.scope !21256, !noalias !21241
-  %.pre219.i = add i64 %.pre215.i, 1
+._crit_edge215.i:                                 ; preds = %299
+  %.pre216.i = load i64, ptr %246, align 8, !alias.scope !21256, !noalias !21241
+  %.pre220.i = add i64 %.pre216.i, 1
   br label %300
 
-300:                                              ; preds = %._crit_edge214.i, %.loopexit159.i
-  %.pre-phi220.i = phi i64 [ %.pre219.i, %._crit_edge214.i ], [ %290, %.loopexit159.i ]
-  %301 = phi i64 [ %.pre215.i, %._crit_edge214.i ], [ %289, %.loopexit159.i ]
+300:                                              ; preds = %._crit_edge215.i, %.loopexit159.i
+  %.pre-phi221.i = phi i64 [ %.pre220.i, %._crit_edge215.i ], [ %290, %.loopexit159.i ]
+  %301 = phi i64 [ %.pre216.i, %._crit_edge215.i ], [ %289, %.loopexit159.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21256)
   %302 = and i64 %301, 63
   %303 = shl nuw i64 %.sroa.020.1.i, %302
   %304 = load i64, ptr %248, align 8, !alias.scope !21256, !noalias !21241, !noundef !6
   %305 = or i64 %303, %304
   store i64 %305, ptr %248, align 8, !alias.scope !21256, !noalias !21241
-  store i64 %.pre-phi220.i, ptr %246, align 8, !alias.scope !21256, !noalias !21241
-  %306 = and i64 %.pre-phi220.i, 63
+  store i64 %.pre-phi221.i, ptr %246, align 8, !alias.scope !21256, !noalias !21241
+  %306 = and i64 %.pre-phi221.i, 63
   %307 = icmp eq i64 %306, 0
   br i1 %307, label %308, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -204584,13 +204584,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc90.i unwind label %.loopexit.split-lp.i, !noalias !21241
 
 .noexc90.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i8, i8 } %331
-  %332 = extractvalue { i8, i8 } %.fr.i, 0
+  %.fr200.i = freeze { i8, i8 } %331
+  %332 = extractvalue { i8, i8 } %.fr200.i, 0
   %.not.i87.i = icmp eq i8 %332, 2
   br i1 %.not.i87.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b6ad463235ad1d9E.exit91.thread.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b6ad463235ad1d9E.exit91.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b6ad463235ad1d9E.exit91.i": ; preds = %.noexc90.i
-  %333 = extractvalue { i8, i8 } %.fr.i, 1
+  %333 = extractvalue { i8, i8 } %.fr200.i, 1
   %334 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21260, !noalias !21263, !noundef !6
   %335 = add i64 %334, 1
   store i64 %335, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21260, !noalias !21263
@@ -204616,8 +204616,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select158.us.i = select i1 %342, i1 %344, i1 false
   %345 = or i1 %.sroa.011.0185.us.i, %spec.select158.us.i
   %346 = add i64 %338, 1
-  %exitcond210.not.i = icmp eq i64 %338, %137
-  br i1 %exitcond210.not.i, label %._crit_edge187.i, label %.lr.ph186.split.us.i
+  %exitcond211.not.i = icmp eq i64 %338, %137
+  br i1 %exitcond211.not.i, label %._crit_edge187.i, label %.lr.ph186.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph186.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -204716,16 +204716,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 370:                                              ; preds = %._crit_edge187.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge216.i unwind label %.loopexit.split-lp.i, !noalias !21241
+          to label %._crit_edge217.i unwind label %.loopexit.split-lp.i, !noalias !21241
 
-._crit_edge216.i:                                 ; preds = %370
-  %.pre217.i = load i64, ptr %325, align 8, !alias.scope !21265, !noalias !21241
-  %.pre218.i = add i64 %.pre217.i, 1
+._crit_edge217.i:                                 ; preds = %370
+  %.pre218.i = load i64, ptr %325, align 8, !alias.scope !21265, !noalias !21241
+  %.pre219.i = add i64 %.pre218.i, 1
   br label %371
 
-371:                                              ; preds = %._crit_edge216.i, %._crit_edge187.i
-  %.pre-phi.i = phi i64 [ %.pre218.i, %._crit_edge216.i ], [ %367, %._crit_edge187.i ]
-  %372 = phi i64 [ %.pre217.i, %._crit_edge216.i ], [ %366, %._crit_edge187.i ]
+371:                                              ; preds = %._crit_edge217.i, %._crit_edge187.i
+  %.pre-phi.i = phi i64 [ %.pre219.i, %._crit_edge217.i ], [ %367, %._crit_edge187.i ]
+  %372 = phi i64 [ %.pre218.i, %._crit_edge217.i ], [ %366, %._crit_edge187.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21265)
   %373 = zext i1 %.sroa.011.0.lcssa.i to i64
   %374 = and i64 %372, 63
@@ -204762,8 +204762,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %391 = xor i1 %390, true
   %392 = or i1 %.sroa.011.0185.i, %391
   %393 = add i64 %363, 1
-  %exitcond209.not.i = icmp eq i64 %363, %137
-  br i1 %exitcond209.not.i, label %._crit_edge187.i, label %.lr.ph186.split.i
+  %exitcond210.not.i = icmp eq i64 %363, %137
+  br i1 %exitcond210.not.i, label %._crit_edge187.i, label %.lr.ph186.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph186.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -205024,7 +205024,7 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
 
 .thread218.i:                                     ; preds = %697, %648, %502
   %.pn104.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %502 ], [ %649, %648 ], [ %698, %697 ]
-  %.sroa.031.0.i103 = phi i8 [ %.sroa.031.2.ph.i119, %502 ], [ %.sroa.031.4.i, %648 ], [ %.sroa.031.1.i102, %697 ]
+  %.sroa.031.0.i103 = phi i8 [ %.sroa.031.2.ph.i118, %502 ], [ %.sroa.031.4.i, %648 ], [ %.sroa.031.1.i102, %697 ]
   %473 = trunc nuw i8 %.sroa.031.0.i103 to i1
   br i1 %473, label %.thread248.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit127.i"
 
@@ -205037,8 +205037,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
   %.fr299.i = freeze { i1, i8 } %467
   %476 = extractvalue { i1, i8 } %.fr299.i, 0
   %477 = extractvalue { i1, i8 } %.fr299.i, 1
-  %brmerge.i114 = or i1 %3, %476
-  br i1 %brmerge.i114, label %478, label %480
+  %brmerge.i113 = or i1 %3, %476
+  br i1 %brmerge.i113, label %478, label %480
 
 478:                                              ; preds = %475
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !21272
@@ -205087,7 +205087,7 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
   br label %503
 
 502:                                              ; preds = %517, %516, %._crit_edge284.i
-  %.sroa.031.2.ph.i119 = phi i8 [ 1, %._crit_edge284.i ], [ 0, %517 ], [ 0, %516 ]
+  %.sroa.031.2.ph.i118 = phi i8 [ 1, %._crit_edge284.i ], [ 0, %517 ], [ 0, %516 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread218.i
@@ -205102,31 +205102,31 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
   %.val.i.i = load i64, ptr %.sroa.0.0190281.i, align 8, !alias.scope !21275, !noalias !21272, !noundef !6
   %.val1.i.i = load i64, ptr %506, align 8, !alias.scope !21275, !noalias !21272, !noundef !6
   %.not300.i = icmp eq i64 %.val1.i.i, %.val.i.i
-  br i1 %.not300.i, label %._crit_edge.i118, label %.lr.ph.i115
+  br i1 %.not300.i, label %._crit_edge.i117, label %.lr.ph.i114
 
-.lr.ph.i115:                                      ; preds = %503
+.lr.ph.i114:                                      ; preds = %503
   %reass.sub = sub i64 %.val1.i.i, %.val.i.i
-  br i1 %476, label %.lr.ph.split.us.i122, label %.lr.ph.split.i116
+  br i1 %476, label %.lr.ph.split.us.i121, label %.lr.ph.split.i115
 
-.lr.ph.split.us.i122:                             ; preds = %.lr.ph.i115, %510
-  %507 = phi i64 [ %515, %510 ], [ 1, %.lr.ph.i115 ]
-  %.sroa.09.0278.us.i = phi i1 [ %514, %510 ], [ false, %.lr.ph.i115 ]
-  %.sroa.081.0277.us.i = phi i64 [ %507, %510 ], [ 0, %.lr.ph.i115 ]
+.lr.ph.split.us.i121:                             ; preds = %.lr.ph.i114, %510
+  %507 = phi i64 [ %515, %510 ], [ 1, %.lr.ph.i114 ]
+  %.sroa.09.0278.us.i = phi i1 [ %514, %510 ], [ false, %.lr.ph.i114 ]
+  %.sroa.081.0277.us.i = phi i64 [ %507, %510 ], [ 0, %.lr.ph.i114 ]
   %508 = add i64 %.sroa.081.0277.us.i, %.val.i.i
   %509 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hecf708785e778288E"(ptr noundef nonnull align 8 %457, i64 noundef %508)
           to label %510 unwind label %.loopexit270.split.us.i, !noalias !21272
 
-510:                                              ; preds = %.lr.ph.split.us.i122
+510:                                              ; preds = %.lr.ph.split.us.i121
   %511 = extractvalue { i1, i8 } %509, 0
   %512 = extractvalue { i1, i8 } %509, 1
   %513 = icmp eq i8 %477, %512
-  %spec.select.us.i123 = select i1 %511, i1 %513, i1 false
-  %514 = or i1 %.sroa.09.0278.us.i, %spec.select.us.i123
+  %spec.select.us.i122 = select i1 %511, i1 %513, i1 false
+  %514 = or i1 %.sroa.09.0278.us.i, %spec.select.us.i122
   %515 = add i64 %507, 1
-  %exitcond309.not.i = icmp eq i64 %507, %reass.sub
-  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond310.not.i = icmp eq i64 %507, %reass.sub
+  br i1 %exitcond310.not.i, label %._crit_edge.i117, label %.lr.ph.split.us.i121
 
-.loopexit270.split.us.i:                          ; preds = %.lr.ph.split.us.i122
+.loopexit270.split.us.i:                          ; preds = %.lr.ph.split.us.i121
   %lpad.loopexit272.us.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit270.i
@@ -205162,15 +205162,15 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !21272
   br label %483
 
-.lr.ph.split.i116:                                ; preds = %.lr.ph.i115, %546
-  %519 = phi i64 [ %550, %546 ], [ 1, %.lr.ph.i115 ]
-  %.sroa.09.0278.i = phi i1 [ %549, %546 ], [ false, %.lr.ph.i115 ]
-  %.sroa.081.0277.i = phi i64 [ %519, %546 ], [ 0, %.lr.ph.i115 ]
+.lr.ph.split.i115:                                ; preds = %.lr.ph.i114, %546
+  %519 = phi i64 [ %550, %546 ], [ 1, %.lr.ph.i114 ]
+  %.sroa.09.0278.i = phi i1 [ %549, %546 ], [ false, %.lr.ph.i114 ]
+  %.sroa.081.0277.i = phi i64 [ %519, %546 ], [ 0, %.lr.ph.i114 ]
   %520 = add i64 %.sroa.081.0277.i, %.val.i.i
   %521 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hecf708785e778288E"(ptr noundef nonnull align 8 %457, i64 noundef %520)
           to label %546 unwind label %.loopexit270.split.i, !noalias !21272
 
-._crit_edge.i118:                                 ; preds = %546, %510, %503
+._crit_edge.i117:                                 ; preds = %546, %510, %503
   %.sroa.09.0.lcssa.i = phi i1 [ false, %503 ], [ %514, %510 ], [ %549, %546 ]
   %522 = load i64, ptr %496, align 8, !noalias !21272, !noundef !6
   %523 = add i64 %522, 1
@@ -205178,18 +205178,18 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
   %525 = icmp ugt i64 %523, %524
   br i1 %525, label %526, label %527, !prof !30
 
-526:                                              ; preds = %._crit_edge.i118
+526:                                              ; preds = %._crit_edge.i117
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge313.i unwind label %.loopexit.split-lp271.i, !noalias !21272
+          to label %._crit_edge314.i unwind label %.loopexit.split-lp271.i, !noalias !21272
 
-._crit_edge313.i:                                 ; preds = %526
-  %.pre.i121 = load i64, ptr %496, align 8, !alias.scope !21278, !noalias !21272
-  %.pre321.i = add i64 %.pre.i121, 1
+._crit_edge314.i:                                 ; preds = %526
+  %.pre.i120 = load i64, ptr %496, align 8, !alias.scope !21278, !noalias !21272
+  %.pre322.i = add i64 %.pre.i120, 1
   br label %527
 
-527:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
-  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %523, %._crit_edge.i118 ]
-  %528 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %522, %._crit_edge.i118 ]
+527:                                              ; preds = %._crit_edge314.i, %._crit_edge.i117
+  %.pre-phi323.i = phi i64 [ %.pre322.i, %._crit_edge314.i ], [ %523, %._crit_edge.i117 ]
+  %528 = phi i64 [ %.pre.i120, %._crit_edge314.i ], [ %522, %._crit_edge.i117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21278)
   %529 = zext i1 %.sroa.09.0.lcssa.i to i64
   %530 = and i64 %528, 63
@@ -205197,8 +205197,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit
   %532 = load i64, ptr %498, align 8, !alias.scope !21278, !noalias !21272, !noundef !6
   %533 = or i64 %531, %532
   store i64 %533, ptr %498, align 8, !alias.scope !21278, !noalias !21272
-  store i64 %.pre-phi322.i, ptr %496, align 8, !alias.scope !21278, !noalias !21272
-  %534 = and i64 %.pre-phi322.i, 63
+  store i64 %.pre-phi323.i, ptr %496, align 8, !alias.scope !21278, !noalias !21272
+  %534 = and i64 %.pre-phi323.i, 63
   %535 = icmp eq i64 %534, 0
   br i1 %535, label %536, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -205222,26 +205222,26 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %545 = icmp ult i64 %.sroa.5128.0280.i, 3
   br i1 %545, label %._crit_edge284.i, label %503
 
-546:                                              ; preds = %.lr.ph.split.i116
+546:                                              ; preds = %.lr.ph.split.i115
   %547 = extractvalue { i1, i8 } %521, 0
   %548 = xor i1 %547, true
   %549 = or i1 %.sroa.09.0278.i, %548
   %550 = add i64 %519, 1
-  %exitcond.not.i117 = icmp eq i64 %519, %reass.sub
-  br i1 %exitcond.not.i117, label %._crit_edge.i118, label %.lr.ph.split.i116
+  %exitcond.not.i116 = icmp eq i64 %519, %reass.sub
+  br i1 %exitcond.not.i116, label %._crit_edge.i117, label %.lr.ph.split.i115
 
-.loopexit270.split.i:                             ; preds = %.lr.ph.split.i116
+.loopexit270.split.i:                             ; preds = %.lr.ph.split.i115
   %lpad.loopexit272.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit270.i
 
 .loopexit.split-lp271.i:                          ; preds = %526
-  %lpad.loopexit.split-lp.i120 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp.i119 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit270.i
 
 .loopexit270.i:                                   ; preds = %.loopexit.split-lp271.i, %.loopexit270.split.i, %.loopexit270.split.us.i
-  %lpad.phi273.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i120, %.loopexit.split-lp271.i ], [ %lpad.loopexit272.i, %.loopexit270.split.i ], [ %lpad.loopexit272.us.i, %.loopexit270.split.us.i ]
+  %lpad.phi273.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i119, %.loopexit.split-lp271.i ], [ %lpad.loopexit272.i, %.loopexit270.split.i ], [ %lpad.loopexit272.us.i, %.loopexit270.split.us.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %41) #35
           to label %.thread248.i unwind label %551, !noalias !21272
 
@@ -205356,7 +205356,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br i1 %or.cond298.i, label %.lr.ph287.preheader.i, label %.loopexit262.i
 
 .lr.ph287.preheader.i:                            ; preds = %588
-  %reass.sub152 = sub i64 %.val1.i.i.i.i, %.val.i.i.i.i
+  %reass.sub151 = sub i64 %.val1.i.i.i.i, %.val.i.i.i.i
   br label %.lr.ph287.i
 
 591:                                              ; preds = %578, %.noexc111.i
@@ -205530,29 +205530,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %625, i1 %627, i1 false
   %628 = or i1 %.sroa.019.0286.i, %.sroa.018.0.i
   %629 = add i64 %616, 1
-  %exitcond310.not.i = icmp eq i64 %616, %reass.sub152
-  br i1 %exitcond310.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
+  %exitcond311.not.i = icmp eq i64 %616, %reass.sub151
+  br i1 %exitcond311.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
 
 630:                                              ; preds = %.loopexit262.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !21272
+          to label %._crit_edge315.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !21272
 
-._crit_edge314.i:                                 ; preds = %630
-  %.pre315.i = load i64, ptr %569, align 8, !alias.scope !21300, !noalias !21272
-  %.pre319.i = add i64 %.pre315.i, 1
+._crit_edge315.i:                                 ; preds = %630
+  %.pre316.i = load i64, ptr %569, align 8, !alias.scope !21300, !noalias !21272
+  %.pre320.i = add i64 %.pre316.i, 1
   br label %631
 
-631:                                              ; preds = %._crit_edge314.i, %.loopexit262.i
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %621, %.loopexit262.i ]
-  %632 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %620, %.loopexit262.i ]
+631:                                              ; preds = %._crit_edge315.i, %.loopexit262.i
+  %.pre-phi321.i = phi i64 [ %.pre320.i, %._crit_edge315.i ], [ %621, %.loopexit262.i ]
+  %632 = phi i64 [ %.pre316.i, %._crit_edge315.i ], [ %620, %.loopexit262.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21300)
   %633 = and i64 %632, 63
   %634 = shl nuw i64 %.sroa.019.1.i, %633
   %635 = load i64, ptr %571, align 8, !alias.scope !21300, !noalias !21272, !noundef !6
   %636 = or i64 %634, %635
   store i64 %636, ptr %571, align 8, !alias.scope !21300, !noalias !21272
-  store i64 %.pre-phi320.i, ptr %569, align 8, !alias.scope !21300, !noalias !21272
-  %637 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi321.i, ptr %569, align 8, !alias.scope !21300, !noalias !21272
+  %637 = and i64 %.pre-phi321.i, 63
   %638 = icmp eq i64 %637, 0
   br i1 %638, label %639, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -205635,16 +205635,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %663 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %664 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %665 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %650
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %650
   %666 = invoke fastcc { i8, i8 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73ca85a2ae0ffddaE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21272
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i8, i8 } %666
-  %667 = extractvalue { i8, i8 } %.fr.i107, 0
-  %668 = extractvalue { i8, i8 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr302.i = freeze { i8, i8 } %666
+  %667 = extractvalue { i8, i8 } %.fr302.i, 0
+  %668 = extractvalue { i8, i8 } %.fr302.i, 1
   %.not.i114.i = icmp eq i8 %667, 2
   br i1 %.not.i114.i, label %690, label %669
 
@@ -205679,7 +205679,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 .lr.ph292.i:                                      ; preds = %679
   %680 = trunc i8 %667 to i1
-  %reass.sub153 = sub i64 %.val1.i.i.i116.i, %.val.i.i.i115.i
+  %reass.sub152 = sub i64 %.val1.i.i.i116.i, %.val.i.i.i115.i
   br i1 %680, label %.lr.ph292.split.us.i, label %.lr.ph292.split.i
 
 .lr.ph292.split.us.i:                             ; preds = %.lr.ph292.i, %684
@@ -205688,7 +205688,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.us.i = phi i64 [ %681, %684 ], [ 0, %.lr.ph292.i ]
   %682 = add i64 %.sroa.083.0289.us.i, %.val.i.i.i115.i
   %683 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hecf708785e778288E"(ptr noundef nonnull align 8 %457, i64 noundef %682)
-          to label %684 unwind label %.loopexit.split.us.i112, !noalias !21272
+          to label %684 unwind label %.loopexit.split.us.i111, !noalias !21272
 
 684:                                              ; preds = %.lr.ph292.split.us.i
   %685 = extractvalue { i1, i8 } %683, 0
@@ -205697,11 +205697,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select258.us.i = select i1 %685, i1 %687, i1 false
   %688 = or i1 %.sroa.014.0290.us.i, %spec.select258.us.i
   %689 = add i64 %681, 1
-  %exitcond312.not.i = icmp eq i64 %681, %reass.sub153
-  br i1 %exitcond312.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
+  %exitcond313.not.i = icmp eq i64 %681, %reass.sub152
+  br i1 %exitcond313.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph292.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph292.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -205789,7 +205789,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.i = phi i64 [ %706, %732 ], [ 0, %.lr.ph292.i ]
   %707 = add i64 %.sroa.083.0289.i, %.val.i.i.i115.i
   %708 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hecf708785e778288E"(ptr noundef nonnull align 8 %457, i64 noundef %707)
-          to label %732 unwind label %.loopexit.split.i108, !noalias !21272
+          to label %732 unwind label %.loopexit.split.i107, !noalias !21272
 
 ._crit_edge293.i:                                 ; preds = %732, %684, %679
   %.sroa.014.0.lcssa.i = phi i1 [ false, %679 ], [ %688, %684 ], [ %735, %732 ]
@@ -205801,16 +205801,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 713:                                              ; preds = %._crit_edge293.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21272
+          to label %._crit_edge317.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21272
 
-._crit_edge316.i:                                 ; preds = %713
-  %.pre317.i = load i64, ptr %660, align 8, !alias.scope !21319, !noalias !21272
-  %.pre318.i = add i64 %.pre317.i, 1
+._crit_edge317.i:                                 ; preds = %713
+  %.pre318.i = load i64, ptr %660, align 8, !alias.scope !21319, !noalias !21272
+  %.pre319.i = add i64 %.pre318.i, 1
   br label %714
 
-714:                                              ; preds = %._crit_edge316.i, %._crit_edge293.i
-  %.pre-phi.i110 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %710, %._crit_edge293.i ]
-  %715 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %709, %._crit_edge293.i ]
+714:                                              ; preds = %._crit_edge317.i, %._crit_edge293.i
+  %.pre-phi.i109 = phi i64 [ %.pre319.i, %._crit_edge317.i ], [ %710, %._crit_edge293.i ]
+  %715 = phi i64 [ %.pre318.i, %._crit_edge317.i ], [ %709, %._crit_edge293.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21319)
   %716 = zext i1 %.sroa.014.0.lcssa.i to i64
   %717 = and i64 %715, 63
@@ -205818,10 +205818,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %719 = load i64, ptr %662, align 8, !alias.scope !21319, !noalias !21272, !noundef !6
   %720 = or i64 %718, %719
   store i64 %720, ptr %662, align 8, !alias.scope !21319, !noalias !21272
-  store i64 %.pre-phi.i110, ptr %660, align 8, !alias.scope !21319, !noalias !21272
-  %721 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %660, align 8, !alias.scope !21319, !noalias !21272
+  %721 = and i64 %.pre-phi.i109, 63
   %722 = icmp eq i64 %721, 0
-  br i1 %722, label %723, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %722, label %723, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 723:                                              ; preds = %714
   %724 = load i64, ptr %663, align 8, !alias.scope !21319, !noalias !21272, !noundef !6
@@ -205837,25 +205837,25 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %731 = add i64 %730, %729
   store i64 %731, ptr %665, align 8, !alias.scope !21319, !noalias !21272
   store i64 0, ptr %662, align 8, !alias.scope !21319, !noalias !21272
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %723, %714
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %723, %714
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 732:                                              ; preds = %.lr.ph292.split.i
   %733 = extractvalue { i1, i8 } %708, 0
   %734 = xor i1 %733, true
   %735 = or i1 %.sroa.014.0290.i, %734
   %736 = add i64 %706, 1
-  %exitcond311.not.i = icmp eq i64 %706, %reass.sub153
-  br i1 %exitcond311.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
+  %exitcond312.not.i = icmp eq i64 %706, %reass.sub152
+  br i1 %exitcond312.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph292.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph292.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %713, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %713, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit259.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -205865,8 +205865,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread248.i unwind label %551, !noalias !21272
 
@@ -206228,9 +206228,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h6a2e82c48f
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread237.i, label %157
+  br i1 %156, label %.thread239.i, label %157
 
-.thread237.i:                                     ; preds = %155
+.thread239.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21336
   store i64 1, ptr %76, align 8, !noalias !21336
   br label %240
@@ -206257,9 +206257,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h6a2e82c48f
   br label %.thread150.i
 
 163:                                              ; preds = %157
-  %.fr198.i = freeze { i32, float } %158
-  %164 = extractvalue { i32, float } %.fr198.i, 0
-  %165 = extractvalue { i32, float } %.fr198.i, 1
+  %.fr.i = freeze { i32, float } %158
+  %164 = extractvalue { i32, float } %.fr.i, 0
+  %165 = extractvalue { i32, float } %.fr.i, 1
   %166 = trunc i32 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -206336,8 +206336,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h6a2e82c48f
   %.sroa.03.0.us.i = select i1 %195, i1 %.sroa.0.0.in.i.us.i, i1 false
   %198 = or i1 %.sroa.04.0175.us.i, %.sroa.03.0.us.i
   %199 = add i64 %189, 1
-  %exitcond208.not.i = icmp eq i64 %189, %137
-  br i1 %exitcond208.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond210.not.i = icmp eq i64 %189, %137
+  br i1 %exitcond210.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit166.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit168.us.i = landingpad { ptr, i32 }
@@ -206414,16 +206414,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h6a2e82c48f
 
 210:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge212.i unwind label %.loopexit.split-lp167.i, !noalias !21336
+          to label %._crit_edge214.i unwind label %.loopexit.split-lp167.i, !noalias !21336
 
-._crit_edge212.i:                                 ; preds = %210
+._crit_edge214.i:                                 ; preds = %210
   %.pre.i = load i64, ptr %182, align 8, !alias.scope !21339, !noalias !21336
-  %.pre222.i = add i64 %.pre.i, 1
+  %.pre224.i = add i64 %.pre.i, 1
   br label %211
 
-211:                                              ; preds = %._crit_edge212.i, %._crit_edge.i
-  %.pre-phi223.i = phi i64 [ %.pre222.i, %._crit_edge212.i ], [ %207, %._crit_edge.i ]
-  %212 = phi i64 [ %.pre.i, %._crit_edge212.i ], [ %206, %._crit_edge.i ]
+211:                                              ; preds = %._crit_edge214.i, %._crit_edge.i
+  %.pre-phi225.i = phi i64 [ %.pre224.i, %._crit_edge214.i ], [ %207, %._crit_edge.i ]
+  %212 = phi i64 [ %.pre.i, %._crit_edge214.i ], [ %206, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21339)
   %213 = zext i1 %.sroa.04.0.lcssa.i to i64
   %214 = and i64 %212, 63
@@ -206431,8 +206431,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h6a2e82c48f
   %216 = load i64, ptr %184, align 8, !alias.scope !21339, !noalias !21336, !noundef !6
   %217 = or i64 %215, %216
   store i64 %217, ptr %184, align 8, !alias.scope !21339, !noalias !21336
-  store i64 %.pre-phi223.i, ptr %182, align 8, !alias.scope !21339, !noalias !21336
-  %218 = and i64 %.pre-phi223.i, 63
+  store i64 %.pre-phi225.i, ptr %182, align 8, !alias.scope !21339, !noalias !21336
+  %218 = and i64 %.pre-phi225.i, 63
   %219 = icmp eq i64 %218, 0
   br i1 %219, label %220, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -206479,7 +206479,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %241 unwind label %.thread.i, !noalias !21336
 
-240:                                              ; preds = %159, %.thread237.i
+240:                                              ; preds = %159, %.thread239.i
   br i1 %3, label %243, label %242
 
 241:                                              ; preds = %239
@@ -206725,29 +206725,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %304, i1 %.sroa.0.0.in.i92.i, i1 false
   %307 = or i1 %.sroa.020.0180.i, %.sroa.019.0.i
   %308 = add i64 %293, 1
-  %exitcond209.not.i = icmp eq i64 %293, %137
-  br i1 %exitcond209.not.i, label %.loopexit159.loopexit.i, label %292
+  %exitcond211.not.i = icmp eq i64 %293, %137
+  br i1 %exitcond211.not.i, label %.loopexit159.loopexit.i, label %292
 
 309:                                              ; preds = %.loopexit159.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge215.i unwind label %.loopexit.split-lp161.i, !noalias !21336
+          to label %._crit_edge217.i unwind label %.loopexit.split-lp161.i, !noalias !21336
 
-._crit_edge215.i:                                 ; preds = %309
-  %.pre216.i = load i64, ptr %251, align 8, !alias.scope !21351, !noalias !21336
-  %.pre220.i = add i64 %.pre216.i, 1
+._crit_edge217.i:                                 ; preds = %309
+  %.pre218.i = load i64, ptr %251, align 8, !alias.scope !21351, !noalias !21336
+  %.pre222.i = add i64 %.pre218.i, 1
   br label %310
 
-310:                                              ; preds = %._crit_edge215.i, %.loopexit159.i
-  %.pre-phi221.i = phi i64 [ %.pre220.i, %._crit_edge215.i ], [ %298, %.loopexit159.i ]
-  %311 = phi i64 [ %.pre216.i, %._crit_edge215.i ], [ %297, %.loopexit159.i ]
+310:                                              ; preds = %._crit_edge217.i, %.loopexit159.i
+  %.pre-phi223.i = phi i64 [ %.pre222.i, %._crit_edge217.i ], [ %298, %.loopexit159.i ]
+  %311 = phi i64 [ %.pre218.i, %._crit_edge217.i ], [ %297, %.loopexit159.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21351)
   %312 = and i64 %311, 63
   %313 = shl nuw i64 %.sroa.020.1.i, %312
   %314 = load i64, ptr %253, align 8, !alias.scope !21351, !noalias !21336, !noundef !6
   %315 = or i64 %313, %314
   store i64 %315, ptr %253, align 8, !alias.scope !21351, !noalias !21336
-  store i64 %.pre-phi221.i, ptr %251, align 8, !alias.scope !21351, !noalias !21336
-  %316 = and i64 %.pre-phi221.i, 63
+  store i64 %.pre-phi223.i, ptr %251, align 8, !alias.scope !21351, !noalias !21336
+  %316 = and i64 %.pre-phi223.i, 63
   %317 = icmp eq i64 %316, 0
   br i1 %317, label %318, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -206818,13 +206818,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc95.i unwind label %.loopexit.split-lp.i, !noalias !21336
 
 .noexc95.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i32, float } %341
-  %342 = extractvalue { i32, float } %.fr.i, 0
+  %.fr202.i = freeze { i32, float } %341
+  %342 = extractvalue { i32, float } %.fr202.i, 0
   %.not.i93.i = icmp eq i32 %342, 2
   br i1 %.not.i93.i, label %361, label %343
 
 343:                                              ; preds = %.noexc95.i
-  %344 = extractvalue { i32, float } %.fr.i, 1
+  %344 = extractvalue { i32, float } %.fr202.i, 1
   %345 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21355, !noalias !21358, !noundef !6
   %346 = add i64 %345, 1
   store i64 %346, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21355, !noalias !21358
@@ -206854,8 +206854,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.010.0.us.i = select i1 %356, i1 %.sroa.0.0.in.i99.us.i, i1 false
   %359 = or i1 %.sroa.011.0185.us.i, %.sroa.010.0.us.i
   %360 = add i64 %350, 1
-  %exitcond211.not.i = icmp eq i64 %350, %137
-  br i1 %exitcond211.not.i, label %._crit_edge188.i, label %.lr.ph187.split.us.i
+  %exitcond213.not.i = icmp eq i64 %350, %137
+  br i1 %exitcond213.not.i, label %._crit_edge188.i, label %.lr.ph187.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph187.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -206954,16 +206954,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 385:                                              ; preds = %._crit_edge188.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge217.i unwind label %.loopexit.split-lp.i, !noalias !21336
+          to label %._crit_edge219.i unwind label %.loopexit.split-lp.i, !noalias !21336
 
-._crit_edge217.i:                                 ; preds = %385
-  %.pre218.i = load i64, ptr %335, align 8, !alias.scope !21360, !noalias !21336
-  %.pre219.i = add i64 %.pre218.i, 1
+._crit_edge219.i:                                 ; preds = %385
+  %.pre220.i = load i64, ptr %335, align 8, !alias.scope !21360, !noalias !21336
+  %.pre221.i = add i64 %.pre220.i, 1
   br label %386
 
-386:                                              ; preds = %._crit_edge217.i, %._crit_edge188.i
-  %.pre-phi.i = phi i64 [ %.pre219.i, %._crit_edge217.i ], [ %382, %._crit_edge188.i ]
-  %387 = phi i64 [ %.pre218.i, %._crit_edge217.i ], [ %381, %._crit_edge188.i ]
+386:                                              ; preds = %._crit_edge219.i, %._crit_edge188.i
+  %.pre-phi.i = phi i64 [ %.pre221.i, %._crit_edge219.i ], [ %382, %._crit_edge188.i ]
+  %387 = phi i64 [ %.pre220.i, %._crit_edge219.i ], [ %381, %._crit_edge188.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21360)
   %388 = zext i1 %.sroa.011.0.lcssa.i to i64
   %389 = and i64 %387, 63
@@ -207001,8 +207001,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %407 = xor i1 %406, true
   %408 = or i1 %.sroa.011.0185.i, %407
   %409 = add i64 %378, 1
-  %exitcond210.not.i = icmp eq i64 %378, %137
-  br i1 %exitcond210.not.i, label %._crit_edge188.i, label %.lr.ph187.split.i
+  %exitcond212.not.i = icmp eq i64 %378, %137
+  br i1 %exitcond212.not.i, label %._crit_edge188.i, label %.lr.ph187.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph187.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -207273,9 +207273,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf0711a21a85943a9E.exit
   br label %.thread253.i
 
 491:                                              ; preds = %482
-  %.fr303.i = freeze { i32, float } %483
-  %492 = extractvalue { i32, float } %.fr303.i, 0
-  %493 = extractvalue { i32, float } %.fr303.i, 1
+  %.fr.i113 = freeze { i32, float } %483
+  %492 = extractvalue { i32, float } %.fr.i113, 0
+  %493 = extractvalue { i32, float } %.fr.i113, 1
   %494 = trunc i32 %492 to i1
   %brmerge.i114 = or i1 %3, %494
   br i1 %brmerge.i114, label %495, label %497
@@ -207367,8 +207367,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf0711a21a85943a9E.exit
   %.sroa.08.0.us.i = select i1 %531, i1 %.sroa.0.0.in.i.us.i123, i1 false
   %534 = or i1 %.sroa.09.0282.us.i, %.sroa.08.0.us.i
   %535 = add i64 %525, 1
-  %exitcond313.not.i = icmp eq i64 %525, %reass.sub
-  br i1 %exitcond313.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond315.not.i = icmp eq i64 %525, %reass.sub
+  br i1 %exitcond315.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit274.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit276.us.i = landingpad { ptr, i32 }
@@ -207424,16 +207424,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf0711a21a85943a9E.exit
 
 546:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge317.i unwind label %.loopexit.split-lp275.i, !noalias !21367
+          to label %._crit_edge319.i unwind label %.loopexit.split-lp275.i, !noalias !21367
 
-._crit_edge317.i:                                 ; preds = %546
+._crit_edge319.i:                                 ; preds = %546
   %.pre.i121 = load i64, ptr %514, align 8, !alias.scope !21373, !noalias !21367
-  %.pre325.i = add i64 %.pre.i121, 1
+  %.pre327.i = add i64 %.pre.i121, 1
   br label %547
 
-547:                                              ; preds = %._crit_edge317.i, %._crit_edge.i118
-  %.pre-phi326.i = phi i64 [ %.pre325.i, %._crit_edge317.i ], [ %543, %._crit_edge.i118 ]
-  %548 = phi i64 [ %.pre.i121, %._crit_edge317.i ], [ %542, %._crit_edge.i118 ]
+547:                                              ; preds = %._crit_edge319.i, %._crit_edge.i118
+  %.pre-phi328.i = phi i64 [ %.pre327.i, %._crit_edge319.i ], [ %543, %._crit_edge.i118 ]
+  %548 = phi i64 [ %.pre.i121, %._crit_edge319.i ], [ %542, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21373)
   %549 = zext i1 %.sroa.09.0.lcssa.i to i64
   %550 = and i64 %548, 63
@@ -207441,8 +207441,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf0711a21a85943a9E.exit
   %552 = load i64, ptr %516, align 8, !alias.scope !21373, !noalias !21367, !noundef !6
   %553 = or i64 %551, %552
   store i64 %553, ptr %516, align 8, !alias.scope !21373, !noalias !21367
-  store i64 %.pre-phi326.i, ptr %514, align 8, !alias.scope !21373, !noalias !21367
-  %554 = and i64 %.pre-phi326.i, 63
+  store i64 %.pre-phi328.i, ptr %514, align 8, !alias.scope !21373, !noalias !21367
+  %554 = and i64 %.pre-phi328.i, 63
   %555 = icmp eq i64 %554, 0
   br i1 %555, label %556, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -207779,29 +207779,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %650, i1 %.sroa.0.0.in.i119.i, i1 false
   %653 = or i1 %.sroa.019.0290.i, %.sroa.018.0.i
   %654 = add i64 %639, 1
-  %exitcond314.not.i = icmp eq i64 %639, %reass.sub152
-  br i1 %exitcond314.not.i, label %.loopexit266.loopexit.i, label %638
+  %exitcond316.not.i = icmp eq i64 %639, %reass.sub152
+  br i1 %exitcond316.not.i, label %.loopexit266.loopexit.i, label %638
 
 655:                                              ; preds = %.loopexit266.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge318.i unwind label %.loopexit.split-lp268.loopexit.i, !noalias !21367
+          to label %._crit_edge320.i unwind label %.loopexit.split-lp268.loopexit.i, !noalias !21367
 
-._crit_edge318.i:                                 ; preds = %655
-  %.pre319.i = load i64, ptr %590, align 8, !alias.scope !21395, !noalias !21367
-  %.pre323.i = add i64 %.pre319.i, 1
+._crit_edge320.i:                                 ; preds = %655
+  %.pre321.i = load i64, ptr %590, align 8, !alias.scope !21395, !noalias !21367
+  %.pre325.i = add i64 %.pre321.i, 1
   br label %656
 
-656:                                              ; preds = %._crit_edge318.i, %.loopexit266.i
-  %.pre-phi324.i = phi i64 [ %.pre323.i, %._crit_edge318.i ], [ %644, %.loopexit266.i ]
-  %657 = phi i64 [ %.pre319.i, %._crit_edge318.i ], [ %643, %.loopexit266.i ]
+656:                                              ; preds = %._crit_edge320.i, %.loopexit266.i
+  %.pre-phi326.i = phi i64 [ %.pre325.i, %._crit_edge320.i ], [ %644, %.loopexit266.i ]
+  %657 = phi i64 [ %.pre321.i, %._crit_edge320.i ], [ %643, %.loopexit266.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21395)
   %658 = and i64 %657, 63
   %659 = shl nuw i64 %.sroa.019.1.i, %658
   %660 = load i64, ptr %592, align 8, !alias.scope !21395, !noalias !21367, !noundef !6
   %661 = or i64 %659, %660
   store i64 %661, ptr %592, align 8, !alias.scope !21395, !noalias !21367
-  store i64 %.pre-phi324.i, ptr %590, align 8, !alias.scope !21395, !noalias !21367
-  %662 = and i64 %.pre-phi324.i, 63
+  store i64 %.pre-phi326.i, ptr %590, align 8, !alias.scope !21395, !noalias !21367
+  %662 = and i64 %.pre-phi326.i, 63
   %663 = icmp eq i64 %662, 0
   br i1 %663, label %664, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -207884,16 +207884,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %688 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %689 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %690 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %675
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %675
   %691 = invoke fastcc { i32, float } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b8c289629085a28E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc127.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21367
 
-.noexc127.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i32, float } %691
-  %692 = extractvalue { i32, float } %.fr.i107, 0
-  %693 = extractvalue { i32, float } %.fr.i107, 1
+.noexc127.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr307.i = freeze { i32, float } %691
+  %692 = extractvalue { i32, float } %.fr307.i, 0
+  %693 = extractvalue { i32, float } %.fr307.i, 1
   %.not.i120.i = icmp eq i32 %692, 2
   br i1 %.not.i120.i, label %718, label %694
 
@@ -207938,7 +207938,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0293.us.i = phi i64 [ %707, %710 ], [ 0, %.lr.ph296.i ]
   %708 = add i64 %.sroa.083.0293.us.i, %.val.i.i.i121.i
   %709 = invoke fastcc { i32, float } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17ha2564c57d6821df2E"(ptr noundef nonnull align 8 %473, i64 noundef %708)
-          to label %710 unwind label %.loopexit.split.us.i112, !noalias !21367
+          to label %710 unwind label %.loopexit.split.us.i111, !noalias !21367
 
 710:                                              ; preds = %.lr.ph296.split.us.i
   %711 = extractvalue { i32, float } %709, 0
@@ -207950,11 +207950,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.013.0.us.i = select i1 %713, i1 %.sroa.0.0.in.i132.us.i, i1 false
   %716 = or i1 %.sroa.014.0294.us.i, %.sroa.013.0.us.i
   %717 = add i64 %707, 1
-  %exitcond316.not.i = icmp eq i64 %707, %reass.sub153
-  br i1 %exitcond316.not.i, label %._crit_edge297.i, label %.lr.ph296.split.us.i
+  %exitcond318.not.i = icmp eq i64 %707, %reass.sub153
+  br i1 %exitcond318.not.i, label %._crit_edge297.i, label %.lr.ph296.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph296.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph296.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -208042,7 +208042,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0293.i = phi i64 [ %734, %760 ], [ 0, %.lr.ph296.i ]
   %735 = add i64 %.sroa.083.0293.i, %.val.i.i.i121.i
   %736 = invoke fastcc { i32, float } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17ha2564c57d6821df2E"(ptr noundef nonnull align 8 %473, i64 noundef %735)
-          to label %760 unwind label %.loopexit.split.i108, !noalias !21367
+          to label %760 unwind label %.loopexit.split.i107, !noalias !21367
 
 ._crit_edge297.i:                                 ; preds = %760, %710, %704
   %.sroa.014.0.lcssa.i = phi i1 [ false, %704 ], [ %716, %710 ], [ %764, %760 ]
@@ -208054,16 +208054,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 741:                                              ; preds = %._crit_edge297.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge320.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21367
+          to label %._crit_edge322.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21367
 
-._crit_edge320.i:                                 ; preds = %741
-  %.pre321.i = load i64, ptr %685, align 8, !alias.scope !21414, !noalias !21367
-  %.pre322.i = add i64 %.pre321.i, 1
+._crit_edge322.i:                                 ; preds = %741
+  %.pre323.i = load i64, ptr %685, align 8, !alias.scope !21414, !noalias !21367
+  %.pre324.i = add i64 %.pre323.i, 1
   br label %742
 
-742:                                              ; preds = %._crit_edge320.i, %._crit_edge297.i
-  %.pre-phi.i110 = phi i64 [ %.pre322.i, %._crit_edge320.i ], [ %738, %._crit_edge297.i ]
-  %743 = phi i64 [ %.pre321.i, %._crit_edge320.i ], [ %737, %._crit_edge297.i ]
+742:                                              ; preds = %._crit_edge322.i, %._crit_edge297.i
+  %.pre-phi.i109 = phi i64 [ %.pre324.i, %._crit_edge322.i ], [ %738, %._crit_edge297.i ]
+  %743 = phi i64 [ %.pre323.i, %._crit_edge322.i ], [ %737, %._crit_edge297.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21414)
   %744 = zext i1 %.sroa.014.0.lcssa.i to i64
   %745 = and i64 %743, 63
@@ -208071,10 +208071,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %747 = load i64, ptr %687, align 8, !alias.scope !21414, !noalias !21367, !noundef !6
   %748 = or i64 %746, %747
   store i64 %748, ptr %687, align 8, !alias.scope !21414, !noalias !21367
-  store i64 %.pre-phi.i110, ptr %685, align 8, !alias.scope !21414, !noalias !21367
-  %749 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %685, align 8, !alias.scope !21414, !noalias !21367
+  %749 = and i64 %.pre-phi.i109, 63
   %750 = icmp eq i64 %749, 0
-  br i1 %750, label %751, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %750, label %751, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 751:                                              ; preds = %742
   %752 = load i64, ptr %688, align 8, !alias.scope !21414, !noalias !21367, !noundef !6
@@ -208090,10 +208090,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %759 = add i64 %758, %757
   store i64 %759, ptr %690, align 8, !alias.scope !21414, !noalias !21367
   store i64 0, ptr %687, align 8, !alias.scope !21414, !noalias !21367
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %751, %742
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %751, %742
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 760:                                              ; preds = %.lr.ph296.split.i
   %761 = extractvalue { i32, float } %736, 0
@@ -208101,15 +208101,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %763 = xor i1 %762, true
   %764 = or i1 %.sroa.014.0294.i, %763
   %765 = add i64 %734, 1
-  %exitcond315.not.i = icmp eq i64 %734, %reass.sub153
-  br i1 %exitcond315.not.i, label %._crit_edge297.i, label %.lr.ph296.split.i
+  %exitcond317.not.i = icmp eq i64 %734, %reass.sub153
+  br i1 %exitcond317.not.i, label %._crit_edge297.i, label %.lr.ph296.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph296.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph296.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %741, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %741, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit263.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -208119,8 +208119,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit263.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp264.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit263.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp264.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread253.i unwind label %572, !noalias !21367
 
@@ -210784,9 +210784,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h8d809025cf
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread237.i, label %157
+  br i1 %156, label %.thread239.i, label %157
 
-.thread237.i:                                     ; preds = %155
+.thread239.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21533
   store i64 1, ptr %76, align 8, !noalias !21533
   br label %240
@@ -210813,9 +210813,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h8d809025cf
   br label %.thread150.i
 
 163:                                              ; preds = %157
-  %.fr198.i = freeze { i64, double } %158
-  %164 = extractvalue { i64, double } %.fr198.i, 0
-  %165 = extractvalue { i64, double } %.fr198.i, 1
+  %.fr.i = freeze { i64, double } %158
+  %164 = extractvalue { i64, double } %.fr.i, 0
+  %165 = extractvalue { i64, double } %.fr.i, 1
   %166 = trunc i64 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -210892,8 +210892,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h8d809025cf
   %.sroa.03.0.us.i = select i1 %195, i1 %.sroa.0.0.in.i.us.i, i1 false
   %198 = or i1 %.sroa.04.0175.us.i, %.sroa.03.0.us.i
   %199 = add i64 %189, 1
-  %exitcond208.not.i = icmp eq i64 %189, %137
-  br i1 %exitcond208.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond210.not.i = icmp eq i64 %189, %137
+  br i1 %exitcond210.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit166.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit168.us.i = landingpad { ptr, i32 }
@@ -210970,16 +210970,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h8d809025cf
 
 210:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge212.i unwind label %.loopexit.split-lp167.i, !noalias !21533
+          to label %._crit_edge214.i unwind label %.loopexit.split-lp167.i, !noalias !21533
 
-._crit_edge212.i:                                 ; preds = %210
+._crit_edge214.i:                                 ; preds = %210
   %.pre.i = load i64, ptr %182, align 8, !alias.scope !21536, !noalias !21533
-  %.pre222.i = add i64 %.pre.i, 1
+  %.pre224.i = add i64 %.pre.i, 1
   br label %211
 
-211:                                              ; preds = %._crit_edge212.i, %._crit_edge.i
-  %.pre-phi223.i = phi i64 [ %.pre222.i, %._crit_edge212.i ], [ %207, %._crit_edge.i ]
-  %212 = phi i64 [ %.pre.i, %._crit_edge212.i ], [ %206, %._crit_edge.i ]
+211:                                              ; preds = %._crit_edge214.i, %._crit_edge.i
+  %.pre-phi225.i = phi i64 [ %.pre224.i, %._crit_edge214.i ], [ %207, %._crit_edge.i ]
+  %212 = phi i64 [ %.pre.i, %._crit_edge214.i ], [ %206, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21536)
   %213 = zext i1 %.sroa.04.0.lcssa.i to i64
   %214 = and i64 %212, 63
@@ -210987,8 +210987,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h8d809025cf
   %216 = load i64, ptr %184, align 8, !alias.scope !21536, !noalias !21533, !noundef !6
   %217 = or i64 %215, %216
   store i64 %217, ptr %184, align 8, !alias.scope !21536, !noalias !21533
-  store i64 %.pre-phi223.i, ptr %182, align 8, !alias.scope !21536, !noalias !21533
-  %218 = and i64 %.pre-phi223.i, 63
+  store i64 %.pre-phi225.i, ptr %182, align 8, !alias.scope !21536, !noalias !21533
+  %218 = and i64 %.pre-phi225.i, 63
   %219 = icmp eq i64 %218, 0
   br i1 %219, label %220, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -211035,7 +211035,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %241 unwind label %.thread.i, !noalias !21533
 
-240:                                              ; preds = %159, %.thread237.i
+240:                                              ; preds = %159, %.thread239.i
   br i1 %3, label %243, label %242
 
 241:                                              ; preds = %239
@@ -211281,29 +211281,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %304, i1 %.sroa.0.0.in.i92.i, i1 false
   %307 = or i1 %.sroa.020.0180.i, %.sroa.019.0.i
   %308 = add i64 %293, 1
-  %exitcond209.not.i = icmp eq i64 %293, %137
-  br i1 %exitcond209.not.i, label %.loopexit159.loopexit.i, label %292
+  %exitcond211.not.i = icmp eq i64 %293, %137
+  br i1 %exitcond211.not.i, label %.loopexit159.loopexit.i, label %292
 
 309:                                              ; preds = %.loopexit159.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge215.i unwind label %.loopexit.split-lp161.i, !noalias !21533
+          to label %._crit_edge217.i unwind label %.loopexit.split-lp161.i, !noalias !21533
 
-._crit_edge215.i:                                 ; preds = %309
-  %.pre216.i = load i64, ptr %251, align 8, !alias.scope !21548, !noalias !21533
-  %.pre220.i = add i64 %.pre216.i, 1
+._crit_edge217.i:                                 ; preds = %309
+  %.pre218.i = load i64, ptr %251, align 8, !alias.scope !21548, !noalias !21533
+  %.pre222.i = add i64 %.pre218.i, 1
   br label %310
 
-310:                                              ; preds = %._crit_edge215.i, %.loopexit159.i
-  %.pre-phi221.i = phi i64 [ %.pre220.i, %._crit_edge215.i ], [ %298, %.loopexit159.i ]
-  %311 = phi i64 [ %.pre216.i, %._crit_edge215.i ], [ %297, %.loopexit159.i ]
+310:                                              ; preds = %._crit_edge217.i, %.loopexit159.i
+  %.pre-phi223.i = phi i64 [ %.pre222.i, %._crit_edge217.i ], [ %298, %.loopexit159.i ]
+  %311 = phi i64 [ %.pre218.i, %._crit_edge217.i ], [ %297, %.loopexit159.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21548)
   %312 = and i64 %311, 63
   %313 = shl nuw i64 %.sroa.020.1.i, %312
   %314 = load i64, ptr %253, align 8, !alias.scope !21548, !noalias !21533, !noundef !6
   %315 = or i64 %313, %314
   store i64 %315, ptr %253, align 8, !alias.scope !21548, !noalias !21533
-  store i64 %.pre-phi221.i, ptr %251, align 8, !alias.scope !21548, !noalias !21533
-  %316 = and i64 %.pre-phi221.i, 63
+  store i64 %.pre-phi223.i, ptr %251, align 8, !alias.scope !21548, !noalias !21533
+  %316 = and i64 %.pre-phi223.i, 63
   %317 = icmp eq i64 %316, 0
   br i1 %317, label %318, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -211374,13 +211374,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc95.i unwind label %.loopexit.split-lp.i, !noalias !21533
 
 .noexc95.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i64, double } %341
-  %342 = extractvalue { i64, double } %.fr.i, 0
+  %.fr202.i = freeze { i64, double } %341
+  %342 = extractvalue { i64, double } %.fr202.i, 0
   %.not.i93.i = icmp eq i64 %342, 2
   br i1 %.not.i93.i, label %361, label %343
 
 343:                                              ; preds = %.noexc95.i
-  %344 = extractvalue { i64, double } %.fr.i, 1
+  %344 = extractvalue { i64, double } %.fr202.i, 1
   %345 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21552, !noalias !21555, !noundef !6
   %346 = add i64 %345, 1
   store i64 %346, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21552, !noalias !21555
@@ -211410,8 +211410,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.010.0.us.i = select i1 %356, i1 %.sroa.0.0.in.i99.us.i, i1 false
   %359 = or i1 %.sroa.011.0185.us.i, %.sroa.010.0.us.i
   %360 = add i64 %350, 1
-  %exitcond211.not.i = icmp eq i64 %350, %137
-  br i1 %exitcond211.not.i, label %._crit_edge188.i, label %.lr.ph187.split.us.i
+  %exitcond213.not.i = icmp eq i64 %350, %137
+  br i1 %exitcond213.not.i, label %._crit_edge188.i, label %.lr.ph187.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph187.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -211510,16 +211510,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 385:                                              ; preds = %._crit_edge188.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge217.i unwind label %.loopexit.split-lp.i, !noalias !21533
+          to label %._crit_edge219.i unwind label %.loopexit.split-lp.i, !noalias !21533
 
-._crit_edge217.i:                                 ; preds = %385
-  %.pre218.i = load i64, ptr %335, align 8, !alias.scope !21557, !noalias !21533
-  %.pre219.i = add i64 %.pre218.i, 1
+._crit_edge219.i:                                 ; preds = %385
+  %.pre220.i = load i64, ptr %335, align 8, !alias.scope !21557, !noalias !21533
+  %.pre221.i = add i64 %.pre220.i, 1
   br label %386
 
-386:                                              ; preds = %._crit_edge217.i, %._crit_edge188.i
-  %.pre-phi.i = phi i64 [ %.pre219.i, %._crit_edge217.i ], [ %382, %._crit_edge188.i ]
-  %387 = phi i64 [ %.pre218.i, %._crit_edge217.i ], [ %381, %._crit_edge188.i ]
+386:                                              ; preds = %._crit_edge219.i, %._crit_edge188.i
+  %.pre-phi.i = phi i64 [ %.pre221.i, %._crit_edge219.i ], [ %382, %._crit_edge188.i ]
+  %387 = phi i64 [ %.pre220.i, %._crit_edge219.i ], [ %381, %._crit_edge188.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21557)
   %388 = zext i1 %.sroa.011.0.lcssa.i to i64
   %389 = and i64 %387, 63
@@ -211557,8 +211557,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %407 = xor i1 %406, true
   %408 = or i1 %.sroa.011.0185.i, %407
   %409 = add i64 %378, 1
-  %exitcond210.not.i = icmp eq i64 %378, %137
-  br i1 %exitcond210.not.i, label %._crit_edge188.i, label %.lr.ph187.split.i
+  %exitcond212.not.i = icmp eq i64 %378, %137
+  br i1 %exitcond212.not.i, label %._crit_edge188.i, label %.lr.ph187.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph187.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -211829,9 +211829,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf4a39a732d444e9cE.exit
   br label %.thread253.i
 
 491:                                              ; preds = %482
-  %.fr303.i = freeze { i64, double } %483
-  %492 = extractvalue { i64, double } %.fr303.i, 0
-  %493 = extractvalue { i64, double } %.fr303.i, 1
+  %.fr.i113 = freeze { i64, double } %483
+  %492 = extractvalue { i64, double } %.fr.i113, 0
+  %493 = extractvalue { i64, double } %.fr.i113, 1
   %494 = trunc i64 %492 to i1
   %brmerge.i114 = or i1 %3, %494
   br i1 %brmerge.i114, label %495, label %497
@@ -211923,8 +211923,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf4a39a732d444e9cE.exit
   %.sroa.08.0.us.i = select i1 %531, i1 %.sroa.0.0.in.i.us.i123, i1 false
   %534 = or i1 %.sroa.09.0282.us.i, %.sroa.08.0.us.i
   %535 = add i64 %525, 1
-  %exitcond313.not.i = icmp eq i64 %525, %reass.sub
-  br i1 %exitcond313.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond315.not.i = icmp eq i64 %525, %reass.sub
+  br i1 %exitcond315.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit274.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit276.us.i = landingpad { ptr, i32 }
@@ -211980,16 +211980,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf4a39a732d444e9cE.exit
 
 546:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge317.i unwind label %.loopexit.split-lp275.i, !noalias !21564
+          to label %._crit_edge319.i unwind label %.loopexit.split-lp275.i, !noalias !21564
 
-._crit_edge317.i:                                 ; preds = %546
+._crit_edge319.i:                                 ; preds = %546
   %.pre.i121 = load i64, ptr %514, align 8, !alias.scope !21570, !noalias !21564
-  %.pre325.i = add i64 %.pre.i121, 1
+  %.pre327.i = add i64 %.pre.i121, 1
   br label %547
 
-547:                                              ; preds = %._crit_edge317.i, %._crit_edge.i118
-  %.pre-phi326.i = phi i64 [ %.pre325.i, %._crit_edge317.i ], [ %543, %._crit_edge.i118 ]
-  %548 = phi i64 [ %.pre.i121, %._crit_edge317.i ], [ %542, %._crit_edge.i118 ]
+547:                                              ; preds = %._crit_edge319.i, %._crit_edge.i118
+  %.pre-phi328.i = phi i64 [ %.pre327.i, %._crit_edge319.i ], [ %543, %._crit_edge.i118 ]
+  %548 = phi i64 [ %.pre.i121, %._crit_edge319.i ], [ %542, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21570)
   %549 = zext i1 %.sroa.09.0.lcssa.i to i64
   %550 = and i64 %548, 63
@@ -211997,8 +211997,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf4a39a732d444e9cE.exit
   %552 = load i64, ptr %516, align 8, !alias.scope !21570, !noalias !21564, !noundef !6
   %553 = or i64 %551, %552
   store i64 %553, ptr %516, align 8, !alias.scope !21570, !noalias !21564
-  store i64 %.pre-phi326.i, ptr %514, align 8, !alias.scope !21570, !noalias !21564
-  %554 = and i64 %.pre-phi326.i, 63
+  store i64 %.pre-phi328.i, ptr %514, align 8, !alias.scope !21570, !noalias !21564
+  %554 = and i64 %.pre-phi328.i, 63
   %555 = icmp eq i64 %554, 0
   br i1 %555, label %556, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -212335,29 +212335,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %650, i1 %.sroa.0.0.in.i119.i, i1 false
   %653 = or i1 %.sroa.019.0290.i, %.sroa.018.0.i
   %654 = add i64 %639, 1
-  %exitcond314.not.i = icmp eq i64 %639, %reass.sub152
-  br i1 %exitcond314.not.i, label %.loopexit266.loopexit.i, label %638
+  %exitcond316.not.i = icmp eq i64 %639, %reass.sub152
+  br i1 %exitcond316.not.i, label %.loopexit266.loopexit.i, label %638
 
 655:                                              ; preds = %.loopexit266.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge318.i unwind label %.loopexit.split-lp268.loopexit.i, !noalias !21564
+          to label %._crit_edge320.i unwind label %.loopexit.split-lp268.loopexit.i, !noalias !21564
 
-._crit_edge318.i:                                 ; preds = %655
-  %.pre319.i = load i64, ptr %590, align 8, !alias.scope !21592, !noalias !21564
-  %.pre323.i = add i64 %.pre319.i, 1
+._crit_edge320.i:                                 ; preds = %655
+  %.pre321.i = load i64, ptr %590, align 8, !alias.scope !21592, !noalias !21564
+  %.pre325.i = add i64 %.pre321.i, 1
   br label %656
 
-656:                                              ; preds = %._crit_edge318.i, %.loopexit266.i
-  %.pre-phi324.i = phi i64 [ %.pre323.i, %._crit_edge318.i ], [ %644, %.loopexit266.i ]
-  %657 = phi i64 [ %.pre319.i, %._crit_edge318.i ], [ %643, %.loopexit266.i ]
+656:                                              ; preds = %._crit_edge320.i, %.loopexit266.i
+  %.pre-phi326.i = phi i64 [ %.pre325.i, %._crit_edge320.i ], [ %644, %.loopexit266.i ]
+  %657 = phi i64 [ %.pre321.i, %._crit_edge320.i ], [ %643, %.loopexit266.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21592)
   %658 = and i64 %657, 63
   %659 = shl nuw i64 %.sroa.019.1.i, %658
   %660 = load i64, ptr %592, align 8, !alias.scope !21592, !noalias !21564, !noundef !6
   %661 = or i64 %659, %660
   store i64 %661, ptr %592, align 8, !alias.scope !21592, !noalias !21564
-  store i64 %.pre-phi324.i, ptr %590, align 8, !alias.scope !21592, !noalias !21564
-  %662 = and i64 %.pre-phi324.i, 63
+  store i64 %.pre-phi326.i, ptr %590, align 8, !alias.scope !21592, !noalias !21564
+  %662 = and i64 %.pre-phi326.i, 63
   %663 = icmp eq i64 %662, 0
   br i1 %663, label %664, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -212440,16 +212440,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %688 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %689 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %690 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %675
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %675
   %691 = invoke fastcc { i64, double } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h797bb1fc89a4edbcE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc127.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21564
 
-.noexc127.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i64, double } %691
-  %692 = extractvalue { i64, double } %.fr.i107, 0
-  %693 = extractvalue { i64, double } %.fr.i107, 1
+.noexc127.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr307.i = freeze { i64, double } %691
+  %692 = extractvalue { i64, double } %.fr307.i, 0
+  %693 = extractvalue { i64, double } %.fr307.i, 1
   %.not.i120.i = icmp eq i64 %692, 2
   br i1 %.not.i120.i, label %718, label %694
 
@@ -212494,7 +212494,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0293.us.i = phi i64 [ %707, %710 ], [ 0, %.lr.ph296.i ]
   %708 = add i64 %.sroa.083.0293.us.i, %.val.i.i.i121.i
   %709 = invoke fastcc { i64, double } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h72f46aeacfe82c90E"(ptr noundef nonnull align 8 %473, i64 noundef %708)
-          to label %710 unwind label %.loopexit.split.us.i112, !noalias !21564
+          to label %710 unwind label %.loopexit.split.us.i111, !noalias !21564
 
 710:                                              ; preds = %.lr.ph296.split.us.i
   %711 = extractvalue { i64, double } %709, 0
@@ -212506,11 +212506,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.013.0.us.i = select i1 %713, i1 %.sroa.0.0.in.i132.us.i, i1 false
   %716 = or i1 %.sroa.014.0294.us.i, %.sroa.013.0.us.i
   %717 = add i64 %707, 1
-  %exitcond316.not.i = icmp eq i64 %707, %reass.sub153
-  br i1 %exitcond316.not.i, label %._crit_edge297.i, label %.lr.ph296.split.us.i
+  %exitcond318.not.i = icmp eq i64 %707, %reass.sub153
+  br i1 %exitcond318.not.i, label %._crit_edge297.i, label %.lr.ph296.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph296.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph296.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -212598,7 +212598,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0293.i = phi i64 [ %734, %760 ], [ 0, %.lr.ph296.i ]
   %735 = add i64 %.sroa.083.0293.i, %.val.i.i.i121.i
   %736 = invoke fastcc { i64, double } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h72f46aeacfe82c90E"(ptr noundef nonnull align 8 %473, i64 noundef %735)
-          to label %760 unwind label %.loopexit.split.i108, !noalias !21564
+          to label %760 unwind label %.loopexit.split.i107, !noalias !21564
 
 ._crit_edge297.i:                                 ; preds = %760, %710, %704
   %.sroa.014.0.lcssa.i = phi i1 [ false, %704 ], [ %716, %710 ], [ %764, %760 ]
@@ -212610,16 +212610,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 741:                                              ; preds = %._crit_edge297.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge320.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21564
+          to label %._crit_edge322.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21564
 
-._crit_edge320.i:                                 ; preds = %741
-  %.pre321.i = load i64, ptr %685, align 8, !alias.scope !21611, !noalias !21564
-  %.pre322.i = add i64 %.pre321.i, 1
+._crit_edge322.i:                                 ; preds = %741
+  %.pre323.i = load i64, ptr %685, align 8, !alias.scope !21611, !noalias !21564
+  %.pre324.i = add i64 %.pre323.i, 1
   br label %742
 
-742:                                              ; preds = %._crit_edge320.i, %._crit_edge297.i
-  %.pre-phi.i110 = phi i64 [ %.pre322.i, %._crit_edge320.i ], [ %738, %._crit_edge297.i ]
-  %743 = phi i64 [ %.pre321.i, %._crit_edge320.i ], [ %737, %._crit_edge297.i ]
+742:                                              ; preds = %._crit_edge322.i, %._crit_edge297.i
+  %.pre-phi.i109 = phi i64 [ %.pre324.i, %._crit_edge322.i ], [ %738, %._crit_edge297.i ]
+  %743 = phi i64 [ %.pre323.i, %._crit_edge322.i ], [ %737, %._crit_edge297.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21611)
   %744 = zext i1 %.sroa.014.0.lcssa.i to i64
   %745 = and i64 %743, 63
@@ -212627,10 +212627,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %747 = load i64, ptr %687, align 8, !alias.scope !21611, !noalias !21564, !noundef !6
   %748 = or i64 %746, %747
   store i64 %748, ptr %687, align 8, !alias.scope !21611, !noalias !21564
-  store i64 %.pre-phi.i110, ptr %685, align 8, !alias.scope !21611, !noalias !21564
-  %749 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %685, align 8, !alias.scope !21611, !noalias !21564
+  %749 = and i64 %.pre-phi.i109, 63
   %750 = icmp eq i64 %749, 0
-  br i1 %750, label %751, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %750, label %751, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 751:                                              ; preds = %742
   %752 = load i64, ptr %688, align 8, !alias.scope !21611, !noalias !21564, !noundef !6
@@ -212646,10 +212646,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %759 = add i64 %758, %757
   store i64 %759, ptr %690, align 8, !alias.scope !21611, !noalias !21564
   store i64 0, ptr %687, align 8, !alias.scope !21611, !noalias !21564
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %751, %742
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %751, %742
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 760:                                              ; preds = %.lr.ph296.split.i
   %761 = extractvalue { i64, double } %736, 0
@@ -212657,15 +212657,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %763 = xor i1 %762, true
   %764 = or i1 %.sroa.014.0294.i, %763
   %765 = add i64 %734, 1
-  %exitcond315.not.i = icmp eq i64 %734, %reass.sub153
-  br i1 %exitcond315.not.i, label %._crit_edge297.i, label %.lr.ph296.split.i
+  %exitcond317.not.i = icmp eq i64 %734, %reass.sub153
+  br i1 %exitcond317.not.i, label %._crit_edge297.i, label %.lr.ph296.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph296.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph296.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %741, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %741, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit263.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -212675,8 +212675,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit263.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp264.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit263.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp264.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread253.i unwind label %572, !noalias !21564
 
@@ -213038,9 +213038,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h93a52ecf41
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread232.i, label %157
+  br i1 %156, label %.thread234.i, label %157
 
-.thread232.i:                                     ; preds = %155
+.thread234.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21628
   store i64 1, ptr %76, align 8, !noalias !21628
   br label %238
@@ -213067,9 +213067,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h93a52ecf41
   br label %.thread144.i
 
 163:                                              ; preds = %157
-  %.fr193.i = freeze { i16, i16 } %158
-  %164 = extractvalue { i16, i16 } %.fr193.i, 0
-  %165 = extractvalue { i16, i16 } %.fr193.i, 1
+  %.fr.i = freeze { i16, i16 } %158
+  %164 = extractvalue { i16, i16 } %.fr.i, 0
+  %165 = extractvalue { i16, i16 } %.fr.i, 1
   %166 = trunc i16 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -213143,8 +213143,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h93a52ecf41
   %spec.select.us.i = select i1 %194, i1 %195, i1 false
   %196 = or i1 %.sroa.04.0170.us.i, %spec.select.us.i
   %197 = add i64 %188, 1
-  %exitcond203.not.i = icmp eq i64 %188, %137
-  br i1 %exitcond203.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond205.not.i = icmp eq i64 %188, %137
+  br i1 %exitcond205.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit161.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit163.us.i = landingpad { ptr, i32 }
@@ -213221,16 +213221,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h93a52ecf41
 
 208:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge207.i unwind label %.loopexit.split-lp162.i, !noalias !21628
+          to label %._crit_edge209.i unwind label %.loopexit.split-lp162.i, !noalias !21628
 
-._crit_edge207.i:                                 ; preds = %208
+._crit_edge209.i:                                 ; preds = %208
   %.pre.i = load i64, ptr %181, align 8, !alias.scope !21631, !noalias !21628
-  %.pre217.i = add i64 %.pre.i, 1
+  %.pre219.i = add i64 %.pre.i, 1
   br label %209
 
-209:                                              ; preds = %._crit_edge207.i, %._crit_edge.i
-  %.pre-phi218.i = phi i64 [ %.pre217.i, %._crit_edge207.i ], [ %205, %._crit_edge.i ]
-  %210 = phi i64 [ %.pre.i, %._crit_edge207.i ], [ %204, %._crit_edge.i ]
+209:                                              ; preds = %._crit_edge209.i, %._crit_edge.i
+  %.pre-phi220.i = phi i64 [ %.pre219.i, %._crit_edge209.i ], [ %205, %._crit_edge.i ]
+  %210 = phi i64 [ %.pre.i, %._crit_edge209.i ], [ %204, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21631)
   %211 = zext i1 %.sroa.04.0.lcssa.i to i64
   %212 = and i64 %210, 63
@@ -213238,8 +213238,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h93a52ecf41
   %214 = load i64, ptr %183, align 8, !alias.scope !21631, !noalias !21628, !noundef !6
   %215 = or i64 %213, %214
   store i64 %215, ptr %183, align 8, !alias.scope !21631, !noalias !21628
-  store i64 %.pre-phi218.i, ptr %181, align 8, !alias.scope !21631, !noalias !21628
-  %216 = and i64 %.pre-phi218.i, 63
+  store i64 %.pre-phi220.i, ptr %181, align 8, !alias.scope !21631, !noalias !21628
+  %216 = and i64 %.pre-phi220.i, 63
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %218, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -213286,7 +213286,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %239 unwind label %.thread.i, !noalias !21628
 
-238:                                              ; preds = %159, %.thread232.i
+238:                                              ; preds = %159, %.thread234.i
   br i1 %3, label %241, label %240
 
 239:                                              ; preds = %237
@@ -213529,29 +213529,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %301, i1 %302, i1 false
   %303 = or i1 %.sroa.020.0175.i, %.sroa.019.0.i
   %304 = add i64 %290, 1
-  %exitcond204.not.i = icmp eq i64 %290, %137
-  br i1 %exitcond204.not.i, label %.loopexit154.loopexit.i, label %289
+  %exitcond206.not.i = icmp eq i64 %290, %137
+  br i1 %exitcond206.not.i, label %.loopexit154.loopexit.i, label %289
 
 305:                                              ; preds = %.loopexit154.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge210.i unwind label %.loopexit.split-lp156.i, !noalias !21628
+          to label %._crit_edge212.i unwind label %.loopexit.split-lp156.i, !noalias !21628
 
-._crit_edge210.i:                                 ; preds = %305
-  %.pre211.i = load i64, ptr %249, align 8, !alias.scope !21643, !noalias !21628
-  %.pre215.i = add i64 %.pre211.i, 1
+._crit_edge212.i:                                 ; preds = %305
+  %.pre213.i = load i64, ptr %249, align 8, !alias.scope !21643, !noalias !21628
+  %.pre217.i = add i64 %.pre213.i, 1
   br label %306
 
-306:                                              ; preds = %._crit_edge210.i, %.loopexit154.i
-  %.pre-phi216.i = phi i64 [ %.pre215.i, %._crit_edge210.i ], [ %295, %.loopexit154.i ]
-  %307 = phi i64 [ %.pre211.i, %._crit_edge210.i ], [ %294, %.loopexit154.i ]
+306:                                              ; preds = %._crit_edge212.i, %.loopexit154.i
+  %.pre-phi218.i = phi i64 [ %.pre217.i, %._crit_edge212.i ], [ %295, %.loopexit154.i ]
+  %307 = phi i64 [ %.pre213.i, %._crit_edge212.i ], [ %294, %.loopexit154.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21643)
   %308 = and i64 %307, 63
   %309 = shl nuw i64 %.sroa.020.1.i, %308
   %310 = load i64, ptr %251, align 8, !alias.scope !21643, !noalias !21628, !noundef !6
   %311 = or i64 %309, %310
   store i64 %311, ptr %251, align 8, !alias.scope !21643, !noalias !21628
-  store i64 %.pre-phi216.i, ptr %249, align 8, !alias.scope !21643, !noalias !21628
-  %312 = and i64 %.pre-phi216.i, 63
+  store i64 %.pre-phi218.i, ptr %249, align 8, !alias.scope !21643, !noalias !21628
+  %312 = and i64 %.pre-phi218.i, 63
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %314, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -213622,13 +213622,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc89.i unwind label %.loopexit.split-lp.i, !noalias !21628
 
 .noexc89.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i16, i16 } %337
-  %338 = extractvalue { i16, i16 } %.fr.i, 0
+  %.fr197.i = freeze { i16, i16 } %337
+  %338 = extractvalue { i16, i16 } %.fr197.i, 0
   %.not.i87.i = icmp eq i16 %338, 2
   br i1 %.not.i87.i, label %355, label %339
 
 339:                                              ; preds = %.noexc89.i
-  %340 = extractvalue { i16, i16 } %.fr.i, 1
+  %340 = extractvalue { i16, i16 } %.fr197.i, 1
   %341 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21647, !noalias !21650, !noundef !6
   %342 = add i64 %341, 1
   store i64 %342, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21647, !noalias !21650
@@ -213655,8 +213655,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select153.us.i = select i1 %351, i1 %352, i1 false
   %353 = or i1 %.sroa.011.0180.us.i, %spec.select153.us.i
   %354 = add i64 %345, 1
-  %exitcond206.not.i = icmp eq i64 %345, %137
-  br i1 %exitcond206.not.i, label %._crit_edge183.i, label %.lr.ph182.split.us.i
+  %exitcond208.not.i = icmp eq i64 %345, %137
+  br i1 %exitcond208.not.i, label %._crit_edge183.i, label %.lr.ph182.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph182.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -213755,16 +213755,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 379:                                              ; preds = %._crit_edge183.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge212.i unwind label %.loopexit.split-lp.i, !noalias !21628
+          to label %._crit_edge214.i unwind label %.loopexit.split-lp.i, !noalias !21628
 
-._crit_edge212.i:                                 ; preds = %379
-  %.pre213.i = load i64, ptr %331, align 8, !alias.scope !21652, !noalias !21628
-  %.pre214.i = add i64 %.pre213.i, 1
+._crit_edge214.i:                                 ; preds = %379
+  %.pre215.i = load i64, ptr %331, align 8, !alias.scope !21652, !noalias !21628
+  %.pre216.i = add i64 %.pre215.i, 1
   br label %380
 
-380:                                              ; preds = %._crit_edge212.i, %._crit_edge183.i
-  %.pre-phi.i = phi i64 [ %.pre214.i, %._crit_edge212.i ], [ %376, %._crit_edge183.i ]
-  %381 = phi i64 [ %.pre213.i, %._crit_edge212.i ], [ %375, %._crit_edge183.i ]
+380:                                              ; preds = %._crit_edge214.i, %._crit_edge183.i
+  %.pre-phi.i = phi i64 [ %.pre216.i, %._crit_edge214.i ], [ %376, %._crit_edge183.i ]
+  %381 = phi i64 [ %.pre215.i, %._crit_edge214.i ], [ %375, %._crit_edge183.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21652)
   %382 = zext i1 %.sroa.011.0.lcssa.i to i64
   %383 = and i64 %381, 63
@@ -213802,8 +213802,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %401 = xor i1 %400, true
   %402 = or i1 %.sroa.011.0180.i, %401
   %403 = add i64 %372, 1
-  %exitcond205.not.i = icmp eq i64 %372, %137
-  br i1 %exitcond205.not.i, label %._crit_edge183.i, label %.lr.ph182.split.i
+  %exitcond207.not.i = icmp eq i64 %372, %137
+  br i1 %exitcond207.not.i, label %._crit_edge183.i, label %.lr.ph182.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph182.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -214074,9 +214074,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h3c4726b32d3d197bE.exit
   br label %.thread248.i
 
 485:                                              ; preds = %476
-  %.fr299.i = freeze { i16, i16 } %477
-  %486 = extractvalue { i16, i16 } %.fr299.i, 0
-  %487 = extractvalue { i16, i16 } %.fr299.i, 1
+  %.fr.i113 = freeze { i16, i16 } %477
+  %486 = extractvalue { i16, i16 } %.fr.i113, 0
+  %487 = extractvalue { i16, i16 } %.fr.i113, 1
   %488 = trunc i16 %486 to i1
   %brmerge.i114 = or i1 %3, %488
   br i1 %brmerge.i114, label %489, label %491
@@ -214165,8 +214165,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h3c4726b32d3d197bE.exit
   %spec.select.us.i123 = select i1 %524, i1 %525, i1 false
   %526 = or i1 %.sroa.09.0278.us.i, %spec.select.us.i123
   %527 = add i64 %518, 1
-  %exitcond309.not.i = icmp eq i64 %518, %reass.sub
-  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond311.not.i = icmp eq i64 %518, %reass.sub
+  br i1 %exitcond311.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit270.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit272.us.i = landingpad { ptr, i32 }
@@ -214222,16 +214222,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h3c4726b32d3d197bE.exit
 
 538:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge313.i unwind label %.loopexit.split-lp271.i, !noalias !21659
+          to label %._crit_edge315.i unwind label %.loopexit.split-lp271.i, !noalias !21659
 
-._crit_edge313.i:                                 ; preds = %538
+._crit_edge315.i:                                 ; preds = %538
   %.pre.i121 = load i64, ptr %507, align 8, !alias.scope !21665, !noalias !21659
-  %.pre321.i = add i64 %.pre.i121, 1
+  %.pre323.i = add i64 %.pre.i121, 1
   br label %539
 
-539:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
-  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %535, %._crit_edge.i118 ]
-  %540 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %534, %._crit_edge.i118 ]
+539:                                              ; preds = %._crit_edge315.i, %._crit_edge.i118
+  %.pre-phi324.i = phi i64 [ %.pre323.i, %._crit_edge315.i ], [ %535, %._crit_edge.i118 ]
+  %540 = phi i64 [ %.pre.i121, %._crit_edge315.i ], [ %534, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21665)
   %541 = zext i1 %.sroa.09.0.lcssa.i to i64
   %542 = and i64 %540, 63
@@ -214239,8 +214239,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h3c4726b32d3d197bE.exit
   %544 = load i64, ptr %509, align 8, !alias.scope !21665, !noalias !21659, !noundef !6
   %545 = or i64 %543, %544
   store i64 %545, ptr %509, align 8, !alias.scope !21665, !noalias !21659
-  store i64 %.pre-phi322.i, ptr %507, align 8, !alias.scope !21665, !noalias !21659
-  %546 = and i64 %.pre-phi322.i, 63
+  store i64 %.pre-phi324.i, ptr %507, align 8, !alias.scope !21665, !noalias !21659
+  %546 = and i64 %.pre-phi324.i, 63
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %548, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -214574,29 +214574,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %640, i1 %641, i1 false
   %642 = or i1 %.sroa.019.0286.i, %.sroa.018.0.i
   %643 = add i64 %629, 1
-  %exitcond310.not.i = icmp eq i64 %629, %reass.sub152
-  br i1 %exitcond310.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
+  %exitcond312.not.i = icmp eq i64 %629, %reass.sub152
+  br i1 %exitcond312.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
 
 644:                                              ; preds = %.loopexit262.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !21659
+          to label %._crit_edge316.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !21659
 
-._crit_edge314.i:                                 ; preds = %644
-  %.pre315.i = load i64, ptr %582, align 8, !alias.scope !21687, !noalias !21659
-  %.pre319.i = add i64 %.pre315.i, 1
+._crit_edge316.i:                                 ; preds = %644
+  %.pre317.i = load i64, ptr %582, align 8, !alias.scope !21687, !noalias !21659
+  %.pre321.i = add i64 %.pre317.i, 1
   br label %645
 
-645:                                              ; preds = %._crit_edge314.i, %.loopexit262.i
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %634, %.loopexit262.i ]
-  %646 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %633, %.loopexit262.i ]
+645:                                              ; preds = %._crit_edge316.i, %.loopexit262.i
+  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge316.i ], [ %634, %.loopexit262.i ]
+  %646 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %633, %.loopexit262.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21687)
   %647 = and i64 %646, 63
   %648 = shl nuw i64 %.sroa.019.1.i, %647
   %649 = load i64, ptr %584, align 8, !alias.scope !21687, !noalias !21659, !noundef !6
   %650 = or i64 %648, %649
   store i64 %650, ptr %584, align 8, !alias.scope !21687, !noalias !21659
-  store i64 %.pre-phi320.i, ptr %582, align 8, !alias.scope !21687, !noalias !21659
-  %651 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi322.i, ptr %582, align 8, !alias.scope !21687, !noalias !21659
+  %651 = and i64 %.pre-phi322.i, 63
   %652 = icmp eq i64 %651, 0
   br i1 %652, label %653, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -214679,16 +214679,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %677 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %679 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %664
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %664
   %680 = invoke fastcc { i16, i16 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h450ecd090cc03839E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21659
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i16, i16 } %680
-  %681 = extractvalue { i16, i16 } %.fr.i107, 0
-  %682 = extractvalue { i16, i16 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr303.i = freeze { i16, i16 } %680
+  %681 = extractvalue { i16, i16 } %.fr303.i, 0
+  %682 = extractvalue { i16, i16 } %.fr303.i, 1
   %.not.i114.i = icmp eq i16 %681, 2
   br i1 %.not.i114.i, label %705, label %683
 
@@ -214732,7 +214732,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.us.i = phi i64 [ %695, %698 ], [ 0, %.lr.ph292.i ]
   %696 = add i64 %.sroa.083.0289.us.i, %.val.i.i.i115.i
   %697 = invoke fastcc { i16, i16 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h8523fb64f1ae7befE"(ptr noundef nonnull align 8 %467, i64 noundef %696)
-          to label %698 unwind label %.loopexit.split.us.i112, !noalias !21659
+          to label %698 unwind label %.loopexit.split.us.i111, !noalias !21659
 
 698:                                              ; preds = %.lr.ph292.split.us.i
   %699 = extractvalue { i16, i16 } %697, 0
@@ -214742,11 +214742,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select258.us.i = select i1 %701, i1 %702, i1 false
   %703 = or i1 %.sroa.014.0290.us.i, %spec.select258.us.i
   %704 = add i64 %695, 1
-  %exitcond312.not.i = icmp eq i64 %695, %reass.sub153
-  br i1 %exitcond312.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
+  %exitcond314.not.i = icmp eq i64 %695, %reass.sub153
+  br i1 %exitcond314.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph292.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph292.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -214834,7 +214834,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.i = phi i64 [ %721, %747 ], [ 0, %.lr.ph292.i ]
   %722 = add i64 %.sroa.083.0289.i, %.val.i.i.i115.i
   %723 = invoke fastcc { i16, i16 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h8523fb64f1ae7befE"(ptr noundef nonnull align 8 %467, i64 noundef %722)
-          to label %747 unwind label %.loopexit.split.i108, !noalias !21659
+          to label %747 unwind label %.loopexit.split.i107, !noalias !21659
 
 ._crit_edge293.i:                                 ; preds = %747, %698, %693
   %.sroa.014.0.lcssa.i = phi i1 [ false, %693 ], [ %703, %698 ], [ %751, %747 ]
@@ -214846,16 +214846,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 728:                                              ; preds = %._crit_edge293.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21659
+          to label %._crit_edge318.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21659
 
-._crit_edge316.i:                                 ; preds = %728
-  %.pre317.i = load i64, ptr %674, align 8, !alias.scope !21706, !noalias !21659
-  %.pre318.i = add i64 %.pre317.i, 1
+._crit_edge318.i:                                 ; preds = %728
+  %.pre319.i = load i64, ptr %674, align 8, !alias.scope !21706, !noalias !21659
+  %.pre320.i = add i64 %.pre319.i, 1
   br label %729
 
-729:                                              ; preds = %._crit_edge316.i, %._crit_edge293.i
-  %.pre-phi.i110 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %725, %._crit_edge293.i ]
-  %730 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %724, %._crit_edge293.i ]
+729:                                              ; preds = %._crit_edge318.i, %._crit_edge293.i
+  %.pre-phi.i109 = phi i64 [ %.pre320.i, %._crit_edge318.i ], [ %725, %._crit_edge293.i ]
+  %730 = phi i64 [ %.pre319.i, %._crit_edge318.i ], [ %724, %._crit_edge293.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21706)
   %731 = zext i1 %.sroa.014.0.lcssa.i to i64
   %732 = and i64 %730, 63
@@ -214863,10 +214863,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %734 = load i64, ptr %676, align 8, !alias.scope !21706, !noalias !21659, !noundef !6
   %735 = or i64 %733, %734
   store i64 %735, ptr %676, align 8, !alias.scope !21706, !noalias !21659
-  store i64 %.pre-phi.i110, ptr %674, align 8, !alias.scope !21706, !noalias !21659
-  %736 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %674, align 8, !alias.scope !21706, !noalias !21659
+  %736 = and i64 %.pre-phi.i109, 63
   %737 = icmp eq i64 %736, 0
-  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 738:                                              ; preds = %729
   %739 = load i64, ptr %677, align 8, !alias.scope !21706, !noalias !21659, !noundef !6
@@ -214882,10 +214882,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %746 = add i64 %745, %744
   store i64 %746, ptr %679, align 8, !alias.scope !21706, !noalias !21659
   store i64 0, ptr %676, align 8, !alias.scope !21706, !noalias !21659
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %738, %729
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %738, %729
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 747:                                              ; preds = %.lr.ph292.split.i
   %748 = extractvalue { i16, i16 } %723, 0
@@ -214893,15 +214893,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %750 = xor i1 %749, true
   %751 = or i1 %.sroa.014.0290.i, %750
   %752 = add i64 %721, 1
-  %exitcond311.not.i = icmp eq i64 %721, %reass.sub153
-  br i1 %exitcond311.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
+  %exitcond313.not.i = icmp eq i64 %721, %reass.sub153
+  br i1 %exitcond313.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph292.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph292.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit259.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -214911,8 +214911,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread248.i unwind label %564, !noalias !21659
 
@@ -215274,9 +215274,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h99811fca7e
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread231.i, label %157
+  br i1 %156, label %.thread233.i, label %157
 
-.thread231.i:                                     ; preds = %155
+.thread233.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21723
   store i64 1, ptr %76, align 8, !noalias !21723
   br label %238
@@ -215303,9 +215303,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h99811fca7e
   br label %.thread143.i
 
 163:                                              ; preds = %157
-  %.fr192.i = freeze { i32, i32 } %158
-  %164 = extractvalue { i32, i32 } %.fr192.i, 0
-  %165 = extractvalue { i32, i32 } %.fr192.i, 1
+  %.fr.i = freeze { i32, i32 } %158
+  %164 = extractvalue { i32, i32 } %.fr.i, 0
+  %165 = extractvalue { i32, i32 } %.fr.i, 1
   %166 = trunc i32 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -215379,8 +215379,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h99811fca7e
   %spec.select.us.i = select i1 %194, i1 %195, i1 false
   %196 = or i1 %.sroa.04.0169.us.i, %spec.select.us.i
   %197 = add i64 %188, 1
-  %exitcond202.not.i = icmp eq i64 %188, %137
-  br i1 %exitcond202.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond204.not.i = icmp eq i64 %188, %137
+  br i1 %exitcond204.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit160.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit162.us.i = landingpad { ptr, i32 }
@@ -215457,16 +215457,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h99811fca7e
 
 208:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge206.i unwind label %.loopexit.split-lp161.i, !noalias !21723
+          to label %._crit_edge208.i unwind label %.loopexit.split-lp161.i, !noalias !21723
 
-._crit_edge206.i:                                 ; preds = %208
+._crit_edge208.i:                                 ; preds = %208
   %.pre.i = load i64, ptr %181, align 8, !alias.scope !21726, !noalias !21723
-  %.pre216.i = add i64 %.pre.i, 1
+  %.pre218.i = add i64 %.pre.i, 1
   br label %209
 
-209:                                              ; preds = %._crit_edge206.i, %._crit_edge.i
-  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge206.i ], [ %205, %._crit_edge.i ]
-  %210 = phi i64 [ %.pre.i, %._crit_edge206.i ], [ %204, %._crit_edge.i ]
+209:                                              ; preds = %._crit_edge208.i, %._crit_edge.i
+  %.pre-phi219.i = phi i64 [ %.pre218.i, %._crit_edge208.i ], [ %205, %._crit_edge.i ]
+  %210 = phi i64 [ %.pre.i, %._crit_edge208.i ], [ %204, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21726)
   %211 = zext i1 %.sroa.04.0.lcssa.i to i64
   %212 = and i64 %210, 63
@@ -215474,8 +215474,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17h99811fca7e
   %214 = load i64, ptr %183, align 8, !alias.scope !21726, !noalias !21723, !noundef !6
   %215 = or i64 %213, %214
   store i64 %215, ptr %183, align 8, !alias.scope !21726, !noalias !21723
-  store i64 %.pre-phi217.i, ptr %181, align 8, !alias.scope !21726, !noalias !21723
-  %216 = and i64 %.pre-phi217.i, 63
+  store i64 %.pre-phi219.i, ptr %181, align 8, !alias.scope !21726, !noalias !21723
+  %216 = and i64 %.pre-phi219.i, 63
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %218, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -215522,7 +215522,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %239 unwind label %.thread.i, !noalias !21723
 
-238:                                              ; preds = %159, %.thread231.i
+238:                                              ; preds = %159, %.thread233.i
   br i1 %3, label %241, label %240
 
 239:                                              ; preds = %237
@@ -215765,29 +215765,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %301, i1 %302, i1 false
   %303 = or i1 %.sroa.020.0174.i, %.sroa.019.0.i
   %304 = add i64 %290, 1
-  %exitcond203.not.i = icmp eq i64 %290, %137
-  br i1 %exitcond203.not.i, label %.loopexit153.loopexit.i, label %289
+  %exitcond205.not.i = icmp eq i64 %290, %137
+  br i1 %exitcond205.not.i, label %.loopexit153.loopexit.i, label %289
 
 305:                                              ; preds = %.loopexit153.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge209.i unwind label %.loopexit.split-lp155.i, !noalias !21723
+          to label %._crit_edge211.i unwind label %.loopexit.split-lp155.i, !noalias !21723
 
-._crit_edge209.i:                                 ; preds = %305
-  %.pre210.i = load i64, ptr %249, align 8, !alias.scope !21738, !noalias !21723
-  %.pre214.i = add i64 %.pre210.i, 1
+._crit_edge211.i:                                 ; preds = %305
+  %.pre212.i = load i64, ptr %249, align 8, !alias.scope !21738, !noalias !21723
+  %.pre216.i = add i64 %.pre212.i, 1
   br label %306
 
-306:                                              ; preds = %._crit_edge209.i, %.loopexit153.i
-  %.pre-phi215.i = phi i64 [ %.pre214.i, %._crit_edge209.i ], [ %295, %.loopexit153.i ]
-  %307 = phi i64 [ %.pre210.i, %._crit_edge209.i ], [ %294, %.loopexit153.i ]
+306:                                              ; preds = %._crit_edge211.i, %.loopexit153.i
+  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge211.i ], [ %295, %.loopexit153.i ]
+  %307 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %294, %.loopexit153.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21738)
   %308 = and i64 %307, 63
   %309 = shl nuw i64 %.sroa.020.1.i, %308
   %310 = load i64, ptr %251, align 8, !alias.scope !21738, !noalias !21723, !noundef !6
   %311 = or i64 %309, %310
   store i64 %311, ptr %251, align 8, !alias.scope !21738, !noalias !21723
-  store i64 %.pre-phi215.i, ptr %249, align 8, !alias.scope !21738, !noalias !21723
-  %312 = and i64 %.pre-phi215.i, 63
+  store i64 %.pre-phi217.i, ptr %249, align 8, !alias.scope !21738, !noalias !21723
+  %312 = and i64 %.pre-phi217.i, 63
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %314, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -215858,13 +215858,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc89.i unwind label %.loopexit.split-lp.i, !noalias !21723
 
 .noexc89.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i32, i32 } %337
-  %338 = extractvalue { i32, i32 } %.fr.i, 0
+  %.fr196.i = freeze { i32, i32 } %337
+  %338 = extractvalue { i32, i32 } %.fr196.i, 0
   %.not.i87.i = icmp eq i32 %338, 2
   br i1 %.not.i87.i, label %355, label %339
 
 339:                                              ; preds = %.noexc89.i
-  %340 = extractvalue { i32, i32 } %.fr.i, 1
+  %340 = extractvalue { i32, i32 } %.fr196.i, 1
   %341 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21742, !noalias !21745, !noundef !6
   %342 = add i64 %341, 1
   store i64 %342, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21742, !noalias !21745
@@ -215891,8 +215891,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select152.us.i = select i1 %351, i1 %352, i1 false
   %353 = or i1 %.sroa.011.0179.us.i, %spec.select152.us.i
   %354 = add i64 %345, 1
-  %exitcond205.not.i = icmp eq i64 %345, %137
-  br i1 %exitcond205.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
+  %exitcond207.not.i = icmp eq i64 %345, %137
+  br i1 %exitcond207.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph181.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -215991,16 +215991,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 379:                                              ; preds = %._crit_edge182.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge211.i unwind label %.loopexit.split-lp.i, !noalias !21723
+          to label %._crit_edge213.i unwind label %.loopexit.split-lp.i, !noalias !21723
 
-._crit_edge211.i:                                 ; preds = %379
-  %.pre212.i = load i64, ptr %331, align 8, !alias.scope !21747, !noalias !21723
-  %.pre213.i = add i64 %.pre212.i, 1
+._crit_edge213.i:                                 ; preds = %379
+  %.pre214.i = load i64, ptr %331, align 8, !alias.scope !21747, !noalias !21723
+  %.pre215.i = add i64 %.pre214.i, 1
   br label %380
 
-380:                                              ; preds = %._crit_edge211.i, %._crit_edge182.i
-  %.pre-phi.i = phi i64 [ %.pre213.i, %._crit_edge211.i ], [ %376, %._crit_edge182.i ]
-  %381 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %375, %._crit_edge182.i ]
+380:                                              ; preds = %._crit_edge213.i, %._crit_edge182.i
+  %.pre-phi.i = phi i64 [ %.pre215.i, %._crit_edge213.i ], [ %376, %._crit_edge182.i ]
+  %381 = phi i64 [ %.pre214.i, %._crit_edge213.i ], [ %375, %._crit_edge182.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21747)
   %382 = zext i1 %.sroa.011.0.lcssa.i to i64
   %383 = and i64 %381, 63
@@ -216038,8 +216038,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %401 = xor i1 %400, true
   %402 = or i1 %.sroa.011.0179.i, %401
   %403 = add i64 %372, 1
-  %exitcond204.not.i = icmp eq i64 %372, %137
-  br i1 %exitcond204.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
+  %exitcond206.not.i = icmp eq i64 %372, %137
+  br i1 %exitcond206.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph181.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -216310,9 +216310,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h5922b18e6bd80906E.exit
   br label %.thread246.i
 
 485:                                              ; preds = %476
-  %.fr297.i = freeze { i32, i32 } %477
-  %486 = extractvalue { i32, i32 } %.fr297.i, 0
-  %487 = extractvalue { i32, i32 } %.fr297.i, 1
+  %.fr.i113 = freeze { i32, i32 } %477
+  %486 = extractvalue { i32, i32 } %.fr.i113, 0
+  %487 = extractvalue { i32, i32 } %.fr.i113, 1
   %488 = trunc i32 %486 to i1
   %brmerge.i114 = or i1 %3, %488
   br i1 %brmerge.i114, label %489, label %491
@@ -216401,8 +216401,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h5922b18e6bd80906E.exit
   %spec.select.us.i123 = select i1 %524, i1 %525, i1 false
   %526 = or i1 %.sroa.09.0276.us.i, %spec.select.us.i123
   %527 = add i64 %518, 1
-  %exitcond307.not.i = icmp eq i64 %518, %reass.sub
-  br i1 %exitcond307.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond309.not.i = icmp eq i64 %518, %reass.sub
+  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit268.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit270.us.i = landingpad { ptr, i32 }
@@ -216458,16 +216458,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h5922b18e6bd80906E.exit
 
 538:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge311.i unwind label %.loopexit.split-lp269.i, !noalias !21754
+          to label %._crit_edge313.i unwind label %.loopexit.split-lp269.i, !noalias !21754
 
-._crit_edge311.i:                                 ; preds = %538
+._crit_edge313.i:                                 ; preds = %538
   %.pre.i121 = load i64, ptr %507, align 8, !alias.scope !21760, !noalias !21754
-  %.pre319.i = add i64 %.pre.i121, 1
+  %.pre321.i = add i64 %.pre.i121, 1
   br label %539
 
-539:                                              ; preds = %._crit_edge311.i, %._crit_edge.i118
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge311.i ], [ %535, %._crit_edge.i118 ]
-  %540 = phi i64 [ %.pre.i121, %._crit_edge311.i ], [ %534, %._crit_edge.i118 ]
+539:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
+  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %535, %._crit_edge.i118 ]
+  %540 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %534, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21760)
   %541 = zext i1 %.sroa.09.0.lcssa.i to i64
   %542 = and i64 %540, 63
@@ -216475,8 +216475,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h5922b18e6bd80906E.exit
   %544 = load i64, ptr %509, align 8, !alias.scope !21760, !noalias !21754, !noundef !6
   %545 = or i64 %543, %544
   store i64 %545, ptr %509, align 8, !alias.scope !21760, !noalias !21754
-  store i64 %.pre-phi320.i, ptr %507, align 8, !alias.scope !21760, !noalias !21754
-  %546 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi322.i, ptr %507, align 8, !alias.scope !21760, !noalias !21754
+  %546 = and i64 %.pre-phi322.i, 63
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %548, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -216810,29 +216810,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %640, i1 %641, i1 false
   %642 = or i1 %.sroa.019.0284.i, %.sroa.018.0.i
   %643 = add i64 %629, 1
-  %exitcond308.not.i = icmp eq i64 %629, %reass.sub152
-  br i1 %exitcond308.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
+  %exitcond310.not.i = icmp eq i64 %629, %reass.sub152
+  br i1 %exitcond310.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
 
 644:                                              ; preds = %.loopexit260.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge312.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !21754
+          to label %._crit_edge314.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !21754
 
-._crit_edge312.i:                                 ; preds = %644
-  %.pre313.i = load i64, ptr %582, align 8, !alias.scope !21782, !noalias !21754
-  %.pre317.i = add i64 %.pre313.i, 1
+._crit_edge314.i:                                 ; preds = %644
+  %.pre315.i = load i64, ptr %582, align 8, !alias.scope !21782, !noalias !21754
+  %.pre319.i = add i64 %.pre315.i, 1
   br label %645
 
-645:                                              ; preds = %._crit_edge312.i, %.loopexit260.i
-  %.pre-phi318.i = phi i64 [ %.pre317.i, %._crit_edge312.i ], [ %634, %.loopexit260.i ]
-  %646 = phi i64 [ %.pre313.i, %._crit_edge312.i ], [ %633, %.loopexit260.i ]
+645:                                              ; preds = %._crit_edge314.i, %.loopexit260.i
+  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %634, %.loopexit260.i ]
+  %646 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %633, %.loopexit260.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21782)
   %647 = and i64 %646, 63
   %648 = shl nuw i64 %.sroa.019.1.i, %647
   %649 = load i64, ptr %584, align 8, !alias.scope !21782, !noalias !21754, !noundef !6
   %650 = or i64 %648, %649
   store i64 %650, ptr %584, align 8, !alias.scope !21782, !noalias !21754
-  store i64 %.pre-phi318.i, ptr %582, align 8, !alias.scope !21782, !noalias !21754
-  %651 = and i64 %.pre-phi318.i, 63
+  store i64 %.pre-phi320.i, ptr %582, align 8, !alias.scope !21782, !noalias !21754
+  %651 = and i64 %.pre-phi320.i, 63
   %652 = icmp eq i64 %651, 0
   br i1 %652, label %653, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -216915,16 +216915,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %677 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %679 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %664
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %664
   %680 = invoke fastcc { i32, i32 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc4b82c00b24143E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21754
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i32, i32 } %680
-  %681 = extractvalue { i32, i32 } %.fr.i107, 0
-  %682 = extractvalue { i32, i32 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr301.i = freeze { i32, i32 } %680
+  %681 = extractvalue { i32, i32 } %.fr301.i, 0
+  %682 = extractvalue { i32, i32 } %.fr301.i, 1
   %.not.i114.i = icmp eq i32 %681, 2
   br i1 %.not.i114.i, label %705, label %683
 
@@ -216968,7 +216968,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.us.i = phi i64 [ %695, %698 ], [ 0, %.lr.ph290.i ]
   %696 = add i64 %.sroa.083.0287.us.i, %.val.i.i.i115.i
   %697 = invoke fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h93d2416c08803127E"(ptr noundef nonnull align 8 %467, i64 noundef %696)
-          to label %698 unwind label %.loopexit.split.us.i112, !noalias !21754
+          to label %698 unwind label %.loopexit.split.us.i111, !noalias !21754
 
 698:                                              ; preds = %.lr.ph290.split.us.i
   %699 = extractvalue { i32, i32 } %697, 0
@@ -216978,11 +216978,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select256.us.i = select i1 %701, i1 %702, i1 false
   %703 = or i1 %.sroa.014.0288.us.i, %spec.select256.us.i
   %704 = add i64 %695, 1
-  %exitcond310.not.i = icmp eq i64 %695, %reass.sub153
-  br i1 %exitcond310.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
+  %exitcond312.not.i = icmp eq i64 %695, %reass.sub153
+  br i1 %exitcond312.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph290.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph290.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -217070,7 +217070,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.i = phi i64 [ %721, %747 ], [ 0, %.lr.ph290.i ]
   %722 = add i64 %.sroa.083.0287.i, %.val.i.i.i115.i
   %723 = invoke fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h93d2416c08803127E"(ptr noundef nonnull align 8 %467, i64 noundef %722)
-          to label %747 unwind label %.loopexit.split.i108, !noalias !21754
+          to label %747 unwind label %.loopexit.split.i107, !noalias !21754
 
 ._crit_edge291.i:                                 ; preds = %747, %698, %693
   %.sroa.014.0.lcssa.i = phi i1 [ false, %693 ], [ %703, %698 ], [ %751, %747 ]
@@ -217082,16 +217082,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 728:                                              ; preds = %._crit_edge291.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21754
+          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21754
 
-._crit_edge314.i:                                 ; preds = %728
-  %.pre315.i = load i64, ptr %674, align 8, !alias.scope !21801, !noalias !21754
-  %.pre316.i = add i64 %.pre315.i, 1
+._crit_edge316.i:                                 ; preds = %728
+  %.pre317.i = load i64, ptr %674, align 8, !alias.scope !21801, !noalias !21754
+  %.pre318.i = add i64 %.pre317.i, 1
   br label %729
 
-729:                                              ; preds = %._crit_edge314.i, %._crit_edge291.i
-  %.pre-phi.i110 = phi i64 [ %.pre316.i, %._crit_edge314.i ], [ %725, %._crit_edge291.i ]
-  %730 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %724, %._crit_edge291.i ]
+729:                                              ; preds = %._crit_edge316.i, %._crit_edge291.i
+  %.pre-phi.i109 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %725, %._crit_edge291.i ]
+  %730 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %724, %._crit_edge291.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21801)
   %731 = zext i1 %.sroa.014.0.lcssa.i to i64
   %732 = and i64 %730, 63
@@ -217099,10 +217099,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %734 = load i64, ptr %676, align 8, !alias.scope !21801, !noalias !21754, !noundef !6
   %735 = or i64 %733, %734
   store i64 %735, ptr %676, align 8, !alias.scope !21801, !noalias !21754
-  store i64 %.pre-phi.i110, ptr %674, align 8, !alias.scope !21801, !noalias !21754
-  %736 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %674, align 8, !alias.scope !21801, !noalias !21754
+  %736 = and i64 %.pre-phi.i109, 63
   %737 = icmp eq i64 %736, 0
-  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 738:                                              ; preds = %729
   %739 = load i64, ptr %677, align 8, !alias.scope !21801, !noalias !21754, !noundef !6
@@ -217118,10 +217118,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %746 = add i64 %745, %744
   store i64 %746, ptr %679, align 8, !alias.scope !21801, !noalias !21754
   store i64 0, ptr %676, align 8, !alias.scope !21801, !noalias !21754
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %738, %729
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %738, %729
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 747:                                              ; preds = %.lr.ph290.split.i
   %748 = extractvalue { i32, i32 } %723, 0
@@ -217129,15 +217129,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %750 = xor i1 %749, true
   %751 = or i1 %.sroa.014.0288.i, %750
   %752 = add i64 %721, 1
-  %exitcond309.not.i = icmp eq i64 %721, %reass.sub153
-  br i1 %exitcond309.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
+  %exitcond311.not.i = icmp eq i64 %721, %reass.sub153
+  br i1 %exitcond311.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph290.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph290.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit257.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -217147,8 +217147,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread246.i unwind label %564, !noalias !21754
 
@@ -217510,9 +217510,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hcc4d322766
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread231.i, label %157
+  br i1 %156, label %.thread233.i, label %157
 
-.thread231.i:                                     ; preds = %155
+.thread233.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21818
   store i64 1, ptr %76, align 8, !noalias !21818
   br label %238
@@ -217539,9 +217539,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hcc4d322766
   br label %.thread143.i
 
 163:                                              ; preds = %157
-  %.fr192.i = freeze { i32, i32 } %158
-  %164 = extractvalue { i32, i32 } %.fr192.i, 0
-  %165 = extractvalue { i32, i32 } %.fr192.i, 1
+  %.fr.i = freeze { i32, i32 } %158
+  %164 = extractvalue { i32, i32 } %.fr.i, 0
+  %165 = extractvalue { i32, i32 } %.fr.i, 1
   %166 = trunc i32 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -217615,8 +217615,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hcc4d322766
   %spec.select.us.i = select i1 %194, i1 %195, i1 false
   %196 = or i1 %.sroa.04.0169.us.i, %spec.select.us.i
   %197 = add i64 %188, 1
-  %exitcond202.not.i = icmp eq i64 %188, %137
-  br i1 %exitcond202.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond204.not.i = icmp eq i64 %188, %137
+  br i1 %exitcond204.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit160.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit162.us.i = landingpad { ptr, i32 }
@@ -217693,16 +217693,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hcc4d322766
 
 208:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge206.i unwind label %.loopexit.split-lp161.i, !noalias !21818
+          to label %._crit_edge208.i unwind label %.loopexit.split-lp161.i, !noalias !21818
 
-._crit_edge206.i:                                 ; preds = %208
+._crit_edge208.i:                                 ; preds = %208
   %.pre.i = load i64, ptr %181, align 8, !alias.scope !21821, !noalias !21818
-  %.pre216.i = add i64 %.pre.i, 1
+  %.pre218.i = add i64 %.pre.i, 1
   br label %209
 
-209:                                              ; preds = %._crit_edge206.i, %._crit_edge.i
-  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge206.i ], [ %205, %._crit_edge.i ]
-  %210 = phi i64 [ %.pre.i, %._crit_edge206.i ], [ %204, %._crit_edge.i ]
+209:                                              ; preds = %._crit_edge208.i, %._crit_edge.i
+  %.pre-phi219.i = phi i64 [ %.pre218.i, %._crit_edge208.i ], [ %205, %._crit_edge.i ]
+  %210 = phi i64 [ %.pre.i, %._crit_edge208.i ], [ %204, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21821)
   %211 = zext i1 %.sroa.04.0.lcssa.i to i64
   %212 = and i64 %210, 63
@@ -217710,8 +217710,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hcc4d322766
   %214 = load i64, ptr %183, align 8, !alias.scope !21821, !noalias !21818, !noundef !6
   %215 = or i64 %213, %214
   store i64 %215, ptr %183, align 8, !alias.scope !21821, !noalias !21818
-  store i64 %.pre-phi217.i, ptr %181, align 8, !alias.scope !21821, !noalias !21818
-  %216 = and i64 %.pre-phi217.i, 63
+  store i64 %.pre-phi219.i, ptr %181, align 8, !alias.scope !21821, !noalias !21818
+  %216 = and i64 %.pre-phi219.i, 63
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %218, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -217758,7 +217758,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %239 unwind label %.thread.i, !noalias !21818
 
-238:                                              ; preds = %159, %.thread231.i
+238:                                              ; preds = %159, %.thread233.i
   br i1 %3, label %241, label %240
 
 239:                                              ; preds = %237
@@ -218001,29 +218001,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %301, i1 %302, i1 false
   %303 = or i1 %.sroa.020.0174.i, %.sroa.019.0.i
   %304 = add i64 %290, 1
-  %exitcond203.not.i = icmp eq i64 %290, %137
-  br i1 %exitcond203.not.i, label %.loopexit153.loopexit.i, label %289
+  %exitcond205.not.i = icmp eq i64 %290, %137
+  br i1 %exitcond205.not.i, label %.loopexit153.loopexit.i, label %289
 
 305:                                              ; preds = %.loopexit153.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge209.i unwind label %.loopexit.split-lp155.i, !noalias !21818
+          to label %._crit_edge211.i unwind label %.loopexit.split-lp155.i, !noalias !21818
 
-._crit_edge209.i:                                 ; preds = %305
-  %.pre210.i = load i64, ptr %249, align 8, !alias.scope !21833, !noalias !21818
-  %.pre214.i = add i64 %.pre210.i, 1
+._crit_edge211.i:                                 ; preds = %305
+  %.pre212.i = load i64, ptr %249, align 8, !alias.scope !21833, !noalias !21818
+  %.pre216.i = add i64 %.pre212.i, 1
   br label %306
 
-306:                                              ; preds = %._crit_edge209.i, %.loopexit153.i
-  %.pre-phi215.i = phi i64 [ %.pre214.i, %._crit_edge209.i ], [ %295, %.loopexit153.i ]
-  %307 = phi i64 [ %.pre210.i, %._crit_edge209.i ], [ %294, %.loopexit153.i ]
+306:                                              ; preds = %._crit_edge211.i, %.loopexit153.i
+  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge211.i ], [ %295, %.loopexit153.i ]
+  %307 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %294, %.loopexit153.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21833)
   %308 = and i64 %307, 63
   %309 = shl nuw i64 %.sroa.020.1.i, %308
   %310 = load i64, ptr %251, align 8, !alias.scope !21833, !noalias !21818, !noundef !6
   %311 = or i64 %309, %310
   store i64 %311, ptr %251, align 8, !alias.scope !21833, !noalias !21818
-  store i64 %.pre-phi215.i, ptr %249, align 8, !alias.scope !21833, !noalias !21818
-  %312 = and i64 %.pre-phi215.i, 63
+  store i64 %.pre-phi217.i, ptr %249, align 8, !alias.scope !21833, !noalias !21818
+  %312 = and i64 %.pre-phi217.i, 63
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %314, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -218094,13 +218094,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc89.i unwind label %.loopexit.split-lp.i, !noalias !21818
 
 .noexc89.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i32, i32 } %337
-  %338 = extractvalue { i32, i32 } %.fr.i, 0
+  %.fr196.i = freeze { i32, i32 } %337
+  %338 = extractvalue { i32, i32 } %.fr196.i, 0
   %.not.i87.i = icmp eq i32 %338, 2
   br i1 %.not.i87.i, label %355, label %339
 
 339:                                              ; preds = %.noexc89.i
-  %340 = extractvalue { i32, i32 } %.fr.i, 1
+  %340 = extractvalue { i32, i32 } %.fr196.i, 1
   %341 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21837, !noalias !21840, !noundef !6
   %342 = add i64 %341, 1
   store i64 %342, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21837, !noalias !21840
@@ -218127,8 +218127,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select152.us.i = select i1 %351, i1 %352, i1 false
   %353 = or i1 %.sroa.011.0179.us.i, %spec.select152.us.i
   %354 = add i64 %345, 1
-  %exitcond205.not.i = icmp eq i64 %345, %137
-  br i1 %exitcond205.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
+  %exitcond207.not.i = icmp eq i64 %345, %137
+  br i1 %exitcond207.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph181.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -218227,16 +218227,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 379:                                              ; preds = %._crit_edge182.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge211.i unwind label %.loopexit.split-lp.i, !noalias !21818
+          to label %._crit_edge213.i unwind label %.loopexit.split-lp.i, !noalias !21818
 
-._crit_edge211.i:                                 ; preds = %379
-  %.pre212.i = load i64, ptr %331, align 8, !alias.scope !21842, !noalias !21818
-  %.pre213.i = add i64 %.pre212.i, 1
+._crit_edge213.i:                                 ; preds = %379
+  %.pre214.i = load i64, ptr %331, align 8, !alias.scope !21842, !noalias !21818
+  %.pre215.i = add i64 %.pre214.i, 1
   br label %380
 
-380:                                              ; preds = %._crit_edge211.i, %._crit_edge182.i
-  %.pre-phi.i = phi i64 [ %.pre213.i, %._crit_edge211.i ], [ %376, %._crit_edge182.i ]
-  %381 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %375, %._crit_edge182.i ]
+380:                                              ; preds = %._crit_edge213.i, %._crit_edge182.i
+  %.pre-phi.i = phi i64 [ %.pre215.i, %._crit_edge213.i ], [ %376, %._crit_edge182.i ]
+  %381 = phi i64 [ %.pre214.i, %._crit_edge213.i ], [ %375, %._crit_edge182.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21842)
   %382 = zext i1 %.sroa.011.0.lcssa.i to i64
   %383 = and i64 %381, 63
@@ -218274,8 +218274,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %401 = xor i1 %400, true
   %402 = or i1 %.sroa.011.0179.i, %401
   %403 = add i64 %372, 1
-  %exitcond204.not.i = icmp eq i64 %372, %137
-  br i1 %exitcond204.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
+  %exitcond206.not.i = icmp eq i64 %372, %137
+  br i1 %exitcond206.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph181.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -218546,9 +218546,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h8974a32bb12ef4bbE.exit
   br label %.thread246.i
 
 485:                                              ; preds = %476
-  %.fr297.i = freeze { i32, i32 } %477
-  %486 = extractvalue { i32, i32 } %.fr297.i, 0
-  %487 = extractvalue { i32, i32 } %.fr297.i, 1
+  %.fr.i113 = freeze { i32, i32 } %477
+  %486 = extractvalue { i32, i32 } %.fr.i113, 0
+  %487 = extractvalue { i32, i32 } %.fr.i113, 1
   %488 = trunc i32 %486 to i1
   %brmerge.i114 = or i1 %3, %488
   br i1 %brmerge.i114, label %489, label %491
@@ -218637,8 +218637,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h8974a32bb12ef4bbE.exit
   %spec.select.us.i123 = select i1 %524, i1 %525, i1 false
   %526 = or i1 %.sroa.09.0276.us.i, %spec.select.us.i123
   %527 = add i64 %518, 1
-  %exitcond307.not.i = icmp eq i64 %518, %reass.sub
-  br i1 %exitcond307.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond309.not.i = icmp eq i64 %518, %reass.sub
+  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit268.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit270.us.i = landingpad { ptr, i32 }
@@ -218694,16 +218694,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h8974a32bb12ef4bbE.exit
 
 538:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge311.i unwind label %.loopexit.split-lp269.i, !noalias !21849
+          to label %._crit_edge313.i unwind label %.loopexit.split-lp269.i, !noalias !21849
 
-._crit_edge311.i:                                 ; preds = %538
+._crit_edge313.i:                                 ; preds = %538
   %.pre.i121 = load i64, ptr %507, align 8, !alias.scope !21855, !noalias !21849
-  %.pre319.i = add i64 %.pre.i121, 1
+  %.pre321.i = add i64 %.pre.i121, 1
   br label %539
 
-539:                                              ; preds = %._crit_edge311.i, %._crit_edge.i118
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge311.i ], [ %535, %._crit_edge.i118 ]
-  %540 = phi i64 [ %.pre.i121, %._crit_edge311.i ], [ %534, %._crit_edge.i118 ]
+539:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
+  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %535, %._crit_edge.i118 ]
+  %540 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %534, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21855)
   %541 = zext i1 %.sroa.09.0.lcssa.i to i64
   %542 = and i64 %540, 63
@@ -218711,8 +218711,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h8974a32bb12ef4bbE.exit
   %544 = load i64, ptr %509, align 8, !alias.scope !21855, !noalias !21849, !noundef !6
   %545 = or i64 %543, %544
   store i64 %545, ptr %509, align 8, !alias.scope !21855, !noalias !21849
-  store i64 %.pre-phi320.i, ptr %507, align 8, !alias.scope !21855, !noalias !21849
-  %546 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi322.i, ptr %507, align 8, !alias.scope !21855, !noalias !21849
+  %546 = and i64 %.pre-phi322.i, 63
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %548, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -219046,29 +219046,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %640, i1 %641, i1 false
   %642 = or i1 %.sroa.019.0284.i, %.sroa.018.0.i
   %643 = add i64 %629, 1
-  %exitcond308.not.i = icmp eq i64 %629, %reass.sub152
-  br i1 %exitcond308.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
+  %exitcond310.not.i = icmp eq i64 %629, %reass.sub152
+  br i1 %exitcond310.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
 
 644:                                              ; preds = %.loopexit260.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge312.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !21849
+          to label %._crit_edge314.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !21849
 
-._crit_edge312.i:                                 ; preds = %644
-  %.pre313.i = load i64, ptr %582, align 8, !alias.scope !21877, !noalias !21849
-  %.pre317.i = add i64 %.pre313.i, 1
+._crit_edge314.i:                                 ; preds = %644
+  %.pre315.i = load i64, ptr %582, align 8, !alias.scope !21877, !noalias !21849
+  %.pre319.i = add i64 %.pre315.i, 1
   br label %645
 
-645:                                              ; preds = %._crit_edge312.i, %.loopexit260.i
-  %.pre-phi318.i = phi i64 [ %.pre317.i, %._crit_edge312.i ], [ %634, %.loopexit260.i ]
-  %646 = phi i64 [ %.pre313.i, %._crit_edge312.i ], [ %633, %.loopexit260.i ]
+645:                                              ; preds = %._crit_edge314.i, %.loopexit260.i
+  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %634, %.loopexit260.i ]
+  %646 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %633, %.loopexit260.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21877)
   %647 = and i64 %646, 63
   %648 = shl nuw i64 %.sroa.019.1.i, %647
   %649 = load i64, ptr %584, align 8, !alias.scope !21877, !noalias !21849, !noundef !6
   %650 = or i64 %648, %649
   store i64 %650, ptr %584, align 8, !alias.scope !21877, !noalias !21849
-  store i64 %.pre-phi318.i, ptr %582, align 8, !alias.scope !21877, !noalias !21849
-  %651 = and i64 %.pre-phi318.i, 63
+  store i64 %.pre-phi320.i, ptr %582, align 8, !alias.scope !21877, !noalias !21849
+  %651 = and i64 %.pre-phi320.i, 63
   %652 = icmp eq i64 %651, 0
   br i1 %652, label %653, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -219151,16 +219151,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %677 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %679 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %664
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %664
   %680 = invoke fastcc { i32, i32 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a10b04061413cc0E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21849
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i32, i32 } %680
-  %681 = extractvalue { i32, i32 } %.fr.i107, 0
-  %682 = extractvalue { i32, i32 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr301.i = freeze { i32, i32 } %680
+  %681 = extractvalue { i32, i32 } %.fr301.i, 0
+  %682 = extractvalue { i32, i32 } %.fr301.i, 1
   %.not.i114.i = icmp eq i32 %681, 2
   br i1 %.not.i114.i, label %705, label %683
 
@@ -219204,7 +219204,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.us.i = phi i64 [ %695, %698 ], [ 0, %.lr.ph290.i ]
   %696 = add i64 %.sroa.083.0287.us.i, %.val.i.i.i115.i
   %697 = invoke fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hc9a85c8e44be8116E"(ptr noundef nonnull align 8 %467, i64 noundef %696)
-          to label %698 unwind label %.loopexit.split.us.i112, !noalias !21849
+          to label %698 unwind label %.loopexit.split.us.i111, !noalias !21849
 
 698:                                              ; preds = %.lr.ph290.split.us.i
   %699 = extractvalue { i32, i32 } %697, 0
@@ -219214,11 +219214,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select256.us.i = select i1 %701, i1 %702, i1 false
   %703 = or i1 %.sroa.014.0288.us.i, %spec.select256.us.i
   %704 = add i64 %695, 1
-  %exitcond310.not.i = icmp eq i64 %695, %reass.sub153
-  br i1 %exitcond310.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
+  %exitcond312.not.i = icmp eq i64 %695, %reass.sub153
+  br i1 %exitcond312.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph290.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph290.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -219306,7 +219306,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.i = phi i64 [ %721, %747 ], [ 0, %.lr.ph290.i ]
   %722 = add i64 %.sroa.083.0287.i, %.val.i.i.i115.i
   %723 = invoke fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hc9a85c8e44be8116E"(ptr noundef nonnull align 8 %467, i64 noundef %722)
-          to label %747 unwind label %.loopexit.split.i108, !noalias !21849
+          to label %747 unwind label %.loopexit.split.i107, !noalias !21849
 
 ._crit_edge291.i:                                 ; preds = %747, %698, %693
   %.sroa.014.0.lcssa.i = phi i1 [ false, %693 ], [ %703, %698 ], [ %751, %747 ]
@@ -219318,16 +219318,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 728:                                              ; preds = %._crit_edge291.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21849
+          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21849
 
-._crit_edge314.i:                                 ; preds = %728
-  %.pre315.i = load i64, ptr %674, align 8, !alias.scope !21896, !noalias !21849
-  %.pre316.i = add i64 %.pre315.i, 1
+._crit_edge316.i:                                 ; preds = %728
+  %.pre317.i = load i64, ptr %674, align 8, !alias.scope !21896, !noalias !21849
+  %.pre318.i = add i64 %.pre317.i, 1
   br label %729
 
-729:                                              ; preds = %._crit_edge314.i, %._crit_edge291.i
-  %.pre-phi.i110 = phi i64 [ %.pre316.i, %._crit_edge314.i ], [ %725, %._crit_edge291.i ]
-  %730 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %724, %._crit_edge291.i ]
+729:                                              ; preds = %._crit_edge316.i, %._crit_edge291.i
+  %.pre-phi.i109 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %725, %._crit_edge291.i ]
+  %730 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %724, %._crit_edge291.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21896)
   %731 = zext i1 %.sroa.014.0.lcssa.i to i64
   %732 = and i64 %730, 63
@@ -219335,10 +219335,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %734 = load i64, ptr %676, align 8, !alias.scope !21896, !noalias !21849, !noundef !6
   %735 = or i64 %733, %734
   store i64 %735, ptr %676, align 8, !alias.scope !21896, !noalias !21849
-  store i64 %.pre-phi.i110, ptr %674, align 8, !alias.scope !21896, !noalias !21849
-  %736 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %674, align 8, !alias.scope !21896, !noalias !21849
+  %736 = and i64 %.pre-phi.i109, 63
   %737 = icmp eq i64 %736, 0
-  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 738:                                              ; preds = %729
   %739 = load i64, ptr %677, align 8, !alias.scope !21896, !noalias !21849, !noundef !6
@@ -219354,10 +219354,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %746 = add i64 %745, %744
   store i64 %746, ptr %679, align 8, !alias.scope !21896, !noalias !21849
   store i64 0, ptr %676, align 8, !alias.scope !21896, !noalias !21849
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %738, %729
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %738, %729
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 747:                                              ; preds = %.lr.ph290.split.i
   %748 = extractvalue { i32, i32 } %723, 0
@@ -219365,15 +219365,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %750 = xor i1 %749, true
   %751 = or i1 %.sroa.014.0288.i, %750
   %752 = add i64 %721, 1
-  %exitcond309.not.i = icmp eq i64 %721, %reass.sub153
-  br i1 %exitcond309.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
+  %exitcond311.not.i = icmp eq i64 %721, %reass.sub153
+  br i1 %exitcond311.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph290.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph290.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit257.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -219383,8 +219383,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread246.i unwind label %564, !noalias !21849
 
@@ -219634,10 +219634,10 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heaa0074a43
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h61cb0c5fcfbc6761E", ptr %.sroa.487.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !21903
   store ptr @anon.928e59b0f3020f0e90a866d2dce63e03.611, ptr %89, align 8, !noalias !21911
-  %.sroa.4130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i64 3, ptr %.sroa.4130.0..sroa_idx, align 8, !noalias !21911
-  %.sroa.5131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %94, ptr %.sroa.5131.0..sroa_idx, align 8, !noalias !21911
+  %.sroa.4129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store i64 3, ptr %.sroa.4129.0..sroa_idx, align 8, !noalias !21911
+  %.sroa.5130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 16
+  store ptr %94, ptr %.sroa.5130.0..sroa_idx, align 8, !noalias !21911
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !21911
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 32
@@ -219647,8 +219647,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heaa0074a43
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
-  %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h9712af10c1bba2b6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.4127.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %95)
+  %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h9712af10c1bba2b6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.4126.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %95)
   store i64 4, ptr %0, align 8
   br label %771
 
@@ -219746,9 +219746,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heaa0074a43
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread236.i, label %157
+  br i1 %156, label %.thread237.i, label %157
 
-.thread236.i:                                     ; preds = %155
+.thread237.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !21913
   store i64 1, ptr %76, align 8, !noalias !21913
   br label %235
@@ -219849,8 +219849,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heaa0074a43
   %spec.select.us.i = select i1 %191, i1 %193, i1 false
   %194 = or i1 %.sroa.04.0175.us.i, %spec.select.us.i
   %195 = add i64 %187, 1
-  %exitcond207.not.i = icmp eq i64 %187, %137
-  br i1 %exitcond207.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond208.not.i = icmp eq i64 %187, %137
+  br i1 %exitcond208.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit166.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit168.us.i = landingpad { ptr, i32 }
@@ -219927,16 +219927,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heaa0074a43
 
 206:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge211.i unwind label %.loopexit.split-lp167.i, !noalias !21913
+          to label %._crit_edge212.i unwind label %.loopexit.split-lp167.i, !noalias !21913
 
-._crit_edge211.i:                                 ; preds = %206
+._crit_edge212.i:                                 ; preds = %206
   %.pre.i = load i64, ptr %180, align 8, !alias.scope !21916, !noalias !21913
-  %.pre221.i = add i64 %.pre.i, 1
+  %.pre222.i = add i64 %.pre.i, 1
   br label %207
 
-207:                                              ; preds = %._crit_edge211.i, %._crit_edge.i
-  %.pre-phi222.i = phi i64 [ %.pre221.i, %._crit_edge211.i ], [ %203, %._crit_edge.i ]
-  %208 = phi i64 [ %.pre.i, %._crit_edge211.i ], [ %202, %._crit_edge.i ]
+207:                                              ; preds = %._crit_edge212.i, %._crit_edge.i
+  %.pre-phi223.i = phi i64 [ %.pre222.i, %._crit_edge212.i ], [ %203, %._crit_edge.i ]
+  %208 = phi i64 [ %.pre.i, %._crit_edge212.i ], [ %202, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21916)
   %209 = zext i1 %.sroa.04.0.lcssa.i to i64
   %210 = and i64 %208, 63
@@ -219944,8 +219944,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heaa0074a43
   %212 = load i64, ptr %182, align 8, !alias.scope !21916, !noalias !21913, !noundef !6
   %213 = or i64 %211, %212
   store i64 %213, ptr %182, align 8, !alias.scope !21916, !noalias !21913
-  store i64 %.pre-phi222.i, ptr %180, align 8, !alias.scope !21916, !noalias !21913
-  %214 = and i64 %.pre-phi222.i, 63
+  store i64 %.pre-phi223.i, ptr %180, align 8, !alias.scope !21916, !noalias !21913
+  %214 = and i64 %.pre-phi223.i, 63
   %215 = icmp eq i64 %214, 0
   br i1 %215, label %216, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -219991,7 +219991,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %236 unwind label %.thread.i, !noalias !21913
 
-235:                                              ; preds = %159, %.thread236.i
+235:                                              ; preds = %159, %.thread237.i
   br i1 %3, label %238, label %237
 
 236:                                              ; preds = %234
@@ -220233,29 +220233,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %294, i1 %296, i1 false
   %297 = or i1 %.sroa.020.0180.i, %.sroa.019.0.i
   %298 = add i64 %285, 1
-  %exitcond208.not.i = icmp eq i64 %285, %137
-  br i1 %exitcond208.not.i, label %.loopexit159.loopexit.i, label %284
+  %exitcond209.not.i = icmp eq i64 %285, %137
+  br i1 %exitcond209.not.i, label %.loopexit159.loopexit.i, label %284
 
 299:                                              ; preds = %.loopexit159.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge214.i unwind label %.loopexit.split-lp161.i, !noalias !21913
+          to label %._crit_edge215.i unwind label %.loopexit.split-lp161.i, !noalias !21913
 
-._crit_edge214.i:                                 ; preds = %299
-  %.pre215.i = load i64, ptr %246, align 8, !alias.scope !21928, !noalias !21913
-  %.pre219.i = add i64 %.pre215.i, 1
+._crit_edge215.i:                                 ; preds = %299
+  %.pre216.i = load i64, ptr %246, align 8, !alias.scope !21928, !noalias !21913
+  %.pre220.i = add i64 %.pre216.i, 1
   br label %300
 
-300:                                              ; preds = %._crit_edge214.i, %.loopexit159.i
-  %.pre-phi220.i = phi i64 [ %.pre219.i, %._crit_edge214.i ], [ %290, %.loopexit159.i ]
-  %301 = phi i64 [ %.pre215.i, %._crit_edge214.i ], [ %289, %.loopexit159.i ]
+300:                                              ; preds = %._crit_edge215.i, %.loopexit159.i
+  %.pre-phi221.i = phi i64 [ %.pre220.i, %._crit_edge215.i ], [ %290, %.loopexit159.i ]
+  %301 = phi i64 [ %.pre216.i, %._crit_edge215.i ], [ %289, %.loopexit159.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21928)
   %302 = and i64 %301, 63
   %303 = shl nuw i64 %.sroa.020.1.i, %302
   %304 = load i64, ptr %248, align 8, !alias.scope !21928, !noalias !21913, !noundef !6
   %305 = or i64 %303, %304
   store i64 %305, ptr %248, align 8, !alias.scope !21928, !noalias !21913
-  store i64 %.pre-phi220.i, ptr %246, align 8, !alias.scope !21928, !noalias !21913
-  %306 = and i64 %.pre-phi220.i, 63
+  store i64 %.pre-phi221.i, ptr %246, align 8, !alias.scope !21928, !noalias !21913
+  %306 = and i64 %.pre-phi221.i, 63
   %307 = icmp eq i64 %306, 0
   br i1 %307, label %308, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -220326,13 +220326,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc90.i unwind label %.loopexit.split-lp.i, !noalias !21913
 
 .noexc90.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i8, i8 } %331
-  %332 = extractvalue { i8, i8 } %.fr.i, 0
+  %.fr200.i = freeze { i8, i8 } %331
+  %332 = extractvalue { i8, i8 } %.fr200.i, 0
   %.not.i87.i = icmp eq i8 %332, 2
   br i1 %.not.i87.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce58c8d59e0433a8E.exit91.thread.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce58c8d59e0433a8E.exit91.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce58c8d59e0433a8E.exit91.i": ; preds = %.noexc90.i
-  %333 = extractvalue { i8, i8 } %.fr.i, 1
+  %333 = extractvalue { i8, i8 } %.fr200.i, 1
   %334 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21932, !noalias !21935, !noundef !6
   %335 = add i64 %334, 1
   store i64 %335, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !21932, !noalias !21935
@@ -220358,8 +220358,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select158.us.i = select i1 %342, i1 %344, i1 false
   %345 = or i1 %.sroa.011.0185.us.i, %spec.select158.us.i
   %346 = add i64 %338, 1
-  %exitcond210.not.i = icmp eq i64 %338, %137
-  br i1 %exitcond210.not.i, label %._crit_edge187.i, label %.lr.ph186.split.us.i
+  %exitcond211.not.i = icmp eq i64 %338, %137
+  br i1 %exitcond211.not.i, label %._crit_edge187.i, label %.lr.ph186.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph186.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -220458,16 +220458,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 370:                                              ; preds = %._crit_edge187.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge216.i unwind label %.loopexit.split-lp.i, !noalias !21913
+          to label %._crit_edge217.i unwind label %.loopexit.split-lp.i, !noalias !21913
 
-._crit_edge216.i:                                 ; preds = %370
-  %.pre217.i = load i64, ptr %325, align 8, !alias.scope !21937, !noalias !21913
-  %.pre218.i = add i64 %.pre217.i, 1
+._crit_edge217.i:                                 ; preds = %370
+  %.pre218.i = load i64, ptr %325, align 8, !alias.scope !21937, !noalias !21913
+  %.pre219.i = add i64 %.pre218.i, 1
   br label %371
 
-371:                                              ; preds = %._crit_edge216.i, %._crit_edge187.i
-  %.pre-phi.i = phi i64 [ %.pre218.i, %._crit_edge216.i ], [ %367, %._crit_edge187.i ]
-  %372 = phi i64 [ %.pre217.i, %._crit_edge216.i ], [ %366, %._crit_edge187.i ]
+371:                                              ; preds = %._crit_edge217.i, %._crit_edge187.i
+  %.pre-phi.i = phi i64 [ %.pre219.i, %._crit_edge217.i ], [ %367, %._crit_edge187.i ]
+  %372 = phi i64 [ %.pre218.i, %._crit_edge217.i ], [ %366, %._crit_edge187.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21937)
   %373 = zext i1 %.sroa.011.0.lcssa.i to i64
   %374 = and i64 %372, 63
@@ -220504,8 +220504,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %391 = xor i1 %390, true
   %392 = or i1 %.sroa.011.0185.i, %391
   %393 = add i64 %363, 1
-  %exitcond209.not.i = icmp eq i64 %363, %137
-  br i1 %exitcond209.not.i, label %._crit_edge187.i, label %.lr.ph186.split.i
+  %exitcond210.not.i = icmp eq i64 %363, %137
+  br i1 %exitcond210.not.i, label %._crit_edge187.i, label %.lr.ph186.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph186.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -220766,7 +220766,7 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
 
 .thread218.i:                                     ; preds = %697, %648, %502
   %.pn104.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %502 ], [ %649, %648 ], [ %698, %697 ]
-  %.sroa.031.0.i103 = phi i8 [ %.sroa.031.2.ph.i119, %502 ], [ %.sroa.031.4.i, %648 ], [ %.sroa.031.1.i102, %697 ]
+  %.sroa.031.0.i103 = phi i8 [ %.sroa.031.2.ph.i118, %502 ], [ %.sroa.031.4.i, %648 ], [ %.sroa.031.1.i102, %697 ]
   %473 = trunc nuw i8 %.sroa.031.0.i103 to i1
   br i1 %473, label %.thread248.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit127.i"
 
@@ -220779,8 +220779,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
   %.fr299.i = freeze { i1, i8 } %467
   %476 = extractvalue { i1, i8 } %.fr299.i, 0
   %477 = extractvalue { i1, i8 } %.fr299.i, 1
-  %brmerge.i114 = or i1 %3, %476
-  br i1 %brmerge.i114, label %478, label %480
+  %brmerge.i113 = or i1 %3, %476
+  br i1 %brmerge.i113, label %478, label %480
 
 478:                                              ; preds = %475
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !21944
@@ -220829,7 +220829,7 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
   br label %503
 
 502:                                              ; preds = %517, %516, %._crit_edge284.i
-  %.sroa.031.2.ph.i119 = phi i8 [ 1, %._crit_edge284.i ], [ 0, %517 ], [ 0, %516 ]
+  %.sroa.031.2.ph.i118 = phi i8 [ 1, %._crit_edge284.i ], [ 0, %517 ], [ 0, %516 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread218.i
@@ -220844,31 +220844,31 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
   %.val.i.i = load i64, ptr %.sroa.0.0190281.i, align 8, !alias.scope !21947, !noalias !21944, !noundef !6
   %.val1.i.i = load i64, ptr %506, align 8, !alias.scope !21947, !noalias !21944, !noundef !6
   %.not300.i = icmp eq i64 %.val1.i.i, %.val.i.i
-  br i1 %.not300.i, label %._crit_edge.i118, label %.lr.ph.i115
+  br i1 %.not300.i, label %._crit_edge.i117, label %.lr.ph.i114
 
-.lr.ph.i115:                                      ; preds = %503
+.lr.ph.i114:                                      ; preds = %503
   %reass.sub = sub i64 %.val1.i.i, %.val.i.i
-  br i1 %476, label %.lr.ph.split.us.i122, label %.lr.ph.split.i116
+  br i1 %476, label %.lr.ph.split.us.i121, label %.lr.ph.split.i115
 
-.lr.ph.split.us.i122:                             ; preds = %.lr.ph.i115, %510
-  %507 = phi i64 [ %515, %510 ], [ 1, %.lr.ph.i115 ]
-  %.sroa.09.0278.us.i = phi i1 [ %514, %510 ], [ false, %.lr.ph.i115 ]
-  %.sroa.081.0277.us.i = phi i64 [ %507, %510 ], [ 0, %.lr.ph.i115 ]
+.lr.ph.split.us.i121:                             ; preds = %.lr.ph.i114, %510
+  %507 = phi i64 [ %515, %510 ], [ 1, %.lr.ph.i114 ]
+  %.sroa.09.0278.us.i = phi i1 [ %514, %510 ], [ false, %.lr.ph.i114 ]
+  %.sroa.081.0277.us.i = phi i64 [ %507, %510 ], [ 0, %.lr.ph.i114 ]
   %508 = add i64 %.sroa.081.0277.us.i, %.val.i.i
   %509 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h9f1a80788218b138E"(ptr noundef nonnull align 8 %457, i64 noundef %508)
           to label %510 unwind label %.loopexit270.split.us.i, !noalias !21944
 
-510:                                              ; preds = %.lr.ph.split.us.i122
+510:                                              ; preds = %.lr.ph.split.us.i121
   %511 = extractvalue { i1, i8 } %509, 0
   %512 = extractvalue { i1, i8 } %509, 1
   %513 = icmp eq i8 %477, %512
-  %spec.select.us.i123 = select i1 %511, i1 %513, i1 false
-  %514 = or i1 %.sroa.09.0278.us.i, %spec.select.us.i123
+  %spec.select.us.i122 = select i1 %511, i1 %513, i1 false
+  %514 = or i1 %.sroa.09.0278.us.i, %spec.select.us.i122
   %515 = add i64 %507, 1
-  %exitcond309.not.i = icmp eq i64 %507, %reass.sub
-  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond310.not.i = icmp eq i64 %507, %reass.sub
+  br i1 %exitcond310.not.i, label %._crit_edge.i117, label %.lr.ph.split.us.i121
 
-.loopexit270.split.us.i:                          ; preds = %.lr.ph.split.us.i122
+.loopexit270.split.us.i:                          ; preds = %.lr.ph.split.us.i121
   %lpad.loopexit272.us.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit270.i
@@ -220904,15 +220904,15 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !21944
   br label %483
 
-.lr.ph.split.i116:                                ; preds = %.lr.ph.i115, %546
-  %519 = phi i64 [ %550, %546 ], [ 1, %.lr.ph.i115 ]
-  %.sroa.09.0278.i = phi i1 [ %549, %546 ], [ false, %.lr.ph.i115 ]
-  %.sroa.081.0277.i = phi i64 [ %519, %546 ], [ 0, %.lr.ph.i115 ]
+.lr.ph.split.i115:                                ; preds = %.lr.ph.i114, %546
+  %519 = phi i64 [ %550, %546 ], [ 1, %.lr.ph.i114 ]
+  %.sroa.09.0278.i = phi i1 [ %549, %546 ], [ false, %.lr.ph.i114 ]
+  %.sroa.081.0277.i = phi i64 [ %519, %546 ], [ 0, %.lr.ph.i114 ]
   %520 = add i64 %.sroa.081.0277.i, %.val.i.i
   %521 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h9f1a80788218b138E"(ptr noundef nonnull align 8 %457, i64 noundef %520)
           to label %546 unwind label %.loopexit270.split.i, !noalias !21944
 
-._crit_edge.i118:                                 ; preds = %546, %510, %503
+._crit_edge.i117:                                 ; preds = %546, %510, %503
   %.sroa.09.0.lcssa.i = phi i1 [ false, %503 ], [ %514, %510 ], [ %549, %546 ]
   %522 = load i64, ptr %496, align 8, !noalias !21944, !noundef !6
   %523 = add i64 %522, 1
@@ -220920,18 +220920,18 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
   %525 = icmp ugt i64 %523, %524
   br i1 %525, label %526, label %527, !prof !30
 
-526:                                              ; preds = %._crit_edge.i118
+526:                                              ; preds = %._crit_edge.i117
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge313.i unwind label %.loopexit.split-lp271.i, !noalias !21944
+          to label %._crit_edge314.i unwind label %.loopexit.split-lp271.i, !noalias !21944
 
-._crit_edge313.i:                                 ; preds = %526
-  %.pre.i121 = load i64, ptr %496, align 8, !alias.scope !21950, !noalias !21944
-  %.pre321.i = add i64 %.pre.i121, 1
+._crit_edge314.i:                                 ; preds = %526
+  %.pre.i120 = load i64, ptr %496, align 8, !alias.scope !21950, !noalias !21944
+  %.pre322.i = add i64 %.pre.i120, 1
   br label %527
 
-527:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
-  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %523, %._crit_edge.i118 ]
-  %528 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %522, %._crit_edge.i118 ]
+527:                                              ; preds = %._crit_edge314.i, %._crit_edge.i117
+  %.pre-phi323.i = phi i64 [ %.pre322.i, %._crit_edge314.i ], [ %523, %._crit_edge.i117 ]
+  %528 = phi i64 [ %.pre.i120, %._crit_edge314.i ], [ %522, %._crit_edge.i117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21950)
   %529 = zext i1 %.sroa.09.0.lcssa.i to i64
   %530 = and i64 %528, 63
@@ -220939,8 +220939,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit
   %532 = load i64, ptr %498, align 8, !alias.scope !21950, !noalias !21944, !noundef !6
   %533 = or i64 %531, %532
   store i64 %533, ptr %498, align 8, !alias.scope !21950, !noalias !21944
-  store i64 %.pre-phi322.i, ptr %496, align 8, !alias.scope !21950, !noalias !21944
-  %534 = and i64 %.pre-phi322.i, 63
+  store i64 %.pre-phi323.i, ptr %496, align 8, !alias.scope !21950, !noalias !21944
+  %534 = and i64 %.pre-phi323.i, 63
   %535 = icmp eq i64 %534, 0
   br i1 %535, label %536, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -220964,26 +220964,26 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %545 = icmp ult i64 %.sroa.5128.0280.i, 3
   br i1 %545, label %._crit_edge284.i, label %503
 
-546:                                              ; preds = %.lr.ph.split.i116
+546:                                              ; preds = %.lr.ph.split.i115
   %547 = extractvalue { i1, i8 } %521, 0
   %548 = xor i1 %547, true
   %549 = or i1 %.sroa.09.0278.i, %548
   %550 = add i64 %519, 1
-  %exitcond.not.i117 = icmp eq i64 %519, %reass.sub
-  br i1 %exitcond.not.i117, label %._crit_edge.i118, label %.lr.ph.split.i116
+  %exitcond.not.i116 = icmp eq i64 %519, %reass.sub
+  br i1 %exitcond.not.i116, label %._crit_edge.i117, label %.lr.ph.split.i115
 
-.loopexit270.split.i:                             ; preds = %.lr.ph.split.i116
+.loopexit270.split.i:                             ; preds = %.lr.ph.split.i115
   %lpad.loopexit272.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit270.i
 
 .loopexit.split-lp271.i:                          ; preds = %526
-  %lpad.loopexit.split-lp.i120 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp.i119 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit270.i
 
 .loopexit270.i:                                   ; preds = %.loopexit.split-lp271.i, %.loopexit270.split.i, %.loopexit270.split.us.i
-  %lpad.phi273.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i120, %.loopexit.split-lp271.i ], [ %lpad.loopexit272.i, %.loopexit270.split.i ], [ %lpad.loopexit272.us.i, %.loopexit270.split.us.i ]
+  %lpad.phi273.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i119, %.loopexit.split-lp271.i ], [ %lpad.loopexit272.i, %.loopexit270.split.i ], [ %lpad.loopexit272.us.i, %.loopexit270.split.us.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %41) #35
           to label %.thread248.i unwind label %551, !noalias !21944
 
@@ -221098,7 +221098,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br i1 %or.cond298.i, label %.lr.ph287.preheader.i, label %.loopexit262.i
 
 .lr.ph287.preheader.i:                            ; preds = %588
-  %reass.sub152 = sub i64 %.val1.i.i.i.i, %.val.i.i.i.i
+  %reass.sub151 = sub i64 %.val1.i.i.i.i, %.val.i.i.i.i
   br label %.lr.ph287.i
 
 591:                                              ; preds = %578, %.noexc111.i
@@ -221272,29 +221272,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %625, i1 %627, i1 false
   %628 = or i1 %.sroa.019.0286.i, %.sroa.018.0.i
   %629 = add i64 %616, 1
-  %exitcond310.not.i = icmp eq i64 %616, %reass.sub152
-  br i1 %exitcond310.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
+  %exitcond311.not.i = icmp eq i64 %616, %reass.sub151
+  br i1 %exitcond311.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
 
 630:                                              ; preds = %.loopexit262.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !21944
+          to label %._crit_edge315.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !21944
 
-._crit_edge314.i:                                 ; preds = %630
-  %.pre315.i = load i64, ptr %569, align 8, !alias.scope !21972, !noalias !21944
-  %.pre319.i = add i64 %.pre315.i, 1
+._crit_edge315.i:                                 ; preds = %630
+  %.pre316.i = load i64, ptr %569, align 8, !alias.scope !21972, !noalias !21944
+  %.pre320.i = add i64 %.pre316.i, 1
   br label %631
 
-631:                                              ; preds = %._crit_edge314.i, %.loopexit262.i
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %621, %.loopexit262.i ]
-  %632 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %620, %.loopexit262.i ]
+631:                                              ; preds = %._crit_edge315.i, %.loopexit262.i
+  %.pre-phi321.i = phi i64 [ %.pre320.i, %._crit_edge315.i ], [ %621, %.loopexit262.i ]
+  %632 = phi i64 [ %.pre316.i, %._crit_edge315.i ], [ %620, %.loopexit262.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21972)
   %633 = and i64 %632, 63
   %634 = shl nuw i64 %.sroa.019.1.i, %633
   %635 = load i64, ptr %571, align 8, !alias.scope !21972, !noalias !21944, !noundef !6
   %636 = or i64 %634, %635
   store i64 %636, ptr %571, align 8, !alias.scope !21972, !noalias !21944
-  store i64 %.pre-phi320.i, ptr %569, align 8, !alias.scope !21972, !noalias !21944
-  %637 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi321.i, ptr %569, align 8, !alias.scope !21972, !noalias !21944
+  %637 = and i64 %.pre-phi321.i, 63
   %638 = icmp eq i64 %637, 0
   br i1 %638, label %639, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -221377,16 +221377,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %663 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %664 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %665 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %650
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %650
   %666 = invoke fastcc { i8, i8 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97e424863fb8ed43E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21944
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i8, i8 } %666
-  %667 = extractvalue { i8, i8 } %.fr.i107, 0
-  %668 = extractvalue { i8, i8 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr302.i = freeze { i8, i8 } %666
+  %667 = extractvalue { i8, i8 } %.fr302.i, 0
+  %668 = extractvalue { i8, i8 } %.fr302.i, 1
   %.not.i114.i = icmp eq i8 %667, 2
   br i1 %.not.i114.i, label %690, label %669
 
@@ -221421,7 +221421,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 .lr.ph292.i:                                      ; preds = %679
   %680 = trunc i8 %667 to i1
-  %reass.sub153 = sub i64 %.val1.i.i.i116.i, %.val.i.i.i115.i
+  %reass.sub152 = sub i64 %.val1.i.i.i116.i, %.val.i.i.i115.i
   br i1 %680, label %.lr.ph292.split.us.i, label %.lr.ph292.split.i
 
 .lr.ph292.split.us.i:                             ; preds = %.lr.ph292.i, %684
@@ -221430,7 +221430,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.us.i = phi i64 [ %681, %684 ], [ 0, %.lr.ph292.i ]
   %682 = add i64 %.sroa.083.0289.us.i, %.val.i.i.i115.i
   %683 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h9f1a80788218b138E"(ptr noundef nonnull align 8 %457, i64 noundef %682)
-          to label %684 unwind label %.loopexit.split.us.i112, !noalias !21944
+          to label %684 unwind label %.loopexit.split.us.i111, !noalias !21944
 
 684:                                              ; preds = %.lr.ph292.split.us.i
   %685 = extractvalue { i1, i8 } %683, 0
@@ -221439,11 +221439,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select258.us.i = select i1 %685, i1 %687, i1 false
   %688 = or i1 %.sroa.014.0290.us.i, %spec.select258.us.i
   %689 = add i64 %681, 1
-  %exitcond312.not.i = icmp eq i64 %681, %reass.sub153
-  br i1 %exitcond312.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
+  %exitcond313.not.i = icmp eq i64 %681, %reass.sub152
+  br i1 %exitcond313.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph292.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph292.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -221531,7 +221531,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.i = phi i64 [ %706, %732 ], [ 0, %.lr.ph292.i ]
   %707 = add i64 %.sroa.083.0289.i, %.val.i.i.i115.i
   %708 = invoke fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17h9f1a80788218b138E"(ptr noundef nonnull align 8 %457, i64 noundef %707)
-          to label %732 unwind label %.loopexit.split.i108, !noalias !21944
+          to label %732 unwind label %.loopexit.split.i107, !noalias !21944
 
 ._crit_edge293.i:                                 ; preds = %732, %684, %679
   %.sroa.014.0.lcssa.i = phi i1 [ false, %679 ], [ %688, %684 ], [ %735, %732 ]
@@ -221543,16 +221543,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 713:                                              ; preds = %._crit_edge293.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21944
+          to label %._crit_edge317.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !21944
 
-._crit_edge316.i:                                 ; preds = %713
-  %.pre317.i = load i64, ptr %660, align 8, !alias.scope !21991, !noalias !21944
-  %.pre318.i = add i64 %.pre317.i, 1
+._crit_edge317.i:                                 ; preds = %713
+  %.pre318.i = load i64, ptr %660, align 8, !alias.scope !21991, !noalias !21944
+  %.pre319.i = add i64 %.pre318.i, 1
   br label %714
 
-714:                                              ; preds = %._crit_edge316.i, %._crit_edge293.i
-  %.pre-phi.i110 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %710, %._crit_edge293.i ]
-  %715 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %709, %._crit_edge293.i ]
+714:                                              ; preds = %._crit_edge317.i, %._crit_edge293.i
+  %.pre-phi.i109 = phi i64 [ %.pre319.i, %._crit_edge317.i ], [ %710, %._crit_edge293.i ]
+  %715 = phi i64 [ %.pre318.i, %._crit_edge317.i ], [ %709, %._crit_edge293.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21991)
   %716 = zext i1 %.sroa.014.0.lcssa.i to i64
   %717 = and i64 %715, 63
@@ -221560,10 +221560,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %719 = load i64, ptr %662, align 8, !alias.scope !21991, !noalias !21944, !noundef !6
   %720 = or i64 %718, %719
   store i64 %720, ptr %662, align 8, !alias.scope !21991, !noalias !21944
-  store i64 %.pre-phi.i110, ptr %660, align 8, !alias.scope !21991, !noalias !21944
-  %721 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %660, align 8, !alias.scope !21991, !noalias !21944
+  %721 = and i64 %.pre-phi.i109, 63
   %722 = icmp eq i64 %721, 0
-  br i1 %722, label %723, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %722, label %723, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 723:                                              ; preds = %714
   %724 = load i64, ptr %663, align 8, !alias.scope !21991, !noalias !21944, !noundef !6
@@ -221579,25 +221579,25 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %731 = add i64 %730, %729
   store i64 %731, ptr %665, align 8, !alias.scope !21991, !noalias !21944
   store i64 0, ptr %662, align 8, !alias.scope !21991, !noalias !21944
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %723, %714
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %723, %714
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 732:                                              ; preds = %.lr.ph292.split.i
   %733 = extractvalue { i1, i8 } %708, 0
   %734 = xor i1 %733, true
   %735 = or i1 %.sroa.014.0290.i, %734
   %736 = add i64 %706, 1
-  %exitcond311.not.i = icmp eq i64 %706, %reass.sub153
-  br i1 %exitcond311.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
+  %exitcond312.not.i = icmp eq i64 %706, %reass.sub152
+  br i1 %exitcond312.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph292.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph292.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %713, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %713, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit259.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -221607,8 +221607,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread248.i unwind label %551, !noalias !21944
 
@@ -221970,9 +221970,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heab7a9d659
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread232.i, label %157
+  br i1 %156, label %.thread234.i, label %157
 
-.thread232.i:                                     ; preds = %155
+.thread234.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !22008
   store i64 1, ptr %76, align 8, !noalias !22008
   br label %238
@@ -221999,9 +221999,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heab7a9d659
   br label %.thread144.i
 
 163:                                              ; preds = %157
-  %.fr193.i = freeze { i16, i16 } %158
-  %164 = extractvalue { i16, i16 } %.fr193.i, 0
-  %165 = extractvalue { i16, i16 } %.fr193.i, 1
+  %.fr.i = freeze { i16, i16 } %158
+  %164 = extractvalue { i16, i16 } %.fr.i, 0
+  %165 = extractvalue { i16, i16 } %.fr.i, 1
   %166 = trunc i16 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -222075,8 +222075,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heab7a9d659
   %spec.select.us.i = select i1 %194, i1 %195, i1 false
   %196 = or i1 %.sroa.04.0170.us.i, %spec.select.us.i
   %197 = add i64 %188, 1
-  %exitcond203.not.i = icmp eq i64 %188, %137
-  br i1 %exitcond203.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond205.not.i = icmp eq i64 %188, %137
+  br i1 %exitcond205.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit161.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit163.us.i = landingpad { ptr, i32 }
@@ -222153,16 +222153,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heab7a9d659
 
 208:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge207.i unwind label %.loopexit.split-lp162.i, !noalias !22008
+          to label %._crit_edge209.i unwind label %.loopexit.split-lp162.i, !noalias !22008
 
-._crit_edge207.i:                                 ; preds = %208
+._crit_edge209.i:                                 ; preds = %208
   %.pre.i = load i64, ptr %181, align 8, !alias.scope !22011, !noalias !22008
-  %.pre217.i = add i64 %.pre.i, 1
+  %.pre219.i = add i64 %.pre.i, 1
   br label %209
 
-209:                                              ; preds = %._crit_edge207.i, %._crit_edge.i
-  %.pre-phi218.i = phi i64 [ %.pre217.i, %._crit_edge207.i ], [ %205, %._crit_edge.i ]
-  %210 = phi i64 [ %.pre.i, %._crit_edge207.i ], [ %204, %._crit_edge.i ]
+209:                                              ; preds = %._crit_edge209.i, %._crit_edge.i
+  %.pre-phi220.i = phi i64 [ %.pre219.i, %._crit_edge209.i ], [ %205, %._crit_edge.i ]
+  %210 = phi i64 [ %.pre.i, %._crit_edge209.i ], [ %204, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22011)
   %211 = zext i1 %.sroa.04.0.lcssa.i to i64
   %212 = and i64 %210, 63
@@ -222170,8 +222170,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17heab7a9d659
   %214 = load i64, ptr %183, align 8, !alias.scope !22011, !noalias !22008, !noundef !6
   %215 = or i64 %213, %214
   store i64 %215, ptr %183, align 8, !alias.scope !22011, !noalias !22008
-  store i64 %.pre-phi218.i, ptr %181, align 8, !alias.scope !22011, !noalias !22008
-  %216 = and i64 %.pre-phi218.i, 63
+  store i64 %.pre-phi220.i, ptr %181, align 8, !alias.scope !22011, !noalias !22008
+  %216 = and i64 %.pre-phi220.i, 63
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %218, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -222218,7 +222218,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %239 unwind label %.thread.i, !noalias !22008
 
-238:                                              ; preds = %159, %.thread232.i
+238:                                              ; preds = %159, %.thread234.i
   br i1 %3, label %241, label %240
 
 239:                                              ; preds = %237
@@ -222461,29 +222461,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %301, i1 %302, i1 false
   %303 = or i1 %.sroa.020.0175.i, %.sroa.019.0.i
   %304 = add i64 %290, 1
-  %exitcond204.not.i = icmp eq i64 %290, %137
-  br i1 %exitcond204.not.i, label %.loopexit154.loopexit.i, label %289
+  %exitcond206.not.i = icmp eq i64 %290, %137
+  br i1 %exitcond206.not.i, label %.loopexit154.loopexit.i, label %289
 
 305:                                              ; preds = %.loopexit154.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge210.i unwind label %.loopexit.split-lp156.i, !noalias !22008
+          to label %._crit_edge212.i unwind label %.loopexit.split-lp156.i, !noalias !22008
 
-._crit_edge210.i:                                 ; preds = %305
-  %.pre211.i = load i64, ptr %249, align 8, !alias.scope !22023, !noalias !22008
-  %.pre215.i = add i64 %.pre211.i, 1
+._crit_edge212.i:                                 ; preds = %305
+  %.pre213.i = load i64, ptr %249, align 8, !alias.scope !22023, !noalias !22008
+  %.pre217.i = add i64 %.pre213.i, 1
   br label %306
 
-306:                                              ; preds = %._crit_edge210.i, %.loopexit154.i
-  %.pre-phi216.i = phi i64 [ %.pre215.i, %._crit_edge210.i ], [ %295, %.loopexit154.i ]
-  %307 = phi i64 [ %.pre211.i, %._crit_edge210.i ], [ %294, %.loopexit154.i ]
+306:                                              ; preds = %._crit_edge212.i, %.loopexit154.i
+  %.pre-phi218.i = phi i64 [ %.pre217.i, %._crit_edge212.i ], [ %295, %.loopexit154.i ]
+  %307 = phi i64 [ %.pre213.i, %._crit_edge212.i ], [ %294, %.loopexit154.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22023)
   %308 = and i64 %307, 63
   %309 = shl nuw i64 %.sroa.020.1.i, %308
   %310 = load i64, ptr %251, align 8, !alias.scope !22023, !noalias !22008, !noundef !6
   %311 = or i64 %309, %310
   store i64 %311, ptr %251, align 8, !alias.scope !22023, !noalias !22008
-  store i64 %.pre-phi216.i, ptr %249, align 8, !alias.scope !22023, !noalias !22008
-  %312 = and i64 %.pre-phi216.i, 63
+  store i64 %.pre-phi218.i, ptr %249, align 8, !alias.scope !22023, !noalias !22008
+  %312 = and i64 %.pre-phi218.i, 63
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %314, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -222554,13 +222554,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc89.i unwind label %.loopexit.split-lp.i, !noalias !22008
 
 .noexc89.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i16, i16 } %337
-  %338 = extractvalue { i16, i16 } %.fr.i, 0
+  %.fr197.i = freeze { i16, i16 } %337
+  %338 = extractvalue { i16, i16 } %.fr197.i, 0
   %.not.i87.i = icmp eq i16 %338, 2
   br i1 %.not.i87.i, label %355, label %339
 
 339:                                              ; preds = %.noexc89.i
-  %340 = extractvalue { i16, i16 } %.fr.i, 1
+  %340 = extractvalue { i16, i16 } %.fr197.i, 1
   %341 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22027, !noalias !22030, !noundef !6
   %342 = add i64 %341, 1
   store i64 %342, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22027, !noalias !22030
@@ -222587,8 +222587,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select153.us.i = select i1 %351, i1 %352, i1 false
   %353 = or i1 %.sroa.011.0180.us.i, %spec.select153.us.i
   %354 = add i64 %345, 1
-  %exitcond206.not.i = icmp eq i64 %345, %137
-  br i1 %exitcond206.not.i, label %._crit_edge183.i, label %.lr.ph182.split.us.i
+  %exitcond208.not.i = icmp eq i64 %345, %137
+  br i1 %exitcond208.not.i, label %._crit_edge183.i, label %.lr.ph182.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph182.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -222687,16 +222687,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 379:                                              ; preds = %._crit_edge183.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge212.i unwind label %.loopexit.split-lp.i, !noalias !22008
+          to label %._crit_edge214.i unwind label %.loopexit.split-lp.i, !noalias !22008
 
-._crit_edge212.i:                                 ; preds = %379
-  %.pre213.i = load i64, ptr %331, align 8, !alias.scope !22032, !noalias !22008
-  %.pre214.i = add i64 %.pre213.i, 1
+._crit_edge214.i:                                 ; preds = %379
+  %.pre215.i = load i64, ptr %331, align 8, !alias.scope !22032, !noalias !22008
+  %.pre216.i = add i64 %.pre215.i, 1
   br label %380
 
-380:                                              ; preds = %._crit_edge212.i, %._crit_edge183.i
-  %.pre-phi.i = phi i64 [ %.pre214.i, %._crit_edge212.i ], [ %376, %._crit_edge183.i ]
-  %381 = phi i64 [ %.pre213.i, %._crit_edge212.i ], [ %375, %._crit_edge183.i ]
+380:                                              ; preds = %._crit_edge214.i, %._crit_edge183.i
+  %.pre-phi.i = phi i64 [ %.pre216.i, %._crit_edge214.i ], [ %376, %._crit_edge183.i ]
+  %381 = phi i64 [ %.pre215.i, %._crit_edge214.i ], [ %375, %._crit_edge183.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22032)
   %382 = zext i1 %.sroa.011.0.lcssa.i to i64
   %383 = and i64 %381, 63
@@ -222734,8 +222734,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %401 = xor i1 %400, true
   %402 = or i1 %.sroa.011.0180.i, %401
   %403 = add i64 %372, 1
-  %exitcond205.not.i = icmp eq i64 %372, %137
-  br i1 %exitcond205.not.i, label %._crit_edge183.i, label %.lr.ph182.split.i
+  %exitcond207.not.i = icmp eq i64 %372, %137
+  br i1 %exitcond207.not.i, label %._crit_edge183.i, label %.lr.ph182.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph182.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -223006,9 +223006,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h016ab40a4474e72dE.exit
   br label %.thread248.i
 
 485:                                              ; preds = %476
-  %.fr299.i = freeze { i16, i16 } %477
-  %486 = extractvalue { i16, i16 } %.fr299.i, 0
-  %487 = extractvalue { i16, i16 } %.fr299.i, 1
+  %.fr.i113 = freeze { i16, i16 } %477
+  %486 = extractvalue { i16, i16 } %.fr.i113, 0
+  %487 = extractvalue { i16, i16 } %.fr.i113, 1
   %488 = trunc i16 %486 to i1
   %brmerge.i114 = or i1 %3, %488
   br i1 %brmerge.i114, label %489, label %491
@@ -223097,8 +223097,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h016ab40a4474e72dE.exit
   %spec.select.us.i123 = select i1 %524, i1 %525, i1 false
   %526 = or i1 %.sroa.09.0278.us.i, %spec.select.us.i123
   %527 = add i64 %518, 1
-  %exitcond309.not.i = icmp eq i64 %518, %reass.sub
-  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond311.not.i = icmp eq i64 %518, %reass.sub
+  br i1 %exitcond311.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit270.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit272.us.i = landingpad { ptr, i32 }
@@ -223154,16 +223154,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h016ab40a4474e72dE.exit
 
 538:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge313.i unwind label %.loopexit.split-lp271.i, !noalias !22039
+          to label %._crit_edge315.i unwind label %.loopexit.split-lp271.i, !noalias !22039
 
-._crit_edge313.i:                                 ; preds = %538
+._crit_edge315.i:                                 ; preds = %538
   %.pre.i121 = load i64, ptr %507, align 8, !alias.scope !22045, !noalias !22039
-  %.pre321.i = add i64 %.pre.i121, 1
+  %.pre323.i = add i64 %.pre.i121, 1
   br label %539
 
-539:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
-  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %535, %._crit_edge.i118 ]
-  %540 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %534, %._crit_edge.i118 ]
+539:                                              ; preds = %._crit_edge315.i, %._crit_edge.i118
+  %.pre-phi324.i = phi i64 [ %.pre323.i, %._crit_edge315.i ], [ %535, %._crit_edge.i118 ]
+  %540 = phi i64 [ %.pre.i121, %._crit_edge315.i ], [ %534, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22045)
   %541 = zext i1 %.sroa.09.0.lcssa.i to i64
   %542 = and i64 %540, 63
@@ -223171,8 +223171,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h016ab40a4474e72dE.exit
   %544 = load i64, ptr %509, align 8, !alias.scope !22045, !noalias !22039, !noundef !6
   %545 = or i64 %543, %544
   store i64 %545, ptr %509, align 8, !alias.scope !22045, !noalias !22039
-  store i64 %.pre-phi322.i, ptr %507, align 8, !alias.scope !22045, !noalias !22039
-  %546 = and i64 %.pre-phi322.i, 63
+  store i64 %.pre-phi324.i, ptr %507, align 8, !alias.scope !22045, !noalias !22039
+  %546 = and i64 %.pre-phi324.i, 63
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %548, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -223506,29 +223506,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %640, i1 %641, i1 false
   %642 = or i1 %.sroa.019.0286.i, %.sroa.018.0.i
   %643 = add i64 %629, 1
-  %exitcond310.not.i = icmp eq i64 %629, %reass.sub152
-  br i1 %exitcond310.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
+  %exitcond312.not.i = icmp eq i64 %629, %reass.sub152
+  br i1 %exitcond312.not.i, label %.loopexit262.loopexit.i, label %.lr.ph287.i
 
 644:                                              ; preds = %.loopexit262.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !22039
+          to label %._crit_edge316.i unwind label %.loopexit.split-lp264.loopexit.i, !noalias !22039
 
-._crit_edge314.i:                                 ; preds = %644
-  %.pre315.i = load i64, ptr %582, align 8, !alias.scope !22067, !noalias !22039
-  %.pre319.i = add i64 %.pre315.i, 1
+._crit_edge316.i:                                 ; preds = %644
+  %.pre317.i = load i64, ptr %582, align 8, !alias.scope !22067, !noalias !22039
+  %.pre321.i = add i64 %.pre317.i, 1
   br label %645
 
-645:                                              ; preds = %._crit_edge314.i, %.loopexit262.i
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %634, %.loopexit262.i ]
-  %646 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %633, %.loopexit262.i ]
+645:                                              ; preds = %._crit_edge316.i, %.loopexit262.i
+  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge316.i ], [ %634, %.loopexit262.i ]
+  %646 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %633, %.loopexit262.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22067)
   %647 = and i64 %646, 63
   %648 = shl nuw i64 %.sroa.019.1.i, %647
   %649 = load i64, ptr %584, align 8, !alias.scope !22067, !noalias !22039, !noundef !6
   %650 = or i64 %648, %649
   store i64 %650, ptr %584, align 8, !alias.scope !22067, !noalias !22039
-  store i64 %.pre-phi320.i, ptr %582, align 8, !alias.scope !22067, !noalias !22039
-  %651 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi322.i, ptr %582, align 8, !alias.scope !22067, !noalias !22039
+  %651 = and i64 %.pre-phi322.i, 63
   %652 = icmp eq i64 %651, 0
   br i1 %652, label %653, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -223611,16 +223611,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %677 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %679 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %664
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %664
   %680 = invoke fastcc { i16, i16 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37bb9ff4325e0968E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !22039
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i16, i16 } %680
-  %681 = extractvalue { i16, i16 } %.fr.i107, 0
-  %682 = extractvalue { i16, i16 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr303.i = freeze { i16, i16 } %680
+  %681 = extractvalue { i16, i16 } %.fr303.i, 0
+  %682 = extractvalue { i16, i16 } %.fr303.i, 1
   %.not.i114.i = icmp eq i16 %681, 2
   br i1 %.not.i114.i, label %705, label %683
 
@@ -223664,7 +223664,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.us.i = phi i64 [ %695, %698 ], [ 0, %.lr.ph292.i ]
   %696 = add i64 %.sroa.083.0289.us.i, %.val.i.i.i115.i
   %697 = invoke fastcc { i16, i16 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hd358c0b93d2cab3aE"(ptr noundef nonnull align 8 %467, i64 noundef %696)
-          to label %698 unwind label %.loopexit.split.us.i112, !noalias !22039
+          to label %698 unwind label %.loopexit.split.us.i111, !noalias !22039
 
 698:                                              ; preds = %.lr.ph292.split.us.i
   %699 = extractvalue { i16, i16 } %697, 0
@@ -223674,11 +223674,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select258.us.i = select i1 %701, i1 %702, i1 false
   %703 = or i1 %.sroa.014.0290.us.i, %spec.select258.us.i
   %704 = add i64 %695, 1
-  %exitcond312.not.i = icmp eq i64 %695, %reass.sub153
-  br i1 %exitcond312.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
+  %exitcond314.not.i = icmp eq i64 %695, %reass.sub153
+  br i1 %exitcond314.not.i, label %._crit_edge293.i, label %.lr.ph292.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph292.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph292.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -223766,7 +223766,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0289.i = phi i64 [ %721, %747 ], [ 0, %.lr.ph292.i ]
   %722 = add i64 %.sroa.083.0289.i, %.val.i.i.i115.i
   %723 = invoke fastcc { i16, i16 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hd358c0b93d2cab3aE"(ptr noundef nonnull align 8 %467, i64 noundef %722)
-          to label %747 unwind label %.loopexit.split.i108, !noalias !22039
+          to label %747 unwind label %.loopexit.split.i107, !noalias !22039
 
 ._crit_edge293.i:                                 ; preds = %747, %698, %693
   %.sroa.014.0.lcssa.i = phi i1 [ false, %693 ], [ %703, %698 ], [ %751, %747 ]
@@ -223778,16 +223778,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 728:                                              ; preds = %._crit_edge293.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !22039
+          to label %._crit_edge318.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !22039
 
-._crit_edge316.i:                                 ; preds = %728
-  %.pre317.i = load i64, ptr %674, align 8, !alias.scope !22086, !noalias !22039
-  %.pre318.i = add i64 %.pre317.i, 1
+._crit_edge318.i:                                 ; preds = %728
+  %.pre319.i = load i64, ptr %674, align 8, !alias.scope !22086, !noalias !22039
+  %.pre320.i = add i64 %.pre319.i, 1
   br label %729
 
-729:                                              ; preds = %._crit_edge316.i, %._crit_edge293.i
-  %.pre-phi.i110 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %725, %._crit_edge293.i ]
-  %730 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %724, %._crit_edge293.i ]
+729:                                              ; preds = %._crit_edge318.i, %._crit_edge293.i
+  %.pre-phi.i109 = phi i64 [ %.pre320.i, %._crit_edge318.i ], [ %725, %._crit_edge293.i ]
+  %730 = phi i64 [ %.pre319.i, %._crit_edge318.i ], [ %724, %._crit_edge293.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22086)
   %731 = zext i1 %.sroa.014.0.lcssa.i to i64
   %732 = and i64 %730, 63
@@ -223795,10 +223795,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %734 = load i64, ptr %676, align 8, !alias.scope !22086, !noalias !22039, !noundef !6
   %735 = or i64 %733, %734
   store i64 %735, ptr %676, align 8, !alias.scope !22086, !noalias !22039
-  store i64 %.pre-phi.i110, ptr %674, align 8, !alias.scope !22086, !noalias !22039
-  %736 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %674, align 8, !alias.scope !22086, !noalias !22039
+  %736 = and i64 %.pre-phi.i109, 63
   %737 = icmp eq i64 %736, 0
-  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 738:                                              ; preds = %729
   %739 = load i64, ptr %677, align 8, !alias.scope !22086, !noalias !22039, !noundef !6
@@ -223814,10 +223814,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %746 = add i64 %745, %744
   store i64 %746, ptr %679, align 8, !alias.scope !22086, !noalias !22039
   store i64 0, ptr %676, align 8, !alias.scope !22086, !noalias !22039
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %738, %729
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %738, %729
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 747:                                              ; preds = %.lr.ph292.split.i
   %748 = extractvalue { i16, i16 } %723, 0
@@ -223825,15 +223825,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %750 = xor i1 %749, true
   %751 = or i1 %.sroa.014.0290.i, %750
   %752 = add i64 %721, 1
-  %exitcond311.not.i = icmp eq i64 %721, %reass.sub153
-  br i1 %exitcond311.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
+  %exitcond313.not.i = icmp eq i64 %721, %reass.sub153
+  br i1 %exitcond313.not.i, label %._crit_edge293.i, label %.lr.ph292.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph292.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph292.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit259.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -223843,8 +223843,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit259.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp260.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread248.i unwind label %564, !noalias !22039
 
@@ -224206,9 +224206,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hec8e8f9e63
 
 155:                                              ; preds = %150
   %156 = icmp eq i64 %154, 1
-  br i1 %156, label %.thread231.i, label %157
+  br i1 %156, label %.thread233.i, label %157
 
-.thread231.i:                                     ; preds = %155
+.thread233.i:                                     ; preds = %155
   store i64 1, ptr %77, align 8, !noalias !22103
   store i64 1, ptr %76, align 8, !noalias !22103
   br label %238
@@ -224235,9 +224235,9 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hec8e8f9e63
   br label %.thread143.i
 
 163:                                              ; preds = %157
-  %.fr192.i = freeze { i64, i64 } %158
-  %164 = extractvalue { i64, i64 } %.fr192.i, 0
-  %165 = extractvalue { i64, i64 } %.fr192.i, 1
+  %.fr.i = freeze { i64, i64 } %158
+  %164 = extractvalue { i64, i64 } %.fr.i, 0
+  %165 = extractvalue { i64, i64 } %.fr.i, 1
   %166 = trunc i64 %164 to i1
   %brmerge.i = or i1 %3, %166
   br i1 %brmerge.i, label %167, label %169
@@ -224311,8 +224311,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hec8e8f9e63
   %spec.select.us.i = select i1 %194, i1 %195, i1 false
   %196 = or i1 %.sroa.04.0169.us.i, %spec.select.us.i
   %197 = add i64 %188, 1
-  %exitcond202.not.i = icmp eq i64 %188, %137
-  br i1 %exitcond202.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %exitcond204.not.i = icmp eq i64 %188, %137
+  br i1 %exitcond204.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 .loopexit160.split.us.i:                          ; preds = %.lr.ph.split.us.i
   %lpad.loopexit162.us.i = landingpad { ptr, i32 }
@@ -224389,16 +224389,16 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hec8e8f9e63
 
 208:                                              ; preds = %._crit_edge.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %84, i64 noundef 1)
-          to label %._crit_edge206.i unwind label %.loopexit.split-lp161.i, !noalias !22103
+          to label %._crit_edge208.i unwind label %.loopexit.split-lp161.i, !noalias !22103
 
-._crit_edge206.i:                                 ; preds = %208
+._crit_edge208.i:                                 ; preds = %208
   %.pre.i = load i64, ptr %181, align 8, !alias.scope !22106, !noalias !22103
-  %.pre216.i = add i64 %.pre.i, 1
+  %.pre218.i = add i64 %.pre.i, 1
   br label %209
 
-209:                                              ; preds = %._crit_edge206.i, %._crit_edge.i
-  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge206.i ], [ %205, %._crit_edge.i ]
-  %210 = phi i64 [ %.pre.i, %._crit_edge206.i ], [ %204, %._crit_edge.i ]
+209:                                              ; preds = %._crit_edge208.i, %._crit_edge.i
+  %.pre-phi219.i = phi i64 [ %.pre218.i, %._crit_edge208.i ], [ %205, %._crit_edge.i ]
+  %210 = phi i64 [ %.pre.i, %._crit_edge208.i ], [ %204, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22106)
   %211 = zext i1 %.sroa.04.0.lcssa.i to i64
   %212 = and i64 %210, 63
@@ -224406,8 +224406,8 @@ define hidden void @_ZN10polars_ops6series3ops5is_in13is_in_numeric17hec8e8f9e63
   %214 = load i64, ptr %183, align 8, !alias.scope !22106, !noalias !22103, !noundef !6
   %215 = or i64 %213, %214
   store i64 %215, ptr %183, align 8, !alias.scope !22106, !noalias !22103
-  store i64 %.pre-phi217.i, ptr %181, align 8, !alias.scope !22106, !noalias !22103
-  %216 = and i64 %.pre-phi217.i, 63
+  store i64 %.pre-phi219.i, ptr %181, align 8, !alias.scope !22106, !noalias !22103
+  %216 = and i64 %.pre-phi219.i, 63
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %218, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit85.i
 
@@ -224454,7 +224454,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @_ZN4core9panicking13assert_failed17h4217cf5073082285E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.928e59b0f3020f0e90a866d2dce63e03.608) #37
           to label %239 unwind label %.thread.i, !noalias !22103
 
-238:                                              ; preds = %159, %.thread231.i
+238:                                              ; preds = %159, %.thread233.i
   br i1 %3, label %241, label %240
 
 239:                                              ; preds = %237
@@ -224697,29 +224697,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.019.0.i = select i1 %300, i1 %302, i1 false
   %303 = or i1 %.sroa.020.0174.i, %.sroa.019.0.i
   %304 = add i64 %290, 1
-  %exitcond203.not.i = icmp eq i64 %290, %137
-  br i1 %exitcond203.not.i, label %.loopexit153.loopexit.i, label %289
+  %exitcond205.not.i = icmp eq i64 %290, %137
+  br i1 %exitcond205.not.i, label %.loopexit153.loopexit.i, label %289
 
 305:                                              ; preds = %.loopexit153.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 1)
-          to label %._crit_edge209.i unwind label %.loopexit.split-lp155.i, !noalias !22103
+          to label %._crit_edge211.i unwind label %.loopexit.split-lp155.i, !noalias !22103
 
-._crit_edge209.i:                                 ; preds = %305
-  %.pre210.i = load i64, ptr %249, align 8, !alias.scope !22118, !noalias !22103
-  %.pre214.i = add i64 %.pre210.i, 1
+._crit_edge211.i:                                 ; preds = %305
+  %.pre212.i = load i64, ptr %249, align 8, !alias.scope !22118, !noalias !22103
+  %.pre216.i = add i64 %.pre212.i, 1
   br label %306
 
-306:                                              ; preds = %._crit_edge209.i, %.loopexit153.i
-  %.pre-phi215.i = phi i64 [ %.pre214.i, %._crit_edge209.i ], [ %295, %.loopexit153.i ]
-  %307 = phi i64 [ %.pre210.i, %._crit_edge209.i ], [ %294, %.loopexit153.i ]
+306:                                              ; preds = %._crit_edge211.i, %.loopexit153.i
+  %.pre-phi217.i = phi i64 [ %.pre216.i, %._crit_edge211.i ], [ %295, %.loopexit153.i ]
+  %307 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %294, %.loopexit153.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22118)
   %308 = and i64 %307, 63
   %309 = shl nuw i64 %.sroa.020.1.i, %308
   %310 = load i64, ptr %251, align 8, !alias.scope !22118, !noalias !22103, !noundef !6
   %311 = or i64 %309, %310
   store i64 %311, ptr %251, align 8, !alias.scope !22118, !noalias !22103
-  store i64 %.pre-phi215.i, ptr %249, align 8, !alias.scope !22118, !noalias !22103
-  %312 = and i64 %.pre-phi215.i, 63
+  store i64 %.pre-phi217.i, ptr %249, align 8, !alias.scope !22118, !noalias !22103
+  %312 = and i64 %.pre-phi217.i, 63
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %314, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit84.i.backedge
 
@@ -224790,13 +224790,13 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.noexc89.i unwind label %.loopexit.split-lp.i, !noalias !22103
 
 .noexc89.i:                                       ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
-  %.fr.i = freeze { i64, i64 } %337
-  %338 = extractvalue { i64, i64 } %.fr.i, 0
+  %.fr196.i = freeze { i64, i64 } %337
+  %338 = extractvalue { i64, i64 } %.fr196.i, 0
   %.not.i87.i = icmp eq i64 %338, 2
   br i1 %.not.i87.i, label %355, label %339
 
 339:                                              ; preds = %.noexc89.i
-  %340 = extractvalue { i64, i64 } %.fr.i, 1
+  %340 = extractvalue { i64, i64 } %.fr196.i, 1
   %341 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22122, !noalias !22125, !noundef !6
   %342 = add i64 %341, 1
   store i64 %342, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22122, !noalias !22125
@@ -224823,8 +224823,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select152.us.i = select i1 %351, i1 %352, i1 false
   %353 = or i1 %.sroa.011.0179.us.i, %spec.select152.us.i
   %354 = add i64 %345, 1
-  %exitcond205.not.i = icmp eq i64 %345, %137
-  br i1 %exitcond205.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
+  %exitcond207.not.i = icmp eq i64 %345, %137
+  br i1 %exitcond207.not.i, label %._crit_edge182.i, label %.lr.ph181.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %.lr.ph181.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -224923,16 +224923,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 379:                                              ; preds = %._crit_edge182.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %74, i64 noundef 1)
-          to label %._crit_edge211.i unwind label %.loopexit.split-lp.i, !noalias !22103
+          to label %._crit_edge213.i unwind label %.loopexit.split-lp.i, !noalias !22103
 
-._crit_edge211.i:                                 ; preds = %379
-  %.pre212.i = load i64, ptr %331, align 8, !alias.scope !22127, !noalias !22103
-  %.pre213.i = add i64 %.pre212.i, 1
+._crit_edge213.i:                                 ; preds = %379
+  %.pre214.i = load i64, ptr %331, align 8, !alias.scope !22127, !noalias !22103
+  %.pre215.i = add i64 %.pre214.i, 1
   br label %380
 
-380:                                              ; preds = %._crit_edge211.i, %._crit_edge182.i
-  %.pre-phi.i = phi i64 [ %.pre213.i, %._crit_edge211.i ], [ %376, %._crit_edge182.i ]
-  %381 = phi i64 [ %.pre212.i, %._crit_edge211.i ], [ %375, %._crit_edge182.i ]
+380:                                              ; preds = %._crit_edge213.i, %._crit_edge182.i
+  %.pre-phi.i = phi i64 [ %.pre215.i, %._crit_edge213.i ], [ %376, %._crit_edge182.i ]
+  %381 = phi i64 [ %.pre214.i, %._crit_edge213.i ], [ %375, %._crit_edge182.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22127)
   %382 = zext i1 %.sroa.011.0.lcssa.i to i64
   %383 = and i64 %381, 63
@@ -224970,8 +224970,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %401 = xor i1 %400, true
   %402 = or i1 %.sroa.011.0179.i, %401
   %403 = add i64 %372, 1
-  %exitcond204.not.i = icmp eq i64 %372, %137
-  br i1 %exitcond204.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
+  %exitcond206.not.i = icmp eq i64 %372, %137
+  br i1 %exitcond206.not.i, label %._crit_edge182.i, label %.lr.ph181.split.i
 
 .loopexit.split.i:                                ; preds = %.lr.ph181.split.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -225242,9 +225242,9 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h75152880881bd09bE.exit
   br label %.thread246.i
 
 485:                                              ; preds = %476
-  %.fr297.i = freeze { i64, i64 } %477
-  %486 = extractvalue { i64, i64 } %.fr297.i, 0
-  %487 = extractvalue { i64, i64 } %.fr297.i, 1
+  %.fr.i113 = freeze { i64, i64 } %477
+  %486 = extractvalue { i64, i64 } %.fr.i113, 0
+  %487 = extractvalue { i64, i64 } %.fr.i113, 1
   %488 = trunc i64 %486 to i1
   %brmerge.i114 = or i1 %3, %488
   br i1 %brmerge.i114, label %489, label %491
@@ -225333,8 +225333,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h75152880881bd09bE.exit
   %spec.select.us.i123 = select i1 %524, i1 %525, i1 false
   %526 = or i1 %.sroa.09.0276.us.i, %spec.select.us.i123
   %527 = add i64 %518, 1
-  %exitcond307.not.i = icmp eq i64 %518, %reass.sub
-  br i1 %exitcond307.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
+  %exitcond309.not.i = icmp eq i64 %518, %reass.sub
+  br i1 %exitcond309.not.i, label %._crit_edge.i118, label %.lr.ph.split.us.i122
 
 .loopexit268.split.us.i:                          ; preds = %.lr.ph.split.us.i122
   %lpad.loopexit270.us.i = landingpad { ptr, i32 }
@@ -225390,16 +225390,16 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h75152880881bd09bE.exit
 
 538:                                              ; preds = %._crit_edge.i118
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 1)
-          to label %._crit_edge311.i unwind label %.loopexit.split-lp269.i, !noalias !22134
+          to label %._crit_edge313.i unwind label %.loopexit.split-lp269.i, !noalias !22134
 
-._crit_edge311.i:                                 ; preds = %538
+._crit_edge313.i:                                 ; preds = %538
   %.pre.i121 = load i64, ptr %507, align 8, !alias.scope !22140, !noalias !22134
-  %.pre319.i = add i64 %.pre.i121, 1
+  %.pre321.i = add i64 %.pre.i121, 1
   br label %539
 
-539:                                              ; preds = %._crit_edge311.i, %._crit_edge.i118
-  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge311.i ], [ %535, %._crit_edge.i118 ]
-  %540 = phi i64 [ %.pre.i121, %._crit_edge311.i ], [ %534, %._crit_edge.i118 ]
+539:                                              ; preds = %._crit_edge313.i, %._crit_edge.i118
+  %.pre-phi322.i = phi i64 [ %.pre321.i, %._crit_edge313.i ], [ %535, %._crit_edge.i118 ]
+  %540 = phi i64 [ %.pre.i121, %._crit_edge313.i ], [ %534, %._crit_edge.i118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22140)
   %541 = zext i1 %.sroa.09.0.lcssa.i to i64
   %542 = and i64 %540, 63
@@ -225407,8 +225407,8 @@ _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h75152880881bd09bE.exit
   %544 = load i64, ptr %509, align 8, !alias.scope !22140, !noalias !22134, !noundef !6
   %545 = or i64 %543, %544
   store i64 %545, ptr %509, align 8, !alias.scope !22140, !noalias !22134
-  store i64 %.pre-phi320.i, ptr %507, align 8, !alias.scope !22140, !noalias !22134
-  %546 = and i64 %.pre-phi320.i, 63
+  store i64 %.pre-phi322.i, ptr %507, align 8, !alias.scope !22140, !noalias !22134
+  %546 = and i64 %.pre-phi322.i, 63
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %548, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.i
 
@@ -225742,29 +225742,29 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.018.0.i = select i1 %639, i1 %641, i1 false
   %642 = or i1 %.sroa.019.0284.i, %.sroa.018.0.i
   %643 = add i64 %629, 1
-  %exitcond308.not.i = icmp eq i64 %629, %reass.sub152
-  br i1 %exitcond308.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
+  %exitcond310.not.i = icmp eq i64 %629, %reass.sub152
+  br i1 %exitcond310.not.i, label %.loopexit260.loopexit.i, label %.lr.ph285.i
 
 644:                                              ; preds = %.loopexit260.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 1)
-          to label %._crit_edge312.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !22134
+          to label %._crit_edge314.i unwind label %.loopexit.split-lp262.loopexit.i, !noalias !22134
 
-._crit_edge312.i:                                 ; preds = %644
-  %.pre313.i = load i64, ptr %582, align 8, !alias.scope !22162, !noalias !22134
-  %.pre317.i = add i64 %.pre313.i, 1
+._crit_edge314.i:                                 ; preds = %644
+  %.pre315.i = load i64, ptr %582, align 8, !alias.scope !22162, !noalias !22134
+  %.pre319.i = add i64 %.pre315.i, 1
   br label %645
 
-645:                                              ; preds = %._crit_edge312.i, %.loopexit260.i
-  %.pre-phi318.i = phi i64 [ %.pre317.i, %._crit_edge312.i ], [ %634, %.loopexit260.i ]
-  %646 = phi i64 [ %.pre313.i, %._crit_edge312.i ], [ %633, %.loopexit260.i ]
+645:                                              ; preds = %._crit_edge314.i, %.loopexit260.i
+  %.pre-phi320.i = phi i64 [ %.pre319.i, %._crit_edge314.i ], [ %634, %.loopexit260.i ]
+  %646 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %633, %.loopexit260.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22162)
   %647 = and i64 %646, 63
   %648 = shl nuw i64 %.sroa.019.1.i, %647
   %649 = load i64, ptr %584, align 8, !alias.scope !22162, !noalias !22134, !noundef !6
   %650 = or i64 %648, %649
   store i64 %650, ptr %584, align 8, !alias.scope !22162, !noalias !22134
-  store i64 %.pre-phi318.i, ptr %582, align 8, !alias.scope !22162, !noalias !22134
-  %651 = and i64 %.pre-phi318.i, 63
+  store i64 %.pre-phi320.i, ptr %582, align 8, !alias.scope !22162, !noalias !22134
+  %651 = and i64 %.pre-phi320.i, 63
   %652 = icmp eq i64 %651, 0
   br i1 %652, label %653, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit109.i.backedge
 
@@ -225847,16 +225847,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %677 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %678 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %679 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge, %664
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge, %664
   %680 = invoke fastcc { i64, i64 } @"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6698a6c5ca69718aE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %30)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !22134
 
-.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
-  %.fr.i107 = freeze { i64, i64 } %680
-  %681 = extractvalue { i64, i64 } %.fr.i107, 0
-  %682 = extractvalue { i64, i64 } %.fr.i107, 1
+.noexc121.i:                                      ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
+  %.fr301.i = freeze { i64, i64 } %680
+  %681 = extractvalue { i64, i64 } %.fr301.i, 0
+  %682 = extractvalue { i64, i64 } %.fr301.i, 1
   %.not.i114.i = icmp eq i64 %681, 2
   br i1 %.not.i114.i, label %705, label %683
 
@@ -225900,7 +225900,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.us.i = phi i64 [ %695, %698 ], [ 0, %.lr.ph290.i ]
   %696 = add i64 %.sroa.083.0287.us.i, %.val.i.i.i115.i
   %697 = invoke fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hd452b4fe9b268a3dE"(ptr noundef nonnull align 8 %467, i64 noundef %696)
-          to label %698 unwind label %.loopexit.split.us.i112, !noalias !22134
+          to label %698 unwind label %.loopexit.split.us.i111, !noalias !22134
 
 698:                                              ; preds = %.lr.ph290.split.us.i
   %699 = extractvalue { i64, i64 } %697, 0
@@ -225910,11 +225910,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %spec.select256.us.i = select i1 %701, i1 %702, i1 false
   %703 = or i1 %.sroa.014.0288.us.i, %spec.select256.us.i
   %704 = add i64 %695, 1
-  %exitcond310.not.i = icmp eq i64 %695, %reass.sub153
-  br i1 %exitcond310.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
+  %exitcond312.not.i = icmp eq i64 %695, %reass.sub153
+  br i1 %exitcond312.not.i, label %._crit_edge291.i, label %.lr.ph290.split.us.i
 
-.loopexit.split.us.i112:                          ; preds = %.lr.ph290.split.us.i
-  %lpad.loopexit.us.i113 = landingpad { ptr, i32 }
+.loopexit.split.us.i111:                          ; preds = %.lr.ph290.split.us.i
+  %lpad.loopexit.us.i112 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
@@ -226002,7 +226002,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.083.0287.i = phi i64 [ %721, %747 ], [ 0, %.lr.ph290.i ]
   %722 = add i64 %.sroa.083.0287.i, %.val.i.i.i115.i
   %723 = invoke fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T$GT$3get17hd452b4fe9b268a3dE"(ptr noundef nonnull align 8 %467, i64 noundef %722)
-          to label %747 unwind label %.loopexit.split.i108, !noalias !22134
+          to label %747 unwind label %.loopexit.split.i107, !noalias !22134
 
 ._crit_edge291.i:                                 ; preds = %747, %698, %693
   %.sroa.014.0.lcssa.i = phi i1 [ false, %693 ], [ %703, %698 ], [ %751, %747 ]
@@ -226014,16 +226014,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 728:                                              ; preds = %._crit_edge291.i
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 1)
-          to label %._crit_edge314.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !22134
+          to label %._crit_edge316.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !22134
 
-._crit_edge314.i:                                 ; preds = %728
-  %.pre315.i = load i64, ptr %674, align 8, !alias.scope !22181, !noalias !22134
-  %.pre316.i = add i64 %.pre315.i, 1
+._crit_edge316.i:                                 ; preds = %728
+  %.pre317.i = load i64, ptr %674, align 8, !alias.scope !22181, !noalias !22134
+  %.pre318.i = add i64 %.pre317.i, 1
   br label %729
 
-729:                                              ; preds = %._crit_edge314.i, %._crit_edge291.i
-  %.pre-phi.i110 = phi i64 [ %.pre316.i, %._crit_edge314.i ], [ %725, %._crit_edge291.i ]
-  %730 = phi i64 [ %.pre315.i, %._crit_edge314.i ], [ %724, %._crit_edge291.i ]
+729:                                              ; preds = %._crit_edge316.i, %._crit_edge291.i
+  %.pre-phi.i109 = phi i64 [ %.pre318.i, %._crit_edge316.i ], [ %725, %._crit_edge291.i ]
+  %730 = phi i64 [ %.pre317.i, %._crit_edge316.i ], [ %724, %._crit_edge291.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !22181)
   %731 = zext i1 %.sroa.014.0.lcssa.i to i64
   %732 = and i64 %730, 63
@@ -226031,10 +226031,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %734 = load i64, ptr %676, align 8, !alias.scope !22181, !noalias !22134, !noundef !6
   %735 = or i64 %733, %734
   store i64 %735, ptr %676, align 8, !alias.scope !22181, !noalias !22134
-  store i64 %.pre-phi.i110, ptr %674, align 8, !alias.scope !22181, !noalias !22134
-  %736 = and i64 %.pre-phi.i110, 63
+  store i64 %.pre-phi.i109, ptr %674, align 8, !alias.scope !22181, !noalias !22134
+  %736 = and i64 %.pre-phi.i109, 63
   %737 = icmp eq i64 %736, 0
-  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br i1 %737, label %738, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
 738:                                              ; preds = %729
   %739 = load i64, ptr %677, align 8, !alias.scope !22181, !noalias !22134, !noundef !6
@@ -226050,10 +226050,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %746 = add i64 %745, %744
   store i64 %746, ptr %679, align 8, !alias.scope !22181, !noalias !22134
   store i64 0, ptr %676, align 8, !alias.scope !22181, !noalias !22134
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111.backedge: ; preds = %738, %729
-  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110.backedge: ; preds = %738, %729
+  br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
 
 747:                                              ; preds = %.lr.ph290.split.i
   %748 = extractvalue { i64, i64 } %723, 0
@@ -226061,15 +226061,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %750 = xor i1 %749, true
   %751 = or i1 %.sroa.014.0288.i, %750
   %752 = add i64 %721, 1
-  %exitcond309.not.i = icmp eq i64 %721, %reass.sub153
-  br i1 %exitcond309.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
+  %exitcond311.not.i = icmp eq i64 %721, %reass.sub153
+  br i1 %exitcond311.not.i, label %._crit_edge291.i, label %.lr.ph290.split.i
 
-.loopexit.split.i108:                             ; preds = %.lr.ph290.split.i
-  %lpad.loopexit.i109 = landingpad { ptr, i32 }
+.loopexit.split.i107:                             ; preds = %.lr.ph290.split.i
+  %lpad.loopexit.i108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i111
+.loopexit.split-lp.loopexit.i:                    ; preds = %728, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i110
   %lpad.loopexit257.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i105
@@ -226079,8 +226079,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i108, %.loopexit.split.us.i112
-  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i113, %.loopexit.split.us.i112 ], [ %lpad.loopexit.i109, %.loopexit.split.i108 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.i105:                                   ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.split.i107, %.loopexit.split.us.i111
+  %lpad.phi.i106 = phi { ptr, i32 } [ %lpad.loopexit.us.i112, %.loopexit.split.us.i111 ], [ %lpad.loopexit.i108, %.loopexit.split.i107 ], [ %lpad.loopexit257.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp258.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17hf946af97fbb2f058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %31) #35
           to label %.thread246.i unwind label %564, !noalias !22134
 

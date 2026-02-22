@@ -1905,8 +1905,8 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !101
-  %.fr110 = freeze i64 %33
-  %34 = and i64 %.fr110, 12
+  %.fr = freeze i64 %33
+  %34 = and i64 %.fr, 12
   %.not85 = icmp eq i64 %34, 0
   br i1 %.not85, label %44, label %35
 
@@ -1936,7 +1936,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %51 = and i64 %.fr110, 2
+  %51 = and i64 %.fr, 2
   %.not111 = icmp eq i64 %51, 0
   %52 = load i8, ptr %48, align 8, !tbaa !103
   %.not62.i.us = icmp eq i8 %52, 0

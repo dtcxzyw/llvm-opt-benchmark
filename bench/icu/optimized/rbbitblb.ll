@@ -3078,15 +3078,15 @@ define noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder22findDuplicateSafeStateE
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 10
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %storemerge.in.pre = load i32, ptr %1, align 4, !tbaa !77
-  %storemerge107 = add nsw i32 %storemerge.in.pre, 1
-  store i32 %storemerge107, ptr %10, align 4, !tbaa !109
-  %.not108 = icmp slt i32 %storemerge107, %6
-  br i1 %.not108, label %.lr.ph110, label %.critedge
+  %storemerge108 = add nsw i32 %storemerge.in.pre, 1
+  store i32 %storemerge108, ptr %10, align 4, !tbaa !109
+  %.not109 = icmp slt i32 %storemerge108, %6
+  br i1 %.not109, label %.lr.ph111, label %.critedge
 
-.lr.ph110:                                        ; preds = %11, %.thread
-  %storemerge109 = phi i32 [ %storemerge, %.thread ], [ %storemerge107, %11 ]
+.lr.ph111:                                        ; preds = %11, %.thread
+  %storemerge110 = phi i32 [ %storemerge, %.thread ], [ %storemerge108, %11 ]
   %19 = load ptr, ptr %3, align 8, !tbaa !28
-  %20 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef %storemerge109)
+  %20 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef %storemerge110)
   %21 = load i16, ptr %15, align 8, !tbaa !116
   %22 = icmp slt i16 %21, 0
   %23 = ashr i16 %21, 5
@@ -3096,39 +3096,39 @@ define noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder22findDuplicateSafeStateE
   %.not5157 = icmp sgt i32 %26, 0
   br i1 %.not5157, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, label %.critedge52
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %.lr.ph110
+_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %.lr.ph111
   %27 = and i16 %21, 2
   %.not.i.i.i = icmp eq i16 %27, 0
   %28 = load ptr, ptr %18, align 8
   %29 = select i1 %.not.i.i.i, ptr %28, ptr %17
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %31 = load i16, ptr %30, align 8, !tbaa !116
-  %.fr = freeze i16 %31
-  %32 = icmp slt i16 %.fr, 0
-  %33 = lshr i16 %.fr, 5
+  %.fr62 = freeze i16 %31
+  %32 = icmp slt i16 %.fr62, 0
+  %33 = lshr i16 %.fr62, 5
   %34 = zext nneg i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = select i1 %32, i32 %36, i32 %34
-  %38 = and i16 %.fr, 2
+  %38 = and i16 %.fr62, 2
   %.not.i.i.i47 = icmp eq i16 %38, 0
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 10
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %41 = zext i32 %37 to i64
-  %wide.trip.count70 = zext nneg i32 %26 to i64
+  %wide.trip.count71 = zext nneg i32 %26 to i64
   br i1 %.not.i.i.i47, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.us:      ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, %63
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %63 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ]
-  %42 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv67
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %63 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ]
+  %42 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv68
   %43 = load i16, ptr %42, align 2, !tbaa !117
   %44 = zext i16 %43 to i32
-  %45 = icmp samesign ult i64 %indvars.iv67, %41
+  %45 = icmp samesign ult i64 %indvars.iv68, %41
   br i1 %45, label %46, label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.us
 
 46:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.us
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv67
+  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv68
   %49 = load i16, ptr %48, align 2, !tbaa !117
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.us
 
@@ -3158,9 +3158,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.us:    ; preds = %46, %_ZNK6icu_7713U
   br i1 %62, label %63, label %.thread
 
 63:                                               ; preds = %60, %58, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.us
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %.critedge52, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, !llvm.loop !119
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
+  br i1 %exitcond72.not, label %.critedge52, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, !llvm.loop !119
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ]
@@ -3202,26 +3202,26 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48:       ; preds = %_ZNK6icu_7713Unicod
 
 84:                                               ; preds = %81, %79, %_ZNK6icu_7713UnicodeString6charAtEi.exit48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count70
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
   br i1 %exitcond.not, label %.critedge52, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, !llvm.loop !119
 
 .thread:                                          ; preds = %81, %76, %55, %60
   %85 = phi i32 [ %53, %55 ], [ %53, %60 ], [ %74, %76 ], [ %74, %81 ]
-  %storemerge.in73 = phi i32 [ %56, %55 ], [ %61, %60 ], [ %82, %81 ], [ %77, %76 ]
-  %storemerge = add nsw i32 %storemerge.in73, 1
+  %storemerge.in74 = phi i32 [ %56, %55 ], [ %61, %60 ], [ %82, %81 ], [ %77, %76 ]
+  %storemerge = add nsw i32 %storemerge.in74, 1
   store i32 %storemerge, ptr %10, align 4, !tbaa !109
   %.not = icmp slt i32 %storemerge, %6
-  br i1 %.not, label %.lr.ph110, label %.critedge, !llvm.loop !120
+  br i1 %.not, label %.lr.ph111, label %.critedge, !llvm.loop !120
 
 .critedge:                                        ; preds = %.thread, %11
-  %.lcssa103 = phi i32 [ %storemerge.in.pre, %11 ], [ %85, %.thread ]
-  %86 = add nsw i32 %.lcssa103, 1
+  %.lcssa104 = phi i32 [ %storemerge.in.pre, %11 ], [ %85, %.thread ]
+  %86 = add nsw i32 %.lcssa104, 1
   store i32 %86, ptr %1, align 4, !tbaa !107
   %87 = icmp slt i32 %86, %7
   br i1 %87, label %11, label %.critedge52, !llvm.loop !121
 
-.critedge52:                                      ; preds = %.critedge, %.lr.ph110, %84, %63, %2
-  %88 = phi i1 [ true, %.lr.ph110 ], [ true, %63 ], [ true, %84 ], [ false, %2 ], [ false, %.critedge ]
+.critedge52:                                      ; preds = %.critedge, %.lr.ph111, %84, %63, %2
+  %88 = phi i1 [ true, %.lr.ph111 ], [ true, %63 ], [ true, %84 ], [ false, %2 ], [ false, %.critedge ]
   ret i1 %88
 }
 

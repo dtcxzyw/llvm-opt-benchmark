@@ -36065,7 +36065,7 @@ define hidden void @_ZN17polars_mem_engine9executors16projection_utils21check_ex
   %23 = alloca [8 x i8], align 8
   %24 = alloca [1 x i8], align 1
   %25 = alloca [48 x i8], align 8
-  %.fr = freeze i24 %6
+  %.fr149 = freeze i24 %6
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i64, ptr %27, align 8, !noundef !3
@@ -36105,9 +36105,9 @@ define hidden void @_ZN17polars_mem_engine9executors16projection_utils21check_ex
 
 _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %39, %36, %.noexc50
   %.sroa.0.0.i = phi i64 [ %38, %36 ], [ %35, %.noexc50 ], [ %40, %39 ]
-  %41 = and i24 %.fr, 256
+  %41 = and i24 %.fr149, 256
   %.not40 = icmp eq i24 %41, 0
-  %42 = and i24 %.fr, 65536
+  %42 = and i24 %.fr149, 65536
   %.not41 = icmp eq i24 %42, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16

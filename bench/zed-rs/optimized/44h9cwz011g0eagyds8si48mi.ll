@@ -1029,7 +1029,6 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %.promoted.i.i = load i8, ptr %5, align 1, !alias.scope !283, !noalias !288
   %.promoted23.i.i = load i64, ptr %1, align 8, !alias.scope !292, !noalias !288
-  %.promoted23.fr.i.i = freeze i64 %.promoted23.i.i
   %6 = trunc nuw i8 %.promoted.i.i to i1
   br i1 %6, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h20f8b0da56abac1eE.exit, label %.lr.ph.i.i
 
@@ -1051,22 +1050,20 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   %17 = getelementptr i8, ptr %16, i64 -1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load i8, ptr %18, align 8, !range !299, !alias.scope !292, !noalias !288
-  %.fr.i.i = freeze i8 %19
-  %20 = trunc i8 %.fr.i.i to i1
+  %20 = trunc nuw i8 %19 to i1
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre2.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !292, !noalias !288
-  %.pre2.i.i.i.fr.i.i = freeze i64 %.pre2.i.i.i.i.i
   %.promoted27.i.i = load i64, ptr %9, align 8, !alias.scope !294, !noalias !297
   br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
-  %.not.i2.i.i.us.i.i = icmp ne i64 %.pre2.i.i.i.fr.i.i, %.promoted23.fr.i.i
-  %or.cond.not.i.i.i.us.i.i = or i1 %.not.i2.i.i.us.i.i, %20
+  %.not.i2.i.i.us.i.i = icmp ne i64 %.pre2.i.i.i.i.i, %.promoted23.i.i
+  %or.cond.not.i.i.i.us.i.i = select i1 %20, i1 true, i1 %.not.i2.i.i.us.i.i
   br i1 %or.cond.not.i.i.i.us.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us.us.i.i", label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us.i.i"
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us.us.i.i": ; preds = %.lr.ph.split.us.i.i
-  %.sroa.0.0.i.i.us.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.promoted23.fr.i.i
-  %21 = sub nuw i64 %.pre2.i.i.i.fr.i.i, %.promoted23.fr.i.i
+  %.sroa.0.0.i.i.us.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.promoted23.i.i
+  %21 = sub nuw i64 %.pre2.i.i.i.i.i, %.promoted23.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
@@ -1093,15 +1090,16 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   br i1 %24, label %.lr.ph.split.split.us.i.i, label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.split.i.i
-  %.not.i2.i.i.us34.i.i = icmp ne i64 %.pre2.i.i.i.fr.i.i, %.promoted23.fr.i.i
-  %or.cond.not.i.i.i.us35.i.i = or i1 %.not.i2.i.i.us34.i.i, %20
-  %25 = sub nuw i64 %.pre2.i.i.i.fr.i.i, %.promoted23.fr.i.i
-  %.sroa.0.0.i.i.us39.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.promoted23.fr.i.i
+  %.not.i2.i.i.us34.i.i = icmp ne i64 %.pre2.i.i.i.i.i, %.promoted23.i.i
+  %or.cond.not.i.i.i.us35.i.i = select i1 %20, i1 true, i1 %.not.i2.i.i.us34.i.i
+  %25 = sub nuw i64 %.pre2.i.i.i.i.i, %.promoted23.i.i
+  %.sroa.0.0.i.i.us39.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.promoted23.i.i
+  %or.cond.not.i.i.i.us35.fr.i.i = freeze i1 %or.cond.not.i.i.i.us35.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   %26 = icmp ult i64 %11, %.promoted27.i.i
-  br i1 %or.cond.not.i.i.i.us35.i.i, label %.lr.ph.split.split.us.split.us.i.i, label %.lr.ph.split.split.us.split.i.i
+  br i1 %or.cond.not.i.i.i.us35.fr.i.i, label %.lr.ph.split.split.us.split.us.i.i, label %.lr.ph.split.split.us.split.i.i
 
 .lr.ph.split.split.us.split.us.i.i:               ; preds = %.lr.ph.split.split.us.i.i
   br i1 %26, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.us33.us.i.i", label %.lr.ph.i.i.i.us.us.i.i
@@ -1231,7 +1229,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.us.i.i.i.us.i.i: 
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.split.i.i, %90
   %63 = phi i64 [ %86, %90 ], [ %.promoted27.i.i, %.lr.ph.split.i.i ]
-  %.lcssa182526.i.i = phi i64 [ %.lcssa1824.i.i, %90 ], [ %.promoted23.fr.i.i, %.lr.ph.split.i.i ]
+  %.lcssa182526.i.i = phi i64 [ %.lcssa1824.i.i, %90 ], [ %.promoted23.i.i, %.lr.ph.split.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
@@ -1304,7 +1302,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i.i.i: ; pred
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i": ; preds = %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i", %.lr.ph.split.split.i.i
   %85 = phi i64 [ %11, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i" ], [ %63, %.lr.ph.split.split.i.i ], [ %79, %80 ]
   store i8 1, ptr %5, align 1, !alias.scope !303, !noalias !288
-  %.not.i2.i.i.i.i = icmp ne i64 %.pre2.i.i.i.fr.i.i, %.lcssa182526.i.i
+  %.not.i2.i.i.i.i = icmp ne i64 %.pre2.i.i.i.i.i, %.lcssa182526.i.i
   %or.cond.not.i.i.i.i.i = select i1 %20, i1 true, i1 %.not.i2.i.i.i.i
   br i1 %or.cond.not.i.i.i.i.i, label %select.unfold.i.i, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h20f8b0da56abac1eE.exit
 
@@ -1316,7 +1314,7 @@ select.unfold.i.i:                                ; preds = %"_ZN81_$LT$core..st
   %86 = phi i64 [ %79, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread8.i.i.i.i" ], [ %85, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
   %.lcssa1824.i.i = phi i64 [ %79, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread8.i.i.i.i" ], [ %.lcssa182526.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
   %87 = phi i1 [ false, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread8.i.i.i.i" ], [ true, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
-  %.pn.i.i = phi i64 [ %82, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread8.i.i.i.i" ], [ %.pre2.i.i.i.fr.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
+  %.pn.i.i = phi i64 [ %82, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread8.i.i.i.i" ], [ %.pre2.i.i.i.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
   %.sroa.4.0.i.i.i.i = sub nuw i64 %.pn.i.i, %.lcssa182526.i.i
   %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.lcssa182526.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !306

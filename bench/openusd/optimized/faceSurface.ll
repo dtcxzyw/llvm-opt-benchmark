@@ -113,18 +113,17 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv(ptr nound
 7:                                                ; preds = %5
   %8 = and i16 %3, 2
   %.not18.i = icmp eq i16 %8, 0
-  %.pre.pre15 = load ptr, ptr %0, align 8
+  %.pre.pre12 = load ptr, ptr %0, align 8
   br i1 %.not18.i, label %9, label %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.pre.pre15, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.pre.pre12, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %16 = load i16, ptr %15, align 2
-  %.fr14 = freeze i16 %16
   br i1 %12, label %17, label %30
 
 17:                                               ; preds = %9
@@ -132,21 +131,19 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv(ptr nound
   %19 = load i16, ptr %18, align 2
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 30
   %21 = load i16, ptr %20, align 2
-  %.fr11 = freeze i16 %19
-  %.fr12 = freeze i16 %21
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 42
   %23 = load i16, ptr %22, align 2
-  %.fr13 = freeze i16 %23
-  %24 = or i16 %.fr11, %.fr12
-  %25 = or i16 %24, %.fr13
-  %26 = or i16 %25, %.fr14
-  %27 = icmp eq i16 %26, 4
+  %24 = or i16 %19, %21
+  %25 = or i16 %24, %23
+  %26 = or i16 %25, %16
+  %.fr11 = freeze i16 %26
+  %27 = icmp eq i16 %.fr11, 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %29 = load i8, ptr %28, align 2
   br i1 %27, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv.exit.critedge, label %78
 
 30:                                               ; preds = %9
-  %31 = icmp eq i16 %.fr14, 6
+  %31 = icmp eq i16 %16, 6
   br i1 %31, label %32, label %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread
 
 32:                                               ; preds = %30
@@ -208,7 +205,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv(ptr nound
   br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread6, label %48, !llvm.loop !5
 
 _ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread: ; preds = %61, %60, %52, %._ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread_crit_edge, %7, %30, %32
-  %.pre = phi ptr [ %.pre.pre, %._ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread_crit_edge ], [ %.pre.pre15, %32 ], [ %.pre.pre15, %7 ], [ %.pre.pre15, %30 ], [ %37, %52 ], [ %37, %60 ], [ %37, %61 ]
+  %.pre = phi ptr [ %.pre.pre, %._ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread_crit_edge ], [ %.pre.pre12, %32 ], [ %.pre.pre12, %7 ], [ %.pre.pre12, %30 ], [ %37, %52 ], [ %37, %60 ], [ %37, %61 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %64 = load i8, ptr %63, align 2
   br label %78
@@ -228,7 +225,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit: ; preds = %32
   br i1 %69, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv.exit.critedge, label %78
 
 _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv.exit.critedge: ; preds = %17, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread6, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit
-  %72 = phi ptr [ %37, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread6 ], [ %.pre.pre15, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %.pre.pre15, %17 ]
+  %72 = phi ptr [ %37, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread6 ], [ %.pre.pre12, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %.pre.pre12, %17 ]
   %73 = phi i8 [ %66, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread6 ], [ %71, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %29, %17 ]
   %74 = phi ptr [ %65, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread6 ], [ %70, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %28, %17 ]
   %75 = or i8 %73, 4
@@ -240,7 +237,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv.exit.critedg
   br label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv.exit
 
 78:                                               ; preds = %17, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit
-  %79 = phi ptr [ %.pre.pre15, %17 ], [ %.pre.pre15, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %.pre, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread ]
+  %79 = phi ptr [ %.pre.pre12, %17 ], [ %.pre.pre12, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %.pre, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread ]
   %80 = phi i8 [ %29, %17 ], [ %71, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %64, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread ]
   %81 = phi ptr [ %28, %17 ], [ %70, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit ], [ %63, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv.exit.thread ]
   %82 = and i8 %80, -5
@@ -685,15 +682,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %61 = icmp ne i16 %58, %60
   %62 = load i16, ptr %46, align 4
   %63 = load i16, ptr %44, align 4
-  %.fr = freeze i16 %63
-  %.fr29 = freeze i16 %62
-  %64 = xor i16 %.fr, %.fr29
-  %65 = trunc i16 %64 to i1
+  %64 = xor i16 %63, %62
+  %.fr29 = freeze i16 %64
+  %65 = trunc i16 %.fr29 to i1
   %.not3.i = or i1 %61, %65
   br i1 %.not3.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread, label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit: ; preds = %56
-  %66 = trunc i16 %64 to i8
+  %66 = trunc i16 %.fr29 to i8
   %67 = and i8 %66, 2
   %spec.select = xor i8 %67, 2
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread
@@ -881,27 +877,27 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEPKi.exit: ; preds 
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = load i16, ptr %28, align 8
-  %.fr70 = freeze i16 %29
-  %30 = and i16 %.fr70, 256
+  %.fr71 = freeze i16 %29
+  %30 = and i16 %.fr71, 256
   %.not.i = icmp eq i16 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load ptr, ptr %31, align 8
   %33 = add nsw i32 %23, -1
-  %34 = and i16 %.fr70, 1
+  %34 = and i16 %.fr71, 1
   %35 = zext nneg i16 %34 to i32
   %36 = sub nsw i32 0, %35
   br i1 %.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader, label %.lr.ph.split
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader: ; preds = %.lr.ph
   %37 = zext nneg i32 %33 to i64
-  %wide.trip.count91 = zext nneg i32 %23 to i64
+  %wide.trip.count92 = zext nneg i32 %23 to i64
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader, %74
-  %indvars.iv88 = phi i64 [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader ], [ %indvars.iv.next89, %74 ]
+  %indvars.iv89 = phi i64 [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader ], [ %indvars.iv.next90, %74 ]
   %.02438.us = phi i32 [ -1, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader ], [ %.1.us, %74 ]
   %.02634.us = phi i32 [ 1, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader ], [ %.127.us, %74 ]
-  %38 = getelementptr i32, ptr %27, i64 %indvars.iv88
+  %38 = getelementptr i32, ptr %27, i64 %indvars.iv89
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %1, i64 %40
@@ -919,15 +915,15 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us: ; pr
   br i1 %.not.i, label %52, label %47
 
 47:                                               ; preds = %46
-  %.idx102 = shl i64 %indvars.iv88, 2
-  %48 = getelementptr i8, ptr %32, i64 %.idx102
+  %.idx103 = shl i64 %indvars.iv89, 2
+  %48 = getelementptr i8, ptr %32, i64 %.idx103
   %49 = getelementptr i8, ptr %48, i64 2
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
 52:                                               ; preds = %46
-  %53 = icmp samesign ult i64 %indvars.iv88, %37
+  %53 = icmp samesign ult i64 %indvars.iv89, %37
   br i1 %53, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %52, %47
@@ -936,7 +932,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %52, %
   br i1 %54, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex24FaceIndicesMatchAtCornerEiiPKi.exit.i.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us: ; preds = %52
-  %55 = trunc i64 %indvars.iv88 to i32
+  %55 = trunc i64 %indvars.iv89 to i32
   %56 = add i32 %55, 1
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex24FaceIndicesMatchAtCornerEiiPKi.exit.i.us
 
@@ -973,9 +969,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.u
 74:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us
   %.127.us = phi i32 [ %.02634.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us ], [ %72, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us ]
   %.1.us = phi i32 [ %.02438.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us ], [ %42, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us, !llvm.loop !27
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
+  br i1 %exitcond93.not, label %._crit_edge, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not.i, label %.lr.ph.split.split.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheader
@@ -986,17 +982,17 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheade
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %76 = trunc i16 %.fr70 to i1
+  %76 = trunc i16 %.fr71 to i1
   %77 = sext i16 %6 to i64
   %78 = zext nneg i32 %33 to i64
-  %wide.trip.count86 = zext nneg i32 %23 to i64
+  %wide.trip.count87 = zext nneg i32 %23 to i64
   br i1 %76, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us: ; preds = %.lr.ph.split.split.us, %100
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %100 ], [ 0, %.lr.ph.split.split.us ]
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %100 ], [ 0, %.lr.ph.split.split.us ]
   %.02438.us45.us = phi i32 [ %.1.us60.us, %100 ], [ -1, %.lr.ph.split.split.us ]
   %.02634.us47.us = phi i32 [ %.127.us59.us, %100 ], [ 1, %.lr.ph.split.split.us ]
-  %79 = mul nsw i64 %indvars.iv83, %77
+  %79 = mul nsw i64 %indvars.iv84, %77
   %80 = getelementptr inbounds i32, ptr %1, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, %20
@@ -1009,11 +1005,11 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us:
   br i1 %or.cond.us49.us, label %85, label %._crit_edge
 
 85:                                               ; preds = %83
-  %86 = icmp samesign ult i64 %indvars.iv83, %78
+  %86 = icmp samesign ult i64 %indvars.iv84, %78
   br i1 %86, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us52.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us52.us: ; preds = %85
-  %87 = add nuw nsw i64 %indvars.iv83, 1
+  %87 = add nuw nsw i64 %indvars.iv84, 1
   %88 = mul nsw i64 %87, %77
   %89 = getelementptr i32, ptr %1, i64 %88
   %90 = load i32, ptr %89, align 4
@@ -1038,22 +1034,22 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.u
 100:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us
   %.127.us59.us = phi i32 [ %.02634.us47.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us ], [ %98, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58.us ]
   %.1.us60.us = phi i32 [ %.02438.us45.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us ], [ %81, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58.us ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us, !llvm.loop !27
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
+  br i1 %exitcond88.not, label %._crit_edge, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us, !llvm.loop !27
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44: ; preds = %.lr.ph.split.split.us, %124
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79.pre-phi, %124 ], [ 0, %.lr.ph.split.split.us ]
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80.pre-phi, %124 ], [ 0, %.lr.ph.split.split.us ]
   %.02438.us45 = phi i32 [ %.1.us60, %124 ], [ -1, %.lr.ph.split.split.us ]
   %.02634.us47 = phi i32 [ %.127.us59, %124 ], [ 1, %.lr.ph.split.split.us ]
-  %101 = mul nsw i64 %indvars.iv78, %77
+  %101 = mul nsw i64 %indvars.iv79, %77
   %102 = getelementptr inbounds i32, ptr %1, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, %20
   br i1 %104, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge, label %105
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44
-  %.pre = add nuw nsw i64 %indvars.iv78, 1
+  %.pre = add nuw nsw i64 %indvars.iv79, 1
   br label %124
 
 105:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44
@@ -1063,8 +1059,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._cr
   br i1 %or.cond.us49, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex24FaceIndicesMatchAtCornerEiiPKi.exit.thread.i.us, label %._crit_edge
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex24FaceIndicesMatchAtCornerEiiPKi.exit.thread.i.us: ; preds = %105
-  %107 = icmp slt i64 %indvars.iv78, %78
-  %108 = add nuw nsw i64 %indvars.iv78, 1
+  %107 = icmp slt i64 %indvars.iv79, %78
+  %108 = add nuw nsw i64 %indvars.iv79, 1
   %109 = trunc nuw nsw i64 %108 to i32
   %.0.i33.us53 = select i1 %107, i32 %109, i32 %36
   %110 = mul nsw i32 %.0.i33.us53, %25
@@ -1092,11 +1088,11 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.u
   br i1 %123, label %._crit_edge, label %124
 
 124:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58
-  %indvars.iv.next79.pre-phi = phi i64 [ %.pre, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge ], [ %108, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58 ]
+  %indvars.iv.next80.pre-phi = phi i64 [ %.pre, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge ], [ %108, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58 ]
   %.127.us59 = phi i32 [ %.02634.us47, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge ], [ %122, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58 ]
   %.1.us60 = phi i32 [ %.02438.us45, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44._crit_edge ], [ %103, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us58 ]
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79.pre-phi, %wide.trip.count86
-  br i1 %exitcond82.not, label %._crit_edge, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44, !llvm.loop !27
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80.pre-phi, %wide.trip.count87
+  br i1 %exitcond83.not, label %._crit_edge, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44, !llvm.loop !27
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheader, %151
   %indvars.iv = phi i64 [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheader ], [ %indvars.iv.next, %151 ]

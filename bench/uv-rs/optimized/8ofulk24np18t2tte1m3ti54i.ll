@@ -18467,14 +18467,14 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$pubgrub..internal..arena..Id$LT$T$G
   %15 = load i64, ptr %5, align 8, !range !38, !noalias !6861, !noundef !15
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !6861
-  %.fr = freeze i64 %17
+  %.fr15 = freeze i64 %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6861
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6861
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.18087163056066412648.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = add i64 %.fr, 1
+  %19 = add i64 %.fr15, 1
   %.not.i = icmp ult i64 %19, 45
   br i1 %.not.i, label %27, label %switch.early.test
 
@@ -18519,7 +18519,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.18087163056066412648.e
   unreachable
 
 27:                                               ; preds = %switch.early.test, %switch.early.test, %18
-  %28 = sub nsw i64 44, %.fr
+  %28 = sub nsw i64 44, %.fr15
   %29 = getelementptr inbounds i8, ptr @anon.bf6f4abe71eb1adc0db4b5e90c7583eb.170, i64 %19
   store ptr %29, ptr %7, align 8
   store i64 %28, ptr %8, align 8

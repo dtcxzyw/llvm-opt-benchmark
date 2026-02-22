@@ -1130,21 +1130,21 @@ _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit: ; preds = %3
 define noundef range(i32 365, 367) i32 @_ZNK6icu_7717GregorianCalendar10yearLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(222) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !32
-  %.fr = freeze i32 %3
+  %.fr3 = freeze i32 %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8, !tbaa !22
-  %.fr3 = freeze i32 %5
-  %.not.i = icmp slt i32 %.fr, %.fr3
-  %6 = and i32 %.fr, 3
+  %.fr = freeze i32 %5
+  %.not.i = icmp slt i32 %.fr3, %.fr
+  %6 = and i32 %.fr3, 3
   %7 = icmp eq i32 %6, 0
   %.not6.i = xor i1 %7, true
   %brmerge.i = or i1 %.not.i, %.not6.i
   br i1 %brmerge.i, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit, label %8
 
 8:                                                ; preds = %1
-  %9 = srem i32 %.fr, 100
+  %9 = srem i32 %.fr3, 100
   %.not5.i = icmp ne i32 %9, 0
-  %10 = srem i32 %.fr, 400
+  %10 = srem i32 %.fr3, 400
   %11 = icmp eq i32 %10, 0
   %or.cond = or i1 %.not5.i, %11
   br i1 %or.cond, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread, label %12
@@ -1257,21 +1257,21 @@ _ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !32
-  %.fr.i = freeze i32 %53
+  %.fr3.i = freeze i32 %53
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %55 = load i32, ptr %54, align 8, !tbaa !22
-  %.fr3.i = freeze i32 %55
-  %.not.i.i = icmp slt i32 %.fr.i, %.fr3.i
-  %56 = and i32 %.fr.i, 3
+  %.fr.i = freeze i32 %55
+  %.not.i.i = icmp slt i32 %.fr3.i, %.fr.i
+  %56 = and i32 %.fr3.i, 3
   %57 = icmp eq i32 %56, 0
   %.not6.i.i = xor i1 %57, true
   %brmerge.i.i = or i1 %.not.i.i, %.not6.i.i
   br i1 %brmerge.i.i, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.i, label %58
 
 58:                                               ; preds = %51
-  %59 = srem i32 %.fr.i, 100
+  %59 = srem i32 %.fr3.i, 100
   %.not5.i.i = icmp ne i32 %59, 0
-  %60 = srem i32 %.fr.i, 400
+  %60 = srem i32 %.fr3.i, 400
   %61 = icmp eq i32 %60, 0
   %or.cond37 = or i1 %.not5.i.i, %61
   br i1 %or.cond37, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i, label %62

@@ -894,8 +894,8 @@ define internal fastcc zeroext i1 @dissect_parameters(ptr noundef %0, i32 nounde
   br label %11
 
 11:                                               ; preds = %.lr.ph, %call_pres_dissector.exit
-  %.080139 = phi i32 [ %1, %.lr.ph ], [ %128, %call_pres_dissector.exit ]
-  %.081138 = phi i16 [ %2, %.lr.ph ], [ %129, %call_pres_dissector.exit ]
+  %.080139 = phi i32 [ %1, %.lr.ph ], [ %129, %call_pres_dissector.exit ]
+  %.081138 = phi i16 [ %2, %.lr.ph ], [ %130, %call_pres_dissector.exit ]
   %.082137 = phi i1 [ true, %.lr.ph ], [ %.1, %call_pres_dissector.exit ]
   %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.080139)
   %13 = load i32, ptr @ett_ses_param, align 4
@@ -962,7 +962,7 @@ get_item_len.exit:                                ; preds = %24, %27
   br i1 %.not90, label %call_pres_dissector.exit, label %53
 
 53:                                               ; preds = %46
-  switch i8 %12, label %126 [
+  switch i8 %12, label %127 [
     i8 -62, label %54
     i8 -63, label %64
     i8 5, label %74
@@ -1015,12 +1015,12 @@ get_item_len.exit:                                ; preds = %24, %27
 
 dissect_parameter_group.exit.thread:              ; preds = %74
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %125
+  br label %126
 
-.lr.ph.i:                                         ; preds = %74, %122
-  %.06292.i = phi i32 [ %123, %122 ], [ %52, %74 ]
-  %.06391.i = phi i16 [ %124, %122 ], [ %.0.i, %74 ]
-  %.06490.i = phi i1 [ %.1.i, %122 ], [ true, %74 ]
+.lr.ph.i:                                         ; preds = %74, %123
+  %.06292.i = phi i32 [ %124, %123 ], [ %52, %74 ]
+  %.06391.i = phi i16 [ %125, %123 ], [ %.0.i, %74 ]
+  %.06490.i = phi i1 [ %.1.i, %123 ], [ true, %74 ]
   %75 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.06292.i)
   %76 = load i32, ptr @ett_ses_param, align 4
   %77 = zext i8 %75 to i32
@@ -1058,7 +1058,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   call void @proto_item_set_len(ptr noundef %96, i32 noundef %97)
   %98 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %79, ptr noundef %5, ptr noundef nonnull @ei_ses_bad_parameter_length, ptr noundef %0, i32 noundef %83, i32 noundef %93, ptr noundef nonnull @.str.252)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.06490.i, label %125, label %call_pres_dissector.exit
+  br i1 %.06490.i, label %126, label %call_pres_dissector.exit
 
 99:                                               ; preds = %get_item_len.exit.i
   %100 = trunc nuw nsw i32 %storemerge.i.i to i16
@@ -1074,7 +1074,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   call void @proto_item_set_len(ptr noundef %105, i32 noundef %107)
   %108 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %79, ptr noundef %5, ptr noundef nonnull @ei_ses_bad_parameter_length, ptr noundef %0, i32 noundef %83, i32 noundef %104, ptr noundef nonnull @.str.253, i32 noundef %92, i32 noundef %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.06490.i, label %125, label %call_pres_dissector.exit
+  br i1 %.06490.i, label %126, label %call_pres_dissector.exit
 
 109:                                              ; preds = %99
   %110 = load ptr, ptr %9, align 8
@@ -1085,7 +1085,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   %114 = call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %113, ptr noundef %0, i32 noundef %83, i32 noundef %storemerge.i.i, i32 noundef %92)
   %115 = add i32 %storemerge.i.i, %83
   %.not72.i = icmp eq ptr %80, null
-  br i1 %.not72.i, label %122, label %116
+  br i1 %.not72.i, label %123, label %116
 
 116:                                              ; preds = %109
   switch i8 %75, label %120 [
@@ -1099,38 +1099,38 @@ get_item_len.exit.i:                              ; preds = %90, %87
 117:                                              ; preds = %116, %116, %116, %116, %116
   %118 = load i32, ptr @hf_ses_parameter_group_inside_parameter_group, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %118, ptr noundef %0, i32 noundef %115, i32 noundef %92, i32 noundef 0)
-  br label %122
+  br label %123
 
 120:                                              ; preds = %116
   %121 = call fastcc zeroext i1 @dissect_parameter(ptr noundef %0, i32 noundef %115, ptr noundef %3, ptr noundef %79, ptr noundef %5, i8 noundef zeroext %75, i16 noundef zeroext %.0.i.i, ptr noundef %114, ptr noundef %6, ptr noundef %7)
-  %.fr = freeze i1 %121
-  %spec.select.i = select i1 %.fr, i1 %.06490.i, i1 false
-  br label %122
+  %spec.select.i = select i1 %121, i1 %.06490.i, i1 false
+  %122 = freeze i1 %spec.select.i
+  br label %123
 
-122:                                              ; preds = %120, %117, %109
-  %.1.i = phi i1 [ %spec.select.i, %120 ], [ %.06490.i, %109 ], [ %.06490.i, %117 ]
-  %123 = add i32 %115, %92
-  %124 = sub i16 %101, %.0.i.i
-  %.not.i95 = icmp eq i16 %124, 0
+123:                                              ; preds = %120, %117, %109
+  %.1.i = phi i1 [ %122, %120 ], [ %.06490.i, %109 ], [ %.06490.i, %117 ]
+  %124 = add i32 %115, %92
+  %125 = sub i16 %101, %.0.i.i
+  %.not.i95 = icmp eq i16 %125, 0
   br i1 %.not.i95, label %dissect_parameter_group.exit, label %.lr.ph.i, !llvm.loop !10
 
-dissect_parameter_group.exit:                     ; preds = %122
+dissect_parameter_group.exit:                     ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.1.i, label %125, label %call_pres_dissector.exit
+  br i1 %.1.i, label %126, label %call_pres_dissector.exit
 
-125:                                              ; preds = %103, %95, %dissect_parameter_group.exit.thread, %dissect_parameter_group.exit
+126:                                              ; preds = %103, %95, %dissect_parameter_group.exit.thread, %dissect_parameter_group.exit
   br label %call_pres_dissector.exit
 
-126:                                              ; preds = %53
-  %127 = call fastcc zeroext i1 @dissect_parameter(ptr noundef %0, i32 noundef %52, ptr noundef %3, ptr noundef %16, ptr noundef %5, i8 noundef zeroext %12, i16 noundef zeroext %.0.i, ptr noundef %51, ptr noundef %6, ptr noundef %7)
-  %spec.select91 = select i1 %127, i1 %.082137, i1 false
+127:                                              ; preds = %53
+  %128 = call fastcc zeroext i1 @dissect_parameter(ptr noundef %0, i32 noundef %52, ptr noundef %3, ptr noundef %16, ptr noundef %5, i8 noundef zeroext %12, i16 noundef zeroext %.0.i, ptr noundef %51, ptr noundef %6, ptr noundef %7)
+  %spec.select91 = select i1 %128, i1 %.082137, i1 false
   br label %call_pres_dissector.exit
 
-call_pres_dissector.exit:                         ; preds = %125, %dissect_parameter_group.exit, %95, %103, %70, %67, %66, %60, %57, %56, %126, %46
-  %.1 = phi i1 [ %.082137, %46 ], [ %spec.select91, %126 ], [ %.082137, %70 ], [ %.082137, %60 ], [ %.082137, %56 ], [ %.082137, %57 ], [ %.082137, %66 ], [ %.082137, %67 ], [ %.082137, %125 ], [ false, %dissect_parameter_group.exit ], [ false, %95 ], [ false, %103 ]
-  %128 = add i32 %52, %29
-  %129 = sub i16 %38, %.0.i
-  %.not = icmp eq i16 %129, 0
+call_pres_dissector.exit:                         ; preds = %126, %dissect_parameter_group.exit, %95, %103, %70, %67, %66, %60, %57, %56, %127, %46
+  %.1 = phi i1 [ %.082137, %46 ], [ %spec.select91, %127 ], [ %.082137, %70 ], [ %.082137, %60 ], [ %.082137, %56 ], [ %.082137, %57 ], [ %.082137, %66 ], [ %.082137, %67 ], [ %.082137, %126 ], [ false, %dissect_parameter_group.exit ], [ false, %95 ], [ false, %103 ]
+  %129 = add i32 %52, %29
+  %130 = sub i16 %38, %.0.i
+  %.not = icmp eq i16 %130, 0
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !11
 
 .loopexit:                                        ; preds = %call_pres_dissector.exit, %8, %40, %32

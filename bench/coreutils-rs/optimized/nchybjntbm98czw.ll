@@ -935,8 +935,8 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
           to label %.noexc19.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !57
 
 .noexc19.i:                                       ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i.i.i"
-  %.fr.i.i.i = freeze { i64, i64 } %202
-  %203 = extractvalue { i64, i64 } %.fr.i.i.i, 0
+  %.fr23.i.i.i = freeze { i64, i64 } %202
+  %203 = extractvalue { i64, i64 } %.fr23.i.i.i, 0
   %204 = icmp eq i64 %203, 1
   br i1 %204, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i.i", label %.loopexit611.i.i
 
@@ -1661,8 +1661,8 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
           to label %.noexc52.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !57
 
 .noexc52.i:                                       ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i43.i"
-  %.fr.i44.i = freeze { i64, i64 } %400
-  %401 = extractvalue { i64, i64 } %.fr.i44.i, 0
+  %.fr23.i44.i = freeze { i64, i64 } %400
+  %401 = extractvalue { i64, i64 } %.fr23.i44.i, 0
   %402 = icmp eq i64 %401, 1
   br i1 %402, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i46.i", label %.loopexit305.i
 
@@ -1717,8 +1717,8 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
           to label %.noexc38.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !57
 
 .noexc38.i:                                       ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i.i"
-  %.fr.i.i = freeze { i64, i64 } %417
-  %418 = extractvalue { i64, i64 } %.fr.i.i, 0
+  %.fr23.i.i = freeze { i64, i64 } %417
+  %418 = extractvalue { i64, i64 } %.fr23.i.i, 0
   %419 = icmp eq i64 %418, 1
   br i1 %419, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i", label %.loopexit306.i
 

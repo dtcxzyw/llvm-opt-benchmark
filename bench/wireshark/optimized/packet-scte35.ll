@@ -593,8 +593,8 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %32 = and i8 %31, 32
   %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
-  %.fr = freeze i8 %33
-  %34 = and i8 %.fr, 16
+  %.fr153 = freeze i8 %33
+  %34 = and i8 %.fr153, 16
   tail call void @proto_tree_add_bitmask_list(ptr noundef %21, ptr noundef %0, i32 noundef 5, i32 noundef 1, ptr noundef nonnull @dissect_scte35_splice_insert.new_event_fields, i32 noundef 0)
   %35 = icmp eq i8 %30, 0
   %36 = icmp ne i8 %34, 0
@@ -703,8 +703,8 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = add i32 %.034.i.ph.us, %.4148.us
   %95 = add nuw nsw i32 %.0127147.us, 1
-  %exitcond158.not = icmp eq i32 %95, %63
-  br i1 %exitcond158.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !6
+  %exitcond159.not = icmp eq i32 %95, %63
+  br i1 %exitcond159.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge.i
   %.4148 = phi i32 [ %105, %.critedge.i ], [ 7, %.lr.ph ]

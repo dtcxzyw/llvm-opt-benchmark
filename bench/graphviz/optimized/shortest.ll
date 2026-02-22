@@ -99,29 +99,29 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.0210306 = phi i64 [ %43, %.lr.ph ], [ 0, %34 ]
-  %.0217305 = phi i64 [ %.1218, %.lr.ph ], [ -1, %34 ]
+  %.0217305 = phi i64 [ %.1218.fr, %.lr.ph ], [ -1, %34 ]
   %.0219304 = phi double [ %.1220, %.lr.ph ], [ 0x7FF0000000000000, %34 ]
   %40 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %.0210306
   %41 = load double, ptr %40, align 8, !tbaa !19
-  %.fr = freeze double %41
-  %42 = fcmp ogt double %.0219304, %.fr
-  %.1220 = select i1 %42, double %.fr, double %.0219304
+  %42 = fcmp ogt double %.0219304, %41
+  %.1220 = select i1 %42, double %41, double %.0219304
   %.1218 = select i1 %42, i64 %.0210306, i64 %.0217305
-  %43 = add i64 %.0210306, 1
+  %.1218.fr = freeze i64 %.1218
+  %43 = add nuw i64 %.0210306, 1
   %exitcond.not = icmp eq i64 %43, %27
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %.1218
+  %44 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %.1218.fr
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %45 = icmp eq i64 %.1218, 0
-  %spec.select = select i1 %45, i64 %27, i64 %.1218
+  %45 = icmp eq i64 %.1218.fr, 0
+  %spec.select = select i1 %45, i64 %27, i64 %.1218.fr
   br label %46
 
 46:                                               ; preds = %._crit_edge, %._crit_edge.thread
   %.sroa.6.0.copyload408.in = phi ptr [ %.sroa.6.0..sroa_idx403, %._crit_edge.thread ], [ %.sroa.6.0..sroa_idx, %._crit_edge ]
   %.sroa.0129.0.copyload407.in = phi ptr [ %39, %._crit_edge.thread ], [ %44, %._crit_edge ]
-  %.0217.lcssa406 = phi i64 [ -1, %._crit_edge.thread ], [ %.1218, %._crit_edge ]
+  %.0217.lcssa406 = phi i64 [ -1, %._crit_edge.thread ], [ %.1218.fr, %._crit_edge ]
   %47 = phi i64 [ -1, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %.sroa.0129.0.copyload407 = load double, ptr %.sroa.0129.0.copyload407.in, align 8, !tbaa !24
   %.sroa.6.0.copyload408 = load double, ptr %.sroa.6.0.copyload408.in, align 8, !tbaa !24

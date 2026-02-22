@@ -12763,17 +12763,17 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii6stringIJLc37ELc95EEEEE5matchILNS_10a
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %28
   %37 = load i8, ptr %29, align 1
-  %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = freeze i8 %37
-  %38 = and i8 %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -33
+  %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = freeze i8 %37
+  %38 = and i8 %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -33
   %39 = add i8 %38, -65
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %39, 26
-  %40 = add i8 %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -48
+  %40 = add i8 %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -48
   %41 = icmp ult i8 %40, 10
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %41, %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %76, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  switch i8 %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread19.i.i.i.i.i.i.i [
+  switch i8 %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19WeakerRefELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread19.i.i.i.i.i.i.i [
     i8 95, label %76
     i8 58, label %76
   ]
@@ -31627,17 +31627,17 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %16
   %25 = load i8, ptr %17, align 1
-  %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = freeze i8 %25
-  %26 = and i8 %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -33
+  %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = freeze i8 %25
+  %26 = and i8 %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -33
   %27 = add i8 %26, -65
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %27, 26
-  %28 = add i8 %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -48
+  %28 = add i8 %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -48
   %29 = icmp ult i8 %28, 10
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %29, %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_6not_atIJNS_3sorIJNS_5ascii16identifier_otherENS3_3oneIJLc58EEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_6not_atIJNS_3sorIJNS_5ascii16identifier_otherENS3_3oneIJLc58EEEEEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114PathExprActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSD_19Sdf_PathExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  switch i8 %.fr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i [
+  switch i8 %.fr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ExpressionReferenceELNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_14PathExprActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_19Sdf_PathExprBuilderEEEEDaRT4_DpOT5_.exit.thread.i [
     i8 95, label %30
     i8 58, label %30
   ]

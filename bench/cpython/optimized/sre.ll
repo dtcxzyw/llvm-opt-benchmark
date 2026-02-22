@@ -21251,7 +21251,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 14:                                               ; preds = %11
   %15 = getelementptr i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !40
-  %.fr321.i = freeze i32 %16
+  %.fr.i = freeze i32 %16
   %17 = getelementptr i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !40
   %19 = ptrtoint ptr %8 to i64
@@ -21270,7 +21270,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.not196.i = icmp ugt ptr %29, %6
   %spec.select.i = select i1 %.not196.i, ptr %29, ptr %6
   %.1168.i = select i1 %25, ptr %spec.select.i, ptr %8
-  %30 = and i32 %.fr321.i, 1
+  %30 = and i32 %.fr.i, 1
   %.not197.i = icmp eq i32 %30, 0
   br i1 %.not197.i, label %138, label %31
 
@@ -21289,7 +21289,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %43 = add i32 %42, 1
   %44 = zext i32 %43 to i64
   %45 = getelementptr i32, ptr %1, i64 %44
-  %46 = and i32 %.fr321.i, 2
+  %46 = and i32 %.fr.i, 2
   %47 = icmp eq i32 %46, 0
   switch i32 %33, label %70 [
     i32 1, label %48
@@ -21378,8 +21378,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 .lr.ph312.i:                                      ; preds = %.preheader.i
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %76 = sub nsw i64 1, %34
-  %reass.sub153 = sub nsw i64 %37, %34
-  %.neg206.reass.i = add nsw i64 %reass.sub153, 1
+  %reass.sub155 = sub nsw i64 %37, %34
+  %.neg206.reass.i = add nsw i64 %reass.sub155, 1
   %.idx.i = shl nuw nsw i64 %37, 3
   %77 = getelementptr i8, ptr %45, i64 %.idx.i
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -21542,7 +21542,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %137, label %.lr.ph312.split.i, label %sre_ucs1_search.exit, !llvm.loop !231
 
 138:                                              ; preds = %24
-  %139 = and i32 %.fr321.i, 4
+  %139 = and i32 %.fr.i, 4
   %.not198.i = icmp eq i32 %139, 0
   %140 = getelementptr i8, ptr %1, i64 20
   %141 = getelementptr i8, ptr %1, i64 4
@@ -21657,7 +21657,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 186:                                              ; preds = %183
   %187 = getelementptr i8, ptr %1, i64 8
   %188 = load i32, ptr %187, align 4, !tbaa !40
-  %.fr318.i = freeze i32 %188
+  %.fr.i10 = freeze i32 %188
   %189 = getelementptr i8, ptr %1, i64 12
   %190 = load i32, ptr %189, align 4, !tbaa !40
   %.not.i = icmp eq i32 %190, 0
@@ -21678,12 +21678,12 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %201 = zext i32 %200 to i64
   %202 = sub nsw i64 0, %201
   %203 = getelementptr i16, ptr %8, i64 %202
-  %.not196.i10 = icmp ugt ptr %203, %6
-  %spec.select.i11 = select i1 %.not196.i10, ptr %203, ptr %6
-  %.1168.i12 = select i1 %199, ptr %spec.select.i11, ptr %8
-  %204 = and i32 %.fr318.i, 1
-  %.not197.i13 = icmp eq i32 %204, 0
-  br i1 %.not197.i13, label %316, label %205
+  %.not196.i11 = icmp ugt ptr %203, %6
+  %spec.select.i12 = select i1 %.not196.i11, ptr %203, ptr %6
+  %.1168.i13 = select i1 %199, ptr %spec.select.i12, ptr %8
+  %204 = and i32 %.fr.i10, 1
+  %.not197.i14 = icmp eq i32 %204, 0
+  br i1 %.not197.i14, label %316, label %205
 
 205:                                              ; preds = %198
   %206 = getelementptr i8, ptr %1, i64 20
@@ -21700,7 +21700,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %217 = add i32 %216, 1
   %218 = zext i32 %217 to i64
   %219 = getelementptr i32, ptr %1, i64 %218
-  %220 = and i32 %.fr318.i, 2
+  %220 = and i32 %.fr.i10, 2
   %221 = icmp eq i32 %220, 0
   switch i32 %207, label %244 [
     i32 1, label %222
@@ -21709,8 +21709,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 222:                                              ; preds = %205
   %223 = load i32, ptr %212, align 4, !tbaa !40
-  %.not214.i14 = icmp ult i32 %223, 65536
-  br i1 %.not214.i14, label %224, label %sre_ucs1_search.exit
+  %.not214.i15 = icmp ult i32 %223, 65536
+  br i1 %.not214.i15, label %224, label %sre_ucs1_search.exit
 
 224:                                              ; preds = %222
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -21720,56 +21720,56 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 .preheader282.lr.ph.i:                            ; preds = %224
   %227 = trunc nuw i32 %223 to i16
-  %.idx217.i15 = shl nuw nsw i64 %211, 3
-  %228 = getelementptr i8, ptr %219, i64 %.idx217.i15
+  %.idx217.i16 = shl nuw nsw i64 %211, 3
+  %228 = getelementptr i8, ptr %219, i64 %.idx217.i16
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br i1 %221, label %.preheader282.us.i, label %.preheader282.i
 
 .preheader282.us.i:                               ; preds = %.preheader282.lr.ph.i, %.preheader282.us.i.backedge
-  %.1170.us.i18 = phi ptr [ %.1170.us.i18.be, %.preheader282.us.i.backedge ], [ %6, %.preheader282.lr.ph.i ]
-  %231 = load i16, ptr %.1170.us.i18, align 2, !tbaa !131
-  %.not215.us.i19 = icmp eq i16 %231, %227
-  br i1 %.not215.us.i19, label %234, label %232
+  %.1170.us.i19 = phi ptr [ %.1170.us.i19.be, %.preheader282.us.i.backedge ], [ %6, %.preheader282.lr.ph.i ]
+  %231 = load i16, ptr %.1170.us.i19, align 2, !tbaa !131
+  %.not215.us.i20 = icmp eq i16 %231, %227
+  br i1 %.not215.us.i20, label %234, label %232
 
 232:                                              ; preds = %.preheader282.us.i
-  %233 = getelementptr i8, ptr %.1170.us.i18, i64 2
-  %.not219.us.i20 = icmp ult ptr %233, %8
-  br i1 %.not219.us.i20, label %.preheader282.us.i.backedge, label %sre_ucs1_search.exit
+  %233 = getelementptr i8, ptr %.1170.us.i19, i64 2
+  %.not219.us.i21 = icmp ult ptr %233, %8
+  br i1 %.not219.us.i21, label %.preheader282.us.i.backedge, label %sre_ucs1_search.exit
 
 .preheader282.us.i.backedge:                      ; preds = %232, %237
-  %.1170.us.i18.be = phi ptr [ %233, %232 ], [ %238, %237 ]
+  %.1170.us.i19.be = phi ptr [ %233, %232 ], [ %238, %237 ]
   br label %.preheader282.us.i, !llvm.loop !234
 
 234:                                              ; preds = %.preheader282.us.i
-  store ptr %.1170.us.i18, ptr %5, align 8, !tbaa !78
-  %235 = getelementptr i16, ptr %.1170.us.i18, i64 %211
+  store ptr %.1170.us.i19, ptr %5, align 8, !tbaa !78
+  %235 = getelementptr i16, ptr %.1170.us.i19, i64 %211
   store ptr %235, ptr %0, align 8, !tbaa !81
   %236 = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %0, ptr noundef %228, i32 noundef 0)
-  %.not218.us.i21 = icmp eq i64 %236, 0
-  br i1 %.not218.us.i21, label %237, label %sre_ucs1_search.exit
+  %.not218.us.i22 = icmp eq i64 %236, 0
+  br i1 %.not218.us.i22, label %237, label %sre_ucs1_search.exit
 
 237:                                              ; preds = %234
-  %238 = getelementptr i8, ptr %.1170.us.i18, i64 2
+  %238 = getelementptr i8, ptr %.1170.us.i19, i64 2
   store i32 -1, ptr %229, align 8, !tbaa !86
   store i32 -1, ptr %230, align 4, !tbaa !85
   %239 = icmp ult ptr %238, %8
   br i1 %239, label %.preheader282.us.i.backedge, label %sre_ucs1_search.exit
 
 .preheader282.i:                                  ; preds = %.preheader282.lr.ph.i, %241
-  %.1170.i16 = phi ptr [ %242, %241 ], [ %6, %.preheader282.lr.ph.i ]
-  %240 = load i16, ptr %.1170.i16, align 2, !tbaa !131
-  %.not215.i17 = icmp eq i16 %240, %227
-  br i1 %.not215.i17, label %..critedge.loopexit284_crit_edge293.i, label %241
+  %.1170.i17 = phi ptr [ %242, %241 ], [ %6, %.preheader282.lr.ph.i ]
+  %240 = load i16, ptr %.1170.i17, align 2, !tbaa !131
+  %.not215.i18 = icmp eq i16 %240, %227
+  br i1 %.not215.i18, label %..critedge.loopexit284_crit_edge293.i, label %241
 
 241:                                              ; preds = %.preheader282.i
-  %242 = getelementptr i8, ptr %.1170.i16, i64 2
+  %242 = getelementptr i8, ptr %.1170.i17, i64 2
   %.not219.i = icmp ult ptr %242, %8
   br i1 %.not219.i, label %.preheader282.i, label %sre_ucs1_search.exit, !llvm.loop !235
 
 ..critedge.loopexit284_crit_edge293.i:            ; preds = %.preheader282.i
-  store ptr %.1170.i16, ptr %5, align 8, !tbaa !78
-  %243 = getelementptr i16, ptr %.1170.i16, i64 %211
+  store ptr %.1170.i17, ptr %5, align 8, !tbaa !78
+  %243 = getelementptr i16, ptr %.1170.i17, i64 %211
   store ptr %243, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
@@ -21779,85 +21779,85 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %247 = sub i64 %245, %246
   %248 = ashr exact i64 %247, 1
   %249 = icmp slt i64 %248, %208
-  br i1 %249, label %sre_ucs1_search.exit, label %.lr.ph.i22
+  br i1 %249, label %sre_ucs1_search.exit, label %.lr.ph.i23
 
-250:                                              ; preds = %.lr.ph.i22
+250:                                              ; preds = %.lr.ph.i23
   %251 = add nuw nsw i64 %.0148296.i, 1
-  %exitcond.not.i24 = icmp eq i64 %251, %208
-  br i1 %exitcond.not.i24, label %.preheader.i25, label %.lr.ph.i22, !llvm.loop !236
+  %exitcond.not.i25 = icmp eq i64 %251, %208
+  br i1 %exitcond.not.i25, label %.preheader.i26, label %.lr.ph.i23, !llvm.loop !236
 
-.preheader.i25:                                   ; preds = %250
+.preheader.i26:                                   ; preds = %250
   %252 = icmp ult ptr %6, %8
   br i1 %252, label %.lr.ph309.i, label %sre_ucs1_search.exit
 
-.lr.ph309.i:                                      ; preds = %.preheader.i25
+.lr.ph309.i:                                      ; preds = %.preheader.i26
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %254 = sub nsw i64 1, %208
   %reass.sub = sub nsw i64 %211, %208
-  %.neg206.reass.i27 = add nsw i64 %reass.sub, 1
-  %.idx.i28 = shl nuw nsw i64 %211, 3
-  %255 = getelementptr i8, ptr %219, i64 %.idx.i28
+  %.neg206.reass.i28 = add nsw i64 %reass.sub, 1
+  %.idx.i29 = shl nuw nsw i64 %211, 3
+  %255 = getelementptr i8, ptr %219, i64 %.idx.i29
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br i1 %221, label %.lr.ph309.split.us.i, label %.lr.ph309.split.i
 
 .lr.ph309.split.us.i:                             ; preds = %.lr.ph309.i, %.split298.us.us.i
-  %.2171308.us.i = phi ptr [ %.7.us.us.i50, %.split298.us.us.i ], [ %6, %.lr.ph309.i ]
+  %.2171308.us.i = phi ptr [ %.7.us.us.i51, %.split298.us.us.i ], [ %6, %.lr.ph309.i ]
   %258 = load i32, ptr %212, align 4, !tbaa !40
   %259 = trunc i32 %258 to i16
   br label %260
 
 260:                                              ; preds = %263, %.lr.ph309.split.us.i
-  %.3172.us.i41 = phi ptr [ %.2171308.us.i, %.lr.ph309.split.us.i ], [ %261, %263 ]
-  %261 = getelementptr i8, ptr %.3172.us.i41, i64 2
-  %262 = load i16, ptr %.3172.us.i41, align 2, !tbaa !131
-  %.not203.us.i42 = icmp eq i16 %262, %259
-  %.not204.us.i44 = icmp ult ptr %261, %8
-  br i1 %.not203.us.i42, label %264, label %263
+  %.3172.us.i42 = phi ptr [ %.2171308.us.i, %.lr.ph309.split.us.i ], [ %261, %263 ]
+  %261 = getelementptr i8, ptr %.3172.us.i42, i64 2
+  %262 = load i16, ptr %.3172.us.i42, align 2, !tbaa !131
+  %.not203.us.i43 = icmp eq i16 %262, %259
+  %.not204.us.i45 = icmp ult ptr %261, %8
+  br i1 %.not203.us.i43, label %264, label %263
 
 263:                                              ; preds = %260
-  br i1 %.not204.us.i44, label %260, label %sre_ucs1_search.exit, !llvm.loop !237
+  br i1 %.not204.us.i45, label %260, label %sre_ucs1_search.exit, !llvm.loop !237
 
 264:                                              ; preds = %260
-  br i1 %.not204.us.i44, label %.split.us.us.i45, label %sre_ucs1_search.exit
+  br i1 %.not204.us.i45, label %.split.us.us.i46, label %sre_ucs1_search.exit
 
-.split.us.us.i45:                                 ; preds = %264
+.split.us.us.i46:                                 ; preds = %264
   store i32 0, ptr %253, align 4, !tbaa !92
   br label %265
 
-265:                                              ; preds = %286, %.split.us.us.i45
-  %.5.us.us.i46 = phi ptr [ %261, %.split.us.us.i45 ], [ %.7.us.us.i50, %286 ]
-  %.1149.us.us.i47 = phi i64 [ 1, %.split.us.us.i45 ], [ %.3151.us.us.i51, %286 ]
-  %266 = load i16, ptr %.5.us.us.i46, align 2, !tbaa !131
-  %267 = getelementptr i32, ptr %212, i64 %.1149.us.us.i47
+265:                                              ; preds = %286, %.split.us.us.i46
+  %.5.us.us.i47 = phi ptr [ %261, %.split.us.us.i46 ], [ %.7.us.us.i51, %286 ]
+  %.1149.us.us.i48 = phi i64 [ 1, %.split.us.us.i46 ], [ %.3151.us.us.i52, %286 ]
+  %266 = load i16, ptr %.5.us.us.i47, align 2, !tbaa !131
+  %267 = getelementptr i32, ptr %212, i64 %.1149.us.us.i48
   %268 = load i32, ptr %267, align 4, !tbaa !40
   %269 = trunc i32 %268 to i16
   %270 = icmp eq i16 %266, %269
   br i1 %270, label %271, label %282
 
 271:                                              ; preds = %265
-  %272 = add i64 %.1149.us.us.i47, 1
-  %.not205.us.us.i53 = icmp eq i64 %272, %208
-  br i1 %.not205.us.us.i53, label %275, label %273
+  %272 = add i64 %.1149.us.us.i48, 1
+  %.not205.us.us.i54 = icmp eq i64 %272, %208
+  br i1 %.not205.us.us.i54, label %275, label %273
 
 273:                                              ; preds = %271
-  %274 = getelementptr i8, ptr %.5.us.us.i46, i64 2
-  %.not210.us.us.i54 = icmp ult ptr %274, %8
-  br i1 %.not210.us.us.i54, label %286, label %sre_ucs1_search.exit
+  %274 = getelementptr i8, ptr %.5.us.us.i47, i64 2
+  %.not210.us.us.i55 = icmp ult ptr %274, %8
+  br i1 %.not210.us.us.i55, label %286, label %sre_ucs1_search.exit
 
 275:                                              ; preds = %271
-  %276 = getelementptr i16, ptr %.5.us.us.i46, i64 %254
+  %276 = getelementptr i16, ptr %.5.us.us.i47, i64 %254
   store ptr %276, ptr %5, align 8, !tbaa !78
-  %277 = getelementptr i16, ptr %.5.us.us.i46, i64 %.neg206.reass.i27
+  %277 = getelementptr i16, ptr %.5.us.us.i47, i64 %.neg206.reass.i28
   store ptr %277, ptr %0, align 8, !tbaa !81
   %278 = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %0, ptr noundef %255, i32 noundef 0)
-  %.not208.us.us.i55 = icmp eq i64 %278, 0
-  br i1 %.not208.us.us.i55, label %279, label %sre_ucs1_search.exit
+  %.not208.us.us.i56 = icmp eq i64 %278, 0
+  br i1 %.not208.us.us.i56, label %279, label %sre_ucs1_search.exit
 
 279:                                              ; preds = %275
-  %280 = getelementptr i8, ptr %.5.us.us.i46, i64 2
-  %.not209.us.us.i56 = icmp ult ptr %280, %8
-  br i1 %.not209.us.us.i56, label %281, label %sre_ucs1_search.exit
+  %280 = getelementptr i8, ptr %.5.us.us.i47, i64 2
+  %.not209.us.us.i57 = icmp ult ptr %280, %8
+  br i1 %.not209.us.us.i57, label %281, label %sre_ucs1_search.exit
 
 281:                                              ; preds = %279
   store i32 -1, ptr %256, align 8, !tbaa !86
@@ -21865,100 +21865,100 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br label %282
 
 282:                                              ; preds = %281, %265
-  %.6.us.us.i48 = phi ptr [ %280, %281 ], [ %.5.us.us.i46, %265 ]
-  %.2150.us.us.i49 = phi i64 [ %208, %281 ], [ %.1149.us.us.i47, %265 ]
-  %283 = getelementptr i32, ptr %214, i64 %.2150.us.us.i49
+  %.6.us.us.i49 = phi ptr [ %280, %281 ], [ %.5.us.us.i47, %265 ]
+  %.2150.us.us.i50 = phi i64 [ %208, %281 ], [ %.1149.us.us.i48, %265 ]
+  %283 = getelementptr i32, ptr %214, i64 %.2150.us.us.i50
   %284 = load i32, ptr %283, align 4, !tbaa !40
   %285 = zext i32 %284 to i64
   br label %286
 
 286:                                              ; preds = %282, %273
-  %.7.us.us.i50 = phi ptr [ %274, %273 ], [ %.6.us.us.i48, %282 ]
-  %.3151.us.us.i51 = phi i64 [ %272, %273 ], [ %285, %282 ]
-  %.not211.us.us.i52 = icmp eq i64 %.3151.us.us.i51, 0
-  br i1 %.not211.us.us.i52, label %.split298.us.us.i, label %265, !llvm.loop !238
+  %.7.us.us.i51 = phi ptr [ %274, %273 ], [ %.6.us.us.i49, %282 ]
+  %.3151.us.us.i52 = phi i64 [ %272, %273 ], [ %285, %282 ]
+  %.not211.us.us.i53 = icmp eq i64 %.3151.us.us.i52, 0
+  br i1 %.not211.us.us.i53, label %.split298.us.us.i, label %265, !llvm.loop !238
 
 .split298.us.us.i:                                ; preds = %286
-  %287 = icmp ult ptr %.7.us.us.i50, %8
+  %287 = icmp ult ptr %.7.us.us.i51, %8
   br i1 %287, label %.lr.ph309.split.us.i, label %sre_ucs1_search.exit, !llvm.loop !239
 
-.lr.ph.i22:                                       ; preds = %244, %250
+.lr.ph.i23:                                       ; preds = %244, %250
   %.0148296.i = phi i64 [ %251, %250 ], [ 0, %244 ]
   %288 = getelementptr i32, ptr %212, i64 %.0148296.i
   %289 = load i32, ptr %288, align 4, !tbaa !40
-  %.not213.i23 = icmp ult i32 %289, 65536
-  br i1 %.not213.i23, label %250, label %sre_ucs1_search.exit
+  %.not213.i24 = icmp ult i32 %289, 65536
+  br i1 %.not213.i24, label %250, label %sre_ucs1_search.exit
 
 .lr.ph309.split.i:                                ; preds = %.lr.ph309.i, %.split298.i
-  %.2171308.i = phi ptr [ %.7.i36, %.split298.i ], [ %6, %.lr.ph309.i ]
+  %.2171308.i = phi ptr [ %.7.i37, %.split298.i ], [ %6, %.lr.ph309.i ]
   %290 = load i32, ptr %212, align 4, !tbaa !40
   %291 = trunc i32 %290 to i16
   br label %292
 
 292:                                              ; preds = %295, %.lr.ph309.split.i
-  %.3172.i29 = phi ptr [ %.2171308.i, %.lr.ph309.split.i ], [ %293, %295 ]
-  %293 = getelementptr i8, ptr %.3172.i29, i64 2
-  %294 = load i16, ptr %.3172.i29, align 2, !tbaa !131
-  %.not203.i30 = icmp eq i16 %294, %291
-  %.not204.i32 = icmp ult ptr %293, %8
-  br i1 %.not203.i30, label %296, label %295
+  %.3172.i30 = phi ptr [ %.2171308.i, %.lr.ph309.split.i ], [ %293, %295 ]
+  %293 = getelementptr i8, ptr %.3172.i30, i64 2
+  %294 = load i16, ptr %.3172.i30, align 2, !tbaa !131
+  %.not203.i31 = icmp eq i16 %294, %291
+  %.not204.i33 = icmp ult ptr %293, %8
+  br i1 %.not203.i31, label %296, label %295
 
 295:                                              ; preds = %292
-  br i1 %.not204.i32, label %292, label %sre_ucs1_search.exit, !llvm.loop !237
+  br i1 %.not204.i33, label %292, label %sre_ucs1_search.exit, !llvm.loop !237
 
 296:                                              ; preds = %292
-  br i1 %.not204.i32, label %.split.i33, label %sre_ucs1_search.exit
+  br i1 %.not204.i33, label %.split.i34, label %sre_ucs1_search.exit
 
-.split.i33:                                       ; preds = %296
+.split.i34:                                       ; preds = %296
   store i32 0, ptr %253, align 4, !tbaa !92
   br label %297
 
-297:                                              ; preds = %314, %.split.i33
-  %.5.i34 = phi ptr [ %293, %.split.i33 ], [ %.7.i36, %314 ]
-  %.1149.i35 = phi i64 [ 1, %.split.i33 ], [ %.3151.i37, %314 ]
-  %298 = load i16, ptr %.5.i34, align 2, !tbaa !131
-  %299 = getelementptr i32, ptr %212, i64 %.1149.i35
+297:                                              ; preds = %314, %.split.i34
+  %.5.i35 = phi ptr [ %293, %.split.i34 ], [ %.7.i37, %314 ]
+  %.1149.i36 = phi i64 [ 1, %.split.i34 ], [ %.3151.i38, %314 ]
+  %298 = load i16, ptr %.5.i35, align 2, !tbaa !131
+  %299 = getelementptr i32, ptr %212, i64 %.1149.i36
   %300 = load i32, ptr %299, align 4, !tbaa !40
   %301 = trunc i32 %300 to i16
   %302 = icmp eq i16 %298, %301
   br i1 %302, label %303, label %310
 
 303:                                              ; preds = %297
-  %304 = add i64 %.1149.i35, 1
-  %.not205.i39 = icmp eq i64 %304, %208
-  br i1 %.not205.i39, label %307, label %305
+  %304 = add i64 %.1149.i36, 1
+  %.not205.i40 = icmp eq i64 %304, %208
+  br i1 %.not205.i40, label %307, label %305
 
 305:                                              ; preds = %303
-  %306 = getelementptr i8, ptr %.5.i34, i64 2
-  %.not210.i40 = icmp ult ptr %306, %8
-  br i1 %.not210.i40, label %314, label %sre_ucs1_search.exit
+  %306 = getelementptr i8, ptr %.5.i35, i64 2
+  %.not210.i41 = icmp ult ptr %306, %8
+  br i1 %.not210.i41, label %314, label %sre_ucs1_search.exit
 
 307:                                              ; preds = %303
-  %308 = getelementptr i16, ptr %.5.i34, i64 %254
+  %308 = getelementptr i16, ptr %.5.i35, i64 %254
   store ptr %308, ptr %5, align 8, !tbaa !78
-  %309 = getelementptr i16, ptr %.5.i34, i64 %.neg206.reass.i27
+  %309 = getelementptr i16, ptr %.5.i35, i64 %.neg206.reass.i28
   store ptr %309, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
 310:                                              ; preds = %297
-  %311 = getelementptr i32, ptr %214, i64 %.1149.i35
+  %311 = getelementptr i32, ptr %214, i64 %.1149.i36
   %312 = load i32, ptr %311, align 4, !tbaa !40
   %313 = zext i32 %312 to i64
   br label %314
 
 314:                                              ; preds = %310, %305
-  %.7.i36 = phi ptr [ %306, %305 ], [ %.5.i34, %310 ]
-  %.3151.i37 = phi i64 [ %304, %305 ], [ %313, %310 ]
-  %.not211.i38 = icmp eq i64 %.3151.i37, 0
-  br i1 %.not211.i38, label %.split298.i, label %297, !llvm.loop !238
+  %.7.i37 = phi ptr [ %306, %305 ], [ %.5.i35, %310 ]
+  %.3151.i38 = phi i64 [ %304, %305 ], [ %313, %310 ]
+  %.not211.i39 = icmp eq i64 %.3151.i38, 0
+  br i1 %.not211.i39, label %.split298.i, label %297, !llvm.loop !238
 
 .split298.i:                                      ; preds = %314
-  %315 = icmp ult ptr %.7.i36, %8
+  %315 = icmp ult ptr %.7.i37, %8
   br i1 %315, label %.lr.ph309.split.i, label %sre_ucs1_search.exit, !llvm.loop !239
 
 316:                                              ; preds = %198
-  %317 = and i32 %.fr318.i, 4
-  %.not198.i57 = icmp eq i32 %317, 0
+  %317 = and i32 %.fr.i10, 4
+  %.not198.i58 = icmp eq i32 %317, 0
   %318 = getelementptr i8, ptr %1, i64 20
   %319 = getelementptr i8, ptr %1, i64 4
   %320 = load i32, ptr %319, align 4, !tbaa !40
@@ -21966,8 +21966,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %322 = zext i32 %321 to i64
   %323 = getelementptr i32, ptr %1, i64 %322
   %.not199273.i = icmp eq ptr %318, null
-  %.not199.i58 = or i1 %.not199273.i, %.not198.i57
-  br i1 %.not199.i58, label %.thread267.i, label %324
+  %.not199.i59 = or i1 %.not199273.i, %.not198.i58
+  br i1 %.not199.i59, label %.thread267.i, label %324
 
 324:                                              ; preds = %316
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -21985,8 +21985,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %329 = load i16, ptr %.9312.i, align 2, !tbaa !131
   %330 = zext i16 %329 to i32
   %331 = tail call fastcc i32 @sre_ucs2_charset(ptr noundef nonnull %318, i32 noundef %330)
-  %.not200.i59 = icmp eq i32 %331, 0
-  br i1 %.not200.i59, label %332, label %335
+  %.not200.i60 = icmp eq i32 %331, 0
+  br i1 %.not200.i60, label %332, label %335
 
 332:                                              ; preds = %.lr.ph313.i
   %333 = getelementptr i8, ptr %.9312.i, i64 2
@@ -22001,8 +22001,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   store ptr %.9312.i, ptr %5, align 8, !tbaa !78
   store ptr %.9312.i, ptr %0, align 8, !tbaa !81
   %336 = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %0, ptr noundef %323, i32 noundef 0)
-  %.not202.i60 = icmp eq i64 %336, 0
-  br i1 %.not202.i60, label %337, label %sre_ucs1_search.exit
+  %.not202.i61 = icmp eq i64 %336, 0
+  br i1 %.not202.i61, label %337, label %sre_ucs1_search.exit
 
 337:                                              ; preds = %335
   %338 = getelementptr i8, ptr %.9312.i, i64 2
@@ -22013,7 +22013,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 .thread267.i:                                     ; preds = %316, %205, %183
   %.0152236252266.i = phi ptr [ %1, %183 ], [ %323, %316 ], [ %219, %205 ]
-  %.0167229254265.i = phi ptr [ %8, %183 ], [ %.1168.i12, %316 ], [ %.1168.i12, %205 ]
+  %.0167229254265.i = phi ptr [ %8, %183 ], [ %.1168.i13, %316 ], [ %.1168.i13, %205 ]
   store ptr %6, ptr %0, align 8, !tbaa !81
   %340 = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %0, ptr noundef %.0152236252266.i, i32 noundef 1)
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -22072,11 +22072,11 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 364:                                              ; preds = %361
   %365 = getelementptr i8, ptr %1, i64 8
   %366 = load i32, ptr %365, align 4, !tbaa !40
-  %.fr301.i = freeze i32 %366
+  %.fr.i63 = freeze i32 %366
   %367 = getelementptr i8, ptr %1, i64 12
   %368 = load i32, ptr %367, align 4, !tbaa !40
-  %.not.i62 = icmp eq i32 %368, 0
-  br i1 %.not.i62, label %376, label %369
+  %.not.i64 = icmp eq i32 %368, 0
+  br i1 %.not.i64, label %376, label %369
 
 369:                                              ; preds = %364
   %370 = ptrtoint ptr %8 to i64
@@ -22094,9 +22094,9 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %380 = sub nsw i64 0, %379
   %381 = getelementptr i32, ptr %8, i64 %380
   %.not185.i = icmp ugt ptr %381, %6
-  %spec.select.i63 = select i1 %.not185.i, ptr %381, ptr %6
-  %.1158.i = select i1 %377, ptr %spec.select.i63, ptr %8
-  %382 = and i32 %.fr301.i, 1
+  %spec.select.i65 = select i1 %.not185.i, ptr %381, ptr %6
+  %.1158.i = select i1 %377, ptr %spec.select.i65, ptr %8
+  %382 = and i32 %.fr.i63, 1
   %.not186.i = icmp eq i32 %382, 0
   br i1 %.not186.i, label %484, label %383
 
@@ -22115,7 +22115,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %395 = add i32 %394, 1
   %396 = zext i32 %395 to i64
   %397 = getelementptr i32, ptr %1, i64 %396
-  %398 = and i32 %.fr301.i, 2
+  %398 = and i32 %.fr.i63, 2
   %399 = icmp eq i32 %398, 0
   switch i32 %385, label %420 [
     i32 1, label %400
@@ -22169,8 +22169,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 .preheader267.i:                                  ; preds = %.preheader267.lr.ph.i, %417
   %.1160.i = phi ptr [ %418, %417 ], [ %6, %.preheader267.lr.ph.i ]
   %416 = load i32, ptr %.1160.i, align 4, !tbaa !40
-  %.not202.i64 = icmp eq i32 %416, %401
-  br i1 %.not202.i64, label %..critedge.loopexit269_crit_edge278.i, label %417
+  %.not202.i66 = icmp eq i32 %416, %401
+  br i1 %.not202.i66, label %..critedge.loopexit269_crit_edge278.i, label %417
 
 417:                                              ; preds = %.preheader267.i
   %418 = getelementptr i8, ptr %.1160.i, i64 4
@@ -22191,21 +22191,21 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %425 = icmp sge i64 %424, %386
   %426 = icmp ult ptr %6, %8
   %or.cond.i = and i1 %426, %425
-  br i1 %or.cond.i, label %.lr.ph.i65, label %sre_ucs1_search.exit
+  br i1 %or.cond.i, label %.lr.ph.i67, label %sre_ucs1_search.exit
 
-.lr.ph.i65:                                       ; preds = %420
+.lr.ph.i67:                                       ; preds = %420
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %428 = sub nsw i64 1, %386
-  %reass.sub154 = sub nsw i64 %389, %386
-  %.neg195.reass.i = add nsw i64 %reass.sub154, 1
-  %.idx.i67 = shl nuw nsw i64 %389, 3
-  %429 = getelementptr i8, ptr %397, i64 %.idx.i67
+  %reass.sub156 = sub nsw i64 %389, %386
+  %.neg195.reass.i = add nsw i64 %reass.sub156, 1
+  %.idx.i69 = shl nuw nsw i64 %389, 3
+  %429 = getelementptr i8, ptr %397, i64 %.idx.i69
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br i1 %399, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i65, %.split282.us.us.i
-  %.2161292.us.i = phi ptr [ %.7.us.us.i76, %.split282.us.us.i ], [ %6, %.lr.ph.i65 ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i67, %.split282.us.us.i
+  %.2161292.us.i = phi ptr [ %.7.us.us.i78, %.split282.us.us.i ], [ %6, %.lr.ph.i67 ]
   %432 = load i32, ptr %390, align 4, !tbaa !40
   br label %433
 
@@ -22221,16 +22221,16 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not193.us.i, label %433, label %sre_ucs1_search.exit, !llvm.loop !244
 
 437:                                              ; preds = %433
-  br i1 %.not193.us.i, label %.split.us.us.i73, label %sre_ucs1_search.exit
+  br i1 %.not193.us.i, label %.split.us.us.i75, label %sre_ucs1_search.exit
 
-.split.us.us.i73:                                 ; preds = %437
+.split.us.us.i75:                                 ; preds = %437
   store i32 0, ptr %427, align 4, !tbaa !92
   br label %438
 
-438:                                              ; preds = %458, %.split.us.us.i73
-  %.5.us.us.i74 = phi ptr [ %434, %.split.us.us.i73 ], [ %.7.us.us.i76, %458 ]
-  %.0139.us.us.i = phi i64 [ 1, %.split.us.us.i73 ], [ %.2141.us.us.i, %458 ]
-  %439 = load i32, ptr %.5.us.us.i74, align 4, !tbaa !40
+438:                                              ; preds = %458, %.split.us.us.i75
+  %.5.us.us.i76 = phi ptr [ %434, %.split.us.us.i75 ], [ %.7.us.us.i78, %458 ]
+  %.0139.us.us.i = phi i64 [ 1, %.split.us.us.i75 ], [ %.2141.us.us.i, %458 ]
+  %439 = load i32, ptr %.5.us.us.i76, align 4, !tbaa !40
   %440 = getelementptr i32, ptr %390, i64 %.0139.us.us.i
   %441 = load i32, ptr %440, align 4, !tbaa !40
   %442 = icmp eq i32 %439, %441
@@ -22242,21 +22242,21 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not194.us.us.i, label %447, label %445
 
 445:                                              ; preds = %443
-  %446 = getelementptr i8, ptr %.5.us.us.i74, i64 4
+  %446 = getelementptr i8, ptr %.5.us.us.i76, i64 4
   %.not199.us.us.i = icmp ult ptr %446, %8
   br i1 %.not199.us.us.i, label %458, label %sre_ucs1_search.exit
 
 447:                                              ; preds = %443
-  %448 = getelementptr i32, ptr %.5.us.us.i74, i64 %428
+  %448 = getelementptr i32, ptr %.5.us.us.i76, i64 %428
   store ptr %448, ptr %5, align 8, !tbaa !78
-  %449 = getelementptr i32, ptr %.5.us.us.i74, i64 %.neg195.reass.i
+  %449 = getelementptr i32, ptr %.5.us.us.i76, i64 %.neg195.reass.i
   store ptr %449, ptr %0, align 8, !tbaa !81
   %450 = tail call fastcc i64 @sre_ucs4_match(ptr noundef nonnull %0, ptr noundef %429, i32 noundef 0)
   %.not197.us.us.i = icmp eq i64 %450, 0
   br i1 %.not197.us.us.i, label %451, label %sre_ucs1_search.exit
 
 451:                                              ; preds = %447
-  %452 = getelementptr i8, ptr %.5.us.us.i74, i64 4
+  %452 = getelementptr i8, ptr %.5.us.us.i76, i64 4
   %.not198.us.us.i = icmp ult ptr %452, %8
   br i1 %.not198.us.us.i, label %453, label %sre_ucs1_search.exit
 
@@ -22266,7 +22266,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br label %454
 
 454:                                              ; preds = %453, %438
-  %.6.us.us.i75 = phi ptr [ %452, %453 ], [ %.5.us.us.i74, %438 ]
+  %.6.us.us.i77 = phi ptr [ %452, %453 ], [ %.5.us.us.i76, %438 ]
   %.1140.us.us.i = phi i64 [ %386, %453 ], [ %.0139.us.us.i, %438 ]
   %455 = getelementptr i32, ptr %392, i64 %.1140.us.us.i
   %456 = load i32, ptr %455, align 4, !tbaa !40
@@ -22274,17 +22274,17 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br label %458
 
 458:                                              ; preds = %454, %445
-  %.7.us.us.i76 = phi ptr [ %446, %445 ], [ %.6.us.us.i75, %454 ]
+  %.7.us.us.i78 = phi ptr [ %446, %445 ], [ %.6.us.us.i77, %454 ]
   %.2141.us.us.i = phi i64 [ %444, %445 ], [ %457, %454 ]
   %.not200.us.us.i = icmp eq i64 %.2141.us.us.i, 0
   br i1 %.not200.us.us.i, label %.split282.us.us.i, label %438, !llvm.loop !245
 
 .split282.us.us.i:                                ; preds = %458
-  %459 = icmp ult ptr %.7.us.us.i76, %8
+  %459 = icmp ult ptr %.7.us.us.i78, %8
   br i1 %459, label %.lr.ph.split.us.i, label %sre_ucs1_search.exit, !llvm.loop !246
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i65, %.split282.i
-  %.2161292.i = phi ptr [ %.7.i70, %.split282.i ], [ %6, %.lr.ph.i65 ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i67, %.split282.i
+  %.2161292.i = phi ptr [ %.7.i72, %.split282.i ], [ %6, %.lr.ph.i67 ]
   %460 = load i32, ptr %390, align 4, !tbaa !40
   br label %461
 
@@ -22300,16 +22300,16 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not193.i, label %461, label %sre_ucs1_search.exit, !llvm.loop !244
 
 465:                                              ; preds = %461
-  br i1 %.not193.i, label %.split.i68, label %sre_ucs1_search.exit
+  br i1 %.not193.i, label %.split.i70, label %sre_ucs1_search.exit
 
-.split.i68:                                       ; preds = %465
+.split.i70:                                       ; preds = %465
   store i32 0, ptr %427, align 4, !tbaa !92
   br label %466
 
-466:                                              ; preds = %482, %.split.i68
-  %.5.i69 = phi ptr [ %462, %.split.i68 ], [ %.7.i70, %482 ]
-  %.0139.i = phi i64 [ 1, %.split.i68 ], [ %.2141.i, %482 ]
-  %467 = load i32, ptr %.5.i69, align 4, !tbaa !40
+466:                                              ; preds = %482, %.split.i70
+  %.5.i71 = phi ptr [ %462, %.split.i70 ], [ %.7.i72, %482 ]
+  %.0139.i = phi i64 [ 1, %.split.i70 ], [ %.2141.i, %482 ]
+  %467 = load i32, ptr %.5.i71, align 4, !tbaa !40
   %468 = getelementptr i32, ptr %390, i64 %.0139.i
   %469 = load i32, ptr %468, align 4, !tbaa !40
   %470 = icmp eq i32 %467, %469
@@ -22321,14 +22321,14 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not194.i, label %475, label %473
 
 473:                                              ; preds = %471
-  %474 = getelementptr i8, ptr %.5.i69, i64 4
-  %.not199.i72 = icmp ult ptr %474, %8
-  br i1 %.not199.i72, label %482, label %sre_ucs1_search.exit
+  %474 = getelementptr i8, ptr %.5.i71, i64 4
+  %.not199.i74 = icmp ult ptr %474, %8
+  br i1 %.not199.i74, label %482, label %sre_ucs1_search.exit
 
 475:                                              ; preds = %471
-  %476 = getelementptr i32, ptr %.5.i69, i64 %428
+  %476 = getelementptr i32, ptr %.5.i71, i64 %428
   store ptr %476, ptr %5, align 8, !tbaa !78
-  %477 = getelementptr i32, ptr %.5.i69, i64 %.neg195.reass.i
+  %477 = getelementptr i32, ptr %.5.i71, i64 %.neg195.reass.i
   store ptr %477, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
@@ -22339,17 +22339,17 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br label %482
 
 482:                                              ; preds = %478, %473
-  %.7.i70 = phi ptr [ %474, %473 ], [ %.5.i69, %478 ]
+  %.7.i72 = phi ptr [ %474, %473 ], [ %.5.i71, %478 ]
   %.2141.i = phi i64 [ %472, %473 ], [ %481, %478 ]
-  %.not200.i71 = icmp eq i64 %.2141.i, 0
-  br i1 %.not200.i71, label %.split282.i, label %466, !llvm.loop !245
+  %.not200.i73 = icmp eq i64 %.2141.i, 0
+  br i1 %.not200.i73, label %.split282.i, label %466, !llvm.loop !245
 
 .split282.i:                                      ; preds = %482
-  %483 = icmp ult ptr %.7.i70, %8
+  %483 = icmp ult ptr %.7.i72, %8
   br i1 %483, label %.lr.ph.split.i, label %sre_ucs1_search.exit, !llvm.loop !246
 
 484:                                              ; preds = %376
-  %485 = and i32 %.fr301.i, 4
+  %485 = and i32 %.fr.i63, 4
   %.not187.i = icmp eq i32 %485, 0
   %486 = getelementptr i8, ptr %1, i64 20
   %487 = getelementptr i8, ptr %1, i64 4
@@ -22452,8 +22452,8 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %526 = select i1 %524, i1 %525, i1 false
   br i1 %526, label %521, label %sre_ucs1_search.exit, !llvm.loop !248
 
-sre_ucs1_search.exit:                             ; preds = %241, %237, %234, %232, %.lr.ph.i22, %.split298.i, %296, %295, %305, %.split298.us.us.i, %264, %263, %279, %275, %273, %337, %335, %332, %354, %67, %63, %60, %58, %.lr.ph.i, %.split301.i, %118, %117, %127, %.split301.us.us.i, %86, %85, %101, %97, %95, %159, %157, %154, %176, %417, %413, %410, %408, %.split282.i, %465, %464, %473, %.split282.us.us.i, %437, %436, %451, %447, %445, %504, %502, %499, %521, %517, %516, %.thread254.i, %492, %475, %420, %..critedge.loopexit269_crit_edge278.i, %400, %369, %360, %350, %349, %.thread267.i, %324, %307, %.preheader.i25, %244, %..critedge.loopexit284_crit_edge293.i, %224, %222, %191, %182, %172, %171, %.thread271.i, %146, %129, %.preheader.i, %70, %..critedge.loopexit287_crit_edge296.i, %50, %48, %14, %10
-  %.0 = phi i64 [ %336, %335 ], [ %158, %157 ], [ 0, %171 ], [ 0, %10 ], [ 0, %14 ], [ 0, %67 ], [ 0, %50 ], [ %162, %.thread271.i ], [ 0, %.lr.ph.i22 ], [ 0, %48 ], [ 0, %.preheader.i ], [ 1, %475 ], [ %507, %.thread254.i ], [ 0, %70 ], [ 0, %473 ], [ 0, %172 ], [ 0, %417 ], [ 0, %146 ], [ 1, %..critedge.loopexit287_crit_edge296.i ], [ %523, %521 ], [ 1, %..critedge.loopexit269_crit_edge278.i ], [ 1, %129 ], [ 0, %305 ], [ 0, %400 ], [ %236, %234 ], [ 0, %.split282.i ], [ 0, %.split298.us.us.i ], [ 0, %295 ], [ 0, %.split282.us.us.i ], [ 0, %464 ], [ 0, %413 ], [ %178, %176 ], [ 0, %349 ], [ 0, %182 ], [ 0, %191 ], [ 0, %85 ], [ 0, %224 ], [ %340, %.thread267.i ], [ 0, %273 ], [ 0, %222 ], [ 0, %.preheader.i25 ], [ 0, %517 ], [ 0, %95 ], [ 0, %244 ], [ %450, %447 ], [ 0, %350 ], [ 0, %263 ], [ 0, %324 ], [ 1, %..critedge.loopexit284_crit_edge293.i ], [ 0, %499 ], [ 0, %420 ], [ 1, %307 ], [ 0, %.lr.ph.i ], [ 0, %.split298.i ], [ 0, %117 ], [ 0, %436 ], [ 0, %.split301.us.us.i ], [ 0, %492 ], [ 0, %127 ], [ 0, %.split301.i ], [ 0, %63 ], [ %356, %354 ], [ 0, %516 ], [ 0, %360 ], [ 0, %369 ], [ 0, %504 ], [ %503, %502 ], [ 0, %445 ], [ 0, %451 ], [ 0, %437 ], [ 0, %465 ], [ %412, %410 ], [ 0, %408 ], [ 0, %159 ], [ 0, %154 ], [ 0, %101 ], [ %100, %97 ], [ 0, %86 ], [ 0, %118 ], [ 0, %58 ], [ %62, %60 ], [ 0, %332 ], [ 0, %337 ], [ 0, %279 ], [ %278, %275 ], [ 0, %264 ], [ 0, %296 ], [ 0, %232 ], [ 0, %237 ], [ 0, %241 ]
+sre_ucs1_search.exit:                             ; preds = %241, %237, %234, %232, %.lr.ph.i23, %.split298.i, %296, %295, %305, %.split298.us.us.i, %264, %263, %279, %275, %273, %337, %335, %332, %354, %67, %63, %60, %58, %.lr.ph.i, %.split301.i, %118, %117, %127, %.split301.us.us.i, %86, %85, %101, %97, %95, %159, %157, %154, %176, %417, %413, %410, %408, %.split282.i, %465, %464, %473, %.split282.us.us.i, %437, %436, %451, %447, %445, %504, %502, %499, %521, %517, %516, %.thread254.i, %492, %475, %420, %..critedge.loopexit269_crit_edge278.i, %400, %369, %360, %350, %349, %.thread267.i, %324, %307, %.preheader.i26, %244, %..critedge.loopexit284_crit_edge293.i, %224, %222, %191, %182, %172, %171, %.thread271.i, %146, %129, %.preheader.i, %70, %..critedge.loopexit287_crit_edge296.i, %50, %48, %14, %10
+  %.0 = phi i64 [ %336, %335 ], [ %158, %157 ], [ 0, %171 ], [ 0, %10 ], [ 0, %14 ], [ 0, %67 ], [ 0, %50 ], [ %162, %.thread271.i ], [ 0, %.lr.ph.i23 ], [ 0, %48 ], [ 0, %.preheader.i ], [ 1, %475 ], [ %507, %.thread254.i ], [ 0, %70 ], [ 0, %473 ], [ 0, %172 ], [ 0, %417 ], [ 0, %146 ], [ 1, %..critedge.loopexit287_crit_edge296.i ], [ %523, %521 ], [ 1, %..critedge.loopexit269_crit_edge278.i ], [ 1, %129 ], [ 0, %305 ], [ 0, %400 ], [ %236, %234 ], [ 0, %.split282.i ], [ 0, %.split298.us.us.i ], [ 0, %295 ], [ 0, %.split282.us.us.i ], [ 0, %464 ], [ 0, %413 ], [ %178, %176 ], [ 0, %349 ], [ 0, %182 ], [ 0, %191 ], [ 0, %85 ], [ 0, %224 ], [ %340, %.thread267.i ], [ 0, %273 ], [ 0, %222 ], [ 0, %.preheader.i26 ], [ 0, %517 ], [ 0, %95 ], [ 0, %244 ], [ %450, %447 ], [ 0, %350 ], [ 0, %263 ], [ 0, %324 ], [ 1, %..critedge.loopexit284_crit_edge293.i ], [ 0, %499 ], [ 0, %420 ], [ 1, %307 ], [ 0, %.lr.ph.i ], [ 0, %.split298.i ], [ 0, %117 ], [ 0, %436 ], [ 0, %.split301.us.us.i ], [ 0, %492 ], [ 0, %127 ], [ 0, %.split301.i ], [ 0, %63 ], [ %356, %354 ], [ 0, %516 ], [ 0, %360 ], [ 0, %369 ], [ 0, %504 ], [ %503, %502 ], [ 0, %445 ], [ 0, %451 ], [ 0, %437 ], [ 0, %465 ], [ %412, %410 ], [ 0, %408 ], [ 0, %159 ], [ 0, %154 ], [ 0, %101 ], [ %100, %97 ], [ 0, %86 ], [ 0, %118 ], [ 0, %58 ], [ %62, %60 ], [ 0, %332 ], [ 0, %337 ], [ 0, %279 ], [ %278, %275 ], [ 0, %264 ], [ 0, %296 ], [ 0, %232 ], [ 0, %237 ], [ 0, %241 ]
   ret i64 %.0
 }
 

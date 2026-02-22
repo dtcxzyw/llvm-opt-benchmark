@@ -991,46 +991,47 @@ define internal fastcc noundef zeroext range(i8 1, 3) i8 @__detect_linklayer(ptr
   %7 = add nuw nsw i32 %6, 47
   %8 = urem i32 %7, 48
   %9 = sub nuw nsw i32 %7, %8
-  %10 = add nuw nsw i32 %9, 48
-  %11 = urem i32 %10, 48
-  %12 = sub nuw nsw i32 %10, %11
-  %13 = load i8, ptr %0, align 4
-  %14 = zext i8 %13 to i32
-  %15 = lshr i32 %9, %14
-  %16 = lshr i32 %12, %14
-  %17 = add nsw i32 %16, -1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ugt i32 %19, 12500000
-  br i1 %20, label %37, label %21
+  %10 = freeze i32 %9
+  %11 = add i32 %10, 48
+  %12 = urem i32 %11, 48
+  %13 = sub nuw i32 %11, %12
+  %14 = load i8, ptr %0, align 4
+  %15 = zext i8 %14 to i32
+  %16 = lshr i32 %10, %15
+  %17 = lshr i32 %13, %15
+  %18 = add i32 %17, -1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ugt i32 %20, 12500000
+  br i1 %21, label %38, label %22
 
-21:                                               ; preds = %2
-  %22 = load i32, ptr %1, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %37, label %24
+22:                                               ; preds = %2
+  %23 = load i32, ptr %1, align 4
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %38, label %25
 
-24:                                               ; preds = %21
-  %25 = icmp sgt i32 %17, %15
-  %26 = icmp samesign ult i32 %16, 257
-  %27 = and i1 %26, %25
-  br i1 %27, label %28, label %36
+25:                                               ; preds = %22
+  %26 = icmp sgt i32 %18, %16
+  %27 = icmp slt i32 %18, 256
+  %28 = and i1 %26, %27
+  br i1 %28, label %29, label %37
 
-28:                                               ; preds = %24
-  %29 = zext nneg i32 %15 to i64
-  %30 = getelementptr i32, ptr %1, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = zext nneg i32 %17 to i64
-  %33 = getelementptr i32, ptr %1, i64 %32
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %31, %34
-  br i1 %35, label %37, label %36
+29:                                               ; preds = %25
+  %30 = zext nneg i32 %16 to i64
+  %31 = getelementptr i32, ptr %1, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = zext nneg i32 %18 to i64
+  %34 = getelementptr i32, ptr %1, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %32, %35
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %28, %24
-  br label %37
+37:                                               ; preds = %29, %25
+  br label %38
 
-37:                                               ; preds = %36, %28, %21, %2
-  %38 = phi i8 [ 1, %36 ], [ 1, %21 ], [ 1, %2 ], [ 2, %28 ]
-  ret i8 %38
+38:                                               ; preds = %37, %29, %22, %2
+  %39 = phi i8 [ 1, %37 ], [ 1, %22 ], [ 1, %2 ], [ 2, %29 ]
+  ret i8 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1568,8 +1569,8 @@ define dso_local void @qdisc_class_hash_remove(ptr noundef captures(none) %0, pt
 define dso_local void @qdisc_tree_reduce_backlog(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 16
-  %.fr6 = freeze i32 %5
-  %6 = and i32 %.fr6, 512
+  %.fr7 = freeze i32 %5
+  %6 = and i32 %.fr7, 512
   %7 = or i32 %2, %1
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %89, label %9
@@ -1612,12 +1613,12 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr noundef readonly captures(n
   br i1 %32, label %.split5.us, label %33
 
 33:                                               ; preds = %25
-  %.not8 = icmp eq i32 %27, 0
+  %.not9 = icmp eq i32 %27, 0
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  br i1 %.not8, label %38, label %47
+  br i1 %.not9, label %38, label %47
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -1668,8 +1669,8 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr noundef readonly captures(n
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 168
   %71 = load i32, ptr %70, align 8
-  %.not7 = icmp eq i32 %71, 0
-  br i1 %.not7, label %72, label %73, !prof !41
+  %.not8 = icmp eq i32 %71, 0
+  br i1 %.not8, label %72, label %73, !prof !41
 
 72:                                               ; preds = %69
   tail call void asm sideeffect "876: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 876b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 876) #19, !srcloc !42
@@ -5058,7 +5059,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   %22 = getelementptr i8, ptr %15, i64 24
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.thread27, label %24
+  br i1 %.not, label %.thread28, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5085,15 +5086,15 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   %37 = icmp ne i32 %23, %36
   %38 = icmp eq ptr %32, null
   %or.cond = or i1 %37, %38
-  br i1 %or.cond, label %56, label %.thread27
+  br i1 %or.cond, label %56, label %.thread28
 
-.thread27:                                        ; preds = %31, %20
+.thread28:                                        ; preds = %31, %20
   %39 = phi ptr [ %32, %31 ], [ null, %20 ]
   %40 = load ptr, ptr @qdisc_stab_list, align 8
   %41 = icmp eq ptr %40, @qdisc_stab_list
   br i1 %41, label %.loopexit, label %42
 
-42:                                               ; preds = %.thread27
+42:                                               ; preds = %.thread28
   %43 = shl nuw nsw i32 %23, 1
   %44 = zext nneg i32 %43 to i64
   br i1 %.not, label %.split, label %.split.us
@@ -5146,7 +5147,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   %69 = icmp eq ptr %68, @qdisc_stab_list
   br i1 %69, label %.loopexit, label %.split, !llvm.loop !67
 
-.loopexit:                                        ; preds = %53, %67, %.thread27
+.loopexit:                                        ; preds = %53, %67, %.thread28
   %70 = getelementptr i8, ptr %15, i64 5
   %71 = load i8, ptr %70, align 1
   %72 = icmp ugt i8 %71, 30

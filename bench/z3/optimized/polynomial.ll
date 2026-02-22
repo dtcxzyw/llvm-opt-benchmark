@@ -31525,7 +31525,7 @@ define linkonce_odr hidden void @_ZN10polynomial10polynomialC2ER13mpzzp_managerj
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26 ]
-  %.02030 = phi i32 [ 0, %.preheader.preheader ], [ %.1, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26 ]
+  %.02029 = phi i32 [ 0, %.preheader.preheader ], [ %.1, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26 ]
   %39 = load ptr, ptr %12, align 8, !tbaa !126
   %40 = getelementptr inbounds nuw %class.mpz, ptr %39, i64 %indvars.iv
   store i32 0, ptr %40, align 8, !tbaa !38
@@ -31580,7 +31580,7 @@ define linkonce_odr hidden void @_ZN10polynomial10polynomialC2ER13mpzzp_managerj
   br i1 %.not22, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26, label %77
 
 77:                                               ; preds = %.preheader
-  %78 = zext i32 %.02030 to i64
+  %78 = zext i32 %.02029 to i64
   %79 = getelementptr inbounds nuw ptr, ptr %75, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !124
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 12
@@ -31619,17 +31619,16 @@ _ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit: ; preds = %_ZNK10poly
   %103 = getelementptr inbounds nuw %"class.polynomial::power", ptr %80, i64 %95
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load i32, ptr %104, align 4, !tbaa !19
-  %.fr = freeze i32 %102
-  %.fr29 = freeze i32 %105
-  %106 = icmp ugt i32 %.fr, %.fr29
-  br i1 %106, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26
+  %106 = icmp ugt i32 %102, %105
+  %cond.fr = freeze i1 %106
+  br i1 %cond.fr, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26
 
 _ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread: ; preds = %_ZNK10polynomial8monomial7max_varEv.exit14.i, %84, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit
   %107 = trunc nuw i64 %indvars.iv to i32
   br label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26
 
 _ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread26: ; preds = %_ZNK10polynomial8monomial7max_varEv.exit10.i, %77, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit, %.preheader
-  %.1 = phi i32 [ %.02030, %.preheader ], [ %107, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread ], [ %.02030, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit ], [ %.02030, %77 ], [ %.02030, %_ZNK10polynomial8monomial7max_varEv.exit10.i ]
+  %.1 = phi i32 [ %.02029, %.preheader ], [ %107, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread ], [ %.02029, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit ], [ %.02029, %77 ], [ %.02029, %_ZNK10polynomial8monomial7max_varEv.exit10.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !365
@@ -64452,7 +64451,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN10polynomial8monomialElS
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread
-  %.054 = phi i64 [ %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread ], [ %1, %5 ]
+  %.054 = phi i64 [ %78, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread ], [ %1, %5 ]
   %9 = shl i64 %.054, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds ptr, ptr %0, i64 %10
@@ -64482,8 +64481,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN10polynomial8monomialElS
 
 29:                                               ; preds = %68, %.lr.ph.i.i.i
   %.04180.i.i.i = phi i32 [ %22, %.lr.ph.i.i.i ], [ %.142.i.i.i, %68 ]
-  %.04379.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.245.i.i.i.fr, %68 ]
-  %.04678.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.147.i.i.i.fr, %68 ]
+  %.04379.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.245.i.i.i, %68 ]
+  %.04678.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.147.i.i.i, %68 ]
   %.04877.i.i.i = phi i32 [ %23, %.lr.ph.i.i.i ], [ %.250.i.i.i, %68 ]
   %30 = zext nneg i32 %.04180.i.i.i to i64
   %31 = getelementptr inbounds nuw %"class.polynomial::power", ptr %27, i64 %30
@@ -64548,200 +64547,199 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN10polynomial8monomialElS
   %.147.i.i.i = phi i32 [ %38, %42 ], [ %.04678.i.i.i, %49 ], [ %.04678.i.i.i, %61 ], [ %38, %36 ]
   %.245.i.i.i = phi i32 [ %44, %42 ], [ %51, %49 ], [ %.04379.i.i.i, %61 ], [ %.04379.i.i.i, %36 ]
   %.142.i.i.i = phi i32 [ %39, %42 ], [ %.04180.i.i.i, %49 ], [ %62, %61 ], [ %39, %36 ]
-  %.245.i.i.i.fr = freeze i32 %.245.i.i.i
-  %.147.i.i.i.fr = freeze i32 %.147.i.i.i
   %69 = icmp sgt i32 %.142.i.i.i, -1
   %70 = icmp sgt i32 %.250.i.i.i, -1
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %29, label %._crit_edge.loopexit.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %68
-  %72 = icmp ult i32 %.147.i.i.i.fr, %.245.i.i.i.fr
+  %72 = icmp ult i32 %.147.i.i.i, %.245.i.i.i
+  %73 = freeze i1 %72
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %17
   %.048.lcssa.i.i.i = phi i32 [ %23, %17 ], [ %.250.i.i.i, %._crit_edge.loopexit.i.i.i ]
-  %.046.lcssa.i.i.i = phi i1 [ false, %17 ], [ %72, %._crit_edge.loopexit.i.i.i ]
+  %.046.lcssa.i.i.i = phi i1 [ false, %17 ], [ %73, %._crit_edge.loopexit.i.i.i ]
   %.041.lcssa.i.i.i = phi i32 [ %22, %17 ], [ %.142.i.i.i, %._crit_edge.loopexit.i.i.i ]
   %.lcssa.i.i.i = phi i1 [ %24, %17 ], [ %69, %._crit_edge.loopexit.i.i.i ]
-  %73 = icmp eq i32 %.041.lcssa.i.i.i, %.048.lcssa.i.i.i
-  br i1 %73, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit, label %74
+  %74 = icmp eq i32 %.041.lcssa.i.i.i, %.048.lcssa.i.i.i
+  br i1 %74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit, label %75
 
-74:                                               ; preds = %._crit_edge.i.i.i
+75:                                               ; preds = %._crit_edge.i.i.i
   br i1 %.lcssa.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36: ; preds = %74, %66, %64
-  %75 = or disjoint i64 %9, 1
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36: ; preds = %75, %66, %64
+  %76 = or disjoint i64 %9, 1
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit: ; preds = %._crit_edge.i.i.i
-  %76 = or disjoint i64 %9, 1
-  %spec.select = select i1 %.046.lcssa.i.i.i, i64 %76, i64 %10
+  %77 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.046.lcssa.i.i.i, i64 %77, i64 %10
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit, %66, %74, %64, %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36
-  %77 = phi i64 [ %10, %66 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit ], [ %75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36 ], [ %10, %.lr.ph ], [ %10, %64 ], [ %10, %74 ]
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !124
-  %80 = getelementptr inbounds ptr, ptr %0, i64 %.054
-  store ptr %79, ptr %80, align 8, !tbaa !124
-  %81 = icmp slt i64 %77, %7
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !557
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit, %66, %75, %64, %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36
+  %78 = phi i64 [ %10, %66 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit ], [ %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36 ], [ %10, %.lr.ph ], [ %10, %64 ], [ %10, %75 ]
+  %79 = getelementptr inbounds ptr, ptr %0, i64 %78
+  %80 = load ptr, ptr %79, align 8, !tbaa !124
+  %81 = getelementptr inbounds ptr, ptr %0, i64 %.054
+  store ptr %80, ptr %81, align 8, !tbaa !124
+  %82 = icmp slt i64 %78, %7
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !557
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread, %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread ]
-  %82 = and i64 %2, 1
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %94
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %78, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread ]
+  %83 = and i64 %2, 1
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %95
 
-84:                                               ; preds = %._crit_edge
-  %85 = add nsw i64 %2, -2
-  %86 = ashr exact i64 %85, 1
-  %87 = icmp eq i64 %.0.lcssa, %86
-  br i1 %87, label %88, label %94
+85:                                               ; preds = %._crit_edge
+  %86 = add nsw i64 %2, -2
+  %87 = ashr exact i64 %86, 1
+  %88 = icmp eq i64 %.0.lcssa, %87
+  br i1 %88, label %89, label %95
 
-88:                                               ; preds = %84
-  %89 = shl nsw i64 %.0.lcssa, 1
-  %90 = or disjoint i64 %89, 1
-  %91 = getelementptr inbounds ptr, ptr %0, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !124
-  %93 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
-  store ptr %92, ptr %93, align 8, !tbaa !124
-  br label %94
+89:                                               ; preds = %85
+  %90 = shl nsw i64 %.0.lcssa, 1
+  %91 = or disjoint i64 %90, 1
+  %92 = getelementptr inbounds ptr, ptr %0, i64 %91
+  %93 = load ptr, ptr %92, align 8, !tbaa !124
+  %94 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  store ptr %93, ptr %94, align 8, !tbaa !124
+  br label %95
 
-94:                                               ; preds = %88, %84, %._crit_edge
-  %.128 = phi i64 [ %90, %88 ], [ %.0.lcssa, %84 ], [ %.0.lcssa, %._crit_edge ]
-  %95 = icmp sgt i64 %.128, %1
-  br i1 %95, label %.lr.ph.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit
+95:                                               ; preds = %89, %85, %._crit_edge
+  %.128 = phi i64 [ %91, %89 ], [ %.0.lcssa, %85 ], [ %.0.lcssa, %._crit_edge ]
+  %96 = icmp sgt i64 %.128, %1
+  br i1 %96, label %.lr.ph.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  br label %98
+.lr.ph.i:                                         ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  br label %99
 
-98:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, %.lr.ph.i
+99:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, %.lr.ph.i
   %.01330.i = phi i64 [ %.128, %.lr.ph.i ], [ %.031.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i ]
   %.031.in.i = add nsw i64 %.01330.i, -1
   %.031.i = sdiv i64 %.031.in.i, 2
-  %99 = getelementptr inbounds ptr, ptr %0, i64 %.031.i
-  %100 = load ptr, ptr %99, align 8, !tbaa !124
-  %101 = icmp eq ptr %100, %3
-  br i1 %101, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %102
+  %100 = getelementptr inbounds ptr, ptr %0, i64 %.031.i
+  %101 = load ptr, ptr %100, align 8, !tbaa !124
+  %102 = icmp eq ptr %101, %3
+  br i1 %102, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %103
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 12
-  %104 = load i32, ptr %103, align 4, !tbaa !22
-  %105 = load i32, ptr %96, align 4, !tbaa !22
-  %106 = icmp sgt i32 %104, 0
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 12
+  %105 = load i32, ptr %104, align 4, !tbaa !22
+  %106 = load i32, ptr %97, align 4, !tbaa !22
   %107 = icmp sgt i32 %105, 0
-  %108 = select i1 %106, i1 %107, i1 false
-  br i1 %108, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.thread.i
+  %108 = icmp sgt i32 %106, 0
+  %109 = select i1 %107, i1 %108, i1 false
+  br i1 %109, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.thread.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %102
-  %109 = add nsw i32 %105, -1
-  %110 = add nsw i32 %104, -1
-  %111 = getelementptr inbounds nuw i8, ptr %100, i64 20
-  br label %112
+.lr.ph.i.i.i.i:                                   ; preds = %103
+  %110 = add nsw i32 %106, -1
+  %111 = add nsw i32 %105, -1
+  %112 = getelementptr inbounds nuw i8, ptr %101, i64 20
+  br label %113
 
-112:                                              ; preds = %151, %.lr.ph.i.i.i.i
-  %.04180.i.i.i.i = phi i32 [ %110, %.lr.ph.i.i.i.i ], [ %.142.i.i.i.i, %151 ]
-  %.04379.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.245.i.i.i.i, %151 ]
-  %.04678.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.147.i.i.i.i, %151 ]
-  %.04877.i.i.i.i = phi i32 [ %109, %.lr.ph.i.i.i.i ], [ %.250.i.i.i.i, %151 ]
-  %113 = zext nneg i32 %.04180.i.i.i.i to i64
-  %114 = getelementptr inbounds nuw %"class.polynomial::power", ptr %111, i64 %113
-  %115 = zext nneg i32 %.04877.i.i.i.i to i64
-  %116 = getelementptr inbounds nuw %"class.polynomial::power", ptr %97, i64 %115
-  %117 = load i32, ptr %114, align 4, !tbaa !17
-  %118 = icmp eq i32 %117, %4
-  br i1 %118, label %119, label %129
+113:                                              ; preds = %152, %.lr.ph.i.i.i.i
+  %.04180.i.i.i.i = phi i32 [ %111, %.lr.ph.i.i.i.i ], [ %.142.i.i.i.i, %152 ]
+  %.04379.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.245.i.i.i.i, %152 ]
+  %.04678.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.147.i.i.i.i, %152 ]
+  %.04877.i.i.i.i = phi i32 [ %110, %.lr.ph.i.i.i.i ], [ %.250.i.i.i.i, %152 ]
+  %114 = zext nneg i32 %.04180.i.i.i.i to i64
+  %115 = getelementptr inbounds nuw %"class.polynomial::power", ptr %112, i64 %114
+  %116 = zext nneg i32 %.04877.i.i.i.i to i64
+  %117 = getelementptr inbounds nuw %"class.polynomial::power", ptr %98, i64 %116
+  %118 = load i32, ptr %115, align 4, !tbaa !17
+  %119 = icmp eq i32 %118, %4
+  br i1 %119, label %120, label %130
 
-119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !19
-  %122 = add nsw i32 %.04180.i.i.i.i, -1
-  %123 = load i32, ptr %116, align 4, !tbaa !17
-  %124 = icmp eq i32 %123, %4
-  br i1 %124, label %125, label %151, !llvm.loop !24
+120:                                              ; preds = %113
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %122 = load i32, ptr %121, align 4, !tbaa !19
+  %123 = add nsw i32 %.04180.i.i.i.i, -1
+  %124 = load i32, ptr %117, align 4, !tbaa !17
+  %125 = icmp eq i32 %124, %4
+  br i1 %125, label %126, label %152, !llvm.loop !24
 
-125:                                              ; preds = %119
-  %126 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %127 = load i32, ptr %126, align 4, !tbaa !19
-  %128 = add nsw i32 %.04877.i.i.i.i, -1
-  br label %151, !llvm.loop !24
+126:                                              ; preds = %120
+  %127 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %128 = load i32, ptr %127, align 4, !tbaa !19
+  %129 = add nsw i32 %.04877.i.i.i.i, -1
+  br label %152, !llvm.loop !24
 
-129:                                              ; preds = %112
-  %130 = load i32, ptr %116, align 4, !tbaa !17
-  %131 = icmp eq i32 %130, %4
-  br i1 %131, label %132, label %136
+130:                                              ; preds = %113
+  %131 = load i32, ptr %117, align 4, !tbaa !17
+  %132 = icmp eq i32 %131, %4
+  br i1 %132, label %133, label %137
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %134 = load i32, ptr %133, align 4, !tbaa !19
-  %135 = add nsw i32 %.04877.i.i.i.i, -1
-  br label %151, !llvm.loop !24
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %135 = load i32, ptr %134, align 4, !tbaa !19
+  %136 = add nsw i32 %.04877.i.i.i.i, -1
+  br label %152, !llvm.loop !24
 
-136:                                              ; preds = %129
-  %137 = icmp eq i32 %117, %130
-  br i1 %137, label %138, label %149
+137:                                              ; preds = %130
+  %138 = icmp eq i32 %118, %131
+  br i1 %138, label %139, label %150
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !19
-  %141 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %142 = load i32, ptr %141, align 4, !tbaa !19
-  %143 = icmp eq i32 %140, %142
-  br i1 %143, label %144, label %147
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %141 = load i32, ptr %140, align 4, !tbaa !19
+  %142 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %143 = load i32, ptr %142, align 4, !tbaa !19
+  %144 = icmp eq i32 %141, %143
+  br i1 %144, label %145, label %148
 
-144:                                              ; preds = %138
-  %145 = add nsw i32 %.04180.i.i.i.i, -1
-  %146 = add nsw i32 %.04877.i.i.i.i, -1
-  br label %151, !llvm.loop !24
+145:                                              ; preds = %139
+  %146 = add nsw i32 %.04180.i.i.i.i, -1
+  %147 = add nsw i32 %.04877.i.i.i.i, -1
+  br label %152, !llvm.loop !24
 
-147:                                              ; preds = %138
-  %148 = icmp ult i32 %140, %142
-  br i1 %148, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit
+148:                                              ; preds = %139
+  %149 = icmp ult i32 %141, %143
+  br i1 %149, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit
 
-149:                                              ; preds = %136
-  %150 = icmp ugt i32 %117, %130
-  br i1 %150, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i
+150:                                              ; preds = %137
+  %151 = icmp ugt i32 %118, %131
+  br i1 %151, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i
 
-151:                                              ; preds = %144, %132, %125, %119
-  %.250.i.i.i.i = phi i32 [ %128, %125 ], [ %135, %132 ], [ %146, %144 ], [ %.04877.i.i.i.i, %119 ]
-  %.147.i.i.i.i = phi i32 [ %121, %125 ], [ %.04678.i.i.i.i, %132 ], [ %.04678.i.i.i.i, %144 ], [ %121, %119 ]
-  %.245.i.i.i.i = phi i32 [ %127, %125 ], [ %134, %132 ], [ %.04379.i.i.i.i, %144 ], [ %.04379.i.i.i.i, %119 ]
-  %.142.i.i.i.i = phi i32 [ %122, %125 ], [ %.04180.i.i.i.i, %132 ], [ %145, %144 ], [ %122, %119 ]
-  %152 = icmp sgt i32 %.142.i.i.i.i, -1
-  %153 = icmp sgt i32 %.250.i.i.i.i, -1
-  %154 = select i1 %152, i1 %153, i1 false
-  br i1 %154, label %112, label %._crit_edge.i.i.i.i
+152:                                              ; preds = %145, %133, %126, %120
+  %.250.i.i.i.i = phi i32 [ %129, %126 ], [ %136, %133 ], [ %147, %145 ], [ %.04877.i.i.i.i, %120 ]
+  %.147.i.i.i.i = phi i32 [ %122, %126 ], [ %.04678.i.i.i.i, %133 ], [ %.04678.i.i.i.i, %145 ], [ %122, %120 ]
+  %.245.i.i.i.i = phi i32 [ %128, %126 ], [ %135, %133 ], [ %.04379.i.i.i.i, %145 ], [ %.04379.i.i.i.i, %120 ]
+  %.142.i.i.i.i = phi i32 [ %123, %126 ], [ %.04180.i.i.i.i, %133 ], [ %146, %145 ], [ %123, %120 ]
+  %153 = icmp sgt i32 %.142.i.i.i.i, -1
+  %154 = icmp sgt i32 %.250.i.i.i.i, -1
+  %155 = select i1 %153, i1 %154, i1 false
+  br i1 %155, label %113, label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %151
-  %155 = icmp eq i32 %.142.i.i.i.i, %.250.i.i.i.i
-  br i1 %155, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i, label %157
+._crit_edge.i.i.i.i:                              ; preds = %152
+  %156 = icmp eq i32 %.142.i.i.i.i, %.250.i.i.i.i
+  br i1 %156, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i, label %158
 
-._crit_edge.i.i.i.thread.i:                       ; preds = %102
-  %156 = icmp eq i32 %104, %105
-  br i1 %156, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %157
+._crit_edge.i.i.i.thread.i:                       ; preds = %103
+  %157 = icmp eq i32 %105, %106
+  br i1 %157, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %158
 
-157:                                              ; preds = %._crit_edge.i.i.i.thread.i, %._crit_edge.i.i.i.i
-  %.lcssa.i.i.i61.i = phi i1 [ %106, %._crit_edge.i.i.i.thread.i ], [ %152, %._crit_edge.i.i.i.i ]
+158:                                              ; preds = %._crit_edge.i.i.i.thread.i, %._crit_edge.i.i.i.i
+  %.lcssa.i.i.i61.i = phi i1 [ %107, %._crit_edge.i.i.i.thread.i ], [ %153, %._crit_edge.i.i.i.i ]
   br i1 %.lcssa.i.i.i61.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i: ; preds = %._crit_edge.i.i.i.i
-  %158 = icmp ult i32 %.147.i.i.i.i, %.245.i.i.i.i
-  br i1 %158, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit
+  %159 = icmp ult i32 %.147.i.i.i.i, %.245.i.i.i.i
+  br i1 %159, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i, %157, %149, %147
-  %159 = getelementptr inbounds ptr, ptr %0, i64 %.01330.i
-  store ptr %100, ptr %159, align 8, !tbaa !124
-  %160 = icmp sgt i64 %.031.i, %1
-  br i1 %160, label %98, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !558
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i, %158, %150, %148
+  %160 = getelementptr inbounds ptr, ptr %0, i64 %.01330.i
+  store ptr %101, ptr %160, align 8, !tbaa !124
+  %161 = icmp sgt i64 %.031.i, %1
+  br i1 %161, label %99, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !558
 
-_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit: ; preds = %98, %147, %149, %._crit_edge.i.i.i.thread.i, %157, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, %94
-  %.013.lcssa.i = phi i64 [ %.128, %94 ], [ %.01330.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i ], [ %.031.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i ], [ %.01330.i, %98 ], [ %.01330.i, %147 ], [ %.01330.i, %157 ], [ %.01330.i, %149 ], [ %.01330.i, %._crit_edge.i.i.i.thread.i ]
-  %161 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %161, align 8, !tbaa !124
+_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit: ; preds = %99, %148, %150, %._crit_edge.i.i.i.thread.i, %158, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i, %95
+  %.013.lcssa.i = phi i64 [ %.128, %95 ], [ %.01330.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.i ], [ %.031.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i ], [ %.01330.i, %99 ], [ %.01330.i, %148 ], [ %.01330.i, %158 ], [ %.01330.i, %150 ], [ %.01330.i, %._crit_edge.i.i.i.thread.i ]
+  %162 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %162, align 8, !tbaa !124
   ret void
 }
 
@@ -79369,10 +79367,10 @@ _ZN10polynomial10polynomial10swap_0_posEj.exit:   ; preds = %7, %8
 
 36:                                               ; preds = %.preheader, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10 ]
-  %.0614 = phi i32 [ 0, %.preheader ], [ %69, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10 ]
+  %.0613 = phi i32 [ 0, %.preheader ], [ %69, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10 ]
   %37 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !124
-  %39 = zext i32 %.0614 to i64
+  %39 = zext i32 %.0613 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !124
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -79411,17 +79409,16 @@ _ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit: ; preds = %_ZNK10poly
   %64 = getelementptr inbounds nuw %"class.polynomial::power", ptr %41, i64 %56
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i32, ptr %65, align 4, !tbaa !19
-  %.fr = freeze i32 %63
-  %.fr13 = freeze i32 %66
-  %67 = icmp ugt i32 %.fr, %.fr13
-  br i1 %67, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10
+  %67 = icmp ugt i32 %63, %66
+  %cond.fr = freeze i1 %67
+  br i1 %cond.fr, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread, label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10
 
 _ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread: ; preds = %_ZNK10polynomial8monomial7max_varEv.exit14.i, %45, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit
   %68 = trunc nuw i64 %indvars.iv to i32
   br label %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10
 
 _ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread10: ; preds = %_ZNK10polynomial8monomial7max_varEv.exit10.i, %36, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread
-  %69 = phi i32 [ %68, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread ], [ %.0614, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit ], [ %.0614, %36 ], [ %.0614, %_ZNK10polynomial8monomial7max_varEv.exit10.i ]
+  %69 = phi i32 [ %68, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit.thread ], [ %.0613, %_ZN10polynomial10polynomial5po_gtEPKNS_8monomialES3_.exit ], [ %.0613, %36 ], [ %.0613, %_ZNK10polynomial8monomial7max_varEv.exit10.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %7, label %36, !llvm.loop !593

@@ -12980,67 +12980,65 @@ _ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81: ; preds = %_ZN3pxr9rapidjson8
   store i64 1, ptr %154, align 8
   store i64 0, ptr %7, align 8
   %155 = load i64, ptr %32, align 8
-  %.fr.i = freeze i64 %155
   %156 = load i64, ptr %.sroa.gep, align 8
-  %.fr53.i = freeze i64 %156
-  %.not.i.i82 = icmp eq i64 %.fr.i, %.fr53.i
+  %.not.i.i82 = icmp eq i64 %155, %156
   br i1 %.not.i.i82, label %.preheader.i.i, label %157
 
 157:                                              ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81
-  %158 = icmp ult i64 %.fr.i, %.fr53.i
-  br i1 %158, label %.lr.ph.i83.preheader, label %166
+  %158 = icmp ult i64 %155, %156
+  %cond.fr44.i = freeze i1 %158
+  br i1 %cond.fr44.i, label %.thread.i, label %166
 
 .preheader.i.i:                                   ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81, %159
-  %.0.i.i = phi i64 [ %160, %159 ], [ %.fr.i, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81 ]
+  %.0.i.i = phi i64 [ %160, %159 ], [ %155, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81 ]
   %.not15.i.i = icmp eq i64 %.0.i.i, 0
-  br i1 %.not15.i.i, label %.thread.i, label %159
+  br i1 %.not15.i.i, label %.thread.ithread-pre-split, label %159
 
 159:                                              ; preds = %.preheader.i.i
   %160 = add i64 %.0.i.i, -1
   %161 = getelementptr inbounds i64, ptr %4, i64 %160
   %162 = load i64, ptr %161, align 8
-  %.fr54.i = freeze i64 %162
   %163 = getelementptr inbounds i64, ptr %5, i64 %160
   %164 = load i64, ptr %163, align 8
-  %.fr55.i = freeze i64 %164
-  %.not16.i.i = icmp eq i64 %.fr54.i, %.fr55.i
+  %.not16.i.i = icmp eq i64 %162, %164
   br i1 %.not16.i.i, label %.preheader.i.i, label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, !llvm.loop !113
 
 _ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i: ; preds = %159
-  %165 = icmp ult i64 %.fr54.i, %.fr55.i
-  br i1 %165, label %.thread.i, label %166
+  %165 = icmp ult i64 %162, %164
+  %cond.fr.i = freeze i1 %165
+  br i1 %cond.fr.i, label %.thread.ithread-pre-split, label %166
 
 166:                                              ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, %157
-  br label %.thread.i
+  br label %.thread.ithread-pre-split
 
-.thread.i:                                        ; preds = %.preheader.i.i, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, %166
+.thread.ithread-pre-split:                        ; preds = %.preheader.i.i, %166, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i
   %.sroa.phi.ph = phi ptr [ %.sroa.gep, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %32, %166 ], [ %32, %.preheader.i.i ]
   %.ph = phi ptr [ %5, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %4, %166 ], [ %4, %.preheader.i.i ]
   %.sroa.phi90.ph = phi ptr [ %32, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %.sroa.gep, %166 ], [ %.sroa.gep, %.preheader.i.i ]
   %.ph95 = phi ptr [ %4, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %5, %166 ], [ %5, %.preheader.i.i ]
   %.pr = load i64, ptr %.sroa.phi.ph, align 8
-  %.not34.i = icmp eq i64 %.pr, 0
-  br i1 %.not34.i, label %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit, label %.lr.ph.i83.preheader
+  br label %.thread.i
 
-.lr.ph.i83.preheader:                             ; preds = %157, %.thread.i
-  %167 = phi ptr [ %.ph95, %.thread.i ], [ %4, %157 ]
-  %.sroa.phi90114 = phi ptr [ %.sroa.phi90.ph, %.thread.i ], [ %32, %157 ]
-  %168 = phi ptr [ %.ph, %.thread.i ], [ %5, %157 ]
-  %169 = phi i64 [ %.pr, %.thread.i ], [ %.fr53.i, %157 ]
-  br label %.lr.ph.i83
+.thread.i:                                        ; preds = %.thread.ithread-pre-split, %157
+  %167 = phi i64 [ %.pr, %.thread.ithread-pre-split ], [ %156, %157 ]
+  %168 = phi ptr [ %.ph, %.thread.ithread-pre-split ], [ %5, %157 ]
+  %.sroa.phi90 = phi ptr [ %.sroa.phi90.ph, %.thread.ithread-pre-split ], [ %32, %157 ]
+  %169 = phi ptr [ %.ph95, %.thread.ithread-pre-split ], [ %4, %157 ]
+  %.not34.i = icmp eq i64 %167, 0
+  br i1 %.not34.i, label %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit, label %.lr.ph.i83
 
-.lr.ph.i83:                                       ; preds = %.lr.ph.i83.preheader, %._crit_edge36.i
-  %.02533.i = phi i64 [ %.pre.i, %._crit_edge36.i ], [ 0, %.lr.ph.i83.preheader ]
-  %.02632.i = phi i64 [ %181, %._crit_edge36.i ], [ 0, %.lr.ph.i83.preheader ]
+.lr.ph.i83:                                       ; preds = %.thread.i, %._crit_edge36.i
+  %.02533.i = phi i64 [ %.pre.i, %._crit_edge36.i ], [ 0, %.thread.i ]
+  %.02632.i = phi i64 [ %181, %._crit_edge36.i ], [ 0, %.thread.i ]
   %170 = getelementptr inbounds i64, ptr %168, i64 %.02533.i
   %171 = load i64, ptr %170, align 8
   %172 = sub i64 %171, %.02632.i
-  %173 = load i64, ptr %.sroa.phi90114, align 8
+  %173 = load i64, ptr %.sroa.phi90, align 8
   %174 = icmp ult i64 %.02533.i, %173
   br i1 %174, label %175, label %179
 
 175:                                              ; preds = %.lr.ph.i83
-  %176 = getelementptr inbounds i64, ptr %167, i64 %.02533.i
+  %176 = getelementptr inbounds i64, ptr %169, i64 %.02533.i
   %177 = load i64, ptr %176, align 8
   %178 = sub i64 %172, %177
   br label %179
@@ -13060,7 +13058,7 @@ _ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i: ; preds = %159
   br label %._crit_edge36.i
 
 ._crit_edge36.i:                                  ; preds = %183, %179
-  %exitcond.not = icmp eq i64 %.pre.i, %169
+  %exitcond.not = icmp eq i64 %.pre.i, %167
   br i1 %exitcond.not, label %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit, label %.lr.ph.i83, !llvm.loop !114
 
 _ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit: ; preds = %._crit_edge36.i

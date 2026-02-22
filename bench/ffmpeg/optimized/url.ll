@@ -542,18 +542,18 @@ is_fq_dos_path.exit.thread160:                    ; preds = %is_fq_dos_path.exit
 is_fq_dos_path.exit157:                           ; preds = %46, %46
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !4
-  %.fr = freeze i8 %48
-  switch i8 %.fr, label %is_fq_dos_path.exit157.thread [
-    i8 92, label %is_fq_dos_path.exit157.thread166
-    i8 47, label %is_fq_dos_path.exit157.thread166
-  ]
+  %switch.selectcmp.case1.i153 = icmp ne i8 %48, 47
+  %switch.selectcmp.case2.i154 = icmp ne i8 %48, 92
+  %switch.selectcmp.i155.not = and i1 %switch.selectcmp.case1.i153, %switch.selectcmp.case2.i154
+  %cond.fr = freeze i1 %switch.selectcmp.i155.not
+  br i1 %cond.fr, label %is_fq_dos_path.exit157.thread, label %is_fq_dos_path.exit157.thread166
 
-is_fq_dos_path.exit157.thread:                    ; preds = %is_fq_dos_path.exit157, %46
+is_fq_dos_path.exit157.thread:                    ; preds = %46, %is_fq_dos_path.exit157
   br label %is_fq_dos_path.exit157.thread166
 
-is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit157, %is_fq_dos_path.exit157, %43, %43, %is_fq_dos_path.exit157.thread, %31, %9
-  %.099 = phi ptr [ @.str.14, %9 ], [ @.str.14, %31 ], [ @.str.17, %is_fq_dos_path.exit157.thread ], [ @.str.17, %is_fq_dos_path.exit157 ], [ @.str.17, %43 ], [ @.str.17, %43 ], [ @.str.17, %is_fq_dos_path.exit157 ]
-  %.077 = phi ptr [ %spec.store.select, %9 ], [ %spec.store.select, %31 ], [ %spec.store.select, %is_fq_dos_path.exit157.thread ], [ @.str.15, %is_fq_dos_path.exit157 ], [ @.str.15, %43 ], [ @.str.15, %43 ], [ @.str.15, %is_fq_dos_path.exit157 ]
+is_fq_dos_path.exit157.thread166:                 ; preds = %43, %43, %is_fq_dos_path.exit157.thread, %is_fq_dos_path.exit157, %31, %9
+  %.099 = phi ptr [ @.str.14, %9 ], [ @.str.14, %31 ], [ @.str.17, %is_fq_dos_path.exit157.thread ], [ @.str.17, %is_fq_dos_path.exit157 ], [ @.str.17, %43 ], [ @.str.17, %43 ]
+  %.077 = phi ptr [ %spec.store.select, %9 ], [ %spec.store.select, %31 ], [ %spec.store.select, %is_fq_dos_path.exit157.thread ], [ @.str.15, %is_fq_dos_path.exit157 ], [ @.str.15, %43 ], [ @.str.15, %43 ]
   %49 = call i32 @ff_url_decompose(ptr noundef nonnull %6, ptr noundef nonnull %.077, ptr noundef null)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %170, label %51
@@ -661,14 +661,14 @@ is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit
   %121 = icmp ule ptr %57, %120
   %122 = select i1 %121, i1 %106, i1 false
   %123 = select i1 %122, i1 %66, i1 false
-  %narrow205 = select i1 %123, i1 %69, i1 false
+  %narrow204 = select i1 %123, i1 %69, i1 false
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %125 = load ptr, ptr %124, align 8, !tbaa !22
   %126 = icmp ugt ptr %125, %57
-  %narrow206 = select i1 %126, i1 true, i1 %narrow205
+  %narrow205 = select i1 %126, i1 true, i1 %narrow204
   %127 = or i1 %109, %.081.shrunk177
-  %narrow207 = select i1 %127, i1 %narrow206, i1 false
-  br i1 %narrow207, label %128, label %142
+  %narrow206 = select i1 %127, i1 %narrow205, i1 false
+  br i1 %narrow206, label %128, label %142
 
 128:                                              ; preds = %.critedge
   %129 = add nuw nsw i64 %94, %100
@@ -688,11 +688,11 @@ is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit
 
 ._crit_edge:                                      ; preds = %132
   %.pre = load ptr, ptr %71, align 8, !tbaa !27
-  %.pre208 = load ptr, ptr %64, align 8, !tbaa !26
+  %.pre207 = load ptr, ptr %64, align 8, !tbaa !26
   br label %135
 
 135:                                              ; preds = %._crit_edge, %130
-  %136 = phi ptr [ %.pre208, %._crit_edge ], [ %65, %130 ]
+  %136 = phi ptr [ %.pre207, %._crit_edge ], [ %65, %130 ]
   %137 = phi ptr [ %.pre, %._crit_edge ], [ %72, %130 ]
   %138 = icmp ugt ptr %137, %136
   br i1 %138, label %139, label %158
@@ -710,8 +710,8 @@ is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit
   %145 = ptrtoint ptr %68 to i64
   %146 = sub i64 %144, %145
   %147 = add nuw nsw i64 %94, %100
-  %gepdiff229 = sub nsw i64 %11, %147
-  %148 = icmp ugt i64 %146, %gepdiff229
+  %gepdiff228 = sub nsw i64 %11, %147
+  %148 = icmp ugt i64 %146, %gepdiff228
   br i1 %148, label %.thread198.thread, label %.thread187
 
 .thread187:                                       ; preds = %143

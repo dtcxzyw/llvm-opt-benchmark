@@ -22255,25 +22255,23 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp36 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp36, label %while.body, label %while.end
+  %cmp33 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp33, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29
-  %__holeIndex.addr.037 = phi i64 [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29 ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.037, 1
+  %__holeIndex.addr.034 = phi i64 [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29 ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.034, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
   %add.ptr.i17 = getelementptr inbounds ptr, ptr %__first.coerce, i64 %sub3
   %0 = load ptr, ptr %add.ptr.i, align 8
-  %.fr34 = freeze ptr %0
   %1 = load ptr, ptr %add.ptr.i17, align 8
-  %.fr35 = freeze ptr %1
-  %is_extension_.i.i.i = getelementptr inbounds nuw i8, ptr %.fr34, i64 1
+  %is_extension_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bf.load.i.i.i = load i8, ptr %is_extension_.i.i.i, align 1
   %2 = and i8 %bf.load.i.i.i, 8
   %bf.cast.i.not.i.i = icmp eq i8 %2, 0
-  %is_extension_.i14.i.i = getelementptr inbounds nuw i8, ptr %.fr35, i64 1
+  %is_extension_.i14.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bf.load.i15.i.i = load i8, ptr %is_extension_.i14.i.i, align 1
   %3 = and i8 %bf.load.i15.i.i, 8
   %bf.cast.i16.not.i.i = icmp eq i8 %3, 0
@@ -22283,49 +22281,47 @@ land.lhs.true.i.i:                                ; preds = %while.body
   br i1 %bf.cast.i16.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %number_.i.i.i = getelementptr inbounds nuw i8, ptr %.fr34, i64 4
+  %number_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %number_.i.i.i, align 4
-  %number_.i10.i.i = getelementptr inbounds nuw i8, ptr %.fr35, i64 4
+  %number_.i10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %number_.i10.i.i, align 4
-  %.fr = freeze i32 %4
-  %.fr33 = freeze i32 %5
-  %cmp.i.i = icmp slt i32 %.fr, %.fr33
-  br i1 %cmp.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29
+  %cmp.i.i = icmp slt i32 %4, %5
+  %cond.fr32 = freeze i1 %cmp.i.i
+  br i1 %cond.fr32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29
 
 if.else7.i.i:                                     ; preds = %while.body
   br i1 %bf.cast.i16.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit: ; preds = %if.else7.i.i
-  %containing_type_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.fr34, i64 32
+  %containing_type_.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %containing_type_.i.i.i.i, align 8
   %fields_.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   %.sink.i.i.i = load ptr, ptr %fields_.i.i.i, align 8
-  %sub.ptr.lhs.cast12.i.i.i = ptrtoint ptr %.fr34 to i64
-  %.sink.i.i.i.fr = freeze ptr %.sink.i.i.i
-  %sub.ptr.rhs.cast13.i.i.i = ptrtoint ptr %.sink.i.i.i.fr to i64
+  %sub.ptr.lhs.cast12.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast13.i.i.i = ptrtoint ptr %.sink.i.i.i to i64
   %sub.ptr.sub14.i.i.i = sub i64 %sub.ptr.lhs.cast12.i.i.i, %sub.ptr.rhs.cast13.i.i.i
-  %retval.0.in.i.i.i = sdiv i64 %sub.ptr.sub14.i.i.i, 88
+  %retval.0.in.i.i.i = sdiv exact i64 %sub.ptr.sub14.i.i.i, 88
   %retval.0.i.i.i = trunc i64 %retval.0.in.i.i.i to i32
-  %containing_type_.i.i38.i.i = getelementptr inbounds nuw i8, ptr %.fr35, i64 32
+  %containing_type_.i.i38.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %containing_type_.i.i38.i.i, align 8
   %fields_.i39.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.sink.i28.i.i = load ptr, ptr %fields_.i39.i.i, align 8
-  %sub.ptr.lhs.cast12.i29.i.i = ptrtoint ptr %.fr35 to i64
-  %.sink.i28.i.i.fr = freeze ptr %.sink.i28.i.i
-  %sub.ptr.rhs.cast13.i30.i.i = ptrtoint ptr %.sink.i28.i.i.fr to i64
+  %sub.ptr.lhs.cast12.i29.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast13.i30.i.i = ptrtoint ptr %.sink.i28.i.i to i64
   %sub.ptr.sub14.i31.i.i = sub i64 %sub.ptr.lhs.cast12.i29.i.i, %sub.ptr.rhs.cast13.i30.i.i
-  %retval.0.in.i32.i.i = sdiv i64 %sub.ptr.sub14.i31.i.i, 88
+  %retval.0.in.i32.i.i = sdiv exact i64 %sub.ptr.sub14.i31.i.i, 88
   %retval.0.i33.i.i = trunc i64 %retval.0.in.i32.i.i to i32
   %cmp13.i.i = icmp slt i32 %retval.0.i.i.i, %retval.0.i33.i.i
-  br i1 %cmp13.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29
+  %cond.fr = freeze i1 %cmp13.i.i
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread: ; preds = %if.else7.i.i, %if.then.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread29: ; preds = %land.lhs.true.i.i, %if.then.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread
-  %8 = phi ptr [ %.fr35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread ], [ %.fr34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %.fr34, %if.then.i.i ], [ %.fr34, %land.lhs.true.i.i ]
+  %8 = phi ptr [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %0, %if.then.i.i ], [ %0, %land.lhs.true.i.i ]
   %9 = phi i64 [ %sub3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread ], [ %mul, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %mul, %if.then.i.i ], [ %mul, %land.lhs.true.i.i ]
-  %add.ptr.i19 = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.037
+  %add.ptr.i19 = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.034
   store ptr %8, ptr %add.ptr.i19, align 8
   %cmp = icmp slt i64 %9, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !192

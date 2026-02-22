@@ -56557,8 +56557,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_127PragmaClangAttributeSupportC2ERK
 
 ._crit_edge40:                                    ; preds = %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit, %1
   %12 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str.498, i64 8) #25
-  %.fr = freeze { ptr, i64 } %12
-  %13 = extractvalue { ptr, i64 } %.fr, 0
+  %.fr58 = freeze { ptr, i64 } %12
+  %13 = extractvalue { ptr, i64 } %.fr58, 0
   %14 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str.499, i64 31) #25
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
@@ -56568,7 +56568,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127PragmaClangAttributeSupportC2ERK
   br i1 %.not3751, label %._crit_edge55, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %._crit_edge40
-  %18 = extractvalue { ptr, i64 } %.fr, 1
+  %18 = extractvalue { ptr, i64 } %.fr58, 1
   %.idx57 = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx57
   %.not3841 = icmp eq i64 %18, 0

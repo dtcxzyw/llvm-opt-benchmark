@@ -172,8 +172,8 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %.loopexit230
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split.preheader: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.thread, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread
   %42 = phi ptr [ %40, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.thread ], [ %41, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
-  %.0153346 = phi ptr [ %33, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.thread ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
-  %.0157344 = phi ptr [ %.0157.ph, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.thread ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
+  %.0153347 = phi ptr [ %33, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.thread ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
+  %.0157345 = phi ptr [ %.0157.ph, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.thread ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ]
   %43 = add nsw i64 %11, -12
   %44 = urem i64 %43, 12
   %45 = sub nuw nsw i64 %43, %44
@@ -231,19 +231,19 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   br i1 %exitcond266, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !6
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.thread.split: ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %_ZNK6aiMesh16HasTextureCoordsEj.exit, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split
-  %.0157343350 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0157344, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %.0157344, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0157344, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %.0153345349 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0153346, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %.0153346, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0153346, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %.0157344351 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0157345, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %.0157345, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0157345, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %.0153346350 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0153347, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %.0153347, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0153347, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %60 = phi ptr [ %41, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %42, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %42, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %42, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %62 = load i32, ptr %61, align 8
-  %.fr340 = freeze i32 %62
-  %63 = zext i32 %.fr340 to i64
+  %.fr341 = freeze i32 %62
+  %63 = zext i32 %.fr341 to i64
   %64 = mul nuw nsw i64 %63, 24
   %65 = add nuw nsw i64 %64, 8
   %66 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %65) #12
   store i64 %63, ptr %66, align 16
   %.ptr181 = getelementptr i8, ptr %66, i64 8
-  %67 = icmp eq i32 %.fr340, 0
+  %67 = icmp eq i32 %.fr341, 0
   br i1 %67, label %.preheader226, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.thread.split
@@ -273,8 +273,8 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.thread.split: ; preds = %_ZNK6aiMesh15HasVer
   br label %114
 
 79:                                               ; preds = %.lr.ph, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit
-  %.pre311 = phi i32 [ %.fr340, %.lr.ph ], [ %.pre312, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
-  %80 = phi i32 [ %.fr340, %.lr.ph ], [ %109, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
+  %.pre311 = phi i32 [ %.fr341, %.lr.ph ], [ %.pre312, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
+  %80 = phi i32 [ %.fr341, %.lr.ph ], [ %109, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
   %indvars.iv267 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next268, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
   %81 = getelementptr inbounds nuw %"class.std::vector", ptr %.ptr181, i64 %indvars.iv267
   %82 = load ptr, ptr %72, align 8
@@ -554,10 +554,10 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vec
 
 200:                                              ; preds = %197
   %201 = getelementptr inbounds nuw %class.aiVector3t, ptr %198, i64 %137
-  %202 = getelementptr inbounds nuw %class.aiVector3t, ptr %.0153345349, i64 %139
+  %202 = getelementptr inbounds nuw %class.aiVector3t, ptr %.0153346350, i64 %139
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %202, ptr noundef nonnull align 4 dereferenceable(12) %201, i64 12, i1 false)
   %203 = getelementptr inbounds nuw %class.aiVector3t, ptr %199, i64 %137
-  %204 = getelementptr inbounds nuw %class.aiVector3t, ptr %.0157343350, i64 %139
+  %204 = getelementptr inbounds nuw %class.aiVector3t, ptr %.0157344351, i64 %139
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %204, ptr noundef nonnull align 4 dereferenceable(12) %203, i64 12, i1 false)
   br label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit192.thread.preheader
 
@@ -699,7 +699,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit198.thread:    ; preds = %_ZNK6aiMesh15HasVer
   br i1 %284, label %237, label %._crit_edge251, !llvm.loop !25
 
 ._crit_edge251:                                   ; preds = %281, %.preheader223
-  %285 = icmp eq i32 %.fr340, 0
+  %285 = icmp eq i32 %.fr341, 0
   br i1 %285, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge251, %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit
@@ -809,7 +809,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit210:  ; preds = %320
 
 323:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit210
   tail call void @_ZdaPv(ptr noundef nonnull %321) #13
-  store ptr %.0153345349, ptr %28, align 8
+  store ptr %.0153346350, ptr %28, align 8
   %324 = load ptr, ptr %30, align 8
   %325 = icmp eq ptr %324, null
   br i1 %325, label %327, label %326
@@ -819,7 +819,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit210:  ; preds = %320
   br label %327
 
 327:                                              ; preds = %326, %323
-  store ptr %.0157343350, ptr %30, align 8
+  store ptr %.0157344351, ptr %30, align 8
   %.pre309 = load i32, ptr %5, align 4
   br label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit210.thread
 

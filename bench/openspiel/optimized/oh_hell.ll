@@ -3789,76 +3789,72 @@ define void @_ZNK10open_spiel7oh_hell10OhHellGame27InformationStateTensorShapeEv
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread, label %12
+  br i1 %5, label %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread, label %11
 
 _ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread: ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 280
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %.pre18 = load i32, ptr %.phi.trans.insert17, align 4
-  %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %.pre20 = load i32, ptr %.phi.trans.insert19, align 8
-  %.fr1522 = freeze i32 %.pre20
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %.pre17 = load i32, ptr %.phi.trans.insert16, align 4
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %.pre19 = load i32, ptr %.phi.trans.insert18, align 8
+  %.pre20 = mul nsw i32 %.pre19, %.pre17
+  %.fr1523 = freeze i32 %.pre20
   %6 = add nsw i32 %.pre, %4
-  %.fr1623 = freeze i32 %.pre18
-  %7 = mul nsw i32 %.fr1522, %.fr1623
-  %8 = add nsw i32 %6, %7
-  %9 = shl nsw i32 %7, 1
-  %10 = add nsw i32 %8, %9
+  %7 = add nsw i32 %6, %.fr1523
+  %8 = shl nsw i32 %.fr1523, 1
+  %9 = add nsw i32 %7, %8
   %factor = shl nuw i32 %4, 1
   %reass.add = add i32 %factor, 2
   %reass.mul = mul i32 %.pre, %reass.add
-  %11 = add i32 %10, %reass.mul
+  %10 = add i32 %9, %reass.mul
   br label %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit12
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %14 = load i32, ptr %13, align 4
-  %.fr16 = freeze i32 %14
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %16 = load i32, ptr %15, align 8
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %15 = load i32, ptr %14, align 8
+  %16 = mul nsw i32 %15, %13
   %.fr15 = freeze i32 %16
-  %17 = mul nsw i32 %.fr15, %.fr16
-  %18 = add nsw i32 %17, -1
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %20 = load i32, ptr %19, align 8
-  %21 = sdiv i32 %18, %20
-  %22 = add nsw i32 %20, %21
-  %23 = mul nsw i32 %.fr15, %.fr16
+  %17 = add nsw i32 %.fr15, -1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %19 = load i32, ptr %18, align 8
+  %20 = sdiv i32 %17, %19
+  %21 = add nsw i32 %19, %20
+  %22 = add nsw i32 %21, %.fr15
+  %23 = shl nsw i32 %.fr15, 1
   %24 = add nsw i32 %22, %23
-  %25 = shl nsw i32 %23, 1
-  %26 = add nsw i32 %24, %25
-  %27 = add nsw i32 %23, -1
-  %28 = sdiv i32 %27, %20
-  %29 = add nsw i32 %28, 2
-  %30 = mul nsw i32 %29, %20
-  %31 = mul i32 %.fr15, %.fr16
-  %32 = add i32 %31, -1
-  %33 = srem i32 %32, %20
-  %34 = add i32 %30, %26
-  %35 = sub i32 %34, %33
-  %36 = add i32 %35, %32
+  %25 = add nsw i32 %.fr15, -1
+  %26 = sdiv i32 %25, %19
+  %27 = add nsw i32 %26, 2
+  %28 = mul nsw i32 %27, %19
+  %29 = add i32 %.fr15, -1
+  %30 = srem i32 %29, %19
+  %31 = add i32 %28, %24
+  %32 = sub i32 %31, %30
+  %33 = add i32 %32, %29
   br label %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit12
 
-_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit12: ; preds = %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread, %12
-  %37 = phi i32 [ %23, %12 ], [ %7, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
-  %38 = phi i32 [ %20, %12 ], [ %.pre, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
-  %39 = phi i32 [ %36, %12 ], [ %11, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
-  %.0.i11 = phi i32 [ %28, %12 ], [ %4, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
+_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit12: ; preds = %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread, %11
+  %.fr1524 = phi i32 [ %.fr15, %11 ], [ %.fr1523, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
+  %34 = phi i32 [ %19, %11 ], [ %.pre, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
+  %35 = phi i32 [ %33, %11 ], [ %10, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
+  %.0.i11 = phi i32 [ %26, %11 ], [ %4, %_ZNK10open_spiel7oh_hell10OhHellGame12MaxNumTricksEv.exit10.thread ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %40 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
-  %41 = shl nsw i32 %38, 1
-  %42 = add nsw i32 %41, -1
-  %43 = mul i32 %37, %42
-  %44 = mul i32 %43, %.0.i11
-  %45 = add nsw i32 %44, %39
-  store ptr %40, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %46, ptr %47, align 8
-  store i32 %45, ptr %40, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %48, align 8
+  %36 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
+  %37 = shl nsw i32 %34, 1
+  %38 = add nsw i32 %37, -1
+  %39 = mul i32 %.fr1524, %38
+  %40 = mul i32 %39, %.0.i11
+  %41 = add nsw i32 %40, %35
+  store ptr %36, ptr %0, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %42, ptr %43, align 8
+  store i32 %41, ptr %36, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %42, ptr %44, align 8
   ret void
 }
 

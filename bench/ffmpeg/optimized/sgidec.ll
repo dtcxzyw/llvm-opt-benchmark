@@ -249,8 +249,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_rle_sgi(ptr noundef %
   br i1 %15, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %.not4075.not = icmp eq i32 %6, 0
-  br i1 %.not4075.not, label %.critedge, label %.lr.ph
+  %.not4076.not = icmp eq i32 %6, 0
+  br i1 %.not4076.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = add nsw i32 %5, -1
@@ -260,7 +260,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_rle_sgi(ptr noundef %
   %.idx.i = zext nneg i32 %19 to i64
   %.not46.i = icmp eq i32 %4, 0
   %20 = zext nneg i32 %4 to i64
-  %wide.trip.count108 = zext nneg i32 %6 to i64
+  %wide.trip.count109 = zext nneg i32 %6 to i64
   br i1 %18, label %.lr.ph.split.us, label %.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -270,12 +270,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_rle_sgi(ptr noundef %
   %21 = ptrtoint ptr %.sroa.7.0.copyload to i64
   br label %.split.us.us.us
 
-.split.us.us.us:                                  ; preds = %.split.us.us.us.preheader, %.split74.us.us.split.us.split.us.us
-  %indvars.iv105 = phi i64 [ 0, %.split.us.us.us.preheader ], [ %indvars.iv.next106, %.split74.us.us.split.us.split.us.us ]
-  %.sroa.0.076.us.us = phi ptr [ %.sroa.0.0.copyload, %.split.us.us.us.preheader ], [ %.sroa.0.256.us.us.us.us.us, %.split74.us.us.split.us.split.us.us ]
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv105
+.split.us.us.us:                                  ; preds = %.split.us.us.us.preheader, %.split75.us.us.split.us.split.us.us
+  %indvars.iv106 = phi i64 [ 0, %.split.us.us.us.preheader ], [ %indvars.iv.next107, %.split75.us.us.split.us.split.us.us ]
+  %.sroa.0.077.us.us = phi ptr [ %.sroa.0.0.copyload, %.split.us.us.us.preheader ], [ %.sroa.0.256.us.us.us.us.us, %.split75.us.us.split.us.split.us.us ]
+  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv106
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv105
+  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv106
   %25 = load i64, ptr %24, align 8, !tbaa !36
   %26 = mul nsw i64 %25, %17
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
@@ -283,7 +283,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_rle_sgi(ptr noundef %
   br label %29
 
 29:                                               ; preds = %51, %.split.us.us.us
-  %.sroa.0.1.us.us.us.us.us = phi ptr [ %.sroa.0.076.us.us, %.split.us.us.us ], [ %.sroa.0.256.us.us.us.us.us, %51 ]
+  %.sroa.0.1.us.us.us.us.us = phi ptr [ %.sroa.0.077.us.us, %.split.us.us.us ], [ %.sroa.0.256.us.us.us.us.us, %51 ]
   %.0.us.us.us.us.us = phi ptr [ %27, %.split.us.us.us ], [ %52, %51 ]
   %30 = ptrtoint ptr %.sroa.0.1.us.us.us.us.us to i64
   %31 = sub i64 %11, %30
@@ -293,8 +293,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_rle_sgi(ptr noundef %
 bytestream2_get_be32.exit.us.us.us.us.us:         ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.us.us.us.us.us, i64 4
   %34 = load i32, ptr %.sroa.0.1.us.us.us.us.us, align 1, !tbaa !19
-  %.fr.us.us.us.us.us = freeze i32 %34
-  %35 = tail call i32 @llvm.bswap.i32(i32 %.fr.us.us.us.us.us)
+  %.fr60.us.us.us.us.us = freeze i32 %34
+  %35 = tail call i32 @llvm.bswap.i32(i32 %.fr60.us.us.us.us.us)
   %36 = load ptr, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !16
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %21, %37
@@ -321,30 +321,30 @@ bytestream2_get_be32.exit.thread.us.us.us.us.us:  ; preds = %29
   store ptr %48, ptr %3, align 8, !tbaa !37
   %49 = load ptr, ptr %22, align 8, !tbaa !20
   %50 = icmp eq ptr %.0.us.us.us.us.us, %49
-  br i1 %50, label %.split74.us.us.split.us.split.us.us, label %51
+  br i1 %50, label %.split75.us.us.split.us.split.us.us, label %51
 
 51:                                               ; preds = %._crit_edge.i.us.us.us.us.us
   %52 = getelementptr inbounds i8, ptr %.0.us.us.us.us.us, i64 %28
   br label %29
 
-.split74.us.us.split.us.split.us.us:              ; preds = %._crit_edge.i.us.us.us.us.us
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.critedge, label %.split.us.us.us, !llvm.loop !38
+.split75.us.us.split.us.split.us.us:              ; preds = %._crit_edge.i.us.us.us.us.us
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
+  br i1 %exitcond110.not, label %.critedge, label %.split.us.us.us, !llvm.loop !38
 
-.split.us.us:                                     ; preds = %.lr.ph.split.us, %.split74.us.us.split
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.split74.us.us.split ], [ 0, %.lr.ph.split.us ]
-  %.sroa.0.076.us = phi ptr [ %.sroa.0.256.us.us, %.split74.us.us.split ], [ %.sroa.0.0.copyload, %.lr.ph.split.us ]
-  %53 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv100
+.split.us.us:                                     ; preds = %.lr.ph.split.us, %.split75.us.us.split
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.split75.us.us.split ], [ 0, %.lr.ph.split.us ]
+  %.sroa.0.077.us = phi ptr [ %.sroa.0.256.us.us, %.split75.us.us.split ], [ %.sroa.0.0.copyload, %.lr.ph.split.us ]
+  %53 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv101
   %54 = load ptr, ptr %53, align 8, !tbaa !20
-  %55 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv100
+  %55 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv101
   %56 = load i64, ptr %55, align 8, !tbaa !36
   %57 = mul nsw i64 %56, %17
   %58 = getelementptr inbounds i8, ptr %54, i64 %57
   br label %59
 
 59:                                               ; preds = %128, %.split.us.us
-  %.sroa.0.1.us.us = phi ptr [ %.sroa.0.076.us, %.split.us.us ], [ %.sroa.0.256.us.us, %128 ]
+  %.sroa.0.1.us.us = phi ptr [ %.sroa.0.077.us, %.split.us.us ], [ %.sroa.0.256.us.us, %128 ]
   %.0.us.us = phi ptr [ %58, %.split.us.us ], [ %131, %128 ]
   %60 = ptrtoint ptr %.sroa.0.1.us.us to i64
   %61 = sub i64 %11, %60
@@ -354,8 +354,8 @@ bytestream2_get_be32.exit.thread.us.us.us.us.us:  ; preds = %29
 bytestream2_get_be32.exit.us.us:                  ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.us.us, i64 4
   %64 = load i32, ptr %.sroa.0.1.us.us, align 1, !tbaa !19
-  %.fr.us.us = freeze i32 %64
-  %65 = tail call i32 @llvm.bswap.i32(i32 %.fr.us.us)
+  %.fr60.us.us = freeze i32 %64
+  %65 = tail call i32 @llvm.bswap.i32(i32 %.fr60.us.us)
   %66 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !18
   %67 = load ptr, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !16
   %68 = ptrtoint ptr %66 to i64
@@ -477,7 +477,7 @@ bytestream2_get_byte.exit31.i.us.us:              ; preds = %122, %119
 125:                                              ; preds = %._crit_edge.i.loopexit.us.us
   %126 = load ptr, ptr %53, align 8, !tbaa !20
   %127 = icmp eq ptr %.0.us.us, %126
-  br i1 %127, label %.split74.us.us.split, label %128
+  br i1 %127, label %.split75.us.us.split, label %128
 
 128:                                              ; preds = %125
   %129 = load i64, ptr %55, align 8, !tbaa !36
@@ -494,14 +494,14 @@ bytestream2_get_byte.exit31.i.us.us:              ; preds = %122, %119
   %.not.us.us = icmp eq i32 %4, %.037.us.us
   br i1 %.not.us.us, label %125, label %.critedge
 
-.split74.us.us.split:                             ; preds = %125
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count108
-  br i1 %exitcond104.not, label %.critedge, label %.split.us.us, !llvm.loop !38
+.split75.us.us.split:                             ; preds = %125
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count109
+  br i1 %exitcond105.not, label %.critedge, label %.split.us.us, !llvm.loop !38
 
-.split:                                           ; preds = %.lr.ph, %.split74
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.split74 ], [ 0, %.lr.ph ]
-  %.sroa.0.076 = phi ptr [ %.sroa.0.256, %.split74 ], [ %.sroa.0.0.copyload, %.lr.ph ]
+.split:                                           ; preds = %.lr.ph, %.split75
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.split75 ], [ 0, %.lr.ph ]
+  %.sroa.0.077 = phi ptr [ %.sroa.0.256, %.split75 ], [ %.sroa.0.0.copyload, %.lr.ph ]
   %135 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8, !tbaa !20
   %137 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
@@ -511,7 +511,7 @@ bytestream2_get_byte.exit31.i.us.us:              ; preds = %122, %119
   br label %141
 
 141:                                              ; preds = %221, %.split
-  %.sroa.0.1 = phi ptr [ %.sroa.0.076, %.split ], [ %.sroa.0.256, %221 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.077, %.split ], [ %.sroa.0.256, %221 ]
   %.0 = phi ptr [ %140, %.split ], [ %224, %221 ]
   %142 = ptrtoint ptr %.sroa.0.1 to i64
   %143 = sub i64 %11, %142
@@ -531,8 +531,8 @@ bytestream2_get_be32.exit.thread:                 ; preds = %141
 bytestream2_get_be32.exit:                        ; preds = %141
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 4
   %152 = load i32, ptr %.sroa.0.1, align 1, !tbaa !19
-  %.fr = freeze i32 %152
-  %153 = tail call i32 @llvm.bswap.i32(i32 %.fr)
+  %.fr60 = freeze i32 %152
+  %153 = tail call i32 @llvm.bswap.i32(i32 %.fr60)
   %154 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !18
   %155 = load ptr, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !16
   %156 = ptrtoint ptr %154 to i64
@@ -668,7 +668,7 @@ bytestream2_get_le16.exit34.i:                    ; preds = %207, %206
 218:                                              ; preds = %._crit_edge.i49
   %219 = load ptr, ptr %135, align 8, !tbaa !20
   %220 = icmp eq ptr %.0, %219
-  br i1 %220, label %.split74, label %221
+  br i1 %220, label %.split75, label %221
 
 221:                                              ; preds = %218
   %222 = load i64, ptr %137, align 8, !tbaa !36
@@ -676,17 +676,17 @@ bytestream2_get_le16.exit34.i:                    ; preds = %207, %206
   %224 = getelementptr inbounds i8, ptr %.0, i64 %223
   br label %141
 
-.split74:                                         ; preds = %218
+.split75:                                         ; preds = %218
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count108
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count109
   br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !38
 
 .critedge.sink.split:                             ; preds = %182, %97
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %.split74, %._crit_edge.i49, %168, %.split74.us.us.split, %._crit_edge.i.loopexit.us.us, %85, %.split74.us.us.split.us.split.us.us, %.critedge.sink.split, %.preheader, %8
-  %.038 = phi i32 [ -1094995529, %8 ], [ 0, %.split74.us.us.split.us.split.us.us ], [ -1094995529, %168 ], [ -1094995529, %._crit_edge.i.loopexit.us.us ], [ -1094995529, %.critedge.sink.split ], [ -1094995529, %._crit_edge.i49 ], [ 0, %.split74.us.us.split ], [ -1094995529, %85 ], [ 0, %.preheader ], [ 0, %.split74 ]
+.critedge:                                        ; preds = %.split75, %._crit_edge.i49, %168, %.split75.us.us.split, %._crit_edge.i.loopexit.us.us, %85, %.split75.us.us.split.us.split.us.us, %.critedge.sink.split, %.preheader, %8
+  %.038 = phi i32 [ -1094995529, %8 ], [ 0, %.split75.us.us.split.us.split.us.us ], [ -1094995529, %168 ], [ -1094995529, %._crit_edge.i.loopexit.us.us ], [ -1094995529, %.critedge.sink.split ], [ -1094995529, %._crit_edge.i49 ], [ 0, %.split75.us.us.split ], [ -1094995529, %85 ], [ 0, %.preheader ], [ 0, %.split75 ]
   ret i32 %.038
 }
 

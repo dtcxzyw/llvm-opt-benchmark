@@ -118031,25 +118031,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8dl_graphIN3smt17theory_diff_l
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !1267
   %33 = load i32, ptr %7, align 8, !tbaa !1267
-  %.fr37 = freeze i32 %33
-  %.fr38 = freeze i32 %32
-  %34 = add i32 %.fr37, %.fr38
-  store i32 %34, ptr %7, align 8, !tbaa !1267
+  %34 = add nsw i32 %33, %32
+  %35 = freeze i32 %34
+  store i32 %35, ptr %7, align 8, !tbaa !1267
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge28, label %9, !llvm.loop !1964
 
 .critedge28:                                      ; preds = %30
   %.pre = load i32, ptr %4, align 8, !tbaa !43
-  %35 = icmp sgt i32 %34, -1
-  %36 = icmp sgt i32 %.pre, 0
-  br i1 %36, label %_ZNK16inf_int_rational9is_nonnegEv.exit.thread, label %.critedge28.thread
+  %36 = icmp sgt i32 %35, -1
+  %37 = icmp sgt i32 %.pre, 0
+  br i1 %37, label %_ZNK16inf_int_rational9is_nonnegEv.exit.thread, label %.critedge28.thread
 
 .critedge28.thread:                               ; preds = %3, %.critedge28
-  %37 = phi i32 [ %.pre, %.critedge28 ], [ 0, %3 ]
-  %.fr40 = phi i1 [ %35, %.critedge28 ], [ true, %3 ]
-  %38 = icmp eq i32 %37, 0
-  %or.cond = and i1 %38, %.fr40
+  %38 = phi i32 [ %.pre, %.critedge28 ], [ 0, %3 ]
+  %.fr38 = phi i1 [ %36, %.critedge28 ], [ true, %3 ]
+  %39 = icmp eq i32 %38, 0
+  %or.cond = and i1 %39, %.fr38
   br i1 %or.cond, label %_ZNK16inf_int_rational9is_nonnegEv.exit.thread, label %.critedge
 
 _ZNK16inf_int_rational9is_nonnegEv.exit.thread:   ; preds = %.critedge28.thread, %.critedge28
@@ -118057,19 +118056,19 @@ _ZNK16inf_int_rational9is_nonnegEv.exit.thread:   ; preds = %.critedge28.thread,
 
 .critedge:                                        ; preds = %9, %.critedge28.thread, %_ZNK16inf_int_rational9is_nonnegEv.exit.thread
   %.3 = phi i1 [ true, %.critedge28.thread ], [ false, %_ZNK16inf_int_rational9is_nonnegEv.exit.thread ], [ false, %9 ]
-  %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !45
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(36) %4)
-          to label %.noexc.i.i unwind label %40
+  %40 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !45
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %.noexc.i.i unwind label %41
 
 .noexc.i.i:                                       ; preds = %.critedge
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN16inf_int_rationalD2Ev.exit unwind label %40
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN16inf_int_rationalD2Ev.exit unwind label %41
 
-40:                                               ; preds = %.noexc.i.i, %.critedge
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %.noexc.i.i, %.critedge
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #25
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #25
   unreachable
 
 _ZN16inf_int_rationalD2Ev.exit:                   ; preds = %.noexc.i.i
@@ -123010,25 +123009,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8dl_graphIN3smt17theory_diff_l
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !1267
   %33 = load i32, ptr %7, align 8, !tbaa !1267
-  %.fr37 = freeze i32 %33
-  %.fr38 = freeze i32 %32
-  %34 = add i32 %.fr37, %.fr38
-  store i32 %34, ptr %7, align 8, !tbaa !1267
+  %34 = add nsw i32 %33, %32
+  %35 = freeze i32 %34
+  store i32 %35, ptr %7, align 8, !tbaa !1267
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge28, label %9, !llvm.loop !1992
 
 .critedge28:                                      ; preds = %30
   %.pre = load i32, ptr %4, align 8, !tbaa !43
-  %35 = icmp sgt i32 %34, -1
-  %36 = icmp sgt i32 %.pre, 0
-  br i1 %36, label %_ZNK16inf_int_rational9is_nonnegEv.exit.thread, label %.critedge28.thread
+  %36 = icmp sgt i32 %35, -1
+  %37 = icmp sgt i32 %.pre, 0
+  br i1 %37, label %_ZNK16inf_int_rational9is_nonnegEv.exit.thread, label %.critedge28.thread
 
 .critedge28.thread:                               ; preds = %3, %.critedge28
-  %37 = phi i32 [ %.pre, %.critedge28 ], [ 0, %3 ]
-  %.fr40 = phi i1 [ %35, %.critedge28 ], [ true, %3 ]
-  %38 = icmp eq i32 %37, 0
-  %or.cond = and i1 %38, %.fr40
+  %38 = phi i32 [ %.pre, %.critedge28 ], [ 0, %3 ]
+  %.fr38 = phi i1 [ %36, %.critedge28 ], [ true, %3 ]
+  %39 = icmp eq i32 %38, 0
+  %or.cond = and i1 %39, %.fr38
   br i1 %or.cond, label %_ZNK16inf_int_rational9is_nonnegEv.exit.thread, label %.critedge
 
 _ZNK16inf_int_rational9is_nonnegEv.exit.thread:   ; preds = %.critedge28.thread, %.critedge28
@@ -123036,19 +123034,19 @@ _ZNK16inf_int_rational9is_nonnegEv.exit.thread:   ; preds = %.critedge28.thread,
 
 .critedge:                                        ; preds = %9, %.critedge28.thread, %_ZNK16inf_int_rational9is_nonnegEv.exit.thread
   %.3 = phi i1 [ true, %.critedge28.thread ], [ false, %_ZNK16inf_int_rational9is_nonnegEv.exit.thread ], [ false, %9 ]
-  %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !45
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(36) %4)
-          to label %.noexc.i.i unwind label %40
+  %40 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !45
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %.noexc.i.i unwind label %41
 
 .noexc.i.i:                                       ; preds = %.critedge
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN16inf_int_rationalD2Ev.exit unwind label %40
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN16inf_int_rationalD2Ev.exit unwind label %41
 
-40:                                               ; preds = %.noexc.i.i, %.critedge
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %.noexc.i.i, %.critedge
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #25
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #25
   unreachable
 
 _ZN16inf_int_rationalD2Ev.exit:                   ; preds = %.noexc.i.i

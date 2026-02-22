@@ -210,14 +210,14 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly captures(address_is
 
 .loopexit:                                        ; preds = %9
   %14 = load i32, ptr %4, align 4
-  %.fr = freeze i32 %14
-  %15 = zext i32 %.fr to i64
+  %.fr36 = freeze i32 %14
+  %15 = zext i32 %.fr36 to i64
   %16 = shl nuw nsw i64 %15, 10
   %17 = call i32 @FreeFile(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not24 = icmp eq i32 %.fr, 0
+  %.not24 = icmp eq i32 %.fr36, 0
   %spec.select = select i1 %.not24, i64 2097152, i64 %16
   br label %18
 

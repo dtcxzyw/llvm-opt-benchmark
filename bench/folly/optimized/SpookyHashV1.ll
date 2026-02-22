@@ -725,16 +725,16 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   br label %44
 
 44:                                               ; preds = %15, %23
-  %.0354 = phi i64 [ %25, %23 ], [ -2401053088876216593, %15 ]
-  %.0351 = phi i64 [ %27, %23 ], [ %20, %15 ]
-  %.0348 = phi i64 [ %29, %23 ], [ %22, %15 ]
-  %.0345 = phi i64 [ %31, %23 ], [ -2401053088876216593, %15 ]
-  %.0342 = phi i64 [ %33, %23 ], [ %20, %15 ]
-  %.0339 = phi i64 [ %35, %23 ], [ %22, %15 ]
-  %.0336 = phi i64 [ %37, %23 ], [ -2401053088876216593, %15 ]
-  %.0333 = phi i64 [ %39, %23 ], [ %20, %15 ]
-  %.0330 = phi i64 [ %41, %23 ], [ %22, %15 ]
-  %.0329 = phi i64 [ %43, %23 ], [ -2401053088876216593, %15 ]
+  %.0355 = phi i64 [ %25, %23 ], [ -2401053088876216593, %15 ]
+  %.0352 = phi i64 [ %27, %23 ], [ %20, %15 ]
+  %.0349 = phi i64 [ %29, %23 ], [ %22, %15 ]
+  %.0346 = phi i64 [ %31, %23 ], [ -2401053088876216593, %15 ]
+  %.0343 = phi i64 [ %33, %23 ], [ %20, %15 ]
+  %.0340 = phi i64 [ %35, %23 ], [ %22, %15 ]
+  %.0337 = phi i64 [ %37, %23 ], [ -2401053088876216593, %15 ]
+  %.0334 = phi i64 [ %39, %23 ], [ %20, %15 ]
+  %.0331 = phi i64 [ %41, %23 ], [ %22, %15 ]
+  %.0330 = phi i64 [ %43, %23 ], [ -2401053088876216593, %15 ]
   %45 = add i64 %17, %2
   store i64 %45, ptr %16, align 8, !tbaa !17
   %.not = icmp eq i8 %.fr, 0
@@ -747,63 +747,63 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %1, i64 %49, i1 false)
   %50 = load i64, ptr %0, align 8, !tbaa !7
   %51 = add i64 %50, %20
-  %52 = xor i64 %.0330, %.0354
-  %53 = xor i64 %51, %.0329
+  %52 = xor i64 %.0331, %.0355
+  %53 = xor i64 %51, %.0330
   %54 = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 11)
   %55 = add i64 %53, %22
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !7
   %58 = add i64 %57, %22
-  %59 = xor i64 %55, %.0351
+  %59 = xor i64 %55, %.0352
   %60 = xor i64 %54, %58
   %61 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 32)
   %62 = add i64 %60, %52
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !7
   %65 = add i64 %64, %52
-  %66 = xor i64 %62, %.0348
+  %66 = xor i64 %62, %.0349
   %67 = xor i64 %61, %65
   %68 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 43)
   %69 = add i64 %67, %59
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load i64, ptr %70, align 8, !tbaa !7
   %72 = add i64 %59, %71
-  %73 = xor i64 %69, %.0345
+  %73 = xor i64 %69, %.0346
   %74 = xor i64 %72, %68
   %75 = tail call i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 31)
   %76 = add i64 %74, %66
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load i64, ptr %77, align 8, !tbaa !7
   %79 = add i64 %66, %78
-  %80 = xor i64 %76, %.0342
+  %80 = xor i64 %76, %.0343
   %81 = xor i64 %75, %79
   %82 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 17)
   %83 = add i64 %81, %73
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load i64, ptr %84, align 8, !tbaa !7
   %86 = add i64 %73, %85
-  %87 = xor i64 %83, %.0339
+  %87 = xor i64 %83, %.0340
   %88 = xor i64 %82, %86
   %89 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 28)
   %90 = add i64 %88, %80
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %92 = load i64, ptr %91, align 8, !tbaa !7
   %93 = add i64 %80, %92
-  %94 = xor i64 %90, %.0336
+  %94 = xor i64 %90, %.0337
   %95 = xor i64 %93, %89
   %96 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 39)
   %97 = add i64 %95, %87
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %99 = load i64, ptr %98, align 8, !tbaa !7
   %100 = add i64 %87, %99
-  %101 = xor i64 %97, %.0333
+  %101 = xor i64 %97, %.0334
   %102 = xor i64 %96, %100
   %103 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %100, i64 57)
   %104 = add i64 %102, %94
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %106 = load i64, ptr %105, align 8, !tbaa !7
   %107 = add i64 %94, %106
-  %108 = xor i64 %104, %.0330
+  %108 = xor i64 %104, %.0331
   %109 = xor i64 %103, %107
   %110 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 55)
   %111 = add i64 %109, %101
@@ -917,165 +917,165 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   br label %219
 
 219:                                              ; preds = %44, %46
-  %.1361 = phi i64 [ %20, %44 ], [ %206, %46 ]
-  %.1358 = phi i64 [ %22, %44 ], [ %213, %46 ]
-  %.1355 = phi i64 [ %.0354, %44 ], [ %160, %46 ]
-  %.1352 = phi i64 [ %.0351, %44 ], [ %167, %46 ]
-  %.1349 = phi i64 [ %.0348, %44 ], [ %174, %46 ]
-  %.1346 = phi i64 [ %.0345, %44 ], [ %181, %46 ]
-  %.1343 = phi i64 [ %.0342, %44 ], [ %188, %46 ]
-  %.1340 = phi i64 [ %.0339, %44 ], [ %195, %46 ]
-  %.1337 = phi i64 [ %.0336, %44 ], [ %202, %46 ]
-  %.1334 = phi i64 [ %.0333, %44 ], [ %209, %46 ]
-  %.1331 = phi i64 [ %.0330, %44 ], [ %216, %46 ]
-  %.1 = phi i64 [ %.0329, %44 ], [ %215, %46 ]
+  %.1362 = phi i64 [ %20, %44 ], [ %206, %46 ]
+  %.1359 = phi i64 [ %22, %44 ], [ %213, %46 ]
+  %.1356 = phi i64 [ %.0355, %44 ], [ %160, %46 ]
+  %.1353 = phi i64 [ %.0352, %44 ], [ %167, %46 ]
+  %.1350 = phi i64 [ %.0349, %44 ], [ %174, %46 ]
+  %.1347 = phi i64 [ %.0346, %44 ], [ %181, %46 ]
+  %.1344 = phi i64 [ %.0343, %44 ], [ %188, %46 ]
+  %.1341 = phi i64 [ %.0340, %44 ], [ %195, %46 ]
+  %.1338 = phi i64 [ %.0337, %44 ], [ %202, %46 ]
+  %.1335 = phi i64 [ %.0334, %44 ], [ %209, %46 ]
+  %.1332 = phi i64 [ %.0331, %44 ], [ %216, %46 ]
+  %.1 = phi i64 [ %.0330, %44 ], [ %215, %46 ]
   %.sroa.0.0 = phi ptr [ %1, %44 ], [ %217, %46 ]
   %.0 = phi i64 [ %2, %44 ], [ %218, %46 ]
   %220 = urem i64 %.0, 96
   %.idx = sub nuw i64 %.0, %220
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx
   %222 = trunc nuw nsw i64 %220 to i8
-  %.not387 = icmp eq i64 %.0, %220
-  br i1 %.not387, label %._crit_edge, label %.lr.ph
+  %.not388 = icmp eq i64 %.0, %220
+  br i1 %.not388, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %219, %.lr.ph
-  %.sroa.0.1375 = phi ptr [ %306, %.lr.ph ], [ %.sroa.0.0, %219 ]
-  %.2374 = phi i64 [ %304, %.lr.ph ], [ %.1, %219 ]
-  %.2332373 = phi i64 [ %305, %.lr.ph ], [ %.1331, %219 ]
-  %.2335372 = phi i64 [ %298, %.lr.ph ], [ %.1334, %219 ]
-  %.2338371 = phi i64 [ %291, %.lr.ph ], [ %.1337, %219 ]
-  %.2341370 = phi i64 [ %284, %.lr.ph ], [ %.1340, %219 ]
-  %.2344369 = phi i64 [ %277, %.lr.ph ], [ %.1343, %219 ]
-  %.2347368 = phi i64 [ %270, %.lr.ph ], [ %.1346, %219 ]
-  %.2350367 = phi i64 [ %263, %.lr.ph ], [ %.1349, %219 ]
-  %.2353366 = phi i64 [ %256, %.lr.ph ], [ %.1352, %219 ]
-  %.2356365 = phi i64 [ %249, %.lr.ph ], [ %.1355, %219 ]
-  %.2359364 = phi i64 [ %302, %.lr.ph ], [ %.1358, %219 ]
-  %.2362363 = phi i64 [ %295, %.lr.ph ], [ %.1361, %219 ]
-  %223 = load i64, ptr %.sroa.0.1375, align 8, !tbaa !7
-  %224 = add i64 %223, %.2362363
-  %225 = xor i64 %.2332373, %.2356365
-  %226 = xor i64 %224, %.2374
+  %.sroa.0.1376 = phi ptr [ %306, %.lr.ph ], [ %.sroa.0.0, %219 ]
+  %.2375 = phi i64 [ %304, %.lr.ph ], [ %.1, %219 ]
+  %.2333374 = phi i64 [ %305, %.lr.ph ], [ %.1332, %219 ]
+  %.2336373 = phi i64 [ %298, %.lr.ph ], [ %.1335, %219 ]
+  %.2339372 = phi i64 [ %291, %.lr.ph ], [ %.1338, %219 ]
+  %.2342371 = phi i64 [ %284, %.lr.ph ], [ %.1341, %219 ]
+  %.2345370 = phi i64 [ %277, %.lr.ph ], [ %.1344, %219 ]
+  %.2348369 = phi i64 [ %270, %.lr.ph ], [ %.1347, %219 ]
+  %.2351368 = phi i64 [ %263, %.lr.ph ], [ %.1350, %219 ]
+  %.2354367 = phi i64 [ %256, %.lr.ph ], [ %.1353, %219 ]
+  %.2357366 = phi i64 [ %249, %.lr.ph ], [ %.1356, %219 ]
+  %.2360365 = phi i64 [ %302, %.lr.ph ], [ %.1359, %219 ]
+  %.2363364 = phi i64 [ %295, %.lr.ph ], [ %.1362, %219 ]
+  %223 = load i64, ptr %.sroa.0.1376, align 8, !tbaa !7
+  %224 = add i64 %223, %.2363364
+  %225 = xor i64 %.2333374, %.2357366
+  %226 = xor i64 %224, %.2375
   %227 = tail call i64 @llvm.fshl.i64(i64 %224, i64 %224, i64 11)
-  %228 = add i64 %226, %.2359364
-  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 8
+  %228 = add i64 %226, %.2360365
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 8
   %230 = load i64, ptr %229, align 8, !tbaa !7
-  %231 = add i64 %230, %.2359364
-  %232 = xor i64 %228, %.2353366
+  %231 = add i64 %230, %.2360365
+  %232 = xor i64 %228, %.2354367
   %233 = xor i64 %227, %231
   %234 = tail call i64 @llvm.fshl.i64(i64 %231, i64 %231, i64 32)
   %235 = add i64 %233, %225
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 16
   %237 = load i64, ptr %236, align 8, !tbaa !7
   %238 = add i64 %237, %225
-  %239 = xor i64 %235, %.2350367
+  %239 = xor i64 %235, %.2351368
   %240 = xor i64 %234, %238
   %241 = tail call i64 @llvm.fshl.i64(i64 %238, i64 %238, i64 43)
   %242 = add i64 %240, %232
-  %243 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 24
   %244 = load i64, ptr %243, align 8, !tbaa !7
   %245 = add i64 %232, %244
-  %246 = xor i64 %242, %.2347368
+  %246 = xor i64 %242, %.2348369
   %247 = xor i64 %245, %241
   %248 = tail call i64 @llvm.fshl.i64(i64 %245, i64 %245, i64 31)
   %249 = add i64 %247, %239
-  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 32
   %251 = load i64, ptr %250, align 8, !tbaa !7
   %252 = add i64 %239, %251
-  %253 = xor i64 %249, %.2344369
+  %253 = xor i64 %249, %.2345370
   %254 = xor i64 %248, %252
   %255 = tail call i64 @llvm.fshl.i64(i64 %252, i64 %252, i64 17)
   %256 = add i64 %254, %246
-  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 40
   %258 = load i64, ptr %257, align 8, !tbaa !7
   %259 = add i64 %246, %258
-  %260 = xor i64 %256, %.2341370
+  %260 = xor i64 %256, %.2342371
   %261 = xor i64 %255, %259
   %262 = tail call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 28)
   %263 = add i64 %261, %253
-  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 48
+  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 48
   %265 = load i64, ptr %264, align 8, !tbaa !7
   %266 = add i64 %253, %265
-  %267 = xor i64 %263, %.2338371
+  %267 = xor i64 %263, %.2339372
   %268 = xor i64 %266, %262
   %269 = tail call i64 @llvm.fshl.i64(i64 %266, i64 %266, i64 39)
   %270 = add i64 %268, %260
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 56
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 56
   %272 = load i64, ptr %271, align 8, !tbaa !7
   %273 = add i64 %260, %272
-  %274 = xor i64 %270, %.2335372
+  %274 = xor i64 %270, %.2336373
   %275 = xor i64 %269, %273
   %276 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 57)
   %277 = add i64 %275, %267
-  %278 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 64
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 64
   %279 = load i64, ptr %278, align 8, !tbaa !7
   %280 = add i64 %267, %279
-  %281 = xor i64 %277, %.2332373
+  %281 = xor i64 %277, %.2333374
   %282 = xor i64 %276, %280
   %283 = tail call i64 @llvm.fshl.i64(i64 %280, i64 %280, i64 55)
   %284 = add i64 %282, %274
-  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 72
+  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 72
   %286 = load i64, ptr %285, align 8, !tbaa !7
   %287 = add i64 %274, %286
   %288 = xor i64 %284, %228
   %289 = xor i64 %287, %283
   %290 = tail call i64 @llvm.fshl.i64(i64 %287, i64 %287, i64 54)
   %291 = add i64 %289, %281
-  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 80
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 80
   %293 = load i64, ptr %292, align 8, !tbaa !7
   %294 = add i64 %281, %293
   %295 = xor i64 %291, %235
   %296 = xor i64 %290, %294
   %297 = tail call i64 @llvm.fshl.i64(i64 %294, i64 %294, i64 22)
   %298 = add i64 %296, %288
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 88
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 88
   %300 = load i64, ptr %299, align 8, !tbaa !7
   %301 = add i64 %288, %300
   %302 = xor i64 %298, %242
   %303 = xor i64 %297, %301
   %304 = tail call i64 @llvm.fshl.i64(i64 %301, i64 %301, i64 46)
   %305 = add i64 %303, %295
-  %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.1375, i64 96
+  %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 96
   %307 = icmp ult ptr %306, %221
   br i1 %307, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %219
-  %.2362.lcssa = phi i64 [ %.1361, %219 ], [ %295, %.lr.ph ]
-  %.2359.lcssa = phi i64 [ %.1358, %219 ], [ %302, %.lr.ph ]
-  %.2356.lcssa = phi i64 [ %.1355, %219 ], [ %249, %.lr.ph ]
-  %.2353.lcssa = phi i64 [ %.1352, %219 ], [ %256, %.lr.ph ]
-  %.2350.lcssa = phi i64 [ %.1349, %219 ], [ %263, %.lr.ph ]
-  %.2347.lcssa = phi i64 [ %.1346, %219 ], [ %270, %.lr.ph ]
-  %.2344.lcssa = phi i64 [ %.1343, %219 ], [ %277, %.lr.ph ]
-  %.2341.lcssa = phi i64 [ %.1340, %219 ], [ %284, %.lr.ph ]
-  %.2338.lcssa = phi i64 [ %.1337, %219 ], [ %291, %.lr.ph ]
-  %.2335.lcssa = phi i64 [ %.1334, %219 ], [ %298, %.lr.ph ]
-  %.2332.lcssa = phi i64 [ %.1331, %219 ], [ %305, %.lr.ph ]
+  %.2363.lcssa = phi i64 [ %.1362, %219 ], [ %295, %.lr.ph ]
+  %.2360.lcssa = phi i64 [ %.1359, %219 ], [ %302, %.lr.ph ]
+  %.2357.lcssa = phi i64 [ %.1356, %219 ], [ %249, %.lr.ph ]
+  %.2354.lcssa = phi i64 [ %.1353, %219 ], [ %256, %.lr.ph ]
+  %.2351.lcssa = phi i64 [ %.1350, %219 ], [ %263, %.lr.ph ]
+  %.2348.lcssa = phi i64 [ %.1347, %219 ], [ %270, %.lr.ph ]
+  %.2345.lcssa = phi i64 [ %.1344, %219 ], [ %277, %.lr.ph ]
+  %.2342.lcssa = phi i64 [ %.1341, %219 ], [ %284, %.lr.ph ]
+  %.2339.lcssa = phi i64 [ %.1338, %219 ], [ %291, %.lr.ph ]
+  %.2336.lcssa = phi i64 [ %.1335, %219 ], [ %298, %.lr.ph ]
+  %.2333.lcssa = phi i64 [ %.1332, %219 ], [ %305, %.lr.ph ]
   %.2.lcssa = phi i64 [ %.1, %219 ], [ %304, %.lr.ph ]
   store i8 %222, ptr %4, align 8, !tbaa !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr align 8 %221, i64 %220, i1 false)
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %.2362.lcssa, ptr %308, align 8, !tbaa !7
+  store i64 %.2363.lcssa, ptr %308, align 8, !tbaa !7
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %.2359.lcssa, ptr %309, align 8, !tbaa !7
+  store i64 %.2360.lcssa, ptr %309, align 8, !tbaa !7
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %.2356.lcssa, ptr %310, align 8, !tbaa !7
+  store i64 %.2357.lcssa, ptr %310, align 8, !tbaa !7
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %.2353.lcssa, ptr %311, align 8, !tbaa !7
+  store i64 %.2354.lcssa, ptr %311, align 8, !tbaa !7
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %.2350.lcssa, ptr %312, align 8, !tbaa !7
+  store i64 %.2351.lcssa, ptr %312, align 8, !tbaa !7
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 %.2347.lcssa, ptr %313, align 8, !tbaa !7
+  store i64 %.2348.lcssa, ptr %313, align 8, !tbaa !7
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %.2344.lcssa, ptr %314, align 8, !tbaa !7
+  store i64 %.2345.lcssa, ptr %314, align 8, !tbaa !7
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %.2341.lcssa, ptr %315, align 8, !tbaa !7
+  store i64 %.2342.lcssa, ptr %315, align 8, !tbaa !7
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %.2338.lcssa, ptr %316, align 8, !tbaa !7
+  store i64 %.2339.lcssa, ptr %316, align 8, !tbaa !7
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 %.2335.lcssa, ptr %317, align 8, !tbaa !7
+  store i64 %.2336.lcssa, ptr %317, align 8, !tbaa !7
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %.2332.lcssa, ptr %318, align 8, !tbaa !7
+  store i64 %.2333.lcssa, ptr %318, align 8, !tbaa !7
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 %.2.lcssa, ptr %319, align 8, !tbaa !7
   br label %320

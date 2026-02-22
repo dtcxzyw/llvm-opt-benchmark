@@ -2317,8 +2317,8 @@ if.then.i.i963:                                   ; preds = %invoke.cont109
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont109, %if.then.i.i963
   call void @llvm.lifetime.end.p0(ptr nonnull %temp)
   %indvars.iv.next3162 = add nuw nsw i32 %indvars.iv3161, 1
-  %exitcond.not90 = icmp eq i32 %indvars.iv.next3162, %conv40
-  br i1 %exitcond.not90, label %for.cond.cleanup, label %for.body, !llvm.loop !110
+  %exitcond.not89 = icmp eq i32 %indvars.iv.next3162, %conv40
+  br i1 %exitcond.not89, label %for.cond.cleanup, label %for.body, !llvm.loop !110
 
 lpad108:                                          ; preds = %for.cond.cleanup48
   %61 = landingpad { ptr, i32 }
@@ -2791,14 +2791,16 @@ for.cond410.preheader:                            ; preds = %if.end395, %for.inc
   %248 = call i16 @llvm.abs.i16(i16 %x.03095, i1 true)
   %cmp425 = icmp eq i16 %248, 1
   %conv438 = sitofp i16 %x.03095 to float
-  br i1 %cmp425, label %for.cond418.preheader, label %for.inc526
+  br label %for.cond418.preheader
 
-for.cond418.preheader:                            ; preds = %for.cond410.preheader, %for.inc523
-  %y.03090 = phi i16 [ %inc524, %for.inc523 ], [ -1, %for.cond410.preheader ]
+for.cond418.preheader:                            ; preds = %for.inc523, %for.cond410.preheader
+  %y.03090 = phi i16 [ -1, %for.cond410.preheader ], [ %inc524, %for.inc523 ]
   %249 = call i16 @llvm.abs.i16(i16 %y.03090, i1 true)
   %cmp429 = icmp eq i16 %249, 1
+  %or.cond853 = and i1 %cmp425, %cmp429
   %conv443 = sitofp i16 %y.03090 to float
-  br i1 %cmp429, label %for.body422, label %for.inc523
+  %or.cond853.fr = freeze i1 %or.cond853
+  br i1 %or.cond853.fr, label %for.body422, label %for.inc523
 
 for.body422:                                      ; preds = %for.cond418.preheader, %for.inc520
   %z.03082 = phi i16 [ %inc521, %for.inc520 ], [ -1, %for.cond418.preheader ]
@@ -3353,7 +3355,7 @@ for.inc523:                                       ; preds = %for.inc520, %for.co
   %exitcond3164.not = icmp eq i16 %inc524, 2
   br i1 %exitcond3164.not, label %for.inc526, label %for.cond418.preheader, !llvm.loop !114
 
-for.inc526:                                       ; preds = %for.inc523, %for.cond410.preheader
+for.inc526:                                       ; preds = %for.inc523
   %inc527 = add nsw i16 %x.03095, 1
   %exitcond3165.not = icmp eq i16 %inc527, 2
   br i1 %exitcond3165.not, label %invoke.cont538, label %for.cond410.preheader, !llvm.loop !115

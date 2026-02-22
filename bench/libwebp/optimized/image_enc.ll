@@ -326,18 +326,17 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 
 .thread:                                          ; preds = %8, %8, %8, %8, %8, %WebPIsAlphaMode.exit, %11
   %12 = phi i32 [ 54, %11 ], [ 70, %WebPIsAlphaMode.exit ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ]
-  %.not8083 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
+  %.not8082 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
   %13 = phi i32 [ 3, %11 ], [ 4, %WebPIsAlphaMode.exit ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !11
-  %.fr82 = freeze i32 %15
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !16
-  %22 = mul i32 %13, %.fr82
+  %22 = mul i32 %13, %15
   %23 = add i32 %22, 3
   %24 = and i32 %23, -4
   %25 = icmp eq ptr %19, null
@@ -357,7 +356,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %33 = add nsw i32 %12, -14
   store i32 %33, ptr %32, align 2
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i32 %.fr82, ptr %34, align 2
+  store i32 %15, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i32 %17, ptr %35, align 2
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 26
@@ -367,7 +366,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %38 = shl nuw nsw i16 %.tr, 3
   store i16 %38, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 30
-  %40 = select i1 %.not8083, i32 0, i32 3
+  %40 = select i1 %.not8082, i32 0, i32 3
   store i32 %40, ptr %39, align 2
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 34
   store i32 %27, ptr %41, align 2
@@ -377,7 +376,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   store i32 2400, ptr %43, align 2
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 46
   store i32 0, ptr %44, align 2
-  br i1 %.not8083, label %50, label %45
+  br i1 %.not8082, label %50, label %45
 
 45:                                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 54
@@ -406,8 +405,9 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %.not58 = icmp eq i32 %24, %22
   %55 = sub i32 %24, %22
   %56 = zext i32 %55 to i64
+  %.not58.fr = freeze i1 %.not58
   %wide.trip.count73 = zext i32 %17 to i64
-  br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not58.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %64
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %64 ], [ 0, %.lr.ph ]
@@ -940,7 +940,7 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !11
-  %.fr = freeze i32 %7
+  %.fr98 = freeze i32 %7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -951,7 +951,7 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !31
-  %18 = add nsw i32 %.fr, 1
+  %18 = add nsw i32 %.fr98, 1
   %19 = sdiv i32 %18, 2
   %20 = add nsw i32 %9, 1
   %21 = sdiv i32 %20, 2
@@ -973,8 +973,8 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   br i1 %31, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %26
-  %32 = sext i32 %.fr to i64
-  %33 = and i32 %.fr, 1
+  %32 = sext i32 %.fr98 to i64
+  %33 = and i32 %.fr98, 1
   %.not82 = icmp eq i32 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br i1 %.not82, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1023,8 +1023,8 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   br i1 %56, label %.lr.ph93, label %.loopexit
 
 .lr.ph93:                                         ; preds = %.preheader
-  %57 = sext i32 %.fr to i64
-  %58 = and i32 %.fr, 1
+  %57 = sext i32 %.fr98 to i64
+  %58 = and i32 %.fr98, 1
   %.not81 = icmp eq i32 %58, 0
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 60
   br i1 %.not81, label %.lr.ph93.split.us, label %.lr.ph93.split

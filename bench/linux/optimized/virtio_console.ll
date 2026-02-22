@@ -851,8 +851,8 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 784
   %9 = load i64, ptr %8, align 8
-  %.fr = freeze i64 %9
-  %10 = and i64 %.fr, 2
+  %.fr8 = freeze i64 %9
+  %10 = and i64 %.fr8, 2
   %.not = icmp eq i64 %10, 0
   %11 = shl i32 %3, 1
   %12 = add i32 %11, 2
@@ -897,14 +897,14 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   store ptr @.str.11, ptr %37, align 8
   %38 = load ptr, ptr %4, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.loopexit9, label %40
+  br i1 %39, label %.loopexit10, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 784
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 2
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.loopexit9, label %45
+  br i1 %44, label %.loopexit10, label %45
 
 45:                                               ; preds = %40
   %46 = getelementptr i8, ptr %17, i64 16
@@ -916,11 +916,11 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   %49 = getelementptr i8, ptr %18, i64 24
   store ptr @.str.13, ptr %49, align 8
   %50 = icmp ugt i32 %3, 1
-  br i1 %50, label %.preheader8, label %.loopexit9
+  br i1 %50, label %.preheader9, label %.loopexit10
 
-.preheader8:                                      ; preds = %45, %.preheader8
-  %51 = phi i32 [ %53, %.preheader8 ], [ 2, %45 ]
-  %52 = phi i32 [ %61, %.preheader8 ], [ 1, %45 ]
+.preheader9:                                      ; preds = %45, %.preheader9
+  %51 = phi i32 [ %53, %.preheader9 ], [ 2, %45 ]
+  %52 = phi i32 [ %61, %.preheader9 ], [ 1, %45 ]
   %53 = add i32 %51, 2
   %54 = zext i32 %53 to i64
   %55 = getelementptr ptr, ptr %17, i64 %54
@@ -935,22 +935,22 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   store ptr @.str.11, ptr %60, align 8
   %61 = add nuw i32 %52, 1
   %62 = icmp eq i32 %61, %3
-  br i1 %62, label %.loopexit9, label %.preheader8, !llvm.loop !22
+  br i1 %62, label %.loopexit10, label %.preheader9, !llvm.loop !22
 
-.loopexit9:                                       ; preds = %.preheader8, %45, %40, %35
+.loopexit10:                                      ; preds = %.preheader9, %45, %40, %35
   %63 = getelementptr inbounds nuw i8, ptr %38, i64 752
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 %66(ptr noundef %38, i32 noundef %13, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef null, ptr noundef null) #17
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %.loopexit9._crit_edge
+  br i1 %68, label %69, label %.loopexit10._crit_edge
 
-.loopexit9._crit_edge:                            ; preds = %.loopexit9
+.loopexit10._crit_edge:                           ; preds = %.loopexit10
   %.pre = load ptr, ptr %24, align 8
   br label %106
 
-69:                                               ; preds = %.loopexit9
+69:                                               ; preds = %.loopexit10
   %70 = load ptr, ptr %16, align 8
   %71 = load ptr, ptr %22, align 8
   store ptr %70, ptr %71, align 8
@@ -1002,9 +1002,9 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   %105 = icmp eq i64 %104, %19
   br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !23
 
-106:                                              ; preds = %.loopexit9._crit_edge, %30, %.thread
-  %107 = phi ptr [ %.pre, %.loopexit9._crit_edge ], [ %23, %30 ], [ %23, %.thread ]
-  %108 = phi i32 [ %67, %.loopexit9._crit_edge ], [ -12, %30 ], [ -12, %.thread ]
+106:                                              ; preds = %.loopexit10._crit_edge, %30, %.thread
+  %107 = phi ptr [ %.pre, %.loopexit10._crit_edge ], [ %23, %30 ], [ %23, %.thread ]
+  %108 = phi i32 [ %67, %.loopexit10._crit_edge ], [ -12, %30 ], [ -12, %.thread ]
   tail call void @kfree(ptr noundef %107) #17
   %109 = load ptr, ptr %22, align 8
   tail call void @kfree(ptr noundef %109) #17

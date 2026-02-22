@@ -1923,11 +1923,10 @@ define noundef zeroext i1 @_ZN7rocksdb18SstFileManagerImpl44IsMaxAllowedSpaceRea
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %1
-  %.fr = freeze i64 %6
-  %.fr3 = freeze i64 %8
-  %12 = add i64 %.fr3, %.fr
-  %13 = add i64 %4, -1
-  %.0 = icmp ult i64 %13, %12
+  %12 = add i64 %8, %6
+  %13 = freeze i64 %12
+  %14 = add i64 %4, -1
+  %.0 = icmp ult i64 %14, %13
   ret i1 %.0
 }
 

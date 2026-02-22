@@ -5653,34 +5653,30 @@ luaT_gettm.exit36.i:                              ; preds = %luaH_getstr.exit.i3
 645:                                              ; preds = %644
   %646 = load double, ptr %.010.i.i.i, align 8, !tbaa !46
   %647 = load double, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %.fr50.i = freeze double %646
-  %.fr51.i = freeze double %647
-  %648 = fcmp oeq double %.fr50.i, %.fr51.i
-  br i1 %648, label %get_compTM.exit, label %luaV_equalval.exit
+  %648 = fcmp oeq double %646, %647
+  %cond.fr47.i = freeze i1 %648
+  br i1 %cond.fr47.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 649:                                              ; preds = %644
   %650 = load i32, ptr %.010.i.i.i, align 8, !tbaa !46
   %651 = load i32, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %.fr.i = freeze i32 %650
-  %.fr49.i = freeze i32 %651
-  %652 = icmp eq i32 %.fr.i, %.fr49.i
-  br i1 %652, label %get_compTM.exit, label %luaV_equalval.exit
+  %652 = icmp eq i32 %650, %651
+  %cond.fr48.i = freeze i1 %652
+  br i1 %cond.fr48.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 653:                                              ; preds = %644
   %654 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
   %655 = load ptr, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %.fr52.i = freeze ptr %654
-  %.fr53.i = freeze ptr %655
-  %656 = icmp eq ptr %.fr52.i, %.fr53.i
-  br i1 %656, label %get_compTM.exit, label %luaV_equalval.exit
+  %656 = icmp eq ptr %654, %655
+  %cond.fr46.i = freeze i1 %656
+  br i1 %cond.fr46.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 luaO_rawequalObj.exit.i:                          ; preds = %644
   %657 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
   %658 = load ptr, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %.fr54.i = freeze ptr %657
-  %.fr55.i = freeze ptr %658
-  %659 = icmp eq ptr %.fr54.i, %.fr55.i
-  br i1 %659, label %get_compTM.exit, label %luaV_equalval.exit
+  %659 = icmp eq ptr %657, %658
+  %cond.fr.i = freeze i1 %659
+  br i1 %cond.fr.i, label %get_compTM.exit, label %luaV_equalval.exit
 
 get_compTM.exit:                                  ; preds = %645, %649, %653, %luaO_rawequalObj.exit.i, %luaT_gettm.exit.i
   %660 = load ptr, ptr %44, align 8, !tbaa !62
@@ -47539,8 +47535,8 @@ lua_type.exit:                                    ; preds = %barg.exit
 
 49:                                               ; preds = %lua_type.exit
   %50 = tail call fastcc double @lua_tonumber(ptr noundef nonnull %0, i32 noundef 2)
-  %.fr = freeze double %50
-  %51 = fadd double %.fr, 0x4338000000000000
+  %.fr63 = freeze double %50
+  %51 = fadd double %.fr63, 0x4338000000000000
   %52 = fcmp oeq double %51, 0.000000e+00
   br i1 %52, label %53, label %lua_type.exit.thread
 

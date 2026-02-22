@@ -9300,8 +9300,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr %t, align 8
-  %.fr = freeze ptr %1
-  %2 = ptrtoint ptr %.fr to i64
+  %.fr17 = freeze ptr %1
+  %2 = ptrtoint ptr %.fr17 to i64
   %and.i.i.i.i.i = and i64 %2, 1
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %sub.i.i.i.i.i = add i64 %2, -1
@@ -9313,18 +9313,18 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   br label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %name_.i.i.us = getelementptr inbounds nuw i8, ptr %.fr, i64 24
-  %current_size_.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %.fr, i64 32
+  %name_.i.i.us = getelementptr inbounds nuw i8, ptr %.fr17, i64 24
+  %current_size_.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %.fr17, i64 32
   %5 = load i32, ptr %current_size_.i.i.i.i.us, align 8
   %6 = load ptr, ptr %name_.i.i.us, align 8
-  %.fr.i.i.us = freeze ptr %6
-  %7 = ptrtoint ptr %.fr.i.i.us to i64
+  %.fr3.i.i.us = freeze ptr %6
+  %7 = ptrtoint ptr %.fr3.i.i.us to i64
   %and.i.i.i.i.i.i.i.us = and i64 %7, 1
   %cmp.i.i.i.i.i.i.i.us = icmp eq i64 %and.i.i.i.i.i.i.i.us, 0
   %sub.i.i.i.i.i.i.i.us = add i64 %7, -1
   %8 = inttoptr i64 %sub.i.i.i.i.i.i.i.us to ptr
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %.fr.i.i.us, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.fr3.i.i.us, i64 16
   br i1 %cmp.i.i.i.i.i.i.i.us, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.us.us
@@ -9382,8 +9382,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %current_size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %18 = load i32, ptr %current_size_.i.i.i.i, align 8
   %19 = load ptr, ptr %name_.i.i, align 8
-  %.fr.i.i = freeze ptr %19
-  %20 = ptrtoint ptr %.fr.i.i to i64
+  %.fr3.i.i = freeze ptr %19
+  %20 = ptrtoint ptr %.fr3.i.i to i64
   %and.i.i.i.i.i.i.i = and i64 %20, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i.i = add i64 %20, -1
@@ -9395,7 +9395,7 @@ for.cond.preheader.i.i:                           ; preds = %for.body
   br label %for.cond.i.i
 
 entry.split.us.i.i:                               ; preds = %for.body
-  %23 = getelementptr inbounds nuw i8, ptr %.fr.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.fr3.i.i, i64 16
   br label %for.cond.us.i.i
 
 for.cond.us.i.i:                                  ; preds = %for.body.us.i.i, %entry.split.us.i.i
@@ -26079,8 +26079,8 @@ entry:
   %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %1 = load ptr, ptr %name_.i, align 8
-  %.fr.i = freeze ptr %1
-  %2 = ptrtoint ptr %.fr.i to i64
+  %.fr3.i = freeze ptr %1
+  %2 = ptrtoint ptr %.fr3.i to i64
   %and.i.i.i.i.i.i = and i64 %2, 1
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %2, -1
@@ -26092,7 +26092,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br label %for.cond.i
 
 entry.split.us.i:                                 ; preds = %entry
-  %5 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.fr3.i, i64 16
   br label %for.cond.us.i
 
 for.cond.us.i:                                    ; preds = %for.body.us.i, %entry.split.us.i

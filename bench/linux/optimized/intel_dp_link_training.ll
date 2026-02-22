@@ -1136,11 +1136,11 @@ define dso_local void @intel_dp_stop_link_train(ptr noundef initializes((14, 15)
 
 40:                                               ; preds = %19
   %41 = load i8, ptr %3, align 1
-  %.fr = freeze i8 %41
-  %42 = and i8 %.fr, 8
-  %.not8 = icmp eq i8 %42, 0
+  %.fr8 = freeze i8 %41
+  %42 = and i8 %.fr8, 8
+  %.not9 = icmp eq i8 %42, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not8, label %.loopexit, label %43
+  br i1 %.not9, label %.loopexit, label %43
 
 43:                                               ; preds = %40
   br i1 %.not, label %48, label %44
@@ -1413,11 +1413,11 @@ define dso_local void @intel_dp_start_link_train(ptr noundef %0, ptr noundef %1)
 
 148:                                              ; preds = %127
   %149 = load i8, ptr %9, align 1
-  %.fr = freeze i8 %149
-  %150 = and i8 %.fr, 8
-  %.not82 = icmp eq i8 %150, 0
+  %.fr71 = freeze i8 %149
+  %150 = and i8 %.fr71, 8
+  %.not83 = icmp eq i8 %150, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not82, label %188, label %151
+  br i1 %.not83, label %188, label %151
 
 151:                                              ; preds = %148
   br i1 %.not, label %156, label %152
@@ -2291,8 +2291,8 @@ define dso_local void @intel_dp_start_link_train(ptr noundef %0, ptr noundef %1)
   call void @usleep_range_state(i64 noundef 2000, i64 noundef 3000, i32 noundef 2) #7
   %716 = load volatile i64, ptr @jiffies, align 64
   %717 = sub i64 %378, %716
-  %.lobit147 = lshr i64 %717, 63
-  %718 = trunc nuw nsw i64 %.lobit147 to i8
+  %.lobit148 = lshr i64 %717, 63
+  %718 = trunc nuw nsw i64 %.lobit148 to i8
   %719 = call i32 @drm_dp_dpcd_read_link_status(ptr noundef nonnull %100, ptr noundef nonnull %8) #7
   %720 = icmp slt i32 %719, 0
   br i1 %720, label %.loopexit, label %626, !llvm.loop !40

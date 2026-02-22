@@ -1685,14 +1685,14 @@ resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, 
 168:                                              ; preds = %162, %.thread17
   %.in = phi i64 [ %160, %.thread17 ], [ %166, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.in.fr = freeze i64 %.in
-  %.in27 = lshr i64 %.in.fr, 32
-  %169 = and i64 %.in.fr, 65535
+  %.in27 = lshr i64 %.in, 32
+  %169 = and i64 %.in, 65535
   %170 = and i64 %.in27, 983040
   %171 = or disjoint i64 %170, %169
-  %172 = and i64 %.in.fr, 36028797018963968
+  %.fr = freeze i64 %171
+  %172 = and i64 %.in, 36028797018963968
   %173 = icmp eq i64 %172, 0
-  %174 = shl nuw nsw i64 %171, 12
+  %174 = shl nuw nsw i64 %.fr, 12
   %175 = or disjoint i64 %174, 4095
   br i1 %173, label %176, label %.thread25
 
@@ -1710,8 +1710,8 @@ resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, 
   br label %resolve_default_seg.exit.thread13
 
 176:                                              ; preds = %168
-  store i64 %171, ptr %4, align 8
-  %177 = icmp eq i64 %171, 0
+  store i64 %.fr, ptr %4, align 8
+  %177 = icmp eq i64 %.fr, 0
   br i1 %177, label %178, label %resolve_default_seg.exit.thread13
 
 178:                                              ; preds = %.thread21, %176

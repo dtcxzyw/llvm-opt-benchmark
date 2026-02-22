@@ -46204,32 +46204,30 @@ define internal noundef ptr @_ZN12_GLOBAL__N_111utf8_readerISt17basic_string_vie
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %7 = load i64, ptr %6, align 8, !tbaa !681
   %8 = icmp eq i64 %5, %7
-  br i1 %8, label %9, label %140
+  br i1 %8, label %9, label %142
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !448
-  %.fr.i = freeze i64 %12
   %13 = load i64, ptr %10, align 8, !tbaa !489
-  %.fr49.i = freeze i64 %13
-  %.not2 = icmp ult i64 %.fr.i, %.fr49.i
+  %.not2 = icmp ult i64 %12, %13
   br i1 %.not2, label %14, label %.critedge, !prof !172
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %15 = add i64 %.fr.i, 32
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %.fr49.i)
-  %16 = sub i64 %.sroa.speculated.i.i, %.fr.i
+  %15 = add i64 %12, 32
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %13)
+  %16 = sub i64 %.sroa.speculated.i.i, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 16, !tbaa !488
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.fr.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %2, ptr align 1 %19, i64 %16, i1 false)
   store i64 %.sroa.speculated.i.i, ptr %11, align 8, !tbaa !448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(800) %3, i8 0, i64 800, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !450
-  switch i32 %21, label %.lr.ph53.i [
+  switch i32 %21, label %.lr.ph52.i [
     i32 12, label %_ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i
     i32 0, label %_ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i
   ]
@@ -46249,7 +46247,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   %26 = icmp slt <16 x i8> %25, zeroinitializer
   %27 = bitcast <16 x i1> %26 to i16
   %.not32.i.i = icmp eq i16 %27, 0
-  br i1 %.not32.i.i, label %32, label %.lr.ph53.i
+  br i1 %.not32.i.i, label %32, label %.lr.ph52.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.12734.i.i = phi ptr [ %30, %.lr.ph.i.i ], [ %2, %.lr.ph.preheader.i.i ]
@@ -46274,7 +46272,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   %.32936.i.i = phi ptr [ %35, %34 ], [ %.228.i.i, %32 ]
   %37 = load i8, ptr %.32936.i.i, align 1, !tbaa !15
   %38 = icmp sgt i8 %37, -1
-  br i1 %38, label %34, label %.lr.ph53.i
+  br i1 %38, label %34, label %.lr.ph52.i
 
 .lr.ph.preheader.i:                               ; preds = %34, %32
   store i32 0, ptr %20, align 8, !tbaa !450
@@ -46285,9 +46283,9 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.02351.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.02351.i
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %.02351.i
+  %.02350.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.02350.i
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %.02350.i
   %42 = load i8, ptr %41, align 1, !tbaa !15
   %43 = sext i8 %42 to i32
   store i32 %43, ptr %40, align 8, !tbaa !367
@@ -46295,202 +46293,204 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   store i8 %42, ptr %44, align 4, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 1, ptr %45, align 8, !tbaa !369
-  %46 = add nuw i64 %.02351.i, 1
+  %46 = add nuw i64 %.02350.i, 1
   %exitcond.not.i = icmp eq i64 %46, %umax.i
   br i1 %exitcond.not.i, label %.lr.ph.i39.i, label %.lr.ph.i, !llvm.loop !682
 
-.lr.ph53.i:                                       ; preds = %.lr.ph38.i.i, %._crit_edge.i.i, %14
+.lr.ph52.i:                                       ; preds = %.lr.ph38.i.i, %._crit_edge.i.i, %14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.promoted54.i = load i32, ptr %47, align 4
-  %umax70.i = call i64 @llvm.umax.i64(i64 %16, i64 1)
-  br label %51
+  %.promoted53.i = load i32, ptr %47, align 4
+  %umax67.i = call i64 @llvm.umax.i64(i64 %16, i64 1)
+  br label %53
 
-50:                                               ; preds = %110
-  store i32 %71, ptr %47, align 4, !tbaa !452
-  store i32 %77, ptr %20, align 8, !tbaa !450
-  %.not.i = icmp ult i64 %15, %.fr49.i
-  %or.cond.i = or i1 %.not.i, %91
-  br i1 %or.cond.i, label %..lr.ph.i39.i_crit_edge, label %112, !prof !583
+50:                                               ; preds = %112
+  store i32 %73, ptr %47, align 4, !tbaa !452
+  store i32 %79, ptr %20, align 8, !tbaa !450
+  %51 = icmp uge i64 %15, %13
+  %52 = freeze i1 %51
+  %cond.i = icmp ne i8 %78, 0
+  %or.cond.not.i = and i1 %52, %cond.i
+  br i1 %or.cond.not.i, label %114, label %..lr.ph.i39.i_crit_edge, !prof !590
 
 ..lr.ph.i39.i_crit_edge:                          ; preds = %50
   %.pre = load i64, ptr %6, align 8, !tbaa !681
   br label %.lr.ph.i39.i
 
-51:                                               ; preds = %110, %.lr.ph53.i
-  %52 = phi i32 [ %.promoted54.i, %.lr.ph53.i ], [ %71, %110 ]
-  %.02252.i = phi i64 [ 0, %.lr.ph53.i ], [ %111, %110 ]
-  %53 = phi i32 [ %21, %.lr.ph53.i ], [ %77, %110 ]
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.02252.i
-  %55 = load i8, ptr %54, align 1, !tbaa !15
-  %56 = icmp ne i32 %53, 12
-  call void @llvm.assume(i1 %56)
-  %57 = zext i8 %55 to i64
-  %58 = getelementptr inbounds nuw i8, ptr @_ZN4toml2v34impl12utf8_decoder11state_tableE, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !15
-  %60 = icmp eq i32 %53, 0
-  br i1 %60, label %61, label %66
+53:                                               ; preds = %112, %.lr.ph52.i
+  %54 = phi i32 [ %.promoted53.i, %.lr.ph52.i ], [ %73, %112 ]
+  %.02251.i = phi i64 [ 0, %.lr.ph52.i ], [ %113, %112 ]
+  %55 = phi i32 [ %21, %.lr.ph52.i ], [ %79, %112 ]
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 %.02251.i
+  %57 = load i8, ptr %56, align 1, !tbaa !15
+  %58 = icmp ne i32 %55, 12
+  call void @llvm.assume(i1 %58)
+  %59 = zext i8 %57 to i64
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN4toml2v34impl12utf8_decoder11state_tableE, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !15
+  %62 = icmp eq i32 %55, 0
+  br i1 %62, label %63, label %68
 
-61:                                               ; preds = %51
-  %62 = zext i8 %59 to i32
-  %63 = lshr i32 255, %62
-  %64 = zext i8 %55 to i32
-  %65 = and i32 %63, %64
+63:                                               ; preds = %53
+  %64 = zext i8 %61 to i32
+  %65 = lshr i32 255, %64
+  %66 = zext i8 %57 to i32
+  %67 = and i32 %65, %66
   br label %_ZN4toml2v34impl12utf8_decoderclEh.exit.i
 
-66:                                               ; preds = %51
-  %67 = and i8 %55, 63
-  %68 = zext nneg i8 %67 to i32
-  %69 = shl i32 %52, 6
-  %70 = or disjoint i32 %69, %68
-  %.pre.i.i = zext i8 %59 to i32
+68:                                               ; preds = %53
+  %69 = and i8 %57, 63
+  %70 = zext nneg i8 %69 to i32
+  %71 = shl i32 %54, 6
+  %72 = or disjoint i32 %71, %70
+  %.pre.i.i = zext i8 %61 to i32
   br label %_ZN4toml2v34impl12utf8_decoderclEh.exit.i
 
-_ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %66, %61
-  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %66 ], [ %62, %61 ]
-  %71 = phi i32 [ %70, %66 ], [ %65, %61 ]
-  %72 = add i32 %53, 256
-  %73 = add i32 %72, %.pre-phi.i.i
-  %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i8, ptr @_ZN4toml2v34impl12utf8_decoder11state_tableE, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !15
-  %77 = zext i8 %76 to i32
-  %78 = icmp eq i8 %76, 12
-  br i1 %78, label %79, label %87, !prof !146
+_ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
+  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %68 ], [ %64, %63 ]
+  %73 = phi i32 [ %72, %68 ], [ %67, %63 ]
+  %74 = add i32 %55, 256
+  %75 = add i32 %74, %.pre-phi.i.i
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw i8, ptr @_ZN4toml2v34impl12utf8_decoder11state_tableE, i64 %76
+  %78 = load i8, ptr %77, align 1, !tbaa !15
+  %79 = zext i8 %78 to i32
+  %80 = icmp eq i8 %78, 12
+  br i1 %80, label %81, label %89, !prof !146
 
-79:                                               ; preds = %_ZN4toml2v34impl12utf8_decoderclEh.exit.i
-  store i32 %71, ptr %47, align 4, !tbaa !452
-  store i32 %77, ptr %20, align 8, !tbaa !450
+81:                                               ; preds = %_ZN4toml2v34impl12utf8_decoderclEh.exit.i
+  store i32 %73, ptr %47, align 4, !tbaa !452
+  store i32 %79, ptr %20, align 8, !tbaa !450
   call fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEE15read_next_blockEvENKUlvE_clEv(ptr nonnull align 32 dereferenceable(896) %0) #53
-  %80 = call ptr @__cxa_allocate_exception(i64 48) #53
-  %81 = load i64, ptr %6, align 8, !tbaa !681
-  %.not.i35.i = icmp eq i64 %81, 0
-  %82 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %81
-  %83 = getelementptr i8, ptr %82, i64 56
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %85 = select i1 %.not.i35.i, ptr %84, ptr %83
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  call void @_ZN4toml2v32ex11parse_errorC2EPKcRKNS0_15source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef @.str.223, ptr noundef nonnull align 4 dereferenceable(8) %85, ptr noundef nonnull align 8 dereferenceable(16) %86) #53
-  call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTIN4toml2v32ex11parse_errorE, ptr nonnull @_ZN4toml2v32ex11parse_errorD2Ev) #57
+  %82 = call ptr @__cxa_allocate_exception(i64 48) #53
+  %83 = load i64, ptr %6, align 8, !tbaa !681
+  %.not.i35.i = icmp eq i64 %83, 0
+  %84 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %83
+  %85 = getelementptr i8, ptr %84, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %87 = select i1 %.not.i35.i, ptr %86, ptr %85
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  call void @_ZN4toml2v32ex11parse_errorC2EPKcRKNS0_15source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef @.str.223, ptr noundef nonnull align 4 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(16) %88) #53
+  call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN4toml2v32ex11parse_errorE, ptr nonnull @_ZN4toml2v32ex11parse_errorD2Ev) #57
   unreachable
 
-87:                                               ; preds = %_ZN4toml2v34impl12utf8_decoderclEh.exit.i
-  %88 = load i64, ptr %49, align 8, !tbaa !453
-  %89 = add i64 %88, 1
-  store i64 %89, ptr %49, align 8, !tbaa !453
-  %90 = getelementptr inbounds nuw i8, ptr %48, i64 %88
-  store i8 %55, ptr %90, align 1, !tbaa !15
-  %91 = icmp eq i8 %76, 0
-  br i1 %91, label %92, label %99
+89:                                               ; preds = %_ZN4toml2v34impl12utf8_decoderclEh.exit.i
+  %90 = load i64, ptr %49, align 8, !tbaa !453
+  %91 = add i64 %90, 1
+  store i64 %91, ptr %49, align 8, !tbaa !453
+  %92 = getelementptr inbounds nuw i8, ptr %48, i64 %90
+  store i8 %57, ptr %92, align 1, !tbaa !15
+  %93 = icmp eq i8 %78, 0
+  br i1 %93, label %94, label %101
 
-92:                                               ; preds = %87
-  %93 = load i64, ptr %6, align 8, !tbaa !681
-  %94 = add i64 %93, 1
-  store i64 %94, ptr %6, align 8, !tbaa !681
-  %95 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %93
-  store i32 %71, ptr %95, align 8, !tbaa !367
-  %96 = load i64, ptr %49, align 8, !tbaa !453
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 %96, ptr %97, align 8, !tbaa !369
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %98, ptr nonnull align 16 %48, i64 %96, i1 false)
+94:                                               ; preds = %89
+  %95 = load i64, ptr %6, align 8, !tbaa !681
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %6, align 8, !tbaa !681
+  %97 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %95
+  store i32 %73, ptr %97, align 8, !tbaa !367
+  %98 = load i64, ptr %49, align 8, !tbaa !453
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 %98, ptr %99, align 8, !tbaa !369
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr nonnull align 16 %48, i64 %98, i1 false)
   store i64 0, ptr %49, align 8, !tbaa !453
-  br label %110
+  br label %112
 
-99:                                               ; preds = %87
-  %100 = load i64, ptr %49, align 8, !tbaa !453
-  %101 = icmp eq i64 %100, 4
-  br i1 %101, label %102, label %110, !prof !146
+101:                                              ; preds = %89
+  %102 = load i64, ptr %49, align 8, !tbaa !453
+  %103 = icmp eq i64 %102, 4
+  br i1 %103, label %104, label %112, !prof !146
 
-102:                                              ; preds = %99
-  store i32 %71, ptr %47, align 4, !tbaa !452
-  store i32 %77, ptr %20, align 8, !tbaa !450
+104:                                              ; preds = %101
+  store i32 %73, ptr %47, align 4, !tbaa !452
+  store i32 %79, ptr %20, align 8, !tbaa !450
   call fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEE15read_next_blockEvENKUlvE_clEv(ptr nonnull align 32 dereferenceable(896) %0) #53
-  %103 = call ptr @__cxa_allocate_exception(i64 48) #53
-  %104 = load i64, ptr %6, align 8, !tbaa !681
-  %.not.i36.i = icmp eq i64 %104, 0
-  %105 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %104
-  %106 = getelementptr i8, ptr %105, i64 56
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %108 = select i1 %.not.i36.i, ptr %107, ptr %106
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  call void @_ZN4toml2v32ex11parse_errorC2EPKcRKNS0_15source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef @.str.224, ptr noundef nonnull align 4 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(16) %109) #53
-  call void @__cxa_throw(ptr nonnull %103, ptr nonnull @_ZTIN4toml2v32ex11parse_errorE, ptr nonnull @_ZN4toml2v32ex11parse_errorD2Ev) #57
+  %105 = call ptr @__cxa_allocate_exception(i64 48) #53
+  %106 = load i64, ptr %6, align 8, !tbaa !681
+  %.not.i36.i = icmp eq i64 %106, 0
+  %107 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %110 = select i1 %.not.i36.i, ptr %109, ptr %108
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  call void @_ZN4toml2v32ex11parse_errorC2EPKcRKNS0_15source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef @.str.224, ptr noundef nonnull align 4 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(16) %111) #53
+  call void @__cxa_throw(ptr nonnull %105, ptr nonnull @_ZTIN4toml2v32ex11parse_errorE, ptr nonnull @_ZN4toml2v32ex11parse_errorD2Ev) #57
   unreachable
 
-110:                                              ; preds = %99, %92
-  %111 = add nuw i64 %.02252.i, 1
-  %exitcond71.not.i = icmp eq i64 %111, %umax70.i
-  br i1 %exitcond71.not.i, label %50, label %51, !llvm.loop !683
+112:                                              ; preds = %101, %94
+  %113 = add nuw i64 %.02251.i, 1
+  %exitcond68.not.i = icmp eq i64 %113, %umax67.i
+  br i1 %exitcond68.not.i, label %50, label %53, !llvm.loop !683
 
-112:                                              ; preds = %50
+114:                                              ; preds = %50
   call fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEE15read_next_blockEvENKUlvE_clEv(ptr nonnull align 32 dereferenceable(896) %0) #53
-  %113 = call ptr @__cxa_allocate_exception(i64 48) #53
-  %114 = load i64, ptr %6, align 8, !tbaa !681
-  %.not.i37.i = icmp eq i64 %114, 0
-  %115 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 56
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %118 = select i1 %.not.i37.i, ptr %117, ptr %116
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  call void @_ZN4toml2v32ex11parse_errorC2EPKcRKNS0_15source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %113, ptr noundef @.str.221, ptr noundef nonnull align 4 dereferenceable(8) %118, ptr noundef nonnull align 8 dereferenceable(16) %119) #53
-  call void @__cxa_throw(ptr nonnull %113, ptr nonnull @_ZTIN4toml2v32ex11parse_errorE, ptr nonnull @_ZN4toml2v32ex11parse_errorD2Ev) #57
+  %115 = call ptr @__cxa_allocate_exception(i64 48) #53
+  %116 = load i64, ptr %6, align 8, !tbaa !681
+  %.not.i37.i = icmp eq i64 %116, 0
+  %117 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %116
+  %118 = getelementptr i8, ptr %117, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %120 = select i1 %.not.i37.i, ptr %119, ptr %118
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  call void @_ZN4toml2v32ex11parse_errorC2EPKcRKNS0_15source_positionERKSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef @.str.221, ptr noundef nonnull align 4 dereferenceable(8) %120, ptr noundef nonnull align 8 dereferenceable(16) %121) #53
+  call void @__cxa_throw(ptr nonnull %115, ptr nonnull @_ZTIN4toml2v32ex11parse_errorE, ptr nonnull @_ZN4toml2v32ex11parse_errorD2Ev) #57
   unreachable
 
 .lr.ph.i39.i:                                     ; preds = %.lr.ph.i, %..lr.ph.i39.i_crit_edge
-  %120 = phi i64 [ %.pre, %..lr.ph.i39.i_crit_edge ], [ %16, %.lr.ph.i ]
-  %121 = icmp ne i64 %120, 0
-  call void @llvm.assume(i1 %121)
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  br label %124
+  %122 = phi i64 [ %.pre, %..lr.ph.i39.i_crit_edge ], [ %16, %.lr.ph.i ]
+  %123 = icmp ne i64 %122, 0
+  call void @llvm.assume(i1 %123)
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  br label %126
 
-124:                                              ; preds = %137, %.lr.ph.i39.i
-  %.01.i.i = phi i64 [ 0, %.lr.ph.i39.i ], [ %138, %137 ]
-  %125 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.01.i.i
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %127 = load i64, ptr %122, align 32
-  store i64 %127, ptr %126, align 8
-  %128 = load i32, ptr %125, align 8, !tbaa !357
-  %129 = icmp eq i32 %128, 10
-  br i1 %129, label %130, label %133
+126:                                              ; preds = %139, %.lr.ph.i39.i
+  %.01.i.i = phi i64 [ 0, %.lr.ph.i39.i ], [ %140, %139 ]
+  %127 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.01.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %129 = load i64, ptr %124, align 32
+  store i64 %129, ptr %128, align 8
+  %130 = load i32, ptr %127, align 8, !tbaa !357
+  %131 = icmp eq i32 %130, 10
+  br i1 %131, label %132, label %135
 
-130:                                              ; preds = %124
-  %131 = trunc i64 %127 to i32
-  %132 = add i32 %131, 1
-  store i32 %132, ptr %122, align 32, !tbaa !684
-  br label %137
+132:                                              ; preds = %126
+  %133 = trunc i64 %129 to i32
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %124, align 32, !tbaa !684
+  br label %139
 
-133:                                              ; preds = %124
-  %134 = lshr i64 %127, 32
-  %135 = trunc nuw i64 %134 to i32
-  %136 = add i32 %135, 1
-  br label %137
+135:                                              ; preds = %126
+  %136 = lshr i64 %129, 32
+  %137 = trunc nuw i64 %136 to i32
+  %138 = add i32 %137, 1
+  br label %139
 
-137:                                              ; preds = %133, %130
-  %storemerge.i.i = phi i32 [ %136, %133 ], [ 1, %130 ]
-  store i32 %storemerge.i.i, ptr %123, align 4, !tbaa !685
-  %138 = add nuw i64 %.01.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %138, %120
-  br i1 %exitcond.not.i.i, label %139, label %124, !llvm.loop !686
+139:                                              ; preds = %135, %132
+  %storemerge.i.i = phi i32 [ %138, %135 ], [ 1, %132 ]
+  store i32 %storemerge.i.i, ptr %125, align 4, !tbaa !685
+  %140 = add nuw i64 %.01.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %140, %122
+  br i1 %exitcond.not.i.i, label %141, label %126, !llvm.loop !686
 
-139:                                              ; preds = %137
+141:                                              ; preds = %139
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %140
+  br label %142
 
-140:                                              ; preds = %139, %1
-  %141 = phi i64 [ 0, %139 ], [ %5, %1 ]
-  %142 = phi i64 [ %120, %139 ], [ %7, %1 ]
-  %143 = icmp ult i64 %141, %142
-  call void @llvm.assume(i1 %143)
-  %144 = add nuw nsw i64 %141, 1
-  store i64 %144, ptr %4, align 32, !tbaa !680
-  %145 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %141
+142:                                              ; preds = %141, %1
+  %143 = phi i64 [ 0, %141 ], [ %5, %1 ]
+  %144 = phi i64 [ %122, %141 ], [ %7, %1 ]
+  %145 = icmp ult i64 %143, %144
+  call void @llvm.assume(i1 %145)
+  %146 = add nuw nsw i64 %143, 1
+  store i64 %146, ptr %4, align 32, !tbaa !680
+  %147 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %143
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %140
-  %.0 = phi ptr [ %145, %140 ], [ null, %9 ]
+.critedge:                                        ; preds = %9, %142
+  %.0 = phi ptr [ %147, %142 ], [ null, %9 ]
   ret ptr %.0
 }
 

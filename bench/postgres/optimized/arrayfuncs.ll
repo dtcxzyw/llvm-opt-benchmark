@@ -4186,9 +4186,8 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   %23 = tail call ptr @pg_detoast_datum(ptr noundef %22) #19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
-  %.fr90.i = freeze i32 %25
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %27 = sext i32 %.fr90.i to i64
+  %27 = sext i32 %25 to i64
   %28 = shl nsw i64 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 12
@@ -4203,8 +4202,8 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 %35
   %spec.select = select i1 %.not, ptr null, ptr %39
-  %40 = icmp slt i32 %.fr90.i, %1
-  %41 = add i32 %.fr90.i, -7
+  %40 = icmp slt i32 %25, %1
+  %41 = add i32 %25, -7
   %42 = icmp ult i32 %41, -6
   %or.cond3 = or i1 %40, %42
   br i1 %or.cond3, label %44, label %.preheader133
@@ -4226,16 +4225,16 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   store i32 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %31, ptr %48, align 4
-  br label %196
+  br label %195
 
 .preheader:                                       ; preds = %91, %.preheader133
   %.0125.lcssa = phi i32 [ 0, %.preheader133 ], [ %1, %91 ]
-  %49 = icmp slt i32 %.0125.lcssa, %.fr90.i
+  %49 = icmp slt i32 %.0125.lcssa, %25
   br i1 %49, label %.lr.ph137.preheader, label %._crit_edge
 
 .lr.ph137.preheader:                              ; preds = %.preheader
   %50 = zext nneg i32 %.0125.lcssa to i64
-  %wide.trip.count147 = zext nneg i32 %.fr90.i to i64
+  %wide.trip.count147 = zext nneg i32 %25 to i64
   br label %.lr.ph137
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %91
@@ -4315,7 +4314,7 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   store i32 0, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store i32 %31, ptr %90, align 4
-  br label %196
+  br label %195
 
 91:                                               ; preds = %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4352,16 +4351,16 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   store i32 0, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i32 %31, ptr %107, align 4
-  br label %196
+  br label %195
 
 ._crit_edge:                                      ; preds = %92, %.preheader
-  call void @mda_get_range(i32 noundef %.fr90.i, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %2) #19
-  %108 = call fastcc i32 @array_slice_size(ptr noundef nonnull %38, ptr noundef %spec.select, i32 noundef %.fr90.i, ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef %3, ptr noundef %2, i32 noundef %7, i8 noundef signext %9)
-  %109 = shl nuw nsw i32 %.fr90.i, 3
+  call void @mda_get_range(i32 noundef %25, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %2) #19
+  %108 = call fastcc i32 @array_slice_size(ptr noundef nonnull %38, ptr noundef %spec.select, i32 noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef %3, ptr noundef %2, i32 noundef %7, i8 noundef signext %9)
+  %109 = shl nuw nsw i32 %25, 3
   br i1 %.not, label %117, label %110
 
 110:                                              ; preds = %._crit_edge
-  %111 = call i32 @ArrayGetNItems(i32 noundef %.fr90.i, ptr noundef nonnull %15) #19
+  %111 = call i32 @ArrayGetNItems(i32 noundef %25, ptr noundef nonnull %15) #19
   %112 = add i32 %111, 7
   %113 = sdiv i32 %112, 8
   %114 = add nuw nsw i32 %109, 23
@@ -4382,19 +4381,19 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   %123 = shl i32 %.0, 2
   store i32 %123, ptr %122, align 4
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  store i32 %.fr90.i, ptr %124, align 4
+  store i32 %25, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i32 %120, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 12
   store i32 %31, ptr %126, align 4
-  %127 = getelementptr i8, ptr %122, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %127, ptr nonnull align 16 %15, i64 %28, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %28
-  %129 = icmp sgt i32 %.fr90.i, 0
+  %129 = icmp sgt i32 %25, 0
   br i1 %129, label %.lr.ph140.preheader, label %._crit_edge141
 
 .lr.ph140.preheader:                              ; preds = %119
-  %wide.trip.count152 = zext nneg i32 %.fr90.i to i64
+  %wide.trip.count152 = zext nneg i32 %25 to i64
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
@@ -4409,128 +4408,127 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   %.not.i = icmp eq i32 %120, 0
   %131 = sext i32 %120 to i64
   %132 = getelementptr inbounds nuw i8, ptr %122, i64 %131
-  %133 = shl nuw nsw i32 %.fr90.i, 3
-  %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr i8, ptr %127, i64 %134
-  %136 = getelementptr i8, ptr %122, i64 %35
-  %137 = getelementptr i8, ptr %136, i64 16
-  %138 = select i1 %.not.i, ptr %137, ptr %132
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 %35
+  %134 = freeze ptr %133
+  %135 = getelementptr i8, ptr %122, i64 %35
+  %136 = getelementptr i8, ptr %135, i64 16
+  %137 = select i1 %.not.i, ptr %136, ptr %132
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %139 = call i32 @ArrayGetOffset(i32 noundef range(i32 1, 7) %.fr90.i, ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef %3) #19
-  %140 = call fastcc ptr @array_seek(ptr noundef nonnull %38, i32 noundef 0, ptr noundef readonly %spec.select, i32 noundef %139, i32 noundef %7, i8 noundef signext %9)
-  call void @mda_get_prod(i32 noundef range(i32 1, 7) %.fr90.i, ptr noundef nonnull %26, ptr noundef nonnull %11) #19
-  call void @mda_get_range(i32 noundef range(i32 1, 7) %.fr90.i, ptr noundef nonnull %12, ptr noundef %3, ptr noundef %2) #19
-  call void @mda_get_offset_values(i32 noundef range(i32 1, 7) %.fr90.i, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12) #19
-  %141 = shl nuw nsw i32 %.fr90.i, 2
-  %142 = zext nneg i32 %141 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %14, i8 0, i64 %142, i1 false)
-  %143 = add nsw i32 %.fr90.i, -1
-  %.not69.i173 = icmp eq ptr %135, null
-  %.not69.i = select i1 %.not.i, i1 true, i1 %.not69.i173
+  %138 = call i32 @ArrayGetOffset(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef %3) #19
+  %139 = call fastcc ptr @array_seek(ptr noundef nonnull %38, i32 noundef 0, ptr noundef readonly %spec.select, i32 noundef %138, i32 noundef %7, i8 noundef signext %9)
+  call void @mda_get_prod(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %26, ptr noundef nonnull %11) #19
+  call void @mda_get_range(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %12, ptr noundef %3, ptr noundef %2) #19
+  call void @mda_get_offset_values(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12) #19
+  %140 = shl nuw nsw i32 %25, 2
+  %141 = zext nneg i32 %140 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %14, i8 0, i64 %141, i1 false)
+  %142 = add nsw i32 %25, -1
+  %.not69.i173 = icmp eq ptr %134, null
+  %.not69.i = or i1 %.not.i, %.not69.i173
   br i1 %.not69.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %._crit_edge141, %array_bitmap_copy.exit.us.i
-  %.060.us.i = phi ptr [ %156, %array_bitmap_copy.exit.us.i ], [ %140, %._crit_edge141 ]
-  %.059.us.i = phi i32 [ %157, %array_bitmap_copy.exit.us.i ], [ %139, %._crit_edge141 ]
-  %.056.us.i = phi i32 [ %158, %array_bitmap_copy.exit.us.i ], [ %143, %._crit_edge141 ]
-  %.0.us.i = phi ptr [ %155, %array_bitmap_copy.exit.us.i ], [ %138, %._crit_edge141 ]
-  %144 = sext i32 %.056.us.i to i64
-  %145 = getelementptr inbounds i32, ptr %13, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %.not68.us.i = icmp eq i32 %146, 0
-  br i1 %.not68.us.i, label %array_bitmap_copy.exit.us.i, label %147
+  %.060.us.i = phi ptr [ %155, %array_bitmap_copy.exit.us.i ], [ %139, %._crit_edge141 ]
+  %.059.us.i = phi i32 [ %156, %array_bitmap_copy.exit.us.i ], [ %138, %._crit_edge141 ]
+  %.056.us.i = phi i32 [ %157, %array_bitmap_copy.exit.us.i ], [ %142, %._crit_edge141 ]
+  %.0.us.i = phi ptr [ %154, %array_bitmap_copy.exit.us.i ], [ %137, %._crit_edge141 ]
+  %143 = sext i32 %.056.us.i to i64
+  %144 = getelementptr inbounds i32, ptr %13, i64 %143
+  %145 = load i32, ptr %144, align 4
+  %.not68.us.i = icmp eq i32 %145, 0
+  br i1 %.not68.us.i, label %array_bitmap_copy.exit.us.i, label %146
 
-147:                                              ; preds = %.split.us.i
-  %148 = call fastcc ptr @array_seek(ptr noundef %.060.us.i, i32 noundef %.059.us.i, ptr noundef readonly %spec.select, i32 noundef %146, i32 noundef %7, i8 noundef signext %9)
-  %149 = add i32 %146, %.059.us.i
+146:                                              ; preds = %.split.us.i
+  %147 = call fastcc ptr @array_seek(ptr noundef %.060.us.i, i32 noundef %.059.us.i, ptr noundef readonly %spec.select, i32 noundef %145, i32 noundef %7, i8 noundef signext %9)
+  %148 = add i32 %145, %.059.us.i
   br label %array_bitmap_copy.exit.us.i
 
-array_bitmap_copy.exit.us.i:                      ; preds = %147, %.split.us.i
-  %.161.us.i = phi ptr [ %148, %147 ], [ %.060.us.i, %.split.us.i ]
-  %.1.us.i = phi i32 [ %149, %147 ], [ %.059.us.i, %.split.us.i ]
-  %150 = call fastcc ptr @array_seek(ptr noundef %.161.us.i, i32 noundef %.1.us.i, ptr noundef readonly %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
-  %151 = ptrtoint ptr %150 to i64
-  %152 = ptrtoint ptr %.161.us.i to i64
-  %153 = sub i64 %151, %152
-  %sext.i.us.i = shl i64 %153, 32
-  %154 = ashr exact i64 %sext.i.us.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.us.i, ptr align 1 %.161.us.i, i64 %154, i1 false)
-  %155 = getelementptr inbounds i8, ptr %.0.us.i, i64 %154
-  %156 = getelementptr inbounds i8, ptr %.161.us.i, i64 %154
-  %157 = add i32 %.1.us.i, 1
-  %158 = call i32 @mda_next_tuple(i32 noundef range(i32 1, 7) %.fr90.i, ptr noundef nonnull %14, ptr noundef nonnull %12) #19
-  %.not70.us.i = icmp eq i32 %158, -1
+array_bitmap_copy.exit.us.i:                      ; preds = %146, %.split.us.i
+  %.161.us.i = phi ptr [ %147, %146 ], [ %.060.us.i, %.split.us.i ]
+  %.1.us.i = phi i32 [ %148, %146 ], [ %.059.us.i, %.split.us.i ]
+  %149 = call fastcc ptr @array_seek(ptr noundef %.161.us.i, i32 noundef %.1.us.i, ptr noundef readonly %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
+  %150 = ptrtoint ptr %149 to i64
+  %151 = ptrtoint ptr %.161.us.i to i64
+  %152 = sub i64 %150, %151
+  %sext.i.us.i = shl i64 %152, 32
+  %153 = ashr exact i64 %sext.i.us.i, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.us.i, ptr align 1 %.161.us.i, i64 %153, i1 false)
+  %154 = getelementptr inbounds i8, ptr %.0.us.i, i64 %153
+  %155 = getelementptr inbounds i8, ptr %.161.us.i, i64 %153
+  %156 = add i32 %.1.us.i, 1
+  %157 = call i32 @mda_next_tuple(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %14, ptr noundef nonnull %12) #19
+  %.not70.us.i = icmp eq i32 %157, -1
   br i1 %.not70.us.i, label %array_extract_slice.exit, label %.split.us.i, !llvm.loop !58
 
 .split.i:                                         ; preds = %._crit_edge141, %array_bitmap_copy.exit.i
-  %.060.i = phi ptr [ %192, %array_bitmap_copy.exit.i ], [ %140, %._crit_edge141 ]
-  %.059.i = phi i32 [ %193, %array_bitmap_copy.exit.i ], [ %139, %._crit_edge141 ]
-  %.058.i = phi i32 [ %194, %array_bitmap_copy.exit.i ], [ 0, %._crit_edge141 ]
-  %.056.i = phi i32 [ %195, %array_bitmap_copy.exit.i ], [ %143, %._crit_edge141 ]
-  %.0.i = phi ptr [ %191, %array_bitmap_copy.exit.i ], [ %138, %._crit_edge141 ]
-  %159 = sext i32 %.056.i to i64
-  %160 = getelementptr inbounds i32, ptr %13, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %.not68.i = icmp eq i32 %161, 0
-  br i1 %.not68.i, label %165, label %162
+  %.060.i = phi ptr [ %191, %array_bitmap_copy.exit.i ], [ %139, %._crit_edge141 ]
+  %.059.i = phi i32 [ %192, %array_bitmap_copy.exit.i ], [ %138, %._crit_edge141 ]
+  %.058.i = phi i32 [ %193, %array_bitmap_copy.exit.i ], [ 0, %._crit_edge141 ]
+  %.056.i = phi i32 [ %194, %array_bitmap_copy.exit.i ], [ %142, %._crit_edge141 ]
+  %.0.i = phi ptr [ %190, %array_bitmap_copy.exit.i ], [ %137, %._crit_edge141 ]
+  %158 = sext i32 %.056.i to i64
+  %159 = getelementptr inbounds i32, ptr %13, i64 %158
+  %160 = load i32, ptr %159, align 4
+  %.not68.i = icmp eq i32 %160, 0
+  br i1 %.not68.i, label %164, label %161
 
-162:                                              ; preds = %.split.i
-  %163 = call fastcc ptr @array_seek(ptr noundef %.060.i, i32 noundef %.059.i, ptr noundef readonly %spec.select, i32 noundef %161, i32 noundef %7, i8 noundef signext %9)
-  %164 = add i32 %161, %.059.i
-  br label %165
+161:                                              ; preds = %.split.i
+  %162 = call fastcc ptr @array_seek(ptr noundef %.060.i, i32 noundef %.059.i, ptr noundef readonly %spec.select, i32 noundef %160, i32 noundef %7, i8 noundef signext %9)
+  %163 = add i32 %160, %.059.i
+  br label %164
 
-165:                                              ; preds = %162, %.split.i
-  %.161.i = phi ptr [ %163, %162 ], [ %.060.i, %.split.i ]
-  %.1.i = phi i32 [ %164, %162 ], [ %.059.i, %.split.i ]
-  %166 = call fastcc ptr @array_seek(ptr noundef %.161.i, i32 noundef %.1.i, ptr noundef readonly %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
-  %167 = ptrtoint ptr %166 to i64
-  %168 = ptrtoint ptr %.161.i to i64
-  %169 = sub i64 %167, %168
-  %sext.i.i = shl i64 %169, 32
-  %170 = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %.161.i, i64 %170, i1 false)
-  %171 = sdiv i32 %.058.i, 8
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i8, ptr %135, i64 %172
-  %174 = and i32 %.058.i, 7
-  %175 = shl nuw nsw i32 1, %174
-  %176 = load i8, ptr %173, align 1
-  %177 = zext i8 %176 to i32
+164:                                              ; preds = %161, %.split.i
+  %.161.i = phi ptr [ %162, %161 ], [ %.060.i, %.split.i ]
+  %.1.i = phi i32 [ %163, %161 ], [ %.059.i, %.split.i ]
+  %165 = call fastcc ptr @array_seek(ptr noundef %.161.i, i32 noundef %.1.i, ptr noundef readonly %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
+  %166 = ptrtoint ptr %165 to i64
+  %167 = ptrtoint ptr %.161.i to i64
+  %168 = sub i64 %166, %167
+  %sext.i.i = shl i64 %168, 32
+  %169 = ashr exact i64 %sext.i.i, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %.161.i, i64 %169, i1 false)
+  %170 = sdiv i32 %.058.i, 8
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i8, ptr %134, i64 %171
+  %173 = and i32 %.058.i, 7
+  %174 = shl nuw nsw i32 1, %173
+  %175 = load i8, ptr %172, align 1
+  %176 = zext i8 %175 to i32
   br i1 %.not, label %.lr.ph94.i.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %165
-  %178 = sdiv i32 %.1.i, 8
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i8, ptr %39, i64 %179
-  %181 = load i8, ptr %180, align 1
-  %182 = zext i8 %181 to i32
-  %183 = and i32 %.1.i, 7
-  %184 = shl nuw nsw i32 1, %183
-  %185 = and i32 %184, %182
-  %.not65.i.i = icmp eq i32 %185, 0
-  %186 = or i32 %175, %177
-  %187 = xor i32 %175, -1
-  %188 = and i32 %177, %187
-  %.145.i.i = select i1 %.not65.i.i, i32 %188, i32 %186
+.lr.ph.preheader.i.i:                             ; preds = %164
+  %177 = sdiv i32 %.1.i, 8
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds i8, ptr %39, i64 %178
+  %180 = load i8, ptr %179, align 1
+  %181 = zext i8 %180 to i32
+  %182 = and i32 %.1.i, 7
+  %183 = shl nuw nsw i32 1, %182
+  %184 = and i32 %183, %181
+  %.not65.i.i = icmp eq i32 %184, 0
+  %185 = or i32 %174, %176
+  %186 = xor i32 %174, -1
+  %187 = and i32 %176, %186
+  %.145.i.i = select i1 %.not65.i.i, i32 %187, i32 %185
   br label %array_bitmap_copy.exit.i
 
-.lr.ph94.i.i:                                     ; preds = %165
-  %189 = or i32 %175, %177
+.lr.ph94.i.i:                                     ; preds = %164
+  %188 = or i32 %174, %176
   br label %array_bitmap_copy.exit.i
 
 array_bitmap_copy.exit.i:                         ; preds = %.lr.ph94.i.i, %.lr.ph.preheader.i.i
-  %.145.i.sink.i = phi i32 [ %189, %.lr.ph94.i.i ], [ %.145.i.i, %.lr.ph.preheader.i.i ]
-  %190 = trunc nuw i32 %.145.i.sink.i to i8
-  store i8 %190, ptr %173, align 1
-  %191 = getelementptr inbounds i8, ptr %.0.i, i64 %170
-  %192 = getelementptr inbounds i8, ptr %.161.i, i64 %170
-  %193 = add i32 %.1.i, 1
-  %194 = add i32 %.058.i, 1
-  %195 = call i32 @mda_next_tuple(i32 noundef range(i32 1, 7) %.fr90.i, ptr noundef nonnull %14, ptr noundef nonnull %12) #19
-  %.not70.i = icmp eq i32 %195, -1
+  %.145.i.sink.i = phi i32 [ %188, %.lr.ph94.i.i ], [ %.145.i.i, %.lr.ph.preheader.i.i ]
+  %189 = trunc nuw i32 %.145.i.sink.i to i8
+  store i8 %189, ptr %172, align 1
+  %190 = getelementptr inbounds i8, ptr %.0.i, i64 %169
+  %191 = getelementptr inbounds i8, ptr %.161.i, i64 %169
+  %192 = add i32 %.1.i, 1
+  %193 = add i32 %.058.i, 1
+  %194 = call i32 @mda_next_tuple(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %14, ptr noundef nonnull %12) #19
+  %.not70.i = icmp eq i32 %194, -1
   br i1 %.not70.i, label %array_extract_slice.exit, label %.split.i, !llvm.loop !58
 
 array_extract_slice.exit:                         ; preds = %array_bitmap_copy.exit.i, %array_bitmap_copy.exit.us.i
@@ -4538,9 +4536,9 @@ array_extract_slice.exit:                         ; preds = %array_bitmap_copy.e
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %196
+  br label %195
 
-196:                                              ; preds = %array_extract_slice.exit, %103, %86, %44
+195:                                              ; preds = %array_extract_slice.exit, %103, %86, %44
   %.0124.in = phi ptr [ %45, %44 ], [ %87, %86 ], [ %104, %103 ], [ %122, %array_extract_slice.exit ]
   %.0124 = ptrtoint ptr %.0124.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -15387,8 +15385,8 @@ define internal fastcc noundef zeroext i1 @ReadDimensionInt(ptr noundef nonnull 
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i16, ptr %6, i64 %8
   %10 = load i16, ptr %9, align 2
-  %.fr = freeze i16 %10
-  %11 = and i16 %.fr, 2048
+  %.fr1 = freeze i16 %10
+  %11 = and i16 %.fr1, 2048
   %.not.not = icmp eq i16 %11, 0
   br i1 %.not.not, label %switch.early.test, label %13
 

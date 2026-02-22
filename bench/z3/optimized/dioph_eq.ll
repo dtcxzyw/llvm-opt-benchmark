@@ -36390,7 +36390,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %76, %80
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i49, i64 8
   %88 = load i32, ptr %87, align 4, !tbaa !177
   %89 = icmp eq i32 %1, %88
-  br i1 %89, label %.loopexit75, label %84, !llvm.loop !287
+  br i1 %89, label %.loopexit74, label %84, !llvm.loop !287
 
 90:                                               ; preds = %_ZN8rationalC2ERKS_.exit
   %91 = zext i32 %1 to i64
@@ -36408,11 +36408,11 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %76, %80
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 4, !tbaa !177
   %102 = icmp eq i32 %1, %101
-  br i1 %102, label %.loopexit75, label %.lr.ph.i.i.i.i.i41
+  br i1 %102, label %.loopexit74, label %.lr.ph.i.i.i.i.i41
 
 103:                                              ; preds = %106
   %104 = icmp eq i32 %1, %108
-  br i1 %104, label %.loopexit75, label %.lr.ph.i.i.i.i.i41, !llvm.loop !288
+  br i1 %104, label %.loopexit74, label %.lr.ph.i.i.i.i.i41, !llvm.loop !288
 
 .lr.ph.i.i.i.i.i41:                               ; preds = %98, %103
   %.020.i.i.i.i.i42 = phi ptr [ %105, %103 ], [ %99, %98 ]
@@ -36442,7 +36442,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %76, %80
 .noexc51:                                         ; preds = %.noexc50
   unreachable
 
-.loopexit75:                                      ; preds = %103, %86, %98
+.loopexit74:                                      ; preds = %103, %86, %98
   %.sroa.06.1.i.i5.i47 = phi ptr [ %99, %98 ], [ %.sroa.06.0.i.i.i49, %86 ], [ %105, %103 ]
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i5.i47, i64 12
   %112 = load i32, ptr %111, align 4, !tbaa !328
@@ -36456,7 +36456,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %76, %80
   %120 = icmp eq ptr %117, %119
   br i1 %120, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit75
+.lr.ph:                                           ; preds = %.loopexit74
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -36484,13 +36484,13 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %76, %80
   br label %302
 
 139:                                              ; preds = %.lr.ph, %_ZNK8rational6is_oneEv.exit.thread
-  %.sroa.069.086 = phi ptr [ %117, %.lr.ph ], [ %277, %_ZNK8rational6is_oneEv.exit.thread ]
-  %140 = load i32, ptr %.sroa.069.086, align 8, !tbaa !301
+  %.sroa.069.085 = phi ptr [ %117, %.lr.ph ], [ %277, %_ZNK8rational6is_oneEv.exit.thread ]
+  %140 = load i32, ptr %.sroa.069.085, align 8, !tbaa !301
   %141 = icmp eq i32 %140, %1
   br i1 %141, label %142, label %169
 
 142:                                              ; preds = %139
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.069.086, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %144 = load ptr, ptr %131, align 8, !tbaa !144
   %145 = load ptr, ptr %132, align 8, !tbaa !206
@@ -36562,7 +36562,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 169:                                              ; preds = %139
   %170 = load i32, ptr %3, align 8, !tbaa !128
   %171 = icmp eq i32 %170, 0
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.069.086, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 8
   br i1 %171, label %173, label %229
 
 173:                                              ; preds = %169
@@ -36579,7 +36579,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   store i8 %177, ptr %129, align 4, !alias.scope !789
   store ptr null, ptr %130, align 8, !tbaa !129, !alias.scope !789
   %178 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !175, !noalias !789
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.069.086, i64 12
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 12
   %180 = load i8, ptr %179, align 4, !noalias !789
   %181 = and i8 %180, 1
   %182 = icmp eq i8 %181, 0
@@ -36596,8 +36596,8 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
           to label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i unwind label %227
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i: ; preds = %185, %183
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.069.086, i64 24
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.069.086, i64 28
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 28
   %188 = load i8, ptr %187, align 4, !noalias !789
   %189 = and i8 %188, 1
   %190 = icmp eq i8 %189, 0
@@ -36786,21 +36786,20 @@ _ZN8rationalD2Ev.exit62:                          ; preds = %.noexc.i61
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %264
   %271 = load i8, ptr %46, align 4
-  %.fr = freeze i8 %271
-  %272 = and i8 %.fr, 1
+  %272 = and i8 %271, 1
   %273 = icmp eq i8 %272, 0
   %274 = load i32, ptr %45, align 8
-  %.fr74 = freeze i32 %274
-  %275 = icmp eq i32 %.fr74, 1
-  %276 = and i1 %273, %275
-  br i1 %276, label %.loopexit, label %_ZNK8rational6is_oneEv.exit.thread
+  %275 = icmp eq i32 %274, 1
+  %276 = select i1 %273, i1 %275, i1 false
+  %cond.fr = freeze i1 %276
+  br i1 %cond.fr, label %.loopexit, label %_ZNK8rational6is_oneEv.exit.thread
 
 _ZNK8rational6is_oneEv.exit.thread:               ; preds = %264, %_ZN8rationalD2Ev.exit, %_ZNK8rational6is_oneEv.exit
-  %277 = getelementptr inbounds nuw i8, ptr %.sroa.069.086, i64 40
+  %277 = getelementptr inbounds nuw i8, ptr %.sroa.069.085, i64 40
   %278 = icmp eq ptr %277, %119
   br i1 %278, label %.critedge, label %139
 
-.critedge:                                        ; preds = %_ZNK8rational6is_oneEv.exit.thread, %.loopexit75
+.critedge:                                        ; preds = %_ZNK8rational6is_oneEv.exit.thread, %.loopexit74
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZdvRK8rationalS1_(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %279 unwind label %292

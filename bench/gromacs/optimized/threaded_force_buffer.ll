@@ -1075,22 +1075,21 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE22clearFor
 ._crit_edge:                                      ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_23AlignedAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !76
-  %.fr65 = freeze ptr %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !76
-  %.fr64 = freeze ptr %10
-  %.not5.i.i.i.i = icmp eq ptr %.fr65, %.fr64
+  %.not5.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %._crit_edge
-  %11 = ptrtoint ptr %.fr64 to i64
-  %12 = ptrtoint ptr %.fr65 to i64
+  %11 = ptrtoint ptr %10 to i64
+  %12 = ptrtoint ptr %8 to i64
   %13 = add i64 %11, -12
   %14 = sub i64 %13, %12
-  %15 = urem i64 %14, 12
-  %16 = sub nuw i64 %14, %15
+  %.fr = freeze i64 %14
+  %15 = urem i64 %.fr, 12
+  %16 = sub nuw i64 %.fr, %15
   %17 = add i64 %16, 12
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.fr65, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %17, i1 false)
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %._crit_edge
@@ -3386,22 +3385,21 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferIA4_fE22clearForcesAndEnergiesEv
 ._crit_edge:                                      ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_23AlignedAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !76
-  %.fr65 = freeze ptr %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !76
-  %.fr64 = freeze ptr %10
-  %.not5.i.i.i.i = icmp eq ptr %.fr65, %.fr64
+  %.not5.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %._crit_edge
-  %11 = ptrtoint ptr %.fr64 to i64
-  %12 = ptrtoint ptr %.fr65 to i64
+  %11 = ptrtoint ptr %10 to i64
+  %12 = ptrtoint ptr %8 to i64
   %13 = add i64 %11, -12
   %14 = sub i64 %13, %12
-  %15 = urem i64 %14, 12
-  %16 = sub nuw i64 %14, %15
+  %.fr = freeze i64 %14
+  %15 = urem i64 %.fr, 12
+  %16 = sub nuw i64 %.fr, %15
   %17 = add i64 %16, 12
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.fr65, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %17, i1 false)
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %._crit_edge

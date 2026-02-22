@@ -16592,13 +16592,13 @@ _ZNK4llvm10AsmPrinter14emitVisibilityEPNS_8MCSymbolEjb.exit: ; preds = %98, %103
   %154 = load ptr, ptr %8, align 8, !tbaa !784
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
-  %.fr.i = freeze i32 %156
-  %157 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %156
+  %157 = and i32 %.fr8.i, 255
   %158 = icmp eq i32 %157, 12
   br i1 %158, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %159
 
 159:                                              ; preds = %153
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -16608,7 +16608,7 @@ _ZNK4llvm10AsmPrinter14emitVisibilityEPNS_8MCSymbolEjb.exit: ; preds = %98, %103
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %159
-  %160 = and i32 %.fr.i, 253
+  %160 = and i32 %.fr8.i, 253
   %spec.select.i.i44 = icmp eq i32 %160, 4
   br i1 %spec.select.i.i44, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -26019,11 +26019,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl4bitsI18PGOMapFeatures
   %11 = load ptr, ptr %10, align 8, !tbaa !1687
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !656
-  %.fr18 = freeze i64 %13
-  %.not23.i = icmp eq i64 %.fr18, 0
-  %.fr19 = freeze i64 %3
-  %.fr20 = freeze i64 %5
-  %spec.select.i = select i1 %.not23.i, i64 %.fr19, i64 %.fr20
+  %.not23.i = icmp eq i64 %13, 0
+  %spec.select.i = select i1 %.not23.i, i64 %3, i64 %5
+  %spec.select.i.fr = freeze i64 %spec.select.i
   %spec.select22.i = select i1 %.not23.i, ptr %2, ptr %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = load i32, ptr %14, align 8, !tbaa !26
@@ -26034,7 +26032,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl4bitsI18PGOMapFeatures
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select.i, 0
+  %19 = icmp eq i64 %spec.select.i.fr, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
@@ -26055,12 +26053,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
   %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<PGOMapFeaturesEnum>::OptionInfo", ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !47
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !46
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select22.i, i64 %spec.select.i.fr)
   %23 = icmp eq i32 %bcmp.i.i, 0
   br i1 %23, label %_ZN4llvm2cl6parserI18PGOMapFeaturesEnumE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
 
@@ -26088,7 +26086,7 @@ _ZN4llvm2cl6parserI18PGOMapFeaturesEnumE5parseERNS0_6OptionENS_9StringRefES6_RS2
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select22.i, ptr %31, align 8, !tbaa !140, !alias.scope !1690
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select.i, ptr %32, align 8, !tbaa !140, !alias.scope !1690
+  store i64 %spec.select.i.fr, ptr %32, align 8, !tbaa !140, !alias.scope !1690
   store ptr %8, ptr %7, align 8, !alias.scope !1693
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.122, ptr %33, align 8, !alias.scope !1693

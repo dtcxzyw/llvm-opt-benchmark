@@ -379,11 +379,11 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %.val47.i.i.i = load ptr, ptr %63, align 8
   %144 = getelementptr inbounds nuw i8, ptr %.val47.i.i.i, i64 1
   %145 = load i8, ptr %144, align 1, !tbaa !4
-  %.fr.i.i.i = freeze i8 %145
-  %146 = and i8 %.fr.i.i.i, 8
-  %.not95.i.i.i = icmp eq i8 %146, 0
+  %.fr95.i.i.i = freeze i8 %145
+  %146 = and i8 %.fr95.i.i.i, 8
+  %.not96.i.i.i = icmp eq i8 %146, 0
   %147 = add i64 %143, -1
-  br i1 %.not95.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i
+  br i1 %.not96.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_132PrintIntegralDigitsFromRightFastEmPc.exit.i.i.i
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastINS_7uint128EEEvT_iRKNS1_11FormatStateE.exit.i.i
@@ -1339,11 +1339,11 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %.val43.i.i = load ptr, ptr %62, align 8
   %153 = getelementptr inbounds nuw i8, ptr %.val43.i.i, i64 1
   %154 = load i8, ptr %153, align 1, !tbaa !4
-  %.fr.i.i = freeze i8 %154
-  %155 = and i8 %.fr.i.i, 8
-  %.not66.i.i = icmp eq i8 %155, 0
+  %.fr66.i.i = freeze i8 %154
+  %155 = and i8 %.fr66.i.i, 8
+  %.not67.i.i = icmp eq i8 %155, 0
   %156 = add i64 %152, -1
-  br i1 %.not66.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i
+  br i1 %.not67.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread.i.i: ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_132PrintIntegralDigitsFromRightFastEmPc.exit.i.i
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i
@@ -2958,10 +2958,10 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit: ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %.val19, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !4
-  %.fr = freeze i8 %12
-  %13 = and i8 %.fr, 8
-  %.not80 = icmp eq i8 %13, 0
-  %spec.select = select i1 %.not80, i64 1, i64 2
+  %.fr80 = freeze i8 %12
+  %13 = and i8 %.fr80, 8
+  %.not81 = icmp eq i8 %13, 0
+  %spec.select = select i1 %.not81, i64 1, i64 2
   br label %14
 
 14:                                               ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread
@@ -3157,8 +3157,8 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %109 = getelementptr inbounds nuw i8, ptr %.val21, i64 1
   %110 = load i8, ptr %109, align 1, !tbaa !4
   %111 = and i8 %110, 8
-  %.not81 = icmp eq i8 %111, 0
-  br i1 %.not81, label %126, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44.thread
+  %.not82 = icmp eq i8 %111, 0
+  br i1 %.not82, label %126, label %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44.thread
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44.thread: ; preds = %._crit_edge.i34, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44
   %112 = load ptr, ptr %63, align 8, !tbaa !32
@@ -3187,11 +3187,11 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53: ; preds = %_ZN4a
   %124 = load ptr, ptr %117, align 8, !tbaa !74
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
   store ptr %125, ptr %117, align 8, !tbaa !74
-  %.pre92 = load i64, ptr %8, align 8, !tbaa !30
+  %.pre93 = load i64, ptr %8, align 8, !tbaa !30
   br label %126
 
 126:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44
-  %127 = phi i64 [ %.pre92, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53 ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44 ]
+  %127 = phi i64 [ %.pre93, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53 ], [ 0, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %127, ptr %6, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3301,11 +3301,11 @@ _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConver
   %168 = load ptr, ptr %147, align 8, !tbaa !74
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %.0.lcssa.i55
   store ptr %169, ptr %147, align 8, !tbaa !74
-  %.pre93 = load ptr, ptr %63, align 8, !tbaa !32
+  %.pre94 = load ptr, ptr %63, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit, %._crit_edge.i54
-  %170 = phi ptr [ %139, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit ], [ %.pre93, %._crit_edge.i54 ]
+  %170 = phi ptr [ %139, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit ], [ %.pre94, %._crit_edge.i54 ]
   %171 = icmp eq i64 %.sroa.12.079, 0
   br i1 %171, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit71, label %172
 

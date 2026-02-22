@@ -13311,16 +13311,15 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
   %.sroa.18.0.i = phi i64 [ %20, %.split.i ], [ %.sroa.18.0.i.be, %.backedge195.i.backedge ]
   %.sroa.028.0.i = phi ptr [ %18, %.split.i ], [ %.sroa.028.0.i.be, %.backedge195.i.backedge ]
   %.sroa.0.0.i = phi ptr [ %0, %.split.i ], [ %.sroa.0.0.i.be, %.backedge195.i.backedge ]
-  %.sroa.18.0.i.fr = freeze i64 %.sroa.18.0.i
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 32
   %29 = load i64, ptr %28, align 8, !noalias !934, !noundef !3
-  %.not.i = icmp ugt i64 %.sroa.18.0.i.fr, %29
+  %.not.i = icmp ugt i64 %.sroa.18.0.i, %29
   br i1 %.not.i, label %35, label %30
 
 30:                                               ; preds = %.backedge195.i
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %32 = load ptr, ptr %31, align 8, !noalias !934, !nonnull !3, !noundef !3
-  %33 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %.sroa.028.0.i, i64 noundef %.sroa.18.0.i.fr, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %29)
+  %33 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %.sroa.028.0.i, i64 noundef %.sroa.18.0.i, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %29)
           to label %253 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !934
 
 .loopexit187.i:                                   ; preds = %267
@@ -13353,7 +13352,7 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
 
 35:                                               ; preds = %.backedge195.i
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 %29
-  %37 = sub nuw i64 %.sroa.18.0.i.fr, %29
+  %37 = sub nuw i64 %.sroa.18.0.i, %29
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %39 = load ptr, ptr %38, align 8, !noalias !934, !nonnull !3, !noundef !3
   %40 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %.sroa.028.0.i, i64 noundef %29, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef %29)
@@ -13382,7 +13381,7 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
   br i1 %53, label %93, label %.preheader.i
 
 .preheader.i:                                     ; preds = %254, %253, %._crit_edge.i, %144, %135, %.loopexit191.i, %127, %.loopexit192.i, %41
-  %.sroa.18.1.ph.i = phi i64 [ %37, %135 ], [ %37, %._crit_edge.i ], [ %37, %127 ], [ %.sroa.18.0.i.fr, %41 ], [ %37, %.loopexit192.i ], [ %37, %.loopexit191.i ], [ %37, %144 ], [ %.sroa.18.0.i.fr, %253 ], [ %.sroa.18.0.i.fr, %254 ]
+  %.sroa.18.1.ph.i = phi i64 [ %37, %135 ], [ %37, %._crit_edge.i ], [ %37, %127 ], [ %.sroa.18.0.i, %41 ], [ %37, %.loopexit192.i ], [ %37, %.loopexit191.i ], [ %37, %144 ], [ %.sroa.18.0.i, %253 ], [ %.sroa.18.0.i, %254 ]
   %.sroa.028.1.ph.i = phi ptr [ %36, %135 ], [ %36, %._crit_edge.i ], [ %36, %127 ], [ %.sroa.028.0.i, %41 ], [ %36, %.loopexit192.i ], [ %36, %.loopexit191.i ], [ %36, %144 ], [ %.sroa.028.0.i, %253 ], [ %.sroa.028.0.i, %254 ]
   br label %96
 
@@ -13446,7 +13445,7 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
   %.sroa.4142.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %.sroa.028.0.i, ptr %.sroa.4142.0..sroa_idx.i, align 8, !noalias !934
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i64 %.sroa.18.0.i.fr, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !934
+  store i64 %.sroa.18.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !934
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i64 %.sroa.058.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !934
   %85 = add i64 %78, 1
@@ -13509,7 +13508,7 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
 
 110:                                              ; preds = %104
   %111 = trunc nuw i8 %106 to i1
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 %.sroa.18.0.i.fr
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 %.sroa.18.0.i
   br i1 %111, label %.lr.ph.i128.i, label %.lr.ph.i122.i
 
 113:                                              ; preds = %104
@@ -13539,7 +13538,7 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
 
 123:                                              ; preds = %.lr.ph.i128.i
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  %125 = add i64 %.sroa.02.011.i129.i, 1
+  %125 = add nuw i64 %.sroa.02.011.i129.i, 1
   %126 = icmp eq ptr %124, %112
   br i1 %126, label %.thread174.i, label %.lr.ph.i128.i
 
@@ -13601,7 +13600,8 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
 .lr.ph.i:                                         ; preds = %.thread174.i
   %.sroa.089.1267.i = getelementptr inbounds nuw i8, ptr %148, i64 144
   %153 = icmp ugt i64 %.sroa.071.0.i, %37
-  br i1 %153, label %.lr.ph.i.split.us, label %.lr.ph.i.split, !prof !4
+  %.fr = freeze i1 %153
+  br i1 %.fr, label %.lr.ph.i.split.us, label %.lr.ph.i.split, !prof !4
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %.backedge.i.us
   %.sroa.089.1269.i.us = phi ptr [ %.sroa.089.1.i.us, %.backedge.i.us ], [ %.sroa.089.1267.i, %.lr.ph.i ]
@@ -14550,16 +14550,15 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
   %.sroa.18.0.i = phi i64 [ %166, %.split.i ], [ %.sroa.18.0.i.be, %.backedge195.i.backedge ]
   %.sroa.028.0.i = phi ptr [ %165, %.split.i ], [ %.sroa.028.0.i.be, %.backedge195.i.backedge ]
   %.sroa.0.0.i96 = phi ptr [ %42, %.split.i ], [ %.sroa.0.0.i96.be, %.backedge195.i.backedge ]
-  %.sroa.18.0.i.fr = freeze i64 %.sroa.18.0.i
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i96, i64 40
   %172 = load i64, ptr %171, align 8, !noalias !1034, !noundef !3
-  %.not.i97 = icmp ugt i64 %.sroa.18.0.i.fr, %172
+  %.not.i97 = icmp ugt i64 %.sroa.18.0.i, %172
   br i1 %.not.i97, label %178, label %173
 
 173:                                              ; preds = %.backedge195.i
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i96, i64 32
   %175 = load ptr, ptr %174, align 8, !noalias !1034, !nonnull !3, !noundef !3
-  %176 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %.sroa.028.0.i, i64 noundef %.sroa.18.0.i.fr, ptr noalias noundef nonnull readonly align 1 %175, i64 noundef %172)
+  %176 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %.sroa.028.0.i, i64 noundef %.sroa.18.0.i, ptr noalias noundef nonnull readonly align 1 %175, i64 noundef %172)
           to label %469 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !1034
 
 .loopexit187.i:                                   ; preds = %519
@@ -14597,7 +14596,7 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
 
 178:                                              ; preds = %.backedge195.i
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 %172
-  %180 = sub nuw i64 %.sroa.18.0.i.fr, %172
+  %180 = sub nuw i64 %.sroa.18.0.i, %172
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i96, i64 32
   %182 = load ptr, ptr %181, align 8, !noalias !1034, !nonnull !3, !noundef !3
   %183 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haffd10b886210020E"(ptr noalias noundef nonnull readonly align 1 %.sroa.028.0.i, i64 noundef %172, ptr noalias noundef nonnull readonly align 1 %182, i64 noundef %172)
@@ -14626,7 +14625,7 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
   br i1 %196, label %236, label %.preheader.i
 
 .preheader.i:                                     ; preds = %470, %469, %._crit_edge.i, %302, %278, %.loopexit191.i, %270, %.loopexit192.i, %184
-  %.sroa.18.1.ph.i = phi i64 [ %180, %278 ], [ %180, %._crit_edge.i ], [ %180, %270 ], [ %.sroa.18.0.i.fr, %184 ], [ %180, %.loopexit192.i ], [ %180, %.loopexit191.i ], [ %180, %302 ], [ %.sroa.18.0.i.fr, %469 ], [ %.sroa.18.0.i.fr, %470 ]
+  %.sroa.18.1.ph.i = phi i64 [ %180, %278 ], [ %180, %._crit_edge.i ], [ %180, %270 ], [ %.sroa.18.0.i, %184 ], [ %180, %.loopexit192.i ], [ %180, %.loopexit191.i ], [ %180, %302 ], [ %.sroa.18.0.i, %469 ], [ %.sroa.18.0.i, %470 ]
   %.sroa.028.1.ph.i = phi ptr [ %179, %278 ], [ %179, %._crit_edge.i ], [ %179, %270 ], [ %.sroa.028.0.i, %184 ], [ %179, %.loopexit192.i ], [ %179, %.loopexit191.i ], [ %179, %302 ], [ %.sroa.028.0.i, %469 ], [ %.sroa.028.0.i, %470 ]
   br label %239
 
@@ -14690,7 +14689,7 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
   %.sroa.4142.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %227, i64 8
   store ptr %.sroa.028.0.i, ptr %.sroa.4142.0..sroa_idx.i, align 8, !noalias !1034
   %.sroa.5.0..sroa_idx.i99 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  store i64 %.sroa.18.0.i.fr, ptr %.sroa.5.0..sroa_idx.i99, align 8, !noalias !1034
+  store i64 %.sroa.18.0.i, ptr %.sroa.5.0..sroa_idx.i99, align 8, !noalias !1034
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %227, i64 24
   store i64 %.sroa.058.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !1034
   %228 = add i64 %221, 1
@@ -14753,7 +14752,7 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
 
 253:                                              ; preds = %247
   %254 = trunc nuw i8 %249 to i1
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 %.sroa.18.0.i.fr
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 %.sroa.18.0.i
   br i1 %254, label %.lr.ph.i128.i, label %.lr.ph.i122.i
 
 256:                                              ; preds = %247
@@ -14783,7 +14782,7 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
 
 266:                                              ; preds = %.lr.ph.i128.i
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 1
-  %268 = add i64 %.sroa.02.011.i129.i, 1
+  %268 = add nuw i64 %.sroa.02.011.i129.i, 1
   %269 = icmp eq ptr %267, %255
   br i1 %269, label %.thread174.i, label %.lr.ph.i128.i
 
@@ -14907,7 +14906,8 @@ _ZN7matchit6params6Params4push17h4c90195610ac2372E.exit161: ; preds = %289, %296
 .lr.ph.i:                                         ; preds = %.thread174.i
   %.sroa.089.1267.i = getelementptr inbounds nuw i8, ptr %306, i64 152
   %311 = icmp ugt i64 %.sroa.071.0.i, %180
-  br i1 %311, label %.lr.ph.i.split.us, label %.lr.ph.i.split, !prof !4
+  %.fr = freeze i1 %311
+  br i1 %.fr, label %.lr.ph.i.split.us, label %.lr.ph.i.split, !prof !4
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %.backedge.i.us
   %.sroa.089.1269.i.us = phi ptr [ %.sroa.089.1.i.us, %.backedge.i.us ], [ %.sroa.089.1267.i, %.lr.ph.i ]

@@ -8845,8 +8845,8 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %30, %32
 
 _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i:  ; preds = %40
   %48 = load i32, ptr %45, align 16
-  %.fr.i.i = freeze i32 %48
-  %49 = and i32 %.fr.i.i, 267911168
+  %.fr34.i.i = freeze i32 %48
+  %49 = and i32 %.fr34.i.i, 267911168
   switch i32 %49, label %_ZNK5clang4Type11isImageTypeEv.exit.i.i [
     i32 256901120, label %_ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.thread.i
     i32 257425408, label %_ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.thread.i
@@ -8854,7 +8854,7 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i:  ; preds = %40
   ]
 
 _ZNK5clang4Type11isImageTypeEv.exit.i.i:          ; preds = %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i
-  %50 = and i32 %.fr.i.i, 266338304
+  %50 = and i32 %.fr34.i.i, 266338304
   %51 = icmp samesign ult i32 %50, 18874368
   br i1 %51, label %_ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.thread.i, label %switch.early.test.i.i
 
@@ -34898,15 +34898,15 @@ tailrecurse.us.i:                                 ; preds = %.lr.ph56.i
 72:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo14isOverloadableEv.exit.thread22
   %73 = getelementptr inbounds nuw i8, ptr %.0, i64 60
   %74 = load i8, ptr %73, align 4
-  %.fr = freeze i8 %74
-  %75 = and i8 %.fr, 2
-  %.not35 = icmp eq i8 %75, 0
-  br i1 %.not35, label %260, label %_ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit.thread
+  %.fr35 = freeze i8 %74
+  %75 = and i8 %.fr35, 2
+  %.not36 = icmp eq i8 %75, 0
+  br i1 %.not36, label %260, label %_ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit.thread
 
 .split.us.i:                                      ; preds = %tailrecurse.us.i, %.lr.ph.split.us.i
   %.us-phi.i = phi ptr [ %2, %.lr.ph.split.us.i ], [ %68, %tailrecurse.us.i ]
-  %.not36 = icmp eq i32 %60, 45
-  br i1 %.not36, label %76, label %84
+  %.not37 = icmp eq i32 %60, 45
+  br i1 %.not37, label %76, label %84
 
 76:                                               ; preds = %.split.us.i
   %77 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -35242,8 +35242,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i:        ; preds = %243, %_ZNK4llvm15Sm
 
 _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit: ; preds = %76
   %248 = tail call noundef ptr @_ZNK5clang4Type23getContainedDeducedTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %80) #30
-  %.not37 = icmp eq ptr %248, null
-  br i1 %.not37, label %260, label %_ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit.thread
+  %.not38 = icmp eq ptr %248, null
+  br i1 %.not38, label %260, label %_ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit.thread
 
 _ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit.thread: ; preds = %.lr.ph56.i, %76, %.thread, %247, %72, %_ZN12_GLOBAL__N_114CXXNameMangler23TemplateArgManglingInfo25needToMangleTemplateParamEPKN5clang9NamedDeclERKNS2_16TemplateArgumentE.exit
   br label %260

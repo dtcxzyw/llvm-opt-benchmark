@@ -24,12 +24,11 @@ define range(i32 0, 2) i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef %0,
 
 15:                                               ; preds = %8
   %16 = tail call i32 @BN_num_bits(ptr noundef %1) #4
-  %.fr76 = freeze i32 %16
-  %17 = icmp eq i32 %.fr76, 0
+  %17 = icmp eq i32 %16, 0
   br i1 %17, label %91, label %18
 
 18:                                               ; preds = %15
-  %19 = add i32 %.fr76, 7
+  %19 = add nsw i32 %16, 7
   %20 = sdiv i32 %19, 8
   %21 = mul nsw i32 %20, 3
   %22 = sext i32 %21 to i64
@@ -61,7 +60,7 @@ define range(i32 0, 2) i32 @ossl_gen_deterministic_nonce_rfc6979(ptr noundef %0,
 
 40:                                               ; preds = %36
   %41 = shl i32 %37, 3
-  %42 = sub nsw i32 %41, %.fr76
+  %42 = sub nsw i32 %41, %16
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %bits2int.exit.i, label %bits2int.exit.thread18.i
 
@@ -147,8 +146,9 @@ kdf_setup.exit:                                   ; preds = %59
 .lr.ph:                                           ; preds = %kdf_setup.exit
   %66 = shl i32 %64, 3
   %67 = add i32 %66, -64
-  %68 = sub i32 %67, %.fr76
-  %69 = icmp sgt i32 %68, 0
+  %68 = sub nsw i32 %67, %16
+  %.fr76 = freeze i32 %68
+  %69 = icmp sgt i32 %.fr76, 0
   br i1 %69, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
@@ -159,7 +159,7 @@ kdf_setup.exit:                                   ; preds = %59
 bits2int_consttime.exit.us:                       ; preds = %.lr.ph.split.us
   call void @BN_set_flags(ptr noundef nonnull %0, i32 noundef 4) #4
   %72 = call i32 @ossl_bn_mask_bits_fixed_top(ptr noundef nonnull %0, i32 noundef %67) #4
-  %73 = call i32 @bn_rshift_fixed_top(ptr noundef nonnull %0, ptr noundef nonnull %0, i32 noundef %68) #4
+  %73 = call i32 @bn_rshift_fixed_top(ptr noundef nonnull %0, ptr noundef nonnull %0, i32 noundef %.fr76) #4
   %.not53.us = icmp eq i32 %73, 0
   br i1 %.not53.us, label %bits2int_consttime.exit.thread, label %bits2int_consttime.exit.thread64.us
 

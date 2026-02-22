@@ -256,30 +256,29 @@ invoke.cont4.lr.ph:                               ; preds = %invoke.cont3.prehea
   %avail_out.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %.pre = load ptr, ptr %e_.i, align 8
-  %.pre87 = load ptr, ptr %val_.i.i, align 8
+  %.pre86 = load ptr, ptr %val_.i.i, align 8
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont4.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
   %5 = phi ptr [ %3, %invoke.cont4.lr.ph ], [ %24, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
   %6 = phi ptr [ %1, %invoke.cont4.lr.ph ], [ %25, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %7 = phi ptr [ %.pre87, %invoke.cont4.lr.ph ], [ %26, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %7 = phi ptr [ %.pre86, %invoke.cont4.lr.ph ], [ %26, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
   %8 = phi ptr [ %.pre, %invoke.cont4.lr.ph ], [ %27, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %.fr78 = freeze ptr %7
-  %.fr = freeze ptr %8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %.fr to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.fr78 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %tobool.not53 = icmp eq i64 %sub.ptr.sub.i, 0
+  %sub.ptr.sub.i.fr = freeze i64 %sub.ptr.sub.i
+  %tobool.not53 = icmp eq i64 %sub.ptr.sub.i.fr, 0
   br i1 %tobool.not53, label %for.inc, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont4
-  %sub = and i64 %sub.ptr.sub.i, -4294967296
+  %sub = and i64 %sub.ptr.sub.i.fr, -4294967296
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %while.body18.us.preheader, label %while.body.outer, !llvm.loop !4
 
 while.body18.us.preheader:                        ; preds = %while.body.lr.ph
-  %conv8.us = trunc nuw i64 %sub.ptr.sub.i to i32
-  store ptr %.fr78, ptr %zlibStream_, align 8
+  %conv8.us = trunc nuw i64 %sub.ptr.sub.i.fr to i32
+  store ptr %7, ptr %zlibStream_, align 8
   store i32 %conv8.us, ptr %avail_in, align 8
   br label %while.body18.us
 
@@ -340,12 +339,12 @@ lpad.i.split.us:                                  ; preds = %.noexc.us
   br label %lpad.i
 
 while.cond.loopexit.loopexit:                     ; preds = %while.cond15thread-pre-split
-  %.pre88.pre = load ptr, ptr %val_.i.i, align 8
+  %.pre87.pre = load ptr, ptr %val_.i.i, align 8
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.lr.ph, %while.cond.loopexit.loopexit
-  %.pre8889.ph = phi ptr [ %.pre88.pre, %while.cond.loopexit.loopexit ], [ %.fr78, %while.body.lr.ph ]
-  %remaining.055.ph = phi i64 [ %sub, %while.cond.loopexit.loopexit ], [ %sub.ptr.sub.i, %while.body.lr.ph ]
+  %.pre8788.ph = phi ptr [ %.pre87.pre, %while.cond.loopexit.loopexit ], [ %7, %while.body.lr.ph ]
+  %remaining.055.ph = phi i64 [ %sub, %while.cond.loopexit.loopexit ], [ %sub.ptr.sub.i.fr, %while.body.lr.ph ]
   %written.054.ph = phi i64 [ %add, %while.cond.loopexit.loopexit ], [ 0, %while.body.lr.ph ]
   br label %while.body
 
@@ -353,7 +352,7 @@ while.body:                                       ; preds = %while.body.outer, %
   %remaining.055 = phi i64 [ %sub, %while.body ], [ %remaining.055.ph, %while.body.outer ]
   %written.054 = phi i64 [ %add, %while.body ], [ %written.054.ph, %while.body.outer ]
   %conv8 = trunc i64 %remaining.055 to i32
-  %add.ptr = getelementptr inbounds i8, ptr %.pre8889.ph, i64 %written.054
+  %add.ptr = getelementptr inbounds i8, ptr %.pre8788.ph, i64 %written.054
   %conv13 = and i64 %remaining.055, 4294967295
   %add = add i64 %conv13, %written.054
   %cmp.not52 = icmp eq i32 %conv8, 0
@@ -446,13 +445,13 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %eh.lpad-body
 
 for.inc.loopexit:                                 ; preds = %while.cond15thread-pre-split.us
-  %.pre91 = load ptr, ptr %__begin1, align 8
-  %.pre92 = load ptr, ptr %end_.i.i.i.i, align 8
+  %.pre90 = load ptr, ptr %__begin1, align 8
+  %.pre91 = load ptr, ptr %end_.i.i.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %invoke.cont4
-  %19 = phi ptr [ %5, %invoke.cont4 ], [ %.pre92, %for.inc.loopexit ]
-  %20 = phi ptr [ %6, %invoke.cont4 ], [ %.pre91, %for.inc.loopexit ]
+  %19 = phi ptr [ %5, %invoke.cont4 ], [ %.pre91, %for.inc.loopexit ]
+  %20 = phi ptr [ %6, %invoke.cont4 ], [ %.pre90, %for.inc.loopexit ]
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %21, ptr %__begin1, align 8
@@ -490,8 +489,8 @@ for.end:                                          ; preds = %_ZN5folly6detail14I
   br i1 %trailer, label %do.body, label %do.body41.preheader
 
 do.body41.preheader:                              ; preds = %for.end
-  %.pre93 = load i32, ptr %avail_out.i10, align 8
-  %30 = icmp eq i32 %.pre93, 0
+  %.pre92 = load i32, ptr %avail_out.i10, align 8
+  %30 = icmp eq i32 %.pre92, 0
   br label %do.body41
 
 do.body:                                          ; preds = %for.end, %invoke.cont32
@@ -595,11 +594,11 @@ do.end50:                                         ; preds = %invoke.cont44
   br i1 %cmp52.not, label %cleanup.thread, label %cleanup
 
 cleanup.thread.loopexit:                          ; preds = %invoke.cont32
-  %.pre94 = load i32, ptr %avail_out.i10, align 8
+  %.pre93 = load i32, ptr %avail_out.i10, align 8
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %cleanup.thread.loopexit, %do.end50
-  %41 = phi i32 [ %.pre94, %cleanup.thread.loopexit ], [ %40, %do.end50 ]
+  %41 = phi i32 [ %.pre93, %cleanup.thread.loopexit ], [ %40, %do.end50 ]
   %42 = load ptr, ptr %out, align 8
   %prev_.i = getelementptr inbounds nuw i8, ptr %42, i64 40
   %43 = load ptr, ptr %prev_.i, align 8

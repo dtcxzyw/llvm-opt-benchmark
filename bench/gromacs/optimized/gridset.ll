@@ -1581,7 +1581,7 @@ define void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5
   %74 = fpext float %8 to double
   %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %71, ptr noundef nonnull @.str.4, i32 noundef %73, double noundef %74) #15
   %.pre = load i8, ptr %22, align 4, !tbaa !170, !range !56
-  %.pre104 = trunc nuw i8 %.pre to i1
+  %.pre106 = trunc nuw i8 %.pre to i1
   br label %88
 
 76:                                               ; preds = %31
@@ -1602,7 +1602,7 @@ define void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5
   br label %88
 
 88:                                               ; preds = %67, %72, %76
-  %.pre-phi = phi i1 [ %24, %67 ], [ %.pre104, %72 ], [ %24, %76 ]
+  %.pre-phi = phi i1 [ %24, %67 ], [ %.pre106, %72 ], [ %24, %76 ]
   %.0.i96 = phi i32 [ 0, %67 ], [ 0, %72 ], [ %81, %76 ]
   %.051 = phi float [ %68, %67 ], [ %68, %72 ], [ %85, %76 ]
   %89 = select i1 %.pre-phi, i32 0, i32 %2

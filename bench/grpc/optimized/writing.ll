@@ -5877,10 +5877,9 @@ define linkonce_odr void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_26G
   %10 = load ptr, ptr %9, align 8, !tbaa !596
   %11 = load i8, ptr %0, align 4
   %12 = load i8, ptr %1, align 1
-  %.fr.i.i = freeze i8 %11
-  %.fr11.i.i = freeze i8 %12
-  %.not.not.i.i = icmp eq i8 %.fr.i.i, %.fr11.i.i
-  br i1 %.not.not.i.i, label %13, label %24
+  %.not.i.i = icmp eq i8 %11, %12
+  %.not.fr.i.i = freeze i1 %.not.i.i
+  br i1 %.not.fr.i.i, label %13, label %24
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8

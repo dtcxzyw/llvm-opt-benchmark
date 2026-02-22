@@ -2511,7 +2511,6 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %.sroa.0.0.extract.trunc.i160 = trunc i64 %23 to i32
   %24 = add nsw i32 %.sroa.0.0.extract.trunc.i160, %.sroa.0.0.extract.trunc.i
   %25 = call i32 @lv_obj_get_content_width(ptr noundef nonnull %0) #8
-  %.fr189 = freeze i32 %25
   %26 = call i32 @lv_obj_get_content_height(ptr noundef nonnull %0) #8
   %27 = load i32, ptr %9, align 8, !tbaa !32
   %28 = add nsw i32 %21, %27
@@ -2572,8 +2571,8 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 
 61:                                               ; preds = %57, %55
   %62 = load i32, ptr %13, align 4, !tbaa !20
-  %.fr = freeze i32 %62
-  %.not = icmp slt i32 %.fr, %.fr189
+  %.not = icmp slt i32 %62, %25
+  %.not.fr = freeze i1 %.not
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %64 = call i32 @lv_ll_get_len(ptr noundef nonnull %63) #8
   %65 = add i32 %64, -1
@@ -2676,11 +2675,11 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %135 = sitofp i32 %134 to float
   store float %135, ptr %80, align 4, !tbaa !48
   %136 = load i32, ptr %13, align 4, !tbaa !20
-  %.not190 = icmp eq i32 %136, 0
-  br i1 %.not190, label %._crit_edge, label %.lr.ph
+  %.not189 = icmp eq i32 %136, 0
+  br i1 %.not189, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %115
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %189
   %137 = phi i32 [ %190, %189 ], [ %136, %.lr.ph ]
@@ -2694,7 +2693,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   br i1 %140, label %._crit_edge, label %141
 
 141:                                              ; preds = %.lr.ph.split.us
-  %142 = mul i32 %.0145168.us, %.fr189
+  %142 = mul i32 %.0145168.us, %25
   %143 = add i32 %137, -1
   %144 = udiv i32 %142, %143
   %145 = uitofp i32 %144 to float
@@ -2772,11 +2771,11 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 
 188:                                              ; preds = %186, %182, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre195 = load i32, ptr %13, align 4, !tbaa !20
+  %.pre194 = load i32, ptr %13, align 4, !tbaa !20
   br label %189
 
 189:                                              ; preds = %188, %141
-  %190 = phi i32 [ %.pre195, %188 ], [ %137, %141 ]
+  %190 = phi i32 [ %.pre194, %188 ], [ %137, %141 ]
   %191 = add nuw i32 %.0145168.us, 1
   %192 = icmp ult i32 %191, %190
   br i1 %192, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !89
@@ -2795,7 +2794,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   br i1 %196, label %._crit_edge, label %197
 
 197:                                              ; preds = %.lr.ph.split
-  %198 = mul i32 %.0145168, %.fr189
+  %198 = mul i32 %.0145168, %25
   %199 = add i32 %193, -1
   %200 = udiv i32 %198, %199
   %201 = uitofp i32 %200 to float
@@ -2874,7 +2873,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %.0142.lcssa = phi i32 [ %116, %115 ], [ %.0142170.us, %.lr.ph.split.us ], [ %148, %189 ], [ %.0142170, %.lr.ph.split ], [ %204, %240 ]
   %.lcssa = phi i32 [ 0, %115 ], [ %137, %.lr.ph.split.us ], [ %190, %189 ], [ %193, %.lr.ph.split ], [ %241, %240 ]
   %245 = icmp eq i32 %.0145.lcssa, %.lcssa
-  %or.cond164 = and i1 %.not, %245
+  %or.cond164 = and i1 %.not.fr, %245
   br i1 %or.cond164, label %246, label %261
 
 246:                                              ; preds = %._crit_edge

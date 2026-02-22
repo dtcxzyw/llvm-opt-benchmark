@@ -3334,7 +3334,7 @@ default.unreachable:                              ; preds = %407
 
 .preheader.i:                                     ; preds = %579, %577
   %.5 = phi ptr [ %572, %577 ], [ %580, %579 ]
-  %.04668.i = phi i8 [ 0, %577 ], [ %581, %579 ]
+  %.04670.i = phi i8 [ 0, %577 ], [ %581, %579 ]
   %583 = icmp ne i8 %574, 0
   %584 = icmp slt i32 %.010.fr.i, %520
   %585 = and i1 %584, %583
@@ -3347,7 +3347,7 @@ default.unreachable:                              ; preds = %407
   %589 = call i32 @llvm.umin.i32(i32 %587, i32 %588)
   %umin.i112 = zext nneg i32 %589 to i64
   %590 = add nuw nsw i64 %umin.i112, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0499.i, i8 %.04668.i, i64 %590, i1 false), !tbaa !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0499.i, i8 %.04670.i, i64 %590, i1 false), !tbaa !38
   %scevgep.i113 = getelementptr i8, ptr %.0499.i, i64 1
   %scevgep56.i = getelementptr i8, ptr %scevgep.i113, i64 %umin.i112
   %591 = add nsw i32 %.010.fr.i, 1

@@ -142,12 +142,11 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef readonly c
   %74 = load volatile ptr, ptr %63, align 8
   %75 = load volatile i32, ptr %74, align 4
   %76 = load i64, ptr %64, align 8
-  %.fr27 = freeze i64 %76
-  %77 = trunc i64 %.fr27 to i32
-  %.fr = freeze i32 %75
-  %78 = add i32 %.fr, 1
+  %77 = trunc i64 %76 to i32
+  %78 = add i32 %75, 1
   %79 = sub i32 %78, %77
-  %80 = icmp sgt i32 %79, -1
+  %.fr = freeze i32 %79
+  %80 = icmp sgt i32 %.fr, -1
   tail call void @__rcu_read_unlock() #7
   br i1 %80, label %.thread23, label %81
 
@@ -621,9 +620,9 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   %210 = load volatile i64, ptr %206, align 8
   %211 = and i64 %210, 1
   %212 = icmp eq i64 %211, 0
-  br i1 %212, label %.lr.ph46, label %.thread34
+  br i1 %212, label %.lr.ph45, label %.thread34
 
-.lr.ph46:                                         ; preds = %202, %227
+.lr.ph45:                                         ; preds = %202, %227
   %.pn = phi i64 [ %231, %227 ], [ %209, %202 ]
   %213 = phi i64 [ %230, %227 ], [ 10, %202 ]
   call void @__rcu_read_lock() #7
@@ -632,20 +631,19 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   %216 = icmp eq i64 %215, 0
   br i1 %216, label %217, label %.thread27, !prof !7
 
-.thread27:                                        ; preds = %.lr.ph46
+.thread27:                                        ; preds = %.lr.ph45
   call void @__rcu_read_unlock() #7
   br label %.thread34
 
-217:                                              ; preds = %.lr.ph46
+217:                                              ; preds = %.lr.ph45
   %218 = load volatile ptr, ptr %207, align 8
   %219 = load volatile i32, ptr %218, align 4
   %220 = load i64, ptr %208, align 8
-  %.fr44 = freeze i64 %220
-  %221 = trunc i64 %.fr44 to i32
-  %.fr = freeze i32 %219
-  %222 = add i32 %.fr, 1
+  %221 = trunc i64 %220 to i32
+  %222 = add i32 %219, 1
   %223 = sub i32 %222, %221
-  %224 = icmp sgt i32 %223, -1
+  %.fr = freeze i32 %223
+  %224 = icmp sgt i32 %.fr, -1
   call void @__rcu_read_unlock() #7
   br i1 %224, label %.thread34, label %225
 
@@ -663,7 +661,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   %232 = load volatile i64, ptr %206, align 8
   %233 = and i64 %232, 1
   %234 = icmp eq i64 %233, 0
-  br i1 %234, label %.lr.ph46, label %.thread34
+  br i1 %234, label %.lr.ph45, label %.thread34
 
 235:                                              ; preds = %225
   %236 = load ptr, ptr %22, align 8
@@ -722,12 +720,12 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   call void @__intel_context_do_unpin(ptr noundef %1, i32 noundef 1) #7
   br label %.loopexit
 
-.preheader:                                       ; preds = %.thread37, %._crit_edge50
+.preheader:                                       ; preds = %.thread37, %._crit_edge49
   %263 = load volatile i32, ptr %9, align 4
   %264 = icmp eq i32 %263, 1
-  br i1 %264, label %._crit_edge50, label %.lr.ph49, !prof !14
+  br i1 %264, label %._crit_edge49, label %.lr.ph48, !prof !14
 
-.lr.ph49:                                         ; preds = %.preheader, %271
+.lr.ph48:                                         ; preds = %.preheader, %271
   %265 = phi i32 [ %272, %271 ], [ %263, %.preheader ]
   %266 = add i32 %265, -1
   %267 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %266, ptr nonnull elementtype(i32) %9, i32 %265) #7, !srcloc !15
@@ -737,25 +735,25 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   %270 = icmp eq i8 %268, 0
   br i1 %270, label %271, label %.loopexit, !prof !6
 
-271:                                              ; preds = %.lr.ph49
+271:                                              ; preds = %.lr.ph48
   %272 = extractvalue { i8, i32 } %267, 1
   %273 = icmp eq i32 %272, 1
-  br i1 %273, label %._crit_edge50, label %.lr.ph49, !prof !16, !llvm.loop !17
+  br i1 %273, label %._crit_edge49, label %.lr.ph48, !prof !16, !llvm.loop !17
 
-._crit_edge50:                                    ; preds = %271, %.preheader
+._crit_edge49:                                    ; preds = %271, %.preheader
   %274 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 2, i32 1, ptr nonnull elementtype(i32) %9) #7, !srcloc !21
   %275 = icmp eq i32 %274, 1
   br i1 %275, label %276, label %.preheader, !llvm.loop !22
 
-276:                                              ; preds = %._crit_edge50
+276:                                              ; preds = %._crit_edge49
   %277 = load ptr, ptr %23, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 88
   %279 = load ptr, ptr %278, align 8
   call void %279(ptr noundef %1) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph49, %276, %262, %._crit_edge
-  %280 = phi i32 [ %257, %276 ], [ %257, %262 ], [ %121, %._crit_edge ], [ %257, %.lr.ph49 ]
+.loopexit:                                        ; preds = %.lr.ph48, %276, %262, %._crit_edge
+  %280 = phi i32 [ %257, %276 ], [ %257, %262 ], [ %121, %._crit_edge ], [ %257, %.lr.ph48 ]
   %281 = icmp eq i32 %280, -35
   br i1 %281, label %.thread41, label %.thread43
 

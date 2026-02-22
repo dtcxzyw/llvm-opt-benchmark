@@ -21909,7 +21909,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   %96 = or disjoint i8 %89, 4
   store i8 %96, ptr %72, align 8, !tbaa !188
   %.not267 = icmp samesign ult i64 %indvars.iv, %63
-  br i1 %.not267, label %105, label %.sink.split543
+  br i1 %.not267, label %105, label %.sink.split547
 
 97:                                               ; preds = %88
   %98 = load i16, ptr %58, align 4, !tbaa !133
@@ -21919,16 +21919,16 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   %102 = sub i16 %98, %101
   %103 = getelementptr inbounds nuw i8, ptr %.0236404, i64 30
   store i16 %102, ptr %103, align 2, !tbaa !157
-  br i1 %61, label %.sink.split543, label %105
+  br i1 %61, label %.sink.split547, label %105
 
-.sink.split543:                                   ; preds = %97, %95
-  %.sink545 = phi i8 [ 12, %95 ], [ 8, %97 ]
-  %104 = or disjoint i8 %89, %.sink545
+.sink.split547:                                   ; preds = %97, %95
+  %.sink549 = phi i8 [ 12, %95 ], [ 8, %97 ]
+  %104 = or disjoint i8 %89, %.sink549
   store i8 %104, ptr %72, align 8, !tbaa !188
   br label %105
 
-105:                                              ; preds = %.sink.split543, %97, %91, %95
-  %106 = phi i8 [ %89, %97 ], [ %96, %95 ], [ %89, %91 ], [ %104, %.sink.split543 ]
+105:                                              ; preds = %.sink.split547, %97, %91, %95
+  %106 = phi i8 [ %89, %97 ], [ %96, %95 ], [ %89, %91 ], [ %104, %.sink.split547 ]
   br i1 %.not268, label %.loopexit364, label %107
 
 107:                                              ; preds = %105
@@ -21953,8 +21953,8 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   store ptr null, ptr %115, align 8, !tbaa !99
   %116 = add nuw nsw i32 %.0247400.us, 1
   %117 = getelementptr inbounds nuw i8, ptr %.0242402.us, i64 56
-  %exitcond476.not = icmp eq i32 %116, %49
-  br i1 %exitcond476.not, label %.loopexit364, label %.split.us, !llvm.loop !202
+  %exitcond480.not = icmp eq i32 %116, %49
+  br i1 %exitcond480.not, label %.loopexit364, label %.split.us, !llvm.loop !202
 
 .preheader:                                       ; preds = %107, %.loopexit363
   %.0242402 = phi ptr [ %131, %.loopexit363 ], [ %77, %107 ]
@@ -21992,13 +21992,13 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
 .loopexit363:                                     ; preds = %124
   %130 = add nuw nsw i32 %.0247400, 1
   %131 = getelementptr inbounds nuw i8, ptr %.0242402, i64 56
-  %exitcond475.not = icmp eq i32 %130, %49
-  br i1 %exitcond475.not, label %.loopexit364, label %.preheader, !llvm.loop !202
+  %exitcond479.not = icmp eq i32 %130, %49
+  br i1 %exitcond479.not, label %.loopexit364, label %.preheader, !llvm.loop !202
 
 .loopexit364:                                     ; preds = %.loopexit363, %.split.us, %105
   %132 = getelementptr inbounds nuw i8, ptr %.0236404, i64 56
-  %exitcond478.not = icmp eq i64 %indvars.iv.next, %20
-  br i1 %exitcond478.not, label %.loopexit365, label %71, !llvm.loop !204
+  %exitcond482.not = icmp eq i64 %indvars.iv.next, %20
+  br i1 %exitcond482.not, label %.loopexit365, label %71, !llvm.loop !204
 
 .loopexit365:                                     ; preds = %.loopexit364, %16
   %133 = phi ptr [ %18, %16 ], [ %34, %.loopexit364 ]
@@ -22391,8 +22391,8 @@ _ZN6LibRaw5sgetnEiPh.exit345:                     ; preds = %.lr.ph.i341
 312:                                              ; preds = %._crit_edge
   %313 = add nuw nsw i32 %.0252412, 1
   %314 = getelementptr inbounds nuw i8, ptr %.0253411, i64 56
-  %exitcond479.not = icmp eq i32 %313, %15
-  br i1 %exitcond479.not, label %.critedge286, label %135, !llvm.loop !208
+  %exitcond483.not = icmp eq i32 %313, %15
+  br i1 %exitcond483.not, label %.critedge286, label %135, !llvm.loop !208
 
 .critedge286:                                     ; preds = %312
   %315 = load i32, ptr %0, align 8, !tbaa !189
@@ -22480,8 +22480,8 @@ _ZN6LibRaw5sgetnEiPh.exit345:                     ; preds = %.lr.ph.i341
 _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %329, %363
   %367 = getelementptr inbounds nuw i8, ptr %.1254433, i64 28
   %368 = load i16, ptr %367, align 4, !tbaa !174
-  %.fr437 = freeze i16 %368
-  %369 = zext i16 %.fr437 to i32
+  %.fr440 = freeze i16 %368
+  %369 = zext i16 %.fr440 to i32
   %370 = add nuw nsw i32 %369, 7
   %371 = lshr i32 %370, 3
   %372 = getelementptr inbounds nuw i8, ptr %.1254433, i64 30
@@ -22542,8 +22542,8 @@ _Z18crxDecodeGolombTopP12CrxBitstreamiPiS1_.exit.us: ; preds = %.lr.ph424.split.
 
 396:                                              ; preds = %_Z18crxDecodeGolombTopP12CrxBitstreamiPiS1_.exit.us, %392
   %397 = add nuw nsw i32 %.0235422.us, 1
-  %exitcond492.not = icmp eq i32 %397, %377
-  br i1 %exitcond492.not, label %._crit_edge425, label %.lr.ph424.split.us.split, !llvm.loop !209
+  %exitcond496.not = icmp eq i32 %397, %377
+  br i1 %exitcond496.not, label %._crit_edge425, label %.lr.ph424.split.us.split, !llvm.loop !209
 
 .loopexit.split-lp.split.us.split:                ; preds = %392
   %lpad.loopexit.split-lp.us = landingpad { ptr, i32 }
@@ -22635,20 +22635,20 @@ _Z18crxDecodeGolombTopP12CrxBitstreamiPiS1_.exit.us: ; preds = %.lr.ph424.split.
 
 ._crit_edge419:                                   ; preds = %.lr.ph418
   %431 = add nuw nsw i32 %.0235422, 1
-  %exitcond485.not = icmp eq i32 %431, %377
-  br i1 %exitcond485.not, label %._crit_edge425, label %.lr.ph424.split, !llvm.loop !209
+  %exitcond489.not = icmp eq i32 %431, %377
+  br i1 %exitcond489.not, label %._crit_edge425, label %.lr.ph424.split, !llvm.loop !209
 
 .lr.ph418:                                        ; preds = %.lr.ph418.preheader, %.lr.ph418
-  %indvars.iv480 = phi i64 [ %indvars.iv.next481, %.lr.ph418 ], [ 0, %.lr.ph418.preheader ]
+  %indvars.iv484 = phi i64 [ %indvars.iv.next485, %.lr.ph418 ], [ 0, %.lr.ph418.preheader ]
   %.1238415 = phi ptr [ %435, %.lr.ph418 ], [ %.0237421, %.lr.ph418.preheader ]
-  %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
-  %432 = getelementptr inbounds nuw i32, ptr %402, i64 %indvars.iv.next481
+  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
+  %432 = getelementptr inbounds nuw i32, ptr %402, i64 %indvars.iv.next485
   %433 = load i32, ptr %432, align 4, !tbaa !19
   %434 = add nsw i32 %433, 4
   %435 = getelementptr inbounds nuw i8, ptr %.1238415, i64 4
   store i32 %434, ptr %.1238415, align 4, !tbaa !19
-  %exitcond484.not = icmp eq i64 %indvars.iv.next481, %388
-  br i1 %exitcond484.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !210
+  %exitcond488.not = icmp eq i64 %indvars.iv.next485, %388
+  br i1 %exitcond488.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !210
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge425
   %.not281 = icmp eq i32 %398, 0
@@ -22679,8 +22679,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit349:                 ; preds = %.loopexit, %.loopex
 439:                                              ; preds = %325, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %440 = add nuw nsw i32 %.0246434, 1
   %441 = getelementptr inbounds nuw i8, ptr %.1254433, i64 56
-  %exitcond493.not = icmp eq i32 %440, %15
-  br i1 %exitcond493.not, label %.thread, label %325, !llvm.loop !211
+  %exitcond497.not = icmp eq i32 %440, %15
+  br i1 %exitcond497.not, label %.thread, label %325, !llvm.loop !211
 
 .thread:                                          ; preds = %173, %_ZN6LibRaw5sgetnEiPh.exit305, %_ZN6LibRaw5sgetnEiPh.exit300, %_ZN6LibRaw5sgetnEiPh.exit315, %158, %157, %159, %._crit_edge, %135, %_ZN6LibRaw5sgetnEiPh.exit335, %258, %_ZN6LibRaw5sgetnEiPh.exit340, %302, %296, %_ZNSt6vectorIiSaIiEED2Ev.exit, %439, %.critedge288, %.critedge286
   %.8 = phi i32 [ -1, %_ZN6LibRaw5sgetnEiPh.exit335 ], [ 0, %.critedge286 ], [ -1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ -1, %.critedge288 ], [ 0, %439 ], [ -1, %296 ], [ -1, %302 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit340 ], [ -1, %258 ], [ -1, %135 ], [ -1, %._crit_edge ], [ -1, %159 ], [ -1, %157 ], [ -1, %158 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit315 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit300 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit305 ], [ -1, %173 ]

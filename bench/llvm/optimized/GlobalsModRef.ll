@@ -5406,13 +5406,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit:
   %55 = load ptr, ptr %54, align 8, !tbaa !156
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %57 = load i32, ptr %56, align 8
-  %.fr.i = freeze i32 %57
-  %58 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %57
+  %58 = and i32 %.fr8.i, 255
   %59 = icmp eq i32 %58, 12
   br i1 %59, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %60
 
 60:                                               ; preds = %48
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -5422,7 +5422,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit:
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %60
-  %61 = and i32 %.fr.i, 253
+  %61 = and i32 %.fr8.i, 253
   %spec.select.i.i82 = icmp eq i32 %61, 4
   br i1 %spec.select.i.i82, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -5456,13 +5456,13 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %switch.earl
 63:                                               ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %65 = load i32, ptr %64, align 8
-  %.fr.i83 = freeze i32 %65
-  %66 = and i32 %.fr.i83, 255
+  %.fr8.i83 = freeze i32 %65
+  %66 = and i32 %.fr8.i83, 255
   %67 = icmp eq i32 %66, 12
   br i1 %67, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit90.thread, label %68
 
 68:                                               ; preds = %63
-  %trunc.i.i.i84 = trunc i32 %.fr.i83 to i8
+  %trunc.i.i.i84 = trunc i32 %.fr8.i83 to i8
   switch i8 %trunc.i.i.i84, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i86 [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit90.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit90.thread
@@ -5472,7 +5472,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %switch.earl
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i86:     ; preds = %68
-  %69 = and i32 %.fr.i83, 253
+  %69 = and i32 %.fr8.i83, 253
   %spec.select.i.i87 = icmp eq i32 %69, 4
   br i1 %spec.select.i.i87, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit90.thread, label %switch.early.test.i88
 

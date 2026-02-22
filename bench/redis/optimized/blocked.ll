@@ -64,10 +64,10 @@ declare ptr @dictCreate(ptr noundef) local_unnamed_addr #1
 define dso_local void @blockClient(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !34
-  %.fr = freeze i64 %4
-  %5 = and i64 %.fr, 2
-  %.not12 = icmp eq i64 %5, 0
-  br i1 %.not12, label %.critedge, label %switch.early.test
+  %.fr12 = freeze i64 %4
+  %5 = and i64 %.fr12, 2
+  %.not13 = icmp eq i64 %5, 0
+  br i1 %.not13, label %.critedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %2
   switch i32 %1, label %6 [
@@ -82,11 +82,11 @@ switch.early.test:                                ; preds = %2
   unreachable
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %2
-  %7 = or i64 %.fr, 16
+  %7 = or i64 %.fr12, 16
   store i64 %7, ptr %3, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %1, ptr %8, align 8, !tbaa !5
-  %9 = and i64 %.fr, 134217728
+  %9 = and i64 %.fr12, 134217728
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %10, label %13
 
@@ -1196,15 +1196,15 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i32 %5, ptr %79, align 8, !tbaa !32
   %.not45 = icmp eq i32 %1, 4
   %80 = load i64, ptr %8, align 8, !tbaa !34
-  %.fr.i = freeze i64 %80
+  %.fr12.i = freeze i64 %80
   br i1 %.not45, label %.split, label %.split40
 
 .split:                                           ; preds = %._crit_edge
-  %81 = or i64 %.fr.i, 16
+  %81 = or i64 %.fr12.i, 16
   store i64 %81, ptr %8, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 4, ptr %82, align 8, !tbaa !5
-  %83 = and i64 %.fr.i, 134217728
+  %83 = and i64 %.fr12.i, 134217728
   %.not.i = icmp eq i64 %83, 0
   br i1 %.not.i, label %84, label %blockClient.exit
 
@@ -1221,11 +1221,11 @@ blockClient.exit:                                 ; preds = %.split, %84
   br label %102
 
 .split40:                                         ; preds = %._crit_edge
-  %89 = or i64 %.fr.i, 1073741824
+  %89 = or i64 %.fr12.i, 1073741824
   store i64 %89, ptr %8, align 8, !tbaa !34
-  %90 = and i64 %.fr.i, 2
-  %.not12.i51 = icmp eq i64 %90, 0
-  br i1 %.not12.i51, label %.critedge.i53, label %switch.early.test.i52
+  %90 = and i64 %.fr12.i, 2
+  %.not13.i51 = icmp eq i64 %90, 0
+  br i1 %.not13.i51, label %.critedge.i53, label %switch.early.test.i52
 
 switch.early.test.i52:                            ; preds = %.split40
   switch i32 %1, label %91 [
@@ -1239,11 +1239,11 @@ switch.early.test.i52:                            ; preds = %.split40
   unreachable
 
 .critedge.i53:                                    ; preds = %switch.early.test.i52, %switch.early.test.i52, %.split40
-  %92 = or i64 %.fr.i, 1073741840
+  %92 = or i64 %.fr12.i, 1073741840
   store i64 %92, ptr %8, align 8, !tbaa !34
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %1, ptr %93, align 8, !tbaa !5
-  %94 = and i64 %.fr.i, 134217728
+  %94 = and i64 %.fr12.i, 134217728
   %.not.i54 = icmp eq i64 %94, 0
   br i1 %.not.i54, label %95, label %blockClient.exit55
 
@@ -1372,10 +1372,10 @@ define dso_local void @blockForReplication(ptr noundef initializes((488, 496), (
   %10 = tail call ptr @listAddNodeHead(ptr noundef %9, ptr noundef %0) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !34
-  %.fr.i = freeze i64 %12
-  %13 = and i64 %.fr.i, 2
-  %.not12.i = icmp eq i64 %13, 0
-  br i1 %.not12.i, label %.critedge.i, label %switch.early.test.i
+  %.fr12.i = freeze i64 %12
+  %13 = and i64 %.fr12.i, 2
+  %.not13.i = icmp eq i64 %13, 0
+  br i1 %.not13.i, label %.critedge.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %4
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
@@ -1383,11 +1383,11 @@ switch.early.test.i:                              ; preds = %4
   unreachable
 
 .critedge.i:                                      ; preds = %4
-  %14 = or i64 %.fr.i, 16
+  %14 = or i64 %.fr12.i, 16
   store i64 %14, ptr %11, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 2, ptr %15, align 8, !tbaa !5
-  %16 = and i64 %.fr.i, 134217728
+  %16 = and i64 %.fr12.i, 134217728
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %17, label %blockClient.exit
 
@@ -1422,10 +1422,10 @@ define dso_local void @blockForAofFsync(ptr noundef initializes((488, 496), (512
   %12 = tail call ptr @listAddNodeHead(ptr noundef %11, ptr noundef %0) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !34
-  %.fr.i = freeze i64 %14
-  %15 = and i64 %.fr.i, 2
-  %.not12.i = icmp eq i64 %15, 0
-  br i1 %.not12.i, label %.critedge.i, label %switch.early.test.i
+  %.fr12.i = freeze i64 %14
+  %15 = and i64 %.fr12.i, 2
+  %.not13.i = icmp eq i64 %15, 0
+  br i1 %.not13.i, label %.critedge.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %5
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
@@ -1433,11 +1433,11 @@ switch.early.test.i:                              ; preds = %5
   unreachable
 
 .critedge.i:                                      ; preds = %5
-  %16 = or i64 %.fr.i, 16
+  %16 = or i64 %.fr12.i, 16
   store i64 %16, ptr %13, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 3, ptr %17, align 8, !tbaa !5
-  %18 = and i64 %.fr.i, 134217728
+  %18 = and i64 %.fr12.i, 134217728
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %19, label %blockClient.exit
 
@@ -1462,12 +1462,12 @@ define dso_local void @blockPostponeClient(ptr noundef initializes((480, 484), (
   store i64 0, ptr %1, align 8, !tbaa !28
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !34
-  %.fr.i = freeze i64 %3
-  %4 = or i64 %.fr.i, 16
+  %.fr12.i = freeze i64 %3
+  %4 = or i64 %.fr12.i, 16
   store i64 %4, ptr %2, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 7, ptr %5, align 8, !tbaa !5
-  %6 = and i64 %.fr.i, 134217728
+  %6 = and i64 %.fr12.i, 134217728
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %7, label %blockClient.exit
 
@@ -1499,10 +1499,10 @@ blockClient.exit:                                 ; preds = %.critedge.i, %7
 define dso_local void @blockClientShutdown(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !34
-  %.fr.i = freeze i64 %3
-  %4 = and i64 %.fr.i, 2
-  %.not12.i = icmp eq i64 %4, 0
-  br i1 %.not12.i, label %.critedge.i, label %switch.early.test.i
+  %.fr12.i = freeze i64 %3
+  %4 = and i64 %.fr12.i, 2
+  %.not13.i = icmp eq i64 %4, 0
+  br i1 %.not13.i, label %.critedge.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %1
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
@@ -1510,11 +1510,11 @@ switch.early.test.i:                              ; preds = %1
   unreachable
 
 .critedge.i:                                      ; preds = %1
-  %5 = or i64 %.fr.i, 16
+  %5 = or i64 %.fr12.i, 16
   store i64 %5, ptr %2, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 8, ptr %6, align 8, !tbaa !5
-  %7 = and i64 %.fr.i, 134217728
+  %7 = and i64 %.fr12.i, 134217728
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %8, label %blockClient.exit
 

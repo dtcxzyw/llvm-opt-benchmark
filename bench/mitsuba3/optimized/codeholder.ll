@@ -1921,12 +1921,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13labelIdByNameEPK
 .loopexit8:                                       ; preds = %23, %.loopexit7
   %32 = phi i32 [ %30, %.loopexit7 ], [ %26, %23 ]
   %33 = phi i64 [ %29, %.loopexit7 ], [ %2, %23 ]
-  %.fr17 = freeze i64 %33
+  %.fr = freeze i64 %33
   %34 = icmp eq i32 %3, -1
   %35 = select i1 %34, i32 0, i32 %3
   %36 = xor i32 %32, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %38 = trunc i64 %.fr17 to i32
+  %38 = trunc i64 %.fr to i32
   %39 = zext i32 %36 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %41 = load i32, ptr %40, align 8, !tbaa !35
@@ -1950,7 +1950,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13labelIdByNameEPK
 
 58:                                               ; preds = %.loopexit8
   %59 = icmp ult i32 %38, 12
-  %60 = and i64 %.fr17, 4294967295
+  %60 = and i64 %.fr, 4294967295
   br i1 %59, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %58, %73
@@ -2055,11 +2055,10 @@ define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder2
   %29 = load i64, ptr %28, align 8, !tbaa !136
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %31 = load i64, ptr %30, align 8, !tbaa !129
-  %.fr6 = freeze i64 %29
-  %.fr7 = freeze i64 %31
-  %32 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr6, i64 %.fr7)
-  %33 = extractvalue { i64, i1 } %32, 1
-  %34 = extractvalue { i64, i1 } %32, 0
+  %32 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %29, i64 %31)
+  %.fr6 = freeze { i64, i1 } %32
+  %33 = extractvalue { i64, i1 } %.fr6, 1
+  %34 = extractvalue { i64, i1 } %.fr6, 0
   br i1 %33, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %27, %.split.us

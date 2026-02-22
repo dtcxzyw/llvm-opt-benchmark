@@ -5343,7 +5343,6 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   %.sroa.03.sroa.0.0.copyload.i = load i64, ptr %6, align 8, !noalias !886
   %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.03.sroa.4.0.copyload.i = load i64, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 8, !noalias !886
-  %.sroa.03.sroa.4.0.copyload.i.fr = freeze i64 %.sroa.03.sroa.4.0.copyload.i
   %.sroa.03.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.03.sroa.6.0.copyload.i = load i64, ptr %.sroa.03.sroa.6.0..sroa_idx.i, align 8, !noalias !886
   %.sroa.03.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -5360,21 +5359,21 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   %.sroa.03.sroa.14.0.copyload.i = load ptr, ptr %.sroa.03.sroa.14.0..sroa_idx.i, align 8, !noalias !886
   %.sroa.03.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 96
   %.sroa.03.sroa.15.0.copyload.i = load i64, ptr %.sroa.03.sroa.15.0..sroa_idx.i, align 8, !noalias !886
-  %.sroa.03.sroa.15.0.copyload.i.fr = freeze i64 %.sroa.03.sroa.15.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !886
   %trunc.i.i.i = trunc nuw i64 %.sroa.03.sroa.0.0.copyload.i to i1
   %437 = icmp ne ptr %.sroa.03.sroa.12.0.copyload.i, null
   %438 = icmp ne ptr %.sroa.03.sroa.14.0.copyload.i, null
-  %439 = add i64 %.sroa.03.sroa.15.0.copyload.i.fr, -1
+  %439 = add i64 %.sroa.03.sroa.15.0.copyload.i, -1
   br i1 %trunc.i.i.i, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h47ce5f022dacfe06E.exit.split.us.i", label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h47ce5f022dacfe06E.exit.split.i"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h47ce5f022dacfe06E.exit.split.us.i": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h47ce5f022dacfe06E.exit.i"
   call void @llvm.assume(i1 %437)
   call void @llvm.assume(i1 %438)
-  %440 = sub i64 %.sroa.03.sroa.15.0.copyload.i.fr, %.sroa.03.sroa.6.0.copyload.i
-  %441 = add i64 %.sroa.03.sroa.4.0.copyload.i.fr, -1
-  %.first_iter.i = icmp ult i64 %441, %.sroa.03.sroa.15.0.copyload.i.fr
-  %.not55.us.i = icmp eq i64 %.sroa.03.sroa.4.0.copyload.i.fr, 0
+  %440 = sub i64 %.sroa.03.sroa.15.0.copyload.i, %.sroa.03.sroa.6.0.copyload.i
+  %441 = add i64 %.sroa.03.sroa.4.0.copyload.i, -1
+  %.first_iter.i = icmp ult i64 %441, %.sroa.03.sroa.15.0.copyload.i
+  %.first_iter.i.fr = freeze i1 %.first_iter.i
+  %.not55.us.i = icmp eq i64 %.sroa.03.sroa.4.0.copyload.i, 0
   br label %442
 
 442:                                              ; preds = %526, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h47ce5f022dacfe06E.exit.split.us.i"
@@ -5405,22 +5404,22 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   br i1 %455, label %485, label %456
 
 456:                                              ; preds = %.lr.ph.i30.us.i
-  %.0.sroa.speculated.i.i32.us.i = call i64 @llvm.umax.i64(i64 %.sroa.03.sroa.4.0.copyload.i.fr, i64 %446)
+  %.0.sroa.speculated.i.i32.us.i = call i64 @llvm.umax.i64(i64 %.sroa.03.sroa.4.0.copyload.i, i64 %446)
   br label %457
 
 457:                                              ; preds = %476, %456
   %.sroa.04.0.i33.us.i = phi i64 [ %.0.sroa.speculated.i.i32.us.i, %456 ], [ %477, %476 ]
-  %458 = icmp ult i64 %.sroa.04.0.i33.us.i, %.sroa.03.sroa.15.0.copyload.i.fr
+  %458 = icmp ult i64 %.sroa.04.0.i33.us.i, %.sroa.03.sroa.15.0.copyload.i
   br i1 %458, label %473, label %.preheader57.us.i
 
 .preheader57.us.i:                                ; preds = %457, %466
-  %.sroa.5.0.i34.us.i = phi i64 [ %461, %466 ], [ %.sroa.03.sroa.4.0.copyload.i.fr, %457 ]
+  %.sroa.5.0.i34.us.i = phi i64 [ %461, %466 ], [ %.sroa.03.sroa.4.0.copyload.i, %457 ]
   %459 = icmp ult i64 %446, %.sroa.5.0.i34.us.i
   br i1 %459, label %460, label %.loopexit238.i
 
 460:                                              ; preds = %.preheader57.us.i
   %461 = add i64 %.sroa.5.0.i34.us.i, -1
-  %462 = icmp ult i64 %461, %.sroa.03.sroa.15.0.copyload.i.fr
+  %462 = icmp ult i64 %461, %.sroa.03.sroa.15.0.copyload.i
   br i1 %462, label %463, label %.split139.us.invoke.i, !prof !899
 
 463:                                              ; preds = %460
@@ -5455,13 +5454,13 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   br i1 %.not.i40.us.i, label %457, label %482
 
 482:                                              ; preds = %476
-  %reass.sub = sub i64 %448, %.sroa.03.sroa.4.0.copyload.i.fr
+  %reass.sub = sub i64 %448, %.sroa.03.sroa.4.0.copyload.i
   %483 = add i64 %reass.sub, 1
   %484 = add i64 %483, %.sroa.04.0.i33.us.i
   br label %.backedge.sink.split.i.us.i
 
 485:                                              ; preds = %.lr.ph.i30.us.i
-  %486 = add i64 %448, %.sroa.03.sroa.15.0.copyload.i.fr
+  %486 = add i64 %448, %.sroa.03.sroa.15.0.copyload.i
   br label %.backedge.sink.split.i.us.i
 
 .backedge.sink.split.i.us.i:                      ; preds = %485, %482, %471
@@ -5489,15 +5488,15 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   br i1 %497, label %544, label %.preheader56.us.i
 
 .preheader56.us.i:                                ; preds = %.lr.ph.i.us.i, %535
-  %.sroa.04.0.i.us.i = phi i64 [ %536, %535 ], [ %.sroa.03.sroa.4.0.copyload.i.fr, %.lr.ph.i.us.i ]
-  %498 = icmp ult i64 %.sroa.04.0.i.us.i, %.sroa.03.sroa.15.0.copyload.i.fr
+  %.sroa.04.0.i.us.i = phi i64 [ %536, %535 ], [ %.sroa.03.sroa.4.0.copyload.i, %.lr.ph.i.us.i ]
+  %498 = icmp ult i64 %.sroa.04.0.i.us.i, %.sroa.03.sroa.15.0.copyload.i
   br i1 %498, label %532, label %.preheader.us.i.preheader
 
 .preheader.us.i.preheader:                        ; preds = %.preheader56.us.i
-  br i1 %.first_iter.i, label %.preheader.us.i.us, label %.preheader.us.i.preheader.split, !prof !899
+  br i1 %.first_iter.i.fr, label %.preheader.us.i.us, label %.preheader.us.i.preheader.split, !prof !899
 
 .preheader.us.i.us:                               ; preds = %.preheader.us.i.preheader, %503
-  %.sroa.5.0.i.us.i.us = phi i64 [ %500, %503 ], [ %.sroa.03.sroa.4.0.copyload.i.fr, %.preheader.us.i.preheader ]
+  %.sroa.5.0.i.us.i.us = phi i64 [ %500, %503 ], [ %.sroa.03.sroa.4.0.copyload.i, %.preheader.us.i.preheader ]
   %.not55.us.i.us = icmp eq i64 %.sroa.5.0.i.us.i.us, 0
   br i1 %.not55.us.i.us, label %.loopexit238.i, label %499
 
@@ -5525,7 +5524,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
 .loopexit238.i:                                   ; preds = %.preheader57.us.i, %.preheader.us.i.us, %.preheader.us.i.preheader.split
   %.sroa.327.3.us.i = phi i64 [ -1, %.preheader.us.i.us ], [ -1, %.preheader.us.i.preheader.split ], [ 0, %.preheader57.us.i ]
   %.sroa.6.4.us.i = phi i64 [ %490, %.preheader.us.i.us ], [ %490, %.preheader.us.i.preheader.split ], [ %448, %.preheader57.us.i ]
-  %.sroa.20.3.us.i = add i64 %.sroa.6.4.us.i, %.sroa.03.sroa.15.0.copyload.i.fr
+  %.sroa.20.3.us.i = add i64 %.sroa.6.4.us.i, %.sroa.03.sroa.15.0.copyload.i
   %509 = getelementptr inbounds i8, ptr %.pn3.i, i64 %.0.us.i
   %510 = sub i64 %.sroa.6.4.us.i, %.0.us.i
   %511 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !910, !noalias !917, !noundef !4
@@ -5588,13 +5587,13 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   br i1 %.not.i.us.i, label %.preheader56.us.i, label %541
 
 541:                                              ; preds = %535
-  %reass.sub83 = sub i64 %490, %.sroa.03.sroa.4.0.copyload.i.fr
+  %reass.sub83 = sub i64 %490, %.sroa.03.sroa.4.0.copyload.i
   %542 = add i64 %reass.sub83, 1
   %543 = add i64 %542, %.sroa.04.0.i.us.i
   br label %.backedge.i.us.i
 
 544:                                              ; preds = %.lr.ph.i.us.i
-  %545 = add i64 %490, %.sroa.03.sroa.15.0.copyload.i.fr
+  %545 = add i64 %490, %.sroa.03.sroa.15.0.copyload.i
   br label %.backedge.i.us.i
 
 .backedge.i.us.i:                                 ; preds = %544, %541, %.split.us
@@ -5620,7 +5619,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.lr.ph.i
   %.0156.i = phi i64 [ 0, %.lr.ph.i.i.lr.ph.i ], [ %.sroa.4.1215.i, %.preheader.i.i.i ]
-  %.sroa.4.0155.i = phi i64 [ %.sroa.03.sroa.4.0.copyload.i.fr, %.lr.ph.i.i.lr.ph.i ], [ %.sroa.4.1215.i, %.preheader.i.i.i ]
+  %.sroa.4.0155.i = phi i64 [ %.sroa.03.sroa.4.0.copyload.i, %.lr.ph.i.i.lr.ph.i ], [ %.sroa.4.1215.i, %.preheader.i.i.i ]
   %.sroa.83.sroa.0.0154.i = phi i1 [ %549, %.lr.ph.i.i.lr.ph.i ], [ false, %.preheader.i.i.i ]
   br label %550
 
@@ -5746,7 +5745,7 @@ _ZN4core3str11validations15next_code_point17h1f20b876d124e479E.exit.thread.i.i.i
 
 .split139.us.invoke.i:                            ; preds = %.preheader.us.i.preheader.split, %463, %460, %499, %.split146.us.i, %.split134.us.i
   %609 = phi i64 [ %umax.i39.i, %.split134.us.i ], [ %501, %499 ], [ %umax.i.i, %.split146.us.i ], [ %464, %463 ], [ %461, %460 ], [ %441, %.preheader.us.i.preheader.split ]
-  %610 = phi i64 [ %.sroa.03.sroa.13.0.copyload.i, %.split134.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %499 ], [ %.sroa.03.sroa.13.0.copyload.i, %.split146.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %463 ], [ %.sroa.03.sroa.15.0.copyload.i.fr, %460 ], [ %.sroa.03.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
+  %610 = phi i64 [ %.sroa.03.sroa.13.0.copyload.i, %.split134.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %499 ], [ %.sroa.03.sroa.13.0.copyload.i, %.split146.us.i ], [ %.sroa.03.sroa.13.0.copyload.i, %463 ], [ %.sroa.03.sroa.15.0.copyload.i, %460 ], [ %.sroa.03.sroa.15.0.copyload.i, %.preheader.us.i.preheader.split ]
   %611 = phi ptr [ @anon.dc044dcd590149678512a52a53cfae49.47, %.split134.us.i ], [ @anon.dc044dcd590149678512a52a53cfae49.45, %499 ], [ @anon.dc044dcd590149678512a52a53cfae49.47, %.split146.us.i ], [ @anon.dc044dcd590149678512a52a53cfae49.45, %463 ], [ @anon.dc044dcd590149678512a52a53cfae49.44, %460 ], [ @anon.dc044dcd590149678512a52a53cfae49.44, %.preheader.us.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef %609, i64 noundef %610, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %611) #25
           to label %.split139.us.cont.i unwind label %.loopexit.split-lp.i, !noalias !890
@@ -5755,7 +5754,7 @@ _ZN4core3str11validations15next_code_point17h1f20b876d124e479E.exit.thread.i.i.i
   unreachable
 
 .split146.us.i:                                   ; preds = %532
-  %612 = add i64 %490, %.sroa.03.sroa.4.0.copyload.i.fr
+  %612 = add i64 %490, %.sroa.03.sroa.4.0.copyload.i
   %umax.i.i = call i64 @llvm.umax.i64(i64 %.sroa.03.sroa.13.0.copyload.i, i64 %612)
   br label %.split139.us.invoke.i
 

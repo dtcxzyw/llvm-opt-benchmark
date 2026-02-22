@@ -1490,7 +1490,8 @@ _Z11max_cutoff27PbcTypePA3_Kf.exit:               ; preds = %.loopexit251, %181
 .preheader246:                                    ; preds = %228
   %or.cond11 = or i1 %233, %226
   %234 = sitofp i32 %230 to float
-  br i1 %or.cond11, label %.preheader246.split, label %.loopexit
+  %or.cond11.fr = freeze i1 %or.cond11
+  br i1 %or.cond11.fr, label %.preheader246.split, label %.loopexit
 
 .preheader246.split:                              ; preds = %.preheader246, %337
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %337 ], [ 0, %.preheader246 ]
@@ -1734,8 +1735,8 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKN3gmx11BasicVectorIiEEbPA3_Kf
 
 .thread:                                          ; preds = %12
   %14 = load i32, ptr %2, align 4, !tbaa !26
-  %.fr = freeze i32 %14
-  %15 = icmp sgt i32 %.fr, 1
+  %.fr38 = freeze i32 %14
+  %15 = icmp sgt i32 %.fr38, 1
   %spec.select = select i1 %15, i32 0, i32 3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = select i1 %3, i32 1, i32 2
@@ -1749,7 +1750,7 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKN3gmx11BasicVectorIiEEbPA3_Kf
 
 .split.us.preheader:                              ; preds = %.thread, %17
   %20 = phi i32 [ %16, %.thread ], [ %18, %17 ]
-  %.02947 = phi i32 [ %spec.select, %.thread ], [ %1, %17 ]
+  %.02948 = phi i32 [ %spec.select, %.thread ], [ %1, %17 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %26
@@ -1774,20 +1775,20 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKN3gmx11BasicVectorIiEEbPA3_Kf
   br i1 %exitcond.not, label %.split37.us, label %.split.us, !llvm.loop !48
 
 .split37.us:                                      ; preds = %34, %26
-  %.02946 = phi i32 [ %.02947, %26 ], [ %1, %34 ]
+  %.02947 = phi i32 [ %.02948, %26 ], [ %1, %34 ]
   %.us-phi = phi i32 [ %.1.us, %26 ], [ %.1, %34 ]
   %27 = icmp sgt i32 %.us-phi, 0
   br i1 %27, label %35, label %36
 
 .split:                                           ; preds = %17, %34
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %34 ], [ 0, %17 ]
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %34 ], [ 0, %17 ]
   %.02734 = phi i32 [ %.1, %34 ], [ 0, %17 ]
-  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv40
+  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv41
   store i32 0, ptr %28, align 4, !tbaa !26
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv40
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %.not = icmp sgt i32 %30, %18
-  %31 = icmp eq i64 %indvars.iv40, 2
+  %31 = icmp eq i64 %indvars.iv41, 2
   %or.cond = or i1 %.not, %31
   br i1 %or.cond, label %34, label %32
 
@@ -1798,12 +1799,12 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKN3gmx11BasicVectorIiEEbPA3_Kf
 
 34:                                               ; preds = %.split, %32
   %.1 = phi i32 [ %.02734, %.split ], [ %33, %32 ]
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %.split37.us, label %.split, !llvm.loop !48
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
+  br i1 %exitcond44.not, label %.split37.us, label %.split, !llvm.loop !48
 
 35:                                               ; preds = %.split37.us
-  call fastcc void @_ZL11low_set_pbcP5t_pbc7PbcTypePKiPA3_Kf(ptr noundef %0, i32 noundef %.02946, ptr noundef nonnull %6, ptr noundef %4)
+  call fastcc void @_ZL11low_set_pbcP5t_pbc7PbcTypePKiPA3_Kf(ptr noundef %0, i32 noundef %.02947, ptr noundef nonnull %6, ptr noundef %4)
   br label %37
 
 36:                                               ; preds = %.split37.us

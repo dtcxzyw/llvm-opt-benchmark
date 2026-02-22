@@ -912,14 +912,14 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %19 = load ptr, ptr %18, align 8, !tbaa !171
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 620
   %21 = load i32, ptr %20, align 4, !tbaa !172
-  %.fr = freeze i32 %21
-  %22 = and i32 %.fr, 256
-  %.not19 = icmp eq i32 %22, 0
+  %.fr19 = freeze i32 %21
+  %22 = and i32 %.fr19, 256
+  %.not20 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %24 = load i32, ptr %23, align 16, !tbaa !189
   %25 = icmp sgt i32 %24, 0
   %26 = select i1 %25, float 8.500000e+00, float 7.250000e+00
-  %spec.select = select i1 %.not19, float %26, float 2.250000e+00
+  %spec.select = select i1 %.not20, float %26, float 2.250000e+00
   br label %.thread
 
 .thread:                                          ; preds = %5, %17

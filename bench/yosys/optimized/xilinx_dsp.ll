@@ -159526,11 +159526,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1714
-  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8, !tbaa !1620
-  %.fr14.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr13.i to i64
-  %8 = ptrtoint ptr %.fr14.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !1621
@@ -159552,16 +159550,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #31
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -24
   %23 = sub i64 %22, %8
-  %24 = urem i64 %23, 24
-  %25 = add i64 %23, 24
+  %.fr.i = freeze i64 %23
+  %24 = urem i64 %.fr.i, 24
+  %25 = add i64 %.fr.i, 24
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %.fr14.i, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_.exit
 
 _ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_.exit: ; preds = %_ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -159597,7 +159596,7 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
   %.012.i.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i.i ], [ %36, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0910.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0910.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
@@ -159619,7 +159618,7 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_S5_ET0_T_S8_S7_RSaIT1_E.exit, !llvm.loop !1825
 
 51:                                               ; preds = %29
-  %52 = getelementptr inbounds nuw i8, ptr %.fr14.i, i64 %33
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %33
   %53 = icmp sgt i64 %33, 0
   br i1 %53, label %.lr.ph.preheader.i.i.i.i.i26, label %_ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit
 
@@ -159630,7 +159629,7 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
 .lr.ph.i.i.i.i.i27:                               ; preds = %.lr.ph.i.i.i.i.i27, %.lr.ph.preheader.i.i.i.i.i26
   %.012.i.i.i.i.i28 = phi i64 [ %67, %.lr.ph.i.i.i.i.i27 ], [ %54, %.lr.ph.preheader.i.i.i.i.i26 ]
   %.0811.i.i.i.i.i29 = phi ptr [ %66, %.lr.ph.i.i.i.i.i27 ], [ %12, %.lr.ph.preheader.i.i.i.i.i26 ]
-  %.0910.i.i.i.i.i30 = phi ptr [ %65, %.lr.ph.i.i.i.i.i27 ], [ %.fr14.i, %.lr.ph.preheader.i.i.i.i.i26 ]
+  %.0910.i.i.i.i.i30 = phi ptr [ %65, %.lr.ph.i.i.i.i.i27 ], [ %6, %.lr.ph.preheader.i.i.i.i.i26 ]
   %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i30, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !39
   %57 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i29, i64 16
@@ -159652,7 +159651,7 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
   br i1 %68, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit, !llvm.loop !1826
 
 _ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i27, %51
-  %.not9.i.i.i.i = icmp eq ptr %52, %.fr13.i
+  %.not9.i.i.i.i = icmp eq ptr %52, %5
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_S5_ET0_T_S8_S7_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit, %.lr.ph.i.i.i.i
@@ -159661,7 +159660,7 @@ _ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit: ; preds = %.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i, i64 24, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %69, %.fr13.i
+  %.not.i.i.i.i = icmp eq ptr %69, %5
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_S5_ET0_T_S8_S7_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1827
 
 _ZSt22__uninitialized_copy_aIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_S5_ET0_T_S8_S7_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i

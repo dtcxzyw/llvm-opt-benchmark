@@ -1086,16 +1086,15 @@ define void @ff_vc1_mc_4mv_luma(ptr noundef readonly %0, i32 noundef %1, i32 nou
 .thread376:                                       ; preds = %78
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 10420
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !45
-  %.pre.fr = freeze i32 %.pre
   %.phi.trans.insert480 = getelementptr inbounds nuw i8, ptr %0, i64 10424
   %.phi.trans.insert481 = getelementptr inbounds i32, ptr %.phi.trans.insert480, i64 %.pre-phi493
   %.pre482 = load i32, ptr %.phi.trans.insert481, align 4, !tbaa !44
-  %.pre482.fr = freeze i32 %.pre482
-  %79 = icmp eq i32 %.pre.fr, %.pre482.fr
+  %79 = icmp eq i32 %.pre, %.pre482
   %80 = add nsw i32 %52, -2
-  %81 = shl nsw i32 %.pre.fr, 2
+  %81 = shl nsw i32 %.pre, 2
   %82 = add nsw i32 %80, %81
-  %spec.select = select i1 %79, i32 %52, i32 %82
+  %cond.fr = freeze i1 %79
+  %spec.select = select i1 %cond.fr, i32 %52, i32 %82
   br label %83
 
 83:                                               ; preds = %.thread376, %.thread376.thread

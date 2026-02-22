@@ -21813,10 +21813,10 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLi3
   %9 = alloca %"class.Eigen::Block.2751", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !range !309
-  %.fr = freeze i8 %11
-  %12 = trunc i8 %.fr to i1
-  %or.cond66 = xor i1 %12, true
-  %spec.select = and i1 %3, %or.cond66
+  %.fr66 = freeze i8 %11
+  %12 = trunc i8 %.fr66 to i1
+  %or.cond67 = xor i1 %12, true
+  %spec.select = and i1 %3, %or.cond67
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !455
   %15 = icmp sgt i64 %14, 47

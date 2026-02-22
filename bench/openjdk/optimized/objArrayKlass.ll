@@ -5056,7 +5056,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16ModRefBarrierSet13AccessBarr
   %9 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i = select i1 %.not.i, ptr %2, ptr %9
   %.not.i32 = icmp eq ptr %3, null
-  %10 = getelementptr i8, ptr %3, i64 %4
+  %10 = getelementptr inbounds i8, ptr %3, i64 %4
   %spec.select.i33 = select i1 %.not.i32, ptr %5, ptr %10
   %11 = tail call noundef ptr @_ZN15objArrayOopDesc13element_klassEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %.idx = shl nsw i64 %6, 2
@@ -5127,7 +5127,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit: ; preds = %49
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %15, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit
   store i32 %16, ptr %.03040, align 4
   %51 = getelementptr inbounds nuw i8, ptr %.03139, i64 4
-  %52 = getelementptr i8, ptr %.03040, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.03040, i64 4
   %.not = icmp ult ptr %51, %12
   br i1 %.not, label %15, label %._crit_edge, !llvm.loop !30
 
@@ -5137,8 +5137,9 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %49, %_ZN
   %55 = ptrtoint ptr %.03040 to i64
   %56 = ptrtoint ptr %spec.select.i33 to i64
   %57 = sub i64 %55, %56
-  %58 = urem i64 %57, %54
-  %59 = sub i64 %57, %58
+  %.fr = freeze i64 %57
+  %58 = urem i64 %.fr, %54
+  %59 = sub nuw i64 %.fr, %58
   br label %64
 
 ._crit_edge:                                      ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread, %7
@@ -5175,7 +5176,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16ModRefBarrierSet13AccessBarr
   %9 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i = select i1 %.not.i, ptr %2, ptr %9
   %.not.i32 = icmp eq ptr %3, null
-  %10 = getelementptr i8, ptr %3, i64 %4
+  %10 = getelementptr inbounds i8, ptr %3, i64 %4
   %spec.select.i33 = select i1 %.not.i32, ptr %5, ptr %10
   %11 = tail call noundef ptr @_ZN15objArrayOopDesc13element_klassEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %.idx = shl nsw i64 %6, 2
@@ -5274,7 +5275,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread: ; preds = %_ZNK7oopDe
 _ZN12G1BarrierSet19write_ref_field_preILm52715622E9narrowOopEEvPT0_.exit: ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread, %57, %60
   store i32 %17, ptr %.03040, align 4
   %71 = getelementptr inbounds nuw i8, ptr %.03139, i64 4
-  %72 = getelementptr i8, ptr %.03040, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.03040, i64 4
   %.not = icmp ult ptr %71, %12
   br i1 %.not, label %16, label %._crit_edge, !llvm.loop !31
 
@@ -5284,8 +5285,9 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %50, %_ZN
   %75 = ptrtoint ptr %.03040 to i64
   %76 = ptrtoint ptr %spec.select.i33 to i64
   %77 = sub i64 %75, %76
-  %78 = urem i64 %77, %74
-  %79 = sub i64 %77, %78
+  %.fr = freeze i64 %77
+  %78 = urem i64 %.fr, %74
+  %79 = sub nuw i64 %.fr, %78
   br label %84
 
 ._crit_edge:                                      ; preds = %_ZN12G1BarrierSet19write_ref_field_preILm52715622E9narrowOopEEvPT0_.exit, %7
@@ -5322,7 +5324,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %9 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i.i = select i1 %.not.i.i, ptr %2, ptr %9
   %.not.i32.i = icmp eq ptr %3, null
-  %10 = getelementptr i8, ptr %3, i64 %4
+  %10 = getelementptr inbounds i8, ptr %3, i64 %4
   %spec.select.i33.i = select i1 %.not.i32.i, ptr %5, ptr %10
   %11 = tail call noundef ptr @_ZN15objArrayOopDesc13element_klassEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %.idx.i = shl nsw i64 %6, 3
@@ -5383,7 +5385,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i: ; preds = %39
 _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i: ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.i, %_ZNK7oopDesc5klassEv.exit.i.i, %15
   store ptr %16, ptr %.03040.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 8
-  %42 = getelementptr i8, ptr %.03040.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.03040.i, i64 8
   %.not.i = icmp ult ptr %41, %12
   br i1 %.not.i, label %15, label %._crit_edge.i, !llvm.loop !32
 
@@ -5393,8 +5395,9 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i: ; preds = %_ZN7oo
   %45 = ptrtoint ptr %.03040.i to i64
   %46 = ptrtoint ptr %spec.select.i33.i to i64
   %47 = sub i64 %45, %46
-  %48 = urem i64 %47, %44
-  %49 = sub i64 %47, %48
+  %.fr.i = freeze i64 %47
+  %48 = urem i64 %.fr.i, %44
+  %49 = sub nuw i64 %.fr.i, %48
   br label %_ZN16ModRefBarrierSet13AccessBarrierILm52715590E19CardTableBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit
 
 ._crit_edge.i:                                    ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i, %7
@@ -5599,7 +5602,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16ModRefBarrierSet13AccessBarr
   %9 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i = select i1 %.not.i, ptr %2, ptr %9
   %.not.i32 = icmp eq ptr %3, null
-  %10 = getelementptr i8, ptr %3, i64 %4
+  %10 = getelementptr inbounds i8, ptr %3, i64 %4
   %spec.select.i33 = select i1 %.not.i32, ptr %5, ptr %10
   %11 = tail call noundef ptr @_ZN15objArrayOopDesc13element_klassEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %.idx = shl nsw i64 %6, 3
@@ -5680,7 +5683,7 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread: ; preds = %_ZNK7oopDe
 _ZN12G1BarrierSet19write_ref_field_preILm52715590EP7oopDescEEvPT0_.exit: ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread, %47, %50
   store ptr %17, ptr %.03040, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.03139, i64 8
-  %54 = getelementptr i8, ptr %.03040, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.03040, i64 8
   %.not = icmp ult ptr %53, %12
   br i1 %.not, label %16, label %._crit_edge, !llvm.loop !35
 
@@ -5690,8 +5693,9 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %40, %_ZN
   %57 = ptrtoint ptr %.03040 to i64
   %58 = ptrtoint ptr %spec.select.i33 to i64
   %59 = sub i64 %57, %58
-  %60 = urem i64 %59, %56
-  %61 = sub i64 %59, %60
+  %.fr = freeze i64 %59
+  %60 = urem i64 %.fr, %56
+  %61 = sub nuw i64 %.fr, %60
   br label %66
 
 ._crit_edge:                                      ; preds = %_ZN12G1BarrierSet19write_ref_field_preILm52715590EP7oopDescEEvPT0_.exit, %7

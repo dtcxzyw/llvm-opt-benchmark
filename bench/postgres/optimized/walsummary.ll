@@ -35,8 +35,8 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
   %4 = alloca [5 x i32], align 16
   %5 = tail call ptr @AllocateDir(ptr noundef nonnull @.str) #11
   %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
-  %.not33 = icmp eq ptr %6, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq ptr %6, null
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -49,8 +49,8 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
   br i1 %.not25, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %IsWalSummaryFilename.exit.thread.us
-  %13 = phi ptr [ %40, %IsWalSummaryFilename.exit.thread.us ], [ %6, %.lr.ph ]
-  %.034.us = phi ptr [ %.1.us, %IsWalSummaryFilename.exit.thread.us ], [ null, %.lr.ph ]
+  %13 = phi ptr [ %41, %IsWalSummaryFilename.exit.thread.us ], [ %6, %.lr.ph ]
+  %.033.us = phi ptr [ %.1.us, %IsWalSummaryFilename.exit.thread.us ], [ null, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = call i64 @strspn(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #12
@@ -66,105 +66,103 @@ IsWalSummaryFilename.exit.us:                     ; preds = %.lr.ph.split.us
 20:                                               ; preds = %IsWalSummaryFilename.exit.us
   %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %22 = load i32, ptr %7, align 4
-  %.fr.us = freeze i32 %22
-  %23 = zext i32 %.fr.us to i64
+  %23 = zext i32 %22 to i64
   %24 = shl nuw i64 %23, 32
   %25 = load i32, ptr %8, align 8
-  %.fr31.us = freeze i32 %25
-  %26 = zext i32 %.fr31.us to i64
+  %26 = zext i32 %25 to i64
   %27 = or disjoint i64 %24, %26
-  %28 = load i32, ptr %9, align 4
-  %29 = zext i32 %28 to i64
-  %30 = shl nuw i64 %29, 32
-  %31 = load i32, ptr %10, align 16
-  %32 = zext i32 %31 to i64
-  %33 = or disjoint i64 %30, %32
-  %.not27.us = icmp uge i64 %1, %33
+  %28 = freeze i64 %27
+  %29 = load i32, ptr %9, align 4
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw i64 %30, 32
+  %32 = load i32, ptr %10, align 16
+  %33 = zext i32 %32 to i64
+  %34 = or disjoint i64 %31, %33
+  %.not27.us = icmp uge i64 %1, %34
   %or.cond29.us.not = select i1 %11, i1 %.not27.us, i1 false
-  %or.cond30.not.us = icmp ult i64 %12, %27
-  %or.cond32.us = select i1 %or.cond29.us.not, i1 true, i1 %or.cond30.not.us
-  br i1 %or.cond32.us, label %IsWalSummaryFilename.exit.thread.us, label %34, !llvm.loop !4
+  %or.cond30.not.us = icmp ult i64 %12, %28
+  %or.cond31.us = or i1 %or.cond30.not.us, %or.cond29.us.not
+  br i1 %or.cond31.us, label %IsWalSummaryFilename.exit.thread.us, label %35, !llvm.loop !4
 
-34:                                               ; preds = %20
-  %35 = load i32, ptr %4, align 16
-  %36 = call ptr @palloc(i64 noundef 24) #11
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 %35, ptr %37, align 8
-  store i64 %27, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %33, ptr %38, align 8
-  %39 = call ptr @lappend(ptr noundef %.034.us, ptr noundef nonnull %36) #11
+35:                                               ; preds = %20
+  %36 = load i32, ptr %4, align 16
+  %37 = call ptr @palloc(i64 noundef 24) #11
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i32 %36, ptr %38, align 8
+  store i64 %28, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i64 %34, ptr %39, align 8
+  %40 = call ptr @lappend(ptr noundef %.033.us, ptr noundef nonnull %37) #11
   br label %IsWalSummaryFilename.exit.thread.us
 
-IsWalSummaryFilename.exit.thread.us:              ; preds = %34, %20, %IsWalSummaryFilename.exit.us, %.lr.ph.split.us
-  %.1.us = phi ptr [ %.034.us, %IsWalSummaryFilename.exit.us ], [ %39, %34 ], [ %.034.us, %20 ], [ %.034.us, %.lr.ph.split.us ]
+IsWalSummaryFilename.exit.thread.us:              ; preds = %35, %20, %IsWalSummaryFilename.exit.us, %.lr.ph.split.us
+  %.1.us = phi ptr [ %.033.us, %IsWalSummaryFilename.exit.us ], [ %40, %35 ], [ %.033.us, %20 ], [ %.033.us, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %40 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
-  %.not.us = icmp eq ptr %40, null
+  %41 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
+  %.not.us = icmp eq ptr %41, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %IsWalSummaryFilename.exit.thread
-  %41 = phi ptr [ %69, %IsWalSummaryFilename.exit.thread ], [ %6, %.lr.ph ]
-  %.034 = phi ptr [ %.1, %IsWalSummaryFilename.exit.thread ], [ null, %.lr.ph ]
+  %42 = phi ptr [ %71, %IsWalSummaryFilename.exit.thread ], [ %6, %.lr.ph ]
+  %.033 = phi ptr [ %.1, %IsWalSummaryFilename.exit.thread ], [ null, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 19
-  %43 = call i64 @strspn(ptr noundef nonnull readonly %42, ptr noundef nonnull @.str.12) #12
-  %44 = icmp eq i64 %43, 40
-  br i1 %44, label %IsWalSummaryFilename.exit, label %IsWalSummaryFilename.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 19
+  %44 = call i64 @strspn(ptr noundef nonnull readonly %43, ptr noundef nonnull @.str.12) #12
+  %45 = icmp eq i64 %44, 40
+  br i1 %45, label %IsWalSummaryFilename.exit, label %IsWalSummaryFilename.exit.thread
 
 IsWalSummaryFilename.exit:                        ; preds = %.lr.ph.split
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 59
-  %46 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %45, ptr noundef nonnull dereferenceable(9) @.str.13) #12
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %IsWalSummaryFilename.exit.thread, !llvm.loop !4
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 59
+  %47 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull dereferenceable(9) @.str.13) #12
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %IsWalSummaryFilename.exit.thread, !llvm.loop !4
 
-48:                                               ; preds = %IsWalSummaryFilename.exit
-  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %42, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
-  %50 = load i32, ptr %4, align 16
-  %51 = load i32, ptr %7, align 4
-  %.fr = freeze i32 %51
-  %52 = zext i32 %.fr to i64
-  %53 = shl nuw i64 %52, 32
-  %54 = load i32, ptr %8, align 8
-  %.fr31 = freeze i32 %54
-  %55 = zext i32 %.fr31 to i64
-  %56 = or disjoint i64 %53, %55
-  %57 = load i32, ptr %9, align 4
-  %58 = zext i32 %57 to i64
-  %59 = shl nuw i64 %58, 32
-  %60 = load i32, ptr %10, align 16
-  %61 = zext i32 %60 to i64
-  %62 = or disjoint i64 %59, %61
-  %.not26 = icmp eq i32 %0, %50
-  br i1 %.not26, label %63, label %IsWalSummaryFilename.exit.thread, !llvm.loop !4
+49:                                               ; preds = %IsWalSummaryFilename.exit
+  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %43, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
+  %51 = load i32, ptr %4, align 16
+  %52 = load i32, ptr %7, align 4
+  %53 = zext i32 %52 to i64
+  %54 = shl nuw i64 %53, 32
+  %55 = load i32, ptr %8, align 8
+  %56 = zext i32 %55 to i64
+  %57 = or disjoint i64 %54, %56
+  %58 = freeze i64 %57
+  %59 = load i32, ptr %9, align 4
+  %60 = zext i32 %59 to i64
+  %61 = shl nuw i64 %60, 32
+  %62 = load i32, ptr %10, align 16
+  %63 = zext i32 %62 to i64
+  %64 = or disjoint i64 %61, %63
+  %.not26 = icmp eq i32 %0, %51
+  br i1 %.not26, label %65, label %IsWalSummaryFilename.exit.thread, !llvm.loop !4
 
-63:                                               ; preds = %48
-  %.not27 = icmp uge i64 %1, %62
+65:                                               ; preds = %49
+  %.not27 = icmp uge i64 %1, %64
   %or.cond29 = select i1 %11, i1 %.not27, i1 false
-  %or.cond30.not = icmp ult i64 %12, %56
-  %or.cond32 = select i1 %or.cond29, i1 true, i1 %or.cond30.not
-  br i1 %or.cond32, label %IsWalSummaryFilename.exit.thread, label %64, !llvm.loop !4
+  %or.cond30.not = icmp ult i64 %12, %58
+  %or.cond31 = or i1 %or.cond30.not, %or.cond29
+  br i1 %or.cond31, label %IsWalSummaryFilename.exit.thread, label %66, !llvm.loop !4
 
-64:                                               ; preds = %63
-  %65 = call ptr @palloc(i64 noundef 24) #11
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 %0, ptr %66, align 8
-  store i64 %56, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i64 %62, ptr %67, align 8
-  %68 = call ptr @lappend(ptr noundef %.034, ptr noundef nonnull %65) #11
+66:                                               ; preds = %65
+  %67 = call ptr @palloc(i64 noundef 24) #11
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store i32 %0, ptr %68, align 8
+  store i64 %58, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store i64 %64, ptr %69, align 8
+  %70 = call ptr @lappend(ptr noundef %.033, ptr noundef nonnull %67) #11
   br label %IsWalSummaryFilename.exit.thread
 
-IsWalSummaryFilename.exit.thread:                 ; preds = %.lr.ph.split, %63, %48, %IsWalSummaryFilename.exit, %64
-  %.1 = phi ptr [ %.034, %IsWalSummaryFilename.exit ], [ %68, %64 ], [ %.034, %63 ], [ %.034, %48 ], [ %.034, %.lr.ph.split ]
+IsWalSummaryFilename.exit.thread:                 ; preds = %.lr.ph.split, %65, %49, %IsWalSummaryFilename.exit, %66
+  %.1 = phi ptr [ %.033, %IsWalSummaryFilename.exit ], [ %70, %66 ], [ %.033, %65 ], [ %.033, %49 ], [ %.033, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %69 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
-  %.not = icmp eq ptr %69, null
+  %71 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
+  %.not = icmp eq ptr %71, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %IsWalSummaryFilename.exit.thread, %IsWalSummaryFilename.exit.thread.us, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.1.us, %IsWalSummaryFilename.exit.thread.us ], [ %.1, %IsWalSummaryFilename.exit.thread ]
-  %70 = call i32 @FreeDir(ptr noundef %5) #11
+  %72 = call i32 @FreeDir(ptr noundef %5) #11
   ret ptr %.0.lcssa
 }
 

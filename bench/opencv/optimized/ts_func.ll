@@ -2291,8 +2291,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
 
 40:                                               ; preds = %42
   %41 = add nuw i64 %.0100172, 1
-  %exitcond214.not = icmp eq i64 %41, %34
-  br i1 %exitcond214.not, label %.split180.preheader, label %42, !llvm.loop !89
+  %exitcond217.not = icmp eq i64 %41, %34
+  br i1 %exitcond217.not, label %.split180.preheader, label %42, !llvm.loop !89
 
 42:                                               ; preds = %.lr.ph, %40
   %.0100172 = phi i64 [ 1, %.lr.ph ], [ %41, %40 ]
@@ -2318,13 +2318,13 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
 .split180.us.preheader:                           ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not195 = icmp eq i64 %37, 0
+  %.not198 = icmp eq i64 %37, 0
   br label %.split180.us
 
 .split180.us:                                     ; preds = %.split180.us.preheader, %.loopexit.us
   %.098.us = phi i64 [ %57, %.loopexit.us ], [ 0, %.split180.us.preheader ]
-  %exitcond217.not = icmp eq i64 %.098.us, %23
-  br i1 %exitcond217.not, label %.split187.us, label %52
+  %exitcond220.not = icmp eq i64 %.098.us, %23
+  br i1 %exitcond220.not, label %.split187.us, label %52
 
 52:                                               ; preds = %.split180.us
   %53 = load ptr, ptr %50, align 8, !tbaa !57
@@ -2342,7 +2342,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
           to label %.split180.us unwind label %.split189.us, !llvm.loop !90
 
 .preheader127.us:                                 ; preds = %52
-  br i1 %.not195, label %.loopexit.us, label %.preheader.us.us
+  br i1 %.not198, label %.loopexit.us, label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader127.us, %._crit_edge177.us.us
   %.099179.us.us = phi i64 [ %64, %._crit_edge177.us.us ], [ 0, %.preheader127.us ]
@@ -2356,8 +2356,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
   %62 = getelementptr inbounds nuw i8, ptr %.0105178.us.us, i64 %.1101175.us.us
   store i8 %61, ptr %62, align 1, !tbaa !15
   %63 = add nuw i64 %.1101175.us.us, 1
-  %exitcond216.not = icmp eq i64 %63, %34
-  br i1 %exitcond216.not, label %._crit_edge177.us.us, label %59, !llvm.loop !91
+  %exitcond219.not = icmp eq i64 %63, %34
+  br i1 %exitcond219.not, label %._crit_edge177.us.us, label %59, !llvm.loop !91
 
 ._crit_edge177.us.us:                             ; preds = %59
   %64 = add i64 %.099179.us.us, %34
@@ -2372,8 +2372,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
 
 .split180:                                        ; preds = %.split180.preheader, %68
   %.098 = phi i64 [ %71, %68 ], [ 0, %.split180.preheader ]
-  %exitcond215.not = icmp eq i64 %.098, %23
-  br i1 %exitcond215.not, label %.split187.us, label %68
+  %exitcond218.not = icmp eq i64 %.098, %23
+  br i1 %exitcond218.not, label %.split187.us, label %68
 
 68:                                               ; preds = %.split180
   %69 = load ptr, ptr %49, align 8, !tbaa !57
@@ -2406,8 +2406,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
 75:                                               ; preds = %3
   %76 = load i32, ptr %0, align 8, !tbaa !55
   %77 = load i32, ptr %2, align 8, !tbaa !55
-  %.fr194 = freeze i32 %77
-  %78 = lshr i32 %.fr194, 3
+  %.fr197 = freeze i32 %77
+  %78 = lshr i32 %.fr197, 3
   %79 = and i32 %78, 511
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2499,7 +2499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %93, %
   br label %_ZNK2cv3Mat8elemSizeEv.exit124
 
 _ZNK2cv3Mat8elemSizeEv.exit124:                   ; preds = %105, %109
-  %.fr = phi i64 [ %116, %109 ], [ 0, %105 ]
+  %.fr193 = phi i64 [ %116, %109 ], [ 0, %105 ]
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !40
   %119 = icmp sgt i32 %118, 0
@@ -2526,26 +2526,26 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
   %133 = shl i32 %132, 2
   %134 = and i32 %133, 28
   %135 = lshr i32 675553809, %134
-  %.fr191 = freeze i32 %135
-  %136 = and i32 %.fr191, 15
+  %.fr = freeze i32 %135
+  %136 = and i32 %.fr, 15
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %139 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %.not = icmp eq i64 %128, 0
   %.not192 = icmp eq i32 %136, 0
-  %.not193 = icmp eq i64 %.fr, 0
+  %.not194 = icmp eq i64 %.fr193, 0
   br i1 %.not, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %129
   br i1 %86, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us
-  br i1 %.not193, label %.split.us.split.us.split, label %.split.us.split.us.split.us
+  br i1 %.not194, label %.split.us.split.us.split, label %.split.us.split.us.split.us
 
 .split.us.split.us.split.us:                      ; preds = %.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
   %.097.us.us.us = phi i64 [ %151, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.split.us.split.us ]
-  %exitcond211.not = icmp eq i64 %.097.us.us.us, %131
-  br i1 %exitcond211.not, label %.split163.us, label %.lr.ph142.us.us.us
+  %exitcond214.not = icmp eq i64 %.097.us.us.us, %131
+  br i1 %exitcond214.not, label %.split163.us, label %.lr.ph142.us.us.us
 
 .lr.ph142.us.us.us:                               ; preds = %.split.us.split.us.split.us
   %140 = load ptr, ptr %138, align 16, !tbaa !57
@@ -2567,15 +2567,15 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
   %146 = getelementptr inbounds nuw i8, ptr %.088138.us.us.us.us.us, i64 %.0102136.us.us.us.us.us
   store i8 %145, ptr %146, align 1, !tbaa !15
   %147 = add nuw i64 %.0102136.us.us.us.us.us, 1
-  %exitcond209.not = icmp eq i64 %147, %.fr
-  br i1 %exitcond209.not, label %..loopexit131_crit_edge.us.us.us.us.us, label %.preheader130.us.us.us.us.us, !llvm.loop !93
+  %exitcond212.not = icmp eq i64 %147, %.fr193
+  br i1 %exitcond212.not, label %..loopexit131_crit_edge.us.us.us.us.us, label %.preheader130.us.us.us.us.us, !llvm.loop !93
 
 ..loopexit131_crit_edge.us.us.us.us.us:           ; preds = %.preheader130.us.us.us.us.us, %142
   %148 = add nuw i64 %.0104137.us.us.us.us.us, 1
-  %149 = getelementptr inbounds nuw i8, ptr %.088138.us.us.us.us.us, i64 %.fr
+  %149 = getelementptr inbounds nuw i8, ptr %.088138.us.us.us.us.us, i64 %.fr193
   %150 = getelementptr inbounds nuw i8, ptr %.087140.us.us.us.us.us, i64 %127
-  %exitcond210.not = icmp eq i64 %148, %128
-  br i1 %exitcond210.not, label %._crit_edge.split.us.split.us.us.us.us, label %142, !llvm.loop !94
+  %exitcond213.not = icmp eq i64 %148, %128
+  br i1 %exitcond213.not, label %._crit_edge.split.us.split.us.us.us.us, label %142, !llvm.loop !94
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %..loopexit131_crit_edge.us.us.us.us.us
   %151 = add i64 %.097.us.us.us, 1
@@ -2589,8 +2589,8 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split.us.split.us.split:                         ; preds = %.split.us.split.us, %.lr.ph142.us.us
   %.097.us.us = phi i64 [ %154, %.lr.ph142.us.us ], [ 0, %.split.us.split.us ]
-  %exitcond212.not = icmp eq i64 %.097.us.us, %131
-  br i1 %exitcond212.not, label %.split163.us, label %.lr.ph142.us.us
+  %exitcond215.not = icmp eq i64 %.097.us.us, %131
+  br i1 %exitcond215.not, label %.split163.us, label %.lr.ph142.us.us
 
 .lr.ph142.us.us:                                  ; preds = %.split.us.split.us.split
   %154 = add i64 %.097.us.us, 1
@@ -2612,8 +2612,8 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split.us.split.split.us:                         ; preds = %.split.us.split.split.us.preheader, %._crit_edge.split.split.us.us.us
   %.097.us.us168 = phi i64 [ %173, %._crit_edge.split.split.us.us.us ], [ 0, %.split.us.split.split.us.preheader ]
-  %exitcond207.not = icmp eq i64 %.097.us.us168, %131
-  br i1 %exitcond207.not, label %.split163.us, label %.lr.ph142.us.us169
+  %exitcond210.not = icmp eq i64 %.097.us.us168, %131
+  br i1 %exitcond210.not, label %.split163.us, label %.lr.ph142.us.us169
 
 .lr.ph142.us.us169:                               ; preds = %.split.us.split.split.us
   %158 = load ptr, ptr %138, align 16, !tbaa !57
@@ -2646,8 +2646,8 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 ..loopexit129_crit_edge.us.us.us.us:              ; preds = %163, %160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond205.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond205.not, label %.loopexit133.split.us.us.us.us, label %160, !llvm.loop !97
+  %exitcond208.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond208.not, label %.loopexit133.split.us.us.us.us, label %160, !llvm.loop !97
 
 .preheader128.us.us.us.us:                        ; preds = %160
   %169 = mul nuw nsw i64 %indvars.iv, %137
@@ -2655,10 +2655,10 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 .loopexit133.split.us.us.us.us:                   ; preds = %..loopexit129_crit_edge.us.us.us.us
   %170 = add nuw i64 %.0104137.us145.us.us, 1
-  %171 = getelementptr inbounds nuw i8, ptr %.088138.us144.us.us, i64 %.fr
+  %171 = getelementptr inbounds nuw i8, ptr %.088138.us144.us.us, i64 %.fr193
   %172 = getelementptr inbounds nuw i8, ptr %.087140.us143.us.us, i64 %127
-  %exitcond206.not = icmp eq i64 %170, %128
-  br i1 %exitcond206.not, label %._crit_edge.split.split.us.us.us, label %.preheader132.us.us.us, !llvm.loop !94
+  %exitcond209.not = icmp eq i64 %170, %128
+  br i1 %exitcond209.not, label %._crit_edge.split.split.us.us.us, label %.preheader132.us.us.us, !llvm.loop !94
 
 ._crit_edge.split.split.us.us.us:                 ; preds = %.loopexit133.split.us.us.us.us
   %173 = add i64 %.097.us.us168, 1
@@ -2672,8 +2672,8 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split.us.split.split:                            ; preds = %.split.us.split, %.lr.ph142.us
   %.097.us = phi i64 [ %176, %.lr.ph142.us ], [ 0, %.split.us.split ]
-  %exitcond208.not = icmp eq i64 %.097.us, %131
-  br i1 %exitcond208.not, label %.split163.us, label %.lr.ph142.us
+  %exitcond211.not = icmp eq i64 %.097.us, %131
+  br i1 %exitcond211.not, label %.split163.us, label %.lr.ph142.us
 
 .lr.ph142.us:                                     ; preds = %.split.us.split.split
   %176 = add i64 %.097.us, 1
@@ -2687,8 +2687,8 @@ _ZNK2cv3Mat8elemSizeEv.exit125:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split:                                           ; preds = %129, %179
   %.097 = phi i64 [ %180, %179 ], [ 0, %129 ]
-  %exitcond213.not = icmp eq i64 %.097, %131
-  br i1 %exitcond213.not, label %.split163.us, label %179
+  %exitcond216.not = icmp eq i64 %.097, %131
+  br i1 %exitcond216.not, label %.split163.us, label %179
 
 179:                                              ; preds = %.split
   %180 = add i64 %.097, 1
@@ -2826,8 +2826,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %31, %34
 
 45:                                               ; preds = %46, %_ZNK2cv3Mat8elemSizeEv.exit
   %.076 = phi i64 [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %49, %46 ]
-  %exitcond164.not = icmp eq i64 %.076, %29
-  br i1 %exitcond164.not, label %53, label %46
+  %exitcond165.not = icmp eq i64 %.076, %29
+  br i1 %exitcond165.not, label %53, label %46
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %43, align 16, !tbaa !57
@@ -2988,7 +2988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %87, %
   br label %_ZNK2cv3Mat8elemSizeEv.exit98
 
 _ZNK2cv3Mat8elemSizeEv.exit98:                    ; preds = %100, %103
-  %.fr = phi i64 [ %110, %103 ], [ 0, %100 ]
+  %.fr148 = phi i64 [ %110, %103 ], [ 0, %100 ]
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !40
   %113 = icmp sgt i32 %112, 0
@@ -3015,27 +3015,27 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
   %127 = shl i32 %126, 2
   %128 = and i32 %127, 28
   %129 = lshr i32 675553809, %128
-  %.fr146 = freeze i32 %129
-  %130 = and i32 %.fr146, 15
+  %.fr = freeze i32 %129
+  %130 = and i32 %.fr, 15
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %.not = icmp eq i64 %122, 0
   %.not147 = icmp eq i32 %130, 0
-  %.not148 = icmp eq i64 %.fr, 0
+  %.not149 = icmp eq i64 %.fr148, 0
   br i1 %.not, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %123
   br i1 %76, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us
-  br i1 %.not148, label %.split.us.split.us.split, label %.split.us.split.us.split.us
+  br i1 %.not149, label %.split.us.split.us.split, label %.split.us.split.us.split.us
 
 .split.us.split.us.split.us:                      ; preds = %.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
   %.075.us.us.us = phi i64 [ %150, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.split.us.split.us ]
-  %exitcond161.not = icmp eq i64 %.075.us.us.us, %125
-  br i1 %exitcond161.not, label %.split138.us, label %.lr.ph115.us.us.us
+  %exitcond162.not = icmp eq i64 %.075.us.us.us, %125
+  br i1 %exitcond162.not, label %.split138.us, label %.lr.ph115.us.us.us
 
 .lr.ph115.us.us.us:                               ; preds = %.split.us.split.us.split.us
   %135 = load ptr, ptr %132, align 16, !tbaa !57
@@ -3055,11 +3055,11 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 ..loopexit102_crit_edge.us.us.us.us.us:           ; preds = %.preheader101.us.us.us.us.us, %138
   %142 = add nuw i64 %.077108.us.us.us.us.us, 1
-  %143 = getelementptr inbounds nuw i8, ptr %.067109.us.us.us.us.us, i64 %.fr
-  %144 = getelementptr inbounds nuw i8, ptr %.066111.us.us.us.us.us, i64 %.fr
+  %143 = getelementptr inbounds nuw i8, ptr %.067109.us.us.us.us.us, i64 %.fr148
+  %144 = getelementptr inbounds nuw i8, ptr %.066111.us.us.us.us.us, i64 %.fr148
   %145 = getelementptr inbounds nuw i8, ptr %.065113.us.us.us.us.us, i64 %121
-  %exitcond160.not = icmp eq i64 %142, %122
-  br i1 %exitcond160.not, label %._crit_edge.split.us.split.us.us.us.us, label %138, !llvm.loop !99
+  %exitcond161.not = icmp eq i64 %142, %122
+  br i1 %exitcond161.not, label %._crit_edge.split.us.split.us.us.us.us, label %138, !llvm.loop !99
 
 .preheader101.us.us.us.us.us:                     ; preds = %138, %.preheader101.us.us.us.us.us
   %.078107.us.us.us.us.us = phi i64 [ %149, %.preheader101.us.us.us.us.us ], [ 0, %138 ]
@@ -3068,8 +3068,8 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
   %148 = getelementptr inbounds nuw i8, ptr %.066111.us.us.us.us.us, i64 %.078107.us.us.us.us.us
   store i8 %147, ptr %148, align 1, !tbaa !15
   %149 = add nuw i64 %.078107.us.us.us.us.us, 1
-  %exitcond159.not = icmp eq i64 %149, %.fr
-  br i1 %exitcond159.not, label %..loopexit102_crit_edge.us.us.us.us.us, label %.preheader101.us.us.us.us.us, !llvm.loop !100
+  %exitcond160.not = icmp eq i64 %149, %.fr148
+  br i1 %exitcond160.not, label %..loopexit102_crit_edge.us.us.us.us.us, label %.preheader101.us.us.us.us.us, !llvm.loop !100
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %..loopexit102_crit_edge.us.us.us.us.us
   %150 = add i64 %.075.us.us.us, 1
@@ -3083,8 +3083,8 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split.us.split.us.split:                         ; preds = %.split.us.split.us, %.lr.ph115.us.us
   %.075.us.us = phi i64 [ %153, %.lr.ph115.us.us ], [ 0, %.split.us.split.us ]
-  %exitcond162.not = icmp eq i64 %.075.us.us, %125
-  br i1 %exitcond162.not, label %.split138.us, label %.lr.ph115.us.us
+  %exitcond163.not = icmp eq i64 %.075.us.us, %125
+  br i1 %exitcond163.not, label %.split138.us, label %.lr.ph115.us.us
 
 .lr.ph115.us.us:                                  ; preds = %.split.us.split.us.split
   %153 = add i64 %.075.us.us, 1
@@ -3106,8 +3106,8 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split.us.split.split.us:                         ; preds = %.split.us.split.split.us.preheader, %._crit_edge.split.split.us.us.us
   %.075.us.us142 = phi i64 [ %176, %._crit_edge.split.split.us.us.us ], [ 0, %.split.us.split.split.us.preheader ]
-  %exitcond157.not = icmp eq i64 %.075.us.us142, %125
-  br i1 %exitcond157.not, label %.split138.us, label %.lr.ph115.us.us143
+  %exitcond158.not = icmp eq i64 %.075.us.us142, %125
+  br i1 %exitcond158.not, label %.split138.us, label %.lr.ph115.us.us143
 
 .lr.ph115.us.us143:                               ; preds = %.split.us.split.split.us
   %157 = load ptr, ptr %132, align 16, !tbaa !57
@@ -3132,8 +3132,8 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 ..loopexit100_crit_edge.us.us.us.us:              ; preds = %165, %160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond155.not, label %.loopexit104.split.us.us.us.us, label %160, !llvm.loop !102
+  %exitcond156.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond156.not, label %.loopexit104.split.us.us.us.us, label %160, !llvm.loop !102
 
 165:                                              ; preds = %.preheader.us.us.us.us, %165
   %.179105.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %170, %165 ]
@@ -3152,11 +3152,11 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 .loopexit104.split.us.us.us.us:                   ; preds = %..loopexit100_crit_edge.us.us.us.us
   %172 = add nuw i64 %.077108.us119.us.us, 1
-  %173 = getelementptr inbounds nuw i8, ptr %.067109.us118.us.us, i64 %.fr
-  %174 = getelementptr inbounds nuw i8, ptr %.066111.us117.us.us, i64 %.fr
+  %173 = getelementptr inbounds nuw i8, ptr %.067109.us118.us.us, i64 %.fr148
+  %174 = getelementptr inbounds nuw i8, ptr %.066111.us117.us.us, i64 %.fr148
   %175 = getelementptr inbounds nuw i8, ptr %.065113.us116.us.us, i64 %121
-  %exitcond156.not = icmp eq i64 %172, %122
-  br i1 %exitcond156.not, label %._crit_edge.split.split.us.us.us, label %.preheader103.us.us.us, !llvm.loop !99
+  %exitcond157.not = icmp eq i64 %172, %122
+  br i1 %exitcond157.not, label %._crit_edge.split.split.us.us.us, label %.preheader103.us.us.us, !llvm.loop !99
 
 ._crit_edge.split.split.us.us.us:                 ; preds = %.loopexit104.split.us.us.us.us
   %176 = add i64 %.075.us.us142, 1
@@ -3170,8 +3170,8 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split.us.split.split:                            ; preds = %.split.us.split, %.lr.ph115.us
   %.075.us = phi i64 [ %179, %.lr.ph115.us ], [ 0, %.split.us.split ]
-  %exitcond158.not = icmp eq i64 %.075.us, %125
-  br i1 %exitcond158.not, label %.split138.us, label %.lr.ph115.us
+  %exitcond159.not = icmp eq i64 %.075.us, %125
+  br i1 %exitcond159.not, label %.split138.us, label %.lr.ph115.us
 
 .lr.ph115.us:                                     ; preds = %.split.us.split.split
   %179 = add i64 %.075.us, 1
@@ -3185,8 +3185,8 @@ _ZNK2cv3Mat8elemSizeEv.exit99:                    ; preds = %_ZNK2cv3Mat8elemSiz
 
 .split:                                           ; preds = %123, %182
   %.075 = phi i64 [ %183, %182 ], [ 0, %123 ]
-  %exitcond163.not = icmp eq i64 %.075, %125
-  br i1 %exitcond163.not, label %.split138.us, label %182
+  %exitcond164.not = icmp eq i64 %.075, %125
+  br i1 %exitcond164.not, label %.split138.us, label %182
 
 182:                                              ; preds = %.split
   %183 = add i64 %.075, 1

@@ -794,8 +794,8 @@ proto_item_set_generated.exit317:                 ; preds = %49, %46, %proto_ite
   %106 = getelementptr i8, ptr %0, i64 36
   %.val = load i32, ptr %106, align 4
   %107 = sub i32 %.val, %105
-  %sext345 = shl i32 %107, 16
-  %108 = ashr exact i32 %sext345, 16
+  %sext346 = shl i32 %107, 16
+  %108 = ashr exact i32 %sext346, 16
   %109 = icmp slt i32 %.val, %108
   %110 = and i32 %105, 65535
   %111 = sub i32 %.val, %108
@@ -807,7 +807,7 @@ proto_item_set_generated.exit317:                 ; preds = %49, %46, %proto_ite
   %115 = zext i32 %114 to i64
   %116 = inttoptr i64 %115 to ptr
   call void @p_add_proto_data(ptr noundef %112, ptr noundef %2, i32 noundef %113, i32 noundef 1, ptr noundef %116)
-  %.pre346 = load i32, ptr %5, align 4
+  %.pre347 = load i32, ptr %5, align 4
   br label %123
 
 117:                                              ; preds = %96
@@ -820,7 +820,7 @@ proto_item_set_generated.exit317:                 ; preds = %49, %46, %proto_ite
   br label %123
 
 123:                                              ; preds = %117, %104
-  %124 = phi i32 [ %122, %117 ], [ %.pre346, %104 ]
+  %124 = phi i32 [ %122, %117 ], [ %.pre347, %104 ]
   %125 = load i32, ptr @hf_tftp_full_blocknum, align 4
   %126 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %125, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %124)
   %.not.i318 = icmp eq ptr %126, null
@@ -850,7 +850,7 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %141 = load i16, ptr %140, align 1
   %142 = and i16 %141, 8
   %.not305 = icmp eq i16 %142, 0
-  %.pre347 = load i32, ptr %5, align 4
+  %.pre348 = load i32, ptr %5, align 4
   br i1 %.not305, label %143, label %161
 
 143:                                              ; preds = %proto_item_set_generated.exit320
@@ -861,22 +861,22 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   store i8 %147, ptr %144, align 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %149 = load i32, ptr %148, align 4
-  %150 = icmp ugt i32 %.pre347, %149
+  %150 = icmp ugt i32 %.pre348, %149
   br i1 %150, label %151, label %154
 
 151:                                              ; preds = %143
-  %152 = add i32 %.pre347, 1
+  %152 = add i32 %.pre348, 1
   store i32 %152, ptr %148, align 4
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %153, align 8
   br label %161
 
 154:                                              ; preds = %143
-  %155 = icmp eq i32 %.pre347, %149
+  %155 = icmp eq i32 %.pre348, %149
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %154
-  %157 = add i32 %.pre347, 1
+  %157 = add i32 %.pre348, 1
   store i32 %157, ptr %148, align 4
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %159 = load i32, ptr %158, align 4
@@ -887,7 +887,7 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
 161:                                              ; preds = %151, %156, %154, %proto_item_set_generated.exit320
   %162 = load ptr, ptr %8, align 8
   %163 = select i1 %138, ptr @.str.119, ptr @.str.120
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %162, i32 noundef 25, ptr noundef nonnull @.str.118, i32 noundef %.pre347, ptr noundef nonnull %163)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %162, i32 noundef 25, ptr noundef nonnull @.str.118, i32 noundef %.pre348, ptr noundef nonnull %163)
   %164 = load i32, ptr %5, align 4
   %165 = icmp eq i32 %164, 1
   %.not307 = select i1 %138, i1 %165, i1 false
@@ -991,16 +991,16 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %222 = load i8, ptr %221, align 8, !range !6, !noundef !7
   %223 = trunc nuw i8 %222 to i1
-  %.pre348 = load ptr, ptr %99, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre348, i64 57
-  %.pre349 = load i16, ptr %.phi.trans.insert, align 1
-  %224 = and i16 %.pre349, 8
+  %.pre349 = load ptr, ptr %99, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre349, i64 57
+  %.pre350 = load i16, ptr %.phi.trans.insert, align 1
+  %224 = and i16 %.pre350, 8
   %.not310 = icmp eq i16 %224, 0
   %or.cond = select i1 %223, i1 true, i1 %.not310
   br i1 %or.cond, label %._crit_edge, label %.thread330
 
 ._crit_edge:                                      ; preds = %220
-  %225 = and i16 %.pre349, 8
+  %225 = and i16 %.pre350, 8
   %.not311 = icmp eq i16 %225, 0
   br i1 %.not311, label %237, label %226
 
@@ -1009,11 +1009,11 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %228 = icmp eq i32 %227, 1
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %230 = load ptr, ptr %229, align 8
-  br i1 %228, label %231, label %._crit_edge350
+  br i1 %228, label %231, label %._crit_edge351
 
 231:                                              ; preds = %226
   %.not312 = icmp eq ptr %230, null
-  br i1 %.not312, label %232, label %.thread366
+  br i1 %.not312, label %232, label %.thread367
 
 232:                                              ; preds = %231
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1021,7 +1021,7 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %235 = zext i32 %234 to i64
   %236 = call noalias ptr @g_try_malloc(i64 noundef %235) #9
   store ptr %236, ptr %229, align 8
-  br label %._crit_edge350
+  br label %._crit_edge351
 
 237:                                              ; preds = %._crit_edge
   %238 = call ptr @wmem_file_scope()
@@ -1032,15 +1032,15 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %243 = zext i32 %242 to i64
   %244 = call ptr @wmem_realloc(ptr noundef %238, ptr noundef %240, i64 noundef %243) #10
   store ptr %244, ptr %239, align 8
-  br label %._crit_edge350
+  br label %._crit_edge351
 
-._crit_edge350:                                   ; preds = %226, %232, %237
+._crit_edge351:                                   ; preds = %226, %232, %237
   %245 = phi ptr [ %236, %232 ], [ %244, %237 ], [ %230, %226 ]
   %246 = icmp eq ptr %245, null
-  br i1 %246, label %.thread330, label %.thread366
+  br i1 %246, label %.thread330, label %.thread367
 
-.thread366:                                       ; preds = %231, %._crit_edge350
-  %247 = phi ptr [ %245, %._crit_edge350 ], [ %230, %231 ]
+.thread367:                                       ; preds = %231, %._crit_edge351
+  %247 = phi ptr [ %245, %._crit_edge351 ], [ %230, %231 ]
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %249 = load i32, ptr %5, align 4
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1048,7 +1048,7 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %.not313 = icmp eq i32 %249, %251
   br i1 %.not313, label %252, label %.thread330
 
-252:                                              ; preds = %.thread366
+252:                                              ; preds = %.thread367
   %253 = add i32 %249, -1
   %254 = load i16, ptr %0, align 8
   %255 = zext i16 %254 to i32
@@ -1191,8 +1191,8 @@ proto_item_set_generated.exit324:                 ; preds = %301, %305, %308
   %339 = call ptr @wmem_file_scope()
   %340 = load i32, ptr @proto_tftp, align 4
   %341 = call ptr @p_get_proto_data(ptr noundef %339, ptr noundef %2, i32 noundef %340, i32 noundef 3)
-  %.not344 = icmp eq ptr %341, null
-  br i1 %.not344, label %.thread330, label %342
+  %.not345 = icmp eq ptr %341, null
+  br i1 %.not345, label %.thread330, label %342
 
 342:                                              ; preds = %.thread332, %338
   %343 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %323, ptr noundef nonnull @ei_tftp_windowsize_change)
@@ -1266,8 +1266,8 @@ error_is_likely_tsize_probe.exit:                 ; preds = %344
   %.fr = freeze ptr %383
   %384 = ptrtoint ptr %.fr to i64
   %385 = and i64 %384, 4294967295
-  %.not343 = icmp eq i64 %385, 0
-  br i1 %.not343, label %error_is_likely_tsize_probe.exit.thread337, label %386
+  %.not344 = icmp eq i64 %385, 0
+  br i1 %.not344, label %error_is_likely_tsize_probe.exit.thread337, label %386
 
 386:                                              ; preds = %error_is_likely_tsize_probe.exit.thread340, %error_is_likely_tsize_probe.exit
   br label %error_is_likely_tsize_probe.exit.thread337
@@ -1286,7 +1286,7 @@ error_is_likely_tsize_probe.exit.thread337:       ; preds = %365, %368, %372, %3
   %392 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %391, ptr noundef %1, i32 noundef 2, i32 noundef -1, i32 noundef 0)
   br label %.thread330
 
-.thread330:                                       ; preds = %220, %328, %332, %338, %342, %proto_item_set_generated.exit324, %317, %208, %211, %216, %263, %252, %._crit_edge350, %.thread366, %390, %389, %error_is_likely_tsize_probe.exit.thread337, %95, %74, %53
+.thread330:                                       ; preds = %220, %328, %332, %338, %342, %proto_item_set_generated.exit324, %317, %208, %211, %216, %263, %252, %._crit_edge351, %.thread367, %390, %389, %error_is_likely_tsize_probe.exit.thread337, %95, %74, %53
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %14, ptr %393, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

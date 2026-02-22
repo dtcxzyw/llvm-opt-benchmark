@@ -120,8 +120,6 @@ $_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt
 
 $_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_ = comdat any
 
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_ = comdat any
-
 $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_ = comdat any
 
 $_ZN2cv4Mat_IfEaSERKNS_3MatE = comdat any
@@ -3192,8 +3190,8 @@ define linkonce_odr hidden void @_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_S
   br i1 %20, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37.i.i.i
-  %.040.i.i.i = phi i64 [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37.i.i.i ], [ 0, %9 ]
-  %21 = shl i64 %.040.i.i.i, 1
+  %.039.i.i.i = phi i64 [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37.i.i.i ], [ 0, %9 ]
+  %21 = shl i64 %.039.i.i.i, 1
   %22 = add i64 %21, 2
   %23 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %22
   %24 = or disjoint i64 %21, 1
@@ -3212,10 +3210,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_itera
   %32 = load i32, ptr %31, align 4, !tbaa !134
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !134
-  %.fr.i.i.i = freeze i32 %32
-  %.fr39.i.i.i = freeze i32 %34
-  %35 = icmp slt i32 %.fr.i.i.i, %.fr39.i.i.i
-  br i1 %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37.i.i.i
+  %35 = icmp slt i32 %32, %34
+  %cond.fr.i.i.i = freeze i1 %35
+  br i1 %cond.fr.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37.i.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i.i, %.lr.ph.i.i.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread37.i.i.i
@@ -3224,7 +3221,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_itera
   %36 = phi float [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i.i ], [ %26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i.i ], [ %26, %29 ]
   %37 = phi i64 [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i.i ], [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairIfiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i.i ], [ %22, %29 ]
   %38 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %37
-  %39 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %.040.i.i.i
+  %39 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %.039.i.i.i
   store float %36, ptr %39, align 4, !tbaa !170
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !55
@@ -6882,223 +6879,226 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #3 comdat {
-  %4 = ptrtoint ptr %0 to i64
-  %5 = ptrtoint ptr %1 to i64
-  %6 = sub i64 %5, %4
-  %7 = ashr exact i64 %6, 3
-  %8 = icmp sgt i64 %7, 16
-  br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit
+  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
+  %5 = ptrtoint ptr %0 to i64
+  %6 = ptrtoint ptr %1 to i64
+  %7 = sub i64 %6, %5
+  %8 = ashr exact i64 %7, 3
+  %9 = icmp sgt i64 %8, 16
+  br i1 %9, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit
-  %11 = phi i64 [ %7, %.lr.ph ], [ %91, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
-  %.016 = phi i64 [ %2, %.lr.ph ], [ %52, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
+11:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit
+  %12 = phi i64 [ %8, %.lr.ph ], [ %92, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
+  %.016 = phi i64 [ %2, %.lr.ph ], [ %53, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
   %storemerge15 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
-  %12 = icmp eq i64 %.016, 0
-  br i1 %12, label %13, label %51
+  %13 = icmp eq i64 %.016, 0
+  br i1 %13, label %14, label %52
 
-13:                                               ; preds = %10
-  tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_(ptr %0, ptr %storemerge15, ptr %storemerge15)
+14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %0, ptr %storemerge15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %13, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i ], [ %storemerge15, %13 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
-  %.sroa.02.0.copyload.i.i.i = load i64, ptr %14, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %14, ptr noundef nonnull align 4 dereferenceable(7) %0, i64 7, i1 false), !tbaa.struct !212
-  %15 = ptrtoint ptr %14 to i64
-  %16 = sub i64 %15, %4
-  %17 = ashr exact i64 %16, 3
-  %18 = add nsw i64 %17, -1
-  %19 = sdiv i64 %18, 2
-  %20 = icmp sgt i64 %17, 2
-  br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+.lr.ph.i.i:                                       ; preds = %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
+  %.sroa.0.05.i.i = phi ptr [ %15, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i ], [ %storemerge15, %14 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %.sroa.02.0.copyload.i.i.i = load i64, ptr %15, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %15, ptr noundef nonnull align 4 dereferenceable(7) %0, i64 7, i1 false), !tbaa.struct !212
+  %16 = ptrtoint ptr %15 to i64
+  %17 = sub i64 %16, %5
+  %18 = ashr exact i64 %17, 3
+  %19 = add nsw i64 %18, -1
+  %20 = sdiv i64 %19, 2
+  %21 = icmp sgt i64 %18, 2
+  br i1 %21, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %21 = shl i64 %.036.i.i.i.i, 1
-  %22 = add i64 %21, 2
-  %23 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %22
-  %24 = or disjoint i64 %21, 1
-  %25 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %24
-  %26 = load float, ptr %23, align 4, !tbaa !87
-  %27 = load float, ptr %25, align 4, !tbaa !87
-  %28 = fcmp olt float %26, %27
-  %spec.select.i.i.i.i = select i1 %28, i64 %24, i64 %22
-  %29 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %spec.select.i.i.i.i
-  %30 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.036.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %30, ptr noundef nonnull align 4 dereferenceable(7) %29, i64 7, i1 false), !tbaa.struct !212
-  %31 = icmp slt i64 %spec.select.i.i.i.i, %19
-  br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !213
+  %22 = shl i64 %.036.i.i.i.i, 1
+  %23 = add i64 %22, 2
+  %24 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %25
+  %27 = load float, ptr %24, align 4, !tbaa !87
+  %28 = load float, ptr %26, align 4, !tbaa !87
+  %29 = fcmp olt float %27, %28
+  %spec.select.i.i.i.i = select i1 %29, i64 %25, i64 %23
+  %30 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %spec.select.i.i.i.i
+  %31 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.036.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %31, ptr noundef nonnull align 4 dereferenceable(7) %30, i64 7, i1 false), !tbaa.struct !212
+  %32 = icmp slt i64 %spec.select.i.i.i.i, %20
+  br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !213
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %32 = and i64 %16, 8
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %42
+  %33 = and i64 %17, 8
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %43
 
-34:                                               ; preds = %._crit_edge.i.i.i.i
-  %35 = add nsw i64 %17, -2
-  %36 = ashr exact i64 %35, 1
-  %37 = icmp eq i64 %.0.lcssa.i.i.i.i, %36
-  br i1 %37, label %.thread.i.i.i, label %42
+35:                                               ; preds = %._crit_edge.i.i.i.i
+  %36 = add nsw i64 %18, -2
+  %37 = ashr exact i64 %36, 1
+  %38 = icmp eq i64 %.0.lcssa.i.i.i.i, %37
+  br i1 %38, label %.thread.i.i.i, label %43
 
-.thread.i.i.i:                                    ; preds = %34
-  %38 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %39
-  %41 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0.lcssa.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %41, ptr noundef nonnull align 4 dereferenceable(7) %40, i64 7, i1 false), !tbaa.struct !212
+.thread.i.i.i:                                    ; preds = %35
+  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %40 = or disjoint i64 %39, 1
+  %41 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %40
+  %42 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0.lcssa.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %42, ptr noundef nonnull align 4 dereferenceable(7) %41, i64 7, i1 false), !tbaa.struct !212
   %.sroa.012.0.extract.trunc.i.i11.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   br label %.lr.ph.i.i.preheader.i.i.i
 
-42:                                               ; preds = %34, %._crit_edge.i.i.i.i
+43:                                               ; preds = %35, %._crit_edge.i.i.i.i
   %.sroa.012.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %42, %.thread.i.i.i
-  %.sroa.012.0.extract.trunc.i.i14.i.i.i = phi i32 [ %.sroa.012.0.extract.trunc.i.i11.i.i.i, %.thread.i.i.i ], [ %.sroa.012.0.extract.trunc.i.i.i.i.i, %42 ]
-  %.1.i13.i.i.i = phi i64 [ %39, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %42 ]
-  %43 = bitcast i32 %.sroa.012.0.extract.trunc.i.i14.i.i.i to float
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %43, %.thread.i.i.i
+  %.sroa.012.0.extract.trunc.i.i14.i.i.i = phi i32 [ %.sroa.012.0.extract.trunc.i.i11.i.i.i, %.thread.i.i.i ], [ %.sroa.012.0.extract.trunc.i.i.i.i.i, %43 ]
+  %.1.i13.i.i.i = phi i64 [ %40, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %43 ]
+  %44 = bitcast i32 %.sroa.012.0.extract.trunc.i.i14.i.i.i to float
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %47, %.lr.ph.i.i.preheader.i.i.i
-  %.019.i.i.i.i.i = phi i64 [ %.0920.i.i78.i.i.i, %47 ], [ %.1.i13.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %48, %.lr.ph.i.i.preheader.i.i.i
+  %.019.i.i.i.i.i = phi i64 [ %.0920.i.i78.i.i.i, %48 ], [ %.1.i13.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i78.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0920.i.i78.i.i.i
-  %45 = load float, ptr %44, align 4, !tbaa !87
-  %46 = fcmp olt float %45, %43
-  br i1 %46, label %47, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
+  %45 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0920.i.i78.i.i.i
+  %46 = load float, ptr %45, align 4, !tbaa !87
+  %47 = fcmp olt float %46, %44
+  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
 
-47:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %48 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.019.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %48, ptr noundef nonnull align 4 dereferenceable(7) %44, i64 7, i1 false), !tbaa.struct !212
+48:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %49 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.019.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %49, ptr noundef nonnull align 4 dereferenceable(7) %45, i64 7, i1 false), !tbaa.struct !212
   %.not9.i.i.i = icmp eq i64 %.0920.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !214
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %47, %.lr.ph.i.i.i.i.i, %42
-  %.sroa.012.0.extract.trunc.i.i15.i.i.i = phi i32 [ %.sroa.012.0.extract.trunc.i.i.i.i.i, %42 ], [ %.sroa.012.0.extract.trunc.i.i14.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.012.0.extract.trunc.i.i14.i.i.i, %47 ]
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %42 ], [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %48, %.lr.ph.i.i.i.i.i, %43
+  %.sroa.012.0.extract.trunc.i.i15.i.i.i = phi i32 [ %.sroa.012.0.extract.trunc.i.i.i.i.i, %43 ], [ %.sroa.012.0.extract.trunc.i.i14.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.012.0.extract.trunc.i.i14.i.i.i, %48 ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.3.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.02.0.copyload.i.i.i, 32
-  %49 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %.sroa.012.0.extract.trunc.i.i15.i.i.i, ptr %49, align 4, !tbaa !81
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %50 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  store i32 %.sroa.012.0.extract.trunc.i.i15.i.i.i, ptr %50, align 4, !tbaa !81
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 4
   %.sroa.3.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i.i.i.i to i24
   store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 4
-  %50 = icmp sgt i64 %16, 8
-  br i1 %50, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !215
+  %51 = icmp sgt i64 %17, 8
+  br i1 %51, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !215
 
-51:                                               ; preds = %10
-  %52 = add nsw i64 %.016, -1
-  %53 = lshr i64 %11, 1
-  %54 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %53
-  %55 = getelementptr inbounds i8, ptr %storemerge15, i64 -8
-  %56 = load float, ptr %9, align 4, !tbaa !87
-  %57 = load float, ptr %54, align 4, !tbaa !87
-  %58 = fcmp olt float %56, %57
-  %59 = load float, ptr %55, align 4, !tbaa !87
-  br i1 %58, label %60, label %69
+52:                                               ; preds = %11
+  %53 = add nsw i64 %.016, -1
+  %54 = lshr i64 %12, 1
+  %55 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %54
+  %56 = getelementptr inbounds i8, ptr %storemerge15, i64 -8
+  %57 = load float, ptr %10, align 4, !tbaa !87
+  %58 = load float, ptr %55, align 4, !tbaa !87
+  %59 = fcmp olt float %57, %58
+  %60 = load float, ptr %56, align 4, !tbaa !87
+  br i1 %59, label %61, label %70
 
-60:                                               ; preds = %51
-  %61 = fcmp olt float %57, %59
-  br i1 %61, label %62, label %64
+61:                                               ; preds = %52
+  %62 = fcmp olt float %58, %60
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %60
-  %63 = load i64, ptr %0, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %54, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %63 to i56
-  store i56 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %54, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
-
-64:                                               ; preds = %60
-  %65 = fcmp olt float %56, %59
-  %66 = load i64, ptr %0, align 4
-  %.sroa.0.0.extract.trunc.i.i26.i.i = trunc i64 %66 to i56
-  br i1 %65, label %67, label %68
-
-67:                                               ; preds = %64
+63:                                               ; preds = %61
+  %64 = load i64, ptr %0, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %55, i64 7, i1 false), !tbaa.struct !212
-  store i56 %.sroa.0.0.extract.trunc.i.i26.i.i, ptr %55, align 4
+  %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %64 to i56
+  store i56 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %55, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
 
-68:                                               ; preds = %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %9, i64 7, i1 false), !tbaa.struct !212
-  store i56 %.sroa.0.0.extract.trunc.i.i26.i.i, ptr %9, align 4
+65:                                               ; preds = %61
+  %66 = fcmp olt float %57, %60
+  %67 = load i64, ptr %0, align 4
+  %.sroa.0.0.extract.trunc.i.i26.i.i = trunc i64 %67 to i56
+  br i1 %66, label %68, label %69
+
+68:                                               ; preds = %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %56, i64 7, i1 false), !tbaa.struct !212
+  store i56 %.sroa.0.0.extract.trunc.i.i26.i.i, ptr %56, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
 
-69:                                               ; preds = %51
-  %70 = fcmp olt float %56, %59
-  br i1 %70, label %71, label %73
-
-71:                                               ; preds = %69
-  %72 = load i64, ptr %0, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %9, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.0.0.extract.trunc.i.i28.i.i = trunc i64 %72 to i56
-  store i56 %.sroa.0.0.extract.trunc.i.i28.i.i, ptr %9, align 4
+69:                                               ; preds = %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %10, i64 7, i1 false), !tbaa.struct !212
+  store i56 %.sroa.0.0.extract.trunc.i.i26.i.i, ptr %10, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
 
-73:                                               ; preds = %69
-  %74 = fcmp olt float %57, %59
-  %75 = load i64, ptr %0, align 4
-  %.sroa.0.0.extract.trunc.i.i29.i.i = trunc i64 %75 to i56
-  br i1 %74, label %76, label %77
+70:                                               ; preds = %52
+  %71 = fcmp olt float %57, %60
+  br i1 %71, label %72, label %74
 
-76:                                               ; preds = %73
+72:                                               ; preds = %70
+  %73 = load i64, ptr %0, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %10, i64 7, i1 false), !tbaa.struct !212
+  %.sroa.0.0.extract.trunc.i.i28.i.i = trunc i64 %73 to i56
+  store i56 %.sroa.0.0.extract.trunc.i.i28.i.i, ptr %10, align 4
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
+
+74:                                               ; preds = %70
+  %75 = fcmp olt float %58, %60
+  %76 = load i64, ptr %0, align 4
+  %.sroa.0.0.extract.trunc.i.i29.i.i = trunc i64 %76 to i56
+  br i1 %75, label %77, label %78
+
+77:                                               ; preds = %74
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %56, i64 7, i1 false), !tbaa.struct !212
+  store i56 %.sroa.0.0.extract.trunc.i.i29.i.i, ptr %56, align 4
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
+
+78:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %55, i64 7, i1 false), !tbaa.struct !212
   store i56 %.sroa.0.0.extract.trunc.i.i29.i.i, ptr %55, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
 
-77:                                               ; preds = %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %0, ptr noundef nonnull align 4 dereferenceable(7) %54, i64 7, i1 false), !tbaa.struct !212
-  store i56 %.sroa.0.0.extract.trunc.i.i29.i.i, ptr %54, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader: ; preds = %77, %76, %71, %68, %67, %62
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader: ; preds = %78, %77, %72, %69, %68, %63
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader, %87
-  %.sroa.010.0.i.i = phi ptr [ %82, %87 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %87 ], [ %storemerge15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader ]
-  %78 = load float, ptr %0, align 4, !tbaa !87
-  br label %79
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader, %88
+  %.sroa.010.0.i.i = phi ptr [ %83, %88 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %88 ], [ %storemerge15, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i.preheader ]
+  %79 = load float, ptr %0, align 4, !tbaa !87
+  br label %80
 
-79:                                               ; preds = %79, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i ], [ %82, %79 ]
-  %80 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !87
-  %81 = fcmp olt float %80, %78
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  br i1 %81, label %79, label %.preheader.i.i, !llvm.loop !216
+80:                                               ; preds = %80, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i ], [ %83, %80 ]
+  %81 = load float, ptr %.sroa.010.1.i.i, align 4, !tbaa !87
+  %82 = fcmp olt float %81, %79
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
+  br i1 %82, label %80, label %.preheader.i.i, !llvm.loop !216
 
-.preheader.i.i:                                   ; preds = %79, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %79 ]
+.preheader.i.i:                                   ; preds = %80, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %80 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %83 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !87
-  %84 = fcmp olt float %78, %83
-  br i1 %84, label %.preheader.i.i, label %85, !llvm.loop !217
+  %84 = load float, ptr %.sroa.0.1.i.i, align 4, !tbaa !87
+  %85 = fcmp olt float %79, %84
+  br i1 %85, label %.preheader.i.i, label %86, !llvm.loop !217
 
-85:                                               ; preds = %.preheader.i.i
-  %86 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %86, label %87, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit
+86:                                               ; preds = %.preheader.i.i
+  %87 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %87, label %88, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit
 
-87:                                               ; preds = %85
-  %88 = load i64, ptr %.sroa.010.1.i.i, align 4
+88:                                               ; preds = %86
+  %89 = load i64, ptr %.sroa.010.1.i.i, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(7) %.sroa.0.1.i.i, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.0.0.extract.trunc.i.i.i9.i = trunc i64 %88 to i56
+  %.sroa.0.0.extract.trunc.i.i.i9.i = trunc i64 %89 to i56
   store i56 %.sroa.0.0.extract.trunc.i.i.i9.i, ptr %.sroa.0.1.i.i, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_.exit.i, !llvm.loop !218
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit: ; preds = %85
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge15, i64 noundef %52)
-  %89 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %90 = sub i64 %89, %4
-  %91 = ashr exact i64 %90, 3
-  %92 = icmp sgt i64 %91, 16
-  br i1 %92, label %10, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !219
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit: ; preds = %86
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge15, i64 noundef %53)
+  %90 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %91 = sub i64 %90, %5
+  %92 = ashr exact i64 %91, 3
+  %93 = icmp sgt i64 %92, 16
+  br i1 %93, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !219
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, %3
   ret void
@@ -7257,222 +7257,12 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat {
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
-  %.fr34 = freeze ptr %0
-  %.fr33 = freeze ptr %1
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %.fr34, ptr %.fr33, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %5 = icmp ult ptr %.fr33, %2
-  br i1 %5, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %3
-  %6 = ptrtoint ptr %.fr33 to i64
-  %7 = ptrtoint ptr %.fr34 to i64
-  %8 = sub i64 %6, %7
-  %9 = ashr i64 %8, 3
-  %10 = add nsw i64 %9, -1
-  %11 = sdiv i64 %10, 2
-  %12 = icmp sgt i64 %9, 2
-  %13 = and i64 %8, 8
-  %14 = icmp eq i64 %13, 0
-  %15 = add nsw i64 %9, -2
-  %16 = ashr exact i64 %15, 1
-  br i1 %12, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %17 = or disjoint i64 %15, 1
-  %18 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %17
-  %19 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %16
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %42
-  %.sroa.0.011.us = phi ptr [ %43, %42 ], [ %.fr33, %.lr.ph.split.us.preheader ]
-  %20 = load float, ptr %.sroa.0.011.us, align 4, !tbaa !87
-  %21 = load float, ptr %.fr34, align 4, !tbaa !87
-  %22 = fcmp olt float %20, %21
-  br i1 %22, label %.lr.ph.i.i.preheader.us, label %42
-
-.lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
-  %.sroa.02.0.copyload.i.us = load i64, ptr %.sroa.0.011.us, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.0.011.us, ptr noundef nonnull align 4 dereferenceable(7) %.fr34, i64 7, i1 false), !tbaa.struct !212
-  br label %.lr.ph.i.i.us
-
-.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader.us, %.lr.ph.i.i.us
-  %.036.i.i.us = phi i64 [ %spec.select.i.i.us, %.lr.ph.i.i.us ], [ 0, %.lr.ph.i.i.preheader.us ]
-  %23 = shl i64 %.036.i.i.us, 1
-  %24 = add i64 %23, 2
-  %25 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %26
-  %28 = load float, ptr %25, align 4, !tbaa !87
-  %29 = load float, ptr %27, align 4, !tbaa !87
-  %30 = fcmp olt float %28, %29
-  %spec.select.i.i.us = select i1 %30, i64 %26, i64 %24
-  %31 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %spec.select.i.i.us
-  %32 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %.036.i.i.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %32, ptr noundef nonnull align 4 dereferenceable(7) %31, i64 7, i1 false), !tbaa.struct !212
-  %33 = icmp slt i64 %spec.select.i.i.us, %11
-  br i1 %33, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !213
-
-34:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %.sroa.012.0.extract.trunc.i.i.i.us = trunc i64 %.sroa.02.0.copyload.i.us to i32
-  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.preheader.i.us
-
-.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %19, ptr noundef nonnull align 4 dereferenceable(7) %18, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.012.0.extract.trunc.i.i11.i.us = trunc i64 %.sroa.02.0.copyload.i.us to i32
-  br label %.lr.ph.i.i.preheader.i.us
-
-.lr.ph.i.i.preheader.i.us:                        ; preds = %.thread.i.us, %34
-  %.sroa.012.0.extract.trunc.i.i14.i.us = phi i32 [ %.sroa.012.0.extract.trunc.i.i11.i.us, %.thread.i.us ], [ %.sroa.012.0.extract.trunc.i.i.i.us, %34 ]
-  %.1.i13.i.us = phi i64 [ %17, %.thread.i.us ], [ %spec.select.i.i.us, %34 ]
-  %35 = bitcast i32 %.sroa.012.0.extract.trunc.i.i14.i.us to float
-  br label %.lr.ph.i.i.i.us
-
-.lr.ph.i.i.i.us:                                  ; preds = %39, %.lr.ph.i.i.preheader.i.us
-  %.019.i.i.i.us = phi i64 [ %.0920.i.i78.i.us, %39 ], [ %.1.i13.i.us, %.lr.ph.i.i.preheader.i.us ]
-  %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
-  %.0920.i.i78.i.us = lshr i64 %.0920.in.i.i.i.us, 1
-  %36 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %.0920.i.i78.i.us
-  %37 = load float, ptr %36, align 4, !tbaa !87
-  %38 = fcmp olt float %37, %35
-  br i1 %38, label %39, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us
-
-39:                                               ; preds = %.lr.ph.i.i.i.us
-  %40 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %.019.i.i.i.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %40, ptr noundef nonnull align 4 dereferenceable(7) %36, i64 7, i1 false), !tbaa.struct !212
-  %.not9.i.us = icmp eq i64 %.0920.i.i78.i.us, 0
-  br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !214
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %39, %34
-  %.sroa.012.0.extract.trunc.i.i15.i.us = phi i32 [ %.sroa.012.0.extract.trunc.i.i.i.us, %34 ], [ %.sroa.012.0.extract.trunc.i.i14.i.us, %39 ], [ %.sroa.012.0.extract.trunc.i.i14.i.us, %.lr.ph.i.i.i.us ]
-  %.0.lcssa.i.i.i.us = phi i64 [ 0, %34 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %39 ]
-  %.sroa.3.0.extract.shift.i.i.i.us = lshr i64 %.sroa.02.0.copyload.i.us, 32
-  %41 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %.0.lcssa.i.i.i.us
-  store i32 %.sroa.012.0.extract.trunc.i.i15.i.us, ptr %41, align 4, !tbaa !81
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.us = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %.sroa.3.sroa.0.0.extract.trunc.i.i.i.us = trunc i64 %.sroa.3.0.extract.shift.i.i.i.us to i24
-  store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i.i.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.us, align 4
-  br label %42
-
-42:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, %.lr.ph.split.us
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %44 = icmp ult ptr %43, %2
-  br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !223
-
-._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %45 = icmp eq i64 %spec.select.i.i.us, %16
-  %or.cond = select i1 %14, i1 %45, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %34
-
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %46 = getelementptr inbounds nuw i8, ptr %.fr34, i64 8
-  br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %47 = icmp eq i64 %15, 0
-  br i1 %47, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
-
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %55
-  %.sroa.0.011.us12.us = phi ptr [ %56, %55 ], [ %.fr33, %.lr.ph.split.split.us ]
-  %48 = load float, ptr %.sroa.0.011.us12.us, align 4, !tbaa !87
-  %49 = load float, ptr %.fr34, align 4, !tbaa !87
-  %50 = fcmp olt float %48, %49
-  br i1 %50, label %._crit_edge.i.i.us13.us, label %55
-
-._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
-  %.sroa.02.0.copyload.i.us14.us = load i64, ptr %.sroa.0.011.us12.us, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.0.011.us12.us, ptr noundef nonnull align 4 dereferenceable(7) %.fr34, i64 7, i1 false), !tbaa.struct !212
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.fr34, ptr noundef nonnull align 4 dereferenceable(7) %46, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.012.0.extract.trunc.i.i11.i.us17.us = trunc i64 %.sroa.02.0.copyload.i.us14.us to i32
-  %51 = bitcast i32 %.sroa.012.0.extract.trunc.i.i11.i.us17.us to float
-  %52 = load float, ptr %.fr34, align 4, !tbaa !87
-  %53 = fcmp uge float %52, %51
-  %.0.lcssa.i.i.i.ph.us30.us = zext i1 %53 to i64
-  %.sroa.3.0.extract.shift.i.i.i.us26.us = lshr i64 %.sroa.02.0.copyload.i.us14.us, 32
-  %54 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr34, i64 %.0.lcssa.i.i.i.ph.us30.us
-  store i32 %.sroa.012.0.extract.trunc.i.i11.i.us17.us, ptr %54, align 4, !tbaa !81
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.us27.us = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %.sroa.3.sroa.0.0.extract.trunc.i.i.i.us28.us = trunc i64 %.sroa.3.0.extract.shift.i.i.i.us26.us to i24
-  store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i.i.us28.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.us27.us, align 4
-  br label %55
-
-55:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %57 = icmp ult ptr %56, %2
-  br i1 %57, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !223
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.us27 = getelementptr inbounds nuw i8, ptr %.fr34, i64 4
-  %.pre38 = load float, ptr %.fr34, align 4, !tbaa !87
-  br label %58
-
-58:                                               ; preds = %63, %.lr.ph.split.split.us.split
-  %59 = phi float [ %.pre38, %.lr.ph.split.split.us.split ], [ %64, %63 ]
-  %.sroa.0.011.us12 = phi ptr [ %.fr33, %.lr.ph.split.split.us.split ], [ %65, %63 ]
-  %60 = load float, ptr %.sroa.0.011.us12, align 4, !tbaa !87
-  %61 = fcmp olt float %60, %59
-  br i1 %61, label %._crit_edge.i.i.us13, label %63
-
-._crit_edge.i.i.us13:                             ; preds = %58
-  %.sroa.02.0.copyload.i.us14 = load i64, ptr %.sroa.0.011.us12, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.0.011.us12, ptr noundef nonnull align 4 dereferenceable(7) %.fr34, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.012.0.extract.trunc.i.i.i.us15 = trunc i64 %.sroa.02.0.copyload.i.us14 to i32
-  %.sroa.3.0.extract.shift.i.i.i.us26 = lshr i64 %.sroa.02.0.copyload.i.us14, 32
-  store i32 %.sroa.012.0.extract.trunc.i.i.i.us15, ptr %.fr34, align 4, !tbaa !81
-  %.sroa.3.sroa.0.0.extract.trunc.i.i.i.us28 = trunc i64 %.sroa.3.0.extract.shift.i.i.i.us26 to i24
-  store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i.i.us28, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.us27, align 4
-  %62 = bitcast i32 %.sroa.012.0.extract.trunc.i.i.i.us15 to float
-  br label %63
-
-63:                                               ; preds = %._crit_edge.i.i.us13, %58
-  %64 = phi float [ %62, %._crit_edge.i.i.us13 ], [ %59, %58 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %66 = icmp ult ptr %65, %2
-  br i1 %66, label %58, label %._crit_edge, !llvm.loop !223
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.fr34, i64 4
-  %.pre = load float, ptr %.fr34, align 4, !tbaa !87
-  br label %67
-
-._crit_edge:                                      ; preds = %72, %63, %55, %42, %3
-  ret void
-
-67:                                               ; preds = %.lr.ph.split.split, %72
-  %68 = phi float [ %.pre, %.lr.ph.split.split ], [ %73, %72 ]
-  %.sroa.0.011 = phi ptr [ %.fr33, %.lr.ph.split.split ], [ %74, %72 ]
-  %69 = load float, ptr %.sroa.0.011, align 4, !tbaa !87
-  %70 = fcmp olt float %69, %68
-  br i1 %70, label %._crit_edge.i.i, label %72
-
-._crit_edge.i.i:                                  ; preds = %67
-  %.sroa.02.0.copyload.i = load i64, ptr %.sroa.0.011, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.0.011, ptr noundef nonnull align 4 dereferenceable(7) %.fr34, i64 7, i1 false), !tbaa.struct !212
-  %.sroa.012.0.extract.trunc.i.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
-  %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.02.0.copyload.i, 32
-  store i32 %.sroa.012.0.extract.trunc.i.i.i, ptr %.fr34, align 4, !tbaa !81
-  %.sroa.3.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i.i to i24
-  store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 4
-  %71 = bitcast i32 %.sroa.012.0.extract.trunc.i.i.i to float
-  br label %72
-
-72:                                               ; preds = %67, %._crit_edge.i.i
-  %73 = phi float [ %68, %67 ], [ %71, %._crit_edge.i.i ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %75 = icmp ult ptr %74, %2
-  br i1 %75, label %67, label %._crit_edge, !llvm.loop !223
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #3 comdat {
-  %.fr17 = freeze ptr %0
-  %.fr16 = freeze ptr %1
-  %4 = ptrtoint ptr %.fr16 to i64
-  %5 = ptrtoint ptr %.fr17 to i64
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 3
+  %.fr = freeze i64 %6
+  %7 = ashr exact i64 %.fr, 3
   %8 = icmp slt i64 %7, 2
   br i1 %8, label %.loopexit, label %9
 
@@ -7481,41 +7271,41 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %14 = and i64 %6, 8
+  %14 = and i64 %.fr, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   br i1 %15, label %.split.preheader, label %.split.us
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %17
-  %19 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %16
+  %18 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
   %.09.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.09.us
+  %20 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.09.us
   %.sroa.02.0.copyload.us = load i64, ptr %20, align 4
   %21 = icmp slt i64 %.09.us, %13
   br i1 %21, label %.lr.ph.i.us, label %._crit_edge.i.us.thread
 
 ._crit_edge.i.us.thread:                          ; preds = %.split.us
-  %.sroa.012.0.extract.trunc.i.i.us22 = trunc i64 %.sroa.02.0.copyload.us to i32
+  %.sroa.012.0.extract.trunc.i.i.us21 = trunc i64 %.sroa.02.0.copyload.us to i32
   br label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.us, %.lr.ph.i.us
   %.036.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.09.us, %.split.us ]
   %22 = shl i64 %.036.i.us, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %23
+  %24 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %25
+  %26 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %25
   %27 = load float, ptr %24, align 4, !tbaa !87
   %28 = load float, ptr %26, align 4, !tbaa !87
   %29 = fcmp olt float %27, %28
   %spec.select.i.us = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %spec.select.i.us
-  %31 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.036.i.us
+  %30 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %spec.select.i.us
+  %31 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.036.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %31, ptr noundef nonnull align 4 dereferenceable(7) %30, i64 7, i1 false), !tbaa.struct !212
   %32 = icmp slt i64 %spec.select.i.us, %13
   br i1 %32, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !213
@@ -7530,33 +7320,33 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %38 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %35 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.0920.i.i.us
+  %35 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0920.i.i.us
   %36 = load float, ptr %35, align 4, !tbaa !87
   %37 = fcmp olt float %36, %33
   br i1 %37, label %38, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
 
 38:                                               ; preds = %.lr.ph.i.i.us
-  %39 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.019.i.i.us
+  %39 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.019.i.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %39, ptr noundef nonnull align 4 dereferenceable(7) %35, i64 7, i1 false), !tbaa.struct !212
   %40 = icmp sgt i64 %.0920.i.i.us, %.09.us
   br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us, !llvm.loop !214
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %38, %._crit_edge.i.us.thread, %._crit_edge.i.us
-  %.sroa.012.0.extract.trunc.i.i.us23 = phi i32 [ %.sroa.012.0.extract.trunc.i.i.us, %._crit_edge.i.us ], [ %.sroa.012.0.extract.trunc.i.i.us22, %._crit_edge.i.us.thread ], [ %.sroa.012.0.extract.trunc.i.i.us, %38 ], [ %.sroa.012.0.extract.trunc.i.i.us, %.lr.ph.i.i.us ]
+  %.sroa.012.0.extract.trunc.i.i.us22 = phi i32 [ %.sroa.012.0.extract.trunc.i.i.us, %._crit_edge.i.us ], [ %.sroa.012.0.extract.trunc.i.i.us21, %._crit_edge.i.us.thread ], [ %.sroa.012.0.extract.trunc.i.i.us, %38 ], [ %.sroa.012.0.extract.trunc.i.i.us, %.lr.ph.i.i.us ]
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %._crit_edge.i.us.thread ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %38 ]
   %.sroa.3.0.extract.shift.i.i.us = lshr i64 %.sroa.02.0.copyload.us, 32
-  %41 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.0.lcssa.i.i.us
-  store i32 %.sroa.012.0.extract.trunc.i.i.us23, ptr %41, align 4, !tbaa !81
+  %41 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0.lcssa.i.i.us
+  store i32 %.sroa.012.0.extract.trunc.i.i.us22, ptr %41, align 4, !tbaa !81
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %41, i64 4
   %.sroa.3.sroa.0.0.extract.trunc.i.i.us = trunc i64 %.sroa.3.0.extract.shift.i.i.us to i24
   store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i.us, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.us, align 4
   %.not.us = icmp eq i64 %.09.us, 0
   %42 = add nsw i64 %.09.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !224
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !223
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit
   %.09 = phi i64 [ %68, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %43 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.09
+  %43 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.09
   %.sroa.02.0.copyload = load i64, ptr %43, align 4
   %44 = icmp slt i64 %.09, %13
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
@@ -7565,15 +7355,15 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vec
   %.036.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.09, %.split ]
   %45 = shl i64 %.036.i, 1
   %46 = add i64 %45, 2
-  %47 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %46
+  %47 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %46
   %48 = or disjoint i64 %45, 1
-  %49 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %48
+  %49 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %48
   %50 = load float, ptr %47, align 4, !tbaa !87
   %51 = load float, ptr %49, align 4, !tbaa !87
   %52 = fcmp olt float %50, %51
   %spec.select.i = select i1 %52, i64 %48, i64 %46
-  %53 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %spec.select.i
-  %54 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.036.i
+  %53 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %spec.select.i
+  %54 = getelementptr inbounds %"struct.cv::videostab::Pixel3", ptr %0, i64 %.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %54, ptr noundef nonnull align 4 dereferenceable(7) %53, i64 7, i1 false), !tbaa.struct !212
   %55 = icmp slt i64 %spec.select.i, %13
   br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !213
@@ -7598,13 +7388,13 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vec
   %.019.i.i = phi i64 [ %.0920.i.i, %64 ], [ %.1.i, %58 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %61 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.0920.i.i
+  %61 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0920.i.i
   %62 = load float, ptr %61, align 4, !tbaa !87
   %63 = fcmp olt float %62, %59
   br i1 %63, label %64, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit
 
 64:                                               ; preds = %.lr.ph.i.i
-  %65 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.019.i.i
+  %65 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.019.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %65, ptr noundef nonnull align 4 dereferenceable(7) %61, i64 7, i1 false), !tbaa.struct !212
   %66 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %66, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, !llvm.loop !214
@@ -7612,14 +7402,14 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vec
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit: ; preds = %.lr.ph.i.i, %64, %58
   %.0.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.0920.i.i, %64 ], [ %.019.i.i, %.lr.ph.i.i ]
   %.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
-  %67 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %.fr17, i64 %.0.lcssa.i.i
+  %67 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %0, i64 %.0.lcssa.i.i
   store i32 %.sroa.012.0.extract.trunc.i.i, ptr %67, align 4, !tbaa !81
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 4
   %.sroa.3.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i24
   store i24 %.sroa.3.sroa.0.0.extract.trunc.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i, align 4
   %.not = icmp eq i64 %.09, 0
   %68 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !224
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !223
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv9videostab6Pixel3ESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, %3
   ret void
@@ -7894,15 +7684,13 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %5 = load i32, ptr %4, align 4, !tbaa !128
-  %.fr218 = freeze i32 %5
-  %.not200 = icmp slt i32 %.fr218, 0
+  %.not200 = icmp slt i32 %5, 0
   br i1 %.not200, label %._crit_edge209.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %6 = sub nsw i32 0, %.fr218
+  %6 = sub nsw i32 0, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8
-  %.fr217 = freeze i32 %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7942,7 +7730,7 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   %.0150205 = phi float [ %.us-phi195, %._crit_edge ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.0154204 = phi float [ %.us-phi, %._crit_edge ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.0158201 = phi i32 [ %260, %._crit_edge ], [ %6, %.lr.ph.preheader ]
-  %38 = add i32 %.0158201, %2
+  %38 = add nsw i32 %.0158201, %2
   %39 = icmp sgt i32 %38, -1
   %40 = zext nneg i32 %38 to i64
   %41 = uitofp nneg i32 %38 to float
@@ -7950,19 +7738,22 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   %42 = add nsw i32 %38, -1
   %43 = zext nneg i32 %42 to i64
   %44 = add nuw nsw i32 %38, 1
-  %45 = icmp samesign ult i32 %44, %.fr217
+  %45 = icmp samesign ult i32 %44, %8
   %46 = zext nneg i32 %44 to i64
   %47 = mul nsw i32 %.0158201, %.0158201
   %48 = sitofp i32 %.0158201 to float
-  %49 = icmp slt i32 %38, %.fr217
-  %or.cond239 = and i1 %39, %49
-  br i1 %or.cond239, label %.lr.ph.split.us.split, label %._crit_edge
+  br i1 %39, label %.lr.ph.split.us, label %._crit_edge
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %258
-  %.1192.us = phi float [ %.2.us, %258 ], [ %.0206, %.lr.ph ]
-  %.1151191.us = phi float [ %.2152.us, %258 ], [ %.0150205, %.lr.ph ]
-  %.1155190.us = phi float [ %.2156.us, %258 ], [ %.0154204, %.lr.ph ]
-  %.0159189.us = phi i32 [ %259, %258 ], [ %6, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %49 = icmp slt i32 %38, %8
+  %.fr = freeze i1 %49
+  br i1 %.fr, label %.lr.ph.split.us.split, label %._crit_edge
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %258
+  %.1192.us = phi float [ %.2.us, %258 ], [ %.0206, %.lr.ph.split.us ]
+  %.1151191.us = phi float [ %.2152.us, %258 ], [ %.0150205, %.lr.ph.split.us ]
+  %.1155190.us = phi float [ %.2156.us, %258 ], [ %.0154204, %.lr.ph.split.us ]
+  %.0159189.us = phi i32 [ %259, %258 ], [ %6, %.lr.ph.split.us ]
   %50 = add nsw i32 %.0159189.us, %1
   %51 = icmp sgt i32 %50, -1
   %52 = icmp slt i32 %50, %10
@@ -8257,16 +8048,16 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   %.2152.us = phi float [ %.1151191.us, %81 ], [ %.1151191.us, %53 ], [ %.1151191.us, %85 ], [ %.1151191.us, %.lr.ph.split.us.split ], [ %256, %215 ], [ %.1151191.us, %100 ], [ %.1151191.us, %60 ], [ %.1151191.us, %95 ]
   %.2.us = phi float [ %.1192.us, %81 ], [ %.1192.us, %53 ], [ %.1192.us, %85 ], [ %.1192.us, %.lr.ph.split.us.split ], [ %251, %215 ], [ %.1192.us, %100 ], [ %.1192.us, %60 ], [ %.1192.us, %95 ]
   %259 = add i32 %.0159189.us, 1
-  %exitcond.not = icmp eq i32 %.0159189.us, %.fr218
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !225
+  %exitcond.not = icmp eq i32 %.0159189.us, %5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !224
 
-._crit_edge:                                      ; preds = %258, %.lr.ph
-  %.us-phi = phi float [ %.0154204, %.lr.ph ], [ %.2156.us, %258 ]
-  %.us-phi195 = phi float [ %.0150205, %.lr.ph ], [ %.2152.us, %258 ]
-  %.us-phi196 = phi float [ %.0206, %.lr.ph ], [ %.2.us, %258 ]
+._crit_edge:                                      ; preds = %258, %.lr.ph.split.us, %.lr.ph
+  %.us-phi = phi float [ %.0154204, %.lr.ph ], [ %.0154204, %.lr.ph.split.us ], [ %.2156.us, %258 ]
+  %.us-phi195 = phi float [ %.0150205, %.lr.ph ], [ %.0150205, %.lr.ph.split.us ], [ %.2152.us, %258 ]
+  %.us-phi196 = phi float [ %.0206, %.lr.ph ], [ %.0206, %.lr.ph.split.us ], [ %.2.us, %258 ]
   %260 = add i32 %.0158201, 1
-  %.not = icmp sgt i32 %260, %.fr218
-  br i1 %.not, label %._crit_edge209, label %.lr.ph, !llvm.loop !226
+  %exitcond220.not = icmp eq i32 %.0158201, %5
+  br i1 %exitcond220.not, label %._crit_edge209, label %.lr.ph, !llvm.loop !225
 
 261:                                              ; preds = %._crit_edge209
   %262 = fdiv float %.us-phi196, %.us-phi
@@ -8674,4 +8465,3 @@ attributes #30 = { builtin allocsize(0) }
 !223 = distinct !{!223, !23}
 !224 = distinct !{!224, !23}
 !225 = distinct !{!225, !23}
-!226 = distinct !{!226, !23}

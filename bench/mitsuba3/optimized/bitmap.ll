@@ -9843,13 +9843,12 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit110: ; preds = %247
   %248 = load i8, ptr %16, align 8
-  %.fr = freeze i8 %248
-  %249 = trunc i8 %.fr to i1
+  %249 = trunc i8 %248 to i1
   %250 = load ptr, ptr %118, align 8
-  %.fr205 = freeze ptr %250
-  %251 = select i1 %249, ptr %.fr205, ptr %119
+  %251 = select i1 %249, ptr %250, ptr %119
+  %.fr = freeze ptr %251
   %252 = load i64, ptr %120, align 8
-  %253 = lshr i8 %.fr, 1
+  %253 = lshr i8 %248, 1
   %254 = zext nneg i8 %253 to i64
   %255 = select i1 %249, i64 %252, i64 %254
   %256 = load i8, ptr %173, align 8
@@ -9868,7 +9867,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
   br label %289
 
 265:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit110
-  %266 = getelementptr inbounds i8, ptr %251, i64 %255
+  %266 = getelementptr inbounds i8, ptr %.fr, i64 %255
   %267 = ptrtoint ptr %266 to i64
   %268 = icmp slt i64 %255, %263
   br i1 %268, label %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000ERKS5_m.exit117.thread, label %.lr.ph.i.i.i111
@@ -9880,7 +9879,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
 
 271:                                              ; preds = %278, %.lr.ph.i.i.i111
   %272 = phi i64 [ %255, %.lr.ph.i.i.i111 ], [ %281, %278 ]
-  %.02529.i.i.i112 = phi ptr [ %251, %.lr.ph.i.i.i111 ], [ %279, %278 ]
+  %.02529.i.i.i112 = phi ptr [ %.fr, %.lr.ph.i.i.i111 ], [ %279, %278 ]
   %reass.sub317 = sub i64 %272, %263
   %273 = add i64 %reass.sub317, 1
   %274 = call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02529.i.i.i112, i32 noundef %270, i64 noundef %273) #40
@@ -9909,7 +9908,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
 
 _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000ERKS5_m.exit117: ; preds = %_ZNSt3__118__search_substringB8ne190000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i.i116
   %284 = ptrtoint ptr %274 to i64
-  %285 = ptrtoint ptr %251 to i64
+  %285 = ptrtoint ptr %.fr to i64
   %286 = sub i64 %284, %285
   %287 = icmp eq i64 %286, -1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #40
@@ -16096,8 +16095,8 @@ _ZN7mitsuba6Stream4readIhEEvRT_.exit142:          ; preds = %_ZN7mitsuba6Stream4
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %75, align 4
   %76 = load i8, ptr %12, align 1
-  %.fr = freeze i8 %76
-  %77 = and i8 %.fr, 32
+  %.fr175 = freeze i8 %76
+  %77 = and i8 %.fr175, 32
   %.not124 = icmp eq i8 %77, 0
   %78 = load i8, ptr %6, align 1
   %79 = and i8 %78, -9
@@ -16388,8 +16387,8 @@ _ZN7mitsuba6Stream4readIhEEvRT_.exit148:          ; preds = %171
 
 ._crit_edge.us:                                   ; preds = %184
   %189 = add nuw nsw i64 %.0117164.us, 1
-  %exitcond178.not = icmp eq i64 %189, %183
-  br i1 %exitcond178.not, label %.loopexit157, label %.preheader155.us, !llvm.loop !224
+  %exitcond179.not = icmp eq i64 %189, %183
+  br i1 %exitcond179.not, label %.loopexit157, label %.preheader155.us, !llvm.loop !224
 
 190:                                              ; preds = %_ZN7mitsuba6Stream4readIhEEvRT_.exit148
   %191 = add nuw nsw i32 %176, 1
@@ -16419,8 +16418,8 @@ _ZN7mitsuba6Stream4readIhEEvRT_.exit148:          ; preds = %171
 
 197:                                              ; preds = %.loopexit153
   %198 = load ptr, ptr %129, align 8
-  %.not175 = icmp eq i64 %122, 0
-  br i1 %.not175, label %.loopexit, label %.lr.ph172
+  %.not176 = icmp eq i64 %122, 0
+  br i1 %.not176, label %.loopexit, label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %197, %.lr.ph172
   %.0170 = phi i64 [ %203, %.lr.ph172 ], [ 0, %197 ]
@@ -20093,12 +20092,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %64, align 8
-  %.fr113 = freeze ptr %66
-  %68 = ptrtoint ptr %.fr113 to i64
-  %.fr114 = freeze ptr %67
-  %69 = ptrtoint ptr %.fr114 to i64
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
-  %71 = sdiv i64 %70, 88
+  %.fr114 = freeze i64 %70
+  %71 = sdiv i64 %.fr114, 88
   %72 = load i32, ptr %18, align 8
   %73 = load i32, ptr %55, align 8
   %74 = zext i32 %73 to i64

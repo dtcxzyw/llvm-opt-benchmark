@@ -710,17 +710,16 @@ define internal fastcc noundef range(i32 0, 2) i32 @try_to_take_rt_mutex(ptr nou
   %121 = load i64, ptr %106, align 8
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %123 = load i64, ptr %122, align 8
-  %.fr = freeze i64 %121
-  %.fr48 = freeze i64 %123
-  %124 = sub i64 %.fr, %.fr48
-  %125 = icmp sgt i64 %124, -1
+  %124 = sub i64 %121, %123
+  %.fr = freeze i64 %124
+  %125 = icmp sgt i64 %.fr, -1
   %. = select i1 %125, i64 8, i64 16
-  %.55 = select i1 %125, i8 0, i8 %117
+  %.54 = select i1 %125, i8 0, i8 %117
   br label %.thread39
 
 .thread39:                                        ; preds = %120, %.split
   %.sink = phi i64 [ 16, %.split ], [ %., %120 ]
-  %126 = phi i8 [ %117, %.split ], [ %.55, %120 ]
+  %126 = phi i8 [ %117, %.split ], [ %.54, %120 ]
   %127 = getelementptr inbounds nuw i8, ptr %116, i64 %.sink
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
@@ -792,20 +791,19 @@ define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(pt
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %16 = load i32, ptr %15, align 4
-  %.fr37 = freeze i32 %16
-  %17 = icmp sgt i32 %.fr37, 99
-  %18 = select i1 %17, i32 120, i32 %.fr37
+  %17 = icmp sgt i32 %16, 99
+  %18 = select i1 %17, i32 120, i32 %16
+  %.fr37 = freeze i32 %18
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %18, ptr %19, align 8
+  store i32 %.fr37, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %21 = load i64, ptr %20, align 8
-  %.fr95 = freeze i64 %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %.fr95, ptr %22, align 8
+  store i64 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 %18, ptr %23, align 8
+  store i32 %.fr37, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %.fr95, ptr %24, align 8
+  store i64 %21, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
@@ -829,7 +827,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(pt
   unreachable
 
 37:                                               ; preds = %32, %28
-  %38 = icmp sgt i32 %18, -1
+  %38 = icmp sgt i32 %.fr37, -1
   br i1 %38, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %37, %.split.us
@@ -837,44 +835,44 @@ define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(pt
   %40 = phi i8 [ %45, %.split.us ], [ 1, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load i32, ptr %41, align 8
-  %.not39 = icmp slt i32 %18, %42
-  %43 = select i1 %.not39, i64 16, i64 8
+  %.not38 = icmp slt i32 %.fr37, %42
+  %43 = select i1 %.not38, i64 16, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 %43
-  %45 = select i1 %.not39, i8 %40, i8 0
+  %45 = select i1 %.not38, i8 %40, i8 0
   %46 = load ptr, ptr %44, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.split23.us, label %.split.us, !llvm.loop !25
 
-.split:                                           ; preds = %37, %.thread71
-  %48 = phi ptr [ %59, %.thread71 ], [ %26, %37 ]
-  %49 = phi i8 [ %57, %.thread71 ], [ 1, %37 ]
+.split:                                           ; preds = %37, %.thread69
+  %48 = phi ptr [ %59, %.thread69 ], [ %26, %37 ]
+  %49 = phi i8 [ %57, %.thread69 ], [ 1, %37 ]
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %51 = load i32, ptr %50, align 8
-  %.not = icmp slt i32 %18, %51
-  br i1 %.not, label %.thread71, label %52
+  %.not = icmp slt i32 %.fr37, %51
+  br i1 %.not, label %.thread69, label %52
 
 52:                                               ; preds = %.split
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %54 = load i64, ptr %53, align 8
-  %.fr96 = freeze i64 %54
-  %55 = sub i64 %.fr95, %.fr96
-  %56 = icmp sgt i64 %55, -1
+  %55 = sub i64 %21, %54
+  %.fr93 = freeze i64 %55
+  %56 = icmp sgt i64 %.fr93, -1
   %. = select i1 %56, i64 8, i64 16
-  %.113 = select i1 %56, i8 0, i8 %49
-  br label %.thread71
+  %.109 = select i1 %56, i8 0, i8 %49
+  br label %.thread69
 
-.thread71:                                        ; preds = %52, %.split
+.thread69:                                        ; preds = %52, %.split
   %.sink = phi i64 [ 16, %.split ], [ %., %52 ]
-  %57 = phi i8 [ %49, %.split ], [ %.113, %52 ]
+  %57 = phi i8 [ %49, %.split ], [ %.109, %52 ]
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.split23.us, label %.split, !llvm.loop !25
 
-.split23.us:                                      ; preds = %.thread71, %.split.us
-  %.us-phi = phi i64 [ %43, %.split.us ], [ %.sink, %.thread71 ]
-  %.us-phi24 = phi ptr [ %39, %.split.us ], [ %48, %.thread71 ]
-  %.us-phi25 = phi i8 [ %45, %.split.us ], [ %57, %.thread71 ]
+.split23.us:                                      ; preds = %.thread69, %.split.us
+  %.us-phi = phi i64 [ %43, %.split.us ], [ %.sink, %.thread69 ]
+  %.us-phi24 = phi ptr [ %39, %.split.us ], [ %48, %.thread69 ]
+  %.us-phi25 = phi i8 [ %45, %.split.us ], [ %57, %.thread69 ]
   %61 = getelementptr inbounds nuw i8, ptr %.us-phi24, i64 %.us-phi
   %62 = ptrtoint ptr %.us-phi24 to i64
   %63 = icmp eq i8 %.us-phi25, 0
@@ -969,46 +967,45 @@ define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(pt
   %107 = phi i8 [ %112, %.split29.us ], [ 1, %103 ]
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %109 = load i32, ptr %108, align 8
-  %.not41 = icmp slt i32 %.fr, %109
-  %110 = select i1 %.not41, i64 16, i64 8
+  %.not40 = icmp slt i32 %.fr, %109
+  %110 = select i1 %.not40, i64 16, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 %110
-  %112 = select i1 %.not41, i8 %107, i8 0
+  %112 = select i1 %.not40, i8 %107, i8 0
   %113 = load ptr, ptr %111, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.split31.us, label %.split29.us, !llvm.loop !25
 
-.split29:                                         ; preds = %103, %.thread78
-  %115 = phi ptr [ %127, %.thread78 ], [ %101, %103 ]
-  %116 = phi i8 [ %125, %.thread78 ], [ 1, %103 ]
+.split29:                                         ; preds = %103, %.thread76
+  %115 = phi ptr [ %127, %.thread76 ], [ %101, %103 ]
+  %116 = phi i8 [ %125, %.thread76 ], [ 1, %103 ]
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %118 = load i32, ptr %117, align 8
-  %.not40 = icmp slt i32 %.fr, %118
-  br i1 %.not40, label %.thread78, label %119
+  %.not39 = icmp slt i32 %.fr, %118
+  br i1 %.not39, label %.thread76, label %119
 
 119:                                              ; preds = %.split29
   %120 = load i64, ptr %24, align 8
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %122 = load i64, ptr %121, align 8
-  %.fr97 = freeze i64 %120
-  %.fr98 = freeze i64 %122
-  %123 = sub i64 %.fr97, %.fr98
-  %124 = icmp sgt i64 %123, -1
-  %.114 = select i1 %124, i64 8, i64 16
-  %.115 = select i1 %124, i8 0, i8 %116
-  br label %.thread78
+  %123 = sub i64 %120, %122
+  %.fr94 = freeze i64 %123
+  %124 = icmp sgt i64 %.fr94, -1
+  %.110 = select i1 %124, i64 8, i64 16
+  %.111 = select i1 %124, i8 0, i8 %116
+  br label %.thread76
 
-.thread78:                                        ; preds = %119, %.split29
-  %.sink112 = phi i64 [ 16, %.split29 ], [ %.114, %119 ]
-  %125 = phi i8 [ %116, %.split29 ], [ %.115, %119 ]
-  %126 = getelementptr inbounds nuw i8, ptr %115, i64 %.sink112
+.thread76:                                        ; preds = %119, %.split29
+  %.sink108 = phi i64 [ 16, %.split29 ], [ %.110, %119 ]
+  %125 = phi i8 [ %116, %.split29 ], [ %.111, %119 ]
+  %126 = getelementptr inbounds nuw i8, ptr %115, i64 %.sink108
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %.split31.us, label %.split29, !llvm.loop !25
 
-.split31.us:                                      ; preds = %.thread78, %.split29.us
-  %.us-phi32 = phi i64 [ %110, %.split29.us ], [ %.sink112, %.thread78 ]
-  %.us-phi33 = phi ptr [ %106, %.split29.us ], [ %115, %.thread78 ]
-  %.us-phi34 = phi i8 [ %112, %.split29.us ], [ %125, %.thread78 ]
+.split31.us:                                      ; preds = %.thread76, %.split29.us
+  %.us-phi32 = phi i64 [ %110, %.split29.us ], [ %.sink108, %.thread76 ]
+  %.us-phi33 = phi ptr [ %106, %.split29.us ], [ %115, %.thread76 ]
+  %.us-phi34 = phi i8 [ %112, %.split29.us ], [ %125, %.thread76 ]
   %129 = getelementptr inbounds nuw i8, ptr %.us-phi33, i64 %.us-phi32
   %130 = ptrtoint ptr %.us-phi33 to i64
   %131 = icmp eq i8 %.us-phi34, 0
@@ -1279,17 +1276,16 @@ define internal fastcc void @remove_waiter(ptr noundef %0, ptr noundef %1) unnam
   %85 = load i64, ptr %70, align 8
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %87 = load i64, ptr %86, align 8
-  %.fr = freeze i64 %85
-  %.fr50 = freeze i64 %87
-  %88 = sub i64 %.fr, %.fr50
-  %89 = icmp sgt i64 %88, -1
+  %88 = sub i64 %85, %87
+  %.fr = freeze i64 %88
+  %89 = icmp sgt i64 %.fr, -1
   %. = select i1 %89, i64 8, i64 16
-  %.57 = select i1 %89, i8 0, i8 %81
+  %.56 = select i1 %89, i8 0, i8 %81
   br label %.thread41
 
 .thread41:                                        ; preds = %84, %.split
   %.sink = phi i64 [ 16, %.split ], [ %., %84 ]
-  %90 = phi i8 [ %81, %.split ], [ %.57, %84 ]
+  %90 = phi i8 [ %81, %.split ], [ %.56, %84 ]
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 %.sink
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
@@ -1689,7 +1685,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %7 = icmp ne i32 %1, 0
   %8 = load i32, ptr @max_lock_depth, align 4
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %.loopexit54, label %10
+  br i1 %9, label %.loopexit53, label %10
 
 10:                                               ; preds = %6
   %11 = icmp eq ptr %4, null
@@ -1717,14 +1713,14 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 504
   br label %46
 
-.loopexit54:                                      ; preds = %146, %6
+.loopexit53:                                      ; preds = %146, %6
   %29 = phi ptr [ %0, %6 ], [ %148, %146 ]
   %30 = phi i32 [ %8, %6 ], [ %151, %146 ]
   %31 = load i32, ptr @rt_mutex_adjust_prio_chain.prev_max, align 4
   %32 = icmp eq i32 %31, %30
   br i1 %32, label %38, label %33
 
-33:                                               ; preds = %.loopexit54
+33:                                               ; preds = %.loopexit53
   store i32 %30, ptr @rt_mutex_adjust_prio_chain.prev_max, align 4
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 1800
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1320
@@ -1732,7 +1728,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %30, ptr noundef nonnull %34, i32 noundef %36) #13
   br label %38
 
-38:                                               ; preds = %33, %.loopexit54
+38:                                               ; preds = %33, %.loopexit53
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %40 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %39, i32 -1, ptr nonnull elementtype(i32) %39) #11, !srcloc !34
   %41 = icmp eq i32 %40, 1
@@ -1804,11 +1800,10 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %79 = load i64, ptr %78, align 8
-  %.fr = freeze i64 %79
-  %.fr51 = freeze i64 %71
-  %80 = icmp ne i64 %.fr, %.fr51
-  %81 = or i1 %7, %80
-  %. = select i1 %80, i8 %67, i8 0
+  %80 = icmp ne i64 %79, %71
+  %cond.fr = freeze i1 %80
+  %81 = or i1 %7, %cond.fr
+  %. = select i1 %cond.fr, i8 %67, i8 0
   br i1 %81, label %.thread44, label %.loopexit
 
 .thread44:                                        ; preds = %77, %66, %.thread42
@@ -1932,7 +1927,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   tail call void @_raw_spin_unlock(ptr noundef nonnull %127) #11
   tail call void @_raw_spin_unlock_irq(ptr noundef %54) #11
   %145 = icmp eq ptr %135, null
-  br i1 %145, label %.loopexit53, label %146
+  br i1 %145, label %.loopexit52, label %146
 
 146:                                              ; preds = %396, %144
   %147 = phi ptr [ %135, %144 ], [ %388, %396 ]
@@ -1941,7 +1936,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %150 = add i32 %14, 1
   %151 = load i32, ptr @max_lock_depth, align 4
   %152 = icmp sgt i32 %150, %151
-  br i1 %152, label %.loopexit54, label %13
+  br i1 %152, label %.loopexit53, label %13
 
 153:                                              ; preds = %99
   %154 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -1983,21 +1978,20 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
 
 172:                                              ; preds = %171, %162
   %173 = load i32, ptr %27, align 4
-  %.fr126 = freeze i32 %173
-  %174 = icmp sgt i32 %.fr126, 99
-  %175 = select i1 %174, i32 120, i32 %.fr126
-  store i32 %175, ptr %89, align 8
+  %174 = icmp sgt i32 %173, 99
+  %175 = select i1 %174, i32 120, i32 %173
+  %.fr124 = freeze i32 %175
+  store i32 %.fr124, ptr %89, align 8
   %176 = load i64, ptr %28, align 8
-  %.fr316 = freeze i64 %176
   %177 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i64 %.fr316, ptr %177, align 8
+  store i64 %176, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
   br i1 %180, label %.critedge, label %181
 
 181:                                              ; preds = %172
-  %182 = icmp sgt i32 %175, -1
+  %182 = icmp sgt i32 %.fr124, -1
   br i1 %182, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %181, %.split.us
@@ -2005,47 +1999,47 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %184 = phi i8 [ %189, %.split.us ], [ 1, %181 ]
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %186 = load i32, ptr %185, align 8
-  %.not128 = icmp slt i32 %175, %186
-  %187 = select i1 %.not128, i64 16, i64 8
+  %.not125 = icmp slt i32 %.fr124, %186
+  %187 = select i1 %.not125, i64 16, i64 8
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 %187
-  %189 = select i1 %.not128, i8 %184, i8 0
+  %189 = select i1 %.not125, i8 %184, i8 0
   %190 = load ptr, ptr %188, align 8
   %191 = icmp eq ptr %190, null
-  br i1 %191, label %.split117.us, label %.split.us, !llvm.loop !25
+  br i1 %191, label %.split116.us, label %.split.us, !llvm.loop !25
 
-.split:                                           ; preds = %181, %.thread233
-  %192 = phi ptr [ %203, %.thread233 ], [ %179, %181 ]
-  %193 = phi i8 [ %201, %.thread233 ], [ 1, %181 ]
+.split:                                           ; preds = %181, %.thread229
+  %192 = phi ptr [ %203, %.thread229 ], [ %179, %181 ]
+  %193 = phi i8 [ %201, %.thread229 ], [ 1, %181 ]
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %195 = load i32, ptr %194, align 8
-  %.not = icmp slt i32 %175, %195
-  br i1 %.not, label %.thread233, label %196
+  %.not = icmp slt i32 %.fr124, %195
+  br i1 %.not, label %.thread229, label %196
 
 196:                                              ; preds = %.split
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %198 = load i64, ptr %197, align 8
-  %.fr317 = freeze i64 %198
-  %199 = sub i64 %.fr316, %.fr317
-  %200 = icmp sgt i64 %199, -1
-  %.392 = select i1 %200, i64 8, i64 16
-  %.393 = select i1 %200, i8 0, i8 %193
-  br label %.thread233
+  %199 = sub i64 %176, %198
+  %.fr = freeze i64 %199
+  %200 = icmp sgt i64 %.fr, -1
+  %.386 = select i1 %200, i64 8, i64 16
+  %.387 = select i1 %200, i8 0, i8 %193
+  br label %.thread229
 
-.thread233:                                       ; preds = %196, %.split
-  %.sink = phi i64 [ 16, %.split ], [ %.392, %196 ]
-  %201 = phi i8 [ %193, %.split ], [ %.393, %196 ]
+.thread229:                                       ; preds = %196, %.split
+  %.sink = phi i64 [ 16, %.split ], [ %.386, %196 ]
+  %201 = phi i8 [ %193, %.split ], [ %.387, %196 ]
   %202 = getelementptr inbounds nuw i8, ptr %192, i64 %.sink
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, null
-  br i1 %204, label %.split117.us, label %.split, !llvm.loop !25
+  br i1 %204, label %.split116.us, label %.split, !llvm.loop !25
 
-.split117.us:                                     ; preds = %.thread233, %.split.us
-  %.us-phi = phi i64 [ %187, %.split.us ], [ %.sink, %.thread233 ]
-  %.us-phi118 = phi ptr [ %183, %.split.us ], [ %192, %.thread233 ]
-  %.us-phi119 = phi i8 [ %189, %.split.us ], [ %201, %.thread233 ]
-  %205 = getelementptr inbounds nuw i8, ptr %.us-phi118, i64 %.us-phi
-  %206 = ptrtoint ptr %.us-phi118 to i64
-  %207 = icmp eq i8 %.us-phi119, 0
+.split116.us:                                     ; preds = %.thread229, %.split.us
+  %.us-phi = phi i64 [ %187, %.split.us ], [ %.sink, %.thread229 ]
+  %.us-phi117 = phi ptr [ %183, %.split.us ], [ %192, %.thread229 ]
+  %.us-phi118 = phi i8 [ %189, %.split.us ], [ %201, %.thread229 ]
+  %205 = getelementptr inbounds nuw i8, ptr %.us-phi117, i64 %.us-phi
+  %206 = ptrtoint ptr %.us-phi117 to i64
+  %207 = icmp eq i8 %.us-phi118, 0
   store i64 %206, ptr %47, align 8
   %208 = getelementptr inbounds nuw i8, ptr %47, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, i8 0, i64 16, i1 false)
@@ -2057,11 +2051,11 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   store ptr %47, ptr %178, align 8
   br label %209
 
-209:                                              ; preds = %.critedge, %.split117.us
+209:                                              ; preds = %.critedge, %.split116.us
   store ptr %47, ptr %154, align 8
   br label %210
 
-210:                                              ; preds = %209, %.split117.us
+210:                                              ; preds = %209, %.split116.us
   tail call void @rb_insert_color(ptr noundef nonnull %47, ptr noundef nonnull %178) #11
   tail call void @_raw_spin_unlock(ptr noundef nonnull %19) #11
   %211 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2399,14 +2393,14 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %398 = icmp eq ptr %380, %389
   %399 = or i1 %7, %398
   %400 = and i1 %397, %399
-  br i1 %400, label %146, label %.loopexit53
+  br i1 %400, label %146, label %.loopexit52
 
 .loopexit:                                        ; preds = %13, %77, %.thread42, %85, %60, %57, %52, %49, %98
   %401 = phi i32 [ -35, %98 ], [ 0, %77 ], [ 0, %49 ], [ 0, %52 ], [ 0, %57 ], [ 0, %60 ], [ 0, %85 ], [ 0, %.thread42 ], [ 0, %13 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #11
-  br label %.loopexit53
+  br label %.loopexit52
 
-.loopexit53:                                      ; preds = %396, %144, %.loopexit
+.loopexit52:                                      ; preds = %396, %144, %.loopexit
   %402 = phi ptr [ %17, %.loopexit ], [ %116, %144 ], [ %241, %396 ]
   %403 = phi i32 [ %401, %.loopexit ], [ 0, %144 ], [ 0, %396 ]
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 40
@@ -2414,7 +2408,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %406 = icmp eq i32 %405, 1
   br i1 %406, label %410, label %407
 
-407:                                              ; preds = %.loopexit53
+407:                                              ; preds = %.loopexit52
   %408 = icmp sgt i32 %405, 0
   br i1 %408, label %.thread, label %409, !prof !12
 
@@ -2422,7 +2416,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   tail call void @refcount_warn_saturate(ptr noundef nonnull %404, i32 noundef 3) #11
   br label %.thread
 
-410:                                              ; preds = %.loopexit53
+410:                                              ; preds = %.loopexit52
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !35
   tail call void @__put_task_struct(ptr noundef %402) #11
   br label %.thread

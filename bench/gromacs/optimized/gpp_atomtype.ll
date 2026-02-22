@@ -2771,7 +2771,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit102:                 ; preds = %266, %265
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.0.val.0.val, ptr %.0.val.8.val, ptr noundef nonnull captures(none) %0, ptr captures(none) %1, i32 noundef %2, i64 %.0.val1, i32 noundef range(i32 37, 39) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %.0.val.0.val.fr = freeze ptr %.0.val.0.val
   %6 = load i32, ptr %0, align 4, !tbaa !13
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %7
@@ -2779,14 +2778,13 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
   %10 = load i32, ptr %9, align 4, !tbaa !176
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !178
-  %.fr108 = freeze i32 %12
-  %.fr109 = freeze i32 %10
-  %13 = add i32 %.fr108, %.fr109
-  %.0.val.8.val.fr = freeze ptr %.0.val.8.val
-  %14 = ptrtoint ptr %.0.val.8.val.fr to i64
-  %15 = ptrtoint ptr %.0.val.0.val.fr to i64
+  %13 = add nsw i32 %12, %10
+  %.fr108 = freeze i32 %13
+  %14 = ptrtoint ptr %.0.val.8.val to i64
+  %15 = ptrtoint ptr %.0.val.0.val to i64
   %16 = sub i64 %14, %15
-  %17 = sdiv i64 %16, 192
+  %.fr = freeze i64 %16
+  %17 = sdiv i64 %.fr, 192
   %18 = trunc i64 %17 to i32
   %19 = icmp sgt i32 %6, 0
   br i1 %19, label %.lr.ph31, label %._crit_edge32
@@ -2798,76 +2796,76 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
   %23 = icmp slt i32 %2, 0
   %24 = zext i32 %2 to i64
   %25 = icmp sle i64 %17, %24
-  %26 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val.fr, i64 %24
+  %26 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 188
   br i1 %20, label %.lr.ph31.split.us, label %._crit_edge32
 
 .lr.ph31.split.us:                                ; preds = %.lr.ph31
-  %28 = icmp sgt i32 %13, 0
+  %28 = icmp sgt i32 %.fr108, 0
   br i1 %28, label %.lr.ph31.split.us.split.us.preheader, label %.lr.ph31.split.us.split
 
 .lr.ph31.split.us.split.us.preheader:             ; preds = %.lr.ph31.split.us
-  %29 = zext nneg i32 %13 to i64
+  %29 = zext nneg i32 %.fr108 to i64
   %30 = sext i32 %22 to i64
   %31 = and i64 %17, 2147483647
-  %wide.trip.count157 = zext nneg i32 %6 to i64
-  %invariant.gep201 = getelementptr %class.InteractionOfType, ptr %21, i64 %30
-  %invariant.gep205 = getelementptr %class.InteractionOfType, ptr %21, i64 %30
-  %invariant.gep209 = getelementptr %class.InteractionOfType, ptr %21, i64 %30
+  %wide.trip.count160 = zext nneg i32 %6 to i64
+  %invariant.gep203 = getelementptr %class.InteractionOfType, ptr %21, i64 %30
+  %invariant.gep207 = getelementptr %class.InteractionOfType, ptr %21, i64 %30
+  %invariant.gep211 = getelementptr %class.InteractionOfType, ptr %21, i64 %30
   %brmerge = or i1 %23, %25
   br label %.lr.ph31.split.us.split.us
 
 .lr.ph31.split.us.split.us:                       ; preds = %.lr.ph31.split.us.split.us.preheader, %._crit_edge15.split.us41.us.thread
-  %indvars.iv154 = phi i64 [ 0, %.lr.ph31.split.us.split.us.preheader ], [ %indvars.iv.next155, %._crit_edge15.split.us41.us.thread ]
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv154
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph31.split.us.split.us.preheader ], [ %indvars.iv.next158, %._crit_edge15.split.us41.us.thread ]
+  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv157
   %33 = load i32, ptr %32, align 4, !tbaa !13
-  %.fr111 = freeze i32 %33
-  %34 = icmp eq i32 %.fr111, %2
+  %.fr114 = freeze i32 %33
+  %34 = icmp eq i32 %.fr114, %2
   br i1 %34, label %._crit_edge32.loopexit, label %.preheader.us.us
 
 ._crit_edge15.split.us41.us.thread:               ; preds = %._crit_edge.us.us.us100, %._crit_edge.us.us.us, %._crit_edge15.split.us41.us
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.us, !llvm.loop !179
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
+  br i1 %exitcond161.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.us, !llvm.loop !179
 
 .lr.ph.us.us.preheader:                           ; preds = %.lr.ph14.split.us43.us.split, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us ], [ 0, %.lr.ph14.split.us43.us.split ]
-  %gep204 = getelementptr %class.InteractionOfType, ptr %invariant.gep203, i64 %indvars.iv147
-  %35 = getelementptr inbounds nuw i8, ptr %gep204, i64 24
-  %gep206 = getelementptr %class.InteractionOfType, ptr %invariant.gep205, i64 %indvars.iv147
-  %36 = getelementptr inbounds nuw i8, ptr %gep206, i64 24
+  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us ], [ 0, %.lr.ph14.split.us43.us.split ]
+  %gep206 = getelementptr %class.InteractionOfType, ptr %invariant.gep205, i64 %indvars.iv150
+  %35 = getelementptr inbounds nuw i8, ptr %gep206, i64 24
+  %gep208 = getelementptr %class.InteractionOfType, ptr %invariant.gep207, i64 %indvars.iv150
+  %36 = getelementptr inbounds nuw i8, ptr %gep208, i64 24
   br label %.lr.ph.us.us
 
 _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us: ; preds = %.lr.ph.us.us
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %37 = icmp samesign ult i64 %indvars.iv.next148, %31
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %37 = icmp samesign ult i64 %indvars.iv.next151, %31
   %38 = select i1 %37, i1 %43, i1 false
   br i1 %38, label %.lr.ph.us.us.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !180
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
-  %indvars.iv144 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next145, %.lr.ph.us.us ]
-  %39 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv144
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next148, %.lr.ph.us.us ]
+  %39 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv147
   %40 = load float, ptr %39, align 4, !tbaa !49
-  %41 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv144
+  %41 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv147
   %42 = load float, ptr %41, align 4, !tbaa !49
   %43 = fcmp oeq float %40, %42
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %44 = icmp samesign ult i64 %indvars.iv.next145, %29
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %44 = icmp samesign ult i64 %indvars.iv.next148, %29
   %45 = select i1 %44, i1 %43, i1 false
   br i1 %45, label %.lr.ph.us.us, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us, !llvm.loop !181
 
 .preheader.us.us:                                 ; preds = %.lr.ph31.split.us.split.us
-  %46 = mul nsw i32 %.fr111, %18
-  %47 = icmp sgt i32 %.fr111, -1
-  %48 = zext nneg i32 %.fr111 to i64
+  %46 = mul nsw i32 %.fr114, %18
+  %47 = icmp sgt i32 %.fr114, -1
+  %48 = zext nneg i32 %.fr114 to i64
   %49 = icmp sgt i64 %17, %48
-  %50 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val.fr, i64 %48
+  %50 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 188
   br i1 %47, label %.lr.ph14.split.us43.us.split.us.preheader, label %.lr.ph14.split.us43.us.split
 
 .lr.ph14.split.us43.us.split.us.preheader:        ; preds = %.preheader.us.us
   %52 = zext nneg i32 %46 to i64
-  %invariant.gep207 = getelementptr inbounds nuw %class.InteractionOfType, ptr %21, i64 %52
+  %invariant.gep209 = getelementptr inbounds nuw %class.InteractionOfType, ptr %21, i64 %52
   br label %.lr.ph.us.us.us.preheader
 
 ._crit_edge15.split.us41.us:                      ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us, %59
@@ -2875,11 +2873,11 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us: ; preds = %
   br i1 %.us-phi89, label %._crit_edge32.loopexit, label %._crit_edge15.split.us41.us.thread
 
 .lr.ph.us.us.us.preheader:                        ; preds = %59, %.lr.ph14.split.us43.us.split.us.preheader
-  %indvars.iv152 = phi i64 [ 0, %.lr.ph14.split.us43.us.split.us.preheader ], [ %indvars.iv.next153, %59 ]
-  %gep208 = getelementptr inbounds nuw %class.InteractionOfType, ptr %invariant.gep207, i64 %indvars.iv152
-  %53 = getelementptr inbounds nuw i8, ptr %gep208, i64 24
-  %gep210 = getelementptr %class.InteractionOfType, ptr %invariant.gep209, i64 %indvars.iv152
-  %54 = getelementptr inbounds nuw i8, ptr %gep210, i64 24
+  %indvars.iv155 = phi i64 [ 0, %.lr.ph14.split.us43.us.split.us.preheader ], [ %indvars.iv.next156, %59 ]
+  %gep210 = getelementptr inbounds nuw %class.InteractionOfType, ptr %invariant.gep209, i64 %indvars.iv155
+  %53 = getelementptr inbounds nuw i8, ptr %gep210, i64 24
+  %gep212 = getelementptr %class.InteractionOfType, ptr %invariant.gep211, i64 %indvars.iv155
+  %54 = getelementptr inbounds nuw i8, ptr %gep212, i64 24
   br label %.lr.ph.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %.lr.ph.us.us.us
@@ -2903,34 +2901,34 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us: ; preds 
 59:                                               ; preds = %57, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us
   %.sroa.2.0.i55.us.us.us88 = phi i32 [ %58, %57 ], [ 0, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us ]
   %60 = icmp eq i32 %.sroa.2.0.i.us.us.us85, %.sroa.2.0.i55.us.us.us88
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %61 = icmp samesign ult i64 %indvars.iv.next153, %31
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %61 = icmp samesign ult i64 %indvars.iv.next156, %31
   %62 = select i1 %61, i1 %60, i1 false
   br i1 %62, label %.lr.ph.us.us.us.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !180
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %.lr.ph.us.us.us
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next150, %.lr.ph.us.us.us ]
-  %63 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv149
+  %indvars.iv152 = phi i64 [ 0, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next153, %.lr.ph.us.us.us ]
+  %63 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv152
   %64 = load float, ptr %63, align 4, !tbaa !49
-  %65 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv149
+  %65 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv152
   %66 = load float, ptr %65, align 4, !tbaa !49
   %67 = fcmp oeq float %64, %66
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %68 = icmp samesign ult i64 %indvars.iv.next150, %29
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+  %68 = icmp samesign ult i64 %indvars.iv.next153, %29
   %69 = select i1 %68, i1 %67, i1 false
   br i1 %69, label %.lr.ph.us.us.us, label %._crit_edge.us.us.us, !llvm.loop !181
 
 .lr.ph14.split.us43.us.split:                     ; preds = %.preheader.us.us
   %70 = sext i32 %46 to i64
-  %invariant.gep203 = getelementptr %class.InteractionOfType, ptr %21, i64 %70
+  %invariant.gep205 = getelementptr %class.InteractionOfType, ptr %21, i64 %70
   br i1 %23, label %.lr.ph.us.us.preheader, label %.lr.ph.us.us.us99.preheader
 
 .lr.ph.us.us.us99.preheader:                      ; preds = %.lr.ph14.split.us43.us.split, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96 ], [ 0, %.lr.ph14.split.us43.us.split ]
-  %gep = getelementptr %class.InteractionOfType, ptr %invariant.gep203, i64 %indvars.iv142
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96 ], [ 0, %.lr.ph14.split.us43.us.split ]
+  %gep = getelementptr %class.InteractionOfType, ptr %invariant.gep205, i64 %indvars.iv145
   %71 = getelementptr inbounds nuw i8, ptr %gep, i64 24
-  %gep202 = getelementptr %class.InteractionOfType, ptr %invariant.gep201, i64 %indvars.iv142
-  %72 = getelementptr inbounds nuw i8, ptr %gep202, i64 24
+  %gep204 = getelementptr %class.InteractionOfType, ptr %invariant.gep203, i64 %indvars.iv145
+  %72 = getelementptr inbounds nuw i8, ptr %gep204, i64 24
   br label %.lr.ph.us.us.us99
 
 ._crit_edge.us.us.us100:                          ; preds = %.lr.ph.us.us.us99
@@ -2946,49 +2944,49 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94: ; pred
 
 _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94, %73
   %76 = phi i1 [ true, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94 ], [ %75, %73 ]
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %77 = icmp samesign ult i64 %indvars.iv.next143, %31
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %77 = icmp samesign ult i64 %indvars.iv.next146, %31
   %78 = select i1 %77, i1 %76, i1 false
   br i1 %78, label %.lr.ph.us.us.us99.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !180
 
 .lr.ph.us.us.us99:                                ; preds = %.lr.ph.us.us.us99.preheader, %.lr.ph.us.us.us99
-  %indvars.iv139 = phi i64 [ 0, %.lr.ph.us.us.us99.preheader ], [ %indvars.iv.next140, %.lr.ph.us.us.us99 ]
-  %79 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv139
+  %indvars.iv142 = phi i64 [ 0, %.lr.ph.us.us.us99.preheader ], [ %indvars.iv.next143, %.lr.ph.us.us.us99 ]
+  %79 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv142
   %80 = load float, ptr %79, align 4, !tbaa !49
-  %81 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv139
+  %81 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv142
   %82 = load float, ptr %81, align 4, !tbaa !49
   %83 = fcmp oeq float %80, %82
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %84 = icmp samesign ult i64 %indvars.iv.next140, %29
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+  %84 = icmp samesign ult i64 %indvars.iv.next143, %29
   %85 = select i1 %84, i1 %83, i1 false
   br i1 %85, label %.lr.ph.us.us.us99, label %._crit_edge.us.us.us100, !llvm.loop !181
 
 .lr.ph31.split.us.split:                          ; preds = %.lr.ph31.split.us
-  %wide.trip.count137 = zext nneg i32 %6 to i64
+  %wide.trip.count140 = zext nneg i32 %6 to i64
   br i1 %23, label %.lr.ph31.split.us.split.split, label %.lr.ph31.split.us.split.split.us
 
 .lr.ph31.split.us.split.split.us:                 ; preds = %.lr.ph31.split.us.split, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph31.split.us.split ]
   %86 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !13
-  %.fr110 = freeze i32 %87
-  %88 = icmp eq i32 %.fr110, %2
-  br i1 %88, label %._crit_edge32.loopexit185, label %.preheader.us.us65
+  %.fr112 = freeze i32 %87
+  %88 = icmp eq i32 %.fr112, %2
+  br i1 %88, label %._crit_edge32.loopexit187, label %.preheader.us.us65
 
 89:                                               ; preds = %._crit_edge15.split.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count137
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count140
   br i1 %exitcond.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.split.us, !llvm.loop !179
 
 .preheader.us.us65:                               ; preds = %.lr.ph31.split.us.split.split.us
-  %90 = icmp sgt i32 %.fr110, -1
-  %91 = zext i32 %.fr110 to i64
-  %92 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val.fr, i64 %91
+  %90 = icmp sgt i32 %.fr112, -1
+  %91 = zext i32 %.fr112 to i64
+  %92 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 188
   br i1 %90, label %.lr.ph14.split.us.split.us.us.us, label %.lr.ph14.split.us.split.us49.us
 
 .lr.ph14.split.us.split.us49.us:                  ; preds = %.preheader.us.us65
-  br i1 %25, label %._crit_edge32.loopexit185, label %._crit_edge15.split.us.us.us.loopexit7
+  br i1 %25, label %._crit_edge32.loopexit187, label %._crit_edge15.split.us.us.us.loopexit7
 
 ._crit_edge15.split.us.us.us.loopexit7:           ; preds = %.lr.ph14.split.us.split.us49.us
   %94 = load i32, ptr %27, align 4, !tbaa !13
@@ -2997,7 +2995,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; pred
 
 ._crit_edge15.split.us.us.us:                     ; preds = %._crit_edge15.split.us.us.us.loopexit7, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader
   %.us-phi17.us.us = phi i1 [ %100, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader ], [ %102, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader ], [ %99, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader ], [ %95, %._crit_edge15.split.us.us.us.loopexit7 ]
-  br i1 %.us-phi17.us.us, label %._crit_edge32.loopexit185, label %89
+  br i1 %.us-phi17.us.us, label %._crit_edge32.loopexit187, label %89
 
 .lr.ph14.split.us.split.us.us.us:                 ; preds = %.preheader.us.us65
   %96 = icmp sgt i64 %17, %91
@@ -3017,7 +3015,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; pred
   br label %._crit_edge15.split.us.us.us
 
 .lr.ph14.split.us.split.us.us.us.split:           ; preds = %.lr.ph14.split.us.split.us.us.us
-  br i1 %25, label %._crit_edge32.loopexit185, label %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader
+  br i1 %25, label %._crit_edge32.loopexit187, label %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader
 
 .lr.ph14.split.us.split.us.us.us.split.split.us.preheader: ; preds = %.lr.ph14.split.us.split.us.us.us.split
   %101 = load i32, ptr %27, align 4, !tbaa !13
@@ -3025,28 +3023,28 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; pred
   br label %._crit_edge15.split.us.us.us
 
 .lr.ph31.split.us.split.split:                    ; preds = %.lr.ph31.split.us.split, %106
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %106 ], [ 0, %.lr.ph31.split.us.split ]
-  %103 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv134
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %106 ], [ 0, %.lr.ph31.split.us.split ]
+  %103 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv137
   %104 = load i32, ptr %103, align 4, !tbaa !13
-  %.fr = freeze i32 %104
-  %105 = icmp eq i32 %.fr, %2
-  br i1 %105, label %._crit_edge32.loopexit180, label %.preheader.us
+  %.fr110 = freeze i32 %104
+  %105 = icmp eq i32 %.fr110, %2
+  br i1 %105, label %._crit_edge32.loopexit182, label %.preheader.us
 
 106:                                              ; preds = %._crit_edge15.split.us.us
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
-  br i1 %exitcond138.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.split, !llvm.loop !179
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
+  br i1 %exitcond141.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.split, !llvm.loop !179
 
 .preheader.us:                                    ; preds = %.lr.ph31.split.us.split.split
-  %107 = icmp sgt i32 %.fr, -1
-  %108 = zext nneg i32 %.fr to i64
+  %107 = icmp sgt i32 %.fr110, -1
+  %108 = zext nneg i32 %.fr110 to i64
   %109 = icmp sgt i64 %17, %108
-  %110 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val.fr, i64 %108
+  %110 = getelementptr inbounds nuw %struct.AtomTypeData, ptr %.0.val.0.val, i64 %108
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 188
-  br i1 %107, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge32.loopexit180
+  br i1 %107, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge32.loopexit182
 
 ._crit_edge15.split.us.us:                        ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us
-  br i1 %.sroa.2.0.i.us.us.us, label %._crit_edge32.loopexit180, label %106
+  br i1 %.sroa.2.0.i.us.us.us, label %._crit_edge32.loopexit182, label %106
 
 _ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us: ; preds = %.preheader.us, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us
   %.04812.us.us.us = phi i32 [ %115, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us ], [ 0, %.preheader.us ]
@@ -3065,24 +3063,24 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us: ; preds 
   br i1 %117, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge15.split.us.us, !llvm.loop !180
 
 ._crit_edge32.loopexit:                           ; preds = %._crit_edge15.split.us41.us, %.lr.ph31.split.us.split.us
-  %118 = trunc nuw nsw i64 %indvars.iv154 to i32
+  %118 = trunc nuw nsw i64 %indvars.iv157 to i32
   br label %._crit_edge32
 
-._crit_edge32.loopexit180:                        ; preds = %._crit_edge15.split.us.us, %.lr.ph31.split.us.split.split, %.preheader.us
-  %119 = trunc nuw nsw i64 %indvars.iv134 to i32
+._crit_edge32.loopexit182:                        ; preds = %._crit_edge15.split.us.us, %.lr.ph31.split.us.split.split, %.preheader.us
+  %119 = trunc nuw nsw i64 %indvars.iv137 to i32
   br label %._crit_edge32
 
-._crit_edge32.loopexit185:                        ; preds = %._crit_edge15.split.us.us.us, %.lr.ph31.split.us.split.split.us, %.lr.ph14.split.us.split.us49.us, %.lr.ph14.split.us.split.us.us.us.split
+._crit_edge32.loopexit187:                        ; preds = %._crit_edge15.split.us.us.us, %.lr.ph31.split.us.split.split.us, %.lr.ph14.split.us.split.us49.us, %.lr.ph14.split.us.split.us.us.us.split
   %120 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge32
 
-._crit_edge32:                                    ; preds = %._crit_edge32.loopexit185, %._crit_edge32.loopexit180, %._crit_edge32.loopexit, %.lr.ph31, %4
-  %.044.lcssa = phi i32 [ 0, %4 ], [ %119, %._crit_edge32.loopexit180 ], [ %118, %._crit_edge32.loopexit ], [ 0, %.lr.ph31 ], [ %120, %._crit_edge32.loopexit185 ]
+._crit_edge32:                                    ; preds = %._crit_edge32.loopexit187, %._crit_edge32.loopexit182, %._crit_edge32.loopexit, %.lr.ph31, %4
+  %.044.lcssa = phi i32 [ 0, %4 ], [ %119, %._crit_edge32.loopexit182 ], [ %118, %._crit_edge32.loopexit ], [ 0, %.lr.ph31 ], [ %120, %._crit_edge32.loopexit187 ]
   %121 = icmp eq i32 %.044.lcssa, %6
   br i1 %121, label %._crit_edge32.thread, label %131
 
 ._crit_edge32.thread:                             ; preds = %89, %106, %._crit_edge15.split.us41.us.thread, %._crit_edge32
-  %.044.lcssa175 = phi i32 [ %.044.lcssa, %._crit_edge32 ], [ %6, %._crit_edge15.split.us41.us.thread ], [ %6, %106 ], [ %6, %89 ]
+  %.044.lcssa177 = phi i32 [ %.044.lcssa, %._crit_edge32 ], [ %6, %._crit_edge15.split.us41.us.thread ], [ %6, %106 ], [ %6, %89 ]
   %122 = icmp eq i32 %6, %18
   br i1 %122, label %123, label %127
 
@@ -3110,10 +3108,10 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us: ; preds 
   br label %131
 
 131:                                              ; preds = %127, %._crit_edge32
-  %.044.lcssa174 = phi i32 [ %.044.lcssa175, %127 ], [ %.044.lcssa, %._crit_edge32 ]
+  %.044.lcssa176 = phi i32 [ %.044.lcssa177, %127 ], [ %.044.lcssa, %._crit_edge32 ]
   %.0 = phi i32 [ %130, %127 ], [ %6, %._crit_edge32 ]
   store i32 %.0, ptr %0, align 4, !tbaa !13
-  ret i32 %.044.lcssa174
+  ret i32 %.044.lcssa176
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17InteractionOfType19interactionTypeNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(105)) local_unnamed_addr #4

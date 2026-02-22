@@ -3962,14 +3962,13 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail8F14TableINS1_19NodeContain
   %notmask.i = shl nsw i64 -1, %22
   %25 = xor i64 %notmask.i, -1
   %26 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  %.fr51 = freeze ptr %26
   %27 = load ptr, ptr %1, align 8
-  %.fr52 = freeze ptr %27
-  %28 = ptrtoint ptr %.fr51 to i64
-  %29 = ptrtoint ptr %.fr52 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
-  %31 = icmp eq ptr %.fr51, %.fr52
-  br i1 %31, label %.split.us, label %.split, !llvm.loop !187
+  %31 = icmp eq ptr %26, %27
+  %.fr = freeze i1 %31
+  br i1 %.fr, label %.split.us, label %.split, !llvm.loop !187
 
 .split.us:                                        ; preds = %9, %42
   %.0.i46.us = phi i64 [ %43, %42 ], [ %13, %9 ]
@@ -4068,7 +4067,7 @@ _ZNK5folly7dynamic11stringPieceEv.exit.i.i:       ; preds = %69
 80:                                               ; preds = %_ZNK5folly7dynamic11stringPieceEv.exit.i.i
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !36
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %.fr52, ptr %82, i64 %30)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr %27, ptr %82, i64 %30)
   %83 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %83, label %_ZNK5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHasherENS4_15DynamicKeyEqualEvE14keyMatchesItemINS_5RangeIPKcEEEEbRKT_RKPSt4pairIKS3_S3_E.exit.thread, label %.critedge.i.backedge, !prof !191
 

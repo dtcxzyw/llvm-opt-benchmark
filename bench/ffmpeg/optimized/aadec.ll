@@ -549,8 +549,8 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !74
-  %.not62 = icmp eq i32 %8, 0
-  br i1 %.not62, label %.critedge.thread71, label %.lr.ph
+  %.not60 = icmp eq i32 %8, 0
+  br i1 %.not60, label %.critedge.thread69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -575,7 +575,7 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
 .critedge:                                        ; preds = %16
   %17 = add i32 %8, -1
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.critedge.thread71, label %19
+  br i1 %18, label %.critedge.thread69, label %19
 
 19:                                               ; preds = %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -591,25 +591,23 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre = and i64 %indvars.iv, 4294967295
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %10, i64 %.pre
-  %.pre65 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !83
-  %.phi.trans.insert66 = getelementptr inbounds nuw i8, ptr %.pre65, i64 24
-  %.pre67 = load i64, ptr %.phi.trans.insert66, align 8, !tbaa !85
+  %.pre63 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !83
+  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %.pre63, i64 24
+  %.pre65 = load i64, ptr %.phi.trans.insert64, align 8, !tbaa !85
   %28 = add nuw nsw i32 %27, 1
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %19
-  %29 = phi i64 [ %.pre67, %.critedge.thread.loopexit ], [ %26, %19 ]
-  %30 = phi ptr [ %.pre65, %.critedge.thread.loopexit ], [ %24, %19 ]
+  %29 = phi i64 [ %.pre65, %.critedge.thread.loopexit ], [ %26, %19 ]
+  %30 = phi ptr [ %.pre63, %.critedge.thread.loopexit ], [ %24, %19 ]
   %.048 = phi i64 [ %spec.store.select, %.critedge.thread.loopexit ], [ %26, %19 ]
   %.1 = phi i32 [ %28, %.critedge.thread.loopexit ], [ %8, %19 ]
-  %.fr58 = freeze i64 %29
-  %31 = sdiv i64 %.fr58, 1000
+  %31 = sdiv i64 %29, 1000
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !88
-  %.fr57 = freeze i64 %33
-  %.neg = sdiv i64 %.fr57, -1000
+  %.neg = sdiv i64 %33, -1000
   %34 = add nsw i64 %.neg, %31
-  %35 = sub nsw i64 %.048, %.fr57
+  %35 = sub nsw i64 %.048, %33
   %36 = sdiv i64 %35, 1000
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !39
@@ -617,24 +615,24 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   %40 = and i32 %3, 1
   %41 = xor i32 %40, 3
   %42 = tail call i64 @av_rescale_rnd(i64 noundef %36, i64 noundef 1, i64 noundef %39, i32 noundef %41) #11
-  %.fr = freeze i64 %42
-  %43 = mul i64 %.fr, %39
+  %43 = mul nsw i64 %42, %39
   %spec.select = tail call i64 @llvm.smin.i64(i64 %43, i64 %34)
+  %spec.select.fr = freeze i64 %spec.select
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %45 = load i64, ptr %44, align 8, !tbaa !71
-  %46 = sdiv i64 %.fr57, 1000
+  %46 = sdiv i64 %33, 1000
   %47 = shl nsw i32 %.1, 3
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = add nsw i64 %46, %48
   %52 = add i64 %51, %45
-  %53 = add nsw i64 %52, %spec.select
+  %53 = add nsw i64 %52, %spec.select.fr
   %54 = tail call i64 @avio_seek(ptr noundef %50, i64 noundef %53, i32 noundef 0) #10
   %55 = load i32, ptr %37, align 4, !tbaa !39
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %55, ptr %56, align 8, !tbaa !78
-  %57 = sub nsw i64 %34, %spec.select
+  %57 = sub nsw i64 %34, %spec.select.fr
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %57, ptr %58, align 8, !tbaa !76
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -650,12 +648,12 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   br i1 %67, label %68, label %.critedge.thread._crit_edge
 
 .critedge.thread._crit_edge:                      ; preds = %.critedge.thread
-  %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %.pre69 = load i32, ptr %.phi.trans.insert68, align 8, !tbaa !77
+  %.phi.trans.insert66 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.pre67 = load i32, ptr %.phi.trans.insert66, align 8, !tbaa !77
   br label %74
 
 68:                                               ; preds = %.critedge.thread
-  %69 = srem i64 %spec.select, 104
+  %69 = srem i64 %spec.select.fr, 104
   %70 = sub nsw i64 104, %69
   %.urem = sub nsw i64 0, %69
   %.cmp = icmp samesign ult i64 %70, 104
@@ -666,16 +664,16 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   br label %74
 
 74:                                               ; preds = %.critedge.thread._crit_edge, %68
-  %75 = phi i32 [ %.pre69, %.critedge.thread._crit_edge ], [ %72, %68 ]
+  %75 = phi i32 [ %.pre67, %.critedge.thread._crit_edge ], [ %72, %68 ]
   %76 = load i64, ptr %32, align 8, !tbaa !88
   %77 = sext i32 %75 to i64
-  %78 = add nsw i64 %spec.select, %77
+  %78 = add nsw i64 %spec.select.fr, %77
   %79 = mul nsw i64 %78, 1000
   %80 = add nsw i64 %79, %76
   tail call void @avpriv_update_cur_dts(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %80) #10
-  br label %.critedge.thread71
+  br label %.critedge.thread69
 
-.critedge.thread71:                               ; preds = %4, %.critedge, %74
+.critedge.thread69:                               ; preds = %4, %.critedge, %74
   %.047 = phi i32 [ 1, %74 ], [ -1, %.critedge ], [ -1, %4 ]
   ret i32 %.047
 }

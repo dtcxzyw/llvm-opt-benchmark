@@ -1175,37 +1175,37 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23Program
   %6 = alloca %"struct.llvm::dxbc::ProgramSignatureElement", align 4
   %7 = icmp eq i64 %3, 0
   %8 = icmp eq i64 %4, 0
-  %or.cond79 = or i1 %7, %8
-  br i1 %or.cond79, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69", label %.lr.ph
+  %or.cond78 = or i1 %7, %8
+  br i1 %or.cond78, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68", label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = ptrtoint ptr %2 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr7584 = phi i64 [ %4, %.lr.ph ], [ %96, %tailrecurse ]
-  %.tr7483 = phi i64 [ %3, %.lr.ph ], [ %95, %tailrecurse ]
-  %.tr7281 = phi ptr [ %1, %.lr.ph ], [ %.066, %tailrecurse ]
-  %.tr80 = phi ptr [ %0, %.lr.ph ], [ %94, %tailrecurse ]
-  %11 = add nsw i64 %.tr7584, %.tr7483
+  %.tr7483 = phi i64 [ %4, %.lr.ph ], [ %96, %tailrecurse ]
+  %.tr7382 = phi i64 [ %3, %.lr.ph ], [ %95, %tailrecurse ]
+  %.tr7180 = phi ptr [ %1, %.lr.ph ], [ %.065, %tailrecurse ]
+  %.tr79 = phi ptr [ %0, %.lr.ph ], [ %94, %tailrecurse ]
+  %11 = add nsw i64 %.tr7483, %.tr7382
   %12 = icmp eq i64 %11, 2
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %10
-  %.sroa.0.0.copyload.i = load i32, ptr %.tr80, align 4, !tbaa !3
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.tr80, i64 4
+  %.sroa.0.0.copyload.i = load i32, ptr %.tr79, align 4, !tbaa !3
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.tr79, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !3
-  %.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.tr80, i64 20
+  %.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.tr79, i64 20
   %.sroa.31.0.copyload.i = load i32, ptr %.sroa.31.0..sroa_idx.i, align 4, !tbaa !3
-  %14 = getelementptr inbounds nuw i8, ptr %.tr7281, i64 20
-  %15 = getelementptr inbounds nuw i8, ptr %.tr7281, i64 4
-  %16 = load i32, ptr %.tr7281, align 4, !tbaa !3
+  %14 = getelementptr inbounds nuw i8, ptr %.tr7180, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %.tr7180, i64 4
+  %16 = load i32, ptr %.tr7180, align 4, !tbaa !3
   %17 = icmp ult i32 %16, %.sroa.0.0.copyload.i
   br i1 %17, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread", label %18
 
 18:                                               ; preds = %13
   %19 = icmp ult i32 %.sroa.0.0.copyload.i, %16
-  br i1 %19, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69", label %20
+  br i1 %19, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68", label %20
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %14, align 4, !tbaa !3
@@ -1214,29 +1214,29 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23Program
 
 23:                                               ; preds = %20
   %24 = icmp ult i32 %.sroa.31.0.copyload.i, %21
-  br i1 %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit"
+  br i1 %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit": ; preds = %23
   %25 = load i32, ptr %15, align 4, !tbaa !3
   %26 = icmp ult i32 %25, %.sroa.2.0.copyload.i
-  br i1 %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69"
+  br i1 %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread": ; preds = %20, %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %.tr80, i64 32, i1 false), !tbaa.struct !116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr80, ptr noundef nonnull align 4 dereferenceable(32) %.tr7281, i64 32, i1 false), !tbaa.struct !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr7281, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(32) %.tr79, i64 32, i1 false), !tbaa.struct !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr79, ptr noundef nonnull align 4 dereferenceable(32) %.tr7180, i64 32, i1 false), !tbaa.struct !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.tr7180, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !116
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68"
 
 27:                                               ; preds = %10
-  %28 = icmp sgt i64 %.tr7483, %.tr7584
-  %29 = ptrtoint ptr %.tr7281 to i64
+  %28 = icmp sgt i64 %.tr7382, %.tr7483
+  %29 = ptrtoint ptr %.tr7180 to i64
   br i1 %28, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit: ; preds = %27
-  %30 = sdiv i64 %.tr7483, 2
-  %31 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr80, i64 %30
+  %30 = sdiv i64 %.tr7382, 2
+  %31 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr79, i64 %30
   %32 = sub i64 %9, %29
   %33 = ashr exact i64 %32, 5
   %34 = icmp sgt i64 %33, 0
@@ -1248,11 +1248,10 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i: ; pre
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !3
   %.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 20
   %.sroa.31.0.copyload.i.i = load i32, ptr %.sroa.31.0..sroa_idx.i.i, align 4, !tbaa !3
-  %.sroa.2.0.copyload.i.fr.i = freeze i32 %.sroa.2.0.copyload.i.i
   br label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %.thread22.i, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i
-  %.027.i = phi ptr [ %.tr7281, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %57, %.thread22.i ]
+  %.027.i = phi ptr [ %.tr7180, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %57, %.thread22.i ]
   %.01126.i = phi i64 [ %33, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %56, %.thread22.i ]
   %35 = lshr i64 %.01126.i, 1
   %36 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.027.i, i64 %35
@@ -1283,13 +1282,13 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i": ; preds = %46
   %51 = load i32, ptr %38, align 4, !tbaa !3
-  %.fr.i = freeze i32 %51
-  %52 = icmp ult i32 %.fr.i, %.sroa.2.0.copyload.i.fr.i
+  %52 = icmp ult i32 %51, %.sroa.2.0.copyload.i.i
+  %cond.fr16.i = freeze i1 %52
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %54 = xor i64 %35, -1
   %55 = add nsw i64 %.01126.i, %54
-  %spec.select.i = select i1 %52, i64 %55, i64 %35
-  %spec.select25.i = select i1 %52, ptr %53, ptr %.027.i
+  %spec.select.i = select i1 %cond.fr16.i, i64 %55, i64 %35
+  %spec.select25.i = select i1 %cond.fr16.i, ptr %53, ptr %.027.i
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i", %.thread.i, %46, %41
@@ -1304,15 +1303,15 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
 
 "_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %29, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %57, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr7281, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %57, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr7180, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit ]
   %59 = sub i64 %.pre-phi, %29
   %60 = ashr exact i64 %59, 5
   br label %tailrecurse
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42: ; preds = %27
-  %61 = sdiv i64 %.tr7584, 2
-  %62 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr7281, i64 %61
-  %63 = ptrtoint ptr %.tr80 to i64
+  %61 = sdiv i64 %.tr7483, 2
+  %62 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr7180, i64 %61
+  %63 = ptrtoint ptr %.tr79 to i64
   %64 = sub i64 %29, %63
   %65 = ashr exact i64 %64, 5
   %66 = icmp sgt i64 %65, 0
@@ -1324,83 +1323,82 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44: ; p
   %69 = load i32, ptr %62, align 4, !tbaa !3
   %70 = load i32, ptr %67, align 4
   %71 = load i32, ptr %68, align 4
-  %.fr.i45 = freeze i32 %71
-  br label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46
+  br label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45
 
-_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46: ; preds = %.thread.i55, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44
-  %.026.i = phi ptr [ %.tr80, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44 ], [ %90, %.thread.i55 ]
-  %.01125.i = phi i64 [ %65, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44 ], [ %89, %.thread.i55 ]
+_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45: ; preds = %.thread.i54, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44
+  %.026.i = phi ptr [ %.tr79, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44 ], [ %90, %.thread.i54 ]
+  %.01125.i = phi i64 [ %65, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i44 ], [ %89, %.thread.i54 ]
   %72 = lshr i64 %.01125.i, 1
   %73 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.026.i, i64 %72
-  %.sroa.0.0.copyload.i.i49 = load i32, ptr %73, align 4, !tbaa !3
-  %.sroa.2.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %.sroa.2.0.copyload.i.i51 = load i32, ptr %.sroa.2.0..sroa_idx.i.i50, align 4, !tbaa !3
-  %.sroa.31.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %73, i64 20
-  %.sroa.31.0.copyload.i.i53 = load i32, ptr %.sroa.31.0..sroa_idx.i.i52, align 4, !tbaa !3
-  %74 = icmp ult i32 %69, %.sroa.0.0.copyload.i.i49
-  br i1 %74, label %.thread.i55, label %75
+  %.sroa.0.0.copyload.i.i48 = load i32, ptr %73, align 4, !tbaa !3
+  %.sroa.2.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %.sroa.2.0.copyload.i.i50 = load i32, ptr %.sroa.2.0..sroa_idx.i.i49, align 4, !tbaa !3
+  %.sroa.31.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %.sroa.31.0.copyload.i.i52 = load i32, ptr %.sroa.31.0..sroa_idx.i.i51, align 4, !tbaa !3
+  %74 = icmp ult i32 %69, %.sroa.0.0.copyload.i.i48
+  br i1 %74, label %.thread.i54, label %75
 
-75:                                               ; preds = %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46
-  %76 = icmp ult i32 %.sroa.0.0.copyload.i.i49, %69
-  br i1 %76, label %.thread22.i56, label %77
+75:                                               ; preds = %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45
+  %76 = icmp ult i32 %.sroa.0.0.copyload.i.i48, %69
+  br i1 %76, label %.thread22.i55, label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ult i32 %70, %.sroa.31.0.copyload.i.i53
-  br i1 %78, label %.thread.i55, label %79
+  %78 = icmp ult i32 %70, %.sroa.31.0.copyload.i.i52
+  br i1 %78, label %.thread.i54, label %79
 
 79:                                               ; preds = %77
-  %80 = icmp ult i32 %.sroa.31.0.copyload.i.i53, %70
-  br i1 %80, label %.thread22.i56, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i"
+  %80 = icmp ult i32 %.sroa.31.0.copyload.i.i52, %70
+  br i1 %80, label %.thread22.i55, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i"
 
-.thread22.i56:                                    ; preds = %79, %75
+.thread22.i55:                                    ; preds = %79, %75
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %82 = xor i64 %72, -1
   %83 = add nsw i64 %.01125.i, %82
-  br label %.thread.i55
+  br label %.thread.i54
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i": ; preds = %79
-  %.sroa.2.0.copyload.i.fr.i54 = freeze i32 %.sroa.2.0.copyload.i.i51
-  %84 = icmp ult i32 %.fr.i45, %.sroa.2.0.copyload.i.fr.i54
-  br i1 %84, label %.thread.i55, label %85
+  %84 = icmp ult i32 %71, %.sroa.2.0.copyload.i.i50
+  %cond.fr16.i53 = freeze i1 %84
+  br i1 %cond.fr16.i53, label %.thread.i54, label %85
 
 85:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i"
   %86 = xor i64 %72, -1
   %87 = add nsw i64 %.01125.i, %86
   %88 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  br label %.thread.i55
+  br label %.thread.i54
 
-.thread.i55:                                      ; preds = %85, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i", %.thread22.i56, %77, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46
-  %89 = phi i64 [ %83, %.thread22.i56 ], [ %87, %85 ], [ %72, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46 ], [ %72, %77 ], [ %72, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
-  %90 = phi ptr [ %81, %.thread22.i56 ], [ %88, %85 ], [ %.026.i, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46 ], [ %.026.i, %77 ], [ %.026.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
+.thread.i54:                                      ; preds = %85, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i", %.thread22.i55, %77, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45
+  %89 = phi i64 [ %83, %.thread22.i55 ], [ %87, %85 ], [ %72, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45 ], [ %72, %77 ], [ %72, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
+  %90 = phi ptr [ %81, %.thread22.i55 ], [ %88, %85 ], [ %.026.i, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45 ], [ %.026.i, %77 ], [ %.026.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
   %91 = icmp sgt i64 %89, 0
-  br i1 %91, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i46, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !126
+  br i1 %91, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i45, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !126
 
-"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread.i55
-  %.pre88 = ptrtoint ptr %90 to i64
+"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread.i54
+  %.pre87 = ptrtoint ptr %90 to i64
   br label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42
-  %.pre-phi89 = phi i64 [ %.pre88, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %63, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42 ]
-  %.0.lcssa.i43 = phi ptr [ %90, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr80, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42 ]
-  %92 = sub i64 %.pre-phi89, %63
+  %.pre-phi88 = phi i64 [ %.pre87, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %63, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42 ]
+  %.0.lcssa.i43 = phi ptr [ %90, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr79, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit42 ]
+  %92 = sub i64 %.pre-phi88, %63
   %93 = ashr exact i64 %92, 5
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit"
-  %.067 = phi ptr [ %31, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %.0.lcssa.i43, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
-  %.066 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %62, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
+  %.066 = phi ptr [ %31, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %.0.lcssa.i43, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
+  %.065 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %62, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
   %.036 = phi i64 [ %60, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %61, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %30, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %93, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
-  %94 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatureElementEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.067, ptr noundef %.tr7281, ptr noundef %.066)
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_SD_T0_SE_T1_"(ptr noundef %.tr80, ptr noundef %.067, ptr noundef %94, i64 noundef %.0, i64 noundef %.036)
-  %95 = sub nsw i64 %.tr7483, %.0
-  %96 = sub nsw i64 %.tr7584, %.036
+  %94 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatureElementEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.066, ptr noundef %.tr7180, ptr noundef %.065)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm4dxbc23ProgramSignatureElementElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_SD_T0_SE_T1_"(ptr noundef %.tr79, ptr noundef %.066, ptr noundef %94, i64 noundef %.0, i64 noundef %.036)
+  %95 = sub nsw i64 %.tr7382, %.0
+  %96 = sub nsw i64 %.tr7483, %.036
   %97 = icmp eq i64 %95, 0
   %98 = icmp eq i64 %96, 0
   %or.cond = or i1 %97, %98
-  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69", label %10
+  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68", label %10
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread69": ; preds = %tailrecurse, %5, %18, %23, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread68": ; preds = %tailrecurse, %5, %18, %23, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread"
   ret void
 }
 
@@ -1850,22 +1848,22 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm4dxbc23Progr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_SD_T0_SE_T1_SE_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
-  %.not139 = icmp sgt i64 %3, %4
-  %.not70140 = icmp sgt i64 %3, %6
-  %or.cond141 = or i1 %.not70140, %.not139
-  br i1 %or.cond141, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not138 = icmp sgt i64 %3, %4
+  %.not70139 = icmp sgt i64 %3, %6
+  %or.cond140 = or i1 %.not70139, %.not138
+  br i1 %or.cond140, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %40
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i112, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr126.lcssa = phi ptr [ %1, %7 ], [ %.0122, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %9 = ptrtoint ptr %.tr126.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i111, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr125.lcssa = phi ptr [ %1, %7 ], [ %.0121, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %9 = ptrtoint ptr %.tr125.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr126.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr125.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -1874,15 +1872,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr126.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr126.lcssa, %2
+  %14 = icmp ne ptr %.tr125.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr125.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, %32
   %.026.i = phi ptr [ %33, %32 ], [ %.tr.lcssa, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ]
   %.01825.i = phi ptr [ %.1.i, %32 ], [ %5, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ]
-  %.01924.i = phi ptr [ %.120.i, %32 ], [ %.tr126.lcssa, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ]
+  %.01924.i = phi ptr [ %.120.i, %32 ], [ %.tr125.lcssa, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit ]
   %.sroa.0.0.copyload.i.i = load i32, ptr %.01825.i, align 4, !tbaa !3
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.01825.i, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !3
@@ -1945,24 +1943,24 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds 
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit"
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
-  %.not147 = phi i1 [ %.not139, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr129146 = phi i64 [ %4, %.lr.ph ], [ %176, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr128145 = phi i64 [ %3, %.lr.ph ], [ %143, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr126143 = phi ptr [ %1, %.lr.ph ], [ %.0122, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr142 = phi ptr [ %0, %.lr.ph ], [ %.0.i112, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.not71 = icmp sgt i64 %.tr129146, %6
+  %.not146 = phi i1 [ %.not138, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr128145 = phi i64 [ %4, %.lr.ph ], [ %176, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr127144 = phi i64 [ %3, %.lr.ph ], [ %143, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr125142 = phi ptr [ %1, %.lr.ph ], [ %.0121, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr141 = phi ptr [ %0, %.lr.ph ], [ %.0.i111, %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.not71 = icmp sgt i64 %.tr128145, %6
   br i1 %.not71, label %76, label %41
 
 41:                                               ; preds = %40
-  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr126143
+  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr125142
   br i1 %.not.i.i.i.i.i72, label %"_ZSt21__move_merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit", label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread
 
 _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread: ; preds = %41
-  %42 = ptrtoint ptr %.tr126143 to i64
+  %42 = ptrtoint ptr %.tr125142 to i64
   %43 = sub i64 %8, %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr126143, i64 %43, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr125142, i64 %43, i1 false)
   %44 = getelementptr inbounds i8, ptr %5, i64 %43
-  %45 = icmp eq ptr %.tr142, %.tr126143
+  %45 = icmp eq ptr %.tr141, %.tr125142
   br i1 %45, label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.sink.split.i, label %46
 
 46:                                               ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread
@@ -1970,7 +1968,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread: ;
   br label %.outer
 
 .outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82", %46
-  %.026.i74.ph.pn = phi ptr [ %.tr126143, %46 ], [ %.026.i74.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82" ]
+  %.026.i74.ph.pn = phi ptr [ %.tr125142, %46 ], [ %.026.i74.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82" ]
   %.024.i.ph = phi ptr [ %47, %46 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82" ]
   %.0.i.ph = phi ptr [ %2, %46 ], [ %62, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82" ]
   %.026.i74.ph = getelementptr inbounds i8, ptr %.026.i74.ph.pn, i64 -32
@@ -2011,7 +2009,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit73.thread: ;
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i80", %55, %48
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %62, ptr noundef nonnull align 4 dereferenceable(32) %.026.i74.ph, i64 32, i1 false), !tbaa.struct !116
-  %63 = icmp eq ptr %.tr142, %.026.i74.ph
+  %63 = icmp eq ptr %.tr141, %.026.i74.ph
   br i1 %63, label %64, label %.outer, !llvm.loop !134
 
 64:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i82"
@@ -2042,12 +2040,12 @@ _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.s
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit"
 
 76:                                               ; preds = %40
-  %77 = ptrtoint ptr %.tr126143 to i64
-  br i1 %.not147, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93
+  %77 = ptrtoint ptr %.tr125142 to i64
+  br i1 %.not146, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit: ; preds = %76
-  %78 = sdiv i64 %.tr128145, 2
-  %79 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr142, i64 %78
+  %78 = sdiv i64 %.tr127144, 2
+  %79 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr141, i64 %78
   %80 = sub i64 %8, %77
   %81 = ashr exact i64 %80, 5
   %82 = icmp sgt i64 %81, 0
@@ -2059,11 +2057,10 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i: ; pre
   %.sroa.2.0.copyload.i.i87 = load i32, ptr %.sroa.2.0..sroa_idx.i.i86, align 4, !tbaa !3
   %.sroa.31.0..sroa_idx.i.i88 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %.sroa.31.0.copyload.i.i89 = load i32, ptr %.sroa.31.0..sroa_idx.i.i88, align 4, !tbaa !3
-  %.sroa.2.0.copyload.i.fr.i = freeze i32 %.sroa.2.0.copyload.i.i87
   br label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %.thread22.i, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i
-  %.027.i = phi ptr [ %.tr126143, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %105, %.thread22.i ]
+  %.027.i = phi ptr [ %.tr125142, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %105, %.thread22.i ]
   %.01126.i = phi i64 [ %81, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i ], [ %104, %.thread22.i ]
   %83 = lshr i64 %.01126.i, 1
   %84 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.027.i, i64 %83
@@ -2094,13 +2091,13 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i": ; preds = %94
   %99 = load i32, ptr %86, align 4, !tbaa !3
-  %.fr.i = freeze i32 %99
-  %100 = icmp ult i32 %.fr.i, %.sroa.2.0.copyload.i.fr.i
+  %100 = icmp ult i32 %99, %.sroa.2.0.copyload.i.i87
+  %cond.fr16.i = freeze i1 %100
   %101 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %102 = xor i64 %83, -1
   %103 = add nsw i64 %.01126.i, %102
-  %spec.select.i = select i1 %100, i64 %103, i64 %83
-  %spec.select25.i = select i1 %100, ptr %101, ptr %.027.i
+  %spec.select.i = select i1 %cond.fr16.i, i64 %103, i64 %83
+  %spec.select25.i = select i1 %cond.fr16.i, ptr %101, ptr %.027.i
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementEKSB_EEbT_RT0_.exit.i", %.thread.i, %94, %89
@@ -2115,15 +2112,15 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i: ; preds = %
 
 "_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %77, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit ]
-  %.0.lcssa.i84 = phi ptr [ %105, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr126143, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit ]
+  %.0.lcssa.i84 = phi ptr [ %105, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr125142, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit ]
   %107 = sub i64 %.pre-phi, %77
   %108 = ashr exact i64 %107, 5
   br label %142
 
 _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93: ; preds = %76
-  %109 = sdiv i64 %.tr129146, 2
-  %110 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr126143, i64 %109
-  %111 = ptrtoint ptr %.tr142 to i64
+  %109 = sdiv i64 %.tr128145, 2
+  %110 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.tr125142, i64 %109
+  %111 = ptrtoint ptr %.tr141 to i64
   %112 = sub i64 %77, %111
   %113 = ashr exact i64 %112, 5
   %114 = icmp sgt i64 %113, 0
@@ -2135,74 +2132,73 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96: ; p
   %117 = load i32, ptr %110, align 4, !tbaa !3
   %118 = load i32, ptr %115, align 4
   %119 = load i32, ptr %116, align 4
-  %.fr.i97 = freeze i32 %119
-  br label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98
+  br label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97
 
-_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98: ; preds = %.thread.i108, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96
-  %.026.i99 = phi ptr [ %.tr142, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96 ], [ %138, %.thread.i108 ]
-  %.01125.i = phi i64 [ %113, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96 ], [ %137, %.thread.i108 ]
+_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97: ; preds = %.thread.i107, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96
+  %.026.i98 = phi ptr [ %.tr141, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96 ], [ %138, %.thread.i107 ]
+  %.01125.i = phi i64 [ %113, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.lr.ph.i96 ], [ %137, %.thread.i107 ]
   %120 = lshr i64 %.01125.i, 1
-  %121 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.026.i99, i64 %120
-  %.sroa.0.0.copyload.i.i102 = load i32, ptr %121, align 4, !tbaa !3
-  %.sroa.2.0..sroa_idx.i.i103 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %.sroa.2.0.copyload.i.i104 = load i32, ptr %.sroa.2.0..sroa_idx.i.i103, align 4, !tbaa !3
-  %.sroa.31.0..sroa_idx.i.i105 = getelementptr inbounds nuw i8, ptr %121, i64 20
-  %.sroa.31.0.copyload.i.i106 = load i32, ptr %.sroa.31.0..sroa_idx.i.i105, align 4, !tbaa !3
-  %122 = icmp ult i32 %117, %.sroa.0.0.copyload.i.i102
-  br i1 %122, label %.thread.i108, label %123
+  %121 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.026.i98, i64 %120
+  %.sroa.0.0.copyload.i.i101 = load i32, ptr %121, align 4, !tbaa !3
+  %.sroa.2.0..sroa_idx.i.i102 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  %.sroa.2.0.copyload.i.i103 = load i32, ptr %.sroa.2.0..sroa_idx.i.i102, align 4, !tbaa !3
+  %.sroa.31.0..sroa_idx.i.i104 = getelementptr inbounds nuw i8, ptr %121, i64 20
+  %.sroa.31.0.copyload.i.i105 = load i32, ptr %.sroa.31.0..sroa_idx.i.i104, align 4, !tbaa !3
+  %122 = icmp ult i32 %117, %.sroa.0.0.copyload.i.i101
+  br i1 %122, label %.thread.i107, label %123
 
-123:                                              ; preds = %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98
-  %124 = icmp ult i32 %.sroa.0.0.copyload.i.i102, %117
-  br i1 %124, label %.thread22.i109, label %125
+123:                                              ; preds = %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97
+  %124 = icmp ult i32 %.sroa.0.0.copyload.i.i101, %117
+  br i1 %124, label %.thread22.i108, label %125
 
 125:                                              ; preds = %123
-  %126 = icmp ult i32 %118, %.sroa.31.0.copyload.i.i106
-  br i1 %126, label %.thread.i108, label %127
+  %126 = icmp ult i32 %118, %.sroa.31.0.copyload.i.i105
+  br i1 %126, label %.thread.i107, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ult i32 %.sroa.31.0.copyload.i.i106, %118
-  br i1 %128, label %.thread22.i109, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i"
+  %128 = icmp ult i32 %.sroa.31.0.copyload.i.i105, %118
+  br i1 %128, label %.thread22.i108, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i"
 
-.thread22.i109:                                   ; preds = %127, %123
+.thread22.i108:                                   ; preds = %127, %123
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %130 = xor i64 %120, -1
   %131 = add nsw i64 %.01125.i, %130
-  br label %.thread.i108
+  br label %.thread.i107
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i": ; preds = %127
-  %.sroa.2.0.copyload.i.fr.i107 = freeze i32 %.sroa.2.0.copyload.i.i104
-  %132 = icmp ult i32 %.fr.i97, %.sroa.2.0.copyload.i.fr.i107
-  br i1 %132, label %.thread.i108, label %133
+  %132 = icmp ult i32 %119, %.sroa.2.0.copyload.i.i103
+  %cond.fr16.i106 = freeze i1 %132
+  br i1 %cond.fr16.i106, label %.thread.i107, label %133
 
 133:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i"
   %134 = xor i64 %120, -1
   %135 = add nsw i64 %.01125.i, %134
   %136 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  br label %.thread.i108
+  br label %.thread.i107
 
-.thread.i108:                                     ; preds = %133, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i", %.thread22.i109, %125, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98
-  %137 = phi i64 [ %131, %.thread22.i109 ], [ %135, %133 ], [ %120, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98 ], [ %120, %125 ], [ %120, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
-  %138 = phi ptr [ %129, %.thread22.i109 ], [ %136, %133 ], [ %.026.i99, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98 ], [ %.026.i99, %125 ], [ %.026.i99, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
+.thread.i107:                                     ; preds = %133, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i", %.thread22.i108, %125, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97
+  %137 = phi i64 [ %131, %.thread22.i108 ], [ %135, %133 ], [ %120, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97 ], [ %120, %125 ], [ %120, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
+  %138 = phi ptr [ %129, %.thread22.i108 ], [ %136, %133 ], [ %.026.i98, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97 ], [ %.026.i98, %125 ], [ %.026.i98, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIKNS2_4dxbc23ProgramSignatureElementEPSB_EEbRT_T0_.exit.i" ]
   %139 = icmp sgt i64 %137, 0
-  br i1 %139, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !126
+  br i1 %139, label %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i97, label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !126
 
-"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread.i108
-  %.pre156 = ptrtoint ptr %138 to i64
+"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %.thread.i107
+  %.pre155 = ptrtoint ptr %138 to i64
   br label %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93
-  %.pre-phi157 = phi i64 [ %.pre156, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %111, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93 ]
-  %.0.lcssa.i95 = phi ptr [ %138, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr142, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93 ]
-  %140 = sub i64 %.pre-phi157, %111
+  %.pre-phi156 = phi i64 [ %.pre155, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %111, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93 ]
+  %.0.lcssa.i95 = phi ptr [ %138, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %.tr141, %_ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit93 ]
+  %140 = sub i64 %.pre-phi156, %111
   %141 = ashr exact i64 %140, 5
   br label %142
 
 142:                                              ; preds = %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit"
-  %.0123 = phi ptr [ %79, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %.0.lcssa.i95, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
-  %.0122 = phi ptr [ %.0.lcssa.i84, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %110, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
+  %.0122 = phi ptr [ %79, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %.0.lcssa.i95, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
+  %.0121 = phi ptr [ %.0.lcssa.i84, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %110, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
   %.066 = phi i64 [ %108, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %109, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %78, %"_ZSt13__lower_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ], [ %141, %"_ZSt13__upper_boundIPN4llvm4dxbc23ProgramSignatureElementES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET_SD_SD_RKT0_T1_.exit" ]
-  %143 = sub nsw i64 %.tr128145, %.0
+  %143 = sub nsw i64 %.tr127144, %.0
   %144 = icmp sle i64 %143, %.066
   %.not.i = icmp sgt i64 %.066, %6
   %or.cond.i = or i1 %.not.i, %144
@@ -2213,38 +2209,38 @@ _ZSt7advanceIPN4llvm4dxbc23ProgramSignatureElementElEvRT_T0_.exit.i98: ; preds =
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %146
 
 146:                                              ; preds = %145
-  %147 = ptrtoint ptr %.0122 to i64
-  %148 = ptrtoint ptr %.tr126143 to i64
+  %147 = ptrtoint ptr %.0121 to i64
+  %148 = ptrtoint ptr %.tr125142 to i64
   %149 = sub i64 %147, %148
-  %.not.i.i.i.i.i.i110 = icmp eq ptr %.0122, %.tr126143
-  br i1 %.not.i.i.i.i.i.i110, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i111, label %150
+  %.not.i.i.i.i.i.i109 = icmp eq ptr %.0121, %.tr125142
+  br i1 %.not.i.i.i.i.i.i109, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i110, label %150
 
 150:                                              ; preds = %146
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr126143, i64 %149, i1 false)
-  br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i111
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr125142, i64 %149, i1 false)
+  br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i110
 
-_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i111: ; preds = %150, %146
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr126143, %.0123
+_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i110: ; preds = %150, %146
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr125142, %.0122
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i, label %151
 
-151:                                              ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i111
-  %152 = ptrtoint ptr %.0123 to i64
+151:                                              ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i110
+  %152 = ptrtoint ptr %.0122 to i64
   %153 = sub i64 %148, %152
   %154 = ashr exact i64 %153, 5
   %155 = sub nsw i64 0, %154
-  %156 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0122, i64 %155
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %156, ptr align 4 %.0123, i64 %153, i1 false)
+  %156 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0121, i64 %155
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %156, ptr align 4 %.0122, i64 %153, i1 false)
   br label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds = %151, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i111
-  br i1 %.not.i.i.i.i.i.i110, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i, label %157
+_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds = %151, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i110
+  br i1 %.not.i.i.i.i.i.i109, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i, label %157
 
 157:                                              ; preds = %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0123, ptr align 4 %5, i64 %149, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0122, ptr align 4 %5, i64 %149, i1 false)
   br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i
 
 _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i: ; preds = %157, %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
-  %158 = getelementptr inbounds i8, ptr %.0123, i64 %149
+  %158 = getelementptr inbounds i8, ptr %.0122, i64 %149
   br label %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
 159:                                              ; preds = %142
@@ -2252,28 +2248,28 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i: ; pred
   br i1 %.not33.i, label %174, label %160
 
 160:                                              ; preds = %159
-  %.not34.i = icmp eq i64 %.tr128145, %.0
+  %.not34.i = icmp eq i64 %.tr127144, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %161
 
 161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.tr126143 to i64
-  %163 = ptrtoint ptr %.0123 to i64
+  %162 = ptrtoint ptr %.tr125142 to i64
+  %163 = ptrtoint ptr %.0122 to i64
   %164 = sub i64 %162, %163
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr126143, %.0123
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr125142, %.0122
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit40.i, label %165
 
 165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0123, i64 %164, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0122, i64 %164, i1 false)
   br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit40.i
 
 _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit40.i: ; preds = %165, %161
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0122, %.tr126143
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0121, %.tr125142
   br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i, label %166
 
 166:                                              ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit40.i
-  %167 = ptrtoint ptr %.0122 to i64
+  %167 = ptrtoint ptr %.0121 to i64
   %168 = sub i64 %167, %162
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0123, ptr align 4 %.tr126143, i64 %168, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0122, ptr align 4 %.tr125142, i64 %168, i1 false)
   br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i
 
 _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i: ; preds = %166, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit40.i
@@ -2282,23 +2278,23 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i: ; pred
 169:                                              ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i
   %170 = ashr exact i64 %164, 5
   %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0122, i64 %171
+  %172 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0121, i64 %171
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %5, i64 %164, i1 false)
   br label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i
 
 _ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i: ; preds = %169, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %171, %169 ], [ 0, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit42.i ]
-  %173 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0122, i64 %.pre-phi.i.i.i.i.i44.i
+  %173 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0121, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
 174:                                              ; preds = %159
-  %175 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatureElementEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0123, ptr noundef %.tr126143, ptr noundef %.0122)
+  %175 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm4dxbc23ProgramSignatureElementEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0122, ptr noundef %.tr125142, ptr noundef %.0121)
   br label %_ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
 _ZSt17__rotate_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %145, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i, %160, %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i, %174
-  %.0.i112 = phi ptr [ %158, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i ], [ %175, %174 ], [ %173, %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i ], [ %.0123, %145 ], [ %.0122, %160 ]
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_SD_T0_SE_T1_SE_T2_"(ptr noundef %.tr142, ptr noundef %.0123, ptr noundef %.0.i112, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %176 = sub nsw i64 %.tr129146, %.066
+  %.0.i111 = phi ptr [ %158, %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit38.i ], [ %175, %174 ], [ %173, %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit45.i ], [ %.0122, %145 ], [ %.0121, %160 ]
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm4dxbc23ProgramSignatureElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_SD_T0_SE_T1_SE_T2_"(ptr noundef %.tr141, ptr noundef %.0122, ptr noundef %.0.i111, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %176 = sub nsw i64 %.tr128145, %.066
   %.not = icmp sgt i64 %143, %176
   %.not70 = icmp sgt i64 %143, %6
   %or.cond = or i1 %.not70, %.not

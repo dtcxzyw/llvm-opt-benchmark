@@ -2668,7 +2668,6 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i.i: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %.0.i.i.i.i, i64 12, i1 false), !tbaa.struct !168
   %.sroa.0.0.copyload.i272.i = load ptr, ptr %19, align 8, !tbaa !169
   %.sroa.2.0.copyload.i.i = load i32, ptr %82, align 8, !tbaa !20
-  %.sroa.2.0.copyload.i.fr.i = freeze i32 %.sroa.2.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %814 = load ptr, ptr %67, align 8, !tbaa !115
   %815 = load ptr, ptr %86, align 8, !tbaa !115
@@ -2873,7 +2872,6 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i291.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %.0.i.i.i292.i, i64 12, i1 false), !tbaa.struct !168
   %.sroa.0.0.copyload.i293.i = load ptr, ptr %18, align 8, !tbaa !169
   %.sroa.2.0.copyload.i294.i = load i32, ptr %89, align 8, !tbaa !20
-  %.sroa.2.0.copyload.i294.fr.i = freeze i32 %.sroa.2.0.copyload.i294.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %911 = icmp eq ptr %.sroa.0.0.copyload.i272.i, %.sroa.0.0.copyload.i293.i
   br i1 %911, label %912, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread.i
@@ -2883,14 +2881,16 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i291.i
   br i1 %.not.i300.i, label %913, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i
 
 913:                                              ; preds = %912
-  %.sroa.5339.8.extract.trunc.i = trunc i32 %.sroa.2.0.copyload.i.fr.i to i8
-  %.sroa.5.8.extract.trunc.i = trunc i32 %.sroa.2.0.copyload.i294.fr.i to i8
+  %.sroa.5339.8.extract.trunc.i = trunc i32 %.sroa.2.0.copyload.i.i to i8
+  %.sroa.5.8.extract.trunc.i = trunc i32 %.sroa.2.0.copyload.i294.i to i8
   %914 = icmp eq i8 %.sroa.5339.8.extract.trunc.i, %.sroa.5.8.extract.trunc.i
-  br i1 %914, label %916, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread.i
+  %cond.fr400.i = freeze i1 %914
+  br i1 %cond.fr400.i, label %916, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread.i
 
 _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i:           ; preds = %912
-  %915 = icmp eq i32 %.sroa.2.0.copyload.i.fr.i, %.sroa.2.0.copyload.i294.fr.i
-  br i1 %915, label %916, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread.i
+  %915 = icmp eq i32 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i294.i
+  %cond.fr.i = freeze i1 %915
+  br i1 %cond.fr.i, label %916, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread.i
 
 916:                                              ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i, %913
   %917 = trunc nuw nsw i64 %indvars.iv505.i to i32

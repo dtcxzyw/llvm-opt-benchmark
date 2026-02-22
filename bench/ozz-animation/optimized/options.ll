@@ -5526,26 +5526,25 @@ _ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread: ; preds = %3, %_ZN3o
   %21 = load i8, ptr %.010.i17, align 1, !tbaa !54
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @tolower(i32 noundef %22) #31
-  %.fr = freeze i32 %23
-  %24 = and i32 %.fr, 255
+  %24 = and i32 %23, 255
   %25 = load i8, ptr %.012.i15, align 1, !tbaa !54
   %26 = sext i8 %25 to i32
   %27 = tail call i32 @tolower(i32 noundef %26) #31
-  %.fr28 = freeze i32 %27
-  %28 = and i32 %.fr28, 255
+  %28 = and i32 %27, 255
   %29 = add i64 %.011.i16, -1
   %30 = icmp ne i64 %29, 0
   %31 = icmp ne i32 %24, 0
-  %or.cond.i18 = and i1 %30, %31
+  %or.cond.i18 = select i1 %30, i1 %31, i1 false
   %32 = getelementptr inbounds nuw i8, ptr %.012.i15, i64 1
   %33 = getelementptr inbounds nuw i8, ptr %.010.i17, i64 1
   %34 = icmp eq i32 %24, %28
-  %or.cond18.i19 = and i1 %or.cond.i18, %34
+  %cond.fr = freeze i1 %34
+  %or.cond18.i19 = and i1 %or.cond.i18, %cond.fr
   br i1 %or.cond18.i19, label %.preheader.i14, label %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit22, !llvm.loop !154
 
 _ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit22: ; preds = %.preheader.i14
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 %5
-  %spec.select = select i1 %34, ptr %35, ptr null
+  %spec.select = select i1 %cond.fr, ptr %35, ptr null
   br label %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit22.thread
 
 _ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit22.thread: ; preds = %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit22, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit

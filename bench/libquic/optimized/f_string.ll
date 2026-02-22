@@ -157,13 +157,13 @@ switch.early.test._crit_edge.thread:              ; preds = %.thread125
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ %25, %.thread125 ]
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !15
-  %.fr = freeze i8 %32
-  %33 = add i8 %.fr, -48
+  %.fr167 = freeze i8 %32
+  %33 = add i8 %.fr167, -48
   %or.cond120 = icmp ult i8 %33, 10
   br i1 %or.cond120, label %34, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr, label %switch.early.test._crit_edge.split.loop.exit208 [
+  switch i8 %.fr167, label %switch.early.test._crit_edge.split.loop.exit209 [
     i8 102, label %34
     i8 101, label %34
     i8 100, label %34
@@ -183,12 +183,12 @@ switch.early.test:                                ; preds = %.lr.ph
   %35 = icmp sgt i64 %indvars.iv, 1
   br i1 %35, label %.lr.ph, label %switch.early.test._crit_edge, !llvm.loop !18
 
-switch.early.test._crit_edge.split.loop.exit208:  ; preds = %switch.early.test
+switch.early.test._crit_edge.split.loop.exit209:  ; preds = %switch.early.test
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   br label %switch.early.test._crit_edge
 
-switch.early.test._crit_edge:                     ; preds = %34, %switch.early.test._crit_edge.split.loop.exit208
-  %.2107 = phi i32 [ %36, %switch.early.test._crit_edge.split.loop.exit208 ], [ %.1106127, %34 ]
+switch.early.test._crit_edge:                     ; preds = %34, %switch.early.test._crit_edge.split.loop.exit209
+  %.2107 = phi i32 [ %36, %switch.early.test._crit_edge.split.loop.exit209 ], [ %.1106127, %34 ]
   %37 = zext nneg i32 %.2107 to i64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   store i8 0, ptr %38, align 1, !tbaa !15
@@ -243,20 +243,20 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   %.1 = phi i32 [ %60, %59 ], [ %.097160, %44 ]
   %61 = zext nneg i32 %.098158 to i64
   %wide.trip.count = zext nneg i32 %45 to i64
-  %invariant.gep210 = getelementptr inbounds nuw i8, ptr %.2, i64 %61
+  %invariant.gep211 = getelementptr inbounds nuw i8, ptr %.2, i64 %61
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %79
-  %indvars.iv184 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next185, %79 ]
-  %indvars.iv182 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next183, %79 ]
-  %gep211 = getelementptr inbounds nuw i8, ptr %invariant.gep210, i64 %indvars.iv184
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv182
+  %indvars.iv185 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next186, %79 ]
+  %indvars.iv183 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next184, %79 ]
+  %gep212 = getelementptr inbounds nuw i8, ptr %invariant.gep211, i64 %indvars.iv185
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv183
   br label %62
 
 62:                                               ; preds = %.preheader, %75
   %63 = phi i1 [ true, %.preheader ], [ false, %75 ]
-  %indvars.iv179 = phi i64 [ 0, %.preheader ], [ 1, %75 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv179
+  %indvars.iv180 = phi i64 [ 0, %.preheader ], [ 1, %75 ]
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv180
   %64 = load i8, ptr %gep, align 1, !tbaa !15
   %65 = add i8 %64, -48
   %or.cond = icmp ult i8 %65, 10
@@ -286,16 +286,16 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
 
 75:                                               ; preds = %62, %68, %72
   %.0109 = phi i8 [ %73, %72 ], [ %69, %68 ], [ %65, %62 ]
-  %76 = load i8, ptr %gep211, align 1, !tbaa !15
+  %76 = load i8, ptr %gep212, align 1, !tbaa !15
   %77 = shl i8 %76, 4
   %78 = or i8 %77, %.0109
-  store i8 %78, ptr %gep211, align 1, !tbaa !15
+  store i8 %78, ptr %gep212, align 1, !tbaa !15
   br i1 %63, label %62, label %79, !llvm.loop !19
 
 79:                                               ; preds = %75
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 2
-  %exitcond.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 2
+  %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge155, label %.preheader, !llvm.loop !20
 
 ._crit_edge155:                                   ; preds = %79

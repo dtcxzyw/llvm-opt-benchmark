@@ -1421,13 +1421,13 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm6memtag16StackInfoBuilder2
   %6 = load ptr, ptr %5, align 8, !tbaa !207
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %.fr.i = freeze i32 %8
-  %9 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %8
+  %9 = and i32 %.fr8.i, 255
   %10 = icmp eq i32 %9, 12
   br i1 %10, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %11
 
 11:                                               ; preds = %2
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -1437,7 +1437,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm6memtag16StackInfoBuilder2
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %11
-  %12 = and i32 %.fr.i, 253
+  %12 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %12, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 

@@ -1071,7 +1071,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %.fr = freeze i32 %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %.fr19 = freeze i32 %16
+  %.fr20 = freeze i32 %16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %18 = load i16, ptr %17, align 2
   %19 = load volatile ptr, ptr %11, align 8
@@ -1079,14 +1079,14 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   br i1 %.not, label %.loopexit, label %20
 
 20:                                               ; preds = %10
-  %.fr18 = freeze i16 %13
-  %21 = zext i16 %.fr18 to i32
+  %.fr19 = freeze i16 %13
+  %21 = zext i16 %.fr19 to i32
   %22 = and i32 %21, 1
   %23 = icmp eq i32 %22, 0
   %24 = and i32 %21, 2
   %25 = icmp eq i32 %24, 0
   %26 = icmp eq i32 %.fr, -1
-  %27 = icmp eq i32 %.fr19, -1
+  %27 = icmp eq i32 %.fr20, -1
   br i1 %23, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %20, %53
@@ -1113,7 +1113,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %42 = getelementptr i8, ptr %28, i64 -12
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, -1
-  %45 = icmp eq i32 %43, %.fr19
+  %45 = icmp eq i32 %43, %.fr20
   %46 = or i1 %44, %45
   %47 = or i1 %46, %27
   br i1 %47, label %48, label %53
@@ -1148,7 +1148,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %61 = getelementptr i8, ptr %55, i64 -12
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, -1
-  %64 = icmp eq i32 %62, %.fr19
+  %64 = icmp eq i32 %62, %.fr20
   %65 = or i1 %63, %64
   %66 = or i1 %65, %27
   br i1 %66, label %67, label %72
@@ -1185,7 +1185,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %86 = getelementptr i8, ptr %74, i64 -12
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, -1
-  %89 = icmp eq i32 %87, %.fr19
+  %89 = icmp eq i32 %87, %.fr20
   %90 = or i1 %88, %89
   %91 = or i1 %90, %27
   br i1 %91, label %92, label %97
@@ -1233,14 +1233,14 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %111 = getelementptr i8, ptr %110, i64 -8
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 3
-  %or.cond50.not = icmp eq i16 %113, 3
-  br i1 %or.cond50.not, label %114, label %125
+  %or.cond51.not = icmp eq i16 %113, 3
+  br i1 %or.cond51.not, label %114, label %125
 
 114:                                              ; preds = %.split.split.split.us.split
   %115 = getelementptr i8, ptr %110, i64 -12
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, -1
-  %118 = icmp eq i32 %116, %.fr19
+  %118 = icmp eq i32 %116, %.fr20
   %119 = or i1 %118, %117
   br i1 %119, label %120, label %125
 
@@ -1261,8 +1261,8 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %128 = getelementptr i8, ptr %127, i64 -8
   %129 = load i16, ptr %128, align 8
   %130 = and i16 %129, 3
-  %or.cond52.not = icmp eq i16 %130, 3
-  br i1 %or.cond52.not, label %131, label %149
+  %or.cond53.not = icmp eq i16 %130, 3
+  br i1 %or.cond53.not, label %131, label %149
 
 131:                                              ; preds = %.split.split.split
   %132 = getelementptr i8, ptr %127, i64 -16
@@ -1276,7 +1276,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %138 = getelementptr i8, ptr %127, i64 -12
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, -1
-  %141 = icmp eq i32 %139, %.fr19
+  %141 = icmp eq i32 %139, %.fr20
   %142 = or i1 %140, %141
   %143 = or i1 %142, %27
   br i1 %143, label %144, label %149
@@ -1474,8 +1474,8 @@ define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr noundef readonly
   br i1 %.not, label %.loopexit, label %76
 
 76:                                               ; preds = %66
-  %.fr21 = freeze i16 %69
-  %77 = zext i16 %.fr21 to i32
+  %.fr22 = freeze i16 %69
+  %77 = zext i16 %.fr22 to i32
   %78 = and i32 %77, 1
   %79 = icmp eq i32 %78, 0
   %80 = and i32 %77, 2

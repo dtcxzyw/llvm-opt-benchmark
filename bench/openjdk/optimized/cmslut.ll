@@ -914,13 +914,13 @@ cmsStageFree.exit:                                ; preds = %22, %24
   %30 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
-  %.fr.i = freeze i32 %32
-  %33 = icmp ult i32 %.fr.i, 2
+  %.fr24.i = freeze i32 %32
+  %33 = icmp ult i32 %.fr24.i, 2
   br i1 %33, label %CubeSize.exit.thread, label %34
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = mul i32 %.fr.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %35)
+  %35 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %35)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %28
 
@@ -1330,13 +1330,13 @@ cmsStageFree.exit:                                ; preds = %22, %24
   %30 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
-  %.fr.i = freeze i32 %32
-  %33 = icmp ult i32 %.fr.i, 2
+  %.fr24.i = freeze i32 %32
+  %33 = icmp ult i32 %.fr24.i, 2
   br i1 %33, label %CubeSize.exit.thread, label %34
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = mul i32 %.fr.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %35)
+  %35 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %35)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %28
 
@@ -1554,13 +1554,13 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   %27 = getelementptr i32, ptr %15, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4
-  %.fr.i = freeze i32 %29
-  %30 = icmp ult i32 %.fr.i, 2
+  %.fr24.i = freeze i32 %29
+  %30 = icmp ult i32 %.fr24.i, 2
   br i1 %30, label %CubeSize.exit.thread, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = mul i32 %.fr.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %32)
+  %32 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %32)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %25
 
@@ -1896,13 +1896,13 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   %27 = getelementptr i32, ptr %15, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4
-  %.fr.i = freeze i32 %29
-  %30 = icmp ult i32 %.fr.i, 2
+  %.fr24.i = freeze i32 %29
+  %30 = icmp ult i32 %.fr24.i, 2
   br i1 %30, label %CubeSize.exit.thread, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = mul i32 %.fr.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %32)
+  %32 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %32)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %25
 
@@ -2168,13 +2168,13 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
   %11 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
-  %.fr.i = freeze i32 %13
-  %14 = icmp ult i32 %.fr.i, 2
+  %.fr24.i = freeze i32 %13
+  %14 = icmp ult i32 %.fr24.i, 2
   br i1 %14, label %CubeSize.exit.thread, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = mul i32 %.fr.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %16)
+  %16 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %16)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %9
 
@@ -2270,13 +2270,13 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nounde
   %11 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
-  %.fr.i = freeze i32 %13
-  %14 = icmp ult i32 %.fr.i, 2
+  %.fr24.i = freeze i32 %13
+  %14 = icmp ult i32 %.fr24.i, 2
   br i1 %14, label %CubeSize.exit.thread, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = mul i32 %.fr.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %16)
+  %16 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %16)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %9
 

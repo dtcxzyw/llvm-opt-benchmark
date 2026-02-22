@@ -30895,13 +30895,12 @@ _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %9
 61:                                               ; preds = %.preheader, %61
   %.352.i.i.i = phi ptr [ %64, %61 ], [ %25, %.preheader ]
   %62 = load i8, ptr %.352.i.i.i, align 1
-  %.fr.i.i = freeze i8 %62
-  %63 = icmp eq i8 %.fr.i.i, 48
+  %63 = icmp eq i8 %62, 48
   %64 = getelementptr inbounds nuw i8, ptr %.352.i.i.i, i64 1
   br i1 %63, label %61, label %.preheader64.i.i.i, !llvm.loop !141
 
 .preheader64.i.i.i:                               ; preds = %61
-  %65 = sext i8 %.fr.i.i to i32
+  %65 = sext i8 %62 to i32
   %66 = add nsw i32 %65, -48
   %67 = icmp ult i32 %66, 10
   br i1 %67, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -30911,8 +30910,7 @@ _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %9
   %.367.i.i.i = phi i32 [ %70, %.lr.ph.i.i.i ], [ 0, %.preheader64.i.i.i ]
   %.466.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i ], [ %.352.i.i.i, %.preheader64.i.i.i ]
   %69 = mul i32 %.367.i.i.i, 10
-  %.fr.i = freeze i32 %68
-  %70 = add i32 %69, %.fr.i
+  %70 = add i32 %69, %68
   %71 = getelementptr inbounds nuw i8, ptr %.466.i.i.i, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = sext i8 %72 to i32
@@ -30934,14 +30932,15 @@ _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %9
   br i1 %81, label %82, label %_ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.thread16.i.i
 
 82:                                               ; preds = %80
-  %83 = icmp slt i8 %.fr.i.i, 52
+  %83 = icmp slt i8 %62, 52
   br i1 %83, label %_ZN4pugi4impl14get_value_uintEPKc.exit.i, label %_ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.i.i
 
 _ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.i.i: ; preds = %82
-  %84 = icmp ne i8 %.fr.i.i, 52
+  %84 = icmp ne i8 %62, 52
   %85 = icmp sgt i32 %.3.lcssa.i.i.i, -1
-  %.not61.i.i.i = or i1 %84, %85
-  br i1 %.not61.i.i.i, label %_ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.thread16.i.i, label %_ZN4pugi4impl14get_value_uintEPKc.exit.i
+  %.not61.i.i.i = select i1 %84, i1 true, i1 %85
+  %cond.fr.i.i = freeze i1 %.not61.i.i.i
+  br i1 %cond.fr.i.i, label %_ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.thread16.i.i, label %_ZN4pugi4impl14get_value_uintEPKc.exit.i
 
 _ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.thread16.i.i: ; preds = %_ZN4pugi4impl17string_to_integerIjEET_PKcS2_S2_.exit.i.i, %80, %56
   br label %_ZN4pugi4impl14get_value_uintEPKc.exit.i
@@ -46700,7 +46699,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 64
   %.not97 = icmp eq i8 %18, 0
-  %.082.add = add i64 %.082.idx, 1
+  %.082.add = add nuw nsw i64 %.082.idx, 1
   br i1 %.not97, label %19, label %.preheader144, !llvm.loop !387
 
 19:                                               ; preds = %.preheader144
@@ -46730,12 +46729,12 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %34 = load i8, ptr %33, align 1
-  %.fr = freeze i8 %34
-  %35 = and i8 %.fr, -33
+  %35 = and i8 %34, -33
   %36 = icmp eq i8 %35, 76
   %37 = icmp eq i64 %.082.idx, 4
   %spec.select = and i1 %37, %36
-  %spec.select141 = select i1 %spec.select, i32 256, i32 1
+  %cond.fr = freeze i1 %spec.select
+  %spec.select141 = select i1 %cond.fr, i32 256, i32 1
   %38 = and i32 %spec.select141, %3
   %.not99 = icmp eq i32 %38, 0
   br i1 %.not99, label %.preheader, label %46
@@ -46774,7 +46773,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   br label %.preheader.split.us, !llvm.loop !388
 
 46:                                               ; preds = %32
-  br i1 %spec.select, label %47, label %.thread129
+  br i1 %cond.fr, label %47, label %.thread129
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 24

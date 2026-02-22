@@ -742,8 +742,8 @@ Bal_SetCutIsContainedOrder.exit.thread.i145.us:   ; preds = %194, %206, %208, %1
   br i1 %exitcond.not.i147.us, label %Bal_SetLastCutIsContained.exit165.us, label %.lr.ph.split.i142.us, !llvm.loop !65
 
 .lr.ph.split.us.i159.us:                          ; preds = %.lr.ph.i138.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i162.us
-  %indvars.iv38.i160.us = phi i64 [ %indvars.iv.next39.i163.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i162.us ], [ 0, %.lr.ph.i138.us ]
-  %214 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv38.i160.us
+  %indvars.iv39.i160.us = phi i64 [ %indvars.iv.next40.i163.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i162.us ], [ 0, %.lr.ph.i138.us ]
+  %214 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv39.i160.us
   %215 = load ptr, ptr %214, align 8, !tbaa !57
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 12
   %217 = load i32, ptr %216, align 4
@@ -757,9 +757,9 @@ Bal_SetCutIsContainedOrder.exit.thread.i145.us:   ; preds = %194, %206, %208, %1
   br i1 %221, label %Bal_SetAddCut.exit211.us, label %Bal_SetCutIsContainedOrder.exit.thread.us.i162.us
 
 Bal_SetCutIsContainedOrder.exit.thread.us.i162.us: ; preds = %218, %.lr.ph.split.us.i159.us
-  %indvars.iv.next39.i163.us = add nuw nsw i64 %indvars.iv38.i160.us, 1
-  %exitcond42.not.i164.us = icmp eq i64 %indvars.iv.next39.i163.us, %177
-  br i1 %exitcond42.not.i164.us, label %Bal_SetLastCutIsContained.exit165.us, label %.lr.ph.split.us.i159.us, !llvm.loop !65
+  %indvars.iv.next40.i163.us = add nuw nsw i64 %indvars.iv39.i160.us, 1
+  %exitcond43.not.i164.us = icmp eq i64 %indvars.iv.next40.i163.us, %177
+  br i1 %exitcond43.not.i164.us, label %Bal_SetLastCutIsContained.exit165.us, label %.lr.ph.split.us.i159.us, !llvm.loop !65
 
 Bal_SetLastCutIsContained.exit165.us:             ; preds = %Bal_SetCutIsContainedOrder.exit.thread.i145.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i162.us
   %222 = load i32, ptr %74, align 4, !tbaa !19
@@ -771,8 +771,8 @@ Bal_SetLastCutIsContained.exit165.us:             ; preds = %Bal_SetCutIsContain
   %224 = load ptr, ptr %178, align 8, !tbaa !57
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 12
   %226 = load i32, ptr %225, align 4
-  %.fr31.i172.us = freeze i32 %226
-  %227 = lshr i32 %.fr31.i172.us, 27
+  %.fr.i172.us = freeze i32 %226
+  %227 = lshr i32 %.fr.i172.us, 27
   %228 = icmp eq i32 %227, 0
   %229 = getelementptr inbounds nuw i8, ptr %224, i64 16
   br i1 %228, label %.outer.i.split.us.i205.us, label %.outer.i.split.i173.us
@@ -1032,8 +1032,8 @@ Bal_ManPrepareSet.exit115:                        ; preds = %337, %322, %332, %.
   %342 = icmp sgt i32 %.019.i92, 0
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %344 = icmp sgt i32 %.019.i105, 0
-  %or.cond562 = select i1 %342, i1 %344, i1 false
-  br i1 %or.cond562, label %.preheader250.us.us, label %.loopexit.thread
+  %or.cond563 = select i1 %342, i1 %344, i1 false
+  br i1 %or.cond563, label %.preheader250.us.us, label %.loopexit.thread
 
 .preheader250.us.us:                              ; preds = %.preheader250.lr.ph, %._crit_edge326.split.us.us.us
   %.075331.us.us = phi ptr [ %566, %._crit_edge326.split.us.us.us ], [ %.0227, %.preheader250.lr.ph ]
@@ -1257,8 +1257,8 @@ Bal_SetCutIsContainedOrder.exit.thread.i.us.us.us: ; preds = %446, %458, %460, %
   br i1 %exitcond.not.i122.us.us.us, label %Bal_SetLastCutIsContained.exit.us.us.us, label %.lr.ph.split.i.us.us.us, !llvm.loop !65
 
 .lr.ph.split.us.i.us.us.us:                       ; preds = %.lr.ph.i118.us.us.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i.us.us.us
-  %indvars.iv38.i.us.us.us = phi i64 [ %indvars.iv.next39.i.us.us.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i.us.us.us ], [ 0, %.lr.ph.i118.us.us.us ]
-  %466 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv38.i.us.us.us
+  %indvars.iv39.i.us.us.us = phi i64 [ %indvars.iv.next40.i.us.us.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i.us.us.us ], [ 0, %.lr.ph.i118.us.us.us ]
+  %466 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv39.i.us.us.us
   %467 = load ptr, ptr %466, align 8, !tbaa !57
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 12
   %469 = load i32, ptr %468, align 4
@@ -1272,9 +1272,9 @@ Bal_SetCutIsContainedOrder.exit.thread.i.us.us.us: ; preds = %446, %458, %460, %
   br i1 %473, label %Bal_SetAddCut.exit.us.us.us, label %Bal_SetCutIsContainedOrder.exit.thread.us.i.us.us.us
 
 Bal_SetCutIsContainedOrder.exit.thread.us.i.us.us.us: ; preds = %470, %.lr.ph.split.us.i.us.us.us
-  %indvars.iv.next39.i.us.us.us = add nuw nsw i64 %indvars.iv38.i.us.us.us, 1
-  %exitcond42.not.i.us.us.us = icmp eq i64 %indvars.iv.next39.i.us.us.us, %429
-  br i1 %exitcond42.not.i.us.us.us, label %Bal_SetLastCutIsContained.exit.us.us.us, label %.lr.ph.split.us.i.us.us.us, !llvm.loop !65
+  %indvars.iv.next40.i.us.us.us = add nuw nsw i64 %indvars.iv39.i.us.us.us, 1
+  %exitcond43.not.i.us.us.us = icmp eq i64 %indvars.iv.next40.i.us.us.us, %429
+  br i1 %exitcond43.not.i.us.us.us, label %Bal_SetLastCutIsContained.exit.us.us.us, label %.lr.ph.split.us.i.us.us.us, !llvm.loop !65
 
 Bal_SetLastCutIsContained.exit.us.us.us:          ; preds = %Bal_SetCutIsContainedOrder.exit.thread.i.us.us.us, %Bal_SetCutIsContainedOrder.exit.thread.us.i.us.us.us
   %474 = load i32, ptr %74, align 4, !tbaa !19
@@ -1286,8 +1286,8 @@ Bal_SetLastCutIsContained.exit.us.us.us:          ; preds = %Bal_SetCutIsContain
   %476 = load ptr, ptr %430, align 8, !tbaa !57
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 12
   %478 = load i32, ptr %477, align 4
-  %.fr31.i.us.us.us = freeze i32 %478
-  %479 = lshr i32 %.fr31.i.us.us.us, 27
+  %.fr.i.us.us.us = freeze i32 %478
+  %479 = lshr i32 %.fr.i.us.us.us, 27
   %480 = icmp eq i32 %479, 0
   %481 = getelementptr inbounds nuw i8, ptr %476, i64 16
   br i1 %480, label %.outer.i.split.us.i.us.us.us, label %.outer.i.split.i.us.us.us

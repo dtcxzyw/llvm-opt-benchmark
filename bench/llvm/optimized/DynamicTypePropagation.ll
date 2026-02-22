@@ -5948,11 +5948,11 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit63.i: ; preds = %60
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %68) #24
   %.pre.i = load ptr, ptr %65, align 8, !tbaa !221
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 56
-  %.pre190.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !222
+  %.pre191.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !222
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %69, %64
-  %70 = phi ptr [ null, %64 ], [ %.pre190.i, %69 ]
+  %70 = phi ptr [ null, %64 ], [ %.pre191.i, %69 ]
   %71 = phi ptr [ %66, %64 ], [ %.pre.i, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -6619,8 +6619,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pre.i.i = load ptr, ptr %65, align 8, !tbaa !221
   %355 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
   %356 = load ptr, ptr %355, align 8, !tbaa !222
-  %.not187.i = icmp eq ptr %353, %356
-  br i1 %.not187.i, label %368, label %357
+  %.not188.i = icmp eq ptr %353, %356
+  br i1 %.not188.i, label %368, label %357
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6755,8 +6755,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %397, %38
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i: ; preds = %402
   %414 = load i32, ptr %411, align 16
-  %.fr.i = freeze i32 %414
-  %415 = and i32 %.fr.i, 267911168
+  %.fr185.i = freeze i32 %414
+  %415 = and i32 %.fr185.i, 267911168
   %416 = icmp eq i32 %415, 255852544
   %spec.select183.i = select i1 %416, ptr %spec.select182.i, ptr %spec.select.i
   br label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
@@ -6805,8 +6805,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i: ; preds = %425, %
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.i: ; preds = %430
   %442 = load i32, ptr %439, align 16
-  %.fr185.i = freeze i32 %442
-  %443 = and i32 %.fr185.i, 267911168
+  %.fr186.i = freeze i32 %442
+  %443 = and i32 %.fr186.i, 267911168
   %444 = icmp eq i32 %443, 255852544
   %spec.select184.i = select i1 %444, ptr %417, ptr %spec.select182.i
   br label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i
@@ -6889,9 +6889,9 @@ _ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramS
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i
 
 476:                                              ; preds = %475, %471, %458, %457
-  %.sink217.i = phi ptr [ %11, %475 ], [ %10, %471 ], [ %9, %458 ], [ %8, %457 ]
-  %477 = load ptr, ptr %.sink217.i, align 8, !tbaa !222
-  store ptr %.sroa.0135.1.i, ptr %.sink217.i, align 8, !tbaa !222
+  %.sink218.i = phi ptr [ %11, %475 ], [ %10, %471 ], [ %9, %458 ], [ %8, %457 ]
+  %477 = load ptr, ptr %.sink218.i, align 8, !tbaa !222
+  store ptr %.sroa.0135.1.i, ptr %.sink218.i, align 8, !tbaa !222
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0135.1.i) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6906,8 +6906,8 @@ _ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramS
   %.pre.i117.i = load ptr, ptr %65, align 8, !tbaa !221
   %479 = getelementptr inbounds nuw i8, ptr %.pre.i117.i, i64 56
   %480 = load ptr, ptr %479, align 8, !tbaa !222
-  %.not186.i = icmp eq ptr %477, %480
-  br i1 %.not186.i, label %492, label %481
+  %.not187.i = icmp eq ptr %477, %480
+  br i1 %.not187.i, label %492, label %481
 
 481:                                              ; preds = %478
   %482 = getelementptr inbounds nuw i8, ptr %2, i64 16

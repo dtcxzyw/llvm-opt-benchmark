@@ -17484,9 +17484,9 @@ _ZN4fish8builtins6string16StringSubCommand10parse_opts17h88b99dd1bb07d495E.exit.
 
 152:                                              ; preds = %141
   %153 = call { i32, i32 } @"_ZN93_$LT$fish..builtins..string..pad..Pad$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17h5b58afd150dd515fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 8 %42, i64 noundef %41)
-  %.fr = freeze { i32, i32 } %153
-  %154 = extractvalue { i32, i32 } %.fr, 0
-  %155 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %153
+  %154 = extractvalue { i32, i32 } %.fr13, 0
+  %155 = extractvalue { i32, i32 } %.fr13, 1
   %156 = trunc i32 %154 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1589
   %157 = zext i32 %155 to i64
@@ -18016,9 +18016,9 @@ _ZN4fish8builtins6string16StringSubCommand10parse_opts17hf0eb038b82666762E.exit.
 
 152:                                              ; preds = %141
   %153 = call { i32, i32 } @"_ZN105_$LT$fish..builtins..string..transform..Transform$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17h8951bb2ba042922cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 8 %42, i64 noundef %41)
-  %.fr = freeze { i32, i32 } %153
-  %154 = extractvalue { i32, i32 } %.fr, 0
-  %155 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %153
+  %154 = extractvalue { i32, i32 } %.fr13, 0
+  %155 = extractvalue { i32, i32 } %.fr13, 1
   %156 = trunc i32 %154 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1673
   %157 = zext i32 %155 to i64

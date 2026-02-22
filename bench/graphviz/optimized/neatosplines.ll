@@ -2280,13 +2280,12 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
   %131 = fmul double %130, 7.200000e+01
   %132 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !146
-  %.fr93.i.i = freeze i64 %133
-  %.not91.i.i = icmp eq i64 %.fr93.i.i, 0
+  %.not91.i.i = icmp eq i64 %133, 0
   br i1 %.not91.i.i, label %._crit_edge90.i.i, label %.lr.ph89.i.i
 
 .lr.ph89.i.i:                                     ; preds = %99
   %134 = load ptr, ptr %98, align 8, !tbaa !149
-  %135 = add i64 %.fr93.i.i, -1
+  %135 = add i64 %133, -1
   br label %138
 
 ._crit_edge90.i.i:                                ; preds = %195, %99
@@ -2307,7 +2306,8 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
   %141 = load ptr, ptr %.07285.i.i, align 8, !tbaa !152
   %142 = icmp eq i64 %.07086.i.i, %135
   %143 = add i64 %140, -1
-  br i1 %142, label %.lr.ph.split.i.i, label %.lr.ph.split.us.i.i
+  %.fr.i.i = freeze i1 %142
+  br i1 %.fr.i.i, label %.lr.ph.split.i.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
   %.084.us.i.i = phi i64 [ %153, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
@@ -2339,7 +2339,7 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %175
   %.084.i.i = phi i64 [ %177, %175 ], [ 0, %.lr.ph.i.i ]
   %.07183.i.i = phi ptr [ %176, %175 ], [ %141, %.lr.ph.i.i ]
-  %156 = or i64 %.084.i.i, %135
+  %156 = or i64 %.084.i.i, %.07086.i.i
   %or.cond.i.i = icmp eq i64 %156, 0
   br i1 %or.cond.i.i, label %157, label %163
 
@@ -2378,8 +2378,8 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
 175:                                              ; preds = %171, %167, %157
   %176 = getelementptr inbounds nuw i8, ptr %.07183.i.i, i64 16
   %177 = add nuw i64 %.084.i.i, 1
-  %exitcond95.not.i.i = icmp eq i64 %177, %140
-  br i1 %exitcond95.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !153
+  %exitcond94.not.i.i = icmp eq i64 %177, %140
+  br i1 %exitcond94.not.i.i, label %._crit_edge.i.i, label %.lr.ph.split.i.i, !llvm.loop !153
 
 178:                                              ; preds = %._crit_edge.i.i
   %179 = getelementptr inbounds nuw i8, ptr %.07285.i.i, i64 24
@@ -2412,8 +2412,8 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
 195:                                              ; preds = %188, %185
   %196 = getelementptr inbounds nuw i8, ptr %.07285.i.i, i64 56
   %197 = add nuw i64 %.07086.i.i, 1
-  %exitcond96.not.i.i = icmp eq i64 %197, %.fr93.i.i
-  br i1 %exitcond96.not.i.i, label %._crit_edge90.i.i, label %138, !llvm.loop !160
+  %exitcond95.not.i.i = icmp eq i64 %197, %133
+  br i1 %exitcond95.not.i.i, label %._crit_edge90.i.i, label %138, !llvm.loop !160
 
 198:                                              ; preds = %._crit_edge90.i.i
   %199 = getelementptr inbounds nuw i8, ptr %137, i64 105

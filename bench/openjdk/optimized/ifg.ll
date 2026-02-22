@@ -467,13 +467,13 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %2
   store ptr %27, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %7, ptr %28, align 8
-  %.fr = freeze i16 %17
-  %29 = and i16 %.fr, 1024
+  %.fr22 = freeze i16 %17
+  %29 = and i16 %.fr22, 1024
   %.not18 = icmp eq i16 %29, 0
   br i1 %.not18, label %_ZN16IndexSetIteratorC2EP8IndexSet.exit.split.us, label %_ZN16IndexSetIteratorC2EP8IndexSet.exit.split
 
 _ZN16IndexSetIteratorC2EP8IndexSet.exit.split.us: ; preds = %_ZN16IndexSetIteratorC2EP8IndexSet.exit, %47
-  %30 = phi i64 [ %.pre23, %47 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
+  %30 = phi i64 [ %.pre24, %47 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
   %.016.us = phi i32 [ %60, %47 ], [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ]
   %.not.i.us = icmp eq i64 %30, 0
   br i1 %.not.i.us, label %38, label %31
@@ -524,7 +524,7 @@ _ZN16IndexSetIterator4nextEv.exit.us:             ; preds = %45, %31
   %58 = call i32 @llvm.smax.i32(i32 %15, i32 %53)
   %59 = select i1 %.not19.us, i32 %58, i32 %57
   %60 = add nuw nsw i32 %59, %.016.us
-  %.pre23 = load i64, ptr %3, align 8
+  %.pre24 = load i64, ptr %3, align 8
   br label %_ZN16IndexSetIteratorC2EP8IndexSet.exit.split.us, !llvm.loop !11
 
 _ZN16IndexSetIteratorC2EP8IndexSet.exit.split:    ; preds = %_ZN16IndexSetIteratorC2EP8IndexSet.exit, %78

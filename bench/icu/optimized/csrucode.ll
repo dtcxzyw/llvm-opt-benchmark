@@ -275,18 +275,19 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   %or.cond3 = icmp eq i32 %21, 55296
   %or.cond45 = or i1 %or.cond, %or.cond3
   %22 = zext i1 %or.cond45 to i32
-  %.143 = add i32 %.04250, %22
+  %.143 = add nuw nsw i32 %.04250, %22
   %not.or.cond45 = xor i1 %or.cond45, true
   %23 = zext i1 %not.or.cond45 to i32
-  %.1 = add i32 %.052, %23
+  %.1 = add nuw nsw i32 %.052, %23
   %24 = add nuw nsw i32 %.03951, 4
   %25 = icmp slt i32 %24, %9
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 26:                                               ; preds = %._crit_edge
-  %27 = mul i32 %.143, 10
-  %28 = icmp ugt i32 %.1, %27
-  %or.cond47 = select i1 %15, i1 %28, i1 false
+  %27 = mul nuw nsw i32 %.143, 10
+  %28 = icmp samesign ugt i32 %.1, %27
+  %cond.fr = freeze i1 %28
+  %or.cond47 = and i1 %15, %cond.fr
   br i1 %or.cond47, label %.thread77, label %29
 
 29:                                               ; preds = %26
@@ -300,8 +301,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   br i1 %or.cond9, label %.thread77, label %33
 
 33:                                               ; preds = %31
-  %spec.select48 = zext i1 %28 to i8
-  %spec.select = select i1 %28, i32 25, i32 0
+  %spec.select48 = zext i1 %cond.fr to i8
+  %spec.select = select i1 %cond.fr, i32 25, i32 0
   br label %.thread77
 
 .thread77:                                        ; preds = %33, %3, %31, %29, %26, %._crit_edge

@@ -5813,8 +5813,8 @@ define dso_local void @__io_req_task_work_add(ptr noundef %0, i32 noundef %1) lo
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
-  %.fr7 = freeze i32 %11
-  %12 = and i32 %.fr7, 12
+  %.fr8 = freeze i32 %11
+  %12 = and i32 %.fr8, 12
   %13 = icmp ne i32 %12, 0
   %14 = and i32 %1, 1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 448

@@ -1744,8 +1744,8 @@ define hidden void @_ZN2cv12cpu_baseline18calcSIFTDescriptorERKNS_3MatENS_6Point
   %47 = call double @llvm.fmuladd.f64(double %42, double %42, double %46)
   %sqrt = call double @llvm.sqrt.f64(double %47)
   %48 = fptosi double %sqrt to i32
-  %.fr379 = freeze i32 %48
-  %.sroa.speculated317 = call i32 @llvm.smin.i32(i32 %39, i32 %.fr379)
+  %.fr = freeze i32 %48
+  %.sroa.speculated317 = call i32 @llvm.smin.i32(i32 %39, i32 %.fr)
   %49 = fdiv float %24, %32
   %50 = fdiv float %25, %32
   %51 = add i32 %4, 2

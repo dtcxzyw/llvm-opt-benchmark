@@ -15349,14 +15349,14 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %666 = load x86_fp80, ptr %22, align 16, !tbaa !196
   %667 = load x86_fp80, ptr %154, align 16, !tbaa !200
-  %.fr25.i.i = freeze x86_fp80 %667
+  %.fr.i.i = freeze x86_fp80 %667
   %668 = load x86_fp80, ptr %153, align 16, !tbaa !199
-  %669 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i.i)
+  %669 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr.i.i)
   %670 = fcmp ueq x86_fp80 %669, 0xK7FFF8000000000000000
   br i1 %670, label %.split.us.i.i, label %.split.i.preheader.i
 
 .split.i.preheader.i:                             ; preds = %665
-  %671 = fcmp ugt x86_fp80 %.fr25.i.i, 0xK00000000000000000000
+  %671 = fcmp ugt x86_fp80 %.fr.i.i, 0xK00000000000000000000
   br i1 %671, label %.split.i.i, label %.split.i.us.i
 
 .split.i.us.i:                                    ; preds = %.split.i.preheader.i
@@ -15390,7 +15390,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i: ; preds = %675, %.split.i.us.i
   %.0.i.i.us.i = phi x86_fp80 [ %685, %675 ], [ 0xK00000000000000000000, %.split.i.us.i ]
-  %686 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr25.i.i, x86_fp80 %666)
+  %686 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr.i.i, x86_fp80 %666)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit
 
 .split.us.i.i:                                    ; preds = %665
@@ -15424,7 +15424,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i: ; preds = %690, %.split.us.i.i
   %.0.i.us.i.i = phi x86_fp80 [ %700, %690 ], [ 0xK00000000000000000000, %.split.us.i.i ]
-  %701 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i, x86_fp80 %.fr25.i.i, x86_fp80 %666)
+  %701 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i, x86_fp80 %.fr.i.i, x86_fp80 %666)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit
 
 .split.i.i:                                       ; preds = %.split.i.preheader.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
@@ -15460,7 +15460,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %705, %.split.i.i
   %.0.i.i.i = phi x86_fp80 [ %715, %705 ], [ 0xK00000000000000000000, %.split.i.i ]
-  %716 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i, x86_fp80 %.fr25.i.i, x86_fp80 %666)
+  %716 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i, x86_fp80 %.fr.i.i, x86_fp80 %666)
   %717 = fcmp olt x86_fp80 %716, %668
   br i1 %717, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_.exit, label %.split.i.i
 
@@ -16327,17 +16327,17 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
   %3 = load x86_fp80, ptr %0, align 16, !tbaa !196
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load x86_fp80, ptr %4, align 16, !tbaa !200
-  %.fr25.i = freeze x86_fp80 %5
+  %.fr.i = freeze x86_fp80 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load x86_fp80, ptr %6, align 16, !tbaa !199
-  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i)
+  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr.i)
   %9 = fcmp ueq x86_fp80 %8, 0xK7FFF8000000000000000
   %.promoted.i = load i64, ptr %1, align 16, !tbaa !63
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !63
   br i1 %9, label %.split.us.i, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %2
-  %10 = fcmp ugt x86_fp80 %.fr25.i, 0xK00000000000000000000
+  %10 = fcmp ugt x86_fp80 %.fr.i, 0xK00000000000000000000
   br i1 %10, label %.split.i, label %.split.i.us
 
 .split.i.us:                                      ; preds = %.split.i.preheader
@@ -16371,7 +16371,7 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us: ; preds = %14, %.split.i.us
   %.0.i.i.us = phi x86_fp80 [ %24, %14 ], [ 0xK00000000000000000000, %.split.i.us ]
-  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr25.i, x86_fp80 %3)
+  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.us.i:                                      ; preds = %2
@@ -16405,7 +16405,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i: ; preds = %29, %.split.us.i
   %.0.i.us.i = phi x86_fp80 [ %39, %29 ], [ 0xK00000000000000000000, %.split.us.i ]
-  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr25.i, x86_fp80 %3)
+  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i
@@ -16441,7 +16441,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i: ; preds = %44, %.split.i
   %.0.i.i = phi x86_fp80 [ %54, %44 ], [ 0xK00000000000000000000, %.split.i ]
-  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr25.i, x86_fp80 %3)
+  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr.i, x86_fp80 %3)
   %56 = fcmp olt x86_fp80 %55, %7
   br i1 %56, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEeRT_RKNS1_10param_typeE.exit, label %.split.i
 
@@ -24720,17 +24720,17 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
   %3 = load x86_fp80, ptr %0, align 16, !tbaa !196
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load x86_fp80, ptr %4, align 16, !tbaa !200
-  %.fr25.i = freeze x86_fp80 %5
+  %.fr.i = freeze x86_fp80 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load x86_fp80, ptr %6, align 16, !tbaa !199
-  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i)
+  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr.i)
   %9 = fcmp ueq x86_fp80 %8, 0xK7FFF8000000000000000
   %.promoted.i = load i64, ptr %1, align 16, !tbaa !63
   %.sroa.22.0..sroa_idx.i.i.i.promoted.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !63
   br i1 %9, label %.split.us.i, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %2
-  %10 = fcmp ugt x86_fp80 %.fr25.i, 0xK00000000000000000000
+  %10 = fcmp ugt x86_fp80 %.fr.i, 0xK00000000000000000000
   br i1 %10, label %.split.i, label %.split.i.us
 
 .split.i.us:                                      ; preds = %.split.i.preheader
@@ -24764,7 +24764,7 @@ define linkonce_odr dso_local noundef x86_fp80 @_ZN4absl25uniform_real_distribut
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us: ; preds = %14, %.split.i.us
   %.0.i.i.us = phi x86_fp80 [ %24, %14 ], [ 0xK00000000000000000000, %.split.i.us ]
-  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr25.i, x86_fp80 %3)
+  %25 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us, x86_fp80 %.fr.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.us.i:                                      ; preds = %2
@@ -24798,7 +24798,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i: ; preds = %29, %.split.us.i
   %.0.i.us.i = phi x86_fp80 [ %39, %29 ], [ 0xK00000000000000000000, %.split.us.i ]
-  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr25.i, x86_fp80 %3)
+  %40 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i, x86_fp80 %.fr.i, x86_fp80 %3)
   br label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i
@@ -24834,7 +24834,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i: ; preds = %44, %.split.i
   %.0.i.i = phi x86_fp80 [ %54, %44 ], [ 0xK00000000000000000000, %.split.i ]
-  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr25.i, x86_fp80 %3)
+  %55 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i, x86_fp80 %.fr.i, x86_fp80 %3)
   %56 = fcmp olt x86_fp80 %55, %7
   br i1 %56, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_RKNS1_10param_typeE.exit, label %.split.i
 
@@ -26060,8 +26060,8 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
   %37 = fdiv double 5.000000e+01, %36
   %.sroa.7108.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr151, i64 32
   %.sroa.7108.0.copyload = load x86_fp80, ptr %.sroa.7108.0..0.sroa_idx, align 16
-  %.fr25.i.i = freeze x86_fp80 %.sroa.7108.0.copyload
-  %38 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr25.i.i)
+  %.fr.i.i = freeze x86_fp80 %.sroa.7108.0.copyload
+  %38 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.fr.i.i)
   %39 = fcmp ueq x86_fp80 %38, 0xK7FFF8000000000000000
   %40 = fpext double %34 to x86_fp80
   %41 = fpext double %37 to x86_fp80
@@ -26101,7 +26101,7 @@ define internal void @_ZN12_GLOBAL__N_149UniformRealDistributionTest_ChiSquaredT
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.us: ; preds = %45, %.split.us.i.i.us
   %.0.i.us.i.i.us = phi x86_fp80 [ %55, %45 ], [ 0xK00000000000000000000, %.split.us.i.i.us ]
-  %56 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i.us, x86_fp80 %.fr25.i.i, x86_fp80 %30)
+  %56 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.us.i.i.us, x86_fp80 %.fr.i.i, x86_fp80 %30)
   %57 = fsub x86_fp80 %56, %40
   %58 = fmul x86_fp80 %57, %41
   %59 = fptoui x86_fp80 %58 to i64
@@ -26114,7 +26114,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %exitcond164.not, label %.lr.ph.i.preheader, label %.split.us.i.i.us, !llvm.loop !335
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split:      ; preds = %.noexc
-  %64 = fcmp ugt x86_fp80 %.fr25.i.i, 0xK00000000000000000000
+  %64 = fcmp ugt x86_fp80 %.fr.i.i, 0xK00000000000000000000
   br i1 %64, label %.split.i.preheader.i.us, label %.split.i.preheader.i
 
 .split.i.preheader.i.us:                          ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split, %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_.exit.loopexit.us
@@ -26156,7 +26156,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.split:      ; preds = %.noexc
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %68, %.split.i.i.us
   %.0.i.i.i.us = phi x86_fp80 [ %78, %68 ], [ 0xK00000000000000000000, %.split.i.i.us ]
-  %79 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i.us, x86_fp80 %.fr25.i.i, x86_fp80 %30)
+  %79 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.i.us, x86_fp80 %.fr.i.i, x86_fp80 %30)
   %80 = fcmp olt x86_fp80 %79, %32
   br i1 %80, label %_ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEeRT_.exit.loopexit.us, label %.split.i.i.us
 
@@ -26228,7 +26228,7 @@ _ZN4absl15random_internal21ChiSquareWithExpectedIN9__gnu_cxx17__normal_iteratorI
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.us.i: ; preds = %97, %.split.i.preheader.i
   %.0.i.i.us.i = phi x86_fp80 [ %107, %97 ], [ 0xK00000000000000000000, %.split.i.preheader.i ]
-  %108 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr25.i.i, x86_fp80 %30)
+  %108 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.0.i.i.us.i, x86_fp80 %.fr.i.i, x86_fp80 %30)
   %109 = fsub x86_fp80 %108, %40
   %110 = fmul x86_fp80 %109, %41
   %111 = fptoui x86_fp80 %110 to i64

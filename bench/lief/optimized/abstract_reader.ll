@@ -447,23 +447,22 @@ _ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_7SectionESaIS3_EES3_N9__gnu_cxx17__normal
   %.sroa.0343.0 = phi ptr [ null, %.thread.i106 ], [ %159, %160 ]
   %.sroa.9346.0 = phi ptr [ %158, %.thread.i106 ], [ %162, %160 ]
   %165 = phi i64 [ 0, %.thread.i106 ], [ %163, %160 ]
-  %.sroa.9346.0.fr = freeze ptr %.sroa.9346.0
-  %166 = ptrtoint ptr %.sroa.9346.0.fr to i64
+  %166 = ptrtoint ptr %.sroa.9346.0 to i64
   %167 = sub i64 %166, %165
   %168 = ashr exact i64 %167, 3
-  %.sroa.9353.0382.fr = freeze ptr %.sroa.9353.0382
-  %169 = ptrtoint ptr %.sroa.9353.0382.fr to i64
+  %169 = ptrtoint ptr %.sroa.9353.0382 to i64
   %170 = ptrtoint ptr %.sroa.0350.0384 to i64
   %171 = sub i64 %169, %170
   %172 = ptrtoint ptr %.sroa.0343.0 to i64
   %173 = sub i64 %166, %172
   %174 = icmp ne i64 %171, %173
+  %.fr = freeze i1 %174
   %175 = icmp ne i64 %165, %166
-  %.not3.i438 = or i1 %174, %175
+  %.not3.i438 = or i1 %.fr, %175
   br i1 %.not3.i438, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_7SectionESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv.exit
-  br i1 %174, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %189
   %.sroa.14355.0440.us = phi ptr [ %190, %189 ], [ %.sroa.0350.0384, %.lr.ph ]
@@ -788,23 +787,22 @@ _ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_6SymbolESaIS3_EES3_N9__gnu_cxx17__normal_
   %.sroa.0319.0 = phi ptr [ null, %.thread.i158 ], [ %275, %276 ]
   %.sroa.9322.0 = phi ptr [ %274, %.thread.i158 ], [ %278, %276 ]
   %281 = phi i64 [ 0, %.thread.i158 ], [ %279, %276 ]
-  %.sroa.9322.0.fr = freeze ptr %.sroa.9322.0
-  %282 = ptrtoint ptr %.sroa.9322.0.fr to i64
+  %282 = ptrtoint ptr %.sroa.9322.0 to i64
   %283 = sub i64 %282, %281
   %284 = ashr exact i64 %283, 3
-  %.sroa.9329.0403.fr = freeze ptr %.sroa.9329.0403
-  %285 = ptrtoint ptr %.sroa.9329.0403.fr to i64
+  %285 = ptrtoint ptr %.sroa.9329.0403 to i64
   %286 = ptrtoint ptr %.sroa.14331.1405 to i64
   %287 = sub i64 %285, %286
   %288 = ptrtoint ptr %.sroa.0319.0 to i64
   %289 = sub i64 %282, %288
   %290 = icmp ne i64 %287, %289
+  %.fr449 = freeze i1 %290
   %291 = icmp ne i64 %281, %282
-  %.not3.i163441 = or i1 %290, %291
+  %.not3.i163441 = or i1 %.fr449, %291
   br i1 %.not3.i163441, label %.lr.ph444, label %._crit_edge445
 
 .lr.ph444:                                        ; preds = %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_6SymbolESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv.exit
-  br i1 %290, label %.lr.ph444.split.us, label %.lr.ph444.split
+  br i1 %.fr449, label %.lr.ph444.split.us, label %.lr.ph444.split
 
 .lr.ph444.split.us:                               ; preds = %.lr.ph444, %305
   %.sroa.14331.0442.us = phi ptr [ %306, %305 ], [ %.sroa.14331.1405, %.lr.ph444 ]
@@ -1434,23 +1432,22 @@ _ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_10RelocationESaIS3_EES3_N9__gnu_cxx17__no
   %.sroa.0.0 = phi ptr [ null, %.thread.i265 ], [ %506, %507 ]
   %.sroa.9.0 = phi ptr [ %505, %.thread.i265 ], [ %509, %507 ]
   %512 = phi i64 [ 0, %.thread.i265 ], [ %510, %507 ]
-  %.sroa.9.0.fr = freeze ptr %.sroa.9.0
-  %513 = ptrtoint ptr %.sroa.9.0.fr to i64
+  %513 = ptrtoint ptr %.sroa.9.0 to i64
   %514 = sub i64 %513, %512
   %515 = ashr exact i64 %514, 3
-  %.sroa.9297.0421.fr = freeze ptr %.sroa.9297.0421
-  %516 = ptrtoint ptr %.sroa.9297.0421.fr to i64
+  %516 = ptrtoint ptr %.sroa.9297.0421 to i64
   %517 = ptrtoint ptr %.sroa.14299.1423 to i64
   %518 = sub i64 %516, %517
   %519 = ptrtoint ptr %.sroa.0.0 to i64
   %520 = sub i64 %513, %519
   %521 = icmp ne i64 %518, %520
+  %.fr470 = freeze i1 %521
   %522 = icmp ne i64 %512, %513
-  %.not3.i270462 = or i1 %521, %522
+  %.not3.i270462 = or i1 %.fr470, %522
   br i1 %.not3.i270462, label %.lr.ph465, label %._crit_edge466
 
 .lr.ph465:                                        ; preds = %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_10RelocationESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPKS3_S5_EEE3endEv.exit
-  br i1 %521, label %.lr.ph465.split.us, label %.lr.ph465.split
+  br i1 %.fr470, label %.lr.ph465.split.us, label %.lr.ph465.split
 
 .lr.ph465.split.us:                               ; preds = %.lr.ph465, %536
   %.sroa.14299.0463.us = phi ptr [ %537, %536 ], [ %.sroa.14299.1423, %.lr.ph465 ]

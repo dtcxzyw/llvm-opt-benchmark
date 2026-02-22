@@ -18575,9 +18575,8 @@ _ZNK4llvm13AAPointerInfo9RangeList9isUnknownEv.exit.thread: ; preds = %3, %_ZNK4
   %16 = icmp eq i64 %15, 2147483647
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8
-  %.fr72 = freeze i64 %18
-  %19 = icmp eq i64 %.fr72, 2147483647
-  %20 = or i1 %16, %19
+  %19 = icmp eq i64 %18, 2147483647
+  %20 = select i1 %16, i1 true, i1 %19
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %_ZNK4llvm13AAPointerInfo9RangeList9isUnknownEv.exit.thread
@@ -18640,18 +18639,18 @@ _ZSt7advanceIPN4llvm2AA7RangeTyElEvRT_T0_.exit.i.i: ; preds = %33, %.thread67
 _ZN4llvm2AA7RangeTy8LessThanERKS1_S3_.exit:       ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !140
-  %.fr = freeze i64 %52
-  %53 = icmp slt i64 %.fr, %.fr72
+  %53 = icmp slt i64 %52, %18
+  %cond.fr = freeze i1 %53
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %55 = xor i64 %42, -1
   %56 = add nsw i64 %.01116.i.i, %55
-  %spec.select = select i1 %53, i64 %56, i64 %42
-  %spec.select75 = select i1 %53, ptr %54, ptr %.017.i.i
+  %spec.select = select i1 %cond.fr, i64 %56, i64 %42
+  %spec.select74 = select i1 %cond.fr, ptr %54, ptr %.017.i.i
   br label %.thread67
 
 .thread67:                                        ; preds = %_ZN4llvm2AA7RangeTy8LessThanERKS1_S3_.exit, %.thread, %49
   %57 = phi i64 [ %42, %49 ], [ %spec.select, %_ZN4llvm2AA7RangeTy8LessThanERKS1_S3_.exit ], [ %48, %.thread ]
-  %58 = phi ptr [ %.017.i.i, %49 ], [ %spec.select75, %_ZN4llvm2AA7RangeTy8LessThanERKS1_S3_.exit ], [ %46, %.thread ]
+  %58 = phi ptr [ %.017.i.i, %49 ], [ %spec.select74, %_ZN4llvm2AA7RangeTy8LessThanERKS1_S3_.exit ], [ %46, %.thread ]
   %59 = icmp sgt i64 %57, 0
   br i1 %59, label %_ZSt7advanceIPN4llvm2AA7RangeTyElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPN4llvm2AA7RangeTyES2_PFbRKS2_S5_EET_S8_S8_RKT0_T1_.exit, !llvm.loop !626
 
@@ -18669,7 +18668,7 @@ _ZSt11lower_boundIPN4llvm2AA7RangeTyES2_PFbRKS2_S5_EET_S8_S8_RKT0_T1_.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %15, ptr %4, align 8
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.fr72, ptr %64, align 8
+  store i64 %18, ptr %64, align 8
   %65 = call noundef ptr @_ZN4llvm15SmallVectorImplINS_2AA7RangeTyEE15insert_one_implIS2_EEPS2_S5_OT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %94
@@ -18677,7 +18676,7 @@ _ZSt11lower_boundIPN4llvm2AA7RangeTyES2_PFbRKS2_S5_EET_S8_S8_RKT0_T1_.exit: ; pr
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
   %68 = load i64, ptr %67, align 8
-  %69 = icmp ne i64 %68, %.fr72
+  %69 = icmp ne i64 %68, %18
   %70 = zext i1 %69 to i8
   %71 = icmp eq i64 %15, -2147483648
   br i1 %71, label %_ZN4llvm2AA7RangeTyaNERKS1_.exit, label %72
@@ -18690,7 +18689,7 @@ thread-pre-split.thread.i:                        ; preds = %72
   store i64 %15, ptr %.0.lcssa.i.i, align 8, !tbaa !117
   %74 = add nsw i64 %68, %15
   %75 = load i64, ptr %2, align 8, !tbaa !117
-  %76 = add nsw i64 %75, %.fr72
+  %76 = add nsw i64 %75, %18
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %74, i64 %76)
   %77 = sub nsw i64 %.sroa.speculated.i, %15
   store i64 %77, ptr %67, align 8, !tbaa !140
@@ -18735,9 +18734,9 @@ _ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit37: ; preds = %82, %85
   br label %94
 
 94:                                               ; preds = %_ZNK4llvm13AAPointerInfo9RangeList9isUnknownEv.exit, %_ZN4llvm2AA7RangeTyaNERKS1_.exit, %63, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit37, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit
-  %.pn74 = phi ptr [ %.0.lcssa.i.i, %_ZN4llvm2AA7RangeTyaNERKS1_.exit ], [ %32, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit ], [ %65, %63 ], [ %93, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit37 ], [ %8, %_ZNK4llvm13AAPointerInfo9RangeList9isUnknownEv.exit ]
+  %.pn73 = phi ptr [ %.0.lcssa.i.i, %_ZN4llvm2AA7RangeTyaNERKS1_.exit ], [ %32, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit ], [ %65, %63 ], [ %93, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit37 ], [ %8, %_ZNK4llvm13AAPointerInfo9RangeList9isUnknownEv.exit ]
   %.pn = phi i8 [ %70, %_ZN4llvm2AA7RangeTyaNERKS1_.exit ], [ 1, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit ], [ 1, %63 ], [ 1, %_ZN4llvm13AAPointerInfo9RangeList10setUnknownEv.exit37 ], [ 0, %_ZNK4llvm13AAPointerInfo9RangeList9isUnknownEv.exit ]
-  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn74, 0
+  %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn73, 0
   %.pn28 = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn, 1
   ret { ptr, i8 } %.pn28
 }
@@ -62679,13 +62678,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr = phi ptr [ %0, %2 ], [ %.tr.be, %tailrecurse.backedge ]
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %6 = load i32, ptr %5, align 8
-  %.fr.i = freeze i32 %6
-  %7 = and i32 %.fr.i, 255
+  %.fr8.i = freeze i32 %6
+  %7 = and i32 %.fr8.i, 255
   %8 = icmp eq i32 %7, 12
   br i1 %8, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %9
 
 9:                                                ; preds = %tailrecurse
-  %trunc.i.i.i = trunc i32 %.fr.i to i8
+  %trunc.i.i.i = trunc i32 %.fr8.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -62695,7 +62694,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %9
-  %10 = and i32 %.fr.i, 253
+  %10 = and i32 %.fr8.i, 253
   %spec.select.i.i = icmp eq i32 %10, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -74297,15 +74296,15 @@ define internal noundef zeroext i1 @_ZN4llvm12function_refIFbRKNS_3UseERbEE11cal
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !193
   %10 = load i8, ptr %9, align 8, !tbaa !156
-  %.fr.i = freeze i8 %10
-  %11 = icmp ult i8 %.fr.i, 29
-  %12 = add i8 %.fr.i, -67
+  %.fr53.i = freeze i8 %10
+  %11 = icmp ult i8 %.fr53.i, 29
+  %12 = add i8 %.fr53.i, -67
   %13 = icmp ult i8 %12, 13
   %or.cond.i = or i1 %11, %13
   br i1 %or.cond.i, label %14, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %3
-  switch i8 %.fr.i, label %.thread45.fold.split.i [
+  switch i8 %.fr53.i, label %.thread45.fold.split.i [
     i8 86, label %14
     i8 84, label %14
     i8 63, label %14
@@ -159538,12 +159537,12 @@ _ZNK4llvm8CallBase11getRetAlignEv.exit:           ; preds = %_ZN4llvm16dyn_cast_
   %.sroa.0.0.copyload.i.i = load ptr, ptr %157, align 8, !tbaa !395
   store ptr %.sroa.0.0.copyload.i.i, ptr %7, align 8
   %158 = call i16 @_ZNK4llvm13AttributeList15getRetAlignmentEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #40
-  %.fr = freeze i16 %158
+  %.fr186 = freeze i16 %158
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %159 = and i16 %.fr, 256
-  %.not186 = icmp eq i16 %159, 0
-  %.sroa.0136.0.extract.trunc = trunc i16 %.fr to i8
-  %spec.select = select i1 %.not186, i8 0, i8 %.sroa.0136.0.extract.trunc
+  %159 = and i16 %.fr186, 256
+  %.not187 = icmp eq i16 %159, 0
+  %.sroa.0136.0.extract.trunc = trunc i16 %.fr186 to i8
+  %spec.select = select i1 %.not187, i8 0, i8 %.sroa.0136.0.extract.trunc
   br label %_ZNK4llvm8CallBase11getRetAlignEv.exit.thread
 
 _ZNK4llvm8CallBase11getRetAlignEv.exit.thread:    ; preds = %_ZNK4llvm8CallBase11getRetAlignEv.exit, %149, %146, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZNK4llvm8CallBase11getRetAlignEv.exit.thread180

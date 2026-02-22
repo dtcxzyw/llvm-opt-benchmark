@@ -27569,35 +27569,32 @@ define void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDrawList6ImVec
   %10 = alloca %struct.ImVec2, align 8
   %11 = alloca %struct.ImVec2, align 8
   %12 = alloca %struct.ImVec2, align 8
-  %.fr114 = freeze <2 x float> %2
-  %.fr113 = freeze <2 x float> %1
-  %.fr75 = freeze <2 x float> %5
-  store <2 x float> %.fr113, ptr %9, align 8
-  store <2 x float> %.fr114, ptr %10, align 8
+  store <2 x float> %1, ptr %9, align 8
+  store <2 x float> %2, ptr %10, align 8
   %13 = and i32 %7, 496
   %14 = icmp eq i32 %13, 0
   %spec.store.select = select i1 %14, i32 240, i32 %7
   %.not = icmp ugt i32 %3, -16777217
-  %15 = extractelement <2 x float> %.fr113, i64 0
-  %16 = extractelement <2 x float> %.fr114, i64 0
-  br i1 %.not, label %125, label %17
+  %15 = extractelement <2 x float> %1, i64 1
+  %16 = extractelement <2 x float> %2, i64 1
+  %17 = extractelement <2 x float> %1, i64 0
+  %18 = extractelement <2 x float> %2, i64 0
+  br i1 %.not, label %125, label %19
 
-17:                                               ; preds = %8
-  %18 = extractelement <2 x float> %.fr114, i64 1
-  %19 = extractelement <2 x float> %.fr113, i64 1
+19:                                               ; preds = %8
   %20 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -3355444, i32 noundef %3)
   %21 = tail call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef %20, float noundef 1.000000e+00)
   %22 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -8355712, i32 noundef %3)
   %23 = tail call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef %22, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %21, float noundef %6, i32 noundef %spec.store.select)
-  %foldExtExtBinop = fadd <2 x float> %.fr75, %.fr113
+  %foldExtExtBinop = fadd <2 x float> %5, %1
   %24 = extractelement <2 x float> %foldExtExtBinop, i64 1
-  %25 = fcmp olt float %24, %18
+  %25 = fcmp olt float %24, %16
   br i1 %25, label %.lr.ph66, label %.loopexit62
 
-.lr.ph66:                                         ; preds = %17
-  %foldExtExtBinop122 = fadd <2 x float> %.fr75, %.fr113
-  %26 = extractelement <2 x float> %foldExtExtBinop122, i64 0
+.lr.ph66:                                         ; preds = %19
+  %foldExtExtBinop113 = fadd <2 x float> %5, %1
+  %26 = extractelement <2 x float> %foldExtExtBinop113, i64 0
   %27 = icmp eq i32 %spec.store.select, 256
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -27614,11 +27611,11 @@ define void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDrawList6ImVec
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %.loopexit
   %.05365 = phi i32 [ %124, %.loopexit ], [ 0, %.lr.ph66 ]
   %.05564 = phi float [ %40, %.loopexit ], [ %24, %.lr.ph66 ]
-  %38 = fcmp olt float %.05564, %19
-  %39 = select i1 %38, float %19, float %.05564
+  %38 = fcmp olt float %.05564, %15
+  %39 = select i1 %38, float %15, float %.05564
   %40 = fadd float %4, %.05564
-  %41 = fcmp olt float %40, %18
-  %42 = select i1 %41, float %40, float %18
+  %41 = fcmp olt float %40, %16
+  %42 = select i1 %41, float %40, float %16
   %43 = fcmp ugt float %42, %39
   br i1 %43, label %44, label %.loopexit
 
@@ -27626,21 +27623,21 @@ define void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDrawList6ImVec
   %45 = and i32 %.05365, 1
   %46 = uitofp nneg i32 %45 to float
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %4, float %26)
-  %48 = fcmp olt float %47, %16
+  %48 = fcmp olt float %47, %18
   br i1 %48, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %44
-  %49 = fcmp ugt float %39, %19
-  %50 = fcmp ult float %42, %18
+  %49 = fcmp ugt float %39, %15
+  %50 = fcmp ult float %42, %16
   br label %51
 
 51:                                               ; preds = %.lr.ph, %121
   %.05463 = phi float [ %47, %.lr.ph ], [ %122, %121 ]
-  %52 = fcmp olt float %.05463, %15
-  %53 = select i1 %52, float %15, float %.05463
+  %52 = fcmp olt float %.05463, %17
+  %53 = select i1 %52, float %17, float %.05463
   %54 = fadd float %4, %.05463
-  %55 = fcmp olt float %54, %16
-  %56 = select i1 %55, float %54, float %16
+  %55 = fcmp olt float %54, %18
+  %56 = select i1 %55, float %54, float %18
   %57 = fcmp ugt float %56, %53
   br i1 %57, label %58, label %121
 
@@ -27648,9 +27645,9 @@ define void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDrawList6ImVec
   br i1 %49, label %64, label %59
 
 59:                                               ; preds = %58
-  %60 = fcmp ugt float %53, %15
+  %60 = fcmp ugt float %53, %17
   %.1 = select i1 %60, i32 256, i32 272
-  %61 = fcmp ult float %56, %16
+  %61 = fcmp ult float %56, %18
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %59
@@ -27662,10 +27659,10 @@ define void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDrawList6ImVec
   br i1 %50, label %71, label %65
 
 65:                                               ; preds = %64
-  %66 = fcmp ugt float %53, %15
+  %66 = fcmp ugt float %53, %17
   %67 = or i32 %.0, 64
   %.3 = select i1 %66, i32 %.0, i32 %67
-  %68 = fcmp ult float %56, %16
+  %68 = fcmp ult float %56, %18
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %65
@@ -27773,7 +27770,7 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %77, %118
 
 121:                                              ; preds = %51, %_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit
   %122 = tail call float @llvm.fmuladd.f32(float %4, float 2.000000e+00, float %.05463)
-  %123 = fcmp olt float %122, %16
+  %123 = fcmp olt float %122, %18
   br i1 %123, label %51, label %.loopexit, !llvm.loop !576
 
 .loopexit:                                        ; preds = %121, %44, %.lr.ph66.split
@@ -27784,7 +27781,7 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %77, %118
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %3, float noundef %6, i32 noundef %spec.store.select)
   br label %.loopexit62
 
-.loopexit62:                                      ; preds = %.loopexit, %.lr.ph66, %17, %125
+.loopexit62:                                      ; preds = %.loopexit, %.lr.ph66, %19, %125
   ret void
 }
 

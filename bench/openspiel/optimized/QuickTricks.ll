@@ -79,15 +79,15 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br label %37
 
 37:                                               ; preds = %59, %.split836.us
-  %indvars.iv886 = phi i64 [ %indvars.iv.next887, %59 ], [ 0, %.split836.us ]
-  %38 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv886
+  %indvars.iv884 = phi i64 [ %indvars.iv.next885, %59 ], [ 0, %.split836.us ]
+  %38 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv884
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %34
   br i1 %41, label %56, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw %struct.highCardType, ptr %27, i64 %indvars.iv886
+  %43 = getelementptr inbounds nuw %struct.highCardType, ptr %27, i64 %indvars.iv884
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %34
@@ -96,27 +96,27 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br i1 %or.cond667.us, label %48, label %59
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv886
+  %49 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv884
   %50 = load i8, ptr %49, align 1
   %51 = icmp ugt i8 %50, 1
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv886
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv884
   %54 = load i8, ptr %53, align 1
   %55 = icmp ugt i8 %54, 1
-  br i1 %55, label %.loopexit938, label %59
+  br i1 %55, label %.loopexit936, label %59
 
 56:                                               ; preds = %37
-  %57 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv886
+  %57 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv884
   %58 = load i16, ptr %57, align 2
   %.not621.us = icmp eq i16 %58, 0
-  br i1 %.not621.us, label %59, label %.loopexit938
+  br i1 %.not621.us, label %59, label %.loopexit936
 
 59:                                               ; preds = %56, %52, %48, %42
-  %indvars.iv.next887 = add nuw nsw i64 %indvars.iv886, 1
-  %exitcond889.not = icmp eq i64 %indvars.iv.next887, 4
-  br i1 %exitcond889.not, label %.split840.us, label %37, !llvm.loop !4
+  %indvars.iv.next885 = add nuw nsw i64 %indvars.iv884, 1
+  %exitcond887.not = icmp eq i64 %indvars.iv.next885, 4
+  br i1 %exitcond887.not, label %.split840.us, label %37, !llvm.loop !4
 
 .split836:                                        ; preds = %.split836.preheader, %125
   %indvars.iv = phi i64 [ 0, %.split836.preheader ], [ %indvars.iv.next, %125 ]
@@ -159,13 +159,13 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %83 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2
   %.not626 = icmp eq i16 %84, 0
-  br i1 %.not626, label %85, label %.loopexit938
+  br i1 %.not626, label %85, label %.loopexit936
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i16, ptr %82, i64 %30
   %87 = load i16, ptr %86, align 2
   %88 = icmp eq i16 %87, 0
-  br i1 %88, label %.loopexit938, label %125
+  br i1 %88, label %.loopexit936, label %125
 
 89:                                               ; preds = %60
   %90 = getelementptr inbounds nuw %struct.highCardType, ptr %27, i64 %indvars.iv
@@ -212,13 +212,13 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %119 = getelementptr inbounds nuw i16, ptr %118, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2
   %.not623 = icmp eq i16 %120, 0
-  br i1 %.not623, label %121, label %.loopexit938
+  br i1 %.not623, label %121, label %.loopexit936
 
 121:                                              ; preds = %115
   %122 = getelementptr inbounds i16, ptr %118, i64 %30
   %123 = load i16, ptr %122, align 2
   %124 = icmp eq i16 %123, 0
-  br i1 %124, label %.loopexit938, label %125
+  br i1 %124, label %.loopexit936, label %125
 
 125:                                              ; preds = %.split836, %89, %95, %99, %121, %111, %66, %75, %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -226,7 +226,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br i1 %exitcond.not, label %.split840.us, label %.split836, !llvm.loop !4
 
 .split840.us:                                     ; preds = %125, %59
-  br i1 %.not, label %.thread935, label %126
+  br i1 %.not, label %.thread933, label %126
 
 126:                                              ; preds = %.split840.us
   %127 = getelementptr inbounds i16, ptr %32, i64 %30
@@ -246,17 +246,17 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %136 = load i32, ptr %130, align 4
   br label %.thread793
 
-.loopexit938:                                     ; preds = %115, %121, %79, %85, %56, %52
-  %.us-phi.in = phi i64 [ %indvars.iv886, %56 ], [ %indvars.iv886, %52 ], [ %indvars.iv, %85 ], [ %indvars.iv, %79 ], [ %indvars.iv, %121 ], [ %indvars.iv, %115 ]
+.loopexit936:                                     ; preds = %115, %121, %79, %85, %56, %52
+  %.us-phi.in = phi i64 [ %indvars.iv884, %56 ], [ %indvars.iv884, %52 ], [ %indvars.iv, %85 ], [ %indvars.iv, %79 ], [ %indvars.iv, %121 ], [ %indvars.iv, %115 ]
   %.us-phi838 = phi ptr [ %38, %56 ], [ %43, %52 ], [ %61, %79 ], [ %61, %85 ], [ %90, %115 ], [ %90, %121 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %.0538.ph = load i32, ptr %.us-phi838, align 4
-  br i1 %.not, label %.thread935, label %.thread793
+  br i1 %.not, label %.thread933, label %.thread793
 
-.thread793:                                       ; preds = %126, %129, %135, %.loopexit938
-  %.1539802 = phi i32 [ %.0538.ph, %.loopexit938 ], [ 0, %126 ], [ 0, %129 ], [ %136, %135 ]
-  %.1543800 = phi i32 [ %.us-phi, %.loopexit938 ], [ -1, %126 ], [ -1, %129 ], [ %4, %135 ]
-  %.1554798 = phi i1 [ true, %.loopexit938 ], [ false, %126 ], [ false, %129 ], [ true, %135 ]
+.thread793:                                       ; preds = %126, %129, %135, %.loopexit936
+  %.1539802 = phi i32 [ %.0538.ph, %.loopexit936 ], [ 0, %126 ], [ 0, %129 ], [ %136, %135 ]
+  %.1543800 = phi i32 [ %.us-phi, %.loopexit936 ], [ -1, %126 ], [ -1, %129 ], [ %4, %135 ]
+  %.1554798 = phi i1 [ true, %.loopexit936 ], [ false, %126 ], [ false, %129 ], [ true, %135 ]
   %137 = load i32, ptr %29, align 4
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds [4 x i8], ptr %24, i64 %138
@@ -271,15 +271,15 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   store i32 %148, ptr %10, align 4
-  br label %.thread935
+  br label %.thread933
 
-.thread935:                                       ; preds = %.split840.us, %.loopexit938, %.thread793
-  %149 = phi i1 [ true, %.thread793 ], [ false, %.loopexit938 ], [ false, %.split840.us ]
-  %.1539801 = phi i32 [ %.1539802, %.thread793 ], [ %.0538.ph, %.loopexit938 ], [ 0, %.split840.us ]
-  %.1543799 = phi i32 [ %.1543800, %.thread793 ], [ %.us-phi, %.loopexit938 ], [ -1, %.split840.us ]
-  %.1554797 = phi i1 [ %.1554798, %.thread793 ], [ true, %.loopexit938 ], [ false, %.split840.us ]
-  %150 = phi i1 [ false, %.thread793 ], [ true, %.loopexit938 ], [ true, %.split840.us ]
-  %.0535 = phi i32 [ %4, %.thread793 ], [ 0, %.loopexit938 ], [ 0, %.split840.us ]
+.thread933:                                       ; preds = %.split840.us, %.loopexit936, %.thread793
+  %149 = phi i1 [ true, %.thread793 ], [ false, %.loopexit936 ], [ false, %.split840.us ]
+  %.1539801 = phi i32 [ %.1539802, %.thread793 ], [ %.0538.ph, %.loopexit936 ], [ 0, %.split840.us ]
+  %.1543799 = phi i32 [ %.1543800, %.thread793 ], [ %.us-phi, %.loopexit936 ], [ -1, %.split840.us ]
+  %.1554797 = phi i1 [ %.1554798, %.thread793 ], [ true, %.loopexit936 ], [ false, %.split840.us ]
+  %150 = phi i1 [ false, %.thread793 ], [ true, %.loopexit936 ], [ true, %.split840.us ]
+  %.0535 = phi i32 [ %4, %.thread793 ], [ 0, %.loopexit936 ], [ 0, %.split840.us ]
   %.not707 = xor i1 %149, true
   %151 = icmp eq i32 %4, 0
   %.712 = zext i1 %151 to i32
@@ -299,15 +299,14 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %163 = zext i32 %4 to i64
   br label %164
 
-164:                                              ; preds = %448, %.thread935
-  %.0550 = phi i32 [ 0, %.thread935 ], [ %.1551, %448 ]
-  %.0546 = phi i32 [ 0, %.thread935 ], [ %.1547, %448 ]
-  %.1 = phi i32 [ %.0535, %.thread935 ], [ %.2, %448 ]
+164:                                              ; preds = %448, %.thread933
+  %.0550 = phi i32 [ 0, %.thread933 ], [ %.1551, %448 ]
+  %.0546 = phi i32 [ 0, %.thread933 ], [ %.1547, %448 ]
+  %.1 = phi i32 [ %.0535, %.thread933 ], [ %.2, %448 ]
   %165 = sext i32 %.1 to i64
   %166 = getelementptr inbounds i8, ptr %28, i64 %165
   %167 = load i8, ptr %166, align 1
-  %.fr872 = freeze i8 %167
-  %168 = zext i8 %.fr872 to i32
+  %168 = zext i8 %167 to i32
   %169 = load i32, ptr %29, align 4
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds [4 x i8], ptr %24, i64 %170
@@ -325,17 +324,16 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %183 = getelementptr inbounds [4 x i8], ptr %24, i64 %182
   %184 = getelementptr inbounds i8, ptr %183, i64 %165
   %185 = load i8, ptr %184, align 1
-  %.fr873 = freeze i8 %185
-  %186 = zext i8 %.fr873 to i32
+  %186 = zext i8 %185 to i32
   %187 = or i32 %180, %174
   %188 = icmp eq i32 %187, 0
-  %189 = icmp eq i8 %.fr873, 0
-  %or.cond3 = and i1 %188, %189
+  %189 = icmp eq i8 %185, 0
+  %or.cond3 = select i1 %188, i1 %189, i1 false
   %.not660 = icmp eq i32 %4, %.1
   br i1 %or.cond3, label %190, label %222
 
 190:                                              ; preds = %164
-  %191 = icmp eq i8 %.fr872, 0
+  %191 = icmp eq i8 %167, 0
   %or.cond669 = or i1 %.not660, %.not707
   br i1 %191, label %192, label %199
 
@@ -408,26 +406,28 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br i1 %or.cond682, label %223, label %237
 
 223:                                              ; preds = %222
-  %224 = icmp ult i8 %.fr872, %.fr873
-  %.sroa.speculated750817 = tail call i8 @llvm.umax.i8(i8 %.fr872, i8 %.fr873)
-  %.sroa.speculated750 = zext i8 %.sroa.speculated750817 to i32
-  %225 = icmp eq i8 %.sroa.speculated750817, 0
-  %226 = or i1 %224, %225
+  %224 = icmp ult i8 %167, %185
+  %.sroa.speculated750817 = tail call i8 @llvm.umax.i8(i8 %167, i8 %185)
+  %.sroa.speculated750817.fr = freeze i8 %.sroa.speculated750817
+  %.sroa.speculated750 = zext i8 %.sroa.speculated750817.fr to i32
+  %225 = icmp eq i8 %.sroa.speculated750817.fr, 0
+  %.fr = freeze i1 %224
+  %226 = or i1 %.fr, %225
   br i1 %226, label %.loopexit826, label %.split843
 
 .split843:                                        ; preds = %223, %236
-  %indvars.iv890 = phi i64 [ %indvars.iv.next891, %236 ], [ 0, %223 ]
-  %.not631 = icmp eq i64 %indvars.iv890, %163
+  %indvars.iv888 = phi i64 [ %indvars.iv.next889, %236 ], [ 0, %223 ]
+  %.not631 = icmp eq i64 %indvars.iv888, %163
   br i1 %.not631, label %236, label %227
 
 227:                                              ; preds = %.split843
-  %228 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv890
+  %228 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv888
   %229 = load i8, ptr %228, align 1
   %.not633 = icmp eq i8 %229, 0
   br i1 %.not633, label %236, label %230
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv890
+  %231 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv888
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %232, 0
   br i1 %233, label %234, label %236
@@ -437,9 +437,9 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br label %.loopexit826
 
 236:                                              ; preds = %.split843, %227, %230
-  %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
-  %exitcond893.not = icmp eq i64 %indvars.iv.next891, 4
-  br i1 %exitcond893.not, label %.loopexit826, label %.split843, !llvm.loop !6
+  %indvars.iv.next889 = add nuw nsw i64 %indvars.iv888, 1
+  %exitcond891.not = icmp eq i64 %indvars.iv.next889, 4
+  br i1 %exitcond891.not, label %.loopexit826, label %.split843, !llvm.loop !6
 
 .loopexit826:                                     ; preds = %236, %223, %234
   %.0541 = phi i32 [ %235, %234 ], [ %.sroa.speculated750, %223 ], [ %.sroa.speculated750, %236 ]
@@ -472,8 +472,8 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br i1 %.1554797, label %246, label %303
 
 246:                                              ; preds = %245
-  %247 = icmp eq i8 %.fr872, 0
-  %or.cond13 = and i1 %188, %247
+  %247 = icmp eq i8 %167, 0
+  %or.cond13 = select i1 %188, i1 %247, i1 false
   br i1 %or.cond13, label %248, label %277
 
 248:                                              ; preds = %246
@@ -537,39 +537,41 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 278:                                              ; preds = %277
   %.sroa.speculated744 = tail call i32 @llvm.umax.i32(i32 %168, i32 %186)
-  %279 = icmp eq i32 %.sroa.speculated744, 0
-  %.not639 = icmp ugt i8 %.fr872, %.fr873
-  %280 = or i1 %.not639, %279
+  %.sroa.speculated744.fr = freeze i32 %.sroa.speculated744
+  %279 = icmp eq i32 %.sroa.speculated744.fr, 0
+  %.not639 = icmp ugt i8 %167, %185
+  %.not639.fr = freeze i1 %.not639
+  %280 = or i1 %.not639.fr, %279
   br i1 %280, label %.loopexit825, label %.split846
 
 .split846:                                        ; preds = %278, %290
-  %indvars.iv894 = phi i64 [ %indvars.iv.next895, %290 ], [ 0, %278 ]
-  %.not638 = icmp eq i64 %indvars.iv894, %163
+  %indvars.iv892 = phi i64 [ %indvars.iv.next893, %290 ], [ 0, %278 ]
+  %.not638 = icmp eq i64 %indvars.iv892, %163
   br i1 %.not638, label %290, label %281
 
 281:                                              ; preds = %.split846
-  %282 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv894
+  %282 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv892
   %283 = load i8, ptr %282, align 1
   %.not640 = icmp eq i8 %283, 0
   br i1 %.not640, label %290, label %284
 
 284:                                              ; preds = %281
-  %285 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv894
+  %285 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv892
   %286 = load i8, ptr %285, align 1
   %287 = icmp eq i8 %286, 0
   br i1 %287, label %288, label %290
 
 288:                                              ; preds = %284
-  %289 = add nuw nsw i32 %.sroa.speculated744, 1
+  %289 = add nuw nsw i32 %.sroa.speculated744.fr, 1
   br label %.loopexit825
 
 290:                                              ; preds = %.split846, %281, %284
-  %indvars.iv.next895 = add nuw nsw i64 %indvars.iv894, 1
-  %exitcond897.not = icmp eq i64 %indvars.iv.next895, 4
-  br i1 %exitcond897.not, label %.loopexit825, label %.split846, !llvm.loop !7
+  %indvars.iv.next893 = add nuw nsw i64 %indvars.iv892, 1
+  %exitcond895.not = icmp eq i64 %indvars.iv.next893, 4
+  br i1 %exitcond895.not, label %.loopexit825, label %.split846, !llvm.loop !7
 
 .loopexit825:                                     ; preds = %290, %278, %288
-  %.0537 = phi i32 [ %289, %288 ], [ %.sroa.speculated744, %278 ], [ %.sroa.speculated744, %290 ]
+  %.0537 = phi i32 [ %289, %288 ], [ %.sroa.speculated744.fr, %278 ], [ %.sroa.speculated744.fr, %290 ]
   %.not641 = icmp slt i32 %.0537, %.0544
   br i1 %.not641, label %303, label %291
 
@@ -718,8 +720,8 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 .thread803:                                       ; preds = %320, %350
   %.2552805 = phi i32 [ %.2552, %350 ], [ %323, %320 ]
   %351 = icmp ne i32 %.1, %4
-  %352 = icmp ne i8 %.fr872, 0
-  %or.cond23 = and i1 %351, %352
+  %352 = icmp ne i8 %167, 0
+  %or.cond23 = select i1 %351, i1 %352, i1 false
   %353 = icmp eq i32 %.0546, 0
   %or.cond25 = select i1 %or.cond23, i1 %353, i1 false
   br i1 %or.cond25, label %354, label %442
@@ -742,8 +744,8 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %361 = load i32, ptr %153, align 4
   %.not646 = icmp ne i32 %361, %1
   %362 = icmp ne i32 %361, %359
-  %363 = and i1 %362, %.not646
-  %or.cond = and i1 %363, %189
+  %363 = and i1 %.not646, %362
+  %or.cond = select i1 %363, i1 %189, i1 false
   br i1 %or.cond, label %365, label %442
 
 364:                                              ; preds = %354
@@ -797,27 +799,27 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 386:                                              ; preds = %370
   %or.cond27 = icmp eq i8 %173, 0
-  br i1 %or.cond27, label %._crit_edge902, label %424
+  br i1 %or.cond27, label %._crit_edge900, label %424
 
-._crit_edge902:                                   ; preds = %386
-  %.pre903 = load i32, ptr %29, align 4
-  %.pre905 = sext i32 %.pre903 to i64
+._crit_edge900:                                   ; preds = %386
+  %.pre901 = load i32, ptr %29, align 4
+  %.pre903 = sext i32 %.pre901 to i64
   br label %387
 
 .thread807:                                       ; preds = %376
   br i1 %.not648, label %.thread807._crit_edge, label %.thread809
 
 .thread807._crit_edge:                            ; preds = %.thread807
-  %.pre904 = load i32, ptr %31, align 4
-  %.pre906 = sext i32 %.pre904 to i64
+  %.pre902 = load i32, ptr %31, align 4
+  %.pre904 = sext i32 %.pre902 to i64
   br label %387
 
-387:                                              ; preds = %.thread807._crit_edge, %._crit_edge902
-  %.pre-phi907 = phi i64 [ %.pre906, %.thread807._crit_edge ], [ %372, %._crit_edge902 ]
-  %.pre-phi = phi i64 [ %378, %.thread807._crit_edge ], [ %.pre905, %._crit_edge902 ]
+387:                                              ; preds = %.thread807._crit_edge, %._crit_edge900
+  %.pre-phi905 = phi i64 [ %.pre904, %.thread807._crit_edge ], [ %372, %._crit_edge900 ]
+  %.pre-phi = phi i64 [ %378, %.thread807._crit_edge ], [ %.pre903, %._crit_edge900 ]
   %gep863 = getelementptr [4 x i16], ptr %invariant.gep852, i64 %.pre-phi
   %388 = load i16, ptr %gep863, align 2
-  %gep865 = getelementptr [4 x i16], ptr %invariant.gep852, i64 %.pre-phi907
+  %gep865 = getelementptr [4 x i16], ptr %invariant.gep852, i64 %.pre-phi905
   %389 = load i16, ptr %gep865, align 2
   %390 = or i16 %389, %388
   %gep867 = getelementptr [4 x i16], ptr %invariant.gep852, i64 %367
@@ -956,26 +958,26 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br i1 %451, label %452, label %483
 
 452:                                              ; preds = %450
-  br i1 %150, label %.preheader955, label %453
+  br i1 %150, label %.preheader953, label %453
 
 453:                                              ; preds = %452
   %454 = load i32, ptr %153, align 4
   %455 = icmp eq i32 %454, -1
-  br i1 %455, label %.preheader955, label %483
+  br i1 %455, label %.preheader953, label %483
 
-.preheader955:                                    ; preds = %453, %452
+.preheader953:                                    ; preds = %453, %452
   br label %456
 
-456:                                              ; preds = %.preheader955, %470
-  %indvars.iv898 = phi i64 [ %indvars.iv.next899, %470 ], [ 0, %.preheader955 ]
-  %457 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv898
+456:                                              ; preds = %.preheader953, %470
+  %indvars.iv896 = phi i64 [ %indvars.iv.next897, %470 ], [ 0, %.preheader953 ]
+  %457 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv896
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
   %459 = load i32, ptr %458, align 4
   %460 = icmp eq i32 %459, -1
   br i1 %460, label %470, label %461
 
 461:                                              ; preds = %456
-  %462 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv898
+  %462 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv896
   %463 = load i8, ptr %462, align 1
   %.not662 = icmp eq i8 %463, 0
   br i1 %.not662, label %470, label %464
@@ -985,14 +987,14 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %466 = sext i32 %465 to i64
   %467 = getelementptr inbounds i16, ptr @bitMapRank, i64 %466
   %468 = load i16, ptr %467, align 2
-  %469 = getelementptr inbounds nuw i16, ptr %156, i64 %indvars.iv898
+  %469 = getelementptr inbounds nuw i16, ptr %156, i64 %indvars.iv896
   store i16 %468, ptr %469, align 2
   br label %470
 
 470:                                              ; preds = %461, %464, %456
-  %indvars.iv.next899 = add nuw nsw i64 %indvars.iv898, 1
-  %exitcond901.not = icmp eq i64 %indvars.iv.next899, 4
-  br i1 %exitcond901.not, label %471, label %456, !llvm.loop !11
+  %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
+  %exitcond899.not = icmp eq i64 %indvars.iv.next897, 4
+  br i1 %exitcond899.not, label %471, label %456, !llvm.loop !11
 
 471:                                              ; preds = %470
   %472 = load i32, ptr %12, align 4
@@ -1007,8 +1009,8 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 477:                                              ; preds = %471
   %478 = ashr i32 %2, 2
-  %reass.sub874 = sub i32 %478, %3
-  %479 = add i32 %reass.sub874, 2
+  %reass.sub872 = sub i32 %478, %3
+  %479 = add i32 %reass.sub872, 2
   %480 = add i32 %479, %474
   br label %481
 

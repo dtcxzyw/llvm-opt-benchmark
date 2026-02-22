@@ -3674,22 +3674,21 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPS2_S_IS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEEEEEvT_SE_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.fr13.i = freeze ptr %2
-  %.fr14.i = freeze ptr %1
-  %4 = ptrtoint ptr %.fr13.i to i64
-  %5 = ptrtoint ptr %.fr14.i to i64
+  %4 = ptrtoint ptr %2 to i64
+  %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
+  %reass.sub.fr = freeze i64 %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !494
   %9 = load ptr, ptr %0, align 8, !tbaa !493
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ugt i64 %6, %12
+  %13 = icmp ugt i64 %reass.sub.fr, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %3
-  %15 = sdiv exact i64 %6, 12
+  %15 = sdiv exact i64 %reass.sub.fr, 12
   %16 = icmp ugt i64 %15, 768614336404564650
   br i1 %16, label %17, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i
 
@@ -3698,15 +3697,15 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign
   unreachable
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %14
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #22
-  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr) #22
+  %.not7.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPS2_S_IS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEEEEES8_mT_SE_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i
-  %19 = add i64 %6, -12
+  %19 = add i64 %reass.sub.fr, -12
   %20 = urem i64 %19, 12
-  %21 = sub i64 %6, %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %.fr14.i, i64 %21, i1 false)
+  %21 = sub i64 %reass.sub.fr, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %1, i64 %21, i1 false)
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPS2_S_IS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEEEEES8_mT_SE_.exit
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPS2_S_IS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEEEEES8_mT_SE_.exit: ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -3720,7 +3719,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17_
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPS2_S_IS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEEEEES8_mT_SE_.exit, %23
   store ptr %18, ptr %0, align 8, !tbaa !493
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %6
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %reass.sub.fr
   store ptr %24, ptr %22, align 8, !tbaa !563
   store ptr %24, ptr %7, align 8, !tbaa !494
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
@@ -3730,21 +3729,21 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %27 = load ptr, ptr %26, align 8, !tbaa !563
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %28, %11
-  %.not = icmp ult i64 %29, %6
+  %.not = icmp ult i64 %29, %reass.sub.fr
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEmEvRT_T0_.exit, label %30
 
 30:                                               ; preds = %25
-  %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
+  %.not.i.i.i.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit, label %31
 
 31:                                               ; preds = %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr align 4 %.fr14.i, i64 %6, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr align 4 %1, i64 %reass.sub.fr, i1 false)
   %.pre = load ptr, ptr %26, align 8, !tbaa !563
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit: ; preds = %30, %31
   %32 = phi ptr [ %27, %30 ], [ %.pre, %31 ]
-  %33 = getelementptr inbounds i8, ptr %9, i64 %6
+  %33 = getelementptr inbounds i8, ptr %9, i64 %reass.sub.fr
   %.not.i18 = icmp eq ptr %32, %33
   br i1 %.not.i18, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit, label %34
 
@@ -3753,18 +3752,18 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEmEvRT_T0_.exit: ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %.fr14.i, i64 %29
+  %35 = getelementptr inbounds i8, ptr %1, i64 %29
   %.not.i.i.i.i.i19 = icmp eq ptr %27, %9
   br i1 %.not.i.i.i.i.i19, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit20, label %36
 
 36:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEmEvRT_T0_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(1) %.fr14.i, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %29, i1 false)
   %.pre27 = load ptr, ptr %26, align 8, !tbaa !563
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit20
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit20: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEmEvRT_T0_.exit, %36
   %37 = phi ptr [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEmEvRT_T0_.exit ], [ %.pre27, %36 ]
-  %.not7.i.i.i.i = icmp eq ptr %35, %.fr13.i
+  %.not7.i.i.i.i = icmp eq ptr %35, %2
   br i1 %.not7.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit20, %.lr.ph.i.i.i.i
@@ -3773,7 +3772,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.04.08.i.i.i.i, i64 12, i1 false), !tbaa.struct !564
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 12
   %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %38, %.fr13.i
+  %.not.i.i.i.i = icmp eq ptr %38, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !565
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEES5_ET0_T_SD_SC_.exit20

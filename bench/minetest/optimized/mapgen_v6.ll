@@ -6091,16 +6091,16 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   br i1 %cmp11.not353, label %for.cond.cleanup12, label %for.body13
 
 for.cond.cleanup12:                               ; preds = %while.end, %for.body7
-  %18 = phi i16 [ %14, %for.body7 ], [ %103, %while.end ]
-  %19 = phi ptr [ %15, %for.body7 ], [ %105, %while.end ]
+  %18 = phi i16 [ %14, %for.body7 ], [ %105, %while.end ]
+  %19 = phi ptr [ %15, %for.body7 ], [ %107, %while.end ]
   %inc183 = add i16 %z.0356, 1
   %cmp5.not = icmp sgt i16 %inc183, %18
   br i1 %cmp5.not, label %for.cond.cleanup6, label %for.body7, !llvm.loop !208
 
 for.body13:                                       ; preds = %for.body7, %while.end
-  %20 = phi i16 [ %103, %while.end ], [ %14, %for.body7 ]
-  %21 = phi i16 [ %104, %while.end ], [ %16, %for.body7 ]
-  %22 = phi ptr [ %105, %while.end ], [ %15, %for.body7 ]
+  %20 = phi i16 [ %105, %while.end ], [ %14, %for.body7 ]
+  %21 = phi i16 [ %106, %while.end ], [ %16, %for.body7 ]
+  %22 = phi ptr [ %107, %while.end ], [ %15, %for.body7 ]
   %x.0354 = phi i16 [ %inc, %while.end ], [ %17, %for.body7 ]
   br i1 %cmp15, label %if.then, label %if.else
 
@@ -6399,13 +6399,12 @@ land.lhs.true.i:                                  ; preds = %_ZNK9VoxelArea8cont
   %idxprom32.i = zext nneg i32 %above_remove_index.addr.0167.i to i64
   %arrayidx33.i = getelementptr inbounds nuw %struct.MapNode, ptr %72, i64 %idxprom32.i
   %73 = load i16, ptr %arrayidx33.i, align 4, !tbaa !129
-  %.fr = freeze i16 %73
   %74 = load i16, ptr %c_water_source.i, align 4
-  %.fr12 = freeze i16 %74
-  %cmp45.not.i = icmp eq i16 %.fr, %.fr12
-  %75 = and i16 %.fr, -2
-  %switch.i = icmp eq i16 %75, 126
-  %or.cond162.i = or i1 %cmp45.not.i, %switch.i
+  %cmp45.not.i = icmp eq i16 %73, %74
+  %75 = freeze i1 %cmp45.not.i
+  %76 = and i16 %73, -2
+  %switch.i = icmp eq i16 %76, 126
+  %or.cond162.i = select i1 %75, i1 true, i1 %switch.i
   br i1 %or.cond162.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %land.lhs.true.i
@@ -6421,34 +6420,33 @@ while.end.i:                                      ; preds = %while.body.i, %land
 
 _ZNK9VoxelArea8containsEi.exit112.i:              ; preds = %while.end.i, %while.body88.i
   %place_index.addr.0170.i = phi i32 [ %place_index.addr.0.i, %while.body88.i ], [ %place_index.addr.0168.i, %while.end.i ]
-  %76 = load ptr, ptr %vm, align 8, !tbaa !119
-  %m_cache_extent.i.i103.i = getelementptr inbounds nuw i8, ptr %76, i64 20
-  %77 = load i16, ptr %m_cache_extent.i.i103.i, align 2, !tbaa !200
-  %conv.i.i104.i = sext i16 %77 to i32
-  %Y.i.i105.i = getelementptr inbounds nuw i8, ptr %76, i64 22
-  %78 = load i16, ptr %Y.i.i105.i, align 2, !tbaa !127
-  %conv3.i.i106.i = sext i16 %78 to i32
+  %77 = load ptr, ptr %vm, align 8, !tbaa !119
+  %m_cache_extent.i.i103.i = getelementptr inbounds nuw i8, ptr %77, i64 20
+  %78 = load i16, ptr %m_cache_extent.i.i103.i, align 2, !tbaa !200
+  %conv.i.i104.i = sext i16 %78 to i32
+  %Y.i.i105.i = getelementptr inbounds nuw i8, ptr %77, i64 22
+  %79 = load i16, ptr %Y.i.i105.i, align 2, !tbaa !127
+  %conv3.i.i106.i = sext i16 %79 to i32
   %mul.i.i107.i = mul nsw i32 %conv3.i.i106.i, %conv.i.i104.i
-  %Z.i.i108.i = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %79 = load i16, ptr %Z.i.i108.i, align 2, !tbaa !246
-  %conv5.i.i109.i = sext i16 %79 to i32
+  %Z.i.i108.i = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %80 = load i16, ptr %Z.i.i108.i, align 2, !tbaa !246
+  %conv5.i.i109.i = sext i16 %80 to i32
   %mul6.i.i110.i = mul nsw i32 %mul.i.i107.i, %conv5.i.i109.i
   %cmp2.i111.i = icmp sgt i32 %mul6.i.i110.i, %place_index.addr.0170.i
   br i1 %cmp2.i111.i, label %land.lhs.true61.i, label %for.inc176
 
 land.lhs.true61.i:                                ; preds = %_ZNK9VoxelArea8containsEi.exit112.i
-  %m_data63.i = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %80 = load ptr, ptr %m_data63.i, align 8, !tbaa !128
+  %m_data63.i = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %81 = load ptr, ptr %m_data63.i, align 8, !tbaa !128
   %idxprom64.i = zext nneg i32 %place_index.addr.0170.i to i64
-  %arrayidx65.i = getelementptr inbounds nuw %struct.MapNode, ptr %80, i64 %idxprom64.i
-  %81 = load i16, ptr %arrayidx65.i, align 4, !tbaa !129
-  %.fr13 = freeze i16 %81
-  %82 = load i16, ptr %c_water_source.i, align 4
-  %.fr14 = freeze i16 %82
-  %cmp78.not.i = icmp eq i16 %.fr13, %.fr14
-  %83 = and i16 %.fr13, -2
-  %switch164.i = icmp eq i16 %83, 126
-  %or.cond165.i = or i1 %cmp78.not.i, %switch164.i
+  %arrayidx65.i = getelementptr inbounds nuw %struct.MapNode, ptr %81, i64 %idxprom64.i
+  %82 = load i16, ptr %arrayidx65.i, align 4, !tbaa !129
+  %83 = load i16, ptr %c_water_source.i, align 4
+  %cmp78.not.i = icmp eq i16 %82, %83
+  %84 = freeze i1 %cmp78.not.i
+  %85 = and i16 %82, -2
+  %switch164.i = icmp eq i16 %85, 126
+  %or.cond165.i = select i1 %84, i1 true, i1 %switch164.i
   br i1 %or.cond165.i, label %for.inc176, label %while.body88.i
 
 while.body88.i:                                   ; preds = %land.lhs.true61.i
@@ -6461,16 +6459,16 @@ for.inc165.critedge:                              ; preds = %_ZNK14NodeDefManage
   %add11.i.1 = add i32 %i.0347, 1
   %idxprom115.1 = zext i32 %add11.i.1 to i64
   %arrayidx116.1 = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom115.1
-  %84 = load i16, ptr %arrayidx116.1, align 4, !tbaa !129
-  %conv.i.i256.1 = zext i16 %84 to i64
+  %86 = load i16, ptr %arrayidx116.1, align 4, !tbaa !129
+  %conv.i.i256.1 = zext i16 %86 to i64
   %cmp.i.i262.1 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256.1
   br i1 %cmp.i.i262.1, label %land.lhs.true.i.i266.1, label %cond.false.i.i263.1
 
 land.lhs.true.i.i266.1:                           ; preds = %for.inc165.critedge
   %add.ptr.i.i.i267.1 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i.i256.1
   %_M_string_length.i.i.i.i268.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i267.1, i64 1456
-  %85 = load i64, ptr %_M_string_length.i.i.i.i268.1, align 8, !tbaa !14
-  %cmp.i.i.i269.1 = icmp eq i64 %85, 0
+  %87 = load i64, ptr %_M_string_length.i.i.i.i268.1, align 8, !tbaa !14
+  %cmp.i.i.i269.1 = icmp eq i64 %87, 0
   br i1 %cmp.i.i.i269.1, label %cond.false.i.i263.1, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.1
 
 cond.false.i.i263.1:                              ; preds = %land.lhs.true.i.i266.1, %for.inc165.critedge
@@ -6479,24 +6477,24 @@ cond.false.i.i263.1:                              ; preds = %land.lhs.true.i.i26
 _ZNK14NodeDefManager3getERK7MapNode.exit270.1:    ; preds = %cond.false.i.i263.1, %land.lhs.true.i.i266.1
   %cond-lvalue.i.i265.1 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263.1 ], [ %add.ptr.i.i.i267.1, %land.lhs.true.i.i266.1 ]
   %walkable119.1 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i265.1, i64 3043
-  %86 = load i8, ptr %walkable119.1, align 1, !tbaa !213, !range !243, !noundef !244
-  %tobool120.not.1 = icmp eq i8 %86, 0
+  %88 = load i8, ptr %walkable119.1, align 1, !tbaa !213, !range !243, !noundef !244
+  %tobool120.not.1 = icmp eq i8 %88, 0
   br i1 %tobool120.not.1, label %if.end122.1, label %for.inc165.critedge.1
 
 if.end122.1:                                      ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit270.1
   %add.i273.1 = sub i32 %add11.i.1, %conv1.i248.pre-phi
   %idxprom125.1 = zext i32 %add.i273.1 to i64
   %arrayidx126.1 = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom125.1
-  %87 = load i16, ptr %arrayidx126.1, align 4, !tbaa !129
-  %conv.i.i274.1 = zext i16 %87 to i64
+  %89 = load i16, ptr %arrayidx126.1, align 4, !tbaa !129
+  %conv.i.i274.1 = zext i16 %89 to i64
   %cmp.i.i280.1 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274.1
   br i1 %cmp.i.i280.1, label %land.lhs.true.i.i284.1, label %cond.false.i.i281.1
 
 land.lhs.true.i.i284.1:                           ; preds = %if.end122.1
   %add.ptr.i.i.i285.1 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i.i274.1
   %_M_string_length.i.i.i.i286.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i285.1, i64 1456
-  %88 = load i64, ptr %_M_string_length.i.i.i.i286.1, align 8, !tbaa !14
-  %cmp.i.i.i287.1 = icmp eq i64 %88, 0
+  %90 = load i64, ptr %_M_string_length.i.i.i.i286.1, align 8, !tbaa !14
+  %cmp.i.i.i287.1 = icmp eq i64 %90, 0
   br i1 %cmp.i.i.i287.1, label %cond.false.i.i281.1, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.1
 
 cond.false.i.i281.1:                              ; preds = %land.lhs.true.i.i284.1, %if.end122.1
@@ -6505,24 +6503,24 @@ cond.false.i.i281.1:                              ; preds = %land.lhs.true.i.i28
 _ZNK14NodeDefManager3getERK7MapNode.exit288.1:    ; preds = %cond.false.i.i281.1, %land.lhs.true.i.i284.1
   %cond-lvalue.i.i283.1 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281.1 ], [ %add.ptr.i.i.i285.1, %land.lhs.true.i.i284.1 ]
   %walkable129.1 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i283.1, i64 3043
-  %89 = load i8, ptr %walkable129.1, align 1, !tbaa !213, !range !243, !noundef !244
-  %tobool130.not.1 = icmp eq i8 %89, 0
+  %91 = load i8, ptr %walkable129.1, align 1, !tbaa !213, !range !243, !noundef !244
+  %tobool130.not.1 = icmp eq i8 %91, 0
   br i1 %tobool130.not.1, label %if.end132, label %for.inc165.critedge.1
 
 for.inc165.critedge.1:                            ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit288.1, %_ZNK14NodeDefManager3getERK7MapNode.exit270.1
   %add12.i.2 = sub i32 %i.0347, %reass.mul.i
   %idxprom115.2 = zext i32 %add12.i.2 to i64
   %arrayidx116.2 = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom115.2
-  %90 = load i16, ptr %arrayidx116.2, align 4, !tbaa !129
-  %conv.i.i256.2 = zext i16 %90 to i64
+  %92 = load i16, ptr %arrayidx116.2, align 4, !tbaa !129
+  %conv.i.i256.2 = zext i16 %92 to i64
   %cmp.i.i262.2 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256.2
   br i1 %cmp.i.i262.2, label %land.lhs.true.i.i266.2, label %cond.false.i.i263.2
 
 land.lhs.true.i.i266.2:                           ; preds = %for.inc165.critedge.1
   %add.ptr.i.i.i267.2 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i.i256.2
   %_M_string_length.i.i.i.i268.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i267.2, i64 1456
-  %91 = load i64, ptr %_M_string_length.i.i.i.i268.2, align 8, !tbaa !14
-  %cmp.i.i.i269.2 = icmp eq i64 %91, 0
+  %93 = load i64, ptr %_M_string_length.i.i.i.i268.2, align 8, !tbaa !14
+  %cmp.i.i.i269.2 = icmp eq i64 %93, 0
   br i1 %cmp.i.i.i269.2, label %cond.false.i.i263.2, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.2
 
 cond.false.i.i263.2:                              ; preds = %land.lhs.true.i.i266.2, %for.inc165.critedge.1
@@ -6531,24 +6529,24 @@ cond.false.i.i263.2:                              ; preds = %land.lhs.true.i.i26
 _ZNK14NodeDefManager3getERK7MapNode.exit270.2:    ; preds = %cond.false.i.i263.2, %land.lhs.true.i.i266.2
   %cond-lvalue.i.i265.2 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263.2 ], [ %add.ptr.i.i.i267.2, %land.lhs.true.i.i266.2 ]
   %walkable119.2 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i265.2, i64 3043
-  %92 = load i8, ptr %walkable119.2, align 1, !tbaa !213, !range !243, !noundef !244
-  %tobool120.not.2 = icmp eq i8 %92, 0
+  %94 = load i8, ptr %walkable119.2, align 1, !tbaa !213, !range !243, !noundef !244
+  %tobool120.not.2 = icmp eq i8 %94, 0
   br i1 %tobool120.not.2, label %if.end122.2, label %for.inc165.critedge.2
 
 if.end122.2:                                      ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit270.2
   %add.i273.2 = sub i32 %add12.i.2, %conv1.i248.pre-phi
   %idxprom125.2 = zext i32 %add.i273.2 to i64
   %arrayidx126.2 = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom125.2
-  %93 = load i16, ptr %arrayidx126.2, align 4, !tbaa !129
-  %conv.i.i274.2 = zext i16 %93 to i64
+  %95 = load i16, ptr %arrayidx126.2, align 4, !tbaa !129
+  %conv.i.i274.2 = zext i16 %95 to i64
   %cmp.i.i280.2 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274.2
   br i1 %cmp.i.i280.2, label %land.lhs.true.i.i284.2, label %cond.false.i.i281.2
 
 land.lhs.true.i.i284.2:                           ; preds = %if.end122.2
   %add.ptr.i.i.i285.2 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i.i274.2
   %_M_string_length.i.i.i.i286.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i285.2, i64 1456
-  %94 = load i64, ptr %_M_string_length.i.i.i.i286.2, align 8, !tbaa !14
-  %cmp.i.i.i287.2 = icmp eq i64 %94, 0
+  %96 = load i64, ptr %_M_string_length.i.i.i.i286.2, align 8, !tbaa !14
+  %cmp.i.i.i287.2 = icmp eq i64 %96, 0
   br i1 %cmp.i.i.i287.2, label %cond.false.i.i281.2, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.2
 
 cond.false.i.i281.2:                              ; preds = %land.lhs.true.i.i284.2, %if.end122.2
@@ -6557,24 +6555,24 @@ cond.false.i.i281.2:                              ; preds = %land.lhs.true.i.i28
 _ZNK14NodeDefManager3getERK7MapNode.exit288.2:    ; preds = %cond.false.i.i281.2, %land.lhs.true.i.i284.2
   %cond-lvalue.i.i283.2 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281.2 ], [ %add.ptr.i.i.i285.2, %land.lhs.true.i.i284.2 ]
   %walkable129.2 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i283.2, i64 3043
-  %95 = load i8, ptr %walkable129.2, align 1, !tbaa !213, !range !243, !noundef !244
-  %tobool130.not.2 = icmp eq i8 %95, 0
+  %97 = load i8, ptr %walkable129.2, align 1, !tbaa !213, !range !243, !noundef !244
+  %tobool130.not.2 = icmp eq i8 %97, 0
   br i1 %tobool130.not.2, label %if.end132, label %for.inc165.critedge.2
 
 for.inc165.critedge.2:                            ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit288.2, %_ZNK14NodeDefManager3getERK7MapNode.exit270.2
   %add11.i.3 = add i32 %i.0347, -1
   %idxprom115.3 = zext i32 %add11.i.3 to i64
   %arrayidx116.3 = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom115.3
-  %96 = load i16, ptr %arrayidx116.3, align 4, !tbaa !129
-  %conv.i.i256.3 = zext i16 %96 to i64
+  %98 = load i16, ptr %arrayidx116.3, align 4, !tbaa !129
+  %conv.i.i256.3 = zext i16 %98 to i64
   %cmp.i.i262.3 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i256.3
   br i1 %cmp.i.i262.3, label %land.lhs.true.i.i266.3, label %cond.false.i.i263.3
 
 land.lhs.true.i.i266.3:                           ; preds = %for.inc165.critedge.2
   %add.ptr.i.i.i267.3 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i.i256.3
   %_M_string_length.i.i.i.i268.3 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i267.3, i64 1456
-  %97 = load i64, ptr %_M_string_length.i.i.i.i268.3, align 8, !tbaa !14
-  %cmp.i.i.i269.3 = icmp eq i64 %97, 0
+  %99 = load i64, ptr %_M_string_length.i.i.i.i268.3, align 8, !tbaa !14
+  %cmp.i.i.i269.3 = icmp eq i64 %99, 0
   br i1 %cmp.i.i.i269.3, label %cond.false.i.i263.3, label %_ZNK14NodeDefManager3getERK7MapNode.exit270.3
 
 cond.false.i.i263.3:                              ; preds = %land.lhs.true.i.i266.3, %for.inc165.critedge.2
@@ -6583,24 +6581,24 @@ cond.false.i.i263.3:                              ; preds = %land.lhs.true.i.i26
 _ZNK14NodeDefManager3getERK7MapNode.exit270.3:    ; preds = %cond.false.i.i263.3, %land.lhs.true.i.i266.3
   %cond-lvalue.i.i265.3 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i263.3 ], [ %add.ptr.i.i.i267.3, %land.lhs.true.i.i266.3 ]
   %walkable119.3 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i265.3, i64 3043
-  %98 = load i8, ptr %walkable119.3, align 1, !tbaa !213, !range !243, !noundef !244
-  %tobool120.not.3 = icmp eq i8 %98, 0
+  %100 = load i8, ptr %walkable119.3, align 1, !tbaa !213, !range !243, !noundef !244
+  %tobool120.not.3 = icmp eq i8 %100, 0
   br i1 %tobool120.not.3, label %if.end122.3, label %for.inc176
 
 if.end122.3:                                      ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit270.3
   %add.i273.3 = sub i32 %add11.i.3, %conv1.i248.pre-phi
   %idxprom125.3 = zext i32 %add.i273.3 to i64
   %arrayidx126.3 = getelementptr inbounds nuw %struct.MapNode, ptr %36, i64 %idxprom125.3
-  %99 = load i16, ptr %arrayidx126.3, align 4, !tbaa !129
-  %conv.i.i274.3 = zext i16 %99 to i64
+  %101 = load i16, ptr %arrayidx126.3, align 4, !tbaa !129
+  %conv.i.i274.3 = zext i16 %101 to i64
   %cmp.i.i280.3 = icmp ugt i64 %sub.ptr.div.i.i.i, %conv.i.i274.3
   br i1 %cmp.i.i280.3, label %land.lhs.true.i.i284.3, label %cond.false.i.i281.3
 
 land.lhs.true.i.i284.3:                           ; preds = %if.end122.3
   %add.ptr.i.i.i285.3 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i.i274.3
   %_M_string_length.i.i.i.i286.3 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i285.3, i64 1456
-  %100 = load i64, ptr %_M_string_length.i.i.i.i286.3, align 8, !tbaa !14
-  %cmp.i.i.i287.3 = icmp eq i64 %100, 0
+  %102 = load i64, ptr %_M_string_length.i.i.i.i286.3, align 8, !tbaa !14
+  %cmp.i.i.i287.3 = icmp eq i64 %102, 0
   br i1 %cmp.i.i.i287.3, label %cond.false.i.i281.3, label %_ZNK14NodeDefManager3getERK7MapNode.exit288.3
 
 cond.false.i.i281.3:                              ; preds = %land.lhs.true.i.i284.3, %if.end122.3
@@ -6609,8 +6607,8 @@ cond.false.i.i281.3:                              ; preds = %land.lhs.true.i.i28
 _ZNK14NodeDefManager3getERK7MapNode.exit288.3:    ; preds = %cond.false.i.i281.3, %land.lhs.true.i.i284.3
   %cond-lvalue.i.i283.3 = phi ptr [ %add.ptr.i14.i.i264, %cond.false.i.i281.3 ], [ %add.ptr.i.i.i285.3, %land.lhs.true.i.i284.3 ]
   %walkable129.3 = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i283.3, i64 3043
-  %101 = load i8, ptr %walkable129.3, align 1, !tbaa !213, !range !243, !noundef !244
-  %tobool130.not.3 = icmp eq i8 %101, 0
+  %103 = load i8, ptr %walkable129.3, align 1, !tbaa !213, !range !243, !noundef !244
+  %tobool130.not.3 = icmp eq i8 %103, 0
   br i1 %tobool130.not.3, label %if.end132, label %for.inc176
 
 for.inc176:                                       ; preds = %lor.lhs.false144, %do.body, %while.body88.i, %land.lhs.true61.i, %_ZNK9VoxelArea8containsEi.exit112.i, %_ZNK14NodeDefManager3getERK7MapNode.exit288.3, %_ZNK14NodeDefManager3getERK7MapNode.exit270.3, %while.end.i, %lor.lhs.false17.i, %_ZNK14NodeDefManager3getERK7MapNode.exit, %if.then80
@@ -6621,16 +6619,16 @@ for.inc176:                                       ; preds = %lor.lhs.false144, %
   br i1 %cmp44.not346, label %while.end.loopexit, label %for.body45.lr.ph, !llvm.loop !249
 
 while.end.loopexit:                               ; preds = %for.inc176, %if.end61
-  %102 = phi ptr [ %29, %if.end61 ], [ %.pre, %for.inc176 ]
+  %104 = phi ptr [ %29, %if.end61 ], [ %.pre, %for.inc176 ]
   %.pre370 = load i16, ptr %mudflow_maxpos, align 2, !tbaa !49
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end
-  %103 = phi i16 [ %.pre370, %while.end.loopexit ], [ %20, %if.end ]
-  %104 = phi i16 [ %.pre370, %while.end.loopexit ], [ %21, %if.end ]
-  %105 = phi ptr [ %102, %while.end.loopexit ], [ %22, %if.end ]
+  %105 = phi i16 [ %.pre370, %while.end.loopexit ], [ %20, %if.end ]
+  %106 = phi i16 [ %.pre370, %while.end.loopexit ], [ %21, %if.end ]
+  %107 = phi ptr [ %104, %while.end.loopexit ], [ %22, %if.end ]
   %inc = add i16 %x.0354, 1
-  %cmp11.not = icmp sgt i16 %inc, %104
+  %cmp11.not = icmp sgt i16 %inc, %106
   br i1 %cmp11.not, label %for.cond.cleanup12, label %for.body13, !llvm.loop !250
 }
 
@@ -7860,13 +7858,12 @@ land.lhs.true:                                    ; preds = %_ZNK9VoxelArea8cont
   %idxprom32 = zext nneg i32 %above_remove_index.addr.0167 to i64
   %arrayidx33 = getelementptr inbounds nuw %struct.MapNode, ptr %13, i64 %idxprom32
   %14 = load i16, ptr %arrayidx33, align 4, !tbaa !129
-  %.fr = freeze i16 %14
   %15 = load i16, ptr %c_water_source, align 4
-  %.fr1 = freeze i16 %15
-  %cmp45.not = icmp eq i16 %.fr, %.fr1
-  %16 = and i16 %.fr, -2
-  %switch = icmp eq i16 %16, 126
-  %or.cond162 = or i1 %cmp45.not, %switch
+  %cmp45.not = icmp eq i16 %14, %15
+  %16 = freeze i1 %cmp45.not
+  %17 = and i16 %14, -2
+  %switch = icmp eq i16 %17, 126
+  %or.cond162 = select i1 %16, i1 true, i1 %switch
   br i1 %or.cond162, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true
@@ -7887,34 +7884,33 @@ _ZNK9VoxelArea8containsEi.exit112.lr.ph:          ; preds = %while.end
 
 _ZNK9VoxelArea8containsEi.exit112:                ; preds = %while.body88, %_ZNK9VoxelArea8containsEi.exit112.lr.ph
   %place_index.addr.0170 = phi i32 [ %place_index.addr.0168, %_ZNK9VoxelArea8containsEi.exit112.lr.ph ], [ %place_index.addr.0, %while.body88 ]
-  %17 = load ptr, ptr %vm, align 8, !tbaa !119
-  %m_cache_extent.i.i103 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %18 = load i16, ptr %m_cache_extent.i.i103, align 2, !tbaa !200
-  %conv.i.i104 = sext i16 %18 to i32
-  %Y.i.i105 = getelementptr inbounds nuw i8, ptr %17, i64 22
-  %19 = load i16, ptr %Y.i.i105, align 2, !tbaa !127
-  %conv3.i.i106 = sext i16 %19 to i32
+  %18 = load ptr, ptr %vm, align 8, !tbaa !119
+  %m_cache_extent.i.i103 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %19 = load i16, ptr %m_cache_extent.i.i103, align 2, !tbaa !200
+  %conv.i.i104 = sext i16 %19 to i32
+  %Y.i.i105 = getelementptr inbounds nuw i8, ptr %18, i64 22
+  %20 = load i16, ptr %Y.i.i105, align 2, !tbaa !127
+  %conv3.i.i106 = sext i16 %20 to i32
   %mul.i.i107 = mul nsw i32 %conv3.i.i106, %conv.i.i104
-  %Z.i.i108 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %20 = load i16, ptr %Z.i.i108, align 2, !tbaa !246
-  %conv5.i.i109 = sext i16 %20 to i32
+  %Z.i.i108 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %21 = load i16, ptr %Z.i.i108, align 2, !tbaa !246
+  %conv5.i.i109 = sext i16 %21 to i32
   %mul6.i.i110 = mul nsw i32 %mul.i.i107, %conv5.i.i109
   %cmp2.i111 = icmp sgt i32 %mul6.i.i110, %place_index.addr.0170
   br i1 %cmp2.i111, label %land.lhs.true61, label %if.end
 
 land.lhs.true61:                                  ; preds = %_ZNK9VoxelArea8containsEi.exit112
-  %m_data63 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %21 = load ptr, ptr %m_data63, align 8, !tbaa !128
+  %m_data63 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %22 = load ptr, ptr %m_data63, align 8, !tbaa !128
   %idxprom64 = zext nneg i32 %place_index.addr.0170 to i64
-  %arrayidx65 = getelementptr inbounds nuw %struct.MapNode, ptr %21, i64 %idxprom64
-  %22 = load i16, ptr %arrayidx65, align 4, !tbaa !129
-  %.fr2 = freeze i16 %22
-  %23 = load i16, ptr %c_water_source76, align 4
-  %.fr3 = freeze i16 %23
-  %cmp78.not = icmp eq i16 %.fr2, %.fr3
-  %24 = and i16 %.fr2, -2
-  %switch164 = icmp eq i16 %24, 126
-  %or.cond165 = or i1 %cmp78.not, %switch164
+  %arrayidx65 = getelementptr inbounds nuw %struct.MapNode, ptr %22, i64 %idxprom64
+  %23 = load i16, ptr %arrayidx65, align 4, !tbaa !129
+  %24 = load i16, ptr %c_water_source76, align 4
+  %cmp78.not = icmp eq i16 %23, %24
+  %25 = freeze i1 %cmp78.not
+  %26 = and i16 %23, -2
+  %switch164 = icmp eq i16 %26, 126
+  %or.cond165 = select i1 %25, i1 true, i1 %switch164
   br i1 %or.cond165, label %if.end, label %while.body88
 
 while.body88:                                     ; preds = %land.lhs.true61

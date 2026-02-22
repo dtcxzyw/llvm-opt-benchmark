@@ -3505,8 +3505,8 @@ Abc_Clock.exit:                                   ; preds = %6, %15
   %19 = icmp slt i32 %0, 7
   %20 = add nsw i32 %0, -6
   %21 = shl nuw i32 1, %20
-  %.fr38.i = freeze i32 %21
-  %22 = select i1 %19, i32 1, i32 %.fr38.i
+  %.fr.i = freeze i32 %21
+  %22 = select i1 %19, i32 1, i32 %.fr.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %notmask = shl nsw i32 -1, %2

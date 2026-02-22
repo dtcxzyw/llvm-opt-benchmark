@@ -1165,7 +1165,6 @@ declare i64 @find_base_address(i32 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call i64 @sysconf(i32 noundef 30) #15
-  %.fr68 = freeze i64 %5
   %6 = tail call ptr @read_program_header_table(i32 noundef %1, ptr noundef nonnull %2) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %75, label %.preheader
@@ -1177,7 +1176,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
   br i1 %.not78, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %sext = shl i64 %.fr68, 32
+  %sext = shl i64 %5, 32
   %10 = ashr exact i64 %sext, 32
   %sext66 = add i64 %sext, -4294967296
   %11 = ashr exact i64 %sext66, 32
@@ -1231,8 +1230,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %42 = load i64, ptr %41, align 8
-  %.fr67 = freeze i64 %42
-  %.not64 = icmp eq i64 %.fr67, %10
+  %.not64 = icmp eq i64 %42, %10
   br i1 %.not64, label %55, label %43
 
 43:                                               ; preds = %40
@@ -1241,40 +1239,41 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
   br i1 %.not65, label %55, label %45
 
 45:                                               ; preds = %43
-  %46 = add i64 %.fr67, %11
-  %47 = urem i64 %46, %10
-  %48 = sub nuw i64 %46, %47
+  %46 = add i64 %42, %11
+  %.fr = freeze i64 %46
+  %47 = urem i64 %.fr, %10
+  %48 = sub nuw i64 %.fr, %47
   %49 = getelementptr inbounds nuw i8, ptr %.05676, i64 40
   %50 = load i64, ptr %49, align 8
-  %.fr69 = freeze i64 %50
-  %51 = add i64 %.fr69, %11
-  %52 = urem i64 %51, %10
-  %53 = sub nuw i64 %51, %52
-  %.not70 = icmp eq i64 %48, %53
-  br i1 %.not70, label %55, label %54
+  %51 = add i64 %50, %11
+  %.fr67 = freeze i64 %51
+  %52 = urem i64 %.fr67, %10
+  %53 = sub nuw i64 %.fr67, %52
+  %.not68 = icmp eq i64 %48, %53
+  br i1 %.not68, label %55, label %54
 
 54:                                               ; preds = %45
-  tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.65, i64 noundef %25, i64 noundef %.fr67, i64 noundef %.fr69, i32 noundef %37) #15
+  tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.65, i64 noundef %25, i64 noundef %42, i64 noundef %50, i32 noundef %37) #15
   br label %.sink.split
 
 55:                                               ; preds = %45, %43, %40
   %56 = getelementptr inbounds nuw i8, ptr %.05676, i64 40
   %57 = load i64, ptr %56, align 8
-  %.fr72 = freeze i64 %57
-  %58 = add i64 %.fr72, %11
-  %59 = urem i64 %58, %10
-  %60 = sub nuw i64 %58, %59
-  tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.66, i64 noundef %.fr67, i64 noundef %60) #15
+  %58 = add i64 %57, %11
+  %.fr70 = freeze i64 %58
+  %59 = urem i64 %.fr70, %10
+  %60 = sub nuw i64 %.fr70, %59
+  tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.66, i64 noundef %42, i64 noundef %60) #15
   store i32 %1, ptr %26, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.05676, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %62, ptr %63, align 8
   %64 = load i64, ptr %56, align 8
-  %.fr73 = freeze i64 %64
-  %65 = add i64 %.fr73, %11
-  %66 = urem i64 %65, %10
-  %67 = sub nuw i64 %65, %66
+  %65 = add i64 %64, %11
+  %.fr71 = freeze i64 %65
+  %66 = urem i64 %.fr71, %10
+  %67 = sub nuw i64 %.fr71, %66
   store i64 %67, ptr %41, align 8
   br label %68
 
